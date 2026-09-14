@@ -7,7 +7,7 @@ These lessons were distilled from a demanding longform industry research project
 - State files prevented context loss.
 - Source, claim, and uncertainty registries reduced unsupported claims.
 - Section-by-section writing produced better work than one-shot generation.
-- Review logs were useful only when every issue was routed to a concrete revision.
+- Review logs were useful when findings received evidenced dispositions: confirmed defects led to corrections, while unsupported or optional suggestions received reasoned no-change decisions.
 - Reader-facing cleanup made the final piece feel like a publishable article rather than a work report.
 - Counter-evidence improved the argument when integrated into analysis instead of parked at the end.
 

@@ -17,6 +17,7 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Fixed
 
+- Align the core review protocol and guides with evidenced adjudication: preserve original findings, repair confirmed defects, and allow reasoned no-change decisions for unsupported, duplicate, or optional suggestions. Keep required work and current-version review obligations open until satisfied. Correct the Chinese guide's implication that reaching a review-cycle checkpoint can convert required work into a limitation. These instruction changes do not establish a report-quality effect.
 - Add three synthetic reader-review pairs for buried opening findings, editorial narration and non-analytical timelines. Keep the earlier twenty inputs and model reviews unchanged; the new author-proposed controls are unreviewed development data, not held-out or measured quality results.
 
 - Tighten current delivery checks after a real false-completion postmortem: require a specific recorded user decision for waived or excluded requirements, check declared required reading against source records, and bind global/task-required reviews to the actual report hash. Keep ordinary evidence uncertainty and honest partial delivery valid. Default to delivery contract 2; label explicit v1 historical diagnostics without rewriting frozen inputs or results. Record consistency does not authenticate consent, actual reading, or semantic quality.

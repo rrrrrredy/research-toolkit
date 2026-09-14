@@ -180,11 +180,11 @@ Mitigation:
 
 Use this loop after each major section and before final delivery:
 
-1. Run the appropriate review role.
-2. Convert review findings into a revision checklist.
-3. Fix the draft or evidence registry.
-4. Record what changed in `logs/review.jsonl`.
-5. Re-run only the review dimension that failed.
+1. Run the appropriate review role. Preserve its original findings.
+2. Check each finding against the task, the current passage, and the relevant evidence. A detail missing from a supplied source summary is not proof that the original source lacks support; check the source before changing a supported claim.
+3. Batch corrections for confirmed defects, including factual imprecision, required omissions, and analysis or reader problems that violate the agreed requirements. Record a reasoned no-change decision for unsupported allegations, duplicate observations, and optional preferences.
+4. Record the disposition and its evidence or changed location in `logs/review.jsonl`. A no-change decision cannot waive unfinished required work.
+5. Re-run affected review dimensions and any task-required current-version reviews. Stop when the agreed quality requirements are met and no confirmed defect remains; do not seek empty finding lists or add optional changes just to satisfy every reviewer.
 
 Do not treat an audit report as the final deliverable. The audit exists to improve the article.
 

@@ -992,7 +992,7 @@ python scripts/check_docs_sync.py</code></pre>
               <li><div><strong>Depth budget before drafting.</strong> Define expected depth, rough length band, and unit-level expansion plan.</div></li>
               <li><div><strong>Staged execution.</strong> Plan, collect, analyze, draft, review, revise, then continue.</div></li>
               <li><div><strong>Optional lenses only.</strong> Framing/category and horizontal-vertical analysis are tools, not default structure.</div></li>
-              <li><div><strong>Review closes the loop.</strong> Every finding becomes a revision action, downgraded claim, or limitation.</div></li>
+              <li><div><strong>Review closes the loop.</strong> Check findings against the task, text, and evidence. Repair confirmed defects; record reasons for leaving unsupported, duplicate, or optional suggestions unchanged.</div></li>
             </ol>
             <div class="wide">
               <h3>Protocol contract</h3>
@@ -1293,7 +1293,7 @@ If a task starts drifting into the excluded layers, preserve the current deliver
 6. Staged execution: plan, collect, analyze, draft, review, revise, and update state before moving to the next unit.
 7. Section-level progress: write complex work by section, company, case, period, or argument; do not generate the whole report in one pass.
 8. Optional lenses only: framing/category analysis, horizontal-vertical analysis, capital analysis, and adoption analysis are tools, not default structure.
-9. Review closes the loop: every audit finding must become a revision action, a downgraded claim, or an explicit limitation.
+9. Review closes the loop: check each finding against the task, current text, and evidence. Repair confirmed defects; record a reasoned no-change decision for unsupported, duplicate, or optional suggestions. Preserve the original finding and its disposition.
 10. Reader review comes last: improve readability only after factual, coverage, structure, and depth checks are stable. Check figurative load: imagery must not replace concrete actors, actions, mechanisms, or evidence boundaries, and unrelated metaphor domains must not be stacked in one sentence or paragraph.
 11. Follow-up requirements stay live: give material user corrections stable ids in `state/requirements.jsonl`, and resolve each one against the user's actual request before final delivery.
 12. Delivery status is reader-visible state: the final response must agree with `progress.json`; accepted limitations that affect the result must be disclosed to the user.
@@ -1311,8 +1311,8 @@ These constraints are stage-transition requirements, not optional advice. `progr
 | `collect` | approved brief and source plan | update source registry, findings, directions tried, and progress | required source classes are covered for the current unit; missing required reading stays open with a next action, and only unaffected units advance |
 | `analyze` | collected sources and findings | update claims and uncertainty registries; write a provisional thesis | major claims are traceable, claim types are distinct, and counter-evidence is recorded |
 | `draft` | provisional thesis, depth budget, and bounded unit plan | draft one bounded unit and update progress | the unit has a thesis, evidence, mechanism, counter-evidence where relevant, and adequate depth |
-| `review` | draft plus backstage registries | append review findings and routed actions to `review.jsonl` | every finding is routed to a concrete revision, claim downgrade, or explicit limitation; none is left unassigned |
-| `revise` | routed review actions | revise the bounded unit, registries, and progress | routed actions are closed or explicitly recorded as limitations, then the failed review dimension is rerun |
+| `review` | draft plus backstage registries | append original findings and evidenced dispositions to `review.jsonl` | every finding has a disposition: repair, claim adjustment, justified evidence limitation, or reasoned no-change decision; unfinished required work remains open |
+| `revise` | accepted review actions | apply the necessary corrections to the bounded unit, registries, and progress | confirmed defects are resolved and affected dimensions plus any task-required reviews cover the current artifact; no-change decisions alone do not require another round |
 | `final` | all bounded units are revised and all quality gates already pass | produce reader-facing prose and atomically set `stage` to `final` and `status` to `complete` | the delivered artifact matches the recorded scope and contains no unresolved blocking issue or backstage leakage |
 
 "Atomically" means one coherent final state update. It does not require database transactions, file locks, rollback machinery, or a custom lifecycle.
@@ -1526,6 +1526,8 @@ When this repository's scripts are available for a correction-heavy task, mirror
 ```bash
 python scripts/check_delivery.py &lt;task-directory&gt;
 ```
+
+Stop editorial iteration when the agreed coverage, evidence, analysis, depth, and reader requirements are met and no confirmed defect remains. Optional suggestions alone do not reopen a usable report. A no-change decision cannot waive required work or replace required current-version review.
 
 Limits:
 

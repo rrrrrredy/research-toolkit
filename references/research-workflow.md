@@ -193,7 +193,7 @@ For each stage:
 1. Plan the stage: scope, inputs, output, done criteria.
 2. Execute: collect, process, analyze, or draft.
 3. Review: coverage, evidence, structure, skepticism, and reader experience where appropriate.
-4. Revise: route review findings into concrete edits.
+4. Revise: check findings against the task, current text, and evidence; batch necessary corrections and record reasons for no-change decisions.
 5. Update state: progress, findings, sources, claims, uncertainty, next action.
 
 Do not treat a partial-stage pass as whole-project completion.
