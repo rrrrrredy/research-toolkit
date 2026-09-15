@@ -50,7 +50,7 @@ The primary matched comparison is first submission versus first submission. Extr
 
 Keep development tasks, reviewer checks, and independent effect tests separate. A task used to fix the method or judge instructions cannot remain held out. Translations, renamed cases, correlated task families and reruns do not increase the independent task count. Twelve distinct task families are a screening design, not a power guarantee. Freeze their actual sampling and analysis plan before those runs; preserve both-failed, unresolved and excluded cases rather than turning them into wins.
 
-LLM review is fallible. Use known-error, valid, instruction-injection and ambiguous-evidence controls; retain false alarms and missed defects. Order/length effects and supplier overlap remain possible. Material factual disputes require source checks, not another majority vote. This project does not require human reviewers for its current lane and must not claim human calibration. The design follows the separation of objectives, data, criteria and iterative feedback in [OpenAI's evaluation guidance](https://developers.openai.com/api/docs/guides/evaluation-best-practices); that guidance also recommends human calibration, which is not supplied here.
+LLM review is fallible. Use known-error, valid, instruction-injection and ambiguous-evidence controls; retain false alarms and missed defects. Order/length effects and supplier overlap remain possible. Material factual disputes require source checks, not another majority vote. This project uses the four LLM reviewers specified above in place of human evaluation. Human review, annotation and calibration are not acceptance requirements, outstanding evaluation gaps or pending work for this study. Source-based adjudication remains required; retain the original decisions, scores and failures. The design follows the separation of objectives, data, criteria and iterative feedback in [OpenAI's evaluation guidance](https://developers.openai.com/api/docs/guides/evaluation-best-practices).
 
 For each product issue retain: failing example, impact, root cause, accepted/rejected/deferred decision, change or commit, regression evidence and remaining limits. Distinguish a missing method, an existing rule not executed, a checker gap, a source-access mistake and a reviewer error. Do not automatically add all suggestions to `SKILL.md`. Same-task improvements demonstrate a repair; unused tasks are needed for a broader effect claim.
 
@@ -86,7 +86,7 @@ For each product issue retain: failing example, impact, root cause, accepted/rej
 
 第一次完整交稿对第一次完整交稿；如果还比较返工，两组事先取得相同评审反馈、返工机会和停止规则，分别报告初始/修后结果及成本。不能把九轮改好的文章与一次生成的基线直接比较。额外操作者辅导、用户更正和环境变化要单列。
 
-用户报告、补充开发题、评审控制和正式独立题分别计数。用于改规则的题不得继续算未参与开发；换标题、翻译、同题重跑不增加独立样本。12题族是初步筛查设计，不是统计保证，具体抽样与分析须在运行前锁定。没有真人校准时明确是LLM评审及来源核对，不宣称客观金标准。
+用户报告、补充开发题、评审控制和正式独立题分别计数。用于改规则的题不得继续算未参与开发；换标题、翻译、同题重跑不增加独立样本。12题族是初步筛查设计，不是统计保证，具体抽样与分析须在运行前锁定。本研究固定四路LLM替代人工评测；人工审阅、标注和校准不是该评测集的验收条件、缺口或待办。事实争议仍据原文裁定，原始意见、评分和失败照常保留。
 
 所有评测结束后，逐项交付产品反馈处置：失败依据、影响与归因、采纳/拒绝/暂缓理由、实际修改、回归结果和剩余边界。区分方法欠缺、已有规则未执行、检查器缺陷、资料读取失误和模型误报，不把它们全变成新提示词。同题修好证明案例修复，未用过的任务才用于更广泛效果验证。
 
