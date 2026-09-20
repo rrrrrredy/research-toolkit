@@ -24,6 +24,8 @@ jobs:
         run: python scripts/check_eval_source_integrity.py
       - name: Check source-use and regeneration controls
         run: python scripts/check_source_policy_contract.py
+      - name: Check stored-source text and metadata extraction
+        run: python scripts/check_source_extraction.py
       - name: Check frozen cross-agent protocol
         run: python scripts/check_cross_agent_protocol.py
       - name: Check immutable input archive controls

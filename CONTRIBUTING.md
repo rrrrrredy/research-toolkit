@@ -25,6 +25,7 @@ python scripts/check_docs_sync.py
 python scripts/run_dsh_evals.py validate
 python scripts/check_eval_source_integrity.py
 python scripts/check_source_policy_contract.py
+python scripts/check_source_extraction.py
 python scripts/check_cross_agent_protocol.py
 python scripts/check_cross_agent_input_contract.py
 python scripts/check_regression_fixtures.py
@@ -57,6 +58,10 @@ Include:
 - limitations and any intentionally deferred work.
 
 Do not claim improved report quality from a green deterministic test alone. Real efficacy claims require held-out tasks, matched baseline/framework runs, calibrated independent review, and disclosure of failures, retries, cost, and latency.
+
+## Source Preparation Helper
+
+[Stored HTML extraction](docs/source-extraction.md) documents an optional, offline source-preparation tool. It preserves raw publication/version metadata beside extracted text without adding review requirements or changing frozen inputs.
 
 ## Reader Entry Points And Distribution
 

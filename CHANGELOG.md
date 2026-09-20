@@ -17,6 +17,8 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Fixed
 
+- Add an optional stored-HTML extraction helper that preserves JSON-LD publication/version dates, HTML date tags, canonical declarations and link destinations beside the text. Strict decoding, explicit extraction limits and exclusive output creation preserve source provenance. Nine positive/negative controls and checks against retained publisher HTML verify this extraction behavior; no report-quality or causal efficacy improvement is claimed. Existing protocols and frozen study inputs are unchanged.
+
 - Align the core review protocol and guides with evidenced adjudication: preserve original findings, repair confirmed defects, and allow reasoned no-change decisions for unsupported, duplicate, or optional suggestions. Keep required work and current-version review obligations open until satisfied. Correct the Chinese guide's implication that reaching a review-cycle checkpoint can convert required work into a limitation. These instruction changes do not establish a report-quality effect.
 - Add three synthetic reader-review pairs for buried opening findings, editorial narration and non-analytical timelines. Keep the earlier twenty inputs and model reviews unchanged; the new author-proposed controls are unreviewed development data, not held-out or measured quality results.
 
