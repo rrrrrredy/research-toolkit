@@ -1,5 +1,7 @@
 # Subagents and Review
 
+[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)
+
 Use this reference when assigning research reviews. [SKILL.md](../SKILL.md) defines the protocol; this file gives role instructions and working methods. The main author owns the argument and synthesis.
 
 ## Assign Work by Perspective

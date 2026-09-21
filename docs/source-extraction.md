@@ -1,5 +1,7 @@
 # Extracting a saved HTML source
 
+[English](source-extraction.md) | [简体中文](source-extraction.zh-CN.md)
+
 Use this optional local helper when preparing stored website material for source review. It retains article text, link destinations, image alt text, raw JSON-LD date fields, date meta tags and declared canonical URLs. Extracting only visible prose can otherwise discard a publisher's publication or version dates.
 
 It uses Python's standard library and does not fetch pages or execute scripts:

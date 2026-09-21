@@ -86,6 +86,7 @@ def stage_skill(workspace: Path) -> Path:
     destination = workspace / ".dsh" / "skills" / SKILL_NAME
     destination.mkdir(parents=True, exist_ok=False)
     shutil.copy2(REPO_ROOT / "SKILL.md", destination / "SKILL.md")
+    shutil.copy2(REPO_ROOT / "SKILL.zh-CN.md", destination / "SKILL.zh-CN.md")
     shutil.copytree(REPO_ROOT / "references", destination / "references")
     scripts_dir = destination / "scripts"
     scripts_dir.mkdir()
@@ -93,7 +94,8 @@ def stage_skill(workspace: Path) -> Path:
         shutil.copy2(REPO_ROOT / "scripts" / name, scripts_dir / name)
     docs_dir = destination / "docs"
     docs_dir.mkdir()
-    for name in ("review-completion.md", "delivery-verification.md"):
+    for name in ("review-completion.md", "delivery-verification.md",
+                 "review-completion.zh-CN.md", "delivery-verification.zh-CN.md"):
         shutil.copy2(REPO_ROOT / "docs" / name, docs_dir / name)
     return destination
 

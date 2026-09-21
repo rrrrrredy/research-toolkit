@@ -1,5 +1,7 @@
 # Evaluation data audit — 2026-09-07
 
+[English](evaluation-data-audit.md) | [简体中文](evaluation-data-audit.zh-CN.md)
+
 The current data is suitable for the declared workflow exercises, not a public factual benchmark. Source integrity, semantic accuracy, provenance and reuse rights are different claims.
 
 ## What changed

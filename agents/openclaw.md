@@ -1,5 +1,7 @@
 # OpenClaw Adapter
 
+[English](openclaw.md) | [简体中文](openclaw.zh-CN.md)
+
 Use this when OpenClaw can read local skills from a workspace or user skills directory. This adapter follows the official OpenClaw skills docs:
 
 - https://docs.openclaw.ai/tools/skills

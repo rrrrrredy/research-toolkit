@@ -1,5 +1,7 @@
 # Installation identity and safe updates
 
+[English](installation-versioning.md) | [简体中文](installation-versioning.zh-CN.md)
+
 The current repository and Skill name are `research-toolkit`. GitHub redirects the former repository URL to the same project; the current page is [Research Toolkit](https://rrrrrredy.github.io/research-toolkit/).
 
 An installation pinned to an older commit keeps that commit's content and Skill name. To use the renamed version, update to the chosen new commit, place it in a `research-toolkit` Skill directory, and check the files with the command below. Keep only the intended version enabled for a task. Recorded experiments retain their original names and hashes.

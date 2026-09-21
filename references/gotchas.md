@@ -1,5 +1,7 @@
 # Gotchas
 
+[English](gotchas.md) | [简体中文](gotchas.zh-CN.md)
+
 Use this reference when the agent repeatedly drifts, when eval output passes mechanically but reads poorly, or when adapting the framework to a new agent runtime.
 
 ## Registry Theater

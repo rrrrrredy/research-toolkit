@@ -1,5 +1,7 @@
 # Evaluation Roadmap And Claim Boundaries
 
+[English](evaluation-roadmap.md) | [简体中文](evaluation-roadmap.zh-CN.md)
+
 Research Toolkit needs several kinds of evidence. Combining them into one score would make the project look stronger while making its claims less trustworthy.
 
 For new report studies, use the [current evaluation standard](report-evaluation-standard.md): one five-dimension 0–4 rubric, four non-author reviewers, evidence-based finding dispositions, frozen first-submission outcomes, separately scoped report delivery, and post-evaluation product changes. Earlier frozen scales and reviewer counts remain historical, not alternative current instructions.

@@ -1,5 +1,7 @@
 # Codex Adapter
 
+[English](codex.md) | [简体中文](codex.zh-CN.md)
+
 Use this when Codex can read or clone repositories in a local workspace.
 
 ## Setup

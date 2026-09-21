@@ -1,5 +1,7 @@
 # Writing Style
 
+[English](writing-style.md) | [简体中文](writing-style.zh-CN.md)
+
 Use this file before drafting, rewriting, or finalizing.
 
 ## Voice

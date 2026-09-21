@@ -1,5 +1,7 @@
 # Evaluations
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 This directory contains seven research cases, twenty-two negative fixtures, four positive fixtures, and report diagnostics for Research Toolkit. The cases and evaluator are runtime-neutral; no particular agent runtime is required. The offline checks examine the research brief, task files, sources and claims, review records, source-instruction boundaries, and final prose. They report those checks, not a model ranking or an overall report-quality verdict.
 
 Evaluator result schema v2 keeps two claims separate. `conformance_status`, `conformance_score`, and `conformance_flags` describe deterministic structure, traceability, and configured failure signals. `research_quality_status` is `not_evaluated`; the runner does not claim that a mechanically conforming report is insightful, accurate, or decision-useful.
@@ -101,10 +103,6 @@ evals/runs/report.json
 
 `report.json` uses `result_schema_version: 2`. A `pass` means mechanical conformance only. `review` and `fail` return a non-zero exit code by default; use `--allow-review` only for exploratory collection. Set both report paths when using another output directory. Record semantic reviews, reviewer disagreements and evidence limits separately from the conformance score. The dated public packages do not contain all separately maintained private evaluation studies.
 
-## Optional Runtime Adapters
-
-An adapter is relevant only when testing that runtime. See the [agent guides](../agents/) for installation and the [optional DSH adapter](../agents/deepseek-harness.md) for its runtime checks. Adapter checks do not define the Toolkit's research evaluation method or establish report quality.
-
 ## Check A Delivery Claim
 
 For a task that uses the terminal-delivery artifacts, validate the intended user-visible message against current state and current hashes:
@@ -115,7 +113,7 @@ python scripts/check_delivery.py <task-directory>
 
 The checker reads the intended message in `delivery_message.md`. To compare an independently captured reply, pass `--actual-message <reply-file>`; it does not read the chat application itself. A plainly labeled non-final stage artifact can pass without a terminal receipt.
 
-Under the default delivery contract 2, a terminal claim requires consistent `final/complete` state, no open blockers, parseable passing global and task-required reviews bound to the current report, and a `global_final_delivery` receipt binding the required files. Requirements closed as waived, out of scope or accepted limitations need specific recorded user decisions; declared required reading is checked against source records. Recognized disclosure contradictions fail, while ambiguous disclosure matches require review. See the [delivery checker interface](../docs/delivery-verification.md) for the exact contract and legacy mode.
+Under the default delivery contract 3, a terminal claim requires consistent `final/complete` state, no open blockers, parseable passing global and task-required reviews bound to the current report, and a `global_final_delivery` receipt binding the required files. Declared model-review slots, substantive-validity audits, finding dispositions, independent adjudication and sampling must also be complete. Requirements closed as waived, out of scope or accepted limitations need specific recorded user decisions; declared required reading is checked against source records. Recognized disclosure contradictions fail, while ambiguous disclosure matches require review. See the [delivery checker interface](../docs/delivery-verification.md) for the exact contract and legacy mode.
 
 This checks record consistency. It does not authenticate user consent, actual reading, semantic correctness or report quality.
 
@@ -145,23 +143,7 @@ The check passes only when each known-good run reaches `pass`, meets its minimum
 
 ## Continuous Checks
 
-GitHub Actions runs the following existing offline checks on pushes and pull requests. The adapter validation maintains optional integration files; it does not install or launch DSH. None of these checks calls a model.
-
-```bash
-python scripts/check_docs_sync.py
-python scripts/run_dsh_evals.py validate
-python scripts/check_eval_source_integrity.py
-python scripts/check_source_policy_contract.py
-python scripts/check_source_extraction.py
-python scripts/check_regression_fixtures.py
-python scripts/check_conformance_fixtures.py
-python scripts/check_delivery_contract.py
-python scripts/check_evaluator_contract.py
-python scripts/check_semantic_diagnostics.py
-python scripts/check_installation_contract.py
-python scripts/check_diagnostic_bundle.py --self-test
-python scripts/check_semantic_review_bundle.py --self-test
-```
+GitHub Actions runs the full offline suite listed in the [contribution guide](../CONTRIBUTING.md#verification) on pushes and pull requests. None of these checks calls a model. The suite includes the current review-completion contract checks.
 
 ## How To Iterate
 

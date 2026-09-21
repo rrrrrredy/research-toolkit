@@ -1,5 +1,7 @@
 # Hermes Agent Adapter
 
+[English](hermes.md) | [简体中文](hermes.zh-CN.md)
+
 Use this when Hermes Agent is available through the CLI, TUI, desktop app, or messaging gateway. This adapter follows the official Hermes skills docs:
 
 - https://hermes-agent.nousresearch.com/docs/user-guide/features/skills

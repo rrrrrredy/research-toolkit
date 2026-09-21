@@ -1,5 +1,7 @@
 # Cursor Adapter
 
+[English](cursor.md) | [简体中文](cursor.zh-CN.md)
+
 Use this when the research task lives in a Cursor workspace.
 
 ## Setup

@@ -1,5 +1,7 @@
 # Historical evaluation rubrics
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 The two JSON files in this directory retain earlier seven-dimension rubrics. Their weights, wording and example references are preserved for interpreting historical studies.
 
 For new report evaluations, use the [current report-evaluation standard](../../docs/report-evaluation-standard.md): five dimensions, 0–4 or `not_assessed`, with critical errors recorded separately. Semantic review uses LLM reviewers. The older `research_quality.json` references to human review are historical instructions, not current acceptance requirements. Do not pool its weighted results with the current scale.

@@ -1,5 +1,7 @@
 # Delivery checker: contract and observation limits
 
+[English](delivery-verification.md) | [简体中文](delivery-verification.zh-CN.md)
+
 The checker is an optional offline consistency check. It is not a runtime permission hook and cannot prove that an agent invoked it. The research and writing requirements remain in [SKILL.md](../SKILL.md); this page documents the checker interface, not additional writing rules.
 
 The default is **delivery contract 3**. The receipt container remains `schema_version: 1`; contract versions identify which checks were performed. Results include `delivery_contract_version`, `current_contract_checked`, and `semantic_verification: false`. None authenticates user consent, proves actual reading, or certifies editorial quality.

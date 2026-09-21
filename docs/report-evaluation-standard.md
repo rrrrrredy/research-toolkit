@@ -1,5 +1,7 @@
 # Report evaluation: current standard
 
+[English](report-evaluation-standard.md) | [简体中文](report-evaluation-standard.zh-CN.md)
+
 This is the project's evaluation design, not an extra requirement for every Research Toolkit user. It does not replace the research method in `SKILL.md`. Use this standard for new report studies; retain earlier frozen experiments with their original scales and reviewer counts.
 
 ## One rubric, separate questions

@@ -1,5 +1,7 @@
 # Research Design Lessons
 
+[English](postmortem-lessons.md) | [简体中文](postmortem-lessons.zh-CN.md)
+
 These design lessons describe recurring research failure modes and the practices intended to address them. They are not measured estimates of the toolkit's effect.
 
 ## Continuity And Evidence

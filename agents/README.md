@@ -1,5 +1,7 @@
 # Tool Setup Guides
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
 These guides explain how to use Research Toolkit in each tool. Start by giving your agent the repository link and asking it to read `SKILL.md`. All tools follow the same research requirements:
 
 1. Read `SKILL.md` first.
@@ -25,7 +27,7 @@ Use the guide for the tool you have. Sending these instructions to a model API d
 | [OpenClaw](./openclaw.md) | Skill folders, allowed skills, and direct file reading | The intended Skill is visible and the session can save and reopen task files. |
 | [Hermes Agent](./hermes.md) | Skill installation, discovery, and migration | The loaded copy includes its references and the research folder is writable. |
 
-These guides describe setup, not certification that eight environments have passed research tests. DSH file checks, its scripted loading test, and a real model run establish different things. A test script's presence is not a passing result. [Published diagnostics](../evals/diagnostics/2026-09-07/) record their authors, conditions, and limitations; they do not establish equal research quality across tools. The [evaluation roadmap](../docs/evaluation-roadmap.md) lists the remaining comparisons.
+These guides describe setup, not certification that eight environments have passed research tests. DSH file checks, its scripted loading test, and a real model run establish different things. A test script's presence is not a passing result. [Published diagnostics](../evals/diagnostics/2026-09-07/) record their authors, conditions, and limitations; they do not establish equal research quality across tools. The [evaluation roadmap](../docs/evaluation-roadmap.md) defines the current research evaluation scope.
 
 ### If the Repository Link Does Not Open
 
@@ -66,7 +68,7 @@ Web search, website login, and file access come from your AI tool. Research Tool
 | [OpenClaw](./openclaw.md) | Skill 位置、允许使用的技能与直接读取文件 | 找到的是预期 Skill，且任务文件能保存并重新打开。 |
 | [Hermes Agent](./hermes.md) | Skill 安装、发现与迁移 | 实际读取的副本包含扩展文件，研究目录可写入。 |
 
-上表提供安装与使用说明，不表示八种环境已经通过研究实测。DSH 的文件检查、脚本化加载测试和真实模型运行分别验证不同内容；有脚本不等于测试已通过。[公开诊断](../evals/diagnostics/2026-09-07/)记录了作者、运行条件与限制，也不能证明各工具研究效果相同。仍需完成的对照见[评测计划](../docs/evaluation-roadmap.md)。
+上表提供安装与使用说明，不表示八种环境已经通过研究实测。DSH 的文件检查、脚本化加载测试和真实模型运行分别验证不同内容；有脚本不等于测试已通过。[公开诊断](../evals/diagnostics/2026-09-07/)记录了作者、运行条件与限制，也不能证明各工具研究效果相同。当前研究评测范围见[评测计划](../docs/evaluation-roadmap.md)。
 
 ### 仓库链接打不开时
 

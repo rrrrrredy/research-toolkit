@@ -1,5 +1,7 @@
 # Quality Gates
 
+[English](quality-gates.md) | [简体中文](quality-gates.zh-CN.md)
+
 Use these gates before declaring any stage or final deliverable complete.
 
 ## Before Collection

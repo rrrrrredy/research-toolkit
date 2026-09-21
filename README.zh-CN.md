@@ -8,14 +8,14 @@
 
 工具箱不绑定某一种 Agent 工具；具体接入方式见下文。它本身不提供抓取工具、数据源或固定报告模板。
 
-[项目说明](https://rrrrrredy.github.io/research-toolkit/framework.html)介绍研究流程与使用方法。[`SKILL.md`](./SKILL.md) 是 Agent 使用的指令文件；`references/` 提供分析方法、审阅和写作的扩展说明，按任务需要读取。
+[项目说明](https://rrrrrredy.github.io/research-toolkit/framework.html)介绍研究流程与使用方法。[`SKILL.md`](./SKILL.md) 是 Agent 使用的指令文件（[中文说明](./SKILL.zh-CN.md)）；`references/` 提供分析方法、审阅和写作的扩展说明，按任务需要读取。
 
 ## 快速开始
 
 1. 先使用 `SKILL.md`。
 2. 先让 Agent 确认要交付什么、给谁看、研究多深、采用什么证据标准，以及必须覆盖哪些问题。
 3. 对资料量大的任务，先创建 `state/`、`logs/` 和 `data/`，再大规模收集资料。
-4. 按任务需要读取扩展文件：[启动与恢复](./references/research-workflow.md)、[选择分析方法](./references/optional-analysis-lenses.md)、[分工与审阅](./references/subagents-and-review-loop.md)、[排查反复出现的问题](./references/gotchas.md)、[写作](./references/writing-style.md)、[交付前检查](./references/quality-gates.md)。
+4. 按任务需要读取扩展文件：[启动与恢复](./references/research-workflow.zh-CN.md)、[选择分析方法](./references/optional-analysis-lenses.zh-CN.md)、[分工与审阅](./references/subagents-and-review-loop.zh-CN.md)、[排查反复出现的问题](./references/gotchas.zh-CN.md)、[写作](./references/writing-style.zh-CN.md)、[交付前检查](./references/quality-gates.zh-CN.md)。
 5. 分板块写作，来源和审阅记录单独保存。遇到必须停止处理的问题（hard stops）时先修复；覆盖和证据检查通过后，再检查成稿是否便于阅读。
 6. 多轮纠错任务维护 `state/requirements.jsonl`；宣布终稿前运行 `python scripts/check_delivery.py <任务目录>`，未通过时明确交付阶段稿。
 
@@ -32,7 +32,7 @@
 保留后续纠错要求，逐项处理；发送前核对完成说明与实际进度是否一致。
 ```
 
-如需安装到常用的 AI 工具中，请查看[各工具的使用说明](./agents/README.md#中文说明)。
+如需安装到常用的 AI 工具中，请查看[各工具的使用说明](./agents/README.zh-CN.md)。
 
 各工具文档列出了文件位置、操作步骤和开始前的检查项，也说明链接打不开、保存进度和继续任务时如何处理。
 
@@ -104,11 +104,11 @@
 
 评测保留原始缺陷，作为工具箱迭代依据；成品报告另行满足其交付质量要求。脚本检查记录一致性，不能代替实际调用证据、内容审阅或认证研究质量。
 
-[角色与工作规范](references/subagents-and-review-loop.md) · [评审完成接口](docs/review-completion.md) · [交付检查](docs/delivery-verification.md)
+[角色与工作规范](references/subagents-and-review-loop.zh-CN.md) · [评审完成接口](docs/review-completion.zh-CN.md) · [交付检查](docs/delivery-verification.zh-CN.md)
 
 ## 评测集
 
-[`evals/`](./evals/) 包含研究题目、资料与对话包、评分规则、已知好坏样本和离线检查脚本。
+[`evals/`](./evals/README.zh-CN.md) 包含研究题目、资料与对话包、评分规则、已知好坏样本和离线检查脚本。
 
 检查结果与报告质量分开记录：`conformance_status`、`conformance_score` 只覆盖文件结构、可追溯性和预设失败信号；离线结果的 `research_quality_status` 始终为 `not_evaluated`。正文评审及其证据限制另行记录，不回填脚本分数。检查得分高，不等于报告质量高。
 
@@ -128,13 +128,13 @@ python scripts/check_docs_sync.py
 python scripts/check_delivery.py <任务目录>
 ```
 
-具体运行方式、环境准备和模型调用说明见 [`evals/README.md`](./evals/README.md)。加载测试通过，不代表真实研究任务或报告质量已经通过验证。
+具体运行方式、环境准备和模型调用说明见 [`evals/README.md`](./evals/README.zh-CN.md)。加载测试通过，不代表真实研究任务或报告质量已经通过验证。
 
 想直接看产出，可阅读[2026 年 9 月校准报告与修订案例](./evals/diagnostics/2026-09-07/)：保留四份原始读者稿、两份修订稿、失败审查及三模型文本诊断，也保留未返回完整结论的记录。这些是开发期证据，不能据此计算使用工具箱的胜率。
 
 上述历史诊断保留当时的三模型记录。另行定义的四模型评审配置由 Astra 在 Codex 中按工具箱的研究方法写作，再交给 Sol high、DeepSeek、Kimi、GLM 四名模型评审；这项安排不是工具箱的模型依赖。
 
-流程与文件检查、报告评测及产品效果判断的证据要求见[评测计划](./docs/evaluation-roadmap.md)。
+流程与文件检查、报告评测及产品效果判断的证据要求见[评测计划](./docs/evaluation-roadmap.zh-CN.md)。
 
 可选的数据生成：只有已有以下两类本地知识库时，才需要重新生成这份脱敏资料包。这不是普通使用或运行检查的前置条件；把占位路径换成实际目录。以下多行命令使用 Windows cmd 语法：
 
@@ -144,7 +144,7 @@ python scripts/build_sanitized_eval_set.py ^
   --knowledge-graph D:\path\to\ai-knowledge-graph
 ```
 
-完整使用方法见 [`evals/README.md`](./evals/README.md)。
+完整使用方法见 [`evals/README.md`](./evals/README.zh-CN.md)。
 
 ## 01 研究中常见的问题
 
@@ -194,7 +194,7 @@ python scripts/build_sanitized_eval_set.py ^
 
 ### 阶段推进规则
 
-具体执行要求以 [`SKILL.md`](./SKILL.md#protocol-contract) 为准。本 README 用于说明和举例。
+具体执行要求以 [`SKILL.md`](./SKILL.md) 为准。本 README 用于说明和举例。
 
 研究按 `brief -> collect -> analyze -> draft -> review -> revise -> final` 推进，即明确需求、搜集、分析、起草、审阅、修改、交付。每个阶段都有必须更新的记录、进入下一阶段的条件，以及检查失败后的处理方式。仅有文件不代表完成了阶段；所有必要单元和检查通过后，才能将阶段设为 `final`。
 
@@ -267,7 +267,7 @@ python scripts/build_sanitized_eval_set.py ^
 - 子 agent 必须主动寻找问题；若判定 PASS，必须说明依据。
 
 
-这些数字是当前执行约定，不是经对照实验验证的最优阈值。澄清问题只针对缺失的关键信息；停滞判断要区分“某个搜索方向没有新证据”和“一个完整研究循环没有新贡献”。现有依据与后续验证安排见[评测计划](./docs/evaluation-roadmap.md)。
+这些数字是当前执行约定，不是经对照实验验证的最优阈值。澄清问题只针对缺失的关键信息；停滞判断要区分“某个搜索方向没有新证据”和“一个完整研究循环没有新贡献”。现有依据与后续验证安排见[评测计划](./docs/evaluation-roadmap.zh-CN.md)。
 
 ### 验证能力与局限
 
@@ -316,7 +316,7 @@ python scripts/build_sanitized_eval_set.py ^
 
 研究工具箱可用于不同的 Agent 产品和模型。可以直接提供 [`SKILL.md`](./SKILL.md) 作为研究指令，按需补充 [`references/`](./references/)；工具支持安装 Skill 时，也可以按对应说明安装。
 
-不同环境的配置方法见 [Agent 接入说明](./agents/README.md)。使用前请确认文件读写、资料检索等所需能力是否可用；接入说明不代表报告质量已经获得验证。
+不同环境的配置方法见 [Agent 接入说明](./agents/README.zh-CN.md)。使用前请确认文件读写、资料检索等所需能力是否可用；接入说明不代表报告质量已经获得验证。
 
 ## 09 许可协议
 

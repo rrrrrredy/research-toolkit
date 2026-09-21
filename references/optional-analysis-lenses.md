@@ -1,5 +1,7 @@
 # Optional Analysis Lenses
 
+[English](optional-analysis-lenses.md) | [简体中文](optional-analysis-lenses.zh-CN.md)
+
 Use this file when selecting a method for a specific research question. Do not force every project into every lens.
 
 ## Selection Rule

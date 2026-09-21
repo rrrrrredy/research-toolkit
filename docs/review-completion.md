@@ -1,5 +1,7 @@
 # Review Completion Records
 
+[English](review-completion.md) | [简体中文](review-completion.zh-CN.md)
+
 [SKILL.md](../SKILL.md) defines the required behavior. This page describes the offline record interface for required model reviews, validity checks, finding dispositions and sampling. [Role instructions](../references/subagents-and-review-loop.md) describe the actual review work.
 
 ## Choose the Completion Question

@@ -1,5 +1,7 @@
 # Contributing
 
+[English](CONTRIBUTING.md) | [简体中文](CONTRIBUTING.zh-CN.md)
+
 Contribute changes that improve research methods, make the workflow easier to follow, catch demonstrated failures, or strengthen the evidence behind the project's claims. Explain the problem and show how the change addresses it. Keep standalone orchestration products outside this repository.
 
 ## Authority And Scope

@@ -1,5 +1,7 @@
 # Research Workflow
 
+[English](research-workflow.md) | [简体中文](research-workflow.zh-CN.md)
+
 Use this file when planning or restarting a complex longform research task.
 
 ## 1. Research Brief Gate

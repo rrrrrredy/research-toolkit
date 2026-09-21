@@ -1,5 +1,7 @@
 # Changelog
 
+[English](CHANGELOG.md) | [简体中文](CHANGELOG.zh-CN.md)
+
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
 ## Unreleased
@@ -7,6 +9,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 Research Toolkit naming, clearer usage instructions, and development-only semantic diagnostics. These changes do not establish general efficacy. The v0.1.4 prerelease was withdrawn; v0.1.3 remains the latest available prerelease.
 
 ### Changed
+
+- Add standalone Simplified Chinese versions and consistent language navigation for current research references, review and delivery interfaces, evaluation guides, setup instructions and maintenance documentation.
 
 - Require effective model-review completion with original response and execution bindings, independent adjudication and sampling. Separate valid negative evaluation results from report-delivery readiness. Delivery contract 3 checks declared review slots; explicitly labelled versions 1 and 2 preserve historical record inspection.
 - Define review perspectives and working standards, failure recovery, reviewer audits and sampling of passed material in the Skill, role reference and bilingual introductions.

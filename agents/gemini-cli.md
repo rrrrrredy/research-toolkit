@@ -1,5 +1,7 @@
 # Gemini CLI Adapter
 
+[English](gemini-cli.md) | [简体中文](gemini-cli.zh-CN.md)
+
 Use this when Gemini CLI has access to a local working directory.
 
 ## Setup

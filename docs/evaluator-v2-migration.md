@@ -1,5 +1,7 @@
 # Evaluator schema v2 migration
 
+[English](evaluator-v2-migration.md) | [简体中文](evaluator-v2-migration.zh-CN.md)
+
 Schema v2 makes the existing evidence boundary explicit: passing mechanical conformance is not a research-quality verdict.
 
 | Earlier field | Schema v2 field |

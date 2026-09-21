@@ -1,5 +1,7 @@
 # Claude Adapter
 
+[English](claude.md) | [简体中文](claude.zh-CN.md)
+
 Use this when working with Claude, Claude Code, or a Claude project.
 
 ## Setup

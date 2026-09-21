@@ -1,5 +1,7 @@
 # Horizontal-Vertical Analysis
 
+[English](horizontal-vertical-analysis.md) | [简体中文](horizontal-vertical-analysis.zh-CN.md)
+
 Use this file only when the research task needs both time-depth and current-comparison. It is an optional method, not the default workflow of this skill.
 
 ## When To Use

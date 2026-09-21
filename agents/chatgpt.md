@@ -1,5 +1,7 @@
 # ChatGPT / General Agent Adapter
 
+[English](chatgpt.md) | [简体中文](chatgpt.zh-CN.md)
+
 Use this when the agent cannot install a skill but can read pasted instructions or attached files.
 
 ## Setup
