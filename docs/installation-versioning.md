@@ -14,7 +14,9 @@ From a trusted clone containing the intended release commit:
 python scripts/check_installation.py /path/to/installed/research-toolkit --reference <full-commit-sha>
 ```
 
-The command is read-only. It compares SKILL.md, all reference Markdown and the standalone delivery checker against actual Git object contents, normalizing only text newlines. It does not trust an installed Git HEAD, README version or INSTALLATION.json as proof of content identity. It does not fetch, install, write a manifest or overwrite files.
+The command is read-only. It compares SKILL.md, all reference Markdown, the delivery and review-completion checkers, and their record guides against actual Git object contents, normalizing only text newlines. It does not trust an installed Git HEAD, README version or INSTALLATION.json as proof of content identity. It does not fetch, install, write a manifest or overwrite files.
+
+The delivery checker imports `scripts/check_review_completion.py`; keep both scripts when copying a partial installation. The record guides are `docs/review-completion.md` and `docs/delivery-verification.md`. Historical references are compared with the files actually present in those commits.
 
 Exit 0 means the selected payload matches; 1 means a modified/missing/unreadable file; 2 means the reference could not be read. A difference is not itself a diagnosis that the variant is broken. Read the differing files before choosing what to retain. The command intentionally does not inspect other local files or prove which copy the runtime actually loaded.
 

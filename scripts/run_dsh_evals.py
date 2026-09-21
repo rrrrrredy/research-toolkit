@@ -89,7 +89,12 @@ def stage_skill(workspace: Path) -> Path:
     shutil.copytree(REPO_ROOT / "references", destination / "references")
     scripts_dir = destination / "scripts"
     scripts_dir.mkdir()
-    shutil.copy2(REPO_ROOT / "scripts" / "check_delivery.py", scripts_dir / "check_delivery.py")
+    for name in ("check_delivery.py", "check_review_completion.py"):
+        shutil.copy2(REPO_ROOT / "scripts" / name, scripts_dir / name)
+    docs_dir = destination / "docs"
+    docs_dir.mkdir()
+    for name in ("review-completion.md", "delivery-verification.md"):
+        shutil.copy2(REPO_ROOT / "docs" / name, docs_dir / name)
     return destination
 
 
@@ -163,6 +168,9 @@ def validate_adapter(case_id: str) -> dict[str, Any]:
             staged_skill / "SKILL.md",
             staged_skill / "references" / "research-workflow.md",
             staged_skill / "scripts" / "check_delivery.py",
+            staged_skill / "scripts" / "check_review_completion.py",
+            staged_skill / "docs" / "review-completion.md",
+            staged_skill / "docs" / "delivery-verification.md",
             workspace / "prompt.md",
             workspace / "evals" / "source_packs" / str(case["source_pack"]) / "sources.jsonl",
         ]

@@ -18,7 +18,9 @@ def reference_payload(repository: Path, reference: str) -> tuple[str, dict[str, 
         return subprocess.run(["git", *args], cwd=repository, capture_output=True, check=True).stdout
 
     commit = git("rev-parse", "--verify", "--end-of-options", reference + "^{commit}").decode().strip()
-    paths = git("ls-tree", "-r", "--name-only", commit, "--", "SKILL.md", "references", "scripts/check_delivery.py").decode("utf-8").splitlines()
+    paths = git("ls-tree", "-r", "--name-only", commit, "--", "SKILL.md", "references", "scripts/check_delivery.py",
+                "scripts/check_review_completion.py", "docs/review-completion.md",
+                "docs/delivery-verification.md").decode("utf-8").splitlines()
     paths = [path for path in paths if path.endswith((".md", ".py"))]
     if "SKILL.md" not in paths or "scripts/check_delivery.py" not in paths:
         raise ValueError("Reference lacks the expected research payload.")
@@ -42,7 +44,7 @@ def compare_payload(installed: Path, payload: dict[str, bytes]) -> dict:
         files.append(item)
     return {
         "payload_matches": all(item["status"] == "match" for item in files),
-        "scope": "SKILL.md, reference Markdown, and the standalone delivery checker only; other files and runtime loading are not verified",
+        "scope": "SKILL.md, reference Markdown, delivery/review checkers and their record guides; other files and runtime loading are not verified",
         "files": files,
     }
 

@@ -4,6 +4,8 @@ from __future__ import annotations
 import os
 from pathlib import Path
 import tempfile
+import subprocess
+import sys
 import unittest
 import check_installation as checker
 
@@ -35,6 +37,24 @@ class InstallationTests(unittest.TestCase):
         result = checker.compare_payload(self.root, payload)
         self.assertFalse(result["payload_matches"])
         self.assertEqual(result["files"][1]["status"], "missing_or_unreadable")
+
+    def test_staged_checkers_include_imports_and_record_guides(self):
+        # Copy files only; this does not start an agent runtime or a model call.
+        import run_dsh_evals
+        staged = run_dsh_evals.stage_skill(self.root)
+        for name in ("check_delivery.py", "check_review_completion.py"):
+            result = subprocess.run([sys.executable, "-B", str(staged / "scripts" / name), "--help"],
+                                    cwd=self.root, capture_output=True, text=True, check=False)
+            self.assertEqual(result.returncode, 0, result.stderr)
+        for name in ("review-completion.md", "delivery-verification.md"):
+            self.assertTrue((staged / "docs" / name).is_file())
+        repo = Path(__file__).resolve().parents[1]
+        _, payload = checker.reference_payload(repo, "HEAD")
+        self.assertIn("scripts/check_review_completion.py", payload)
+        self.assertIn("docs/review-completion.md", payload)
+        self.assertTrue(checker.compare_payload(staged, payload)["payload_matches"])
+        (staged / "scripts/check_review_completion.py").write_text("# incomplete copy\n", encoding="utf-8")
+        self.assertFalse(checker.compare_payload(staged, payload)["payload_matches"])
 
     def test_extra_local_files_are_ignored_and_not_modified(self):
         extra = self.root / "private-local-note.txt"
