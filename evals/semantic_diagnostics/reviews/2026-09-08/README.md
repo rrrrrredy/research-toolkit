@@ -34,7 +34,7 @@ python scripts/check_semantic_review_bundle.py --self-test
 
 Each provider used a 32,768 output-token cap and 600-second transport timeout; no automatic retries were made. Calls use the project's existing separate CNY50 provider ceilings. Recorded reservations are upper bounds, not invoices. Exact fresh replay may produce different judgments and new charges; obtain authorization, preserve a new output directory and do not overwrite this dated package.
 
-For a fixed-input replay, send the recorded `system` and `user` strings as separate messages using that call's request settings. Do not reveal author labels, mappings or prior reviews until the new judgment is captured. The original and revision freeze files also record hashes of private controllers that are not distributed here; this is not a portable runtime certification or a claim of third-party reproduction.
+For a fixed-input replay, send the recorded `system` and `user` strings as separate messages using that call's request settings. Do not reveal author labels, mappings or prior reviews until the new judgment is captured. The original and revision freeze files also record hashes of private controllers that are not distributed here; the results apply only to the recorded diagnostic inputs.
 
 ## 中文结论
 

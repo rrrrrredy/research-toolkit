@@ -98,7 +98,6 @@
 ```bash
 python scripts/run_evals.py --runs-dir evals/runs --report evals/runs/report.md
 python scripts/check_eval_source_integrity.py
-python scripts/check_cross_agent_protocol.py
 python scripts/check_regression_fixtures.py
 python scripts/check_conformance_fixtures.py
 python scripts/check_docs_sync.py
@@ -114,11 +113,9 @@ python scripts/check_delivery.py <任务目录>
 
 想直接看产出，可阅读[2026 年 9 月校准报告与修订案例](./evals/diagnostics/2026-09-07/)：保留四份原始读者稿、两份修订稿、失败审查及三模型文本诊断，也保留未返回完整结论的记录。这些是开发期证据，不能据此计算使用工具箱的胜率。
 
-上述历史诊断保留当时的三模型记录。另行定义的四模型评审配置由 Astra 在 Codex 中按工具箱的研究方法写作，再交给 Sol high、DeepSeek、Kimi、GLM 四名模型评审；这项安排不是工具箱的模型依赖。模型审阅文本也不等于不同 Agent 运行环境实际使用了工具箱。
+上述历史诊断保留当时的三模型记录。另行定义的四模型评审配置由 Astra 在 Codex 中按工具箱的研究方法写作，再交给 Sol high、DeepSeek、Kimi、GLM 四名模型评审；这项安排不是工具箱的模型依赖。
 
-仓库还在 [`evals/cross_agent/`](./evals/cross_agent/) 准备了一套冻结的 3–4 Agent 对照协议，比较使用与不使用工具箱的研究结果。目前没有公开的完整运行时配对结果。发布检查器会拒绝少于 3 个完整 Agent 配对或盲审不足的比较包；单独的三模型文本诊断不满足这一门槛。
-
-流程与文件检查、跨 Agent 可移植性、真实任务效果和外部采用这四类验证的边界与执行顺序见[评测计划](./docs/evaluation-roadmap.md)。
+流程与文件检查、报告评测及产品效果判断的证据要求见[评测计划](./docs/evaluation-roadmap.md)。
 
 可选的数据生成：只有已有以下两类本地知识库时，才需要重新生成这份脱敏资料包。这不是普通使用或运行检查的前置条件；把占位路径换成实际目录。以下多行命令使用 Windows cmd 语法：
 
@@ -300,7 +297,7 @@ python scripts/build_sanitized_eval_set.py ^
 
 研究工具箱可用于不同的 Agent 产品和模型。可以直接提供 [`SKILL.md`](./SKILL.md) 作为研究指令，按需补充 [`references/`](./references/)；工具支持安装 Skill 时，也可以按对应说明安装。
 
-不同环境的配置方法见 [Agent 接入说明](./agents/README.md)。使用前请确认文件读写、资料检索等所需能力是否可用；接入说明不代表已经验证各环境具有相同的研究效果。
+不同环境的配置方法见 [Agent 接入说明](./agents/README.md)。使用前请确认文件读写、资料检索等所需能力是否可用；接入说明不代表报告质量已经获得验证。
 
 ## 09 许可协议
 

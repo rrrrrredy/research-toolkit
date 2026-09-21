@@ -45,6 +45,6 @@ The checker now requires a non-empty pack collection and case collection for thi
 
 中文补充：已修复“题目文件缺失却仍声称全部引用一致”的漏检，也拦截空/错误/重复引用、重复隔离来源及缺失资料包。检查输出包含实际题目数。正常资料和再生成控制仍通过；冻结数据未改，17条日期未知记录仍只能用于流程检查，不因此升级为事实评测集。
 
-The source-use policy is an evaluation-data boundary, not a new research protocol schema. Frozen cross-agent files, the synthetic frozen source pack, SKILL.md and all references remain unchanged. Old runs keep their old input hashes; new runs must identify the new candidate rather than retroactively claiming these corrections.
+The source-use policy is an evaluation-data boundary, not a new research protocol schema. The original synthetic source pack and study inputs retain their version bindings. Old runs keep their old input hashes; new runs must identify the new candidate rather than retroactively claiming these corrections.
 
 中文结论：活跃资料已排除已证实的错误归属和未解开的数字口径冲突，参考稿已收窄无来源支持的外推。其余未知项明确保留，不把“检查通过”包装成“数据完全正确、版权全部清楚”。

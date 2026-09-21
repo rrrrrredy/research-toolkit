@@ -50,6 +50,6 @@ The usage-based cost guard was approximately CNY 0.80 for DeepSeek and CNY 1.51 
 
 ## What remains unproved / 尚未证明
 
-The calibration tasks were authored for development, already seen during repairs, and run framework-first. Human reviews were not completed. Longer, interactively corrected repairs cannot be compared with the original baseline as a causal treatment. No matched API report-generation experiment took place. No three-runtime publication gate, 12-task held-out study or external reproduction was completed by this package.
+The calibration tasks were authored for development, already seen during repairs, and run framework-first. Human reviews were not completed. Longer, interactively corrected repairs cannot be compared with the original baseline as a causal treatment. No matched API report-generation experiment took place. This package contains no completed held-out effect study.
 
-原框架 `SKILL.md` 与八份核心 reference 未修改。这里补的是实际产出、具体失败和证据边界；它们不替代正式同环境对照、双人盲审或第三方复现。第三方网页内容仅链接并作必要分析，版权和服务条款仍属于原权利人。包内不包含密钥、私人聊天、本机配置或模型思维链。
+原框架 `SKILL.md` 与八份核心 reference 未修改。这里补的是实际产出、具体失败和证据边界；它们不构成正式效果验证。第三方网页内容仅链接并作必要分析，版权和服务条款仍属于原权利人。包内不包含密钥、私人聊天、本机配置或模型思维链。

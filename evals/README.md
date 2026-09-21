@@ -4,7 +4,7 @@ This directory contains seven research cases, twenty-two negative fixtures, four
 
 Evaluator result schema v2 keeps two claims separate. `conformance_status`, `conformance_score`, and `conformance_flags` describe deterministic structure, traceability, and configured failure signals. `research_quality_status` is `not_evaluated`; the runner does not claim that a mechanically conforming report is insightful, accurate, or decision-useful.
 
-Actual outputs are available in the [2026-09-07 development package](./diagnostics/2026-09-07/): four original calibration reader reports, two repairs, three-model text replies and an explicitly retained incomplete response. These are not held-out efficacy results or three-runtime runs.
+Actual outputs are available in the [2026-09-07 development package](./diagnostics/2026-09-07/): four original calibration reader reports, two repairs, three-model text replies and an explicitly retained incomplete response. These are development diagnostics, not held-out efficacy results.
 
 ## Directory Layout
 
@@ -21,7 +21,6 @@ evals/
   cases/                         # one JSON task per eval case
   conversation_packs/            # sanitized multi-turn requirement sequences
   diagnostics/                   # dated actual outputs and non-scoring model reviews
-  cross_agent/                   # frozen baseline/framework portability protocol; no runs yet
   conformance_fixtures/          # known-good artifacts that must pass
   regression_fixtures/           # known-bad outputs that the runner must flag
   rubrics/                       # retained earlier study rubrics; current standard linked above
@@ -154,8 +153,6 @@ python scripts/run_dsh_evals.py validate
 python scripts/check_eval_source_integrity.py
 python scripts/check_source_policy_contract.py
 python scripts/check_source_extraction.py
-python scripts/check_cross_agent_protocol.py
-python scripts/check_cross_agent_input_contract.py
 python scripts/check_regression_fixtures.py
 python scripts/check_conformance_fixtures.py
 python scripts/check_delivery_contract.py

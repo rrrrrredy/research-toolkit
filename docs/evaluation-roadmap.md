@@ -9,9 +9,7 @@ For new report studies, use the [current evaluation standard](report-evaluation-
 | Track | Question | Current evidence | What it may claim | What it may not claim |
 |---|---|---|---|---|
 | A. Deterministic conformance | Did an artifact follow configured protocol and delivery rules? | Implemented: positive controls, 22 negative fixtures, source integrity, DSH adapter checks | Known structural and traceability failures are detected for tested fixtures | The report is factually correct, insightful, or useful |
-| B. Cross-agent portability | Can different runtimes execute the same frozen protocol, and how do their failures differ? | Protocol frozen; no completed runtime pairs published | Runtime-specific adherence and integration observations after the publication gate passes | A general framework effect from one synthetic task |
-| C. Real-task efficacy | Does using the framework improve decision-useful research versus normal agent behavior? | Study design documented; no completed efficacy result published here | A bounded treatment estimate after preregistered held-out runs and independent review | Universal superiority across models, tasks, or organizations |
-| D. External adoption | Can other maintainers reproduce, extend, and keep using it? | No independent reproduction result published here | Reproduction and adoption claims require attributable external evidence | Community validation or ecosystem traction |
+| B. Real-task efficacy | Does using the framework improve decision-useful research versus normal agent behavior? | Study design documented; no completed efficacy result published here | A bounded treatment estimate after preregistered held-out runs and independent review | Universal superiority across models, tasks, or organizations |
 
 ## Track A: Deterministic Conformance
 
@@ -26,7 +24,7 @@ High-risk flags such as false completion, malformed final review records, and co
 
 ## Development Reports And Review Diagnostics
 
-The [2026-09-07 evidence package](../evals/diagnostics/2026-09-07/) includes actual calibration reports, retained failures, editorial repairs and three-model text diagnostics. It is not part of the held-out study or the cross-runtime publication gate. Model/provider, context exposure, retrieval access, requested and returned identity where available, incomplete responses and adjudication are disclosed separately. Different vendors diversify viewpoints; their agreement is neither factual ground truth nor human calibration.
+The [2026-09-07 evidence package](../evals/diagnostics/2026-09-07/) includes actual calibration reports, retained failures, editorial repairs and three-model text diagnostics. It is not part of the held-out study. Model/provider, context exposure, retrieval access, requested and returned identity where available, incomplete responses and adjudication are disclosed separately. Different vendors diversify viewpoints; their agreement is neither factual ground truth nor human calibration.
 
 The protocol's numbers (usually 3–7 clarification questions, ledger maintenance intervals, stagnation triggers and review-loop budgets) are operational heuristics, not empirically optimized thresholds. No current ablation establishes their superiority. The clarification rule still asks only for missing essential information. Preserve these defaults until observed premature stops, missed stalls, redundant searches or maintenance costs justify a scoped comparison; do not infer validity from numerical precision.
 
@@ -57,15 +55,7 @@ Report revision belongs to separately scoped report delivery or repair research.
 
 This route does not require human reviewers. Use known-error and valid controls to check the rubric before freezing a new study, and report results explicitly as LLM-judged with an evidence-audit boundary, not human-calibrated truth. It does not enable an automatic research-quality PASS in the deterministic runner. Existing frozen experiments and their original reviewer counts remain historical records; do not rewrite them to claim this new plan was executed.
 
-## Track B: Frozen Cross-Agent Portability
-
-Use [`evals/cross_agent/`](../evals/cross_agent/) for the public showcase. Run three or four agents against one frozen fictional task under two matched conditions: baseline and framework. Preserve failed runs instead of repairing them.
-
-The publication gate requires complete paired records, input hashes, matched within-agent settings, raw process streams, workspaces, blind run mapping, and at least two independent reviews per run. Until then, the only honest label is `prepared_no_runs`.
-
-This track is useful for integration and failure analysis. It is deliberately not the primary efficacy test.
-
-## Track C: Held-Out Real-Task Efficacy
+## Track B: Held-Out Real-Task Efficacy
 
 The proposed first product-effect study uses 12 distinct, held-out, rights-cleared real research tasks sampled from the intended workload. This is a screening cohort, not a universal sample-size or statistical-power guarantee. Use two separate, excluded tasks to calibrate execution and review; freeze the main study after calibration and before its model runs.
 
@@ -79,19 +69,15 @@ For each task and production agent environment:
 6. Treat invented facts, missing primary deliverables, hidden critical limitations, and false completion as critical failures that averages cannot offset.
 7. Publish every task-level pair, paired differences, descriptive uncertainty, disagreements, exclusions, and reruns. Report win, loss, tie, both-failed, and unresolved outcomes explicitly; neither both-failed nor unresolved outcomes count as framework wins. Any stopping or extension thresholds are preregistered product decision rules, not significance claims. Sequential stopping needs a corresponding statistical design before confirmatory inference.
 
-Do not mix different models into the framework-effect estimate. Cross-model robustness is a later question; the causal contrast is framework versus baseline within the same production environment.
+Do not mix different models into the framework-effect estimate. Compare framework and baseline within the same production environment.
 
 Compare first drafts with first drafts. If revision effects are also measured, give both conditions the same preregistered review and revision opportunities and report initial and revised results separately. Model-review scores alone support only a bounded LLM-judged comparison, not proof that the framework improves real-world decisions.
 
-Twelve tasks in one production environment require 24 primary runs, not 12 tasks multiplied by every showcase agent. If four tasks are selected in advance for one repeat of each condition, those eight additional runs measure sensitivity and are not new independent tasks. Baseline outputs do not lose semantic-quality points for lacking framework-specific registries or receipts; apply conformance checks only where the protocol is applicable, while auditing evidence and truthful delivery in both conditions.
-
-## Track D: Reproduction And Adoption
-
-After the first tagged release, invite external users to reproduce one frozen case, submit a failure fixture, or contribute an adapter. Track external issues, pull requests, forks, reproducible run bundles, and repeat users. Stars are discovery signals, not validation.
+Twelve tasks in one production environment require 24 primary runs. If four tasks are selected in advance for one repeat of each condition, those eight additional runs measure sensitivity and are not new independent tasks. Baseline outputs do not lose semantic-quality points for lacking framework-specific registries or receipts; apply conformance checks only where the protocol is applicable, while auditing evidence and truthful delivery in both conditions.
 
 ## Data Rules
 
-- Use synthetic packs for public deterministic and portability checks when factual freshness is not the target.
+- Use synthetic packs for public deterministic checks when factual freshness is not the target.
 - Quarantine internally contradictory records; never leave them active merely to preserve case counts.
 - For live-web efficacy studies, freeze task inputs and time boundaries, then preserve each condition's observed sources, access times, and failures for audit. Do not turn a normally online task into a fixed-source test for evaluator convenience.
 - Keep private or licensed evidence out of public bundles unless redistribution rights are explicit.
@@ -102,6 +88,4 @@ After the first tagged release, invite external users to reproduce one frozen ca
 Conformance schema v2 and tagged prereleases are available. The current `main` branch also contains changes listed under `Unreleased`; a prior release archive does not include those later changes.
 
 - Freeze each real-task study before its held-out runs, and retain first outputs and review findings as evaluation evidence.
-- Publish comparisons only within the scope supported by complete runs and evidence review. The separate frozen cross-agent comparison requires actual runtime environments; model APIs are not different agent runtimes.
-- Missing external runtimes do not prevent single-environment evaluation or justify a portability claim.
-- Add optional domain packs or distribution plugins only when repeated external use demonstrates the need.
+- Publish comparisons only within the scope supported by complete runs and evidence review.

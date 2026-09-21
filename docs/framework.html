@@ -830,7 +830,6 @@
                 <pre><code>After the research run, place the artifacts under evals/runs/&lt;run-id&gt;/ and execute:
 python scripts/run_evals.py --runs-dir evals/runs --report evals/runs/report.md
 python scripts/check_eval_source_integrity.py
-python scripts/check_cross_agent_protocol.py
 python scripts/check_regression_fixtures.py
 python scripts/check_conformance_fixtures.py
 python scripts/check_docs_sync.py</code></pre>
@@ -902,7 +901,6 @@ python scripts/check_docs_sync.py</code></pre>
             <div class="wide">
               <p>Evaluation preserves original reports and valid review findings. Defects guide toolkit improvements; completing an evaluation does not require repairing and re-reviewing every sample.</p>
               <p>Source-boundary fixtures cover configured final-text markers, specified malicious conclusions, and preservation of selected usable facts. They do not prove general prompt-injection resistance or cover every tool or state side effect.</p>
-              <p>A frozen baseline/framework protocol for four planned agents is available under <a href="https://github.com/rrrrrredy/research-toolkit/tree/main/evals/cross_agent">evals/cross_agent</a>. No completed runtime pairs or comparative runtime result are published; its publication gate requires at least three complete agent pairs and blinded review.</p>
             </div>
           </section>
 

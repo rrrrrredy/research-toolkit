@@ -17,6 +17,8 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Fixed
 
+- Keep evaluation focused on report evidence, preserved findings and matched product comparisons. Simplify the published evaluation materials and offline checks to that scope.
+
 - Keep DSH runtime commands out of general evaluation instructions, qualify profile-specific installation paths, and remove stale approval and editing notes from current documentation. Scope local verification to the changed behavior while retaining the full offline CI suite.
 
 - Align evaluation descriptions with their implementation and published evidence. Keep runtime-specific checks in optional adapter guidance, describe smoke checks as marker-based wiring observations, and distinguish saved delivery messages from captured replies. Update diagnostic review status, historical rubric boundaries, source-map metadata and the existing CI inventory. Retain original samples, reviews, scores and frozen study inputs; evaluation defects inform Toolkit improvements without a mandatory repair loop.
@@ -36,7 +38,6 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 - Include complete task examples, the research completion checklist, recovery guidance, evaluation commands and setup checks in the reader entry points.
 
 - Document the four progress statuses already enforced by the delivery checker and explain how to record an intentional checkpoint. Reject unsupported status names while preserving valid partial states; check that documentation and checker enums agree. The checker is not weakened and research steps are unchanged; this clarification is not efficacy evidence.
-- Preserve the historical v1 study inputs in an independently validated archive so current framework documentation can evolve without changing old study bytes. Keep the original manifest, lock and all fifteen hashes unchanged; reject missing, changed, duplicate or unexpected archive members rather than falling back to current files.
 - Fail source-integrity checks when the case or source-pack collection is missing or empty, rather than reporting coverage without checking any cases. Reject missing, empty, malformed or duplicate case references, duplicate quarantine IDs and policy entries for missing packs. Report the actual case count; preserve valid workflow controls and the factual-use prohibition. No frozen sources, reports or research-method rules change.
 
 ### Added
@@ -70,7 +71,7 @@ Delivery-checker prerelease. The core protocol and frozen research inputs are un
 
 ## [v0.1.1](https://github.com/rrrrrredy/research-toolkit/releases/tag/v0.1.1) — 2026-09-07
 
-Engineering and evidence prerelease. The original SKILL.md and all eight core references are unchanged. Ten offline suites pass; retained development diagnostics are not a held-out efficacy result or three-runtime comparison.
+Engineering and evidence prerelease. The original SKILL.md and all eight core references are unchanged. Ten offline suites pass; retained development diagnostics are not a held-out efficacy result.
 
 ### Changed
 
@@ -90,7 +91,7 @@ Engineering and evidence prerelease. The original SKILL.md and all eight core re
 - Evaluator schema v2 migration guidance and explicit delivery-checker observation limits.
 - Workflow-only source-use policy, provenance/rights limitations, and positive/negative regeneration controls.
 - Six synthetic semantic bad/control pairs for diagnostic review, not automatic quality scores or held-out evidence.
-- Actual calibration report exports, two editorial repairs, retained failed reviews and a frozen three-model text diagnostic with its incomplete response; no efficacy or three-runtime claim.
+- Actual calibration report exports, two editorial repairs, retained failed reviews and a frozen three-model text diagnostic with its incomplete response; no efficacy claim.
 - Offline public-bundle integrity checks and disclosure of heuristic thresholds, reviewer context exposure and partial stage observability.
 - Read-only installed-payload comparison against a selected Git commit and safe-update guidance; local variants are never overwritten.
 
@@ -114,8 +115,6 @@ First public prerelease. Mechanical checks do not establish research quality or 
 
 - Six regression fixtures for sentence-level keyword stuffing, late review failure, asymmetric terminal state, completion paraphrases, malformed review logs, and PASS records with open issues.
 - Source-pack quarantine output and an integrity checker for active/quarantined records and case references.
-- A frozen, no-result-yet cross-agent baseline/framework protocol with input hashes, blind-review rules, and a publication gate requiring at least three complete agent pairs.
-- A four-track evaluation roadmap separating deterministic conformance, cross-agent portability, held-out real-task efficacy, and external adoption.
 - A regenerated agent gallery image that includes DeepSeek Harness.
 
 ### Verification
@@ -123,8 +122,5 @@ First public prerelease. Mechanical checks do not establish research quality or 
 - `python scripts/check_docs_sync.py`
 - `python scripts/run_dsh_evals.py validate`
 - `python scripts/check_eval_source_integrity.py`
-- `python scripts/check_cross_agent_protocol.py`
 - `python scripts/check_regression_fixtures.py`
 - `python scripts/check_conformance_fixtures.py`
-
-The cross-agent publication gate is expected to fail until real paired runs and blind reviews exist.

@@ -7,7 +7,7 @@ Contribute changes that improve research methods, make the workflow easier to fo
 - `SKILL.md` is the sole normative protocol source.
 - The public page may embed `SKILL.md`, but `python scripts/check_docs_sync.py` must prove exact synchronization.
 - README files, agent adapters, plugins, and examples are distribution or explanation layers. They must not introduce competing protocol rules.
-- Mechanical conformance, semantic research quality, runtime wiring, and general framework efficacy are separate claims and must be reported separately.
+- Mechanical conformance, semantic research quality, loading checks, and general framework efficacy are separate claims and must be reported separately.
 
 ## Before Opening A Change
 
@@ -16,7 +16,7 @@ Contribute changes that improve research methods, make the workflow easier to fo
 3. For changes to deterministic behavior, add a regression for the demonstrated failure when existing fixtures do not cover it.
 4. Preserve a valid control so the checker cannot improve by rejecting everything. Documentation-only changes need checks of their claims, examples and links, without new test cases.
 5. Use synthetic or rights-cleared data. Sanitized internal summaries are workflow seeds, not public factual authority.
-6. Do not update frozen cross-agent inputs after runs begin; create a new protocol version and lock instead.
+6. Preserve frozen study inputs after runs begin; identify later changes as a separate version.
 
 ## Verification
 
@@ -28,8 +28,6 @@ python scripts/run_dsh_evals.py validate
 python scripts/check_eval_source_integrity.py
 python scripts/check_source_policy_contract.py
 python scripts/check_source_extraction.py
-python scripts/check_cross_agent_protocol.py
-python scripts/check_cross_agent_input_contract.py
 python scripts/check_regression_fixtures.py
 python scripts/check_conformance_fixtures.py
 python scripts/check_delivery_contract.py
@@ -68,4 +66,4 @@ Do not claim improved report quality from a green deterministic test alone. Real
 
 The English and Chinese READMEs introduce the same framework and link to the web guide near the beginning. Keep these entry points focused on what readers can do and where to start. Copy synchronization and packaging decisions belong in maintenance documentation, not a separate introductory chapter.
 
-This repository supplies the reusable Skill. If a particular environment needs a plugin or another installation package, package the same Skill and link back here instead of maintaining a second protocol. Environment-specific setup belongs in `agents/`; it must not imply that the framework is tailored to one vendor or that different environments have demonstrated equal research quality.
+This repository supplies the reusable Skill. If a particular environment needs a plugin or another installation package, package the same Skill and link back here instead of maintaining a second protocol. Environment-specific setup belongs in `agents/`; it must not imply that the framework is tailored to one vendor or that setup instructions establish research quality.

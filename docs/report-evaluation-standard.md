@@ -61,7 +61,7 @@ For each product issue retain: failing example, impact, root cause, accepted/rej
 
 ## Earlier records
 
-`evals/rubrics/research_quality.json` is an earlier seven-dimension, human-review-oriented guide. `evals/cross_agent/review_rubric.md` and its two-reviewer, 1–5 scale belong to a frozen portability protocol. Historical two/three-reviewer semantic diagnostics and withdrawn studies retain their original provenance. They are not the current report-study standard and their scores cannot be pooled with it. Retain their bytes and original failure status; a new standard is not retrospective evidence that it was followed.
+`evals/rubrics/research_quality.json` is an earlier seven-dimension, human-review-oriented guide. Historical two/three-reviewer semantic diagnostics and withdrawn studies retain their original provenance. They are not the current report-study standard and their scores cannot be pooled with it. Retain their bytes and original failure status; a new standard is not retrospective evidence that it was followed.
 
 ---
 
@@ -99,4 +99,4 @@ For each product issue retain: failing example, impact, root cause, accepted/rej
 
 所有评测结束后，逐项交付产品反馈处置：失败依据、影响与归因、采纳/拒绝/暂缓理由、实际修改、回归结果和剩余边界。区分方法欠缺、已有规则未执行、检查器缺陷、资料读取失误和模型误报，不把它们全变成新提示词。工具箱版本未变、仅按反馈修好报告，只能证明输出修复。对实际项目改动做相关验证；只有新变更、失败或具体未决问题才重复或扩大检查。未用过的任务用于更广泛效果验证，不自动开启新一轮。
 
-旧七维人工量表、冻结跨运行时协议的1–5分/双评审，以及旧双/三模型开发样例均为历史记录，不是现行报告标准；不能换算合并。新旧方案的兼容说明不改变原始数据。
+旧七维人工量表及旧双/三模型开发样例均为历史记录，不是现行报告标准；不能换算合并。新旧方案的兼容说明不改变原始数据。

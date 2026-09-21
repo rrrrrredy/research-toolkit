@@ -20,7 +20,7 @@ git clone https://github.com/rrrrrredy/research-toolkit.git \
   .dsh/skills/research-toolkit
 ```
 
-The cross-agent project root also works:
+The project-local skills directory also works:
 
 ```bash
 mkdir -p .agents/skills

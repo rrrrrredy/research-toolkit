@@ -101,7 +101,6 @@ Offline checks: run these commands from the repository directory with Python. Th
 ```bash
 python scripts/run_evals.py --runs-dir evals/runs --report evals/runs/report.md
 python scripts/check_eval_source_integrity.py
-python scripts/check_cross_agent_protocol.py
 python scripts/check_regression_fixtures.py
 python scripts/check_conformance_fixtures.py
 python scripts/check_docs_sync.py
@@ -117,11 +116,9 @@ See [`evals/README.md`](./evals/README.md) for runtime setup, execution modes, a
 
 For actual outputs, read the [September 2026 calibration reports and repairs](./evals/diagnostics/2026-09-07/): four original reader reports, two repairs, retained failed reviews and a three-model text diagnostic, including an incomplete reply. These are development evidence, not a measured win rate for using the toolkit.
 
-Those historical diagnostics retain their original three-model configuration. The separate four-reviewer study configuration uses Astra in Codex to write with the toolkit's research methods and Sol high, DeepSeek, Kimi, and GLM as four reviewers; the toolkit does not depend on that panel. Model reviews of text are also distinct from research runs in different agent environments.
+Those historical diagnostics retain their original three-model configuration. The separate four-reviewer study configuration uses Astra in Codex to write with the toolkit's research methods and Sol high, DeepSeek, Kimi, and GLM as four reviewers; the toolkit does not depend on that panel.
 
-The repository also contains a frozen three-to-four-agent comparison protocol under [`evals/cross_agent/`](./evals/cross_agent/), comparing research with and without the toolkit. It is currently prepared but has no published completed runtime pairs. Its publication checker refuses a comparative bundle with fewer than three complete agent pairs or inadequate blinded review; the separate model text diagnostic does not satisfy this gate.
-
-See [`docs/evaluation-roadmap.md`](./docs/evaluation-roadmap.md) for the separate conformance, portability, real-task efficacy, and external-adoption tracks and their claim boundaries.
+See [`docs/evaluation-roadmap.md`](./docs/evaluation-roadmap.md) for mechanical checks, report evaluation and the evidence required for product-effect claims.
 
 Optional source-pack generation: use this only if you have the two local knowledge repositories shown below. They are not required for normal use or the checks above. Replace the placeholder paths with your directories. This multiline example uses Windows cmd syntax:
 
@@ -393,7 +390,6 @@ research-toolkit/
 │   ├── README.md
 │   ├── cases/
 │   ├── conformance_fixtures/
-│   ├── cross_agent/
 │   ├── regression_fixtures/
 │   ├── rubrics/
 │   ├── source_packs/
@@ -401,7 +397,6 @@ research-toolkit/
 ├── scripts/
 │   ├── build_sanitized_eval_set.py
 │   ├── check_conformance_fixtures.py
-│   ├── check_cross_agent_protocol.py
 │   ├── check_delivery.py
 │   ├── check_docs_sync.py
 │   ├── check_eval_source_integrity.py
@@ -432,7 +427,7 @@ git clone https://github.com/rrrrrredy/research-toolkit.git \
 
 You can also provide `SKILL.md` directly as research instructions and supply files under `references/` when the task requires them.
 
-See the [agent integration notes](./agents/README.md) for environment-specific setup. Check that the required file access, source retrieval, and other capabilities are available; setup guidance does not establish equivalent research quality across environments.
+See the [agent integration notes](./agents/README.md) for environment-specific setup. Check that the required file access, source retrieval, and other capabilities are available; setup guidance does not certify report quality.
 
 ## License
 
