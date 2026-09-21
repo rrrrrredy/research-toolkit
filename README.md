@@ -90,6 +90,25 @@ Use this checklist to find omissions before delivery. It does not replace readin
 - [ ] **Final prose**: the final prose removed process language, internal IDs, audit labels, and unsupported claims.
 - [ ] **Delivery check**: the completion message agrees with the actual stage, follow-up requirements and their outcomes, whole-report review, accepted limitations, and file hashes in the current delivery receipt.
 
+## Review and Acceptance
+
+Reviews cover intent and requirements, evidence and data, adversarial reasoning, structure and depth, reader usefulness, process-language removal and natural expression. Add field-specific review when the research question needs it. Compatible perspectives can share a reviewer; substantial report delivery needs a non-author review context, without requiring a particular provider panel.
+
+| Stage | Review focus |
+| --- | --- |
+| Outline | Actual questions, scope, coverage and argumentative structure |
+| Sources and analysis | Decisive evidence, calculations, mechanisms and counterexamples |
+| Assembled report | Whole-report coherence, depth, reader experience and expression |
+| Acceptance | Current artifact, every required effective review, evidenced dispositions and sampling |
+
+**Every required model-review slot must obtain a complete, version-bound, substantive response.** A call attempt, error record, truncated reply or generic PASS does not complete it. Preserve failures, diagnose the cause and resume the missing assignment. A valid negative judgment is complete and stays in the evaluation results.
+
+Check reviewer claims against the actual text and sources. Critical or decisive disputes and consequential rejections require independent adjudication. Sample passed material and no-change decisions as well as reported problems; expand checks where a material discrepancy warrants it.
+
+Evaluation preserves original defects for toolkit improvement. Reader-ready delivery additionally resolves required corrections in the current report. Scripts check record consistency; actual execution evidence and content review remain necessary.
+
+[Roles and working standards](references/subagents-and-review-loop.md) · [Review-completion interface](docs/review-completion.md) · [Delivery checks](docs/delivery-verification.md)
+
 ## Evaluation Suite
 
 [`evals/`](./evals/) contains research tasks, source and conversation packs, rubrics, known-good controls, known-bad regression cases, and an offline runner.

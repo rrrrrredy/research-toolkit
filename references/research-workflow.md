@@ -80,7 +80,7 @@ Create `final_delivery.json` only for terminal delivery. It is a receipt for cur
 - `open_issues: []`
 - `accepted_limitations`: the limitations that must also appear in the delivery message when material
 
-The delivery checker recomputes hashes and reads current progress, requirements, review scope, and the intended user-visible message. The latest global and task-required reviews also carry `artifact_sha256` for the report they actually reviewed. Rebuilding a receipt does not refresh an old review. The receipt JSON remains schema 1; the checker defaults to delivery contract 2. Preserve old records rather than filling in missing review or user-decision evidence after the event.
+The delivery checker recomputes hashes and reads current progress, requirements, review scope, and the intended user-visible message. The latest global and task-required reviews also carry `artifact_sha256` for the report they actually reviewed. Rebuilding a receipt does not refresh an old review. The receipt JSON remains schema 1; the checker defaults to delivery contract 3, including required model-review slots, validity audits, finding dispositions and sampling. Preserve old records rather than filling in missing review or user-decision evidence after the event.
 
 `directions_tried.json` should prevent repeated digging in the same direction. Treat one full operating pass for a bounded unit as a cycle. If it adds no new evidence, case, counterexample, framework, or judgment, increment `stale_count`; reset it to `0` when a later cycle adds one. At `stale_count >= 2`, pivot the structural angle. This counter is separate from the three-consecutive-source-pass stop for one collection direction.
 

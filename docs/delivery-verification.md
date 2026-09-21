@@ -2,7 +2,7 @@
 
 The checker is an optional offline consistency check. It is not a runtime permission hook and cannot prove that an agent invoked it. The research and writing requirements remain in [SKILL.md](../SKILL.md); this page documents the checker interface, not additional writing rules.
 
-The default is **delivery contract 2**. The receipt container remains `schema_version: 1`; contract versions identify which checks were performed. Results include `delivery_contract_version`, `current_contract_checked`, and `semantic_verification: false`. None authenticates user consent, proves actual reading, or certifies editorial quality.
+The default is **delivery contract 3**. The receipt container remains `schema_version: 1`; contract versions identify which checks were performed. Results include `delivery_contract_version`, `current_contract_checked`, and `semantic_verification: false`. None authenticates user consent, proves actual reading, or certifies editorial quality.
 
 ```bash
 python <skill-directory>/scripts/check_delivery.py <task-directory>
@@ -44,6 +44,14 @@ The `delivery_observation` result is `not_provided`, `matched`, `mismatch`, or `
 
 A caller-supplied file is not authenticated delivery attestation. An agent writing another copy of its intended message does not create independent capture evidence. This interface alone does not intercept or enforce the live final reply.
 
+## Required model-review completion
+
+Contract 3 requires the [review-completion records](review-completion.md) in addition to the existing delivery checks. Declare required slots in `progress.json.review_plan` with purpose `report_delivery`. Retain original responses and execution captures, version bindings, substantive-validity audits, finding dispositions and sampling evidence.
+
+A global PASS cannot fill a missing slot. A failed invocation is retained separately from editorial findings. Review validity and report verdict are separate; use `check_review_completion.py` with purpose `evaluation` when checking that a panel is complete despite negative report judgments. The delivery checker continues to require the actual report to be ready.
+
+These are declared-record checks. They cannot authenticate a provider, prove that an auditor is independent or certify actual reading, truthful severity labels or sound adjudication.
+
 ## Task-declared review requirements
 
 A task may already require several review scopes. It can declare these in `progress.json` as `required_review_scopes`, a list of distinct non-empty scope names. The latest record for each declared scope must pass without open issues before terminal delivery; the global review is still required. This optional interface does not require extra reviewers or review cycles for ordinary work. A model's PASS remains a model judgment, not proof of factual or editorial quality.
@@ -62,13 +70,13 @@ The standalone checker and eval runner share review and open-issue semantics. A 
 
 中文说明：两个入口现在共享问题关闭和审查历史的判断。“安排了后续动作”不等于问题解决，后来的局部阻断也不能被旧全稿PASS掩盖。限制披露会区分明显否认、未见披露信号、文字覆盖和待语义复核；只出现“限制”二字不再被表述为披露已核验。文字覆盖及机械PASS仍不证明事实正确；正常同义表达不会仅因无法精确匹配就被当成错误。
 
-当前默认检查版本为2，交付凭证的JSON外层仍是schema 1。必做要求若改为放弃、排除或接受未完成，需要记录用户对应决定；披露“没有做完”不能自动关闭要求。必读材料需分清要求读到哪里、实际读到哪里；没有要求全文阅读的辅助资料不因此被强制全文阅读。最新全稿审阅及任务明确要求的专项审阅都要绑定实际审阅稿件的哈希，重新生成交付凭证不能替旧审阅补看新稿。这些检查验证记录的一致性，不认证批准真实性、实际阅读或文章质量。
+当前默认检查版本为3，交付凭证的JSON外层仍是schema 1。必做要求若改为放弃、排除或接受未完成，需要记录用户对应决定；披露“没有做完”不能自动关闭要求。必读材料需分清要求读到哪里、实际读到哪里；没有要求全文阅读的辅助资料不因此被强制全文阅读。最新全稿审阅及任务明确要求的专项审阅都要绑定实际审阅稿件的哈希，重新生成交付凭证不能替旧审阅补看新稿。这些检查验证记录的一致性，不认证批准真实性、实际阅读或文章质量。
 
 ## Historical records
 
-Use `--contract-version 1` only to inspect unchanged historical records that predate these fields. The result and CLI output explicitly label legacy checks and set `current_contract_checked: false`. The eval runner has the matching `--delivery-contract-version 1` option. Legacy success is not acceptance under the current contract. Do not add invented approval quotes or review hashes to old runs to make them pass; perform and record the missing work for a new delivery instead.
+Use `--contract-version 1` or `--contract-version 2` only to inspect unchanged historical records that predate these fields. The result and CLI output explicitly label legacy checks and set `current_contract_checked: false`. The eval runner has matching `--delivery-contract-version 1` and `2` options. Version 2 includes requirement decisions, reading scope and report hashes, but omits model-review completion and sampling. Legacy success is not acceptance under the current contract. Do not add invented approval quotes or review hashes to old runs to make them pass; perform and record the missing work for a new delivery instead.
 
-旧记录可以用版本1做标明边界的历史诊断，不代表满足当前交付条件。不要给冻结实验补写当时并不存在的批准或审阅。新交付使用默认版本2。
+旧记录可以用其原版本1或2做标明边界的历史诊断，不代表满足当前交付条件。不要给冻结实验补写当时并不存在的批准或审阅。新交付使用默认版本3，并检查必需席位的有效评审、原始回复、执行记录、裁定与抽查。
 
 ## Regression coverage
 
@@ -76,4 +84,6 @@ Use `--contract-version 1` only to inspect unchanged historical records that pre
 
 `python scripts/check_evaluator_contract.py` adds cross-entry review recovery, later local blockers, malformed/invalid-UTF-8 history, routed-only issues, limitation-denial and partial-coverage controls, and distinct versus repeated English/Chinese text. All diagnostic fixture changes are isolated and resealed; frozen research inputs and historical reports are not rewritten.
 
-Current-contract tests add unauthorized/authorized requirement closure, declared full/partial reading, unchanged/currently reviewed report controls, and stale global/specialist reviews. The old conformance and regression fixture runners explicitly use version 1 to preserve historical comparisons; their original inputs and hashes stay unchanged. New positive controls are constructed only in isolated test copies and are not backfilled research records.
+Version 2 controls cover unauthorized/authorized requirement closure, declared full/partial reading, unchanged/currently reviewed report controls, and stale global/specialist reviews. The old conformance and regression fixture runners explicitly use version 1 to preserve historical comparisons; their original inputs and hashes stay unchanged. New positive controls are constructed only in isolated test copies and are not backfilled research records.
+
+Contract 3 controls in `scripts/check_review_completion_contract.py` cover missing and failed slots, incomplete or stale evidence, reused responses, independent adjudication, negative evaluation outcomes, sampling and legacy compatibility. All record fixtures are explicitly synthetic; they are not model-review evidence.

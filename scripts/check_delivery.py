@@ -11,6 +11,8 @@ import re
 from pathlib import Path
 from typing import Any
 
+from check_review_completion import content_review_rows, inspect_review_completion
+
 
 CANONICAL_STAGES = {"brief", "collect", "analyze", "draft", "review", "revise", "final"}
 PROGRESS_STATUSES = {"in_progress", "paused", "blocked", "complete"}
@@ -28,7 +30,7 @@ OPEN_ISSUE_TERMS = {
     "in_progress", "needs_revision", "fail", "failed", "blocked", "blocking_issue",
 }
 RESOLVED_REQUIREMENT_STATUSES = {"satisfied", "accepted_limitation", "waived", "out_of_scope"}
-DELIVERY_CONTRACT_VERSION = 2
+DELIVERY_CONTRACT_VERSION = 3
 REQUIREMENT_DECISION_STATUSES = {"accepted_limitation", "waived", "out_of_scope"}
 READING_REQUIREMENTS = {"full_text", "relevant_sections"}
 
@@ -219,7 +221,7 @@ def inspect_requirements(path: Path, contract_version: int = DELIVERY_CONTRACT_V
             findings.append(
                 f"Requirement {label} is not terminally resolved (status: {status or '<missing>'})."
             )
-        if contract_version == 2 and status in RESOLVED_REQUIREMENT_STATUSES:
+        if type(contract_version) is int and contract_version >= 2 and status in RESOLVED_REQUIREMENT_STATUSES:
             if status in REQUIREMENT_DECISION_STATUSES:
                 decision = row.get("user_decision")
                 if not (isinstance(decision, dict)
@@ -391,6 +393,7 @@ def review_has_unresolved_findings(rows: list[dict[str, Any]]) -> bool:
     review. Task-declared required scopes remain independently checked by the
     delivery contract; this helper does not erase them or require new artifacts.
     """
+    rows = content_review_rows(rows)
     global_indices = [i for i, row in enumerate(rows)
                       if scope_key(str(row.get("scope", ""))) == "__global__"]
     start = 0
@@ -490,8 +493,8 @@ def evaluate_delivery(
             if finding not in findings[index].split("\n"):
                 findings[index] += "\n" + finding
 
-    if type(contract_version) is not int or contract_version not in {1, 2}:
-        add("invalid_delivery_contract_version", "Delivery contract version must be 1 or 2.")
+    if type(contract_version) is not int or contract_version not in {1, 2, 3}:
+        add("invalid_delivery_contract_version", "Delivery contract version must be 1, 2 or 3.")
 
     progress_path = root / "state" / "progress.json"
     progress = read_json_or_none(progress_path)
@@ -596,6 +599,17 @@ def evaluate_delivery(
                     add("stale_delivery_receipt", f"The delivery receipt is stale for {relative}.")
 
     review_rows, review_findings = inspect_jsonl(root / "logs" / "review.jsonl", "Review")
+    review_completion = None
+    if contract_version == 3 and terminal_intent:
+        review_completion = inspect_review_completion(
+            root, progress, artifact, review_rows, hash_file=sha256_file, resolve_path=resolve_inside
+        )
+        for flag, finding in zip(review_completion["flags"], review_completion["findings"]):
+            add(flag, finding)
+        plan = progress.get("review_plan")
+        if isinstance(plan, dict) and plan.get("purpose") != "report_delivery":
+            add("invalid_review_purpose", "Use check_review_completion.py for evaluation completion; report delivery needs report_delivery.")
+    review_rows = content_review_rows(review_rows)
     required_scopes = progress.get("required_review_scopes", [])
     valid_scopes = (
         isinstance(required_scopes, list)
@@ -625,7 +639,7 @@ def evaluate_delivery(
                 elif not review_passes(latest):
                     add("failed_required_review", f"The latest review for required scope {scope!r} is not a clean PASS.")
 
-        if contract_version == 2 and artifact_path is not None and artifact_path.is_file():
+        if type(contract_version) is int and contract_version >= 2 and artifact_path is not None and artifact_path.is_file():
             latest_by_scope = {scope_key(str(row.get("scope", ""))): row for row in review_rows}
             scopes_to_bind = {"__global__"}
             if valid_scopes:
@@ -648,6 +662,11 @@ def evaluate_delivery(
         warnings.append(
             "Legacy v1 record check only: user-decision evidence, declared reading depth and "
             "review-to-artifact binding were not checked. This is not current-contract acceptance."
+        )
+    if type(contract_version) is int and contract_version == 2:
+        warnings.append(
+            "Legacy v2 record check only: model-review completion, validity audits and sampling were not checked. "
+            "This is not current-contract acceptance."
         )
     if terminal_intent and disclosure["status"] in {"absent", "contradiction"}:
         add(
@@ -683,6 +702,7 @@ def evaluate_delivery(
         "delivery_contract_version": contract_version,
         "current_contract_checked": type(contract_version) is int and contract_version == DELIVERY_CONTRACT_VERSION,
         "semantic_verification": False,
+        "review_completion": review_completion,
         "flags": flags,
         "findings": findings,
         "completion_claim": completion_claim,
@@ -708,8 +728,8 @@ def main() -> int:
     )
     parser.add_argument("--json", action="store_true")
     parser.add_argument(
-        "--contract-version", type=int, choices=(1, 2), default=DELIVERY_CONTRACT_VERSION,
-        help="Default 2 checks current records. Use 1 only for explicitly labelled historical diagnostics.",
+        "--contract-version", type=int, choices=(1, 2, 3), default=DELIVERY_CONTRACT_VERSION,
+        help="Default 3 checks current records. Use 1 or 2 only for labelled historical diagnostics.",
     )
     args = parser.parse_args()
 
@@ -724,7 +744,7 @@ def main() -> int:
     if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
     elif result["ok"]:
-        label = "legacy v1 record checks, not current-contract acceptance" if args.contract_version == 1 else "mechanical delivery checks"
+        label = f"legacy v{args.contract_version} record checks, not current-contract acceptance" if args.contract_version < 3 else "mechanical delivery checks"
         print(f"PASS: {label}; not a semantic quality verdict.")
     else:
         print("FAIL: delivery claim is not safe.")

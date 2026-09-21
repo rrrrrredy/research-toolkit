@@ -3,6 +3,8 @@
 
 from __future__ import annotations
 
+from check_review_completion import content_review_rows, inspect_review_completion
+
 import argparse
 import json
 import re
@@ -14,6 +16,7 @@ from typing import Any
 from check_delivery import (
     claims_completion, collect_open_issues, evaluate_delivery, inspect_jsonl, inspect_jsonl_text,
     issue_is_open, review_has_unresolved_findings, inspect_requirements, DELIVERY_CONTRACT_VERSION,
+    sha256_file, resolve_inside, read_json_or_none,
 )
 
 
@@ -414,11 +417,11 @@ def evaluate_case(
     findings: list[str] = []
     conformance_flags: list[str] = []
     coverage_flags: list[str] = []
-    if type(delivery_contract_version) is not int or delivery_contract_version not in {1, 2}:
+    if type(delivery_contract_version) is not int or delivery_contract_version not in {1, 2, 3}:
         conformance_flags.append("invalid_delivery_contract_version")
-        findings.append("Delivery contract version must be 1 or 2.")
-    if type(delivery_contract_version) is int and delivery_contract_version == 1:
-        findings.append("Historical delivery-record diagnostics (v1); not current-contract acceptance.")
+        findings.append("Delivery contract version must be 1, 2 or 3.")
+    if type(delivery_contract_version) is int and delivery_contract_version in {1, 2}:
+        findings.append(f"Historical delivery-record diagnostics (v{delivery_contract_version}); not current-contract acceptance.")
     score = 0
     max_score = 100
 
@@ -490,6 +493,8 @@ def evaluate_case(
 
     min_review_rows = int(case.get("min_review_rows", 1))
     review_rows, review_parse_findings = inspect_jsonl(run_dir / "logs/review.jsonl", "Review")
+    all_review_rows = review_rows
+    review_rows = content_review_rows(review_rows)
     if len(review_rows) < min_review_rows:
         findings.append(
             f"Weak review loop: expected at least {min_review_rows} review rows in logs/review.jsonl, found {len(review_rows)}."
@@ -662,6 +667,16 @@ def evaluate_case(
         for warning in delivery_result.get("warnings", []):
             findings.append("Semantic review required: " + warning)
 
+    review_completion = delivery_result.get("review_completion")
+    if delivery_contract_version == 3 and terminal_intent and not delivery_config:
+        progress_data = read_json_or_none(run_dir / "state/progress.json")
+        review_completion = inspect_review_completion(
+            run_dir.resolve(), progress_data if isinstance(progress_data, dict) else {},
+            "final.md", all_review_rows, hash_file=sha256_file, resolve_path=resolve_inside
+        )
+        conformance_flags.extend(review_completion["flags"])
+        findings.extend(review_completion["findings"])
+
     if terminal_intent and (progress_has_open_issues(progress_text) or review_has_unresolved_failures(review_text) or coverage_flags or conformance_flags):
         findings.append("False completion signal: a current progress or user-visible completion claim conflicts with unresolved issues or evaluator flags.")
         conformance_flags.append("false_completion_signal")
@@ -704,6 +719,7 @@ def evaluate_case(
         "final_reference_hits": final_reference_hits,
         "claim_rows": claim_rows,
         "review_rows": len(review_rows),
+        "review_completion": review_completion,
         "progress_stage": progress_stage,
         "progress_status": progress_status,
         "char_count": char_count,
@@ -824,9 +840,9 @@ def main() -> int:
     parser.add_argument("--report", default="evals/runs/report.md")
     parser.add_argument("--json-report", default="evals/runs/report.json")
     parser.add_argument("--create-skeletons", action="store_true")
-    parser.add_argument("--delivery-contract-version", type=int, choices=(1, 2),
+    parser.add_argument("--delivery-contract-version", type=int, choices=(1, 2, 3),
                         default=DELIVERY_CONTRACT_VERSION,
-                        help="Use 1 only for labelled historical-record diagnostics; default is current contract 2.")
+                        help="Use 1 or 2 only for labelled historical-record diagnostics; default is current contract 3.")
     parser.add_argument("--allow-missing-output", action="store_true")
     parser.add_argument(
         "--allow-review",

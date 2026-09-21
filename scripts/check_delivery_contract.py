@@ -26,7 +26,7 @@ def write_json(path: Path, value: object) -> None:
 
 
 def bind_synthetic_reviews(root: Path) -> None:
-    """Build a current-contract control in a temp copy, never reseal real reviews."""
+    """Bind a v2 control in a temp copy, never reseal real reviews."""
     path = root / "logs/review.jsonl"
     rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
     for row in rows:
@@ -55,6 +55,8 @@ class DeliveryContractTests(unittest.TestCase):
         seal(self.root)
 
     def evaluate(self, **kwargs):
+        # These controls exercise the retained v2 behavior. Contract 3 has its own controls.
+        kwargs.setdefault("contract_version", 2)
         return checker.evaluate_delivery(self.root, **kwargs)
 
     def progress(self, **updates):
@@ -364,7 +366,7 @@ class DeliveryContractTests(unittest.TestCase):
         capture.write_bytes((self.root / "delivery_message.md").read_bytes())
         result = subprocess.run(
             [sys.executable, "-B", "-X", "utf8", str(REPO / "scripts/check_delivery.py"), str(self.root),
-             "--actual-message", str(capture), "--json"],
+             "--actual-message", str(capture), "--contract-version", "2", "--json"],
             text=True, encoding="utf-8", capture_output=True, check=False,
         )
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
@@ -572,7 +574,7 @@ class DeliveryContractTests(unittest.TestCase):
         self.assertTrue(any("Legacy v1" in value for value in result["warnings"]))
 
     def test_invalid_contract_version_is_not_a_legacy_bypass(self):
-        for version in (0, 3, True, "1", None, 1.0, 2.0):
+        for version in (0, 4, True, "1", None, 1.0, 2.0):
             with self.subTest(version=version):
                 result = self.assert_flag("invalid_delivery_contract_version", contract_version=version)
                 self.assertFalse(result["current_contract_checked"])

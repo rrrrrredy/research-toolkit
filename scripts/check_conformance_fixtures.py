@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Preserve historical v1 fixture behavior; current-contract controls live in check_delivery_contract.py."""
+"""Preserve historical v1 fixture behavior; current review controls live in check_review_completion_contract.py."""
 
 from __future__ import annotations
 

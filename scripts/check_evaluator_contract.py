@@ -45,8 +45,8 @@ class EvaluatorContractTests(unittest.TestCase):
         seal(self.root)
         case = copy.deepcopy(self.case)
         case["delivery_check"] = delivery_enabled
-        d = delivery.evaluate_delivery(self.root)
-        e = evaluator.evaluate_case(case, self.root, self.sources)
+        d = delivery.evaluate_delivery(self.root, contract_version=2)
+        e = evaluator.evaluate_case(case, self.root, self.sources, delivery_contract_version=2)
         self.assertNotIn("stale_delivery_receipt", d["flags"], d)
         self.assertEqual(e["research_quality_status"], "not_evaluated")
         return d, e
@@ -90,7 +90,7 @@ class EvaluatorContractTests(unittest.TestCase):
         case = copy.deepcopy(self.case)
         case["delivery_check"] = False
         seal(self.root)
-        for version in (0, 3, True, "1", None, 1.0, 2.0):
+        for version in (0, 4, True, "1", None, 1.0, 2.0):
             with self.subTest(version=version):
                 result = evaluator.evaluate_case(case, self.root, self.sources,
                                                  delivery_contract_version=version)

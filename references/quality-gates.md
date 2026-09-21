@@ -93,7 +93,15 @@ If reader review finds serious issues, revise and repeat. Cap reader-review cycl
 
 Full review-revise cycles for a single section are capped at two unless the user asks for more. Unresolved required work remains open at the checkpoint; a cycle limit does not authorize final delivery.
 
+## Review Validity and Sampling
+
+Every declared model-review slot has a complete original response, retained execution evidence, the correct input/artifact version and an evidenced substantive-validity decision. Failed or incomplete calls remain unfinished assignments. Valid negative findings are retained and adjudicated; their existence does not make an evaluation incomplete.
+
+Critical/major findings and consequential rejected criticisms have an adjudication context separate from the author and original reviewer. Sampling includes decisive items, passed material and no-change decisions under a predeclared method. Record actual outcomes and complete triggered follow-up; a planned action is not a completed check. See [role and sampling methods](subagents-and-review-loop.md) and [record checks](../docs/review-completion.md).
+
 ## Before Public Delivery
+
+The gates below concern reader-ready delivery. Evaluation completion preserves frozen sample defects and uses its declared study endpoint.
 
 - The first page makes the main argument clear.
 - The report length and depth match the user's expectation for the assignment.
@@ -104,6 +112,7 @@ Full review-revise cycles for a single section are capped at two unless the user
 - Remaining limitations are stated cleanly when they matter.
 - Every material follow-up requirement has evidence of satisfaction or the user's specific decision changing it; required reading records distinguish actual reading from access attempts.
 - `progress.json.stage` is `final` if and only if `status` is `complete`; neither terminal value may appear alone.
+- Every required model-review slot has an effective result, and required validity, adjudication and sampling work is complete. A global PASS cannot replace a missing slot.
 - The latest parseable review for the full report or global final delivery is PASS with no open issues. A later failure supersedes an earlier PASS, and malformed review rows fail closed.
 - Its `artifact_sha256`, and the hashes of any task-required review scopes, match the current report. A local or generic reader review does not establish that an explicitly required specialist review was completed.
 - The intended user-visible message matches current state and discloses accepted limitations that affect the result.

@@ -48,7 +48,7 @@ If a task starts drifting into the excluded layers, preserve the current deliver
 6. Staged execution: plan, collect, analyze, draft, review, revise, and update state before moving to the next unit.
 7. Section-level progress: write complex work by section, company, case, period, or argument; do not generate the whole report in one pass.
 8. Optional lenses only: framing/category analysis, horizontal-vertical analysis, capital analysis, and adoption analysis are tools, not default structure.
-9. Review closes the loop: check each finding against the task, current text, and evidence. Repair confirmed defects; record a reasoned no-change decision for unsupported, duplicate, or optional suggestions. Preserve the original finding and its disposition.
+9. Review closes the loop: check each finding against the task, current text, and evidence. Repair confirmed defects; record a reasoned no-change decision for unsupported, duplicate, or optional suggestions. Preserve the original finding and its disposition. In evaluation studies, retain frozen sample defects as results and product feedback; report repair requires a separate delivery or repair-study objective.
 10. Reader review comes last: improve readability only after factual, coverage, structure, and depth checks are stable. Check figurative load: imagery must not replace concrete actors, actions, mechanisms, or evidence boundaries, and unrelated metaphor domains must not be stacked in one sentence or paragraph.
 11. Follow-up requirements stay live: give material user corrections stable ids in `state/requirements.jsonl`, and resolve each one against the user's actual request before final delivery.
 12. Delivery status is reader-visible state: the final response must agree with `progress.json`; accepted limitations that affect the result must be disclosed to the user.
@@ -56,7 +56,21 @@ If a task starts drifting into the excluded layers, preserve the current deliver
 
 Keep unfinished required work separate from evidence uncertainty. A missing required source, chapter, or review remains open until completed or the user specifically changes that requirement. For `waived`, `out_of_scope`, or `accepted_limitation`, record the relevant user decision in the requirement row; disclosure alone does not authorize closure. An original user instruction excluding work can establish scope, and ordinary uncertainty about the subject can be reported without requesting permission. Do not label an access attempt or partial reading as satisfaction of a full-reading requirement.
 
+### Review Completion
+
+At planning, declare the required review scopes, model/context identities, inputs and recovery policy in the task records. Substantial report delivery needs at least one non-author review context; compatible perspectives may share a reviewer. A particular provider or four-model panel is not a toolkit dependency. Cover intent and requirements, evidence and data, adversarial reasoning, structure and depth, reader usefulness, process-language removal and natural expression; add domain checks only where the task needs them. Read [subagent and review guidance](references/subagents-and-review-loop.md) to assign these responsibilities.
+
+Every declared model-review slot must obtain a complete, version-bound, substantive response with retained execution evidence, an original reply and a reasoned validity audit. A call attempt, timeout, truncated response or generic PASS cannot complete a slot. Diagnose failures and resume the affected slot; retry limits trigger recovery or a concrete request for missing access, never cancellation or acceptance. Keep required work open while dependencies are unavailable and continue unaffected work. Do not replace a specified model or silently shorten required inputs.
+
+Keep review validity separate from report judgment. A well-supported negative review is complete; an isolated reviewer error is adjudicated without discarding the whole review. Retain the first valid result for the declared artifact and input version, original failures and all dispositions. Preserve earlier versions when separately authorized report-delivery revisions need current-version review. Invalidation requires an evidenced decision from a context separate from the author and original reviewer. Do not rerun an already valid review to seek a favorable outcome.
+
+Check important findings against the actual text and sources. Critical/major findings, decisive disputes and the author's rejection of consequential criticism need a context separate from the author and original reviewer for adjudication. Sample passed material and no-change decisions as well as reported problems; predeclare the sampling method, inspect decisive items in full, and expand only where a material error warrants it. Keep one independent adjudication layer; unresolved evidence stays unresolved instead of generating an endless hierarchy of reviewers.
+
+Evaluation completion requires the agreed valid reviews and evidenced finding dispositions, including retained defects or unresolved evidence outcomes. Reader-ready delivery additionally requires the current report to meet its task and have no unresolved required correction. Use [review completion records](docs/review-completion.md) for the record interface. The offline checker verifies consistency; raw captures and actual content audits remain necessary, and a script cannot authenticate model execution or certify judgment.
+
 ### Protocol Contract
+
+The following transitions describe reader-ready report work. Evaluation studies retain the first submitted artifact and use their declared evaluation endpoint instead of making sample repair a completion condition.
 
 These constraints are stage-transition requirements, not optional advice. `progress.json.stage` records the current stage. A stage may iterate or return to an earlier stage, but it must not advance until its exit gate is satisfied.
 
@@ -75,7 +89,7 @@ These constraints are stage-transition requirements, not optional advice. `progr
 `progress.json.status` accepts `in_progress`, `paused`, `blocked`, and `complete`.
 Use `paused` for an intentional checkpoint and `blocked` for an unresolved obstacle. Keep the stage at the work actually reached, and put the reason and next step in `next_action`, not in an invented status value.
 
-Terminal state is bidirectional: `stage: final` requires `status: complete`, and `status: complete` requires `stage: final`. For terminal delivery, the latest full-report or global-final review supersedes earlier reviews and must be a parseable PASS with no open issues. A later failure, malformed review record, or unresolved blocker invalidates completion. The delivery receipt must bind the actual final artifact, current progress, global review log, intended delivery message, and required backstage inputs by hash.
+Terminal state is bidirectional: `stage: final` requires `status: complete`, and `status: complete` requires `stage: final`. For terminal delivery, the latest full-report or global-final review supersedes earlier reviews and must be a parseable PASS with no open issues. A later failure, malformed review record, or unresolved blocker invalidates completion. The delivery receipt must bind the actual final artifact, current progress, global review log, intended delivery message, and required backstage inputs by hash. All declared model-review slots and the required validity, adjudication and sampling records must also be complete; a global PASS cannot substitute for them.
 
 The latest global review and each task-required review scope must record the reviewed report's `artifact_sha256`, using the same LF-normalized hashing as the receipt. A changed report needs corresponding review; resealing the delivery receipt does not update what an earlier reviewer read. Keep local rechecks labelled as local. Hashes establish record consistency, not that a review was thorough or correct.
 
@@ -231,7 +245,7 @@ Use subagents only for bounded work:
 - structure review
 - reader-quality review after the draft is stable
 
-A subagent prompt must include objective, files or sections to inspect, output format, PASS/FAIL criteria, and boundaries. Subagents should not rewrite the whole report or own the thesis.
+A subagent prompt must include objective, files or sections to inspect, output format, substantive validity and report-judgment criteria, and boundaries. Subagents should not rewrite the whole report or own the thesis.
 
 Read `references/subagents-and-review-loop.md` before delegation.
 

@@ -8,6 +8,9 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Changed
 
+- Require effective model-review completion with original response and execution bindings, independent adjudication and sampling. Separate valid negative evaluation results from report-delivery readiness. Delivery contract 3 checks declared review slots; explicitly labelled versions 1 and 2 preserve historical record inspection.
+- Define review perspectives and working standards, failure recovery, reviewer audits and sampling of passed material in the Skill, role reference and bilingual introductions.
+
 - Explain research steps, failure modes, evaluation prerequisites and study configurations consistently across both READMEs and the web guide. Include tool-specific troubleshooting, recovery instructions and setup checks in the adapter guides.
 
 - Clarify the planned single-author review lane: Astra writes with the framework in Codex; fresh-context GPT-5.6 Sol high, DeepSeek, Kimi and subsequently added GLM-5.3 review each required first submission. Preserve earlier three-reviewer freezes and label the fourth review as a later addition. Disclose the supported Coding Plan client and its context/usage boundaries. Missing reviews remain incomplete, critical disputes need evidence, and no human-review prerequisite or human-calibration claim applies. Require accepted improvements to be verified before new author/judge runs; preserve frozen historical protocols and separate LLM judgments from deterministic results. This is a study plan, not new efficacy evidence or a model dependency of the framework.
