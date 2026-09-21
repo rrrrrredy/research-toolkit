@@ -1,52 +1,32 @@
-# Postmortem Lessons
+# Research Design Lessons
 
-These lessons were distilled from a demanding longform industry research project and generalized for future research-writing tasks.
+These design lessons describe recurring research failure modes and the practices intended to address them. They are not measured estimates of the toolkit's effect.
 
-## What Worked
+## Continuity And Evidence
 
-- State files prevented context loss.
-- Source, claim, and uncertainty registries reduced unsupported claims.
-- Section-by-section writing produced better work than one-shot generation.
-- Review logs were useful when findings received evidenced dispositions: confirmed defects led to corrections, while unsupported or optional suggestions received reasoned no-change decisions.
-- Reader-facing cleanup made the final piece feel like a publishable article rather than a work report.
-- Counter-evidence improved the argument when integrated into analysis instead of parked at the end.
+- Keep current state compact enough to recover the objective, open issues and next action.
+- Separate sources, claims and uncertainty so important judgments can be traced and challenged.
+- Write bounded sections when the task's depth requires focused analysis.
+- Give review findings evidenced dispositions: correct confirmed defects in commissioned reports and explain no-change decisions for unsupported or optional suggestions. In evaluation work, preserve sample defects and use them to improve the toolkit.
+- Integrate counter-evidence into the argument where it changes the conclusion.
 
-## What Failed Or Was Risky
+## Common Failure Modes
 
-- The task drifted into system design even though the desired output was a research article.
-- Too much process scaffolding leaked into prose.
-- Repeated phrases such as "user-provided material" and "the source shows" weakened author voice.
-- Treating one topic-specific project as the universal method overfit the skill.
-- Subagents sometimes echoed the main agent's assumptions instead of independently checking them.
-- Large registries were useful backstage but unreadable as public appendices.
-- Declaring completion after a partial milestone caused false closure.
-- A forward test can pass state-file and registry checks while still producing a report that is too short. Backend completeness is not the same thing as publishable depth.
-- Detailed instructions did not prevent a chat response from overstating completion because the visible claim was outside the existing deterministic check.
-- Material corrections added across many turns were vulnerable to loss without stable requirement ids and terminal reconciliation.
-- A PASS for one section or review dimension was wrongly treated as evidence for the whole delivery.
-- Extra lifecycle machinery increased state volume without improving the reader-facing artifact or the truth of the completion claim.
+- Expanding an article task into system design.
+- Exposing backstage source labels, logs or workflow narration in finished prose.
+- Treating one topic's analytical structure as a universal method.
+- Reviewers repeating the author's assumptions without checking evidence.
+- Treating large registries or passing file checks as proof of substantive depth.
+- Declaring whole-task completion after a local milestone.
+- Losing material follow-up requirements across turns.
+- Adding lifecycle machinery that does not improve the deliverable or the accuracy of its status.
 
-## User Preference Pattern
+## Reader-Facing Quality
 
-For long research writing, the preferred output is:
+A research report needs a clear thesis, relevant evidence, enough detail for the question, explicit uncertainty, useful references and readable analysis. Its expected depth should be settled before drafting. Review the actual text against those requirements rather than relying on file counts or status labels.
 
-- thesis-led
-- evidence-backed
-- detailed where complexity requires it
-- explicit about expected depth before drafting
-- written section by section
-- clean of process language
-- explicit about uncertainty without becoming defensive
-- supported by reader-facing references
-- reviewed for both factual discipline and reading experience
+## Delivery Boundary
 
-## Method Pattern
+Research records support traceability; the finished report presents the argument and evidence useful to its reader. Neither layer substitutes for the other.
 
-Use a two-layer system:
-
-1. Research backend: sources, claims, uncertainty, logs, review.
-2. Publishing frontend: argument, structure, prose, references.
-
-The backend makes the article reliable. The frontend makes it worth reading.
-
-The delivery boundary connects both layers: current requirements, global review, accepted limitations, artifact hashes, and the user-visible status must agree. A stage artifact may be useful and honestly delivered without passing the terminal gate.
+Current requirements, whole-report review, accepted limitations, artifact hashes and the delivery statement must agree. A partial artifact can be delivered with an accurate scope. Evaluation completion depends on the frozen evaluation requirements and preservation of results; it does not require repairing every evaluated report.

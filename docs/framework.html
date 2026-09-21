@@ -829,8 +829,6 @@
                 <h3>Check the run</h3>
                 <pre><code>After the research run, place the artifacts under evals/runs/&lt;run-id&gt;/ and execute:
 python scripts/run_evals.py --runs-dir evals/runs --report evals/runs/report.md
-python scripts/run_dsh_evals.py validate
-python scripts/run_dsh_evals.py smoke
 python scripts/check_eval_source_integrity.py
 python scripts/check_cross_agent_protocol.py
 python scripts/check_regression_fixtures.py
@@ -891,9 +889,9 @@ python scripts/check_docs_sync.py</code></pre>
                 <p>Use <a href="https://github.com/rrrrrredy/research-toolkit/blob/main/scripts/run_evals.py">scripts/run_evals.py</a> to report mechanical conformance for state files, claim discipline, review logs, depth signals, process leakage, source-instruction leakage, and false completion. Its heuristic score is not a research-quality grade.</p>
               </article>
               <article class="card">
-                <div class="card-number">DSH adapter</div>
+                <div class="card-number">Optional adapter</div>
                 <h3>Separate runtime wiring from model quality</h3>
-                <p>Use <a href="https://github.com/rrrrrredy/research-toolkit/blob/main/scripts/run_dsh_evals.py">scripts/run_dsh_evals.py</a> to validate the native Skill layout, smoke-test real DSH headless invocation against a local scripted endpoint, or run a configured model and score its artifacts with the shared evaluator.</p>
+                <p>The <a href="https://github.com/rrrrrredy/research-toolkit/blob/main/agents/deepseek-harness.md">optional DSH guide</a> describes checks for users of that runtime. Its smoke check observes configured tool and text markers; it does not verify complete Skill-body loading or research quality. Research Toolkit does not depend on DSH.</p>
               </article>
               <article class="card">
                 <div class="card-number">Calibration</div>
@@ -902,8 +900,9 @@ python scripts/check_docs_sync.py</code></pre>
               </article>
             </div>
             <div class="wide">
+              <p>Evaluation preserves original reports and valid review findings. Defects guide toolkit improvements; completing an evaluation does not require repairing and re-reviewing every sample.</p>
               <p>Source-boundary fixtures cover configured final-text markers, specified malicious conclusions, and preservation of selected usable facts. They do not prove general prompt-injection resistance or cover every tool or state side effect.</p>
-              <p>A frozen baseline/framework protocol for four planned agents is available under <a href="https://github.com/rrrrrredy/research-toolkit/tree/main/evals/cross_agent">evals/cross_agent</a>. It currently has no model runs or comparative result; its publication gate requires at least three complete agent pairs and blinded review.</p>
+              <p>A frozen baseline/framework protocol for four planned agents is available under <a href="https://github.com/rrrrrredy/research-toolkit/tree/main/evals/cross_agent">evals/cross_agent</a>. No completed runtime pairs or comparative runtime result are published; its publication gate requires at least three complete agent pairs and blinded review.</p>
             </div>
           </section>
 
@@ -981,7 +980,7 @@ python scripts/check_docs_sync.py</code></pre>
               <div class="index">03</div>
               <div>
                 <h2>Behavioral Constraints</h2>
-                <p class="section-kicker">Hard rules of the framework, each induced from real failure modes in long research work.</p>
+                <p class="section-kicker">Operational rules for substantial research. Numerical thresholds are heuristics, not measured optima.</p>
               </div>
             </div>
             <ol class="constraint-list">
@@ -1216,7 +1215,7 @@ python scripts/check_docs_sync.py</code></pre>
               <div class="index">13</div>
               <div>
                 <h2>Gotchas And Hard Stops</h2>
-                <p class="section-kicker">The latest update turns common failure modes into explicit stop-and-repair signals.</p>
+                <p class="section-kicker">Common failure modes have explicit stop-and-repair signals.</p>
               </div>
             </div>
             <div class="cards">

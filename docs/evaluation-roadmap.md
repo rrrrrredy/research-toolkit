@@ -10,8 +10,8 @@ For new report studies, use the [current evaluation standard](report-evaluation-
 |---|---|---|---|---|
 | A. Deterministic conformance | Did an artifact follow configured protocol and delivery rules? | Implemented: positive controls, 22 negative fixtures, source integrity, DSH adapter checks | Known structural and traceability failures are detected for tested fixtures | The report is factually correct, insightful, or useful |
 | B. Cross-agent portability | Can different runtimes execute the same frozen protocol, and how do their failures differ? | Protocol frozen; no completed runtime pairs published | Runtime-specific adherence and integration observations after the publication gate passes | A general framework effect from one synthetic task |
-| C. Real-task efficacy | Does using the framework improve decision-useful research versus normal agent behavior? | Study design required; no valid result in this repository | A bounded treatment estimate after preregistered held-out runs and independent review | Universal superiority across models, tasks, or organizations |
-| D. External adoption | Can other maintainers reproduce, extend, and keep using it? | Early maintainer-led repository; verify live GitHub and reproduction evidence at each release | Nothing beyond early project maturity | Community validation or ecosystem traction |
+| C. Real-task efficacy | Does using the framework improve decision-useful research versus normal agent behavior? | Study design documented; no completed efficacy result published here | A bounded treatment estimate after preregistered held-out runs and independent review | Universal superiority across models, tasks, or organizations |
+| D. External adoption | Can other maintainers reproduce, extend, and keep using it? | No independent reproduction result published here | Reproduction and adoption claims require attributable external evidence | Community validation or ecosystem traction |
 
 ## Track A: Deterministic Conformance
 
@@ -97,10 +97,11 @@ After the first tagged release, invite external users to reproduce one frozen ca
 - Keep private or licensed evidence out of public bundles unless redistribution rights are explicit.
 - Separate evaluator-development data, reviewer-calibration data, and final held-out tasks.
 
-## Release Sequence
+## Release And Study Requirements
 
-1. Stabilize conformance schema v2 and delivery semantics.
-2. Publish an initial tagged release with migration notes and exact checks.
-3. After accepted corrections pass, complete the current single-author report/review lane and freeze the real-task study design before its held-out runs.
-4. Run the preregistered real-task study; execute the separate frozen cross-agent showcase when its runtime environments are available, without changing its inputs. Missing external runtimes do not block the Codex-only lane or justify calling model APIs different runtimes.
-5. Add optional domain packs or distribution plugins only when repeated external use demonstrates the need.
+Conformance schema v2 and tagged prereleases are available. The current `main` branch also contains changes listed under `Unreleased`; a prior release archive does not include those later changes.
+
+- Freeze each real-task study before its held-out runs, and retain first outputs and review findings as evaluation evidence.
+- Publish comparisons only within the scope supported by complete runs and evidence review. The separate frozen cross-agent comparison requires actual runtime environments; model APIs are not different agent runtimes.
+- Missing external runtimes do not prevent single-environment evaluation or justify a portability claim.
+- Add optional domain packs or distribution plugins only when repeated external use demonstrates the need.

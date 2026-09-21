@@ -13,12 +13,14 @@ Contribute changes that improve research methods, make the workflow easier to fo
 
 1. State the concrete failure, adoption problem, or evidence gap.
 2. Prefer the smallest change that affects an observable result.
-3. Add a known-bad regression fixture for a deterministic failure.
-4. Add or preserve a known-good control so the checker cannot improve by rejecting everything.
+3. For changes to deterministic behavior, add a regression for the demonstrated failure when existing fixtures do not cover it.
+4. Preserve a valid control so the checker cannot improve by rejecting everything. Documentation-only changes need checks of their claims, examples and links, without new test cases.
 5. Use synthetic or rights-cleared data. Sanitized internal summaries are workflow seeds, not public factual authority.
 6. Do not update frozen cross-agent inputs after runs begin; create a new protocol version and lock instead.
 
-## Required Checks
+## Verification
+
+Run the checks relevant to the changed behavior. CI runs the full offline suite below. The DSH validation command checks an optional adapter configuration; it does not install or start that runtime. Repeat or broaden checks only when a change, failure or unresolved concern requires it.
 
 ```bash
 python scripts/check_docs_sync.py
@@ -53,11 +55,10 @@ Include:
 - the failure or use case addressed;
 - files and contract fields changed;
 - exact checks run and their outcomes;
-- one negative example that is newly caught;
-- one positive control that still passes;
+- for changed checker behavior, the relevant failing example and valid control;
 - limitations and any intentionally deferred work.
 
-Do not claim improved report quality from a green deterministic test alone. Real efficacy claims require held-out tasks, matched baseline/framework runs, calibrated independent review, and disclosure of failures, retries, cost, and latency.
+Do not claim improved report quality from a green deterministic test alone. Real efficacy claims require held-out tasks, matched baseline/framework runs, independent LLM review checked against known-error and valid controls, and disclosure of failures, retries, cost, and latency.
 
 ## Source Preparation Helper
 

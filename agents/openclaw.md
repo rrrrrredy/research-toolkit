@@ -9,7 +9,7 @@ Use this when OpenClaw can read local skills from a workspace or user skills dir
 
 OpenClaw skills are directories containing a `SKILL.md` file with YAML frontmatter and a markdown body. OpenClaw discovers skills by scanning skill roots; the skill's visible name comes from the `name` field in `SKILL.md`.
 
-Recommended install paths, in OpenClaw's precedence order:
+For the default state directory, supported install paths in precedence order are:
 
 ```text
 <workspace>/skills/research-toolkit
@@ -17,6 +17,8 @@ Recommended install paths, in OpenClaw's precedence order:
 ~/.agents/skills/research-toolkit
 ~/.openclaw/skills/research-toolkit
 ```
+
+With a custom `OPENCLAW_STATE_DIR`, managed skills live in `<state-dir>/skills/` and the home `~/.agents/skills/` compatibility root is not loaded. Use the active profile's directory rather than assuming `~/.openclaw/`.
 
 For a workspace-scoped install:
 
@@ -52,7 +54,9 @@ Create state/, logs/, and data/ in the research project folder, not inside the s
 
 ## 中文提示
 
-OpenClaw 官方 skill 机制要求每个 skill 是一个包含 `SKILL.md` 的目录，`SKILL.md` 里有 YAML frontmatter 和 markdown 正文。推荐把本仓库放到官方支持的 skill root 中，例如 `<workspace>/skills/research-toolkit`、`<workspace>/.agents/skills/research-toolkit`、`~/.agents/skills/research-toolkit` 或 `~/.openclaw/skills/research-toolkit`。
+OpenClaw 官方 skill 机制要求每个 skill 是一个包含 `SKILL.md` 的目录，`SKILL.md` 里有 YAML frontmatter 和 markdown 正文。使用默认状态目录时，可以把本仓库放到以下 skill root 中，按优先级排列： `<workspace>/skills/research-toolkit`、`<workspace>/.agents/skills/research-toolkit`、`~/.agents/skills/research-toolkit` 或 `~/.openclaw/skills/research-toolkit`。
+
+若设置了 `OPENCLAW_STATE_DIR`，托管技能目录改为 `<state-dir>/skills/`，且不会加载家目录中的 `~/.agents/skills/` 兼容目录。
 
 如果你的 OpenClaw 配置启用了 skill allowlist，请允许 frontmatter 里的技能名 `research-toolkit`。本框架不需要 `skills.entries.<key>.env` 或 `skills.entries.<key>.apiKey`，因为它是研究指令包，不是需要密钥的工具。
 

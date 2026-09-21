@@ -100,7 +100,6 @@ Offline checks: run these commands from the repository directory with Python. Th
 
 ```bash
 python scripts/run_evals.py --runs-dir evals/runs --report evals/runs/report.md
-python scripts/run_dsh_evals.py validate
 python scripts/check_eval_source_integrity.py
 python scripts/check_cross_agent_protocol.py
 python scripts/check_regression_fixtures.py
@@ -118,7 +117,7 @@ See [`evals/README.md`](./evals/README.md) for runtime setup, execution modes, a
 
 For actual outputs, read the [September 2026 calibration reports and repairs](./evals/diagnostics/2026-09-07/): four original reader reports, two repairs, retained failed reviews and a three-model text diagnostic, including an incomplete reply. These are development evidence, not a measured win rate for using the toolkit.
 
-Those historical diagnostics retain their original three-model configuration. The current report-review plan separately uses Astra in Codex to write with the toolkit's research methods and Sol high, DeepSeek, Kimi, and GLM as four reviewers; the toolkit does not depend on that panel. Model reviews of text are also distinct from research runs in different agent environments.
+Those historical diagnostics retain their original three-model configuration. The separate four-reviewer study configuration uses Astra in Codex to write with the toolkit's research methods and Sol high, DeepSeek, Kimi, and GLM as four reviewers; the toolkit does not depend on that panel. Model reviews of text are also distinct from research runs in different agent environments.
 
 The repository also contains a frozen three-to-four-agent comparison protocol under [`evals/cross_agent/`](./evals/cross_agent/), comparing research with and without the toolkit. It is currently prepared but has no published completed runtime pairs. Its publication checker refuses a comparative bundle with fewer than three complete agent pairs or inadequate blinded review; the separate model text diagnostic does not satisfy this gate.
 

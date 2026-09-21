@@ -97,7 +97,6 @@
 
 ```bash
 python scripts/run_evals.py --runs-dir evals/runs --report evals/runs/report.md
-python scripts/run_dsh_evals.py validate
 python scripts/check_eval_source_integrity.py
 python scripts/check_cross_agent_protocol.py
 python scripts/check_regression_fixtures.py
@@ -115,7 +114,7 @@ python scripts/check_delivery.py <任务目录>
 
 想直接看产出，可阅读[2026 年 9 月校准报告与修订案例](./evals/diagnostics/2026-09-07/)：保留四份原始读者稿、两份修订稿、失败审查及三模型文本诊断，也保留未返回完整结论的记录。这些是开发期证据，不能据此计算使用工具箱的胜率。
 
-上述历史诊断保留当时的三模型记录。当前另行规划的报告评审由 Astra 在 Codex 中按工具箱的研究方法写作，再交给 Sol high、DeepSeek、Kimi、GLM 四名模型评审；这项安排不是工具箱的模型依赖。模型审阅文本也不等于不同 Agent 运行环境实际使用了工具箱。
+上述历史诊断保留当时的三模型记录。另行定义的四模型评审配置由 Astra 在 Codex 中按工具箱的研究方法写作，再交给 Sol high、DeepSeek、Kimi、GLM 四名模型评审；这项安排不是工具箱的模型依赖。模型审阅文本也不等于不同 Agent 运行环境实际使用了工具箱。
 
 仓库还在 [`evals/cross_agent/`](./evals/cross_agent/) 准备了一套冻结的 3–4 Agent 对照协议，比较使用与不使用工具箱的研究结果。目前没有公开的完整运行时配对结果。发布检查器会拒绝少于 3 个完整 Agent 配对或盲审不足的比较包；单独的三模型文本诊断不满足这一门槛。
 

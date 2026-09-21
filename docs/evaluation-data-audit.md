@@ -47,4 +47,4 @@ The checker now requires a non-empty pack collection and case collection for thi
 
 The source-use policy is an evaluation-data boundary, not a new research protocol schema. Frozen cross-agent files, the synthetic frozen source pack, SKILL.md and all references remain unchanged. Old runs keep their old input hashes; new runs must identify the new candidate rather than retroactively claiming these corrections.
 
-中文结论：本轮清理的是已证实的错误归属、未解开的数字口径冲突和参考稿无来源支持的外推。其余未知项明确保留，不把“检查通过”包装成“数据完全正确、版权全部清楚”。
+中文结论：活跃资料已排除已证实的错误归属和未解开的数字口径冲突，参考稿已收窄无来源支持的外推。其余未知项明确保留，不把“检查通过”包装成“数据完全正确、版权全部清楚”。

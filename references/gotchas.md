@@ -12,7 +12,7 @@ Repair:
 2. Convert source rows into mechanisms, tradeoffs, counter-cases, and implications.
 3. Rewrite the section around the argument, not around source order.
 
-Eval signal: high artifact score, high bullet density, repeated source-listing phrases, weak synthesis in manual review.
+Eval signal: high artifact score, high bullet density, repeated source-listing phrases, weak synthesis in content review.
 
 ## Source-Listing Prose
 
@@ -73,7 +73,7 @@ Repair:
 2. Identify thin units by section, company, period, mechanism, or case.
 3. Expand the units with mechanisms, examples, counter-evidence, and implications before reader cleanup.
 
-Eval signal: low non-space character count, missing expected sections, high list ratio, or human review saying "too shallow".
+Eval signal: low non-space character count, missing expected sections, high list ratio, or content review finding insufficient depth.
 
 ## Lens Overreach
 

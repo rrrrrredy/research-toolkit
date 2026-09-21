@@ -8,7 +8,7 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Changed
 
-- Apply the approved wording review in both READMEs and the web guide. Use Quickstart, retain the five failure-mode terms and all restored substantive sections, explain technical terms with concrete actions, label evaluation prerequisites and historical/current study configurations, and align the Chinese report-length unit. Move link troubleshooting and recovery details to the tool guides while retaining both eight-tool preflight tables. Research rules, thresholds, checks, rubrics, and frozen study inputs are unchanged.
+- Explain research steps, failure modes, evaluation prerequisites and study configurations consistently across both READMEs and the web guide. Include tool-specific troubleshooting, recovery instructions and setup checks in the adapter guides.
 
 - Clarify the planned single-author review lane: Astra writes with the framework in Codex; fresh-context GPT-5.6 Sol high, DeepSeek, Kimi and subsequently added GLM-5.3 review each required first submission. Preserve earlier three-reviewer freezes and label the fourth review as a later addition. Disclose the supported Coding Plan client and its context/usage boundaries. Missing reviews remain incomplete, critical disputes need evidence, and no human-review prerequisite or human-calibration claim applies. Require accepted improvements to be verified before new author/judge runs; preserve frozen historical protocols and separate LLM judgments from deterministic results. This is a study plan, not new efficacy evidence or a model dependency of the framework.
 - Rename the project to Research Toolkit / 研究工具箱 and the repository and Skill identifier to `research-toolkit`. Update current documentation, installation examples, Pages links, and the owner's Profile entry. Preserve historical study inputs and release records.
@@ -16,6 +16,8 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 - Remove launch-marketing copy, badges, gallery images, and video assets from the repository and public page.
 
 ### Fixed
+
+- Keep DSH runtime commands out of general evaluation instructions, qualify profile-specific installation paths, and remove stale approval and editing notes from current documentation. Scope local verification to the changed behavior while retaining the full offline CI suite.
 
 - Align evaluation descriptions with their implementation and published evidence. Keep runtime-specific checks in optional adapter guidance, describe smoke checks as marker-based wiring observations, and distinguish saved delivery messages from captured replies. Update diagnostic review status, historical rubric boundaries, source-map metadata and the existing CI inventory. Retain original samples, reviews, scores and frozen study inputs; evaluation defects inform Toolkit improvements without a mandatory repair loop.
 
@@ -28,12 +30,12 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 - Align the core review protocol and guides with evidenced adjudication: preserve original findings, repair confirmed defects, and allow reasoned no-change decisions for unsupported, duplicate, or optional suggestions. Keep required work and current-version review obligations open until satisfied. Correct the Chinese guide's implication that reaching a review-cycle checkpoint can convert required work into a limitation. These instruction changes do not establish a report-quality effect.
 - Add three synthetic reader-review pairs for buried opening findings, editorial narration and non-analytical timelines. Keep the earlier twenty inputs and model reviews unchanged; the author-proposed controls are development data, not held-out or measured quality results. Their later internal four-model diagnosis and retained pricing correction are described in the semantic-diagnostics index; private review records are not published here.
 
-- Tighten current delivery checks after a real false-completion postmortem: require a specific recorded user decision for waived or excluded requirements, check declared required reading against source records, and bind global/task-required reviews to the actual report hash. Keep ordinary evidence uncertainty and honest partial delivery valid. Default to delivery contract 2; label explicit v1 historical diagnostics without rewriting frozen inputs or results. Record consistency does not authenticate consent, actual reading, or semantic quality.
+- Tighten delivery checks: require a specific recorded user decision for waived or excluded requirements, check declared required reading against source records, and bind global/task-required reviews to the actual report hash. Keep ordinary evidence uncertainty and honest partial delivery valid. Default to delivery contract 2; label explicit v1 historical diagnostics without rewriting frozen inputs or results. Record consistency does not authenticate consent, actual reading, or semantic quality.
 - Clarify that stopping a search direction or reaching a review-cycle limit leaves unfinished mandatory work open. Make reader review inspect the opening, analytical contribution of tables, and sentence-level voice without imposing phrase bans, a fixed article template, or extra reviewers.
 
-- Restore substantive README sections, complete task examples, the research completion checklist, recovery guidance, and evaluation commands removed during the rename pass. Restore setup preflight tables and detailed page entry points. Preserve the approved project name, URLs, direct usage instructions, and removal of launch-marketing material. Further wording changes await user review.
+- Include complete task examples, the research completion checklist, recovery guidance, evaluation commands and setup checks in the reader entry points.
 
-- Document the four progress statuses already enforced by the delivery checker and explain how to record an intentional checkpoint. A real native partial run honestly paused but invented a descriptive status that the checker rejected. Add that exact negative case, valid partial-state controls, and a documentation-to-checker enum check. The checker is not weakened and research steps are unchanged; this clarification is not efficacy evidence.
+- Document the four progress statuses already enforced by the delivery checker and explain how to record an intentional checkpoint. Reject unsupported status names while preserving valid partial states; check that documentation and checker enums agree. The checker is not weakened and research steps are unchanged; this clarification is not efficacy evidence.
 - Preserve the historical v1 study inputs in an independently validated archive so current framework documentation can evolve without changing old study bytes. Keep the original manifest, lock and all fifteen hashes unchanged; reject missing, changed, duplicate or unexpected archive members rather than falling back to current files.
 - Fail source-integrity checks when the case or source-pack collection is missing or empty, rather than reporting coverage without checking any cases. Reject missing, empty, malformed or duplicate case references, duplicate quarantine IDs and policy entries for missing packs. Report the actual case count; preserve valid workflow controls and the factual-use prohibition. No frozen sources, reports or research-method rules change.
 
@@ -64,7 +66,7 @@ Delivery-checker prerelease. The core protocol and frozen research inputs are un
 ### Fixed
 
 - Recognize explicit completion claims that name the selected primary report through a Markdown link or inline filename. Previously, a reply such as `已完成 [report.md](report.md)` could pass the checker while progress remained nonterminal. Keep bare links, unrelated artifacts, negations and explicitly partial work as non-completion controls.
-- Add six delivery-contract tests derived from a real Codex reply and bounded wording variants. This closes a known lexical gap; natural-language claim detection is still heuristic, not a semantic guarantee. The core Skill, references and frozen experimental inputs are unchanged.
+- Add six delivery-contract tests covering report-linked completion claims and bounded wording variants. This closes a known lexical gap; natural-language claim detection is still heuristic, not a semantic guarantee. The core Skill, references and frozen experimental inputs are unchanged.
 
 ## [v0.1.1](https://github.com/rrrrrredy/research-toolkit/releases/tag/v0.1.1) — 2026-09-07
 
