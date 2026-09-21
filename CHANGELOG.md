@@ -17,7 +17,9 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Fixed
 
-- Separate evaluation completion from reader-ready report delivery in the current bilingual evaluation standard and roadmap. Preserve original defects and failures as dataset and product-feedback inputs, remove the standing unlimited-repair instruction, and keep report repairs outside the primary effect comparison. Verify actual product changes with relevant checks; existing frozen study inputs, reviews and scores remain unchanged.
+- Separate evaluation completion from reader-ready report delivery in the current bilingual evaluation standard and roadmap, including the complete-chain instruction. Complete still-required missing reviews while preserving their original failures; retain valid reviews and sample defects without a quality-driven repair loop. Use those defects for product iteration and verify the relevant changes. Existing frozen study inputs, reviews and scores remain unchanged.
+
+- Make the existing research-planning checklist connect independently answerable questions to evidence gaps and actual answer passages. Distinguish reading a source from using its relevant evidence, and use unanswered questions to guide source selection. Reuse existing task notes without adding required files, a fixed report format, scoring rules or model calls. This method clarification has not been shown to improve report quality.
 
 - Add an optional stored-HTML extraction helper that preserves JSON-LD publication/version dates, HTML date tags, canonical declarations and link destinations beside the text. Strict decoding, explicit extraction limits and exclusive output creation preserve source provenance. Nine positive/negative controls and checks against retained publisher HTML verify this extraction behavior; no report-quality or causal efficacy improvement is claimed. Existing protocols and frozen study inputs are unchanged.
 

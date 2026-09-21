@@ -24,7 +24,7 @@ Keep four results separate:
 3. Run the assigned workflow. For the toolkit condition this includes outline, research, analysis, section writing and review, followed by an actual whole-report reading. Check whether the outline addresses the actual questions and whether its section hierarchy supports the argument before drafting; revise it when evidence changes the argument. Follow any task-specific independent structure-review requirement, without adding another default four-model panel. Capture genuine events; do not manufacture missing historical steps.
 4. Save the first complete candidate without overwriting it. Four non-author reviewers receive the same full task, report and evidence version, independently. Current roles are Astra in Codex as sole author/reviser; GPT-5.6 Sol high in a fresh Codex context, DeepSeek, Kimi and GLM-5.3 high as reviewers. These roles are this study's configuration, not a dependency of the toolkit.
 5. Lock original reviews before exposing feedback. Record every finding, including disagreements and failed calls. The author/operator checks the actual passage and source before accepting a correction. Do not substitute votes for evidence.
-6. Preserve the frozen reports, original reviews, evidence-based defect labels and failed or unresolved outcomes in the evaluation dataset. A report does not have to become usable for its evaluation to be complete. Failed or incomplete runs and panels retain that status under the frozen protocol; transport or formatting failures are not zero-quality reports, and retries are not silent replacements.
+6. Preserve the frozen reports, original reviews, evidence-based defect labels and failed or unresolved outcomes in the evaluation dataset. A report does not have to become usable for its evaluation to be complete. Failed or incomplete runs and panels retain that status under the frozen protocol; transport or formatting failures are not zero-quality reports, and retries are not silent replacements. Complete missing reviews that remain required under the agreed study and failure policy, preserving each completion attempt separately. Completing a missing review does not authorize editing the sample or repeating an already valid review to remove its findings.
 7. Aggregate these original outcomes into product feedback, decide what to adopt and why, change the toolkit where justified, and verify the affected behavior. Report repair is not a prerequisite for this step. Known serious product defects may be fixed earlier with separate version groups. Final project acceptance includes this product work, not only reports and scores.
 
 Keep revised reports and their reviews separate from the first-submission dataset and primary comparison. They record additional feedback, intervention, regressions and effort; they are not automatically reference answers or evidence that the toolkit improved. Preserve time, tokens or known costs, unknown charges and unresolved limits.
@@ -79,7 +79,7 @@ For each product issue retain: failing example, impact, root cause, accepted/rej
 
 出题和来源准入 → 冻结任务及评测配置 → 提纲、研究、分节写作与实际审读 → 锁定第一份完整稿 → 四人独立初评 → 逐条证据裁定 → 将原始结果、缺陷和失败纳入评测集 → 跨题归因与取舍 → 改进项目并验证受影响的行为。
 
-评测完成不要求每份报告修到可用。已证缺陷用于项目迭代；必读材料缺失、失败和不完整面板按冻结协议保留原状态，不能写成通过。传输或格式失败不当成质量零分，也不静默重试替换。
+评测完成不要求每份报告修到可用。已证缺陷用于项目迭代；必读材料缺失、失败和不完整面板按冻结协议保留原状态，不能写成通过。传输或格式失败不当成质量零分，也不静默重试替换。依约定研究及失败处理规则仍需完成的原定缺失评审应完成，各次完成尝试单列保存；这不授权修改样稿，也不因已有有效评审发现问题而再次评审。
 
 只有任务包含可用报告交付或明确研究返工效果时，才另行集中修订、核读受影响分析及全文，并完成所需的同版四路复评。以下返工及可用性要求适用于这部分报告交付工作。修订稿及其评审单列保存，记录额外反馈、干预、新引入的错误和成本；不自动成为标准答案，不替代首稿或证明工具箱改进。
 

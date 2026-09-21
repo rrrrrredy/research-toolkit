@@ -34,7 +34,11 @@ Before collecting more material, write:
 - staged structure
 - completion criteria
 
-If the user supplied many requirements, turn them into a checklist before writing. Keep this checklist backstage; do not paste it into the final article unless requested.
+For a brief with several must-answer questions, use the existing task specification to separate the parts that can be answered independently. An explicitly requested comparison should retain its named objects and dimensions; a broad heading such as "commercialization" does not by itself preserve separate questions about availability, buyer costs and production. Keep this working map backstage and use a form proportionate to the task.
+
+For each part, note what the sources already read establish and what evidence is still needed. Choose the next source from that gap: a seller's announcement can establish its offer, while a claim about buyer experience needs evidence from that perspective. Reading a required source and answering the associated question are separate checks; relevant evidence inside a read source can still be omitted from the analysis.
+
+At assembly, work from these questions back to the actual answer passages and their evidence, rather than only checking the sources cited in the draft. A bounded unknown can answer a question when the available evidence leaves it unresolved; an unchecked point is still open. Several questions should not be closed by one assertion that the report or its sections are complete. Reuse the task specification and existing notes; this adds no mandatory file, scoring rule, report table or reviewer. Explicit reading and changed-scope requirements continue to follow the state rules below.
 
 ## 3. State System
 
