@@ -2,6 +2,8 @@
 
 The weak baseline for this case is not merely a short report. It can contain many files, sources, and headings while still failing the assignment.
 
+This is an illustrative comparison of failure patterns and intended controls, not a paired model-effect result.
+
 ## Weak baseline
 
 - Opens with broad advice about building model capability instead of explaining how company pipelines are organized.
@@ -23,8 +25,8 @@ The weak baseline for this case is not merely a short report. It can contain man
 - Explains how Harness and Coding Agent change data units, environments, evaluation, Serving, and the release bundle.
 - Uses compact tables where repeated mappings are easier to compare visually.
 - Keeps evidence traceable backstage without exposing a rejected glossary or reference appendix.
-- Preserves all thirteen requirement turns in a small current requirement ledger.
-- Makes the user-visible status agree with progress, global review, accepted limitations, and current artifact hashes.
+
+The separate [positive fixture state](../../conformance_fixtures/known_good_model_company_pipeline_zh/model_company_pipeline_long_horizon_zh/) supplies the thirteen-turn requirement ledger, delivery message, reviews and receipt used for mechanical checks. The report anchor alone does not demonstrate those state or delivery properties.
 
 ## Review use
 

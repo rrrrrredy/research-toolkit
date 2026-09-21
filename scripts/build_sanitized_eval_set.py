@@ -373,7 +373,7 @@ def main() -> int:
         {
             "source_pack_id": "ai_knowledge_sanitized",
             "case_source_map": {case["case_id"]: case["source_ids"] for case in cases},
-            "note": "Coverage hints are used by the offline runner and human reviewers; they are not gold answers.",
+            "note": "Reference mapping for inspection. The offline runner reads source_ids from each case JSON, not this file. These hints are not reference answers or proof of evidence coverage.",
         },
     )
 

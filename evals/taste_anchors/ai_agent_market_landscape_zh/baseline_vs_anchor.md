@@ -2,12 +2,10 @@
 
 ## Baseline Pattern
 
-The first baseline run was mechanically compliant: it created state files, registries, review logs, expected headings, reader-facing source titles, and uncertainty language. The deterministic runner initially gave this style a passing score.
-
-But the output was not good enough. It had three recurring problems:
+This comparison describes an illustrative baseline pattern, not a published paired study or a result from the current evaluator. Artifact completeness can coexist with weak prose, including three recurring problems:
 
 - **Process leakage**: phrases such as "source pack", "脱敏评测", and "用于检验研究流程" appeared in the final report.
-- **Source listing instead of synthesis**: many paragraphs followed the pattern "source X says Y; this can support trend recognition". That proves traceability but does not produce a thesis.
+- **Source listing instead of synthesis**: many paragraphs followed the pattern "source X says Y; this can support trend recognition". That may expose source attribution without producing a thesis.
 - **Over-listing**: the report was dominated by bullets, so the reader had to do the synthesis work.
 
 ## Taste Anchor Pattern
@@ -22,7 +20,7 @@ The high-quality anchor still respects the framework, but it behaves differently
 
 ## Rubric Implications
 
-The rubric and deterministic runner should not reward artifact completeness alone. A passing output should also:
+Mechanical checks can flag configured process terms, internal IDs and repetitive formatting. The broader editorial assessment should also consider the following; a deterministic pass does not establish these qualities:
 
 - avoid eval/process language in `final.md`
 - avoid internal source ids in `final.md`

@@ -40,9 +40,11 @@ Store each run at `evals/cross_agent/runs/<agent_id>/<condition>/`. A complete a
 - `stdout.txt` and `stderr.txt`: raw process streams, with secrets redacted but no substantive omissions;
 - `workspace/`: every artifact produced, including failures and partial work.
 
-Do not repair a failed run in place. Record the failure, then start a new attempt with a distinct run id and disclose the rerun rule.
+Do not repair a failed run in place. Retain the failure as a result. Start another attempt only when the study's predefined rule requires it, with a distinct run id and disclosed reason; low quality alone does not require a rerun.
 
 ## Review And Publication Gate
+
+This section describes the historical frozen v1 protocol: at least two reviewers and the retained 1–5 rubric. It is not the current report-evaluation configuration. New studies use the [current five-dimension 0–4 standard](../../docs/report-evaluation-standard.md), freeze their own inputs and keep their results separate. Current semantic review uses LLM reviewers without a human-review prerequisite.
 
 Randomize run ids before review. `reviews/blinding-map.json` uses a `runs` array whose rows contain exactly one `run_id` and one unique `blind_run_id`; reveal this map only after reviews are locked. At least two reviewers score each output independently with [`review_rubric.md`](./review_rubric.md) without seeing agent or condition. Critical failures cannot be offset by a high average score.
 
@@ -59,4 +61,4 @@ Use `python scripts/check_cross_agent_protocol.py --require-publication` before 
 
 ## Relation To A Real Efficacy Evaluation
 
-One frozen synthetic task can reveal integration failures, protocol adherence differences, and obvious quality regressions. It cannot estimate average treatment effect. A defensible efficacy claim needs multiple held-out real tasks, matched baseline/framework runs within the same production runtime, preregistered stopping rules, calibrated reviewers, and critical-failure reporting. Keep that study separate from this public showcase.
+One frozen synthetic task can reveal integration failures, protocol adherence differences, and obvious quality regressions. It cannot estimate average treatment effect. A defensible efficacy claim needs multiple held-out real tasks, matched baseline/framework runs within the same production runtime, preregistered stopping rules, reviewer controls checked against evidence, and critical-failure reporting. Keep that study separate from this public showcase.

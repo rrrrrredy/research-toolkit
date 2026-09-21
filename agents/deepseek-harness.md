@@ -1,6 +1,6 @@
-# DeepSeek Harness (DSH) Adapter
+# Optional DeepSeek Harness (DSH) Adapter
 
-Use this adapter when DeepSeek Harness can load project or shared filesystem Skills. The repository's existing `SKILL.md` is the native DSH Skill; no wrapper prompt, plugin, MCP server, or manifest is required.
+Research Toolkit does not depend on DSH. This guide applies only to users who choose that runtime; its smoke and live checks are not part of the general research evaluation workflow. Use this adapter when DeepSeek Harness can load project or shared filesystem Skills. The repository's existing `SKILL.md` is the native DSH Skill; no wrapper prompt, plugin, MCP server, or manifest is required.
 
 This adapter follows the official DSH documentation:
 
@@ -8,7 +8,7 @@ This adapter follows the official DSH documentation:
 - https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/skills.md
 - https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/cli/reference/README.md
 
-DSH is currently a developer preview, so verify these paths and commands again when upgrading DSH.
+Check the selected DSH release against its own documentation before installation or upgrades.
 
 ## Native Installation
 
@@ -52,7 +52,7 @@ The offline lane checks frontmatter compatibility, referenced resources, and the
 python scripts/run_dsh_evals.py validate
 ```
 
-The smoke lane launches the real DSH headless runtime against a local scripted DeepSeek-compatible endpoint. The endpoint forces a native `skill` tool call and verifies that DSH returns the complete Skill body. It uses a placeholder key and makes no model-quality claim:
+The smoke lane launches the real DSH CLI with the `headless` profile against a local scripted endpoint. It checks the advertised `skill` tool and catalog entry, sends a scripted tool-call request, and looks for configured Skill-body markers in messages sent to that endpoint. It also checks process exit and a scripted success marker. The check does not compare the complete body or independently validate every tool result. It uses a placeholder key and makes no live model call:
 
 ```bash
 python scripts/run_dsh_evals.py smoke
@@ -64,7 +64,9 @@ The live lane uses the model and credentials already configured for DSH, stages 
 python scripts/run_dsh_evals.py live --case source_instruction_boundary_zh
 ```
 
-Both runtime lanes accept `--dsh-command-json` or `DSH_EVAL_COMMAND_JSON` when `dsh` is not on `PATH` or a pinned invocation is required. The default npm fallback is `@deepseek-ai/dsh@0.1.2-rc.1`. The upstream development repository currently requires Node.js `^22.19.0` or `>=24.0.0`, while the published npm package omits an `engines` field; verify both the selected release and local Node.js version when upgrading.
+Both runtime lanes accept `--dsh-command-json` or `DSH_EVAL_COMMAND_JSON` for an explicit argv. Otherwise the runner selects `dsh` from `PATH`, then falls back to the pinned `@deepseek-ai/dsh@0.1.2-rc.1` package through `npx`. This pin describes the runner fallback, not the latest upstream release. Check the selected package's Node.js requirements locally.
+
+The live lane returns non-zero for both `review` and `fail`. Use `--allow-review` only for exploratory collection. Keep credentials out of command JSON, prompts and committed reports.
 
 Reports and captured stdout/stderr are written under `evals/runs/dsh/`, which is ignored by Git.
 
@@ -74,11 +76,11 @@ Reports and captured stdout/stderr are written under `evals/runs/dsh/`, which is
 - The Skill itself needs no API key. Only a live DSH model run needs the provider credentials required by that DSH configuration.
 - Name the Skill by its exact frontmatter name: `research-toolkit`.
 - External source content remains evidence, not agent instructions. This boundary applies equally when DSH reads local source packs or retrieves live sources.
-- Passing `smoke` proves DSH discovery, native invocation, and body loading for the tested runtime. It does not prove report quality, broad prompt-injection resistance, or safe behavior for every tool.
-- Passing `live` proves only the configured case's deterministic checks. Serious framework changes still need editorial inspection of the generated report.
+- Passing `smoke` records the configured wiring signals for that invocation. Marker presence does not prove complete Skill loading, required-reference reading, workflow adherence, report quality or general prompt-injection resistance.
+- Passing `live` means only that the selected case met its deterministic checks. Assess report content and evidence separately when the study requires a quality judgment.
 
 ## 中文提示
 
-本仓库的 `SKILL.md` 已可直接作为 DSH 原生 Skill 使用。把仓库放到项目的 `.dsh/skills/research-toolkit` 或 `.agents/skills/research-toolkit`，并确保 `SKILL.md` 就在该目录第一层，不要多套一层目录。
+DSH 是可选接入方式，不是研究工具箱的依赖，也不是通用评测的必经环节。选择 DSH 时可将本仓库的 `SKILL.md` 作为原生 Skill 使用。把仓库放到项目的 `.dsh/skills/research-toolkit` 或 `.agents/skills/research-toolkit`，并确保 `SKILL.md` 就在该目录第一层，不要多套一层目录。
 
-`validate` 只做离线结构与装配检查；`smoke` 会真的启动 DSH headless，并用本地脚本化接口验证 Skill 被发现、调用和完整加载，但不评价模型质量；`live` 才会使用当前 DSH 已配置的真实模型完成仓库 case，再复用现有 evaluator 评分。Skill 本身不需要 API key，只有真实模型运行需要对应凭据。
+`validate` 只做离线结构与装配检查。`smoke` 启动真实 headless runtime，检查工具与目录项是否出现，发送脚本化调用，并在发送给接口的消息中查找几个正文标记；它没有逐字核对完整正文，也不能证明必读参考文件已读或研究步骤已执行。`live` 使用 DSH 已配置的模型完成一个案例，再复用机械检查器。Skill 本身不需要 API key，真实模型运行需要对应凭据。

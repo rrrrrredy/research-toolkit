@@ -2,13 +2,11 @@
 
 Status: `prepared_no_runs`
 
-Snapshot date: 2026-09-04
+This status applies only to the frozen synthetic portability protocol in this directory.
 
-- Frozen task, conditions, review rubric, manifest, and integrity checker: prepared.
-- Codex CLI 0.153.0 and Claude Code 2.1.114 were detected on the maintainer machine but have not been run under this protocol.
-- Gemini CLI and DeepSeek Harness were not detected on `PATH` at preparation time.
+- Frozen task, conditions, rubric, manifest and input archive: available.
 - Published agent pairs: 0.
 - Blind reviews: 0.
 - Publication gate: not met.
 
-No comparative score, winner, or framework-effect claim exists yet. The next legitimate step is to pin at least three configured runtimes, execute both conditions without changing frozen inputs, preserve complete run records, and commission blinded review.
+No comparative score, winner or framework-effect result is published for this protocol. Runtime availability is not established by these files. Execution requires a separately defined study scope and budget; this prepared package does not create an automatic run or re-review queue.
