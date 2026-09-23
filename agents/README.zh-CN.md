@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-研究工具箱提供 `research-toolkit` Skill。可以为当前任务直接读取文件，也可以安装到支持原生技能发现的工具中。[完整执行指令](../SKILL.md)与[中文全文](../SKILL.zh-CN.md)说明同一套研究方法。
+研究工具箱提供 `research-toolkit` Skill。可以为当前任务直接读取文件，也可以安装到支持原生技能发现的工具中。[精简 Skill 入口](../SKILL.md)与[中文入口](../SKILL.zh-CN.md)说明各阶段应读的方法，[完整研究规范](../references/research-standard.zh-CN.md)保留详细规则。
 
 ## 直接读取使用
 

@@ -6,9 +6,9 @@
 
 ## 1. 明确研究需求
 
-收集资料前判断关键决策信息是否齐全。只对缺失的关键项集中澄清一次，需求明确时直接执行。
+收集资料前，结合已有对话与材料检查关键决策信息。只对缺失的关键项集中提出一组简短问题，不规定数量，适合时提供具体选项，不重复询问已知信息。需求整理与执行监督由 Agent 负责，不要求用户填写规格书或监督评审。
 
-需明确研究对象与边界、目标读者与决策场景、格式与语言、发布场景、预期深度或大致篇幅、必答问题与排除项、优先单元、必读材料与证据标准，以及时段、地区、期限和图表需求。预期篇幅或深度缺失时必须询问。未得到回答的，记录保守假设，从范围有限的第一阶段开始。
+需明确研究对象与边界、目标读者与决策场景、格式与语言、发布场景、预期深度或大致篇幅、必答问题与排除项、优先单元、必读材料与证据标准，以及时段、地区、期限和图表需求。篇幅或深度缺失且无法从所需成果判断时，需要询问。未答复的问题若会实质改变对象、范围、证据标准或交付物，依赖该答案的工作保持待定，只推进不受影响的部分。非关键细节可采用合理默认值并记录；用户授权自行决定的，记录选择后继续。
 
 ## 2. 任务规格
 
@@ -44,7 +44,7 @@ data/
 
 `progress.json` 只保留当前阶段、状态、完成单元、未决事项、停滞计数和下一步；历史进入 `iteration_log.jsonl` 或 `work.jsonl`，不要把当前状态变成聊天记录。
 
-重要补充要求在 `requirements.jsonl` 各占一行，字段为 `requirement_id`、`source_turn`、`summary`、`status`、`evidence`；措辞变更时保留稳定编号。`satisfied` 需要完成证据；`accepted_limitation`、`waived`、`out_of_scope` 需要[核心行为约束](../SKILL.zh-CN.md#3-行为约束)所要求的具体用户决定，用 `user_decision.source_turn` 和 `user_decision.quote` 定位。普通研究不确定性不能取消已承诺的交付项。该台账不进入公开文章。
+重要补充要求在 `requirements.jsonl` 各占一行，字段为 `requirement_id`、`source_turn`、`summary`、`status`、`evidence`；措辞变更时保留稳定编号。`satisfied` 需要完成证据；`accepted_limitation`、`waived`、`out_of_scope` 需要[核心行为约束](research-standard.zh-CN.md#3-行为约束)所要求的具体用户决定，用 `user_decision.source_turn` 和 `user_decision.quote` 定位。普通研究不确定性不能取消已承诺的交付项。该台账不进入公开文章。
 
 必读要求增加 `reading_requirement`（`full_text` 或 `relevant_sections`）及 `required_source_ids`；来源行记录 `read_scope` 和 `read_evidence`，说明实际读了什么、笔记在哪里。HTTP 成功或登记了网址不算阅读证据；辅助材料没有一律全文阅读的要求。字段示例与新旧检查边界见[交付检查](../docs/delivery-verification.zh-CN.md)。
 
@@ -78,7 +78,7 @@ data/
 | `claims_registry.csv` | `claim_id, claim, claim_type, evidence_level, supporting_sources, counter_evidence, uncertainty, intended_section` |
 | `uncertainty_registry.csv` | `uncertainty_id, issue, affected_claims, reason, risk_level, handling` |
 
-`stage` 使用 `brief`、`collect`、`analyze`、`draft`、`review`、`revise`、`final`。`status` 与检查点含义见[状态契约](../SKILL.zh-CN.md#状态契约)。暂停原因和下一步写入 `next_action`，不要发明状态值。字段在同一任务中保持稳定，仅在改善恢复或证据追溯时加列。
+`stage` 使用 `brief`、`collect`、`analyze`、`draft`、`review`、`revise`、`final`。`status` 与检查点含义见[状态契约](research-standard.zh-CN.md#状态契约)。暂停原因和下一步写入 `next_action`，不要发明状态值。字段在同一任务中保持稳定，仅在改善恢复或证据追溯时加列。
 
 ## 4. 来源处理
 

@@ -6,7 +6,7 @@ Contribute changes that improve research methods, make the workflow easier to fo
 
 ## Authority And Scope
 
-- `SKILL.md` is the sole normative protocol source.
+- `SKILL.md` is the agent entry point into one shared research standard. Keep its essential constraints consistent with the detailed rules in `references/research-standard.md` and the supporting references; maintain the Chinese versions alongside them.
 - The public page may embed `SKILL.md`, but `python scripts/check_docs_sync.py` must prove exact synchronization.
 - README files, agent adapters, plugins, and examples are distribution or explanation layers. They must not introduce competing protocol rules.
 - Mechanical conformance, semantic research quality, loading checks, and general framework efficacy are separate claims and must be reported separately.

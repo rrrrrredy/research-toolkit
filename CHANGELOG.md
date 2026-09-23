@@ -10,6 +10,9 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Changed
 
+- Shorten the bilingual Skill entry points and route detailed methods by research stage. Preserve the complete research standard in references and synchronize the web entry point.
+- Make the agent responsible for eliciting missing research requirements and executing the workflow. Resolve critical choices before dependent work; use recorded defaults only for non-critical details, without a fixed question count.
+
 - Add standalone Simplified Chinese versions and consistent language navigation for current research references, review and delivery interfaces, evaluation guides, setup instructions and maintenance documentation.
 
 - Require effective model-review completion with original response and execution bindings, independent adjudication and sampling. Separate valid negative evaluation results from report-delivery readiness. Delivery contract 3 checks declared review slots; explicitly labelled versions 1 and 2 preserve historical record inspection.

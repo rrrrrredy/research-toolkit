@@ -36,13 +36,13 @@ python scripts/check_installation.py /path/to/installed/research-toolkit --refer
 
 ## 分发范围
 
-中英文入口放在同一仓库，`SKILL.md` 为唯一规范原件，环境接入说明位于 `agents/`。环境需要时，可以把同一 Skill 打包成插件、扩展或其他受支持格式；打包是可选分发方式，不能成为另一套研究规则。框架不由某一家 Agent 产品定义。
+中英文入口放在同一仓库，`SKILL.md` 是同一套研究规范的 Agent 入口，环境接入说明位于 `agents/`。入口保留关键约束与读取时机，`references/research-standard.md` 及其中文版本保留详细规则；打包时一并保留参考文件。环境需要时，可以把同一 Skill 打包成插件、扩展或其他受支持格式；打包是可选分发方式，不能成为另一套研究规则。框架不由某一家 Agent 产品定义。
 
 不要只因语言或安装器不同另建第二个维护中的 Skill 仓库。复用版本化来源，记录打包提交。安装或能力声明，与已观察的接入表现和研究质量分开表述。
 
 ## 维护网页与阅读入口
 
-`docs/framework.html` 的 Full SKILL 区块是 `SKILL.md` 的副本。CI 在规范换行后检查全文一致性。规范修改后运行：
+`docs/framework.html` 的 Skill 入口区块是 `SKILL.md` 的副本。CI 在规范换行后检查全文一致性。规范修改后运行：
 
 ~~~bash
 python scripts/check_docs_sync.py --write

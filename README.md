@@ -8,7 +8,7 @@ Research Toolkit is an open-source research toolkit for AI agents, delivered thr
 
 Use it for substantial industry, market, company, product, and technology research. The agent clarifies the research brief, examines sources and counter-evidence, drafts section by section, and reviews the report before delivery. Web access, file operations, and script execution come from the agent tool you use.
 
-The full instructions are in [`SKILL.md`](./SKILL.md), with a [Chinese reading version](./SKILL.zh-CN.md). Supporting methods in `references/` are loaded as needed. The [project guide](https://rrrrrredy.github.io/research-toolkit/framework.html) explains the workflow.
+Start with the concise [`SKILL.md`](./SKILL.md) or its [Chinese version](./SKILL.zh-CN.md). It keeps the essential constraints and tells the agent what to read at each stage. The [complete research standard](./references/research-standard.md) and supporting methods remain in `references/`. The [project guide](https://rrrrrredy.github.io/research-toolkit/framework.html) explains the workflow.
 
 ## Quickstart
 
@@ -208,7 +208,7 @@ The ten core principles:
 
 ### Stage Transitions
 
-Follow [`SKILL.md`](./SKILL.md#protocol-contract) for the execution requirements; this README explains them and gives examples.
+Follow the [state contract](./references/research-standard.md#protocol-contract) for the execution requirements; this README explains them and gives examples.
 
 The stages are `brief -> collect -> analyze -> draft -> review -> revise -> final`. Each stage specifies the records to update, checks to pass, and where to return if a check fails. Having a file does not by itself complete a stage. Set `final` only after every required unit and check passes.
 
@@ -268,7 +268,7 @@ Recovery protocol:
 
 ## 06 Questions to Settle Before Research
 
-Before collecting sources, decide whether the request contains enough decision-critical information. If not, ask one compact batch of questions before starting. The batch should usually contain 3-7 questions and must include expected length or depth when it is missing.
+Before collecting sources, the agent checks the conversation and materials for missing decision-critical information and asks one compact batch about those gaps. There is no question quota. Ask about length or depth if it is missing and cannot be inferred from the requested output; offer concrete choices where useful.
 
 Ask only for missing critical information:
 
@@ -280,7 +280,7 @@ Ask only for missing critical information:
 - required sources or materials, source exclusions, and evidence standard
 - time period, geography, deadline, and whether charts/tables are expected
 
-If the user has already supplied enough context, proceed and record assumptions in `task_spec.md`. Do not keep asking non-blocking questions.
+If enough context is available, proceed without repeating questions. Keep work that depends on an unanswered critical decision pending; continue unaffected work. Record non-critical defaults or decisions the user has delegated in `task_spec.md`. The agent owns reading the methods, tracking progress, executing reviews, recovering failures, and checking completion; users supply research decisions and necessary access.
 
 ## 07 Section-by-Section Research and Revision
 
@@ -339,7 +339,7 @@ Subagents should not rewrite the whole report or own the thesis.
 
 Before declaring completion:
 
-- The research brief gate was completed or assumptions were recorded.
+- Decision-critical brief details are resolved; non-critical defaults are recorded.
 - Required coverage is complete or limitations are explicit.
 - Major claims trace back to sources or uncertainty records.
 - Facts, source claims, interpretations, and author judgments remain distinct.

@@ -28,7 +28,7 @@ High-risk flags such as false completion, malformed final review records, and co
 
 The [2026-09-07 evidence package](../evals/diagnostics/2026-09-07/) includes actual calibration reports, retained failures, editorial repairs and three-model text diagnostics. It is not part of the held-out study. Model/provider, context exposure, retrieval access, requested and returned identity where available, incomplete responses and adjudication are disclosed separately. Different vendors diversify viewpoints; their agreement is neither factual ground truth nor human calibration.
 
-The protocol's numbers (usually 3–7 clarification questions, ledger maintenance intervals, stagnation triggers and review-loop budgets) are operational heuristics, not empirically optimized thresholds. No current ablation establishes their superiority. The clarification rule still asks only for missing essential information. Preserve these defaults until observed premature stops, missed stalls, redundant searches or maintenance costs justify a scoped comparison; do not infer validity from numerical precision.
+The protocol's numeric ledger maintenance intervals, stagnation triggers and review-loop budgets are operational heuristics, not empirically optimized thresholds. No current ablation establishes their superiority. Clarification has no question quota: ask only for missing essential information, and resolve critical choices before dependent work. Preserve these defaults until observed premature stops, missed stalls, redundant searches or maintenance costs justify a scoped comparison; do not infer validity from numerical precision.
 
 The two stagnation signals observe different units:
 

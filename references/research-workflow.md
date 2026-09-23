@@ -6,7 +6,7 @@ Use this file when planning or restarting a complex longform research task.
 
 ## 1. Research Brief Gate
 
-Before collecting sources, check whether the user has supplied enough decision-critical information. If critical information is missing, ask one compact clarification batch before starting. Do not ask ritual questions when the request is already clear.
+Before collecting sources, use the conversation and available materials to identify missing decision-critical information. Ask one compact batch about those gaps, with concrete choices when useful and no question quota. The agent assembles the brief and owns workflow execution; the user should not have to write a specification or supervise reviews. Do not repeat questions already answered.
 
 Ask only for missing critical information:
 
@@ -18,7 +18,7 @@ Ask only for missing critical information:
 - required materials, source exclusions, and evidence standard
 - time period, geography, deadline, and whether charts/tables are expected
 
-The expected length or depth question is required whenever it is missing. If the user does not answer, make a conservative assumption, record it in `task_spec.md`, and begin with a bounded Stage 1.
+Ask about missing length or depth when it cannot be inferred from the requested output. If an unanswered question would materially change the research object, scope, evidence standard, or deliverable, keep dependent work pending and continue only unaffected work. Record reasonable defaults for non-critical details in `task_spec.md`. When the user delegates a choice, record the decision and proceed.
 
 ## 2. Task Specification
 
@@ -70,7 +70,7 @@ Use state files to survive context loss. Do not rely on chat history as the only
 
 Keep `progress.json` as a compact snapshot of current state. Put chronological history in `iteration_log.jsonl` or `work.jsonl`; do not turn progress into an append-only transcript.
 
-For a multi-turn task with material follow-up corrections, add one `requirements.jsonl` row per requirement with `requirement_id`, `source_turn`, `summary`, `status`, and `evidence`. Preserve stable ids when wording changes. `satisfied` needs supporting evidence; `accepted_limitation`, `waived`, and `out_of_scope` need the specific user decision required by [SKILL.md](../SKILL.md#3-behavioral-constraints). Use `user_decision.source_turn` and `user_decision.quote` to identify that decision. Ordinary evidence uncertainty does not cancel a promised deliverable. This ledger stays out of the published report.
+For a multi-turn task with material follow-up corrections, add one `requirements.jsonl` row per requirement with `requirement_id`, `source_turn`, `summary`, `status`, and `evidence`. Preserve stable ids when wording changes. `satisfied` needs supporting evidence; `accepted_limitation`, `waived`, and `out_of_scope` need the specific user decision required by [research standard](research-standard.md#3-behavioral-constraints). Use `user_decision.source_turn` and `user_decision.quote` to identify that decision. Ordinary evidence uncertainty does not cancel a promised deliverable. This ledger stays out of the published report.
 
 For mandatory reading, add `reading_requirement` (`full_text` or `relevant_sections`) and `required_source_ids` to the relevant requirement row. The referenced source rows record `read_scope` and `read_evidence`: what was actually read and where the corresponding notes or reading record can be checked. Do not use HTTP success or a registered URL as reading evidence. Auxiliary sources need no blanket full-reading requirement. Field examples and the current/legacy checker boundary are in [delivery verification](../docs/delivery-verification.md).
 
@@ -117,7 +117,7 @@ Use these fields unless the task clearly needs a narrower local variant:
 
 Use one of these canonical values for `progress.json.stage`: `brief`, `collect`, `analyze`, `draft`, `review`, `revise`, or `final`.
 
-For `progress.json.status`, use the values and checkpoint meanings in the [Protocol Contract](../SKILL.md#protocol-contract). Put the reason for pausing and the next step in `next_action` rather than extending the status value.
+For `progress.json.status`, use the values and checkpoint meanings in the [Protocol Contract](research-standard.md#protocol-contract). Put the reason for pausing and the next step in `next_action` rather than extending the status value.
 
 Keep field names stable within a task. Add columns only when they improve recovery or evidence tracing.
 

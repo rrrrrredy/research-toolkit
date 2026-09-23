@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-Research Toolkit provides the `research-toolkit` Skill. Choose how you want to use it: read its files for a task, or install it in a tool that supports native Skill discovery. The [full Skill](../SKILL.md) and [Chinese reading version](../SKILL.zh-CN.md) describe the same research methods.
+Research Toolkit provides the `research-toolkit` Skill. Choose how you want to use it: read its files for a task, or install it in a tool that supports native Skill discovery. The concise [Skill entry point](../SKILL.md) and [Chinese version](../SKILL.zh-CN.md) route each stage to its methods. The [complete research standard](../references/research-standard.md) remains available for detailed rules.
 
 ## Use without installation
 
