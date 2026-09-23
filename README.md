@@ -2,43 +2,47 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-Research Toolkit is an open-source collection of research methods and tools for AI agents. It includes workflows, instructions, checking scripts, and evaluation materials to support planning, source collection, analysis, review, and evidence-backed writing.
+Research Toolkit is an open-source research toolkit for AI agents, delivered through the **`research-toolkit` Skill**. It provides methods for research planning, evidence analysis, writing, review, and acceptance, together with checking scripts and an evaluation set under continued development.
 
-Designed for substantial, long-running research, it provides reusable research methods and workflows: clarify the objective and scope before starting, distinguish sources from interpretation, preserve progress, draft section by section, and review and revise for the reader before delivery.
+**[Install and use](#quickstart) · [Read the Skill](./SKILL.md) · [Example tasks](#example-tasks) · [Evaluation set](./evals/README.md)**
 
-The toolkit is not tied to one agent tool; setup instructions are below. It does not include a scraper, data source, or fixed report template.
+Use it for substantial industry, market, company, product, and technology research. The agent clarifies the research brief, examines sources and counter-evidence, drafts section by section, and reviews the report before delivery. Web access, file operations, and script execution come from the agent tool you use.
 
-[Scope](#02-scope-of-the-toolkit) · [Research questions](#06-questions-to-settle-before-research) · [Task files and recovery](#05-state-file-system) · [Section-by-section work](#07-section-by-section-research-and-revision) · [Review roles](#09-subagent-and-review-scheduling) · [Evidence handling](#10-evidence-handling) · [Completion checklist](#research-completion-checklist)
-
-[Project guide](https://rrrrrredy.github.io/research-toolkit/framework.html)
-
-The project guide explains the research workflow and how to use the toolkit. [`SKILL.md`](./SKILL.md) is the agent instruction file. Files under `references/` are optional modules loaded only when the task needs that method, review loop, or writing guidance.
+The full instructions are in [`SKILL.md`](./SKILL.md), with a [Chinese reading version](./SKILL.zh-CN.md). Supporting methods in `references/` are loaded as needed. The [project guide](https://rrrrrredy.github.io/research-toolkit/framework.html) explains the workflow.
 
 ## Quickstart
 
-1. Start with `SKILL.md`.
-2. Ask the agent to run the research scope calibration and confirm output, reader, depth, evidence standard, and coverage.
-3. For substantial work, create `state/`, `logs/`, and `data/` before collecting many sources.
-4. Read the relevant guide when needed: [start or resume work](./references/research-workflow.md), [choose an analysis method](./references/optional-analysis-lenses.md), [delegate and review](./references/subagents-and-review-loop.md), [investigate recurring problems](./references/gotchas.md), [write the report](./references/writing-style.md), or [check it before delivery](./references/quality-gates.md).
-5. Draft section by section, keep evidence backstage, obey hard stops, and run reader review only after coverage and evidence checks are stable.
-6. For correction-heavy multi-turn tasks, reconcile `state/requirements.jsonl`; before claiming final completion, run `python scripts/check_delivery.py <task-directory>` or deliver an explicitly labeled stage artifact.
+### Use it for one task
 
-## Use With Your Agent
-
-Give your agent the repository URL. Ask it to read [`SKILL.md`](./SKILL.md), then load files under `references/` only when the task needs them.
+Give the following prompt to an agent that can read repository files. Replace the example topic and audience with your own:
 
 ```text
-Use https://github.com/rrrrrredy/research-toolkit for this research task.
-Read SKILL.md first. Agree on the research brief and outline before collecting sources.
-For a substantial task, create state/, logs/, and data/ in a separate research folder.
-Keep source, claim, uncertainty, and review records out of the finished prose.
-Analyze and draft section by section; review evidence, coverage, structure, counter-evidence, and depth before delivery.
-Preserve and address follow-up corrections. Check that the completion message agrees with actual progress before sending it.
+Use research-toolkit from https://github.com/rrrrrredy/research-toolkit for this task.
+Compare three enterprise knowledge-search products for an IT procurement team.
+Cover source coverage, permissions, deployment, pricing, and adoption risks.
+Deliver a comparison report with a recommendation, supporting sources, and uncertainties.
+Read SKILL.md first, clarify missing requirements, and agree on an outline before research.
 ```
 
-To install the toolkit in your preferred AI tool, follow its [setup guide](./agents/README.md).
+If the agent cannot open the repository, use the [file and attachment instructions](./agents/README.md#use-without-installation). Directly reading the files applies the Skill to that task; native installation makes it available through a supported tool's Skill discovery.
 
-The tool guides include file locations, commands, and checks to make before research. They also cover opening the repository, saving progress, and continuing a task.
+### Install the Skill
+
+Choose the [setup guide for your tool](./agents/README.md#choose-your-tool). It explains the supported installation or file-loading method and how to confirm the intended copy is available.
+
+For a project-local **Codex Skill**, run this from the project root with Git installed:
+
+```bash
+git clone https://github.com/rrrrrredy/research-toolkit.git .agents/skills/research-toolkit
+```
+
+Then follow the [Codex discovery and invocation steps](./agents/codex.md#verify-and-invoke). Other tools have their own locations and loading methods; use their guide. If a copy already exists, follow [updating an installation](./docs/installation-versioning.md) before replacing files.
+
+### During research
+
+For substantial tasks, the agent keeps `state/`, `logs/`, and `data/` in a separate research folder, preserves follow-up requirements, and keeps evidence and review records outside the finished prose. Before final delivery, it completes the required reviews and runs the delivery check against that folder. If a required check cannot run or does not pass, deliver a clearly labeled stage artifact.
+
+Read a method when needed: [start or resume](./references/research-workflow.md), [choose an analysis method](./references/optional-analysis-lenses.md), [delegate and review](./references/subagents-and-review-loop.md), [investigate recurring problems](./references/gotchas.md), [write the report](./references/writing-style.md), or [check delivery readiness](./references/quality-gates.md).
 
 ## Example Tasks
 
@@ -112,6 +116,10 @@ Evaluation preserves original defects for toolkit improvement. Reader-ready deli
 ## Evaluation Suite
 
 [`evals/`](./evals/) contains research tasks, source and conversation packs, rubrics, known-good controls, known-bad regression cases, and an offline runner.
+
+Evaluation findings guide improvements to the Skill, research methods, review rules, and checking scripts. Preserve original reports, defects, and effective reviews as the basis for those improvements.
+
+Contribute research questions, failure cases, suggestions, or usage feedback through [Issues](https://github.com/rrrrrredy/research-toolkit/issues/new). Contributions to cases and methods are also welcome through [pull requests](https://github.com/rrrrrredy/research-toolkit/compare). Include the research question, expected result, available sources, and observed problem; see the [contribution guide](./CONTRIBUTING.md).
 
 Script results and report quality are recorded separately. `conformance_status` and `conformance_score` cover file structure, traceability, and configured failure signals; the offline runner leaves `research_quality_status` as `not_evaluated`. Record content reviews and their evidence limits separately, without using them to fill in the script's score. A high check score is not a report-quality verdict.
 

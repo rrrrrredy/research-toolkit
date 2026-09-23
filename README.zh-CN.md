@@ -2,39 +2,47 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-研究工具箱（Research Toolkit）是一套供 AI Agent 使用的开源研究方法与工具，包含工作流程、执行指令、检查脚本和评测材料，支持研究规划、资料搜集、分析、审阅和写作，帮助产出有证据支撑的文章或研究报告。
+研究工具箱（Research Toolkit）是一套面向 AI Agent 的开源研究工具箱。通过 **`research-toolkit` Skill**，提供研究规划、证据分析、写作、审查与验收方法，并配套检查脚本和持续建设的评测集。
 
-它提供可复用的研究方法和工作流程，适合资料量大、周期长的研究任务：开工前澄清目标与范围，研究中区分来源与判断、保存进度，写作时按章节推进，交付前完成审阅与读者视角修订。
+**[安装与使用](#快速开始) · [查看 Skill](./SKILL.zh-CN.md) · [任务示例](#真实任务示例) · [评测集](./evals/README.zh-CN.md)**
 
-工具箱不绑定某一种 Agent 工具；具体接入方式见下文。它本身不提供抓取工具、数据源或固定报告模板。
+适合产业、市场、公司、产品和技术等深度研究：先明确研究需求，再分析来源与反证，按章节写作，交付前完成审查。检索、文件读写和脚本执行能力由所用的 Agent 工具提供。
 
-[项目说明](https://rrrrrredy.github.io/research-toolkit/framework.html)介绍研究流程与使用方法。[`SKILL.md`](./SKILL.md) 是 Agent 使用的指令文件（[中文说明](./SKILL.zh-CN.md)）；`references/` 提供分析方法、审阅和写作的扩展说明，按任务需要读取。
+完整执行指令保存在 [`SKILL.md`](./SKILL.md)，可阅读[中文全文](./SKILL.zh-CN.md)；`references/` 提供按需读取的扩展方法。[项目说明](https://rrrrrredy.github.io/research-toolkit/framework.html)介绍研究流程。
 
 ## 快速开始
 
-1. 先使用 `SKILL.md`。
-2. 先让 Agent 确认要交付什么、给谁看、研究多深、采用什么证据标准，以及必须覆盖哪些问题。
-3. 对资料量大的任务，先创建 `state/`、`logs/` 和 `data/`，再大规模收集资料。
-4. 按任务需要读取扩展文件：[启动与恢复](./references/research-workflow.zh-CN.md)、[选择分析方法](./references/optional-analysis-lenses.zh-CN.md)、[分工与审阅](./references/subagents-and-review-loop.zh-CN.md)、[排查反复出现的问题](./references/gotchas.zh-CN.md)、[写作](./references/writing-style.zh-CN.md)、[交付前检查](./references/quality-gates.zh-CN.md)。
-5. 分板块写作，来源和审阅记录单独保存。遇到必须停止处理的问题（hard stops）时先修复；覆盖和证据检查通过后，再检查成稿是否便于阅读。
-6. 多轮纠错任务维护 `state/requirements.jsonl`；宣布终稿前运行 `python scripts/check_delivery.py <任务目录>`，未通过时明确交付阶段稿。
+### 直接用于一次研究
 
-## 给 Agent 使用
-
-把仓库链接交给你正在使用的 Agent，让它先读 [`SKILL.md`](./SKILL.md)，只在任务需要时再读取 `references/` 下的扩展文件。
+把下面的提示发给能够读取仓库文件的 Agent，将题目和读者替换为你的实际需求：
 
 ```text
-请使用 https://github.com/rrrrrredy/research-toolkit 完成本次研究。
-先读 SKILL.md；明确研究需求、列提纲，再搜集资料。
-较大任务在独立研究目录里创建 state/、logs/、data/。
-分别保存来源、判断、不确定性和审阅记录，正文不放执行日志。
-按章节分析和写作，交付前完成证据、覆盖、结构、反证和深度检查。
-保留后续纠错要求，逐项处理；发送前核对完成说明与实际进度是否一致。
+请使用 https://github.com/rrrrrredy/research-toolkit 中的 research-toolkit Skill 完成本次研究。
+为企业 IT 采购团队比较三款企业知识检索产品。
+覆盖资料接入、权限、部署方式、价格与采用风险。
+交付一份包含选择建议、来源和不确定性的比较报告。
+先读 SKILL.md，澄清缺失需求、确认提纲，再开展研究。
 ```
 
-如需安装到常用的 AI 工具中，请查看[各工具的使用说明](./agents/README.zh-CN.md)。
+仓库链接无法读取时，按[文件与附件用法](./agents/README.zh-CN.md#直接读取使用)提供材料。直接读取文件适用于当前任务；安装为原生 Skill 后，可以通过所用工具的技能发现机制调用。
 
-各工具文档列出了文件位置、操作步骤和开始前的检查项，也说明链接打不开、保存进度和继续任务时如何处理。
+### 安装为 Skill
+
+选择[对应工具的安装与使用说明](./agents/README.zh-CN.md#选择工具)，按该工具支持的目录或文件加载方式操作，并确认实际使用的是预期副本。
+
+例如，在已安装 Git 的项目根目录运行以下命令，可放入 **Codex 的项目级 Skill 目录**：
+
+```bash
+git clone https://github.com/rrrrrredy/research-toolkit.git .agents/skills/research-toolkit
+```
+
+随后按 [Codex 说明确认发现并调用](./agents/codex.zh-CN.md#确认发现并调用)。其他工具的目录和加载方式见各自指南。已有安装副本时，先查看[版本识别与更新方法](./docs/installation-versioning.zh-CN.md)，再决定如何更新。
+
+### 研究如何推进
+
+较大任务在独立研究目录保存 `state/`、`logs/` 和 `data/`，保留后续补充要求，来源与审阅记录单独保存。最终交付前完成必需评审，并对实际研究目录运行交付检查。必需检查无法执行或未通过时，明确交付阶段成果。
+
+按需阅读：[启动与恢复](./references/research-workflow.zh-CN.md)、[分析方法](./references/optional-analysis-lenses.zh-CN.md)、[分工与审阅](./references/subagents-and-review-loop.zh-CN.md)、[常见问题](./references/gotchas.zh-CN.md)、[写作](./references/writing-style.zh-CN.md)、[交付前检查](./references/quality-gates.zh-CN.md)。
 
 ## 真实任务示例
 
@@ -107,6 +115,10 @@
 [角色与工作规范](references/subagents-and-review-loop.zh-CN.md) · [评审完成接口](docs/review-completion.zh-CN.md) · [交付检查](docs/delivery-verification.zh-CN.md)
 
 ## 评测集
+
+评测用于发现 Skill 和工具箱的问题，并据此改进研究方法、审查规则和检查脚本。保留原始报告、缺陷与有效评审，作为后续迭代依据。
+
+欢迎通过 [Issue](https://github.com/rrrrrredy/research-toolkit/issues/new) 提供研究题目、失败案例、建议和使用反馈，也欢迎提交 [PR](https://github.com/rrrrrredy/research-toolkit/compare) 改进题目与方法。请说明研究问题、预期结果、可用来源及已经观察到的问题；具体要求见[贡献指南](./CONTRIBUTING.zh-CN.md)。
 
 [`evals/`](./evals/README.zh-CN.md) 包含研究题目、资料与对话包、评分规则、已知好坏样本和离线检查脚本。
 
