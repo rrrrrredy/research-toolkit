@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import csv
 import json
 import os
 from pathlib import Path
@@ -198,6 +199,113 @@ class WorkflowTests(unittest.TestCase):
         result = self.review(runner, config=changed, revision=True)
         self.assertTrue(result["reviews_complete"], result)
         self.assertEqual(runner.calls, ["reviewer", "auditor", "reviewer", "auditor"])
+
+    def test_retired_slot_keeps_history_without_repeating_completed_reviews(self):
+        runner = SyntheticRunner()
+        two = copy.deepcopy(CONFIG)
+        two["reviewers"].append({"id": "second", "model": "synthetic-B", "format": "json"})
+        self.assertTrue(self.review(runner, config=two)["reviews_complete"])
+        original = workflow.rows_for(self.root)
+        with self.assertRaises(ValueError):
+            self.review(runner)
+        self.assertEqual(workflow.rows_for(self.root), original)
+        result = self.review(runner, revision=True)
+        self.assertTrue(result["reviews_complete"], result)
+        self.assertEqual(result["completion_check"]["completed_slots"], 1)
+        self.assertEqual(runner.calls, ["reviewer", "auditor", "reviewer", "auditor"])
+        retained = workflow.rows_for(self.root)
+        self.assertEqual(retained[:len(original)], original)
+        self.assertEqual(len([r for r in retained if r.get("record_type") == "review_plan_change"]), 1)
+        self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+
+    def test_rename_and_return_preserve_first_valid_results_and_plan_chain(self):
+        runner = SyntheticRunner()
+        first = self.review(runner)
+        renamed = copy.deepcopy(CONFIG)
+        renamed["reviewers"][0]["id"] = "renamed"
+        self.assertTrue(self.review(runner, config=renamed, revision=True)["reviews_complete"])
+        returned = self.review(runner, revision=True)
+        self.assertTrue(returned["reviews_complete"], returned)
+        self.assertEqual(first["completion_check"]["selected_attempts"], returned["completion_check"]["selected_attempts"])
+        self.assertEqual(len(runner.calls), 4)
+        self.assertTrue(self.review(runner)["reviews_complete"])
+        self.assertEqual(len(runner.calls), 4)
+        self.assertEqual(len([r for r in workflow.rows_for(self.root) if r.get("record_type") == "review_plan_change"]), 2)
+
+    def test_unknown_history_is_not_silently_ignored(self):
+        self.review(SyntheticRunner())
+        row = copy.deepcopy(next(r for r in workflow.rows_for(self.root) if r.get("record_type") == "model_review"))
+        row.update(attempt_id="unplanned-attempt", slot_id="unknown-slot")
+        workflow.append_row(self.root, row)
+        outcome = workflow.completion(self.root, workflow.load(self.root, "state/progress.json"), "final.md")
+        self.assertIn("invalid_review_record", outcome["flags"])
+
+    def test_plan_change_needs_authorization_bound_snapshots_and_continuity(self):
+        runner = SyntheticRunner()
+        self.review(runner)
+        renamed = copy.deepcopy(CONFIG)
+        renamed["reviewers"][0]["id"] = "renamed"
+        self.review(runner, config=renamed, revision=True)
+        self.review(runner, revision=True)
+        rows = workflow.rows_for(self.root)
+        changes = [i for i, r in enumerate(rows) if r.get("record_type") == "review_plan_change"]
+        variants = []
+        unauthorized = copy.deepcopy(rows)
+        unauthorized[changes[0]]["revision_authorized"] = False
+        variants.append(unauthorized)
+        unbound = copy.deepcopy(rows)
+        unbound[changes[0]]["previous_plan"]["sha256"] = "0" * 64
+        variants.append(unbound)
+        broken_chain = copy.deepcopy(rows)
+        broken_chain[changes[1]]["previous_plan"] = broken_chain[changes[0]]["previous_plan"]
+        variants.append(broken_chain)
+        for records in variants:
+            workflow.save_text(self.root, "logs/review.jsonl", "".join(json.dumps(r)+"\n" for r in records))
+            outcome = workflow.completion(self.root, workflow.load(self.root, "state/progress.json"), "final.md")
+            self.assertFalse(outcome["ok"], outcome)
+        workflow.save_text(self.root, "logs/review.jsonl", "".join(json.dumps(r)+"\n" for r in rows))
+        self.assertTrue(workflow.completion(self.root, workflow.load(self.root, "state/progress.json"), "final.md")["ok"])
+
+    def test_frozen_evaluation_cannot_retire_or_rename_a_negative_reviewer(self):
+        runner = SyntheticRunner(negative=True)
+        two = copy.deepcopy(CONFIG)
+        two["reviewers"].append({"id": "second", "model": "synthetic-B", "format": "json"})
+        self.assertTrue(self.review(runner, config=two, purpose="evaluation")["evaluation_complete"])
+        original = workflow.rows_for(self.root)
+        renamed = copy.deepcopy(two)
+        renamed["reviewers"][0]["id"] = "renamed"
+        for changed in (CONFIG, renamed):
+            with self.assertRaises(ValueError):
+                self.review(runner, config=changed, purpose="evaluation", revision=True)
+        self.assertEqual(workflow.rows_for(self.root), original)
+        self.assertEqual(len(runner.calls), 4)
+
+    def test_local_reading_evidence_must_exist_be_nonempty_and_stay_inside_task(self):
+        (self.root/"empty.md").write_text(" \n\t", encoding="utf-8")
+        (self.root/"directory.md").mkdir()
+        (self.workspace/"outside.md").write_text("Outside the task.", encoding="utf-8")
+        path = self.root/"data/source_registry.csv"
+        source_rows = list(csv.DictReader(path.read_text(encoding="utf-8").splitlines()))
+        for value in ("missing.md", "sources/does-not-exist.md", "empty.md", "directory.md", "../outside.md", str(self.workspace/"outside.md")):
+            source_rows[0]["read_evidence"] = value
+            with path.open("w", encoding="utf-8", newline="") as stream:
+                writer = csv.DictWriter(stream, fieldnames=source_rows[0].keys())
+                writer.writeheader(); writer.writerows(source_rows)
+            for stage in ("analyze", "draft"):
+                with self.subTest(evidence=value, stage=stage), self.assertRaises(ValueError):
+                    workflow.status(self.workspace, "case", stage=stage)
+
+    def test_local_notes_and_other_locator_forms_keep_positive_controls(self):
+        (self.root/"reading notes.md").write_text("Read the complete shipment statement.", encoding="utf-8")
+        path = self.root/"data/source_registry.csv"
+        source_rows = list(csv.DictReader(path.read_text(encoding="utf-8").splitlines()))
+        for value in ("source.md", "source.md#paragraph-1", "source.md: paragraph 1", "reading notes.md", "[Reading](source.md#paragraph-1)", "https://example.org/notes#S1", "S1: pp. 2-3"):
+            source_rows[0]["read_evidence"] = value
+            with path.open("w", encoding="utf-8", newline="") as stream:
+                writer = csv.DictWriter(stream, fieldnames=source_rows[0].keys())
+                writer.writeheader(); writer.writerows(source_rows)
+            with self.subTest(evidence=value):
+                self.assertEqual(workflow.status(self.workspace, "case", stage="draft")["progress"]["stage"], "draft")
 
     def test_unchanged_legacy_reviews_are_not_repeated(self):
         runner = SyntheticRunner(negative=True)

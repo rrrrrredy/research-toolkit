@@ -382,6 +382,10 @@ class DeliveryContractTests(unittest.TestCase):
         seal(self.root)
 
     def reading_source(self, scope="full_text", evidence="notes/source-1.md: main text and appendices"):
+        if evidence == "notes/source-1.md: main text and appendices":
+            note = self.root / "notes/source-1.md"
+            note.parent.mkdir(exist_ok=True)
+            note.write_text("Synthetic reading notes covering the main text and appendices.\n", encoding="utf-8")
         path = self.root / "data/source_registry.csv"
         with path.open(encoding="utf-8", newline="") as stream:
             reader = csv.DictReader(stream)
@@ -466,6 +470,14 @@ class DeliveryContractTests(unittest.TestCase):
                 source_id = self.reading_source(actual)
                 self.requirement(reading_requirement=required, required_source_ids=[source_id])
                 self.assertTrue(self.evaluate()["ok"])
+
+    def test_required_reading_rejects_missing_empty_and_escaped_local_notes(self):
+        (self.root / "empty.md").write_text(" \n", encoding="utf-8")
+        for evidence in ("notes/missing.md", "empty.md", "../outside.md"):
+            with self.subTest(evidence=evidence):
+                source_id = self.reading_source(evidence=evidence)
+                self.requirement(reading_requirement="full_text", required_source_ids=[source_id])
+                self.assert_flag("unresolved_required_corrections")
 
     def test_unread_optional_background_does_not_become_a_mandatory_full_read(self):
         self.reading_source("not_read", "")

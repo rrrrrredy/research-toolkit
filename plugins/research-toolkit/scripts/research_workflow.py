@@ -13,7 +13,8 @@ import tempfile
 import uuid
 
 from check_delivery import (REQUIRED_HASH_INPUTS, OPTIONAL_HASH_INPUTS, evaluate_delivery,
-                            inspect_csv_text, inspect_jsonl, inspect_jsonl_text, resolve_inside, sha256_file)
+                            inspect_csv_text, inspect_jsonl, inspect_jsonl_text,
+                            inspect_reading_evidence, resolve_inside, sha256_file)
 from check_review_completion import inspect_review_completion, matches_review_slot
 from review_runner import (ReviewFailure, assignment_config, load_review_config, review_readiness,
                            run_reviewer, validate_review_config)
@@ -64,8 +65,13 @@ Do not edit the report. Return one JSON object:
 result (valid or invalid), basis (specific reasoning), dispositions keyed by every finding_id
 (each has decision confirmed_defect/no_change/unresolved/resolved, reason, evidence),
 sample_checks keyed by every assigned sample ID (each has result clear/defect and evidence;
-a defect also needs defect_type report/review_validity and follow_up with decision and reason),
+a defect also needs defect_type report/review_validity and follow_up with decision and reason;
+follow_up.decision must be confirmed_defect, no_change, unresolved, or resolved),
 global_review (result pass/fail, basis, open_issues list).
+The top-level result judges REVIEW VALIDITY. global_review judges REPORT READINESS, not
+review validity: a valid review can accompany a failing report. Use global_review.result=fail
+when required report corrections remain; pass requires an empty open_issues list and no
+unresolved required report defects. List the actual remaining report issues without rewriting them.
 A report defect still present is confirmed_defect, not resolved. An evaluation may retain it.
 An invalid review must explain actual assignment failure, never just a negative verdict.
 Do not claim a defect was fixed or a check performed without evidence. No Markdown fences."""
@@ -172,8 +178,14 @@ def check_stage_records(root, stage):
     for row in sources:
         if not all(nonempty(row.get(k)) for k in ("source_id", "title", "url", "source_type")):
             raise ValueError("Every source needs an ID, title, locator and source type before analysis.")
-    read_ids = {r["source_id"].strip() for r in sources
-                if r.get("read_scope") in {"full_text", "relevant_sections"} and nonempty(r.get("read_evidence"))}
+    read_ids = set()
+    for row in sources:
+        if row.get("read_scope") not in {"full_text", "relevant_sections"}:
+            continue
+        errors = inspect_reading_evidence(root, row.get("read_evidence"))
+        if errors:
+            raise ValueError(f"Source {row['source_id']}: " + "; ".join(errors))
+        read_ids.add(row["source_id"].strip())
     if not read_ids:
         raise ValueError("Record the actual reading scope and locatable reading evidence before analysis.")
     if stage == "draft":
@@ -343,9 +355,26 @@ def invoke(root, prefix, config, request, used_ids, runner):
         raise
 
 
-def completion(root, progress, artifact):
+def completion(root, progress, artifact, *, require_report_ready=True):
     return inspect_review_completion(root, progress, artifact, rows_for(root),
-                                     hash_file=sha256_file, resolve_path=resolve_inside)
+                                     hash_file=sha256_file, resolve_path=resolve_inside,
+                                     require_report_ready=require_report_ready)
+
+
+def record_plan_change(root, previous, current):
+    references = {}
+    for key, plan in (("previous_plan", previous), ("current_plan", current)):
+        name = "reviews/plans/" + digest(plan) + ".json"
+        if not safe_path(root, name).exists():
+            save(root, name, plan)
+        if load(root, name) != plan:
+            raise ValueError("Retained review plan was modified; preserve and inspect the original records.")
+        references[key] = ref(root, name)
+    change = {"record_type": "review_plan_change", "revision_authorized": True, **references}
+    changes = [r for r in rows_for(root) if r.get("record_type") == "review_plan_change"]
+    # Resume a crash between recording the change and publishing the current plan.
+    if not changes or changes[-1] != change:
+        append_row(root, change)
 
 
 def review(workspace: Path, task: str, evidence_paths: list[str], artifact="final.md",
@@ -382,7 +411,8 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                                "auditor": assignment_config(config["auditor"]),
                                "review_instructions": REVIEW_INSTRUCTIONS, "audit_instructions": AUDIT_INSTRUCTIONS})
     same_runner = bool(old_plan and old_plan.get("runner_signature") in {runner_signature, digest(config)})
-    if old_plan and (old_plan.get("input_version") != version or not same_runner):
+    assignment_changed = bool(old_plan and (old_plan.get("input_version") != version or not same_runner))
+    if assignment_changed:
         if old_plan.get("purpose") == "evaluation" or purpose == "evaluation":
             raise ValueError("Evaluation input is frozen. Preserve it and use a separate task for another study.")
         if not revision:
@@ -419,6 +449,8 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                          "selected": selection, "mandatory": [f"review:{s['slot_id']}" for s in slots]}}
     if auditor_signature is not None:
         plan["auditor_signature"] = auditor_signature
+    if assignment_changed:
+        record_plan_change(root, old_plan, plan)
     progress.update(review_plan=plan, stage="review", status="in_progress",
                     next_action="Complete the declared reviews, audits and sample checks.")
     save(root, "state/progress.json", progress)
@@ -534,8 +566,7 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                                else "Run delivery verification." if outcome["ok"]
                                else "Resolve the listed incomplete work or required report corrections.")
     save(root, "state/progress.json", progress)
-    validity_progress = {**progress, "review_plan": {**plan, "purpose": "evaluation"}}
-    validity = completion(root, validity_progress, artifact)
+    validity = completion(root, progress, artifact, require_report_ready=False)
     return {"reviews_complete": validity["ok"],
             "evaluation_complete": purpose == "evaluation" and outcome["ok"],
             "completion_check": outcome, "recovery": problems, "task_directory": str(root)}

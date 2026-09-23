@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from typing import Any, Callable
 
-REVIEW_RECORD_TYPES = {"model_review", "review_audit", "sampling_audit"}
+REVIEW_RECORD_TYPES = {"model_review", "review_audit", "sampling_audit", "review_plan_change"}
 PURPOSES = {"evaluation", "report_delivery"}
 DECISIONS = {"confirmed_defect", "no_change", "unresolved", "resolved"}
 SEVERITIES = {"critical", "major", "minor", "optional"}
@@ -39,7 +39,7 @@ def content_review_rows(rows: list[dict]) -> list[dict]:
 
 def inspect_review_completion(
     root: Path, progress: dict, artifact: str, rows: list[dict], *,
-    hash_file: Callable, resolve_path: Callable,
+    hash_file: Callable, resolve_path: Callable, require_report_ready: bool = True,
 ) -> dict:
     flags: list[str] = []
     findings: list[str] = []
@@ -109,6 +109,45 @@ def inspect_review_completion(
         add("invalid_review_plan", "Required slot ids must be distinct nonempty strings.")
         return result(len(slots))
 
+    report_delivery = plan["purpose"] == "report_delivery" and require_report_ready
+    historical_plans = []
+    previous_current = None
+    changes = [r for r in rows if r.get("record_type") == "review_plan_change"]
+    for change in changes:
+        versions = []
+        if change.get("revision_authorized") is not True or plan["purpose"] != "report_delivery":
+            add("invalid_review_plan_change", "Only an explicitly authorized report-delivery revision can retire a slot.")
+        for key in ("previous_plan", "current_plan"):
+            path = reference(change.get(key), f"Review plan change {key}")
+            try:
+                version = json.loads(path.read_text(encoding="utf-8")) if path else None
+            except (OSError, UnicodeError, ValueError):
+                version = None
+            version_slots = version.get("slots") if isinstance(version, dict) else None
+            if (not isinstance(version, dict) or version.get("purpose") != "report_delivery"
+                    or version.get("author_id") != author or not text(version.get("artifact_sha256"))
+                    or not isinstance(version_slots, list) or not version_slots
+                    or not all(isinstance(s, dict) for s in version_slots)
+                    or not distinct_strings([s.get("slot_id") for s in version_slots])):
+                add("invalid_review_plan_change", "Plan changes must retain both complete, hash-bound report-delivery plans.")
+                versions.append(None)
+                continue
+            for old_slot in version_slots:
+                if (not all(text(old_slot.get(k)) for k in ("reviewer_id", "model", "scope"))
+                        or not distinct_strings(old_slot.get("dimensions"))):
+                    add("invalid_review_plan_change", "A retained plan has an invalid review slot.")
+                reference(old_slot.get("input"), "Retained plan frozen input")
+            versions.append(version)
+        old, new = versions
+        if old is None or new is None:
+            continue
+        if previous_current is not None and old != previous_current:
+            add("invalid_review_plan_change", "Retained plan changes do not form a continuous history.")
+        historical_plans.append(old)
+        previous_current = new
+    if changes and previous_current != plan:
+        add("invalid_review_plan_change", "The last retained plan change does not bind the current review plan.")
+
     attempts: dict[str, dict] = {}
     audits: dict[str, dict] = {}
     for row in rows:
@@ -123,7 +162,11 @@ def inspect_review_completion(
             if attempt_id in attempts:
                 add("duplicate_review_attempt", f"Duplicate attempt id {attempt_id}.")
             attempts[attempt_id] = row
-            if row.get("slot_id") not in slot_ids or not one_of(row.get("status"), {"completed", "failed", "incomplete"}):
+            historical = any(row.get("artifact_sha256") == old["artifact_sha256"]
+                             and any(matches_review_slot(row, slot) for slot in old["slots"])
+                             for old in historical_plans)
+            if ((row.get("slot_id") not in slot_ids and not historical)
+                    or not one_of(row.get("status"), {"completed", "failed", "incomplete"})):
                 add("invalid_review_record", f"{attempt_id}: unknown slot or attempt status.")
         else:
             if not one_of(row.get("result"), {"valid", "invalid"}):
@@ -249,7 +292,7 @@ def inspect_review_completion(
                 continue
             if one_of(severity, {"critical", "major"}) and auditor in (author, slot["reviewer_id"]):
                 add("missing_independent_adjudication", f"{aid}/{fid}: critical or major findings need independent adjudication.")
-            if plan["purpose"] == "report_delivery" and disposition["decision"] not in {"resolved", "no_change"}:
+            if report_delivery and disposition["decision"] not in {"resolved", "no_change"}:
                 add("report_not_ready", f"{aid}/{fid}: unresolved required correction prevents report delivery.")
         if error_count == before:
             selected[sid] = aid
@@ -293,7 +336,7 @@ def inspect_review_completion(
                     continue
                 reference(follow_up.get("evidence"), f"{item} sampling follow-up")
                 if (follow_up["decision"] not in {"resolved", "no_change"}
-                        and (plan["purpose"] == "report_delivery" or check["defect_type"] == "review_validity")):
+                        and (report_delivery or check["defect_type"] == "review_validity")):
                     add("unhandled_sampling_defect", f"{item}: delivery corrections and review-validity failures must be resolved or independently justified as no change.")
     return result(len(slots))
 

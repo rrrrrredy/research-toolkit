@@ -32,6 +32,8 @@ For reading that the task actually requires:
 
 The linked `data/source_registry.csv` row must occur exactly once and have `read_scope` and a non-empty `read_evidence` reference. Use `full_text`, `relevant_sections`, `abstract`, `partial`, or `not_read` to describe the actual reading. A `full_text` requirement accepts only `full_text`; `relevant_sections` accepts completed relevant-section reading or full text. The evidence reference should identify the read sections and notes or observations that support the record. HTTP 200 and a URL in the registry establish access, not reading. Optional background sources do not become mandatory full reads.
 
+Clear local file references in `read_evidence` must resolve to an existing, nonempty file inside the task directory. Missing files, directories, empty/whitespace-only files and paths escaping that directory fail. A file may include an anchor or page/section suffix. URLs and section/page locators remain accepted without fetching or verifying their content.
+
 The checker compares these declared fields. It cannot detect an omitted requirement, infer reading duties from free-form prose, verify a fabricated quote, or establish comprehension from a note. The author still reconciles the records with the actual request and sources. Both the standalone checker and eval runner check requirement closure, including when the runner's optional receipt check is disabled.
 
 ## Comparing a captured reply

@@ -39,6 +39,12 @@ All referenced files must be nonempty UTF-8 text inside the task directory. Hash
 
 Declare scope, reviewers, inputs, sampling method and retry policy before examining outcomes. Then record the actual sampling population and selected ids under that method. Local record checks cannot prove when a plan was frozen or that the declared plan captured every user requirement.
 
+## Plan Changes and Historical Attempts
+
+For an explicitly authorized report-delivery assignment change, append a `review_plan_change` row with `revision_authorized: true` and `previous_plan` / `current_plan` file references. Each reference binds the complete retained plan by task-relative path and hash. Changes form a continuous chain ending at the current plan; every snapshot retains its original author, artifact and full slot input bindings. The shared executor creates these records when `revision: true` accompanies a material assignment change. The flag records the caller's authorization declaration; the checker cannot authenticate user consent.
+
+A retired slot is legitimate history only when its record matches an assignment in a verified earlier plan. It does not count toward the current plan. Unknown slots, altered snapshots and broken chains fail. Keep original failures and negative results. Do not reconstruct missing history by inventing earlier plans; recover a legacy change from preserved original plans and actual authorization before accepting it. Frozen evaluation plans cannot use this route to remove or rename reviewers.
+
 ## Original Attempts
 
 Append one `model_review` row for each attempt. Keep failures as separate attempts rather than overwriting them.
@@ -78,7 +84,7 @@ The reviewer cannot validate or invalidate their own response. Every invalidatio
 
 Critical/major findings need an auditor context distinct from both the author and original reviewer. The same independence requirement applies under the protocol to decisive disputes and consequential no-change decisions even if a record understates their severity. Scripts cannot infer whether a severity label was honest.
 
-Keep validity audits and their evidence, including invalidations. The checker uses the latest validity decision for an attempt, then the first valid completed attempt in append order for each slot's current artifact and input version. Historical attempts remain in the log under their original slot ids; keep those ids declared when carrying a report-delivery task forward. Within that assignment version, an earlier valid negative result cannot be replaced by a later favorable result. A separately authorized report revision needs current-version coverage; keep its input capture at a new path and preserve the earlier report, input and reviews. Changing the plan or input solely to obtain a favorable result is prohibited. Do not invalidate a response merely because it found a defect or made an isolated, adjudicable mistake. Changed validity decisions require actual evidence and remain visible in the log.
+Keep validity audits and their evidence, including invalidations. The checker uses the latest validity decision for an attempt, then the first valid completed attempt in append order for each slot's current artifact and input version. Historical attempts remain in the log under their original slot ids. An authorized report-delivery plan change may retire or rename a slot when its original assignment is bound by the plan history described below. Within that assignment version, an earlier valid negative result cannot be replaced by a later favorable result. A separately authorized report revision needs current-version coverage; keep its input capture at a new path and preserve the earlier report, input and reviews. Changing the plan or input solely to obtain a favorable result is prohibited. Do not invalidate a response merely because it found a defect or made an isolated, adjudicable mistake. Changed validity decisions require actual evidence and remain visible in the log.
 
 If a response is generic, reads the wrong material or omits required dimensions, mark the content audit invalid and complete that missing assignment. Schema compliance alone cannot distinguish a careful review from well-formatted boilerplate.
 

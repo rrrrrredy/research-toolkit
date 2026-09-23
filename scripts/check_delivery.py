@@ -188,6 +188,37 @@ def has_evidence(value: Any) -> bool:
     )
 
 
+def inspect_reading_evidence(root: Path, value: Any) -> list[str]:
+    """Check clear local file references; other locators still need content review."""
+    if not nonempty_text(value):
+        return ["Reading evidence needs a nonempty reference."]
+    locator = value.strip().strip("`")
+    link = re.fullmatch(r"\[[^]]+\]\(([^)]+)\)", locator)
+    if link:
+        locator = link[1]
+    if re.match(r"https?://", locator, re.IGNORECASE):
+        return []
+    if re.match(r"file://|[A-Za-z]:", locator, re.IGNORECASE) or locator.startswith(("/", "\\")):
+        return ["Local reading evidence must use a task-relative file path."]
+    file_ref = re.match(
+        r"(.+?\.(?:md|txt|pdf|html?|jsonl?|csv|tsv|docx|xlsx|pptx|rst|log|ya?ml|png|jpe?g|webp))"
+        r"(?=$|[#:,，]|\s+(?:pp?\.|pages?\b|paragraph\b|section\b|第))", locator, re.IGNORECASE)
+    target = file_ref[1] if file_ref else locator.split("#", 1)[0]
+    path_shaped = file_ref or target.startswith(("./", "../")) or (
+        not any(c.isspace() for c in target) and ("/" in target or "\\" in target))
+    if not path_shaped:
+        return []
+    path = resolve_inside(root, target.replace("\\", "/"))
+    if path is None or not path.is_file():
+        return [f"Local reading evidence is missing, not a file, or outside the task: {target}"]
+    try:
+        with path.open("rb") as stream:
+            populated = any(chunk.strip() for chunk in iter(lambda: stream.read(65536), b""))
+    except OSError:
+        return [f"Local reading evidence is unreadable: {target}"]
+    return [] if populated else [f"Local reading evidence is empty: {target}"]
+
+
 def inspect_required_reading(row: dict[str, Any], registry_path: Path) -> list[str]:
     """Check declared reading records, not actual comprehension or source truth."""
     if "reading_requirement" not in row and "required_source_ids" not in row:
@@ -217,8 +248,8 @@ def inspect_required_reading(row: dict[str, Any], registry_path: Path) -> list[s
         allowed = {"full_text"} if required == "full_text" else {"full_text", "relevant_sections"}
         if source.get("read_scope") not in allowed:
             findings.append(f"Required source {source_id} has not met its {required} reading requirement.")
-        if not nonempty_text(source.get("read_evidence")):
-            findings.append(f"Required source {source_id} has no reading evidence reference.")
+        findings.extend(f"Required source {source_id}: {finding}" for finding in
+                        inspect_reading_evidence(registry_path.parent.parent, source.get("read_evidence")))
     return findings
 
 

@@ -10,6 +10,11 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Changed
 
+- Specify review validity, report readiness and permitted sampling dispositions separately in the model audit assignment.
+
+- Preserve hash-bound plan history for authorized report-delivery reviewer changes; distinguish legitimate retired slots from unknown records without rerunning completed reviews. Frozen evaluations retain their required slots.
+- Validate local reading-evidence paths, file existence and nonempty content at stage and required-reading checks; retain URL and section/page locators.
+
 - Reject empty source/claim placeholders and unresolved source references before stage advancement.
 - Bind supplemental requirements to both review contexts and delivery; match cached results by reviewer assignment, preserving original replies and timeout-only recovery.
 - Check reviewer configuration, executables and default CLI login at task start without model calls; publish bilingual historical evaluation status and version boundaries.

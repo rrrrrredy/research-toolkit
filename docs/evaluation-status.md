@@ -27,6 +27,8 @@ Reviewer agreement is not accuracy. The historical cohort has already informed d
 
 The plugin and MCP share one workflow. Local controls exercise stage prerequisites, supplemental requirements, assignment matching, recovery and delivery bindings, including an actual MCP stdio connection with synthetic reviewer processes. They establish tested software behavior, not real-model research quality, provider access or reliable behavior by every host agent.
 
+Plugin `0.1.2` also has a bounded, guided Codex CLI/MCP check with one fictional brief and real `gpt-6-sol` high reviewer and auditor contexts. The audit completed after recovery without rerunning the completed reviewer; the original negative finding, unchanged report and failed attempts were retained. The delivery gate refused the unresolved report defect. Configuration and audit-contract corrections were needed to complete this check. It does not establish unattended operation or a research-quality advantage.
+
 The historical report studies do not measure the later shared plugin/MCP implementation. Combining them with passing software checks does not establish a current general quality or efficiency advantage. A future efficacy comparison needs a separately scoped, frozen design. Fixing software defects and preserving existing first-review findings do not require rerunning historical reports.
 
 [Evaluation standard](report-evaluation-standard.md) · [Claim boundaries and study design](evaluation-roadmap.md) · [Usage and execution limits](usage-modes.md)
