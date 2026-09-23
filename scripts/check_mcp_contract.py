@@ -54,11 +54,18 @@ async def verify(base):
         assert not brief["ready_for_collection"]
         ready = unpack(await client.call_tool("research_start", {"task": "case", "brief": BRIEF}))
         assert ready["ready_for_collection"]
+        assert ready["review_readiness"]["status"] == "unverified"
+        assert not ready["review_readiness"]["model_access_verified"]
         root = Path(ready["task_directory"])
         (root/"final.md").write_text("The source reports twelve shipments.\n\nRevenue is not reported.\n", encoding="utf-8")
         (root/"source.md").write_text("Company A reported twelve shipments in 2026.\n", encoding="utf-8")
-        (root/"data/source_registry.csv").write_text("source_id,title,url\nS1,Shipments,https://example.org/source\n", encoding="utf-8")
-        (root/"data/claims_registry.csv").write_text("claim_id,claim,supporting_sources\nC1,Twelve shipments,S1\n", encoding="utf-8")
+        (root/"data/source_registry.csv").write_text("source_id,title,url,source_type,read_scope,read_evidence\nS1,,,,,\n", encoding="utf-8")
+        empty = await client.call_tool("research_status", {"task": "case", "stage": "draft"})
+        assert empty.is_error
+        (root/"data/source_registry.csv").write_text("source_id,title,url,source_type,read_scope,read_evidence\nS1,Shipments,https://example.org/source,primary,full_text,source.md\n", encoding="utf-8")
+        (root/"data/claims_registry.csv").write_text("claim_id,claim,claim_type,supporting_sources\nC1,Twelve shipments,verified_fact,S1\n", encoding="utf-8")
+        draft = unpack(await client.call_tool("research_status", {"task": "case", "stage": "draft"}))
+        assert draft["progress"]["stage"] == "draft"
         reviewed = unpack(await client.call_tool("research_review", {"task": "case", "evidence_paths": ["source.md"]}))
         assert reviewed["reviews_complete"], reviewed
         finished = unpack(await client.call_tool("research_finish", {"task": "case", "message": "The final report is complete."}))

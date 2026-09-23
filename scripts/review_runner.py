@@ -25,6 +25,12 @@ def load_review_config() -> dict:
         "reviewers": [default_reviewer()],
         "auditor": {"id": "audit", "model": "codex-configured", "format": "codex-jsonl"},
     }
+    return validate_review_config(config)
+
+
+def validate_review_config(config: dict) -> dict:
+    if not isinstance(config, dict):
+        raise ValueError("Review configuration must be an object.")
     reviewers = config.get("reviewers")
     if not isinstance(reviewers, list) or not reviewers or len(reviewers) > 8:
         raise ValueError("Review configuration needs 1-8 reviewers.")
@@ -41,10 +47,54 @@ def load_review_config() -> dict:
         if command is not None and (not isinstance(command, list) or not command
                                     or not all(isinstance(x, str) and x for x in command)):
             raise ValueError("A reviewer command must be a nonempty argv list.")
+        timeout = reviewer.get("timeout_seconds", 600)
+        if not isinstance(timeout, (int, float)) or isinstance(timeout, bool) or not 1 <= timeout <= 1800:
+            raise ValueError("Reviewer timeout_seconds must be between 1 and 1800.")
         ids.append(reviewer["id"])
     if len(ids) != len(set(ids)):
         raise ValueError("Reviewer and auditor configuration IDs must be distinct.")
     return config
+
+
+def assignment_config(config: dict) -> dict:
+    """Exclude transport timeouts, retaining settings that can change the assignment."""
+    return {**{k: v for k, v in config.items() if k != "timeout_seconds"},
+            "format": config.get("format", "codex-jsonl")}
+
+
+def review_readiness() -> dict:
+    """Inspect local dependencies and login state without sending model requests."""
+    try:
+        config = load_review_config()
+    except (ValueError, OSError, UnicodeError) as exc:
+        return {"status": "blocked", "checks": [{"status": "invalid_configuration",
+                "action": "Correct the trusted review configuration file.",
+                "error_type": type(exc).__name__}], "model_access_verified": False}
+    checks = []
+    login = None
+    for entry in [*config["reviewers"], config["auditor"]]:
+        command = entry.get("command")
+        executable = shutil.which(command[0] if command else "codex")
+        check = {"id": entry["id"], "model": entry["model"]}
+        if not executable:
+            check.update(status="dependency_missing", action="Install the configured executable or correct its path.")
+        elif command:
+            check.update(status="access_unverified", action="Verify the custom command's provider access before research; no model request was sent.")
+        else:
+            if login is None:
+                try:
+                    probe = subprocess.run([executable, "login", "status"], capture_output=True,
+                        timeout=10, creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+                    # Never return account details or credential fragments from CLI output.
+                    login = "login_detected" if probe.returncode == 0 else "login_check_failed"
+                except (OSError, subprocess.TimeoutExpired):
+                    login = "login_check_failed"
+            check.update(status=login, action=("Local login detected; model availability and quota remain unverified."
+                if login == "login_detected" else "Run codex login status in the server environment and restore access."))
+        checks.append(check)
+    blocked = any(c["status"] in {"dependency_missing", "login_check_failed"} for c in checks)
+    return {"status": "blocked" if blocked else "unverified" if any(c["status"] == "access_unverified" for c in checks) else "local_checks_passed",
+            "checks": checks, "model_access_verified": False}
 
 
 def run_reviewer(config: dict, request: dict, cwd: Path) -> dict:

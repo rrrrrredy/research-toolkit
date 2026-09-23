@@ -31,7 +31,7 @@ Add `review_plan` to the existing progress record. It contains:
 | `slots` | Nonempty list of required independent model-review assignments |
 | `sampling` | Declared sampling population, method and selected/mandatory item ids |
 
-Each slot has `slot_id`, `reviewer_id`, `model`, `scope`, `dimensions` and `input`. Slot ids are unique, the reviewer is not the author, and each dimension is named explicitly. Compatible perspectives may share a slot. There is no fixed provider list in the checker.
+Each slot has `slot_id`, `reviewer_id`, `model`, `scope`, `dimensions` and `input`. The shared executor also records `reviewer_signature` for the configured reviewer and instructions, plus `auditor_signature` in the plan and audit rows. Timeout changes are excluded from these assignment bindings. When present, signatures must match before selecting the first valid result; a prior model's result cannot fill a changed slot. Legacy records without these fields remain inspectable without inventing evidence of earlier execution. Slot ids are unique, the reviewer is not the author, and each dimension is named explicitly. Compatible perspectives may share a slot. There is no fixed provider list in the checker.
 
 `input` is a file reference: `{"path": "reviews/input.json", "sha256": "..."}`. Replace `...` with the actual hash; the fragment illustrates the shape and is not a completed record. Keep the original full task, report, evidence and criteria in the captured input, with any actual provider-envelope transformation documented. A separate hash or a list of source URLs does not establish that the model received full source text.
 

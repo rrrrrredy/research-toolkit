@@ -11,7 +11,7 @@ For new report studies, use the [current evaluation standard](report-evaluation-
 | Track | Question | Current evidence | What it may claim | What it may not claim |
 |---|---|---|---|---|
 | A. Deterministic conformance | Did an artifact follow configured protocol and delivery rules? | Implemented: positive controls, 22 negative fixtures, source integrity checks | Known structural and traceability failures are detected for tested fixtures | The report is factually correct, insightful, or useful |
-| B. Real-task efficacy | Does using the framework improve decision-useful research versus normal agent behavior? | Study design documented; no completed efficacy result published here | A bounded treatment estimate after preregistered held-out runs and independent review | Universal superiority across models, tasks, or organizations |
+| B. Real-task efficacy | Does using the framework improve decision-useful research versus normal agent behavior? | Historical first reviews complete; results and failures summarized in [evaluation status](evaluation-status.md); no current general efficacy claim | A bounded treatment estimate after preregistered held-out runs and independent review | Universal superiority across models, tasks, or organizations |
 
 ## Track A: Deterministic Conformance
 

@@ -10,6 +10,10 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Changed
 
+- Reject empty source/claim placeholders and unresolved source references before stage advancement.
+- Bind supplemental requirements to both review contexts and delivery; match cached results by reviewer assignment, preserving original replies and timeout-only recovery.
+- Check reviewer configuration, executables and default CLI login at task start without model calls; publish bilingual historical evaluation status and version boundaries.
+
 - Add a repository-distributed plugin and local MCP server sharing one workflow for brief clarification, stage guidance, effective review execution and checked delivery. Preserve the standalone Skill.
 - Execute reviews in fresh configured processes, retain original replies and failures, audit validity and sample content. Resume missing work without rerunning valid negative evaluations. Publish bilingual installation, account-use and capability guidance.
 - Check package/source consistency and exercise the MCP protocol with synthetic reviewer subprocesses; these checks make no model-quality claim.

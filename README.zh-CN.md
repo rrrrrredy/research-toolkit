@@ -158,6 +158,8 @@ python scripts/check_delivery.py <任务目录>
 
 流程与文件检查、报告评测及产品效果判断的证据要求见[评测计划](./docs/evaluation-roadmap.zh-CN.md)。
 
+[评测现状](./docs/evaluation-status.zh-CN.md)汇总已经完成的历史首评、公开与私有数据范围，以及当前插件和 MCP 的验证边界。
+
 可选的数据生成：只有已有以下两类本地知识库时，才需要重新生成这份脱敏资料包。这不是普通使用或运行检查的前置条件；把占位路径换成实际目录。以下多行命令使用 Windows cmd 语法：
 
 ```bat

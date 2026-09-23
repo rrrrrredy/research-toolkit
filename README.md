@@ -157,6 +157,8 @@ Those historical diagnostics retain their original three-model configuration. Th
 
 See [`docs/evaluation-roadmap.md`](./docs/evaluation-roadmap.md) for mechanical checks, report evaluation and the evidence required for product-effect claims.
 
+The [evaluation status](./docs/evaluation-status.md) separates completed historical first reviews, public/private data and the current plugin/MCP verification boundary.
+
 Optional source-pack generation: use this only if you have the two local knowledge repositories shown below. They are not required for normal use or the checks above. Replace the placeholder paths with your directories. This multiline example uses Windows cmd syntax:
 
 ```bat

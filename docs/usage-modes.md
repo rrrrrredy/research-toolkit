@@ -70,7 +70,7 @@ The server also exposes the `research` prompt and `research-toolkit://instructio
 
 | Tool | Action and completion boundary |
 | --- | --- |
-| `research_start` | Creates task records; returns missing question, audience, scope, output, depth and evidence requirements |
+| `research_start` | Creates task records; returns missing brief fields and checks reviewer configuration, executables and default CLI login |
 | `research_status` | Returns saved progress and current methods; changing to analysis/drafting requires prerequisite source/claim records |
 | `research_guide` | Loads the applicable methods without starting a task; supports English and Chinese |
 | `research_review` | Freezes full inputs, executes configured reviewers and a fresh auditor, preserves replies/failures, adjudicates findings and samples content |
@@ -78,9 +78,15 @@ The server also exposes the `research` prompt and `research-toolkit://instructio
 
 The author agent still searches, reads, analyzes and writes, using its existing tools. It must save required source texts and source/claim records in the task directory. Stage guidance reduces repeated context loading; it does not establish that a model has obeyed every instruction.
 
+Before analysis, source records need an ID, title, locator and source type, with at least one full-text or relevant-section reading record and a reading-evidence reference. Before drafting, claims need substantive text and a type; source references must resolve to registered, read sources. Explicit hypotheses may remain unsupported with recorded uncertainty, but at least one grounded claim is required. These checks detect incomplete records, not whether a source was truly understood.
+
+Reviews automatically include nonempty `state/requirements.jsonl` alongside the brief, report and source files. Both reviewer and auditor receive the full ledger, including later clarifications and changes. Editing or deleting that ledger after review prevents delivery until the changed assignment is addressed. An empty ledger adds no requirements.
+
 Reviews require the full task, report and source files, not just URLs. The local input limit is 16 MiB; oversized input is rejected rather than silently truncated. This limit is not a promise that the configured model accepts a context of that size.
 
 ### Review accounts and recovery
+
+At task start, `review_readiness` reports invalid configuration, missing executables and default Codex CLI login failures before research begins. Known blockers set `ready_for_collection` to `false`; the agent resolves them and calls start again. Missing user decisions still need clarification. This check sends no model request and does not prove model availability, quota or future service access. For a custom command, it checks the executable but returns `access_unverified`; the agent must verify the command's access in its actual environment. It does not execute arbitrary custom commands as a login probe.
 
 The default executor uses an installed, signed-in **Codex CLI** with its configured model: one fresh reviewer context, followed by a separate auditor context. The auditor checks validity, consequential findings, sampled passed content and the whole report in the same assignment. No fixed four-provider panel is required.
 
@@ -106,6 +112,8 @@ The default needs no configuration file. To select models or multiple required r
 ```
 
 Replace `codex-configured` with an available model identifier if needed. Every declared reviewer gets a separate context and a subsequent audit; use additional reviewers only when the task calls for them. Each executor has an optional `timeout_seconds` from 1 to 1800 (default 600).
+
+Changing only this timeout preserves the assignment and resumes missing work. A model or command change requires an explicitly authorized report-delivery revision; only affected reviewer slots run again, while original replies remain intact. Changing only the auditor resumes that audit without repeating the completed reviewer. Frozen evaluations reject substantive assignment changes. Unchanged legacy assignments retain their original records when the stored configuration binding still matches; upgrading the code is not permission to rerun valid negative reviews.
 
 For another provider, configure a trusted `command` argument list and `format: "json"`. The command receives one assignment JSON on stdin. It must actually call the chosen model, retain its original reply, and return this envelope on stdout:
 

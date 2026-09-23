@@ -31,7 +31,7 @@ python scripts/check_review_completion.py <task-directory> --artifact final.md
 | `slots` | 非空的必需独立评审任务列表 |
 | `sampling` | 抽查总体、方法、实际选中项和必查项 |
 
-每个席位包含 `slot_id`、`reviewer_id`、`model`、`scope`、`dimensions` 和 `input`。席位编号唯一，评审者不同于作者，维度逐一明确。相近视角可以由同一席位承担，检查器不固定供应商名单。
+每个席位包含 `slot_id`、`reviewer_id`、`model`、`scope`、`dimensions` 和 `input`。共用执行器还以 `reviewer_signature` 绑定评审配置与指令，并在计划及审查记录中保存 `auditor_signature`。超时设置不属于任务绑定；存在这些字段时，须先匹配再选择首个有效结果，旧模型结果不能填充已变更席位。没有这些字段的旧记录仍可检查，不追补执行凭据。席位编号唯一，评审者不同于作者，维度逐一明确。相近视角可以由同一席位承担，检查器不固定供应商名单。
 
 `input` 是文件引用，例如 `{"path":"reviews/input.json","sha256":"..."}`。省略号须替换为实际哈希，该片段仅说明格式。保留完整原始任务、报告、证据和量表，并记录实际发送封装造成的转换。单个哈希或来源网址列表不证明模型收到完整来源正文。
 

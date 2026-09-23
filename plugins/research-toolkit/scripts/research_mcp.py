@@ -37,6 +37,7 @@ def mutate(function, task, *args):
 def research_start(task: str, brief: dict[str, str], language: str = "en") -> dict[str, Any]:
     """Create a research task or complete its missing brief. Returns its directory and stage guidance.
     brief uses question, audience, scope, output, depth and evidence_standard. Do not guess critical choices.
+    Inspect review_readiness before collection: restore blocked dependencies/access; local checks do not verify quota.
     """
     return mutate(workflow.start, task, brief, language)
 

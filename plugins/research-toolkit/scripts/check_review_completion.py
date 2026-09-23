@@ -26,6 +26,12 @@ def distinct_strings(value: Any, *, nonempty: bool = True) -> bool:
             and all(text(item) for item in value) and len(set(value)) == len(value))
 
 
+def matches_review_slot(row: dict, slot: dict) -> bool:
+    """Use the same assignment identity in execution and offline acceptance."""
+    return all(row.get(key) == slot.get(key) for key in
+               ("slot_id", "reviewer_id", "model", "scope", "input", "reviewer_signature"))
+
+
 def content_review_rows(rows: list[dict]) -> list[dict]:
     """Keep attempt failures separate from report-delivery findings."""
     return [row for row in rows if not one_of(row.get("record_type"), REVIEW_RECORD_TYPES)]
@@ -122,7 +128,10 @@ def inspect_review_completion(
         else:
             if not one_of(row.get("result"), {"valid", "invalid"}):
                 add("invalid_review_audit", f"{attempt_id}: audit result must be valid or invalid.")
-            audits[attempt_id] = row
+            if row.get("auditor_signature") == plan.get("auditor_signature"):
+                # Keep the first valid audit for this auditor assignment.
+                if audits.get(attempt_id, {}).get("result") != "valid":
+                    audits[attempt_id] = row
     for row in rows:
         if row.get("record_type") != "review_audit":
             continue
@@ -161,8 +170,10 @@ def inspect_review_completion(
                       if r.get("slot_id") == sid and r.get("status") == "completed"
                       and audits.get(r["attempt_id"], {}).get("result") == "valid"]
         current = [r for r in candidates if r.get("artifact_sha256") == artifact_hash
-                   and r.get("input") == slot.get("input")]
+                   and matches_review_slot(r, slot)]
         if not current:
+            if any(r.get("artifact_sha256") == artifact_hash and r.get("input") == slot.get("input") for r in candidates):
+                add("review_slot_mismatch", f"{sid}: retained reviews do not match the current reviewer assignment.")
             add("missing_valid_review", f"{sid}: no completed, valid attempt for the current artifact and input.")
             if candidates:
                 add("stale_model_review", f"{sid}: retained valid reviews cover a different assignment version.")

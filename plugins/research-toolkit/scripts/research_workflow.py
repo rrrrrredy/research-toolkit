@@ -3,9 +3,7 @@
 from __future__ import annotations
 
 import argparse
-import csv
 import hashlib
-import io
 import json
 import os
 from pathlib import Path
@@ -15,9 +13,10 @@ import tempfile
 import uuid
 
 from check_delivery import (REQUIRED_HASH_INPUTS, OPTIONAL_HASH_INPUTS, evaluate_delivery,
-                            inspect_jsonl, resolve_inside, sha256_file)
-from check_review_completion import inspect_review_completion
-from review_runner import ReviewFailure, load_review_config, run_reviewer
+                            inspect_csv_text, inspect_jsonl, inspect_jsonl_text, resolve_inside, sha256_file)
+from check_review_completion import inspect_review_completion, matches_review_slot
+from review_runner import (ReviewFailure, assignment_config, load_review_config, review_readiness,
+                           run_reviewer, validate_review_config)
 
 TOOLKIT = Path(__file__).resolve().parents[1]
 BRIEF_FIELDS = {
@@ -159,6 +158,49 @@ def guidance(stage: str, language: str = "en") -> dict:
     return {"stage": stage, "guidance": files}
 
 
+def registry_rows(root, name, fields):
+    rows, errors = inspect_csv_text(safe_path(root, name).read_text(encoding="utf-8"),
+                                    name, fields, fields[0])
+    if errors or not rows:
+        raise ValueError("; ".join(errors) if errors else f"{name}: add substantive records before advancing.")
+    return rows
+
+
+def check_stage_records(root, stage):
+    sources = registry_rows(root, "data/source_registry.csv",
+        ("source_id", "title", "url", "source_type", "read_scope", "read_evidence"))
+    for row in sources:
+        if not all(nonempty(row.get(k)) for k in ("source_id", "title", "url", "source_type")):
+            raise ValueError("Every source needs an ID, title, locator and source type before analysis.")
+    read_ids = {r["source_id"].strip() for r in sources
+                if r.get("read_scope") in {"full_text", "relevant_sections"} and nonempty(r.get("read_evidence"))}
+    if not read_ids:
+        raise ValueError("Record the actual reading scope and locatable reading evidence before analysis.")
+    if stage == "draft":
+        claims = registry_rows(root, "data/claims_registry.csv", ("claim_id", "claim", "claim_type", "supporting_sources"))
+        grounded = False
+        for row in claims:
+            if not all(nonempty(row.get(k)) for k in ("claim_id", "claim", "claim_type")):
+                raise ValueError("Every claim needs an ID, substantive text and a claim type before drafting.")
+            supporting = {s for s in re.split(r"[;,|\s]+", row["supporting_sources"].strip()) if s}
+            if supporting - read_ids:
+                raise ValueError("Claim references must identify registered sources with recorded reading evidence.")
+            if not supporting and not (row["claim_type"] in {"hypothesis", "assumption"} and nonempty(row.get("uncertainty"))):
+                raise ValueError("Support claims with read sources; label unsupported hypotheses and their uncertainty explicitly.")
+            grounded = grounded or bool(supporting)
+        if not grounded:
+            raise ValueError("Develop at least one source-backed claim before drafting.")
+
+
+def requirement_input(root):
+    path = safe_path(root, "state/requirements.jsonl")
+    content = path.read_text(encoding="utf-8") if path.exists() else ""
+    _, errors = inspect_jsonl_text(content, "Requirement")
+    if errors:
+        raise ValueError("; ".join(errors))
+    return content if content.strip() else ""
+
+
 def start(workspace: Path, task: str, brief: dict, language="en") -> dict:
     if not isinstance(brief, dict) or any(not isinstance(k, str) for k in brief):
         raise ValueError("Brief must be an object.")
@@ -171,7 +213,9 @@ def start(workspace: Path, task: str, brief: dict, language="en") -> dict:
         if progress.get("stage") != "brief":
             if brief and any(progress.get("brief", {}).get(k) != v for k, v in brief.items()):
                 raise ValueError("Research already started; reconcile changed scope explicitly in its task records.")
-            return status(workspace, task, language)
+            readiness = review_readiness()
+            return {**status(workspace, task, language), "review_readiness": readiness,
+                    "ready_for_collection": readiness["status"] != "blocked"}
         brief = {**progress.get("brief", {}), **brief}
     else:
         for name, content in {
@@ -192,12 +236,16 @@ def start(workspace: Path, task: str, brief: dict, language="en") -> dict:
         }.items():
             save_text(root, name, content)
     missing = [key for key in BRIEF_FIELDS if not nonempty(brief.get(key))]
+    readiness = review_readiness()
     progress.update(brief=brief, stage="brief" if missing else "collect",
-                    next_action="Clarify missing research requirements." if missing else "Collect and read the required evidence.")
+                    next_action="Clarify missing research requirements." if missing else
+                    "Restore required review access before collection." if readiness["status"] == "blocked" else
+                    "Collect and read the required evidence.")
     save(root, "state/progress.json", progress)
     spec = "# Research brief\n\n" + "\n\n".join(f"## {key}\n\n{value}" for key, value in brief.items())
     save_text(root, "state/task_spec.md", spec+"\n")
-    return {"task": task, "task_directory": str(root), "ready_for_collection": not missing,
+    return {"task": task, "task_directory": str(root), "ready_for_collection": not missing and readiness["status"] != "blocked",
+            "review_readiness": readiness,
             "missing_fields": missing, "clarification_questions": [(BRIEF_FIELDS_ZH if language == "zh" else BRIEF_FIELDS)[k] for k in missing],
             **guidance(progress["stage"], language)}
 
@@ -212,13 +260,7 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None) 
         if missing:
             raise ValueError("Resolve the critical brief before advancing.")
         if stage in {"analyze", "draft"}:
-            source_rows = list(csv.DictReader(io.StringIO(safe_path(root, "data/source_registry.csv").read_text(encoding="utf-8"))))
-            if not source_rows:
-                raise ValueError("Record sources and actual reading before analysis.")
-        if stage == "draft":
-            claims = list(csv.DictReader(io.StringIO(safe_path(root, "data/claims_registry.csv").read_text(encoding="utf-8"))))
-            if not claims:
-                raise ValueError("Develop source-backed claims before drafting.")
+            check_stage_records(root, stage)
         progress.update(stage=stage, status="in_progress", next_action=f"Complete the {stage} requirements.")
         save(root, "state/progress.json", progress)
     current = progress.get("stage", "brief")
@@ -320,7 +362,7 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     report = artifact_path.read_text(encoding="utf-8")
     if not report.strip():
         raise ValueError("The report is empty.")
-    config = config or load_review_config()
+    config = load_review_config() if config is None else validate_review_config(config)
     source_names = sorted(set([*evidence_paths, "data/source_registry.csv", "data/claims_registry.csv"]))
     sources = {name: safe_path(root, name).read_text(encoding="utf-8") for name in source_names}
     if any(not text.strip() for text in sources.values()):
@@ -328,12 +370,19 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     packet = {"task": safe_path(root, "state/task_spec.md").read_text(encoding="utf-8"),
               "report_path": artifact, "report": report, "sources": sources, "dimensions": DIMENSIONS,
               "purpose": purpose, "sampling_method": SAMPLING_METHOD}
+    requirements = requirement_input(root)
+    if requirements:
+        packet["requirements"] = requirements
     if len(json.dumps(packet, ensure_ascii=False).encode("utf-8")) > 16 * 1024 * 1024:
         raise ValueError("Input exceeds the 16 MiB local limit; explicitly agree a bounded assignment rather than truncating it.")
     version = digest(packet)
     artifact_hash = sha256_file(artifact_path)
     old_plan = progress.get("review_plan")
-    if old_plan and (old_plan.get("input_version") != version or old_plan.get("runner_signature") != digest(config)):
+    runner_signature = digest({"reviewers": [assignment_config(r) for r in config["reviewers"]],
+                               "auditor": assignment_config(config["auditor"]),
+                               "review_instructions": REVIEW_INSTRUCTIONS, "audit_instructions": AUDIT_INSTRUCTIONS})
+    same_runner = bool(old_plan and old_plan.get("runner_signature") in {runner_signature, digest(config)})
+    if old_plan and (old_plan.get("input_version") != version or not same_runner):
         if old_plan.get("purpose") == "evaluation" or purpose == "evaluation":
             raise ValueError("Evaluation input is frozen. Preserve it and use a separate task for another study.")
         if not revision:
@@ -348,15 +397,28 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     indices = sorted({0, len(paragraphs)-1, int(version[:8], 16) % len(paragraphs)})
     report_samples = {f"paragraph:{i+1}": paragraphs[i] for i in indices}
     slots = [{"slot_id": r["id"], "reviewer_id": f"reviewer:{r['id']}", "model": r["model"],
-              "scope": "full_report", "dimensions": DIMENSIONS, "input": input_ref}
+              "scope": "full_report", "dimensions": DIMENSIONS, "input": input_ref,
+              "reviewer_signature": digest({"config": assignment_config(r), "instructions": REVIEW_INSTRUCTIONS})}
              for r in config["reviewers"]]
+    auditor_signature = digest({"config": assignment_config(config["auditor"]), "instructions": AUDIT_INSTRUCTIONS})
+    # Preserve an unchanged legacy assignment without inventing bindings for old executions.
+    if same_runner:
+        old_slots = {s["slot_id"]: s for s in old_plan["slots"]}
+        for slot in slots:
+            previous = old_slots.get(slot["slot_id"], {})
+            if "reviewer_signature" not in previous and previous.get("input") == input_ref:
+                slot.pop("reviewer_signature", None)
+        if "auditor_signature" not in old_plan:
+            auditor_signature = None
     population = [*[f"paragraph:{i+1}" for i in range(len(paragraphs))],
                   *[f"review:{s['slot_id']}" for s in slots]]
     selection = [*report_samples, *[f"review:{s['slot_id']}" for s in slots]]
     plan = {"purpose": purpose, "author_id": progress["author_id"], "artifact_sha256": artifact_hash,
-            "input_version": version, "runner_signature": digest(config), "slots": slots,
+            "input_version": version, "runner_signature": runner_signature, "slots": slots,
             "sampling": {"method": SAMPLING_METHOD, "population": population,
                          "selected": selection, "mandatory": [f"review:{s['slot_id']}" for s in slots]}}
+    if auditor_signature is not None:
+        plan["auditor_signature"] = auditor_signature
     progress.update(review_plan=plan, stage="review", status="in_progress",
                     next_action="Complete the declared reviews, audits and sample checks.")
     save(root, "state/progress.json", progress)
@@ -371,10 +433,14 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
         sid = slot["slot_id"]
         for _ in range(2):
             history = rows_for(root)
-            audits = {r["attempt_id"]: r for r in history if r.get("record_type") == "review_audit"}
+            audits = {}
+            for row in history:
+                if row.get("record_type") == "review_audit" and row.get("auditor_signature") == auditor_signature:
+                    if audits.get(row["attempt_id"], {}).get("result") != "valid":
+                        audits[row["attempt_id"]] = row
             candidates = [r for r in history if r.get("record_type") == "model_review"
                           and r.get("slot_id") == sid and r.get("status") == "completed"
-                          and r.get("input") == input_ref and r.get("artifact_sha256") == artifact_hash]
+                          and matches_review_slot(r, slot) and r.get("artifact_sha256") == artifact_hash]
             valid = next((r for r in candidates if audits.get(r["attempt_id"], {}).get("result") == "valid"), None)
             if valid:
                 selected[sid] = (valid, audits[valid["attempt_id"]])
@@ -384,7 +450,7 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                 aid = uuid.uuid4().hex
                 attempt_prefix = prefix+"/attempts/"+aid
                 base = {"record_type": "model_review", "attempt_id": aid,
-                        **{k: slot[k] for k in ("slot_id", "reviewer_id", "model", "scope", "input")},
+                        **{k: slot[k] for k in ("slot_id", "reviewer_id", "model", "scope", "input", "reviewer_signature") if k in slot},
                         "artifact_sha256": artifact_hash}
                 try:
                     value, execution_id = invoke(root, attempt_prefix, reviewer_config,
@@ -423,6 +489,8 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                          "dispositions": audit_value.get("dispositions", {}),
                          "sample_checks": audit_value.get("sample_checks", {}),
                          "global_review": audit_value.get("global_review", {})}
+                if auditor_signature is not None:
+                    audit["auditor_signature"] = auditor_signature
                 append_row(root, audit)
                 if audit["result"] == "valid":
                     selected[sid] = (pending, audit)
@@ -449,7 +517,8 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                     checks[item] = json.loads(json.dumps(check))
                     if check["result"] == "defect":
                         checks[item]["follow_up"]["evidence"] = audit["evidence"]
-        summary_path = prefix+"/sample-audits.json"
+        # New assignment summaries must not overwrite evidence referenced by prior audits.
+        summary_path = prefix+"/sample-audits-"+digest(evidence)+".json"
         save(root, summary_path, {"method": SAMPLING_METHOD, "audits": evidence, "auditor_contexts": contexts})
         append_row(root, {"record_type": "sampling_audit", "artifact_sha256": artifact_hash,
                           "selected": selection, "auditor_id": "panel:"+",".join(contexts),
@@ -481,6 +550,7 @@ def finish(workspace: Path, task: str, message: str, artifact="final.md") -> dic
     for slot in plan.get("slots", []):
         frozen = load(root, slot["input"]["path"])
         if (frozen["task"] != safe_path(root, "state/task_spec.md").read_text(encoding="utf-8")
+                or frozen.get("requirements", "") != requirement_input(root)
                 or frozen["report_path"] != artifact
                 or frozen["report"] != safe_path(root, artifact).read_text(encoding="utf-8")
                 or any(safe_path(root, name).read_text(encoding="utf-8") != content

@@ -10,6 +10,8 @@ Missing required files block a pass regardless of score. Malformed requirement o
 
 Actual outputs are available in the [2026-09-07 development package](./diagnostics/2026-09-07/): four original calibration reader reports, two repairs, three-model text replies and an explicitly retained incomplete response. These are development diagnostics, not held-out efficacy results.
 
+See [evaluation status and version boundaries](../docs/evaluation-status.md) for completed historical first-review counts and their interpretation. The public files below are a subset of the retained evaluation material.
+
 ## Directory Layout
 
 Existing consumers can use the [schema v2 migration guide](../docs/evaluator-v2-migration.md). The [delivery checker interface](../docs/delivery-verification.md) documents intended-message binding and the limits of optional actual-reply comparison.
