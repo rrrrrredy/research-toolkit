@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
+import io
 import json
 import re
 from pathlib import Path
@@ -146,6 +147,37 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
+def inspect_csv_text(
+    content: str, label: str, required_columns: tuple[str, ...] = (),
+    unique_id: str | None = None,
+) -> tuple[list[dict[str, str]], list[str]]:
+    """Parse logical CSV records and retain structural errors."""
+    rows: list[dict[str, str]] = []
+    findings: list[str] = []
+    reader = csv.DictReader(io.StringIO(content, newline=""), strict=True)
+    try:
+        columns = reader.fieldnames or []
+        missing = set(required_columns) - set(columns)
+        if missing:
+            findings.append(f"{label} is missing columns: {', '.join(sorted(missing))}.")
+        if not columns or any(not column.strip() for column in columns) or len(set(columns)) != len(columns):
+            findings.append(f"{label} needs distinct, non-empty column names.")
+        seen: set[str] = set()
+        for row in reader:
+            if None in row or any(value is None for value in row.values()):
+                findings.append(f"{label} record ending at line {reader.line_num} has the wrong field count.")
+                continue
+            if unique_id:
+                identity = row.get(unique_id, "").strip()
+                if not identity or identity in seen:
+                    findings.append(f"{label} record ending at line {reader.line_num} has a missing or duplicate {unique_id}.")
+                seen.add(identity)
+            rows.append(row)
+    except csv.Error as exc:
+        findings.append(f"{label} CSV error at line {reader.line_num}: {exc}.")
+    return rows, findings
+
+
 def nonempty_text(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
 
@@ -169,11 +201,13 @@ def inspect_required_reading(row: dict[str, Any], registry_path: Path) -> list[s
             and len(set(source_ids)) == len(source_ids)):
         return ["required_source_ids must be a non-empty list of distinct source ids."]
     try:
-        with registry_path.open(encoding="utf-8", newline="") as stream:
-            rows = list(csv.DictReader(stream, strict=True))
-    except (OSError, UnicodeError, csv.Error):
+        rows, findings = inspect_csv_text(
+            read_text(registry_path), "Source registry", ("source_id", "title"), "source_id"
+        )
+    except (OSError, UnicodeError):
         return ["Required reading has no readable UTF-8 source registry."]
-    findings = []
+    if findings:
+        return findings
     for source_id in source_ids:
         matches = [source for source in rows if source.get("source_id") == source_id]
         if len(matches) != 1:
@@ -188,7 +222,10 @@ def inspect_required_reading(row: dict[str, Any], registry_path: Path) -> list[s
     return findings
 
 
-def inspect_requirements(path: Path, contract_version: int = DELIVERY_CONTRACT_VERSION) -> tuple[list[str], list[str]]:
+def inspect_requirements(
+    path: Path, contract_version: int = DELIVERY_CONTRACT_VERSION, *,
+    parsed_records: tuple[list[dict[str, Any]], list[str]] | None = None,
+) -> tuple[list[str], list[str]]:
     """Return terminal-blocking requirement findings and accepted limitations."""
 
     findings: list[str] = []
@@ -196,27 +233,14 @@ def inspect_requirements(path: Path, contract_version: int = DELIVERY_CONTRACT_V
     if not path.exists():
         return findings, accepted_limitations
 
-    try:
-        content = read_text(path)
-    except (OSError, UnicodeError):
-        return ["Requirements are unreadable or are not valid UTF-8."], []
-    for line_number, line in enumerate(content.splitlines(), start=1):
-        if not line.strip():
-            continue
-        try:
-            row = json.loads(line)
-        except json.JSONDecodeError:
-            findings.append(f"Requirement row {line_number} is not valid JSON.")
-            continue
-        if not isinstance(row, dict):
-            findings.append(f"Requirement row {line_number} is not an object.")
-            continue
-
+    rows, parse_findings = parsed_records if parsed_records is not None else inspect_jsonl(path, "Requirement")
+    findings.extend(parse_findings)
+    for record_number, row in enumerate(rows, start=1):
         requirement_id = str(row.get("requirement_id") or row.get("id") or "").strip()
         status = str(row.get("status", "")).strip().lower()
-        label = requirement_id or f"row {line_number}"
+        label = requirement_id or f"record {record_number}"
         if not requirement_id:
-            findings.append(f"Requirement row {line_number} has no stable id.")
+            findings.append(f"Requirement record {record_number} has no stable id.")
         if status not in RESOLVED_REQUIREMENT_STATUSES:
             findings.append(
                 f"Requirement {label} is not terminally resolved (status: {status or '<missing>'})."
@@ -250,11 +274,25 @@ def inspect_requirements(path: Path, contract_version: int = DELIVERY_CONTRACT_V
 def claims_completion(message: str, artifact: str = "final.md") -> bool:
     """Return True only for an affirmative user-visible completion claim."""
 
-    scrubbed = message.lower()
-    for pattern in NEGATED_COMPLETION_PATTERNS:
-        scrubbed = re.sub(pattern, " ", scrubbed, flags=re.IGNORECASE)
-    if any(re.search(pattern, scrubbed, flags=re.IGNORECASE) for pattern in COMPLETION_PATTERNS):
-        return True
+    # Retain partial-work qualifiers and scope them to the matched subject.
+    partial_subject = r"(?:\b(?:draft|outline|chapter|section|partial|interim|preliminary|working)\s+(?:(?:of|the|a|an)\s+)*|(?:阶段稿|草稿|中间稿|初稿|提纲|章节|部分)(?:的)?\s*)$"
+    for clause in re.split(r"[。！？!?；;\n]|[.](?=\s|$)", message.lower()):
+        negated_spans = [match.span() for pattern in NEGATED_COMPLETION_PATTERNS[:4]
+                         for match in re.finditer(pattern, clause, flags=re.IGNORECASE)]
+        for pattern in COMPLETION_PATTERNS:
+            for match in re.finditer(pattern, clause, flags=re.IGNORECASE):
+                if any(start < match.end() and match.start() < end for start, end in negated_spans):
+                    continue
+                prefix = clause[:match.start()]
+                if re.search(partial_subject, prefix, flags=re.IGNORECASE):
+                    continue
+                if re.search(r"(?:\bnot\s+|(?:不是|并非|不能视为)\s*)$", prefix):
+                    continue
+                # Generic readiness also needs to keep an explicitly named draft.
+                if re.match(r"(?:ready to|good to go)", match.group()):
+                    if re.search(r"\b(?:draft|outline|chapter|section)\b|阶段稿|草稿|中间稿|提纲", prefix):
+                        continue
+                return True
 
     # Runtime replies often name the primary file instead of saying "the report".
     # Only its visible filename counts; unrelated links and link targets do not.
@@ -357,10 +395,12 @@ def sha256_file(path: Path) -> str:
 
 
 def resolve_inside(root: Path, relative_path: str) -> Path | None:
-    candidate = (root / relative_path).resolve()
+    if not isinstance(relative_path, str) or not relative_path.strip() or "\x00" in relative_path:
+        return None
     try:
+        candidate = (root / relative_path).resolve()
         candidate.relative_to(root.resolve())
-    except ValueError:
+    except (OSError, ValueError, RuntimeError):
         return None
     return candidate
 
@@ -587,6 +627,8 @@ def evaluate_delivery(
         if not isinstance(hashes, dict):
             add("incomplete_delivery_receipt", "The delivery receipt has no artifact hash map.")
         else:
+            # A binding remains required even when its file has disappeared.
+            expected_inputs = list(dict.fromkeys([*expected_inputs, *hashes]))
             for relative in expected_inputs:
                 path = resolve_inside(root, relative)
                 if path is None or not path.is_file():
@@ -595,8 +637,14 @@ def evaluate_delivery(
                 recorded_hash = str(hashes.get(relative, "")).strip().lower()
                 if not recorded_hash:
                     add("incomplete_delivery_receipt", f"The delivery receipt omits a hash for {relative}.")
-                elif recorded_hash != sha256_file(path).lower():
-                    add("stale_delivery_receipt", f"The delivery receipt is stale for {relative}.")
+                else:
+                    try:
+                        current_hash = sha256_file(path).lower()
+                    except OSError:
+                        add("missing_delivery_inputs", f"Bound delivery input is unreadable: {relative}.")
+                        continue
+                    if recorded_hash != current_hash:
+                        add("stale_delivery_receipt", f"The delivery receipt is stale for {relative}.")
 
     review_rows, review_findings = inspect_jsonl(root / "logs" / "review.jsonl", "Review")
     review_completion = None

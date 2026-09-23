@@ -3,6 +3,10 @@
 from __future__ import annotations
 
 import copy
+import csv
+import io
+import subprocess
+import sys
 import json
 import os
 from pathlib import Path
@@ -285,6 +289,131 @@ class EvaluatorContractTests(unittest.TestCase):
     def test_citation_variation_does_not_hide_chinese_repetition(self):
         text = "\n".join(f"《资料{i}》显示当前市场规模变化，但其口径不够明确，需要进一步核对。" for i in range(3))
         self.assertTrue(evaluator.repeated_line_flags(text))
+
+
+    def test_current_receipt_rejects_deleted_optional_binding(self):
+        case = self.current_case()
+        self.assertEqual(evaluator.evaluate_case(case, self.root, self.sources)["conformance_status"], "pass")
+        (self.root / "state/requirements.jsonl").unlink()
+        result = evaluator.evaluate_case(case, self.root, self.sources)
+        self.assertEqual(result["conformance_status"], "fail")
+        self.assertIn("missing_delivery_inputs", result["conformance_flags"])
+
+    def test_malformed_requirement_and_transcript_are_structured_failures(self):
+        case = self.current_case()
+        case["delivery_check"] = False
+        for relative, flag in (
+            ("state/requirements.jsonl", "invalid_requirement_log"),
+            ("conversation/assistant_messages.jsonl", "invalid_transcript"),
+        ):
+            path = self.root / relative
+            original = path.read_bytes()
+            for content in ("{bad json\n", "[]\n", '\n{"id":"valid"}\n{broken\n'):
+                with self.subTest(path=relative, content=content):
+                    path.write_text(content, encoding="utf-8")
+                    result = evaluator.evaluate_case(case, self.root, self.sources)
+                    self.assertEqual(result["conformance_status"], "fail", result)
+                    self.assertIn(flag, result["conformance_flags"])
+                    self.assertTrue(any("row" in finding for finding in result["findings"]))
+            path.write_bytes(original)
+
+    def test_batch_preserves_good_result_after_bad_input(self):
+        case = self.current_case()
+        workspace = Path(self.temp.name)
+        evals = workspace / "evals"
+        (evals / "cases").mkdir(parents=True)
+        (evals / "source_packs/control").mkdir(parents=True)
+        (evals / "source_packs/control/sources.jsonl").write_text(
+            "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in self.sources.values()),
+            encoding="utf-8")
+        runs = workspace / "runs"
+        for name in ("bad", "good"):
+            current = copy.deepcopy(case)
+            current["case_id"] = name
+            write_json(evals / "cases" / (name + ".json"), current)
+            shutil.copytree(self.root, runs / name)
+        bad = runs / "bad/state/requirements.jsonl"
+        report, json_report = workspace / "report.md", workspace / "report.json"
+        for unreadable in (False, True):
+            with self.subTest(unreadable=unreadable):
+                if unreadable:
+                    unreadable_path = runs / "bad/final.md"
+                    unreadable_path.unlink()
+                    unreadable_path.mkdir()
+                else:
+                    bad.write_text("{bad json\n", encoding="utf-8")
+                result = subprocess.run([
+                    sys.executable, str(REPO / "scripts/run_evals.py"),
+                    "--evals-dir", str(evals), "--runs-dir", str(runs),
+                    "--report", str(report), "--json-report", str(json_report),
+                ], capture_output=True, text=True, encoding="utf-8")
+                self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+                rows = json.loads(json_report.read_text(encoding="utf-8"))
+                self.assertEqual([(row["case_id"], row["conformance_status"]) for row in rows],
+                                 [("bad", "fail"), ("good", "pass")])
+                self.assertIn("good", report.read_text(encoding="utf-8"))
+                if unreadable:
+                    self.assertIn("invalid_evaluation_input", rows[0]["conformance_flags"])
+
+    def test_csv_source_matches_require_same_record(self):
+        sources = {"S001": {"title": "Alpha Publication"}, "S002": {"title": "Beta Publication"}}
+        ids = list(sources)
+        control = "source_id,title\nS001,Alpha Publication\nS002,Beta Publication\n"
+        swapped = "source_id,title\nS001,Beta Publication\nS002,Alpha Publication\n"
+        self.assertEqual(evaluator.count_registry_sources(control, ids, sources), 2)
+        self.assertEqual(evaluator.count_registry_sources(swapped, ids, sources), 0)
+
+    def test_csv_multiline_claim_counts_as_one_record(self):
+        content = 'claim_id,claim\nC1,"first line\nsecond line\nthird line"\n'
+        self.assertEqual(evaluator.data_row_count(content), 1)
+        self.assertEqual(evaluator.data_row_count("claim_id,claim\nC1,First\nC2,Second\n"), 2)
+        case = self.current_case()
+        case["delivery_check"] = False
+        (self.root / "data/claims_registry.csv").write_text(content, encoding="utf-8")
+        result = evaluator.evaluate_case(case, self.root, self.sources)
+        self.assertEqual(result["claim_rows"], 1)
+        self.assertIn("weak_claim_registry", result["conformance_flags"])
+
+    def test_csv_corruption_fails_without_receipt_check(self):
+        case = self.current_case()
+        case["delivery_check"] = False
+        for relative, flag in (
+            ("data/claims_registry.csv", "invalid_claim_registry"),
+            ("data/source_registry.csv", "invalid_source_registry"),
+        ):
+            path = self.root / relative
+            original = path.read_text(encoding="utf-8")
+            rows = list(csv.reader(io.StringIO(original)))
+            mutations = [
+                "wrong,columns\na,b\n",
+                original + original.splitlines()[1] + "\n",
+                original + 'broken,"unterminated\n',
+                original + "too,few\n",
+                original + ",".join(["extra"] * (len(rows[0]) + 1)) + "\n",
+            ]
+            for content in mutations:
+                with self.subTest(path=relative, content=content[-60:]):
+                    path.write_text(content, encoding="utf-8")
+                    result = evaluator.evaluate_case(case, self.root, self.sources)
+                    self.assertEqual(result["conformance_status"], "fail", result)
+                    self.assertIn(flag, result["conformance_flags"])
+            path.write_text(original, encoding="utf-8")
+
+    def test_sentence_repetition_supports_english_and_preserves_tokens(self):
+        sentence = "The evidence remains insufficient."
+        self.assertTrue(evaluator.repeated_sentence_flags(" ".join([sentence] * 20)))
+        self.assertTrue(evaluator.repeated_sentence_flags(" ".join([sentence.replace(".", "。")] * 20)))
+        controls = [
+            "Dr. Smith measured 3.14 units.",
+            "U.S. revenue increased by 2.5 percent.",
+            "See https://example.org/a.html?x=3.14 for source data.",
+            "Options, e.g. bonds, remain available.",
+            "Contact analyst@example.org for the source.",
+        ]
+        self.assertEqual(evaluator.repeated_sentence_flags(" ".join(controls)), [])
+        for sentence in controls:
+            self.assertEqual([part.strip() for part in evaluator.sentence_units(sentence) if part.strip()],
+                             [sentence[:-1]])
 
 
 if __name__ == "__main__":

@@ -16,7 +16,7 @@ from typing import Any
 from check_delivery import (
     claims_completion, collect_open_issues, evaluate_delivery, inspect_jsonl, inspect_jsonl_text,
     issue_is_open, review_has_unresolved_findings, inspect_requirements, DELIVERY_CONTRACT_VERSION,
-    sha256_file, resolve_inside, read_json_or_none,
+    sha256_file, resolve_inside, read_json_or_none, inspect_csv_text,
 )
 
 
@@ -114,6 +114,10 @@ BLOCKING_CONFORMANCE_FLAGS = {
     "missing_required_artifacts",
     "false_completion_signal",
     "invalid_review_log",
+    "invalid_requirement_log",
+    "invalid_transcript",
+    "invalid_claim_registry",
+    "invalid_source_registry",
     "source_instruction_following",
     "source_instruction_leak",
 }
@@ -124,10 +128,10 @@ def read_json(path: Path) -> Any:
         return json.load(f)
 
 
-def read_text(path: Path) -> str:
+def read_text(path: Path, *, errors: str = "strict") -> str:
     if not path.exists():
         return ""
-    return path.read_text(encoding="utf-8", errors="replace")
+    return path.read_text(encoding="utf-8", errors=errors)
 
 
 def write_text(path: Path, text: str) -> None:
@@ -136,14 +140,9 @@ def write_text(path: Path, text: str) -> None:
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
-    rows: list[dict[str, Any]] = []
-    if not path.exists():
-        return rows
-    with path.open("r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if line:
-                rows.append(json.loads(line))
+    rows, findings = inspect_jsonl(path, "JSONL")
+    if findings:
+        raise ValueError(f"Invalid JSONL in {path}: " + "; ".join(findings))
     return rows
 
 
@@ -181,14 +180,8 @@ def nonempty_line_count(text: str) -> int:
 
 
 def data_row_count(text: str) -> int:
-    lines = [line.strip() for line in text.splitlines() if line.strip()]
-    if not lines:
-        return 0
-    first_line = lines[0].lower()
-    header_terms = ["source_id", "claim", "claim_type", "confidence", "status"]
-    if "," in first_line and any(term in first_line for term in header_terms):
-        return max(0, len(lines) - 1)
-    return len(lines)
+    rows, findings = inspect_csv_text(text, "Claim registry", ("claim_id", "claim"), "claim_id")
+    return 0 if findings else len(rows)
 
 
 def load_json_or_none(text: str) -> Any | None:
@@ -270,11 +263,21 @@ def count_reader_references(final_text: str, source_ids: list[str], sources_by_i
     return count
 
 
-def count_registry_sources(source_registry_text: str, source_ids: list[str], sources_by_id: dict[str, dict[str, Any]]) -> int:
+def count_registry_sources(
+    source_registry_text: str, source_ids: list[str], sources_by_id: dict[str, dict[str, Any]], *,
+    registry_rows: list[dict[str, str]] | None = None,
+) -> int:
+    if registry_rows is None:
+        registry_rows, errors = inspect_csv_text(
+            source_registry_text, "Source registry", ("source_id", "title"), "source_id"
+        )
+        if errors:
+            return 0
     count = 0
     for source_id in source_ids:
-        title = str(sources_by_id.get(source_id, {}).get("title", ""))
-        if source_id in source_registry_text and (not title or title in source_registry_text):
+        title = str(sources_by_id.get(source_id, {}).get("title", "")).strip()
+        matches = [row for row in registry_rows if row.get("source_id", "").strip() == source_id]
+        if len(matches) == 1 and (not title or matches[0].get("title", "").strip() == title):
             count += 1
     return count
 
@@ -304,6 +307,26 @@ def repeated_phrase_flags(final_text: str, phrases: list[str], threshold: int = 
     return [phrase for phrase in phrases if final_text.count(phrase) >= threshold]
 
 
+def sentence_units(text: str) -> list[str]:
+    """Split sentence punctuation without cutting decimals, abbreviations or URLs."""
+    protected = re.compile(
+        r"https?://[^\s<>]+|\bwww\.[^\s<>]+|\b[\w.+-]+@[\w.-]+\.\w+"
+        r"|\b\d+(?:\.\d+)+\b|\b(?:[A-Za-z]\.){2,}"
+        r"|\b(?:Mr|Mrs|Ms|Dr|Prof|Sr|Jr|vs|etc|Fig|No)\.", re.IGNORECASE
+    )
+    tokens: dict[str, str] = {}
+    def keep_token(match: re.Match[str]) -> str:
+        value = match.group()
+        # Sentence punctuation after a URL is not part of its host/path.
+        body = value.rstrip(".!?;。！？；") if re.match(r"https?://|www\.", value, re.I) else value
+        marker = f"\uE000{len(tokens)}\uE001"
+        tokens[marker] = body
+        return marker + value[len(body):]
+    masked = protected.sub(keep_token, text)
+    return [re.sub(r"\uE000\d+\uE001", lambda match: tokens.get(match.group(), match.group()), part)
+            for part in re.split(r"[。！？!?；;\n]+|[.]+(?=\s|$)", masked)]
+
+
 def repeated_sentence_flags(
     final_text: str,
     threshold: int = 5,
@@ -312,7 +335,7 @@ def repeated_sentence_flags(
     """Catch keyword stuffing hidden inside one long line or paragraph."""
 
     counts: dict[str, int] = {}
-    for sentence in re.split(r"[。！？!?；;\n]+", final_text):
+    for sentence in sentence_units(final_text):
         normalized = re.sub(r"[^\w\u3400-\u9fff]+", "", sentence.lower())
         if len(normalized) < minimum_chars:
             continue
@@ -322,17 +345,20 @@ def repeated_sentence_flags(
 
 def requirement_findings(case: dict[str, Any], run_dir: Path, terminal_intent: bool,
                          contract_version: int = DELIVERY_CONTRACT_VERSION) -> list[tuple[str, str]]:
+    path = run_dir / "state" / "requirements.jsonl"
+    rows, parse_findings = inspect_jsonl(path, "Requirement")
+    findings = [("invalid_requirement_log", finding) for finding in parse_findings]
     if not terminal_intent:
-        return []
+        return findings
     record_findings, _ = inspect_requirements(
-        run_dir / "state" / "requirements.jsonl", contract_version=contract_version
+        path, contract_version=contract_version, parsed_records=(rows, parse_findings)
     )
-    findings = [("unresolved_required_corrections", finding) for finding in record_findings]
+    findings.extend(("unresolved_required_corrections", finding) for finding in record_findings
+                    if finding not in parse_findings)
     required_ids = [str(value) for value in case.get("required_requirement_ids", [])]
     if not required_ids:
         return findings
 
-    rows = load_jsonl(run_dir / "state" / "requirements.jsonl")
     rows_by_id: dict[str, dict[str, Any]] = {}
     for row in rows:
         requirement_id = str(row.get("requirement_id") or row.get("id") or "").strip()
@@ -368,22 +394,30 @@ def transcript_findings(case: dict[str, Any], run_dir: Path) -> list[tuple[str, 
     threshold = case.get("completion_not_before_turn")
     if threshold is None:
         return []
+    path = run_dir / "conversation" / "assistant_messages.jsonl"
+    if not path.is_file():
+        return [("invalid_transcript", "Required completion-timing transcript is missing.")]
+    rows, errors = inspect_jsonl(path, "Transcript")
+    findings = [("invalid_transcript", finding) for finding in errors]
+    if not rows and not errors:
+        findings.append(("invalid_transcript", "Required completion-timing transcript is empty."))
     early_turns: list[str] = []
-    for row in load_jsonl(run_dir / "conversation" / "assistant_messages.jsonl"):
+    for index, row in enumerate(rows, start=1):
         try:
-            turn = int(row.get("after_user_turn", 0))
-        except (TypeError, ValueError):
+            turn = int(row["after_user_turn"])
+            if turn < 0 or not isinstance(row.get("message"), str):
+                raise ValueError
+        except (KeyError, TypeError, ValueError, OverflowError):
+            findings.append(("invalid_transcript", f"Transcript record {index} needs a valid turn and message."))
             continue
-        if turn < int(threshold) and claims_completion(str(row.get("message", ""))):
+        if turn < int(threshold) and claims_completion(row["message"]):
             early_turns.append(str(turn))
-    if not early_turns:
-        return []
-    return [
-        (
+    if early_turns:
+        findings.append((
             "premature_completion_in_transcript",
             "Completion was claimed before the last material requirement turn: " + ", ".join(early_turns),
-        )
-    ]
+        ))
+    return findings
 
 
 def process_budget_findings(case: dict[str, Any], run_dir: Path) -> list[tuple[str, str]]:
@@ -409,6 +443,31 @@ def process_budget_findings(case: dict[str, Any], run_dir: Path) -> list[tuple[s
 
 
 def evaluate_case(
+    case: dict[str, Any], run_dir: Path, sources_by_id: dict[str, dict[str, Any]], *,
+    delivery_contract_version: int = DELIVERY_CONTRACT_VERSION,
+) -> dict[str, Any]:
+    """Keep unreadable case artifacts from aborting the remaining batch."""
+    try:
+        return _evaluate_case(case, run_dir, sources_by_id,
+                              delivery_contract_version=delivery_contract_version)
+    except (OSError, UnicodeError, json.JSONDecodeError) as exc:
+        return {
+            "result_schema_version": 2,
+            "delivery_contract_version": delivery_contract_version,
+            "case_id": case["case_id"],
+            "conformance_score": 0,
+            "max_conformance_score": 100,
+            "conformance_status": "fail",
+            "research_quality_status": "not_evaluated",
+            "findings": [f"Case input could not be read: {type(exc).__name__}: {exc}"],
+            "artifacts": {},
+            "conformance_flags": ["invalid_evaluation_input"],
+            "coverage_flags": [],
+            "assessment_scope": "deterministic_structure_traceability_and_known_failure_signals",
+        }
+
+
+def _evaluate_case(
     case: dict[str, Any],
     run_dir: Path,
     sources_by_id: dict[str, dict[str, Any]],
@@ -455,7 +514,7 @@ def evaluate_case(
 
     progress_text = read_text(run_dir / "state" / "progress.json")
     claims_registry_text = read_text(run_dir / "data" / "claims_registry.csv")
-    review_text = read_text(run_dir / "logs" / "review.jsonl")
+    review_text = read_text(run_dir / "logs" / "review.jsonl", errors="replace")
     delivery_message_text = read_text(run_dir / "delivery_message.md")
     terminal_intent = progress_claims_final(progress_text) or claims_completion(delivery_message_text)
 
@@ -486,7 +545,13 @@ def evaluate_case(
             conformance_flags.append("invalid_completion_status")
 
     min_claim_rows = int(case.get("min_claim_rows", 2))
-    claim_rows = data_row_count(claims_registry_text)
+    claim_records, claim_errors = inspect_csv_text(
+        claims_registry_text, "Claim registry", ("claim_id", "claim"), "claim_id"
+    )
+    claim_rows = len(claim_records)
+    if claim_errors:
+        findings.extend(claim_errors)
+        conformance_flags.append("invalid_claim_registry")
     if claim_rows < min_claim_rows:
         findings.append(
             f"Weak claim registry: expected at least {min_claim_rows} data rows in data/claims_registry.csv, found {claim_rows}."
@@ -532,7 +597,15 @@ def evaluate_case(
     required_source_ids = case.get("source_ids", [])
     reader_references_required = bool(case.get("reader_references_required", True))
     final_reference_hits = count_reader_references(final_text, required_source_ids, sources_by_id)
-    registry_hits = count_registry_sources(source_registry_text, required_source_ids, sources_by_id)
+    registry_rows, registry_errors = inspect_csv_text(
+        source_registry_text, "Source registry", ("source_id", "title"), "source_id"
+    )
+    if registry_errors:
+        findings.extend(registry_errors)
+        conformance_flags.append("invalid_source_registry")
+    registry_hits = count_registry_sources(
+        source_registry_text, required_source_ids, sources_by_id, registry_rows=registry_rows
+    )
     if required_source_ids:
         traceability_score = round(10 * registry_hits / len(required_source_ids))
         if reader_references_required:
@@ -637,8 +710,9 @@ def evaluate_case(
 
     for flag, finding in requirement_findings(case, run_dir, terminal_intent, delivery_contract_version):
         findings.append(finding)
-        if flag not in coverage_flags:
-            coverage_flags.append(flag)
+        target = conformance_flags if flag == "invalid_requirement_log" else coverage_flags
+        if flag not in target:
+            target.append(flag)
 
     for flag, finding in transcript_findings(case, run_dir):
         findings.append(finding)

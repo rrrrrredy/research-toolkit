@@ -105,6 +105,41 @@ class SourceExtractionTests(unittest.TestCase):
             self.assertEqual(source.read_bytes(), raw)
 
 
+    def test_charset_is_read_only_from_actual_meta_declarations(self):
+        for prefix in (
+            "<!-- old charset=windows-1252 -->",
+            '<script>const old = \'<meta charset="windows-1252">\';</script>',
+            '<style>/* charset=windows-1252 */</style>',
+            '<div data-note="charset=windows-1252"></div>',
+            '<meta name="description" content="charset=windows-1252">',
+            '<template><meta charset="windows-1252"></template>',
+        ):
+            with self.subTest(prefix=prefix):
+                data = (prefix + '<meta charset="utf-8"><p>研究</p>').encode("utf-8")
+                result = extractor.extract_html(data)
+                self.assertEqual(result["text"], "研究")
+                self.assertEqual(result["decoding"]["decoder_used"], "utf-8")
+                self.assertEqual(result["decoding"]["encoding_declarations"], ["utf-8"])
+        legacy = '<meta content="text/html; charset=windows-1252" http-equiv="Content-Type"><p>café</p>'
+        self.assertEqual(extractor.extract_html(legacy.encode("cp1252"))["text"], "café")
+
+    def test_encoding_priority_and_conflicts_are_explicit(self):
+        text = '<meta charset="utf-8"><meta charset="windows-1252"><p>研究</p>'
+        result = extractor.extract_html(text.encode("utf-8"))
+        self.assertEqual(result["text"], "研究")
+        self.assertTrue(result["decoding"]["conflicting_declarations"])
+        aliases = extractor.extract_html(b'<meta charset="utf8"><meta charset="utf-8"><p>x</p>')
+        self.assertFalse(aliases["decoding"]["conflicting_declarations"])
+        conflicting = '<meta charset="windows-1252"><p>研究</p>'
+        for encoding, basis in (("utf-8-sig", "UTF-8 BOM"), ("utf-16", "UTF-16 BOM")):
+            result = extractor.extract_html(conflicting.encode(encoding))
+            self.assertEqual(result["text"], "研究")
+            self.assertEqual(result["decoding"]["selection_basis"], basis)
+        result = extractor.extract_html(conflicting.encode("utf-8"), encoding="utf-8")
+        self.assertEqual(result["text"], "研究")
+        self.assertEqual(result["decoding"]["selection_basis"], "explicit caller override")
+
+
 if __name__ == "__main__":
     if os.environ.get("IRF_TEST_TMPDIR"):
         tempfile.tempdir = os.environ["IRF_TEST_TMPDIR"]

@@ -24,6 +24,12 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Fixed
 
+- Validate every receipt-bound file even after deletion, including optional and additional inputs; retain task-directory path boundaries.
+- Reuse validated JSONL records and report malformed or unreadable case inputs as failures without interrupting other cases. Parse source and claim CSVs as records, validate their structure, and match each source ID to its title in the same row.
+- Preserve draft qualifiers in completion checks and detect repeated English sentences while retaining common abbreviations, decimal numbers, and URLs.
+- Read HTML encoding only from actual meta declarations, retain caller/BOM precedence, and expose conflicting declarations.
+- Remove runtime-specific adapter claims from the general evaluation roadmap.
+
 - Reject missing required evaluation files regardless of the numeric score or whether delivery checking is enabled. Directories cannot satisfy required file entries; complete inputs retain their passing behavior.
 
 - Keep evaluation focused on report evidence, preserved findings and matched product comparisons. Simplify the published evaluation materials and offline checks to that scope.

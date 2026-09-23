@@ -581,6 +581,76 @@ class DeliveryContractTests(unittest.TestCase):
                 self.assertFalse(any("Legacy v1" in value for value in result["warnings"]))
 
 
+    def test_bound_optional_files_cannot_disappear(self):
+        for relative in checker.OPTIONAL_HASH_INPUTS:
+            with self.subTest(relative=relative):
+                path = self.root / relative
+                if not path.exists():
+                    path.write_text("id,uncertainty\nU1,Unknown\n", encoding="utf-8")
+                original = path.read_bytes()
+                seal(self.root)
+                self.assertTrue(self.evaluate()["ok"])
+                receipt = (self.root / "state/final_delivery.json").read_bytes()
+                path.unlink()
+                try:
+                    self.assert_flag("missing_delivery_inputs")
+                    self.assertEqual((self.root / "state/final_delivery.json").read_bytes(), receipt)
+                finally:
+                    path.write_bytes(original)
+
+    def test_unbound_optional_file_can_remain_absent(self):
+        path = self.root / "data/uncertainty_registry.csv"
+        path.unlink(missing_ok=True)
+        seal(self.root)
+        self.assertTrue(self.evaluate()["ok"])
+
+    def test_all_recorded_paths_are_validated(self):
+        path = self.root / "data/calculations.csv"
+        path.write_text("metric,value\nvolume,12\n", encoding="utf-8")
+        receipt_path = self.root / "state/final_delivery.json"
+        receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+        receipt["artifacts"]["data/calculations.csv"] = checker.sha256_file(path)
+        write_json(receipt_path, receipt)
+        self.assertTrue(self.evaluate()["ok"])
+        path.write_text("metric,value\nvolume,13\n", encoding="utf-8")
+        self.assertIn("stale_delivery_receipt", self.evaluate()["flags"])
+        path.unlink()
+        self.assert_flag("missing_delivery_inputs")
+        del receipt["artifacts"]["data/calculations.csv"]
+        for outside in ("../outside.md", "", "bad\x00path"):
+            with self.subTest(path=outside):
+                receipt["artifacts"][outside] = "0" * 64
+                write_json(receipt_path, receipt)
+                self.assert_flag("missing_delivery_inputs")
+                del receipt["artifacts"][outside]
+
+    def test_generic_completion_preserves_draft_scope(self):
+        self.progress(stage="draft", status="in_progress")
+        for message in (
+            "The draft report is complete; final verification is still pending.",
+            "The preliminary report is complete. The final report is not complete.",
+            "The report is not complete.",
+            "草稿报告已完成，最终核查尚未完成。",
+            "尚未全部完成。",
+            "没有全部完成。",
+            "并非报告已完成。",
+        ):
+            with self.subTest(message=message):
+                self.assertFalse(checker.claims_completion(message))
+                (self.root / "delivery_message.md").write_text(
+                    message + " 已知限制保持披露。\n", encoding="utf-8")
+                seal(self.root)
+                self.assertTrue(self.evaluate()["ok"])
+        for message in (
+            "The final report is complete.",
+            "The draft was incomplete. The final report is complete.",
+            "The report is complete; the draft is archived.",
+            "The draft report is complete; the final report is complete.",
+        ):
+            with self.subTest(message=message):
+                self.assertTrue(checker.claims_completion(message))
+
+
 if __name__ == "__main__":
     if os.environ.get("IRF_TEST_TMPDIR"):
         tempfile.tempdir = os.environ["IRF_TEST_TMPDIR"]

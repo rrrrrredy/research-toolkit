@@ -6,6 +6,8 @@ This directory contains seven research cases, twenty-two negative fixtures, four
 
 Evaluator result schema v2 keeps two claims separate. `conformance_status`, `conformance_score`, and `conformance_flags` describe deterministic structure, traceability, and configured failure signals. `research_quality_status` is `not_evaluated`; the runner does not claim that a mechanically conforming report is insightful, accurate, or decision-useful.
 
+Missing required files block a pass regardless of score. Malformed requirement or conversation JSONL and invalid source or claim CSVs produce explicit failure findings; a damaged case does not prevent the remaining cases from being reported. CSV counts use logical records, and source IDs and titles must match within the same record.
+
 Actual outputs are available in the [2026-09-07 development package](./diagnostics/2026-09-07/): four original calibration reader reports, two repairs, three-model text replies and an explicitly retained incomplete response. These are development diagnostics, not held-out efficacy results.
 
 ## Directory Layout

@@ -10,7 +10,7 @@ The default is **delivery contract 3**. The receipt container remains `schema_ve
 python <skill-directory>/scripts/check_delivery.py <task-directory>
 ```
 
-The receipt binds the current artifact, brief, progress, source and claim records, review log, and intended delivery message. Applicable requirement and uncertainty files are also bound. Text hashes normalize CRLF and CR to LF. Finish the relevant edits before sealing; a later edit makes the old receipt stale. Do not rerun unrelated research just to create a new receipt.
+The receipt binds the current artifact, brief, progress, source and claim records, review log, and intended delivery message. Applicable requirement and uncertainty files are also bound. Every path recorded in the receipt remains subject to existence, task-directory boundary and hash checks, even if it was optional when the receipt was created. An optional file that was never bound may remain absent. Text hashes normalize CRLF and CR to LF. Finish the relevant edits before sealing; a later edit makes the old receipt stale. Do not rerun unrelated research just to create a new receipt.
 
 Use `--delivery-message note.md` for a non-default intended message. The receipt must bind that selected filename. Artifact, receipt and intended-message paths must resolve inside the task directory.
 

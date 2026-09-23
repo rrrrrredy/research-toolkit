@@ -141,11 +141,55 @@ class SourceHTML(HTMLParser):
             })
 
 
+class CharsetHTML(HTMLParser):
+    """Read actual meta declarations; comments and script data are not markup."""
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.declarations = []
+        self.skipped = []
+
+    def handle_starttag(self, tag, attrs):
+        if self.skipped:
+            if tag not in VOID:
+                self.skipped.append(tag)
+            return
+        if tag in SKIPPED:
+            self.skipped.append(tag)
+            return
+        if tag != "meta":
+            return
+        attrs = dict(attrs)
+        encoding = (attrs.get("charset") or "").strip()
+        if not encoding and (attrs.get("http-equiv") or "").strip().lower() == "content-type":
+            match = re.search(r"(?:^|;)\s*charset\s*=\s*[\"']?\s*([a-zA-Z0-9_.:-]+)",
+                              attrs.get("content") or "", re.I)
+            encoding = match.group(1) if match else ""
+        if encoding:
+            self.declarations.append(encoding)
+
+    def handle_endtag(self, tag):
+        if tag in self.skipped:
+            index = len(self.skipped) - 1 - self.skipped[::-1].index(tag)
+            del self.skipped[index:]
+
+    def handle_startendtag(self, tag, attrs):
+        self.handle_starttag(tag, attrs)
+        if tag not in VOID:
+            self.handle_endtag(tag)
+
+
+def encoding_key(name):
+    try:
+        return codecs.lookup(name).name
+    except LookupError:
+        return name.lower()
+
+
 def decode_html(data, encoding=None):
-    declaration = re.search(
-        br'charset\s*=\s*["\x27]?\s*([a-zA-Z0-9_.:-]+)', data[:16384], re.I
-    )
-    declared = declaration.group(1).decode("ascii") if declaration else None
+    declarations = CharsetHTML()
+    declarations.feed(data[:16384].decode("latin-1"))
+    declarations.close()
+    declared = next(iter(declarations.declarations), None)
     if encoding:
         selected, basis = encoding, "explicit caller override"
     elif data.startswith(codecs.BOM_UTF8):
@@ -157,6 +201,8 @@ def decode_html(data, encoding=None):
     codecs.lookup(selected)
     return data.decode(selected, errors="strict"), {
         "declared_encoding": declared, "decoder_used": selected,
+        "encoding_declarations": declarations.declarations,
+        "conflicting_declarations": len({encoding_key(name) for name in declarations.declarations}) > 1,
         "selection_basis": basis, "replacement_characters_inserted": False,
     }
 
