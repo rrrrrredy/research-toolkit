@@ -10,6 +10,10 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Changed
 
+- Add a repository-distributed plugin and local MCP server sharing one workflow for brief clarification, stage guidance, effective review execution and checked delivery. Preserve the standalone Skill.
+- Execute reviews in fresh configured processes, retain original replies and failures, audit validity and sample content. Resume missing work without rerunning valid negative evaluations. Publish bilingual installation, account-use and capability guidance.
+- Check package/source consistency and exercise the MCP protocol with synthetic reviewer subprocesses; these checks make no model-quality claim.
+
 - Shorten the bilingual Skill entry points and route detailed methods by research stage. Preserve the complete research standard in references and synchronize the web entry point.
 - Make the agent responsible for eliciting missing research requirements and executing the workflow. Resolve critical choices before dependent work; use recorded defaults only for non-critical details, without a fixed question count.
 

@@ -1,0 +1,22 @@
+{
+  "name": "research-toolkit",
+  "version": "0.1.0",
+  "description": "Source-backed research with effective reviews and checked delivery.",
+  "author": {
+    "name": "rrrrrredy"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Research Toolkit",
+    "shortDescription": "Research with sources, reviews and delivery checks",
+    "longDescription": "Clarify the research brief, preserve evidence and progress, run independent reviews, and check delivery from one shared workflow.",
+    "developerName": "rrrrrredy",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Research this topic with Research Toolkit; clarify missing requirements first."
+  },
+  "homepage": "https://github.com/rrrrrredy/research-toolkit",
+  "repository": "https://github.com/rrrrrredy/research-toolkit",
+  "license": "MIT",
+  "mcpServers": "./.mcp.json"
+}

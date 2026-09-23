@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "research-toolkit": {
+      "command": "python",
+      "args": [
+        "${PLUGIN_ROOT}/scripts/research_mcp.py"
+      ]
+    }
+  }
+}

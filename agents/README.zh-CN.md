@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+需要将 Skill 与可执行的评审、交付工具一起安装时，查看[插件与 MCP 使用说明](../docs/usage-modes.zh-CN.md)。本页介绍单独安装 Skill。
+
 研究工具箱提供 `research-toolkit` Skill。可以为当前任务直接读取文件，也可以安装到支持原生技能发现的工具中。[精简 Skill 入口](../SKILL.md)与[中文入口](../SKILL.zh-CN.md)说明各阶段应读的方法，[完整研究规范](../references/research-standard.zh-CN.md)保留详细规则。
 
 ## 直接读取使用

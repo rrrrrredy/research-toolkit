@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+For an installation that bundles the Skill with executable review and delivery tools, use the [plugin or standalone MCP guide](../docs/usage-modes.md). This page covers Skill-only installation.
+
 Research Toolkit provides the `research-toolkit` Skill. Choose how you want to use it: read its files for a task, or install it in a tool that supports native Skill discovery. The concise [Skill entry point](../SKILL.md) and [Chinese version](../SKILL.zh-CN.md) route each stage to its methods. The [complete research standard](../references/research-standard.md) remains available for detailed rules.
 
 ## Use without installation

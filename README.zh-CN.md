@@ -2,15 +2,25 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-研究工具箱（Research Toolkit）是一套面向 AI Agent 的开源研究工具箱。通过 **`research-toolkit` Skill**，提供研究规划、证据分析、写作、审查与验收方法，并配套检查脚本和持续建设的评测集。
+研究工具箱（Research Toolkit）帮助 AI Agent 完成有来源依据的研究，从澄清需求到审阅报告、检查交付。支持 **包含 Skill 和 MCP 工具的插件**，也可单独使用 Skill 或本地 MCP。三种形式共用研究方法与执行脚本。
 
-**[安装与使用](#快速开始) · [查看 Skill](./SKILL.zh-CN.md) · [任务示例](#真实任务示例) · [评测集](./evals/README.zh-CN.md)**
+**[安装插件](./docs/usage-modes.zh-CN.md#安装插件) · [Skill、插件与 MCP 怎么选](./docs/usage-modes.zh-CN.md) · [查看 Skill](./SKILL.zh-CN.md) · [评测集](./evals/README.zh-CN.md)**
 
 适合产业、市场、公司、产品和技术等深度研究：先明确研究需求，再分析来源与反证，按章节写作，交付前完成审查。检索、文件读写和脚本执行能力由所用的 Agent 工具提供。
 
 从精简的 [`SKILL.md`](./SKILL.md) 或[中文入口](./SKILL.zh-CN.md)开始，保留关键约束，并明确各阶段该读什么。[完整研究规范](./references/research-standard.zh-CN.md)与配套方法保存在 `references/`，按需读取。[项目说明](https://rrrrrredy.github.io/research-toolkit/framework.html)介绍研究流程。
 
 ## 快速开始
+
+**工具支持时，优先安装[插件](./plugins/research-toolkit/README.zh-CN.md)：已经包含 Skill 和 MCP，不用装三遍。** 安装后说明研究需求，Agent 负责澄清缺项、按阶段读取方法，并调用评审和交付工具。
+
+| 选择 | 得到什么 | 安装说明 |
+| --- | --- | --- |
+| 插件 | 一次安装 Skill、方法与可执行工具 | [安装插件](./docs/usage-modes.zh-CN.md#安装插件) |
+| Skill | 供现有 Agent 读取的入口与详细规范 | [Skill 安装](./agents/README.zh-CN.md) |
+| MCP | 单独接入同一套五个研究工具 | [接入 MCP](./docs/usage-modes.zh-CN.md#单独接入-mcp) |
+
+插件/MCP 默认使用已经登录的 Codex CLI 账户执行评审，会把所提供的材料发送到对应模型服务并消耗额度。[完整使用说明](./docs/usage-modes.zh-CN.md)介绍配置、能力边界，以及 Agent 如何完成必需评审和恢复失败任务。
 
 ### 直接用于一次研究
 

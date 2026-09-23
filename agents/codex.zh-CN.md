@@ -2,6 +2,8 @@
 
 [English](codex.md) | [简体中文](codex.zh-CN.md)
 
+需要将 Skill 与可执行的评审、交付工具一起安装时，查看[插件与 MCP 使用说明](../docs/usage-modes.zh-CN.md)。本页介绍单独安装 Skill。
+
 在能够读取本地文件的 Codex 环境中使用 `research-toolkit` Skill。克隆仓库需要 Git，运行检查脚本需要 Python。保留完整仓库副本，以便读取参考资料、脚本及说明文件。
 
 ## 安装为原生 Skill

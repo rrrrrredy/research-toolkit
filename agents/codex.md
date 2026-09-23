@@ -2,6 +2,8 @@
 
 [English](codex.md) | [简体中文](codex.zh-CN.md)
 
+For an installation that bundles the Skill with executable review and delivery tools, use the [plugin or standalone MCP guide](../docs/usage-modes.md). This page covers Skill-only installation.
+
 Use the `research-toolkit` Skill in a Codex environment that can read local files. Git is needed to clone the repository; Python is needed for the checking scripts. Keep the complete checkout so that references, scripts, and documentation remain available.
 
 ## Install as a native Skill

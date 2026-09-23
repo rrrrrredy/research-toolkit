@@ -2,15 +2,25 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-Research Toolkit is an open-source research toolkit for AI agents, delivered through the **`research-toolkit` Skill**. It provides methods for research planning, evidence analysis, writing, review, and acceptance, together with checking scripts and an evaluation set under continued development.
+Research Toolkit helps AI agents carry out source-backed research, from clarifying the brief to reviewing the report and checking delivery. Use it as a **plugin with bundled Skill and MCP tools**, a standalone Skill, or a local MCP server. All three share the same research methods and execution scripts.
 
-**[Install and use](#quickstart) · [Read the Skill](./SKILL.md) · [Example tasks](#example-tasks) · [Evaluation set](./evals/README.md)**
+**[Install the plugin](./docs/usage-modes.md#install-the-plugin) · [Skill, plugin or MCP?](./docs/usage-modes.md) · [Read the Skill](./SKILL.md) · [Evaluation set](./evals/README.md)**
 
 Use it for substantial industry, market, company, product, and technology research. The agent clarifies the research brief, examines sources and counter-evidence, drafts section by section, and reviews the report before delivery. Web access, file operations, and script execution come from the agent tool you use.
 
 Start with the concise [`SKILL.md`](./SKILL.md) or its [Chinese version](./SKILL.zh-CN.md). It keeps the essential constraints and tells the agent what to read at each stage. The [complete research standard](./references/research-standard.md) and supporting methods remain in `references/`. The [project guide](https://rrrrrredy.github.io/research-toolkit/framework.html) explains the workflow.
 
 ## Quickstart
+
+**For supported agents, start with the [plugin](./plugins/research-toolkit/): it includes both the Skill and MCP tools.** Install it once; describe the research you need. The agent clarifies missing requirements, uses the stage methods, and invokes review and delivery tools.
+
+| Choose | What you get | Setup |
+| --- | --- | --- |
+| Plugin | Skill, methods and executable tools in one package | [Install the plugin](./docs/usage-modes.md#install-the-plugin) |
+| Skill | Instructions and detailed methods for your existing agent | [Skill setup](./agents/README.md) |
+| MCP | The same five research tools connected separately | [Connect MCP](./docs/usage-modes.md#connect-mcp-separately) |
+
+The plugin/MCP default reviewer uses a signed-in Codex CLI account. Review calls send the supplied material to that account's model service and consume its usage. [Usage, configuration and limits](./docs/usage-modes.md) explain how the agent runs required reviews and resumes failures.
 
 ### Use it for one task
 
