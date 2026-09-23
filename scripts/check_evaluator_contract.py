@@ -12,6 +12,7 @@ import unittest
 
 import check_delivery as delivery
 from check_delivery_contract import BASE, FINAL, REPO, seal, write_json, bind_synthetic_reviews
+from check_review_completion_contract import synthetic_review_records
 import run_evals as evaluator
 
 
@@ -63,6 +64,51 @@ class EvaluatorContractTests(unittest.TestCase):
 
     def test_known_good(self):
         self.assert_both_pass()
+
+    def current_case(self):
+        plan, rows = synthetic_review_records(self.root, purpose="report_delivery")
+        self.progress(review_plan=plan)
+        with (self.root / "logs/review.jsonl").open("a", encoding="utf-8") as out:
+            for row in rows:
+                out.write(json.dumps(row, ensure_ascii=False) + "\n")
+        seal(self.root)
+        return copy.deepcopy(self.case)
+
+    def test_missing_required_files_fail_with_or_without_delivery_check(self):
+        case = self.current_case()
+        calculations = self.root / "data/calculations.csv"
+        calculations.write_text("metric,value\nshipments,12\n", encoding="utf-8")
+        case["artifact_requirements"].append("data/calculations.csv")
+        for enabled in (True, False):
+            case["delivery_check"] = enabled
+            positive = evaluator.evaluate_case(case, self.root, self.sources)
+            self.assertEqual(positive["conformance_status"], "pass", positive)
+            self.assertEqual(positive["conformance_score"], 100, positive)
+            for relative in ("data/calculations.csv", "conversation/assistant_messages.jsonl"):
+                with self.subTest(delivery_check=enabled, missing=relative):
+                    path = self.root / relative
+                    original = path.read_bytes()
+                    path.unlink()
+                    try:
+                        result = evaluator.evaluate_case(case, self.root, self.sources)
+                    finally:
+                        path.write_bytes(original)
+                    self.assertEqual(result["delivery_contract_version"], 3)
+                    self.assertEqual(result["conformance_status"], "fail", result)
+                    self.assertIn("missing_required_artifacts", result["conformance_flags"])
+                    self.assertFalse(result["artifacts"][relative])
+                    self.assertIn("Missing artifacts: " + relative, result["findings"])
+                    self.assertEqual(result["research_quality_status"], "not_evaluated")
+
+    def test_directory_does_not_satisfy_a_required_file(self):
+        case = self.current_case()
+        relative = "data/calculations.csv"
+        case["artifact_requirements"].append(relative)
+        (self.root / relative).mkdir()
+        result = evaluator.evaluate_case(case, self.root, self.sources)
+        self.assertEqual(result["conformance_status"], "fail", result)
+        self.assertIn("missing_required_artifacts", result["conformance_flags"])
+        self.assertFalse(result["artifacts"][relative])
 
     def test_self_waived_requirement_fails_even_without_receipt_check(self):
         with (self.root / "state/requirements.jsonl").open("a", encoding="utf-8") as out:

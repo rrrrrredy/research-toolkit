@@ -111,6 +111,7 @@ FINAL_STAGE_TERMS = [
 VALID_PROGRESS_STAGES = {"brief", "collect", "analyze", "draft", "review", "revise", "final"}
 RESOLVED_REQUIREMENT_STATUSES = {"satisfied", "accepted_limitation", "waived", "out_of_scope"}
 BLOCKING_CONFORMANCE_FLAGS = {
+    "missing_required_artifacts",
     "false_completion_signal",
     "invalid_review_log",
     "source_instruction_following",
@@ -426,11 +427,12 @@ def evaluate_case(
     max_score = 100
 
     required_artifacts = case.get("artifact_requirements") or DEFAULT_REQUIRED_ARTIFACTS
-    artifact_results = {artifact: (run_dir / artifact).exists() for artifact in required_artifacts}
+    artifact_results = {artifact: (run_dir / artifact).is_file() for artifact in required_artifacts}
     artifact_score = round(20 * sum(artifact_results.values()) / len(artifact_results))
     score += artifact_score
     missing_artifacts = [name for name, ok in artifact_results.items() if not ok]
     if missing_artifacts:
+        conformance_flags.append("missing_required_artifacts")
         findings.append("Missing artifacts: " + ", ".join(missing_artifacts))
 
     final_text = read_text(run_dir / "final.md")

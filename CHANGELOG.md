@@ -24,6 +24,8 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Fixed
 
+- Reject missing required evaluation files regardless of the numeric score or whether delivery checking is enabled. Directories cannot satisfy required file entries; complete inputs retain their passing behavior.
+
 - Keep evaluation focused on report evidence, preserved findings and matched product comparisons. Simplify the published evaluation materials and offline checks to that scope.
 
 - Keep DSH runtime commands out of general evaluation instructions, qualify profile-specific installation paths, and remove stale approval and editing notes from current documentation. Scope local verification to the changed behavior while retaining the full offline CI suite.
