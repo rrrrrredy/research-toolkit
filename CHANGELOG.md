@@ -40,6 +40,10 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Fixed
 
+- Apply source, reading and claim prerequisites at review and delivery; include declared necessary evidence automatically and bind originals, extracts and delivery receipts to their versions.
+- Preserve completed state and receipts when replaying unchanged reviews; include independent global audit failures in report-readiness checks while preserving valid negative evaluations.
+- Terminate local reviewer descendants on timeout using process groups or Windows jobs, retain cancellation boundaries, and align source field names in both workflow guides.
+
 - Validate every receipt-bound file even after deletion, including optional and additional inputs; retain task-directory path boundaries.
 - Reuse validated JSONL records and report malformed or unreadable case inputs as failures without interrupting other cases. Parse source and claim CSVs as records, validate their structure, and match each source ID to its title in the same row.
 - Preserve draft qualifiers in completion checks and detect repeated English sentences while retaining common abbreviations, decimal numbers, and URLs.

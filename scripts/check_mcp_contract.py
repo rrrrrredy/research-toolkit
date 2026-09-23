@@ -62,6 +62,8 @@ async def verify(base):
         (root/"data/source_registry.csv").write_text("source_id,title,url,source_type,read_scope,read_evidence\nS1,,,,,\n", encoding="utf-8")
         empty = await client.call_tool("research_status", {"task": "case", "stage": "draft"})
         assert empty.is_error
+        denied_review = await client.call_tool("research_review", {"task": "case", "evidence_paths": ["source.md"]})
+        assert denied_review.is_error
         (root/"data/source_registry.csv").write_text("source_id,title,url,source_type,read_scope,read_evidence\nS1,Shipments,https://example.org/source,primary,full_text,source.md\n", encoding="utf-8")
         (root/"data/claims_registry.csv").write_text("claim_id,claim,claim_type,supporting_sources\nC1,Twelve shipments,verified_fact,S1\n", encoding="utf-8")
         draft = unpack(await client.call_tool("research_status", {"task": "case", "stage": "draft"}))
@@ -72,6 +74,14 @@ async def verify(base):
         assert finished["completed"], finished
         current = unpack(await client.call_tool("research_status", {"task": "case"}))
         assert current["progress"]["status"] == "complete"
+        receipt = (root/"state/final_delivery.json").read_bytes()
+        history = (root/"logs/review.jsonl").read_bytes()
+        replay = unpack(await client.call_tool("research_review", {"task": "case", "evidence_paths": ["source.md"]}))
+        assert replay["reviews_complete"] and replay["reused"], replay
+        current = unpack(await client.call_tool("research_status", {"task": "case"}))
+        assert current["progress"]["status"] == "complete"
+        assert (root/"state/final_delivery.json").read_bytes() == receipt
+        assert (root/"logs/review.jsonl").read_bytes() == history
         resources = await client.list_resources()
         assert any(str(r.uri) == "research-toolkit://instructions" for r in resources.resources)
         prompts = await client.list_prompts()

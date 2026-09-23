@@ -115,6 +115,12 @@ The default needs no configuration file. To select models or multiple required r
 
 Replace `codex-configured` with an available model identifier if needed. Every declared reviewer gets a separate context and a subsequent audit; use additional reviewers only when the task calls for them. Each executor has an optional `timeout_seconds` from 1 to 1800 (default 600).
 
+Timeouts terminate the executor's local descendants and retain the failed attempt; they do not establish cancellation of a provider-side request. Repeating an identical review assignment reuses valid results while preserving completed state and its delivery receipt.
+
+Review and delivery share source, reading and claim prerequisites. Local materials referenced by claims or required readings are included automatically; use the source registry's `evidence_path` for UTF-8 source text or a required extract when only a URL/page locator is available. Binary originals remain version-bound while the model reads their text extracts. Changes to either prevent delivery using the old review.
+
+`reviews_complete` means the reviews are valid and complete. For report delivery, `completion_check` also checks independent audit findings and the global report verdict. Unresolved report issues block delivery; evaluation mode preserves valid negative findings.
+
 Changing only this timeout preserves the assignment and resumes missing work. A model or command change requires an explicitly authorized report-delivery revision; only affected reviewer slots run again, while original replies remain intact. Changing only the auditor resumes that audit without repeating the completed reviewer. Frozen evaluations reject substantive assignment changes. Unchanged legacy assignments retain their original records when the stored configuration binding still matches; upgrading the code is not permission to rerun valid negative reviews.
 
 For another provider, configure a trusted `command` argument list and `format: "json"`. The command receives one assignment JSON on stdin. It must actually call the chosen model, retain its original reply, and return this envelope on stdout:

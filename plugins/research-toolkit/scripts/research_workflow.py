@@ -14,7 +14,8 @@ import uuid
 
 from check_delivery import (REQUIRED_HASH_INPUTS, OPTIONAL_HASH_INPUTS, evaluate_delivery,
                             inspect_csv_text, inspect_jsonl, inspect_jsonl_text,
-                            inspect_reading_evidence, resolve_inside, sha256_file)
+                            inspect_reading_evidence, inspect_required_reading, reading_evidence_target,
+                            REQUIREMENT_DECISION_STATUSES, resolve_inside, sha256_file)
 from check_review_completion import inspect_review_completion, matches_review_slot
 from review_runner import (ReviewFailure, assignment_config, load_review_config, review_readiness,
                            run_reviewer, validate_review_config)
@@ -204,6 +205,58 @@ def check_stage_records(root, stage):
             raise ValueError("Develop at least one source-backed claim before drafting.")
 
 
+def required_source_inputs(root):
+    """Validate current records and collect only declared, relevant source files."""
+    check_stage_records(root, "draft")
+    sources = registry_rows(root, "data/source_registry.csv", ("source_id",))
+    claims = registry_rows(root, "data/claims_registry.csv", ("claim_id", "supporting_sources"))
+    required = {sid for row in claims for sid in re.split(r"[;,|\s]+", row["supporting_sources"].strip()) if sid}
+    requirements, _ = inspect_jsonl_text(requirement_input(root), "Requirement")
+    for row in requirements:
+        if "reading_requirement" not in row and "required_source_ids" not in row:
+            continue
+        if row.get("status") in REQUIREMENT_DECISION_STATUSES:
+            decision = row.get("user_decision", {})
+            if not isinstance(decision, dict) or not all(nonempty(decision.get(k)) for k in ("source_turn", "quote")):
+                raise ValueError("Changing required reading needs the recorded user decision.")
+            continue
+        errors = inspect_required_reading(row, safe_path(root, "data/source_registry.csv"))
+        if errors:
+            raise ValueError("; ".join(errors))
+        required.update(row["required_source_ids"])
+    texts, originals = {}, {}
+    text_suffixes = {".md", ".txt", ".html", ".htm", ".csv", ".tsv", ".json", ".jsonl", ".rst", ".log", ".yaml", ".yml"}
+    for source in sources:
+        if source["source_id"] not in required:
+            continue
+        names = set()
+        if nonempty(source.get("evidence_path")):
+            names.add(source["evidence_path"].strip())
+        for field in ("url", "read_evidence"):
+            target = reading_evidence_target(source.get(field))
+            if target:
+                path = resolve_inside(root, target)
+                if path is None:
+                    raise ValueError(f"Source {source['source_id']}: evidence must stay inside the task.")
+                names.add(path.relative_to(root.resolve()).as_posix())
+        readable = False
+        for name in sorted(names):
+            path = safe_path(root, name)
+            if not path.is_file() or not path.read_bytes().strip():
+                raise ValueError(f"Source {source['source_id']}: missing or empty evidence {name}.")
+            if path.suffix.lower() in text_suffixes:
+                try:
+                    texts[name] = path.read_text(encoding="utf-8")
+                except UnicodeError as exc:
+                    raise ValueError(f"Source {source['source_id']}: provide a UTF-8 evidence_path for {name}.") from exc
+                readable = readable or bool(texts[name].strip())
+            else:
+                originals[name] = sha256_file(path)
+        if not readable:
+            raise ValueError(f"Source {source['source_id']}: set evidence_path to the local UTF-8 source text or required extract. URLs and page locators alone cannot be reviewed.")
+    return texts, originals
+
+
 def requirement_input(root):
     path = safe_path(root, "state/requirements.jsonl")
     content = path.read_text(encoding="utf-8") if path.exists() else ""
@@ -387,18 +440,21 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
         raise ValueError("Unknown review purpose.")
     if not isinstance(evidence_paths, list) or not evidence_paths or not all(nonempty(x) for x in evidence_paths):
         raise ValueError("Provide the task-relative files containing the full required evidence.")
+    required_sources, originals = required_source_inputs(root)
     artifact_path = safe_path(root, artifact)
     report = artifact_path.read_text(encoding="utf-8")
     if not report.strip():
         raise ValueError("The report is empty.")
     config = load_review_config() if config is None else validate_review_config(config)
-    source_names = sorted(set([*evidence_paths, "data/source_registry.csv", "data/claims_registry.csv"]))
+    source_names = sorted(set([*evidence_paths, *required_sources, "data/source_registry.csv", "data/claims_registry.csv"]))
     sources = {name: safe_path(root, name).read_text(encoding="utf-8") for name in source_names}
     if any(not text.strip() for text in sources.values()):
         raise ValueError("Required source input is empty.")
     packet = {"task": safe_path(root, "state/task_spec.md").read_text(encoding="utf-8"),
               "report_path": artifact, "report": report, "sources": sources, "dimensions": DIMENSIONS,
               "purpose": purpose, "sampling_method": SAMPLING_METHOD}
+    if originals:
+        packet["source_files"] = originals
     requirements = requirement_input(root)
     if requirements:
         packet["requirements"] = requirements
@@ -449,6 +505,12 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                          "selected": selection, "mandatory": [f"review:{s['slot_id']}" for s in slots]}}
     if auditor_signature is not None:
         plan["auditor_signature"] = auditor_signature
+    if old_plan == plan:
+        validity = completion(root, progress, artifact, require_report_ready=False)
+        if validity["ok"]:
+            outcome = completion(root, progress, artifact)
+            return {"reviews_complete": True, "evaluation_complete": purpose == "evaluation" and outcome["ok"],
+                    "completion_check": outcome, "recovery": [], "reused": True, "task_directory": str(root)}
     if assignment_changed:
         record_plan_change(root, old_plan, plan)
     progress.update(review_plan=plan, stage="review", status="in_progress",
@@ -500,7 +562,7 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                                       "execution": ref(root, attempt_prefix+"/execution.json")
                                       if safe_path(root, attempt_prefix+"/execution.json").exists() else None})
                     problems.append(f"{sid}: {exc}")
-                    if isinstance(exc, ReviewFailure) and exc.capture.get("status") in {"dependency_missing", "launch_failure"}:
+                    if isinstance(exc, ReviewFailure) and exc.capture.get("status") in {"dependency_missing", "launch_failure", "cancellation_unconfirmed"}:
                         break
                     continue
             aid = pending["attempt_id"]
@@ -572,21 +634,38 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
             "completion_check": outcome, "recovery": problems, "task_directory": str(root)}
 
 
-def finish(workspace: Path, task: str, message: str, artifact="final.md") -> dict:
-    root = task_root(workspace, task)
-    progress = load(root, "state/progress.json")
-    if progress.get("review_plan", {}).get("purpose") != "report_delivery":
-        raise ValueError("Report delivery needs report_delivery reviews. Evaluations end with their review result.")
+def checked_review_files(root, progress, artifact):
+    """Check the exact snapshot that will be sealed, including declared originals."""
+    required_sources, originals = required_source_inputs(root)
     plan = progress["review_plan"]
+    reviewed_files = set()
     for slot in plan.get("slots", []):
         frozen = load(root, slot["input"]["path"])
-        if (frozen["task"] != safe_path(root, "state/task_spec.md").read_text(encoding="utf-8")
+        reviewed_files.update(frozen["sources"])
+        reviewed_files.update(frozen.get("source_files", {}))
+        if (any(frozen["sources"].get(name) != content for name, content in required_sources.items())
+                or any(frozen.get("source_files", {}).get(name) != value for name, value in originals.items())
+                or any(not safe_path(root, name).is_file() or sha256_file(safe_path(root, name)) != value
+                       for name, value in frozen.get("source_files", {}).items())
+                or frozen["task"] != safe_path(root, "state/task_spec.md").read_text(encoding="utf-8")
                 or frozen.get("requirements", "") != requirement_input(root)
                 or frozen["report_path"] != artifact
                 or frozen["report"] != safe_path(root, artifact).read_text(encoding="utf-8")
                 or any(safe_path(root, name).read_text(encoding="utf-8") != content
                        for name, content in frozen["sources"].items())):
-            return {"completed": False, "error": "Current task or evidence differs from the reviewed input."}
+            raise ValueError("Current task or evidence differs from the reviewed input.")
+    return reviewed_files
+
+
+def finish(workspace: Path, task: str, message: str, artifact="final.md") -> dict:
+    root = task_root(workspace, task)
+    progress = load(root, "state/progress.json")
+    if progress.get("review_plan", {}).get("purpose") != "report_delivery":
+        raise ValueError("Report delivery needs report_delivery reviews. Evaluations end with their review result.")
+    try:
+        reviewed_files = checked_review_files(root, progress, artifact)
+    except (ValueError, OSError, UnicodeError) as exc:
+        return {"completed": False, "error": str(exc)}
     outcome = completion(root, progress, artifact)
     if not outcome["ok"]:
         return {"completed": False, "review_check": outcome}
@@ -596,10 +675,14 @@ def finish(workspace: Path, task: str, message: str, artifact="final.md") -> dic
     with tempfile.TemporaryDirectory(prefix="research-delivery-", dir=workspace.resolve()) as tmp:
         candidate = Path(tmp)/"task"
         shutil.copytree(root, candidate, symlinks=True)
+        try:
+            checked_review_files(candidate, progress, artifact)
+        except (ValueError, OSError, UnicodeError) as exc:
+            return {"completed": False, "error": str(exc)}
         terminal = {**progress, "stage": "final", "status": "complete", "next_action": "Delivered."}
         save(candidate, "state/progress.json", terminal)
         save_text(candidate, "delivery_message.md", message)
-        required = list(dict.fromkeys([artifact, *REQUIRED_HASH_INPUTS,
+        required = list(dict.fromkeys([artifact, *REQUIRED_HASH_INPUTS, *sorted(reviewed_files),
                                       *[p for p in OPTIONAL_HASH_INPUTS if safe_path(candidate, p).exists()]]))
         receipt = {"schema_version": 1, "status": "pass", "scope": "global_final_delivery",
                    "artifact": artifact, "open_issues": [],

@@ -111,7 +111,7 @@ Use these fields unless the task clearly needs a narrower local variant:
 - `requirements.jsonl`: `requirement_id`, `source_turn`, `summary`, `status`, `evidence`
 - `logs/work.jsonl`: `timestamp`, `level`, `decision`, `reason`, `files_changed`, `next_action`
 - `logs/review.jsonl`: `timestamp`, `review_type`, `scope`, `result`, `issues`, `routed_actions`
-- `source_registry.csv`: `source_id`, `title`, `url_or_path`, `source_type`, `publisher_or_author`, `date`, `access_status`, `used_for`, `limitations`
+- `source_registry.csv`: `source_id`, `title`, `url`, `source_type`, `read_scope`, `read_evidence`, `publisher_or_author`, `date`, `access_status`, `used_for`, `limitations`
 - `claims_registry.csv`: `claim_id`, `claim`, `claim_type`, `evidence_level`, `supporting_sources`, `counter_evidence`, `uncertainty`, `intended_section`
 - `uncertainty_registry.csv`: `uncertainty_id`, `issue`, `affected_claims`, `reason`, `risk_level`, `handling`
 
@@ -120,6 +120,8 @@ Use one of these canonical values for `progress.json.stage`: `brief`, `collect`,
 For `progress.json.status`, use the values and checkpoint meanings in the [Protocol Contract](research-standard.md#protocol-contract). Put the reason for pausing and the next step in `next_action` rather than extending the status value.
 
 Keep field names stable within a task. Add columns only when they improve recovery or evidence tracing.
+
+Use `url` for the source location, either a URL or a task-relative path. Sources referenced by claims or required readings need local content: a readable text file in `read_evidence` is included automatically. For URL/page-only references or binary originals, use optional `evidence_path` for the complete UTF-8 source text or required extract. Necessary originals, reading evidence and extracts enter version checks within this declared scope; unrelated auxiliary files are not sent automatically.
 
 ## 4. Source Intake
 

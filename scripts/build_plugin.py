@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT/"plugins/research-toolkit"
-RUNTIME = ["check_delivery.py", "check_review_completion.py", "research_workflow.py", "review_runner.py"]
+RUNTIME = ["check_delivery.py", "check_review_completion.py", "research_workflow.py", "review_runner.py", "review_process.py"]
 
 
 def payload() -> dict[str, bytes]:

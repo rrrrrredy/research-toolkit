@@ -62,7 +62,8 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
                           purpose: str = "report_delivery", revision: bool = False) -> dict[str, Any]:
     """Run the configured real reviewer and a fresh auditor, retaining original evidence.
     Sends the full task/report/evidence to the configured model account. May consume its usage.
-    evidence_paths are UTF-8 files relative to the task. Use purpose=evaluation to preserve defects.
+    evidence_paths are UTF-8 files relative to the task; required registry materials are included automatically.
+    Use evidence_path in source records for local source text/extracts. Use purpose=evaluation to preserve defects.
     Resume incomplete assignments; never retry a valid negative result to improve the verdict.
     revision=True is only for a separately authorized changed report-delivery assignment.
     """

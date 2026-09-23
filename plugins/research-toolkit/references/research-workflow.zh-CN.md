@@ -74,11 +74,13 @@ data/
 | `requirements.jsonl` | `requirement_id, source_turn, summary, status, evidence` |
 | `logs/work.jsonl` | `timestamp, level, decision, reason, files_changed, next_action` |
 | `logs/review.jsonl` | `timestamp, review_type, scope, result, issues, routed_actions` |
-| `source_registry.csv` | `source_id, title, url_or_path, source_type, publisher_or_author, date, access_status, used_for, limitations` |
+| `source_registry.csv` | `source_id, title, url, source_type, read_scope, read_evidence, publisher_or_author, date, access_status, used_for, limitations` |
 | `claims_registry.csv` | `claim_id, claim, claim_type, evidence_level, supporting_sources, counter_evidence, uncertainty, intended_section` |
 | `uncertainty_registry.csv` | `uncertainty_id, issue, affected_claims, reason, risk_level, handling` |
 
 `stage` 使用 `brief`、`collect`、`analyze`、`draft`、`review`、`revise`、`final`。`status` 与检查点含义见[状态契约](research-standard.zh-CN.md#状态契约)。暂停原因和下一步写入 `next_action`，不要发明状态值。字段在同一任务中保持稳定，仅在改善恢复或证据追溯时加列。
+
+来源位置统一使用 `url`，可填写网址或任务内相对路径。主张引用及必读要求涉及的来源应有本地正文；`read_evidence` 指向可读文本时自动送评。仅有网址、页码或二进制原件时，用可选字段 `evidence_path` 指向完整正文或要求范围内的 UTF-8 提取文本。必要原件、阅读凭据和提取文本会按登记范围纳入版本检查；其他辅助文件不会自动发送。
 
 ## 4. 来源处理
 

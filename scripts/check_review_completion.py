@@ -294,6 +294,13 @@ def inspect_review_completion(
                 add("missing_independent_adjudication", f"{aid}/{fid}: critical or major findings need independent adjudication.")
             if report_delivery and disposition["decision"] not in {"resolved", "no_change"}:
                 add("report_not_ready", f"{aid}/{fid}: unresolved required correction prevents report delivery.")
+        global_review = audit.get("global_review")
+        if global_review is not None or "runner_signature" in plan:
+            if (not isinstance(global_review, dict) or not one_of(global_review.get("result"), {"pass", "fail"})
+                    or not text(global_review.get("basis")) or not isinstance(global_review.get("open_issues"), list)):
+                add("invalid_review_audit", f"{aid}: missing or malformed global report assessment.")
+            elif report_delivery and (global_review["result"] != "pass" or global_review["open_issues"]):
+                add("report_not_ready", f"{aid}: the independent global assessment has unresolved report issues.")
         if error_count == before:
             selected[sid] = aid
 

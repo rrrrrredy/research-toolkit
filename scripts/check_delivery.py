@@ -188,18 +188,18 @@ def has_evidence(value: Any) -> bool:
     )
 
 
-def inspect_reading_evidence(root: Path, value: Any) -> list[str]:
-    """Check clear local file references; other locators still need content review."""
+def reading_evidence_target(value: Any) -> str | None:
+    """Extract a local path without treating page locators or URLs as files."""
     if not nonempty_text(value):
-        return ["Reading evidence needs a nonempty reference."]
+        return None
     locator = value.strip().strip("`")
     link = re.fullmatch(r"\[[^]]+\]\(([^)]+)\)", locator)
     if link:
         locator = link[1]
     if re.match(r"https?://", locator, re.IGNORECASE):
-        return []
+        return None
     if re.match(r"file://|[A-Za-z]:", locator, re.IGNORECASE) or locator.startswith(("/", "\\")):
-        return ["Local reading evidence must use a task-relative file path."]
+        raise ValueError("Local reading evidence must use a task-relative file path.")
     file_ref = re.match(
         r"(.+?\.(?:md|txt|pdf|html?|jsonl?|csv|tsv|docx|xlsx|pptx|rst|log|ya?ml|png|jpe?g|webp))"
         r"(?=$|[#:,，]|\s+(?:pp?\.|pages?\b|paragraph\b|section\b|第))", locator, re.IGNORECASE)
@@ -207,6 +207,19 @@ def inspect_reading_evidence(root: Path, value: Any) -> list[str]:
     path_shaped = file_ref or target.startswith(("./", "../")) or (
         not any(c.isspace() for c in target) and ("/" in target or "\\" in target))
     if not path_shaped:
+        return None
+    return target.replace("\\", "/")
+
+
+def inspect_reading_evidence(root: Path, value: Any) -> list[str]:
+    """Check clear local file references; other locators still need content review."""
+    if not nonempty_text(value):
+        return ["Reading evidence needs a nonempty reference."]
+    try:
+        target = reading_evidence_target(value)
+    except ValueError as exc:
+        return [str(exc)]
+    if target is None:
         return []
     path = resolve_inside(root, target.replace("\\", "/"))
     if path is None or not path.is_file():
