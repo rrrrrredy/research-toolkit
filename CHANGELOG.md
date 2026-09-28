@@ -10,6 +10,8 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Changed
 
+- Preserve Unicode line and paragraph separators inside reviewer JSONL messages; retain incomplete-turn and malformed-record rejection.
+
 - Specify review validity, report readiness and permitted sampling dispositions separately in the model audit assignment.
 
 - Preserve hash-bound plan history for authorized report-delivery reviewer changes; distinguish legitimate retired slots from unknown records without rerunning completed reviews. Frozen evaluations retain their required slots.

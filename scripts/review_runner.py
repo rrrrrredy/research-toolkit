@@ -146,7 +146,8 @@ def run_reviewer(config: dict, request: dict, cwd: Path) -> dict:
             envelope = json.loads(result.stdout)
             execution_id, content = envelope["execution_id"], envelope["content"]
         else:
-            events = [json.loads(line) for line in result.stdout.splitlines() if line.strip()]
+            # JSONL records are LF-delimited; Unicode separators may occur inside strings.
+            events = [json.loads(line) for line in result.stdout.split("\n") if line.strip()]
             execution_id = next(e["thread_id"] for e in events if e.get("type") == "thread.started")
             messages = [e["item"]["text"] for e in events if e.get("type") == "item.completed"
                         and e.get("item", {}).get("type") == "agent_message"]

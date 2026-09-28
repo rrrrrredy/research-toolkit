@@ -12,6 +12,7 @@ import tempfile
 import time
 import unittest
 from unittest.mock import patch
+from types import SimpleNamespace
 import uuid
 
 import research_workflow as workflow
@@ -599,6 +600,51 @@ class WorkflowTests(unittest.TestCase):
                               "command": [sys.executable, "-X", "utf8", str(worker)]}, request, self.workspace)
         self.assertEqual(json.loads(result["content"]), request)
         self.assertEqual(result["capture"]["exit_code"], 0)
+
+
+class CodexJSONLTransportTests(unittest.TestCase):
+    def events(self, text):
+        return [{"type": "thread.started", "thread_id": "synthetic-jsonl"},
+                {"type": "item.completed", "item": {"type": "agent_message", "text": text}},
+                {"type": "turn.completed"}]
+
+    def invoke(self, wire):
+        result = SimpleNamespace(returncode=0, stdout=wire, stderr="")
+        config = {"id": "transport", "model": "synthetic", "format": "codex-jsonl",
+                  "command": ["synthetic-fixture"]}
+        with patch("review_runner.run_bounded", return_value=result):
+            return run_reviewer(config, {"role": "fixture"}, Path.cwd())
+
+    def wire(self, events, separator="\n"):
+        return separator.join(json.dumps(event, ensure_ascii=False) for event in events) + separator
+
+    def test_unicode_characters_inside_messages_are_not_record_boundaries(self):
+        for separator in ("\u2028", "\u2029", "\u0085"):
+            text = json.dumps({"finding": "first" + separator + "second"}, ensure_ascii=False)
+            with self.subTest(separator=repr(separator)):
+                result = self.invoke(self.wire(self.events(text)))
+                self.assertEqual(result["content"], text)
+                self.assertEqual(result["execution_id"], "synthetic-jsonl")
+
+    def test_lf_crlf_and_escaped_newlines_preserve_the_complete_message(self):
+        text = json.dumps({"finding": "first\nsecond\r\nthird"}, ensure_ascii=False)
+        for separator in ("\n", "\r\n"):
+            with self.subTest(separator=repr(separator)):
+                wire = self.wire(self.events(text), separator)
+                result = self.invoke(wire)
+                self.assertEqual(result["content"], text)
+                self.assertEqual(result["capture"]["stdout"], wire)
+
+    def test_truncated_records_and_incomplete_turns_still_fail(self):
+        complete = self.events('{"finding":"complete"}')
+        cases = [self.wire(complete[:-1]), self.wire(complete) + '{"type":',
+                 self.wire(complete + [{"type": "turn.failed"}]),
+                 self.wire([complete[0], complete[-1]])]
+        for wire in cases:
+            with self.subTest(wire=wire):
+                with self.assertRaises(ReviewFailure) as failure:
+                    self.invoke(wire)
+                self.assertEqual(failure.exception.capture["stdout"], wire)
 
 
 class ReadinessTests(unittest.TestCase):
