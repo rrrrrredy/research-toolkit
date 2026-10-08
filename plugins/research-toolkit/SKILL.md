@@ -43,20 +43,22 @@ Read the relevant file or linked section before its stage. Keep already-read ins
 | Collecting and analyzing | [Sources and claims](references/research-standard.md#8-source-and-claim-discipline) | Required reading is tracked; claims, uncertainty, and counter-evidence support the actual questions |
 | Selecting an analysis method | [Optional lenses](references/optional-analysis-lenses.md); [horizontal/vertical analysis](references/horizontal-vertical-analysis.md) only if selected | A useful method for this question, without forcing a universal report structure |
 | Drafting and editing | [Writing style](references/writing-style.md); [operating loop](references/research-standard.md#7-operating-loop) | Bounded sections meet the agreed depth; reader editing follows stable evidence, coverage, and argument |
-| Delegating or reviewing | [Roles and review](references/subagents-and-review-loop.md); [review records](docs/review-completion.md) | Bounded assignments, effective required reviews, evidenced dispositions, and proportionate adjudication and sampling |
+| Delegating or reviewing | [Roles and review](references/subagents-and-review-loop.md); [review records](docs/review-completion.md) | Bounded assignments, effective content reviews and evidenced handling of findings; audit methods when expressly required |
 | Closing a stage or delivering | [Quality gates](references/quality-gates.md); [delivery verification](docs/delivery-verification.md) | Current content and records meet the applicable completion conditions |
 | Diagnosing repeated drift | [Gotchas](references/gotchas.md); [research lessons](references/postmortem-lessons.md) | Correct the specific failure without expanding the task |
 
 For additional rules, consult the matching section of the [research standard](references/research-standard.md). Keep records proportionate; use existing task files rather than adding locks, transactions, or extra control systems.
 
+Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log.jsonl` and `logs/work.jsonl` only when they help the task. They are optional history, not delivery prerequisites. Uncertainty can stay with the claims; a separate `data/uncertainty_registry.csv` is optional.
+
 ## Complete reviews effectively
 
 - Declare required review scopes, reviewer identities, inputs, and recovery routes before review. A substantial report needs at least one non-author review context; compatible perspectives may share a reviewer. No fixed provider or four-model combination is required by this Skill.
 - Cover requirements, evidence and data, adversarial challenges, structure and depth, reader usefulness, and natural prose without process narration. Add domain checks only where relevant.
-- Each required reviewer must return a complete, substantive response for the correct artifact and input version. Preserve original responses, execution evidence, and reasoned validity audits. A call attempt, timeout, truncation, or generic PASS is incomplete.
+- Each required reviewer must return a complete, substantive response for the correct artifact and input version. Preserve original responses and execution evidence. A call attempt, timeout, truncation or generic PASS is incomplete. An ordinary report does not require a separate audit of its reviewer.
 - Recover the failed review route. A retry limit changes the recovery method, not the completion condition; request necessary access when needed and continue unaffected work. Do not silently replace a designated model or shorten required inputs.
 - A valid negative review is complete. Assess individual findings against the text and sources; preserve reasoned corrections or no-change decisions. Never discard criticism merely to improve the verdict.
-- Use one context independent of the author and original reviewer for consequential disputes, critical/major findings, rejection of consequential criticism, or invalidating a review. Predeclare sampling; inspect decisive items and sample passed material and no-change decisions. Expand only for material errors.
+- Check findings against the report and sources. Additional independent adjudication, reviewer auditing and formal sampling apply only when the task declares them; the detailed methods remain in the review reference. Preserve unresolved evidence honestly.
 - Evaluation completion preserves defects and unresolved evidence outcomes with the agreed reviews and dispositions. Reader-ready report delivery also requires all necessary corrections. Stop optional polishing once the agreed gates pass; do not restart review for a no-change decision alone.
 
 ## Check before declaring completion
@@ -64,12 +66,12 @@ For additional rules, consult the matching section of the [research standard](re
 `progress.json.stage` uses `brief`, `collect`, `analyze`, `draft`, `review`, `revise`, and `final`.
 `progress.json.status` accepts `in_progress`, `paused`, `blocked`, and `complete`.
 
-Record the actual stage, open issues, and next action. On recovery, read the task specification, progress, requirement ledger if present, and recent findings and iteration records. A checkpoint remains a checkpoint.
+Record the actual stage, open issues, and next action. On recovery, read the task specification, progress, requirement ledger if present, and any existing research notes useful for recovery. A checkpoint remains a checkpoint.
 
 For reader-ready final delivery:
 
 1. Reconcile every required question and material follow-up with the actual answer, evidence, and current artifact. Unfinished obligations remain open unless the user specifically changed them.
-2. Complete the required reviews, validity checks, adjudication, and sampling. The latest global review must be a parseable PASS without open issues; required reviews must bind the version actually delivered.
+2. Complete the required content reviews and any expressly required audits. Required corrections must be resolved and the current report must have a passing full-report assessment. Preserve version bindings; a valid negative review is complete but does not approve delivery.
 3. Remove internal IDs, local paths, audit labels, and work narration from the prose. Keep material evidence limitations visible and the report useful to its intended reader.
 4. Use the [delivery record format](docs/delivery-verification.md) to bind current artifacts, required inputs, reviews, and the intended delivery message in `state/final_delivery.json`. The coherent terminal state is `stage: final` and `status: complete`.
 5. Run the existing delivery checker from the installed toolkit when script execution is available:

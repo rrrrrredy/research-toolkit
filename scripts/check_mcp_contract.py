@@ -35,8 +35,7 @@ async def verify(base):
     worker_config = {"format": "json", "model": "synthetic-process",
                      "command": [sys.executable, "-B", "-X", "utf8", str(worker)]}
     config = base/"review-config.json"
-    config.write_text(json.dumps({"reviewers": [{"id": "primary", **worker_config}],
-                                  "auditor": {"id": "audit", **worker_config}}), encoding="utf-8")
+    config.write_text(json.dumps({"reviewers": [{"id": "primary", **worker_config}]}), encoding="utf-8")
     workspace = base/"tasks"
     env = {"RESEARCH_TOOLKIT_WORKSPACE": str(workspace),
            "RESEARCH_TOOLKIT_REVIEW_CONFIG": str(config), "PYTHONDONTWRITEBYTECODE": "1"}
@@ -70,6 +69,10 @@ async def verify(base):
         assert draft["progress"]["stage"] == "draft"
         reviewed = unpack(await client.call_tool("research_review", {"task": "case", "evidence_paths": ["source.md"]}))
         assert reviewed["reviews_complete"], reviewed
+
+        rows = [json.loads(line) for line in (root/"logs/review.jsonl").read_text(encoding="utf-8").splitlines()]
+        assert len([row for row in rows if row.get("record_type") == "model_review"]) == 1
+        assert not any(row.get("record_type") in {"review_audit", "sampling_audit"} for row in rows)
         finished = unpack(await client.call_tool("research_finish", {"task": "case", "message": "The final report is complete."}))
         assert finished["completed"], finished
         current = unpack(await client.call_tool("research_status", {"task": "case"}))

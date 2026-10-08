@@ -59,13 +59,13 @@ Keep unfinished required work separate from evidence uncertainty. A missing requ
 
 At planning, declare the required review scopes, model/context identities, inputs and recovery policy in the task records. Substantial report delivery needs at least one non-author review context; compatible perspectives may share a reviewer. A particular provider or four-model panel is not a toolkit dependency. Cover intent and requirements, evidence and data, adversarial reasoning, structure and depth, reader usefulness, process-language removal and natural expression; add domain checks only where the task needs them. Read [subagent and review guidance](subagents-and-review-loop.md) to assign these responsibilities.
 
-Every declared model-review slot must obtain a complete, version-bound, substantive response with retained execution evidence, an original reply and a reasoned validity audit. A call attempt, timeout, truncated response or generic PASS cannot complete a slot. Diagnose failures and resume the affected slot; retry limits trigger recovery or a concrete request for missing access, never cancellation or acceptance. Keep required work open while dependencies are unavailable and continue unaffected work. Do not replace a specified model or silently shorten required inputs.
+Every declared model-review slot must obtain a complete, version-bound, substantive response with retained execution evidence and an original reply. Ordinary research uses content review without a compulsory second reviewer-audit context. Failed, truncated or generic responses remain incomplete; restore the missing assignment without replacing specified models or shortening required inputs.
 
-Keep review validity separate from report judgment. A well-supported negative review is complete; an isolated reviewer error is adjudicated without discarding the whole review. Retain the first valid result for the declared artifact and input version, original failures and all dispositions. Preserve earlier versions when separately authorized report-delivery revisions need current-version review. Invalidation requires an evidenced decision from a context separate from the author and original reviewer. Do not rerun an already valid review to seek a favorable outcome.
+Keep review validity separate from report judgment. A well-supported negative review is complete; an isolated reviewer error is adjudicated without discarding the whole review. Retain the first valid result for the declared artifact and input version, original failures and all dispositions. Preserve earlier versions when separately authorized report-delivery revisions need current-version review. For declared audited plans, invalidation requires an evidenced decision from a context separate from the author and original reviewer. Do not rerun an already valid review to seek a favorable outcome.
 
-Check important findings against the actual text and sources. Critical/major findings, decisive disputes and the author's rejection of consequential criticism need a context separate from the author and original reviewer for adjudication. Sample passed material and no-change decisions as well as reported problems; predeclare the sampling method, inspect decisive items in full, and expand only where a material error warrants it. Keep one independent adjudication layer; unresolved evidence stays unresolved instead of generating an endless hierarchy of reviewers.
+Check important findings against the actual text and sources, preserve the original criticism and explain its disposition. Additional independent adjudication and formal sampling belong to expressly declared audits or evaluation studies. Their methods remain in [roles and review](subagents-and-review-loop.md); ordinary research does not maintain a complete audit chain.
 
-Evaluation completion requires the agreed valid reviews and evidenced finding dispositions, including retained defects or unresolved evidence outcomes. Reader-ready delivery additionally requires the current report to meet its task and have no unresolved required correction. Use [review completion records](../docs/review-completion.md) for the record interface. The offline checker verifies consistency; raw captures and actual content audits remain necessary, and a script cannot authenticate model execution or certify judgment.
+Evaluation completion requires the agreed valid reviews and evidenced finding dispositions, including retained defects or unresolved evidence outcomes. Reader-ready delivery additionally requires the current report to meet its task and have no unresolved required correction. Use [review completion records](../docs/review-completion.md) for the record interface. The offline checker verifies consistency; raw captures and actual content review remain necessary, and a script cannot authenticate model execution or certify judgment.
 
 ### Protocol Contract
 
@@ -88,7 +88,7 @@ These constraints are stage-transition requirements, not optional advice. `progr
 `progress.json.status` accepts `in_progress`, `paused`, `blocked`, and `complete`.
 Use `paused` for an intentional checkpoint and `blocked` for an unresolved obstacle. Keep the stage at the work actually reached, and put the reason and next step in `next_action`, not in an invented status value.
 
-Terminal state is bidirectional: `stage: final` requires `status: complete`, and `status: complete` requires `stage: final`. For terminal delivery, the latest full-report or global-final review supersedes earlier reviews and must be a parseable PASS with no open issues. A later failure, malformed review record, or unresolved blocker invalidates completion. The delivery receipt must bind the actual final artifact, current progress, global review log, intended delivery message, and required backstage inputs by hash. All declared model-review slots and the required validity, adjudication and sampling records must also be complete; a global PASS cannot substitute for them.
+Terminal state requires both `stage: final` and `status: complete`. The current full-report assessment must pass without required corrections; later blockers invalidate completion. Bind the actual report, required inputs, review log and delivery message in the receipt. Complete every declared model review and any expressly required audit; a global PASS cannot substitute for missing required work.
 
 The latest global review and each task-required review scope must record the reviewed report's `artifact_sha256`, using the same LF-normalized hashing as the receipt. A changed report needs corresponding review; resealing the delivery receipt does not update what an earlier reviewer read. Keep local rechecks labelled as local. Hashes establish record consistency, not that a review was thorough or correct.
 
@@ -117,22 +117,19 @@ For substantial work, create:
     {task}/state/
       task_spec.md            # objective, reader, output, scope, depth, evidence standard, assumptions
       progress.json           # stage, status, completed units, open issues, stale_count, next action
-      findings.jsonl          # append-only findings and judgments
-      directions_tried.json   # directions already attempted
-      iteration_log.jsonl     # stage summaries
 
       requirements.jsonl      # material follow-up requirements; use for correction-heavy multi-turn tasks
       final_delivery.json     # terminal delivery receipt; create only when declaring final completion
     {task}/logs/
-      work.jsonl              # execution decisions
       review.jsonl            # review findings and routed fixes
 
     {task}/data/
       source_registry.csv
       claims_registry.csv
-      uncertainty_registry.csv
 
 Use state files to recover after context loss. Do not rely on chat history as the only memory.
+
+Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log.jsonl` and `logs/work.jsonl` only when they help the task. They are optional history, not delivery prerequisites. Uncertainty can stay with the claims; a separate `data/uncertainty_registry.csv` is optional.
 
 ### Context Recovery Protocol
 
@@ -141,9 +138,8 @@ When resuming after context loss, session restart, or handoff:
 1. Read `state/task_spec.md` for objective, scope, reader, output, depth, evidence standard, and assumptions.
 2. Read `state/progress.json` for current stage, status, completed units, open issues, stale_count, and next action.
 3. Read `state/requirements.jsonl` when it exists and reconcile every material follow-up correction.
-4. Read the latest entries in `state/findings.jsonl` and `state/iteration_log.jsonl` to recover the recent direction.
-5. Read `state/directions_tried.json` to avoid repeating failed or exhausted paths.
-6. Resume from the matching step in the operating loop.
+4. Read existing research notes only when they help recover the task; do not create retrospective history.
+5. Resume from the matching step in the operating loop.
 
 Do not re-run completed stages. Do not re-ask the research brief if `task_spec.md` already records the answers.
 
@@ -310,7 +306,7 @@ Limits:
 
 Use these guardrails to prevent loops, overcollection, and scope drift:
 
-1. Source collection: if three consecutive searches or source passes add no relevant evidence, stop collecting in that direction, update `directions_tried.json`, and draft or pivot.
+1. Source collection: if three consecutive searches or source passes add no relevant evidence, stop collecting in that direction, note the decision in existing task records, and draft or pivot.
 2. Claim extraction: if `source_registry.csv` grows while `claims_registry.csv` stays thin, pause collection and extract claims before gathering more sources.
 3. Review loop: cap full review-revise cycles at two per section unless the user asks for more; retain unresolved issues and choose a different approach or an honest checkpoint. Reaching a cycle limit does not close required work or permit final delivery.
 4. Depth check: before reader review, compare the draft against the depth budget and expand thin units before optimizing prose.

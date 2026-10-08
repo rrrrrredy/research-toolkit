@@ -16,7 +16,7 @@ codex plugin add research-toolkit@research-toolkit
 
 **[完整安装与使用说明](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md)** · [研究入口](SKILL.zh-CN.md) · [完整规范](references/research-standard.zh-CN.md)
 
-默认评审使用已登录的 Codex CLI 账户，发送完整任务、正文与证据，分别启动评审和审查者，消耗对应额度。使用说明包含其他可信评审命令、失败恢复和评测模式。
+默认评审使用已登录的 Codex CLI 账户，发送完整任务、正文与证据，消耗对应额度。普通报告默认只启动内容评审；显式配置的审查者、评测及原有审计计划继续执行额外审计。使用说明包含其他可信评审命令与失败恢复。
 
 通用 `plugin.json` / `mcp.json` 与 Codex 兼容清单 `.codex-plugin/plugin.json` / `.mcp.json` 启动相同实现。MCP 通过本地 stdio 接入，不是托管的 HTTPS 服务。包内没有凭据，机械检查也不证明研究质量。
 

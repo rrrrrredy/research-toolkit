@@ -2,6 +2,16 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+研究工具箱与研究评测集用途不同：工具箱帮助完成研究，评测集用任务、材料和判据发现成果问题。本目录也保留工具箱的软件检查样例；它们的机械通过不能作为研究质量分数。
+
+| 要找的内容 | 入口 |
+|---|---|
+| 报告缺陷示例与对照片段 | [语义诊断案例](semantic_diagnostics/README.zh-CN.md) |
+| 研究质量判据与结果解释 | [五维评测标准](../docs/report-evaluation-standard.zh-CN.md)、[已有结果及公开范围](../docs/evaluation-status.zh-CN.md) |
+| Toolkit 软件行为检查 | 下文的案例、正反例夹具和运行命令 |
+
+Toolkit 的默认流程调整不改写既有样本、首评或标签，也不自动启动新的模型评测。
+
 本目录包含 7 个研究案例、22 个反例夹具、4 个正例夹具及报告诊断。案例和检查器不要求特定 agent 运行环境。离线检查覆盖需求、任务文件、来源与主张、评审记录、来源指令边界和成稿表达，不提供模型排名或整体报告质量结论。
 
 结果 schema v2 将 `conformance_status`、`conformance_score`、`conformance_flags` 用于机械结构、追溯与配置的失败信号；`research_quality_status` 为 `not_evaluated`。机械通过不代表有洞察、准确或对决策有用。
@@ -97,7 +107,7 @@ python scripts/check_delivery.py <task-directory>
 
 默认读取拟交付说明 `delivery_message.md`；`--actual-message <reply-file>` 可额外比较独立捕获的回复，检查器不会读取聊天应用。明确标注的非最终阶段成果可不带终局回执。
 
-默认契约 3 要求 `final/complete` 状态一致、无开放阻断、当前版本的全局与指定评审通过、回执绑定必需文件，且模型评审、有效性审计、处置、裁决与抽查记录完整。豁免、排除或已接受限制须有具体用户决定；声明的必读范围与来源记录一致。识别到披露矛盾则失败，模糊匹配需审阅。旧契约只用于明确标注的历史记录，详见[接口](../docs/delivery-verification.zh-CN.md)。
+默认契约 3 检查实际任务的完成条件。普通报告保留有效内容评审、版本绑定及必需输入；已声明审计计划与历史样例继续检查审计、裁决及抽查。此处机械检查样例用于软件行为验证，不是研究质量评分；详见[交付接口](../docs/delivery-verification.zh-CN.md)。
 
 记录一致性不能认证用户授权、实际阅读、模型执行或内容质量。
 

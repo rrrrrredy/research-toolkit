@@ -50,7 +50,7 @@ python <skill-directory>/scripts/check_delivery.py <task-directory> --actual-mes
 
 ## 必需模型评审的完成
 
-contract 3 在原有交付检查之外要求[评审完成记录](review-completion.zh-CN.md)。在 `progress.json.review_plan` 中声明席位，`purpose` 使用 `report_delivery`。保留原始回复、执行记录、版本绑定、实质有效性核查、发现处置和抽查证据。
+contract 3 检查[评审完成记录](review-completion.zh-CN.md)。普通报告的 `review_plan` 使用 `purpose: report_delivery` 与 `audit_required: false`，保留完整内容评审、原始回复、执行证据和版本绑定。评测及已声明审计计划继续要求有效性审计、处置与抽查；旧计划不因升级而自动降级。
 
 全局 PASS 不能填补缺失席位。调用失败和编辑意见分别保留。评审有效性与报告判断分开；即使有负面报告判断，也可使用 `check_review_completion.py` 和 `evaluation` 检查面板是否完成。交付检查器仍要求报告本身达到交付条件。
 

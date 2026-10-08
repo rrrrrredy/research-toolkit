@@ -361,6 +361,74 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(workflow.load(self.root, "state/progress.json")["status"], "complete")
         self.assertTrue(workflow.evaluate_delivery(self.root)["ok"])
 
+    def test_default_report_uses_one_review_without_process_history(self):
+        runner = SyntheticRunner()
+        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": ""}):
+            result = self.review(runner, config=None)
+            self.assertTrue(result["completion_check"]["ok"], result)
+            self.assertEqual(runner.calls, ["reviewer"])
+            self.assertFalse(workflow.load(self.root, "state/progress.json")["review_plan"]["audit_required"])
+            for name in ("state/findings.jsonl", "state/directions_tried.json", "state/iteration_log.jsonl", "logs/work.jsonl"):
+                self.assertFalse((self.root/name).exists())
+            self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+            before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
+            self.assertTrue(self.review(runner, config=None)["reused"])
+            self.assertEqual(runner.calls, ["reviewer"])
+            self.assertEqual(before, {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()})
+        (self.root/"source.md").write_text("Changed after review.", encoding="utf-8")
+        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+
+    def test_default_negative_review_stays_complete_and_blocks_delivery(self):
+        runner = SyntheticRunner(negative=True)
+        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": ""}):
+            result = self.review(runner, config=None)
+            self.assertTrue(result["reviews_complete"], result)
+            self.assertFalse(result["completion_check"]["ok"])
+            self.assertTrue(self.review(runner, config=None)["reused"])
+        self.assertEqual(runner.calls, ["reviewer"])
+        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse((self.root/"state/final_delivery.json").exists())
+
+    def test_default_report_recovers_only_incomplete_review(self):
+        runner = SyntheticRunner(bad_review=1)
+        self.assertTrue(self.review(runner, config={"reviewers": CONFIG["reviewers"]})["reviews_complete"])
+        self.assertEqual(runner.calls, ["reviewer", "reviewer"])
+        attempts = [r for r in workflow.rows_for(self.root) if r.get("record_type") == "model_review"]
+        self.assertEqual([r["status"] for r in attempts], ["incomplete", "completed"])
+
+    def test_default_pass_cannot_hide_required_findings(self):
+        runner = SyntheticRunner(negative=True)
+        def inconsistent(config, request, cwd):
+            response = runner(config, request, cwd)
+            value = json.loads(response["content"])
+            value["report_verdict"] = "pass"
+            response["content"] = json.dumps(value)
+            return response
+        result = self.review(inconsistent, config={"reviewers": CONFIG["reviewers"]})
+        self.assertTrue(result["reviews_complete"])
+        self.assertFalse(result["completion_check"]["ok"])
+        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+
+    def test_existing_default_audited_plan_resumes_its_original_contract(self):
+        runner = SyntheticRunner(bad_audit=1)
+        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": ""}):
+            old_config = workflow.load_review_config(require_audit=True)
+            self.assertFalse(self.review(runner, config=old_config)["reviews_complete"])
+            self.assertTrue(self.review(runner, config=None)["reviews_complete"])
+        self.assertEqual(runner.calls, ["reviewer", "auditor", "auditor"])
+
+    def test_evaluation_cannot_drop_its_audit_requirement(self):
+        runner = SyntheticRunner()
+        with self.assertRaises(ValueError):
+            self.review(runner, purpose="evaluation", config={"reviewers": CONFIG["reviewers"]})
+        self.assertEqual(runner.calls, [])
+        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": ""}):
+            self.assertTrue(self.review(runner, purpose="evaluation", config=None)["evaluation_complete"])
+        self.assertEqual(runner.calls, ["reviewer", "auditor"])
+        progress = workflow.load(self.root, "state/progress.json")
+        progress["review_plan"]["audit_required"] = False
+        self.assertIn("invalid_review_plan", workflow.completion(self.root, progress, "final.md")["flags"])
+
     def test_valid_negative_evaluation_is_retained_without_rerunning(self):
         runner = SyntheticRunner(negative=True)
         original = (self.root/"final.md").read_bytes()

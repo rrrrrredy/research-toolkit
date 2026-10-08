@@ -73,7 +73,7 @@ The server also exposes the `research` prompt and `research-toolkit://instructio
 | `research_start` | Creates task records; returns missing brief fields and checks reviewer configuration, executables and default CLI login |
 | `research_status` | Returns saved progress and current methods; changing to analysis/drafting requires prerequisite source/claim records |
 | `research_guide` | Loads the applicable methods without starting a task; supports English and Chinese |
-| `research_review` | Freezes full inputs, executes configured reviewers and a fresh auditor, preserves replies/failures, adjudicates findings and samples content |
+| `research_review` | Binds full inputs, runs content reviews and retains replies/failures; executes additional auditing only when configured |
 | `research_finish` | Checks the reviewed artifact, current evidence, unresolved requirements and delivery text; writes completion state and a receipt only when checks pass |
 
 The author agent still searches, reads, analyzes and writes, using its existing tools. It must save required source texts and source/claim records in the task directory. Stage guidance reduces repeated context loading; it does not establish that a model has obeyed every instruction.
@@ -88,11 +88,11 @@ Reviews require the full task, report and source files, not just URLs. The local
 
 At task start, `review_readiness` reports invalid configuration, missing executables and default Codex CLI login failures before research begins. Known blockers set `ready_for_collection` to `false`; the agent resolves them and calls start again. Missing user decisions still need clarification. This check sends no model request and does not prove model availability, quota or future service access. For a custom command, it checks the executable but returns `access_unverified`; the agent must verify the command's access in its actual environment. It does not execute arbitrary custom commands as a login probe.
 
-The default executor uses an installed, signed-in **Codex CLI** with its configured model: one fresh reviewer context, followed by a separate auditor context. The auditor checks validity, consequential findings, sampled passed content and the whole report in the same assignment. No fixed four-provider panel is required.
+The default executor uses an installed, signed-in **Codex CLI** and its configured model for one fresh non-author content review. Ordinary reports do not require a second auditor or formal sampling records. Evaluations and saved audited plans retain their existing requirements.
 
 **Review calls send the supplied task, report and evidence to the configured model service and consume its account usage.** The package includes no credentials or free model access. Use an account authorized for the material. Host-agent access to a model does not automatically supply the review subprocess with credentials. If the Codex host uses a custom `CODEX_HOME`, forward the existing variable to its stdio MCP server with `env_vars = ["CODEX_HOME"]` in that server's configuration; otherwise a subprocess may use a different default configuration and login. Other clients should pass the same intended environment through their supported settings. Do not copy credential files into the package or research task. A 401 or token-refresh failure requires restoring access in the review process's actual environment before resuming the unchanged assignment.
 
-Each reviewer must produce a substantive, version-bound reply with observable execution evidence. The auditor must also return a complete result. Invalid or interrupted work remains incomplete. The tool makes at most two reviewer attempts per slot per invocation; it retains failures and returns remaining work. Restore the underlying dependency, access, limit or response problem, then call the same assignment again. Completed reviews are reused; a failed auditor resumes without repeating the completed reviewer.
+Each reviewer must produce a substantive, version-bound response with retained execution evidence. A call, error record or generic PASS is incomplete. At most two attempts per slot run per invocation; retain failures and resume missing work. Valid negative reviews are not repeated. When an auditor is configured, its work must also complete, and recovery resumes only the missing audit.
 
 A valid negative review is complete. `reviews_complete` records review validity; `completion_check` separately reports whether the artifact is ready for its declared purpose. With `purpose: "evaluation"`, keep reports and defects unchanged; `evaluation_complete` is the endpoint. A changed reader-ready report is a separate, explicitly authorized `report_delivery` revision. The tools never rewrite reports to improve evaluation results.
 
@@ -108,18 +108,17 @@ The default needs no configuration file. To select models or multiple required r
 {
   "reviewers": [
     {"id": "primary", "model": "codex-configured", "format": "codex-jsonl"}
-  ],
-  "auditor": {"id": "audit", "model": "codex-configured", "format": "codex-jsonl"}
+  ]
 }
 ```
 
-Replace `codex-configured` with an available model identifier if needed. Every declared reviewer gets a separate context and a subsequent audit; use additional reviewers only when the task calls for them. Each executor has an optional `timeout_seconds` from 1 to 1800 (default 600).
+Replace `codex-configured` if needed. Ordinary reports can omit `auditor`. To request independent auditing, add `"auditor": {"id": "audit", "model": "codex-configured", "format": "codex-jsonl"}` to the configuration. Evaluations require it in custom configurations; the default configuration retains an auditor for evaluations and existing audited plans. Executor timeouts remain 1–1800 seconds, default 600.
 
 Timeouts terminate the executor's local descendants and retain the failed attempt; they do not establish cancellation of a provider-side request. Repeating an identical review assignment reuses valid results while preserving completed state and its delivery receipt.
 
 Review and delivery share source, reading and claim prerequisites. Local materials referenced by claims or required readings are included automatically; use the source registry's `evidence_path` for UTF-8 source text or a required extract when only a URL/page locator is available. Binary originals remain version-bound while the model reads their text extracts. Changes to either prevent delivery using the old review.
 
-`reviews_complete` means the reviews are valid and complete. For report delivery, `completion_check` also checks independent audit findings and the global report verdict. Unresolved report issues block delivery; evaluation mode preserves valid negative findings.
+`reviews_complete` means the declared reviews completed effectively. Ordinary report readiness additionally requires `pass` verdicts with no required corrections; nonessential suggestions use `optional`. Audited plans also check dispositions, sampling and global assessments. Valid negative reviews stay complete but block report delivery.
 
 Changing only this timeout preserves the assignment and resumes missing work. A model or command change requires an explicitly authorized report-delivery revision; only affected reviewer slots run again, while original replies remain intact. Changing only the auditor resumes that audit without repeating the completed reviewer. Frozen evaluations reject substantive assignment changes. Unchanged legacy assignments retain their original records when the stored configuration binding still matches; upgrading the code is not permission to rerun valid negative reviews.
 

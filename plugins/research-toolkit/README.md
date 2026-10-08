@@ -16,7 +16,7 @@ Open a new session, select Research Toolkit, and confirm the five `research_*` t
 
 **[Full installation and usage guide](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.md)** · [Research instructions](SKILL.md) · [Complete standard](references/research-standard.md)
 
-The default reviewer uses your signed-in Codex CLI account and sends it the complete task/report/evidence. It runs a reviewer and a separate auditor, consuming account usage. The guide explains other trusted reviewer commands, failure recovery and evaluation mode.
+The default reviewer uses your signed-in Codex CLI account and receives the complete task/report/evidence. Ordinary reports use one content-review context; a configured auditor, evaluations and existing audited plans retain additional auditing. These calls consume account usage. See the guide for trusted commands and failure recovery.
 
 The portable `plugin.json` / `mcp.json` and Codex-compatible `.codex-plugin/plugin.json` / `.mcp.json` start the same implementation. MCP is local stdio, not a hosted HTTPS endpoint. The package includes no credentials. Mechanical checks do not certify research quality.
 

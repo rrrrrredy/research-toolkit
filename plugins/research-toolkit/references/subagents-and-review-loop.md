@@ -6,6 +6,8 @@ Use this reference when assigning research reviews. [SKILL.md](../SKILL.md) defi
 
 ## Assign Work by Perspective
 
+Ordinary research defaults to one non-author content reviewer, without a compulsory reviewer-audit context or formal sampling log. The independent adjudication, reviewer audit and sampling methods below remain available for explicitly declared audits and evaluation studies.
+
 A perspective is a responsibility, not a mandatory extra model call. Combine compatible responsibilities in one bounded assignment and list the coverage for each. Select domain specialists only when the task needs their methods. When a study requires several model judges on a common rubric, every judge still covers that rubric; specialist emphasis does not remove common dimensions.
 
 | Perspective | Method and required output | Boundary |
@@ -19,7 +21,7 @@ A perspective is a responsibility, not a mandatory extra model call. Combine com
 | Reader usefulness | Read the assembled text for a useful title and opening, argument continuity, term introductions, cognitive load, tables and decision relevance. Identify concrete friction points. | Style changes cannot alter evidence or scope. Route a suspected factual problem to evidence review instead of silently fixing it. |
 | Domain specialist | Apply the relevant field's standards: financial definitions and assumptions; technical baselines and experimental conditions; policy applicability and effective dates; or clinical design, endpoints and populations. | Explain why the specialist is needed and which requirements apply. Do not attach every specialist to every report. |
 
-A final acceptance reviewer reads the actual assembled artifact, requirements, dispositions and sampling evidence. It must not accept an author's summary or last edit list as a substitute. Use a context separate from the author. A fresh context creates workflow separation, not a claim of statistically independent model errors.
+The content reviewer reads the actual assembled artifact, requirements and relevant sources, rather than an author summary or edit list. Use a context separate from the author. A fresh context separates work; it does not imply statistically independent model errors.
 
 ## Shared Assignment
 
@@ -51,7 +53,7 @@ Keep concurrent reviewers read-only. Original model responses and execution capt
 
 ## Complete Every Required Review
 
-Declare required slots before dispatch. For each slot, retain the assigned model/context, scope, dimensions, frozen input and actual report version. An effective review needs a complete original response, execution evidence, substantive coverage and a reasoned validity audit. A generic PASS, summary, empty reply, wrong-version review or truncated answer is not complete.
+Declare required reviewers, scope, dimensions and actual input versions before dispatch. Retain original responses, execution evidence and substantive coverage. A generic PASS, summary, empty reply, wrong-version review or truncated answer is incomplete. Ordinary research does not additionally require a `review_audit` record.
 
 | Event | Required handling |
 | --- | --- |
@@ -64,7 +66,7 @@ Declare required slots before dispatch. For each slot, retain the assigned model
 
 A retry batch may be bounded to stop repeated ineffective calls. Reaching that bound starts diagnosis or a request for the missing dependency; it does not waive the required review or permit completion. Model substitutions require the declared policy or an actual relevant user decision. Never mislabel a substituted model.
 
-Use the first valid attempt for the declared artifact and input version. Preserve failed attempts, earlier versions and the evidence for any invalidation. A context separate from the author and original reviewer must adjudicate invalidation; changing versions or validity labels to select a favorable review is prohibited. A reviewer can be wrong about a finding while still having completed a valid review: preserve the original judgment and adjudicate the error instead of discarding a negative result.
+Use the first valid attempt for the artifact and input version. Preserve failures, prior versions and evidence for invalidation; never change versions or validity labels to select a favorable result. An isolated mistaken finding does not invalidate the whole review. Explicitly declared audits retain their independent invalidation requirements.
 
 An author's missing mandatory source is a legitimate review finding. A reviewer not receiving material that the assignment required is an incomplete review. Evidence may genuinely support an indeterminate conclusion; explain that boundary without treating an unexamined mandatory dimension as completed.
 
@@ -77,11 +79,13 @@ Check each finding against the task, the actual passage and the relevant source.
 - **Unresolved:** the evidence does not settle the dispute; record the consequence for conclusions and acceptance.
 - **Resolved:** a required correction has been verified in the applicable artifact. An assigned action is not a resolution.
 
-Critical/major findings, decisive factual disputes and rejection of consequential criticism require adjudication by a context separate from the author and original reviewer. Give that reviewer the actual text, relevant originals and both proposed interpretations. The author cannot independently dismiss a key objection to their own conclusion. Severity depends on the effect on the task, not on the reviewer's tone.
+For ordinary research, check findings against the report and original evidence and keep unresolved required corrections open. When independent adjudication is expressly required, provide a separate context with the actual text, relevant originals and both interpretations.
 
 Do not use majority votes or mean scores to settle factual disputes. Use one independent adjudication layer. If it cannot settle the evidence, retain the unresolved issue rather than creating a chain of increasingly senior model judges.
 
 ## Check Reviewers and Sample Passed Work
+
+This section applies to declared audits and evaluation studies, not to the ordinary report default.
 
 Check every review's validity: correct version and execution evidence, full assigned coverage, locatable observations, supported citations, and no invented requirements. A validity audit must explain its decision; a boolean field alone is insufficient. Hashes and transcripts support traceability but cannot authenticate themselves or establish comprehension.
 
@@ -100,7 +104,7 @@ Use existing known-error, valid, ambiguous-evidence and source-instruction contr
 1. **Outline:** review intent, coverage and argumentative structure before drafting. A full provider panel is needed only when declared by the task.
 2. **Sources and analysis:** review decisive claims, calculations, mechanisms and counterevidence while corrections remain local.
 3. **Assembled draft:** read the whole report. Run reader and expression checks after substantive issues are stable.
-4. **Acceptance:** verify current artifact coverage, every required effective review, finding dispositions and the declared sampling work.
+4. **Acceptance:** verify current-version coverage, every required content review and resolution of necessary corrections; complete additional audits only as declared.
 
 For evaluation studies, preserve the first submitted artifact, valid negative judgments, original failures and evidenced labels. Review completion does not require a usable sample. Use these outcomes to decide and validate toolkit changes.
 

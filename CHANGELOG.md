@@ -10,6 +10,9 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Changed
 
+- Plugin 0.2.0 defaults to one content reviewer for ordinary reports; independent audits remain available through configuration and stay required for existing audited plans and evaluations. Preserve negative reviews, required corrections and version bindings.
+- Make detailed process history optional; separate research-dataset navigation from Toolkit software checks without changing samples or results.
+
 - Preserve Unicode line and paragraph separators inside reviewer JSONL messages; retain incomplete-turn and malformed-record rejection.
 
 - Specify review validity, report readiness and permitted sampling dispositions separately in the model audit assignment.

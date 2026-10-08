@@ -7,7 +7,7 @@
 ## Choose the Completion Question
 
 - **Evaluation:** all declared review slots must have effective results and evidenced dispositions. A valid negative judgment, confirmed sample defect or unresolved source question can be retained as an evaluation outcome.
-- **Report delivery:** the same review work must be complete, and required report corrections must be resolved. The global delivery review, task requirements and delivery receipt also apply.
+- **Report delivery:** declared content reviews are complete, required corrections are resolved, and the current report meets its task and delivery checks. Additional auditing follows the declared plan.
 
 Run the review-completion check from the repository directory, replacing the task path:
 
@@ -21,23 +21,28 @@ The delivery checker uses **contract 3** by default and includes this check for 
 
 ## Review Plan
 
+For ordinary reports the executor writes `audit_required: false`. Complete `model_review` records, original responses, execution captures, dimension coverage and input bindings remain required; `review_audit` and `sampling_audit` are not required. Delivery requires every verdict to be `pass` with no `critical`, `major` or `minor` correction; `optional` suggestions do not block it. The global result summarizes those content reviews without another model call.
+
+Evaluations, configured audits and existing plans without this field retain the audited contract. Do not add `audit_required: false` to frozen evaluations to change their completion conditions.
+
 Add `review_plan` to the existing progress record. It contains:
 
 | Field | Meaning |
 | --- | --- |
 | `purpose` | `evaluation` or `report_delivery`; the delivery checker requires the latter |
+| `audit_required` | `false` for ordinary reports; omitted or `true` for audited plans, including evaluations |
 | `author_id` | Identity of the author context |
 | `artifact_sha256` | Hash of the actual primary artifact |
 | `slots` | Nonempty list of required independent model-review assignments |
-| `sampling` | Declared sampling population, method and selected/mandatory item ids |
+| `sampling` | Population, method and selected/mandatory ids for declared audited plans |
 
-Each slot has `slot_id`, `reviewer_id`, `model`, `scope`, `dimensions` and `input`. The shared executor also records `reviewer_signature` for the configured reviewer and instructions, plus `auditor_signature` in the plan and audit rows. Timeout changes are excluded from these assignment bindings. When present, signatures must match before selecting the first valid result; a prior model's result cannot fill a changed slot. Legacy records without these fields remain inspectable without inventing evidence of earlier execution. Slot ids are unique, the reviewer is not the author, and each dimension is named explicitly. Compatible perspectives may share a slot. There is no fixed provider list in the checker.
+Each slot has `slot_id`, `reviewer_id`, `model`, `scope`, `dimensions` and `input`. The shared executor also records `reviewer_signature` for the configured reviewer and instructions, plus `auditor_signature` in the plan and audit rows when an auditor is configured. Timeout changes are excluded from these assignment bindings. When present, signatures must match before selecting the first valid result; a prior model's result cannot fill a changed slot. Legacy records without these fields remain inspectable without inventing evidence of earlier execution. Slot ids are unique, the reviewer is not the author, and each dimension is named explicitly. Compatible perspectives may share a slot. There is no fixed provider list in the checker.
 
 `input` is a file reference: `{"path": "reviews/input.json", "sha256": "..."}`. Replace `...` with the actual hash; the fragment illustrates the shape and is not a completed record. Keep the original full task, report, evidence and criteria in the captured input, with any actual provider-envelope transformation documented. A separate hash or a list of source URLs does not establish that the model received full source text.
 
 All referenced files must be nonempty UTF-8 text inside the task directory. Hashing uses the delivery checker's normalization: CRLF and CR become LF for recognized text suffixes. It does not rewrite the original files. Keep credentials out of input and execution captures.
 
-Declare scope, reviewers, inputs, sampling method and retry policy before examining outcomes. Then record the actual sampling population and selected ids under that method. Local record checks cannot prove when a plan was frozen or that the declared plan captured every user requirement.
+Declare scope, reviewers, inputs and retry policy before examining outcomes. For declared audited plans, also declare the sampling method and record its actual population and selected ids. Local record checks cannot prove when a plan was frozen or that the declared plan captured every user requirement.
 
 ## Plan Changes and Historical Attempts
 
@@ -65,11 +70,13 @@ Append one `model_review` row for each attempt. Keep failures as separate attemp
 
 Each finding contains `finding_id`, `severity`, `location` and `basis`. Severity is `critical`, `major`, `minor` or `optional`. Keep quotes, original ratings, source details and suggested changes in the original response or additional fields. Structured records do not replace it.
 
-A completed invocation alone is insufficient: its response must also have a valid audit. A failed or incomplete attempt cannot fill the slot. Failed attempts may lack a response; preserve the available execution/error evidence and the concrete recovery action.
+A completed invocation alone is insufficient: its response must substantively cover the declared dimensions with locations and reasons. Failed or truncated attempts remain incomplete. Declared audited plans additionally require a valid audit. Preserve execution/error evidence and the recovery action.
 
 The same execution id or response file cannot fill two slots. Identical response text is not by itself proof of a duplicate execution; execution provenance and substantive review remain necessary. The checker compares declared model identifiers with the slot; it cannot authenticate provider identity from caller-created files.
 
 ## Validity and Finding Dispositions
+
+This section and the sampling records below apply to declared audited tasks. Ordinary content reviews do not require these additional records.
 
 A `review_audit` row records an actual examination of a particular response:
 
@@ -119,7 +126,7 @@ The latest sampling record must cover the current artifact and selection. A revi
 
 ## Reading the Result
 
-The result includes `required_slots`, `completed_slots`, `selected_attempts`, flags and explanations. A `completed_slots` count alone does not establish completion: `ok` also requires valid dispositions, sampling and all other checks.
+The result includes `required_slots`, `completed_slots`, `selected_attempts`, flags and explanations. `ok` checks the actual plan: ordinary reports do not need audit or sampling records; evaluations and declared audited plans still do.
 
 These fields remain false even on success:
 

@@ -114,11 +114,11 @@ git clone https://github.com/rrrrrredy/research-toolkit.git .agents/skills/resea
 | 提纲 | 实际问题、范围、覆盖及论证结构 |
 | 资料与分析 | 决定性证据、计算、机制和反例 |
 | 完整成稿 | 全文连贯、分析深度、读者体验和表达 |
-| 验收 | 当前成果、全部必需有效评审、证据裁定及抽查 |
+| 验收 | 当前成果满足要求，必需内容评审有效，必要修正已解决；额外审计按约定执行 |
 
 **每个必需模型席位都须取得完整、对应版本、有实质内容的有效评审。** 调用过、记录了失败、回复截断或只给出笼统PASS，都不算完成。失败后保留记录、处理原因并补齐该席位。有依据的负面评审已经完成，其结论保留进入评测结果。
 
-评审意见按正文和来源核对。严重或决定性争议、对关键批评的不采纳，需要独立裁定。抽查同时覆盖已判通过的内容、不修改的决定和已发现的问题，出现实质差错时扩大受影响范围。
+普通研究默认由一个非作者上下文完成内容评审，并对照正文和来源处理意见。另设审查者、独立裁定和正式抽查仅在任务明确要求时执行；相关方法继续保留。评测研究按自己的既定协议执行。
 
 评测保留原始缺陷，作为工具箱迭代依据；成品报告另行满足其交付质量要求。脚本检查记录一致性，不能代替实际调用证据、内容审阅或认证研究质量。
 
@@ -240,17 +240,15 @@ python scripts/build_sanitized_eval_set.py ^
 
 ## 05 研究后台与成稿
 
-研究后台包括：
+研究后台保留以下核心记录。`state/findings.jsonl`、`state/directions_tried.json`、`state/iteration_log.jsonl` 和 `logs/work.jsonl` 仅在有助于当前任务时使用，不是普遍必交文件。不确定性可直接记在主张中，独立的 `data/uncertainty_registry.csv` 按需使用。
+
+核心记录包括：
 
 - `state/task_spec.md`
 - `state/progress.json`
-- `state/findings.jsonl`
-- `state/directions_tried.json`
-- `logs/work.jsonl`
 - `logs/review.jsonl`
 - `data/source_registry.csv`
 - `data/claims_registry.csv`
-- `data/uncertainty_registry.csv`
 
 面向读者的成稿包括：
 
@@ -278,7 +276,7 @@ python scripts/build_sanitized_eval_set.py ^
 
 ## 06 断点恢复与执行护栏
 
-断点恢复时，先读 `state/task_spec.md`，再读 `state/progress.json`，再读 `state/findings.jsonl` 和 `state/iteration_log.jsonl` 的最新记录，最后读 `state/directions_tried.json`。不要重复已完成阶段；如果 `task_spec.md` 已经记录研究范围，不要重新做研究范围校准。
+断点恢复时，读取 `state/task_spec.md`、`state/progress.json` 和存在的重要补充要求；有帮助时读取已有的研究笔记。不要为了恢复而补造历史日志，也不要重复已完成阶段或已明确的研究需求。
 
 执行中遵守这些护栏：
 

@@ -52,23 +52,20 @@ state/
   progress.json
   requirements.jsonl      # correction-heavy multi-turn tasks
   final_delivery.json     # only for terminal delivery
-  findings.jsonl
-  directions_tried.json
-  iteration_log.jsonl
 logs/
-  work.jsonl
   review.jsonl
 data/
   source_registry.csv
   claims_registry.csv
-  uncertainty_registry.csv
 ```
 
 Use state files to survive context loss. Do not rely on chat history as the only memory.
 
+Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log.jsonl` and `logs/work.jsonl` only when they help the task. They are optional history, not delivery prerequisites. Uncertainty can stay with the claims; a separate `data/uncertainty_registry.csv` is optional.
+
 `progress.json` should track current stage, status, completed units, open issues, stale_count, and next action.
 
-Keep `progress.json` as a compact snapshot of current state. Put chronological history in `iteration_log.jsonl` or `work.jsonl`; do not turn progress into an append-only transcript.
+Keep `progress.json` as a compact snapshot of the current task. Optional notes can retain useful history; no per-cycle transcript is required.
 
 For a multi-turn task with material follow-up corrections, add one `requirements.jsonl` row per requirement with `requirement_id`, `source_turn`, `summary`, `status`, and `evidence`. Preserve stable ids when wording changes. `satisfied` needs supporting evidence; `accepted_limitation`, `waived`, and `out_of_scope` need the specific user decision required by [research standard](research-standard.md#3-behavioral-constraints). Use `user_decision.source_turn` and `user_decision.quote` to identify that decision. Ordinary evidence uncertainty does not cancel a promised deliverable. This ledger stays out of the published report.
 
@@ -82,9 +79,9 @@ Create `final_delivery.json` only for terminal delivery. It is a receipt for cur
 - `open_issues: []`
 - `accepted_limitations`: the limitations that must also appear in the delivery message when material
 
-The delivery checker recomputes hashes and reads current progress, requirements, review scope, and the intended user-visible message. The latest global and task-required reviews also carry `artifact_sha256` for the report they actually reviewed. Rebuilding a receipt does not refresh an old review. The receipt JSON remains schema 1; the checker defaults to delivery contract 3, including required model-review slots, validity audits, finding dispositions and sampling. Preserve old records rather than filling in missing review or user-decision evidence after the event.
+The delivery checker binds the actual report, inputs, progress, effective reviews and delivery message. Contract 3 supports ordinary report plans with `audit_required: false`; declared audits and existing audited plans retain their validity, disposition and sampling requirements. Rebuilding a receipt does not refresh an old review. Preserve original records; do not invent missing review or user-decision evidence.
 
-`directions_tried.json` should prevent repeated digging in the same direction. Treat one full operating pass for a bounded unit as a cycle. If it adds no new evidence, case, counterexample, framework, or judgment, increment `stale_count`; reset it to `0` when a later cycle adds one. At `stale_count >= 2`, pivot the structural angle. This counter is separate from the three-consecutive-source-pass stop for one collection direction.
+When useful, `directions_tried.json` can prevent repeated digging in the same direction. If two complete operating passes add no analytical value, change the approach; this heuristic does not require a separate history file.
 
 Record an alternative route or an access dependency for unfinished mandatory reading. Stopping the failed route does not close the requirement.
 
@@ -95,15 +92,14 @@ When resuming after context loss, session restart, or handoff:
 1. Read `state/task_spec.md`.
 2. Read `state/progress.json`.
 3. Read `state/requirements.jsonl` when it exists.
-4. Read the latest entries in `state/findings.jsonl` and `state/iteration_log.jsonl`.
-5. Read `state/directions_tried.json`.
-6. Resume from the matching staged execution step.
+4. Read existing research notes only when they help recover the task; do not create retrospective history.
+5. Resume from the matching staged execution step.
 
 Do not re-run completed stages. Do not re-ask the research brief if `task_spec.md` already records the answers.
 
 ### Minimum Field Conventions
 
-Use these fields unless the task clearly needs a narrower local variant:
+Use these fields for the records the task actually needs. Optional history files do not become required because their field examples are listed here:
 
 - `progress.json`: `stage`, `status`, `completed_units`, `open_issues`, `stale_count`, `next_action`, `updated_at`
 - `findings.jsonl`: `timestamp`, `unit`, `finding`, `claim_type`, `evidence_level`, `source_refs`, `intended_section`

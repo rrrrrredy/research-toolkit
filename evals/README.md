@@ -2,6 +2,16 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+Research Toolkit helps execute research; the research evaluation dataset uses tasks, material and criteria to identify weaknesses in outputs. This directory also contains Toolkit software checks. Passing those checks is not a research-quality score.
+
+| What you need | Entry point |
+|---|---|
+| Report-defect examples and comparison excerpts | [Semantic diagnostics](semantic_diagnostics/README.md) |
+| Research-quality criteria and result interpretation | [Five-dimension standard](../docs/report-evaluation-standard.md), [existing results and public scope](../docs/evaluation-status.md) |
+| Toolkit software behavior checks | The cases, fixtures and commands below |
+
+Changes to Toolkit defaults do not rewrite existing samples, first reviews or labels, and do not automatically start new model evaluations.
+
 This directory contains seven research cases, twenty-two negative fixtures, four positive fixtures, and report diagnostics for Research Toolkit. The cases and evaluator are runtime-neutral; no particular agent runtime is required. The offline checks examine the research brief, task files, sources and claims, review records, source-instruction boundaries, and final prose. They report those checks, not a model ranking or an overall report-quality verdict.
 
 Evaluator result schema v2 keeps two claims separate. `conformance_status`, `conformance_score`, and `conformance_flags` describe deterministic structure, traceability, and configured failure signals. `research_quality_status` is `not_evaluated`; the runner does not claim that a mechanically conforming report is insightful, accurate, or decision-useful.
@@ -117,7 +127,7 @@ python scripts/check_delivery.py <task-directory>
 
 The checker reads the intended message in `delivery_message.md`. To compare an independently captured reply, pass `--actual-message <reply-file>`; it does not read the chat application itself. A plainly labeled non-final stage artifact can pass without a terminal receipt.
 
-Under the default delivery contract 3, a terminal claim requires consistent `final/complete` state, no open blockers, parseable passing global and task-required reviews bound to the current report, and a `global_final_delivery` receipt binding the required files. Declared model-review slots, substantive-validity audits, finding dispositions, independent adjudication and sampling must also be complete. Requirements closed as waived, out of scope or accepted limitations need specific recorded user decisions; declared required reading is checked against source records. Recognized disclosure contradictions fail, while ambiguous disclosure matches require review. See the [delivery checker interface](../docs/delivery-verification.md) for the exact contract and legacy mode.
+Under the default delivery contract 3, a terminal claim requires consistent `final/complete` state, no open blockers, parseable passing global and task-required reviews bound to the current report, and a `global_final_delivery` receipt binding the required files. Declared content reviews must be complete. Additional validity audits, dispositions, independent adjudication and formal sampling apply to declared audited plans and historical audited fixtures. Requirements closed as waived, out of scope or accepted limitations need specific recorded user decisions; declared required reading is checked against source records. Recognized disclosure contradictions fail, while ambiguous disclosure matches require review. See the [delivery checker interface](../docs/delivery-verification.md) for the exact contract and legacy mode.
 
 This checks record consistency. It does not authenticate user consent, actual reading, semantic correctness or report quality.
 

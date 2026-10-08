@@ -22,7 +22,11 @@
 
 ## 3. 状态记录
 
-长任务采用：
+保留任务、当前进度、来源与主张、评审结果；重要补充要求及最终回执按需记录。
+
+`state/findings.jsonl`、`state/directions_tried.json`、`state/iteration_log.jsonl` 和 `logs/work.jsonl` 仅在有助于当前任务时使用，不是普遍必交文件。不确定性可直接记在主张中，独立的 `data/uncertainty_registry.csv` 按需使用。
+
+核心记录：
 
 ```text
 state/
@@ -30,19 +34,14 @@ state/
   progress.json
   requirements.jsonl      # 有重要补充要求的多轮任务
   final_delivery.json     # 仅最终交付时生成
-  findings.jsonl
-  directions_tried.json
-  iteration_log.jsonl
 logs/
-  work.jsonl
   review.jsonl
 data/
   source_registry.csv
   claims_registry.csv
-  uncertainty_registry.csv
 ```
 
-`progress.json` 只保留当前阶段、状态、完成单元、未决事项、停滞计数和下一步；历史进入 `iteration_log.jsonl` 或 `work.jsonl`，不要把当前状态变成聊天记录。
+`progress.json` 保留当前阶段、状态、未决事项和下一步。已有笔记可保留有用历史，不要求逐轮记录执行经过。
 
 重要补充要求在 `requirements.jsonl` 各占一行，字段为 `requirement_id`、`source_turn`、`summary`、`status`、`evidence`；措辞变更时保留稳定编号。`satisfied` 需要完成证据；`accepted_limitation`、`waived`、`out_of_scope` 需要[核心行为约束](research-standard.zh-CN.md#3-行为约束)所要求的具体用户决定，用 `user_decision.source_turn` 和 `user_decision.quote` 定位。普通研究不确定性不能取消已承诺的交付项。该台账不进入公开文章。
 
@@ -56,15 +55,17 @@ data/
 - `open_issues: []`。
 - `accepted_limitations` 列明会影响交付判断的已接受限制；重要限制也须出现在交付说明中。
 
-检查器重算哈希并检查当前状态、要求、评审范围和拟交付说明。最新全文评审与任务指定评审均需记录实际审阅报告的 `artifact_sha256`。重建回执不会刷新旧评审。回执仍是 schema 1，检查器默认交付契约 3，另检查必需模型评审、有效性核查、发现处置与抽查。保留原记录，不事后补造评审或用户决定。
+交付检查绑定当前报告、输入、进度、有效评审和交付说明。contract 3 支持 `audit_required: false` 的普通报告计划；已声明审计和原有审计计划继续核对有效性、处置与抽查。重建回执不能更新旧评审，不补造评审或用户决定。
 
 一个有边界单元的完整工作循环没有新增证据、案例、反例、框架或判断时，`stale_count` 加一；有新增则归零。达到 2 时改变分析角度。这与同一收集方向连续三次无新证据的停止规则不同。未完成必读应记录替代路线或访问依赖，停止失败路线不等于取消要求。
 
 ### 中断恢复
 
-依次读取任务规格、当前状态、存在时的要求台账、最近发现与迭代记录、已尝试方向，再从相应阶段继续。不要重跑已完成阶段，或重复询问已有答案的研究需求。
+读取任务规格、当前状态和存在时的要求台账；已有研究笔记只在有助于恢复时读取，再从相应阶段继续。不要重跑已完成阶段，或重复询问已有答案的研究需求。
 
-### 最小字段
+### 字段参考
+
+以下字段供实际使用的记录参考；列出可选历史文件的字段，不表示任务必须维护这些文件。
 
 | 文件 | 字段 |
 |---|---|

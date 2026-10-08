@@ -60,7 +60,7 @@ def research_guide(stage: str, language: str = "en") -> dict[str, Any]:
 @server.tool(structured_output=True)
 async def research_review(task: str, evidence_paths: list[str], artifact: str = "final.md",
                           purpose: str = "report_delivery", revision: bool = False) -> dict[str, Any]:
-    """Run the configured real reviewer and a fresh auditor, retaining original evidence.
+    """Run the configured content reviews and any declared audits, retaining original evidence.
     Sends the full task/report/evidence to the configured model account. May consume its usage.
     evidence_paths are UTF-8 files relative to the task; required registry materials are included automatically.
     Use evidence_path in source records for local source text/extracts. Use purpose=evaluation to preserve defects.

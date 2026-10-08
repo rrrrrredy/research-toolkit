@@ -89,6 +89,11 @@ def inspect_review_completion(
     if not isinstance(plan, dict) or not one_of(plan.get("purpose"), PURPOSES):
         add("missing_review_plan", "Declare review_plan with purpose evaluation or report_delivery.")
         return result()
+    # Missing field retains the contract of existing audited plans.
+    audit_required = plan.get("audit_required", True)
+    if type(audit_required) is not bool or (plan["purpose"] == "evaluation" and not audit_required):
+        add("invalid_review_plan", "Evaluation requires auditing; audit_required must be a boolean.")
+        return result()
     author = plan.get("author_id")
     if not text(author):
         add("invalid_review_plan", "review_plan.author_id must identify the author context.")
@@ -211,7 +216,7 @@ def inspect_review_completion(
         reference(slot.get("input"), f"{sid} frozen input")
         candidates = [r for r in attempts.values()
                       if r.get("slot_id") == sid and r.get("status") == "completed"
-                      and audits.get(r["attempt_id"], {}).get("result") == "valid"]
+                      and (not audit_required or audits.get(r["attempt_id"], {}).get("result") == "valid")]
         current = [r for r in candidates if r.get("artifact_sha256") == artifact_hash
                    and matches_review_slot(r, slot)]
         if not current:
@@ -224,7 +229,7 @@ def inspect_review_completion(
         # Preserve first-valid selection within an assignment version, including negative results.
         review = current[0]
         aid = review["attempt_id"]
-        audit = audits[aid]
+        audit = audits.get(aid, {})
         for field in ("reviewer_id", "model", "scope", "input"):
             if review.get(field) != slot.get(field):
                 add("review_slot_mismatch", f"{aid}: {field} differs from the declared slot.")
@@ -255,6 +260,23 @@ def inspect_review_completion(
             if (not isinstance(assessment, dict)
                     or not all(text(assessment.get(k)) for k in ("location", "basis"))):
                 add("incomplete_review_coverage", f"{aid}: missing substantive coverage record for {dimension}.")
+        if not audit_required:
+            observations = review.get("findings")
+            if not isinstance(observations, list) or not all(isinstance(f, dict) for f in observations):
+                add("invalid_review_findings", f"{aid}: findings must be a list.")
+                observations = []
+            if not distinct_strings([f.get("finding_id") for f in observations], nonempty=False):
+                add("invalid_review_findings", f"{aid}: finding ids must be distinct.")
+            for observation in observations:
+                if (not one_of(observation.get("severity"), SEVERITIES)
+                        or not all(text(observation.get(k)) for k in ("location", "basis"))):
+                    add("invalid_review_findings", f"{aid}: each finding needs severity, location and basis.")
+            if report_delivery and (review.get("report_verdict") != "pass"
+                    or any(f.get("severity") != "optional" for f in observations)):
+                add("report_not_ready", f"{aid}: the content review has not cleared required report corrections.")
+            if error_count == before:
+                selected[sid] = aid
+            continue
         auditor = audit.get("auditor_id")
         if not text(auditor) or auditor == slot["reviewer_id"]:
             add("self_validated_review", f"{aid}: a separate context must check review validity.")
@@ -303,6 +325,9 @@ def inspect_review_completion(
                 add("report_not_ready", f"{aid}: the independent global assessment has unresolved report issues.")
         if error_count == before:
             selected[sid] = aid
+
+    if not audit_required:
+        return result(len(slots))
 
     sampling = plan.get("sampling")
     if (not isinstance(sampling, dict) or not text(sampling.get("method"))

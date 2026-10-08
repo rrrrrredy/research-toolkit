@@ -21,12 +21,13 @@ def default_reviewer() -> dict:
     return {"id": "primary", "model": "codex-configured", "format": "codex-jsonl"}
 
 
-def load_review_config() -> dict:
+def load_review_config(*, require_audit=False) -> dict:
     path = os.environ.get("RESEARCH_TOOLKIT_REVIEW_CONFIG")
     config = json.loads(Path(path).read_text(encoding="utf-8")) if path else {
         "reviewers": [default_reviewer()],
-        "auditor": {"id": "audit", "model": "codex-configured", "format": "codex-jsonl"},
     }
+    if require_audit and not path:
+        config["auditor"] = {"id": "audit", "model": "codex-configured", "format": "codex-jsonl"}
     return validate_review_config(config)
 
 
@@ -37,9 +38,9 @@ def validate_review_config(config: dict) -> dict:
     if not isinstance(reviewers, list) or not reviewers or len(reviewers) > 8:
         raise ValueError("Review configuration needs 1-8 reviewers.")
     ids = []
-    for reviewer in [*reviewers, config.get("auditor")]:
+    for reviewer in reviewers + ([config["auditor"]] if "auditor" in config else []):
         if not isinstance(reviewer, dict):
-            raise ValueError("Declare a separate auditor configuration.")
+            raise ValueError("Each configured reviewer or auditor must be an object.")
         for field in ("id", "model"):
             if not isinstance(reviewer.get(field), str) or not reviewer[field].strip():
                 raise ValueError(f"Reviewer configuration needs {field}.")
@@ -74,7 +75,7 @@ def review_readiness() -> dict:
                 "error_type": type(exc).__name__}], "model_access_verified": False}
     checks = []
     login = None
-    for entry in [*config["reviewers"], config["auditor"]]:
+    for entry in config["reviewers"] + ([config["auditor"]] if "auditor" in config else []):
         command = entry.get("command")
         executable = shutil.which(command[0] if command else "codex")
         check = {"id": entry["id"], "model": entry["model"]}

@@ -445,14 +445,27 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     report = artifact_path.read_text(encoding="utf-8")
     if not report.strip():
         raise ValueError("The report is empty.")
-    config = load_review_config() if config is None else validate_review_config(config)
+    old_plan = progress.get("review_plan")
+    config = (load_review_config(require_audit=purpose == "evaluation" or bool(
+        old_plan and old_plan.get("audit_required", True)))
+        if config is None else validate_review_config(config))
+    audit_required = "auditor" in config
+    if purpose == "evaluation" and not audit_required:
+        raise ValueError("Evaluation requires its declared independent auditor configuration.")
+    review_instructions = REVIEW_INSTRUCTIONS
+    if not audit_required:
+        review_instructions += ("\nFor report delivery, pass only when no required corrections remain. "
+                                "Mark nonessential suggestions optional; any critical, major or minor defect "
+                                "requires needs_revision. A negative verdict is a completed review.")
     source_names = sorted(set([*evidence_paths, *required_sources, "data/source_registry.csv", "data/claims_registry.csv"]))
     sources = {name: safe_path(root, name).read_text(encoding="utf-8") for name in source_names}
     if any(not text.strip() for text in sources.values()):
         raise ValueError("Required source input is empty.")
     packet = {"task": safe_path(root, "state/task_spec.md").read_text(encoding="utf-8"),
               "report_path": artifact, "report": report, "sources": sources, "dimensions": DIMENSIONS,
-              "purpose": purpose, "sampling_method": SAMPLING_METHOD}
+              "purpose": purpose}
+    if audit_required:
+        packet["sampling_method"] = SAMPLING_METHOD
     if originals:
         packet["source_files"] = originals
     requirements = requirement_input(root)
@@ -464,8 +477,9 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     artifact_hash = sha256_file(artifact_path)
     old_plan = progress.get("review_plan")
     runner_signature = digest({"reviewers": [assignment_config(r) for r in config["reviewers"]],
-                               "auditor": assignment_config(config["auditor"]),
-                               "review_instructions": REVIEW_INSTRUCTIONS, "audit_instructions": AUDIT_INSTRUCTIONS})
+                               "auditor": assignment_config(config["auditor"]) if audit_required else None,
+                               "review_instructions": review_instructions,
+                               "audit_instructions": AUDIT_INSTRUCTIONS if audit_required else None})
     same_runner = bool(old_plan and old_plan.get("runner_signature") in {runner_signature, digest(config)})
     assignment_changed = bool(old_plan and (old_plan.get("input_version") != version or not same_runner))
     if assignment_changed:
@@ -484,9 +498,10 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     report_samples = {f"paragraph:{i+1}": paragraphs[i] for i in indices}
     slots = [{"slot_id": r["id"], "reviewer_id": f"reviewer:{r['id']}", "model": r["model"],
               "scope": "full_report", "dimensions": DIMENSIONS, "input": input_ref,
-              "reviewer_signature": digest({"config": assignment_config(r), "instructions": REVIEW_INSTRUCTIONS})}
+              "reviewer_signature": digest({"config": assignment_config(r), "instructions": review_instructions})}
              for r in config["reviewers"]]
-    auditor_signature = digest({"config": assignment_config(config["auditor"]), "instructions": AUDIT_INSTRUCTIONS})
+    auditor_signature = (digest({"config": assignment_config(config["auditor"]), "instructions": AUDIT_INSTRUCTIONS})
+                         if audit_required else None)
     # Preserve an unchanged legacy assignment without inventing bindings for old executions.
     if same_runner:
         old_slots = {s["slot_id"]: s for s in old_plan["slots"]}
@@ -503,6 +518,9 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
             "input_version": version, "runner_signature": runner_signature, "slots": slots,
             "sampling": {"method": SAMPLING_METHOD, "population": population,
                          "selected": selection, "mandatory": [f"review:{s['slot_id']}" for s in slots]}}
+    if not audit_required:
+        plan.pop("sampling")
+        plan["audit_required"] = False
     if auditor_signature is not None:
         plan["auditor_signature"] = auditor_signature
     if old_plan == plan:
@@ -514,7 +532,7 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     if assignment_changed:
         record_plan_change(root, old_plan, plan)
     progress.update(review_plan=plan, stage="review", status="in_progress",
-                    next_action="Complete the declared reviews, audits and sample checks.")
+                    next_action="Complete the declared reviews and any requested audits.")
     save(root, "state/progress.json", progress)
     used_ids = {r.get("execution_id") for r in rows_for(root) if nonempty(r.get("execution_id"))}
     # Include audit executions as well, even after a failed/partial audit.
@@ -535,9 +553,10 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
             candidates = [r for r in history if r.get("record_type") == "model_review"
                           and r.get("slot_id") == sid and r.get("status") == "completed"
                           and matches_review_slot(r, slot) and r.get("artifact_sha256") == artifact_hash]
-            valid = next((r for r in candidates if audits.get(r["attempt_id"], {}).get("result") == "valid"), None)
+            valid = next((r for r in candidates if not audit_required
+                          or audits.get(r["attempt_id"], {}).get("result") == "valid"), None)
             if valid:
-                selected[sid] = (valid, audits[valid["attempt_id"]])
+                selected[sid] = (valid, audits.get(valid["attempt_id"]))
                 break
             pending = next((r for r in candidates if r["attempt_id"] not in audits), None)
             if pending is None:
@@ -548,7 +567,7 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                         "artifact_sha256": artifact_hash}
                 try:
                     value, execution_id = invoke(root, attempt_prefix, reviewer_config,
-                        {"role": "reviewer", "instructions": REVIEW_INSTRUCTIONS, "assignment": packet},
+                        {"role": "reviewer", "instructions": review_instructions, "assignment": packet},
                         used_ids, runner)
                     value = checked_review(value, DIMENSIONS)
                     pending = {**base, "status": "completed", "execution_id": execution_id,
@@ -565,6 +584,9 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                     if isinstance(exc, ReviewFailure) and exc.capture.get("status") in {"dependency_missing", "launch_failure", "cancellation_unconfirmed"}:
                         break
                     continue
+            if not audit_required:
+                selected[sid] = (pending, None)
+                break
             aid = pending["attempt_id"]
             audit_prefix = prefix+"/audits/"+uuid.uuid4().hex
             samples = {**report_samples, f"review:{sid}": "Check review validity, passed coverage and no-change decisions."}
@@ -597,7 +619,7 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                 break
     if sha256_file(artifact_path) != artifact_hash:
         return {"reviews_complete": False, "error": "Report changed during review; retained results bind the captured version."}
-    if len(selected) == len(slots):
+    if len(selected) == len(slots) and audit_required:
         checks = {}
         evidence = {}
         contexts = []
@@ -623,6 +645,17 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                           "open_issues": [issue for g in globals_ for issue in g.get("open_issues", [])],
                           "basis": [g.get("basis") for g in globals_], "review_evidence": evidence,
                           "auditor_contexts": contexts})
+    if len(selected) == len(slots) and not audit_required:
+        issues = [f"{sid}: {r['report_verdict']}" for sid, (r, _) in selected.items()
+                  if r["report_verdict"] != "pass"]
+        issues.extend(f"{sid}/{f['finding_id']}: {f['basis']}"
+                      for sid, (r, _) in selected.items() for f in r["findings"]
+                      if f["severity"] != "optional")
+        append_row(root, {"scope": "global_final_delivery", "artifact_sha256": artifact_hash,
+                          "result": "fail" if issues else "pass", "open_issues": issues,
+                          "basis": "Summary of the declared full-report content reviews.",
+                          "review_evidence": {sid: r["response"] for sid, (r, _) in selected.items()},
+                          "reviewer_contexts": [r["execution_id"] for r, _ in selected.values()]})
     outcome = completion(root, progress, artifact)
     progress["next_action"] = ("Review work is complete; preserve evaluation outcomes." if purpose == "evaluation" and outcome["ok"]
                                else "Run delivery verification." if outcome["ok"]

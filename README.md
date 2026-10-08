@@ -113,11 +113,11 @@ Reviews cover intent and requirements, evidence and data, adversarial reasoning,
 | Outline | Actual questions, scope, coverage and argumentative structure |
 | Sources and analysis | Decisive evidence, calculations, mechanisms and counterexamples |
 | Assembled report | Whole-report coherence, depth, reader experience and expression |
-| Acceptance | Current artifact, every required effective review, evidenced dispositions and sampling |
+| Acceptance | Current report meets requirements, required content reviews are complete and necessary corrections are resolved; additional audits follow the declared task |
 
 **Every required model-review slot must obtain a complete, version-bound, substantive response.** A call attempt, error record, truncated reply or generic PASS does not complete it. Preserve failures, diagnose the cause and resume the missing assignment. A valid negative judgment is complete and stays in the evaluation results.
 
-Check reviewer claims against the actual text and sources. Critical or decisive disputes and consequential rejections require independent adjudication. Sample passed material and no-change decisions as well as reported problems; expand checks where a material discrepancy warrants it.
+Ordinary research defaults to one non-author content review, with findings checked against the report and sources. Separate reviewer auditing, independent adjudication and formal sampling apply when expressly required by the task. Their methods remain available; evaluation studies retain their own declared protocols.
 
 Evaluation preserves original defects for toolkit improvement. Reader-ready delivery additionally resolves required corrections in the current report. Scripts check record consistency; actual execution evidence and content review remain necessary.
 
@@ -254,29 +254,25 @@ Subagents may inspect or challenge bounded parts of the backend, but the main ag
 {task}/state/
   task_spec.md
   progress.json
-  findings.jsonl
-  directions_tried.json
-  iteration_log.jsonl
 
 {task}/logs/
-  work.jsonl
   review.jsonl
 
 {task}/data/
   source_registry.csv
   claims_registry.csv
-  uncertainty_registry.csv
 ```
 
 Use state files to recover after context loss. Do not rely on chat history as the only memory.
+
+Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log.jsonl` and `logs/work.jsonl` only when they help the task. They are optional history, not delivery prerequisites. Uncertainty can stay with the claims; a separate `data/uncertainty_registry.csv` is optional.
 
 Recovery protocol:
 
 1. Read `state/task_spec.md` for objective, scope, reader, output, depth, evidence standard, and assumptions.
 2. Read `state/progress.json` for current stage, status, completed units, open issues, stale_count, and next action.
-3. Read the latest entries in `state/findings.jsonl` and `state/iteration_log.jsonl` for recent direction.
-4. Read `state/directions_tried.json` to avoid repeated paths.
-5. Resume from the matching step in the operating loop. Do not re-run completed stages or re-ask an answered research brief.
+3. Read existing research notes only when they help recover the task; do not create retrospective history.
+4. Resume from the matching step in the operating loop. Do not re-run completed stages or re-ask an answered research brief.
 
 ## 06 Questions to Settle Before Research
 
