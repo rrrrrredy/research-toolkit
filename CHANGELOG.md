@@ -10,6 +10,8 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Changed
 
+- Plugin 0.2.3 replaces abstract briefing questions with agent-proposed coverage, concrete research outcomes and decision-specific clarification across the Skill, plugin and shared CLI/MCP prompts.
+
 - Plugin 0.2.0 defaults to one content reviewer for ordinary reports; independent audits remain available through configuration and stay required for existing audited plans and evaluations. Preserve negative reviews, required corrections and version bindings.
 - Make detailed process history optional; separate research-dataset navigation from Toolkit software checks without changing samples or results.
 

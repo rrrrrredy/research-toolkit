@@ -6,19 +6,21 @@ Use this file when planning or restarting a complex longform research task.
 
 ## 1. Research Brief Gate
 
-Before collecting sources, use the conversation and available materials to identify missing decision-critical information. Ask one compact batch about those gaps, with concrete choices when useful and no question quota. The agent assembles the brief and owns workflow execution; the user should not have to write a specification or supervise reviews. Do not repeat questions already answered.
+Before collecting sources, use the conversation and materials to propose what the research will cover, which questions it will answer, and what the user will receive. Explain coverage with actual subjects and outcomes with concrete comparisons, explanations and evidence. The agent assembles this plan and owns execution; the user supplies decisions that depend on their needs.
 
-Ask only for missing critical information:
+Establish the following from context; this is an internal planning checklist, not a questionnaire to send to the user:
 
 - research object and scope boundaries
 - target reader and decision context
 - final output format, language, and publishing context
-- expected depth, rough length band, or depth level
+- questions to answer, necessary explanations and comparisons, and any explicit length constraint
 - required coverage, exclusions, and priority units
 - required materials, source exclusions, and evidence standard
 - time period, geography, deadline, and whether charts/tables are expected
 
-Ask about missing length or depth when it cannot be inferred from the requested output. If an unanswered question would materially change the research object, scope, evidence standard, or deliverable, keep dependent work pending and continue only unaffected work. Record reasonable defaults for non-critical details in `task_spec.md`. When the user delegates a choice, record the decision and proceed.
+Ask only about consequential choices that cannot be inferred. Name the actual alternatives and explain how they change the result; do not ask users to define scope or choose a depth label. Consolidate necessary questions and do not repeat answered ones. If the context is sufficient, state the proposed coverage and proceed without an extra confirmation. Keep user requirements and agent-proposed defaults distinct. An unanswered critical choice keeps dependent work pending; continue unaffected work and record reasonable non-critical defaults in `task_spec.md`.
+
+For example, when a domestic and overseas Personal Agent study is already intended as industry research: “I will compare representative products, the tasks they can complete, pricing and availability limits, then explain their competitive differences and what may sustain adoption. You will receive a Chinese report with product comparisons, industry judgments and source links.” Ask further only if an unresolved choice would change that plan; this example is not a required report template.
 
 ## 2. Task Specification
 

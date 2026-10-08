@@ -145,14 +145,14 @@ Do not re-run completed stages. Do not re-ask the research brief if `task_spec.m
 
 ## 6. Research Brief Gate
 
-Before collection, use the conversation and available materials to establish the research brief. Ask one compact batch only for missing information that changes the research; there is no question quota. Offer concrete choices when useful. Ask about missing length or depth when it cannot be inferred from the requested output.
+Before collection, propose concrete coverage, questions to answer and expected results from the conversation and materials. Follow the [brief guidance](research-workflow.md#1-research-brief-gate): explain consequential alternatives before asking, and ask only for decisions that cannot be inferred. The agent translates needs into a plan; users need not define scope or select abstract depth labels.
 
-Ask only for missing critical information:
+Establish the following from context rather than forwarding a questionnaire:
 
 - research object and scope boundaries
 - target reader and decision context
 - output format, language, and publishing context
-- expected depth, rough length band, or depth level
+- questions to answer, necessary explanations and comparisons, and any explicit length constraint
 - must-cover units, exclusions, and priority areas
 - required sources or materials, source exclusions, and evidence standard
 - time period, geography, deadline, and whether charts/tables are expected

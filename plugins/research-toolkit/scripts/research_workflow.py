@@ -22,21 +22,22 @@ from review_runner import (ReviewFailure, assignment_config, load_review_config,
                            run_reviewer, validate_review_config)
 
 TOOLKIT = Path(__file__).resolve().parents[1]
+# Agent-facing guidance for unresolved fields, not a questionnaire to forward.
 BRIEF_FIELDS = {
-    "question": "What question should the research answer?",
-    "audience": "Who will use the result, and for what decision?",
-    "scope": "Which objects, geography and time period are in scope?",
-    "output": "What deliverable and language are required?",
-    "depth": "What depth or approximate length is expected?",
-    "evidence_standard": "Which sources, required readings or evidence rules apply?",
+    "question": "Use the stated topic; ask what the user wants to understand or decide only if unclear.",
+    "audience": "Infer the reader and purpose from context; ask only if different uses would change the report.",
+    "scope": "Propose specific subjects, places and dates to cover; explain consequential alternatives before asking the user to choose.",
+    "output": "Propose a concrete deliverable in the requested format and language; clarify only constraints that cannot be inferred.",
+    "depth": "Describe the questions to answer and the comparisons, explanations or evidence the result will contain; clarify consequential trade-offs with concrete examples.",
+    "evidence_standard": "Apply suitable source standards and supplied materials; ask only about required materials, access or evidence constraints needing a user decision.",
 }
 BRIEF_FIELDS_ZH = {
-    "question": "这次研究要回答什么问题？",
-    "audience": "谁会使用成果，要支持什么判断或决策？",
-    "scope": "研究哪些对象、地区和时间范围？",
-    "output": "需要什么交付形式和语言？",
-    "depth": "希望达到什么深度或大致篇幅？",
-    "evidence_standard": "有哪些来源、必读材料或证据要求？",
+    "question": "沿用已给出的题目；只有目标不明时，才询问用户想理解什么或据此决定什么。",
+    "audience": "从上下文判断读者与用途；只有不同用途会改变报告时才询问。",
+    "scope": "先提出具体覆盖哪些对象、地区和时段；需要用户取舍时，说明实际备选及其影响。",
+    "output": "依据已知形式和语言提出具体交付物；仅澄清无法推断的必要限制。",
+    "depth": "先说明要回答哪些问题、完成哪些比较和解释、提供什么证据；需要取舍时用具体成果差别提问。",
+    "evidence_standard": "采用适当的来源标准并沿用已提供材料；仅询问需要用户决定的必读材料、访问条件或证据限制。",
 }
 DIMENSIONS = ["requirements", "evidence", "adversarial_reasoning", "structure_and_depth",
               "reader_usefulness", "process_language", "natural_expression"]
@@ -313,7 +314,7 @@ def start(workspace: Path, task: str, brief: dict, language="en") -> dict:
     missing = [key for key in BRIEF_FIELDS if not nonempty(brief.get(key))]
     readiness = review_readiness()
     progress.update(brief=brief, stage="brief" if missing else "collect",
-                    next_action="Clarify missing research requirements." if missing else
+                    next_action="Use context to propose concrete coverage and results; clarify only consequential unknowns." if missing else
                     "Restore required review access before collection." if readiness["status"] == "blocked" else
                     "Collect and read the required evidence.")
     save(root, "state/progress.json", progress)

@@ -14,10 +14,10 @@ Produce the research deliverable the user requested. Use this entry point throug
 Before collecting sources, read [research workflow](references/research-workflow.md) and check the existing conversation and materials for:
 
 - The research question, scope, target reader, and intended decision or use.
-- Output format and language, depth or length, required questions, and exclusions.
+- Output format and language, required questions, the explanations and comparisons needed, explicit length constraints, and exclusions.
 - Time and geography, required materials, evidence standard, and any deadline.
 
-Ask one compact batch about missing information that would change the research. There is no question quota. Offer concrete choices when useful; do not require the user to write a specification or repeat supplied information. Ask about missing depth or length when it cannot be inferred from the requested output.
+Use the context to propose concrete coverage, questions to answer, and what the user will receive. The agent translates the request into a research plan; the user need not define research terms or choose abstract scope or depth labels. For consequential choices that cannot be inferred, explain the alternatives and how they change the result, then ask one compact batch. When the context is sufficient, proceed without a confirmation round. Keep proposed defaults distinct from explicit user requirements; do not repeat answered questions.
 
 Record the agreed brief and outline in `state/task_spec.md`. If an unanswered question would materially change the object, scope, evidence standard, or deliverable, keep dependent work pending and continue only unaffected work. Use and record reasonable defaults for non-critical details. If the user delegates a choice, record that choice and proceed.
 
