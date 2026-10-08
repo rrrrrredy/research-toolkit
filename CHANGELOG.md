@@ -45,6 +45,9 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Fixed
 
+- Plugin 0.2.1 accepts evidenced no-change decisions for ordinary report findings while retaining original criticism, version bindings and unresolved blockers. Reuse the existing review log and finish tool without additional model calls.
+- Align stage outputs with optional research notes and uncertainty records.
+
 - Apply source, reading and claim prerequisites at review and delivery; include declared necessary evidence automatically and bind originals, extracts and delivery receipts to their versions.
 - Preserve completed state and receipts when replaying unchanged reviews; include independent global audit failures in report-readiness checks while preserving valid negative evaluations.
 - Terminate local reviewer descendants on timeout using process groups or Windows jobs, retain cancellation boundaries, and align source field names in both workflow guides.

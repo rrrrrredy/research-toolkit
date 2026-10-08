@@ -16,7 +16,8 @@ from check_delivery import (REQUIRED_HASH_INPUTS, OPTIONAL_HASH_INPUTS, evaluate
                             inspect_csv_text, inspect_jsonl, inspect_jsonl_text,
                             inspect_reading_evidence, inspect_required_reading, reading_evidence_target,
                             REQUIREMENT_DECISION_STATUSES, resolve_inside, sha256_file)
-from check_review_completion import inspect_review_completion, matches_review_slot
+from check_review_completion import (inspect_review_completion, matches_review_slot,
+                                     content_review_issues, finding_dispositions)
 from review_runner import (ReviewFailure, assignment_config, load_review_config, review_readiness,
                            run_reviewer, validate_review_config)
 
@@ -646,16 +647,8 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                           "basis": [g.get("basis") for g in globals_], "review_evidence": evidence,
                           "auditor_contexts": contexts})
     if len(selected) == len(slots) and not audit_required:
-        issues = [f"{sid}: {r['report_verdict']}" for sid, (r, _) in selected.items()
-                  if r["report_verdict"] != "pass"]
-        issues.extend(f"{sid}/{f['finding_id']}: {f['basis']}"
-                      for sid, (r, _) in selected.items() for f in r["findings"]
-                      if f["severity"] != "optional")
-        append_row(root, {"scope": "global_final_delivery", "artifact_sha256": artifact_hash,
-                          "result": "fail" if issues else "pass", "open_issues": issues,
-                          "basis": "Summary of the declared full-report content reviews.",
-                          "review_evidence": {sid: r["response"] for sid, (r, _) in selected.items()},
-                          "reviewer_contexts": [r["execution_id"] for r, _ in selected.values()]})
+        append_row(root, content_review_summary({sid: r for sid, (r, _) in selected.items()},
+                                               rows_for(root), artifact_hash))
     outcome = completion(root, progress, artifact)
     progress["next_action"] = ("Review work is complete; preserve evaluation outcomes." if purpose == "evaluation" and outcome["ok"]
                                else "Run delivery verification." if outcome["ok"]
@@ -690,6 +683,21 @@ def checked_review_files(root, progress, artifact):
     return reviewed_files
 
 
+def content_review_summary(reviews: dict, rows: list[dict], artifact_hash: str) -> dict:
+    pending = {sid: content_review_issues(r, finding_dispositions(rows, r["attempt_id"]))
+               for sid, r in reviews.items()}
+    # Preserve the original verdict-first summary ordering for saved tasks.
+    issues = [f"{sid}: {r['report_verdict']}" for sid, r in reviews.items()
+              if r["report_verdict"] in pending[sid]]
+    issues.extend(f"{sid}/{issue}" for sid, r in reviews.items() for issue in pending[sid]
+                  if issue != r["report_verdict"])
+    return {"scope": "global_final_delivery", "artifact_sha256": artifact_hash,
+            "result": "fail" if issues else "pass", "open_issues": issues,
+            "basis": "Summary of the declared full-report content reviews.",
+            "review_evidence": {sid: r["response"] for sid, r in reviews.items()},
+            "reviewer_contexts": [r["execution_id"] for r in reviews.values()]}
+
+
 def finish(workspace: Path, task: str, message: str, artifact="final.md") -> dict:
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
@@ -712,6 +720,19 @@ def finish(workspace: Path, task: str, message: str, artifact="final.md") -> dic
             checked_review_files(candidate, progress, artifact)
         except (ValueError, OSError, UnicodeError) as exc:
             return {"completed": False, "error": str(exc)}
+        review_log_hash = sha256_file(safe_path(candidate, "logs/review.jsonl"))
+        if progress["review_plan"].get("audit_required") is False:
+            history = rows_for(candidate)
+            attempts = {r.get("attempt_id"): r for r in history if r.get("record_type") == "model_review"}
+            selected = {sid: attempts[aid] for sid, aid in outcome["selected_attempts"].items()}
+            original_summary = content_review_summary(selected, [], progress["review_plan"]["artifact_sha256"])
+            latest_global = next((r for r in reversed(history) if r.get("scope") == "global_final_delivery"), None)
+            # Only reconcile this executor's own raw-review summary. Never clear an unrelated later blocker.
+            if latest_global == original_summary:
+                summary = content_review_summary(selected, history, progress["review_plan"]["artifact_sha256"])
+                if summary != original_summary:
+                    summary["basis"] = "Content reviews with evidenced no-change decisions; original verdicts retained."
+                    append_row(candidate, summary)
         terminal = {**progress, "stage": "final", "status": "complete", "next_action": "Delivered."}
         save(candidate, "state/progress.json", terminal)
         save_text(candidate, "delivery_message.md", message)
@@ -729,10 +750,13 @@ def finish(workspace: Path, task: str, message: str, artifact="final.md") -> dic
         for p in required:
             if p in {"state/progress.json", "delivery_message.md"}:
                 continue
-            if sha256_file(safe_path(root, p)) != receipt["artifacts"][p]:
+            expected = review_log_hash if p == "logs/review.jsonl" else receipt["artifacts"][p]
+            if sha256_file(safe_path(root, p)) != expected:
                 return {"completed": False, "error": "Task inputs changed during delivery verification."}
         if load(root, "state/progress.json") != progress:
             return {"completed": False, "error": "Task state changed during delivery verification."}
+        if receipt["artifacts"]["logs/review.jsonl"] != review_log_hash:
+            save_text(root, "logs/review.jsonl", safe_path(candidate, "logs/review.jsonl").read_text(encoding="utf-8"))
         save_text(root, "delivery_message.md", message)
         save(root, "state/final_delivery.json", receipt)
         save(root, "state/progress.json", terminal)

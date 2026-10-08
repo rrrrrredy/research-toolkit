@@ -389,6 +389,77 @@ class WorkflowTests(unittest.TestCase):
         self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
         self.assertFalse((self.root/"state/final_delivery.json").exists())
 
+    def no_change_record(self):
+        review = next(r for r in workflow.rows_for(self.root) if r.get("record_type") == "model_review")
+        return {"record_type": "finding_disposition", "attempt_id": review["attempt_id"],
+                "finding_id": review["findings"][0]["finding_id"], "decision": "no_change",
+                "reason": "The report explicitly says revenue is not reported; the criticism misreads it.",
+                "evidence": "final.md paragraph 2 and source.md paragraph 1: no revenue figure is supplied."}
+
+    def test_evidenced_no_change_delivers_without_rewriting_or_reviewing_again(self):
+        runner = SyntheticRunner(negative=True)
+        config = {"reviewers": CONFIG["reviewers"]}
+        self.review(runner, config=config)
+        original = next(r for r in workflow.rows_for(self.root) if r.get("record_type") == "model_review")
+        preserved = {p: (self.root/p).read_bytes() for p in
+                     ("final.md", "source.md", original["response"]["path"], original["execution"]["path"])}
+        workflow.append_row(self.root, self.no_change_record())
+        delivered = workflow.finish(self.workspace, "case", "The final report is complete.")
+        self.assertTrue(delivered["completed"], delivered)
+        self.assertTrue(workflow.evaluate_delivery(self.root)["ok"])
+        self.assertTrue(self.review(runner, config=config)["reused"])
+        self.assertEqual(runner.calls, ["reviewer"])
+        self.assertEqual(preserved, {p: (self.root/p).read_bytes() for p in preserved})
+        self.assertIn(original, workflow.rows_for(self.root))
+        (self.root/"source.md").write_text("Changed after the no-change decision.", encoding="utf-8")
+        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+
+    def test_no_change_cannot_hide_missing_basis_unresolved_or_unknown_findings(self):
+        self.review(SyntheticRunner(negative=True), config={"reviewers": CONFIG["reviewers"]})
+        log = self.root/"logs/review.jsonl"
+        history = log.read_bytes()
+        for changed in ({"evidence": ""}, {"reason": ""}, {"finding_id": "unknown"},
+                        {"attempt_id": "unknown"}, {"decision": "unresolved"}, {"decision": "resolved"}):
+            with self.subTest(changed=changed):
+                log.write_bytes(history)
+                workflow.append_row(self.root, {**self.no_change_record(), **changed})
+                before = log.read_bytes()
+                self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+                self.assertEqual(log.read_bytes(), before)
+                self.assertFalse((self.root/"state/final_delivery.json").exists())
+
+    def test_partial_no_change_and_not_assessed_verdict_still_block_delivery(self):
+        runner = SyntheticRunner(negative=True)
+        def additional_issue(config, request, cwd):
+            response = runner(config, request, cwd)
+            value = json.loads(response["content"])
+            value["findings"].append({**value["findings"][0], "finding_id": "second"})
+            response["content"] = json.dumps(value)
+            return response
+        self.review(additional_issue, config={"reviewers": CONFIG["reviewers"]})
+        workflow.append_row(self.root, self.no_change_record())
+        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        decision = self.no_change_record()
+        workflow.append_row(self.root, {**decision, "finding_id": "second"})
+        rows = workflow.rows_for(self.root)
+        review = next(r for r in rows if r.get("record_type") == "model_review")
+        review["report_verdict"] = "not_assessed"
+        result = workflow.inspect_review_completion(self.root, workflow.load(self.root, "state/progress.json"),
+            "final.md", rows, hash_file=workflow.sha256_file, resolve_path=workflow.resolve_inside)
+        self.assertIn("report_not_ready", result["flags"])
+
+    def test_no_change_does_not_erase_later_global_failure_or_declared_audit(self):
+        self.review(SyntheticRunner(negative=True), config={"reviewers": CONFIG["reviewers"]})
+        workflow.append_row(self.root, self.no_change_record())
+        workflow.append_row(self.root, {"scope": "global_final_delivery", "result": "fail",
+            "artifact_sha256": workflow.sha256_file(self.root/"final.md"), "open_issues": ["Missing required comparison."]})
+        before = (self.root/"logs/review.jsonl").read_bytes()
+        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertEqual((self.root/"logs/review.jsonl").read_bytes(), before)
+        # A later explicitly audited assignment continues to use its independent decisions.
+        self.review(SyntheticRunner(negative=True), revision=True)
+        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+
     def test_default_report_recovers_only_incomplete_review(self):
         runner = SyntheticRunner(bad_review=1)
         self.assertTrue(self.review(runner, config={"reviewers": CONFIG["reviewers"]})["reviews_complete"])

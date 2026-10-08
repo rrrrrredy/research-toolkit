@@ -29,7 +29,7 @@ async def verify(base):
         f"sys.path.insert(0,{str(ROOT/'scripts')!r})\n"
         "from check_research_workflow import SyntheticRunner\n"
         "request=json.load(sys.stdin)\n"
-        "result=SyntheticRunner()({},request,None)\n"
+        "result=SyntheticRunner(negative=True)({},request,None)\n"
         "print(json.dumps({'execution_id':result['execution_id'],'content':result['content']}))\n",
         encoding="utf-8")
     worker_config = {"format": "json", "model": "synthetic-process",
@@ -73,6 +73,15 @@ async def verify(base):
         rows = [json.loads(line) for line in (root/"logs/review.jsonl").read_text(encoding="utf-8").splitlines()]
         assert len([row for row in rows if row.get("record_type") == "model_review"]) == 1
         assert not any(row.get("record_type") in {"review_audit", "sampling_audit"} for row in rows)
+        blocked = unpack(await client.call_tool("research_finish", {"task": "case", "message": "The final report is complete."}))
+        assert not blocked["completed"], blocked
+        original = next(row for row in rows if row.get("record_type") == "model_review")
+        decision = {"record_type": "finding_disposition", "attempt_id": original["attempt_id"],
+                    "finding_id": "F1", "decision": "no_change",
+                    "reason": "The report states that revenue is not reported; the review misreads it.",
+                    "evidence": "final.md paragraph 2 and source.md paragraph 1 report shipments, not revenue."}
+        with (root/"logs/review.jsonl").open("a", encoding="utf-8") as log:
+            log.write(json.dumps(decision)+"\n")
         finished = unpack(await client.call_tool("research_finish", {"task": "case", "message": "The final report is complete."}))
         assert finished["completed"], finished
         current = unpack(await client.call_tool("research_status", {"task": "case"}))
@@ -89,7 +98,7 @@ async def verify(base):
         assert any(str(r.uri) == "research-toolkit://instructions" for r in resources.resources)
         prompts = await client.list_prompts()
         assert any(p.name == "research" for p in prompts.prompts)
-    print("PASS: packaged MCP discovery, Chinese guidance, path boundary, clarification and full synthetic review/delivery flow.")
+    print("PASS: packaged MCP discovery, Chinese guidance, path boundary, clarification and full synthetic review/disposition/delivery flow.")
 
 
 def main():

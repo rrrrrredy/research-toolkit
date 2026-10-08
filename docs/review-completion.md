@@ -21,7 +21,7 @@ The delivery checker uses **contract 3** by default and includes this check for 
 
 ## Review Plan
 
-For ordinary reports the executor writes `audit_required: false`. Complete `model_review` records, original responses, execution captures, dimension coverage and input bindings remain required; `review_audit` and `sampling_audit` are not required. Delivery requires every verdict to be `pass` with no `critical`, `major` or `minor` correction; `optional` suggestions do not block it. The global result summarizes those content reviews without another model call.
+For ordinary reports the executor writes `audit_required: false`. Complete `model_review` records, original responses, execution captures, dimension coverage and input bindings remain required; `review_audit` and `sampling_audit` are not required. Delivery requires no unresolved necessary correction. A justified `no_change` disposition can clear a mistaken finding without replacing the original negative verdict; `optional` suggestions do not block delivery. The global result summarizes the reviews and their dispositions without another model call.
 
 Evaluations, configured audits and existing plans without this field retain the audited contract. Do not add `audit_required: false` to frozen evaluations to change their completion conditions.
 
@@ -73,6 +73,22 @@ Each finding contains `finding_id`, `severity`, `location` and `basis`. Severity
 A completed invocation alone is insufficient: its response must substantively cover the declared dimensions with locations and reasons. Failed or truncated attempts remain incomplete. Declared audited plans additionally require a valid audit. Preserve execution/error evidence and the recovery action.
 
 The same execution id or response file cannot fill two slots. Identical response text is not by itself proof of a duplicate execution; execution provenance and substantive review remain necessary. The checker compares declared model identifiers with the slot; it cannot authenticate provider identity from caller-created files.
+
+## No-change Decisions for Ordinary Reports
+
+After checking a disputed finding against the unchanged report and reviewed sources, the author can append a `finding_disposition` row to the existing `logs/review.jsonl`. This is a finding disposition, not a new model review or audit. No additional file, reviewer or model call is required. Reports without disputed findings need no such row.
+
+This is a **synthetic format example**; use the actual attempt and finding IDs:
+
+```json
+{"record_type":"finding_disposition","attempt_id":"actual-attempt-id","finding_id":"F1","decision":"no_change","reason":"The report explicitly says revenue is not reported; the criticism misreads it.","evidence":"final.md paragraph 2 and source.md paragraph 1: no revenue figure is supplied."}
+```
+
+Keep the original response, verdict and severity unchanged. `attempt_id` binds the disposition to that review's report and input version; `finding_id` identifies the exact finding. Both `reason` and `evidence` must be nonempty, specific explanations with locatable support. The latest disposition for that pair applies, while earlier decisions remain in the log.
+
+Only `no_change` clears the corresponding finding. `confirmed_defect`, `unresolved` or merely declaring `resolved` does not clear a necessary correction on the unchanged draft. A `needs_revision` verdict can be cleared only when all its necessary findings have evidenced no-change decisions. `not_assessed`, an unexplained negative verdict, missing/invalid reviews and unrelated blockers still prevent delivery. Changed report or source inputs still require current-version review.
+
+Call the existing `research_finish` after recording dispositions. It reconciles the executor's own review summary and binds the retained log to the receipt; it cannot overwrite a separate later global failure. Independent audits and evaluation plans retain their existing requirements. These are record-consistency checks, not certification that an author's no-change decision is correct.
 
 ## Validity and Finding Dispositions
 

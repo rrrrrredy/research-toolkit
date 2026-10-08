@@ -13,7 +13,7 @@ Use the bundled research tools when available. The CLI fallback uses the same im
 2. Call `research_status` as the task moves through collection, analysis and drafting. Read the stage guidance returned. Save source texts, source/claim records and the report in the returned task directory. The tools do not search or write the report for you.
 3. Call `research_review` with the report path, full evidence paths and correct purpose. Ordinary reports use the configured content reviewer without a compulsory second audit context. Retain original responses and resume missing work. Evaluations and explicitly configured audits retain their declared requirements.
 4. Resume only missing reviews/audits after a recoverable failure. A valid negative review is complete. Evaluation reports stay unchanged; use findings to improve the Toolkit. A separate report-delivery task may require corrections and explicitly authorized current-version review.
-5. For report delivery, call `research_finish` with the intended delivery message. It runs the existing delivery checks and creates terminal state only if they pass. If it fails, work on the concrete remaining items and keep the task nonterminal.
+5. For report delivery, record any evidenced no-change decisions in the existing review log using the [record guide](../../docs/review-completion.md#no-change-decisions-for-ordinary-reports), then call `research_finish` with the intended delivery message. It runs the existing delivery checks and creates terminal state only if they pass. If it fails, work on the concrete remaining items and keep the task nonterminal.
 
 Use `research_guide` to read a stage's methods without creating a task. Chinese guidance is available with `language: "zh"`.
 

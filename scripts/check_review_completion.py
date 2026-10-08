@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from typing import Any, Callable
 
-REVIEW_RECORD_TYPES = {"model_review", "review_audit", "sampling_audit", "review_plan_change"}
+REVIEW_RECORD_TYPES = {"model_review", "review_audit", "sampling_audit", "review_plan_change", "finding_disposition"}
 PURPOSES = {"evaluation", "report_delivery"}
 DECISIONS = {"confirmed_defect", "no_change", "unresolved", "resolved"}
 SEVERITIES = {"critical", "major", "minor", "optional"}
@@ -30,6 +30,27 @@ def matches_review_slot(row: dict, slot: dict) -> bool:
     """Use the same assignment identity in execution and offline acceptance."""
     return all(row.get(key) == slot.get(key) for key in
                ("slot_id", "reviewer_id", "model", "scope", "input", "reviewer_signature"))
+
+
+def content_review_issues(review: dict, dispositions: dict) -> list[str]:
+    """Keep raw criticism; only an evidenced no-change decision clears its finding."""
+    required = [f for f in review["findings"] if f.get("severity") != "optional"]
+    remaining = []
+    for finding in required:
+        decision = dispositions.get(finding["finding_id"], {})
+        if (decision.get("decision") != "no_change"
+                or not all(text(decision.get(k)) for k in ("reason", "evidence"))):
+            remaining.append(f"{finding['finding_id']}: {finding['basis']}")
+    verdict = review["report_verdict"]
+    cleared_negative = verdict == "needs_revision" and bool(required) and not remaining
+    return ([verdict] if verdict != "pass" and not cleared_negative else []) + remaining
+
+
+def finding_dispositions(rows: list[dict], attempt_id: str) -> dict:
+    """The latest disposition for a bound finding supersedes its earlier decision."""
+    return {r["finding_id"]: r for r in rows
+            if r.get("record_type") == "finding_disposition" and r.get("attempt_id") == attempt_id
+            and text(r.get("finding_id"))}
 
 
 def content_review_rows(rows: list[dict]) -> list[dict]:
@@ -202,6 +223,19 @@ def inspect_review_completion(
         if isinstance(original_response, dict) and row.get("response_sha256") != original_response.get("sha256"):
             add("stale_review_audit", f"{attempt_id}: validity decision binds a different original response.")
 
+    for row in rows:
+        if row.get("record_type") != "finding_disposition":
+            continue
+        aid, fid = row.get("attempt_id"), row.get("finding_id")
+        original = attempts.get(aid) if text(aid) else None
+        observations = original.get("findings") if original else None
+        if (not text(fid) or not isinstance(observations, list)
+                or not any(isinstance(f, dict) and f.get("finding_id") == fid for f in observations)):
+            add("invalid_finding_disposition", "Disposition must identify a retained review attempt and finding.")
+        if (not one_of(row.get("decision"), DECISIONS)
+                or not all(text(row.get(k)) for k in ("reason", "evidence"))):
+            add("invalid_finding_disposition", "Disposition needs a decision, specific reason and evidence locator.")
+
     response_paths: set[Path] = set()
     execution_ids: set[str] = set()
     for slot in slots:
@@ -271,9 +305,10 @@ def inspect_review_completion(
                 if (not one_of(observation.get("severity"), SEVERITIES)
                         or not all(text(observation.get(k)) for k in ("location", "basis"))):
                     add("invalid_review_findings", f"{aid}: each finding needs severity, location and basis.")
-            if report_delivery and (review.get("report_verdict") != "pass"
-                    or any(f.get("severity") != "optional" for f in observations)):
-                add("report_not_ready", f"{aid}: the content review has not cleared required report corrections.")
+            if report_delivery and error_count == before:
+                issues = content_review_issues(review, finding_dispositions(rows, aid))
+                if issues:
+                    add("report_not_ready", f"{aid}: " + "; ".join(issues))
             if error_count == before:
                 selected[sid] = aid
             continue

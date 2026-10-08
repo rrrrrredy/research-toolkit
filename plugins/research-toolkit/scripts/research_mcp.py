@@ -75,6 +75,7 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
 async def research_finish(task: str, message: str, artifact: str = "final.md") -> dict[str, Any]:
     """Verify report delivery and publish its receipt/terminal state only when checks pass.
     message is the intended user-visible delivery text. This does not send messages or publish externally.
+    For evidenced no-change decisions, append finding_disposition rows to logs/review.jsonl as documented.
     Evaluation tasks end with evaluation_complete from research_review, without repairing samples.
     """
     return await asyncio.to_thread(mutate, workflow.finish, task, message, artifact)

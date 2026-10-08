@@ -21,7 +21,7 @@ python scripts/check_review_completion.py <task-directory> --artifact final.md
 
 ## 评审计划
 
-普通报告由执行器写入 `audit_required: false`，保留完整 `model_review`、原始回复、执行证据、逐维度覆盖及输入绑定，不要求 `review_audit` 或 `sampling_audit`。只有全部评审为 `pass` 且没有 `critical`、`major`、`minor` 必要修正，才允许交付；`optional` 建议不阻止交付。全局结果由这些内容评审汇总，不额外调用模型。
+普通报告由执行器写入 `audit_required: false`，保留完整 `model_review`、原始回复、执行证据、逐维度覆盖及输入绑定，不要求 `review_audit` 或 `sampling_audit`。交付要求没有未解决的必要修正。有依据的 `no_change` 处置可以解除误报的阻断，原始负面结论仍保留；`optional` 建议不阻止交付。全局结果汇总内容评审及处置，不额外调用模型。
 
 评测、显式审计和没有该字段的旧计划保留原有独立审计要求。不能给冻结评测补写 `audit_required: false` 来改变原完成条件。
 
@@ -73,6 +73,22 @@ python scripts/check_review_completion.py <task-directory> --artifact final.md
 调用完成仍不足以填满席位：回复须覆盖指定维度并给出定位与依据，失败和截断不计完成。已声明审计计划还须取得有效审计。保留已有执行或错误证据及具体恢复动作。
 
 同一执行编号或同一回复文件不能填充两个席位。相同文本本身也不证明执行重复，仍须核对执行来源与实质评审。检查器仅比对声明的模型标识，不能从调用者自行创建的文件认证供应商身份。
+
+## 普通报告的有据不改
+
+作者核对有争议的发现与未改动的正文、已送评来源后，可在已有 `logs/review.jsonl` 中追加 `finding_disposition`。这是发现的处置，不是新模型评审或审计；无需另建文件、增加评审者或调用模型。没有争议发现时无需这条记录。
+
+下面是**合成格式示例**，须替换为实际尝试和发现编号：
+
+```json
+{"record_type":"finding_disposition","attempt_id":"实际尝试编号","finding_id":"F1","decision":"no_change","reason":"正文明确说明未披露收入，评审误读了该表述。","evidence":"final.md 第2段及 source.md 第1段：未提供收入数据。"}
+```
+
+原始回复、结论和严重度保持不变。`attempt_id` 关联该评审绑定的正文与输入版本，`finding_id` 指向具体发现。`reason` 和 `evidence` 均须提供非空的具体理由及可定位依据。同一尝试和发现采用最新处置，旧决定保留在日志中。
+
+只有 `no_change` 解除对应发现的阻断。`confirmed_defect`、`unresolved` 或仅标记 `resolved`，都不能关闭未改动稿件上的必要修正。`needs_revision` 只有在全部必要发现均有依据地不修改时，才能解除阻断。`not_assessed`、没有具体发现依据的负面结论、缺失或无效评审、其他阻断仍然阻止交付。正文或来源变化后仍须由当前版本评审覆盖。
+
+记录处置后调用现有 `research_finish`。它更新执行器自身的评审汇总并将原日志绑定进回执，不覆盖另行追加的全局失败。独立审计和评测计划继续遵守原要求。检查器核对记录一致性，不认证作者的不修改决定正确。
 
 ## 有效性与发现处置
 
