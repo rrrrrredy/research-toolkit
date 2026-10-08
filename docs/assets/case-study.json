@@ -1,0 +1,106 @@
+{
+  "source_commit": "d08dc2d488fb7f00c173d3388cd0841fca1fa09e",
+  "information_cutoff": "2026-09-07",
+  "case_url": "https://github.com/rrrrrredy/research-toolkit/tree/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07",
+  "original_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/original-framework.md",
+  "revised_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/repaired.md",
+  "review_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json",
+  "pairs": [
+    {
+      "id": "decisions",
+      "source_original": "**AI 客服已在高频、规则明确的业务中进入生产，企业下一阶段应投资于可持续解决问题的能力。** 截至 2026 年 9 月 7 日，Intercom、Zendesk、Salesforce 都有正式收费产品和具名生产案例；商业化已经发生，但公开证据尚不足以证明三者可以按相近成本、在任意企业复制相同效果。最值得关注的进展，是 AI 开始读取真实订单、执行授权操作，并把例外事项交给人工；最需要谨慎的地方，是“解决”“结果”“使用量”仍由不同规则计算。",
+      "source_revised": "未来一个季度，AI 客服预算应优先投向两类工作：一类是订单查询、票据获取、订阅变更等规则明确、可以核对业务结果的高频请求；另一类是由人工作最终决定的检索、回复建议和工单整理。暂不宜把复杂争议、不可逆资金操作和高价值客户关系整体交给无人值守系统。这是基于现有产品能力及证据边界的投入判断，不是三家产品已经通过同场生产测试的排名。",
+      "original_line": 1,
+      "revised_line": 7,
+      "en": {
+        "label": "Lead with a decision",
+        "title": "Give the reader a place to start.",
+        "before": "AI customer service has entered production in high-volume, rule-bound operations. The next investment should build the ability to resolve problems sustainably.",
+        "after": "Over the next quarter, prioritize two areas: high-volume requests with explicit rules and verifiable results, and retrieval or reply support where a person makes the final decision. Keep complex disputes and irreversible financial actions out of unattended workflows.",
+        "note": "The original already makes a judgment. The revision puts concrete priorities and limits in the opening, so the reader can act on it sooner.",
+        "why": "A clear thesis needs a scope: what to do first, where it applies, and when to stop.",
+        "before_tag": "Broad opening judgment",
+        "after_tag": "Priorities and limits up front",
+        "version": "Opening excerpts, translated and shortened. Follow the source links for the full paragraphs."
+      },
+      "zh": {
+        "label": "把判断放到前面",
+        "title": "读者先知道，下一步该做什么。",
+        "before": "AI 客服已在高频、规则明确的业务中进入生产，企业下一阶段应投资于可持续解决问题的能力。",
+        "after": "未来一个季度，AI 客服预算应优先投向两类工作：一类是订单查询、票据获取、订阅变更等规则明确、可以核对业务结果的高频请求；另一类是由人工作最终决定的检索、回复建议和工单整理。",
+        "note": "原稿已经有判断。修订稿进一步把投入方向和适用边界放到开篇，让读者更快找到行动起点。",
+        "why": "好的结论还要回答：先做什么，适用于谁，什么情况下需要停下来。",
+        "before_tag": "总体判断",
+        "after_tag": "先给具体方向",
+        "version": "开篇原文节选。完整段落及相邻限制说明见原文链接。"
+      },
+      "original_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/original-framework.md#L1",
+      "revised_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/repaired.md#L7",
+      "review_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json"
+    },
+    {
+      "id": "analysis",
+      "source_original": "独立研究对后一类路径提供了更强的效果证据。2025 年《经济学季刊》的研究利用 **5,172 名客服人员**的分阶段采用数据，发现 AI 辅助使每小时解决问题数平均提高约 **15%**，较少经验人员受益更大。研究对象是保留最终责任的人工客服，来自一家企业；它支持辅助工作的价值，不能用来证明三家自主客服产品的效果或排名。[Generative AI at Work](https://academic.oup.com/qje/article/140/2/889/7990658?login=false)",
+      "source_revised": "独立研究给出的启示更克制。《Generative AI at Work》的总样本为一家企业的 5,172 名客服，其中 1,636 人有使用 AI 后的观察数据；不能把全部样本说成已接受 AI 干预。研究发现 AI 辅助使每小时解决问题数平均提高 15%，但收益不均：低经验、低技能员工获益更明显，经验和技能最高的员工速度提升较小，质量还略有下降。该系统向人提供建议，人仍负责会话，不是对三家自主客服 Agent 的验证。因此，“辅助人工”值得作为投入路线，但应按员工经验与任务难度检查收益，不能拿平均值要求所有员工采用相同方式。[研究正文及样本表](https://arxiv.org/html/2304.11771v2)。",
+      "original_line": 49,
+      "revised_line": 75,
+      "en": {
+        "label": "Explain the difference",
+        "title": "An average is only the beginning.",
+        "before": "A study using adoption data from 5,172 support agents found an average productivity gain of about 15%, with larger gains among less-experienced workers.",
+        "after": "The study included 5,172 workers in total, of whom 1,636 had observations after AI adoption. Gains varied: less-experienced workers benefited more, while the most skilled workers saw little speed improvement and a slight decline in quality. Evaluate outcomes by experience and task difficulty.",
+        "note": "The original already mentions variation. The revision separates the total sample from post-adoption observations and adds an adverse result that changes the recommendation.",
+        "why": "Analysis connects the result, the exception, and the decision. An average alone cannot tell every team what to do.",
+        "before_tag": "Average and a broad caveat",
+        "after_tag": "Variation with a decision consequence",
+        "version": "Historical report excerpts, translated and shortened. This is not a new verification of the study."
+      },
+      "zh": {
+        "label": "把资料变成分析",
+        "title": "平均有收益，谁会例外？",
+        "before": "2025 年《经济学季刊》的研究利用 5,172 名客服人员的分阶段采用数据，发现 AI 辅助使每小时解决问题数平均提高约 15%，较少经验人员受益更大。",
+        "after": "低经验、低技能员工获益更明显，经验和技能最高的员工速度提升较小，质量还略有下降。因此，“辅助人工”值得作为投入路线，但应按员工经验与任务难度检查收益，不能拿平均值要求所有员工采用相同方式。",
+        "note": "原稿已经提到收益差异。修订稿补入高技能员工的负面结果，并区分总样本与使用 AI 后的观察样本，让差异真正影响建议。",
+        "why": "把结果、例外和选择联系起来，分析才能超出对资料的转述。",
+        "before_tag": "平均值与初步区分",
+        "after_tag": "例外改变建议",
+        "version": "历史报告原文节选；后文摘录合并了同一段中的两句话。此处不代表重新核验研究结果。"
+      },
+      "original_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/original-framework.md#L49",
+      "revised_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/repaired.md#L75",
+      "review_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json"
+    },
+    {
+      "id": "evidence",
+      "source_original": "其生产案例体现的是从窄场景扩大覆盖。SeatGeek 先面向可认证的登录用户，解决“我的票在哪里”，通过实时 API 获取订单信息。按 Zendesk 发布的客户案例，到 2025 年第二季度，其自动解决率达到 **51.5%**，AI 客服满意度从 **34% 升至 70%**。这是有具体业务动作和使用人群的采用证据；同时，它属于客户自报、无对照组的历史案例，不能证明 2026 年新产品在所有业务上已经达到同样效果。[SeatGeek 案例](https://www.zendesk.co.uk/customer/seatgeek/)",
+      "source_revised": "SeatGeek 的客户案例提供了一种具体的落地路径：先处理“我的票在哪里”，从可认证的已登录用户开始，再通过实时接口读取订单。这份厂商刊载的历史案例可借鉴的是先限定任务、打通认证与订单数据，再向其他问题扩展的部署顺序；它不能证明新计费等级的效果，也不代表普通客户的平均收益。其历史数字与证据限制列在文末来源说明，不进入三家效果排名。[SeatGeek 历史案例](https://www.zendesk.com/customer/seatgeek/)。",
+      "original_line": 27,
+      "revised_line": 45,
+      "en": {
+        "label": "Keep claims within evidence",
+        "title": "Show what the source can support.",
+        "before": "The vendor case reports a 51.5% automated resolution rate and customer satisfaction rising from 34% to 70%. The original attributes these figures to the customer and notes the lack of a control group.",
+        "after": "The revised report uses the case to describe a deployment sequence: start with a bounded task, authenticate users, connect order data, then expand. Historical figures move to the source notes with the limitation that the original page could not be directly rechecked.",
+        "note": "Attribution was already present. Review found a different gap: the source-access limitation needed to sit beside the exact figures. The revision narrows how those numbers are used.",
+        "why": "A citation is useful when the claim stays within what can actually be checked.",
+        "before_tag": "Attributed historical figures",
+        "after_tag": "A narrower, traceable claim",
+        "version": "Summaries of the two report versions. The archived source-access limitation remains unresolved."
+      },
+      "zh": {
+        "label": "让结论守住证据边界",
+        "title": "有引用，还要看它能证明什么。",
+        "before": "按 Zendesk 发布的客户案例，到 2025 年第二季度，其自动解决率达到 51.5%，AI 客服满意度从 34% 升至 70%。",
+        "after": "SeatGeek 的客户案例提供了一种具体的落地路径：先处理“我的票在哪里”，从可认证的已登录用户开始，再通过实时接口读取订单。\n\n其历史数字与证据限制列在文末来源说明，不进入三家效果排名。",
+        "note": "原稿已经注明客户自报和没有对照组。审阅指出，原始页面无法直接复核的限制还不够醒目；修订稿把历史数字移到来源说明，正文收窄到部署路径。",
+        "why": "引用的价值，取决于它能支撑多强的判断。",
+        "before_tag": "引用历史效果数字",
+        "after_tag": "收窄到可借鉴的路径",
+        "version": "报告原文节选，省略同一段中的中间一句。原始页面无法直接复核的限制保留在完整报告中。"
+      },
+      "original_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/original-framework.md#L27",
+      "revised_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/repaired.md#L45",
+      "review_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json"
+    }
+  ]
+}

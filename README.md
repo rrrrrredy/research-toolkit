@@ -2,15 +2,67 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-Research Toolkit helps AI agents carry out source-backed research, from clarifying the brief to reviewing the report and checking delivery. Use it as a **plugin with bundled Skill and MCP tools**, a standalone Skill, or a local MCP server. All three share the same research methods and execution scripts.
+**A research skill for AI agents: clear questions, source-backed analysis, and reports reviewed before delivery.**
 
-**[Install the plugin](./docs/usage-modes.md#install-the-plugin) · [Skill, plugin or MCP?](./docs/usage-modes.md) · [Read the Skill](./SKILL.md) · [Evaluation set](./evals/README.md)**
+[![A real AI customer-service report: decisions, analysis depth, and evidence limits](./docs/assets/readme-preview.en.png)](https://rrrrrredy.github.io/research-toolkit/#case)
 
-Use it for substantial industry, market, company, product, and technology research. The agent clarifies the research brief, examines sources and counter-evidence, drafts section by section, and reviews the report before delivery. Web access, file operations, and script execution come from the agent tool you use.
+**[Explore the interactive case](https://rrrrrredy.github.io/research-toolkit/#case) · [Read the full report](./docs/case-study/report.en.md) · [Chinese original](https://rrrrrredy.github.io/research-toolkit/case-study/report.zh-CN.html)**
 
-Start with the concise [`SKILL.md`](./SKILL.md) or its [Chinese version](./SKILL.zh-CN.md). It keeps the essential constraints and tells the agent what to read at each stage. The [complete research standard](./references/research-standard.md) and supporting methods remain in `references/`. The [project guide](https://rrrrrredy.github.io/research-toolkit/framework.html) explains the workflow.
+## Start a research task in 30 seconds
 
-## Quickstart
+Send this request to an agent that can read the repository and access the sources your task needs. Replace the date:
+
+```text
+Use Research Toolkit for this task:
+https://github.com/rrrrrredy/research-toolkit
+
+Research how AI customer service moves from pilots into production.
+Compare Intercom, Zendesk, and Salesforce: product mechanisms,
+adoption evidence, implementation conditions, and failure modes.
+Write for an enterprise AI product lead. End with decisions and
+observable signals for the next quarter.
+
+Use information available as of [DATE]. Cite important claims,
+distinguish company statements from independent evidence, and
+explain what could change your conclusions.
+
+Read SKILL.md first. Clarify any missing requirements and agree
+on an outline before collecting sources.
+```
+
+This request is adapted from the case brief. It starts a new research task; the result may differ from the historical report. Starting takes about 30 seconds. Research and review take longer. If your agent cannot read the repository, use the [file and attachment instructions](./agents/README.md#use-without-installation).
+
+## One report. Three real revisions.
+
+| Focus | What changed in this report |
+| --- | --- |
+| **Judgment and structure** | The original already had a thesis; the revision puts concrete priorities and limits in the opening. |
+| **Analysis depth** | An adverse result for highly skilled workers is added alongside the average gain, changing the adoption recommendation. |
+| **Evidence limits** | Historical figures that could not be directly rechecked move to source notes. The main claim narrows to the deployment sequence. |
+
+[Read each excerpt and explanation](./docs/case-study/README.md) · [Inspect the review](https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json)
+
+This is a development case about finding and repairing problems. **It is not a controlled comparison with and without the toolkit, or proof of a general quality gain.** The report retains its September 7, 2026 information cutoff. See [evaluation status](./docs/evaluation-status.md) for the current evidence boundary.
+
+<details>
+<summary>Watch a short walkthrough of the case</summary>
+
+[![Browsing the original, review notes, and revised report](./docs/assets/case-walkthrough.gif)](./docs/assets/case-walkthrough.mp4)
+
+A recording of the historical case browser shown above. [Play MP4](./docs/assets/case-walkthrough.mp4) · [Open the interactive case](https://rrrrrredy.github.io/research-toolkit/#case)
+
+</details>
+
+## How the research takes shape
+
+![Frame the question → Examine evidence → Develop the argument → Review and revise → Deliver the report](./docs/assets/research-method.en.png)
+
+Use it for substantial industry, market, company, product, and technology research. Web access, file operations, and script execution come from your agent. Start with the concise [Skill entry point](./SKILL.md), then load the [full research standard](./references/research-standard.md) and [supporting methods](https://rrrrrredy.github.io/research-toolkit/framework.html) as needed.
+
+## Installation and full usage
+
+<details>
+<summary>Plugin, Skill, and MCP options, installation, and execution details</summary>
 
 **For supported agents, start with the [plugin](./plugins/research-toolkit/): it includes both the Skill and MCP tools.** Install it once; describe the research you need. The agent clarifies missing requirements, uses the stage methods, and invokes review and delivery tools.
 
@@ -53,6 +105,8 @@ Then follow the [Codex discovery and invocation steps](./agents/codex.md#verify-
 For substantial tasks, the agent keeps `state/`, `logs/`, and `data/` in a separate research folder, preserves follow-up requirements, and keeps evidence and review records outside the finished prose. Before final delivery, it completes the required reviews and runs the delivery check against that folder. If a required check cannot run or does not pass, deliver a clearly labeled stage artifact.
 
 Read a method when needed: [start or resume](./references/research-workflow.md), [choose an analysis method](./references/optional-analysis-lenses.md), [delegate and review](./references/subagents-and-review-loop.md), [investigate recurring problems](./references/gotchas.md), [write the report](./references/writing-style.md), or [check delivery readiness](./references/quality-gates.md).
+
+</details>
 
 ## Example Tasks
 

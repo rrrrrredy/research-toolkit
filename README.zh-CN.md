@@ -2,15 +2,64 @@
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-研究工具箱（Research Toolkit）帮助 AI Agent 完成有来源依据的研究，从澄清需求到审阅报告、检查交付。支持 **包含 Skill 和 MCP 工具的插件**，也可单独使用 Skill 或本地 MCP。三种形式共用研究方法与执行脚本。
+**面向 AI Agent 的研究 Skill：明确问题，展开有来源的分析，交付前审阅整份报告。**
 
-**[安装插件](./docs/usage-modes.zh-CN.md#安装插件) · [Skill、插件与 MCP 怎么选](./docs/usage-modes.zh-CN.md) · [查看 Skill](./SKILL.zh-CN.md) · [评测集](./evals/README.zh-CN.md)**
+[![一份 AI 客服报告：具体判断、分析深度、证据边界三处修改](./docs/assets/readme-preview.zh-CN.png)](https://rrrrrredy.github.io/research-toolkit/?lang=zh#case)
 
-适合产业、市场、公司、产品和技术等深度研究：先明确研究需求，再分析来源与反证，按章节写作，交付前完成审查。检索、文件读写和脚本执行能力由所用的 Agent 工具提供。
+**[查看交互案例](https://rrrrrredy.github.io/research-toolkit/?lang=zh#case) · [完整中文报告](https://rrrrrredy.github.io/research-toolkit/case-study/report.zh-CN.html) · [完整英文译文](./docs/case-study/report.en.md)**
 
-从精简的 [`SKILL.md`](./SKILL.md) 或[中文入口](./SKILL.zh-CN.md)开始，保留关键约束，并明确各阶段该读什么。[完整研究规范](./references/research-standard.zh-CN.md)与配套方法保存在 `references/`，按需读取。[项目说明](https://rrrrrredy.github.io/research-toolkit/framework.html)介绍研究流程。
+## 30 秒发起一次研究
 
-## 快速开始
+把下面这份请求发给能够读取仓库、访问所需来源的 Agent，替换信息截止日期：
+
+```text
+本次研究请使用 Research Toolkit：
+https://github.com/rrrrrredy/research-toolkit
+
+研究 AI 客服如何从试点进入生产。
+比较 Intercom、Zendesk、Salesforce 的产品机制、采用证据、
+实施条件和失败风险。面向企业 AI 产品负责人写作，
+给出未来一个季度值得采取的行动和可观察的判断指标。
+
+以 [日期] 为信息截止日。重要判断附来源，区分公司说法与
+独立证据，并说明哪些反证可能改变结论。
+
+先读 SKILL.md，澄清缺失的研究需求，确认提纲后再搜集资料。
+```
+
+这份请求改编自案例任务，用于发起一次新的研究。约 30 秒可以发出请求；完成研究和审阅需要更多时间，结果也可能与历史报告不同。仓库无法读取时，使用[文件与附件方式](./agents/README.zh-CN.md#直接读取使用)。
+
+## 一份报告，三处实际修改
+
+| 关注点 | 这份报告怎么改 |
+| --- | --- |
+| **判断与结构** | 原稿已有总体判断；修订稿把具体投入方向和适用边界前置。 |
+| **分析深度** | 在平均收益之外补入高技能员工的负面结果，让差异影响采用建议。 |
+| **证据边界** | 将无法直接复核的历史数字移入来源说明，正文收窄到可借鉴的部署路径。 |
+
+[逐项阅读原文与修改说明](./docs/case-study/README.zh-CN.md) · [完整审阅记录](https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json)
+
+这是发现并修正问题的开发案例，**不构成有无工具箱的对照实验，也不能证明工具普遍提升报告质量**。案例保留 2026 年 9 月 7 日的资料边界；[评测进展](./docs/evaluation-status.zh-CN.md)说明目前证据能支持什么。
+
+<details>
+<summary>看一段案例浏览演示</summary>
+
+[![案例浏览：切换原稿、修改说明和修订稿](./docs/assets/case-walkthrough.gif)](./docs/assets/case-walkthrough.mp4)
+
+英文界面演示，录制的是上述历史案例的浏览过程。[播放 MP4](./docs/assets/case-walkthrough.mp4) · [打开中文交互案例](https://rrrrrredy.github.io/research-toolkit/?lang=zh#case)
+
+</details>
+
+## 研究如何推进
+
+![明确问题 → 核对证据 → 展开分析 → 审阅修改 → 交付报告](./docs/assets/research-method.zh-CN.png)
+
+适合产业、市场、公司、产品和技术等深度研究。检索、文件读写和脚本执行能力由所用的 Agent 提供。先读精简的 [Skill 入口](./SKILL.zh-CN.md)，再按需读取[完整研究规范](./references/research-standard.zh-CN.md)与[配套方法](https://rrrrrredy.github.io/research-toolkit/framework.html)。
+
+## 安装与完整使用说明
+
+<details>
+<summary>插件、Skill、MCP 的选择，安装和执行细节</summary>
 
 **工具支持时，优先安装[插件](./plugins/research-toolkit/README.zh-CN.md)：已经包含 Skill 和 MCP，不用装三遍。** 安装后说明研究需求，Agent 负责澄清缺项、按阶段读取方法，并调用评审和交付工具。
 
@@ -53,6 +102,8 @@ git clone https://github.com/rrrrrredy/research-toolkit.git .agents/skills/resea
 较大任务在独立研究目录保存 `state/`、`logs/` 和 `data/`，保留后续补充要求，来源与审阅记录单独保存。最终交付前完成必需评审，并对实际研究目录运行交付检查。必需检查无法执行或未通过时，明确交付阶段成果。
 
 按需阅读：[启动与恢复](./references/research-workflow.zh-CN.md)、[分析方法](./references/optional-analysis-lenses.zh-CN.md)、[分工与审阅](./references/subagents-and-review-loop.zh-CN.md)、[常见问题](./references/gotchas.zh-CN.md)、[写作](./references/writing-style.zh-CN.md)、[交付前检查](./references/quality-gates.zh-CN.md)。
+
+</details>
 
 ## 真实任务示例
 
