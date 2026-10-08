@@ -166,6 +166,15 @@ def guidance(stage: str, language: str = "en") -> dict:
     return {"stage": stage, "guidance": files}
 
 
+def content_review_instructions() -> str:
+    reference = (TOOLKIT / "references/subagents-and-review-loop.md").read_text(encoding="utf-8")
+    _, heading, remainder = reference.partition("## Assign Work by Perspective\n")
+    methods = remainder.split("\n## ", 1)[0].strip()
+    if not heading or not methods:
+        raise ValueError("The shared content-review methods are missing from the role reference.")
+    return REVIEW_INSTRUCTIONS + "\n\nApply these methods within the assigned review:\n" + methods
+
+
 def registry_rows(root, name, fields):
     rows, errors = inspect_csv_text(safe_path(root, name).read_text(encoding="utf-8"),
                                     name, fields, fields[0])
@@ -453,7 +462,7 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     audit_required = "auditor" in config
     if purpose == "evaluation" and not audit_required:
         raise ValueError("Evaluation requires its declared independent auditor configuration.")
-    review_instructions = REVIEW_INSTRUCTIONS
+    review_instructions = content_review_instructions()
     if not audit_required:
         review_instructions += ("\nFor report delivery, pass only when no required corrections remain. "
                                 "Mark nonessential suggestions optional; any critical, major or minor defect "

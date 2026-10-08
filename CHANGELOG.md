@@ -45,6 +45,8 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Fixed
 
+- Plugin 0.2.2 sends the existing content-review methods to the reviewer instead of only naming review dimensions. Reuse the shared role reference and assignment bindings without extra review calls or changes to historical evaluations.
+
 - Plugin 0.2.1 accepts evidenced no-change decisions for ordinary report findings while retaining original criticism, version bindings and unresolved blockers. Reuse the existing review log and finish tool without additional model calls.
 - Align stage outputs with optional research notes and uncertainty records.
 

@@ -21,6 +21,8 @@ The delivery checker uses **contract 3** by default and includes this check for 
 
 ## Review Plan
 
+The shared workflow includes the role reference's [content-review methods](../references/subagents-and-review-loop.md#assign-work-by-perspective) in the reviewer instructions. The existing reviewer checks question coverage, evidence, comparable measures and reader usefulness with those methods; this adds no review slot. The supplied methods are retained in the original request and included in the assignment signature. A methods update does not rewrite completed results or automatically rerun them.
+
 For ordinary reports the executor writes `audit_required: false`. Complete `model_review` records, original responses, execution captures, dimension coverage and input bindings remain required; `review_audit` and `sampling_audit` are not required. Delivery requires no unresolved necessary correction. A justified `no_change` disposition can clear a mistaken finding without replacing the original negative verdict; `optional` suggestions do not block delivery. The global result summarizes the reviews and their dispositions without another model call.
 
 Evaluations, configured audits and existing plans without this field retain the audited contract. Do not add `audit_required: false` to frozen evaluations to change their completion conditions.

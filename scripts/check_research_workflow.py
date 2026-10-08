@@ -378,6 +378,43 @@ class WorkflowTests(unittest.TestCase):
         (self.root/"source.md").write_text("Changed after review.", encoding="utf-8")
         self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
 
+    def test_review_receives_shared_content_methods_in_existing_call(self):
+        runner = SyntheticRunner(negative=True)
+        requests = []
+        def capture(config, request, cwd):
+            requests.append(copy.deepcopy(request))
+            return runner(config, request, cwd)
+        result = self.review(capture, config={"reviewers": CONFIG["reviewers"]})
+        self.assertTrue(result["reviews_complete"], result)
+        self.assertFalse(result["completion_check"]["ok"])
+        self.assertEqual(runner.calls, ["reviewer"])
+        reference = (workflow.TOOLKIT/"references/subagents-and-review-loop.md").read_text(encoding="utf-8")
+        methods = reference.split("## Assign Work by Perspective\n", 1)[1].split("\n## ", 1)[0].strip()
+        self.assertIn(methods, requests[0]["instructions"])
+        self.assertNotIn("## Complete Every Required Review", requests[0]["instructions"])
+        self.assertTrue(self.review(capture, config={"reviewers": CONFIG["reviewers"]})["reused"])
+        self.assertEqual(runner.calls, ["reviewer"])
+
+    def test_method_change_preserves_completed_review_until_explicit_revision(self):
+        runner = SyntheticRunner()
+        config = {"reviewers": CONFIG["reviewers"]}
+        self.assertTrue(self.review(runner, config=config)["reviews_complete"])
+        before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
+        toolkit = self.workspace/"changed-toolkit"
+        methods = toolkit/"references/subagents-and-review-loop.md"
+        methods.parent.mkdir(parents=True)
+        original = (workflow.TOOLKIT/"references/subagents-and-review-loop.md").read_text(encoding="utf-8")
+        methods.write_text(original.replace("units, denominators and calculations",
+                                           "units, denominators, time windows and calculations"), encoding="utf-8")
+        with patch.object(workflow, "TOOLKIT", toolkit):
+            with self.assertRaisesRegex(ValueError, "Explicitly authorize"):
+                self.review(runner, config=config)
+            self.assertEqual(runner.calls, ["reviewer"])
+            self.assertEqual(before, {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()})
+            self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+            self.assertTrue(self.review(runner, config=config, revision=True)["reviews_complete"])
+        self.assertEqual(runner.calls, ["reviewer", "reviewer"])
+
     def test_default_negative_review_stays_complete_and_blocks_delivery(self):
         runner = SyntheticRunner(negative=True)
         with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": ""}):

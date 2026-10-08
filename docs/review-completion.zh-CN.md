@@ -21,6 +21,8 @@ python scripts/check_review_completion.py <task-directory> --artifact final.md
 
 ## 评审计划
 
+共用工作流将角色规范中的[内容评审方法](../references/subagents-and-review-loop.zh-CN.md#按视角分工)随评审指令发送。现有评审者据此检查问题覆盖、证据、比较口径和读者用途，不增加评审席位。实际方法保存在原始请求中，并参与任务签名；方法更新不改写已完成结果，也不自动重跑评审。
+
 普通报告由执行器写入 `audit_required: false`，保留完整 `model_review`、原始回复、执行证据、逐维度覆盖及输入绑定，不要求 `review_audit` 或 `sampling_audit`。交付要求没有未解决的必要修正。有依据的 `no_change` 处置可以解除误报的阻断，原始负面结论仍保留；`optional` 建议不阻止交付。全局结果汇总内容评审及处置，不额外调用模型。
 
 评测、显式审计和没有该字段的旧计划保留原有独立审计要求。不能给冻结评测补写 `audit_required: false` 来改变原完成条件。
