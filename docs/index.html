@@ -1,75 +1,1058 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Research Toolkit · From question to inspectable report</title>
-<meta name="description" content="A research skill for AI agents. Explore a real report, inspect three revisions, and copy a request to begin.">
-<meta property="og:title" content="Research Toolkit"><meta property="og:description" content="From a research question to a report you can inspect. A real case, three revisions, and a copyable starting point.">
-<meta property="og:type" content="website"><meta property="og:url" content="https://rrrrrredy.github.io/research-toolkit/">
-<meta property="og:image" content="https://rrrrrredy.github.io/research-toolkit/assets/social-preview.png">
-<meta name="twitter:card" content="summary_large_image"><meta name="theme-color" content="#1d6455">
-<link rel="stylesheet" href="assets/showcase.css">
-</head><body>
-<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
-<div class="wrap">
-<header class="topbar"><a class="brand" href="./" aria-label="Research Toolkit home"><span class="brand-mark" aria-hidden="true">r</span>Research Toolkit</a>
-<nav class="nav" aria-label="Main navigation"><a class="nav-secondary" href="#case" data-i18n="navCase">Case study</a><a class="nav-secondary" href="#method" data-i18n="navMethod">Method</a><a href="https://github.com/rrrrrredy/research-toolkit">GitHub ↗</a><button class="lang" id="language-toggle" type="button" aria-label="切换为中文">中文</button></nav></header>
-<main id="main">
-<section class="hero">
-<div class="hero-copy"><p class="eyebrow" data-i18n="eyebrow">RESEARCH WITH AI AGENTS</p><h1 data-html="headline">From a research question<br>to a report you can inspect.</h1><p class="lede" data-i18n="lede">A research skill for AI agents. Frame the question, examine evidence, develop an argument, and review the whole report.</p>
-<div class="actions"><a class="button" href="#case"><span data-i18n="explore">Explore a real case</span><span aria-hidden="true">↘</span></a><a class="text-link" href="#start" data-i18n="try">Start a research task</a></div>
-<p class="hero-footnote" data-i18n="heroNote">Open source · English &amp; Chinese · Works with your agent</p></div>
-<article class="report-preview" aria-label="Report preview">
-<div class="paper-top"><span data-i18n="paperKind">FIELD REPORT / 01</span><span data-i18n="paperDate">07 SEP 2026</span></div><h2 data-html="paperTitle">AI customer service,<br>beyond the pilot.</h2><p class="paper-subtitle" data-i18n="paperSubtitle">Three product routes. Evidence, decisions, and limits.</p><blockquote data-i18n="paperQuote">Start with high-volume requests that have explicit rules and verifiable results. Keep people responsible for complex disputes and consequential decisions.</blockquote>
-<ol class="paper-points"><li><span>01</span><span data-i18n="paperPoint1">Clear priorities before product detail</span></li><li><span>02</span><span data-i18n="paperPoint2">An average result, examined through its exceptions</span></li><li><span>03</span><span data-i18n="paperPoint3">Sources that show what the evidence can support</span></li></ol>
-<p class="paper-caption" data-i18n="paperCaption">Historical report excerpt · translated and shortened. Full original and English translation below.</p></article></section>
-<div class="fact-strip"><span><b aria-hidden="true">↗</b><span data-i18n="fact1">Industry, company &amp; technology research</span></span><span><b aria-hidden="true">↗</b><span data-i18n="fact2">Sources, explanations &amp; counterevidence</span></span><span><b aria-hidden="true">↗</b><span data-i18n="fact3">Review before delivery</span></span></div>
-<section class="section" id="case">
-<div class="section-heading"><div><p class="eyebrow" data-i18n="caseEyebrow">ONE REPORT. THREE REVISIONS.</p><h2 data-html="caseHeading">Read the changes.<br>Follow the reasoning.</h2></div><p data-i18n="caseIntro">The toolkit’s own draft needed work. This AI customer-service report shows where the review pushed it further, with both versions available to inspect.</p></div>
-<div class="case-meta"><span data-i18n="caseType">AI CUSTOMER SERVICE</span><span data-i18n="caseDate">Historical case · September 2026</span><span data-i18n="caseLanguage">English excerpts translated from Chinese</span></div>
-<noscript><p class="noscript">The interactive comparison needs JavaScript. <a href="case-study/README.md">Read the text case study</a> or <a href="case-study/report.en.html">the full report</a>.</p></noscript>
-<div class="case-workspace">
-<div class="case-selectors" aria-label="Choose a revision">
-<button class="case-choice" type="button" data-case="0" aria-pressed="true"><span>01</span>Lead with a decision</button>
-<button class="case-choice" type="button" data-case="1" aria-pressed="false"><span>02</span>Explain the difference</button>
-<button class="case-choice" type="button" data-case="2" aria-pressed="false"><span>03</span>Keep claims within evidence</button>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Research Toolkit</title>
+<meta content="Research methods, workflow tools, and independent review for AI agents." name="description"/>
+<meta content="Research Toolkit" property="og:title"/><meta content="Research methods, workflow tools, and independent review for AI agents." property="og:description"/>
+<meta content="website" property="og:type"/><meta content="https://rrrrrredy.github.io/research-toolkit/" property="og:url"/>
+<meta content="https://rrrrrredy.github.io/research-toolkit/assets/social-preview.png" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/><link href="assets/showcase.css" rel="stylesheet"/>
+<script src="assets/reading-preferences.js"></script></head>
+<body>
+<a class="skip" data-i18n="skip" href="#case">Skip to the case</a>
+<header class="site-header"><div class="wrap header-inner">
+<a aria-label="Research Toolkit" class="brand" data-home-link="" href="./"><span class="brand-initial">r.</span><span>Research Toolkit</span></a>
+<nav aria-label="Main navigation" data-nav-aria=""><a class="nav-secondary" data-i18n="navCase" href="#case">Case study</a><a class="nav-secondary" data-i18n="navMethod" href="#method">Method</a><a href="https://github.com/rrrrrredy/research-toolkit">GitHub ↗</a><button class="js-only" id="theme-toggle" type="button">Dark</button><button class="js-only" id="language-toggle" type="button">中文</button></nav>
+</div></header>
+<main>
+<section class="hero wrap" id="readme-cover">
+<div class="hero-copy">
+<p class="eyebrow" data-i18n="brandCaption">A RESEARCH TOOLKIT FOR AI AGENTS</p>
+<h1 class="hero-title">Research<br/><em>Toolkit.</em></h1>
+<p class="lede" data-i18n="lede">Help AI agents write research reports with concrete judgments, traceable sources, and independent review.</p>
+<div class="hero-actions"><a class="button" href="#start"><span data-i18n="try">Usage guide</span> <span aria-hidden="true">↗</span></a><a class="text-link" href="#case"><span data-i18n="explore">Case study</span> <span aria-hidden="true">↓</span></a></div>
+<div class="capabilities"><span data-i18n="heroCap1">Methods</span><span data-i18n="heroCap2">Workflow tools</span><span data-i18n="heroCap3">Independent review</span></div>
 </div>
-<div class="case-main"><h3 class="case-title" id="case-title">Give the reader a place to start.</h3>
-<div class="case-tabs" role="tablist" aria-label="Report versions">
-<button id="tab-original" type="button" role="tab" aria-selected="false" aria-controls="case-panel" tabindex="-1" data-mode="original">Original</button>
-<button id="tab-review" type="button" role="tab" aria-selected="true" aria-controls="case-panel" data-mode="review">Review notes</button>
-<button id="tab-revised" type="button" role="tab" aria-selected="false" aria-controls="case-panel" tabindex="-1" data-mode="revised">Revised</button>
-</div><div id="case-panel" role="tabpanel" aria-labelledby="tab-review" tabindex="0"></div></div></div>
-<div class="case-links"><a data-report-link href="case-study/report.en.html">Read the full English report ↗</a><a href="https://github.com/rrrrrredy/research-toolkit/tree/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07" data-i18n="archive">Original & revision archive ↗</a><a href="https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json" data-i18n="reviews">Read the review ↗</a><a id="case-fallback" href="case-study/README.md" data-i18n="plainCase">Text version ↗</a></div>
-<p class="boundary" data-i18n="caseBoundary">This is a development case about finding and repairing problems. It is not a controlled comparison with and without the toolkit, or proof of a general quality gain.</p></section>
-<section class="section" id="method">
-<div class="section-heading"><div><p class="eyebrow" data-i18n="methodEyebrow">HOW THE WORK TAKES SHAPE</p><h2 data-i18n="methodHeading">A method behind the report.</h2></div><p data-i18n="methodIntro">Enough structure to keep the question, the evidence, and the final argument connected.</p></div>
-<div class="method-grid"><article class="method-step"><span class="num">01</span><h3 data-i18n="m1">Frame the question</h3><p data-i18n="m1b">Audience, decision, scope, and an agreed outline.</p></article><article class="method-step"><span class="num">02</span><h3 data-i18n="m2">Examine evidence</h3><p data-i18n="m2b">Primary sources, contrary findings, and clear limits.</p></article><article class="method-step"><span class="num">03</span><h3 data-i18n="m3">Develop the argument</h3><p data-i18n="m3b">Mechanisms, comparisons, and consequences.</p></article><article class="method-step"><span class="num">04</span><h3 data-i18n="m4">Review and revise</h3><p data-i18n="m4b">Check the whole report and repair what fails.</p></article><article class="method-step"><span class="num">05</span><h3 data-i18n="m5">Deliver the report</h3><p data-i18n="m5b">Readable prose, traceable claims, honest uncertainty.</p></article></div>
-<a class="method-link" href="framework.html" data-i18n="methodLink">Explore the complete method →</a>
-</section>
-<section class="section" id="start">
-<div class="start-grid"><div><p class="eyebrow" data-i18n="startEyebrow">A SMALL FIRST STEP</p><h2 data-i18n="startHeading">Bring a real question.</h2><p class="intro" data-i18n="startIntro">Use a coding or research agent that can read this repository and access the sources your task needs.</p>
-<ol><li data-i18n="step1">Copy this request and replace the date.</li><li data-i18n="step2">Send it to your agent.</li><li data-i18n="step3">Confirm the brief and outline before research begins.</li></ol><p class="prompt-note" data-i18n="startNote">About 30 seconds to start. Research and review take longer.</p>
-<details class="details"><summary data-i18n="install">Want to install it?</summary><p data-i18n="installText">Start with the repository link for one task. For repeated use, choose the Skill or the Claude Code plugin in the integration guide. MCP is an optional execution interface.</p><a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.md" data-i18n="installLink">Installation & integration →</a></details>
-</div><div><div class="prompt"><div class="prompt-head"><span data-i18n="promptLabel">COPYABLE RESEARCH REQUEST</span><button id="copy-request" class="copy" type="button" data-i18n="copy">Copy request</button></div><pre id="research-prompt">Use Research Toolkit for this task:
+<div class="report-stage">
+<article class="hero-report">
+<div class="paper-meta"><span data-i18n="heroCase">RESEARCH CASE</span><time data-i18n="heroDate" datetime="2026-09-09">09 Sep 2026</time></div>
+<h2 data-i18n="heroTitle">Office agents in China</h2>
+<blockquote id="hero-quote">Creating a file, editing an existing object, and changing business state are different deliverables. A report is checked mainly for content quality; updating a sales ledger must preserve fields and calculations; sending a quotation or submitting an approval changes other people's work.</blockquote>
+<div class="paper-source"><span data-i18n="heroArchive">Historical report</span><a data-preserve-reading="" data-report-link="" href="case-study/report.en.html"><span data-i18n="heroReport">Read the report</span> ↗</a></div>
+</article>
+<div class="report-caption"><p data-i18n="heroNote">Report excerpt</p></div>
+</div>
+</section><noscript><p class="no-script-links wrap">Text case study: <a href="case-study/index.html">English</a> · <a href="case-study/index.zh-CN.html">简体中文</a></p></noscript>
+<section class="case-section section" id="case"><div class="wrap">
+<div class="section-header"><div><h2 data-i18n="caseHeading">Office agents in China</h2><p data-i18n="caseIntro">Changes in one office-agent report: clearer prose, added facts, and narrower inferences.</p></div><a data-preserve-reading="" data-report-link="" href="case-study/report.en.html"><span data-i18n="fullReportShort">Full report</span> ↗</a></div>
+<div class="case-layout" id="report-window">
+<div aria-label="Case topics" class="case-choices js-only" role="tablist"><button aria-controls="case-content" aria-selected="true" data-case="0" id="topic-writing" role="tab" tabindex="0" type="button">Direct prose</button><button aria-controls="case-content" aria-selected="false" data-case="1" id="topic-process" role="tab" tabindex="-1" type="button">Process narration</button><button aria-controls="case-content" aria-selected="false" data-case="2" id="topic-versions" role="tab" tabindex="-1" type="button">aily and Doubao Work</button><button aria-controls="case-content" aria-selected="false" data-case="3" id="topic-analysis" role="tab" tabindex="-1" type="button">Coze’s models</button></div>
+<div aria-labelledby="topic-writing" class="case-content" id="case-content" role="tabpanel" tabindex="0"><div class="case-intro"><p class="case-context" id="case-context">The opening of the workspace section moves from a broad value claim to how the products organize work.</p><h3 id="case-title">Replace rhetorical setup with actions and comparison criteria.</h3><p id="case-why">The final report shortens the rhetorical setup and a vague closing, then names tools, context, and device availability.</p></div><div aria-label="Case interpretation" aria-orientation="horizontal" class="case-detail-tabs js-only" role="tablist"><button aria-controls="case-panel" aria-selected="true" data-detail="diff" id="detail-diff" role="tab" tabindex="0" type="button">Changes</button><button aria-controls="case-panel" aria-selected="false" data-detail="reason" id="detail-reason" role="tab" tabindex="-1" type="button">Reasoning</button><button aria-controls="case-panel" aria-selected="false" data-detail="review" id="detail-review" role="tab" tabindex="-1" type="button">Review decisions</button></div><div aria-labelledby="detail-diff" data-detail="diff" id="case-panel" role="tabpanel" tabindex="0"><article class="excerpt"><h4 class="excerpt-label">Initial draft<span>Translated excerpt</span></h4><blockquote class="excerpt-copy">The value of independent office agents lies not in moving a chat box onto the desktop, but in bringing materials, execution, and revisions into one stretch of work. For people who frequently organize files from different sources, this approach can reduce uploading, downloading, and switching tools. Yet keeping files on a computer does not mean tasks run continuously or all processing happens offline. The differences between Kimi Work and Coze show that independent workspaces do not share a single implementation.</blockquote><p class="excerpt-note">The opening frames value through a rhetorical contrast; the closing only says implementations differ.</p><a data-preserve-reading="" href="case-study/office-agents/original.zh-CN.html#L47">Original passage (Chinese) ↗</a></article><article class="excerpt revised"><h4 class="excerpt-label">Final report<span>Translated excerpt</span></h4><blockquote class="excerpt-copy">Independent office agents organize materials, execution, and revisions in one workspace. For people who frequently organize files from different sources, this approach can reduce uploading, downloading, and switching tools. Continuous operation and the location of data processing still depend on the implementation. The differences between Kimi Work and Coze center on who supplies tools, who retains context, and who keeps the device online.</blockquote><p class="excerpt-note">The report states the mechanism directly and identifies comparison criteria, while retaining its conditions.</p><a data-preserve-reading="" href="case-study/office-agents/revised.zh-CN.html#L55">Original passage (Chinese) ↗</a></article><div class="case-difference"><h4>What changed</h4><dl class="case-change-list"><dt>Shortened</dt><dd>Remove the rhetorical setup and state how materials, execution, and revisions share a workspace.</dd><dt>Made specific</dt><dd>Turn “implementations differ” into tools, context, and device availability. Keep the conditional benefit of less file handling.</dd></dl></div></div></div></div>
+<div class="case-links"><a data-preserve-reading="" href="case-study/office-agents/sources.html" id="evidence-source">Source records (Chinese) ↗</a><a data-i18n="archive" data-preserve-reading="" href="case-study/office-agents/index.html">Case archive</a></div>
+<p class="boundary" data-i18n="caseBoundary">Historical report. Information through September 9, 2026; some dynamic documents were checked on September 10. Public-source research without installed-product testing. These versions are not a controlled with/without-toolkit experiment.</p>
+</div></section>
+<section class="section use-section" id="start"><div class="wrap use-grid">
+<div class="use-copy"><p class="eyebrow" data-i18n="startEyebrow">RESEARCH REQUEST</p><h2 data-i18n="startHeading">Usage</h2><p data-i18n="startIntro">Send this request to an agent that can read the repository and access your sources.</p><p class="usage-note" data-i18n="startNote2">Install the plugin to call workflow tools for progress and independent review.</p><a class="text-link" data-i18n="installLink" href="#install">Installation guide</a></div>
+<div class="prompt"><div class="prompt-head"><span data-i18n="promptLabel">COPYABLE RESEARCH REQUEST</span><button class="copy js-only" data-i18n="copy" id="copy-request" type="button">Copy request</button></div><pre id="research-prompt">Use Research Toolkit for this task:
 https://github.com/rrrrrredy/research-toolkit
 
-Research how AI customer service moves from pilots into production.
-Compare Intercom, Zendesk, and Salesforce: product mechanisms,
-adoption evidence, implementation conditions, and failure modes.
-Write for an enterprise AI product lead. End with decisions and
-observable signals for the next quarter.
+Research office agents available to users in China in 2026.
+Compare Kimi Work, Coze, Feishu / Doubao Work, Wukong,
+WPS, and WorkBuddy. Write for AI product and workplace leads.
 
-Use information available as of [DATE]. Cite important claims,
-distinguish company statements from independent evidence, and
-explain what could change your conclusions.
+Explain which files and business objects each product changes,
+where tasks run, and how models, tools, context, permissions,
+and human involvement affect delivery and rework.
 
-Read SKILL.md first. Clarify any missing requirements and agree
-on an outline before collecting sources.</pre></div>
-<p class="prompt-note" data-i18n="promptNote">Adapted from the case brief. A new run may produce a different report. This request starts the workflow; it does not reproduce the archived result.</p><p id="copy-status" class="status" aria-live="polite"></p></div></div>
-</section>
-</main><footer class="footer"><span data-i18n="footerNote">Research Toolkit · MIT License</span><div class="footer-links"><a href="framework.html" data-i18n="guide">Complete guide</a><a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-status.md" data-i18n="evaluation">Evaluation status</a><a href="https://github.com/rrrrrredy/research-toolkit/blob/main/CONTRIBUTING.md" data-i18n="contribute">Contribute</a></div></footer>
-</div>
-<script id="showcase-data" type="application/json">{"cases": {"source_commit": "d08dc2d488fb7f00c173d3388cd0841fca1fa09e", "information_cutoff": "2026-09-07", "case_url": "https://github.com/rrrrrredy/research-toolkit/tree/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07", "original_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/original-framework.md", "revised_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/repaired.md", "review_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json", "pairs": [{"id": "decisions", "source_original": "**AI 客服已在高频、规则明确的业务中进入生产，企业下一阶段应投资于可持续解决问题的能力。** 截至 2026 年 9 月 7 日，Intercom、Zendesk、Salesforce 都有正式收费产品和具名生产案例；商业化已经发生，但公开证据尚不足以证明三者可以按相近成本、在任意企业复制相同效果。最值得关注的进展，是 AI 开始读取真实订单、执行授权操作，并把例外事项交给人工；最需要谨慎的地方，是“解决”“结果”“使用量”仍由不同规则计算。", "source_revised": "未来一个季度，AI 客服预算应优先投向两类工作：一类是订单查询、票据获取、订阅变更等规则明确、可以核对业务结果的高频请求；另一类是由人工作最终决定的检索、回复建议和工单整理。暂不宜把复杂争议、不可逆资金操作和高价值客户关系整体交给无人值守系统。这是基于现有产品能力及证据边界的投入判断，不是三家产品已经通过同场生产测试的排名。", "original_line": 1, "revised_line": 7, "en": {"label": "Lead with a decision", "title": "Give the reader a place to start.", "before": "AI customer service has entered production in high-volume, rule-bound operations. The next investment should build the ability to resolve problems sustainably.", "after": "Over the next quarter, prioritize two areas: high-volume requests with explicit rules and verifiable results, and retrieval or reply support where a person makes the final decision. Keep complex disputes and irreversible financial actions out of unattended workflows.", "note": "The original already makes a judgment. The revision puts concrete priorities and limits in the opening, so the reader can act on it sooner.", "why": "A clear thesis needs a scope: what to do first, where it applies, and when to stop.", "before_tag": "Broad opening judgment", "after_tag": "Priorities and limits up front", "version": "Opening excerpts, translated and shortened. Follow the source links for the full paragraphs."}, "zh": {"label": "把判断放到前面", "title": "读者先知道，下一步该做什么。", "before": "AI 客服已在高频、规则明确的业务中进入生产，企业下一阶段应投资于可持续解决问题的能力。", "after": "未来一个季度，AI 客服预算应优先投向两类工作：一类是订单查询、票据获取、订阅变更等规则明确、可以核对业务结果的高频请求；另一类是由人工作最终决定的检索、回复建议和工单整理。", "note": "原稿已经有判断。修订稿进一步把投入方向和适用边界放到开篇，让读者更快找到行动起点。", "why": "好的结论还要回答：先做什么，适用于谁，什么情况下需要停下来。", "before_tag": "总体判断", "after_tag": "先给具体方向", "version": "开篇原文节选。完整段落及相邻限制说明见原文链接。"}, "original_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/original-framework.md#L1", "revised_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/repaired.md#L7", "review_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json"}, {"id": "analysis", "source_original": "独立研究对后一类路径提供了更强的效果证据。2025 年《经济学季刊》的研究利用 **5,172 名客服人员**的分阶段采用数据，发现 AI 辅助使每小时解决问题数平均提高约 **15%**，较少经验人员受益更大。研究对象是保留最终责任的人工客服，来自一家企业；它支持辅助工作的价值，不能用来证明三家自主客服产品的效果或排名。[Generative AI at Work](https://academic.oup.com/qje/article/140/2/889/7990658?login=false)", "source_revised": "独立研究给出的启示更克制。《Generative AI at Work》的总样本为一家企业的 5,172 名客服，其中 1,636 人有使用 AI 后的观察数据；不能把全部样本说成已接受 AI 干预。研究发现 AI 辅助使每小时解决问题数平均提高 15%，但收益不均：低经验、低技能员工获益更明显，经验和技能最高的员工速度提升较小，质量还略有下降。该系统向人提供建议，人仍负责会话，不是对三家自主客服 Agent 的验证。因此，“辅助人工”值得作为投入路线，但应按员工经验与任务难度检查收益，不能拿平均值要求所有员工采用相同方式。[研究正文及样本表](https://arxiv.org/html/2304.11771v2)。", "original_line": 49, "revised_line": 75, "en": {"label": "Explain the difference", "title": "An average is only the beginning.", "before": "A study using adoption data from 5,172 support agents found an average productivity gain of about 15%, with larger gains among less-experienced workers.", "after": "The study included 5,172 workers in total, of whom 1,636 had observations after AI adoption. Gains varied: less-experienced workers benefited more, while the most skilled workers saw little speed improvement and a slight decline in quality. Evaluate outcomes by experience and task difficulty.", "note": "The original already mentions variation. The revision separates the total sample from post-adoption observations and adds an adverse result that changes the recommendation.", "why": "Analysis connects the result, the exception, and the decision. An average alone cannot tell every team what to do.", "before_tag": "Average and a broad caveat", "after_tag": "Variation with a decision consequence", "version": "Historical report excerpts, translated and shortened. This is not a new verification of the study."}, "zh": {"label": "把资料变成分析", "title": "平均有收益，谁会例外？", "before": "2025 年《经济学季刊》的研究利用 5,172 名客服人员的分阶段采用数据，发现 AI 辅助使每小时解决问题数平均提高约 15%，较少经验人员受益更大。", "after": "低经验、低技能员工获益更明显，经验和技能最高的员工速度提升较小，质量还略有下降。因此，“辅助人工”值得作为投入路线，但应按员工经验与任务难度检查收益，不能拿平均值要求所有员工采用相同方式。", "note": "原稿已经提到收益差异。修订稿补入高技能员工的负面结果，并区分总样本与使用 AI 后的观察样本，让差异真正影响建议。", "why": "把结果、例外和选择联系起来，分析才能超出对资料的转述。", "before_tag": "平均值与初步区分", "after_tag": "例外改变建议", "version": "历史报告原文节选；后文摘录合并了同一段中的两句话。此处不代表重新核验研究结果。"}, "original_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/original-framework.md#L49", "revised_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/repaired.md#L75", "review_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json"}, {"id": "evidence", "source_original": "其生产案例体现的是从窄场景扩大覆盖。SeatGeek 先面向可认证的登录用户，解决“我的票在哪里”，通过实时 API 获取订单信息。按 Zendesk 发布的客户案例，到 2025 年第二季度，其自动解决率达到 **51.5%**，AI 客服满意度从 **34% 升至 70%**。这是有具体业务动作和使用人群的采用证据；同时，它属于客户自报、无对照组的历史案例，不能证明 2026 年新产品在所有业务上已经达到同样效果。[SeatGeek 案例](https://www.zendesk.co.uk/customer/seatgeek/)", "source_revised": "SeatGeek 的客户案例提供了一种具体的落地路径：先处理“我的票在哪里”，从可认证的已登录用户开始，再通过实时接口读取订单。这份厂商刊载的历史案例可借鉴的是先限定任务、打通认证与订单数据，再向其他问题扩展的部署顺序；它不能证明新计费等级的效果，也不代表普通客户的平均收益。其历史数字与证据限制列在文末来源说明，不进入三家效果排名。[SeatGeek 历史案例](https://www.zendesk.com/customer/seatgeek/)。", "original_line": 27, "revised_line": 45, "en": {"label": "Keep claims within evidence", "title": "Show what the source can support.", "before": "The vendor case reports a 51.5% automated resolution rate and customer satisfaction rising from 34% to 70%. The original attributes these figures to the customer and notes the lack of a control group.", "after": "The revised report uses the case to describe a deployment sequence: start with a bounded task, authenticate users, connect order data, then expand. Historical figures move to the source notes with the limitation that the original page could not be directly rechecked.", "note": "Attribution was already present. Review found a different gap: the source-access limitation needed to sit beside the exact figures. The revision narrows how those numbers are used.", "why": "A citation is useful when the claim stays within what can actually be checked.", "before_tag": "Attributed historical figures", "after_tag": "A narrower, traceable claim", "version": "Summaries of the two report versions. The archived source-access limitation remains unresolved."}, "zh": {"label": "让结论守住证据边界", "title": "有引用，还要看它能证明什么。", "before": "按 Zendesk 发布的客户案例，到 2025 年第二季度，其自动解决率达到 51.5%，AI 客服满意度从 34% 升至 70%。", "after": "SeatGeek 的客户案例提供了一种具体的落地路径：先处理“我的票在哪里”，从可认证的已登录用户开始，再通过实时接口读取订单。\n\n其历史数字与证据限制列在文末来源说明，不进入三家效果排名。", "note": "原稿已经注明客户自报和没有对照组。审阅指出，原始页面无法直接复核的限制还不够醒目；修订稿把历史数字移到来源说明，正文收窄到部署路径。", "why": "引用的价值，取决于它能支撑多强的判断。", "before_tag": "引用历史效果数字", "after_tag": "收窄到可借鉴的路径", "version": "报告原文节选，省略同一段中的中间一句。原始页面无法直接复核的限制保留在完整报告中。"}, "original_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/original-framework.md#L27", "revised_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/repaired.md#L45", "review_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json"}]}, "prompts": {"en": "Use Research Toolkit for this task:\nhttps://github.com/rrrrrredy/research-toolkit\n\nResearch how AI customer service moves from pilots into production.\nCompare Intercom, Zendesk, and Salesforce: product mechanisms,\nadoption evidence, implementation conditions, and failure modes.\nWrite for an enterprise AI product lead. End with decisions and\nobservable signals for the next quarter.\n\nUse information available as of [DATE]. Cite important claims,\ndistinguish company statements from independent evidence, and\nexplain what could change your conclusions.\n\nRead SKILL.md first. Clarify any missing requirements and agree\non an outline before collecting sources.", "zh": "本次研究请使用 Research Toolkit：\nhttps://github.com/rrrrrredy/research-toolkit\n\n研究 AI 客服如何从试点进入生产。\n比较 Intercom、Zendesk、Salesforce 的产品机制、采用证据、\n实施条件和失败风险。面向企业 AI 产品负责人写作，\n给出未来一个季度值得采取的行动和可观察的判断指标。\n\n以 [日期] 为信息截止日。重要判断附来源，区分公司说法与\n独立证据，并说明哪些反证可能改变结论。\n\n先读 SKILL.md，澄清缺失的研究需求，确认提纲后再搜集资料。"}, "i18n": {"en": {"skip": "Skip to content", "navCase": "Case study", "navMethod": "Method", "eyebrow": "RESEARCH WITH AI AGENTS", "headline": "From a research question<br>to a report you can inspect.", "lede": "A research skill for AI agents. Frame the question, examine evidence, develop an argument, and review the whole report.", "explore": "Explore a real case", "try": "Start a research task", "heroNote": "Open source · English & Chinese · Works with your agent", "paperKind": "FIELD REPORT / 01", "paperDate": "07 SEP 2026", "paperTitle": "AI customer service,<br>beyond the pilot.", "paperSubtitle": "Three product routes. Evidence, decisions, and limits.", "paperQuote": "Start with high-volume requests that have explicit rules and verifiable results. Keep people responsible for complex disputes and consequential decisions.", "paperPoint1": "Clear priorities before product detail", "paperPoint2": "An average result, examined through its exceptions", "paperPoint3": "Sources that show what the evidence can support", "paperCaption": "Historical report excerpt · translated and shortened. Full original and English translation below.", "fact1": "Industry, company & technology research", "fact2": "Sources, explanations & counterevidence", "fact3": "Review before delivery", "caseEyebrow": "ONE REPORT. THREE REVISIONS.", "caseHeading": "Read the changes.<br>Follow the reasoning.", "caseIntro": "The toolkit’s own draft needed work. This AI customer-service report shows where the review pushed it further, with both versions available to inspect.", "caseType": "AI CUSTOMER SERVICE", "caseDate": "Historical case · September 2026", "caseLanguage": "English excerpts translated from Chinese", "archive": "Original & revision archive ↗", "reviews": "Read the review ↗", "plainCase": "Text version ↗", "caseBoundary": "This is a development case about finding and repairing problems. It is not a controlled comparison with and without the toolkit, or proof of a general quality gain.", "methodEyebrow": "HOW THE WORK TAKES SHAPE", "methodHeading": "A method behind the report.", "methodIntro": "Enough structure to keep the question, the evidence, and the final argument connected.", "m1": "Frame the question", "m1b": "Audience, decision, scope, and an agreed outline.", "m2": "Examine evidence", "m2b": "Primary sources, contrary findings, and clear limits.", "m3": "Develop the argument", "m3b": "Mechanisms, comparisons, and consequences.", "m4": "Review and revise", "m4b": "Check the whole report and repair what fails.", "m5": "Deliver the report", "m5b": "Readable prose, traceable claims, honest uncertainty.", "methodLink": "Explore the complete method →", "startEyebrow": "A SMALL FIRST STEP", "startHeading": "Bring a real question.", "startIntro": "Use a coding or research agent that can read this repository and access the sources your task needs.", "step1": "Copy this request and replace the date.", "step2": "Send it to your agent.", "step3": "Confirm the brief and outline before research begins.", "startNote": "About 30 seconds to start. Research and review take longer.", "promptLabel": "COPYABLE RESEARCH REQUEST", "copy": "Copy request", "promptNote": "Adapted from the case brief. A new run may produce a different report. This request starts the workflow; it does not reproduce the archived result.", "install": "Want to install it?", "installText": "Start with the repository link for one task. For repeated use, choose the Skill or the Claude Code plugin in the integration guide. MCP is an optional execution interface.", "installLink": "Installation & integration →", "footerNote": "Research Toolkit · MIT License", "guide": "Complete guide", "evaluation": "Evaluation status", "contribute": "Contribute", "noscript": "The interactive comparison needs JavaScript. The full report and the text case study are also available through the links below."}, "zh": {"skip": "跳到正文", "navCase": "真实案例", "navMethod": "研究方法", "eyebrow": "让 AI AGENT 做有依据的研究", "headline": "把研究问题，<br>写成有依据的报告。", "lede": "面向 AI Agent 的研究 Skill：明确问题，核对证据，展开分析，再审阅整份报告。", "explore": "看一个完整案例", "try": "发起一次研究", "heroNote": "开源 · 中英双语 · 配合你的 Agent 使用", "paperKind": "研究报告 / 01", "paperDate": "2026 年 9 月 7 日", "paperTitle": "AI 客服，<br>如何走出试点。", "paperSubtitle": "三条产品路线，以及背后的证据、选择与限制。", "paperQuote": "未来一个季度，AI 客服预算应优先投向两类工作：一类是规则明确、可以核对业务结果的高频请求；另一类是由人工作最终决定的辅助工作。", "paperPoint1": "先给出具体的投入方向", "paperPoint2": "从平均收益，展开到不同人群的差异", "paperPoint3": "讲清来源能支撑多强的判断", "paperCaption": "历史报告开篇节选并缩写。下方可读中文原文与完整英文译文。", "fact1": "行业、公司与技术研究", "fact2": "有来源、有解释、有反证", "fact3": "交付前审阅整份报告", "caseEyebrow": "一份报告，三处修改", "caseHeading": "看看改了什么，<br>为什么改。", "caseIntro": "工具箱产出的原稿同样需要修改。这份 AI 客服报告保留了原稿、审阅意见与修订稿，可以直接对照检查。", "caseType": "AI 客服研究", "caseDate": "历史案例 · 2026 年 9 月", "caseLanguage": "中文原文节选，英文提供译文", "archive": "查看原稿与修订档案 ↗", "reviews": "查看审阅记录 ↗", "plainCase": "纯文本案例 ↗", "caseBoundary": "这是一份发现并修正问题的开发案例。它不构成有无工具箱的对照实验，也不能证明工具普遍提升报告质量。", "methodEyebrow": "报告背后的研究方法", "methodHeading": "让问题、证据和判断连起来。", "methodIntro": "每一步都服务于最终报告，而完整的方法和检查要求保留在使用文档中。", "m1": "明确研究问题", "m1b": "确定读者、用途、范围，再确认提纲。", "m2": "核对关键证据", "m2b": "找到原始来源，同时寻找反证与限制。", "m3": "展开分析判断", "m3b": "解释机制，比较差异，推导影响。", "m4": "审阅并修改", "m4b": "通读整份报告，修正未通过的部分。", "m5": "交付完整报告", "m5b": "正文可读，重要判断有来源，不掩盖不确定性。", "methodLink": "阅读完整研究方法 →", "startEyebrow": "从一个具体问题开始", "startHeading": "把研究请求交给 Agent。", "startIntro": "使用能够读取仓库、访问研究所需来源的编程或研究 Agent。", "step1": "复制这份请求，替换信息截止日期。", "step2": "发给你正在使用的 Agent。", "step3": "研究开始前，确认需求和提纲。", "startNote": "约 30 秒发起任务。研究与审阅需要更多时间。", "promptLabel": "可直接复制的研究请求", "copy": "复制请求", "promptNote": "请求改编自案例任务。新的研究可能得出不同报告；它用于发起研究，并非复现历史结果的承诺。", "install": "想长期安装使用？", "installText": "单次任务先交给 Agent 仓库链接。重复使用时，可以在集成指南中选择 Skill 或 Claude Code 插件；MCP 是可选的执行接口。", "installLink": "安装与集成说明 →", "footerNote": "Research Toolkit · MIT 开源许可", "guide": "完整使用指南", "evaluation": "评测进展", "contribute": "参与贡献", "noscript": "交互对照需要 JavaScript；下方链接也提供完整报告与纯文本案例。"}}}</script>
+Use information available as of [DATE]. Cite important claims.
+Distinguish company statements, media experiences, and measured
+outcomes. Explain what could overturn your conclusions.
+
+Read SKILL.md. Clarify missing requirements and agree on an
+outline before collecting sources.</pre><div class="prompt-foot"><p data-i18n="promptNote">Replace [DATE] and adapt the topic and audience. This request is based on the archived case brief; a new run may reach different conclusions.</p><a data-i18n="fallbackGuide" href="https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md#use-without-installation">File and attachment guide</a><p aria-live="polite" class="copy-status" id="copy-status" role="status"></p></div></div>
+</div></section>
+<section class="section" id="method"><div class="wrap">
+<div class="section-header"><div><h2 data-i18n="methodHeading">The research workflow.</h2><p data-i18n="methodIntro">From the brief to the report, each stage has a concrete output.</p></div><a data-i18n="fullMethod" data-method-link="" data-preserve-reading="" href="framework.html">Research method</a></div>
+<div class="method-flow" id="method-flow"><article class="method-step"><h3 data-i18n="m1">Frame the question</h3><p data-i18n="m1b">Audience, scope, decisions, and an agreed outline.</p><a data-preserve-reading="" href="case-study/office-agents/brief.html"><span data-i18n="m1a">Research brief</span> ↗</a></article><article class="method-step"><h3 data-i18n="m2">Read the evidence</h3><p data-i18n="m2b">Primary sources, access limits, and contrary evidence.</p><a data-preserve-reading="" data-record-language="sources" href="case-study/office-agents/sources.html"><span data-i18n="m2a">Source records</span> ↗</a></article><article class="method-step"><h3 data-i18n="m3">Develop the analysis</h3><p data-i18n="m3b">Link facts to explanations, tradeoffs, and implications.</p><a data-preserve-reading="" data-record-language="claims" href="case-study/office-agents/claims.html"><span data-i18n="m3a">Claim records</span> ↗</a></article><article class="method-step"><h3 data-i18n="m4">Review and revise</h3><p data-i18n="m4b">Examine the whole report and its supporting evidence.</p><a data-preserve-reading="" data-record-language="reviews" href="case-study/office-agents/reviews.html"><span data-i18n="m4a">Review records</span> ↗</a></article><article class="method-step"><h3 data-i18n="m5">Deliver the report</h3><p data-i18n="m5b">Concrete judgments, traceable sources, and honest limits.</p><a data-preserve-reading="" data-report-link="" href="case-study/report.en.html"><span data-i18n="m5a">Complete report</span> ↗</a></article></div>
+<p class="method-caption" data-i18n="methodCaption">The links provide this case's research materials. The historical report did not run through the current MCP version.</p>
+<div class="toolkit-explanation"><div><h3 data-i18n="methodsTitle">Methods</h3><p data-i18n="methodsBody">Scope, sources, reasoning, writing, and review. Detailed guidance is loaded by your agent when needed.</p></div><div><h3 data-i18n="toolsTitle">Workflow tools</h3><p data-i18n="toolsBody">Create tasks, retain progress, run independent reviews, and check delivery conditions.</p></div></div>
+</div></section>
+<section class="section install-section" id="install"><div class="wrap"><div class="install-heading"><h2 data-i18n="installHeading">Installation</h2><p data-i18n="installIntro">Use the plugin where supported, or connect the Skill and local MCP separately.</p></div>
+<details class="details"><summary data-i18n="installSummary">Plugin · Skill · MCP</summary>
+<table class="install-table"><tbody><tr><th>Plugin</th><td data-i18n="pluginDescription">One package with the Skill, reference methods, and local MCP tools.</td><td><a data-i18n="installLink" data-usage-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.md#install-the-plugin">Installation guide</a></td></tr><tr><th>Skill</th><td data-i18n="skillDescription">Research instructions and methods loaded by your existing agent.</td><td><a data-i18n="skillLink" href="https://github.com/rrrrrredy/research-toolkit/tree/main/agents">Skill setup</a></td></tr><tr><th>MCP</th><td data-i18n="mcpDescription">The same five callable tools, connected separately.</td><td><a data-i18n="mcpLink" data-usage-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.md#connect-mcp-separately">Connect MCP</a></td></tr></tbody></table>
+<p data-i18n="installCaveat">The plugin uses the Agent Plugins format and includes Codex compatibility. Other hosts must support that format and local stdio MCP. Loading only the Skill does not automatically start the MCP server or run model reviews.</p><p data-i18n="reviewCaveat">Reviews use your configured model account. The default uses a signed-in Codex CLI; review calls send supplied material to that service and consume account usage.</p>
+</details>
+<div class="documentation-links"><a data-i18n="docsGuide" data-method-link="" data-preserve-reading="" href="framework.html">Research method</a><a data-i18n="docsModes" data-usage-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.md">Usage and configuration</a><a data-eval-link="" data-i18n="evaluation" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-status.md">Evaluation status</a></div>
+<details class="walkthrough"><summary data-i18n="watch">Watch the case walkthrough</summary><video controls="" playsinline="" poster="assets/readme-preview.en.png" preload="none"><source src="assets/case-walkthrough.mp4" type="video/mp4"/></video><p data-i18n="videoNote">A recording of the case browser and request copying.</p></details>
+</div></section>
+</main>
+<footer class="site-footer"><div class="wrap footer-inner"><div class="footer-brand">Research <em>Toolkit.</em></div><div><p data-i18n="footerNote">Methods, tools, and review for AI agents.</p><div class="footer-links"><a href="https://github.com/rrrrrredy/research-toolkit">GitHub ↗</a><a data-i18n="license" href="https://github.com/rrrrrredy/research-toolkit/blob/main/LICENSE">MIT license</a></div></div></div></footer>
+<noscript><div class="wrap"><p>The interactive comparison requires JavaScript. <a href="case-study/report.en.html">Full report</a> · <a href="case-study/README.md">Text case study</a></p></div></noscript>
+<script id="showcase-data" type="application/json">{
+  "cases": {
+    "information_cutoff": "2026-09-09",
+    "source_access_end": "2026-09-10",
+    "case_url": "case-study/office-agents/index.html",
+    "original_url": "case-study/office-agents/original.zh-CN.html",
+    "revised_url": "case-study/office-agents/revised.zh-CN.html",
+    "review_url": "case-study/office-agents/comparison.html",
+    "hero": {
+      "en": {
+        "quote": "Creating a file, editing an existing object, and changing business state are different deliverables. A report is checked mainly for content quality; updating a sales ledger must preserve fields and calculations; sending a quotation or submitting an approval changes other people's work.",
+        "highlights": [
+          "editing an existing object",
+          "changing business state"
+        ]
+      },
+      "zh": {
+        "quote": "生成文件、修改既有对象和改变业务状态，是不同的交付。研究稿主要检查内容质量；更新销售台账还要保留字段和计算；发送报价或提交审批则会改变他人的工作。",
+        "highlights": [
+          "修改既有对象",
+          "改变业务状态"
+        ]
+      }
+    },
+    "pairs": [
+      {
+        "id": "writing",
+        "original_url": "case-study/office-agents/original.zh-CN.html#L47",
+        "revised_url": "case-study/office-agents/revised.zh-CN.html#L55",
+        "review_url": "case-study/office-agents/reviews.html#writing-record",
+        "content_type": "excerpt",
+        "zh": {
+          "label": "去 AI 化表述",
+          "context": "独立工作台小节的开头：从泛泛解释价值，改为描述产品怎样组织工作。",
+          "title": "把套话改成具体动作与比较条件。",
+          "why": "压缩对比式铺垫和“恰好说明”的泛泛结尾，把差异落到工具、上下文与设备在线。",
+          "before": "独立办公Agent的价值，不在于把聊天框搬到桌面，而在于把资料、执行与修改放进同一段工作。对于经常整理不同来源文件的人，这条路线可以减少上传、下载和换工具的往返；但资料留在电脑上，并不意味着任务会自动持续运行，也不意味着所有处理都离线完成。Kimi Work与扣子的差别，恰好说明“独立工作台”内部也没有统一的实现方式。",
+          "after": "独立办公Agent把资料、执行与修改组织在同一工作空间。对于经常整理不同来源文件的人，这条路线可以减少上传、下载和换工具的往返；持续运行和数据处理的位置，却仍取决于具体实现。Kimi Work与扣子的差别，集中体现在谁提供工具、谁保存上下文，以及谁维持设备在线。",
+          "before_note": "初稿用“不在于……而在于……”解释价值，末尾只说实现方式不同。",
+          "after_note": "直接描述工作空间，再列出两款产品的比较条件；资料整理的作用和运行限制仍在。",
+          "before_highlights": [
+            "的价值，不在于把聊天框搬到桌面，而在于",
+            "恰好说明“独立工作台”内部也没有统一的实现方式"
+          ],
+          "highlights": [
+            "把资料、执行与修改组织在同一工作空间",
+            "谁提供工具、谁保存上下文，以及谁维持设备在线"
+          ],
+          "changes": [
+            {
+              "label": "压缩",
+              "text": "撤掉“价值不在于……而在于……”的铺垫，直接写资料、执行与修改如何放在一起。"
+            },
+            {
+              "label": "具体化",
+              "text": "将“实现方式不同”展开为工具、上下文与设备在线三个比较条件；保留可能减少文件搬运的条件性判断。"
+            }
+          ],
+          "reasons": [
+            {
+              "heading": "哪一句没有增加信息",
+              "body": "“把聊天框搬到桌面”并不是这一段实际分析的对象。用它制造对比，再说产品价值，绕远了；“恰好说明实现方式不同”也没有告诉读者差别在哪里。"
+            },
+            {
+              "heading": "为什么这样改",
+              "body": "定稿先说资料、执行与修改在同一空间，再指明工具、上下文和设备在线这三个条件。文字更直接，读者也有了继续比较 Kimi Work 与扣子的具体问题。"
+            }
+          ],
+          "tradeoffs": [
+            {
+              "label": "采用",
+              "text": "用动作、对象与条件承载判断，减少同一段内的修辞铺垫。"
+            },
+            {
+              "label": "保留",
+              "text": "文件搬运可能减少，持续运行和数据处理位置仍取决于具体实现；没有把潜在价值写成实测收益。"
+            },
+            {
+              "label": "不作推断",
+              "text": "这处修改不证明所有对比句都应删除，也不能据此判定一段文字是否由 AI 写成。"
+            }
+          ],
+          "sources": [
+            {
+              "label": "初稿对应段落",
+              "url": "case-study/office-agents/original.zh-CN.html#L47"
+            },
+            {
+              "label": "定稿对应段落",
+              "url": "case-study/office-agents/revised.zh-CN.html#L55"
+            },
+            {
+              "label": "作者编辑记录",
+              "url": "case-study/office-agents/reviews.html#writing-record"
+            }
+          ],
+          "history": [
+            {
+              "stage": "初稿与后续稿",
+              "body": "段首先解释“价值不在于……而在于……”，结尾以“实现方式不同”收束；早期中间稿仍保留该段。"
+            },
+            {
+              "stage": "作者编辑自查",
+              "body": "作者通读后指出，重复的限制与验证口吻挤占了产品分析，要求让具体产品变化和判断承担正文。"
+            },
+            {
+              "stage": "改写后的中间稿",
+              "body": "后续中间稿直接写工作空间，并列出工具、上下文和设备在线这三个差异。"
+            },
+            {
+              "stage": "定稿",
+              "body": "定稿保留这段改写。产品潜在作用和运行条件都在，变化发生在表达方式和比较的具体程度。"
+            }
+          ],
+          "decisions": [
+            {
+              "finding": "修辞铺垫与泛泛收尾",
+              "decision": "压缩表述，补足比较条件",
+              "basis": "保留原有产品分析，把原文已经讨论的工具、上下文和运行条件写清；不以换句式代替事实研究。"
+            }
+          ],
+          "review_note": "句子变化可在稿件中核对；整体编辑背景来自作者自查，不是模型逐句提出的修改。",
+          "review_link": "中间稿与作者编辑记录"
+        },
+        "en": {
+          "label": "Direct prose",
+          "context": "The opening of the workspace section moves from a broad value claim to how the products organize work.",
+          "title": "Replace rhetorical setup with actions and comparison criteria.",
+          "why": "The final report shortens the rhetorical setup and a vague closing, then names tools, context, and device availability.",
+          "before": "The value of independent office agents lies not in moving a chat box onto the desktop, but in bringing materials, execution, and revisions into one stretch of work. For people who frequently organize files from different sources, this approach can reduce uploading, downloading, and switching tools. Yet keeping files on a computer does not mean tasks run continuously or all processing happens offline. The differences between Kimi Work and Coze show that independent workspaces do not share a single implementation.",
+          "after": "Independent office agents organize materials, execution, and revisions in one workspace. For people who frequently organize files from different sources, this approach can reduce uploading, downloading, and switching tools. Continuous operation and the location of data processing still depend on the implementation. The differences between Kimi Work and Coze center on who supplies tools, who retains context, and who keeps the device online.",
+          "before_note": "The opening frames value through a rhetorical contrast; the closing only says implementations differ.",
+          "after_note": "The report states the mechanism directly and identifies comparison criteria, while retaining its conditions.",
+          "before_highlights": [
+            "lies not in moving a chat box onto the desktop, but in"
+          ],
+          "highlights": [
+            "who supplies tools, who retains context, and who keeps the device online"
+          ],
+          "changes": [
+            {
+              "label": "Shortened",
+              "text": "Remove the rhetorical setup and state how materials, execution, and revisions share a workspace."
+            },
+            {
+              "label": "Made specific",
+              "text": "Turn “implementations differ” into tools, context, and device availability. Keep the conditional benefit of less file handling."
+            }
+          ],
+          "reasons": [
+            {
+              "heading": "Which wording adds little",
+              "body": "Moving a chat box is not the mechanism examined in this paragraph. Using it as a contrast delays the point. Saying implementations differ gives the reader no criteria."
+            },
+            {
+              "heading": "Why this revision helps",
+              "body": "The final paragraph states the workspace mechanism and identifies three conditions. Readers can compare the products on tools, context, and device availability."
+            }
+          ],
+          "tradeoffs": [
+            {
+              "label": "Chosen",
+              "text": "Express the judgment through actions, objects, and conditions, with less rhetorical setup."
+            },
+            {
+              "label": "Retained",
+              "text": "Less file handling is a possible benefit; continuous operation and processing location still depend on the implementation."
+            },
+            {
+              "label": "Not inferred",
+              "text": "This edit neither bans contrastive sentences nor identifies whether a passage was written by AI."
+            }
+          ],
+          "sources": [
+            {
+              "label": "Initial passage (Chinese)",
+              "url": "case-study/office-agents/original.zh-CN.html#L47"
+            },
+            {
+              "label": "Final passage (Chinese)",
+              "url": "case-study/office-agents/revised.zh-CN.html#L55"
+            },
+            {
+              "label": "Author editing record (Chinese)",
+              "url": "case-study/office-agents/reviews.html#writing-record"
+            }
+          ],
+          "history": [
+            {
+              "stage": "Initial and later drafts",
+              "body": "The paragraph opened with a value contrast and ended by saying implementations differ. Early retained drafts kept that wording."
+            },
+            {
+              "stage": "Author editing check",
+              "body": "The author found that repeated limitations and verification language displaced substantive product analysis."
+            },
+            {
+              "stage": "Rewritten intermediate draft",
+              "body": "The next retained draft stated the workspace mechanism and named tools, context, and device availability."
+            },
+            {
+              "stage": "Final report",
+              "body": "The final report retained that revision, including the conditional benefit and operating constraints."
+            }
+          ],
+          "decisions": [
+            {
+              "finding": "Rhetorical setup and a vague closing",
+              "decision": "Shorten the setup; name comparison criteria",
+              "basis": "Retain the product analysis and make its existing tool, context, and operating conditions explicit."
+            }
+          ],
+          "review_note": "The passage change is verifiable in the manuscripts. Its editing context is an author check, not a model’s sentence-by-sentence instruction.",
+          "review_link": "Intermediate passages and author check (Chinese)"
+        }
+      },
+      {
+        "id": "process",
+        "original_url": "case-study/office-agents/original.zh-CN.html#L29",
+        "revised_url": "case-study/office-agents/revised.zh-CN.html#L13",
+        "review_url": "case-study/office-agents/reviews.html#process-record",
+        "content_type": "excerpt",
+        "zh": {
+          "label": "去过程痕迹",
+          "context": "开篇的结构预告与研究说明：删掉写作安排，把必要的来源和范围交代集中到开篇。",
+          "title": "删掉章节预告，保留研究边界。",
+          "why": "“以下按……展开”重复了章节导航；公开资料、未安装实测等信息则影响读者如何理解结论，应继续保留。",
+          "before": "以下按工作对象、独立工作台、办公套件、桌面执行与商业化展开。依据是公开产品文档和案例，不含安装实测；单一使用记录不代表行业表现。",
+          "after": "依据公开文档和案例，不含安装实测；部分动态说明于9月10日核对，不倒推为早期版本的能力。",
+          "before_note": "初稿在表后预告写作顺序，并附带资料和实测范围说明。",
+          "after_note": "结构预告已删除；来源与实测说明移到开篇。这里展示的是重排后的节选，不是同一句话的替换。",
+          "before_highlights": [
+            "以下按工作对象、独立工作台、办公套件、桌面执行与商业化展开。"
+          ],
+          "highlights": [
+            "依据公开文档和案例，不含安装实测"
+          ],
+          "changes": [
+            {
+              "label": "删除",
+              "text": "撤掉“以下按……展开”的章节预告；开篇的“有三个判断值得先说清楚”也不再出现。"
+            },
+            {
+              "label": "移位保留",
+              "text": "公开资料、未安装实测、案例代表性等说明保留在开篇；定稿另交代动态资料核对日期，没有靠删限制让判断变强。"
+            }
+          ],
+          "reasons": [
+            {
+              "heading": "什么属于作者旁白",
+              "body": "“以下按……展开”描述作者怎样安排文章，没有新增产品信息；章节标题和目录已经提供导航。“有三个判断值得先说清楚”也只是在宣告接下来要给结论。"
+            },
+            {
+              "heading": "为什么保留另一半",
+              "body": "研究依赖公开资料而非安装实测、单次案例不足以代表行业，这些会改变读者对结论的理解。定稿删除结构预告，集中保留必要范围与证据限制。"
+            }
+          ],
+          "tradeoffs": [
+            {
+              "label": "采用",
+              "text": "让正文直接承载产品判断，省去重复的章节预告。"
+            },
+            {
+              "label": "保留",
+              "text": "研究对象、历史日期、来源依据、实测范围和案例代表性；不把不确定性伪装成确定结论。"
+            },
+            {
+              "label": "展示边界",
+              "text": "本例展示结构预告的删除与研究说明的移位。两段位于不同位置，完整初稿和定稿均可核对。"
+            }
+          ],
+          "sources": [
+            {
+              "label": "初稿结构预告",
+              "url": "case-study/office-agents/original.zh-CN.html#L29"
+            },
+            {
+              "label": "定稿范围说明",
+              "url": "case-study/office-agents/revised.zh-CN.html#L13"
+            },
+            {
+              "label": "作者编辑记录",
+              "url": "case-study/office-agents/reviews.html#process-record"
+            }
+          ],
+          "history": [
+            {
+              "stage": "初稿",
+              "body": "开篇含“有三个判断值得先说清楚”，表后又用“以下按……展开”预告文章结构。范围和来源说明分散在几处。"
+            },
+            {
+              "stage": "作者编辑自查",
+              "body": "作者指出开篇应突出已有产品变化与判断，重复限制和验证口吻应压缩；同时保留实质不确定性与反证。"
+            },
+            {
+              "stage": "重排后的中间稿",
+              "body": "后续中间稿直接列主要判断，删除两处结构预告，把来源和范围说明集中在结论之后。"
+            },
+            {
+              "stage": "定稿",
+              "body": "定稿保留这一安排，补充动态资料核对日期和案例范围。"
+            }
+          ],
+          "decisions": [
+            {
+              "finding": "正文重复预告写作安排",
+              "decision": "删除旁白，保留导航与研究范围",
+              "basis": "章节结构已经清楚；读者仍需知道结论依据什么、哪些能力没有实测。"
+            }
+          ],
+          "review_note": "结构变化可在初稿、中间稿和定稿中核对；编辑方向来自作者自查，非独立模型意见。",
+          "review_link": "中间稿与作者编辑记录"
+        },
+        "en": {
+          "label": "Process narration",
+          "context": "The opening drops an outline announcement and brings essential source and scope information together.",
+          "title": "Remove the outline announcement; keep the research limits.",
+          "why": "The chapter headings already provide navigation. Public-source research and the absence of installed-product testing still matter to how readers interpret the findings.",
+          "before": "The following sections cover work objects, independent workspaces, office suites, desktop execution, and commercialization. The evidence consists of public product documents and examples, without installed-product testing; a single use record does not represent industry performance.",
+          "after": "The research uses public documents and examples, without installed-product testing. Some dynamic descriptions were checked on September 10; their capabilities are not attributed retrospectively to earlier versions.",
+          "before_note": "After the table, the draft announced its structure and added source and testing limits.",
+          "after_note": "The announcement was deleted. Source and testing limits moved to the opening; this is a reorganized excerpt, not a replacement of the same sentence.",
+          "before_highlights": [
+            "The following sections cover work objects, independent workspaces, office suites, desktop execution, and commercialization."
+          ],
+          "highlights": [
+            "public documents and examples, without installed-product testing"
+          ],
+          "changes": [
+            {
+              "label": "Removed",
+              "text": "Drop the section preview and the earlier announcement that three judgments should be stated first."
+            },
+            {
+              "label": "Moved and retained",
+              "text": "Keep source, testing, and sample limits in the opening. The final report also identifies the dates of dynamic-source checks."
+            }
+          ],
+          "reasons": [
+            {
+              "heading": "What counts as a writer’s aside",
+              "body": "The section preview describes the author’s plan without adding product information. Headings already show the structure. Announcing that conclusions are about to follow also delays those conclusions."
+            },
+            {
+              "heading": "Why the limits remain",
+              "body": "Public documents, no installed-product testing, and the limits of a single example affect how readers interpret the findings. They remain in the report after the outline narration is removed."
+            }
+          ],
+          "tradeoffs": [
+            {
+              "label": "Chosen",
+              "text": "Let the product findings carry the opening, without a repeated outline announcement."
+            },
+            {
+              "label": "Retained",
+              "text": "Scope, historical dates, sources, testing limits, and sample representativeness."
+            },
+            {
+              "label": "Display limit",
+              "text": "This example deletes an outline announcement and relocates essential scope information. The excerpts come from different positions in the same report."
+            }
+          ],
+          "sources": [
+            {
+              "label": "Initial outline passage (Chinese)",
+              "url": "case-study/office-agents/original.zh-CN.html#L29"
+            },
+            {
+              "label": "Final scope passage (Chinese)",
+              "url": "case-study/office-agents/revised.zh-CN.html#L13"
+            },
+            {
+              "label": "Author editing record (Chinese)",
+              "url": "case-study/office-agents/reviews.html#process-record"
+            }
+          ],
+          "history": [
+            {
+              "stage": "Initial draft",
+              "body": "The opening announced three judgments and later previewed the section order. Scope information appeared in several places."
+            },
+            {
+              "stage": "Author editing check",
+              "body": "The author called for leading with supported product changes and judgments, while reducing repetition and retaining material uncertainty."
+            },
+            {
+              "stage": "Reorganized intermediate draft",
+              "body": "The next retained draft removed both announcements and grouped source and scope information after the main findings."
+            },
+            {
+              "stage": "Final report",
+              "body": "The final report kept that arrangement and added dynamic-source dates and sample limits."
+            }
+          ],
+          "decisions": [
+            {
+              "finding": "Repeated narration of the article’s plan",
+              "decision": "Remove the aside; retain scope and navigation",
+              "basis": "Headings provide navigation. Readers still need to know the source basis and which capabilities were not tested."
+            }
+          ],
+          "review_note": "The structure change is verifiable in the manuscripts. Its editing direction is an author check, not an independent model finding.",
+          "review_link": "Intermediate passages and author check (Chinese)"
+        }
+      },
+      {
+        "id": "versions",
+        "original_url": "case-study/office-agents/original.zh-CN.html#L77",
+        "revised_url": "case-study/office-agents/revised.zh-CN.html#L89",
+        "zh": {
+          "label": "aily 与豆包工作",
+          "context": "aily 是飞书 4 月介绍的自定义智能体；8 月底文章使用“豆包工作”名称。两份介绍能否证明产品继承？",
+          "title": "现有资料不能证明豆包工作继承了 aily。",
+          "why": "两份材料分别介绍各自时期的产品能力；缺少更名或迁移说明时，不能把旧产品的能力算到新产品上。",
+          "before": "这是当前产品说明与此前功能路线的接续证据",
+          "after": "两个时间点分别展示对象操作和组织上下文协作的产品方向，不足以证明aily与豆包工作的版本继承",
+          "before_note": "初稿同段已提醒：旧功能与名称不能一对一迁移。",
+          "after_note": "原有功能与名称的迁移限制继续保留。",
+          "highlights": [
+            "不足以证明aily与豆包工作的版本继承"
+          ],
+          "before_highlights": [
+            "接续证据"
+          ],
+          "changes": [
+            {
+              "label": "收窄",
+              "text": "将“接续证据”改为“两时点的产品方向”，明确不支持版本继承。"
+            },
+            {
+              "label": "保留",
+              "text": "保留两个时期的官方能力说明，以及不能将旧功能全量套给新产品的限制。"
+            }
+          ],
+          "reasons": [
+            {
+              "heading": "两份官方材料分别写了什么",
+              "body": "4 月材料介绍 aily 对文档、多维表格和任务的操作；8 月底材料介绍豆包工作如何使用组织上下文、让成果回到协作。两者可以支撑各自时期的产品分析。"
+            },
+            {
+              "heading": "为什么撤掉“接续证据”",
+              "body": "功能相近和发布时间相连，不足以证明更名、版本继承或功能迁移。作者复查仍未取得这类证明，因此撤掉暗示继承的措辞。"
+            }
+          ],
+          "tradeoffs": [
+            {
+              "label": "采用",
+              "text": "分别分析两份材料，不把它们合并成已经证实的演进关系。"
+            },
+            {
+              "label": "代价",
+              "text": "产品关系暂时保留未知，比较只能分别采用两份材料各自支持的能力，不能合并能力清单。"
+            },
+            {
+              "label": "怎样才能改判",
+              "text": "取得明确的更名、版本映射或功能迁移说明后，才有依据重新判断产品关系。"
+            }
+          ],
+          "sources": [
+            {
+              "label": "飞书 aily 说明",
+              "url": "case-study/office-agents/sources.html#S01"
+            },
+            {
+              "label": "豆包工作说明",
+              "url": "https://www.feishu.cn/content/article/7680041109057178898"
+            }
+          ],
+          "history": [
+            {
+              "stage": "初稿与后续稿",
+              "body": "“接续证据”与迁移限制同时存在；后续保留稿仍沿用这句话。问题是措辞暗示的关系，比已取得的证据更强。"
+            },
+            {
+              "stage": "审阅意见",
+              "body": "一份模型审阅指出“接续证据”容易暗示版本继承，建议修正措辞精度。"
+            },
+            {
+              "stage": "回查与取舍",
+              "body": "复查未取得更名或迁移证明，也不凭页面导航中的 aily 域名反推关系。保留两次产品介绍，收窄两者的关系。"
+            },
+            {
+              "stage": "中间稿与定稿",
+              "body": "下一份中间稿改为“两个时间点”的产品方向，并明确不足以证明继承；定稿保留这一判断。"
+            }
+          ],
+          "decisions": [
+            {
+              "finding": "“接续证据”暗示版本继承",
+              "decision": "采纳精度修正",
+              "basis": "更名与迁移证明缺失，不能用相近功能或域名填补。"
+            }
+          ],
+          "review_note": "模型审阅意见据保留的作者裁定转述。",
+          "review_link": "中间稿与裁定摘录"
+        },
+        "en": {
+          "label": "aily and Doubao Work",
+          "context": "Feishu introduced aily custom agents in April; its late-August article used the name Doubao Work. This comparison concerns the relationship between those products.",
+          "title": "The retained sources do not establish that Doubao Work inherits from aily.",
+          "why": "Two product descriptions can be analyzed on their own. Their dates and similar direction do not establish a version lineage.",
+          "before": "This is evidence of continuity between the current product description and the earlier feature direction",
+          "after": "The two points in time show product directions in object operations and organizational-context collaboration; they do not establish version inheritance between aily and Doubao Work",
+          "before_note": "The same paragraph already cautioned against assuming a one-to-one transfer of features and names.",
+          "after_note": "The migration caveat remains; the report now explicitly limits what the two sources establish.",
+          "highlights": [
+            "do not establish version inheritance"
+          ],
+          "before_highlights": [
+            "evidence of continuity"
+          ],
+          "changes": [
+            {
+              "label": "Narrowed",
+              "text": "“Evidence of continuity” becomes product directions at two points in time, without a claim of version inheritance."
+            },
+            {
+              "label": "Retained",
+              "text": "Both official product descriptions and the warning against carrying earlier capabilities over to the later product."
+            }
+          ],
+          "reasons": [
+            {
+              "heading": "What each source supports",
+              "body": "The April source describes aily operating on documents, multidimensional tables, and tasks. The late-August article describes Doubao Work using organizational context and returning results to collaboration."
+            },
+            {
+              "heading": "Why the inference was narrowed",
+              "body": "Similar functions and successive dates do not establish renaming, version inheritance, or feature migration. The author’s follow-up did not obtain that evidence, so wording implying continuity was removed."
+            }
+          ],
+          "tradeoffs": [
+            {
+              "label": "Chosen",
+              "text": "Analyze each source without joining them into a verified product lineage."
+            },
+            {
+              "label": "Tradeoff",
+              "text": "The product relationship stays unresolved. Comparisons must use capabilities supported by each source separately, without merging their feature lists."
+            },
+            {
+              "label": "What could change it",
+              "text": "An explicit renaming notice, version mapping, or feature-migration document would support revisiting the relationship."
+            }
+          ],
+          "sources": [
+            {
+              "label": "Feishu aily source",
+              "url": "case-study/office-agents/sources.html#S01"
+            },
+            {
+              "label": "Doubao Work source",
+              "url": "https://www.feishu.cn/content/article/7680041109057178898"
+            }
+          ],
+          "history": [
+            {
+              "stage": "Initial and later drafts",
+              "body": "“Evidence of continuity” remained alongside the migration caveat. The wording implied a stronger relationship than the available sources established."
+            },
+            {
+              "stage": "Review finding",
+              "body": "A model review flagged that “evidence of continuity” could imply version inheritance. The author accepted a precision correction."
+            },
+            {
+              "stage": "Source check and decision",
+              "body": "The follow-up obtained no renaming or migration proof. An aily domain in site navigation was not treated as proof either. Both dated product descriptions were kept."
+            },
+            {
+              "stage": "Intermediate and final report",
+              "body": "The next retained draft switched to product directions at two points in time and explicitly rejected an unsupported inheritance claim. The final report kept that wording."
+            }
+          ],
+          "decisions": [
+            {
+              "finding": "Continuity wording implies version inheritance",
+              "decision": "Accepted a precision correction",
+              "basis": "Missing renaming or migration proof cannot be supplied by similar functions or a domain name."
+            }
+          ],
+          "review_note": "Model-review findings are relayed through the author’s retained decisions.",
+          "review_link": "Intermediate excerpts (Chinese)"
+        },
+        "review_url": "case-study/office-agents/reviews.html#versions-record",
+        "content_type": "excerpt"
+      },
+      {
+        "id": "analysis",
+        "original_url": "case-study/office-agents/original.zh-CN.html#L63",
+        "revised_url": "case-study/office-agents/revised.zh-CN.html#L73",
+        "zh": {
+          "label": "扣子用什么模型",
+          "context": "扣子提供原生、第三方云端和本地接入。执行框架安排任务与工具调用，底层模型负责理解与推理。",
+          "title": "扣子云端的 Claude Code，底层模型由扣子提供。",
+          "why": "Claude Code 是程序名称，不能据此认定调用 Anthropic 模型。选型还需要核对模型供应与运行位置。",
+          "before": "扣子把原生Agent、托管在云端的第三方Agent和本地接入放在同一协作入口。原生版本包含平台日程、邮箱、云资源等能力；云端第三方和本地接入并不自动取得同样的内置服务。",
+          "after": "原生Agent可选豆包、Kimi、GLM、MiniMax等模型。第三方云端模式则在扣子云电脑运行Claude Code、Codex CLI等执行框架，接入扣子提供的模型，不绑定原厂账号与模型。",
+          "before_note": "初稿已区分运行方式与服务权限；本小节未写具体模型来源。",
+          "after_note": "这是同一小节新增的段落；原有运行方式和权限分析仍在。",
+          "highlights": [
+            "接入扣子提供的模型"
+          ],
+          "before_highlights": [],
+          "changes": [
+            {
+              "label": "补充",
+              "text": "由模式与权限分工，进一步写到原生模型选择、第三方云端的执行框架与模型来源。"
+            },
+            {
+              "label": "保留",
+              "text": "三种模式的服务边界与本地设备条件仍有效，新增段落没有把它们合并成同一种能力。"
+            }
+          ],
+          "reasons": [
+            {
+              "heading": "初稿缺少哪一层事实",
+              "body": "说明“模型很重要”或区分运行方式，还不能回答具体产品用什么模型。读者看到 Claude Code 时，也可能把程序品牌当成模型供应商。"
+            },
+            {
+              "heading": "补充资料带来了什么",
+              "body": "扣子产品介绍列出原生 Agent 的模型选择；第三方云端文档说明在扣子云电脑运行执行框架、接入扣子模型。两份资料让模型来源与运行方式能够分别描述。"
+            }
+          ],
+          "tradeoffs": [
+            {
+              "label": "采用",
+              "text": "补入可核对的配置事实，并保留模型、工具、上下文与权限分别影响任务的分析。"
+            },
+            {
+              "label": "保留未知",
+              "text": "不能据配置说明分配“某个模型贡献多少节时”，也不能推断真实任务完成率。"
+            },
+            {
+              "label": "还需要什么",
+              "text": "比较模型效果需要固定任务、输入、工具、权限与结果标准，再观察错误、调用失败及最终返工。"
+            }
+          ],
+          "sources": [
+            {
+              "label": "扣子 Agent 类型",
+              "url": "case-study/office-agents/sources.html#S04"
+            },
+            {
+              "label": "扣子产品介绍",
+              "url": "case-study/office-agents/sources.html#S29"
+            },
+            {
+              "label": "第三方云端说明",
+              "url": "case-study/office-agents/sources.html#S30"
+            }
+          ],
+          "history": [
+            {
+              "stage": "初稿",
+              "body": "扣子小节写了运行方式与服务边界；全文结尾解释模型的一般作用，仍缺少各模式的具体模型来源。"
+            },
+            {
+              "stage": "审阅意见",
+              "body": "两份模型审阅都指出分析偏泛。作者采纳并合并处理，补充具体产品配置，没有重复增加段落。"
+            },
+            {
+              "stage": "补充后的中间稿",
+              "body": "回到官方类型、产品介绍及云端文档，新增原生模型选择与第三方云端模型供给；综合分析也补充不同产品的模型路线。"
+            },
+            {
+              "stage": "后续取舍与定稿",
+              "body": "后续裁定没有再加重复机制段落；保留固定输入、工具和权限等比较条件，不把简单换模型当成因果实验。"
+            }
+          ],
+          "decisions": [
+            {
+              "finding": "模型分析偏泛",
+              "decision": "采纳并合并处理",
+              "basis": "补入具体产品配置，保留原有作用分析，不重复堆叠意见。"
+            },
+            {
+              "finding": "后续模型作用意见",
+              "decision": "保留比较条件，不重复扩写",
+              "basis": "综合分析已有模型作用与限制；不能只换模型，就把全部效果变化归给模型。"
+            }
+          ],
+          "review_note": "模型审阅意见据保留的作者裁定转述。",
+          "review_link": "中间稿与裁定摘录"
+        },
+        "en": {
+          "label": "Coze’s models",
+          "context": "Coze China groups native agents, third-party cloud agents, and local connections in one interface. An execution framework organizes actions; the underlying model handles understanding and reasoning.",
+          "title": "Coze supplies models for its cloud-hosted Claude Code.",
+          "why": "The report identifies Claude Code and Codex CLI as execution frameworks. A program’s brand does not, by itself, establish which model powers a particular deployment.",
+          "before": "Coze brings native agents, third-party agents hosted in the cloud, and local connections into one collaboration interface. The native version includes platform scheduling, email, and cloud resources; the other modes do not automatically inherit those built-in services.",
+          "after": "Native agents can select models such as Doubao, Kimi, GLM, and MiniMax. Third-party cloud mode runs execution frameworks such as Claude Code and Codex CLI on Coze cloud computers, using models supplied by Coze rather than being tied to the original provider’s account and model.",
+          "before_note": "The section distinguished execution modes and services, but did not identify their specific model supply.",
+          "after_note": "This paragraph was added to the same product section. Its existing mode and permission analysis remains.",
+          "highlights": [
+            "models supplied by Coze"
+          ],
+          "before_highlights": [],
+          "changes": [
+            {
+              "label": "Added",
+              "text": "Specific native-model choices and the distinction between third-party cloud frameworks and their model supply."
+            },
+            {
+              "label": "Retained",
+              "text": "The original service boundaries and local-device conditions; the additional paragraph does not make all three modes equivalent."
+            }
+          ],
+          "reasons": [
+            {
+              "heading": "The fact layer missing from the draft",
+              "body": "General discussion of model importance and execution modes cannot answer which models a particular product uses. A reader may also mistake the Claude Code program brand for a model provider."
+            },
+            {
+              "heading": "What the additional sources establish",
+              "body": "The product introduction lists native-model choices. The cloud-agent document explains frameworks running on Coze computers with Coze-supplied models. They allow model supply and execution mode to be described separately."
+            }
+          ],
+          "tradeoffs": [
+            {
+              "label": "Chosen",
+              "text": "Add verifiable product configuration while retaining the distinct roles of models, tools, context, and permissions."
+            },
+            {
+              "label": "Not inferred",
+              "text": "Configuration documents do not measure a model’s share of time saved or real-task completion rates."
+            },
+            {
+              "label": "What is still needed",
+              "text": "Comparing model effects requires fixed tasks, inputs, tools, permissions, and result criteria, followed by errors, failed calls, and rework."
+            }
+          ],
+          "sources": [
+            {
+              "label": "Agent types",
+              "url": "case-study/office-agents/sources.html#S04"
+            },
+            {
+              "label": "Product introduction",
+              "url": "case-study/office-agents/sources.html#S29"
+            },
+            {
+              "label": "Third-party cloud documentation",
+              "url": "case-study/office-agents/sources.html#S30"
+            }
+          ],
+          "history": [
+            {
+              "stage": "Initial draft",
+              "body": "The Coze section described execution modes and service boundaries. Its conclusion covered general model roles but lacked specific supply details."
+            },
+            {
+              "stage": "Review finding",
+              "body": "Two model reviews found the analysis too general. The author combined their substantive findings and added product facts rather than duplicate paragraphs."
+            },
+            {
+              "stage": "Expanded intermediate draft",
+              "body": "The author returned to official type, product, and cloud documents. The next draft added native choices and cloud-model supply, with product-level synthesis in the conclusion."
+            },
+            {
+              "stage": "Later decision and final report",
+              "body": "A later adjudication added no duplicate mechanism paragraph. Conditions for controlled comparisons were retained; simply switching a model was not treated as a causal experiment."
+            }
+          ],
+          "decisions": [
+            {
+              "finding": "Model analysis is too general",
+              "decision": "Accepted and combined",
+              "basis": "Add specific configuration while retaining the existing analysis; avoid duplicating overlapping findings."
+            },
+            {
+              "finding": "Later model-mechanism feedback",
+              "decision": "No duplicate paragraph",
+              "basis": "The synthesis already covered mechanisms and limits. Isolating model effects requires controlled tools and permissions."
+            }
+          ],
+          "review_note": "Model-review findings are relayed through the author’s retained decisions.",
+          "review_link": "Intermediate excerpts (Chinese)"
+        },
+        "review_url": "case-study/office-agents/reviews.html#analysis-record",
+        "content_type": "excerpt"
+      }
+    ]
+  },
+  "prompts": {
+    "en": "Use Research Toolkit for this task:\nhttps://github.com/rrrrrredy/research-toolkit\n\nResearch office agents available to users in China in 2026.\nCompare Kimi Work, Coze, Feishu / Doubao Work, Wukong,\nWPS, and WorkBuddy. Write for AI product and workplace leads.\n\nExplain which files and business objects each product changes,\nwhere tasks run, and how models, tools, context, permissions,\nand human involvement affect delivery and rework.\n\nUse information available as of [DATE]. Cite important claims.\nDistinguish company statements, media experiences, and measured\noutcomes. Explain what could overturn your conclusions.\n\nRead SKILL.md. Clarify missing requirements and agree on an\noutline before collecting sources.",
+    "zh": "本次研究请使用 Research Toolkit：\nhttps://github.com/rrrrrredy/research-toolkit\n\n研究 2026 年国内办公 Agent 产品。\n比较 Kimi Work、扣子、飞书／豆包工作、悟空、WPS、WorkBuddy，\n面向 AI 产品与企业办公负责人写作。\n\n说明各产品改变哪些文件和业务对象、任务在哪里运行，\n以及模型、工具、上下文、权限和人工参与如何影响交付与返工。\n\n以 [日期] 为信息截止日。重要判断附来源，区分公司说法、\n媒体体验与实际效果证据，并说明哪些反证可能改变结论。\n\n阅读 SKILL.md，澄清缺失的研究需求，确认提纲后搜集资料。"
+  },
+  "i18n": {
+    "en": {
+      "skip": "Skip to the case",
+      "navCase": "Case study",
+      "navMethod": "Method",
+      "lede": "Help AI agents write research reports with concrete judgments, traceable sources, and independent review.",
+      "explore": "Case study",
+      "try": "Usage guide",
+      "caseHeading": "Office agents in China",
+      "caseIntro": "Changes in one office-agent report: clearer prose, added facts, and narrower inferences.",
+      "fullReportShort": "Full report",
+      "caseBoundary": "Historical report. Information through September 9, 2026; some dynamic documents were checked on September 10. Public-source research without installed-product testing. These versions are not a controlled with/without-toolkit experiment.",
+      "archive": "Case archive",
+      "evaluation": "Evaluation status",
+      "watch": "Watch the case walkthrough",
+      "videoNote": "A recording of the product questions, passage changes, reasoning, and review decisions.",
+      "startEyebrow": "RESEARCH REQUEST",
+      "startHeading": "Usage",
+      "startIntro": "Send this request to an agent that can read the repository and access your sources.",
+      "promptLabel": "COPYABLE RESEARCH REQUEST",
+      "copy": "Copy request",
+      "promptNote": "Replace [DATE] and adapt the topic and audience. This request is based on the archived case brief; a new run may reach different conclusions.",
+      "fallbackGuide": "File and attachment guide",
+      "methodHeading": "The research workflow.",
+      "methodIntro": "From the brief to the report, each stage has a concrete output.",
+      "m1": "Frame the question",
+      "m1b": "Audience, scope, decisions, and an agreed outline.",
+      "m1a": "Research brief",
+      "m2": "Read the evidence",
+      "m2b": "Primary sources, access limits, and contrary evidence.",
+      "m2a": "Source records",
+      "m3": "Develop the analysis",
+      "m3b": "Link facts to explanations, tradeoffs, and implications.",
+      "m3a": "Claim records",
+      "m4": "Review and revise",
+      "m4b": "Examine the whole report and its supporting evidence.",
+      "m4a": "Review records",
+      "m5": "Deliver the report",
+      "m5b": "Concrete judgments, traceable sources, and honest limits.",
+      "m5a": "Complete report",
+      "methodCaption": "The links provide this case's research materials. The historical report did not run through the current MCP version.",
+      "methodsTitle": "Methods",
+      "methodsBody": "Scope, sources, reasoning, writing, and review. Detailed guidance is loaded by your agent when needed.",
+      "toolsTitle": "Workflow tools",
+      "toolsBody": "Create tasks, retain progress, run independent reviews, and check delivery conditions.",
+      "installHeading": "Installation",
+      "installIntro": "Use the plugin where supported, or connect the Skill and local MCP separately.",
+      "installSummary": "Plugin · Skill · MCP",
+      "pluginDescription": "One package with the Skill, reference methods, and local MCP tools.",
+      "skillDescription": "Research instructions and methods loaded by your existing agent.",
+      "mcpDescription": "The same five callable tools, connected separately.",
+      "installLink": "Installation guide",
+      "skillLink": "Skill setup",
+      "mcpLink": "Connect MCP",
+      "installCaveat": "The plugin uses the Agent Plugins format and includes Codex compatibility. Other hosts must support that format and local stdio MCP. Loading only the Skill does not automatically start the MCP server or run model reviews.",
+      "reviewCaveat": "Reviews use your configured model account. The default uses a signed-in Codex CLI; review calls send supplied material to that service and consume account usage.",
+      "docsGuide": "Research method",
+      "docsModes": "Usage and configuration",
+      "footerNote": "Methods, tools, and review for AI agents.",
+      "themeDark": "Dark",
+      "themeLight": "Light",
+      "themeAction": "Switch color theme",
+      "heroCase": "RESEARCH CASE",
+      "heroTitle": "Office agents in China",
+      "heroDate": "09 Sep 2026",
+      "heroArchive": "Historical report",
+      "heroReport": "Read the report",
+      "heroNote": "Report excerpt",
+      "heroCap1": "Methods",
+      "heroCap2": "Workflow tools",
+      "heroCap3": "Independent review",
+      "startNote2": "Install the plugin to call workflow tools for progress and independent review.",
+      "brandCaption": "A RESEARCH TOOLKIT FOR AI AGENTS",
+      "fullMethod": "Research method",
+      "license": "MIT license",
+      "topicsAria": "Case topics",
+      "navAria": "Main navigation",
+      "summaryLabel": "Translated excerpt",
+      "initial": "Initial draft",
+      "final": "Final report",
+      "passage": "Original passage (Chinese)",
+      "sourcesLabel": "Source records (Chinese)",
+      "detailDiff": "Changes",
+      "detailReason": "Reasoning",
+      "detailReview": "Review",
+      "detailAria": "Case interpretation",
+      "changeHeading": "What changed",
+      "tradeoffHeading": "Decision and tradeoffs",
+      "supportingSources": "Supporting sources",
+      "finding": "Finding",
+      "decision": "Decision",
+      "basis": "Basis"
+    },
+    "zh": {
+      "skip": "跳到真实案例",
+      "navCase": "研究案例",
+      "navMethod": "研究方法",
+      "lede": "帮助 AI Agent 写出判断具体、来源可查、经过独立审阅的研究报告。",
+      "explore": "研究案例",
+      "try": "使用指南",
+      "caseHeading": "国内办公 Agent 产品研究",
+      "caseIntro": "国内办公 Agent 研究中的表达修改、证据补充与判断收窄。",
+      "fullReportShort": "完整报告",
+      "caseBoundary": "历史报告，信息截至 2026 年 9 月 9 日；部分动态文档于 9 月 10 日核对。研究基于公开资料，未安装实测。稿件变化不构成有无工具箱的对照实验。",
+      "archive": "案例档案",
+      "evaluation": "评测进展",
+      "watch": "观看案例浏览演示",
+      "videoNote": "产品问题、稿件差异、修改理由与审阅取舍的实际页面录制。",
+      "startEyebrow": "研究请求",
+      "startHeading": "开始使用",
+      "startIntro": "将以下研究请求发给能够读取仓库并访问所需来源的 Agent。",
+      "promptLabel": "可直接复制的研究请求",
+      "copy": "复制请求",
+      "promptNote": "替换 [日期]，并按需要调整主题与读者。请求改编自历史案例；新的研究可能得出不同结论。",
+      "fallbackGuide": "文件与附件使用说明",
+      "methodHeading": "研究流程",
+      "methodIntro": "从研究需求到完整报告，每个阶段都有具体产物。",
+      "m1": "明确研究问题",
+      "m1b": "确认读者、范围、用途与提纲。",
+      "m1a": "研究需求",
+      "m2": "阅读并核对证据",
+      "m2b": "原始来源、访问限制与反证。",
+      "m2a": "来源记录",
+      "m3": "展开分析判断",
+      "m3b": "从事实推导解释、取舍与影响。",
+      "m3a": "论点记录",
+      "m4": "审阅并修改",
+      "m4b": "核对证据，通读完整报告。",
+      "m4a": "历史审阅摘要",
+      "m5": "交付完整报告",
+      "m5b": "具体判断、来源与限制。",
+      "m5a": "完整报告",
+      "methodCaption": "链接提供本案例的研究材料；历史报告未通过当前 MCP 版本执行。",
+      "methodsTitle": "研究方法",
+      "methodsBody": "覆盖需求、来源、分析、写作和审阅，由 Agent 按需读取详细方法。",
+      "toolsTitle": "执行工具",
+      "toolsBody": "创建任务、保存进度、执行独立审阅，并检查交付条件。",
+      "installHeading": "安装",
+      "installIntro": "宿主支持时可安装插件，也可单独接入 Skill 与本地 MCP。",
+      "installSummary": "插件 · Skill · MCP",
+      "pluginDescription": "一次安装，包含 Skill、方法资料与本地 MCP 工具。",
+      "skillDescription": "供现有 Agent 加载的研究指令与方法。",
+      "mcpDescription": "单独接入同一套五个可调用工具。",
+      "installLink": "插件安装指南",
+      "skillLink": "Skill 使用指南",
+      "mcpLink": "接入 MCP",
+      "installCaveat": "插件采用 Agent Plugins 格式，并提供 Codex 兼容配置；其他宿主需支持该格式及本地 stdio MCP。仅加载 Skill 不会自动启动 MCP 服务或执行模型审阅。",
+      "reviewCaveat": "审阅使用你配置的模型账户，默认调用已登录的 Codex CLI；材料会发送给相应模型服务，并消耗该账户用量。",
+      "docsGuide": "研究方法文档",
+      "docsModes": "使用与配置",
+      "footerNote": "面向 AI Agent 的研究方法、执行工具与审阅。",
+      "themeDark": "深色",
+      "themeLight": "浅色",
+      "themeAction": "切换深浅模式",
+      "heroCase": "研究案例",
+      "heroTitle": "国内办公 Agent",
+      "heroDate": "2026.09.09",
+      "heroArchive": "历史报告",
+      "heroReport": "阅读报告",
+      "heroNote": "报告节选",
+      "heroCap1": "研究方法",
+      "heroCap2": "执行工具",
+      "heroCap3": "独立审阅",
+      "startNote2": "安装插件后，还可调用保存进度、独立审阅等执行工具。",
+      "brandCaption": "面向 AI AGENT 的研究工具箱",
+      "fullMethod": "研究方法文档",
+      "license": "MIT 开源许可",
+      "topicsAria": "案例主题",
+      "navAria": "主导航",
+      "summaryLabel": "原文节选",
+      "initial": "初稿",
+      "final": "定稿",
+      "passage": "原文段落",
+      "sourcesLabel": "来源资料",
+      "detailDiff": "稿件差异",
+      "detailReason": "修改理由",
+      "detailReview": "审阅取舍",
+      "detailAria": "案例解读",
+      "changeHeading": "改了什么",
+      "tradeoffHeading": "判断与取舍",
+      "supportingSources": "判断依据",
+      "finding": "审阅意见",
+      "decision": "取舍",
+      "basis": "依据"
+    }
+  }
+}</script>
 <script src="assets/showcase.js"></script>
 </body></html>

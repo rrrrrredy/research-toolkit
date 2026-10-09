@@ -1,60 +1,83 @@
-# 研究工具箱
+# Research Toolkit
 
 [English](./README.md) | [简体中文](./README.zh-CN.md)
 
-**面向 AI Agent 的研究 Skill：明确问题，展开有来源的分析，交付前审阅整份报告。**
+帮助 AI Agent 写出判断具体、来源可查、经过独立审阅的研究报告。
 
-[![一份 AI 客服报告：具体判断、分析深度、证据边界三处修改](./docs/assets/readme-preview.zh-CN.png)](https://rrrrrredy.github.io/research-toolkit/?lang=zh#case)
+[完整报告](https://rrrrrredy.github.io/research-toolkit/case-study/report.zh-CN.html) · [研究案例](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=writing#case) · [开始使用](#开始使用)
 
-**[查看交互案例](https://rrrrrredy.github.io/research-toolkit/?lang=zh#case) · [完整中文报告](https://rrrrrredy.github.io/research-toolkit/case-study/report.zh-CN.html) · [完整英文译文](./docs/case-study/report.en.md)**
+<picture>
+  <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./docs/assets/readme-preview.zh-CN.mobile.dark.png">
+  <source media="(max-width: 600px)" srcset="./docs/assets/readme-preview.zh-CN.mobile.png">
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/assets/readme-preview.zh-CN.dark.png">
+  <img src="./docs/assets/readme-preview.zh-CN.png" alt="Research Toolkit：研究方法、执行工具、独立审阅，以及国内办公 Agent 报告节选。" width="840">
+</picture>
 
-## 30 秒发起一次研究
+## 开始使用
 
-把下面这份请求发给能够读取仓库、访问所需来源的 Agent，替换信息截止日期：
+将以下请求发给能够读取仓库并访问来源的 Agent，按需要替换日期、主题和读者。
 
 ```text
 本次研究请使用 Research Toolkit：
 https://github.com/rrrrrredy/research-toolkit
 
-研究 AI 客服如何从试点进入生产。
-比较 Intercom、Zendesk、Salesforce 的产品机制、采用证据、
-实施条件和失败风险。面向企业 AI 产品负责人写作，
-给出未来一个季度值得采取的行动和可观察的判断指标。
+研究 2026 年国内办公 Agent 产品。
+比较 Kimi Work、扣子、飞书／豆包工作、悟空、WPS、WorkBuddy，
+面向 AI 产品与企业办公负责人写作。
 
-以 [日期] 为信息截止日。重要判断附来源，区分公司说法与
-独立证据，并说明哪些反证可能改变结论。
+说明各产品改变哪些文件和业务对象、任务在哪里运行，
+以及模型、工具、上下文、权限和人工参与如何影响交付与返工。
 
-先读 SKILL.md，澄清缺失的研究需求，确认提纲后再搜集资料。
+以 [日期] 为信息截止日。重要判断附来源，区分公司说法、
+媒体体验与实际效果证据，并说明哪些反证可能改变结论。
+
+阅读 SKILL.md，澄清缺失的研究需求，确认提纲后搜集资料。
 ```
 
-这份请求改编自案例任务，用于发起一次新的研究。约 30 秒可以发出请求；完成研究和审阅需要更多时间，结果也可能与历史报告不同。仓库无法读取时，使用[文件与附件方式](./agents/README.zh-CN.md#直接读取使用)。
+需要反复使用和可调用的执行工具时，可[安装插件](./docs/usage-modes.zh-CN.md#安装插件)。Agent 无法读取仓库时，可按[文件与附件说明](./agents/README.zh-CN.md#直接读取使用)使用。
 
-## 一份报告，三处实际修改
+## 研究案例
 
-| 关注点 | 这份报告怎么改 |
-| --- | --- |
-| **判断与结构** | 原稿已有总体判断；修订稿把具体投入方向和适用边界前置。 |
-| **分析深度** | 在平均收益之外补入高技能员工的负面结果，让差异影响采用建议。 |
-| **证据边界** | 将无法直接复核的历史数字移入来源说明，正文收窄到可借鉴的部署路径。 |
+**2026 国内办公 Agent 产品研究：从生成文件到接手已有工作**
 
-[逐项阅读原文与修改说明](./docs/case-study/README.zh-CN.md) · [完整审阅记录](https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json)
+真实稿件中的表达、结构、资料补充与判断修改：
 
-这是发现并修正问题的开发案例，**不构成有无工具箱的对照实验，也不能证明工具普遍提升报告质量**。案例保留 2026 年 9 月 7 日的资料边界；[评测进展](./docs/evaluation-status.zh-CN.md)说明目前证据能支持什么。
+- [**去 AI 化表述**](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=writing&detail=diff#case)：压缩“价值不在于……而在于……”的铺垫，直接描述工作空间；把泛泛的实现差异落实到工具、上下文与设备在线。
+- [**去过程痕迹**](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=process&detail=diff#case)：删除“以下按……展开”的章节预告，把来源与实测范围保留在开篇；对照明确说明删除与段落重排。
+- [**aily 与豆包工作**](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=versions&detail=diff#case)：将“接续证据”收窄为两个时期的产品方向，保留原有迁移限制；现有资料不能证明版本继承。
+- [**扣子用什么模型**](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=analysis&detail=diff#case)：在原有运行方式和权限分析之外，补入原生模型选择与第三方云端的模型来源；框架名称不能确定底层模型。
+
+[稿件差异](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=writing&detail=diff#case) · [修改理由](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=writing&detail=reason#case) · [审阅取舍](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=writing&detail=review#case)
+
+[初稿原文](./docs/case-study/office-agents/original.zh-CN.md) · [定稿原文](./docs/case-study/office-agents/revised.zh-CN.md) · [历史审阅记录](./docs/case-study/office-agents/reviews.md) · [文本案例](./docs/case-study/README.zh-CN.md)
+
+历史报告，信息截至 2026 年 9 月 9 日；部分动态文档于 9 月 10 日核对。研究基于公开资料，未安装实测。稿件变化不构成有无工具箱的对照实验。 [评测进展](./docs/evaluation-status.zh-CN.md)
 
 <details>
-<summary>看一段案例浏览演示</summary>
+<summary>案例浏览演示</summary>
 
-[![案例浏览：切换原稿、修改说明和修订稿](./docs/assets/case-walkthrough.gif)](./docs/assets/case-walkthrough.mp4)
+[![Research Toolkit 案例浏览](./docs/assets/case-walkthrough.zh-CN.gif)](./docs/assets/case-walkthrough.zh-CN.mp4)
 
-英文界面演示，录制的是上述历史案例的浏览过程。[播放 MP4](./docs/assets/case-walkthrough.mp4) · [打开中文交互案例](https://rrrrrredy.github.io/research-toolkit/?lang=zh#case)
+表达与结构修改、产品判断、三种案例解读及请求复制的实际页面录制。 [MP4](./docs/assets/case-walkthrough.zh-CN.mp4)
 
 </details>
 
-## 研究如何推进
+## 研究方法与执行工具
 
-![明确问题 → 核对证据 → 展开分析 → 审阅修改 → 交付报告](./docs/assets/research-method.zh-CN.png)
+<picture>
+  <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./docs/assets/research-method.zh-CN.mobile.dark.png">
+  <source media="(max-width: 600px)" srcset="./docs/assets/research-method.zh-CN.mobile.png">
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/assets/research-method.zh-CN.dark.png">
+  <img src="./docs/assets/research-method.zh-CN.png" alt="研究流程：需求、来源、分析、审阅和报告。" width="840">
+</picture>
 
-适合产业、市场、公司、产品和技术等深度研究。检索、文件读写和脚本执行能力由所用的 Agent 提供。先读精简的 [Skill 入口](./SKILL.zh-CN.md)，再按需读取[完整研究规范](./references/research-standard.zh-CN.md)与[配套方法](https://rrrrrredy.github.io/research-toolkit/framework.html)。
+[研究需求](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/brief.html?lang=zh) → [来源资料](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/sources.html?lang=zh) → [论点资料](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/claims.html?lang=zh) → [历史审阅摘要](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/reviews.html?lang=zh) → [完整报告](https://rrrrrredy.github.io/research-toolkit/case-study/report.zh-CN.html)
+
+研究方法覆盖需求、证据、分析、写作与审阅。执行工具负责创建任务、保存进度、执行独立审阅和检查交付条件。具体的搜索、阅读、分析与写作由 Agent 完成。
+
+[研究方法文档](https://rrrrrredy.github.io/research-toolkit/framework.zh-CN.html?lang=zh)
+
+链接提供本案例的研究材料；历史报告未通过当前 MCP 版本执行。
 
 ## 安装与完整使用说明
 
@@ -109,11 +132,11 @@ git clone https://github.com/rrrrrredy/research-toolkit.git .agents/skills/resea
 
 下面是五个可以交给 Agent 的研究题目示例，并不代表这五题已经完成实测。实际报告与修订见后面的评测部分。
 
-1. **行业报告**：研究 2026 年 AI Agent 市场，面向战略读者，覆盖平台型玩家、工作流产品、协议与生态、商业化、采用阻力和失败模式，输出 6000-10000 字中文报告。
-2. **竞品分析**：比较 OpenAI、Anthropic、Google、字节、阿里、腾讯的 AI Agent 与 coding agent 策略，区分产品形态、开发者生态、模型能力、分发和商业化。
-3. **投资 memo**：写一份 AI 视频生成市场投资 memo，重点分析品类时机、关键公司、技术壁垒、价格压力、GTM、采用风险和反证。
-4. **月度观察**：为管理层写 AI 行业月度观察，综合模型发布、Agent 基础设施、产品竞争、开源动态、中美差异和影响判断。
-5. **技术路线研究**：研究从 DeepSeek R1 到 Claude Sonnet 风格混合推理的 reasoning model 竞争，解释技术路径、产品后果和仍不确定的问题。
+- **行业报告**：研究 2026 年 AI Agent 市场，面向战略读者，覆盖平台型玩家、工作流产品、协议与生态、商业化、采用阻力和失败模式，输出 6000-10000 字中文报告。
+- **竞品分析**：比较 OpenAI、Anthropic、Google、字节、阿里、腾讯的 AI Agent 与 coding agent 策略，区分产品形态、开发者生态、模型能力、分发和商业化。
+- **投资 memo**：写一份 AI 视频生成市场投资 memo，重点分析品类时机、关键公司、技术壁垒、价格压力、GTM、采用风险和反证。
+- **月度观察**：为管理层写 AI 行业月度观察，综合模型发布、Agent 基础设施、产品竞争、开源动态、中美差异和影响判断。
+- **技术路线研究**：研究从 DeepSeek R1 到 Claude Sonnet 风格混合推理的 reasoning model 竞争，解释技术路径、产品后果和仍不确定的问题。
 
 ## 好输出 / 坏输出
 
@@ -221,19 +244,19 @@ python scripts/build_sanitized_eval_set.py ^
 
 完整使用方法见 [`evals/README.md`](./evals/README.zh-CN.md)。
 
-## 01 研究中常见的问题
+## 研究中常见的问题
 
 长篇研究任务中，agent 很容易出现五类问题：
 
-1. **方法过拟合**：从一个具体项目中提炼出的经验，被误当成所有研究任务的默认框架。
-2. **过程泄漏**：终稿不像作者写的研究文章，而像“我读取了什么材料、做了什么处理”的工作日志。
-3. **证据漂移**：事实、来源说法、媒体解释、不确定性和作者判断混在一起，最后很难追溯。
-4. **过早完成**：只完成一个局部阶段，就把它当成整体任务完成。
-5. **深度塌缩**：来源数量、覆盖清单和审阅记录看似合格，但成稿过短、过于压缩，没有达到任务应有的研究深度。
+- **方法过拟合**：从一个具体项目中提炼出的经验，被误当成所有研究任务的默认框架。
+- **过程泄漏**：终稿不像作者写的研究文章，而像“我读取了什么材料、做了什么处理”的工作日志。
+- **证据漂移**：事实、来源说法、媒体解释、不确定性和作者判断混在一起，最后很难追溯。
+- **过早完成**：只完成一个局部阶段，就把它当成整体任务完成。
+- **深度塌缩**：来源数量、覆盖清单和审阅记录看似合格，但成稿过短、过于压缩，没有达到任务应有的研究深度。
 
 工具箱中的状态文件、来源台账、判断台账、阶段审阅和读者修订，都是为了解决这些问题。
 
-## 02 工具箱包含什么
+## 工具箱包含什么
 
 本仓库提供完成研究报告所需的方法、流程、任务记录和检查工具。这里的“协议”规定各阶段需要完成哪些工作、留下哪些记录、通过哪些检查。它能帮助发现一部分执行错误；能否阻止某个动作，还取决于所用 Agent 及其工具。理论系统、独立产品架构和通用建模语言不属于本项目。
 
@@ -254,7 +277,7 @@ python scripts/build_sanitized_eval_set.py ^
 
 如果任务开始滑向这些方向，应继续推进当前研究交付物，把相关想法记录为未来扩展；未经确认，不扩大任务或项目范围。
 
-## 03 核心原则
+## 核心原则
 
 - **交付物优先**：如果用户要的是文章或报告，不要偏移成系统设计、prompt 设计或流程说明。
 - **先做研究范围校准**：如果缺少影响方向、范围、交付物或深度判断的关键信息，先集中提问；其中必须确认预期篇幅或研究深度。
@@ -273,7 +296,7 @@ python scripts/build_sanitized_eval_set.py ^
 
 研究按 `brief -> collect -> analyze -> draft -> review -> revise -> final` 推进，即明确需求、搜集、分析、起草、审阅、修改、交付。每个阶段都有必须更新的记录、进入下一阶段的条件，以及检查失败后的处理方式。仅有文件不代表完成了阶段；所有必要单元和检查通过后，才能将阶段设为 `final`。
 
-## 04 研究前需要明确的问题
+## 研究前需要明确的问题
 
 收集资料前，Agent 结合已有对话与材料检查关键缺项，集中提出一组简短问题，不规定问题数量；适合时提供具体选项。篇幅或深度缺失且无法从所需成果判断时，需要询问。
 
@@ -289,7 +312,7 @@ python scripts/build_sanitized_eval_set.py ^
 
 信息充分时直接开始，不重复追问。未答复的关键决定所涉及的工作保持待定，只推进不受影响的部分；非关键默认值或用户授权自行作出的选择写入 `task_spec.md`。读取规范、维护进度、执行评审、恢复失败和检查完成情况由 Agent 负责；用户提供研究决策与必要访问条件。
 
-## 05 研究后台与成稿
+## 研究后台与成稿
 
 研究后台保留以下核心记录。`state/findings.jsonl`、`state/directions_tried.json`、`state/iteration_log.jsonl` 和 `logs/work.jsonl` 仅在有助于当前任务时使用，不是普遍必交文件。不确定性可直接记在主张中，独立的 `data/uncertainty_registry.csv` 按需使用。
 
@@ -315,17 +338,17 @@ python scripts/build_sanitized_eval_set.py ^
 
 ### 逐板块研究与修改循环
 
-1. 先明确研究需求，再规划范围、输入、输出和完成条件。
-2. 只搜集或处理当前阶段需要的资料。
-3. 将资料整理为判断、不确定性记录和分析笔记。
-4. 起草一个范围明确的章节或分析单元。
-5. 检查该章节的证据、覆盖、结构、反证和表达。
-6. 修改章节，并更新来源与判断记录。
-7. 更新进度，明确下一阶段。
+- 先明确研究需求，再规划范围、输入、输出和完成条件。
+- 只搜集或处理当前阶段需要的资料。
+- 将资料整理为判断、不确定性记录和分析笔记。
+- 起草一个范围明确的章节或分析单元。
+- 检查该章节的证据、覆盖、结构、反证和表达。
+- 修改章节，并更新来源与判断记录。
+- 更新进度，明确下一阶段。
 
 对于长篇报告，来源数、判断数、链接数和文件大小只能反映研究记录的状况，不能代替深度审阅。组装全文前，应对照预期深度补充薄弱单元，再做读者审阅。连续循环没有新增内容时的处理见下一节。
 
-## 06 断点恢复与执行护栏
+## 断点恢复与执行护栏
 
 断点恢复时，读取 `state/task_spec.md`、`state/progress.json` 和存在的重要补充要求；有帮助时读取已有的研究笔记。不要为了恢复而补造历史日志，也不要重复已完成阶段或已明确的研究需求。
 
@@ -362,7 +385,7 @@ python scripts/build_sanitized_eval_set.py ^
 - 机械套用可选分析方法，仍可能使报告偏离问题。
 - 状态文件需要在执行过程中更新，事后补写不能代替这一过程。
 
-## 07 适用场景
+## 适用场景
 
 适合用于：
 
@@ -385,12 +408,12 @@ python scripts/build_sanitized_eval_set.py ^
 - 没有资料约束的创意写作
 - 用户真正想要代码、仪表盘或自动化工具的任务
 
-## 08 使用与集成
+## 使用与集成
 
 研究工具箱可用于不同的 Agent 产品和模型。可以直接提供 [`SKILL.md`](./SKILL.md) 作为研究指令，按需补充 [`references/`](./references/)；工具支持安装 Skill 时，也可以按对应说明安装。
 
 不同环境的配置方法见 [Agent 接入说明](./agents/README.zh-CN.md)。使用前请确认文件读写、资料检索等所需能力是否可用；接入说明不代表报告质量已经获得验证。
 
-## 09 许可协议
+## 许可协议
 
 本项目采用 [MIT License](./LICENSE) 开源。

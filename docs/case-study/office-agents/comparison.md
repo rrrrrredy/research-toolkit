@@ -243,22 +243,3 @@ Claude Code 是程序名称，不能据此认定调用 Anthropic 模型。选型
 模型审阅意见据保留的作者裁定转述。
 
 [中间稿与裁定摘录](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/reviews.html#analysis-record)
-
-## 研究请求
-
-```text
-本次研究请使用 Research Toolkit：
-https://github.com/rrrrrredy/research-toolkit
-
-研究 2026 年国内办公 Agent 产品。
-比较 Kimi Work、扣子、飞书／豆包工作、悟空、WPS、WorkBuddy，
-面向 AI 产品与企业办公负责人写作。
-
-说明各产品改变哪些文件和业务对象、任务在哪里运行，
-以及模型、工具、上下文、权限和人工参与如何影响交付与返工。
-
-以 [日期] 为信息截止日。重要判断附来源，区分公司说法、
-媒体体验与实际效果证据，并说明哪些反证可能改变结论。
-
-阅读 SKILL.md，澄清缺失的研究需求，确认提纲后搜集资料。
-```

@@ -1,106 +1,782 @@
 {
-  "source_commit": "d08dc2d488fb7f00c173d3388cd0841fca1fa09e",
-  "information_cutoff": "2026-09-07",
-  "case_url": "https://github.com/rrrrrredy/research-toolkit/tree/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07",
-  "original_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/original-framework.md",
-  "revised_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/repaired.md",
-  "review_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json",
+  "information_cutoff": "2026-09-09",
+  "source_access_end": "2026-09-10",
+  "case_url": "case-study/office-agents/index.html",
+  "original_url": "case-study/office-agents/original.zh-CN.html",
+  "revised_url": "case-study/office-agents/revised.zh-CN.html",
+  "review_url": "case-study/office-agents/comparison.html",
+  "hero": {
+    "en": {
+      "quote": "Creating a file, editing an existing object, and changing business state are different deliverables. A report is checked mainly for content quality; updating a sales ledger must preserve fields and calculations; sending a quotation or submitting an approval changes other people's work.",
+      "highlights": [
+        "editing an existing object",
+        "changing business state"
+      ]
+    },
+    "zh": {
+      "quote": "生成文件、修改既有对象和改变业务状态，是不同的交付。研究稿主要检查内容质量；更新销售台账还要保留字段和计算；发送报价或提交审批则会改变他人的工作。",
+      "highlights": [
+        "修改既有对象",
+        "改变业务状态"
+      ]
+    }
+  },
   "pairs": [
     {
-      "id": "decisions",
-      "source_original": "**AI 客服已在高频、规则明确的业务中进入生产，企业下一阶段应投资于可持续解决问题的能力。** 截至 2026 年 9 月 7 日，Intercom、Zendesk、Salesforce 都有正式收费产品和具名生产案例；商业化已经发生，但公开证据尚不足以证明三者可以按相近成本、在任意企业复制相同效果。最值得关注的进展，是 AI 开始读取真实订单、执行授权操作，并把例外事项交给人工；最需要谨慎的地方，是“解决”“结果”“使用量”仍由不同规则计算。",
-      "source_revised": "未来一个季度，AI 客服预算应优先投向两类工作：一类是订单查询、票据获取、订阅变更等规则明确、可以核对业务结果的高频请求；另一类是由人工作最终决定的检索、回复建议和工单整理。暂不宜把复杂争议、不可逆资金操作和高价值客户关系整体交给无人值守系统。这是基于现有产品能力及证据边界的投入判断，不是三家产品已经通过同场生产测试的排名。",
-      "original_line": 1,
-      "revised_line": 7,
-      "en": {
-        "label": "Lead with a decision",
-        "title": "Give the reader a place to start.",
-        "before": "AI customer service has entered production in high-volume, rule-bound operations. The next investment should build the ability to resolve problems sustainably.",
-        "after": "Over the next quarter, prioritize two areas: high-volume requests with explicit rules and verifiable results, and retrieval or reply support where a person makes the final decision. Keep complex disputes and irreversible financial actions out of unattended workflows.",
-        "note": "The original already makes a judgment. The revision puts concrete priorities and limits in the opening, so the reader can act on it sooner.",
-        "why": "A clear thesis needs a scope: what to do first, where it applies, and when to stop.",
-        "before_tag": "Broad opening judgment",
-        "after_tag": "Priorities and limits up front",
-        "version": "Opening excerpts, translated and shortened. Follow the source links for the full paragraphs."
-      },
+      "id": "writing",
+      "original_url": "case-study/office-agents/original.zh-CN.html#L47",
+      "revised_url": "case-study/office-agents/revised.zh-CN.html#L55",
+      "review_url": "case-study/office-agents/reviews.html#writing-record",
+      "content_type": "excerpt",
       "zh": {
-        "label": "把判断放到前面",
-        "title": "读者先知道，下一步该做什么。",
-        "before": "AI 客服已在高频、规则明确的业务中进入生产，企业下一阶段应投资于可持续解决问题的能力。",
-        "after": "未来一个季度，AI 客服预算应优先投向两类工作：一类是订单查询、票据获取、订阅变更等规则明确、可以核对业务结果的高频请求；另一类是由人工作最终决定的检索、回复建议和工单整理。",
-        "note": "原稿已经有判断。修订稿进一步把投入方向和适用边界放到开篇，让读者更快找到行动起点。",
-        "why": "好的结论还要回答：先做什么，适用于谁，什么情况下需要停下来。",
-        "before_tag": "总体判断",
-        "after_tag": "先给具体方向",
-        "version": "开篇原文节选。完整段落及相邻限制说明见原文链接。"
+        "label": "去 AI 化表述",
+        "context": "独立工作台小节的开头：从泛泛解释价值，改为描述产品怎样组织工作。",
+        "title": "把套话改成具体动作与比较条件。",
+        "why": "压缩对比式铺垫和“恰好说明”的泛泛结尾，把差异落到工具、上下文与设备在线。",
+        "before": "独立办公Agent的价值，不在于把聊天框搬到桌面，而在于把资料、执行与修改放进同一段工作。对于经常整理不同来源文件的人，这条路线可以减少上传、下载和换工具的往返；但资料留在电脑上，并不意味着任务会自动持续运行，也不意味着所有处理都离线完成。Kimi Work与扣子的差别，恰好说明“独立工作台”内部也没有统一的实现方式。",
+        "after": "独立办公Agent把资料、执行与修改组织在同一工作空间。对于经常整理不同来源文件的人，这条路线可以减少上传、下载和换工具的往返；持续运行和数据处理的位置，却仍取决于具体实现。Kimi Work与扣子的差别，集中体现在谁提供工具、谁保存上下文，以及谁维持设备在线。",
+        "before_note": "初稿用“不在于……而在于……”解释价值，末尾只说实现方式不同。",
+        "after_note": "直接描述工作空间，再列出两款产品的比较条件；资料整理的作用和运行限制仍在。",
+        "before_highlights": [
+          "的价值，不在于把聊天框搬到桌面，而在于",
+          "恰好说明“独立工作台”内部也没有统一的实现方式"
+        ],
+        "highlights": [
+          "把资料、执行与修改组织在同一工作空间",
+          "谁提供工具、谁保存上下文，以及谁维持设备在线"
+        ],
+        "changes": [
+          {
+            "label": "压缩",
+            "text": "撤掉“价值不在于……而在于……”的铺垫，直接写资料、执行与修改如何放在一起。"
+          },
+          {
+            "label": "具体化",
+            "text": "将“实现方式不同”展开为工具、上下文与设备在线三个比较条件；保留可能减少文件搬运的条件性判断。"
+          }
+        ],
+        "reasons": [
+          {
+            "heading": "哪一句没有增加信息",
+            "body": "“把聊天框搬到桌面”并不是这一段实际分析的对象。用它制造对比，再说产品价值，绕远了；“恰好说明实现方式不同”也没有告诉读者差别在哪里。"
+          },
+          {
+            "heading": "为什么这样改",
+            "body": "定稿先说资料、执行与修改在同一空间，再指明工具、上下文和设备在线这三个条件。文字更直接，读者也有了继续比较 Kimi Work 与扣子的具体问题。"
+          }
+        ],
+        "tradeoffs": [
+          {
+            "label": "采用",
+            "text": "用动作、对象与条件承载判断，减少同一段内的修辞铺垫。"
+          },
+          {
+            "label": "保留",
+            "text": "文件搬运可能减少，持续运行和数据处理位置仍取决于具体实现；没有把潜在价值写成实测收益。"
+          },
+          {
+            "label": "不作推断",
+            "text": "这处修改不证明所有对比句都应删除，也不能据此判定一段文字是否由 AI 写成。"
+          }
+        ],
+        "sources": [
+          {
+            "label": "初稿对应段落",
+            "url": "case-study/office-agents/original.zh-CN.html#L47"
+          },
+          {
+            "label": "定稿对应段落",
+            "url": "case-study/office-agents/revised.zh-CN.html#L55"
+          },
+          {
+            "label": "作者编辑记录",
+            "url": "case-study/office-agents/reviews.html#writing-record"
+          }
+        ],
+        "history": [
+          {
+            "stage": "初稿与后续稿",
+            "body": "段首先解释“价值不在于……而在于……”，结尾以“实现方式不同”收束；早期中间稿仍保留该段。"
+          },
+          {
+            "stage": "作者编辑自查",
+            "body": "作者通读后指出，重复的限制与验证口吻挤占了产品分析，要求让具体产品变化和判断承担正文。"
+          },
+          {
+            "stage": "改写后的中间稿",
+            "body": "后续中间稿直接写工作空间，并列出工具、上下文和设备在线这三个差异。"
+          },
+          {
+            "stage": "定稿",
+            "body": "定稿保留这段改写。产品潜在作用和运行条件都在，变化发生在表达方式和比较的具体程度。"
+          }
+        ],
+        "decisions": [
+          {
+            "finding": "修辞铺垫与泛泛收尾",
+            "decision": "压缩表述，补足比较条件",
+            "basis": "保留原有产品分析，把原文已经讨论的工具、上下文和运行条件写清；不以换句式代替事实研究。"
+          }
+        ],
+        "review_note": "句子变化可在稿件中核对；整体编辑背景来自作者自查，不是模型逐句提出的修改。",
+        "review_link": "中间稿与作者编辑记录"
       },
-      "original_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/original-framework.md#L1",
-      "revised_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/repaired.md#L7",
-      "review_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json"
+      "en": {
+        "label": "Direct prose",
+        "context": "The opening of the workspace section moves from a broad value claim to how the products organize work.",
+        "title": "Replace rhetorical setup with actions and comparison criteria.",
+        "why": "The final report shortens the rhetorical setup and a vague closing, then names tools, context, and device availability.",
+        "before": "The value of independent office agents lies not in moving a chat box onto the desktop, but in bringing materials, execution, and revisions into one stretch of work. For people who frequently organize files from different sources, this approach can reduce uploading, downloading, and switching tools. Yet keeping files on a computer does not mean tasks run continuously or all processing happens offline. The differences between Kimi Work and Coze show that independent workspaces do not share a single implementation.",
+        "after": "Independent office agents organize materials, execution, and revisions in one workspace. For people who frequently organize files from different sources, this approach can reduce uploading, downloading, and switching tools. Continuous operation and the location of data processing still depend on the implementation. The differences between Kimi Work and Coze center on who supplies tools, who retains context, and who keeps the device online.",
+        "before_note": "The opening frames value through a rhetorical contrast; the closing only says implementations differ.",
+        "after_note": "The report states the mechanism directly and identifies comparison criteria, while retaining its conditions.",
+        "before_highlights": [
+          "lies not in moving a chat box onto the desktop, but in"
+        ],
+        "highlights": [
+          "who supplies tools, who retains context, and who keeps the device online"
+        ],
+        "changes": [
+          {
+            "label": "Shortened",
+            "text": "Remove the rhetorical setup and state how materials, execution, and revisions share a workspace."
+          },
+          {
+            "label": "Made specific",
+            "text": "Turn “implementations differ” into tools, context, and device availability. Keep the conditional benefit of less file handling."
+          }
+        ],
+        "reasons": [
+          {
+            "heading": "Which wording adds little",
+            "body": "Moving a chat box is not the mechanism examined in this paragraph. Using it as a contrast delays the point. Saying implementations differ gives the reader no criteria."
+          },
+          {
+            "heading": "Why this revision helps",
+            "body": "The final paragraph states the workspace mechanism and identifies three conditions. Readers can compare the products on tools, context, and device availability."
+          }
+        ],
+        "tradeoffs": [
+          {
+            "label": "Chosen",
+            "text": "Express the judgment through actions, objects, and conditions, with less rhetorical setup."
+          },
+          {
+            "label": "Retained",
+            "text": "Less file handling is a possible benefit; continuous operation and processing location still depend on the implementation."
+          },
+          {
+            "label": "Not inferred",
+            "text": "This edit neither bans contrastive sentences nor identifies whether a passage was written by AI."
+          }
+        ],
+        "sources": [
+          {
+            "label": "Initial passage (Chinese)",
+            "url": "case-study/office-agents/original.zh-CN.html#L47"
+          },
+          {
+            "label": "Final passage (Chinese)",
+            "url": "case-study/office-agents/revised.zh-CN.html#L55"
+          },
+          {
+            "label": "Author editing record (Chinese)",
+            "url": "case-study/office-agents/reviews.html#writing-record"
+          }
+        ],
+        "history": [
+          {
+            "stage": "Initial and later drafts",
+            "body": "The paragraph opened with a value contrast and ended by saying implementations differ. Early retained drafts kept that wording."
+          },
+          {
+            "stage": "Author editing check",
+            "body": "The author found that repeated limitations and verification language displaced substantive product analysis."
+          },
+          {
+            "stage": "Rewritten intermediate draft",
+            "body": "The next retained draft stated the workspace mechanism and named tools, context, and device availability."
+          },
+          {
+            "stage": "Final report",
+            "body": "The final report retained that revision, including the conditional benefit and operating constraints."
+          }
+        ],
+        "decisions": [
+          {
+            "finding": "Rhetorical setup and a vague closing",
+            "decision": "Shorten the setup; name comparison criteria",
+            "basis": "Retain the product analysis and make its existing tool, context, and operating conditions explicit."
+          }
+        ],
+        "review_note": "The passage change is verifiable in the manuscripts. Its editing context is an author check, not a model’s sentence-by-sentence instruction.",
+        "review_link": "Intermediate passages and author check (Chinese)"
+      }
+    },
+    {
+      "id": "process",
+      "original_url": "case-study/office-agents/original.zh-CN.html#L29",
+      "revised_url": "case-study/office-agents/revised.zh-CN.html#L13",
+      "review_url": "case-study/office-agents/reviews.html#process-record",
+      "content_type": "excerpt",
+      "zh": {
+        "label": "去过程痕迹",
+        "context": "开篇的结构预告与研究说明：删掉写作安排，把必要的来源和范围交代集中到开篇。",
+        "title": "删掉章节预告，保留研究边界。",
+        "why": "“以下按……展开”重复了章节导航；公开资料、未安装实测等信息则影响读者如何理解结论，应继续保留。",
+        "before": "以下按工作对象、独立工作台、办公套件、桌面执行与商业化展开。依据是公开产品文档和案例，不含安装实测；单一使用记录不代表行业表现。",
+        "after": "依据公开文档和案例，不含安装实测；部分动态说明于9月10日核对，不倒推为早期版本的能力。",
+        "before_note": "初稿在表后预告写作顺序，并附带资料和实测范围说明。",
+        "after_note": "结构预告已删除；来源与实测说明移到开篇。这里展示的是重排后的节选，不是同一句话的替换。",
+        "before_highlights": [
+          "以下按工作对象、独立工作台、办公套件、桌面执行与商业化展开。"
+        ],
+        "highlights": [
+          "依据公开文档和案例，不含安装实测"
+        ],
+        "changes": [
+          {
+            "label": "删除",
+            "text": "撤掉“以下按……展开”的章节预告；开篇的“有三个判断值得先说清楚”也不再出现。"
+          },
+          {
+            "label": "移位保留",
+            "text": "公开资料、未安装实测、案例代表性等说明保留在开篇；定稿另交代动态资料核对日期，没有靠删限制让判断变强。"
+          }
+        ],
+        "reasons": [
+          {
+            "heading": "什么属于作者旁白",
+            "body": "“以下按……展开”描述作者怎样安排文章，没有新增产品信息；章节标题和目录已经提供导航。“有三个判断值得先说清楚”也只是在宣告接下来要给结论。"
+          },
+          {
+            "heading": "为什么保留另一半",
+            "body": "研究依赖公开资料而非安装实测、单次案例不足以代表行业，这些会改变读者对结论的理解。定稿删除结构预告，集中保留必要范围与证据限制。"
+          }
+        ],
+        "tradeoffs": [
+          {
+            "label": "采用",
+            "text": "让正文直接承载产品判断，省去重复的章节预告。"
+          },
+          {
+            "label": "保留",
+            "text": "研究对象、历史日期、来源依据、实测范围和案例代表性；不把不确定性伪装成确定结论。"
+          },
+          {
+            "label": "展示边界",
+            "text": "本例展示结构预告的删除与研究说明的移位。两段位于不同位置，完整初稿和定稿均可核对。"
+          }
+        ],
+        "sources": [
+          {
+            "label": "初稿结构预告",
+            "url": "case-study/office-agents/original.zh-CN.html#L29"
+          },
+          {
+            "label": "定稿范围说明",
+            "url": "case-study/office-agents/revised.zh-CN.html#L13"
+          },
+          {
+            "label": "作者编辑记录",
+            "url": "case-study/office-agents/reviews.html#process-record"
+          }
+        ],
+        "history": [
+          {
+            "stage": "初稿",
+            "body": "开篇含“有三个判断值得先说清楚”，表后又用“以下按……展开”预告文章结构。范围和来源说明分散在几处。"
+          },
+          {
+            "stage": "作者编辑自查",
+            "body": "作者指出开篇应突出已有产品变化与判断，重复限制和验证口吻应压缩；同时保留实质不确定性与反证。"
+          },
+          {
+            "stage": "重排后的中间稿",
+            "body": "后续中间稿直接列主要判断，删除两处结构预告，把来源和范围说明集中在结论之后。"
+          },
+          {
+            "stage": "定稿",
+            "body": "定稿保留这一安排，补充动态资料核对日期和案例范围。"
+          }
+        ],
+        "decisions": [
+          {
+            "finding": "正文重复预告写作安排",
+            "decision": "删除旁白，保留导航与研究范围",
+            "basis": "章节结构已经清楚；读者仍需知道结论依据什么、哪些能力没有实测。"
+          }
+        ],
+        "review_note": "结构变化可在初稿、中间稿和定稿中核对；编辑方向来自作者自查，非独立模型意见。",
+        "review_link": "中间稿与作者编辑记录"
+      },
+      "en": {
+        "label": "Process narration",
+        "context": "The opening drops an outline announcement and brings essential source and scope information together.",
+        "title": "Remove the outline announcement; keep the research limits.",
+        "why": "The chapter headings already provide navigation. Public-source research and the absence of installed-product testing still matter to how readers interpret the findings.",
+        "before": "The following sections cover work objects, independent workspaces, office suites, desktop execution, and commercialization. The evidence consists of public product documents and examples, without installed-product testing; a single use record does not represent industry performance.",
+        "after": "The research uses public documents and examples, without installed-product testing. Some dynamic descriptions were checked on September 10; their capabilities are not attributed retrospectively to earlier versions.",
+        "before_note": "After the table, the draft announced its structure and added source and testing limits.",
+        "after_note": "The announcement was deleted. Source and testing limits moved to the opening; this is a reorganized excerpt, not a replacement of the same sentence.",
+        "before_highlights": [
+          "The following sections cover work objects, independent workspaces, office suites, desktop execution, and commercialization."
+        ],
+        "highlights": [
+          "public documents and examples, without installed-product testing"
+        ],
+        "changes": [
+          {
+            "label": "Removed",
+            "text": "Drop the section preview and the earlier announcement that three judgments should be stated first."
+          },
+          {
+            "label": "Moved and retained",
+            "text": "Keep source, testing, and sample limits in the opening. The final report also identifies the dates of dynamic-source checks."
+          }
+        ],
+        "reasons": [
+          {
+            "heading": "What counts as a writer’s aside",
+            "body": "The section preview describes the author’s plan without adding product information. Headings already show the structure. Announcing that conclusions are about to follow also delays those conclusions."
+          },
+          {
+            "heading": "Why the limits remain",
+            "body": "Public documents, no installed-product testing, and the limits of a single example affect how readers interpret the findings. They remain in the report after the outline narration is removed."
+          }
+        ],
+        "tradeoffs": [
+          {
+            "label": "Chosen",
+            "text": "Let the product findings carry the opening, without a repeated outline announcement."
+          },
+          {
+            "label": "Retained",
+            "text": "Scope, historical dates, sources, testing limits, and sample representativeness."
+          },
+          {
+            "label": "Display limit",
+            "text": "This example deletes an outline announcement and relocates essential scope information. The excerpts come from different positions in the same report."
+          }
+        ],
+        "sources": [
+          {
+            "label": "Initial outline passage (Chinese)",
+            "url": "case-study/office-agents/original.zh-CN.html#L29"
+          },
+          {
+            "label": "Final scope passage (Chinese)",
+            "url": "case-study/office-agents/revised.zh-CN.html#L13"
+          },
+          {
+            "label": "Author editing record (Chinese)",
+            "url": "case-study/office-agents/reviews.html#process-record"
+          }
+        ],
+        "history": [
+          {
+            "stage": "Initial draft",
+            "body": "The opening announced three judgments and later previewed the section order. Scope information appeared in several places."
+          },
+          {
+            "stage": "Author editing check",
+            "body": "The author called for leading with supported product changes and judgments, while reducing repetition and retaining material uncertainty."
+          },
+          {
+            "stage": "Reorganized intermediate draft",
+            "body": "The next retained draft removed both announcements and grouped source and scope information after the main findings."
+          },
+          {
+            "stage": "Final report",
+            "body": "The final report kept that arrangement and added dynamic-source dates and sample limits."
+          }
+        ],
+        "decisions": [
+          {
+            "finding": "Repeated narration of the article’s plan",
+            "decision": "Remove the aside; retain scope and navigation",
+            "basis": "Headings provide navigation. Readers still need to know the source basis and which capabilities were not tested."
+          }
+        ],
+        "review_note": "The structure change is verifiable in the manuscripts. Its editing direction is an author check, not an independent model finding.",
+        "review_link": "Intermediate passages and author check (Chinese)"
+      }
+    },
+    {
+      "id": "versions",
+      "original_url": "case-study/office-agents/original.zh-CN.html#L77",
+      "revised_url": "case-study/office-agents/revised.zh-CN.html#L89",
+      "zh": {
+        "label": "aily 与豆包工作",
+        "context": "aily 是飞书 4 月介绍的自定义智能体；8 月底文章使用“豆包工作”名称。两份介绍能否证明产品继承？",
+        "title": "现有资料不能证明豆包工作继承了 aily。",
+        "why": "两份材料分别介绍各自时期的产品能力；缺少更名或迁移说明时，不能把旧产品的能力算到新产品上。",
+        "before": "这是当前产品说明与此前功能路线的接续证据",
+        "after": "两个时间点分别展示对象操作和组织上下文协作的产品方向，不足以证明aily与豆包工作的版本继承",
+        "before_note": "初稿同段已提醒：旧功能与名称不能一对一迁移。",
+        "after_note": "原有功能与名称的迁移限制继续保留。",
+        "highlights": [
+          "不足以证明aily与豆包工作的版本继承"
+        ],
+        "before_highlights": [
+          "接续证据"
+        ],
+        "changes": [
+          {
+            "label": "收窄",
+            "text": "将“接续证据”改为“两时点的产品方向”，明确不支持版本继承。"
+          },
+          {
+            "label": "保留",
+            "text": "保留两个时期的官方能力说明，以及不能将旧功能全量套给新产品的限制。"
+          }
+        ],
+        "reasons": [
+          {
+            "heading": "两份官方材料分别写了什么",
+            "body": "4 月材料介绍 aily 对文档、多维表格和任务的操作；8 月底材料介绍豆包工作如何使用组织上下文、让成果回到协作。两者可以支撑各自时期的产品分析。"
+          },
+          {
+            "heading": "为什么撤掉“接续证据”",
+            "body": "功能相近和发布时间相连，不足以证明更名、版本继承或功能迁移。作者复查仍未取得这类证明，因此撤掉暗示继承的措辞。"
+          }
+        ],
+        "tradeoffs": [
+          {
+            "label": "采用",
+            "text": "分别分析两份材料，不把它们合并成已经证实的演进关系。"
+          },
+          {
+            "label": "代价",
+            "text": "产品关系暂时保留未知，比较只能分别采用两份材料各自支持的能力，不能合并能力清单。"
+          },
+          {
+            "label": "怎样才能改判",
+            "text": "取得明确的更名、版本映射或功能迁移说明后，才有依据重新判断产品关系。"
+          }
+        ],
+        "sources": [
+          {
+            "label": "飞书 aily 说明",
+            "url": "case-study/office-agents/sources.html#S01"
+          },
+          {
+            "label": "豆包工作说明",
+            "url": "https://www.feishu.cn/content/article/7680041109057178898"
+          }
+        ],
+        "history": [
+          {
+            "stage": "初稿与后续稿",
+            "body": "“接续证据”与迁移限制同时存在；后续保留稿仍沿用这句话。问题是措辞暗示的关系，比已取得的证据更强。"
+          },
+          {
+            "stage": "审阅意见",
+            "body": "一份模型审阅指出“接续证据”容易暗示版本继承，建议修正措辞精度。"
+          },
+          {
+            "stage": "回查与取舍",
+            "body": "复查未取得更名或迁移证明，也不凭页面导航中的 aily 域名反推关系。保留两次产品介绍，收窄两者的关系。"
+          },
+          {
+            "stage": "中间稿与定稿",
+            "body": "下一份中间稿改为“两个时间点”的产品方向，并明确不足以证明继承；定稿保留这一判断。"
+          }
+        ],
+        "decisions": [
+          {
+            "finding": "“接续证据”暗示版本继承",
+            "decision": "采纳精度修正",
+            "basis": "更名与迁移证明缺失，不能用相近功能或域名填补。"
+          }
+        ],
+        "review_note": "模型审阅意见据保留的作者裁定转述。",
+        "review_link": "中间稿与裁定摘录"
+      },
+      "en": {
+        "label": "aily and Doubao Work",
+        "context": "Feishu introduced aily custom agents in April; its late-August article used the name Doubao Work. This comparison concerns the relationship between those products.",
+        "title": "The retained sources do not establish that Doubao Work inherits from aily.",
+        "why": "Two product descriptions can be analyzed on their own. Their dates and similar direction do not establish a version lineage.",
+        "before": "This is evidence of continuity between the current product description and the earlier feature direction",
+        "after": "The two points in time show product directions in object operations and organizational-context collaboration; they do not establish version inheritance between aily and Doubao Work",
+        "before_note": "The same paragraph already cautioned against assuming a one-to-one transfer of features and names.",
+        "after_note": "The migration caveat remains; the report now explicitly limits what the two sources establish.",
+        "highlights": [
+          "do not establish version inheritance"
+        ],
+        "before_highlights": [
+          "evidence of continuity"
+        ],
+        "changes": [
+          {
+            "label": "Narrowed",
+            "text": "“Evidence of continuity” becomes product directions at two points in time, without a claim of version inheritance."
+          },
+          {
+            "label": "Retained",
+            "text": "Both official product descriptions and the warning against carrying earlier capabilities over to the later product."
+          }
+        ],
+        "reasons": [
+          {
+            "heading": "What each source supports",
+            "body": "The April source describes aily operating on documents, multidimensional tables, and tasks. The late-August article describes Doubao Work using organizational context and returning results to collaboration."
+          },
+          {
+            "heading": "Why the inference was narrowed",
+            "body": "Similar functions and successive dates do not establish renaming, version inheritance, or feature migration. The author’s follow-up did not obtain that evidence, so wording implying continuity was removed."
+          }
+        ],
+        "tradeoffs": [
+          {
+            "label": "Chosen",
+            "text": "Analyze each source without joining them into a verified product lineage."
+          },
+          {
+            "label": "Tradeoff",
+            "text": "The product relationship stays unresolved. Comparisons must use capabilities supported by each source separately, without merging their feature lists."
+          },
+          {
+            "label": "What could change it",
+            "text": "An explicit renaming notice, version mapping, or feature-migration document would support revisiting the relationship."
+          }
+        ],
+        "sources": [
+          {
+            "label": "Feishu aily source",
+            "url": "case-study/office-agents/sources.html#S01"
+          },
+          {
+            "label": "Doubao Work source",
+            "url": "https://www.feishu.cn/content/article/7680041109057178898"
+          }
+        ],
+        "history": [
+          {
+            "stage": "Initial and later drafts",
+            "body": "“Evidence of continuity” remained alongside the migration caveat. The wording implied a stronger relationship than the available sources established."
+          },
+          {
+            "stage": "Review finding",
+            "body": "A model review flagged that “evidence of continuity” could imply version inheritance. The author accepted a precision correction."
+          },
+          {
+            "stage": "Source check and decision",
+            "body": "The follow-up obtained no renaming or migration proof. An aily domain in site navigation was not treated as proof either. Both dated product descriptions were kept."
+          },
+          {
+            "stage": "Intermediate and final report",
+            "body": "The next retained draft switched to product directions at two points in time and explicitly rejected an unsupported inheritance claim. The final report kept that wording."
+          }
+        ],
+        "decisions": [
+          {
+            "finding": "Continuity wording implies version inheritance",
+            "decision": "Accepted a precision correction",
+            "basis": "Missing renaming or migration proof cannot be supplied by similar functions or a domain name."
+          }
+        ],
+        "review_note": "Model-review findings are relayed through the author’s retained decisions.",
+        "review_link": "Intermediate excerpts (Chinese)"
+      },
+      "review_url": "case-study/office-agents/reviews.html#versions-record",
+      "content_type": "excerpt"
     },
     {
       "id": "analysis",
-      "source_original": "独立研究对后一类路径提供了更强的效果证据。2025 年《经济学季刊》的研究利用 **5,172 名客服人员**的分阶段采用数据，发现 AI 辅助使每小时解决问题数平均提高约 **15%**，较少经验人员受益更大。研究对象是保留最终责任的人工客服，来自一家企业；它支持辅助工作的价值，不能用来证明三家自主客服产品的效果或排名。[Generative AI at Work](https://academic.oup.com/qje/article/140/2/889/7990658?login=false)",
-      "source_revised": "独立研究给出的启示更克制。《Generative AI at Work》的总样本为一家企业的 5,172 名客服，其中 1,636 人有使用 AI 后的观察数据；不能把全部样本说成已接受 AI 干预。研究发现 AI 辅助使每小时解决问题数平均提高 15%，但收益不均：低经验、低技能员工获益更明显，经验和技能最高的员工速度提升较小，质量还略有下降。该系统向人提供建议，人仍负责会话，不是对三家自主客服 Agent 的验证。因此，“辅助人工”值得作为投入路线，但应按员工经验与任务难度检查收益，不能拿平均值要求所有员工采用相同方式。[研究正文及样本表](https://arxiv.org/html/2304.11771v2)。",
-      "original_line": 49,
-      "revised_line": 75,
-      "en": {
-        "label": "Explain the difference",
-        "title": "An average is only the beginning.",
-        "before": "A study using adoption data from 5,172 support agents found an average productivity gain of about 15%, with larger gains among less-experienced workers.",
-        "after": "The study included 5,172 workers in total, of whom 1,636 had observations after AI adoption. Gains varied: less-experienced workers benefited more, while the most skilled workers saw little speed improvement and a slight decline in quality. Evaluate outcomes by experience and task difficulty.",
-        "note": "The original already mentions variation. The revision separates the total sample from post-adoption observations and adds an adverse result that changes the recommendation.",
-        "why": "Analysis connects the result, the exception, and the decision. An average alone cannot tell every team what to do.",
-        "before_tag": "Average and a broad caveat",
-        "after_tag": "Variation with a decision consequence",
-        "version": "Historical report excerpts, translated and shortened. This is not a new verification of the study."
-      },
+      "original_url": "case-study/office-agents/original.zh-CN.html#L63",
+      "revised_url": "case-study/office-agents/revised.zh-CN.html#L73",
       "zh": {
-        "label": "把资料变成分析",
-        "title": "平均有收益，谁会例外？",
-        "before": "2025 年《经济学季刊》的研究利用 5,172 名客服人员的分阶段采用数据，发现 AI 辅助使每小时解决问题数平均提高约 15%，较少经验人员受益更大。",
-        "after": "低经验、低技能员工获益更明显，经验和技能最高的员工速度提升较小，质量还略有下降。因此，“辅助人工”值得作为投入路线，但应按员工经验与任务难度检查收益，不能拿平均值要求所有员工采用相同方式。",
-        "note": "原稿已经提到收益差异。修订稿补入高技能员工的负面结果，并区分总样本与使用 AI 后的观察样本，让差异真正影响建议。",
-        "why": "把结果、例外和选择联系起来，分析才能超出对资料的转述。",
-        "before_tag": "平均值与初步区分",
-        "after_tag": "例外改变建议",
-        "version": "历史报告原文节选；后文摘录合并了同一段中的两句话。此处不代表重新核验研究结果。"
+        "label": "扣子用什么模型",
+        "context": "扣子提供原生、第三方云端和本地接入。执行框架安排任务与工具调用，底层模型负责理解与推理。",
+        "title": "扣子云端的 Claude Code，底层模型由扣子提供。",
+        "why": "Claude Code 是程序名称，不能据此认定调用 Anthropic 模型。选型还需要核对模型供应与运行位置。",
+        "before": "扣子把原生Agent、托管在云端的第三方Agent和本地接入放在同一协作入口。原生版本包含平台日程、邮箱、云资源等能力；云端第三方和本地接入并不自动取得同样的内置服务。",
+        "after": "原生Agent可选豆包、Kimi、GLM、MiniMax等模型。第三方云端模式则在扣子云电脑运行Claude Code、Codex CLI等执行框架，接入扣子提供的模型，不绑定原厂账号与模型。",
+        "before_note": "初稿已区分运行方式与服务权限；本小节未写具体模型来源。",
+        "after_note": "这是同一小节新增的段落；原有运行方式和权限分析仍在。",
+        "highlights": [
+          "接入扣子提供的模型"
+        ],
+        "before_highlights": [],
+        "changes": [
+          {
+            "label": "补充",
+            "text": "由模式与权限分工，进一步写到原生模型选择、第三方云端的执行框架与模型来源。"
+          },
+          {
+            "label": "保留",
+            "text": "三种模式的服务边界与本地设备条件仍有效，新增段落没有把它们合并成同一种能力。"
+          }
+        ],
+        "reasons": [
+          {
+            "heading": "初稿缺少哪一层事实",
+            "body": "说明“模型很重要”或区分运行方式，还不能回答具体产品用什么模型。读者看到 Claude Code 时，也可能把程序品牌当成模型供应商。"
+          },
+          {
+            "heading": "补充资料带来了什么",
+            "body": "扣子产品介绍列出原生 Agent 的模型选择；第三方云端文档说明在扣子云电脑运行执行框架、接入扣子模型。两份资料让模型来源与运行方式能够分别描述。"
+          }
+        ],
+        "tradeoffs": [
+          {
+            "label": "采用",
+            "text": "补入可核对的配置事实，并保留模型、工具、上下文与权限分别影响任务的分析。"
+          },
+          {
+            "label": "保留未知",
+            "text": "不能据配置说明分配“某个模型贡献多少节时”，也不能推断真实任务完成率。"
+          },
+          {
+            "label": "还需要什么",
+            "text": "比较模型效果需要固定任务、输入、工具、权限与结果标准，再观察错误、调用失败及最终返工。"
+          }
+        ],
+        "sources": [
+          {
+            "label": "扣子 Agent 类型",
+            "url": "case-study/office-agents/sources.html#S04"
+          },
+          {
+            "label": "扣子产品介绍",
+            "url": "case-study/office-agents/sources.html#S29"
+          },
+          {
+            "label": "第三方云端说明",
+            "url": "case-study/office-agents/sources.html#S30"
+          }
+        ],
+        "history": [
+          {
+            "stage": "初稿",
+            "body": "扣子小节写了运行方式与服务边界；全文结尾解释模型的一般作用，仍缺少各模式的具体模型来源。"
+          },
+          {
+            "stage": "审阅意见",
+            "body": "两份模型审阅都指出分析偏泛。作者采纳并合并处理，补充具体产品配置，没有重复增加段落。"
+          },
+          {
+            "stage": "补充后的中间稿",
+            "body": "回到官方类型、产品介绍及云端文档，新增原生模型选择与第三方云端模型供给；综合分析也补充不同产品的模型路线。"
+          },
+          {
+            "stage": "后续取舍与定稿",
+            "body": "后续裁定没有再加重复机制段落；保留固定输入、工具和权限等比较条件，不把简单换模型当成因果实验。"
+          }
+        ],
+        "decisions": [
+          {
+            "finding": "模型分析偏泛",
+            "decision": "采纳并合并处理",
+            "basis": "补入具体产品配置，保留原有作用分析，不重复堆叠意见。"
+          },
+          {
+            "finding": "后续模型作用意见",
+            "decision": "保留比较条件，不重复扩写",
+            "basis": "综合分析已有模型作用与限制；不能只换模型，就把全部效果变化归给模型。"
+          }
+        ],
+        "review_note": "模型审阅意见据保留的作者裁定转述。",
+        "review_link": "中间稿与裁定摘录"
       },
-      "original_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/original-framework.md#L49",
-      "revised_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/repaired.md#L75",
-      "review_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json"
-    },
-    {
-      "id": "evidence",
-      "source_original": "其生产案例体现的是从窄场景扩大覆盖。SeatGeek 先面向可认证的登录用户，解决“我的票在哪里”，通过实时 API 获取订单信息。按 Zendesk 发布的客户案例，到 2025 年第二季度，其自动解决率达到 **51.5%**，AI 客服满意度从 **34% 升至 70%**。这是有具体业务动作和使用人群的采用证据；同时，它属于客户自报、无对照组的历史案例，不能证明 2026 年新产品在所有业务上已经达到同样效果。[SeatGeek 案例](https://www.zendesk.co.uk/customer/seatgeek/)",
-      "source_revised": "SeatGeek 的客户案例提供了一种具体的落地路径：先处理“我的票在哪里”，从可认证的已登录用户开始，再通过实时接口读取订单。这份厂商刊载的历史案例可借鉴的是先限定任务、打通认证与订单数据，再向其他问题扩展的部署顺序；它不能证明新计费等级的效果，也不代表普通客户的平均收益。其历史数字与证据限制列在文末来源说明，不进入三家效果排名。[SeatGeek 历史案例](https://www.zendesk.com/customer/seatgeek/)。",
-      "original_line": 27,
-      "revised_line": 45,
       "en": {
-        "label": "Keep claims within evidence",
-        "title": "Show what the source can support.",
-        "before": "The vendor case reports a 51.5% automated resolution rate and customer satisfaction rising from 34% to 70%. The original attributes these figures to the customer and notes the lack of a control group.",
-        "after": "The revised report uses the case to describe a deployment sequence: start with a bounded task, authenticate users, connect order data, then expand. Historical figures move to the source notes with the limitation that the original page could not be directly rechecked.",
-        "note": "Attribution was already present. Review found a different gap: the source-access limitation needed to sit beside the exact figures. The revision narrows how those numbers are used.",
-        "why": "A citation is useful when the claim stays within what can actually be checked.",
-        "before_tag": "Attributed historical figures",
-        "after_tag": "A narrower, traceable claim",
-        "version": "Summaries of the two report versions. The archived source-access limitation remains unresolved."
+        "label": "Coze’s models",
+        "context": "Coze China groups native agents, third-party cloud agents, and local connections in one interface. An execution framework organizes actions; the underlying model handles understanding and reasoning.",
+        "title": "Coze supplies models for its cloud-hosted Claude Code.",
+        "why": "The report identifies Claude Code and Codex CLI as execution frameworks. A program’s brand does not, by itself, establish which model powers a particular deployment.",
+        "before": "Coze brings native agents, third-party agents hosted in the cloud, and local connections into one collaboration interface. The native version includes platform scheduling, email, and cloud resources; the other modes do not automatically inherit those built-in services.",
+        "after": "Native agents can select models such as Doubao, Kimi, GLM, and MiniMax. Third-party cloud mode runs execution frameworks such as Claude Code and Codex CLI on Coze cloud computers, using models supplied by Coze rather than being tied to the original provider’s account and model.",
+        "before_note": "The section distinguished execution modes and services, but did not identify their specific model supply.",
+        "after_note": "This paragraph was added to the same product section. Its existing mode and permission analysis remains.",
+        "highlights": [
+          "models supplied by Coze"
+        ],
+        "before_highlights": [],
+        "changes": [
+          {
+            "label": "Added",
+            "text": "Specific native-model choices and the distinction between third-party cloud frameworks and their model supply."
+          },
+          {
+            "label": "Retained",
+            "text": "The original service boundaries and local-device conditions; the additional paragraph does not make all three modes equivalent."
+          }
+        ],
+        "reasons": [
+          {
+            "heading": "The fact layer missing from the draft",
+            "body": "General discussion of model importance and execution modes cannot answer which models a particular product uses. A reader may also mistake the Claude Code program brand for a model provider."
+          },
+          {
+            "heading": "What the additional sources establish",
+            "body": "The product introduction lists native-model choices. The cloud-agent document explains frameworks running on Coze computers with Coze-supplied models. They allow model supply and execution mode to be described separately."
+          }
+        ],
+        "tradeoffs": [
+          {
+            "label": "Chosen",
+            "text": "Add verifiable product configuration while retaining the distinct roles of models, tools, context, and permissions."
+          },
+          {
+            "label": "Not inferred",
+            "text": "Configuration documents do not measure a model’s share of time saved or real-task completion rates."
+          },
+          {
+            "label": "What is still needed",
+            "text": "Comparing model effects requires fixed tasks, inputs, tools, permissions, and result criteria, followed by errors, failed calls, and rework."
+          }
+        ],
+        "sources": [
+          {
+            "label": "Agent types",
+            "url": "case-study/office-agents/sources.html#S04"
+          },
+          {
+            "label": "Product introduction",
+            "url": "case-study/office-agents/sources.html#S29"
+          },
+          {
+            "label": "Third-party cloud documentation",
+            "url": "case-study/office-agents/sources.html#S30"
+          }
+        ],
+        "history": [
+          {
+            "stage": "Initial draft",
+            "body": "The Coze section described execution modes and service boundaries. Its conclusion covered general model roles but lacked specific supply details."
+          },
+          {
+            "stage": "Review finding",
+            "body": "Two model reviews found the analysis too general. The author combined their substantive findings and added product facts rather than duplicate paragraphs."
+          },
+          {
+            "stage": "Expanded intermediate draft",
+            "body": "The author returned to official type, product, and cloud documents. The next draft added native choices and cloud-model supply, with product-level synthesis in the conclusion."
+          },
+          {
+            "stage": "Later decision and final report",
+            "body": "A later adjudication added no duplicate mechanism paragraph. Conditions for controlled comparisons were retained; simply switching a model was not treated as a causal experiment."
+          }
+        ],
+        "decisions": [
+          {
+            "finding": "Model analysis is too general",
+            "decision": "Accepted and combined",
+            "basis": "Add specific configuration while retaining the existing analysis; avoid duplicating overlapping findings."
+          },
+          {
+            "finding": "Later model-mechanism feedback",
+            "decision": "No duplicate paragraph",
+            "basis": "The synthesis already covered mechanisms and limits. Isolating model effects requires controlled tools and permissions."
+          }
+        ],
+        "review_note": "Model-review findings are relayed through the author’s retained decisions.",
+        "review_link": "Intermediate excerpts (Chinese)"
       },
-      "zh": {
-        "label": "让结论守住证据边界",
-        "title": "有引用，还要看它能证明什么。",
-        "before": "按 Zendesk 发布的客户案例，到 2025 年第二季度，其自动解决率达到 51.5%，AI 客服满意度从 34% 升至 70%。",
-        "after": "SeatGeek 的客户案例提供了一种具体的落地路径：先处理“我的票在哪里”，从可认证的已登录用户开始，再通过实时接口读取订单。\n\n其历史数字与证据限制列在文末来源说明，不进入三家效果排名。",
-        "note": "原稿已经注明客户自报和没有对照组。审阅指出，原始页面无法直接复核的限制还不够醒目；修订稿把历史数字移到来源说明，正文收窄到部署路径。",
-        "why": "引用的价值，取决于它能支撑多强的判断。",
-        "before_tag": "引用历史效果数字",
-        "after_tag": "收窄到可借鉴的路径",
-        "version": "报告原文节选，省略同一段中的中间一句。原始页面无法直接复核的限制保留在完整报告中。"
-      },
-      "original_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/original-framework.md#L27",
-      "revised_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/repaired.md#L45",
-      "review_url": "https://github.com/rrrrrredy/research-toolkit/blob/d08dc2d488fb7f00c173d3388cd0841fca1fa09e/evals/diagnostics/2026-09-07/reports/customer-service/reviews/astra-initial.json"
+      "review_url": "case-study/office-agents/reviews.html#analysis-record",
+      "content_type": "excerpt"
     }
   ]
 }

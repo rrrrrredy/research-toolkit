@@ -19,7 +19,7 @@ Of 22 original author attempts in the retained families, 12 failed. Twelve suppl
 
 ## Public scope
 
-The repository includes [calibration reports and model replies](../evals/diagnostics/2026-09-07/), [semantic diagnostics and available reviews](../evals/semantic_diagnostics/), and [offline controls](../evals/README.md). Private full reports, the original review corpus and source packages behind the aggregate counts above are not published here. Public downloads are a subset, not all 92 development reviews or all 88 paired-study reviews.
+The repository includes [calibration reports and model replies](../evals/diagnostics/2026-09-07/), [semantic diagnostics and available reviews](../evals/semantic_diagnostics/), and [offline controls](../evals/README.md). The [office-agents development case](case-study/office-agents/README.md) also includes a complete report, retained draft, source and claim records, and a review summary. The remaining private full reports and the complete original review corpus and source packages behind the aggregate counts above are not published here. Public downloads are a subset, not all 92 development reviews or all 88 paired-study reviews.
 
 Reviewer agreement is not accuracy. The historical cohort has already informed development; future reuse is regression/development work, not a new unexposed efficacy test. Human calibration is not a prerequisite for completing the required model reviews.
 

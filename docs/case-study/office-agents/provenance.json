@@ -1,0 +1,24 @@
+{
+  "case": "U01",
+  "information_cutoff": "2026-09-09",
+  "source_access_end": "2026-09-10",
+  "artifacts": {
+    "original.zh-CN.md": {
+      "source_name": "draft-01.md",
+      "sha256": "021e5cd7c3cc9f119b9baaa0d920478c209546364ec270cd7db89739a3ae9e6d"
+    },
+    "revised.zh-CN.md": {
+      "source_name": "final.md",
+      "sha256": "bdcb6fe059a0e917a5254e8337069b48ef60ed21b7cbc8b0d7f7fcb9ffc88ce5"
+    }
+  },
+  "comparison": {
+    "original": "draft-01.md",
+    "revised": "final.md",
+    "controlled_experiment": false
+  },
+  "reader_edition": {
+    "zh-CN": "../report.zh-CN.md",
+    "en": "../report.en.md"
+  }
+}
