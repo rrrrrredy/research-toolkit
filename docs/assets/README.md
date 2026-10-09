@@ -2,6 +2,7 @@
 
 These visuals use the historical office-agents report from September 2026. The case archive retains the complete original Chinese draft and revised report, with artifact provenance, source records, and a review summary.
 
+- repository-case.*.png: a report excerpt for the GitHub README, with the research title and historical date. Desktop and mobile compositions have light and dark variants.
 - readme-preview.*.png: the project wordmark and an excerpt from the revised office-agents report. Desktop composition: 840 px; mobile composition: 360 px. Each language has light and dark variants, exported at 2x.
 - research-method.*.png: the five-stage method outline. Linked historical artifacts illustrate the method without implying that the case used the current MCP implementation.
 - case-walkthrough.mp4 and .gif: English recordings of actual case-browser interactions. The .zh-CN variants show the Chinese page. They begin with real prose and structure edits, then show product questions, the three interpretation views, and copying a research request. The recording does not show an agent conducting a new study.

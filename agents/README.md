@@ -8,7 +8,7 @@ Research Toolkit provides the `research-toolkit` Skill. Choose how you want to u
 
 ## Use without installation
 
-Give the agent the repository URL and ask it to read `SKILL.md` first. Load files under `references/` when the current task needs them. The [quickstart example](../README.md#quickstart) includes a research request you can adapt.
+Give the agent the repository URL and ask it to read `SKILL.md` first. Load files under `references/` when the current task needs them. The [research request](../README.md#usage) includes a research request you can adapt.
 
 If repository links are unavailable, download the repository and give the agent access to the files, or attach `SKILL.md` and the supporting files it needs. Reading or attaching these files applies the instructions to the current task; it does not register a native Skill.
 
