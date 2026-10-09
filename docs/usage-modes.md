@@ -1,16 +1,29 @@
-# Skill, plugin and MCP
+# Usage and integration
 
 [English](usage-modes.md) | [简体中文](usage-modes.zh-CN.md)
 
-**Use the plugin when your agent supports it. It bundles the Skill and MCP tools; you do not need three installations.** The Skill remains available for instruction-only use, and the same MCP server can be connected separately.
+**Use the research methods through a repository link, files, attachments, or pasted text.** This works with the inputs available to Claude (Anthropic), Grok bots, WorkBuddy, and other agents. Native Skill, plugin, and MCP support are separate capabilities of the host.
 
-| Form | What it supplies | Choose it when |
+## Use the research methods
+
+- **Repository link:** send the [research request](../README.md#usage) to an agent that can read GitHub.
+- **Files or attachments:** download the repository, provide `SKILL.md`, and make the required reference files available.
+- **Text-only input:** paste the complete entry instructions and relevant method sections. See [chat-only use](../agents/README.md#chat-only-use).
+- **Native Skill:** install the complete toolkit through the host's supported mechanism. See [agent setup](../agents/README.md).
+
+No Python or Codex installation is required merely to read and apply the methods. Retrieval and file access come from the author agent. A separate reviewer is needed for independent review; supplying the instructions does not run one automatically.
+
+## Optional workflow tools
+
+Use local MCP when the host can start a local process, or the bundled plugin when it supports the plugin format. The tools use the same research methods.
+
+| Form | What it supplies | Host requirement |
 | --- | --- | --- |
-| Skill | Concise entry instructions and detailed methods loaded by research stage | Your tool loads Skills or files, or you only want the research methods |
-| Plugin | An installable bundle containing the Skill, references and local MCP server | Your agent supports the plugin format and local tools |
-| MCP | Five callable tools for task setup, stage guidance, effective reviews and delivery checks | Your agent supports local MCP but you are not installing the plugin |
+| Skill | Entry instructions and detailed research methods | Native Skill discovery or explicit file reading |
+| Plugin | Skill, references, and the local MCP server in one package | Support for the package format and local stdio MCP |
+| MCP | Five callable tools for task setup, progress, guidance, reviews, and delivery checks | A client that can start and call a local stdio MCP server |
 
-All three use the same research standard. The plugin packages the shared scripts; MCP calls those scripts. Installing a second copy does not add another research method. Keep one intended Skill copy active.
+Python 3.10+ and the MCP dependency are required for the local tools. Automated reviews also require a configured review executor and model account. The default executor uses Codex CLI; the author agent can be any compatible MCP client, and [another review command can be configured](#configure-another-reviewer).
 
 ## Install the plugin
 

@@ -1,16 +1,28 @@
-# Skill Installation and Use
+# Use with your agent
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-For an installation that bundles the Skill with executable review and delivery tools, use the [plugin or standalone MCP guide](../docs/usage-modes.md). This page covers Skill-only installation.
+The research methods can be supplied to Claude (Anthropic), Grok bots, WorkBuddy, and other agents through repository access, files, attachments, or pasted text. Choose the method your current interface supports; no Codex authoring environment is required.
 
-Research Toolkit provides the `research-toolkit` Skill. Choose how you want to use it: read its files for a task, or install it in a tool that supports native Skill discovery. The concise [Skill entry point](../SKILL.md) and [Chinese version](../SKILL.zh-CN.md) route each stage to its methods. The [complete research standard](../references/research-standard.md) remains available for detailed rules.
+The [entry instructions](../SKILL.md) and [Chinese reading version](../SKILL.zh-CN.md) point to the methods for each research stage. Native Skill installation is optional. For callable workflow tools, see [plugin and MCP configuration](../docs/usage-modes.md).
 
 ## Use without installation
 
-Give the agent the repository URL and ask it to read `SKILL.md` first. Load files under `references/` when the current task needs them. The [research request](../README.md#usage) includes a research request you can adapt.
+| Available input | Method |
+| --- | --- |
+| Repository access | Send the [repository URL](https://github.com/rrrrrredy/research-toolkit) and ask the agent to read `SKILL.md` and the required files under `references/`. |
+| Local files or attachments | [Download the repository](https://github.com/rrrrrredy/research-toolkit/archive/refs/heads/main.zip). Make `SKILL.md` and the reference files available to the session. If attachment limits apply, provide the entry file and add the required methods by stage. |
+| Pasted text | Paste the full entry instructions and the reference sections needed for the task. A URL alone is insufficient when the agent cannot open it. |
 
-If repository links are unavailable, download the repository and give the agent access to the files, or attach `SKILL.md` and the supporting files it needs. Reading or attaching these files applies the instructions to the current task; it does not register a native Skill.
+Use the [copyable research request](../README.md#usage), replacing its date, topic, and audience. For a file or text input, replace the repository-reading instruction with the attached files or pasted instructions you supplied.
+
+These methods apply instructions to the task. They do not register a native Skill, start MCP, provide web access, or execute model reviews.
+
+## Chat-only use
+
+An interface without file persistence or command execution can still use the research and writing methods. Keep source, claim, uncertainty, and review records separate from the report; save or export them when continuing in another session.
+
+A review requires a separate reviewer with the full brief, report, and supporting evidence. Use another session or a reviewer you can access and return its substantive findings to the author. Do not treat the author's self-check as an independent review. If the interface cannot run file-based checks or preserve task files, those capabilities remain unavailable; chat notes do not establish persistent recovery or verified delivery.
 
 ## Install for repeated use
 
@@ -23,10 +35,11 @@ Use a complete repository checkout for local installation so that references, he
 | Tool | Method covered by the guide | Confirm before use |
 | --- | --- | --- |
 | [Codex](codex.md) | Native Skill installation or direct file reading | `research-toolkit` is discoverable for native use; the intended files can be read |
-| [Claude](claude.md) | Project instructions, attachments, and local files where available | Required files and tools are available in the session |
+| [Claude (Anthropic)](claude.md) | Project instructions, attachments, and local files where available | Required files and tools are available in the session |
 | [Gemini CLI](gemini-cli.md) | Reading the toolkit from a local folder | References are readable and research files can be saved |
 | [Cursor](cursor.md) | Repository instructions and local files | The session reads the intended toolkit copy |
 | [ChatGPT / general agents](chatgpt.md) | Uploaded files or pasted instructions | Sources and saved task records can be accessed |
+| [Grok bots / WorkBuddy / other agents](chatgpt.md) | Repository, file, attachment, or pasted-text methods above | Use the inputs and tools the current interface actually supports; native integration is separate |
 | [OpenClaw](openclaw.md) | Skill directory installation and direct file reading | The intended Skill is visible and allowed |
 | [Hermes Agent](hermes.md) | Skill directory installation and invocation | The Skill appears in the catalog with its references available |
 | [DeepSeek Harness (optional)](deepseek-harness.md) | Native Skill installation and its optional adapter | Follow this guide only when using that tool |

@@ -4,8 +4,8 @@
 
 ## Use Research Toolkit
 
-- [Installation, usage modes, and workflow tools](usage-modes.md): plugin setup, standalone MCP, review accounts, and task execution.
-- [Agent setup](../agents/README.md): file loading and Skill installation for each host.
+- [Usage and integration](usage-modes.md): repository, file, and text inputs; optional Skill, plugin, and MCP; review configuration.
+- [Use with your agent](../agents/README.md): common input methods, chat-only limits, and host-specific setup.
 - [Updating an installation](installation-versioning.md): choose and replace the intended package copy.
 
 ## Research and writing
@@ -19,7 +19,7 @@
 
 ## Reports and cases
 
-- [Office agents in China: case archive](case-study/office-agents/README.md): original and final manuscripts, source and claim records, and revision decisions.
+- [Office agent research in China: case archive](case-study/office-agents/README.md): original and final manuscripts, source and claim records, and revision decisions.
 - [Complete report](case-study/report.en.md): the English reader edition of the September 2026 report.
 - [Case study](case-study/README.md): prose, structure, product-lineage, and model-supply changes.
 

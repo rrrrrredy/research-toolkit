@@ -4,8 +4,8 @@
 
 ## 使用 Research Toolkit
 
-- [安装、使用方式与执行工具](usage-modes.zh-CN.md)：插件安装、单独连接 MCP、审阅账户与任务执行。
-- [Agent 接入](../agents/README.zh-CN.md)：各工具的文件加载与 Skill 安装。
+- [使用与接入](usage-modes.zh-CN.md)：仓库、文件与文本输入，可选的 Skill、插件、MCP，以及审阅配置。
+- [在你的 Agent 中使用](../agents/README.zh-CN.md)：通用输入方式、纯聊天边界与各工具的接入。
 - [更新安装](installation-versioning.zh-CN.md)：选择和替换预期的软件包副本。
 
 ## 研究与写作

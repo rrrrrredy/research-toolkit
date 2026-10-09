@@ -72,16 +72,7 @@
       if (a) {
         try { localStorage.setItem("research-toolkit.language", a.dataset.language); } catch (_) {}
       }
-      var guide = event.target.closest('a[href="#install"]');
-      if (guide) {
-        var details = document.querySelector("#install .details");
-        if (details) details.open = true;
-      }
     });
-    if (location.hash === "#install") {
-      var details = document.querySelector("#install .details");
-      if (details) details.open = true;
-    }
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", ready);
   else ready();

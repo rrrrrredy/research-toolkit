@@ -1,4 +1,4 @@
-# 国内办公 Agent 产品研究 / Office agents in China
+# 国内办公 Agent 产品研究 / Office agent research in China
 
 从生成文件到修改已有对象，再到组织动作，办公 Agent 的交付边界有什么不同？这份报告围绕 Kimi Work、扣子、飞书／豆包工作、悟空、WPS 与 WorkBuddy 展开分析。
 

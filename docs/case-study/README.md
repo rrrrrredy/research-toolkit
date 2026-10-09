@@ -1,4 +1,4 @@
-# Office agents in China
+# Office agent research in China
 
 Historical report. Information through September 9, 2026; some dynamic documents were checked on September 10. Public-source research without installed-product testing. These versions are not a controlled with/without-toolkit experiment.
 

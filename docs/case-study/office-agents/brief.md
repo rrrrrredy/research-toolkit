@@ -1,4 +1,4 @@
-# 国内办公 Agent 产品研究 / Office agents in China
+# 国内办公 Agent 产品研究 / Office agent research in China
 
 研究范围为 2026 年中国大陆用户能够接触的办公 Agent，包含独立工作台、桌面执行和办公套件中的能力。报告的信息截止日为 2026 年 9 月 9 日；部分动态文档于 9 月 10 日核对。依据公开资料，不包含产品安装实测。
 

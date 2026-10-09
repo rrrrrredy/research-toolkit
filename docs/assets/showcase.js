@@ -135,8 +135,13 @@
       e.href = url.href;
     });
     document.querySelectorAll("[data-eval-link]").forEach(function (e) { e.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-status"+(lang === "zh" ? ".zh-CN" : "")+".md"; });
+    document.querySelectorAll("[data-agent-link]").forEach(function (e) {
+      var file = "https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README"+(lang === "zh" ? ".zh-CN" : "")+".md";
+      var anchor = e.dataset.i18n === "textLink" ? (lang === "zh" ? "#只能在聊天中使用时" : "#chat-only-use") : (lang === "zh" ? "#直接读取使用" : "#use-without-installation");
+      e.href = file+anchor;
+    });
     var skillGuide = document.querySelector("[data-i18n='skillLink']");
-    skillGuide.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README"+(lang === "zh" ? ".zh-CN" : "")+".md";
+    skillGuide.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README"+(lang === "zh" ? ".zh-CN" : "")+".md"+(lang === "zh" ? "#安装后重复使用" : "#install-for-repeated-use");
     var fallback = document.querySelector("[data-i18n='fallbackGuide']");
     fallback.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README"+(lang === "zh" ? ".zh-CN" : "")+".md"+(lang === "zh" ? "#直接读取使用" : "#use-without-installation");
     var video = document.querySelector("video"), source = video.querySelector("source");

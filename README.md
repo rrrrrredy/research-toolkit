@@ -6,16 +6,18 @@
 
 Research methods · Callable workflow tools · Independent review. For industry research, product comparisons, company analysis, and technical research.
 
-[Research case](#research-case) · [Usage](#usage) · [Inside the toolkit](#inside-the-toolkit) · [Documentation](#documentation)
+[**Use with your agent**](#usage) · [Research case](#research-case) · [Documentation](#documentation)
 
 ## Research case
 
+<a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/report.en.md">
 <picture>
   <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./docs/assets/repository-case.en.mobile.dark.png">
   <source media="(max-width: 600px)" srcset="./docs/assets/repository-case.en.mobile.png">
   <source media="(prefers-color-scheme: dark)" srcset="./docs/assets/repository-case.en.dark.png">
   <img src="./docs/assets/repository-case.en.png" alt="Office agent research in China. September 2026 report excerpt: creating files, editing existing objects, and changing business state are different deliverables." width="840">
 </picture>
+</a>
 
 [**Full report**](./docs/case-study/report.en.md) · [Initial draft (Chinese)](./docs/case-study/office-agents/original.zh-CN.md) · [Final report (Chinese)](./docs/case-study/office-agents/revised.zh-CN.md) · [Sources and reviews](./docs/case-study/office-agents/README.md)
 
@@ -102,47 +104,42 @@ Historical report: information through September 9, 2026; some dynamic documents
 
 ## Usage
 
-In a compatible Codex environment, the plugin installs the research methods and MCP tools together. Requires Python 3.10+, Git, and a signed-in Codex CLI. The `python` environment used by MCP must include the dependency below.
+Use the research methods with Claude (Anthropic), Grok bots, WorkBuddy, or another agent. Provide the repository link, upload the files, or paste the instructions; native Skill installation is optional.
 
-```bash
-python -m pip install mcp==2.2.0
-codex plugin marketplace add rrrrrredy/research-toolkit
-codex plugin add research-toolkit@research-toolkit
-```
-
-Select Research Toolkit in a new session and describe the research:
-
-```text
-Research office agents available in China in 2026 for AI product
-and workplace leads. Compare Kimi Work, Coze, Feishu / Doubao Work,
-Wukong, WPS, and WorkBuddy. Explain which files and business objects
-each changes, where tasks run, and how models, tools, context,
-permissions, and human involvement affect delivery and rework.
-
-Use information available as of [DATE]. Cite important claims.
-Distinguish company statements, media experiences, and measured
-outcomes. Explain what could overturn your conclusions.
-Clarify missing requirements and agree on an outline before research.
-```
-
-[Installation and configuration](./docs/usage-modes.md#install-the-plugin) · [Other agents and Skill-only use](./agents/README.md) · [Standalone MCP](./docs/usage-modes.md#connect-mcp-separately)
-
-<details>
-<summary>Use the methods for one task without installation</summary>
-
-Send this with your research request to an agent that can read the repository and access your sources:
+Send this request to an agent that can read GitHub and access the required sources:
 
 ```text
 Use Research Toolkit for this task:
 https://github.com/rrrrrredy/research-toolkit
-Read SKILL.md and load the methods under references/ as needed.
+
+Research office agents available to users in China in 2026.
+Compare Kimi Work, Coze, Feishu / Doubao Work, Wukong,
+WPS, and WorkBuddy. Write for AI product and workplace leads.
+
+Explain which files and business objects each product changes,
+where tasks run, and how models, tools, context, permissions,
+and human involvement affect delivery and rework.
+
+Use information available as of [DATE]. Cite important claims.
+Distinguish company statements, media experiences, and measured
+outcomes. Explain what could overturn your conclusions.
+
+Read SKILL.md. Clarify missing requirements and agree on an
+outline before collecting sources.
 ```
 
-Reading the files applies the research methods. It does not start MCP or automatically run model reviews. If repository access is unavailable, use the [file and attachment guide](./agents/README.md#use-without-installation).
+Replace `[DATE]` and adapt the topic and audience. This request is based on the archived case brief; a new run may reach different conclusions.
 
-</details>
+| Your agent's capabilities | How to provide the toolkit |
+| --- | --- |
+| Can read GitHub | Send the repository link and research request above. |
+| Can read local files or attachments | [Download the repository](https://github.com/rrrrrredy/research-toolkit/archive/refs/heads/main.zip), provide `SKILL.md`, and make the reference files available as needed. |
+| Accepts text only | Paste the full `SKILL.md` and the reference sections needed for the task. See [chat-only use](./agents/README.md#chat-only-use). |
+| Supports native Skills | Install a complete toolkit copy through the host's supported Skill mechanism. See [agent setup](./agents/README.md). |
 
-The default reviewer uses a signed-in Codex CLI in a fresh context to examine the task, report, and evidence. Calls send the supplied material to the model service and consume account usage. [Review accounts and recovery](./docs/usage-modes.md#review-accounts-and-recovery)
+**Optional workflow tools.** An agent that can start a local MCP server can use the five tools for task records, stage guidance, review calls, and delivery checks. A compatible plugin bundles the same methods and tools. [Plugin and MCP configuration](./docs/usage-modes.md)
+
+Reading the instructions does not start MCP or run an independent review. Retrieval, file access, and tool execution depend on the host. Independent review needs a separate reviewer with access to the report and evidence. The MCP reviewer defaults to a signed-in Codex CLI and also accepts a configured review command; this does not require the author agent to be Codex. [Reviewer configuration and accounts](./docs/usage-modes.md#review-accounts-and-recovery)
 
 ## Inside the toolkit
 

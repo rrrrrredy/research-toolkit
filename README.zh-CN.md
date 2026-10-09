@@ -6,16 +6,18 @@
 
 研究方法 · 可调用的执行工具 · 独立审阅。适用于行业研究、产品比较、公司分析和技术调研。
 
-[研究案例](#研究案例) · [使用](#使用) · [工具箱组成](#工具箱组成) · [文档](#文档)
+[**在你的 Agent 中使用**](#使用) · [研究案例](#研究案例) · [文档](#文档)
 
 ## 研究案例
 
+<a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/report.zh-CN.md">
 <picture>
   <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./docs/assets/repository-case.zh-CN.mobile.dark.png">
   <source media="(max-width: 600px)" srcset="./docs/assets/repository-case.zh-CN.mobile.png">
   <source media="(prefers-color-scheme: dark)" srcset="./docs/assets/repository-case.zh-CN.dark.png">
   <img src="./docs/assets/repository-case.zh-CN.png" alt="国内办公 Agent 调研，2026 年 9 月报告节选：生成文件、修改既有对象和改变业务状态，是不同的交付。" width="840">
 </picture>
+</a>
 
 [**完整报告**](./docs/case-study/report.zh-CN.md) · [初稿](./docs/case-study/office-agents/original.zh-CN.md) · [定稿](./docs/case-study/office-agents/revised.zh-CN.md) · [来源与审阅记录](./docs/case-study/office-agents/README.md)
 
@@ -102,45 +104,39 @@
 
 ## 使用
 
-支持插件的 Codex 环境可以一次安装研究方法与 MCP 工具。需要 Python 3.10+、Git 和已登录的 Codex CLI；MCP 使用的 `python` 环境必须包含下方依赖。
+研究方法可交给 Claude（Anthropic）、Grok Bot、WorkBuddy 等 Agent 使用。提供仓库链接、上传文件或粘贴指令即可，原生 Skill 安装是可选方式。
 
-```bash
-python -m pip install mcp==2.2.0
-codex plugin marketplace add rrrrrredy/research-toolkit
-codex plugin add research-toolkit@research-toolkit
-```
-
-新会话中选择 Research Toolkit，发送研究需求：
-
-```text
-研究 2026 年国内办公 Agent 产品，面向 AI 产品与企业办公负责人写作。
-比较 Kimi Work、扣子、飞书／豆包工作、悟空、WPS、WorkBuddy。
-说明各产品改变哪些文件和业务对象，任务在哪里运行，
-以及模型、工具、上下文、权限和人工参与如何影响交付与返工。
-
-以 [日期] 为信息截止日。重要判断附来源，区分公司说法、
-媒体体验与实际效果证据，并说明哪些反证可能改变结论。
-澄清缺失的研究需求，确认提纲后搜集资料。
-```
-
-[安装与配置](./docs/usage-modes.zh-CN.md#安装插件) · [其他 Agent 与 Skill 用法](./agents/README.zh-CN.md) · [单独连接 MCP](./docs/usage-modes.zh-CN.md#单独接入-mcp)
-
-<details>
-<summary>无需安装，用于一次研究</summary>
-
-将以下内容与研究需求一起发给能读取仓库、访问来源的 Agent：
+将以下请求发给能够读取 GitHub 并访问所需来源的 Agent：
 
 ```text
 本次研究请使用 Research Toolkit：
 https://github.com/rrrrrredy/research-toolkit
-阅读 SKILL.md，按当前任务需要读取 references/ 下的研究方法。
+
+研究 2026 年国内办公 Agent 产品。
+比较 Kimi Work、扣子、飞书／豆包工作、悟空、WPS、WorkBuddy，
+面向 AI 产品与企业办公负责人写作。
+
+说明各产品改变哪些文件和业务对象、任务在哪里运行，
+以及模型、工具、上下文、权限和人工参与如何影响交付与返工。
+
+以 [日期] 为信息截止日。重要判断附来源，区分公司说法、
+媒体体验与实际效果证据，并说明哪些反证可能改变结论。
+
+阅读 SKILL.md，澄清缺失的研究需求，确认提纲后搜集资料。
 ```
 
-直接读取文件可以使用研究方法；不会自动启动 MCP 或运行模型审阅。无法读取仓库时，使用[文件与附件说明](./agents/README.zh-CN.md#直接读取使用)。
+替换 `[日期]`，并按需要调整主题与读者。请求改编自历史案例；新的研究可能得出不同结论。
 
-</details>
+| Agent 的能力 | 提供工具箱的方法 |
+| --- | --- |
+| 能读取 GitHub | 发送上面的仓库链接和研究请求。 |
+| 能读取本地文件或附件 | [下载仓库](https://github.com/rrrrrredy/research-toolkit/archive/refs/heads/main.zip)，提供 `SKILL.md`，并按任务需要提供参考文件。 |
+| 只能接收文本 | 粘贴完整 `SKILL.md` 及任务需要的参考章节。见[纯聊天使用边界](./agents/README.zh-CN.md#只能在聊天中使用时)。 |
+| 支持原生 Skill | 通过该工具支持的技能机制安装完整副本。见[Agent 接入](./agents/README.zh-CN.md)。 |
 
-审阅默认使用已登录的 Codex CLI，在独立上下文中检查任务、报告和证据。调用会发送所提供的材料并消耗模型账户用量。[审阅账户与恢复](./docs/usage-modes.zh-CN.md)
+**可选执行工具。** 能启动本地 MCP 服务的 Agent，可调用五个工具保存任务、加载阶段方法、执行审阅和检查交付。兼容的插件将同一套方法与工具一起安装。[插件与 MCP 配置](./docs/usage-modes.zh-CN.md)
+
+读取指令不会自动启动 MCP 或执行独立审阅。检索、文件访问和工具执行能力取决于当前环境；独立审阅需要另一个能够读取报告及证据的评审者。MCP 审阅执行器默认使用已登录的 Codex CLI，也支持配置其他审阅命令，撰写报告的 Agent 无须使用 Codex。[审阅配置与账户](./docs/usage-modes.zh-CN.md#评审使用什么账户失败怎么办)
 
 ## 工具箱组成
 

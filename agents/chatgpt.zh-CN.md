@@ -1,8 +1,8 @@
-# ChatGPT / 通用 agent 接入
+# 聊天型 Agent 使用方式
 
 [English](chatgpt.md) | [简体中文](chatgpt.zh-CN.md)
 
-适用于不能安装技能，但可以读取粘贴指令或附件的工具。
+适用于 ChatGPT、Grok Bot、WorkBuddy 等能够接收文件或文本指令的 Agent。宿主支持时，也可另外配置原生 Skill 或执行工具。
 
 ## 使用方式
 
