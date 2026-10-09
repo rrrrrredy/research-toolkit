@@ -161,7 +161,7 @@ class BackendTests(unittest.TestCase):
 
     def test_generic_rejects_truncated_or_anonymous_responses_and_redacts_http_errors(self):
         config = {"backend": "generic", "model": "synthetic", "base_url": "https://example.org/v1"}
-        for envelope in ({"id":"x", "choices":[{"finish_reason":"length", "message":{"content":"{}"}}]},
+        for envelope in ({"choices":[None]}, {"id":"x", "choices":[{"finish_reason":"length", "message":{"content":"{}"}}]},
                          {"choices":[{"finish_reason":"stop", "message":{"content":"{}"}}]}):
             with patch.object(r.http, "build_opener") as opener:
                 stream = opener.return_value.open.return_value.__enter__.return_value

@@ -8,6 +8,7 @@ from pathlib import Path
 import shutil
 import subprocess
 from urllib import error, parse, request as http
+from http.client import HTTPException
 
 from review_process import ProcessCleanupError, run_bounded
 
@@ -186,7 +187,7 @@ def run_generic(config, request):
     except error.HTTPError as exc:
         raise ReviewFailure(f"Reviewer endpoint returned HTTP {exc.code}; check its URL, model and credential environment.",
                             {"status": "http_error", "http_status": exc.code}) from None
-    except (OSError, error.URLError, UnicodeError) as exc:
+    except (OSError, error.URLError, UnicodeError, HTTPException) as exc:
         raise ReviewFailure("Reviewer endpoint could not return a complete response; check connectivity and timeout.",
                             {"status": "transport_failure", "error_type": type(exc).__name__, "remote_request_cancelled": "unknown"}) from None
     capture = {"backend": "generic", "requested_model": config["model"], "response": raw}
@@ -199,7 +200,7 @@ def run_generic(config, request):
         identity = envelope.get("id") or request_id
         if not isinstance(identity, str) or not identity.strip() or not isinstance(content, str) or not content.strip():
             raise ValueError("missing identity or content")
-    except (KeyError, IndexError, TypeError, ValueError):
+    except (KeyError, IndexError, TypeError, ValueError, AttributeError):
         raise ReviewFailure("Endpoint returned an incomplete response or no observable request ID; retained the original response.", capture) from None
     return {"execution_id": identity, "content": content, "capture": capture}
 
