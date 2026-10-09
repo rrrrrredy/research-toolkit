@@ -1,0 +1,30 @@
+# Research Toolkit
+
+> Research methods, workflow tools, and independent review for AI agents. 面向 AI Agent 的研究方法、执行工具与独立审阅。
+
+Use the methods through repository access, files, attachments, or pasted instructions. Native Skill installation is optional. Plugin and local MCP integrations provide executable workflow tools; their dependencies and reviewer configuration are described in the usage guide.
+
+## Research methods
+
+- [Research instructions](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/SKILL.md): The entry point, with links to methods for each research stage.
+- [中文研究指令](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/SKILL.zh-CN.md): Chinese reading version.
+- [Research guide](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/research-guide.md): Research scope, evidence, writing, and review.
+
+## Usage
+
+- [Project overview](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/README.md): Capabilities, a complete research request, and the case study.
+- [中文项目介绍](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/README.zh-CN.md): Chinese overview and research request.
+- [Agent setup](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/agents/README.md): Repository, file, attachment, and text input methods.
+- [Tools and configuration](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/usage-modes.md): Optional plugin and MCP setup, dependencies, and reviewer configuration.
+- [工具与配置](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/usage-modes.zh-CN.md): Chinese usage guide.
+
+## Research case
+
+- [Office agent research in China](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/case-study/report.en.md): English translation of a September 2026 report based on public sources, without installed-product testing.
+- [国内办公 Agent 调研](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/case-study/report.zh-CN.md): Chinese report.
+- [Case archive](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/case-study/office-agents/README.md): Initial and final manuscripts, sources, and review decisions. The revisions are not a controlled test of toolkit effectiveness.
+
+## Optional
+
+- [Documentation index](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/README.md): Detailed methods and development documentation.
+- [Evaluation status](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/evaluation-status.md): Available evaluation evidence and its limits.

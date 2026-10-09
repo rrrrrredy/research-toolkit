@@ -2,7 +2,7 @@
 
 [English](chatgpt.md) | [简体中文](chatgpt.zh-CN.md)
 
-Use this guide for ChatGPT, Grok bots, WorkBuddy, or another agent that accepts files or pasted instructions. Native Skill and tool setup, where supported, are optional.
+Use this guide with an agent that accepts files or pasted instructions. Native Skill and tool setup, where supported, are optional.
 
 ## Setup
 

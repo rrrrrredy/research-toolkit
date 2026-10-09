@@ -1,5 +1,7 @@
 # Research Toolkit
 
+[![MIT License](https://img.shields.io/badge/license-MIT-596259)](./LICENSE) [![Framework checks](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml/badge.svg)](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml)
+
 [English](./README.md) · [简体中文](./README.zh-CN.md)
 
 **让 AI Agent 写出判断具体、来源可查、经过独立审阅的研究报告。**
@@ -104,7 +106,7 @@
 
 ## 使用
 
-研究方法可交给 Claude（Anthropic）、Grok Bot、WorkBuddy 等 Agent 使用。提供仓库链接、上传文件或粘贴指令即可，原生 Skill 安装是可选方式。
+研究方法可交给 Agent 使用。提供仓库链接、上传文件或粘贴指令即可，原生 Skill 安装是可选方式。
 
 将以下请求发给能够读取 GitHub 并访问所需来源的 Agent：
 
@@ -176,5 +178,3 @@ Agent 使用自身的检索、读写和分析能力完成研究。插件将 Skil
 [全部文档](./docs/README.zh-CN.md) · [研究指令](./SKILL.zh-CN.md) · [网站](https://rrrrrredy.github.io/research-toolkit/?lang=zh)
 
 欢迎通过 [Issues](https://github.com/rrrrrredy/research-toolkit/issues/new) 提交研究需求、使用反馈或失败案例，通过 [Pull requests](https://github.com/rrrrrredy/research-toolkit/compare) 改进方法和工具。
-
-[![MIT License](https://img.shields.io/badge/license-MIT-596259)](./LICENSE) [![Framework checks](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml/badge.svg)](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml)

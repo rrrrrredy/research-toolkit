@@ -2,7 +2,7 @@
 
 [English](usage-modes.md) | [简体中文](usage-modes.zh-CN.md)
 
-**通过仓库链接、文件、附件或粘贴文本使用研究方法。** Claude（Anthropic）、Grok Bot、WorkBuddy 等 Agent 可按其支持的输入方式使用；原生 Skill、插件和 MCP 是宿主的独立能力。
+**通过仓库链接、文件、附件或粘贴文本使用研究方法。** 按 Agent 支持的输入方式使用；原生 Skill、插件和 MCP 是宿主的独立能力。
 
 ## 使用研究方法
 

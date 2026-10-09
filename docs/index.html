@@ -9,12 +9,13 @@
 <meta content="website" property="og:type"/><meta content="https://rrrrrredy.github.io/research-toolkit/" property="og:url"/>
 <meta content="https://rrrrrredy.github.io/research-toolkit/assets/social-preview.png" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/><link href="assets/showcase.css" rel="stylesheet"/>
+<link rel="describedby" href="llms.txt" type="text/plain"/>
 <script src="assets/reading-preferences.js"></script></head>
 <body>
 <a class="skip" data-i18n="skip" href="#case">Skip to the case</a>
 <header class="site-header"><div class="wrap header-inner">
 <a aria-label="Research Toolkit" class="brand" data-home-link="" href="./"><span class="brand-initial">r.</span><span>Research Toolkit</span></a>
-<nav aria-label="Main navigation" data-nav-aria=""><a class="nav-secondary" data-i18n="navCase" href="#case">Case study</a><a class="nav-secondary" data-i18n="navMethod" href="#method">Method</a><a href="https://github.com/rrrrrredy/research-toolkit">GitHub ↗</a><button class="js-only" id="theme-toggle" type="button">Dark</button><button class="js-only" id="language-toggle" type="button">中文</button></nav>
+<nav aria-label="Main navigation" data-nav-aria=""><a class="nav-secondary" data-i18n="navCase" href="#case">Case study</a><a class="nav-secondary" data-i18n="navMethod" href="#method">Method</a><a href="https://github.com/rrrrrredy/research-toolkit">GitHub ↗</a><button class="js-only" id="theme-toggle" type="button">Dark</button><div class="language-switch js-only" role="group" aria-label="Language"><button type="button" data-language="en" lang="en" aria-label="English" aria-pressed="true">EN</button><button type="button" data-language="zh" lang="zh-CN" aria-label="简体中文" aria-pressed="false">中文</button></div></nav>
 </div></header>
 <main>
 <section class="hero wrap" id="readme-cover">
@@ -22,7 +23,7 @@
 <p class="eyebrow" data-i18n="brandCaption">A RESEARCH TOOLKIT FOR AI AGENTS</p>
 <h1 class="hero-title">Research<br/><em>Toolkit.</em></h1>
 <p class="lede" data-i18n="lede">Help AI agents write research reports with concrete judgments, traceable sources, and independent review.</p>
-<div class="hero-actions"><a class="button" href="#start"><span data-i18n="try">Usage guide</span> <span aria-hidden="true">↓</span></a><a class="text-link" href="#case"><span data-i18n="explore">Case study</span> <span aria-hidden="true">↓</span></a></div>
+<div class="hero-actions"><a class="button" href="#start"><span data-i18n="try">Usage guide</span> <span aria-hidden="true">↓</span></a><a class="text-link" href="#case"><span data-i18n="explore">Case study</span> <span aria-hidden="true">↓</span></a><a class="text-link star-link" href="https://github.com/rrrrrredy/research-toolkit"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="m12 3 2.8 5.7 6.3.9-4.55 4.43 1.07 6.27L12 17.34l-5.62 2.96 1.07-6.27L2.9 9.6l6.3-.9Z"/></svg><span data-i18n="star">Star on GitHub</span></a></div>
 <div class="capabilities"><span data-i18n="heroCap1">Methods</span><span data-i18n="heroCap2">Workflow tools</span><span data-i18n="heroCap3">Independent review</span></div>
 </div>
 <div class="report-stage">
@@ -44,7 +45,7 @@
 <p class="boundary" data-i18n="caseBoundary">Historical report. Information through September 9, 2026; some dynamic documents were checked on September 10. Public-source research without installed-product testing. These versions are not a controlled with/without-toolkit experiment.</p>
 </div></section>
 <section class="section use-section" id="start"><div class="wrap use-grid">
-<div class="use-copy"><p class="eyebrow" data-i18n="startEyebrow">RESEARCH REQUEST</p><h2 data-i18n="startHeading">Usage</h2><p data-i18n="startIntro">Send this request to Claude (Anthropic), Grok bots, WorkBuddy, or another agent that can read the repository and access your sources.</p><p class="usage-note" data-i18n="startNote2">If repository access is unavailable, upload the files or paste the instructions. Native Skill installation is optional.</p><a class="text-link" data-i18n="accessLink" href="#install">Ways to provide the toolkit</a></div>
+<div class="use-copy"><p class="eyebrow" data-i18n="startEyebrow">RESEARCH REQUEST</p><h2 data-i18n="startHeading">Usage</h2><p data-i18n="startIntro">Send this request to an agent that can read the repository and access your sources.</p><p class="usage-note" data-i18n="startNote2">If repository access is unavailable, upload the files or paste the instructions. Native Skill installation is optional.</p><a class="text-link" data-i18n="accessLink" href="#install">Ways to provide the toolkit</a></div>
 <div class="prompt"><div class="prompt-head"><span data-i18n="promptLabel">COPYABLE RESEARCH REQUEST</span><button class="copy js-only" data-i18n="copy" id="copy-request" type="button">Copy request</button></div><pre id="research-prompt">Use Research Toolkit for this task:
 https://github.com/rrrrrredy/research-toolkit
 
@@ -885,7 +886,7 @@ outline before collecting sources.</pre><div class="prompt-foot"><p data-i18n="p
       "videoNote": "A recording of the product questions, passage changes, reasoning, and review decisions.",
       "startEyebrow": "RESEARCH REQUEST",
       "startHeading": "Usage",
-      "startIntro": "Send this request to Claude (Anthropic), Grok bots, WorkBuddy, or another agent that can read the repository and access your sources.",
+      "startIntro": "Send this request to an agent that can read the repository and access your sources.",
       "promptLabel": "COPYABLE RESEARCH REQUEST",
       "copy": "Copy request",
       "promptNote": "Replace [DATE] and adapt the topic and audience. This request is based on the archived case brief; a new run may reach different conclusions.",
@@ -969,7 +970,8 @@ outline before collecting sources.</pre><div class="prompt-foot"><p data-i18n="p
       "textMode": "Pasted text",
       "textDescription": "Paste the full entry instructions and the reference sections needed for the task. A URL alone is insufficient without repository access.",
       "textLink": "Chat-only use",
-      "skillMode": "Native Skill"
+      "skillMode": "Native Skill",
+      "star": "Star on GitHub"
     },
     "zh": {
       "skip": "跳到真实案例",
@@ -988,7 +990,7 @@ outline before collecting sources.</pre><div class="prompt-foot"><p data-i18n="p
       "videoNote": "产品问题、稿件差异、修改理由与审阅取舍的实际页面录制。",
       "startEyebrow": "研究请求",
       "startHeading": "使用",
-      "startIntro": "将以下请求交给 Claude（Anthropic）、Grok Bot、WorkBuddy 等能够读取仓库并访问所需来源的 Agent。",
+      "startIntro": "将以下请求交给能够读取仓库并访问所需来源的 Agent。",
       "promptLabel": "可直接复制的研究请求",
       "copy": "复制请求",
       "promptNote": "替换 [日期]，并按需要调整主题与读者。请求改编自历史案例；新的研究可能得出不同结论。",
@@ -1072,9 +1074,11 @@ outline before collecting sources.</pre><div class="prompt-foot"><p data-i18n="p
       "textMode": "粘贴文本",
       "textDescription": "粘贴完整入口指令与任务需要的参考章节。无法读取仓库时，仅发送网址不能提供研究方法。",
       "textLink": "纯聊天使用边界",
-      "skillMode": "原生 Skill"
+      "skillMode": "原生 Skill",
+      "star": "给项目 Star"
     }
   }
-}</script>
+}
+</script>
 <script src="assets/showcase.js"></script>
 </body></html>

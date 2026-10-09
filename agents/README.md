@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-The research methods can be supplied to Claude (Anthropic), Grok bots, WorkBuddy, and other agents through repository access, files, attachments, or pasted text. Choose the method your current interface supports; no Codex authoring environment is required.
+Provide the research methods to your agent through a repository link, files, attachments, or pasted text. Choose the input method your interface supports.
 
 The [entry instructions](../SKILL.md) and [Chinese reading version](../SKILL.zh-CN.md) point to the methods for each research stage. Native Skill installation is optional. For callable workflow tools, see [plugin and MCP configuration](../docs/usage-modes.md).
 
@@ -35,11 +35,10 @@ Use a complete repository checkout for local installation so that references, he
 | Tool | Method covered by the guide | Confirm before use |
 | --- | --- | --- |
 | [Codex](codex.md) | Native Skill installation or direct file reading | `research-toolkit` is discoverable for native use; the intended files can be read |
-| [Claude (Anthropic)](claude.md) | Project instructions, attachments, and local files where available | Required files and tools are available in the session |
+| [Claude](claude.md) | Project instructions, attachments, and local files where available | Required files and tools are available in the session |
 | [Gemini CLI](gemini-cli.md) | Reading the toolkit from a local folder | References are readable and research files can be saved |
 | [Cursor](cursor.md) | Repository instructions and local files | The session reads the intended toolkit copy |
 | [ChatGPT / general agents](chatgpt.md) | Uploaded files or pasted instructions | Sources and saved task records can be accessed |
-| [Grok bots / WorkBuddy / other agents](chatgpt.md) | Repository, file, attachment, or pasted-text methods above | Use the inputs and tools the current interface actually supports; native integration is separate |
 | [OpenClaw](openclaw.md) | Skill directory installation and direct file reading | The intended Skill is visible and allowed |
 | [Hermes Agent](hermes.md) | Skill directory installation and invocation | The Skill appears in the catalog with its references available |
 | [DeepSeek Harness (optional)](deepseek-harness.md) | Native Skill installation and its optional adapter | Follow this guide only when using that tool |

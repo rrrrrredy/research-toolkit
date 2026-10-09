@@ -2,7 +2,7 @@
 
 [English](chatgpt.md) | [简体中文](chatgpt.zh-CN.md)
 
-适用于 ChatGPT、Grok Bot、WorkBuddy 等能够接收文件或文本指令的 Agent。宿主支持时，也可另外配置原生 Skill 或执行工具。
+适用于能够接收文件或文本指令的 Agent。宿主支持时，也可另外配置原生 Skill 或执行工具。
 
 ## 使用方式
 

@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-研究方法可通过仓库、文件、附件或粘贴文本交给 Claude（Anthropic）、Grok Bot、WorkBuddy 等 Agent。按当前界面支持的输入方式使用，撰写环境无须采用 Codex。
+研究方法可通过仓库链接、文件、附件或粘贴文本交给 Agent。按当前界面支持的输入方式使用。
 
 [规范入口](../SKILL.md)与[中文阅读版](../SKILL.zh-CN.md)指向各研究阶段需要的方法。原生 Skill 安装是可选方式；可调用的执行工具见[插件与 MCP 配置](../docs/usage-modes.zh-CN.md)。
 
@@ -35,11 +35,10 @@
 | 工具 | 指南中的使用方式 | 使用前确认 |
 |---|---|---|
 | [Codex](codex.zh-CN.md) | 原生 Skill 安装或直接读文件 | 原生用法能发现 `research-toolkit`，且能读取预期副本 |
-| [Claude（Anthropic）](claude.zh-CN.md) | 项目指令、附件和可用的本地文件 | 当前会话能访问所需文件与工具 |
+| [Claude](claude.zh-CN.md) | 项目指令、附件和可用的本地文件 | 当前会话能访问所需文件与工具 |
 | [Gemini CLI](gemini-cli.zh-CN.md) | 从本地目录读取 | 参考文件可读，研究记录可保存 |
 | [Cursor](cursor.zh-CN.md) | 仓库指令与本地文件 | 实际读取的是预期工具箱副本 |
 | [ChatGPT / 通用 Agent](chatgpt.zh-CN.md) | 上传文件或粘贴指令 | 来源与任务记录可访问 |
-| [Grok Bot / WorkBuddy / 其他 Agent](chatgpt.zh-CN.md) | 上述仓库、文件、附件或粘贴文本用法 | 按当前界面实际支持的输入与工具使用，原生接入另行配置 |
 | [OpenClaw](openclaw.zh-CN.md) | 技能目录安装与直接读文件 | 预期 Skill 可见且允许使用 |
 | [Hermes Agent](hermes.zh-CN.md) | 技能目录安装与调用 | 技能目录中可见，参考文件齐全 |
 | [DeepSeek Harness（可选）](deepseek-harness.zh-CN.md) | 原生 Skill 安装及可选接入 | 仅在使用该工具时按指南操作 |

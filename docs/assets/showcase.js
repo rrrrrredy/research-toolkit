@@ -115,9 +115,10 @@
     });
     document.querySelector("[data-nav-aria]").setAttribute("aria-label",data.i18n[lang].navAria);
     document.querySelector(".case-choices").setAttribute("aria-label",data.i18n[lang].topicsAria);
-    var toggle = document.getElementById("language-toggle");
-    toggle.textContent = lang === "zh" ? "English" : "中文";
-    toggle.setAttribute("aria-label",lang === "zh" ? "切换为英文" : "Switch to Chinese");
+    document.querySelector(".language-switch").setAttribute("aria-label",lang === "zh" ? "语言" : "Language");
+    document.querySelectorAll(".language-switch [data-language]").forEach(function (button) {
+      button.setAttribute("aria-pressed",String(button.dataset.language === lang));
+    });
     document.getElementById("research-prompt").textContent = data.prompts[lang];
     document.getElementById("hero-quote").replaceChildren(highlighted(data.cases.hero[lang].quote,data.cases.hero[lang].highlights));
     document.getElementById("copy-status").textContent = "";
@@ -184,7 +185,12 @@
     else return;
     event.preventDefault(); detail = details[next].dataset.detail; renderCase(); details[next].focus();
   });
-  document.getElementById("language-toggle").addEventListener("click",function () { lang = lang === "zh" ? "en" : "zh"; renderLanguage(); });
+  document.querySelectorAll(".language-switch [data-language]").forEach(function (button) {
+    button.addEventListener("click",function () {
+      if (lang === button.dataset.language) return;
+      lang = button.dataset.language; renderLanguage();
+    });
+  });
   document.getElementById("theme-toggle").addEventListener("click",function () { theme = theme === "light" ? "dark" : "light"; reading.set({theme:theme},true); renderTheme(); });
   document.getElementById("copy-request").addEventListener("click",async function () {
     try {

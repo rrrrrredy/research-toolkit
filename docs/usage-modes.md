@@ -2,7 +2,7 @@
 
 [English](usage-modes.md) | [简体中文](usage-modes.zh-CN.md)
 
-**Use the research methods through a repository link, files, attachments, or pasted text.** This works with the inputs available to Claude (Anthropic), Grok bots, WorkBuddy, and other agents. Native Skill, plugin, and MCP support are separate capabilities of the host.
+**Use the research methods through a repository link, files, attachments, or pasted text.** Choose the input method your agent supports. Native Skill, plugin, and MCP support are separate capabilities of the host.
 
 ## Use the research methods
 

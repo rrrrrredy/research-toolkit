@@ -1,5 +1,7 @@
 # Research Toolkit
 
+[![MIT License](https://img.shields.io/badge/license-MIT-596259)](./LICENSE) [![Framework checks](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml/badge.svg)](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml)
+
 [English](./README.md) · [简体中文](./README.zh-CN.md)
 
 **Help AI agents write research reports with concrete judgments, traceable sources, and independent review.**
@@ -104,7 +106,7 @@ Historical report: information through September 9, 2026; some dynamic documents
 
 ## Usage
 
-Use the research methods with Claude (Anthropic), Grok bots, WorkBuddy, or another agent. Provide the repository link, upload the files, or paste the instructions; native Skill installation is optional.
+Use the research methods with your agent. Provide the repository link, upload the files, or paste the instructions; native Skill installation is optional.
 
 Send this request to an agent that can read GitHub and access the required sources:
 
@@ -179,5 +181,3 @@ Your agent performs retrieval, reading, analysis, and writing with its own capab
 [All documentation](./docs/README.md) · [Research instructions](./SKILL.md) · [Website](https://rrrrrredy.github.io/research-toolkit/)
 
 Contribute research questions, usage feedback, or failure cases through [Issues](https://github.com/rrrrrredy/research-toolkit/issues/new), and improve methods and tools through [pull requests](https://github.com/rrrrrredy/research-toolkit/compare).
-
-[![MIT License](https://img.shields.io/badge/license-MIT-596259)](./LICENSE) [![Framework checks](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml/badge.svg)](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml)
