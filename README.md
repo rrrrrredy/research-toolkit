@@ -6,7 +6,7 @@
 
 **Help AI agents write research reports with concrete judgments, traceable sources, and explicit review choices.**
 
-Research methods · Callable workflow tools · Review choices. For industry research, product comparisons, company analysis, and technical research.
+Research methods · Callable workflow tools · Review choices. For industry research, product comparisons, company analysis, and technology research.
 
 [**Use with your agent**](#usage) · [Research case](#research-case) · [Documentation](#documentation)
 
