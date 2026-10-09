@@ -363,7 +363,7 @@ class WorkflowTests(unittest.TestCase):
 
     def test_default_report_uses_one_review_without_process_history(self):
         runner = SyntheticRunner()
-        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": ""}):
+        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": "", "RESEARCH_TOOLKIT_REVIEW_BACKEND": "codex"}):
             result = self.review(runner, config=None)
             self.assertTrue(result["completion_check"]["ok"], result)
             self.assertEqual(runner.calls, ["reviewer"])
@@ -417,7 +417,7 @@ class WorkflowTests(unittest.TestCase):
 
     def test_default_negative_review_stays_complete_and_blocks_delivery(self):
         runner = SyntheticRunner(negative=True)
-        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": ""}):
+        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": "", "RESEARCH_TOOLKIT_REVIEW_BACKEND": "codex"}):
             result = self.review(runner, config=None)
             self.assertTrue(result["reviews_complete"], result)
             self.assertFalse(result["completion_check"]["ok"])
@@ -519,7 +519,7 @@ class WorkflowTests(unittest.TestCase):
 
     def test_existing_default_audited_plan_resumes_its_original_contract(self):
         runner = SyntheticRunner(bad_audit=1)
-        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": ""}):
+        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": "", "RESEARCH_TOOLKIT_REVIEW_BACKEND": "codex"}):
             old_config = workflow.load_review_config(require_audit=True)
             self.assertFalse(self.review(runner, config=old_config)["reviews_complete"])
             self.assertTrue(self.review(runner, config=None)["reviews_complete"])
@@ -530,7 +530,7 @@ class WorkflowTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.review(runner, purpose="evaluation", config={"reviewers": CONFIG["reviewers"]})
         self.assertEqual(runner.calls, [])
-        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": ""}):
+        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": "", "RESEARCH_TOOLKIT_REVIEW_BACKEND": "codex"}):
             self.assertTrue(self.review(runner, purpose="evaluation", config=None)["evaluation_complete"])
         self.assertEqual(runner.calls, ["reviewer", "auditor"])
         progress = workflow.load(self.root, "state/progress.json")
@@ -825,7 +825,7 @@ class CodexJSONLTransportTests(unittest.TestCase):
 
 class ReadinessTests(unittest.TestCase):
     def test_missing_executable_is_reported_before_research(self):
-        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": ""}), patch("review_runner.shutil.which", return_value=None), patch("review_runner.subprocess.run") as run:
+        with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": "", "RESEARCH_TOOLKIT_REVIEW_BACKEND": "codex"}), patch("review_runner.shutil.which", return_value=None), patch("review_runner.subprocess.run") as run:
             result = review_readiness()
         self.assertEqual(result["status"], "blocked")
         self.assertFalse(result["model_access_verified"])
@@ -833,7 +833,7 @@ class ReadinessTests(unittest.TestCase):
 
     def test_login_probe_is_local_bounded_and_redacted(self):
         for code, expected in ((0, "local_checks_passed"), (1, "blocked")):
-            with self.subTest(code=code), patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": ""}), patch("review_runner.shutil.which", return_value="codex"), patch("review_runner.subprocess.run") as run:
+            with self.subTest(code=code), patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": "", "RESEARCH_TOOLKIT_REVIEW_BACKEND": "codex"}), patch("review_runner.shutil.which", return_value="codex"), patch("review_runner.subprocess.run") as run:
                 run.return_value.returncode = code
                 run.return_value.stdout = b"private-account-detail"
                 result = review_readiness()

@@ -1,12 +1,12 @@
 # Research Toolkit
 
-[![MIT License](https://img.shields.io/badge/license-MIT-596259)](./LICENSE) [![Framework checks](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml/badge.svg)](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml)
+[![MIT License](https://img.shields.io/badge/license-MIT-596259)](./LICENSE) [![Framework checks](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml/badge.svg)](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml) · [Evaluated](#evaluation-results)
 
 [English](./README.md) · [简体中文](./README.zh-CN.md)
 
-**Help AI agents write research reports with concrete judgments, traceable sources, and independent review.**
+**Help AI agents write research reports with concrete judgments, traceable sources, and explicit review choices.**
 
-Research methods · Callable workflow tools · Independent review. For industry research, product comparisons, company analysis, and technical research.
+Research methods · Callable workflow tools · Review choices. For industry research, product comparisons, company analysis, and technical research.
 
 [**Use with your agent**](#usage) · [Research case](#research-case) · [Documentation](#documentation)
 
@@ -85,7 +85,7 @@ The dated sources describe each product direction. They do not establish version
 
 **Added in the final report**
 
-> Third-party cloud mode runs execution frameworks such as Claude Code and Codex CLI on Coze cloud computers, using models supplied by Coze rather than being tied to the original provider’s account and model.
+> Third-party cloud mode runs execution frameworks […] on Coze cloud computers, using models supplied by Coze rather than being tied to the original provider’s account and model.
 
 The draft already described execution modes and permission boundaries. The revision adds native-model choices and third-party cloud-model supply. In this deployment, a framework name does not identify the model; supplied by Coze does not mean developed by Coze.
 
@@ -138,10 +138,21 @@ Replace `[DATE]` and adapt the topic and audience. This request is based on the 
 | Can read local files or attachments | [Download the repository](https://github.com/rrrrrredy/research-toolkit/archive/refs/heads/main.zip), provide `SKILL.md`, and make the reference files available as needed. |
 | Accepts text only | Paste the full `SKILL.md` and the reference sections needed for the task. See [chat-only use](./agents/README.md#chat-only-use). |
 | Supports native Skills | Install a complete toolkit copy through the host's supported Skill mechanism. See [agent setup](./agents/README.md). |
+| Small research task | Use `research_start(profile="lite")` or CLI `start --profile lite`: retain the brief, claims, section drafting and checklist; skip review and full delivery hard gates. |
 
-**Optional workflow tools.** An agent that can start a local MCP server can use the five tools for task records, stage guidance, review calls, and delivery checks. A compatible plugin bundles the same methods and tools. [Plugin and MCP configuration](./docs/usage-modes.md)
+**Optional workflow tools.** An agent that can start a local MCP server can use the six tools for task records, stage guidance, review calls, and delivery checks. A compatible plugin bundles the same methods and tools. [Plugin and MCP configuration](./docs/usage-modes.md)
 
-Reading the instructions does not start MCP or run an independent review. Retrieval, file access, and tool execution depend on the host. Independent review needs a separate reviewer with access to the report and evidence. The MCP reviewer defaults to a signed-in Codex CLI and also accepts a configured review command; this does not require the author agent to be Codex. [Reviewer configuration and accounts](./docs/usage-modes.md#review-accounts-and-recovery)
+Reading the instructions does not start MCP or execute a review. Full returns a self-review prompt when no backend is configured; configure any supported backend for external or independent opinions. [Backend setup and data destinations](./SKILL.md#reviewer-backends)
+
+## Review and Acceptance
+
+| Tier | Setup and trade-off |
+| --- | --- |
+| `self` | Zero configuration; role switch in the author context, recorded as degraded self-review. |
+| `external` | One command or endpoint; retain the structured review and original response. |
+| `independent` | Separate contexts; preserve existing version binding, recovery and task-required auditing. |
+
+Without a configured backend, review falls back to self; declared independent requirements are never silently downgraded, and Lite skips review. [Configuration checks and backends](./docs/usage-modes.md#reviewer-backends) explain data destinations, account usage and recovery.
 
 ## Inside the toolkit
 
@@ -154,7 +165,7 @@ Reading the instructions does not start MCP or run an independent review. Retrie
 Your agent performs retrieval, reading, analysis, and writing with its own capabilities. The plugin bundles the Skill, methods, and local MCP server. The Skill and MCP can also be used separately.
 
 <details>
-<summary>The five MCP tools</summary>
+<summary>The six MCP tools</summary>
 
 | Tool | Function |
 | --- | --- |
@@ -163,10 +174,29 @@ Your agent performs retrieval, reading, analysis, and writing with its own capab
 | `research_guide` | Load the methods for the current stage. |
 | `research_review` | Bind the report and evidence, run reviews, and retain replies or failures. |
 | `research_finish` | Check the current report, unresolved requirements, reviews, and delivery text. |
+| `research_check_reviewer` | Inspect backend configuration, dependencies and supported local login probes without model calls. |
 
 [Tools and execution boundaries](./docs/usage-modes.md#what-happens-during-a-task)
 
 </details>
+
+## Evaluation Suite
+
+<a id="evaluation-results"></a>
+
+**Yes: the public archive contains two with/without-toolkit development comparisons. They exposed weak navigation, poorly prioritized conclusions and generous self-reviews; they do not establish a general quality advantage.**
+
+| Experiment groups | Control design | Blind-review dimensions | Core conclusion |
+| --- | --- | --- | --- |
+| [2 public calibration pairs](./evals/diagnostics/2026-09-07/calibration-provenance.json), 4 original reports | With/without toolkit, toolkit first; same-model and identical-brief confirmation: **pending / 待补充** in the public run metadata | **Pending / 待补充**; later repair reviews were not blinded to the author's thesis | The toolkit reports contained useful evidence but required substantive editorial and evidence corrections. |
+| [11 retained historical families](./docs/evaluation-status.md), 22 review inputs | Historical paired study; full original materials and same-model/brief verification: **pending / 待补充** publicly | **Pending / 待补充**; aggregate counts do not document blinded execution | Primary view: 5 families had necessary defects in both conditions and 6 remained unresolved after author quota failures; no general win is established. |
+| [23 synthetic bad/control pairs](./evals/semantic_diagnostics/) | Edited excerpts for failure diagnosis; separate from with/without-toolkit report experiments | [Available model diagnoses](./evals/semantic_diagnostics/reviews/2026-09-08/) with disagreements and missed defects; no validated blind quality score | These pairs reveal diagnostic weaknesses and support regression work, not an efficacy claim. |
+
+Detailed reports: [public reports and repairs](./evals/diagnostics/2026-09-07/) · [evaluation evidence and version boundaries](./docs/evaluation-status.md) · [evaluation standard](./docs/report-evaluation-standard.md).
+
+The historical inventory is dated September 21, 2026: one of the original 12 families was excluded after results were known; 12 of 22 original author attempts failed and supplemental reports did not replace those failures. Public files are a subset of the privately retained materials. Software checks and historical studies do not validate the current workflow's general research quality.
+
+[Submit a failure case](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml) to help expand the known-bad regression cases.
 
 ## Documentation
 

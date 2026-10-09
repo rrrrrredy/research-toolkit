@@ -585,6 +585,10 @@ def evaluate_delivery(
     if not isinstance(progress, dict):
         progress = {}
 
+    if progress.get("profile") == "lite":
+        from profile_policy import inspect_lite_delivery
+        return inspect_lite_delivery(root, artifact, delivery_message)
+
     stage = str(progress.get("stage", "")).strip().lower()
     status = str(progress.get("status", "")).strip().lower()
     if stage not in CANONICAL_STAGES:
@@ -835,6 +839,12 @@ def main() -> int:
     )
     if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
+    elif result.get("profile") == "lite":
+        for entry in result["log"]:
+            print(entry)
+        print("Lite checklist: " + result["status"])
+        for finding in result["findings"]:
+            print(f"- {finding}")
     elif result["ok"]:
         label = f"legacy v{args.contract_version} record checks, not current-contract acceptance" if args.contract_version < 3 else "mechanical delivery checks"
         print(f"PASS: {label}; not a semantic quality verdict.")

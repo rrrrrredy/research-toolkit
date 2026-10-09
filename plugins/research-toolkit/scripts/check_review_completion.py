@@ -62,6 +62,11 @@ def inspect_review_completion(
     root: Path, progress: dict, artifact: str, rows: list[dict], *,
     hash_file: Callable, resolve_path: Callable, require_report_ready: bool = True,
 ) -> dict:
+    if progress.get("profile") == "lite":
+        from profile_policy import LITE_LOG
+        return {"ok": True, "skipped": True, "profile": "lite", "log": LITE_LOG,
+                "flags": [], "findings": [], "required_slots": 0, "completed_slots": 0,
+                "selected_attempts": {}, "independent_review": False, "semantic_verification": False}
     flags: list[str] = []
     findings: list[str] = []
     selected: dict[str, str] = {}
@@ -104,6 +109,8 @@ def inspect_review_completion(
             "execution_authenticity_verified": False,
             "semantic_verification": False,
             "report_quality_certified": False,
+            "reviewer": progress.get("review_plan", {}).get("reviewer", "independent"),
+            "review_strength": progress.get("review_plan", {}).get("review_strength", "independent"),
         }
 
     plan = progress.get("review_plan")
@@ -115,6 +122,12 @@ def inspect_review_completion(
     if type(audit_required) is not bool or (plan["purpose"] == "evaluation" and not audit_required):
         add("invalid_review_plan", "Evaluation requires auditing; audit_required must be a boolean.")
         return result()
+    review_tier = plan.get("reviewer", "independent")
+    self_review = review_tier == "self"
+    if review_tier not in {"self", "external", "independent"}:
+        add("invalid_review_plan", "Unknown reviewer tier.")
+    if self_review and (audit_required or plan["purpose"] != "report_delivery" or plan.get("review_strength") != "degraded"):
+        add("invalid_review_plan", "Self-review must be degraded, unaudited report delivery.")
     author = plan.get("author_id")
     if not text(author):
         add("invalid_review_plan", "review_plan.author_id must identify the author context.")
@@ -130,6 +143,8 @@ def inspect_review_completion(
     if not isinstance(slots, list) or not slots or not all(isinstance(s, dict) for s in slots):
         add("invalid_review_plan", "Declare at least one required review slot.")
         return result()
+    if self_review and len(slots) != 1:
+        add("invalid_review_plan", "Self-review has exactly one author-context slot.")
     slot_ids = [s.get("slot_id") for s in slots]
     if not distinct_strings(slot_ids):
         add("invalid_review_plan", "Required slot ids must be distinct nonempty strings.")
@@ -245,7 +260,7 @@ def inspect_review_completion(
                 or not distinct_strings(slot.get("dimensions"))):
             add("invalid_review_plan", f"{sid}: identify reviewer, model, scope and required dimensions.")
             continue
-        if slot["reviewer_id"] == author:
+        if slot["reviewer_id"] == author and not self_review:
             add("author_counted_as_reviewer", f"{sid}: the author cannot fill an independent review slot.")
         reference(slot.get("input"), f"{sid} frozen input")
         candidates = [r for r in attempts.values()
@@ -269,6 +284,11 @@ def inspect_review_completion(
                 add("review_slot_mismatch", f"{aid}: {field} differs from the declared slot.")
         if review.get("artifact_sha256") != artifact_hash:
             add("stale_model_review", f"{aid}: review does not bind the current artifact.")
+        if self_review and (review.get("reviewer") != "self" or review.get("review_strength") != "degraded"
+                            or slot["reviewer_id"] != author or review.get("execution_id") != author):
+            add("invalid_review_record", f"{aid}: self-review must retain its author identity and degraded strength.")
+        if not self_review and (review.get("reviewer") == "self" or review.get("execution_id") == author):
+            add("author_counted_as_reviewer", f"{aid}: a self response cannot fill an external or independent slot.")
         response = reference(review.get("response"), f"{aid} original response")
         execution = reference(review.get("execution"), f"{aid} execution capture")
         execution_id = review.get("execution_id")

@@ -8,6 +8,13 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 Research Toolkit naming, clearer usage instructions, and development-only semantic diagnostics. These changes do not establish general efficacy. The v0.1.4 prerelease was withdrawn; v0.1.3 remains the latest available prerelease.
 
+### Profiles, review backends and contributions
+
+- Surface public comparisons and historical aggregates in README, explicitly marking missing matched-condition and blind-review evidence.
+- Add Lite with brief, claims, section drafting and a final checklist; log skipped review and full delivery gates while retaining Full checks.
+- Add self, external and independent review tiers with configurable CLI/compatible HTTP backends; new tasks without a backend use degraded self-review, while declared independent requirements never silently fall back.
+- Add local backend configuration checks, advisory bilingual PR reminders and a failure-case form without changing original evaluation material or directory structure.
+
 ### Changed
 
 - Plugin 0.2.3 replaces abstract briefing questions with agent-proposed coverage, concrete research outcomes and decision-specific clarification across the Skill, plugin and shared CLI/MCP prompts.

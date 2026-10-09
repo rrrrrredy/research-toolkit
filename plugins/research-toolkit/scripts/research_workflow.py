@@ -12,6 +12,8 @@ import shutil
 import tempfile
 import uuid
 
+from profile_policy import CHECKLIST, LITE_LOG, checklist_errors, inspect_lite_delivery
+
 from check_delivery import (REQUIRED_HASH_INPUTS, OPTIONAL_HASH_INPUTS, evaluate_delivery,
                             inspect_csv_text, inspect_jsonl, inspect_jsonl_text,
                             inspect_reading_evidence, inspect_required_reading, reading_evidence_target,
@@ -19,7 +21,7 @@ from check_delivery import (REQUIRED_HASH_INPUTS, OPTIONAL_HASH_INPUTS, evaluate
 from check_review_completion import (inspect_review_completion, matches_review_slot,
                                      content_review_issues, finding_dispositions)
 from review_runner import (ReviewFailure, assignment_config, load_review_config, review_readiness,
-                           run_reviewer, validate_review_config)
+                           run_reviewer, validate_review_config, backend_configured, backend_kind, BACKEND_HELP)
 
 TOOLKIT = Path(__file__).resolve().parents[1]
 # Agent-facing guidance for unresolved fields, not a questionnaire to forward.
@@ -150,7 +152,9 @@ def rows_for(root):
     return rows
 
 
-def guidance(stage: str, language: str = "en") -> dict:
+def guidance(stage: str, language: str = "en", profile: str = "full") -> dict:
+    if profile not in {"lite", "full"}:
+        raise ValueError("Profile must be lite or full.")
     if stage not in STAGE_FILES or language not in {"en", "zh"}:
         raise ValueError("Unknown stage or language.")
     files = []
@@ -164,7 +168,8 @@ def guidance(stage: str, language: str = "en") -> dict:
             chunks = re.split(r"(?m)(?=^## \d+\. )", text)
             text = "\n".join(c for c in chunks if any(c.startswith(f"## {n}. ") for n in numbers))
         files.append({"path": name, "content": text})
-    return {"stage": stage, "guidance": files}
+    return {"stage": stage, "guidance": files, "profile": profile,
+            "profile_policy": LITE_LOG if profile == "lite" else ["Full uses the declared reviewer tier; unconfigured new tasks use degraded self-review."]}
 
 
 def content_review_instructions() -> str:
@@ -277,7 +282,9 @@ def requirement_input(root):
     return content if content.strip() else ""
 
 
-def start(workspace: Path, task: str, brief: dict, language="en") -> dict:
+def start(workspace: Path, task: str, brief: dict, language="en", profile="full") -> dict:
+    if profile not in {"lite", "full"}:
+        raise ValueError("Profile must be lite or full.")
     if not isinstance(brief, dict) or any(not isinstance(k, str) for k in brief):
         raise ValueError("Brief must be an object.")
     if any(not isinstance(v, str) for v in brief.values()):
@@ -286,10 +293,12 @@ def start(workspace: Path, task: str, brief: dict, language="en") -> dict:
     progress_file = safe_path(root, "state/progress.json")
     if progress_file.exists():
         progress = load(root, "state/progress.json")
+        if progress.get("profile", "full") != profile:
+            raise ValueError("A task profile is fixed at creation; resume with its saved profile or create a new task.")
         if progress.get("stage") != "brief":
             if brief and any(progress.get("brief", {}).get(k) != v for k, v in brief.items()):
                 raise ValueError("Research already started; reconcile changed scope explicitly in its task records.")
-            readiness = review_readiness()
+            readiness = ({"status": "skipped", "log": LITE_LOG} if profile == "lite" else review_readiness())
             return {**status(workspace, task, language), "review_readiness": readiness,
                     "ready_for_collection": readiness["status"] != "blocked"}
         brief = {**progress.get("brief", {}), **brief}
@@ -312,8 +321,8 @@ def start(workspace: Path, task: str, brief: dict, language="en") -> dict:
         }.items():
             save_text(root, name, content)
     missing = [key for key in BRIEF_FIELDS if not nonempty(brief.get(key))]
-    readiness = review_readiness()
-    progress.update(brief=brief, stage="brief" if missing else "collect",
+    readiness = ({"status": "skipped", "log": LITE_LOG} if profile == "lite" else review_readiness())
+    progress.update(brief=brief, profile=profile, stage="brief" if missing else "collect",
                     next_action="Use context to propose concrete coverage and results; clarify only consequential unknowns." if missing else
                     "Restore required review access before collection." if readiness["status"] == "blocked" else
                     "Collect and read the required evidence.")
@@ -321,9 +330,9 @@ def start(workspace: Path, task: str, brief: dict, language="en") -> dict:
     spec = "# Research brief\n\n" + "\n\n".join(f"## {key}\n\n{value}" for key, value in brief.items())
     save_text(root, "state/task_spec.md", spec+"\n")
     return {"task": task, "task_directory": str(root), "ready_for_collection": not missing and readiness["status"] != "blocked",
-            "review_readiness": readiness,
+            "review_readiness": readiness, "profile": profile, "log": LITE_LOG if profile == "lite" else [],
             "missing_fields": missing, "clarification_questions": [(BRIEF_FIELDS_ZH if language == "zh" else BRIEF_FIELDS)[k] for k in missing],
-            **guidance(progress["stage"], language)}
+            **guidance(progress["stage"], language, profile)}
 
 
 def status(workspace: Path, task: str, language="en", stage: str | None = None) -> dict:
@@ -341,7 +350,7 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None) 
         save(root, "state/progress.json", progress)
     current = progress.get("stage", "brief")
     return {"task": task, "task_directory": str(root), "progress": progress, "missing_fields": missing,
-            **guidance(current, language)}
+            **guidance(current, language, progress.get("profile", "full"))}
 
 
 def checked_review(value, dimensions):
@@ -408,7 +417,7 @@ def invoke(root, prefix, config, request, used_ids, runner):
         save(root, prefix+"/execution.json", result["capture"])
         save_text(root, prefix+"/response.txt", result["content"])
         identity = result["execution_id"]
-        if not nonempty(identity) or identity in used_ids:
+        if not nonempty(identity) or (identity in used_ids and config.get("backend") != "self"):
             raise ValueError("Reviewer execution ID is missing or reused.")
         used_ids.add(identity)
         save(root, prefix+"/identity.json", {"execution_id": identity})
@@ -442,9 +451,11 @@ def record_plan_change(root, previous, current):
 
 
 def review(workspace: Path, task: str, evidence_paths: list[str], artifact="final.md",
-           purpose="report_delivery", revision=False, *, config=None, runner=run_reviewer) -> dict:
+           purpose="report_delivery", revision=False, reviewer=None, self_review=None, *, config=None, runner=run_reviewer) -> dict:
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
+    if progress.get("profile", "full") == "lite":
+        return {"skipped": True, "profile": "lite", "log": LITE_LOG, "independent_review": False}
     if any(not nonempty(progress.get("brief", {}).get(k)) for k in BRIEF_FIELDS):
         raise ValueError("Clarify critical research requirements before reviewing.")
     if purpose not in {"evaluation", "report_delivery"}:
@@ -457,13 +468,31 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     if not report.strip():
         raise ValueError("The report is empty.")
     old_plan = progress.get("review_plan")
+    if reviewer is None:
+        reviewer = (old_plan.get("reviewer", "independent") if old_plan else
+                    "independent" if config is not None or backend_configured() or purpose == "evaluation" else "self")
+    if reviewer not in {"self", "external", "independent"}:
+        raise ValueError("Reviewer must be self, external or independent.")
+    if self_review is not None and reviewer != "self":
+        raise ValueError("A host-supplied response is accepted only for reviewer=self.")
+    if reviewer == "self":
+        if purpose == "evaluation":
+            raise ValueError("Frozen evaluations require independent reviewers and auditing; self is for report delivery.")
+        config = {"reviewers": [{"id": "self", "model": "author-context", "backend": "self", "format": "self"}]}
     config = (load_review_config(require_audit=purpose == "evaluation" or bool(
         old_plan and old_plan.get("audit_required", True)))
         if config is None else validate_review_config(config))
+    if reviewer != "self" and any(backend_kind(r) == "self" for r in config["reviewers"]):
+        raise ValueError("The declared external/independent reviewer needs a backend. " + BACKEND_HELP)
     audit_required = "auditor" in config
     if purpose == "evaluation" and not audit_required:
         raise ValueError("Evaluation requires its declared independent auditor configuration.")
     review_instructions = content_review_instructions()
+    if reviewer == "self":
+        review_instructions = ("Explicitly switch from author to critical reviewer in this same context. "
+            "This is a degraded self-review, not an independent opinion. Examine the frozen input below. "
+            "Return the JSON result with the supplied input_version, then submit it as self_review.\n"
+            + review_instructions)
     if not audit_required:
         review_instructions += ("\nFor report delivery, pass only when no required corrections remain. "
                                 "Mark nonessential suggestions optional; any critical, major or minor defect "
@@ -486,6 +515,10 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
         raise ValueError("Input exceeds the 16 MiB local limit; explicitly agree a bounded assignment rather than truncating it.")
     version = digest(packet)
     artifact_hash = sha256_file(artifact_path)
+    if self_review is not None:
+        if not isinstance(self_review, dict) or self_review.get("input_version") != version:
+            raise ValueError("Self-review must quote the current frozen input_version; request its prompt first.")
+        checked_review(self_review, DIMENSIONS)
     old_plan = progress.get("review_plan")
     runner_signature = digest({"reviewers": [assignment_config(r) for r in config["reviewers"]],
                                "auditor": assignment_config(config["auditor"]) if audit_required else None,
@@ -507,7 +540,7 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     paragraphs = [p.strip() for p in re.split(r"\n\s*\n", report) if p.strip()]
     indices = sorted({0, len(paragraphs)-1, int(version[:8], 16) % len(paragraphs)})
     report_samples = {f"paragraph:{i+1}": paragraphs[i] for i in indices}
-    slots = [{"slot_id": r["id"], "reviewer_id": f"reviewer:{r['id']}", "model": r["model"],
+    slots = [{"slot_id": r["id"], "reviewer_id": progress["author_id"] if reviewer == "self" else f"reviewer:{r['id']}", "model": r["model"],
               "scope": "full_report", "dimensions": DIMENSIONS, "input": input_ref,
               "reviewer_signature": digest({"config": assignment_config(r), "instructions": review_instructions})}
              for r in config["reviewers"]]
@@ -529,6 +562,8 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
             "input_version": version, "runner_signature": runner_signature, "slots": slots,
             "sampling": {"method": SAMPLING_METHOD, "population": population,
                          "selected": selection, "mandatory": [f"review:{s['slot_id']}" for s in slots]}}
+    if reviewer != "independent":
+        plan.update(reviewer=reviewer, review_strength="degraded" if reviewer == "self" else "external")
     if not audit_required:
         plan.pop("sampling")
         plan["audit_required"] = False
@@ -539,12 +574,23 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
         if validity["ok"]:
             outcome = completion(root, progress, artifact)
             return {"reviews_complete": True, "evaluation_complete": purpose == "evaluation" and outcome["ok"],
-                    "completion_check": outcome, "recovery": [], "reused": True, "task_directory": str(root)}
+                    "completion_check": outcome, "recovery": [], "reused": True, "task_directory": str(root),
+                    "reviewer": reviewer, "review_strength": plan.get("review_strength", "independent")}
     if assignment_changed:
         record_plan_change(root, old_plan, plan)
     progress.update(review_plan=plan, stage="review", status="in_progress",
                     next_action="Complete the declared reviews and any requested audits.")
     save(root, "state/progress.json", progress)
+    if reviewer == "self" and self_review is None:
+        return {"reviews_complete": False, "action_required": "self_review", "reviewer": "self",
+                "review_strength": "degraded", "independent_review": False, "input_version": version,
+                "prompt": review_instructions, "assignment": packet,
+                "log": ["SELF REVIEW: same author context; no external backend called; review strength is degraded."]}
+    if reviewer == "self":
+        def runner(config, request, cwd):
+            return {"execution_id": progress["author_id"], "content": json.dumps(self_review, ensure_ascii=False),
+                    "capture": {"reviewer": "self", "review_strength": "degraded", "context": "author",
+                                "external_execution": False}}
     used_ids = {r.get("execution_id") for r in rows_for(root) if nonempty(r.get("execution_id"))}
     # Include audit executions as well, even after a failed/partial audit.
     for identity_path in safe_path(root, "reviews").rglob("identity.json"):
@@ -575,7 +621,8 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                 attempt_prefix = prefix+"/attempts/"+aid
                 base = {"record_type": "model_review", "attempt_id": aid,
                         **{k: slot[k] for k in ("slot_id", "reviewer_id", "model", "scope", "input", "reviewer_signature") if k in slot},
-                        "artifact_sha256": artifact_hash}
+                        "artifact_sha256": artifact_hash, "reviewer": reviewer,
+                        "review_strength": "degraded" if reviewer == "self" else reviewer}
                 try:
                     value, execution_id = invoke(root, attempt_prefix, reviewer_config,
                         {"role": "reviewer", "instructions": review_instructions, "assignment": packet},
@@ -665,7 +712,8 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                                else "Resolve the listed incomplete work or required report corrections.")
     save(root, "state/progress.json", progress)
     validity = completion(root, progress, artifact, require_report_ready=False)
-    return {"reviews_complete": validity["ok"],
+    return {"reviewer": reviewer, "review_strength": plan.get("review_strength", "independent"),
+            "reviews_complete": validity["ok"],
             "evaluation_complete": purpose == "evaluation" and outcome["ok"],
             "completion_check": outcome, "recovery": problems, "task_directory": str(root)}
 
@@ -704,13 +752,44 @@ def content_review_summary(reviews: dict, rows: list[dict], artifact_hash: str) 
     return {"scope": "global_final_delivery", "artifact_sha256": artifact_hash,
             "result": "fail" if issues else "pass", "open_issues": issues,
             "basis": "Summary of the declared full-report content reviews.",
+            **({"reviewer": "self", "review_strength": "degraded", "independent_review": False}
+               if any(r.get("reviewer") == "self" for r in reviews.values()) else {}),
             "review_evidence": {sid: r["response"] for sid, r in reviews.items()},
             "reviewer_contexts": [r["execution_id"] for r in reviews.values()]}
 
 
-def finish(workspace: Path, task: str, message: str, artifact="final.md") -> dict:
+def finish_lite(root, progress, message, artifact, checklist):
+    if any(not nonempty(progress.get("brief", {}).get(k)) for k in BRIEF_FIELDS):
+        raise ValueError("Complete the brief before the final checklist.")
+    check_stage_records(root, "draft")
+    if not safe_path(root, artifact).read_text(encoding="utf-8").strip() or not nonempty(message):
+        raise ValueError("Provide a nonempty report and delivery message.")
+    if checklist is None:
+        return {"completed": False, "action_required": "final_checklist", "checklist": CHECKLIST,
+                "profile": "lite", "log": LITE_LOG}
+    errors = checklist_errors(checklist)
+    if errors:
+        return {"completed": False, "profile": "lite", "errors": errors, "log": LITE_LOG}
+    save_text(root, "delivery_message.md", message)
+    record = {"profile": "lite", "artifact": artifact, "items": checklist,
+              "review_strength": "unreviewed", "independent_review": False,
+              "artifacts": {name: sha256_file(safe_path(root, name)) for name in (artifact, "delivery_message.md")}}
+    save(root, "state/final_checklist.json", record)
+    save_text(root, "logs/profile.jsonl", json.dumps({"profile": "lite", "log": LITE_LOG})+"\n")
+    result = inspect_lite_delivery(root, artifact)
+    if result["ok"]:
+        save(root, "state/progress.json", {**progress, "stage": "final", "status": "complete",
+            "next_action": "Delivered with the lite checklist; no independent review.",
+            "review_strength": "unreviewed"})
+    return {"completed": result["ok"], "artifact": str(safe_path(root, artifact)),
+            "profile": "lite", "delivery_check": result, "log": LITE_LOG, "message": message}
+
+
+def finish(workspace: Path, task: str, message: str, artifact="final.md", checklist=None) -> dict:
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
+    if progress.get("profile", "full") == "lite":
+        return finish_lite(root, progress, message, artifact, checklist)
     if progress.get("review_plan", {}).get("purpose") != "report_delivery":
         raise ValueError("Report delivery needs report_delivery reviews. Evaluations end with their review result.")
     try:
@@ -751,6 +830,8 @@ def finish(workspace: Path, task: str, message: str, artifact="final.md") -> dic
         receipt = {"schema_version": 1, "status": "pass", "scope": "global_final_delivery",
                    "artifact": artifact, "open_issues": [],
                    "accepted_limitations": progress.get("accepted_limitations", []),
+                   "reviewer": progress["review_plan"].get("reviewer", "independent"),
+                   "review_strength": progress["review_plan"].get("review_strength", "independent"),
                    "artifacts": {p: sha256_file(safe_path(candidate, p)) for p in required}}
         save(candidate, "state/final_delivery.json", receipt)
         result = evaluate_delivery(candidate, artifact=artifact)
@@ -783,6 +864,8 @@ def workspace_default() -> Path:
 
 
 def dispatch(action: str, request: dict, workspace: Path):
+    if action == "check-reviewer":
+        return review_readiness()
     if action == "start":
         return start(workspace, **request)
     if action == "status":
@@ -798,20 +881,29 @@ def dispatch(action: str, request: dict, workspace: Path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("action", choices=["start", "status", "guide", "review", "finish"])
+    parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "check-reviewer"])
+    parser.add_argument("--profile", choices=["lite", "full"], help="Profile for a new task (default: full).")
     parser.add_argument("--workspace", type=Path, default=workspace_default())
     parser.add_argument("--request", type=Path, help="JSON arguments; otherwise read stdin.")
     args = parser.parse_args()
     import sys
     try:
-        request = json.loads(args.request.read_text(encoding="utf-8") if args.request else sys.stdin.read())
+        request = json.loads(args.request.read_text(encoding="utf-8") if args.request else "{}" if args.action == "check-reviewer" else sys.stdin.read())
         if not isinstance(request, dict):
             raise ValueError("Request must be an object.")
+        if args.profile is not None:
+            if args.action != "start":
+                raise ValueError("--profile applies only to start; later actions use the saved task profile.")
+            request["profile"] = args.profile
         result = dispatch(args.action, request, args.workspace)
     except (ValueError, OSError, TypeError, KeyError) as exc:
         print(json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=False))
         return 1
     print(json.dumps(result, ensure_ascii=False, indent=2))
+    if args.action == "check-reviewer" and result.get("status") == "blocked":
+        return 1
+    if result.get("action_required"):
+        return 0
     return 0 if not (result.get("completed") is False or result.get("reviews_complete") is False) else 1
 
 

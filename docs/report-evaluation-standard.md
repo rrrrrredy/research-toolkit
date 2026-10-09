@@ -24,7 +24,9 @@ Keep four results separate:
 1. Admit the task: preserve its origin, reader, cutoff, scope, source access, rights and task-family exposure. Freeze task-specific coverage and evidence requirements before writing; do not provide the desired research conclusion.
 2. Freeze the study version, author/runtime settings, normal tool access, review conditions and endpoints. The baseline disables the tested toolkit, not normal search or all ordinary self-checking. Preserve context separation and randomize paired condition order. Any resource/stopping or retry rule must be declared before a batch; no hidden 15-minute/60-minute deadline is introduced here.
 3. Run the assigned workflow. For the toolkit condition this includes outline, research, analysis, section writing and review, followed by an actual whole-report reading. Check whether the outline addresses the actual questions and whether its section hierarchy supports the argument before drafting; revise it when evidence changes the argument. Follow any task-specific independent structure-review requirement, without adding another default four-model panel. Capture genuine events; do not manufacture missing historical steps.
-4. Save the first complete candidate without overwriting it. Four non-author reviewers receive the same full task, report and evidence version, independently. Current roles are Astra in Codex as sole author/reviser; GPT-5.6 Sol high in a fresh Codex context, DeepSeek, Kimi and GLM-5.3 high as reviewers. These roles are this study's configuration, not a dependency of the toolkit.
+| Historical reviewer backends (retained provenance, not a default dependency) |
+| --- |
+| 4. Save the first complete candidate without overwriting it. Four non-author reviewers receive the same full task, report and evidence version, independently. Current roles are Astra in Codex as sole author/reviser; GPT-5.6 Sol high in a fresh Codex context, DeepSeek, Kimi and GLM-5.3 high as reviewers. These roles are this study's configuration, not a dependency of the toolkit. |
 5. Lock original reviews before exposing feedback. Record every finding, including disagreements and failed calls. The author/operator checks the actual passage and source before accepting a correction. Do not substitute votes for evidence.
 6. Preserve the frozen reports, original reviews, evidence-based defect labels and failed or unresolved outcomes in the evaluation dataset. A report does not have to become usable for its evaluation to be complete. Failed or incomplete runs and panels retain that status under the frozen protocol; transport or formatting failures are not zero-quality reports, and retries are not silent replacements. Every required reviewer must obtain a complete, substantive, version-bound valid review before the current panel can be complete. Preserve each failed or completion attempt separately; diagnose and recover missing reviews instead of closing them after a call or retry limit. Earlier frozen failures retain their historical status and are not retroactively relabelled. Completing a missing review does not authorize editing the sample or repeating an already valid review to remove its findings.
 7. Aggregate these original outcomes into product feedback, decide what to adopt and why, change the toolkit where justified, and verify the affected behavior. Report repair is not a prerequisite for this step. Known serious product defects may be fixed earlier with separate version groups. Final project acceptance includes this product work, not only reports and scores.
@@ -81,7 +83,9 @@ For each product issue retain: failing example, impact, root cause, accepted/rej
 
 统一五维：**任务遵循、事实与证据、解释与综合、反证与边界、读者可用性**。每维0–4分：0核心要求缺失或不成立；1重大缺陷；2仍需实质修订；3满足任务且问题有界；4充分展开且有具体依据。证据不足用 `not_assessed`，不当0分或通过。各分须有理由和正文定位，不算抵消严重问题的总及格分。分析深度仍在综合与交付要求中检查，没有从五维中删除。
 
-执行是否真实、第一份完整交稿质量、返工后可用性、工具箱相对基线的效果，是四项不同结果。保存原稿、原评审、缺陷标签和失败；修订记录单列，不覆盖第一次表现。四位评审仍为Sol high、DeepSeek、Kimi、GLM-5.3 high，写作和返工仅由Codex内Astra承担。四位读同版完整材料、意见互相隔离；作者自查不计独立评审。
+| Historical reviewer backends (retained provenance, not a default dependency) |
+| --- |
+| 执行是否真实、第一份完整交稿质量、返工后可用性、工具箱相对基线的效果，是四项不同结果。保存原稿、原评审、缺陷标签和失败；修订记录单列，不覆盖第一次表现。四位评审仍为Sol high、DeepSeek、Kimi、GLM-5.3 high，写作和返工仅由Codex内Astra承担。四位读同版完整材料、意见互相隔离；作者自查不计独立评审。 |
 
 ## 统一评测流程
 

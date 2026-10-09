@@ -17,7 +17,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Check published SKILL sync
-        run: python scripts/check_docs_sync.py
+        run: |
+          python scripts/check_docs_sync.py
+          python scripts/check_docs_sync.py --skill SKILL.zh-CN.md --html docs/framework.zh-CN.html
       - name: Check DeepSeek Harness adapter
         run: python scripts/run_dsh_evals.py validate
       - name: Check eval source integrity
@@ -46,6 +48,8 @@ jobs:
         run: python scripts/check_semantic_review_bundle.py --self-test
       - name: Check shared research workflow
         run: python scripts/check_research_workflow.py
+      - name: Check profiles and reviewer backends
+        run: python scripts/check_profiles_reviewers.py
       - name: Check plugin payload matches shared sources
         run: python scripts/build_plugin.py --check
       - name: Check local MCP protocol with synthetic reviewers

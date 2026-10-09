@@ -43,7 +43,9 @@ This is an explanation of existing rules, not a new schema or extra required sta
 
 Complete and verify all accepted method, execution, checker, data and documentation corrections before starting new report-writing or model-review runs. Offline regressions are preparation, not an efficacy study; green CI alone does not authorize a study start.
 
-The current development lane uses Astra inside Codex as the sole author, actually loading the pinned framework and using its research workflow. Each first-submission report receives four separate reviews; the same requirement applies to revised reports when report delivery or repair research is in scope: GPT-5.6 Sol (`gpt-5.6-sol`, `high`) in a fresh Codex context, DeepSeek, Kimi, and GLM-5.3 (requested `high`). DeepSeek, Kimi and GLM are reviewers, not substitute authors. This is a study configuration, not a Codex dependency or a four-model requirement of the framework itself.
+| Historical reviewer backends (retained provenance, not a default dependency) |
+| --- |
+| The current development lane uses Astra inside Codex as the sole author, actually loading the pinned framework and using its research workflow. Each first-submission report receives four separate reviews; the same requirement applies to revised reports when report delivery or repair research is in scope: GPT-5.6 Sol (`gpt-5.6-sol`, `high`) in a fresh Codex context, DeepSeek, Kimi, and GLM-5.3 (requested `high`). DeepSeek, Kimi and GLM are reviewers, not substitute authors. This is a study configuration, not a Codex dependency or a four-model requirement of the framework itself. |
 
 Preserve failed reports and unresolved findings as evaluation outcomes. Move from the frozen first-submission results to the dataset and product feedback; do not require every sample to be repaired before product iteration. Repair records remain separate and do not establish a toolkit effect.
 

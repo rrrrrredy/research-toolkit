@@ -4,9 +4,12 @@
 
 Use this reference when assigning research reviews. [SKILL.md](../SKILL.md) defines the protocol; this file gives role instructions and working methods. The main author owns the argument and synthesis.
 
+
+**Profile scope:** Full review/delivery requirements on this page apply to Full. Lite retains the brief, claims, section drafting and final checklist with explicit review/gate skip logs. New Full tasks without a backend may use degraded self-review; non-author-context requirements apply to external/independent tiers and explicitly independent tasks, never to a self-review relabelled independent. Frozen evaluations retain their original protocol. Use the [Skill profile rules](../SKILL.md#choosing-a-profile).
+
 ## Assign Work by Perspective
 
-Ordinary research defaults to one non-author content reviewer, without a compulsory reviewer-audit context or formal sampling log. The independent adjudication, reviewer audit and sampling methods below remain available for explicitly declared audits and evaluation studies.
+Ordinary research follows the selected tier: Lite skips review; Full without a backend uses explicitly degraded self-review; configured external/independent reviews use non-author contexts. Independent adjudication, reviewer auditing and formal sampling apply only to declared audited plans and evaluations.
 
 A perspective is a responsibility, not a mandatory extra model call. Combine compatible responsibilities in one bounded assignment and list the coverage for each. Select domain specialists only when the task needs their methods. When a study requires several model judges on a common rubric, every judge still covers that rubric; specialist emphasis does not remove common dimensions.
 
@@ -21,7 +24,7 @@ A perspective is a responsibility, not a mandatory extra model call. Combine com
 | Reader usefulness | Read the assembled text for a useful title and opening, argument continuity, term introductions, cognitive load, tables and decision relevance. Identify concrete friction points. | Style changes cannot alter evidence or scope. Route a suspected factual problem to evidence review instead of silently fixing it. |
 | Domain specialist | Apply the relevant field's standards: financial definitions and assumptions; technical baselines and experimental conditions; policy applicability and effective dates; or clinical design, endpoints and populations. | Explain why the specialist is needed and which requirements apply. Do not attach every specialist to every report. |
 
-The content reviewer reads the actual assembled artifact, requirements and relevant sources, rather than an author summary or edit list. Use a context separate from the author. A fresh context separates work; it does not imply statistically independent model errors.
+The content reviewer reads the actual assembled artifact, requirements and relevant sources, rather than an author summary or edit list. For external/independent review, use a context separate from the author; self-review explicitly switches roles in the author context and remains degraded. A fresh context separates work; it does not imply statistically independent model errors.
 
 ## Shared Assignment
 

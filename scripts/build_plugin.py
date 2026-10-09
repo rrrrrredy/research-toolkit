@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT/"plugins/research-toolkit"
-RUNTIME = ["check_delivery.py", "check_review_completion.py", "research_workflow.py", "review_runner.py", "review_process.py"]
+RUNTIME = ["profile_policy.py", "check_delivery.py", "check_review_completion.py", "research_workflow.py", "review_runner.py", "review_process.py"]
 
 
 def payload() -> dict[str, bytes]:
@@ -14,6 +14,7 @@ def payload() -> dict[str, bytes]:
     paths += [ROOT/"scripts"/name for name in RUNTIME]
     paths += [ROOT/"docs"/name for name in (
         "review-completion.md", "review-completion.zh-CN.md",
+        "usage-modes.md", "usage-modes.zh-CN.md",
         "delivery-verification.md", "delivery-verification.zh-CN.md")]
     mcp = ROOT/"scripts/research_mcp.py"
     if mcp.is_file():

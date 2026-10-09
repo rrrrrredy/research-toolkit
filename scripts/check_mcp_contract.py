@@ -44,7 +44,7 @@ async def verify(base):
     async with Client(server, read_timeout_seconds=30) as client:
         tools = await client.list_tools()
         names = {tool.name for tool in tools.tools}
-        assert names == {"research_start", "research_status", "research_guide", "research_review", "research_finish"}, names
+        assert names == {"research_start", "research_status", "research_guide", "research_review", "research_finish", "research_check_reviewer"}, names
         guide = unpack(await client.call_tool("research_guide", {"stage": "brief", "language": "zh"}))
         assert "研究工作流" in guide["guidance"][0]["content"]
         denied = await client.call_tool("research_start", {"task": "../outside", "brief": BRIEF})
@@ -94,6 +94,31 @@ async def verify(base):
         assert current["progress"]["status"] == "complete"
         assert (root/"state/final_delivery.json").read_bytes() == receipt
         assert (root/"logs/review.jsonl").read_bytes() == history
+        readiness = unpack(await client.call_tool("research_check_reviewer", {}))
+        assert readiness["status"] == "unverified"
+        from profile_policy import CHECKLIST
+        for profile, task in (("lite", "lite-case"), ("full", "self-case")):
+            created = unpack(await client.call_tool("research_start", {"task": task, "brief": BRIEF, "profile": profile}))
+            local = Path(created["task_directory"])
+            for name in ("source.md", "final.md", "data/source_registry.csv", "data/claims_registry.csv"):
+                (local/name).write_bytes((root/name).read_bytes())
+            arguments = {"task": task, "evidence_paths": ["source.md"], "reviewer": "self"}
+            pending = unpack(await client.call_tool("research_review", arguments))
+            finish_args = {"task": task, "message": "The report is complete; no independent review was performed."}
+            if profile == "lite":
+                assert pending["skipped"]
+                needed = unpack(await client.call_tool("research_finish", finish_args))
+                assert needed["action_required"] == "final_checklist"
+                finish_args["checklist"] = {k: {"passed": True, "evidence": "Synthetic MCP control: final.md and source.md."} for k in CHECKLIST}
+            else:
+                assert pending["action_required"] == "self_review"
+                from check_research_workflow import SyntheticRunner
+                value = json.loads(SyntheticRunner()({}, {"role": "reviewer"}, None)["content"])
+                arguments["self_review"] = {**value, "input_version": pending["input_version"]}
+                reviewed = unpack(await client.call_tool("research_review", arguments))
+                assert reviewed["reviews_complete"] and reviewed["review_strength"] == "degraded"
+            done = unpack(await client.call_tool("research_finish", finish_args))
+            assert done["completed"], done
         resources = await client.list_resources()
         assert any(str(r.uri) == "research-toolkit://instructions" for r in resources.resources)
         prompts = await client.list_prompts()

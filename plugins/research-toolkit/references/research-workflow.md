@@ -4,6 +4,9 @@
 
 Use this file when planning or restarting a complex longform research task.
 
+
+**Profile scope:** Full review/delivery requirements on this page apply to Full. Lite retains the brief, claims, section drafting and final checklist with explicit review/gate skip logs. New Full tasks without a backend may use degraded self-review; non-author-context requirements apply to external/independent tiers and explicitly independent tasks, never to a self-review relabelled independent. Frozen evaluations retain their original protocol. Use the [Skill profile rules](../SKILL.md#choosing-a-profile).
+
 ## 1. Research Brief Gate
 
 Before collecting sources, use the conversation and materials to propose what the research will cover, which questions it will answer, and what the user will receive. Explain coverage with actual subjects and outcomes with concrete comparisons, explanations and evidence. The agent assembles this plan and owns execution; the user supplies decisions that depend on their needs.

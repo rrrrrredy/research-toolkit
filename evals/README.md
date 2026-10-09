@@ -22,6 +22,14 @@ Actual outputs are available in the [2026-09-07 development package](./diagnosti
 
 See [evaluation status and version boundaries](../docs/evaluation-status.md) for completed historical first-review counts and their interpretation. The public files below are a subset of the retained evaluation material.
 
+## Contribute a failure case
+
+1. [Submit a failure case](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml) with the question, expected result, sources, observed problem and profile/reviewer tier; paste a report excerpt if useful.
+2. A maintainer reproduces and reviews it against the originals, distinguishing a tool defect, execution error and evidence gap; any missing details are requested in the issue.
+3. An accepted minimal case enters the appropriate regression-fixture or semantic-diagnostic directory, linking the issue and retaining the original failure and its scope.
+
+Admission requires a reproducible problem and original material that can lawfully be published; contributors do not need to write code or build a fixture.
+
 ## Directory Layout
 
 Existing consumers can use the [schema v2 migration guide](../docs/evaluator-v2-migration.md). The [delivery checker interface](../docs/delivery-verification.md) documents intended-message binding and the limits of optional actual-reply comparison.
