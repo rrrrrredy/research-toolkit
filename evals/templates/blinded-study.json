@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "profile": "lite",
+  "source_access": "fixed_supplied_sources",
+  "cohort_status": "prospective_development",
+  "publication_rights_confirmed": false,
+  "selection_statement": "Replace with the target population, sampling method, frozen sample size and strata.",
+  "exposure_statement": "Replace with prior-exposure evidence; use held_out only if justified.",
+  "author": {
+    "base_url": "https://your-provider.example/v1",
+    "model": "replace-with-pinned-model-id",
+    "snapshot_statement": "Replace with the provider snapshot/version policy and whether returned identity is independently attested.",
+    "api_key_env": "RESEARCH_EVAL_API_KEY",
+    "max_completion_tokens": 4096,
+    "max_total_tokens": 32768,
+    "timeout_seconds": 180,
+    "completion_parameter": "max_tokens"
+  },
+  "judge": {
+    "base_url": "https://your-provider.example/v1",
+    "model": "replace-with-pinned-judge-id",
+    "snapshot_statement": "Replace with the provider snapshot/version policy and whether returned identity is independently attested.",
+    "api_key_env": "RESEARCH_EVAL_JUDGE_API_KEY",
+    "max_completion_tokens": 4096,
+    "max_total_tokens": 32768,
+    "timeout_seconds": 180,
+    "completion_parameter": "max_tokens"
+  },
+  "tasks": []
+}

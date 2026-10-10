@@ -29,6 +29,8 @@ Use the [paired-study template](templates/paired-study.json) with the [freeze an
 
 新效果研究使用[配对模板](templates/paired-study.json)和[冻结与分析安排](../docs/evaluation-roadmap.zh-CN.md#下一项研究先冻结设计再产生新证据)；模板不代表已冻结样本或运行结果。[必要缺陷标签](../docs/necessary-defects.zh-CN.md)提供稳定类别，[23 例覆盖层](semantic_diagnostics/defect-tags.v1.json)保持开发诊断边界。Lite 入门不计为新增评测案例。
 
+For an executable prospective 5–10-family pilot, see the [blinded pairwise protocol](../docs/eval-protocol.md). The script freezes and logs seed/order, masks A/B judge inputs, and retains first outputs, judgments and failures. Its unfilled cohort and pending result table are not new efficacy evidence. To reproduce only the existing public two-pair archive inventory, run `python scripts/reproduce_calibration.py`; expected outputs are `evals/runs/calibration-reproduction/inventory.json` and `inventory.md`, with zero model calls.
+
 ## Contribute a failure case
 
 1. [Submit a failure case](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml) with the question, expected result, sources, observed problem and profile/reviewer tier; paste a report excerpt if useful.

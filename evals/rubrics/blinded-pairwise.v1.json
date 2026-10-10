@@ -1,0 +1,91 @@
+{
+  "id": "blinded-pairwise-v1",
+  "scope": "One-judge prospective pilot; does not replace historical panels or current Full report acceptance.",
+  "dimensions": [
+    "task_fidelity",
+    "facts_and_evidence",
+    "explanation_and_synthesis",
+    "counterevidence_and_boundaries",
+    "reader_usefulness"
+  ],
+  "anchors": {
+    "0": "Essential requirement absent or failed",
+    "1": "Major defects make this aspect unusable",
+    "2": "Partly met; substantive revision needed",
+    "3": "Meets the task with bounded issues",
+    "4": "Fully developed with concrete support",
+    "not_assessed": "Insufficient assessment context; not zero or approval"
+  },
+  "instructions": "Judge first submissions against the same brief and full supplied sources. Do not award points for files, logs, checklist markers or report length. Rate each dimension separately with a reason, an exact locatable excerpt and source evidence. Do not compute a weighted passing score. Prefer the report that better supports the requested decision; use tie for comparable quality and unresolved for missing evidence. Give condition clues only after choosing. Model preferences and ratings need evidence review before any efficacy interpretation.",
+  "response_schema": {
+    "preference": "A | B | tie | unresolved",
+    "reason": "Located comparative reasoning",
+    "reports": {
+      "A": {
+        "task_fidelity": {
+          "score": "integer 0-4 | not_assessed",
+          "reason": "Why this score",
+          "excerpt": "Report quotation and paragraph/section locator",
+          "source_evidence": "Source ID and passage, or explicit missing evidence"
+        },
+        "facts_and_evidence": {
+          "score": "integer 0-4 | not_assessed",
+          "reason": "Why this score",
+          "excerpt": "Report quotation and paragraph/section locator",
+          "source_evidence": "Source ID and passage, or explicit missing evidence"
+        },
+        "explanation_and_synthesis": {
+          "score": "integer 0-4 | not_assessed",
+          "reason": "Why this score",
+          "excerpt": "Report quotation and paragraph/section locator",
+          "source_evidence": "Source ID and passage, or explicit missing evidence"
+        },
+        "counterevidence_and_boundaries": {
+          "score": "integer 0-4 | not_assessed",
+          "reason": "Why this score",
+          "excerpt": "Report quotation and paragraph/section locator",
+          "source_evidence": "Source ID and passage, or explicit missing evidence"
+        },
+        "reader_usefulness": {
+          "score": "integer 0-4 | not_assessed",
+          "reason": "Why this score",
+          "excerpt": "Report quotation and paragraph/section locator",
+          "source_evidence": "Source ID and passage, or explicit missing evidence"
+        }
+      },
+      "B": {
+        "task_fidelity": {
+          "score": "integer 0-4 | not_assessed",
+          "reason": "Why this score",
+          "excerpt": "Report quotation and paragraph/section locator",
+          "source_evidence": "Source ID and passage, or explicit missing evidence"
+        },
+        "facts_and_evidence": {
+          "score": "integer 0-4 | not_assessed",
+          "reason": "Why this score",
+          "excerpt": "Report quotation and paragraph/section locator",
+          "source_evidence": "Source ID and passage, or explicit missing evidence"
+        },
+        "explanation_and_synthesis": {
+          "score": "integer 0-4 | not_assessed",
+          "reason": "Why this score",
+          "excerpt": "Report quotation and paragraph/section locator",
+          "source_evidence": "Source ID and passage, or explicit missing evidence"
+        },
+        "counterevidence_and_boundaries": {
+          "score": "integer 0-4 | not_assessed",
+          "reason": "Why this score",
+          "excerpt": "Report quotation and paragraph/section locator",
+          "source_evidence": "Source ID and passage, or explicit missing evidence"
+        },
+        "reader_usefulness": {
+          "score": "integer 0-4 | not_assessed",
+          "reason": "Why this score",
+          "excerpt": "Report quotation and paragraph/section locator",
+          "source_evidence": "Source ID and passage, or explicit missing evidence"
+        }
+      }
+    },
+    "condition_clues": "Possible condition-identifying clues, or none observed"
+  }
+}
