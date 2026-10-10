@@ -6,7 +6,13 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
-Research Toolkit naming, clearer usage instructions, and development-only semantic diagnostics. These changes do not establish general efficacy. The v0.1.4 prerelease was withdrawn; v0.1.3 remains the latest available prerelease.
+Changes after the prepared v0.2.3 release belong here.
+
+## v0.2.3 — prepared, not yet published
+
+Current package version, sourced from `VERSION`. Since v0.1.3: Lite tasks, three review tiers, portable reviewer backends, six CLI/MCP workflow tools, stronger evidence/version checks, bilingual onboarding and public case navigation. [Release notes](docs/releases/v0.2.3.md) summarize the changes below. These changes do not establish general efficacy. The v0.1.4 prerelease was withdrawn; historical release records remain unchanged.
+
+Package manifests are synchronized from `VERSION`; the version check also requires matching English and Chinese changelog entries and release notes.
 
 ### Getting started
 

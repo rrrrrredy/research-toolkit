@@ -52,3 +52,24 @@ python scripts/check_docs_sync.py
 README 说明读者如何在线阅读、加载 Skill 或按环境安装；仓库拆分、同步命令、CI 和打包政策放在维护文档。对应中英文内容一同维护，两种语言的章节编号不必相同。
 
 评测资料用途见[数据审计](evaluation-data-audit.zh-CN.md)，语义审查材料见[诊断对照](../evals/semantic_diagnostics/README.zh-CN.md)。安装内容相同不证明报告质量或运行时实际加载。
+
+## 包版本与发布
+
+根目录 `VERSION` 是当前包版本的唯一来源，两份插件清单为生成的副本。更新记录与发布说明描述对应版本；其他旧版本引用属于历史记录，不得全局替换。
+
+准备新版本时，修改 `VERSION`，在双语更新记录和 `docs/releases/v<version>.md` / `.zh-CN.md` 中增加对应内容，然后运行：
+
+```bash
+python scripts/check_version.py --write
+python scripts/build_plugin.py
+python scripts/check_version.py --self-test
+python scripts/build_plugin.py --check
+```
+
+检查不会创建标签或发布版本。预期改动合并且检查通过后，在更新后的仓库根目录运行：
+
+```bash
+gh release create v0.2.3 --repo rrrrrredy/research-toolkit --target main --title "Research Toolkit v0.2.3" --notes-file docs/releases/v0.2.3.md --latest
+```
+
+命令明确仓库和目标分支，创建正式版本（不带 `--prerelease`）。若标签已存在，发布前核对其对应提交；不得用新标签改写历史实验的版本身份。[GitHub CLI 发布选项](https://cli.github.com/manual/gh_release_create)。
