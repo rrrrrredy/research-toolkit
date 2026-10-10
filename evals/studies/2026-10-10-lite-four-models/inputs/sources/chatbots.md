@@ -1,0 +1,299 @@
+Source URL: https://www.consumerfinance.gov/data-research/research-reports/chatbots-in-consumer-finance/chatbots-in-consumer-finance/
+Retrieved: 2026-10-10. Text-only archived source unit; linked material is not supplied unless separately listed.
+Publisher/rights basis: CFPB federal report narrative and cited endnotes; no images.
+
+Source URL: https://www.consumerfinance.gov/data-research/research-reports/chatbots-in-consumer-finance/chatbots-in-consumer-finance/
+Publisher: U.S. Consumer Financial Protection Bureau
+Published: 2023-06-06; page last modified 2024-10-24. Retrieved 2026-10-10.
+Extraction: complete article narrative and endnotes through endnote 56 from the browser text view; navigation removed; link labels retained. Underlying referenced works were not separately fetched.
+
+# Chatbots in consumer finance
+
+JUN 06, 2023
+
+Table of Contents
+  * Executive summary
+  * Chatbot use in consumer finance
+    * Underlying technology, including the use of large language models and "artificial intelligence"
+    * Growth and adoption in the financial industry
+  * Areas of interest
+    * Limited ability to solve complex problems
+    * Hindering access to timely human intervention
+    * Technical limitations and associated security risks
+  * Risks associated with the integration of deficient chatbots
+  * Conclusion
+## Executive summary
+
+Working with customers to resolve a problem or answer a question is an essential function for financial institutions – and the basis of relationship banking.^{1} Customers turn to their financial institutions for assistance with financial products and services and rightfully expect to receive timely, straightforward answers, regardless of the processes or technologies used.
+The following research conducted by the Consumer Financial Protection Bureau (CFPB) explores how the introduction of advanced technologies, often marketed as “artificial intelligence,” in financial markets may impact the customer service experience. The purpose of this report is to explain how chatbot technologies are being used by financial institutions and the associated challenges endured by their customers. The CFPB’s analysis suggests that:
+  * Financial institutions are increasingly using chatbots as a cost-effective alternative to human customer service. Our review found that each of the top 10 largest commercial banks have deployed chatbots as a component of their customer service. Approximately 37% of the U.S. population is estimated to have interacted with a bank’s chatbot in 2022, a figure that is projected to grow.^{2} As chatbot technology has evolved, so too has banks’ use of the technology.
+Banks are moving from simple, rule-based chatbots towards more sophisticated technologies such as large language models (“LLMs”) and those marketed as “artificial intelligence.”
+  * Chatbots may be useful for resolving basic inquiries, but their effectiveness wanes as problems become more complex. Review of consumer complaints and of the current market show that some people experience significant negative outcomes due to the technical limitations of chatbots functionality. There are many kinds of negative outcomes for the customer, including wasted time, feeling stuck and frustrated, receiving inaccurate information, and paying more in junk fees.
+These issues are particularly pronounced when people are unable to obtain tailored support for their problems.
+  * Financial institutions risk violating legal obligations, eroding customer trust, and causing consumer harm when deploying chatbot technology. Like the processes they replace, chatbots must comply with all applicable federal consumer financial laws, and entities may be liable for violating those laws when they fail to do so.
+Chatbots can also raise certain privacy and security risks.^{3} When chatbots are poorly designed, or when customers are unable to get support, there can be widespread harm and customer trust can be significantly undermined.
+## Chatbot use in consumer finance
+
+Financial institutions have long used a variety of channels to interact with prospective and existing customers. Bank branches were created to give customers a place near their homes to conduct banking business and receive customer service and support.^{4} The ability to ask questions and interact face-to-face with a financial institution has long been a core tenet of relationship banking.
+Over time, financial institutions have added contact centers (formerly called call centers), so that customers may more easily interact with their financial institution. As these institutions grew, many contact center functions shifted to interactive voice response technology to route calls to the appropriate personnel and to reduce costs.
+As new technology became available, financial institutions deployed online interfaces for customer support, such as mobile applications^{5} and the ability to send and receive messages or through “live chat.” The introduction of chat in consumer finance enabled customers to have real-time, back-and-forth interactions over a chat platform with customer service agents.
+Chatbots, which simulate human-like responses using computer programming, were introduced in large part to reduce the costs of human customer service agents. Recently, financial institutions have begun experimenting with generative machine learning and other underlying technologies such as neural networks and natural language processing to automatically create chat responses using text and voices.^{6} Below we describe the use of chatbots for customer support purposes.
+### Underlying technology, including the use of large language models and “artificial intelligence”
+
+Chatbots are computer programs that mimic elements of human conversation. Though they can vary substantially in terms of sophistication, automation, and features, they all ingest a user’s input and use programming to produce an output.^{7}
+Rule-based chatbots use either decision tree logic or a database of keywords to trigger preset, limited responses. These chatbots may present the user with a set menu of options to select from or navigate the user between options based on a set of keywords and generate replies using predetermined rules.
+The user is typically limited to predefined possible inputs.^{8} For example, a bank chatbot may list a set number of options for the consumer to choose from, such as checking their account balance or making a payment.
+More complex chatbots use additional technologies to generate responses. Specifically, these chatbots may be designed to use machine learning or technology often marketed as “artificial intelligence” to simulate natural dialogue.^{9} Other complex chatbots use LLMs to analyze the patterns between words in large datasets and predict what text should follow in response to a person’s question.^{10}
+Domain-specific chatbots are intended to help users accomplish specific tasks and their functionality is limited to a topic area such as healthcare, education, or banking.^{11} Our analysis is focused on chatbots in the financial industry.
+### Growth and adoption in the financial industry
+
+Chatbots are featured prominently across the financial industry, including on the websites, mobile applications, and social media accounts of banks, mortgage servicers, debt collectors, and other financial companies. In 2022, over 98 million users (approximately 37% of the U.S. population) engaged with a bank’s chatbot. This number is projected to grow to 110.9 million users by 2026.^{12}
+Notably, among the top 10 commercial banks in the country, all use chatbots of varying complexity to engage with customers. These chatbots sometimes have human names, use popup features to encourage engagement, and can even exchange direct messages on social media accounts.
+The adoption of chatbots by financial institutions to provide customer service may be explained by certain features, such as their 24/7 availability and immediate responses.^{13} Adoption may also be driven by cost savings for these institutions. For example, reports show that when compared to the use of human agent customer service models, chatbots deliver $8 billion per annum in cost savings, approximately $0.70 saved per customer interaction.^{14}
+Chatbots have been part of the financial marketplace for almost a decade and their popularity has grown steadily over the years.^{15} Today, much of the industry at least uses simple rule-based chatbots with either decision tree logic or databases of keywords or emojis that trigger preset, limited responses. Often, these chatbots are powered by proprietary third-party technology companies.
+For example, Kasisto provides conversational, financially focused chatbots for JPMorgan Chase and TD Bank,^{16} while Interactions supports Citibank.^{17}
+As adoption of chatbots has grown, some institutions, such as Capital One, have built their own chatbot technologies by training algorithms on real customer conversations and chat logs.^{18} Capital One launched Eno, an SMS, or text messaging, chatbot, in March 2017.^{19} Much like other banking chatbots, Capitol One claims that Eno can check account balances, review recent transactions and available credit, know when payments are due, pay a bill, activate a card, lock or replace a card, update personal information, find account numbers, and add authorized users.^{20} Similarly, Bank of America announced its own chatbot, Erica, in 2018.
+By October 2022, Erica had been used by nearly 32 million customers in over 1 billion interactions.^{21}
+More recently, the banking industry has begun to adopt advanced technology such as generative chatbots and others marketed as "artificial intelligence." For example, in April 2023, Goldman Sachs’s Chief Information Officer suggested that the bank’s engineering staff start creating its own “ChatGS” or LLM chatbot to help the bank’s employees store knowledge and answer key customer questions on-demand.^{22}
+As the industry’s use of chatbot technology has advanced, it has done so in some instances by relying on the largest technology companies for datasets or platforms.
+For example, in September 2022, Truist announced its digital assistant built on top of Amazon Lex, an Amazon Web Services (AWS) product.^{23} Wells Fargo announced in October 2022 the launch of Fargo, a new chatbot virtual assistant using Alphabet’s Google Cloud platform to utilize LLMs to process customer’s input and provide tailored responses.^{24} Additionally, Morgan Stanley announced that it is testing a new chatbot, powered by Microsoft-backed OpenAI’s GPT 4 technologies to feed scripts to financial advisors.^{25}
+Chatbot functionality isn’t limited to just text exchanges. For example, U.S. Bank launched Smart Assistant through a mobile app in June 2020.
+Smart Assistant responds primarily to voice prompts and allows for text inquiries as a secondary alternative.^{26} Like other banking chatbots, Smart Assistant follows simple rule-based functionality designed to do everyday banking tasks, including finding users’ credit score, transferring money between accounts, disputing transactions, and facilitating payments to other users through Zelle.^{27}
+Many financial companies have also expanded their use of rule-based chatbots to those powered by social media platforms. Among the top 10 banks in the country, most enable direct messages and business chat on either Twitter, or Meta’s Facebook and Instagram. Facebook and Instagram’s Business Chat produces automated responses, among other features.^{28}
+## Areas of interest
+
+In the same way that customer support shifted from in-person to remote call centers decades ago, sectors across the economy are now moving from human support to algorithmic support.
+The CFPB collects complaints from the public on consumer financial products and services. With the growing use of chatbots by financial institutions, complaints from the public increasingly describe issues people experienced when interacting with chatbots. In some cases, these issues raise questions about compliance with existing law. Below we describe some of the challenges experienced by customers, as detailed in complaints submitted to the CFPB.
+We also examine issues across the industry posed by the use of chatbots.
+### Limited ability to solve complex problems
+The term artificial intelligence, or “AI,” is used to suggest that a customer is engaging with a system that is highly sophisticated and that the answers it provides are indeed intelligent and accurate. But “AI” and automated technologies come in a variety of forms. People may in fact be dealing with a very rudimentary system with little capacity to help beyond retrieving basic information and parroting it back or directing customers to policies or FAQs.
+In circumstances where “AI” fails to understand the person’s request or the message from the person contradicts the system’s programming, it is not suitable for chatbots to be the primary customer service vehicle.
+#### Difficulties in recognizing and resolving peoples’ disputes
+People rely on financial institutions to acknowledge, investigate, and resolve disputes in an accurate and timely manner. Embedded in these customer expectations and legal requirements is that entities accurately identify when a customer is raising a concern or dispute. Chatbots and highly scripted representatives can introduce a level of inflexibility, whereby only specific words or syntax may trigger the recognition of a dispute and begin the process of dispute resolution.
+As a result, the ability for chatbots and scripts to recognize a dispute may be limited.
+Even when chatbots can identify that a dispute is being made by the customer, there may be technical limitations to their ability to research and resolve that dispute. In some cases, customers are disputing transactions or information that is incorrect. Chatbots that are limited to simply regurgitating the same system information that the customer is attempting to dispute back to them are insufficient. Such parroting back does not meaningfully handle disputes or inquiries.
+One person noted, for example:^{29}
+> "I engaged their chat service for help and was told that a dispute would be open and that I would receive conditional credit within 48 hours. The following Tuesday I had still not received credit and in their online banking site the dispute is nowhere to be found. I contacted them again…to advise them that the dispute was not opened. The chat agent confirmed that the agent from the prior week did NOT open a dispute and said that they would get it opened.
+When asked for a case id they were not able to give me one but told me that I would again receive conditional credit and the dispute would appear online within 48 hours. It is now 48 hours later, the dispute has not appeared, and I am chatting with a third agent who I have no doubt will fail in the same way…What is worse is there is not way to contact a person who can actually resolve the situation."
+Moreover, rule-based chatbots tend to be one-way streets, as they are designed to accept or process account information from users and cannot respond to requests outside the scope of their data inputs.
+A chatbot with a limited syntax can feel like a command-line interface where customers need to know the correct phrase to retrieve the information they are seeking.^{30} This limitation can be particularly problematic for people with limited English proficiency, where the technology trained on a limited number of dialects makes it difficult for consumers with diverse dialect needs to use chatbots to receive help from their financial institution.
+Although billed as more convenient, going through the motions of a simulated conversation can be tedious and opaque compared to browsing information with clear and logical navigation. For example, a person recently complained:^{31}
+> "The app redirected me to their FAQ webpage, which was not specific enough for my situation. The app offered a way to connect via email, however I needed a more immediate response. The preferred method of communication seemed to be via an automated robot, “[ ] Chatbot.'” This chatbot seemed to only pull in the same answers from the FAQ page, none of which were helpful to my situation."
+#### Providing inaccurate, unreliable, or insufficient information
+
+As detailed further below, chatbots sometimes get the answer wrong.^{32} When a person’s financial life is at risk, the consequences of being wrong can be grave. In instances where financial institutions are relying on chatbots to provide people with certain information that is legally required to be accurate, being wrong may violate those legal obligations.
+Specifically, complex chatbots that use LLMs sometimes have trouble providing accurate and reliable information. For conversational, generative chatbots trained on LLMs, the underlying statistical methods are not well-positioned to distinguish between factually correct and incorrect data. As a result, these chatbots may rely on datasets that include instances of misinformation or disinformation that are then repeated in the content they generate.
+Recent studies have suggested that chatbots can provide inaccurate information.
+For example, a comparative study of Microsoft-backed OpenAI’s ChatGPT, Meta’s BlenderBot, and Alphabet’s LaMDA showed that these chatbots often generate incorrect outputs that are undetectable by some users.^{33} Recent tests of Alphabet’s Bard chatbot found that it also generated fictional outputs.^{34} Additionally, a recent study demonstrated that Microsoft-backed OpenAI’s ChatGPT can exacerbate biases in addition to generating incorrect outputs.^{35} Educators have described chatbots as “not well-suited for tasks that require logic, specialized knowledge, or up-to-date information”^{36} making the use of conversational chatbots trained on LLMs in banking an unreliable source for responding to customers.
+Despite the fact that chatbots can be wrong, users are requesting financial advice from generative chatbots.^{37} For example, one survey reported that people were using LLM chatbots to request recommendations and advice on credit cards, debit cards, checking and savings accounts, mortgage lenders, and personal loans.^{38}
+The use of chatbots in banking is intended to provide customers with immediate, timely help with their issues. When a chatbot is backed by unreliable technology, inaccurate data, or is little more than a gateway into the company’s public policies or FAQs, customers may be left without recourse. Providing reliable and accurate responses to people with regard to their financial lives is a critical function for financial institutions.
+#### Failure to provide meaningful customer assistance
+Automated responses by a chatbot may fail to resolve a customer’s issue and instead lead them in continuous loops of repetitive, unhelpful jargon or legalese without an offramp to a human customer service representative. These “doom loops” are often caused when a customer’s issue falls outside the chatbot’s limited capabilities, making it impossible for customers to engage in a robust, and perhaps necessary, conversation with their financial institution.
+As noted above, some chatbots rely on LLMs to generate responses to common customer inquiries. While some people may be able to get an answer to a specific inquiry using a chatbot, the ability to obtain a clear and reliable response can be complicated by the same technology.
+Financial institutions may assert that automated systems are more effective or efficient, for example because a person may get an answer immediately. But automated responses can be highly scripted and simply direct customers to lengthy policy statements or FAQs, which may contain very little helpful information, if any. These systems may simply be offloading the burden of a human having to explain such policies or the responsibility of knowledgeable customer service agents to a cheaper automated process.
+As a result, several customers have filed complaints with the CFPB about getting stuck in “doom loops” with chatbots. For example:^{39}
+> "[I] received a debt collection notice from [ ] … claims that I owe them XXX. I do not owe them anything whatsoever. I tried to contact via the phone. This was a complete waste of time - I could not get a human on the phone. There are endless telephone prompts asking me for personal information, account information. I don't have an account, so nothing will populate on their end.
+I also tried the online chat feature - I ran into loop after loop of the same questions, all of them redirecting me to login to solve my problem. I don't have an account, how can I login? Absurd. If they had humans answer the phone then I wouldn't need to go through this website."
+And another customer complained:^{40}
+> "I have a credit card with [ ] and my payment is due today…I tried the chat feature and the virtual assistant kept sending me in circles. This is very frustrating and now I am going to get a late fee because I can not get in contact with anyone to pay my bill. I am being sent in an endless loop with no way out. This is a horrible customer experience. As a result, I am going to get a late fee and I reported late on my bureau.
+I have an excellent payment history and now to no fault of my own, I am being forced to pay late. I do not know which way to turn."
+### Hindering access to timely human intervention
+Chatbots are programmed to resolve specific tasks or retrieve information and sometimes cannot meaningfully tailor services for a distressed customer. When customers are seeking assistance with financial matters, they may feel anxious, stressed, confused, or frustrated.
+Research has shown that when people experience anxiety their perspectives on risk and decisions shift.^{41} A chatbot’s limitations may leave the customer unable to access their basic financial information and increase their frustration. For example, one survey found that 80% of consumers who interacted with a chatbot left feeling more frustrated and 78% needed to connect with a human after the chatbot failed to serve their needs.^{42} For example, a consumer noted:^{43}
+> "When I complained to them, they noted that the funds were transferred, but they will not release the funds. I have contacted them to either release the hold on the funds, or return them to me as they have not completed the transaction as agreed. They have failed to do either and are utilizing " Bots '' to chat with me instead of a human. This is rather frustrating as I have been using [ ] form many years and now this situation is a huge concern. It is at the very least Fraud."
+Consumers may also find offramps to human customer service support further blocked through unreasonable waits. These obstacles not only leave consumers stuck and without help but seriously impact their ability to manage their finances. Consumers have complained to the CFPB about these issues:^{44}
+> "We have been trying desperately to contact [ ] and any of their live representative because my credit report is wrongfully somehow " frozen ''. However, I log-in to my [ ] account online to ensure it is " unlocked and unfroze '' and also called the and [ ] " chatbot '' electronic answering machine already confirmed that my credit report is " unlocked '' and " unfrozen ''.
+Which means if my report is " unlocked and unfrozen '' there should not be any problem why the mortgage company cannot pull my report. The reason we are trying to make contact with a live representative is to find out in real time why my credit report is " unlocked and unfrozen. Myself and the mortgage company has been trying to call them for the last two ( 2 ) weeks but each time we fail to talk to an individual representative to correct the problem and continue with the refinance process."
+Moreover, the limited nature of these chatbots and lack of access to a human customer service representative may not be apparent to customers when they are initially signing up for a relationship with a specific financial institution. It’s not evident until customers experience an issue and must invest time and effort to resolve it, wasting their time, reducing consumer choice, and undercutting financial institutions that are trying to compete by investing in meaningful and effective customer support.
+Deploying advanced technologies instead of humans may also be an intentional choice by entities seeking to grow revenue or minimize write offs. Indeed, advanced technologies may be less likely to waive fees, or to be open to negotiation on price.^{45}
+### Technical limitations and associated security risks
+#### System reliability and downtime
+At a high level, the reliability of automated systems is partially dependent on how an entity has decided to prioritize features and allocate development resources. For example, to increase revenue it may be a higher priority to improve the ability of automated systems to promote relevant financial products to a specific customer based on their data. This investment may happen at the expense of features that do not lead to revenue growth.
+Thus, even if an automated system can handle certain customer functions well, it may be poor at handling others. To put it simply, investment decisions may lead to an underinvestment in the reliability of a chatbot. One person complained that:^{46}
+> "the computer based chatbot does not render correctly in any browser with strong and fast internet signal. The mobile app chatbot never gets past the step of asking which account I am trying to contact the bank about – instead it enters infinite loop asking the same question over and over."
+Additionally, chatbots can crash, like any other technology. If a broken chatbot is a customer’s only option to receive time sensitive help from their financial institution, it may leave people stranded with little to no customer service. Consumer complaints show us some of the technical limitations of chatbots, for example:^{47}
+> "I have been unable to make direct contact with them, it appears any numbers only direct you to automated systems and it is impossible to speak to an actual person. I have attached screenshots that show their chatbot just sits on the typing screen and you can not enter any information, and there is no direct customer service number you can call."
+
+Whether it’s a programming or software issue, a frustrated customer only sees a non-functional chatbot.
+#### Security risks posed by impersonation and phishing scams
+Due to their automated nature, chatbots are often used by bad actors to build fake, impersonation chatbots to conduct phishing attacks at scale. Conversational agents often present as “human-like,” possibly leading users to overestimate their capabilities and share more information than they would in a simple web-form. It is then quite dangerous when users share personal information with these impersonation chatbots.
+In recent years, there has been an increase in scams targeting users of common messenger platforms to get their personal or payment information to then trick them into paying false fees through money transfer apps.^{48}
+In addition to using impersonation chatbots to harm consumers, chatbots can also be programmed to phish for information from another chatbot. In these situations, chatbots may be programmed to follow certain privacy and security protocols but are not necessarily programmed to detect suspicious patterns of behavior or impersonation attempts and may not be able to recognize and respond to attempts by scammers to phish for personal information or to steal peoples’ identities.
+For example, in May 2022 scammers impersonated DHL – a package delivery and express mail service company – through an email directing victims to a chatbot to request additional shipping costs to receive packages. The chatbot conversation seemed trustworthy because it included a captcha form, email, and password prompts, and even a photo of a damaged package.^{49}
+#### Keeping personally identifiable information safe
+
+Financial institutions have an obligation to keep personally identifiable information safe, regardless of the technology used.^{50} Security researchers have highlighted a variety of potential vulnerabilities in chatbots, from entities using insecure and outdated web transfer protocols to desperate and frustrated consumers entering personal information into chat platforms because they need help.^{51}
+For example, to validate themselves as the owner of a specific account, customers are typically required to provide personal information. When customers provide personal and financial information to a company, they expect it will be handled with care and kept confidential. Therefore, when customers are entering personal information into chat logs, those logs should be considered sensitive consumer information and kept secure from a breach or intrusion.
+Chat logs introduce another venue for privacy attacks, making it more difficult to fully protect the privacy and security of consumers’ personal and financial information. In 2018, Ticketmaster UK employed Inbenta Technologies for various services, including a “conversational AI” on its payments page.
+Hackers targeted Inbenta servers, inserting malicious code that recorded information inputted into the chatbot to process payments by platform users, resulting in a cyberattack that affected 9.4 million data subjects, including 60,000 individual payment card details.^{52}
+Additionally, LLM-trained chatbots rely on training datasets that contain information about people that may have been illegally obtained.^{53} Breaches of privacy may occur when training data includes personal information that is then directly disclosed by the model through no fault of the affected individual.^{54} Some of these risks appear to be recognized by financial institutions, at least as it covers their internal information, as several large banks have restricted use of Microsoft-backed OpenAI’s ChatGPT by their employees.^{55}
+The scope of security testing needed for AI systems like chatbots is extensive and requires both rigorous testing and thorough auditing of any third-party service providers involved in operations. There are simply too many vulnerabilities for these systems to be entrusted with sensitive customer data without appropriate guardrails.
+The consumer complaints that the CFPB has received about chatbots raise concerns about whether the use of chatbots hinders institutions’ ability to protect the security of consumers’ data.^{56}
+## Risks associated with the integration of deficient chatbots
+
+As financial institutions continue to invest in technologies such as chatbots to handle customer support while simultaneously reducing costs, they should consider the limitations of the technology such as those detailed in this report. Using chatbot technology as the primary mode of interacting with people can pose several risks for individual financial institutions including the following:
+### Risk of noncompliance with federal consumer financial laws
+
+Congress passed federal consumer financial laws that place a variety of relevant obligations on financial institutions. These obligations help ensure that financial institutions deal fairly with customers by, amongst other things, providing them with straight answers.
+Financial institutions run the risk that when chatbots ingest customer communications and provide responses, the information chatbots provide may not be accurate, the technology may fail to recognize that a consumer is invoking their federal rights, or it may fail to protect their privacy and data.
+### Risk of diminished customer service and trust when chatbots reduce access to individualized human support agents
+
+When consumers need help from their financial institution, the circumstances could be dire and urgent. If they get stuck in loops of repetitive, unhelpful jargon, unable to trigger the right rules to get the response they need, and they don’t have access to a human customer service representative, their confidence and trust in their financial institution will diminish.
+Given the structure of the markets for many consumer financial products and services, people may have limited bargaining power to push for better service when a provider is selected for them. For example, there is little to no consumer choice in the case of selecting a mortgage servicer or credit reporting company.
+Moreover, even in markets where consumers have more choice, financial institutions may not vigorously compete on certain features, like customer service, as customers are only exposed to those features after they have selected the provider and are, therefore, somewhat locked into them.
+In such contexts, the opportunity for substantial cost savings might strongly incentivize institutions to route customer support through chatbots or other automated systems even if that diminishes the customer experience to some extent. Importantly, in such markets where competition is lacking or weakened, the extent of cost savings being passed onto consumers in the form of better products and services is diminished.
+Financial institutions may go further and reduce or eliminate access to customized human support. However, this reduction likely comes at the expense of service quality and trust. This tradeoff is especially true for customer segments where chatbot interactions have higher rates of failed resolution, such as groups with limited technical availability or limited English proficiency.
+### Risk of harming people
+When chatbots fail in the markets for consumer financial products and services, they not only break customer trust, but they also have the potential to cause widespread harm. The stakes for being wrong when a person’s financial stability is at risk are high. Being able to recognize and handle disputes from customers is an essential function; dispute handling is sometimes the only meaningful way to promptly correct an error before it spirals to worse outcomes.
+Providing inaccurate information regarding a consumer financial product or service, for example, could be catastrophic. It could lead to the assessment of inappropriate fees, which in turn could lead to worse outcomes such as default, resulting in the customer selecting an inferior option or consumer financial product, or other harms.
+Failing to recognize or resolve a dispute, therefore, can be disastrous for a person. It may erode their trust in the institution and deter them from seeking help with issues in the future, cause frustration and waste time, and leave resolvable issues unsolved, leading to worsening negative outcomes.
+
+The deployment of deficient chatbots by financial institutions risks upsetting their customers and causing them substantial harm, for which they may be held responsible.
+## Conclusion
+
+This report highlights some of the challenges associated with the deployment of chatbots in consumer financial services. As sectors across the economy continue to integrate “artificial intelligence” solutions into customer service operations, there will likely be a number of strong financial incentives to substitute away from support offered in-person, over the phone, and through live chat.
+Deficient chatbots that prevent access to live, human support can lead to law violations, diminished service, and other harms. The shift away from relationship banking and toward algorithmic banking will have a number of long-term implications that the CFPB will continue to monitor closely.
+The CFPB is actively monitoring the market, and expects institutions using chatbots to do so in a manner consistent with the customer and legal obligations. The CFPB also encourages people who are experiencing issues getting answers to their questions due to a lack of human interaction, to submit a consumer complaint with the CFPB.
+
+Consumers can submit complaints about financial products and services by visiting the CFPB’s website or by calling (855) 411-CFPB (2372).
+Employees of companies who believe their company has violated federal consumer financial laws are encouraged to send information about what they know to whistleblower@cfpb.gov.
+## Endnotes
+
+  1. See CFPB Request for Information Regarding Relationship Banking and Customer Service (June 14, 2022), https://files.consumerfinance.gov/f/documents/cfpb_relationship-banking-customer-service_rfi_2022-06.pdf†files.consumerfinance.gov (stating that “[r]elationship banking is an aspiration model of banking that meets its customers’ needs through strong customer service, responsiveness, and care.”)
+↩
+  2. Jenna McNamee, Bank of America adds a human touch to its virtual assistant, Erica, Insider Intel. (Dec. 14, 2022), https://www.insiderintelligence.com/content/bank-of-america-adds-human-touch-erica†www.insiderintelligence.com .
+↩
+  3. This issue spotlight is not intended to impose any obligations or define any rights and is not intended as a CFPB interpretation of any regulation or statute. Depending on the facts and circumstances, entities may be subject to liability under federal consumer financial laws when chatbots fail to meet relevant requirements. The CFPB encourages entities to review their legal obligations when deploying chatbots and other advanced technologies.
+The CFPB will continue to actively monitor the use of chatbots in the markets it regulates and will hold entities that fail to meet their obligations to account.
+↩
+  4. Ron Shevlin, Cornerstone Advisors, The Human + Digital Challenge In Banking: Consumers Want Both (2021), https://go.backbase.com/rs/987-MGR-655/images/Backbase_Cornerstone_Human_Digital.pdf†go.backbase.com
+
+↩
+  5. Id.
+
+↩
+  6. Guendalina Caldarini et al., A Literature Survey of Recent Advances in Chatbots, Information 13, 41 (2022), https://doi.org/10.3390/info13010041†doi.org .
+
+↩
+  7. Id.
+↩
+  8. Aishwarya Gupta et al., Introduction to AI chatbots, International Journal of Engineering Research & Technology,. 9.7, 255-258 (2020), https://pdfs.semanticscholar.org/f5f4/746acffef08df37f184cb6acc0505362ea9b.pdf†pdfs.semanticscholar.org .
+
+↩
+  9. Id.
+↩
+  10. Stephen Wolfram, What Is ChatGPT Doing … and Why Does It Work?, Stephen Wolfram Writings (Feb. 14, 2023) https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/†writings.stephenwolfram.com .
+↩
+  11. Wari Maroengsit et. al, A Survey on Evaluation Methods for Chatbots, Proceedings of 2019 7th International Conference on Information and Education Technology, 111 – 119 (Mar. 2019), https://www.researchgate.net/profile/Fazri-Yusuf/publication/333524864_Students'_Voices_Towards_the_Integration_of_MALL_to_Promote_Autonomous_Language_Learning/links/5ed0f6b345851529451b8a64/Students-Voices-Towards-the-Integration-of-MALL-to-Promote-Autonomous-Language-Learning.pdf†www.researchgate.net .
+↩
+  12. Jenna McNamee, Bank of America adds a human touch to its virtual assistant, Erica, Insider Intel. (Dec. 14, 2022), https://www.insiderintelligence.com/content/bank-of-america-adds-human-touch-erica†www.insiderintelligence.com .
+↩
+  13. Alexander Roznovsky & Victoria Pichkovska, Chatbots in Banking Industry: Benefits, Forecasts, and More, Light IT Global Blog (https://light-it.net/blog/chatbots-in-banking-industry-benefits-forecasts-and-more/†light-it.net (last visited on May 16, 2023).
+↩
+  14. Chatbot Conversations to Deliver $8 Billion in Cost Savings by 2022, Juniper Rsch. (July 24, 2017) https://www.juniperresearch.com/resources/analystxpress/july-2017/chatbot-conversations-to-deliver-8bn-cost-saving†www.juniperresearch.com .
+↩
+  15. See, e.g., Press Release, Ally Bank, Ally Bank Introduces Ally Assist(SM) Customer Voice Interaction (May 18, 2015), https://media.ally.com/2015-05-18-Ally-Bank-Introduces-Ally-Assist-SM-Customer-Voice-Interaction†media.ally.com ; and Raymond Michaels, The Arrival of the Chatbot, Int’l. Banker (Jan. 18, 2017), https://internationalbanker.com/technology/the-arrival-of-the-chatbot/†internationalbanker.com .
+↩
+  16. Press Release, Kasisto, Kasisto Raises Additional $15.5 Million From FIS and Westpac in Oversubscribed Series C Round, PR Newswire (Aug. 22, 2022) https://www.prnewswire.com/news-releases/kasisto-raises-additional-15-5-million-from-fis-and-westpac-in-oversubscribed-series-c-round-301609690.html†www.prnewswire.com .
+↩
+  17. Scott Bay, Chatbots like Citibank’s could usher in a new era of mobile banking, VentureBeat (June 26, 2018), https://venturebeat.com/ai/chatbots-like-citibanks-could-usher-in-a-new-era-of-mobile-banking/†venturebeat.com .
+
+↩
+  18. Margaret Mayer, How and Why Capital One Built Eno’s NLP In-House, Capital One (Sep. 26, 2018), https://www.capitalone.com/tech/machine-learning/capital-ones-intelligent-assistant-why-we-built-enos-nlp-tech-in-house/†www.capitalone.com .
+↩
+  19. Anna Irrera, Capital One launches Eno, gender-neutral virtual assistant, Reuters (Mar. 10, 2017), https://www.reuters.com/article/us-capital-one-fin-chatbot/capital-one-launches-eno-gender-neutral-virtual-assistant-idUSKBN16H1Q8†www.reuters.com
+
+↩
+  20. Capital One, Ask Eno: 10 things your Capital One assistant can do for you (Apr. 15, 2021), https://www.capitalone.com/learn-grow/money-management/things-to-ask-eno/†www.capitalone.com .
+↩
+  21. Press Release, Bank of America, Bank of America’s Erica Tops 1 Billion Client Interactions, Now Nearly 1.5 Million Per Day (Oct. 12, 2022), https://newsroom.bankofamerica.com/content/newsroom/press-releases/2022/10/bank-of-america-s-erica-tops-1-billion-client-interactions--now-.html†newsroom.bankofamerica.com .
+↩
+  22. Jeremy Kahn, Exclusive: Goldman Sachs CIO suggests bank could train its own ‘ChatGS’ A.I. chatbot, Fortune (Apr. 14, 2023), https://fortune.com/2023/04/14/goldman-sachs-create-chatgs-ai-chatbot-cio-internal-message/†fortune.com .
+
+↩
+  23. Rabab Ahsan, Truist has a new digital assistant – could it be the best one yet?, Tearsheet (Oct. 26, 2022), https://tearsheet.co/innovation/truist-assist-has-a-new-digital-assistant-could-it-be-the-best-one-yet/†tearsheet.co .
+↩
+  24. Press Release, Wells Fargo, Wells Fargo’s New Virtual Assistant, Fargo, to Be Powered by Google Cloud AI (Oct. 24, 2022), https://newsroom.wf.com/English/news-releases/news-release-details/2022/Wells-Fargos-New-Virtual-Assistant-Fargo-to-Be-Powered-by-Google-Cloud-AI/default.aspx†newsroom.wf.com .
+↩
+  25. Press Release, Morgan Stanley, Morgan Stanley Wealth Management Announces Key Milestone in Innovation Journey with OpenAI (Mar. 14, 2023), https://www.morganstanley.com/press-releases/key-milestone-in-innovation-journey-with-openai†www.morganstanley.com .
+
+↩
+  26. Press Release, U.S. Bank, Introducing the U.S. Bank Smart Assistant (July 23, 2020), https://www.usbank.com/about-us-bank/company-blog/article-library/introducing-the-us-bank-smart-assistant.html†www.usbank.com .
+↩
+  27. U.S. Bank, How do I use the U.S. Bank Smart Assistant™?, https://www.usbank.com/customer-service/knowledge-base/KB0188866.html†www.usbank.com (last visited on May 16, 2023).
+↩
+  28. See Meta, Instagram Direct, https://business.instagram.com/direct-messaging†business.instagram.com (last visited on May 18, 2023); and Meta, Messenger Customer Care Solutions, https://developers.facebook.com/products/messenger/solutions/#customercare†developers.facebook.com (last visited on May 18, 2023).
+
+↩
+  29. Consumer Complaint, Consumer Fin. Prot. Bureau (Jan 26, 2023), https://www.consumerfinance.gov/data-research/consumer-complaints/search/detail/6489538 .
+↩
+  30. Shi Yu et al., AVA: A Financial Service Chatbot Based on Deep Bidirectional Transformers, Frontiers in Applied Mathematics and Stat. Vol. 7, 604842 (2021), https://www.frontiersin.org/articles/10.3389/fams.2021.604842/full†www.frontiersin.org
+
+↩
+  31. Consumer Complaint, Consumer Fin. Prot. Bureau (Jan 28, 2022), https://www.consumerfinance.gov/data-research/consumer-complaints/search/detail/5162420 .
+↩
+  32. On May 16, 2023, the Senate Judiciary Subcommittee on Privacy, Technology, and the Law held a hearing on AI regulation. At this hearing, Sam Altman, the CEO of Microsoft-backed OpenAI testified:
+"This is — this is — as we have, I think, said as loudly as anyone, this technology is in its early stages. It definitely still makes mistakes. We find that people — that users are — are pretty sophisticated and understand where the mistakes are, that they need — or likely to be, that they need to be responsible for verifying what the models say, that they go off and check it.
+I — I worry that, as the models get better and better, the users can have sort of less and less of their own discriminating thought process around it. But — but I think users are more capable than we give — often give them credit for in — in conversations like this."
+See Hearing Transcript, Testimony of Sam Altman Before the Senate Judiciary Subcommittee on Privacy, Technology and the Law, Hearing on Artificial Intelligence Regulation (May 16, 2023), https://plus.cq.com/doc/congressionaltranscripts-7744421?0†plus.cq.com (hereinafter Hearing Transcript). See also, Daniel E. O'Leary, An Analysis of Three ChatBots: BlenderBot, ChatGPT and LaMDA. Univ. of S. Cal. Inst. for Outlier Rsch. in Bus. (forthcoming, Feb.
+1, 2023), https://ssrn.com/abstract=4424953†ssrn.com .
+↩
+  33. Daniel E. O'Leary, An Analysis of Three ChatBots: BlenderBot, ChatGPT and LaMDA. Univ. of S. Cal. Inst. for Outlier Rsch. in Bus. (forthcoming, Feb. 1, 2023), https://ssrn.com/abstract=4424953†ssrn.com .
+
+↩
+  34. Geoffrey A. Fowler, Say what, Bard? What Google’s new AI gets right, wrong, and weird., Wash. Post (Mar. 21, 2023), https://www.washingtonpost.com/technology/2023/03/21/google-bard/†www.washingtonpost.com .
+↩
+  35. Joshua Au Yeung, et al., AI Chatbots Not Yet Ready for Clinical Use, Frontiers Digit. Health, Sec. Health Informatics Vol. 5 (2023), https://www.frontiersin.org/articles/10.3389/fdgth.2023.1161098†www.frontiersin.org .
+
+↩
+  36. Iqbal Pittalwala, Is ChatGPT a threat to education?, UC Riverside News (Jan 24, 2023), https://news.ucr.edu/articles/2023/01/24/chatgpt-threat-education†news.ucr.edu .
+↩
+  37. Some have suggested that, in general, people interacting with chatbots should be responsible for verifying the accuracy of the results. See Supra note 32, Hearing Transcript. (Microsoft-backed OpenAI’s CEO asserting in Senate testimony that, while the technology can make “mistakes,” that people “need to be responsible for verifying what the models say[s]").
+↩
+  38. Jack Caporal, Study: 26% of Americans Have Used ChatGPT for Credit Card Recommendations, The Ascent (May 2, 2023), https://www.fool.com/the-ascent/research/chatgpt-credit-card-recommendations/†www.fool.com .
+
+↩
+  39. Consumer Complaint, Consumer Fin. Prot. Bureau (June 24, 2020),https://www.consumerfinance.gov/data-research/consumer-complaints/search/detail/3714611 .
+↩
+  40. Consumer Complaint, Consumer Fin. Prot. Bureau (July 2, 2022), https://www.consumerfinance.gov/data-research/consumer-complaints/search/detail/5728885 .
+
+↩
+  41. Michelle A. Shell and Ryan W. Buell, Mitigating the Negative Effects of Customer Anxiety through Access to Human Contact, Harv. Bus. Sch. Working Paper No. 19-089, 2019, https://www.hbs.edu/ris/Publication%20Files/19-089_41bea668-6234-430b-8c44-928bfb198a88.pdf†www.hbs.edu .
+↩
+  42. Chris Westfall, Chatbots And Automations Increase Customer Service Frustrations For Consumers At The Holidays, Forbes (Dec. 7, 2022), https://www.forbes.com/sites/chriswestfall/2022/12/07/chatbots-and-automations-increase-customer-service-frustrations-for-consumers-at-the-holidays/?sh=7490724132f6†www.forbes.com .
+
+↩
+  43. Consumer Complaint, Consumer Fin. Prot. Bureau (Jun. 13, 2022), https://www.consumerfinance.gov/data-research/consumer-complaints/search/detail/5662117 .
+↩
+  44. Consumer Complaint, Consumer Fin. Prot. Bureau (Oct. 17, 2022), https://www.consumerfinance.gov/data-research/consumer-complaints/search/detail/6091674 .
+
+↩
+  45. See e.g., Heather Vogell et al., Rent Going Up? One Company’s Algorithm Could be Why., ProPublica (Oct. 15, 2022), https://www.propublica.org/article/yieldstar-rent-increase-realpage-rent†www.propublica.org .
+↩
+  46. Consumer Complaint, Consumer Fin. Prot. Bureau (Apr. 27, 2022), https://www.consumerfinance.gov/data-research/consumer-complaints/search/detail/5504508 .
+
+↩
+  47. Consumer Complaint, Consumer Fin. Prot. Bureau (Feb. 17, 2022), https://www.consumerfinance.gov/data-research/consumer-complaints/search/detail/5234219 .
+↩
+  48. Albert Khoury, Make this chat mistake and you might be handing over your Facebook password., Komando.com (July 1, 2022), https://www.komando.com/security-privacy/facebook-messenger-phishing-scheme/844192/†www.komando.com .
+
+↩
+  49. Aliza Vigderman, Guide to Chatbot Scams and Security: How to Protect Your Information Online and at Home, Security.org (Apr. 21, 2023), https://www.security.org/digital-security/guide-to-chatbot-scams/#recent†www.security.org .
+↩
+  50. Consumer Fin. Prot. Bureau, Consumer Financial Protection Circular 2022-04, Insufficient data protection or security for sensitive consumer information, https://www.consumerfinance.gov/compliance/circulars/circular-2022-04-insufficient-data-protection-or-security-for-sensitive-consumer-information/ .
+↩
+  51. Martin Hasal et al., Chatbots: Security, privacy, data protection, and social aspects, Concurrency and Computation: Practice and Experience, Vol. 33, Issue 19 (2021), https://doi.org/10.1002/cpe.6426†doi.org .
+
+↩
+  52. Kate Nelson, et al., Brown Univ., GDPR Violation Case Study: Ticketmaster UK (2021), https://cs.brown.edu/courses/csci2390/2021/assign/gdpr/mzhan104-knelson9-zlee8-ticketmaster.pdf†cs.brown.edu .
+↩
+  53. For example, in 2019, the Federal Trade Commission and New York Attorney General settled allegations that Alphabet’s YouTube illegally collected the personal information of children without parental consent. See, Press Release, Fed. Trade Comm’n., Google and YouTube Will Pay Record $170 Million for Alleged Violations of Children’s Privacy Law (Sept.
+4, 2019), https://www.ftc.gov/news-events/news/press-releases/2019/09/google-youtube-will-pay-record-170-million-alleged-violations-childrens-privacy-law†www.ftc.gov .
+↩
+  54. Nikhil Kandpal, Eric Wallace, and Colin Raffel, Deduplicating training data mitigates privacy risks in language models, Proceedings of the 39th International Conference on Machine Learning, in Baltimore, Maryland, PMLR 162 (2022), https://arxiv.org/pdf/2202.06539.pdf†arxiv.org
+↩
+  55. Brian Bushard, Workers’ ChatGPT Use Restricted At More Banks—Including Goldman, Citigroup, Forbes (Feb. 24, 2023), https://www.forbes.com/sites/brianbushard/2023/02/24/workers-chatgpt-use-restricted-at-more-banks-including-goldman-citigroup/?sh=5671bebc6cf4†www.forbes.com .
+↩
+  56. Consumer Fin. Prot. Bureau, Annual report of credit and consumer reporting complaints (Jan. 2023), https://files.consumerfinance.gov/f/documents/cfpb_fcra-611-e_report_2023-01.pdf†files.consumerfinance.gov .
+
+↩

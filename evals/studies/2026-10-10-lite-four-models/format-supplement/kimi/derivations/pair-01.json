@@ -1,0 +1,14 @@
+{
+  "with_toolkit": {
+    "source_response_sha256": "b1216a9c8ffdb433afd7530d56dbc9ef83636d0b20e0dd0f462ad3ef59dd2d58",
+    "transformation": "single_enclosing_markdown_code_fence_removed",
+    "report_sha256": "814640292f5086cd161cd208a3a87b1423cd505206503d8af51770b945f1fdfd",
+    "notes_sha256": "e0de864d063f95a21239703dd2e73d478ed567666b9c8aeaeef41bb3637b80d9"
+  },
+  "without_toolkit": {
+    "source_response_sha256": "862ebf7cb9c9a01596c97a8fece6c4a320e17a7180a07fc0b079c44b543b615d",
+    "transformation": "single_enclosing_markdown_code_fence_removed",
+    "report_sha256": "67bcac1044f2f733d35e87417ed1ccb93e7e3f902224ba3a84d2571f9eb6671b",
+    "notes_sha256": "4ef7cc22e9f9a8471e557ef780acce484eb6622f74382f39d16cb9e67e568388"
+  }
+}

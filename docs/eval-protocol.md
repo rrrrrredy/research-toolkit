@@ -2,7 +2,7 @@
 
 [English](eval-protocol.md) · [简体中文](eval-protocol.zh-CN.md)
 
-**Status: protocol and executable harness only; no study results.** The existing public evidence remains n=2 development comparisons, unblinded for efficacy and toolkit-first in both tasks. Public records do not fully establish matched model and brief. A general Toolkit quality advantage remains unproven.
+**Status: a [four-model, five-family development pilot](../evals/studies/2026-10-10-lite-four-models/README.md) now has original attempts and judgments.** It uses a declared native-CLI judge adapter and a separately recorded post-hoc format supplement. The historical n=2 comparisons remain unblinded for efficacy and toolkit-first in both tasks; their public records do not fully establish matched model and brief. A general Toolkit quality advantage remains unproven.
 
 ## Question and scope
 
@@ -40,7 +40,7 @@ From the repository root, with admitted inputs and credentials already configure
 python scripts/run_blinded_evals.py run --study study/study.json --seed 20261010 --output evals/runs/blinded-pilot-01
 ```
 
-This command makes **paid model calls if the chosen service charges**: two author calls and, when both outputs are usable, one judge call per family. It refuses an existing output directory. It writes requests, original responses, usage/failures, masked judge packets, locked judgments and task-level results. No results are bundled with the harness.
+This command makes **paid model calls if the chosen service charges**: two author calls and, when both outputs are usable, one judge call per family. It refuses an existing output directory. It writes requests, original responses, usage/failures, masked judge packets, locked judgments and task-level results. The empty configuration template contains no fabricated results; completed study bundles are published separately below.
 
 To inspect/preregister without a model call, use `prepare` instead of `run`. Execute that exact frozen plan later with:
 
@@ -83,7 +83,4 @@ bundle-manifest.json                # hashes of all retained files
 
 ## Results
 
-Pending: no author runs, blinded judgments or new effect estimates have been collected for this protocol.
-
-| Cohort | Admitted families | With-toolkit preferred | Without-toolkit preferred | Ties | Unresolved |
-| --- | --- | --- | --- | --- | --- |
+[2026-10-10 fixed-source Lite results](../evals/studies/2026-10-10-lite-four-models/README.md): five shared families across four author models, 40 original author requests, with failed attempts retained. The study page reports primary counts separately from the post-hoc exact-fence supplement and links all raw judgments, usage and hashes. Its one native CLI judge per usable pair is a declared adapter extension; the plan was locally frozen, not publicly preregistered. It does not establish general efficacy or validate Full/MCP. New configurations still start with an empty pending table.

@@ -1,0 +1,29 @@
+{
+  "study_id": "2026-10-10-four-model-fixed-source-lite",
+  "frozen_before_report_generation": true,
+  "families": 5,
+  "author_calls_planned": 40,
+  "judge_calls_maximum": 20,
+  "judge": "Codex CLI requested gpt-6-astra, low effort; model identity not independently attested",
+  "same_model_pairs": true,
+  "primary_outcome": "first blinded judge preference by model; ties and all failures preserved",
+  "scope": "fixed supplied sources; instruction-only Lite; one author response, no workflow execution or open-web search",
+  "common_judge": "same requested judge model and settings across all four author strata; independent context per pair",
+  "no_retries": true,
+  "max_concurrent_provider_strata": 2,
+  "extra_author_parameters": {
+    "glm": {
+      "reasoning_effort": "low"
+    }
+  },
+  "cli_boundary": "Fresh, read-only empty working directory; user config ignored; project docs disabled; no tools permitted; fail if tools observed. Native host base context and skill metadata may remain. Output cap checked after response, not a hard CLI cap.",
+  "driver_sha256": "40b36b10090e76afb8ebbdbcb15af5aec61e2e7ef88537be45731eec7f6fe686",
+  "source_manifest_sha256": "a44cfe9478f6bc2512788b348df31c1ee29e045b37dcffe91409ee0527a8b191",
+  "judge_schema_sha256": "3f87ba6382b5ce47b39734d851acac4822d098b4f9dcd86b2274f88f2ed4a640",
+  "strata_freeze_sha256": {
+    "deepseek": "586ab516a47db39f1089c414d56739a124e5a557b9d1d5449ec708c3f2543f3d",
+    "kimi": "fadb8a75d70fcec0ebee0db68fe34117b7791b90489851d07f7e6e2af2796ba3",
+    "glm": "3bfc9e03987d6f90d218e07091cab7a68f4288137fdd1876c3717c65909b0beb",
+    "longcat": "e6f80cd6016300d8198b0cd251d579e5ff0b16f0033d6fa23b962f3ecd2282aa"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "scope": "Post-hoc envelope compatibility only; not prespecified primary",
+  "n_original_families": 5,
+  "results": [
+    {
+      "pair_id": "pair-01",
+      "task_id": "memory-roadmap-en",
+      "status": "not_eligible_incomplete_or_unrepairable",
+      "preference": "unresolved",
+      "outcome": "unresolved"
+    },
+    {
+      "pair_id": "pair-02",
+      "task_id": "productivity-outlook-zh",
+      "status": "not_eligible_already_judged",
+      "preference": "unresolved",
+      "outcome": "unresolved"
+    },
+    {
+      "pair_id": "pair-03",
+      "task_id": "banking-chatbots-en",
+      "status": "not_eligible_already_judged",
+      "preference": "unresolved",
+      "outcome": "unresolved"
+    },
+    {
+      "pair_id": "pair-04",
+      "task_id": "ai-risk-adoption-zh",
+      "status": "not_eligible_incomplete_or_unrepairable",
+      "preference": "unresolved",
+      "outcome": "unresolved"
+    },
+    {
+      "pair_id": "pair-05",
+      "task_id": "battery-market-en",
+      "status": "not_eligible_incomplete_or_unrepairable",
+      "preference": "unresolved",
+      "outcome": "unresolved"
+    }
+  ],
+  "general_quality_advantage_established": false
+}

@@ -1,0 +1,5 @@
+# Preserve frozen bytes, including CRLF, in evidence and executable snapshots.
+** -text whitespace=cr-at-eol
+README*.md text eol=lf
+# Imported source text keeps its original trailing whitespace.
+inputs/sources/** -whitespace

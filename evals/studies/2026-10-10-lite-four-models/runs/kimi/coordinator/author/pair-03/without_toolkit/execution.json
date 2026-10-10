@@ -1,0 +1,16 @@
+{
+  "status": "response_complete",
+  "transport": "chat_completions",
+  "model_requested": "kimi-k2.6",
+  "model_returned": "kimi-k2.6",
+  "request_id": "chatcmpl-6ac9f8a50be65d6f4fb6427d",
+  "usage": {
+    "prompt_tokens": 810,
+    "completion_tokens": 4272,
+    "total_tokens": 5082,
+    "completion_tokens_details": {
+      "reasoning_tokens": 2841
+    }
+  },
+  "elapsed_seconds": 124.406
+}

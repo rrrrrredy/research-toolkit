@@ -1,0 +1,51 @@
+provider,role,path,status,error,input_tokens,completion_tokens,total_tokens,elapsed_seconds
+deepseek,author,runs/deepseek/coordinator/author/pair-01/with_toolkit/execution.json,failed,Truncated/incomplete response retained,13378,12288,25666,54.031
+deepseek,author,runs/deepseek/coordinator/author/pair-01/without_toolkit/execution.json,response_complete,,889,8576,9465,33.703
+deepseek,author,runs/deepseek/coordinator/author/pair-02/with_toolkit/execution.json,response_complete,,15410,8969,24379,42.469
+deepseek,author,runs/deepseek/coordinator/author/pair-02/without_toolkit/execution.json,response_complete,,2921,6880,9801,32.25
+deepseek,author,runs/deepseek/coordinator/author/pair-03/with_toolkit/execution.json,response_complete,,24132,9858,33990,45.907
+deepseek,author,runs/deepseek/coordinator/author/pair-03/without_toolkit/execution.json,response_complete,,11643,7635,19278,35.265
+deepseek,author,runs/deepseek/coordinator/author/pair-04/with_toolkit/execution.json,failed,Truncated/incomplete response retained,20776,12288,33064,49.375
+deepseek,author,runs/deepseek/coordinator/author/pair-04/without_toolkit/execution.json,response_complete,,8287,6231,14518,29.469
+deepseek,author,runs/deepseek/coordinator/author/pair-05/with_toolkit/execution.json,failed,Truncated/incomplete response retained,13326,12288,25614,48.641
+deepseek,author,runs/deepseek/coordinator/author/pair-05/without_toolkit/execution.json,response_complete,,837,6060,6897,27.672
+deepseek,judge,runs/deepseek/judgments/pair-02/execution.json,response_complete,,19691,2096,21787,65.422
+deepseek,judge,runs/deepseek/judgments/pair-03/execution.json,response_complete,,28232,1805,30037,58.11
+kimi,author,runs/kimi/coordinator/author/pair-01/with_toolkit/execution.json,response_complete,,15117,4716,19833,111.625
+kimi,author,runs/kimi/coordinator/author/pair-01/without_toolkit/execution.json,response_complete,,2879,4451,7330,122.297
+kimi,author,runs/kimi/coordinator/author/pair-02/with_toolkit/execution.json,response_complete,,13094,6609,19703,182.219
+kimi,author,runs/kimi/coordinator/author/pair-02/without_toolkit/execution.json,response_complete,,856,4943,5799,131.781
+kimi,author,runs/kimi/coordinator/author/pair-03/with_toolkit/execution.json,response_complete,,13048,4508,17556,112.156
+kimi,author,runs/kimi/coordinator/author/pair-03/without_toolkit/execution.json,response_complete,,810,4272,5082,124.406
+kimi,author,runs/kimi/coordinator/author/pair-04/with_toolkit/execution.json,response_complete,,20509,6109,26618,158.75
+kimi,author,runs/kimi/coordinator/author/pair-04/without_toolkit/execution.json,response_complete,,8271,4407,12678,125.625
+kimi,author,runs/kimi/coordinator/author/pair-05/with_toolkit/execution.json,response_complete,,23941,9117,33058,226.734
+kimi,author,runs/kimi/coordinator/author/pair-05/without_toolkit/execution.json,response_complete,,11703,6904,18607,191.609
+kimi,judge,format-supplement/kimi/judgments/pair-01/execution.json,response_complete,,20877,2233,23110,67.641
+kimi,judge,format-supplement/kimi/judgments/pair-02/execution.json,response_complete,,17555,1658,19213,52.844
+kimi,judge,format-supplement/kimi/judgments/pair-03/execution.json,response_complete,,17274,1845,19119,63.234
+kimi,judge,format-supplement/kimi/judgments/pair-04/execution.json,response_complete,,26238,2120,28358,64.14
+kimi,judge,format-supplement/kimi/judgments/pair-05/execution.json,response_complete,,28190,1718,29908,58.313
+glm,author,runs/glm/coordinator/author/pair-01/with_toolkit/execution.json,response_complete,,15192,1904,17096,48.531
+glm,author,runs/glm/coordinator/author/pair-01/without_toolkit/execution.json,response_complete,,2904,2609,5513,125.922
+glm,author,runs/glm/coordinator/author/pair-02/with_toolkit/execution.json,response_complete,,13159,1820,14979,46.859
+glm,author,runs/glm/coordinator/author/pair-02/without_toolkit/execution.json,response_complete,,871,1513,2384,38.203
+glm,author,runs/glm/coordinator/author/pair-03/with_toolkit/execution.json,response_complete,,20588,2382,22970,65.046
+glm,author,runs/glm/coordinator/author/pair-03/without_toolkit/execution.json,response_complete,,8300,1851,10151,47.766
+glm,author,runs/glm/coordinator/author/pair-04/with_toolkit/execution.json,response_complete,,13110,2160,15270,52.407
+glm,author,runs/glm/coordinator/author/pair-04/without_toolkit/execution.json,response_complete,,822,1369,2191,34.687
+glm,author,runs/glm/coordinator/author/pair-05/with_toolkit/execution.json,response_complete,,24020,1852,25872,43.328
+glm,author,runs/glm/coordinator/author/pair-05/without_toolkit/execution.json,response_complete,,11732,1449,13181,33.515
+glm,judge,format-supplement/glm/judgments/pair-01/execution.json,response_complete,,20807,2073,22880,61.11
+glm,judge,format-supplement/glm/judgments/pair-02/execution.json,response_complete,,17740,1586,19326,52.687
+glm,judge,format-supplement/glm/judgments/pair-03/execution.json,response_complete,,26046,2118,28164,62.125
+longcat,author,runs/longcat/coordinator/author/pair-01/with_toolkit/execution.json,failed,The read operation timed out,,,,240.141
+longcat,author,runs/longcat/coordinator/author/pair-01/without_toolkit/execution.json,response_complete,,12399,4889,17288,110.297
+longcat,author,runs/longcat/coordinator/author/pair-02/with_toolkit/execution.json,failed,The read operation timed out,,,,240.078
+longcat,author,runs/longcat/coordinator/author/pair-02/without_toolkit/execution.json,response_complete,,857,9321,10178,221.734
+longcat,author,runs/longcat/coordinator/author/pair-03/with_toolkit/execution.json,failed,The read operation timed out,,,,240.109
+longcat,author,runs/longcat/coordinator/author/pair-03/without_toolkit/execution.json,failed,The read operation timed out,,,,240.078
+longcat,author,runs/longcat/coordinator/author/pair-04/with_toolkit/execution.json,response_complete,,20763,4523,25286,97.953
+longcat,author,runs/longcat/coordinator/author/pair-04/without_toolkit/execution.json,failed,The read operation timed out,,,,240.11
+longcat,author,runs/longcat/coordinator/author/pair-05/with_toolkit/execution.json,response_complete,,13225,5533,18758,132.734
+longcat,author,runs/longcat/coordinator/author/pair-05/without_toolkit/execution.json,failed,The read operation timed out,,,,240.11

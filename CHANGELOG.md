@@ -6,7 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
-Changes after v0.2.3 belong here.
+- Publish a four-model, five-family fixed-source Lite pilot with original outputs, failures, masked judgments, separate format diagnostics and offline verification. It does not establish a general quality advantage.
+- Keep the evaluation link alongside the other README navigation links, without an arrow.
 
 ## v0.2.3 — 2026-10-10
 
