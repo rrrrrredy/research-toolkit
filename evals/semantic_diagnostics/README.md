@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+The [v1 defect-tag overlay](defect-tags.v1.json) indexes these 23 current examples without changing their original labels or evidence. See the bilingual [necessary-defect definitions](../../docs/necessary-defects.md); these proposed tags are not new independent review results.
+
 The six original bad/control pairs in `cases.json` cover paraphrased filler, irrelevant evidence bindings, denominator swaps, process traces versus useful limitations, retrospective PASS claims, and contract-tier omissions. Fourteen additional pairs in `additional-cases.json` form the historical 20-pair catalog, adding time and unit mismatches, causal overclaims, copied evidence, missing costs, late corrections, justified positive judgments and severity aggregation. English cases include meaningful specificity controls; the original six and their historical model diagnostics are unchanged.
 
 Three new pairs in [`reader-cases-2026-09-10.json`](./reader-cases-2026-09-10.json) bring the current development view to 23. They cover opening priorities, editorial narration in report prose, and timelines that list facts without explaining them. Each states the reader's actual requirement, keeps a close control and preserves useful uncertainty. No phrase blacklist, standard introduction or fixed insight count is implied. A subsequent internal diagnosis used four model reviewers in fresh contexts. It led to the explicit single-seat pricing scope in [the retained reader revision](./reader-revisions-2026-09-11.json). The private reviews remain outside this repository; the earlier eight public calls did not assess these pairs.

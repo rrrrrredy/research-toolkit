@@ -4,6 +4,7 @@
 
 ## 使用 Research Toolkit
 
+- [5 分钟 Lite 入门](quickstart-lite.zh-CN.md)：完整请求、两份随附来源和最终 checklist。
 - [使用与接入](usage-modes.zh-CN.md)：仓库、文件与文本输入，可选的 Skill、插件、MCP，以及审阅配置。
 - [在你的 Agent 中使用](../agents/README.zh-CN.md)：通用输入方式、纯聊天边界与各工具的接入。
 - [更新安装](installation-versioning.zh-CN.md)：选择和替换预期的软件包副本。
@@ -28,6 +29,7 @@
 - [审阅完成条件](review-completion.zh-CN.md)：完整输入、版本绑定、有效回复与失败恢复。
 - [交付检查](delivery-verification.zh-CN.md)：当前稿件、未解决要求与完成条件。
 - [报告评测标准](report-evaluation-standard.zh-CN.md)：区分稿件质量、交付状态和工具效果研究。
+- [必要缺陷标签](necessary-defects.zh-CN.md)：稳定类别、有证据的处置和版本化诊断索引。
 - [评测集](../evals/README.zh-CN.md)：题目、对照样例、回归样例、诊断与离线检查。
 - [评测现状](evaluation-status.zh-CN.md)与[评测计划](evaluation-roadmap.zh-CN.md)：已有证据与待完成工作。
 - [评测数据审计](evaluation-data-audit.zh-CN.md)：公开数据的组成与证据范围。

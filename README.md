@@ -10,7 +10,7 @@ Research methods · Callable workflow tools · Review choices. For industry rese
 
 [**Evaluation results →**](#evaluation-results) · 2 public with/without-toolkit development comparisons; a general quality advantage remains unproven.
 
-[**Use with your agent**](#usage) · [Research case](#research-case) · [Documentation](#documentation)
+[**Use with your agent**](#usage) · [Research case](#research-case) · [Lite quickstart](./docs/quickstart-lite.md) · [Documentation](#documentation)
 
 ## Research case
 
@@ -56,6 +56,8 @@ Public-source analysis, 10 October 2026. The workflow is illustrative; no deploy
 </details>
 
 ## Usage
+
+[**Five-minute Lite quickstart**](./docs/quickstart-lite.md): copy one complete request, use two supplied sources, and produce a short brief with the final checklist. No reviewer setup.
 
 Start with the shared [research instructions in SKILL.md](./SKILL.md). Your agent reads that entry point and follows its links to the methods needed at each stage. Native Skill installation is optional.
 
@@ -134,11 +136,13 @@ Your agent performs retrieval, reading, analysis, and writing with its own capab
 
 **Yes: the public archive contains two with/without-toolkit development comparisons. They exposed weak navigation, poorly prioritized conclusions and generous self-reviews; they do not establish a general quality advantage.**
 
-| Experiment groups | Control design | Blind-review dimensions | Core conclusion |
+| Experiment groups | Control design | Blind-review scope and limits | Core conclusion |
 | --- | --- | --- | --- |
-| [2 public calibration pairs](./evals/diagnostics/2026-09-07/calibration-provenance.json), 4 original reports | With/without toolkit, toolkit first; same-model and identical-brief confirmation: **pending / 待补充** in the public run metadata | **Pending / 待补充**; later repair reviews were not blinded to the author's thesis | The toolkit reports contained useful evidence but required substantive editorial and evidence corrections. |
-| [11 retained historical families](./docs/evaluation-status.md), 22 review inputs | Historical paired study; full original materials and same-model/brief verification: **pending / 待补充** publicly | **Pending / 待补充**; aggregate counts do not document blinded execution | Primary view: 5 families had necessary defects in both conditions and 6 remained unresolved after author quota failures; no general win is established. |
-| [23 synthetic bad/control pairs](./evals/semantic_diagnostics/) | Edited excerpts for failure diagnosis; separate from with/without-toolkit report experiments | [Available model diagnoses](./evals/semantic_diagnostics/reviews/2026-09-08/) with disagreements and missed defects; no validated blind quality score | These pairs reveal diagnostic weaknesses and support regression work, not an efficacy claim. |
+| [2 public development pairs](./evals/diagnostics/2026-09-07/calibration-provenance.json), 4 original reports | With/without toolkit; toolkit first in both tasks | Development diagnostics and later repair reviews; no blinded efficacy result | Useful evidence alongside weaknesses in conclusion priority, reader navigation and evidence use. |
+| [11 retained historical families](./docs/evaluation-status.md), 22 review inputs | Historical paired study; author failures retained, supplemental runs separate | Private aggregates; public material does not establish blinded execution | Primary view: both arms had necessary defects in 5 families; 6 were unresolved. Useful for development feedback. |
+| [23 synthetic bad/control pairs](./evals/semantic_diagnostics/) | Short failure-mode excerpts, not complete report comparisons | [Available model diagnoses](./evals/semantic_diagnostics/reviews/2026-09-08/) retain missed defects and disagreements | They locate review weaknesses and support regression work, not toolkit efficacy. |
+
+**Evidence boundary:** public run records do not establish that each pair in the first two collections used the same model and brief, or fully document blinded dimensions and condition masking. Later repair reviews knew the author’s thesis. No toolkit win rate is reported here. The 7 research tasks are in Chinese; the 23 synthetic diagnostics include 18 Chinese and 5 English pairs. This remains limited coverage, and the English showcase is not an additional controlled pair.
 
 Detailed reports: [public reports and repairs](./evals/diagnostics/2026-09-07/) · [evaluation evidence and version boundaries](./docs/evaluation-status.md) · [evaluation standard](./docs/report-evaluation-standard.md).
 

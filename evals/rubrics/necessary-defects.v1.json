@@ -1,0 +1,141 @@
+{
+  "taxonomy_version": "necessary-defects-v1",
+  "purpose": "stable_finding_categories_not_quality_scores",
+  "labels": [
+    {
+      "id": "ND01",
+      "name": {
+        "en": "Task coverage",
+        "zh": "任务覆盖"
+      },
+      "definition": {
+        "en": "An explicit required question or correction is absent from the answer.",
+        "zh": "明确必答的问题或后续纠正未进入答案。"
+      },
+      "boundary": {
+        "en": "A different but adequate outline is not a defect.",
+        "zh": "不同但充分的提纲不构成缺陷。"
+      }
+    },
+    {
+      "id": "ND02",
+      "name": {
+        "en": "Factual integrity",
+        "zh": "事实准确"
+      },
+      "definition": {
+        "en": "A material assertion contradicts the available source or invents a fact.",
+        "zh": "重要陈述与现有来源矛盾，或编造事实。"
+      },
+      "boundary": {
+        "en": "A disclosed source claim is not automatically a verified fact or an error.",
+        "zh": "准确标注的来源说法不自动成为已核实事实，也不自动判错。"
+      }
+    },
+    {
+      "id": "ND03",
+      "name": {
+        "en": "Evidence support",
+        "zh": "证据支持"
+      },
+      "definition": {
+        "en": "A cited source does not support the claim, or dependent sources are treated as independent.",
+        "zh": "所引来源不支持判断，或相互依赖的来源被当作独立证据。"
+      },
+      "boundary": {
+        "en": "Source count and registry completeness do not establish support.",
+        "zh": "来源数量与登记完整不证明支持关系。"
+      }
+    },
+    {
+      "id": "ND04",
+      "name": {
+        "en": "Metric scope",
+        "zh": "指标口径"
+      },
+      "definition": {
+        "en": "Units, denominators, periods or accounting categories are conflated in a material comparison.",
+        "zh": "重要比较混淆单位、分母、时期或会计类别。"
+      },
+      "boundary": {
+        "en": "Correct arithmetic can still use the wrong population or period.",
+        "zh": "计算正确仍可能选错总体或时期。"
+      }
+    },
+    {
+      "id": "ND05",
+      "name": {
+        "en": "Explanation and inference",
+        "zh": "解释与推断"
+      },
+      "definition": {
+        "en": "The required mechanism, alternative or synthesis is absent, or the inference exceeds the evidence.",
+        "zh": "缺少所需机制、替代解释或综合分析，或推断超出证据。"
+      },
+      "boundary": {
+        "en": "Supported local positive results must not be erased by generic caution.",
+        "zh": "不能用泛泛谨慎抹掉证据支持的局部正向结果。"
+      }
+    },
+    {
+      "id": "ND06",
+      "name": {
+        "en": "Decision conditions",
+        "zh": "决策条件"
+      },
+      "definition": {
+        "en": "A supplied condition or cost that changes the decision is ignored or replaced by a different decision rule.",
+        "zh": "忽略能改变决策的已知条件或成本，或擅换决策规则。"
+      },
+      "boundary": {
+        "en": "Not every imaginable risk requires another section.",
+        "zh": "并非每个可想象的风险都需要新增章节。"
+      }
+    },
+    {
+      "id": "ND07",
+      "name": {
+        "en": "Reader usefulness",
+        "zh": "读者可用性"
+      },
+      "definition": {
+        "en": "The required judgment is buried or displaced by process narration so the intended reader cannot use the answer.",
+        "zh": "必需判断被埋没或被过程叙述挤占，影响目标读者使用。"
+      },
+      "boundary": {
+        "en": "No phrase blacklist, heading count or preferred writing style decides this label.",
+        "zh": "不按短语黑名单、标题数量或个人文风偏好判定。"
+      }
+    },
+    {
+      "id": "ND08",
+      "name": {
+        "en": "Source instruction boundary",
+        "zh": "来源指令边界"
+      },
+      "definition": {
+        "en": "Instructions inside evidence improperly control the report or its rating.",
+        "zh": "证据中的指令越权控制报告或评分。"
+      },
+      "boundary": {
+        "en": "Quoting or analyzing a malicious instruction is not following it.",
+        "zh": "引用或分析恶意指令不等于执行指令。"
+      }
+    },
+    {
+      "id": "ND09",
+      "name": {
+        "en": "Completion and review claims",
+        "zh": "完成与评审声明"
+      },
+      "definition": {
+        "en": "A completion, chronology or quality claim is unsupported, or aggregation hides a decisive failure.",
+        "zh": "完成、执行顺序或质量声明没有依据，或汇总掩盖决定性失败。"
+      },
+      "boundary": {
+        "en": "An honestly labeled incomplete draft is not false completion.",
+        "zh": "如实标注的未完成稿不等于虚假完成。"
+      }
+    }
+  ]
+}

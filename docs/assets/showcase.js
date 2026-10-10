@@ -161,6 +161,7 @@
       if (url.hash) url.hash = lang === "zh" ? (e.dataset.i18n === "mcpLink" ? "#单独接入-mcp" : "#安装插件") : (e.dataset.i18n === "mcpLink" ? "#connect-mcp-separately" : "#install-the-plugin");
       e.href = url.href;
     });
+    document.querySelectorAll("[data-quickstart-link]").forEach(function (e) { e.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite"+(lang === "zh" ? ".zh-CN" : "")+".md"; });
     document.querySelectorAll("[data-eval-link]").forEach(function (e) { e.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-status"+(lang === "zh" ? ".zh-CN" : "")+".md"; });
     document.querySelectorAll("[data-agent-link]").forEach(function (e) {
       var file = "https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README"+(lang === "zh" ? ".zh-CN" : "")+".md";
