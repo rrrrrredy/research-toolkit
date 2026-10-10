@@ -144,7 +144,7 @@
     var skillGuide = document.querySelector("[data-i18n='skillLink']");
     skillGuide.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README"+(lang === "zh" ? ".zh-CN" : "")+".md"+(lang === "zh" ? "#安装后重复使用" : "#install-for-repeated-use");
     var fallback = document.querySelector("[data-i18n='fallbackGuide']");
-    fallback.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README"+(lang === "zh" ? ".zh-CN" : "")+".md"+(lang === "zh" ? "#直接读取使用" : "#use-without-installation");
+    fallback.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README"+(lang === "zh" ? ".zh-CN" : "")+".md"+(lang === "zh" ? "#选择工具" : "#choose-your-tool");
     var video = document.querySelector("video"), source = video.querySelector("source");
     video.poster = "assets/readme-preview."+(lang === "zh" ? "zh-CN" : "en")+".png";
     var file = "assets/case-walkthrough"+(lang === "zh" ? ".zh-CN" : "")+".mp4";

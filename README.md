@@ -106,7 +106,7 @@ Historical report: information through September 9, 2026; some dynamic documents
 
 ## Usage
 
-Use the research methods with your agent. Provide the repository link, upload the files, or paste the instructions; native Skill installation is optional.
+Start with the shared [research instructions in SKILL.md](./SKILL.md). Your agent reads that entry point and follows its links to the methods needed at each stage. Native Skill installation is optional.
 
 Send this request to an agent that can read GitHub and access the required sources:
 
@@ -114,23 +114,20 @@ Send this request to an agent that can read GitHub and access the required sourc
 Use Research Toolkit for this task:
 https://github.com/rrrrrredy/research-toolkit
 
-Research office agents available to users in China in 2026.
-Compare Kimi Work, Coze, Feishu / Doubao Work, Wukong,
-WPS, and WorkBuddy. Write for AI product and workplace leads.
+Read SKILL.md first, then follow its links to the methods needed
+for each research stage.
 
-Explain which files and business objects each product changes,
-where tasks run, and how models, tools, context, permissions,
-and human involvement affect delivery and rework.
+My research request: [Describe your research question, intended
+use, and desired output.]
 
-Use information available as of [DATE]. Cite important claims.
-Distinguish company statements, media experiences, and measured
-outcomes. Explain what could overturn your conclusions.
-
-Read SKILL.md. Clarify missing requirements and agree on an
-outline before collecting sources.
+Use the conversation to clarify essential gaps and establish the
+brief and outline before collecting sources. Follow the selected
+profile's research, writing, review, and delivery instructions.
 ```
 
-Replace `[DATE]` and adapt the topic and audience. This request is based on the archived case brief; a new run may reach different conclusions.
+Replace the bracketed text with your research request. Include any known audience, scope, length, time cutoff, or required sources.
+
+[Setup for your agent](./agents/README.md#choose-your-tool) covers tool-specific installation and file access.
 
 | Your agent's capabilities | How to provide the toolkit |
 | --- | --- |

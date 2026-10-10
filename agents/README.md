@@ -14,7 +14,7 @@ The [entry instructions](../SKILL.md) and [Chinese reading version](../SKILL.zh-
 | Local files or attachments | [Download the repository](https://github.com/rrrrrredy/research-toolkit/archive/refs/heads/main.zip). Make `SKILL.md` and the reference files available to the session. If attachment limits apply, provide the entry file and add the required methods by stage. |
 | Pasted text | Paste the full entry instructions and the reference sections needed for the task. A URL alone is insufficient when the agent cannot open it. |
 
-Use the [copyable research request](../README.md#usage), replacing its date, topic, and audience. For a file or text input, replace the repository-reading instruction with the attached files or pasted instructions you supplied.
+Use the [copyable research request](../README.md#usage) with your research question, intended use, and desired output. For a file or text input, replace the repository-reading instruction with the attached files or pasted instructions you supplied.
 
 These methods apply instructions to the task. They do not register a native Skill, start MCP, provide web access, or execute model reviews.
 
@@ -22,7 +22,7 @@ These methods apply instructions to the task. They do not register a native Skil
 
 An interface without file persistence or command execution can still use the research and writing methods. Keep source, claim, uncertainty, and review records separate from the report; save or export them when continuing in another session.
 
-A review requires a separate reviewer with the full brief, report, and supporting evidence. Use another session or a reviewer you can access and return its substantive findings to the author. Do not treat the author's self-check as an independent review. If the interface cannot run file-based checks or preserve task files, those capabilities remain unavailable; chat notes do not establish persistent recovery or verified delivery.
+An independent review requires a separate reviewer with the full brief, report, and supporting evidence. Use another session or a reviewer you can access and return its substantive findings to the author. Do not treat the author's self-check as an independent review. If the interface cannot run file-based checks or preserve task files, those capabilities remain unavailable; chat notes do not establish persistent recovery or verified delivery.
 
 ## Install for repeated use
 
