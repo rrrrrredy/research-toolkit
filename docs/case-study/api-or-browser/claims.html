@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" data-reading-language="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Claims and evidence limits · Research Toolkit</title><link rel="stylesheet" href="../../assets/showcase.css?v=c67edffee6"><script src="../../assets/reading-preferences.js?v=a6da0e2e3f"></script></head><body><main class="report-shell"><nav class="report-nav"><a data-home-link href="../../?lang=en#case">Research Toolkit</a><a data-preserve-reading href="index.html">Case archive</a><a data-language="zh" href="../../?lang=zh#case">中文案例</a></nav><article class="report-article"><h1 id="top">Claims and evidence limits</h1><details class="report-toc"><summary>Contents</summary><ol><li><a href="#c01-choose-an-execution-route-per-business-operation-accounting-for-coverage-authorization-verification-and-recovery">C01 — Choose an execution route per business operation, accounting for coverage, authorization, verification and recovery.</a></li><li><a href="#c02-stripe-api-v1-response-replay-and-key-retention-do-not-give-unlimited-retry-protection">C02 — Stripe API v1 response replay and key retention do not give unlimited retry protection.</a></li><li><a href="#c03-stripe-api-v2-has-a-30-day-replay-scope-and-can-retry-failed-work-while-preserving-successful-work">C03 — Stripe API v2 has a 30-day replay scope and can retry failed work while preserving successful work.</a></li><li><a href="#c04-an-actionability-checked-browser-click-does-not-by-itself-verify-the-application-business-state">C04 — An actionability-checked browser click does not by itself verify the application business state.</a></li><li><a href="#c05-dom-automation-and-visual-model-control-have-different-interaction-and-maintenance-surfaces">C05 — DOM automation and visual model control have different interaction and maintenance surfaces.</a></li><li><a href="#c06-an-api-does-not-remove-injection-risk-when-the-model-interprets-untrusted-text-returned-by-that-api">C06 — An API does not remove injection risk when the model interprets untrusted text returned by that API.</a></li><li><a href="#c07-browser-session-isolation-and-application-authorization-address-different-boundaries">C07 — Browser session isolation and application authorization address different boundaries.</a></li><li><a href="#c08-a-hybrid-workflow-needs-recorded-identities-and-a-recovery-boundary-before-another-external-write">C08 — A hybrid workflow needs recorded identities and a recovery boundary before another external write.</a></li><li><a href="#c09-cost-comparisons-should-include-verification-failed-attempts-maintenance-and-human-exceptions-over-a-common-workload">C09 — Cost comparisons should include verification, failed attempts, maintenance and human exceptions over a common workload.</a></li><li><a href="#c10-http-202-reports-acceptance-rather-than-completed-processing">C10 — HTTP 202 reports acceptance rather than completed processing.</a></li></ol></details>
+<p id="L3"><a data-preserve-reading="" href="data/claims_registry.csv">Claim registry CSV</a> · <a data-preserve-reading="" href="sources.html">Source records</a> · <a data-preserve-reading="" href="report.html">Report</a></p>
+<h2 id="c01-choose-an-execution-route-per-business-operation-accounting-for-coverage-authorization-verification-and-recovery">C01 — Choose an execution route per business operation, accounting for coverage, authorization, verification and recovery.</h2>
+<p id="L7">Type: author judgment.</p>
+<p id="L9">Sources: S01, S04, S08, S11.</p>
+<p id="L11">Counter-evidence or counterexample: A single route can be sufficient for a small complete workflow.</p>
+<p id="L13">Limit: This is a design inference, not a measured ranking.</p>
+<h2 id="c02-stripe-api-v1-response-replay-and-key-retention-do-not-give-unlimited-retry-protection">C02 — Stripe API v1 response replay and key retention do not give unlimited retry protection.</h2>
+<p id="L17">Type: fact.</p>
+<p id="L19">Sources: S01, S02.</p>
+<p id="L21">Counter-evidence or counterexample: API v2 has different behavior.</p>
+<p id="L23">Limit: Other providers and endpoints have their own contracts.</p>
+<h2 id="c03-stripe-api-v2-has-a-30-day-replay-scope-and-can-retry-failed-work-while-preserving-successful-work">C03 — Stripe API v2 has a 30-day replay scope and can retry failed work while preserving successful work.</h2>
+<p id="L27">Type: source claim.</p>
+<p id="L29">Sources: S03.</p>
+<p id="L31">Counter-evidence or counterexample: Some requests cannot be successfully replayed.</p>
+<p id="L33">Limit: Applies only within documented same-key/API/account-or-sandbox conditions.</p>
+<h2 id="c04-an-actionability-checked-browser-click-does-not-by-itself-verify-the-application-business-state">C04 — An actionability-checked browser click does not by itself verify the application business state.</h2>
+<p id="L37">Type: interpretation.</p>
+<p id="L39">Sources: S04, S11.</p>
+<p id="L41">Counter-evidence or counterexample: Some low-consequence read-only tasks can be checked entirely through displayed content.</p>
+<p id="L43">Limit: The required outcome evidence depends on the application.</p>
+<h2 id="c05-dom-automation-and-visual-model-control-have-different-interaction-and-maintenance-surfaces">C05 — DOM automation and visual model control have different interaction and maintenance surfaces.</h2>
+<p id="L47">Type: interpretation.</p>
+<p id="L49">Sources: S05, S10.</p>
+<p id="L51">Counter-evidence or counterexample: A model may generate DOM actions; real systems can combine methods.</p>
+<p id="L53">Limit: The categories describe mechanisms, not mutually exclusive products.</p>
+<h2 id="c06-an-api-does-not-remove-injection-risk-when-the-model-interprets-untrusted-text-returned-by-that-api">C06 — An API does not remove injection risk when the model interprets untrusted text returned by that API.</h2>
+<p id="L57">Type: interpretation.</p>
+<p id="L59">Sources: S09.</p>
+<p id="L61">Counter-evidence or counterexample: Deterministic consumers that do not interpret text as instructions have a different threat model.</p>
+<p id="L63">Limit: No comparative incident rate is available in the reviewed sources.</p>
+<h2 id="c07-browser-session-isolation-and-application-authorization-address-different-boundaries">C07 — Browser session isolation and application authorization address different boundaries.</h2>
+<p id="L67">Type: interpretation.</p>
+<p id="L69">Sources: S06, S08, S10.</p>
+<p id="L71">Counter-evidence or counterexample: An application may provide a dedicated restricted browser account.</p>
+<p id="L73">Limit: No universal browser-versus-API permission ranking follows.</p>
+<h2 id="c08-a-hybrid-workflow-needs-recorded-identities-and-a-recovery-boundary-before-another-external-write">C08 — A hybrid workflow needs recorded identities and a recovery boundary before another external write.</h2>
+<p id="L77">Type: author judgment.</p>
+<p id="L79">Sources: S02, S04, S11.</p>
+<p id="L81">Counter-evidence or counterexample: A fully covered API-only or DOM-only workflow can avoid this extra boundary. New API coverage alone does not establish that migrating an existing hybrid is worth its cost.</p>
+<p id="L83">Limit: The support-ticket walkthrough is illustrative and untested.</p>
+<h2 id="c09-cost-comparisons-should-include-verification-failed-attempts-maintenance-and-human-exceptions-over-a-common-workload">C09 — Cost comparisons should include verification, failed attempts, maintenance and human exceptions over a common workload.</h2>
+<p id="L87">Type: author judgment.</p>
+<p id="L89">Sources: S07, S10.</p>
+<p id="L91">Counter-evidence or counterexample: A low-volume browser workflow can avoid disproportionate integration work.</p>
+<p id="L93">Limit: No throughput, price or completion-rate measurements were collected.</p>
+<h2 id="c10-http-202-reports-acceptance-rather-than-completed-processing">C10 — HTTP 202 reports acceptance rather than completed processing.</h2>
+<p id="L97">Type: fact.</p>
+<p id="L99">Sources: S11.</p>
+<p id="L101">Counter-evidence or counterexample: Not recorded.</p>
+<p id="L103">Limit: The meaning of other success codes and the business outcome depends on the endpoint.</p>
+</article></main></body></html>

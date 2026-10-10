@@ -3,7 +3,10 @@
   var data = JSON.parse(document.getElementById("showcase-data").textContent);
   var reading = window.RTReading;
   var state = reading.get(), lang = state.lang, theme = state.theme;
-  var selected = data.cases.pairs.findIndex(function (p) { return p.id === state.topic; });
+  function caseData() { return lang === "en" && data.englishCase ? data.englishCase : data.cases; }
+  var selectedTopics = {};
+  selectedTopics[lang] = state.topic;
+  var selected = caseData().pairs.findIndex(function (p) { return p.id === state.topic; });
   if (selected < 0) selected = 0;
   var detail = state.detail || "diff";
   var params = new URLSearchParams(location.search);
@@ -84,17 +87,35 @@
       panel.replaceChildren(review);
     }
   }
+  function renderTopics() {
+    var choices = document.querySelector(".case-choices");
+    document.querySelector(".case-layout").dataset.topicCount = String(caseData().pairs.length);
+    choices.replaceChildren();
+    caseData().pairs.forEach(function (pair, index) {
+      var button = node("button", "", pair[lang].label);
+      button.type = "button"; button.dataset.case = String(index);
+      button.id = "topic-" + pair.id;
+      button.setAttribute("role", "tab");
+      button.setAttribute("aria-controls", "case-content");
+      choices.append(button);
+    });
+  }
   function renderCase() {
-    var pair = data.cases.pairs[selected], text = pair[lang];
+    var pair = caseData().pairs[selected], text = pair[lang];
+    selectedTopics[lang] = pair.id;
     document.querySelectorAll("[data-case]").forEach(function (button) {
       var n = Number(button.dataset.case), active = n === selected;
       button.setAttribute("aria-selected", String(active)); button.tabIndex = active ? 0 : -1;
-      button.textContent = data.cases.pairs[n][lang].label;
+      button.textContent = caseData().pairs[n][lang].label;
     });
-    document.getElementById("case-content").setAttribute("aria-labelledby", "topic-" + pair.id);
+    var content = document.getElementById("case-content"), single = caseData().pairs.length === 1;
+    content.setAttribute("role", single ? "region" : "tabpanel");
+    content.setAttribute("aria-labelledby", single ? "case-title" : "topic-" + pair.id);
     document.getElementById("case-context").textContent = text.context;
     document.getElementById("case-context").hidden = !text.context;
-    document.getElementById("case-title").replaceChildren.apply(document.getElementById("case-title"), text.title.split(/(Claude Code|Codex CLI)/).map(function (part) { return /^(Claude Code|Codex CLI)$/.test(part) ? node("span", "case-program", part) : document.createTextNode(part); }));
+    if (lang === "zh") {
+      document.getElementById("case-title").replaceChildren.apply(document.getElementById("case-title"), text.title.split(/(Claude Code|Codex CLI)/).map(function (part) { return /^(Claude Code|Codex CLI)$/.test(part) ? node("span", "case-program", part) : document.createTextNode(part); }));
+    } else { document.getElementById("case-title").textContent = text.title; }
     document.getElementById("case-why").textContent = text.why;
     document.querySelector(".case-detail-tabs").setAttribute("aria-label", data.i18n[lang].detailAria);
     renderDetail(pair);
@@ -120,15 +141,20 @@
       button.setAttribute("aria-pressed",String(button.dataset.language === lang));
     });
     document.getElementById("research-prompt").textContent = data.prompts[lang];
-    document.getElementById("hero-quote").replaceChildren(highlighted(data.cases.hero[lang].quote,data.cases.hero[lang].highlights));
+    document.getElementById("hero-quote").replaceChildren(highlighted(caseData().hero[lang].quote,caseData().hero[lang].highlights));
     document.getElementById("copy-status").textContent = "";
-    document.querySelectorAll("[data-report-link]").forEach(function (e) { e.href = "case-study/report."+(lang === "zh" ? "zh-CN" : "en")+".html"; });
+    var caseLinks = lang === "en" && data.englishCase ? data.englishCase.links : {
+      report:"case-study/report."+(lang === "zh" ? "zh-CN" : "en")+".html",
+      archive:"case-study/office-agents/index.html",
+      brief:"case-study/office-agents/brief.html",
+      sources:"case-study/office-agents/sources.html",
+      claims:"case-study/office-agents/claims.html",
+      reviews:"case-study/office-agents/reviews.html"
+    };
+    document.querySelectorAll("[data-report-link]").forEach(function (e) { e.href = caseLinks.report; });
+    document.querySelectorAll("[data-case-link]").forEach(function (e) { e.href = caseLinks[e.dataset.caseLink]; });
+    document.querySelector("time[data-i18n='heroDate']").dateTime = caseData().information_cutoff;
     document.querySelectorAll("[data-method-link]").forEach(function (e) { e.href = "framework"+(lang === "zh" ? ".zh-CN" : "")+".html"; });
-    document.querySelectorAll("[data-record-language]").forEach(function (e) {
-      if (lang !== "en") return;
-      var labels = {sources:"Source records (Chinese)",claims:"Claim records (Chinese)",reviews:"Review records (Chinese)"};
-      var span = e.querySelector("span"); if (span) span.textContent = labels[e.dataset.recordLanguage];
-    });
     document.querySelectorAll("[data-usage-link]").forEach(function (e) {
       var url = new URL(e.href);
       url.pathname = url.pathname.replace(/usage-modes(?:\.zh-CN)?\.md/,"usage-modes"+(lang === "zh" ? ".zh-CN" : "")+".md");
@@ -146,15 +172,16 @@
     var fallback = document.querySelector("[data-i18n='fallbackGuide']");
     fallback.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README"+(lang === "zh" ? ".zh-CN" : "")+".md"+(lang === "zh" ? "#选择工具" : "#choose-your-tool");
     var video = document.querySelector("video"), source = video.querySelector("source");
-    video.poster = "assets/readme-preview."+(lang === "zh" ? "zh-CN" : "en")+".png";
-    var file = "assets/case-walkthrough"+(lang === "zh" ? ".zh-CN" : "")+".mp4";
+    video.poster = lang === "en" && data.englishCase ? data.englishCase.poster : "assets/readme-preview."+(lang === "zh" ? "zh-CN" : "en")+".png";
+    var file = lang === "en" && data.englishCase ? data.englishCase.video : "assets/case-walkthrough"+(lang === "zh" ? ".zh-CN" : "")+".mp4";
     if (source.getAttribute("src") !== file) { source.setAttribute("src",file); video.load(); }
     document.title = lang === "zh" ? "Research Toolkit · 面向 AI Agent 的研究工具箱" : "Research Toolkit · Research methods and tools for AI agents";
     document.querySelector('meta[name="description"]').content = data.i18n[lang].lede;
-    renderTheme(); renderCase();
+    renderTopics(); renderTheme(); renderCase();
   }
-  document.querySelectorAll("[data-case]").forEach(function (button) {
-    button.addEventListener("click",function () { selected = Number(button.dataset.case); renderCase(); });
+  document.querySelector(".case-choices").addEventListener("click",function (event) {
+    var button = event.target.closest("[data-case]");
+    if (button) { selected = Number(button.dataset.case); renderCase(); }
   });
   var topicLayout = matchMedia("(min-width:1001px)");
   function topicOrientation() {
@@ -188,7 +215,10 @@
   document.querySelectorAll(".language-switch [data-language]").forEach(function (button) {
     button.addEventListener("click",function () {
       if (lang === button.dataset.language) return;
-      lang = button.dataset.language; renderLanguage();
+      lang = button.dataset.language;
+      selected = caseData().pairs.findIndex(function (p) { return p.id === selectedTopics[lang]; });
+      if (selected < 0) selected = 0;
+      renderLanguage();
     });
   });
   document.getElementById("theme-toggle").addEventListener("click",function () { theme = theme === "light" ? "dark" : "light"; reading.set({theme:theme},true); renderTheme(); });

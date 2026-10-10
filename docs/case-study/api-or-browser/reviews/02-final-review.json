@@ -1,0 +1,188 @@
+{
+  "review_id": "native-english-final-02",
+  "reviewer_id": "/root/native_english_reviewer",
+  "reviewer_identity": "Separate Codex reviewer context; no exact model or provider identity asserted.",
+  "review_date": "2026-10-10",
+  "review_status": "completed",
+  "report_verdict": "pass",
+  "input": {
+    "path": "reviews/02-input.json",
+    "sha256_normalized_utf8_lf": "83c8700f5b8805c5ee9579713ad7c7f326e1daa474038d9ee66cde6b165be515",
+    "independently_recomputed": true
+  },
+  "artifact": {
+    "path": "final.md",
+    "source": "The complete frozen revised report string in reviews/02-input.json",
+    "title": "APIs or browsers: how to choose an execution route for an AI agent",
+    "sha256_normalized_utf8_lf": "987b995bcd36cfd37c01bbbad2d2cb3fc29d7e3dd40d487ced052a48e3ebd292",
+    "independently_recomputed": true,
+    "locations": "Line numbers refer to the frozen revised report string, with its title on line 1."
+  },
+  "summary": "The complete current article passes the assigned content review. NE-D1-F01 is resolved in the actual revised text, and no new necessary correction was found. The revision distinguishes the disappearance of a coverage gap from the economic decision to replace a working route. It remains a conditional design inference, creates no new factual claim requiring an experiment, and agrees with the common-workload cost model in section 6. No optional findings are added.",
+  "reading_scope": [
+    "Read the complete revised article and brief in reviews/02-input.json, plus every supplied source entry: notes/S01.md through notes/S11.md, data/source_registry.csv, data/claims_registry.csv, data/uncertainty_registry.csv and state/outline.md. Also read the shared methods, assignment, original review and author disposition in this packet.",
+    "Independently recomputed the normalized article and input SHA-256 values; both match the supplied bindings. Compared both frozen packets: the article changes only at line 74, the brief is unchanged, and the only changed source-packet entry is data/claims_registry.csv. Reading the registry confirms the added counterexample is in C08.",
+    "Reused the actual primary-source section reading performed in this same reviewer context for reviews/01-draft-review.md on 2026-10-10. The 11 cited source claims and source notes are unchanged. No primary page was reopened for this review: the changed passage is a conditional inference about costs, and the full reread raised no new source question. The exact reused reading scope is listed below.",
+    "Read the complete current article again across all seven assigned dimensions; this is not solely a check of the changed sentence or acceptance of the author's disposition."
+  ],
+  "resolved_prior_findings": [
+    {
+      "finding_id": "NE-D1-F01",
+      "original_severity": "minor",
+      "prior_review": "reviews/01-draft-review.md",
+      "prior_artifact_sha256": "46dff0d25dc2195a3470e19f2636d144ad4d0767bec84cf0314296bda1ad09f7",
+      "location": "final.md:74; data/claims_registry.csv:C08",
+      "status": "resolved_in_current_version",
+      "verified_text": "If the API later covers document generation with adequate permissions and result checking, the original coverage gap disappears. Retiring the browser step then depends on whether the expected maintenance and recovery savings justify migration and revalidation costs.",
+      "basis": "The first sentence is true under the scenario's explicit coverage assumption. The second removes the unconditional migration implication and allows a working hybrid to remain when replacement is not worth its transition cost. Expected savings are not presented as guaranteed or measured. This is consistent with final.md:82-86, where integration, maintenance, execution, verification and human exceptions are compared over a common period. C08 records the same counterexample without claiming a customer result.",
+      "new_issue_assessment": "No new necessary issue. The reader can still choose a single route where it suffices, while an existing hybrid is no longer ruled out merely because API coverage improves."
+    }
+  ],
+  "coverage": {
+    "requirements": {
+      "location": "final.md:1-18 and sections 1-6; brief in reviews/02-input.json",
+      "basis": "The complete article answers the specified operation-level route decision for operations and engineering leads. It distinguishes supported APIs, prepared DOM scripts and visual model interaction; covers permissions, retry, outcome verification, recovery and cost; includes an early decision table, a clearly hypothetical support-ticket workflow and an unmeasured accounting model. It preserves the exclusions on proprietary data, deployment results, vendor rankings and Toolkit efficacy. Its compact length remains close to the approximate target and does not omit a required substantive question. The publication and archive obligations are outside this article-only assessment."
+    },
+    "evidence": {
+      "location": "final.md:24, 28, 34-38, 44-50, 58-60, 74 and 80; data/claims_registry.csv:C08",
+      "basis": "Reconsidered every cited mechanism against the unchanged primary-source sections actually read for the first review. Stripe v1/v2 retention and replay distinctions, HTTP 202, Playwright locator/actionability/authentication behavior, GitHub permissions and pacing, Anthropic's host-executed loop, and OWASP's action-boundary controls remain appropriately scoped. The new line 74 is justified as conditional cost reasoning and makes no empirical or universal performance claim. The example and cost formula remain explicitly untested; no unsupported number or decisive citation mismatch was found."
+    },
+    "adversarial_reasoning": {
+      "location": "final.md:26, 36-40, 48, 52, 56, 66-74 and 84-88",
+      "basis": "Reconsidered fully covered API-only work, low-volume browser-only work, mixed deterministic/model control, restricted browser accounts, uncertain writes and cheap-looking results that exclude difficult cases. The report retains these qualifications and does not infer universal superiority from structured calls. The previously missing counterexample, a working hybrid whose migration is not worth its cost, is now explicitly accommodated at line 74. The uncertainty and escalation language prevents the illustrative recovery advice from promising that every ambiguous outcome can be reconciled. No further necessary challenge remains within the agreed scope."
+    },
+    "structure_and_depth": {
+      "location": "final.md:5-16, sections 1-6, especially 32-40, 50-52, 66-74 and 82-88",
+      "basis": "The full sequence still connects route choice to request identity, browser behavior, authority, partial completion and economics. Concrete provider contracts explain the retry problem; browser checks are distinguished from business-state evidence; the ticket example shows the recoverable handoff. The revised paragraph now provides a sound transition into the cost section. The accounting denominator is comparable across routes and unsuccessful attempts are included. The bounded question does not require a benchmark or an additional architecture framework."
+    },
+    "reader_usefulness": {
+      "location": "final.md:1-18, 32, 44-52, 66-88 and 90",
+      "basis": "The clear opening and compact table expose the main decision early. The article explains idempotency and the two browser mechanisms in terms usable by readers without API implementation expertise. The workflow and pilot identify what to inspect and when to involve a person. Revised line 74 removes the previous risk of encouraging migration on coverage alone, while leaving a practical decision tied to effort and recoverability. No new navigation, terminology or decision-usefulness problem was introduced."
+    },
+    "process_language": {
+      "location": "final.md:1-90, including 18, 66, 74 and 86",
+      "basis": "The full revised article contains no task-local paths, internal claim IDs, review verdicts, revision narration or author-assistant exchanges. The revision reads as part of the analysis. The methodological boundary, explicit scenario assumptions and unmeasured-cost qualification remain appropriate reader-facing evidence information. The review history and C08 record stay outside the article."
+    },
+    "natural_expression": {
+      "location": "final.md:5-9, section openings, 38-40, 48-52, 70-74 and 90",
+      "basis": "The English remains fluent, direct and concrete. Paragraphs build the argument without a translation-like register or repetitive process narration. The two replacement sentences at line 74 explain the conditional decision clearly and fit the surrounding discussion. The recurrence of completion and recovery is attached to distinct mechanisms, so it does not create empty repetition. No necessary prose correction was found."
+    }
+  },
+  "findings": [],
+  "source_reading_reuse": {
+    "prior_review": "reviews/01-draft-review.md",
+    "prior_review_date": "2026-10-10",
+    "mode": "Reuse of actual primary-page section reads in this reviewer context",
+    "new_primary_page_fetches": 0,
+    "reason": "All cited factual claims and primary-source notes are unchanged. The revision changes only a qualified design inference and the corresponding counterexample record."
+  },
+  "source_checks": [
+    {
+      "source_id": "S01",
+      "title": "Stripe: Idempotent requests",
+      "url": "https://docs.stripe.com/api/idempotent_requests",
+      "sections_read": "Substantive idempotency paragraphs: saved v1 responses, key generation and retention, parameter mismatch, execution-start conditions and request-method scope.",
+      "reading_status": "Actual prior primary-source reading reused; not newly fetched",
+      "current_assessment": "Supports final.md:34. The report preserves both the execution-start condition and the fact that pruning is allowed after at least 24 hours."
+    },
+    {
+      "source_id": "S02",
+      "title": "Stripe: Advanced error handling",
+      "url": "https://docs.stripe.com/error-low-level",
+      "sections_read": "API-v1 scope statement; Content errors; Network errors; Server errors; Idempotency, including POST requests and Sending idempotency keys.",
+      "reading_status": "Actual prior primary-source reading reused; not newly fetched",
+      "current_assessment": "Supports final.md:38-40: communication failure leaves the outcome uncertain, a 500 can have side effects, and reconciliation plus a persisted operation key matters."
+    },
+    {
+      "source_id": "S03",
+      "title": "Stripe: API v2 overview",
+      "url": "https://docs.stripe.com/api-v2-overview#idempotency",
+      "sections_read": "Namespace overview and key-differences table; Idempotency; Idempotency differences between API v1 and API v2.",
+      "reading_status": "Actual prior primary-source reading reused; not newly fetched",
+      "current_assessment": "Supports final.md:36: same key/API/account-or-sandbox conditions, 30-day replay window, preserved successful work and attempted recovery of failed work. The report's 'can' avoids promising recovery in every case."
+    },
+    {
+      "source_id": "S04",
+      "title": "Playwright: Auto-waiting",
+      "url": "https://playwright.dev/docs/actionability",
+      "sections_read": "Introduction, locator.click checks and actionability table; Forcing actions; Assertions; definitions of visibility, stability, enabled state and event reception.",
+      "reading_status": "Actual prior primary-source reading reused; not newly fetched",
+      "current_assessment": "Supports final.md:50. The listed normal-click checks and waiting assertions are correctly described; inferring that they do not prove downstream business completion is warranted."
+    },
+    {
+      "source_id": "S05",
+      "title": "Playwright: Locators",
+      "url": "https://playwright.dev/docs/locators",
+      "sections_read": "Introduction and Quick Guide; Locating elements, including current-element resolution; CSS/XPath fragility discussion and its locator recommendation.",
+      "reading_status": "Actual prior primary-source reading reused; not newly fetched",
+      "current_assessment": "Supports final.md:44 and 48. The article presents locator stability as conditional rather than a guarantee for third-party software."
+    },
+    {
+      "source_id": "S06",
+      "title": "Playwright: Authentication",
+      "url": "https://playwright.dev/docs/auth",
+      "sections_read": "Introduction; Core concepts and saved-state warning; Basic shared-account conditions, including conflicting server-side changes.",
+      "reading_status": "Actual prior primary-source reading reused; not newly fetched",
+      "current_assessment": "Supports final.md:58's saved-state warning. The separation between browser isolation and application permissions is a sound inference; it is not represented as a security certification."
+    },
+    {
+      "source_id": "S07",
+      "title": "GitHub: Best practices for using the REST API",
+      "url": "https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api",
+      "sections_read": "Avoid polling; Make authenticated requests; Avoid concurrent requests; Pause between mutative requests; Handle rate limit errors appropriately; Use conditional requests; Do not ignore errors.",
+      "reading_status": "Actual prior primary-source reading reused; not newly fetched",
+      "current_assessment": "Supports final.md:80's narrow example of webhook, pacing and error-handling responsibilities. No throughput or comparative-cost number is inferred."
+    },
+    {
+      "source_id": "S08",
+      "title": "GitHub: Choosing permissions for a GitHub App",
+      "url": "https://docs.github.com/en/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app",
+      "sections_read": "About GitHub App permissions, including user-token versus installation-token scope; Choosing permissions for webhook access; Choosing permissions for REST API access.",
+      "reading_status": "Actual prior primary-source reading reused; not newly fetched",
+      "current_assessment": "Supports final.md:24's minimum-permission and endpoint-specific requirements. The report appropriately limits the example to GitHub."
+    },
+    {
+      "source_id": "S09",
+      "title": "OWASP: LLM Prompt Injection Prevention Cheat Sheet",
+      "url": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html",
+      "sections_read": "Remote/Indirect Prompt Injection; Agent-Specific Attacks; Structured Prompts with Clear Separation; Human-in-the-Loop Controls; Agent-Specific Defenses; Least Privilege.",
+      "reading_status": "Actual prior primary-source reading reused; not newly fetched",
+      "current_assessment": "Supports final.md:60-62: issue text and fetched documents are untrusted inputs, and permissions/parameters need enforcement at action boundaries. The API-versus-rendered-text example is a justified interpretation, not an incident-rate claim."
+    },
+    {
+      "source_id": "S10",
+      "title": "Anthropic: Computer use tool",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+      "sections_read": "Overview; Security considerations; How computer use works and batch execution/results; computing-environment responsibility paragraphs; Understand the agent loop; Manage screenshot history; Limitations; Pricing.",
+      "reading_status": "Actual prior primary-source reading reused; not newly fetched",
+      "current_assessment": "Supports final.md:46 and 78's host-executed loop and repeated-observation cost mechanism. The report makes no model-version, benchmark or price claim."
+    },
+    {
+      "source_id": "S11",
+      "title": "RFC 9110: HTTP Semantics",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html#name-202-accepted",
+      "sections_read": "Section 15.3.3, 202 Accepted, and adjacent 200/201/204 definitions for context.",
+      "reading_status": "Actual prior primary-source reading reused; not newly fetched",
+      "current_assessment": "Supports final.md:28. Acceptance can precede completed processing and does not promise eventual execution; the cited section discusses status-monitor information."
+    }
+  ],
+  "preserved_original_reviews": [
+    {
+      "path": "reviews/01-draft-review.md",
+      "raw_sha256": "623db3aa8b996d95b8177fec273117454bb487fc5cba52a7c7e8713fa56da75f",
+      "original_verdict": "needs_revision"
+    },
+    {
+      "path": "reviews/01-draft-review.json",
+      "raw_sha256": "cbdeb380f0b277ff9ea635f6a4635a08304aaf0552fa1c7e6feb3c4b1137e588",
+      "original_verdict": "needs_revision"
+    }
+  ],
+  "limits": [
+    "Pass applies to the specified current article and assigned content dimensions. It does not certify the English README/website changes, archive retention, unchanged Chinese showcase or the task's delivery checker.",
+    "The source checks cover the named sections of live documentation actually read during the first review on 2026-10-10. They are not full-page or linked-paper audits, archival captures, or newly refreshed checks in this current-version pass.",
+    "No deployment, API transaction, browser automation run, performance experiment or controlled Toolkit efficacy study was performed.",
+    "This reviewer is separate from the author context, but statistical independence of model errors and exact model/provider identity are not asserted.",
+    "The earlier negative review is preserved. No author artifact was edited; only reviews/02-final-review.md and reviews/02-final-review.json are written."
+  ]
+}

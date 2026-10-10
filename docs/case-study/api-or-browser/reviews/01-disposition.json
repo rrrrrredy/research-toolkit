@@ -1,0 +1,10 @@
+{
+  "record_type": "finding_disposition",
+  "attempt_id": "native-english-draft-01",
+  "finding_id": "NE-D1-F01",
+  "decision": "resolved",
+  "reason": "Accepted. Coverage is necessary but does not by itself settle the economics of replacing an existing route. The original absolute statement omitted migration and revalidation costs.",
+  "evidence": "drafts/01-initial.md:74 versus final.md:74; section 6 retains the common-workload integration, maintenance and recovery cost framework. The changed current version will receive a complete review.",
+  "before": "There is no benefit in preserving this split if the API later covers document generation with adequate permissions and result checking.",
+  "after": "If the API later covers document generation with adequate permissions and result checking, the original coverage gap disappears. Retiring the browser step then depends on whether the expected maintenance and recovery savings justify migration and revalidation costs."
+}

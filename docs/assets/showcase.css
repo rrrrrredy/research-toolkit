@@ -89,6 +89,9 @@ mark{background:var(--mark);color:inherit;padding:1px 2px;box-decoration-break:c
 .js-only{display:none}
 .js .js-only{display:block}
 .js .case-choices{display:block}
+.case-layout[data-topic-count="1"]{grid-template-columns:1fr}
+.case-layout[data-topic-count="1"] .case-choices,
+.js .case-layout[data-topic-count="1"] .case-choices.js-only{display:none}
 .no-script-links{font-size:14px;padding-top:15px;padding-bottom:15px}
 .use-grid{display:grid;grid-template-columns:300px minmax(0,1fr);gap:76px}
 .use-copy h2{margin-bottom:20px}

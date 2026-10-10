@@ -7,11 +7,11 @@
     savedLanguage = localStorage.getItem("research-toolkit.language");
   } catch (_) {}
   var isHome = !!document.getElementById("showcase-data") || /\/(?:index\.html)?$/.test(location.pathname);
-  var lang = params.get("lang") === "zh" ? "zh" : params.get("lang") === "en" ? "en" :
-    (isHome && ["en", "zh"].includes(savedLanguage) ? savedLanguage : document.documentElement.lang.indexOf("zh") === 0 ? "zh" : "en");
+  var lang = document.documentElement.dataset.readingLanguage || (params.get("lang") === "zh" ? "zh" : params.get("lang") === "en" ? "en" :
+    (isHome && ["en", "zh"].includes(savedLanguage) ? savedLanguage : document.documentElement.lang.indexOf("zh") === 0 ? "zh" : "en"));
   var theme = ["light", "dark"].includes(params.get("theme")) ? params.get("theme") :
     ["light", "dark"].includes(savedTheme) ? savedTheme : matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  var topic = ["writing", "process", "versions", "analysis"].includes(params.get("case")) ? params.get("case") : "writing";
+  var topic = /^[a-z][a-z0-9-]{0,47}$/.test(params.get("case") || "") ? params.get("case") : "writing";
   var detail = ["diff", "reason", "review"].includes(params.get("detail")) ? params.get("detail") : "diff";
   var words = {
     en: {home:"Research Toolkit", archive:"Case archive", sources:"Source records (Chinese)", claims:"Claim records (Chinese)", scroll:"Scroll horizontally to read the table.", toc:"Contents", top:"Back to top", csv:"Download CSV", openSource:"Original source", notes:"Original Chinese notes", date:"Publication date", publisher:"Publisher", supports:"Use in the report", limits:"Limits", record:"Record details", contrary:"Counter-evidence", uncertainty:"Uncertainty", kind:"Claim type", grade:"Recorded evidence level"},
