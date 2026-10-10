@@ -6,12 +6,27 @@
 
 ## Use the research methods
 
-- **Repository link:** send the [research request](../README.md#usage) to an agent that can read GitHub.
+- **Repository link:** send the [research request](https://github.com/rrrrrredy/research-toolkit/blob/main/README.md#usage) to an agent that can read GitHub.
 - **Files or attachments:** download the repository, provide `SKILL.md`, and make the required reference files available.
-- **Text-only input:** paste the complete entry instructions and relevant method sections. See [chat-only use](../agents/README.md#chat-only-use).
-- **Native Skill:** install the complete toolkit through the host's supported mechanism. See [agent setup](../agents/README.md).
+- **Text-only input:** paste the complete entry instructions and relevant method sections. See [chat-only use](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md#chat-only-use).
+- **Native Skill:** install the complete toolkit through the host's supported mechanism. See [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md).
 
 No Python or vendor CLI installation is required merely to read and apply the methods. Retrieval and file access come from the author agent. A separate reviewer is needed for independent review; supplying the instructions does not run one automatically.
+
+## When to use each tool
+
+**The first [Lite task](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.md) works without MCP.** An instructions-only session can keep the brief, sources, claims and checklist in files or separate chat sections. None of the six tool calls is required in that mode; it produces no local completion receipt.
+
+The table applies when you choose the managed local workflow, through MCP **or the [shared CLI](#skill-only-and-cli-fallback)**. Required methods still apply when you read them directly.
+
+| Tool | When it is needed | When you can skip the call |
+| --- | --- | --- |
+| `research_start` | Create a new managed task and its brief; explicitly select `profile=lite` for the first exercise. | Resume an existing task with `research_status`, or keep records yourself without local workflow tools. |
+| `research_status` | Resume a managed task, inspect saved progress, or change its recorded stage. | You do not need to read or update progress; a methods-only session can use its own notes. |
+| `research_guide` | Retrieve the method for a stage when it is not already available in context. | Read the relevant `SKILL.md` and `references/` files directly. |
+| `research_review` | Complete the declared reviews in a Full task, including explicit self-review when that is the chosen tier. | Lite skips review; never skip a review explicitly required by the assignment. |
+| `research_finish` | Complete a managed task: Lite records the six-item checklist; Full checks the reviewed report and delivery requirements. | Without local workflow tools, complete the checklist yourself and return the records without claiming a local receipt. |
+| `research_check_reviewer` | Diagnose external backend setup or a configuration failure before attempting review. | Lite and self-review need no external backend; a separate call is unnecessary when `research_start` has already confirmed the unchanged configuration. |
 
 ## Optional workflow tools
 
@@ -23,11 +38,11 @@ Use local MCP when the host can start a local process, or the bundled plugin whe
 | Plugin | Skill, references, and the local MCP server in one package | Support for the package format and local stdio MCP |
 | MCP | Six callable tools for task setup, progress, guidance, reviews, and delivery checks | A client that can start and call a local stdio MCP server |
 
-The local tools need Python 3.10+ and the MCP dependency. Without a backend, new Full tasks use explicitly degraded self-review. External/independent review accepts any supported command or endpoint; no vendor account is mandatory.
+The shared CLI needs Python 3.10+ and only its standard library; MCP also needs the dependency in `requirements-mcp.txt`. Without a backend, new Full tasks use explicitly degraded self-review. External/independent review accepts any supported command or endpoint; no vendor account is mandatory.
 
 ## Install the plugin
 
-The [plugin directory](../plugins/research-toolkit/) bundles the Skill, methods and local MCP server. Use your host's supported plugin installation mechanism; [agent setup](../agents/README.md) has host-specific instructions. Install `requirements-mcp.txt` in the Python environment that starts MCP, then confirm the six `research_*` tools are available.
+The [plugin directory](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/) bundles the Skill, methods and local MCP server. Use your host's supported plugin installation mechanism; [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md) has host-specific instructions. Install `requirements-mcp.txt` in the Python environment that starts MCP, then confirm the six `research_*` tools are available.
 
 Describe the topic, reader and expected result; the agent assembles the brief and asks only about critical missing choices. The package follows the [portable plugin specification](https://developers.openai.com/plugins/build/plugins); it is not a hosted service and does not imply every client supports that format.
 
@@ -71,7 +86,7 @@ The server also exposes the `research` prompt and `research-toolkit://instructio
 | `research_status` | Returns saved progress and current methods; changing to analysis/drafting requires prerequisite source/claim records |
 | `research_guide` | Loads the applicable methods without starting a task; supports English and Chinese |
 | `research_review` | Binds full inputs, runs content reviews and retains replies/failures; executes additional auditing only when configured |
-| `research_finish` | Checks the reviewed artifact, current evidence, unresolved requirements and delivery text; writes completion state and a receipt only when checks pass |
+| `research_finish` | Records the final checklist for Lite; Full checks the reviewed artifact, evidence, unresolved requirements and delivery text before writing completion state and a receipt |
 | `research_check_reviewer` | Checks local backend configuration and dependencies without model calls |
 
 The author agent still searches, reads, analyzes and writes, using its existing tools. It must save required source texts and source/claim records in the task directory. Stage guidance reduces repeated context loading; it does not establish that a model has obeyed every instruction.
@@ -143,7 +158,7 @@ Additional audits apply only when declared; recovery completes only missing work
 
 ## Skill only and CLI fallback
 
-For Skill-only use, follow the [installation guide](../agents/README.md). The agent carries out the methods with its own capabilities; installing instructions alone does not start MCP or automatically run reviews.
+For Skill-only use, follow the [installation guide](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md). The agent carries out the methods with its own capabilities; installing instructions alone does not start MCP or automatically run reviews.
 
 The plugin also includes a dependency-free workflow CLI. It uses the same implementation; only starting MCP requires the SDK:
 
@@ -158,6 +173,6 @@ A brief request is `{"task":"comparison","language":"en","brief":{"question":"..
 
 The repository checks the shared workflow, package/source consistency and a real MCP stdio connection with **synthetic** reviewer subprocesses. Those tests do not call paid models or establish report quality. The implementation launches real configured model executors in normal use; a successful installation or test is not evidence that a particular research report has been reviewed.
 
-A separate [guided real-model check of plugin `0.1.2`](evaluation-status.md#current-implementation) completed review and audit recovery on one fictional task while preserving a negative result and correctly blocking delivery. It required configuration and audit-contract corrections; it does not establish unattended reliability.
+A separate [guided real-model check of plugin `0.1.2`](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-status.md#current-implementation) completed review and audit recovery on one fictional task while preserving a negative result and correctly blocking delivery. It required configuration and audit-contract corrections; it does not establish unattended reliability.
 
 The tools enforce their own completion conditions. They cannot prevent an agent from ignoring tools or editing files outside them, and they cannot mechanically certify factual truth. Acceptance follows the selected profile and reviewer tier; independent review is required only when declared.

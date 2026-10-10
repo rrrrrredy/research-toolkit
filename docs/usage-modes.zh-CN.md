@@ -6,12 +6,27 @@
 
 ## 使用研究方法
 
-- **仓库链接：**将[研究请求](../README.zh-CN.md#使用)交给能读取 GitHub 的 Agent。
+- **仓库链接：**将[研究请求](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md#使用)交给能读取 GitHub 的 Agent。
 - **文件或附件：**下载仓库，提供 `SKILL.md`，并按任务需要提供参考文件。
-- **粘贴文本：**粘贴完整入口指令与所需方法章节。见[纯聊天使用边界](../agents/README.zh-CN.md#只能在聊天中使用时)。
-- **原生 Skill：**通过宿主支持的技能机制安装完整工具箱。见[Agent 接入](../agents/README.zh-CN.md)。
+- **粘贴文本：**粘贴完整入口指令与所需方法章节。见[纯聊天使用边界](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md#只能在聊天中使用时)。
+- **原生 Skill：**通过宿主支持的技能机制安装完整工具箱。见[Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。
 
 读取和使用研究方法，无须安装 Python 或特定厂商 CLI。检索与文件访问由撰写 Agent 提供；独立审阅需要另一个评审者，仅提供指令不会自动执行审阅。
+
+## 六个工具何时用、何时可忽略
+
+**第一个 [Lite 任务](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.zh-CN.md)无需 MCP。** 只使用方法指令时，可以用文件或独立聊天段落保存需求、来源、判断和 checklist，六个工具都不必调用；这种方式不会生成本地完成凭证。
+
+下表适用于选择了本地任务管理的情况，MCP 与[共享 CLI](#只用-skill或使用-cli)均可使用。直接读取方法时，研究要求仍然适用。
+
+| 工具 | 何时需要 | 何时可跳过调用 |
+| --- | --- | --- |
+| `research_start` | 创建新的本地任务和需求记录；首次练习明确选择 `profile=lite`。 | 已有任务用 `research_status` 恢复，或不使用本地执行工具、自行维护记录。 |
+| `research_status` | 恢复本地任务、查看已保存进度或更新记录中的阶段。 | 无需查看或更新进度时；只使用方法的会话可用自己的笔记。 |
+| `research_guide` | 当前上下文尚未包含所需阶段的方法，需要读取时。 | 已直接阅读相应 `SKILL.md` 和 `references/` 文件。 |
+| `research_review` | Full 任务须完成约定评审；选择 self 档时也要显式执行自评。 | Lite 跳过评审；任务明确要求的评审不可省略。 |
+| `research_finish` | 完成本地任务：Lite 保存六项 checklist；Full 核对已评审报告与交付要求。 | 不使用本地执行工具时，自行完成 checklist 并交付记录，不声称已生成本地凭证。 |
+| `research_check_reviewer` | 外部后端配置或连接前置条件有问题，需要在评审前排查时。 | Lite 和 self 无需外部后端；`research_start` 已确认且配置未变时，无需重复调用。 |
 
 ## 可选执行工具
 
@@ -23,11 +38,11 @@
 | 插件 | Skill、参考文件和本地 MCP 服务，一次安装 | 支持该软件包格式与本地 stdio MCP |
 | MCP | 初始化、保存进度、加载方法、审阅和检查交付的六个工具 | 能启动并调用本地 stdio MCP 服务 |
 
-本地工具需要 Python 3.10+ 和 MCP 依赖。未配置后端时，新建 Full 任务自动进入标明强度降级的 self 评审；外部／独立评审可使用任一受支持命令或端点，无强制厂商账户。
+共享 CLI 需要 Python 3.10+，只使用标准库；MCP 还需安装 `requirements-mcp.txt` 中的依赖。未配置后端时，新建 Full 任务自动进入标明强度降级的 self 评审；外部／独立评审可使用任一受支持命令或端点，无强制厂商账户。
 
 ## 安装插件
 
-[插件目录](../plugins/research-toolkit/)包含完整 Skill、方法与本地 MCP 服务；使用宿主支持的插件安装机制，具体步骤见 [Agent 接入](../agents/README.zh-CN.md)。插件通过 Python 启动 MCP，安装 `requirements-mcp.txt` 中的依赖后，确认六个 `research_*` 工具可用。
+[插件目录](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/)包含完整 Skill、方法与本地 MCP 服务；使用宿主支持的插件安装机制，具体步骤见 [Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。插件通过 Python 启动 MCP，安装 `requirements-mcp.txt` 中的依赖后，确认六个 `research_*` 工具可用。
 
 直接提出题目、读者与预期成果；Agent 整理需求，只追问关键缺项。插件采用[通用插件规范](https://developers.openai.com/plugins/build/plugins)，不提供托管服务，也不表示任意客户端均支持该格式。
 
@@ -71,7 +86,7 @@ Windows 路径可写成 `D:/tools/python/python.exe` 这样的正斜杠形式。
 | `research_status` | 返回进度和阶段规范；推进到分析、写作前检查来源与主张记录 |
 | `research_guide` | 不创建任务，直接读取某阶段的方法，支持中英文 |
 | `research_review` | 绑定完整输入并启动内容评审，保留回复与失败；只执行配置中声明的额外审计 |
-| `research_finish` | 核对已评审正文、当前证据、未完成要求和交付文字；通过后才写入完成状态与回执 |
+| `research_finish` | Lite 保存最终 checklist；Full 核对已评审正文、证据、未完成要求和交付文字，通过后才写入完成状态与回执 |
 | `research_check_reviewer` | 本地检查后端配置与依赖，不调用模型 |
 
 检索、阅读、分析、写作仍由撰写 Agent 使用其已有工具完成。Agent 需要把必要的来源全文、来源表和主张表写入任务目录。按阶段加载规范可以减少反复读取，但不证明模型已遵守每条要求。
@@ -145,7 +160,7 @@ Full 的 `research_review` 可显式选择 `reviewer: "self" | "external" | "ind
 
 ## 只用 Skill，或使用 CLI
 
-只用 Skill 时，查看[安装指南](../agents/README.zh-CN.md)。Agent 用自己的能力执行研究规范；单独安装指令文件不会启动 MCP 或自动完成评审。
+只用 Skill 时，查看[安装指南](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。Agent 用自己的能力执行研究规范；单独安装指令文件不会启动 MCP 或自动完成评审。
 
 插件另带不依赖 MCP SDK 的命令行入口，调用同一套逻辑：
 
@@ -160,6 +175,6 @@ python scripts/research_workflow.py review --workspace /path/to/tasks --request 
 
 仓库检查共用流程、插件与源码一致性，以及通过真实 stdio 连接、使用**合成评审子进程**的 MCP 调用链。这些检查不调用付费模型，也不证明报告质量。正常使用时会启动真实配置的模型执行器；安装或测试通过，不代表某份研究已经完成模型评审。
 
-另有一次[插件 `0.1.2` 的真实模型引导验证](evaluation-status.zh-CN.md#当前实现)：在一份虚构任务上完成评审与审查恢复，保留负面结果，并正确拦截交付。该次验证需要修正配置和审查输出契约，不证明无人干预运行可靠。
+另有一次[插件 `0.1.2` 的真实模型引导验证](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-status.zh-CN.md#当前实现)：在一份虚构任务上完成评审与审查恢复，保留负面结果，并正确拦截交付。该次验证需要修正配置和审查输出契约，不证明无人干预运行可靠。
 
 工具能约束自身的完成条件，不能阻止 Agent 绕过工具或在外部修改文件，也不能用机械检查证明事实正确。内容审查与原始证据仍是验收的一部分。

@@ -1,6 +1,6 @@
-# Codex CLI / IDE：第一个 Lite 任务
+# Kimi Code CLI：第一个 Lite 任务
 
-[English](codex.md) | [简体中文](codex.zh-CN.md)
+[English](kimi-code.md) | [简体中文](kimi-code.zh-CN.md)
 
 ## 安装
 
@@ -10,7 +10,7 @@ Git 和客户端已就绪时，从项目根目录执行。目标目录已存在�
 git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .agents/skills/research-toolkit
 ```
 
-输入 `/skills` 或 `$`，选择 `research-toolkit`，确认路径以 `.agents/skills/research-toolkit/SKILL.md` 结尾。[官方技能要求](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)。
+从项目的 Git 根目录开启 Kimi Code 新会话，调用 `/skill:research-toolkit`。[官方技能要求](https://www.kimi.com/code/docs/en/kimi-code-cli/customization/skills.html)。
 
 `core.longpaths` 只对这个 Git 副本生效，避免 Windows 深层目录的路径过长错误。
 

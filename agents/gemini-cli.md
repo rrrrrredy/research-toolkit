@@ -1,33 +1,42 @@
-# Gemini CLI Adapter
+# Gemini CLI: first Lite task
 
 [English](gemini-cli.md) | [简体中文](gemini-cli.zh-CN.md)
 
-Use this when Gemini CLI has access to a local working directory.
+## Install
 
-## Setup
-
-Clone or copy the framework into the workspace:
+With Git and the client ready, run from your project root. If the destination already exists, use the [update guide](../docs/installation-versioning.md).
 
 ```bash
-git clone https://github.com/rrrrrredy/research-toolkit.git .agent/research-toolkit
+git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .gemini/skills/research-toolkit
 ```
 
-Prompt Gemini CLI:
+Start Gemini CLI in this project and ask it to activate `research-toolkit`. Review the host’s activation consent when prompted. [Official skill requirements](https://geminicli.com/docs/cli/using-agent-skills/).
+
+`core.longpaths` applies to this Git checkout and prevents long-path checkout failures on Windows.
+
+## Try it
+
+Send this request after selecting the skill:
 
 ```text
-Read .agent/research-toolkit/SKILL.md and use it as the research protocol.
-Use files under references/ only when the current stage needs them.
-Create state/, logs/, data/, drafts/, and final/ in the task folder.
-Do not treat source count as completion.
+Use research-toolkit with profile=lite.
+Read .gemini/skills/research-toolkit/SKILL.md.
+Within that same toolkit, read examples/lite/start.en.json and
+examples/lite/sources.md.
+Complete that fictional helpdesk comparison. Return the short report,
+separate sources/claims records and all six Lite checklist items.
+Keep outputs outside the installed toolkit. Disclose the fictional
+evidence and absence of independent review.
 ```
 
-## Operating Notes
+Expect a 350–500 word report plus records and checklist in about 5–15 minutes with your agent ready. MCP and a reviewer backend are optional. [Full walkthrough](../docs/quickstart-lite.md).
 
-- Keep generated research state in the task folder, not inside the framework repository.
-- Use the CLI's file operations to update registries after source intake and claim extraction.
-- Ask for an explicit `next_action` in `state/progress.json` after each stage.
-- Run the research completion checklist before final delivery.
+## If it does not load
 
-## 中文提示
+Run this from the same project directory:
 
-在 Gemini CLI 中，可以把框架放到 `.agent/research-toolkit`。研究任务自己的 `state/`、`logs/`、`data/` 应放在任务目录，不要写回框架仓库。
+```bash
+gemini skills list
+```
+
+The list should include `research-toolkit`. If absent, use `/skills reload` in the project session and check that the skill is enabled. You can also ask the agent to read the installed `SKILL.md` by its exact path. [All input methods and limits](README.md).

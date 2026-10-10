@@ -10,7 +10,29 @@
 
 [**评测结果 →**](#evaluation-results) · 2 组开发阶段的公开对照，尚不能证明普遍质量优势。
 
-[**在你的 Agent 中使用**](#使用) · [研究案例](#研究案例) · [Lite 入门](./docs/quickstart-lite.zh-CN.md) · [文档](#文档)
+[**快速开始**](#快速开始) · [在你的 Agent 中使用](#使用) · [研究案例](#研究案例) · [Lite 入门](./docs/quickstart-lite.zh-CN.md) · [文档](#文档)
+
+## 快速开始
+
+**首次使用建议选择 `lite`。** Agent 已就绪时，预计约 **5–15 分钟**。复制下面的请求即可，题目和两份虚构来源已经备好：
+
+```text
+使用 https://github.com/rrrrrredy/research-toolkit，先读 SKILL.md。
+选择 profile=lite。完整需求见 examples/lite/start.zh.json，
+来源说明见 examples/lite/sources.zh-CN.md。
+为需求中的六人团队推荐客服工具，写一篇600–900字中文简报。
+只用随附材料，登记来源与判断，分节起草。
+跳过 research_review 和 Full 交付硬门槛；
+逐项完成 Lite 的六项 checklist，并给出具体依据。
+分别交付简报、来源与判断记录、checklist。
+披露材料虚构且未进行独立评审。
+```
+
+你会得到 **短报告 + sources/claims 记录 + 最终 checklist**。用时是估计值，不是模型响应时长保证。无需配置插件或 MCP；Agent 无法打开 GitHub 时，提供[下载后的文件或文本](./agents/README.zh-CN.md#直接读取使用)。
+
+[完整 Lite 入门](./docs/quickstart-lite.zh-CN.md) · [选择你的 Agent](./agents/README.zh-CN.md#选择工具) · [示例文件](./examples/lite/README.zh-CN.md)
+
+遇到问题？[提交失败案例](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)，提供报告片段及来源材料，就能参与贡献。[其他适合首次参与的小任务](./CONTRIBUTING.zh-CN.md#适合首次贡献的小任务)。
 
 ## 研究案例
 
@@ -108,7 +130,7 @@
 
 ## 使用
 
-[**5 分钟 Lite 入门**](./docs/quickstart-lite.zh-CN.md)：复制一个完整请求，用两份随附材料产出简报和最终 checklist，无需配置评审后端。
+[**5–15 分钟 Lite 入门**](./docs/quickstart-lite.zh-CN.md)：复制一个完整请求，用两份随附材料产出简报和最终 checklist，无需配置评审后端。
 
 通用入口是 [SKILL.md 中的研究指令](./SKILL.md)，也可阅读[中文版本](./SKILL.zh-CN.md)。Agent 读取入口后，按研究阶段加载它链接的具体方法。原生 Skill 安装是可选方式。
 

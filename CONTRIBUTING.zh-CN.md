@@ -7,6 +7,21 @@
 
 双语同步工作流会在 README、SKILL、CHANGELOG 或 CONTRIBUTING 配对仅有一方变更时留下不阻断合并的 PR 提醒；在 PR 描述中加入 `[i18n-skip]` 可跳过检查并移除已有提醒。
 
+## 从失败案例开始贡献
+
+无需改代码，也可以[**提交失败案例**](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)。说明研究问题、期望与实际结果，附报告原文片段、可用来源以及 profile／评审档位；公开前去掉隐私和可识别信息。有原始材料、可复现的案例，经评审后可成为回归用例，详见[案例贡献流程](evals/README.zh-CN.md)。
+
+## 适合首次贡献的小任务
+
+以下是 `good first issue` 建议，不表示已经创建了对应 Issue。可选择一个具体问题提交 PR，也可通过失败案例 Issue 讨论范围。
+
+| 方向 | 一次小贡献可以完成什么 |
+| --- | --- |
+| 改清楚一段说明 | 同步改善 README、`agents/` 或 usage 指南的中英文案，并核对关联示例。 |
+| 完善 Agent 接入卡 | 复现一个加载问题，引用宿主官方要求，在双语指南中补一条针对性的排查步骤。 |
+| 补充回归夹具 | 把已接纳的失败案例做成小型新夹具，配一个有效对照；保留现有标签与冻结研究输入。 |
+| 改进已有 adapter 的接入 | 修正现有 adapter 的安装示例或配置诊断，附可复现命令与双语说明。 |
+
 ## 规范与范围
 
 `SKILL.md` 是同一套研究规范的 Agent 入口；关键约束与 `references/research-standard.md`、配套方法中的详细规则保持一致，中英文一同维护。网页嵌入的主文件由 `check_docs_sync.py` 校验精确同步。README、接入说明、插件与示例不能另立冲突规则。机械符合、语义质量、加载检查和整体效果分别陈述。

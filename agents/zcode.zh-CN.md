@@ -1,16 +1,16 @@
-# Codex CLI / IDE：第一个 Lite 任务
+# ZCode：第一个 Lite 任务
 
-[English](codex.md) | [简体中文](codex.zh-CN.md)
+[English](zcode.md) | [简体中文](zcode.zh-CN.md)
 
 ## 安装
 
-Git 和客户端已就绪时，从项目根目录执行。目标目录已存在时，使用[更新指南](../docs/installation-versioning.zh-CN.md)。
+Git 和客户端已就绪时，在终端执行。目标目录已存在时，使用[更新指南](../docs/installation-versioning.zh-CN.md)。
 
 ```bash
-git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .agents/skills/research-toolkit
+git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git "$HOME/.zcode/skills/research-toolkit"
 ```
 
-输入 `/skills` 或 `$`，选择 `research-toolkit`，确认路径以 `.agents/skills/research-toolkit/SKILL.md` 结尾。[官方技能要求](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)。
+在“设置 → 技能”中刷新并启用 `research-toolkit`，随后在聊天中选择 `$research-toolkit`。这是用户级安装，可供本地多个项目使用。[官方技能要求](https://zcode.z.ai/en/docs/skill)。
 
 `core.longpaths` 只对这个 Git 副本生效，避免 Windows 深层目录的路径过长错误。
 
@@ -20,7 +20,7 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 
 ```text
 使用 research-toolkit，选择 profile=lite。
-读取 .agents/skills/research-toolkit/SKILL.md。
+读取 $HOME/.zcode/skills/research-toolkit/SKILL.md。
 读取同一工具箱里的 examples/lite/start.zh.json 和
 examples/lite/sources.zh-CN.md，完成这个虚构客服工具比较。
 分别交付短报告、sources/claims 记录和完整的六项 Lite checklist。
@@ -34,7 +34,7 @@ Agent 已就绪时，预计约 5–15 分钟产出 600–900 字简报、记录�
 在同一项目目录执行：
 
 ```bash
-git -C .agents/skills/research-toolkit status --short
+git -C "$HOME/.zcode/skills/research-toolkit" status --short
 ```
 
 无输出表示副本干净；路径错误通常表示执行目录不对或克隆失败。有变更时可能存在缺失或修改过的文件，更新前保留自己的改动。文件存在但技能未出现时，重新打开项目或会话，检查宿主的技能设置。也可给出已安装 `SKILL.md` 的准确路径，要求 Agent 直接读取。[其他输入方式与边界](README.zh-CN.md)。

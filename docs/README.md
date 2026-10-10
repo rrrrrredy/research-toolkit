@@ -4,7 +4,7 @@
 
 ## Use Research Toolkit
 
-- [Five-minute Lite quickstart](quickstart-lite.md): one complete request, two supplied sources and a final checklist.
+- [5–15 minute Lite quickstart](quickstart-lite.md): one complete request, two supplied sources and a final checklist.
 - [Usage and integration](usage-modes.md): repository, file, and text inputs; optional Skill, plugin, and MCP; review configuration.
 - [Use with your agent](../agents/README.md): common input methods, chat-only limits, and host-specific setup.
 - [Updating an installation](installation-versioning.md): choose and replace the intended package copy.
