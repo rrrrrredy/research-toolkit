@@ -8,6 +8,13 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 Research Toolkit naming, clearer usage instructions, and development-only semantic diagnostics. These changes do not establish general efficacy. The v0.1.4 prerelease was withdrawn; v0.1.3 remains the latest available prerelease.
 
+### Getting started
+
+- Put a copyable Lite task near the top of both READMEs: supplied sources, a short report, source/claim records and a checklist, with a 5–15 minute walkthrough estimate.
+- Add shorter client setup cards and official documentation links, including OpenCode and desktop work agents; distinguish native installation from file/text input and document unavailable integration details.
+- Explain when each of the six workflow tools is useful or skippable, including an instructions-only path without MCP.
+- Add an index for the existing fictional example and make failure-case submissions and four small first-contribution ideas easier to find.
+
 ### Profiles, review backends and contributions
 
 - Add a bilingual Lite quickstart with two explicitly fictional source notes; expose it in README and Pages without requiring a reviewer backend.

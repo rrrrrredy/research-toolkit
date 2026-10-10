@@ -1,8 +1,8 @@
-# 约 5 分钟完成第一个 Lite 任务
+# 约 5–15 分钟完成第一个 Lite 任务
 
 [English](quickstart-lite.md) · [简体中文](quickstart-lite.zh-CN.md) · [Research Toolkit](../README.zh-CN.md)
 
-用两份随附材料完成一篇短比较。只需一个能读取仓库的 Agent，无需评审账号、API key、插件或 MCP 配置。“5 分钟”是 Agent 已就绪时的入门用时估计，不是模型响应时长保证。
+用两份随附材料完成一篇短比较。只需一个能读取仓库的 Agent，无需评审账号、API key、插件或 MCP 配置。Agent 已就绪时预计约 5–15 分钟；这是入门用时估计，不是模型响应时长保证。[示例包](../examples/lite/README.zh-CN.md)包含完整需求和来源说明。
 
 ## 把这段请求发给 Agent
 

@@ -10,7 +10,29 @@ Research methods · Callable workflow tools · Review choices. For industry rese
 
 [**Evaluation results →**](#evaluation-results) · 2 public with/without-toolkit development comparisons; a general quality advantage remains unproven.
 
-[**Use with your agent**](#usage) · [Research case](#research-case) · [Lite quickstart](./docs/quickstart-lite.md) · [Documentation](#documentation)
+[**Quick start**](#quick-start) · [Use with your agent](#usage) · [Research case](#research-case) · [Lite quickstart](./docs/quickstart-lite.md) · [Documentation](#documentation)
+
+## Quick start
+
+**Start with `lite`.** Allow about **5–15 minutes** with your agent ready to use. Copy this request; the topic and two fictional sources are supplied:
+
+```text
+Use https://github.com/rrrrrredy/research-toolkit and read SKILL.md.
+Choose profile=lite. Read examples/lite/start.en.json for the brief
+and examples/lite/sources.md for the source notes.
+Recommend a helpdesk plan for the six-person team in 350–500 English
+words. Use only the supplied evidence, register sources and claims,
+and draft section by section. Skip research_review and Full delivery
+gates; complete all six Lite checklist items with concrete evidence.
+Return the short report, separate source/claim records, and checklist.
+Disclose the fictional evidence and absence of independent review.
+```
+
+You receive a **short report + sources/claims trail + final checklist**. The time is an estimate, not a model response guarantee. No plugin or MCP setup is required; if your agent cannot open GitHub, provide the [downloaded files or text](./agents/README.md#use-without-installation).
+
+[Full Lite walkthrough](./docs/quickstart-lite.md) · [Choose your agent](./agents/README.md#choose-your-tool) · [Example files](./examples/lite/README.md)
+
+Found a problem? [Submit a failure case](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)—a report excerpt and its source material are a useful first contribution. [Other small contributions](./CONTRIBUTING.md#good-first-issue-ideas).
 
 ## Research case
 
@@ -57,7 +79,7 @@ Public-source analysis, 10 October 2026. The workflow is illustrative; no deploy
 
 ## Usage
 
-[**Five-minute Lite quickstart**](./docs/quickstart-lite.md): copy one complete request, use two supplied sources, and produce a short brief with the final checklist. No reviewer setup.
+[**5–15 minute Lite quickstart**](./docs/quickstart-lite.md): copy one complete request, use two supplied sources, and produce a short brief with the final checklist. No reviewer setup.
 
 Start with the shared [research instructions in SKILL.md](./SKILL.md). Your agent reads that entry point and follows its links to the methods needed at each stage. Native Skill installation is optional.
 

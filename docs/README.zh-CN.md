@@ -4,7 +4,7 @@
 
 ## 使用 Research Toolkit
 
-- [5 分钟 Lite 入门](quickstart-lite.zh-CN.md)：完整请求、两份随附来源和最终 checklist。
+- [5–15 分钟 Lite 入门](quickstart-lite.zh-CN.md)：完整请求、两份随附来源和最终 checklist。
 - [使用与接入](usage-modes.zh-CN.md)：仓库、文件与文本输入，可选的 Skill、插件、MCP，以及审阅配置。
 - [在你的 Agent 中使用](../agents/README.zh-CN.md)：通用输入方式、纯聊天边界与各工具的接入。
 - [更新安装](installation-versioning.zh-CN.md)：选择和替换预期的软件包副本。

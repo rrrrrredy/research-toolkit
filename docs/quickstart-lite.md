@@ -1,8 +1,8 @@
-# Your first Lite task in about five minutes
+# Your first Lite task in 5–15 minutes
 
 [English](quickstart-lite.md) · [简体中文](quickstart-lite.zh-CN.md) · [Research Toolkit](../README.md)
 
-Try a short comparison with two supplied sources. You need an agent that can read this repository; no reviewer account, API key, plugin or MCP setup is needed. Five minutes is a walkthrough estimate with an agent ready to use, not a model latency guarantee.
+Try a short comparison with two supplied sources. You need an agent that can read this repository; no reviewer account, API key, plugin or MCP setup is needed. Allow about 5–15 minutes with an agent ready to use; this is a walkthrough estimate, not a model latency guarantee. The [example package](../examples/lite/README.md) contains the complete brief and source notes.
 
 ## Give your agent this request
 

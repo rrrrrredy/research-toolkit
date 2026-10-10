@@ -7,6 +7,21 @@ Contribute changes that improve research methods, make the workflow easier to fo
 
 The i18n sync workflow leaves a non-blocking PR reminder when only one of a README, SKILL, CHANGELOG or CONTRIBUTING language pair changes; include `[i18n-skip]` in the PR description to skip it (and remove an existing reminder).
 
+## Start with a failure case
+
+[**Submit a failure case**](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml) without changing code. Include the research question, expected and observed result, an original report excerpt, available sources, and the profile/reviewer tier. Remove private or identifying material before posting. Reproducible cases with original material can become regressions after review; see the [case contribution process](evals/README.md).
+
+## Good first issue ideas
+
+These are small contribution ideas, not a list of already-open Issues. Pick a concrete problem and send a PR, or discuss the scope in a failure-case Issue.
+
+| Idea | A useful first contribution |
+| --- | --- |
+| Clarify a confusing instruction | Improve the English and Chinese wording together in README, `agents/` or the usage guide; check the linked example. |
+| Improve an agent setup card | Reproduce a loading problem, cite the host's official requirements and add one focused troubleshooting step to both language versions. |
+| Add a regression fixture | Turn an accepted failure case into a small new fixture with a valid control; preserve existing labels and frozen study inputs. |
+| Improve an existing adapter's setup | Fix an installation example or configuration diagnostic for an existing adapter, with a reproducible command and bilingual guidance. |
+
 ## Authority And Scope
 
 - `SKILL.md` is the agent entry point into one shared research standard. Keep its essential constraints consistent with the detailed rules in `references/research-standard.md` and the supporting references; maintain the Chinese versions alongside them.
