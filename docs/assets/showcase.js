@@ -197,7 +197,7 @@
       if (!navigator.clipboard) throw new Error("Clipboard unavailable");
       await navigator.clipboard.writeText(data.prompts[lang]);
       this.textContent = lang === "zh" ? "已复制" : "Copied";
-      document.getElementById("copy-status").textContent = lang === "zh" ? "请求已复制，发送前请替换 [日期]。" : "Request copied. Replace [DATE] before sending.";
+      document.getElementById("copy-status").textContent = lang === "zh" ? "请求已复制，请填入你的研究需求后发送。" : "Request copied. Add your research request before sending.";
     } catch (_) {
       var range = document.createRange(); range.selectNodeContents(document.getElementById("research-prompt"));
       var selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range);
