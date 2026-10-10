@@ -1,0 +1,6 @@
+- Only S1 used; all factual claims tied to it.
+- Recommendation: limited market-discovery, not larger commitment.
+- Avoided invented prices, durations, margins, probabilities.
+- Word count target: within 600–800 range.
+- Source IDs cited as (S1).
+- Decision date August 10, 2026, after source publication August 7, 2026.

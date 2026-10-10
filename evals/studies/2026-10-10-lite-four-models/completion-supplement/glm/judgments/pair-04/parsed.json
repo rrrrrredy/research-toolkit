@@ -1,0 +1,71 @@
+{
+  "preference": "tie",
+  "reason": "Both support limited discovery, distinguish capacity growth from supplier revenue and project returns, and identify useful follow-up evidence. Both exceed the requested 600–800 words and introduce unsupported claims. A overstates how partial pipeline completion could double capacity; B more clearly specifies commercial qualification and downside decision gates, but overgeneralizes solar co-location and incorrectly treats reported plans as an upper bound. These offsetting strengths and defects leave comparable decision support.",
+  "reports": {
+    "A": {
+      "task_fidelity": {
+        "score": 3,
+        "reason": "Addresses the audience, decision date, recommendation, opportunity-versus-caution comparison, and evidence gaps with source IDs. However, it exceeds the requested word range and includes claims not established by the sole supplied source.",
+        "excerpt": "Recommendation: “Authorize a limited market-discovery effort, not a larger commercial commitment.”",
+        "source_evidence": "S1 reports nearly 52 GW installed and 54 GW of operator-planned additions, but supplies no supplier pricing, competitive position, or project-return estimates."
+      },
+      "facts_and_evidence": {
+        "score": 2,
+        "reason": "Core reported capacity figures and project examples are accurate. The partial-completion doubling claim is insufficiently qualified: roughly doubling the current 52 GW requires nearly all 54 GW. The report also labels duration as MWh, which measures energy, and asserts routine delays or cancellations without supplied evidence.",
+        "excerpt": "What the capacity figures imply for demand: “If even a substantial fraction of the announced pipeline is built, the U.S. market would roughly double again by the end of 2028.”",
+        "source_evidence": "S1: “reaching nearly 52 GW” and “an additional 54 GW ... over the next two and half years.” Full realization implies approximately 106 GW; S1 supplies neither completion rates nor delay frequencies."
+      },
+      "explanation_and_synthesis": {
+        "score": 3,
+        "reason": "Clearly explains why physical expansion warrants investigation without establishing company revenue. Its demand interpretation is weakened by the doubling overstatement and by insufficient separation of installed equipment from future procurement opportunities.",
+        "excerpt": "What the figures cannot establish: “GW of storage cannot be converted into supplier revenue without assumptions about equipment content per GW and prices, none of which appear in the source.”",
+        "source_evidence": "S1 provides operational and planned nameplate power capacity, with no equipment-content, price, procurement-timing, or supplier-revenue data."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 3,
+        "reason": "Strongly distinguishes plans from orders and qualitative arbitrage from realized economics. However, its caution invokes an unsupported industry-frequency claim, and its follow-up section does not explicitly state a downside stopping condition.",
+        "excerpt": "What the figures cannot establish: “This is a qualitative statement about operator strategy, not evidence on realized project economics, and it implies nothing about supplier margins.”",
+        "source_evidence": "S1 describes charging at low wholesale prices and discharging at high prices, “allowing power producers to capture larger profits,” but supplies no realized returns, costs, or supplier margins."
+      },
+      "reader_usefulness": {
+        "score": 3,
+        "reason": "Provides a clear authorization boundary and concrete discovery topics. The review point is useful, but generic market sizing and interconnection agreements alone do not demonstrate accessible equipment purchases or profitable supplier entry.",
+        "excerpt": "Decision: “Proceed with a limited market-discovery effort covering items 1–4 above, with a defined review point once procurement and market-sizing evidence is in hand.”",
+        "source_evidence": "S1 identifies dated capacity plans and named facilities but supplies no purchasing contacts, open tenders, supplier qualifications, or equipment awards."
+      }
+    },
+    "B": {
+      "task_fidelity": {
+        "score": 3,
+        "reason": "Covers the requested decision, date, demand interpretation, limitations, comparison, citations, and recommendation-changing evidence. It exceeds the word range and sometimes presents extrapolations as source-established facts.",
+        "excerpt": "Section 4: “The proportionate response is a limited market-discovery effort ... not a larger commercial commitment.”",
+        "source_evidence": "S1 establishes rapid capacity expansion and dated operator plans but contains no evidence sufficient to establish the hypothetical supplier's commercial opportunity."
+      },
+      "facts_and_evidence": {
+        "score": 2,
+        "reason": "Accurately reproduces the main figures and correctly calculates approximately doubled capacity under full realization. However, the source does not establish a dominant market-wide siting pattern, demand concentration, or an upper bound on eventual additions. It also confuses duration with MWh and imports unsupported cancellation-frequency claims.",
+        "excerpt": "Section 1: “The source also identifies the dominant siting pattern: large hybrid solar-plus-storage facilities.” Section 3: “the 54 GW figure is an upper-bound intention set.”",
+        "source_evidence": "S1 says solar PV plants “host the largest battery storage capacity units,” not that they dominate all installations. It describes 54 GW as currently reported plans, without establishing a ceiling on future additions."
+      },
+      "explanation_and_synthesis": {
+        "score": 3,
+        "reason": "Connects market momentum, missing commercial evidence, and proportionate discovery well. The proposed hybrid-product advantage rests on an unsupported inference that demand is concentrated in solar hybrids, and comparing equipment volume with the hypothetical company's scale lacks company-specific support.",
+        "excerpt": "Section 2: “The hybrid-solar pattern (S1) additionally suggests demand is concentrated in projects where storage is co-engineered with PV plants.”",
+        "source_evidence": "S1 provides three large solar-associated examples but no market-wide distribution, procurement architecture, supplier requirements, or company capacity."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 3,
+        "reason": "Explicitly separates nameplate capacity, revenue, project economics, and competitive access, and includes a downside decision path. Calling the pipeline an upper bound adds unwarranted certainty to otherwise sound uncertainty treatment.",
+        "excerpt": "Section 3: “It provides no actual price-spread data, revenue figures, IRRs, or margin evidence for any project.”",
+        "source_evidence": "S1 supplies only the qualitative low-price charging/high-price discharging mechanism; it provides no financing, realized revenue, cost, or return data."
+      },
+      "reader_usefulness": {
+        "score": 4,
+        "reason": "Gives concrete discovery work tied to specifications, actual tenders, qualification access, and pipeline realization. Explicit escalation and deprioritization conditions make the recommendation particularly useful to the strategy lead.",
+        "excerpt": "Section 5: “Evidence of winnable positions: specification or qualification access”; “Conversely, the recommendation would shift toward deprioritization if the pipeline shows significant slippage or if discovery reveals locked-in incumbent supply relationships.”",
+        "source_evidence": "S1 supplies 14 GW planned for the second half of 2026 and named project examples, while leaving qualification access, tender prices, and incumbent relationships unknown. These are appropriately framed as evidence to obtain."
+      }
+    }
+  },
+  "condition_clues": "Both use structured headings, explicit source-boundary language, and disclaimers. A uses a separate evidence-base header and closing source entry; B uses numbered sections and an explicit downside decision gate. These stylistic clues do not reliably identify a condition, author, or tool."
+}

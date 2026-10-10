@@ -1,0 +1,9 @@
+
+Working notes (not part of the deliverable):
+
+- **Word count:** Body text ≈ 675 words (within the 600–800 requirement, including headers).
+- **Source fidelity check:** Every sourced claim is attributed to S1 or S2 only. S2's encouragement to "review the methodology and results" is attributed to S2 alone (S1's page text does not contain that phrasing). No content from the linked PDFs is represented as read; the memo explicitly states the linked publications were unavailable.
+- **Excluded by design:** Numerical findings, OSS project lists, specific roadmap step sequences, and migration timelines from the linked PDFs — none were supplied, so none are quoted or paraphrased. Vulnerability-reduction projections are explicitly flagged as impossible from these pages.
+- **Recommendation vs. source claims:** Authorized work items (inventory, roadmap drafting, structured S2 review) are framed as what the director "can reasonably authorized" consistent with the sources, not as mandates quoted from the PDFs. Dependency levers (upstream contribution, substitution, risk acceptance) are labeled as candidate options to validate against S2, since the announcement only says to "evaluate approaches."
+- **Decision logic:** Full rewrite rejected because both sources describe a staged, roadmap-based transition; the concrete next decision (July 12 charter + gate review) is dated relative to the June 27, 2024 decision date and S2's June 26, 2024 release, so timing is coherent.
+- **Constraints honored:** No JSON, no code fence, exactly one separator line, no mention of assigned conditions or tooling, source IDs cited throughout.

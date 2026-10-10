@@ -4,6 +4,19 @@
 
 这项前瞻开发试验让**四个作者模型分别完成同样五个任务族**：三题原生英文、两题原生中文。每对使用同一模型、brief、来源文本和资源上限，随机安排生成顺序及 A/B 展示。它检验一次回复、仅提供指令的 Lite，不包含检索、MCP、持久状态或 Full 评审门槛，不能证明工具箱具有普遍质量优势。
 
+## 评审覆盖情况
+
+**四个模型的 20 对任务均已有完整报告及记录在案的评审。** 新增 20 次作者请求和 10 次评审，补齐此前没有可用判断的 10 对；另 10 对沿用既有评审。原始 40 次作者尝试及失败均保留。下表统计完成覆盖，不把三个分析阶段混成一个主效果估计；任务族仍只有五个。
+
+| 作者 | 已评审配对 | 原始主分析 | 去围栏补充 | 重新生成补充 |
+| --- | ---: | ---: | ---: | ---: |
+| DeepSeek | 5 / 5 | 2 | 0 | 3 |
+| Kimi | 5 / 5 | 0 | 5 | 0 |
+| GLM | 5 / 5 | 0 | 3 | 2 |
+| LongCat | 5 / 5 | 0 | 0 | 5 |
+
+各模型和任务的偏好并不一致；全部完成评审不等于工具箱普遍更好。逐题出处见 [completion-summary.json](completion-summary.json)，全部 20 对的逐维分数见 [coverage-scores.csv](coverage-scores.csv)。
+
 ## 原始主结果
 
 保留全部 40 次首轮作者请求。失败或格式不合要求的输出仍是未决，不计质量零分，也不判另一组获胜。下表偏好来自首轮、未经独立裁决的 LLM 评审；四个模型重复的是同样五个任务族，因此仍是 **n=5 个任务族**，不是 20 道独立任务。
@@ -30,9 +43,46 @@
 
 补充分析纳入 8 对此前未评审的报告，没有新增作者调用。这些是同一批任务的补充诊断，不增加任务数，也不替换主结果。[转换记录与原始回复哈希](format-supplement/)将每份合格报告对应到首份回复。规则登记在格式失败出现之后、查看任何评审偏好之前，不属于原始冻结分析。
 
+## 单列的重新生成补充分析
+
+[补跑计划](completion-supplement/plan.json)在新增调用前本地冻结，只选择仍无有效评审的 DeepSeek 3 对、GLM 2 对和 LongCat 5 对。每对两边均重新生成，不把新回复和旧回复拼成一对，不重跑任何已有有效评审。未按偏好选择性重试；原始失败没有被改成成功。
+
+| 原因 | 原始证据 | 两组共同调整 |
+| --- | --- | --- |
+| DeepSeek 思考用量耗尽输出额度 | 三次 `finish_reason=length`，输出用量达到 12,288 token | 提高输出上限，并按[官方接口](https://api-docs.deepseek.com/guides/thinking_mode/)使用 `reasoning_effort=low` |
+| Markdown 装入 JSON 时转义失败 | GLM 电池题的引号未转义，银行题含无效控制字符；围栏本身不能解决这些问题 | 正文与工作笔记改用独立分隔行，逐字保留正文，不做 JSON 修补 |
+| LongCat 请求超时 | 六次读取在约 240 秒失败，未取得完整响应或用量 | 按[官方接口](https://longcat.ai/platform/docs/zh/api/chat)保留思考模式，提高输出上限与请求时限 |
+
+补跑统一使用 Markdown／笔记分隔格式；每组输出上限 32,768 token、总量上限 131,072 token、时限 1,200 秒。DeepSeek 与 GLM 均为 low 思考档，LongCat 显式开启思考；Kimi 不再生成。相同模型、brief、来源、工具箱文本与量表不变，按新种子 `2026101002` 分别随机生成顺序与 A/B 展示。实际用量见 [completion-usage.csv](completion-usage.csv)。原生评审设置不变，作者产出先锁定，评审全部锁定后再解码标签。
+
+例如，LongCat 银行题工具箱组的[补跑记录](completion-supplement/longcat/authors/pair-01/with_toolkit/execution.json)为 30,563 输出 token、572.453 秒，超过原始轮次的 token 与时间上限。补跑成功不能解释为它在原预算下也能完成。
+
+| 作者 | 补跑配对 | 偏好工具箱组 | 偏好基线组 | 持平 | 未决 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| DeepSeek | 3 | 0 | 3 | 0 | 0 |
+| GLM | 2 | 1 | 0 | 1 | 0 |
+| LongCat | 5 | 2 | 3 | 0 | 0 |
+
+这些是见过失败后调整格式、资源上限和部分思考设置所得的事后结果；不能替换原始主分析，也不是留出验证或新的独立样本。正文的事实、篇幅或判断缺陷不会触发重写，评审偏好亦不会触发重评。
+
+| 作者／任务 | 工具箱正文 | 基线正文 | 评审偏好与理由 |
+| --- | --- | --- | --- |
+| DeepSeek / `ai-risk-adoption-zh` | [Markdown](completion-supplement/deepseek/authors/pair-04/with_toolkit/report.md) | [Markdown](completion-supplement/deepseek/authors/pair-04/without_toolkit/report.md) | [基线组](completion-supplement/deepseek/judgments/pair-04/parsed.json) |
+| DeepSeek / `battery-market-en` | [Markdown](completion-supplement/deepseek/authors/pair-05/with_toolkit/report.md) | [Markdown](completion-supplement/deepseek/authors/pair-05/without_toolkit/report.md) | [基线组](completion-supplement/deepseek/judgments/pair-05/parsed.json) |
+| DeepSeek / `memory-roadmap-en` | [Markdown](completion-supplement/deepseek/authors/pair-01/with_toolkit/report.md) | [Markdown](completion-supplement/deepseek/authors/pair-01/without_toolkit/report.md) | [基线组](completion-supplement/deepseek/judgments/pair-01/parsed.json) |
+| GLM / `banking-chatbots-en` | [Markdown](completion-supplement/glm/authors/pair-05/with_toolkit/report.md) | [Markdown](completion-supplement/glm/authors/pair-05/without_toolkit/report.md) | [工具箱组](completion-supplement/glm/judgments/pair-05/parsed.json) |
+| GLM / `battery-market-en` | [Markdown](completion-supplement/glm/authors/pair-04/with_toolkit/report.md) | [Markdown](completion-supplement/glm/authors/pair-04/without_toolkit/report.md) | [持平](completion-supplement/glm/judgments/pair-04/parsed.json) |
+| LongCat / `ai-risk-adoption-zh` | [Markdown](completion-supplement/longcat/authors/pair-04/with_toolkit/report.md) | [Markdown](completion-supplement/longcat/authors/pair-04/without_toolkit/report.md) | [工具箱组](completion-supplement/longcat/judgments/pair-04/parsed.json) |
+| LongCat / `banking-chatbots-en` | [Markdown](completion-supplement/longcat/authors/pair-01/with_toolkit/report.md) | [Markdown](completion-supplement/longcat/authors/pair-01/without_toolkit/report.md) | [基线组](completion-supplement/longcat/judgments/pair-01/parsed.json) |
+| LongCat / `battery-market-en` | [Markdown](completion-supplement/longcat/authors/pair-02/with_toolkit/report.md) | [Markdown](completion-supplement/longcat/authors/pair-02/without_toolkit/report.md) | [基线组](completion-supplement/longcat/judgments/pair-02/parsed.json) |
+| LongCat / `memory-roadmap-en` | [Markdown](completion-supplement/longcat/authors/pair-05/with_toolkit/report.md) | [Markdown](completion-supplement/longcat/authors/pair-05/without_toolkit/report.md) | [基线组](completion-supplement/longcat/judgments/pair-05/parsed.json) |
+| LongCat / `productivity-outlook-zh` | [Markdown](completion-supplement/longcat/authors/pair-03/with_toolkit/report.md) | [Markdown](completion-supplement/longcat/authors/pair-03/without_toolkit/report.md) | [工具箱组](completion-supplement/longcat/judgments/pair-03/parsed.json) |
+
 ## 如何理解评审
 
 保留的银行聊天机器人评审更偏好 DeepSeek 基线，理由是试点边界和停止条件更具体，同时认为工具箱报告的安全机制讨论更充分。按空白分词、含标题，两份分别为 913 与 785 词，任务要求 600–800 词。GLM 生产率补充评审偏好的工具箱报告，仍把制造业历史比较起点误写成 1947 年；随附 BLS 正文写的是 1987 年。Kimi 电池市场补充评审更偏好工具箱报告，认为它把机会连接到尚未签约的采购和供应商规格，同时明确指出两篇都有无依据推断。这些已对照原文的例子说明取舍与判断局限，不代表对全部评分的独立裁决；原评审均保留。
+
+[LongCat 银行题的补跑评审](completion-supplement/longcat/judgments/pair-01/parsed.json)指出两篇都有同一缺陷：把投诉者预计会发生的滞纳金写成已经发生。对照[随附投诉原文](inputs/sources/chatbots.md)可确认这一区别。评审更偏好其中一篇，不代表该篇事实全部正确。
 
 ## 任务与来源
 
@@ -55,9 +105,9 @@
 | `glm-5.3` | `open.bigmodel.cn/api/paas/v4` | 20261012 |
 | `LongCat-2.5-Preview` | `api.longcat.chat/openai/v1` | 20261013 |
 
-先通过原生 CLI 尝试 GLM Coding Plan，服务返回订阅过期错误，随后全部 GLM 报告使用普通 API。这些名称是服务方模型别名，不是不可变权重快照。每个作者条件的输出上限为 12,288 token，总量上限 98,304 token，请求时限 240 秒；服务方的输出用量包含思考 token。GLM 两组均使用 `reasoning_effort=low`，其余模型保持服务方默认思考参数。总用量与耗时在返回后核对；超时不证明远端已取消，也不证明没有计费。
+先通过原生 CLI 尝试 GLM Coding Plan，服务返回订阅过期错误，随后全部 GLM 报告使用普通 API。这些名称是服务方模型别名，不是不可变权重快照。原始轮次每个作者条件的输出上限为 12,288 token，总量上限 98,304 token，请求时限 240 秒；服务方的输出用量包含思考 token。GLM 两组均使用 `reasoning_effort=low`，其余模型保持服务方默认思考参数。总用量与耗时在返回后核对；超时不证明远端已取消，也不证明没有计费。
 
-工具箱组收到完整固定版本的 Skill、工作流、研究规范和写作参考。两组的 brief、来源及 report／notes JSON 格式相同，评审只看到正文字符串。工具箱输入更长，相同上限不等于实际成本相同。[用量记录](usage.csv)保留逐次 token、耗时和缺失情况，不推算金额。
+工具箱组收到完整固定版本的 Skill、工作流、研究规范和写作参考。原始轮次两组的 brief、来源及 report／notes JSON 格式相同，评审只看到正文字符串。工具箱输入更长，相同上限不等于实际成本相同。[用量记录](usage.csv)保留逐次 token、耗时和缺失情况，不推算金额。
 
 | 作者 | 调用／完整返回 | 已知输入 token | 已知输出 token | 缺用量调用 |
 | --- | ---: | ---: | ---: | ---: |
@@ -79,9 +129,10 @@
 ```bash
 python evals/studies/2026-10-10-lite-four-models/verify_bundle.py
 python evals/studies/2026-10-10-lite-four-models/summarize.py
+python evals/studies/2026-10-10-lite-four-models/summarize_completion.py
 ```
 
-第二条命令从原始文件生成 [summary.json](summary.json)、[scores.csv](scores.csv) 和 [usage.csv](usage.csv)。离线检查证明材料保留与输入匹配，不证明报告质量。
+第二条命令仅针对原始及去围栏阶段，从原始文件生成 [summary.json](summary.json)、[scores.csv](scores.csv) 和 [usage.csv](usage.csv)。第三条命令核对补跑的冻结计划、原件未变、两组输入／设置一致、正文逐字传入评审，并生成完成覆盖及补跑用量；加 `--verify-only` 可只核验不写文件。离线检查证明材料保留与输入匹配，不证明报告质量。
 
 重新生成时，在进程环境中设置 `DEEPSEEK_API_KEY`、`KIMI_API_KEY`、`GLM_API_KEY`、`LONGCAT_API_KEY`，安装并登录原生评审 CLI，将其加入 PATH 或设置 `CODEX_BIN`；使用固定的工具箱方法和脚本版本，然后运行：
 
@@ -91,10 +142,19 @@ python evals/studies/2026-10-10-lite-four-models/reproduce.py --output evals/run
 
 命令产生 **40 次作者 API 调用及最多 20 次评审调用**，消耗自己的供应商账户与 CLI 额度；复用本研究普通 API 路径，不重新探测 Coding Plan。输出必须是新目录。加 `--prepare-only` 可零调用准备；加 `--include-format-supplement` 则在主结果锁定后执行单列规则。补充分析不增加作者调用，主评审加补充评审总上限仍为 20。主结果有未决时返回非零退出码并保留记录，不表示应重跑失败。模型别名、服务可用性和回复可能改变，不保证逐字复现。
 
+如需重复已声明的补跑（20 次作者请求、10 次评审，不是完整新试验），沿用上面的进程凭据，选择研究目录内的新输出目录：
+
+```bash
+python evals/studies/2026-10-10-lite-four-models/run_completion_supplement.py --output evals/studies/2026-10-10-lite-four-models/completion-repeat
+```
+
+命令保留原始失败、拒绝覆盖已有输出；加 `--prepare-only` 可零调用检查计划。新重复结果不能替换这里保存的结果。普通 API 和原生评审 CLI 仍会消耗各自账户额度。
+
 | 材料 | 内容 |
 | --- | --- |
 | `inputs/` | brief、实际提供的来源文本、出处、四模型配置与评审 schema |
 | `runs/<model>/` | 冻结分组与方法、全部首轮作者请求／回复／失败、主评审输入／回复、用量、结果及哈希清单 |
+| `completion-supplement/` | 单列冻结计划、20 次新作者请求／原回复／可读 Markdown、10 次评审、锁定结果与哈希 |
 | `format-supplement/<model>/` | 适用性记录、不改正文的格式转换、单列锁定评审与补充结果 |
 | `run_live_study.py`、`run_format_supplement.py` | 未在运行后改写的执行适配器；通过 `reproduce.py` 调用 |
 | `host.json` | 操作系统、Python／CLI 版本及模型身份边界 |

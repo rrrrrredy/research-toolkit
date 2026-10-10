@@ -6,7 +6,7 @@
 
 The public collection supports workflow diagnostics and product development. It does not yet support a general decision-quality advantage, a representative cross-language benchmark or an efficacy confidence interval. The original English showcase is a research example, not a matched efficacy pair. [Next study design](evaluation-roadmap.md#next-study-freeze-the-design-then-collect-new-evidence) · [Stable defect labels](necessary-defects.md).
 
-The separate [October 10 fixed-source Lite pilot](../evals/studies/2026-10-10-lite-four-models/README.md) publishes five shared families across four models, including raw failures and label-masked judgments. Its local freeze, instruction-only scope and post-hoc format supplement are disclosed; it does not change the historical counts below.
+The separate [October 10 fixed-source Lite pilot](../evals/studies/2026-10-10-lite-four-models/README.md) publishes judgments for all 20 model–task pairs across five shared families and four models, with original failures retained. Its local freeze, instruction-only scope, post-hoc format analysis and separately regenerated completion pairs are disclosed; it does not change the historical counts below.
 
 ## Retained data
 

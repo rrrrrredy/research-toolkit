@@ -3,3 +3,6 @@
 README*.md text eol=lf
 # Imported source text keeps its original trailing whitespace.
 inputs/sources/** -whitespace
+# Retain Markdown hard line breaks in raw model reports and notes.
+completion-supplement/**/authors/**/report.md -whitespace
+completion-supplement/**/authors/**/notes.md -whitespace

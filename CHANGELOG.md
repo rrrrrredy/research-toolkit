@@ -6,7 +6,7 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
-- Publish a four-model, five-family fixed-source Lite pilot with original outputs, failures, masked judgments, separate format diagnostics and offline verification. It does not establish a general quality advantage.
+- Publish a four-model, five-family fixed-source Lite pilot with judgments for all 20 model–task pairs, readable supplemental reports, raw outputs and offline verification. Preserve all original failures and valid judgments; document the separate format and completion supplements. This does not establish a general quality advantage.
 - Keep the evaluation link alongside the other README navigation links, without an arrow.
 
 ## v0.2.3 — 2026-10-10

@@ -1,0 +1,8 @@
+- Report uses only S1 and S2; no linked PDF methods/results claimed.
+- S1 mapped to roadmap creation, MSL transition, Secure by Design, transparency, top-down approach.
+- S2 mapped to June 26 2024 release, OSS memory-safety risk, external dependencies, starting point for roadmaps, methodology/results review, risk-reduction actions.
+- Recommendation: no immediate full rewrite; authorize bounded discovery/roadmap scoping.
+- Distinguishes first-party native code from third-party OSS dependencies.
+- Identifies missing CISA PDF details and internal data needed before priorities/deadlines/projections.
+- Concrete next decision: time-boxed discovery phase with go/no-go.
+- Approx. 760 words in reader-facing memo.

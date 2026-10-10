@@ -20,7 +20,7 @@ Toolkit 的默认流程调整不改写既有样本、首评或标签，也不自
 
 [2026-09-07 原始开发材料](diagnostics/2026-09-07/)包含四份初稿、两份修订、三模型文字诊断及保留的不完整回复；它们是开发诊断，不是留出效果研究。日期化原件按原语言和哈希保存，本页提供中文导读。
 
-前瞻的 5–10 个任务族试验见[盲评配对协议](../docs/eval-protocol.zh-CN.md)。脚本冻结并记录种子／顺序，对评审隐藏 A/B 条件，保留首份产出、判断与失败。[2026-10-10 四模型试验](studies/2026-10-10-lite-four-models/README.zh-CN.md)保留同样五个任务族、全部首轮尝试及失败，格式诊断单列；不证明通用效果。仅复查既有公开两组档案时，运行 `python scripts/reproduce_calibration.py`，生成 `evals/runs/calibration-reproduction/inventory.json` 与 `inventory.md`，不调用模型。
+前瞻的 5–10 个任务族试验见[盲评配对协议](../docs/eval-protocol.zh-CN.md)。脚本冻结并记录种子／顺序，对评审隐藏 A/B 条件，保留首份产出、判断与失败。[2026-10-10 四模型试验](studies/2026-10-10-lite-four-models/README.zh-CN.md)已覆盖同样五个任务族的全部 20 对模型—任务评审，保留全部首轮尝试及失败，格式诊断与重新生成补跑单列；不证明通用效果。仅复查既有公开两组档案时，运行 `python scripts/reproduce_calibration.py`，生成 `evals/runs/calibration-reproduction/inventory.json` 与 `inventory.md`，不调用模型。
 
 ## 如何贡献案例
 

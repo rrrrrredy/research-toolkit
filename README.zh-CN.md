@@ -262,22 +262,22 @@ Agent 使用自身的检索、读写和分析能力完成研究。插件将 Skil
 | --- | --- | --- | --- |
 | [2 组公开开发对照](./evals/diagnostics/2026-09-07/calibration-provenance.json)，4 份原始报告 | 使用／不使用工具箱；两题均先运行工具箱组 | 开发诊断与后续修稿评审；未建立盲评效果结论 | 报告提供了可用证据，也暴露出结论排序、读者导航和证据使用问题。 |
 | [11 个保留的历史任务族](./docs/evaluation-status.zh-CN.md)，22 份评审输入 | 历史配对研究；保留作者失败，补跑另列 | 私人汇总记录；公开材料不足以复核盲评执行 | 主视图中 5 族两组都有必要缺陷、6 族未决；适合开发反馈。 |
-| [同样 5 个任务族 × 4 个作者模型](./evals/studies/2026-10-10-lite-four-models/README.zh-CN.md) | 同模型、同 brief、固定来源；按种子随机化顺序与 A/B 标签 | 每对可用报告使用一名隐藏标签的 LLM 评审；保留条件线索与执行失败 | 格式与时限导致多数原始配对未决；补充评审单列。 |
+| [同样 5 个任务族 × 4 个作者模型](./evals/studies/2026-10-10-lite-four-models/README.zh-CN.md) | 同模型、同 brief、固定来源；按种子随机化顺序与 A/B 标签 | 每对可用报告使用一名隐藏标签的 LLM 评审；保留条件线索与执行失败 | 20 对模型—任务均已有评审，偏好不一；原始失败与补充结果分开保留。 |
 | [23 组合成反例／对照](./evals/semantic_diagnostics/) | 针对特定缺陷的短片段，不是完整报告对照 | [已有模型诊断](./evals/semantic_diagnostics/reviews/2026-09-08/)保留漏检与分歧 | 可定位评审弱点并做回归，不能据此推断工具箱效力。 |
 
 **证据边界**：公开运行记录尚不足以核实前两类研究中，每一对报告是否使用相同模型与 brief，也未完整记录盲评维度和条件隐藏方式；后续修稿评审知道作者的论点。这里不报告工具箱获胜率。原有 7 个研究任务均为中文；23 组合成诊断包含 18 组中文和 5 组英文，覆盖面仍有限。英文展示案例也不是新增对照实验。
 
 详细报告：[公开原稿与修订稿](./evals/diagnostics/2026-09-07/) · [评测证据与版本边界](./docs/evaluation-status.zh-CN.md) · [评测标准](./docs/report-evaluation-standard.zh-CN.md)。
 
-无需调用模型，一条命令复查公开的两组配对记录：
+历史两组开发对照可一条命令离线核验，无需调用模型：
 
 ```bash
 python scripts/reproduce_calibration.py
 ```
 
-[复现脚本](./scripts/reproduce_calibration.py)核对冻结公开包及四份原始报告的哈希，生成 `evals/runs/calibration-reproduction/inventory.json` 和 `inventory.md`。再次运行时通过 `--output` 指定新目录。它复现档案清单，不重新生成历史模型回复或给出质量分。[既有符合性脚本](./scripts/run_evals.py)另行检查任务文件（[命令与输出](./evals/README.zh-CN.md)）。
+[档案核验脚本](./scripts/reproduce_calibration.py)核对冻结公开包及四份原始报告的哈希，生成 `evals/runs/calibration-reproduction/inventory.json` 和 `inventory.md`。再次运行时通过 `--output` 指定新目录。它复现档案清单，不重新生成历史模型回复或给出质量分。[既有符合性脚本](./scripts/run_evals.py)另行检查任务文件（[命令与输出](./evals/README.zh-CN.md)）。
 
-[四模型 Lite 试验](./evals/studies/2026-10-10-lite-four-models/README.zh-CN.md)公开同样五个任务族的全部 40 次首轮作者尝试，附原始回复、失败与评审。[协议与脚本](./docs/eval-protocol.zh-CN.md)。固定来源、仅指令试验不验证 Full 或 MCP，也不改变历史 n=2、未盲评及先 Toolkit 后基线的限制。
+[四模型 Lite 试验](./evals/studies/2026-10-10-lite-four-models/README.zh-CN.md)已覆盖同样五个任务族的全部 20 对模型—任务，公开 40 次首轮作者尝试、单列的 20 次补跑请求，并保留原始失败和全部评审。[模型重跑命令与产物](./evals/studies/2026-10-10-lite-four-models/README.zh-CN.md#查看与复现) · [协议与脚本](./docs/eval-protocol.zh-CN.md)。固定来源、仅指令试验不验证 Full 或 MCP，也不改变历史 n=2、未盲评及先 Toolkit 后基线的限制。
 
 历史汇总截至 2026 年 9 月 21 日：最初 12 组中有 1 组在结果已知后被排除；22 次原始作者尝试中有 12 次失败，补充报告没有替换这些失败。公开文件只是私人保留材料的一部分。软件检查与历史研究不能证明当前流程具有普遍的研究质量优势。
 

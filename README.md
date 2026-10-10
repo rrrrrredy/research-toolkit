@@ -214,22 +214,22 @@ Your agent performs retrieval, reading, analysis, and writing with its own capab
 | --- | --- | --- | --- |
 | [2 public development pairs](./evals/diagnostics/2026-09-07/calibration-provenance.json), 4 original reports | With/without toolkit; toolkit first in both tasks | Development diagnostics and later repair reviews; no blinded efficacy result | Useful evidence alongside weaknesses in conclusion priority, reader navigation and evidence use. |
 | [11 retained historical families](./docs/evaluation-status.md), 22 review inputs | Historical paired study; author failures retained, supplemental runs separate | Private aggregates; public material does not establish blinded execution | Primary view: both arms had necessary defects in 5 families; 6 were unresolved. Useful for development feedback. |
-| [5 shared task families × 4 author models](./evals/studies/2026-10-10-lite-four-models/README.md) | Same-model, same-brief fixed sources; seeded run order and A/B labels | One label-masked LLM judge per usable pair; report clues and execution failures retained | Format and time limits left most primary pairs unresolved; supplemental judgments are separate. |
+| [5 shared task families × 4 author models](./evals/studies/2026-10-10-lite-four-models/README.md) | Same-model, same-brief fixed sources; seeded run order and A/B labels | One label-masked LLM judge per usable pair; report clues and execution failures retained | All 20 model–task pairs have judgments; preferences vary. Original failures and supplemental results remain separate. |
 | [23 synthetic bad/control pairs](./evals/semantic_diagnostics/) | Short failure-mode excerpts, not complete report comparisons | [Available model diagnoses](./evals/semantic_diagnostics/reviews/2026-09-08/) retain missed defects and disagreements | They locate review weaknesses and support regression work, not toolkit efficacy. |
 
 **Evidence boundary:** public run records do not establish that each pair in the first two collections used the same model and brief, or fully document blinded dimensions and condition masking. Later repair reviews knew the author’s thesis. No toolkit win rate is reported here. The original 7 research tasks are in Chinese; the 23 synthetic diagnostics include 18 Chinese and 5 English pairs. This remains limited coverage, and the English showcase is not an additional controlled pair.
 
 Detailed reports: [public reports and repairs](./evals/diagnostics/2026-09-07/) · [evaluation evidence and version boundaries](./docs/evaluation-status.md) · [evaluation standard](./docs/report-evaluation-standard.md).
 
-Reproduce the public two-pair inventory without model calls:
+Verify the two public development pairs offline (no model calls):
 
 ```bash
 python scripts/reproduce_calibration.py
 ```
 
-The [reproduction script](./scripts/reproduce_calibration.py) checks the frozen public bundle and all four original report hashes, then writes `evals/runs/calibration-reproduction/inventory.json` and `inventory.md`. Use a new `--output` directory to repeat it. This reproduces an archive inventory, not historical model generations or a quality score. [The existing conformance runner](./scripts/run_evals.py) checks task artifacts separately ([command and outputs](./evals/README.md#run-an-eval)).
+The [archive verification script](./scripts/reproduce_calibration.py) checks the frozen public bundle and all four original report hashes, then writes `evals/runs/calibration-reproduction/inventory.json` and `inventory.md`. Use a new `--output` directory to repeat it. This reproduces an archive inventory, not historical model generations or a quality score. [The existing conformance runner](./scripts/run_evals.py) checks task artifacts separately ([command and outputs](./evals/README.md#run-an-eval)).
 
-[The four-model Lite pilot](./evals/studies/2026-10-10-lite-four-models/README.md) publishes all 40 first author attempts across five shared task families, with raw responses, failures and judgments. [Protocol and harness](./docs/eval-protocol.md). This fixed-source, instruction-only pilot does not validate Full or MCP, and does not change the historical n=2, unblinded, toolkit-first limitations.
+[The four-model Lite pilot](./evals/studies/2026-10-10-lite-four-models/README.md) now has judgments for all 20 model–task pairs across five shared task families. It publishes all 40 first author attempts plus 20 separately recorded author requests, retaining original failures and every judgment. [Model rerun commands and artifacts](./evals/studies/2026-10-10-lite-four-models/README.md#inspect-and-reproduce) · [Protocol and harness](./docs/eval-protocol.md). This fixed-source, instruction-only pilot does not validate Full or MCP, and does not change the historical n=2, unblinded, toolkit-first limitations.
 
 The historical inventory is dated September 21, 2026: one of the original 12 families was excluded after results were known; 12 of 22 original author attempts failed and supplemental reports did not replace those failures. Public files are a subset of the privately retained materials. Software checks and historical studies do not validate the current workflow's general research quality.
 

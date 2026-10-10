@@ -2,7 +2,7 @@
 
 [English](eval-protocol.md) · [简体中文](eval-protocol.zh-CN.md)
 
-**Status: a [four-model, five-family development pilot](../evals/studies/2026-10-10-lite-four-models/README.md) now has original attempts and judgments.** It uses a declared native-CLI judge adapter and a separately recorded post-hoc format supplement. The historical n=2 comparisons remain unblinded for efficacy and toolkit-first in both tasks; their public records do not fully establish matched model and brief. A general Toolkit quality advantage remains unproven.
+**Status: a [four-model, five-family development pilot](../evals/studies/2026-10-10-lite-four-models/README.md) now has judgments for all 20 model–task pairs.** It uses a declared native-CLI judge adapter, a post-hoc format supplement and a separate completion supplement; original failures and valid judgments remain unchanged. The historical n=2 comparisons remain unblinded for efficacy and toolkit-first in both tasks; their public records do not fully establish matched model and brief. A general Toolkit quality advantage remains unproven.
 
 ## Question and scope
 
@@ -83,4 +83,4 @@ bundle-manifest.json                # hashes of all retained files
 
 ## Results
 
-[2026-10-10 fixed-source Lite results](../evals/studies/2026-10-10-lite-four-models/README.md): five shared families across four author models, 40 original author requests, with failed attempts retained. The study page reports primary counts separately from the post-hoc exact-fence supplement and links all raw judgments, usage and hashes. Its one native CLI judge per usable pair is a declared adapter extension; the plan was locally frozen, not publicly preregistered. It does not establish general efficacy or validate Full/MCP. New configurations still start with an empty pending table.
+[2026-10-10 fixed-source Lite results](../evals/studies/2026-10-10-lite-four-models/README.md): five shared families across four author models, all 20 model–task pairs judged. The 40 original author requests, including failures, are retained; 20 additional requests complete ten previously unjudged pairs. Primary, exact-fence and regeneration results are separate, with raw judgments, usage, matched inputs and hashes. Changes to formatting, budgets and reasoning settings are documented before the supplemental calls and are not presented as a replacement primary effect estimate. Its one native CLI judge per usable pair is a declared adapter extension; the plan was locally frozen, not publicly preregistered. It does not establish general efficacy or validate Full/MCP. New configurations still start with an empty pending table.
