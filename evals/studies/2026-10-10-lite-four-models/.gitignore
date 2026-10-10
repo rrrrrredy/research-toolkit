@@ -1,0 +1,5 @@
+# Native judge diagnostics contain machine-specific paths.
+private-diagnostics/
+judge-empty/
+# Local repeats do not replace the retained study.
+completion-repeat/

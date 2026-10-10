@@ -1,0 +1,17 @@
+{
+  "status": "response_complete",
+  "transport": "codex_exec",
+  "model_requested": "gpt-6-astra",
+  "model_returned": null,
+  "model_identity_boundary": "CLI requested model only; response identity not independently attested",
+  "returncode": 0,
+  "elapsed_seconds": 51.906,
+  "tools_observed": 0,
+  "usage": {
+    "input_tokens": 17377,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 1523,
+    "reasoning_output_tokens": 67
+  }
+}

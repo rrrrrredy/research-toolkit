@@ -1,0 +1,24 @@
+{
+  "status": "response_complete",
+  "model_requested": "LongCat-2.5-Preview",
+  "transport": "chat_completions",
+  "model_returned": "LongCat-2.5-Preview",
+  "request_id": "a48050e9ced249febb0dc383561475b9",
+  "usage": {
+    "completion_tokens": 6948,
+    "prompt_tokens": 20843,
+    "total_tokens": 27791,
+    "completion_tokens_details": {
+      "reasoning_tokens": 3786
+    },
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "video_tokens": 0,
+      "text_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  },
+  "elapsed_seconds": 145.578
+}

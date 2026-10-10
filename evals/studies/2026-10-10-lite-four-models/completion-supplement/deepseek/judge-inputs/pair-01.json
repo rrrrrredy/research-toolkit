@@ -1,0 +1,108 @@
+{
+  "brief": "Write an English research memo of 600-800 words for the engineering director of a mature B2B software vendor using native-code components and third-party open-source libraries. Use only the two supplied CISA announcement/resource pages, with a decision date of June 27, 2024. Recommend what investigation or roadmap work the director can reasonably authorize from these sources, and whether an immediate full rewrite is justified. Explain mechanisms, scope and tradeoffs; distinguish first-party code from dependencies. The linked PDFs are NOT supplied: do not pretend to have read their methods, numerical findings or detailed migration steps. Identify the missing information needed before setting priorities, deadlines or projected vulnerability reduction, and propose a concrete next decision. Cite source IDs. The vendor scenario is hypothetical; the source announcements are real.\n",
+  "sources": [
+    {
+      "id": "S1",
+      "text": "Source URL: https://www.cisa.gov/resources-tools/resources/case-memory-safe-roadmaps\nRetrieved: 2026-10-10. Text-only archived source unit; linked material is not supplied unless separately listed.\nPublisher/rights basis: CISA federal resource-page text only; linked PDF not included.\n\nThe Case for Memory Safe Roadmaps\nWhy Both C-Suite Executives and Technical Experts Need to Take Memory Safe Coding Seriously\nPublish Date\nDecember 06, 2023\nRelated topics:\nCybersecurity Best Practices\nThe Case for Memory Safe Roadmaps: Why Both C-Suite Executives and Technical Experts Need to Take Memory Safe Coding Seriously\ndetails how software manufacturers can transition to memory safe programming languages (MSLs) to eliminate memory safety vulnerabilities. The guidance provides manufacturers steps for creating and publishing memory safe roadmaps that will show their customers how they are owning security outcomes, embracing radical transparency, and taking a top-down approach to developing secure products—key Secure by Design tenets.\n"
+    },
+    {
+      "id": "S2",
+      "text": "Source URL: https://www.cisa.gov/news-events/alerts/2024/06/26/cisa-and-partners-release-guidance-exploring-memory-safety-critical-open-source-projects\nRetrieved: 2026-10-10. Text-only archived source unit; linked material is not supplied unless separately listed.\nPublisher/rights basis: CISA federal announcement text only; linked report not included.\n\nCISA and Partners Release Guidance for Exploring Memory Safety in Critical Open Source Projects\nRelease Date\nJune 26, 2024\nToday, CISA, in partnership with the Federal Bureau of Investigation, Australian Signals Directorate’s Australian Cyber Security Centre, and Canadian Cyber Security Center, released\nExploring Memory Safety in Critical Open Source Projects\n. This guidance was crafted to provide organizations with findings on the scale of memory safety risk in selected open source software (OSS).\nThis joint guidance builds on the guide\nThe Case for Memory Safe Roadmaps\nby providing a starting point for software manufacturers to create memory safe roadmaps, including plans to address memory safety in external dependencies which commonly include OSS. Exploring Memory Safety in Critical Open Source Projects also aligns with the 2023 National Cybersecurity Strategy and corresponding implementation plan, which discusses investing in memory safety and collaborating with the open source community—including the establishment of the interagency Open Source Software Security Initiative (OS3I) and investment in memory-safe programming languages.\nCISA encourages all organizations and software manufacturers to review the methodology and results found in the guidance to:\nReduce memory safety vulnerabilities;\nMake secure and informed choices;\nUnderstand the memory-unsafety risk in OSS;\nEvaluate approaches to reducing this risk; and\nContinue efforts to drive risk-reducing action by software manufacturers.\nTo learn more about taking a top-down approach to developing secure products, visit CISA’s\nSecure by Design\nwebpage.\n"
+    }
+  ],
+  "rubric": {
+    "id": "blinded-pairwise-v1",
+    "scope": "One-judge prospective pilot; does not replace historical panels or current Full report acceptance.",
+    "dimensions": [
+      "task_fidelity",
+      "facts_and_evidence",
+      "explanation_and_synthesis",
+      "counterevidence_and_boundaries",
+      "reader_usefulness"
+    ],
+    "anchors": {
+      "0": "Essential requirement absent or failed",
+      "1": "Major defects make this aspect unusable",
+      "2": "Partly met; substantive revision needed",
+      "3": "Meets the task with bounded issues",
+      "4": "Fully developed with concrete support",
+      "not_assessed": "Insufficient assessment context; not zero or approval"
+    },
+    "instructions": "Judge first submissions against the same brief and full supplied sources. Do not award points for files, logs, checklist markers or report length. Rate each dimension separately with a reason, an exact locatable excerpt and source evidence. Do not compute a weighted passing score. Prefer the report that better supports the requested decision; use tie for comparable quality and unresolved for missing evidence. Give condition clues only after choosing. Model preferences and ratings need evidence review before any efficacy interpretation.",
+    "response_schema": {
+      "preference": "A | B | tie | unresolved",
+      "reason": "Located comparative reasoning",
+      "reports": {
+        "A": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        },
+        "B": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        }
+      },
+      "condition_clues": "Possible condition-identifying clues, or none observed"
+    }
+  },
+  "reports": {
+    "A": "**Memorandum**\n\n**To:** Engineering Director  \n**From:** Security and Architecture Research  \n**Date:** June 27, 2024  \n**Subject:** Memory-safety investigation and roadmap options after CISA’s June 26, 2024 guidance\n\n**Recommendation:** Do not authorize an immediate full rewrite. Authorize a bounded discovery and roadmap-scoping effort covering both first-party native code and third-party open-source dependencies. The supplied CISA sources support structured transition planning and dependency-risk review; they do not establish that a wholesale rewrite is required now.\n\n**What the sources support**\n\nSource S1 describes CISA guidance on how software manufacturers can transition to memory safe programming languages (MSLs) to eliminate memory safety vulnerabilities. It says the guidance provides steps for creating and publishing memory safe roadmaps, so customers can see manufacturers owning security outcomes, embracing radical transparency, and taking a top-down approach to secure products—key Secure by Design tenets. That is a planning and governance mechanism, not an immediate rewrite mandate.\n\nSource S2, released June 26, 2024, is the more operationally relevant announcement. It says CISA, with the FBI, Australian Signals Directorate’s Australian Cyber Security Centre, and Canadian Cyber Security Center, released *Exploring Memory Safety in Critical Open Source Projects*. That guidance provides findings on the scale of memory safety risk in selected open source software (OSS). S2 says it builds on S1 by giving manufacturers a starting point for memory safe roadmaps, including plans to address memory safety in external dependencies, which commonly include OSS. It encourages organizations to review the guidance’s methodology and results to reduce memory safety vulnerabilities, make secure and informed choices, understand OSS memory-unsafety risk, evaluate risk-reduction approaches, and continue risk-reducing action.\n\n**Mechanisms, scope, and first-party versus dependency work**\n\nThe mechanism in both sources is memory safety: replacing or reducing reliance on languages that permit memory-safety defects, and managing that risk across the software supply chain. For first-party code, the vendor controls language choice, toolchain, interfaces, training, and migration sequencing. For third-party OSS, the vendor does not control upstream source; it can assess memory-unsafety risk, choose safer components, update dependencies, or isolate/replace risky ones. S2 explicitly directs attention to external dependencies, so a first-party-only rewrite would leave a central risk category untouched.\n\nA sensible scoping therefore separates two tracks:\n\n1. **First-party native components:** inventory languages and boundaries; identify where MSL adoption, new-module standards, or targeted component replacement could reduce memory-safety exposure over time.\n2. **Third-party OSS dependencies:** build dependency visibility; assess memory-unsafety risk; evaluate secure and informed choices; and plan how to address external dependencies in the roadmap.\n\n**Tradeoffs and the rewrite question**\n\nA full rewrite of mature B2B software would be a large cost, schedule, regression, compatibility, and customer-continuity decision. It might reduce first-party memory-safety exposure in scope, but it would not automatically fix OSS dependency risk. It could also divert engineering capacity from measured, risk-based improvements. Conversely, a roadmap-only approach is slower and requires sustained governance; a dependency-only approach may miss first-party native code. The sources justify investigation and roadmap creation, not a predetermined full rewrite. Full rewrite may become an option for specific components after risk data and cost analysis, but it is not justified as an immediate default.\n\n**Missing information**\n\nThe linked CISA PDFs are not supplied in this source set. I have not reviewed their methods, numerical findings, selected OSS projects, or detailed migration steps. Before setting priorities, deadlines, or projected vulnerability reduction, the director needs:\n\n- The CISA roadmap steps from S1 and the methodology/results from S2.\n- An internal inventory of first-party native code: languages, components, interfaces, age, and criticality.\n- A dependency inventory or SBOM: OSS libraries, versions, upstream health, criticality, and memory-safety exposure.\n- Threat and exploitability context for the vendor’s deployment model.\n- Feasibility data on MSL migration, dependency replacement, performance, interop, hiring, and customer commitments.\n\nWithout these, numerical vulnerability-reduction projections or fixed remediation deadlines would be speculative.\n\n**Concrete next decision**\n\nApprove a time-boxed discovery and roadmap-scoping phase, not a full rewrite. Deliverables should include: obtaining and reviewing the two linked CISA publications; producing first-party and dependency inventories; classifying memory-safety exposure by product and component; evaluating MSL and dependency options; drafting a memory safe roadmap aligned to S1 and S2; and recommending a pilot or go/no-go decision. This is the most defensible action the director can authorize from these sources on June 27, 2024. It preserves product stability while creating the evidence needed for later prioritization, deadlines, and measurable risk reduction.\n",
+    "B": "# Memory Safety Risk in Native Code and Open-Source Dependencies: What to Authorize on June 27, 2024\n\n## Recommendation\n\nDo not authorize an immediate full rewrite of the vendor's native-code components. The available CISA materials justify starting a memory-safety roadmap and investigating first-party code and external dependencies, but they do not establish that a wholesale rewrite is technically necessary, cost-effective, or sufficient to remove the vendor's memory-safety risk. [S1][S2]\n\nApprove a bounded discovery and roadmap-scoping phase. Its immediate purpose is to produce the inventory, risk classification, and options analysis that a rewrite-or-not decision requires. Defer budget, deadlines, and projected vulnerability-reduction targets until the vendor has both internal data and the full linked CISA guidance.\n\n## What the sources establish\n\nCISA's December 2023 resource describes guidance for software manufacturers to transition to memory safe programming languages (MSLs) to eliminate memory safety vulnerabilities. It also says the guidance provides steps for creating and publishing memory safe roadmaps that show customers how manufacturers are owning security outcomes, embracing radical transparency, and taking a top-down approach to secure products. [S1]\n\nOn June 26, 2024, CISA and partners released \"Exploring Memory Safety in Critical Open Source Projects.\" CISA says the guidance provides findings on the scale of memory safety risk in selected open source software (OSS), and builds on \"The Case for Memory Safe Roadmaps\" by giving manufacturers a starting point for memory safe roadmaps, including plans to address memory safety in external dependencies commonly found in OSS. CISA encourages organizations to review the methodology and results to reduce memory safety vulnerabilities, make secure and informed choices, understand OSS memory-unsafety risk, and evaluate approaches to reducing that risk. [S2]\n\nThese are real agency announcements. The linked PDFs are not part of the supplied material. Their methods, numerical findings, criteria, and detailed migration steps are therefore unavailable here. That boundary matters: it prevents turning a credible call to action into a precise cost or risk-reduction estimate. [S1][S2]\n\n## First-party code and dependencies are different problems\n\nFor first-party native components, language and code ownership are partly within the vendor's control. A roadmap can consider new memory-safe modules, incremental replacement of vulnerable components, interface boundaries, and where native performance is genuinely required. The source rationale is that transitioning to MSLs can help eliminate memory safety vulnerabilities in code written in those languages, not that every existing native component must be rewritten. [S1]\n\nFor third-party open-source libraries, direct rewriting is usually not the first lever. The vendor can update, replace, isolate, wrap, monitor, or contribute upstream. CISA explicitly points roadmaps toward external dependencies commonly made of OSS. [S2] But without the linked report's selected projects, methods, and results, the vendor cannot know which dependencies carry material risk, how much of its exposure is dependency-driven, or whether remediation would be faster than a first-party rewrite.\n\nA serious error would be to treat all native code as one bucket. First-party code and dependencies have different control, maintenance, licensing, support, and upgrade paths. The roadmap should separate them before ranking anything.\n\n## What can be authorized now\n\nA useful discovery phase can inventory first-party native components and third-party OSS dependencies, record languages, versions, maintenance status, build and runtime context, and identify where untrusted input, privilege, network exposure, or customer deployment raises consequence. It can map existing memory-safety defects and incidents, if any, and assess options: upgrade, replace, sandbox, refactor, or write new modules in a memory-safe language. It can also draft an internal roadmap and a customer-transparency plan, consistent with the source emphasis on publishing roadmaps and owning security outcomes. [S1][S2]\n\nThis is investigation and roadmap work, not a full migration mandate. It gives the director evidence to decide whether to fund incremental hardening, dependency remediation, selective rewrites, or broader MSL adoption.\n\n## Missing information before priorities or deadlines\n\nThe vendor still needs the full CISA roadmap steps and the OSS guidance methodology, selected-project scope, findings, and recommended mitigations. Internally it needs an SBOM or dependency graph, reachability and exploitability analysis, criticality and exposure ratings, customer contractual constraints, performance and platform requirements, engineering capacity, and current memory-safety incident data. Without these, any deadline or projected vulnerability reduction would be unsupported.\n\n## Concrete next decision\n\nAt the June 27, 2024 engineering leadership review, approve a time-boxed discovery and roadmap-scoping initiative. Require a first-party versus dependency inventory, a risk-ranked dependency list, an options paper comparing incremental remediation with rewrite scenarios, and a proposal for one bounded pilot. Make full rewrite funding contingent on that output and on reviewing the complete CISA PDFs. That is the defensible decision the available sources support. [S1][S2]\n\n## References\n\n- CISA, \"The Case for Memory Safe Roadmaps: Why Both C-Suite Executives and Technical Experts Need to Take Memory Safe Coding Seriously,\" December 6, 2023. [S1]\n- CISA, FBI, Australian Signals Directorate's ACSC, and Canadian Cyber Security Center, \"CISA and Partners Release Guidance for Exploring Memory Safety in Critical Open Source Projects,\" June 26, 2024. [S2]\n"
+  }
+}

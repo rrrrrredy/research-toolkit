@@ -1,0 +1,47 @@
+{
+  "scope": "LLM-judged fixed-source instruction-only Lite pilot",
+  "n_admitted": 5,
+  "results": [
+    {
+      "pair_id": "pair-01",
+      "task_id": "memory-roadmap-en",
+      "family_id": "software-dependency-risk",
+      "status": "unresolved_author_failure",
+      "preference": "unresolved",
+      "outcome": "unresolved"
+    },
+    {
+      "pair_id": "pair-02",
+      "task_id": "productivity-outlook-zh",
+      "family_id": "macro-productivity",
+      "status": "judged",
+      "preference": "tie",
+      "outcome": "tie"
+    },
+    {
+      "pair_id": "pair-03",
+      "task_id": "banking-chatbots-en",
+      "family_id": "customer-service-automation",
+      "status": "judged",
+      "preference": "B",
+      "outcome": "without_toolkit"
+    },
+    {
+      "pair_id": "pair-04",
+      "task_id": "ai-risk-adoption-zh",
+      "family_id": "ai-governance-implementation",
+      "status": "unresolved_author_failure",
+      "preference": "unresolved",
+      "outcome": "unresolved"
+    },
+    {
+      "pair_id": "pair-05",
+      "task_id": "battery-market-en",
+      "family_id": "energy-market",
+      "status": "unresolved_author_failure",
+      "preference": "unresolved",
+      "outcome": "unresolved"
+    }
+  ],
+  "general_quality_advantage_established": false
+}

@@ -1,0 +1,104 @@
+{
+  "brief": "Write an English research memo of 600-800 words for the strategy lead of a mid-sized power-electronics supplier considering the U.S. utility-scale battery-storage market. Use only the supplied EIA article published August 7, 2026; the decision date is August 10, 2026. Explain what the installed-capacity and planned-addition figures imply for demand, what they cannot establish about addressable supplier revenue or project returns, and whether to authorize a limited market-discovery effort or a larger commercial commitment. Compare the strongest opportunity signal with the strongest reason for caution, identify the next evidence that would change the recommendation, and cite source IDs. Do not invent supplier prices, storage durations, project margins or probabilities. This is a bounded source-based desk memo, not live research or investment advice. The company and decision scenario are hypothetical; source facts are real official material.\n",
+  "sources": [
+    {
+      "id": "S1",
+      "text": "Source URL: https://www.eia.gov/todayinenergy/detail.php?id=67925\nRetrieved: 2026-10-10. Text-only archived source unit; linked material is not supplied unless separately listed.\nPublisher/rights basis: EIA staff; U.S. federal government article text; no images.\n\nIn-brief analysis\nAugust 7, 2026\nBattery storage capacity averaged 70% growth over the last three years\nData source:\nU.S. Energy Information Administration,\nPreliminary Monthly Electric Generator Inventory\nUtility-scale battery storage capacity in the United States\nincreased\nsignificantly during the last three years, with an annual average growth rate of 70%. By the end of 2025, the U.S. power system had operational battery storage capacity of 43.6 gigawatts (GW). During the first six months of 2026, operators added another 8.3 GW of battery storage capacity, reaching nearly 52 GW of nameplate battery storage capacity, based on our latest\nPreliminary Monthly Electric Generator Inventory\n.\nOperators anticipate bringing an additional 54 GW of battery storage capacity online over the next two and half years, according to plans they report to us. Plans for additional capacity coming online in the second half of this year total 14 GW. Operators currently plan to add 26 GW in 2027 and 14 GW in 2028.\nSolar photovoltaic (PV) plants host the largest battery storage capacity units. The\nBellefield Solar and Energy Storage Farm\n, which began operations in December 2025, couples 500 megawatts (MW) of photovoltaic capacity with 500 MW of nameplate power storage for the California Independent System Operator (CAISO). Plans for the Bellefield facility call for a doubling of the PV and storage capacity of the facility and for the new capacity to be operational by November this year. If those plans materialize, the facility will become the largest power storage facility in the United States. The\nManatee Solar Energy Center\nin Florida, operational since 2021, has 75 MW of solar capacity and 409 MW of battery storage capacity; it is the second-largest battery storage project. The\nGemini Solar Hybrid\nin the state of Nevada has 690 MW of photovoltaic capacity along with power storage capacity of 380 MW, which became operational in 2024.\nSolar photovoltaic and storage facilities enable operators to store power when wholesale electricity\nprices are low\nand discharge electricity when prices are high, allowing power producers to capture larger profits.\nPrincipal contributors:\nEIA Staff\n"
+    }
+  ],
+  "rubric": {
+    "id": "blinded-pairwise-v1",
+    "scope": "One-judge prospective pilot; does not replace historical panels or current Full report acceptance.",
+    "dimensions": [
+      "task_fidelity",
+      "facts_and_evidence",
+      "explanation_and_synthesis",
+      "counterevidence_and_boundaries",
+      "reader_usefulness"
+    ],
+    "anchors": {
+      "0": "Essential requirement absent or failed",
+      "1": "Major defects make this aspect unusable",
+      "2": "Partly met; substantive revision needed",
+      "3": "Meets the task with bounded issues",
+      "4": "Fully developed with concrete support",
+      "not_assessed": "Insufficient assessment context; not zero or approval"
+    },
+    "instructions": "Judge first submissions against the same brief and full supplied sources. Do not award points for files, logs, checklist markers or report length. Rate each dimension separately with a reason, an exact locatable excerpt and source evidence. Do not compute a weighted passing score. Prefer the report that better supports the requested decision; use tie for comparable quality and unresolved for missing evidence. Give condition clues only after choosing. Model preferences and ratings need evidence review before any efficacy interpretation.",
+    "response_schema": {
+      "preference": "A | B | tie | unresolved",
+      "reason": "Located comparative reasoning",
+      "reports": {
+        "A": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        },
+        "B": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        }
+      },
+      "condition_clues": "Possible condition-identifying clues, or none observed"
+    }
+  },
+  "reports": {
+    "A": "# Research Memo: U.S. Utility-Scale Battery Storage — Demand Signals and Commitment Level\n\n**To:** Strategy Lead  \n**Date:** August 10, 2026  \n**Scope:** This memo relies only on the EIA article “Battery storage capacity averaged 70% growth over the last three years,” published August 7, 2026 (S1). It is a bounded source-based desk memo, not live research or investment advice. The company and decision scenario are hypothetical.\n\n## Recommendation\n\nAuthorize a limited market-discovery effort, not a larger commercial commitment. The EIA data show a large and expanding installed base plus a substantial reported pipeline. They do not, however, establish addressable supplier revenue, procurement timing, contract structures, or project returns. The correct next step is to test whether the aggregate capacity signal can be converted into identifiable, qualified demand for a mid-sized power-electronics supplier.\n\n## What the installed-capacity and planned-addition figures imply for demand\n\nThe demand signal is real and sizable. U.S. utility-scale battery storage capacity grew at an annual average rate of 70% over the last three years (S1). By the end of 2025, the power system had 43.6 GW of operational battery storage capacity. In the first six months of 2026 alone, operators added another 8.3 GW, bringing the total to nearly 52 GW of nameplate battery storage capacity (S1).\n\nThe forward pipeline is stronger still. Operators report plans to bring an additional 54 GW online over the next two and a half years: 14 GW in the second half of 2026, 26 GW in 2027, and 14 GW in 2028 (S1). If these plans materialize, they imply continued demand for battery storage equipment, integration, and related power-electronics content over a multiyear period. The concentration in solar PV co-location is also notable. The EIA article states that solar PV plants host the largest battery storage units, citing Bellefield Solar and Energy Storage Farm, Manatee Solar Energy Center, and Gemini Solar Hybrid (S1). It further notes that solar-plus-storage facilities enable operators to store power when wholesale electricity prices are low and discharge when prices are high, allowing power producers to capture larger profits (S1). That rationale supports hybrid project development and, by extension, potential component demand.\n\n## What the figures cannot establish\n\nThe figures cannot establish addressable supplier revenue. The EIA reports nameplate battery storage capacity in GW, not procurement volumes, equipment prices, supplier shares, or revenue pools (S1). A GW figure does not translate directly into sales for a power-electronics supplier without knowing system architecture, component content, sourcing strategy, and contract structure.\n\nThey also cannot establish project returns. The article gives no project costs, power purchase agreements, tax-equity terms, margins, or internal rates of return (S1). The statement that solar-plus-storage can capture larger profits is a general operating rationale, not evidence about actual project economics or supplier profitability.\n\nThe planned additions are operator-reported plans, not confirmed purchases or final investment decisions. The EIA describes them as “plans they report to us” (S1). Such plans can slip, change, or cancel. The article does not assign probabilities, and this memo should not invent them. The data also lack regional granularity beyond selected examples, customer identities, procurement calendars, and technical requirements. Finally, the article does not specify storage duration or energy capacity in MWh, so it cannot support assumptions about battery duration or the associated balance-of-system content (S1).\n\n## Strongest opportunity signal versus strongest reason for caution\n\nThe strongest opportunity signal is the scale and apparent duration of the planned pipeline: 54 GW over two and a half years, including 26 GW planned for 2027, on top of an installed base that reached nearly 52 GW by mid-2026 (S1). A market growing at that pace, with major solar-plus-storage projects and planned expansions such as Bellefield, suggests a potentially durable build cycle.\n\nThe strongest reason for caution is that this is a capacity plan, not a revenue forecast. A mid-sized supplier cannot infer that it can win share, qualify with developers, or achieve acceptable returns from aggregate GW figures alone. A larger commercial commitment now would rest on unverified assumptions about procurement, competition, and project viability. The 70% historical growth rate is backward-looking and may not persist (S1).\n\n## Next evidence that would change the recommendation\n\nThe next evidence should be project-level and procurement-specific: confirmed orders or supplier qualification opportunities tied to the planned 2026–2028 additions; regional and ownership breakdowns of the pipeline; evidence of which projects are solar co-located; and data on buyer procurement processes and incumbent supplier positions. If such evidence shows a clear, accessible segment and a credible qualification path, the case for a larger commitment would strengthen. If the pipeline remains aggregate, delayed, or dominated by inaccessible procurement channels, the limited discovery effort should continue or be stopped. For now, limited market discovery is the proportionate step.\n\n## Source\n\nS1. U.S. Energy Information Administration, “Battery storage capacity averaged 70% growth over the last three years,” August 7, 2026.\n",
+    "B": "# Research Memo: U.S. Utility-Scale Battery Storage — Demand Signals and Supplier Decision\n\n**To:** Strategy Lead  \n**From:** Research Desk  \n**Date:** August 10, 2026  \n**Re:** Authorizing market discovery versus a larger commercial commitment in U.S. utility-scale battery storage\n\n## Recommendation\n\nAuthorize a limited market-discovery effort. Do not authorize a larger commercial commitment on the basis of the available source alone. The EIA figures show a large and rapidly growing installed base and a substantial reported pipeline, but they do not establish addressable supplier revenue, project returns, procurement timing, or supplier selection. A bounded discovery step is proportionate; a commercial commitment would outrun the evidence. The available source suggests real deployment momentum, not a quantified equipment-market opportunity. [S1]\n\n## What the capacity figures establish\n\nThe U.S. utility-scale battery storage fleet reached 43.6 GW of operational capacity by the end of 2025. During the first six months of 2026, operators added another 8.3 GW, bringing the total to nearly 52 GW of nameplate battery storage capacity. Over the prior three years, capacity grew at an annual average rate of 70%. [S1]\n\nThe forward pipeline is also large. Operators report plans to bring an additional 54 GW online over the next two and a half years: 14 GW in the second half of 2026, 26 GW in 2027, and 14 GW in 2028. Solar PV plants host the largest battery storage units. The Bellefield Solar and Energy Storage Farm began operations in December 2025 with 500 MW of PV and 500 MW of nameplate storage for CAISO, and its plans call for doubling both PV and storage capacity by November 2026. The Manatee Solar Energy Center in Florida pairs 75 MW of solar with 409 MW of battery storage, while the Gemini Solar Hybrid in Nevada pairs 690 MW of PV with 380 MW of storage. [S1]\n\nThese figures imply sustained demand for building and operating battery-storage systems. They also describe a clear economic mechanism: solar-plus-storage facilities store power when wholesale electricity prices are low and discharge when prices are high, allowing producers to capture larger profits. For a power-electronics supplier, that mechanism supports a reasonable hypothesis that storage deployment creates downstream demand for equipment and services. But the source stops at capacity and planned capacity. It does not translate GW into equipment spend, supplier content, or revenue. [S1]\n\n## What the figures cannot establish\n\nFirst, they cannot establish addressable supplier revenue. The source provides no equipment prices, bill-of-materials breakdown, supplier market shares, or procurement volumes. One GW of storage does not map to a known dollar amount for a power-electronics supplier without additional evidence. [S1]\n\nSecond, they cannot establish project returns. The article describes price arbitrage as a rationale for solar-plus-storage, but it does not report capital costs, power-purchase prices, revenue stacks, utilization, or margins. No project-level return can be inferred from these capacity figures. [S1]\n\nThird, the figures are nameplate power capacity in MW, not energy capacity in MWh or storage duration. The source does not report storage duration. Without MWh and duration, the scale of battery content and the duty cycle for power-conversion equipment cannot be sized. [S1]\n\nFourth, the pipeline is reported as anticipated plans. Operators “anticipate” bringing additional capacity online, and the article notes “if those plans materialize.” These are not final equipment orders, and some planned capacity may slip, change configuration, or not proceed. [S1]\n\n## Strongest opportunity signal versus strongest caution\n\nThe strongest opportunity signal is the near-term scale and repetition of the pipeline. A 54 GW reported addition over two and a half years, including 14 GW in the second half of 2026 and 26 GW in 2027, is large enough to indicate that procurement activity is not purely speculative. The dominance of solar-plus-storage configurations also suggests a repeatable project type that could support standardized supplier offerings. [S1]\n\nThe strongest reason for caution is that this is a capacity inventory, not a market or procurement dataset. Even if the planned capacity is built, the source cannot show which suppliers capture the equipment content, at what price, or with what margin. The value may accrue to battery cell makers, EPCs, developers, or incumbent power-electronics suppliers. The source also offers no basis for sizing a commercial commitment or estimating returns. [S1]\n\n## Next evidence that would change the recommendation\n\nThe recommendation would move toward a larger commercial commitment if additional evidence showed a sizable, accessible, and competitively winnable power-electronics segment tied to committed near-term projects. The most useful next evidence would be a more granular dataset that separates planned capacity from under-construction or financially committed capacity and reports energy capacity in MWh and storage duration. Also material would be equipment procurement or backlog disclosures from storage developers, EPCs, or power-electronics suppliers; project financial close or offtake contracts for the 2026–2027 pipeline; and supplier market-share and pricing benchmarks. If plans slip or equipment content appears captured by incumbents, the recommendation should remain discovery or decline.\n\n## Limitations\n\nThis memo relies on one EIA article published August 7, 2026. It is a bounded source-based desk memo, not live research, investment advice, or a projection. The company and decision scenario are hypothetical; the source facts are official EIA material. No supplier prices, storage durations, project margins, or probabilities are asserted. This memo has not undergone independent review; conclusions are provisional and should be treated as an input to further discovery. [S1]\n\n## Source\n\n[S1] U.S. Energy Information Administration, “Battery storage capacity averaged 70% growth over the last three years,” In-brief analysis, August 7, 2026. https://www.eia.gov/todayinenergy/detail.php?id=67925\n"
+  }
+}

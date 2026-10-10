@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "profile": "lite",
+  "source_access": "fixed_supplied_sources",
+  "cohort_status": "prospective_development",
+  "publication_rights_confirmed": true,
+  "selection_statement": "Five purposively selected distinct decision families; 3 original English and 2 original Chinese briefs, fixed before generation. Full admitted government text units, hypothetical organizational decisions; not a random population sample. No exclusions or retries after observing outputs. Four separate same-model strata share these five families; n remains 5, not 20 independent tasks.",
+  "exposure_statement": "New task phrasing written for this prospective development pilot. Public sources may occur in model training. No held-out or unseen claim. Prior diagnostic and calibration results are unchanged.",
+  "author": {
+    "base_url": "https://open.bigmodel.cn/api/paas/v4",
+    "model": "glm-5.3",
+    "snapshot_statement": "Provider model alias and exact returned ID recorded, not immutable model weights. Same parameters in both arms. GLM Coding Plan availability probe failed because subscription expired; ordinary API selected before all GLM report runs.",
+    "api_key_env": "GLM_API_KEY",
+    "max_completion_tokens": 12288,
+    "max_total_tokens": 98304,
+    "timeout_seconds": 240,
+    "completion_parameter": "max_tokens"
+  },
+  "judge": {
+    "base_url": "http://127.0.0.1",
+    "model": "gpt-6-astra",
+    "snapshot_statement": "Native Codex CLI fresh ephemeral contexts; requested gpt-6-astra at low effort. This role is a declared adapter extension, not an HTTP endpoint. Returned model is not independently attested. Reported CLI token usage and tool events retained; host context remains a limitation.",
+    "api_key_env": "UNUSED_NATIVE_CODEX_AUTH",
+    "max_completion_tokens": 8192,
+    "max_total_tokens": 98304,
+    "timeout_seconds": 240,
+    "completion_parameter": "max_tokens"
+  },
+  "tasks": [
+    {
+      "task_id": "battery-market-en",
+      "family_id": "energy-market",
+      "language": "en",
+      "task_type": "market_opportunity",
+      "brief": "briefs/battery-market-en.md",
+      "sources": [
+        "sources/battery.md"
+      ]
+    },
+    {
+      "task_id": "banking-chatbots-en",
+      "family_id": "customer-service-automation",
+      "language": "en",
+      "task_type": "product_adoption",
+      "brief": "briefs/banking-chatbots-en.md",
+      "sources": [
+        "sources/chatbots.md"
+      ]
+    },
+    {
+      "task_id": "memory-roadmap-en",
+      "family_id": "software-dependency-risk",
+      "language": "en",
+      "task_type": "technical_diligence",
+      "brief": "briefs/memory-roadmap-en.md",
+      "sources": [
+        "sources/memory-roadmap.md",
+        "sources/memory-oss.md"
+      ]
+    },
+    {
+      "task_id": "productivity-outlook-zh",
+      "family_id": "macro-productivity",
+      "language": "zh-CN",
+      "task_type": "industry_outlook",
+      "brief": "briefs/productivity-outlook-zh.md",
+      "sources": [
+        "sources/productivity.md"
+      ]
+    },
+    {
+      "task_id": "ai-risk-adoption-zh",
+      "family_id": "ai-governance-implementation",
+      "language": "zh-CN",
+      "task_type": "framework_adoption",
+      "brief": "briefs/ai-risk-adoption-zh.md",
+      "sources": [
+        "sources/ai-faq.md",
+        "sources/ai-core.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "task_id": "battery-market-en",
+    "family_id": "energy-market",
+    "language": "en",
+    "task_type": "market_opportunity",
+    "brief": "briefs/battery-market-en.md",
+    "sources": [
+      "sources/battery.md"
+    ]
+  },
+  {
+    "task_id": "banking-chatbots-en",
+    "family_id": "customer-service-automation",
+    "language": "en",
+    "task_type": "product_adoption",
+    "brief": "briefs/banking-chatbots-en.md",
+    "sources": [
+      "sources/chatbots.md"
+    ]
+  },
+  {
+    "task_id": "memory-roadmap-en",
+    "family_id": "software-dependency-risk",
+    "language": "en",
+    "task_type": "technical_diligence",
+    "brief": "briefs/memory-roadmap-en.md",
+    "sources": [
+      "sources/memory-roadmap.md",
+      "sources/memory-oss.md"
+    ]
+  },
+  {
+    "task_id": "productivity-outlook-zh",
+    "family_id": "macro-productivity",
+    "language": "zh-CN",
+    "task_type": "industry_outlook",
+    "brief": "briefs/productivity-outlook-zh.md",
+    "sources": [
+      "sources/productivity.md"
+    ]
+  },
+  {
+    "task_id": "ai-risk-adoption-zh",
+    "family_id": "ai-governance-implementation",
+    "language": "zh-CN",
+    "task_type": "framework_adoption",
+    "brief": "briefs/ai-risk-adoption-zh.md",
+    "sources": [
+      "sources/ai-faq.md",
+      "sources/ai-core.md"
+    ]
+  }
+]

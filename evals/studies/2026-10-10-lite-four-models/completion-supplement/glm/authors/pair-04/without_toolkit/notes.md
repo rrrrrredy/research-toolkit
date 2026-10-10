@@ -1,0 +1,5 @@
+- Word count of memo body: roughly 760 words (within 600–800 target).
+- All facts drawn from S1 only: 70% growth, 43.6 GW end-2025, 8.3 GW H1-2026, ~52 GW, 54 GW pipeline (14/26/14), Bellefield, Manatee, Gemini, price-arbitrage rationale.
+- Deliberately avoided: any invented prices, durations (MWh), margins, probabilities, or revenue estimates — the brief forbids these and S1 contains none.
+- Structure follows brief: demand implications, limits, decision (limited discovery), strongest signal vs. caution, next evidence, citations.
+- Decision date Aug 10, 2026 handled; source "Retrieved 2026-10-10" metadata discrepancy ignored as non-reader-facing; publication date Aug 7, 2026 used.
