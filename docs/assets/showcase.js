@@ -144,7 +144,7 @@
     var skillGuide = document.querySelector("[data-i18n='skillLink']");
     skillGuide.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README"+(lang === "zh" ? ".zh-CN" : "")+".md"+(lang === "zh" ? "#安装后重复使用" : "#install-for-repeated-use");
     var fallback = document.querySelector("[data-i18n='fallbackGuide']");
-    fallback.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README"+(lang === "zh" ? ".zh-CN" : "")+".md"+(lang === "zh" ? "#直接读取使用" : "#use-without-installation");
+    fallback.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README"+(lang === "zh" ? ".zh-CN" : "")+".md"+(lang === "zh" ? "#选择工具" : "#choose-your-tool");
     var video = document.querySelector("video"), source = video.querySelector("source");
     video.poster = "assets/readme-preview."+(lang === "zh" ? "zh-CN" : "en")+".png";
     var file = "assets/case-walkthrough"+(lang === "zh" ? ".zh-CN" : "")+".mp4";
@@ -197,7 +197,7 @@
       if (!navigator.clipboard) throw new Error("Clipboard unavailable");
       await navigator.clipboard.writeText(data.prompts[lang]);
       this.textContent = lang === "zh" ? "已复制" : "Copied";
-      document.getElementById("copy-status").textContent = lang === "zh" ? "请求已复制，发送前请替换 [日期]。" : "Request copied. Replace [DATE] before sending.";
+      document.getElementById("copy-status").textContent = lang === "zh" ? "请求已复制，请填入你的研究需求后发送。" : "Request copied. Add your research request before sending.";
     } catch (_) {
       var range = document.createRange(); range.selectNodeContents(document.getElementById("research-prompt"));
       var selection = window.getSelection(); selection.removeAllRanges(); selection.addRange(range);

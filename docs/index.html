@@ -45,24 +45,19 @@
 <p class="boundary" data-i18n="caseBoundary">Historical report. Information through September 9, 2026; some dynamic documents were checked on September 10. Public-source research without installed-product testing. These versions are not a controlled with/without-toolkit experiment.</p>
 </div></section>
 <section class="section use-section" id="start"><div class="wrap use-grid">
-<div class="use-copy"><p class="eyebrow" data-i18n="startEyebrow">RESEARCH REQUEST</p><h2 data-i18n="startHeading">Usage</h2><p data-i18n="startIntro">Send this request to an agent that can read the repository and access your sources.</p><p class="usage-note" data-i18n="startNote2">If repository access is unavailable, upload the files or paste the instructions. Native Skill installation is optional.</p><a class="text-link" data-i18n="accessLink" href="#install">Ways to provide the toolkit</a></div>
+<div class="use-copy"><p class="eyebrow" data-i18n="startEyebrow">RESEARCH REQUEST</p><h2 data-i18n="startHeading">Usage</h2><p data-i18n="startIntro">Give your agent a research question and ask it to read SKILL.md, the shared entry point for the research methods.</p><p class="usage-note" data-i18n="startNote2">If repository access is unavailable, upload the files or paste the instructions. Native Skill installation is optional.</p><a class="text-link" data-i18n="accessLink" href="#install">Ways to provide the toolkit</a></div>
 <div class="prompt"><div class="prompt-head"><span data-i18n="promptLabel">COPYABLE RESEARCH REQUEST</span><button class="copy js-only" data-i18n="copy" id="copy-request" type="button">Copy request</button></div><pre id="research-prompt">Use Research Toolkit for this task:
 https://github.com/rrrrrredy/research-toolkit
 
-Research office agents available to users in China in 2026.
-Compare Kimi Work, Coze, Feishu / Doubao Work, Wukong,
-WPS, and WorkBuddy. Write for AI product and workplace leads.
+Read SKILL.md first, then follow its links to the methods needed
+for each research stage.
 
-Explain which files and business objects each product changes,
-where tasks run, and how models, tools, context, permissions,
-and human involvement affect delivery and rework.
+My research request: [Describe your research question, intended
+use, and desired output.]
 
-Use information available as of [DATE]. Cite important claims.
-Distinguish company statements, media experiences, and measured
-outcomes. Explain what could overturn your conclusions.
-
-Read SKILL.md. Clarify missing requirements and agree on an
-outline before collecting sources.</pre><div class="prompt-foot"><p data-i18n="promptNote">Replace [DATE] and adapt the topic and audience. This request is based on the archived case brief; a new run may reach different conclusions.</p><a data-i18n="fallbackGuide" href="https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md#use-without-installation">File and text guide</a><p aria-live="polite" class="copy-status" id="copy-status" role="status"></p></div></div>
+Use the conversation to clarify essential gaps and establish the
+brief and outline before collecting sources. Follow the selected
+profile's research, writing, review, and delivery instructions.</pre><div class="prompt-foot"><p data-i18n="promptNote">Replace the bracketed text with your research request. Include any known audience, scope, length, time cutoff, or required sources.</p><a data-i18n="fallbackGuide" href="https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md#choose-your-tool">Setup for your agent</a><p aria-live="polite" class="copy-status" id="copy-status" role="status"></p></div></div>
 </div></section>
 <section class="section" id="method"><div class="wrap">
 <div class="section-header"><div><h2 data-i18n="methodHeading">The research workflow.</h2><p data-i18n="methodIntro">From the brief to the report, each stage has a concrete output.</p></div><a data-i18n="fullMethod" data-method-link="" data-preserve-reading="" href="framework.html">Research method</a></div>
@@ -865,8 +860,8 @@ outline before collecting sources.</pre><div class="prompt-foot"><p data-i18n="p
     ]
   },
   "prompts": {
-    "en": "Use Research Toolkit for this task:\nhttps://github.com/rrrrrredy/research-toolkit\n\nResearch office agents available to users in China in 2026.\nCompare Kimi Work, Coze, Feishu / Doubao Work, Wukong,\nWPS, and WorkBuddy. Write for AI product and workplace leads.\n\nExplain which files and business objects each product changes,\nwhere tasks run, and how models, tools, context, permissions,\nand human involvement affect delivery and rework.\n\nUse information available as of [DATE]. Cite important claims.\nDistinguish company statements, media experiences, and measured\noutcomes. Explain what could overturn your conclusions.\n\nRead SKILL.md. Clarify missing requirements and agree on an\noutline before collecting sources.",
-    "zh": "本次研究请使用 Research Toolkit：\nhttps://github.com/rrrrrredy/research-toolkit\n\n研究 2026 年国内办公 Agent 产品。\n比较 Kimi Work、扣子、飞书／豆包工作、悟空、WPS、WorkBuddy，\n面向 AI 产品与企业办公负责人写作。\n\n说明各产品改变哪些文件和业务对象、任务在哪里运行，\n以及模型、工具、上下文、权限和人工参与如何影响交付与返工。\n\n以 [日期] 为信息截止日。重要判断附来源，区分公司说法、\n媒体体验与实际效果证据，并说明哪些反证可能改变结论。\n\n阅读 SKILL.md，澄清缺失的研究需求，确认提纲后搜集资料。"
+    "en": "Use Research Toolkit for this task:\nhttps://github.com/rrrrrredy/research-toolkit\n\nRead SKILL.md first, then follow its links to the methods needed\nfor each research stage.\n\nMy research request: [Describe your research question, intended\nuse, and desired output.]\n\nUse the conversation to clarify essential gaps and establish the\nbrief and outline before collecting sources. Follow the selected\nprofile's research, writing, review, and delivery instructions.",
+    "zh": "本次研究请使用 Research Toolkit：\nhttps://github.com/rrrrrredy/research-toolkit\n\n先阅读 SKILL.md，再按研究阶段读取它链接的参考方法。\n\n我的研究需求：[填写研究问题、用途和希望得到的成果。]\n\n结合已有信息澄清关键缺口，明确需求和提纲后再搜集资料，\n并按选定档位完成研究、写作、评审与交付。"
   },
   "i18n": {
     "en": {
@@ -886,11 +881,11 @@ outline before collecting sources.</pre><div class="prompt-foot"><p data-i18n="p
       "videoNote": "A recording of the product questions, passage changes, reasoning, and review decisions.",
       "startEyebrow": "RESEARCH REQUEST",
       "startHeading": "Usage",
-      "startIntro": "Send this request to an agent that can read the repository and access your sources.",
+      "startIntro": "Give your agent a research question and ask it to read SKILL.md, the shared entry point for the research methods.",
       "promptLabel": "COPYABLE RESEARCH REQUEST",
       "copy": "Copy request",
-      "promptNote": "Replace [DATE] and adapt the topic and audience. This request is based on the archived case brief; a new run may reach different conclusions.",
-      "fallbackGuide": "File and text guide",
+      "promptNote": "Replace the bracketed text with your research request. Include any known audience, scope, length, time cutoff, or required sources.",
+      "fallbackGuide": "Setup for your agent",
       "methodHeading": "The research workflow.",
       "methodIntro": "From the brief to the report, each stage has a concrete output.",
       "m1": "Frame the question",
@@ -990,11 +985,11 @@ outline before collecting sources.</pre><div class="prompt-foot"><p data-i18n="p
       "videoNote": "产品问题、稿件差异、修改理由与审阅取舍的实际页面录制。",
       "startEyebrow": "研究请求",
       "startHeading": "使用",
-      "startIntro": "将以下请求交给能够读取仓库并访问所需来源的 Agent。",
+      "startIntro": "提供你的研究问题，让 Agent 阅读通用方法入口 SKILL.md。",
       "promptLabel": "可直接复制的研究请求",
       "copy": "复制请求",
-      "promptNote": "替换 [日期]，并按需要调整主题与读者。请求改编自历史案例；新的研究可能得出不同结论。",
-      "fallbackGuide": "文件与文本使用指南",
+      "promptNote": "将方括号内容替换为你的研究需求；已明确的读者、范围、篇幅、信息截止日或必需材料也可一并提供。",
+      "fallbackGuide": "不同 Agent 的接入说明",
       "methodHeading": "研究流程",
       "methodIntro": "从研究需求到完整报告，每个阶段都有具体产物。",
       "m1": "明确研究问题",
