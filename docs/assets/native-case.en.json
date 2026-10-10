@@ -1,0 +1,128 @@
+{
+  "information_cutoff": "2026-10-10",
+  "source_access_end": "2026-10-10",
+  "case_url": "case-study/api-or-browser/index.html",
+  "original_url": "case-study/api-or-browser/initial.html",
+  "revised_url": "case-study/api-or-browser/report.html",
+  "review_url": "case-study/api-or-browser/reviews.html",
+  "links": {
+    "report": "case-study/api-or-browser/report.html",
+    "archive": "case-study/api-or-browser/index.html",
+    "brief": "case-study/api-or-browser/brief.html",
+    "sources": "case-study/api-or-browser/sources.html",
+    "claims": "case-study/api-or-browser/claims.html",
+    "reviews": "case-study/api-or-browser/reviews.html"
+  },
+  "poster": "assets/api-browser-preview.en.png",
+  "video": "assets/api-browser-walkthrough.en.mp4",
+  "hero": {
+    "en": {
+      "quote": "The central trade-off is how much work remains after sending a command: checking the resulting state, resolving uncertain outcomes and maintaining the integration when the application changes. That work determines whether a successful demonstration becomes a repeatable business process.",
+      "highlights": [
+        "checking the resulting state",
+        "resolving uncertain outcomes"
+      ]
+    }
+  },
+  "pairs": [
+    {
+      "id": "migration",
+      "original_url": "case-study/api-or-browser/initial.html#L74",
+      "revised_url": "case-study/api-or-browser/report.html#L74",
+      "review_url": "case-study/api-or-browser/reviews.html#migration-costs",
+      "content_type": "excerpt",
+      "en": {
+        "label": "Migration costs",
+        "context": "Section 5 asks when a hybrid API-and-browser workflow should change.",
+        "title": "New API coverage does not settle the migration decision.",
+        "why": "The review identified a missing counterexample: a working browser step can remain worthwhile when replacing and revalidating it costs more than the expected savings.",
+        "before": "There is no benefit in preserving this split if the API later covers document generation with adequate permissions and result checking.",
+        "after": "If the API later covers document generation with adequate permissions and result checking, the original coverage gap disappears. Retiring the browser step then depends on whether the expected maintenance and recovery savings justify migration and revalidation costs.",
+        "before_note": "The draft treated closing a coverage gap as sufficient reason to retire the browser step.",
+        "after_note": "The revision separates capability coverage from the economics of changing a working system.",
+        "before_highlights": [
+          "There is no benefit"
+        ],
+        "highlights": [
+          "the original coverage gap disappears",
+          "justify migration and revalidation costs"
+        ],
+        "changes": [
+          {
+            "label": "Qualified",
+            "text": "Replace an absolute claim about the value of a hybrid with the narrower claim that its original coverage gap has disappeared."
+          },
+          {
+            "label": "Added",
+            "text": "Make migration depend on maintenance and recovery savings relative to migration and revalidation costs."
+          }
+        ],
+        "reasons": [
+          {
+            "heading": "Coverage and replacement are different decisions",
+            "body": "A new endpoint can remove the reason a browser step was originally necessary. It does not erase the investment in a working integration or the cost of validating its replacement."
+          },
+          {
+            "heading": "Use the report's own cost framework",
+            "body": "Section 6 already counts integration, maintenance, recovery and human exceptions. The revised recommendation applies that same reasoning to changing an existing workflow."
+          }
+        ],
+        "tradeoffs": [
+          {
+            "label": "Adopted",
+            "text": "The reviewer's logical counterexample and its implication for migration."
+          },
+          {
+            "label": "Retained",
+            "text": "A second route should solve a specific coverage or control gap; a single route can still be sufficient."
+          },
+          {
+            "label": "Evidence limit",
+            "text": "No migration cost or performance advantage was measured. The recommendation remains conditional on the team's workload."
+          }
+        ],
+        "sources": [
+          {
+            "label": "Initial paragraph",
+            "url": "case-study/api-or-browser/initial.html#L74"
+          },
+          {
+            "label": "Revised paragraph",
+            "url": "case-study/api-or-browser/report.html#L74"
+          },
+          {
+            "label": "Cost framework",
+            "url": "case-study/api-or-browser/report.html#6-compare-the-cost-of-verified-completion"
+          }
+        ],
+        "history": [
+          {
+            "stage": "Initial draft",
+            "body": "An original English article drew on 11 primary sources and included the categorical statement that preserving the split had no benefit."
+          },
+          {
+            "stage": "Independent review",
+            "body": "A separate reviewer context assessed the complete article and checked the cited primary sources. It returned needs_revision for one necessary minor finding about migration costs."
+          },
+          {
+            "stage": "Revision",
+            "body": "The author accepted the finding and replaced the categorical statement with a conditional migration decision. The initial draft and negative review are retained."
+          },
+          {
+            "stage": "Current-version review",
+            "body": "The same separate reviewer context reread the complete revised article, verified the correction, and returned pass with no further necessary findings. It reused the earlier primary-source reads."
+          }
+        ],
+        "decisions": [
+          {
+            "finding": "NE-D1-F01 · Missing migration costs",
+            "decision": "Accepted and revised",
+            "basis": "An adequate API removes the assumed coverage gap. Rebuilding and validating an existing browser step can still cost more than the expected maintenance and recovery savings."
+          }
+        ],
+        "review_note": "This is one documented content correction in one research article. It is not a measured estimate of the Toolkit's quality advantage.",
+        "review_link": "Complete review and revision record"
+      }
+    }
+  ]
+}

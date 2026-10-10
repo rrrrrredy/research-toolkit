@@ -14,95 +14,44 @@ Research methods · Callable workflow tools · Review choices. For industry rese
 
 ## Research case
 
-<a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/report.en.md">
+<a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/api-or-browser/report.md">
 <picture>
-  <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./docs/assets/repository-case.en.mobile.dark.png">
-  <source media="(max-width: 600px)" srcset="./docs/assets/repository-case.en.mobile.png">
-  <source media="(prefers-color-scheme: dark)" srcset="./docs/assets/repository-case.en.dark.png">
-  <img src="./docs/assets/repository-case.en.png" alt="Office agent research in China. September 2026 report excerpt: creating files, editing existing objects, and changing business state are different deliverables." width="840">
+  <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./docs/assets/api-browser-case.en.mobile.dark.png">
+  <source media="(max-width: 600px)" srcset="./docs/assets/api-browser-case.en.mobile.png">
+  <source media="(prefers-color-scheme: dark)" srcset="./docs/assets/api-browser-case.en.dark.png">
+  <img src="./docs/assets/api-browser-case.en.png" alt="APIs or browsers for AI agents. Original English research: choose an execution route by action coverage, verified completion, and recovery." width="840">
 </picture>
 </a>
 
-[**Full report (English translation)**](./docs/case-study/report.en.md) · [Initial draft (Chinese)](./docs/case-study/office-agents/original.zh-CN.md) · [Final report (Chinese)](./docs/case-study/office-agents/revised.zh-CN.md) · [Sources and reviews (Chinese)](./docs/case-study/office-agents/README.md)
+[**Full report**](./docs/case-study/api-or-browser/report.md) · [Initial draft](./docs/case-study/api-or-browser/initial.md) · [Sources](./docs/case-study/api-or-browser/sources.md) · [Reviews and revision](./docs/case-study/api-or-browser/reviews.md)
 
-This report compares Kimi Work, Coze, Feishu / Doubao Work, Wukong, WPS, and WorkBuddy. Four real revisions cover prose, structure, product relationships, and model supply. The excerpts below are translated from the retained Chinese manuscripts.
+**APIs or browsers: how to choose an execution route for an AI agent.** Written in English from 11 primary English sources, this report compares supported APIs, DOM automation, and visual interaction through completion, retries, permissions, recovery, and cost.
 
 <details open>
-<summary><strong>Direct prose: replace a value claim with an action</strong></summary>
+<summary><strong>New API coverage does not settle the migration decision</strong></summary>
 
 **Initial draft**
 
-> The value of independent office agents lies not in moving a chat box onto the desktop, but in bringing materials, execution, and revisions into one stretch of work.
+> There is no benefit in preserving this split if the API later covers document generation with adequate permissions and result checking.
 
 **Final report**
 
-> Independent office agents organize materials, execution, and revisions in one workspace.
+> If the API later covers document generation with adequate permissions and result checking, the original coverage gap disappears. Retiring the browser step then depends on whether the expected maintenance and recovery savings justify migration and revalidation costs.
 
-Shorten the opening and replace the vague closing about different implementations with specific criteria: tools, context, and device availability. Keep the conditional benefit of less file handling and the operating limits.
+The independent review identified a missing counterexample: an existing browser step can remain worthwhile when replacing and revalidating it costs more than the expected savings. The author accepted the finding and qualified the recommendation.
 
-[Full passages and reasoning](https://rrrrrredy.github.io/research-toolkit/?lang=en&case=writing&detail=reason#case) · [Review decisions (Chinese)](./docs/case-study/office-agents/reviews.md)
-
-</details>
-
-<details>
-<summary><strong>Process narration: remove an outline announcement, retain the scope</strong></summary>
-
-**Initial draft**
-
-> The following sections cover work objects, independent workspaces, office suites, desktop execution, and commercialization. The evidence consists of public product documents and examples, without installed-product testing; a single use record does not represent industry performance.
-
-**Final opening**
-
-> The research uses public documents and examples, without installed-product testing. Some dynamic descriptions were checked on September 10; their capabilities are not attributed retrospectively to earlier versions.
-
-Delete the outline announcement and the sentence announcing three judgments. Keep source, testing, and sample limits in the opening. This is deletion and reorganization; the excerpts occupy different positions in the report.
-
-[Passage locations and reasoning](https://rrrrrredy.github.io/research-toolkit/?lang=en&case=process&detail=reason#case)
+[Full passages and reasoning](https://rrrrrredy.github.io/research-toolkit/?lang=en&case=migration&detail=reason#case) · [Original review and decision](./docs/case-study/api-or-browser/reviews.md#migration-costs)
 
 </details>
 
-<details>
-<summary><strong>aily and Doubao Work: narrow a product-lineage inference</strong></summary>
-
-**Initial excerpt**
-
-> This is evidence of continuity between the current product description and the earlier feature direction
-
-**Final excerpt**
-
-> The two points in time show product directions in object operations and organizational-context collaboration; they do not establish version inheritance between aily and Doubao Work
-
-The dated sources describe each product direction. They do not establish version inheritance or feature migration. Retain the capability descriptions and migration caveat; lack of evidence for inheritance does not establish that inheritance is absent.
-
-[Sources, changes, and review decisions](https://rrrrrredy.github.io/research-toolkit/?lang=en&case=versions&detail=review#case)
-
-</details>
-
-<details>
-<summary><strong>Coze's models: distinguish execution frameworks from model supply</strong></summary>
-
-**Initial excerpt**
-
-> Coze brings native agents, third-party agents hosted in the cloud, and local connections into one collaboration interface.
-
-**Added in the final report**
-
-> Third-party cloud mode runs execution frameworks […] on Coze cloud computers, using models supplied by Coze rather than being tied to the original provider’s account and model.
-
-The draft already described execution modes and permission boundaries. The revision adds native-model choices and third-party cloud-model supply. In this deployment, a framework name does not identify the model; supplied by Coze does not mean developed by Coze.
-
-[Full passages, sources, and reasoning](https://rrrrrredy.github.io/research-toolkit/?lang=en&case=analysis&detail=reason#case)
-
-</details>
-
-Historical report: information through September 9, 2026; some dynamic documents checked on September 10. Public-source research without installed-product testing. These versions are not a controlled with/without-toolkit experiment. [Evaluation status](./docs/evaluation-status.md)
+Public-source analysis, 10 October 2026. The workflow is illustrative; no deployment or comparative performance experiment was conducted. This case does not establish a general Toolkit quality advantage. [Evaluation status](./docs/evaluation-status.md)
 
 <details>
 <summary>Case walkthrough</summary>
 
-[![Report changes, reasoning, and review decisions](./docs/assets/case-walkthrough.gif)](./docs/assets/case-walkthrough.mp4)
+[![English report, revision reasoning, and review decisions](./docs/assets/api-browser-walkthrough.en.gif)](./docs/assets/api-browser-walkthrough.en.mp4)
 
-[Video](./docs/assets/case-walkthrough.mp4) · [Interactive case](https://rrrrrredy.github.io/research-toolkit/?lang=en&case=writing#case)
+[Video](./docs/assets/api-browser-walkthrough.en.mp4) · [Interactive case](https://rrrrrredy.github.io/research-toolkit/?lang=en&case=migration#case)
 
 </details>
 
@@ -203,7 +152,7 @@ The historical inventory is dated September 21, 2026: one of the original 12 fam
 | --- | --- |
 | Research methods, writing standards, and full instructions | [Research guide](./docs/research-guide.md) · [Stage methods](./references/) |
 | Plugin, Skill, MCP, and agent setup | [Usage and configuration](./docs/usage-modes.md) · [Agent setup](./agents/README.md) |
-| Reports, sources, and real revisions | [Case archive](./docs/case-study/office-agents/README.md) |
+| Reports, sources, and real revisions | [Case archive](./docs/case-study/api-or-browser/README.md) |
 | Evaluation materials, defects, and evidence limits | [Evaluation suite](./evals/README.md) · [Evaluation status](./docs/evaluation-status.md) |
 | Development, contributions, and releases | [Contributing](./CONTRIBUTING.md) · [Changelog](./CHANGELOG.md) |
 

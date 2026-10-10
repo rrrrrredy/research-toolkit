@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-reading-language="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sources and reading notes · Research Toolkit</title><link rel="stylesheet" href="../../assets/showcase.css?v=c67edffee6"><script src="../../assets/reading-preferences.js?v=a6da0e2e3f"></script></head><body><main class="report-shell"><nav class="report-nav"><a data-home-link href="../../?lang=en#case">Research Toolkit</a><a data-preserve-reading href="index.html">Case archive</a><a data-language="zh" href="../../?lang=zh#case">中文案例</a></nav><article class="report-article"><h1 id="top">Sources and reading notes</h1><details class="report-toc"><summary>Contents</summary><ol><li><a href="#s01-idempotent-requests">S01 — Idempotent requests</a></li><li><a href="#s02-advanced-error-handling">S02 — Advanced error handling</a></li><li><a href="#s03-api-v2-overview">S03 — API v2 overview</a></li><li><a href="#s04-auto-waiting">S04 — Auto-waiting</a></li><li><a href="#s05-locators">S05 — Locators</a></li><li><a href="#s06-authentication">S06 — Authentication</a></li><li><a href="#s07-best-practices-for-using-the-rest-api">S07 — Best practices for using the REST API</a></li><li><a href="#s08-choosing-permissions-for-a-github-app">S08 — Choosing permissions for a GitHub App</a></li><li><a href="#s09-llm-prompt-injection-prevention-cheat-sheet">S09 — LLM Prompt Injection Prevention Cheat Sheet</a></li><li><a href="#s10-computer-use-tool">S10 — Computer use tool</a></li><li><a href="#s11-rfc-9110-http-semantics">S11 — RFC 9110: HTTP Semantics</a></li></ol></details>
+<p id="L3">Eleven primary English sources support this article. These are reading notes from the relevant sections, not copies of complete web pages. The documentation was read on 10 October 2026; most pages are living documentation without a publication date.</p>
+<p id="L5"><a data-preserve-reading="" href="data/source_registry.csv">Source registry CSV</a> · <a data-preserve-reading="" href="claims.html">Claim records</a> · <a data-preserve-reading="" href="report.html">Report</a></p>
+<h2 id="s01-idempotent-requests">S01 — Idempotent requests</h2>
+<p id="L9">Publisher: Stripe. Publication date: Undated living documentation.</p>
+<p id="L11"><a href="https://docs.stripe.com/api/idempotent_requests">Original source</a></p>
+<p id="L13">Reading scope: API v1 response replay, key retention and validation behavior.</p>
+<p id="L16"><strong>Reading notes</strong></p>
+<p id="L18">API v1 saves an executed request response for replay, including errors. Keys can be pruned after at least 24 hours; reuse after pruning starts a new request. Parameter mismatch is rejected. The page expressly distinguishes API v2.</p>
+<p id="L21"><strong>Limits</strong></p>
+<p id="L23">Only Stripe API v1 behavior is established; idempotency is not an all-service or end-to-end completion guarantee.</p>
+<h2 id="s02-advanced-error-handling">S02 — Advanced error handling</h2>
+<p id="L28">Publisher: Stripe. Publication date: Undated living documentation.</p>
+<p id="L30"><a href="https://docs.stripe.com/error-low-level">Original source</a></p>
+<p id="L32">Reading scope: Network errors, server errors and POST retry guidance.</p>
+<p id="L35"><strong>Reading notes</strong></p>
+<p id="L37">A dropped connection can leave the request outcome unknown. A 500 can have side effects. API v1 replays cached errors; changing the key can cause another operation. The guide recommends retrieving objects and using events to reconcile uncertain outcomes.</p>
+<p id="L40"><strong>Limits</strong></p>
+<p id="L42">Guidance is scoped to Stripe API v1; it does not establish empirical failure rates or prescribe every provider’s recovery rules.</p>
+<h2 id="s03-api-v2-overview">S03 — API v2 overview</h2>
+<p id="L47">Publisher: Stripe. Publication date: Undated living documentation.</p>
+<p id="L49"><a href="https://docs.stripe.com/api-v2-overview#idempotency">Original source</a></p>
+<p id="L51">Reading scope: Idempotency and differences between API v1 and API v2.</p>
+<p id="L54"><strong>Reading notes</strong></p>
+<p id="L56">API v2 skips successful work and attempts failed work again where possible. Replay uses the same key and API, within the same account or sandbox and within 30 days. POST and DELETE accept keys. Responses can be updated rather than replaying an earlier error unchanged.</p>
+<p id="L59"><strong>Limits</strong></p>
+<p id="L61">The version distinction matters. It is not a promise that every unresolved request can recover or a comparison of production reliability.</p>
+<h2 id="s04-auto-waiting">S04 — Auto-waiting</h2>
+<p id="L66">Publisher: Playwright. Publication date: Undated living documentation.</p>
+<p id="L68"><a href="https://playwright.dev/docs/actionability">Original source</a></p>
+<p id="L70">Reading scope: Introduction, click checks, forcing actions and assertions.</p>
+<p id="L73"><strong>Reading notes</strong></p>
+<p id="L75">A normal locator click requires one matching target that is visible, stable, enabled and receiving events. Assertions retry their conditions. Force can bypass some actionability checks.</p>
+<p id="L78"><strong>Limits</strong></p>
+<p id="L80">These are interaction and assertion semantics, not proof that a downstream business workflow finished.</p>
+<h2 id="s05-locators">S05 — Locators</h2>
+<p id="L85">Publisher: Playwright. Publication date: Undated living documentation.</p>
+<p id="L87"><a href="https://playwright.dev/docs/locators">Original source</a></p>
+<p id="L89">Reading scope: Locating elements, role locators, test IDs and CSS/XPath discussion.</p>
+<p id="L92"><strong>Reading notes</strong></p>
+<p id="L94">Role, label and test-ID locators can provide explicit ways to find elements. Playwright resolves the current element on each action. The guide warns that long CSS/XPath chains can break with DOM changes.</p>
+<p id="L97"><strong>Limits</strong></p>
+<p id="L99">Recommendations do not establish a universal maintenance advantage or guarantee that a third-party application exposes stable locators.</p>
+<h2 id="s06-authentication">S06 — Authentication</h2>
+<p id="L104">Publisher: Playwright. Publication date: Undated living documentation.</p>
+<p id="L106"><a href="https://playwright.dev/docs/auth">Original source</a></p>
+<p id="L108">Reading scope: Introduction, stored authentication warning and shared-account conditions.</p>
+<p id="L111"><strong>Reading notes</strong></p>
+<p id="L113">Browser contexts can reuse saved authenticated state. The saved state may contain cookies or headers that permit account impersonation. Shared accounts are unsuitable for parallel tests that alter conflicting server-side state.</p>
+<p id="L116"><strong>Limits</strong></p>
+<p id="L118">Browser isolation does not establish narrow business permissions. Authentication examples describe test setups, not a production security certification.</p>
+<h2 id="s07-best-practices-for-using-the-rest-api">S07 — Best practices for using the REST API</h2>
+<p id="L123">Publisher: GitHub. Publication date: Undated living documentation.</p>
+<p id="L125"><a href="https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api">Original source</a></p>
+<p id="L127">Reading scope: Avoid polling/concurrent requests, mutative pacing and rate-limit errors.</p>
+<p id="L130"><strong>Reading notes</strong></p>
+<p id="L132">GitHub recommends webhooks where possible, efficient conditional polling otherwise, serial requests to reduce secondary-rate-limit pressure and honoring retry/reset information. Errors require handling rather than an assumption of unlimited throughput.</p>
+<p id="L135"><strong>Limits</strong></p>
+<p id="L137">The advice applies to GitHub. It supplies an example of API operating constraints, not a numerical API/browser cost comparison.</p>
+<h2 id="s08-choosing-permissions-for-a-github-app">S08 — Choosing permissions for a GitHub App</h2>
+<p id="L142">Publisher: GitHub. Publication date: Undated living documentation.</p>
+<p id="L144"><a href="https://docs.github.com/en/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app">Original source</a></p>
+<p id="L146">Reading scope: About permissions and choosing REST API access.</p>
+<p id="L149"><strong>Reading notes</strong></p>
+<p id="L151">GitHub App permissions govern allowed API operations and webhook subscriptions. The guide recommends the minimum required permissions; endpoint documentation identifies required permissions.</p>
+<p id="L154"><strong>Limits</strong></p>
+<p id="L156">Permission models differ across services; this does not prove every API offers sufficiently narrow scopes.</p>
+<h2 id="s09-llm-prompt-injection-prevention-cheat-sheet">S09 — LLM Prompt Injection Prevention Cheat Sheet</h2>
+<p id="L161">Publisher: OWASP. Publication date: Undated living documentation.</p>
+<p id="L163"><a href="https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html">Original source</a></p>
+<p id="L165">Reading scope: Indirect injection, structured prompt limits, agent-specific defenses and least privilege.</p>
+<p id="L168"><strong>Reading notes</strong></p>
+<p id="L170">Untrusted issue descriptions, documents and web content can contain hostile instructions. The guidance calls for validating tool calls against permissions and session context, validating parameters and limiting privileges. Prompt formatting alone does not authorize actions or establish resistance.</p>
+<p id="L173"><strong>Limits</strong></p>
+<p id="L175">Security guidance is not a measured prevention rate; it does not justify a blanket safe/unsafe ranking of APIs and browsers.</p>
+<h2 id="s10-computer-use-tool">S10 — Computer use tool</h2>
+<p id="L180">Publisher: Anthropic. Publication date: Undated living documentation.</p>
+<p id="L182"><a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool">Original source</a></p>
+<p id="L184">Reading scope: Security considerations, computing environment, implementation loop and screenshot history.</p>
+<p id="L187"><strong>Reading notes</strong></p>
+<p id="L189">The application executes requested computer actions and returns screenshots/results to the model. The documentation describes isolation, constrained access and human confirmation for consequential actions, while acknowledging prompt-injection exposure. Screenshot history adds model input and context-management work.</p>
+<p id="L192"><strong>Limits</strong></p>
+<p id="L194">Vendor documentation describes one implementation. It provides neither an independent reliability comparison nor a cost forecast for another product.</p>
+<h2 id="s11-rfc-9110-http-semantics">S11 — RFC 9110: HTTP Semantics</h2>
+<p id="L199">Publisher: IETF. Publication date: 2022-06.</p>
+<p id="L201"><a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-202-accepted">Original source</a></p>
+<p id="L203">Reading scope: Section 15.3.3, 202 Accepted.</p>
+<p id="L206"><strong>Reading notes</strong></p>
+<p id="L208">HTTP 202 indicates acceptance for processing before that processing is complete; the operation might not ultimately be performed. A response should indicate status or monitoring information.</p>
+<p id="L211"><strong>Limits</strong></p>
+<p id="L213">A status-code definition does not establish a specific application’s lifecycle; endpoint-specific completion information is still required.</p>
+</article></main></body></html>

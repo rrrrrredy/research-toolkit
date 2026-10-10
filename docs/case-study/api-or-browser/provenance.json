@@ -1,0 +1,45 @@
+{
+  "case": "api-or-browser",
+  "language": "en",
+  "origin": "Original English research from primary English documentation; not a translation.",
+  "research_date": "2026-10-10",
+  "profile": "full",
+  "reviewer_tier": "independent",
+  "review_mechanism": "A separate reviewer context; the complete responses and their reading scopes are retained.",
+  "reviewer_context": "/root/native_english_reviewer",
+  "exact_model_identity": "Not independently verified or asserted.",
+  "initial_article": {
+    "path": "initial.md",
+    "sha256_utf8_lf": "46dff0d25dc2195a3470e19f2636d144ad4d0767bec84cf0314296bda1ad09f7"
+  },
+  "final_article": {
+    "path": "report.md",
+    "sha256_utf8_lf": "987b995bcd36cfd37c01bbbad2d2cb3fc29d7e3dd40d487ced052a48e3ebd292"
+  },
+  "reviews": [
+    {
+      "path": "reviews/01-draft-review.md",
+      "verdict": "needs_revision",
+      "sha256_utf8_lf": "623db3aa8b996d95b8177fec273117454bb487fc5cba52a7c7e8713fa56da75f"
+    },
+    {
+      "path": "reviews/02-final-review.md",
+      "verdict": "pass",
+      "sha256_utf8_lf": "ec5c846478385ec319213da1b8ff28f9c5aa898109e50c2818d9caaf5d098f17"
+    }
+  ],
+  "revision": {
+    "finding_id": "NE-D1-F01",
+    "severity": "minor",
+    "decision": "accepted and revised",
+    "location": "section 5, paragraph beginning at Markdown line 74",
+    "report_text_changes": 1
+  },
+  "public_record_scope": "Article manuscripts, complete draft and current-version review responses, author disposition, registries and reading notes. Response hashes bind these files; they are not a provider-signed execution attestation. Task-relative input names in the responses refer to the retained research workspace; full task packets are not part of this public archive.",
+  "limits": [
+    "No installed-product test or production deployment.",
+    "No measured performance or cost comparison.",
+    "No controlled with/without-toolkit experiment.",
+    "Separate reviewer context does not establish statistically independent model errors."
+  ]
+}

@@ -19,9 +19,9 @@
 
 ## Reports and cases
 
-- [Office agent research in China: case archive](case-study/office-agents/README.md): original and final manuscripts, source and claim records, and revision decisions.
-- [Complete report](case-study/report.en.md): the English reader edition of the September 2026 report.
-- [Case study](case-study/README.md): prose, structure, product-lineage, and model-supply changes.
+- [APIs or browsers for AI agents](case-study/api-or-browser/report.md): original English research on action coverage, completion, recovery, and cost.
+- [English case archive](case-study/api-or-browser/README.md): initial and final manuscripts, English source and claim records, complete reviews, and the revision decision.
+- [Office agent research in China](case-study/office-agents/README.md): the historical Chinese case and its retained [English translation](case-study/report.en.md).
 
 ## Reviews and evaluation
 
