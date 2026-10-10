@@ -3,6 +3,7 @@
 from __future__ import annotations
 import argparse
 from pathlib import Path
+from check_version import check as check_version
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT/"plugins/research-toolkit"
@@ -10,7 +11,7 @@ RUNTIME = ["profile_policy.py", "check_delivery.py", "check_review_completion.py
 
 
 def payload() -> dict[str, bytes]:
-    paths = [ROOT/"SKILL.md", ROOT/"SKILL.zh-CN.md", ROOT/"LICENSE", *sorted((ROOT/"references").glob("*.md"))]
+    paths = [ROOT/"VERSION", ROOT/"SKILL.md", ROOT/"SKILL.zh-CN.md", ROOT/"LICENSE", *sorted((ROOT/"references").glob("*.md"))]
     paths += [ROOT/"scripts"/name for name in RUNTIME]
     paths += [ROOT/"docs"/name for name in (
         "review-completion.md", "review-completion.zh-CN.md",
@@ -38,6 +39,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
+    errors = check_version(ROOT, write=not args.check)
+    if errors:
+        print("\n".join(errors))
+        return 1
     different = build(args.check)
     if args.check and different:
         print("Plugin payload differs: "+", ".join(different))

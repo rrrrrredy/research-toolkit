@@ -16,6 +16,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Check release version consistency
+        run: python scripts/check_version.py --self-test
       - name: Check published SKILL sync
         run: |
           python scripts/check_docs_sync.py
