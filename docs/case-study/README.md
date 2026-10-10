@@ -2,7 +2,7 @@
 
 Historical report. Information through September 9, 2026; some dynamic documents were checked on September 10. Public-source research without installed-product testing. These versions are not a controlled with/without-toolkit experiment.
 
-[Full report](https://rrrrrredy.github.io/research-toolkit/case-study/report.en.html) · [Interactive case](https://rrrrrredy.github.io/research-toolkit/?lang=en&case=writing&detail=diff#case)
+[Full report (English translation)](https://rrrrrredy.github.io/research-toolkit/case-study/report.en.html) · [Interactive case](https://rrrrrredy.github.io/research-toolkit/?lang=en&case=writing&detail=diff#case)
 
 ## Direct prose
 

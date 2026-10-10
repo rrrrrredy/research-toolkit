@@ -1,12 +1,14 @@
 # Research Toolkit
 
-[![MIT License](https://img.shields.io/badge/license-MIT-596259)](./LICENSE) [![Framework checks](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml/badge.svg)](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml) · [Evaluated](#evaluation-results)
+[![MIT License](https://img.shields.io/badge/license-MIT-596259)](./LICENSE) [![Framework checks](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml/badge.svg)](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml)
 
 [English](./README.md) · [简体中文](./README.zh-CN.md)
 
 **Help AI agents write research reports with concrete judgments, traceable sources, and explicit review choices.**
 
 Research methods · Callable workflow tools · Review choices. For industry research, product comparisons, company analysis, and technical research.
+
+[**Evaluation results →**](#evaluation-results) · 2 public with/without-toolkit development comparisons; a general quality advantage remains unproven.
 
 [**Use with your agent**](#usage) · [Research case](#research-case) · [Documentation](#documentation)
 
@@ -21,7 +23,7 @@ Research methods · Callable workflow tools · Review choices. For industry rese
 </picture>
 </a>
 
-[**Full report**](./docs/case-study/report.en.md) · [Initial draft (Chinese)](./docs/case-study/office-agents/original.zh-CN.md) · [Final report (Chinese)](./docs/case-study/office-agents/revised.zh-CN.md) · [Sources and reviews](./docs/case-study/office-agents/README.md)
+[**Full report (English translation)**](./docs/case-study/report.en.md) · [Initial draft (Chinese)](./docs/case-study/office-agents/original.zh-CN.md) · [Final report (Chinese)](./docs/case-study/office-agents/revised.zh-CN.md) · [Sources and reviews (Chinese)](./docs/case-study/office-agents/README.md)
 
 This report compares Kimi Work, Coze, Feishu / Doubao Work, Wukong, WPS, and WorkBuddy. Four real revisions cover prose, structure, product relationships, and model supply. The excerpts below are translated from the retained Chinese manuscripts.
 
