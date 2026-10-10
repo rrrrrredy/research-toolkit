@@ -8,9 +8,7 @@
 
 Research methods · Callable workflow tools · Review choices. For industry research, product comparisons, company analysis, and technical research.
 
-[**Evaluation results →**](#evaluation-results)
-
-[**Quick start**](#quick-start) · [Use with your agent](#usage) · [Research case](#research-case) · [Lite quickstart](./docs/quickstart-lite.md) · [Documentation](#documentation)
+[**Quick start**](#quick-start) · [Use with your agent](#usage) · [Research case](#research-case) · [Evaluation results](#evaluation-results) · [Lite quickstart](./docs/quickstart-lite.md) · [Documentation](#documentation)
 
 ## Quick start
 
