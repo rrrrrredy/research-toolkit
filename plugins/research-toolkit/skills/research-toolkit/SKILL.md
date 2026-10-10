@@ -1,9 +1,11 @@
 ---
 name: research-toolkit
-description: Execute substantial source-backed research with brief clarification, saved progress, independent model reviews and delivery checks. Use for industry, company, market, product, technology and policy research; not quick facts.
+description: "Source-backed longform research workflow for AI agents: scope, sources, claims, and independent review."
 ---
 
 # Research Toolkit
+
+Use for substantial industry, market, company, product, technology, policy and ecosystem research reports. Not for quick facts or short summaries.
 
 Read the bundled [research instructions](../../SKILL.md) first. Keep research in a separate task directory; the execution tools return its location.
 
