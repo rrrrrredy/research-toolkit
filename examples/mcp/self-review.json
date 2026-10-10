@@ -1,0 +1,34 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "location": "final.md, paragraphs 1-3; state/task_spec.md, output and depth",
+      "basis": "The three paragraphs answer the reported count, why revenue is unsupported, and the records needed next. The readable source link and fictional/self-review disclosures match the brief."
+    },
+    "evidence": {
+      "location": "final.md, paragraphs 1-2; source.md, paragraph 1",
+      "basis": "The supplied note explicitly reports twelve shipments in 2026 and supplies no revenue, price, returns or payment data. The report attributes the count to the fictional note instead of asserting a real-world fact."
+    },
+    "adversarial_reasoning": {
+      "location": "final.md, paragraph 2",
+      "basis": "An assumed unit price cannot establish revenue; the report rejects that inference. No business performance conclusion is drawn from the shipment count."
+    },
+    "structure_and_depth": {
+      "location": "final.md, paragraphs 1-3",
+      "basis": "The narrow assignment needs a reported observation, an inference boundary and a next step. The paragraphs provide these without claiming a broader company assessment."
+    },
+    "reader_usefulness": {
+      "location": "final.md, title and paragraph 3",
+      "basis": "The title identifies the question and the ending specifies the missing records before a revenue estimate. This is actionable within the fictional example scope."
+    },
+    "process_language": {
+      "location": "final.md, paragraphs 1 and 3",
+      "basis": "The invented-source and self-review notices are limitations explicitly required by the brief. There are no internal claim IDs, execution logs or production narration in the prose."
+    },
+    "natural_expression": {
+      "location": "final.md, all three paragraphs",
+      "basis": "Each paragraph has a distinct purpose and names the evidence or missing input directly. No repeated conclusion, unexplained acronym or unsupported adjective needs correction."
+    }
+  },
+  "findings": []
+}

@@ -34,6 +34,60 @@ You receive a **short report + sources/claims trail + final checklist**. The tim
 
 Found a problem? [Submit a failure case](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)—a report excerpt and its source material are a useful first contribution. [Other small contributions](./CONTRIBUTING.md#good-first-issue-ideas).
 
+## Use as an MCP server
+
+For callable tools, install Python 3.10+ and the MCP dependency in the Python environment your client uses:
+
+```bash
+git clone https://github.com/rrrrrredy/research-toolkit.git
+cd research-toolkit
+python -m pip install -r requirements-mcp.txt
+```
+
+**Claude Desktop / Cursor:** merge this JSON into Claude Desktop's `claude_desktop_config.json` (Settings → Developer → Edit Config) or Cursor's `.cursor/mcp.json`. Replace both absolute paths. Keep research tasks outside the checkout.
+
+```json
+{
+  "mcpServers": {
+    "research-toolkit": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"],
+      "env": {
+        "RESEARCH_TOOLKIT_WORKSPACE": "/absolute/path/to/research-tasks"
+      }
+    }
+  }
+}
+```
+
+**Codex CLI / IDE:** its native configuration is TOML, not `mcpServers` JSON. Add the equivalent to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.research-toolkit]
+command = "python"
+args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
+
+[mcp_servers.research-toolkit.env]
+RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
+```
+
+Restart the client and confirm the six `research_*` tools appear. If `python` is not on the client's PATH, use the absolute executable path shown by `python -c "import sys; print(sys.executable)"`. Windows JSON paths can use forward slashes. [Client documentation and troubleshooting](./docs/usage-modes.md#connect-mcp-separately).
+
+**A captured Full example with self-review.** Lite skips review; this small fictional Full task demonstrates the review call without an external account. The agent supplies the report and evidence files between guidance and review.
+
+| Call | Input excerpt | Actual response excerpt |
+| --- | --- | --- |
+| `research_start` | `{"task":"shipment-note","profile":"full","brief":…}` ([complete input](./examples/mcp/start.json)) | `{"ready_for_collection":true,"profile":"full","missing_fields":[],"stage":"collect"}` |
+| `research_guide` | `{"stage":"draft","language":"en","profile":"full"}` | `{"stage":"draft","profile":"full"}`; method text omitted |
+| `research_review` | `{"task":"shipment-note","evidence_paths":["source.md"],"reviewer":"self"}` | `{"reviews_complete":false,"action_required":"self_review","reviewer":"self","review_strength":"degraded"}` |
+| `research_review` again | Submit the [self-review](./examples/mcp/self-review.json) plus the returned `input_version` | `{"reviews_complete":true,"reviewer":"self","review_strength":"degraded"}` |
+| `research_finish` | `{"task":"shipment-note","message":"The fictional shipment note is complete, with self-review only and no independent review."}` | `{"completed":true}` |
+
+[Captured inputs/outputs](./examples/mcp/captured.json) · [Run the example](./examples/mcp/README.md). These are local server responses, not efficacy results; the example replays a supplied author review and makes no external model call.
+
+**MCP demo recording:** pending. [GIF/asciinema recording slot and instructions](./docs/assets/mcp-demo.md).
+
 ## Research case
 
 <a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/api-or-browser/report.md">

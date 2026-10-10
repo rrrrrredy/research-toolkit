@@ -34,6 +34,60 @@
 
 遇到问题？[提交失败案例](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)，提供报告片段及来源材料，就能参与贡献。[其他适合首次参与的小任务](./CONTRIBUTING.zh-CN.md#适合首次贡献的小任务)。
 
+## 作为 MCP 服务使用
+
+需要可调用工具时，安装 Python 3.10+，并在客户端实际使用的 Python 环境中安装 MCP 依赖：
+
+```bash
+git clone https://github.com/rrrrrredy/research-toolkit.git
+cd research-toolkit
+python -m pip install -r requirements-mcp.txt
+```
+
+**Claude Desktop / Cursor：**将下面的 JSON 合入 Claude Desktop 的 `claude_desktop_config.json`（Settings → Developer → Edit Config）或 Cursor 的 `.cursor/mcp.json`。替换两处绝对路径，研究任务目录放在仓库之外。
+
+```json
+{
+  "mcpServers": {
+    "research-toolkit": {
+      "type": "stdio",
+      "command": "python",
+      "args": ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"],
+      "env": {
+        "RESEARCH_TOOLKIT_WORKSPACE": "/absolute/path/to/research-tasks"
+      }
+    }
+  }
+}
+```
+
+**Codex CLI / IDE：**其原生配置采用 TOML，不采用 `mcpServers` JSON。将等效配置加入 `~/.codex/config.toml`：
+
+```toml
+[mcp_servers.research-toolkit]
+command = "python"
+args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
+
+[mcp_servers.research-toolkit.env]
+RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
+```
+
+重启客户端，确认能看到六个 `research_*` 工具。若客户端 PATH 中找不到 `python`，使用 `python -c "import sys; print(sys.executable)"` 显示的绝对路径；Windows JSON 路径可用正斜杠。[客户端文档与排查方法](./docs/usage-modes.zh-CN.md#单独接入-mcp)。
+
+**实际采集的 Full 自评示例。** Lite 跳过评审；这个小型虚构 Full 任务展示无需外部账户的评审调用。Agent 在读取方法后、评审前保存报告和证据文件。
+
+| 调用 | 输入节选 | 实际返回节选 |
+| --- | --- | --- |
+| `research_start` | `{"task":"shipment-note","profile":"full","brief":…}`（[完整输入](./examples/mcp/start.json)） | `{"ready_for_collection":true,"profile":"full","missing_fields":[],"stage":"collect"}` |
+| `research_guide` | `{"stage":"draft","language":"en","profile":"full"}` | `{"stage":"draft","profile":"full"}`；省略方法正文 |
+| `research_review` | `{"task":"shipment-note","evidence_paths":["source.md"],"reviewer":"self"}` | `{"reviews_complete":false,"action_required":"self_review","reviewer":"self","review_strength":"degraded"}` |
+| 再次 `research_review` | 提交[自评内容](./examples/mcp/self-review.json)和返回的 `input_version` | `{"reviews_complete":true,"reviewer":"self","review_strength":"degraded"}` |
+| `research_finish` | `{"task":"shipment-note","message":"The fictional shipment note is complete, with self-review only and no independent review."}` | `{"completed":true}` |
+
+[采集的输入与输出](./examples/mcp/captured.json) · [运行示例](./examples/mcp/README.zh-CN.md)。这些是本地服务的真实返回，不是效果评测结果；示例重放已提供的作者自评，不调用外部模型。
+
+**MCP 演示录屏：**待录制。[GIF/asciinema 占位与录制说明](./docs/assets/mcp-demo.zh-CN.md)。
+
 ## 研究案例
 
 <a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/report.zh-CN.md">

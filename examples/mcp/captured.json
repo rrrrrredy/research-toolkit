@@ -1,0 +1,135 @@
+{
+  "captured_on": "2026-10-10",
+  "transport": "real local MCP stdio",
+  "data": "repository-authored fictional note",
+  "review": "author-context self-review; no independent or external model call",
+  "omissions": "Responses omit guidance text, assignments, local paths and detailed checks; an unchanged repeated prompt request is omitted. Inputs are complete.",
+  "calls": [
+    {
+      "tool": "research_start",
+      "arguments": {
+        "task": "shipment-note",
+        "language": "en",
+        "profile": "full",
+        "brief": {
+          "question": "What can the supplied shipment note establish about Company A?",
+          "audience": "An operations colleague reading a workflow example.",
+          "scope": "Fictional Company A in 2026; only the supplied source note.",
+          "output": "Three short English paragraphs in final.md with a readable source link.",
+          "depth": "Separate the reported count, the unsupported revenue inference, and the next evidence needed.",
+          "evidence_standard": "Read the supplied fictional note; disclose that it is not market evidence and that review is self only."
+        }
+      },
+      "response_excerpt": {
+        "task": "shipment-note",
+        "ready_for_collection": true,
+        "profile": "full",
+        "missing_fields": [],
+        "stage": "collect"
+      }
+    },
+    {
+      "tool": "research_guide",
+      "arguments": {
+        "stage": "draft",
+        "language": "en",
+        "profile": "full"
+      },
+      "response_excerpt": {
+        "stage": "draft",
+        "profile": "full"
+      }
+    },
+    {
+      "tool": "research_status",
+      "arguments": {
+        "task": "shipment-note",
+        "stage": "draft"
+      },
+      "response_excerpt": {
+        "task": "shipment-note",
+        "stage": "draft",
+        "profile": "full"
+      }
+    },
+    {
+      "tool": "research_review",
+      "arguments": {
+        "task": "shipment-note",
+        "evidence_paths": [
+          "source.md"
+        ],
+        "reviewer": "self"
+      },
+      "response_excerpt": {
+        "reviews_complete": false,
+        "action_required": "self_review",
+        "reviewer": "self",
+        "review_strength": "degraded",
+        "independent_review": false,
+        "input_version": "b9651733c6c1f203cb9963a8ce3f9dc551a7f53362ff2bb731c5e1920754ac16"
+      }
+    },
+    {
+      "tool": "research_review",
+      "arguments": {
+        "task": "shipment-note",
+        "evidence_paths": [
+          "source.md"
+        ],
+        "reviewer": "self",
+        "self_review": {
+          "report_verdict": "pass",
+          "coverage": {
+            "requirements": {
+              "location": "final.md, paragraphs 1-3; state/task_spec.md, output and depth",
+              "basis": "The three paragraphs answer the reported count, why revenue is unsupported, and the records needed next. The readable source link and fictional/self-review disclosures match the brief."
+            },
+            "evidence": {
+              "location": "final.md, paragraphs 1-2; source.md, paragraph 1",
+              "basis": "The supplied note explicitly reports twelve shipments in 2026 and supplies no revenue, price, returns or payment data. The report attributes the count to the fictional note instead of asserting a real-world fact."
+            },
+            "adversarial_reasoning": {
+              "location": "final.md, paragraph 2",
+              "basis": "An assumed unit price cannot establish revenue; the report rejects that inference. No business performance conclusion is drawn from the shipment count."
+            },
+            "structure_and_depth": {
+              "location": "final.md, paragraphs 1-3",
+              "basis": "The narrow assignment needs a reported observation, an inference boundary and a next step. The paragraphs provide these without claiming a broader company assessment."
+            },
+            "reader_usefulness": {
+              "location": "final.md, title and paragraph 3",
+              "basis": "The title identifies the question and the ending specifies the missing records before a revenue estimate. This is actionable within the fictional example scope."
+            },
+            "process_language": {
+              "location": "final.md, paragraphs 1 and 3",
+              "basis": "The invented-source and self-review notices are limitations explicitly required by the brief. There are no internal claim IDs, execution logs or production narration in the prose."
+            },
+            "natural_expression": {
+              "location": "final.md, all three paragraphs",
+              "basis": "Each paragraph has a distinct purpose and names the evidence or missing input directly. No repeated conclusion, unexplained acronym or unsupported adjective needs correction."
+            }
+          },
+          "findings": [],
+          "input_version": "b9651733c6c1f203cb9963a8ce3f9dc551a7f53362ff2bb731c5e1920754ac16"
+        }
+      },
+      "response_excerpt": {
+        "reviews_complete": true,
+        "reviewer": "self",
+        "review_strength": "degraded"
+      }
+    },
+    {
+      "tool": "research_finish",
+      "arguments": {
+        "task": "shipment-note",
+        "message": "The fictional shipment note is complete, with self-review only and no independent review."
+      },
+      "response_excerpt": {
+        "completed": true,
+        "message": "The fictional shipment note is complete, with self-review only and no independent review."
+      }
+    }
+  ]
+}

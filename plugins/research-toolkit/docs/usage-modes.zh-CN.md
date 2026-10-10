@@ -78,6 +78,14 @@ Windows 路径可写成 `D:/tools/python/python.exe` 这样的正斜杠形式。
 
 服务还提供 `research` 提示和 `research-toolkit://instructions` 资源。让 Agent 先读取入口，再使用工具。本地 stdio 需要客户端能够启动本地进程；只接受远程 HTTPS 服务的网页客户端不能直接连接。
 
+### 客户端配置与示例
+
+[README MCP 快速接入](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md#作为-mcp-服务使用)包含安装步骤、Claude Desktop/Cursor JSON 和 Codex 原生 TOML 等效配置。[可执行示例](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.zh-CN.md)使用虚构报告与明确降级的自评，采集本地服务真实返回。
+
+官方配置说明：[Claude Desktop 本地服务](https://modelcontextprotocol.io/docs/develop/connect-local-servers)、[Cursor MCP](https://cursor.com/docs/mcp)、[Codex MCP](https://developers.openai.com/codex/mcp)。Cursor 可使用项目 `.cursor/mcp.json` 或全局 `~/.cursor/mcp.json`，Codex 使用 `~/.codex/config.toml`；Claude Desktop 从 Settings → Developer → Edit Config 打开配置。
+
+看不到工具时，用配置中的解释器执行 `python -c "import sys, mcp; print(sys.executable)"`。导入报错表示该环境缺少 MCP 依赖；使用脚本与工作区的绝对路径，并重启客户端。`python scripts/check_mcp_contract.py` 检查服务启动及协议调用，使用合成评审者，不证明各客户端 GUI 兼容性或研究质量。
+
 ## 一次研究如何推进
 
 | 工具 | 实际动作与完成条件 |

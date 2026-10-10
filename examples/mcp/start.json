@@ -1,0 +1,13 @@
+{
+  "task": "shipment-note",
+  "language": "en",
+  "profile": "full",
+  "brief": {
+    "question": "What can the supplied shipment note establish about Company A?",
+    "audience": "An operations colleague reading a workflow example.",
+    "scope": "Fictional Company A in 2026; only the supplied source note.",
+    "output": "Three short English paragraphs in final.md with a readable source link.",
+    "depth": "Separate the reported count, the unsupported revenue inference, and the next evidence needed.",
+    "evidence_standard": "Read the supplied fictional note; disclose that it is not market evidence and that review is self only."
+  }
+}
