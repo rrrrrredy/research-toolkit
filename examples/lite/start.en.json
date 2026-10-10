@@ -1,0 +1,13 @@
+{
+  "task": "helpdesk-lite",
+  "language": "en",
+  "profile": "lite",
+  "brief": {
+    "question": "Which fictional helpdesk plan should a six-person team trial, Cedar or Maple?",
+    "audience": "The support team lead choosing a trial, not approving a purchase.",
+    "scope": "Use only examples/lite/sources.md: six seats, $35 monthly subscription ceiling, weekly CSV export may be manual; single sign-on optional. Costs exclude staff time and migration.",
+    "output": "A 350–500 word English brief in final.md: recommendation, comparison with arithmetic, conditions that would change it, and trial checks. Keep source/claim records and the six-item checklist separate.",
+    "depth": "A bounded Lite comparison; explain the trade-off, not a market survey.",
+    "evidence_standard": "Only the two supplied fictional plan notes. Cite S1/S2 by readable source titles, separate supplied facts from recommendations, and disclose unknown CSV fields and no independent review."
+  }
+}

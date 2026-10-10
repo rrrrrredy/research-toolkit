@@ -105,9 +105,83 @@ def load_catalog():
     validate_catalog(current)
     return current
 
+def load_defect_tags():
+    taxonomy = json.loads((ROOT / 'evals/rubrics/necessary-defects.v1.json').read_text(encoding='utf-8'))
+    tags = json.loads((ROOT / 'evals/semantic_diagnostics/defect-tags.v1.json').read_text(encoding='utf-8'))
+    return taxonomy, tags
+
+
+def validate_defect_tags(documents, taxonomy, overlay):
+    """Check label identity and version binding, not the truth of a proposed defect."""
+    version = 'necessary-defects-v1'
+    if (taxonomy.get('taxonomy_version') != version
+            or taxonomy.get('purpose') != 'stable_finding_categories_not_quality_scores'):
+        raise ValueError('Defect taxonomy boundary changed')
+    identifiers = set()
+    for label in taxonomy.get('labels', []):
+        identity = label.get('id')
+        if not isinstance(identity, str) or not re.fullmatch(r'ND[0-9]{2}', identity) or identity in identifiers:
+            raise ValueError('Invalid or duplicate defect label')
+        identifiers.add(identity)
+        for field in ('name', 'definition', 'boundary'):
+            values = label.get(field)
+            if not isinstance(values, dict) or any(
+                    not isinstance(values.get(lang), str) or not values[lang].strip() for lang in ('en', 'zh')):
+                raise ValueError('Defect labels require bilingual definitions and boundaries')
+    if not identifiers:
+        raise ValueError('Missing defect labels')
+    if (overlay.get('taxonomy_version') != version or overlay.get('purpose') != 'diagnostic_only'
+            or overlay.get('labels') != 'author_proposed_uncalibrated'
+            or overlay.get('held_out') is not False or overlay.get('automatic_quality_scoring') is not False):
+        raise ValueError('Defect overlay claim boundary changed')
+    validate_catalog(documents)
+    lookup = {case['id']: case for _, document in documents for case in document['cases']}
+    seen = set()
+    for row in overlay.get('cases', []):
+        identity = row.get('case_id')
+        if identity not in lookup or identity in seen:
+            raise ValueError('Unknown or duplicate defect-tag case')
+        seen.add(identity)
+        if row.get('case_sha256') != case_digest(lookup[identity]):
+            raise ValueError('Defect tags refer to a different case version')
+        tags = row.get('tags')
+        if (not isinstance(tags, list) or not tags or any(not isinstance(t, str) for t in tags)
+                or len(tags) != len(set(tags)) or not set(tags) <= identifiers):
+            raise ValueError('Unknown, empty or duplicate defect tags')
+    if seen != set(lookup):
+        raise ValueError('Defect overlay must cover the current catalog')
+    return seen
+
+
 class DiagnosticDataTests(unittest.TestCase):
     def setUp(self):
         self.documents = copy.deepcopy(load_catalog())
+
+    def test_defect_tags_bind_current_cases_without_rewriting_history(self):
+        before = copy.deepcopy(self.documents)
+        taxonomy, overlay = load_defect_tags()
+        self.assertEqual(len(validate_defect_tags(self.documents, taxonomy, overlay)), 23)
+        self.assertEqual(self.documents, before)
+
+    def test_defect_tags_reject_stale_unknown_and_efficacy_labels(self):
+        taxonomy, original = load_defect_tags()
+        changes = (
+            lambda doc: doc['cases'][0].update(case_sha256='0' * 64),
+            lambda doc: doc['cases'][0].update(tags=['ND99']),
+            lambda doc: doc['cases'].append(copy.deepcopy(doc['cases'][0])),
+            lambda doc: doc['cases'].pop(),
+            lambda doc: doc.update(held_out=True),
+            lambda doc: doc.update(labels='independently_verified'),
+        )
+        for change in changes:
+            with self.subTest(change=change):
+                overlay = copy.deepcopy(original)
+                change(overlay)
+                with self.assertRaises(ValueError):
+                    validate_defect_tags(self.documents, taxonomy, overlay)
+        del taxonomy['labels'][0]['definition']['zh']
+        with self.assertRaises(ValueError):
+            validate_defect_tags(self.documents, taxonomy, original)
 
     def test_current_catalog(self):
         self.assertEqual(len(validate_catalog(self.documents)), 23)
@@ -242,6 +316,8 @@ if __name__ == '__main__':
         print(json.dumps({'notice':'Current author-proposed development cases, not calibrated labels',
                           'cases':[c for _,d in load_catalog() for c in d['cases']]},ensure_ascii=False,indent=2))
         raise SystemExit(0)
-    ids = validate_catalog(load_catalog())
+    current = load_catalog()
+    ids = validate_catalog(current)
+    validate_defect_tags(current, *load_defect_tags())
     print(f'{len(ids)} development pairs parsed; semantic correctness and research quality NOT evaluated.')
     unittest.main()

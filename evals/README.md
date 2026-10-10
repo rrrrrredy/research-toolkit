@@ -22,6 +22,13 @@ Actual outputs are available in the [2026-09-07 development package](./diagnosti
 
 See [evaluation status and version boundaries](../docs/evaluation-status.md) for completed historical first-review counts and their interpretation. The public files below are a subset of the retained evaluation material.
 
+
+## Study design and defect labels / 研究设计与缺陷标签
+
+Use the [paired-study template](templates/paired-study.json) with the [freeze and analysis plan](../docs/evaluation-roadmap.md#next-study-freeze-the-design-then-collect-new-evidence) before a new effect study. The template is not a frozen cohort or a run result. [Necessary-defect labels](../docs/necessary-defects.md) provide stable categories; the [23-case overlay](semantic_diagnostics/defect-tags.v1.json) preserves the existing diagnostic-only boundary. The Lite quickstart is onboarding, not another eval case.
+
+新效果研究使用[配对模板](templates/paired-study.json)和[冻结与分析安排](../docs/evaluation-roadmap.zh-CN.md#下一项研究先冻结设计再产生新证据)；模板不代表已冻结样本或运行结果。[必要缺陷标签](../docs/necessary-defects.zh-CN.md)提供稳定类别，[23 例覆盖层](semantic_diagnostics/defect-tags.v1.json)保持开发诊断边界。Lite 入门不计为新增评测案例。
+
 ## Contribute a failure case
 
 1. [Submit a failure case](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml) with the question, expected result, sources, observed problem and profile/reviewer tier; paste a report excerpt if useful.

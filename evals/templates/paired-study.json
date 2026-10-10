@@ -1,0 +1,84 @@
+{
+  "template_version": 1,
+  "status": "draft_not_frozen",
+  "study_id": null,
+  "frozen_at_utc": null,
+  "toolkit_commit": null,
+  "target_population": null,
+  "primary_question": "Does the pinned workflow reduce confirmed necessary defects within the same total per-condition resource ceiling?",
+  "profile": null,
+  "author": {
+    "provider": null,
+    "model_snapshot": null,
+    "reasoning": null,
+    "runtime_version": null
+  },
+  "matched_budget": {
+    "total_tokens_including_internal_reviews": null,
+    "wall_seconds": null,
+    "tool_calls": null,
+    "retry_policy": null,
+    "unmetered_resource_policy": null
+  },
+  "source_access_policy": null,
+  "fresh_context_and_memory_isolation": null,
+  "sampling": {
+    "family_count": null,
+    "language_strata": {},
+    "task_type_strata": {},
+    "sampling_frame": null,
+    "precision_target": null
+  },
+  "excluded_calibration_families": [],
+  "condition_order": {
+    "method": "balanced_random_order_within_language_and_task_blocks",
+    "seed_commitment": null,
+    "private_assignment_file": null
+  },
+  "judging": {
+    "rubric": "report-evaluation-standard",
+    "taxonomy": "necessary-defects-v1",
+    "reviewer_count": 4,
+    "model_snapshots": [],
+    "budget_per_report": null,
+    "condition_masking": null,
+    "source_access": null,
+    "independent_report_order_seed_commitment": null,
+    "blindness_check": null,
+    "adjudication_policy": null
+  },
+  "analysis": {
+    "unit": "task_family",
+    "primary_endpoint": "confirmed_necessary_defect_presence_by_condition",
+    "outcomes": [
+      "toolkit_win",
+      "baseline_win",
+      "neither_has_necessary_defect",
+      "both_have_necessary_defects",
+      "unresolved"
+    ],
+    "missingness_policy": "Retain every admitted family and author/reviewer failure; complete-case quality comparisons are conditional secondary results.",
+    "interval_method": null,
+    "confidence_level": 0.95,
+    "fixed_sample_size": null,
+    "extension_rule": null
+  },
+  "tasks": [],
+  "task_entry_template": {
+    "task_id": null,
+    "family_id": null,
+    "language": null,
+    "task_type": null,
+    "private_brief_path": null,
+    "brief_sha256": null,
+    "source_pack_sha256_or_live_web_policy": null,
+    "prior_exposure_check": null,
+    "admission_timestamp_utc": null
+  },
+  "publication": {
+    "rights_check": null,
+    "freeze_commitment_url": null,
+    "publish_all_pairs_and_failures": true,
+    "unmask_after_reviews_locked": true
+  }
+}

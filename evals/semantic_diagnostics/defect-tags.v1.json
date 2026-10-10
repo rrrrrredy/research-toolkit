@@ -1,0 +1,174 @@
+{
+  "taxonomy_version": "necessary-defects-v1",
+  "purpose": "diagnostic_only",
+  "labels": "author_proposed_uncalibrated",
+  "held_out": false,
+  "automatic_quality_scoring": false,
+  "cases": [
+    {
+      "case_id": "semantic_filler_zh",
+      "case_sha256": "936918951ea9e0c05f0f803e681396d4718b0bd11274535357cf69044f9d1ddd",
+      "tags": [
+        "ND05"
+      ]
+    },
+    {
+      "case_id": "registered_but_unsupported_claim_zh",
+      "case_sha256": "51fcc5bcb0bb15fce2b73ff5aa56e7f0dca4906b39ee477f7d68e06211565296",
+      "tags": [
+        "ND03",
+        "ND05"
+      ]
+    },
+    {
+      "case_id": "denominator_swap_zh",
+      "case_sha256": "cc453a06266ffaca5791810f17bb9dcae6bfb37f16aa16f9b2ead5b2953bf7e0",
+      "tags": [
+        "ND04"
+      ]
+    },
+    {
+      "case_id": "process_trace_vs_material_limit_zh",
+      "case_sha256": "4f782da6d08917837bdfce99cc9bd243570865955f8f12279ae4c2eacc101a06",
+      "tags": [
+        "ND07"
+      ]
+    },
+    {
+      "case_id": "self_pass_without_review_evidence_zh",
+      "case_sha256": "f5c66aa9bee2529f3bec7ec9493b66b17b51a3f81cc70ea093590397838720fe",
+      "tags": [
+        "ND09"
+      ]
+    },
+    {
+      "case_id": "contract_tier_omission_zh",
+      "case_sha256": "983ab475a7d52582a881294a999e005dcf1cd6b6e83223bf49b1111645a8546a",
+      "tags": [
+        "ND06"
+      ]
+    },
+    {
+      "case_id": "forecast_is_not_actual_zh",
+      "case_sha256": "c42f1107d6794a6214533ab28be74003ab17a99030be0d67bf37ba2bb1bee9fe",
+      "tags": [
+        "ND02",
+        "ND04"
+      ]
+    },
+    {
+      "case_id": "annualized_run_rate_zh",
+      "case_sha256": "e5bb236be37de272d2b42c5c1895be4e9c577ecbad9b241f55b10c8abd34f3c5",
+      "tags": [
+        "ND04"
+      ]
+    },
+    {
+      "case_id": "mismatched_fiscal_periods_zh",
+      "case_sha256": "6f6db0620dd6afe40ee8be6e547ab93a552bfe3ee5d186045636ed64ffc6b413",
+      "tags": [
+        "ND04"
+      ]
+    },
+    {
+      "case_id": "power_and_energy_en",
+      "case_sha256": "2a3c2190384df6c04138d98705184762b3e9f2503a85ce16f1c175845707d989",
+      "tags": [
+        "ND04"
+      ]
+    },
+    {
+      "case_id": "gross_margin_not_cash_zh",
+      "case_sha256": "4ac34f2753984824bbbea7ed080510c05222bc5be2fed44ee2e499c0349a78d7",
+      "tags": [
+        "ND02",
+        "ND04"
+      ]
+    },
+    {
+      "case_id": "self_selected_pilot_causality_zh",
+      "case_sha256": "b15a5ec29f486e4293f7888bd6ab1207c7c5d41060778c2076a3275afcd2a196",
+      "tags": [
+        "ND05"
+      ]
+    },
+    {
+      "case_id": "supported_local_improvement_en",
+      "case_sha256": "ac46d14588dff1ee908121741d50ff5befd49f081c39c2e30e50a1f9b92827f9",
+      "tags": [
+        "ND05"
+      ]
+    },
+    {
+      "case_id": "copied_sources_not_independent_zh",
+      "case_sha256": "2b15da8b13752e7a44fd2c14a09156d7bfa5dcd52649ee1e0ff06427eb7043fc",
+      "tags": [
+        "ND03"
+      ]
+    },
+    {
+      "case_id": "source_embedded_rating_request_en",
+      "case_sha256": "343f82d259b60a7e6d205e623d3b155368bee447cb3606dac480d039fcbe09e5",
+      "tags": [
+        "ND08",
+        "ND03"
+      ]
+    },
+    {
+      "case_id": "review_cost_changes_ranking_zh",
+      "case_sha256": "83b825f3ddc1e52fce3b60561b3888ee6b654ecd403a297b19f4f0923c9a6d3a",
+      "tags": [
+        "ND06"
+      ]
+    },
+    {
+      "case_id": "valid_pilot_acceptance_zh",
+      "case_sha256": "78c7d679a187806d57a406480fb3fe75c24030d24c31135075fa3626a609b003",
+      "tags": [
+        "ND06"
+      ]
+    },
+    {
+      "case_id": "specific_english_synthesis_en",
+      "case_sha256": "6ede62c5cea4633f60665c99a483d417b08ffe3c8d41a641180bcf4db29d73f6",
+      "tags": [
+        "ND05"
+      ]
+    },
+    {
+      "case_id": "late_scope_correction_zh",
+      "case_sha256": "b22312ae9c531d6379ada636b1eeba1530d6d520b38b09f74856ccf69d2ad159",
+      "tags": [
+        "ND01"
+      ]
+    },
+    {
+      "case_id": "critical_error_not_offset_zh",
+      "case_sha256": "00b766c8c4ce95836ed4e5f5bebac044fd60c95765d282592d1e03d20c770424",
+      "tags": [
+        "ND09"
+      ]
+    },
+    {
+      "case_id": "opening_buries_main_findings_zh",
+      "case_sha256": "d3e7b59c12f5e45ff02d125fae94d3880360d3cec662a22c9fec2cf2971205bf",
+      "tags": [
+        "ND07"
+      ]
+    },
+    {
+      "case_id": "editorial_voice_crowds_out_argument_zh",
+      "case_sha256": "25be56196ff827bf8bc0fc7ab8d3c632606a68a70dba6fd4d9be11ed23534030",
+      "tags": [
+        "ND07"
+      ]
+    },
+    {
+      "case_id": "timeline_inventory_without_explanation_en",
+      "case_sha256": "fa93e22107b60250835966a7588c7c7282b2b695ada9b7e258fd41e541b45bde",
+      "tags": [
+        "ND05"
+      ]
+    }
+  ]
+}

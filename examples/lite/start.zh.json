@@ -1,0 +1,13 @@
+{
+  "task": "helpdesk-lite",
+  "language": "zh",
+  "profile": "lite",
+  "brief": {
+    "question": "六人客服团队应试用哪款虚构客服工具：Cedar 还是 Maple？",
+    "audience": "选择试用工具的客服负责人，不是批准采购。",
+    "scope": "仅用 examples/lite/sources.zh-CN.md：六席位，订阅费上限每月35美元，每周CSV可手动导出，单点登录可选；人工和迁移费用另计。",
+    "output": "final.md，600–900字中文简报：建议、含计算的比较、改变建议的条件及试用检查；来源、判断台账与六项checklist单列。",
+    "depth": "有边界的Lite对比，解释取舍，不做市场综述。",
+    "evidence_standard": "只用两份虚构套餐说明，引用可读的来源标题，区分材料事实与建议，披露CSV字段未知及未做独立评审。"
+  }
+}

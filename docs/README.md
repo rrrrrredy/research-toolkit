@@ -4,6 +4,7 @@
 
 ## Use Research Toolkit
 
+- [Five-minute Lite quickstart](quickstart-lite.md): one complete request, two supplied sources and a final checklist.
 - [Usage and integration](usage-modes.md): repository, file, and text inputs; optional Skill, plugin, and MCP; review configuration.
 - [Use with your agent](../agents/README.md): common input methods, chat-only limits, and host-specific setup.
 - [Updating an installation](installation-versioning.md): choose and replace the intended package copy.
@@ -28,6 +29,7 @@
 - [Review completion](review-completion.md): complete inputs, version binding, valid responses, and failure recovery.
 - [Delivery checks](delivery-verification.md): current artifacts, unresolved requirements, and completion conditions.
 - [Report evaluation standard](report-evaluation-standard.md): separate manuscript quality, delivery readiness, and toolkit-effect studies.
+- [Necessary-defect labels](necessary-defects.md): stable categories, evidence-based dispositions and a versioned diagnostic index.
 - [Evaluation suite](../evals/README.md): tasks, controls, fixtures, diagnostics, and offline checks.
 - [Evaluation status](evaluation-status.md) and [roadmap](evaluation-roadmap.md): available evidence and open evaluation work.
 - [Evaluation data audit](evaluation-data-audit.md): what the public datasets contain and support.

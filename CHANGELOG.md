@@ -10,6 +10,9 @@ Research Toolkit naming, clearer usage instructions, and development-only semant
 
 ### Profiles, review backends and contributions
 
+- Add a bilingual Lite quickstart with two explicitly fictional source notes; expose it in README and Pages without requiring a reviewer backend.
+- Center the evaluation summary on observed findings and consolidate matching/blinding limits. Add a prospective paired-study template and versioned defect tags for existing diagnostics; no new efficacy results are claimed.
+
 - Surface public comparisons and historical aggregates in README, explicitly marking missing matched-condition and blind-review evidence.
 - Add Lite with brief, claims, section drafting and a final checklist; log skipped review and full delivery gates while retaining Full checks.
 - Add self, external and independent review tiers with configurable CLI/compatible HTTP backends; new tasks without a backend use degraded self-review, while declared independent requirements never silently fall back.
