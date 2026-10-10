@@ -20,6 +20,8 @@ Toolkit 的默认流程调整不改写既有样本、首评或标签，也不自
 
 [2026-09-07 原始开发材料](diagnostics/2026-09-07/)包含四份初稿、两份修订、三模型文字诊断及保留的不完整回复；它们是开发诊断，不是留出效果研究。日期化原件按原语言和哈希保存，本页提供中文导读。
 
+前瞻的 5–10 个任务族试验见[盲评配对协议](../docs/eval-protocol.zh-CN.md)。脚本冻结并记录种子／顺序，对评审隐藏 A/B 条件，保留首份产出、判断与失败。未填写样本及待运行结果表不构成新效果证据。仅复查既有公开两组档案时，运行 `python scripts/reproduce_calibration.py`，生成 `evals/runs/calibration-reproduction/inventory.json` 与 `inventory.md`，不调用模型。
+
 ## 如何贡献案例
 
 1. [提交失败案例](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)，填写研究问题、期望结果、来源、具体问题以及 profile／评审档位；报告片段可直接粘贴。

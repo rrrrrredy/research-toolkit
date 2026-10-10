@@ -270,6 +270,16 @@ Agent 使用自身的检索、读写和分析能力完成研究。插件将 Skil
 
 详细报告：[公开原稿与修订稿](./evals/diagnostics/2026-09-07/) · [评测证据与版本边界](./docs/evaluation-status.zh-CN.md) · [评测标准](./docs/report-evaluation-standard.zh-CN.md)。
 
+无需调用模型，一条命令复查公开的两组配对记录：
+
+```bash
+python scripts/reproduce_calibration.py
+```
+
+[复现脚本](./scripts/reproduce_calibration.py)核对冻结公开包及四份原始报告的哈希，生成 `evals/runs/calibration-reproduction/inventory.json` 和 `inventory.md`。再次运行时通过 `--output` 指定新目录。它复现档案清单，不重新生成历史模型回复或给出质量分。[既有符合性脚本](./scripts/run_evals.py)另行检查任务文件（[命令与输出](./evals/README.zh-CN.md)）。
+
+[5–10 题盲评协议与一键脚本](./docs/eval-protocol.zh-CN.md)：按种子随机化运行顺序与 A/B 展示，固定量表，保留原始产出及失败。**结果待运行，未执行新的模型评测。** 这是前瞻的仅指令 Lite 小型试验，不改变历史 n=2、未盲评及先 Toolkit 后基线的限制。
+
 历史汇总截至 2026 年 9 月 21 日：最初 12 组中有 1 组在结果已知后被排除；22 次原始作者尝试中有 12 次失败，补充报告没有替换这些失败。公开文件只是私人保留材料的一部分。软件检查与历史研究不能证明当前流程具有普遍的研究质量优势。
 
 [提交失败案例](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)，帮助补充已知失败的回归案例。

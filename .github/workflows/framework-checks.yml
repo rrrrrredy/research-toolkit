@@ -58,3 +58,5 @@ jobs:
         run: |
           python -m pip install -r requirements-mcp.txt
           python scripts/check_mcp_contract.py
+      - name: Check blinded pilot and historical reproduction without model calls
+        run: python scripts/check_blinded_evals.py

@@ -222,6 +222,16 @@ Your agent performs retrieval, reading, analysis, and writing with its own capab
 
 Detailed reports: [public reports and repairs](./evals/diagnostics/2026-09-07/) · [evaluation evidence and version boundaries](./docs/evaluation-status.md) · [evaluation standard](./docs/report-evaluation-standard.md).
 
+Reproduce the public two-pair inventory without model calls:
+
+```bash
+python scripts/reproduce_calibration.py
+```
+
+The [reproduction script](./scripts/reproduce_calibration.py) checks the frozen public bundle and all four original report hashes, then writes `evals/runs/calibration-reproduction/inventory.json` and `inventory.md`. Use a new `--output` directory to repeat it. This reproduces an archive inventory, not historical model generations or a quality score. [The existing conformance runner](./scripts/run_evals.py) checks task artifacts separately ([command and outputs](./evals/README.md#run-an-eval)).
+
+[Blinded 5–10-task pilot protocol and one-command harness](./docs/eval-protocol.md): seeded run order and A/B presentation, fixed rubric, raw outputs and failures retained. **Results pending; no new model evaluation has been run.** This prospective instruction-only Lite pilot does not change the historical n=2, unblinded, toolkit-first limitations.
+
 The historical inventory is dated September 21, 2026: one of the original 12 families was excluded after results were known; 12 of 22 original author attempts failed and supplemental reports did not replace those failures. Public files are a subset of the privately retained materials. Software checks and historical studies do not validate the current workflow's general research quality.
 
 [Submit a failure case](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml) to help expand the known-bad regression cases.
