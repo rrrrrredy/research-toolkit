@@ -78,6 +78,14 @@ On Windows, forward-slash paths such as `D:/tools/python/python.exe` are valid J
 
 The server also exposes the `research` prompt and `research-toolkit://instructions` resource. Ask the agent to read the instructions before using the tools. Local stdio requires a client that can start a local process; a web-only client expecting a remote HTTPS server cannot connect directly.
 
+### Client configuration and example
+
+The [README MCP quickstart](https://github.com/rrrrrredy/research-toolkit/blob/main/README.md#use-as-an-mcp-server) includes installation, JSON for Claude Desktop/Cursor and the equivalent native TOML for Codex. The [executable example](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.md) captures real local responses with a fictional report and explicitly degraded self-review.
+
+Official configuration references: [Claude Desktop local servers](https://modelcontextprotocol.io/docs/develop/connect-local-servers), [Cursor MCP](https://cursor.com/docs/mcp), [Codex MCP](https://developers.openai.com/codex/mcp). Cursor supports project `.cursor/mcp.json` or global `~/.cursor/mcp.json`; Codex uses `~/.codex/config.toml`. In Claude Desktop, open Settings → Developer → Edit Config.
+
+If no tools appear, run `python -c "import sys, mcp; print(sys.executable)"` with the configured interpreter. An import error means the MCP dependency is missing from that environment. Use absolute script/workspace paths and restart the client. Server startup and protocol calls are exercised by `python scripts/check_mcp_contract.py`; that offline check uses synthetic reviewers and does not establish GUI compatibility or research quality.
+
 ## What happens during a task
 
 | Tool | Action and completion boundary |
