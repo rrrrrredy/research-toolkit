@@ -2,7 +2,7 @@
 
 历史报告，信息截至 2026 年 9 月 9 日；部分动态文档于 9 月 10 日核对。研究基于公开资料，未安装实测。稿件变化不构成有无工具箱的对照实验。
 
-[完整报告](https://rrrrrredy.github.io/research-toolkit/case-study/report.zh-CN.html) · [交互案例](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=writing&detail=diff#case)
+[完整报告（中文原文）](https://rrrrrredy.github.io/research-toolkit/case-study/report.zh-CN.html) · [交互案例](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=writing&detail=diff#case)
 
 ## 去 AI 化表述
 
