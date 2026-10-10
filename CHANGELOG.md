@@ -6,15 +6,19 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
-Changes after the prepared v0.2.3 release belong here.
+Changes after v0.2.3 belong here.
 
-## v0.2.3 — prepared, not yet published
+## v0.2.3 — 2026-10-10
 
 Current package version, sourced from `VERSION`. Since v0.1.3: Lite tasks, three review tiers, portable reviewer backends, six CLI/MCP workflow tools, stronger evidence/version checks, bilingual onboarding and public case navigation. [Release notes](docs/releases/v0.2.3.md) summarize the changes below. These changes do not establish general efficacy. The v0.1.4 prerelease was withdrawn; historical release records remain unchanged.
 
 Package manifests are synchronized from `VERSION`; the version check also requires matching English and Chinese changelog entries and release notes.
 
 ### Getting started
+
+- Add copyable MCP client setup and a locally captured start-to-finish example, plus instructions for recording a demo.
+- Shorten the English Skill description for directories and give the Chinese Skill its own translated description.
+- Add offline reproduction of the existing calibration archive and a seeded, blinded pairwise pilot harness; the new protocol has no collected results.
 
 - Put a copyable Lite task near the top of both READMEs: supplied sources, a short report, source/claim records and a checklist, with a 5–15 minute walkthrough estimate.
 - Add shorter client setup cards and official documentation links, including OpenCode and desktop work agents; distinguish native installation from file/text input and document unavailable integration details.

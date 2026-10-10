@@ -8,7 +8,7 @@
 
 Research methods · Callable workflow tools · Review choices. For industry research, product comparisons, company analysis, and technical research.
 
-[**Evaluation results →**](#evaluation-results) · 2 public with/without-toolkit development comparisons; a general quality advantage remains unproven.
+[**Evaluation results →**](#evaluation-results)
 
 [**Quick start**](#quick-start) · [Use with your agent](#usage) · [Research case](#research-case) · [Lite quickstart](./docs/quickstart-lite.md) · [Documentation](#documentation)
 
