@@ -1,0 +1,66 @@
+name: Bilingual documentation reminder
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+  pull_request_target:
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: i18n-sync-${{ github.event_name }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  remind:
+    # Same-repository PRs can test this workflow before it reaches the default branch.
+    # Forks use the trusted default-branch workflow. Never check out or execute PR code.
+    if: >-
+      (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository) ||
+      (github.event_name == 'pull_request_target' && github.event.pull_request.head.repo.full_name != github.repository)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Warn about one-sided translation changes
+        uses: actions/github-script@v7
+        continue-on-error: true
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+            const marker = '<!-- research-toolkit:i18n-sync -->';
+            const pairs = [
+              ['README.md', 'README.zh-CN.md'],
+              ['SKILL.md', 'SKILL.zh-CN.md'],
+              ['CHANGELOG.md', 'CHANGELOG.zh-CN.md'],
+              ['CONTRIBUTING.md', 'CONTRIBUTING.zh-CN.md'],
+            ];
+            const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: issue_number });
+            const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number, per_page: 100 });
+            const ours = comments.filter(c => c.user?.type === 'Bot' && c.user?.login === 'github-actions[bot]' && c.body?.startsWith(marker));
+            let missing = [];
+            if (!(pr.body || '').includes('[i18n-skip]')) {
+              const files = await github.paginate(github.rest.pulls.listFiles, { owner, repo, pull_number: issue_number, per_page: 100 });
+              const changed = new Set(files.flatMap(f => [f.filename, f.previous_filename].filter(Boolean)));
+              missing = pairs.filter(([a, b]) => changed.has(a) !== changed.has(b));
+            }
+            if (!missing.length) {
+              for (const comment of ours) await github.rest.issues.deleteComment({ owner, repo, comment_id: comment.id });
+              core.info('No translation reminder needed / 无需双语同步提醒。');
+              return;
+            }
+            const body = marker + '\n**Translation reminder / 双语同步提醒**\n\n' +
+              'Only one file in each pair changed / 以下配对仅有一方发生变更：\n\n' +
+              missing.map(([a, b]) => '- `' + a + '` ↔ `' + b + '`').join('\n') +
+              '\n\nUpdate the counterpart, or include `[i18n-skip]` in the PR description when translation is unnecessary. This is advisory and does not block merging.\n' +
+              '请同步另一语言文件；无需同步时，在 PR 描述中加入 `[i18n-skip]`。此提醒不阻断合并。';
+            core.warning('Paired documentation may be out of sync / 双语文档可能未同步。');
+            if (ours.length) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: ours[0].id, body });
+              for (const comment of ours.slice(1)) await github.rest.issues.deleteComment({ owner, repo, comment_id: comment.id });
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number, body });
+            }

@@ -90,7 +90,7 @@ def stage_skill(workspace: Path) -> Path:
     shutil.copytree(REPO_ROOT / "references", destination / "references")
     scripts_dir = destination / "scripts"
     scripts_dir.mkdir()
-    for name in ("check_delivery.py", "check_review_completion.py"):
+    for name in ("check_delivery.py", "check_review_completion.py", "profile_policy.py"):
         shutil.copy2(REPO_ROOT / "scripts" / name, scripts_dir / name)
     docs_dir = destination / "docs"
     docs_dir.mkdir()

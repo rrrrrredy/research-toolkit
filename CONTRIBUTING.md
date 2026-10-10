@@ -4,6 +4,9 @@
 
 Contribute changes that improve research methods, make the workflow easier to follow, catch demonstrated failures, or strengthen the evidence behind the project's claims. Explain the problem and show how the change addresses it. Keep standalone orchestration products outside this repository.
 
+
+The i18n sync workflow leaves a non-blocking PR reminder when only one of a README, SKILL, CHANGELOG or CONTRIBUTING language pair changes; include `[i18n-skip]` in the PR description to skip it (and remove an existing reminder).
+
 ## Authority And Scope
 
 - `SKILL.md` is the agent entry point into one shared research standard. Keep its essential constraints consistent with the detailed rules in `references/research-standard.md` and the supporting references; maintain the Chinese versions alongside them.

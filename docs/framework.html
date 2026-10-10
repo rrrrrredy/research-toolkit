@@ -229,6 +229,18 @@ description: Source-backed longform research framework for AI agents. Use for su
 
 Produce the research deliverable the user requested. Use this entry point throughout the task; load the relevant methods at the stages below. The [research standard](references/research-standard.md) retains the complete rules, state contract, examples, and failure guidance. Paths in commands and code spans are relative to the installed toolkit or the research task, as indicated.
 
+## Choosing a profile
+
+`research_start(profile="full")` is the default. Select `profile="lite"` (CLI: `start --profile lite`) for a bounded task; the saved profile applies to later actions and cannot be silently changed when resuming.
+
+| Task size, use and evidence | Recommended profile |
+| --- | --- |
+| Up to about 2,000 words/Chinese characters; an internal briefing or exploratory answer; a few directly readable sources | `lite` |
+| Longer or multi-section comparison; many or conflicting sources; a report intended for publication or decisions | `full` |
+| Consequential decisions, explicitly required independent review, or frozen evaluation, regardless of length | `full` with explicitly configured `independent` review |
+
+Lite retains brief clarification, source-backed claim registration, section-by-section drafting and the final checklist. It skips `research_review` and the full delivery hard gates with explicit `SKIP` logs. Call `research_finish` for the checklist, then submit every item with `passed: true` and a concrete `evidence` locator. The result is saved in `state/final_checklist.json`; it is not a full-gate receipt. Use qualified conclusions such as “the available sources suggest”; disclose that there was no independent review. These profile rules govern any full-only review/delivery requirements in the stage references.
+
 ## Establish the research brief
 
 Before collecting sources, read [research workflow](references/research-workflow.md) and check the existing conversation and materials for:
@@ -273,13 +285,31 @@ Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log
 
 ## Complete reviews effectively
 
-- Declare required review scopes, reviewer identities, inputs, and recovery routes before review. A substantial report needs at least one non-author review context; compatible perspectives may share a reviewer. No fixed provider or four-model combination is required by this Skill.
-- Cover requirements, evidence and data, adversarial challenges, structure and depth, reader usefulness, and natural prose without process narration. Add domain checks only where relevant.
-- Each required reviewer must return a complete, substantive response for the correct artifact and input version. Preserve original responses and execution evidence. A call attempt, timeout, truncation or generic PASS is incomplete. An ordinary report does not require a separate audit of its reviewer.
-- Recover the failed review route. A retry limit changes the recovery method, not the completion condition; request necessary access when needed and continue unaffected work. Do not silently replace a designated model or shorten required inputs.
-- A valid negative review is complete. Assess individual findings against the text and sources; preserve reasoned corrections or no-change decisions. Never discard criticism merely to improve the verdict.
-- Check findings against the report and sources. Additional independent adjudication, reviewer auditing and formal sampling apply only when the task declares them; the detailed methods remain in the review reference. Preserve unresolved evidence honestly.
-- Evaluation completion preserves defects and unresolved evidence outcomes with the agreed reviews and dispositions. Reader-ready report delivery also requires all necessary corrections. Stop optional polishing once the agreed gates pass; do not restart review for a no-change decision alone.
+| Reviewer tier | Setup cost | Review strength | Suitable use |
+| --- | --- | --- | --- |
+| `self` | None; explicitly switch roles in the author context | Degraded; retains author blind spots, marked `reviewer: self` | Small reports and a zero-configuration start |
+| `external` | Configure one command or endpoint | An external model response; quality depends on the backend and evidence | Routine reports with another model's feedback |
+| `independent` | Configure fresh reviewer contexts and any task-required audits | Existing independent review and version-binding requirements | Consequential reports and frozen evaluations |
+
+For `self`, `research_review` returns a built-in critical-review prompt, the frozen report/evidence and `input_version`. Perform that review in the current context, then call the tool again with the structured result and `input_version` in `self_review`. The tool never fabricates a review or an external execution. Every self-review record and delivery receipt retains `review_strength: degraded`; describe conclusions as provisional and disclose the missing independent opinion.
+
+Cover requirements, evidence, adversarial reasoning, structure/depth, reader usefulness, process language and natural expression. Retain the original response, located coverage, findings and version bindings for every tier. A negative review is complete but unresolved necessary corrections block Full delivery. Preserve valid negative results; use evidenced no-change decisions for mistaken findings rather than rerunning for a better verdict.
+
+Check configuration with `research_check_reviewer` or `python scripts/research_workflow.py check-reviewer`. An explicitly requested external/independent reviewer that cannot run stays incomplete: restore its configured access and resume the same assignment. Do not substitute self for a declared independent requirement. Extra audits and sampling remain required for frozen evaluations and explicitly audited plans.
+
+## Reviewer backends
+
+Reviewer tier describes the review relationship; backend describes the command or endpoint that receives the report and evidence and returns a structured review. With no backend configured, a new Full report defaults to `self`; a configured backend defaults to `independent`. Explicit tiers and saved independent/audited plans never silently fall back after an error.
+
+| Backend | Configuration cost | Review strength | Material destination and usage |
+| --- | --- | --- | --- |
+| `self` | None | Degraded author-context review | Current author context; its existing model usage; no additional reviewer service |
+| `codex` — Codex CLI | Set `RESEARCH_TOOLKIT_REVIEW_BACKEND=codex`; install and sign in to the CLI; optional `RESEARCH_TOOLKIT_REVIEW_MODEL` | Fresh external context; supports independent review | Configured CLI model service and account quota; forward the intended `CODEX_HOME` when customized |
+| `claude` — Claude Code CLI | Set `RESEARCH_TOOLKIT_REVIEW_BACKEND=claude`; install and authenticate the CLI; optional model | Fresh external context, without tools; supports independent review | Service/account configured by the CLI; consumes that account's subscription or API usage |
+| `generic` — compatible HTTP endpoint | Set backend to `generic`, `RESEARCH_TOOLKIT_REVIEW_BASE_URL`, `RESEARCH_TOOLKIT_REVIEW_MODEL`; optional `RESEARCH_TOOLKIT_REVIEW_API_KEY` | Fresh request with the full assignment; supports independent review, not guaranteed statistical independence | Complete materials go to your chosen endpoint; its account is billed; local endpoints follow your own hosting policy |
+| Trusted custom command | `RESEARCH_TOOLKIT_REVIEW_CONFIG` with an argv list and `format: "json"` | Depends on the adapter's actual context and evidence | Destination and usage are controlled by that command; document them before sending materials |
+
+The configuration check is local and does not establish service availability or quota. Credentials belong in the runtime environment, never in reports or versioned configuration. The generic adapter uses `/chat/completions`; a base URL may include `/v1` or the complete route. See the [backend interface](docs/usage-modes.md#reviewer-backends) for requests, responses and recovery.
 
 ## Check before declaring completion
 
@@ -288,7 +318,7 @@ Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log
 
 Record the actual stage, open issues, and next action. On recovery, read the task specification, progress, requirement ledger if present, and any existing research notes useful for recovery. A checkpoint remains a checkpoint.
 
-For reader-ready final delivery:
+For Full reader-ready final delivery (Lite uses its checklist above):
 
 1. Reconcile every required question and material follow-up with the actual answer, evidence, and current artifact. Unfinished obligations remain open unless the user specifically changed them.
 2. Complete the required content reviews and any expressly required audits. Required corrections must be resolved and the current report must have a passing full-report assessment. Preserve version bindings; a valid negative review is complete but does not approve delivery.

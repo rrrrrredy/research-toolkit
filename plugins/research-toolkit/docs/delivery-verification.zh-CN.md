@@ -14,6 +14,9 @@ python <skill-directory>/scripts/check_delivery.py <task-directory>
 
 用 `--delivery-message note.md` 指定其他交付说明文件，凭证须绑定选定文件。成果、凭证和拟交付说明的路径均须位于任务目录内。
 
+
+档位规则：Lite 跳过评审与完整交付门槛，仅保留 `state/final_checklist.json` 和明确跳过日志。Full 的 self 记录须标记 `reviewer: self`、`review_strength: degraded`，评审身份及 execution_id 均为作者上下文；它仍须完成当前稿件的结构化评审和既有 Full 交付检查，不能填充独立评审席位。external 使用配置的外部后端，independent 保留原有独立上下文要求；历史计划缺少 reviewer 字段时仍按 independent 处理。见 [档位与后端](../SKILL.zh-CN.md#选择档位)。
+
 ## 需求关闭与阅读记录
 
 `state/requirements.jsonl` 中，`satisfied` 需要非空证据字符串或字符串列表。以 `waived`、`out_of_scope` 或 `accepted_limitation` 关闭的要求，需要 `user_decision` 对象，内含非空 `source_turn` 和 `quote`。决定须与该要求相关；用户最初明确排除的事项也可确立边界。状态标签、作者自行决定或披露缺口，不能替代用户的决定。

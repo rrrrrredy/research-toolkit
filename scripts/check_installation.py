@@ -19,7 +19,7 @@ def reference_payload(repository: Path, reference: str) -> tuple[str, dict[str, 
 
     commit = git("rev-parse", "--verify", "--end-of-options", reference + "^{commit}").decode().strip()
     paths = git("ls-tree", "-r", "--name-only", commit, "--", "SKILL.md", "SKILL.zh-CN.md", "references", "scripts/check_delivery.py",
-                "scripts/check_review_completion.py", "docs/review-completion.md",
+                "scripts/check_review_completion.py", "scripts/profile_policy.py", "docs/review-completion.md",
                 "docs/delivery-verification.md", "docs/review-completion.zh-CN.md",
                 "docs/delivery-verification.zh-CN.md").decode("utf-8").splitlines()
     paths = [path for path in paths if path.endswith((".md", ".py"))]

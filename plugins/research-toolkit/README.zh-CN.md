@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-一次安装，包含研究 Skill、完整方法和五个本地 MCP 工具。Agent 先澄清研究需求，用已有工具检索、分析、写作，再通过共用流程执行独立评审和交付检查。
+一次安装，包含研究 Skill、完整方法和六个本地 MCP 工具。Agent 先澄清研究需求，用已有工具检索、分析、写作，再通过共用流程执行选定档位的评审和交付检查。
 
 以 Codex 为例，安装 Python 3.10 及以上版本、Git 和 Codex CLI 后运行：
 
@@ -12,11 +12,11 @@ codex plugin marketplace add rrrrrredy/research-toolkit
 codex plugin add research-toolkit@research-toolkit
 ```
 
-重开会话，选择 Research Toolkit，确认五个 `research_*` 工具可用。直接说明研究题目、读者和成果要求；缺失的关键条件由 Agent 追问。
+重开会话，选择 Research Toolkit，确认六个 `research_*` 工具可用。直接说明研究题目、读者和成果要求；缺失的关键条件由 Agent 追问。
 
 **[完整安装与使用说明](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md)** · [研究入口](SKILL.zh-CN.md) · [完整规范](references/research-standard.zh-CN.md)
 
-默认评审使用已登录的 Codex CLI 账户，发送完整任务、正文与证据，消耗对应额度。普通报告默认只启动内容评审；显式配置的审查者、评测及原有审计计划继续执行额外审计。使用说明包含其他可信评审命令与失败恢复。
+新建 Full 任务未配置后端时，使用明确标注强度降级的 self 评审；external／independent 可配置 CLI 或兼容 HTTP 后端。Lite 跳过评审和完整交付门槛，保留最终 checklist。已声明的独立评审、评测与审计计划不静默降级。材料去向、额度及配置自查见完整使用说明。
 
 通用 `plugin.json` / `mcp.json` 与 Codex 兼容清单 `.codex-plugin/plugin.json` / `.mcp.json` 启动相同实现。MCP 通过本地 stdio 接入，不是托管的 HTTPS 服务。包内没有凭据，机械检查也不证明研究质量。
 

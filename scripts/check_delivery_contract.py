@@ -315,7 +315,7 @@ class DeliveryContractTests(unittest.TestCase):
 
     def test_actual_delivery_matches_capture(self):
         capture = Path(self.temp.name) / "captured.md"
-        capture.write_bytes((self.root / "delivery_message.md").read_bytes().replace(b"\n", b"\r\n"))
+        capture.write_bytes((self.root / "delivery_message.md").read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n"))
         result = self.evaluate(actual_message=capture)
         self.assertTrue(result["ok"], result)
         self.assertEqual(result["delivery_observation"], "matched")

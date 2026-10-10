@@ -14,6 +14,9 @@ The receipt binds the current artifact, brief, progress, source and claim record
 
 Use `--delivery-message note.md` for a non-default intended message. The receipt must bind that selected filename. Artifact, receipt and intended-message paths must resolve inside the task directory.
 
+
+Profile rules: Lite skips review and full delivery gates, retaining `state/final_checklist.json` and explicit skip logs. Full self records require `reviewer: self` and `review_strength: degraded`, with the author identity as both reviewer and execution_id; they still require a structured review of the current report and the existing Full delivery checks, and cannot fill an independent slot. External uses the configured backend; independent retains the original separate-context requirements. A historical plan without a reviewer field remains independent. See [profiles and backends](../SKILL.md#choosing-a-profile).
+
 ## Requirement closure and reading records
 
 In `state/requirements.jsonl`, `satisfied` needs a non-empty evidence string or list of strings. A requirement closed as `waived`, `out_of_scope`, or `accepted_limitation` needs a `user_decision` object with non-empty `source_turn` and `quote`. The quoted decision must concern that requirement; an original user exclusion can establish scope. A status label, the author's decision, or disclosure of a gap does not replace the user's decision.

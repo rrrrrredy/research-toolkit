@@ -5,7 +5,7 @@ from __future__ import annotations
 import asyncio
 import json
 import threading
-from typing import Any
+from typing import Any, Literal
 from collections import defaultdict
 from mcp.server import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
@@ -34,13 +34,15 @@ def mutate(function, task, *args):
 
 
 @server.tool(structured_output=True)
-def research_start(task: str, brief: dict[str, str], language: str = "en") -> dict[str, Any]:
+def research_start(task: str, brief: dict[str, str], language: str = "en",
+                   profile: Literal["lite", "full"] = "full") -> dict[str, Any]:
     """Create a research task or complete its missing brief. Returns its directory and stage guidance.
     Assemble concrete coverage and expected results from context; brief uses question, audience, scope, output, depth and evidence_standard.
     Returned clarification_questions guide the agent; do not forward them as a questionnaire. Explain consequential alternatives and resolve critical choices with the user.
+    profile defaults to full; lite skips review and full delivery gates but requires its final checklist.
     Inspect review_readiness before collection: restore blocked dependencies/access; local checks do not verify quota.
     """
-    return mutate(workflow.start, task, brief, language)
+    return mutate(workflow.start, task, brief, language, profile)
 
 
 @server.tool(structured_output=True)
@@ -53,33 +55,45 @@ def research_status(task: str, language: str = "en", stage: str | None = None) -
 
 
 @server.tool(structured_output=True)
-def research_guide(stage: str, language: str = "en") -> dict[str, Any]:
+def research_guide(stage: str, language: str = "en", profile: Literal["lite", "full"] = "full") -> dict[str, Any]:
     """Read the research methods for brief, collect, analyze, draft, review, revise or final."""
-    return call(workflow.guidance, stage, language)
+    return call(workflow.guidance, stage, language, profile)
 
 
 @server.tool(structured_output=True)
 async def research_review(task: str, evidence_paths: list[str], artifact: str = "final.md",
-                          purpose: str = "report_delivery", revision: bool = False) -> dict[str, Any]:
+                          purpose: str = "report_delivery", revision: bool = False,
+                          reviewer: Literal["self", "external", "independent"] | None = None,
+                          self_review: dict[str, Any] | None = None) -> dict[str, Any]:
     """Run the configured content reviews and any declared audits, retaining original evidence.
-    Sends the full task/report/evidence to the configured model account. May consume its usage.
+    Without a configured backend, new tasks return a self-review prompt; submit the actual result as self_review.
+    Explicit external/independent selections never silently downgrade. Lite returns explicit skip logs.
+    External calls send the full task/report/evidence to the configured model account. May consume its usage.
     evidence_paths are UTF-8 files relative to the task; required registry materials are included automatically.
     Use evidence_path in source records for local source text/extracts. Use purpose=evaluation to preserve defects.
     Resume incomplete assignments; never retry a valid negative result to improve the verdict.
     revision=True is only for a separately authorized changed report-delivery assignment.
     """
     return await asyncio.to_thread(mutate, workflow.review, task, evidence_paths,
-                                   artifact, purpose, revision)
+                                   artifact, purpose, revision, reviewer, self_review)
 
 
 @server.tool(structured_output=True)
-async def research_finish(task: str, message: str, artifact: str = "final.md") -> dict[str, Any]:
+async def research_finish(task: str, message: str, artifact: str = "final.md",
+                          checklist: dict[str, Any] | None = None) -> dict[str, Any]:
     """Verify report delivery and publish its receipt/terminal state only when checks pass.
+    Lite returns a checklist template when checklist is omitted; submit each passed/evidence item to finish.
     message is the intended user-visible delivery text. This does not send messages or publish externally.
     For evidenced no-change decisions, append finding_disposition rows to logs/review.jsonl as documented.
     Evaluation tasks end with evaluation_complete from research_review, without repairing samples.
     """
-    return await asyncio.to_thread(mutate, workflow.finish, task, message, artifact)
+    return await asyncio.to_thread(mutate, workflow.finish, task, message, artifact, checklist)
+
+
+@server.tool(structured_output=True)
+def research_check_reviewer() -> dict[str, Any]:
+    """Check trusted reviewer configuration locally, without sending report data or paid model calls."""
+    return call(workflow.review_readiness)
 
 
 @server.resource("research-toolkit://instructions")

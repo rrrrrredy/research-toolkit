@@ -67,7 +67,7 @@ Reviews cover intent and requirements, evidence and data, adversarial reasoning,
 
 **Every required model-review slot must obtain a complete, version-bound, substantive response.** A call attempt, error record, truncated reply or generic PASS does not complete it. Preserve failures, diagnose the cause and resume the missing assignment. A valid negative judgment is complete and stays in the evaluation results.
 
-Ordinary research defaults to one non-author content review, with findings checked against the report and sources. Separate reviewer auditing, independent adjudication and formal sampling apply when expressly required by the task. Their methods remain available; evaluation studies retain their own declared protocols.
+Ordinary reports follow the [profile and backend choices](../SKILL.md#choosing-a-profile): Lite skips review; Full without a backend uses degraded self-review, with external/independent review available through configuration. Extra auditing and sampling apply when declared; frozen evaluations retain their protocol.
 
 Evaluation preserves original defects for toolkit improvement. Reader-ready delivery additionally resolves required corrections in the current report. Scripts check record consistency; actual execution evidence and content review remain necessary.
 
@@ -103,7 +103,9 @@ See [`evals/README.md`](../evals/README.md) for runtime setup, execution modes, 
 
 For actual outputs, read the [September 2026 calibration reports and repairs](../evals/diagnostics/2026-09-07/): four original reader reports, two repairs, retained failed reviews and a three-model text diagnostic, including an incomplete reply. These are development evidence, not a measured win rate for using the toolkit.
 
-Those historical diagnostics retain their original three-model configuration. The separate four-reviewer study configuration uses Astra in Codex to write with the toolkit's research methods and Sol high, DeepSeek, Kimi, and GLM as four reviewers; the toolkit does not depend on that panel.
+| Historical reviewer backends (retained provenance, not a default dependency) |
+| --- |
+| Those historical diagnostics retain their original three-model configuration. The separate four-reviewer study configuration uses Astra in Codex to write with the toolkit's research methods and Sol high, DeepSeek, Kimi, and GLM as four reviewers; the toolkit does not depend on that panel. |
 
 See [`docs/evaluation-roadmap.md`](evaluation-roadmap.md) for mechanical checks, report evaluation and the evidence required for product-effect claims.
 

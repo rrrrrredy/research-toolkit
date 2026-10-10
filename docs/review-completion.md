@@ -4,6 +4,9 @@
 
 [SKILL.md](../SKILL.md) defines the required behavior. This page describes the offline record interface for required model reviews, validity checks, finding dispositions and sampling. [Role instructions](../references/subagents-and-review-loop.md) describe the actual review work.
 
+
+Profile rules: Lite skips review and full delivery gates, retaining `state/final_checklist.json` and explicit skip logs. Full self records require `reviewer: self` and `review_strength: degraded`, with the author identity as both reviewer and execution_id; they still require a structured review of the current report and the existing Full delivery checks, and cannot fill an independent slot. External uses the configured backend; independent retains the original separate-context requirements. A historical plan without a reviewer field remains independent. See [profiles and backends](../SKILL.md#choosing-a-profile).
+
 ## Choose the Completion Question
 
 - **Evaluation:** all declared review slots must have effective results and evidenced dispositions. A valid negative judgment, confirmed sample defect or unresolved source question can be retained as an evaluation outcome.
@@ -35,10 +38,10 @@ Add `review_plan` to the existing progress record. It contains:
 | `audit_required` | `false` for ordinary reports; omitted or `true` for audited plans, including evaluations |
 | `author_id` | Identity of the author context |
 | `artifact_sha256` | Hash of the actual primary artifact |
-| `slots` | Nonempty list of required independent model-review assignments |
+| `slots` | Nonempty list of assignments for the declared reviewer tier |
 | `sampling` | Population, method and selected/mandatory ids for declared audited plans |
 
-Each slot has `slot_id`, `reviewer_id`, `model`, `scope`, `dimensions` and `input`. The shared executor also records `reviewer_signature` for the configured reviewer and instructions, plus `auditor_signature` in the plan and audit rows when an auditor is configured. Timeout changes are excluded from these assignment bindings. When present, signatures must match before selecting the first valid result; a prior model's result cannot fill a changed slot. Legacy records without these fields remain inspectable without inventing evidence of earlier execution. Slot ids are unique, the reviewer is not the author, and each dimension is named explicitly. Compatible perspectives may share a slot. There is no fixed provider list in the checker.
+Each slot has `slot_id`, `reviewer_id`, `model`, `scope`, `dimensions` and `input`. The shared executor also records `reviewer_signature` for the configured reviewer and instructions, plus `auditor_signature` in the plan and audit rows when an auditor is configured. Timeout changes are excluded from these assignment bindings. When present, signatures must match before selecting the first valid result; a prior model's result cannot fill a changed slot. Legacy records without these fields remain inspectable without inventing evidence of earlier execution. Slot ids are unique; external/independent reviewers are not the author, and each dimension is named explicitly. Compatible perspectives may share a slot. There is no fixed provider list in the checker.
 
 `input` is a file reference: `{"path": "reviews/input.json", "sha256": "..."}`. Replace `...` with the actual hash; the fragment illustrates the shape and is not a completed record. Keep the original full task, report, evidence and criteria in the captured input, with any actual provider-envelope transformation documented. A separate hash or a list of source URLs does not establish that the model received full source text.
 

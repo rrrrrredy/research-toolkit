@@ -1,0 +1,59 @@
+name: Failure case / 失败案例
+description: Share a reproducible research failure in about two minutes / 约两分钟提交一个可复现的研究失败案例。
+title: "[Failure case] "
+body:
+  - type: input
+    id: question
+    attributes:
+      label: Research question / 研究问题
+      placeholder: What did you ask the agent to research? / 你让 Agent 研究什么？
+    validations:
+      required: true
+  - type: input
+    id: expected
+    attributes:
+      label: Expected result / 期望结果
+      placeholder: One sentence is enough / 一句话即可
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Available sources / 可用来源
+      description: Link original materials or paste a short excerpt you can share publicly. / 链接原始材料，或粘贴可公开的简短片段。
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Observed problem / 观察到的问题
+      placeholder: What went wrong, and how can it be reproduced? / 哪里出了问题，如何复现？
+    validations:
+      required: true
+  - type: textarea
+    id: excerpt
+    attributes:
+      label: Report excerpt (optional) / 报告原文片段（选填）
+      description: Paste the relevant passage; remove credentials and private material. / 可直接贴相关段落，请移除密钥和私人材料。
+  - type: dropdown
+    id: profile
+    attributes:
+      label: Profile / 档位
+      options:
+        - full
+        - lite
+        - Unknown or older version / 不清楚或旧版本
+    validations:
+      required: true
+  - type: dropdown
+    id: reviewer
+    attributes:
+      label: Reviewer tier / 评审档位
+      options:
+        - self
+        - external
+        - independent
+        - Skipped (lite) / 已跳过（lite）
+        - Unknown or older version / 不清楚或旧版本
+    validations:
+      required: true

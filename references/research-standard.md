@@ -6,6 +6,9 @@ The [Skill entry point](../SKILL.md) routes each stage to the applicable parts o
 
 Research Toolkit guides AI agents through substantial research and report writing. It covers scope, source analysis, progress records, section-by-section drafting, review, and revision. Evidence and execution records stay in the task files; the finished report presents the argument, analysis, and supporting sources. The toolkit does not include a scraper, data source, or fixed report template.
 
+
+**Profile scope:** Full review/delivery requirements on this page apply to Full. Lite retains the brief, claims, section drafting and final checklist with explicit review/gate skip logs. New Full tasks without a backend may use degraded self-review; non-author-context requirements apply to external/independent tiers and explicitly independent tasks, never to a self-review relabelled independent. Frozen evaluations retain their original protocol. Use the [Skill profile rules](../SKILL.md#choosing-a-profile).
+
 ## 1. Motivation
 
 Longform research agents tend to fail in five recurring ways:
@@ -57,7 +60,7 @@ Keep unfinished required work separate from evidence uncertainty. A missing requ
 
 ### Review Completion
 
-At planning, declare the required review scopes, model/context identities, inputs and recovery policy in the task records. Substantial report delivery needs at least one non-author review context; compatible perspectives may share a reviewer. A particular provider or four-model panel is not a toolkit dependency. Cover intent and requirements, evidence and data, adversarial reasoning, structure and depth, reader usefulness, process-language removal and natural expression; add domain checks only where the task needs them. Read [subagent and review guidance](subagents-and-review-loop.md) to assign these responsibilities.
+At planning, declare the required review scopes, model/context identities, inputs and recovery policy in the task records. Full delivery with external/independent review needs at least one non-author review context; compatible perspectives may share a reviewer. A particular provider or four-model panel is not a toolkit dependency. Cover intent and requirements, evidence and data, adversarial reasoning, structure and depth, reader usefulness, process-language removal and natural expression; add domain checks only where the task needs them. Read [subagent and review guidance](subagents-and-review-loop.md) to assign these responsibilities.
 
 Every declared model-review slot must obtain a complete, version-bound, substantive response with retained execution evidence and an original reply. Ordinary research uses content review without a compulsory second reviewer-audit context. Failed, truncated or generic responses remain incomplete; restore the missing assignment without replacing specified models or shortening required inputs.
 

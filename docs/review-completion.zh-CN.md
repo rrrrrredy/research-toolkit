@@ -4,6 +4,9 @@
 
 [SKILL.md](../SKILL.md) 规定必需行为。本页说明模型评审、有效性核查、发现处置和抽查的离线记录接口。具体审查方法见[角色与工作规范](../references/subagents-and-review-loop.zh-CN.md)。
 
+
+档位规则：Lite 跳过评审与完整交付门槛，仅保留 `state/final_checklist.json` 和明确跳过日志。Full 的 self 记录须标记 `reviewer: self`、`review_strength: degraded`，评审身份及 execution_id 均为作者上下文；它仍须完成当前稿件的结构化评审和既有 Full 交付检查，不能填充独立评审席位。external 使用配置的外部后端，independent 保留原有独立上下文要求；历史计划缺少 reviewer 字段时仍按 independent 处理。见 [档位与后端](../SKILL.zh-CN.md#选择档位)。
+
 ## 先区分完成的对象
 
 - **评测**：每个必需评审席位取得有效结果，并完成有证据的处置。有效负评、样本的已证缺陷或未解决来源问题可以作为评测结果保留。

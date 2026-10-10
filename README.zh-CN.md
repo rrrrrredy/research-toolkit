@@ -1,12 +1,12 @@
 # Research Toolkit
 
-[![MIT License](https://img.shields.io/badge/license-MIT-596259)](./LICENSE) [![Framework checks](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml/badge.svg)](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml)
+[![MIT License](https://img.shields.io/badge/license-MIT-596259)](./LICENSE) [![Framework checks](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml/badge.svg)](https://github.com/rrrrrredy/research-toolkit/actions/workflows/framework-checks.yml) · [已评测](#evaluation-results)
 
 [English](./README.md) · [简体中文](./README.zh-CN.md)
 
 **让 AI Agent 写出判断具体、来源可查、经过独立审阅的研究报告。**
 
-研究方法 · 可调用的执行工具 · 独立审阅。适用于行业研究、产品比较、公司分析和技术调研。
+研究方法 · 可调用的执行工具 · 可选评审档位。适用于行业研究、产品比较、公司分析和技术调研。
 
 [**在你的 Agent 中使用**](#使用) · [研究案例](#研究案例) · [文档](#文档)
 
@@ -85,7 +85,7 @@
 
 **定稿新增**
 
-> 第三方云端模式则在扣子云电脑运行Claude Code、Codex CLI等执行框架，接入扣子提供的模型，不绑定原厂账号与模型。
+> 第三方云端模式则在扣子云电脑运行[…]等执行框架，接入扣子提供的模型，不绑定原厂账号与模型。
 
 初稿已区分运行方式与权限；定稿补充原生模型选项和第三方云端的模型供应方式。在这个部署场景中，框架名称不能直接说明底层模型，“扣子提供”也不等于“扣子自研”。
 
@@ -135,10 +135,21 @@ https://github.com/rrrrrredy/research-toolkit
 | 能读取本地文件或附件 | [下载仓库](https://github.com/rrrrrredy/research-toolkit/archive/refs/heads/main.zip)，提供 `SKILL.md`，并按任务需要提供参考文件。 |
 | 只能接收文本 | 粘贴完整 `SKILL.md` 及任务需要的参考章节。见[纯聊天使用边界](./agents/README.zh-CN.md#只能在聊天中使用时)。 |
 | 支持原生 Skill | 通过该工具支持的技能机制安装完整副本。见[Agent 接入](./agents/README.zh-CN.md)。 |
+| 小型研究任务 | `research_start(profile="lite")` 或 CLI `start --profile lite`：保留 brief、claim、分段起草与 checklist，跳过评审和完整交付硬门槛。 |
 
-**可选执行工具。** 能启动本地 MCP 服务的 Agent，可调用五个工具保存任务、加载阶段方法、执行审阅和检查交付。兼容的插件将同一套方法与工具一起安装。[插件与 MCP 配置](./docs/usage-modes.zh-CN.md)
+**可选执行工具。** 能启动本地 MCP 服务的 Agent，可调用六个工具保存任务、加载阶段方法、执行审阅和检查交付。兼容的插件将同一套方法与工具一起安装。[插件与 MCP 配置](./docs/usage-modes.zh-CN.md)
 
-读取指令不会自动启动 MCP 或执行独立审阅。检索、文件访问和工具执行能力取决于当前环境；独立审阅需要另一个能够读取报告及证据的评审者。MCP 审阅执行器默认使用已登录的 Codex CLI，也支持配置其他审阅命令，撰写报告的 Agent 无须使用 Codex。[审阅配置与账户](./docs/usage-modes.zh-CN.md#评审使用什么账户失败怎么办)
+读取指令不会自动启动 MCP 或执行评审。Full 未配置评审后端时返回 self 评审模板；需要外部／独立意见时配置任一受支持后端。[后端配置与材料去向](./SKILL.zh-CN.md#评审后端)
+
+## 评审与验收
+
+| 档位 | 配置与取舍 |
+| --- | --- |
+| `self` | 零配置，同上下文切换角色；记录标明自评与强度降级。 |
+| `external` | 一个外部命令或端点；保留结构化评审及原始响应。 |
+| `independent` | 独立上下文；保留既有版本绑定、恢复及任务要求的审计。 |
+
+未配置后端时自动使用 self，已声明的独立评审不能被静默降级；Lite 不运行评审。[配置自查与后端](./docs/usage-modes.zh-CN.md#reviewer-backends)说明材料去向、账户用量和故障处理。
 
 ## 工具箱组成
 
@@ -151,7 +162,7 @@ https://github.com/rrrrrredy/research-toolkit
 Agent 使用自身的检索、读写和分析能力完成研究。插件将 Skill、方法和本地 MCP 打包在一起；也可以单独使用 Skill 或连接 MCP。
 
 <details>
-<summary>五个 MCP 工具</summary>
+<summary>六个 MCP 工具</summary>
 
 | 工具 | 功能 |
 | --- | --- |
@@ -160,10 +171,29 @@ Agent 使用自身的检索、读写和分析能力完成研究。插件将 Skil
 | `research_guide` | 按阶段加载研究方法。 |
 | `research_review` | 绑定稿件与证据，执行审阅并保留回复或失败。 |
 | `research_finish` | 检查当前稿件、未解决要求、审阅与交付文本。 |
+| `research_check_reviewer` | 本地检查后端配置、依赖与可探测的登录状态，不调用模型。 |
 
 [工具与执行边界](./docs/usage-modes.zh-CN.md#一次研究如何推进)
 
 </details>
+
+## 评测集
+
+<a id="evaluation-results"></a>
+
+**做过对照：公开归档保留了 2 组用／不用工具箱的开发期比较。实验暴露了导航不足、结论主次不清、自评偏宽等问题，尚不能证明普遍的质量优势。**
+
+| 实验组数 | 对照设计 | 盲评维度 | 核心结论 |
+| --- | --- | --- | --- |
+| [2 组公开校准对照](./evals/diagnostics/2026-09-07/calibration-provenance.json)，4 份原始报告 | 用／不用工具箱，均先跑工具箱组；公开运行元数据中的同模型、同 brief 确认：**待补充** | **待补充**；后续修订稿评审未对作者论点设盲 | 工具箱稿提供了有用证据，但仍需要实质性的表达与证据修正。 |
+| [11 组保留的历史配对研究](./docs/evaluation-status.zh-CN.md)，22 份评审输入 | 历史配对研究；完整原始材料及同模型、同 brief 的公开核验：**待补充** | **待补充**；汇总数量不能证明实际完成盲评 | 主要比较中，5 组双方均有必要缺陷，6 组因作者额度失败仍未定，不能据此宣称普遍胜出。 |
+| [23 组合成反例／对照片段](./evals/semantic_diagnostics/) | 为诊断缺陷编写的片段，与完整报告的用／不用工具箱实验分别记录 | [已公开的模型诊断](./evals/semantic_diagnostics/reviews/2026-09-08/)保留分歧和漏检；没有经验证的盲评质量分数 | 这些片段可暴露诊断弱点、支持回归检查，不能证明工具箱有效性。 |
+
+详细报告：[公开原稿与修订稿](./evals/diagnostics/2026-09-07/) · [评测证据与版本边界](./docs/evaluation-status.zh-CN.md) · [评测标准](./docs/report-evaluation-standard.zh-CN.md)。
+
+历史汇总截至 2026 年 9 月 21 日：最初 12 组中有 1 组在结果已知后被排除；22 次原始作者尝试中有 12 次失败，补充报告没有替换这些失败。公开文件只是私人保留材料的一部分。软件检查与历史研究不能证明当前流程具有普遍的研究质量优势。
+
+[提交失败案例](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)，帮助补充已知失败的回归案例。
 
 ## 文档
 
