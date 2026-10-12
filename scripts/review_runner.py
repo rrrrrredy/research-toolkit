@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import ipaddress
 import os
 from pathlib import Path
 import shutil
@@ -161,6 +162,13 @@ def endpoint_url(config):
     parsed = parse.urlsplit(value)
     if parsed.scheme not in {"https", "http"} or not parsed.hostname or parsed.username or parsed.password or parsed.query or parsed.fragment:
         raise ValueError("generic needs an HTTP(S) base URL without credentials, query or fragment. " + BACKEND_HELP)
+    if parsed.scheme == "http":
+        try:
+            loopback = ipaddress.ip_address(parsed.hostname).is_loopback
+        except ValueError:
+            loopback = parsed.hostname.lower() == "localhost"
+        if not loopback:
+            raise ValueError("generic requires HTTPS for remote endpoints; HTTP is allowed only for localhost or a loopback IP address.")
     return value.rstrip("/") + ("" if parsed.path.rstrip("/").endswith("/chat/completions") else "/chat/completions")
 
 

@@ -407,7 +407,7 @@ class WorkflowTests(unittest.TestCase):
         methods.write_text(original.replace("units, denominators and calculations",
                                            "units, denominators, time windows and calculations"), encoding="utf-8")
         with patch.object(workflow, "TOOLKIT", toolkit):
-            with self.assertRaisesRegex(ValueError, "Explicitly authorize"):
+            with self.assertRaisesRegex(ValueError, "revision=true"):
                 self.review(runner, config=config)
             self.assertEqual(runner.calls, ["reviewer"])
             self.assertEqual(before, {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()})

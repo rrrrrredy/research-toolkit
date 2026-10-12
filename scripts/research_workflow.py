@@ -220,7 +220,8 @@ def check_stage_records(root, stage):
                 raise ValueError("Every claim needs an ID, substantive text and a claim type before drafting.")
             supporting = {s for s in re.split(r"[;,|\s]+", row["supporting_sources"].strip()) if s}
             if supporting - read_ids:
-                raise ValueError("Claim references must identify registered sources with recorded reading evidence.")
+                raise ValueError(f"data/claims_registry.csv row {row['claim_id']}, supporting_sources: "
+                                 f"{', '.join(sorted(supporting - read_ids))} must identify registered sources with recorded reading evidence.")
             if not supporting and not (row["claim_type"] in {"hypothesis", "assumption"} and nonempty(row.get("uncertainty"))):
                 raise ValueError("Support claims with read sources; label unsupported hypotheses and their uncertainty explicitly.")
             grounded = grounded or bool(supporting)
@@ -276,7 +277,7 @@ def required_source_inputs(root):
             else:
                 originals[name] = sha256_file(path)
         if not readable:
-            raise ValueError(f"Source {source['source_id']}: set evidence_path to the local UTF-8 source text or required extract. URLs and page locators alone cannot be reviewed.")
+            raise ValueError(f"data/source_registry.csv row {source['source_id']}, evidence_path: set a task-relative UTF-8 source text or extract, such as sources/{source['source_id']}.md. URLs and page locators alone cannot be reviewed.")
     return texts, originals
 
 
@@ -311,7 +312,7 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
         brief = {**progress.get("brief", {}), **brief}
     else:
         for name, content in {
-            "data/source_registry.csv": "source_id,title,url,source_type,read_scope,read_evidence\n",
+            "data/source_registry.csv": "source_id,title,url,source_type,read_scope,read_evidence,evidence_path\n",
             "data/claims_registry.csv": "claim_id,claim,claim_type,supporting_sources,counter_evidence,uncertainty\n",
             "data/uncertainty_registry.csv": "uncertainty_id,issue,affected_claims,reason,handling\n",
             "logs/review.jsonl": "", "state/requirements.jsonl": "",
@@ -321,7 +322,7 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
         progress = {"stage": "brief", "status": "in_progress", "author_id": f"author:{task}",
                     "open_issues": []}
         for name, content in {
-            "data/source_registry.csv": "source_id,title,url,source_type,read_scope,read_evidence\n",
+            "data/source_registry.csv": "source_id,title,url,source_type,read_scope,read_evidence,evidence_path\n",
             "data/claims_registry.csv": "claim_id,claim,claim_type,supporting_sources,counter_evidence,uncertainty\n",
             "data/uncertainty_registry.csv": "uncertainty_id,issue,affected_claims,reason,handling\n",
             "logs/review.jsonl": "", "state/requirements.jsonl": "",
@@ -355,8 +356,25 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None) 
             check_stage_records(root, stage)
         progress.update(stage=stage, status="in_progress", next_action=f"Complete the {stage} requirements.")
         save(root, "state/progress.json", progress)
+    delivery = {}
+    if progress.get("stage") == "final" or progress.get("status") == "complete":
+        try:
+            name = "state/final_checklist.json" if progress.get("profile") == "lite" else "state/final_delivery.json"
+            receipt = load(root, name)
+            artifact = receipt["artifact"]
+            safe_path(root, artifact)
+            check_stage_records(root, "draft")
+            check = evaluate_delivery(root, artifact=artifact)
+        except (OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
+            check = {"ok": False, "findings": [f"Cannot verify current delivery: {exc}"]}
+        delivery = {"delivery_check": check, "recorded_status": progress.get("status")}
+        if not check["ok"]:
+            # Status is a read-only view. Do not rewrite the hash-bound progress
+            # or the historical receipt just because an input changed.
+            progress = {**progress, "status": "stale", "open_issues": check["findings"],
+                        "next_action": "Resolve the current delivery findings, then review/check and finish the changed report."}
     current = progress.get("stage", "brief")
-    return {"task": task, "task_directory": str(root), "progress": progress, "missing_fields": missing,
+    return {"task": task, "task_directory": str(root), "progress": progress, "missing_fields": missing, **delivery,
             **guidance(current, language, progress.get("profile", "full"))}
 
 
@@ -439,6 +457,14 @@ def completion(root, progress, artifact, *, require_report_ready=True):
     return inspect_review_completion(root, progress, artifact, rows_for(root),
                                      hash_file=sha256_file, resolve_path=resolve_inside,
                                      require_report_ready=require_report_ready)
+
+
+def review_result_fields(validity, outcome, purpose):
+    """Separate completed review work from permission to deliver the report."""
+    return {"reviews_complete": validity["ok"], "review_check": validity,
+            "delivery_ready": purpose == "report_delivery" and outcome["ok"],
+            "evaluation_complete": purpose == "evaluation" and outcome["ok"],
+            "completion_check": outcome, "open_issues": outcome["findings"]}
 
 
 def record_plan_change(root, previous, current):
@@ -537,7 +563,9 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
         if old_plan.get("purpose") == "evaluation" or purpose == "evaluation":
             raise ValueError("Evaluation input is frozen. Preserve it and use a separate task for another study.")
         if not revision:
-            raise ValueError("The reviewed assignment changed. Explicitly authorize a report revision before another version.")
+            raise ValueError("The reviewed assignment changed. Pass revision=true to review the corrected report or changed reviewer assignment. "
+                             "This is the normal report revision loop; an already authorized correction does not need another user confirmation. "
+                             "Reconcile any changed research scope in the task records first.")
     prefix = f"reviews/{version}"
     if not safe_path(root, prefix+"/input.json").exists():
         save(root, prefix+"/input.json", packet)
@@ -580,8 +608,8 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
         validity = completion(root, progress, artifact, require_report_ready=False)
         if validity["ok"]:
             outcome = completion(root, progress, artifact)
-            return {"reviews_complete": True, "evaluation_complete": purpose == "evaluation" and outcome["ok"],
-                    "completion_check": outcome, "recovery": [], "reused": True, "task_directory": str(root),
+            return {**review_result_fields(validity, outcome, purpose),
+                    "recovery": [], "reused": True, "task_directory": str(root),
                     "reviewer": reviewer, "review_strength": plan.get("review_strength", "independent")}
     if assignment_changed:
         record_plan_change(root, old_plan, plan)
@@ -714,15 +742,14 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
         append_row(root, content_review_summary({sid: r for sid, (r, _) in selected.items()},
                                                rows_for(root), artifact_hash))
     outcome = completion(root, progress, artifact)
+    progress["open_issues"] = outcome["findings"]
     progress["next_action"] = ("Review work is complete; preserve evaluation outcomes." if purpose == "evaluation" and outcome["ok"]
                                else "Run delivery verification." if outcome["ok"]
-                               else "Resolve the listed incomplete work or required report corrections.")
+                               else "Resolve the current review findings: " + "; ".join(outcome["findings"]))
     save(root, "state/progress.json", progress)
     validity = completion(root, progress, artifact, require_report_ready=False)
     return {"reviewer": reviewer, "review_strength": plan.get("review_strength", "independent"),
-            "reviews_complete": validity["ok"],
-            "evaluation_complete": purpose == "evaluation" and outcome["ok"],
-            "completion_check": outcome, "recovery": problems, "task_directory": str(root)}
+            **review_result_fields(validity, outcome, purpose), "recovery": problems, "task_directory": str(root)}
 
 
 def checked_review_files(root, progress, artifact):
@@ -829,7 +856,7 @@ def finish(workspace: Path, task: str, message: str, artifact="final.md", checkl
                 if summary != original_summary:
                     summary["basis"] = "Content reviews with evidenced no-change decisions; original verdicts retained."
                     append_row(candidate, summary)
-        terminal = {**progress, "stage": "final", "status": "complete", "next_action": "Delivered."}
+        terminal = {**progress, "stage": "final", "status": "complete", "next_action": "Delivered.", "open_issues": []}
         save(candidate, "state/progress.json", terminal)
         save_text(candidate, "delivery_message.md", message)
         required = list(dict.fromkeys([artifact, *REQUIRED_HASH_INPUTS, *sorted(reviewed_files),

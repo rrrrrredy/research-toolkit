@@ -388,11 +388,13 @@ def start_smoke_server(state: SmokeState) -> tuple[ThreadingHTTPServer, threadin
 
 
 def scrub_smoke_environment(dsh_home: Path, base_url: str) -> dict[str, str]:
-    env = os.environ.copy()
-    secret_suffixes = ("_API_KEY", "_ACCESS_TOKEN", "_AUTH_TOKEN")
-    for name in list(env):
-        if name.upper().endswith(secret_suffixes):
-            env.pop(name, None)
+    # The local smoke lane needs runtime discovery, not the host's service secrets
+    # or executable-injection settings such as NODE_OPTIONS/PYTHONPATH.
+    runtime_names = {"PATH", "PATHEXT", "SYSTEMROOT", "WINDIR", "COMSPEC", "SYSTEMDRIVE",
+                     "HOME", "USERPROFILE", "HOMEDRIVE", "HOMEPATH", "APPDATA", "LOCALAPPDATA",
+                     "TEMP", "TMP", "TMPDIR", "LANG", "LANGUAGE", "LC_ALL", "LC_CTYPE",
+                     "TERM", "COLORTERM"}
+    env = {name: value for name, value in os.environ.items() if name.upper() in runtime_names}
     env.update(
         {
             "DSH_HOME": str(dsh_home),
