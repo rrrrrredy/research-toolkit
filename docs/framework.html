@@ -233,7 +233,7 @@ Use for substantial industry, market, company, product, technology, policy and e
 
 ## Choosing a profile
 
-`research_start(profile="full")` is the default. Select `profile="lite"` (CLI: `start --profile lite`) for a bounded task; the saved profile applies to later actions and cannot be silently changed when resuming.
+Choose a profile from the task's purpose and evidence needs, then pass it explicitly to `research_start` or the CLI. The API default remains `full` for compatibility. For a bounded task use `profile="lite"` (CLI: `start --profile lite`). On recovery use `research_status(task)` to retrieve the saved profile and continue; do not silently change it or restart the task. The agent makes this choice from known requirements, asking the user only when a consequential trade-off remains unresolved.
 
 | Task size, use and evidence | Recommended profile |
 | --- | --- |
@@ -241,11 +241,11 @@ Use for substantial industry, market, company, product, technology, policy and e
 | Longer or multi-section comparison; many or conflicting sources; a report intended for publication or decisions | `full` |
 | Consequential decisions, explicitly required independent review, or frozen evaluation, regardless of length | `full` with explicitly configured `independent` review |
 
-Lite retains brief clarification, source-backed claim registration, section-by-section drafting and the final checklist. It skips `research_review` and the full delivery hard gates with explicit `SKIP` logs. Call `research_finish` for the checklist, then submit every item with `passed: true` and a concrete `evidence` locator. The result is saved in `state/final_checklist.json`; it is not a full-gate receipt. Use qualified conclusions such as “the available sources suggest”; disclose that there was no independent review. These profile rules govern any full-only review/delivery requirements in the stage references.
+Lite uses the [compact stage guide](references/lite-workflow.md) instead of the Full stage references below. It retains brief clarification, source-backed claim registration, section-by-section drafting and the final checklist. It skips `research_review` and the full delivery hard gates with explicit `SKIP` logs. Call `research_finish` for the checklist, then submit every item with `passed: true` and a concrete `evidence` locator after actually checking it. The result is saved in `state/final_checklist.json`; it is not a full-gate receipt. Match certainty to evidence: state supported facts directly and qualify uncertain inferences. Disclose the absence of independent review once in an appropriate report or delivery note. The shared constraints below still apply; reviewer setup and Full completion instructions apply only to Full.
 
 ## Establish the research brief
 
-Before collecting sources, read [research workflow](references/research-workflow.md) and check the existing conversation and materials for:
+Before collecting sources, read the selected profile's workflow ([Lite](references/lite-workflow.md#brief--scope-and-recovery), [Full](references/research-workflow.md)) and check the existing conversation and materials for:
 
 - The research question, scope, target reader, and intended decision or use.
 - Output format and language, required questions, the explanations and comparisons needed, explicit length constraints, and exclusions.
@@ -269,7 +269,7 @@ The agent owns reading the applicable methods, maintaining records, executing re
 
 ## Load methods when the work reaches them
 
-Read the relevant file or linked section before its stage. Keep already-read instructions in use; do not reread every reference on every turn.
+For Lite, read the matching section of the [Lite guide](references/lite-workflow.md); the tools return only that stage and its shared constraints. Full uses the table below. Keep already-read instructions in use; do not reread every reference on every turn. For an existing task prefer `research_status(task)`, which uses its saved profile. A standalone `research_guide` call must pass the intended profile explicitly.
 
 | When | Read | Required result |
 | --- | --- | --- |

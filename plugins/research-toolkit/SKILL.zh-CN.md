@@ -13,7 +13,7 @@ description: "面向 AI Agent 的有据长篇研究工作流：明确范围、�
 
 ## 选择档位
 
-`research_start(profile="full")` 为默认档位。边界明确的小任务可选 `profile="lite"`（CLI：`start --profile lite`）；后续操作沿用保存的档位，恢复任务时不得静默更换。
+依据任务用途和证据需求选择档位，再向 `research_start` 或 CLI 显式传入。API 为兼容已有调用仍默认 `full`。边界明确的小任务使用 `profile="lite"`（CLI：`start --profile lite`）。恢复时用 `research_status(task)` 读取已保存档位并继续，不静默改档或重启任务。Agent 根据已知要求选择，仅在重要取舍无法确定时询问用户。
 
 | 任务规模、用途与证据量级 | 推荐档位 |
 | --- | --- |
@@ -21,11 +21,11 @@ description: "面向 AI Agent 的有据长篇研究工作流：明确范围、�
 | 较长或多板块比较；来源较多或互有冲突；用于发表或决策的报告 | `full` |
 | 影响重大的决策、明确要求独立评审或冻结评测，不论篇幅 | `full`，并显式配置 `independent` 评审 |
 
-Lite 保留 brief 澄清、有来源支持的 claim 登记、分段起草和最终 checklist；跳过 `research_review` 与完整交付硬门槛，并返回明确的 `SKIP` 日志。调用 `research_finish` 获取 checklist，再逐项提交 `passed: true` 和具体 `evidence` 位置；结果保存在 `state/final_checklist.json`，不作为完整门槛通过凭证。结论采用“现有来源提示”等限定表达，并说明未经独立评审。阶段参考文件中的 Full 专属评审、交付要求以此处档位规则为准。
+Lite 使用[精简阶段指南](references/lite-workflow.zh-CN.md)，不加载下方 Full 阶段参考文件。保留 brief 澄清、有来源支持的 claim 登记、分段起草和最终 checklist；跳过 `research_review` 与完整交付硬门槛，并返回明确的 `SKIP` 日志。调用 `research_finish` 获取 checklist，实际检查后逐项提交 `passed: true` 和具体 `evidence` 位置；结果保存在 `state/final_checklist.json`，不作为完整门槛通过凭证。结论强度依据证据：直接陈述有支持的事实，限定不确定推论，在报告或交付说明的适当位置集中披露未经独立评审。下列共同约束仍适用，评审配置与 Full 完成说明仅用于 Full。
 
 ## 先明确研究需求
 
-收集资料前，读[研究工作流](references/research-workflow.zh-CN.md)，结合已有对话与材料确认：
+收集资料前，读所选档位的工作流（[Lite](references/lite-workflow.zh-CN.md#brief--需求与恢复)、[Full](references/research-workflow.zh-CN.md)），结合已有对话与材料确认：
 
 - 研究问题、范围、目标读者，以及支持什么决策或用途。
 - 输出形式与语言、必答问题、需要解释和比较的内容、明确的篇幅限制及排除项。
@@ -49,7 +49,7 @@ Lite 保留 brief 澄清、有来源支持的 claim 登记、分段起草和最�
 
 ## 到相应阶段再读详细方法
 
-进入阶段前读取对应文件或所链接章节。已读规则持续适用，无需每轮重读全部参考资料。
+Lite 按阶段读取 [Lite 指南](references/lite-workflow.zh-CN.md)对应章节，工具仅返回当前阶段及共同约束；Full 使用下表。已读规则持续适用，无需每轮重读全部参考资料。已有任务优先用 `research_status(task)`，由工具沿用保存的档位；单独调用 `research_guide` 时须显式传入所需档位。
 
 | 时机 | 读取内容 | 必须达到的结果 |
 |---|---|---|

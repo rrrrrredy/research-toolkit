@@ -154,6 +154,8 @@ Generic entries may include `parameters`, for example `{"max_tokens":4096}`, for
 
 `research_start` accepts `profile: "lite" | "full"`, default full. For Lite, `research_finish` returns the final checklist; complete each item with `{passed: true, evidence: "specific location and basis"}` and submit it as `checklist`. Review and full delivery gates are skipped with explicit logs; the brief, claims and section drafting remain required.
 
+Choose the profile from the brief and pass it explicitly when starting. For an existing task use `research_status(task)` to inherit its saved profile. Standalone `research_guide(stage, profile="lite")` returns the introduction and requested stage from the [compact Lite guide](../references/lite-workflow.md), without Full review or delivery instructions. File-reading agents use the same guide. The default remains Full for existing integrations.
+
 Full `research_review` accepts `reviewer: "self" | "external" | "independent"`. The first self call returns the prompt, assignment and input_version. Explicitly switch to the reviewer role in the author context, then submit report_verdict, seven-dimension coverage, findings and input_version as self_review. Records retain the author context and degraded strength, never a fabricated independent execution. New tasks without a backend use this path automatically; explicit or saved independent requirements do not fall back.
 
 ### Recovery and acceptance

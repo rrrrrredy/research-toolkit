@@ -156,6 +156,8 @@ generic 配置可加入 `parameters` 对象，例如 `{"max_tokens":4096}`，传
 
 `research_start` 接受 `profile: "lite" | "full"`，默认 full。Lite 在 `research_finish` 返回最终 checklist 后，逐项填写 `{passed: true, evidence: "具体位置与依据"}`，通过 `checklist` 提交；不会运行评审或完整交付硬门槛，返回明确跳过日志。分段起草、brief 和 claim 登记仍须完成。
 
+新建任务时根据需求选择并显式传入档位；已有任务用 `research_status(task)` 沿用保存的档位。单独调用 `research_guide(stage, profile="lite")` 仅返回[精简 Lite 指南](../references/lite-workflow.zh-CN.md)的共同说明和指定阶段，不加载 Full 评审或交付规范。直接读取文件的 Agent 使用同一指南。默认值仍为 Full，以兼容已有集成。
+
 Full 的 `research_review` 可显式选择 `reviewer: "self" | "external" | "independent"`。self 首次调用返回 prompt、assignment 与 input_version；在当前作者上下文显式切换评审角色，然后将 report_verdict、七维 coverage、findings 与 input_version 作为 self_review 提交。记录保留作者上下文和强度降级标记，不伪造独立执行。无后端的新任务自动走这条路径；显式独立要求与历史独立计划不会回退。
 
 ### 失败恢复与验收
