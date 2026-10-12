@@ -42,6 +42,50 @@ class ProfileTests(unittest.TestCase):
         result = SyntheticRunner(negative=negative)({}, {"role": "reviewer"}, None)
         return {**json.loads(result["content"]), "input_version": prompt["input_version"]}
 
+    def test_lite_guidance_is_stage_specific_in_both_languages(self):
+        for language, suffix in (("en", ".md"), ("zh", ".zh-CN.md")):
+            for stage in w.STAGE_FILES:
+                with self.subTest(language=language, stage=stage):
+                    result = w.guidance(stage, language, "lite")
+                    self.assertEqual(result["profile"], "lite")
+                    self.assertEqual([item["path"] for item in result["guidance"]],
+                                     ["references/lite-workflow" + suffix])
+                    content = result["guidance"][0]["content"]
+                    headings = [line.split()[1] for line in content.splitlines() if line.startswith("## ")]
+                    self.assertEqual(headings, [stage])
+                    self.assertNotIn("state/final_delivery.json", content)
+                    if stage == "final":
+                        for key in CHECKLIST:
+                            self.assertIn("`" + key + "`", content)
+
+    def test_full_guidance_keeps_its_existing_methods_and_default(self):
+        for language in ("en", "zh"):
+            for stage, names in w.STAGE_FILES.items():
+                with self.subTest(language=language, stage=stage):
+                    expected = [name.replace(".md", ".zh-CN.md") if language == "zh" else name
+                                for name in names]
+                    result = w.guidance(stage, language)
+                    self.assertEqual(result["profile"], "full")
+                    self.assertEqual(result, w.guidance(stage, language, "full"))
+                    self.assertEqual([item["path"] for item in result["guidance"]], expected)
+
+    def test_lite_status_uses_saved_profile_through_delivery(self):
+        started = self.task("lite")
+        self.assertEqual(started["guidance"][0]["path"], "references/lite-workflow.md")
+        items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source.md."}
+                 for k in CHECKLIST}
+        with patch.object(w, "run_reviewer", side_effect=AssertionError("must not call a backend")):
+            for stage in ("analyze", "draft", "revise"):
+                result = w.status(self.workspace, "case", language="zh", stage=stage)
+                self.assertEqual(result["profile"], "lite")
+                self.assertEqual(result["guidance"][0]["path"], "references/lite-workflow.zh-CN.md")
+            self.assertTrue(w.finish(self.workspace, "case", "Complete, without independent review.",
+                                     checklist=items)["completed"])
+            final = w.status(self.workspace, "case", language="zh")
+        self.assertEqual(final["profile"], "lite")
+        self.assertEqual(final["stage"], "final")
+        self.assertEqual(final["guidance"][0]["path"], "references/lite-workflow.zh-CN.md")
+
     def test_lite_keeps_claims_and_checklist_without_review(self):
         with patch("review_runner.shutil.which", return_value=None):
             started = self.task("lite")

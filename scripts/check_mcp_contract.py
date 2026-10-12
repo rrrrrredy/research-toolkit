@@ -47,6 +47,12 @@ async def verify(base):
         assert names == {"research_start", "research_status", "research_guide", "research_review", "research_finish", "research_check_reviewer"}, names
         guide = unpack(await client.call_tool("research_guide", {"stage": "brief", "language": "zh"}))
         assert "研究工作流" in guide["guidance"][0]["content"]
+        for language, suffix in (("en", ".md"), ("zh", ".zh-CN.md")):
+            lite_guide = unpack(await client.call_tool("research_guide", {
+                "stage": "final", "language": language, "profile": "lite"}))
+            assert [item["path"] for item in lite_guide["guidance"]] == ["references/lite-workflow" + suffix]
+            assert "`claims_and_sources`" in lite_guide["guidance"][0]["content"]
+            assert "state/final_delivery.json" not in lite_guide["guidance"][0]["content"]
         denied = await client.call_tool("research_start", {"task": "../outside", "brief": BRIEF})
         assert denied.is_error
         brief = unpack(await client.call_tool("research_start", {"task": "case", "brief": {"question": "What changed?"}}))
@@ -119,6 +125,10 @@ async def verify(base):
                 assert reviewed["reviews_complete"] and reviewed["review_strength"] == "degraded"
             done = unpack(await client.call_tool("research_finish", finish_args))
             assert done["completed"], done
+            resumed = unpack(await client.call_tool("research_status", {"task": task, "language": "zh"}))
+            assert resumed["profile"] == profile
+            if profile == "lite":
+                assert resumed["guidance"][0]["path"] == "references/lite-workflow.zh-CN.md"
         resources = await client.list_resources()
         assert any(str(r.uri) == "research-toolkit://instructions" for r in resources.resources)
         prompts = await client.list_prompts()

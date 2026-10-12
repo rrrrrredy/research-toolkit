@@ -6,6 +6,7 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Give Lite a shared bilingual stage guide, returning only the current stage without Full review or delivery instructions. Make profile selection explicit across Skill, MCP and plugin entry points while preserving Full defaults and saved task profiles. Keep source/claim prerequisites and the six-item author checklist; deterministic checks do not establish improved report quality.
 - Publish a four-model, five-family fixed-source Lite pilot with judgments for all 20 model–task pairs, readable supplemental reports, raw outputs and offline verification. Preserve all original failures and valid judgments; document the separate format and completion supplements. This does not establish a general quality advantage.
 - Keep the evaluation link alongside the other README navigation links, without an arrow.
 

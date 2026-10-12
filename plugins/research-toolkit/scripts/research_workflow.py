@@ -158,12 +158,19 @@ def guidance(stage: str, language: str = "en", profile: str = "full") -> dict:
     if stage not in STAGE_FILES or language not in {"en", "zh"}:
         raise ValueError("Unknown stage or language.")
     files = []
-    for name in STAGE_FILES[stage]:
+    for name in (["references/lite-workflow.md"] if profile == "lite" else STAGE_FILES[stage]):
         if language == "zh":
             name = name.replace(".md", ".zh-CN.md")
         text = (TOOLKIT / name).read_text(encoding="utf-8")
         # The complete standard stays available; send only the applicable sections.
-        if "research-standard" in name:
+        if profile == "lite":
+            chunks = re.split(r"(?m)(?=^## )", text)
+            sections = [chunk for chunk in chunks[1:]
+                        if re.match(rf"## {stage}(?:\s|$)", chunk)]
+            if len(sections) != 1:
+                raise ValueError(f"Lite guidance needs exactly one {stage} section in {name}.")
+            text = chunks[0].rstrip() + "\n\n" + sections[0]
+        elif "research-standard" in name:
             numbers = (3, 8, 13, 15) if stage == "collect" else (7, 8, 9)
             chunks = re.split(r"(?m)(?=^## \d+\. )", text)
             text = "\n".join(c for c in chunks if any(c.startswith(f"## {n}. ") for n in numbers))
