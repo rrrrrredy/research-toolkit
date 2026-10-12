@@ -12,11 +12,11 @@
 ## 研究与写作
 
 - [研究指南](research-guide.zh-CN.md)：研究请求、输出标准、证据、审阅、任务记录与研究边界。
-- [研究流程](../references/research-workflow.md)：需求、资料、分析、起草、修订与断点恢复。
-- [写作规范](../references/writing-style.md)：具体判断、自然表达与面向读者的结构。
-- [可选分析方法](../references/optional-analysis-lenses.md)：按研究问题选择分析方法。
-- [审阅角色与工作标准](../references/subagents-and-review-loop.md)：非作者内容审阅与任务所需的其他角色。
-- [常见研究问题](../references/gotchas.md)：失败模式及修复方法。
+- [研究流程](../references/research-workflow.zh-CN.md)：需求、资料、分析、起草、修订与断点恢复。
+- [写作规范](../references/writing-style.zh-CN.md)：具体判断、自然表达与面向读者的结构。
+- [可选分析方法](../references/optional-analysis-lenses.zh-CN.md)：按研究问题选择分析方法。
+- [审阅角色与工作标准](../references/subagents-and-review-loop.zh-CN.md)：非作者内容审阅与任务所需的其他角色。
+- [常见研究问题](../references/gotchas.zh-CN.md)：失败模式及修复方法。
 
 ## 报告与案例
 
@@ -36,5 +36,7 @@
 - [来源提取](source-extraction.zh-CN.md)：来源记录与原文留存。
 
 ## 开发
+
+[项目改进计划](improvement-plan.zh-CN.md)：产品与评测工作的优先级、验收条件、盲法／任务设计和推进状态。
 
 [贡献指南](../CONTRIBUTING.zh-CN.md) · [更新记录](../CHANGELOG.zh-CN.md) · [插件包](../plugins/research-toolkit/README.zh-CN.md) · [脚本](../scripts/) · [MIT 许可](../LICENSE)

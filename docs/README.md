@@ -37,4 +37,6 @@
 
 ## Development
 
+[Project improvement plan](improvement-plan.md): priorities, acceptance criteria, masking/task design and progress across product and evaluation work.
+
 [Contributing](../CONTRIBUTING.md) · [Changelog](../CHANGELOG.md) · [Plugin package](../plugins/research-toolkit/) · [Scripts](../scripts/) · [MIT license](../LICENSE)

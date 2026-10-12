@@ -41,7 +41,7 @@ This is an explanation of existing rules, not a new schema or extra required sta
 
 ## Current Report And Review Plan
 
-Complete and verify all accepted method, execution, checker, data and documentation corrections before starting new report-writing or model-review runs. Offline regressions are preparation, not an efficacy study; green CI alone does not authorize a study start.
+Complete and verify corrections that affect the declared experiment's inputs, execution or judgments before its runs. Track independent product and maintenance work in the [project improvement plan](improvement-plan.md). Offline regressions are preparation, not an efficacy study; green CI alone does not establish study validity or replace its frozen protocol.
 
 | Historical reviewer backends (retained provenance, not a default dependency) |
 | --- |

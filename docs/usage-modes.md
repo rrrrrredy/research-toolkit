@@ -160,6 +160,10 @@ Full `research_review` accepts `reviewer: "self" | "external" | "independent"`. 
 
 ### Recovery and acceptance
 
+CLI, MCP and Python workflow operations share a local OS task lock. An overlapping operation on the same task fails promptly; wait for the current operation to finish. Different tasks remain independent. The empty `.research-toolkit.lock` file is retained, but OS ownership ends on release or process exit; do not delete it to force access. This coordinates cooperating local processes, not external editors or distributed filesystems.
+
+Reviewer stderr with invalid UTF-8 is displayed with replacement characters and retained as exact bytes in `raw_output_base64`. Invalid UTF-8 in the actual response fails as `invalid_output_encoding`, with the original bytes retained; a completed call is not mislabeled as a launch failure.
+
 Invalid configuration, a missing executable or a configured CLI's failed login blocks that route with guidance. Restore access in its actual environment. Unconfigured ordinary tasks can use self without login. The reviewer process does not automatically inherit the author agent's model access; keep credential files outside tasks.
 
 Preserve original responses and failures. Do not rerun an unchanged valid negative response; unresolved necessary corrections block Full delivery. Record evidenced [no-change decisions](review-completion.md) for mistaken findings, then resume finish. After correcting an ordinary report, call `research_review` with `revision: true` to review the new version. This is the normal revision loop; already authorized corrections do not need another user confirmation. Reconcile changes to research scope in the task records first. A changed reviewer assignment also needs `revision: true`; frozen evaluations reject assignment changes. Timeouts remain 1–1800 seconds, default 600; a timeout-only change does not alter the assignment.

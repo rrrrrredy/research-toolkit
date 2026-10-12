@@ -26,7 +26,7 @@ def call(function, *args):
 def mutate(function, task, *args):
     lock = TASK_LOCKS[task]
     if not lock.acquire(blocking=False):
-        raise ToolError("This task already has an active operation. Read its status and wait; do not start duplicate reviews.")
+        raise ToolError("This task already has an active operation. Wait for it to finish; do not start duplicate reviews.")
     try:
         return call(function, WORKSPACE, task, *args)
     finally:

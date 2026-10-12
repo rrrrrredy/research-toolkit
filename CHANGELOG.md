@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Add a bilingual improvement plan covering reliability, usability, methods, masking, task design and feedback. Share local task locks across CLI/MCP/Python, retain invalid-encoding reviewer bytes without misclassifying execution, add Windows runtime CI, and correct Chinese reference links.
+
 - Keep study integrity checks active under optimized Python, cover completion evidence and frozen outcome labels, and make summary commands read-only by default. Preserve historical data and tables; document the former verifier coverage and unresolved-count field limitations in dated bilingual corrections.
 
 - Require HTTPS for remote generic reviewers and allowlist the local DSH smoke environment. Add source-text paths to new task templates; clarify ordinary revision calls, separate completed reviews from delivery readiness, and report stale completed tasks without rewriting historical receipts. Exercise template-based CLI and packaged MCP revision/delivery flows with synthetic reviewers; no report-quality improvement is inferred.

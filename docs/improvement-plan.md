@@ -1,0 +1,44 @@
+# Project improvement plan
+
+[English](improvement-plan.md) | [简体中文](improvement-plan.zh-CN.md)
+
+Updated: 2026-10-12. Improve workflow reliability, ease of use and research methods with interpretable evidence. Evaluation is one workstream; model scores do not replace product fixes. Treat external audits as leads to verify and prioritize by reproduced impact, not instructions to copy wholesale.
+
+## Completed work
+
+| Work | Result and evidence |
+| --- | --- |
+| Lite guidance and research writing | [PR #20](https://github.com/rrrrrredy/research-toolkit/pull/20), [PR #21](https://github.com/rrrrrredy/research-toolkit/pull/21): stage-specific guidance, explicit profiles, actual length counts, attribution and decision criteria. No quality-effect claim. |
+| Reviewer safety and revision/delivery | [PR #22](https://github.com/rrrrrredy/research-toolkit/pull/22): remote HTTPS, smoke environment allowlist, source-text paths, ordinary revisions, concrete findings and read-only stale status; CLI/MCP flows and CI pass. |
+| Historical study verification | [PR #23](https://github.com/rrrrrredy/research-toolkit/pull/23): checks survive optimization, include completion evidence and outcome bindings, and compare summaries without writing. Historical outcomes remain unchanged. |
+
+## Sequence and acceptance
+
+Submit each verifiable batch as a PR and merge after relevant regressions and full CI. Pending work is not automatically a confirmed defect: reproduce first. Documentation and offline design may proceed independently. An experiment waits for fixes affecting its inputs, execution or judgments, not every maintenance item.
+
+| Batch / priority | Work and deliverable | Acceptance | Status |
+| --- | --- | --- | --- |
+| R1 / P0: execution reliability | Cross-process task locking shared by CLI, MCP and Python; retain malformed-encoding reviewer bytes and distinguish launch failures from damaged output. | Same-task writers cannot overlap; different tasks remain independent; crashes release locks; negative reviews/timeouts remain evidence; invalid UTF-8 does not discard originals. | Implemented in this batch |
+| R2 / P1: usability | Pin in-flight review instructions across upgrades; improve missing-argument, row-specific and on-demand guidance; check installation prerequisites and bilingual entry points. | Unrelated documentation upgrades do not break ongoing reviews; documented template-to-revision delivery works; errors give actionable next steps. | Pending |
+| M1 / P1: research methods | Verifiable evidence for Lite checks; length counts tied to task constraints; record actors, reasons and evidence for declined findings; reconcile hashes and source locators. | Mechanical rules have valid controls and defects; text length, keywords and self-claims do not certify semantics; no unnecessary approval gates. | Pending |
+| E1 / P1: evaluation infrastructure | Explicit provider formats, accepted model aliases and budgets; raw responses and parse methods; separate truncation, timeout, format and quality failures; frozen configuration and call caps. | Preregistered format handling accepts unambiguous wrappers but preserves invalid/ambiguous output as failure; no retries for unfavorable outcomes; no keys in configuration, argv or published material. | Next batch |
+| E2 / P1: masking and task design | Separate development, judge calibration and tasks unused for tuning; freeze matched same-model arms, order and labels; add length-matched controls and presentation reversals. | Each independent family has sources, a brief, necessary judgments, exclusion reasons and exposure history; judges receive no notes, condition or execution logs; condition clues are recorded separately. | Designing |
+| E3 / P2: bounded live calls | Connectivity/calibration first, then a frozen development pilot; effect studies declare sample size, panel and stopping rules separately. | Retain every first success/failure; report missingness, usage, latency and judgments by family; no author judges itself; no outcome-driven sample extension. | Waiting on E1/E2 |
+| D1 / P2: documentation and contribution | Correct factual, version and language-rule conflicts; clarify counting units and data-rights boundaries; consolidate contributor checks and add Windows validation. | Valid links, equivalent bilingual rules, executable commands on declared platforms, dated historical corrections; matching heading counts do not establish translation accuracy. | Ongoing |
+| F1 / P2: feedback | Classify confirmed failures in source understanding, reasoning, requirements, writing or execution; produce minimal fixes, valid controls and reevaluation records. | Each method change traces to a failure and expected behavior; new frozen samples test development improvements; do not delete or relabel historical negatives. | As evidence arrives |
+
+## Next evaluation design
+
+Freeze the protocol, then tasks and call settings, before running. Tentatively use four provider APIs as authors and request `gpt-6-astra` through Codex for development judgments; actual access and returned identities follow connectivity evidence. Connectivity calls are not quality observations. If Astra is an author, create a separate model stratum reviewed by other models. A development conversation that has seen conditions cannot act as a blinded judge.
+
+Start task design in five areas: numerical definitions and units, decisions under conflicting evidence, causation versus correlation, constrained option comparison, and time-sensitive evidence synthesis. Use new briefs and material, not rewrites of the old five tasks; stratify English/Chinese, and do not count translations or model repeats as independent families. Synthetic sources support protocol/defect calibration; real research needs redistributable sources and explicit time boundaries. Disclose designer exposure as development exposure, without claiming unknown training status or an externally held-out cohort.
+
+Masking uses a fixed report/notes separation rule. Both arms place execution and independent-review status in notes; judge packets contain only the brief, sources, rubric and A/B reports. Do not delete sentences, rewrite reports or relabel after outcomes appear. Record residual tool/model/process clues and disclose masking limits. Presentation reversals diagnose position sensitivity, not additional tasks. Calibrate judges using length-matched valid/defective controls with concrete evidence; model agreement is not factual truth.
+
+Stage one permits one short connectivity generation per provider plus one isolated Astra call: at most five generations, with no automatic paid retries. Retain failures before diagnosis. Before a batch development run, save a machine-readable plan specifying models, call counts, token/time limits, retries, matched resources, reviewer panel, source hashes and outcomes. Formal effect studies follow the [current standard](report-evaluation-standard.md). A single-Astra development judge is an explicitly narrower diagnostic, not a four-reviewer panel or a general effect estimate.
+
+## Tradeoffs and updates
+
+Do not add mandatory confirmations, infer truthful research from minimum text length or words such as “unread,” force holistic preferences to equal dimension sums, or move/delete assets without checking references. Check installation commands on supported platforms rather than globally replacing `python` with `python3`. Directory repackaging and large-asset migration follow reliability and method work.
+
+Update this page with status, PRs and acceptance evidence at each merge. Report workflow completion, mechanical conformance, manuscript quality and toolkit effects separately. Use API credentials only in local calling processes; study configurations store environment-variable names. Check requests, responses, errors and sources for sensitive content before publication.
