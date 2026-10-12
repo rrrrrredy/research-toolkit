@@ -1,0 +1,21 @@
+{
+  "url": "https://api.longcat.chat/openai/v1/chat/completions",
+  "body": {
+    "model": "LongCat-2.0",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are performing a connectivity check. No tools, file access, research, or external context are needed."
+      },
+      {
+        "role": "user",
+        "content": "Return exactly this JSON object and nothing else: {\"connection\":\"ok\",\"sum\":5}"
+      }
+    ],
+    "stream": false,
+    "max_tokens": 512,
+    "thinking": {
+      "type": "disabled"
+    }
+  }
+}

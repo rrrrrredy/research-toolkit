@@ -1,0 +1,12 @@
+{
+  "transport": "codex_exec",
+  "model": "gpt-6-astra",
+  "snapshot_statement": "gpt-6-astra requested through Codex CLI 0.162.0-alpha.17.2. Fresh ChatGPT-authenticated contexts; CLI events do not attest the returned model ID. Alias may change. Token ceilings are post-return checks, not hard billing caps.",
+  "executable_env": "RESEARCH_CODEX_EXECUTABLE",
+  "reasoning_effort": "low",
+  "max_completion_tokens": 4096,
+  "max_total_tokens": 30000,
+  "timeout_seconds": 120,
+  "output_protocol": "json_object_v1",
+  "allow_json_fence": false
+}

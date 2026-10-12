@@ -1,0 +1,22 @@
+{
+  "url": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+  "body": {
+    "model": "glm-5.3",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are performing a connectivity check. No tools, file access, research, or external context are needed."
+      },
+      {
+        "role": "user",
+        "content": "Return exactly this JSON object and nothing else: {\"connection\":\"ok\",\"sum\":5}"
+      }
+    ],
+    "stream": false,
+    "max_tokens": 4096,
+    "thinking": {
+      "type": "enabled"
+    },
+    "reasoning_effort": "low"
+  }
+}

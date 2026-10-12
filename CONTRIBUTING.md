@@ -40,7 +40,7 @@ These are small contribution ideas, not a list of already-open Issues. Pick a co
 
 ## Verification
 
-Run the checks relevant to the changed behavior. CI runs the full offline suite below. The DSH validation command checks an optional adapter configuration; it does not install or start that runtime. Repeat or broaden checks only when a change, failure or unresolved concern requires it.
+Run the checks relevant to the changed behavior. The [CI workflow](.github/workflows/framework-checks.yml) is the authoritative check inventory; the commands below are common entry points, not a count of distinct test cases. The DSH validation command checks an optional adapter configuration; it does not install or start that runtime. Repeat or broaden checks only when a change, failure or unresolved concern requires it.
 
 ```bash
 python scripts/check_docs_sync.py
@@ -62,6 +62,8 @@ python scripts/check_task_lock.py
 python scripts/check_blinded_evals.py
 python scripts/check_blinded_protocol_v2.py
 python scripts/check_judge_calibration.py --self-test
+python scripts/check_live_execution.py
+python scripts/check_live_diagnostics.py
 ```
 
 If `SKILL.md` changed, refresh the public copy first:
@@ -71,6 +73,10 @@ python scripts/check_docs_sync.py --write
 ```
 
 Changes to `scripts/run_evals.py` must preserve result schema semantics: `conformance_status`, `conformance_score`, and `conformance_flags` are mechanical; `research_quality_status` cannot become a quality verdict without a separately designed and calibrated evaluation.
+
+The CLI and MCP require Python 3.10 or later. CI checks the minimum version on Linux and the main runtime suite on Linux/Windows with Python 3.12. Use the same interpreter to install `requirements-mcp.txt` and run `check_mcp_contract.py`. To check generated plugin files, run `python scripts/build_plugin.py --check`.
+
+Report test methods, fixture cases, independent task families, model–task pairs and API attempts as different units. Inherited tests can appear in multiple suites; adding suite totals does not produce a count of independent controls. A bilingual file or heading count is not a semantic translation review: inspect the changed rules, examples and limitations in both languages.
 
 ## Pull Request Evidence
 

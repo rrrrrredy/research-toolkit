@@ -24,6 +24,7 @@ JUDGE_SYSTEM = "Judge the two reports against the supplied brief, sources and fi
 NOTES_MARKER = "<<<RESEARCH_NOTES_V1>>>"
 ENDPOINT_KEYS = {"base_url", "model", "snapshot_statement", "api_key_env", "max_completion_tokens", "max_total_tokens", "timeout_seconds", "completion_parameter"}
 V2_ENDPOINT_KEYS = {"accepted_model_ids", "response_format", "output_protocol", "allow_json_fence"}
+V2_OPTIONAL_KEYS = {"thinking", "reasoning_effort"}
 
 
 def require(condition, message):
@@ -88,6 +89,11 @@ def prepare(study_path, output, seed):
     require(len({t["family_id"] for t in tasks}) == len(tasks), "Translations/repeats cannot be independent families")
     for role in ("author", "judge"):
         settings = config[role]
+        if settings.get("transport") == "codex_exec":
+            require(schema == 2 and role == "judge", "Codex transport supports schema-2 judges only")
+            from codex_judge import validate
+            validate(settings)
+            continue
         endpoint(settings["base_url"])
         require(isinstance(settings.get("model"), str) and bool(settings["model"].strip()), f"Pin {role} model")
         require(settings.get("snapshot_statement"), f"Document {role} snapshot/alias stability")
@@ -96,7 +102,14 @@ def prepare(study_path, output, seed):
         require(positive_int(settings.get("timeout_seconds")), "Set request deadline")
         require(settings.get("completion_parameter") in {"max_tokens", "max_completion_tokens"}, "Choose endpoint completion-limit field")
         require(isinstance(settings.get("api_key_env"), str) and re.fullmatch(r"[A-Z_][A-Z0-9_]*", settings["api_key_env"]), "Only an environment-variable name belongs in config")
-        require(set(settings) == ENDPOINT_KEYS | (V2_ENDPOINT_KEYS if schema == 2 else set()), "Unknown/missing endpoint option; never store keys in config")
+        required = ENDPOINT_KEYS | (V2_ENDPOINT_KEYS if schema == 2 else set())
+        optional = V2_OPTIONAL_KEYS if schema == 2 else set()
+        require(required <= set(settings) <= required | optional, "Unknown/missing endpoint option; never store keys in config")
+        if "thinking" in settings:
+            require(settings["thinking"] in {"enabled", "disabled"}, "Declare thinking as enabled or disabled")
+        if "reasoning_effort" in settings:
+            require(settings.get("thinking") == "enabled" and settings["reasoning_effort"] in {"low", "high", "max"},
+                    "Reasoning effort requires enabled thinking and low/high/max")
         if schema == 2:
             aliases = settings["accepted_model_ids"]
             require(isinstance(aliases, list) and bool(aliases) and all(isinstance(a, str) and a.strip() for a in aliases), "Predeclare accepted returned model IDs")
@@ -111,7 +124,7 @@ def prepare(study_path, output, seed):
         require(config["max_requests"] == len(tasks) * (4 if config["position_swap"] else 3), "Request ceiling must equal two authors plus declared judge orientations per family")
         require(type(config.get("max_retries")) is int and config["max_retries"] == 0, "First attempts only: max_retries must be 0")
         author_ids = {config["author"]["model"], *config["author"]["accepted_model_ids"]}
-        judge_ids = {config["judge"]["model"], *config["judge"]["accepted_model_ids"]}
+        judge_ids = {config["judge"]["model"], *config["judge"].get("accepted_model_ids", [])}
         require(not author_ids & judge_ids, "Author cannot judge its own outputs; declare a different judge model")
     designs = {}
     source_inputs = []
@@ -156,6 +169,8 @@ def prepare(study_path, output, seed):
               "harness_sha256": sha(Path(__file__).read_bytes()), "config": config,
               "rubric": rubric, "methods": methods, "assignments": assignments}
     if schema == 2:
+        if config["judge"].get("transport") == "codex_exec":
+            frozen["codex_adapter_sha256"] = sha((ROOT / "scripts/codex_judge.py").read_bytes())
         frozen["task_designs"] = designs  # Coordinator only; never sent to authors or judges.
         frozen["input_text_sha256"] = {t["task_id"]: {"brief": sha(t["brief"].encode()), **{s["id"]: sha(s["text"].encode()) for s in t["sources"]}} for t in source_inputs}
         frozen["request_plan"] = {"author_max": 2 * len(tasks), "judge_max": len(tasks) * (2 if config["position_swap"] else 1), "total_max": config["max_requests"], "max_retries": 0}
@@ -184,10 +199,17 @@ def response_require(condition, kind, message):
 
 def request(settings, messages, folder):
     """Keep first raw response/failure; no retries, no API secrets in stored requests."""
+    if settings.get("transport") == "codex_exec":
+        from codex_judge import request as codex_request
+        return codex_request(settings, messages, folder)
     body = {"model": settings["model"], "messages": messages, "stream": False,
             settings["completion_parameter"]: settings["max_completion_tokens"]}
     if settings.get("response_format") == "json_object":
         body["response_format"] = {"type": "json_object"}
+    if "thinking" in settings:
+        body["thinking"] = {"type": settings["thinking"]}
+    if "reasoning_effort" in settings:
+        body["reasoning_effort"] = settings["reasoning_effort"]
     save(folder / "request.json", body)
     key = os.environ.get(settings["api_key_env"], "")
     headers = {"Content-Type": "application/json"}
@@ -322,6 +344,9 @@ def run(output, call=request):
     schema2 = frozen["schema_version"] == 2
     if schema2:
         require(sha(Path(__file__).read_bytes()) == frozen["harness_sha256"], "Harness changed after freeze; preserve this plan and prepare a separate version")
+        if frozen["config"]["judge"].get("transport") == "codex_exec":
+            require(sha((ROOT / "scripts/codex_judge.py").read_bytes()) == frozen.get("codex_adapter_sha256"),
+                    "Codex adapter changed after freeze")
     require(not (output / "run-started.json").exists(), "Run already started; preserve partial artifacts and do not silently retry")
     save(output / "run-started.json", {"started_at": datetime.now(timezone.utc).isoformat(), "freeze_sha256": commitment["frozen_sha256"]})
     calls = 0

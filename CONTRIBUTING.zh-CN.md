@@ -37,7 +37,7 @@
 
 ## 验证
 
-运行与修改有关的检查。CI 执行以下完整离线套件；可选接入的 `validate` 只检查配置，不安装或启动运行时。仅在新变化、失败或未决疑点需要时扩大或重复检查。
+运行与修改有关的检查。[CI 工作流](.github/workflows/framework-checks.yml)是检查项目的权威清单；以下命令是常用入口，不是不同测试用例的计数。可选接入的 `validate` 只检查配置，不安装或启动运行时。仅在新变化、失败或未决疑点需要时扩大或重复检查。
 
 ```bash
 python scripts/check_docs_sync.py
@@ -59,6 +59,8 @@ python scripts/check_task_lock.py
 python scripts/check_blinded_evals.py
 python scripts/check_blinded_protocol_v2.py
 python scripts/check_judge_calibration.py --self-test
+python scripts/check_live_execution.py
+python scripts/check_live_diagnostics.py
 ```
 
 修改主文件后先更新网页副本：
@@ -68,6 +70,10 @@ python scripts/check_docs_sync.py --write
 ```
 
 更改 `run_evals.py` 必须保持 schema 语义：`conformance_*` 只表示机械符合；没有独立设计和校准的评测，不能把 `research_quality_status` 改成质量判决。
+
+CLI 和 MCP 要求 Python 3.10 及以上。CI 在 Linux 上检查最低版本，并用 Python 3.12 执行 Linux／Windows 主运行检查；安装 `requirements-mcp.txt` 和执行 `check_mcp_contract.py` 须使用同一解释器。用 `python scripts/build_plugin.py --check` 核对生成插件与源文件同步。
+
+分别报告测试方法数、夹具案例数、独立任务族、模型—任务对和 API 尝试次数。继承的测试可能在多个套件中重复执行，不能相加后当成独立对照数量。双语文件或标题数量相同不等于译文含义一致；应核对改动的规则、例子和限制。
 
 ## PR 证据
 

@@ -1,0 +1,18 @@
+{
+  "status": "connected",
+  "model_requested": "glm-5.3",
+  "model_returned": "glm-5.3",
+  "usage": {
+    "completion_tokens": 16,
+    "completion_tokens_details": {
+      "reasoning_tokens": 5
+    },
+    "prompt_tokens": 52,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "total_tokens": 68
+  },
+  "finish_reason": "stop",
+  "elapsed_seconds": 1.468
+}
