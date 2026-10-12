@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import inspect
 import json
 import os
 from pathlib import Path
@@ -168,7 +169,7 @@ def guidance(stage: str, language: str = "en", profile: str = "full") -> dict:
     if profile not in {"lite", "full"}:
         raise ValueError("Profile must be lite or full.")
     if stage not in STAGE_FILES or language not in {"en", "zh"}:
-        raise ValueError("Unknown stage or language.")
+        raise ValueError("Unknown stage or language. Use stage brief/collect/analyze/draft/review/revise/final and language en/zh.")
     files = []
     for name in (["references/lite-workflow.md"] if profile == "lite" else STAGE_FILES[stage]):
         if language == "zh":
@@ -212,8 +213,9 @@ def check_stage_records(root, stage):
     sources = registry_rows(root, "data/source_registry.csv",
         ("source_id", "title", "url", "source_type", "read_scope", "read_evidence"))
     for row in sources:
-        if not all(nonempty(row.get(k)) for k in ("source_id", "title", "url", "source_type")):
-            raise ValueError("Every source needs an ID, title, locator and source type before analysis.")
+        missing = [k for k in ("source_id", "title", "url", "source_type") if not nonempty(row.get(k))]
+        if missing:
+            raise ValueError(f"data/source_registry.csv row {row['source_id']}: fill {', '.join(missing)} before analysis.")
     read_ids = set()
     for row in sources:
         if row.get("read_scope") not in {"full_text", "relevant_sections"}:
@@ -228,14 +230,16 @@ def check_stage_records(root, stage):
         claims = registry_rows(root, "data/claims_registry.csv", ("claim_id", "claim", "claim_type", "supporting_sources"))
         grounded = False
         for row in claims:
-            if not all(nonempty(row.get(k)) for k in ("claim_id", "claim", "claim_type")):
-                raise ValueError("Every claim needs an ID, substantive text and a claim type before drafting.")
+            missing = [k for k in ("claim_id", "claim", "claim_type") if not nonempty(row.get(k))]
+            if missing:
+                raise ValueError(f"data/claims_registry.csv row {row['claim_id']}: fill {', '.join(missing)} before drafting.")
             supporting = {s for s in re.split(r"[;,|\s]+", row["supporting_sources"].strip()) if s}
             if supporting - read_ids:
                 raise ValueError(f"data/claims_registry.csv row {row['claim_id']}, supporting_sources: "
                                  f"{', '.join(sorted(supporting - read_ids))} must identify registered sources with recorded reading evidence.")
             if not supporting and not (row["claim_type"] in {"hypothesis", "assumption"} and nonempty(row.get("uncertainty"))):
-                raise ValueError("Support claims with read sources; label unsupported hypotheses and their uncertainty explicitly.")
+                raise ValueError(f"data/claims_registry.csv row {row['claim_id']}, supporting_sources: cite read sources, "
+                                 "or record claim_type hypothesis/assumption with explicit uncertainty when warranted.")
             grounded = grounded or bool(supporting)
         if not grounded:
             raise ValueError("Develop at least one source-backed claim before drafting.")
@@ -946,19 +950,24 @@ def workspace_default() -> Path:
 
 
 def dispatch(action: str, request: dict, workspace: Path):
-    if action == "check-reviewer":
-        return review_readiness()
-    if action == "start":
-        return start(workspace, **request)
-    if action == "status":
-        return status(workspace, **request)
-    if action == "guide":
-        return guidance(**request)
-    if action == "review":
-        return review(workspace, **request)
-    if action == "finish":
-        return finish(workspace, **request)
-    raise ValueError("Unknown workflow action.")
+    actions = {"start": start, "status": status, "guide": guidance, "review": review,
+               "finish": finish, "check-reviewer": review_readiness}
+    if action not in actions:
+        raise ValueError("Unknown workflow action. Use " + ", ".join(actions) + ".")
+    if not isinstance(request, dict) or any(not isinstance(key, str) for key in request):
+        raise ValueError(f"{action}: provide a JSON object with named arguments.")
+    function = actions[action]
+    parameters = {key: value for key, value in inspect.signature(function).parameters.items() if key != "workspace"}
+    required = [key for key, parameter in parameters.items()
+                if parameter.default is inspect.Parameter.empty and key not in request]
+    unexpected = sorted(set(request) - set(parameters))
+    if required or unexpected:
+        problems = (["missing " + ", ".join(required)] if required else [])
+        problems += ["unknown fields " + ", ".join(unexpected)] if unexpected else []
+        raise ValueError(f"{action}: {'; '.join(problems)}. "
+                         "Supply a JSON object using --request <file.json> or stdin. "
+                         f"Allowed fields: {', '.join(parameters) or '(none)' }.")
+    return function(**request) if action in {"guide", "check-reviewer"} else function(workspace, **request)
 
 
 def main():

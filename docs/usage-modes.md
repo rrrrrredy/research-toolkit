@@ -40,6 +40,8 @@ Use local MCP when the host can start a local process, or the bundled plugin whe
 
 The shared CLI needs Python 3.10+ and only its standard library; MCP also needs the dependency in `requirements-mcp.txt`. Without a backend, new Full tasks use explicitly degraded self-review. External/independent review accepts any supported command or endpoint; no vendor account is mandatory.
 
+CI exercises the CLI and packaged MCP workflow on Python 3.10/Linux, plus the broader checks on Python 3.12/Linux and Windows. Use the same interpreter for dependency installation and your client's server command. These are server/protocol checks, not tests of every client GUI.
+
 ## Install the plugin
 
 The [plugin directory](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/) bundles the Skill, methods and local MCP server. Use your host's supported plugin installation mechanism; [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md) has host-specific instructions. Install `requirements-mcp.txt` in the Python environment that starts MCP, then confirm the six `research_*` tools are available.
@@ -188,6 +190,8 @@ The plugin also includes a dependency-free workflow CLI. It uses the same implem
 python scripts/research_workflow.py start --workspace /path/to/tasks --request brief.json
 python scripts/research_workflow.py review --workspace /path/to/tasks --request review.json
 ```
+
+CLI requests are JSON objects supplied by `--request` or stdin. Missing/unknown argument errors name the action, fields and input method before creating or changing a task. A source/claim validation error names its CSV, record ID and missing fields; repair that record and repeat the same operation. Guide languages are `en` and `zh`. Commands return JSON and a nonzero exit code on failure; no new user confirmation is required to fix an already authorized task.
 
 A brief request is `{"task":"comparison","language":"en","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`. Review arguments include `task`, task-relative `evidence_paths`, optional `artifact` (default `final.md`) and `purpose`. The `status`, `guide` and `finish` actions mirror MCP arguments. JSON may also be supplied through stdin.
 

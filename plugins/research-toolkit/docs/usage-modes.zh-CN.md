@@ -40,6 +40,8 @@
 
 共享 CLI 需要 Python 3.10+，只使用标准库；MCP 还需安装 `requirements-mcp.txt` 中的依赖。未配置后端时，新建 Full 任务自动进入标明强度降级的 self 评审；外部／独立评审可使用任一受支持命令或端点，无强制厂商账户。
 
+CI 在 Python 3.10／Linux 上检查 CLI 和打包 MCP 流程，并在 Python 3.12／Linux、Windows 上执行更完整的检查。安装依赖与客户端启动服务须使用同一解释器。这些验证覆盖服务和协议，不代表所有客户端 GUI 均已实测。
+
 ## 安装插件
 
 [插件目录](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/)包含完整 Skill、方法与本地 MCP 服务；使用宿主支持的插件安装机制，具体步骤见 [Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。插件通过 Python 启动 MCP，安装 `requirements-mcp.txt` 中的依赖后，确认六个 `research_*` 工具可用。
@@ -190,6 +192,8 @@ CLI、MCP 与 Python 工作流操作共用本地操作系统任务锁。同一�
 python scripts/research_workflow.py start --workspace /path/to/tasks --request brief.json
 python scripts/research_workflow.py review --workspace /path/to/tasks --request review.json
 ```
+
+CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知字段提示会在创建或改变任务前列出操作、字段和输入方式。来源／主张校验错误指出 CSV 文件、记录编号及缺失字段；修正对应记录后重复原操作。指南语言参数为 `en` 或 `zh`。失败命令返回 JSON 和非零退出码；修复已获授权的任务不需要新增用户确认。
 
 需求请求的格式为 `{"task":"comparison","language":"zh","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`。评审参数包括 `task`、任务内相对路径 `evidence_paths`，以及可选的 `artifact`（默认 `final.md`）和 `purpose`。`status`、`guide`、`finish` 对应同名 MCP 工具的参数。也可通过标准输入提供 JSON。
 
