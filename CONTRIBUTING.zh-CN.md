@@ -58,6 +58,7 @@ python scripts/check_study_verification.py
 python scripts/check_task_lock.py
 python scripts/check_blinded_evals.py
 python scripts/check_blinded_protocol_v2.py
+python scripts/check_judge_calibration.py --self-test
 ```
 
 修改主文件后先更新网页副本：

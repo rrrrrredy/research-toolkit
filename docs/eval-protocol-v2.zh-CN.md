@@ -39,7 +39,7 @@ python scripts/run_blinded_evals.py prepare --study evals/tasksets/development-v
 | 材料池 | 用途 | 当前材料 |
 | --- | --- | --- |
 | 开发 | 诊断缺陷、调整方法 | 五个已暴露的虚构任务族，3 英文、2 中文 |
-| 评审校准 | 检查已知错误、有效对照及位置敏感性 | 独立的算术错误对、标签互换和同一有效稿件平局对照 |
+| 评审校准 | 检查已知错误、有效对照及位置敏感性 | 单列四个中英文题族：算术、因果、来源归属和决策约束；各有互换及相同有效稿平局 |
 | 未来留出研究 | 用未参与调参的材料检验冻结改动 | 本次未提供、未宣称；另需编写／访问记录和新设计 |
 
 这是目的性选题，不是代表性工作负荷抽样。翻译、不同作者模型和标签互换不增加独立任务族。合成任务检验协议；真实研究评测还需权利清晰的真实来源、来源记录、截止时间，以及问题本身必要的实时检索。在结果出现前保留排除候选的编号和理由，在准入后保留全部失败。
@@ -52,13 +52,14 @@ python scripts/run_blinded_evals.py prepare --study evals/tasksets/development-v
 
 启用互换后，两种顺序各用新请求。全部首轮评审／失败锁定后才解码。主结果保持不变；`position_swap` 单列互换偏好、解码后的条件及一致性，任一结果未解决时一致性为 `null`。不能选择更有利的顺序、用平均数抹去分歧或重跑。互换是同一任务族内的敏感性观察。
 
-质量研究前，先使用[独立校准包](../evals/tasksets/judge-calibration-v2/README.zh-CN.md)，不传入答案密钥。要求评审定位并说明已知错误、互换后仍识别该错误，并且不在相同有效稿件间编造实质差异。保留失败，依据来源裁定解释。目前仅一个算术例，校准尚不完整：中文与非数值对照仍待设计。通过它不证明五维评审可靠，更不证明 Toolkit 有效。
+质量研究前，先使用[单列的校准包](../evals/tasksets/judge-calibration-v3/README.zh-CN.md)，不传入协调者清单。四个公开开发题族覆盖英文算术／决策约束及中文因果／来源归属，复用未改动的 v2 算术输入。要求评审定位并说明各项已知错误、互换后仍识别错误，并且不在相同有效稿件间编造实质差异。保留失败，依据来源裁定解释。真实校准仍待执行：12 份输入需要每模型 12 次评审请求，接入调用之外另行冻结预算。四个题族不是 12 个独立观察。通过这些对照不证明五维评审可靠，更不证明 Toolkit 有效。
 
 ## 离线验收
 
 ```bash
 python scripts/check_blinded_evals.py
 python scripts/check_blinded_protocol_v2.py
+python scripts/check_judge_calibration.py --self-test
 python scripts/check_study_verification.py
 ```
 
