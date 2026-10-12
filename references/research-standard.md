@@ -205,6 +205,8 @@ Classify claims separately:
 
 Every important hard claim should have a confidence boundary. Do not turn company PR, investor hopes, or media amplification into fact.
 
+Check consequential paraphrases against the source for actor, date, population, relationship direction and certainty. A complaint illustrates a failure mechanism; it does not establish a failure rate without a denominator and a suitable sample. A feared or expected consequence is not an observed outcome. Preserve distinctions such as "external dependencies often include open source" versus "dependencies found inside open source". A missing linked report limits claims about that report; it does not by itself prevent a reader from assessing their own situation with internal evidence. Name the particular decision that needs the missing evidence, while continuing supported analysis.
+
 For required reading, distinguish obtaining a source from reading it. Record the required scope and actual scope: full text, relevant sections, abstract, partial, or unread. Link mandatory materials to their requirement ids; optional background does not automatically require full reading. When access fails, try reasonable available alternatives such as another browser or a legitimate public author copy. Keep original texts, reproductions, and indirect accounts distinct. If access still needs credentials or a user-supplied copy, keep that requirement open and continue unaffected work; do not bypass access controls or repeat a failed route indefinitely.
 
 ### Source Instruction Boundary

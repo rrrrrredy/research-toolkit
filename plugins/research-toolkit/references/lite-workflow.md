@@ -20,7 +20,7 @@ Use the existing `data/source_registry.csv`: `source_id`, `title`, `url`, `sourc
 
 ## analyze — Form supported judgments
 
-Check the claims that drive the answer against the actual source passages: who made the claim, when, whether it happened or is expected, and whether it describes an example or a population. Separate verified facts, attributed claims, interpretations, recommendations and assumptions. Look for evidence that would change the recommendation; missing evidence does not establish the opposite conclusion.
+Check the claims that drive the answer against the actual source passages: who made the claim, when, whether it happened or is expected, whether it describes an example or a population, and which way a relationship runs. Examples without a denominator and suitable sample do not establish rates. Separate verified facts, attributed claims, interpretations, recommendations and assumptions. Look for evidence that would change the recommendation; missing evidence does not establish the opposite conclusion. Explain which decision a missing source prevents; do not make it a prerequisite for analysis that other evidence can support.
 
 Use `data/claims_registry.csv` with `claim_id`, `claim`, `claim_type` and `supporting_sources`. Supporting IDs must refer to sources with recorded reading evidence. Keep uncertainty and counter-evidence with the claim; unsupported `hypothesis` or `assumption` rows need an explicit `uncertainty`. Drafting requires at least one source-backed claim. Choose analytical lenses only when they help answer this brief.
 
@@ -28,7 +28,7 @@ Use `data/claims_registry.csv` with `claim_id`, `claim`, `claim_type` and `suppo
 
 Draft and inspect one section at a time against the outline. Each necessary section should explain its judgment, supporting evidence and relevant mechanism. Allocate space to the user's questions before adding background; respect the requested length without dropping required coverage.
 
-For a decision memo, make the recommendation, rationale, conditions that would change it and next action easy to find. Use pilot or stopping criteria when the decision calls for them; label proposed criteria as recommendations and do not invent measured thresholds. Qualify uncertain inferences, while stating well-supported facts directly. Explain material limitations where they affect the argument; disclose the absence of independent review once in an appropriate report or delivery note.
+For a decision memo, make the recommendation, rationale, conditions that would change it and next action easy to find. Use pilot or stopping criteria when needed; label proposals and explain any numerical target's basis. Without a basis, describe the trigger and calibration needed. Avoid targets that reward hiding failures or blocking necessary escalation. Qualify uncertain inferences and retain source attribution where needed. Explain material limitations where they affect the argument; disclose the absence of independent review once in an appropriate report or delivery note.
 
 Keep citations readable. Remove internal IDs, local paths, workflow narration, repeated caveats and generic scene-setting. Save the report as `final.md` or the chosen task-relative artifact. With no file tools, keep the report and working records in separate chat sections.
 
@@ -50,7 +50,7 @@ Check the current report against the brief and material follow-ups. Keep failed 
 
 | Key | What to check |
 | --- | --- |
-| `requirements` | Required questions, follow-ups, format and length are satisfied. |
+| `requirements` | Required questions, follow-ups, format and length are satisfied; record the actual length and counting convention. |
 | `claims_and_sources` | Important claims and citations match the sources actually read. |
 | `counterevidence` | Counter-evidence and uncertainty are addressed at the affected conclusions. |
 | `sections` | Each necessary section has adequate explanation and coverage. |

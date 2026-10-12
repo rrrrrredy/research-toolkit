@@ -23,6 +23,382 @@
   },
   "pairs": [
     {
+      "id": "versions",
+      "original_url": "case-study/office-agents/original.zh-CN.html#L77",
+      "revised_url": "case-study/office-agents/revised.zh-CN.html#L89",
+      "zh": {
+        "label": "aily 与豆包工作",
+        "context": "aily 是飞书 4 月介绍的自定义智能体；8 月底文章使用“豆包工作”名称。两份介绍能否证明产品继承？",
+        "title": "现有资料不能证明豆包工作继承了 aily。",
+        "why": "两份材料分别介绍各自时期的产品能力；缺少更名或迁移说明时，不能把旧产品的能力算到新产品上。",
+        "before": "这是当前产品说明与此前功能路线的接续证据",
+        "after": "两个时间点分别展示对象操作和组织上下文协作的产品方向，不足以证明aily与豆包工作的版本继承",
+        "before_note": "初稿同段已提醒：旧功能与名称不能一对一迁移。",
+        "after_note": "原有功能与名称的迁移限制继续保留。",
+        "highlights": [
+          "不足以证明aily与豆包工作的版本继承"
+        ],
+        "before_highlights": [
+          "接续证据"
+        ],
+        "changes": [
+          {
+            "label": "收窄",
+            "text": "将“接续证据”改为“两时点的产品方向”，明确不支持版本继承。"
+          },
+          {
+            "label": "保留",
+            "text": "保留两个时期的官方能力说明，以及不能将旧功能全量套给新产品的限制。"
+          }
+        ],
+        "reasons": [
+          {
+            "heading": "两份官方材料分别写了什么",
+            "body": "4 月材料介绍 aily 对文档、多维表格和任务的操作；8 月底材料介绍豆包工作如何使用组织上下文、让成果回到协作。两者可以支撑各自时期的产品分析。"
+          },
+          {
+            "heading": "为什么撤掉“接续证据”",
+            "body": "功能相近和发布时间相连，不足以证明更名、版本继承或功能迁移。作者复查仍未取得这类证明，因此撤掉暗示继承的措辞。"
+          }
+        ],
+        "tradeoffs": [
+          {
+            "label": "采用",
+            "text": "分别分析两份材料，不把它们合并成已经证实的演进关系。"
+          },
+          {
+            "label": "代价",
+            "text": "产品关系暂时保留未知，比较只能分别采用两份材料各自支持的能力，不能合并能力清单。"
+          },
+          {
+            "label": "怎样才能改判",
+            "text": "取得明确的更名、版本映射或功能迁移说明后，才有依据重新判断产品关系。"
+          }
+        ],
+        "sources": [
+          {
+            "label": "飞书 aily 说明",
+            "url": "case-study/office-agents/sources.html#S01"
+          },
+          {
+            "label": "豆包工作说明",
+            "url": "https://www.feishu.cn/content/article/7680041109057178898"
+          }
+        ],
+        "history": [
+          {
+            "stage": "初稿与后续稿",
+            "body": "“接续证据”与迁移限制同时存在；后续保留稿仍沿用这句话。问题是措辞暗示的关系，比已取得的证据更强。"
+          },
+          {
+            "stage": "审阅意见",
+            "body": "一份模型审阅指出“接续证据”容易暗示版本继承，建议修正措辞精度。"
+          },
+          {
+            "stage": "回查与取舍",
+            "body": "复查未取得更名或迁移证明，也不凭页面导航中的 aily 域名反推关系。保留两次产品介绍，收窄两者的关系。"
+          },
+          {
+            "stage": "中间稿与定稿",
+            "body": "下一份中间稿改为“两个时间点”的产品方向，并明确不足以证明继承；定稿保留这一判断。"
+          }
+        ],
+        "decisions": [
+          {
+            "finding": "“接续证据”暗示版本继承",
+            "decision": "采纳精度修正",
+            "basis": "更名与迁移证明缺失，不能用相近功能或域名填补。"
+          }
+        ],
+        "review_note": "模型审阅意见据保留的作者裁定转述。",
+        "review_link": "中间稿与裁定摘录"
+      },
+      "en": {
+        "label": "aily and Doubao Work",
+        "context": "Feishu introduced aily custom agents in April; its late-August article used the name Doubao Work. This comparison concerns the relationship between those products.",
+        "title": "The retained sources do not establish that Doubao Work inherits from aily.",
+        "why": "Two product descriptions can be analyzed on their own. Their dates and similar direction do not establish a version lineage.",
+        "before": "This is evidence of continuity between the current product description and the earlier feature direction",
+        "after": "The two points in time show product directions in object operations and organizational-context collaboration; they do not establish version inheritance between aily and Doubao Work",
+        "before_note": "The same paragraph already cautioned against assuming a one-to-one transfer of features and names.",
+        "after_note": "The migration caveat remains; the report now explicitly limits what the two sources establish.",
+        "highlights": [
+          "do not establish version inheritance"
+        ],
+        "before_highlights": [
+          "evidence of continuity"
+        ],
+        "changes": [
+          {
+            "label": "Narrowed",
+            "text": "“Evidence of continuity” becomes product directions at two points in time, without a claim of version inheritance."
+          },
+          {
+            "label": "Retained",
+            "text": "Both official product descriptions and the warning against carrying earlier capabilities over to the later product."
+          }
+        ],
+        "reasons": [
+          {
+            "heading": "What each source supports",
+            "body": "The April source describes aily operating on documents, multidimensional tables, and tasks. The late-August article describes Doubao Work using organizational context and returning results to collaboration."
+          },
+          {
+            "heading": "Why the inference was narrowed",
+            "body": "Similar functions and successive dates do not establish renaming, version inheritance, or feature migration. The author’s follow-up did not obtain that evidence, so wording implying continuity was removed."
+          }
+        ],
+        "tradeoffs": [
+          {
+            "label": "Chosen",
+            "text": "Analyze each source without joining them into a verified product lineage."
+          },
+          {
+            "label": "Tradeoff",
+            "text": "The product relationship stays unresolved. Comparisons must use capabilities supported by each source separately, without merging their feature lists."
+          },
+          {
+            "label": "What could change it",
+            "text": "An explicit renaming notice, version mapping, or feature-migration document would support revisiting the relationship."
+          }
+        ],
+        "sources": [
+          {
+            "label": "Feishu aily source",
+            "url": "case-study/office-agents/sources.html#S01"
+          },
+          {
+            "label": "Doubao Work source",
+            "url": "https://www.feishu.cn/content/article/7680041109057178898"
+          }
+        ],
+        "history": [
+          {
+            "stage": "Initial and later drafts",
+            "body": "“Evidence of continuity” remained alongside the migration caveat. The wording implied a stronger relationship than the available sources established."
+          },
+          {
+            "stage": "Review finding",
+            "body": "A model review flagged that “evidence of continuity” could imply version inheritance. The author accepted a precision correction."
+          },
+          {
+            "stage": "Source check and decision",
+            "body": "The follow-up obtained no renaming or migration proof. An aily domain in site navigation was not treated as proof either. Both dated product descriptions were kept."
+          },
+          {
+            "stage": "Intermediate and final report",
+            "body": "The next retained draft switched to product directions at two points in time and explicitly rejected an unsupported inheritance claim. The final report kept that wording."
+          }
+        ],
+        "decisions": [
+          {
+            "finding": "Continuity wording implies version inheritance",
+            "decision": "Accepted a precision correction",
+            "basis": "Missing renaming or migration proof cannot be supplied by similar functions or a domain name."
+          }
+        ],
+        "review_note": "Model-review findings are relayed through the author’s retained decisions.",
+        "review_link": "Intermediate excerpts (Chinese)"
+      },
+      "review_url": "case-study/office-agents/reviews.html#versions-record",
+      "content_type": "excerpt"
+    },
+    {
+      "id": "analysis",
+      "original_url": "case-study/office-agents/original.zh-CN.html#L63",
+      "revised_url": "case-study/office-agents/revised.zh-CN.html#L73",
+      "zh": {
+        "label": "扣子用什么模型",
+        "context": "扣子提供原生、第三方云端和本地接入。执行框架安排任务与工具调用，底层模型负责理解与推理。",
+        "title": "扣子云端的 Claude Code，底层模型由扣子提供。",
+        "why": "Claude Code 是程序名称，不能据此认定调用 Anthropic 模型。选型还需要核对模型供应与运行位置。",
+        "before": "扣子把原生Agent、托管在云端的第三方Agent和本地接入放在同一协作入口。原生版本包含平台日程、邮箱、云资源等能力；云端第三方和本地接入并不自动取得同样的内置服务。",
+        "after": "原生Agent可选豆包、Kimi、GLM、MiniMax等模型。第三方云端模式则在扣子云电脑运行Claude Code、Codex CLI等执行框架，接入扣子提供的模型，不绑定原厂账号与模型。",
+        "before_note": "初稿已区分运行方式与服务权限；本小节未写具体模型来源。",
+        "after_note": "这是同一小节新增的段落；原有运行方式和权限分析仍在。",
+        "highlights": [
+          "接入扣子提供的模型"
+        ],
+        "before_highlights": [],
+        "changes": [
+          {
+            "label": "补充",
+            "text": "由模式与权限分工，进一步写到原生模型选择、第三方云端的执行框架与模型来源。"
+          },
+          {
+            "label": "保留",
+            "text": "三种模式的服务边界与本地设备条件仍有效，新增段落没有把它们合并成同一种能力。"
+          }
+        ],
+        "reasons": [
+          {
+            "heading": "初稿缺少哪一层事实",
+            "body": "说明“模型很重要”或区分运行方式，还不能回答具体产品用什么模型。读者看到 Claude Code 时，也可能把程序品牌当成模型供应商。"
+          },
+          {
+            "heading": "补充资料带来了什么",
+            "body": "扣子产品介绍列出原生 Agent 的模型选择；第三方云端文档说明在扣子云电脑运行执行框架、接入扣子模型。两份资料让模型来源与运行方式能够分别描述。"
+          }
+        ],
+        "tradeoffs": [
+          {
+            "label": "采用",
+            "text": "补入可核对的配置事实，并保留模型、工具、上下文与权限分别影响任务的分析。"
+          },
+          {
+            "label": "保留未知",
+            "text": "不能据配置说明分配“某个模型贡献多少节时”，也不能推断真实任务完成率。"
+          },
+          {
+            "label": "还需要什么",
+            "text": "比较模型效果需要固定任务、输入、工具、权限与结果标准，再观察错误、调用失败及最终返工。"
+          }
+        ],
+        "sources": [
+          {
+            "label": "扣子 Agent 类型",
+            "url": "case-study/office-agents/sources.html#S04"
+          },
+          {
+            "label": "扣子产品介绍",
+            "url": "case-study/office-agents/sources.html#S29"
+          },
+          {
+            "label": "第三方云端说明",
+            "url": "case-study/office-agents/sources.html#S30"
+          }
+        ],
+        "history": [
+          {
+            "stage": "初稿",
+            "body": "扣子小节写了运行方式与服务边界；全文结尾解释模型的一般作用，仍缺少各模式的具体模型来源。"
+          },
+          {
+            "stage": "审阅意见",
+            "body": "两份模型审阅都指出分析偏泛。作者采纳并合并处理，补充具体产品配置，没有重复增加段落。"
+          },
+          {
+            "stage": "补充后的中间稿",
+            "body": "回到官方类型、产品介绍及云端文档，新增原生模型选择与第三方云端模型供给；综合分析也补充不同产品的模型路线。"
+          },
+          {
+            "stage": "后续取舍与定稿",
+            "body": "后续裁定没有再加重复机制段落；保留固定输入、工具和权限等比较条件，不把简单换模型当成因果实验。"
+          }
+        ],
+        "decisions": [
+          {
+            "finding": "模型分析偏泛",
+            "decision": "采纳并合并处理",
+            "basis": "补入具体产品配置，保留原有作用分析，不重复堆叠意见。"
+          },
+          {
+            "finding": "后续模型作用意见",
+            "decision": "保留比较条件，不重复扩写",
+            "basis": "综合分析已有模型作用与限制；不能只换模型，就把全部效果变化归给模型。"
+          }
+        ],
+        "review_note": "模型审阅意见据保留的作者裁定转述。",
+        "review_link": "中间稿与裁定摘录"
+      },
+      "en": {
+        "label": "Coze’s models",
+        "context": "Coze China groups native agents, third-party cloud agents, and local connections in one interface. An execution framework organizes actions; the underlying model handles understanding and reasoning.",
+        "title": "Coze supplies models for its cloud-hosted Claude Code.",
+        "why": "The report identifies Claude Code and Codex CLI as execution frameworks. A program’s brand does not, by itself, establish which model powers a particular deployment.",
+        "before": "Coze brings native agents, third-party agents hosted in the cloud, and local connections into one collaboration interface. The native version includes platform scheduling, email, and cloud resources; the other modes do not automatically inherit those built-in services.",
+        "after": "Native agents can select models such as Doubao, Kimi, GLM, and MiniMax. Third-party cloud mode runs execution frameworks such as Claude Code and Codex CLI on Coze cloud computers, using models supplied by Coze rather than being tied to the original provider’s account and model.",
+        "before_note": "The section distinguished execution modes and services, but did not identify their specific model supply.",
+        "after_note": "This paragraph was added to the same product section. Its existing mode and permission analysis remains.",
+        "highlights": [
+          "models supplied by Coze"
+        ],
+        "before_highlights": [],
+        "changes": [
+          {
+            "label": "Added",
+            "text": "Specific native-model choices and the distinction between third-party cloud frameworks and their model supply."
+          },
+          {
+            "label": "Retained",
+            "text": "The original service boundaries and local-device conditions; the additional paragraph does not make all three modes equivalent."
+          }
+        ],
+        "reasons": [
+          {
+            "heading": "The fact layer missing from the draft",
+            "body": "General discussion of model importance and execution modes cannot answer which models a particular product uses. A reader may also mistake the Claude Code program brand for a model provider."
+          },
+          {
+            "heading": "What the additional sources establish",
+            "body": "The product introduction lists native-model choices. The cloud-agent document explains frameworks running on Coze computers with Coze-supplied models. They allow model supply and execution mode to be described separately."
+          }
+        ],
+        "tradeoffs": [
+          {
+            "label": "Chosen",
+            "text": "Add verifiable product configuration while retaining the distinct roles of models, tools, context, and permissions."
+          },
+          {
+            "label": "Not inferred",
+            "text": "Configuration documents do not measure a model’s share of time saved or real-task completion rates."
+          },
+          {
+            "label": "What is still needed",
+            "text": "Comparing model effects requires fixed tasks, inputs, tools, permissions, and result criteria, followed by errors, failed calls, and rework."
+          }
+        ],
+        "sources": [
+          {
+            "label": "Agent types",
+            "url": "case-study/office-agents/sources.html#S04"
+          },
+          {
+            "label": "Product introduction",
+            "url": "case-study/office-agents/sources.html#S29"
+          },
+          {
+            "label": "Third-party cloud documentation",
+            "url": "case-study/office-agents/sources.html#S30"
+          }
+        ],
+        "history": [
+          {
+            "stage": "Initial draft",
+            "body": "The Coze section described execution modes and service boundaries. Its conclusion covered general model roles but lacked specific supply details."
+          },
+          {
+            "stage": "Review finding",
+            "body": "Two model reviews found the analysis too general. The author combined their substantive findings and added product facts rather than duplicate paragraphs."
+          },
+          {
+            "stage": "Expanded intermediate draft",
+            "body": "The author returned to official type, product, and cloud documents. The next draft added native choices and cloud-model supply, with product-level synthesis in the conclusion."
+          },
+          {
+            "stage": "Later decision and final report",
+            "body": "A later adjudication added no duplicate mechanism paragraph. Conditions for controlled comparisons were retained; simply switching a model was not treated as a causal experiment."
+          }
+        ],
+        "decisions": [
+          {
+            "finding": "Model analysis is too general",
+            "decision": "Accepted and combined",
+            "basis": "Add specific configuration while retaining the existing analysis; avoid duplicating overlapping findings."
+          },
+          {
+            "finding": "Later model-mechanism feedback",
+            "decision": "No duplicate paragraph",
+            "basis": "The synthesis already covered mechanisms and limits. Isolating model effects requires controlled tools and permissions."
+          }
+        ],
+        "review_note": "Model-review findings are relayed through the author’s retained decisions.",
+        "review_link": "Intermediate excerpts (Chinese)"
+      },
+      "review_url": "case-study/office-agents/reviews.html#analysis-record",
+      "content_type": "excerpt"
+    },
+    {
       "id": "writing",
       "original_url": "case-study/office-agents/original.zh-CN.html#L47",
       "revised_url": "case-study/office-agents/revised.zh-CN.html#L55",
@@ -401,382 +777,6 @@
         "review_note": "The structure change is verifiable in the manuscripts. Its editing direction is an author check, not an independent model finding.",
         "review_link": "Intermediate passages and author check (Chinese)"
       }
-    },
-    {
-      "id": "versions",
-      "original_url": "case-study/office-agents/original.zh-CN.html#L77",
-      "revised_url": "case-study/office-agents/revised.zh-CN.html#L89",
-      "zh": {
-        "label": "aily 与豆包工作",
-        "context": "aily 是飞书 4 月介绍的自定义智能体；8 月底文章使用“豆包工作”名称。两份介绍能否证明产品继承？",
-        "title": "现有资料不能证明豆包工作继承了 aily。",
-        "why": "两份材料分别介绍各自时期的产品能力；缺少更名或迁移说明时，不能把旧产品的能力算到新产品上。",
-        "before": "这是当前产品说明与此前功能路线的接续证据",
-        "after": "两个时间点分别展示对象操作和组织上下文协作的产品方向，不足以证明aily与豆包工作的版本继承",
-        "before_note": "初稿同段已提醒：旧功能与名称不能一对一迁移。",
-        "after_note": "原有功能与名称的迁移限制继续保留。",
-        "highlights": [
-          "不足以证明aily与豆包工作的版本继承"
-        ],
-        "before_highlights": [
-          "接续证据"
-        ],
-        "changes": [
-          {
-            "label": "收窄",
-            "text": "将“接续证据”改为“两时点的产品方向”，明确不支持版本继承。"
-          },
-          {
-            "label": "保留",
-            "text": "保留两个时期的官方能力说明，以及不能将旧功能全量套给新产品的限制。"
-          }
-        ],
-        "reasons": [
-          {
-            "heading": "两份官方材料分别写了什么",
-            "body": "4 月材料介绍 aily 对文档、多维表格和任务的操作；8 月底材料介绍豆包工作如何使用组织上下文、让成果回到协作。两者可以支撑各自时期的产品分析。"
-          },
-          {
-            "heading": "为什么撤掉“接续证据”",
-            "body": "功能相近和发布时间相连，不足以证明更名、版本继承或功能迁移。作者复查仍未取得这类证明，因此撤掉暗示继承的措辞。"
-          }
-        ],
-        "tradeoffs": [
-          {
-            "label": "采用",
-            "text": "分别分析两份材料，不把它们合并成已经证实的演进关系。"
-          },
-          {
-            "label": "代价",
-            "text": "产品关系暂时保留未知，比较只能分别采用两份材料各自支持的能力，不能合并能力清单。"
-          },
-          {
-            "label": "怎样才能改判",
-            "text": "取得明确的更名、版本映射或功能迁移说明后，才有依据重新判断产品关系。"
-          }
-        ],
-        "sources": [
-          {
-            "label": "飞书 aily 说明",
-            "url": "case-study/office-agents/sources.html#S01"
-          },
-          {
-            "label": "豆包工作说明",
-            "url": "https://www.feishu.cn/content/article/7680041109057178898"
-          }
-        ],
-        "history": [
-          {
-            "stage": "初稿与后续稿",
-            "body": "“接续证据”与迁移限制同时存在；后续保留稿仍沿用这句话。问题是措辞暗示的关系，比已取得的证据更强。"
-          },
-          {
-            "stage": "审阅意见",
-            "body": "一份模型审阅指出“接续证据”容易暗示版本继承，建议修正措辞精度。"
-          },
-          {
-            "stage": "回查与取舍",
-            "body": "复查未取得更名或迁移证明，也不凭页面导航中的 aily 域名反推关系。保留两次产品介绍，收窄两者的关系。"
-          },
-          {
-            "stage": "中间稿与定稿",
-            "body": "下一份中间稿改为“两个时间点”的产品方向，并明确不足以证明继承；定稿保留这一判断。"
-          }
-        ],
-        "decisions": [
-          {
-            "finding": "“接续证据”暗示版本继承",
-            "decision": "采纳精度修正",
-            "basis": "更名与迁移证明缺失，不能用相近功能或域名填补。"
-          }
-        ],
-        "review_note": "模型审阅意见据保留的作者裁定转述。",
-        "review_link": "中间稿与裁定摘录"
-      },
-      "en": {
-        "label": "aily and Doubao Work",
-        "context": "Feishu introduced aily custom agents in April; its late-August article used the name Doubao Work. This comparison concerns the relationship between those products.",
-        "title": "The retained sources do not establish that Doubao Work inherits from aily.",
-        "why": "Two product descriptions can be analyzed on their own. Their dates and similar direction do not establish a version lineage.",
-        "before": "This is evidence of continuity between the current product description and the earlier feature direction",
-        "after": "The two points in time show product directions in object operations and organizational-context collaboration; they do not establish version inheritance between aily and Doubao Work",
-        "before_note": "The same paragraph already cautioned against assuming a one-to-one transfer of features and names.",
-        "after_note": "The migration caveat remains; the report now explicitly limits what the two sources establish.",
-        "highlights": [
-          "do not establish version inheritance"
-        ],
-        "before_highlights": [
-          "evidence of continuity"
-        ],
-        "changes": [
-          {
-            "label": "Narrowed",
-            "text": "“Evidence of continuity” becomes product directions at two points in time, without a claim of version inheritance."
-          },
-          {
-            "label": "Retained",
-            "text": "Both official product descriptions and the warning against carrying earlier capabilities over to the later product."
-          }
-        ],
-        "reasons": [
-          {
-            "heading": "What each source supports",
-            "body": "The April source describes aily operating on documents, multidimensional tables, and tasks. The late-August article describes Doubao Work using organizational context and returning results to collaboration."
-          },
-          {
-            "heading": "Why the inference was narrowed",
-            "body": "Similar functions and successive dates do not establish renaming, version inheritance, or feature migration. The author’s follow-up did not obtain that evidence, so wording implying continuity was removed."
-          }
-        ],
-        "tradeoffs": [
-          {
-            "label": "Chosen",
-            "text": "Analyze each source without joining them into a verified product lineage."
-          },
-          {
-            "label": "Tradeoff",
-            "text": "The product relationship stays unresolved. Comparisons must use capabilities supported by each source separately, without merging their feature lists."
-          },
-          {
-            "label": "What could change it",
-            "text": "An explicit renaming notice, version mapping, or feature-migration document would support revisiting the relationship."
-          }
-        ],
-        "sources": [
-          {
-            "label": "Feishu aily source",
-            "url": "case-study/office-agents/sources.html#S01"
-          },
-          {
-            "label": "Doubao Work source",
-            "url": "https://www.feishu.cn/content/article/7680041109057178898"
-          }
-        ],
-        "history": [
-          {
-            "stage": "Initial and later drafts",
-            "body": "“Evidence of continuity” remained alongside the migration caveat. The wording implied a stronger relationship than the available sources established."
-          },
-          {
-            "stage": "Review finding",
-            "body": "A model review flagged that “evidence of continuity” could imply version inheritance. The author accepted a precision correction."
-          },
-          {
-            "stage": "Source check and decision",
-            "body": "The follow-up obtained no renaming or migration proof. An aily domain in site navigation was not treated as proof either. Both dated product descriptions were kept."
-          },
-          {
-            "stage": "Intermediate and final report",
-            "body": "The next retained draft switched to product directions at two points in time and explicitly rejected an unsupported inheritance claim. The final report kept that wording."
-          }
-        ],
-        "decisions": [
-          {
-            "finding": "Continuity wording implies version inheritance",
-            "decision": "Accepted a precision correction",
-            "basis": "Missing renaming or migration proof cannot be supplied by similar functions or a domain name."
-          }
-        ],
-        "review_note": "Model-review findings are relayed through the author’s retained decisions.",
-        "review_link": "Intermediate excerpts (Chinese)"
-      },
-      "review_url": "case-study/office-agents/reviews.html#versions-record",
-      "content_type": "excerpt"
-    },
-    {
-      "id": "analysis",
-      "original_url": "case-study/office-agents/original.zh-CN.html#L63",
-      "revised_url": "case-study/office-agents/revised.zh-CN.html#L73",
-      "zh": {
-        "label": "扣子用什么模型",
-        "context": "扣子提供原生、第三方云端和本地接入。执行框架安排任务与工具调用，底层模型负责理解与推理。",
-        "title": "扣子云端的 Claude Code，底层模型由扣子提供。",
-        "why": "Claude Code 是程序名称，不能据此认定调用 Anthropic 模型。选型还需要核对模型供应与运行位置。",
-        "before": "扣子把原生Agent、托管在云端的第三方Agent和本地接入放在同一协作入口。原生版本包含平台日程、邮箱、云资源等能力；云端第三方和本地接入并不自动取得同样的内置服务。",
-        "after": "原生Agent可选豆包、Kimi、GLM、MiniMax等模型。第三方云端模式则在扣子云电脑运行Claude Code、Codex CLI等执行框架，接入扣子提供的模型，不绑定原厂账号与模型。",
-        "before_note": "初稿已区分运行方式与服务权限；本小节未写具体模型来源。",
-        "after_note": "这是同一小节新增的段落；原有运行方式和权限分析仍在。",
-        "highlights": [
-          "接入扣子提供的模型"
-        ],
-        "before_highlights": [],
-        "changes": [
-          {
-            "label": "补充",
-            "text": "由模式与权限分工，进一步写到原生模型选择、第三方云端的执行框架与模型来源。"
-          },
-          {
-            "label": "保留",
-            "text": "三种模式的服务边界与本地设备条件仍有效，新增段落没有把它们合并成同一种能力。"
-          }
-        ],
-        "reasons": [
-          {
-            "heading": "初稿缺少哪一层事实",
-            "body": "说明“模型很重要”或区分运行方式，还不能回答具体产品用什么模型。读者看到 Claude Code 时，也可能把程序品牌当成模型供应商。"
-          },
-          {
-            "heading": "补充资料带来了什么",
-            "body": "扣子产品介绍列出原生 Agent 的模型选择；第三方云端文档说明在扣子云电脑运行执行框架、接入扣子模型。两份资料让模型来源与运行方式能够分别描述。"
-          }
-        ],
-        "tradeoffs": [
-          {
-            "label": "采用",
-            "text": "补入可核对的配置事实，并保留模型、工具、上下文与权限分别影响任务的分析。"
-          },
-          {
-            "label": "保留未知",
-            "text": "不能据配置说明分配“某个模型贡献多少节时”，也不能推断真实任务完成率。"
-          },
-          {
-            "label": "还需要什么",
-            "text": "比较模型效果需要固定任务、输入、工具、权限与结果标准，再观察错误、调用失败及最终返工。"
-          }
-        ],
-        "sources": [
-          {
-            "label": "扣子 Agent 类型",
-            "url": "case-study/office-agents/sources.html#S04"
-          },
-          {
-            "label": "扣子产品介绍",
-            "url": "case-study/office-agents/sources.html#S29"
-          },
-          {
-            "label": "第三方云端说明",
-            "url": "case-study/office-agents/sources.html#S30"
-          }
-        ],
-        "history": [
-          {
-            "stage": "初稿",
-            "body": "扣子小节写了运行方式与服务边界；全文结尾解释模型的一般作用，仍缺少各模式的具体模型来源。"
-          },
-          {
-            "stage": "审阅意见",
-            "body": "两份模型审阅都指出分析偏泛。作者采纳并合并处理，补充具体产品配置，没有重复增加段落。"
-          },
-          {
-            "stage": "补充后的中间稿",
-            "body": "回到官方类型、产品介绍及云端文档，新增原生模型选择与第三方云端模型供给；综合分析也补充不同产品的模型路线。"
-          },
-          {
-            "stage": "后续取舍与定稿",
-            "body": "后续裁定没有再加重复机制段落；保留固定输入、工具和权限等比较条件，不把简单换模型当成因果实验。"
-          }
-        ],
-        "decisions": [
-          {
-            "finding": "模型分析偏泛",
-            "decision": "采纳并合并处理",
-            "basis": "补入具体产品配置，保留原有作用分析，不重复堆叠意见。"
-          },
-          {
-            "finding": "后续模型作用意见",
-            "decision": "保留比较条件，不重复扩写",
-            "basis": "综合分析已有模型作用与限制；不能只换模型，就把全部效果变化归给模型。"
-          }
-        ],
-        "review_note": "模型审阅意见据保留的作者裁定转述。",
-        "review_link": "中间稿与裁定摘录"
-      },
-      "en": {
-        "label": "Coze’s models",
-        "context": "Coze China groups native agents, third-party cloud agents, and local connections in one interface. An execution framework organizes actions; the underlying model handles understanding and reasoning.",
-        "title": "Coze supplies models for its cloud-hosted Claude Code.",
-        "why": "The report identifies Claude Code and Codex CLI as execution frameworks. A program’s brand does not, by itself, establish which model powers a particular deployment.",
-        "before": "Coze brings native agents, third-party agents hosted in the cloud, and local connections into one collaboration interface. The native version includes platform scheduling, email, and cloud resources; the other modes do not automatically inherit those built-in services.",
-        "after": "Native agents can select models such as Doubao, Kimi, GLM, and MiniMax. Third-party cloud mode runs execution frameworks such as Claude Code and Codex CLI on Coze cloud computers, using models supplied by Coze rather than being tied to the original provider’s account and model.",
-        "before_note": "The section distinguished execution modes and services, but did not identify their specific model supply.",
-        "after_note": "This paragraph was added to the same product section. Its existing mode and permission analysis remains.",
-        "highlights": [
-          "models supplied by Coze"
-        ],
-        "before_highlights": [],
-        "changes": [
-          {
-            "label": "Added",
-            "text": "Specific native-model choices and the distinction between third-party cloud frameworks and their model supply."
-          },
-          {
-            "label": "Retained",
-            "text": "The original service boundaries and local-device conditions; the additional paragraph does not make all three modes equivalent."
-          }
-        ],
-        "reasons": [
-          {
-            "heading": "The fact layer missing from the draft",
-            "body": "General discussion of model importance and execution modes cannot answer which models a particular product uses. A reader may also mistake the Claude Code program brand for a model provider."
-          },
-          {
-            "heading": "What the additional sources establish",
-            "body": "The product introduction lists native-model choices. The cloud-agent document explains frameworks running on Coze computers with Coze-supplied models. They allow model supply and execution mode to be described separately."
-          }
-        ],
-        "tradeoffs": [
-          {
-            "label": "Chosen",
-            "text": "Add verifiable product configuration while retaining the distinct roles of models, tools, context, and permissions."
-          },
-          {
-            "label": "Not inferred",
-            "text": "Configuration documents do not measure a model’s share of time saved or real-task completion rates."
-          },
-          {
-            "label": "What is still needed",
-            "text": "Comparing model effects requires fixed tasks, inputs, tools, permissions, and result criteria, followed by errors, failed calls, and rework."
-          }
-        ],
-        "sources": [
-          {
-            "label": "Agent types",
-            "url": "case-study/office-agents/sources.html#S04"
-          },
-          {
-            "label": "Product introduction",
-            "url": "case-study/office-agents/sources.html#S29"
-          },
-          {
-            "label": "Third-party cloud documentation",
-            "url": "case-study/office-agents/sources.html#S30"
-          }
-        ],
-        "history": [
-          {
-            "stage": "Initial draft",
-            "body": "The Coze section described execution modes and service boundaries. Its conclusion covered general model roles but lacked specific supply details."
-          },
-          {
-            "stage": "Review finding",
-            "body": "Two model reviews found the analysis too general. The author combined their substantive findings and added product facts rather than duplicate paragraphs."
-          },
-          {
-            "stage": "Expanded intermediate draft",
-            "body": "The author returned to official type, product, and cloud documents. The next draft added native choices and cloud-model supply, with product-level synthesis in the conclusion."
-          },
-          {
-            "stage": "Later decision and final report",
-            "body": "A later adjudication added no duplicate mechanism paragraph. Conditions for controlled comparisons were retained; simply switching a model was not treated as a causal experiment."
-          }
-        ],
-        "decisions": [
-          {
-            "finding": "Model analysis is too general",
-            "decision": "Accepted and combined",
-            "basis": "Add specific configuration while retaining the existing analysis; avoid duplicating overlapping findings."
-          },
-          {
-            "finding": "Later model-mechanism feedback",
-            "decision": "No duplicate paragraph",
-            "basis": "The synthesis already covered mechanisms and limits. Isolating model effects requires controlled tools and permissions."
-          }
-        ],
-        "review_note": "Model-review findings are relayed through the author’s retained decisions.",
-        "review_link": "Intermediate excerpts (Chinese)"
-      },
-      "review_url": "case-study/office-agents/reviews.html#analysis-record",
-      "content_type": "excerpt"
     }
   ]
 }

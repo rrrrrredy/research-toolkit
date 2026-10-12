@@ -41,6 +41,12 @@ For long reports, prefer:
 
 Do not make the article follow the order in which sources were collected.
 
+## Length And Decision Usefulness
+
+Allocate space to the required questions before drafting. Before delivery, count the actual report using the requested convention (English words or Chinese characters, with headings and references handled as agreed). Record the count and convention in the existing checklist or delivery notes. If no convention is given, state a reasonable one. Cut repeated background and caveats before cutting required analysis; a short-report limit still applies when the analysis is good.
+
+For a decision memo, state the recommendation, rationale, next action and conditions that would change the decision. Distinguish measured results from proposed pilot criteria. Explain any proposed numerical target using the decision's risks, a baseline or an agreed service requirement; without such a basis, describe the trigger and how to calibrate it. Check that a target does not reward hiding failures or blocking necessary escalation. For example, capping human handoffs can conflict with giving customers timely access to a person.
+
 ## Chinese Longform Preferences
 
 For Chinese final articles:
@@ -66,12 +72,12 @@ For English final articles:
 
 ## Process-Language Cleanup
 
-Replace:
+Remove process narration without removing attribution, uncertainty or the scope of the source. These are editing directions, not fixed replacements:
 
-- "the user-provided material says..." -> "In the available discussion, this issue is usually framed as..."
-- "the source shows..." -> "The important point is..."
-- "this material supplements..." -> "This shifts the analysis from X to Y..."
-- "the evidence gap means..." -> "The boundary of the claim is..."
+- "the user-provided material says..." -> name the speaker or publisher and the specific claim
+- "the source shows..." -> state the supported finding; retain "reports", "estimates" or "expects" when needed
+- "this material supplements..." -> explain how the added evidence changes the analysis, with attribution where relevant
+- "the evidence gap means..." -> identify the affected conclusion and the evidence needed to resolve it
 - "this report will..." -> use a direct section transition or remove it
 
 ## References
