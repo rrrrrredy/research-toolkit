@@ -3,13 +3,13 @@
   var data = JSON.parse(document.getElementById("showcase-data").textContent);
   var reading = window.RTReading;
   var state = reading.get(), lang = state.lang, theme = state.theme;
+  var params = new URLSearchParams(location.search);
   function caseData() { return lang === "en" && data.englishCase ? data.englishCase : data.cases; }
   var selectedTopics = {};
   selectedTopics[lang] = state.topic;
-  var selected = caseData().pairs.findIndex(function (p) { return p.id === state.topic; });
+  var selected = caseData().pairs.findIndex(function (p) { return p.id === params.get("case"); });
   if (selected < 0) selected = 0;
   var detail = state.detail || "diff";
-  var params = new URLSearchParams(location.search);
   if (params.get("view") === "readme") document.body.classList.add("capture-readme");
   if (params.get("view") === "method") document.body.classList.add("capture-method");
   function node(tag, className, text) {

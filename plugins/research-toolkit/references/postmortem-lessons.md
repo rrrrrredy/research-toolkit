@@ -27,6 +27,16 @@ These design lessons describe recurring research failure modes and the practices
 
 A research report needs a clear thesis, relevant evidence, enough detail for the question, explicit uncertainty, useful references and readable analysis. Its expected depth should be settled before drafting. Review the actual text against those requirements rather than relying on file counts or status labels.
 
+## Lessons From The October Lite Pilot
+
+These preserved outputs motivate method changes, not claims that the changes work. They come from different collection stages and must not be pooled into a new win rate.
+
+- [DeepSeek banking memo, original pair 03](https://github.com/rrrrrredy/research-toolkit/blob/ce812f1b52564121212613d5bb6de281d079b8d0/evals/studies/2026-10-10-lite-four-models/runs/deepseek/coordinator/author/pair-03/with_toolkit/parsed.json): its report has 913 whitespace-separated words including headings, against a 600–800-word brief. Check actual length before delivery.
+- [Kimi banking memo, format supplement pair 05, report B](https://github.com/rrrrrredy/research-toolkit/blob/ce812f1b52564121212613d5bb6de281d079b8d0/evals/studies/2026-10-10-lite-four-models/format-supplement/kimi/judge-inputs/pair-05.json): the opening claims high failure rates, although the complaint examples do not establish those rates. It also turns anticipated harms into outcomes and proposes a human-escalation ceiling without a rationale. Preserve source scope and modality; justify decision criteria and examine their incentives.
+- [DeepSeek memory-safety memo, completion supplement pair 01](https://github.com/rrrrrredy/research-toolkit/blob/ce812f1b52564121212613d5bb6de281d079b8d0/evals/studies/2026-10-10-lite-four-models/completion-supplement/deepseek/authors/pair-01/with_toolkit/report.md): one paraphrase reverses the relationship between external dependencies and open source. It also treats missing external findings as preventing assessment of the vendor's own dependency risk. Check relationship direction and separate missing external evidence from internal evidence the decision-maker can obtain.
+
+The corresponding practices are in [source and claim discipline](research-standard.md#8-source-and-claim-discipline), [writing style](writing-style.md#length-and-decision-usefulness) and the [Lite guide](lite-workflow.md). Assess their effect with a separately frozen comparison; keep the pilot inputs, outputs and judgments unchanged.
+
 ## Delivery Boundary
 
 Research records support traceability; the finished report presents the argument and evidence useful to its reader. Neither layer substitutes for the other.

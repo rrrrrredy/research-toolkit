@@ -99,43 +99,9 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 
 [**完整报告（中文原文）**](./docs/case-study/report.zh-CN.md) · [初稿](./docs/case-study/office-agents/original.zh-CN.md) · [定稿](./docs/case-study/office-agents/revised.zh-CN.md) · [来源与审阅记录](./docs/case-study/office-agents/README.md)
 
-这份报告比较 Kimi Work、扣子、飞书／豆包工作、悟空、WPS 和 WorkBuddy。四处真实修改，涵盖表达、结构、产品关系和模型信息：
+这份报告比较 Kimi Work、扣子、飞书／豆包工作、悟空、WPS 和 WorkBuddy。先看两处影响判断的修改：产品关系能否成立，以及执行框架是否等于模型供应方；其后是表达与结构调整：
 
 <details open>
-<summary><strong>去 AI 化表述：把价值铺垫改成具体动作</strong></summary>
-
-**初稿**
-
-> 独立办公Agent的价值，不在于把聊天框搬到桌面，而在于把资料、执行与修改放进同一段工作。
-
-**定稿**
-
-> 独立办公Agent把资料、执行与修改组织在同一工作空间。
-
-缩短开头，并把段末泛泛的“实现方式不同”展开为谁提供工具、谁保存上下文、谁维持设备在线。可能减少文件搬运的判断和运行限制仍保留。
-
-[完整段落与修改理由](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=writing&detail=reason#case) · [审阅取舍](./docs/case-study/office-agents/reviews.md#去-ai-化表述中间稿与作者编辑记录)
-
-</details>
-
-<details>
-<summary><strong>去过程痕迹：删除章节预告，保留研究边界</strong></summary>
-
-**初稿**
-
-> 以下按工作对象、独立工作台、办公套件、桌面执行与商业化展开。依据是公开产品文档和案例，不含安装实测；单一使用记录不代表行业表现。
-
-**定稿开篇**
-
-> 依据公开文档和案例，不含安装实测；部分动态说明于9月10日核对，不倒推为早期版本的能力。
-
-删除“以下按……展开”和“有三个判断值得先说清楚”。必要的来源、实测和案例代表性说明集中到开篇。这里展示的是删除与重排，两段位于稿件的不同位置。
-
-[段落位置与修改理由](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=process&detail=reason#case)
-
-</details>
-
-<details>
 <summary><strong>aily 与豆包工作：收窄版本继承的推断</strong></summary>
 
 **初稿节选**
@@ -169,6 +135,40 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 
 </details>
 
+<details>
+<summary><strong>去 AI 化表述：把价值铺垫改成具体动作</strong></summary>
+
+**初稿**
+
+> 独立办公Agent的价值，不在于把聊天框搬到桌面，而在于把资料、执行与修改放进同一段工作。
+
+**定稿**
+
+> 独立办公Agent把资料、执行与修改组织在同一工作空间。
+
+缩短开头，并把段末泛泛的“实现方式不同”展开为谁提供工具、谁保存上下文、谁维持设备在线。可能减少文件搬运的判断和运行限制仍保留。
+
+[完整段落与修改理由](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=writing&detail=reason#case) · [审阅取舍](./docs/case-study/office-agents/reviews.md#去-ai-化表述中间稿与作者编辑记录)
+
+</details>
+
+<details>
+<summary><strong>去过程痕迹：删除章节预告，保留研究边界</strong></summary>
+
+**初稿**
+
+> 以下按工作对象、独立工作台、办公套件、桌面执行与商业化展开。依据是公开产品文档和案例，不含安装实测；单一使用记录不代表行业表现。
+
+**定稿开篇**
+
+> 依据公开文档和案例，不含安装实测；部分动态说明于9月10日核对，不倒推为早期版本的能力。
+
+删除“以下按……展开”和“有三个判断值得先说清楚”。必要的来源、实测和案例代表性说明集中到开篇。这里展示的是删除与重排，两段位于稿件的不同位置。
+
+[段落位置与修改理由](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=process&detail=reason#case)
+
+</details>
+
 这是一份历史报告：信息截至 2026 年 9 月 9 日，部分动态文档于 9 月 10 日核对；基于公开资料，未安装实测。稿件变化不构成有无工具箱的对照实验。[评测现状](./docs/evaluation-status.zh-CN.md)
 
 <details>
@@ -176,7 +176,7 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 
 [![报告差异、修改理由与审阅取舍的浏览演示](./docs/assets/case-walkthrough.zh-CN.gif)](./docs/assets/case-walkthrough.zh-CN.mp4)
 
-[视频](./docs/assets/case-walkthrough.zh-CN.mp4) · [交互案例](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=writing#case)
+[视频](./docs/assets/case-walkthrough.zh-CN.mp4) · [交互案例](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=versions#case)
 
 </details>
 
