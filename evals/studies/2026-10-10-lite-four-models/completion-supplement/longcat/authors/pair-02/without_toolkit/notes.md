@@ -1,0 +1,14 @@
+
+Working notes (not part of the reader-facing memo):
+
+- Task and constraints: Produce a 600–800-word reader-facing research memo from one supplied source (S1, EIA article of August 7, 2026) for a hypothetical mid-sized power-electronics supplier; decision date August 10, 2026. Requirements: demand implications of capacity/planned-addition figures; what the figures cannot establish (supplier revenue, project returns); recommend limited discovery vs. larger commitment; weigh strongest opportunity signal vs. strongest caution; identify next evidence that would change the recommendation; cite source IDs; no invented prices, durations, margins, or probabilities; bounded desk memo, not investment advice; company/scenario hypothetical, source facts real.
+
+- Source facts used (all S1): 43.6 GW operational at end-2025; +8.3 GW in H1 2026 to nearly 52 GW nameplate; 70% average annual growth over three years; 54 GW anticipated over ~2.5 years (14 GW H2 2026, 26 GW 2027, 14 GW 2028); Bellefield 500 MW PV + 500 MW storage, operational Dec 2025, CAISO, planned doubling by November 2026 (would become largest U.S. storage facility); Manatee 409 MW storage (since 2021, second-largest); Gemini 380 MW storage (2024); qualitative arbitrage mechanism (store low, discharge high).
+
+- Analytic choices: Treated capacity growth as a leading demand indicator for power-conversion equipment but explicitly refused to convert GW to revenue or returns. Flagged the "anticipate"/"plan" language and the source's own conditional ("if those plans materialize") as the core uncertainty, which drives the limited-discovery recommendation. Recommendation logic: signal is large enough to justify action, but source contains no commercial variables (price, duration, margin, contracted status) needed to size a commitment — so discovery-first is the only source-defensible posture.
+
+- Deliberately excluded: any dollar figures, $/kW or $/MWh estimates, storage-duration assumptions (e.g., 4-hour systems), margin or return estimates, probability weights, market-share assumptions, competitor data, and grid/interconnection context not in S1. Hedging kept qualitative ("if," "would," "would support") without numeric probability.
+
+- Minor inconsistency noted: S1's retrieval stamp is 2026-10-10, while the brief sets the article publication at August 7, 2026 and the decision date at August 10, 2026. Per the brief, the memo is dated August 10, 2026 and cites the article by its publication date; the retrieval stamp is treated as metadata, not evidence.
+
+- Compliance checks: word count of the reader-facing memo ≈ 683 words (within 600–800). Source ID "S1" cited inline at every factual claim. Output structure: report first, single `<!-- WORKING_NOTES -->` line, then these notes; no JSON, no code fences, separator appears exactly once and is not referenced in the report. The report does not mention assigned conditions, tooling, or the working-notes split.

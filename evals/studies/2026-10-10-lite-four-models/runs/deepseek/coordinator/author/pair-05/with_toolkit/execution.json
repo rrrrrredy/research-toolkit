@@ -1,0 +1,22 @@
+{
+  "status": "failed",
+  "transport": "chat_completions",
+  "model_requested": "deepseek-flash",
+  "model_returned": "deepseek-flash",
+  "request_id": "fa1a7a36-2670-4ce7-bc2a-5e3412888b55",
+  "usage": {
+    "prompt_tokens": 13326,
+    "completion_tokens": 12288,
+    "total_tokens": 25614,
+    "prompt_tokens_details": {
+      "cached_tokens": 12416
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 11055
+    },
+    "prompt_cache_hit_tokens": 12416,
+    "prompt_cache_miss_tokens": 910
+  },
+  "elapsed_seconds": 48.641,
+  "error": "Truncated/incomplete response retained"
+}

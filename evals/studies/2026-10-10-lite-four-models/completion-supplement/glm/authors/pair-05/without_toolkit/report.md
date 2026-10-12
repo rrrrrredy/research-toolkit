@@ -1,0 +1,42 @@
+# Research Memo: Deploying a Chatbot as the Primary First-Contact Channel for Complaints and Disputes
+
+**To:** Product Director, Customer Service
+**Date:** June 7, 2023
+**Re:** Evidence assessment from the CFPB's June 6, 2023 report, "Chatbots in Consumer Finance"
+**Note:** Product research for a hypothetical institution; not legal advice. This reflects the CFPB's June 2023 snapshot, not current law or current technology.
+
+## Bottom Line
+
+The CFPB's June 6, 2023 report raises a serious, specific concern for the channel you are considering: the agency's analysis states that where "AI" fails to understand a request or the customer's message contradicts the system's programming, "it is not suitable for chatbots to be the primary customer service vehicle" (S1). Because complaints and transaction disputes are exactly the interactions most likely to involve contested facts, emotional distress, and legally significant responses, a chatbot should not be the *primary* first-contact channel for them. A bounded pilot is defensible — but only with defined human offramps, dispute-recognition triggers, and measured gates before any expansion.
+
+## What the Evidence Says
+
+**Adoption context (third-party figures cited by CFPB).** The report cites industry data that all top-10 U.S. commercial banks deploy chatbots, that roughly 98 million U.S. users (about 37% of the population) interacted with a bank chatbot in 2022, with growth to 110.9 million projected by 2026, and that chatbots reportedly deliver about $8 billion in annual cost savings, roughly $0.70 per interaction (S1). These are vendor/analyst figures the CFPB quotes for context, not the bank's own numbers, and they say nothing about resolution quality. We should not promise comparable savings for our bank; they are unmeasured here.
+
+**Agency analysis — failure mechanisms.** The CFPB identifies three core problems (S1):
+
+1. *Limited ability to solve complex problems.* Chatbots (rule-based and LLM-based) may fail to recognize that a customer is raising a dispute, since only specific words or syntax may trigger dispute handling. Even when recognized, chatbots may simply "parrot" back the account data the customer is disputing, which does not resolve anything. LLM-based systems may also produce inaccurate or fabricated information, and the CFPB describes LLM chatbots in banking as an unreliable source for customer responses.
+2. *Hindering access to human help.* Customers describe "doom loops" — repetitive, unhelpful responses with no offramp to a human. Blocked or delayed human access compounds harm, especially for distressed customers and those with limited English proficiency.
+3. *Security and privacy risk.* Chat logs become sensitive data repositories; the report cites the 2018 Ticketmaster/Inbenta breach affecting 9.4 million data subjects and 60,000 payment cards, plus phishing and impersonation risks around chatbots (S1).
+
+**Complaint examples (illustrative, not rates).** The report quotes individual consumer complaints: a customer told a dispute was opened who later found no dispute existed and could reach no one who could fix it; a customer whose payment-due-day chatbot loop resulted in a late fee and a credit-bureau late report; and a customer repeatedly redirected to log in for an account she didn't have (S1). These are anecdotes selected by the CFPB — they show *mechanisms* of failure, not representative failure rates, and should not be quantified.
+
+**Incentives.** The CFPB warns that cost-savings incentives may push institutions toward chatbots even where service quality declines, and notes that revenue-driven development priorities may underinvest in chatbot reliability (S1). This is the incentive structure we must consciously counteract in our own program.
+
+## Suitable vs. Unsuitable Uses
+
+- **Suitable:** basic balance, payment, transaction-history, FAQ-type inquiries — the report notes chatbots "may be useful for resolving basic inquiries" (S1).
+- **Unsuitable as primary channel:** dispute intake and resolution, error correction, complaints, distressed-customer interactions, and any response that parrots contested account data back to the customer.
+
+## Recommended Bounded Pilot
+
+1. **Scope:** chatbot handles *routing and basic inquiries only*; disputes and complaints get immediate, clearly signed human handoff. Escalation must not depend on the customer knowing the "correct phrase."
+2. **Handoff gates:** any dispute-indicative language, two failed turns, or customer request triggers human transfer with full transcript context — directly answering the "doom loop" failure mode (S1).
+3. **Metrics before expansion:** dispute-recognition rate, handoff latency, resolution rate, complaint volume, security review of chat-log handling.
+4. **Do not** use LLM-generated responses for legally required information without verification controls.
+
+## Counterargument and Evidence Needed
+
+**Counterargument:** "The top-10 banks all run chatbots, and cited savings are ~$0.70/interaction; a well-designed chatbot with a human handoff can match human-only service at lower cost." This is plausible — the adoption figures are real (S1) — but the report gives no evidence that banks achieved *equal service quality* at those savings, only that savings were reported industry-wide.
+
+**Evidence needed to resolve it:** a controlled A/B pilot measuring dispute-resolution accuracy, time-to-human, customer satisfaction, and complaint rates for chatbot-first versus human-first cohorts at our bank. If chatbot-first matches human-first on those gates, wider deployment is justified; the CFPB's own analysis (S1) says the determination depends on facts and circumstances.

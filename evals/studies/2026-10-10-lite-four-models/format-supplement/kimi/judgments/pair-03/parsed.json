@@ -1,0 +1,71 @@
+{
+  "preference": "B",
+  "reason": "B narrowly better supports the supplier’s decision: its caution section asks whether procurement is already contracted and its next-evidence section seeks specifications, commercial terms, and projects still sourcing hardware. A’s final section would support escalation based on project completion or EPC contracting without establishing accessible supplier business. Both recommend appropriately limited discovery, but both make material unsupported inferences from S1; B’s advantage is decision relevance, not stronger factual reliability.",
+  "reports": {
+    "A": {
+      "task_fidelity": {
+        "score": 3,
+        "reason": "Addresses the dated memo, demand implications, revenue and return limitations, competing signals, recommendation, and next evidence with source IDs. However, unsupported market claims and an unexplained numerical completion threshold weaken compliance with the bounded source-only brief.",
+        "excerpt": "Evidence That Would Change the Recommendation: “if EIA retrospective data show that historically 70–80% of reported battery-storage plans are completed on schedule.”",
+        "source_evidence": "S1 supplies operator plans but no retrospective completion rates or basis for a 70–80% decision threshold. The report presents this as hypothetical evidence, not an observed probability, but its numerical specificity is unjustified."
+      },
+      "facts_and_evidence": {
+        "score": 2,
+        "reason": "Accurately reproduces the main installed and planned capacity figures. Substantive unsupported assertions concern configuration dominance and a growing merchant-market basis for investment. It also conflates storage duration with energy capacity.",
+        "excerpt": "Demand Implications, paragraph 2: “demand is not merely policy-driven but is increasingly anchored in merchant-market revenue opportunities”; What the EIA Figures Cannot Establish, paragraph 1: “storage duration (megawatt-hours)”.",
+        "source_evidence": "S1 says solar PV plants host the largest battery units and describes buying low and selling high. It supplies no configuration market shares, policy comparison, or merchant-revenue trend. Megawatt-hours measure energy capacity; duration would require an energy-to-power relationship that S1 does not provide."
+      },
+      "explanation_and_synthesis": {
+        "score": 2,
+        "reason": "Usefully compares the planned pipeline with the installed base and explains why GW cannot directly yield supplier revenue. However, the causal argument for sustained demand relies partly on unsupported merchant-market and configuration claims.",
+        "excerpt": "Demand Implications, paragraph 2: “This economic logic implies that demand is not merely policy-driven but is increasingly anchored in merchant-market revenue opportunities, which could support continued investment.”",
+        "source_evidence": "S1 describes an arbitrage mechanism but provides no evidence of its growing importance, durability, or sufficiency to sustain investment. Its 54 GW plan and nearly 52 GW installed base do support the report’s scale comparison."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 3,
+        "reason": "Clearly distinguishes plans from orders and identifies missing supplier economics and project returns. The boundary weakens when a larger commitment can follow completion-rate or EPC evidence alone, without demonstrating the company’s access or economics.",
+        "excerpt": "What the EIA Figures Cannot Establish, paragraph 2: “treating the 54 GW plan as a firm revenue backlog would be a material overreach.”",
+        "source_evidence": "S1 explicitly describes “plans they report to us” and conditions Bellefield’s expansion on “If those plans materialize.” It provides neither supplier backlog nor project-return evidence."
+      },
+      "reader_usefulness": {
+        "score": 3,
+        "reason": "Offers a clear, proportionate recommendation and useful discovery topics. Its escalation criteria are less actionable for this supplier because project realization does not establish available orders, qualification, or viable supplier economics.",
+        "excerpt": "Evidence That Would Change the Recommendation: “The next critical evidence is therefore the plan-to-operation conversion rate and the resulting firm order backlog”.",
+        "source_evidence": "S1 contains no procurement allocation, supplier selection, pricing, or firm-order information. A completion rate would clarify deployment risk but would not resolve these commercial-access gaps."
+      }
+    },
+    "B": {
+      "task_fidelity": {
+        "score": 3,
+        "reason": "Covers the requested decision, time frame, opportunity-versus-caution comparison, limitations, and next evidence in a cited English memo. Unsupported technical and market inferences prevent full fidelity to the source-bounded task.",
+        "excerpt": "Recommendation: “Authorize a limited market-discovery effort rather than a major commercial commitment at this stage.”",
+        "source_evidence": "S1 reports nearly 52 GW operational capacity and 54 GW planned additions, while supplying no company-specific commercial evidence. This supports discovery as a bounded judgment, not a demonstrated commercial case."
+      },
+      "facts_and_evidence": {
+        "score": 2,
+        "reason": "Correctly states the main growth and addition figures, but asserts an unsupported direct relationship between duration and power-electronics quantity. Configuration concentration and labeling the pipeline an upper bound also exceed the source.",
+        "excerpt": "What the Data Cannot Establish: “storage duration, which directly affects the total quantity of power-electronics required per megawatt”; “the 54 GW figure is an upper-bound indicator of potential demand”.",
+        "source_evidence": "S1 supplies nameplate power and operator plans, with no duration or equipment-sizing relationship. It does not establish 54 GW as a ceiling on future demand; additional plans could emerge. Its examples of large solar-hosted units do not establish market-wide concentration."
+      },
+      "explanation_and_synthesis": {
+        "score": 3,
+        "reason": "Connects the dated pipeline to a procurement window and explains the separate problems of project execution and supplier access. This is useful synthesis, although some wording overstates how directly deployment establishes available equipment demand.",
+        "excerpt": "Opportunity Signal vs. Reason for Caution: “a supplier cannot know how much of the 54 GW is already contracted, what technical standards are specified, or whether the competitive set is locked in.”",
+        "source_evidence": "S1 schedules 14 GW for late 2026, 26 GW for 2027, and 14 GW for 2028 but gives no procurement stages or supplier information. These omissions support the distinction between deployment timing and accessible orders."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 3,
+        "reason": "Explicitly separates plans, procurement, supplier revenue, and project profitability. It correctly treats arbitrage as insufficient evidence of returns, although calling the pipeline an upper bound and broadly characterizing the inventory as intentions blur important limits.",
+        "excerpt": "What the Data Cannot Establish: “the source notes that operators use storage to arbitrage wholesale electricity prices, but it provides no data on margins, capture rates, or revenue per megawatt”.",
+        "source_evidence": "S1 describes storing at low prices and discharging at high prices, without costs, realized spreads, or return metrics. It reports actual operational capacity as well as future plans, so the whole inventory cannot be characterized solely as intentions."
+      },
+      "reader_usefulness": {
+        "score": 3,
+        "reason": "Provides more supplier-specific discovery priorities and evidence gates than A, particularly open procurement and technical-commercial requirements. However, awards to other suppliers may demonstrate demand without creating an opportunity for this entrant, and escalation criteria remain qualitative.",
+        "excerpt": "Next Evidence That Would Change the Recommendation, items 2–3: “Published Request for Proposal documents specifying power-electronics requirements, quantities, and commercial terms”; “the 54 GW pipeline remains uncontracted and is actively sourcing hardware.”",
+        "source_evidence": "S1 provides none of these procurement details. Seeking them directly addresses the gap between planned GW and revenue accessible to the hypothetical supplier."
+      }
+    }
+  },
+  "condition_clues": "Both use memo headers and sections closely matching the brief. B has a numbered evidence list and standalone source entry; A uses narrative evidence triggers and an unexplained numerical threshold. These are weak stylistic clues and do not reliably identify any condition, author, or tool."
+}

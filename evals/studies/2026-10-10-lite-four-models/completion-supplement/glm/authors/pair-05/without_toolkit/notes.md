@@ -1,0 +1,7 @@
+- Word count target 600-800; current draft ~780 words — verify.
+- Source S1 only; cited as (S1) throughout per brief.
+- Distinguished: complaint anecdotes (illustrative only), adoption/cost figures (third-party, cited by CFPB), agency analysis, my recommendations.
+- Avoided claiming current law/models; framed as June 7, 2023 decision, snapshot of June 2023 report.
+- Did not promise cost savings; flagged $8B/$0.70 as cited industry figures, unmeasured for this bank.
+- Included concrete counterargument (peer adoption + savings) and resolution evidence (controlled A/B with quality gates).
+- Human-handoff requirements tied to documented failure mechanisms (doom loops, dispute-recognition syntax limits).

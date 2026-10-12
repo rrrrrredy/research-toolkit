@@ -1,0 +1,13 @@
+{
+  "analysis_id": "exact-json-fence-compatibility-supplement",
+  "registered_at": "2026-10-10T08:19:58.795008+00:00",
+  "status": "post_hoc_transport_diagnostic_not_prespecified_primary",
+  "trigger": "Some completed GLM responses wrap an otherwise valid JSON object in a single Markdown code fence. Original strict parsing rejects these responses.",
+  "observed_before_policy": "Availability probes and author transport/parse status; no blinded judgments or preferences inspected.",
+  "eligible": "Apply identically to every provider. Only pairs not judged in the primary run, with two response_complete author executions, valid report/notes objects after this exact envelope removal, are eligible.",
+  "transformation": "Remove only one enclosing ```json or ``` Markdown fence around the whole content; json.loads must succeed without any other edits. Do not alter the report or notes strings. No substring extraction, missing-brace repair, rewriting, model retries or budget changes.",
+  "judge": "Same fresh-context Codex CLI model/settings, original randomized A/B assignments, brief, sources and rubric. Send report text verbatim.",
+  "preservation": "Keep all primary errors, unresolved results, hashes and raw responses. Store derivations, new judge calls and results in a separate format-supplement directory; never overwrite primary outcomes.",
+  "interpretation": "Supplementary usability/quality diagnostics only. Do not merge into the prespecified primary preference table or count additional task families.",
+  "calls": "No new author calls. At most one judge call for each previously unjudged eligible pair; total primary plus supplementary judge calls cannot exceed 20."
+}

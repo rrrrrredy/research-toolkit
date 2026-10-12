@@ -1,0 +1,86 @@
+[
+  {
+    "file": "sources/battery.md",
+    "url": "https://www.eia.gov/todayinenergy/detail.php?id=67925",
+    "sha256": "ef4fb2d7ca9e3a76b64122d30cf13469010ea687f60575d73a258e90a7951410",
+    "text_characters": 2463,
+    "source_unit": "EIA staff; U.S. federal government article text; no images",
+    "original_download": "battery-2026.txt",
+    "selection_rule": {
+      "start": "In-brief analysis",
+      "end": "Tags:"
+    }
+  },
+  {
+    "file": "sources/productivity.md",
+    "url": "https://www.bls.gov/news.release/archives/prod2_03062025.htm",
+    "sha256": "18cc6ee555e3e487098156d9f8ce13e0f1cbdf0038427afa0ab2f677076f3333",
+    "text_characters": 11049,
+    "source_unit": "BLS federal statistical release; narrative source unit, no tables",
+    "original_download": "productivity-2024q4-web.txt",
+    "selection_rule": {
+      "start": null,
+      "end": null
+    }
+  },
+  {
+    "file": "sources/chatbots.md",
+    "url": "https://www.consumerfinance.gov/data-research/research-reports/chatbots-in-consumer-finance/chatbots-in-consumer-finance/",
+    "sha256": "58cecc471a6e77b26a49bc6c2a26fd178757048db50256fbe1b6a3a5687025b3",
+    "text_characters": 51088,
+    "source_unit": "CFPB federal report narrative and cited endnotes; no images",
+    "original_download": "chatbots-2023-web.txt",
+    "selection_rule": {
+      "start": null,
+      "end": null
+    }
+  },
+  {
+    "file": "sources/ai-faq.md",
+    "url": "https://www.nist.gov/itl/ai-risk-management-framework/ai-risk-management-framework-faqs",
+    "sha256": "160428d77192509837e91547a94372c3c89e1b271016cdfcbd5f7137549fa55b",
+    "text_characters": 7461,
+    "source_unit": "NIST federal guidance text",
+    "original_download": "ai-rmf-faq.txt",
+    "selection_rule": {
+      "start": "AI Risk Management Framework FAQs",
+      "end": "Was this page helpful?"
+    }
+  },
+  {
+    "file": "sources/ai-core.md",
+    "url": "https://airc.nist.gov/airmf-resources/airmf/5-sec-core/",
+    "sha256": "d300a043111e4aa6ae57e954ea2c320de57ae4b1c744fa02f1638b596aa2125e",
+    "text_characters": 31885,
+    "source_unit": "NIST federal AI RMF 1.0 Core text",
+    "original_download": "ai-rmf-core.txt",
+    "selection_rule": {
+      "start": null,
+      "end": null
+    }
+  },
+  {
+    "file": "sources/memory-roadmap.md",
+    "url": "https://www.cisa.gov/resources-tools/resources/case-memory-safe-roadmaps",
+    "sha256": "c6f44a335ec714fef2730c8dc54ca586608639f85d3ee59a6d32619e28d4a74c",
+    "text_characters": 1036,
+    "source_unit": "CISA federal resource-page text only; linked PDF not included",
+    "original_download": "memory-roadmap.txt",
+    "selection_rule": {
+      "start": "The Case for Memory Safe Roadmaps",
+      "end": "Resource Materials"
+    }
+  },
+  {
+    "file": "sources/memory-oss.md",
+    "url": "https://www.cisa.gov/news-events/alerts/2024/06/26/cisa-and-partners-release-guidance-exploring-memory-safety-critical-open-source-projects",
+    "sha256": "a497f04565b9d15031c82f4087c5f0996eb083c86fbb6d58b6269c7bc47b6369",
+    "text_characters": 1989,
+    "source_unit": "CISA federal announcement text only; linked report not included",
+    "original_download": "memory-open-source.txt",
+    "selection_rule": {
+      "start": "CISA and Partners",
+      "end": "This product is provided"
+    }
+  }
+]

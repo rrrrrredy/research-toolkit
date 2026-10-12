@@ -1,0 +1,234 @@
+{
+  "scope": "Coverage of five reused development families under four author models; mixed primary and post-hoc settings, not a pooled primary effect estimate.",
+  "families": 5,
+  "models": 4,
+  "general_quality_advantage_established": false,
+  "coverage": {
+    "deepseek": {
+      "judged": 5,
+      "primary": 2,
+      "completion_supplement": 3,
+      "with_toolkit": 0,
+      "without_toolkit": 4,
+      "tie": 1,
+      "unresolved": 0
+    },
+    "kimi": {
+      "judged": 5,
+      "format_supplement": 5,
+      "with_toolkit": 3,
+      "without_toolkit": 1,
+      "tie": 1,
+      "unresolved": 0
+    },
+    "glm": {
+      "judged": 5,
+      "format_supplement": 3,
+      "completion_supplement": 2,
+      "with_toolkit": 2,
+      "without_toolkit": 2,
+      "tie": 1,
+      "unresolved": 0
+    },
+    "longcat": {
+      "judged": 5,
+      "completion_supplement": 5,
+      "with_toolkit": 2,
+      "without_toolkit": 3,
+      "tie": 0,
+      "unresolved": 0
+    }
+  },
+  "completion_only": {
+    "deepseek": {
+      "judged": 3,
+      "with_toolkit": 0,
+      "without_toolkit": 3,
+      "tie": 0,
+      "unresolved": 0
+    },
+    "kimi": {
+      "judged": 0,
+      "with_toolkit": 0,
+      "without_toolkit": 0,
+      "tie": 0,
+      "unresolved": 0
+    },
+    "glm": {
+      "judged": 2,
+      "with_toolkit": 1,
+      "without_toolkit": 0,
+      "tie": 1,
+      "unresolved": 0
+    },
+    "longcat": {
+      "judged": 5,
+      "with_toolkit": 2,
+      "without_toolkit": 3,
+      "tie": 0,
+      "unresolved": 0
+    }
+  },
+  "rows": [
+    {
+      "provider": "deepseek",
+      "task_id": "ai-risk-adoption-zh",
+      "pair_id": "pair-04",
+      "stage": "completion_supplement",
+      "outcome": "without_toolkit",
+      "judgment_path": "completion-supplement/deepseek/judgments/pair-04/parsed.json"
+    },
+    {
+      "provider": "deepseek",
+      "task_id": "banking-chatbots-en",
+      "pair_id": "pair-03",
+      "stage": "primary",
+      "outcome": "without_toolkit",
+      "judgment_path": "runs/deepseek/judgments/pair-03/parsed.json"
+    },
+    {
+      "provider": "deepseek",
+      "task_id": "battery-market-en",
+      "pair_id": "pair-05",
+      "stage": "completion_supplement",
+      "outcome": "without_toolkit",
+      "judgment_path": "completion-supplement/deepseek/judgments/pair-05/parsed.json"
+    },
+    {
+      "provider": "deepseek",
+      "task_id": "memory-roadmap-en",
+      "pair_id": "pair-01",
+      "stage": "completion_supplement",
+      "outcome": "without_toolkit",
+      "judgment_path": "completion-supplement/deepseek/judgments/pair-01/parsed.json"
+    },
+    {
+      "provider": "deepseek",
+      "task_id": "productivity-outlook-zh",
+      "pair_id": "pair-02",
+      "stage": "primary",
+      "outcome": "tie",
+      "judgment_path": "runs/deepseek/judgments/pair-02/parsed.json"
+    },
+    {
+      "provider": "kimi",
+      "task_id": "ai-risk-adoption-zh",
+      "pair_id": "pair-04",
+      "stage": "format_supplement",
+      "outcome": "tie",
+      "judgment_path": "format-supplement/kimi/judgments/pair-04/parsed.json"
+    },
+    {
+      "provider": "kimi",
+      "task_id": "banking-chatbots-en",
+      "pair_id": "pair-05",
+      "stage": "format_supplement",
+      "outcome": "without_toolkit",
+      "judgment_path": "format-supplement/kimi/judgments/pair-05/parsed.json"
+    },
+    {
+      "provider": "kimi",
+      "task_id": "battery-market-en",
+      "pair_id": "pair-03",
+      "stage": "format_supplement",
+      "outcome": "with_toolkit",
+      "judgment_path": "format-supplement/kimi/judgments/pair-03/parsed.json"
+    },
+    {
+      "provider": "kimi",
+      "task_id": "memory-roadmap-en",
+      "pair_id": "pair-02",
+      "stage": "format_supplement",
+      "outcome": "with_toolkit",
+      "judgment_path": "format-supplement/kimi/judgments/pair-02/parsed.json"
+    },
+    {
+      "provider": "kimi",
+      "task_id": "productivity-outlook-zh",
+      "pair_id": "pair-01",
+      "stage": "format_supplement",
+      "outcome": "with_toolkit",
+      "judgment_path": "format-supplement/kimi/judgments/pair-01/parsed.json"
+    },
+    {
+      "provider": "glm",
+      "task_id": "ai-risk-adoption-zh",
+      "pair_id": "pair-03",
+      "stage": "format_supplement",
+      "outcome": "without_toolkit",
+      "judgment_path": "format-supplement/glm/judgments/pair-03/parsed.json"
+    },
+    {
+      "provider": "glm",
+      "task_id": "banking-chatbots-en",
+      "pair_id": "pair-05",
+      "stage": "completion_supplement",
+      "outcome": "with_toolkit",
+      "judgment_path": "completion-supplement/glm/judgments/pair-05/parsed.json"
+    },
+    {
+      "provider": "glm",
+      "task_id": "battery-market-en",
+      "pair_id": "pair-04",
+      "stage": "completion_supplement",
+      "outcome": "tie",
+      "judgment_path": "completion-supplement/glm/judgments/pair-04/parsed.json"
+    },
+    {
+      "provider": "glm",
+      "task_id": "memory-roadmap-en",
+      "pair_id": "pair-02",
+      "stage": "format_supplement",
+      "outcome": "without_toolkit",
+      "judgment_path": "format-supplement/glm/judgments/pair-02/parsed.json"
+    },
+    {
+      "provider": "glm",
+      "task_id": "productivity-outlook-zh",
+      "pair_id": "pair-01",
+      "stage": "format_supplement",
+      "outcome": "with_toolkit",
+      "judgment_path": "format-supplement/glm/judgments/pair-01/parsed.json"
+    },
+    {
+      "provider": "longcat",
+      "task_id": "ai-risk-adoption-zh",
+      "pair_id": "pair-04",
+      "stage": "completion_supplement",
+      "outcome": "with_toolkit",
+      "judgment_path": "completion-supplement/longcat/judgments/pair-04/parsed.json"
+    },
+    {
+      "provider": "longcat",
+      "task_id": "banking-chatbots-en",
+      "pair_id": "pair-01",
+      "stage": "completion_supplement",
+      "outcome": "without_toolkit",
+      "judgment_path": "completion-supplement/longcat/judgments/pair-01/parsed.json"
+    },
+    {
+      "provider": "longcat",
+      "task_id": "battery-market-en",
+      "pair_id": "pair-02",
+      "stage": "completion_supplement",
+      "outcome": "without_toolkit",
+      "judgment_path": "completion-supplement/longcat/judgments/pair-02/parsed.json"
+    },
+    {
+      "provider": "longcat",
+      "task_id": "memory-roadmap-en",
+      "pair_id": "pair-05",
+      "stage": "completion_supplement",
+      "outcome": "without_toolkit",
+      "judgment_path": "completion-supplement/longcat/judgments/pair-05/parsed.json"
+    },
+    {
+      "provider": "longcat",
+      "task_id": "productivity-outlook-zh",
+      "pair_id": "pair-03",
+      "stage": "completion_supplement",
+      "outcome": "with_toolkit",
+      "judgment_path": "completion-supplement/longcat/judgments/pair-03/parsed.json"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "preference": "A",
+  "reason": "A better supports the requested decision by making equipment demand conditional on plans materializing and distinguishing capacity plans from accessible supplier revenue. B supplies more project detail and useful diligence targets, but its strongest-opportunity section makes unsupported claims about actual procurement activity and solar-plus-storage dominance. B also exceeds the requested 800-word ceiling. A has a narrower overstatement about solar co-location, but its recommendation is better calibrated overall.",
+  "reports": {
+    "A": {
+      "task_fidelity": {
+        "score": 4,
+        "reason": "Addresses the specified audience, decision date, capacity implications, revenue and return limits, competing signals, and evidence that would change the recommendation within the requested memo length.",
+        "excerpt": "Recommendation: “Authorize a limited market-discovery effort, not a larger commercial commitment.”",
+        "source_evidence": "S1 supplies operational capacity and operator-reported additions, but no supplier revenue or project-return estimates."
+      },
+      "facts_and_evidence": {
+        "score": 3,
+        "reason": "Accurately reports the central capacity figures and clearly cites S1. However, describing a concentration in solar co-location implies broader market composition than the source establishes.",
+        "excerpt": "What the installed-capacity and planned-addition figures imply for demand, paragraph 2: “The concentration in solar PV co-location is also notable.”",
+        "source_evidence": "S1 says “Solar photovoltaic (PV) plants host the largest battery storage capacity units.” This establishes a characteristic of the largest units, not the prevalence of co-location across the market."
+      },
+      "explanation_and_synthesis": {
+        "score": 4,
+        "reason": "Connects observed deployment and conditional future additions to possible equipment demand, then explains why capacity cannot establish supplier sales. The comparison directly supports a limited commitment.",
+        "excerpt": "What the figures cannot establish, paragraph 1: “A GW figure does not translate directly into sales for a power-electronics supplier without knowing system architecture, component content, sourcing strategy, and contract structure.”",
+        "source_evidence": "S1 reports nearly 52 GW installed and 54 GW of planned additions; it supplies none of the commercial inputs identified in the excerpt."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 4,
+        "reason": "Separates plans from orders, historical growth from forecasts, power from energy capacity, and arbitrage rationale from demonstrated returns without inventing numerical assumptions.",
+        "excerpt": "What the figures cannot establish, paragraph 3: “The planned additions are operator-reported plans, not confirmed purchases or final investment decisions.”",
+        "source_evidence": "S1 characterizes additions as “plans they report to us” and makes Bellefield’s expansion conditional: “If those plans materialize.” It reports no duration, project costs, or returns."
+      },
+      "reader_usefulness": {
+        "score": 4,
+        "reason": "Provides a clear authorization choice and concrete discovery targets involving project access, qualification, procurement calendars, and incumbent positions, with conditions for expanding or stopping.",
+        "excerpt": "Next evidence that would change the recommendation: “If such evidence shows a clear, accessible segment and a credible qualification path, the case for a larger commitment would strengthen.”",
+        "source_evidence": "S1's aggregate additions and selected facility examples do not establish procurement access or supplier qualification opportunities; the proposed evidence directly addresses those gaps."
+      }
+    },
+    "B": {
+      "task_fidelity": {
+        "score": 3,
+        "reason": "Covers the requested substantive questions and decision date, but exceeds the 600–800-word constraint and adds an unnecessary independent-review disclaimer.",
+        "excerpt": "Limitations: “This memo has not undergone independent review; conclusions are provisional and should be treated as an input to further discovery.”",
+        "source_evidence": "The brief requests a bounded 600–800-word desk memo using S1; independent review is not a requested deliverable or a source fact."
+      },
+      "facts_and_evidence": {
+        "score": 3,
+        "reason": "Capacity totals, annual additions, and facility figures match S1. However, citations do not support its claims that pipeline size establishes procurement activity or that solar-plus-storage dominates market configurations.",
+        "excerpt": "Strongest opportunity signal versus strongest caution, paragraph 1: “The dominance of solar-plus-storage configurations also suggests a repeatable project type that could support standardized supplier offerings.”",
+        "source_evidence": "S1 states only that PV plants host the largest storage units and provides three examples. It supplies no configuration shares or evidence of standardization."
+      },
+      "explanation_and_synthesis": {
+        "score": 3,
+        "reason": "Generally explains the capacity-to-revenue gap well, but its key opportunity argument incorrectly treats the size of reported plans as evidence of procurement certainty.",
+        "excerpt": "Strongest opportunity signal versus strongest caution, paragraph 1: “A 54 GW reported addition over two and a half years ... is large enough to indicate that procurement activity is not purely speculative.”",
+        "source_evidence": "S1 describes the 54 GW as anticipated additions based on operator plans. Neither their scale nor the supplied article establishes orders, procurement status, or financial commitment."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 3,
+        "reason": "Explicitly addresses missing prices, returns, duration, and project certainty. These strong caveats are partly undermined by the later unsupported procurement claim. The phrase about plans materializing also originates specifically in the Bellefield example.",
+        "excerpt": "What the figures cannot establish, paragraph 4: “These are not final equipment orders, and some planned capacity may slip, change configuration, or not proceed.”",
+        "source_evidence": "S1 calls aggregate additions operator-reported plans; “if those plans materialize” refers specifically to Bellefield. No final equipment orders or realization probabilities are supplied."
+      },
+      "reader_usefulness": {
+        "score": 3,
+        "reason": "The recommendation and proposed evidence are actionable, especially construction status, financial commitment, and procurement disclosures. Excess length and overstatement in the strongest-opportunity comparison reduce decision clarity.",
+        "excerpt": "Next evidence that would change the recommendation: “The most useful next evidence would be a more granular dataset that separates planned capacity from under-construction or financially committed capacity and reports energy capacity in MWh and storage duration.”",
+        "source_evidence": "S1 provides nameplate power capacity and expected commissioning years, but no construction-status breakdown, financial-close data, MWh, or duration."
+      }
+    }
+  },
+  "condition_clues": "Recorded after judgment: B's independent-review disclaimer and explicit statement that no prices, durations, margins, or probabilities are asserted may reflect a checklist-oriented drafting condition. Both reports use similar section structures and scope disclaimers. These clues do not establish authorship, tools, or experimental conditions."
+}

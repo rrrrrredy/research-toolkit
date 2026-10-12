@@ -1,0 +1,21 @@
+{
+  "status": "response_complete",
+  "transport": "chat_completions",
+  "model_requested": "deepseek-flash",
+  "model_returned": "deepseek-flash",
+  "request_id": "d27097a8-0d54-4216-a5bf-44d2e4ba6db5",
+  "usage": {
+    "prompt_tokens": 837,
+    "completion_tokens": 6060,
+    "total_tokens": 6897,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "completion_tokens_details": {
+      "reasoning_tokens": 4732
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 837
+  },
+  "elapsed_seconds": 27.672
+}
