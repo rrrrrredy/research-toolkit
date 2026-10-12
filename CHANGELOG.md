@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Add opt-in development protocol v2 with predeclared report/notes parsing, model aliases, format options, failure categories, code-bound freezes, request ceilings and secondary A/B swaps. Supply five exposed fictional task families and separate length-matched judge controls; preserve historical inputs and results. No new model calls or quality claims.
+
 - Add a bilingual improvement plan covering reliability, usability, methods, masking, task design and feedback. Share local task locks across CLI/MCP/Python, retain invalid-encoding reviewer bytes without misclassifying execution, add Windows runtime CI, and correct Chinese reference links.
 
 - Keep study integrity checks active under optimized Python, cover completion evidence and frozen outcome labels, and make summary commands read-only by default. Preserve historical data and tables; document the former verifier coverage and unresolved-count field limitations in dated bilingual corrections.

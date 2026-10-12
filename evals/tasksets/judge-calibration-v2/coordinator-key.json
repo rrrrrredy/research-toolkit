@@ -1,0 +1,20 @@
+{
+  "role": "judge_calibration",
+  "material_kind": "synthetic",
+  "exposure": [
+    "All controls created and inspected by the developer on 2026-10-12; separate from the five development families."
+  ],
+  "length_measure": "Whitespace-delimited words; both variants contain the same number of words.",
+  "word_counts": {
+    "valid": 48,
+    "defect": 48
+  },
+  "expected": {
+    "numeric.json": "A",
+    "numeric-swapped.json": "B",
+    "valid-tie.json": "tie"
+  },
+  "defect": "S1 implies (10%-5%)/10%=50% relative reduction; the defective variant says 5%. The absolute reduction is correctly 5 percentage points in both.",
+  "rule": "Run all three packets in fresh contexts without this key. A judge must locate and explain the relative/absolute error, preserve its identification after label swap, and not invent a substantive difference in the identical valid tie. Preserve failures and disagreement; do not count the three orientations as independent tasks or tune and retest on these same controls as held-out validation.",
+  "limitation": "One arithmetic control and a valid tie do not establish calibration across all dimensions, domains or languages; Chinese and nonnumerical calibration remain pending."
+}

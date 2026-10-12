@@ -23,6 +23,8 @@ Actual outputs are available in the [2026-09-07 development package](./diagnosti
 See [evaluation status and version boundaries](../docs/evaluation-status.md) for completed historical first-review counts and their interpretation. The public files below are a subset of the retained evaluation material.
 
 
+New [protocol v2](../docs/eval-protocol-v2.md) includes [five exposed fictional development families](tasksets/development-v2-synthetic/README.md) and [separate judge controls](tasksets/judge-calibration-v2/README.md). These are task-design materials with no model results; they are separate from the seven workflow cases above.
+
 ## Study design and defect labels / 研究设计与缺陷标签
 
 Use the [paired-study template](templates/paired-study.json) with the [freeze and analysis plan](../docs/evaluation-roadmap.md#next-study-freeze-the-design-then-collect-new-evidence) before a new effect study. The template is not a frozen cohort or a run result. [Necessary-defect labels](../docs/necessary-defects.md) provide stable categories; the [23-case overlay](semantic_diagnostics/defect-tags.v1.json) preserves the existing diagnostic-only boundary. The Lite quickstart is onboarding, not another eval case.

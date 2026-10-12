@@ -1,0 +1,1 @@
+Fictional trial memo, 30 April 2026. A revised nozzle was introduced on 1 April. March handled a mix of lightly and heavily soiled crates; April's proportions were not logged. Staffing and hours also changed. The ledger contains no cleaning-quality or contamination measurements. Management will approve a rollout only if water intensity improves without reducing cleaning quality.

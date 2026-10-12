@@ -61,7 +61,9 @@ jobs:
           python -m pip install -r requirements-mcp.txt
           python scripts/check_mcp_contract.py
       - name: Check blinded pilot and historical reproduction without model calls
-        run: python scripts/check_blinded_evals.py
+        run: |
+          python scripts/check_blinded_evals.py
+          python scripts/check_blinded_protocol_v2.py
       - name: Check study verification under Python optimization without rewriting evidence
         run: python scripts/check_study_verification.py
 
@@ -79,6 +81,10 @@ jobs:
           python scripts/check_research_workflow.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/check_profiles_reviewers.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/check_blinded_evals.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/check_blinded_protocol_v2.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Check packaged MCP workflow on Windows
         run: |

@@ -4,6 +4,8 @@
 
 **Status: a [four-model, five-family development pilot](../evals/studies/2026-10-10-lite-four-models/README.md) now has judgments for all 20 model–task pairs.** It uses a declared native-CLI judge adapter, a post-hoc format supplement and a separate completion supplement; original failures and valid judgments remain unchanged. The historical n=2 comparisons remain unblinded for efficacy and toolkit-first in both tasks; their public records do not fully establish matched model and brief. A general Toolkit quality advantage remains unproven.
 
+For new development runs, [protocol v2](eval-protocol-v2.md) adds frozen output parsing, request ceilings, task design records and position swaps. The original schema-1 protocol and historical study stay available.
+
 ## Question and scope
 
 For 5–10 distinct task families, does adding the pinned Toolkit's Lite instructions change the quality of a first report under the same declared model and resource ceilings? This small pilot uses fixed, publishable source texts and a single author response per condition. It evaluates **instruction-only Lite**, without MCP, retrieval, persistent agent state or internal independent review. It does not validate Full, whole-agent execution, open-web research or the historical four-reviewer study. The [current standard](report-evaluation-standard.md) supplies the five scoring dimensions; this separate pilot uses one blinded LLM judge per pair, as a diagnostic starting point rather than a general efficacy certificate.

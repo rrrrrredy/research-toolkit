@@ -22,6 +22,8 @@ Toolkit 的默认流程调整不改写既有样本、首评或标签，也不自
 
 前瞻的 5–10 个任务族试验见[盲评配对协议](../docs/eval-protocol.zh-CN.md)。脚本冻结并记录种子／顺序，对评审隐藏 A/B 条件，保留首份产出、判断与失败。[2026-10-10 四模型试验](studies/2026-10-10-lite-four-models/README.zh-CN.md)已覆盖同样五个任务族的全部 20 对模型—任务评审，保留全部首轮尝试及失败，格式诊断与重新生成补跑单列；不证明通用效果。仅复查既有公开两组档案时，运行 `python scripts/reproduce_calibration.py`，生成 `evals/runs/calibration-reproduction/inventory.json` 与 `inventory.md`，不调用模型。
 
+新增[协议 v2](../docs/eval-protocol-v2.zh-CN.md)，附[五个已暴露虚构开发任务族](tasksets/development-v2-synthetic/README.zh-CN.md)和[独立评审校准对照](tasksets/judge-calibration-v2/README.zh-CN.md)。这是尚无模型结果的任务设计材料，与既有七个流程案例分开。
+
 ## 如何贡献案例
 
 1. [提交失败案例](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)，填写研究问题、期望结果、来源、具体问题以及 profile／评审档位；报告片段可直接粘贴。
