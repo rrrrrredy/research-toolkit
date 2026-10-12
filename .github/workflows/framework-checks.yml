@@ -60,3 +60,5 @@ jobs:
           python scripts/check_mcp_contract.py
       - name: Check blinded pilot and historical reproduction without model calls
         run: python scripts/check_blinded_evals.py
+      - name: Check study verification under Python optimization without rewriting evidence
+        run: python scripts/check_study_verification.py

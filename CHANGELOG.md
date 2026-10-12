@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Keep study integrity checks active under optimized Python, cover completion evidence and frozen outcome labels, and make summary commands read-only by default. Preserve historical data and tables; document the former verifier coverage and unresolved-count field limitations in dated bilingual corrections.
+
 - Require HTTPS for remote generic reviewers and allowlist the local DSH smoke environment. Add source-text paths to new task templates; clarify ordinary revision calls, separate completed reviews from delivery readiness, and report stale completed tasks without rewriting historical receipts. Exercise template-based CLI and packaged MCP revision/delivery flows with synthetic reviewers; no report-quality improvement is inferred.
 
 - Turn observed Lite pilot defects into bilingual guidance for length checks, faithful paraphrases, attributed claims and justified decision criteria, with links to preserved samples. Prioritize substantive corrections in the Chinese showcase and keep existing case links working. These changes have not yet been evaluated for report-quality gains.

@@ -132,7 +132,7 @@ python evals/studies/2026-10-10-lite-four-models/summarize.py
 python evals/studies/2026-10-10-lite-four-models/summarize_completion.py
 ```
 
-The second command covers only the primary and fence-only stages and derives [summary.json](summary.json), [scores.csv](scores.csv) and [usage.csv](usage.csv) from the original files. The third audits the completion plan, unchanged originals, matched inputs/settings and verbatim judge reports, then derives coverage and supplemental usage; add `--verify-only` for read-only auditing. Offline verification checks retention and matching, not report quality.
+All three commands are read-only by default. The first covers the primary, fence-only and completion stages, including result preferences and their frozen A/B labels. The second compares [summary.json](summary.json), [scores.csv](scores.csv) and [usage.csv](usage.csv) with derivations from the primary and fence-only records. The third audits completion provenance and compares coverage and supplemental usage. Both summary scripts fail on differences; `--write` explicitly regenerates derived tables while preserving their existing newline style. The third still accepts `--verify-only` as a compatibility alias for the default. Offline verification checks retention and matching, not report quality. See the [October 12 verification correction](verification-errata-2026-10-12.md).
 
 To repeat generation, set `DEEPSEEK_API_KEY`, `KIMI_API_KEY`, `GLM_API_KEY` and `LONGCAT_API_KEY` in your process environment, install/authenticate the native judge CLI, and put it on PATH or set `CODEX_BIN`. Keep the pinned Toolkit methods and harness revision. Then run:
 
