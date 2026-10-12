@@ -57,6 +57,7 @@ python scripts/check_semantic_diagnostics.py
 python scripts/check_installation_contract.py
 python scripts/check_diagnostic_bundle.py --self-test
 python scripts/check_semantic_review_bundle.py --self-test
+python scripts/check_study_verification.py
 ```
 
 If `SKILL.md` changed, refresh the public copy first:

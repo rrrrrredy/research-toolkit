@@ -132,7 +132,7 @@ python evals/studies/2026-10-10-lite-four-models/summarize.py
 python evals/studies/2026-10-10-lite-four-models/summarize_completion.py
 ```
 
-第二条命令仅针对原始及去围栏阶段，从原始文件生成 [summary.json](summary.json)、[scores.csv](scores.csv) 和 [usage.csv](usage.csv)。第三条命令核对补跑的冻结计划、原件未变、两组输入／设置一致、正文逐字传入评审，并生成完成覆盖及补跑用量；加 `--verify-only` 可只核验不写文件。离线检查证明材料保留与输入匹配，不证明报告质量。
+三条命令现在默认只读。第一条覆盖原始、去围栏和补跑阶段，并核对结果中的偏好及其冻结的 A/B 标签。第二条从原始及去围栏记录推导数据，与 [summary.json](summary.json)、[scores.csv](scores.csv) 和 [usage.csv](usage.csv) 比较。第三条核对补跑来源链并比较完成覆盖及补跑用量。两条汇总命令发现差异都会失败；只有显式加 `--write` 才重新生成派生表格，并保留现有换行风格。第三条仍接受 `--verify-only`，作为默认只读行为的兼容参数。离线检查证明材料保留与输入匹配，不证明报告质量。参见 [10 月 12 日验证更正](verification-errata-2026-10-12.zh-CN.md)。
 
 重新生成时，在进程环境中设置 `DEEPSEEK_API_KEY`、`KIMI_API_KEY`、`GLM_API_KEY`、`LONGCAT_API_KEY`，安装并登录原生评审 CLI，将其加入 PATH 或设置 `CODEX_BIN`；使用固定的工具箱方法和脚本版本，然后运行：
 
