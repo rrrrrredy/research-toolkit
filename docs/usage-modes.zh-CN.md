@@ -119,7 +119,7 @@ Windows 路径可写成 `D:/tools/python/python.exe` 这样的正斜杠形式。
 | `generic` — 兼容 HTTP 端点 | 后端设为 `generic`，配置 `RESEARCH_TOOLKIT_REVIEW_BASE_URL`、`RESEARCH_TOOLKIT_REVIEW_MODEL`；按需配置 `RESEARCH_TOOLKIT_REVIEW_API_KEY` | 每次请求携带完整任务，支持独立评审，但不保证统计独立 | 完整材料发送到你选择的端点，由对应账户付费；本地端点遵循自己的托管策略 |
 | 可信自定义命令 | `RESEARCH_TOOLKIT_REVIEW_CONFIG` 配置 argv 列表和 `format: "json"` | 取决于适配器实际上下文与证据 | 去向与用量由命令决定，发送材料前须说明 |
 
-配置自查仅在本地进行，不能证明服务可用或额度充足。凭据保留在运行环境中，不进入报告或版本化配置。generic 使用 `/chat/completions`；base URL 可含 `/v1`，也可填写完整路由。请求、响应及恢复方法见[后端接口](#reviewer-backends)。
+配置自查仅在本地进行，不能证明服务可用或额度充足。凭据保留在运行环境中，不进入报告或版本化配置。generic 使用 `/chat/completions`；base URL 可含 `/v1`，也可填写完整路由。远程端点须使用 HTTPS；只有 `localhost` 或明确的回环 IP 地址（如 `127.0.0.1`、`::1`）可用 HTTP。即使没有 API key 也适用，因为请求携带报告和来源。请求、响应及恢复方法见[后端接口](#reviewer-backends)。
 
 ### 配置与调用
 
@@ -164,7 +164,11 @@ Full 的 `research_review` 可显式选择 `reviewer: "self" | "external" | "ind
 
 配置错误、依赖缺失或已配置 CLI 的登录失败会明确阻塞；根据自查指引恢复该后端的实际环境。普通未配置任务可使用 self，无须登录。子进程的模型访问不自动继承撰写 Agent 的账户；不要把凭据文件放进任务。
 
-保留所有原始响应与失败。已有的有效负面意见不得重跑；必要问题未解决时 Full 交付被拒绝。误判可按[不修改决定](review-completion.zh-CN.md)记录具体证据，再继续 finish。相同任务复用已完成评审；改稿或更换模型须显式设置 revision，冻结评测不得更改原始任务。时间上限为 1—1800 秒，默认 600 秒；仅修改超时不会改变任务版本。
+保留所有原始响应与失败，不重跑同一未变版本已有的有效负面评审；必要问题未解决时 Full 交付被拒绝。误判可按[不修改决定](review-completion.zh-CN.md)记录具体证据，再继续 finish。普通报告修正后，用 `revision: true` 调用 `research_review` 评审新版本。这是正常修稿循环，已获授权的修正不需要再次向用户确认；研究范围变更应先在任务记录中处理。更换评审配置也须传入 `revision: true`，冻结评测不得更改原始任务。时间上限为 1—1800 秒，默认 600 秒；仅修改超时不会改变任务版本。
+
+`reviews_complete` 和 `review_check` 表示约定评审是否执行完成，负面评审也可算完成。`delivery_ready` 和已有的 `completion_check` 表示普通报告是否可进入交付验证，其中的计数不包含仍有报告缺陷的评审。`open_issues` 列出具体发现，并同步到进度和下一步。评审完成不等于报告通过。
+
+保存的进度声称完成时，`research_status` 会检查当前交付输入与凭证。检查失败返回 `progress.status: stale`、`delivery_check` 和原来的 `recorded_status`；查询不重写哈希绑定的进度或历史凭证。先处理发现，再完成适用的复审／checklist 与 finish，才能宣称当前版本完成。
 
 额外审计只在声明时执行，恢复时仅补齐缺失工作。超时会清理本地执行进程，但不代表远端请求已取消。客户端须允许必要的工具调用并提供足够等待时间；同一任务避免并发写入。
 

@@ -2,8 +2,11 @@
 """Offline behavioral controls for profiles and reviewer backends; no paid model calls."""
 from __future__ import annotations
 import copy
+import csv
 import json
 import os
+import subprocess
+import sys
 from pathlib import Path
 import tempfile
 import threading
@@ -41,6 +44,87 @@ class ProfileTests(unittest.TestCase):
     def self_result(self, prompt, negative=False):
         result = SyntheticRunner(negative=negative)({}, {"role": "reviewer"}, None)
         return {**json.loads(result["content"]), "input_version": prompt["input_version"]}
+
+    def test_status_checks_current_full_and_lite_delivery_without_rewriting_state(self):
+        for profile in ("full", "lite"):
+            for mutation in ("report", "claims", "receipt"):
+                with self.subTest(profile=profile, mutation=mutation), tempfile.TemporaryDirectory() as tmp:
+                    workspace = Path(tmp)
+                    saved_workspace = self.workspace
+                    self.workspace = workspace
+                    try:
+                        self.task(profile)
+                        args = {}
+                        if profile == "lite":
+                            args["checklist"] = {k: {"passed": True, "evidence": "final.md and source.md"} for k in CHECKLIST}
+                        else:
+                            prompt = w.review(workspace, "case", ["source.md"], reviewer="self")
+                            w.review(workspace, "case", ["source.md"], reviewer="self", self_review=self.self_result(prompt))
+                        self.assertTrue(w.finish(workspace, "case", "Complete without independent review.", **args)["completed"])
+                        self.assertEqual(w.status(workspace, "case")["progress"]["status"], "complete")
+                        before = (self.root/"state/progress.json").read_bytes()
+                        if mutation == "report":
+                            w.save_text(self.root, "final.md", "Changed after delivery.")
+                        elif mutation == "claims":
+                            (self.root/"data/claims_registry.csv").unlink()
+                        else:
+                            name = "final_checklist.json" if profile == "lite" else "final_delivery.json"
+                            w.save_text(self.root, "state/"+name, "not JSON")
+                        current = w.status(workspace, "case")
+                        self.assertEqual(current["progress"]["status"], "stale")
+                        self.assertFalse(current["delivery_check"]["ok"])
+                        self.assertTrue(current["progress"]["open_issues"])
+                        self.assertEqual((self.root/"state/progress.json").read_bytes(), before)
+                    finally:
+                        self.workspace = saved_workspace
+
+    def test_negative_review_distinguishes_execution_from_delivery_and_lists_findings(self):
+        self.task()
+        prompt = w.review(self.workspace, "case", ["source.md"], reviewer="self")
+        negative = w.review(self.workspace, "case", ["source.md"], reviewer="self", self_review=self.self_result(prompt, True))
+        for result in (negative, w.review(self.workspace, "case", ["source.md"], reviewer="self")):
+            self.assertTrue(result["reviews_complete"])
+            self.assertEqual(result["review_check"]["completed_slots"], 1)
+            self.assertFalse(result["delivery_ready"])
+            self.assertIn("shipments, not revenue", " ".join(result["open_issues"]))
+        progress = w.status(self.workspace, "case")["progress"]
+        self.assertEqual(progress["open_issues"], negative["open_issues"])
+        self.assertIn("F1", progress["next_action"])
+
+    def test_cli_template_review_revision_and_delivery(self):
+        def call(action, arguments):
+            result = subprocess.run([sys.executable, "-X", "utf8", str(w.TOOLKIT/"scripts/research_workflow.py"),
+                action, "--workspace", str(self.workspace)], input=json.dumps(arguments),
+                text=True, encoding="utf-8", capture_output=True)
+            self.assertEqual(result.returncode, 0, result.stdout+result.stderr)
+            return json.loads(result.stdout)
+        task = "template-cli"
+        call("start", {"task": task, "brief": BRIEF, "profile": "full"})
+        root = self.workspace/task
+        (root/"sources").mkdir()
+        (root/"sources/S1.md").write_text("The source reports twelve shipments. No revenue figure is supplied.", encoding="utf-8")
+        for name, row in (("source_registry.csv", {"source_id": "S1", "title": "Shipments", "url": "https://example.org/source",
+                "source_type": "primary", "read_scope": "full_text", "read_evidence": "https://example.org/source#p1", "evidence_path": "sources/S1.md"}),
+                ("claims_registry.csv", {"claim_id": "C1", "claim": "Twelve shipments", "claim_type": "verified_fact", "supporting_sources": "S1"})):
+            path = root/"data"/name
+            with path.open(encoding="utf-8", newline="") as stream:
+                fields = next(csv.reader(stream))
+            with path.open("w", encoding="utf-8", newline="") as stream:
+                writer = csv.DictWriter(stream, fieldnames=fields); writer.writeheader(); writer.writerow(row)
+        call("status", {"task": task, "stage": "draft"})
+        (root/"final.md").write_text("The source reports twelve shipments.\n\nRevenue is twelve.\n", encoding="utf-8")
+        args = {"task": task, "evidence_paths": ["sources/S1.md"], "reviewer": "self"}
+        prompt = call("review", args)
+        negative = call("review", {**args, "self_review": self.self_result(prompt, True)})
+        self.assertFalse(negative["delivery_ready"])
+        (root/"final.md").write_text("The source reports twelve shipments.\n\nRevenue is not reported.\n", encoding="utf-8")
+        prompt = call("review", {**args, "revision": True})
+        ready = call("review", {**args, "self_review": self.self_result(prompt)})
+        self.assertTrue(ready["delivery_ready"])
+        self.assertTrue(call("finish", {"task": task, "message": "Complete with self-review only."})["completed"])
+        self.assertEqual(call("status", {"task": task})["progress"]["status"], "complete")
+        history = w.rows_for(root)
+        self.assertEqual([row["report_verdict"] for row in history if row.get("record_type") == "model_review"], ["needs_revision", "pass"])
 
     def test_lite_guidance_is_stage_specific_in_both_languages(self):
         for language, suffix in (("en", ".md"), ("zh", ".zh-CN.md")):
@@ -192,6 +276,40 @@ class ProfileTests(unittest.TestCase):
 
 
 class BackendTests(unittest.TestCase):
+    def test_generic_requires_https_except_explicit_loopback(self):
+        for url in ("https://review.example/v1", "http://localhost:8000/v1",
+                    "http://127.0.0.1:8000/v1", "http://[::1]:8000/v1"):
+            with self.subTest(allowed=url):
+                self.assertTrue(r.endpoint_url({"base_url": url}).endswith("/chat/completions"))
+        for url in ("http://review.example/v1", "http://10.0.0.1/v1",
+                    "http://localhost.example/v1", "http://127.0.0.1.example/v1",
+                    "http://2130706433/v1", "http://[::]/v1"):
+            with self.subTest(rejected=url), patch.object(r.http, "build_opener") as opener:
+                with self.assertRaisesRegex(ValueError, "HTTPS"):
+                    r.run_generic({"model": "synthetic", "base_url": url}, {"report": "synthetic"})
+                opener.assert_not_called()
+
+    def test_dsh_smoke_child_inherits_only_runtime_environment(self):
+        from run_dsh_evals import scrub_smoke_environment
+        secret_names = ("GITHUB_TOKEN", "AWS_SECRET_ACCESS_KEY", "SERVICE_PASSWORD",
+                        "SERVICE_API_KEY", "NPM_TOKEN", "NODE_OPTIONS", "PYTHONPATH")
+        host = {key: os.environ[key] for key in ("PATH", "SYSTEMROOT", "WINDIR", "TEMP", "TMP") if key in os.environ}
+        host.update({name: "synthetic-secret" for name in secret_names})
+        host["LANG"] = "C.UTF-8"
+        with patch.dict(os.environ, host, clear=True):
+            env = scrub_smoke_environment(Path("synthetic-dsh-home"), "http://127.0.0.1:8000")
+        child = subprocess.run([sys.executable, "-I", "-c",
+            "import json,os;print(json.dumps(dict(os.environ)))"], env=env,
+            check=True, capture_output=True, text=True)
+        inherited = json.loads(child.stdout)
+        for name in secret_names:
+            self.assertFalse(name in inherited, f"Smoke child inherited {name}")
+        self.assertEqual(inherited["DEEPSEEK_API_KEY"], "dsh-smoke-local-placeholder")
+        self.assertEqual(inherited["DEEPSEEK_BASE_URL"], "http://127.0.0.1:8000")
+        self.assertEqual(inherited["LANG"], "C.UTF-8")
+        if "PATH" in host:
+            self.assertEqual(inherited["PATH"], host["PATH"])
+
     def test_claude_adapter_uses_fresh_tool_free_session_and_keeps_response(self):
         result = SimpleNamespace(returncode=0, stdout=json.dumps({"subtype": "success", "is_error": False,
             "session_id": "claude-session", "result": '{"report_verdict":"needs_revision"}'}), stderr="")

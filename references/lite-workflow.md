@@ -18,6 +18,8 @@ Read the sources needed for the agreed questions, including required material. D
 
 Use the existing `data/source_registry.csv`: `source_id`, `title`, `url`, `source_type`, `read_scope` and `read_evidence`. Before advancing to analysis, record the actual reading as `full_text` or `relevant_sections` with locatable evidence. A stored extract must not imply that an omitted report, table or linked document was read. Stop searching a route that adds nothing and try a relevant alternative; keep required gaps visible.
 
+New templates also include `evidence_path` for task-relative UTF-8 source text, such as `sources/S1.md`. Preserve the original URL and actual reading locator; this field is useful when `read_evidence` contains only a URL or page reference.
+
 ## analyze — Form supported judgments
 
 Check the claims that drive the answer against the actual source passages: who made the claim, when, whether it happened or is expected, whether it describes an example or a population, and which way a relationship runs. Examples without a denominator and suitable sample do not establish rates. Separate verified facts, attributed claims, interpretations, recommendations and assumptions. Look for evidence that would change the recommendation; missing evidence does not establish the opposite conclusion. Explain which decision a missing source prevents; do not make it a prerequisite for analysis that other evidence can support.

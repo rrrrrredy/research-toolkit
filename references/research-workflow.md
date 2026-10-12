@@ -124,6 +124,8 @@ Keep field names stable within a task. Add columns only when they improve recove
 
 Use `url` for the source location, either a URL or a task-relative path. Sources referenced by claims or required readings need local content: a readable text file in `read_evidence` is included automatically. For URL/page-only references or binary originals, use optional `evidence_path` for the complete UTF-8 source text or required extract. Necessary originals, reading evidence and extracts enter version checks within this declared scope; unrelated auxiliary files are not sent automatically.
 
+New task templates include `evidence_path`. Save the relevant source content as UTF-8 text, for example `sources/S1.md` inside the task, and put that relative path in the column. Keep the original URL and reading locator in their own fields. The optional [stored-source extractor](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/source-extraction.md) can prepare saved HTML; saving a file alone does not establish that its relevant content was read. Existing registries with a local text path in `read_evidence` continue to work.
+
 ## 4. Source Intake
 
 Classify sources by function:

@@ -60,6 +60,8 @@ The smoke lane launches the real DSH CLI with the `headless` profile against a l
 python scripts/run_dsh_evals.py smoke
 ```
 
+The smoke child receives only allowlisted runtime discovery, home/cache, locale and temporary-directory variables, plus the local endpoint and placeholder key. Service secrets and runtime injection settings such as `NODE_OPTIONS` are not inherited. This limits environment forwarding; it does not sandbox the selected executable or prevent access to files. The live lane retains its separately configured model credentials.
+
 The live lane uses the model and credentials already configured for DSH, stages one existing repository eval case, runs it through DSH headless, and scores the resulting artifacts with the same deterministic evaluator used by other agents:
 
 ```bash

@@ -2,6 +2,7 @@
 """Exercise the packaged server over real MCP stdio with synthetic reviewer processes."""
 from __future__ import annotations
 import asyncio
+import csv
 import json
 import os
 from pathlib import Path
@@ -29,7 +30,8 @@ async def verify(base):
         f"sys.path.insert(0,{str(ROOT/'scripts')!r})\n"
         "from check_research_workflow import SyntheticRunner\n"
         "request=json.load(sys.stdin)\n"
-        "result=SyntheticRunner(negative=True)({},request,None)\n"
+        "corrected='The source reports twelve shipments. No revenue figure is supplied.\\n'\n"
+        "result=SyntheticRunner(negative=request['assignment']['report']!=corrected)({},request,None)\n"
         "print(json.dumps({'execution_id':result['execution_id'],'content':result['content']}))\n",
         encoding="utf-8")
     worker_config = {"format": "json", "model": "synthetic-process",
@@ -129,11 +131,46 @@ async def verify(base):
             assert resumed["profile"] == profile
             if profile == "lite":
                 assert resumed["guidance"][0]["path"] == "references/lite-workflow.zh-CN.md"
+        # Fill only the columns emitted by start, then correct a real negative
+        # synthetic verdict and re-review through the packaged stdio interface.
+        created = unpack(await client.call_tool("research_start", {"task": "template-mcp", "brief": BRIEF, "profile": "full"}))
+        local = Path(created["task_directory"])
+        (local/"sources").mkdir()
+        corrected = "The source reports twelve shipments. No revenue figure is supplied.\n"
+        (local/"sources/S1.md").write_text(corrected, encoding="utf-8")
+        for name, row in (("source_registry.csv", {"source_id": "S1", "title": "Shipments", "url": "https://example.org/source",
+                "source_type": "primary", "read_scope": "full_text", "read_evidence": "https://example.org/source#p1", "evidence_path": "sources/S1.md"}),
+                ("claims_registry.csv", {"claim_id": "C1", "claim": "Twelve shipments", "claim_type": "verified_fact", "supporting_sources": "S1"})):
+            path = local/"data"/name
+            with path.open(encoding="utf-8", newline="") as stream:
+                fields = next(csv.reader(stream))
+            with path.open("w", encoding="utf-8", newline="") as stream:
+                writer = csv.DictWriter(stream, fieldnames=fields); writer.writeheader(); writer.writerow(row)
+        (local/"memo.md").write_text("The source reports twelve shipments.\n\nRevenue is twelve.\n", encoding="utf-8")
+        unpack(await client.call_tool("research_status", {"task": "template-mcp", "stage": "draft"}))
+        args = {"task": "template-mcp", "artifact": "memo.md", "evidence_paths": ["sources/S1.md"]}
+        reviewed = unpack(await client.call_tool("research_review", args))
+        assert reviewed["reviews_complete"] and reviewed["review_check"]["completed_slots"] == 1
+        assert not reviewed["delivery_ready"] and reviewed["open_issues"]
+        (local/"memo.md").write_text(corrected, encoding="utf-8")
+        revised = unpack(await client.call_tool("research_review", {**args, "revision": True}))
+        assert revised["delivery_ready"] and not revised["open_issues"]
+        delivered = unpack(await client.call_tool("research_finish", {"task": "template-mcp", "artifact": "memo.md", "message": "The memo is complete."}))
+        assert delivered["completed"], delivered
+        resumed = unpack(await client.call_tool("research_status", {"task": "template-mcp"}))
+        assert resumed["progress"]["status"] == "complete" and resumed["delivery_check"]["ok"]
+        recorded = (local/"state/progress.json").read_bytes()
+        (local/"memo.md").write_text("Changed after delivery.", encoding="utf-8")
+        stale = unpack(await client.call_tool("research_status", {"task": "template-mcp"}))
+        assert stale["progress"]["status"] == "stale" and not stale["delivery_check"]["ok"]
+        assert (local/"state/progress.json").read_bytes() == recorded
+        history = [json.loads(line) for line in (local/"logs/review.jsonl").read_text(encoding="utf-8").splitlines()]
+        assert [r["report_verdict"] for r in history if r.get("record_type") == "model_review"] == ["needs_revision", "pass"]
         resources = await client.list_resources()
         assert any(str(r.uri) == "research-toolkit://instructions" for r in resources.resources)
         prompts = await client.list_prompts()
         assert any(p.name == "research" for p in prompts.prompts)
-    print("PASS: packaged MCP discovery, Chinese guidance, path boundary, clarification and full synthetic review/disposition/delivery flow.")
+    print("PASS: packaged MCP discovery, bilingual guidance, template-based review/revision/delivery, stale status and preserved negative reviews.")
 
 
 def main():

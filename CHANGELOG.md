@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Require HTTPS for remote generic reviewers and allowlist the local DSH smoke environment. Add source-text paths to new task templates; clarify ordinary revision calls, separate completed reviews from delivery readiness, and report stale completed tasks without rewriting historical receipts. Exercise template-based CLI and packaged MCP revision/delivery flows with synthetic reviewers; no report-quality improvement is inferred.
+
 - Turn observed Lite pilot defects into bilingual guidance for length checks, faithful paraphrases, attributed claims and justified decision criteria, with links to preserved samples. Prioritize substantive corrections in the Chinese showcase and keep existing case links working. These changes have not yet been evaluated for report-quality gains.
 
 - Give Lite a shared bilingual stage guide, returning only the current stage without Full review or delivery instructions. Make profile selection explicit across Skill, MCP and plugin entry points while preserving Full defaults and saved task profiles. Keep source/claim prerequisites and the six-item author checklist; deterministic checks do not establish improved report quality.
