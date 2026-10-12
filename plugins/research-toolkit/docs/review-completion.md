@@ -86,10 +86,12 @@ After checking a disputed finding against the unchanged report and reviewed sour
 This is a **synthetic format example**; use the actual attempt and finding IDs:
 
 ```json
-{"record_type":"finding_disposition","attempt_id":"actual-attempt-id","finding_id":"F1","decision":"no_change","reason":"The report explicitly says revenue is not reported; the criticism misreads it.","evidence":"final.md paragraph 2 and source.md paragraph 1: no revenue figure is supplied."}
+{"record_type":"finding_disposition","schema_version":2,"attempt_id":"actual-attempt-id","finding_id":"F1","decision":"no_change","decision_actor":{"id":"author:actual-task-id","role":"author"},"artifact_sha256":"copy from the original model_review record","response_sha256":"copy from that record's response.sha256","reason":"The report explicitly says revenue is not reported; the criticism misreads it.","evidence":"final.md paragraph 2 and source.md paragraph 1: no revenue figure is supplied."}
 ```
 
 Keep the original response, verdict and severity unchanged. `attempt_id` binds the disposition to that review's report and input version; `finding_id` identifies the exact finding. Both `reason` and `evidence` must be nonempty, specific explanations with locatable support. The latest disposition for that pair applies, while earlier decisions remain in the log.
+
+New ordinary review plans and attempts declare `disposition_schema_version: 2`. Their dispositions require the schema shown above, the actual decision actor, and hashes copied from the retained attempt. `decision_actor.role` is `author`, `reviewer` or `user`; author/reviewer IDs must match the task/attempt identities. A user ID is a declared reference, not authenticated consent. Do not label an author's decision as a user's or an independent audit. These fields establish declared provenance only, not identity authentication or correctness. Unchanged historical attempts without the version marker retain the old shape; do not invent their actors or hashes. A changed ordinary assignment adopts the new contract; simply resuming an old assignment does not rewrite it.
 
 Only `no_change` clears the corresponding finding. `confirmed_defect`, `unresolved` or merely declaring `resolved` does not clear a necessary correction on the unchanged draft. A `needs_revision` verdict can be cleared only when all its necessary findings have evidenced no-change decisions. `not_assessed`, an unexplained negative verdict, missing/invalid reviews and unrelated blockers still prevent delivery. Changed report or source inputs still require current-version review.
 

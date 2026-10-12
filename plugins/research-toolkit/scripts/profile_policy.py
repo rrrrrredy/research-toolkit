@@ -94,6 +94,7 @@ def text_hash(path):
 def inspect_lite_delivery(root: Path, artifact="final.md", delivery_message="delivery_message.md"):
     """Check the lightweight receipt without claiming full delivery-gate acceptance."""
     errors = []
+    length_checks = []
     version = None
     try:
         record = json.loads((root/"state/final_checklist.json").read_text(encoding="utf-8"))
@@ -103,6 +104,11 @@ def inspect_lite_delivery(root: Path, artifact="final.md", delivery_message="del
             errors.append("Unsupported Lite checklist schema_version.")
         if record.get("profile") != "lite" or record.get("artifact") != artifact:
             errors.append("Lite checklist does not identify this profile and artifact.")
+        from check_delivery import inspect_length_constraints, length_receipt_matches
+        length_checks, length_errors = inspect_length_constraints(root, artifact)
+        errors.extend(length_errors)
+        if not length_receipt_matches(record, length_checks):
+            errors.append("Lite receipt length measurements differ from the current report and requirements.")
         for name in (artifact, delivery_message):
             path = (root/name).resolve()
             path.relative_to(root.resolve())
@@ -123,6 +129,7 @@ def inspect_lite_delivery(root: Path, artifact="final.md", delivery_message="del
     except (OSError, ValueError, TypeError, AttributeError):
         errors.append("Lite delivery needs a readable final checklist and task-relative inputs.")
     return {"ok": not errors, "profile": "lite", "status": "checklist_complete" if not errors else "incomplete",
+            **({"length_checks": length_checks} if length_checks else {}),
             "warnings": [], "flags": ["incomplete_lite_checklist"] if errors else [], "findings": errors,
             "log": LITE_LOG, "full_delivery_gates_checked": False,
             "independent_review": False, "review_strength": "unreviewed",

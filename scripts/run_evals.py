@@ -15,7 +15,7 @@ from typing import Any
 
 from check_delivery import (
     claims_completion, collect_open_issues, evaluate_delivery, inspect_jsonl, inspect_jsonl_text,
-    issue_is_open, review_has_unresolved_findings, inspect_requirements, DELIVERY_CONTRACT_VERSION,
+    issue_is_open, review_has_unresolved_findings, inspect_requirements, inspect_length_constraints, DELIVERY_CONTRACT_VERSION,
     sha256_file, resolve_inside, read_json_or_none, inspect_csv_text,
 )
 
@@ -354,6 +354,11 @@ def requirement_findings(case: dict[str, Any], run_dir: Path, terminal_intent: b
         path, contract_version=contract_version, parsed_records=(rows, parse_findings)
     )
     findings.extend(("unresolved_required_corrections", finding) for finding in record_findings
+                    if finding not in parse_findings)
+    delivery_config = case.get("delivery_check")
+    artifact = delivery_config.get("artifact", "final.md") if isinstance(delivery_config, dict) else "final.md"
+    _, length_errors = inspect_length_constraints(run_dir, artifact)
+    findings.extend(("unresolved_required_corrections", finding) for finding in length_errors
                     if finding not in parse_findings)
     required_ids = [str(value) for value in case.get("required_requirement_ids", [])]
     if not required_ids:

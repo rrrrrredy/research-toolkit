@@ -53,6 +53,30 @@ def finding_dispositions(rows: list[dict], attempt_id: str) -> dict:
             and text(r.get("finding_id"))}
 
 
+def disposition_record_errors(row: dict, original: dict, author: str) -> list[str]:
+    """Versioned provenance, not authentication or semantic approval of the decision."""
+    required = original.get("disposition_schema_version", 1)
+    version = row.get("schema_version", 1)
+    if type(version) is not int or version not in {1, 2} or (required == 2 and version != 2):
+        return ["This finding needs disposition schema_version 2 with an actor and original version hashes."]
+    if version == 1:
+        return []  # Never fabricate actors or stronger bindings for historical decisions.
+    errors = []
+    actor = row.get("decision_actor")
+    if (not isinstance(actor, dict) or not text(actor.get("id"))
+            or not one_of(actor.get("role"), {"author", "reviewer", "user"})):
+        errors.append("Disposition decision_actor needs a nonempty id and role author/reviewer/user.")
+    elif ((actor["role"] == "author" and actor["id"] != author)
+          or (actor["role"] == "reviewer" and actor["id"] != original.get("reviewer_id"))):
+        errors.append("Disposition decision_actor differs from the declared author/reviewer identity.")
+    response = original.get("response", {})
+    if (row.get("artifact_sha256") != original.get("artifact_sha256")
+            or not isinstance(response, dict) or not text(response.get("sha256"))
+            or row.get("response_sha256") != response.get("sha256")):
+        errors.append("Disposition must bind the original review's artifact and response hashes.")
+    return errors
+
+
 def content_review_rows(rows: list[dict]) -> list[dict]:
     """Keep attempt failures separate from report-delivery findings."""
     return [row for row in rows if not one_of(row.get("record_type"), REVIEW_RECORD_TYPES)]
@@ -119,6 +143,10 @@ def inspect_review_completion(
         return result()
     # Missing field retains the contract of existing audited plans.
     audit_required = plan.get("audit_required", True)
+    disposition_version = plan.get("disposition_schema_version", 1)
+    if type(disposition_version) is not int or disposition_version not in {1, 2}:
+        add("invalid_review_plan", "Unsupported disposition schema version.")
+        return result()
     if type(audit_required) is not bool or (plan["purpose"] == "evaluation" and not audit_required):
         add("invalid_review_plan", "Evaluation requires auditing; audit_required must be a boolean.")
         return result()
@@ -203,6 +231,9 @@ def inspect_review_completion(
             if attempt_id in attempts:
                 add("duplicate_review_attempt", f"Duplicate attempt id {attempt_id}.")
             attempts[attempt_id] = row
+            version = row.get("disposition_schema_version", 1)
+            if type(version) is not int or version not in {1, 2}:
+                add("invalid_review_record", f"{attempt_id}: unsupported disposition schema version.")
             historical = any(row.get("artifact_sha256") == old["artifact_sha256"]
                              and any(matches_review_slot(row, slot) for slot in old["slots"])
                              for old in historical_plans)
@@ -250,6 +281,9 @@ def inspect_review_completion(
         if (not one_of(row.get("decision"), DECISIONS)
                 or not all(text(row.get(k)) for k in ("reason", "evidence"))):
             add("invalid_finding_disposition", "Disposition needs a decision, specific reason and evidence locator.")
+        if original:
+            for error in disposition_record_errors(row, original, author):
+                add("invalid_finding_disposition", f"{aid}/{fid}: {error}")
 
     response_paths: set[Path] = set()
     execution_ids: set[str] = set()
@@ -278,6 +312,8 @@ def inspect_review_completion(
         # Preserve first-valid selection within an assignment version, including negative results.
         review = current[0]
         aid = review["attempt_id"]
+        if review.get("disposition_schema_version", 1) != plan.get("disposition_schema_version", 1):
+            add("invalid_review_record", f"{aid}: disposition contract differs from its current plan.")
         audit = audits.get(aid, {})
         for field in ("reviewer_id", "model", "scope", "input"):
             if review.get(field) != slot.get(field):

@@ -61,6 +61,19 @@ class EvaluatorContractTests(unittest.TestCase):
         self.assertTrue(d["ok"], d)
         self.assertEqual(e["conformance_status"], "pass", e)
 
+    def test_explicit_length_is_checked_when_receipt_check_is_disabled(self):
+        path = self.root / "state/requirements.jsonl"
+        original = path.read_text(encoding="utf-8")
+        for bound, must_fail in ((1000000, True), (0, False)):
+            row = {"requirement_id": "R-length", "summary": "Synthetic whole-file word limit.",
+                   "status": "satisfied", "evidence": "final.md", "length_constraint": {
+                       "unit": "whitespace_words", "scope": "whole_artifact", "min": bound}}
+            path.write_text(original.rstrip()+"\n"+json.dumps(row)+"\n", encoding="utf-8")
+            case = {**self.case, "delivery_check": False}
+            result = evaluator.evaluate_case(case, self.root, self.sources)
+            self.assertEqual("unresolved_required_corrections" in result["coverage_flags"], must_fail, result)
+            self.assertEqual(result["research_quality_status"], "not_evaluated")
+
     def assert_both_fail(self):
         d, e = self.check()
         self.assertFalse(d["ok"], d)

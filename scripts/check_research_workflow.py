@@ -457,9 +457,72 @@ class WorkflowTests(unittest.TestCase):
     def no_change_record(self):
         review = next(r for r in workflow.rows_for(self.root) if r.get("record_type") == "model_review")
         return {"record_type": "finding_disposition", "attempt_id": review["attempt_id"],
+                "schema_version": 2,
+                "decision_actor": {"id": "author:case", "role": "author"},
+                "artifact_sha256": review["artifact_sha256"], "response_sha256": review["response"]["sha256"],
                 "finding_id": review["findings"][0]["finding_id"], "decision": "no_change",
                 "reason": "The report explicitly says revenue is not reported; the criticism misreads it.",
                 "evidence": "final.md paragraph 2 and source.md paragraph 1: no revenue figure is supplied."}
+
+    def test_new_disposition_cannot_omit_decision_actor(self):
+        self.review(SyntheticRunner(negative=True), config={"reviewers": CONFIG["reviewers"]})
+        decision = self.no_change_record()
+        decision.pop("decision_actor", None)
+        workflow.append_row(self.root, decision)
+        result = workflow.finish(self.workspace, "case", "The final report is complete.")
+        self.assertFalse(result["completed"], result)
+        self.assertFalse((self.root/"state/final_delivery.json").exists())
+
+    def test_disposition_actor_and_original_hashes_are_required(self):
+        self.review(SyntheticRunner(negative=True), config={"reviewers": CONFIG["reviewers"]})
+        log = self.root/"logs/review.jsonl"
+        history = log.read_bytes()
+        for changed in ({"schema_version": 1}, {"schema_version": True},
+                        {"decision_actor": {"id": "other-author", "role": "author"}},
+                        {"decision_actor": {"id": "author:case", "role": "unknown"}},
+                        {"artifact_sha256": "0"*64}, {"response_sha256": "0"*64}):
+            with self.subTest(changed=changed):
+                log.write_bytes(history)
+                workflow.append_row(self.root, {**self.no_change_record(), **changed})
+                before = log.read_bytes()
+                self.assertFalse(workflow.finish(self.workspace, "case", "The report is complete.")["completed"])
+                self.assertEqual(log.read_bytes(), before)
+
+    def test_legacy_dispositions_resume_without_inventing_an_actor(self):
+        runner = SyntheticRunner(negative=True)
+        config = {"reviewers": CONFIG["reviewers"]}
+        self.review(runner, config=config)
+        progress = workflow.load(self.root, "state/progress.json")
+        progress["review_plan"].pop("disposition_schema_version")
+        workflow.save(self.root, "state/progress.json", progress)
+        rows = workflow.rows_for(self.root)
+        for row in rows:
+            row.pop("disposition_schema_version", None)
+        workflow.save_text(self.root, "logs/review.jsonl", "".join(json.dumps(row)+"\n" for row in rows))
+        decision = self.no_change_record()
+        for key in ("schema_version", "decision_actor", "artifact_sha256", "response_sha256"):
+            decision.pop(key)
+        workflow.append_row(self.root, decision)
+        self.assertTrue(self.review(runner, config=config)["reused"])
+        self.assertTrue(self.review(runner, config=config, revision=True)["reused"])
+        self.assertEqual(runner.calls, ["reviewer"])
+        result = workflow.finish(self.workspace, "case", "The final report is complete.")
+        self.assertTrue(result["completed"], result)
+        self.assertIn(decision, workflow.rows_for(self.root))
+
+    def test_length_requirement_change_needs_current_review(self):
+        def set_limit(maximum):
+            workflow.save_text(self.root, "state/requirements.jsonl", json.dumps({
+                "requirement_id": "R-length", "summary": "Count words across the whole report.",
+                "status": "satisfied", "evidence": "final.md",
+                "length_constraint": {"unit": "whitespace_words", "scope": "whole_artifact", "max": maximum}})+"\n")
+        set_limit(100)
+        runner = SyntheticRunner()
+        self.review(runner)
+        set_limit(90)
+        self.assertFalse(workflow.finish(self.workspace, "case", "The report is complete.")["completed"])
+        self.review(runner, revision=True)
+        self.assertTrue(workflow.finish(self.workspace, "case", "The report is complete.")["completed"])
 
     def test_evidenced_no_change_delivers_without_rewriting_or_reviewing_again(self):
         runner = SyntheticRunner(negative=True)

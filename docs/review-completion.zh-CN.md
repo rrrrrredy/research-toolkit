@@ -86,10 +86,12 @@ python scripts/check_review_completion.py <task-directory> --artifact final.md
 下面是**合成格式示例**，须替换为实际尝试和发现编号：
 
 ```json
-{"record_type":"finding_disposition","attempt_id":"实际尝试编号","finding_id":"F1","decision":"no_change","reason":"正文明确说明未披露收入，评审误读了该表述。","evidence":"final.md 第2段及 source.md 第1段：未提供收入数据。"}
+{"record_type":"finding_disposition","schema_version":2,"attempt_id":"实际尝试编号","finding_id":"F1","decision":"no_change","decision_actor":{"id":"author:实际任务编号","role":"author"},"artifact_sha256":"复制原 model_review 记录中的哈希","response_sha256":"复制该记录的 response.sha256","reason":"正文明确说明未披露收入，评审误读了该表述。","evidence":"final.md 第2段及 source.md 第1段：未提供收入数据。"}
 ```
 
 原始回复、结论和严重度保持不变。`attempt_id` 关联该评审绑定的正文与输入版本，`finding_id` 指向具体发现。`reason` 和 `evidence` 均须提供非空的具体理由及可定位依据。同一尝试和发现采用最新处置，旧决定保留在日志中。
+
+新的普通评审计划与尝试声明 `disposition_schema_version: 2`，对应处置须使用上方结构，记录实际决策主体及从保留尝试复制的哈希。`decision_actor.role` 可为 `author`、`reviewer` 或 `user`；作者／评审者 ID 须与任务／尝试中的身份一致。用户 ID 是声明的引用，不是经过认证的授权；不能将作者决定标成用户决定或独立审计。这些字段只记录所声明的来历，不认证身份或判断正确性。未带版本标记的历史尝试沿用原结构，不倒填主体或哈希。普通任务改动后的新评审采用新约定；仅恢复原任务不会重写历史。
 
 只有 `no_change` 解除对应发现的阻断。`confirmed_defect`、`unresolved` 或仅标记 `resolved`，都不能关闭未改动稿件上的必要修正。`needs_revision` 只有在全部必要发现均有依据地不修改时，才能解除阻断。`not_assessed`、没有具体发现依据的负面结论、缺失或无效评审、其他阻断仍然阻止交付。正文或来源变化后仍须由当前版本评审覆盖。
 

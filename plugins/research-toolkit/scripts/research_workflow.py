@@ -19,6 +19,7 @@ from profile_policy import CHECKLIST, LITE_LOG, checklist_errors, inspect_lite_d
 from check_delivery import (REQUIRED_HASH_INPUTS, OPTIONAL_HASH_INPUTS, evaluate_delivery,
                             inspect_csv_text, inspect_jsonl, inspect_jsonl_text,
                             inspect_reading_evidence, inspect_required_reading, reading_evidence_target,
+                            inspect_length_constraints,
                             REQUIREMENT_DECISION_STATUSES, resolve_inside, sha256_file)
 from check_review_completion import (inspect_review_completion, matches_review_slot,
                                      content_review_issues, finding_dispositions)
@@ -632,6 +633,10 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     if not audit_required:
         plan.pop("sampling")
         plan["audit_required"] = False
+        if not old_plan or (revision and assignment_changed):
+            plan["disposition_schema_version"] = 2
+        elif "disposition_schema_version" in old_plan:
+            plan["disposition_schema_version"] = old_plan["disposition_schema_version"]
     if auditor_signature is not None:
         plan["auditor_signature"] = auditor_signature
     if old_plan == plan:
@@ -688,6 +693,8 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                         **{k: slot[k] for k in ("slot_id", "reviewer_id", "model", "scope", "input", "reviewer_signature") if k in slot},
                         "artifact_sha256": artifact_hash, "reviewer": reviewer,
                         "review_strength": "degraded" if reviewer == "self" else reviewer}
+                if "disposition_schema_version" in plan:
+                    base["disposition_schema_version"] = plan["disposition_schema_version"]
                 try:
                     value, execution_id = invoke(root, attempt_prefix, reviewer_config,
                         {"role": "reviewer", "instructions": review_instructions, "assignment": packet},
@@ -828,10 +835,11 @@ def finish_lite(root, progress, message, artifact, checklist):
     check_stage_records(root, "draft")
     if not safe_path(root, artifact).read_text(encoding="utf-8").strip() or not nonempty(message):
         raise ValueError("Provide a nonempty report and delivery message.")
+    length_checks, length_errors = inspect_length_constraints(root, artifact)
     if checklist is None:
         return {"completed": False, "action_required": "final_checklist", "checklist": CHECKLIST,
-                "profile": "lite", "log": LITE_LOG}
-    errors = checklist_errors(checklist)
+                "profile": "lite", "log": LITE_LOG, "length_checks": length_checks, "errors": length_errors}
+    errors = [*checklist_errors(checklist), *length_errors]
     if errors:
         return {"completed": False, "profile": "lite", "errors": errors, "log": LITE_LOG}
     try:
@@ -840,6 +848,7 @@ def finish_lite(root, progress, message, artifact, checklist):
         return {"completed": False, "profile": "lite", "errors": [str(exc)], "log": LITE_LOG}
     save_text(root, "delivery_message.md", message)
     record = {"schema_version": 2, "profile": "lite", "artifact": artifact, "items": checklist, "input_hashes": input_hashes,
+              **({"length_checks": length_checks} if length_checks else {}),
               "review_strength": "unreviewed", "independent_review": False,
               "artifacts": {name: sha256_file(safe_path(root, name)) for name in (artifact, "delivery_message.md")}}
     save(root, "state/final_checklist.json", record)
@@ -861,6 +870,9 @@ def finish(workspace: Path, task: str, message: str, artifact="final.md", checkl
         return finish_lite(root, progress, message, artifact, checklist)
     if progress.get("review_plan", {}).get("purpose") != "report_delivery":
         raise ValueError("Report delivery needs report_delivery reviews. Evaluations end with their review result.")
+    length_checks, length_errors = inspect_length_constraints(root, artifact)
+    if length_errors:
+        return {"completed": False, "errors": length_errors, "length_checks": length_checks}
     try:
         reviewed_files = checked_review_files(root, progress, artifact)
     except (ValueError, OSError, UnicodeError) as exc:
@@ -897,6 +909,7 @@ def finish(workspace: Path, task: str, message: str, artifact="final.md", checkl
         required = list(dict.fromkeys([artifact, *REQUIRED_HASH_INPUTS, *sorted(reviewed_files),
                                       *[p for p in OPTIONAL_HASH_INPUTS if safe_path(candidate, p).exists()]]))
         receipt = {"schema_version": 1, "status": "pass", "scope": "global_final_delivery",
+                   **({"length_checks": length_checks} if length_checks else {}),
                    "artifact": artifact, "open_issues": [],
                    "accepted_limitations": progress.get("accepted_limitations", []),
                    "reviewer": progress["review_plan"].get("reviewer", "independent"),

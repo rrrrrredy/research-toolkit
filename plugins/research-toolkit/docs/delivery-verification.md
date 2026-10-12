@@ -39,6 +39,20 @@ Clear local file references in `read_evidence` must resolve to an existing, none
 
 The checker compares these declared fields. It cannot detect an omitted requirement, infer reading duties from free-form prose, verify a fabricated quote, or establish comprehension from a note. The author still reconciles the records with the actual request and sources. Both the standalone checker and eval runner check requirement closure, including when the runner's optional receipt check is disabled.
 
+## Explicit length requirements
+
+Lite and Full can measure a declared range using an optional `length_constraint` in the existing requirement ledger. Record the task's agreed range and counting convention before drafting/review; do not invent a default minimum or infer one from prose. This **synthetic format example** is not a universal length target:
+
+```json
+{"requirement_id":"R-length","summary":"The agreed whole-file limit is 800–1200 nonwhitespace characters.","status":"satisfied","evidence":"final.md, whole file","length_constraint":{"unit":"nonwhitespace_characters","scope":"whole_artifact","min":800,"max":1200}}
+```
+
+Use `whitespace_words` for Python whitespace-delimited segments, or `nonwhitespace_characters` for Unicode code points except whitespace. Both count the entire UTF-8 artifact, including Markdown syntax, headings, citations and references. They are not model tokens or editor-rendered word counts. Only `whole_artifact` is supported; a body-only or page limit needs its own appropriate measurement, not a relabeled whole-file count. At least one nonnegative integer `min`/`max` is required; bounds are inclusive. Keep a distinct requirement ID and a summary of the actual agreement.
+
+`research_finish` recomputes counts and refuses out-of-range `satisfied` claims before writing a receipt or replacing the delivery message. The receipt stores `length_checks`; the offline checker recomputes them. Lite's checklist preview returns the counts and any errors. Existing requirement-closure rules apply to these rows in both profiles: an unresolved status still needs resolution, and an existing user decision can waive/change scope or accept a limitation. A waived range retains its actual count and `bounds_met: false` when outside the range; it is not rewritten as a satisfied measurement. Full reviews already freeze the ledger, so changing the agreed range requires the normal current-version review. Previous receipts without structured length requirements keep their original checks.
+
+The eval runner also checks declared length requirements at terminal delivery when its optional receipt check is disabled. These checks validate counts against declared bounds. They cannot discover an omitted requirement, prove the bounds accurately reflect the user's request, or establish sufficient depth or research quality. Neither author self-claims nor extra words repair missing reasoning.
+
 ## Comparing a captured reply
 
 ```bash

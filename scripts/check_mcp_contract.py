@@ -85,6 +85,8 @@ async def verify(base):
         assert not blocked["completed"], blocked
         original = next(row for row in rows if row.get("record_type") == "model_review")
         decision = {"record_type": "finding_disposition", "attempt_id": original["attempt_id"],
+                    "schema_version": 2, "decision_actor": {"id": "author:case", "role": "author"},
+                    "artifact_sha256": original["artifact_sha256"], "response_sha256": original["response"]["sha256"],
                     "finding_id": "F1", "decision": "no_change",
                     "reason": "The report states that revenue is not reported; the review misreads it.",
                     "evidence": "final.md paragraph 2 and source.md paragraph 1 report shipments, not revenue."}
@@ -110,6 +112,10 @@ async def verify(base):
             local = Path(created["task_directory"])
             for name in ("source.md", "final.md", "data/source_registry.csv", "data/claims_registry.csv"):
                 (local/name).write_bytes((root/name).read_bytes())
+            (local/"state/requirements.jsonl").write_text(json.dumps({
+                "requirement_id": "R-length", "summary": "Synthetic whole-file limit of 1–100 words.",
+                "status": "satisfied", "evidence": "final.md",
+                "length_constraint": {"unit": "whitespace_words", "scope": "whole_artifact", "min": 1, "max": 100}})+"\n", encoding="utf-8")
             arguments = {"task": task, "evidence_paths": ["source.md"], "reviewer": "self"}
             pending = unpack(await client.call_tool("research_review", arguments))
             finish_args = {"task": task, "message": "The report is complete; no independent review was performed."}
@@ -127,6 +133,7 @@ async def verify(base):
                 assert reviewed["reviews_complete"] and reviewed["review_strength"] == "degraded"
             done = unpack(await client.call_tool("research_finish", finish_args))
             assert done["completed"], done
+            assert done["delivery_check"]["length_checks"][0]["bounds_met"] is True
             resumed = unpack(await client.call_tool("research_status", {"task": task, "language": "zh"}))
             assert resumed["profile"] == profile
             if profile == "lite":
