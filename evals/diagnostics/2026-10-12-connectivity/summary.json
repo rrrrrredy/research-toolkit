@@ -1,0 +1,249 @@
+{
+  "phase": "connectivity_only",
+  "network_generation_requests": 6,
+  "completed_generations": 5,
+  "local_preflight_failures": 1,
+  "automatic_retries": 0,
+  "initial_api_successes": [
+    "deepseek-flash",
+    "kimi-k2.6",
+    "LongCat-2.0"
+  ],
+  "initial_failures": [
+    {
+      "provider": "glm",
+      "http_status": 400,
+      "reason": "glm-5.3 requires thinking; disabled rejected"
+    },
+    {
+      "provider": "codex",
+      "reason": "reserved openai provider override rejected locally; no model request"
+    }
+  ],
+  "separately_frozen_followup": [
+    {
+      "provider": "glm",
+      "model_returned": "glm-5.3",
+      "change": "thinking enabled, low effort",
+      "result": "connected"
+    },
+    {
+      "provider": "codex",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "change": "separate custom provider, zero HTTP/stream retries",
+      "result": "expected JSON, completed CLI turn"
+    }
+  ],
+  "api_total_tokens": 243,
+  "codex_input_tokens": 5185,
+  "codex_output_tokens": 13,
+  "research_quality_status": "not_evaluated",
+  "judge_calibration_status": "not_part_of_connectivity",
+  "files": [
+    {
+      "file": "connectivity-20261012/astra/command.json",
+      "original_sha256": "feaab96338e799f172f6db9fe5d3404ab2d4f048ee008e587ff8357caf7aabf5",
+      "public_sha256": "da8f9851f1bfaf7cf4d2fbd98bad53389cbce14a0074a12efea77dfd86f4f7ad",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/astra/events.jsonl",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/astra/execution.json",
+      "original_sha256": "bf43e1c79f1b6d16b1a8b02357baa0e5be2f3da35ebfe62b4398d2bbcdd0911d",
+      "public_sha256": "bf43e1c79f1b6d16b1a8b02357baa0e5be2f3da35ebfe62b4398d2bbcdd0911d",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/astra/started.json",
+      "original_sha256": "4a14b1c16a32be4deb8529b33df9b5ce1e409277db94a60a428700990d3333ec",
+      "public_sha256": "4a14b1c16a32be4deb8529b33df9b5ce1e409277db94a60a428700990d3333ec",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/astra/stderr.txt",
+      "original_sha256": "4cf1ac52b2ecccadc6d5d889db31c8a4437cfb3fe107f20ef93f17fe86cb27f0",
+      "public_sha256": "4cf1ac52b2ecccadc6d5d889db31c8a4437cfb3fe107f20ef93f17fe86cb27f0",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/commitment.json",
+      "original_sha256": "0f330dc3964a4c880ed8058b39e0ec8e485c6c6956ddfce257b83006a7098065",
+      "public_sha256": "0f330dc3964a4c880ed8058b39e0ec8e485c6c6956ddfce257b83006a7098065",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/deepseek/execution.json",
+      "original_sha256": "b5498d799a33b3b6b8f5a47aa50489b93bcecc351b7d592b8d6af02970a6a6a4",
+      "public_sha256": "b5498d799a33b3b6b8f5a47aa50489b93bcecc351b7d592b8d6af02970a6a6a4",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/deepseek/request.json",
+      "original_sha256": "05541b5f01b8adf64f1114e839b8e6bde9d33032e25667d9c28e852dd3ff7b0d",
+      "public_sha256": "05541b5f01b8adf64f1114e839b8e6bde9d33032e25667d9c28e852dd3ff7b0d",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/deepseek/response.json",
+      "original_sha256": "d0d3906548e0ec29d6ff2ca4673996d2fc8d1046d0889a7f2b302afb35c7a268",
+      "public_sha256": "d0d3906548e0ec29d6ff2ca4673996d2fc8d1046d0889a7f2b302afb35c7a268",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/deepseek/started.json",
+      "original_sha256": "42623664a5da9fa090332c755cac22bf58a6d9c2d1691ea3a149e84e4d74a128",
+      "public_sha256": "42623664a5da9fa090332c755cac22bf58a6d9c2d1691ea3a149e84e4d74a128",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/glm/error-response.txt",
+      "original_sha256": "d3399e0915ee3289aa1b9e51f4ab502c569e3b574ecdc7e0fd1f0fa602da7fea",
+      "public_sha256": "d3399e0915ee3289aa1b9e51f4ab502c569e3b574ecdc7e0fd1f0fa602da7fea",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/glm/execution.json",
+      "original_sha256": "adf4a6b6aae49f289c00e73b0394a6bf8f7de9effaabf3fda9583bded6a999d8",
+      "public_sha256": "adf4a6b6aae49f289c00e73b0394a6bf8f7de9effaabf3fda9583bded6a999d8",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/glm/request.json",
+      "original_sha256": "7aeedf1a239280fa419257b8f26e81202053e4a856d032d4394db53730b392b8",
+      "public_sha256": "7aeedf1a239280fa419257b8f26e81202053e4a856d032d4394db53730b392b8",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/glm/started.json",
+      "original_sha256": "b00bc356fe818893b3568a804b84e508e5a0ab5de82a35afd367db51097c1fcb",
+      "public_sha256": "b00bc356fe818893b3568a804b84e508e5a0ab5de82a35afd367db51097c1fcb",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/kimi/execution.json",
+      "original_sha256": "45b1eb354010af05ddfab715f582389a937a0216a3504f390f6b9b59d0ca69ce",
+      "public_sha256": "45b1eb354010af05ddfab715f582389a937a0216a3504f390f6b9b59d0ca69ce",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/kimi/request.json",
+      "original_sha256": "646db9fd0b33bb8b9c6f873bb0e89e3ef1cf5e2761064209d31ca8004de75633",
+      "public_sha256": "646db9fd0b33bb8b9c6f873bb0e89e3ef1cf5e2761064209d31ca8004de75633",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/kimi/response.json",
+      "original_sha256": "37de78b1aa671b204bebd0951f7773df96022b4d75ec5bb34367e992d7868db5",
+      "public_sha256": "37de78b1aa671b204bebd0951f7773df96022b4d75ec5bb34367e992d7868db5",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/kimi/started.json",
+      "original_sha256": "8f5a7088d957548753ce42435609aba56834fbe7efdb671ec9b8b2c349b16f90",
+      "public_sha256": "8f5a7088d957548753ce42435609aba56834fbe7efdb671ec9b8b2c349b16f90",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/longcat/execution.json",
+      "original_sha256": "1996ea76462c01ba4d4aa0beb02f84479eb9b1eb8ca51ecd709b51c6dd2c6a97",
+      "public_sha256": "1996ea76462c01ba4d4aa0beb02f84479eb9b1eb8ca51ecd709b51c6dd2c6a97",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/longcat/request.json",
+      "original_sha256": "6955e5817e567443cb94cb74fe716d70feb5dde2adbd5bd361efd010f753aac4",
+      "public_sha256": "6955e5817e567443cb94cb74fe716d70feb5dde2adbd5bd361efd010f753aac4",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/longcat/response.json",
+      "original_sha256": "763be06662b946ea67770f3855268f5b95eba7faa1367ab496a0a21c68cc3579",
+      "public_sha256": "763be06662b946ea67770f3855268f5b95eba7faa1367ab496a0a21c68cc3579",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/longcat/started.json",
+      "original_sha256": "8eec62de632e06d56f46a3c0e383f4743f02c24752bb634256a016ba72145656",
+      "public_sha256": "8eec62de632e06d56f46a3c0e383f4743f02c24752bb634256a016ba72145656",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012/plan.json",
+      "original_sha256": "c0fc654a3397467b861b162c1b5588844ebcbe64a5098a9b134a790aa5e316fb",
+      "public_sha256": "c0fc654a3397467b861b162c1b5588844ebcbe64a5098a9b134a790aa5e316fb",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012-followup/astra/command.json",
+      "original_sha256": "14f1293e1a0341dc8eaffb35362f27ba2735e4f2de79a67a34613c05bb742706",
+      "public_sha256": "0111b04f0b6672f915dd6bae6a01d4d5e127f66fbab8611dd969cd727f509377",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012-followup/astra/events.jsonl",
+      "original_sha256": "6d1ee8f5c7cc5c4ad75040b31e9cfbf34f7d13a8b76432cdd32334001aab90a3",
+      "public_sha256": "1bd2be1f8547169baf38aad4e08bb8c5945b3db755d8d3c63c82ca55f461d6d1",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012-followup/astra/execution.json",
+      "original_sha256": "329e6009b9619f8c92cb63c078a32e96dc05408148d9b71a83e6f0486d535a20",
+      "public_sha256": "329e6009b9619f8c92cb63c078a32e96dc05408148d9b71a83e6f0486d535a20",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012-followup/astra/started.json",
+      "original_sha256": "c8e3777a816ee036d5513762dcfc0088015ff407d01fe2e3cafdc7b8d960b493",
+      "public_sha256": "c8e3777a816ee036d5513762dcfc0088015ff407d01fe2e3cafdc7b8d960b493",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012-followup/astra/stderr.txt",
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012-followup/commitment.json",
+      "original_sha256": "da2f2962f2fcabbfa48e2cefdbbc879f30be790df8af9dd4ee7173fab651f3e6",
+      "public_sha256": "da2f2962f2fcabbfa48e2cefdbbc879f30be790df8af9dd4ee7173fab651f3e6",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012-followup/glm/execution.json",
+      "original_sha256": "25c3d6f90a2fe5b5a985bc0f6674803d47a83f62aad0610a6db7ae4eb2f832fe",
+      "public_sha256": "25c3d6f90a2fe5b5a985bc0f6674803d47a83f62aad0610a6db7ae4eb2f832fe",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012-followup/glm/request.json",
+      "original_sha256": "aef59fe68c84e2f434d0ad9e59f85ff988190c8195e5429404af2f9559e52be7",
+      "public_sha256": "aef59fe68c84e2f434d0ad9e59f85ff988190c8195e5429404af2f9559e52be7",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012-followup/glm/response.json",
+      "original_sha256": "dfa8ad51b9b63c3ef389e31c5fefa4b8f0570e5f22fe69fd0ee79a656fbd9f1d",
+      "public_sha256": "dfa8ad51b9b63c3ef389e31c5fefa4b8f0570e5f22fe69fd0ee79a656fbd9f1d",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012-followup/glm/started.json",
+      "original_sha256": "77a1cee1647149041a1d9fe3d8cc3ad25899419a9999e933feac58d5153e1ec8",
+      "public_sha256": "77a1cee1647149041a1d9fe3d8cc3ad25899419a9999e933feac58d5153e1ec8",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    },
+    {
+      "file": "connectivity-20261012-followup/plan.json",
+      "original_sha256": "0494473e1a5f553c10095817d6e60b951ecd544c05a04229a6681a420dcca701",
+      "public_sha256": "0494473e1a5f553c10095817d6e60b951ecd544c05a04229a6681a420dcca701",
+      "redaction": "Local executable/workdir/instruction paths and local user-home references removed where present; JSON formatting/newlines may normalize."
+    }
+  ]
+}

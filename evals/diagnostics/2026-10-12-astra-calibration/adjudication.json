@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-12",
+  "actor": "implementation assistant, exposed to control authorship and expected labels; not an independent human adjudicator",
+  "basis": "Located original report passages and packet source evidence; all first judgments were complete and locked before this source adjudication",
+  "families": [
+    {
+      "family_id": "cal-relative-rate-en",
+      "source_support_confirmed": true,
+      "assessment": "Both orientations explicitly distinguish 5 percentage points from (10%-5%)/10%=50%; source S1 supplies both equal-denominator counts. The identical valid pair stays tied. Remarks about nonrandom sampling apply to both valid reports and do not invent a between-report difference.",
+      "case_ids": {
+        "swapped": "case-02",
+        "valid_tie": "case-04",
+        "primary": "case-08"
+      }
+    },
+    {
+      "family_id": "cal-causal-zh",
+      "source_support_confirmed": true,
+      "assessment": "Both orientations locate the unsupported 已经证明 clause and identify the source-listed cultivar, soil, density and irrigation differences. The valid report preserves uncertainty; the identical valid pair stays tied.",
+      "case_ids": {
+        "swapped": "case-06",
+        "primary": "case-09",
+        "valid_tie": "case-12"
+      }
+    },
+    {
+      "family_id": "cal-attribution-zh",
+      "source_support_confirmed": true,
+      "assessment": "Both orientations locate 已验证 and compare it with S2 explicitly stating 未验证停机次数或长期可靠性. The valid report keeps supplier self-reporting separate from independent verification; the identical valid pair stays tied.",
+      "case_ids": {
+        "swapped": "case-05",
+        "primary": "case-10",
+        "valid_tie": "case-11"
+      }
+    },
+    {
+      "family_id": "cal-constraints-en",
+      "source_support_confirmed": true,
+      "assessment": "Both orientations include mandatory installation in Cedar total 2100+500=2600, compare with hard 2400 ceiling and Elm 2300, and reject the Cedar recommendation. The identical valid pair stays tied.",
+      "case_ids": {
+        "valid_tie": "case-01",
+        "swapped": "case-03",
+        "primary": "case-07"
+      }
+    }
+  ],
+  "preference_matches": 12,
+  "attempts": 12,
+  "independent_families": 4,
+  "position_preference_consistent_families": 4,
+  "valid_ties_preserved": 4,
+  "dimension_drift": [
+    {
+      "family_id": "cal-constraints-en",
+      "primary_label": "A",
+      "dimension": "facts_and_evidence",
+      "primary_score": 3,
+      "swapped_score": 2
+    },
+    {
+      "family_id": "cal-causal-zh",
+      "primary_label": "A",
+      "dimension": "task_fidelity",
+      "primary_score": 1,
+      "swapped_score": 2
+    },
+    {
+      "family_id": "cal-causal-zh",
+      "primary_label": "A",
+      "dimension": "facts_and_evidence",
+      "primary_score": 2,
+      "swapped_score": 1
+    }
+  ],
+  "usage": {
+    "input_tokens": 77227,
+    "cached_input_tokens": 10752,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 17393,
+    "reasoning_output_tokens": 726
+  },
+  "elapsed_seconds_sum": 596.189,
+  "admission": "Admit Astra as the single judge for a bounded exposed-development pilot using source-adjudicated pairwise preference; do not treat dimensional scores as stable interval measurements.",
+  "general_judge_reliability_established": false,
+  "toolkit_efficacy_established": false,
+  "analysis_order_note": "The frozen runner computed preference matches in coordinator memory as attempts finished, with no adaptive requests or exclusions; results were written only after the final lock. A later code revision moves that computation after the lock as well. Original runner bytes are retained."
+}

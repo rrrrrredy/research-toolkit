@@ -8,6 +8,10 @@ The public collection supports workflow diagnostics and product development. It 
 
 The separate [October 10 fixed-source Lite pilot](../evals/studies/2026-10-10-lite-four-models/README.md) publishes judgments for all 20 model–task pairs across five shared families and four models, with original failures retained. Its local freeze, instruction-only scope, post-hoc format analysis and separately regenerated completion pairs are disclosed; it does not change the historical counts below.
 
+## 2026-10-12: connectivity and judge calibration
+
+The [connectivity record](../evals/diagnostics/2026-10-12-connectivity/README.md) retains configuration failures and separately frozen follow-up. The [Astra calibration](../evals/diagnostics/2026-10-12-astra-calibration/README.md) completed 12 first attempts across four families, with source-confirmed defect preferences, swaps and valid ties. Three dimension scores changed under swapping. This admits a bounded development pilot, not a general judge-reliability or Toolkit-effect claim. Existing historical cohorts and outcomes below remain unchanged.
+
 ## Retained data
 
 | Collection | Evidence | Use boundary |

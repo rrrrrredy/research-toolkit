@@ -1,0 +1,1 @@
+{"id":"chatcmpl-6acca5bdec51fe184a76c797","object":"chat.completion","created":1791796669,"model":"kimi-k2.6","choices":[{"index":0,"message":{"role":"assistant","content":"{\"connection\":\"ok\",\"sum\":5}","reasoning_content":""},"finish_reason":"stop"}],"usage":{"prompt_tokens":50,"completion_tokens":12,"total_tokens":62,"completion_tokens_details":{"reasoning_tokens":1}}}

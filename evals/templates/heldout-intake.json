@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "design_only_no_tasks",
+  "method_commit": null,
+  "method_sha256": {},
+  "task_custodian": null,
+  "independent_task_author": null,
+  "independence_statement": null,
+  "target_workload_and_cutoff": null,
+  "sample_size_and_precision_rationale": null,
+  "author_models": [],
+  "judge_panel": [],
+  "request_and_token_budget": null,
+  "stopping_rule": "Freeze the admitted cohort and ceilings before generation. Preserve every admitted failure. Do not append cases based on interim wins or losses.",
+  "source_rights_policy": "Use original synthetic material or material with a documented right to publish. A public URL or sanitization alone is not a reuse license.",
+  "access_events": [],
+  "rejected_candidates": [],
+  "tasks": [],
+  "task_record_fields": [
+    "task_id", "family_id", "language", "brief", "source_ids", "source_urls_or_synthetic_provenance",
+    "source_version_and_cutoff", "source_rights_basis", "source_sha256", "author_identity",
+    "created_after_method_freeze", "expected_necessary_judgments", "ambiguities_and_acceptable_alternatives",
+    "prior_exposure", "admission_reason", "sealed_packet_sha256"
+  ],
+  "execution_supported": false,
+  "note": "This is an intake contract, not an admitted held-out cohort or an executable schema-2 study. Null fields must be resolved in a separately frozen formal-study plan."
+}

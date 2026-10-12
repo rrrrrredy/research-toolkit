@@ -1,0 +1,118 @@
+{
+  "phase": "exposed_development_judge_calibration",
+  "requests_attempted": 12,
+  "independent_families": 4,
+  "results": [
+    {
+      "case_id": "case-01",
+      "family_id": "cal-constraints-en",
+      "orientation": "valid_tie",
+      "status": "parsed",
+      "preference": "tie",
+      "expected_preference": "tie",
+      "preference_matches": true
+    },
+    {
+      "case_id": "case-02",
+      "family_id": "cal-relative-rate-en",
+      "orientation": "swapped",
+      "status": "parsed",
+      "preference": "B",
+      "expected_preference": "B",
+      "preference_matches": true
+    },
+    {
+      "case_id": "case-03",
+      "family_id": "cal-constraints-en",
+      "orientation": "swapped",
+      "status": "parsed",
+      "preference": "A",
+      "expected_preference": "A",
+      "preference_matches": true
+    },
+    {
+      "case_id": "case-04",
+      "family_id": "cal-relative-rate-en",
+      "orientation": "valid_tie",
+      "status": "parsed",
+      "preference": "tie",
+      "expected_preference": "tie",
+      "preference_matches": true
+    },
+    {
+      "case_id": "case-05",
+      "family_id": "cal-attribution-zh",
+      "orientation": "swapped",
+      "status": "parsed",
+      "preference": "B",
+      "expected_preference": "B",
+      "preference_matches": true
+    },
+    {
+      "case_id": "case-06",
+      "family_id": "cal-causal-zh",
+      "orientation": "swapped",
+      "status": "parsed",
+      "preference": "A",
+      "expected_preference": "A",
+      "preference_matches": true
+    },
+    {
+      "case_id": "case-07",
+      "family_id": "cal-constraints-en",
+      "orientation": "primary",
+      "status": "parsed",
+      "preference": "B",
+      "expected_preference": "B",
+      "preference_matches": true
+    },
+    {
+      "case_id": "case-08",
+      "family_id": "cal-relative-rate-en",
+      "orientation": "primary",
+      "status": "parsed",
+      "preference": "A",
+      "expected_preference": "A",
+      "preference_matches": true
+    },
+    {
+      "case_id": "case-09",
+      "family_id": "cal-causal-zh",
+      "orientation": "primary",
+      "status": "parsed",
+      "preference": "B",
+      "expected_preference": "B",
+      "preference_matches": true
+    },
+    {
+      "case_id": "case-10",
+      "family_id": "cal-attribution-zh",
+      "orientation": "primary",
+      "status": "parsed",
+      "preference": "A",
+      "expected_preference": "A",
+      "preference_matches": true
+    },
+    {
+      "case_id": "case-11",
+      "family_id": "cal-attribution-zh",
+      "orientation": "valid_tie",
+      "status": "parsed",
+      "preference": "tie",
+      "expected_preference": "tie",
+      "preference_matches": true
+    },
+    {
+      "case_id": "case-12",
+      "family_id": "cal-causal-zh",
+      "orientation": "valid_tie",
+      "status": "parsed",
+      "preference": "tie",
+      "expected_preference": "tie",
+      "preference_matches": true
+    }
+  ],
+  "source_adjudication": "pending",
+  "judge_reliability_established": false,
+  "toolkit_efficacy_established": false
+}

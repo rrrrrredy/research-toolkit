@@ -1,0 +1,146 @@
+{
+  "phase": "connectivity_only",
+  "created_at": "2026-10-12T09:16:38Z",
+  "max_generations": 5,
+  "max_retries": 0,
+  "requests": [
+    {
+      "provider": "deepseek",
+      "url": "https://api.deepseek.com/chat/completions",
+      "documentation": "https://api-docs.deepseek.com/api/create-chat-completion/",
+      "body": {
+        "model": "deepseek-flash",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are performing a connectivity check. No tools, file access, research, or external context are needed."
+          },
+          {
+            "role": "user",
+            "content": "Return exactly this JSON object and nothing else: {\"connection\":\"ok\",\"sum\":5}"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 512,
+        "thinking": {
+          "type": "disabled"
+        }
+      },
+      "timeout_seconds": 60,
+      "max_response_bytes": 1048576
+    },
+    {
+      "provider": "kimi",
+      "url": "https://api.moonshot.cn/v1/chat/completions",
+      "documentation": "https://platform.kimi.com/docs/guide/kimi-k2-6-quickstart",
+      "body": {
+        "model": "kimi-k2.6",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are performing a connectivity check. No tools, file access, research, or external context are needed."
+          },
+          {
+            "role": "user",
+            "content": "Return exactly this JSON object and nothing else: {\"connection\":\"ok\",\"sum\":5}"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 512,
+        "thinking": {
+          "type": "disabled"
+        }
+      },
+      "timeout_seconds": 60,
+      "max_response_bytes": 1048576
+    },
+    {
+      "provider": "glm",
+      "url": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+      "documentation": "https://docs.bigmodel.cn/api-reference/模型-api/对话补全",
+      "body": {
+        "model": "glm-5.3",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are performing a connectivity check. No tools, file access, research, or external context are needed."
+          },
+          {
+            "role": "user",
+            "content": "Return exactly this JSON object and nothing else: {\"connection\":\"ok\",\"sum\":5}"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 512,
+        "thinking": {
+          "type": "disabled"
+        }
+      },
+      "timeout_seconds": 60,
+      "max_response_bytes": 1048576
+    },
+    {
+      "provider": "longcat",
+      "url": "https://api.longcat.chat/openai/v1/chat/completions",
+      "documentation": "https://longcat.chat/platform/docs/api/chat.html",
+      "body": {
+        "model": "LongCat-2.0",
+        "messages": [
+          {
+            "role": "system",
+            "content": "You are performing a connectivity check. No tools, file access, research, or external context are needed."
+          },
+          {
+            "role": "user",
+            "content": "Return exactly this JSON object and nothing else: {\"connection\":\"ok\",\"sum\":5}"
+          }
+        ],
+        "stream": false,
+        "max_tokens": 512,
+        "thinking": {
+          "type": "disabled"
+        }
+      },
+      "timeout_seconds": 60,
+      "max_response_bytes": 1048576
+    }
+  ],
+  "astra": {
+    "model": "gpt-6-astra",
+    "reasoning_effort": "low",
+    "timeout_seconds": 60,
+    "output_token_limit": "CLI has no verified hard completion cap; 4096 post-return ceiling only",
+    "prompt": "Return exactly this JSON object and nothing else: {\"connection\":\"ok\",\"sum\":5}",
+    "system": "You are performing a connectivity check. No tools, file access, research, or external context are needed.",
+    "disabled_features": [
+      "apps",
+      "plugins",
+      "remote_plugin",
+      "memories",
+      "multi_agent",
+      "multi_agent_v2",
+      "shell_tool",
+      "unified_exec",
+      "view_image",
+      "image_generation",
+      "browser_use",
+      "browser_use_external",
+      "computer_use",
+      "hooks",
+      "skill_search",
+      "skill_mcp_dependency_install",
+      "workspace_dependencies",
+      "goals",
+      "tool_suggest",
+      "in_app_browser",
+      "unbounded_connection_retries"
+    ],
+    "fresh_context": true,
+    "ignore_user_config": true,
+    "ephemeral": true,
+    "project_doc_max_bytes": 0
+  },
+  "research_quality_status": "not_evaluated",
+  "blind_judge_isolation_status": "not_yet_validated",
+  "script_sha256": "6b5dea825cec41ce064a362d979858b557967555069c983a65303aae11582cb5"
+}

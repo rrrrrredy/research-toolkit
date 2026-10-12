@@ -1,0 +1,71 @@
+{
+  "preference": "B",
+  "reason": "B correctly reports a “50% relative reduction” in paragraph 1; A incorrectly reports “5%.” S1 implies rates of 10% and 5%, so the relative decrease is (10−5)/10 = 50%. Both satisfy the word limit, cite S1, and give identical causal caveats, although neither explicitly mentions nonrandom sampling.",
+  "reports": {
+    "A": {
+      "task_fidelity": {
+        "score": 2,
+        "reason": "Meets the length, citation, and causal-limits requirements, but gets the explicitly requested relative change wrong.",
+        "excerpt": "Paragraph 1: “a decrease of 5 percentage points and a 5% relative reduction.”",
+        "source_evidence": "S1: “20 of 200 inspected items failed before maintenance; 10 of 200 failed afterward.” These imply a 50% relative reduction."
+      },
+      "facts_and_evidence": {
+        "score": 2,
+        "reason": "Rates and absolute change are correct, but the relative reduction is a central numerical error.",
+        "excerpt": "Paragraph 1: “Failure rates fell from 10% to 5%, a decrease of 5 percentage points and a 5% relative reduction.”",
+        "source_evidence": "S1 gives 20/200 = 10% and 10/200 = 5%; (10%−5%)/10% = 50%, not 5%."
+      },
+      "explanation_and_synthesis": {
+        "score": 2,
+        "reason": "Connects the observed change to a causal caveat, but fails to distinguish the relative decrease correctly from the absolute decrease.",
+        "excerpt": "Paragraph 1: “5 percentage points and a 5% relative reduction.”",
+        "source_evidence": "S1's failure counts halve with the denominator unchanged at 200, yielding a 50% relative decrease."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 3,
+        "reason": "Recognizes the inspected-item scope and lack of causal identification. Omits nonrandom sampling, and a controlled check alone would not necessarily justify generalization.",
+        "excerpt": "Paragraph 2: “This before-and-after comparison describes the inspected items. It cannot establish that maintenance caused the change without a comparable control group. A further controlled check is needed before generalizing.”",
+        "source_evidence": "S1: “Sampling was not randomized. No parallel control group was observed. These counts are complete for the inspected items only.”"
+      },
+      "reader_usefulness": {
+        "score": 2,
+        "reason": "Readable and appropriately cautious, but materially understates the relative improvement, making the requested summary unreliable without correction.",
+        "excerpt": "Paragraph 1: “a 5% relative reduction.”",
+        "source_evidence": "S1 reports failures falling from 20 to 10 out of 200 each time: a halving of the observed failure rate."
+      }
+    },
+    "B": {
+      "task_fidelity": {
+        "score": 4,
+        "reason": "Within 45–65 words, uses and cites S1, and correctly summarizes rates, absolute and relative changes, and causal limits.",
+        "excerpt": "Paragraph 1: “a decrease of 5 percentage points and a 50% relative reduction. [S1]” Paragraph 2: “It cannot establish that maintenance caused the change without a comparable control group.”",
+        "source_evidence": "S1 gives 20/200 before and 10/200 afterward and states: “No parallel control group was observed.”"
+      },
+      "facts_and_evidence": {
+        "score": 4,
+        "reason": "All numerical claims are correct and the causal caution is supported by the source.",
+        "excerpt": "Paragraph 1: “Failure rates fell from 10% to 5%, a decrease of 5 percentage points and a 50% relative reduction.”",
+        "source_evidence": "S1: “20 of 200 inspected items failed before maintenance; 10 of 200 failed afterward.” These yield 10%, 5%, a 5-percentage-point decrease, and a 50% relative reduction."
+      },
+      "explanation_and_synthesis": {
+        "score": 4,
+        "reason": "Clearly distinguishes absolute and relative change while separating the observed comparison from causal attribution.",
+        "excerpt": "Paragraph 1: “5 percentage points and a 50% relative reduction.” Paragraph 2: “It cannot establish that maintenance caused the change.”",
+        "source_evidence": "S1's counts establish the observed rate decrease; its nonrandom sampling and absent parallel control prevent establishing maintenance as the cause."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 3,
+        "reason": "Recognizes the inspected-item scope and lack of causal identification. Omits nonrandom sampling, and a controlled check alone would not necessarily justify generalization.",
+        "excerpt": "Paragraph 2: “This before-and-after comparison describes the inspected items. It cannot establish that maintenance caused the change without a comparable control group. A further controlled check is needed before generalizing.”",
+        "source_evidence": "S1: “Sampling was not randomized. No parallel control group was observed. These counts are complete for the inspected items only.”"
+      },
+      "reader_usefulness": {
+        "score": 4,
+        "reason": "Provides a concise, accurate magnitude of change and a clear warning against attributing it to maintenance.",
+        "excerpt": "Paragraph 1: “a decrease of 5 percentage points and a 50% relative reduction.” Paragraph 2: “It cannot establish that maintenance caused the change.”",
+        "source_evidence": "S1 supports the calculated decrease but reports no parallel control group and limits completeness to inspected items."
+      }
+    }
+  },
+  "condition_clues": "None observed. The reports differ only in the relative-reduction figure; this does not identify their conditions."
+}

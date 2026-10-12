@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Add explicit provider thinking settings and a fresh, tool-disabled native Codex judge transport with frozen adapter hashes. Retain dated four-provider/Astra connectivity failures and follow-up, plus 12 Astra calibration attempts across four families: preferences and valid ties match, while three dimension scores vary under swapping. Publish raw evidence, source adjudication and read-only verification; no general efficacy claim. Add an independent held-out intake design and clarify contributor counting, data rights and platform checks.
+
 - Make CLI missing/unknown argument errors actionable before mutation and identify incomplete source/claim records by file, ID and fields. Add Python 3.10 CLI/MCP CI alongside existing Linux/Windows checks and clarify interpreter and request setup in both languages.
 
 - Measure explicit whole-artifact word/character ranges from requirement records for Lite and Full, retaining actual counts and rejecting false satisfied claims before receipt writes. Record decision actors and original report/response hashes for new ordinary-review dispositions, preserving legacy attempts and original criticism. These checks establish record consistency, not research quality or identity authentication.
