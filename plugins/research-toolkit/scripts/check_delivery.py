@@ -202,7 +202,7 @@ def reading_evidence_target(value: Any) -> str | None:
         raise ValueError("Local reading evidence must use a task-relative file path.")
     file_ref = re.match(
         r"(.+?\.(?:md|txt|pdf|html?|jsonl?|csv|tsv|docx|xlsx|pptx|rst|log|ya?ml|png|jpe?g|webp))"
-        r"(?=$|[#:,，]|\s+(?:pp?\.|pages?\b|paragraph\b|section\b|第))", locator, re.IGNORECASE)
+        r"(?=$|[#:,，]|\s+(?:pp?\.|pages?\b|paragraphs?\b|sections?\b|第))", locator, re.IGNORECASE)
     target = file_ref[1] if file_ref else locator.split("#", 1)[0]
     path_shaped = file_ref or target.startswith(("./", "../")) or (
         not any(c.isspace() for c in target) and ("/" in target or "\\" in target))

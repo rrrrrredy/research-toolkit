@@ -14,7 +14,7 @@ import uuid
 from functools import wraps
 from task_lock import task_lock
 
-from profile_policy import CHECKLIST, LITE_LOG, checklist_errors, inspect_lite_delivery
+from profile_policy import CHECKLIST, LITE_LOG, checklist_errors, inspect_lite_delivery, lite_input_hashes
 
 from check_delivery import (REQUIRED_HASH_INPUTS, OPTIONAL_HASH_INPUTS, evaluate_delivery,
                             inspect_csv_text, inspect_jsonl, inspect_jsonl_text,
@@ -834,8 +834,12 @@ def finish_lite(root, progress, message, artifact, checklist):
     errors = checklist_errors(checklist)
     if errors:
         return {"completed": False, "profile": "lite", "errors": errors, "log": LITE_LOG}
+    try:
+        input_hashes = lite_input_hashes(root, checklist)
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        return {"completed": False, "profile": "lite", "errors": [str(exc)], "log": LITE_LOG}
     save_text(root, "delivery_message.md", message)
-    record = {"profile": "lite", "artifact": artifact, "items": checklist,
+    record = {"schema_version": 2, "profile": "lite", "artifact": artifact, "items": checklist, "input_hashes": input_hashes,
               "review_strength": "unreviewed", "independent_review": False,
               "artifacts": {name: sha256_file(safe_path(root, name)) for name in (artifact, "delivery_message.md")}}
     save(root, "state/final_checklist.json", record)
