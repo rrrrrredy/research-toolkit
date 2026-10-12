@@ -1,0 +1,16 @@
+{
+  "role": "development",
+  "material_kind": "synthetic",
+  "rationale": "Isolate constrained-choice in a new fictional scenario; not a translation or rerun of the October 10 tasks.",
+  "provenance": "Original fictional source texts created for Research Toolkit on 2026-10-12; publishable under the repository license. No factual authority outside this exercise.",
+  "exclusions": "Exclude live-search tasks, private data, and these exposed materials from any held-out cohort. Keep all admitted generation failures; do not exclude tasks after outcomes.",
+  "expected_judgments": [
+    "首年 A=26 万超预算，B=20 万但恢复 5 小时超限，C=22 万且当前条件达标。",
+    "C 当前 10 TB 小于 12 TB；下一年预测 13 TB 超现有容量，需增长监测和提前取得扩容报价及恢复测试。",
+    "不能假定 C 扩容免费或宣称其可靠性优于其他方案；不以任意打分掩盖硬约束。"
+  ],
+  "exposure": [
+    "Implementation assistant authored and inspected all materials on 2026-10-12.",
+    "Published development pack: do not describe future runs on it as held out."
+  ]
+}

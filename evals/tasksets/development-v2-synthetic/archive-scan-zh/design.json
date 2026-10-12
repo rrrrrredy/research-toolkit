@@ -1,0 +1,16 @@
+{
+  "role": "development",
+  "material_kind": "synthetic",
+  "rationale": "Isolate conflicting-measurements in a new fictional scenario; not a translation or rerun of the October 10 tasks.",
+  "provenance": "Original fictional source texts created for Research Toolkit on 2026-10-12; publishable under the repository license. No factual authority outside this exercise.",
+  "exclusions": "Exclude live-search tasks, private data, and these exposed materials from any held-out cohort. Keep all admitted generation failures; do not exclude tasks after outcomes.",
+  "expected_judgments": [
+    "99% 与 91% 的样本组成不同，不能以平均数替代馆藏适用性判断。",
+    "未经校正未达准确率；校正后报告的准确率达线但吞吐量未达线，且独立复核未完成。",
+    "需要代表性独立样本、分类型结果和同时满足准确率与吞吐量的端到端测试；不能据现有证据全面采购。"
+  ],
+  "exposure": [
+    "Implementation assistant authored and inspected all materials on 2026-10-12.",
+    "Published development pack: do not describe future runs on it as held out."
+  ]
+}

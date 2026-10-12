@@ -158,6 +158,10 @@ class PilotTests(unittest.TestCase):
             self.assertNotIn("synthetic-test-secret", (self.base / "http-ok/request.json").read_text())
             self.assertEqual(captured[0]["max_tokens"], settings["max_completion_tokens"])
             self.assertTrue((self.base / "http-budget/response.json").exists())
+            self.assertEqual(h.read(self.base / "http-budget/execution.json")["failure_kind"], "token_budget")
+            truncated = h.read(self.base / "http-truncated/execution.json")
+            self.assertEqual(truncated["failure_kind"], "truncated")
+            self.assertEqual(truncated["finish_reason"], "length")
         finally:
             server.shutdown()
             server.server_close()
