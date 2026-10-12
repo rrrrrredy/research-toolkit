@@ -176,6 +176,31 @@ class WorkflowTests(unittest.TestCase):
             self.review(runner, purpose="evaluation", config=changed, revision=True)
         self.assertEqual(len(runner.calls), 3)
 
+    def test_pending_evaluation_pins_review_and_audit_methods_across_upgrade(self):
+        runner = SyntheticRunner(negative=True, bad_audit=1)
+        self.assertFalse(self.review(runner, purpose="evaluation")["reviews_complete"])
+        plan = workflow.load(self.root, "state/progress.json")["review_plan"]
+        original_review = runner.requests[0]["instructions"]
+        original_audit = runner.requests[1]["instructions"]
+        self.assertEqual(plan["instruction_snapshot"], {"reviewer": original_review, "auditor": original_audit})
+        with patch.object(workflow, "content_review_instructions", side_effect=ValueError("Methods moved in upgrade")), \
+                patch.object(workflow, "AUDIT_INSTRUCTIONS", "Changed audit methods after upgrade"):
+            result = self.review(runner, purpose="evaluation")
+        self.assertTrue(result["evaluation_complete"], result)
+        self.assertEqual(runner.calls, ["reviewer", "auditor", "auditor"])
+        self.assertEqual(runner.requests[-1]["instructions"], original_audit)
+        self.assertEqual(workflow.load(self.root, "state/progress.json")["review_plan"], plan)
+
+    def test_changed_instruction_snapshot_does_not_silently_change_assignment(self):
+        runner = SyntheticRunner()
+        self.review(runner)
+        progress = workflow.load(self.root, "state/progress.json")
+        progress["review_plan"]["instruction_snapshot"]["reviewer"] += "\nChanged without revision."
+        workflow.save(self.root, "state/progress.json", progress)
+        with self.assertRaisesRegex(ValueError, "revision=true"):
+            self.review(runner)
+        self.assertEqual(runner.calls, ["reviewer", "auditor"])
+
     def test_changed_auditor_resumes_audit_without_repeating_reviewer(self):
         runner = SyntheticRunner()
         self.review(runner)
@@ -320,6 +345,7 @@ class WorkflowTests(unittest.TestCase):
         workflow.save_text(self.root, "logs/review.jsonl", "".join(json.dumps(row)+"\n" for row in rows))
         progress = workflow.load(self.root, "state/progress.json")
         progress["review_plan"]["runner_signature"] = workflow.digest(CONFIG)
+        progress["review_plan"].pop("instruction_snapshot")
         progress["review_plan"].pop("auditor_signature")
         for slot in progress["review_plan"]["slots"]:
             slot.pop("reviewer_signature")
@@ -408,13 +434,14 @@ class WorkflowTests(unittest.TestCase):
         methods.write_text(original.replace("units, denominators and calculations",
                                            "units, denominators, time windows and calculations"), encoding="utf-8")
         with patch.object(workflow, "TOOLKIT", toolkit):
-            with self.assertRaisesRegex(ValueError, "revision=true"):
-                self.review(runner, config=config)
+            self.assertTrue(self.review(runner, config=config)["reused"])
             self.assertEqual(runner.calls, ["reviewer"])
             self.assertEqual(before, {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()})
             self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
             self.assertTrue(self.review(runner, config=config, revision=True)["reviews_complete"])
         self.assertEqual(runner.calls, ["reviewer", "reviewer"])
+        self.assertIn("units, denominators, time windows and calculations", runner.requests[-1]["instructions"])
+        self.assertNotIn("units, denominators, time windows and calculations", runner.requests[0]["instructions"])
 
     def test_default_negative_review_stays_complete_and_blocks_delivery(self):
         runner = SyntheticRunner(negative=True)

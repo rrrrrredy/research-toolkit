@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Pin reviewer/auditor instructions in new workflow review plans so reference upgrades do not invalidate pending recovery or repeat completed reviews. Ordinary explicit revisions adopt current instructions; frozen evaluations and legacy version checks retain their boundaries.
+
 - Add opt-in development protocol v2 with predeclared report/notes parsing, model aliases, format options, failure categories, code-bound freezes, request ceilings and secondary A/B swaps. Supply five exposed fictional task families and separate length-matched judge controls; preserve historical inputs and results. No new model calls or quality claims.
 
 - Add a bilingual improvement plan covering reliability, usability, methods, masking, task design and feedback. Share local task locks across CLI/MCP/Python, retain invalid-encoding reviewer bytes without misclassifying execution, add Windows runtime CI, and correct Chinese reference links.

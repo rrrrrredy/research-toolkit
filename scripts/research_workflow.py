@@ -534,16 +534,30 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     audit_required = "auditor" in config
     if purpose == "evaluation" and not audit_required:
         raise ValueError("Evaluation requires its declared independent auditor configuration.")
-    review_instructions = content_review_instructions()
-    if reviewer == "self":
-        review_instructions = ("Explicitly switch from author to critical reviewer in this same context. "
-            "This is a degraded self-review, not an independent opinion. Examine the frozen input below. "
-            "Return the JSON result with the supplied input_version, then submit it as self_review.\n"
-            + review_instructions)
-    if not audit_required:
-        review_instructions += ("\nFor report delivery, pass only when no required corrections remain. "
-                                "Mark nonessential suggestions optional; any critical, major or minor defect "
-                                "requires needs_revision. A negative verdict is a completed review.")
+    instruction_snapshot = old_plan.get("instruction_snapshot") if old_plan and not revision else None
+    if instruction_snapshot is not None:
+        if (not isinstance(instruction_snapshot, dict) or set(instruction_snapshot) != {"reviewer", "auditor"}
+                or not nonempty(instruction_snapshot.get("reviewer"))
+                or (instruction_snapshot["auditor"] is not None and not nonempty(instruction_snapshot["auditor"]))):
+            raise ValueError("Saved review instruction snapshot is malformed; preserve and inspect the task records.")
+        review_instructions = instruction_snapshot["reviewer"]
+        audit_instructions = instruction_snapshot["auditor"]
+    else:
+        review_instructions = content_review_instructions()
+        if reviewer == "self":
+            review_instructions = ("Explicitly switch from author to critical reviewer in this same context. "
+                "This is a degraded self-review, not an independent opinion. Examine the frozen input below. "
+                "Return the JSON result with the supplied input_version, then submit it as self_review.\n"
+                + review_instructions)
+        if not audit_required:
+            review_instructions += ("\nFor report delivery, pass only when no required corrections remain. "
+                                    "Mark nonessential suggestions optional; any critical, major or minor defect "
+                                    "requires needs_revision. A negative verdict is a completed review.")
+        audit_instructions = AUDIT_INSTRUCTIONS if audit_required else None
+        # Do not invent a historical snapshot for legacy executions. An explicit
+        # ordinary revision creates a fresh assignment with the current methods.
+        if not old_plan or revision:
+            instruction_snapshot = {"reviewer": review_instructions, "auditor": audit_instructions}
     source_names = sorted(set([*evidence_paths, *required_sources, "data/source_registry.csv", "data/claims_registry.csv"]))
     sources = {name: safe_path(root, name).read_text(encoding="utf-8") for name in source_names}
     if any(not text.strip() for text in sources.values()):
@@ -570,7 +584,7 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     runner_signature = digest({"reviewers": [assignment_config(r) for r in config["reviewers"]],
                                "auditor": assignment_config(config["auditor"]) if audit_required else None,
                                "review_instructions": review_instructions,
-                               "audit_instructions": AUDIT_INSTRUCTIONS if audit_required else None})
+                               "audit_instructions": audit_instructions if audit_required else None})
     same_runner = bool(old_plan and old_plan.get("runner_signature") in {runner_signature, digest(config)})
     assignment_changed = bool(old_plan and (old_plan.get("input_version") != version or not same_runner))
     if assignment_changed:
@@ -593,7 +607,7 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
               "scope": "full_report", "dimensions": DIMENSIONS, "input": input_ref,
               "reviewer_signature": digest({"config": assignment_config(r), "instructions": review_instructions})}
              for r in config["reviewers"]]
-    auditor_signature = (digest({"config": assignment_config(config["auditor"]), "instructions": AUDIT_INSTRUCTIONS})
+    auditor_signature = (digest({"config": assignment_config(config["auditor"]), "instructions": audit_instructions})
                          if audit_required else None)
     # Preserve an unchanged legacy assignment without inventing bindings for old executions.
     if same_runner:
@@ -611,6 +625,8 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
             "input_version": version, "runner_signature": runner_signature, "slots": slots,
             "sampling": {"method": SAMPLING_METHOD, "population": population,
                          "selected": selection, "mandatory": [f"review:{s['slot_id']}" for s in slots]}}
+    if instruction_snapshot is not None:
+        plan["instruction_snapshot"] = instruction_snapshot
     if reviewer != "independent":
         plan.update(reviewer=reviewer, review_strength="degraded" if reviewer == "self" else "external")
     if not audit_required:
@@ -699,7 +715,7 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
             samples = {**report_samples, f"review:{sid}": "Check review validity, passed coverage and no-change decisions."}
             try:
                 audit_value, audit_id = invoke(root, audit_prefix, config["auditor"],
-                    {"role": "auditor", "instructions": AUDIT_INSTRUCTIONS, "assignment": packet,
+                    {"role": "auditor", "instructions": audit_instructions, "assignment": packet,
                      "original_review": safe_path(root, pending["response"]["path"]).read_text(encoding="utf-8"),
                      "finding_records": pending["findings"], "samples": samples},
                     used_ids, runner)
