@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Measure explicit whole-artifact word/character ranges from requirement records for Lite and Full, retaining actual counts and rejecting false satisfied claims before receipt writes. Record decision actors and original report/response hashes for new ordinary-review dispositions, preserving legacy attempts and original criticism. These checks establish record consistency, not research quality or identity authentication.
+
 - Expand public judge controls to four bilingual families with exact label reversals and valid ties (12 packets). Add read-only hash, input, length and excerpt checks with corruption tests on Linux/Windows; preserve the original arithmetic inputs. These are exposed diagnostic materials, not live calibration results or held-out evidence.
 
 - Bind new Lite completion receipts to research inputs and optional local checklist evidence files. Source, registry, task or requirement changes now make delivery stale without rewriting the old receipt; legacy receipts disclose their narrower binding scope. This adds no reviewer or Full gate and does not certify checklist semantics.

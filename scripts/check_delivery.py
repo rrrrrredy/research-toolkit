@@ -315,6 +315,69 @@ def inspect_requirements(
     return findings, accepted_limitations
 
 
+def inspect_length_constraints(root: Path, artifact: str) -> tuple[list[dict], list[str]]:
+    """Measure explicitly declared bounds; never infer a limit from prose or certify depth."""
+    rows, errors = inspect_jsonl(root / "state/requirements.jsonl", "Requirement")
+    constraints = [row for row in rows if "length_constraint" in row]
+    if not constraints:
+        return [], errors
+    path = resolve_inside(root, artifact)
+    try:
+        if path is None or not path.is_file():
+            raise ValueError("Report path must name a file inside the task.")
+        report = path.read_text(encoding="utf-8")
+    except (OSError, ValueError) as exc:
+        return [], [*errors, f"Cannot measure report length: {exc}"]
+    counts = {"whitespace_words": len(report.split()),
+              "nonwhitespace_characters": sum(not char.isspace() for char in report)}
+    checks, seen = [], set()
+    for number, row in enumerate(constraints, 1):
+        identifier = row.get("requirement_id", row.get("id"))
+        label = identifier if nonempty_text(identifier) else f"length record {number}"
+        rule = row["length_constraint"]
+        if not nonempty_text(identifier) or identifier in seen:
+            errors.append(f"{label}: length requirements need distinct nonempty IDs.")
+            continue
+        seen.add(identifier)
+        if not nonempty_text(row.get("summary")):
+            errors.append(f"{label}: summary must state the agreed length requirement and counting scope.")
+        if (not isinstance(rule, dict) or set(rule) - {"unit", "scope", "min", "max"}
+                or not isinstance(rule.get("unit"), str) or rule["unit"] not in counts
+                or rule.get("scope") != "whole_artifact"
+                or not ({"min", "max"} & set(rule))
+                or any(type(rule[key]) is not int or rule[key] < 0 for key in ("min", "max") if key in rule)
+                or ("min" in rule and "max" in rule and rule["min"] > rule["max"])):
+            errors.append(f"{label}: length_constraint needs unit whitespace_words/nonwhitespace_characters, "
+                          "scope whole_artifact and nonnegative integer min and/or max in order.")
+            continue
+        actual = counts[rule["unit"]]
+        met = actual >= rule.get("min", 0) and ("max" not in rule or actual <= rule["max"])
+        status = str(row.get("status", "")).strip().lower()
+        check = {"requirement_id": identifier, "unit": rule["unit"], "scope": rule["scope"],
+                 "min": rule.get("min"), "max": rule.get("max"), "actual": actual,
+                 "bounds_met": met, "status": status}
+        checks.append(check)
+        if status in REQUIREMENT_DECISION_STATUSES:
+            decision = row.get("user_decision")
+            if not (isinstance(decision, dict) and all(nonempty_text(decision.get(key))
+                                                     for key in ("source_turn", "quote"))):
+                errors.append(f"{label}: {status} needs its existing user_decision source_turn and quote.")
+        elif status != "satisfied":
+            errors.append(f"{label}: resolve the length requirement before delivery (status: {status or '<missing>'}).")
+        else:
+            if not has_evidence(row.get("evidence")):
+                errors.append(f"{label}: satisfied length requirement needs an evidence locator.")
+            if not met:
+                errors.append(f"{label}: measured {actual} {rule['unit']} over whole_artifact, "
+                              f"outside declared bounds min={rule.get('min')}, max={rule.get('max')}.")
+    return checks, errors
+
+
+def length_receipt_matches(receipt: dict, checks: list[dict]) -> bool:
+    # JSON comparison keeps booleans distinct from integer measurements.
+    return json.dumps(receipt.get("length_checks", []), sort_keys=True) == json.dumps(checks, sort_keys=True)
+
+
 def claims_completion(message: str, artifact: str = "final.md") -> bool:
     """Return True only for an affirmative user-visible completion claim."""
 
@@ -650,6 +713,14 @@ def evaluate_delivery(
     elif receipt_exists and not isinstance(receipt_data, dict):
         add("invalid_delivery_receipt", "The delivery receipt is not valid JSON object data.")
 
+    length_checks = []
+    if terminal_intent or isinstance(receipt_data, dict):
+        length_checks, length_errors = inspect_length_constraints(root, artifact)
+        for finding in length_errors:
+            add("invalid_length_requirement", finding)
+        if isinstance(receipt_data, dict) and not length_receipt_matches(receipt_data, length_checks):
+            add("stale_length_check", "Receipt length measurements differ from the current report and requirements.")
+
     accepted_limitations = collect_accepted_limitations(progress)
     accepted_limitations.extend(requirement_limitations)
     if isinstance(receipt_data, dict):
@@ -796,6 +867,7 @@ def evaluate_delivery(
     return {
         "ok": not flags,
         "delivery_contract_version": contract_version,
+        **({"length_checks": length_checks} if length_checks else {}),
         "current_contract_checked": type(contract_version) is int and contract_version == DELIVERY_CONTRACT_VERSION,
         "semantic_verification": False,
         "review_completion": review_completion,

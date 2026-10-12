@@ -61,4 +61,6 @@ Agent 负责维护记录和调用工具，只向用户询问重要研究取舍�
 
 有工具时，向 `research_finish` 提供任务、稿件路径和拟交付说明，取得 checklist 模板。完成真实检查后提交每项的 `passed` 与 `evidence`，仅实际通过时填写 `passed: true`。工具保存 `state/final_checklist.json`。新凭证绑定稿件、交付说明、任务说明、来源／主张表、要求记录（包括原本不存在的状态），以及标为已读来源所声明的本地文件。每项还可用 `evidence_files: ["checks/length.md"]` 指向保留的检查说明，这些任务内的非空文件也会绑定；不能以工作流输出文件充当检查说明。先解决返回错误，再宣称完成；任一绑定输入改变后都须重新检查和提交。远程 URL 或页码仍只是记录的定位，不代表工具下载或监控了远程来源。旧凭证保留原来的稿件／交付说明检查范围。
 
+若约定整个文件的词数／字符范围，起草前在已有要求台账中记录 `length_constraint`：`unit` 使用 `whitespace_words` 或 `nonwhitespace_characters`，`scope` 为 `whole_artifact`，`min`／`max` 至少填写一个整数并包含端点。该行同时保留实际约定的 `summary`、编号、状态和证据。Finish 返回／重算 `length_checks`，包含 Markdown 标记和参考文献。不能把正文或页数限制改成全文口径，也不能自行发明最小篇幅；其他口径需相应的人工测量。显式范围检查不认证研究深度。参见[计数约定](../docs/delivery-verification.zh-CN.md#显式篇幅要求)。
+
 没有工具时，分别交付报告、来源与判断记录、checklist，并说明未生成本地凭证。两种路径中的 checklist 都只记录作者自检，不代表独立评审或系统证实报告正确。

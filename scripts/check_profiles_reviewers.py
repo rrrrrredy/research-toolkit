@@ -45,6 +45,111 @@ class ProfileTests(unittest.TestCase):
         result = SyntheticRunner(negative=negative)({}, {"role": "reviewer"}, None)
         return {**json.loads(result["content"]), "input_version": prompt["input_version"]}
 
+    def test_lite_length_claim_is_checked_before_writing_receipt(self):
+        self.task("lite")
+        w.save_text(self.root, "state/requirements.jsonl", json.dumps({
+            "requirement_id": "R-length", "summary": "At least 100 words, counting the whole file.",
+            "status": "satisfied", "evidence": "final.md",
+            "length_constraint": {"unit": "whitespace_words", "scope": "whole_artifact", "min": 100}})+"\n")
+        items = {key: {"passed": True, "evidence": "Checked against final.md"} for key in CHECKLIST}
+        result = w.finish(self.workspace, "case", "The report is complete.", checklist=items)
+        self.assertFalse(result["completed"], result)
+        self.assertFalse((self.root/"state/final_checklist.json").exists())
+
+    def length_requirement(self, **changes):
+        row = {"requirement_id": "R-length", "summary": "Count the whole report using the declared unit and bounds.",
+               "status": "satisfied", "evidence": "final.md",
+               "length_constraint": {"unit": "whitespace_words", "scope": "whole_artifact", "min": 1, "max": 200}}
+        row.update(changes)
+        w.save_text(self.root, "state/requirements.jsonl", json.dumps(row)+"\n")
+        return row
+
+    def test_length_measurements_bind_both_profiles_and_survive_checkout_newlines(self):
+        for profile in ("full", "lite"):
+            with self.subTest(profile=profile), tempfile.TemporaryDirectory() as tmp:
+                self.workspace = Path(tmp)
+                self.task(profile)
+                self.length_requirement()
+                args = {}
+                if profile == "lite":
+                    args["checklist"] = {k: {"passed": True, "evidence": "final.md and source.md"} for k in CHECKLIST}
+                else:
+                    prompt = w.review(self.workspace, "case", ["source.md"], reviewer="self")
+                    w.review(self.workspace, "case", ["source.md"], reviewer="self", self_review=self.self_result(prompt))
+                result = w.finish(self.workspace, "case", "The report is complete.", **args)
+                self.assertTrue(result["completed"], result)
+                self.assertEqual(result["delivery_check"]["length_checks"][0]["actual"], 9)
+                name = "state/final_checklist.json" if profile == "lite" else "state/final_delivery.json"
+                receipt = w.load(self.root, name)
+                report = self.root/"final.md"
+                report.write_bytes(report.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n"))
+                self.assertTrue(evaluate_delivery(self.root)["ok"])
+                receipt["length_checks"][0]["actual"] = 8
+                w.save(self.root, name, receipt)
+                before = (self.root/name).read_bytes()
+                status = w.status(self.workspace, "case")
+                self.assertEqual(status["progress"]["status"], "stale")
+                self.assertEqual((self.root/name).read_bytes(), before)
+
+    def test_length_boundaries_use_explicit_unicode_and_whitespace_units(self):
+        self.task("lite")
+        w.save_text(self.root, "final.md", "# 标题\n\n甲乙，a 12。[S1]\n")
+        for unit, count in (("nonwhitespace_characters", 14), ("whitespace_words", 4)):
+            with self.subTest(unit=unit):
+                self.length_requirement(length_constraint={"unit": unit, "scope": "whole_artifact", "min": count, "max": count})
+                checks, errors = w.inspect_length_constraints(self.root, "final.md")
+                self.assertEqual(errors, [])
+                self.assertEqual(checks[0]["actual"], count)
+                self.length_requirement(length_constraint={"unit": unit, "scope": "whole_artifact", "max": count-1})
+                self.assertTrue(w.inspect_length_constraints(self.root, "final.md")[1])
+
+    def test_malformed_or_ambiguous_length_constraints_fail_closed(self):
+        self.task("lite")
+        rule = {"unit": "whitespace_words", "scope": "whole_artifact", "min": 1}
+        for change in ({"unit": "tokens"}, {"scope": "body_only"}, {"min": True}, {"min": -1},
+                       {"min": 3, "max": 2}, {"max": 1.5}, {"min": None}, {"claimed_count": 1}):
+            with self.subTest(change=change):
+                self.length_requirement(length_constraint={**rule, **change})
+                self.assertTrue(w.inspect_length_constraints(self.root, "final.md")[1])
+        self.length_requirement(length_constraint={"unit": "whitespace_words", "scope": "whole_artifact"})
+        self.assertTrue(w.inspect_length_constraints(self.root, "final.md")[1])
+        row = self.length_requirement()
+        w.save_text(self.root, "state/requirements.jsonl", (json.dumps(row)+"\n")*2)
+        self.assertTrue(w.inspect_length_constraints(self.root, "final.md")[1])
+
+    def test_length_waiver_keeps_measurement_and_requires_existing_user_decision(self):
+        self.task("lite")
+        for status in ("waived", "accepted_limitation", "out_of_scope"):
+            with self.subTest(status=status):
+                row = self.length_requirement(status=status, length_constraint={
+                    "unit": "whitespace_words", "scope": "whole_artifact", "min": 100})
+                self.assertTrue(w.inspect_length_constraints(self.root, "final.md")[1])
+                self.length_requirement(**{**row, "user_decision": {
+                    "source_turn": "synthetic-user-turn", "quote": "You may deliver fewer than 100 words."}})
+                checks, errors = w.inspect_length_constraints(self.root, "final.md")
+                self.assertEqual(errors, [])
+                self.assertFalse(checks[0]["bounds_met"])
+                self.assertEqual(checks[0]["status"], status)
+                self.assertEqual(checks[0]["actual"], 9)
+
+    def test_failed_length_recheck_preserves_existing_receipt_and_message(self):
+        self.task("lite")
+        self.length_requirement()
+        items = {k: {"passed": True, "evidence": "final.md and source.md"} for k in CHECKLIST}
+        self.assertTrue(w.finish(self.workspace, "case", "Original delivery.", checklist=items)["completed"])
+        before = {name: (self.root/name).read_bytes() for name in
+                  ("state/final_checklist.json", "state/progress.json", "delivery_message.md")}
+        self.length_requirement(length_constraint={"unit": "whitespace_words", "scope": "whole_artifact", "min": 100})
+        result = w.finish(self.workspace, "case", "Replacement delivery.", checklist=items)
+        self.assertFalse(result["completed"])
+        self.assertEqual(before, {name: (self.root/name).read_bytes() for name in before})
+
+    def test_existing_requirements_without_length_are_not_inferred(self):
+        self.task("lite")
+        w.save_text(self.root, "state/requirements.jsonl", json.dumps({
+            "requirement_id": "R-old", "summary": "100 words", "status": "satisfied", "evidence": "final.md"})+"\n")
+        self.assertEqual(w.inspect_length_constraints(self.root, "final.md"), ([], []))
+
     def test_status_checks_current_full_and_lite_delivery_without_rewriting_state(self):
         for profile in ("full", "lite"):
             for mutation in ("report", "claims", "receipt"):

@@ -39,6 +39,20 @@ python <skill-directory>/scripts/check_delivery.py <task-directory>
 
 脚本核对声明字段和上述文件条件，无法发现未记录的需求、从自由文本推导阅读义务、认证引文真实性或从笔记证明理解。作者仍须对照真实请求与来源核查。独立检查器和评测器均检查需求关闭，即使关闭评测器可选的凭证检查也如此。
 
+## 显式篇幅要求
+
+Lite 与 Full 都可在已有要求台账中，用可选的 `length_constraint` 记录可测范围。起草／送审前记录任务已约定的篇幅及计数口径，不自行设置默认最小篇幅，也不从自然语言猜测阈值。以下是**合成格式示例**，不是通用字数目标：
+
+```json
+{"requirement_id":"R-length","summary":"已约定整个文件为 800—1200 个非空白字符。","status":"satisfied","evidence":"final.md，整个文件","length_constraint":{"unit":"nonwhitespace_characters","scope":"whole_artifact","min":800,"max":1200}}
+```
+
+`whitespace_words` 按 Python 空白分词；`nonwhitespace_characters` 统计除空白外的 Unicode 码点。两者均计算整个 UTF-8 文件，包含 Markdown 标记、标题、引用及参考文献；不是模型 token 或编辑器渲染后的字数。目前仅支持 `whole_artifact`。若约定只统计正文或按页限制，应使用相应测量，不能改称全文计数。`min`／`max` 至少提供一个非负整数，范围包含端点；使用独立要求编号，并在 summary 中说明实际约定。
+
+`research_finish` 重算实际篇幅，超出范围的 `satisfied` 自述会在写入凭证或替换交付消息之前被拒绝。凭证保存 `length_checks`，离线检查会重新测量；Lite checklist 预览返回计数及错误。两档对此类记录沿用既有关闭规则：未解决状态仍需处理，已有用户决定可免除要求、调整范围或接受限制。超范围后获免除的记录仍保留实际计数和 `bounds_met: false`，不改写成满足范围。Full 评审已经冻结要求台账，修改约定范围须按正常流程做当前版本评审。此前没有结构化篇幅要求的凭证保留原检查范围。
+
+评测 runner 在终态交付时也检查显式篇幅要求，即使关闭了可选凭证检查。这些检查只验证实际计数与声明的范围，不能发现漏记要求、证明范围忠实于用户指示，也不能认证研究深度或质量。作者自述或增加篇幅都不能补足缺失的论证。
+
 ## 比较实际回复记录
 
 ~~~bash
