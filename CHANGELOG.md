@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Bind new Lite completion receipts to research inputs and optional local checklist evidence files. Source, registry, task or requirement changes now make delivery stale without rewriting the old receipt; legacy receipts disclose their narrower binding scope. This adds no reviewer or Full gate and does not certify checklist semantics.
+
 - Pin reviewer/auditor instructions in new workflow review plans so reference upgrades do not invalidate pending recovery or repeat completed reviews. Ordinary explicit revisions adopt current instructions; frozen evaluations and legacy version checks retain their boundaries.
 
 - Add opt-in development protocol v2 with predeclared report/notes parsing, model aliases, format options, failure categories, code-bound freezes, request ceilings and secondary A/B swaps. Supply five exposed fictional task families and separate length-matched judge controls; preserve historical inputs and results. No new model calls or quality claims.

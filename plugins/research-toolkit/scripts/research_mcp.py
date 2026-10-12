@@ -89,6 +89,7 @@ async def research_finish(task: str, message: str, artifact: str = "final.md",
                           checklist: dict[str, Any] | None = None) -> dict[str, Any]:
     """Verify report delivery and publish its receipt/terminal state only when checks pass.
     Lite returns a checklist template when checklist is omitted; submit each passed/evidence item to finish.
+    Optional evidence_files lists retained task-relative check notes; new Lite receipts also bind research inputs.
     message is the intended user-visible delivery text. This does not send messages or publish externally.
     For evidenced no-change decisions, append finding_disposition rows to logs/review.jsonl as documented.
     Evaluation tasks end with evaluation_complete from research_review, without repairing samples.

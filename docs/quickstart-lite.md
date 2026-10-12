@@ -61,7 +61,7 @@ python scripts/research_workflow.py finish --workspace ../research-work --reques
 python scripts/check_delivery.py ../research-work/helpdesk-lite
 ```
 
-A completed task has `final.md` and `state/final_checklist.json`, with `status: checklist_complete`, `independent_review: false` and explicit `SKIP` logs. It has no independent review record. If the report changes, check it again and submit an updated checklist.
+A completed task has `final.md` and `state/final_checklist.json`, with `status: checklist_complete`, `independent_review: false` and explicit `SKIP` logs. It has no independent review record. New receipts also bind the task/source/claim records, requirement ledger and declared local source files. If any bound input changes, check again and submit an updated checklist. You can optionally bind retained check notes through an item's `evidence_files` list; see the [Lite stage guide](../references/lite-workflow.md).
 
 </details>
 

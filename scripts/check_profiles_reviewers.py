@@ -198,6 +198,105 @@ class ProfileTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             w.finish(self.workspace, "case", "Complete.", checklist={})
 
+    def test_lite_research_input_changes_make_delivery_stale_without_rewriting_receipt(self):
+        self.task("lite")
+        items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source.md."} for k in CHECKLIST}
+        self.assertTrue(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+        receipt = (self.root/"state/final_checklist.json").read_bytes()
+        progress = (self.root/"state/progress.json").read_bytes()
+        for name in ("source.md", "data/source_registry.csv", "data/claims_registry.csv", "state/task_spec.md", "state/requirements.jsonl"):
+            path = self.root/name
+            original = path.read_bytes()
+            with self.subTest(name=name):
+                # Keep records structurally valid: freshness must check content, not only shape.
+                if name.endswith(".csv"):
+                    path.write_bytes(original.replace(b"Synthetic", b"Revised"))
+                    if path.read_bytes() == original:
+                        path.write_bytes(original + b"\n")
+                elif name.endswith(".jsonl"):
+                    path.write_text('{"requirement_id":"R-new","summary":"New scope","status":"open"}\n', encoding="utf-8")
+                else:
+                    path.write_bytes(original + b"\nChanged evidence or requirement.\n")
+                self.assertFalse(evaluate_delivery(self.root)["ok"])
+                self.assertEqual(w.status(self.workspace, "case")["progress"]["status"], "stale")
+                self.assertEqual((self.root/"state/final_checklist.json").read_bytes(), receipt)
+                self.assertEqual((self.root/"state/progress.json").read_bytes(), progress)
+            path.write_bytes(original)
+        self.assertTrue(evaluate_delivery(self.root)["ok"])
+
+    def test_lite_optional_evidence_files_are_located_and_bound(self):
+        self.task("lite")
+        items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source.md."} for k in CHECKLIST}
+        w.save_text(self.root, "checks/length.txt", "Report length checked against the brief.")
+        items["requirements"]["evidence_files"] = ["checks/length.txt"]
+        self.assertTrue(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+        w.save_text(self.root, "checks/length.txt", "Changed measurement.")
+        self.assertFalse(evaluate_delivery(self.root)["ok"])
+        self.assertTrue(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+        for targets in (["missing.txt"], ["../outside.txt"], [str(self.root/"source.md")],
+                        ["state/progress.json"], "checks/length.txt", []):
+            with self.subTest(targets=targets):
+                items["requirements"]["evidence_files"] = targets
+                before = (self.root/"state/final_checklist.json").read_bytes()
+                self.assertFalse(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+                self.assertEqual((self.root/"state/final_checklist.json").read_bytes(), before)
+
+    def test_lite_binding_preserves_locator_only_sources_and_legacy_receipts(self):
+        self.task("lite")
+        items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source S1, page 2."} for k in CHECKLIST}
+        path = self.root/"data/source_registry.csv"
+        text = path.read_text(encoding="utf-8").replace("source.md", "p. 2")
+        path.write_text(text, encoding="utf-8")
+        (self.root/"state/requirements.jsonl").unlink()
+        self.assertTrue(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+        record = w.load(self.root, "state/final_checklist.json")
+        self.assertNotIn("source.md", record["input_hashes"])
+        self.assertIsNone(record["input_hashes"]["state/requirements.jsonl"])
+        w.save_text(self.root, "state/requirements.jsonl", "")
+        self.assertFalse(evaluate_delivery(self.root)["ok"])
+        (self.root/"state/requirements.jsonl").unlink()
+        record.pop("schema_version")
+        record.pop("input_hashes")
+        w.save(self.root, "state/final_checklist.json", record)
+        w.save_text(self.root, "state/task_spec.md", "Changed since legacy receipt.")
+        result = evaluate_delivery(self.root)
+        self.assertTrue(result["ok"])
+        self.assertEqual(result["input_binding_scope"], "report_and_message_only")
+        self.assertFalse(result["semantic_verification"])
+
+    def test_lite_binds_binary_original_and_explicit_source_text_with_shared_hash_rules(self):
+        self.task("lite")
+        items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source.md."} for k in CHECKLIST}
+        original = self.root/"original.pdf"
+        original.write_bytes(b"%PDF synthetic binary control\xff\r\n")
+        registry = self.root/"data/source_registry.csv"
+        with registry.open(encoding="utf-8", newline="") as file:
+            rows = list(csv.DictReader(file))
+        rows[0].update(url="original.pdf", evidence_path="source.md")
+        with registry.open("w", encoding="utf-8", newline="") as file:
+            writer = csv.DictWriter(file, fieldnames=list(rows[0])); writer.writeheader(); writer.writerows(rows)
+        self.assertTrue(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+        record = w.load(self.root, "state/final_checklist.json")
+        self.assertEqual(record["input_hashes"]["original.pdf"], w.sha256_file(original))
+        source = self.root/"source.md"
+        source.write_bytes(source.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n"))
+        self.assertTrue(evaluate_delivery(self.root)["ok"])
+        original.write_bytes(original.read_bytes().replace(b"\r\n", b"\n"))
+        self.assertFalse(evaluate_delivery(self.root)["ok"])
+
+    def test_lite_plural_paragraph_and_section_locators_bind_the_source(self):
+        self.task("lite")
+        items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source.md."} for k in CHECKLIST}
+        path = self.root/"data/source_registry.csv"
+        original = path.read_text(encoding="utf-8")
+        for locator in ("source.md paragraphs 1-2", "source.md sections 1-2"):
+            with self.subTest(locator=locator):
+                path.write_text(original.replace("source.md", locator), encoding="utf-8")
+                self.assertTrue(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+                self.assertIn("source.md", w.load(self.root, "state/final_checklist.json")["input_hashes"])
+        (self.root/"source.md").unlink()
+        self.assertFalse(evaluate_delivery(self.root)["ok"])
+
     def test_full_without_cli_performs_degraded_self_review_and_delivery(self):
         with patch("review_runner.shutil.which", side_effect=AssertionError("no CLI probe for self")):
             started = self.task()

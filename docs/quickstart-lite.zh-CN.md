@@ -58,7 +58,7 @@ python scripts/research_workflow.py finish --workspace ../research-work --reques
 python scripts/check_delivery.py ../research-work/helpdesk-lite
 ```
 
-完成后可看到 `final.md`、`state/final_checklist.json`、`status: checklist_complete`、`independent_review: false` 以及明确的 `SKIP` 日志，没有独立评审记录。正文改变后需要重新检查并提交 checklist。
+完成后可看到 `final.md`、`state/final_checklist.json`、`status: checklist_complete`、`independent_review: false` 以及明确的 `SKIP` 日志，没有独立评审记录。新凭证还绑定任务／来源／主张记录、要求记录和已声明的本地来源文件。任一绑定输入改变后，都需要重新检查并提交 checklist。可选用每项的 `evidence_files` 列表绑定保留的检查说明，见 [Lite 阶段指南](../references/lite-workflow.zh-CN.md)。
 
 </details>
 
