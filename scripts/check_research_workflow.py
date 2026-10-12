@@ -109,6 +109,42 @@ class WorkflowTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             workflow.review(self.workspace, "case", ["../secret.txt"], config=CONFIG)
 
+    def test_dispatch_missing_and_unknown_arguments_are_actionable_without_mutation(self):
+        before = (self.root/"state/progress.json").read_bytes()
+        for action, request, expected in (("start", {"task": "never-created"}, "missing brief"),
+                                          ("finish", {"task": "case"}, "missing message"),
+                                          ("guide", {"stage": "final", "typo": True}, "unknown fields typo")):
+            with self.subTest(action=action), self.assertRaisesRegex(ValueError, expected) as failure:
+                workflow.dispatch(action, request, self.workspace)
+            self.assertIn("--request <file.json>", str(failure.exception))
+            self.assertIn("Allowed fields:", str(failure.exception))
+        self.assertFalse((self.workspace/"never-created").exists())
+        self.assertEqual((self.root/"state/progress.json").read_bytes(), before)
+
+    def test_registry_errors_locate_the_record_and_missing_fields(self):
+        source = self.root/"data/source_registry.csv"
+        old_source = source.read_text(encoding="utf-8")
+        source.write_text("source_id,title,url,source_type,read_scope,read_evidence\nS1,,https://example.org,,full_text,source.md\n", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, r"source_registry.csv row S1: fill title, source_type"):
+            workflow.status(self.workspace, "case", stage="analyze")
+        source.write_text(old_source, encoding="utf-8")
+        claims = self.root/"data/claims_registry.csv"
+        claims.write_text("claim_id,claim,claim_type,supporting_sources\nC1,,,S1\n", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, r"claims_registry.csv row C1: fill claim, claim_type"):
+            workflow.status(self.workspace, "case", stage="draft")
+
+    def test_cli_missing_argument_returns_json_and_nonzero_exit(self):
+        import subprocess
+        result = subprocess.run([sys.executable, str(workflow.TOOLKIT/"scripts/research_workflow.py"),
+                                 "start", "--workspace", str(self.workspace)],
+                                input='{"task":"never-created"}', capture_output=True, text=True, encoding="utf-8")
+        self.assertEqual(result.returncode, 1)
+        error = json.loads(result.stdout)
+        self.assertIs(error["ok"], False)
+        self.assertIn("missing brief", error["error"])
+        self.assertIn("--request <file.json>", error["error"])
+        self.assertFalse((self.workspace/"never-created").exists())
+
     def test_draft_requires_source_and_claim_records(self):
         (self.root/"data/claims_registry.csv").write_text("claim_id,claim\n", encoding="utf-8")
         with self.assertRaises(ValueError):

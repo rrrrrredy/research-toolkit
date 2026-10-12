@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Make CLI missing/unknown argument errors actionable before mutation and identify incomplete source/claim records by file, ID and fields. Add Python 3.10 CLI/MCP CI alongside existing Linux/Windows checks and clarify interpreter and request setup in both languages.
+
 - Measure explicit whole-artifact word/character ranges from requirement records for Lite and Full, retaining actual counts and rejecting false satisfied claims before receipt writes. Record decision actors and original report/response hashes for new ordinary-review dispositions, preserving legacy attempts and original criticism. These checks establish record consistency, not research quality or identity authentication.
 
 - Expand public judge controls to four bilingual families with exact label reversals and valid ties (12 packets). Add read-only hash, input, length and excerpt checks with corruption tests on Linux/Windows; preserve the original arithmetic inputs. These are exposed diagnostic materials, not live calibration results or held-out evidence.
