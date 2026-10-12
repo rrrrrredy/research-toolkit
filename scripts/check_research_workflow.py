@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+import base64
 import csv
 import json
 import os
@@ -776,6 +777,23 @@ class WorkflowTests(unittest.TestCase):
                               "command": [sys.executable, "-X", "utf8", str(worker)]}, request, self.workspace)
         self.assertEqual(json.loads(result["content"]), request)
         self.assertEqual(result["capture"]["exit_code"], 0)
+
+    def test_invalid_stderr_bytes_preserve_success_and_raw_evidence(self):
+        command = [sys.executable, "-c", "import sys;sys.stderr.buffer.write(b'warning: \\xff');"
+                   "print('{\"execution_id\":\"encoding-control\",\"content\":\"{}\"}')"]
+        result = run_reviewer({"id": "test", "model": "synthetic", "format": "json", "command": command}, {}, self.workspace)
+        self.assertEqual(result["execution_id"], "encoding-control")
+        self.assertEqual(base64.b64decode(result["capture"]["raw_output_base64"]["stderr"]), b"warning: \xff")
+        self.assertIn("\ufffd", result["capture"]["stderr"])
+
+    def test_invalid_stdout_is_output_failure_with_original_bytes(self):
+        command = [sys.executable, "-c", "import sys;sys.stdout.buffer.write(b'broken \\xff')"]
+        with self.assertRaises(ReviewFailure) as failure:
+            run_reviewer({"id": "test", "model": "synthetic", "format": "json", "command": command}, {}, self.workspace)
+        capture = failure.exception.capture
+        self.assertEqual(capture["status"], "invalid_output_encoding")
+        self.assertEqual(capture["exit_code"], 0)
+        self.assertEqual(base64.b64decode(capture["raw_output_base64"]["stdout"]), b"broken \xff")
 
 
 class CodexJSONLTransportTests(unittest.TestCase):

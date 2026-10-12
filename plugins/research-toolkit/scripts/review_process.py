@@ -114,8 +114,10 @@ def run_bounded(command, wire, cwd, timeout):
                 raise ProcessCleanupError("Local process pipes remained active after cancellation.") from drain_error
             exc.output, exc.stderr = stdout, stderr
             raise
-        return subprocess.CompletedProcess(command, process.returncode,
-            stdout.decode('utf-8'), stderr.decode('utf-8'))
+        result = subprocess.CompletedProcess(command, process.returncode,
+            stdout.decode('utf-8', errors='replace'), stderr.decode('utf-8', errors='replace'))
+        result.stdout_bytes, result.stderr_bytes = stdout, stderr
+        return result
     finally:
         try:
             if process is not None:

@@ -7,7 +7,7 @@ from check_version import check as check_version
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT/"plugins/research-toolkit"
-RUNTIME = ["profile_policy.py", "check_delivery.py", "check_review_completion.py", "research_workflow.py", "review_runner.py", "review_process.py"]
+RUNTIME = ["profile_policy.py", "check_delivery.py", "check_review_completion.py", "research_workflow.py", "review_runner.py", "review_process.py", "task_lock.py"]
 
 
 def payload() -> dict[str, bytes]:

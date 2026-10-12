@@ -11,6 +11,8 @@ import re
 import shutil
 import tempfile
 import uuid
+from functools import wraps
+from task_lock import task_lock
 
 from profile_policy import CHECKLIST, LITE_LOG, checklist_errors, inspect_lite_delivery
 
@@ -116,6 +118,15 @@ def task_root(workspace: Path, task: str, *, create=False) -> Path:
     elif not root.is_dir():
         raise ValueError("Task does not exist. Start it first.")
     return root
+
+
+def task_operation(function):
+    @wraps(function)
+    def locked(workspace, task, *args, **kwargs):
+        root = task_root(workspace, task, create=function.__name__ == "start")
+        with task_lock(root):
+            return function(workspace, task, *args, **kwargs)
+    return locked
 
 
 def load(root, name):
@@ -290,6 +301,7 @@ def requirement_input(root):
     return content if content.strip() else ""
 
 
+@task_operation
 def start(workspace: Path, task: str, brief: dict, language="en", profile="full") -> dict:
     if profile not in {"lite", "full"}:
         raise ValueError("Profile must be lite or full.")
@@ -343,6 +355,7 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
             **guidance(progress["stage"], language, profile)}
 
 
+@task_operation
 def status(workspace: Path, task: str, language="en", stage: str | None = None) -> dict:
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
@@ -483,6 +496,7 @@ def record_plan_change(root, previous, current):
         append_row(root, change)
 
 
+@task_operation
 def review(workspace: Path, task: str, evidence_paths: list[str], artifact="final.md",
            purpose="report_delivery", revision=False, reviewer=None, self_review=None, *, config=None, runner=run_reviewer) -> dict:
     root = task_root(workspace, task)
@@ -819,6 +833,7 @@ def finish_lite(root, progress, message, artifact, checklist):
             "profile": "lite", "delivery_check": result, "log": LITE_LOG, "message": message}
 
 
+@task_operation
 def finish(workspace: Path, task: str, message: str, artifact="final.md", checklist=None) -> dict:
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")

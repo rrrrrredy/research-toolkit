@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import base64
 import ipaddress
 import os
 from pathlib import Path
@@ -213,6 +214,22 @@ def run_generic(config, request):
     return {"execution_id": identity, "content": content, "capture": capture}
 
 
+def output_capture(stdout, stderr):
+    capture, raw = {}, {}
+    for name, value in (("stdout", stdout), ("stderr", stderr)):
+        if isinstance(value, bytes):
+            try:
+                capture[name] = value.decode("utf-8")
+            except UnicodeDecodeError:
+                capture[name] = value.decode("utf-8", errors="replace")
+                raw[name] = base64.b64encode(value).decode("ascii")
+        else:
+            capture[name] = value or ""
+    if raw:
+        capture.update(raw_output_base64=raw, decoding_errors=list(raw))
+    return capture
+
+
 def run_reviewer(config: dict, request: dict, cwd: Path) -> dict:
     """Commands come from trusted startup configuration, never tool arguments."""
     backend = backend_kind(config)
@@ -251,11 +268,9 @@ def run_reviewer(config: dict, request: dict, cwd: Path) -> dict:
     try:
         result = run_bounded(command, wire, cwd, timeout)
     except subprocess.TimeoutExpired as exc:
-        def decoded(value):
-            return value.decode("utf-8", errors="replace") if isinstance(value, bytes) else (value or "")
         raise ReviewFailure("Reviewer timed out; the assignment remains open.",
-                            {"status": "timeout", "stdout": decoded(exc.stdout),
-                             "stderr": decoded(exc.stderr), "local_process_cleanup": "terminated",
+                            {"status": "timeout", **output_capture(exc.stdout, exc.stderr),
+                             "local_process_cleanup": "terminated",
                              "remote_request_cancelled": "unknown"}) from exc
     except ProcessCleanupError as exc:
         raise ReviewFailure(str(exc), {"status": "cancellation_unconfirmed",
@@ -263,10 +278,14 @@ def run_reviewer(config: dict, request: dict, cwd: Path) -> dict:
     except (OSError, UnicodeError) as exc:
         raise ReviewFailure(f"Reviewer could not run ({type(exc).__name__}); check its installation and access.",
                             {"status": "launch_failure", "error_type": type(exc).__name__}) from exc
-    capture = {"exit_code": result.returncode, "stdout": result.stdout, "stderr": result.stderr,
+    capture = {"exit_code": result.returncode,
+               **output_capture(getattr(result, "stdout_bytes", result.stdout), getattr(result, "stderr_bytes", result.stderr)),
                "requested_model": config["model"], "format": kind}
     if result.returncode:
         raise ReviewFailure("Reviewer process failed; inspect the retained execution capture.", capture)
+    if "stdout" in capture.get("decoding_errors", []):
+        capture["status"] = "invalid_output_encoding"
+        raise ReviewFailure("Reviewer ran but its response is not valid UTF-8; original output bytes are retained.", capture)
     try:
         if kind == "json":
             envelope = json.loads(result.stdout)

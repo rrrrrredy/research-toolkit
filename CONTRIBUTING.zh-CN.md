@@ -55,6 +55,7 @@ python scripts/check_installation_contract.py
 python scripts/check_diagnostic_bundle.py --self-test
 python scripts/check_semantic_review_bundle.py --self-test
 python scripts/check_study_verification.py
+python scripts/check_task_lock.py
 ```
 
 修改主文件后先更新网页副本：
