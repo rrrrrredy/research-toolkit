@@ -39,7 +39,7 @@ Use three distinct pools:
 | Pool | Purpose | Current material |
 | --- | --- | --- |
 | Development | Diagnose defects and tune methods | Five exposed fictional families, 3 English and 2 Chinese |
-| Judge calibration | Check specific known errors, valid controls and position sensitivity | A separate arithmetic error pair, its label swap and an identical-valid tie |
+| Judge calibration | Check specific known errors, valid controls and position sensitivity | Four separate English/Chinese families: arithmetic, causation, attribution and decision constraints; each has a swap and identical-valid tie |
 | Future held-out study | Assess a frozen change on inputs unused for tuning | Not supplied or claimed here; requires separate authorship/access records and a new design |
 
 These are purposive examples, not a representative workload sample. Translations, different author models and label swaps do not add independent families. Synthetic tasks check protocol behavior; real research evaluation also needs rights-cleared real sources, provenance, cutoffs and live retrieval when essential to the question. Retain rejected candidate IDs and reasons before outcomes, and retain all admitted failures afterward.
@@ -52,13 +52,14 @@ Only `judge-inputs/` goes to a judge context. Keep coordinator keys, development
 
 When swaps are enabled, both orientations use fresh requests. All first judgments/failures lock before decoding. Primary results remain primary; `position_swap` records the swapped preference, decoded condition and consistency (`null` when either outcome is unresolved). Disagreement cannot be repaired by selecting the favorable orientation, averaging it away or rerunning it. Swaps are sensitivity observations within the same family.
 
-Before any quality study, use the [separate calibration packets](../evals/tasksets/judge-calibration-v2/README.md) without their coordinator key. Require located evidence for the known error, stable identification after the swap and no invented substantive difference in the identical-valid pair. Preserve failures and adjudicate explanations against sources. The current single arithmetic example is incomplete calibration: Chinese and nonnumerical controls remain to be designed. Passing it does not establish five-dimension judge reliability or Toolkit efficacy.
+Before any quality study, use the [separate calibration packets](../evals/tasksets/judge-calibration-v3/README.md) without their coordinator manifest. Four public development families cover English arithmetic/decision constraints and Chinese causation/source attribution; they reuse the unchanged v2 arithmetic inputs. Require located evidence for each known error, stable identification after swaps and no invented substantive difference in identical-valid pairs. Preserve failures and adjudicate explanations against sources. Live calibration remains pending: the 12 packets require 12 judge requests per model under a separately frozen budget, in addition to connectivity calls. Four families are not 12 independent observations. Passing these controls does not establish five-dimension judge reliability or Toolkit efficacy.
 
 ## Offline acceptance
 
 ```bash
 python scripts/check_blinded_evals.py
 python scripts/check_blinded_protocol_v2.py
+python scripts/check_judge_calibration.py --self-test
 python scripts/check_study_verification.py
 ```
 

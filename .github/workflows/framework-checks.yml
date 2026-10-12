@@ -64,6 +64,7 @@ jobs:
         run: |
           python scripts/check_blinded_evals.py
           python scripts/check_blinded_protocol_v2.py
+          python scripts/check_judge_calibration.py --self-test
       - name: Check study verification under Python optimization without rewriting evidence
         run: python scripts/check_study_verification.py
 
@@ -85,6 +86,8 @@ jobs:
           python scripts/check_blinded_evals.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/check_blinded_protocol_v2.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/check_judge_calibration.py --self-test
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Check packaged MCP workflow on Windows
         run: |
