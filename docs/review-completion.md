@@ -28,14 +28,14 @@ The shared workflow includes the role reference's [content-review methods](../re
 
 For ordinary reports the executor writes `audit_required: false`. Complete `model_review` records, original responses, execution captures, dimension coverage and input bindings remain required; `review_audit` and `sampling_audit` are not required. Delivery requires no unresolved necessary correction. A justified `no_change` disposition can clear a mistaken finding without replacing the original negative verdict; `optional` suggestions do not block delivery. The global result summarizes the reviews and their dispositions without another model call.
 
-Evaluations, configured audits and existing plans without this field retain the audited contract. Do not add `audit_required: false` to frozen evaluations to change their completion conditions.
+New evaluations can set `audit_required: false` and use their configured independent reviewer without an auditor. Explicitly configured audits and saved plans without this field retain the audited contract. Do not rewrite saved audited plans to change their completion conditions.
 
 Add `review_plan` to the existing progress record. It contains:
 
 | Field | Meaning |
 | --- | --- |
 | `purpose` | `evaluation` or `report_delivery`; the delivery checker requires the latter |
-| `audit_required` | `false` for ordinary reports; omitted or `true` for audited plans, including evaluations |
+| `audit_required` | `false` for new reports and evaluations without a configured auditor; omitted or `true` for declared audited plans |
 | `author_id` | Identity of the author context |
 | `artifact_sha256` | Hash of the actual primary artifact |
 | `slots` | Nonempty list of assignments for the declared reviewer tier |
@@ -95,7 +95,7 @@ New ordinary review plans and attempts declare `disposition_schema_version: 2`. 
 
 Only `no_change` clears the corresponding finding. `confirmed_defect`, `unresolved` or merely declaring `resolved` does not clear a necessary correction on the unchanged draft. A `needs_revision` verdict can be cleared only when all its necessary findings have evidenced no-change decisions. `not_assessed`, an unexplained negative verdict, missing/invalid reviews and unrelated blockers still prevent delivery. Changed report or source inputs still require current-version review.
 
-Call the existing `research_finish` after recording dispositions. It reconciles the executor's own review summary and binds the retained log to the receipt; it cannot overwrite a separate later global failure. Independent audits and evaluation plans retain their existing requirements. These are record-consistency checks, not certification that an author's no-change decision is correct.
+Call the existing `research_finish` after recording dispositions. It reconciles the executor's own review summary and binds the retained log to the receipt; it cannot overwrite a separate later global failure. Saved audited plans retain their existing requirements. These are record-consistency checks, not certification that an author's no-change decision is correct.
 
 ## Validity and Finding Dispositions
 
@@ -149,7 +149,7 @@ The latest sampling record must cover the current artifact and selection. A revi
 
 ## Reading the Result
 
-The result includes `required_slots`, `completed_slots`, `selected_attempts`, flags and explanations. `ok` checks the actual plan: ordinary reports do not need audit or sampling records; evaluations and declared audited plans still do.
+The result includes `required_slots`, `completed_slots`, `selected_attempts`, flags and explanations. `ok` checks the actual plan: reports and evaluations without a configured auditor do not need audit or sampling records; declared audited plans still do.
 
 These fields remain false even on success:
 

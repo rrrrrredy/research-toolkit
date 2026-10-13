@@ -147,8 +147,8 @@ def inspect_review_completion(
     if type(disposition_version) is not int or disposition_version not in {1, 2}:
         add("invalid_review_plan", "Unsupported disposition schema version.")
         return result()
-    if type(audit_required) is not bool or (plan["purpose"] == "evaluation" and not audit_required):
-        add("invalid_review_plan", "Evaluation requires auditing; audit_required must be a boolean.")
+    if type(audit_required) is not bool:
+        add("invalid_review_plan", "audit_required must be a boolean.")
         return result()
     review_tier = plan.get("reviewer", "independent")
     self_review = review_tier == "self"

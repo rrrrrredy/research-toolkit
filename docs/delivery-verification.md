@@ -67,7 +67,7 @@ A caller-supplied file is not authenticated delivery attestation. An agent writi
 
 ## Required model-review completion
 
-Contract 3 checks [review-completion records](review-completion.md). Ordinary report plans use `purpose: report_delivery` and `audit_required: false`, retaining content reviews, original responses, execution evidence and version bindings. Evaluations and declared audited plans still require validity audits, dispositions and sampling; upgrades do not silently relax existing plans.
+Contract 3 checks [review-completion records](review-completion.md). Ordinary report plans use `purpose: report_delivery` and `audit_required: false`, retaining content reviews, original responses, execution evidence and version bindings. New evaluations also support `audit_required: false`. Explicitly audited plans retain validity audits, dispositions and sampling; upgrades do not silently relax saved plans.
 
 A global PASS cannot fill a missing slot. A failed invocation is retained separately from editorial findings. Review validity and report verdict are separate; use `check_review_completion.py` with purpose `evaluation` when checking that a panel is complete despite negative report judgments. The delivery checker continues to require the actual report to be ready.
 
@@ -101,7 +101,7 @@ The standalone checker and eval runner share review and open-issue semantics. A 
 
 Use `--contract-version 1` or `--contract-version 2` only to inspect unchanged historical records that predate these fields. The result and CLI output explicitly label legacy checks and set `current_contract_checked: false`. The eval runner has matching `--delivery-contract-version 1` and `2` options. Version 2 includes requirement decisions, reading scope and report hashes, but omits model-review completion and sampling. Legacy success is not acceptance under the current contract. Do not add invented approval quotes or review hashes to old runs to make them pass; perform and record the missing work for a new delivery instead.
 
-旧记录可按原契约检查，不倒填历史。新普通报告保留内容评审及版本绑定，额外审计按已声明计划执行；评测要求不随普通研究的默认精简而降低。
+旧记录可按原契约检查，不倒填历史。新普通报告保留内容评审及版本绑定，额外审计按已声明计划执行；新评测不默认追加审计，已保存审计计划的要求保留。
 
 ## Regression coverage
 

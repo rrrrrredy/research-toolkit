@@ -101,7 +101,7 @@ Full review-revise cycles for a single section are capped at two unless the user
 
 Every declared model-review slot has a complete original response, retained execution evidence, the correct input/artifact version and substantive coverage of the declared review dimensions. Additional validity auditing follows the declared task. Failed or incomplete calls remain unfinished assignments. Valid negative findings are retained and adjudicated; their existence does not make an evaluation incomplete.
 
-Ordinary reports require effective content review without a compulsory second audit context. Independent adjudication and formal sampling apply to expressly declared audits and evaluation studies; the [methods](subagents-and-review-loop.md) and [record interface](../docs/review-completion.md) remain available.
+Ordinary reports require effective content review without a compulsory second audit context. Independent adjudication and formal sampling apply to expressly declared audited plans; an evaluation label does not add them. For those plans, the [methods](subagents-and-review-loop.md) and [record interface](../docs/review-completion.md) remain available.
 
 ## Before Public Delivery
 

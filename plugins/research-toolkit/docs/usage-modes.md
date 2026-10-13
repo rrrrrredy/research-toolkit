@@ -144,7 +144,7 @@ For multiple reviewers, an auditor or a custom command, set `RESEARCH_TOOLKIT_RE
 {"reviewers":[{"id":"primary","backend":"generic","model":"your-model","base_url":"https://your-provider.example/v1","api_key_env":"RESEARCH_TOOLKIT_REVIEW_API_KEY"}]}
 ```
 
-The file takes precedence over backend environment variables. Endpoint and model are assignment-bound; secret values never enter configuration or records. Evaluations require `auditor`; a single-backend environment configuration creates another request as auditor for evaluations. Ordinary reports do not add auditing by default.
+The file takes precedence over backend environment variables. Endpoint and model are assignment-bound; secret values never enter configuration or records. New reports and evaluations use the configured reviewer without adding an auditor. Include `auditor` only when an additional audit is intended. Resuming a saved audited plan retains its auditor requirement; a single-backend environment configuration supplies that separate request only for such a saved plan.
 
 A trusted command uses `command: ["/absolute/path/to/executable", "argument"]` and `format: "json"`. It receives `{role, instructions, assignment}` on stdin; assignment includes the complete report, brief, sources and review dimensions. It returns this envelope on stdout:
 
