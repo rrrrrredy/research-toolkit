@@ -1,0 +1,86 @@
+{
+  "reviews": [
+    {
+      "label": "A",
+      "verdict": "needs_revision",
+      "findings": [
+        {
+          "location": "Final paragraph: “rerun no unrelated research or specialist scope”",
+          "problem": "Unchanged sources and scope requirements do not exempt task-required specialist reviews from renewed artifact binding.",
+          "source_evidence": "S1 requires the latest review for every declared required scope to pass and carry the current report’s artifact_sha256. A global PASS cannot refresh a required specialist binding.",
+          "required_change": "Distinguish unrelated research and ordinary unit reviews from task-required scopes; require current-artifact reviews for any declared required scopes."
+        },
+        {
+          "location": "Recovery instructions",
+          "problem": "The operational sequence omits Full revision mode, resolution of necessary review findings, and finish.",
+          "source_evidence": "S2 directs Full recovery to call research_review with revision: true, resolve necessary findings, and call finish.",
+          "required_change": "Include these steps rather than ending the recovery sequence at review and resealing."
+        }
+      ],
+      "basis": "Correctly identifies stale review and receipt bindings, rejects resealing alone, preserves the original review, and retains required independence. The supplied whole-report count of 149 meets the range, but the scope exemption and incomplete recovery sequence require revision."
+    },
+    {
+      "label": "B",
+      "verdict": "needs_revision",
+      "findings": [
+        {
+          "location": "Final paragraph: “any unchanged task-required scope reviews”",
+          "problem": "Incorrectly extends the coverage of ordinary unit reviews to explicitly required scopes.",
+          "source_evidence": "S1 says explicitly required scopes remain independent and each latest required review must bind the current artifact. Global coverage of earlier ordinary unit reviews does not remove these requirements.",
+          "required_change": "Require renewed current-artifact reviews for declared required scopes; limit the non-repetition exemption to unrelated research and eligible ordinary unit reviews."
+        },
+        {
+          "location": "First paragraph: “a local recheck or global PASS cannot refresh bindings”",
+          "problem": "The unqualified wording wrongly suggests a new global PASS cannot refresh the global binding.",
+          "source_evidence": "S1 says a local recheck cannot refresh the global binding, while a global PASS cannot refresh a task-required specialist binding.",
+          "required_change": "Identify which binding each action cannot refresh."
+        },
+        {
+          "location": "“Required now” paragraph",
+          "problem": "The recovery sequence omits check-draft and does not retain the task’s explicitly required independent global review.",
+          "source_evidence": "S2 requires check-draft after correction and says independence is required when declared; the brief declares independent global review.",
+          "required_change": "Add check-draft and specify that the revision-mode global review must remain independent."
+        }
+      ],
+      "basis": "Correctly rejects the old receipt and resealing alone, and includes revision mode and finding resolution. The supplied whole-report count of 170 meets the range. Binding errors and missing recovery requirements prevent a pass."
+    },
+    {
+      "label": "C",
+      "verdict": "needs_revision",
+      "findings": [
+        {
+          "location": "“What Work Needs Doing Now?”",
+          "problem": "Recovery is reduced to a new global review and receipt, omitting the source-based recommendation check, affected-claim correction where necessary, check-draft, and the Full revision-and-finish procedure. It also omits the required independence.",
+          "source_evidence": "S2 requires recording the issue and correction, checking the final decision against the same numbers and conditions, correcting affected text and claims, running check-draft, then research_review with revision: true, resolving necessary findings, and calling finish. The brief requires independent global review.",
+          "required_change": "Provide the necessary verification and recovery sequence, retain independent review, and distinguish proposed work from completed work."
+        }
+      ],
+      "basis": "Correctly rejects old coverage and resealing alone, exempts unrelated research, and requires fresh artifact-bound records for declared scopes. The supplied whole-report count of 144 meets the range, but the operational recovery instructions are materially incomplete."
+    },
+    {
+      "label": "D",
+      "verdict": "needs_revision",
+      "findings": [
+        {
+          "location": "Final paragraph",
+          "problem": "Incorrectly says unchanged required scopes remain valid and need no revisiting, and attributes an unsupported unchanged-records exemption to S1.",
+          "source_evidence": "S1 requires current-artifact hashes for the latest global review and every declared required scope. Required scopes remain independent even after a global PASS.",
+          "required_change": "Remove the unsupported attribution and require renewed current-artifact reviews for any declared required scopes, while exempting unrelated research."
+        },
+        {
+          "location": "“check-draft to confirm length and content”",
+          "problem": "Overstates the draft checker’s assurance of content quality.",
+          "source_evidence": "S2 says semantic_quality and delivery_status remain not_assessed; source truth and other requirements still need normal checks.",
+          "required_change": "Describe check-draft as checking its specified prerequisites and length, not validating semantic content."
+        },
+        {
+          "location": "“Work needed now”",
+          "problem": "Does not preserve the original review and record the change or explicitly retain required independent global review.",
+          "source_evidence": "S2 requires preservation of the original review and documentation of the issue, version, passage, evidence, consequence, and correction. Independence is required when declared, as it is in the brief.",
+          "required_change": "Add preservation and change documentation, and specify independent revision-mode global review."
+        }
+      ],
+      "basis": "Correctly explains receipt staleness and why resealing alone fails, and includes revision mode, finding resolution, and finish. The supplied whole-report count of 168 meets the range. The required-scope exemption, checker overclaim, and recovery omissions require revision."
+    }
+  ]
+}

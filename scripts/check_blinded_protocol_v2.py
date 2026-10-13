@@ -50,18 +50,13 @@ class ProtocolV2Tests(PilotTests):
             with self.assertRaises(ValueError):
                 h.parse_output(content, settings, "author")
 
-    def test_admission_ceiling_self_judge_and_exposure_controls(self):
+    def test_admission_ceiling_and_exposure_controls(self):
         original = copy.deepcopy(self.config)
         for change in ({"max_requests": 16}, {"max_retries": 1}, {"cohort_status": "held_out"}):
             self.config = {**copy.deepcopy(original), **change}
             self.store()
             with self.assertRaises(ValueError):
                 self.plan()
-        self.config = copy.deepcopy(original)
-        self.config["judge"]["accepted_model_ids"].append(self.config["author"]["model"])
-        self.store()
-        with self.assertRaisesRegex(ValueError, "own outputs"):
-            self.plan()
         self.config = original
         design_path = self.base / self.config["tasks"][0]["design"]
         design = h.read(design_path)
@@ -70,6 +65,35 @@ class ProtocolV2Tests(PilotTests):
         self.store()
         with self.assertRaisesRegex(ValueError, "exposure"):
             self.plan()
+
+    def test_same_model_can_review_in_separate_requests_without_author_context(self):
+        self.config["judge"]["model"] = self.config["author"]["model"]
+        self.config["judge"]["accepted_model_ids"] = list(self.config["author"]["accepted_model_ids"])
+        self.store()
+        out, _ = self.plan()
+        judge_requests = []
+        author_inputs = {}
+        def call(settings, messages, folder):
+            if "author" in folder.parts:
+                packet = json.loads(messages[1]["content"])
+                author_inputs[packet["brief"]] = packet["sources"]
+                value = {"report": "A source-backed report.", "notes": "PRIVATE_AUTHOR_CONTEXT"}
+            else:
+                judge_requests.append(messages)
+                value = self.judgment()
+            h.save(folder / "response.json", value)
+            return json.dumps(value)
+        rows = h.run(out, call)
+        self.assertEqual(len(rows), 5)
+        self.assertEqual(len(judge_requests), 5)
+        for messages in judge_requests:
+            self.assertEqual([message["role"] for message in messages], ["system", "user"])
+            packet = json.loads(messages[1]["content"])
+            self.assertEqual(set(packet), {"brief", "sources", "rubric", "reports"})
+            self.assertEqual(packet["sources"], author_inputs[packet["brief"]])
+            self.assertNotIn("PRIVATE_AUTHOR_CONTEXT", json.dumps(messages))
+            self.assertNotIn("COORDINATOR_ONLY_ANSWER", json.dumps(messages))
+        self.assertEqual(h.read(out / "results.json")["requests_attempted"], 15)
 
     def test_changed_harness_stops_before_any_call(self):
         out, frozen = self.plan()

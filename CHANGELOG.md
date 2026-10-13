@@ -6,6 +6,10 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Complete a four-task old/new repair recheck: 31 requests, all failures retained, ten maintainer corrections, and 16 final versions with measured length and corresponding Astra acceptance. Correct source-provenance masking in the separately recorded repair review.
+
+- Use Astra in separate author/reviewer contexts without requiring different model IDs, outside reviewers, outside task authors or a fixed panel. Recognize existing independent tasks and real executed tests; simplify repair guidance and optional comparisons. Record two corrected reports accepted by Astra, retaining its first negative review and the subsequent repair.
+
 - Add local draft preflight through CLI/MCP with actual counts, explicit range diagnostics and no state/receipt changes. Preserve count details on failed Lite delivery. Document failure ownership, source-based repairs and stopping rules; retain evaluation originals and quality limitations.
 
 - Preserve the October 12 four-model first-attempt evidence and source checks (72 requests, four missing pairs, six swap preference changes). Correct prospective Lite instruction selection, explicit JSON notes types and bilingual concise constraint/provenance guidance. Eight new October 13 probes parse, but only three meet length and source errors remain; test five real length failures plus two editorial controls against the existing delivery gate. No prompt-only completion guarantee or general quality-benefit claim.

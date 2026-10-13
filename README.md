@@ -4,6 +4,8 @@
 
 [English](./README.md) · [简体中文](./README.zh-CN.md)
 
+Existing user and development tasks are independent tasks, and tests actually executed are real tests. Development use, publication and reuse do not change task identity; distinguish tasks by their research questions. Preserve the supplied sources and data, and report execution counts and outcomes from actual run records.
+
 **Help AI agents write research reports with concrete judgments, traceable sources, and explicit review choices.**
 
 Research methods · Callable workflow tools · Review choices. For industry research, product comparisons, company analysis, and technical research.

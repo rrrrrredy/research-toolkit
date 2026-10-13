@@ -660,8 +660,8 @@
     "longcat/results.json": "b4d901a6e1e0d53f930d70d973c3b919ab3e416ed0b7e05c4f48e7c4637cf4b0",
     "longcat/results.md": "6ac72266aa85d4411be43d24df78acefcf2a445dcfec5ca9020c2ae08a16fbc2",
     "longcat/run-started.json": "2a79976a4df892f2d1aee6c21eeed8cd9dd996a36369c34da7adc0cc49a96fe5",
-    "README.md": "2e1cb3331b14186d099e66c4cae9cb5f3c16db64e2bdd7829a212dc10b95f98e",
-    "README.zh-CN.md": "4f42afade26c7ca9d30c147e8f2ee50c2fa5dba353faa12f45665788478c2bdd",
+    "README.md": "6ae7f203def8f3f8d4cb07587204662714cbb77c558c99c89dd894eb52198c0b",
+    "README.zh-CN.md": "69951b7638b6cbcf33d7a5f35b83f536d3737ee13245a486afec0ef420e7b95f",
     "source-adjudication.json": "159682f7f5a27c65282ec4fe65f12e809ac30339ca7c775fd113c40a393e809f"
   },
   "transformations": [
@@ -909,6 +909,20 @@
       "original_sha256": "49cadd2b4d4a99d12f0e499afa51e97a06f6cb879b2825add4d774680ec1cfb4",
       "public_sha256": "24ce92503431dbfcca14ab272015e0e0057a41a2c59c358f62bd643e1bd93428",
       "rule": "replace local account name only; no report or judgment edits"
+    }
+  ],
+  "documentation_updates": [
+    {
+      "path": "README.md",
+      "previous_sha256": "2e1cb3331b14186d099e66c4cae9cb5f3c16db64e2bdd7829a212dc10b95f98e",
+      "sha256": "6ae7f203def8f3f8d4cb07587204662714cbb77c558c99c89dd894eb52198c0b",
+      "reason": "Correct task/test identity and remove outside-task/reviewer prerequisites; execution evidence unchanged."
+    },
+    {
+      "path": "README.zh-CN.md",
+      "previous_sha256": "4f42afade26c7ca9d30c147e8f2ee50c2fa5dba353faa12f45665788478c2bdd",
+      "sha256": "69951b7638b6cbcf33d7a5f35b83f536d3737ee13245a486afec0ef420e7b95f",
+      "reason": "Correct task/test identity and remove outside-task/reviewer prerequisites; execution evidence unchanged."
     }
   ]
 }

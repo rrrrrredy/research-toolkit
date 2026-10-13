@@ -1,0 +1,28 @@
+{
+  "tasks": 2,
+  "astra_requests": 3,
+  "author_regenerations": 0,
+  "repairs": [
+    {
+      "task_id": "maple-storage-en",
+      "first_review": "needs_revision",
+      "correction": "Added A recovery time and A/B capacities required by the brief; checked against S1/S2.",
+      "final_review": "pass",
+      "whole_artifact_words": 127,
+      "required_range": [
+        120,
+        170
+      ]
+    },
+    {
+      "task_id": "brook-rinse-zh",
+      "first_review": "pass",
+      "final_review": "pass",
+      "whole_artifact_nonwhitespace_characters": 250,
+      "required_range": [
+        180,
+        260
+      ]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "requests_attempted": 2,
+  "results": [
+    {
+      "task_id": "maple-storage-en",
+      "status": "review_complete",
+      "verdict": "needs_revision",
+      "findings": [
+        {
+          "location": "First paragraph: comparison of A and B",
+          "problem": "The comparison omits A’s recovery time and both A’s and B’s capacity, leaving the requested comparison against all four current requirements incomplete.",
+          "source_evidence": "S1 requires recovery within 4 hours and capacity for the current 12 TB. S2 gives A a 2-hour recovery time and 24 TB capacity, and B 24 TB capacity; these meet the corresponding current requirements.",
+          "required_change": "Include A’s compliant recovery time and both A’s and B’s sufficient capacity, while retaining their respective budget and recovery disqualifications."
+        }
+      ]
+    },
+    {
+      "task_id": "brook-rinse-zh",
+      "status": "review_complete",
+      "verdict": "pass",
+      "findings": []
+    }
+  ]
+}

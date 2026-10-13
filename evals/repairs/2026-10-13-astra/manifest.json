@@ -1,0 +1,54 @@
+{
+  "sha256": {
+    "brook-rinse-zh.md": "deb9be592e98b830f16fd3fadaaa94c2d45f9a0fac69064f911f5693ee6f5fe6",
+    "maple-revised-packet.json": "9c9cb391112ea6479950bf131bc996622612e1e67e878045c489fb0321b81480",
+    "maple-storage-en.md": "030e326a70861e70213e00f5890b9a300cc2443650c0814709d088d32acedb9c",
+    "plan.json": "b097420613fea42dfafb495b6aea21ed2e2e1ff7e8931f7d307af634165c075c",
+    "README.md": "3f75ea776a154d7fcdff6811453434be23edbb1224beeaa0f1b55c4bce3cd14d",
+    "README.zh-CN.md": "718955ffdec9f5d512bdf53d3084e0cba4fc851bcc2ef45074d62683e7cfe45b",
+    "repair-summary.json": "48579518a1d9241f2cc9ec714183827180c5193bf30cb76301de68f7218f7410",
+    "results.json": "ad7f285d5057ba29401d780ea4c4773c9e14c025d52fe99f2f0ba6835993afe8",
+    "revision-plan.json": "35b9a0f8aa82b1d1a29aa518ab37398e2420fc5b6605167aae3d9ba1502b22bb",
+    "brook-rinse-zh/command.json": "4636ab4e1e565c29d28a6dfed4cab4f9ab761014461f5170553b8b7a602f07d0",
+    "brook-rinse-zh/content.txt": "deea2b7554ac465e7d1ad7a714c98d6af82e5a872637707944a36673119bff05",
+    "brook-rinse-zh/events.jsonl": "9af87b447e83f8c469189002bd73ab09fe1ccd6034d90803ede568af8c26fe34",
+    "brook-rinse-zh/execution.json": "b7ef5d1bfeac952a6b2cdaaa7d28d1c4c472fbfcacc4c754a39f6a891f54e70f",
+    "brook-rinse-zh/request.json": "8ee7efe2a6bec3388a26bc2a04e043c2e1d7a3b71f307cacd57108db9b1bf3c9",
+    "brook-rinse-zh/review.json": "123e3c256e58a4004a2771fd718f20f2d4c1fa92820c5aa62783fe26b6ac10b7",
+    "brook-rinse-zh/stderr.txt": "2ea9732e4ce1657bbf16ecd33cb9167568512157afbf5c50c3f0b511fe0bc64c",
+    "maple-storage-en/command.json": "4636ab4e1e565c29d28a6dfed4cab4f9ab761014461f5170553b8b7a602f07d0",
+    "maple-storage-en/content.txt": "9c5219acdff13dc616c577922c64dee5232b19f8d805eb54228dfa54d2f1f84b",
+    "maple-storage-en/events.jsonl": "69136eebac8bc85e67c59721b2da5af66688a5ade843f64bef28f72fa07830a9",
+    "maple-storage-en/execution.json": "b1e5e7adc146a25ddf1d2dbc6f51f6429652c7e807c01c251d0223ca2d87b1c5",
+    "maple-storage-en/request.json": "88a9791050306780b526026098e4940b138b58c3e14ddaf9ed603b049a19ab4e",
+    "maple-storage-en/review.json": "77cf56d127399956c84f59bf5eeef3e2dc3db14dbcd78abfe520d46a544d5f56",
+    "maple-storage-en/stderr.txt": "19809f6848d6042e67c6a344216f1a01f16400ee940fba41e4bcc8af5b2dacb1",
+    "maple-storage-en-revised/command.json": "4636ab4e1e565c29d28a6dfed4cab4f9ab761014461f5170553b8b7a602f07d0",
+    "maple-storage-en-revised/content.txt": "c68c0976201a11f1886c106e529810998ed08038a2629ced7dff0f7a5acd37be",
+    "maple-storage-en-revised/events.jsonl": "3145628351b29f73251ad4c9ba8f01836f246f3e50f9d3fa254ec0945802829e",
+    "maple-storage-en-revised/execution.json": "f6a65369419631be698de8efdddf857a88ada4a58f4daa7e3526e392820d16db",
+    "maple-storage-en-revised/request.json": "b8a8a1edf38d9d54a9bbfb7a8c43a636adfb9336b2d0017bb7909f2adafc61f3",
+    "maple-storage-en-revised/review.json": "385515d0a582a26c904d60cb12dab3facdd1e923cdb41209247165d20c15d2bb",
+    "maple-storage-en-revised/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "transformations": [
+    {
+      "path": "maple-storage-en/events.jsonl",
+      "original_sha256": "07eb032e83ba96e0f8d44112c8c5e198714bcfe1c87cb331ddd8d5d4eba7e2fd",
+      "public_sha256": "69136eebac8bc85e67c59721b2da5af66688a5ade843f64bef28f72fa07830a9",
+      "reason": "Remove local account path/name from CLI warning only."
+    },
+    {
+      "path": "brook-rinse-zh/events.jsonl",
+      "original_sha256": "194282fb41cc752503a6551706321729202bc37288147d648d4e5eff4d2dd64a",
+      "public_sha256": "9af87b447e83f8c469189002bd73ab09fe1ccd6034d90803ede568af8c26fe34",
+      "reason": "Remove local account path/name from CLI warning only."
+    },
+    {
+      "path": "maple-storage-en-revised/events.jsonl",
+      "original_sha256": "306e7e8cdebea50aa7ca500fd674e8fe6c95e059930959dbc03f19343d137b42",
+      "public_sha256": "3145628351b29f73251ad4c9ba8f01836f246f3e50f9d3fa254ec0945802829e",
+      "reason": "Remove local account path/name from CLI warning only."
+    }
+  ]
+}

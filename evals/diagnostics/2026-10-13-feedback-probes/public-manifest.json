@@ -56,8 +56,8 @@
     "harness.py.b64": "e425ca6181d5d60593f3f54a8dd83666b28267dbcd15ebc94d6612165b230275",
     "manifest.json": "1e601faf4ba80f4d0f6cbe2c783f7ab5ca1b8d7c0a89723e99f61f8d44af2e37",
     "plan.json": "589a55707f037c8827787b61362b6b2fc3e1984baa0a3e3bb8271ef527f34912",
-    "README.md": "7f9fa0778e986a9f8e30a2cdcc9ad78ab05d5c9a10a09c8ba430212d6f85ecf0",
-    "README.zh-CN.md": "e475abd17d7b1e6523b9996f871b1d4303ec718aac9bc02995a703ea51f9f4ed",
+    "README.md": "a0188c6425e31fa0b1169b17244babcb222a8dd00962342ad2900a63ae0a8a5d",
+    "README.zh-CN.md": "6c3e988d0345246ba41124e48ce3c3d675a73eb174c67674ad014e14d3568f05",
     "results.json": "c5bf7a9b30ab216541c824185d41bfe5ddedcdc051cb76a586d4373f15eebfee",
     "started.json": "7abfb82de3057ba496937ab2a13fb2b8b8e62d7d2601638f721feab605693752"
   },
@@ -70,6 +70,20 @@
       "original_decoded_sha256": "28c171ef76cf31e24e1bb54769937351e80db83c906c8c096d311b57fa0c7f3a",
       "public_decoded_sha256": "77305c05408435f8b9bb7e7fe76a579d5fc022b574c5ffc9df7b035d476ceafd",
       "rule": "Replace only the local absolute Git executable constant with <GIT_EXECUTABLE> in the decoded driver. Original byte hashes remain; public driver bytes are not identical execution bytes."
+    }
+  ],
+  "documentation_updates": [
+    {
+      "path": "README.md",
+      "previous_sha256": "7f9fa0778e986a9f8e30a2cdcc9ad78ab05d5c9a10a09c8ba430212d6f85ecf0",
+      "sha256": "a0188c6425e31fa0b1169b17244babcb222a8dd00962342ad2900a63ae0a8a5d",
+      "reason": "Correct task/test identity and remove outside-task/reviewer prerequisites; execution evidence unchanged."
+    },
+    {
+      "path": "README.zh-CN.md",
+      "previous_sha256": "e475abd17d7b1e6523b9996f871b1d4303ec718aac9bc02995a703ea51f9f4ed",
+      "sha256": "6c3e988d0345246ba41124e48ce3c3d675a73eb174c67674ad014e14d3568f05",
+      "reason": "Correct task/test identity and remove outside-task/reviewer prerequisites; execution evidence unchanged."
     }
   ]
 }

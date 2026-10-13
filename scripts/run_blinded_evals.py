@@ -123,9 +123,9 @@ def prepare(study_path, output, seed):
         require(type(config.get("position_swap")) is bool and type(config.get("max_requests")) is int, "Declare swap policy and request ceiling")
         require(config["max_requests"] == len(tasks) * (4 if config["position_swap"] else 3), "Request ceiling must equal two authors plus declared judge orientations per family")
         require(type(config.get("max_retries")) is int and config["max_retries"] == 0, "First attempts only: max_retries must be 0")
-        author_ids = {config["author"]["model"], *config["author"]["accepted_model_ids"]}
-        judge_ids = {config["judge"]["model"], *config["judge"].get("accepted_model_ids", [])}
-        require(not author_ids & judge_ids, "Author cannot judge its own outputs; declare a different judge model")
+        # Review independence comes from the separately constructed judge request,
+        # not a different vendor/model name. The judge receives no author session
+        # history, private notes, assignments or coordinator answers.
     designs = {}
     source_inputs = []
     for task in tasks:

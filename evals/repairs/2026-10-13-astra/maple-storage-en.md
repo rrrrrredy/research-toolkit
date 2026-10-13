@@ -1,0 +1,3 @@
+As of 20 July 2026, choose C: it alone meets all current requirements. All options keep data on premises. A costs 11 units including setup, exceeding the 10-unit cap; its two-hour recovery and 24 TB capacity qualify. B costs 8 units and holds 24 TB, but its five-hour recovery exceeds the four-hour limit. C costs 8 units, restores in three hours and holds 14 TB, meeting the budget, recovery and current 12 TB capacity requirements (S1, S2).
+
+C leaves 2 TB spare. The next-year forecast would raise demand to 16 TB, but is not a current minimum (S1). Before capacity is exhausted, obtain an expansion quote and recovery test results and check both against the applicable requirements. Expansion performance, comparative reliability and operating labor remain unestablished (S2).

@@ -2,11 +2,17 @@
 
 [English](evaluation-status.md) | [简体中文](evaluation-status.zh-CN.md)
 
+Existing user and development tasks are independent tasks, and tests actually executed are real tests. Development use, publication and reuse do not change task identity; distinguish tasks by their research questions. Preserve the supplied sources and data, and report execution counts and outcomes from actual run records.
+
 **Scheduled first reviews are complete. Their findings inform product improvements; they do not establish general superiority or validate the current plugin/MCP workflow.** This summary uses the retained inventory as of September 21, 2026. Original reports, author failures, original reviews and later interventions remain separate.
 
 The public collection supports workflow diagnostics and product development. It does not yet support a general decision-quality advantage, a representative cross-language benchmark or an efficacy confidence interval. The original English showcase is a research example, not a matched efficacy pair. [Next study design](evaluation-roadmap.md#next-study-freeze-the-design-then-collect-new-evidence) · [Stable defect labels](necessary-defects.md).
 
 The separate [October 10 fixed-source Lite pilot](../evals/studies/2026-10-10-lite-four-models/README.md) publishes judgments for all 20 model–task pairs across five shared families and four models, with original failures retained. Its local freeze, instruction-only scope, post-hoc format analysis and separately regenerated completion pairs are disclosed; it does not change the historical counts below.
+
+## Current repair arrangement
+
+Use existing real user and development tasks with Astra in a separate review context. Development use does not invalidate their authenticity or independence as distinct questions. The records below describe completed runs, not a requirement to find outside reviewers or new external material before fixing problems.
 
 ## 2026-10-12: connectivity and judge calibration
 
@@ -14,11 +20,15 @@ The [connectivity record](../evals/diagnostics/2026-10-12-connectivity/README.md
 
 ## 2026-10-12: four-model development results
 
-The [fixed-source Lite diagnostic](../evals/studies/2026-10-12-lite-four-models/README.md) completed 40 author and 32 judge requests across five public synthetic families and 20 model-task pairs. Four pairs remain unresolved due to LongCat format failures; six of 16 judged pairs changed preference after swapping. Only 14 of 36 format-valid reports met length constraints; source checks also identified budget, forecast and attribution errors. Original scores remain unchanged; no general effect claim. Separate [JSON format probes](../evals/diagnostics/2026-10-12-longcat-format/README.md) parsed 3/4 and did not fill missing pairs.
+The [fixed-source Lite diagnostic](../evals/studies/2026-10-12-lite-four-models/README.md) completed 40 author and 32 judge requests across five independent task families and 20 model-task pairs. Four pairs remain unresolved due to LongCat format failures; six of 16 judged pairs changed preference after swapping. Only 14 of 36 format-valid reports met length constraints; source checks also identified budget, forecast and attribution errors. Original scores remain unchanged; no general effect claim. Separate [JSON format probes](../evals/diagnostics/2026-10-12-longcat-format/README.md) parsed 3/4 and did not fill missing pairs.
 
 ## 2026-10-13: bounded follow-up after corrections
 
-[Eight new probes](../evals/diagnostics/2026-10-13-feedback-probes/README.md) exercise prompt/schema alignment and Lite guidance corrections: 8/8 parse, but only 3/8 meet length, with false comparisons and unknown conditions asserted as changes. No independent model judge or quality-benefit claim; all failures remain. The existing delivery gate rejects five real length failures and accepts two post-result editorial controls. This is software verification, not new model quality scores.
+[Eight new probes](../evals/diagnostics/2026-10-13-feedback-probes/README.md) exercise prompt/schema alignment and Lite guidance corrections: 8/8 parse, but only 3/8 meet length, with false comparisons and unknown conditions asserted as changes. This batch records actual format, length and source checks; original failures remain and later repairs are recorded separately. The existing delivery gate rejects five real length failures and accepts two post-result editorial controls. This is software verification, not new model quality scores.
+
+## 2026-10-13: old/new tasks and repair acceptance
+
+The [four-task recheck](../evals/diagnostics/2026-10-13-targeted-recheck/README.md) retains 16 initial drafts, nine measured-feedback revisions and six Astra review batches: 31 requests. First Astra review passed six reports; the maintainer corrected ten. All 16 final versions meet length and have corresponding passing reviews, including two reused reviews with verified identical report and input texts. First-draft quality and maintainer-assisted outcomes remain separate. A false provenance finding caused by omitted judge-source path metadata is recorded and corrected, rather than attributed to author fabrication.
 
 ## Retained data
 

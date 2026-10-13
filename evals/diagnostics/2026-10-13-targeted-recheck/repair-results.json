@@ -1,0 +1,65 @@
+{
+  "requests": 2,
+  "results": [
+    {
+      "task_id": "review-profile-zh",
+      "status": "review_complete",
+      "reviews": [
+        {
+          "label": "A",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "正确依据S1选择full并配置independent，不因篇幅短、来源少而降档；依据S2说明同为Astra也可通过新上下文评审，无需外部人员或其他厂商。涵盖评审输入、检查范围、必要修改、版本绑定及交付验收，并明确尚未执行。所附整篇长度为305个非空白字符，符合220—320要求。"
+        },
+        {
+          "label": "B",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "档位选择及独立评审定义符合S1、S2，作者与评审上下文分离安排清楚。包含完整稿件与来源审读、必要修正、当前全稿通过评估、交付记录和条件性运行检查器，未虚构执行结果。所附整篇长度为320个非空白字符，符合上限。"
+        },
+        {
+          "label": "C",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "正确说明明确要求独立评审优先于Lite通常适用的规模条件，同模型新上下文可以承担评审，领域专家仅按需安排。评审材料、覆盖范围、修改与版本绑定、最终验收步骤均有交代，且明确属于未执行的安排。所附整篇长度为319个非空白字符，符合要求。"
+        },
+        {
+          "label": "D",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "依据S1正确选用full与independent，依据S2安排独立的新Astra上下文，不要求外部人员或更换模型。包含直接审读完整稿件、需求与来源，处理必要问题、保留版本绑定、取得全稿通过评估以及交付检查，明确步骤待执行。所附整篇长度为305个非空白字符，符合要求。"
+        }
+      ]
+    },
+    {
+      "task_id": "receipt-revision-en",
+      "status": "review_complete",
+      "reviews": [
+        {
+          "label": "A",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "The verified whole-report count is 168 words, matching the supplied measurement and required range. Correctly explains stale review and receipt coverage, why resealing is insufficient, source-based checking, independent revision review, required-scope bindings, and finishing. Identifies research and covered ordinary reviews that need not repeat. Citations support the guidance; recovery is explicitly prospective."
+        },
+        {
+          "label": "B",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "The verified whole-report count is 172 words, matching the supplied measurement and required range. Accurately distinguishes global and required specialist bindings, explains resealing limitations, and specifies preservation, source verification, draft checking, independent revision review, and finishing. In context, avoiding added reviews means retaining existing scope requirements, whose current-artifact assessments remain explicitly required. Does not claim recovery has run."
+        },
+        {
+          "label": "C",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "The verified whole-report count is 169 words, matching the supplied measurement and required range. Source-supported guidance covers stale bindings, insufficient resealing, preservation, checking the recommendation against source conditions, local checks, independent revision review, and finishing. Correctly preserves required scopes while exempting unrelated research and covered ordinary reviews from repetition. Explicitly states that recovery remains to be performed."
+        },
+        {
+          "label": "D",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "The verified whole-report count is 172 words, matching the supplied measurement and required range. Correctly explains that edited prose invalidates prior coverage and that local checks or resealing cannot replace required review. Specifies source checking, independent revision review, findings resolution, and finishing, while maintaining current-artifact bindings for all required scopes. Appropriately excludes unrelated research and unnecessary new scopes, with no claim of completed recovery."
+        }
+      ]
+    }
+  ]
+}
