@@ -831,6 +831,23 @@ def make_prompt(case: dict[str, Any], sources_by_id: dict[str, dict[str, Any]]) 
             "",
         ]
 
+    if case.get("language") == "zh":
+        review_lines = [
+            "## 评审与修复",
+            "已有题目可直接用于评测、修复和复查。Astra 在与作者分开的新上下文中即可承担独立评审，作者使用同一模型也可以；不要求额外外部评审者、外部供题或固定评审面板。",
+            "评审须收到同一题目、当前报告、完整来源及必要出处信息。盲评只隐藏作者身份、私有 notes 和分组映射，不删除判断所需证据。",
+            "程序测量篇幅，Astra 核对内容，作者修复确认的问题并另存版本复查。保留首稿、原评审和失败；不对未修改稿件反复测试以取得通过，也不按评审记录条数追加无必要评审。",
+            "",
+        ]
+    else:
+        review_lines = [
+            "## Review and repair",
+            "Use existing tasks directly for evaluation, repair and verification. Astra in a fresh context separate from the author can provide independent review, including when both use the same model; no additional outside reviewer, outside task contribution or fixed panel is required.",
+            "Give the reviewer the same task, current report, complete sources and necessary provenance. Blind review hides only author identity, private notes and condition mappings, not evidence needed for judgment.",
+            "Programs measure length, Astra checks content, and the author repairs confirmed defects in a separately saved version for recheck. Preserve first drafts, original reviews and failures; do not repeatedly test unchanged reports for a pass or add unnecessary reviews to meet a row count.",
+            "",
+        ]
+
     return "\n".join(
         [
             f"# Eval Case: {case['title']}",
@@ -844,6 +861,7 @@ def make_prompt(case: dict[str, Any], sources_by_id: dict[str, dict[str, Any]]) 
             f"Expected depth: {case.get('expected_depth', '')}",
             "",
             *conversation_lines,
+            *review_lines,
             "## Required Sources",
             *source_lines,
             "",

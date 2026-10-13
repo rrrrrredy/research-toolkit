@@ -14,6 +14,39 @@
 
 Toolkit 的默认流程调整不改写既有样本、首评或标签，也不自动启动新的模型评测。
 
+## 案例与评测集清单
+
+Toolkit 专用题集在 [`cases/`](cases/)，与后来四模型测试所用的题集分开。下表覆盖当前题目、对照、示例和带日期的运行结果；复用材料会跨分类出现，不能把所有数量相加当作新增独立任务。
+
+| 材料 | 数量 | 用途与当前状态 |
+|---|---|---|
+| [Toolkit 研究题集](cases/) | 7 题 | 保留原题和来源引用，新生成的提示使用当前 Astra 评审与修复分工。 |
+| [反例夹具](regression_fixtures/manifest.json)／[正例夹具](conformance_fixtures/manifest.json) | 22／4 | 检查预期失败和有效对照的真实软件测试，不另计 26 个研究问题。 |
+| [语义诊断](semantic_diagnostics/README.zh-CN.md) | 23 组成对示例 | 当前目录加载已记录的修正，原始输入与判断继续保留。 |
+| [四模型测试题](tasksets/development-v2-synthetic/README.zh-CN.md) | 5 个题族 | [10 月 12 日运行](studies/2026-10-12-lite-four-models/README.zh-CN.md)：72 次请求、16 个有效配对，保留四个缺失配对及六个互换偏好变化。 |
+| [评审校准 v3](tasksets/judge-calibration-v3/README.zh-CN.md) | 4 个题族、12 份输入 | [12 次真实 Astra 判断](diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)；已经包含 v2 的算术输入。 |
+| [原题／新题修复验收](diagnostics/2026-10-13-targeted-recheck/README.zh-CN.md) | 4 题：2 道原题、2 道新题 | 31 次请求，最终 16 个版本验收通过，其中十份经过维护者修正；保留原件。 |
+| [参考写作样例](taste_anchors/README.zh-CN.md) | 4 组 | 可复用来解释具体判据，按实记录先前用途、虚构事实或来源缺少日期的情况。 |
+| [来源包](source_packs/) | 3 包 | 题目提供的证据；保留来源事实及出处信息。 |
+| [公开研究案例](../docs/case-study/README.zh-CN.md) | 2 个 | 国内办公 Agent 中文研究与 API／浏览器英文原创研究，保留稿件、评审与修订；译文不另计任务。 |
+| [模板](templates/)及 [Lite 示例](../examples/lite/) | 工作流辅助材料 | 用于复用配置和入门，空白模板不表示缺真实任务或贡献材料。 |
+
+七道专用题如下：
+
+| 原始题目文件 | 研究问题 |
+|---|---|
+| [ai_agent_market_landscape_zh.json](cases/ai_agent_market_landscape_zh.json) | AI Agent 市场格局 |
+| [ai_video_generation_investment_memo_zh.json](cases/ai_video_generation_investment_memo_zh.json) | AI 视频生成投资备忘录 |
+| [reasoning_model_competition_zh.json](cases/reasoning_model_competition_zh.json) | 推理模型竞争 |
+| [model_price_war_competitive_analysis_zh.json](cases/model_price_war_competitive_analysis_zh.json) | 模型价格战竞争分析 |
+| [monthly_observation_synthesis_zh.json](cases/monthly_observation_synthesis_zh.json) | AI 月度观察综合 |
+| [source_instruction_boundary_zh.json](cases/source_instruction_boundary_zh.json) | 含来源指令干扰的研究任务 |
+| [model_company_pipeline_long_horizon_zh.json](cases/model_company_pipeline_long_horizon_zh.json) | 八家公司模型管线，包含 13 轮要求 |
+
+这七道原题为中文；英文索引是导读，不另计七道翻译题。`scripts/run_evals.py` 现会把当前分工写入每份新提示：程序测量篇幅，Astra 在分开的上下文中收到完整题目、报告、来源及必要出处并评审内容，作者直接修正确认的缺陷，另存版本复查。作者和评审可使用同一模型，不要求外部评审者、外部供题或固定面板。一份针对当前报告的完整评审即可；长周期题不再设至少三条评审记录的门槛。评审缺失或未通过，仍不能通过适用的完成检查。
+
+10 月 13 日专用题集整改离线检查了全部七题的提示生成，以及一份完整评审足够的验收规则，**不表示七篇完整研究报告都已重新生成并经模型复评**。上方 31 次请求的修复验收使用的是另外四道题。旧运行目录保留；实际重跑某题时在新目录生成修正后的提示。已有题可以直接复用，需要验证具体缺陷时再补新题。
+
 本目录包含 7 个研究案例、22 个反例夹具、4 个正例夹具及报告诊断。案例和检查器不要求特定 agent 运行环境。离线检查覆盖需求、任务文件、来源与主张、评审记录、来源指令边界和成稿表达，不提供模型排名或整体报告质量结论。
 
 结果 schema v2 将 `conformance_status`、`conformance_score`、`conformance_flags` 用于机械结构、追溯与配置的失败信号；`research_quality_status` 为 `not_evaluated`。机械通过不代表有洞察、准确或对决策有用。
