@@ -93,6 +93,10 @@ The standalone checker and eval runner share review and open-issue semantics. A 
 
 当前默认检查版本为3，交付凭证的JSON外层仍是schema 1。必做要求若改为放弃、排除或接受未完成，需要记录用户对应决定；披露“没有做完”不能自动关闭要求。必读材料需分清要求读到哪里、实际读到哪里；没有要求全文阅读的辅助资料不因此被强制全文阅读。最新全稿审阅及任务明确要求的专项审阅都要绑定实际审阅稿件的哈希，重新生成交付凭证不能替旧审阅补看新稿。这些检查验证记录的一致性，不认证批准真实性、实际阅读或文章质量。
 
+## Draft checks before delivery
+
+`research_check_draft` (CLI `check-draft`) measures the current artifact and checks draft record prerequisites without changing progress or writing a receipt. It returns explicit length checks even before a delivery message exists; an absent bound is a warning, not a range pass. `ok` covers these mechanical checks only; semantic quality and delivery remain `not_assessed`. The shared task lock may create its normal empty file for a legacy task. `finish` always checks the current version again.
+
 ## Historical records
 
 Use `--contract-version 1` or `--contract-version 2` only to inspect unchanged historical records that predate these fields. The result and CLI output explicitly label legacy checks and set `current_contract_checked: false`. The eval runner has matching `--delivery-contract-version 1` and `2` options. Version 2 includes requirement decisions, reading scope and report hashes, but omits model-review completion and sampling. Legacy success is not acceptance under the current contract. Do not add invented approval quotes or review hashes to old runs to make them pass; perform and record the missing work for a new delivery instead.

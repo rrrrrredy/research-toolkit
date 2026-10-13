@@ -27,6 +27,20 @@ Submit each verifiable batch as a PR and merge after relevant regressions and fu
 | D1 / P2: documentation and contribution | Correct factual, version and language-rule conflicts; clarify counting units and data-rights boundaries; consolidate contributor checks and add Windows validation. | Valid links, equivalent bilingual rules, executable commands on declared platforms, dated historical corrections; matching heading counts do not establish translation accuracy. | [PR #31](https://github.com/rrrrrredy/research-toolkit/pull/31) merged bilingual CLI/evidence guidance, independent intake contract, counting units, data-rights and CI entry points; local links and complete Linux/Windows/Python 3.10 CI passed |
 | F1 / P2: feedback | Classify confirmed failures in source understanding, reasoning, requirements, writing or execution; produce minimal fixes, valid controls and reevaluation records. | Each method change traces to a failure and expected behavior; new frozen samples test development improvements; do not delete or relabel historical negatives. | Implementation and bounded retest completed ([PR #33](https://github.com/rrrrrredy/research-toolkit/pull/33)): [feedback evidence](../evals/diagnostics/2026-10-13-feedback-probes/README.md). Correct Lite instruction selection, JSON types and concise constraint/provenance guidance; eight new frozen replies parsed, only three met length and source errors remain. Delivery checks reject five real length failures and accept two editorial controls; no quality-benefit claim |
 
+## Follow-up after the first cycle
+
+The first cycle's completed rows remain complete; report quality failures remain visible. Subsequent work is tracked separately, not counted as a successful effect result.
+
+| Work | Acceptance boundary | Status |
+| --- | --- | --- |
+| F2: actionable draft checks and failure handling | CLI/MCP return actual counts and record errors before delivery; no report/state/receipt rewrite; failing and corrected controls pass their expected checks; source-based correction and stopping guidance in both languages. | Implemented; PR/CI verification in progress. No paid model calls. |
+| Q1: semantic reliability | New frozen tasks must test recommendation/constraint consistency and unknown-versus-observed distinctions. Preserve first results; report quality separately from format and length. | Unresolved quality limitation. Source checks and editorial examples are documented in [failure handling](failure-handling.md); they are not model improvement evidence. |
+| Q2: reviewer stability | Preregister an additional qualified reviewer and disagreement adjudication on new packets, with a request ceiling. Retain order-swap drift. | Not run; a single Astra panel does not settle disputed claims. |
+| H1: external independent tasks | Collect rights-cleared tasks from contributors outside method development, retain authorship/exposure records, and freeze before use. | Intake contract done; actual outside contributions remain missing. Do not relabel our exposed probes as held-out. |
+| H2: formal effect study | After task intake and reviewer qualification, freeze family count, baseline resources, endpoints, missingness and stopping/budget rules; complete the declared panel. | Not run; no general efficacy conclusion. |
+
+F2 is a product change with offline acceptance. Q1/Q2/H1/H2 are research work with evidence and resource prerequisites; more calls alone cannot close them. Optional package reorganization and asset migration remain deferred maintenance, not prerequisites for ordinary report use.
+
 ## Completion boundary for this cycle
 
 The R1, R2, M1, E1, E2, E3, D1 and F1 implementation, design and bounded-validation deliverables are complete; linked PRs record merge and CI status. This completes the agreed batch, not a guarantee that all model reports are correct. Format/length failures, wrong recommendations and swap disagreements remain evidence; no paid samples are appended to seek favorable outcomes.

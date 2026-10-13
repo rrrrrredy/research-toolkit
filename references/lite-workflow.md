@@ -12,6 +12,8 @@ Use the conversation to establish the question, reader, scope, output, depth and
 
 For a new tool-backed task, pass `profile="lite"` explicitly to `research_start` (CLI: `start --profile lite`). The brief keys are `question`, `audience`, `scope`, `output`, `depth` and `evidence_standard`. Keep the brief and outline in `state/task_spec.md`. On recovery use `research_status(task)` to read the saved profile, progress and requirements, then continue unfinished work. Do not recreate the task or silently change its profile.
 
+Before drafting, register any agreed whole-artifact range in `state/requirements.jsonl` as `length_constraint` with `unit`, `scope: "whole_artifact"` and inclusive `min`/`max`. Do not invent a lower bound or silently reinterpret a body-only limit. Keep a new requirement pending until the current artifact actually satisfies it; a check can return its count without closing the record.
+
 ## collect — Read the necessary evidence
 
 Read the sources needed for the agreed questions, including required material. Distinguish obtaining a file from reading its relevant content. Save source texts or extracts with usable locators; record their actual scope, date and limitations.
@@ -51,6 +53,8 @@ An explicit requirement for independent review belongs to Full. If the user chan
 Reconcile changes with the brief, material follow-up requirements, source passages and current report. Fix confirmed errors and explain evidence-based decisions where advice is mistaken or optional. Update affected claims, citations and task progress as the work happens.
 
 Recheck the changed sections, coverage and length, then repeat the final checklist against the current report. A previous checklist does not cover changed prose. Finish when the agreed requirements are met and known necessary corrections are resolved; optional polish alone need not restart the report.
+
+With tools, call `research_check_draft(task, artifact)` (CLI: `check-draft`) before the final checklist. Inspect its actual counts and record errors; no declared bound means the range was not checked. This local check does not change the report or assess semantic quality. Preserve original evaluation samples. Follow the [failure-handling rules](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/failure-handling.md) for source-based corrections and bounded follow-up.
 
 ## final — Complete the author checklist
 

@@ -23,7 +23,7 @@ class TaskLockTests(unittest.TestCase):
 
     def cli(self, action, task):
         request = {"start": {"brief": {}, "profile": "lite"}, "status": {"stage": "collect"},
-                   "review": {"evidence_paths": []}, "finish": {"message": "Synthetic delivery"}}[action]
+                   "review": {"evidence_paths": []}, "finish": {"message": "Synthetic delivery"}, "check-draft": {}}[action]
         return subprocess.run([sys.executable, "-X", "utf8", str(SCRIPTS / "research_workflow.py"),
                                action, "--workspace", str(self.workspace)],
                               input=json.dumps({"task": task, **request}),
@@ -33,7 +33,7 @@ class TaskLockTests(unittest.TestCase):
         root = self.workspace / "one"
         before = {p.relative_to(root): p.read_bytes() for p in root.rglob("*") if p.is_file()}
         with task_lock(root):
-            for action in ("start", "status", "review", "finish"):
+            for action in ("start", "status", "review", "finish", "check-draft"):
                 blocked = self.cli(action, "one")
                 self.assertNotEqual(blocked.returncode, 0)
                 self.assertIn("active operation", blocked.stdout)

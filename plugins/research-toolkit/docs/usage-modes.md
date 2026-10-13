@@ -15,7 +15,7 @@ No Python or vendor CLI installation is required merely to read and apply the me
 
 ## When to use each tool
 
-**The first [Lite task](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.md) works without MCP.** An instructions-only session can keep the brief, sources, claims and checklist in files or separate chat sections. None of the six tool calls is required in that mode; it produces no local completion receipt.
+**The first [Lite task](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.md) works without MCP.** An instructions-only session can keep the brief, sources, claims and checklist in files or separate chat sections. None of the seven tool calls is required in that mode; it produces no local completion receipt.
 
 The table applies when you choose the managed local workflow, through MCP **or the [shared CLI](#skill-only-and-cli-fallback)**. Required methods still apply when you read them directly.
 
@@ -25,6 +25,7 @@ The table applies when you choose the managed local workflow, through MCP **or t
 | `research_status` | Resume a managed task, inspect saved progress, or change its recorded stage. | You do not need to read or update progress; a methods-only session can use its own notes. |
 | `research_guide` | Retrieve the method for a stage when it is not already available in context. | Read the relevant `SKILL.md` and `references/` files directly. |
 | `research_review` | Complete the declared reviews in a Full task, including explicit self-review when that is the chosen tier. | Lite skips review; never skip a review explicitly required by the assignment. |
+| `research_check_draft` | Check current draft records and explicit length bounds without model calls or a delivery receipt. | Optional before review/finish; inspect sources and meaning separately. |
 | `research_finish` | Complete a managed task: Lite records the six-item checklist; Full checks the reviewed report and delivery requirements. | Without local workflow tools, complete the checklist yourself and return the records without claiming a local receipt. |
 | `research_check_reviewer` | Diagnose external backend setup or a configuration failure before attempting review. | Lite and self-review need no external backend; a separate call is unnecessary when `research_start` has already confirmed the unchanged configuration. |
 
@@ -36,7 +37,7 @@ Use local MCP when the host can start a local process, or the bundled plugin whe
 | --- | --- | --- |
 | Skill | Entry instructions and detailed research methods | Native Skill discovery or explicit file reading |
 | Plugin | Skill, references, and the local MCP server in one package | Support for the package format and local stdio MCP |
-| MCP | Six callable tools for task setup, progress, guidance, reviews, and delivery checks | A client that can start and call a local stdio MCP server |
+| MCP | Seven callable tools for task setup, progress, guidance, reviews, and delivery checks | A client that can start and call a local stdio MCP server |
 
 The shared CLI needs Python 3.10+ and only its standard library; MCP also needs the dependency in `requirements-mcp.txt`. Without a backend, new Full tasks use explicitly degraded self-review. External/independent review accepts any supported command or endpoint; no vendor account is mandatory.
 
@@ -44,7 +45,7 @@ CI exercises the CLI and packaged MCP workflow on Python 3.10/Linux, plus the br
 
 ## Install the plugin
 
-The [plugin directory](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/) bundles the Skill, methods and local MCP server. Use your host's supported plugin installation mechanism; [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md) has host-specific instructions. Install `requirements-mcp.txt` in the Python environment that starts MCP, then confirm the six `research_*` tools are available.
+The [plugin directory](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/) bundles the Skill, methods and local MCP server. Use your host's supported plugin installation mechanism; [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md) has host-specific instructions. Install `requirements-mcp.txt` in the Python environment that starts MCP, then confirm the seven `research_*` tools are available.
 
 Describe the topic, reader and expected result; the agent assembles the brief and asks only about critical missing choices. The package follows the [portable plugin specification](https://developers.openai.com/plugins/build/plugins); it is not a hosted service and does not imply every client supports that format.
 
@@ -96,6 +97,7 @@ If no tools appear, run `python -c "import sys, mcp; print(sys.executable)"` wit
 | `research_status` | Returns saved progress and current methods; changing to analysis/drafting requires prerequisite source/claim records |
 | `research_guide` | Loads the applicable methods without starting a task; supports English and Chinese |
 | `research_review` | Binds full inputs, runs content reviews and retains replies/failures; executes additional auditing only when configured |
+| `research_check_draft` | Return current counts, declared range checks and record errors without changing task state; `ok` does not certify content or delivery |
 | `research_finish` | Records the final checklist for Lite; Full checks the reviewed artifact, evidence, unresolved requirements and delivery text before writing completion state and a receipt |
 | `research_check_reviewer` | Checks local backend configuration and dependencies without model calls |
 
@@ -193,7 +195,7 @@ python scripts/research_workflow.py review --workspace /path/to/tasks --request 
 
 CLI requests are JSON objects supplied by `--request` or stdin. Missing/unknown argument errors name the action, fields and input method before creating or changing a task. A source/claim validation error names its CSV, record ID and missing fields; repair that record and repeat the same operation. Guide languages are `en` and `zh`. Commands return JSON and a nonzero exit code on failure; no new user confirmation is required to fix an already authorized task.
 
-A brief request is `{"task":"comparison","language":"en","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`. Review arguments include `task`, task-relative `evidence_paths`, optional `artifact` (default `final.md`) and `purpose`. The `status`, `guide` and `finish` actions mirror MCP arguments. JSON may also be supplied through stdin.
+A brief request is `{"task":"comparison","language":"en","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`. Review arguments include `task`, task-relative `evidence_paths`, optional `artifact` (default `final.md`) and `purpose`. The `status`, `guide`, `check-draft` and `finish` actions mirror MCP arguments. `check-draft` takes `task` and optional `artifact`, needs no delivery message and exits 1 on a failed check. JSON may also be supplied through stdin.
 
 ## Verification and limits
 
@@ -202,3 +204,5 @@ The repository checks the shared workflow, package/source consistency and a real
 A separate [guided real-model check of plugin `0.1.2`](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-status.md#current-implementation) completed review and audit recovery on one fictional task while preserving a negative result and correctly blocking delivery. It required configuration and audit-contract corrections; it does not establish unattended reliability.
 
 The tools enforce their own completion conditions. They cannot prevent an agent from ignoring tools or editing files outside them, and they cannot mechanically certify factual truth. Acceptance follows the selected profile and reviewer tier; independent review is required only when declared.
+
+For failed drafts, follow the [repair and stopping rules](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/failure-handling.md). Correct ordinary report versions, preserve frozen evaluation originals, and never repeat an unchanged valid negative judgment until it passes.

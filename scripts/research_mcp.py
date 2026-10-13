@@ -100,6 +100,17 @@ async def research_finish(task: str, message: str, artifact: str = "final.md",
 
 
 @server.tool(structured_output=True)
+def research_check_draft(task: str, artifact: str = "final.md") -> dict[str, Any]:
+    """Check draft records and declared whole-artifact length before review or finish, without model calls.
+    Returns actual counts, explicit range checks and errors. No limit is inferred from prose.
+    Does not change progress, reports, reviews or receipts; uses the shared local task lock.
+    ok describes these mechanical checks only, never semantic quality or delivery approval.
+    Correct ordinary drafts and recheck; preserve frozen evaluation originals.
+    """
+    return mutate(workflow.check_draft, task, artifact)
+
+
+@server.tool(structured_output=True)
 def research_check_reviewer() -> dict[str, Any]:
     """Check trusted reviewer configuration locally, without sending report data or paid model calls."""
     return call(workflow.review_readiness)

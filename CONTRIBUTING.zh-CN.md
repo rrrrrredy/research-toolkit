@@ -56,6 +56,7 @@ python scripts/check_diagnostic_bundle.py --self-test
 python scripts/check_semantic_review_bundle.py --self-test
 python scripts/check_study_verification.py
 python scripts/check_task_lock.py
+python scripts/check_draft_contract.py
 python scripts/check_blinded_evals.py
 python scripts/check_blinded_protocol_v2.py
 python scripts/check_judge_calibration.py --self-test
