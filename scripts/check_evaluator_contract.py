@@ -91,6 +91,53 @@ class EvaluatorContractTests(unittest.TestCase):
         seal(self.root)
         return copy.deepcopy(self.case)
 
+    def test_one_complete_independent_review_is_enough_for_pipeline_case(self):
+        plan, rows = synthetic_review_records(self.root, purpose="report_delivery")
+        plan["audit_required"] = False
+        plan["slots"] = plan["slots"][:1]
+        plan.pop("sampling")
+        self.progress(review_plan=plan)
+        path = self.root / "logs/review.jsonl"
+        summary = json.dumps({"scope": "global_final_delivery", "result": "PASS", "issues": [],
+                              "artifact_sha256": delivery.sha256_file(self.root / "final.md")}) + "\n"
+        path.write_text(json.dumps(rows[0], ensure_ascii=False) + "\n" + summary, encoding="utf-8")
+        seal(self.root)
+        accepted = evaluator.evaluate_case(self.case, self.root, self.sources)
+        self.assertEqual(accepted["review_rows"], 1)
+        self.assertEqual(accepted["conformance_status"], "pass", accepted)
+        self.assertEqual(accepted["review_completion"]["completed_slots"], 1)
+        self.assertEqual(accepted["research_quality_status"], "not_evaluated")
+
+        # One valid review suffices; an empty or negative review still cannot pass.
+        for content, flag in (("", "missing_valid_review"),
+                              (json.dumps({**rows[0], "report_verdict": "needs_revision", "findings": [{
+                                  "finding_id": "F1", "severity": "major", "location": "paragraph 1",
+                                  "basis": "Synthetic unresolved factual defect."}]}) + "\n",
+                               "report_not_ready")):
+            with self.subTest(flag=flag):
+                path.write_text(content + summary, encoding="utf-8")
+                seal(self.root)
+                result = evaluator.evaluate_case(self.case, self.root, self.sources)
+                self.assertEqual(result["conformance_status"], "fail", result)
+                self.assertIn(flag, result["conformance_flags"])
+
+    def test_all_case_prompts_include_current_review_assignment(self):
+        cases = evaluator.load_cases(REPO / "evals/cases")
+        output = self.root / "generated"
+        evaluator.create_skeletons(cases, output, self.sources, REPO / "evals")
+        for case in cases:
+            with self.subTest(case=case["case_id"]):
+                prompt = (output / case["case_id"] / "prompt.md").read_text(encoding="utf-8")
+                self.assertIn(case["prompt"], prompt)
+                self.assertIn("Astra", prompt)
+                self.assertIn("不删除判断所需证据", prompt)
+                self.assertIn("不按评审记录条数追加无必要评审", prompt)
+                self.assertIn("完整来源", prompt)
+        english = evaluator.make_prompt({**cases[0], "language": "en"}, self.sources)
+        self.assertIn("both use the same model", english)
+        self.assertIn("complete sources and necessary provenance", english)
+        self.assertIn("Preserve first drafts, original reviews and failures", english)
+
     def test_missing_required_files_fail_with_or_without_delivery_check(self):
         case = self.current_case()
         calculations = self.root / "data/calculations.csv"

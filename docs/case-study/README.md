@@ -1,5 +1,9 @@
 # Research cases
 
+[English](README.md) | [简体中文](README.zh-CN.md)
+
+This archive contains two real research cases with retained drafts, reviews and revisions. The dedicated seven-task Toolkit evaluation set and the other test materials are listed in the [evaluation inventory](../../evals/README.md#case-and-dataset-inventory). Existing cases can be reused for tests and repairs; they do not require outside task contributions or an additional outside reviewer. Astra can review in a context separate from the author.
+
 ## APIs or browsers for AI agents
 
 Original English research on choosing APIs, DOM automation, or visual interaction by action coverage, verified completion, recovery, permissions and cost.

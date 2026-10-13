@@ -14,6 +14,39 @@ Research Toolkit helps execute research; the research evaluation dataset uses ta
 
 Changes to Toolkit defaults do not rewrite existing samples, first reviews or labels, and do not automatically start new model evaluations.
 
+## Case and dataset inventory
+
+The dedicated Toolkit task set is [`cases/`](cases/). It is separate from the later four-model task sets. This inventory covers the current tasks, controls, examples and dated results; categories overlap where the same material is reused, so their counts must not be added as if each were a new independent task.
+
+| Material | Size | Use and current status |
+|---|---|---|
+| [Toolkit research cases](cases/) | 7 tasks | Original task questions and source references retained; new prompts use the current Astra review/repair assignment. |
+| [Negative fixtures](regression_fixtures/manifest.json) / [positive fixtures](conformance_fixtures/manifest.json) | 22 / 4 | Real software checks on expected failures and valid controls; not 26 additional research questions. |
+| [Semantic diagnostics](semantic_diagnostics/README.md) | 23 paired examples | Current catalog applies documented corrections; original inputs and judgments remain available. |
+| [Four-model tasks](tasksets/development-v2-synthetic/README.md) | 5 task families | [October 12 run](studies/2026-10-12-lite-four-models/README.md): 72 requests, 16 valid pairs, four missing pairs and six swap preference changes retained. |
+| [Judge calibration v3](tasksets/judge-calibration-v3/README.md) | 4 families, 12 packets | [12 actual Astra judgments](diagnostics/2026-10-12-astra-calibration/README.md); v2 arithmetic inputs are already included. |
+| [Old/new-task repair recheck](diagnostics/2026-10-13-targeted-recheck/README.md) | 4 tasks: 2 existing, 2 new | 31 requests; 16 final versions accepted, including ten maintainer corrections; originals retained. |
+| [Writing examples](taste_anchors/README.md) | 4 groups | Reusable examples for concrete criteria; prior exposure and fictional or undated source facts remain explicit. |
+| [Source packs](source_packs/) | 3 packs | Supplied evidence for tasks; source facts and provenance are preserved. |
+| [Public research cases](../docs/case-study/README.md) | 2 cases | Chinese office-agent research and original English API/browser research, with drafts, reviews and revisions. Translations are not additional tasks. |
+| [Templates](templates/) and [Lite example](../examples/lite/) | Workflow aids | Reusable setup and onboarding; empty templates are not evidence of missing real tasks or missing contributions. |
+
+The seven dedicated cases are:
+
+| Original task file | Research question |
+|---|---|
+| [ai_agent_market_landscape_zh.json](cases/ai_agent_market_landscape_zh.json) | AI Agent market landscape |
+| [ai_video_generation_investment_memo_zh.json](cases/ai_video_generation_investment_memo_zh.json) | AI video-generation investment memo |
+| [reasoning_model_competition_zh.json](cases/reasoning_model_competition_zh.json) | Reasoning-model competition |
+| [model_price_war_competitive_analysis_zh.json](cases/model_price_war_competitive_analysis_zh.json) | Model price-war competitive analysis |
+| [monthly_observation_synthesis_zh.json](cases/monthly_observation_synthesis_zh.json) | Monthly AI observation synthesis |
+| [source_instruction_boundary_zh.json](cases/source_instruction_boundary_zh.json) | Research with source-embedded instruction attempts |
+| [model_company_pipeline_long_horizon_zh.json](cases/model_company_pipeline_long_horizon_zh.json) | Eight-company model pipeline with 13 turns of requirements |
+
+These seven original questions are in Chinese; this English index is a guide, not seven translated or additional tasks. `scripts/run_evals.py` now puts the current division of work into every new prompt: programs measure length, Astra reviews content in a separate context with the complete task/report/sources and necessary provenance, and the author repairs confirmed defects in a separately saved version. Author and reviewer may use the same model. No outside reviewer, outside contribution or fixed panel is required. One completed current-report review is sufficient; the long-horizon case no longer imposes a three-row minimum. Missing or negative reviews still fail the applicable completion checks.
+
+The October 13 dedicated-suite correction checks prompt generation for all seven cases and the one-review acceptance rule offline. It does **not** mean that all seven long research reports have been regenerated and reviewed by a model. The 31-request repair recheck above used its own four tasks. Preserve old run folders; generate corrected prompts in a new run folder when actually rerunning a case. Reuse existing questions directly, adding new questions when useful for a specific defect.
+
 This directory contains seven research cases, twenty-two negative fixtures, four positive fixtures, and report diagnostics for Research Toolkit. The cases and evaluator are runtime-neutral; no particular agent runtime is required. The offline checks examine the research brief, task files, sources and claims, review records, source-instruction boundaries, and final prose. They report those checks, not a model ranking or an overall report-quality verdict.
 
 Evaluator result schema v2 keeps two claims separate. `conformance_status`, `conformance_score`, and `conformance_flags` describe deterministic structure, traceability, and configured failure signals. `research_quality_status` is `not_evaluated`; the runner does not claim that a mechanically conforming report is insightful, accurate, or decision-useful.

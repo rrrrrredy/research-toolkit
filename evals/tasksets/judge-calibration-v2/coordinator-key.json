@@ -16,5 +16,5 @@
   },
   "defect": "S1 implies (10%-5%)/10%=50% relative reduction; the defective variant says 5%. The absolute reduction is correctly 5 percentage points in both.",
   "rule": "Run all three packets in fresh contexts without this key. A judge must locate and explain the relative/absolute error, preserve its identification after label swap, and not invent a substantive difference in the identical valid tie. Preserve failures and disagreement; do not count the three orientations as independent tasks or tune and retest on these same controls as held-out validation.",
-  "limitation": "One arithmetic control and a valid tie do not establish calibration across all dimensions, domains or languages; Chinese and nonnumerical calibration remain pending."
+  "limitation": "This directory contains one arithmetic family, now included unchanged in judge-calibration-v3 alongside three Chinese/English causal, attribution and constraint families. All 12 first Astra judgments are retained in evals/diagnostics/2026-10-12-astra-calibration; those results do not establish reliability across all dimensions, domains or languages."
 }
