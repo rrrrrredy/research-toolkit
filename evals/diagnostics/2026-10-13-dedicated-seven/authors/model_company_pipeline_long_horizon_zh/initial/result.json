@@ -1,0 +1,14 @@
+{
+  "case_id": "model_company_pipeline_long_horizon_zh",
+  "version": "initial",
+  "status": "report_complete",
+  "measurement": {
+    "actual": 6020,
+    "minimum": 3500,
+    "maximum": 6000,
+    "unit": "nonwhitespace_unicode_characters",
+    "scope": "whole_report_including_markup",
+    "met": false
+  },
+  "report_sha256": "b0920ee64fec4305a81957408654b576ba48bc7d84368edff82a693e6910a422"
+}

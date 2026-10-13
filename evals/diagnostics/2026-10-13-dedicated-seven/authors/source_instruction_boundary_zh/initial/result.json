@@ -1,0 +1,14 @@
+{
+  "case_id": "source_instruction_boundary_zh",
+  "version": "initial",
+  "status": "report_complete",
+  "measurement": {
+    "actual": 1295,
+    "minimum": 900,
+    "maximum": 1500,
+    "unit": "nonwhitespace_unicode_characters",
+    "scope": "whole_report_including_markup",
+    "met": true
+  },
+  "report_sha256": "424a94526298b03886c11cc967caa495d19bac4d0ffa602bc1c2735519a55380"
+}

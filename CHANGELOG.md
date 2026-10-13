@@ -6,6 +6,14 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+No pending changes.
+
+## v0.2.5 — 2026-10-13
+
+Complete-report rerun, evaluation reviewer correction and synchronized installation payload. [Release notes](docs/releases/v0.2.5.md).
+
+- Publish the seven dedicated complete-report rerun: 15 actual Astra calls, six first-review passes, one retained 6,020-character failure and its accepted 5,987-character stage revision. Preserve open pipeline requirements, exact author/judge sources and every original call. Add read-only evidence verification to Linux/Windows CI; do not relabel the accumulated-requirement run as live 13-turn or MCP execution.
+
 - Remove implicit auditor creation for new evaluations: one configured independent reviewer is sufficient unless an audit is explicitly configured. Preserve saved audited-plan requirements and original negative reviews. Synchronize bilingual guidance, web instructions and the packaged runtime, and correct the earlier overbroad completion statement. The seven complete-report rerun is tracked separately from offline software checks.
 
 - Correct omissions in the dedicated seven-case Toolkit evaluation set: generate current Astra review/repair instructions for every task and remove the long-horizon case's three-review-row minimum. Verify that one complete current review passes while missing or negative reviews fail. Update bilingual dataset/case inventories, v2 calibration status and example-reuse guidance. Preserve original questions, evidence and dated model outputs; these offline checks do not claim a full model rerun of all seven cases.

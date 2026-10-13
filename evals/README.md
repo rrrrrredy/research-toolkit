@@ -20,7 +20,7 @@ The dedicated Toolkit task set is [`cases/`](cases/). It is separate from the la
 
 | Material | Size | Use and current status |
 |---|---|---|
-| [Toolkit research cases](cases/) | 7 tasks | Original task questions and source references retained; new prompts use the current Astra review/repair assignment. |
+| [Toolkit research cases](cases/) | 7 tasks | [Actual seven-report rerun](diagnostics/2026-10-13-dedicated-seven/README.md): 15 calls, six supplied-source tasks accepted and one revised stage report with open requirements retained. |
 | [Negative fixtures](regression_fixtures/manifest.json) / [positive fixtures](conformance_fixtures/manifest.json) | 22 / 4 | Real software checks on expected failures and valid controls; not 26 additional research questions. |
 | [Semantic diagnostics](semantic_diagnostics/README.md) | 23 paired examples | Current catalog applies documented corrections; original inputs and judgments remain available. |
 | [Four-model tasks](tasksets/development-v2-synthetic/README.md) | 5 task families | [October 12 run](studies/2026-10-12-lite-four-models/README.md): 72 requests, 16 valid pairs, four missing pairs and six swap preference changes retained. |
@@ -45,7 +45,7 @@ The seven dedicated cases are:
 
 These seven original questions are in Chinese; this English index is a guide, not seven translated or additional tasks. `scripts/run_evals.py` now puts the current division of work into every new prompt: programs measure length, Astra reviews content in a separate context with the complete task/report/sources and necessary provenance, and the author repairs confirmed defects in a separately saved version. Author and reviewer may use the same model. No outside reviewer, outside contribution or fixed panel is required. One completed current-report review is sufficient; the long-horizon case no longer imposes a three-row minimum. Missing or negative reviews still fail the applicable completion checks.
 
-The October 13 dedicated-suite correction checks prompt generation for all seven cases and the one-review acceptance rule offline. It does **not** mean that all seven long research reports have been regenerated and reviewed by a model. The 31-request repair recheck above used its own four tasks. Preserve old run folders; generate corrected prompts in a new run folder when actually rerunning a case. Reuse existing questions directly, adding new questions when useful for a specific defect.
+PR #38 checked all seven generated prompts and the one-review rule offline. The subsequent [seven-report rerun](diagnostics/2026-10-13-dedicated-seven/README.md) now contains seven complete generated texts, seven first Astra reviews and one changed-report review. Six first drafts passed; the pipeline report was shortened from 6,020 to 5,987 characters and accepted as a stage report, with R04/R05 still open. All 13 historical requirements were supplied together; this does not claim live 13-turn agent execution. The earlier 31-request recheck used four other tasks. Preserve original folders and results, and record repairs as new versions.
 
 This directory contains seven research cases, twenty-two negative fixtures, four positive fixtures, and report diagnostics for Research Toolkit. The cases and evaluator are runtime-neutral; no particular agent runtime is required. The offline checks examine the research brief, task files, sources and claims, review records, source-instruction boundaries, and final prose. They report those checks, not a model ranking or an overall report-quality verdict.
 

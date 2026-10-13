@@ -71,6 +71,7 @@ jobs:
           python scripts/check_development_evidence.py --self-test
           python scripts/check_feedback_probes.py --self-test
           python evals/diagnostics/2026-10-13-targeted-recheck/verify.py
+          python evals/diagnostics/2026-10-13-dedicated-seven/verify.py
       - name: Check study verification under Python optimization without rewriting evidence
         run: python scripts/check_study_verification.py
 
@@ -123,6 +124,8 @@ jobs:
           python scripts/check_feedback_probes.py --self-test
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python evals/diagnostics/2026-10-13-targeted-recheck/verify.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python evals/diagnostics/2026-10-13-dedicated-seven/verify.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Check packaged MCP workflow on Windows
         run: |

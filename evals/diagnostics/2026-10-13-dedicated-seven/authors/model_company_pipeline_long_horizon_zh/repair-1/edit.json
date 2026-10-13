@@ -1,0 +1,13 @@
+{
+  "kind": "maintainer_edit",
+  "original_report_sha256": "b0920ee64fec4305a81957408654b576ba48bc7d84368edff82a693e6910a422",
+  "changed_report_sha256": "d920cf467d4490a80dbddee8760f48b40fed5c70fbdb945dbfd550f58b067e7f",
+  "finding": "F01: whole-report length 6020 exceeded 6000",
+  "edit": {
+    "deleted_exact_text": "区别不是有没有项目组，而是能力积累留在哪里、节点负责人能决定什么。",
+    "reason": "The preceding company comparison and the later decision-interface analysis already explain this point; removing the repeated summary preserves all company facts and substantive source limits."
+  },
+  "actual_before": 6020,
+  "actual_after": 5987,
+  "delivery_scope": "Stage report for the supplied eight anonymous records; release-node and original-channel verification requirements R04/R05 are not completed or waived."
+}
