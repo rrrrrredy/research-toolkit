@@ -24,6 +24,10 @@ Toolkit 的默认流程调整不改写既有样本、首评或标签，也不自
 
 新增[协议 v2](../docs/eval-protocol-v2.zh-CN.md)，附[五个已暴露虚构开发任务族](tasksets/development-v2-synthetic/README.zh-CN.md)和[独立评审校准对照](tasksets/judge-calibration-v3/README.zh-CN.md)。[带日期的 Astra 校准](diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)已新增 12 份首轮判断及来源裁定；[四模型开发试验](studies/2026-10-12-lite-four-models/README.zh-CN.md)现已完成，保留四个缺失配对和六个互换偏好变化。这些材料与既有七个流程案例分开。
 
+
+[10 月 13 日改进复验](diagnostics/2026-10-13-feedback-probes/README.zh-CN.md)保留提示／方法修正后的八次新首轮尝试：全部可解析，仅三篇篇幅达标且仍有语义错误。五篇真实篇幅失败稿与两篇事后编辑对照验证现有交付门槛，不声称质量改善。
+
+
 ## 如何贡献案例
 
 1. [提交失败案例](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)，填写研究问题、期望结果、来源、具体问题以及 profile／评审档位；报告片段可直接粘贴。

@@ -1,0 +1,156 @@
+{
+  "requests": 8,
+  "format_valid": 8,
+  "length_valid": 3,
+  "literal_clue_reports": 0,
+  "rows": [
+    {
+      "id": "deepseek-maple-storage-en-without_toolkit",
+      "provider": "deepseek",
+      "condition": "without_toolkit",
+      "task_id": "maple-storage-en",
+      "status": "parsed",
+      "length": {
+        "actual": 144,
+        "minimum": 120,
+        "maximum": 170,
+        "unit": "whitespace_words",
+        "scope": "complete_report_including_markup_and_citations",
+        "within_range": true
+      },
+      "literal_process_clues": []
+    },
+    {
+      "id": "deepseek-maple-storage-en-with_toolkit",
+      "provider": "deepseek",
+      "condition": "with_toolkit",
+      "task_id": "maple-storage-en",
+      "status": "parsed",
+      "length": {
+        "actual": 118,
+        "minimum": 120,
+        "maximum": 170,
+        "unit": "whitespace_words",
+        "scope": "complete_report_including_markup_and_citations",
+        "within_range": false
+      },
+      "literal_process_clues": []
+    },
+    {
+      "id": "deepseek-brook-rinse-zh-with_toolkit",
+      "provider": "deepseek",
+      "condition": "with_toolkit",
+      "task_id": "brook-rinse-zh",
+      "status": "parsed",
+      "length": {
+        "actual": 283,
+        "minimum": 180,
+        "maximum": 260,
+        "unit": "nonwhitespace_characters",
+        "scope": "complete_report_including_markup_and_citations",
+        "within_range": false
+      },
+      "literal_process_clues": []
+    },
+    {
+      "id": "deepseek-brook-rinse-zh-without_toolkit",
+      "provider": "deepseek",
+      "condition": "without_toolkit",
+      "task_id": "brook-rinse-zh",
+      "status": "parsed",
+      "length": {
+        "actual": 244,
+        "minimum": 180,
+        "maximum": 260,
+        "unit": "nonwhitespace_characters",
+        "scope": "complete_report_including_markup_and_citations",
+        "within_range": true
+      },
+      "literal_process_clues": []
+    },
+    {
+      "id": "longcat-maple-storage-en-with_toolkit",
+      "provider": "longcat",
+      "condition": "with_toolkit",
+      "task_id": "maple-storage-en",
+      "status": "parsed",
+      "length": {
+        "actual": 198,
+        "minimum": 120,
+        "maximum": 170,
+        "unit": "whitespace_words",
+        "scope": "complete_report_including_markup_and_citations",
+        "within_range": false
+      },
+      "literal_process_clues": []
+    },
+    {
+      "id": "longcat-maple-storage-en-without_toolkit",
+      "provider": "longcat",
+      "condition": "without_toolkit",
+      "task_id": "maple-storage-en",
+      "status": "parsed",
+      "length": {
+        "actual": 150,
+        "minimum": 120,
+        "maximum": 170,
+        "unit": "whitespace_words",
+        "scope": "complete_report_including_markup_and_citations",
+        "within_range": true
+      },
+      "literal_process_clues": []
+    },
+    {
+      "id": "longcat-brook-rinse-zh-without_toolkit",
+      "provider": "longcat",
+      "condition": "without_toolkit",
+      "task_id": "brook-rinse-zh",
+      "status": "parsed",
+      "length": {
+        "actual": 711,
+        "minimum": 180,
+        "maximum": 260,
+        "unit": "nonwhitespace_characters",
+        "scope": "complete_report_including_markup_and_citations",
+        "within_range": false
+      },
+      "literal_process_clues": []
+    },
+    {
+      "id": "longcat-brook-rinse-zh-with_toolkit",
+      "provider": "longcat",
+      "condition": "with_toolkit",
+      "task_id": "brook-rinse-zh",
+      "status": "parsed",
+      "length": {
+        "actual": 626,
+        "minimum": 180,
+        "maximum": 260,
+        "unit": "nonwhitespace_characters",
+        "scope": "complete_report_including_markup_and_citations",
+        "within_range": false
+      },
+      "literal_process_clues": []
+    }
+  ],
+  "usage": {
+    "deepseek": {
+      "prompt_tokens": 25812,
+      "completion_tokens": 3022,
+      "total_tokens": 28834,
+      "prompt_cache_hit_tokens": 11904,
+      "prompt_cache_miss_tokens": 13908
+    },
+    "longcat": {
+      "completion_tokens": 6045,
+      "prompt_tokens": 25610,
+      "total_tokens": 31655
+    }
+  },
+  "elapsed_seconds_sum": {
+    "deepseek": 22.563,
+    "longcat": 95.298
+  },
+  "quality_adjudication": "separate condition-aware implementation-assistant observations",
+  "general_efficacy_established": false
+}

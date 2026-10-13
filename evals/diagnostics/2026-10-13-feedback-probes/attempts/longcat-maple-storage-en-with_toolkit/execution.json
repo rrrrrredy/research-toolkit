@@ -1,0 +1,21 @@
+{
+  "status": "response_complete",
+  "model_requested": "LongCat-2.0",
+  "request_id": "1272ad84cd054e59a64f58a4b2f70130",
+  "model_returned": "LongCat-2.0",
+  "usage": {
+    "completion_tokens": 3110,
+    "prompt_tokens": 12346,
+    "total_tokens": 15456,
+    "prompt_tokens_details": {
+      "cached_tokens": 0,
+      "audio_tokens": 0,
+      "image_tokens": 0,
+      "video_tokens": 0,
+      "text_tokens": 0,
+      "cache_write_tokens": 0
+    }
+  },
+  "elapsed_seconds": 43.969,
+  "finish_reason": "stop"
+}

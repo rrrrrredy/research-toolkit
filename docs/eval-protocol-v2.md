@@ -30,6 +30,10 @@ python scripts/run_blinded_evals.py prepare --study evals/tasksets/development-v
 
 This inspection command makes zero model calls. The supplied model/endpoint values are placeholders; a real run needs verified settings and a separately frozen plan. Never put credentials in configs, source material, command arguments or public artifacts. Only environment-variable names belong in endpoint configuration.
 
+## 2026-10-13 prospective instruction correction
+
+New freezes use the actual Lite stage guide in the author method bundle, replacing the Full workflow reference previously injected by this instruction-only harness. JSON instructions now explicitly require string-valued `report` and `notes`; the parser was already strict and is not relaxed. A common final envelope reminder in both conditions keeps process disclosures in notes and preserves the brief's length/citation contract. These changes address concrete [October 12 failures](../evals/studies/2026-10-12-lite-four-models/README.md); old code, packets, failures and scores remain frozen. The new [eight-request feedback diagnostic](../evals/diagnostics/2026-10-13-feedback-probes/README.md) uses two new fictional tasks and is not an efficacy study.
+
 ## Task admission and information separation
 
 Each of the 5–10 distinct families requires a design JSON path containing `role: development`, `material_kind`, `rationale`, `provenance`, `exclusions`, `expected_judgments` and `exposure`. The last two fields are nonempty lists. Design records stay in `coordinator/frozen.json`; authors receive only the brief/sources and assigned instructions. Judges receive only the brief, identical sources, rubric and reports A/B. The expected judgments are coordinator annotations, not author hints or automatic judge scores. Schema checks cannot prove a task is independent or its sources sufficient; review those claims before freezing.
@@ -62,6 +66,8 @@ python scripts/check_blinded_protocol_v2.py
 python scripts/check_judge_calibration.py --self-test
 python scripts/check_live_execution.py
 python scripts/check_study_verification.py
+python scripts/check_development_evidence.py --self-test
+python scripts/check_feedback_probes.py --self-test
 ```
 
 These checks exercise parsing controls, raw retention, API options, aliases, failures, frozen-code rejection, task admission, metadata isolation and swapped-outcome decoding. They make no real model calls and establish software behavior only.

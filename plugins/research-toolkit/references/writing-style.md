@@ -47,6 +47,8 @@ Allocate space to the required questions before drafting. Before delivery, count
 
 For a decision memo, state the recommendation, rationale, next action and conditions that would change the decision. Distinguish measured results from proposed pilot criteria. Explain any proposed numerical target using the decision's risks, a baseline or an agreed service requirement; without such a basis, describe the trigger and how to calibrate it. Check that a target does not reward hiding failures or blocking necessary escalation. For example, capping human handoffs can conflict with giving customers timely access to a person.
 
+For a short brief, combine related answers instead of reproducing a long-report structure. A table, background section, references appendix and repeated summary are not mandatory. Check the recommendation against every current hard constraint; do not silently trade a budget limit for performance or turn a growth forecast into an existing requirement. Preserve a source's time, sample and measurement conditions through the conclusion. A missing measurement means unknown, not a measured difference or a proven absence. Keep production disclosures in the separate delivery note when the agreed format provides one; retain substantive evidence limits in the report.
+
 ## Chinese Longform Preferences
 
 For Chinese final articles:

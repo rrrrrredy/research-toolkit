@@ -1,0 +1,15 @@
+{
+  "provenance": "Two post-result implementation-authored illustrative controls, not model outputs, not predeclared or held-out controls. Used only to test the existing tool-backed length gate and illustrate source-faithful answers. No original report replaced.",
+  "controls": [
+    {
+      "task_id": "maple-storage-en",
+      "claim": "C meets the current budget, recovery, on-premises and capacity requirements.",
+      "report": "As of 20 July 2026, choose C: it is the only option meeting the current requirements. A costs 11 units including setup, above the 10-unit ceiling. B costs 8 units but restores in five hours, above the four-hour limit. C costs 8 units, restores in three hours and holds 14 TB; all three store data on premises (S1, S2).\n\nCurrent need is 12 TB, leaving C with 2 TB of capacity. The next-year forecast would raise demand to 16 TB, but it is not a current eligibility requirement (S1). Before capacity is exhausted, obtain C’s expansion price and recovery test results, then check the proposed expansion against the applicable requirements. Neither expansion performance nor comparative reliability and operating labor is established by the supplied quotes (S2)."
+    },
+    {
+      "task_id": "brook-rinse-zh",
+      "claim": "两月总用水相同，单位箱用水下降20%，但现有证据不足以归因或批准推广。",
+      "report": "截至2026年7月31日，六月180立方米等于180000升，与七月相同，总用水未变。单位箱用水由150降至120升，减少30升，降幅20%（S1）。两月计量范围一致，但月度汇总不是随机试验。七月污渍构成未记录，人员与工时变化，不能将下降归因于新喷头，也不能断言污渍构成已改变（S1、S2）。清洁质量未测量，尚不能验证“单位箱用水下降且质量不下降”的推广条件，应暂缓推广。下一步在可比工况下对照喷头，记录污渍构成、人员工时及质量／污染指标，再同时核验节水与质量；不增加未经批准的绝对用水阈值（S2）。"
+    }
+  ]
+}

@@ -16,6 +16,10 @@ The [connectivity record](../evals/diagnostics/2026-10-12-connectivity/README.md
 
 The [fixed-source Lite diagnostic](../evals/studies/2026-10-12-lite-four-models/README.md) completed 40 author and 32 judge requests across five public synthetic families and 20 model-task pairs. Four pairs remain unresolved due to LongCat format failures; six of 16 judged pairs changed preference after swapping. Only 14 of 36 format-valid reports met length constraints; source checks also identified budget, forecast and attribution errors. Original scores remain unchanged; no general effect claim. Separate [JSON format probes](../evals/diagnostics/2026-10-12-longcat-format/README.md) parsed 3/4 and did not fill missing pairs.
 
+## 2026-10-13: bounded follow-up after corrections
+
+[Eight new probes](../evals/diagnostics/2026-10-13-feedback-probes/README.md) exercise prompt/schema alignment and Lite guidance corrections: 8/8 parse, but only 3/8 meet length, with false comparisons and unknown conditions asserted as changes. No independent model judge or quality-benefit claim; all failures remain. The existing delivery gate rejects five real length failures and accepts two post-result editorial controls. This is software verification, not new model quality scores.
+
 ## Retained data
 
 | Collection | Evidence | Use boundary |

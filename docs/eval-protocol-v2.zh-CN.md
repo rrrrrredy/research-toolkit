@@ -30,6 +30,10 @@ python scripts/run_blinded_evals.py prepare --study evals/tasksets/development-v
 
 上述检查命令调用模型零次。随附模型和端点是占位值；真实运行须使用核实后的设置，另行冻结计划。密钥不进入配置、来源、命令参数或公开材料；端点配置只保存环境变量名。
 
+## 2026-10-13 后续指令修正
+
+新冻结的作者方法包注入实际 Lite 阶段指南，替换这个纯指令执行器此前注入的 Full 流程参考。JSON 提示明确要求 `report`、`notes` 都为字符串；解析器原本已严格检查，不放宽规则。两组共同的末尾格式提醒将生产状态留在 notes，并保留题目的篇幅和引用约定。修正追溯到[10 月 12 日实际失败](../evals/studies/2026-10-12-lite-four-models/README.zh-CN.md)，旧代码、输入、失败和分数保持冻结。新的[八次请求反馈诊断](../evals/diagnostics/2026-10-13-feedback-probes/README.zh-CN.md)采用两个新虚构任务，不是效果研究。
+
 ## 任务准入和信息分离
 
 5—10 个不同任务族各需一个设计 JSON 路径，包含 `role: development`、`material_kind`、`rationale`、`provenance`、`exclusions`、`expected_judgments`、`exposure`；最后两项是非空列表。设计记录只在 `coordinator/frozen.json` 中，作者只收到题面／来源和所属条件的指令，评审只收到题面、相同来源、量表及 A/B 正文。预期判断是协调者注释，既不是给作者的答案提示，也不自动成为评审分数。结构检查不能证明任务独立或来源充分，这些声明应在冻结前实质审查。
@@ -62,6 +66,8 @@ python scripts/check_blinded_protocol_v2.py
 python scripts/check_judge_calibration.py --self-test
 python scripts/check_live_execution.py
 python scripts/check_study_verification.py
+python scripts/check_development_evidence.py --self-test
+python scripts/check_feedback_probes.py --self-test
 ```
 
 检查覆盖解析正负对照、原始输出保留、API 选项、别名、失败分类、冻结后代码变更拒绝、任务准入、元数据隔离及互换结果解码。不调用真实模型，只验证软件行为。

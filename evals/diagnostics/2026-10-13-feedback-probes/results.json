@@ -1,0 +1,39 @@
+{
+  "requests_attempted": 8,
+  "results": [
+    {
+      "id": "deepseek-maple-storage-en-without_toolkit",
+      "status": "parsed"
+    },
+    {
+      "id": "deepseek-maple-storage-en-with_toolkit",
+      "status": "parsed"
+    },
+    {
+      "id": "deepseek-brook-rinse-zh-with_toolkit",
+      "status": "parsed"
+    },
+    {
+      "id": "deepseek-brook-rinse-zh-without_toolkit",
+      "status": "parsed"
+    },
+    {
+      "id": "longcat-maple-storage-en-with_toolkit",
+      "status": "parsed"
+    },
+    {
+      "id": "longcat-maple-storage-en-without_toolkit",
+      "status": "parsed"
+    },
+    {
+      "id": "longcat-brook-rinse-zh-without_toolkit",
+      "status": "parsed"
+    },
+    {
+      "id": "longcat-brook-rinse-zh-with_toolkit",
+      "status": "parsed"
+    }
+  ],
+  "source_adjudication": "pending",
+  "previous_results_replaced": false
+}
