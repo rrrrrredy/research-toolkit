@@ -1,0 +1,14 @@
+{
+  "case_id": "monthly_observation_synthesis_zh",
+  "version": "initial",
+  "status": "report_complete",
+  "measurement": {
+    "actual": 4020,
+    "minimum": 2500,
+    "maximum": 4500,
+    "unit": "nonwhitespace_unicode_characters",
+    "scope": "whole_report_including_markup",
+    "met": true
+  },
+  "report_sha256": "9ca8df03ef8179b8309a651a8f9e153bfaf922aeabe76405204b2db790711250"
+}

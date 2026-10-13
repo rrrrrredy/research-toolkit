@@ -1,0 +1,58 @@
+[
+  {
+    "case_id": "ai_agent_market_landscape_zh",
+    "version": "initial",
+    "status": "review_complete",
+    "report_sha256": "907f08f51d56b221033c9036c1aff3972996dcb9e21414f0373ada947d1762c3",
+    "verdict": "pass",
+    "finding_count": 0
+  },
+  {
+    "case_id": "ai_video_generation_investment_memo_zh",
+    "version": "initial",
+    "status": "review_complete",
+    "report_sha256": "99261972e177bbbb1f280395c813558b8cf809c1010c21182d71c54bc5fd2074",
+    "verdict": "pass",
+    "finding_count": 0
+  },
+  {
+    "case_id": "model_company_pipeline_long_horizon_zh",
+    "version": "initial",
+    "status": "review_complete",
+    "report_sha256": "b0920ee64fec4305a81957408654b576ba48bc7d84368edff82a693e6910a422",
+    "verdict": "needs_revision",
+    "finding_count": 1
+  },
+  {
+    "case_id": "model_price_war_competitive_analysis_zh",
+    "version": "initial",
+    "status": "review_complete",
+    "report_sha256": "1cdc373f9d2bb9bb66dd209f41df093b7debefd6133017837b39676e371def32",
+    "verdict": "pass",
+    "finding_count": 0
+  },
+  {
+    "case_id": "monthly_observation_synthesis_zh",
+    "version": "initial",
+    "status": "review_complete",
+    "report_sha256": "9ca8df03ef8179b8309a651a8f9e153bfaf922aeabe76405204b2db790711250",
+    "verdict": "pass",
+    "finding_count": 0
+  },
+  {
+    "case_id": "reasoning_model_competition_zh",
+    "version": "initial",
+    "status": "review_complete",
+    "report_sha256": "dbd37738ded4dd3c4b4ead34836d562823f378465b044c059456f3ac7d87ac2b",
+    "verdict": "pass",
+    "finding_count": 0
+  },
+  {
+    "case_id": "source_instruction_boundary_zh",
+    "version": "initial",
+    "status": "review_complete",
+    "report_sha256": "424a94526298b03886c11cc967caa495d19bac4d0ffa602bc1c2735519a55380",
+    "verdict": "pass",
+    "finding_count": 0
+  }
+]
