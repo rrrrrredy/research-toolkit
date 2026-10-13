@@ -1,0 +1,25 @@
+{
+  "phase": "format_only_new_development_probes",
+  "requests_attempted": 4,
+  "results": [
+    {
+      "id": "reading-room-format-en-without_toolkit",
+      "status": "parsed"
+    },
+    {
+      "id": "reading-room-format-en-with_toolkit",
+      "status": "parsed"
+    },
+    {
+      "id": "ceramics-handover-format-zh-with_toolkit",
+      "status": "unresolved"
+    },
+    {
+      "id": "ceramics-handover-format-zh-without_toolkit",
+      "status": "parsed"
+    }
+  ],
+  "format_valid": 3,
+  "research_quality_status": "not_evaluated",
+  "original_development_results_replaced": false
+}

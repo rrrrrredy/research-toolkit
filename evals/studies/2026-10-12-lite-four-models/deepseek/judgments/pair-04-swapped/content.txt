@@ -1,0 +1,71 @@
+{
+  "preference": "tie",
+  "reason": "Both correctly calculate the observed water-intensity reduction and withhold causal attribution and rollout approval without quality evidence. A offers a more actionable monitoring plan, but substantially exceeds the 180–260-word brief and introduces an unexplained 60-litres-per-crate approval threshold. B fits the requested length and states the inference boundary clearly, but its closing 'desk-test' proposal lacks a workable comparative evaluation. Both incorrectly describe different soil mixes as established. These offsetting weaknesses leave comparable decision support.",
+  "reports": {
+    "A": {
+      "task_fidelity": {
+        "score": 2,
+        "reason": "Covers the requested decision, calculations, limitations, conditional next step and source IDs, but substantially exceeds the explicit word limit.",
+        "excerpt": "Conditional next step: 'Approve wider rollout only if intensity stays at or below 60 litres per crate and quality measures hold versus a comparable control period.'",
+        "source_evidence": "The brief requires a '180–260-word English decision note.' S2 requires improved intensity 'without reducing cleaning quality'; the report addresses that condition but at excessive length."
+      },
+      "facts_and_evidence": {
+        "score": 3,
+        "reason": "Conversions, totals and intensity calculations are correct. However, unknown soil proportions are presented as known differences, and missing staffing records are asserted without source support.",
+        "excerpt": "What cannot be inferred, paragraph 1: 'March and April handled different soil-mix proportions'; Missing evidence: 'staffing/hours records'.",
+        "source_evidence": "S1 supplies 480,000 litres/6,000 crates and 420 cubic metres/7,000 crates, supporting 80 versus 60 litres per crate. S2 says 'April's proportions were not logged' and 'Staffing and hours also changed'; it does not establish different proportions or absent staffing records."
+      },
+      "explanation_and_synthesis": {
+        "score": 4,
+        "reason": "Clearly connects unit conversion, increased throughput, lower total intake and lower intensity, then distinguishes observed improvement from the untested rollout condition.",
+        "excerpt": "What the ledger shows, paragraph 2: 'water intensity fell from 80 litres per crate ... to 60 litres per crate ... — a 25% improvement.' What cannot be inferred: 'the rollout condition — improved intensity without reduced cleaning quality — is untested.'",
+        "source_evidence": "S1 supports the 60,000-litre, 12.5% total reduction and 25% intensity reduction. S2 requires both intensity improvement and preserved quality, while reporting no quality measurements."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 3,
+        "reason": "Addresses confounding, nonrandomized monthly totals and absent quality evidence. Its treatment of unknown soil proportions as established differences slightly weakens otherwise sound uncertainty handling.",
+        "excerpt": "What cannot be inferred: 'The 25% intensity gain is real for the line as operated, but it cannot be attributed to the nozzle alone'.",
+        "source_evidence": "S1: 'These are total monthly counts, not randomized observations.' S2 records unlogged April soil proportions, changed staffing and hours, and no cleaning-quality or contamination measurements."
+      },
+      "reader_usefulness": {
+        "score": 3,
+        "reason": "Provides concrete monitoring variables and a quality comparison before wider rollout. However, the proposed absolute intensity threshold is not justified by the sources or adjusted for operating conditions.",
+        "excerpt": "Conditional next step: 'logging soil-mix proportions, staffing and hours, and adding cleaning-quality and contamination checks'; 'intensity stays at or below 60 litres per crate'.",
+        "source_evidence": "S2 supports monitoring these potential confounders and requiring preserved quality. Its approval rule is improved intensity without quality loss, not a fixed 60-litres-per-crate ceiling."
+      }
+    },
+    "B": {
+      "task_fidelity": {
+        "score": 3,
+        "reason": "Fits the requested length and includes source citations, numeric changes, unit reconciliation, inference limits and a conditional next step. The next step is insufficiently operationalized.",
+        "excerpt": "Final paragraph: 'if cleaning quality is verified at April performance, desk-test the nozzle on a single line.'",
+        "source_evidence": "The brief requires a conditional next step and missing evidence. S2 says quality measurements do not exist and rollout requires improved intensity without quality loss; the proposed verification process remains unspecified."
+      },
+      "facts_and_evidence": {
+        "score": 3,
+        "reason": "The reported arithmetic is correct, including the absolute intensity change. The claim that crate mixes differed exceeds the evidence.",
+        "excerpt": "Body paragraph 2: 'a 20-litre, or 25%, reduction (S1).' Body paragraph 3: 'March and April handled different crate mixes'.",
+        "source_evidence": "S1 supports 80 versus 60 litres per crate and a 60,000-litre total reduction. S2 says March had lightly and heavily soiled crates but April's proportions were not logged; a difference is possible, not established."
+      },
+      "explanation_and_synthesis": {
+        "score": 4,
+        "reason": "Concisely explains why differing crate counts require intensity comparison and integrates the observed improvement with the unresolved quality condition.",
+        "excerpt": "Body paragraph 2: 'Because the denominators differ, intensity is the fair comparison'. Body paragraph 3: 'Inference is limited to lower recorded water use and lower calculated intensity'.",
+        "source_evidence": "S1 records 6,000 versus 7,000 crates with comparable fresh-water intake measurements. S2 makes improved intensity without quality loss the approval criterion."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 3,
+        "reason": "Explicitly rejects causal attribution and identifies missing quality evidence, changed staffing/hours and nonrandomized data. It should distinguish unknown soil mix from a demonstrated change, and quality preservation from quality improvement.",
+        "excerpt": "Body paragraph 3: 'improved cleaning quality cannot be shown, and no causal claim about the nozzle is supported.'",
+        "source_evidence": "S1 identifies monthly totals rather than randomized observations. S2 reports unknown April soil proportions and no quality measurements; management requires no quality loss, not improved quality."
+      },
+      "reader_usefulness": {
+        "score": 2,
+        "reason": "The findings and missing evidence are easy to identify, but the recommendation needs substantive clarification: a 'desk-test' on a line is ambiguous, and no baseline, control comparison or method for verifying preserved quality is specified.",
+        "excerpt": "Final paragraph: 'Next step: if cleaning quality is verified at April performance, desk-test the nozzle on a single line.'",
+        "source_evidence": "S2's condition requires demonstrating intensity improvement without reducing quality. Neither source supplies quality data, so verification needs a defined comparison and measurement plan rather than an unexplained prerequisite."
+      }
+    }
+  },
+  "condition_clues": "A has more section headings, an explicit recommendation and a separate source list; B uses compact paragraphs and inline citations. These are presentation differences only and do not reliably identify conditions, authors or tools."
+}

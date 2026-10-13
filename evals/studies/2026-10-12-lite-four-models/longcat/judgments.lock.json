@@ -1,0 +1,21 @@
+{
+  "status": "first_attempts_locked_including_failures",
+  "sha256": {
+    "judgments/pair-04/command.json": "4636ab4e1e565c29d28a6dfed4cab4f9ab761014461f5170553b8b7a602f07d0",
+    "judgments/pair-04/content.txt": "aa2d9a467b9bf1719d03dde29a9d0bad9a041a4d9b8a174cbc063bcb263dee17",
+    "judgments/pair-04/events.jsonl": "e5518ec0cc719e24b016fa86308fcd62f3c493c0b84a8921e1514c8cbc4c3d9b",
+    "judgments/pair-04/execution.json": "3089a1116fd806cac39eff25899c0e1ef8f49722aa4c71253cf6ce1f3762a21b",
+    "judgments/pair-04/parse.json": "8cdffd6701901509915cb97671793c1bc78af959b28fc130c245be8879521ca6",
+    "judgments/pair-04/parsed.json": "96ca570ee1164915ad833af4f6b4497ab7b2062c01da5207c6368faa9bc1be37",
+    "judgments/pair-04/request.json": "383049ed6ed83c9e5c6914245e45834f9053f83cac3a1ffd9d39af1bed0371c4",
+    "judgments/pair-04/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "judgments/pair-04-swapped/command.json": "4636ab4e1e565c29d28a6dfed4cab4f9ab761014461f5170553b8b7a602f07d0",
+    "judgments/pair-04-swapped/content.txt": "0aa3a6dd4cb9749c47c1488037a06526d6c8c34f15671bf304197dc03b682232",
+    "judgments/pair-04-swapped/events.jsonl": "49cadd2b4d4a99d12f0e499afa51e97a06f6cb879b2825add4d774680ec1cfb4",
+    "judgments/pair-04-swapped/execution.json": "2e892d2cd2e6455ce1119ab03156a5f6f64d10fbc25f15c3f514f2a0e125068b",
+    "judgments/pair-04-swapped/parse.json": "afd7e0109cb6b3e6816f8826d9bf7ba5404274a1b98d0b6f2780b83dc818e009",
+    "judgments/pair-04-swapped/parsed.json": "de391a8f2781702a9e038a2009f3efc1a6d4d5e606b95c292d97a99e35cede00",
+    "judgments/pair-04-swapped/request.json": "2e01c20120a9d2c0f812fe856c0131681f7d595297cc216615945a815c30254b",
+    "judgments/pair-04-swapped/stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

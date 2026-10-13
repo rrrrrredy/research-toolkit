@@ -1,0 +1,71 @@
+{
+  "preference": "A",
+  "reason": "A better meets the requested decision-note format: it stays within the word limit and explicitly states both absolute and percentage changes. B exceeds 260 words and leaves the 60,000-litre and 20-L/crate changes implicit. Both correctly distinguish observed improvement from attributable nozzle effects in their later sections. B more explicitly states management’s approval condition, but A provides a more compact recommendation that also addresses staffing control. The preference is narrow.",
+  "reports": {
+    "A": {
+      "task_fidelity": {
+        "score": 4,
+        "reason": "Meets the length, language, source, numerical reconciliation, inference-boundary and next-step requirements.",
+        "excerpt": "“Absolute consumption fell by 60,000 litres (12.5%), while output rose 16.7%. Intensity improved by 20 litres/crate (25% reduction).” — paragraph following Reconciled metrics",
+        "source_evidence": "S1 gives 480,000 litres/6,000 crates and 420 cubic metres/7,000 crates, with 1 cubic metre = 1,000 litres."
+      },
+      "facts_and_evidence": {
+        "score": 3,
+        "reason": "Calculations and source references are correct. However, the opening attributes the reduction to the trial more strongly than the evidence permits, although later passages qualify this.",
+        "excerpt": "“The trial reduced absolute fresh-water use and improved water intensity.” — Finding",
+        "source_evidence": "S1 says these are “total monthly counts, not randomized observations”; S2 identifies unlogged April soil proportions and changed staffing and hours."
+      },
+      "explanation_and_synthesis": {
+        "score": 4,
+        "reason": "Clearly reconciles units and washed-crate denominators, separating total consumption from intensity despite increased throughput.",
+        "excerpt": "“denominators are consistent (crates washed, same line, same meter scope).” — paragraph following Reconciled metrics",
+        "source_evidence": "S1 specifies washed-crate counts and says both meters cover the same washing line, exclude recycled water and measure fresh-water intake."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 4,
+        "reason": "Identifies the central quality-data gap and all stated confounders, explicitly rejecting isolation of the nozzle effect.",
+        "excerpt": "“April's soil-mix proportions were unlogged, and staffing/hours changed—confounding factors that prevent isolating the nozzle's effect.” — What cannot be inferred",
+        "source_evidence": "S2 states April’s soil proportions were not logged, staffing and hours changed, and no cleaning-quality or contamination measurements exist."
+      },
+      "reader_usefulness": {
+        "score": 4,
+        "reason": "Provides a concise, actionable evidence-gathering step before rollout approval, including operational control and quality measurement.",
+        "excerpt": "“Conduct a controlled trial with logged soil proportions, fixed staffing, and quality measurements before seeking rollout approval.” — Conditional next step",
+        "source_evidence": "S2 requires water-intensity improvement without reduced cleaning quality; its soil-mix and staffing/hours uncertainties support a controlled follow-up."
+      }
+    },
+    "B": {
+      "task_fidelity": {
+        "score": 3,
+        "reason": "Addresses the requested substance and cites only supplied sources, but exceeds the 260-word maximum. Absolute changes in litres and litres per crate are derivable rather than expressly stated.",
+        "excerpt": "“This represents a 25% reduction in water intensity and 12.5% lower absolute consumption with 16.7% more crates washed.” — Finding: Water Intensity Improved",
+        "source_evidence": "S1 supports these percentages and the unstated differences of 60,000 litres and 20 L/crate. The brief requests a 180–260-word note."
+      },
+      "facts_and_evidence": {
+        "score": 3,
+        "reason": "Arithmetic and conversion are correct. The opening overstates causal attribution, and the reliability discussion claims identical equipment and consistent counting procedures beyond what S1 explicitly establishes.",
+        "excerpt": "“The same meter, no outages, and consistent crate counting support measurement reliability (S1).” — What Can Be Inferred",
+        "source_evidence": "S1 establishes that “Both meters cover the same washing line” and that there were no outages; it does not establish the same physical meter or document counting procedures. S2 supplies unresolved confounders."
+      },
+      "explanation_and_synthesis": {
+        "score": 4,
+        "reason": "Explains the conversion, compares matched washed-crate denominators and distinguishes intensity from total consumption. Explicitly clarifies that the measurement excludes recycled water.",
+        "excerpt": "“Both periods used the same meter scope (fresh-water intake only, excluding recycled water), permitting valid comparison (S1).” — Unit Reconciliation",
+        "source_evidence": "S1 specifies fresh-water intake only, exclusion of recycled water, and the cubic-metre-to-litre conversion."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 4,
+        "reason": "Clearly separates causation, quality and replication limitations. The possible easier soil mix is appropriately conditional rather than asserted as fact.",
+        "excerpt": "“if heavily soiled crates dropped, reduced intensity may reflect easier cleaning, not nozzle performance” — What Cannot Be Inferred, Causation bullet",
+        "source_evidence": "S2 says March included lightly and heavily soiled crates but April’s proportions were not logged; it also reports changed staffing/hours and absent quality measurements."
+      },
+      "reader_usefulness": {
+        "score": 4,
+        "reason": "Gives a conditional pilot recommendation and explicitly connects the missing evidence to management’s rollout gate. Staffing/hours isolation is identified, though not incorporated into the stated pilot conditions.",
+        "excerpt": "“Management's rollout condition—water intensity improvement without quality reduction—cannot be validated with current data (S2).” — Conditional Next Step",
+        "source_evidence": "S2 states management will approve rollout only if water intensity improves without reducing cleaning quality, and the ledger contains no cleaning-quality or contamination measurements."
+      }
+    }
+  },
+  "condition_clues": "Both use structured headings and checklist-like sections; B adds formal metadata and a sources footer. These are weak stylistic clues only and do not reliably identify conditions. No condition attribution was used in the judgment."
+}

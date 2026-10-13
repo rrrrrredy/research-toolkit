@@ -1,0 +1,79 @@
+{
+  "scope": "LLM-judged fixed-source instruction-only Lite pilot",
+  "n_admitted": 5,
+  "results": [
+    {
+      "pair_id": "pair-01",
+      "task_id": "library-reminders-en",
+      "family_id": "causal-identification",
+      "status": "judged",
+      "preference": "B",
+      "outcome": "without_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "A",
+        "outcome": "without_toolkit",
+        "consistent": true
+      }
+    },
+    {
+      "pair_id": "pair-02",
+      "task_id": "ferry-timeline-en",
+      "family_id": "temporal-synthesis",
+      "status": "judged",
+      "preference": "tie",
+      "outcome": "tie",
+      "position_swap": {
+        "status": "judged",
+        "preference": "tie",
+        "outcome": "tie",
+        "consistent": true
+      }
+    },
+    {
+      "pair_id": "pair-03",
+      "task_id": "archive-scan-zh",
+      "family_id": "conflicting-measurements",
+      "status": "judged",
+      "preference": "A",
+      "outcome": "with_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "A",
+        "outcome": "without_toolkit",
+        "consistent": false
+      }
+    },
+    {
+      "pair_id": "pair-04",
+      "task_id": "backup-budget-zh",
+      "family_id": "constrained-choice",
+      "status": "judged",
+      "preference": "tie",
+      "outcome": "tie",
+      "position_swap": {
+        "status": "judged",
+        "preference": "A",
+        "outcome": "without_toolkit",
+        "consistent": false
+      }
+    },
+    {
+      "pair_id": "pair-05",
+      "task_id": "wash-water-en",
+      "family_id": "units-and-denominators",
+      "status": "judged",
+      "preference": "tie",
+      "outcome": "tie",
+      "position_swap": {
+        "status": "judged",
+        "preference": "tie",
+        "outcome": "tie",
+        "consistent": true
+      }
+    }
+  ],
+  "general_quality_advantage_established": false,
+  "requests_attempted": 20,
+  "request_ceiling": 20
+}

@@ -1,0 +1,66 @@
+## Cedar Packing: April Washing Trial Decision Note
+
+**To:** Operations Manager, Cedar Packing  
+**Date:** 30 April 2026  
+**Subject:** April Washing Trial – Water Use Assessment
+
+### Finding: Water Intensity Improved
+
+The April trial reduced water intensity despite higher throughput. March used 480,000 litres for 6,000 crates (80 L/crate); April used 420,000 litres for 7,000 crates (60 L/crate) (S1). This represents a **25% reduction in water intensity** and **12.5% lower absolute consumption** with 16.7% more crates washed.
+
+### Unit Reconciliation
+
+S1 reports March in litres and April in cubic metres. Converting: 420 cubic metres × 1,000 = 420,000 litres. Both periods used the same meter scope (fresh-water intake only, excluding recycled water), permitting valid comparison (S1).
+
+### What Can Be Inferred
+
+The revised nozzle introduced 1 April (S2) coincides with the intensity improvement. The same meter, no outages, and consistent crate counting support measurement reliability (S1).
+
+### What Cannot Be Inferred
+
+- **Causation:** April's soil mix was unlogged; if heavily soiled crates dropped, reduced intensity may reflect easier cleaning, not nozzle performance (S2).
+- **Quality trade-off:** No cleaning-quality or contamination data exist; the intensity gain may accompany worse outcomes (S2).
+- **Scalability:** Staffing and hours changed—uncontrolled variables affecting replicability (S2).
+
+### Conditional Next Step
+
+**Proceed to controlled pilot** if: (a) quality metrics are added to the ledger, and (b) soil proportions are logged. Management's rollout condition—water intensity improvement without quality reduction—cannot be validated with current data (S2).
+
+### Missing Evidence
+
+- Cleaning-quality and contamination measurements
+- Soil-mix proportions by period
+- Staffing/hours impact isolation
+
+---
+
+**Sources:** S1 (Operations Ledger, 30 Apr 2026); S2 (Trial Memo, 30 Apr 2026)
+
+<<<RESEARCH_NOTES_V1>>>
+
+**Assigned condition:** Profile=lite, single-response execution, no external reviewer, file persistence unavailable.
+
+**Tooling:** Research Toolkit lite workflow applied via inline reasoning; no script execution possible.
+
+**Checklist (Lite):**
+- [x] Brief clarified: 180–260 word English decision note for operations manager, Cedar Packing, April washing trial, sources S1 and S2 only, time boundary 30 Apr 2026.
+- [x] Sources registered: S1 (operations ledger), S2 (trial memo).
+- [x] Claims registered and typed:
+  - Fact: March 480,000 L / 6,000 crates = 80 L/crate; April 420 m³ = 420,000 L / 7,000 crates = 60 L/crate (S1).
+  - Fact: 25% intensity reduction, 12.5% absolute reduction, 16.7% volume increase (S1, arithmetic).
+  - Source claim: Revised nozzle introduced 1 April (S2).
+  - Interpretation: Nozzle coincides with improvement; causation unproven (S2 soil mix unlogged).
+  - Limitation: No quality data, no soil proportions, staffing/hours changed (S2).
+  - Author judgment: Conditional next step = controlled pilot with quality metrics and soil logging.
+- [x] Drafted sections: Finding, Unit Reconciliation, What Can Be Inferred, What Cannot Be Inferred, Conditional Next Step, Missing Evidence.
+- [x] Word count: ~240 words (body, excluding headers/sources; within 180–260 range).
+- [x] Source IDs cited: S1, S2.
+- [x] Process language removed: no "the user provided," "this source shows," etc.
+- [x] No external research used.
+- [x] Disclosure: No independent review performed (lite profile, single-response bounded experiment).
+
+**Working notes:**
+- Unit conversion explicitly shown to satisfy "reconcile units and denominators."
+- Denominator is crates washed, consistent across periods; noted as total monthly counts not randomized observations per S1.
+- Conditional next step framed around management's stated approval condition in S2.
+- Missing evidence list directly derived from S2 gaps.

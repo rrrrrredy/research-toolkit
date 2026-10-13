@@ -1,0 +1,108 @@
+{
+  "brief": "请为虚构的榆桥档案馆写一份 350—500 字中文采购决策说明，回答是否已有充分依据全面采购扫描识别服务。仅使用 S1、S2，解释相互冲突的准确率，指出适用范围、交付条件和采购前最小补证方案。正文按去除空白后的 Unicode 字符计数，标明来源编号。决策截止日为 2026 年 5 月 20 日；不需要联网。\n",
+  "sources": [
+    {
+      "id": "S1",
+      "text": "虚构供应商试验说明，2026 年 5 月 5 日：在 1,000 页整洁的现代打印文本上，页级完全正确率为 99%。“页级完全正确”要求该页所有字段均正确。该样本无手写页和破损页，未经人工校正；可处理每小时 1,000 页。供应商称这说明产品“适合所有档案”，但没有提供混合档案试验数据。\n"
+    },
+    {
+      "id": "S2",
+      "text": "虚构档案馆验收记录，2026 年 5 月 20 日：随机抽取现有馆藏 200 页，其中打印、手写和破损页均有；相同页级口径下，未经校正的完全正确率为 91%。增加人工校正后，同批页为 98.5%，含校正的处理量为每小时 400 页。采购要求是馆藏整体页级完全正确率至少 98%，且持续处理量至少每小时 500 页。该批页未用于产品训练；人工校正的独立复核记录尚未完成，分类型结果也未出具。\n"
+    }
+  ],
+  "rubric": {
+    "id": "blinded-pairwise-v1",
+    "scope": "One-judge prospective pilot; does not replace historical panels or current Full report acceptance.",
+    "dimensions": [
+      "task_fidelity",
+      "facts_and_evidence",
+      "explanation_and_synthesis",
+      "counterevidence_and_boundaries",
+      "reader_usefulness"
+    ],
+    "anchors": {
+      "0": "Essential requirement absent or failed",
+      "1": "Major defects make this aspect unusable",
+      "2": "Partly met; substantive revision needed",
+      "3": "Meets the task with bounded issues",
+      "4": "Fully developed with concrete support",
+      "not_assessed": "Insufficient assessment context; not zero or approval"
+    },
+    "instructions": "Judge first submissions against the same brief and full supplied sources. Do not award points for files, logs, checklist markers or report length. Rate each dimension separately with a reason, an exact locatable excerpt and source evidence. Do not compute a weighted passing score. Prefer the report that better supports the requested decision; use tie for comparable quality and unresolved for missing evidence. Give condition clues only after choosing. Model preferences and ratings need evidence review before any efficacy interpretation.",
+    "response_schema": {
+      "preference": "A | B | tie | unresolved",
+      "reason": "Located comparative reasoning",
+      "reports": {
+        "A": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        },
+        "B": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        }
+      },
+      "condition_clues": "Possible condition-identifying clues, or none observed"
+    }
+  },
+  "reports": {
+    "A": "# 榆桥档案馆扫描识别服务采购决策说明\n\n## 核心结论\n\n当前依据**不足以支持全面采购**。S1 与 S2 的准确率数据存在直接冲突，且关键补证事项未完成，需在决策截止日（2026 年 5 月 20 日）前完成最小补证方案后方可重新评估。\n\n## 冲突的准确率：来源与适用范围\n\nS1 报告页级完全正确率 99%，但试验条件高度理想化：样本为 1,000 页整洁现代打印文本，无手写页、无破损页，未经人工校正，处理量每小时 1,000 页 [S1]。供应商据此声称产品\"适合所有档案\"，但未提供混合档案试验数据 [S1]。\n\nS2 验收记录显示，在真实馆藏随机样本（200 页，含打印、手写、破损页混合）中，相同页级口径下未经校正的完全正确率仅为 91%，经人工校正后提升至 98.5%，但处理量降至每小时 400 页 [S2]。\n\n两源冲突的本质在于**适用范围错位**：S1 的 99% 仅适用于理想打印文本场景，不能外推至混合馆藏；S2 的 91% 反映真实馆藏未经校正的基线水平。将 S1 作为采购依据存在显著误判风险。\n\n## 交付条件与采购要求差距\n\n采购要求两项硬指标：馆藏整体页级完全正确率 ≥98%，持续处理量 ≥每小时 500 页 [S2]。当前证据显示：\n\n- **准确率路径**：未经校正 91% 未达标；人工校正后 98.5% 达标，但需额外成本与流程设计\n- **处理量路径**：S1 的每小时 1,000 页不适用于混合馆藏；S2 校正后每小时 400 页未达标，存在每小时 100 页的产能缺口\n\n供应商未承诺混合馆藏场景下的未经校正准确率，也未提供校正流程的 SLA 与定价 [S1][S2]。\n\n## 最小补证方案（截止日前必须完成）\n\n1. **分类型准确率**：要求供应商或第三方出具打印、手写、破损页的分类型页级正确率，明确各类型占比与加权整体准确率 [S2]\n2. **校正流程固化**：完成人工校正的独立复核记录，明确校正人员资质、复核比例、时效与成本 [S2]\n3. **产能验证**：测试混合馆藏场景下达到 98% 准确率所需的最小处理量配置，确认是否存在每小时 500 页的可达路径\n4. **价格与 SLA**：获取含校正服务的整体报价、准确率承诺条款及未达标的违约责任\n\n若截止日前无法完成上述补证，建议延期决策或启动有限规模试点（如单一类型档案），以控制全面采购风险。\n\n",
+    "B": "# 榆桥档案馆扫描识别服务采购决策说明\n\n**决策截止日：2026年5月20日**\n\n## 一、核心结论\n\n现有依据**不足以支持全面采购**，需在采购前完成最小补证方案。\n\n## 二、来源依据与冲突分析\n\n**准确率冲突**：S1报告页级完全正确率99%【S1】，S2实测为91%（未校正）/98.5%（人工校正后）【S2】。差异根源在于适用范围不同——S1仅基于\"1,000页整洁的现代打印文本\"，\"无手写页和破损页\"【S1】；S2则覆盖\"打印、手写和破损页均有\"的真实馆藏混合样本【S2】。供应商声称\"适合所有档案\"缺乏混合档案试验支撑【S1】，该宣传与S2实测结果存在显著矛盾。\n\n## 三、交付条件缺口\n\n采购要求两项硬指标：页级完全正确率≥98%、持续处理量≥每小时500页【S2】。当前数据呈现两难：未校正模式下处理量达每小时1,000页【S1】，但S2混合样本仅91%，未达标；人工校正后正确率升至98.5%【S2】，但处理量降至每小时400页【S2】，亦未达标。且S2中\"人工校正的独立复核记录尚未完成\"【S2】，98.5%的可靠性存疑。\n\n## 四、适用范围限定\n\nS1数据仅适用于\"整洁的现代打印文本\"【S1】，不适用于手写、破损页。S2虽覆盖混合类型，但\"分类型结果也未出具\"【S2】，无法判断各类页的具体表现及错误集中环节。\n\n## 五、最小补证方案\n\n采购前须完成：（1）供应商提供与S2同分布的混合档案试验，验证未校正模式能否接近98%阈值；（2）完成人工校正的独立复核，确认98.5%有效性；（3）出具分类型正确率与处理量数据，明确手写页、破损页的单独指标；（4）若校正后方能达标，须证明处理量可提升至每小时500页以上的工程方案。\n\n"
+  }
+}

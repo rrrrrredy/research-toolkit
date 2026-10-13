@@ -22,7 +22,7 @@ Toolkit 的默认流程调整不改写既有样本、首评或标签，也不自
 
 前瞻的 5–10 个任务族试验见[盲评配对协议](../docs/eval-protocol.zh-CN.md)。脚本冻结并记录种子／顺序，对评审隐藏 A/B 条件，保留首份产出、判断与失败。[2026-10-10 四模型试验](studies/2026-10-10-lite-four-models/README.zh-CN.md)已覆盖同样五个任务族的全部 20 对模型—任务评审，保留全部首轮尝试及失败，格式诊断与重新生成补跑单列；不证明通用效果。仅复查既有公开两组档案时，运行 `python scripts/reproduce_calibration.py`，生成 `evals/runs/calibration-reproduction/inventory.json` 与 `inventory.md`，不调用模型。
 
-新增[协议 v2](../docs/eval-protocol-v2.zh-CN.md)，附[五个已暴露虚构开发任务族](tasksets/development-v2-synthetic/README.zh-CN.md)和[独立评审校准对照](tasksets/judge-calibration-v3/README.zh-CN.md)。[带日期的 Astra 校准](diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)已新增 12 份首轮判断及来源裁定；开发任务作者试验仍待执行。这些材料与既有七个流程案例分开。
+新增[协议 v2](../docs/eval-protocol-v2.zh-CN.md)，附[五个已暴露虚构开发任务族](tasksets/development-v2-synthetic/README.zh-CN.md)和[独立评审校准对照](tasksets/judge-calibration-v3/README.zh-CN.md)。[带日期的 Astra 校准](diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)已新增 12 份首轮判断及来源裁定；[四模型开发试验](studies/2026-10-12-lite-four-models/README.zh-CN.md)现已完成，保留四个缺失配对和六个互换偏好变化。这些材料与既有七个流程案例分开。
 
 ## 如何贡献案例
 

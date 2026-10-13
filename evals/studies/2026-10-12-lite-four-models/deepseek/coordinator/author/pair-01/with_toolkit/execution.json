@@ -1,0 +1,18 @@
+{
+  "status": "response_complete",
+  "model_requested": "deepseek-flash",
+  "request_id": "5c8ca1cb-fab7-46aa-a331-ca8a5ed3433b",
+  "model_returned": "deepseek-flash",
+  "usage": {
+    "prompt_tokens": 13500,
+    "completion_tokens": 1525,
+    "total_tokens": 15025,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    },
+    "prompt_cache_hit_tokens": 0,
+    "prompt_cache_miss_tokens": 13500
+  },
+  "elapsed_seconds": 10.875,
+  "finish_reason": "stop"
+}

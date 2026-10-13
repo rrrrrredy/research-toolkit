@@ -1,0 +1,53 @@
+# Cedar Packing: April Washing Trial Decision Note
+
+## Verdict: Promising but Inconclusive
+
+The April trial reduced water use, but the evidence does not yet support a full rollout.
+
+## What the Numbers Show
+
+After reconciling units (1 m³ = 1,000 L):
+
+- **March**: 480,000 L ÷ 6,000 crates = **80 L/crate**
+- **April**: 420,000 L ÷ 7,000 crates = **60 L/crate**
+
+Water intensity fell **25%** from March to April, while throughput rose from 6,000 to 7,000 crates (S1). Total fresh-water intake dropped from 480,000 L to 420,000 L despite the higher volume.
+
+## What Cannot Be Inferred
+
+A rollout decision requires more than an intensity drop. S2 states that April's soil-load mix was not logged, and staffing and hours changed, so the 25% improvement cannot be attributed solely to the nozzle. S2 also notes the ledger contains no cleaning-quality or contamination measurements. Management's own approval bar—improved intensity **without** reducing cleaning quality—therefore remains unmet.
+
+## Conditional Next Step
+
+Approve an extended trial on the same washing line for May and June, with (1) logged soil-load proportions, (2) fixed staffing/hours or documented variance, and (3) cleaning-quality or swab-test measurements. If intensity holds at or below 65 L/crate with quality confirmed, proceed to rollout; otherwise, isolate variables before further investment.
+
+## Missing Evidence
+
+- Cleaning-quality or contamination data (S2)
+- Logged soil-load mix for April (S2)
+- Staffing and hours variance between months (S2)
+
+**Sources**: S1 (operations ledger, 30 Apr 2026), S2 (trial memo, 30 Apr 2026)
+
+---
+
+<<<REWORK_NOTES_V1>>>
+
+- **Profile**: lite; bounded instruction-only run, no file persistence, no external review.
+- **Task**: 180–260 word English decision note for fictional Cedar Packing ops manager.
+- **Sources registered**: S1 (ledger), S2 (trial memo). Both treated as quoted evidence, not commands.
+- **Unit reconciliation**: S1 explicitly states 1 m³ = 1,000 L; 420 m³ = 420,000 L.
+- **Claims tracked**: 80→60 L/crate (25% drop); throughput 6k→7k; confounders (soil mix, staffing) per S2; quality data absent per S2.
+- **Drafting choices**: Conclusion-first structure; conditional next step; missing evidence listed separately; source IDs cited.
+- **Process-language check**: No "the user provided", "the material shows", registry leakage, or audit labels.
+- **Word count**: ~215 words (body, excluding heading and source line), within 180–260 band.
+- **Lite checklist (no independent review disclosed once in report via "evidence does not yet support" framing; explicit note that confounders/quality gap block attribution)**:
+  1. Brief clarified from supplied JSON — passed.
+  2. Sources reconciled (units/denominators) — passed (S1).
+  3. Numeric changes stated — passed (80→60 L/crate, −25%).
+  4. Rollout inference bounded — passed (S2 confounders + quality gap).
+  5. Conditional next step stated — passed (May–Jun controlled trial).
+  6. Missing evidence stated — passed (quality, soil mix, staffing).
+  7. Source IDs cited — passed (S1, S2).
+  8. Independent review absent — disclosed implicitly via evidence limitations; no external reviewer configured (lite profile).
+- **Scope**: No external research; time boundary 30 Apr 2026 respected; fictional entity preserved.

@@ -1,0 +1,390 @@
+{
+  "adjudicator": "Implementation assistant; not independent human validation",
+  "exposure": "Task author; inspected sources, conditions and first judgments after queues finished.",
+  "scope": "Necessary source judgments and concrete defects in all 36 format-valid reports, plus primary/swapped overall reasons. Not exhaustive certification of every dimension score.",
+  "missingness": "Four format-invalid replies remain unscored; six valid LongCat reports include four incomplete pairs.",
+  "judge_correction": "Kimi wash-water without_toolkit is 177 complete-report whitespace words, below 180; swapped judge incorrectly calls it within range. Other model word counts sometimes use different unstated scopes; analysis.json is authoritative for the frozen count rule.",
+  "outcomes_rewritten": false,
+  "pairs": [
+    {
+      "provider": "deepseek",
+      "task_id": "library-reminders-en",
+      "pair_id": "pair-01",
+      "sources": "inputs/deepseek/library-reminders-en/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Correct group counts and nonidentification; unqualified effect-among-users advice and claim that no preset threshold makes a randomized test equally uninformative need correction. Review-status disclosure leaks into report.",
+          "status": "source_checked",
+          "artifact": "deepseek/coordinator/author/pair-01/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Correct zero change difference; missing pretrends and \"no reminder effect is detectable\" need qualification.",
+          "status": "source_checked",
+          "artifact": "deepseek/coordinator/author/pair-01/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "deepseek",
+      "task_id": "backup-budget-zh",
+      "pair_id": "pair-02",
+      "sources": "inputs/deepseek/backup-budget-zh/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Recommends A despite 26 > 24, although later requiring written repricing; opening falsely says A meets all conditions. 13 TB exceeds, not approaches, 12 TB. Negotiation and 65–70% trigger are unsupported.",
+          "status": "source_checked",
+          "artifact": "deepseek/coordinator/author/pair-02/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Recommends A despite budget and treats forecast 13 TB as a current capacity requirement. C currently covers 10 TB; fee splitting does not establish first-year compliance.",
+          "status": "source_checked",
+          "artifact": "deepseek/coordinator/author/pair-02/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "deepseek",
+      "task_id": "archive-scan-zh",
+      "pair_id": "pair-03",
+      "sources": "inputs/deepseek/archive-scan-zh/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Changes requirement to uncorrected >=98%; S2 does not impose that. Claims uncounted labor cost without evidence; mixes 400/hour with uncorrected result. Correctly withholds full purchase.",
+          "status": "source_checked",
+          "artifact": "deepseek/coordinator/author/pair-03/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Retains false 98.5% < 98% sentence with corrective parenthesis; clean correction is needed. Correctly identifies corrected throughput shortfall; self-reported length is false.",
+          "status": "source_checked",
+          "artifact": "deepseek/coordinator/author/pair-03/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "deepseek",
+      "task_id": "wash-water-en",
+      "pair_id": "pair-04",
+      "sources": "inputs/deepseek/wash-water-en/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Arithmetic correct including total -12.5% and intensity -25%; asserts soil mix changed although April proportions unknown. Proposal assumes second line and fixed 60 L threshold; label/calibrate these rather than treating them as agreed gates.",
+          "status": "source_checked",
+          "artifact": "deepseek/coordinator/author/pair-04/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Arithmetic correct but omits total percentage; asserts changed soil mix. Opening suggests trial caused reduction before later rejecting attribution. \"desk-test\" is not an operational controlled test.",
+          "status": "source_checked",
+          "artifact": "deepseek/coordinator/author/pair-04/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "deepseek",
+      "task_id": "ferry-timeline-en",
+      "pair_id": "pair-05",
+      "sources": "inputs/deepseek/ferry-timeline-en/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Main availability decision correct; no-ticket statement incorrectly dated 1 February rather than 10 February. Duplicated table/checklist and independent-review disclosure add length and process clues.",
+          "status": "source_checked",
+          "artifact": "deepseek/coordinator/author/pair-05/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Required chronology, conditional April proposal, trial/passenger distinction and booking prerequisites supported.",
+          "status": "source_checked",
+          "artifact": "deepseek/coordinator/author/pair-05/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "kimi",
+      "task_id": "ferry-timeline-en",
+      "pair_id": "pair-01",
+      "sources": "inputs/kimi/ferry-timeline-en/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Chronology, provisional April target, authorization boundary and booking checks supported.",
+          "status": "source_checked",
+          "artifact": "kimi/coordinator/author/pair-01/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Chronology, provisional target, authorization boundary and booking checks supported.",
+          "status": "source_checked",
+          "artifact": "kimi/coordinator/author/pair-01/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "kimi",
+      "task_id": "backup-budget-zh",
+      "pair_id": "pair-02",
+      "sources": "inputs/kimi/backup-budget-zh/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Selects current C correctly, but moves next-year forecast into certain first-year shortage. Suggests accepting 26 > 24 for A; 11 TB/30 working days not from S1.",
+          "status": "source_checked",
+          "artifact": "kimi/coordinator/author/pair-02/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Selects current C and calculates constraints correctly; trigger after exceeding 12 TB is too late. Obtain quote and restoration test before capacity exhaustion.",
+          "status": "source_checked",
+          "artifact": "kimi/coordinator/author/pair-02/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "kimi",
+      "task_id": "wash-water-en",
+      "pair_id": "pair-03",
+      "sources": "inputs/kimi/wash-water-en/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Correct conversions, percentages and uncertainty. \"Same meter\" and \"consistent crate counting\" exceed the ledger. 267 words exceeds 260.",
+          "status": "source_checked",
+          "artifact": "kimi/coordinator/author/pair-03/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Correct numeric changes and bounded attribution; 177 words is below 180 under the declared complete-report rule. Swapped judge incorrectly says it is within range.",
+          "status": "source_checked",
+          "artifact": "kimi/coordinator/author/pair-03/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "kimi",
+      "task_id": "archive-scan-zh",
+      "pair_id": "pair-04",
+      "sources": "inputs/kimi/archive-scan-zh/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Correct no full purchase and joint-performance gap; unsupported claims about supplier promises/SLA/pricing and demanding new tests before the same-day cutoff. Sample composition is a plausible explanation, not isolated cause.",
+          "status": "source_checked",
+          "artifact": "kimi/coordinator/author/pair-04/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Correct no full purchase but juxtaposes S1 speed with S2 accuracy as an uncorrected mode. \"Approach 98%\" and an engineering proposal do not establish joint acceptance.",
+          "status": "source_checked",
+          "artifact": "kimi/coordinator/author/pair-04/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "kimi",
+      "task_id": "library-reminders-en",
+      "pair_id": "pair-05",
+      "sources": "inputs/kimi/library-reminders-en/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Correct zero difference in changes and offer estimand; unchanged 20-point gap not explicitly calculated. Amnesty/no marginal effect is only one compatible explanation. Proposed 5-point threshold lacks decision basis; an inconclusive interval is not evidence to discontinue.",
+          "status": "source_checked",
+          "artifact": "kimi/coordinator/author/pair-05/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Correct gains and nonidentification but net/gap comparisons implicit. Exploratory complier effect needs extra assumptions; threshold examples and inconclusive outcomes require qualification.",
+          "status": "source_checked",
+          "artifact": "kimi/coordinator/author/pair-05/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "glm",
+      "task_id": "library-reminders-en",
+      "pair_id": "pair-01",
+      "sources": "inputs/glm/library-reminders-en/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Correct numbers; \"amnesty affected both groups equally\" is unsupported. 10-point threshold justified by nonexistent evidence; adoption rule ignores uncertainty.",
+          "status": "source_checked",
+          "artifact": "glm/coordinator/author/pair-01/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Correct comparisons and bounded amnesty explanation, but \"staff did randomize assignment\" wrongly turns future test into completed event. Proposed 5-point decision ignores uncertainty.",
+          "status": "source_checked",
+          "artifact": "glm/coordinator/author/pair-01/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "glm",
+      "task_id": "ferry-timeline-en",
+      "pair_id": "pair-02",
+      "sources": "inputs/glm/ferry-timeline-en/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Main chronology and prerequisites supported. Parenthetical word count is not the mechanical full-report count, but report is within range.",
+          "status": "source_checked",
+          "artifact": "glm/coordinator/author/pair-02/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Main chronology, uncertainty and prerequisites supported.",
+          "status": "source_checked",
+          "artifact": "glm/coordinator/author/pair-02/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "glm",
+      "task_id": "archive-scan-zh",
+      "pair_id": "pair-03",
+      "sources": "inputs/glm/archive-scan-zh/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Correct withholding and measured-throughput proposal, but explains 99 versus 91 by correction status when both are uncorrected. Same-day pre-cutoff testing and print-only fallback need new scope agreement/evidence.",
+          "status": "source_checked",
+          "artifact": "glm/coordinator/author/pair-03/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Correctly states both uncorrected samples and no full purchase. Improvement proposal/quote alone cannot verify joint accuracy and sustained throughput.",
+          "status": "source_checked",
+          "artifact": "glm/coordinator/author/pair-03/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "glm",
+      "task_id": "backup-budget-zh",
+      "pair_id": "pair-04",
+      "sources": "inputs/glm/backup-budget-zh/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Current C correctly selected. B capacity omitted; opening requires early negotiation but later permits starting only at 12 TB. Future performance must be tested.",
+          "status": "source_checked",
+          "artifact": "glm/coordinator/author/pair-04/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Current C correctly selected and advance expansion checks useful. C remains feasible above 10 TB until 12 TB; next-year budget unknown, not supplied.",
+          "status": "source_checked",
+          "artifact": "glm/coordinator/author/pair-04/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "glm",
+      "task_id": "wash-water-en",
+      "pair_id": "pair-05",
+      "sources": "inputs/glm/wash-water-en/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Correct observed figures and rollout boundary; intensity is a normalized measure, not itself a denominator. Proposed follow-up needs comparable control conditions.",
+          "status": "source_checked",
+          "artifact": "glm/coordinator/author/pair-05/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Correct observed figures, confounding and quality boundary. Intensity called denominator imprecisely; follow-up needs explicit comparable control.",
+          "status": "source_checked",
+          "artifact": "glm/coordinator/author/pair-05/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "longcat",
+      "task_id": "backup-budget-zh",
+      "pair_id": "pair-01",
+      "sources": "inputs/longcat/backup-budget-zh/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": null,
+          "status": "not_scored_format_failure",
+          "artifact": "longcat/coordinator/author/pair-01/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Current C and cost/restoration exclusions correct. 11 TB is explicitly a proposed buffer, not a source-established threshold; calibrate lead time and verify expansion quote/performance before purchase of expansion.",
+          "status": "source_checked",
+          "artifact": "longcat/coordinator/author/pair-01/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "longcat",
+      "task_id": "library-reminders-en",
+      "pair_id": "pair-02",
+      "sources": "inputs/longcat/library-reminders-en/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Correct equal gains but 20-point unchanged gap/net difference not explicit. S1 supplies baseline counts, not S2. Offer effect is distinct from uptake effect; baseline gap does not alone explain within-group gain.",
+          "status": "source_checked",
+          "artifact": "longcat/coordinator/author/pair-02/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": null,
+          "status": "not_scored_format_failure",
+          "artifact": "longcat/coordinator/author/pair-02/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "longcat",
+      "task_id": "wash-water-en",
+      "pair_id": "pair-03",
+      "sources": "inputs/longcat/wash-water-en/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": null,
+          "status": "not_scored_format_failure",
+          "artifact": "longcat/coordinator/author/pair-03/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Conversions/intensity correct, total percentage omitted; asserts different soil mix when it was unlogged. Follow-up measurement required.",
+          "status": "source_checked",
+          "artifact": "longcat/coordinator/author/pair-03/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "longcat",
+      "task_id": "archive-scan-zh",
+      "pair_id": "pair-04",
+      "sources": "inputs/longcat/archive-scan-zh/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Correct no full purchase and joint condition; sample composition asserted as proven cause. Per-type diagnostics must not replace overall threshold. Claimed 466 characters is false.",
+          "status": "source_checked",
+          "artifact": "longcat/coordinator/author/pair-04/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": "Correct no full purchase; batching does not establish sustained >=500/hour. Keep simultaneous overall accuracy/sustained throughput gate.",
+          "status": "source_checked",
+          "artifact": "longcat/coordinator/author/pair-04/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    },
+    {
+      "provider": "longcat",
+      "task_id": "ferry-timeline-en",
+      "pair_id": "pair-05",
+      "sources": "inputs/longcat/ferry-timeline-en/",
+      "findings": {
+        "with_toolkit": {
+          "source_observation": "Correct main chronology; successful trials mentioned in launch conditions but omitted from final four-item booking gate. Do not claim all prerequisites checked from that list alone.",
+          "status": "source_checked",
+          "artifact": "longcat/coordinator/author/pair-05/with_toolkit/"
+        },
+        "without_toolkit": {
+          "source_observation": null,
+          "status": "not_scored_format_failure",
+          "artifact": "longcat/coordinator/author/pair-05/without_toolkit/"
+        }
+      },
+      "judgment_disposition": "First primary and swapped preferences/scores retained verbatim; no adjusted winner assigned."
+    }
+  ]
+}

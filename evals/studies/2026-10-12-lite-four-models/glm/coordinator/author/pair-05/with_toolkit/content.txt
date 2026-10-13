@@ -1,0 +1,28 @@
+# Decision Note: April Washing Trial
+
+**Recommendation:** Do not roll out yet. The trial shows a clear water-intensity improvement, but the missing soil-mix and quality data mean the approval condition cannot be verified.
+
+**Numbers, with units reconciled.** March used 480,000 litres (480 m³) to wash 6,000 crates — 80 litres per crate. April used 420 m³ (420,000 litres) for 7,000 crates — 60 litres per crate. Both months cover the same line, count only fresh-water intake, exclude recycled water, and had no meter outages (S1). Water intensity fell by 20 litres per crate, a 25% reduction, while total fresh-water use fell 60 m³ (12.5%) even as volume rose 1,000 crates.
+
+**What can be inferred.** Intensity — the right denominator, since crate volume changed — improved materially. The revised nozzle introduced 1 April (S2) is a plausible contributor.
+
+**What cannot.** March ran a mix of lightly and heavily soiled crates; April's proportions were not logged, and staffing and hours changed (S2). If April's crates were lighter on average, part of the 25% gain may reflect workload, not the nozzle. The ledger contains no cleaning-quality or contamination measurements, and these are monthly totals, not controlled observations.
+
+**Next step.** A rollout can be recommended only if water intensity improves without quality loss. Run a defined trial logging soil mix, staffing, and quality scores per batch; the missing evidence is exactly that paired measurement.
+
+**Sources:** S1 (operations ledger, 30 April 2026); S2 (trial memo, 30 April 2026).
+
+<<<RESEARCH_NOTES_V1>>>
+
+- Profile: lite. Brief fully specified (reader: ops manager; 180–260 words; English; only S1, S2; boundary 30 April 2026); no clarification needed.
+- Word count: ~250 words (headings and source line included per no stated exclusion; within 180–260 band).
+- Claim registry (in-notes):
+  - C1 fact: March 480,000 L / 6,000 crates = 80 L/crate (S1). Strong.
+  - C2 fact: April 420 m³ = 420,000 L / 7,000 crates = 60 L/crate (S1, conversion factor given). Strong.
+  - C3 fact: intensity −25%, total −12.5% despite +1,000 crates (S1, arithmetic). Strong.
+  - C4 source claim: nozzle introduced 1 April; possible cause (S2). Moderate; confounded.
+  - C5 fact: soil mix, staffing, hours unlogged/changed; no quality data (S2). Strong as a statement of missing evidence.
+  - C6 interpretation: rollout not approvable yet, conditional next step — author judgment grounded in S2's stated approval condition.
+- Counter-evidence handled: confounders (soil mix, staffing, hours) and lack of controlled design explicitly limit causal inference.
+- Lite checklist: (1) brief resolved — passed, evidence above; (2) sources registered and read — passed, S1/S2 full text supplied and used; (3) claims traceable with types and uncertainty — passed, claim registry; (4) units/denominators reconciled — passed, litres↔m³ and per-crate intensity shown; (5) word count and format met — passed, ~250 words, cited source IDs; (6) scope/exclusions respected — passed, no external research, no backstage leakage, IDs cited as user requested; (7) independent review not run (Lite profile) — disclosed limitation of process, not of findings.
+- File persistence/MCP unavailable per instruction; registries kept in these notes instead.

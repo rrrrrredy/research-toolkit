@@ -1,0 +1,993 @@
+{
+  "scope": "exposed five-family fixed-source instruction-only Lite diagnostic; unadjudicated judge preferences",
+  "independent_families": 5,
+  "model_task_pairs": 20,
+  "requests_attempted": 72,
+  "request_ceiling": 80,
+  "by_provider": {
+    "deepseek": {
+      "author": 10,
+      "judge": 10,
+      "complete_author_pairs": 5,
+      "judged_primary_pairs": 5,
+      "with_toolkit": 2,
+      "without_toolkit": 3,
+      "tie": 0,
+      "unresolved": 0,
+      "swap_consistent": 3,
+      "swap_disagrees": 2,
+      "swap_unresolved": 0
+    },
+    "kimi": {
+      "author": 10,
+      "judge": 10,
+      "complete_author_pairs": 5,
+      "judged_primary_pairs": 5,
+      "with_toolkit": 1,
+      "without_toolkit": 3,
+      "tie": 1,
+      "unresolved": 0,
+      "swap_consistent": 4,
+      "swap_disagrees": 1,
+      "swap_unresolved": 0
+    },
+    "glm": {
+      "author": 10,
+      "judge": 10,
+      "complete_author_pairs": 5,
+      "judged_primary_pairs": 5,
+      "with_toolkit": 1,
+      "without_toolkit": 1,
+      "tie": 3,
+      "unresolved": 0,
+      "swap_consistent": 3,
+      "swap_disagrees": 2,
+      "swap_unresolved": 0
+    },
+    "longcat": {
+      "author": 10,
+      "judge": 2,
+      "complete_author_pairs": 1,
+      "judged_primary_pairs": 1,
+      "with_toolkit": 1,
+      "without_toolkit": 0,
+      "tie": 0,
+      "unresolved": 4,
+      "swap_consistent": 0,
+      "swap_disagrees": 1,
+      "swap_unresolved": 4
+    }
+  },
+  "usage": {
+    "deepseek": {
+      "author": {
+        "prompt_tokens": 69693,
+        "completion_tokens": 12300,
+        "total_tokens": 81993,
+        "prompt_cache_hit_tokens": 52224,
+        "prompt_cache_miss_tokens": 17469
+      },
+      "judge": {
+        "input_tokens": 100555,
+        "cached_input_tokens": 37376,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 21301,
+        "reasoning_output_tokens": 1071
+      }
+    },
+    "kimi": {
+      "author": {
+        "prompt_tokens": 68354,
+        "completion_tokens": 8990,
+        "total_tokens": 77344,
+        "cached_tokens": 24576
+      },
+      "judge": {
+        "input_tokens": 114221,
+        "cached_input_tokens": 54144,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 21358,
+        "reasoning_output_tokens": 1588
+      }
+    },
+    "glm": {
+      "author": {
+        "completion_tokens": 8578,
+        "prompt_tokens": 68612,
+        "total_tokens": 77190
+      },
+      "judge": {
+        "input_tokens": 125523,
+        "cached_input_tokens": 59776,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 22643,
+        "reasoning_output_tokens": 1242
+      }
+    },
+    "longcat": {
+      "author": {
+        "completion_tokens": 7305,
+        "prompt_tokens": 69061,
+        "total_tokens": 76366
+      },
+      "judge": {
+        "input_tokens": 32265,
+        "cached_input_tokens": 17280,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5922,
+        "reasoning_output_tokens": 130
+      }
+    }
+  },
+  "timings": {
+    "deepseek": {
+      "author_seconds": 83.375,
+      "judge_seconds": 737.233
+    },
+    "kimi": {
+      "author_seconds": 265.375,
+      "judge_seconds": 722.782
+    },
+    "glm": {
+      "author_seconds": 251.687,
+      "judge_seconds": 742.562
+    },
+    "longcat": {
+      "author_seconds": 345.812,
+      "judge_seconds": 182.14
+    }
+  },
+  "failures": [
+    {
+      "provider": "longcat",
+      "path": "coordinator/author/pair-01/with_toolkit",
+      "kind": "output_format"
+    },
+    {
+      "provider": "longcat",
+      "path": "coordinator/author/pair-02/without_toolkit",
+      "kind": "output_format"
+    },
+    {
+      "provider": "longcat",
+      "path": "coordinator/author/pair-03/with_toolkit",
+      "kind": "output_format"
+    },
+    {
+      "provider": "longcat",
+      "path": "coordinator/author/pair-05/without_toolkit",
+      "kind": "output_format"
+    }
+  ],
+  "pairs": [
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-01",
+      "task_id": "library-reminders-en",
+      "family_id": "causal-identification",
+      "status": "judged",
+      "preference": "A",
+      "outcome": "without_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "B",
+        "outcome": "without_toolkit",
+        "consistent": true
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 398,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": false
+        },
+        "without_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 247,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        }
+      }
+    },
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-02",
+      "task_id": "backup-budget-zh",
+      "family_id": "constrained-choice",
+      "status": "judged",
+      "preference": "A",
+      "outcome": "with_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "tie",
+        "outcome": "tie",
+        "consistent": false
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 841,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        },
+        "without_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 715,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        }
+      }
+    },
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-03",
+      "task_id": "archive-scan-zh",
+      "family_id": "conflicting-measurements",
+      "status": "judged",
+      "preference": "A",
+      "outcome": "without_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "B",
+        "outcome": "without_toolkit",
+        "consistent": true
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 837,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        },
+        "without_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 618,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        }
+      }
+    },
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-04",
+      "task_id": "wash-water-en",
+      "family_id": "units-and-denominators",
+      "status": "judged",
+      "preference": "B",
+      "outcome": "with_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "tie",
+        "outcome": "tie",
+        "consistent": false
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 356,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": false
+        },
+        "without_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 225,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        }
+      }
+    },
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-05",
+      "task_id": "ferry-timeline-en",
+      "family_id": "temporal-synthesis",
+      "status": "judged",
+      "preference": "B",
+      "outcome": "without_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "A",
+        "outcome": "without_toolkit",
+        "consistent": true
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 483,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": false
+        },
+        "without_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 194,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        }
+      }
+    },
+    {
+      "provider": "kimi",
+      "pair_id": "pair-01",
+      "task_id": "ferry-timeline-en",
+      "family_id": "temporal-synthesis",
+      "status": "judged",
+      "preference": "tie",
+      "outcome": "tie",
+      "position_swap": {
+        "status": "judged",
+        "preference": "tie",
+        "outcome": "tie",
+        "consistent": true
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 222,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        },
+        "without_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 201,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        }
+      }
+    },
+    {
+      "provider": "kimi",
+      "pair_id": "pair-02",
+      "task_id": "backup-budget-zh",
+      "family_id": "constrained-choice",
+      "status": "judged",
+      "preference": "B",
+      "outcome": "without_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "A",
+        "outcome": "without_toolkit",
+        "consistent": true
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 767,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        },
+        "without_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 648,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        }
+      }
+    },
+    {
+      "provider": "kimi",
+      "pair_id": "pair-03",
+      "task_id": "wash-water-en",
+      "family_id": "units-and-denominators",
+      "status": "judged",
+      "preference": "B",
+      "outcome": "without_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "A",
+        "outcome": "without_toolkit",
+        "consistent": true
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 267,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": false
+        },
+        "without_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 177,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": false
+        }
+      }
+    },
+    {
+      "provider": "kimi",
+      "pair_id": "pair-04",
+      "task_id": "archive-scan-zh",
+      "family_id": "conflicting-measurements",
+      "status": "judged",
+      "preference": "A",
+      "outcome": "without_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "A",
+        "outcome": "with_toolkit",
+        "consistent": false
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 916,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        },
+        "without_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 704,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        }
+      }
+    },
+    {
+      "provider": "kimi",
+      "pair_id": "pair-05",
+      "task_id": "library-reminders-en",
+      "family_id": "causal-identification",
+      "status": "judged",
+      "preference": "B",
+      "outcome": "with_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "A",
+        "outcome": "with_toolkit",
+        "consistent": true
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 258,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        },
+        "without_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 192,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        }
+      }
+    },
+    {
+      "provider": "glm",
+      "pair_id": "pair-01",
+      "task_id": "library-reminders-en",
+      "family_id": "causal-identification",
+      "status": "judged",
+      "preference": "B",
+      "outcome": "without_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "A",
+        "outcome": "without_toolkit",
+        "consistent": true
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 224,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        },
+        "without_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 243,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        }
+      }
+    },
+    {
+      "provider": "glm",
+      "pair_id": "pair-02",
+      "task_id": "ferry-timeline-en",
+      "family_id": "temporal-synthesis",
+      "status": "judged",
+      "preference": "tie",
+      "outcome": "tie",
+      "position_swap": {
+        "status": "judged",
+        "preference": "tie",
+        "outcome": "tie",
+        "consistent": true
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 235,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        },
+        "without_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 224,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        }
+      }
+    },
+    {
+      "provider": "glm",
+      "pair_id": "pair-03",
+      "task_id": "archive-scan-zh",
+      "family_id": "conflicting-measurements",
+      "status": "judged",
+      "preference": "A",
+      "outcome": "with_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "A",
+        "outcome": "without_toolkit",
+        "consistent": false
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 640,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        },
+        "without_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 733,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        }
+      }
+    },
+    {
+      "provider": "glm",
+      "pair_id": "pair-04",
+      "task_id": "backup-budget-zh",
+      "family_id": "constrained-choice",
+      "status": "judged",
+      "preference": "tie",
+      "outcome": "tie",
+      "position_swap": {
+        "status": "judged",
+        "preference": "A",
+        "outcome": "without_toolkit",
+        "consistent": false
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 679,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        },
+        "without_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 814,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        }
+      }
+    },
+    {
+      "provider": "glm",
+      "pair_id": "pair-05",
+      "task_id": "wash-water-en",
+      "family_id": "units-and-denominators",
+      "status": "judged",
+      "preference": "tie",
+      "outcome": "tie",
+      "position_swap": {
+        "status": "judged",
+        "preference": "tie",
+        "outcome": "tie",
+        "consistent": true
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 243,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        },
+        "without_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 260,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        }
+      }
+    },
+    {
+      "provider": "longcat",
+      "pair_id": "pair-01",
+      "task_id": "backup-budget-zh",
+      "family_id": "constrained-choice",
+      "status": "unresolved_author_failure",
+      "preference": "unresolved",
+      "outcome": "unresolved",
+      "position_swap": {
+        "status": "unresolved_author_failure",
+        "preference": "unresolved",
+        "outcome": "unresolved",
+        "consistent": null
+      },
+      "lengths": {
+        "without_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 834,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        }
+      }
+    },
+    {
+      "provider": "longcat",
+      "pair_id": "pair-02",
+      "task_id": "library-reminders-en",
+      "family_id": "causal-identification",
+      "status": "unresolved_author_failure",
+      "preference": "unresolved",
+      "outcome": "unresolved",
+      "position_swap": {
+        "status": "unresolved_author_failure",
+        "preference": "unresolved",
+        "outcome": "unresolved",
+        "consistent": null
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 269,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": false
+        }
+      }
+    },
+    {
+      "provider": "longcat",
+      "pair_id": "pair-03",
+      "task_id": "wash-water-en",
+      "family_id": "units-and-denominators",
+      "status": "unresolved_author_failure",
+      "preference": "unresolved",
+      "outcome": "unresolved",
+      "position_swap": {
+        "status": "unresolved_author_failure",
+        "preference": "unresolved",
+        "outcome": "unresolved",
+        "consistent": null
+      },
+      "lengths": {
+        "without_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 276,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": false
+        }
+      }
+    },
+    {
+      "provider": "longcat",
+      "pair_id": "pair-04",
+      "task_id": "archive-scan-zh",
+      "family_id": "conflicting-measurements",
+      "status": "judged",
+      "preference": "A",
+      "outcome": "with_toolkit",
+      "position_swap": {
+        "status": "judged",
+        "preference": "tie",
+        "outcome": "tie",
+        "consistent": false
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 685,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        },
+        "without_toolkit": {
+          "unit": "nonwhitespace_characters",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 631,
+          "minimum": 350,
+          "maximum": 500,
+          "within_range": false
+        }
+      }
+    },
+    {
+      "provider": "longcat",
+      "pair_id": "pair-05",
+      "task_id": "ferry-timeline-en",
+      "family_id": "temporal-synthesis",
+      "status": "unresolved_author_failure",
+      "preference": "unresolved",
+      "outcome": "unresolved",
+      "position_swap": {
+        "status": "unresolved_author_failure",
+        "preference": "unresolved",
+        "outcome": "unresolved",
+        "consistent": null
+      },
+      "lengths": {
+        "with_toolkit": {
+          "unit": "whitespace_words",
+          "scope": "complete_reader_report_including_markup_and_citations",
+          "actual": 232,
+          "minimum": 180,
+          "maximum": 260,
+          "within_range": true
+        }
+      }
+    }
+  ],
+  "literal_process_clues": [
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-01",
+      "condition": "with_toolkit",
+      "rule": "literal process phrases; observation only, not attribution",
+      "matches": [
+        "independent review"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-02",
+      "condition": "with_toolkit",
+      "rule": "literal process phrases; observation only, not attribution",
+      "matches": [
+        "未经独立"
+      ]
+    },
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-05",
+      "condition": "with_toolkit",
+      "rule": "literal process phrases; observation only, not attribution",
+      "matches": [
+        "Independent review"
+      ]
+    }
+  ],
+  "dimension_drift": [
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-01",
+      "condition": "without_toolkit",
+      "dimension": "explanation_and_synthesis",
+      "primary_score": 4,
+      "swapped_score": 3
+    },
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-02",
+      "condition": "without_toolkit",
+      "dimension": "facts_and_evidence",
+      "primary_score": 1,
+      "swapped_score": 2
+    },
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-03",
+      "condition": "with_toolkit",
+      "dimension": "explanation_and_synthesis",
+      "primary_score": 2,
+      "swapped_score": 3
+    },
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-03",
+      "condition": "with_toolkit",
+      "dimension": "reader_usefulness",
+      "primary_score": 2,
+      "swapped_score": 3
+    },
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-04",
+      "condition": "without_toolkit",
+      "dimension": "explanation_and_synthesis",
+      "primary_score": 3,
+      "swapped_score": 4
+    },
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-04",
+      "condition": "with_toolkit",
+      "dimension": "explanation_and_synthesis",
+      "primary_score": 3,
+      "swapped_score": 4
+    },
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-04",
+      "condition": "with_toolkit",
+      "dimension": "reader_usefulness",
+      "primary_score": 4,
+      "swapped_score": 3
+    },
+    {
+      "provider": "deepseek",
+      "pair_id": "pair-05",
+      "condition": "with_toolkit",
+      "dimension": "explanation_and_synthesis",
+      "primary_score": 4,
+      "swapped_score": 3
+    },
+    {
+      "provider": "kimi",
+      "pair_id": "pair-02",
+      "condition": "with_toolkit",
+      "dimension": "facts_and_evidence",
+      "primary_score": 2,
+      "swapped_score": 1
+    },
+    {
+      "provider": "kimi",
+      "pair_id": "pair-02",
+      "condition": "without_toolkit",
+      "dimension": "facts_and_evidence",
+      "primary_score": 4,
+      "swapped_score": 3
+    },
+    {
+      "provider": "kimi",
+      "pair_id": "pair-03",
+      "condition": "with_toolkit",
+      "dimension": "task_fidelity",
+      "primary_score": 4,
+      "swapped_score": 3
+    },
+    {
+      "provider": "kimi",
+      "pair_id": "pair-03",
+      "condition": "without_toolkit",
+      "dimension": "facts_and_evidence",
+      "primary_score": 4,
+      "swapped_score": 3
+    },
+    {
+      "provider": "kimi",
+      "pair_id": "pair-04",
+      "condition": "without_toolkit",
+      "dimension": "facts_and_evidence",
+      "primary_score": 3,
+      "swapped_score": 2
+    },
+    {
+      "provider": "kimi",
+      "pair_id": "pair-04",
+      "condition": "without_toolkit",
+      "dimension": "reader_usefulness",
+      "primary_score": 3,
+      "swapped_score": 2
+    },
+    {
+      "provider": "kimi",
+      "pair_id": "pair-04",
+      "condition": "with_toolkit",
+      "dimension": "facts_and_evidence",
+      "primary_score": 2,
+      "swapped_score": 3
+    },
+    {
+      "provider": "kimi",
+      "pair_id": "pair-05",
+      "condition": "with_toolkit",
+      "dimension": "task_fidelity",
+      "primary_score": 3,
+      "swapped_score": 4
+    },
+    {
+      "provider": "glm",
+      "pair_id": "pair-03",
+      "condition": "with_toolkit",
+      "dimension": "explanation_and_synthesis",
+      "primary_score": 3,
+      "swapped_score": 2
+    },
+    {
+      "provider": "glm",
+      "pair_id": "pair-04",
+      "condition": "with_toolkit",
+      "dimension": "facts_and_evidence",
+      "primary_score": 3,
+      "swapped_score": 4
+    },
+    {
+      "provider": "glm",
+      "pair_id": "pair-04",
+      "condition": "with_toolkit",
+      "dimension": "reader_usefulness",
+      "primary_score": 3,
+      "swapped_score": 2
+    },
+    {
+      "provider": "longcat",
+      "pair_id": "pair-04",
+      "condition": "with_toolkit",
+      "dimension": "reader_usefulness",
+      "primary_score": 4,
+      "swapped_score": 3
+    },
+    {
+      "provider": "longcat",
+      "pair_id": "pair-04",
+      "condition": "without_toolkit",
+      "dimension": "reader_usefulness",
+      "primary_score": 2,
+      "swapped_score": 3
+    }
+  ],
+  "source_adjudication": "separate",
+  "general_efficacy_established": false
+}

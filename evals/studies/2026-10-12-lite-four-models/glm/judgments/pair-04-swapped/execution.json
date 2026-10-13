@@ -1,0 +1,19 @@
+{
+  "status": "response_complete",
+  "model_requested": "gpt-6-astra",
+  "model_returned": null,
+  "model_identity": "requested_only_cli_does_not_attest",
+  "hard_token_cap": false,
+  "exit_code": 0,
+  "usage": {
+    "input_tokens": 16555,
+    "cached_input_tokens": 9984,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 3088,
+    "reasoning_output_tokens": 132
+  },
+  "warnings": [
+    "skip_host_skill_discovery is an under-development CLI feature"
+  ],
+  "elapsed_seconds": 95.0
+}

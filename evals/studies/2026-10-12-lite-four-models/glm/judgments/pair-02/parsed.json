@@ -1,0 +1,71 @@
+{
+  "preference": "tie",
+  "reason": "Both reports support the same correct desk decision: do not advertise 1 March availability, treat 15 April as conditional, distinguish trial permission from passenger authorization, and verify operational and booking prerequisites. A explicitly preserves S2's lack of predictions in 'Current position'; B explicitly labels 15 April 'a proposed, conditional date only' in paragraph 2. These are complementary strengths, not a material difference in decision quality.",
+  "reports": {
+    "A": {
+      "task_fidelity": {
+        "score": 4,
+        "reason": "Provides an English status note within the requested range, dated correctly, with source citations and all requested decision elements.",
+        "excerpt": "Opening paragraph: “Can we advertise a 1 March launch? No.”",
+        "source_evidence": "S1: On 10 February, the operator “withdrew the 1 March target.” S2: “There is no final passenger-service permission, confirmed timetable or booking release.”"
+      },
+      "facts_and_evidence": {
+        "score": 4,
+        "reason": "Accurately attributes the revised proposal and current missing prerequisites without inventing a confirmed service.",
+        "excerpt": "‘Current position’: “15 April as the earliest possible passenger launch, still subject to vessel delivery, sea trials and final operating permission (S1).”",
+        "source_evidence": "S1: “proposed 15 April as the earliest possible passenger launch, subject to delivery, trials and final operating permission.”"
+      },
+      "explanation_and_synthesis": {
+        "score": 4,
+        "reason": "Explains why the original proposal cannot support advertising and combines the operator notice with the newer port status.",
+        "excerpt": "Opening paragraph: “on 10 February it withdrew that target after delivery slipped (S1). Advertising a 1 March service would mislead visitors.”",
+        "source_evidence": "S1 records withdrawal after delivery slipped; S2 confirms the vessel remained undelivered and passenger permission and booking release were absent."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 4,
+        "reason": "Directly addresses potentially misleading March trial permission and preserves the source's uncertainty about completion dates.",
+        "excerpt": "‘Important clarification on March sailings’: “This is a trial authorization only — it does not authorize carrying paying passengers (S2).” ‘Current position’: “the port log makes no prediction on when these will be completed (S2).”",
+        "source_evidence": "S2: Trial sailings “does not authorize carrying paying passengers”; the log “makes no prediction about when those items will be completed.”"
+      },
+      "reader_usefulness": {
+        "score": 4,
+        "reason": "Gives concrete verification requirements and a clear interim message for visitors.",
+        "excerpt": "‘Before accepting bookings, verify’: “(1) vessel delivery confirmed; (2) completed trials; (3) final passenger-service permission granted; (4) a confirmed timetable published; and (5) an official ticket/booking release by the operator (S1, S2).”",
+        "source_evidence": "S1 conditions launch on delivery, trials and final permission; S2 identifies absent delivery, permission, timetable and booking release."
+      }
+    },
+    "B": {
+      "task_fidelity": {
+        "score": 4,
+        "reason": "Meets the requested format, date and length, cites sources, and answers the advertising and booking questions explicitly.",
+        "excerpt": "Opening paragraph: “No, the new ferry cannot be advertised as available from 1 March. That date is a withdrawn plan, not a current commitment.”",
+        "source_evidence": "S1: The operator “withdrew the 1 March target.” S2 confirms no final passenger permission or booking release."
+      },
+      "facts_and_evidence": {
+        "score": 4,
+        "reason": "Accurately distinguishes dated source observations and describes April as a proposal rather than a commitment.",
+        "excerpt": "Paragraph 2: “No tickets had been released as of 10 February (S1), and there was still no booking release, confirmed timetable, or final passenger-service permission as of 14 February (S2).”",
+        "source_evidence": "S1: “No tickets had been released as of that notice.” S2, updated 14 February: “There is no final passenger-service permission, confirmed timetable or booking release.”"
+      },
+      "explanation_and_synthesis": {
+        "score": 4,
+        "reason": "Clearly interprets the changed plan and integrates later port evidence into the current availability assessment.",
+        "excerpt": "Paragraph 2: “This makes 1 March a superseded plan and 15 April a proposed, conditional date only.”",
+        "source_evidence": "S1 withdraws March and proposes April subject to delivery, trials and final permission; S2 shows outstanding prerequisites."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 4,
+        "reason": "Rejects the inference that trial authorization establishes passenger availability and avoids promising either proposed date.",
+        "excerpt": "Paragraph 3: “Trial permission is not passenger authorization — it explicitly does not permit carrying paying passengers (S2), and the vessel had not yet been delivered (S2).”",
+        "source_evidence": "S2 permits only non-passenger March trials, explicitly excludes paying passengers, and records that delivery had not occurred."
+      },
+      "reader_usefulness": {
+        "score": 4,
+        "reason": "Provides actionable booking checks and practical wording that accurately communicates uncertainty.",
+        "excerpt": "Booking checklist: “Final operating permission for passenger service is in place.” Closing paragraph: “describe the service as \"planned, date not confirmed\" and decline to promise either the 1 March or 15 April date.”",
+        "source_evidence": "S1 makes April conditional on delivery, trials and permission. S2 reports no confirmed timetable or booking release and makes no completion prediction."
+      }
+    }
+  },
+  "condition_clues": "Both use bold headings and verification checklists; B additionally includes a parenthetical word-count claim. These are weak presentation clues only, do not identify a condition, and were not rewarded."
+}

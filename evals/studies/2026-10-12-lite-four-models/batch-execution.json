@@ -1,0 +1,29 @@
+{
+  "outcomes": {
+    "longcat": {
+      "status": "completed_first_attempts",
+      "pairs": 5
+    },
+    "deepseek": {
+      "status": "completed_first_attempts",
+      "pairs": 5
+    },
+    "kimi": {
+      "status": "completed_first_attempts",
+      "pairs": 5
+    },
+    "glm": {
+      "status": "completed_first_attempts",
+      "pairs": 5
+    }
+  },
+  "attempts": {
+    "deepseek": 20,
+    "kimi": 20,
+    "glm": 20,
+    "longcat": 12
+  },
+  "total_attempts": 72,
+  "max_requests": 80,
+  "quality_adjudication": "pending"
+}

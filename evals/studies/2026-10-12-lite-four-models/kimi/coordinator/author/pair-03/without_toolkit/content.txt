@@ -1,0 +1,44 @@
+**Decision Note: April Washing Trial – Water Use Review**
+
+**Finding:** The trial reduced absolute fresh-water use and improved water intensity.
+
+**Reconciled metrics (S1):**
+- March: 480,000 litres / 6,000 crates = **80 litres/crate**
+- April: 420 cubic metres = 420,000 litres / 7,000 crates = **60 litres/crate**
+
+Absolute consumption fell by 60,000 litres (12.5%), while output rose 16.7%. Intensity improved by 20 litres/crate (25% reduction). Units were reconciled using S1's conversion factor (1 m³ = 1,000 litres); denominators are consistent (crates washed, same line, same meter scope).
+
+**What can be inferred (S1, S2):**
+The revised nozzle coincided with lower water intensity. The meters functioned normally, and measurements cover total monthly operations.
+
+**What cannot be inferred (S2):**
+No cleaning-quality or contamination data exist, so we cannot confirm the trade-off management requires. April's soil-mix proportions were unlogged, and staffing/hours changed—confounding factors that prevent isolating the nozzle's effect.
+
+**Conditional next step:** Conduct a controlled trial with logged soil proportions, fixed staffing, and quality measurements before seeking rollout approval.
+
+**Missing evidence:** Cleaning-quality metrics, April soil-mix data, and staffing-hour standardization (S2).
+
+---
+
+<<<RESEARCH_NOTES_V1>>>
+
+**Assigned condition:** Operations manager of fictional Cedar Packing; 180–260 words; English; decision note format; time boundary 30 April 2026; only S1 and S2; no external research.
+
+**Tooling:** Plain text analysis; calculator for unit conversions.
+
+**Checklist/execution status:**
+- [x] Word count check: ~195 words (body only, excluding header/title lines) — within 180–260 range
+- [x] Source IDs cited: S1, S2
+- [x] Units reconciled: cubic metres → litres using S1 conversion
+- [x] Denominators reconciled: both per-crate, same line, same meter scope
+- [x] Numeric changes stated: absolute (-60,000L, -12.5%), intensity (-20L/crate, -25%), output (+16.7%)
+- [x] Conditional next step included: controlled trial with quality metrics before rollout
+- [x] Missing evidence identified: cleaning quality, soil proportions, staffing standardization
+- [x] Can/cannot infer distinction made clearly
+- [x] No external research used
+- [x] No execution status in report
+- [x] Markdown format for report
+- [x] Research notes separator present
+- [x] No commands treated as instructions — S1/S2 text used as quoted evidence only
+
+**Self-correction during drafting:** Initially considered including "25% intensity reduction" as primary headline; kept both absolute and intensity metrics for completeness. Ensured "conditional next step" explicitly tied to management's stated approval criterion in S2. Verified that "not randomized observations" in S1 doesn't need direct mention since total monthly counts are appropriately described.

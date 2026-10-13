@@ -1,0 +1,20 @@
+# Reminder Pilot: Assessment Note
+
+**Descriptive results (S1).** Among the 100 borrowers who chose reminders, on-time returns rose from 75% to 80% (a 5-percentage-point improvement). Among the 100 who declined, returns rose from 55% to 60% (also 5 points). The gap between groups was 20 points in both the prior month and the pilot month, so the *change over time* was identical in both groups. Reminder-group borrowers were already returning items on time at a much higher rate before the pilot began.
+
+**Design assessment (S2).** Enrollment was voluntary, not randomized, so the two groups likely differ systematically — for example, in motivation or borrowing habits. A fine-amnesty campaign affected both groups during the pilot and may explain the common 5-point rise. Reasons for opting in and prior trends were not recorded. Because of these confounds and the absence of a randomized comparison, the pilot does **not** demonstrate a causal effect of reminders on on-time returns. The 20-point group gap is descriptive, not causal evidence.
+
+**Proposed next test (S2).** Randomize an offer of reminders next month, recording assignment, uptake, and return status. Because staff did randomize assignment, an intention-to-treat comparison of on-time return rates between offered and not-offered borrowers would support a causal claim.
+
+**Decision criterion (S2).** Before results are examined, management must define the smallest worthwhile benefit — I recommend 5 percentage points. If the randomized offer improves on-time returns by at least that margin, expand the program; otherwise, stop.
+
+Sources: S1, S2.
+
+<<<RESEARCH_NOTES_V1>>>
+
+Working notes:
+- Assigned condition: standard; brief followed (180–260 words; body word count ≈ 245, within range).
+- Calculations from S1: reminder group 75/100 → 80/100 (+5 pts); comparison 55/100 → 60/100 (+5 pts); group gap 20 pts in both periods; difference-in-differences = 0.
+- Design flaws from S2: self-selection (non-random), fine-amnesty confounder affecting both groups, no baseline trend or opt-in reason data → descriptive results cannot support causal claim.
+- Next test: randomized offer, ITT comparison; decision threshold set in advance per S2; suggested 5 pts as smallest worthwhile benefit (management must confirm before unblinded results).
+- Causal language kept distinct from descriptive counts; cutoff 31 May 2026 respected (both sources dated then).

@@ -1,0 +1,65 @@
+{
+  "phase": "exposed_development_instruction_only_lite",
+  "created_at": "2026-10-12T09:55:51.274572+00:00",
+  "toolkit_commit": "422b437169e609b94c16087c65fdd68a83ad0ca4",
+  "models": {
+    "deepseek": {
+      "model": "deepseek-flash",
+      "seed": 2026101202,
+      "frozen_sha256": "681f2c5a61d320b8463b9b6595a2333862ff80aea1614c8effe11639095b8808",
+      "author_max": 10,
+      "judge_max": 10,
+      "max_requests": 20
+    },
+    "kimi": {
+      "model": "kimi-k2.6",
+      "seed": 2026101203,
+      "frozen_sha256": "7659063072fb297d4c729acab5a673dab33a17f026c29d1572eb8923244c9466",
+      "author_max": 10,
+      "judge_max": 10,
+      "max_requests": 20
+    },
+    "glm": {
+      "model": "glm-5.3",
+      "seed": 2026101204,
+      "frozen_sha256": "b872f22b186ac998c206645f758072db6d8d74b93450e6a79e0b41d393a734bb",
+      "author_max": 10,
+      "judge_max": 10,
+      "max_requests": 20
+    },
+    "longcat": {
+      "model": "LongCat-2.0",
+      "seed": 2026101205,
+      "frozen_sha256": "7b34da4c662866522aa20cc24c2e93374906c33d19f6edb2c051c51b876fa5e4",
+      "author_max": 10,
+      "judge_max": 10,
+      "max_requests": 20
+    }
+  },
+  "families": 5,
+  "model_task_pairs": 20,
+  "max_requests": 80,
+  "max_author_requests": 40,
+  "max_judge_requests": 40,
+  "max_retries": 0,
+  "max_parallel_model_strata": 4,
+  "sequence_within_stratum": "10 author requests, then predeclared primary/swapped judges; skip both judges if either author unavailable",
+  "primary_outcome": "First primary pairwise preference by model and family; all admitted failures retained",
+  "secondary_outcomes": [
+    "position-swap preference consistency",
+    "source-adjudicated necessary defects",
+    "brief length compliance",
+    "raw usage and local elapsed time",
+    "literal masking observations and judge condition clues"
+  ],
+  "resource_comparison": "Same author model, format, reasoning settings and token/time limits within each pair. Toolkit arm includes extra method instruction tokens; this is not a token-matched cost comparison.",
+  "judge_admission": "12-control Astra calibration, source adjudication, four matched defect preferences and four valid ties; dimension drift retained. Single judge only, requested model identity unverified by CLI.",
+  "analysis_limits": "Five public purposive synthetic families; translations, providers and swaps are not extra families. No formal effect estimate, general superiority, retrieval or Full workflow claim. No outcome-driven append or paid retry.",
+  "stopping_rule": "Complete each admitted first-attempt queue within its request ceilings; preserve any operational interruption without silent resume. No negative-result retries.",
+  "script_sha256": "a6875dbf9e18536fe56af22e3cd4c4614dd0622d7526920410cde17a8043f27f",
+  "code_sha256": {
+    "batch-driver.py": "a6875dbf9e18536fe56af22e3cd4c4614dd0622d7526920410cde17a8043f27f",
+    "codex_judge.py": "d2096740d5358aed94c9f22f8394c9874a089d638d6c213cf335f4ea6417f76a",
+    "run_blinded_evals.py": "17cbae5b966fad93be9b8ad3ed6435477e5ad6329cff5695acd919f6c78eaad4"
+  }
+}
