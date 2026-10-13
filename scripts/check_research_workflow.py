@@ -652,17 +652,31 @@ class WorkflowTests(unittest.TestCase):
             self.assertTrue(self.review(runner, config=None)["reviews_complete"])
         self.assertEqual(runner.calls, ["reviewer", "auditor", "auditor"])
 
-    def test_evaluation_cannot_drop_its_audit_requirement(self):
+    def test_new_evaluation_uses_one_configured_reviewer_without_implicit_audit(self):
         runner = SyntheticRunner()
-        with self.assertRaises(ValueError):
-            self.review(runner, purpose="evaluation", config={"reviewers": CONFIG["reviewers"]})
-        self.assertEqual(runner.calls, [])
+        result = self.review(runner, purpose="evaluation", config={"reviewers": CONFIG["reviewers"]})
+        self.assertTrue(result["evaluation_complete"], result)
+        self.assertEqual(runner.calls, ["reviewer"])
+        progress = workflow.load(self.root, "state/progress.json")
+        self.assertFalse(progress["review_plan"]["audit_required"])
+
+    def test_new_evaluation_environment_backend_does_not_add_auditor(self):
+        runner = SyntheticRunner(negative=True)
         with patch.dict(os.environ, {"RESEARCH_TOOLKIT_REVIEW_CONFIG": "", "RESEARCH_TOOLKIT_REVIEW_BACKEND": "codex"}):
             self.assertTrue(self.review(runner, purpose="evaluation", config=None)["evaluation_complete"])
+            self.assertTrue(self.review(runner, purpose="evaluation", config=None)["evaluation_complete"])
+        self.assertEqual(runner.calls, ["reviewer"])
+        rows = [r for r in workflow.rows_for(self.root) if r.get("record_type") == "model_review"]
+        self.assertEqual(rows[0]["report_verdict"], "needs_revision")
+
+    def test_evaluation_cannot_drop_its_declared_audit_requirement(self):
+        runner = SyntheticRunner()
+        self.assertTrue(self.review(runner, purpose="evaluation")["evaluation_complete"])
+        with self.assertRaisesRegex(ValueError, "declared auditor"):
+            self.review(runner, purpose="evaluation", config={"reviewers": CONFIG["reviewers"]})
         self.assertEqual(runner.calls, ["reviewer", "auditor"])
         progress = workflow.load(self.root, "state/progress.json")
-        progress["review_plan"]["audit_required"] = False
-        self.assertIn("invalid_review_plan", workflow.completion(self.root, progress, "final.md")["flags"])
+        self.assertTrue(progress["review_plan"].get("audit_required", True))
 
     def test_valid_negative_evaluation_is_retained_without_rerunning(self):
         runner = SyntheticRunner(negative=True)

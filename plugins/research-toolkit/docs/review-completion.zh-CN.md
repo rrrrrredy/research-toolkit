@@ -28,14 +28,14 @@ python scripts/check_review_completion.py <task-directory> --artifact final.md
 
 普通报告由执行器写入 `audit_required: false`，保留完整 `model_review`、原始回复、执行证据、逐维度覆盖及输入绑定，不要求 `review_audit` 或 `sampling_audit`。交付要求没有未解决的必要修正。有依据的 `no_change` 处置可以解除误报的阻断，原始负面结论仍保留；`optional` 建议不阻止交付。全局结果汇总内容评审及处置，不额外调用模型。
 
-评测、显式审计和没有该字段的旧计划保留原有独立审计要求。不能给冻结评测补写 `audit_required: false` 来改变原完成条件。
+新评测可使用 `audit_required: false`，由已配置的独立评审者完成，不默认追加审计者。显式配置审计以及没有该字段的旧计划保留原有审计要求；不改写已保存的审计计划来改变原完成条件。
 
 在现有进度记录中增加 `review_plan`：
 
 | 字段 | 含义 |
 |---|---|
 | `purpose` | `evaluation` 或 `report_delivery`；交付检查器要求后者 |
-| `audit_required` | 普通报告为 `false`；审计计划（包括评测）省略或设为 `true` |
+| `audit_required` | 未配置审计者的新报告和新评测为 `false`；已声明审计的计划省略或设为 `true` |
 | `author_id` | 作者上下文标识 |
 | `artifact_sha256` | 实际主要成果的哈希 |
 | `slots` | 非空的必需独立评审任务列表 |
@@ -95,7 +95,7 @@ python scripts/check_review_completion.py <task-directory> --artifact final.md
 
 只有 `no_change` 解除对应发现的阻断。`confirmed_defect`、`unresolved` 或仅标记 `resolved`，都不能关闭未改动稿件上的必要修正。`needs_revision` 只有在全部必要发现均有依据地不修改时，才能解除阻断。`not_assessed`、没有具体发现依据的负面结论、缺失或无效评审、其他阻断仍然阻止交付。正文或来源变化后仍须由当前版本评审覆盖。
 
-记录处置后调用现有 `research_finish`。它更新执行器自身的评审汇总并将原日志绑定进回执，不覆盖另行追加的全局失败。独立审计和评测计划继续遵守原要求。检查器核对记录一致性，不认证作者的不修改决定正确。
+记录处置后调用现有 `research_finish`。它更新执行器自身的评审汇总并将原日志绑定进回执，不覆盖另行追加的全局失败。已保存的审计计划继续遵守原要求。检查器核对记录一致性，不认证作者的不修改决定正确。
 
 ## 有效性与发现处置
 
@@ -153,7 +153,7 @@ python scripts/check_review_completion.py <task-directory> --artifact final.md
 
 ## 理解检查结果
 
-结果包含 `required_slots`、`completed_slots`、`selected_attempts`、标志及解释。`ok` 检查实际计划要求；普通报告无需独立审计与抽查记录，评测和已声明审计计划仍需这些记录。
+结果包含 `required_slots`、`completed_slots`、`selected_attempts`、标志及解释。`ok` 检查实际计划要求；未配置审计者的报告和评测无需独立审计与抽查记录，已声明审计的计划仍需这些记录。
 
 即使检查通过，以下字段也保持 `false`：
 

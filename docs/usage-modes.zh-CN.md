@@ -146,7 +146,7 @@ python scripts/research_workflow.py check-reviewer
 {"reviewers":[{"id":"primary","backend":"generic","model":"your-model","base_url":"https://your-provider.example/v1","api_key_env":"RESEARCH_TOOLKIT_REVIEW_API_KEY"}]}
 ```
 
-配置文件优先于后端环境变量；URL 与模型属于评审任务的版本绑定，密钥值不进入配置或记录。评测须提供 `auditor`；单后端环境配置可为评测创建另一个请求作为审查者。普通报告不默认追加审计。
+配置文件优先于后端环境变量；URL 与模型属于评审任务的版本绑定，密钥值不进入配置或记录。新报告和新评测均使用已配置的评审者，不默认追加审计者；需要额外审计时才配置 `auditor`。恢复已保存的审计计划时保留其审计要求，单后端环境配置只在此时补出对应的独立审计请求。
 
 可信命令通过 `command: ["/absolute/path/to/executable", "argument"]` 和 `format: "json"` 配置，从 stdin 接收 `{role, instructions, assignment}`，其中 assignment 含完整报告、任务、来源与评审维度。stdout 返回：
 

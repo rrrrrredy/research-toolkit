@@ -11,7 +11,7 @@ Independent review means a review context separate from the author, not an outsi
 
 ## Assign Work by Perspective
 
-Ordinary research follows the selected tier: Lite skips review; Full without a backend uses explicitly degraded self-review; configured external/independent reviews use non-author contexts. Independent adjudication, reviewer auditing and formal sampling apply only to declared audited plans and evaluations.
+Ordinary research follows the selected tier: Lite skips review; Full without a backend uses explicitly degraded self-review; configured external/independent reviews use non-author contexts. Independent adjudication, reviewer auditing and formal sampling apply only to explicitly audited plans. New evaluations do not automatically add an auditor.
 
 A perspective is a responsibility, not a mandatory extra model call. Combine compatible responsibilities in one bounded assignment and list the coverage for each. Select domain specialists only when the task needs their methods. When a study requires several model judges on a common rubric, every judge still covers that rubric; specialist emphasis does not remove common dimensions.
 
@@ -90,7 +90,7 @@ Do not use majority votes or mean scores to settle factual disputes. Use one ind
 
 ## Check Reviewers and Sample Passed Work
 
-This section applies to declared audits and evaluation studies, not to the ordinary report default.
+This section applies when an audit is explicitly configured. Ordinary reports and new evaluations do not add it by default; existing audited plans retain their original requirements.
 
 Check every review's validity: correct version and execution evidence, full assigned coverage, locatable observations, supported citations, and no invented requirements. A validity audit must explain its decision; a boolean field alone is insufficient. Hashes and transcripts support traceability but cannot authenticate themselves or establish comprehension.
 

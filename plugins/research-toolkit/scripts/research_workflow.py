@@ -529,16 +529,16 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
         raise ValueError("A host-supplied response is accepted only for reviewer=self.")
     if reviewer == "self":
         if purpose == "evaluation":
-            raise ValueError("Frozen evaluations require independent reviewers and auditing; self is for report delivery.")
+            raise ValueError("Evaluations require a separate reviewer context; self is for report delivery.")
         config = {"reviewers": [{"id": "self", "model": "author-context", "backend": "self", "format": "self"}]}
-    config = (load_review_config(require_audit=purpose == "evaluation" or bool(
+    config = (load_review_config(require_audit=bool(
         old_plan and old_plan.get("audit_required", True)))
         if config is None else validate_review_config(config))
     if reviewer != "self" and any(backend_kind(r) == "self" for r in config["reviewers"]):
         raise ValueError("The declared external/independent reviewer needs a backend. " + BACKEND_HELP)
     audit_required = "auditor" in config
-    if purpose == "evaluation" and not audit_required:
-        raise ValueError("Evaluation requires its declared independent auditor configuration.")
+    if old_plan and old_plan.get("purpose") == "evaluation" and old_plan.get("audit_required", True) and not audit_required:
+        raise ValueError("This saved evaluation requires its declared auditor configuration.")
     instruction_snapshot = old_plan.get("instruction_snapshot") if old_plan and not revision else None
     if instruction_snapshot is not None:
         if (not isinstance(instruction_snapshot, dict) or set(instruction_snapshot) != {"reviewer", "auditor"}
