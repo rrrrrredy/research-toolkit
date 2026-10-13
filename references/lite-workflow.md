@@ -24,11 +24,17 @@ New templates also include `evidence_path` for task-relative UTF-8 source text, 
 
 Check the claims that drive the answer against the actual source passages: who made the claim, when, whether it happened or is expected, whether it describes an example or a population, and which way a relationship runs. Examples without a denominator and suitable sample do not establish rates. Separate verified facts, attributed claims, interpretations, recommendations and assumptions. Look for evidence that would change the recommendation; missing evidence does not establish the opposite conclusion. Explain which decision a missing source prevents; do not make it a prerequisite for analysis that other evidence can support.
 
+For a constrained choice, first identify which options meet all current hard requirements, then compare those options. Keep forecast demand separate from current eligibility. A proposed discount, exception or future upgrade does not make today's quote compliant; label that proposal and its conditions separately. Reconcile the final recommendation with the same cost totals, capacity, dates and thresholds used in the comparison. An expansion trigger must leave time to obtain the missing quote and performance evidence before capacity is exhausted.
+
+Keep a measurement's population, correction/treatment status, date and units together when comparing sources. Do not combine one sample's throughput with another sample's accuracy, turn an unrecorded difference into an observed change, or treat a possible explanation as an identified cause. Joint acceptance conditions must hold for the same intended delivery process.
+
 Use `data/claims_registry.csv` with `claim_id`, `claim`, `claim_type` and `supporting_sources`. Supporting IDs must refer to sources with recorded reading evidence. Keep uncertainty and counter-evidence with the claim; unsupported `hypothesis` or `assumption` rows need an explicit `uncertainty`. Drafting requires at least one source-backed claim. Choose analytical lenses only when they help answer this brief.
 
 ## draft — Write for the intended reader
 
 Draft and inspect one section at a time against the outline. Each necessary section should explain its judgment, supporting evidence and relevant mechanism. Allocate space to the user's questions before adding background; respect the requested length without dropping required coverage.
+
+For a short note, a few connected paragraphs may cover the whole outline. Do not expand each checklist item into a heading, table or repeated conclusion. Keep only decision-relevant comparisons and limitations in the report; put counts, self-checks and review-status disclosure in the separate delivery note when the brief provides one. If counting tools are unavailable, label an estimate honestly; never present an estimated count or an unchecked checklist as a measured pass. With tools, use the agreed length check and revise the actual artifact before completion.
 
 For a decision memo, make the recommendation, rationale, conditions that would change it and next action easy to find. Use pilot or stopping criteria when needed; label proposals and explain any numerical target's basis. Without a basis, describe the trigger and calibration needed. Avoid targets that reward hiding failures or blocking necessary escalation. Qualify uncertain inferences and retain source attribution where needed. Explain material limitations where they affect the argument; disclose the absence of independent review once in an appropriate report or delivery note.
 

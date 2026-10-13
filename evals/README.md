@@ -25,6 +25,8 @@ See [evaluation status and version boundaries](../docs/evaluation-status.md) for
 
 New [protocol v2](../docs/eval-protocol-v2.md) includes [five exposed fictional development families](tasksets/development-v2-synthetic/README.md) and [separate judge controls](tasksets/judge-calibration-v3/README.md). The [dated Astra calibration](diagnostics/2026-10-12-astra-calibration/README.md) adds 12 first judgments and source adjudication; the [four-model development run](studies/2026-10-12-lite-four-models/README.md) is complete, retaining four missing pairs and six swap preference changes. These input packs are separate from the seven workflow cases above.
 
+The [October 13 feedback probes](diagnostics/2026-10-13-feedback-probes/README.md) retain eight new first attempts after prompt/method corrections: all parse, but only three meet length and semantic errors remain. Five real length failures and two post-result editorial controls exercise the existing delivery gate; no quality-benefit claim.
+
 ## Study design and defect labels / 研究设计与缺陷标签
 
 Use the [paired-study template](templates/paired-study.json) with the [freeze and analysis plan](../docs/evaluation-roadmap.md#next-study-freeze-the-design-then-collect-new-evidence) before a new effect study. The template is not a frozen cohort or a run result. [Necessary-defect labels](../docs/necessary-defects.md) provide stable categories; the [23-case overlay](semantic_diagnostics/defect-tags.v1.json) preserves the existing diagnostic-only boundary. The Lite quickstart is onboarding, not another eval case.

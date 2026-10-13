@@ -1,0 +1,40 @@
+{
+  "adjudicator": "Implementation assistant; task author, condition-aware, not independent human validation",
+  "scope": "Direct source checks and mechanical length; no model judge, preference score or efficacy estimate",
+  "previous_results_replaced": false,
+  "reports": [
+    {
+      "id": "deepseek-maple-storage-en-without_toolkit",
+      "observation": "Current C is correctly selected; A=11 exceeds 10, B restoration=5 exceeds 4, C=8/3/14 covers current 12. Forecast and expansion uncertainty are separated. No necessary source error identified in this bounded check."
+    },
+    {
+      "id": "deepseek-maple-storage-en-with_toolkit",
+      "observation": "Major decision and arithmetic contradictions: heading recommends A, body rejects A then says no option is feasible and claims 14 TB < 12 TB. C actually meets current requirements. Also below the 120-word minimum. Guidance did not prevent this failure."
+    },
+    {
+      "id": "deepseek-brook-rinse-zh-with_toolkit",
+      "observation": "Correct total unchanged, 150 to 120 L/item and 20% reduction; correctly withholds attribution/rollout. Incorrectly says soil composition changed when July composition was unrecorded. Retroactive logging may be impossible; propose prospective controlled measurements. Exceeds 260 characters."
+    },
+    {
+      "id": "deepseek-brook-rinse-zh-without_toolkit",
+      "observation": "Correct equal totals and 0.150 to 0.120 cubic metres/item, no rollout and comparison proposal. Incorrectly asserts soil composition changed. Within length, but that does not make its source interpretation correct."
+    },
+    {
+      "id": "longcat-maple-storage-en-with_toolkit",
+      "observation": "Correct current C choice and hard-constraint exclusions, forecast separation and expansion evidence. No necessary source error identified in this bounded check; exceeds 170 words."
+    },
+    {
+      "id": "longcat-maple-storage-en-without_toolkit",
+      "observation": "Correct A/B exclusions, current C choice, forecast separation and expansion quote/performance checks. Within length. No necessary source error identified in this bounded check."
+    },
+    {
+      "id": "longcat-brook-rinse-zh-without_toolkit",
+      "observation": "Correct arithmetic, unlogged July composition and missing quality evidence; does not attribute nozzle effect and withholds rollout. Fixed-water allocation is an unsupported possible explanation, not an established mechanism. Exceeds 260 characters substantially."
+    },
+    {
+      "id": "longcat-brook-rinse-zh-with_toolkit",
+      "observation": "Correct arithmetic and no rollout without quality evidence. The claim that nozzle, soil and staffing all changed overstates unknown soil composition despite acknowledging it was unrecorded. Exceeds 260 characters substantially."
+    }
+  ],
+  "decision": "Prompt/schema correction is implemented, but eight format passes do not establish provider reliability. Keep length failures and source contradictions open as model-output defects; do not use a prompt-only checklist as acceptance. The tool-backed length gate is tested separately below; it cannot certify semantic correctness."
+}

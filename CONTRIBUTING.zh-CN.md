@@ -61,6 +61,8 @@ python scripts/check_blinded_protocol_v2.py
 python scripts/check_judge_calibration.py --self-test
 python scripts/check_live_execution.py
 python scripts/check_live_diagnostics.py
+python scripts/check_development_evidence.py --self-test
+python scripts/check_feedback_probes.py --self-test
 ```
 
 修改主文件后先更新网页副本：
