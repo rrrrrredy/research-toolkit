@@ -13,9 +13,9 @@
 
 读取和使用研究方法，无须安装 Python 或特定厂商 CLI。检索与文件访问由撰写 Agent 提供；独立审阅需要另一个评审者，仅提供指令不会自动执行审阅。
 
-## 六个工具何时用、何时可忽略
+## 七个工具何时用、何时可忽略
 
-**第一个 [Lite 任务](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.zh-CN.md)无需 MCP。** 只使用方法指令时，可以用文件或独立聊天段落保存需求、来源、判断和 checklist，六个工具都不必调用；这种方式不会生成本地完成凭证。
+**第一个 [Lite 任务](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.zh-CN.md)无需 MCP。** 只使用方法指令时，可以用文件或独立聊天段落保存需求、来源、判断和 checklist，七个工具都不必调用；这种方式不会生成本地完成凭证。
 
 下表适用于选择了本地任务管理的情况，MCP 与[共享 CLI](#只用-skill或使用-cli)均可使用。直接读取方法时，研究要求仍然适用。
 
@@ -25,6 +25,7 @@
 | `research_status` | 恢复本地任务、查看已保存进度或更新记录中的阶段。 | 无需查看或更新进度时；只使用方法的会话可用自己的笔记。 |
 | `research_guide` | 当前上下文尚未包含所需阶段的方法，需要读取时。 | 已直接阅读相应 `SKILL.md` 和 `references/` 文件。 |
 | `research_review` | Full 任务须完成约定评审；选择 self 档时也要显式执行自评。 | Lite 跳过评审；任务明确要求的评审不可省略。 |
+| `research_check_draft` | 无模型调用地检查当前稿件记录与显式篇幅，不生成交付凭证。 | 评审／交付前可选；来源与含义仍需单独核对。 |
 | `research_finish` | 完成本地任务：Lite 保存六项 checklist；Full 核对已评审报告与交付要求。 | 不使用本地执行工具时，自行完成 checklist 并交付记录，不声称已生成本地凭证。 |
 | `research_check_reviewer` | 外部后端配置或连接前置条件有问题，需要在评审前排查时。 | Lite 和 self 无需外部后端；`research_start` 已确认且配置未变时，无需重复调用。 |
 
@@ -36,7 +37,7 @@
 | --- | --- | --- |
 | Skill | 入口指令与详细研究方法 | 原生技能发现或明确读取文件 |
 | 插件 | Skill、参考文件和本地 MCP 服务，一次安装 | 支持该软件包格式与本地 stdio MCP |
-| MCP | 初始化、保存进度、加载方法、审阅和检查交付的六个工具 | 能启动并调用本地 stdio MCP 服务 |
+| MCP | 初始化、保存进度、加载方法、审阅和检查交付的七个工具 | 能启动并调用本地 stdio MCP 服务 |
 
 共享 CLI 需要 Python 3.10+，只使用标准库；MCP 还需安装 `requirements-mcp.txt` 中的依赖。未配置后端时，新建 Full 任务自动进入标明强度降级的 self 评审；外部／独立评审可使用任一受支持命令或端点，无强制厂商账户。
 
@@ -44,7 +45,7 @@ CI 在 Python 3.10／Linux 上检查 CLI 和打包 MCP 流程，并在 Python 3.
 
 ## 安装插件
 
-[插件目录](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/)包含完整 Skill、方法与本地 MCP 服务；使用宿主支持的插件安装机制，具体步骤见 [Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。插件通过 Python 启动 MCP，安装 `requirements-mcp.txt` 中的依赖后，确认六个 `research_*` 工具可用。
+[插件目录](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/)包含完整 Skill、方法与本地 MCP 服务；使用宿主支持的插件安装机制，具体步骤见 [Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。插件通过 Python 启动 MCP，安装 `requirements-mcp.txt` 中的依赖后，确认七个 `research_*` 工具可用。
 
 直接提出题目、读者与预期成果；Agent 整理需求，只追问关键缺项。插件采用[通用插件规范](https://developers.openai.com/plugins/build/plugins)，不提供托管服务，也不表示任意客户端均支持该格式。
 
@@ -96,6 +97,7 @@ Windows 路径可写成 `D:/tools/python/python.exe` 这样的正斜杠形式。
 | `research_status` | 返回进度和阶段规范；推进到分析、写作前检查来源与主张记录 |
 | `research_guide` | 不创建任务，直接读取某阶段的方法，支持中英文 |
 | `research_review` | 绑定完整输入并启动内容评审，保留回复与失败；只执行配置中声明的额外审计 |
+| `research_check_draft` | 返回当前计数、声明范围检查与记录错误，不改变任务状态；`ok` 不认证内容或交付 |
 | `research_finish` | Lite 保存最终 checklist；Full 核对已评审正文、证据、未完成要求和交付文字，通过后才写入完成状态与回执 |
 | `research_check_reviewer` | 本地检查后端配置与依赖，不调用模型 |
 
@@ -204,3 +206,5 @@ CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知
 另有一次[插件 `0.1.2` 的真实模型引导验证](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-status.zh-CN.md#当前实现)：在一份虚构任务上完成评审与审查恢复，保留负面结果，并正确拦截交付。该次验证需要修正配置和审查输出契约，不证明无人干预运行可靠。
 
 工具能约束自身的完成条件，不能阻止 Agent 绕过工具或在外部修改文件，也不能用机械检查证明事实正确。内容审查与原始证据仍是验收的一部分。
+
+CLI 的 `check-draft` 使用 `task` 和可选 `artifact`，无需交付说明；检查失败退出码为 1。未达标稿件遵循[修正与停止规则](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/failure-handling.zh-CN.md)：修正普通报告的新版本，保留冻结评测原件，不反复重跑未修改的有效负面判断直到通过。

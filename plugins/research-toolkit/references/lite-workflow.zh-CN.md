@@ -12,6 +12,8 @@ Agent 负责维护记录和调用工具，只向用户询问重要研究取舍�
 
 新建工具任务时，向 `research_start` 显式传入 `profile="lite"`（CLI：`start --profile lite`）。brief 使用 `question`、`audience`、`scope`、`output`、`depth` 和 `evidence_standard` 六个键。需求与提纲保存在 `state/task_spec.md`。恢复时用 `research_status(task)` 读取保存的档位、进度与要求，再继续未完成工作，不重建任务或静默改档。
 
+起草前，将约定的整份文件篇幅范围登记到 `state/requirements.jsonl` 的 `length_constraint`：包括 `unit`、`scope: "whole_artifact"` 及含边界的 `min`／`max`。不要虚构下限或悄悄改解释正文限定。新要求在当前稿件实际满足前保持待完成；检查可返回计数，但不会替你关闭记录。
+
 ## collect — 阅读必要证据
 
 阅读回答约定问题所需的来源，包括必读材料。取得文件不等于读过相关内容。保存来源正文或摘录及可用定位，登记实际阅读范围、日期和限制。
@@ -51,6 +53,8 @@ Agent 负责维护记录和调用工具，只向用户询问重要研究取舍�
 结合需求、重要补充要求、来源原文和现稿判断修改。修复确认的错误；建议有误或只是可选项时，给出有证据的取舍。执行中更新受影响的主张、引用与进度。
 
 复核改动章节、覆盖和篇幅，再对当前报告重做最终 checklist。旧 checklist 不覆盖改动后的正文。约定要求满足且必要修正完成后停止；可选润色本身不必重启报告。
+
+有工具时，在最终自检前调用 `research_check_draft(task, artifact)`（CLI：`check-draft`），查看实测计数和记录错误；没有声明范围表示尚未检查篇幅范围。该本地检查不改稿，也不评价语义质量。保留原评测样本，来源修正与有界复验见[未达标处理规则](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/failure-handling.zh-CN.md)。
 
 ## final — 完成作者自检
 

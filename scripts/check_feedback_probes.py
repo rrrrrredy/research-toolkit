@@ -120,6 +120,12 @@ class DeliveryControls(unittest.TestCase):
                         "status": "satisfied", "evidence": "final.md", "length_constraint": {"unit": unit,
                         "scope": "whole_artifact", "min": task["minimum"], "max": task["maximum"]}}) + "\n")
             checks, errors = w.inspect_length_constraints(root, "final.md")
+            before = {p.relative_to(root): p.read_bytes() for p in root.rglob("*") if p.is_file()}
+            preflight = w.check_draft(workspace, "probe")
+            self.assertEqual(preflight["length_checks"], checks)
+            self.assertEqual(preflight["ok"], not errors)
+            self.assertEqual(preflight["semantic_quality"], "not_assessed")
+            self.assertEqual(before, {p.relative_to(root): p.read_bytes() for p in root.rglob("*") if p.is_file()})
             result = w.finish(workspace, "probe", "Gate test only; no independent review or semantic certification.",
                               checklist={key: {"passed": True, "evidence": "Synthetic assertion against final.md and S1.md; length must be checked by the tool"} for key in CHECKLIST})
             return result, checks, errors, (root / "state/final_checklist.json").exists()

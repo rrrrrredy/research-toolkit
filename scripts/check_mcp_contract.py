@@ -46,7 +46,7 @@ async def verify(base):
     async with Client(server, read_timeout_seconds=30) as client:
         tools = await client.list_tools()
         names = {tool.name for tool in tools.tools}
-        assert names == {"research_start", "research_status", "research_guide", "research_review", "research_finish", "research_check_reviewer"}, names
+        assert names == {"research_start", "research_status", "research_guide", "research_review", "research_finish", "research_check_reviewer", "research_check_draft"}, names
         guide = unpack(await client.call_tool("research_guide", {"stage": "brief", "language": "zh"}))
         assert "研究工作流" in guide["guidance"][0]["content"]
         for language, suffix in (("en", ".md"), ("zh", ".zh-CN.md")):
@@ -117,6 +117,11 @@ async def verify(base):
                 "status": "satisfied", "evidence": "final.md",
                 "length_constraint": {"unit": "whitespace_words", "scope": "whole_artifact", "min": 1, "max": 100}})+"\n", encoding="utf-8")
             arguments = {"task": task, "evidence_paths": ["source.md"], "reviewer": "self"}
+            before = {p.relative_to(local): p.read_bytes() for p in local.rglob("*") if p.is_file()}
+            checked = unpack(await client.call_tool("research_check_draft", {"task": task}))
+            assert checked["ok"] and checked["length_checks"][0]["bounds_met"], checked
+            assert checked["semantic_quality"] == checked["delivery_status"] == "not_assessed"
+            assert before == {p.relative_to(local): p.read_bytes() for p in local.rglob("*") if p.is_file()}
             pending = unpack(await client.call_tool("research_review", arguments))
             finish_args = {"task": task, "message": "The report is complete; no independent review was performed."}
             if profile == "lite":

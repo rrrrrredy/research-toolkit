@@ -28,6 +28,7 @@
 
 - [Review completion](review-completion.md): complete inputs, version binding, valid responses, and failure recovery.
 - [Delivery checks](delivery-verification.md): current artifacts, unresolved requirements, and completion conditions.
+- [Failed checks and repairs](failure-handling.md): source-based corrections, draft preflight, PR acceptance and stopping rules.
 - [Report evaluation standard](report-evaluation-standard.md): separate manuscript quality, delivery readiness, and toolkit-effect studies.
 - [Necessary-defect labels](necessary-defects.md): stable categories, evidence-based dispositions and a versioned diagnostic index.
 - [Evaluation suite](../evals/README.md): tasks, controls, fixtures, diagnostics, and offline checks.

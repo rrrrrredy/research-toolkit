@@ -28,6 +28,7 @@
 
 - [审阅完成条件](review-completion.zh-CN.md)：完整输入、版本绑定、有效回复与失败恢复。
 - [交付检查](delivery-verification.zh-CN.md)：当前稿件、未解决要求与完成条件。
+- [未达标与修正](failure-handling.zh-CN.md)：来源核对、稿件预检、PR 验收与停止规则。
 - [报告评测标准](report-evaluation-standard.zh-CN.md)：区分稿件质量、交付状态和工具效果研究。
 - [必要缺陷标签](necessary-defects.zh-CN.md)：稳定类别、有证据的处置和版本化诊断索引。
 - [评测集](../evals/README.zh-CN.md)：题目、对照样例、回归样例、诊断与离线检查。

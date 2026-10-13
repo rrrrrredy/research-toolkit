@@ -89,6 +89,10 @@ contract 3 检查[评审完成记录](review-completion.zh-CN.md)。普通报告
 
 `text_covered` 表示规范化标点和空白后找到了已记录的限制文本，不代表其真实或诚实。仅部分匹配、改写表达或泛泛说明时，`needs_review` 给出 `unmatched_limitations` 和可见提示。正常同义表达不会只因无法精确匹配就失败，但机械 PASS 不能称为披露已核验。`semantic_verification` 始终为 false，含义、覆盖和重大矛盾仍需内容审阅。不要求固定措辞、额外声明文件或某家模型/API。
 
+## 交付前的稿件检查
+
+`research_check_draft`（CLI `check-draft`）测量当前文件并检查草稿记录前提，不修改进度或生成凭证。无需先写交付说明即可取得显式篇幅检查；缺少范围会警告，不算篇幅合格。`ok` 仅代表这些机械检查，语义质量与交付仍为 `not_assessed`。共用任务锁可能为旧任务创建常规空文件；`finish` 始终重新检查当前版本。
+
 ## 历史记录
 
 `--contract-version 1` 或 `--contract-version 2` 仅用于检查未改动且早于新字段的历史记录。结果和命令输出明确标注旧版，并设置 `current_contract_checked: false`。评测器对应参数为 `--delivery-contract-version 1` 或 `2`。

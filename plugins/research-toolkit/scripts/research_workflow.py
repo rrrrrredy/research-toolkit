@@ -833,6 +833,45 @@ def content_review_summary(reviews: dict, rows: list[dict], artifact_hash: str) 
             "reviewer_contexts": [r["execution_id"] for r in reviews.values()]}
 
 
+@task_operation
+def check_draft(workspace: Path, task: str, artifact="final.md") -> dict:
+    """Inspect current draft records and explicit length bounds without delivery or model calls."""
+    root = task_root(workspace, task)
+    path = safe_path(root, artifact)
+    progress = load(root, "state/progress.json")
+    errors = []
+    missing = [key for key in BRIEF_FIELDS if not nonempty(progress.get("brief", {}).get(key))]
+    if missing:
+        errors.append("Complete the brief fields: " + ", ".join(missing) + ".")
+    try:
+        check_stage_records(root, "draft")
+    except (OSError, ValueError) as exc:
+        errors.append(str(exc))
+    counts, artifact_hash = {}, None
+    try:
+        report = path.read_text(encoding="utf-8")
+        if not report.strip():
+            errors.append("Provide a nonempty report before checking the draft.")
+        counts = {"whitespace_words": len(report.split()),
+                  "nonwhitespace_characters": sum(not char.isspace() for char in report)}
+        artifact_hash = sha256_file(path)
+    except (OSError, ValueError) as exc:
+        errors.append(f"Cannot read the UTF-8 report: {exc}")
+    checks, length_errors = inspect_length_constraints(root, artifact)
+    errors.extend(length_errors)
+    warnings = []
+    if not checks and not length_errors:
+        warnings.append("No explicit length constraint was checked. Record any agreed whole-artifact "
+                        "range in state/requirements.jsonl; use a separate measurement for other scopes.")
+    return {"ok": not errors, "scope": "draft_record_and_length_checks", "profile": progress.get("profile", "full"),
+            "artifact": artifact, "artifact_sha256": artifact_hash, "counts": counts,
+            "count_scope": "whole_artifact_including_markup_and_references", "length_checks": checks,
+            "errors": errors, "warnings": warnings, "semantic_quality": "not_assessed",
+            "delivery_status": "not_assessed",
+            "next_action": ("Correct the listed records or draft, then run check-draft again. Preserve evaluation originals."
+                            if errors else "Check claims and decisions against sources, then complete the profile's checklist/reviews and finish.")}
+
+
 def finish_lite(root, progress, message, artifact, checklist):
     if any(not nonempty(progress.get("brief", {}).get(k)) for k in BRIEF_FIELDS):
         raise ValueError("Complete the brief before the final checklist.")
@@ -845,7 +884,7 @@ def finish_lite(root, progress, message, artifact, checklist):
                 "profile": "lite", "log": LITE_LOG, "length_checks": length_checks, "errors": length_errors}
     errors = [*checklist_errors(checklist), *length_errors]
     if errors:
-        return {"completed": False, "profile": "lite", "errors": errors, "log": LITE_LOG}
+        return {"completed": False, "profile": "lite", "errors": errors, "length_checks": length_checks, "log": LITE_LOG}
     try:
         input_hashes = lite_input_hashes(root, checklist)
     except (OSError, ValueError, TypeError, KeyError) as exc:
@@ -951,7 +990,7 @@ def workspace_default() -> Path:
 
 def dispatch(action: str, request: dict, workspace: Path):
     actions = {"start": start, "status": status, "guide": guidance, "review": review,
-               "finish": finish, "check-reviewer": review_readiness}
+               "finish": finish, "check-draft": check_draft, "check-reviewer": review_readiness}
     if action not in actions:
         raise ValueError("Unknown workflow action. Use " + ", ".join(actions) + ".")
     if not isinstance(request, dict) or any(not isinstance(key, str) for key in request):
@@ -972,7 +1011,7 @@ def dispatch(action: str, request: dict, workspace: Path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "check-reviewer"])
+    parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "check-draft", "check-reviewer"])
     parser.add_argument("--profile", choices=["lite", "full"], help="Profile for a new task (default: full).")
     parser.add_argument("--workspace", type=Path, default=workspace_default())
     parser.add_argument("--request", type=Path, help="JSON arguments; otherwise read stdin.")
@@ -991,7 +1030,7 @@ def main():
         print(json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=False))
         return 1
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    if args.action == "check-reviewer" and result.get("status") == "blocked":
+    if result.get("ok") is False or (args.action == "check-reviewer" and result.get("status") == "blocked"):
         return 1
     if result.get("action_required"):
         return 0
