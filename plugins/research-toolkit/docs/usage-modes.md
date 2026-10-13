@@ -2,6 +2,8 @@
 
 [English](usage-modes.md) | [简体中文](usage-modes.zh-CN.md)
 
+The [1.x compatibility policy](compatibility.md) covers the public tools, saved tasks and installation requirements. Upgrading from v0.2.7 to v1.0.0 requires no task-data migration.
+
 **Use the research methods through a repository link, files, attachments, or pasted text.** Choose the input method your agent supports. Native Skill, plugin, and MCP support are separate capabilities of the host.
 
 ## Use the research methods

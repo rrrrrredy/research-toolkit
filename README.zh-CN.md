@@ -12,6 +12,8 @@
 
 [**快速开始**](#快速开始) · [在你的 Agent 中使用](#使用) · [研究案例](#研究案例) · [评测结果](#evaluation-results) · [Lite 入门](./docs/quickstart-lite.zh-CN.md) · [文档](#文档)
 
+**1.0.0：**[发布说明](./docs/releases/v1.0.0.zh-CN.md) · [1.x 兼容性约定](./docs/compatibility.zh-CN.md)。
+
 ## 快速开始
 
 **首次使用建议选择 `lite`。** Agent 已就绪时，预计约 **5–15 分钟**。复制下面的请求即可，题目和两份虚构来源已经备好：

@@ -12,6 +12,8 @@ Research methods · Callable workflow tools · Review choices. For industry rese
 
 [**Quick start**](#quick-start) · [Use with your agent](#usage) · [Research case](#research-case) · [Evaluation results](#evaluation-results) · [Lite quickstart](./docs/quickstart-lite.md) · [Documentation](#documentation)
 
+**1.0.0:** [Release notes](./docs/releases/v1.0.0.md) · [1.x compatibility policy](./docs/compatibility.md).
+
 ## Quick start
 
 **Start with `lite`.** Allow about **5–15 minutes** with your agent ready to use. Copy this request; the topic and two fictional sources are supplied:

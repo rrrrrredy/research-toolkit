@@ -52,6 +52,8 @@ README entry points should explain what readers can do: read online, load the Sk
 
 ## Package version and release
 
+The [1.x compatibility policy](compatibility.md) defines supported interfaces, saved-task behavior and version increments. v1.0.0 preserves the v0.2.7 runtime and needs no task-data migration.
+
 The root `VERSION` is the single current package-version source. Both plugin manifests are generated mirrors. Changelog entries and release notes describe that version; older version references describe history and must not be mass-replaced.
 
 For a new version, update `VERSION`, add matching entries to both changelogs and `docs/releases/v<version>.md` / `.zh-CN.md`, then run:
@@ -66,7 +68,7 @@ python scripts/build_plugin.py --check
 The check does not create a tag or publish a release. After the intended changes have merged and checks pass, run from the updated repository root:
 
 ```bash
-gh release create v0.2.5 --repo rrrrrredy/research-toolkit --target main --title "Research Toolkit v0.2.5" --notes-file docs/releases/v0.2.5.md --latest
+gh release create v1.0.0 --repo rrrrrredy/research-toolkit --target main --title "Research Toolkit v1.0.0" --notes-file docs/releases/v1.0.0.md --latest
 ```
 
 This explicitly selects the repository and target and creates a normal release (no `--prerelease`). If the tag already exists, verify its commit before publishing. Do not use a tag to relabel historical study versions. [GitHub CLI release options](https://cli.github.com/manual/gh_release_create).

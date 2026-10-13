@@ -4,6 +4,11 @@
 
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
+## v1.0.0 — 2026-10-13
+
+- Establish the public 1.x compatibility policy for documented CLI/MCP interfaces, saved tasks and installation requirements; publish matching English and Chinese guides.
+- Include the policy in the plugin and synchronize all release metadata. Runtime behavior remains the same as v0.2.7; no task-data migration or new model evaluation is required. [Release notes](docs/releases/v1.0.0.md).
+
 ## v0.2.7 — 2026-10-13
 
 - Block Lite completion when recorded required work remains open; preserve lightweight author checks.

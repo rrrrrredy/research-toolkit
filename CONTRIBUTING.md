@@ -40,6 +40,8 @@ These are small contribution ideas, not a list of already-open Issues. Pick a co
 
 ## Verification
 
+Choose release numbers using the [1.x compatibility policy](docs/compatibility.md). Preserve documented interfaces and saved-work compatibility; document migration steps for a breaking major release.
+
 Run the checks relevant to the changed behavior. The [CI workflow](.github/workflows/framework-checks.yml) is the authoritative check inventory; the commands below are common entry points, not a count of distinct test cases. The DSH validation command checks an optional adapter configuration; it does not install or start that runtime. Repeat or broaden checks only when a change, failure or unresolved concern requires it.
 
 ```bash

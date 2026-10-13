@@ -2,6 +2,8 @@
 
 [English](usage-modes.md) | [简体中文](usage-modes.zh-CN.md)
 
+[1.x 兼容性约定](compatibility.zh-CN.md)覆盖公开工具、已有任务和安装要求。从 v0.2.7 升级到 v1.0.0 无需迁移任务数据。
+
 **通过仓库链接、文件、附件或粘贴文本使用研究方法。** 按 Agent 支持的输入方式使用；原生 Skill、插件和 MCP 是宿主的独立能力。
 
 ## 使用研究方法

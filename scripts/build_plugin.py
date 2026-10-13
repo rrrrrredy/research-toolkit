@@ -14,6 +14,7 @@ def payload() -> dict[str, bytes]:
     paths = [ROOT/"VERSION", ROOT/"SKILL.md", ROOT/"SKILL.zh-CN.md", ROOT/"LICENSE", *sorted((ROOT/"references").glob("*.md"))]
     paths += [ROOT/"scripts"/name for name in RUNTIME]
     paths += [ROOT/"docs"/name for name in (
+        "compatibility.md", "compatibility.zh-CN.md",
         "review-completion.md", "review-completion.zh-CN.md",
         "usage-modes.md", "usage-modes.zh-CN.md",
         "delivery-verification.md", "delivery-verification.zh-CN.md")]
