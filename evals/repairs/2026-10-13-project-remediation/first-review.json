@@ -1,0 +1,414 @@
+{
+  "reviewer_model_requested": "Astra (gpt-6-astra)",
+  "reviewer_execution_scope": "Separate-context reviewer agent. This response does not independently authenticate the runtime model; preserve the orchestrator execution record alongside it. No paid API or additional agent was invoked by this reviewer.",
+  "input_file": "research-toolkit/evals/repairs/2026-10-13-project-remediation/judge-input.json",
+  "input_sha256": "a7afad90c38e5eec9c83354a55fdc77764a6f54f3b3d0303bb1ff34aa680bf98",
+  "review_complete": true,
+  "tasks": [
+    {
+      "task_id": "Q01",
+      "checked": "Requested excerpt reasoning; recomputed handled-request resolution, coverage, and whole-eligible-population resolution. No full-report length or structure requirement imposed.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "verdict": "acceptable",
+          "reason": "Correctly distinguishes three denominators and bounds the expansion recommendation to information not yet supplied.",
+          "evidence": [
+            {
+              "locator": "tasks[0].evidence",
+              "excerpt": "20条全部合格请求。系统处理其中10条，实际解决8条；其余10条未接入。",
+              "assessment": "8/10 = 80%; 10/20 = 50%; 8/20 = 40%."
+            },
+            {
+              "locator": "tasks[0].candidates.A",
+              "excerpt": "是否扩大接入，应先查未覆盖10条的复杂度与失败风险",
+              "assessment": "A conditional next check, not an invented claim that the uncovered requests are harder or have failed."
+            }
+          ],
+          "required_action": null
+        },
+        {
+          "candidate_id": "B",
+          "verdict": "needs_revision",
+          "reason": "Applies the handled-request denominator to all demand and extrapolates service readiness beyond this small fictional sample. Traceability of 8/10 does not validate the population claim.",
+          "evidence": [
+            {
+              "locator": "tasks[0].candidates.B",
+              "excerpt": "全部客户需求上达到80%的解决率，已可承担大多数日常支持",
+              "assessment": "Only 8 of 20 eligible requests were resolved overall; 10 were not connected. The evidence cannot establish the broader daily-support claim."
+            }
+          ],
+          "required_action": "Identify 80% as resolution among handled requests, report the coverage limitation, and qualify or remove the general deployment-readiness conclusion."
+        }
+      ]
+    },
+    {
+      "task_id": "Q02",
+      "checked": "Requested excerpt reasoning; separated last-year realized revenue, signed projects, next-year target, and realization risk.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "verdict": "needs_revision",
+          "reason": "Converts signed but unrecognized future business into realized revenue. The arithmetic is approximately correct for a hypothetical 6-to-8 increase, but the asserted revenue event has not occurred in the supplied evidence.",
+          "evidence": [
+            {
+              "locator": "tasks[1].evidence",
+              "excerpt": "8亿元已签约但尚未确认收入；客户可在条件满足时延期",
+              "assessment": "Explicitly contradicts treating the signed amount as already realized."
+            },
+            {
+              "locator": "tasks[1].candidates.A",
+              "excerpt": "实际收入已经从6亿元增长到8亿元",
+              "assessment": "No current realized revenue of 8亿元 or completed growth is established; the source distinguishes last-year actual 6亿元 from signed future 8亿元."
+            }
+          ],
+          "required_action": "Keep 6亿元 as last-year actual revenue and 8亿元 as unrecognized signed business; do not report realized growth from those incompatible statuses."
+        },
+        {
+          "candidate_id": "B",
+          "verdict": "acceptable",
+          "reason": "Correctly computes signed projects as 80% of the next-year target and preserves the distinction between contracting and revenue. Execution and acceptance are reasonable realization considerations, not asserted completed events or specific contractual facts.",
+          "evidence": [
+            {
+              "locator": "tasks[1].candidates.B",
+              "excerpt": "明年收入目标的80%，并非已经取得8亿元收入",
+              "assessment": "8/10 = 80%, and the source expressly says revenue is not yet recognized."
+            },
+            {
+              "locator": "tasks[1].candidates.B",
+              "excerpt": "收入兑现还取决于执行、验收与延期情况",
+              "assessment": "Retains conditional realization rather than treating a target or signature as an observed outcome; source explicitly supplies possible postponement."
+            }
+          ],
+          "required_action": null
+        }
+      ]
+    },
+    {
+      "task_id": "Q03",
+      "checked": "Requested excerpt reasoning; compared calendar-year and June-ending fiscal-year windows rather than just year labels.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "verdict": "acceptable",
+          "reason": "Reports the two source growth rates directly while limiting the same-period inference that the evidence cannot support.",
+          "evidence": [
+            {
+              "locator": "tasks[2].evidence",
+              "excerpt": "2025自然年收入同比增长20%；乙公司披露截至2025年6月30日的财年收入同比增长30%。没有季度拆分。",
+              "assessment": "The annual windows are offset by six months. A 10-percentage-point difference between the reported numbers is not a same-window advantage."
+            },
+            {
+              "locator": "tasks[2].candidates.A",
+              "excerpt": "不能据此断言乙在同一12个月内领先10个百分点",
+              "assessment": "Appropriately narrow limitation; does not discard the valid reported growth rates."
+            }
+          ],
+          "required_action": null
+        },
+        {
+          "candidate_id": "B",
+          "verdict": "needs_revision",
+          "reason": "Reassigns the June-ending fiscal-year result to January–December 2025 without quarterly data. Shared year labels do not align the measured periods or establish an identical market environment.",
+          "evidence": [
+            {
+              "locator": "tasks[2].candidates.B",
+              "excerpt": "在2025年1月至12月的同一市场环境下",
+              "assessment": "Contradicts the fiscal-year end in the source."
+            },
+            {
+              "locator": "tasks[2].candidates.B",
+              "excerpt": "两家公司报告都写着2025，因此年度横向比较成立",
+              "assessment": "Calendar labels alone cannot supply the missing aligned-period data."
+            }
+          ],
+          "required_action": "Preserve each reporting window and limit the comparison to the reported figures, pending comparable period data."
+        }
+      ]
+    },
+    {
+      "task_id": "Q04",
+      "checked": "Requested excerpt reasoning; checked MW versus MWh and duration under the supplied no-loss assumption.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "verdict": "needs_revision",
+          "reason": "Misreads A's energy storage as power and consequently reverses the rated-power comparison and high-power recommendation.",
+          "evidence": [
+            {
+              "locator": "tasks[3].evidence",
+              "excerpt": "battery A is rated at 20 MW and 80 MWh. Battery B is rated at 40 MW and 80 MWh",
+              "assessment": "A has 20 MW rated power, not 80 MW. Both have 80 MWh energy."
+            },
+            {
+              "locator": "tasks[3].candidates.A",
+              "excerpt": "A provides 80 MW of power and therefore outperforms B's 40 MW peak output",
+              "assessment": "The decisive comparison uses the wrong quantity and unit."
+            }
+          ],
+          "required_action": "Correct A to 20 MW and compare required peak power and duration before recommending either battery."
+        },
+        {
+          "candidate_id": "B",
+          "verdict": "acceptable",
+          "reason": "Correctly compares equal energy and different power, calculates durations, and avoids inventing a load requirement.",
+          "evidence": [
+            {
+              "locator": "tasks[3].candidates.B",
+              "excerpt": "A lasts four hours and B two hours under the stated no-loss assumption",
+              "assessment": "80 MWh / 20 MW = 4 h; 80 MWh / 40 MW = 2 h."
+            },
+            {
+              "locator": "tasks[3].candidates.B",
+              "excerpt": "The choice depends on peak power and duration, not MWh alone",
+              "assessment": "Appropriate conditional decision boundary because no actual peak load or duration requirement is supplied."
+            }
+          ],
+          "required_action": null
+        }
+      ]
+    },
+    {
+      "task_id": "Q05",
+      "checked": "Requested excerpt reasoning; separated a cross-sectional group difference from a pre/post change and causal effect.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "verdict": "acceptable",
+          "reason": "Preserves the observed faster completion among users while identifying concrete alternative explanations. It does not overcorrect into claiming no useful signal exists.",
+          "evidence": [
+            {
+              "locator": "tasks[4].evidence",
+              "excerpt": "10名自愿尝试工具的熟练员工本月任务均耗时40分钟；其他员工均耗时60分钟。没有随机分组、前期数据或同难度任务控制。",
+              "assessment": "Selection and skill differ or may differ, and task difficulty is uncontrolled. Neither individual baseline reduction nor causality is identified."
+            },
+            {
+              "locator": "tasks[4].candidates.A",
+              "excerpt": "这是值得进一步对照的信号",
+              "assessment": "A useful and proportionate interpretation of the observed association."
+            }
+          ],
+          "required_action": null
+        },
+        {
+          "candidate_id": "B",
+          "verdict": "needs_revision",
+          "reason": "Turns between-group observations into an observed within-group reduction caused by the tool. Restricting geography or organization does not repair internal causal validity. 'Efficiency improvement' also obscures whether the metric is time reduction or throughput.",
+          "evidence": [
+            {
+              "locator": "tasks[4].candidates.B",
+              "excerpt": "工具使员工任务耗时从60分钟降到40分钟",
+              "assessment": "No pre-tool time for the volunteers is supplied, and no randomization or equivalent-task control supports this causal change."
+            },
+            {
+              "locator": "tasks[4].candidates.B",
+              "excerpt": "只适用于当前企业，不外推其他行业",
+              "assessment": "This external-validity qualifier leaves the unsupported within-company causal inference unchanged."
+            }
+          ],
+          "required_action": "Describe the current group difference, qualify causality and baseline change, and call one third a relative time difference if retaining that number."
+        }
+      ]
+    },
+    {
+      "task_id": "Q06",
+      "checked": "Requested excerpt reasoning; assessed what randomization and common quality checks support, and what missing variance and follow-up leave unknown.",
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "verdict": "needs_revision",
+          "reason": "Demands elimination of all uncertainty and discards supported results from a randomized comparison. Missing precision and persistence do not erase observed means or equal observed quality-pass rates.",
+          "evidence": [
+            {
+              "locator": "tasks[5].evidence",
+              "excerpt": "100 employees per group, same task distribution and scoring, tool group mean time 40 minutes, control 60. Both groups pass 90%",
+              "assessment": "Supports a favorable observed trial comparison, though precision and long-run persistence cannot be computed."
+            },
+            {
+              "locator": "tasks[5].candidates.A",
+              "excerpt": "entirely inconclusive until all uncertainty is eliminated",
+              "assessment": "An impossible evidentiary threshold unrelated to the task's actual data."
+            }
+          ],
+          "required_action": "Report the observed trial result and identify the specific unresolved precision and follow-up questions without declaring all evidence useless."
+        },
+        {
+          "candidate_id": "B",
+          "verdict": "acceptable",
+          "reason": "States the observed 20-minute mean difference and quality-pass parity, draws a bounded positive conclusion, and does not assert significance, equivalence across all quality measures, or lasting effectiveness.",
+          "evidence": [
+            {
+              "locator": "tasks[5].candidates.B",
+              "excerpt": "20 minutes faster on average, with the same observed quality-pass rate",
+              "assessment": "60 - 40 = 20; both observed pass rates are 90%."
+            },
+            {
+              "locator": "tasks[5].candidates.B",
+              "excerpt": "statistical precision and persistence remain unresolved",
+              "assessment": "Matches the missing variance and long-term data rather than generalizing uncertainty to every conclusion."
+            }
+          ],
+          "required_action": null
+        }
+      ]
+    },
+    {
+      "task_id": "Q07",
+      "checked": "Operational advice against the actual independent-review requirement, permitted reviewer relationship, context separation, substantive scope, current-version acceptance and execution honesty. Counted the complete supplied text by non-whitespace Unicode characters.",
+      "length_check": {
+        "unit": "non-whitespace Unicode characters",
+        "actual": 305,
+        "minimum": 220,
+        "maximum": 320,
+        "passes": true
+      },
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "verdict": "needs_revision",
+          "reason": "The substantive procedure and length satisfy the task. One localized source attribution needs correction: the final S2 citation is attached to the concrete final_delivery.json, terminal-state and check_delivery steps that are specified in S1. S2 supports review/version acceptance but does not itself supply those exact delivery commands and record fields.",
+          "evidence": [
+            {
+              "locator": "tasks[6].sources[id=S1].text / Choosing a profile, third table row",
+              "excerpt": "explicitly required independent review ... regardless of length ... full with explicitly configured independent review",
+              "assessment": "Supports overriding the otherwise suitable short-brief Lite profile."
+            },
+            {
+              "locator": "tasks[6].sources[id=S2].text / Independent review means",
+              "excerpt": "A fresh Astra context can provide that review, including when the author also uses Astra",
+              "assessment": "Supports the same-model fresh-context reviewer without an outside person or different vendor. Statistical independence is not claimed by the candidate."
+            },
+            {
+              "locator": "tasks[6].candidates.A",
+              "excerpt": "评审须直接读取完整稿件、原始需求和两份来源",
+              "assessment": "Correctly gives the reviewer actual materials and a separate context rather than author-only summaries."
+            },
+            {
+              "locator": "tasks[6].sources[id=S1].text / Check before declaring completion, items 4–5",
+              "excerpt": "state/final_delivery.json ... stage: final ... status: complete ... python scripts/check_delivery.py <task-directory>",
+              "assessment": "This is the direct support for the candidate's final concrete delivery steps."
+            },
+            {
+              "locator": "tasks[6].candidates.A / final two sentences",
+              "excerpt": "建立state/final_delivery.json绑定材料、输入、评审和交付消息，核对状态final/complete。脚本可用时运行check_delivery；以上是待执行步骤（S2）。",
+              "assessment": "The final citation identifies S2 rather than the source containing these details. The future-tense qualification correctly avoids inventing completed execution."
+            }
+          ],
+          "required_action": "Change the final citation to S1 or S1、S2 so the delivery record and checker instructions are traceable to their actual supplied source. No new section, extra reviewer, outside source or substantive expansion is required.",
+          "severity": "minor localized citation correction"
+        }
+      ]
+    },
+    {
+      "task_id": "Q08",
+      "checked": "All three options against each hard requirement as of 20 July 2026; first-year totals, recovery units, location, current capacity, forecast demand, expansion prerequisites, and complete-report whitespace word count.",
+      "length_check": {
+        "unit": "whitespace-separated words",
+        "actual": 127,
+        "minimum": 120,
+        "maximum": 170,
+        "passes": true
+      },
+      "candidates": [
+        {
+          "candidate_id": "A",
+          "verdict": "acceptable",
+          "reason": "C is the only currently eligible option. The report explains each alternative's decisive failure, preserves the distinction between current 12 TB demand and forecast 16 TB demand, and specifies expansion evidence needed before exhausting capacity without inventing preference weights or exceptions.",
+          "evidence": [
+            {
+              "locator": "tasks[7].sources[id=S1].text",
+              "excerpt": "First-year cost including setup must not exceed 10 ... no more than 4 hours ... on premises ... Current storage is 12 TB",
+              "assessment": "Defines hard constraints used by the candidate."
+            },
+            {
+              "locator": "tasks[7].sources[id=S2].text / quotes A, B, C",
+              "excerpt": "A costs 8 units annually plus 3 setup ... B costs 5 annually plus 3 setup ... C costs 6 annually plus 2 setup",
+              "assessment": "Totals are 11, 8, 8. A fails cost; B's 5 h fails recovery; C's 3 h and 14 TB satisfy present needs. All are on premises."
+            },
+            {
+              "locator": "tasks[7].candidates.A / second paragraph",
+              "excerpt": "C leaves 2 TB spare. The next-year forecast would raise demand to 16 TB, but is not a current minimum",
+              "assessment": "14 - 12 = 2 TB; 12 + 4 = 16 TB. Forecast does not invalidate today's eligible choice."
+            },
+            {
+              "locator": "tasks[7].candidates.A / second paragraph",
+              "excerpt": "obtain an expansion quote and recovery test results and check both against the applicable requirements",
+              "assessment": "Directly addresses S2's unknown expansion cost and post-expansion recovery before the capacity constraint is reached. The remaining reliability/labor uncertainty is accurately identified without blocking the current hard-constraint decision."
+            }
+          ],
+          "required_action": null
+        }
+      ]
+    }
+  ],
+  "method_findings": [
+    {
+      "id": "M01",
+      "assessment": "helps",
+      "location": "full_analyze_guidance.en.guidance[0].content / section 8 final paragraph; matching zh section 8 final paragraph",
+      "finding": "Recomputing totals, denominators, time windows and actual units directly exposes Q01 B, Q03 B and Q04 A and supports the feasible-choice reasoning in Q08 A.",
+      "boundary": "These observations show applicability on the supplied cases, not that the guidance caused the candidate outcomes."
+    },
+    {
+      "id": "M02",
+      "assessment": "helps",
+      "location": "full_analyze_guidance.en.guidance[0].content / consequential paraphrases and measured population paragraphs; matching zh section 8",
+      "finding": "Preserving certainty and distinguishing unmeasured conditions from observed change addresses Q02 A's unrealized revenue and Q05 B's fabricated pre/post change. The instruction to carry unknowns only where decision-relevant also supports retaining Q06 B's bounded positive result and rejecting Q06 A's universal uncertainty veto.",
+      "boundary": "Q06 does not establish statistical significance or long-term efficacy; the method must not be interpreted to add either."
+    },
+    {
+      "id": "M03",
+      "assessment": "helps",
+      "location": "full_analyze_guidance.en.guidance[0].content / current eligibility versus future forecasts; matching zh section 8",
+      "finding": "Precisely fits Q08: present 12 TB demand makes C eligible, while forecast 16 TB demand triggers expansion planning. No weighted score, procurement exception or extra approval process is needed."
+    },
+    {
+      "id": "M04",
+      "assessment": "helps_with_scope_sensitive_application",
+      "location": "Q07 S1 / Choosing a profile and Complete reviews effectively; Q07 S2 / Profile scope, Stage Scheduling and Acceptance",
+      "finding": "Explicit independent review overrides the short-brief Lite default, permits fresh Astra review when Astra authored, and preserves negative reviews without treating completion as approval. Q07's process details and file names are legitimate subject matter of an operational instruction; a general rule to remove internal process narration must not erase the user's requested instructions.",
+      "required_correction": "Candidate Q07 A needs only the located source-ID repair. No evidence justifies requiring a different vendor, outside reviewer, fixed panel or extra audit."
+    },
+    {
+      "id": "M05",
+      "assessment": "limited_localization_risk",
+      "location": "full_analyze_guidance.en.guidance[0].content / section 7 final paragraph versus full_analyze_guidance.zh.guidance[0].content / section 7 final paragraph",
+      "finding": "English explicitly scopes the depth-budget/final-assembly instruction to longform deliverables. Chinese retains the depth-budget and pre-assembly language without that explicit qualifier. Mechanical application could impose expansion on Q01–Q06 excerpts or conflict with Q07/Q08 hard length limits.",
+      "required_correction": "No candidate is rejected for missing a longform structure. Clarifying the Chinese scope to longform deliverables would improve parity; actual task constraints remain controlling.",
+      "severity": "potential interpretation issue, not an observed candidate defect"
+    },
+    {
+      "id": "M06",
+      "assessment": "not_exercised",
+      "location": "full_analyze_guidance.en/zh / complaint prevalence, open-source relationship direction, missing linked reports, required reading recovery, source instruction boundary, stopping rules, and lens scheduling",
+      "finding": "The packet's candidate cases do not substantively exercise these rules. Their presence cannot establish successful source-access recovery, resistance to embedded control instructions, correct complaint prevalence inference, or improved stopping and lens choices.",
+      "boundary": "Supplied methods were treated as review evidence, not instructions to execute their tools, search additional sources, or expand this review."
+    }
+  ],
+  "summary": {
+    "tasks_reviewed": 8,
+    "candidates_reviewed": 14,
+    "acceptable": 7,
+    "needs_revision": 7,
+    "unresolved": 0,
+    "negative_results_preserved": [
+      "Q01 B",
+      "Q02 A",
+      "Q03 B",
+      "Q04 A",
+      "Q05 B",
+      "Q06 A",
+      "Q07 A"
+    ],
+    "note": "Six substantive reasoning defects and one minor source-attribution correction. Review completeness does not approve candidates marked needs_revision."
+  },
+  "scope_limits": [
+    "Only the specified judge-input.json was read as task/evidence input. No coordinator key, original labels, earlier reviews, other project histories, external sources or author identities were read or sought.",
+    "The initial whole-file tool display truncated part of Q07 S1. Its complete supplied text was subsequently read directly from the same packet before judgment; no mandatory packet scope remains unread.",
+    "S1/S2 provenance is the packet's stated provenance, not independently authenticated repository state. The repository-relative locators remain source identifiers; sources were not reclassified as adversarial merely because external to this reviewer.",
+    "Q01–Q06 are excerpts with no report-length requirement. Q07 is 305 non-whitespace Unicode characters; Q08 is 127 whitespace-separated words, including citations. No unrequested title or report section was required.",
+    "The source method documents' mention of other files does not mean those linked files were read. Findings use only the supplied text.",
+    "This is targeted revalidation of changed guidance and candidate reasoning on existing tasks, not a randomized efficacy comparison, an estimate of reviewer accuracy, or a claim of general toolkit benefit.",
+    "No repository files were edited. Only the requested output JSON was created."
+  ]
+}

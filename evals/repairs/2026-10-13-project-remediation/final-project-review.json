@@ -1,0 +1,132 @@
+{
+  "review_date": "2026-10-13",
+  "reviewer_requested": "gpt-6-astra",
+  "context": "Separate reviewer context from the implementing author. No paid model call or further delegation was performed.",
+  "runtime_identity_note": "The parent requested Astra; this document does not independently attest the serving model identity.",
+  "verdict": "Current source remediation accepted within the stated scope; commit-matched installation verification remains pending.",
+  "required_source_changes_remaining": [],
+  "required_verification_remaining": [
+    {
+      "id": "PV01",
+      "file": "research-toolkit/scripts/check_installation_contract.py",
+      "line": 55,
+      "requirement": "Obtain the installation contract result against the same committed version/payload, or its actual CI result, before claiming project acceptance complete.",
+      "evidence": "output/project-scope-audit/toolkit/10.log retains a failure comparing the staged current payload with pre-change HEAD. The current verification.json correctly records this as pending_ci, not a pass.",
+      "scope": "Existing release verification only; this does not require another vendor, outside reviewer, user task or paid author campaign."
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "PF01",
+      "initial_file": "agent-trajectory-data/configs/runtime-v0.15/scoped-event-key-encoding.json:515",
+      "problem": "Changing inherited rights.basis broke strict equality with the frozen historical parent rights.",
+      "resolution": "The original rights objects are restored in v0.14 and v0.15; current task wording remains in the contract. Current source hashes were refreshed.",
+      "verification": "Actual temporary-parent reproduction initially returned parent_use_changed. The same current-code check now passes against original HEAD v0.14 rights. All v0.12/v0.14/v0.15 source byte hashes match their batch declarations. A new regression uses tests/fixtures/v0.14-parent-rights.json instead of relying solely on a parent regenerated from today's edited source.",
+      "before": "output/astra-final-lineage-repro.json",
+      "after": "output/astra-final-lineage-after.json",
+      "boundary": "The reproduction uses a retained-original-source-derived parent record. It is not represented as a rebuilt actual v0.14 ZIP."
+    },
+    {
+      "id": "PF02",
+      "initial_file": "research-toolkit/references/writing-style.md:63",
+      "related": "research-toolkit/references/writing-style.zh-CN.md:40",
+      "problem": "Full draft/revise directly loaded a writing guide that still required an end reference list for Chinese longform.",
+      "resolution": "Both language guides now follow the brief's citation form, omit excluded reference lists, and preserve necessary source attribution/locators.",
+      "verification": "Called the actual research_workflow.guidance for Full draft and revise in en and zh. All four returned the corrected conditional instruction. Both root guide files equal their packaged plugin mirrors.",
+      "evidence": "output/astra-final-guidance-and-manifest.json"
+    },
+    {
+      "id": "PE01",
+      "initial_file": "research-toolkit/evals/repairs/2026-10-13-project-remediation/manifest.json",
+      "problem": "An initially published unlabeled normalized-text SHA differed from the input files' actual byte SHA recorded by the reviewers.",
+      "resolution": "The manifest now explicitly hashes exact bytes. The repository .gitattributes preserves this evidence directory with -text.",
+      "verification": "Every current manifest entry matched its actual bytes. judge-input.json and revision-input.json exact hashes also match first-review.input_sha256 and citation-recheck.input_sha256. Original review input bytes were retained.",
+      "evidence": "output/astra-final-guidance-and-manifest.json"
+    },
+    {
+      "id": "PO01",
+      "initial_file": "research-toolkit/references/research-workflow.md:225",
+      "problem": "The same citation paragraph appeared three times.",
+      "resolution": "The duplicate paragraphs were removed. This was editorial cleanup, not an independent quality gate."
+    }
+  ],
+  "substantive_checks": [
+    {
+      "surface": "Lite completion",
+      "files": ["research-toolkit/scripts/profile_policy.py:94", "research-toolkit/scripts/research_workflow.py:882", "research-toolkit/scripts/check_profiles_reviewers.py:59"],
+      "finding": "The new lite_completion_errors reuses requirement resolution/user-decision/evidence checks and current progress blockers before receipt creation and during saved-delivery inspection. An absent optional ledger remains allowed. No Full review/audit gate was added. Actual negative and positive controls and stale-completion handling are represented in the tests; retained lite-before and lite-after show the specific reproduced defect closing."
+    },
+    {
+      "surface": "Blinded input integrity",
+      "files": ["research-toolkit/scripts/run_blinded_evals.py:63", "research-toolkit/scripts/check_blinded_evals.py:120"],
+      "finding": "The packet retains neutral citation locator and optional title, URL, provenance and date along with complete source text. The same enriched sources reach authors and judges; storage directory paths, coordinator keys and author-only notes remain excluded. The provenance regression and separate-context same-model tests pass in the retained 9-test and 19-test retry logs. Frozen old packets are not rewritten."
+    },
+    {
+      "surface": "Full methods and bilingual routing",
+      "files": ["research-toolkit/references/research-standard.md:222", "research-toolkit/references/research-standard.zh-CN.md:145", "research-toolkit/references/research-workflow.md:176", "research-toolkit/scripts/research_workflow.py:185"],
+      "finding": "Full analyze actually returns the updated section 8: hard constraints before preferences, actual values/units, present eligibility versus forecasts, denominators, periods, measured populations and unknown-versus-observed distinctions. Analysis questions and assembly elements are optional. The Chinese depth-budget wording is now explicitly scoped to longform, retaining short-answer constraints. Corrected writing-style completes the stage-local no-appendix behavior."
+    },
+    {
+      "surface": "Authorized evaluation repair",
+      "file": "research-toolkit/plugins/research-toolkit/skills/research-toolkit/SKILL.md:17",
+      "finding": "The installed wrapper now preserves original reports and judgments while allowing authorized separately saved repairs and their review. Frozen assignments use a linked repair task; ordinary revision uses the existing revision mechanism. No new approval is required for already authorized correction."
+    },
+    {
+      "surface": "Changed data policy and contract",
+      "files": ["agent-trajectory-data/scripts/repair_probe_env.py:37", "agent-trajectory-data/configs/runtime-v0.12/denominator-integrity.json:2", "agent-trajectory-data/configs/runtime-v0.14/scoped-event-regression.json:2", "agent-trajectory-data/configs/runtime-v0.15/scoped-event-key-encoding.json:2"],
+      "finding": "The changed prose describes actual bounded tasks and authored materials without claiming historical company code. It preserves repair-only scope, input guarantees, expected-output rules, genuine pre-repair failure, same-case final-code retest, and public/private behavior checks. Probe matches_claim is still not an oracle judgment; private cases/reference code remain evaluator-side. Denominator coverage must still reject invalid cohorts and retain failed membership/time. No new answer leakage or changed acceptance semantics was found."
+    },
+    {
+      "surface": "Maintained generator and release prose",
+      "files": ["agent-trajectory-data/scripts/research_history.py:498", "agent-trajectory-data/scripts/runtime_revision.py:330", "agent-trajectory-data/scripts/runtime_release.py:104", "agent-trajectory-data/scripts/runtime_batch.py:264"],
+      "finding": "Current output templates now describe access neutrally and distinguish task identity from material origin and execution count. Original archived material and source-use/training permissions are retained. This reviewer inspected the current generation branches and retained affected test results; this is not a claim to rebuild every release archive."
+    },
+    {
+      "surface": "Collection scope and actual revalidation",
+      "files": ["research-toolkit/docs/correction-audit-2026-10-13.md", "research-toolkit/docs/correction-audit-2026-10-13.zh-CN.md", "agent-trajectory-data/docs/PUBLIC-EVALUATIONS.md", "agent-trajectory-data/docs/PUBLIC-EVALUATIONS.zh-CN.md"],
+      "finding": "The mapping includes seven dedicated cases, 22/4 deterministic controls, the 23-case semantic catalog, source packs, taste anchors, five development families, calibration, dated diagnostics/studies/repairs, two complete public cases, Lite/MCP examples and historical/executable data releases. Counts retain their units and overlaps. R01-R13 are explicitly one report's requirements. The 8-task/14-candidate run preserves seven acceptable/seven negative first judgments; the localized citation repair is a separate version/recheck. This is targeted content review, not new author generation or an efficacy estimate."
+    }
+  ],
+  "no_change_decisions": [
+    {
+      "task_shape": "No-appendix eight-company pipeline",
+      "evidence": "evals/cases/model_company_pipeline_long_horizon_zh.json declares seven task-specific sections, reader_references_required=false and forbidden reference/glossary sections.",
+      "decision": "Keep that task and its original/repair report records. The reusable method and actual draft-stage guide were the conflicting surface; correcting those does not justify adding an appendix or replacing its R01-R13 scope with project acceptance."
+    },
+    {
+      "task_shape": "Monthly industry synthesis",
+      "evidence": "evals/cases/monthly_observation_synthesis_zh.json asks for five monthly synthesis sections spanning releases, Agent infrastructure, competition, open source and China/US differences.",
+      "decision": "Keep its task-specific structure. The revised optional analysis/assembly guidance can support cross-topic synthesis without requiring company-by-company six-part cards or eight generic sections. No concrete case-content defect was established in this method compatibility review."
+    },
+    {
+      "task_shape": "Complete English API/browser case",
+      "evidence": "docs/case-study/api-or-browser/{brief,report,sources,claims,reviews}.md and retained review/disposition records.",
+      "decision": "No report rewrite. The six-part operation-level argument, inline primary-source attribution, explicitly unmeasured cost formula and conditional migration recommendation fit the revised methods. The existing correction properly separates newly available API coverage from whether migration pays. No new production claim or numerical target should be inserted."
+    },
+    {
+      "task_shape": "Complete Chinese office-agent case",
+      "evidence": "docs/case-study/report.zh-CN.md; office-agents brief, source/claim records, provenance and historical review summary.",
+      "decision": "No report rewrite. It retains source/date/version and access distinctions, separates vendor adoption from measured outcomes, and identifies instructions versus actually completed operations. Its references list is allowed by its own brief. Historical author-adjudication summaries remain explicitly summaries; they need not be relabeled raw independent model replies. This review did not reverify every live vendor page."
+    },
+    {
+      "task_shape": "Short advice, recommendation and diagnostic excerpts",
+      "evidence": "The actual 8-task packet, first-review.json, revised 308-character profile advice and citation-recheck.json.",
+      "decision": "Keep six deliberately defective passages as negative controls. Preserve accepted compact controls and the 127-word storage recommendation. Do not impose longform sections on excerpts or ask for another vendor/external person for the profile advice. The localized source-ID repair remains the only established defect in that advice."
+    },
+    {
+      "task_shape": "Changed data repair policy/contracts and historical permissions",
+      "decision": "Keep executable acceptance rules, reference/private cases, source families, splits and original rights records. Current wording belongs in maintained instructions, not rewritten historical grants or raw trajectories. No compatibility framework, extra admission system or new held-out benchmark is needed."
+    },
+    {
+      "task_shape": "Unchanged historical cohorts and raw records",
+      "decision": "Keep first failures, swaps, provider/format diagnostics, prior author attempts and archived reports unchanged. No repeat scoring until pass, mandatory regeneration or blanket retrospective correctness label is justified by this source remediation."
+    }
+  ],
+  "optional_remaining": [],
+  "scope_limits": [
+    "Source/code and relevant task-shape acceptance is distinct from the still-pending commit-matched installation result.",
+    "This is not a reread or current-fact verification of every historical report, every external source page or all 79 public release assets. The public-access receipt is retained evidence, not a new network check by this reviewer.",
+    "Actual software results were inspected separately from content judgments. Setup failures and the historical parent-use regression were not relabeled successes; targeted reruns have separate evidence.",
+    "The initial review and first failing reproduction remain in separate files. Only output review/evidence files were written by this reviewer; repository modifications were made by the implementing parent."
+  ]
+}

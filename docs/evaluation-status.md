@@ -12,7 +12,7 @@ The separate [October 10 fixed-source Lite pilot](../evals/studies/2026-10-10-li
 
 ## Current repair arrangement
 
-Use existing real user and development tasks with Astra in a separate review context. Development use does not invalidate their authenticity or independence as distinct questions. The records below describe completed runs, not a requirement to find outside reviewers or new external material before fixing problems.
+Use existing real user and development tasks with Astra in a separate review context. All existing and future user tasks, development tasks and reference cases are real independent tasks; executed tests are real tests. The records below describe completed runs, not a requirement to find outside reviewers or new external material before fixing problems.
 
 ## 2026-10-12: connectivity and judge calibration
 
@@ -62,6 +62,6 @@ The historical report studies do not measure the later shared plugin/MCP impleme
 [Evaluation standard](report-evaluation-standard.md) · [Claim boundaries and study design](evaluation-roadmap.md) · [Usage and execution limits](usage-modes.md)
 
 
-## October 13 final completion
+## October 13 report completion and project correction
 
-The [complete pipeline report and two Astra reviews](../evals/repairs/2026-10-13-pipeline-complete/README.md) close the stage report's named-node, original-document and multichannel requirements; R01–R13 pass after revision. A separate [four-task wording recheck](../evals/repairs/2026-10-13-wording-recheck/README.md) validates changed reviewer inputs. These are revisions and actual tests of existing independent tasks, not extra tasks or replacement first-draft scores. Retained revisions correct inaccurate task prefixes in the 23-case current semantic view; original reviews remain preserved. Public assets are inventoried above; the [improvement plan](improvement-plan.md) states this cycle's completion scope.
+The pipeline report’s R01–R13 record covers one report. Project correction also changes Lite completion, Full methods, source packets, installed instructions and data generators. See the [full collection and correction map](correction-audit-2026-10-13.md) and its actual verification records. The earlier v0.2.6 project-wide closure claim is superseded.

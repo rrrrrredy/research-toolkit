@@ -1,0 +1,461 @@
+{
+  "date": "2026-10-13",
+  "count_policy": "Counts are by declared record type; reuse and versions overlap and are not summed as independent research tasks.",
+  "dedicated_task_ids": [
+    "ai_agent_market_landscape_zh",
+    "ai_video_generation_investment_memo_zh",
+    "model_company_pipeline_long_horizon_zh",
+    "model_price_war_competitive_analysis_zh",
+    "monthly_observation_synthesis_zh",
+    "reasoning_model_competition_zh",
+    "source_instruction_boundary_zh"
+  ],
+  "fixture_counts": {
+    "regression_fixtures": 22,
+    "conformance_fixtures": 4
+  },
+  "semantic_base_counts": {
+    "cases.json": 6,
+    "additional-cases.json": 14,
+    "reader-cases-2026-09-10.json": 3
+  },
+  "semantic_current_loader": "research-toolkit/scripts/check_semantic_diagnostics.py:load_catalog; retained revisions apply to original cases",
+  "development_family_paths": [
+    "research-toolkit/evals/tasksets/development-v2-synthetic/archive-scan-zh",
+    "research-toolkit/evals/tasksets/development-v2-synthetic/backup-budget-zh",
+    "research-toolkit/evals/tasksets/development-v2-synthetic/ferry-timeline-en",
+    "research-toolkit/evals/tasksets/development-v2-synthetic/library-reminders-en",
+    "research-toolkit/evals/tasksets/development-v2-synthetic/wash-water-en"
+  ],
+  "calibration_v3_family_count": 4,
+  "calibration_v3_packets_per_model": 12,
+  "dated_diagnostic_collections": [
+    "research-toolkit/evals/diagnostics/2026-09-07",
+    "research-toolkit/evals/diagnostics/2026-10-12-astra-calibration",
+    "research-toolkit/evals/diagnostics/2026-10-12-connectivity",
+    "research-toolkit/evals/diagnostics/2026-10-12-longcat-format",
+    "research-toolkit/evals/diagnostics/2026-10-13-dedicated-seven",
+    "research-toolkit/evals/diagnostics/2026-10-13-feedback-probes",
+    "research-toolkit/evals/diagnostics/2026-10-13-targeted-recheck"
+  ],
+  "dated_study_collections": [
+    "research-toolkit/evals/studies/2026-10-10-lite-four-models",
+    "research-toolkit/evals/studies/2026-10-12-lite-four-models"
+  ],
+  "dated_repair_collections": [
+    "research-toolkit/evals/repairs/2026-10-13-astra",
+    "research-toolkit/evals/repairs/2026-10-13-pipeline-complete",
+    "research-toolkit/evals/repairs/2026-10-13-wording-recheck"
+  ],
+  "taste_anchor_groups": [
+    "research-toolkit/evals/taste_anchors/ai_agent_market_landscape_zh",
+    "research-toolkit/evals/taste_anchors/figurative_load_zh",
+    "research-toolkit/evals/taste_anchors/model_company_pipeline_long_horizon_zh",
+    "research-toolkit/evals/taste_anchors/source_instruction_boundary_zh"
+  ],
+  "source_packs": [
+    "research-toolkit/evals/source_packs/ai_knowledge_sanitized",
+    "research-toolkit/evals/source_packs/model_company_pipeline_synthetic",
+    "research-toolkit/evals/source_packs/prompt_injection_synthetic"
+  ],
+  "examples": [
+    "research-toolkit/examples/lite",
+    "research-toolkit/examples/mcp"
+  ],
+  "public_full_report_cases": [
+    "research-toolkit/docs/case-study/api-or-browser",
+    "research-toolkit/docs/case-study/office-agents"
+  ],
+  "eval_templates": [
+    "research-toolkit/evals/templates/blinded-study.json",
+    "research-toolkit/evals/templates/blinded-study.v2.json",
+    "research-toolkit/evals/templates/heldout-intake.json",
+    "research-toolkit/evals/templates/paired-study.json"
+  ],
+  "public_asset_receipt": {
+    "source": "agent-trajectory-data/docs/public-access-receipt.json",
+    "date": "2026-10-13",
+    "release_count": 19,
+    "asset_count": 79,
+    "audit_rechecked_network": false,
+    "asset_names": [
+      {
+        "tag": "study-2026-09-29",
+        "name": "workspace-usefulness-20260929-verification.json"
+      },
+      {
+        "tag": "study-2026-09-29",
+        "name": "workspace-usefulness-20260929.zip"
+      },
+      {
+        "tag": "format-study-2026-09-29",
+        "name": "workspace-format-20260929-verification.json"
+      },
+      {
+        "tag": "format-study-2026-09-29",
+        "name": "workspace-format-20260929.zip"
+      },
+      {
+        "tag": "dataset-v0.16",
+        "name": "agent-runtime-v0.16-acceptance-repair.json"
+      },
+      {
+        "tag": "dataset-v0.16",
+        "name": "agent-runtime-v0.16-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.16",
+        "name": "agent-runtime-v0.16-consumer-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.16",
+        "name": "agent-runtime-v0.16-consumer.zip"
+      },
+      {
+        "tag": "dataset-v0.16",
+        "name": "agent-runtime-v0.16-processing-supplement.zip"
+      },
+      {
+        "tag": "dataset-v0.16",
+        "name": "agent-runtime-v0.16-source-commit-verification.json"
+      },
+      {
+        "tag": "dataset-v0.16",
+        "name": "agent-runtime-v0.16-tests.json"
+      },
+      {
+        "tag": "dataset-v0.16",
+        "name": "agent-runtime-v0.16.zip"
+      },
+      {
+        "tag": "dataset-v0.15",
+        "name": "agent-runtime-v0.15-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.15",
+        "name": "agent-runtime-v0.15-consumer-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.15",
+        "name": "agent-runtime-v0.15-consumer.zip"
+      },
+      {
+        "tag": "dataset-v0.15",
+        "name": "agent-runtime-v0.15-processing-supplement.zip"
+      },
+      {
+        "tag": "dataset-v0.15",
+        "name": "agent-runtime-v0.15-source-commit-verification.json"
+      },
+      {
+        "tag": "dataset-v0.15",
+        "name": "agent-runtime-v0.15-tests.json"
+      },
+      {
+        "tag": "dataset-v0.15",
+        "name": "agent-runtime-v0.15.zip"
+      },
+      {
+        "tag": "dataset-v0.14",
+        "name": "agent-runtime-v0.14-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.14",
+        "name": "agent-runtime-v0.14-consumer-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.14",
+        "name": "agent-runtime-v0.14-consumer.zip"
+      },
+      {
+        "tag": "dataset-v0.14",
+        "name": "agent-runtime-v0.14-processing-supplement.zip"
+      },
+      {
+        "tag": "dataset-v0.14",
+        "name": "agent-runtime-v0.14-source-commit-verification.json"
+      },
+      {
+        "tag": "dataset-v0.14",
+        "name": "agent-runtime-v0.14-tests.json"
+      },
+      {
+        "tag": "dataset-v0.14",
+        "name": "agent-runtime-v0.14.zip"
+      },
+      {
+        "tag": "dataset-v0.13",
+        "name": "agent-runtime-v0.13-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.13",
+        "name": "agent-runtime-v0.13-processing.zip"
+      },
+      {
+        "tag": "dataset-v0.13",
+        "name": "agent-runtime-v0.13-source-commit-verification.json"
+      },
+      {
+        "tag": "dataset-v0.13",
+        "name": "agent-runtime-v0.13-tests.json"
+      },
+      {
+        "tag": "dataset-v0.13",
+        "name": "agent-runtime-v0.13.zip"
+      },
+      {
+        "tag": "dataset-v0.12",
+        "name": "agent-runtime-v0.12-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.12",
+        "name": "agent-runtime-v0.12-processing-supplement.zip"
+      },
+      {
+        "tag": "dataset-v0.12",
+        "name": "agent-runtime-v0.12-source-commit-verification.json"
+      },
+      {
+        "tag": "dataset-v0.12",
+        "name": "agent-runtime-v0.12-tests.json"
+      },
+      {
+        "tag": "dataset-v0.12",
+        "name": "agent-runtime-v0.12.zip"
+      },
+      {
+        "tag": "dataset-v0.11",
+        "name": "agent-runtime-v0.11-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.11",
+        "name": "agent-runtime-v0.11-processing-supplement.zip"
+      },
+      {
+        "tag": "dataset-v0.11",
+        "name": "agent-runtime-v0.11-source-commit-verification.json"
+      },
+      {
+        "tag": "dataset-v0.11",
+        "name": "agent-runtime-v0.11-tests-complete.json"
+      },
+      {
+        "tag": "dataset-v0.11",
+        "name": "agent-runtime-v0.11.zip"
+      },
+      {
+        "tag": "dataset-v0.9",
+        "name": "agent-runtime-v0.9-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.9",
+        "name": "agent-runtime-v0.9-processing-supplement.zip"
+      },
+      {
+        "tag": "dataset-v0.9",
+        "name": "agent-runtime-v0.9-source-commit-verification.json"
+      },
+      {
+        "tag": "dataset-v0.9",
+        "name": "agent-runtime-v0.9-tests.json"
+      },
+      {
+        "tag": "dataset-v0.9",
+        "name": "agent-runtime-v0.9.zip"
+      },
+      {
+        "tag": "dataset-v0.8",
+        "name": "agent-runtime-v0.8-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.8",
+        "name": "agent-runtime-v0.8-processing-supplement.zip"
+      },
+      {
+        "tag": "dataset-v0.8",
+        "name": "agent-runtime-v0.8-source-commit-verification.json"
+      },
+      {
+        "tag": "dataset-v0.8",
+        "name": "agent-runtime-v0.8-tests.json"
+      },
+      {
+        "tag": "dataset-v0.8",
+        "name": "agent-runtime-v0.8.zip"
+      },
+      {
+        "tag": "dataset-v0.7",
+        "name": "agent-runtime-v0.7-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.7",
+        "name": "agent-runtime-v0.7-processing-evidence.zip"
+      },
+      {
+        "tag": "dataset-v0.7",
+        "name": "agent-runtime-v0.7-source-commit-verification.json"
+      },
+      {
+        "tag": "dataset-v0.7",
+        "name": "agent-runtime-v0.7-tests-delivered.json"
+      },
+      {
+        "tag": "dataset-v0.7",
+        "name": "agent-runtime-v0.7.zip"
+      },
+      {
+        "tag": "dataset-v0.6-curriculum",
+        "name": "runtime-curriculum-v0.6-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.6-curriculum",
+        "name": "runtime-curriculum-v0.6.zip"
+      },
+      {
+        "tag": "dataset-v0.6-curriculum",
+        "name": "runtime-v0.6-processing.zip"
+      },
+      {
+        "tag": "dataset-v0.6-curriculum",
+        "name": "runtime-v0.6-tests-final.json"
+      },
+      {
+        "tag": "dataset-v0.6",
+        "name": "agent-runtime-v0.6-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.6",
+        "name": "agent-runtime-v0.6-delivery-evidence.zip"
+      },
+      {
+        "tag": "dataset-v0.6",
+        "name": "agent-runtime-v0.6-tests.json"
+      },
+      {
+        "tag": "dataset-v0.6",
+        "name": "agent-runtime-v0.6.zip"
+      },
+      {
+        "tag": "dataset-v0.5",
+        "name": "agent-runtime-v0.5-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.5",
+        "name": "agent-runtime-v0.5-tests.json"
+      },
+      {
+        "tag": "dataset-v0.5",
+        "name": "agent-runtime-v0.5.zip"
+      },
+      {
+        "tag": "dataset-v0.10",
+        "name": "agent-runtime-v0.10-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.10",
+        "name": "agent-runtime-v0.10-processing-supplement.zip"
+      },
+      {
+        "tag": "dataset-v0.10",
+        "name": "agent-runtime-v0.10-source-commit-verification.json"
+      },
+      {
+        "tag": "dataset-v0.10",
+        "name": "agent-runtime-v0.10-tests.json"
+      },
+      {
+        "tag": "dataset-v0.10",
+        "name": "agent-runtime-v0.10.zip"
+      },
+      {
+        "tag": "v0.3.0",
+        "name": "research-evidence-eval-20260924.zip"
+      },
+      {
+        "tag": "dataset-v0.4",
+        "name": "agent-runtime-v0.4-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.4",
+        "name": "agent-runtime-v0.4-tests.json"
+      },
+      {
+        "tag": "dataset-v0.4",
+        "name": "agent-runtime-v0.4.zip"
+      },
+      {
+        "tag": "dataset-v0.2",
+        "name": "research-history-v0.2-acceptance.json"
+      },
+      {
+        "tag": "dataset-v0.2",
+        "name": "research-history-v0.2.zip"
+      },
+      {
+        "tag": "dataset-v0.1",
+        "name": "research-slices-v0.1.zip"
+      }
+    ]
+  },
+  "direct_archive_inventory": {
+    "tasks.jsonl": 17,
+    "coverage.jsonl": 98,
+    "prior/tasks.jsonl": 45,
+    "prior/reviews.jsonl": 221,
+    "prior/author_attempts.jsonl": 34,
+    "prior/prior/base/tasks.jsonl": 10,
+    "prior/prior/runs.jsonl": 4,
+    "prior/prior/turns.jsonl": 8
+  },
+  "historical_report_cohorts": {
+    "development_first_submission": 23,
+    "historical_paired_study": 22
+  },
+  "historical_full_report_task_ids": [
+    "dev-U01",
+    "dev-U02",
+    "dev-U03",
+    "dev-U04",
+    "dev-U05",
+    "dev-U06",
+    "dev-P01",
+    "dev-P02",
+    "dev-P03",
+    "dev-P04",
+    "dev-P05",
+    "dev-P06",
+    "dev-P07",
+    "dev-P08",
+    "dev-P10",
+    "dev-P11",
+    "dev-P12",
+    "dev-P13",
+    "dev-P14",
+    "dev-P15",
+    "dev-P16",
+    "dev-P17",
+    "dev-P18",
+    "formal-F01",
+    "formal-F02",
+    "formal-F03",
+    "formal-F04",
+    "formal-F05",
+    "formal-F06",
+    "formal-F07",
+    "formal-F08",
+    "formal-F09",
+    "formal-F10",
+    "formal-F13",
+    "formal-F14",
+    "formal-F15",
+    "formal-F16",
+    "formal-F17",
+    "formal-F18",
+    "formal-F19",
+    "formal-F20",
+    "formal-F21",
+    "formal-F22",
+    "formal-F23",
+    "formal-F24"
+  ]
+}

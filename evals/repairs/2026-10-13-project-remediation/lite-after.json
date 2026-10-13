@@ -1,0 +1,17 @@
+{
+  "test_kind": "offline_negative_control_no_model_calls",
+  "requirement": {
+    "requirement_id": "R-open",
+    "summary": "Required comparison remains absent",
+    "status": "open",
+    "evidence": ""
+  },
+  "completed": false,
+  "stage": "collect",
+  "status": "in_progress",
+  "open_issues": [
+    "Required comparison remains absent"
+  ],
+  "delivery_check_ok": null,
+  "expected": "completed=false; do not set final/complete while required work is explicitly open"
+}

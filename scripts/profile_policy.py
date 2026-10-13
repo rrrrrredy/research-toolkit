@@ -91,9 +91,24 @@ def text_hash(path):
     return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n").replace(b"\r", b"\n")).hexdigest()
 
 
+def lite_completion_errors(root: Path):
+    """Honor recorded obligations while keeping Lite free of Full review gates."""
+    from check_delivery import collect_open_issues, inspect_requirements
+    errors, _ = inspect_requirements(root / "state/requirements.jsonl")
+    try:
+        progress = json.loads((root / "state/progress.json").read_text(encoding="utf-8"))
+        if not isinstance(progress, dict):
+            raise ValueError("Progress must be an object")
+        if collect_open_issues(progress):
+            errors.append("Lite delivery still has recorded open blockers; resolve them before completion.")
+    except (OSError, ValueError):
+        errors.append("Lite delivery needs readable current task progress.")
+    return errors
+
+
 def inspect_lite_delivery(root: Path, artifact="final.md", delivery_message="delivery_message.md"):
     """Check the lightweight receipt without claiming full delivery-gate acceptance."""
-    errors = []
+    errors = lite_completion_errors(root)
     length_checks = []
     version = None
     try:

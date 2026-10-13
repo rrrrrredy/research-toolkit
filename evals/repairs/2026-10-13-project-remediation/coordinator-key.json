@@ -1,0 +1,66 @@
+[
+  {
+    "id": "Q01",
+    "original_task": "denominator_swap_zh",
+    "mapping": {
+      "A": "control",
+      "B": "bad"
+    }
+  },
+  {
+    "id": "Q02",
+    "original_task": "forecast_is_not_actual_zh",
+    "mapping": {
+      "A": "bad",
+      "B": "control"
+    }
+  },
+  {
+    "id": "Q03",
+    "original_task": "mismatched_fiscal_periods_zh",
+    "mapping": {
+      "A": "control",
+      "B": "bad"
+    }
+  },
+  {
+    "id": "Q04",
+    "original_task": "power_and_energy_en",
+    "mapping": {
+      "A": "bad",
+      "B": "control"
+    }
+  },
+  {
+    "id": "Q05",
+    "original_task": "self_selected_pilot_causality_zh",
+    "mapping": {
+      "A": "control",
+      "B": "bad"
+    }
+  },
+  {
+    "id": "Q06",
+    "original_task": "supported_local_improvement_en",
+    "mapping": {
+      "A": "bad",
+      "B": "control"
+    }
+  },
+  {
+    "id": "Q07",
+    "original_task": "review-profile-zh",
+    "report_path": "evals\\diagnostics\\2026-10-13-targeted-recheck\\repairs\\deepseek\\review-profile-zh.md",
+    "mapping": {
+      "A": "existing repaired report; assess current sources independently"
+    }
+  },
+  {
+    "id": "Q08",
+    "original_task": "maple-storage-en",
+    "report_path": "evals\\diagnostics\\2026-10-13-targeted-recheck\\repairs\\deepseek\\maple-storage-en.md",
+    "mapping": {
+      "A": "existing repaired report; assess current sources independently"
+    }
+  }
+]

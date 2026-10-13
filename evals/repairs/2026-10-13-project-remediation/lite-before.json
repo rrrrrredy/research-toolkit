@@ -1,0 +1,13 @@
+{
+  "test_kind": "offline_negative_control_no_model_calls",
+  "executed_on": "2026-10-13",
+  "completed": true,
+  "stage": "final",
+  "status": "complete",
+  "open_issues": [
+    "Required comparison remains absent"
+  ],
+  "delivery_check_ok": true,
+  "expected": "completed=false; preserve nonterminal state while required work remains explicitly open",
+  "execution_note": "Executed identical reproduction logic via stdin with bundled Python -B. Only a temporary output subdirectory was written, then removed. Repository source remained unchanged."
+}

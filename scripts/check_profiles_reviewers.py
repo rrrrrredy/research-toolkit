@@ -56,6 +56,41 @@ class ProfileTests(unittest.TestCase):
         self.assertFalse(result["completed"], result)
         self.assertFalse((self.root/"state/final_checklist.json").exists())
 
+    def test_lite_open_obligations_cannot_be_closed_by_checklist_assertions(self):
+        self.task("lite")
+        items = {key: {"passed": True, "evidence": "final.md"} for key in CHECKLIST}
+        row = {"requirement_id": "R-comparison", "summary": "Compare two options", "status": "open"}
+        for status in ("open", "waived", "satisfied"):
+            with self.subTest(status=status):
+                w.save_text(self.root, "state/requirements.jsonl", json.dumps({**row, "status": status})+"\n")
+                result = w.finish(self.workspace, "case", "Complete.", checklist=items)
+                self.assertFalse(result["completed"], result)
+                self.assertFalse((self.root/"state/final_checklist.json").exists())
+                self.assertNotEqual(w.load(self.root, "state/progress.json")["status"], "complete")
+        w.save_text(self.root, "state/requirements.jsonl", json.dumps({**row, "status": "satisfied", "evidence": "final.md paragraphs 1–2"})+"\n")
+        progress = w.load(self.root, "state/progress.json")
+        w.save(self.root, "state/progress.json", {**progress, "open_issues": ["Required comparison remains absent"]})
+        self.assertFalse(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+        self.assertFalse((self.root/"state/final_checklist.json").exists())
+        w.save(self.root, "state/progress.json", {**progress, "open_issues": []})
+        self.assertTrue(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+        receipt = (self.root/"state/final_checklist.json").read_bytes()
+        terminal = w.load(self.root, "state/progress.json")
+        w.save(self.root, "state/progress.json", {**terminal, "open_issues": ["New required correction"]})
+        self.assertFalse(evaluate_delivery(self.root)["ok"])
+        self.assertEqual(w.status(self.workspace, "case")["progress"]["status"], "stale")
+        self.assertEqual((self.root/"state/final_checklist.json").read_bytes(), receipt)
+
+    def test_lite_specific_user_scope_change_and_absent_optional_ledger(self):
+        self.task("lite")
+        items = {key: {"passed": True, "evidence": "final.md"} for key in CHECKLIST}
+        row = {"requirement_id": "R-comparison", "status": "waived", "summary": "Compare two options",
+               "user_decision": {"source_turn": "turn-2", "quote": "Omit the comparison; deliver the explanation."}}
+        w.save_text(self.root, "state/requirements.jsonl", json.dumps(row)+"\n")
+        self.assertTrue(w.finish(self.workspace, "case", "Delivered the requested explanation.", checklist=items)["completed"])
+        (self.root/"state/requirements.jsonl").unlink()
+        self.assertTrue(w.finish(self.workspace, "case", "Delivered.", checklist=items)["completed"])
+
     def length_requirement(self, **changes):
         row = {"requirement_id": "R-length", "summary": "Count the whole report using the declared unit and bounds.",
                "status": "satisfied", "evidence": "final.md",

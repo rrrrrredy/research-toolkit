@@ -16,6 +16,8 @@ Toolkit 的默认流程调整不改写既有样本、首评或标签，也不自
 
 ## 案例与评测集清单
 
+[完整集合与方法覆盖](../docs/correction-audit-2026-10-13.zh-CN.md)
+
 Toolkit 专用题集在 [`cases/`](cases/)，与后来四模型测试所用的题集分开。下表覆盖当前题目、对照、示例和带日期的运行结果；复用材料会跨分类出现，不能把所有数量相加当作新增独立任务。
 
 | 材料 | 数量 | 用途与当前状态 |
@@ -29,7 +31,7 @@ Toolkit 专用题集在 [`cases/`](cases/)，与后来四模型测试所用的�
 | [参考写作样例](taste_anchors/README.zh-CN.md) | 4 组 | 可复用来解释具体判据，按实记录先前用途、虚构事实或来源缺少日期的情况。 |
 | [来源包](source_packs/) | 3 包 | 题目提供的证据；保留来源事实及出处信息。 |
 | [公开研究案例](../docs/case-study/README.zh-CN.md) | 2 个 | 国内办公 Agent 中文研究与 API／浏览器英文原创研究，保留稿件、评审与修订；译文不另计任务。 |
-| [模板](templates/)及 [Lite 示例](../examples/lite/) | 工作流辅助材料 | 用于复用配置和入门，空白模板不表示缺真实任务或贡献材料。 |
+| [模板](templates/)及 [Lite 示例](../examples/lite/) | 工作流辅助材料 | 用于复用配置和入门。 |
 
 七道专用题如下：
 
@@ -85,7 +87,7 @@ PR #38 当时离线检查了全部七题的提示生成及一份完整评审足�
 - [23 组成对语义诊断](semantic_diagnostics/README.zh-CN.md)。
 - [两评审者原始结果](semantic_diagnostics/reviews/2026-09-08/)：保留共同漏检、严重性分歧、顺序与上下文敏感，以及两项案例修订的单独评审。与作者标签一致不等于准确。
 
-9 月 10 日新增的三组读者样本经过内部四模型诊断，保留了收费口径更正。私人评审未公开，早期八次公开调用没有评过这三组。当前目录应通过加载器读取；旧输入冻结保存。
+9 月 10 日新增的三组读者样本经过内部四模型诊断，保留了收费口径更正。相关历史评审与材料的当前公开入口见[数据管理仓库](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md)；早期八次调用没有评过这三组。当前目录应通过加载器读取；旧输入冻结保存。
 
 已完成的历史首评数量与解释见[评测现状及版本边界](../docs/evaluation-status.zh-CN.md)。下列公开文件是保留评测材料的一部分。
 
@@ -150,7 +152,7 @@ state/final_delivery.json
 python scripts/run_evals.py --runs-dir evals/runs --report evals/runs/report.md --json-report evals/runs/report.json
 ```
 
-`report.json` 为 schema 2。`pass` 仅表示机械符合；`review` 和 `fail` 默认非零退出，探索性收集才用 `--allow-review`。换目录时同时设置两个报告路径。语义评审、分歧和证据限制单独记录。公共材料并不包含所有私人研究。
+`report.json` 为 schema 2。`pass` 仅表示机械符合；`review` 和 `fail` 默认非零退出，探索性收集才用 `--allow-review`。换目录时同时设置两个报告路径。语义评审、分歧和证据限制单独记录。公开历史材料的实际覆盖范围见集合索引。
 
 ## 检查交付声明
 

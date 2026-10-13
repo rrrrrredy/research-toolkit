@@ -69,7 +69,7 @@ Use these gates before declaring any stage or final deliverable complete.
 - Repeated points are merged.
 - The synthesis is more than a summary.
 - Counter-evidence is integrated.
-- The reference appendix is reader-facing.
+- Citations follow the brief; any requested reference appendix is reader-facing.
 
 ## Reader Review Gate
 

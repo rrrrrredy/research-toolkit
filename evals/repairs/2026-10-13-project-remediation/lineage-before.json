@@ -1,0 +1,22 @@
+{
+  "passed": false,
+  "error": "parent_use_changed",
+  "original_rights_basis": "Entirely original synthetic task, code, and manually fixed expected examples authored for this project. This new source family is preregistered as train before any actual model collection; no existing released development or test source is promoted.",
+  "current_rights_basis": "A real independent task with original code, constructed inputs and manually fixed expected examples authored for this project. This new source family is preregistered as train before any actual model collection; no existing released development or test source is promoted.",
+  "restoring_original_rights_passes": true,
+  "scope": "Read-only current-code reproduction against a temporary parent record derived from retained HEAD v0.14 source. This does not claim the actual archived ZIP was available or rebuilt.",
+  "source_hash_checks": [
+    {
+      "path": "configs/runtime-v0.12/denominator-integrity.json",
+      "hash_matches": true
+    },
+    {
+      "path": "configs/runtime-v0.14/scoped-event-regression.json",
+      "hash_matches": true
+    },
+    {
+      "path": "configs/runtime-v0.15/scoped-event-key-encoding.json",
+      "hash_matches": true
+    }
+  ]
+}

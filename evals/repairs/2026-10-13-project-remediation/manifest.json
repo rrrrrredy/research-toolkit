@@ -1,0 +1,24 @@
+{
+  "hash_scheme": "sha256 of exact file bytes; .gitattributes preserves this directory with -text",
+  "scope": "Retained project remediation inputs and review outputs",
+  "sha256": {
+    "citation-recheck.json": "6582ac967d08bfe4121fe9fa38c7facab31c2956a2b209305ff280768728417b",
+    "collection-inventory.json": "fe2352dbd0188821028a6255a2814c48e20e590ab44fa62b7506466a31924d25",
+    "coordinator-key.json": "5a84cafb17edd6cfcabe181a026ed747ca6df55452dd133b984852813fa4e5d3",
+    "final-guidance-check.json": "d0e3bcc77c62f4cb204531586a93ab54e09a2ae8e876346c9299fce3a9fc0428",
+    "final-project-review.json": "3aebcbcecc117441aebf74445aba6e13fc8ac24ab4d509031cbb0c498e4f5b1e",
+    "first-review.json": "a74abd2a2b168b34bafbf9cb451a4e55213d499f35ce7bc9098d47f87581f610",
+    "initial-project-audit.md": "59c9aa8fa2483c2c5e41cf9fa6deb304e999c66eac864090635c127895340e1e",
+    "judge-input.json": "a7afad90c38e5eec9c83354a55fdc77764a6f54f3b3d0303bb1ff34aa680bf98",
+    "lineage-after.json": "86a91e5ed12ad16c3936adc14103301c1c8bcefaa4037ce611344922ab00e850",
+    "lineage-before.json": "71d757f2035faf6b1800bf615c4181072c49df1f455ae416b9b6624c9f042f0e",
+    "lineage-regression.log": "cdca0847078ae06449b07875cbe73207563de7c5f09ff3a5188644258b5e18d7",
+    "lite-after.json": "5e36ead46ec892c1388374a2c2fec05ce6f8737360f360369e12db9964477a85",
+    "lite-before.json": "17135e14f8fe021a0fec433b7df7c0e6a7cb4b5b992a690b7e19d8066d7508ae",
+    "README.md": "6c239b61c619ed9adb9086e7c36dac3f4ed8c9b79880e6cb2512493833ff265b",
+    "README.zh-CN.md": "021f19cb50412a04c0ac92b18e5f0b80fcf8a3e24174c2ae9c744be30f557717",
+    "review-profile-revised.zh-CN.md": "6b46a9e4c1c027617f9e1ea3c767977d42c94988b1cf112694e6747335f2f76f",
+    "revision-input.json": "7f6930280fa1b087ed5fd9950f1a129acb997e9401761303b73395c697b30197",
+    "verification.json": "6d702965e98ebfe2a2170f0cc20e30e13c6a788600b97f9b6aebd54e2e5afec7"
+  }
+}

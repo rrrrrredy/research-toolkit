@@ -1,0 +1,257 @@
+{
+  "date": "2026-10-13",
+  "kind": "actual offline software checks; no model calls",
+  "toolkit": [
+    {
+      "command": "python scripts/check_profiles_reviewers.py",
+      "exit_code": 0,
+      "seconds": 25.47,
+      "log": "00.log",
+      "tests": 32,
+      "log_sha256": "9baa978c1eb391a86d1f1e00adeebfe7922c112604936996841e435ebc05d568"
+    },
+    {
+      "command": "python scripts/check_research_workflow.py",
+      "exit_code": 0,
+      "seconds": 54.27,
+      "log": "01.log",
+      "tests": 76,
+      "log_sha256": "2717ad4106c9ae06076ed69002be8e1cba80db32160d6e502ef5ed4b4207e4a1"
+    },
+    {
+      "command": "python scripts/check_draft_contract.py",
+      "exit_code": 0,
+      "seconds": 1.94,
+      "log": "02.log",
+      "tests": 7,
+      "log_sha256": "14a6cd36b7c3d7a628d06659af0b4a0bb3ca9858eb9f9e47acf7f37143b3e44b"
+    },
+    {
+      "command": "python scripts/check_delivery_contract.py",
+      "exit_code": 0,
+      "seconds": 17.0,
+      "log": "03.log",
+      "tests": 69,
+      "log_sha256": "103feab794167661e1cc5e88f10f11a042f859f88522f1999db282a68b2abe8b"
+    },
+    {
+      "command": "python scripts/check_evaluator_contract.py",
+      "exit_code": 0,
+      "seconds": 18.2,
+      "log": "04.log",
+      "tests": 41,
+      "log_sha256": "1abc8f70e3c3c330c0e957c66ac2e7b2213323e21c326fceea0eff6c5b4445c3"
+    },
+    {
+      "command": "python scripts/check_regression_fixtures.py",
+      "exit_code": 0,
+      "seconds": 2.39,
+      "log": "05.log",
+      "tests": null,
+      "log_sha256": "313c61f734e62ebf79e97d3b2e5f08761af185be94bd93f29a151ce61128cbbb"
+    },
+    {
+      "command": "python scripts/check_conformance_fixtures.py",
+      "exit_code": 0,
+      "seconds": 1.17,
+      "log": "06.log",
+      "tests": null,
+      "log_sha256": "705693ed02776900819197702a107aba3df5ad4ab4ab9446ee4d155cff28ef08"
+    },
+    {
+      "command": "python scripts/check_blinded_evals.py",
+      "exit_code": 1,
+      "seconds": 1.86,
+      "log": "07.log",
+      "tests": 9,
+      "log_sha256": "95e96f8cff8427cce4144935fe14f2e374995e0b903f5d161da363cd5000d07c"
+    },
+    {
+      "command": "python scripts/check_blinded_protocol_v2.py",
+      "exit_code": 1,
+      "seconds": 2.2,
+      "log": "08.log",
+      "tests": 19,
+      "log_sha256": "0d631ec15b3e049ff596144d3cd19c51044b598a697ff038372016164abc84a2"
+    },
+    {
+      "command": "python scripts/check_semantic_diagnostics.py",
+      "exit_code": 0,
+      "seconds": 0.7,
+      "log": "09.log",
+      "tests": 28,
+      "log_sha256": "40b25051920ba29c05de3a07178ce73a956cd68b3bdf87d24ba70d79d39f338e"
+    },
+    {
+      "command": "python scripts/check_installation_contract.py",
+      "exit_code": 1,
+      "seconds": 5.42,
+      "log": "10.log",
+      "tests": 6,
+      "log_sha256": "f0ccfb519d35bd77a7476c79d29d6c481ad75ed2b76658c9a035b5d6b93fbf80"
+    },
+    {
+      "command": "python scripts/check_mcp_contract.py",
+      "exit_code": 0,
+      "seconds": 10.55,
+      "log": "11.log",
+      "tests": null,
+      "log_sha256": "2a5c451f85bb99913b149563726bfd3d278b51484e0d0517fe76ec8ff98af5a6"
+    },
+    {
+      "command": "python scripts/check_review_completion_contract.py",
+      "exit_code": 0,
+      "seconds": 2.86,
+      "log": "12.log",
+      "tests": 19,
+      "log_sha256": "7045e43f05e02e26c105676cbdf8cc0a39fc313f1271e57d564d2241d28ad2cb"
+    },
+    {
+      "command": "python scripts/check_eval_source_integrity.py",
+      "exit_code": 0,
+      "seconds": 0.17,
+      "log": "13.log",
+      "tests": null,
+      "log_sha256": "75bf9465394272bcfd317c0f0bc099cd09f0b51ac234874d3b07bd6b35f79810"
+    },
+    {
+      "command": "python scripts/check_source_policy_contract.py",
+      "exit_code": 0,
+      "seconds": 6.95,
+      "log": "14.log",
+      "tests": 15,
+      "log_sha256": "7fffabae441635fdaba9daf3d78389973bc6042d39cebbc4ea474e359a0abae0"
+    }
+  ],
+  "data": [
+    {
+      "command": "python -m unittest discover -s tests -p test_authored_lineage.py",
+      "exit_code": 1,
+      "seconds": 0.19,
+      "log": "00.log",
+      "tests": 9,
+      "log_sha256": "a7318d516a0f7d122271b467e0b62820dc69757b1429f13cc81feb5e56031903"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_authored_repair.py",
+      "exit_code": 0,
+      "seconds": 6.0,
+      "log": "01.log",
+      "tests": 5,
+      "log_sha256": "f0b88e2840431d52ba668cec356c81708f2383d0ad3a9bf1266151052ea2089b"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_repair_probe_env.py",
+      "exit_code": 0,
+      "seconds": 0.69,
+      "log": "02.log",
+      "tests": 11,
+      "log_sha256": "ee5b6a9cca84eccc33ec21916db676010a761f341cf49efe1a4b4b6c6d9da3c4"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_probe_pipeline.py",
+      "exit_code": 5,
+      "seconds": 0.19,
+      "log": "03.log",
+      "tests": 0,
+      "log_sha256": "03bce0ca94f2c0b474c1da3c6cc7cbd1a04958fbc28f4d3a934860b8ad795baa"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_research_history.py",
+      "exit_code": 0,
+      "seconds": 0.39,
+      "log": "04.log",
+      "tests": 10,
+      "log_sha256": "3aa4545962440aef57dfaa6108ffd02e5102e74c05cebc9ccd88e7c54ab087dc"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_research_corpus.py",
+      "exit_code": 0,
+      "seconds": 0.45,
+      "log": "05.log",
+      "tests": 8,
+      "log_sha256": "e86c589b4c6d254afc3847cc8eb6f050f14e95e78b2fc8d168cfffaa0b766b73"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_runtime_dataset.py",
+      "exit_code": 0,
+      "seconds": 18.94,
+      "log": "06.log",
+      "tests": 11,
+      "log_sha256": "52d4f7615318952119943de67ca4763450a724c41732cf73915fcf27796e3dab"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_runtime_curriculum.py",
+      "exit_code": 0,
+      "seconds": 0.28,
+      "log": "07.log",
+      "tests": 17,
+      "log_sha256": "caddabff874d1b47aa5fec429b50d585a3a055d091a92b6abdaab0c29d82f90e"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_research_env_v3.py",
+      "exit_code": 0,
+      "seconds": 6.19,
+      "log": "08.log",
+      "tests": 14,
+      "log_sha256": "d04d08356050dcba43ac6cc87cede39df1754e73a56e8ead7d0b033e21b12276"
+    }
+  ],
+  "data_retries": [
+    {
+      "command": "python -m unittest discover -s tests -p test_authored_lineage.py",
+      "exit_code": 0,
+      "seconds": 2.61,
+      "log": "test_authored_lineage-retry.log",
+      "reason": "Created the existing test harness expected _tmp directory; no outcome-driven model rerun.",
+      "tests": 9,
+      "log_sha256": "084c887b82ede3827e86c94db559d1af38f8397b069ee197febab0b641e8d2f0"
+    },
+    {
+      "command": "python -m unittest discover -s tests -p test_probe_pipeline.py",
+      "exit_code": 0,
+      "seconds": 3.89,
+      "log": "test_probe_pipeline-retry.log",
+      "reason": "Created the existing test harness expected _tmp directory; no outcome-driven model rerun.",
+      "tests": 4,
+      "log_sha256": "d99ce19ca1aab0b70808712fd3bce64af11e351f2a3d15074a6678339f944897"
+    }
+  ],
+  "toolkit_retries": [
+    {
+      "command": "python scripts/check_blinded_evals.py",
+      "exit_code": 0,
+      "tests": 9,
+      "reason": "Set bundled Git PATH inside the Python process with runpy; child launchers had stripped PATH."
+    },
+    {
+      "command": "python scripts/check_blinded_protocol_v2.py",
+      "exit_code": 0,
+      "tests": 19,
+      "reason": "Set bundled Git PATH inside the Python process with runpy; child launchers had stripped PATH."
+    }
+  ],
+  "installation_note": "The pre-commit installation check compares current staged files with HEAD, which still contains the previous version. Published-commit CI must verify this control before merge.",
+  "exploratory_data_run": {
+    "command": "python -m unittest discover -s agent-trajectory-data/tests -v",
+    "tests_run": 151,
+    "errors": 23,
+    "cause": "Mixed unprepared local archive fixtures, expected _tmp directory and source-hash bindings before their refresh; not a complete current-suite pass. Relevant self-contained suites run below."
+  },
+  "current_prompts": {
+    "dedicated_tasks": 7,
+    "language_paths_per_task": 2,
+    "current_semantic_tasks": 23,
+    "model_calls": 0
+  },
+  "pending_ci": true,
+  "data_final_regression": {
+    "command": "python -m unittest discover -s tests -p test_authored_lineage.py",
+    "exit_code": 0,
+    "tests": 10,
+    "log": "lineage-regression.log",
+    "reason": "Adds retained original parent-rights fixture to prevent changing both parent and child from hiding a compatibility regression."
+  },
+  "current_affected_data_tests": 90,
+  "record_stage": "Pre-commit verification snapshot; release/PR CI provides the commit-matched installation result."
+}

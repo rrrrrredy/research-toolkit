@@ -60,6 +60,24 @@ def text_file(base, name):
     return value
 
 
+def source_packet(base, source, index):
+    """Keep citation identity with the evidence in both author and judge inputs."""
+    record = {"path": source} if isinstance(source, str) else source
+    require(isinstance(record, dict) and set(record) <= {"path", "locator", "title", "url", "provenance", "date"},
+            "Source needs a path and optional locator/title/url/provenance/date")
+    text = text_file(base, record.get("path"))
+    # Local storage may contain condition names. An explicit neutral locator
+    # overrides it; never publish the storage path or coordinator design record.
+    locator = record.get("locator", Path(record["path"]).name)
+    require(isinstance(locator, str) and bool(locator.strip()), "Source needs a nonempty citation locator")
+    packet = {"id": f"S{index}", "locator": locator, "text": text}
+    for field in ("title", "url", "provenance", "date"):
+        if field in record:
+            require(isinstance(record[field], str) and bool(record[field].strip()), f"Source {field} must be nonempty text")
+            packet[field] = record[field]
+    return packet
+
+
 def positive_int(value):
     return type(value) is int and value > 0
 
@@ -133,7 +151,7 @@ def prepare(study_path, output, seed):
         require(task.get("language") in {"en", "zh-CN"} and task.get("task_type"), "Declare language and task type")
         brief = text_file(study_path.parent, task["brief"])
         require(isinstance(task.get("sources"), list) and bool(task["sources"]), "Each task needs full source text")
-        sources = [{"id": f"S{i+1}", "text": text_file(study_path.parent, source)} for i, source in enumerate(task["sources"])]
+        sources = [source_packet(study_path.parent, source, i+1) for i, source in enumerate(task["sources"])]
         if schema == 2:
             design = json.loads(text_file(study_path.parent, task["design"]))
             require(isinstance(design, dict) and design.get("role") == "development", "Each task needs a development design record; calibration is a separate cohort")
@@ -381,7 +399,8 @@ def run(output, call=request):
     if schema2:
         save(output / "coordinator/masking-observations.json", {"scope": "Literal matches only; not proof of successful blinding. No report edits or exclusions.", "reports": masking})
     # Judges receive only the brief, identical sources, two reader reports and rubric.
-    # No seed, condition, file path, notes, generation timestamp or run order is sent.
+    # No seed, condition, storage path, notes, generation timestamp or run order is sent.
+    # Neutral source locators and provenance remain part of the shared evidence.
     judgments = {}
     swapped = {}
     for task in frozen["assignments"]:
