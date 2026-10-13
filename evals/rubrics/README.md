@@ -6,7 +6,7 @@ The two JSON files in this directory retain earlier seven-dimension rubrics. The
 
 For new report evaluations, use the [current report-evaluation standard](../../docs/report-evaluation-standard.md): five dimensions, 0–4 or `not_assessed`, with critical errors recorded separately. Semantic review uses LLM reviewers. The older `research_quality.json` references to human review are historical instructions, not current acceptance requirements. Do not pool its weighted results with the current scale.
 
-Dated development bundles retain their original reviewer counts, budgets, failures and repair history; those records do not create a current repair or re-review requirement.
+Dated development bundles retain their original reviewer counts, budgets, failures and repair history. Confirmed defects under an authorized improvement task are repaired in separate versions and rechecked; the historical result is preserved. Astra in a separate context is sufficient unless the task requires otherwise.
 
 Original rubric bytes and study evidence remain unchanged. Reference examples are development material, not reference answers or proof of product effectiveness.
 

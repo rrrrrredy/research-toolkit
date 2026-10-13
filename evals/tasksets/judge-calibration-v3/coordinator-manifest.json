@@ -156,5 +156,5 @@
     }
   ],
   "acceptance": "Inspect all first judgments, not only preferences. Require located source-based explanations of each known error, stable identification after swaps, and no invented substantive difference in each identical-valid pair. No retries or omission of failed controls; separately record disagreements and unresolved judgments.",
-  "limitations": "Authored and public diagnostic controls, not held-out data or a calibrated judge result. Four families and translations/orientations cannot establish general reliability, independence, five-dimension validity or Toolkit efficacy. Live model identity, budgets and collection rules must be frozen separately before running; no calls accompany this pack."
+  "limitations": "These four authored, public task families are independent real test tasks with disclosed source content and reuse. Translations and order swaps are variants of the same families. The input pack itself is not an execution result. Astra completed the 12 planned first-pass reviews on 2026-10-12; see evals/diagnostics/2026-10-12-astra-calibration for responses, failures, usage and findings. Those results describe this run; they do not establish general reliability or Toolkit efficacy."
 }

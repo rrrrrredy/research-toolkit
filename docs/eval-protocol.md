@@ -6,6 +6,8 @@
 
 For new development runs, [protocol v2](eval-protocol-v2.md) adds frozen output parsing, request ceilings, task design records and position swaps. The original schema-1 protocol and historical study stay available.
 
+This page describes the optional schema-1 paired comparison and its historical runs. Current repair work follows the [repair standard](report-evaluation-standard.md): reuse existing independent tasks, let Astra review in a separate context, and correct confirmed defects in separately retained versions. The [October 13 recheck](../evals/diagnostics/2026-10-13-targeted-recheck/README.md) is complete. This older pilot's 5–10-family design is not a prerequisite for ordinary repairs.
+
 ## Question and scope
 
 For 5–10 distinct task families, does adding the pinned Toolkit's Lite instructions change the quality of a first report under the same declared model and resource ceilings? This small pilot uses fixed, publishable source texts and a single author response per condition. It evaluates **instruction-only Lite**, without MCP, retrieval, persistent agent state or internal independent review. It does not validate Full, whole-agent execution, open-web research or the historical four-reviewer study. The [current standard](report-evaluation-standard.md) supplies the five scoring dimensions; this separate pilot uses one blinded LLM judge per pair, as a diagnostic starting point rather than a general efficacy certificate.

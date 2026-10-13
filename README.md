@@ -72,7 +72,7 @@ args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
 RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 ```
 
-Restart the client and confirm the six `research_*` tools appear. If `python` is not on the client's PATH, use the absolute executable path shown by `python -c "import sys; print(sys.executable)"`. Windows JSON paths can use forward slashes. [Client documentation and troubleshooting](./docs/usage-modes.md#connect-mcp-separately).
+Restart the client and confirm the seven `research_*` tools appear. If `python` is not on the client's PATH, use the absolute executable path shown by `python -c "import sys; print(sys.executable)"`. Windows JSON paths can use forward slashes. [Client documentation and troubleshooting](./docs/usage-modes.md#connect-mcp-separately).
 
 **A captured Full example with self-review.** Lite skips review; this small fictional Full task demonstrates the review call without an external account. The agent supplies the report and evidence files between guidance and review.
 
@@ -82,6 +82,7 @@ Restart the client and confirm the six `research_*` tools appear. If `python` is
 | `research_guide` | `{"stage":"draft","language":"en","profile":"full"}` | `{"stage":"draft","profile":"full"}`; method text omitted |
 | `research_review` | `{"task":"shipment-note","evidence_paths":["source.md"],"reviewer":"self"}` | `{"reviews_complete":false,"action_required":"self_review","reviewer":"self","review_strength":"degraded"}` |
 | `research_review` again | Submit the [self-review](./examples/mcp/self-review.json) plus the returned `input_version` | `{"reviews_complete":true,"reviewer":"self","review_strength":"degraded"}` |
+| `research_check_draft` | Check current draft records and explicit length bounds without model calls or changing task state. |
 | `research_finish` | `{"task":"shipment-note","message":"The fictional shipment note is complete, with self-review only and no independent review."}` | `{"completed":true}` |
 
 [Captured inputs/outputs](./examples/mcp/captured.json) · [Run the example](./examples/mcp/README.md). These are local server responses, not efficacy results; the example replays a supplied author review and makes no external model call.
@@ -166,7 +167,7 @@ Replace the bracketed text with your research request. Include any known audienc
 | Supports native Skills | Install a complete toolkit copy through the host's supported Skill mechanism. See [agent setup](./agents/README.md). |
 | Small research task | Use `research_start(profile="lite")` or CLI `start --profile lite`: retain the brief, claims, section drafting and checklist; skip review and full delivery hard gates. |
 
-**Optional workflow tools.** An agent that can start a local MCP server can use the six tools for task records, stage guidance, review calls, and delivery checks. A compatible plugin bundles the same methods and tools. [Plugin and MCP configuration](./docs/usage-modes.md)
+**Optional workflow tools.** An agent that can start a local MCP server can use the seven tools for task records, stage guidance, review calls, and delivery checks. A compatible plugin bundles the same methods and tools. [Plugin and MCP configuration](./docs/usage-modes.md)
 
 Reading the instructions does not start MCP or execute a review. Full returns a self-review prompt when no backend is configured; configure any supported backend for external or independent opinions. [Backend setup and data destinations](./SKILL.md#reviewer-backends)
 
@@ -191,7 +192,7 @@ Without a configured backend, review falls back to self; declared independent re
 Your agent performs retrieval, reading, analysis, and writing with its own capabilities. The plugin bundles the Skill, methods, and local MCP server. The Skill and MCP can also be used separately.
 
 <details>
-<summary>The six MCP tools</summary>
+<summary>The seven MCP tools</summary>
 
 | Tool | Function |
 | --- | --- |
@@ -199,6 +200,7 @@ Your agent performs retrieval, reading, analysis, and writing with its own capab
 | `research_status` | Read and save progress; check source and claim records for stage transitions. |
 | `research_guide` | Load the methods for the current stage. |
 | `research_review` | Bind the report and evidence, run reviews, and retain replies or failures. |
+| `research_check_draft` | Check current draft records and explicit length bounds without model calls or changing task state. |
 | `research_finish` | Check the current report, unresolved requirements, reviews, and delivery text. |
 | `research_check_reviewer` | Inspect backend configuration, dependencies and supported local login probes without model calls. |
 

@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-One installation bundles the research Skill, detailed methods and six local MCP tools. The agent clarifies the brief, researches and writes with its own tools, then executes the selected review and delivery checks through the shared workflow.
+One installation bundles the research Skill, detailed methods and seven local MCP tools. The agent clarifies the brief, researches and writes with its own tools, then executes the selected review and delivery checks through the shared workflow.
 
 For Codex, with Python 3.10+, Git and Codex CLI installed:
 

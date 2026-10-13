@@ -21,9 +21,9 @@ This work does not wait for an additional research project. Tests verify a chang
 
 Software regressions check inputs, state, parsing, version bindings and delivery rules. Astra checks report judgments against sources. A mechanical pass describes the tested software behavior; content acceptance follows the actual review. Routine repair requires no additional review team, custodian or admission project.
 
-## Remaining problems
+## Completed repairs and subsequent work
 
-The [improvement plan](improvement-plan.md) tracks concrete errors: missed length requirements, choices that contradict the supplied numbers, and unrecorded conditions described as observed changes. Record the correction, recheck and completion for each; an abstract semantic-reliability study is not a substitute for repair.
+[PR #35](https://github.com/rrrrrredy/research-toolkit/pull/35) merged the task/reviewer corrections and [old/new-task acceptance](../evals/diagnostics/2026-10-13-targeted-recheck/README.md). The identified report defects have corresponding corrected and accepted versions. The [improvement plan](improvement-plan.md) records completion and next product work; these are not still-open requests for outside people, more tasks or an additional study.
 
 <a id="track-b-held-out-real-task-efficacy"></a>
 <a id="next-study-freeze-the-design-then-collect-new-evidence"></a>
