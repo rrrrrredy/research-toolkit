@@ -173,7 +173,7 @@ Use the unit that matches the assignment:
 - event or period
 - case study
 
-For each unit, write an analysis card:
+Use the following questions when they help answer the task. Keep any useful analysis notes in existing task records; choose the relevant questions for each unit:
 
 1. Timeline: key phases and turning points.
 2. Position: current role in the market, ecosystem, debate, or workflow.
@@ -211,7 +211,7 @@ Do not treat a partial-stage pass as whole-project completion.
 
 ## 9. Assembly
 
-Assemble around the argument:
+Choose a structure around the task’s argument and delivery constraints. The following are possible elements, not eight required sections:
 
 1. core insights or executive summary
 2. scope and method note
@@ -221,5 +221,7 @@ Assemble around the argument:
 6. implications
 7. conclusion
 8. reader-facing references
+
+Use the requested citation form. Inline links can supply references; add an appendix only when requested or useful within the brief. A request for no appendix or a compact answer takes precedence over these examples.
 
 If the draft reads like a list of sources, rewrite around mechanisms, causality, comparison, and implications.

@@ -1,0 +1,25 @@
+# 项目整改：方法、运行时与评测输入
+
+[English](README.md) · [简体中文](README.zh-CN.md)
+
+完成状态更新：[同提交 CI 记录](commit-verification.json)已关闭终审中的安装验证项 PV01。实现提交 `5861de3` 的 Linux、Windows、最低 Python 版本及安装检查均通过；数据整改已合并至 [PR #4](https://github.com/rrrrrredy/agent-trajectory-data/pull/4)。下方提交前记录保留当时状态。
+
+[项目整改映射](../../../docs/correction-audit-2026-10-13.zh-CN.md)定义本次范围，覆盖两个公开仓库的方法、安装指令、实际执行和评测输入。管线报告的R01–R13仍是一个任务的要求。
+
+单独上下文Astra的[首次项目审计](initial-project-audit.md)发现八项具体整改，其中Lite错误完成已[实际复现](lite-before.json)。当前运行时检查拒绝该状态，并允许完成已解决的任务。[集合盘点](collection-inventory.json)记录当前各集合路径、归档行类型及79个公开附件名称；任务复用和版本之间存在交叉。
+
+## 实际针对性评审
+
+[judge-input.json](judge-input.json)包含本次运行时的Full分析指引及八道已有题、十四个候选。六组成对题检查分母、预测、时期、单位、因果推断和有边界的正面证据；另两篇有明确篇幅要求的完整报告检查来源归属及当前／未来选择。Astra只读取该输入，未见作者身份、先前评审或[协调答案](coordinator-key.json)。[完整首评](first-review.json)保留全部发现：七个可接受、七个需修改。十二个片段判断均与原有六组坏例／对照对应；已有存储建议可接受。评审流程报告有一处真实来源编号错误，原评审整体保留。
+
+作者将末尾引文S2改为S1/S2，另存[报告修订版](review-profile-revised.zh-CN.md)，保留[完整修订输入](revision-input.json)及[实际Astra复验](citation-recheck.json)。修订稿308个非空白字符，评定可接受。首轮输入、报告和负面判断都保留。六个用于诊断的坏例继续保留预期负面结果。
+
+这是在已有任务上的针对性内容评审，没有重新生成全部作者报告，也不是因果效果比较。评审另建议的中文长文限定已补进当前Full方法，并纳入项目审阅。代码变化由实际程序测试另行验证；历史完整报告、原模型调用及冻结研究结果保留原记录。
+
+## 证据与范围
+
+[verification.json](verification.json)列出实际命令与结果。最初探索性数据全套命令遇到本地未准备的归档夹具目录，随后明确运行受影响且可独立执行的测试集。两个模块首次需要既有`_tmp`目录，补齐目录后的重跑也保留记录。这些设置问题不作为报告质量结果。
+
+各次Astra评审请求模型为`gpt-6-astra`，评审上下文与作者分开。发布评审原文时只去掉文件定位中的本机工作区前缀，未改候选、来源、结论或理由。[manifest.json](manifest.json)绑定所保留的输入与评审。此前带日期目录中的原作者稿和首评保持不变。
+
+[项目终审](final-project-review.json)记录：历史权限兼容性与 Full 起草／修订引用指引修正后，必改源码项为零。[权限兼容性首次失败](lineage-before.json)、[修复复查](lineage-after.json)、[十项回归测试](lineage-regression.log)和[实际中英文起草／修订指引检查](final-guidance-check.json)分别保留。这份提交前记录仍需由 PR 的 CI 验证同一提交版本的安装结果，通过后才能合并。

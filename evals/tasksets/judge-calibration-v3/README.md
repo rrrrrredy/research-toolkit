@@ -2,7 +2,7 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-Four independent task families supply 12 judge packets: one valid/defective pair, its exact A/B reversal and an identical-valid tie per family. The [dated Astra calibration](../../diagnostics/2026-10-12-astra-calibration/README.md) now retains all 12 first judgments, source adjudication and score drift; the input controls remain unchanged. These four public task families are distinct from the five development tasks; development authorship does not invalidate their independence. Version 3 names this material pack; it does not change protocol v2 or study schema 2.
+Four independent task families supply 12 judge packets: one valid/defective pair, its exact A/B reversal and an identical-valid tie per family. The [dated Astra calibration](../../diagnostics/2026-10-12-astra-calibration/README.md) now retains all 12 first judgments, source adjudication and score drift; the input controls remain unchanged. These four public task families are distinct from the five development tasks; all are real independent tasks with actual tests recorded separately. Version 3 names this material pack; it does not change protocol v2 or study schema 2.
 
 | Family | Known defect | Length of each variant | Primary valid label |
 | --- | --- | --- | --- |

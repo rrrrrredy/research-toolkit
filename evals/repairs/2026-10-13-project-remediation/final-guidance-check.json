@@ -1,0 +1,29 @@
+{
+  "manifest_mismatches": [],
+  "actual_full_guidance": [
+    {
+      "stage": "draft",
+      "language": "en",
+      "conditional_citations_returned": true,
+      "plugin_matches": true
+    },
+    {
+      "stage": "draft",
+      "language": "zh",
+      "conditional_citations_returned": true,
+      "plugin_matches": true
+    },
+    {
+      "stage": "revise",
+      "language": "en",
+      "conditional_citations_returned": true,
+      "plugin_matches": true
+    },
+    {
+      "stage": "revise",
+      "language": "zh",
+      "conditional_citations_returned": true,
+      "plugin_matches": true
+    }
+  ]
+}

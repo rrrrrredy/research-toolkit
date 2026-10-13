@@ -71,3 +71,7 @@ python scripts/check_feedback_probes.py --self-test
 ```
 
 These checks exercise parsing controls, raw retention, API options, aliases, failures, frozen-code rejection, task admission, metadata isolation and swapped-outcome decoding. They make no real model calls and establish software behavior only.
+
+## Source identity in new packets
+
+Each `sources` entry may remain a relative file path, or use `{ "path": "sources/operations.md", "locator": "operations.md", "title": "Operations", "url": "https://example.org/operations", "provenance": "Supplied operating record", "date": "2026-10-13" }`. Only `path` is required; other fields are optional nonempty strings. Both author and judge receive the same source text, source ID, neutral locator and supplied metadata. The default locator is the filename; set an explicit neutral locator when storage names reveal conditions or are ambiguous. Storage paths and the coordinator design/answer key stay out of those packets. New freezes bind the enriched input; previously frozen packets and results remain preserved.

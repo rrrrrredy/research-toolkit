@@ -117,6 +117,36 @@ class PilotTests(unittest.TestCase):
         self.assertEqual(rows[0]["outcome"], "unresolved")
         self.assertEqual(len(rows), 5)
 
+    def test_citation_identity_and_provenance_reach_both_roles(self):
+        private = self.base / "coordinator" / "with_toolkit"
+        private.mkdir(parents=True)
+        (private / "stored.md").write_text("Measured cost is 8 units.", encoding="utf-8")
+        self.config["tasks"][0]["sources"] = [{
+            "path": "coordinator/with_toolkit/stored.md", "locator": "capacity-audit.md",
+            "title": "Capacity audit", "url": "https://example.org/capacity",
+            "provenance": "Supplied operations measurement", "date": "2026-10-12"}]
+        (self.base / "brief-0.md").write_text("Explain capacity-audit.md and cite its measured cost.", encoding="utf-8")
+        self.store()
+        out, frozen = self.plan()
+        seen = []
+        def call(settings, messages, folder):
+            seen.append((settings["model"], json.loads(messages[1]["content"])))
+            return self.fake(settings, messages, folder)
+        h.run(out, call)
+        packets = [p for _, p in seen if "capacity-audit.md" in p["brief"]]
+        self.assertEqual(len(packets), 3)
+        for packet in packets:
+            source = packet["sources"][0]
+            self.assertEqual(source["locator"], "capacity-audit.md")
+            self.assertEqual(source["provenance"], "Supplied operations measurement")
+            self.assertEqual(source["url"], "https://example.org/capacity")
+            self.assertEqual(source["text"], "Measured cost is 8 units.")
+            self.assertNotIn("coordinator", json.dumps(source))
+            self.assertNotIn("with_toolkit", json.dumps(source))
+        self.assertEqual(packets[0]["sources"], packets[-1]["sources"])
+        default = next(t for t in frozen["assignments"] if t["task_id"] == "task-1")
+        self.assertEqual(default["sources"][0]["locator"], "source-1.md")
+
     def test_mutated_freeze_and_invalid_judgment(self):
         out, frozen = self.plan()
         frozen["seed"] += 1

@@ -16,6 +16,8 @@ Changes to Toolkit defaults do not rewrite existing samples, first reviews or la
 
 ## Case and dataset inventory
 
+[Full collection-to-method coverage](../docs/correction-audit-2026-10-13.md)
+
 The dedicated Toolkit task set is [`cases/`](cases/). It is separate from the later four-model task sets. This inventory covers the current tasks, controls, examples and dated results; categories overlap where the same material is reused, so their counts must not be added as if each were a new independent task.
 
 | Material | Size | Use and current status |
@@ -29,7 +31,7 @@ The dedicated Toolkit task set is [`cases/`](cases/). It is separate from the la
 | [Writing examples](taste_anchors/README.md) | 4 groups | Reusable examples for concrete criteria; prior exposure and fictional or undated source facts remain explicit. |
 | [Source packs](source_packs/) | 3 packs | Supplied evidence for tasks; source facts and provenance are preserved. |
 | [Public research cases](../docs/case-study/README.md) | 2 cases | Chinese office-agent research and original English API/browser research, with drafts, reviews and revisions. Translations are not additional tasks. |
-| [Templates](templates/) and [Lite example](../examples/lite/) | Workflow aids | Reusable setup and onboarding; empty templates are not evidence of missing real tasks or missing contributions. |
+| [Templates](templates/) and [Lite example](../examples/lite/) | Workflow aids | Reusable configuration and onboarding examples. |
 
 The seven dedicated cases are:
 
@@ -287,7 +289,7 @@ The [current report/review plan](../docs/evaluation-roadmap.md#current-report-an
 
 新的报告评测使用[现行评测标准](../docs/report-evaluation-standard.md#报告评测现行标准)：五维0–4分，保留首次交稿及其有效评审、原始缺陷和失败记录。原定缺失评审按原版本补齐；已授权改进中的真实缺陷直接修正，修订稿另存并复查，原结果保留。不对未改稿件重复评分；可选的使用效果比较另行记录。历史量表仅适用于原研究，不构成当前人工评审前提。
 
-通用案例和检查器不依赖特定运行时。目录包含7个任务、22个反例夹具、4个正例夹具，以及23组成对语义诊断。9月10日新增三组已经过内部四模型诊断，并保留收费口径更正；私人评审原文未公开，旧八次公开调用没有评过这三组。历史目录中的“未评审”等字段描述当时冻结的输入状态，当前诊断状态以目录说明和保留修订为准。公开材料也不等于全部私人评测研究。
+通用案例和检查器不依赖特定运行时。目录包含7个任务、22个反例夹具、4个正例夹具，以及23组成对语义诊断。9月10日新增三组已经过内部四模型诊断，并保留收费口径更正；相关历史评审与材料的当前公开入口见[数据管理仓库](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md)；旧八次调用没有评过这三组。历史目录中的“未评审”等字段描述当时冻结的输入状态，当前诊断状态以目录说明和保留修订为准。历史材料的文件路径、数量和实际用途见公开集合索引。
 
 使用方法：
 

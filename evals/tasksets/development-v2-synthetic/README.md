@@ -2,7 +2,7 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-These five tasks were created on 2026-10-12 and used in the [actual four-model test](../../studies/2026-10-12-lite-four-models/README.md). They are independent tasks defined by distinct research questions; development use or prior access does not invalidate them. Source text is retained as supplied in each task.
+These five tasks were created on 2026-10-12 and used in the [actual four-model test](../../studies/2026-10-12-lite-four-models/README.md). They are real independent tasks defined by distinct research questions; their executed tests are real tests. Source text is retained as supplied in each task.
 
 | Task | Language | Necessary judgment |
 | --- | --- | --- |

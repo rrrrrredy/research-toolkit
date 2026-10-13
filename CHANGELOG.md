@@ -4,6 +4,13 @@
 
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
+## v0.2.7 — 2026-10-13
+
+- Block Lite completion when recorded required work remains open; preserve lightweight author checks.
+- Preserve neutral source identity in new blinded inputs for both roles.
+- Align installed repair instructions and task-dependent Full methods; share concrete reasoning checks across profiles.
+- Correct current bilingual task descriptions and map all evaluation collections to product changes and targeted verification.
+
 ## Unreleased
 
 No pending changes.

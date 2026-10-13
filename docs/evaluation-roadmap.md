@@ -17,7 +17,7 @@ This work does not wait for an additional research project. Tests verify a chang
 
 ## Existing material and checks
 
-[Evaluation status](evaluation-status.md) records real research tasks, development reports, diagnostics and model reviews. Development use does not invalidate a real task; different questions remain distinct tasks. Renaming, translating or changing models does not add tasks.
+[Evaluation status](evaluation-status.md) records real research tasks, development reports, diagnostics and model reviews. All user tasks, development tasks and reference cases are real independent tasks; executed tests are real tests. Renaming, translating or changing models does not add tasks.
 
 Software regressions check inputs, state, parsing, version bindings and delivery rules. Astra checks report judgments against sources. A mechanical pass describes the tested software behavior; content acceptance follows the actual review. Routine repair requires no additional review team, custodian or admission project.
 

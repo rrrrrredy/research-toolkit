@@ -71,3 +71,7 @@ python scripts/check_feedback_probes.py --self-test
 ```
 
 检查覆盖解析正负对照、原始输出保留、API 选项、别名、失败分类、冻结后代码变更拒绝、任务准入、元数据隔离及互换结果解码。不调用真实模型，只验证软件行为。
+
+## 新输入保留来源身份
+
+`sources` 各项仍可使用相对文件路径，也可写为 `{ "path": "sources/operations.md", "locator": "operations.md", "title": "运营记录", "url": "https://example.org/operations", "provenance": "所提供的运营记录", "date": "2026-10-13" }`。仅 `path` 必填，其余为可选非空字符串。作者和评审收到相同的来源正文、编号、中性定位及所给元数据。默认定位为文件名；存储名暴露分组或存在歧义时，显式指定中性 `locator`。存储目录与协调者的设计／答案不进入输入。新冻结绑定这些字段，旧冻结输入和结果原样保留。

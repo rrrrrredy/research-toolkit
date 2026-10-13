@@ -70,7 +70,7 @@ Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log
 | Reviewer tier | Setup cost | Review strength | Suitable use |
 | --- | --- | --- | --- |
 | `self` | None; explicitly switch roles in the author context | Degraded; retains author blind spots, marked `reviewer: self` | Small reports and a zero-configuration start |
-| `external` | Configure one command or endpoint | An external model response; quality depends on the backend and evidence | Routine reports with another model's feedback |
+| `external` | Configure one command or endpoint | An external model response; quality depends on the backend and evidence | Routine reports using a configured reviewer |
 | `independent` | Configure fresh reviewer contexts and any task-required audits | Existing independent review and version-binding requirements | Consequential reports and frozen evaluations |
 
 Astra in a fresh context separate from the author can provide independent review, including when the author uses the same model. Give it the same task, report and source materials; keep author notes and condition mappings out of blind review. Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Repeated runs keep the same task identity, and source materials retain their stated provenance. No outside person, different vendor or additional external material is required. Changes to assignments, reviewer inputs or acceptance criteria require targeted revalidation.

@@ -60,7 +60,7 @@ For Chinese final articles:
 - Replace translationese with natural Chinese.
 - Avoid overexplaining the research process.
 - Do not show internal source IDs in the body.
-- Put references at the end by reader-facing category.
+- Follow the brief's citation form. Use a reference list only when requested or useful within that brief; omit it when the task excludes one. Retain source attribution and locators needed to understand or verify the answer.
 
 ## English Longform Preferences
 

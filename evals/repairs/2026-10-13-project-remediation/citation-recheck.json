@@ -1,0 +1,91 @@
+{
+  "reviewer_model_requested": "Astra (gpt-6-astra)",
+  "reviewer_execution_scope": "Existing separate-context reviewer agent, separate from the author. Model identity is not independently authenticated by the input packet; retain the orchestration execution record. No new agent or paid API was invoked by this reviewer.",
+  "input_file": "research-toolkit/evals/repairs/2026-10-13-project-remediation/revision-input.json",
+  "input_sha256": "7f6930280fa1b087ed5fd9950f1a129acb997e9401761303b73395c697b30197",
+  "review_complete": true,
+  "task_id": "Q07",
+  "candidate_id": "A",
+  "candidate_utf8_sha256": "6b46a9e4c1c027617f9e1ea3c767977d42c94988b1cf112694e6747335f2f76f",
+  "verdict": "acceptable",
+  "reason": "The complete current candidate meets the operational-advice task and its length constraint. Its final citation now includes S1, the direct source for final_delivery.json, final/complete and check_delivery; S2 supports the review and version-acceptance steps. No remaining concrete defect was found in the supplied task scope.",
+  "length_check": {
+    "unit": "non-whitespace Unicode characters, entire candidate including citations",
+    "actual": 308,
+    "minimum": 220,
+    "maximum": 320,
+    "passes": true
+  },
+  "coverage": [
+    {
+      "dimension": "Profile and explicit review requirement",
+      "result": "satisfied",
+      "candidate_locator": "tasks[0].candidates.A / first sentence",
+      "candidate_excerpt": "应选full并显式配置independent，不能选跳过评审的Lite（S1）",
+      "source_locator": "tasks[0].sources[id=S1].text / Choosing a profile / third profile-table row",
+      "source_evidence": "Explicitly required independent review requires full with explicitly configured independent review regardless of length. Lite skips research_review.",
+      "assessment": "Correctly lets the user's independent-review requirement override the usual short internal-brief Lite recommendation. The 800-character planned brief and two sources do not waive that explicit requirement."
+    },
+    {
+      "dimension": "Author/reviewer context and need for outside participants",
+      "result": "satisfied",
+      "candidate_locator": "tasks[0].candidates.A / second sentence",
+      "candidate_excerpt": "评审可另开全新Astra上下文，无需外部人员或换模型",
+      "source_locator": "tasks[0].sources[id=S2].text / Independent review means; tasks[0].sources[id=S1].text / Complete reviews effectively",
+      "source_evidence": "Independent review is a review context separate from the author. Fresh Astra is allowed when the author also uses Astra; no outside person or different vendor is required.",
+      "assessment": "Explains the operative independence relationship without inventing a model-vendor requirement or claiming statistically independent errors."
+    },
+    {
+      "dimension": "Actual reviewer inputs and substantive coverage",
+      "result": "satisfied",
+      "candidate_locator": "tasks[0].candidates.A / third sentence",
+      "candidate_excerpt": "直接读取完整稿件、原始需求和两份来源，核对需求、证据、推理、结构深度、读者有用性、过程语言及自然表达（S2）",
+      "source_locator": "tasks[0].sources[id=S2].text / Assign Work by Perspective and The content reviewer reads",
+      "source_evidence": "Reviewer reads actual assembled artifact, requirements and relevant sources rather than an author summary; the perspective table supplies the listed review dimensions.",
+      "assessment": "Provides direct materials and meaningful review scope within the tight word budget. Does not add a fixed panel or automatic auditor."
+    },
+    {
+      "dimension": "Review preservation, corrections and current-version acceptance",
+      "result": "satisfied",
+      "candidate_locator": "tasks[0].candidates.A / fourth sentence opening",
+      "candidate_excerpt": "保留原始意见与版本绑定，作者修正必要问题，再让当前全稿通过评估",
+      "source_locator": "tasks[0].sources[id=S2].text / Complete Every Required Review and Stage Scheduling and Acceptance; tasks[0].sources[id=S1].text / Check before declaring completion item 2",
+      "source_evidence": "Preserve valid original reviews and version bindings; resolve necessary corrections and obtain a passing assessment of the current whole report. Review completion does not itself approve delivery.",
+      "assessment": "Keeps substantive acceptance distinct from the existence of a review record and respects the current artifact version."
+    },
+    {
+      "dimension": "Concrete delivery steps and repaired source attribution",
+      "result": "satisfied",
+      "candidate_locator": "tasks[0].candidates.A / final two sentences",
+      "candidate_excerpt": "建立state/final_delivery.json绑定材料、输入、评审和交付消息，核对状态final/complete。脚本可用时运行check_delivery；以上是待执行步骤（S1、S2）。",
+      "source_locator": "tasks[0].sources[id=S1].text / Check before declaring completion items 3–5",
+      "source_evidence": "S1 requires cleanup of internal process material, final_delivery.json binding current artifacts, required inputs, reviews and intended delivery message, terminal stage final/status complete, and check_delivery.py when script execution is available.",
+      "assessment": "The final S1、S2 citation now contains the direct source for these named file, state and checker details. Including S2 remains appropriate for the adjoining review-preservation and acceptance content."
+    },
+    {
+      "dimension": "Execution honesty, usefulness and expression",
+      "result": "satisfied",
+      "candidate_locator": "tasks[0].candidates.A / entire text and final clause",
+      "candidate_excerpt": "以上是待执行步骤",
+      "source_locator": "tasks[0].task; tasks[0].sources[id=S1].text / closing paragraph",
+      "source_evidence": "The task prohibits invented execution; S1 states the skill does not automatically execute or enforce the workflow.",
+      "assessment": "The candidate presents an actionable sequence and explicitly says execution is pending. File names and workflow terms are appropriate subject matter because the user requests operational advice; no unrelated process log or completed-tool claim appears. The prose is compact but understandable for toolkit users."
+    }
+  ],
+  "prior_finding_disposition": {
+    "finding": "Q07 A final delivery details were attributed only to S2",
+    "status_for_current_version": "resolved",
+    "verification": "Directly read the current candidate and both complete supplied sources. The final citation is S1、S2, and S1 explicitly contains the affected details.",
+    "original_review_status": "Preserved unchanged; its needs_revision verdict still applies to its originally reviewed version. This current-version acceptance does not relabel or invalidate that negative result."
+  },
+  "required_corrections": [],
+  "unresolved_issues": [],
+  "scope_limits": [
+    "Read only revision-input.json as evidence during this recheck; the entire task, both supplied sources, and complete candidate were available and read.",
+    "The reviewer retains its own earlier review context and the coordinator's repair description, so this is a targeted current-version recheck, not a fresh blinded efficacy trial. Acceptance is supported by the packet itself, not by the author's claim of repair.",
+    "No coordinator key, repository files outside this packet, earlier labels or author-identity information were read. Source documents' linked files were not fetched or assumed read.",
+    "No repository changes were made, and the first review output was not edited. Only this requested review output was written.",
+    "The proposed Chinese longform qualifier change is outside this recheck. No conclusion about its implementation or project acceptance is made.",
+    "This accepts the supplied operational-advice text; it does not claim that the advised research workflow, reviewer invocation, delivery checker or future brief has been executed."
+  ]
+}

@@ -15,7 +15,7 @@ import uuid
 from functools import wraps
 from task_lock import task_lock
 
-from profile_policy import CHECKLIST, LITE_LOG, checklist_errors, inspect_lite_delivery, lite_input_hashes
+from profile_policy import CHECKLIST, LITE_LOG, checklist_errors, inspect_lite_delivery, lite_input_hashes, lite_completion_errors
 
 from check_delivery import (REQUIRED_HASH_INPUTS, OPTIONAL_HASH_INPUTS, evaluate_delivery,
                             inspect_csv_text, inspect_jsonl, inspect_jsonl_text,
@@ -879,10 +879,11 @@ def finish_lite(root, progress, message, artifact, checklist):
     if not safe_path(root, artifact).read_text(encoding="utf-8").strip() or not nonempty(message):
         raise ValueError("Provide a nonempty report and delivery message.")
     length_checks, length_errors = inspect_length_constraints(root, artifact)
+    obligation_errors = lite_completion_errors(root)
     if checklist is None:
         return {"completed": False, "action_required": "final_checklist", "checklist": CHECKLIST,
-                "profile": "lite", "log": LITE_LOG, "length_checks": length_checks, "errors": length_errors}
-    errors = [*checklist_errors(checklist), *length_errors]
+                "profile": "lite", "log": LITE_LOG, "length_checks": length_checks, "errors": [*length_errors, *obligation_errors]}
+    errors = [*checklist_errors(checklist), *length_errors, *obligation_errors]
     if errors:
         return {"completed": False, "profile": "lite", "errors": errors, "length_checks": length_checks, "log": LITE_LOG}
     try:
