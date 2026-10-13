@@ -105,11 +105,11 @@ For actual outputs, read the [September 2026 calibration reports and repairs](..
 
 | Historical reviewer backends (retained provenance, not a default dependency) |
 | --- |
-| Those historical diagnostics retain their original three-model configuration. The separate four-reviewer study configuration uses Astra in Codex to write with the toolkit's research methods and Sol high, DeepSeek, Kimi, and GLM as four reviewers; the toolkit does not depend on that panel. |
+| The older three- and four-reviewer configurations describe their dated studies. Current repairs use Astra in a separate review context, including when the author uses the same model; no fixed panel or outside person is required. |
 
 See [`docs/evaluation-roadmap.md`](evaluation-roadmap.md) for mechanical checks, report evaluation and the evidence required for product-effect claims.
 
-The [evaluation status](evaluation-status.md) separates completed historical first reviews, public/private data and the current plugin/MCP verification boundary.
+The [evaluation status](evaluation-status.md) separates historical records and current results. The [October 13 old/new-task recheck](../evals/diagnostics/2026-10-13-targeted-recheck/README.md) is complete: 31 new requests, ten maintainer repairs and 16 final accepted versions, with original failures preserved.
 
 Optional source-pack generation: use this only if you have the two local knowledge repositories shown below. They are not required for normal use or the checks above. Replace the placeholder paths with your directories. This multiline example uses Windows cmd syntax:
 

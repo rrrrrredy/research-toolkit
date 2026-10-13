@@ -72,7 +72,7 @@ args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
 RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 ```
 
-重启客户端，确认能看到六个 `research_*` 工具。若客户端 PATH 中找不到 `python`，使用 `python -c "import sys; print(sys.executable)"` 显示的绝对路径；Windows JSON 路径可用正斜杠。[客户端文档与排查方法](./docs/usage-modes.zh-CN.md#单独接入-mcp)。
+重启客户端，确认能看到七个 `research_*` 工具。若客户端 PATH 中找不到 `python`，使用 `python -c "import sys; print(sys.executable)"` 显示的绝对路径；Windows JSON 路径可用正斜杠。[客户端文档与排查方法](./docs/usage-modes.zh-CN.md#单独接入-mcp)。
 
 **实际采集的 Full 自评示例。** Lite 跳过评审；这个小型虚构 Full 任务展示无需外部账户的评审调用。Agent 在读取方法后、评审前保存报告和证据文件。
 
@@ -82,6 +82,7 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 | `research_guide` | `{"stage":"draft","language":"en","profile":"full"}` | `{"stage":"draft","profile":"full"}`；省略方法正文 |
 | `research_review` | `{"task":"shipment-note","evidence_paths":["source.md"],"reviewer":"self"}` | `{"reviews_complete":false,"action_required":"self_review","reviewer":"self","review_strength":"degraded"}` |
 | 再次 `research_review` | 提交[自评内容](./examples/mcp/self-review.json)和返回的 `input_version` | `{"reviews_complete":true,"reviewer":"self","review_strength":"degraded"}` |
+| `research_check_draft` | 检查当前稿件记录与显式篇幅，不调用模型、不改变任务状态。 |
 | `research_finish` | `{"task":"shipment-note","message":"The fictional shipment note is complete, with self-review only and no independent review."}` | `{"completed":true}` |
 
 [采集的输入与输出](./examples/mcp/captured.json) · [运行示例](./examples/mcp/README.zh-CN.md)。这些是本地服务的真实返回，不是效果评测结果；示例重放已提供的作者自评，不调用外部模型。
@@ -214,7 +215,7 @@ https://github.com/rrrrrredy/research-toolkit
 | 支持原生 Skill | 通过该工具支持的技能机制安装完整副本。见[Agent 接入](./agents/README.zh-CN.md)。 |
 | 小型研究任务 | `research_start(profile="lite")` 或 CLI `start --profile lite`：保留 brief、claim、分段起草与 checklist，跳过评审和完整交付硬门槛。 |
 
-**可选执行工具。** 能启动本地 MCP 服务的 Agent，可调用六个工具保存任务、加载阶段方法、执行审阅和检查交付。兼容的插件将同一套方法与工具一起安装。[插件与 MCP 配置](./docs/usage-modes.zh-CN.md)
+**可选执行工具。** 能启动本地 MCP 服务的 Agent，可调用七个工具保存任务、加载阶段方法、执行审阅和检查交付。兼容的插件将同一套方法与工具一起安装。[插件与 MCP 配置](./docs/usage-modes.zh-CN.md)
 
 读取指令不会自动启动 MCP 或执行评审。Full 未配置评审后端时返回 self 评审模板；需要外部／独立意见时配置任一受支持后端。[后端配置与材料去向](./SKILL.zh-CN.md#评审后端)
 
@@ -239,7 +240,7 @@ https://github.com/rrrrrredy/research-toolkit
 Agent 使用自身的检索、读写和分析能力完成研究。插件将 Skill、方法和本地 MCP 打包在一起；也可以单独使用 Skill 或连接 MCP。
 
 <details>
-<summary>六个 MCP 工具</summary>
+<summary>七个 MCP 工具</summary>
 
 | 工具 | 功能 |
 | --- | --- |
@@ -247,6 +248,7 @@ Agent 使用自身的检索、读写和分析能力完成研究。插件将 Skil
 | `research_status` | 读取和保存进度，检查阶段所需的来源与主张记录。 |
 | `research_guide` | 按阶段加载研究方法。 |
 | `research_review` | 绑定稿件与证据，执行审阅并保留回复或失败。 |
+| `research_check_draft` | 检查当前稿件记录与显式篇幅，不调用模型、不改变任务状态。 |
 | `research_finish` | 检查当前稿件、未解决要求、审阅与交付文本。 |
 | `research_check_reviewer` | 本地检查后端配置、依赖与可探测的登录状态，不调用模型。 |
 

@@ -115,11 +115,13 @@ Windows 路径可写成 `D:/tools/python/python.exe` 这样的正斜杠形式。
 
 评审档位描述评审关系，后端描述接收报告与证据、返回结构化评审的命令或端点。新建 Full 报告未配置后端时默认使用 `self`；已配置后端时默认使用 `independent`。显式指定的档位及已保存的独立／审计计划遇到错误时，不得静默回退。
 
+Astra 在与作者分开的新上下文中即可承担独立评审，作者使用相同模型也可以。评审收到同一题目、报告和来源材料；盲评时不接收作者 notes 和评测分组映射。不要求额外的外部人员、供应商或固定评审面板。既有用户任务和开发任务都是独立的真实任务，已执行测试都是真实测试；如实记录复用，不将其视为缺少任务材料。
+
 | 后端 | 配置成本 | 评审强度 | 材料去向与用量 |
 | --- | --- | --- | --- |
 | `self` | 无 | 作者上下文自评，强度降级 | 沿用当前作者上下文及其模型用量，不增加评审服务 |
-| `codex` — Codex CLI | 设置 `RESEARCH_TOOLKIT_REVIEW_BACKEND=codex`，安装并登录 CLI；可选 `RESEARCH_TOOLKIT_REVIEW_MODEL` | 新的外部上下文，支持独立评审 | 发往 CLI 配置的模型服务，消耗对应账户额度；自定义时须传递实际 `CODEX_HOME` |
-| `claude` — Claude Code CLI | 设置 `RESEARCH_TOOLKIT_REVIEW_BACKEND=claude`，安装并认证 CLI；模型可选 | 禁用工具的新外部上下文，支持独立评审 | 发往 CLI 配置的服务／账户，消耗其订阅或 API 用量 |
+| `codex` — Codex CLI | 设置 `RESEARCH_TOOLKIT_REVIEW_BACKEND=codex`，安装并登录 CLI；可选 `RESEARCH_TOOLKIT_REVIEW_MODEL` | 新的评审上下文，支持独立评审 | 发往 CLI 配置的模型服务，消耗对应账户额度；自定义时须传递实际 `CODEX_HOME` |
+| `claude` — Claude Code CLI | 设置 `RESEARCH_TOOLKIT_REVIEW_BACKEND=claude`，安装并认证 CLI；模型可选 | 禁用工具的新评审上下文，支持独立评审 | 发往 CLI 配置的服务／账户，消耗其订阅或 API 用量 |
 | `generic` — 兼容 HTTP 端点 | 后端设为 `generic`，配置 `RESEARCH_TOOLKIT_REVIEW_BASE_URL`、`RESEARCH_TOOLKIT_REVIEW_MODEL`；按需配置 `RESEARCH_TOOLKIT_REVIEW_API_KEY` | 每次请求携带完整任务，支持独立评审，但不保证统计独立 | 完整材料发送到你选择的端点，由对应账户付费；本地端点遵循自己的托管策略 |
 | 可信自定义命令 | `RESEARCH_TOOLKIT_REVIEW_CONFIG` 配置 argv 列表和 `format: "json"` | 取决于适配器实际上下文与证据 | 去向与用量由命令决定，发送材料前须说明 |
 

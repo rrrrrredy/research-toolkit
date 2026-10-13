@@ -73,6 +73,8 @@ Lite 按阶段读取 [Lite 指南](references/lite-workflow.zh-CN.md)对应章�
 | `external` | 配置一个命令或端点 | 外部模型意见；质量取决于后端与证据 | 需要另一模型反馈的常规报告 |
 | `independent` | 配置新的评审上下文及任务要求的审计 | 保留既有独立评审与版本绑定要求 | 影响重大的报告、冻结评测 |
 
+Astra 在与作者分开的新上下文中即可承担独立评审，作者使用相同模型也可以。评审收到同一题目、报告和来源材料；盲评时不接收作者 notes 和评测分组映射。不要求额外的外部人员、供应商或固定评审面板。既有用户任务和开发任务都是独立的真实任务，已执行测试都是真实测试；如实记录复用，不将其视为缺少任务材料。
+
 选择 `self` 后，`research_review` 返回内置批判性评审 prompt、冻结的报告与证据、`input_version`。在当前上下文完成评审，再将结构化结果和 `input_version` 放入 `self_review` 调用同一工具。工具不会生成虚假评审或外部执行记录；每条自评记录和交付凭证都保留 `review_strength: degraded`。结论须采用审慎表述，并说明缺少独立意见。
 
 各档位均检查需求、证据、反向论证、结构与深度、读者价值、过程语言和自然表达，保留原始回复、具体位置、发现与版本绑定。负面评审可以完整有效，但必要问题未解决时不得完成 Full 交付。保留有效负面结果；误判用有证据的“不修改”决定处理，不通过重跑追求更好的结论。
@@ -86,8 +88,8 @@ Lite 按阶段读取 [Lite 指南](references/lite-workflow.zh-CN.md)对应章�
 | 后端 | 配置成本 | 评审强度 | 材料去向与用量 |
 | --- | --- | --- | --- |
 | `self` | 无 | 作者上下文自评，强度降级 | 沿用当前作者上下文及其模型用量，不增加评审服务 |
-| `codex` — Codex CLI | 设置 `RESEARCH_TOOLKIT_REVIEW_BACKEND=codex`，安装并登录 CLI；可选 `RESEARCH_TOOLKIT_REVIEW_MODEL` | 新的外部上下文，支持独立评审 | 发往 CLI 配置的模型服务，消耗对应账户额度；自定义时须传递实际 `CODEX_HOME` |
-| `claude` — Claude Code CLI | 设置 `RESEARCH_TOOLKIT_REVIEW_BACKEND=claude`，安装并认证 CLI；模型可选 | 禁用工具的新外部上下文，支持独立评审 | 发往 CLI 配置的服务／账户，消耗其订阅或 API 用量 |
+| `codex` — Codex CLI | 设置 `RESEARCH_TOOLKIT_REVIEW_BACKEND=codex`，安装并登录 CLI；可选 `RESEARCH_TOOLKIT_REVIEW_MODEL` | 新的评审上下文，支持独立评审 | 发往 CLI 配置的模型服务，消耗对应账户额度；自定义时须传递实际 `CODEX_HOME` |
+| `claude` — Claude Code CLI | 设置 `RESEARCH_TOOLKIT_REVIEW_BACKEND=claude`，安装并认证 CLI；模型可选 | 禁用工具的新评审上下文，支持独立评审 | 发往 CLI 配置的服务／账户，消耗其订阅或 API 用量 |
 | `generic` — 兼容 HTTP 端点 | 后端设为 `generic`，配置 `RESEARCH_TOOLKIT_REVIEW_BASE_URL`、`RESEARCH_TOOLKIT_REVIEW_MODEL`；按需配置 `RESEARCH_TOOLKIT_REVIEW_API_KEY` | 每次请求携带完整任务，支持独立评审，但不保证统计独立 | 完整材料发送到你选择的端点，由对应账户付费；本地端点遵循自己的托管策略 |
 | 可信自定义命令 | `RESEARCH_TOOLKIT_REVIEW_CONFIG` 配置 argv 列表和 `format: "json"` | 取决于适配器实际上下文与证据 | 去向与用量由命令决定，发送材料前须说明 |
 

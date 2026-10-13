@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Complete the bilingual correction audit across evaluation entry points, research guidance, web instructions and the packaged plugin: replace stale four-reviewer and no-repair directions with Astra review and direct defect repair, link the completed calibration and task recheck, and list all seven MCP tools. Preserve original historical evidence and specify release preparation as the next step.
+
 - Complete a four-task old/new repair recheck: 31 requests, all failures retained, ten maintainer corrections, and 16 final versions with measured length and corresponding Astra acceptance. Correct source-provenance masking in the separately recorded repair review.
 
 - Use Astra in separate author/reviewer contexts without requiring different model IDs, outside reviewers, outside task authors or a fixed panel. Recognize existing independent tasks and real executed tests; simplify repair guidance and optional comparisons. Record two corrected reports accepted by Astra, retaining its first negative review and the subsequent repair.
@@ -14,13 +16,13 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 - Preserve the October 12 four-model first-attempt evidence and source checks (72 requests, four missing pairs, six swap preference changes). Correct prospective Lite instruction selection, explicit JSON notes types and bilingual concise constraint/provenance guidance. Eight new October 13 probes parse, but only three meet length and source errors remain; test five real length failures plus two editorial controls against the existing delivery gate. No prompt-only completion guarantee or general quality-benefit claim.
 
-- Add explicit provider thinking settings and a fresh, tool-disabled native Codex judge transport with frozen adapter hashes. Retain dated four-provider/Astra connectivity failures and follow-up, plus 12 Astra calibration attempts across four families: preferences and valid ties match, while three dimension scores vary under swapping. Publish raw evidence, source adjudication and read-only verification; no general efficacy claim. Add an independent held-out intake design and clarify contributor counting, data rights and platform checks.
+- Add explicit provider thinking settings and a fresh, tool-disabled native Codex judge transport with frozen adapter hashes. Retain dated four-provider/Astra connectivity failures and follow-up, plus 12 Astra calibration attempts across four families: preferences and valid ties match, while three dimension scores vary under swapping. Publish raw evidence, source adjudication and read-only verification; no general efficacy claim. At that stage add task-intake guidance and clarify contributor counting, data rights and platform checks; task selection is now an optional record that permits direct reuse of existing tasks.
 
 - Make CLI missing/unknown argument errors actionable before mutation and identify incomplete source/claim records by file, ID and fields. Add Python 3.10 CLI/MCP CI alongside existing Linux/Windows checks and clarify interpreter and request setup in both languages.
 
 - Measure explicit whole-artifact word/character ranges from requirement records for Lite and Full, retaining actual counts and rejecting false satisfied claims before receipt writes. Record decision actors and original report/response hashes for new ordinary-review dispositions, preserving legacy attempts and original criticism. These checks establish record consistency, not research quality or identity authentication.
 
-- Expand public judge controls to four bilingual families with exact label reversals and valid ties (12 packets). Add read-only hash, input, length and excerpt checks with corruption tests on Linux/Windows; preserve the original arithmetic inputs. These are exposed diagnostic materials, not live calibration results or held-out evidence.
+- Expand public judge controls to four bilingual families with exact label reversals and valid ties (12 packets). Add read-only hash, input, length and excerpt checks with corruption tests on Linux/Windows; preserve the original arithmetic inputs. This entry records the initial input release; the October 12 Astra calibration subsequently completed 12 real calls on these four independent task families, with inputs and actual results retained separately.
 
 - Bind new Lite completion receipts to research inputs and optional local checklist evidence files. Source, registry, task or requirement changes now make delivery stale without rewriting the old receipt; legacy receipts disclose their narrower binding scope. This adds no reviewer or Full gate and does not certify checklist semantics.
 

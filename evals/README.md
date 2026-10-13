@@ -29,11 +29,13 @@ New [protocol v2](../docs/eval-protocol-v2.md) includes [five independent test t
 
 The [October 13 feedback probes](diagnostics/2026-10-13-feedback-probes/README.md) retain eight new first attempts after prompt/method corrections: all parse, but only three meet length and semantic errors remain. Five real length failures and two post-result editorial controls exercise the existing delivery gate; no quality-benefit claim.
 
-## Study design and defect labels / 研究设计与缺陷标签
+[October 13 old/new-task acceptance](diagnostics/2026-10-13-targeted-recheck/README.md) is complete: four independent tasks, 31 new requests, six reports accepted at first Astra review and ten maintainer corrections. All 16 final versions meet length and have corresponding passing Astra reviews; ten contain maintainer edits. Original reports and failures remain unchanged.
 
-Use the [paired-study template](templates/paired-study.json) with the [freeze and analysis plan](../docs/evaluation-roadmap.md#next-study-freeze-the-design-then-collect-new-evidence) before a new effect study. The template is not a frozen cohort or a run result. [Necessary-defect labels](../docs/necessary-defects.md) provide stable categories; the [23-case overlay](semantic_diagnostics/defect-tags.v1.json) preserves the existing diagnostic-only boundary. The Lite quickstart is onboarding, not another eval case.
+## Optional comparisons and defect labels / 可选比较与缺陷标签
 
-新效果研究使用[配对模板](templates/paired-study.json)和[冻结与分析安排](../docs/evaluation-roadmap.zh-CN.md#下一项研究先冻结设计再产生新证据)；模板不代表已冻结样本或运行结果。[必要缺陷标签](../docs/necessary-defects.zh-CN.md)提供稳定类别，[23 例覆盖层](semantic_diagnostics/defect-tags.v1.json)保持开发诊断边界。Lite 入门不计为新增评测案例。
+For an optional with/without Toolkit comparison, use the [paired-study template](templates/paired-study.json) and [comparison guidance](../docs/evaluation-roadmap.md#next-study-freeze-the-design-then-collect-new-evidence). Routine repairs do not require this comparison. The template is not a frozen cohort or a run result. [Necessary-defect labels](../docs/necessary-defects.md) provide stable categories; the [23-case overlay](semantic_diagnostics/defect-tags.v1.json) preserves the existing diagnostic-only boundary. The Lite quickstart is onboarding, not another eval case.
+
+需要比较使用／不使用工具箱时，可用[配对模板](templates/paired-study.json)和[比较说明](../docs/evaluation-roadmap.zh-CN.md#下一项研究先冻结设计再产生新证据)，不作为正常修复的前提；模板不代表已冻结样本或运行结果。[必要缺陷标签](../docs/necessary-defects.zh-CN.md)提供稳定类别，[23 例覆盖层](semantic_diagnostics/defect-tags.v1.json)保持开发诊断边界。Lite 入门不计为新增评测案例。
 
 For an executable prospective 5–10-family pilot, see the [blinded pairwise protocol](../docs/eval-protocol.md). The script freezes and logs seed/order, masks A/B judge inputs, and retains first outputs, judgments and failures. The [2026-10-10 four-model pilot](studies/2026-10-10-lite-four-models/README.md) covers all 20 model–task judgments across five shared families, retaining all first attempts and failures and separately labeling format diagnostics and regenerated completion pairs; it does not establish general efficacy. To reproduce only the existing public two-pair archive inventory, run `python scripts/reproduce_calibration.py`; expected outputs are `evals/runs/calibration-reproduction/inventory.json` and `inventory.md`, with zero model calls.
 
@@ -184,11 +186,11 @@ GitHub Actions runs the full offline suite listed in the [contribution guide](..
 
 ## How To Iterate
 
-1. Preserve original inputs, outputs, reviews, failures and costs. Complete an originally required missing review without repairing the sample or replacing an already valid review.
+1. Preserve original inputs, outputs, reviews, failures and costs. Complete any originally required missing review on its original version. For authorized improvements, repair defective reports in separate versions and recheck those versions; keep the initial result.
 2. Check each finding against the task, report and evidence. Distinguish method defects, execution failures, source limitations and unsupported reviewer suggestions.
 3. Make the smallest supported Toolkit change. Do not duplicate an existing rule merely because an author ignored it.
 4. Match verification to the change. Changed deterministic behavior needs a failing example and a valid control; documentation changes need accurate wording, commands and links. Reuse passed checks unless a new change, failure or unresolved concern warrants another run.
-5. Keep mechanical conformance separate from semantic quality. Any new product-effect study needs frozen versions, task selection, a call budget and a stopping rule before execution. Negative results do not trigger report repairs or extra rounds until scores improve.
+5. Use programs for mechanical checks and Astra for content review. Confirmed defects lead to actual repairs and checks of changed versions, without repeating unchanged attempts for a better score. A with/without comparison is optional and is planned separately when that question matters.
 6. Retain useful reference examples and reasoned no-change decisions. They explain review criteria without imposing a universal writing template.
 
 ## What The Automated Runner Checks
@@ -244,13 +246,13 @@ This repo does not enable an LLM judge by default. The first line of defense is 
 
 Optional model reviews are recorded in the dated development packages, with separate reasons, critical-error flags and disagreements. They do not overwrite deterministic results. Current semantic evaluation uses LLM reviewers without a human-review prerequisite. Known-error and valid controls help inspect reviewer behavior; any optional comparison should state the tasks and conditions actually tested. Disclose reviewer context and evidence limits: model agreement is not factual ground truth.
 
-The [current report/review plan](../docs/evaluation-roadmap.md#current-report-and-review-plan) specifies one author and four model reviewers receiving the same complete input version, with each opinion locked before cross-reviewer comparison. The selected models are a study configuration, not Toolkit dependencies. Preserve earlier freezes and label later supplementary reviews separately. Complete originally missing reviews; use defects and evidence-based recommendations to improve the Toolkit. Repaired reader deliverables or repair-method experiments, when separately required, remain distinct from first-submission evaluation. This repository's dated packages do not establish a general product-effect result.
+The [current report/review plan](../docs/evaluation-roadmap.md#current-report-and-review-plan) uses Astra in a review context separate from the author; the same model may perform both roles. Programs measure exact length, and the author repairs confirmed problems. Give author and reviewer the same complete sources and necessary provenance, hiding author identity, private notes and condition mappings. No outside people or fixed panel are required. Historical reviewer counts remain historical records; preserve initial results and record repaired versions separately.
 
 ## 中文说明
 
 这个目录是轻量评测闭环，不是模型排行榜。它检查 agent 是否呈现出框架要求的可观察符合性信号：研究范围校准、状态文件、来源和判断台账、质量门禁、来源指令隔离，以及干净的最终成稿。结果 schema v2 用 `conformance_status`、`conformance_score` 和 `conformance_flags` 表示机械符合性；`research_quality_status` 固定为 `not_evaluated`，不会把机械通过冒充为研究质量结论。
 
-新的报告评测使用[现行评测标准](../docs/report-evaluation-standard.md#报告评测现行标准)：五维0–4分，保留首次交稿及其有效评审、原始缺陷和失败记录。原定缺失评审需要补齐；已完成评审的样稿不因低分或缺陷进入修稿返评循环。评审发现用于改进研究工具箱，稿件交付和产品效果研究分别记录。历史量表仅适用于原研究，不构成当前人工评审前提。
+新的报告评测使用[现行评测标准](../docs/report-evaluation-standard.md#报告评测现行标准)：五维0–4分，保留首次交稿及其有效评审、原始缺陷和失败记录。原定缺失评审按原版本补齐；已授权改进中的真实缺陷直接修正，修订稿另存并复查，原结果保留。不对未改稿件重复评分；可选的使用效果比较另行记录。历史量表仅适用于原研究，不构成当前人工评审前提。
 
 通用案例和检查器不依赖特定运行时。目录包含7个任务、22个反例夹具、4个正例夹具，以及23组成对语义诊断。9月10日新增三组已经过内部四模型诊断，并保留收费口径更正；私人评审原文未公开，旧八次公开调用没有评过这三组。历史目录中的“未评审”等字段描述当时冻结的输入状态，当前诊断状态以目录说明和保留修订为准。公开材料也不等于全部私人评测研究。
 

@@ -113,11 +113,13 @@ Reviews require the full task, report and source files, not just URLs. The local
 
 Reviewer tier describes the review relationship; backend describes the command or endpoint that receives the report and evidence and returns a structured review. With no backend configured, a new Full report defaults to `self`; a configured backend defaults to `independent`. Explicit tiers and saved independent/audited plans never silently fall back after an error.
 
+Astra in a fresh context separate from the author can provide the independent review, including when the author uses the same model. Give it the same task, report and source materials; keep author notes and evaluation condition mappings out of a blind review. No additional outside person, vendor or fixed reviewer panel is required. Existing user and development tasks are independent real tasks, and their executed tests are real tests; record their actual reuse without treating it as missing task material.
+
 | Backend | Configuration cost | Review strength | Material destination and usage |
 | --- | --- | --- | --- |
 | `self` | None | Degraded author-context review | Current author context; its existing model usage; no additional reviewer service |
-| `codex` — Codex CLI | Set `RESEARCH_TOOLKIT_REVIEW_BACKEND=codex`; install and sign in to the CLI; optional `RESEARCH_TOOLKIT_REVIEW_MODEL` | Fresh external context; supports independent review | Configured CLI model service and account quota; forward the intended `CODEX_HOME` when customized |
-| `claude` — Claude Code CLI | Set `RESEARCH_TOOLKIT_REVIEW_BACKEND=claude`; install and authenticate the CLI; optional model | Fresh external context, without tools; supports independent review | Service/account configured by the CLI; consumes that account's subscription or API usage |
+| `codex` — Codex CLI | Set `RESEARCH_TOOLKIT_REVIEW_BACKEND=codex`; install and sign in to the CLI; optional `RESEARCH_TOOLKIT_REVIEW_MODEL` | Fresh review context; supports independent review | Configured CLI model service and account quota; forward the intended `CODEX_HOME` when customized |
+| `claude` — Claude Code CLI | Set `RESEARCH_TOOLKIT_REVIEW_BACKEND=claude`; install and authenticate the CLI; optional model | Fresh review context, without tools; supports independent review | Service/account configured by the CLI; consumes that account's subscription or API usage |
 | `generic` — compatible HTTP endpoint | Set backend to `generic`, `RESEARCH_TOOLKIT_REVIEW_BASE_URL`, `RESEARCH_TOOLKIT_REVIEW_MODEL`; optional `RESEARCH_TOOLKIT_REVIEW_API_KEY` | Fresh request with the full assignment; supports independent review, not guaranteed statistical independence | Complete materials go to your chosen endpoint; its account is billed; local endpoints follow your own hosting policy |
 | Trusted custom command | `RESEARCH_TOOLKIT_REVIEW_CONFIG` with an argv list and `format: "json"` | Depends on the adapter's actual context and evidence | Destination and usage are controlled by that command; document them before sending materials |
 
