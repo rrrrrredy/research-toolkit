@@ -1,0 +1,108 @@
+{
+  "brief": "For the operations manager of fictional Cedar Packing, write a 180–260-word English decision note about the April washing trial. Using only S1 and S2, explain whether the trial reduced water use, reconcile the units and denominators, and say what can and cannot be inferred about rolling it out. State the numeric changes, a conditional next step and the missing evidence. Cite source IDs. The time boundary is 30 April 2026; no external research is needed.\n",
+  "sources": [
+    {
+      "id": "S1",
+      "text": "Fictional operations ledger, approved 30 April 2026. March: 6,000 washed crates, 480,000 litres of fresh water. April: 7,000 washed crates, 420 cubic metres of fresh water. Both meters cover the same washing line, exclude recycled water and measure fresh-water intake. One cubic metre equals 1,000 litres. There were no meter outages. These are total monthly counts, not randomized observations.\n"
+    },
+    {
+      "id": "S2",
+      "text": "Fictional trial memo, 30 April 2026. A revised nozzle was introduced on 1 April. March handled a mix of lightly and heavily soiled crates; April's proportions were not logged. Staffing and hours also changed. The ledger contains no cleaning-quality or contamination measurements. Management will approve a rollout only if water intensity improves without reducing cleaning quality.\n"
+    }
+  ],
+  "rubric": {
+    "id": "blinded-pairwise-v1",
+    "scope": "One-judge prospective pilot; does not replace historical panels or current Full report acceptance.",
+    "dimensions": [
+      "task_fidelity",
+      "facts_and_evidence",
+      "explanation_and_synthesis",
+      "counterevidence_and_boundaries",
+      "reader_usefulness"
+    ],
+    "anchors": {
+      "0": "Essential requirement absent or failed",
+      "1": "Major defects make this aspect unusable",
+      "2": "Partly met; substantive revision needed",
+      "3": "Meets the task with bounded issues",
+      "4": "Fully developed with concrete support",
+      "not_assessed": "Insufficient assessment context; not zero or approval"
+    },
+    "instructions": "Judge first submissions against the same brief and full supplied sources. Do not award points for files, logs, checklist markers or report length. Rate each dimension separately with a reason, an exact locatable excerpt and source evidence. Do not compute a weighted passing score. Prefer the report that better supports the requested decision; use tie for comparable quality and unresolved for missing evidence. Give condition clues only after choosing. Model preferences and ratings need evidence review before any efficacy interpretation.",
+    "response_schema": {
+      "preference": "A | B | tie | unresolved",
+      "reason": "Located comparative reasoning",
+      "reports": {
+        "A": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        },
+        "B": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        }
+      },
+      "condition_clues": "Possible condition-identifying clues, or none observed"
+    }
+  },
+  "reports": {
+    "A": "# Decision note: April washing trial — water use and rollout\n\n**To:** Operations Manager, Cedar Packing  \n**On:** April washing trial — revised nozzle  \n\nThe April trial reduced total fresh-water use. In March the line used 480,000 litres (480 cubic metres, at 1 m³ = 1,000 litres) over 6,000 crates. In April it used 420 m³ — 420,000 litres — over 7,000 crates, both from the same meters (S1). Total use fell by 60 m³, or 60,000 litres, despite 1,000 more crates being washed (S1).\n\nThe units reconcile through the stated conversion (S1). Because the denominators differ, intensity is the fair comparison: 80 litres per crate in March (480,000 ÷ 6,000) versus 60 litres per crate in April (420,000 ÷ 7,000) — a 20-litre, or 25%, reduction (S1).\n\nHowever, this is total monthly meter data, not randomized observations, and March and April handled different crate mixes, with staffing and hours also changing (S1, S2). No cleaning-quality or contamination measurements exist (S2). **Inference is limited to lower recorded water use and lower calculated intensity; improved cleaning quality cannot be shown, and no causal claim about the nozzle is supported.** Management approves rollout only if intensity improves without quality loss (S2).\n\n**Next step:** if cleaning quality is verified at April performance, desk-test the nozzle on a single line. **Missing evidence:** quality/contamination data and the April soil-mix proportions (S2).\n\n",
+    "B": "# April Washing Trial: Water Use and What It Supports\n\n**Decision note for the Operations Manager, Cedar Packing — 30 April 2026**\n\n**Recommendation:** Scale the revised nozzle to a second line only as a monitored pilot with quality checks, not as a plant-wide rollout.\n\n## What the ledger shows\n\nTotal monthly fresh-water intake fell from 480,000 litres in March to 420 cubic metres (420,000 litres) in April — a 60,000-litre reduction, or 12.5%. Units must be reconciled before comparing: one cubic metre equals 1,000 litres, so March's 480,000 litres equals 480 m³, and both months count the same washing line, exclude recycled water, and measure fresh-water intake with no meter outages.\n\nOutput rose over the same period, from 6,000 to 7,000 washed crates. On a per-crate basis, water intensity fell from 80 litres per crate (480,000 ÷ 6,000) in March to 60 litres per crate (420,000 ÷ 7,000) in April — a 25% improvement. This intensity figure, not the total, is the right denominator for the rollout condition, because April washed more crates on less water.\n\n## What cannot be inferred\n\nS2 records that the nozzle changed on 1 April, but also that March and April handled different soil-mix proportions, that April's soil proportions were not logged, and that staffing and hours changed. No cleaning-quality or contamination measurements exist. The ledger also gives two monthly totals, not randomized observations, so no statistical claim about the nozzle's isolated effect is possible. The 25% intensity gain is real for the line as operated, but it cannot be attributed to the nozzle alone, and the rollout condition — improved intensity *without reduced cleaning quality* — is untested.\n\n## Conditional next step\n\nRun the revised nozzle on a second line for one month while logging soil-mix proportions, staffing and hours, and adding cleaning-quality and contamination checks. Approve wider rollout only if intensity stays at or below 60 litres per crate and quality measures hold versus a comparable control period.\n\n**Missing evidence:** logged soil-mix proportions, staffing/hours records, and any cleaning-quality or contamination measurements for both months.\n\n**Sources:** S1 (Fictional operations ledger, 30 April 2026); S2 (Fictional trial memo, 30 April 2026).\n\n"
+  }
+}

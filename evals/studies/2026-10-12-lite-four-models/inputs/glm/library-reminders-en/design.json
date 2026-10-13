@@ -1,0 +1,17 @@
+{
+  "role": "development",
+  "material_kind": "synthetic",
+  "rationale": "Isolate causal-identification in a new fictional scenario; not a translation or rerun of the October 10 tasks.",
+  "provenance": "Original fictional source texts created for Research Toolkit on 2026-10-12; publishable under the repository license. No factual authority outside this exercise.",
+  "exclusions": "Exclude live-search tasks, private data, and these exposed materials from any held-out cohort. Keep all admitted generation failures; do not exclude tasks after outcomes.",
+  "expected_judgments": [
+    "Pilot between-group gap is 20 percentage points, already 20 points before the pilot.",
+    "Both groups improve by 5 percentage points; descriptive difference in changes is zero.",
+    "Self-selection and missing pretrends prevent identification; zero difference is not proof of no effect.",
+    "Randomize an offer, predefine a worthwhile effect and analyze assigned groups while reporting uptake."
+  ],
+  "exposure": [
+    "Implementation assistant authored and inspected all materials on 2026-10-12.",
+    "Published development pack: do not describe future runs on it as held out."
+  ]
+}

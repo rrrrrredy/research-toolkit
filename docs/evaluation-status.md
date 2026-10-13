@@ -12,6 +12,10 @@ The separate [October 10 fixed-source Lite pilot](../evals/studies/2026-10-10-li
 
 The [connectivity record](../evals/diagnostics/2026-10-12-connectivity/README.md) retains configuration failures and separately frozen follow-up. The [Astra calibration](../evals/diagnostics/2026-10-12-astra-calibration/README.md) completed 12 first attempts across four families, with source-confirmed defect preferences, swaps and valid ties. Three dimension scores changed under swapping. This admits a bounded development pilot, not a general judge-reliability or Toolkit-effect claim. Existing historical cohorts and outcomes below remain unchanged.
 
+## 2026-10-12: four-model development results
+
+The [fixed-source Lite diagnostic](../evals/studies/2026-10-12-lite-four-models/README.md) completed 40 author and 32 judge requests across five public synthetic families and 20 model-task pairs. Four pairs remain unresolved due to LongCat format failures; six of 16 judged pairs changed preference after swapping. Only 14 of 36 format-valid reports met length constraints; source checks also identified budget, forecast and attribution errors. Original scores remain unchanged; no general effect claim. Separate [JSON format probes](../evals/diagnostics/2026-10-12-longcat-format/README.md) parsed 3/4 and did not fill missing pairs.
+
 ## Retained data
 
 | Collection | Evidence | Use boundary |

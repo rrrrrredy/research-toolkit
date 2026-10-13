@@ -1,0 +1,45 @@
+{
+  "scope": "Literal matches only; not proof of successful blinding. No report edits or exclusions.",
+  "reports": {
+    "pair-01/with_toolkit": {
+      "report_sha256": "eb1fd93c2ba838f88c84ca6e8fa169cbd50a57d44e54d8275ac6f83aab0474cf",
+      "literal_clues": []
+    },
+    "pair-01/without_toolkit": {
+      "report_sha256": "d6c94587975ae41e4779412ec02ffebcdefbaa6d1d3fb8a77797e9a0b8a92c47",
+      "literal_clues": []
+    },
+    "pair-02/with_toolkit": {
+      "report_sha256": "a6ef18b8f245985a856e2723c6a17a023912de23196c65c257dac89f79881ac4",
+      "literal_clues": []
+    },
+    "pair-02/without_toolkit": {
+      "report_sha256": "bcceccf2d82495a02257521b42410572d996896387aef1427f62cbece00de380",
+      "literal_clues": []
+    },
+    "pair-03/without_toolkit": {
+      "report_sha256": "999788cafaefada3119dbcfcac26f9d37cba1a3b734b24f73f51f0a5b6198e7a",
+      "literal_clues": []
+    },
+    "pair-03/with_toolkit": {
+      "report_sha256": "0653c56d064cb0133477c12382ff56909b1b7e476a1f3647b016691992fae8cb",
+      "literal_clues": []
+    },
+    "pair-04/without_toolkit": {
+      "report_sha256": "cff06381aa26ab0e6f7f275c7dae905dd1ae883c7c14d4e04893a3784609055f",
+      "literal_clues": []
+    },
+    "pair-04/with_toolkit": {
+      "report_sha256": "7bb2109aed9bb18a1b5abffb831b5a9d08f09b3b332b099534b17f3c5524c93a",
+      "literal_clues": []
+    },
+    "pair-05/without_toolkit": {
+      "report_sha256": "625f103e92671294666a12e876c2bac6c261e4cf1afce88730f1d9d975efa2e8",
+      "literal_clues": []
+    },
+    "pair-05/with_toolkit": {
+      "report_sha256": "9c6d509c61e9e5e8a7d7316cc80fdbfe92afd859cc1acdf6c6049f4c2d348632",
+      "literal_clues": []
+    }
+  }
+}

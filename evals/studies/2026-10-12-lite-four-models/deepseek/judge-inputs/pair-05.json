@@ -1,0 +1,108 @@
+{
+  "brief": "Prepare a 180–260-word English status note for a fictional island visitor desk as of 15 February 2026. Based only on S1 and S2, explain whether a new ferry can be advertised as available from 1 March, distinguish superseded plans from current commitments, and specify what must be verified before accepting bookings. Cite source IDs; avoid treating proposed dates or trial permission as a confirmed passenger service.\n",
+  "sources": [
+    {
+      "id": "S1",
+      "text": "Fictional operator notices. 1 February 2026: the operator proposed launching passenger service on 1 March, contingent on vessel delivery and operating permission. 10 February 2026: delivery slipped; the operator withdrew the 1 March target and proposed 15 April as the earliest possible passenger launch, subject to delivery, trials and final operating permission. No tickets had been released as of that notice.\n"
+    },
+    {
+      "id": "S2",
+      "text": "Fictional port status log, last updated 14 February 2026. A 12 February entry allows non-passenger trial sailings during March; it does not authorize carrying paying passengers. The vessel had not been delivered by the update. There is no final passenger-service permission, confirmed timetable or booking release. The log makes no prediction about when those items will be completed.\n"
+    }
+  ],
+  "rubric": {
+    "id": "blinded-pairwise-v1",
+    "scope": "One-judge prospective pilot; does not replace historical panels or current Full report acceptance.",
+    "dimensions": [
+      "task_fidelity",
+      "facts_and_evidence",
+      "explanation_and_synthesis",
+      "counterevidence_and_boundaries",
+      "reader_usefulness"
+    ],
+    "anchors": {
+      "0": "Essential requirement absent or failed",
+      "1": "Major defects make this aspect unusable",
+      "2": "Partly met; substantive revision needed",
+      "3": "Meets the task with bounded issues",
+      "4": "Fully developed with concrete support",
+      "not_assessed": "Insufficient assessment context; not zero or approval"
+    },
+    "instructions": "Judge first submissions against the same brief and full supplied sources. Do not award points for files, logs, checklist markers or report length. Rate each dimension separately with a reason, an exact locatable excerpt and source evidence. Do not compute a weighted passing score. Prefer the report that better supports the requested decision; use tie for comparable quality and unresolved for missing evidence. Give condition clues only after choosing. Model preferences and ratings need evidence review before any efficacy interpretation.",
+    "response_schema": {
+      "preference": "A | B | tie | unresolved",
+      "reason": "Located comparative reasoning",
+      "reports": {
+        "A": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        },
+        "B": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        }
+      },
+      "condition_clues": "Possible condition-identifying clues, or none observed"
+    }
+  },
+  "reports": {
+    "A": "# Island Visitor Desk Status Note — New Ferry Service\n\n**As of 15 February 2026**\n\n## Can the ferry be advertised as available from 1 March?\n\nNo. The 1 March passenger launch was proposed by the operator on 1 February, but it was explicitly contingent on vessel delivery and operating permission, and the operator withdrew that target on 10 February after delivery slipped. Advertising a 1 March start would therefore market a superseded plan as a current commitment.\n\n## Current position\n\nThe operator's current stated position is 15 April as the earliest possible passenger launch, subject to vessel delivery, trials and final operating permission. This is still a proposed earliest date, not a confirmed service date, and it is not a timetable.\n\nThe port's status log shows a 12 February entry permitting **non-passenger trial sailings during March**. That is trial permission only: it does not authorize carrying paying passengers toward a passenger service. The vessel had not been delivered by the 14 February update, and the log records no final passenger-service permission, no confirmed timetable and no booking release. The log makes no prediction about when those will be completed.\n\n## Superseded plans vs current commitments\n\n| Item | Status |\n|---|---|\n| 1 March passenger launch | Superseded — target withdrawn 10 February |\n| 15 April earliest passenger launch | Proposed, conditional — not committed |\n| March trial sailings | Permitted, non-passenger only |\n| Final passenger-service permission | Not granted as of 14 February |\n| Timetable and bookings | Not released |\n\n## What must be verified before accepting bookings\n\n- **Vessel delivery** — not delivered as of the 14 February update.\n- **Trials** — permitted for March on a non-passenger basis; outcomes not yet available.\n- **Final operating permission for passenger service** — not granted.\n- **Confirmed timetable** — not published.\n- **Booking release** — no tickets had been released as of the 1 February notice, and the port log records none as of 14 February.\n\n## Recommended handling\n\nDo not market either date as a confirmed passenger service. The desk can describe the operator's 15 April statement as an earliest possible target, conditional on delivery, trials and final permission, and can note that non-passenger trials are permitted in March. Bookings should be accepted only after vessel delivery, successful trials, final passenger-service permission, a confirmed timetable and an actual booking release are all verified.\n\n---\n\n### References\n\n- **Operator notices** — proposed 1 March launch (1 February 2026); withdrawal of 1 March and revised 15 April earliest target (10 February 2026). [S1]\n- **Port status log** — non-passenger trial permission for March; vessel not delivered; no final passenger permission, timetable or booking release (last updated 14 February 2026). [S2]\n\n*Independent review was not performed; conclusions rest on the two sources above. This note treats proposed dates and trial permission as conditional, not as a confirmed passenger service.*\n\n",
+    "B": "# Ferry Availability Status — Visitor Desk Note\n\n**As of 15 February 2026**\n\nThe new ferry **cannot** be advertised as available from 1 March. The operator’s 1 February proposal of a 1 March launch was contingent on vessel delivery and operating permission (S1), but on 10 February the operator withdrew that target after delivery slipped, proposing 15 April as the earliest possible passenger launch, still subject to delivery, trials and final operating permission (S1). The 1 March date is therefore superseded and should not appear in any booking material.\n\nThe 15 April proposal is likewise not a current commitment: it is an earliest-possible date, conditional on outstanding items (S1). The port log allows only non-passenger trial sailings during March and expressly does not authorize carrying paying passengers (S2). No final passenger-service permission, confirmed timetable or booking release exists, and the vessel had not been delivered by 14 February (S2).\n\nBefore accepting bookings, the desk must verify: vessel delivery; completion of trials; final passenger-service operating permission; a confirmed timetable; and formal booking release (S1, S2). No tickets had been released as of 10 February (S1). Any advertisement should describe the service as proposed, not available.\n\n"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "preference": "tie",
+  "reason": "Both support the same defensible decision: observed fresh-water use and intensity declined, but nozzle causation and rollout eligibility remain unverified. B's opening explicitly says \"Do not roll out yet\" and its \"What cannot\" paragraph explains how soil mix could affect the result. A's \"What we can and cannot infer\" section more explicitly states \"causation cannot be claimed\" and identifies missing contamination measurements. These are complementary strengths, not a material difference in decision quality.",
+  "reports": {
+    "A": {
+      "task_fidelity": {
+        "score": 4,
+        "reason": "Provides the requested decision note, numerical comparison, unit and denominator reconciliation, inference limits, and a conditional follow-up using only the supplied sources.",
+        "excerpt": "Recommended next step: \"run a follow-up trial period with logged soil-mix, staffing and quality/contamination measurements before any rollout decision.\"",
+        "source_evidence": "S2: \"Management will approve a rollout only if water intensity improves without reducing cleaning quality.\""
+      },
+      "facts_and_evidence": {
+        "score": 4,
+        "reason": "Conversions, intensity calculations, and percentage changes are correct; meter scope and missing evidence are accurately cited.",
+        "excerpt": "Reconciling units and denominators: \"March 80 L/crate, April 60 L/crate — a 25% reduction in water intensity.\"",
+        "source_evidence": "S1 gives March as 480,000 litres for 6,000 crates and April as 420 cubic metres for 7,000 crates, with 1 cubic metre equalling 1,000 litres."
+      },
+      "explanation_and_synthesis": {
+        "score": 4,
+        "reason": "Separates total consumption from consumption per crate and integrates the ledger improvement with the memo's approval requirement.",
+        "excerpt": "Did the trial reduce water use?: \"Absolute use fell 60,000 litres (12.5%) even though crate volume rose 16.7%.\"",
+        "source_evidence": "S1's totals establish lower intake despite increased throughput; S2 requires improved intensity without reduced cleaning quality."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 4,
+        "reason": "Explicitly distinguishes association from causation and identifies confounding, observational aggregation, and absent quality evidence. This appropriately qualifies the opening 'Yes.'",
+        "excerpt": "What we can and cannot infer: \"causation cannot be claimed: the data are total monthly counts, not randomized observations (S1), April's soil-mix proportions were not logged, and staffing and hours changed (S2).\"",
+        "source_evidence": "S1: \"total monthly counts, not randomized observations.\" S2 identifies unlogged April soil proportions, changed staffing and hours, and no cleaning-quality or contamination measurements."
+      },
+      "reader_usefulness": {
+        "score": 4,
+        "reason": "Makes the approval barrier clear and proposes a practical evidence-gathering step before a rollout decision.",
+        "excerpt": "Recommended next step: \"Management will approve rollout only if water intensity improves without reducing cleaning quality (S2). Intensity has improved; quality evidence is the missing piece.\"",
+        "source_evidence": "S2 explicitly makes quality preservation a rollout condition and states that quality and contamination measurements are absent."
+      }
+    },
+    "B": {
+      "task_fidelity": {
+        "score": 4,
+        "reason": "Directly addresses the operational decision with correct numerical changes, reconciled measurements, inference limits, source citations, and a conditional rollout recommendation.",
+        "excerpt": "Recommendation: \"Do not roll out yet. The trial shows a clear water-intensity improvement, but the missing soil-mix and quality data mean the approval condition cannot be verified.\"",
+        "source_evidence": "S1 supports the observed intensity improvement; S2 supplies the missing soil-mix and quality evidence and the rollout condition."
+      },
+      "facts_and_evidence": {
+        "score": 4,
+        "reason": "Correctly reports both monthly intensities, the absolute intensity change, total-water reduction, and increased crate count.",
+        "excerpt": "Numbers, with units reconciled: \"Water intensity fell by 20 litres per crate, a 25% reduction, while total fresh-water use fell 60 m³ (12.5%) even as volume rose 1,000 crates.\"",
+        "source_evidence": "S1: March 6,000 crates and 480,000 litres; April 7,000 crates and 420 cubic metres; 1 cubic metre equals 1,000 litres."
+      },
+      "explanation_and_synthesis": {
+        "score": 4,
+        "reason": "Explains why normalization matters and gives a concrete mechanism by which workload differences could explain some improvement.",
+        "excerpt": "What cannot: \"If April's crates were lighter on average, part of the 25% gain may reflect workload, not the nozzle.\"",
+        "source_evidence": "S2: March included lightly and heavily soiled crates, while April's proportions were not logged. The report correctly presents lighter April loads as hypothetical, not established."
+      },
+      "counterevidence_and_boundaries": {
+        "score": 4,
+        "reason": "Limits nozzle attribution, identifies operational confounders and missing outcome measurements, and avoids treating monthly observations as causal proof.",
+        "excerpt": "What cannot: \"The ledger contains no cleaning-quality or contamination measurements, and these are monthly totals, not controlled observations.\"",
+        "source_evidence": "S1 describes total monthly counts rather than randomized observations; S2 identifies absent quality measurements and changes in staffing and hours."
+      },
+      "reader_usefulness": {
+        "score": 4,
+        "reason": "Leads with a clear hold recommendation and specifies batch-level evidence collection tied to the approval condition.",
+        "excerpt": "Next step: \"A rollout can be recommended only if water intensity improves without quality loss. Run a defined trial logging soil mix, staffing, and quality scores per batch\"",
+        "source_evidence": "S2 requires improved water intensity without quality loss and identifies missing soil-mix and quality information. Batch-level logging is a proposed next step, not a claimed source finding."
+      }
+    }
+  },
+  "condition_clues": "No reliable condition-identifying clues observed. A uses more section headings and preparation metadata; B leads with a recommendation and uses inline headings. These stylistic differences do not establish authorship, tools, or condition and did not affect the judgment."
+}

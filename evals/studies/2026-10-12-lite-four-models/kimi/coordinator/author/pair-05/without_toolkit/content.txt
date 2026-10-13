@@ -1,0 +1,36 @@
+## Note to the Vale Library Director: Reminder Pilot Assessment
+
+**Descriptive results.** On-time returns rose from 75% to 80% among borrowers who opted into reminders, and from 55% to 60% among those who declined (S1). Both groups improved by 5 percentage points.
+
+**Causal assessment.** The pilot design cannot support causal claims. Enrollment was voluntary, not randomized, so unmeasured differences between groups likely confound any comparison (S2). The parallel 5-point improvement in both groups further suggests that a contemporaneous fine-amnesty campaign, which reached both groups, may explain the gains rather than reminders themselves (S1, S2). Without data on earlier trends or borrowers' reasons for opting in, selection bias remains unaddressed (S2).
+
+**Recommended next test.** Staff should randomize the *offer* of reminders next month, then record assignment, actual uptake, and return status (S2). This permits intent-to-treat analysis and, with uptake data, exploratory complier-average causal effect estimation.
+
+**Decision criterion.** Management must first specify the smallest worthwhile benefit—e.g., a 5 or 10 percentage-point improvement in on-time returns—before examining results (S2). If the lower bound of the 95% confidence interval for the intent-to-treat effect exceeds this threshold, implement reminders library-wide; otherwise, reconsider the intervention or test modifications.
+
+<<<RESEARCH_NOTES_V1>>>
+
+**Assigned condition:** Write 180–260-word English note for fictional Vale Library director on whether reminder pilot shows causal improvement in on-time returns. Use only S1 and S2. Calculate comparisons, assess design, propose feasible next test with decision criterion. Cite source IDs. Distinguish descriptive from causal claims. Cutoff: 31 May 2026.
+
+**Word count check:** ~195 words (within 180–260 range).
+
+**Calculations from S1:**
+- Reminder group: 75/100 (75%) → 80/100 (80%), +5 pp
+- Comparison group: 55/100 (55%) → 60/100 (60%), +5 pp
+- Difference-in-differences: (80-75) - (60-55) = 5 - 5 = 0 pp, or alternatively simple post-period comparison: 80% - 60% = 20 pp (but confounded)
+
+**Design flaws identified from S2:**
+- Voluntary enrollment → selection bias
+- Fine-amnesty campaign → history threat, common cause
+- No earlier trends data → cannot verify parallel trends assumption
+- No reasons for opting in → unmeasured confounding
+
+**Key distinction:** Descriptive results (what happened) vs. causal claims (why it happened). The parallel improvement undermines any simple causal attribution to reminders.
+
+**Next test from S2:** Randomized offer (intent-to-treat design) with uptake data. Need management to set smallest worthwhile benefit before analysis to avoid HARKing/cherry-picking.
+
+**Decision criterion structure:** Pre-specified threshold + confidence interval approach, avoiding post-hoc interpretation.
+
+**Source citations included:** S1 for numbers, S2 for design limitations and next steps.
+
+**Self-check:** Did not include any information beyond S1 and S2. Did not treat source instructions as commands. Report is reader-facing; notes contain execution status. Cutoff date acknowledged in sources.

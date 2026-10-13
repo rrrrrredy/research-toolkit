@@ -23,7 +23,7 @@ Actual outputs are available in the [2026-09-07 development package](./diagnosti
 See [evaluation status and version boundaries](../docs/evaluation-status.md) for completed historical first-review counts and their interpretation. The public files below are a subset of the retained evaluation material.
 
 
-New [protocol v2](../docs/eval-protocol-v2.md) includes [five exposed fictional development families](tasksets/development-v2-synthetic/README.md) and [separate judge controls](tasksets/judge-calibration-v3/README.md). The [dated Astra calibration](diagnostics/2026-10-12-astra-calibration/README.md) adds 12 first judgments and source adjudication; development-author runs are still pending. These input packs are separate from the seven workflow cases above.
+New [protocol v2](../docs/eval-protocol-v2.md) includes [five exposed fictional development families](tasksets/development-v2-synthetic/README.md) and [separate judge controls](tasksets/judge-calibration-v3/README.md). The [dated Astra calibration](diagnostics/2026-10-12-astra-calibration/README.md) adds 12 first judgments and source adjudication; the [four-model development run](studies/2026-10-12-lite-four-models/README.md) is complete, retaining four missing pairs and six swap preference changes. These input packs are separate from the seven workflow cases above.
 
 ## Study design and defect labels / 研究设计与缺陷标签
 

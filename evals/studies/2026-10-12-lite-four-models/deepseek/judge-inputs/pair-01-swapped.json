@@ -1,0 +1,108 @@
+{
+  "brief": "Write a 180–260-word English note for the fictional Vale Library director deciding whether the reminder pilot demonstrates a causal improvement in on-time returns. Use only S1 and S2. Calculate the relevant comparisons, assess the design, and propose a feasible next test with a decision criterion. Cite source IDs and distinguish descriptive results from causal claims. Cutoff: 31 May 2026.\n",
+  "sources": [
+    {
+      "id": "S1",
+      "text": "Fictional pilot register, 31 May 2026. One hundred borrowers chose reminder messages and another hundred declined. In the prior month, 75 of the future reminder group and 55 of the comparison group returned on time. During the pilot, the counts were 80 and 60, respectively. Each borrower had exactly one due item in each month. The same people appear in both periods; nobody dropped out.\n"
+    },
+    {
+      "id": "S2",
+      "text": "Fictional implementation note, 31 May 2026. Reminder enrollment was voluntary, not randomized. A fine-amnesty campaign reached both groups during the pilot. Earlier trends and reasons for opting in were not recorded. Staff can randomize an offer of reminders next month and record assignment, uptake and return status. There is no preset estimate of the smallest worthwhile benefit; management must set one before examining the next results.\n"
+    }
+  ],
+  "rubric": {
+    "id": "blinded-pairwise-v1",
+    "scope": "One-judge prospective pilot; does not replace historical panels or current Full report acceptance.",
+    "dimensions": [
+      "task_fidelity",
+      "facts_and_evidence",
+      "explanation_and_synthesis",
+      "counterevidence_and_boundaries",
+      "reader_usefulness"
+    ],
+    "anchors": {
+      "0": "Essential requirement absent or failed",
+      "1": "Major defects make this aspect unusable",
+      "2": "Partly met; substantive revision needed",
+      "3": "Meets the task with bounded issues",
+      "4": "Fully developed with concrete support",
+      "not_assessed": "Insufficient assessment context; not zero or approval"
+    },
+    "instructions": "Judge first submissions against the same brief and full supplied sources. Do not award points for files, logs, checklist markers or report length. Rate each dimension separately with a reason, an exact locatable excerpt and source evidence. Do not compute a weighted passing score. Prefer the report that better supports the requested decision; use tie for comparable quality and unresolved for missing evidence. Give condition clues only after choosing. Model preferences and ratings need evidence review before any efficacy interpretation.",
+    "response_schema": {
+      "preference": "A | B | tie | unresolved",
+      "reason": "Located comparative reasoning",
+      "reports": {
+        "A": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        },
+        "B": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        }
+      },
+      "condition_clues": "Possible condition-identifying clues, or none observed"
+    }
+  },
+  "reports": {
+    "A": "# Reminder Pilot: Descriptive Gain, Not Yet a Demonstrated Cause\n\n**To the Director — decision note on whether the reminder pilot demonstrates a causal improvement in on-time returns.** Evidence: the pilot register and the implementation note, both dated 31 May 2026.\n\n**Bottom line.** The pilot is consistent with a beneficial reminder effect, but it does not demonstrate one. The comparison is confounded, so the observed gain should be treated as an association, not a causal estimate.\n\n**What the numbers show.** In the prior month, the future reminder group returned 75 of 100 items on time, against 55 of 100 in the comparison group — a pre-existing gap of 20 percentage points. During the pilot the same groups returned 80 and 60, a gap of 20 points. Both groups improved by exactly 5 points. The group difference therefore did not widen or narrow; the two groups moved by identical amounts. Nothing in these counts isolates reminders from whatever else changed between the two months.\n\n**Why the design cannot support a causal claim.** Enrollment was voluntary, so borrowers who chose reminders may differ systematically from those who declined; the 20-point baseline gap is direct evidence of such differences. The fine-amnesty campaign reached both groups during the pilot and could account for part or all of the 5-point rise in each. Earlier trends and reasons for opting in were not recorded, so neither pre-existing trajectories nor selection motives can be ruled out. With no randomized assignment, no trend data and a simultaneous library-wide intervention, the pilot cannot separate the reminder from the amnesty or from self-selection.\n\n**Recommended next test.** Randomize the offer of reminders next month. Record each borrower's assignment, whether they actually received or used reminders, and return status, with one due item per borrower. Compare on-time return rates between assignment groups (intention-to-treat), and separately examine uptake to estimate the effect among those who used reminders.\n\n**Decision criterion.** Before examining results, management must set the smallest worthwhile improvement in on-time return rate. Adopt reminders only if the estimated effect reaches that threshold and the confidence interval excludes no benefit. Without this preset, the second test will be as uninformative as the first.\n\n---\n\n*Sources: S1 (pilot register, 31 May 2026); S2 (implementation note, 31 May 2026). This note is based solely on these two fictional records. No independent review was conducted; the assessment is the author's own and is provisional.*\n",
+    "B": "# Reminder Pilot Note for the Vale Library Director\n\n**Bottom line:** the pilot shows better returns among reminder enrollees, but it does not demonstrate that reminders caused the improvement.\n\n**Descriptive results.** Each group had 100 borrowers with one due item per month (S1). On-time returns rose from 75 to 80 in the reminder group (+5 percentage points, or +6.7% relative) and from 55 to 60 in the comparison group (+5 points, or +9.1% relative). The difference-in-differences estimate is therefore 0 percentage points: both groups improved by exactly five borrowers. The raw between-group gap remained 20 points (80 vs. 60), but that gap already existed before the pilot (75 vs. 55).\n\n**Design assessment.** Enrollment was voluntary, not randomized, and reasons for opting in were unrecorded (S2). A fine-amnesty campaign reached both groups during the pilot (S2). Because the groups may differ in unobserved motivation and both were exposed to the amnesty, the 5-point within-group gains cannot be attributed to reminders. The appropriate causal claim is that no reminder effect is detectable from this design; the descriptive claim is only that the reminder group returned more items on time in both periods.\n\n**Proposed next test.** Randomize an offer of reminders next month, recording assignment, uptake, and return status (S2). Before examining results, management should set a smallest worthwhile benefit—for example, 3 percentage points—as the decision criterion. If the intention-to-treat effect is at least that threshold and statistically distinguishable from zero, expand the reminder offer; otherwise, do not scale it.\n\n"
+  }
+}

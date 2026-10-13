@@ -1,0 +1,108 @@
+{
+  "brief": "请给虚构的河湾设计工作室写一份 350—500 字中文备份方案选择说明。仅使用 S1、S2，比较三个方案是否满足首年预算、恢复时间、数据存放和容量条件；提出当下选择及扩容触发条件，并说明未知项。正文按去除空白后的 Unicode 字符计数，引用来源编号。截止日 2026 年 6 月 1 日，不联网，不自行增加偏好权重。\n",
+  "sources": [
+    {
+      "id": "S1",
+      "text": "虚构需求单，2026 年 6 月 1 日。首年总预算不超过 24 万元，必须包括一次性部署费；恢复时间不超过 4 小时；数据须全部存放在工作室自有场所。当前数据为 10 TB，下一年度预计增加 3 TB（预测而非承诺）。超预算或超恢复时间的方案不可直接采购；供应商对当前容量的恢复测试均采用相同数据集。\n"
+    },
+    {
+      "id": "S2",
+      "text": "虚构可比报价，2026 年 6 月 1 日。A：年费 18 万、一次性部署 8 万，当前容量恢复 2 小时，容量 20 TB，全部本地存放。B：年费 14 万、部署 6 万，恢复 5 小时，容量 20 TB，全部本地存放。C：年费 19 万、部署 3 万，恢复 3 小时，容量 12 TB，全部本地存放。C 的扩容价和扩容后的恢复时间未报价或测试；三家均不另收首年费用。报价中没有可靠性或日常运维工时的可比数据。\n"
+    }
+  ],
+  "rubric": {
+    "id": "blinded-pairwise-v1",
+    "scope": "One-judge prospective pilot; does not replace historical panels or current Full report acceptance.",
+    "dimensions": [
+      "task_fidelity",
+      "facts_and_evidence",
+      "explanation_and_synthesis",
+      "counterevidence_and_boundaries",
+      "reader_usefulness"
+    ],
+    "anchors": {
+      "0": "Essential requirement absent or failed",
+      "1": "Major defects make this aspect unusable",
+      "2": "Partly met; substantive revision needed",
+      "3": "Meets the task with bounded issues",
+      "4": "Fully developed with concrete support",
+      "not_assessed": "Insufficient assessment context; not zero or approval"
+    },
+    "instructions": "Judge first submissions against the same brief and full supplied sources. Do not award points for files, logs, checklist markers or report length. Rate each dimension separately with a reason, an exact locatable excerpt and source evidence. Do not compute a weighted passing score. Prefer the report that better supports the requested decision; use tie for comparable quality and unresolved for missing evidence. Give condition clues only after choosing. Model preferences and ratings need evidence review before any efficacy interpretation.",
+    "response_schema": {
+      "preference": "A | B | tie | unresolved",
+      "reason": "Located comparative reasoning",
+      "reports": {
+        "A": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        },
+        "B": {
+          "task_fidelity": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "facts_and_evidence": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "explanation_and_synthesis": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "counterevidence_and_boundaries": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          },
+          "reader_usefulness": {
+            "score": "integer 0-4 | not_assessed",
+            "reason": "Why this score",
+            "excerpt": "Report quotation and paragraph/section locator",
+            "source_evidence": "Source ID and passage, or explicit missing evidence"
+          }
+        }
+      },
+      "condition_clues": "Possible condition-identifying clues, or none observed"
+    }
+  },
+  "reports": {
+    "A": "## 河湾设计工作室备份方案选择说明\n\n**结论：当下选择 A 方案。** 首年总预算 24 万元以内、恢复时间不超过 4 小时、数据全部存放于自有场所、当前数据 10 TB——四项条件下，只有 A 同时满足。\n\n**三方案对照。** A：年费 18 万 + 一次性部署 8 万 = 26 万，超预算；恢复 2 小时，达标；容量 20 TB，对当前 10 TB 够用；数据全部本地。B：年费 14 万 + 部署 6 万 = 20 万，在预算内；恢复 5 小时，超过 4 小时上限；容量 20 TB；全部本地。C：年费 19 万 + 部署 3 万 = 22 万，在预算内；恢复 3 小时，达标；容量 12 TB，仅高出当前数据 2 TB，无扩容余量；全部本地。\n\n**为什么仍选 A。** 按 S1，超预算或超恢复时间的方案不能直接采购，A 因此被排除在直接采购之外。但这不等于应改选 B 或 C：B 的超时是硬性不达标，C 的容量只在当前数据上勉强够用，而下一年度预计增加 3 TB 属于预测而非承诺（S1），届时 13 TB 逼近 12 TB 上限，其扩容价格与扩容后恢复时间均未报价或测试（S2），无法据此判断是否仍满足预算与 4 小时条件。相较之下，A 的缺口是单一且可谈的 2 万元预算差额，其技术条件全部有可比报价支撑。因此当下选择 A，前提是与供应商就部署费或年费达成不超过 24 万的书面调整；未达成书面调整前不宜按 S2 现有报价直接采购。\n\n**扩容触发条件。** 当实际数据达到 13 TB（即预测增量兑现）或预计 12 个月内增长超过 2 TB 时，需重新评估容量方案。对 A，触发扩容询价的条件是容量使用率达到 65%–70%（约 13 TB）；对 C，任何接近 12 TB 的情形都构成触发。\n\n**未知项。** 报价未包含可靠性数据与日常运维工时，三者无法在可用性或人力成本上比较（S2）；C 的扩容价与扩容后恢复时间无数据；10 TB 与 +3 TB 为工作室自述与预测，未独立核验；供应商的恢复测试均在同一数据集上进行（S1），是否代表工作室真实数据负载未知。以上缺口会在预算调整谈判与年度复核时一并澄清。\n\n**来源：** S1 虚构需求单；S2 虚构可比报价。另需说明：本说明未经独立第三方复核。\n\n",
+    "B": "# 河湾设计工作室备份方案选择说明\n\n依据虚构需求单（S1）与三家可比报价（S2），现就 A、B、C 三个方案作如下比较与选择。\n\n**条件判定。** 首年总预算是年费加一次性部署费：A 为 18+8=26 万元；B 为 14+6=20 万元；C 为 19+3=22 万元。按“超预算不可直接采购”（S1），A 超出 24 万元上限，不满足首年预算条件。恢复时间上限为 4 小时（S1）：A 为 2 小时、C 为 3 小时均达标；B 为 5 小时，超限，不可直接采购。数据存放方面，三家均全部本地存放（S2），均满足“数据须全部存放于自有场所”（S1）。容量方面，当前数据 10 TB，下一年度预计 13 TB（S1，属预测而非承诺）：A、B 容量 20 TB，可覆盖；C 仅 12 TB，已低于下一年度预测量，故不满足容量条件。\n\n**当下选择。** 综合四项条件，仅 A 与 C 通过预算与恢复时间门槛，其中 A 容量充足、C 容量不足。在不得自行增加偏好权重的前提下，应选择 A：其首年 26 万元虽超预算，但按 S1 属“不可直接采购”而非永久排除；相较之下，B 恢复 5 小时、C 容量 12 TB，均直接违反硬性条件。因此建议以 A 为当下方案，同时就预算差额与供应商协商，或将首年部署费分摊问题单独提交审批；若两者均不可行，则本年度无方案可同时满足全部四项条件，需回到需求单层面调整条件。\n\n**扩容触发条件与未知项。** 若改选 C，触发扩容的条件是：实际数据量接近 12 TB，或下一年度增量预测被证实，即须在超出容量前完成扩容。未知项包括：C 的扩容价及扩容后的恢复时间均无报价或测试数据（S2）；B 是否可通过任何方式缩短恢复时间亦无数据；报价未含可靠性与日常运维工时，无法比较（S2）；“下一年度增加 3 TB”为预测而非承诺（S1），实际增量可能不同。\n\n"
+  }
+}

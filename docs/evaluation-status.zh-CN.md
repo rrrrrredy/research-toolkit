@@ -12,6 +12,10 @@
 
 [接入记录](../evals/diagnostics/2026-10-12-connectivity/README.zh-CN.md)保留配置失败及另行冻结的补测。[Astra 校准](../evals/diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)完成四题族共 12 次首轮尝试，缺陷偏好、互换和有效平局经来源核查符合预期，三处维度分数在互换后变化。结果支持进入有界开发试验，不证明评审普遍可靠或 Toolkit 效果；下列历史样本和结果保持不变。
 
+## 2026-10-12：四模型开发结果
+
+[固定来源 Lite 诊断](../evals/studies/2026-10-12-lite-four-models/README.zh-CN.md)完成 40 次作者及 32 次评审请求，覆盖五个公开合成题族、20 个模型—任务配对。四个配对因 LongCat 格式失败未解决；16 个有效配对中六个交换次序后改变偏好。36 篇格式有效报告仅 14 篇篇幅达标，来源复核还发现预算、预测和证据归属错误。原始评分不改；无一般效果结论。单列 [JSON 格式补验](../evals/diagnostics/2026-10-12-longcat-format/README.zh-CN.md)仅 3/4 格式通过，未填补缺失。
+
 ## 保留数据
 
 | 数据 | 内容 | 用途与边界 |

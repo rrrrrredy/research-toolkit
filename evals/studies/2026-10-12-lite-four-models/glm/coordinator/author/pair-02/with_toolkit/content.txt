@@ -1,0 +1,41 @@
+# Visitor Desk Status Note — Ferry Service (as of 15 February 2026)
+
+**No, the new ferry cannot be advertised as available from 1 March.** That date is a withdrawn plan, not a current commitment.
+
+The operator originally proposed launching passenger service on 1 March, but on 10 February it withdrew that target after the vessel delivery slipped and proposed 15 April as the earliest possible launch instead, still subject to delivery, trials and final operating permission (S1). This makes 1 March a superseded plan and 15 April a proposed, conditional date only. No tickets had been released as of 10 February (S1), and there was still no booking release, confirmed timetable, or final passenger-service permission as of 14 February (S2).
+
+What the port log *does* permit is limited: a 12 February entry authorizes non-passenger trial sailings during March (S2). Trial permission is not passenger authorization — it explicitly does not permit carrying paying passengers (S2), and the vessel had not yet been delivered (S2).
+
+**Before accepting or advertising any bookings, verify:**
+1. Vessel delivery has occurred.
+2. Trials have been completed successfully.
+3. Final operating permission for passenger service is in place.
+4. A confirmed timetable and ticket release are announced by the operator.
+
+Until all four are confirmed, the desk should describe the service as "planned, date not confirmed" and decline to promise either the 1 March or 15 April date.
+
+*(229 words)*
+
+<<<RESEARCH_NOTES_V1>>>
+
+**Profile:** lite. Brief was sufficient; no clarification needed.
+
+**Task spec:** 180–260-word English visitor-desk status note, dated 15 Feb 2026, sources S1 (operator notices, 1 & 10 Feb) and S2 (port log, updated 14 Feb) only. Key question: advertise 1 March availability? Answer: no.
+
+**Source registry (in-message):**
+- S1: operator notices — official position; proves 1 March proposal withdrawn 10 Feb, 15 April proposed conditionally, no tickets released.
+- S2: port log — primary evidence; proves March trial sailings permitted (non-passenger only), vessel undelivered, no final permission/timetable/booking.
+
+**Claims:** (a) 1 March is superseded — strong (S1). (b) 15 April is conditional proposal, not commitment — strong (S1). (c) March trials are non-passenger — strong (S2). (d) No bookings possible now — strong (S1+S2). No counter-evidence present.
+
+**Checklist (Lite):**
+- Word count in band: passed — 229 words, English convention, count stated.
+- Scope/reader/format met: passed — desk-facing, dated, decision stated first.
+- Claims traceable to S1/S2 only: passed — no outside facts added.
+- Proposed dates not treated as confirmed: passed — both 1 Mar and 15 Apr labelled proposed/conditional.
+- Trial permission not conflated with passenger service: passed — explicit distinction.
+- Pre-booking verification list included: passed — four items.
+- Source IDs cited as requested: passed.
+- Process language/backstage leakage removed: passed — no IDs beyond requested S1/S2 citations, no workflow wording.
+- Independent review: skipped per lite profile (disclosed here in notes, not in report, per brief's tone).
+- File persistence/MCP unavailable — handled in-message per instruction; registries recorded above.

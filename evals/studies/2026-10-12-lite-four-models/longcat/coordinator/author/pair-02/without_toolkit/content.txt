@@ -1,0 +1,15 @@
+# Reminder Pilot Assessment — Vale Library
+
+## Descriptive Results (S1)
+
+In the prior month, the future-reminder group returned 75 of 100 on time, versus 55 of 100 in the comparison group. During the pilot, those counts became 80 and 60, respectively. Both groups improved by +5 on-time returns. The baseline gap of 20 percentage points persisted through the pilot.
+
+## Causal Assessment
+
+The design does **not** support a causal claim. Enrollment was voluntary, not randomized (S2). The two groups already differed by 20 points before the pilot, indicating strong self-selection. The identical +5 improvement in both groups is consistent with a shared external driver rather than a reminder effect. S2 notes a fine-amnesty campaign reached both groups during the pilot, which likely explains the parallel shift. Without baseline trend data or controls, we cannot attribute the +5 change to reminders.
+
+## Proposed Next Test
+
+S2 states staff can randomize an offer of reminders next month and record assignment, uptake, and return status. I recommend a randomized encouragement design: randomly offer reminders to one half of borrowers, then compare on-time return rates by **assignment** (intention-to-treat) and, secondarily, by actual uptake.
+
+**Decision criterion:** Before examining results (S2), management should pre-specify a minimum worthwhile benefit — for example, a 10-percentage-point increase in on-time returns. If the assigned-reminder group exceeds that threshold, scale the program; if not, discontinue or redesign.

@@ -1,0 +1,103 @@
+{
+  "schema_version": 2,
+  "profile": "lite",
+  "source_access": "fixed_supplied_sources",
+  "cohort_status": "prospective_development",
+  "publication_rights_confirmed": true,
+  "selection_statement": "Purposive five-family protocol-development set: units, conflicting measurements, causal identification, constrained choice and temporal synthesis; three English and two Chinese tasks. Not a sampled real-world population.",
+  "exposure_statement": "Written in the implementation conversation on 2026-10-12; all materials and intended judgments are visible to the developer and public. No held-out or training-contamination claim.",
+  "author": {
+    "base_url": "https://api.moonshot.cn/v1",
+    "model": "kimi-k2.6",
+    "snapshot_statement": "Requested and returned alias verified by 2026-10-12 connectivity; service alias may change. No independent snapshot attestation.",
+    "api_key_env": "KIMI_EVAL_KEY",
+    "max_completion_tokens": 4096,
+    "max_total_tokens": 32768,
+    "timeout_seconds": 180,
+    "completion_parameter": "max_tokens",
+    "accepted_model_ids": [
+      "kimi-k2.6"
+    ],
+    "response_format": "text",
+    "output_protocol": "markdown_notes_v1",
+    "allow_json_fence": false,
+    "thinking": "disabled"
+  },
+  "judge": {
+    "transport": "codex_exec",
+    "model": "gpt-6-astra",
+    "snapshot_statement": "gpt-6-astra requested through Codex CLI 0.162.0-alpha.17.2. Fresh ChatGPT-authenticated contexts; CLI events do not attest the returned model ID. Alias may change. Token ceilings are post-return checks, not hard billing caps.",
+    "executable_env": "RESEARCH_CODEX_EXECUTABLE",
+    "reasoning_effort": "low",
+    "max_completion_tokens": 4096,
+    "max_total_tokens": 30000,
+    "timeout_seconds": 120,
+    "output_protocol": "json_object_v1",
+    "allow_json_fence": false
+  },
+  "tasks": [
+    {
+      "task_id": "wash-water-en",
+      "family_id": "units-and-denominators",
+      "language": "en",
+      "task_type": "units-and-denominators",
+      "brief": "wash-water-en/brief.md",
+      "sources": [
+        "wash-water-en/source-1.md",
+        "wash-water-en/source-2.md"
+      ],
+      "design": "wash-water-en/design.json"
+    },
+    {
+      "task_id": "archive-scan-zh",
+      "family_id": "conflicting-measurements",
+      "language": "zh-CN",
+      "task_type": "conflicting-measurements",
+      "brief": "archive-scan-zh/brief.md",
+      "sources": [
+        "archive-scan-zh/source-1.md",
+        "archive-scan-zh/source-2.md"
+      ],
+      "design": "archive-scan-zh/design.json"
+    },
+    {
+      "task_id": "library-reminders-en",
+      "family_id": "causal-identification",
+      "language": "en",
+      "task_type": "causal-identification",
+      "brief": "library-reminders-en/brief.md",
+      "sources": [
+        "library-reminders-en/source-1.md",
+        "library-reminders-en/source-2.md"
+      ],
+      "design": "library-reminders-en/design.json"
+    },
+    {
+      "task_id": "backup-budget-zh",
+      "family_id": "constrained-choice",
+      "language": "zh-CN",
+      "task_type": "constrained-choice",
+      "brief": "backup-budget-zh/brief.md",
+      "sources": [
+        "backup-budget-zh/source-1.md",
+        "backup-budget-zh/source-2.md"
+      ],
+      "design": "backup-budget-zh/design.json"
+    },
+    {
+      "task_id": "ferry-timeline-en",
+      "family_id": "temporal-synthesis",
+      "language": "en",
+      "task_type": "temporal-synthesis",
+      "brief": "ferry-timeline-en/brief.md",
+      "sources": [
+        "ferry-timeline-en/source-1.md",
+        "ferry-timeline-en/source-2.md"
+      ],
+      "design": "ferry-timeline-en/design.json"
+    }
+  ],
+  "position_swap": true,
+  "max_requests": 20,
+  "max_retries": 0
+}
