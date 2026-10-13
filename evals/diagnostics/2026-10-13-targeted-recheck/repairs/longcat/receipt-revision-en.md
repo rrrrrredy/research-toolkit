@@ -1,0 +1,5 @@
+The previous global review and sealed receipt do not cover the edited report. Both are tied to the earlier artifact; a new receipt alone cannot make the earlier review cover changed prose. Local checks cannot replace the global review, and a global pass cannot refresh a separately required specialist binding (S1).
+
+Retain the original review and report version, and document the edit. Check the recommendation against the unchanged sources and conditions, repairing affected claims if necessary. Run check-draft for its record prerequisites and measured length, without treating it as content validation. Obtain independent global review using research_review with revision: true, address necessary findings, and call finish to produce current delivery bindings (S2).
+
+Unrelated research does not need repeating. Keep the same review requirements: any declared required scope must pass against the current artifact, even when its name is unchanged. Earlier ordinary unit reviews may be covered by the new global review; they are not equivalent to task-required scopes. No additional scopes are needed solely to reseal (S1). Recovery remains to be executed.

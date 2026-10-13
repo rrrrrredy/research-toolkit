@@ -1,0 +1,5 @@
+No: the old review and receipt bind the report as it existed before the edit. The changed artifact hash makes those bindings stale, and resealing alone cannot extend an earlier review to new prose (S1).
+
+Preserve the original review and previous report, record the changed passage and reason, and check the recommendation against the same source numbers and conditions. Correct affected claims if needed, then run check-draft for the declared length and record prerequisites. This check does not certify semantic content. Request independent global review through research_review with revision: true; resolve necessary findings and call finish for the current report and delivery records (S2).
+
+Unrelated source research need not be repeated. The required scopes themselves remain unchanged, but every explicitly required scope needs a passing assessment bound to the current artifact. A new global pass cannot refresh a required specialist binding, although it can cover earlier ordinary unit reviews. Do not add new specialist requirements (S1). These are the recovery steps to perform, not a claim they have run.

@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+本项目已有的用户任务与开发任务都是独立任务，已经实际执行的测试都是真实测试。开发用途、公开或复用不改变任务身份；独立性按研究问题区分。题面使用的来源和数据按原样记录，执行次数与结果以实际运行记录为准。
+
 研究工具箱与研究评测集用途不同：工具箱帮助完成研究，评测集用任务、材料和判据发现成果问题。本目录也保留工具箱的软件检查样例；它们的机械通过不能作为研究质量分数。
 
 | 要找的内容 | 入口 |
@@ -18,11 +20,11 @@ Toolkit 的默认流程调整不改写既有样本、首评或标签，也不自
 
 必交文件缺失时，无论分数多高都不能通过。损坏的需求或对话 JSONL、无效的来源或主张 CSV 会得到明确失败说明；单个案例损坏不会阻止其余案例生成结果。CSV 按逻辑记录计数，来源 ID 与标题必须在同一条记录内对应。
 
-[2026-09-07 原始开发材料](diagnostics/2026-09-07/)包含四份初稿、两份修订、三模型文字诊断及保留的不完整回复；它们是开发诊断，不是留出效果研究。日期化原件按原语言和哈希保存，本页提供中文导读。
+[2026-09-07 原始开发材料](diagnostics/2026-09-07/)包含四份初稿、两份修订、三模型文字诊断及保留的不完整回复；它们是已实际执行的独立任务与测试。日期化原件按原语言和哈希保存，本页提供中文导读。
 
 前瞻的 5–10 个任务族试验见[盲评配对协议](../docs/eval-protocol.zh-CN.md)。脚本冻结并记录种子／顺序，对评审隐藏 A/B 条件，保留首份产出、判断与失败。[2026-10-10 四模型试验](studies/2026-10-10-lite-four-models/README.zh-CN.md)已覆盖同样五个任务族的全部 20 对模型—任务评审，保留全部首轮尝试及失败，格式诊断与重新生成补跑单列；不证明通用效果。仅复查既有公开两组档案时，运行 `python scripts/reproduce_calibration.py`，生成 `evals/runs/calibration-reproduction/inventory.json` 与 `inventory.md`，不调用模型。
 
-新增[协议 v2](../docs/eval-protocol-v2.zh-CN.md)，附[五个已暴露虚构开发任务族](tasksets/development-v2-synthetic/README.zh-CN.md)和[独立评审校准对照](tasksets/judge-calibration-v3/README.zh-CN.md)。[带日期的 Astra 校准](diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)已新增 12 份首轮判断及来源裁定；[四模型开发试验](studies/2026-10-12-lite-four-models/README.zh-CN.md)现已完成，保留四个缺失配对和六个互换偏好变化。这些材料与既有七个流程案例分开。
+新增[协议 v2](../docs/eval-protocol-v2.zh-CN.md)，附[五个独立测试任务](tasksets/development-v2-synthetic/README.zh-CN.md)和[独立评审校准对照](tasksets/judge-calibration-v3/README.zh-CN.md)。[带日期的 Astra 校准](diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)已新增 12 份首轮判断及来源裁定；[四模型开发试验](studies/2026-10-12-lite-four-models/README.zh-CN.md)现已完成，保留四个缺失配对和六个互换偏好变化。这些材料与既有七个流程案例分开。
 
 
 [10 月 13 日改进复验](diagnostics/2026-10-13-feedback-probes/README.zh-CN.md)保留提示／方法修正后的八次新首轮尝试：全部可解析，仅三篇篇幅达标且仍有语义错误。五篇真实篇幅失败稿与两篇事后编辑对照验证现有交付门槛，不声称质量改善。

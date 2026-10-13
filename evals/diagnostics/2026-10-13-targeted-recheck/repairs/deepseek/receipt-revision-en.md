@@ -1,0 +1,5 @@
+The old review and receipt do not cover the edited report. The edit changes the artifact hash; resealing alone cannot make an earlier review cover new prose. A local check cannot refresh the global review, and a global pass cannot refresh a task-required specialist binding (S1).
+
+Preserve the original review and prior version, and record the edit and its reason. Check the revised recommendation against the existing sources and requirements; correct affected claims where needed. Run check-draft for its record prerequisites and actual length, not as content certification. Then request independent global review of the current report using research_review with revision: true, resolve necessary findings, and call finish to bind current inputs and delivery materials in a new receipt (S2).
+
+Keep the same required scopes. Any explicitly required scope must have a passing review bound to the current artifact; do not add new specialist scopes. Unrelated source research and ordinary unit reviews covered by the new global review need not be repeated (S1). These are proposed recovery steps.

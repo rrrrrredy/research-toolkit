@@ -7,6 +7,8 @@ Use this reference when assigning research reviews. [SKILL.md](../SKILL.md) defi
 
 **Profile scope:** Full review/delivery requirements on this page apply to Full. Lite retains the brief, claims, section drafting and final checklist with explicit review/gate skip logs. New Full tasks without a backend may use degraded self-review; non-author-context requirements apply to external/independent tiers and explicitly independent tasks, never to a self-review relabelled independent. Frozen evaluations retain their original protocol. Use the [Skill profile rules](../SKILL.md#choosing-a-profile).
 
+Independent review means a review context separate from the author, not an outside organization or a different model vendor. A fresh Astra context can provide that review, including when the author also uses Astra. Use the reviewer count required by the task; do not add a fixed panel.
+
 ## Assign Work by Perspective
 
 Ordinary research follows the selected tier: Lite skips review; Full without a backend uses explicitly degraded self-review; configured external/independent reviews use non-author contexts. Independent adjudication, reviewer auditing and formal sampling apply only to declared audited plans and evaluations.

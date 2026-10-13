@@ -1,0 +1,19 @@
+{
+  "status": "response_complete",
+  "model_requested": "glm-5.3",
+  "request_id": "20261013104805c5c5557eef0b4274",
+  "model_returned": "glm-5.3",
+  "usage": {
+    "completion_tokens": 1810,
+    "completion_tokens_details": {
+      "reasoning_tokens": 1171
+    },
+    "prompt_tokens": 12396,
+    "prompt_tokens_details": {
+      "cached_tokens": 12096
+    },
+    "total_tokens": 14206
+  },
+  "elapsed_seconds": 34.172,
+  "finish_reason": "stop"
+}

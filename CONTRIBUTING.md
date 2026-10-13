@@ -91,7 +91,7 @@ Include:
 - for changed checker behavior, the relevant failing example and valid control;
 - limitations and any intentionally deferred work.
 
-Do not claim improved report quality from a green deterministic test alone. Real efficacy claims require held-out tasks, matched baseline/framework runs, independent LLM review checked against known-error and valid controls, and disclosure of failures, retries, cost, and latency.
+For a repair, show the failing case, actual change and relevant checks. Existing user and development tasks are usable; Astra can review in a separate context. Comparing with and without the Toolkit is optional and must describe its actual tasks, versions, resources and failures; it is not a prerequisite for a repair PR.
 
 ## Source Preparation Helper
 

@@ -1,0 +1,171 @@
+{
+  "purpose": "Fix ten specific rejected reports; eight new editorial revisions and two already accepted identical task repairs.",
+  "rows": [
+    {
+      "provider": "deepseek",
+      "task_id": "review-profile-zh",
+      "report_path": "repairs/deepseek/review-profile-zh.md",
+      "report_sha256": "e3a7114f1ed851ec262d859e81ab9bc09795a73abcc5e1bd18ac97be9ccbe172",
+      "measurement": {
+        "actual": 305,
+        "min": 220,
+        "max": 320,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "author": "maintainer editorial repair, not a new provider response"
+    },
+    {
+      "provider": "glm",
+      "task_id": "review-profile-zh",
+      "report_path": "repairs/glm/review-profile-zh.md",
+      "report_sha256": "c1fce281554ce7966664f075bb996775a0afc9e0a5211ac40bc1e21cfc8d6a3f",
+      "measurement": {
+        "actual": 305,
+        "min": 220,
+        "max": 320,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "author": "maintainer editorial repair, not a new provider response"
+    },
+    {
+      "provider": "kimi",
+      "task_id": "review-profile-zh",
+      "report_path": "repairs/kimi/review-profile-zh.md",
+      "report_sha256": "64ede0a195c65ce379436b9abc944db94615e3c1370daebe9462077de4987b6c",
+      "measurement": {
+        "actual": 319,
+        "min": 220,
+        "max": 320,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "author": "maintainer editorial repair, not a new provider response"
+    },
+    {
+      "provider": "longcat",
+      "task_id": "review-profile-zh",
+      "report_path": "repairs/longcat/review-profile-zh.md",
+      "report_sha256": "bae9b861f2e79e93f2074bc130270fa875944b98f91d227e4e587f97ce021f8c",
+      "measurement": {
+        "actual": 320,
+        "min": 220,
+        "max": 320,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "author": "maintainer editorial repair, not a new provider response"
+    },
+    {
+      "provider": "deepseek",
+      "task_id": "receipt-revision-en",
+      "report_path": "repairs/deepseek/receipt-revision-en.md",
+      "report_sha256": "9347995086181cdbf903c3d7a660fa652e707885cb8ea84293f4535578f0982c",
+      "measurement": {
+        "actual": 168,
+        "min": 140,
+        "max": 190,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "author": "maintainer editorial repair, not a new provider response"
+    },
+    {
+      "provider": "glm",
+      "task_id": "receipt-revision-en",
+      "report_path": "repairs/glm/receipt-revision-en.md",
+      "report_sha256": "150a16a4e580036174fa45d11de72834311c43a6b180c997ac8b8fbeaed40469",
+      "measurement": {
+        "actual": 172,
+        "min": 140,
+        "max": 190,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "author": "maintainer editorial repair, not a new provider response"
+    },
+    {
+      "provider": "kimi",
+      "task_id": "receipt-revision-en",
+      "report_path": "repairs/kimi/receipt-revision-en.md",
+      "report_sha256": "35f77c4d6b3912734b9c8432c648869c52b47ce66348aabcfb206ca8044ee58c",
+      "measurement": {
+        "actual": 169,
+        "min": 140,
+        "max": 190,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "author": "maintainer editorial repair, not a new provider response"
+    },
+    {
+      "provider": "longcat",
+      "task_id": "receipt-revision-en",
+      "report_path": "repairs/longcat/receipt-revision-en.md",
+      "report_sha256": "a62f16c0d5a22aeff029e9b4698778ce626d25eef5c5cc643c4ed13d11033c3b",
+      "measurement": {
+        "actual": 172,
+        "min": 140,
+        "max": 190,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "author": "maintainer editorial repair, not a new provider response"
+    },
+    {
+      "provider": "deepseek",
+      "task_id": "maple-storage-en",
+      "report_path": "repairs/deepseek/maple-storage-en.md",
+      "report_sha256": "030e326a70861e70213e00f5890b9a300cc2443650c0814709d088d32acedb9c",
+      "measurement": {
+        "actual": 127,
+        "min": 120,
+        "max": 170,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "author": "maintainer correction using the previously accepted repair for this same task",
+      "existing_astra_review": "evals/repairs/2026-10-13-astra/maple-storage-en-revised/review.json",
+      "reuse_reason": "Identical report, brief and source texts; no need to repeat an unchanged valid review."
+    },
+    {
+      "provider": "longcat",
+      "task_id": "brook-rinse-zh",
+      "report_path": "repairs/longcat/brook-rinse-zh.md",
+      "report_sha256": "deb9be592e98b830f16fd3fadaaa94c2d45f9a0fac69064f911f5693ee6f5fe6",
+      "measurement": {
+        "actual": 250,
+        "min": 180,
+        "max": 260,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "author": "maintainer correction using the previously accepted repair for this same task",
+      "existing_astra_review": "evals/repairs/2026-10-13-astra/brook-rinse-zh/review.json",
+      "reuse_reason": "Identical report, brief and source texts; no need to repeat an unchanged valid review."
+    }
+  ],
+  "max_new_judge_requests": 2,
+  "unchanged_original_reviews": true,
+  "review_input_correction": "Initial task-source path metadata reached authors but was removed from judges. Corrected packets retain the exact full sources supplied to authors, including legitimate provenance paths; only author identity, private notes and coordinator map are hidden.",
+  "adjudication": [
+    {
+      "task_id": "review-profile-zh",
+      "label": "B",
+      "finding_location": "参考文献",
+      "decision": "Reviewer-input mismatch, not an unsupported author invention: author sources included these paths. Preserve first finding; use complete matching sources in changed-report review."
+    }
+  ],
+  "review_reuse": "The two older accepted repair reports are identical to the replacements and have identical task/source inputs; retain and link their actual Astra passes instead of paying to rejudge."
+}

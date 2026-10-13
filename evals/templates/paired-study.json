@@ -1,5 +1,5 @@
 {
-  "template_version": 1,
+  "template_version": 2,
   "status": "draft_not_frozen",
   "study_id": null,
   "frozen_at_utc": null,
@@ -38,14 +38,15 @@
   "judging": {
     "rubric": "report-evaluation-standard",
     "taxonomy": "necessary-defects-v1",
-    "reviewer_count": 4,
+    "reviewer_count": 1,
     "model_snapshots": [],
     "budget_per_report": null,
     "condition_masking": null,
     "source_access": null,
     "independent_report_order_seed_commitment": null,
     "blindness_check": null,
-    "adjudication_policy": null
+    "adjudication_policy": null,
+    "reviewer_selection": "Astra in a fresh review context; same model as author is allowed with separate inputs."
   },
   "analysis": {
     "unit": "task_family",
@@ -80,5 +81,7 @@
     "freeze_commitment_url": null,
     "publish_all_pairs_and_failures": true,
     "unmask_after_reviews_locked": true
-  }
+  },
+  "purpose": "Optional with/without Toolkit comparison; not a prerequisite for repair, acceptance or merging.",
+  "task_origin_policy": "Existing real user and development tasks are eligible; record reuse without requiring outside contributions."
 }

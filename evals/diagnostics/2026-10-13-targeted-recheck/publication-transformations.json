@@ -1,0 +1,38 @@
+[
+  {
+    "path": "judges/brook-rinse-zh/events.jsonl",
+    "original_sha256": "c7da75da6c7efca32d1eef1603c755915efa8234f519ce1149cdeaf673514086",
+    "public_sha256": "587fe54b59c544bdc9791a6ea8bf24d87c24201b835b510bdb0c0c776a257dc3",
+    "rule": "Replace local account name in CLI diagnostics only; no report, review, request or score edits."
+  },
+  {
+    "path": "judges/maple-storage-en/events.jsonl",
+    "original_sha256": "78b85c87207d20107793a876323bc420bf9a88c7f78e6b7d297363cdea653455",
+    "public_sha256": "43b335ab600ccd7238b819ee55a85762baa7f3607f9acb7180653c060143c5d3",
+    "rule": "Replace local account name in CLI diagnostics only; no report, review, request or score edits."
+  },
+  {
+    "path": "judges/receipt-revision-en/events.jsonl",
+    "original_sha256": "a20bfb494642bf6b471c6dd01be043ffe4eb90091c8a780f14bd47905dabee59",
+    "public_sha256": "6ed1f8b25d4b9fe23509a617edbf5ba32e09573b82038fbbceb1fe9fdf099393",
+    "rule": "Replace local account name in CLI diagnostics only; no report, review, request or score edits."
+  },
+  {
+    "path": "judges/review-profile-zh/events.jsonl",
+    "original_sha256": "9d13da3beb4a9e2c30d64324e8710f4d19c260382afab6fa7a8d444d0fb97710",
+    "public_sha256": "5a7c55e789d9c4c5964193ed76fc4f03c4e2fbc9d87d93465b4cf8a4dba251af",
+    "rule": "Replace local account name in CLI diagnostics only; no report, review, request or score edits."
+  },
+  {
+    "path": "repair-judges/receipt-revision-en/events.jsonl",
+    "original_sha256": "cb0bf4eb08db671ab6cde97d2674ffc4d4c7e2b120331f65cce1adb88bb4270b",
+    "public_sha256": "6611f1579f85ede1913778a320ddcb515acfd9b2f0e7f793bf269ab81717f0d8",
+    "rule": "Replace local account name in CLI diagnostics only; no report, review, request or score edits."
+  },
+  {
+    "path": "repair-judges/review-profile-zh/events.jsonl",
+    "original_sha256": "57633b8f5d6f35738dbe8ff2acb6044b6c78408664f5fc4bb023f8b8625fe21c",
+    "public_sha256": "73353a05dfa9c75e54b5bc4f9aab55b88f5100228abc9cd613dc4228541fae1c",
+    "rule": "Replace local account name in CLI diagnostics only; no report, review, request or score edits."
+  }
+]

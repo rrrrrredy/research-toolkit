@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+Existing user and development tasks are independent tasks, and tests actually executed are real tests. Development use, publication and reuse do not change task identity; distinguish tasks by their research questions. Preserve the supplied sources and data, and report execution counts and outcomes from actual run records.
+
 Research Toolkit helps execute research; the research evaluation dataset uses tasks, material and criteria to identify weaknesses in outputs. This directory also contains Toolkit software checks. Passing those checks is not a research-quality score.
 
 | What you need | Entry point |
@@ -18,12 +20,12 @@ Evaluator result schema v2 keeps two claims separate. `conformance_status`, `con
 
 Missing required files block a pass regardless of score. Malformed requirement or conversation JSONL and invalid source or claim CSVs produce explicit failure findings; a damaged case does not prevent the remaining cases from being reported. CSV counts use logical records, and source IDs and titles must match within the same record.
 
-Actual outputs are available in the [2026-09-07 development package](./diagnostics/2026-09-07/): four original calibration reader reports, two repairs, three-model text replies and an explicitly retained incomplete response. These are development diagnostics, not held-out efficacy results.
+Actual outputs are available in the [2026-09-07 development package](./diagnostics/2026-09-07/): four original calibration reader reports, two repairs, three-model text replies and an explicitly retained incomplete response. These are real executed tests on distinct tasks, with their original reports and results retained.
 
 See [evaluation status and version boundaries](../docs/evaluation-status.md) for completed historical first-review counts and their interpretation. The public files below are a subset of the retained evaluation material.
 
 
-New [protocol v2](../docs/eval-protocol-v2.md) includes [five exposed fictional development families](tasksets/development-v2-synthetic/README.md) and [separate judge controls](tasksets/judge-calibration-v3/README.md). The [dated Astra calibration](diagnostics/2026-10-12-astra-calibration/README.md) adds 12 first judgments and source adjudication; the [four-model development run](studies/2026-10-12-lite-four-models/README.md) is complete, retaining four missing pairs and six swap preference changes. These input packs are separate from the seven workflow cases above.
+New [protocol v2](../docs/eval-protocol-v2.md) includes [five independent test tasks](tasksets/development-v2-synthetic/README.md) and [separate judge controls](tasksets/judge-calibration-v3/README.md). The [dated Astra calibration](diagnostics/2026-10-12-astra-calibration/README.md) adds 12 first judgments and source adjudication; the [four-model development run](studies/2026-10-12-lite-four-models/README.md) is complete, retaining four missing pairs and six swap preference changes. These input packs are separate from the seven workflow cases above.
 
 The [October 13 feedback probes](diagnostics/2026-10-13-feedback-probes/README.md) retain eight new first attempts after prompt/method corrections: all parse, but only three meet length and semantic errors remain. Five real length failures and two post-result editorial controls exercise the existing delivery gate; no quality-benefit claim.
 
@@ -240,7 +242,7 @@ This repo does not enable an LLM judge by default. The first line of defense is 
 - current artifact hashes
 - honest non-final delivery
 
-Optional model reviews are recorded in the dated development packages, with separate reasons, critical-error flags and disagreements. They do not overwrite deterministic results. Current semantic evaluation uses LLM reviewers without a human-review prerequisite. Known-error and valid controls help inspect reviewer behavior; general effect claims need separate held-out testing. Disclose reviewer context and evidence limits: model agreement is not factual ground truth.
+Optional model reviews are recorded in the dated development packages, with separate reasons, critical-error flags and disagreements. They do not overwrite deterministic results. Current semantic evaluation uses LLM reviewers without a human-review prerequisite. Known-error and valid controls help inspect reviewer behavior; any optional comparison should state the tasks and conditions actually tested. Disclose reviewer context and evidence limits: model agreement is not factual ground truth.
 
 The [current report/review plan](../docs/evaluation-roadmap.md#current-report-and-review-plan) specifies one author and four model reviewers receiving the same complete input version, with each opinion locked before cross-reviewer comparison. The selected models are a study configuration, not Toolkit dependencies. Preserve earlier freezes and label later supplementary reviews separately. Complete originally missing reviews; use defects and evidence-based recommendations to improve the Toolkit. Repaired reader deliverables or repair-method experiments, when separately required, remain distinct from first-submission evaluation. This repository's dated packages do not establish a general product-effect result.
 

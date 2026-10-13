@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+These are real executed tests on independent tasks distinguished by their research questions. Development use does not invalidate that identity. This narrative was corrected on 2026-10-13; original requests, reports, reviews and scores are unchanged.
+
 Eight first replies parsed under the new explicit JSON contract, but only **3/8 met the requested report length**. Serious source/decision errors remain. This closes the bounded implementation-and-validation batch, **not** the question of whether Toolkit improves research quality. No failed sample was repaired or rerun to obtain a favorable result.
 
 ## Changes and frozen scope
@@ -37,4 +39,4 @@ Counts cover the whole report, including headings, markup and citations. All eig
 
 `python scripts/check_feedback_probes.py --self-test` reconstructs the evidence read-only and runs **two test methods covering seven artifact cases** in temporary tool-backed tasks. All five real length failures are rejected even when a synthetic checklist falsely claims completion; neither a Lite receipt nor completed status is granted. Both editorial controls pass the existing length gate. These tests establish tested software behavior only; the research agent still must register the agreed constraint and resolve semantic defects.
 
-Adopt the concrete prompt/schema and guidance corrections. **Do not recommend prompt-only self-checks as a completion guarantee, claim that LongCat is generally reliable, or claim a research-quality gain.** No further paid sample was appended to this fixed queue. A representative efficacy study needs the separately documented [independent intake design](../../../docs/independent-task-design.md), external eligible tasks and a new frozen panel/sample plan; it was not part of this bounded development run.
+Adopt the concrete prompt/schema and guidance corrections. **Do not recommend prompt-only self-checks as a completion guarantee, claim that LongCat is generally reliable, or claim a research-quality gain.** No further paid sample was appended to this fixed queue. Continue concrete repairs on existing tasks with Astra review; outside task collection and additional reviewer panels are not prerequisites.

@@ -1,0 +1,47 @@
+{
+  "reviews": [
+    {
+      "label": "A",
+      "verdict": "pass",
+      "findings": [],
+      "basis": "Correctly excludes A on first-year cost and B on recovery, and recommends C against all current constraints. It distinguishes forecast growth from current capacity needs, correctly calculates 2 TB of headroom, and identifies unknown expansion cost and recovery time for verification before capacity is reached. Source IDs are cited. The supplied whole-report measurement of 155 words meets the limit."
+    },
+    {
+      "label": "B",
+      "verdict": "pass",
+      "findings": [],
+      "basis": "Correctly identifies the disqualifying constraints for A and B and establishes C's current feasibility. Forecast demand is correctly calculated as 16 TB, distinct from the current 12 TB requirement. The note identifies the necessary expansion pricing and recovery checks without assuming favorable results. Source IDs are cited. The supplied whole-report measurement of 126 words meets the limit."
+    },
+    {
+      "label": "C",
+      "verdict": "needs_revision",
+      "findings": [
+        {
+          "location": "Heading and first paragraph: recommendation and budget comparisons",
+          "problem": "The report reverses the budget tests, incorrectly calling A feasible and C over budget.",
+          "source_evidence": "S1 caps first-year cost at 10 units and prohibits purchasing options exceeding it. S2 gives A a first-year cost of 11 units and C a first-year cost of 8 units. C also meets current recovery, location and capacity requirements.",
+          "required_change": "State that A exceeds the budget, C is within it, and recommend C as the only currently feasible option."
+        },
+        {
+          "location": "First paragraph: 'today’s 14 TB requirement'",
+          "problem": "The report invents a mandatory 2 TB headroom requirement.",
+          "source_evidence": "S1 specifies current storage of 12 TB, with no additional headroom requirement.",
+          "required_change": "Assess current capacity against 12 TB and distinguish available headroom from a required minimum."
+        },
+        {
+          "location": "Second paragraph: forecast arithmetic and expansion checks",
+          "problem": "Forecast demand is incorrectly stated as 18 TB. The claim that capacity becomes binding for A is unsupported, and waiting until demand exceeds 24 TB is inconsistent with checking expansion for the feasible 14 TB option C.",
+          "source_evidence": "S1 gives 12 TB current storage plus forecast growth of 4 TB, totaling 16 TB. S2 gives A 24 TB and C 14 TB; C's expansion price and post-expansion recovery time are unknown.",
+          "required_change": "Use 16 TB forecast demand and explain that it exceeds C's existing capacity. Require verification of expansion cost and recovery compliance before demand exceeds C's 14 TB capacity."
+        }
+      ],
+      "basis": "The supplied 130-word whole-report measurement meets the length limit, and source IDs are cited. However, incorrect budget comparisons, an invented capacity requirement, and erroneous growth reasoning invalidate the recommendation and future-capacity plan."
+    },
+    {
+      "label": "D",
+      "verdict": "pass",
+      "findings": [],
+      "basis": "Correctly states current constraints, excludes A and B for their respective disqualifying failures, and recommends C with accurate cost, recovery, capacity and location information. It explicitly distinguishes forecast growth from current requirements and calls for checking unknown expansion cost and recovery before exceeding 14 TB. Its uncertainty statement matches S2. The supplied whole-report measurement of 147 words meets the limit."
+    }
+  ]
+}

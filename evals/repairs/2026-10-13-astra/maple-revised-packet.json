@@ -1,0 +1,22 @@
+{
+  "task_id": "maple-storage-en",
+  "brief": "Write a 120–170-word English decision note for the fictional Maple records team as of 20 July 2026. Count the complete report, including headings and citations, as whitespace-separated words. Using only S1 and S2, compare the three options against current budget, recovery, location and capacity requirements; recommend the current feasible choice and state what must be checked before future growth exceeds capacity. Distinguish current constraints from forecasts. Cite source IDs. Do not invent preference weights or approved exceptions.",
+  "sources": [
+    {
+      "id": "S1",
+      "text": "Fictional requirements, 20 July 2026. First-year cost including setup must not exceed 10 cost units. Recovery must take no more than 4 hours. All data must stay on premises. Current storage is 12 TB; next-year growth of 4 TB is a forecast, not a current minimum capacity rule. An option exceeding budget or recovery time cannot be purchased under these requirements."
+    },
+    {
+      "id": "S2",
+      "text": "Fictional comparable quotes, 20 July 2026. A costs 8 units annually plus 3 setup, restores in 2 hours, holds 24 TB. B costs 5 annually plus 3 setup, restores in 5 hours, holds 24 TB. C costs 6 annually plus 2 setup, restores in 3 hours, holds 14 TB. All are on premises, with no other first-year fees; recovery tests used the same current dataset. C expansion price and recovery time after expansion are unknown. No comparable reliability or operating-labor data are supplied."
+    }
+  ],
+  "report": "As of 20 July 2026, choose C: it alone meets all current requirements. All options keep data on premises. A costs 11 units including setup, exceeding the 10-unit cap; its two-hour recovery and 24 TB capacity qualify. B costs 8 units and holds 24 TB, but its five-hour recovery exceeds the four-hour limit. C costs 8 units, restores in three hours and holds 14 TB, meeting the budget, recovery and current 12 TB capacity requirements (S1, S2).\n\nC leaves 2 TB spare. The next-year forecast would raise demand to 16 TB, but is not a current minimum (S1). Before capacity is exhausted, obtain an expansion quote and recovery test results and check both against the applicable requirements. Expansion performance, comparative reliability and operating labor remain unestablished (S2).",
+  "length_measurement": {
+    "actual": 127,
+    "min": 120,
+    "max": 170,
+    "unit": "whitespace_words",
+    "scope": "whole_artifact_including_markup_and_citations"
+  }
+}

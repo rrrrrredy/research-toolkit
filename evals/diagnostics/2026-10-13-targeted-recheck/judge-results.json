@@ -1,0 +1,279 @@
+{
+  "requests": 4,
+  "results": [
+    {
+      "task_id": "maple-storage-en",
+      "status": "review_complete",
+      "reviews": [
+        {
+          "label": "A",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "Correctly excludes A on first-year cost and B on recovery, and recommends C against all current constraints. It distinguishes forecast growth from current capacity needs, correctly calculates 2 TB of headroom, and identifies unknown expansion cost and recovery time for verification before capacity is reached. Source IDs are cited. The supplied whole-report measurement of 155 words meets the limit."
+        },
+        {
+          "label": "B",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "Correctly identifies the disqualifying constraints for A and B and establishes C's current feasibility. Forecast demand is correctly calculated as 16 TB, distinct from the current 12 TB requirement. The note identifies the necessary expansion pricing and recovery checks without assuming favorable results. Source IDs are cited. The supplied whole-report measurement of 126 words meets the limit."
+        },
+        {
+          "label": "C",
+          "verdict": "needs_revision",
+          "findings": [
+            {
+              "location": "Heading and first paragraph: recommendation and budget comparisons",
+              "problem": "The report reverses the budget tests, incorrectly calling A feasible and C over budget.",
+              "source_evidence": "S1 caps first-year cost at 10 units and prohibits purchasing options exceeding it. S2 gives A a first-year cost of 11 units and C a first-year cost of 8 units. C also meets current recovery, location and capacity requirements.",
+              "required_change": "State that A exceeds the budget, C is within it, and recommend C as the only currently feasible option."
+            },
+            {
+              "location": "First paragraph: 'today’s 14 TB requirement'",
+              "problem": "The report invents a mandatory 2 TB headroom requirement.",
+              "source_evidence": "S1 specifies current storage of 12 TB, with no additional headroom requirement.",
+              "required_change": "Assess current capacity against 12 TB and distinguish available headroom from a required minimum."
+            },
+            {
+              "location": "Second paragraph: forecast arithmetic and expansion checks",
+              "problem": "Forecast demand is incorrectly stated as 18 TB. The claim that capacity becomes binding for A is unsupported, and waiting until demand exceeds 24 TB is inconsistent with checking expansion for the feasible 14 TB option C.",
+              "source_evidence": "S1 gives 12 TB current storage plus forecast growth of 4 TB, totaling 16 TB. S2 gives A 24 TB and C 14 TB; C's expansion price and post-expansion recovery time are unknown.",
+              "required_change": "Use 16 TB forecast demand and explain that it exceeds C's existing capacity. Require verification of expansion cost and recovery compliance before demand exceeds C's 14 TB capacity."
+            }
+          ],
+          "basis": "The supplied 130-word whole-report measurement meets the length limit, and source IDs are cited. However, incorrect budget comparisons, an invented capacity requirement, and erroneous growth reasoning invalidate the recommendation and future-capacity plan."
+        },
+        {
+          "label": "D",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "Correctly states current constraints, excludes A and B for their respective disqualifying failures, and recommends C with accurate cost, recovery, capacity and location information. It explicitly distinguishes forecast growth from current requirements and calls for checking unknown expansion cost and recovery before exceeding 14 TB. Its uncertainty statement matches S2. The supplied whole-report measurement of 147 words meets the limit."
+        }
+      ]
+    },
+    {
+      "task_id": "brook-rinse-zh",
+      "status": "review_complete",
+      "reviews": [
+        {
+          "label": "A",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "总用水持平、单位箱用水150升降至120升及下降20%的计算正确；合理区分观察结果与喷头因果效果，依据缺少质量证据判断暂不能推广，并提出对照试验及补充数据。保留来源编号，未将未知污渍构成写成已发生的变化。完整报告209个非空白字符，符合长度要求。"
+        },
+        {
+          "label": "B",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "换算及总量、单位箱用水前后数值正确；说明混杂因素、质量证据缺失及推广条件，没有另设绝对用水门槛。下一步与缺失证据均有交代，来源编号和截止日明确。完整报告251个非空白字符，符合长度要求。"
+        },
+        {
+          "label": "C",
+          "verdict": "needs_revision",
+          "findings": [
+            {
+              "location": "S2段：“七月污渍构成、人员、工时同变”",
+              "problem": "把未知的七月污渍构成写成了已经发生的变化。",
+              "source_evidence": "S2仅说明“七月污渍构成未记录，人员与工时同时变化”； brief明确禁止把未知条件写成已发生的变化。",
+              "required_change": "明确七月污渍构成未记录，仅人员与工时已知发生变化。"
+            },
+            {
+              "location": "完整报告长度",
+              "problem": "所供全文长度测量为277个非空白Unicode字符，超过260字符上限。",
+              "source_evidence": "brief要求180—260个非空白Unicode字符，包含完整正文、标题和引文；所供测量标记met为false。",
+              "required_change": "将完整报告压缩至180—260个非空白Unicode字符，同时保留必需内容及来源编号。"
+            }
+          ],
+          "basis": "水量换算、单位箱降幅及暂不推广的结论合理，也提供了下一步和缺失证据；但污渍构成的事实表述违背来源，且全文超长。"
+        },
+        {
+          "label": "D",
+          "verdict": "pass",
+          "findings": [],
+          "basis": "总用水不变及单位箱150升降至120升的计算正确；承认月度非随机数据与混杂因素限制归因，依据缺少清洁质量证据暂缓推广，提出控制条件的同期比较和补录指标。保留来源编号，没有断言未知条件发生变化。完整报告219个非空白字符，符合长度要求。"
+        }
+      ]
+    },
+    {
+      "task_id": "review-profile-zh",
+      "status": "review_complete",
+      "reviews": [
+        {
+          "label": "A",
+          "verdict": "needs_revision",
+          "findings": [
+            {
+              "location": "“评审须读实际定稿与来源……覆盖需求……与过程语言”",
+              "problem": "评审输入未明确包含原始需求，所列评审覆盖遗漏自然表达。",
+              "source_evidence": "S2要求评审阅读实际完整成稿、需求和相关来源，并明确要求覆盖自然表达。",
+              "required_change": "明确将需求交给评审，并补充自然表达检查。"
+            },
+            {
+              "location": "“须更正的问题解决后方可交付，最后跑check_delivery验收”",
+              "problem": "实际验收流程不完整：未要求当前整篇报告通过评估，也未说明交付记录绑定及最终状态；运行检查器还缺少脚本执行可用的条件。",
+              "source_evidence": "S2要求当前报告通过整篇评估，以state/final_delivery.json绑定交付材料、必要输入、评审和交付消息，最终状态为final/complete；脚本执行可用时运行检查器。",
+              "required_change": "补齐这些验收条件，并将检查器执行表述为有条件的步骤。"
+            }
+          ],
+          "basis": "正确选择full与independent，正确解释同用Astra及无需外部人员，保留S1、S2且未声称已执行工具。所给整篇281字符符合长度限制，但评审覆盖和实际验收步骤仍有实质遗漏。"
+        },
+        {
+          "label": "B",
+          "verdict": "needs_revision",
+          "findings": [
+            {
+              "location": "整篇",
+              "problem": "所给整篇长度为945个非空白Unicode字符，超过320字符上限。",
+              "source_evidence": "简报要求操作建议整篇含标题和引文共220—320个非空白Unicode字符；所给测量met为false。",
+              "required_change": "压缩至规定范围，同时保留必要操作建议和来源编号。"
+            },
+            {
+              "location": "上下文安排：“只交换……不共享推理过程”",
+              "problem": "将上下文分离扩展为来源未规定的信息交换禁令。",
+              "source_evidence": "S2要求非作者上下文及阅读完整成稿、需求和相关来源，未规定只能交换哪些信息或禁止共享推理过程。",
+              "required_change": "删除该额外限制，或明确其只是建议而非来源规定。"
+            },
+            {
+              "location": "参考文献",
+              "problem": "为S1、S2添加了所给材料未确认的文件出处。",
+              "source_evidence": "所给来源提供编号和正文标题，没有确认S1来自SKILL.md或S2来自references/subagents-and-review-loop.md。",
+              "required_change": "保留S1、S2及已提供的标题，删除未经支持的文件路径归属。"
+            }
+          ],
+          "basis": "档位、独立上下文、同厂商可用、不得以self替代、主要评审维度及大部分验收流程均有来源支持，也未虚构执行完成。但长度明显不合规，并加入了无来源支持的限制和出处。"
+        },
+        {
+          "label": "C",
+          "verdict": "needs_revision",
+          "findings": [
+            {
+              "location": "整篇",
+              "problem": "所给整篇长度为365个非空白Unicode字符，超过320字符上限。",
+              "source_evidence": "要求整篇220—320字符；所给测量met为false。",
+              "required_change": "压缩至规定范围。"
+            },
+            {
+              "location": "“按S2八项视角……领域specialist……逐项检查”",
+              "problem": "将领域专家检查列为本任务必需项目。",
+              "source_evidence": "S2明确只有任务需要专业方法时才选择领域专家，不应给每份报告附加所有专家。",
+              "required_change": "保留通用评审维度；领域专家仅在确有需要时安排。"
+            },
+            {
+              "location": "上下文安排与验收中的“绑定……版本哈希”",
+              "problem": "未明确评审同时读取需求与两份来源，且将版本绑定具体化为来源未要求的哈希。",
+              "source_evidence": "S2要求评审阅读完整成稿、需求及相关来源；交付记录需绑定当前材料、必要输入、评审和交付消息，并未规定使用版本哈希。",
+              "required_change": "明确评审输入，并用来源支持的版本及交付记录绑定要求替代强制哈希表述。"
+            }
+          ],
+          "basis": "正确选择full与independent，也正确说明新Astra上下文可以评审，无需外部人员或另一家模型；修复及有证据的不采纳处置基本忠实。长度、专家适用条件和输入及绑定说明仍需修订。"
+        },
+        {
+          "label": "D",
+          "verdict": "needs_revision",
+          "findings": [
+            {
+              "location": "“规划阶段……输入与版本绑定；评审需覆盖……”",
+              "problem": "没有说明评审必须直接阅读完整成稿、原始需求与相关来源，而非作者摘要；覆盖清单也未明确过程语言清理。",
+              "source_evidence": "S2明确规定评审的实际阅读输入，并将过程语言检查列为通用评审覆盖内容。",
+              "required_change": "明确交给独立上下文的实际材料，并纳入过程语言检查。"
+            },
+            {
+              "location": "结尾的交付条件",
+              "problem": "仅说明评审通过及修改解决，没有给出用户要求的实际验收操作。",
+              "source_evidence": "S2要求当前整篇评估通过、清理内部过程信息、建立交付绑定记录、达到final/complete状态，并在脚本执行可用时运行交付检查器。",
+              "required_change": "补充可执行的验收步骤，包括当前整篇评估、交付记录及状态核对和有条件的检查器执行。"
+            }
+          ],
+          "basis": "所给整篇241字符符合限制，档位选择、独立性的含义、Astra上下文安排及负评阻止交付的说明正确，保留来源且未虚构执行。但评审输入和实际验收操作覆盖不足。"
+        }
+      ]
+    },
+    {
+      "task_id": "receipt-revision-en",
+      "status": "review_complete",
+      "reviews": [
+        {
+          "label": "A",
+          "verdict": "needs_revision",
+          "findings": [
+            {
+              "location": "Final paragraph: “rerun no unrelated research or specialist scope”",
+              "problem": "Unchanged sources and scope requirements do not exempt task-required specialist reviews from renewed artifact binding.",
+              "source_evidence": "S1 requires the latest review for every declared required scope to pass and carry the current report’s artifact_sha256. A global PASS cannot refresh a required specialist binding.",
+              "required_change": "Distinguish unrelated research and ordinary unit reviews from task-required scopes; require current-artifact reviews for any declared required scopes."
+            },
+            {
+              "location": "Recovery instructions",
+              "problem": "The operational sequence omits Full revision mode, resolution of necessary review findings, and finish.",
+              "source_evidence": "S2 directs Full recovery to call research_review with revision: true, resolve necessary findings, and call finish.",
+              "required_change": "Include these steps rather than ending the recovery sequence at review and resealing."
+            }
+          ],
+          "basis": "Correctly identifies stale review and receipt bindings, rejects resealing alone, preserves the original review, and retains required independence. The supplied whole-report count of 149 meets the range, but the scope exemption and incomplete recovery sequence require revision."
+        },
+        {
+          "label": "B",
+          "verdict": "needs_revision",
+          "findings": [
+            {
+              "location": "Final paragraph: “any unchanged task-required scope reviews”",
+              "problem": "Incorrectly extends the coverage of ordinary unit reviews to explicitly required scopes.",
+              "source_evidence": "S1 says explicitly required scopes remain independent and each latest required review must bind the current artifact. Global coverage of earlier ordinary unit reviews does not remove these requirements.",
+              "required_change": "Require renewed current-artifact reviews for declared required scopes; limit the non-repetition exemption to unrelated research and eligible ordinary unit reviews."
+            },
+            {
+              "location": "First paragraph: “a local recheck or global PASS cannot refresh bindings”",
+              "problem": "The unqualified wording wrongly suggests a new global PASS cannot refresh the global binding.",
+              "source_evidence": "S1 says a local recheck cannot refresh the global binding, while a global PASS cannot refresh a task-required specialist binding.",
+              "required_change": "Identify which binding each action cannot refresh."
+            },
+            {
+              "location": "“Required now” paragraph",
+              "problem": "The recovery sequence omits check-draft and does not retain the task’s explicitly required independent global review.",
+              "source_evidence": "S2 requires check-draft after correction and says independence is required when declared; the brief declares independent global review.",
+              "required_change": "Add check-draft and specify that the revision-mode global review must remain independent."
+            }
+          ],
+          "basis": "Correctly rejects the old receipt and resealing alone, and includes revision mode and finding resolution. The supplied whole-report count of 170 meets the range. Binding errors and missing recovery requirements prevent a pass."
+        },
+        {
+          "label": "C",
+          "verdict": "needs_revision",
+          "findings": [
+            {
+              "location": "“What Work Needs Doing Now?”",
+              "problem": "Recovery is reduced to a new global review and receipt, omitting the source-based recommendation check, affected-claim correction where necessary, check-draft, and the Full revision-and-finish procedure. It also omits the required independence.",
+              "source_evidence": "S2 requires recording the issue and correction, checking the final decision against the same numbers and conditions, correcting affected text and claims, running check-draft, then research_review with revision: true, resolving necessary findings, and calling finish. The brief requires independent global review.",
+              "required_change": "Provide the necessary verification and recovery sequence, retain independent review, and distinguish proposed work from completed work."
+            }
+          ],
+          "basis": "Correctly rejects old coverage and resealing alone, exempts unrelated research, and requires fresh artifact-bound records for declared scopes. The supplied whole-report count of 144 meets the range, but the operational recovery instructions are materially incomplete."
+        },
+        {
+          "label": "D",
+          "verdict": "needs_revision",
+          "findings": [
+            {
+              "location": "Final paragraph",
+              "problem": "Incorrectly says unchanged required scopes remain valid and need no revisiting, and attributes an unsupported unchanged-records exemption to S1.",
+              "source_evidence": "S1 requires current-artifact hashes for the latest global review and every declared required scope. Required scopes remain independent even after a global PASS.",
+              "required_change": "Remove the unsupported attribution and require renewed current-artifact reviews for any declared required scopes, while exempting unrelated research."
+            },
+            {
+              "location": "“check-draft to confirm length and content”",
+              "problem": "Overstates the draft checker’s assurance of content quality.",
+              "source_evidence": "S2 says semantic_quality and delivery_status remain not_assessed; source truth and other requirements still need normal checks.",
+              "required_change": "Describe check-draft as checking its specified prerequisites and length, not validating semantic content."
+            },
+            {
+              "location": "“Work needed now”",
+              "problem": "Does not preserve the original review and record the change or explicitly retain required independent global review.",
+              "source_evidence": "S2 requires preservation of the original review and documentation of the issue, version, passage, evidence, consequence, and correction. Independence is required when declared, as it is in the brief.",
+              "required_change": "Add preservation and change documentation, and specify independent revision-mode global review."
+            }
+          ],
+          "basis": "Correctly explains receipt staleness and why resealing alone fails, and includes revision mode, finding resolution, and finish. The supplied whole-report count of 168 meets the range. The required-scope exemption, checker overclaim, and recovery omissions require revision."
+        }
+      ]
+    }
+  ]
+}

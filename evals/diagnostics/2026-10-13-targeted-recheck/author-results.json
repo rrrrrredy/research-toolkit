@@ -1,0 +1,374 @@
+{
+  "requests": 25,
+  "rows": [
+    {
+      "provider": "deepseek",
+      "task_id": "maple-storage-en",
+      "requests": 1,
+      "status": "parsed",
+      "selected": "initial",
+      "initial_length": {
+        "actual": 130,
+        "min": 120,
+        "max": 170,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "current_length": {
+        "actual": 130,
+        "min": 120,
+        "max": 170,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      }
+    },
+    {
+      "provider": "deepseek",
+      "task_id": "brook-rinse-zh",
+      "requests": 2,
+      "status": "parsed",
+      "selected": "length-revision",
+      "initial_length": {
+        "actual": 419,
+        "min": 180,
+        "max": 260,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": false
+      },
+      "current_length": {
+        "actual": 251,
+        "min": 180,
+        "max": 260,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      }
+    },
+    {
+      "provider": "deepseek",
+      "task_id": "review-profile-zh",
+      "requests": 1,
+      "status": "parsed",
+      "selected": "initial",
+      "initial_length": {
+        "actual": 241,
+        "min": 220,
+        "max": 320,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "current_length": {
+        "actual": 241,
+        "min": 220,
+        "max": 320,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      }
+    },
+    {
+      "provider": "deepseek",
+      "task_id": "receipt-revision-en",
+      "requests": 2,
+      "status": "parsed",
+      "selected": "length-revision",
+      "initial_length": {
+        "actual": 207,
+        "min": 140,
+        "max": 190,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": false
+      },
+      "current_length": {
+        "actual": 149,
+        "min": 140,
+        "max": 190,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      }
+    },
+    {
+      "provider": "glm",
+      "task_id": "maple-storage-en",
+      "requests": 1,
+      "status": "parsed",
+      "selected": "initial",
+      "initial_length": {
+        "actual": 147,
+        "min": 120,
+        "max": 170,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "current_length": {
+        "actual": 147,
+        "min": 120,
+        "max": 170,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      }
+    },
+    {
+      "provider": "glm",
+      "task_id": "brook-rinse-zh",
+      "requests": 1,
+      "status": "parsed",
+      "selected": "initial",
+      "initial_length": {
+        "actual": 209,
+        "min": 180,
+        "max": 260,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "current_length": {
+        "actual": 209,
+        "min": 180,
+        "max": 260,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      }
+    },
+    {
+      "provider": "glm",
+      "task_id": "review-profile-zh",
+      "requests": 1,
+      "status": "parsed",
+      "selected": "initial",
+      "initial_length": {
+        "actual": 281,
+        "min": 220,
+        "max": 320,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "current_length": {
+        "actual": 281,
+        "min": 220,
+        "max": 320,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      }
+    },
+    {
+      "provider": "glm",
+      "task_id": "receipt-revision-en",
+      "requests": 1,
+      "status": "parsed",
+      "selected": "initial",
+      "initial_length": {
+        "actual": 170,
+        "min": 140,
+        "max": 190,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "current_length": {
+        "actual": 170,
+        "min": 140,
+        "max": 190,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      }
+    },
+    {
+      "provider": "longcat",
+      "task_id": "maple-storage-en",
+      "requests": 1,
+      "status": "parsed",
+      "selected": "initial",
+      "initial_length": {
+        "actual": 155,
+        "min": 120,
+        "max": 170,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      },
+      "current_length": {
+        "actual": 155,
+        "min": 120,
+        "max": 170,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      }
+    },
+    {
+      "provider": "longcat",
+      "task_id": "brook-rinse-zh",
+      "requests": 2,
+      "status": "parsed",
+      "selected": "length-revision",
+      "initial_length": {
+        "actual": 588,
+        "min": 180,
+        "max": 260,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": false
+      },
+      "current_length": {
+        "actual": 277,
+        "min": 180,
+        "max": 260,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": false
+      }
+    },
+    {
+      "provider": "longcat",
+      "task_id": "review-profile-zh",
+      "requests": 2,
+      "status": "parsed",
+      "selected": "initial",
+      "initial_length": {
+        "actual": 945,
+        "min": 220,
+        "max": 320,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": false
+      },
+      "revision_status": "failed_original_retained",
+      "current_length": {
+        "actual": 945,
+        "min": 220,
+        "max": 320,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": false
+      }
+    },
+    {
+      "provider": "longcat",
+      "task_id": "receipt-revision-en",
+      "requests": 2,
+      "status": "parsed",
+      "selected": "length-revision",
+      "initial_length": {
+        "actual": 215,
+        "min": 140,
+        "max": 190,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": false
+      },
+      "current_length": {
+        "actual": 168,
+        "min": 140,
+        "max": 190,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      }
+    },
+    {
+      "provider": "kimi",
+      "task_id": "maple-storage-en",
+      "requests": 2,
+      "status": "parsed",
+      "selected": "length-revision",
+      "initial_length": {
+        "actual": 199,
+        "min": 120,
+        "max": 170,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": false
+      },
+      "current_length": {
+        "actual": 126,
+        "min": 120,
+        "max": 170,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      }
+    },
+    {
+      "provider": "kimi",
+      "task_id": "brook-rinse-zh",
+      "requests": 2,
+      "status": "parsed",
+      "selected": "length-revision",
+      "initial_length": {
+        "actual": 584,
+        "min": 180,
+        "max": 260,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": false
+      },
+      "current_length": {
+        "actual": 219,
+        "min": 180,
+        "max": 260,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      }
+    },
+    {
+      "provider": "kimi",
+      "task_id": "review-profile-zh",
+      "requests": 2,
+      "status": "parsed",
+      "selected": "length-revision",
+      "initial_length": {
+        "actual": 552,
+        "min": 220,
+        "max": 320,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": false
+      },
+      "current_length": {
+        "actual": 365,
+        "min": 220,
+        "max": 320,
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": false
+      }
+    },
+    {
+      "provider": "kimi",
+      "task_id": "receipt-revision-en",
+      "requests": 2,
+      "status": "parsed",
+      "selected": "length-revision",
+      "initial_length": {
+        "actual": 263,
+        "min": 140,
+        "max": 190,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": false
+      },
+      "current_length": {
+        "actual": 144,
+        "min": 140,
+        "max": 190,
+        "unit": "whitespace_words",
+        "scope": "whole_report_including_markup_and_citations",
+        "met": true
+      }
+    }
+  ]
+}
