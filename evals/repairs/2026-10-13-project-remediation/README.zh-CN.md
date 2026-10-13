@@ -2,6 +2,8 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
+完成状态更新：[同提交 CI 记录](commit-verification.json)已关闭终审中的安装验证项 PV01。实现提交 `5861de3` 的 Linux、Windows、最低 Python 版本及安装检查均通过；数据整改已合并至 [PR #4](https://github.com/rrrrrredy/agent-trajectory-data/pull/4)。下方提交前记录保留当时状态。
+
 [项目整改映射](../../../docs/correction-audit-2026-10-13.zh-CN.md)定义本次范围，覆盖两个公开仓库的方法、安装指令、实际执行和评测输入。管线报告的R01–R13仍是一个任务的要求。
 
 单独上下文Astra的[首次项目审计](initial-project-audit.md)发现八项具体整改，其中Lite错误完成已[实际复现](lite-before.json)。当前运行时检查拒绝该状态，并允许完成已解决的任务。[集合盘点](collection-inventory.json)记录当前各集合路径、归档行类型及79个公开附件名称；任务复用和版本之间存在交叉。

@@ -2,6 +2,8 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
+Completion update: the [commit-matched CI receipt](commit-verification.json) closes installation item PV01 from the final review. Linux, Windows, minimum Python and the installation check passed on implementation commit `5861de3`; the data correction is merged in [PR #4](https://github.com/rrrrrredy/agent-trajectory-data/pull/4). The pre-commit findings below retain their original timing.
+
 The [project correction map](../../../docs/correction-audit-2026-10-13.md) defines the scope. Toolkit methods, installed instructions, actual execution and evaluation inputs are inspected across both public repositories. The pipeline report’s R01–R13 remain one task’s requirements.
 
 The separate-context Astra [initial project audit](initial-project-audit.md) found eight concrete corrections, including an actually reproduced Lite false completion ([before](lite-before.json)). Current runtime checks reject that state and accept resolved work. The [collection inventory](collection-inventory.json) records all current collection paths, archive row types and the 79 published asset names; counts overlap by task reuse and version.

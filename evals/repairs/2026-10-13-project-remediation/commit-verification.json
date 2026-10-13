@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-13",
+  "resolves": "PV01 in final-project-review.json",
+  "reviewed_code_commit": "5861de3fcf6a065b68f169142f51ab7a3b4aa3d5",
+  "workflow_url": "https://github.com/rrrrrredy/research-toolkit/actions/runs/38373513280",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "id": 115216039683,
+      "name": "validate",
+      "conclusion": "success"
+    },
+    {
+      "id": 115216040029,
+      "name": "windows-runtime",
+      "conclusion": "success"
+    },
+    {
+      "id": 115216040395,
+      "name": "minimum-python",
+      "conclusion": "success"
+    }
+  ],
+  "installation_check": {
+    "name": "Check installation comparison",
+    "status": "completed",
+    "conclusion": "success",
+    "number": 15
+  },
+  "data_pr": {
+    "url": "https://github.com/rrrrrredy/agent-trajectory-data/pull/4",
+    "merged": true,
+    "commit": "693840d040057e66bd526583ecdc53aa6ad5e886",
+    "affected_tests": 90
+  },
+  "scope": "Completes the same-commit installation and software verification required by the source review. The first review, pre-commit snapshot, original negative judgments and failures remain unchanged. This receipt records the tested implementation commit; the following commit only adds this receipt and its bilingual navigation."
+}
