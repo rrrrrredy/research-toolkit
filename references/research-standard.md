@@ -7,7 +7,7 @@ The [Skill entry point](../SKILL.md) routes each stage to the applicable parts o
 Research Toolkit guides AI agents through substantial research and report writing. It covers scope, source analysis, progress records, section-by-section drafting, review, and revision. Evidence and execution records stay in the task files; the finished report presents the argument, analysis, and supporting sources. The toolkit does not include a scraper, data source, or fixed report template.
 
 
-**Profile scope:** Full review/delivery requirements on this page apply to Full. Lite retains the brief, claims, section drafting and final checklist with explicit review/gate skip logs. New Full tasks without a backend may use degraded self-review; non-author-context requirements apply to external/independent tiers and explicitly independent tasks, never to a self-review relabelled independent. Frozen evaluations retain their original protocol. Use the [Skill profile rules](../SKILL.md#choosing-a-profile).
+**Profile scope:** Full review/delivery requirements on this page apply to Full. Lite retains the brief, claims, section drafting and final checklist with explicit review/gate skip logs. New Full tasks without a backend may use degraded self-review; non-author-context requirements apply to external/independent tiers and tasks explicitly requiring independent review, never to a self-review relabelled independent. Frozen evaluations retain their original protocol. Use the [Skill profile rules](../SKILL.md#choosing-a-profile).
 
 ## 1. Motivation
 

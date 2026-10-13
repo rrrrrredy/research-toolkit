@@ -5,7 +5,7 @@
 Use this reference when assigning research reviews. [SKILL.md](../SKILL.md) defines the protocol; this file gives role instructions and working methods. The main author owns the argument and synthesis.
 
 
-**Profile scope:** Full review/delivery requirements on this page apply to Full. Lite retains the brief, claims, section drafting and final checklist with explicit review/gate skip logs. New Full tasks without a backend may use degraded self-review; non-author-context requirements apply to external/independent tiers and explicitly independent tasks, never to a self-review relabelled independent. Frozen evaluations retain their original protocol. Use the [Skill profile rules](../SKILL.md#choosing-a-profile).
+**Profile scope:** Full review/delivery requirements on this page apply to Full. Lite retains the brief, claims, section drafting and final checklist with explicit review/gate skip logs. New Full tasks without a backend may use degraded self-review; non-author-context requirements apply to external/independent tiers and tasks explicitly requiring independent review, never to a self-review relabelled independent. Frozen evaluations retain their original protocol. Use the [Skill profile rules](../SKILL.md#choosing-a-profile).
 
 Independent review means a review context separate from the author, not an outside organization or a different model vendor. A fresh Astra context can provide that review, including when the author also uses Astra. Use the reviewer count required by the task; do not add a fixed panel.
 

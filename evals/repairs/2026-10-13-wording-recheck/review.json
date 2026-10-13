@@ -1,0 +1,80 @@
+{
+  "assessment": "Fresh-context targeted recheck of four real independent tasks using constructed source material",
+  "method": "Judge each candidate independently against only the supplied task and evidence; factual correctness and task fulfillment are both relevant, and no paired pass/fail assumption is used.",
+  "cases": [
+    {
+      "id": "case-1",
+      "A": {
+        "judgment": "flawed",
+        "reasons": [
+          "The stated decision rule permits supervised trial when the fixed 200-case evaluation has zero severe errors and at least a 95% pass rate. The supplied 196/200 passes equal 98%, with zero severe errors, so that decision can be made.",
+          "A substitutes an unsupported requirement to establish zero real-world risk through unlimited testing. The inability to prove zero real-world error does not make the explicitly defined supervised-trial gate indeterminate."
+        ]
+      },
+      "B": {
+        "judgment": "acceptable",
+        "reasons": [
+          "B correctly calculates 196/200 as 98% and applies the stated zero-severe-error and at-least-95% thresholds to allow supervised trial.",
+          "B preserves the evidence's scope: passing this gate is neither approval for formal production deployment nor proof of a zero real-world error rate."
+        ]
+      }
+    },
+    {
+      "id": "case-2",
+      "A": {
+        "judgment": "acceptable",
+        "reasons": [
+          "The opening immediately conveys the key contrast for a reader with two minutes: halving order-entry time in group A did not reduce two-day turnaround, while removing a one-day duplicate approval in group B reduced turnaround to one day without faster order entry.",
+          "Prioritizing investigation of approval waiting for the next pilot is a proportionate practical inference from this comparison, rather than a claim that the result is universal.",
+          "A explicitly retains the two-stores-per-group limitation and limits the implication to selecting the next pilot's focus."
+        ]
+      },
+      "B": {
+        "judgment": "flawed",
+        "reasons": [
+          "The task expressly requires the opening to present the most important finding first. B withholds all substantive differences in entry time, approval time, and total turnaround and directs the reader to later sections.",
+          "Most of the opening describes the audience, research topic, and intended article sequence. This does not meet the time-constrained operator's need, even though the sample-size caution is accurate.",
+          "The defect is omission and organization relative to the requested opening, not a fabricated empirical claim."
+        ]
+      }
+    },
+    {
+      "id": "case-3",
+      "A": {
+        "judgment": "flawed",
+        "reasons": [
+          "A correctly states the common one-seat, one-month comparison, the two prices, the 25-execution break-even point, the direction of savings above and below it, and the missing usage-distribution limitation.",
+          "However, the requested deliverable is directly publishable product-pricing analysis without explanations of writing or review arrangements. Phrases describing what this paragraph first lists, why the boundary is retained, what must be reminded at this point, and how the treatment completes the analysis expose composition commentary instead of presenting finished analysis.",
+          "Thus factual accuracy does not resolve A's explicit deliverable and presentation mismatch."
+        ]
+      },
+      "B": {
+        "judgment": "acceptable",
+        "reasons": [
+          "B directly presents the finished pricing analysis in the stipulated unit: one seat over one month. With A costing 100 and B costing 50 + 2 times executions, 25 executions costs 100 for both; A is cheaper above 25 and B below 25.",
+          "Given the stipulated equality of features and other charges, identifying usage rather than the lowest base monthly fee as the relevant price-selection factor is supported.",
+          "B correctly declines to infer which plan saves most customers money without an actual usage distribution and does not include writing-process commentary."
+        ]
+      }
+    },
+    {
+      "id": "case-4",
+      "A": {
+        "judgment": "acceptable",
+        "reasons": [
+          "A accurately connects the 2020 on-demand route, the 2022 daily-refresh cache, and the 2024 coexistence of the two routes, retaining the 100 ms request latency and the 20 ms cache-hit qualifier.",
+          "It explains the mechanism behind the branch: cache-hit latency improves at the cost of within-day freshness, so changing prices remain on A while a daily catalog can use B.",
+          "It identifies matching workload update requirements to each route as what enabled the stated deployment, avoids claiming replacement or universal superiority, and limits the numerical evidence to the stated workload."
+        ]
+      },
+      "B": {
+        "judgment": "flawed",
+        "reasons": [
+          "The timeline faithfully lists the supplied dates, metrics, and 2024 assignments, but the task asks for an explanation of route change, branching, and what enabled adoption.",
+          "B does not explain the latency-versus-freshness tradeoff or why intraday prices retain on-demand computation while a daily catalog can use the daily cache. Generic remarks about milestones and continued evolution do not supply those causal connections.",
+          "Its failure is insufficient explanatory coverage, despite the factual accuracy of its timeline; chronological tabulation itself is not the problem."
+        ]
+      }
+    }
+  ]
+}

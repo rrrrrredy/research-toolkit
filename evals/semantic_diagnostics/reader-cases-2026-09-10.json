@@ -4,7 +4,7 @@
   "labels": "author_proposed_uncalibrated",
   "held_out": false,
   "automatic_quality_scoring": false,
-  "notice": "Three new, synthetic reader-review pairs abstracted from reported failure types. No private report text, companies, citations or runtime logs are reproduced. These are unreviewed author proposals, not additional real tasks or measured detection results. Historical catalogs and model reviews are unchanged.",
+  "notice": "Three real independent reader-review tasks use constructed source scenarios. Their original author-proposed labels and subsequent review/revision records remain separately retained. Constructed evidence does not make the tasks or executed tests unreal. Repeated versions are not additional task identities.",
   "cases": [
     {
       "id": "opening_buries_main_findings_zh",

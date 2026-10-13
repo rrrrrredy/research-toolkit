@@ -1,0 +1,117 @@
+{
+  "recorded_at_utc": "2026-10-13T07:07:39.532761+00:00",
+  "access_date": "2026-10-13",
+  "sources": [
+    {
+      "source_id": "S01",
+      "local_original": "output/pipeline-sources/codex-card.original",
+      "bytes": 259799,
+      "original_sha256": "066d1d99a6c812207754fb2d7c6904509d252275994d30dc054931d04fbfa695",
+      "text_sha256": "b51bd49fca427ac2903fc4bbb95abce35f1973f4ac8d6b908949b066a91870e6",
+      "sections_read_by_author": "Introduction and evaluation sections",
+      "reviewer_access": "complete downloaded original and extracted text, not limited to author notes",
+      "acquired_before_receipt": true
+    },
+    {
+      "source_id": "S02",
+      "local_original": "output/pipeline-sources/claude-4.original",
+      "bytes": 4876911,
+      "original_sha256": "48d4d98c5767d02308ba68b595e344c4fd53fbef11f0f9ac351e8752a9129764",
+      "text_sha256": "a3844118ed06d577b36fb6b51adb3c90bd70ea97b95eeec6d387f1bc8a3f8936",
+      "sections_read_by_author": "1.1 training and crowd workers; 1.2 release process",
+      "reviewer_access": "complete downloaded original and extracted text, not limited to author notes",
+      "acquired_before_receipt": true
+    },
+    {
+      "source_id": "S03",
+      "local_original": "output/pipeline-sources/gemini-25.original",
+      "bytes": 677243,
+      "original_sha256": "c92641e2a1ae7d80f6029871eb65b2d7c6ef32fb6f833f91c317121720264471",
+      "text_sha256": "cd5607ec1b9a93dfe7b9b1c9e33d34db04d3b9879a5ac74bd0501b61970cdc12",
+      "sections_read_by_author": "2.1–2.6; evaluation contamination; contributors",
+      "reviewer_access": "complete downloaded original and extracted text, not limited to author notes",
+      "acquired_before_receipt": true
+    },
+    {
+      "source_id": "S04",
+      "local_original": "output/pipeline-sources/deepseek-v3.original",
+      "bytes": 549949,
+      "original_sha256": "0768b63dd7e9cb632e71002c823275cf018a49dd3053ea9663c9c5a58eaee4a2",
+      "text_sha256": "b4519f30d8d8ce3a0be5e369166c9a9e2009837a8829bfb17c93b22e7c4e10e6",
+      "sections_read_by_author": "1; 3 infrastructure; 4 data; 5 post-training; Appendix A",
+      "reviewer_access": "complete downloaded original and extracted text, not limited to author notes",
+      "acquired_before_receipt": true
+    },
+    {
+      "source_id": "S05",
+      "local_original": "output/pipeline-sources/kimi-k2.original",
+      "bytes": 506895,
+      "original_sha256": "3a82bda126c0f429a3e04d6709c1a7f81dbd3e02230928d4288215ca70f4dbb8",
+      "text_sha256": "b454428296a4d1b0869c52e98332530d639b341727872fd62fb7b574f64529a8",
+      "sections_read_by_author": "2 pretraining; 3 post-training; Appendix A",
+      "reviewer_access": "complete downloaded original and extracted text, not limited to author notes",
+      "acquired_before_receipt": true
+    },
+    {
+      "source_id": "S06",
+      "local_original": "output/pipeline-sources/minimax-m1.original",
+      "bytes": 248460,
+      "original_sha256": "3424f9407a61bfb4e9c9ebb51b96095a56ec965ed992dbf1cfe903a19865c9fd",
+      "text_sha256": "dfee36824b0e40b7bb1ffce04becbe0273f961687bfe377abc974ce7ccb42141",
+      "sections_read_by_author": "1–4: continual pretraining, SFT, RL and environments",
+      "reviewer_access": "complete downloaded original and extracted text, not limited to author notes",
+      "acquired_before_receipt": true
+    },
+    {
+      "source_id": "S07",
+      "local_original": "output/pipeline-sources/seed-2.original",
+      "bytes": 12967312,
+      "original_sha256": "2e5654744368514e843864bb149cd24704b847e0417d494a5e827286ca39fe55",
+      "text_sha256": "e325e121bb3d1e49372db5090d4d6cd976d64bd784bd4b31ef7c35e7f77d884c",
+      "sections_read_by_author": "1–3 and evaluation framework",
+      "reviewer_access": "complete downloaded original and extracted text, not limited to author notes",
+      "acquired_before_receipt": true
+    },
+    {
+      "source_id": "S08",
+      "local_original": "output/pipeline-sources/hy3.original",
+      "bytes": 10020,
+      "original_sha256": "cb32ee10a742f6fc7659f833bab7011a380e9ded5a0295fb7566de958d9d6678",
+      "text_sha256": "8748ec24eb60b38d3191d78951cd3f21ea25c38e39336f24f97425b61cf6bbca",
+      "sections_read_by_author": "Model introduction, product feedback, deployment and RL sections",
+      "reviewer_access": "complete downloaded original and extracted text, not limited to author notes",
+      "acquired_before_receipt": true
+    },
+    {
+      "source_id": "S10",
+      "local_original": "output/pipeline-sources/anthropic-rl-jobs.original",
+      "bytes": 100838,
+      "original_sha256": "69b49f41bb8f693b896f6eeb8afa8bc175183022d80f4fc05774acc8f48361b5",
+      "text_sha256": "65e2afef13f99d9829c11db277fcc8b8292c6bbd1f29f149b8224351d84b1c6d",
+      "sections_read_by_author": "Team description, responsibilities and representative projects",
+      "reviewer_access": "complete downloaded original and extracted text, not limited to author notes",
+      "acquired_before_receipt": true
+    },
+    {
+      "source_id": "S13",
+      "local_original": "output/pipeline-sources/tencent-launch.original",
+      "bytes": 167471,
+      "original_sha256": "b61145fde7a852726ec486cf5c86e837571eb50f9639403d9d332456092f5941",
+      "text_sha256": "9acd3e142c54839e222cd5a578f40fd10bf4a754d73a65774de2d7433e2c02c1",
+      "sections_read_by_author": "Full release article",
+      "reviewer_access": "complete downloaded original and extracted text, not limited to author notes",
+      "acquired_before_receipt": true
+    }
+  ],
+  "web_read_sources": [
+    "S09",
+    "S11",
+    "S12",
+    "S14",
+    "S15",
+    "S16"
+  ],
+  "web_read_method": "Actual browser-search tool page reads; source URLs and observed dates in sources.md. No local original-byte hash claimed for these pages. Reviewer may access their original URLs.",
+  "original_case": "model_company_pipeline_long_horizon_zh",
+  "scope": "A separately retained named-company completion of the original pipeline task. Eight named companies were selected for this research, not decoded from anonymous A–H. All 13 original requirements retained."
+}

@@ -1,0 +1,172 @@
+{
+  "canonical_task": "/root/astra_pipeline_final",
+  "requested_model": "gpt-6-astra",
+  "fresh_context": true,
+  "reviewer_inputs": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\evals\\conversation_packs\\model_company_pipeline_long_horizon_zh\\user_turns.jsonl",
+      "sha256": "683de3611e153bd0779dc1d44bc38dca709ce60d978d4c5cd4579725a516ffba",
+      "access": "complete text read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\evals\\repairs\\2026-10-13-pipeline-complete\\report.zh-CN.md",
+      "sha256": "16ba08836505aef9a9a21e08bb465ca0a1b597388bcbaefc7ef3693542ae4e51",
+      "access": "complete text read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\evals\\repairs\\2026-10-13-pipeline-complete\\sources.md",
+      "sha256": "19346729182a966e8410526d7dc9d21677e912b57c0027b18ef6fb3f378bab88",
+      "access": "complete text read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\evals\\repairs\\2026-10-13-pipeline-complete\\source-receipt.json",
+      "sha256": "f7e3407f316f6c860503b4b2d0408f6aefef67fe519bc69398ab4392a131437e",
+      "access": "complete text read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\evals\\repairs\\2026-10-13-pipeline-complete\\progress.jsonl",
+      "sha256": "b57f69ea169181598ba7a94e1c563f7e223f55e71c2d31cfb25e1df59ec15e27",
+      "access": "complete text read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\codex-card.original",
+      "sha256": "066d1d99a6c812207754fb2d7c6904509d252275994d30dc054931d04fbfa695",
+      "access": "complete byte hash verification; semantic review via corresponding extracted text"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\codex-card.txt",
+      "sha256": "b51bd49fca427ac2903fc4bbb95abce35f1973f4ac8d6b908949b066a91870e6",
+      "access": "relevant sections and surrounding context read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\claude-4.original",
+      "sha256": "48d4d98c5767d02308ba68b595e344c4fd53fbef11f0f9ac351e8752a9129764",
+      "access": "complete byte hash verification; semantic review via corresponding extracted text"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\claude-4.txt",
+      "sha256": "a3844118ed06d577b36fb6b51adb3c90bd70ea97b95eeec6d387f1bc8a3f8936",
+      "access": "relevant sections and surrounding context read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\gemini-25.original",
+      "sha256": "c92641e2a1ae7d80f6029871eb65b2d7c6ef32fb6f833f91c317121720264471",
+      "access": "complete byte hash verification; semantic review via corresponding extracted text"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\gemini-25.txt",
+      "sha256": "cd5607ec1b9a93dfe7b9b1c9e33d34db04d3b9879a5ac74bd0501b61970cdc12",
+      "access": "relevant sections and surrounding context read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\deepseek-v3.original",
+      "sha256": "0768b63dd7e9cb632e71002c823275cf018a49dd3053ea9663c9c5a58eaee4a2",
+      "access": "complete byte hash verification; semantic review via corresponding extracted text"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\deepseek-v3.txt",
+      "sha256": "b4519f30d8d8ce3a0be5e369166c9a9e2009837a8829bfb17c93b22e7c4e10e6",
+      "access": "relevant sections and surrounding context read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\kimi-k2.original",
+      "sha256": "3a82bda126c0f429a3e04d6709c1a7f81dbd3e02230928d4288215ca70f4dbb8",
+      "access": "complete byte hash verification; semantic review via corresponding extracted text"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\kimi-k2.txt",
+      "sha256": "b454428296a4d1b0869c52e98332530d639b341727872fd62fb7b574f64529a8",
+      "access": "relevant sections and surrounding context read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\minimax-m1.original",
+      "sha256": "3424f9407a61bfb4e9c9ebb51b96095a56ec965ed992dbf1cfe903a19865c9fd",
+      "access": "complete byte hash verification; semantic review via corresponding extracted text"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\minimax-m1.txt",
+      "sha256": "dfee36824b0e40b7bb1ffce04becbe0273f961687bfe377abc974ce7ccb42141",
+      "access": "relevant sections and surrounding context read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\seed-2.original",
+      "sha256": "2e5654744368514e843864bb149cd24704b847e0417d494a5e827286ca39fe55",
+      "access": "complete byte hash verification; semantic review via corresponding extracted text"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\seed-2.txt",
+      "sha256": "e325e121bb3d1e49372db5090d4d6cd976d64bd784bd4b31ef7c35e7f77d884c",
+      "access": "relevant sections and surrounding context read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\hy3.original",
+      "sha256": "cb32ee10a742f6fc7659f833bab7011a380e9ded5a0295fb7566de958d9d6678",
+      "access": "complete byte hash verification; semantic review via corresponding extracted text"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\hy3.txt",
+      "sha256": "8748ec24eb60b38d3191d78951cd3f21ea25c38e39336f24f97425b61cf6bbca",
+      "access": "relevant sections and surrounding context read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\anthropic-rl-jobs.original",
+      "sha256": "69b49f41bb8f693b896f6eeb8afa8bc175183022d80f4fc05774acc8f48361b5",
+      "access": "complete byte hash verification; semantic review via corresponding extracted text"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\anthropic-rl-jobs.txt",
+      "sha256": "65e2afef13f99d9829c11db277fcc8b8292c6bbd1f29f149b8224351d84b1c6d",
+      "access": "relevant sections and surrounding context read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\tencent-launch.original",
+      "sha256": "b61145fde7a852726ec486cf5c86e837571eb50f9639403d9d332456092f5941",
+      "access": "complete byte hash verification; semantic review via corresponding extracted text"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\tencent-launch.txt",
+      "sha256": "9acd3e142c54839e222cd5a578f40fd10bf4a754d73a65774de2d7433e2c02c1",
+      "access": "relevant sections and surrounding context read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\kimi-release.txt",
+      "sha256": "feb8db9ee076dbe58f276a5931927feee15e8b2ed6c872d4cd769a9e1a1fd1f5",
+      "access": "relevant sections and surrounding context read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\minimax-release.txt",
+      "sha256": "eec6d6395a0d79d868564b327316603d48e34b1a26444f5cba68d1fda53eab66",
+      "access": "relevant sections and surrounding context read"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\pipeline-sources\\deepseek-release.txt",
+      "sha256": "2d1429736ed91e1b1c08464a01cb4d527acf8c5ca1247ab10a8d30105fba8763",
+      "access": "relevant sections and surrounding context read"
+    }
+  ],
+  "reviewer_web_inputs": [
+    "https://www.yicai.com/news/102481945.html",
+    "https://companies.caixin.com/2025-12-18/102394533.html",
+    "https://www.anthropic.com/news/claude-4",
+    "https://technode.com/2026/07/07/tencent-launches-hunyuan-hy3-integrates-model-across-multiple-products/",
+    "https://github.com/deepseek-ai/DeepSeek-V3/issues/994",
+    "https://openai.com/index/introducing-codex/",
+    "https://blog.google/products/gemini/gemini-2-5-model-family-expands/",
+    "https://seed.bytedance.com/en/seed_model_portfolio",
+    "https://seed.bytedance.com/blog/seed-2-0-official-launch",
+    "https://platform.kimi.ai/blog/posts/changelog",
+    "https://www.minimax.io/news/minimaxm1",
+    "https://deepseek.com/en/news/deepseek-v3/"
+  ],
+  "web_verification_note": "网页通过web工具直接读取或检索；Seed portfolio直接open报错，随后官方域搜索返回该页发布节点及官方发布正文。网页无本地字节快照，未编造网页SHA-256。",
+  "author_conversation_history_received": false,
+  "prior_review_verdicts_or_labels_received": false,
+  "excluded_inputs": [
+    "reviews/01*",
+    "versions/01*",
+    "作者对话历史"
+  ],
+  "stage_record_note": "按任务指定读取progress.jsonl，其中可见旧阶段快照的任务名和旧哈希；没有读取其对应审查输出或旧标签。",
+  "review_scope": "逐项核验原始R01–R13、当前具名八家公司正文、来源原文相关章节、版本哈希及篇幅；无正文修改、无提交或合并。",
+  "created_at_utc": "2026-10-13T07:18:33.676Z"
+}

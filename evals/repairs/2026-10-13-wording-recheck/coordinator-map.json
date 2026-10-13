@@ -1,0 +1,26 @@
+[
+  {
+    "id": "case-1",
+    "case_id": "valid_pilot_acceptance_zh",
+    "A": "bad",
+    "B": "control"
+  },
+  {
+    "id": "case-2",
+    "case_id": "opening_buries_main_findings_zh",
+    "A": "control",
+    "B": "bad"
+  },
+  {
+    "id": "case-3",
+    "case_id": "editorial_voice_crowds_out_argument_zh",
+    "A": "bad",
+    "B": "control"
+  },
+  {
+    "id": "case-4",
+    "case_id": "timeline_inventory_without_explanation_en",
+    "A": "control",
+    "B": "bad"
+  }
+]

@@ -98,10 +98,16 @@ def load_reader_revisions():
                       .read_text(encoding='utf-8'))
 
 
+def load_wording_revisions():
+    return json.loads((ROOT / 'evals/semantic_diagnostics/wording-revisions-2026-10-13.json')
+                      .read_text(encoding='utf-8'))
+
+
 def load_catalog():
     """Current development view; raw historical files are never overwritten."""
     current = apply_revisions(load_history(), load_revisions())
     current.extend(apply_revisions(load_reader_history(), load_reader_revisions()))
+    current = apply_revisions(current, load_wording_revisions())
     validate_catalog(current)
     return current
 
@@ -269,6 +275,7 @@ class DiagnosticDataTests(unittest.TestCase):
         history={c['id']:c for _,d in load_history() for c in d['cases']}
         current={c['id']:c for _,d in load_catalog() for c in d['cases']}
         revised={r['case_id'] for r in load_revisions()['revisions']}
+        revised.update(r['case_id'] for r in load_wording_revisions()['revisions'])
         self.assertTrue(set(history) <= set(current))
         self.assertEqual(len(set(current) - set(history)), 3)
         for identifier in history.keys()-revised: self.assertEqual(history[identifier],current[identifier])
@@ -303,13 +310,14 @@ class DiagnosticDataTests(unittest.TestCase):
             current = load_catalog()[-1][1]['cases']
         self.assertEqual(history, before)
         self.assertEqual(len(current), len(before[0][1]['cases']))
-        for original, revised in zip(before[0][1]['cases'], current):
-            if original['id'] == 'editorial_voice_crowds_out_argument_zh':
-                self.assertEqual(revised['revision_id'], original['id'] + '_r2')
-                self.assertEqual(revised['critical_fact_failure'], original['critical_fact_failure'])
-                self.assertNotEqual(revised['evidence'], original['evidence'])
-            else:
-                self.assertEqual(revised, original)
+        prior = apply_revisions(before, load_reader_revisions())[0][1]['cases']
+        for original, revised in zip(prior, current):
+            self.assertEqual(revised['revision_id'], original['id'] + '_r3')
+            for field in ('id', 'bad', 'control', 'expected_failure', 'control_boundary', 'critical_fact_failure'):
+                self.assertEqual(revised[field], original[field])
+            self.assertEqual(revised['evidence'], original['evidence']
+                             .replace('虚构任务', '任务（来源材料为构造情境）')
+                             .replace('Fictional task:', 'Task using constructed source material:'))
 
 if __name__ == '__main__':
     if sys.argv[1:]==['--show-current']:

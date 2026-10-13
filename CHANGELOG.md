@@ -8,6 +8,14 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 No pending changes.
 
+## v0.2.6 — 2026-10-13
+
+Complete named-company research, public data scope and current task/reviewer policy. [Release notes](docs/releases/v0.2.6.md).
+
+- Complete the 5,244-character pipeline report; fresh-context Astra passes R01–R13, with first-review revisions and versions retained.
+- Correct bilingual current-case wording, guidance and runtime prompts; perform an Astra blind recheck of four changed inputs and synchronize web/plugin payloads.
+- Publish the associated data repository; all 19 releases and 79 assets pass anonymous access checks. Update public scope for historical development and paired-study records.
+
 ## v0.2.5 — 2026-10-13
 
 Complete-report rerun, evaluation reviewer correction and synchronized installation payload. [Release notes](docs/releases/v0.2.5.md).
@@ -44,7 +52,7 @@ Reliability fixes, draft preflight, simpler review/repair and synchronized bilin
 
 - Pin reviewer/auditor instructions in new workflow review plans so reference upgrades do not invalidate pending recovery or repeat completed reviews. Ordinary explicit revisions adopt current instructions; frozen evaluations and legacy version checks retain their boundaries.
 
-- Add opt-in development protocol v2 with predeclared report/notes parsing, model aliases, format options, failure categories, code-bound freezes, request ceilings and secondary A/B swaps. Supply five exposed fictional task families and separate length-matched judge controls; preserve historical inputs and results. No new model calls or quality claims.
+- Add opt-in development protocol v2 with predeclared report/notes parsing, model aliases, format options, failure categories, code-bound freezes, request ceilings and secondary A/B swaps. Supply five exposed real task families using constructed source materials and separate length-matched judge controls; preserve historical inputs and results. No new model calls or quality claims.
 
 - Add a bilingual improvement plan covering reliability, usability, methods, masking, task design and feedback. Share local task locks across CLI/MCP/Python, retain invalid-encoding reviewer bytes without misclassifying execution, add Windows runtime CI, and correct Chinese reference links.
 

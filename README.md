@@ -4,7 +4,7 @@
 
 [English](./README.md) · [简体中文](./README.zh-CN.md)
 
-Existing user and development tasks are independent tasks, and tests actually executed are real tests. Development use, publication and reuse do not change task identity; distinguish tasks by their research questions. Preserve the supplied sources and data, and report execution counts and outcomes from actual run records.
+Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
 
 **Help AI agents write research reports with concrete judgments, traceable sources, and explicit review choices.**
 
@@ -74,7 +74,7 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 
 Restart the client and confirm the seven `research_*` tools appear. If `python` is not on the client's PATH, use the absolute executable path shown by `python -c "import sys; print(sys.executable)"`. Windows JSON paths can use forward slashes. [Client documentation and troubleshooting](./docs/usage-modes.md#connect-mcp-separately).
 
-**A captured Full example with self-review.** Lite skips review; this small fictional Full task demonstrates the review call without an external account. The agent supplies the report and evidence files between guidance and review.
+**A captured Full example with self-review.** Lite skips review; this small real Full task using fictional source material demonstrates the review call without an external account. The agent supplies the report and evidence files between guidance and review.
 
 | Call | Input excerpt | Actual response excerpt |
 | --- | --- | --- |
@@ -217,7 +217,7 @@ Your agent performs retrieval, reading, analysis, and writing with its own capab
 | Experiment groups | Control design | Blind-review scope and limits | Core conclusion |
 | --- | --- | --- | --- |
 | [2 public development pairs](./evals/diagnostics/2026-09-07/calibration-provenance.json), 4 original reports | With/without toolkit; toolkit first in both tasks | Development diagnostics and later repair reviews; no blinded efficacy result | Useful evidence alongside weaknesses in conclusion priority, reader navigation and evidence use. |
-| [11 retained historical families](./docs/evaluation-status.md), 22 review inputs | Historical paired study; author failures retained, supplemental runs separate | Private aggregates; public material does not establish blinded execution | Primary view: both arms had necessary defects in 5 families; 6 were unresolved. Useful for development feedback. |
+| [11 retained historical families](./docs/evaluation-status.md), 22 review inputs | Historical paired study; author failures retained, supplemental runs separate | Historical study records; see archived inputs and masking limitations | Primary view: both arms had necessary defects in 5 families; 6 were unresolved. Useful for development feedback. |
 | [5 shared task families × 4 author models](./evals/studies/2026-10-10-lite-four-models/README.md) | Same-model, same-brief fixed sources; seeded run order and A/B labels | One label-masked LLM judge per usable pair; report clues and execution failures retained | All 20 model–task pairs have judgments; preferences vary. Original failures and supplemental results remain separate. |
 | [23 synthetic bad/control pairs](./evals/semantic_diagnostics/) | Short failure-mode excerpts, not complete report comparisons | [Available model diagnoses](./evals/semantic_diagnostics/reviews/2026-09-08/) retain missed defects and disagreements | They locate review weaknesses and support regression work, not toolkit efficacy. |
 
@@ -235,7 +235,7 @@ The [archive verification script](./scripts/reproduce_calibration.py) checks the
 
 [The four-model Lite pilot](./evals/studies/2026-10-10-lite-four-models/README.md) now has judgments for all 20 model–task pairs across five shared task families. It publishes all 40 first author attempts plus 20 separately recorded author requests, retaining original failures and every judgment. [Model rerun commands and artifacts](./evals/studies/2026-10-10-lite-four-models/README.md#inspect-and-reproduce) · [Protocol and harness](./docs/eval-protocol.md). This fixed-source, instruction-only pilot does not validate Full or MCP, and does not change the historical n=2, unblinded, toolkit-first limitations.
 
-The historical inventory is dated September 21, 2026: one of the original 12 families was excluded after results were known; 12 of 22 original author attempts failed and supplemental reports did not replace those failures. Public files are a subset of the privately retained materials. Software checks and historical studies do not validate the current workflow's general research quality.
+The historical inventory is dated September 21, 2026: one of the original 12 families was excluded after results were known; 12 of 22 original author attempts failed and supplemental reports did not replace those failures. Additional historical materials are now available in the [public data archive](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.md). Software checks and historical studies do not validate the current workflow's general research quality.
 
 [Submit a failure case](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml) to help expand the known-bad regression cases.
 

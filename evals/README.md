@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-Existing user and development tasks are independent tasks, and tests actually executed are real tests. Development use, publication and reuse do not change task identity; distinguish tasks by their research questions. Preserve the supplied sources and data, and report execution counts and outcomes from actual run records.
+Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
 
 Research Toolkit helps execute research; the research evaluation dataset uses tasks, material and criteria to identify weaknesses in outputs. This directory also contains Toolkit software checks. Passing those checks is not a research-quality score.
 
@@ -86,7 +86,7 @@ Existing consumers can use the [schema v2 migration guide](../docs/evaluator-v2-
 
 New report studies follow the [current evaluation standard](../docs/report-evaluation-standard.md). It separates first-submission scoring from reader-ready delivery and product-effect testing. Complete missing original reviews; preserve valid reviews, sample defects and raw failures for Toolkit improvements. Report repair is not a prerequisite for completing an evaluation. See the [historical rubric boundary](./rubrics/) before using older scales or frozen reviewer counts; they do not belong in current five-dimension 0–4 results.
 
-See the [source-data audit](../docs/evaluation-data-audit.md) for provenance and exclusion decisions, and [semantic diagnostic pairs](./semantic_diagnostics/) for twenty-three author-proposed bad/control pairs. The three reader-review pairs added on September 10 received an internal four-model diagnosis, with a retained pricing-scope correction. Those private reviews are not in this repository and were not part of the eight earlier public calls. These excerpts are development data, not held-out tasks or validated quality labels.
+See the [source-data audit](../docs/evaluation-data-audit.md) for provenance and exclusion decisions, and [semantic diagnostic pairs](./semantic_diagnostics/) for twenty-three author-proposed bad/control pairs. The three reader-review pairs added on September 10 received an internal four-model diagnosis, with a retained pricing-scope correction. Those reviews were not part of the eight earlier public calls; historical records are indexed separately from the current semantic catalog. These excerpts are development data, not held-out tasks or validated quality labels.
 
 The [two-reviewer semantic results](./semantic_diagnostics/reviews/2026-09-08/) retain a shared missed defect, severity disagreements, a context/order-sensitive judgment and separately reviewed case revisions. Use the current catalog loader; original catalogs remain frozen historical inputs. Agreement with the author's labels is not accuracy.
 
@@ -173,7 +173,7 @@ evals/runs/report.md
 evals/runs/report.json
 ```
 
-`report.json` uses `result_schema_version: 2`. A `pass` means mechanical conformance only. `review` and `fail` return a non-zero exit code by default; use `--allow-review` only for exploratory collection. Set both report paths when using another output directory. Record semantic reviews, reviewer disagreements and evidence limits separately from the conformance score. The dated public packages do not contain all separately maintained private evaluation studies.
+`report.json` uses `result_schema_version: 2`. A `pass` means mechanical conformance only. `review` and `fail` return a non-zero exit code by default; use `--allow-review` only for exploratory collection. Set both report paths when using another output directory. Record semantic reviews, reviewer disagreements and evidence limits separately from the conformance score. Separately maintained historical evaluation studies are available through the [public management repository](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.md).
 
 ## Check A Delivery Claim
 

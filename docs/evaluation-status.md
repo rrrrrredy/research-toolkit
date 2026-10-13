@@ -2,7 +2,7 @@
 
 [English](evaluation-status.md) | [简体中文](evaluation-status.zh-CN.md)
 
-Existing user and development tasks are independent tasks, and tests actually executed are real tests. Development use, publication and reuse do not change task identity; distinguish tasks by their research questions. Preserve the supplied sources and data, and report execution counts and outcomes from actual run records.
+Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
 
 **Scheduled first reviews are complete. Their findings inform product improvements; they do not establish general superiority or validate the current plugin/MCP workflow.** This summary uses the retained inventory as of September 21, 2026. Original reports, author failures, original reviews and later interventions remain separate.
 
@@ -35,17 +35,17 @@ The [four-task recheck](../evals/diagnostics/2026-10-13-targeted-recheck/README.
 | Collection | Evidence | Use boundary |
 | --- | --- | --- |
 | Development reports | 23 topics; 92/92 complete first reviews | Development feedback; revisions never replace first-submission results |
-| Private diagnostics | 50 items from 16 parent topics | Development items, not 50 independent held-out tasks |
+| Archived diagnostics | 50 items from 16 parent topics | Development items, not 50 independent held-out tasks |
 | Historical paired study | 11 retained families; 22 complete review inputs; 88/88 valid first reviews; 211 adjudicated findings in 61 necessary issue groups | Bounded historical evidence; original failures and supplemental runs reported separately |
-| Public semantic diagnostics | [23 bad/control pairs](../evals/semantic_diagnostics/) | Synthetic failure-mode cases, separate from the private diagnostics |
+| Public semantic diagnostics | [23 bad/control pairs](../evals/semantic_diagnostics/) | Real tasks with constructed failure-mode materials, separate from archived diagnostics |
 
-The paired study originally had 12 families. One was excluded after results were known because required source originals remained unavailable. The current denominator is a post-result exclusion, not the original design or a quality improvement. Those reports are absent from the active collection; the original study and exclusion record remain archived privately.
+The paired study originally had 12 families. One was excluded after results were known because required source originals remained unavailable. The current denominator is a post-result exclusion, not the original design or a quality improvement. Those reports are absent from the active collection; the original study and exclusion record remain in the public data archive.
 
 Of 22 original author attempts in the retained families, 12 failed. Twelve supplemental attempts provided complete reports without replacing those failures. The primary comparison has five families with necessary defects in both conditions and six unresolved families affected by author quota failures. The separate supplemental view has one Toolkit win and ten families with necessary defects in both conditions. The 88 reviews assess 22 inputs, not 88 independent tasks.
 
 ## Public scope
 
-The repository includes [calibration reports and model replies](../evals/diagnostics/2026-09-07/), [semantic diagnostics and available reviews](../evals/semantic_diagnostics/), and [offline controls](../evals/README.md). The [office-agents development case](case-study/office-agents/README.md) also includes a complete report, retained draft, source and claim records, and a review summary. The remaining private full reports and the complete original review corpus and source packages behind the aggregate counts above are not published here. Public downloads are a subset, not all 92 development reviews or all 88 paired-study reviews.
+The repository includes [calibration reports and model replies](../evals/diagnostics/2026-09-07/), [semantic diagnostics and available reviews](../evals/semantic_diagnostics/), and [offline controls](../evals/README.md). The [office-agents development case](case-study/office-agents/README.md) also includes a complete report, retained draft, source and claim records, and a review summary. The associated [data repository is now public](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.md). Its v0.4 archive includes the preserved v0.3 corpus: 23 development report inputs, 22 paired-study inputs and 221 retained review records, with 92 development and 88 paired first-review slots. Source packages and recorded tool observations retain their original scope and omissions; withdrawn material is not restored. All 19 data releases and 79 assets were accessible without authentication on October 13.
 
 Reviewer agreement is not accuracy. The historical cohort has already informed development; future reuse is regression/development work, not a new unexposed efficacy test. Human calibration is not a prerequisite for completing the required model reviews.
 
@@ -55,8 +55,13 @@ The plugin and MCP share one workflow. Local controls exercise stage prerequisit
 
 | Historical reviewer backends (retained provenance, not a default dependency) |
 | --- |
-| Plugin `0.1.2` also has a bounded, guided Codex CLI/MCP check with one fictional brief and real `gpt-6-sol` high reviewer and auditor contexts. The audit completed after recovery without rerunning the completed reviewer; the original negative finding, unchanged report and failed attempts were retained. The delivery gate refused the unresolved report defect. Configuration and audit-contract corrections were needed to complete this check. It does not establish unattended operation or a research-quality advantage. |
+| Plugin `0.1.2` also has a bounded, guided Codex CLI/MCP check with one brief using fictional source material and real `gpt-6-sol` high reviewer and auditor contexts. The audit completed after recovery without rerunning the completed reviewer; the original negative finding, unchanged report and failed attempts were retained. The delivery gate refused the unresolved report defect. Configuration and audit-contract corrections were needed to complete this check. It does not establish unattended operation or a research-quality advantage. |
 
 The historical report studies do not measure the later shared plugin/MCP implementation. Combining them with passing software checks does not establish a current general quality or efficiency advantage. A future efficacy comparison needs a separately scoped, frozen design. Fixing software defects and preserving existing first-review findings do not require rerunning historical reports.
 
 [Evaluation standard](report-evaluation-standard.md) · [Claim boundaries and study design](evaluation-roadmap.md) · [Usage and execution limits](usage-modes.md)
+
+
+## October 13 final completion
+
+The [complete pipeline report and two Astra reviews](../evals/repairs/2026-10-13-pipeline-complete/README.md) close the stage report's named-node, original-document and multichannel requirements; R01–R13 pass after revision. A separate [four-task wording recheck](../evals/repairs/2026-10-13-wording-recheck/README.md) validates changed reviewer inputs. These are revisions and actual tests of existing independent tasks, not extra tasks or replacement first-draft scores. Retained revisions correct inaccurate task prefixes in the 23-case current semantic view; original reviews remain preserved. Public assets are inventoried above; the [improvement plan](improvement-plan.md) states this cycle's completion scope.

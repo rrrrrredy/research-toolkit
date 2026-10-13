@@ -1,0 +1,21 @@
+{
+  "requested_model": "gpt-6-astra",
+  "fresh_context": true,
+  "input_path": "C:/Users/luosong03/Documents/ChatGPT/Others/research-toolkit/evals/repairs/2026-10-13-wording-recheck/judge-input.json",
+  "input_sha256": "B5305D7355EFECC8C4EB4C95EF3063B715031C4F1E898983B0C42EFC0D769A1F",
+  "files_read": [
+    "C:/Users/luosong03/Documents/ChatGPT/Others/research-toolkit/evals/repairs/2026-10-13-wording-recheck/judge-input.json"
+  ],
+  "role": "Separate-context reviewer performing targeted revalidation of the changed judge input for four real independent tasks using constructed source material. Assess A and B independently against the supplied evidence and task; this targeted recheck is not a full-suite evaluation or a population-level performance estimate.",
+  "excluded_inputs": [
+    "coordinator-map.json",
+    "existing semantic labels",
+    "author history",
+    "other evaluation inputs"
+  ],
+  "output_files": [
+    "review.json",
+    "response.md",
+    "context.json"
+  ]
+}

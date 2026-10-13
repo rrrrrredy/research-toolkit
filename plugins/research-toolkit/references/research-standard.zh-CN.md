@@ -7,7 +7,7 @@
 本页保留完整研究规则。[Skill 入口](../SKILL.zh-CN.md)说明各阶段应读取的章节与配套方法；机器发现入口为 [SKILL.md](../SKILL.md)。字段和状态名称保持一致，命令与代码中的路径仍以工具箱或研究任务目录为基准。
 
 
-**档位范围：**本页完整评审／交付要求适用于 Full；Lite 保留 brief、claim、分段起草与最终 checklist，并明确记录跳过评审和完整门槛。Full 未配置后端的新任务可使用标明强度降级的 self；本页非作者上下文要求适用于 external／independent，以及明确声明的独立任务，不能将 self 冒充独立评审。历史冻结评测保持原协议。选择规则以 [SKILL](../SKILL.zh-CN.md#选择档位) 为准。
+**档位范围：**本页完整评审／交付要求适用于 Full；Lite 保留 brief、claim、分段起草与最终 checklist，并明确记录跳过评审和完整门槛。Full 未配置后端的新任务可使用标明强度降级的 self；本页非作者上下文要求适用于 external／independent，以及明确要求独立评审的任务，不能将 self 冒充独立评审。历史冻结评测保持原协议。选择规则以 [SKILL](../SKILL.zh-CN.md#选择档位) 为准。
 
 ## 1. 解决的问题
 
