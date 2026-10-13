@@ -225,10 +225,10 @@ Your agent performs retrieval, reading, analysis, and writing with its own capab
 
 Detailed reports: [public reports and repairs](./evals/diagnostics/2026-09-07/) · [evaluation evidence and version boundaries](./docs/evaluation-status.md) · [evaluation standard](./docs/report-evaluation-standard.md).
 
-Verify the two public development pairs offline (no model calls):
+Verify the two public development pairs offline (no model calls). Prefer `python3` on Linux (Python 3.10+, standard library only):
 
 ```bash
-python scripts/reproduce_calibration.py
+python3 scripts/reproduce_calibration.py
 ```
 
 The [archive verification script](./scripts/reproduce_calibration.py) checks the frozen public bundle and all four original report hashes, then writes `evals/runs/calibration-reproduction/inventory.json` and `inventory.md`. Use a new `--output` directory to repeat it. This reproduces an archive inventory, not historical model generations or a quality score. [The existing conformance runner](./scripts/run_evals.py) checks task artifacts separately ([command and outputs](./evals/README.md#run-an-eval)).

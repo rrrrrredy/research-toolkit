@@ -46,10 +46,10 @@ Lite does not commission a reviewer. Its checklist is an author check, not indep
 <details>
 <summary>Run the local workflow from a clone or fork</summary>
 
-Use Python 3.10+ from the repository root; the shared CLI requires only the standard library. Store the task outside the checkout. An agent does the reading and writing; these commands do not generate a report.
+Use Python 3.10+ from the repository root; the shared CLI requires only the standard library. Prefer `python3` on Linux; any installed Python 3.10+ interpreter is enough. Store the task outside the checkout. An agent does the reading and writing; these commands do not generate a report.
 
 ```bash
-python scripts/research_workflow.py start --profile lite --workspace ../research-work --request examples/lite/start.en.json
+python3 scripts/research_workflow.py start --profile lite --workspace ../research-work --request examples/lite/start.en.json
 ```
 
 This creates `../research-work/helpdesk-lite`. The agent copies the source notes there, fills `data/source_registry.csv` and `data/claims_registry.csv`, saves the outline and section drafts, and writes `final.md`. Stage updates use the existing `status` action; see [CLI arguments](usage-modes.md).
@@ -57,8 +57,8 @@ This creates `../research-work/helpdesk-lite`. The agent copies the source notes
 Call `finish` with the task and delivery message to obtain the checklist, then save `finish.json` with `task`, `message` and a `checklist` object. Its six keys are `requirements`, `claims_and_sources`, `counterevidence`, `sections`, `reader_edit` and `limitations`. Each needs `passed: true` and an `evidence` string describing the actual check and its location.
 
 ```bash
-python scripts/research_workflow.py finish --workspace ../research-work --request ../research-work/helpdesk-lite/finish.json
-python scripts/check_delivery.py ../research-work/helpdesk-lite
+python3 scripts/research_workflow.py finish --workspace ../research-work --request ../research-work/helpdesk-lite/finish.json
+python3 scripts/check_delivery.py ../research-work/helpdesk-lite
 ```
 
 A completed task has `final.md` and `state/final_checklist.json`, with `status: checklist_complete`, `independent_review: false` and explicit `SKIP` logs. It has no independent review record. New receipts also bind the task/source/claim records, requirement ledger and declared local source files. If any bound input changes, check again and submit an updated checklist. You can optionally bind retained check notes through an item's `evidence_files` list; see the [Lite stage guide](../references/lite-workflow.md).

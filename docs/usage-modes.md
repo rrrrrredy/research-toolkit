@@ -39,7 +39,7 @@ Use local MCP when the host can start a local process, or the bundled plugin whe
 | Plugin | Skill, references, and the local MCP server in one package | Support for the package format and local stdio MCP |
 | MCP | Seven callable tools for task setup, progress, guidance, reviews, and delivery checks | A client that can start and call a local stdio MCP server |
 
-The shared CLI needs Python 3.10+ and only its standard library; MCP also needs the dependency in `requirements-mcp.txt`. Without a backend, new Full tasks use explicitly degraded self-review. External/independent review accepts any supported command or endpoint; no vendor account is mandatory.
+The shared CLI needs Python 3.10+ and only its standard library. Prefer `python3` on Linux; any installed Python 3.10+ interpreter is enough. MCP also needs the dependency in `requirements-mcp.txt`. Without a backend, new Full tasks use explicitly degraded self-review. External/independent review accepts any supported command or endpoint; no vendor account is mandatory.
 
 CI exercises the CLI and packaged MCP workflow on Python 3.10/Linux, plus the broader checks on Python 3.12/Linux and Windows. Use the same interpreter for dependency installation and your client's server command. These are server/protocol checks, not tests of every client GUI.
 
@@ -87,7 +87,7 @@ The [README MCP quickstart](https://github.com/rrrrrredy/research-toolkit/blob/m
 
 Official configuration references: [Claude Desktop local servers](https://modelcontextprotocol.io/docs/develop/connect-local-servers), [Cursor MCP](https://cursor.com/docs/mcp), [Codex MCP](https://developers.openai.com/codex/mcp). Cursor supports project `.cursor/mcp.json` or global `~/.cursor/mcp.json`; Codex uses `~/.codex/config.toml`. In Claude Desktop, open Settings → Developer → Edit Config.
 
-If no tools appear, run `python -c "import sys, mcp; print(sys.executable)"` with the configured interpreter. An import error means the MCP dependency is missing from that environment. Use absolute script/workspace paths and restart the client. Server startup and protocol calls are exercised by `python scripts/check_mcp_contract.py`; that offline check uses synthetic reviewers and does not establish GUI compatibility or research quality.
+If no tools appear, run `python -c "import sys, mcp; print(sys.executable)"` with the configured interpreter. An import error means the MCP dependency is missing from that environment. Use absolute script/workspace paths and restart the client. Server startup and protocol calls are exercised by `python3 scripts/check_mcp_contract.py`; that offline check uses synthetic reviewers and does not establish GUI compatibility or research quality.
 
 ## What happens during a task
 
@@ -133,7 +133,7 @@ Restart the MCP server after configuring its environment, or run the CLI from th
 export RESEARCH_TOOLKIT_REVIEW_BACKEND=generic
 export RESEARCH_TOOLKIT_REVIEW_BASE_URL=https://your-provider.example/v1
 export RESEARCH_TOOLKIT_REVIEW_MODEL=your-model
-python scripts/research_workflow.py check-reviewer
+python3 scripts/research_workflow.py check-reviewer
 ```
 
 On PowerShell, set each variable with `$env:NAME = "value"`. If authentication is required, pass `RESEARCH_TOOLKIT_REVIEW_API_KEY` through the client's environment. The check sends no materials or paid request; `access_unverified` means live service access remains untested.
@@ -191,8 +191,8 @@ For Skill-only use, follow the [installation guide](https://github.com/rrrrrredy
 The plugin also includes a dependency-free workflow CLI. It uses the same implementation; only starting MCP requires the SDK:
 
 ```bash
-python scripts/research_workflow.py start --workspace /path/to/tasks --request brief.json
-python scripts/research_workflow.py review --workspace /path/to/tasks --request review.json
+python3 scripts/research_workflow.py start --workspace /path/to/tasks --request brief.json
+python3 scripts/research_workflow.py review --workspace /path/to/tasks --request review.json
 ```
 
 CLI requests are JSON objects supplied by `--request` or stdin. Missing/unknown argument errors name the action, fields and input method before creating or changing a task. A source/claim validation error names its CSV, record ID and missing fields; repair that record and repeat the same operation. Guide languages are `en` and `zh`. Commands return JSON and a nonzero exit code on failure; no new user confirmation is required to fix an already authorized task.

@@ -39,7 +39,7 @@
 | 插件 | Skill、参考文件和本地 MCP 服务，一次安装 | 支持该软件包格式与本地 stdio MCP |
 | MCP | 初始化、保存进度、加载方法、审阅和检查交付的七个工具 | 能启动并调用本地 stdio MCP 服务 |
 
-共享 CLI 需要 Python 3.10+，只使用标准库；MCP 还需安装 `requirements-mcp.txt` 中的依赖。未配置后端时，新建 Full 任务自动进入标明强度降级的 self 评审；外部／独立评审可使用任一受支持命令或端点，无强制厂商账户。
+共享 CLI 需要 Python 3.10+，只使用标准库。Linux 上优先使用 `python3`；本机已有的 Python 3.10+ 解释器即可。MCP 还需安装 `requirements-mcp.txt` 中的依赖。未配置后端时，新建 Full 任务自动进入标明强度降级的 self 评审；外部／独立评审可使用任一受支持命令或端点，无强制厂商账户。
 
 CI 在 Python 3.10／Linux 上检查 CLI 和打包 MCP 流程，并在 Python 3.12／Linux、Windows 上执行更完整的检查。安装依赖与客户端启动服务须使用同一解释器。这些验证覆盖服务和协议，不代表所有客户端 GUI 均已实测。
 
@@ -87,7 +87,7 @@ Windows 路径可写成 `D:/tools/python/python.exe` 这样的正斜杠形式。
 
 官方配置说明：[Claude Desktop 本地服务](https://modelcontextprotocol.io/docs/develop/connect-local-servers)、[Cursor MCP](https://cursor.com/docs/mcp)、[Codex MCP](https://developers.openai.com/codex/mcp)。Cursor 可使用项目 `.cursor/mcp.json` 或全局 `~/.cursor/mcp.json`，Codex 使用 `~/.codex/config.toml`；Claude Desktop 从 Settings → Developer → Edit Config 打开配置。
 
-看不到工具时，用配置中的解释器执行 `python -c "import sys, mcp; print(sys.executable)"`。导入报错表示该环境缺少 MCP 依赖；使用脚本与工作区的绝对路径，并重启客户端。`python scripts/check_mcp_contract.py` 检查服务启动及协议调用，使用合成评审者，不证明各客户端 GUI 兼容性或研究质量。
+看不到工具时，用配置中的解释器执行 `python -c "import sys, mcp; print(sys.executable)"`。导入报错表示该环境缺少 MCP 依赖；使用脚本与工作区的绝对路径，并重启客户端。`python3 scripts/check_mcp_contract.py` 检查服务启动及协议调用，使用合成评审者，不证明各客户端 GUI 兼容性或研究质量。
 
 ## 一次研究如何推进
 
@@ -135,7 +135,7 @@ Astra 在与作者分开的新上下文中即可承担独立评审，作者使�
 $env:RESEARCH_TOOLKIT_REVIEW_BACKEND = "generic"
 $env:RESEARCH_TOOLKIT_REVIEW_BASE_URL = "https://your-provider.example/v1"
 $env:RESEARCH_TOOLKIT_REVIEW_MODEL = "your-model"
-python scripts/research_workflow.py check-reviewer
+python3 scripts/research_workflow.py check-reviewer
 ```
 
 在 shell 中用 `export NAME=value` 设置同名环境变量也可；需要认证时，通过客户端环境传入 `RESEARCH_TOOLKIT_REVIEW_API_KEY`。自查不会发送材料或付费请求，`access_unverified` 表示尚未验证真实服务。
@@ -193,8 +193,8 @@ CLI、MCP 与 Python 工作流操作共用本地操作系统任务锁。同一�
 插件另带不依赖 MCP SDK 的命令行入口，调用同一套逻辑：
 
 ```bash
-python scripts/research_workflow.py start --workspace /path/to/tasks --request brief.json
-python scripts/research_workflow.py review --workspace /path/to/tasks --request review.json
+python3 scripts/research_workflow.py start --workspace /path/to/tasks --request brief.json
+python3 scripts/research_workflow.py review --workspace /path/to/tasks --request review.json
 ```
 
 CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知字段提示会在创建或改变任务前列出操作、字段和输入方式。来源／主张校验错误指出 CSV 文件、记录编号及缺失字段；修正对应记录后重复原操作。指南语言参数为 `en` 或 `zh`。失败命令返回 JSON 和非零退出码；修复已获授权的任务不需要新增用户确认。

@@ -43,10 +43,10 @@ Lite 不发起评审，checklist 是作者检查，不是独立批准。未通�
 <details>
 <summary>在 clone 或 fork 中运行本地流程</summary>
 
-从仓库根目录使用 Python 3.10+；共享 CLI 只需标准库。任务放在仓库之外。阅读与写作由 Agent 完成，这些命令不会自动生成报告。
+从仓库根目录使用 Python 3.10+；共享 CLI 只需标准库。Linux 上优先使用 `python3`；本机已有的 Python 3.10+ 解释器即可。任务放在仓库之外。阅读与写作由 Agent 完成，这些命令不会自动生成报告。
 
 ```bash
-python scripts/research_workflow.py start --profile lite --workspace ../research-work --request examples/lite/start.zh.json
+python3 scripts/research_workflow.py start --profile lite --workspace ../research-work --request examples/lite/start.zh.json
 ```
 
 命令会建立 `../research-work/helpdesk-lite`。Agent 把来源说明复制到任务目录，填写 `data/source_registry.csv` 和 `data/claims_registry.csv`，保存提纲与分节稿，写出 `final.md`。更新阶段用已有的 `status` 动作，参见 [CLI 参数](usage-modes.zh-CN.md)。
@@ -54,8 +54,8 @@ python scripts/research_workflow.py start --profile lite --workspace ../research
 先以任务名和交付消息调用 `finish` 获取 checklist，再保存包含 `task`、`message`、`checklist` 的 `finish.json`。六个键分别为 `requirements`、`claims_and_sources`、`counterevidence`、`sections`、`reader_edit`、`limitations`；每项需有 `passed: true` 及说明真实检查与位置的 `evidence` 字符串。
 
 ```bash
-python scripts/research_workflow.py finish --workspace ../research-work --request ../research-work/helpdesk-lite/finish.json
-python scripts/check_delivery.py ../research-work/helpdesk-lite
+python3 scripts/research_workflow.py finish --workspace ../research-work --request ../research-work/helpdesk-lite/finish.json
+python3 scripts/check_delivery.py ../research-work/helpdesk-lite
 ```
 
 完成后可看到 `final.md`、`state/final_checklist.json`、`status: checklist_complete`、`independent_review: false` 以及明确的 `SKIP` 日志，没有独立评审记录。新凭证还绑定任务／来源／主张记录、要求记录和已声明的本地来源文件。任一绑定输入改变后，都需要重新检查并提交 checklist。可选用每项的 `evidence_files` 列表绑定保留的检查说明，见 [Lite 阶段指南](../references/lite-workflow.zh-CN.md)。

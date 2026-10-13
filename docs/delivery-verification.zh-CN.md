@@ -6,8 +6,10 @@
 
 默认采用 **delivery contract 3**。交付凭证外层仍为 `schema_version: 1`，契约版本表示执行了哪些检查。结果包含 `delivery_contract_version`、`current_contract_checked` 和 `semantic_verification: false`，均不认证用户授权、实际阅读或编辑质量。
 
+共享 CLI 需要 Python 3.10+，只使用标准库。Linux 上优先使用 `python3`；本机已有的 Python 3.10+ 解释器即可。
+
 ~~~bash
-python <skill-directory>/scripts/check_delivery.py <task-directory>
+python3 <skill-directory>/scripts/check_delivery.py <task-directory>
 ~~~
 
 凭证绑定当前成果、简报、进度、来源与主张记录、审查日志及拟发送的交付说明；适用的需求和不确定性文件也需绑定。凭证中已记录的每个路径都必须核查文件存在性、任务目录边界和哈希，即使绑定时属于可选文件；从未绑定的可选文件仍可缺省。文本哈希将 CRLF、CR 规范为 LF。相关修改完成后再封存，后续修改会使旧凭证过期；不为重建凭证重做无关研究。
@@ -56,7 +58,7 @@ Lite 与 Full 都可在已有要求台账中，用可选的 `length_constraint` 
 ## 比较实际回复记录
 
 ~~~bash
-python <skill-directory>/scripts/check_delivery.py <task-directory> --actual-message captured-reply.md
+python3 <skill-directory>/scripts/check_delivery.py <task-directory> --actual-message captured-reply.md
 ~~~
 
 将提供的回复记录与已绑定的拟交付说明比较，只规范换行和首尾空白。运行环境可以单独保存最终输出，在运行后调用检查器；保留原始输出并说明如何提取客户端元数据，不能悄悄删掉实质差异。
@@ -101,9 +103,9 @@ contract 3 检查[评审完成记录](review-completion.zh-CN.md)。普通报告
 
 ## 回归覆盖
 
-`python scripts/check_delivery_contract.py` 在隔离控制中重新封存无关哈希，避免旧凭证掩盖目标缺陷。覆盖正常控制、自定义消息、回复差异、声明范围、有限审查顺序及终态真值组合，不证明能识别所有自然语言完成声明或研究质量。
+`python3 scripts/check_delivery_contract.py` 在隔离控制中重新封存无关哈希，避免旧凭证掩盖目标缺陷。覆盖正常控制、自定义消息、回复差异、声明范围、有限审查顺序及终态真值组合，不证明能识别所有自然语言完成声明或研究质量。
 
-`python scripts/check_evaluator_contract.py` 覆盖跨入口恢复、后续局部阻断、错误或非 UTF-8 历史、仅分派的问题、否认或部分披露限制，以及中英文不同文本和重复文本。控制在隔离副本内运行，冻结报告和研究输入不改写。
+`python3 scripts/check_evaluator_contract.py` 覆盖跨入口恢复、后续局部阻断、错误或非 UTF-8 历史、仅分派的问题、否认或部分披露限制，以及中英文不同文本和重复文本。控制在隔离副本内运行，冻结报告和研究输入不改写。
 
 版本 2 控制包括有无授权的需求关闭、全文与部分阅读、当前稿件及过期全局/专项评审。旧正常和回归样例明确用版本 1 保留历史比较；原输入和哈希不变，新正例仅在临时副本中构造。
 
