@@ -273,10 +273,10 @@ Agent 使用自身的检索、读写和分析能力完成研究。插件将 Skil
 
 详细报告：[公开原稿与修订稿](./evals/diagnostics/2026-09-07/) · [评测证据与版本边界](./docs/evaluation-status.zh-CN.md) · [评测标准](./docs/report-evaluation-standard.zh-CN.md)。
 
-历史两组开发对照可一条命令离线核验，无需调用模型：
+历史两组开发对照可一条命令离线核验，无需调用模型。Linux 上优先使用 `python3`（Python 3.10+，只需标准库）：
 
 ```bash
-python scripts/reproduce_calibration.py
+python3 scripts/reproduce_calibration.py
 ```
 
 [档案核验脚本](./scripts/reproduce_calibration.py)核对冻结公开包及四份原始报告的哈希，生成 `evals/runs/calibration-reproduction/inventory.json` 和 `inventory.md`。再次运行时通过 `--output` 指定新目录。它复现档案清单，不重新生成历史模型回复或给出质量分。[既有符合性脚本](./scripts/run_evals.py)另行检查任务文件（[命令与输出](./evals/README.zh-CN.md)）。

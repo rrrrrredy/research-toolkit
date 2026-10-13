@@ -6,8 +6,10 @@ The checker is an optional offline consistency check. It is not a runtime permis
 
 The default is **delivery contract 3**. The receipt container remains `schema_version: 1`; contract versions identify which checks were performed. Results include `delivery_contract_version`, `current_contract_checked`, and `semantic_verification: false`. None authenticates user consent, proves actual reading, or certifies editorial quality.
 
+The shared CLI needs Python 3.10+ and only the standard library. Prefer `python3` on Linux; any installed Python 3.10+ interpreter is enough.
+
 ```bash
-python <skill-directory>/scripts/check_delivery.py <task-directory>
+python3 <skill-directory>/scripts/check_delivery.py <task-directory>
 ```
 
 The receipt binds the current artifact, brief, progress, source and claim records, review log, and intended delivery message. Applicable requirement and uncertainty files are also bound. Every path recorded in the receipt remains subject to existence, task-directory boundary and hash checks, even if it was optional when the receipt was created. An optional file that was never bound may remain absent. Text hashes normalize CRLF and CR to LF. Finish the relevant edits before sealing; a later edit makes the old receipt stale. Do not rerun unrelated research just to create a new receipt.
@@ -56,7 +58,7 @@ The eval runner also checks declared length requirements at terminal delivery wh
 ## Comparing a captured reply
 
 ```bash
-python <skill-directory>/scripts/check_delivery.py <task-directory> --actual-message captured-reply.md
+python3 <skill-directory>/scripts/check_delivery.py <task-directory> --actual-message captured-reply.md
 ```
 
 The supplied capture is compared with the bound intended message, normalizing only line endings and outer whitespace. A runtime caller can retain its final-message output separately and call the checker after the run. Retain the original runtime output and document any extraction of client metadata; do not silently remove substantive differences.
@@ -105,9 +107,9 @@ Use `--contract-version 1` or `--contract-version 2` only to inspect unchanged h
 
 ## Regression coverage
 
-`python scripts/check_delivery_contract.py` reseals unrelated hashes so a stale receipt cannot mask the target defect. It includes known-good controls, custom message binding, captured-message differences, declared review scopes, bounded review-event permutations and the terminal-state truth table. These checks do not establish universal natural-language completion detection or research quality.
+`python3 scripts/check_delivery_contract.py` reseals unrelated hashes so a stale receipt cannot mask the target defect. It includes known-good controls, custom message binding, captured-message differences, declared review scopes, bounded review-event permutations and the terminal-state truth table. These checks do not establish universal natural-language completion detection or research quality.
 
-`python scripts/check_evaluator_contract.py` adds cross-entry review recovery, later local blockers, malformed/invalid-UTF-8 history, routed-only issues, limitation-denial and partial-coverage controls, and distinct versus repeated English/Chinese text. All diagnostic fixture changes are isolated and resealed; frozen research inputs and historical reports are not rewritten.
+`python3 scripts/check_evaluator_contract.py` adds cross-entry review recovery, later local blockers, malformed/invalid-UTF-8 history, routed-only issues, limitation-denial and partial-coverage controls, and distinct versus repeated English/Chinese text. All diagnostic fixture changes are isolated and resealed; frozen research inputs and historical reports are not rewritten.
 
 Version 2 controls cover unauthorized/authorized requirement closure, declared full/partial reading, unchanged/currently reviewed report controls, and stale global/specialist reviews. The old conformance and regression fixture runners explicitly use version 1 to preserve historical comparisons; their original inputs and hashes stay unchanged. New positive controls are constructed only in isolated test copies and are not backfilled research records.
 
