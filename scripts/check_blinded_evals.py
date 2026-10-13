@@ -26,7 +26,7 @@ class PilotTests(unittest.TestCase):
         self.config["author"]["model"] = "synthetic-author"
         self.config["judge"]["model"] = "synthetic-judge"
         for i in range(5):
-            (self.base / f"brief-{i}.md").write_text(f"Synthetic task {i}: explain the supplied count.", encoding="utf-8")
+            (self.base / f"brief-{i}.md").write_text(f"Task {i} using constructed source data: explain the supplied count.", encoding="utf-8")
             (self.base / f"source-{i}.md").write_text(f"Fictional source reports {i} units.", encoding="utf-8")
             self.config["tasks"].append({"task_id": f"task-{i}", "family_id": f"family-{i}", "language": "en", "task_type": "synthetic_control", "brief": f"brief-{i}.md", "sources": [f"source-{i}.md"]})
         self.study = self.base / "study.json"

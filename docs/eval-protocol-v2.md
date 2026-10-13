@@ -32,7 +32,7 @@ This inspection command makes zero model calls. The supplied model/endpoint valu
 
 ## 2026-10-13 prospective instruction correction
 
-New freezes use the actual Lite stage guide in the author method bundle, replacing the Full workflow reference previously injected by this instruction-only harness. JSON instructions now explicitly require string-valued `report` and `notes`; the parser was already strict and is not relaxed. A common final envelope reminder in both conditions keeps process disclosures in notes and preserves the brief's length/citation contract. These changes address concrete [October 12 failures](../evals/studies/2026-10-12-lite-four-models/README.md); old code, packets, failures and scores remain frozen. The new [eight-request feedback diagnostic](../evals/diagnostics/2026-10-13-feedback-probes/README.md) uses two new fictional tasks and is not an efficacy study.
+New freezes use the actual Lite stage guide in the author method bundle, replacing the Full workflow reference previously injected by this instruction-only harness. JSON instructions now explicitly require string-valued `report` and `notes`; the parser was already strict and is not relaxed. A common final envelope reminder in both conditions keeps process disclosures in notes and preserves the brief's length/citation contract. These changes address concrete [October 12 failures](../evals/studies/2026-10-12-lite-four-models/README.md); old code, packets, failures and scores remain frozen. The new [eight-request feedback diagnostic](../evals/diagnostics/2026-10-13-feedback-probes/README.md) uses two new real tasks using fictional source materials and is not an efficacy study.
 
 ## Task admission and information separation
 

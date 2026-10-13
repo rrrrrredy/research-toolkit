@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "purpose": "diagnostic_only",
+  "labels": "author_proposed_uncalibrated",
+  "held_out": false,
+  "automatic_quality_scoring": false,
+  "notice": "Current terminology correction; original task questions, evidence facts and verdicts are retained. This adds no task identity or new historical score.",
+  "revisions": [
+    {
+      "case_id": "valid_pilot_acceptance_zh",
+      "base_case_sha256": "78c7d679a187806d57a406480fb3fe75c24030d24c31135075fa3626a609b003",
+      "revision_id": "valid_pilot_acceptance_zh_r3",
+      "changes": {
+        "evidence": "任务（来源材料为构造情境）明确规定：固定200条用例中严重错误为0且通过率至少95%，即可进入受监督试用，不等于正式生产上线。结果200条中196条通过、严重错误0。"
+      },
+      "reason": "Clarify task identity: the task is real and independent; constructed/fictional describes the evidence scenario. Facts, constraints, bad/control reports and labels are unchanged."
+    },
+    {
+      "case_id": "opening_buries_main_findings_zh",
+      "base_case_sha256": "d3e7b59c12f5e45ff02d125fae94d3880360d3cec662a22c9fec2cf2971205bf",
+      "revision_id": "opening_buries_main_findings_zh_r3",
+      "changes": {
+        "evidence": "任务（来源材料为构造情境）：给只有两分钟阅读开篇的连锁店运营负责人解释试点结果，先交代最重要发现，再展开细节。两组门店处理同类订单：甲组录单时间从8分钟降到4分钟，订单总周转时间仍为两天，经理审批占一天；乙组录单时间不变，取消了同样耗时一天的重复审批，总周转时间从两天降到一天。每组仅两家店。任务不要求开篇介绍作者的研究安排，也不支持外推全行业。"
+      },
+      "reason": "Clarify task identity: the task is real and independent; constructed/fictional describes the evidence scenario. Facts, constraints, bad/control reports and labels are unchanged."
+    },
+    {
+      "case_id": "editorial_voice_crowds_out_argument_zh",
+      "base_case_sha256": "25be56196ff827bf8bc0fc7ab8d3c632606a68a70dba6fd4d9be11ed23534030",
+      "revision_id": "editorial_voice_crowds_out_argument_zh_r3",
+      "changes": {
+        "evidence": "任务（来源材料为构造情境）：交付可直接发表的产品收费分析，正文无需解释写作和审稿安排。比较一个席位在一个月内的费用：甲工具每席每月100元，所有执行包含在内；乙工具该席位每月50元加每次执行2元，两者功能及其他费用按题设相同。该席位每月执行25次时价格相同，超过25次甲更便宜，低于25次乙更便宜。没有真实使用量分布。"
+      },
+      "reason": "Clarify task identity: the task is real and independent; constructed/fictional describes the evidence scenario. Facts, constraints, bad/control reports and labels are unchanged."
+    },
+    {
+      "case_id": "timeline_inventory_without_explanation_en",
+      "base_case_sha256": "fa93e22107b60250835966a7588c7c7282b2b695ada9b7e258fd41e541b45bde",
+      "revision_id": "timeline_inventory_without_explanation_en_r3",
+      "changes": {
+        "evidence": "Task using constructed source material: explain how an engineering route changed, where it branched, and what enabled adoption. In 2020, Route A computed each request on demand: 100 ms latency and immediate freshness. In 2022, Route B introduced a cache: 20 ms for hits, with a refresh interval of one day. A 2024 deployment used A for prices that change within the day and B for a daily catalog. The two routes coexisted. No measurements for other workloads are provided."
+      },
+      "reason": "Clarify task identity: the task is real and independent; constructed/fictional describes the evidence scenario. Facts, constraints, bad/control reports and labels are unchanged."
+    }
+  ]
+}

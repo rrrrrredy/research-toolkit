@@ -2,7 +2,7 @@
 
 [English](independent-task-design.md) · [简体中文](independent-task-design.zh-CN.md)
 
-Existing user and development tasks are independent tasks, and tests actually executed are real tests. Development use, publication and reuse do not change task identity; distinguish tasks by their research questions. Preserve the supplied sources and data, and report execution counts and outcomes from actual run records.
+Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
 
 Existing user and development tasks can be used directly for product improvements and rechecking. A real task remains real after use in development. Distinct research questions can be independent tasks without outside authors. The project has tasks for repair work; outside contributions, a task custodian and a new dataset are not prerequisites.
 

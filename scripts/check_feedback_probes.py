@@ -99,7 +99,7 @@ class DeliveryControls(unittest.TestCase):
         from profile_policy import CHECKLIST
         with tempfile.TemporaryDirectory() as temporary, patch.dict("os.environ", {"RESEARCH_TOOLKIT_REVIEW_CONFIG": "", "RESEARCH_TOOLKIT_REVIEW_BACKEND": ""}):
             workspace = Path(temporary)
-            w.start(workspace, "probe", {"question": task["brief"], "audience": "Fictional task reader",
+            w.start(workspace, "probe", {"question": task["brief"], "audience": "Reader of the supplied scenario",
                     "scope": "Only supplied S1 and S2", "output": "final.md", "depth": "Short decision note",
                     "evidence_standard": "The supplied fictional source text"}, profile="lite")
             root = workspace / "probe"
