@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+No unreleased changes.
+
+## v0.2.4 — 2026-10-13
+
+Reliability fixes, draft preflight, simpler review/repair and synchronized bilingual materials. [Release notes](docs/releases/v0.2.4.md).
+
 - Complete the bilingual correction audit across evaluation entry points, research guidance, web instructions and the packaged plugin: replace stale four-reviewer and no-repair directions with Astra review and direct defect repair, link the completed calibration and task recheck, and list all seven MCP tools. Preserve original historical evidence and specify release preparation as the next step.
 
 - Complete a four-task old/new repair recheck: 31 requests, all failures retained, ten maintainer corrections, and 16 final versions with measured length and corresponding Astra acceptance. Correct source-provenance masking in the separately recorded repair review.

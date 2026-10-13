@@ -66,7 +66,7 @@ python scripts/build_plugin.py --check
 The check does not create a tag or publish a release. After the intended changes have merged and checks pass, run from the updated repository root:
 
 ```bash
-gh release create v0.2.3 --repo rrrrrredy/research-toolkit --target main --title "Research Toolkit v0.2.3" --notes-file docs/releases/v0.2.3.md --latest
+gh release create v0.2.4 --repo rrrrrredy/research-toolkit --target main --title "Research Toolkit v0.2.4" --notes-file docs/releases/v0.2.4.md --latest
 ```
 
 This explicitly selects the repository and target and creates a normal release (no `--prerelease`). If the tag already exists, verify its commit before publishing. Do not use a tag to relabel historical study versions. [GitHub CLI release options](https://cli.github.com/manual/gh_release_create).

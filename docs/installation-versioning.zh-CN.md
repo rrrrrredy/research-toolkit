@@ -69,7 +69,7 @@ python scripts/build_plugin.py --check
 检查不会创建标签或发布版本。预期改动合并且检查通过后，在更新后的仓库根目录运行：
 
 ```bash
-gh release create v0.2.3 --repo rrrrrredy/research-toolkit --target main --title "Research Toolkit v0.2.3" --notes-file docs/releases/v0.2.3.md --latest
+gh release create v0.2.4 --repo rrrrrredy/research-toolkit --target main --title "Research Toolkit v0.2.4" --notes-file docs/releases/v0.2.4.md --latest
 ```
 
 命令明确仓库和目标分支，创建正式版本（不带 `--prerelease`）。若标签已存在，发布前核对其对应提交；不得用新标签改写历史实验的版本身份。[GitHub CLI 发布选项](https://cli.github.com/manual/gh_release_create)。
