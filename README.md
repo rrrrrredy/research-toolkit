@@ -10,8 +10,6 @@ Research methods · Callable workflow tools · Review choices. For industry rese
 
 [**Choose a workflow and start**](#quick-start) · [Use with your agent](#usage) · [Research case](#research-case) · [Evaluation results](#evaluation-results) · [Lite guide](./docs/quickstart-lite.md) · [Documentation](#documentation)
 
-**1.0.0:** [Release notes](./docs/releases/v1.0.0.md) · [1.x compatibility policy](./docs/compatibility.md).
-
 Read a complete report: [APIs or browsers](./docs/case-study/api-or-browser/report.md) · [Office agents in China (Chinese)](./docs/case-study/report.zh-CN.md). Both retain drafts, sources and revision records; the case section below shows the changes in reasoning.
 
 ## Quick start
