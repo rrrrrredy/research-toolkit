@@ -52,6 +52,7 @@ jobs:
         run: |
           python scripts/check_research_workflow.py
           python scripts/check_draft_contract.py
+          python scripts/check_record_workflow.py
           python scripts/check_task_lock.py
       - name: Check profiles and reviewer backends
         run: python scripts/check_profiles_reviewers.py
@@ -92,6 +93,7 @@ jobs:
           python scripts/research_workflow.py --help
           python scripts/check_research_workflow.py
           python scripts/check_draft_contract.py
+          python scripts/check_record_workflow.py
           python scripts/check_plugin_build.py
       - name: Install pinned MCP dependency and check packaged stdio workflow
         run: |
@@ -114,6 +116,8 @@ jobs:
           python scripts/check_research_workflow.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/check_draft_contract.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/check_record_workflow.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/check_profiles_reviewers.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

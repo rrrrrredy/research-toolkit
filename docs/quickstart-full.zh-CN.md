@@ -38,7 +38,7 @@ RAG、长上下文和混合路线各在什么条件下适用？
 | 使用方式 | 最短路径 |
 | --- | --- |
 | Codex：直接使用方法 | 打开或提供仓库文件，发送上面的请求。使用 Agent 已有的检索、文件和上下文能力完成研究；无需先安装 MCP。 |
-| Cursor：接入本地 MCP | 按[虚拟环境安装步骤](usage-modes.zh-CN.md#单独接入-mcp)安装，将 [README 配置](../README.zh-CN.md#作为-mcp-服务使用)合入 `.cursor/mcp.json`，确认七个 `research_*` 工具可见，再发送请求。 |
+| Cursor：接入本地 MCP | 按[虚拟环境安装步骤](usage-modes.zh-CN.md#单独接入-mcp)安装，将 [README 配置](../README.zh-CN.md#作为-mcp-服务使用)合入 `.cursor/mcp.json`，确认八个 `research_*` 工具可见，再发送请求。 |
 
 其他 Agent 也可通过文件、链接或文本读取同一方法，见[接入说明](../agents/README.zh-CN.md)。客户端配置依据：[Codex MCP](https://developers.openai.com/codex/mcp) · [Cursor MCP](https://cursor.com/docs/mcp)。
 
@@ -67,7 +67,7 @@ python3 scripts/research_workflow.py start --profile full --workspace ../researc
 
 它建立 `../research-work/knowledge-assistant-full-zh`。Agent 负责实际检索、读写和分节起草；命令负责创建任务。修改了示例研究问题时，也修改请求文件中的 `brief`；已有任务通过 `status` 恢复。
 
-在新任务的 `state/requirements.jsonl` 中放入 [requirements.zh.jsonl](../examples/full/requirements.zh.jsonl) 的一行，保留已有其他要求。先用 `pending`，实际核对后才改为 `satisfied`。送审前以该任务名调用 `check-draft`，见[可复制的篇幅填写与检查步骤](delivery-verification.zh-CN.md#显式篇幅要求)。
+Agent 通过 `research_save`／CLI `save` 的 `requirements` 参数保存实际约定的篇幅，不让用户编辑 JSONL。先记 `pending`，实际核对后提交带依据的 `satisfied` 更新；见[记录保存示例](usage-modes.zh-CN.md#保存研究记录与稿件)。
 
 自评材料的保存与复用见 [CLI 示例](usage-modes.zh-CN.md#复用任务文件并保存自评材料)，其他档位和交付见[现有调用说明](usage-modes.zh-CN.md)。示例不会预填报告或伪造评审。
 

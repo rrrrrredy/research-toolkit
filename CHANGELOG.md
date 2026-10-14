@@ -4,19 +4,9 @@
 
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
-## v1.0.0 — 2026-10-13
+## v1.1.0 — 2026-10-14
 
-- Establish the public 1.x compatibility policy for documented CLI/MCP interfaces, saved tasks and installation requirements; publish matching English and Chinese guides.
-- Include the policy in the plugin and synchronize all release metadata. Runtime behavior remains the same as v0.2.7; no task-data migration or new model evaluation is required. [Release notes](docs/releases/v1.0.0.md).
-
-## v0.2.7 — 2026-10-13
-
-- Block Lite completion when recorded required work remains open; preserve lightweight author checks.
-- Preserve neutral source identity in new blinded inputs for both roles.
-- Align installed repair instructions and task-dependent Full methods; share concrete reasoning checks across profiles.
-- Correct current bilingual task descriptions and map all evaluation collections to product changes and targeted verification.
-
-## Unreleased
+- Add `research_save` / CLI `save` for agent-owned record updates, format recovery with original backups, and draft saves. Observe draft timestamps, failed attempts, reviewer timing and returned usage without new acceptance gates.
 
 - Fix Lite actual-reply capture comparison and current completion checks while preserving retained checklists; align bilingual Skill, plugin discovery and website profile guidance.
 
@@ -31,6 +21,18 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 - Add substantial-report examples, Full guides, research requests and length templates to the bilingual README and website.
 - Install MCP with a virtual environment and absolute interpreter path; add Windows/Linux troubleshooting and field-specific length errors without changing counting or acceptance rules.
+
+## v1.0.0 — 2026-10-13
+
+- Establish the public 1.x compatibility policy for documented CLI/MCP interfaces, saved tasks and installation requirements; publish matching English and Chinese guides.
+- Include the policy in the plugin and synchronize all release metadata. Runtime behavior remains the same as v0.2.7; no task-data migration or new model evaluation is required. [Release notes](docs/releases/v1.0.0.md).
+
+## v0.2.7 — 2026-10-13
+
+- Block Lite completion when recorded required work remains open; preserve lightweight author checks.
+- Preserve neutral source identity in new blinded inputs for both roles.
+- Align installed repair instructions and task-dependent Full methods; share concrete reasoning checks across profiles.
+- Correct current bilingual task descriptions and map all evaluation collections to product changes and targeted verification.
 
 ## v0.2.6 — 2026-10-13
 

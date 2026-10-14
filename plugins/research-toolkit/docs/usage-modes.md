@@ -24,12 +24,39 @@ The table applies when you choose the managed local workflow, through MCP **or t
 | Tool | When it is needed | When you can skip the call |
 | --- | --- | --- |
 | `research_start` | Create a new managed task and its brief; explicitly select `lite` or `full` from use, evidence complexity and review needs. | Resume an existing task with `research_status`, or keep records yourself without local workflow tools. |
+| `research_save` | Save/update sources, claims, requirements and drafts; correct located format errors. | No record or draft changes. |
 | `research_status` | Resume a managed task, inspect saved progress, or change its recorded stage. | You do not need to read or update progress; a methods-only session can use its own notes. |
 | `research_guide` | Retrieve the method for a stage when it is not already available in context. | Read the relevant `SKILL.md` and `references/` files directly. |
 | `research_review` | Complete the declared reviews in a Full task, including explicit self-review when that is the chosen tier. | Lite skips review; never skip a review explicitly required by the assignment. |
 | `research_check_draft` | Check current draft records and explicit length bounds without model calls or a delivery receipt. | Optional before review/finish; inspect sources and meaning separately. |
 | `research_finish` | Complete a managed task: Lite records the six-item checklist; Full checks the reviewed report and delivery requirements. | Without local workflow tools, complete the checklist yourself and return the records without claiming a local receipt. |
 | `research_check_reviewer` | Diagnose external backend setup or a configuration failure before attempting review. | Lite and self-review need no external backend; a separate call is unnecessary when `research_start` has already confirmed the unchanged configuration. |
+
+## Save research records and drafts
+
+The agent uses `research_save` (CLI: `save`) to save source, claim and requirement objects. Users describe the research and make scope/use decisions; they do not manage CSV, IDs or review-response JSON. The tool merges partial updates by ID, retains other rows/columns, and writes the existing CSV/JSONL formats. If an ID is omitted, it matches a unique URL/claim/summary or assigns an ID and returns it. Use that ID for later edits. The agent still reads sources and supplies accurate content.
+
+Example request for the agent, after saving the source text in the task directory:
+
+```json
+{
+  "task": "example",
+  "sources": [{"title":"Source title","url":"https://example.org/source","source_type":"primary","read_scope":"relevant_sections","read_evidence":"sources/source.md"}],
+  "claims": [{"claim":"The source-backed finding","claim_type":"fact","supporting_sources":["S1"]}],
+  "requirements": [{"summary":"Explain the comparison","status":"pending"}],
+  "draft": {"path":"first-draft.md","complete":true}
+}
+```
+
+Omit a collection when it does not change. `draft` may include `content` to write the report and create its parent directory; omit content to register an existing UTF-8 file without copying it through the conversation. `complete: true` records that the agent has saved a complete draft, not that its quality passed. A partial update such as `{"requirements":[{"requirement_id":"R1","status":"satisfied","evidence":"final.md, comparison section"}]}` preserves the other fields; it does not invent evidence or automatically close work.
+
+```bash
+python3 scripts/research_workflow.py save --workspace ../research-work --request save.json
+```
+
+Format errors identify the collection, row and field. The agent fixes those inputs and retries; the whole request is validated before records are replaced. To recover a malformed existing collection, send its complete recovered rows with, for example, `"replace":["sources"]`. The tool preserves the original bytes under `logs/record-backups/`. This is explicit replacement, not silent removal of unparsed rows. Saved input changes continue to invalidate earlier checks normally.
+
+`research_status` returns an `activity` summary: task start, first observed complete draft with UTC time/hash and elapsed time since task creation, failed saves, actual review attempts/retries, elapsed invocation time and returned usage. `saved_by_tool` timestamps the save; `existing_file_observed` timestamps registration, not historical creation. Read-only status/draft/delivery checks do not append activity. Review reuse is not a new invocation; author self-review submissions are counted separately. Cached tokens remain a subset of input; unavailable usage is unknown. The tool cannot see the host author's overall tokens, bill, or time before registration. These observations add no delivery requirement and do not establish first usable-result time or research quality.
 
 ## Continue existing research
 
@@ -76,7 +103,7 @@ Use local MCP when the host can start a local process, or the bundled plugin whe
 | --- | --- | --- |
 | Skill | Entry instructions and detailed research methods | Native Skill discovery or explicit file reading |
 | Plugin | Skill, references, and the local MCP server in one package | Support for the package format and local stdio MCP |
-| MCP | Seven callable tools for task setup, progress, guidance, reviews, and delivery checks | A client that can start and call a local stdio MCP server |
+| MCP | Eight callable tools for task setup, progress, guidance, reviews, and delivery checks | A client that can start and call a local stdio MCP server |
 
 The shared CLI needs Python 3.10+ and only its standard library. Prefer `python3` on Linux; any installed Python 3.10+ interpreter is enough. MCP also needs the dependency in `requirements-mcp.txt`. Without a backend, new Full tasks use explicitly degraded self-review. External/independent review accepts any supported command or endpoint; no vendor account is mandatory.
 
@@ -84,7 +111,7 @@ CI exercises the CLI and packaged MCP workflow on Python 3.10/Linux, plus the br
 
 ## Install the plugin
 
-The [plugin directory](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/) bundles the Skill, methods and local MCP server. Use your host's supported plugin installation mechanism; [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md) has host-specific instructions. Install `requirements-mcp.txt` in the Python environment that starts MCP, then confirm the seven `research_*` tools are available.
+The [plugin directory](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/) bundles the Skill, methods and local MCP server. Use your host's supported plugin installation mechanism; [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md) has host-specific instructions. Install `requirements-mcp.txt` in the Python environment that starts MCP, then confirm the eight `research_*` tools are available.
 
 Describe the topic, reader and expected result; the agent assembles the brief and asks only about critical missing choices. The package follows the [portable plugin specification](https://developers.openai.com/plugins/build/plugins); it is not a hosted service and does not imply every client supports that format.
 
@@ -153,7 +180,7 @@ args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
 RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 ```
 
-Restart the client and confirm the seven `research_*` tools appear. The [executable example](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.md) captures real local responses with a fictional report and explicitly degraded self-review.
+Restart the client and confirm the eight `research_*` tools appear. The [executable example](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.md) captures real local responses with a fictional report and explicitly degraded self-review.
 
 Official configuration references: [Claude Desktop local servers](https://modelcontextprotocol.io/docs/develop/connect-local-servers), [Cursor MCP](https://cursor.com/docs/mcp), [Codex MCP](https://developers.openai.com/codex/mcp). Cursor supports project `.cursor/mcp.json` or global `~/.cursor/mcp.json`; Codex uses `~/.codex/config.toml`. In Claude Desktop, open Settings → Developer → Edit Config.
 

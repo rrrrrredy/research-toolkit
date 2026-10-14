@@ -46,7 +46,7 @@ async def verify(base):
     async with Client(server, read_timeout_seconds=30) as client:
         tools = await client.list_tools()
         names = {tool.name for tool in tools.tools}
-        assert names == {"research_start", "research_status", "research_guide", "research_review", "research_finish", "research_check_reviewer", "research_check_draft"}, names
+        assert names == {"research_start", "research_save", "research_status", "research_guide", "research_review", "research_finish", "research_check_reviewer", "research_check_draft"}, names
         guide = unpack(await client.call_tool("research_guide", {"stage": "brief", "language": "zh"}))
         assert "研究工作流" in guide["guidance"][0]["content"]
         for language, suffix in (("en", ".md"), ("zh", ".zh-CN.md")):
@@ -110,24 +110,31 @@ async def verify(base):
         for profile, task in (("lite", "lite-case"), ("full", "self-case")):
             created = unpack(await client.call_tool("research_start", {"task": task, "brief": BRIEF, "profile": profile}))
             local = Path(created["task_directory"])
-            for name in ("source.md", "final.md", "data/source_registry.csv", "data/claims_registry.csv"):
-                (local/name).write_bytes((root/name).read_bytes())
-            (local/"state/requirements.jsonl").write_text(json.dumps({
+            (local/"source.md").write_bytes((root/"source.md").read_bytes())
+            record_args = {"task": task,
+                "sources": [{"source_id": "S1", "title": "Shipments", "url": "https://example.org/source", "source_type": "primary", "read_scope": "full_text", "read_evidence": "source.md"}],
+                "claims": [{"claim_id": "C1", "claim": "Twelve shipments", "claim_type": "verified_fact", "supporting_sources": ["S1"]}],
+                "draft": {"path": "final.md", "content": (root/"final.md").read_text(encoding="utf-8"), "complete": True},
+                "requirements": [{
                 "requirement_id": "R-length", "summary": "Synthetic whole-file limit of 1–100 words.",
                 "status": "satisfied", "evidence": "final.md",
-                "length_constraint": {"unit": "whitespace_words", "scope": "whole_artifact", "min": 1, "max": 100}})+"\n", encoding="utf-8")
+                "length_constraint": {"unit": "whitespace_words", "scope": "whole_artifact", "min": 1, "max": 100}}]}
+            saved = unpack(await client.call_tool("research_save", record_args))
+            assert saved["ok"] and saved["saved_ids"]["sources"] == ["S1"], saved
+            bad = unpack(await client.call_tool("research_save", {"task": task, "sources": [{"source_id": "S1", "title": 42}]}))
+            assert not bad["ok"] and "sources[0].title" in bad["errors"][0], bad
             arguments = {"task": task, "evidence_paths": ["source.md"], "reviewer": "self"}
             length_file = local/"state/requirements.jsonl"
             length_row = json.loads(length_file.read_text(encoding="utf-8"))
             length_row.update(status="pending", evidence="")
-            length_file.write_text(json.dumps(length_row)+"\n", encoding="utf-8")
+            assert unpack(await client.call_tool("research_save", {"task": task, "requirements": [length_row]}))["ok"]
             before = {p.relative_to(local): p.read_bytes() for p in local.rglob("*") if p.is_file()}
             unresolved = unpack(await client.call_tool("research_check_draft", {"task": task}))
             assert not unresolved["ok"] and unresolved["length_checks"][0]["bounds_met"], unresolved
             assert "R-length" in unresolved["next_action"] and "still pending" in unresolved["next_action"]
             assert before == {p.relative_to(local): p.read_bytes() for p in local.rglob("*") if p.is_file()}
             length_row.update(status="satisfied", evidence="final.md")
-            length_file.write_text(json.dumps(length_row)+"\n", encoding="utf-8")
+            assert unpack(await client.call_tool("research_save", {"task": task, "requirements": [length_row]}))["ok"]
             before = {p.relative_to(local): p.read_bytes() for p in local.rglob("*") if p.is_file()}
             checked = unpack(await client.call_tool("research_check_draft", {"task": task}))
             assert checked["ok"] and checked["length_checks"][0]["bounds_met"], checked

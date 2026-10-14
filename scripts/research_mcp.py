@@ -48,6 +48,21 @@ def research_start(task: str, brief: dict[str, str], language: str = "en",
 
 
 @server.tool(structured_output=True)
+def research_save(task: str, sources: list[dict[str, Any]] | None = None,
+                  claims: list[dict[str, Any]] | None = None, requirements: list[dict[str, Any]] | None = None,
+                  draft: dict[str, Any] | None = None, replace: list[str] | None = None) -> dict[str, Any]:
+    """Save/update source, claim and requirement objects by stable ID; the tool writes CSV/JSONL.
+    Omitted IDs are assigned or matched by URL/claim/summary. Partial updates retain other fields and rows.
+    draft uses path, optional content and complete=true for a complete draft; omit content to register an existing file.
+    Returns assigned IDs and field errors for the agent to resolve, without asking users to manage records.
+    replace names complete collections to repair from recovered rows; original bytes are backed up automatically.
+    Records reading/verification claims as supplied, never infers truth or closes requirements automatically.
+    Saves observe timestamps and failures; research_status exposes activity and returned reviewer usage.
+    """
+    return mutate(workflow.save_records, task, sources, claims, requirements, draft, replace)
+
+
+@server.tool(structured_output=True)
 def research_status(task: str, language: str = "en", stage: str | None = None) -> dict[str, Any]:
     """Read progress and stage methods. Optional stage advances to collect/analyze/draft/revise only
     after prerequisite records exist. Review and final completion use their dedicated tools.

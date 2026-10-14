@@ -39,7 +39,7 @@ Use the context to propose concrete coverage, questions to answer, and what the 
 
 Record the agreed brief and outline in `state/task_spec.md`. If an unanswered question would materially change the object, scope, evidence standard, or deliverable, keep dependent work pending and continue only unaffected work. Use and record reasonable defaults for non-critical details. If the user delegates a choice, record that choice and proceed.
 
-The agent owns reading the applicable methods, maintaining records, executing reviews, recovering failures, and checking completion. Ask the user for research decisions or necessary access; do not make them supervise these execution duties.
+The agent owns reading the applicable methods, maintaining records, executing reviews, recovering failures, and checking completion. Use `research_save` / CLI `save` for sources, claims, requirements and drafts; resolve its field errors without asking users to edit CSV/JSONL or review JSON. Register the first complete draft when saved, reusing its file path. Read `research_status.activity` for observed retries and returned usage; see the [record-saving guide](docs/usage-modes.md#save-research-records-and-drafts). Ask the user for research decisions or necessary access; do not make them supervise these execution duties.
 
 ## Keep these constraints active
 

@@ -12,8 +12,10 @@ import re
 import shutil
 import tempfile
 import uuid
+import time
 from functools import wraps
 from task_lock import task_lock
+from run_observation import now, timed_capture, activity_summary, record_event
 
 from profile_policy import CHECKLIST, LITE_LOG, checklist_errors, inspect_lite_delivery, lite_input_hashes, lite_completion_errors
 
@@ -308,6 +310,7 @@ def requirement_input(root):
 
 @task_operation
 def start(workspace: Path, task: str, brief: dict, language="en", profile="full") -> dict:
+    started_at = now()
     if profile not in {"lite", "full"}:
         raise ValueError("Profile must be lite or full.")
     if not isinstance(brief, dict) or any(not isinstance(k, str) for k in brief):
@@ -316,6 +319,7 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
         raise ValueError("Brief values must be text.")
     root = task_root(workspace, task, create=True)
     progress_file = safe_path(root, "state/progress.json")
+    created = not progress_file.exists()
     if progress_file.exists():
         progress = load(root, "state/progress.json")
         if progress.get("profile", "full") != profile:
@@ -354,10 +358,22 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
     save(root, "state/progress.json", progress)
     spec = "# Research brief\n\n" + "\n\n".join(f"## {key}\n\n{value}" for key, value in brief.items())
     save_text(root, "state/task_spec.md", spec+"\n")
+    observation = {}
+    if created:
+        try:
+            record_event(root, {"operation": "start", "started_at": started_at, "finished_at": now(), "outcome": "created"})
+        except (ValueError, OSError) as exc:
+            observation["observation_warning"] = f"Task start could not be observed: {exc}"
     return {"task": task, "task_directory": str(root), "ready_for_collection": not missing and readiness["status"] != "blocked",
             "review_readiness": readiness, "profile": profile, "log": LITE_LOG if profile == "lite" else [],
             "missing_fields": missing, "clarification_questions": [(BRIEF_FIELDS_ZH if language == "zh" else BRIEF_FIELDS)[k] for k in missing],
-            **guidance(progress["stage"], language, profile)}
+            **observation, **guidance(progress["stage"], language, profile)}
+
+
+@task_operation
+def save_records(workspace: Path, task: str, sources=None, claims=None, requirements=None, draft=None, replace=None):
+    from research_records import save_records as persist
+    return persist(task_root(workspace, task), sources, claims, requirements, draft, replace)
 
 
 @task_operation
@@ -393,6 +409,7 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None) 
                         "next_action": "Resolve the current delivery findings, then review/check and finish the changed report."}
     current = progress.get("stage", "brief")
     return {"task": task, "task_directory": str(root), "progress": progress, "missing_fields": missing, **delivery,
+            "activity": activity_summary(root),
             **guidance(current, language, progress.get("profile", "full"))}
 
 
@@ -455,9 +472,10 @@ def checked_audit(value, review, samples):
 
 def invoke(root, prefix, config, request, used_ids, runner):
     save(root, prefix+"/request.json", request)
+    started_at, started = now(), time.monotonic()
     try:
         result = runner(config, request, safe_path(root, prefix))
-        save(root, prefix+"/execution.json", result["capture"])
+        save(root, prefix+"/execution.json", timed_capture(result["capture"], started_at, started))
         save_text(root, prefix+"/response.txt", result["content"])
         identity = result["execution_id"]
         if not nonempty(identity) or (identity in used_ids and config.get("backend") != "self"):
@@ -467,7 +485,7 @@ def invoke(root, prefix, config, request, used_ids, runner):
         value = json.loads(result["content"])
         return value, identity
     except ReviewFailure as exc:
-        save(root, prefix+"/execution.json", exc.capture)
+        save(root, prefix+"/execution.json", timed_capture(exc.capture, started_at, started))
         raise
 
 
@@ -1039,7 +1057,7 @@ def workspace_default() -> Path:
 
 def dispatch(action: str, request: dict, workspace: Path):
     actions = {"start": start, "status": status, "guide": guidance, "review": review,
-               "finish": finish, "check-draft": check_draft, "check-reviewer": review_readiness}
+               "finish": finish, "save": save_records, "check-draft": check_draft, "check-reviewer": review_readiness}
     if action not in actions:
         raise ValueError("Unknown workflow action. Use " + ", ".join(actions) + ".")
     if not isinstance(request, dict) or any(not isinstance(key, str) for key in request):
@@ -1065,7 +1083,7 @@ def main():
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "check-draft", "check-reviewer"])
+    parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "save", "check-draft", "check-reviewer"])
     parser.add_argument("--profile", choices=["lite", "full"], help="Profile for a new task (default: full).")
     parser.add_argument("--workspace", type=Path, default=workspace_default())
     parser.add_argument("--request", type=Path, help="JSON arguments; otherwise read stdin.")
