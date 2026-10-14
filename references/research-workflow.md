@@ -184,6 +184,8 @@ Use the following questions when they help answer the task. Keep any useful anal
 
 Do not average length across units. Allocate space according to importance, evidence richness, and complexity.
 
+In a requested comparison, use the strongest relevant evidence to explain each named option's distinctive mechanism and consequence. A name or a generic caveat is not a substitute for an available example that changes the comparison. When evidence supports different levels of detail, explain that difference without inventing symmetry or equal word quotas.
+
 ## 7. Depth Planning
 
 Before drafting a longform deliverable, define:

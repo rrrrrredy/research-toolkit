@@ -8,6 +8,7 @@ Research Toolkit helps execute research; the research evaluation dataset uses ta
 
 | What you need | Entry point |
 |---|---|
+| October 12 baseline versus v1.0.0: complete reports | [10-task comparison and targeted repairs](studies/2026-10-13-before-after/README.md): no stable overall gain; original mean 100 → 99.5, 20 reports, 20 blind reviews, two separately accepted revisions |
 | Report-defect examples and comparison excerpts | [Semantic diagnostics](semantic_diagnostics/README.md) |
 | Research-quality criteria and result interpretation | [Five-dimension standard](../docs/report-evaluation-standard.md), [existing results and public scope](../docs/evaluation-status.md) |
 | Toolkit software behavior checks | The cases, fixtures and commands below |

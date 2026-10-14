@@ -1,0 +1,148 @@
+{
+  "scope": "After all twenty first blind reviews locked, maintainer inspected their located judgments and optional advice, read both selected current reports, and scanned all twenty originals for nonportable citation tokens. This is not a second exhaustive semantic audit of all claims.",
+  "initial_scores_and_preferences_unchanged": true,
+  "confirmed_defects": [
+    {
+      "id": "C01",
+      "task": "coding_benchmark_decision_zh",
+      "condition": "after",
+      "label": [
+        "ND03",
+        "ND07"
+      ],
+      "severity": "minor",
+      "status": "confirmed_defect",
+      "locations": 6,
+      "problem": "Six private browser citation tokens were used as source references in a standalone Markdown report. They do not resolve outside the original tool session. Both initial Astra orientations missed this publication defect.",
+      "evidence": [
+        {
+          "token": "citeturn56view0",
+          "url": "https://openai.com/index/swe-lancer/",
+          "occurrences": 2
+        },
+        {
+          "token": "citeturn56view1",
+          "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations/",
+          "occurrences": 3
+        },
+        {
+          "token": "citeturn56view2",
+          "url": "https://openai.com/index/introducing-swe-bench-verified/",
+          "occurrences": 1
+        }
+      ],
+      "repair": "Replace references with source-title Markdown links; retain original report, first pass verdicts and missed-defect record. Clarify portable citations in both writing and content-review methods."
+    }
+  ],
+  "quality_improvements": [
+    {
+      "task": "reasoning_model_competition_zh",
+      "basis": "Old version preferred in both orientations; current report scored 95. Existing source S003 supports an OpenAI research-system example that makes the three-company comparison more informative.",
+      "action": "Add attributed evidence and comparison, plus a reusable comparison instruction."
+    },
+    {
+      "task": "coding_benchmark_decision_zh",
+      "basis": "Old version preferred in both orientations despite equal 100 scores. Its proposed pilot has a more concrete starting scope, sequencing and change/stop decisions.",
+      "action": "Make the current report pilot executable and label proposed starting assumptions; clarify decision-plan guidance."
+    }
+  ],
+  "optional_advice": [
+    {
+      "task": "ai_agent_market_landscape_zh",
+      "orientation": "swap",
+      "condition": "after",
+      "suggestion": "可进一步区分OpenAI的消费入口与Anthropic的开发者工作流定位，使两家平台的比较更鲜明；不必据此推断商业优势排名。",
+      "disposition": "no_change_optional",
+      "reason": "The located advice adds optional detail; current required coverage is supported elsewhere in the complete report. It is not promoted into a new acceptance requirement."
+    },
+    {
+      "task": "ai_agent_market_landscape_zh",
+      "orientation": "swap",
+      "condition": "before",
+      "suggestion": "可在成本收益比较中补充区分节省工时与实际兑现的现金收益，进一步明确投资回报判断。",
+      "disposition": "no_change_optional",
+      "reason": "The located advice adds optional detail; current required coverage is supported elsewhere in the complete report. It is not promoted into a new acceptance requirement."
+    },
+    {
+      "task": "model_company_pipeline_long_horizon_zh",
+      "orientation": "primary",
+      "condition": "before",
+      "suggestion": "可在数据专章中补入Google的多模态指令、偏好与工具数据接口，以及Codex的安全数据生成，使该章对八家的覆盖更均衡；现有表格及其他章节已经提供相关覆盖，不构成缺漏。",
+      "disposition": "no_change_optional",
+      "reason": "The located advice adds optional detail; current required coverage is supported elsewhere in the complete report. It is not promoted into a new acceptance requirement."
+    },
+    {
+      "task": "model_company_pipeline_long_horizon_zh",
+      "orientation": "primary",
+      "condition": "after",
+      "suggestion": "可补充A中同样有来源支持的两项分析：Kimi与DeepSeek在DualPipe选择上的约束差异，以及外部操作需要独立撤销或补偿机制，以增强技术取舍和回滚建议的具体性。",
+      "disposition": "no_change_optional",
+      "reason": "The located advice adds optional detail; current required coverage is supported elsewhere in the complete report. It is not promoted into a new acceptance requirement."
+    },
+    {
+      "task": "model_company_pipeline_long_horizon_zh",
+      "orientation": "swap",
+      "condition": "before",
+      "suggestion": "可补入Google多模态指令、偏好与工具数据，以及OpenAI安全场景数据的简短对照，让数据优先的横向比较更完整。",
+      "disposition": "no_change_optional",
+      "reason": "The located advice adds optional detail; current required coverage is supported elsewhere in the complete report. It is not promoted into a new acceptance requirement."
+    },
+    {
+      "task": "model_company_pipeline_long_horizon_zh",
+      "orientation": "swap",
+      "condition": "before",
+      "suggestion": "可将分散的产品反馈与发布信息集中串联，尤其突出腾讯从基础设施重建到Preview、反馈及正式发布的阶段关系。",
+      "disposition": "no_change_optional",
+      "reason": "The located advice adds optional detail; current required coverage is supported elsewhere in the complete report. It is not promoted into a new acceptance requirement."
+    },
+    {
+      "task": "model_price_war_competitive_analysis_zh",
+      "orientation": "primary",
+      "condition": "before",
+      "suggestion": "可在字节规模或阿里收入增长处保留少量带日期、口径限制的原文数字，使竞争判断的证据锚点更直观；不必增加缺失的报价数据。",
+      "disposition": "no_change_optional",
+      "reason": "The located advice adds optional detail; current required coverage is supported elsewhere in the complete report. It is not promoted into a new acceptance requirement."
+    },
+    {
+      "task": "reasoning_model_competition_zh",
+      "orientation": "primary",
+      "condition": "after",
+      "suggestion": "可利用S003对OpenAI Deep Research网页理解与引用核查的评价，与Claude的工程执行环境、DeepSeek的部署分发路径作更直接的三方比较；保留其作为二手体验评价的限定。",
+      "disposition": "selected_quality_improvement",
+      "reason": "Stable paired preference identifies a concrete omitted comparison opportunity using existing S003 evidence; improve it separately."
+    },
+    {
+      "task": "reasoning_model_competition_zh",
+      "orientation": "swap",
+      "condition": "after",
+      "suggestion": "可利用S003关于OpenAI Deep Research的信息获取与引用核查案例，进一步充实OpenAI的产品竞争路径，同时保留其研究者评价属性。",
+      "disposition": "selected_quality_improvement",
+      "reason": "Stable paired preference identifies a concrete omitted comparison opportunity using existing S003 evidence; improve it separately."
+    },
+    {
+      "task": "rag_long_context_decision_zh",
+      "orientation": "primary",
+      "condition": "before",
+      "suggestion": "可在Li等实验条件处补充F1、准确率和ROUGE三类指标，使“混合任务平均分不是企业问答准确率”的解释更直观。",
+      "disposition": "no_change_optional",
+      "reason": "The located advice adds optional detail; current required coverage is supported elsewhere in the complete report. It is not promoted into a new acceptance requirement."
+    },
+    {
+      "task": "rag_long_context_decision_zh",
+      "orientation": "swap",
+      "condition": "before",
+      "suggestion": "可补充Li等在GPT-3.5-Turbo窗口不足的长数据集上RAG优于LC的具体反例，使超窗条件下的取舍更直接对应原始实验。",
+      "disposition": "no_change_optional",
+      "reason": "The located advice adds optional detail; current required coverage is supported elsewhere in the complete report. It is not promoted into a new acceptance requirement."
+    },
+    {
+      "task": "rag_long_context_decision_zh",
+      "orientation": "swap",
+      "condition": "after",
+      "suggestion": "可明确为不可回答和越权请求预留测试数量，便于执行团队在事实与比较题之外落实拒答验证。",
+      "disposition": "no_change_optional",
+      "reason": "The located advice adds optional detail; current required coverage is supported elsewhere in the complete report. It is not promoted into a new acceptance requirement."
+    }
+  ],
+  "other_tasks": "No new necessary correction was identified by the retained reviews. Optional suggestions do not force another round. No unchanged valid review was rerun to obtain a preferred outcome."
+}

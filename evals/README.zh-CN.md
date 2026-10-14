@@ -8,6 +8,7 @@
 
 | 要找的内容 | 入口 |
 |---|---|
+| 10 月 12 日基线与 v1.0.0 的完整研究结果 | [十题前后比较及针对性修复](studies/2026-10-13-before-after/README.zh-CN.md)：未观察到稳定总体提升；首轮均分 100 → 99.5，20 篇报告、20 次盲评，两篇修订稿另行通过 |
 | 报告缺陷示例与对照片段 | [语义诊断案例](semantic_diagnostics/README.zh-CN.md) |
 | 研究质量判据与结果解释 | [五维评测标准](../docs/report-evaluation-standard.zh-CN.md)、[已有结果及公开范围](../docs/evaluation-status.zh-CN.md) |
 | Toolkit 软件行为检查 | 下文的案例、正反例夹具和运行命令 |

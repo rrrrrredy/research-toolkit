@@ -12,6 +12,8 @@ The separate [October 10 fixed-source Lite pilot](../evals/studies/2026-10-10-li
 
 ## Current repair arrangement
 
+The [October 13 complete-report comparison](../evals/studies/2026-10-13-before-after/README.md), with repairs completed October 14, directly compares the user-selected October 12 commit against v1.0.0 on seven existing and three new real tasks. Astra's primary mean is 100 → 99.5; three of ten preferences change under order swaps. No stable overall quality gain was observed. All 20 first reports and 20 blind reviews are retained. A subsequent export check found six private citation tokens in one current-version report that both initial reviews missed. Bilingual method clarifications and two revised reports received targeted rechecks; the negative intermediate recheck remains visible. These repair outcomes do not replace first-pass results.
+
 Use existing real user and development tasks with Astra in a separate review context. All existing and future user tasks, development tasks and reference cases are real independent tasks; executed tests are real tests. The records below describe completed runs, not a requirement to find outside reviewers or new external material before fixing problems.
 
 ## 2026-10-12: connectivity and judge calibration

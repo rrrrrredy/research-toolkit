@@ -28,6 +28,8 @@ A perspective is a responsibility, not a mandatory extra model call. Combine com
 
 The content reviewer reads the actual assembled artifact, requirements and relevant sources, rather than an author summary or edit list. For external/independent review, use a context separate from the author; self-review explicitly switches roles in the author context and remains degraded. A fresh context separates work; it does not imply statistically independent model errors.
 
+Review the artifact in its intended delivery format. For exported Markdown or documents, check that citations resolve to the supplied source titles, URLs or locators rather than private chat/tool tokens. For comparisons and implementation plans, check whether available distinguishing evidence and an actionable first step reach the reader; do not add equal-length quotas or new approval requirements.
+
 ## Shared Assignment
 
 Provide the actual request, corrections, reader, exact files or sections, source access, artifact/input versions, assigned dimensions and output format. Do not expose other initial reviews, expected scores or the preferred research conclusion. In a controlled study, preserve the common full inputs and the declared model settings.

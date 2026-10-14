@@ -1,0 +1,36 @@
+{
+  "selected_reports": [
+    {
+      "task": "reasoning_model_competition_zh",
+      "report": "repairs/reasoning_model_competition_zh/report-final.md",
+      "sha256": "ac832559f20d0af8f06cac664b0f7af9448246cfd8bbe8107d2f8bb18dbcce2c",
+      "characters": 4494,
+      "review": "repairs/reasoning_model_competition_zh/review/parsed.json",
+      "verdict": "pass",
+      "score": 100,
+      "scope": "Changed report after feedback; not substituted into initial effect comparison."
+    },
+    {
+      "task": "coding_benchmark_decision_zh",
+      "report": "repairs/coding_benchmark_decision_zh/report-final-v2.md",
+      "sha256": "97b83f0352f295b1e25df6c98ec992e8568014ae3d3f8e5e24d14d3edb525c6a",
+      "characters": 3758,
+      "review": "repairs/coding_benchmark_decision_zh/review-2/parsed.json",
+      "verdict": "pass",
+      "score": 100,
+      "scope": "Changed report after feedback; not substituted into initial effect comparison."
+    }
+  ],
+  "calls": 5,
+  "author_calls": 2,
+  "first_targeted_pair_reviews": 2,
+  "additional_changed_report_review": 1,
+  "total_study_and_repair_calls": 87,
+  "retained_failure": "Reasoning repair draft: 4557 > 4500 characters, preserved before a documented 63-character opening trim. Coding first targeted review: needs_revision, preserved before a source-backed paragraph addition and one further review.",
+  "comparison": "Both repaired reports were preferred over their own first current-version report in the targeted anonymous comparisons. Reasoning passed then; coding required one further localized revision, then passed. These feedback-assisted outcomes do not establish a before/after version effect.",
+  "usage": {
+    "input_tokens": 124777,
+    "output_tokens": 10968,
+    "cached_input_tokens": 6912
+  }
+}

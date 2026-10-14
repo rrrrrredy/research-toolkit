@@ -1,0 +1,627 @@
+{
+  "scope": "Unchanged initial reports and first primary judgments; swaps shown separately; reviewer findings not yet equivalent to confirmed defects.",
+  "rows": [
+    {
+      "task": "ai_agent_market_landscape_zh",
+      "group": "original",
+      "reports": {
+        "before": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "e76d7ad00f5655cbc84a2fd623f507b8d6f8f87be57c1525bbc174f78a0c2e03",
+          "characters": 4152,
+          "minimum": 3000,
+          "maximum": 5000,
+          "length_met": true,
+          "stage_count": 3
+        },
+        "after": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "5d2a654bc7fc0de6e1337eb6e576771abddab270789e95cf5fe180e416808442",
+          "characters": 4074,
+          "minimum": 3000,
+          "maximum": 5000,
+          "length_met": true,
+          "stage_count": 3
+        }
+      },
+      "primary_preference": "after",
+      "swap_preference": "before",
+      "delta": 0,
+      "preference_consistent": false
+    },
+    {
+      "task": "ai_video_generation_investment_memo_zh",
+      "group": "original",
+      "reports": {
+        "after": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "167c57a5540e46c1b6a3def0a4b788ead76edb5eee6cb4c1fa17c5f0e32c4dbc",
+          "characters": 3458,
+          "minimum": 2500,
+          "maximum": 4500,
+          "length_met": true,
+          "stage_count": 3
+        },
+        "before": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "33c0c267ada37f21c3c29329948a80673c071d4d4b658736ee5a6ff3e82be96f",
+          "characters": 3448,
+          "minimum": 2500,
+          "maximum": 4500,
+          "length_met": true,
+          "stage_count": 3
+        }
+      },
+      "primary_preference": "after",
+      "swap_preference": "after",
+      "delta": 0,
+      "preference_consistent": true
+    },
+    {
+      "task": "model_company_pipeline_long_horizon_zh",
+      "group": "original",
+      "reports": {
+        "before": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "89f424b3c19865adab16d24ddd367af3fe3ffcef025fa63279fc444acac6cfd7",
+          "characters": 4869,
+          "minimum": 3500,
+          "maximum": 6000,
+          "length_met": true,
+          "stage_count": 4
+        },
+        "after": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "b73c446a2dcb936b7860189ffbd908063f2fcac9b14dde83f117ffee6816986f",
+          "characters": 4972,
+          "minimum": 3500,
+          "maximum": 6000,
+          "length_met": true,
+          "stage_count": 4
+        }
+      },
+      "primary_preference": "tie",
+      "swap_preference": "after",
+      "delta": 0,
+      "preference_consistent": false
+    },
+    {
+      "task": "model_price_war_competitive_analysis_zh",
+      "group": "original",
+      "reports": {
+        "before": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "4ca5fcce261fb98dcd16d3d75c01dabace6e8f82894af9133dbd7d6989d94b41",
+          "characters": 3678,
+          "minimum": 2500,
+          "maximum": 4500,
+          "length_met": true,
+          "stage_count": 3
+        },
+        "after": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "13991848260c786f771df0fa145a212fa2994a88c57c4ded2c23a49542235d4c",
+          "characters": 3519,
+          "minimum": 2500,
+          "maximum": 4500,
+          "length_met": true,
+          "stage_count": 3
+        }
+      },
+      "primary_preference": "after",
+      "swap_preference": "tie",
+      "delta": 0,
+      "preference_consistent": false
+    },
+    {
+      "task": "monthly_observation_synthesis_zh",
+      "group": "original",
+      "reports": {
+        "before": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "6215d241ab225bc88a13a2c23348c71cc488be7e2c458c56851920e58ee5a765",
+          "characters": 3560,
+          "minimum": 2500,
+          "maximum": 4500,
+          "length_met": true,
+          "stage_count": 3
+        },
+        "after": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "39177b6f2d5832f21314075ba1030b8ff8d01093f4187c92bbeb36f44a694712",
+          "characters": 3485,
+          "minimum": 2500,
+          "maximum": 4500,
+          "length_met": true,
+          "stage_count": 3
+        }
+      },
+      "primary_preference": "tie",
+      "swap_preference": "tie",
+      "delta": 0,
+      "preference_consistent": true
+    },
+    {
+      "task": "reasoning_model_competition_zh",
+      "group": "original",
+      "reports": {
+        "after": {
+          "score": 95,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 3,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 95,
+          "swap_verdict": "pass",
+          "sha256": "bea0792f437692a9b958943bcfe355bb814394e5953462afaef01b477e3e93b5",
+          "characters": 3735,
+          "minimum": 2500,
+          "maximum": 4500,
+          "length_met": true,
+          "stage_count": 3
+        },
+        "before": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "73f2546a89610d370d18ad2a7bbb99f12947bd42b18be462bea6a2a0c6cadf13",
+          "characters": 3634,
+          "minimum": 2500,
+          "maximum": 4500,
+          "length_met": true,
+          "stage_count": 3
+        }
+      },
+      "primary_preference": "before",
+      "swap_preference": "before",
+      "delta": -5,
+      "preference_consistent": true
+    },
+    {
+      "task": "source_instruction_boundary_zh",
+      "group": "original",
+      "reports": {
+        "before": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "5b2df8bd3cd2d4af38f5bbe8727b13e384e2cfd64d434ce3687294a854abdeba",
+          "characters": 1177,
+          "minimum": 900,
+          "maximum": 1500,
+          "length_met": true,
+          "stage_count": 3
+        },
+        "after": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "6c3fd38697c7fb3db05f1800eb21aafe6ba2e3a4309321580066a3fb88b7a593",
+          "characters": 1162,
+          "minimum": 900,
+          "maximum": 1500,
+          "length_met": true,
+          "stage_count": 3
+        }
+      },
+      "primary_preference": "tie",
+      "swap_preference": "tie",
+      "delta": 0,
+      "preference_consistent": true
+    },
+    {
+      "task": "rag_long_context_decision_zh",
+      "group": "new",
+      "reports": {
+        "after": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "3bbfcd0f2a0adc5104e93473da85447d6b53f612a770bd24fa5bd47a61dd0cf8",
+          "characters": 3482,
+          "minimum": 2500,
+          "maximum": 4000,
+          "length_met": true,
+          "stage_count": 3
+        },
+        "before": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "de8a88b0ca28910b7f5c96dfb838e489fe3b8b615d0b579403ef1a4727fa586b",
+          "characters": 3315,
+          "minimum": 2500,
+          "maximum": 4000,
+          "length_met": true,
+          "stage_count": 3
+        }
+      },
+      "primary_preference": "after",
+      "swap_preference": "after",
+      "delta": 0,
+      "preference_consistent": true
+    },
+    {
+      "task": "test_time_compute_decision_zh",
+      "group": "new",
+      "reports": {
+        "after": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "09862bd53bac760542c5f322afee644e70e41646e3a85b8aed27853fab84a7a3",
+          "characters": 3352,
+          "minimum": 2500,
+          "maximum": 4000,
+          "length_met": true,
+          "stage_count": 3
+        },
+        "before": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "d1edecc717d65e357f183e040c8a93d9987062bd758d679a02c0335fd24af333",
+          "characters": 3359,
+          "minimum": 2500,
+          "maximum": 4000,
+          "length_met": true,
+          "stage_count": 3
+        }
+      },
+      "primary_preference": "tie",
+      "swap_preference": "tie",
+      "delta": 0,
+      "preference_consistent": true
+    },
+    {
+      "task": "coding_benchmark_decision_zh",
+      "group": "new",
+      "reports": {
+        "after": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "a9e92e78f105618304ec44323ef0a186bca61e860e611d04625be11d843ba803",
+          "characters": 3366,
+          "minimum": 2500,
+          "maximum": 4000,
+          "length_met": true,
+          "stage_count": 3
+        },
+        "before": {
+          "score": 100,
+          "verdict": "pass",
+          "findings": 0,
+          "major_findings": 0,
+          "scores": {
+            "task_fidelity": 4,
+            "facts_evidence": 4,
+            "explanation_synthesis": 4,
+            "counterevidence_boundaries": 4,
+            "reader_usefulness": 4
+          },
+          "swap_score": 100,
+          "swap_verdict": "pass",
+          "sha256": "7f57d0b1ef7cf8d69f835ae96563e108ed8cf814870680f99b8a5e62152e5b2d",
+          "characters": 3521,
+          "minimum": 2500,
+          "maximum": 4000,
+          "length_met": true,
+          "stage_count": 3
+        }
+      },
+      "primary_preference": "before",
+      "swap_preference": "before",
+      "delta": 0,
+      "preference_consistent": true
+    }
+  ],
+  "all": {
+    "tasks": 10,
+    "scored_pairs": 10,
+    "before_mean": 100,
+    "after_mean": 99.5,
+    "mean_delta": -0.5,
+    "median_delta": 0.0,
+    "primary_preferences": {
+      "before": 2,
+      "after": 4,
+      "tie": 4
+    },
+    "swap_preferences": {
+      "before": 3,
+      "after": 3,
+      "tie": 4
+    },
+    "preference_consistent": 7,
+    "primary_passes": {
+      "before": 10,
+      "after": 10
+    },
+    "length_passes": {
+      "before": 10,
+      "after": 10
+    },
+    "primary_reported_findings": {
+      "before": 0,
+      "after": 0
+    }
+  },
+  "original": {
+    "tasks": 7,
+    "scored_pairs": 7,
+    "before_mean": 100,
+    "after_mean": 99.28571428571429,
+    "mean_delta": -0.7142857142857143,
+    "median_delta": 0,
+    "primary_preferences": {
+      "before": 1,
+      "after": 3,
+      "tie": 3
+    },
+    "swap_preferences": {
+      "before": 2,
+      "after": 2,
+      "tie": 3
+    },
+    "preference_consistent": 4,
+    "primary_passes": {
+      "before": 7,
+      "after": 7
+    },
+    "length_passes": {
+      "before": 7,
+      "after": 7
+    },
+    "primary_reported_findings": {
+      "before": 0,
+      "after": 0
+    }
+  },
+  "new": {
+    "tasks": 3,
+    "scored_pairs": 3,
+    "before_mean": 100,
+    "after_mean": 100,
+    "mean_delta": 0,
+    "median_delta": 0,
+    "primary_preferences": {
+      "before": 1,
+      "after": 1,
+      "tie": 1
+    },
+    "swap_preferences": {
+      "before": 1,
+      "after": 1,
+      "tie": 1
+    },
+    "preference_consistent": 3,
+    "primary_passes": {
+      "before": 3,
+      "after": 3
+    },
+    "length_passes": {
+      "before": 3,
+      "after": 3
+    },
+    "primary_reported_findings": {
+      "before": 0,
+      "after": 0
+    }
+  },
+  "execution": {
+    "calls": 82,
+    "completed": 82,
+    "usage": {
+      "input_tokens": 3321918,
+      "output_tokens": 143962,
+      "cached_input_tokens": 116864
+    }
+  }
+}

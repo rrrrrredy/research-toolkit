@@ -1,0 +1,31 @@
+{
+  "basis_commit": "45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3",
+  "changed_files": {
+    "references/research-workflow.md": "713a7606779f6e935c99d8fa0ff0ba30c157d5fe09782b38eb3942e17033455e",
+    "references/research-workflow.zh-CN.md": "e3945803a0f463c7da32b7df0a9c4cdf486a37e923cb21598a5f037205049247",
+    "references/writing-style.md": "f9f8a323a861b0f118c7a5737227b264c208885d8b6510c018f969f025ed08e9",
+    "references/writing-style.zh-CN.md": "5a088785e8e995c5a143388c87bba620ce9c26ba757cfccf3ccc35e4a5f244eb",
+    "references/subagents-and-review-loop.md": "2f400eb44b914ea0f93318af0aa20d21b6f9651c56af5e81c8c93f9412a70aba",
+    "references/subagents-and-review-loop.zh-CN.md": "c601bddb80e4d0056f3907934dc5d6a5566ebf9b7d26cb58d2d61dbc19e41334"
+  },
+  "changes": [
+    "Use available distinguishing evidence in named comparisons without equal-length quotas.",
+    "Give requested implementation plans a concrete starting scope, roles, assumptions and decision triggers.",
+    "Resolve exported citations to actual source titles/URLs; review their portability in the destination format."
+  ],
+  "runtime_interfaces_changed": false,
+  "new_reviewers_or_acceptance_panel_added": false,
+  "targeted_tasks": [
+    "reasoning_model_competition_zh",
+    "coding_benchmark_decision_zh"
+  ],
+  "local_original_byte_sha256": {
+    "references/research-workflow.md": "713a7606779f6e935c99d8fa0ff0ba30c157d5fe09782b38eb3942e17033455e",
+    "references/research-workflow.zh-CN.md": "e3945803a0f463c7da32b7df0a9c4cdf486a37e923cb21598a5f037205049247",
+    "references/writing-style.md": "bad14ac0aa33352070632483ad9329507215b1169d8880deacf0a553284e37fe",
+    "references/writing-style.zh-CN.md": "d14c267a4f1243d8902600388de4c3b40279e2b713cb4eecd85459228cb1cb1e",
+    "references/subagents-and-review-loop.md": "b8f0dc3ea0c90388e15c3f9a0d8710868c1c0694fbe0207019c60a1cd6a248e5",
+    "references/subagents-and-review-loop.zh-CN.md": "387d54df349d807ab9ab19222c35710a57856d3ec78fcb995e5e17e6fcdf98e4"
+  },
+  "hash_scope": "changed_files hashes UTF-8 method text with LF newlines, matching GitHub publication; original local byte hashes retained separately."
+}

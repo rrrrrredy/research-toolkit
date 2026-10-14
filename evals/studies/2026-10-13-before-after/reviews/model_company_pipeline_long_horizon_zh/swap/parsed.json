@@ -1,0 +1,49 @@
+{
+  "reports": {
+    "A": {
+      "scores": {
+        "task_fidelity": 4,
+        "facts_evidence": 4,
+        "explanation_synthesis": 4,
+        "counterevidence_boundaries": 4,
+        "reader_usefulness": 4
+      },
+      "assessments": {
+        "task_fidelity": "“核心要点”覆盖八家差异和指定五项结论；对比表及正文串联数据、预训练、中训、后训练、Infra、评测、Serving、产品反馈与发布，并单列Harness与Coding Agent。字节、腾讯严格采用指定调整后边界。程序计数4972，符合3500—6000要求。",
+        "facts_evidence": "“数据与标注”准确区分DeepSeek推理数据生成与非推理人工核验、Kimi模拟环境与真实沙箱、MiniMax继续预训练和RL的不同合成数据策略。“产品反馈、Serving与发布”准确记录Codex联网政策变化及腾讯基础设施重建、Preview、产品反馈、正式发布的顺序，均有所供文本支持。",
+        "explanation_synthesis": "“管线总览”区分用户内容入训、产品问题指导数据建设、运行指标调整部署三类回路；“训练、Infra与评测”用具体技术接口解释组织协作，而非从论文贡献名单推造部门。“Harness与Coding Agent”进一步把样本、环境、验收和交付束连接起来，分析完整。",
+        "counterevidence_boundaries": "明确将平台与项目组、版本交接及四项验收标为建议，不冒充公司事实；区分招聘建设方向与Claude 4历史状态、公开训练适配与内部生产栈、反馈迭代与人事调整因果。对评测题集差异和社区问题关闭状态也作了适当限制。",
+        "reader_usefulness": "开篇差异明确，对比表便于快速定位；正文提供交接包、版本绑定、监控回退和失败沉淀等可执行建议。“产品反馈、Serving与发布”专节补齐从研发到上线的决策链条，同时保留未知责任权限，适合模型公司决策者阅读。"
+      },
+      "verdict": "pass",
+      "findings": [],
+      "optional_suggestions": []
+    },
+    "B": {
+      "scores": {
+        "task_fidelity": 4,
+        "facts_evidence": 4,
+        "explanation_synthesis": 4,
+        "counterevidence_boundaries": 4,
+        "reader_usefulness": 4
+      },
+      "assessments": {
+        "task_fidelity": "核心要点、八家公司对比、数据与标注、训练与评测、Harness及不确定性均有实质内容。Serving、产品反馈和发布虽分散在表格与正文，仍获得覆盖；两家公司时间边界明确。程序计数4869，符合篇幅要求。",
+        "facts_evidence": "“训练、Infra与评测”关于Kimi因内存约束不采用DualPipe、避免FP8计算，以及MiniMax提高输出头精度的描述，与技术报告一致。“Harness与Coding Agent”准确保留Claude与MiniMax评测题数差异、Kimi尝试预算区别及Hy3跨指定框架稳定性的限定范围。",
+        "explanation_synthesis": "“数据与标注”从研究需求、专家界面、结构化反馈到训练混合展开职责接口，并以MiniMax说明奖励器本身也需质量控制。Infra部分用DeepSeek与Kimi的不同方案反驳通用技术模板；四项验收进一步区分版本回滚和外部操作撤销，具有较强决策价值。",
+        "counterevidence_boundaries": "明确指出Opus 4采用ASL-3是预防性决定，未把风险阈值写成已确认事实；招聘不倒填历史、工具规格数量不等于真实环境覆盖、授权统计不等于原始交互全部入训等限制具体且适度。末节准确区分姚顺雨不同职务的汇报关系。",
+        "reader_usefulness": "表格按数据训练、Infra交付、组织反馈三个维度组织，正文围绕交付物和否决条件展开，便于转化为责任接口。“Harness与Coding Agent”的验收建议尤其具体。相较A，跨公司数据来源及产品发布路径的展开略少，但不构成核心覆盖缺失。"
+      },
+      "verdict": "pass",
+      "findings": [],
+      "optional_suggestions": [
+        "可补入Google多模态指令、偏好与工具数据，以及OpenAI安全场景数据的简短对照，让数据优先的横向比较更完整。",
+        "可将分散的产品反馈与发布信息集中串联，尤其突出腾讯从基础设施重建到Preview、反馈及正式发布的阶段关系。"
+      ]
+    }
+  },
+  "preference": "A",
+  "preference_reason": "两篇均无必要修订项，五维等权总分均为100。略偏好A：它对八家公司数据实践的覆盖更均衡，并专门串联Serving、产品反馈和发布，整体更贴近全管线组织协作的主问题。B在Infra方案取舍和回滚边界上更深入，但不足以抵消A的整体覆盖优势。",
+  "evidence_reading_scope": "已分别审阅A、B完整报告，并对照任务、全部追问要求及所供21项来源文本。核查范围仅限所供摘录与完整短文本，未访问外部链接，也未假定读过未提供的原文部分。篇幅采用所供程序计数；未从最终文本推断作者身份、研究方法或分阶段执行是否真实发生。",
+  "possible_condition_clues": []
+}

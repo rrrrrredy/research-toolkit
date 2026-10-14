@@ -1,0 +1,163 @@
+[
+  {
+    "slot": "repairs/reasoning_model_competition_zh/author",
+    "request_sha256": "d1fc23a30efa9b36fa30ca4276c33810546cbb713da4c56a256f7082b5534956",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "ffcc07404540f0837d7659d91359cfc7888fb717878c329f751b00fff960283c",
+    "packet_fields": [
+      "task",
+      "methods",
+      "original_report",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 29309,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3352,
+        "reasoning_output_tokens": 79
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 84.828
+    }
+  },
+  {
+    "slot": "repairs/reasoning_model_competition_zh/review",
+    "request_sha256": "ae62a3a400e35e33de0894b721a15999c1514fab549bc83ccd66f97939676861",
+    "system_sha256": "5cbefaac69e98151b996886eed109049a798c51f3c2f7582232210fe058d86a6",
+    "task_sha256": "ffcc07404540f0837d7659d91359cfc7888fb717878c329f751b00fff960283c",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 14212,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1759,
+        "reasoning_output_tokens": 257
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 63.406
+    },
+    "report_bindings": {
+      "A": "ac832559f20d0af8f06cac664b0f7af9448246cfd8bbe8107d2f8bb18dbcce2c",
+      "B": "bea0792f437692a9b958943bcfe355bb814394e5953462afaef01b477e3e93b5"
+    }
+  },
+  {
+    "slot": "repairs/coding_benchmark_decision_zh/author",
+    "request_sha256": "4eaca8c377350845d16ca41d00049a5b019f1348f8da2971630a858d352746f5",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "00c4d6b2f2f9614d8e507fea69dc169dc6bf03b0fb156c56bc2d6eac78fbf5ba",
+    "packet_fields": [
+      "task",
+      "methods",
+      "original_report",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 38511,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2601,
+        "reasoning_output_tokens": 105
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 76.375
+    }
+  },
+  {
+    "slot": "repairs/coding_benchmark_decision_zh/review",
+    "request_sha256": "269f6b3c9e62716f423fb4e445dfe03d0eef0411aab2c69e90df7eb9f0a3f55a",
+    "system_sha256": "5cbefaac69e98151b996886eed109049a798c51f3c2f7582232210fe058d86a6",
+    "task_sha256": "00c4d6b2f2f9614d8e507fea69dc169dc6bf03b0fb156c56bc2d6eac78fbf5ba",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 22662,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2295,
+        "reasoning_output_tokens": 359
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 73.328
+    },
+    "report_bindings": {
+      "A": "a9e92e78f105618304ec44323ef0a186bca61e860e611d04625be11d843ba803",
+      "B": "392b80bdf368aca13ea9a08e5fac2941f3e9da8bff84da7f14778289a3fa9bc2"
+    }
+  },
+  {
+    "slot": "repairs/coding_benchmark_decision_zh/review-2",
+    "request_sha256": "2f1625686f4d8bb7506f89e65f461ee333e14ed14a644b337d8e44f4caaf04a8",
+    "system_sha256": "750977ecdbe13c159e70014bee8a6c1496bb95cc37ce1c011bdb8843737c13b9",
+    "task_sha256": "00c4d6b2f2f9614d8e507fea69dc169dc6bf03b0fb156c56bc2d6eac78fbf5ba",
+    "packet_fields": [
+      "task",
+      "report",
+      "measurement"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 20083,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 961,
+        "reasoning_output_tokens": 120
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 37.703
+    },
+    "report_sha256": "97b83f0352f295b1e25df6c98ec992e8568014ae3d3f8e5e24d14d3edb525c6a"
+  }
+]
