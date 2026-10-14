@@ -47,6 +47,8 @@ Allocate space to the required questions before drafting. Before delivery, count
 
 For a decision memo, state the recommendation, rationale, next action and conditions that would change the decision. Distinguish measured results from proposed pilot criteria. Explain any proposed numerical target using the decision's risks, a baseline or an agreed service requirement; without such a basis, describe the trigger and how to calibrate it. Check that a target does not reward hiding failures or blocking necessary escalation. For example, capping human handoffs can conflict with giving customers timely access to a person.
 
+When the brief asks for an executable plan, make its first step usable: identify an initial scope, responsible role, practical time or resource assumptions, and observations that would expand, change or stop the work. Label proposed starting values as proposals. Use the details relevant to this decision; do not turn them into a universal checklist or require new external participants.
+
 For a short brief, combine related answers instead of reproducing a long-report structure. A table, background section, references appendix and repeated summary are not mandatory. Check the recommendation against every current hard constraint; do not silently trade a budget limit for performance or turn a growth forecast into an existing requirement. Preserve a source's time, sample and measurement conditions through the conclusion. A missing measurement means unknown, not a measured difference or a proven absence. Keep production disclosures in the separate delivery note when the agreed format provides one; retain substantive evidence limits in the report.
 
 ## Chinese Longform Preferences
@@ -91,6 +93,8 @@ For public writing, references should be readable:
 - title
 
 Do not include internal source IDs, file paths, access status, or audit grades unless the user asks for an audit appendix.
+
+Check citations in the destination format. In exported Markdown or documents, replace chat/tool citation tokens with the corresponding source title, URL and useful locator from the source record. A token that worked in the originating chat is not a portable reference. Verify its target rather than guessing a URL; retain literal tokens when the task is explaining the syntax itself.
 
 Example categories:
 

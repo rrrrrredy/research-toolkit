@@ -1,0 +1,26 @@
+{
+  "scope": "Closure of the located findings; original reviews and their classifications remain unchanged.",
+  "dispositions": [
+    {
+      "finding": "source-adjudication C01 and coding targeted A1",
+      "status": "fixed",
+      "change": "All six private citation tokens replaced by source-title Markdown links.",
+      "final": "repairs/coding_benchmark_decision_zh/report-final-v2.md",
+      "review": "repairs/coding_benchmark_decision_zh/review-2/parsed.json"
+    },
+    {
+      "finding": "reasoning targeted B1 and initial comparative weakness",
+      "status": "fixed",
+      "change": "Added attributed OpenAI Deep Research evidence and direct three-company comparison.",
+      "final": "repairs/reasoning_model_competition_zh/report-final.md",
+      "review": "repairs/reasoning_model_competition_zh/review/parsed.json"
+    },
+    {
+      "finding": "coding targeted A2/B1",
+      "status": "fixed",
+      "change": "Added source-checked historical repository/language performance differences and later-audit qualification.",
+      "final": "repairs/coding_benchmark_decision_zh/report-final-v2.md",
+      "review": "repairs/coding_benchmark_decision_zh/review-2/parsed.json"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "draft_sha256": "809dc9f3fc5582c59fa0caf182ca0b9a0848cfbb41a9f5a463e892f49cab749f",
+  "draft_characters": 4557,
+  "final_sha256": "ac832559f20d0af8f06cac664b0f7af9448246cfd8bbe8107d2f8bb18dbcce2c",
+  "final_characters": 4494,
+  "edits": [
+    {
+      "old": "Reasoning Model的竞争，不是DeepSeek R1所代表的强化学习路线，被Claude Sonnet风格的混合推理替代。两者回答的是不同问题：训练阶段怎样获得更强的推理能力，使用阶段怎样分配推理计算、控制等待时间。本文判断，真正值得比较的是底座能力、训练方法、推理预算与工具执行的组合，而不是“纯推理”和“混合推理”两个标签。",
+      "new": "Reasoning Model竞争需要同时比较能力训练、推理预算与任务执行。DeepSeek R1所代表的强化学习路线和Claude Sonnet风格的混合推理，分别涉及能力形成与调用方式，不能当作相互替代的路线。",
+      "reason": "The model repair was 4,557 nonwhitespace characters against an unchanged 4,500 maximum. Compress the repeated opening; preserve the full technical analysis and newly added OpenAI comparison."
+    }
+  ],
+  "original_study_unchanged": true,
+  "review_pending": true
+}

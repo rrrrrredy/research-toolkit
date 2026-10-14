@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-These are real executed tests on independent tasks distinguished by their research questions. Development use does not invalidate that identity. This narrative was corrected on 2026-10-13; original requests, reports, reviews and scores are unchanged.
+These are real executed tests on real independent tasks distinguished by their research questions. This narrative was corrected on 2026-10-13; original requests, reports, reviews and scores are unchanged.
 
 This run does **not establish a Toolkit quality benefit**. It completed 72 first requests (40 authors, 32 judges) within a frozen ceiling of 80. Four LongCat format failures left four of 20 model-task pairs unresolved. Among 16 judged pairs, six changed preference after swapping A/B; 21 dimension scores changed. All first results remain unchanged.
 
@@ -27,7 +27,7 @@ The single judge requested `gpt-6-astra` in fresh Codex contexts, after the sepa
 
 - Format: 36/40 author replies parsed. LongCat changed the exact notes marker three times and omitted it once. Its two Toolkit and two baseline failures span four pairs. They were not repaired, quality-scored or replaced.
 - Length: 6/18 valid Toolkit reports and 8/18 valid baseline reports meet the brief's range. Count the complete reader report, including headings, Markdown and citations: whitespace words for English; non-whitespace Unicode characters for Chinese. All 15 format-valid Chinese reports exceed 500 characters. Failed-format reports have no extracted-report length result.
-- Source checks: examples include recommending a 26-unit option against a 24-unit budget, treating next-year forecasts as current requirements, changing an accuracy threshold to require uncorrected output, and turning unknown soil mix into a known change. [Adjudication](source-adjudication.json) records concrete findings for all 36 valid reports. The implementation assistant authored the tasks and knew conditions: this is **a source-based implementation review** or exhaustive certification of every dimension.
+- Source checks: examples include recommending a 26-unit option against a 24-unit budget, treating next-year forecasts as current requirements, changing an accuracy threshold to require uncorrected output, and turning unknown soil mix into a known change. [Adjudication](source-adjudication.json) records concrete findings for all 36 valid reports. The implementation assistant authored the tasks and knew conditions: this is **a source-based implementation review**, scoped to the concrete findings recorded there.
 - Judge limits: the swapped Kimi water judgment incorrectly calls the 177-word baseline within the 180–260 range. Other stated counts use varying scopes. Mechanical counts in [analysis](analysis.json) supersede those length assertions, without changing any original score or preference.
 - Masking: packets contained only brief, sources, rubric and verbatim A/B reports; notes, assignments, task designs and logs were excluded. Three DeepSeek Toolkit reports nevertheless disclosed independent-review status. Literal detections and all judge `condition_clues` remain available. Formatting may provide additional clues; successful metadata separation does not prove successful blinding.
 

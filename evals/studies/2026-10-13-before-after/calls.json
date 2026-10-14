@@ -1,0 +1,3072 @@
+[
+  {
+    "slot": "authors/ai_agent_market_landscape_zh/after/analysis",
+    "request_sha256": "d46373f65f1c33487399c18fb5f5d8e4ea90b3df0f94f68d435bfd0cc56c50ff",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "51c991d89cd2e82bd84b9ff6d860e5b76e56a009b282293999331affc4fe90cb",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 27014,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3728,
+        "reasoning_output_tokens": 122
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 139.641
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 3000–5000 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/ai_agent_market_landscape_zh/after/unit-1",
+    "request_sha256": "01ab6cff4058d18239a787289d90b83ecb2eda659d6abb61067661d7b5b11ff2",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "51c991d89cd2e82bd84b9ff6d860e5b76e56a009b282293999331affc4fe90cb",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 30473,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1549,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 71.234
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 2000 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 3000–5000 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/ai_agent_market_landscape_zh/after/unit-2",
+    "request_sha256": "ab84d7bdd7b4e06d9acc5e340a1806e892a9120a2beb4809d0a8d64cfbd4536c",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "51c991d89cd2e82bd84b9ff6d860e5b76e56a009b282293999331affc4fe90cb",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 32017,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1274,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 57.828
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1687 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 3000–5000 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/ai_agent_market_landscape_zh/before/analysis",
+    "request_sha256": "de0748750d395c709580743afd6a9d5b435cc8082c1d756a3e688137722e3bbb",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "51c991d89cd2e82bd84b9ff6d860e5b76e56a009b282293999331affc4fe90cb",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 26350,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3454,
+        "reasoning_output_tokens": 60
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 128.906
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 3000–5000 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/ai_agent_market_landscape_zh/before/unit-1",
+    "request_sha256": "f81ec309c9fc58eb2f8f60fa156a7984328b152acbda9fac3489de778e2936fc",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "51c991d89cd2e82bd84b9ff6d860e5b76e56a009b282293999331affc4fe90cb",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 29596,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1694,
+        "reasoning_output_tokens": 48
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 77.954
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 2000 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 3000–5000 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/ai_agent_market_landscape_zh/before/unit-2",
+    "request_sha256": "b6a4edf0e52e00f9ef15505b13edbf4ffcdbea374747f45a1f256c98c29707fc",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "51c991d89cd2e82bd84b9ff6d860e5b76e56a009b282293999331affc4fe90cb",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 31237,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1283,
+        "reasoning_output_tokens": 31
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 55.328
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1562 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 3000–5000 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/ai_video_generation_investment_memo_zh/after/analysis",
+    "request_sha256": "7e7ccff9cdfb1dc045ef0d79e4fb79000b8872545cef39b8f38e9db05d815449",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "0eff33385fc177e150652e4423f8ae02a32f7d39ce8c635e194a0d29af118de5",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 27041,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3280,
+        "reasoning_output_tokens": 44
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 128.75
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4500 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/ai_video_generation_investment_memo_zh/after/unit-1",
+    "request_sha256": "1bf7d265975dfe5c1341bda74ec27404e7e491713409e4350d6de3eb9c8dbd9b",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "0eff33385fc177e150652e4423f8ae02a32f7d39ce8c635e194a0d29af118de5",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 30125,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1446,
+        "reasoning_output_tokens": 55
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 63.578
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1750 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/ai_video_generation_investment_memo_zh/after/unit-2",
+    "request_sha256": "50be184bb052e56a0271a694719a9f1b555ac90b69592ff2d0f61de279681dfe",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "0eff33385fc177e150652e4423f8ae02a32f7d39ce8c635e194a0d29af118de5",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 31517,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1173,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 59.89
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1631 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/ai_video_generation_investment_memo_zh/before/analysis",
+    "request_sha256": "d4c74dbeddb49f16d6659fdbf469292c054120bfe4c4792dcc30434ee22a8954",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "0eff33385fc177e150652e4423f8ae02a32f7d39ce8c635e194a0d29af118de5",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 26377,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3416,
+        "reasoning_output_tokens": 93
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 134.281
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4500 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/ai_video_generation_investment_memo_zh/before/unit-1",
+    "request_sha256": "eb34bf16a54d423e554b64666933894ebe8eba417b700c3555cd6de5367fece8",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "0eff33385fc177e150652e4423f8ae02a32f7d39ce8c635e194a0d29af118de5",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 29545,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1356,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 59.234
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1750 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/ai_video_generation_investment_memo_zh/before/unit-2",
+    "request_sha256": "b7cff910ba54345dbdb4d30cfaf4037c67d131b77eeb0f10dfdcb9feb129ddef",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "0eff33385fc177e150652e4423f8ae02a32f7d39ce8c635e194a0d29af118de5",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 30900,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1218,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 61.703
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1698 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/coding_benchmark_decision_zh/after/analysis",
+    "request_sha256": "9dcc4495785eb0a92d8533a03317240c367940a2ea7c585b6e0484d4b3634077",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "00c4d6b2f2f9614d8e507fea69dc169dc6bf03b0fb156c56bc2d6eac78fbf5ba",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 35811,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2887,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 114.25
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4000 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/coding_benchmark_decision_zh/after/unit-1",
+    "request_sha256": "435426b3d2d644e032afacf5c29ca3fa8d60890ff736fdb826bb6e1bdfaa6917",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "00c4d6b2f2f9614d8e507fea69dc169dc6bf03b0fb156c56bc2d6eac78fbf5ba",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 38568,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1272,
+        "reasoning_output_tokens": 62
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 56.922
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1625 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4000 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/coding_benchmark_decision_zh/after/unit-2",
+    "request_sha256": "1f40e0135365cb5a76cabcfe5ea2a6bf212de13ae46b61de9987e10c83059163",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "00c4d6b2f2f9614d8e507fea69dc169dc6bf03b0fb156c56bc2d6eac78fbf5ba",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 39779,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1175,
+        "reasoning_output_tokens": 38
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 51.61
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1456 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4000 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/coding_benchmark_decision_zh/before/analysis",
+    "request_sha256": "9a29750179c17d9a0a8a62bca5fe2fa42c012058ce672e52aaeacc40796d89cd",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "00c4d6b2f2f9614d8e507fea69dc169dc6bf03b0fb156c56bc2d6eac78fbf5ba",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 35143,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3492,
+        "reasoning_output_tokens": 49
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 139.109
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4000 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/coding_benchmark_decision_zh/before/unit-1",
+    "request_sha256": "6feda25e9398203c700d37562b373fce49f1c8dcc3f4f503751a8eb05e12c2d1",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "00c4d6b2f2f9614d8e507fea69dc169dc6bf03b0fb156c56bc2d6eac78fbf5ba",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 38420,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1182,
+        "reasoning_output_tokens": 46
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 50.172
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1625 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4000 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/coding_benchmark_decision_zh/before/unit-2",
+    "request_sha256": "a51972fe123b0fcf1ac812aaa360de1a8f8064ce034d2276897e650e2d670c18",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "00c4d6b2f2f9614d8e507fea69dc169dc6bf03b0fb156c56bc2d6eac78fbf5ba",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 39553,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1345,
+        "reasoning_output_tokens": 36
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 56.094
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1537 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4000 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/model_company_pipeline_long_horizon_zh/after/analysis",
+    "request_sha256": "1c61f918382432373b6ae5cf313b84d0ff922d32ce50572967627826574c8d93",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "be0eac6bb5aa8c3b0b51bc2ed45492938759fe45aabf484c5b57f558feaacd4e",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 114220,
+        "cached_input_tokens": 2432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5407,
+        "reasoning_output_tokens": 38
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 195.203
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 3 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 3500–6000 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/model_company_pipeline_long_horizon_zh/after/unit-1",
+    "request_sha256": "a7ffacd2b63c11e9e704efa032f51692e23b9331e13c6cf5f841405ac7bdd59c",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "be0eac6bb5aa8c3b0b51bc2ed45492938759fe45aabf484c5b57f558feaacd4e",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 119364,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1564,
+        "reasoning_output_tokens": 70
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 70.546
+    },
+    "stage_request": "Write unit 1 of 3 in the plan, as finished reader-facing Markdown; approximately 1583 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 3500–6000 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/model_company_pipeline_long_horizon_zh/after/unit-2",
+    "request_sha256": "84ba5106193c490eeecb34a7fd16e7958dfa884b15f8c6b74af29ab6923c3e91",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "be0eac6bb5aa8c3b0b51bc2ed45492938759fe45aabf484c5b57f558feaacd4e",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 120849,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1080,
+        "reasoning_output_tokens": 82
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 51.938
+    },
+    "stage_request": "Write unit 2 of 3 in the plan, as finished reader-facing Markdown; approximately 1275 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 3500–6000 nonwhitespace characters including markup/links. Continue naturally without a new report title. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/model_company_pipeline_long_horizon_zh/after/unit-3",
+    "request_sha256": "9f0d6f3fd1634f777d128277d5c158b0db6332a6b4eea597e7f8fbbbec39d844",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "be0eac6bb5aa8c3b0b51bc2ed45492938759fe45aabf484c5b57f558feaacd4e",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 121838,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 859,
+        "reasoning_output_tokens": 36
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 44.25
+    },
+    "stage_request": "Write unit 3 of 3 in the plan, as finished reader-facing Markdown; approximately 1030 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 3500–6000 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/model_company_pipeline_long_horizon_zh/before/analysis",
+    "request_sha256": "bce44e3b1c7434e86d057a30846bac0df5740d47a810abd61e5cccad8f275ad0",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "be0eac6bb5aa8c3b0b51bc2ed45492938759fe45aabf484c5b57f558feaacd4e",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 113560,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4679,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 180.0
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 3 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 3500–6000 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/model_company_pipeline_long_horizon_zh/before/unit-1",
+    "request_sha256": "531f1bfba932561466a432ec6a0b3deb83436f1af5706dd7bdab1c17cce19555",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "be0eac6bb5aa8c3b0b51bc2ed45492938759fe45aabf484c5b57f558feaacd4e",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 118040,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1544,
+        "reasoning_output_tokens": 109
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 72.485
+    },
+    "stage_request": "Write unit 1 of 3 in the plan, as finished reader-facing Markdown; approximately 1583 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 3500–6000 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/model_company_pipeline_long_horizon_zh/before/unit-2",
+    "request_sha256": "a39bdd52122871aa976445b6e495bf7a2d7abf912abb1e2cb029be374e379ca1",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "be0eac6bb5aa8c3b0b51bc2ed45492938759fe45aabf484c5b57f558feaacd4e",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 119466,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1189,
+        "reasoning_output_tokens": 77
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 59.641
+    },
+    "stage_request": "Write unit 2 of 3 in the plan, as finished reader-facing Markdown; approximately 1350 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 3500–6000 nonwhitespace characters including markup/links. Continue naturally without a new report title. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/model_company_pipeline_long_horizon_zh/before/unit-3",
+    "request_sha256": "d489650966fe0579773a405105cd42d3dcfda005b10dab04f525a47d1fd3d5ce",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "be0eac6bb5aa8c3b0b51bc2ed45492938759fe45aabf484c5b57f558feaacd4e",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 120573,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 874,
+        "reasoning_output_tokens": 69
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 42.907
+    },
+    "stage_request": "Write unit 3 of 3 in the plan, as finished reader-facing Markdown; approximately 1017 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 3500–6000 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/model_price_war_competitive_analysis_zh/after/analysis",
+    "request_sha256": "0370617d6c7277924c746d926c500f20e3ce3b632b68d4ca90987d9cad462e76",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "e6c98378caa04373811d071b47df6d61da21a156212d65575affa3782bf8058a",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 27005,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3312,
+        "reasoning_output_tokens": 58
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 135.093
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4500 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/model_price_war_competitive_analysis_zh/after/unit-1",
+    "request_sha256": "c674c86575b782112ce3b03635c12e4d5012aef754d63aae282617f9051ba216",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "e6c98378caa04373811d071b47df6d61da21a156212d65575affa3782bf8058a",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 30112,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1358,
+        "reasoning_output_tokens": 47
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 60.969
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1750 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/model_price_war_competitive_analysis_zh/after/unit-2",
+    "request_sha256": "aed772419884fd8398301d55de96617934809f48b04697cd2ea8d58e48042be2",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "e6c98378caa04373811d071b47df6d61da21a156212d65575affa3782bf8058a",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 31424,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1235,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 57.813
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1679 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/model_price_war_competitive_analysis_zh/before/analysis",
+    "request_sha256": "ea3f7501f853e94f151b5f555a48739bad317c851c9afa8521a8d7bfae0cc089",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "e6c98378caa04373811d071b47df6d61da21a156212d65575affa3782bf8058a",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 26337,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2933,
+        "reasoning_output_tokens": 26
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 135.391
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4500 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/model_price_war_competitive_analysis_zh/before/unit-1",
+    "request_sha256": "ace2375a8b7a43c94361e1a4b07cbbe94c7618cdabc83032d91bbe66201c3947",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "e6c98378caa04373811d071b47df6d61da21a156212d65575affa3782bf8058a",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 29108,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1232,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 57.484
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1750 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/model_price_war_competitive_analysis_zh/before/unit-2",
+    "request_sha256": "24c62192f4fdbee212acca3f4f10ebcfd589a39db1d490d83f030e9701a69a80",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "e6c98378caa04373811d071b47df6d61da21a156212d65575affa3782bf8058a",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 30341,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1439,
+        "reasoning_output_tokens": 48
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 68.797
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1785 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/monthly_observation_synthesis_zh/after/analysis",
+    "request_sha256": "9152cc0e1faf39521cd995ed3375b2e8514a7eca905cdac541fdde65df5bab5b",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "60cf33292279e4579ee15d1d42edc4b0b17ae940d764bf9faa33d577142533d2",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 27089,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3157,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 127.797
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4500 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/monthly_observation_synthesis_zh/after/unit-1",
+    "request_sha256": "1a52c447db796c954425eec40a4003df9f1066bce276c5b1f5b49e8073fa543f",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "60cf33292279e4579ee15d1d42edc4b0b17ae940d764bf9faa33d577142533d2",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 30109,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1309,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 56.64
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1750 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/monthly_observation_synthesis_zh/after/unit-2",
+    "request_sha256": "63fc6d25c5cb7fcb6fb0fba7eb76c015b8df317432b816859cc80d5e11d6de52",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "60cf33292279e4579ee15d1d42edc4b0b17ae940d764bf9faa33d577142533d2",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 31415,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1157,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 52.219
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1595 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/monthly_observation_synthesis_zh/before/analysis",
+    "request_sha256": "3777ddbae1e659edcfc15bf83efebfefcaa84100f5aaa4fbe3c7e2c2518baa30",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "60cf33292279e4579ee15d1d42edc4b0b17ae940d764bf9faa33d577142533d2",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 26425,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3253,
+        "reasoning_output_tokens": 55
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 128.766
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4500 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/monthly_observation_synthesis_zh/before/unit-1",
+    "request_sha256": "539bdc408127769c396f245d87491bac073ba7401b171f688d896c11dfaea375",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "60cf33292279e4579ee15d1d42edc4b0b17ae940d764bf9faa33d577142533d2",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 29467,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1473,
+        "reasoning_output_tokens": 61
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 65.109
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1750 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/monthly_observation_synthesis_zh/before/unit-2",
+    "request_sha256": "c530cdc36618608511bf4c02dec53337510c23150427cf594a9d2abede58f49d",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "60cf33292279e4579ee15d1d42edc4b0b17ae940d764bf9faa33d577142533d2",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 30874,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1114,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 54.0
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1482 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/rag_long_context_decision_zh/after/analysis",
+    "request_sha256": "0bf166014fb6aaba0b0d983a953eb580ebe7903aae8510e198a8a656ca8df0fa",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "e34c897668e1b2171161c9281237315e45fc23cfd9f9765fc079cc11fc0120d2",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 45364,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3520,
+        "reasoning_output_tokens": 90
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 145.015
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4000 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/rag_long_context_decision_zh/after/unit-1",
+    "request_sha256": "f575dea0bbdb2b05a1f41f029beba568f15f4314205ad3b61d896ca1da035c16",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "e34c897668e1b2171161c9281237315e45fc23cfd9f9765fc079cc11fc0120d2",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 48648,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1324,
+        "reasoning_output_tokens": 47
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 58.594
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1625 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4000 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/rag_long_context_decision_zh/after/unit-2",
+    "request_sha256": "2da0b72270e7d4a62d535c1e83afe3d1c2c19feb0475ef536ef0fe034e5a5551",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "e34c897668e1b2171161c9281237315e45fc23cfd9f9765fc079cc11fc0120d2",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 49922,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1234,
+        "reasoning_output_tokens": 40
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 56.828
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1382 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4000 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/rag_long_context_decision_zh/before/analysis",
+    "request_sha256": "49d5349528b69983abefa559a1f5bd6fcc15b6fad8b229cb12ff43d82d89f85f",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "e34c897668e1b2171161c9281237315e45fc23cfd9f9765fc079cc11fc0120d2",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 44700,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3071,
+        "reasoning_output_tokens": 39
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 121.156
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4000 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/rag_long_context_decision_zh/before/unit-1",
+    "request_sha256": "ce54e0b7ac8e52af9cbfe65b113f7785992a3e25523cd298f0f3a72ae1daef05",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "e34c897668e1b2171161c9281237315e45fc23cfd9f9765fc079cc11fc0120d2",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 47621,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1341,
+        "reasoning_output_tokens": 46
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 58.156
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1625 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4000 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/rag_long_context_decision_zh/before/unit-2",
+    "request_sha256": "56896922965c7f5667dd98576b63f93344f102955ef1d7b3ec94920e6bb628f8",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "e34c897668e1b2171161c9281237315e45fc23cfd9f9765fc079cc11fc0120d2",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 48913,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1058,
+        "reasoning_output_tokens": 49
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 47.25
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1292 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4000 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/reasoning_model_competition_zh/after/analysis",
+    "request_sha256": "57e6e6fefb5b0d2ac0cd5ea38bebefc21b872fa02a9e61fbc29ed5da9fe39fdf",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "ffcc07404540f0837d7659d91359cfc7888fb717878c329f751b00fff960283c",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 26369,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3314,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 125.781
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4500 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/reasoning_model_competition_zh/after/unit-1",
+    "request_sha256": "1e31837d56eb3c0e8a9aadb6c034e014f70e9388498439164f49a9cf16b7f401",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "ffcc07404540f0837d7659d91359cfc7888fb717878c329f751b00fff960283c",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 29523,
+        "cached_input_tokens": 2432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1435,
+        "reasoning_output_tokens": 61
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 69.86
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1750 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/reasoning_model_competition_zh/after/unit-2",
+    "request_sha256": "9e05b27f65d30442c318f6b9628881c9eae200e2ea7d27af445fb80b350eae3a",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "ffcc07404540f0837d7659d91359cfc7888fb717878c329f751b00fff960283c",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 30891,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1288,
+        "reasoning_output_tokens": 51
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 60.313
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1547 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/reasoning_model_competition_zh/before/analysis",
+    "request_sha256": "c4dfda86b88ba0fbab4ded94c96e33bd46c03e799ae10c237325c04b830cb886",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "ffcc07404540f0837d7659d91359cfc7888fb717878c329f751b00fff960283c",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 25707,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3182,
+        "reasoning_output_tokens": 59
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 123.031
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4500 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/reasoning_model_competition_zh/before/unit-1",
+    "request_sha256": "03aac5811144e985c7b38f9d44750128ee89ac31e5d8fe4c550d7de0ca896b69",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "ffcc07404540f0837d7659d91359cfc7888fb717878c329f751b00fff960283c",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 28673,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1379,
+        "reasoning_output_tokens": 49
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 61.672
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1750 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/reasoning_model_competition_zh/before/unit-2",
+    "request_sha256": "1534c2141e11fd61b8c9f9aa5d66244dc79f523e74bc770d12f3de85e8940938",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "ffcc07404540f0837d7659d91359cfc7888fb717878c329f751b00fff960283c",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 29998,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1215,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 49.203
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1564 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4500 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/source_instruction_boundary_zh/after/analysis",
+    "request_sha256": "425a1f0bb661e61d21673403f19ffee077fd12f9ec2674f8a3d20ac814c9267e",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "04ae5be9a261966f6ca482c3c3eac35c45d16c4ff3c8baa3ed165e8debd78651",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 24201,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1188,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 47.141
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 900–1500 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/source_instruction_boundary_zh/after/unit-1",
+    "request_sha256": "1c12d9f37f2e406d0d70967da26411f54935bde8e7fd90ecbfa2dac96611e441",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "04ae5be9a261966f6ca482c3c3eac35c45d16c4ff3c8baa3ed165e8debd78651",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 25319,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 467,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 25.828
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 600 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 900–1500 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/source_instruction_boundary_zh/after/unit-2",
+    "request_sha256": "193a343f2f981ce8e42d8cef201f63531627dec6716b79a63aa4d8425fff95ec",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "04ae5be9a261966f6ca482c3c3eac35c45d16c4ff3c8baa3ed165e8debd78651",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 25788,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 409,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 25.719
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 576 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 900–1500 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/source_instruction_boundary_zh/before/analysis",
+    "request_sha256": "abb81bc51a7a9b5b53a01477f938e5df2018b204bb96eab1bc5d0c474af85316",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "04ae5be9a261966f6ca482c3c3eac35c45d16c4ff3c8baa3ed165e8debd78651",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 23539,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1256,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 53.125
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 900–1500 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/source_instruction_boundary_zh/before/unit-1",
+    "request_sha256": "c80e1944d687231ee8cad582cb756fc0cf5455214e10de9dfae38bbcab7a2fb5",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "04ae5be9a261966f6ca482c3c3eac35c45d16c4ff3c8baa3ed165e8debd78651",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 24724,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 460,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 25.25
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 600 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 900–1500 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/source_instruction_boundary_zh/before/unit-2",
+    "request_sha256": "39378a9bf52e6087072856f5f09cf921e242aeb1aad7d92acf65649234d872ea",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "04ae5be9a261966f6ca482c3c3eac35c45d16c4ff3c8baa3ed165e8debd78651",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 25179,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 430,
+        "reasoning_output_tokens": 0
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 31.594
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 588 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 900–1500 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/test_time_compute_decision_zh/after/analysis",
+    "request_sha256": "dc4119bbe6fa90b9028cbc75b17d87a54ddd944f529deac19acdb799e8d719da",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "1a2d47bdaa7002dfe11e929f662e727f0fe195cb0e35d96ac4002c4f8deba92b",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 47414,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3478,
+        "reasoning_output_tokens": 46
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 143.14
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4000 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/test_time_compute_decision_zh/after/unit-1",
+    "request_sha256": "78d3b7e503c5e64446930811516e0d9caa49ea3ea1ffb99cb05f2f230ecf6fce",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "1a2d47bdaa7002dfe11e929f662e727f0fe195cb0e35d96ac4002c4f8deba92b",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 50705,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1275,
+        "reasoning_output_tokens": 55
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 57.344
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1625 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4000 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/test_time_compute_decision_zh/after/unit-2",
+    "request_sha256": "b46991974cb1c4e8c45cd1c1d5f6b0285de29c16d75e9a0e13554f5b878221f4",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "1a2d47bdaa7002dfe11e929f662e727f0fe195cb0e35d96ac4002c4f8deba92b",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 51922,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1225,
+        "reasoning_output_tokens": 39
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 59.812
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1503 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4000 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "after"
+  },
+  {
+    "slot": "authors/test_time_compute_decision_zh/before/analysis",
+    "request_sha256": "f4ceb4a6eb5941ee59dc5d4a941b587d3f9c76cc6efe7c82b82cb2bb7a860baa",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "1a2d47bdaa7002dfe11e929f662e727f0fe195cb0e35d96ac4002c4f8deba92b",
+    "packet_fields": [
+      "task",
+      "methods",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 46748,
+        "cached_input_tokens": 2432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3556,
+        "reasoning_output_tokens": 58
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 143.781
+    },
+    "stage_request": "Analyze the supplied evidence and plan the report. Return JSON with thesis, claims (list of claim, source, locator, qualification), counterevidence, and parts (exactly 2 numbered writing units, each with headings and target_nonspace_characters). Plan the whole report within 2500–4000 nonwhitespace characters including Markdown and citations. These are private analysis notes, not reader-facing text.",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/test_time_compute_decision_zh/before/unit-1",
+    "request_sha256": "9f2a867233f226026420d97d163857d66a16f5bcd9934bd92187decfc8f00fd3",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "1a2d47bdaa7002dfe11e929f662e727f0fe195cb0e35d96ac4002c4f8deba92b",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 50096,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1399,
+        "reasoning_output_tokens": 57
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 61.547
+    },
+    "stage_request": "Write unit 1 of 2 in the plan, as finished reader-facing Markdown; approximately 1625 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4000 nonwhitespace characters including markup/links. Include the report title and opening. Later units will be written in subsequent calls. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "authors/test_time_compute_decision_zh/before/unit-2",
+    "request_sha256": "22730129446af535f496e0bf970ad3714cd1b998e8f40dcef6710ff5bce37fbc",
+    "system_sha256": "5101a0d0f9135ee4b71d62dd02542c6fc91fac285180a720061d453770e1b175",
+    "task_sha256": "1a2d47bdaa7002dfe11e929f662e727f0fe195cb0e35d96ac4002c4f8deba92b",
+    "packet_fields": [
+      "task",
+      "methods",
+      "analysis",
+      "prior_report_units",
+      "prior_units_nonspace_characters",
+      "stage_request"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 51432,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1147,
+        "reasoning_output_tokens": 31
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 48.203
+    },
+    "stage_request": "Write unit 2 of 2 in the plan, as finished reader-facing Markdown; approximately 1382 nonwhitespace characters. Cover its full assigned substance. Do not repeat prior units. The coordinator will concatenate units verbatim, in order. The complete report must total 2500–4000 nonwhitespace characters including markup/links. Continue naturally without a new report title. Finish the report and cover remaining requirements; this is the last writing unit. Return ONLY JSON with report_unit (string).",
+    "method_condition": "before"
+  },
+  {
+    "slot": "reviews/ai_agent_market_landscape_zh/primary",
+    "request_sha256": "b7e88e146b4745c463104d049a9b866fb1fba4588af5ba17bfeecd3c6d1ec375",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "51c991d89cd2e82bd84b9ff6d860e5b76e56a009b282293999331affc4fe90cb",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 14749,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1392,
+        "reasoning_output_tokens": 198
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 57.547
+    },
+    "report_bindings": {
+      "A": "e76d7ad00f5655cbc84a2fd623f507b8d6f8f87be57c1525bbc174f78a0c2e03",
+      "B": "5d2a654bc7fc0de6e1337eb6e576771abddab270789e95cf5fe180e416808442"
+    },
+    "measurements": {
+      "A": {
+        "characters": 4152,
+        "minimum": 3000,
+        "maximum": 5000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 4074,
+        "minimum": 3000,
+        "maximum": 5000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/ai_agent_market_landscape_zh/swap",
+    "request_sha256": "4297705fbf001eece3dd6d44624fd724d30fa9764be95850dff24c286ac14253",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "51c991d89cd2e82bd84b9ff6d860e5b76e56a009b282293999331affc4fe90cb",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 14753,
+        "cached_input_tokens": 2432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1377,
+        "reasoning_output_tokens": 167
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 58.907
+    },
+    "report_bindings": {
+      "A": "5d2a654bc7fc0de6e1337eb6e576771abddab270789e95cf5fe180e416808442",
+      "B": "e76d7ad00f5655cbc84a2fd623f507b8d6f8f87be57c1525bbc174f78a0c2e03"
+    },
+    "measurements": {
+      "A": {
+        "characters": 4074,
+        "minimum": 3000,
+        "maximum": 5000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 4152,
+        "minimum": 3000,
+        "maximum": 5000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/ai_video_generation_investment_memo_zh/primary",
+    "request_sha256": "4430c0f2f08ae645820d55ae5e65f10aa4e54fa6249738433a7eaf786fae0d9c",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "0eff33385fc177e150652e4423f8ae02a32f7d39ce8c635e194a0d29af118de5",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 14197,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1255,
+        "reasoning_output_tokens": 113
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 53.031
+    },
+    "report_bindings": {
+      "A": "167c57a5540e46c1b6a3def0a4b788ead76edb5eee6cb4c1fa17c5f0e32c4dbc",
+      "B": "33c0c267ada37f21c3c29329948a80673c071d4d4b658736ee5a6ff3e82be96f"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3458,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3448,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/ai_video_generation_investment_memo_zh/swap",
+    "request_sha256": "c309b1b6ed61e9e0d4faca9ee1b941d090794b2db7cfde8faaa07f42c334b25a",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "0eff33385fc177e150652e4423f8ae02a32f7d39ce8c635e194a0d29af118de5",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 14201,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1332,
+        "reasoning_output_tokens": 128
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 55.703
+    },
+    "report_bindings": {
+      "A": "33c0c267ada37f21c3c29329948a80673c071d4d4b658736ee5a6ff3e82be96f",
+      "B": "167c57a5540e46c1b6a3def0a4b788ead76edb5eee6cb4c1fa17c5f0e32c4dbc"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3448,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3458,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/coding_benchmark_decision_zh/primary",
+    "request_sha256": "59788cf4dbce8b97f244aef8d49eac9304412e8256b869dc6bd8116ea1bf75e4",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "00c4d6b2f2f9614d8e507fea69dc169dc6bf03b0fb156c56bc2d6eac78fbf5ba",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 22615,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1335,
+        "reasoning_output_tokens": 140
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 55.047
+    },
+    "report_bindings": {
+      "A": "a9e92e78f105618304ec44323ef0a186bca61e860e611d04625be11d843ba803",
+      "B": "7f57d0b1ef7cf8d69f835ae96563e108ed8cf814870680f99b8a5e62152e5b2d"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3366,
+        "minimum": 2500,
+        "maximum": 4000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3521,
+        "minimum": 2500,
+        "maximum": 4000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/coding_benchmark_decision_zh/swap",
+    "request_sha256": "ee7ed2fbf007b22c25b12d5e372e1880515d62d5ecfe5fceec033af8ad56d4a1",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "00c4d6b2f2f9614d8e507fea69dc169dc6bf03b0fb156c56bc2d6eac78fbf5ba",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 22611,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1406,
+        "reasoning_output_tokens": 177
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 59.235
+    },
+    "report_bindings": {
+      "A": "7f57d0b1ef7cf8d69f835ae96563e108ed8cf814870680f99b8a5e62152e5b2d",
+      "B": "a9e92e78f105618304ec44323ef0a186bca61e860e611d04625be11d843ba803"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3521,
+        "minimum": 2500,
+        "maximum": 4000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3366,
+        "minimum": 2500,
+        "maximum": 4000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/model_company_pipeline_long_horizon_zh/primary",
+    "request_sha256": "1bfafb863ca760af74ad9918b86a9acecda467c1a6da7c01e35afda26c232d51",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "be0eac6bb5aa8c3b0b51bc2ed45492938759fe45aabf484c5b57f558feaacd4e",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 102889,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1663,
+        "reasoning_output_tokens": 269
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 69.875
+    },
+    "report_bindings": {
+      "A": "89f424b3c19865adab16d24ddd367af3fe3ffcef025fa63279fc444acac6cfd7",
+      "B": "b73c446a2dcb936b7860189ffbd908063f2fcac9b14dde83f117ffee6816986f"
+    },
+    "measurements": {
+      "A": {
+        "characters": 4869,
+        "minimum": 3500,
+        "maximum": 6000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 4972,
+        "minimum": 3500,
+        "maximum": 6000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/model_company_pipeline_long_horizon_zh/swap",
+    "request_sha256": "57bd2c5c24c8b6b6065d2fdf4aaccca3355fe8bd9bfd77fe95c3f5b995c44783",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "be0eac6bb5aa8c3b0b51bc2ed45492938759fe45aabf484c5b57f558feaacd4e",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 102889,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1562,
+        "reasoning_output_tokens": 235
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 71.75
+    },
+    "report_bindings": {
+      "A": "b73c446a2dcb936b7860189ffbd908063f2fcac9b14dde83f117ffee6816986f",
+      "B": "89f424b3c19865adab16d24ddd367af3fe3ffcef025fa63279fc444acac6cfd7"
+    },
+    "measurements": {
+      "A": {
+        "characters": 4972,
+        "minimum": 3500,
+        "maximum": 6000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 4869,
+        "minimum": 3500,
+        "maximum": 6000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/model_price_war_competitive_analysis_zh/primary",
+    "request_sha256": "807d6b4f8a8d83f56c9f997b68409701454778fb25d50eae33a9873a143e9d0c",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "e6c98378caa04373811d071b47df6d61da21a156212d65575affa3782bf8058a",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 14191,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1346,
+        "reasoning_output_tokens": 158
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 60.984
+    },
+    "report_bindings": {
+      "A": "4ca5fcce261fb98dcd16d3d75c01dabace6e8f82894af9133dbd7d6989d94b41",
+      "B": "13991848260c786f771df0fa145a212fa2994a88c57c4ded2c23a49542235d4c"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3678,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3519,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/model_price_war_competitive_analysis_zh/swap",
+    "request_sha256": "cd3d52aa06ddede73152499e3a9193e2788e7e388d3a60b4c06c0a95bd0322f5",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "e6c98378caa04373811d071b47df6d61da21a156212d65575affa3782bf8058a",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 14189,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1635,
+        "reasoning_output_tokens": 303
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 68.078
+    },
+    "report_bindings": {
+      "A": "13991848260c786f771df0fa145a212fa2994a88c57c4ded2c23a49542235d4c",
+      "B": "4ca5fcce261fb98dcd16d3d75c01dabace6e8f82894af9133dbd7d6989d94b41"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3519,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3678,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/monthly_observation_synthesis_zh/primary",
+    "request_sha256": "fe5afc5883f59c90a508c03199cd470a38baa19363dd04eac66d02375ab63e82",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "60cf33292279e4579ee15d1d42edc4b0b17ae940d764bf9faa33d577142533d2",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 14100,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1301,
+        "reasoning_output_tokens": 163
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 54.125
+    },
+    "report_bindings": {
+      "A": "6215d241ab225bc88a13a2c23348c71cc488be7e2c458c56851920e58ee5a765",
+      "B": "39177b6f2d5832f21314075ba1030b8ff8d01093f4187c92bbeb36f44a694712"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3560,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3485,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/monthly_observation_synthesis_zh/swap",
+    "request_sha256": "35a030cffb86119dd4daa0c84ded4099472fe75e7cc6928ba35033b3d88afcdf",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "60cf33292279e4579ee15d1d42edc4b0b17ae940d764bf9faa33d577142533d2",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 14098,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1594,
+        "reasoning_output_tokens": 315
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 69.313
+    },
+    "report_bindings": {
+      "A": "39177b6f2d5832f21314075ba1030b8ff8d01093f4187c92bbeb36f44a694712",
+      "B": "6215d241ab225bc88a13a2c23348c71cc488be7e2c458c56851920e58ee5a765"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3485,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3560,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/rag_long_context_decision_zh/primary",
+    "request_sha256": "a9e337db3c711288e45a1272118df1a05cdea7c4395ddbc9b793b17a82dd34f8",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "e34c897668e1b2171161c9281237315e45fc23cfd9f9765fc079cc11fc0120d2",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 32157,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1442,
+        "reasoning_output_tokens": 136
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 58.782
+    },
+    "report_bindings": {
+      "A": "3bbfcd0f2a0adc5104e93473da85447d6b53f612a770bd24fa5bd47a61dd0cf8",
+      "B": "de8a88b0ca28910b7f5c96dfb838e489fe3b8b615d0b579403ef1a4727fa586b"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3482,
+        "minimum": 2500,
+        "maximum": 4000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3315,
+        "minimum": 2500,
+        "maximum": 4000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/rag_long_context_decision_zh/swap",
+    "request_sha256": "144357d26124fab27c9fdceb7a1346577af44dc12b1a68d5692616cd9fcae682",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "e34c897668e1b2171161c9281237315e45fc23cfd9f9765fc079cc11fc0120d2",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 32153,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1395,
+        "reasoning_output_tokens": 147
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 55.906
+    },
+    "report_bindings": {
+      "A": "de8a88b0ca28910b7f5c96dfb838e489fe3b8b615d0b579403ef1a4727fa586b",
+      "B": "3bbfcd0f2a0adc5104e93473da85447d6b53f612a770bd24fa5bd47a61dd0cf8"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3315,
+        "minimum": 2500,
+        "maximum": 4000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3482,
+        "minimum": 2500,
+        "maximum": 4000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/reasoning_model_competition_zh/primary",
+    "request_sha256": "a3d7eb7c3f35a3da778091207ebd19cfdefe15e264251c5bb76856764c466259",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "ffcc07404540f0837d7659d91359cfc7888fb717878c329f751b00fff960283c",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 13542,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1523,
+        "reasoning_output_tokens": 216
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 61.891
+    },
+    "report_bindings": {
+      "A": "bea0792f437692a9b958943bcfe355bb814394e5953462afaef01b477e3e93b5",
+      "B": "73f2546a89610d370d18ad2a7bbb99f12947bd42b18be462bea6a2a0c6cadf13"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3735,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3634,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/reasoning_model_competition_zh/swap",
+    "request_sha256": "f0953ff9fdf842edd4f1f06aaff2a46b0c80258a9be3bf3c04edc85e66cd379b",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "ffcc07404540f0837d7659d91359cfc7888fb717878c329f751b00fff960283c",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 13546,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1363,
+        "reasoning_output_tokens": 169
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 57.672
+    },
+    "report_bindings": {
+      "A": "73f2546a89610d370d18ad2a7bbb99f12947bd42b18be462bea6a2a0c6cadf13",
+      "B": "bea0792f437692a9b958943bcfe355bb814394e5953462afaef01b477e3e93b5"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3634,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3735,
+        "minimum": 2500,
+        "maximum": 4500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/source_instruction_boundary_zh/primary",
+    "request_sha256": "4d0fc55eea697886bdc5761d6456032511fb47902325bd3a9049e7547d0bb01b",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "04ae5be9a261966f6ca482c3c3eac35c45d16c4ff3c8baa3ed165e8debd78651",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 7989,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1108,
+        "reasoning_output_tokens": 98
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 49.422
+    },
+    "report_bindings": {
+      "A": "5b2df8bd3cd2d4af38f5bbe8727b13e384e2cfd64d434ce3687294a854abdeba",
+      "B": "6c3fd38697c7fb3db05f1800eb21aafe6ba2e3a4309321580066a3fb88b7a593"
+    },
+    "measurements": {
+      "A": {
+        "characters": 1177,
+        "minimum": 900,
+        "maximum": 1500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 1162,
+        "minimum": 900,
+        "maximum": 1500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/source_instruction_boundary_zh/swap",
+    "request_sha256": "bcf2acabf7ed3330bea3b5b3fac3bbc6c5dc80900705d5cb1825f6e805c595d5",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "04ae5be9a261966f6ca482c3c3eac35c45d16c4ff3c8baa3ed165e8debd78651",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 7987,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1164,
+        "reasoning_output_tokens": 102
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 45.875
+    },
+    "report_bindings": {
+      "A": "6c3fd38697c7fb3db05f1800eb21aafe6ba2e3a4309321580066a3fb88b7a593",
+      "B": "5b2df8bd3cd2d4af38f5bbe8727b13e384e2cfd64d434ce3687294a854abdeba"
+    },
+    "measurements": {
+      "A": {
+        "characters": 1162,
+        "minimum": 900,
+        "maximum": 1500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 1177,
+        "minimum": 900,
+        "maximum": 1500,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/test_time_compute_decision_zh/primary",
+    "request_sha256": "745332d621370f64da3cf0063c3b140e2a91eb3096186b0de33e26bb93839be8",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "1a2d47bdaa7002dfe11e929f662e727f0fe195cb0e35d96ac4002c4f8deba92b",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 34290,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1378,
+        "reasoning_output_tokens": 181
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 57.61
+    },
+    "report_bindings": {
+      "A": "09862bd53bac760542c5f322afee644e70e41646e3a85b8aed27853fab84a7a3",
+      "B": "d1edecc717d65e357f183e040c8a93d9987062bd758d679a02c0335fd24af333"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3352,
+        "minimum": 2500,
+        "maximum": 4000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3359,
+        "minimum": 2500,
+        "maximum": 4000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  },
+  {
+    "slot": "reviews/test_time_compute_decision_zh/swap",
+    "request_sha256": "9cce6a5dab4f530323798072ead1631d72c722220605084b45fa15b36be824a1",
+    "system_sha256": "66710cad3898cf8ad461f68f4d10a728d4e11faf073657580f96bf7c1a4c0ddd",
+    "task_sha256": "1a2d47bdaa7002dfe11e929f662e727f0fe195cb0e35d96ac4002c4f8deba92b",
+    "packet_fields": [
+      "task",
+      "reports",
+      "measurements"
+    ],
+    "execution": {
+      "status": "response_complete",
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "model_identity": "requested_only_cli_does_not_attest",
+      "hard_token_cap": false,
+      "exit_code": 0,
+      "usage": {
+        "input_tokens": 34294,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1348,
+        "reasoning_output_tokens": 141
+      },
+      "warnings": [
+        "skip_host_skill_discovery is an under-development CLI feature"
+      ],
+      "elapsed_seconds": 57.078
+    },
+    "report_bindings": {
+      "A": "d1edecc717d65e357f183e040c8a93d9987062bd758d679a02c0335fd24af333",
+      "B": "09862bd53bac760542c5f322afee644e70e41646e3a85b8aed27853fab84a7a3"
+    },
+    "measurements": {
+      "A": {
+        "characters": 3359,
+        "minimum": 2500,
+        "maximum": 4000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      },
+      "B": {
+        "characters": 3352,
+        "minimum": 2500,
+        "maximum": 4000,
+        "unit": "nonwhitespace_unicode_characters_including_markup"
+      }
+    }
+  }
+]

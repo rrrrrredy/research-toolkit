@@ -660,8 +660,8 @@
     "longcat/results.json": "b4d901a6e1e0d53f930d70d973c3b919ab3e416ed0b7e05c4f48e7c4637cf4b0",
     "longcat/results.md": "6ac72266aa85d4411be43d24df78acefcf2a445dcfec5ca9020c2ae08a16fbc2",
     "longcat/run-started.json": "2a79976a4df892f2d1aee6c21eeed8cd9dd996a36369c34da7adc0cc49a96fe5",
-    "README.md": "6ae7f203def8f3f8d4cb07587204662714cbb77c558c99c89dd894eb52198c0b",
-    "README.zh-CN.md": "69951b7638b6cbcf33d7a5f35b83f536d3737ee13245a486afec0ef420e7b95f",
+    "README.md": "df5f7e12d40b1b2b82466dc103e8a43741119324ec38093a7a47186ff5b04a78",
+    "README.zh-CN.md": "5774ee4e51d8ef0101d71fa65e51867fe8c4859fa464a8638ae34c9f7c5ed225",
     "source-adjudication.json": "159682f7f5a27c65282ec4fe65f12e809ac30339ca7c775fd113c40a393e809f"
   },
   "transformations": [
@@ -923,6 +923,22 @@
       "previous_sha256": "4f42afade26c7ca9d30c147e8f2ee50c2fa5dba353faa12f45665788478c2bdd",
       "sha256": "69951b7638b6cbcf33d7a5f35b83f536d3737ee13245a486afec0ef420e7b95f",
       "reason": "Correct task/test identity and remove outside-task/reviewer prerequisites; execution evidence unchanged."
+    }
+  ],
+  "narrative_updates": [
+    {
+      "path": "README.md",
+      "date": "2026-10-14",
+      "previous_sha256": "6ae7f203def8f3f8d4cb07587204662714cbb77c558c99c89dd894eb52198c0b",
+      "new_sha256": "df5f7e12d40b1b2b82466dc103e8a43741119324ec38093a7a47186ff5b04a78",
+      "reason": "State real task identity positively; correct ambiguous implementation-review wording. Original requests, outputs, scores and adjudications unchanged."
+    },
+    {
+      "path": "README.zh-CN.md",
+      "date": "2026-10-14",
+      "previous_sha256": "69951b7638b6cbcf33d7a5f35b83f536d3737ee13245a486afec0ef420e7b95f",
+      "new_sha256": "5774ee4e51d8ef0101d71fa65e51867fe8c4859fa464a8638ae34c9f7c5ed225",
+      "reason": "State real task identity positively; correct ambiguous implementation-review wording. Original requests, outputs, scores and adjudications unchanged."
     }
   ]
 }

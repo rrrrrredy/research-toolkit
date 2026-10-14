@@ -73,6 +73,7 @@ jobs:
           python evals/diagnostics/2026-10-13-targeted-recheck/verify.py
           python evals/diagnostics/2026-10-13-dedicated-seven/verify.py
           python evals/repairs/2026-10-13-pipeline-complete/verify.py
+          python evals/studies/2026-10-13-before-after/verify.py
       - name: Check study verification under Python optimization without rewriting evidence
         run: python scripts/check_study_verification.py
 
@@ -129,6 +130,8 @@ jobs:
           python evals/diagnostics/2026-10-13-dedicated-seven/verify.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python evals/repairs/2026-10-13-pipeline-complete/verify.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python evals/studies/2026-10-13-before-after/verify.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Check packaged MCP workflow on Windows
         run: |
