@@ -4,6 +4,9 @@
 
 [Project overview](../README.md) · [Documentation](README.md) · [Installation and workflow tools](usage-modes.md)
 
+
+Choose [Lite or Full](../SKILL.md#choosing-a-profile) before applying this guide. Research requirements are shared; formal review/receipt requirements follow the selected workflow. For checking a report or incorporating new material, see [continuation](usage-modes.md#continue-existing-research).
+
 ## Example Tasks
 
 These are five research requests you can give an agent, not a claim that all five have been run and evaluated. Actual reports and revisions are linked in the evaluation section.
@@ -56,7 +59,7 @@ Use this checklist to find omissions before delivery. It does not replace readin
 
 ## Review and Acceptance
 
-Reviews cover intent and requirements, evidence and data, adversarial reasoning, structure and depth, reader usefulness, process-language removal and natural expression. Add field-specific review when the research question needs it. Compatible perspectives can share a reviewer; substantial report delivery needs a non-author review context, without requiring a particular provider panel.
+Reviews cover intent and requirements, evidence and data, adversarial reasoning, structure and depth, reader usefulness, process-language removal and natural expression. Add field-specific review when the research question needs it. Compatible perspectives can share a reviewer; Lite uses author checks; Full completes its selected review tier and delivery checks. Self uses the author context; external/independent tasks require the corresponding context. Astra in a separate context can review independently, with no fixed provider panel.
 
 | Stage | Review focus |
 | --- | --- |

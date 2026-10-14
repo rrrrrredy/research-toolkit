@@ -18,6 +18,25 @@ class DraftChecks(unittest.TestCase):
     def snapshot(self):
         return {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
 
+    def test_private_citations_warn_in_both_profiles_without_mutation_or_new_gate(self):
+        for profile in ("lite", "full"):
+            progress = w.load(self.root, "state/progress.json")
+            w.save(self.root, "state/progress.json", {**progress, "profile": profile})
+            w.save_text(self.root, "final.md", "# Report\nA source claim.\ue200cite\ue202turn1search0\ue201\n")
+            before = self.snapshot()
+            result = w.check_draft(self.workspace, "case")
+            self.assertTrue(result["ok"], result)
+            self.assertIn("1 private chat", " ".join(result["warnings"]))
+            self.assertIn("line(s) 2", " ".join(result["warnings"]))
+            self.assertEqual(before, self.snapshot())
+
+    def test_export_citation_examples_and_ordinary_references_do_not_warn(self):
+        token = "\ue200cite\ue202turn1search0\ue201"
+        report = f"Example `{token}`.\n```markdown\n{token}\n```\n~~~\n{token}\n~~~\n[Actual source](https://example.org/paper). [1]\n"
+        self.assertEqual(w.citation_export_warnings(report), [])
+        self.assertEqual(w.citation_export_warnings(f"``multi\n{token}\nline``"), [])
+        self.assertIn("line(s) 9", " ".join(w.citation_export_warnings(report + token)))
+
     def bound(self, **rule):
         w.save_text(self.root, "state/requirements.jsonl", json.dumps({
             "requirement_id": "L1", "summary": "Agreed whole-file range for the synthetic control.",

@@ -1,0 +1,59 @@
+{
+  "add": {
+    "check": {
+      "exit": 1,
+      "output": "Plugin payload differs: references/sync-probe.md"
+    },
+    "build": {
+      "exit": 0,
+      "output": "Plugin payload built: 42 shared files."
+    },
+    "copied": true
+  },
+  "modify": {
+    "check": {
+      "exit": 1,
+      "output": "Plugin payload differs: references/sync-probe.md"
+    },
+    "build": {
+      "exit": 0,
+      "output": "Plugin payload built: 42 shared files."
+    },
+    "copied": true
+  },
+  "delete": {
+    "check": {
+      "exit": 0,
+      "output": "Plugin payload verified: 41 shared files."
+    },
+    "check_read_only": true,
+    "build": {
+      "exit": 0,
+      "output": "Plugin payload built: 41 shared files."
+    },
+    "stale_copy_remains": true
+  },
+  "rename": {
+    "check": {
+      "exit": 1,
+      "output": "Plugin payload differs: references/sync-probe-renamed.md"
+    },
+    "build": {
+      "exit": 0,
+      "output": "Plugin payload built: 42 shared files."
+    },
+    "old_copy_remains": true,
+    "new_copy_exists": true
+  },
+  "idempotence": {
+    "build": {
+      "exit": 0,
+      "output": "Plugin payload built: 42 shared files."
+    },
+    "unchanged": true,
+    "check": {
+      "exit": 0,
+      "output": "Plugin payload verified: 42 shared files."
+    }
+  }
+}

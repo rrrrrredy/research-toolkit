@@ -56,7 +56,9 @@ jobs:
       - name: Check profiles and reviewer backends
         run: python scripts/check_profiles_reviewers.py
       - name: Check plugin payload matches shared sources
-        run: python scripts/build_plugin.py --check
+        run: |
+          python scripts/build_plugin.py --check
+          python scripts/check_plugin_build.py
       - name: Check local MCP protocol with synthetic reviewers
         run: |
           python -m pip install -r requirements-mcp.txt
@@ -89,6 +91,7 @@ jobs:
           python scripts/research_workflow.py --help
           python scripts/check_research_workflow.py
           python scripts/check_draft_contract.py
+          python scripts/check_plugin_build.py
       - name: Install pinned MCP dependency and check packaged stdio workflow
         run: |
           python -m pip install -r requirements-mcp.txt
@@ -103,6 +106,8 @@ jobs:
           python-version: "3.12"
       - name: Check Windows task locks and reviewer process cleanup
         run: |
+          python scripts/check_plugin_build.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/check_task_lock.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/check_research_workflow.py

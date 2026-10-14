@@ -17,19 +17,56 @@ No Python or vendor CLI installation is required merely to read and apply the me
 
 ## When to use each tool
 
-**Start with the [shortest Full guide](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-full.md) by reading the methods directly.** The agent completes the brief, source research, analysis, section drafts and chosen review, retaining separate records. Optional CLI/MCP tools provide local state and completion receipts.
+**Choose [Lite](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.md) or [Full](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-full.md) from the task.** Both share the research baseline and agent-managed records. Lite completes author checks; Full adds the selected review, revision checks and delivery consistency. Read the methods directly; connect CLI/MCP when useful.
 
 The table applies when you choose the managed local workflow, through MCP **or the [shared CLI](#skill-only-and-cli-fallback)**. Required methods still apply when you read them directly.
 
 | Tool | When it is needed | When you can skip the call |
 | --- | --- | --- |
-| `research_start` | Create a new managed task and its brief; explicitly select `profile=full` for a substantial report. | Resume an existing task with `research_status`, or keep records yourself without local workflow tools. |
+| `research_start` | Create a new managed task and its brief; explicitly select `lite` or `full` from use, evidence complexity and review needs. | Resume an existing task with `research_status`, or keep records yourself without local workflow tools. |
 | `research_status` | Resume a managed task, inspect saved progress, or change its recorded stage. | You do not need to read or update progress; a methods-only session can use its own notes. |
 | `research_guide` | Retrieve the method for a stage when it is not already available in context. | Read the relevant `SKILL.md` and `references/` files directly. |
 | `research_review` | Complete the declared reviews in a Full task, including explicit self-review when that is the chosen tier. | Lite skips review; never skip a review explicitly required by the assignment. |
 | `research_check_draft` | Check current draft records and explicit length bounds without model calls or a delivery receipt. | Optional before review/finish; inspect sources and meaning separately. |
 | `research_finish` | Complete a managed task: Lite records the six-item checklist; Full checks the reviewed report and delivery requirements. | Without local workflow tools, complete the checklist yourself and return the records without claiming a local receipt. |
 | `research_check_reviewer` | Diagnose external backend setup or a configuration failure before attempting review. | Lite and self-review need no external backend; a separate call is unnecessary when `research_start` has already confirmed the unchanged configuration. |
+
+## Continue existing research
+
+Provide the report, relevant sources and intended use; the agent maintains the records. Starting from a question remains supported. Two adjacent requests are:
+
+```text
+Use Research Toolkit to check this report against the related sources,
+focusing on important problems that change a conclusion or action.
+Preserve the original, locate each issue and its evidence, make the necessary
+minimal revision, check the result, and return a short change note.
+Recommend Lite or Full for the use. Do not rewrite for optional style preferences.
+```
+
+```text
+Update this research with the new material. Explain which facts are outdated,
+which judgments change and which still hold. Preserve source dates and versions.
+Update affected passages, sources and claims; reuse unaffected research.
+Deliver the revised report and change note, refreshing checks invalidated by the changes.
+```
+
+### Continue Lite work in Full
+
+When formal review or delivery checks are needed, preserve the Lite task and create a linked Full task with a new ID. The agent uses the original brief, noting the old task location, report version and new purpose in `task_spec.md`; reuse the report, source texts and reading scope, claims and known requirements. Unchanged work with still-valid evidence need not be repeated; check new or affected requirements. The user does not refill internal forms.
+
+The new Full task has its own progress, review plan and receipts. Do not copy Lite `progress.json`, passed flags, checklist, review logs or receipts as Full completion evidence, or rewrite the original Lite profile. Earlier author checks remain historical context, not an independent opinion.
+
+Existing tool path: `research_start(new_task, original_brief, profile="full")` → agent arranges reusable material → `research_status(new_task, stage="draft")` → `research_check_draft` → `research_review` → necessary revision/recheck → `research_finish`. Select self, external or independent according to the task; an explicit independent requirement needs actual execution, and Astra in a separate context is sufficient. Methods-only use can retain the same drafts and reviews without claiming a local receipt.
+
+### When content or sources change
+
+| Change | Reuse and recheck |
+| --- | --- |
+| Resume interrupted work with unchanged inputs | Read `research_status` and continue unfinished work; completed valid reviews can be reused. |
+| Report, requirements, bound sources or claims change | Update affected analysis. Earlier checks do not approve the current version; Lite rechecks affected items and submits the current checklist, while Full uses `revision=true` for required reviews and delivery checks of current inputs. |
+| A source webpage changes but the saved text does not | Tools do not monitor remote pages. The agent reads and retains the new version, explains its date and effect, then handles it as changed input. |
+
+Full's formal checks establish version and record consistency within the declared scope, not source credibility. The private-chat-citation advisory in `research_check_draft` scans only the supplied report and ignores code examples; it changes neither `ok` nor historical receipt meanings. Repair citations from actual sources; reading and review still establish semantic support.
 
 ## Optional workflow tools
 

@@ -1,6 +1,6 @@
 interface:
   display_name: "Research Toolkit"
   short_description: "Research methods and report-writing checks"
-  default_prompt: "Use $research-toolkit for substantial industry, market, company, or technology research: clarify scope, track sources and claims, draft section by section, stop to resolve blocking issues, and review the report before delivery."
+  default_prompt: "Use $research-toolkit for industry, market, company, or technology research and updates: recommend Lite or Full from the task, clarify scope, track sources and claims, develop the report, and complete the selected checks before delivery."
 
 

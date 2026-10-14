@@ -2,6 +2,8 @@
 
 [English](quickstart-lite.md) · [简体中文](quickstart-lite.zh-CN.md) · [Research Toolkit](../README.zh-CN.md)
 
+轻量流程与 Full 共用研究底线，减少正式评审与交付管理；下方小任务用于教学，不限制分析深度、来源或篇幅。证据复杂或需要正式评审时可[接续 Full](usage-modes.zh-CN.md#接续已有研究)。
+
 用两份随附材料完成一篇短比较。只需一个能读取仓库的 Agent，无需评审账号、API key、插件或 MCP 配置。Agent 已就绪时预计约 5–15 分钟；这是入门用时估计，不是模型响应时长保证。[示例包](../examples/lite/README.zh-CN.md)包含完整需求和来源说明。
 
 ## 把这段请求发给 Agent

@@ -17,19 +17,53 @@
 
 ## 七个工具何时用、何时可忽略
 
-**[Full 最短指南](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-full.zh-CN.md)可从直接读取方法开始。** Agent 完成需求、来源、分析、分节写作和所选评审，另存过程记录；本地进度与交付回执由可选 CLI/MCP 提供。
+**按任务选择 [Lite](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.zh-CN.md) 或 [Full](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-full.zh-CN.md)。** 两者共用研究底线，Agent 维护记录。Lite 完成作者自检；Full 增加所选评审、修订核对和交付一致性检查。可直接读方法，CLI/MCP 按需接入。
 
 下表适用于选择了本地任务管理的情况，MCP 与[共享 CLI](#只用-skill或使用-cli)均可使用。直接读取方法时，研究要求仍然适用。
 
 | 工具 | 何时需要 | 何时可跳过调用 |
 | --- | --- | --- |
-| `research_start` | 创建新的本地任务和需求记录；长报告明确选择 `profile=full`。 | 已有任务用 `research_status` 恢复，或不使用本地执行工具、自行维护记录。 |
+| `research_start` | 创建新的本地任务和需求记录；按用途、证据复杂度和评审需求显式选择 `lite` 或 `full`。 | 已有任务用 `research_status` 恢复，或不使用本地执行工具、自行维护记录。 |
 | `research_status` | 恢复本地任务、查看已保存进度或更新记录中的阶段。 | 无需查看或更新进度时；只使用方法的会话可用自己的笔记。 |
 | `research_guide` | 当前上下文尚未包含所需阶段的方法，需要读取时。 | 已直接阅读相应 `SKILL.md` 和 `references/` 文件。 |
 | `research_review` | Full 任务须完成约定评审；选择 self 档时也要显式执行自评。 | Lite 跳过评审；任务明确要求的评审不可省略。 |
 | `research_check_draft` | 无模型调用地检查当前稿件记录与显式篇幅，不生成交付凭证。 | 评审／交付前可选；来源与含义仍需单独核对。 |
 | `research_finish` | 完成本地任务：Lite 保存六项 checklist；Full 核对已评审报告与交付要求。 | 不使用本地执行工具时，自行完成 checklist 并交付记录，不声称已生成本地凭证。 |
 | `research_check_reviewer` | 外部后端配置或连接前置条件有问题，需要在评审前排查时。 | Lite 和 self 无需外部后端；`research_start` 已确认且配置未变时，无需重复调用。 |
+
+## 接续已有研究
+
+提供已有报告、相关来源和新的用途即可，记录整理由 Agent 负责。支持从零研究，也支持以下两条路径：
+
+```text
+用 Research Toolkit 检查这份报告和相关来源，重点看会改变结论或行动的重要问题。
+保留原稿，定位问题与依据，做必要的最小修订，核对修改并给我变化说明。
+根据用途建议 Lite 或 Full；不为文风偏好重写整篇，不把可选建议当成必改。
+```
+
+```text
+在已有研究上加入这些新资料。说明哪些事实已过期、哪些判断需要改变、哪些仍成立。
+保留资料日期与版本，更新受影响的段落、来源和判断，不从头重做未受影响的研究。
+交付更新稿及简短变化说明；重新完成本次改动使之失效的检查。
+```
+
+### Lite 接续 Full
+
+用户需要补正式评审或交付核对时，保留原 Lite 任务，以新 ID 创建关联的 Full 任务。Agent 从原 brief 建立新任务，在 `task_spec.md` 说明原任务位置、稿件版本及新增用途；复用报告、来源原文与阅读范围、主张和已知要求。内容不变、依据仍有效的工作无需重做；新增或受影响的要求重新核对。无需用户重填表格。
+
+新 Full 任务使用自己的进度、评审计划和回执。不要复制 Lite 的 `progress.json`、通过标记、checklist、评审日志或收据来充当 Full 完成凭证，也不改写原 Lite 档位。旧作者检查可作为历史说明，不能冒充独立意见。
+
+已有工具路径：`research_start(new_task, original_brief, profile="full")` → Agent 整理可复用材料 → `research_status(new_task, stage="draft")` → `research_check_draft` → `research_review` → 修订及必要复验 → `research_finish`。Full 的 self、external、independent 按任务选择；明确独立要求须实际执行，Astra 单独上下文即可。纯方法使用也按这一路径保留稿件和评审，不能声称产生本地回执。
+
+### 内容或资料变化后
+
+| 变化 | 复用与复验 |
+| --- | --- |
+| 恢复中断任务，输入未变 | 用 `research_status` 读现有状态，继续未完成工作；有效的已完成评审可复用。 |
+| 报告、需求、已绑定来源／主张改变 | 更新受影响分析。旧检查不代表当前版本通过；Lite 重做相应检查并提交当前 checklist，Full 以 `revision=true` 对当前输入完成所需评审与交付核对。 |
+| 来源网页有更新，但本地保存件未变 | 工具不监控远程网页。Agent 读取并保留新版本、说明日期和结论差异后，再按输入变化处理。 |
+
+Full 的形式检查验证声明范围内的版本和记录一致性；它们不会判断新来源是否可信。`research_check_draft` 的私有聊天引用提示只扫描传入稿件、忽略代码示例，提示不改变 `ok` 或历史收据含义。引用修复须依据真实来源；具体语义仍由实际阅读和评审核对。
 
 ## 可选执行工具
 
