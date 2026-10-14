@@ -1,0 +1,31 @@
+{
+  "created_at": "2026-10-14T05:12:19.698956+00:00",
+  "task": {
+    "id": "coding_benchmark_decision_zh",
+    "title": "编程智能体的排行榜能支持什么采购判断？",
+    "prompt": "面向需要选择编程智能体的研发负责人，比较 SWE-bench Verified、SWE-Bench Pro 与 SWE-Lancer 的研究对象、任务构成、执行环境、评分与版本，解释为什么分数、解题率和奖金价值不能直接互换。结合原始发布和2026年7月评测质量质疑，判断哪些结果仍可用于筛选、哪些不能支持生产提效承诺。不要推荐未给实测的模型品牌；给出具体选择流程和内部真实仓库试点方案。评测缺陷应落到题目与评分修复，不能写成所有真实任务都无效。没有提供另一方答复时不要杜撰。给完整研究备忘录，2500–4000非空白字符，正文就地引用，不附资料清单。",
+    "minimum": 2500,
+    "maximum": 4000,
+    "starting_urls": [
+      "https://openai.com/index/swe-lancer/",
+      "https://openai.com/index/separating-signal-from-noise-coding-evaluations/",
+      "https://openai.com/index/introducing-swe-bench-verified/",
+      "https://scale.com/blog/swe-bench-pro"
+    ],
+    "origin": "evals/studies/2026-10-13-before-after/protocol.json"
+  },
+  "toolkit_commit": "09c8e7cd5c394eea4972c0ff6fd5fcd78c18db5c",
+  "author_model_requested": "gpt-6-astra",
+  "author_reasoning_effort": "xhigh",
+  "model_selection": "Same as the user's existing Codex configuration; CLI does not attest returned model identity.",
+  "tools": "Both sessions have live web search, shell, filesystem, same Python and source starting URLs. No supplied source text or prewritten answer.",
+  "conditions": {
+    "native": "Ordinary Codex with normal author self-checks; no Toolkit instructions or state contract.",
+    "toolkit": "Same Codex, public Toolkit entry, Full with author-context self review; independent assessment is shared after both complete."
+  },
+  "artifacts": "Each author retains the first complete draft before self-review, final report, sources actually read, and repair notes; raw CLI events and actual usage retained.",
+  "blind_review": "Fresh Astra context gets original task, neutral source union, both full drafts or final reports as randomized A/B, no workflow records, method labels, author notes or condition map. No mandatory preference or required winner.",
+  "scope": "One paired task, not an estimate of average or universal gains. Same requested model and access; freely chosen actual retrieval and work are outcomes, not forced identical calls.",
+  "repair": "Retain initial blind findings and drafts. Repair confirmed issues and recheck changed reports only; never rerun unchanged outputs for a favorable score.",
+  "cost": "Per-session CLI input/cached/output tokens, wall time and actual tool events. No invented monetary cost or human time savings."
+}

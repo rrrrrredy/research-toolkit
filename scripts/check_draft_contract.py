@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Offline draft-check controls: counts and records are not semantic approval."""
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -169,6 +170,20 @@ class DraftChecks(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertTrue(json.loads(result.stdout)["ok"])
         self.assertEqual(w.load(self.root, "state/progress.json")["stage"], "collect")
+
+    def test_cli_review_preserves_unicode_with_legacy_pipe_encoding(self):
+        marker = "\ue200filecite\ue202turn0file0\ue201"
+        w.save_text(self.root, "source.md", "中文来源：twelve shipments. " + marker)
+        request = {"task": "case", "evidence_paths": ["source.md"], "reviewer": "self",
+                   "config": {"reviewers": [{"id": "primary", "backend": "self", "model": "author-context"}]}}
+        result = subprocess.run([sys.executable, str(Path(w.__file__)), "review", "--workspace", str(self.workspace)],
+                                input=json.dumps(request, ensure_ascii=False).encode("utf-8"), capture_output=True,
+                                env={**os.environ, "PYTHONIOENCODING": "gbk", "PYTHONUTF8": "0"})
+        self.assertEqual(result.returncode, 0, result.stderr.decode("utf-8", errors="replace"))
+        response = json.loads(result.stdout.decode("utf-8"))
+        self.assertEqual(response["action_required"], "self_review")
+        self.assertIn("中文来源", result.stdout.decode("utf-8"))
+        self.assertIn(marker, result.stdout.decode("utf-8"))
 
 
 if __name__ == "__main__":

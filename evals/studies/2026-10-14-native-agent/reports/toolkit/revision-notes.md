@@ -1,0 +1,17 @@
+# 修订记录
+
+首份完整正文已写入 first-draft.md，全文3482个非空白字符（含标题、表格、链接和Markdown语法）。SHA-256：ac517435dae41f0cf7ca81e8f8b94064b4609ff03765266ba1cb4ad44420ba88。work/first-draft.md是供Toolkit检查的相同副本；两者从此均保留原样。
+
+接下来运行首稿记录与长度检查，并在作者上下文按self审阅任务、正文及来源。此时尚未给出评审结论，也没有独立评审。
+
+首稿检查及恢复：第一次check-draft正确测得3482字符且范围合格，但因R-length仍为pending返回失败。根据实际测量关闭该记录后重跑通过，原失败结果保存在work/logs/check-first-draft.json。首次review输出目标目录尚不存在，调用未启动；改存logs后，CLI在输出来源中的Unicode工具标记时发生GBK编码错误，未产生有效审阅响应。设置当前进程PYTHONIOENCODING=utf-8后取得冻结输入与self提示；没有改动toolkit文件，也没有将这些失败计作完成评审。
+
+首稿作者自查：按七个维度核查全文及S1–S10相关原文，结论pass，三个optional建议保留在self-review-first.json及Toolkit原始响应中；review_strength=degraded，当前作者上下文，不是独立评审。
+
+采纳的细化：成本指标明确为全部尝试总成本÷验收通过数并包含失败重试；试点明确按任务层内随机分配；Pro补充具体语言，论文引用改为实际阅读PDF第3–5节直链。首稿保持不变，修改仅写入final.md。后续将对终稿重新计数、执行当前版本self全稿检查及交付校验。
+
+终稿复核完成：final.md全文3577非空白字符，check-draft通过；七维度当前版本self全稿审阅完成，report_verdict=pass、无必要修正。Toolkit记录reviews_complete=true及delivery_ready=true；这些是流程与记录一致性结果，不是基准复现、生产试点或独立研究认证。终稿LF规范化SHA-256为dffbb316809ec7fa174fd65a1acdd557617b7bcfe2962890c96fc2e0bcc06ad3；Windows原始文件字节哈希为43c77fe2314eed25f6bedeed57d7df51b1593a3f4676b3b923aef8ec3b86c321，差异来自换行。根目录和work/副本相同。
+
+独立评审未在本任务执行；用户安排的交稿后统一盲评不计作本次已完成工作。交付前仍须运行finish和check_delivery，结果以work/logs/中实际输出为准。
+
+交付完成：research_workflow.py finish实际返回completed=true，交付契约3检查ok=true，状态stage=final、status=complete；随后独立调用现有check_delivery.py work，退出码0，输出“PASS: mechanical delivery checks; not a semantic quality verdict.”。两个工具均仅确认记录与交付一致性，不认证研究判断。来源URL核对、根目录/work副本一致及首稿未变的检查结果保存在work/logs/author-artifact-verification.json；没有把未执行的外部盲评记录为完成。

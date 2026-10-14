@@ -1,0 +1,2 @@
+2026-10-14T05:13:13.809826Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-10-14T05:13:23.826314Z ERROR codex_core::tools::router: error=exec_command failed: CreateProcess { message: "Rejected(\"`\\\"<USER_HOME>\\\\\\\\.cache\\\\\\\\codex-runtimes\\\\\\\\codex-primary-runtime\\\\\\\\dependencies\\\\\\\\native\\\\\\\\powershell\\\\\\\\pwsh.exe\\\" -Command 'Get-Content -LiteralPath task.json -Raw'` rejected: blocked by policy\")" }

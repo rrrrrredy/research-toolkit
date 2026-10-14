@@ -1,0 +1,20 @@
+{
+  "before": {
+    "exit_code": 1,
+    "valid_utf8_json": false,
+    "action_required": null,
+    "citation_character_preserved": false,
+    "unicode_encode_error": true,
+    "script_sha256": "124797f6700bf83406bd2fe6479ae319113f41687473d350400fcfe364480175",
+    "source_sha256": "cf443130f5c624eeb27a7780dd32673faf2782c7641dc3233737671b8806299a"
+  },
+  "after": {
+    "exit_code": 0,
+    "valid_utf8_json": true,
+    "action_required": "self_review",
+    "citation_character_preserved": true,
+    "unicode_encode_error": false,
+    "script_sha256": "872a329ef2bd9c20327d75b6c87671136edc848c4306b8ce9d9e9c3dbacf380b",
+    "source_sha256": "cf443130f5c624eeb27a7780dd32673faf2782c7641dc3233737671b8806299a"
+  }
+}

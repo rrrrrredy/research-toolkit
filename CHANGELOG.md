@@ -18,6 +18,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Publish one complete native-Agent/Toolkit Full comparison: retain both first/final pairs, tied Astra blind judgments, startup failures and actual resource use; no report-quality advantage observed on this task.
+- Keep research CLI JSON input/output in UTF-8 on Windows, including review packets containing private citation characters; fix the failure observed in an actual long-report workflow.
 - Validate version manifests and parent paths before any plugin build writes; exercise real CLI file/directory symlink and Windows junction failures without partial version updates.
 - Extend advisory citation checks to file citations and file lists, and exempt indented code examples while preserving prose warnings and line numbers.
 - Fix deletion/rename synchronization for generated plugin files with ownership tracking, preservation of unmanaged content and cross-platform controls.

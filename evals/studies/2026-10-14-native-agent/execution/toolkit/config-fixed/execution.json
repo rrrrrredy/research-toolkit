@@ -1,0 +1,20 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 37.594,
+  "usage": {
+    "cached_input_tokens": 69888,
+    "input_tokens": 76318,
+    "cache_write_input_tokens": 0,
+    "reasoning_output_tokens": 316,
+    "output_tokens": 787
+  },
+  "model_requested": "gpt-6-astra",
+  "model_returned": null,
+  "completed_item_counts": {
+    "agent_message": 2,
+    "error": 1,
+    "mcp_tool_call": 2
+  },
+  "errors": [],
+  "artifacts": {}
+}

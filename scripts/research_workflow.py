@@ -1050,13 +1050,17 @@ def dispatch(action: str, request: dict, workspace: Path):
 
 
 def main():
+    import sys
+    # JSON requests and responses use UTF-8 even when Windows pipes default to GBK.
+    for stream in (sys.stdin, sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "check-draft", "check-reviewer"])
     parser.add_argument("--profile", choices=["lite", "full"], help="Profile for a new task (default: full).")
     parser.add_argument("--workspace", type=Path, default=workspace_default())
     parser.add_argument("--request", type=Path, help="JSON arguments; otherwise read stdin.")
     args = parser.parse_args()
-    import sys
     try:
         request = json.loads(args.request.read_text(encoding="utf-8") if args.request else "{}" if args.action == "check-reviewer" else sys.stdin.read())
         if not isinstance(request, dict):

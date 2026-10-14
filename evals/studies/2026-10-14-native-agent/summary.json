@@ -1,0 +1,264 @@
+{
+  "task_count": 1,
+  "author_sessions": {
+    "native": {
+      "exit_code": 0,
+      "elapsed_seconds": 551.516,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "input_tokens": 1297739,
+        "reasoning_output_tokens": 4334,
+        "output_tokens": 16264,
+        "cached_input_tokens": 1192448
+      },
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "completed_item_counts": {
+        "agent_message": 6,
+        "command_execution": 7,
+        "error": 1,
+        "file_change": 4,
+        "web_search": 11
+      },
+      "errors": [],
+      "artifacts": {
+        "first-draft.md": {
+          "sha256": "9484a07f656959d824f5a0df21139b8c2e28f3ac3e22cf1ee84c3a2828505e31",
+          "nonwhitespace_characters": 3351
+        },
+        "final.md": {
+          "sha256": "3f8c4f06254f1244add9d88739392dadf2e42e6d35bc5cf571048fb4bb787778",
+          "nonwhitespace_characters": 3500
+        }
+      }
+    },
+    "toolkit": {
+      "exit_code": 0,
+      "elapsed_seconds": 856.125,
+      "usage": {
+        "cache_write_input_tokens": 0,
+        "input_tokens": 3320554,
+        "reasoning_output_tokens": 5477,
+        "output_tokens": 24271,
+        "cached_input_tokens": 3164160
+      },
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "completed_item_counts": {
+        "agent_message": 8,
+        "command_execution": 24,
+        "error": 1,
+        "file_change": 24,
+        "web_search": 13
+      },
+      "errors": [],
+      "artifacts": {
+        "first-draft.md": {
+          "sha256": "ac517435dae41f0cf7ca81e8f8b94064b4609ff03765266ba1cb4ad44420ba88",
+          "nonwhitespace_characters": 3482
+        },
+        "final.md": {
+          "sha256": "43c77fe2314eed25f6bedeed57d7df51b1593a3f4676b3b923aef8ec3b86c321",
+          "nonwhitespace_characters": 3577
+        }
+      }
+    }
+  },
+  "startup_attempts": {
+    "native/initial": {
+      "exit_code": 1,
+      "elapsed_seconds": 1.031,
+      "usage": {},
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "completed_item_counts": {},
+      "errors": [],
+      "artifacts": {}
+    },
+    "native/config-fixed": {
+      "exit_code": 0,
+      "elapsed_seconds": 29.844,
+      "usage": {
+        "cached_input_tokens": 52992,
+        "input_tokens": 60575,
+        "cache_write_input_tokens": 0,
+        "reasoning_output_tokens": 262,
+        "output_tokens": 586
+      },
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "completed_item_counts": {
+        "agent_message": 2,
+        "error": 1,
+        "mcp_tool_call": 2
+      },
+      "errors": [],
+      "artifacts": {}
+    },
+    "toolkit/initial": {
+      "exit_code": 1,
+      "elapsed_seconds": 1.047,
+      "usage": {},
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "completed_item_counts": {},
+      "errors": [],
+      "artifacts": {}
+    },
+    "toolkit/config-fixed": {
+      "exit_code": 0,
+      "elapsed_seconds": 37.594,
+      "usage": {
+        "cached_input_tokens": 69888,
+        "input_tokens": 76318,
+        "cache_write_input_tokens": 0,
+        "reasoning_output_tokens": 316,
+        "output_tokens": 787
+      },
+      "model_requested": "gpt-6-astra",
+      "model_returned": null,
+      "completed_item_counts": {
+        "agent_message": 2,
+        "error": 1,
+        "mcp_tool_call": 2
+      },
+      "errors": [],
+      "artifacts": {}
+    }
+  },
+  "blind_reviews": {
+    "first": {
+      "preference": "tie",
+      "reports": {
+        "A": {
+          "verdict": "pass",
+          "score": 100,
+          "findings": []
+        },
+        "B": {
+          "verdict": "pass",
+          "score": 100,
+          "findings": []
+        }
+      },
+      "execution": {
+        "status": "response_complete",
+        "model_requested": "gpt-6-astra",
+        "model_returned": null,
+        "model_identity": "requested_only_cli_does_not_attest",
+        "hard_token_cap": false,
+        "exit_code": 0,
+        "usage": {
+          "input_tokens": 287408,
+          "cached_input_tokens": 144768,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 7706,
+          "reasoning_output_tokens": 3603
+        },
+        "warnings": [
+          "skip_host_skill_discovery is an under-development CLI feature"
+        ],
+        "elapsed_seconds": 252.359
+      }
+    },
+    "final": {
+      "preference": "tie",
+      "reports": {
+        "A": {
+          "verdict": "pass",
+          "score": 100,
+          "findings": []
+        },
+        "B": {
+          "verdict": "pass",
+          "score": 100,
+          "findings": []
+        }
+      },
+      "execution": {
+        "status": "response_complete",
+        "model_requested": "gpt-6-astra",
+        "model_returned": null,
+        "model_identity": "requested_only_cli_does_not_attest",
+        "hard_token_cap": false,
+        "exit_code": 0,
+        "usage": {
+          "input_tokens": 142519,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5157,
+          "reasoning_output_tokens": 3106
+        },
+        "warnings": [
+          "skip_host_skill_discovery is an under-development CLI feature"
+        ],
+        "elapsed_seconds": 179.016
+      }
+    }
+  },
+  "capture_exports": {
+    "native/initial": {
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_events": 0,
+      "public_events": 0,
+      "export": "Host paths normalized. Tool outputs and command tails represented by hashes/length; web metadata retained. Reasoning items omitted. Original local capture preserved."
+    },
+    "native/config-fixed": {
+      "original_sha256": "c571a3b73d4014e490d6d5a03e9a64a872b4b4d69df2d25ff27f46e187208bdc",
+      "public_sha256": "72e9e8fca91814fa223d67c35429e5d7a0126be591547e66abac6c96612c112f",
+      "original_events": 10,
+      "public_events": 10,
+      "export": "Host paths normalized. Tool outputs and command tails represented by hashes/length; web metadata retained. Reasoning items omitted. Original local capture preserved."
+    },
+    "native/windows-sandbox-configured": {
+      "original_sha256": "eee842684a50f1f35e787735e1e352bd290af5361086d93460e64b7e88a53841",
+      "public_sha256": "c7879e6b4001c8d2a2a9157f844fbb7e65c5d036f74dd00b41780d94b37b31eb",
+      "original_events": 54,
+      "public_events": 54,
+      "export": "Host paths normalized. Tool outputs and command tails represented by hashes/length; web metadata retained. Reasoning items omitted. Original local capture preserved."
+    },
+    "toolkit/initial": {
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "public_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_events": 0,
+      "public_events": 0,
+      "export": "Host paths normalized. Tool outputs and command tails represented by hashes/length; web metadata retained. Reasoning items omitted. Original local capture preserved."
+    },
+    "toolkit/config-fixed": {
+      "original_sha256": "83c407fa58e75414da053061f564c08e458e1044b843c657ccf3fc6603f1c964",
+      "public_sha256": "951483ad05364dc916cb9b74e195ebee50a5745b85dcfef570237644e43c76c0",
+      "original_events": 10,
+      "public_events": 10,
+      "export": "Host paths normalized. Tool outputs and command tails represented by hashes/length; web metadata retained. Reasoning items omitted. Original local capture preserved."
+    },
+    "toolkit/windows-sandbox-configured": {
+      "original_sha256": "497a8cefd188a102d11c21c1e5a3c65e43a0705a4a7580162ad0e9130abcfa5a",
+      "public_sha256": "bcdd789b1c68c98906a2c3281c1b22dc068d148660e773c5c13aae5096dce4a0",
+      "original_events": 134,
+      "public_events": 134,
+      "export": "Host paths normalized. Tool outputs and command tails represented by hashes/length; web metadata retained. Reasoning items omitted. Original local capture preserved."
+    },
+    "blind/first": {
+      "original_sha256": "fa4192bf1c723a2a2f7a5feede5024c0fe3ed661e995d670204ab511335626e5",
+      "public_sha256": "df19b1e64437fe539516a0d67ee3940057f042a23905ea3b66e1fd28b81af58b",
+      "original_events": 5,
+      "public_events": 5,
+      "export": "Host paths normalized. Tool outputs and command tails represented by hashes/length; web metadata retained. Reasoning items omitted. Original local capture preserved."
+    },
+    "blind/final": {
+      "original_sha256": "d2b3a1b658024d4ac56df89b36ceeaa4463cfe771a8c21a3d7ea66aa1252db7d",
+      "public_sha256": "6a4827a00c5d8bf28f69a2aa1a4bddc432d06a762ec7861204f62b46ca1471c5",
+      "original_events": 5,
+      "public_events": 5,
+      "export": "Host paths normalized. Tool outputs and command tails represented by hashes/length; web metadata retained. Reasoning items omitted. Original local capture preserved."
+    }
+  },
+  "total_recorded_usage": {
+    "input_tokens": 5185113,
+    "cached_input_tokens": 4624256,
+    "output_tokens": 54771,
+    "reasoning_output_tokens": 17098
+  },
+  "accounting": "Cached inputs are a subset of input_tokens; reasoning outputs a subset of output_tokens. Startup failures and shared blind reviews are retained separately. Coordinator/model work outside these captured sessions, currency charges and human time are not measured. Concurrent authors' wall times are not summed as elapsed project duration."
+}

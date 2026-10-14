@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+[October 14 complete native-Agent comparison](studies/2026-10-14-native-agent/README.md): one existing real long task, tied first/final blind assessments, higher Full resource use, and a Windows encoding failure turned into a targeted fix.
+
 Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
 
 Research Toolkit helps execute research; the research evaluation dataset uses tasks, material and criteria to identify weaknesses in outputs. This directory also contains Toolkit software checks. Passing those checks is not a research-quality score.

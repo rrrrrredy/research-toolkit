@@ -1,0 +1,31 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 856.125,
+  "usage": {
+    "cache_write_input_tokens": 0,
+    "input_tokens": 3320554,
+    "reasoning_output_tokens": 5477,
+    "output_tokens": 24271,
+    "cached_input_tokens": 3164160
+  },
+  "model_requested": "gpt-6-astra",
+  "model_returned": null,
+  "completed_item_counts": {
+    "agent_message": 8,
+    "command_execution": 24,
+    "error": 1,
+    "file_change": 24,
+    "web_search": 13
+  },
+  "errors": [],
+  "artifacts": {
+    "first-draft.md": {
+      "sha256": "ac517435dae41f0cf7ca81e8f8b94064b4609ff03765266ba1cb4ad44420ba88",
+      "nonwhitespace_characters": 3482
+    },
+    "final.md": {
+      "sha256": "43c77fe2314eed25f6bedeed57d7df51b1593a3f4676b3b923aef8ec3b86c321",
+      "nonwhitespace_characters": 3577
+    }
+  }
+}
