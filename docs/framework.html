@@ -240,7 +240,7 @@ Recommend a workflow from context and briefly explain why; the user keeps the ch
 | Use, consequences and evidence needs | Recommended workflow |
 | --- | --- |
 | Bounded research with manageable consequences; no formal review requirement and author checks fit the use | Lightweight workflow `lite` |
-| Conflicting evidence, complex comparisons, formal delivery or repeated revision checks | Complete workflow `full`, with its actual reviewer tier stated |
+| Need to track changing requirements/evidence and bind selected reviews and revision decisions to the delivered version | Complete workflow `full`, with its actual reviewer tier stated |
 | Explicit independent-review requirement | `full` with `independent`; Astra in a separate context is sufficient |
 
 Recommend independent review for consequential decisions and explain why. Frozen evaluations keep their declared protocol; the evaluation label adds no review requirement. Full does not automatically mean independent review. [Continue existing Lite work in Full](docs/usage-modes.md#continue-existing-research) by reusing research and preserving the original task.
@@ -273,7 +273,9 @@ The agent owns reading the applicable methods, maintaining records, executing re
 
 ## Load methods when the work reaches them
 
-For Lite, read the matching section of the [Lite guide](references/lite-workflow.md); the tools return only that stage and its shared constraints. Full uses the table below. Keep already-read instructions in use; do not reread every reference on every turn. For an existing task prefer `research_status(task)`, which uses its saved profile. A standalone `research_guide` call must pass the intended profile explicitly.
+For Lite, read the matching section of the [Lite guide](references/lite-workflow.md); the tools return only that stage and its shared constraints. Full uses the table below. Keep already-read instructions in use. Read the current stage guidance once, from the tool response or the reference file; do not load the same unchanged guidance again through the other route.
+
+With local tools, keep report and source files in the task directory and pass their existing relative paths. For calls and retained output, use the [CLI recipe](docs/usage-modes.md#skill-only-and-cli-fallback). For an existing task prefer `research_status(task)`, which uses its saved profile. A standalone `research_guide` call must pass the intended profile explicitly.
 
 | When | Read | Required result |
 | --- | --- | --- |

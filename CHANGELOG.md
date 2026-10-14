@@ -18,6 +18,7 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Clarify in-range pending length records without changing checks; add a non-overwriting CLI capture example and reuse guidance, and recommend Full for version-bound review and delivery needs.
 - Publish one complete native-Agent/Toolkit Full comparison: retain both first/final pairs, tied Astra blind judgments, startup failures and actual resource use; no report-quality advantage observed on this task.
 - Keep research CLI JSON input/output in UTF-8 on Windows, including review packets containing private citation characters; fix the failure observed in an actual long-report workflow.
 - Validate version manifests and parent paths before any plugin build writes; exercise real CLI file/directory symlink and Windows junction failures without partial version updates.

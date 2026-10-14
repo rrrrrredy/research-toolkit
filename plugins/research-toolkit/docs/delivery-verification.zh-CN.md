@@ -66,7 +66,7 @@ Full 示例提供可修改的 [中文篇幅记录](https://github.com/rrrrrredy/
 python3 scripts/research_workflow.py check-draft --workspace ../research-work --request check-draft.json
 ```
 
-Windows 可将 `python3` 替换为 `py -3` 或已有解释器路径；MCP 可直接调用 `research_check_draft(task="你的任务名")`。查看 `counts` 和 `length_checks` 的实际值与范围；字段填错时，`errors` 会指出字段及正确写法。`pending` 仍会提示要求未完成，不能只根据字数自动标记通过。
+Windows 可将 `python3` 替换为 `py -3` 或已有解释器路径；MCP 可直接调用 `research_check_draft(task="你的任务名")`。查看 `counts` 和 `length_checks` 的实际值与范围；字段填错时，`errors` 会指出字段及正确写法。`bounds_met: true` 表示实际文件符合所记录范围；`status: pending` 表示要求记录仍待核对。此时 `next_action` 会指出要求编号与实测值：核对约定范围和计数口径后，仅将对应记录改为 `satisfied`，以文件、计数和范围作为证据。其他错误分别处理，检查保持只读。
 
 
 `whitespace_words` 按 Python 空白分词；`nonwhitespace_characters` 统计除空白外的 Unicode 码点。两者均计算整个 UTF-8 文件，包含 Markdown 标记、标题、引用及参考文献；不是模型 token 或编辑器渲染后的字数。目前仅支持 `whole_artifact`。若约定只统计正文或按页限制，应使用相应测量，不能改称全文计数。`min`／`max` 至少提供一个非负整数，范围包含端点；使用独立要求编号，并在 summary 中说明实际约定。

@@ -2,7 +2,7 @@
 
 [English](quickstart-full.md) · [简体中文](quickstart-full.zh-CN.md) · [Research Toolkit](../README.md)
 
-Full shares the research baseline with [Lite](quickstart-lite.md). Use it for conflicting evidence, complex comparisons, formal delivery or explicit review requirements; length is secondary. The long-report example below is not a selection threshold. [Continue existing research in Full](usage-modes.md#continue-existing-research).
+Full shares the research baseline with [Lite](quickstart-lite.md). Choose Full when you need to track changing requirements/evidence and retain version-bound reviews, revision decisions and delivery checks. Lite also handles complex comparisons and conflicting evidence; choose from the workflow needed, with length secondary. [Continue existing research in Full](usage-modes.md#continue-existing-research).
 
 Give the request below to an agent that can read files and research sources. Full covers the brief, source research, analysis, section drafts, review and revision; MCP is an optional tool for managing task state. See the results: [APIs or browsers](case-study/api-or-browser/report.md) · [Office agents in China](case-study/report.zh-CN.md).
 
@@ -75,7 +75,7 @@ This creates `../research-work/knowledge-assistant-full-en`. The agent performs 
 
 Add the single line from [requirements.en.jsonl](../examples/full/requirements.en.jsonl) to the new task's `state/requirements.jsonl`, retaining any other requirements. Start as `pending`; mark it `satisfied` only after checking. Before review, call `check-draft` with this task ID; see [copyable length records and checks](delivery-verification.md#explicit-length-requirements).
 
-Use the [existing CLI/MCP instructions](usage-modes.md) for review and delivery. The example does not prefill a report or a review.
+Use the [CLI capture and reuse example](usage-modes.md#reuse-task-files-and-retain-a-self-review-packet) for a self-review packet, and the [CLI/MCP instructions](usage-modes.md) for other tiers and delivery. The example does not prefill a report or a review.
 
 </details>
 

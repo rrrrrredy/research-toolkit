@@ -116,15 +116,50 @@ class DraftChecks(unittest.TestCase):
         self.assertEqual(self.snapshot(), before)
 
     def test_pending_requirement_does_not_become_satisfied_by_counting(self):
-        self.bound(min=1, max=100)
-        row = json.loads((self.root / "state/requirements.jsonl").read_text())
-        row["status"] = "pending"
-        w.save_text(self.root, "state/requirements.jsonl", json.dumps(row) + "\n")
-        before = self.snapshot()
-        result = w.check_draft(self.workspace, "case")
-        self.assertTrue(result["length_checks"][0]["bounds_met"])
-        self.assertFalse(result["ok"])
-        self.assertEqual(self.snapshot(), before)
+        command = [sys.executable, str(Path(w.__file__)), "check-draft", "--workspace", str(self.workspace)]
+        for profile in ("lite", "full"):
+            with self.subTest(profile=profile):
+                progress = w.load(self.root, "state/progress.json")
+                w.save(self.root, "state/progress.json", {**progress, "profile": profile})
+                # The observed 3482-character report was in range but still pending.
+                w.save_text(self.root, "memo.md", "研" * 3482)
+                self.bound(unit="nonwhitespace_characters", min=2500, max=4000)
+                row = w.load(self.root, "state/requirements.jsonl")
+                row.update(status="pending", evidence="")
+                w.save_text(self.root, "state/requirements.jsonl", json.dumps(row) + "\n")
+
+                def check():
+                    before = self.snapshot()
+                    run = subprocess.run(command, input='{"task":"case","artifact":"memo.md"}',
+                                         capture_output=True, text=True, encoding="utf-8")
+                    self.assertEqual(self.snapshot(), before)
+                    return run.returncode, json.loads(run.stdout)
+
+                code, result = check()
+                self.assertEqual(code, 1)
+                self.assertFalse(result["ok"])
+                self.assertTrue(result["length_checks"][0]["bounds_met"])
+                self.assertEqual(result["length_checks"][0]["status"], "pending")
+                for clue in ("L1 (3482 nonwhitespace_characters)", "still pending", "state/requirements.jsonl",
+                             "counting scope", "evidence citing memo.md", "other listed errors"):
+                    self.assertIn(clue, result["next_action"])
+
+                # Only an explicit, evidenced record update clears the pending check.
+                row.update(status="satisfied", evidence="memo.md: 3482 nonwhitespace characters, whole artifact.")
+                w.save_text(self.root, "state/requirements.jsonl", json.dumps(row) + "\n")
+                code, result = check()
+                self.assertEqual(code, 0, result)
+                self.assertTrue(result["ok"])
+                self.assertNotIn("still pending", result["next_action"])
+
+                # The hint must not tell an out-of-range pending draft to mark itself satisfied.
+                row.update(status="pending", evidence="")
+                w.save_text(self.root, "state/requirements.jsonl", json.dumps(row) + "\n")
+                w.save_text(self.root, "memo.md", "Too short.")
+                code, result = check()
+                self.assertEqual(code, 1)
+                self.assertFalse(result["length_checks"][0]["bounds_met"])
+                self.assertNotIn("update only those rows", result["next_action"])
 
     def test_length_input_errors_identify_the_field_and_correction_without_mutation(self):
         for rule, clues in (
