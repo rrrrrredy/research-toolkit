@@ -9,6 +9,7 @@ import json
 import os
 from pathlib import Path
 import sys
+import subprocess
 import tempfile
 import time
 import unittest
@@ -85,6 +86,41 @@ class WorkflowTests(unittest.TestCase):
     def review(self, runner, purpose="report_delivery", **kwargs):
         return workflow.review(self.workspace, "case", ["source.md"], purpose=purpose,
                                config=kwargs.pop("config", CONFIG), runner=runner, **kwargs)
+
+    def test_self_review_file_reference_preserves_full_input_and_rejects_stale_response(self):
+        full = workflow.review(self.workspace, "case", ["source.md"], reviewer="self")
+        compact = workflow.review(self.workspace, "case", ["source.md"], reviewer="self", include_assignment=False)
+        self.assertIn("assignment", full)
+        self.assertNotIn("assignment", compact)
+        self.assertEqual(full["input_version"], compact["input_version"])
+        self.assertEqual(full["assignment_ref"], compact["assignment_ref"])
+        ref = compact["assignment_ref"]
+        frozen = self.root/ref["path"]
+        self.assertEqual(workflow.sha256_file(frozen), ref["sha256"])
+        self.assertEqual(json.loads(frozen.read_text(encoding="utf-8")), full["assignment"])
+        self.assertEqual(full["assignment"]["sources"]["source.md"], (self.root/"source.md").read_text(encoding="utf-8"))
+        response = json.loads(SyntheticRunner()({}, {"role": "reviewer"}, self.root)["content"])
+        response["input_version"] = compact["input_version"]
+        (self.root/"source.md").write_text("Changed source content.\n", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "current frozen input_version"):
+            workflow.review(self.workspace, "case", ["source.md"], reviewer="self",
+                            self_review=response, include_assignment=False)
+        self.assertEqual(workflow.sha256_file(frozen), ref["sha256"])
+
+    def test_cli_self_review_file_reference_and_invalid_switch(self):
+        request = {"task": "case", "evidence_paths": ["source.md"], "reviewer": "self", "include_assignment": False}
+        command = [sys.executable, "-X", "utf8", str(workflow.TOOLKIT/"scripts/research_workflow.py"),
+                   "review", "--workspace", str(self.workspace)]
+        result = subprocess.run(command, input=json.dumps(request), encoding="utf-8", capture_output=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        value = json.loads(result.stdout)
+        self.assertNotIn("assignment", value)
+        self.assertEqual(value["action_required"], "self_review")
+        self.assertTrue((self.root/value["assignment_ref"]["path"]).is_file())
+        request["include_assignment"] = "false"
+        result = subprocess.run(command, input=json.dumps(request), encoding="utf-8", capture_output=True)
+        self.assertEqual(result.returncode, 1)
+        self.assertIn("include_assignment", json.loads(result.stdout)["error"])
 
     def test_clarification_precedes_collection_and_merges_answers(self):
         first = workflow.start(self.workspace, "brief-only", {"question": "What changed?"})

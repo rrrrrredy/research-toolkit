@@ -521,7 +521,9 @@ def record_plan_change(root, previous, current):
 
 @task_operation
 def review(workspace: Path, task: str, evidence_paths: list[str], artifact="final.md",
-           purpose="report_delivery", revision=False, reviewer=None, self_review=None, *, config=None, runner=run_reviewer) -> dict:
+           purpose="report_delivery", revision=False, reviewer=None, self_review=None, include_assignment=True, *, config=None, runner=run_reviewer) -> dict:
+    if type(include_assignment) is not bool:
+        raise ValueError("include_assignment must be true or false.")
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
     if progress.get("profile", "full") == "lite":
@@ -674,10 +676,18 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
                     next_action="Complete the declared reviews and any requested audits.")
     save(root, "state/progress.json", progress)
     if reviewer == "self" and self_review is None:
-        return {"reviews_complete": False, "action_required": "self_review", "reviewer": "self",
+        response = {"reviews_complete": False, "action_required": "self_review", "reviewer": "self",
                 "review_strength": "degraded", "independent_review": False, "input_version": version,
-                "prompt": review_instructions, "assignment": packet,
+                "prompt": review_instructions, "assignment_ref": input_ref, "task_directory": str(root),
                 "log": ["SELF REVIEW: same author context; no external backend called; review strength is degraded."]}
+        if include_assignment:
+            response["assignment"] = packet
+        else:
+            response["prompt"] += ("\nThe complete frozen assignment is in assignment_ref.path under task_directory. "
+                "Read it locally; reuse already-read unchanged evidence and inspect changed passages and sources. "
+                "Review the current complete report and required evidence before submitting self_review. "
+                "Returning a file reference does not change the assignment or its input_version.")
+        return response
     if reviewer == "self":
         def runner(config, request, cwd):
             return {"execution_id": progress["author_id"], "content": json.dumps(self_review, ensure_ascii=False),

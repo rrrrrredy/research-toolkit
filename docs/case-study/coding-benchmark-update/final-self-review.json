@@ -1,0 +1,35 @@
+{
+  "input_version": "08a078a5eca41bcc9244d741b295ae38bd1a6ea356d008fcddb912e36cee49e2",
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "location": "comparison table, Lancer denominator paragraph, V2 sections and four procurement steps",
+      "basis": "All three benchmarks, denominators, protocol versions and procurement steps remain. The V2 paragraph now explicitly says dataset, instructions and execution changes prevent interpreting cross-version score differences as model progress."
+    },
+    "evidence": {
+      "location": "July audit; OpenLibrary example; V2 repairs/protocol/gate; Lancer offline paragraph",
+      "basis": "Actual S2/S6/S9/S10 rechecks and new S11 support the new distinctions. Stored S1/S3/S4/S5/S7/S8 relevant sections support unchanged counts and evaluation definitions. 731-89=642; 237-39=198; 764+724=1488; 237+265=502. Publisher controls are distinguished from our own execution."
+    },
+    "adversarial_reasoning": {
+      "location": "Verified audit denominator; 69/529 repair distinction; final trial conditions",
+      "basis": "Unchanged sample-denominator and production-extrapolation limits remain. U1 corrected: the V1/V2 score non-comparability explanation is restored using S9/S10; no new causal improvement claim is added."
+    },
+    "structure_and_depth": {
+      "location": "OpenLibrary paragraph and V2 implementation paragraphs",
+      "basis": "A concrete wrong-rejection mechanism and operational prerequisites replace generic repair prose; comparison, explanatory mechanism and purchase decision remain connected."
+    },
+    "reader_usefulness": {
+      "location": "procurement step 1; V2 50-minute and regrading paragraph",
+      "basis": "U2 adopted: S10 citation now sits next to 529/214/38 figures and also supports the following protocol paragraph. Practical first step remains version/environment verification before a larger run."
+    },
+    "process_language": {
+      "location": "complete final.md",
+      "basis": "No local paths, private citation tokens, task IDs or review verdicts in the report. Stated no benchmark execution is relevant method information."
+    },
+    "natural_expression": {
+      "location": "complete final.md",
+      "basis": "Full current report reread after the local revision. 3839 whole-Markdown nonwhitespace characters; coherent comparison and decision plan, with public links and no internal workflow narration."
+    }
+  },
+  "findings": []
+}

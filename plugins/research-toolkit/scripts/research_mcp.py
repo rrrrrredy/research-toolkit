@@ -84,7 +84,8 @@ def research_guide(stage: str, language: str = "en", profile: Literal["lite", "f
 async def research_review(task: str, evidence_paths: list[str], artifact: str = "final.md",
                           purpose: str = "report_delivery", revision: bool = False,
                           reviewer: Literal["self", "external", "independent"] | None = None,
-                          self_review: dict[str, Any] | None = None) -> dict[str, Any]:
+                          self_review: dict[str, Any] | None = None,
+                          include_assignment: bool = True) -> dict[str, Any]:
     """Run the configured content reviews and any declared audits, retaining original evidence.
     Without a configured backend, new tasks return a self-review prompt; submit the actual result as self_review.
     Explicit external/independent selections never silently downgrade. Lite returns explicit skip logs.
@@ -94,9 +95,11 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
     Resume incomplete assignments; never retry a valid negative result to improve the verdict.
     After correcting a report, pass revision=True for its new version; this is the normal report-delivery loop.
     Already authorized corrections do not need another user confirmation. Reconcile changed scope in task records first.
+    For local self-review, include_assignment=False returns the frozen input path/hash instead of repeating its full text.
+    Read the current assignment locally and reuse already-read unchanged evidence; review and freshness checks are identical.
     """
     return await asyncio.to_thread(mutate, workflow.review, task, evidence_paths,
-                                   artifact, purpose, revision, reviewer, self_review)
+                                   artifact, purpose, revision, reviewer, self_review, include_assignment)
 
 
 @server.tool(structured_output=True)

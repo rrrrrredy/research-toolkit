@@ -4,6 +4,11 @@
 
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
+## Unreleased
+
+- Let local self-review callers request the frozen assignment by file reference with `include_assignment: false`, retaining complete inputs, freshness checks and the default inline response.
+- Publish an actual long-report continuation with reused records, source-confirmed changes, preserved self-review repair and observed costs; synchronize bilingual usage guidance and plugin payload.
+
 ## v1.1.0 — 2026-10-14
 
 - Add `research_save` / CLI `save` for agent-owned record updates, format recovery with original backups, and draft saves. Observe draft timestamps, failed attempts, reviewer timing and returned usage without new acceptance gates.

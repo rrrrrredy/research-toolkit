@@ -77,6 +77,8 @@ Update affected passages, sources and claims; reuse unaffected research.
 Deliver the revised report and change note, refreshing checks invalidated by the changes.
 ```
 
+When continuing the saved profile, start with `research_status(task)` and preserve the previous report. Keep existing source, claim and requirement IDs and their reading evidence. Use `research_save` to update only affected records together, registering the saved draft by its existing path; unchanged records need no resubmission. After actually checking a requirement, save its status and concrete evidence with the relevant update. Recheck changed or questioned source sections; reuse still-valid local evidence without fetching it again. Review the complete current report under its selected tier before claiming completion. See the [executed long-report update](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.md) for actual reuse, source-confirmed changes, rework and costs.
+
 ### Continue Lite work in Full
 
 When formal review or delivery checks are needed, preserve the Lite task and create a linked Full task with a new ID. The agent uses the original brief, noting the old task location, report version and new purpose in `task_spec.md`; reuse the report, source texts and reading scope, claims and known requirements. Unchanged work with still-valid evidence need not be repeated; check new or affected requirements. The user does not refill internal forms.
@@ -303,10 +305,10 @@ Use the existing task directory as the working location for reports, notes and s
 Set the task directory below to the location returned by `start`, and use the same task ID in the request. For an existing Full task named `comparison`, after preparing its report and source/claim records, save this request as `review.json`. Replace `source.md` with the actual evidence paths. Use this self-review example only when that is the selected tier; an independent requirement keeps its configured backend.
 
 ```json
-{"task":"comparison","reviewer":"self","artifact":"final.md","evidence_paths":["source.md"]}
+{"task":"comparison","reviewer":"self","artifact":"final.md","evidence_paths":["source.md"],"include_assignment":false}
 ```
 
-The CLI above prints the complete packet. To retain it, run this Python snippet from the repository/plugin root using the same interpreter as the CLI. `start` already created `logs`; `reviews` may not exist before review. Shell redirection opens its destination before the CLI runs.
+This local example returns `prompt`, `input_version`, `task_directory` and `assignment_ref` (relative path and text SHA-256); the complete frozen input remains in the task. Omit `include_assignment` or set it to `true` when the caller needs the full assignment in the response. The default and external/independent input delivery are unchanged. Retain the response by running this Python snippet from the repository/plugin root using the same interpreter as the CLI. `start` already created `logs`; `reviews` may not exist before review. Shell redirection opens its destination before the CLI runs.
 
 ```python
 import subprocess
@@ -324,7 +326,7 @@ with (task / "logs/self-review-01.json").open("x", encoding="utf-8") as output:
 
 Opening with `x` refuses to overwrite an existing record before invoking review. For a genuinely new attempt use a new filename; retain a failed attempt's output and error. If the unchanged packet was already saved successfully, use it instead of calling review again.
 
-Read `prompt`, `input_version` and `assignment` from the saved packet. In same-context self-review, verify the current report and requirement/source bindings, reuse unchanged evidence already read, and revisit changed or questioned material. Keep the complete packet; a separate reviewer receives the full required input. Submit the actual judgment as `self_review` using that `input_version`; see the [self-review fields](review-completion.md). After report or review-input changes, use the existing `revision: true` path. Reuse avoids duplicate copying, not current-version checks or required reading.
+Read `prompt` and `input_version` from the saved response, then the complete frozen assignment at `Path(task_directory) / assignment_ref["path"]`; its text hash uses canonical LF newlines. If `assignment` is returned inline, use it directly. A local file reference is useful only when the caller can read that task directory. In same-context self-review, verify the current report and requirement/source bindings, reuse unchanged evidence already read, and revisit changed or questioned material. Keep the complete packet; a separate reviewer receives the full required input. Submit the actual judgment as `self_review` using that `input_version`; see the [self-review fields](review-completion.md). After report or review-input changes, use the existing `revision: true` path. Reuse avoids duplicate copying, not current-version checks or required reading.
 
 ## Verification and limits
 

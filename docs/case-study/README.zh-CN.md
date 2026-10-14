@@ -2,8 +2,9 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-本档案包含两个真实研究案例，保留稿件、评审和修订。Toolkit 专用七题集及其他测试材料见[评测清单](../../evals/README.zh-CN.md#案例与评测集清单)。已有案例可以复用于测试与修复，不需要外部供题或额外外部评审者；Astra 在与作者分开的上下文中即可评审。
+本档案包含真实研究案例及接续记录，保留稿件、评审和修订。Toolkit 专用七题集及其他测试材料见[评测清单](../../evals/README.zh-CN.md#案例与评测集清单)。已有案例可以复用于测试与修复，不需要外部供题或额外外部评审者；Astra 在与作者分开的上下文中即可评审。
 
+- **编程基准采购报告更新**：[完整更新稿](coding-benchmark-update/report.zh-CN.md) · [更新记录](coding-benchmark-update/README.zh-CN.md)。复用已有长任务，保留来源确认的补充、首稿与终稿、实际自查、返工和消耗；属于接续证据，不另计新的原生 Agent 对照。
 - **AI Agent 选择 API 还是浏览器**：英文原创研究，比较动作覆盖、完成核验、恢复、权限与成本。[报告](api-or-browser/report.md) · [案例档案](api-or-browser/README.md) · [来源](api-or-browser/sources.md) · [评审与修订](api-or-browser/reviews.md)。保留初稿、独立上下文评审及迁移成本修正；题面中的假设工作流与未实测成本模型仍按原样说明。
 - **国内办公 Agent**：中文原创研究及英文译文。[中文报告](report.zh-CN.md) · [案例档案](office-agents/README.md) · [英文译文](report.en.md)。下文保留历史稿件比较，译文不另计新任务。
 

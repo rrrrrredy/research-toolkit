@@ -2,7 +2,11 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-This archive contains two real research cases with retained drafts, reviews and revisions. The dedicated seven-task Toolkit evaluation set and the other test materials are listed in the [evaluation inventory](../../evals/README.md#case-and-dataset-inventory). Existing cases can be reused for tests and repairs; they do not require outside task contributions or an additional outside reviewer. Astra can review in a context separate from the author.
+This archive contains real research cases and continuation records with retained drafts, reviews and revisions. The dedicated seven-task Toolkit evaluation set and the other test materials are listed in the [evaluation inventory](../../evals/README.md#case-and-dataset-inventory). Existing cases can be reused for tests and repairs; they do not require outside task contributions or an additional outside reviewer. Astra can review in a context separate from the author.
+
+## Updating a coding-benchmark procurement report
+
+[Complete updated Chinese report](coding-benchmark-update/report.zh-CN.md) · [Update record](coding-benchmark-update/README.md). Reuses an existing long task, with source-confirmed additions, original and revised drafts, actual self-review, rework and measured resource use. This is continuation evidence, not a new native-agent comparison.
 
 ## APIs or browsers for AI agents
 

@@ -1,0 +1,352 @@
+{
+  "sources": [
+    {
+      "source_id": "S1",
+      "title": "Introducing the SWE-Lancer benchmark",
+      "url": "https://openai.com/index/swe-lancer/",
+      "source_type": "primary_evidence",
+      "read_scope": "relevant_sections",
+      "read_evidence": "sources/S1.md",
+      "evidence_path": "sources/S1.md",
+      "publisher_or_author": "OpenAI",
+      "date": "2025-02-18; updated 2025-07-28",
+      "access_status": "opened_and_read_relevant_sections",
+      "used_for": "2025年2月发布；真实历史支付合计100万美元；IC端到端评分、Manager对照历史选择；7月17日数据变更并在28日加注。",
+      "limitations": "an updated dataset removes execution-time Internet dependency; not a controlled estimate of production productivity"
+    },
+    {
+      "source_id": "S2",
+      "title": "Separating signal from noise in coding evaluations",
+      "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations/",
+      "source_type": "primary_evidence",
+      "read_scope": "relevant_sections",
+      "read_evidence": "source-recheck.md",
+      "evidence_path": "sources/S2.md",
+      "publisher_or_author": "OpenAI",
+      "date": "2026-07-08",
+      "access_status": "rechecked_relevant_sections_2026-10-14",
+      "used_for": "731公共题，286初筛；复核200与249分别为27.4%与34.1%；五人审阅；四类缺陷及OpenLibrary前导空格例子；撤回早先Pro推荐。",
+      "limitations": "OpenAI audit of flagged public tasks; not a random sample or audit of private splits; no task re-execution here"
+    },
+    {
+      "source_id": "S3",
+      "title": "Introducing SWE-bench Verified",
+      "url": "https://openai.com/index/introducing-swe-bench-verified/",
+      "source_type": "primary_evidence",
+      "read_scope": "relevant_sections",
+      "read_evidence": "sources/S3.md",
+      "evidence_path": "sources/S3.md",
+      "publisher_or_author": "OpenAI and SWE-bench collaborators",
+      "date": "2024-08-13; updated 2025-02-24",
+      "access_status": "opened_and_read_relevant_sections",
+      "used_for": "原始12个Python仓库，500人工筛选题，Docker环境；两类测试均通过方算解决；静态公开集及scaffold影响。",
+      "limitations": "12 repositories describes source pool; human screening is not a perpetual quality or contamination guarantee"
+    },
+    {
+      "source_id": "S4",
+      "title": "SWE-Bench Pro: Raising the Bar for Agentic Coding",
+      "url": "https://scale.com/blog/swe-bench-pro",
+      "source_type": "primary_evidence",
+      "read_scope": "relevant_sections",
+      "read_evidence": "sources/S4.md",
+      "evidence_path": "sources/S4.md",
+      "publisher_or_author": "Scale Research Team",
+      "date": "2025-09-19",
+      "access_status": "opened_and_read_relevant_sections",
+      "used_for": "1865题、41仓库，731公开/858保留/276商业；任务及语言仓库差异；GPL抗污染是设计主张；作者也强调内部仓库效用。",
+      "limitations": "promotional claims of realism and contamination resistance need separate verification; original release figures"
+    },
+    {
+      "source_id": "S5",
+      "title": "SWE-Lancer: Can Frontier LLMs Earn $1 Million from Real-World Freelance Software Engineering?",
+      "url": "https://arxiv.org/html/2502.12115v1",
+      "source_type": "primary_evidence",
+      "read_scope": "relevant_sections",
+      "read_evidence": "sources/S5.md",
+      "evidence_path": "sources/S5.md",
+      "publisher_or_author": "Samuel Miserendino et al.",
+      "date": "2025-02; v1",
+      "access_status": "opened_and_read_relevant_sections",
+      "used_for": "Expensify的Upwork任务；1488=764 IC+724 Manager；Diamond502=237+265，500800美元；IC Playwright E2E；Manager历史选择；Docker和pass@1；奖金按通过题的历史支付相加。",
+      "limitations": "one product/repository; manager choice is not implementation; original v1 denominators differ from offline release"
+    },
+    {
+      "source_id": "S6",
+      "title": "SWE-Lancer — preparedness repository README",
+      "url": "https://raw.githubusercontent.com/openai/preparedness/main/project/swelancer/README.md",
+      "source_type": "primary_evidence",
+      "read_scope": "relevant_sections",
+      "read_evidence": "source-recheck.md",
+      "evidence_path": "sources/S6.md",
+      "publisher_or_author": "OpenAI",
+      "date": "2025-07-17 update; main accessed 2026-10-14",
+      "access_status": "rechecked_relevant_sections_2026-10-14",
+      "used_for": "公开237 IC题调整为198离线题、39移除；容器；当前仅离线rollout视为有效；Manager有独立运行配置。",
+      "limitations": "mutable main snapshot; 198 is IC subset and not all original Diamond tasks"
+    },
+    {
+      "source_id": "S7",
+      "title": "Why SWE-bench Verified no longer measures frontier coding capabilities",
+      "url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+      "source_type": "primary_evidence",
+      "read_scope": "relevant_sections",
+      "read_evidence": "sources/S7.md",
+      "evidence_path": "sources/S7.md",
+      "publisher_or_author": "OpenAI",
+      "date": "2026-02-23",
+      "access_status": "opened_and_read_relevant_sections",
+      "used_for": "138反复失败题的59.4%有材料问题；披露若干模型复现补丁/题文污染迹象；当时推荐Pro，需与7月撤回连读。",
+      "limitations": "targeted failure subset; 59.4% is not defect rate of all 500 tasks"
+    },
+    {
+      "source_id": "S8",
+      "title": "SWE-Bench Pro: Can AI Agents Solve Long-Horizon Software Engineering Tasks?",
+      "url": "https://static.scale.com/uploads/654197dc94d34f66c0f5184e/SWEAP_Eval_Scale%20%289%29.pdf",
+      "source_type": "primary_evidence",
+      "read_scope": "relevant_sections",
+      "read_evidence": "sources/S8.md",
+      "evidence_path": "sources/S8.md",
+      "publisher_or_author": "Xiang Deng et al.; Scale",
+      "date": "2025-09",
+      "access_status": "opened_and_read_relevant_sections",
+      "used_for": "容器语言环境；描述、requirements及接口；fail2pass/pass2pass；SWE-Agent原版最多200轮；Pass@1；作者承认测试可能排除有效替代解。",
+      "limitations": "paper/blog score discrepancies are not used for ranking; PDF relevant text parsed, no chart extraction used"
+    },
+    {
+      "source_id": "S9",
+      "title": "SWE-Bench Pro V2",
+      "url": "https://labs.scale.com/leaderboard/swe_bench_pro_public_v2?tab=full",
+      "source_type": "primary_evidence",
+      "read_scope": "relevant_sections",
+      "read_evidence": "source-recheck.md",
+      "evidence_path": "sources/S9.md",
+      "publisher_or_author": "Scale Labs",
+      "date": "2026-09-22 update",
+      "access_status": "rechecked_relevant_sections_2026-10-14",
+      "used_for": "642题，删89；69矛盾题文案修复并盲做验证；agent仅模型端点，净镜像重评；参考/空补丁门禁；残余端点及补丁执行信任问题。",
+      "limitations": "publisher reports own repair and gate outcomes; page retains legacy 731-task description below V2 header"
+    },
+    {
+      "source_id": "S10",
+      "title": "SWE-bench Pro V2 — repository README",
+      "url": "https://raw.githubusercontent.com/scaleapi/SWE-bench_Pro-os/main/v2/README.md",
+      "source_type": "primary_evidence",
+      "read_scope": "relevant_sections",
+      "read_evidence": "source-recheck.md",
+      "evidence_path": "sources/S10.md",
+      "publisher_or_author": "Scale",
+      "date": "main accessed 2026-10-14",
+      "access_status": "rechecked_relevant_sections_2026-10-14",
+      "used_for": "V2默认642、hard51、v1配置分开；每题50分钟、离线agent阶段、干净容器重评；HARD51按五模型家族失败筛选；529题重写、214测试补丁和38gold patch修改。",
+      "limitations": "529 rewritten prompts and website 69 contradictory prompts have different scopes; controls not a proof against all gaming"
+    },
+    {
+      "source_id": "S11",
+      "title": "SWE-bench Pro V2 release gate",
+      "url": "https://raw.githubusercontent.com/scaleapi/SWE-bench_Pro-os/main/v2/GATE.md",
+      "source_type": "primary_evidence",
+      "read_scope": "relevant_sections",
+      "read_evidence": "sources/S11.md",
+      "evidence_path": "sources/S11.md",
+      "publisher_or_author": "Scale",
+      "date": "2026-09-22; accessed 2026-10-14",
+      "access_status": "opened_and_read_relevant_sections",
+      "used_for": "642/642 controls with three first-pass infrastructure failures in each arm; reruns complete; timing-sensitive test caveat.",
+      "limitations": "Publisher execution record, not independent reproduction; no measured model productivity."
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "C1",
+      "claim": "Verified是从原始SWE-bench任务池人工筛选的500题；原任务池来自12个Python仓库",
+      "claim_type": "fact",
+      "supporting_sources": "S3",
+      "counter_evidence": "",
+      "uncertainty": "不能表述为500题均覆盖12个仓库或一切工程工作"
+    },
+    {
+      "claim_id": "C2",
+      "claim": "Verified通过Docker运行补丁，FAIL_TO_PASS和PASS_TO_PASS均须通过",
+      "claim_type": "fact",
+      "supporting_sources": "S3",
+      "counter_evidence": "",
+      "uncertainty": "测试内正确性不等于无任何生产回归"
+    },
+    {
+      "claim_id": "C3",
+      "claim": "Pro原版1865题、41仓库；731公共、858保留、276商业",
+      "claim_type": "fact",
+      "supporting_sources": "S4;S8",
+      "counter_evidence": "",
+      "uncertainty": "各子集不能共用分母"
+    },
+    {
+      "claim_id": "C4",
+      "claim": "Pro包含多语言、多文件功能及修复；容器执行、增强需求及接口、测试判定；原版SWE-Agent pass@1",
+      "claim_type": "fact",
+      "supporting_sources": "S4;S8",
+      "counter_evidence": "",
+      "uncertainty": "scaffold及预算影响分数"
+    },
+    {
+      "claim_id": "C5",
+      "claim": "Pro的GPL设计降低污染风险是发布者主张，不是训练数据排除证明",
+      "claim_type": "interpretation",
+      "supporting_sources": "S4;S8",
+      "counter_evidence": "",
+      "uncertainty": "没有获得训练数据审计"
+    },
+    {
+      "claim_id": "C6",
+      "claim": "Lancer原版1488题来自Expensify Upwork；764 IC与724 Manager，历史总支付100万美元",
+      "claim_type": "fact",
+      "supporting_sources": "S1;S5",
+      "counter_evidence": "",
+      "uncertainty": "不是市场中所有自由职业工程任务的随机样本"
+    },
+    {
+      "claim_id": "C7",
+      "claim": "Lancer IC使用Playwright端到端测试，Manager匹配历史经理选择；分别测实现及提案选择",
+      "claim_type": "fact",
+      "supporting_sources": "S1;S5",
+      "counter_evidence": "",
+      "uncertainty": "匹配经理选择不能证明模型实施了代码"
+    },
+    {
+      "claim_id": "C8",
+      "claim": "Lancer初版Diamond502题500800美元；公开IC237改198离线题；官方只接受断网运行，当前断网实现依赖Linux。",
+      "claim_type": "fact",
+      "supporting_sources": "S5;S6",
+      "counter_evidence": "",
+      "uncertainty": "198、502、1488分母不同；联网试跑不是有效离线成绩。"
+    },
+    {
+      "claim_id": "C9",
+      "claim": "解题率等权，奖金指标按历史支付加权；不能推导本企业节省工时或利润",
+      "claim_type": "interpretation",
+      "supporting_sources": "S5",
+      "counter_evidence": "",
+      "uncertainty": "缺少成本、人工接管、维护和任务分布"
+    },
+    {
+      "claim_id": "C10",
+      "claim": "2026-02 Verified审查59.4%的分母为138道反复失败题；发现若干训练污染迹象",
+      "claim_type": "source_claim",
+      "supporting_sources": "S7",
+      "counter_evidence": "",
+      "uncertainty": "不是全500题59.4%损坏，污染检测不能量化每个分数中的记忆贡献"
+    },
+    {
+      "claim_id": "C11",
+      "claim": "2026-07-08 Pro公共731题初筛286，两路复核得到200及249损坏题",
+      "claim_type": "source_claim",
+      "supporting_sources": "S2",
+      "counter_evidence": "",
+      "uncertainty": "27.4%和34.1%不相加，不是随机样本区间，不外推商业集"
+    },
+    {
+      "claim_id": "C12",
+      "claim": "四类题目/测试缺陷会双向误判；OpenLibrary-77c16d5题文与隐藏测试前导空格一与二不一致，说明遵循题文仍可能被判失败。",
+      "claim_type": "interpretation",
+      "supporting_sources": "S2",
+      "counter_evidence": "",
+      "uncertainty": "修复后需要逐题重评"
+    },
+    {
+      "claim_id": "C13",
+      "claim": "Pro V2公共642题/11仓库；官网69道矛盾题修正，仓库529题文重写、214测试补丁、38参考补丁修改，各数字对象不同。",
+      "claim_type": "source_claim",
+      "supporting_sources": "S9;S10",
+      "counter_evidence": "",
+      "uncertainty": "不推断修改集合互斥或已逐项回应249道旧审查问题；V1/V2成绩不可直接比较。"
+    },
+    {
+      "claim_id": "C14",
+      "claim": "V2参考/空补丁最终642题全部符合预期，但两组首轮各3次基础设施失败；Agent仅模型端点，setup/verifier仍可联网，全新镜像重评为报告成绩。",
+      "claim_type": "source_claim",
+      "supporting_sources": "S9;S10;S11",
+      "counter_evidence": "",
+      "uncertainty": "发布者记录；不等于首轮零失败、无任何攻击方式或本次独立复现。"
+    },
+    {
+      "claim_id": "C15",
+      "claim": "使用同版本题集、镜像、预算和评分协议先验证环境，V1/V2管线及Lancer断网条件不可混用；公开分只用于候选诊断，生产收益需内部任务观察。",
+      "claim_type": "author_judgment",
+      "supporting_sources": "S3;S4;S5;S6;S8;S9;S10;S11",
+      "counter_evidence": "",
+      "uncertainty": "筛选不等于品牌排序或提效承诺"
+    },
+    {
+      "claim_id": "C16",
+      "claim": "建议研发负责人先封存代表性内部任务，由维护者盲验收，对照人工流程统计净收益和回归",
+      "claim_type": "author_judgment",
+      "supporting_sources": "S2;S4;S8;S10",
+      "counter_evidence": "",
+      "uncertainty": "为建议方案，时间与样本量为起点，需按实际波动扩样"
+    }
+  ],
+  "requirements": [
+    {
+      "requirement_id": "R-reading",
+      "source_turn": "user-task",
+      "summary": "实际打开并阅读四个起始原始来源的研究相关正文",
+      "status": "satisfied",
+      "evidence": "sources/S1.md–S4.md retain actual relevant-section reading observations and original web text with locators",
+      "reading_requirement": "relevant_sections",
+      "required_source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "requirement_id": "R-compare",
+      "source_turn": "task.json",
+      "summary": "比较三项评测研究对象、任务、环境、评分、版本并解释不可换算",
+      "status": "satisfied",
+      "evidence": "final.md comparison and V2 paragraphs explicitly distinguish changed datasets, instructions, execution phases and non-comparable scores; S9/S10 support the added explanation."
+    },
+    {
+      "requirement_id": "R-critique",
+      "source_turn": "task.json",
+      "summary": "结合2026年7月质疑，区分样本分母和证据边界；不杜撰对方回应；缺陷落实到题目评分修复",
+      "status": "satisfied",
+      "evidence": "final.md July audit and OpenLibrary paragraphs distinguish denominators, incorrect rejection and missed defects; source-recheck.md S2/S9/S10 locates the evidence."
+    },
+    {
+      "requirement_id": "R-procurement",
+      "source_turn": "task.json",
+      "summary": "明确可用筛选信号及生产提效外推限制，提出可执行选择与内部仓库试点，不推荐未测品牌",
+      "status": "satisfied",
+      "evidence": "final.md procurement steps add same-version environment checks and offline prerequisites while retaining trial denominators, costs, regressions and no untested brand ranking."
+    },
+    {
+      "requirement_id": "R-length",
+      "source_turn": "task.json/user",
+      "summary": "全文Markdown计2500–4000非空白字符，含语法和链接；就地引用且无资料清单",
+      "status": "satisfied",
+      "evidence": "final.md 3839 nonwhitespace Unicode characters, entire Markdown including markup and links; original 2500–4000 bounds unchanged.",
+      "length_constraint": {
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_artifact",
+        "min": 2500,
+        "max": 4000
+      }
+    },
+    {
+      "requirement_id": "R-artifacts",
+      "source_turn": "user",
+      "summary": "完整首稿与原任务保留，保存本次完整修订稿、来源、主张及修订记录；当前Full评审和交付由对应工作流状态核对。",
+      "status": "satisfied",
+      "evidence": "first-draft.md and all original source files are retained; drafts/update-first.md and final.md are full text; source-recheck.md and revision-notes-update.md record actual changes. This row attests artifact preservation, not review/delivery success; those are checked separately by the existing workflow."
+    },
+    {
+      "requirement_id": "R-update",
+      "source_turn": "user-current-continuation",
+      "summary": "实际核对来源后更新已有长报告，保留原稿、记录具体修改和复用，交付当前完整稿。",
+      "status": "satisfied",
+      "evidence": "final.md adds source-confirmed details from S2/S6/S9/S10/S11; source-recheck.md and revision-notes-update.md locate changes and reused material. Current output quality is reviewed separately."
+    }
+  ]
+}

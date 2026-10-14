@@ -1,0 +1,31 @@
+{
+  "ok": false,
+  "scope": "draft_record_and_length_checks",
+  "profile": "full",
+  "artifact": "final.md",
+  "artifact_sha256": "48ff12009cab0c09ebf4819ba02a982714598e551ec3f106cd26e3bed5e92e29",
+  "counts": {
+    "whitespace_words": 54,
+    "nonwhitespace_characters": 3803
+  },
+  "count_scope": "whole_artifact_including_markup_and_references",
+  "length_checks": [
+    {
+      "requirement_id": "R-length",
+      "unit": "nonwhitespace_characters",
+      "scope": "whole_artifact",
+      "min": 2500,
+      "max": 4000,
+      "actual": 3803,
+      "bounds_met": true,
+      "status": "pending"
+    }
+  ],
+  "errors": [
+    "R-length: resolve the length requirement before delivery (status: pending)."
+  ],
+  "warnings": [],
+  "semantic_quality": "not_assessed",
+  "delivery_status": "not_assessed",
+  "next_action": "Measured length is within the recorded bounds for R-length (3803 nonwhitespace_characters), but these requirement records are still pending. Verify that their bounds and counting scope match the agreed requirement, then update only those rows in state/requirements.jsonl to satisfied with evidence citing final.md, the measured count and scope. This check has not changed their status. Resolve any other listed errors, then run check-draft again. Preserve evaluation originals."
+}
