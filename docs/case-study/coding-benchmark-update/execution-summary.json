@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-14",
+  "base_commit": "4557cad0970a14efa5afa45de7539081dfb8e053",
+  "task": "Continuation of the existing coding-benchmark procurement report; not an additional independent comparison",
+  "profile": "full",
+  "reviewer": "self",
+  "independent_review": false,
+  "history": {
+    "original_files_unchanged": 50,
+    "original_file_hashes": {
+      ".research-toolkit.lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "analysis-notes.md": "cf1b413fa9c7c46a05e2c923754a90b60c6abca990756d83f6767b20ff5c2feb",
+      "delivery_message.md": "7646b9f579522298e71abf3d1ad63f3d6ea7d401028c6d1c4ef3c16f0a42e2c5",
+      "final.md": "43c77fe2314eed25f6bedeed57d7df51b1593a3f4676b3b923aef8ec3b86c321",
+      "first-draft.md": "ac517435dae41f0cf7ca81e8f8b94064b4609ff03765266ba1cb4ad44420ba88",
+      "revision-notes.md": "997e1ba485720690c402ab3db13a123f980c901d92f0f2fd9e437f89b1f0dfef",
+      "data/claims_registry.csv": "b85eff5e0e6bea5f0512d79cbea2cd10fc47aff71e1d75f5f83cae0120497536",
+      "data/source_registry.csv": "bba657e4e52de490cf397d19eb160f134aa123b21a881e72856b38ec81a7351e",
+      "data/uncertainty_registry.csv": "a17c211a168c3bfbed8fc2fbcd7aba098a949aac5d488d7611caa478c090dba4",
+      "logs/author-artifact-verification.json": "d5a06471e1e2cfbc92d12f7d732c9adea8babd19cff54c44c811963225bdf993",
+      "logs/check-delivery-result.txt": "7c14be844637fae4956aa5f4daa04f2d7128ea1c51aa554089ca88393c2edfca",
+      "logs/check-final-draft.json": "3804d35271a7cdfbb313dd63df913f2c29fdc8dafbf74dace9aefd11426fb1c1",
+      "logs/check-first-draft-records-fixed.json": "14ff4462de1dfc0884235b1f8d44c007a1503bb8f13cf6230f62b45126413ad6",
+      "logs/check-first-draft.json": "9863df04e5b62cd8b69a5ce43f9a980f180571949bafcbca68b38add25427610",
+      "logs/finish-result.json": "b322a07ead40b68cbe3e484a1df4b280d970bdb04cd32a655045b27e9e1f308c",
+      "logs/review-final-result.json": "63c3d88eb6c38dbaff1ece0aabf2a49b3bb257f8cfa0273782b3aa1ae375f4b6",
+      "logs/review-first-result.json": "98da7f5b10d7e5bd927988f8f767e32294d31b8b3ded0980158a05047b52ed8c",
+      "logs/review.jsonl": "e939e61a27af9e3c23287c02d2afe9cb9c6033db5eac5f1c25b4cf1032de342d",
+      "logs/self-review-final-prompt.json": "4d74e310d547ccd9430beb9d5030f7c02d6284486b9dc5d147f07d1d1a553af3",
+      "logs/self-review-first-prompt-utf8.json": "7465958a84d5b14b1fe89d7f4ff072b587fd38509ba3844193efd4799be348b0",
+      "logs/self-review-first-prompt.json": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "logs/stage-analyze.json": "5e8b5b2d8209030c46178a285c3368671737b53ebc5951260e696642c05c8b90",
+      "logs/stage-draft.json": "78fa6ef4372341f9d8fbbccb8671cdcd7ca103747df5a780c846617a567b485b",
+      "sources/S1.md": "3148269f81209e032b3a91c11f8a969578210f4fbec4ec8af0b8bf1d202ae0ee",
+      "sources/S10.md": "e609b49e92676106d859c3bb3e8fed24a366e91b894d0624c9900df2c0246c03",
+      "sources/S2.md": "3142c6a7b82edf697fb73ffe27d4b020d62ad68900848272c5300fc532f49cba",
+      "sources/S3.md": "494c5a969c4d14f664382580fa1be689450aa102f0ac645acb9ba98d673bd80c",
+      "sources/S4.md": "891931049506dac44f36ccec4030431eac948e166ba106a08c3a3aab21e9b559",
+      "sources/S5.md": "d4fe6408a5cf7a56af05d8a53ffdb5ed81dde6c600343ef070488df47c8ccedc",
+      "sources/S6.md": "dd369403dd91b64c001f01ef68d11ef8b7a512923335a5a23d2e53f117ee3a42",
+      "sources/S7.md": "1c409b1037e162c5f177d1c3a75ad42a425c2e2b4a874b51669c51f67f4813e4",
+      "sources/S8.md": "308ded945f0b9cfa0bfd69a95fee0ea9ce115a4aa8e910778ea6df0f272d68e5",
+      "sources/S9.md": "d123e530bb552979ba5f34288d027b098f7a10d7877b1e5715dc66b6eb4d4f00",
+      "state/artifact-checks.json": "dd5e913aab3d5b46e3f96535ad2ca94dff82a4aa347bd28660c2ea6859aaff57",
+      "state/final_delivery.json": "f00ffccaad6da0ac5fa2bf767e6be71754feebaa8b1ca98131320f904bcf8e57",
+      "state/progress.json": "f3ed2f79466d9d45bd6f715f31cfbeb82768471e89022c068d8d09d7ec555c6f",
+      "state/requirements.jsonl": "cdd6dfb1652e095b7787ba13c0da2b3bd7c31b6bdbcf4328b5545bd24e12e07a",
+      "state/task_spec.md": "32d645eaf3ae48a8cfa17050237fa0597c8164c7950f8cbf1a22bfc54a1703dc",
+      "reviews/37c455015177596cbec8f625bd71538cac57928afc58775ba06dcb60fcfe4fe1/input.json": "6584765a0b922aac4b0c746500c45449c28e34b7005af60bae9fb86ec526b194",
+      "reviews/68030b309339f603b8a250a41a10311def88c6065ebaa7fea70a06f367ca25f7/input.json": "494803741bf49d8583fe3c20326d8d62b66e4870471a01527acb6425ef3eeeae",
+      "reviews/plans/17c7a4519f2ac9f62fa6ce5c86e8e05f3e390a941f2cadbb413ef04a698542ce.json": "e01fc1c23677af7e5274fbdb36752548e565301fc534e66f97e8aaafe5def8db",
+      "reviews/plans/83c7771746846473ebe73efb043a2bd5fb47a9bb7a1e6206b1fd5355a9f2f49a.json": "c073753e4a9b0a833724a4b5109b3e5a5b457bf65d3382a20041166f1a79b534",
+      "reviews/37c455015177596cbec8f625bd71538cac57928afc58775ba06dcb60fcfe4fe1/attempts/6df18269fe2b4ae3af2e69d8f8ea344f/execution.json": "f29525360cd9dd0f86cec2b9c3eaf7a5e16134f89e5dac1d9e5ff9dd3d57a975",
+      "reviews/37c455015177596cbec8f625bd71538cac57928afc58775ba06dcb60fcfe4fe1/attempts/6df18269fe2b4ae3af2e69d8f8ea344f/identity.json": "ec0a263f3bd690469ea54ecbdc0acef04a3a1e16e2f95b13046c825b66a8bcc6",
+      "reviews/37c455015177596cbec8f625bd71538cac57928afc58775ba06dcb60fcfe4fe1/attempts/6df18269fe2b4ae3af2e69d8f8ea344f/request.json": "230eb0b31f6f539876b6e3b726d104730c17d235ea03d335732064d35a011ac3",
+      "reviews/37c455015177596cbec8f625bd71538cac57928afc58775ba06dcb60fcfe4fe1/attempts/6df18269fe2b4ae3af2e69d8f8ea344f/response.txt": "afc7efbcf0274dceb4a6e6f91ee7750ab7ce13b0eb79ea38fec17f49e2ac1ef3",
+      "reviews/68030b309339f603b8a250a41a10311def88c6065ebaa7fea70a06f367ca25f7/attempts/5cadd6e89c164513926b9725993aacc2/execution.json": "f29525360cd9dd0f86cec2b9c3eaf7a5e16134f89e5dac1d9e5ff9dd3d57a975",
+      "reviews/68030b309339f603b8a250a41a10311def88c6065ebaa7fea70a06f367ca25f7/attempts/5cadd6e89c164513926b9725993aacc2/identity.json": "ec0a263f3bd690469ea54ecbdc0acef04a3a1e16e2f95b13046c825b66a8bcc6",
+      "reviews/68030b309339f603b8a250a41a10311def88c6065ebaa7fea70a06f367ca25f7/attempts/5cadd6e89c164513926b9725993aacc2/request.json": "03a477ed893c3e44c8018301c7c55feb481295a4225dfb5ba4446e5d2e5dd4e3",
+      "reviews/68030b309339f603b8a250a41a10311def88c6065ebaa7fea70a06f367ca25f7/attempts/5cadd6e89c164513926b9725993aacc2/response.txt": "4c752398f3b1ea9b233551b8b89c6ad7a93e8f35ec7cb19a9342b99dcdd1d3ae"
+    },
+    "original_report_sha256": "43c77fe2314eed25f6bedeed57d7df51b1593a3f4676b3b923aef8ec3b86c321"
+  },
+  "reuse": {
+    "source_ids_retained": 10,
+    "source_text_files_unchanged": 10,
+    "existing_source_records_updated": [
+      "S2",
+      "S6",
+      "S9",
+      "S10"
+    ],
+    "new_sources": [
+      "S11"
+    ],
+    "claim_ids_retained": 16,
+    "claim_records_updated": [
+      "C8",
+      "C12",
+      "C13",
+      "C14",
+      "C15"
+    ],
+    "requirement_ids_retained": 6,
+    "new_requirements": [
+      "R-update"
+    ],
+    "existing_sources_not_live_refetched": [
+      "S1",
+      "S3",
+      "S4",
+      "S5",
+      "S7",
+      "S8"
+    ]
+  },
+  "live_retrieval": {
+    "unique_urls": 5,
+    "web_open_calls_items": 6,
+    "connector_file_fetches": 1,
+    "known_duplicate": "S10 web page opened twice after truncated output; S11 subsequently fetched as raw text for retention."
+  },
+  "drafts": {
+    "first_update_sha256": "a95ca50be6eb48bbe3498cf258f120ea84391bfa3ccba890dfbcb45ff08f21c1",
+    "final_sha256": "6a36e53f247ed595144e6615c80a14cac60db76acbc778a18738621bde9ffadf",
+    "first_update_characters": 3803,
+    "final_characters": 3839,
+    "character_scope": "whole Markdown, nonwhitespace"
+  },
+  "reviews": {
+    "first_input_version": "63ebd4dbb5e9a23c763199f052836d97c3802dcdd5821e41fe192aa8fe23200e",
+    "first_assignment_ref": {
+      "path": "reviews/63ebd4dbb5e9a23c763199f052836d97c3802dcdd5821e41fe192aa8fe23200e/input.json",
+      "sha256": "091eeed022a8afe2c3022afe3426d4c6cfa65b8d8681ebbd253a8a70711298c5"
+    },
+    "final_input_version": "08a078a5eca41bcc9244d741b295ae38bd1a6ea356d008fcddb912e36cee49e2",
+    "final_assignment_ref": {
+      "path": "reviews/08a078a5eca41bcc9244d741b295ae38bd1a6ea356d008fcddb912e36cee49e2/input.json",
+      "sha256": "12eca631cd34ac501080a07291d4fbf7eda738c08dc6c5b1e0c5214e679224b6"
+    },
+    "assignment_hash_convention": "Toolkit canonical LF text SHA-256",
+    "actual_self_submissions": 2,
+    "first_verdict": "needs_revision",
+    "final_verdict": "pass",
+    "necessary_corrections": [
+      "U1: restore V1/V2 score non-comparability explanation lost while editing"
+    ],
+    "optional_edits_adopted": [
+      "U2: put S10 citation next to its 529/214/38 figures"
+    ]
+  },
+  "record_rework": [
+    "Measured first updated draft was in range but R-length remained pending; checked agreed bounds/scope, then saved only the affected requirement."
+  ],
+  "transport": {
+    "same_input_version": "63ebd4dbb5e9a23c763199f052836d97c3802dcdd5821e41fe192aa8fe23200e",
+    "same_complete_assignment": true,
+    "before_response_utf8_bytes": 210018,
+    "after_response_utf8_bytes": 6444,
+    "measurement": "Default response captured before change; opt-in reference response captured for the same pending real review. Frozen inputs identical. Response bytes, not token/billing or overall task savings.",
+    "complete_assignment_utf8_bytes": 204323
+  },
+  "delivery": {
+    "completed": true,
+    "delivery_contract_version": 3,
+    "length_checks": [
+      {
+        "requirement_id": "R-length",
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_artifact",
+        "min": 2500,
+        "max": 4000,
+        "actual": 3839,
+        "bounds_met": true,
+        "status": "satisfied"
+      }
+    ]
+  },
+  "full_model_evaluation_runs": 0,
+  "benchmark_execution_runs": 0,
+  "limits": "Observed reuse and localized repairs; no rewrite counterfactual, isolated time savings, new blind quality score or general efficiency claim. Full frozen inputs/receipts remain in the local task; this public subset provides reports, actual self-review responses, record updates, input hashes and measured counters, not a portable full task snapshot."
+}

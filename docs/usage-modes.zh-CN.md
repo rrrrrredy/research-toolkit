@@ -74,6 +74,8 @@ python3 scripts/research_workflow.py save --workspace ../research-work --request
 交付更新稿及简短变化说明；重新完成本次改动使之失效的检查。
 ```
 
+按已保存的档位接续时，先用 `research_status(task)` 读取状态并保留旧稿。沿用来源、主张和要求编号及已有阅读依据；用 `research_save` 一并更新受影响记录，按已有路径登记稿件，未变记录无需重交。实际核对要求后，将状态和具体依据随相关更新保存。重读变化或有疑问的来源段落，复用仍有效的本地证据，无需再次获取；按所选档位核对完整当前稿，再声明完成。[长报告实际更新案例](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.zh-CN.md)保留复用、来源确认的问题、返工及消耗。
+
 ### Lite 接续 Full
 
 用户需要补正式评审或交付核对时，保留原 Lite 任务，以新 ID 创建关联的 Full 任务。Agent 从原 brief 建立新任务，在 `task_spec.md` 说明原任务位置、稿件版本及新增用途；复用报告、来源原文与阅读范围、主张和已知要求。内容不变、依据仍有效的工作无需重做；新增或受影响的要求重新核对。无需用户重填表格。
@@ -302,10 +304,10 @@ CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知
 将下方任务目录改为 `start` 返回的实际位置，并在请求中使用同一任务名。以下用于已有的 Full 任务 `comparison`。准备好稿件及来源／主张记录后，将请求保存为 `review.json`，把 `source.md` 换成实际证据路径。仅在已选择 self 档位时使用此例；独立评审要求继续使用所配置的后端。
 
 ```json
-{"task":"comparison","reviewer":"self","artifact":"final.md","evidence_paths":["source.md"]}
+{"task":"comparison","reviewer":"self","artifact":"final.md","evidence_paths":["source.md"],"include_assignment":false}
 ```
 
-上面的 CLI 默认输出完整材料。需要保存时，从仓库／插件根目录用 CLI 的同一解释器运行以下 Python 片段。`start` 已创建 `logs`；首次评审前可能还没有 `reviews`，而 Shell 重定向会先于 CLI 执行打开目标文件。
+此本地示例返回 `prompt`、`input_version`、`task_directory` 和 `assignment_ref`（相对路径及文本 SHA-256）；完整冻结输入仍保存在任务内。调用方需要直接取得全文时，省略 `include_assignment` 或设为 `true`，默认行为及 external／independent 的输入传递不变。从仓库／插件根目录用 CLI 的同一解释器运行以下 Python 片段，保存返回内容。`start` 已创建 `logs`；首次评审前可能还没有 `reviews`，而 Shell 重定向会先于 CLI 执行打开目标文件。
 
 ```python
 import subprocess
@@ -323,7 +325,7 @@ with (task / "logs/self-review-01.json").open("x", encoding="utf-8") as output:
 
 `x` 模式会在调用评审前拒绝覆盖旧记录。确需新一次执行时使用新文件名；失败时保留已有输出和错误。相同输入的材料已经成功保存时，直接使用，不为重新读取再调用评审。
 
-从保存的材料读取 `prompt`、`input_version` 和 `assignment`。在同一上下文自评时，核对当前稿件及要求／来源绑定，复用已经读过且未变的证据，重读发生变化或有疑问的部分。保留完整材料；单独上下文评审者仍收到所需的完整输入。以该 `input_version` 将实际判断作为 `self_review` 提交，字段见[自评记录说明](review-completion.zh-CN.md)。稿件或评审输入变化后沿用 `revision: true` 路径。复用减少重复复制，当前版本核对和必需阅读照常完成。
+从保存的返回内容读取 `prompt`、`input_version`，再读取 `Path(task_directory) / assignment_ref["path"]` 对应的完整冻结输入；文本哈希统一使用 LF 换行。如果返回中已有 `assignment`，直接使用。文件引用适用于能读取该任务目录的调用方。在同一上下文自评时，核对当前稿件及要求／来源绑定，复用已经读过且未变的证据，重读发生变化或有疑问的部分。保留完整材料；单独上下文评审者仍收到所需的完整输入。以该 `input_version` 将实际判断作为 `self_review` 提交，字段见[自评记录说明](review-completion.zh-CN.md)。稿件或评审输入变化后沿用 `revision: true` 路径。复用减少重复复制，当前版本核对和必需阅读照常完成。
 
 ## 已验证的范围
 

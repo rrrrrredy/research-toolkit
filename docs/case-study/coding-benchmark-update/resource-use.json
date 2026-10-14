@@ -1,0 +1,40 @@
+{
+  "turn_started_at": "2026-10-14T09:58:07.523Z",
+  "first_complete_updated_draft_at": "2026-10-14T10:03:30.929413+00:00",
+  "report_completed_at": "2026-10-14T10:09:35.649713+00:00",
+  "wall_seconds_to_first_complete_updated_draft": 323.406413,
+  "wall_seconds_to_completed_report": 688.126713,
+  "token_counter_baseline": {
+    "timestamp": "2026-10-14T09:57:35.556Z",
+    "cumulative_tokens": {
+      "input_tokens": 223008796,
+      "cached_input_tokens": 216261888,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1135474,
+      "reasoning_output_tokens": 338413,
+      "total_tokens": 224144270
+    }
+  },
+  "token_counter_endpoint": {
+    "timestamp": "2026-10-14T10:09:36.865Z",
+    "cumulative_tokens": {
+      "input_tokens": 226092801,
+      "cached_input_tokens": 219266048,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 1156962,
+      "reasoning_output_tokens": 347243,
+      "total_tokens": 227249763
+    }
+  },
+  "observed_token_delta": {
+    "input_tokens": 3084005,
+    "cached_input_tokens": 3004160,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 21488,
+    "reasoning_output_tokens": 8830,
+    "total_tokens": 3105493
+  },
+  "token_samples_after_start_through_endpoint": 16,
+  "scope": "Current host author turn through the first available token counter at or after report completion. Includes selecting/rechecking sources, report update, self-review, interleaved implementation/regressions and immediate verification; not an isolated report-authoring benchmark. Later case documentation, CI and publication excluded.",
+  "counting": "Cached input is a subset of input; reasoning output is a subset of output. Monetary cost and separate author-only cost unavailable. No API bill inferred."
+}

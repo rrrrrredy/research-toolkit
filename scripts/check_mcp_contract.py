@@ -149,6 +149,13 @@ async def verify(base):
                 finish_args["checklist"] = {k: {"passed": True, "evidence": "Synthetic MCP control: final.md and source.md."} for k in CHECKLIST}
             else:
                 assert pending["action_required"] == "self_review"
+                arguments["include_assignment"] = False
+                compact = unpack(await client.call_tool("research_review", arguments))
+                assert "assignment" in pending and "assignment" not in compact
+                assert compact["input_version"] == pending["input_version"]
+                assert compact["assignment_ref"] == pending["assignment_ref"]
+                frozen = local/compact["assignment_ref"]["path"]
+                assert json.loads(frozen.read_text(encoding="utf-8")) == pending["assignment"]
                 from check_research_workflow import SyntheticRunner
                 value = json.loads(SyntheticRunner()({}, {"role": "reviewer"}, None)["content"])
                 arguments["self_review"] = {**value, "input_version": pending["input_version"]}
