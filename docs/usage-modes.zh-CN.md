@@ -139,7 +139,18 @@ Windows 路径可写成 `D:/tools/research-toolkit/.venv/Scripts/python.exe` 这
 
 ### 客户端配置与示例
 
-[README MCP 快速接入](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md#作为-mcp-服务使用)包含安装步骤、Claude Desktop/Cursor JSON 和 Codex 原生 TOML 等效配置。[可执行示例](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.zh-CN.md)使用虚构报告与明确降级的自评，采集本地服务真实返回。
+Claude Desktop 与 Cursor 使用上面的 JSON 配置。Codex CLI / IDE 使用原生 TOML；将等效配置加入 `~/.codex/config.toml`，三处路径均替换为实际绝对路径：
+
+```toml
+[mcp_servers.research-toolkit]
+command = "/absolute/path/to/research-toolkit/.venv/bin/python"
+args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
+
+[mcp_servers.research-toolkit.env]
+RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
+```
+
+重启客户端，确认能看到七个 `research_*` 工具。[可执行示例](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.zh-CN.md)使用虚构报告与明确降级的自评，采集本地服务真实返回。
 
 官方配置说明：[Claude Desktop 本地服务](https://modelcontextprotocol.io/docs/develop/connect-local-servers)、[Cursor MCP](https://cursor.com/docs/mcp)、[Codex MCP](https://developers.openai.com/codex/mcp)。Cursor 可使用项目 `.cursor/mcp.json` 或全局 `~/.cursor/mcp.json`，Codex 使用 `~/.codex/config.toml`；Claude Desktop 从 Settings → Developer → Edit Config 打开配置。
 
