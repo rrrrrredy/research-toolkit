@@ -338,6 +338,61 @@ class ProfileTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             w.finish(self.workspace, "case", "Complete.", checklist={})
 
+    def test_lite_actual_delivery_cli_checks_optional_capture_without_writing(self):
+        self.task("lite")
+        items = {k: {"passed": True, "evidence": "final.md and source.md"} for k in CHECKLIST}
+        message = "Report delivered.\nNo independent review."
+        self.assertTrue(w.finish(self.workspace, "case", message, checklist=items)["completed"])
+        capture = self.workspace / "actual-message.txt"
+        before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
+        for content, observation, flag in (
+                (None, "not_provided", None),
+                (b"  Report delivered.\r\nNo independent review.\r\n", "matched", None),
+                (b"Different reply.", "mismatch", "actual_delivery_mismatch"),
+                (b"\xff", "unreadable", "missing_actual_delivery"),
+                (False, "unreadable", "missing_actual_delivery")):
+            with self.subTest(observation=observation, content=content):
+                args = []
+                if content is not None:
+                    if content is False:
+                        capture.unlink(missing_ok=True)
+                    else:
+                        capture.write_bytes(content)
+                    args = ["--actual-message", str(capture)]
+                result = subprocess.run([sys.executable, "-X", "utf8",
+                    str(w.TOOLKIT / "scripts/check_delivery.py"), str(self.root), "--json", *args],
+                    text=True, encoding="utf-8", capture_output=True)
+                checked = json.loads(result.stdout)
+                self.assertEqual(result.returncode, 1 if flag else 0, result.stdout + result.stderr)
+                self.assertEqual(checked["delivery_observation"], observation)
+                self.assertEqual(checked["flags"], [flag] if flag else [])
+                self.assertTrue(checked["checklist_valid"])
+                self.assertTrue(checked["terminal_state"])
+                self.assertEqual(before, {p.relative_to(self.root): p.read_bytes()
+                                         for p in self.root.rglob("*") if p.is_file()})
+
+    def test_lite_resume_preserves_checklist_but_requires_current_completion(self):
+        self.task("lite")
+        items = {k: {"passed": True, "evidence": "final.md and source.md"} for k in CHECKLIST}
+        self.assertTrue(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+        receipt = (self.root / "state/final_checklist.json").read_bytes()
+        for stage in ("collect", "analyze", "draft", "revise"):
+            with self.subTest(stage=stage):
+                current = w.status(self.workspace, "case", stage=stage)
+                self.assertEqual(current["progress"]["status"], "in_progress")
+                progress = (self.root / "state/progress.json").read_bytes()
+                result = evaluate_delivery(self.root)
+                self.assertFalse(result["ok"], result)
+                self.assertTrue(result["checklist_valid"])
+                self.assertFalse(result["terminal_state"])
+                self.assertEqual(result["status"], "incomplete")
+                self.assertIn("incomplete_lite_task", result["flags"])
+                self.assertEqual((self.root / "state/final_checklist.json").read_bytes(), receipt)
+                self.assertEqual((self.root / "state/progress.json").read_bytes(), progress)
+                self.assertTrue(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+                self.assertTrue(evaluate_delivery(self.root)["terminal_state"])
+                self.assertTrue(evaluate_delivery(self.root)["ok"])
+
     def test_lite_research_input_changes_make_delivery_stale_without_rewriting_receipt(self):
         self.task("lite")
         items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source.md."} for k in CHECKLIST}

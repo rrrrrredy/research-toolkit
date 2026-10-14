@@ -81,9 +81,11 @@ The eval runner also checks declared length requirements at terminal delivery wh
 python3 <skill-directory>/scripts/check_delivery.py <task-directory> --actual-message captured-reply.md
 ```
 
-The supplied capture is compared with the bound intended message, normalizing only line endings and outer whitespace. A runtime caller can retain its final-message output separately and call the checker after the run. Retain the original runtime output and document any extraction of client metadata; do not silently remove substantive differences.
+For both Lite and Full, the supplied capture is compared with the bound intended message, normalizing only line endings and outer whitespace. A runtime caller can retain its final-message output separately and call the checker after the run. Retain the original runtime output and document any extraction of client metadata; do not silently remove substantive differences.
 
 The `delivery_observation` result is `not_provided`, `matched`, `mismatch`, or `unreadable`. Missing or different supplied captures fail. `not_provided` means only the intended message was checked, not that the actual user received it.
+
+For Lite, `checklist_valid` reports whether the retained checklist still matches its inputs and recorded obligations; `terminal_state` reports whether the task is currently `final/complete`. Resuming with `research_status(stage="revise")` keeps the checklist but makes the delivery check return `ok: false` and `incomplete_lite_task` until `research_finish` completes the current work. These checks do not rewrite task records or require a capture when none was supplied.
 
 A caller-supplied file is not authenticated delivery attestation. An agent writing another copy of its intended message does not create independent capture evidence. This interface alone does not intercept or enforce the live final reply.
 

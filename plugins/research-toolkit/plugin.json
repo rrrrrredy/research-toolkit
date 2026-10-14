@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "research-toolkit",
   "version": "1.0.0",
-  "description": "Source-backed research with effective reviews and checked delivery.",
+  "description": "Source-backed research with task-appropriate Lite or Full checks.",
   "author": {
     "name": "rrrrrredy"
   },
@@ -13,12 +13,12 @@
     "com.openai": {
       "interface": {
         "displayName": "Research Toolkit",
-        "shortDescription": "Research with sources, reviews and delivery checks",
-        "longDescription": "Clarify the research brief, preserve evidence and progress, run independent reviews, and check delivery from one shared workflow.",
+        "shortDescription": "Source-backed research, revisions and delivery checks",
+        "longDescription": "Clarify the research brief, preserve evidence and progress, and produce sourced briefs or long reports. Lite uses author checks; Full binds selected reviews and revision decisions to the delivery version. State the review actually performed.",
         "developerName": "rrrrrredy",
         "category": "Productivity",
         "capabilities": [],
-        "defaultPrompt": "Research this topic with Research Toolkit; clarify missing requirements first."
+        "defaultPrompt": "Use Research Toolkit to research or revise this topic. Recommend Lite or Full for the task, use the context to establish the brief, and deliver the report with usable citations and the checks performed."
       }
     }
   }

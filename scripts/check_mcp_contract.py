@@ -154,6 +154,22 @@ async def verify(base):
             assert resumed["profile"] == profile
             if profile == "lite":
                 assert resumed["guidance"][0]["path"] == "references/lite-workflow.zh-CN.md"
+                assert resumed["delivery_check"]["terminal_state"] and resumed["delivery_check"]["checklist_valid"]
+                receipt = (local/"state/final_checklist.json").read_bytes()
+                resumed = unpack(await client.call_tool("research_status", {"task": task, "stage": "revise"}))
+                assert resumed["progress"]["status"] == "in_progress"
+                process = await asyncio.create_subprocess_exec(sys.executable, "-X", "utf8",
+                    str(ROOT/"plugins/research-toolkit/scripts/check_delivery.py"), str(local), "--json",
+                    stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
+                stdout, stderr = await process.communicate()
+                checked = json.loads(stdout)
+                assert process.returncode == 1 and "incomplete_lite_task" in checked["flags"], (checked, stderr)
+                assert checked["checklist_valid"] and not checked["terminal_state"]
+                assert (local/"state/final_checklist.json").read_bytes() == receipt
+                done = unpack(await client.call_tool("research_finish", finish_args))
+                assert done["completed"], done
+                resumed = unpack(await client.call_tool("research_status", {"task": task}))
+                assert resumed["progress"]["status"] == "complete" and resumed["delivery_check"]["ok"]
         # Fill only the columns emitted by start, then correct a real negative
         # synthetic verdict and re-review through the packaged stdio interface.
         created = unpack(await client.call_tool("research_start", {"task": "template-mcp", "brief": BRIEF, "profile": "full"}))

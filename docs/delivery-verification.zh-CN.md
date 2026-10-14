@@ -81,9 +81,11 @@ Windows 可将 `python3` 替换为 `py -3` 或已有解释器路径；MCP 可直
 python3 <skill-directory>/scripts/check_delivery.py <task-directory> --actual-message captured-reply.md
 ~~~
 
-将提供的回复记录与已绑定的拟交付说明比较，只规范换行和首尾空白。运行环境可以单独保存最终输出，在运行后调用检查器；保留原始输出并说明如何提取客户端元数据，不能悄悄删掉实质差异。
+Lite 和 Full 均将提供的回复记录与已绑定的拟交付说明比较，只规范换行和首尾空白。运行环境可以单独保存最终输出，在运行后调用检查器；保留原始输出并说明如何提取客户端元数据，不能悄悄删掉实质差异。
 
 `delivery_observation` 为 `not_provided`、`matched`、`mismatch` 或 `unreadable`。指定的记录缺失或不一致会失败。`not_provided` 仅表示检查了拟发送文本，不证明用户收到它。
+
+Lite 的 `checklist_valid` 表示保留的 checklist 是否仍匹配输入及已记录要求；`terminal_state` 表示任务当前是否为 `final/complete`。通过 `research_status(stage="revise")` 接续后，checklist 保留，但交付检查返回 `ok: false` 和 `incomplete_lite_task`，直到 `research_finish` 完成当前工作。检查不改写任务记录，也不要求未提供的实际回复记录。
 
 调用方提供的文件不是真实交付的认证。Agent 再写一份预期说明不构成独立捕获证据。本接口本身不拦截或强制约束实际最终回复。
 

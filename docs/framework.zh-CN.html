@@ -171,7 +171,7 @@ Agent 根据上下文推荐并简短解释，用户保留选择，无需档位�
 
 影响重大的决策宜推荐独立评审并说明理由。冻结评测沿用其声明协议，不因评测名称自动追加评审。Full 不自动等于独立评审。已有 Lite 研究可[接续 Full](docs/usage-modes.zh-CN.md#接续已有研究)，复用成果并保留历史任务。
 
-Lite 使用[精简阶段指南](references/lite-workflow.zh-CN.md)，不加载下方 Full 阶段参考文件。保留 brief 澄清、有来源支持的 claim 登记、分段起草和最终 checklist；跳过 `research_review` 与完整交付硬门槛，并返回明确的 `SKIP` 日志。调用 `research_finish` 获取 checklist，实际检查后逐项提交 `passed: true` 和具体 `evidence` 位置；结果保存在 `state/final_checklist.json`，不作为完整门槛通过凭证。结论强度依据证据：直接陈述有支持的事实，限定不确定推论，在报告或交付说明的适当位置集中披露未经独立评审。下列共同约束仍适用，评审配置与 Full 完成说明仅用于 Full。
+Lite 使用[精简阶段指南](references/lite-workflow.zh-CN.md)，不加载下方 Full 阶段参考文件。保留 brief 澄清、有来源支持的 claim 登记、分段起草和最终 checklist；跳过 `research_review` 与完整交付硬门槛，并返回明确的 `SKIP` 日志。调用 `research_finish` 获取 checklist，实际检查后逐项提交 `passed: true` 和具体 `evidence` 位置；结果保存在 `state/final_checklist.json`，不作为完整门槛通过凭证。接续会保留该 checklist；当前工作再次完成后再声明完成。可选的实际回复记录核对适用于两档，见[交付指南](docs/delivery-verification.zh-CN.md#比较实际回复记录)。结论强度依据证据：直接陈述有支持的事实，限定不确定推论，在报告或交付说明的适当位置集中披露未经独立评审。下列共同约束仍适用，评审配置与 Full 完成说明仅用于 Full。
 
 ## 先明确研究需求
 

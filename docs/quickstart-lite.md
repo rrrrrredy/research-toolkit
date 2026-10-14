@@ -63,7 +63,7 @@ python3 scripts/research_workflow.py finish --workspace ../research-work --reque
 python3 scripts/check_delivery.py ../research-work/helpdesk-lite
 ```
 
-A completed task has `final.md` and `state/final_checklist.json`, with `status: checklist_complete`, `independent_review: false` and explicit `SKIP` logs. It has no independent review record. New receipts also bind the task/source/claim records, requirement ledger and declared local source files. If any bound input changes, check again and submit an updated checklist. You can optionally bind retained check notes through an item's `evidence_files` list; see the [Lite stage guide](../references/lite-workflow.md).
+A completed task has `final.md` and `state/final_checklist.json`, with `status: checklist_complete`, `independent_review: false` and explicit `SKIP` logs. Progress is `final/complete`. Resuming work preserves the checklist but the current delivery check stays incomplete until you finish again. It has no independent review record. New receipts also bind the task/source/claim records, requirement ledger and declared local source files. If any bound input changes, check again and submit an updated checklist. You can optionally bind retained check notes through an item's `evidence_files` list; see the [Lite stage guide](../references/lite-workflow.md).
 
 Before submitting the checklist, `research_check_draft(task="helpdesk-lite")` (CLI `check-draft` with `{"task":"helpdesk-lite"}`) returns record errors and measured counts. It makes no model calls or completion claim. Register any agreed whole-file range before using its length result; source correctness still needs the author check. See [failed checks and repairs](failure-handling.md).
 
