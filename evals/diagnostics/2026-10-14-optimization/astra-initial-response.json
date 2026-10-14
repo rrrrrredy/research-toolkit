@@ -1,0 +1,34 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "location": "final.md: title, opening paragraph, and both subsequent sections",
+      "basis": "The brief recommends Maple for a trial, compares six-seat subscription costs, explains decision-changing conditions, and provides trial checks. The whole artifact falls within 350–500 whitespace words. It respects the subscription-only scope, permits manual weekly exports, treats single sign-on as optional, and keeps source/claim records and checklist material out of reader-facing prose."
+    },
+    "evidence": {
+      "location": "final.md: opening paragraph and 'What the choice buys'; sources/plans.md: S1, S2, and Decision context",
+      "basis": "Read the complete supplied report, both fictional plan notes, decision context, and source/claim registries. Cedar's six seats cost 6 × $6 = $36, exceeding $35 by $1; Maple costs $28 for up to six users, leaving $7. Export capabilities, single sign-on differences, monthly billing, and no minimum term match the notes. Missing CSV-column specifications and measured service data are accurately identified. The report preserves fictional provenance and uses a public source URL corresponding to the task's source location rather than private tool tokens; the URL was not independently accessed."
+    },
+    "adversarial_reasoning": {
+      "location": "final.md: 'The main uncertainty' paragraph and final paragraph",
+      "basis": "The strongest qualification is that permitted CSV export does not establish that required fields are present. The report explicitly makes operational adoption contingent on testing those fields. It also addresses Cedar's automation advantage without assuming unmeasured staff-time savings, and correctly requires an affordable quote or changed budget before reconsidering Cedar. No unsupported performance advantage drives the recommendation."
+    },
+    "structure_and_depth": {
+      "location": "final.md: opening recommendation → 'What the choice buys' → 'Start the trial and define what would change the decision'",
+      "basis": "The argument connects budget eligibility to the manual-export trade-off, then separates unresolved suitability from trial selection. Concrete verification steps and reversal conditions provide sufficient analysis for the bounded Lite comparison without expanding into a market survey."
+    },
+    "reader_usefulness": {
+      "location": "final.md: title, opening paragraph, and trial-check section",
+      "basis": "The title and opening make the decision immediately clear. Both plans receive relevant distinguishing treatment. The support lead has an actionable first step—list required ticket fields—followed by representative export tests and assignment of an owner and backup. Trial availability is conditional rather than asserted, and purchase authorization is not implied."
+    },
+    "process_language": {
+      "location": "final.md: entire artifact",
+      "basis": "No internal paths, hashes, review status, tool narration, or author-assistant exchanges appear in the report. Fictional-source provenance, the citation, and statements distinguishing proposed checks from observed results are relevant reader-facing qualifications."
+    },
+    "natural_expression": {
+      "location": "final.md: entire artifact, especially the trial instructions and final paragraph",
+      "basis": "Named actors and concrete actions keep the prose understandable. Qualifications distinguish subscription cost from total cost and trial selection from adoption rather than merely repeating editorial cautions. No wording defect requires correction."
+    }
+  },
+  "findings": []
+}

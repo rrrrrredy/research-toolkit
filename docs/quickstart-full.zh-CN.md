@@ -1,6 +1,8 @@
-# 用 Full 完成第一篇长研究报告
+# 完整流程（Full）：从研究到评审与交付
 
 [English](quickstart-full.md) · [简体中文](quickstart-full.zh-CN.md) · [Research Toolkit](../README.zh-CN.md)
+
+与 [Lite](quickstart-lite.zh-CN.md) 共用研究底线。证据冲突、复杂比较、正式交付或明确评审要求适合使用 Full；篇幅只作辅助。下方长报告是示例，不是选择门槛。已有稿件可[接续 Full](usage-modes.zh-CN.md#接续已有研究)。
 
 准备好一个能读取文件与研究来源的 Agent，把下面的请求发给它即可。Full 覆盖需求、来源研究、分析、分节写作、评审和修订；MCP 是可选的任务管理工具。先看成果：[国内办公 Agent 调研](case-study/report.zh-CN.md) · [APIs or browsers](case-study/api-or-browser/report.md)。
 
@@ -71,4 +73,4 @@ CLI/MCP 的评审和交付使用[现有调用说明](usage-modes.zh-CN.md)，示
 
 </details>
 
-只需要短简报时，可选 [Lite 体验](quickstart-lite.zh-CN.md)。
+研究边界明确、作者自检足以满足用途时，可选 [Lite 体验](quickstart-lite.zh-CN.md)。

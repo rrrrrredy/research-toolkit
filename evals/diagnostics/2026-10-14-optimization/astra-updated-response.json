@@ -1,0 +1,34 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "location": "final.md: title, opening, and both subsequent sections",
+      "basis": "The brief meets the 350–500-word constraint, recommends a trial rather than a purchase, applies the revised price and scheduled-export requirement, preserves the original Maple conclusion as history, and provides comparison arithmetic, reversal conditions, and trial checks. Source and claim records remain outside the reader-facing brief."
+    },
+    "evidence": {
+      "location": "final.md: opening and “What changed and what still holds”; supplied sources and registries",
+      "basis": "Reviewed all supplied source text and both registries. S1–S3 support Cedar's original $36 and revised $30 six-seat totals, the $5 budget headroom, Maple's $28 price, and the $2 difference. Export capabilities, billing terms, optional single sign-on, and evidence limitations are accurately represented. Citations identify the original notes and supplied update rather than private tool tokens."
+    },
+    "adversarial_reasoning": {
+      "location": "final.md: unresolved CSV paragraph and final two paragraphs",
+      "basis": "The brief addresses the strongest supplied counterexample: scheduled exports could arrive but omit required fields or tickets. It distinguishes advertised capability from demonstrated reliability and explains why Maple's lower price cannot satisfy the mandatory scheduling requirement. Failure conditions appropriately leave adoption unresolved."
+    },
+    "structure_and_depth": {
+      "location": "final.md: opening → historical comparison → evidence limitations → trial checks",
+      "basis": "The argument connects the changed requirements to eligibility, explains the reversal without rewriting history, and turns remaining uncertainty into concrete checks. Its depth is appropriate for a bounded two-plan Lite comparison; no market survey or unsupported service-quality ranking is introduced."
+    },
+    "reader_usefulness": {
+      "location": "final.md: title, opening, and “Check the complete weekly export path”",
+      "basis": "The recommendation and budget implications are immediately visible. The support lead receives an actionable first step—obtain the required field list and confirm the quote—followed by a test procedure, ownership guidance, and conditions that would change eligibility."
+    },
+    "process_language": {
+      "location": "final.md: fictional-source disclosure and scenario-version explanation",
+      "basis": "These passages convey necessary provenance and distinguish revised from original terms. The brief contains no review status, work log, internal claim IDs, tool narration, or author-assistant exchange."
+    },
+    "natural_expression": {
+      "location": "final.md: complete artifact",
+      "basis": "The prose uses concrete prices, capabilities, actors, and checks. Qualifications distinguish eligibility, trial evidence, and adoption rather than merely repeating generic caveats. No wording defect requires correction."
+    }
+  },
+  "findings": []
+}

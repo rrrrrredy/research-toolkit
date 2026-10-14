@@ -2,19 +2,13 @@
 
 [English](evaluation-status.md) | [简体中文](evaluation-status.zh-CN.md)
 
-Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
+**Current evidence supports specific corrections and engineering benefits, not a general quality or efficiency advantage over a native agent.** Version comparisons, fixed-source Lite trials and runtime checks answer different questions; they cannot be combined into one efficacy score.
 
-**Scheduled first reviews are complete. Their findings inform product improvements; they do not establish general superiority or validate the current plugin/MCP workflow.** This summary uses the retained inventory as of September 21, 2026. Original reports, author failures, original reviews and later interventions remain separate.
-
-The public collection supports workflow diagnostics and product development. It does not yet support a general decision-quality advantage, a representative cross-language benchmark or an efficacy confidence interval. The original English showcase is a research example, not a matched efficacy pair. [Next study design](evaluation-roadmap.md#next-study-freeze-the-design-then-collect-new-evidence) · [Stable defect labels](necessary-defects.md).
-
-The separate [October 10 fixed-source Lite pilot](../evals/studies/2026-10-10-lite-four-models/README.md) publishes judgments for all 20 model–task pairs across five shared families and four models, with original failures retained. Its local freeze, instruction-only scope, post-hoc format analysis and separately regenerated completion pairs are disclosed; it does not change the historical counts below.
-
-## Current repair arrangement
+## Current evidence
 
 The [October 13 complete-report comparison](../evals/studies/2026-10-13-before-after/README.md), with repairs completed October 14, directly compares the user-selected October 12 commit against v1.0.0 on seven existing and three new real tasks. Astra's primary mean is 100 → 99.5; three of ten preferences change under order swaps. No stable overall quality gain was observed. All 20 first reports and 20 blind reviews are retained. A subsequent export check found six private citation tokens in one current-version report that both initial reviews missed. Bilingual method clarifications and two revised reports received targeted rechecks; the negative intermediate recheck remains visible. These repair outcomes do not replace first-pass results.
 
-Use existing real user and development tasks with Astra in a separate review context. All existing and future user tasks, development tasks and reference cases are real independent tasks; executed tests are real tests. The records below describe completed runs, not a requirement to find outside reviewers or new external material before fixing problems.
+The [current optimization report and executed continuation checks](../evals/diagnostics/2026-10-14-optimization/README.zh-CN.md) separate code repairs, report checks, workflow use and cost; they do not replace historical first-pass scores.
 
 ## 2026-10-12: connectivity and judge calibration
 
@@ -31,6 +25,16 @@ The [fixed-source Lite diagnostic](../evals/studies/2026-10-12-lite-four-models/
 ## 2026-10-13: old/new tasks and repair acceptance
 
 The [four-task recheck](../evals/diagnostics/2026-10-13-targeted-recheck/README.md) retains 16 initial drafts, nine measured-feedback revisions and six Astra review batches: 31 requests. First Astra review passed six reports; the maintainer corrected ten. All 16 final versions meet length and have corresponding passing reviews, including two reused reviews with verified identical report and input texts. First-draft quality and maintainer-assisted outcomes remain separate. A false provenance finding caused by omitted judge-source path metadata is recorded and corrected, rather than attributed to author fabrication.
+
+## Historical scope and task identity
+
+**Scheduled first reviews are complete. Their findings inform product improvements; they do not establish general superiority or validate the current plugin/MCP workflow.** This summary uses the retained inventory as of September 21, 2026. Original reports, author failures, original reviews and later interventions remain separate.
+
+The public collection supports workflow diagnostics and product development. It does not yet support a general decision-quality advantage, a representative cross-language benchmark or an efficacy confidence interval. The original English showcase is a research example, not a matched efficacy pair. [Next study design](evaluation-roadmap.md#next-study-freeze-the-design-then-collect-new-evidence) · [Stable defect labels](necessary-defects.md).
+
+The separate [October 10 fixed-source Lite pilot](../evals/studies/2026-10-10-lite-four-models/README.md) publishes judgments for all 20 model–task pairs across five shared families and four models, with original failures retained. Its local freeze, instruction-only scope, post-hoc format analysis and separately regenerated completion pairs are disclosed; it does not change the historical counts below.
+
+Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
 
 ## Retained data
 

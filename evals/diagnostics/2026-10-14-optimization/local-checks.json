@@ -1,0 +1,312 @@
+{
+  "platform": "Windows, Python 3.12",
+  "scope": "27 executed commands; not a count of independent controls. MCP uses synthetic reviewer subprocesses, distinct from the two actual Astra calls.",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_version.py",
+        "--self-test"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.204,
+      "log": "00-check_version.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_docs_sync.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.125,
+      "log": "01-check_docs_sync.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_docs_sync.py",
+        "--skill",
+        "SKILL.zh-CN.md",
+        "--html",
+        "docs/framework.zh-CN.html"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.125,
+      "log": "02-check_docs_sync.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/build_plugin.py",
+        "--check"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.343,
+      "log": "03-build_plugin.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_plugin_build.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 1.657,
+      "log": "04-check_plugin_build.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_research_workflow.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 36.078,
+      "log": "05-check_research_workflow.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_profiles_reviewers.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 12.172,
+      "log": "06-check_profiles_reviewers.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_draft_contract.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 1.938,
+      "log": "07-check_draft_contract.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_task_lock.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 3.422,
+      "log": "08-check_task_lock.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_delivery_contract.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 11.39,
+      "log": "09-check_delivery_contract.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_review_completion_contract.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 2.625,
+      "log": "10-check_review_completion_contract.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_source_policy_contract.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 5.219,
+      "log": "11-check_source_policy_contract.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_source_extraction.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.266,
+      "log": "12-check_source_extraction.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_evaluator_contract.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 12.75,
+      "log": "13-check_evaluator_contract.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_regression_fixtures.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 1.968,
+      "log": "14-check_regression_fixtures.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_conformance_fixtures.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 1.032,
+      "log": "15-check_conformance_fixtures.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_eval_source_integrity.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.156,
+      "log": "16-check_eval_source_integrity.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_semantic_diagnostics.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.594,
+      "log": "17-check_semantic_diagnostics.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_mcp_contract.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 9.031,
+      "log": "18-check_mcp_contract.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/run_dsh_evals.py",
+        "validate"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.328,
+      "log": "19-run_dsh_evals.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_development_evidence.py",
+        "--self-test"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 57.968,
+      "log": "20-check_development_evidence.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_feedback_probes.py",
+        "--self-test"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 2.032,
+      "log": "21-check_feedback_probes.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "scripts/check_study_verification.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 43.453,
+      "log": "22-check_study_verification.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "evals/studies/2026-10-13-before-after/verify.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.422,
+      "log": "23-verify.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "evals/diagnostics/2026-10-13-targeted-recheck/verify.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 2.406,
+      "log": "24-verify.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "evals/diagnostics/2026-10-13-dedicated-seven/verify.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 1.531,
+      "log": "25-verify.log"
+    },
+    {
+      "command": [
+        "python",
+        "-X",
+        "utf8",
+        "evals/repairs/2026-10-13-pipeline-complete/verify.py"
+      ],
+      "exit": 0,
+      "elapsed_seconds": 0.266,
+      "log": "26-verify.log"
+    }
+  ]
+}

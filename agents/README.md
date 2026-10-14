@@ -6,7 +6,7 @@ Provide the research methods to your agent through a repository link, files, att
 
 The [entry instructions](../SKILL.md) and [Chinese reading version](../SKILL.zh-CN.md) point to the methods for each research stage. Native Skill installation is optional. For callable workflow tools, see [plugin and MCP configuration](../docs/usage-modes.md).
 
-**First report:** copy the [Full research request](../docs/quickstart-full.md), supply the question, audience and available material, then work through section drafting, review and revision. Read the methods directly; install MCP when useful. For a short brief, use the [Lite walkthrough](../docs/quickstart-lite.md).
+**Choose a workflow:** [Lightweight workflow (Lite)](../docs/quickstart-lite.md) and [Complete workflow (Full)](../docs/quickstart-full.md) share the research baseline; choose from use, evidence complexity and review needs, with length secondary. Read the methods directly; install MCP when useful. [Continue, revise or update](../docs/usage-modes.md#continue-existing-research) an existing report.
 
 ## Use without installation
 

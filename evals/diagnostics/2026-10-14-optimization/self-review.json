@@ -1,0 +1,34 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "location": "final.md opening and Start the trial section; state/requirements.jsonl L1",
+      "basis": "The complete 433-word artifact answers which six-seat plan to trial under $35 with manual weekly CSV allowed. It includes arithmetic, the counter-case, change conditions and trial checks. Selection is explicitly not purchasing. The current request does not require independent review for this self branch."
+    },
+    "evidence": {
+      "location": "final.md paragraphs 1–4 against sources/plans.md S1, S2 and Decision context",
+      "basis": "Read the full supplied plan pack and report. Cedar is 6×$6=$36, $1 over $35; Maple is $28 for six, leaving $7. The notes support manual export for both and scheduling/SSO only for Cedar. Unknown columns, reliability, onboarding and staff/migration cost are retained as unknown. Fictional provenance is explicit."
+    },
+    "adversarial_reasoning": {
+      "location": "What the choice buys and final paragraph",
+      "basis": "Cedar's useful features are acknowledged without overriding budget. A future discount is conditional, not present eligibility. Maple can be trialed while field suitability remains unresolved; adoption is held pending checks. Changing required scheduling or SSO can change eligibility. No claim of measured savings or causality is made."
+    },
+    "structure_and_depth": {
+      "location": "Opening, What the choice buys, Start the trial and define what would change the decision",
+      "basis": "The report develops eligibility, decision-relevant trade-offs and concrete trial actions in three connected sections. The bounded assignment does not need more market research or a long comparison table. Evidence limits qualify the choice without displacing it."
+    },
+    "reader_usefulness": {
+      "location": "Final three paragraphs",
+      "basis": "The support lead supplies required fields; an operator runs representative export checks; an owner and backup cover the weekly step. The report supplies stop/change conditions without inventing a field list, reliability target or time saving. Readers can start the trial preparation."
+    },
+    "process_language": {
+      "location": "Whole final.md",
+      "basis": "No internal claim IDs, review labels, CSV records or agent work log enter the report. The source link is a normal Markdown reference. Fictional source provenance is relevant context; self-review status belongs in the delivery message."
+    },
+    "natural_expression": {
+      "location": "Whole final.md",
+      "basis": "Direct recommendation followed by concrete cost and workflow implications. Conditions use ordinary English; no repeated disclaimer section, decorative metaphor or unsupported promotional claim."
+    }
+  },
+  "findings": []
+}

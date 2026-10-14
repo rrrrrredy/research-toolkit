@@ -4,11 +4,11 @@
 
 [English](./README.md) · [简体中文](./README.zh-CN.md)
 
-**Use Full to produce substantial research reports with concrete judgments and traceable sources.**
+**Turn a research question or existing material into a report with concrete judgments and traceable sources. Lite and Full share the same research baseline.**
 
 Research methods · Callable workflow tools · Review choices. For industry research, product comparisons, company analysis, and technical research.
 
-[**Start with Full**](#quick-start) · [Use with your agent](#usage) · [Research case](#research-case) · [Evaluation results](#evaluation-results) · [Lite short-brief walkthrough](./docs/quickstart-lite.md) · [Documentation](#documentation)
+[**Choose a workflow and start**](#quick-start) · [Use with your agent](#usage) · [Research case](#research-case) · [Evaluation results](#evaluation-results) · [Lite guide](./docs/quickstart-lite.md) · [Documentation](#documentation)
 
 **1.0.0:** [Release notes](./docs/releases/v1.0.0.md) · [1.x compatibility policy](./docs/compatibility.md).
 
@@ -16,31 +16,40 @@ Read a complete report: [APIs or browsers](./docs/case-study/api-or-browser/repo
 
 ## Quick start
 
-**Choose `full` for a substantial report.** Send this request to an agent that can read the repository and source material, replacing the bracketed fields:
+| Workflow | Fits | Completion work |
+| --- | --- | --- |
+| [Lightweight workflow (Lite)](./docs/quickstart-lite.md) | Bounded research with manageable consequences where author checks fit the use | Source/claim records and final author checklist |
+| [Complete workflow (Full)](./docs/quickstart-full.md) | Complex comparisons, conflicting evidence, formal delivery or explicit review requirements | Selected review tier, revision checks and delivery consistency |
+
+Both answer required questions, read mandatory material, check claims and calculations, address counterevidence and write for the reader. Length is not a profile cap; Full does not automatically mean independent review. Send this request to an agent for a recommendation and brief explanation, or state your choice:
 
 ```text
 Use Research Toolkit:
 https://github.com/rrrrrredy/research-toolkit
-Read SKILL.md, choose profile=full, and load the methods by stage.
+Read SKILL.md and load the methods by stage.
 
 Research question: [Include the question, audience, and intended use.]
 Scope and length: [Include scope, information cutoff, length and counting unit.]
-Existing material: [Attach files or links; otherwise have the agent research it.]
+Existing material: [Attach files or links, including any existing report.]
 
-Use the available context to establish the brief and outline; ask only
-about consequential gaps. Read primary sources, register sources and
-important claims, and develop comparisons, counterevidence and conclusions
-section by section. Use self-review or a separate review context as the
-task requires, resolve concrete findings, and deliver the complete report.
-Use working source links; keep source, claim and review records separately.
-If MCP/CLI is connected, use it for progress, length checks and delivery.
+Recommend Lite or Full from the consequences of error, evidence complexity,
+intended use and review needs; briefly explain the choice and respect mine.
+Use the context to establish the brief; ask only about consequential gaps.
+Read required sources, check important claims and calculations, and develop
+comparisons, counterevidence and conclusions for the intended reader.
+Reuse existing research and correct affected passages when material changes.
+Lite completes the author checklist; Full adds the chosen review, revision
+and delivery checks. State the review actually performed.
+Deliver the complete report with usable citations and a short change note
+when revising. Maintain working records yourself, separately from the report.
+Use MCP/CLI for saved progress and checks when connected.
 ```
 
-Receive a **complete report + source/claim records + review findings and revisions**. Apply the methods directly; connect MCP/CLI when you want saved task state and callable checks.
+Receive the **complete report, important findings and necessary sources**, plus a change note for revisions. The agent maintains accessible source/claim records, author checks and any reviews separately. Apply the methods directly; connect MCP/CLI when you want saved task state and callable checks.
 
-[**Shortest Full guide and complete example**](./docs/quickstart-full.md) · [Choose your agent](./agents/README.md#choose-your-tool)
+[**Lite guide**](./docs/quickstart-lite.md) · [**Full guide**](./docs/quickstart-full.md) · [Choose your agent](./agents/README.md#choose-your-tool)
 
-For a short-brief introduction, the [5–15 minute Lite walkthrough](./docs/quickstart-lite.md) supplies a question and source material.
+Have a draft, need review, or received new material? [Continue existing research](./docs/usage-modes.md#continue-existing-research) without re-entering the brief or restarting completed work. The Lite walkthrough uses a small teaching example, not an analytical limit.
 
 Found a problem? [Submit a failure case](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml) with a report excerpt and sources.
 
@@ -89,7 +98,7 @@ Public-source analysis, 10 October 2026. The workflow is illustrative; no deploy
 
 ## Usage
 
-[**Shortest Full guide**](./docs/quickstart-full.md): go from a research question to a complete report, with a ready request, review choices and optional local tools.
+[Lite](./docs/quickstart-lite.md) and [Full](./docs/quickstart-full.md) both work by reading the methods directly; choose from use, evidence and review needs.
 
 Start with the shared [research instructions in SKILL.md](./SKILL.md). Your agent reads that entry point and follows its links to the methods needed at each stage. Native Skill installation is optional.
 
@@ -98,19 +107,23 @@ Send this request to an agent that can read GitHub and access the required sourc
 ```text
 Use Research Toolkit:
 https://github.com/rrrrrredy/research-toolkit
-Read SKILL.md, choose profile=full, and load the methods by stage.
+Read SKILL.md and load the methods by stage.
 
 Research question: [Include the question, audience, and intended use.]
 Scope and length: [Include scope, information cutoff, length and counting unit.]
-Existing material: [Attach files or links; otherwise have the agent research it.]
+Existing material: [Attach files or links, including any existing report.]
 
-Use the available context to establish the brief and outline; ask only
-about consequential gaps. Read primary sources, register sources and
-important claims, and develop comparisons, counterevidence and conclusions
-section by section. Use self-review or a separate review context as the
-task requires, resolve concrete findings, and deliver the complete report.
-Use working source links; keep source, claim and review records separately.
-If MCP/CLI is connected, use it for progress, length checks and delivery.
+Recommend Lite or Full from the consequences of error, evidence complexity,
+intended use and review needs; briefly explain the choice and respect mine.
+Use the context to establish the brief; ask only about consequential gaps.
+Read required sources, check important claims and calculations, and develop
+comparisons, counterevidence and conclusions for the intended reader.
+Reuse existing research and correct affected passages when material changes.
+Lite completes the author checklist; Full adds the chosen review, revision
+and delivery checks. State the review actually performed.
+Deliver the complete report with usable citations and a short change note
+when revising. Maintain working records yourself, separately from the report.
+Use MCP/CLI for saved progress and checks when connected.
 ```
 
 Replace the bracketed text with your research request. Include any known audience, scope, length, time cutoff, or required sources.

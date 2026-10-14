@@ -1,6 +1,8 @@
-# Write your first substantial report with Full
+# Complete workflow (Full): research, review and delivery
 
 [English](quickstart-full.md) · [简体中文](quickstart-full.zh-CN.md) · [Research Toolkit](../README.md)
+
+Full shares the research baseline with [Lite](quickstart-lite.md). Use it for conflicting evidence, complex comparisons, formal delivery or explicit review requirements; length is secondary. The long-report example below is not a selection threshold. [Continue existing research in Full](usage-modes.md#continue-existing-research).
 
 Give the request below to an agent that can read files and research sources. Full covers the brief, source research, analysis, section drafts, review and revision; MCP is an optional tool for managing task state. See the results: [APIs or browsers](case-study/api-or-browser/report.md) · [Office agents in China](case-study/report.zh-CN.md).
 
@@ -77,4 +79,4 @@ Use the [existing CLI/MCP instructions](usage-modes.md) for review and delivery.
 
 </details>
 
-For a short brief, choose the [Lite walkthrough](quickstart-lite.md).
+For bounded work where author checks fit the use, choose the [Lite walkthrough](quickstart-lite.md).

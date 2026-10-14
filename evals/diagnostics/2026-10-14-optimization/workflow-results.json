@@ -1,0 +1,156 @@
+{
+  "baseline_commit": "bd78ae7bb0a868917efc9cfe9faaa3508dd5a238",
+  "scope": "Executed continuation and update of one existing real independent task using explicitly constructed plan evidence. Not a native-agent/Lite/Full causal quality comparison.",
+  "author": "Implementation assistant in the current conversation; per-report author tokens and returned model identity unavailable.",
+  "review_mode": "Two actual fresh-context gpt-6-astra requests; ordinary workflow reviews, not masked paired efficacy judgments. Self branch is actual author-context review, not a model-backend mock.",
+  "model_returned": null,
+  "calls": [
+    {
+      "phase": "initial",
+      "requested_model": "gpt-6-astra",
+      "returned_model": null,
+      "format": "codex-jsonl",
+      "exit_code": 0,
+      "execution_id": "01a1386c-e287-7b72-ab3d-fe905c2ee9d2",
+      "usage": {
+        "input_tokens": 7684,
+        "cached_input_tokens": 2432,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 798,
+        "reasoning_output_tokens": 91
+      },
+      "request_sha256": "e87419fdd5bbf18decab6fc8dbb2144349cc58418ba58c516e4920865146e794",
+      "report_sha256": "b8422c6ff3b0eca9d7c75d842e72cca987be43982e07f334212ca736eebe512b",
+      "response_sha256": "e2c52222ac24cb7cff30fbb8a57531dfd5e04efb7a696dffce34b5957b11c155",
+      "original_capture_sha256": "19668538cbb910692b92d9eb5313f22f2502ad872cdcbdd82eccd33aa554ae45",
+      "public_event_omissions": {
+        "error": 1
+      },
+      "scope_of_omissions": "Only local-environment warnings and any reasoning events; full substantive answer retained. Raw capture remains local."
+    },
+    {
+      "phase": "updated",
+      "requested_model": "gpt-6-astra",
+      "returned_model": null,
+      "format": "codex-jsonl",
+      "exit_code": 0,
+      "execution_id": "01a1386e-a89b-7fb0-9832-a025bcfa5845",
+      "usage": {
+        "input_tokens": 8134,
+        "cached_input_tokens": 3456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 744,
+        "reasoning_output_tokens": 142
+      },
+      "request_sha256": "a1a153e6e75129a1a3a786604921c414708ee63759fc305017626559a6c0024e",
+      "report_sha256": "24783c8f77660c8902e11e407119410bc351284b0d7412819e089156b1ebef59",
+      "response_sha256": "2b95b05193666d7a5fe8bb39b7303f9ee04dcb8ecce0617d13dd57298a70ed34",
+      "original_capture_sha256": "03efa209bda2d4ff361fa7bb5cf9f284ff5382e16cd0ad159af126de538f7386",
+      "public_event_omissions": {
+        "error": 1
+      },
+      "scope_of_omissions": "Only local-environment warnings and any reasoning events; full substantive answer retained. Raw capture remains local."
+    }
+  ],
+  "usage": {
+    "input_tokens": 15818,
+    "cached_input_tokens": 5888,
+    "output_tokens": 1542
+  },
+  "cost_boundary": "Cached input is a subset of input. No price, bill or human time saving is inferred. Wall times below cover each workflow phase including local work.",
+  "elapsed_seconds": {
+    "prepare": 0.25,
+    "self-submit": 0.203,
+    "independent": 40.406,
+    "change": 0.094,
+    "updated-review": 36.406
+  },
+  "original_lite_unchanged": true,
+  "original_lite_files_checked": 13,
+  "report_counts": {
+    "report-lite.md": 433,
+    "report-updated.md": 457
+  },
+  "outcomes": {
+    "lite-pending-block": {
+      "completed": false,
+      "errors": [
+        "L1: resolve the length requirement before delivery (status: pending).",
+        "Requirement L1 is not terminally resolved (status: pending)."
+      ]
+    },
+    "lite-check-draft": {
+      "ok": true,
+      "counts": {
+        "whitespace_words": 433,
+        "nonwhitespace_characters": 2418
+      },
+      "errors": []
+    },
+    "lite-finish": {
+      "completed": true
+    },
+    "self-review": {
+      "delivery_ready": true,
+      "reviews_complete": true,
+      "open_issues": []
+    },
+    "self-finish": {
+      "completed": true
+    },
+    "independent-review": {
+      "delivery_ready": true,
+      "reviews_complete": true,
+      "open_issues": []
+    },
+    "independent-finish": {
+      "completed": true
+    },
+    "resume-review-no-new-call": {
+      "delivery_ready": true,
+      "reviews_complete": true,
+      "open_issues": []
+    },
+    "changed-input-delivery-check": {
+      "ok": false,
+      "findings": [
+        "Requirement R2 is not terminally resolved (status: pending).",
+        "The delivery receipt is stale for state/task_spec.md.\nThe delivery receipt is stale for state/progress.json.\nThe delivery receipt is stale for data/source_registry.csv.\nThe delivery receipt is stale for state/requirements.jsonl."
+      ]
+    },
+    "changed-input-finish-block": {
+      "completed": false,
+      "error": "Current task or evidence differs from the reviewed input."
+    },
+    "updated-check-draft": {
+      "ok": true,
+      "counts": {
+        "whitespace_words": 457,
+        "nonwhitespace_characters": 2673
+      },
+      "errors": []
+    },
+    "updated-review": {
+      "delivery_ready": true,
+      "reviews_complete": true,
+      "open_issues": []
+    },
+    "updated-finish": {
+      "completed": true
+    }
+  },
+  "resume_model_calls": 0,
+  "full_self_report_unchanged": true,
+  "historical_first": {
+    "path": "evals/studies/2026-10-13-before-after/authors/coding_benchmark_decision_zh/after/report.md",
+    "sha256": "a9e92e78f105618304ec44323ef0a186bca61e860e611d04625be11d843ba803",
+    "citation_advisories": [
+      "Export citation warning: 6 private chat citation marker(s) in report prose at line(s) 7, 11, 13, 15, 27, 31. Replace them using the actual source title/URL and locator; do not guess or drop the citation. Literal syntax examples belong in code. This advisory does not verify source support or change delivery eligibility."
+    ]
+  },
+  "historical_repaired": {
+    "path": "evals/studies/2026-10-13-before-after/repairs/coding_benchmark_decision_zh/report-final-v2.md",
+    "sha256": "97b83f0352f295b1e25df6c98ec992e8568014ae3d3f8e5e24d14d3edb525c6a",
+    "citation_advisories": []
+  }
+}

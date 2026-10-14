@@ -6,7 +6,8 @@
 
 [规范入口](../SKILL.md)与[中文阅读版](../SKILL.zh-CN.md)指向各研究阶段需要的方法。原生 Skill 安装是可选方式；可调用的执行工具见[插件与 MCP 配置](../docs/usage-modes.zh-CN.md)。
 
-**首次使用：**复制 [Full 长报告请求](../docs/quickstart-full.zh-CN.md)，提供题目、读者与已有材料，完成分节研究、评审和修订。研究方法可直接读取；MCP 按需安装。短简报可用 [Lite 体验](../docs/quickstart-lite.zh-CN.md)。
+**选择流程：**[轻量流程（Lite）](../docs/quickstart-lite.zh-CN.md) 与 [完整流程（Full）](../docs/quickstart-full.zh-CN.md)共用研究底线，依据用途、证据复杂度和评审要求选择，篇幅只作辅助。直接读方法即可；MCP 按需安装。已有稿件可[接续、修订或更新](../docs/usage-modes.zh-CN.md#接续已有研究)。
+
 
 ## 直接读取使用
 

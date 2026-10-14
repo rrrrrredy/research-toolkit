@@ -220,7 +220,7 @@ Publishing Frontend
 </ul>
 <details class="skill-source"><summary>Complete Skill instructions</summary><pre id="skilltext"><code>---
 name: research-toolkit
-description: "Source-backed longform research workflow for AI agents: scope, sources, claims, and independent review."
+description: "Source-backed research for AI agents: scope, sources, claims, and task-appropriate Lite or Full workflows."
 ---
 
 # Research Toolkit
@@ -229,17 +229,21 @@ description: "Source-backed longform research workflow for AI agents: scope, sou
 
 Produce the research deliverable the user requested. Use this entry point throughout the task; load the relevant methods at the stages below. The [research standard](references/research-standard.md) retains the complete rules, state contract, examples, and failure guidance. Paths in commands and code spans are relative to the installed toolkit or the research task, as indicated.
 
-Use for substantial industry, market, company, product, technology, policy and ecosystem research reports. Not for quick facts or short summaries.
+Use for industry, market, company, product, technology, policy and ecosystem research: evidence-backed briefs, long reports, revising existing reports and updating research. Simple fact lookups usually need no managed workflow.
 
 ## Choosing a profile
 
-Choose a profile from the task's purpose and evidence needs, then pass it explicitly to `research_start` or the CLI. The API default remains `full` for compatibility. For a bounded task use `profile="lite"` (CLI: `start --profile lite`). On recovery use `research_status(task)` to retrieve the saved profile and continue; do not silently change it or restart the task. The agent makes this choice from known requirements, asking the user only when a consequential trade-off remains unresolved.
+Lite and Full share one research baseline: answer the required questions, read mandatory material, retain sources and actual reading scope, distinguish facts/source claims/interpretations/assumptions, address counterevidence, check important calculations and constraints, and write for the intended reader. Lite reduces formal review and delivery administration; it does not cap necessary sources, analytical depth or report length.
 
-| Task size, use and evidence | Recommended profile |
+Recommend a workflow from context and briefly explain why; the user keeps the choice without a profile questionnaire. Length is secondary. Quota limits, reviewer failures or time pressure never authorize silent downgrading. Pass the selection explicitly to `research_start` or the CLI; the API default remains `full` for compatibility. Resume with `research_status(task)` and its saved profile.
+
+| Use, consequences and evidence needs | Recommended workflow |
 | --- | --- |
-| Up to about 2,000 words/Chinese characters; an internal briefing or exploratory answer; a few directly readable sources | `lite` |
-| Longer or multi-section comparison; many or conflicting sources; a report intended for publication or decisions | `full` |
-| Consequential decisions, explicitly required independent review, or frozen evaluation, regardless of length | `full` with explicitly configured `independent` review |
+| Bounded research with manageable consequences; no formal review requirement and author checks fit the use | Lightweight workflow `lite` |
+| Conflicting evidence, complex comparisons, formal delivery or repeated revision checks | Complete workflow `full`, with its actual reviewer tier stated |
+| Explicit independent-review requirement | `full` with `independent`; Astra in a separate context is sufficient |
+
+Recommend independent review for consequential decisions and explain why. Frozen evaluations keep their declared protocol; the evaluation label adds no review requirement. Full does not automatically mean independent review. [Continue existing Lite work in Full](docs/usage-modes.md#continue-existing-research) by reusing research and preserving the original task.
 
 Lite uses the [compact stage guide](references/lite-workflow.md) instead of the Full stage references below. It retains brief clarification, source-backed claim registration, section-by-section drafting and the final checklist. It skips `research_review` and the full delivery hard gates with explicit `SKIP` logs. Call `research_finish` for the checklist, then submit every item with `passed: true` and a concrete `evidence` locator after actually checking it. The result is saved in `state/final_checklist.json`; it is not a full-gate receipt. Match certainty to evidence: state supported facts directly and qualify uncertain inferences. Disclose the absence of independent review once in an appropriate report or delivery note. The shared constraints below still apply; reviewer setup and Full completion instructions apply only to Full.
 
@@ -289,13 +293,13 @@ Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log
 
 | Reviewer tier | Setup cost | Review strength | Suitable use |
 | --- | --- | --- | --- |
-| `self` | None; explicitly switch roles in the author context | Degraded; retains author blind spots, marked `reviewer: self` | Small reports and a zero-configuration start |
+| `self` | None; explicitly switch roles in the author context | Degraded; retains author blind spots, marked `reviewer: self` | Tasks accepting author-context checks without an independent-review requirement |
 | `external` | Configure one command or endpoint | An external model response; quality depends on the backend and evidence | Routine reports using a configured reviewer |
-| `independent` | Configure fresh reviewer contexts and any task-required audits | Existing independent review and version-binding requirements | Consequential reports and frozen evaluations |
+| `independent` | Configure fresh reviewer contexts and any task-required audits | Existing independent review and version-binding requirements | Reports needing an independent opinion or evaluations declaring this tier |
 
 Astra in a fresh context separate from the author can provide independent review, including when the author uses the same model. Give it the same task, report and source materials; keep author notes and condition mappings out of blind review. Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Repeated runs keep the same task identity, and source materials retain their stated provenance. No outside person, different vendor or additional external material is required. Changes to assignments, reviewer inputs or acceptance criteria require targeted revalidation.
 
-For `self`, `research_review` returns a built-in critical-review prompt, the frozen report/evidence and `input_version`. Perform that review in the current context, then call the tool again with the structured result and `input_version` in `self_review`. The tool never fabricates a review or an external execution. Every self-review record and delivery receipt retains `review_strength: degraded`; describe conclusions as provisional and disclose the missing independent opinion.
+For `self`, `research_review` returns a built-in critical-review prompt, the frozen report/evidence and `input_version`. Perform that review in the current context, then call the tool again with the structured result and `input_version` in `self_review`. The tool never fabricates a review or an external execution. Every self-review record and delivery receipt retains `review_strength: degraded`; state that review used the author context; match certainty to source support rather than making all supported facts provisional.
 
 Cover requirements, evidence, adversarial reasoning, structure/depth, reader usefulness, process language and natural expression. Retain the original response, located coverage, findings and version bindings for every tier. A negative review is complete but unresolved necessary corrections block Full delivery. Preserve valid negative results; use evidenced no-change decisions for mistaken findings rather than rerunning for a better verdict.
 

@@ -2,6 +2,8 @@
 
 [English](quickstart-lite.md) · [简体中文](quickstart-lite.zh-CN.md) · [Research Toolkit](../README.md)
 
+Lite shares Full’s research baseline while reducing formal review and delivery administration. The small task below teaches the workflow; it does not cap depth, sources or length. [Continue in Full](usage-modes.md#continue-existing-research) when evidence complexity or formal review calls for it.
+
 Try a short comparison with two supplied sources. You need an agent that can read this repository; no reviewer account, API key, plugin or MCP setup is needed. Allow about 5–15 minutes with an agent ready to use; this is a walkthrough estimate, not a model latency guarantee. The [example package](../examples/lite/README.md) contains the complete brief and source notes.
 
 ## Give your agent this request

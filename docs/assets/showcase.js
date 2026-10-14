@@ -162,6 +162,7 @@
       e.href = url.href;
     });
     document.querySelectorAll("[data-quickstart-link]").forEach(function (e) { e.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-full"+(lang === "zh" ? ".zh-CN" : "")+".md"; });
+    document.querySelectorAll("[data-continue-link]").forEach(function (e) { e.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes"+(lang === "zh" ? ".zh-CN.md#接续已有研究" : ".md#continue-existing-research"); });
     document.querySelectorAll("[data-lite-link]").forEach(function (e) { e.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite"+(lang === "zh" ? ".zh-CN" : "")+".md"; });
     document.querySelectorAll("[data-eval-link]").forEach(function (e) { e.href = "https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-status"+(lang === "zh" ? ".zh-CN" : "")+".md"; });
     document.querySelectorAll("[data-agent-link]").forEach(function (e) {

@@ -1,10 +1,13 @@
 # Research Toolkit
 
-> Research methods, workflow tools, and independent review for AI agents. 面向 AI Agent 的研究方法、执行工具与独立审阅。
+> One research toolkit, Lite and Full workflows selected by task. 同一个研究工具箱，按任务选择 Lite 或 Full。
 
 Use the methods through repository access, files, attachments, or pasted instructions. Native Skill installation is optional. Plugin and local MCP integrations provide executable workflow tools; their dependencies and reviewer configuration are described in the usage guide.
 
 ## Research methods
+
+- [Lite quickstart](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/quickstart-lite.md): lightweight workflow, with the same research baseline.
+- [Lite 中文指南](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/quickstart-lite.zh-CN.md): 轻量执行，共同研究底线。
 
 - [Full quickstart](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/quickstart-full.md): copyable substantial-report request, review routes and optional local task.
 - [Full 中文指南](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/quickstart-full.zh-CN.md): 长报告请求、评审与可选本地任务。

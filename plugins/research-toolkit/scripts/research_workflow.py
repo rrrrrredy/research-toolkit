@@ -833,6 +833,34 @@ def content_review_summary(reviews: dict, rows: list[dict], artifact_hash: str) 
             "reviewer_contexts": [r["execution_id"] for r in reviews.values()]}
 
 
+def citation_export_warnings(report: str) -> list[str]:
+    """Flag known private chat citations in prose, leaving code examples alone."""
+    fence = None
+    prose = []
+    for line in report.splitlines(keepends=True):
+        marker = re.match(r"^ {0,3}(`{3,}|~{3,})(.*)$", line)
+        if fence:
+            if marker and marker[1][0] == fence[0] and len(marker[1]) >= len(fence) and not marker[2].strip():
+                fence = None
+            prose.append("\n")
+        elif marker and (marker[1][0] != "`" or "`" not in marker[2]):
+            fence = marker[1]
+            prose.append("\n")
+        else:
+            prose.append(line)
+    # Backtick-delimited examples can span lines. Preserve line numbers in warnings.
+    text = re.sub(r"(`+)(?!`)([\s\S]*?)(?<!`)\1(?!`)",
+                  lambda match: "\n" * match[0].count("\n"), "".join(prose))
+    matches = list(re.finditer(r"\ue200cite\ue202[^\ue201\n]*\ue201", text))
+    if not matches:
+        return []
+    lines = sorted({text.count("\n", 0, match.start()) + 1 for match in matches})
+    return [f"Export citation warning: {len(matches)} private chat citation marker(s) in report prose "
+            f"at line(s) {', '.join(map(str, lines))}. Replace them using the actual source title/URL "
+            "and locator; do not guess or drop the citation. Literal syntax examples belong in code. "
+            "This advisory does not verify source support or change delivery eligibility."]
+
+
 @task_operation
 def check_draft(workspace: Path, task: str, artifact="final.md") -> dict:
     """Inspect current draft records and explicit length bounds without delivery or model calls."""
@@ -847,7 +875,7 @@ def check_draft(workspace: Path, task: str, artifact="final.md") -> dict:
         check_stage_records(root, "draft")
     except (OSError, ValueError) as exc:
         errors.append(str(exc))
-    counts, artifact_hash = {}, None
+    counts, artifact_hash, report = {}, None, ""
     try:
         report = path.read_text(encoding="utf-8")
         if not report.strip():
@@ -863,6 +891,7 @@ def check_draft(workspace: Path, task: str, artifact="final.md") -> dict:
     if not checks and not length_errors:
         warnings.append("No explicit length constraint was checked. Record any agreed whole-artifact "
                         "range in state/requirements.jsonl; use a separate measurement for other scopes.")
+    warnings.extend(citation_export_warnings(report))
     return {"ok": not errors, "scope": "draft_record_and_length_checks", "profile": progress.get("profile", "full"),
             "artifact": artifact, "artifact_sha256": artifact_hash, "counts": counts,
             "count_scope": "whole_artifact_including_markup_and_references", "length_checks": checks,
