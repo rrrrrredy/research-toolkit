@@ -142,7 +142,18 @@ The server also exposes the `research` prompt and `research-toolkit://instructio
 
 ### Client configuration and example
 
-The [README MCP quickstart](https://github.com/rrrrrredy/research-toolkit/blob/main/README.md#use-as-an-mcp-server) includes installation, JSON for Claude Desktop/Cursor and the equivalent native TOML for Codex. The [executable example](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.md) captures real local responses with a fictional report and explicitly degraded self-review.
+Claude Desktop and Cursor use the JSON configuration above. Codex CLI / IDE uses native TOML; add the equivalent to `~/.codex/config.toml`, replacing all three paths with your actual absolute paths:
+
+```toml
+[mcp_servers.research-toolkit]
+command = "/absolute/path/to/research-toolkit/.venv/bin/python"
+args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
+
+[mcp_servers.research-toolkit.env]
+RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
+```
+
+Restart the client and confirm the seven `research_*` tools appear. The [executable example](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.md) captures real local responses with a fictional report and explicitly degraded self-review.
 
 Official configuration references: [Claude Desktop local servers](https://modelcontextprotocol.io/docs/develop/connect-local-servers), [Cursor MCP](https://cursor.com/docs/mcp), [Codex MCP](https://developers.openai.com/codex/mcp). Cursor supports project `.cursor/mcp.json` or global `~/.cursor/mcp.json`; Codex uses `~/.codex/config.toml`. In Claude Desktop, open Settings → Developer → Edit Config.
 
