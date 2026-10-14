@@ -22,12 +22,14 @@ class DraftChecks(unittest.TestCase):
         for profile in ("lite", "full"):
             progress = w.load(self.root, "state/progress.json")
             w.save(self.root, "state/progress.json", {**progress, "profile": profile})
-            w.save_text(self.root, "final.md", "# Report\nA source claim.\ue200cite\ue202turn1search0\ue201\n")
+            w.save_text(self.root, "final.md", "# Report\nA source claim.\ue200cite\ue202turn1search0\ue201\n"
+                        "File evidence.\ue200filecite\ue202turn0file0\ue201\n"
+                        "Files.\ue200filenavlist\ue2020:0\ue205Source description\ue201\n")
             before = self.snapshot()
             result = w.check_draft(self.workspace, "case")
             self.assertTrue(result["ok"], result)
-            self.assertIn("1 private chat", " ".join(result["warnings"]))
-            self.assertIn("line(s) 2", " ".join(result["warnings"]))
+            self.assertIn("3 private chat", " ".join(result["warnings"]))
+            self.assertIn("line(s) 2, 3, 4", " ".join(result["warnings"]))
             self.assertEqual(before, self.snapshot())
 
     def test_export_citation_examples_and_ordinary_references_do_not_warn(self):
@@ -36,6 +38,19 @@ class DraftChecks(unittest.TestCase):
         self.assertEqual(w.citation_export_warnings(report), [])
         self.assertEqual(w.citation_export_warnings(f"``multi\n{token}\nline``"), [])
         self.assertIn("line(s) 9", " ".join(w.citation_export_warnings(report + token)))
+
+    def test_indented_code_examples_preserve_prose_warnings_and_line_numbers(self):
+        for kind in ("cite", "filecite", "filenavlist"):
+            token = f"\ue200{kind}\ue202turn0file0\ue201"
+            with self.subTest(kind=kind):
+                for indent in ("    ", "\t"):
+                    report = f"Example:\n\n{indent}{token}\n\n{indent}{token}\n\nActual evidence {token}\n"
+                    warning = " ".join(w.citation_export_warnings(report))
+                    self.assertIn("1 private chat", warning)
+                    self.assertIn("line(s) 7", warning)
+                self.assertEqual(w.citation_export_warnings("    " + token + "\n"), [])
+                # Indentation alone does not turn a paragraph continuation into code.
+                self.assertIn("line(s) 2", " ".join(w.citation_export_warnings("A paragraph\n    " + token)))
 
     def bound(self, **rule):
         w.save_text(self.root, "state/requirements.jsonl", json.dumps({

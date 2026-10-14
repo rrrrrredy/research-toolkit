@@ -4,9 +4,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import stat
 from pathlib import Path, PurePosixPath
-from check_version import check as check_version
+from check_version import check as check_version, safe_repo_file
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT/"plugins/research-toolkit"
@@ -36,15 +35,7 @@ def safe_target(relative: str) -> Path:
         raise ValueError(f"Plugin path escapes its directory: {relative}")
     if not PLUGIN.resolve().is_relative_to(ROOT.resolve()):
         raise ValueError("Plugin directory escapes the repository")
-    current = ROOT
-    for component in (*PLUGIN.relative_to(ROOT).parts, *PurePosixPath(relative).parts):
-        current = current / component
-        if current.is_symlink() or (current.exists() and getattr(current.lstat(), "st_file_attributes", 0)
-                                    & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400)):
-            raise ValueError(f"Refusing linked plugin path: {relative}")
-    if path.exists() and not path.is_file():
-        raise ValueError(f"Expected a regular plugin file: {relative}")
-    return path
+    return safe_repo_file(ROOT, path.relative_to(ROOT).as_posix())
 
 
 def payload() -> dict[str, bytes]:
@@ -118,12 +109,16 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
-    errors = check_version(ROOT, write=not args.check)
-    if errors:
-        print("\n".join(errors))
-        return 1
     try:
-        different = build(args.check)
+        # Validate the entire generated-file plan before version synchronization writes.
+        # check_version also validates every version destination before writing any of them.
+        different = build(check=True)
+        errors = check_version(ROOT, write=not args.check)
+        if errors:
+            print("\n".join(errors))
+            return 1
+        if not args.check:
+            different = build()
     except (OSError, ValueError, TypeError) as exc:
         print(f"Plugin build blocked: {exc}")
         return 1

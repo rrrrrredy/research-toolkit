@@ -836,6 +836,7 @@ def content_review_summary(reviews: dict, rows: list[dict], artifact_hash: str) 
 def citation_export_warnings(report: str) -> list[str]:
     """Flag known private chat citations in prose, leaving code examples alone."""
     fence = None
+    paragraph = False
     prose = []
     for line in report.splitlines(keepends=True):
         marker = re.match(r"^ {0,3}(`{3,}|~{3,})(.*)$", line)
@@ -843,15 +844,24 @@ def citation_export_warnings(report: str) -> list[str]:
             if marker and marker[1][0] == fence[0] and len(marker[1]) >= len(fence) and not marker[2].strip():
                 fence = None
             prose.append("\n")
+            paragraph = False
         elif marker and (marker[1][0] != "`" or "`" not in marker[2]):
             fence = marker[1]
             prose.append("\n")
+            paragraph = False
+        elif not line.strip():
+            prose.append(line)
+            paragraph = False
+        elif line.expandtabs(4).startswith("    ") and not paragraph:
+            # Indented code starts at a block boundary, not midway through a paragraph.
+            prose.append("\n")
         else:
             prose.append(line)
+            paragraph = not bool(re.match(r"^ {0,3}(?:#{1,6}(?:\s|$)|(?:[-*_]\s*){3,}$)", line))
     # Backtick-delimited examples can span lines. Preserve line numbers in warnings.
     text = re.sub(r"(`+)(?!`)([\s\S]*?)(?<!`)\1(?!`)",
                   lambda match: "\n" * match[0].count("\n"), "".join(prose))
-    matches = list(re.finditer(r"\ue200cite\ue202[^\ue201\n]*\ue201", text))
+    matches = list(re.finditer(r"\ue200(?:cite|filecite|filenavlist)\ue202[^\ue201\n]*\ue201", text))
     if not matches:
         return []
     lines = sorted({text.count("\n", 0, match.start()) + 1 for match in matches})

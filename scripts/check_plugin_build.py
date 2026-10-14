@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Isolated controls for ownership-aware plugin synchronization (no model calls)."""
 import json
+import os
 from pathlib import Path
+import shutil
+import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -115,6 +119,125 @@ class PluginBuildChecks(unittest.TestCase):
         with self.assertRaises(ValueError):
             b.build()
         self.assertTrue((target / "probe.md").is_file())
+
+
+class PluginEntrypointChecks(unittest.TestCase):
+    """Exercise the real CLI, including version writes before payload generation."""
+
+    def setUp(self):
+        temp = tempfile.TemporaryDirectory(prefix="toolkit-cli-control-")
+        self.addCleanup(temp.cleanup)
+        self.trial = Path(temp.name).resolve()
+        self.root = self.trial / "repo"
+        self.plugin = self.root / "plugins/research-toolkit"
+        desired = b.payload()
+        for relative, content in desired.items():
+            for path in (self.root / relative, self.plugin / relative):
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(content)
+        for relative in ("scripts/build_plugin.py", "scripts/check_version.py", "CHANGELOG.md", "CHANGELOG.zh-CN.md"):
+            path = self.root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(b.ROOT / relative, path)
+        shutil.copytree(b.ROOT / "docs/releases", self.root / "docs/releases")
+        for name in ("plugin.json", ".codex-plugin/plugin.json"):
+            path = self.plugin / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps({"name": "fixture", "version": "0.0.0"}), encoding="utf-8")
+        (self.plugin / b.MANIFEST).write_text(json.dumps({"schema_version": 1, "files": {
+            name: b.digest(content) for name, content in desired.items()}}), encoding="utf-8")
+
+    def snapshot(self):
+        return {p.relative_to(self.trial): p.read_bytes() for p in self.trial.rglob("*") if p.is_file()}
+
+    def command(self, script, *args):
+        return subprocess.run([sys.executable, "-B", "-X", "utf8", str(self.root / "scripts" / script), *args],
+                              cwd=self.root, capture_output=True, text=True, encoding="utf-8", timeout=30)
+
+    def link(self, relative, junction=False):
+        path = self.root / relative
+        outside = self.trial / ("outside-" + path.name)
+        directory = path.is_dir()
+        path.rename(outside)
+        if junction:
+            helper = self.trial / "link.ps1"
+            helper.write_text("param([string]$LinkPath,[string]$TargetPath)\n$ErrorActionPreference='Stop'\n"
+                              "New-Item -ItemType Junction -Path $LinkPath -Target $TargetPath | Out-Null\n", encoding="utf-8")
+            result = subprocess.run(["powershell.exe", "-NoProfile", "-NonInteractive", "-ExecutionPolicy", "Bypass",
+                                     "-File", str(helper), str(path), str(outside)], capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.addCleanup(os.rmdir, path)  # Remove only the junction, before TemporaryDirectory cleanup.
+        else:
+            try:
+                path.symlink_to(outside, target_is_directory=directory)
+            except OSError as exc:
+                if os.name == "nt" and exc.winerror == 1314:
+                    self.skipTest(f"Local Windows symlink privilege unavailable; Linux CI must run this: {exc}")
+                raise
+            self.addCleanup(path.unlink)
+
+    def assert_rejected_without_writes(self, include_version=True):
+        commands = [("build_plugin.py",), ("build_plugin.py", "--check")]
+        if include_version:
+            commands += [("check_version.py", "--write"), ("check_version.py",)]
+        before = self.snapshot()
+        for command in commands:
+            with self.subTest(command=command):
+                result = self.command(*command)
+                self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+                self.assertEqual(before, self.snapshot(), result.stdout + result.stderr)
+
+    def test_real_cli_updates_versions_and_check_is_readonly(self):
+        before = self.snapshot()
+        self.assertEqual(self.command("build_plugin.py", "--check").returncode, 1)
+        self.assertEqual(before, self.snapshot())
+        result = self.command("build_plugin.py")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        version = (self.root / "VERSION").read_text().strip()
+        for name in ("plugin.json", ".codex-plugin/plugin.json"):
+            self.assertEqual(json.loads((self.plugin / name).read_text())["version"], version)
+        after = self.snapshot()
+        self.assertEqual(self.command("build_plugin.py", "--check").returncode, 0)
+        self.assertEqual(self.command("build_plugin.py").returncode, 0)
+        self.assertEqual(after, self.snapshot())
+
+    def test_first_manifest_file_symlink_is_rejected(self):
+        self.link("plugins/research-toolkit/plugin.json")
+        self.assert_rejected_without_writes()
+
+    def test_second_manifest_file_symlink_cannot_partially_update_first(self):
+        self.link("plugins/research-toolkit/.codex-plugin/plugin.json")
+        self.assert_rejected_without_writes()
+
+    def test_manifest_parent_symlink_is_rejected(self):
+        self.link("plugins/research-toolkit/.codex-plugin")
+        self.assert_rejected_without_writes()
+
+    def test_plugin_directory_symlink_is_rejected(self):
+        self.link("plugins/research-toolkit")
+        self.assert_rejected_without_writes()
+
+    def test_plugins_parent_symlink_is_rejected(self):
+        self.link("plugins")
+        self.assert_rejected_without_writes()
+
+    def test_generated_file_symlink_prevents_earlier_version_writes(self):
+        self.link("plugins/research-toolkit/SKILL.md")
+        self.assert_rejected_without_writes(include_version=False)
+
+    @unittest.skipUnless(os.name == "nt", "Windows junction control")
+    def test_manifest_parent_junction_is_rejected(self):
+        self.link("plugins/research-toolkit/.codex-plugin", junction=True)
+        self.assert_rejected_without_writes()
+
+    @unittest.skipUnless(os.name == "nt", "Windows junction control")
+    def test_plugin_directory_junction_is_rejected(self):
+        self.link("plugins/research-toolkit", junction=True)
+        self.assert_rejected_without_writes()
+
+    def test_invalid_release_metadata_does_not_partially_update_versions(self):
+        (self.root / "CHANGELOG.zh-CN.md").write_text("# No version entry\n", encoding="utf-8")
+        self.assert_rejected_without_writes()
 
 
 if __name__ == "__main__":
