@@ -1,0 +1,158 @@
+{
+  "reports": {
+    "A": {
+      "sha256": "43c77fe2314eed25f6bedeed57d7df51b1593a3f4676b3b923aef8ec3b86c321",
+      "nonwhitespace_characters": 3577
+    },
+    "B": {
+      "sha256": "3f8c4f06254f1244add9d88739392dadf2e42e6d35bc5cf571048fb4bb787778",
+      "nonwhitespace_characters": 3500
+    }
+  },
+  "sources": [
+    {
+      "id": "E001",
+      "origin": "authors/native/sources/search-log.md",
+      "raw_sha256": "25bfa54288c544f4889d22d7334783a5dbf1e71814f4bc5a8688a8b56c89f0d3",
+      "text_sha256": "25bfa54288c544f4889d22d7334783a5dbf1e71814f4bc5a8688a8b56c89f0d3"
+    },
+    {
+      "id": "E002",
+      "origin": "authors/native/sources/source-records.md",
+      "raw_sha256": "d26c2b8b5a2a7e191b9a79bcc02f7490c5ff5280725d2a9c52bf776daf6c3589",
+      "text_sha256": "d26c2b8b5a2a7e191b9a79bcc02f7490c5ff5280725d2a9c52bf776daf6c3589"
+    },
+    {
+      "id": "E003",
+      "origin": "authors/toolkit/sources/mandatory-pages.txt",
+      "raw_sha256": "f291eff162939a235e81b6a45b0b2639891cc7983ba42cdacff178aa6666a2cd",
+      "text_sha256": "f291eff162939a235e81b6a45b0b2639891cc7983ba42cdacff178aa6666a2cd"
+    },
+    {
+      "id": "E004",
+      "origin": "authors/toolkit/sources/pro-v2-readme.txt",
+      "raw_sha256": "030e7418e0133c4e94cfc5f1f766057e7c82a45d7dbfc1023924f72f3e55af92",
+      "text_sha256": "030e7418e0133c4e94cfc5f1f766057e7c82a45d7dbfc1023924f72f3e55af92"
+    },
+    {
+      "id": "E005",
+      "origin": "authors/toolkit/sources/S1.md",
+      "raw_sha256": "3148269f81209e032b3a91c11f8a969578210f4fbec4ec8af0b8bf1d202ae0ee",
+      "text_sha256": "3148269f81209e032b3a91c11f8a969578210f4fbec4ec8af0b8bf1d202ae0ee"
+    },
+    {
+      "id": "E006",
+      "origin": "authors/toolkit/sources/S10.md",
+      "raw_sha256": "e609b49e92676106d859c3bb3e8fed24a366e91b894d0624c9900df2c0246c03",
+      "text_sha256": "e609b49e92676106d859c3bb3e8fed24a366e91b894d0624c9900df2c0246c03"
+    },
+    {
+      "id": "E007",
+      "origin": "authors/toolkit/sources/S2.md",
+      "raw_sha256": "3142c6a7b82edf697fb73ffe27d4b020d62ad68900848272c5300fc532f49cba",
+      "text_sha256": "3142c6a7b82edf697fb73ffe27d4b020d62ad68900848272c5300fc532f49cba"
+    },
+    {
+      "id": "E008",
+      "origin": "authors/toolkit/sources/S3.md",
+      "raw_sha256": "494c5a969c4d14f664382580fa1be689450aa102f0ac645acb9ba98d673bd80c",
+      "text_sha256": "494c5a969c4d14f664382580fa1be689450aa102f0ac645acb9ba98d673bd80c"
+    },
+    {
+      "id": "E009",
+      "origin": "authors/toolkit/sources/S4.md",
+      "raw_sha256": "891931049506dac44f36ccec4030431eac948e166ba106a08c3a3aab21e9b559",
+      "text_sha256": "891931049506dac44f36ccec4030431eac948e166ba106a08c3a3aab21e9b559"
+    },
+    {
+      "id": "E010",
+      "origin": "authors/toolkit/sources/S5.md",
+      "raw_sha256": "d4fe6408a5cf7a56af05d8a53ffdb5ed81dde6c600343ef070488df47c8ccedc",
+      "text_sha256": "d4fe6408a5cf7a56af05d8a53ffdb5ed81dde6c600343ef070488df47c8ccedc"
+    },
+    {
+      "id": "E011",
+      "origin": "authors/toolkit/sources/S6.md",
+      "raw_sha256": "dd369403dd91b64c001f01ef68d11ef8b7a512923335a5a23d2e53f117ee3a42",
+      "text_sha256": "dd369403dd91b64c001f01ef68d11ef8b7a512923335a5a23d2e53f117ee3a42"
+    },
+    {
+      "id": "E012",
+      "origin": "authors/toolkit/sources/S7.md",
+      "raw_sha256": "1c409b1037e162c5f177d1c3a75ad42a425c2e2b4a874b51669c51f67f4813e4",
+      "text_sha256": "1c409b1037e162c5f177d1c3a75ad42a425c2e2b4a874b51669c51f67f4813e4"
+    },
+    {
+      "id": "E013",
+      "origin": "authors/toolkit/sources/S8.md",
+      "raw_sha256": "308ded945f0b9cfa0bfd69a95fee0ea9ce115a4aa8e910778ea6df0f272d68e5",
+      "text_sha256": "308ded945f0b9cfa0bfd69a95fee0ea9ce115a4aa8e910778ea6df0f272d68e5"
+    },
+    {
+      "id": "E014",
+      "origin": "authors/toolkit/sources/S9.md",
+      "raw_sha256": "d123e530bb552979ba5f34288d027b098f7a10d7877b1e5715dc66b6eb4d4f00",
+      "text_sha256": "d123e530bb552979ba5f34288d027b098f7a10d7877b1e5715dc66b6eb4d4f00"
+    },
+    {
+      "id": "E015",
+      "origin": "authors/toolkit/sources/scale-paper-landing.txt",
+      "raw_sha256": "c1d84c427121fe8804b59f88e46c585529b023aa0ea988de5e96e9700811d647",
+      "text_sha256": "c1d84c427121fe8804b59f88e46c585529b023aa0ea988de5e96e9700811d647"
+    },
+    {
+      "id": "E016",
+      "origin": "authors/toolkit/sources/scale.txt",
+      "raw_sha256": "cf443130f5c624eeb27a7780dd32673faf2782c7641dc3233737671b8806299a",
+      "text_sha256": "cf443130f5c624eeb27a7780dd32673faf2782c7641dc3233737671b8806299a"
+    },
+    {
+      "id": "E017",
+      "origin": "authors/toolkit/sources/swelancer-readme.txt",
+      "raw_sha256": "7a6655f7c887afe8034f9a08520c81f25a0c5c7d2e6c7e1e72063bfe92c35516",
+      "text_sha256": "7a6655f7c887afe8034f9a08520c81f25a0c5c7d2e6c7e1e72063bfe92c35516"
+    },
+    {
+      "id": "E018",
+      "origin": "authors/toolkit/sources/web-batch-02.json",
+      "raw_sha256": "989ba7320d630460fcdb69ae38d0d31dc5228d1577558618e6378847329e902d",
+      "text_sha256": "d57a00d543bea9bd8ff124d4e6f0b68296574bf6610e8ac2a2448e4919930666"
+    },
+    {
+      "id": "E019",
+      "origin": "authors/toolkit/sources/web-batch-03.txt",
+      "raw_sha256": "aa33c2f50b0c65102e5d48fe22efbe7474c5ec6ecd5d215f80e71c5e1a665a4a",
+      "text_sha256": "aa33c2f50b0c65102e5d48fe22efbe7474c5ec6ecd5d215f80e71c5e1a665a4a"
+    },
+    {
+      "id": "E020",
+      "origin": "authors/toolkit/sources/web-batch-08.txt",
+      "raw_sha256": "0b4be01071823fc95c54e357b00d288e710c78d72773c8a27a0a8c89a830bde4",
+      "text_sha256": "0b4be01071823fc95c54e357b00d288e710c78d72773c8a27a0a8c89a830bde4"
+    },
+    {
+      "id": "E021",
+      "origin": "authors/toolkit/sources/web-batch-09.txt",
+      "raw_sha256": "bb9cfa61958478f4952134884821845974027feccf9f312cfc7d144992106b96",
+      "text_sha256": "bb9cfa61958478f4952134884821845974027feccf9f312cfc7d144992106b96"
+    },
+    {
+      "id": "E022",
+      "origin": "authors/toolkit/sources/web-batch-10.txt",
+      "raw_sha256": "6d04863fb302b75c80c738ae56dae17a0904d835c582109e84199fa30a795643",
+      "text_sha256": "6d04863fb302b75c80c738ae56dae17a0904d835c582109e84199fa30a795643"
+    },
+    {
+      "id": "E023",
+      "origin": "authors/toolkit/sources/web4.txt",
+      "raw_sha256": "f35d1863c5d8f66977cd0ee7985d4b4a5762d2bea40ea9b0ae8fd2b1871d5cdd",
+      "text_sha256": "f35d1863c5d8f66977cd0ee7985d4b4a5762d2bea40ea9b0ae8fd2b1871d5cdd"
+    },
+    {
+      "id": "E024",
+      "origin": "authors/toolkit/sources/web5.txt",
+      "raw_sha256": "f7bedb368ab6b92b474e41b8a55cc7ea247585896acc01bfec515525005337aa",
+      "text_sha256": "f7bedb368ab6b92b474e41b8a55cc7ea247585896acc01bfec515525005337aa"
+    }
+  ]
+}

@@ -6,6 +6,8 @@
 
 ## Current evidence
 
+The [October 14 complete native-Agent comparison](../evals/studies/2026-10-14-native-agent/README.md) runs one existing real long task with live retrieval, tools, complete drafting and normal author checks in both conditions. Separate-context Astra blind reviews tie both the first and final pairs; both score 100/100. Toolkit Full/self takes 14.3 minutes versus native's 9.2 and uses more tokens and operations. This task shows no net report-quality gain; it does not estimate other tasks or profiles. An actual Windows JSON encoding failure discovered during the run is repaired and rechecked with the affected source material. Full drafts, final reports, original judgments, startup failures and actual resource use are retained.
+
 The [October 13 complete-report comparison](../evals/studies/2026-10-13-before-after/README.md), with repairs completed October 14, directly compares the user-selected October 12 commit against v1.0.0 on seven existing and three new real tasks. Astra's primary mean is 100 → 99.5; three of ten preferences change under order swaps. No stable overall quality gain was observed. All 20 first reports and 20 blind reviews are retained. A subsequent export check found six private citation tokens in one current-version report that both initial reviews missed. Bilingual method clarifications and two revised reports received targeted rechecks; the negative intermediate recheck remains visible. These repair outcomes do not replace first-pass results.
 
 The [current optimization report and executed continuation checks](../evals/diagnostics/2026-10-14-optimization/README.zh-CN.md) separate code repairs, report checks, workflow use and cost; they do not replace historical first-pass scores.
