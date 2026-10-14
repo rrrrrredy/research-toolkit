@@ -49,7 +49,7 @@ Lite and Full can measure a declared range using an optional `length_constraint`
 {"requirement_id":"R-length","summary":"The agreed whole-file limit is 800–1200 nonwhitespace characters.","status":"pending","evidence":"","length_constraint":{"unit":"nonwhitespace_characters","scope":"whole_artifact","min":800,"max":1200}}
 ```
 
-Put the row in the task's `state/requirements.jsonl`, one JSON object per line, retaining other requirements. Start as `pending`; after measuring and checking the agreement, change it to `satisfied` and fill `evidence` (for example `final.md, whole file`).
+The agent passes this row in `research_save(requirements=[...])` / CLI `save`; the tool maintains `state/requirements.jsonl` and retains other requirements. Users state the length in ordinary language. See [record saving](usage-modes.md#save-research-records-and-drafts). Start as `pending`; after measuring and checking the agreement, change it to `satisfied` and fill `evidence` (for example `final.md, whole file`).
 
 | Field | Correct entry |
 | --- | --- |

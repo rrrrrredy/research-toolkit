@@ -49,7 +49,7 @@ Lite 与 Full 都可在已有要求台账中，用可选的 `length_constraint` 
 {"requirement_id":"R-length","summary":"已约定整个文件为 800—1200 个非空白字符。","status":"pending","evidence":"","length_constraint":{"unit":"nonwhitespace_characters","scope":"whole_artifact","min":800,"max":1200}}
 ```
 
-将这一行写入任务目录的 `state/requirements.jsonl`，每行一个 JSON 对象，保留其他要求。示例先记为 `pending`；实际计数并核对约定后，才改为 `satisfied`，填写 `evidence`（如 `final.md，整个文件`）。
+用户用自然语言说明篇幅；Agent 将该行作为 `requirements` 元素传给 `research_save`／CLI `save`，工具维护 `state/requirements.jsonl` 并保留其他要求。见[记录保存指南](usage-modes.zh-CN.md#保存研究记录与稿件)。示例先记为 `pending`；实际计数并核对约定后，才改为 `satisfied`，填写 `evidence`（如 `final.md，整个文件`）。
 
 | 要填什么 | 正确写法 |
 | --- | --- |

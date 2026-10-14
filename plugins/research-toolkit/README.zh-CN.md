@@ -2,11 +2,11 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-一次安装，包含研究 Skill、完整方法和七个本地 MCP 工具。Agent 先澄清研究需求，用已有工具检索、分析、写作，再通过共用流程执行选定档位的评审和交付检查。
+一次安装，包含研究 Skill、完整方法和八个本地 MCP 工具。Agent 先澄清研究需求，用已有工具检索、分析、写作，再通过共用流程执行选定档位的评审和交付检查。
 
 使用宿主支持的插件安装方式；Python 3.10+ 与 MCP 依赖安装方法见下方指南。内置清单用 `python` 启动服务：宿主进程找到的解释器必须是已安装依赖的环境。若无法给插件指定该环境，按使用指南用虚拟环境解释器的绝对路径单独接入 MCP，避免安装到系统 Python 后仍用错解释器。
 
-重开会话，选择 Research Toolkit，确认七个 `research_*` 工具可用。提供研究问题或已有报告、来源与用途，Agent 推荐 Lite／Full 并维护工作记录。
+重开会话，选择 Research Toolkit，确认八个 `research_*` 工具可用。提供研究问题或已有报告、来源与用途，Agent 推荐 Lite／Full 并维护工作记录。
 
 **[完整安装与使用说明](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md)** · [研究入口](SKILL.zh-CN.md) · [完整规范](references/research-standard.zh-CN.md)
 

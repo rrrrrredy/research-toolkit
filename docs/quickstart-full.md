@@ -44,7 +44,7 @@ apply the research methods directly.
 | Route | Shortest path |
 | --- | --- |
 | Codex: methods directly | Open or provide the repository files and send the request. Research with the agent's existing retrieval, file and context capabilities; MCP installation is optional. |
-| Cursor: local MCP | Follow the [virtual environment setup](usage-modes.md#connect-mcp-separately), merge the [README configuration](../README.md#use-as-an-mcp-server) into `.cursor/mcp.json`, confirm the seven `research_*` tools appear, then send the request. |
+| Cursor: local MCP | Follow the [virtual environment setup](usage-modes.md#connect-mcp-separately), merge the [README configuration](../README.md#use-as-an-mcp-server) into `.cursor/mcp.json`, confirm the eight `research_*` tools appear, then send the request. |
 
 Other agents can read the same methods through files, links or text; see [agent setup](../agents/README.md). Client configuration references: [Codex MCP](https://developers.openai.com/codex/mcp) · [Cursor MCP](https://cursor.com/docs/mcp).
 
@@ -73,7 +73,7 @@ python3 scripts/research_workflow.py start --profile full --workspace ../researc
 
 This creates `../research-work/knowledge-assistant-full-en`. The agent performs retrieval, reading and section writing; the command creates the task. If you change the example question, update the request file's `brief` too. Resume existing tasks with `status`.
 
-Add the single line from [requirements.en.jsonl](../examples/full/requirements.en.jsonl) to the new task's `state/requirements.jsonl`, retaining any other requirements. Start as `pending`; mark it `satisfied` only after checking. Before review, call `check-draft` with this task ID; see [copyable length records and checks](delivery-verification.md#explicit-length-requirements).
+The agent saves the agreed length through `research_save` / CLI `save` using `requirements`; users do not edit JSONL. Start pending, then submit an evidenced satisfied update after checking. See the [record-saving example](usage-modes.md#save-research-records-and-drafts).
 
 Use the [CLI capture and reuse example](usage-modes.md#reuse-task-files-and-retain-a-self-review-packet) for a self-review packet, and the [CLI/MCP instructions](usage-modes.md) for other tiers and delivery. The example does not prefill a report or a review.
 

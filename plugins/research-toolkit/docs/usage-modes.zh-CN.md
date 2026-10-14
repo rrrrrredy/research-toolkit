@@ -15,7 +15,7 @@
 
 读取和使用研究方法，无须安装 Python 或特定厂商 CLI。检索与文件访问由撰写 Agent 提供；独立审阅需要另一个评审者，仅提供指令不会自动执行审阅。
 
-## 七个工具何时用、何时可忽略
+## 八个工具何时用、何时可忽略
 
 **按任务选择 [Lite](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.zh-CN.md) 或 [Full](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-full.zh-CN.md)。** 两者共用研究底线，Agent 维护记录。Lite 完成作者自检；Full 增加所选评审、修订核对和交付一致性检查。可直接读方法，CLI/MCP 按需接入。
 
@@ -23,13 +23,40 @@
 
 | 工具 | 何时需要 | 何时可跳过调用 |
 | --- | --- | --- |
-| `research_start` | 创建新的本地任务和需求记录；按用途、证据复杂度和评审需求显式选择 `lite` 或 `full`。 | 已有任务用 `research_status` 恢复，或不使用本地执行工具、自行维护记录。 |
+| `research_start` | 创建新的本地任务和需求记录；按用途、版本化评审和修订需要显式选择 `lite` 或 `full`。 | 已有任务用 `research_status` 恢复，或不使用本地执行工具、自行维护记录。 |
+| `research_save` | 保存／更新来源、主张、要求与稿件，由 Agent 处理定位到的格式错误。 | 记录与稿件均无变化。 |
 | `research_status` | 恢复本地任务、查看已保存进度或更新记录中的阶段。 | 无需查看或更新进度时；只使用方法的会话可用自己的笔记。 |
 | `research_guide` | 当前上下文尚未包含所需阶段的方法，需要读取时。 | 已直接阅读相应 `SKILL.md` 和 `references/` 文件。 |
 | `research_review` | Full 任务须完成约定评审；选择 self 档时也要显式执行自评。 | Lite 跳过评审；任务明确要求的评审不可省略。 |
 | `research_check_draft` | 无模型调用地检查当前稿件记录与显式篇幅，不生成交付凭证。 | 评审／交付前可选；来源与含义仍需单独核对。 |
 | `research_finish` | 完成本地任务：Lite 保存六项 checklist；Full 核对已评审报告与交付要求。 | 不使用本地执行工具时，自行完成 checklist 并交付记录，不声称已生成本地凭证。 |
 | `research_check_reviewer` | 外部后端配置或连接前置条件有问题，需要在评审前排查时。 | Lite 和 self 无需外部后端；`research_start` 已确认且配置未变时，无需重复调用。 |
+
+## 保存研究记录与稿件
+
+Agent 使用 `research_save`（CLI：`save`）提交来源、主张和要求对象。用户描述研究需求、决定范围和用途，不管理 CSV、编号或评审返回 JSON。工具按 ID 合并局部更新，保留其他行和字段，写入既有 CSV／JSONL 格式。省略 ID 时，按唯一网址／主张／要求摘要匹配已有记录，否则分配 ID 并返回；后续修改使用返回的 ID。来源仍由 Agent 实际阅读并准确整理。
+
+以下是给 Agent 的调用示例，来源正文已保存在任务目录：
+
+```json
+{
+  "task": "example",
+  "sources": [{"title":"来源标题","url":"https://example.org/source","source_type":"primary","read_scope":"relevant_sections","read_evidence":"sources/source.md"}],
+  "claims": [{"claim":"有来源支持的判断","claim_type":"fact","supporting_sources":["S1"]}],
+  "requirements": [{"summary":"解释比较结果","status":"pending"}],
+  "draft": {"path":"first-draft.md","complete":true}
+}
+```
+
+未变化的集合不传。`draft` 可带 `content`，由工具写稿并创建父目录；省略 content 时登记已有 UTF-8 文件，无需把全文再搬进对话。`complete: true` 表示 Agent 已保存完整稿，不表示质量通过。局部更新如 `{"requirements":[{"requirement_id":"R1","status":"satisfied","evidence":"final.md，比较章节"}]}` 会保留其他字段；工具不编造证据，也不自动关闭要求。
+
+```bash
+python3 scripts/research_workflow.py save --workspace ../research-work --request save.json
+```
+
+格式错误定位到集合、行和字段，由 Agent 修正调用后重试；整批输入验证通过后才替换记录。已有集合格式损坏时，提交恢复后的完整行，并显式指定如 `"replace":["sources"]`；工具将原始字节备份到 `logs/record-backups/`，不会悄悄丢弃无法解析的行。保存后的输入变化仍按原规则使旧检查失效。
+
+`research_status` 的 `activity` 汇总任务开始时间、首次观察到的完整稿 UTC 时间／哈希及距创建任务的耗时、保存失败、实际评审尝试／重试、调用耗时及返回用量。`saved_by_tool` 表示工具保存时间；`existing_file_observed` 表示登记时间，不冒充旧文件创建时间。只读状态／草稿／交付检查不追加日志；复用评审不算新调用，作者上下文自评提交单独计数。缓存 token 不重复计入输入总量，缺失用量为未知。工具看不到宿主作者的全程 token、账单或登记前耗时。这些观察不增加交付要求，也不等于首次可用结果时间或研究质量判定。
 
 ## 接续已有研究
 
@@ -73,7 +100,7 @@ Full 的形式检查验证声明范围内的版本和记录一致性；它们不
 | --- | --- | --- |
 | Skill | 入口指令与详细研究方法 | 原生技能发现或明确读取文件 |
 | 插件 | Skill、参考文件和本地 MCP 服务，一次安装 | 支持该软件包格式与本地 stdio MCP |
-| MCP | 初始化、保存进度、加载方法、审阅和检查交付的七个工具 | 能启动并调用本地 stdio MCP 服务 |
+| MCP | 初始化、保存进度、加载方法、审阅和检查交付的八个工具 | 能启动并调用本地 stdio MCP 服务 |
 
 共享 CLI 需要 Python 3.10+，只使用标准库。Linux 上优先使用 `python3`；本机已有的 Python 3.10+ 解释器即可。MCP 还需安装 `requirements-mcp.txt` 中的依赖。未配置后端时，新建 Full 任务自动进入标明强度降级的 self 评审；外部／独立评审可使用任一受支持命令或端点，无强制厂商账户。
 
@@ -81,7 +108,7 @@ CI 在 Python 3.10／Linux 上检查 CLI 和打包 MCP 流程，并在 Python 3.
 
 ## 安装插件
 
-[插件目录](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/)包含完整 Skill、方法与本地 MCP 服务；使用宿主支持的插件安装机制，具体步骤见 [Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。插件通过 Python 启动 MCP，安装 `requirements-mcp.txt` 中的依赖后，确认七个 `research_*` 工具可用。
+[插件目录](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/)包含完整 Skill、方法与本地 MCP 服务；使用宿主支持的插件安装机制，具体步骤见 [Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。插件通过 Python 启动 MCP，安装 `requirements-mcp.txt` 中的依赖后，确认八个 `research_*` 工具可用。
 
 直接提出题目、读者与预期成果；Agent 整理需求，只追问关键缺项。插件采用[通用插件规范](https://developers.openai.com/plugins/build/plugins)，不提供托管服务，也不表示任意客户端均支持该格式。
 
@@ -150,7 +177,7 @@ args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
 RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 ```
 
-重启客户端，确认能看到七个 `research_*` 工具。[可执行示例](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.zh-CN.md)使用虚构报告与明确降级的自评，采集本地服务真实返回。
+重启客户端，确认能看到八个 `research_*` 工具。[可执行示例](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.zh-CN.md)使用虚构报告与明确降级的自评，采集本地服务真实返回。
 
 官方配置说明：[Claude Desktop 本地服务](https://modelcontextprotocol.io/docs/develop/connect-local-servers)、[Cursor MCP](https://cursor.com/docs/mcp)、[Codex MCP](https://developers.openai.com/codex/mcp)。Cursor 可使用项目 `.cursor/mcp.json` 或全局 `~/.cursor/mcp.json`，Codex 使用 `~/.codex/config.toml`；Claude Desktop 从 Settings → Developer → Edit Config 打开配置。
 
