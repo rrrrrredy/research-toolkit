@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
 <title>Research Toolkit</title>
-<meta content="Research methods, workflow tools, and review choices for AI agents." name="description"/>
-<meta content="Research Toolkit" property="og:title"/><meta content="Research methods, workflow tools, and review choices for AI agents." property="og:description"/>
+<meta content="Help AI agents produce substantial research reports with concrete judgments and traceable sources." name="description"/>
+<meta content="Research Toolkit" property="og:title"/><meta content="Help AI agents produce substantial research reports with concrete judgments and traceable sources." property="og:description"/>
 <meta content="website" property="og:type"/><meta content="https://rrrrrredy.github.io/research-toolkit/" property="og:url"/>
 <meta content="https://rrrrrredy.github.io/research-toolkit/assets/api-browser-social.en.png" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/><link href="assets/showcase.css?v=c67edffee6" rel="stylesheet"/>
@@ -22,8 +22,8 @@
 <div class="hero-copy">
 <p class="eyebrow" data-i18n="brandCaption">A RESEARCH TOOLKIT FOR AI AGENTS</p>
 <h1 class="hero-title">Research<br/><em>Toolkit.</em></h1>
-<p class="lede" data-i18n="lede">Help AI agents write research reports with concrete judgments, traceable sources, and explicit review choices.</p>
-<div class="hero-actions"><a class="button" href="#start"><span data-i18n="try">Usage guide</span> <span aria-hidden="true">↓</span></a><a class="text-link" href="#case"><span data-i18n="explore">Case study</span> <span aria-hidden="true">↓</span></a><a class="text-link star-link" href="https://github.com/rrrrrredy/research-toolkit"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="16"><path d="m12 3 2.8 5.7 6.3.9-4.55 4.43 1.07 6.27L12 17.34l-5.62 2.96 1.07-6.27L2.9 9.6l6.3-.9Z"></path></svg><span data-i18n="star">Star on GitHub</span></a></div>
+<p class="lede" data-i18n="lede">Help AI agents produce substantial research reports with concrete judgments and traceable sources.</p>
+<div class="hero-actions"><a class="button" href="#start"><span data-i18n="try">Start with Full</span> <span aria-hidden="true">↓</span></a><a class="text-link" href="#case"><span data-i18n="explore">Case study</span> <span aria-hidden="true">↓</span></a><a class="text-link star-link" href="https://github.com/rrrrrredy/research-toolkit"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" width="16"><path d="m12 3 2.8 5.7 6.3.9-4.55 4.43 1.07 6.27L12 17.34l-5.62 2.96 1.07-6.27L2.9 9.6l6.3-.9Z"></path></svg><span data-i18n="star">Star on GitHub</span></a></div>
 <div class="capabilities"><span data-i18n="heroCap1">Methods</span><span data-i18n="heroCap2">Workflow tools</span><span data-i18n="heroCap3">Review choices</span></div>
 </div>
 <div class="report-stage">
@@ -45,19 +45,22 @@
 <p class="boundary" data-i18n="caseBoundary">Public-source analysis, 10 October 2026. The workflow is illustrative; no deployment or comparative performance experiment was conducted. This case does not establish a general Toolkit quality advantage.</p>
 </div></section>
 <section class="section use-section" id="start"><div class="wrap use-grid">
-<div class="use-copy"><p class="eyebrow" data-i18n="startEyebrow">RESEARCH REQUEST</p><h2 data-i18n="startHeading">Usage</h2><p data-i18n="startIntro">Give your agent a research question and ask it to read SKILL.md, the shared entry point for the research methods.</p><p class="usage-note" data-i18n="startNote2">If repository access is unavailable, upload the files or paste the instructions. Native Skill installation is optional.</p><a class="text-link" data-i18n="accessLink" href="#install">Ways to provide the toolkit</a><p><a class="text-link" data-i18n="quickstart" data-quickstart-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.md">Five-minute Lite quickstart</a></p></div>
-<div class="prompt"><div class="prompt-head"><span data-i18n="promptLabel">COPYABLE RESEARCH REQUEST</span><button class="copy js-only" data-i18n="copy" id="copy-request" type="button">Copy request</button></div><pre id="research-prompt">Use Research Toolkit for this task:
+<div class="use-copy"><p class="eyebrow" data-i18n="startEyebrow">RESEARCH REQUEST</p><h2 data-i18n="startHeading">Write a full research report</h2><p data-i18n="startIntro">Give your agent the question, audience and scope. Choose Full for source research, section drafts, review and revision.</p><p class="usage-note" data-i18n="startNote2">If repository access is unavailable, upload the files or paste the instructions. Native Skill installation is optional.</p><a class="text-link" data-i18n="accessLink" href="#install">Ways to provide the toolkit</a><p><a class="text-link" data-i18n="quickstart" data-quickstart-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-full.md">Full quickstart and example</a></p><p class="usage-note"><a class="text-link" data-i18n="liteStart" data-lite-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.md">Short-brief option: 5–15 minute Lite walkthrough</a></p></div>
+<div class="prompt"><div class="prompt-head"><span data-i18n="promptLabel">COPYABLE RESEARCH REQUEST</span><button class="copy js-only" data-i18n="copy" id="copy-request" type="button">Copy request</button></div><pre id="research-prompt">Use Research Toolkit:
 https://github.com/rrrrrredy/research-toolkit
+Read SKILL.md, choose profile=full, and load the methods by stage.
 
-Read SKILL.md first, then follow its links to the methods needed
-for each research stage.
+Research question: [Include the question, audience, and intended use.]
+Scope and length: [Include scope, information cutoff, length and counting unit.]
+Existing material: [Attach files or links; otherwise have the agent research it.]
 
-My research request: [Describe your research question, intended
-use, and desired output.]
-
-Use the conversation to clarify essential gaps and establish the
-brief and outline before collecting sources. Follow the selected
-profile's research, writing, review, and delivery instructions.</pre><div class="prompt-foot"><p data-i18n="promptNote">Replace the bracketed text with your research request. Include any known audience, scope, length, time cutoff, or required sources.</p><a data-i18n="fallbackGuide" href="https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md#choose-your-tool">Setup for your agent</a><p aria-live="polite" class="copy-status" id="copy-status" role="status"></p></div></div>
+Use the available context to establish the brief and outline; ask only
+about consequential gaps. Read primary sources, register sources and
+important claims, and develop comparisons, counterevidence and conclusions
+section by section. Use self-review or a separate review context as the
+task requires, resolve concrete findings, and deliver the complete report.
+Use working source links; keep source, claim and review records separately.
+If MCP/CLI is connected, use it for progress, length checks and delivery.</pre><div class="prompt-foot"><p data-i18n="promptNote">Replace the bracketed text with your research request. Include any known audience, scope, length, time cutoff, or required sources.</p><a data-i18n="fallbackGuide" href="https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md#choose-your-tool">Setup for your agent</a><p aria-live="polite" class="copy-status" id="copy-status" role="status"></p></div></div>
 </div></section>
 <section class="section" id="method"><div class="wrap">
 <div class="section-header"><div><h2 data-i18n="methodHeading">The research workflow.</h2><p data-i18n="methodIntro">From the brief to the report, each stage has a concrete output.</p></div><a data-i18n="fullMethod" data-method-link="" data-preserve-reading="" href="framework.html">Research method</a></div>
@@ -859,17 +862,17 @@ profile's research, writing, review, and delivery instructions.</pre><div class=
     ]
   },
   "prompts": {
-    "en": "Use Research Toolkit for this task:\nhttps://github.com/rrrrrredy/research-toolkit\n\nRead SKILL.md first, then follow its links to the methods needed\nfor each research stage.\n\nMy research request: [Describe your research question, intended\nuse, and desired output.]\n\nUse the conversation to clarify essential gaps and establish the\nbrief and outline before collecting sources. Follow the selected\nprofile's research, writing, review, and delivery instructions.",
-    "zh": "本次研究请使用 Research Toolkit：\nhttps://github.com/rrrrrredy/research-toolkit\n\n先阅读 SKILL.md，再按研究阶段读取它链接的参考方法。\n\n我的研究需求：[填写研究问题、用途和希望得到的成果。]\n\n结合已有信息澄清关键缺口，明确需求和提纲后再搜集资料，\n并按选定档位完成研究、写作、评审与交付。"
+    "zh": "本次使用 Research Toolkit：\nhttps://github.com/rrrrrredy/research-toolkit\n先阅读 SKILL.md，选择 profile=full，按阶段读取相关方法。\n\n研究问题：[填写问题、读者和用途。]\n范围与篇幅：[填写研究范围、信息截止日，以及篇幅和计数口径。]\n已有材料：[提供文件或链接；没有则由 Agent 检索。]\n\n结合已有信息明确需求和提纲，只追问影响研究的关键缺项。\n阅读原始来源，登记来源与重要判断，分节展开比较、反证和结论。\n按任务选择 self 或独立上下文评审，修正具体问题后交付完整报告。\n报告使用可打开的来源链接；来源、判断及评审记录另行保存。\n若已接入 MCP/CLI，用现有工具保存进度、检查篇幅并完成交付。",
+    "en": "Use Research Toolkit:\nhttps://github.com/rrrrrredy/research-toolkit\nRead SKILL.md, choose profile=full, and load the methods by stage.\n\nResearch question: [Include the question, audience, and intended use.]\nScope and length: [Include scope, information cutoff, length and counting unit.]\nExisting material: [Attach files or links; otherwise have the agent research it.]\n\nUse the available context to establish the brief and outline; ask only\nabout consequential gaps. Read primary sources, register sources and\nimportant claims, and develop comparisons, counterevidence and conclusions\nsection by section. Use self-review or a separate review context as the\ntask requires, resolve concrete findings, and deliver the complete report.\nUse working source links; keep source, claim and review records separately.\nIf MCP/CLI is connected, use it for progress, length checks and delivery."
   },
   "i18n": {
     "en": {
       "skip": "Skip to the case",
       "navCase": "Case study",
       "navMethod": "Method",
-      "lede": "Help AI agents write research reports with concrete judgments, traceable sources, and explicit review choices.",
+      "lede": "Help AI agents produce substantial research reports with concrete judgments and traceable sources.",
       "explore": "Case study",
-      "try": "Usage guide",
+      "try": "Start with Full",
       "caseHeading": "APIs or browsers for AI agents",
       "caseIntro": "Original English research, with primary sources, a retained first draft, and a documented review correction.",
       "fullReportShort": "Full report",
@@ -879,8 +882,8 @@ profile's research, writing, review, and delivery instructions.</pre><div class=
       "watch": "Watch the case walkthrough",
       "videoNote": "A recording of the product questions, passage changes, reasoning, and review decisions.",
       "startEyebrow": "RESEARCH REQUEST",
-      "startHeading": "Usage",
-      "startIntro": "Give your agent a research question and ask it to read SKILL.md, the shared entry point for the research methods.",
+      "startHeading": "Write a full research report",
+      "startIntro": "Give your agent the question, audience and scope. Choose Full for source research, section drafts, review and revision.",
       "promptLabel": "COPYABLE RESEARCH REQUEST",
       "copy": "Copy request",
       "promptNote": "Replace the bracketed text with your research request. Include any known audience, scope, length, time cutoff, or required sources.",
@@ -966,15 +969,16 @@ profile's research, writing, review, and delivery instructions.</pre><div class=
       "textLink": "Chat-only use",
       "skillMode": "Native Skill",
       "star": "Star on GitHub",
-      "quickstart": "Five-minute Lite quickstart"
+      "quickstart": "Full quickstart and example",
+      "liteStart": "Short-brief option: 5–15 minute Lite walkthrough"
     },
     "zh": {
       "skip": "跳到真实案例",
       "navCase": "研究案例",
       "navMethod": "研究方法",
-      "lede": "帮助 AI Agent 写出判断具体、来源可查的研究报告，并按任务选择评审档位。",
+      "lede": "帮助 AI Agent 完成有深度、判断具体、来源可查的长研究报告。",
       "explore": "研究案例",
-      "try": "使用指南",
+      "try": "用 Full 开始",
       "caseHeading": "国内办公 Agent 调研",
       "caseIntro": "先看产品关系与模型供应的判断如何被证据纠正，再看表达与结构调整。",
       "fullReportShort": "完整报告（中文原文）",
@@ -984,8 +988,8 @@ profile's research, writing, review, and delivery instructions.</pre><div class=
       "watch": "观看案例浏览演示",
       "videoNote": "产品问题、稿件差异、修改理由与审阅取舍的实际页面录制。",
       "startEyebrow": "研究请求",
-      "startHeading": "使用",
-      "startIntro": "提供你的研究问题，让 Agent 阅读通用方法入口 SKILL.md。",
+      "startHeading": "完成一篇长研究报告",
+      "startIntro": "提供问题、读者与研究范围，选择 Full，完成来源研究、分节写作、评审和修订。",
       "promptLabel": "可直接复制的研究请求",
       "copy": "复制请求",
       "promptNote": "将方括号内容替换为你的研究需求；已明确的读者、范围、篇幅、信息截止日或必需材料也可一并提供。",
@@ -1071,7 +1075,8 @@ profile's research, writing, review, and delivery instructions.</pre><div class=
       "textLink": "纯聊天使用边界",
       "skillMode": "原生 Skill",
       "star": "给项目 Star",
-      "quickstart": "5 分钟 Lite 入门"
+      "quickstart": "Full 最短使用指南与示例",
+      "liteStart": "短简报体验：约 5–15 分钟 Lite"
     }
   },
   "englishCase": {
@@ -1203,5 +1208,5 @@ profile's research, writing, review, and delivery instructions.</pre><div class=
     ]
   }
 }</script>
-<script src="assets/showcase.js?v=ba45c77009"></script>
+<script src="assets/showcase.js?v=d149ebfcac"></script>
 </body></html>

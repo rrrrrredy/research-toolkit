@@ -315,6 +315,30 @@ def inspect_requirements(
     return findings, accepted_limitations
 
 
+def length_constraint_errors(rule) -> list[str]:
+    """Explain invalid declared bounds without guessing units or changing the contract."""
+    if not isinstance(rule, dict):
+        return ['must be a JSON object, for example {"unit":"nonwhitespace_characters", '
+                '"scope":"whole_artifact","min":800,"max":1200}']
+    problems = []
+    unknown = sorted(set(rule) - {"unit", "scope", "min", "max"})
+    if unknown:
+        problems.append(f"has unknown fields: {', '.join(unknown)}; use min/max for bounds and unit for the counting method")
+    if rule.get("unit") not in ("whitespace_words", "nonwhitespace_characters"):
+        problems.append("unit must be whitespace_words or nonwhitespace_characters")
+    if rule.get("scope") != "whole_artifact":
+        problems.append("scope must be whole_artifact (includes headings, Markdown, citations and references)")
+    if not ({"min", "max"} & set(rule)):
+        problems.append("needs at least one bound: min and/or max, for example min: 800, max: 1200")
+    for key in ("min", "max"):
+        if key in rule and (type(rule[key]) is not int or rule[key] < 0):
+            problems.append(f"{key} must be a nonnegative JSON integer, not text, a boolean or a decimal")
+    if (type(rule.get("min")) is int and type(rule.get("max")) is int
+            and rule["min"] > rule["max"]):
+        problems.append(f"min ({rule['min']}) must not exceed max ({rule['max']})")
+    return problems
+
+
 def inspect_length_constraints(root: Path, artifact: str) -> tuple[list[dict], list[str]]:
     """Measure explicitly declared bounds; never infer a limit from prose or certify depth."""
     rows, errors = inspect_jsonl(root / "state/requirements.jsonl", "Requirement")
@@ -341,14 +365,9 @@ def inspect_length_constraints(root: Path, artifact: str) -> tuple[list[dict], l
         seen.add(identifier)
         if not nonempty_text(row.get("summary")):
             errors.append(f"{label}: summary must state the agreed length requirement and counting scope.")
-        if (not isinstance(rule, dict) or set(rule) - {"unit", "scope", "min", "max"}
-                or not isinstance(rule.get("unit"), str) or rule["unit"] not in counts
-                or rule.get("scope") != "whole_artifact"
-                or not ({"min", "max"} & set(rule))
-                or any(type(rule[key]) is not int or rule[key] < 0 for key in ("min", "max") if key in rule)
-                or ("min" in rule and "max" in rule and rule["min"] > rule["max"])):
-            errors.append(f"{label}: length_constraint needs unit whitespace_words/nonwhitespace_characters, "
-                          "scope whole_artifact and nonnegative integer min and/or max in order.")
+        rule_errors = length_constraint_errors(rule)
+        if rule_errors:
+            errors.extend(f"{label}: length_constraint {problem}." for problem in rule_errors)
             continue
         actual = counts[rule["unit"]]
         met = actual >= rule.get("min", 0) and ("max" not in rule or actual <= rule["max"])

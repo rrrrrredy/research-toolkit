@@ -17,13 +17,13 @@
 
 ## 七个工具何时用、何时可忽略
 
-**第一个 [Lite 任务](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.zh-CN.md)无需 MCP。** 只使用方法指令时，可以用文件或独立聊天段落保存需求、来源、判断和 checklist，七个工具都不必调用；这种方式不会生成本地完成凭证。
+**[Full 最短指南](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-full.zh-CN.md)可从直接读取方法开始。** Agent 完成需求、来源、分析、分节写作和所选评审，另存过程记录；本地进度与交付回执由可选 CLI/MCP 提供。
 
 下表适用于选择了本地任务管理的情况，MCP 与[共享 CLI](#只用-skill或使用-cli)均可使用。直接读取方法时，研究要求仍然适用。
 
 | 工具 | 何时需要 | 何时可跳过调用 |
 | --- | --- | --- |
-| `research_start` | 创建新的本地任务和需求记录；首次练习明确选择 `profile=lite`。 | 已有任务用 `research_status` 恢复，或不使用本地执行工具、自行维护记录。 |
+| `research_start` | 创建新的本地任务和需求记录；长报告明确选择 `profile=full`。 | 已有任务用 `research_status` 恢复，或不使用本地执行工具、自行维护记录。 |
 | `research_status` | 恢复本地任务、查看已保存进度或更新记录中的阶段。 | 无需查看或更新进度时；只使用方法的会话可用自己的笔记。 |
 | `research_guide` | 当前上下文尚未包含所需阶段的方法，需要读取时。 | 已直接阅读相应 `SKILL.md` 和 `references/` 文件。 |
 | `research_review` | Full 任务须完成约定评审；选择 self 档时也要显式执行自评。 | Lite 跳过评审；任务明确要求的评审不可省略。 |
@@ -60,8 +60,28 @@ CI 在 Python 3.10／Linux 上检查 CLI 和打包 MCP 流程，并在 Python 3.
 ```bash
 git clone https://github.com/rrrrrredy/research-toolkit.git
 cd research-toolkit
-python -m pip install -r requirements-mcp.txt
 ```
+
+使用 Python 3.10+，在独立虚拟环境中安装依赖。从已克隆的仓库目录执行：
+
+**macOS / Linux**
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-mcp.txt
+.venv/bin/python -c "import sys, mcp; print(sys.executable)"
+```
+
+**Windows PowerShell**
+
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-mcp.txt
+.\.venv\Scripts\python.exe -c "import sys, mcp; print(sys.executable)"
+```
+
+Windows 没有 `py` 启动器时，第一条命令改用已安装的 Python 3.10+ 解释器。把打印出的解释器绝对路径填入 MCP 的 `command`；无需激活环境或修改 PowerShell 执行策略。Linux 若提示缺少 `venv`／`ensurepip`，先安装发行版的 venv 包（Debian/Ubuntu 通常为 `python3-venv`），再创建环境。若出现 `externally-managed-environment`，通常是安装时用了系统 Python，改用上面的 `.venv` 解释器运行 pip。见 [Python venv 文档](https://docs.python.org/3/library/venv.html)。
+
 
 支持 `mcpServers` 配置的客户端可参考下面的内容。将 Python、脚本、研究目录替换为实际绝对路径；外层配置以客户端要求为准。
 
@@ -69,7 +89,7 @@ python -m pip install -r requirements-mcp.txt
 {
   "mcpServers": {
     "research-toolkit": {
-      "command": "/absolute/path/to/python",
+      "command": "/absolute/path/to/research-toolkit/.venv/bin/python",
       "args": ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"],
       "env": {
         "RESEARCH_TOOLKIT_WORKSPACE": "/absolute/path/to/research-tasks"
@@ -79,7 +99,7 @@ python -m pip install -r requirements-mcp.txt
 }
 ```
 
-Windows 路径可写成 `D:/tools/python/python.exe` 这样的正斜杠形式。研究文件保存在指定目录下；未设置时，优先使用插件数据目录，否则使用 `~/.research-toolkit/tasks`。不要把研究成果写进已安装的插件包。
+Windows 路径可写成 `D:/tools/research-toolkit/.venv/Scripts/python.exe` 这样的正斜杠形式。研究文件保存在指定目录下；未设置时，优先使用插件数据目录，否则使用 `~/.research-toolkit/tasks`。不要把研究成果写进已安装的插件包。
 
 服务还提供 `research` 提示和 `research-toolkit://instructions` 资源。让 Agent 先读取入口，再使用工具。本地 stdio 需要客户端能够启动本地进程；只接受远程 HTTPS 服务的网页客户端不能直接连接。
 

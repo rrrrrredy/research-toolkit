@@ -91,6 +91,24 @@ class DraftChecks(unittest.TestCase):
         self.assertFalse(result["ok"])
         self.assertEqual(self.snapshot(), before)
 
+    def test_length_input_errors_identify_the_field_and_correction_without_mutation(self):
+        for rule, clues in (
+                ({"minimum": 1, "maximum": 8}, ("minimum", "maximum", "use min/max")),
+                ({"min": "1"}, ("min", "JSON integer")),
+                ({"min": True}, ("min", "boolean")),
+                ({"min": 4, "max": 2}, ("min (4)", "max (2)")),
+                ({"unit": "tokens", "max": 8}, ("unit", "nonwhitespace_characters")),
+                ({"scope": "body_only", "max": 8}, ("scope", "whole_artifact"))):
+            with self.subTest(rule=rule):
+                self.bound(**rule)
+                before = self.snapshot()
+                result = w.check_draft(self.workspace, "case")
+                self.assertFalse(result["ok"])
+                self.assertEqual(result["length_checks"], [])
+                for clue in clues:
+                    self.assertIn(clue, " ".join(result["errors"]))
+                self.assertEqual(self.snapshot(), before)
+
     def test_missing_invalid_utf8_and_escaping_reports_fail_without_mutation(self):
         self.bound(max=100)
         (self.root / "bad.md").write_bytes(b"\xff")

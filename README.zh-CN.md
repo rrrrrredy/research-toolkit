@@ -4,92 +4,43 @@
 
 [English](./README.md) · [简体中文](./README.zh-CN.md)
 
-现有及以后的用户题、开发题、参考测试和案例均为真实独立任务；实际执行的测试都是真实测试。任务按研究问题区分，同题重复运行仍按重复运行记录。来源材料保留原有出处与性质，包括用户提供或构造的数据。Astra 在单独上下文中即可承担独立评审，无需外部人员、另一家模型或额外外部材料。分工、评审输入或验收标准变化时，应针对受影响部分复验。
-
-**让 AI Agent 写出判断具体、来源可查的研究报告，并按任务选择评审档位。**
+**用 Full 完成有深度、判断具体、来源可查的长研究报告。**
 
 研究方法 · 可调用的执行工具 · 可选评审档位。适用于行业研究、产品比较、公司分析和技术调研。
 
-[**快速开始**](#快速开始) · [在你的 Agent 中使用](#使用) · [研究案例](#研究案例) · [评测结果](#evaluation-results) · [Lite 入门](./docs/quickstart-lite.zh-CN.md) · [文档](#文档)
+[**用 Full 开始**](#快速开始) · [在你的 Agent 中使用](#使用) · [研究案例](#研究案例) · [评测结果](#evaluation-results) · [Lite 短简报体验](./docs/quickstart-lite.zh-CN.md) · [文档](#文档)
 
 **1.0.0：**[发布说明](./docs/releases/v1.0.0.zh-CN.md) · [1.x 兼容性约定](./docs/compatibility.zh-CN.md)。
 
+先看完整成果：[国内办公 Agent 调研](./docs/case-study/report.zh-CN.md) · [APIs or browsers（英文）](./docs/case-study/api-or-browser/report.md)。两份案例均保留初稿、来源与修订记录，下方可查看关键判断如何修改。
+
 ## 快速开始
 
-**首次使用建议选择 `lite`。** Agent 已就绪时，预计约 **5–15 分钟**。复制下面的请求即可，题目和两份虚构来源已经备好：
+**长报告选择 `full`。** 把下面的请求交给能读取仓库与来源材料的 Agent，替换方括号内容即可：
 
 ```text
-使用 https://github.com/rrrrrredy/research-toolkit，先读 SKILL.md。
-选择 profile=lite。完整需求见 examples/lite/start.zh.json，
-来源说明见 examples/lite/sources.zh-CN.md。
-为需求中的六人团队推荐客服工具，写一篇600–900字中文简报。
-只用随附材料，登记来源与判断，分节起草。
-跳过 research_review 和 Full 交付硬门槛；
-逐项完成 Lite 的六项 checklist，并给出具体依据。
-分别交付简报、来源与判断记录、checklist。
-披露材料虚构且未进行独立评审。
+本次使用 Research Toolkit：
+https://github.com/rrrrrredy/research-toolkit
+先阅读 SKILL.md，选择 profile=full，按阶段读取相关方法。
+
+研究问题：[填写问题、读者和用途。]
+范围与篇幅：[填写研究范围、信息截止日，以及篇幅和计数口径。]
+已有材料：[提供文件或链接；没有则由 Agent 检索。]
+
+结合已有信息明确需求和提纲，只追问影响研究的关键缺项。
+阅读原始来源，登记来源与重要判断，分节展开比较、反证和结论。
+按任务选择 self 或独立上下文评审，修正具体问题后交付完整报告。
+报告使用可打开的来源链接；来源、判断及评审记录另行保存。
+若已接入 MCP/CLI，用现有工具保存进度、检查篇幅并完成交付。
 ```
 
-你会得到 **短报告 + sources/claims 记录 + 最终 checklist**。用时是估计值，不是模型响应时长保证。无需配置插件或 MCP；Agent 无法打开 GitHub 时，提供[下载后的文件或文本](./agents/README.zh-CN.md#直接读取使用)。
+交付 **完整报告 + 来源与判断记录 + 评审意见及修改结果**。研究方法可直接使用；需要保存任务进度和自动调用检查时，再接入 MCP/CLI。
 
-[完整 Lite 入门](./docs/quickstart-lite.zh-CN.md) · [选择你的 Agent](./agents/README.zh-CN.md#选择工具) · [示例文件](./examples/lite/README.zh-CN.md)
+[**Full 最短使用指南与完整示例**](./docs/quickstart-full.zh-CN.md) · [选择你的 Agent](./agents/README.zh-CN.md#选择工具)
 
-遇到问题？[提交失败案例](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)，提供报告片段及来源材料，就能参与贡献。[其他适合首次参与的小任务](./CONTRIBUTING.zh-CN.md#适合首次贡献的小任务)。
+只想体验短简报？[约 5–15 分钟 Lite 体验](./docs/quickstart-lite.zh-CN.md)提供现成题目与材料。
 
-## 作为 MCP 服务使用
-
-需要可调用工具时，安装 Python 3.10+，并在客户端实际使用的 Python 环境中安装 MCP 依赖：
-
-```bash
-git clone https://github.com/rrrrrredy/research-toolkit.git
-cd research-toolkit
-python -m pip install -r requirements-mcp.txt
-```
-
-**Claude Desktop / Cursor：**将下面的 JSON 合入 Claude Desktop 的 `claude_desktop_config.json`（Settings → Developer → Edit Config）或 Cursor 的 `.cursor/mcp.json`。替换两处绝对路径，研究任务目录放在仓库之外。
-
-```json
-{
-  "mcpServers": {
-    "research-toolkit": {
-      "type": "stdio",
-      "command": "python",
-      "args": ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"],
-      "env": {
-        "RESEARCH_TOOLKIT_WORKSPACE": "/absolute/path/to/research-tasks"
-      }
-    }
-  }
-}
-```
-
-**Codex CLI / IDE：**其原生配置采用 TOML，不采用 `mcpServers` JSON。将等效配置加入 `~/.codex/config.toml`：
-
-```toml
-[mcp_servers.research-toolkit]
-command = "python"
-args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
-
-[mcp_servers.research-toolkit.env]
-RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
-```
-
-重启客户端，确认能看到七个 `research_*` 工具。若客户端 PATH 中找不到 `python`，使用 `python -c "import sys; print(sys.executable)"` 显示的绝对路径；Windows JSON 路径可用正斜杠。[客户端文档与排查方法](./docs/usage-modes.zh-CN.md#单独接入-mcp)。
-
-**实际采集的 Full 自评示例。** Lite 跳过评审；这个采用虚构来源材料的小型真实 Full 任务展示无需外部账户的评审调用。Agent 在读取方法后、评审前保存报告和证据文件。
-
-| 调用 | 输入节选 | 实际返回节选 |
-| --- | --- | --- |
-| `research_start` | `{"task":"shipment-note","profile":"full","brief":…}`（[完整输入](./examples/mcp/start.json)） | `{"ready_for_collection":true,"profile":"full","missing_fields":[],"stage":"collect"}` |
-| `research_guide` | `{"stage":"draft","language":"en","profile":"full"}` | `{"stage":"draft","profile":"full"}`；省略方法正文 |
-| `research_review` | `{"task":"shipment-note","evidence_paths":["source.md"],"reviewer":"self"}` | `{"reviews_complete":false,"action_required":"self_review","reviewer":"self","review_strength":"degraded"}` |
-| 再次 `research_review` | 提交[自评内容](./examples/mcp/self-review.json)和返回的 `input_version` | `{"reviews_complete":true,"reviewer":"self","review_strength":"degraded"}` |
-| `research_check_draft` | 检查当前稿件记录与显式篇幅，不调用模型、不改变任务状态。 |
-| `research_finish` | `{"task":"shipment-note","message":"The fictional shipment note is complete, with self-review only and no independent review."}` | `{"completed":true}` |
-
-[采集的输入与输出](./examples/mcp/captured.json) · [运行示例](./examples/mcp/README.zh-CN.md)。这些是本地服务的真实返回，不是效果评测结果；示例重放已提供的作者自评，不调用外部模型。
-
-**MCP 演示录屏：**待录制。[GIF/asciinema 占位与录制说明](./docs/assets/mcp-demo.zh-CN.md)。
+遇到问题？[提交失败案例](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)，附报告片段及来源材料。
 
 ## 研究案例
 
@@ -187,22 +138,26 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 
 ## 使用
 
-[**5–15 分钟 Lite 入门**](./docs/quickstart-lite.zh-CN.md)：复制一个完整请求，用两份随附材料产出简报和最终 checklist，无需配置评审后端。
+[**Full 最短使用指南**](./docs/quickstart-full.zh-CN.md)：从研究问题到完整长报告，包含现成请求、评审方式与可选本地工具。
 
 通用入口是 [SKILL.md 中的研究指令](./SKILL.md)，也可阅读[中文版本](./SKILL.zh-CN.md)。Agent 读取入口后，按研究阶段加载它链接的具体方法。原生 Skill 安装是可选方式。
 
 将以下请求发给能够读取 GitHub 并访问所需来源的 Agent：
 
 ```text
-本次研究请使用 Research Toolkit：
+本次使用 Research Toolkit：
 https://github.com/rrrrrredy/research-toolkit
+先阅读 SKILL.md，选择 profile=full，按阶段读取相关方法。
 
-先阅读 SKILL.md，再按研究阶段读取它链接的参考方法。
+研究问题：[填写问题、读者和用途。]
+范围与篇幅：[填写研究范围、信息截止日，以及篇幅和计数口径。]
+已有材料：[提供文件或链接；没有则由 Agent 检索。]
 
-我的研究需求：[填写研究问题、用途和希望得到的成果。]
-
-结合已有信息澄清关键缺口，明确需求和提纲后再搜集资料，
-并按选定档位完成研究、写作、评审与交付。
+结合已有信息明确需求和提纲，只追问影响研究的关键缺项。
+阅读原始来源，登记来源与重要判断，分节展开比较、反证和结论。
+按任务选择 self 或独立上下文评审，修正具体问题后交付完整报告。
+报告使用可打开的来源链接；来源、判断及评审记录另行保存。
+若已接入 MCP/CLI，用现有工具保存进度、检查篇幅并完成交付。
 ```
 
 将方括号内容替换为你的研究需求；已明确的读者、范围、篇幅、信息截止日或必需材料也可一并提供。
@@ -220,6 +175,81 @@ https://github.com/rrrrrredy/research-toolkit
 **可选执行工具。** 能启动本地 MCP 服务的 Agent，可调用七个工具保存任务、加载阶段方法、执行审阅和检查交付。兼容的插件将同一套方法与工具一起安装。[插件与 MCP 配置](./docs/usage-modes.zh-CN.md)
 
 读取指令不会自动启动 MCP 或执行评审。Full 未配置评审后端时返回 self 评审模板；需要外部／独立意见时配置任一受支持后端。[后端配置与材料去向](./SKILL.zh-CN.md#评审后端)
+
+## 作为 MCP 服务使用
+
+需要可调用工具时，先获取仓库，再按下方虚拟环境步骤安装：
+
+```bash
+git clone https://github.com/rrrrrredy/research-toolkit.git
+cd research-toolkit
+```
+
+使用 Python 3.10+，在独立虚拟环境中安装依赖。从已克隆的仓库目录执行：
+
+**macOS / Linux**
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-mcp.txt
+.venv/bin/python -c "import sys, mcp; print(sys.executable)"
+```
+
+**Windows PowerShell**
+
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-mcp.txt
+.\.venv\Scripts\python.exe -c "import sys, mcp; print(sys.executable)"
+```
+
+Windows 没有 `py` 启动器时，第一条命令改用已安装的 Python 3.10+ 解释器。把打印出的解释器绝对路径填入 MCP 的 `command`；无需激活环境或修改 PowerShell 执行策略。Linux 若提示缺少 `venv`／`ensurepip`，先安装发行版的 venv 包（Debian/Ubuntu 通常为 `python3-venv`），再创建环境。若出现 `externally-managed-environment`，通常是安装时用了系统 Python，改用上面的 `.venv` 解释器运行 pip。见 [Python venv 文档](https://docs.python.org/3/library/venv.html)。
+
+
+**Claude Desktop / Cursor：**将下面的 JSON 合入 Claude Desktop 的 `claude_desktop_config.json`（Settings → Developer → Edit Config）或 Cursor 的 `.cursor/mcp.json`。替换三处绝对路径，研究任务目录放在仓库之外。
+
+```json
+{
+  "mcpServers": {
+    "research-toolkit": {
+      "type": "stdio",
+      "command": "/absolute/path/to/research-toolkit/.venv/bin/python",
+      "args": ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"],
+      "env": {
+        "RESEARCH_TOOLKIT_WORKSPACE": "/absolute/path/to/research-tasks"
+      }
+    }
+  }
+}
+```
+
+**Codex CLI / IDE：**其原生配置采用 TOML，不采用 `mcpServers` JSON。将等效配置加入 `~/.codex/config.toml`：
+
+```toml
+[mcp_servers.research-toolkit]
+command = "/absolute/path/to/research-toolkit/.venv/bin/python"
+args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
+
+[mcp_servers.research-toolkit.env]
+RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
+```
+
+重启客户端，确认能看到七个 `research_*` 工具。`command` 使用上面打印的绝对路径；Windows 例如 `C:/tools/research-toolkit/.venv/Scripts/python.exe`，JSON 路径可用正斜杠。[客户端文档与排查方法](./docs/usage-modes.zh-CN.md#单独接入-mcp)。
+
+**实际采集的 Full 自评示例。** Lite 跳过评审；这个采用虚构来源材料的小型真实 Full 任务展示无需外部账户的评审调用。Agent 在读取方法后、评审前保存报告和证据文件。
+
+| 调用 | 输入节选 | 实际返回节选 |
+| --- | --- | --- |
+| `research_start` | `{"task":"shipment-note","profile":"full","brief":…}`（[完整输入](./examples/mcp/start.json)） | `{"ready_for_collection":true,"profile":"full","missing_fields":[],"stage":"collect"}` |
+| `research_guide` | `{"stage":"draft","language":"en","profile":"full"}` | `{"stage":"draft","profile":"full"}`；省略方法正文 |
+| `research_review` | `{"task":"shipment-note","evidence_paths":["source.md"],"reviewer":"self"}` | `{"reviews_complete":false,"action_required":"self_review","reviewer":"self","review_strength":"degraded"}` |
+| 再次 `research_review` | 提交[自评内容](./examples/mcp/self-review.json)和返回的 `input_version` | `{"reviews_complete":true,"reviewer":"self","review_strength":"degraded"}` |
+| `research_check_draft` | 检查当前稿件记录与显式篇幅，不调用模型、不改变任务状态。 |
+| `research_finish` | `{"task":"shipment-note","message":"The fictional shipment note is complete, with self-review only and no independent review."}` | `{"completed":true}` |
+
+[采集的输入与输出](./examples/mcp/captured.json) · [运行示例](./examples/mcp/README.zh-CN.md)。这些是本地服务的真实返回，不是效果评测结果；示例重放已提供的作者自评，不调用外部模型。
+
+**MCP 演示录屏：**待录制。[GIF/asciinema 占位与录制说明](./docs/assets/mcp-demo.zh-CN.md)。
 
 ## 评审与验收
 
@@ -261,6 +291,8 @@ Agent 使用自身的检索、读写和分析能力完成研究。插件将 Skil
 ## 评测集
 
 <a id="evaluation-results"></a>
+
+现有及以后的用户题、开发题、参考测试和案例均为真实独立任务；实际执行的测试都是真实测试。任务按研究问题区分，同题重复运行仍按重复运行记录。来源材料保留原有出处与性质，包括用户提供或构造的数据。Astra 在单独上下文中即可承担独立评审，无需外部人员、另一家模型或额外外部材料。分工、评审输入或验收标准变化时，应针对受影响部分复验。
 
 **做过对照：公开归档包含用／不用工具箱的开发期比较，以及固定来源 Lite 小型试验。这些材料用于发现流程和报告问题，尚不能证明普遍的质量优势。**
 

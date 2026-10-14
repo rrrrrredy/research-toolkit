@@ -18,7 +18,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
-No pending changes.
+- Make substantial reports and Full the primary bilingual README and website entry; add Full guides, research requests and length templates.
+- Install MCP with a virtual environment and absolute interpreter path; add Windows/Linux troubleshooting and field-specific length errors without changing counting or acceptance rules.
 
 ## v0.2.6 — 2026-10-13
 

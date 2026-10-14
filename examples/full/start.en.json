@@ -1,0 +1,13 @@
+{
+  "task": "knowledge-assistant-full-en",
+  "language": "en",
+  "profile": "full",
+  "brief": {
+    "question": "When should an enterprise knowledge assistant choose RAG, long context or a hybrid?",
+    "audience": "Product and technical leads of an enterprise knowledge assistant.",
+    "scope": "Compare document updates, permissions, citation location, answer quality, latency and cost using primary papers and technical documentation available as of execution.",
+    "output": "final.md: a complete English report, 3000–4000 whitespace-delimited words across the whole file including Markdown, citations and references; separate source, claim and review records.",
+    "depth": "Develop evidence, comparisons and counterevidence by section, with conditional recommendations and first steps. Treat unspecified organization size, budget and deployment conditions as assumptions to verify.",
+    "evidence_standard": "Read primary sources, record the information cutoff at execution, cite source titles and URLs, and revise the complete report using the chosen review tier."
+  }
+}

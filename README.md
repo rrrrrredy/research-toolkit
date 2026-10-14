@@ -4,92 +4,45 @@
 
 [English](./README.md) · [简体中文](./README.zh-CN.md)
 
-Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
-
-**Help AI agents write research reports with concrete judgments, traceable sources, and explicit review choices.**
+**Use Full to produce substantial research reports with concrete judgments and traceable sources.**
 
 Research methods · Callable workflow tools · Review choices. For industry research, product comparisons, company analysis, and technical research.
 
-[**Quick start**](#quick-start) · [Use with your agent](#usage) · [Research case](#research-case) · [Evaluation results](#evaluation-results) · [Lite quickstart](./docs/quickstart-lite.md) · [Documentation](#documentation)
+[**Start with Full**](#quick-start) · [Use with your agent](#usage) · [Research case](#research-case) · [Evaluation results](#evaluation-results) · [Lite short-brief walkthrough](./docs/quickstart-lite.md) · [Documentation](#documentation)
 
 **1.0.0:** [Release notes](./docs/releases/v1.0.0.md) · [1.x compatibility policy](./docs/compatibility.md).
 
+Read a complete report: [APIs or browsers](./docs/case-study/api-or-browser/report.md) · [Office agents in China (Chinese)](./docs/case-study/report.zh-CN.md). Both retain drafts, sources and revision records; the case section below shows the changes in reasoning.
+
 ## Quick start
 
-**Start with `lite`.** Allow about **5–15 minutes** with your agent ready to use. Copy this request; the topic and two fictional sources are supplied:
+**Choose `full` for a substantial report.** Send this request to an agent that can read the repository and source material, replacing the bracketed fields:
 
 ```text
-Use https://github.com/rrrrrredy/research-toolkit and read SKILL.md.
-Choose profile=lite. Read examples/lite/start.en.json for the brief
-and examples/lite/sources.md for the source notes.
-Recommend a helpdesk plan for the six-person team in 350–500 English
-words. Use only the supplied evidence, register sources and claims,
-and draft section by section. Skip research_review and Full delivery
-gates; complete all six Lite checklist items with concrete evidence.
-Return the short report, separate source/claim records, and checklist.
-Disclose the fictional evidence and absence of independent review.
+Use Research Toolkit:
+https://github.com/rrrrrredy/research-toolkit
+Read SKILL.md, choose profile=full, and load the methods by stage.
+
+Research question: [Include the question, audience, and intended use.]
+Scope and length: [Include scope, information cutoff, length and counting unit.]
+Existing material: [Attach files or links; otherwise have the agent research it.]
+
+Use the available context to establish the brief and outline; ask only
+about consequential gaps. Read primary sources, register sources and
+important claims, and develop comparisons, counterevidence and conclusions
+section by section. Use self-review or a separate review context as the
+task requires, resolve concrete findings, and deliver the complete report.
+Use working source links; keep source, claim and review records separately.
+If MCP/CLI is connected, use it for progress, length checks and delivery.
 ```
 
-You receive a **short report + sources/claims trail + final checklist**. The time is an estimate, not a model response guarantee. No plugin or MCP setup is required; if your agent cannot open GitHub, provide the [downloaded files or text](./agents/README.md#use-without-installation).
+Receive a **complete report + source/claim records + review findings and revisions**. Apply the methods directly; connect MCP/CLI when you want saved task state and callable checks.
 
-[Full Lite walkthrough](./docs/quickstart-lite.md) · [Choose your agent](./agents/README.md#choose-your-tool) · [Example files](./examples/lite/README.md)
+[**Shortest Full guide and complete example**](./docs/quickstart-full.md) · [Choose your agent](./agents/README.md#choose-your-tool)
 
-Found a problem? [Submit a failure case](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)—a report excerpt and its source material are a useful first contribution. [Other small contributions](./CONTRIBUTING.md#good-first-issue-ideas).
+For a short-brief introduction, the [5–15 minute Lite walkthrough](./docs/quickstart-lite.md) supplies a question and source material.
 
-## Use as an MCP server
-
-For callable tools, install Python 3.10+ and the MCP dependency in the Python environment your client uses:
-
-```bash
-git clone https://github.com/rrrrrredy/research-toolkit.git
-cd research-toolkit
-python -m pip install -r requirements-mcp.txt
-```
-
-**Claude Desktop / Cursor:** merge this JSON into Claude Desktop's `claude_desktop_config.json` (Settings → Developer → Edit Config) or Cursor's `.cursor/mcp.json`. Replace both absolute paths. Keep research tasks outside the checkout.
-
-```json
-{
-  "mcpServers": {
-    "research-toolkit": {
-      "type": "stdio",
-      "command": "python",
-      "args": ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"],
-      "env": {
-        "RESEARCH_TOOLKIT_WORKSPACE": "/absolute/path/to/research-tasks"
-      }
-    }
-  }
-}
-```
-
-**Codex CLI / IDE:** its native configuration is TOML, not `mcpServers` JSON. Add the equivalent to `~/.codex/config.toml`:
-
-```toml
-[mcp_servers.research-toolkit]
-command = "python"
-args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
-
-[mcp_servers.research-toolkit.env]
-RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
-```
-
-Restart the client and confirm the seven `research_*` tools appear. If `python` is not on the client's PATH, use the absolute executable path shown by `python -c "import sys; print(sys.executable)"`. Windows JSON paths can use forward slashes. [Client documentation and troubleshooting](./docs/usage-modes.md#connect-mcp-separately).
-
-**A captured Full example with self-review.** Lite skips review; this small real Full task using fictional source material demonstrates the review call without an external account. The agent supplies the report and evidence files between guidance and review.
-
-| Call | Input excerpt | Actual response excerpt |
-| --- | --- | --- |
-| `research_start` | `{"task":"shipment-note","profile":"full","brief":…}` ([complete input](./examples/mcp/start.json)) | `{"ready_for_collection":true,"profile":"full","missing_fields":[],"stage":"collect"}` |
-| `research_guide` | `{"stage":"draft","language":"en","profile":"full"}` | `{"stage":"draft","profile":"full"}`; method text omitted |
-| `research_review` | `{"task":"shipment-note","evidence_paths":["source.md"],"reviewer":"self"}` | `{"reviews_complete":false,"action_required":"self_review","reviewer":"self","review_strength":"degraded"}` |
-| `research_review` again | Submit the [self-review](./examples/mcp/self-review.json) plus the returned `input_version` | `{"reviews_complete":true,"reviewer":"self","review_strength":"degraded"}` |
-| `research_check_draft` | Check current draft records and explicit length bounds without model calls or changing task state. |
-| `research_finish` | `{"task":"shipment-note","message":"The fictional shipment note is complete, with self-review only and no independent review."}` | `{"completed":true}` |
-
-[Captured inputs/outputs](./examples/mcp/captured.json) · [Run the example](./examples/mcp/README.md). These are local server responses, not efficacy results; the example replays a supplied author review and makes no external model call.
-
-**MCP demo recording:** pending. [GIF/asciinema recording slot and instructions](./docs/assets/mcp-demo.md).
+Found a problem? [Submit a failure case](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml) with a report excerpt and sources.
 
 ## Research case
 
@@ -136,25 +89,28 @@ Public-source analysis, 10 October 2026. The workflow is illustrative; no deploy
 
 ## Usage
 
-[**5–15 minute Lite quickstart**](./docs/quickstart-lite.md): copy one complete request, use two supplied sources, and produce a short brief with the final checklist. No reviewer setup.
+[**Shortest Full guide**](./docs/quickstart-full.md): go from a research question to a complete report, with a ready request, review choices and optional local tools.
 
 Start with the shared [research instructions in SKILL.md](./SKILL.md). Your agent reads that entry point and follows its links to the methods needed at each stage. Native Skill installation is optional.
 
 Send this request to an agent that can read GitHub and access the required sources:
 
 ```text
-Use Research Toolkit for this task:
+Use Research Toolkit:
 https://github.com/rrrrrredy/research-toolkit
+Read SKILL.md, choose profile=full, and load the methods by stage.
 
-Read SKILL.md first, then follow its links to the methods needed
-for each research stage.
+Research question: [Include the question, audience, and intended use.]
+Scope and length: [Include scope, information cutoff, length and counting unit.]
+Existing material: [Attach files or links; otherwise have the agent research it.]
 
-My research request: [Describe your research question, intended
-use, and desired output.]
-
-Use the conversation to clarify essential gaps and establish the
-brief and outline before collecting sources. Follow the selected
-profile's research, writing, review, and delivery instructions.
+Use the available context to establish the brief and outline; ask only
+about consequential gaps. Read primary sources, register sources and
+important claims, and develop comparisons, counterevidence and conclusions
+section by section. Use self-review or a separate review context as the
+task requires, resolve concrete findings, and deliver the complete report.
+Use working source links; keep source, claim and review records separately.
+If MCP/CLI is connected, use it for progress, length checks and delivery.
 ```
 
 Replace the bracketed text with your research request. Include any known audience, scope, length, time cutoff, or required sources.
@@ -172,6 +128,81 @@ Replace the bracketed text with your research request. Include any known audienc
 **Optional workflow tools.** An agent that can start a local MCP server can use the seven tools for task records, stage guidance, review calls, and delivery checks. A compatible plugin bundles the same methods and tools. [Plugin and MCP configuration](./docs/usage-modes.md)
 
 Reading the instructions does not start MCP or execute a review. Full returns a self-review prompt when no backend is configured; configure any supported backend for external or independent opinions. [Backend setup and data destinations](./SKILL.md#reviewer-backends)
+
+## Use as an MCP server
+
+For callable tools, get the repository and install into a virtual environment:
+
+```bash
+git clone https://github.com/rrrrrredy/research-toolkit.git
+cd research-toolkit
+```
+
+Use Python 3.10+ in a dedicated virtual environment. From the cloned repository:
+
+**macOS / Linux**
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-mcp.txt
+.venv/bin/python -c "import sys, mcp; print(sys.executable)"
+```
+
+**Windows PowerShell**
+
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-mcp.txt
+.\.venv\Scripts\python.exe -c "import sys, mcp; print(sys.executable)"
+```
+
+If Windows has no `py` launcher, use your installed Python 3.10+ executable in the first command. Use the printed absolute interpreter path as the MCP `command`; no environment activation or PowerShell execution-policy change is needed. If Linux reports that `venv`/`ensurepip` is missing, install your distribution's venv package (commonly `python3-venv` on Debian/Ubuntu), then recreate the environment. An `externally-managed-environment` error usually means the install used system Python: rerun pip through `.venv` as above. See the [Python venv documentation](https://docs.python.org/3/library/venv.html).
+
+
+**Claude Desktop / Cursor:** merge this JSON into Claude Desktop's `claude_desktop_config.json` (Settings → Developer → Edit Config) or Cursor's `.cursor/mcp.json`. Replace all three absolute paths. Keep research tasks outside the checkout.
+
+```json
+{
+  "mcpServers": {
+    "research-toolkit": {
+      "type": "stdio",
+      "command": "/absolute/path/to/research-toolkit/.venv/bin/python",
+      "args": ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"],
+      "env": {
+        "RESEARCH_TOOLKIT_WORKSPACE": "/absolute/path/to/research-tasks"
+      }
+    }
+  }
+}
+```
+
+**Codex CLI / IDE:** its native configuration is TOML, not `mcpServers` JSON. Add the equivalent to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.research-toolkit]
+command = "/absolute/path/to/research-toolkit/.venv/bin/python"
+args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
+
+[mcp_servers.research-toolkit.env]
+RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
+```
+
+Restart the client and confirm the seven `research_*` tools appear. Set `command` to the printed absolute path; on Windows, for example, `C:/tools/research-toolkit/.venv/Scripts/python.exe`. Forward slashes work in JSON paths. [Client documentation and troubleshooting](./docs/usage-modes.md#connect-mcp-separately).
+
+**A captured Full example with self-review.** Lite skips review; this small real Full task using fictional source material demonstrates the review call without an external account. The agent supplies the report and evidence files between guidance and review.
+
+| Call | Input excerpt | Actual response excerpt |
+| --- | --- | --- |
+| `research_start` | `{"task":"shipment-note","profile":"full","brief":…}` ([complete input](./examples/mcp/start.json)) | `{"ready_for_collection":true,"profile":"full","missing_fields":[],"stage":"collect"}` |
+| `research_guide` | `{"stage":"draft","language":"en","profile":"full"}` | `{"stage":"draft","profile":"full"}`; method text omitted |
+| `research_review` | `{"task":"shipment-note","evidence_paths":["source.md"],"reviewer":"self"}` | `{"reviews_complete":false,"action_required":"self_review","reviewer":"self","review_strength":"degraded"}` |
+| `research_review` again | Submit the [self-review](./examples/mcp/self-review.json) plus the returned `input_version` | `{"reviews_complete":true,"reviewer":"self","review_strength":"degraded"}` |
+| `research_check_draft` | Check current draft records and explicit length bounds without model calls or changing task state. |
+| `research_finish` | `{"task":"shipment-note","message":"The fictional shipment note is complete, with self-review only and no independent review."}` | `{"completed":true}` |
+
+[Captured inputs/outputs](./examples/mcp/captured.json) · [Run the example](./examples/mcp/README.md). These are local server responses, not efficacy results; the example replays a supplied author review and makes no external model call.
+
+**MCP demo recording:** pending. [GIF/asciinema recording slot and instructions](./docs/assets/mcp-demo.md).
 
 ## Review and Acceptance
 
@@ -213,6 +244,8 @@ Your agent performs retrieval, reading, analysis, and writing with its own capab
 ## Evaluation Suite
 
 <a id="evaluation-results"></a>
+
+Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
 
 **The public archive includes with/without-toolkit development comparisons and a fixed-source Lite pilot. They expose workflow and report weaknesses; they do not establish a general quality advantage.**
 
