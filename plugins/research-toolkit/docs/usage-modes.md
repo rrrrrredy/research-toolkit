@@ -17,13 +17,13 @@ No Python or vendor CLI installation is required merely to read and apply the me
 
 ## When to use each tool
 
-**The first [Lite task](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.md) works without MCP.** An instructions-only session can keep the brief, sources, claims and checklist in files or separate chat sections. None of the seven tool calls is required in that mode; it produces no local completion receipt.
+**Start with the [shortest Full guide](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-full.md) by reading the methods directly.** The agent completes the brief, source research, analysis, section drafts and chosen review, retaining separate records. Optional CLI/MCP tools provide local state and completion receipts.
 
 The table applies when you choose the managed local workflow, through MCP **or the [shared CLI](#skill-only-and-cli-fallback)**. Required methods still apply when you read them directly.
 
 | Tool | When it is needed | When you can skip the call |
 | --- | --- | --- |
-| `research_start` | Create a new managed task and its brief; explicitly select `profile=lite` for the first exercise. | Resume an existing task with `research_status`, or keep records yourself without local workflow tools. |
+| `research_start` | Create a new managed task and its brief; explicitly select `profile=full` for a substantial report. | Resume an existing task with `research_status`, or keep records yourself without local workflow tools. |
 | `research_status` | Resume a managed task, inspect saved progress, or change its recorded stage. | You do not need to read or update progress; a methods-only session can use its own notes. |
 | `research_guide` | Retrieve the method for a stage when it is not already available in context. | Read the relevant `SKILL.md` and `references/` files directly. |
 | `research_review` | Complete the declared reviews in a Full task, including explicit self-review when that is the chosen tier. | Lite skips review; never skip a review explicitly required by the assignment. |
@@ -60,8 +60,28 @@ Clone the repository, install its dependency in the Python environment your clie
 ```bash
 git clone https://github.com/rrrrrredy/research-toolkit.git
 cd research-toolkit
-python -m pip install -r requirements-mcp.txt
 ```
+
+Use Python 3.10+ in a dedicated virtual environment. From the cloned repository:
+
+**macOS / Linux**
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements-mcp.txt
+.venv/bin/python -c "import sys, mcp; print(sys.executable)"
+```
+
+**Windows PowerShell**
+
+```powershell
+py -3 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements-mcp.txt
+.\.venv\Scripts\python.exe -c "import sys, mcp; print(sys.executable)"
+```
+
+If Windows has no `py` launcher, use your installed Python 3.10+ executable in the first command. Use the printed absolute interpreter path as the MCP `command`; no environment activation or PowerShell execution-policy change is needed. If Linux reports that `venv`/`ensurepip` is missing, install your distribution's venv package (commonly `python3-venv` on Debian/Ubuntu), then recreate the environment. An `externally-managed-environment` error usually means the install used system Python: rerun pip through `.venv` as above. See the [Python venv documentation](https://docs.python.org/3/library/venv.html).
+
 
 A client using an `mcpServers` configuration can use the following example. Replace both executable/script paths and the research workspace with your actual paths; adapt the enclosing configuration to your client.
 
@@ -69,7 +89,7 @@ A client using an `mcpServers` configuration can use the following example. Repl
 {
   "mcpServers": {
     "research-toolkit": {
-      "command": "/absolute/path/to/python",
+      "command": "/absolute/path/to/research-toolkit/.venv/bin/python",
       "args": ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"],
       "env": {
         "RESEARCH_TOOLKIT_WORKSPACE": "/absolute/path/to/research-tasks"
@@ -79,7 +99,7 @@ A client using an `mcpServers` configuration can use the following example. Repl
 }
 ```
 
-On Windows, forward-slash paths such as `D:/tools/python/python.exe` are valid JSON path strings. Research files are saved under the configured workspace. Without this setting, the server uses the plugin's data directory if available, otherwise `~/.research-toolkit/tasks`. Do not save research inside the installed package.
+On Windows, forward-slash paths such as `D:/tools/research-toolkit/.venv/Scripts/python.exe` are valid JSON path strings. Research files are saved under the configured workspace. Without this setting, the server uses the plugin's data directory if available, otherwise `~/.research-toolkit/tasks`. Do not save research inside the installed package.
 
 The server also exposes the `research` prompt and `research-toolkit://instructions` resource. Ask the agent to read the instructions before using the tools. Local stdio requires a client that can start a local process; a web-only client expecting a remote HTTPS server cannot connect directly.
 

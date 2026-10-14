@@ -46,8 +46,28 @@ python3 <skill-directory>/scripts/check_delivery.py <task-directory>
 Lite 与 Full 都可在已有要求台账中，用可选的 `length_constraint` 记录可测范围。起草／送审前记录任务已约定的篇幅及计数口径，不自行设置默认最小篇幅，也不从自然语言猜测阈值。以下是**合成格式示例**，不是通用字数目标：
 
 ```json
-{"requirement_id":"R-length","summary":"已约定整个文件为 800—1200 个非空白字符。","status":"satisfied","evidence":"final.md，整个文件","length_constraint":{"unit":"nonwhitespace_characters","scope":"whole_artifact","min":800,"max":1200}}
+{"requirement_id":"R-length","summary":"已约定整个文件为 800—1200 个非空白字符。","status":"pending","evidence":"","length_constraint":{"unit":"nonwhitespace_characters","scope":"whole_artifact","min":800,"max":1200}}
 ```
+
+将这一行写入任务目录的 `state/requirements.jsonl`，每行一个 JSON 对象，保留其他要求。示例先记为 `pending`；实际计数并核对约定后，才改为 `satisfied`，填写 `evidence`（如 `final.md，整个文件`）。
+
+| 要填什么 | 正确写法 |
+| --- | --- |
+| 上下限 | `min` / `max`，至少填一个；不要写 `minimum`、`max_chars`。 |
+| 数值 | `6000` 这样的非负整数，不加引号；最小值不超过最大值。 |
+| 计数方式 | 中文常用 `nonwhitespace_characters`；空白分隔词用 `whitespace_words`。 |
+| 计数范围 | `scope: "whole_artifact"`，整份文件包含标题、Markdown、引用和参考资料。 |
+
+Full 示例提供可修改的 [中文篇幅记录](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/full/requirements.zh.jsonl)及[英文篇幅记录](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/full/requirements.en.jsonl)。不要求使用示例数字，填写任务实际约定。
+
+把 `{"task":"你的任务名"}` 保存为 `check-draft.json`，从仓库根目录执行：
+
+```bash
+python3 scripts/research_workflow.py check-draft --workspace ../research-work --request check-draft.json
+```
+
+Windows 可将 `python3` 替换为 `py -3` 或已有解释器路径；MCP 可直接调用 `research_check_draft(task="你的任务名")`。查看 `counts` 和 `length_checks` 的实际值与范围；字段填错时，`errors` 会指出字段及正确写法。`pending` 仍会提示要求未完成，不能只根据字数自动标记通过。
+
 
 `whitespace_words` 按 Python 空白分词；`nonwhitespace_characters` 统计除空白外的 Unicode 码点。两者均计算整个 UTF-8 文件，包含 Markdown 标记、标题、引用及参考文献；不是模型 token 或编辑器渲染后的字数。目前仅支持 `whole_artifact`。若约定只统计正文或按页限制，应使用相应测量，不能改称全文计数。`min`／`max` 至少提供一个非负整数，范围包含端点；使用独立要求编号，并在 summary 中说明实际约定。
 

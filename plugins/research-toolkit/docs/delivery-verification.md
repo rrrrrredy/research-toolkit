@@ -46,8 +46,28 @@ The checker compares these declared fields. It cannot detect an omitted requirem
 Lite and Full can measure a declared range using an optional `length_constraint` in the existing requirement ledger. Record the task's agreed range and counting convention before drafting/review; do not invent a default minimum or infer one from prose. This **synthetic format example** is not a universal length target:
 
 ```json
-{"requirement_id":"R-length","summary":"The agreed whole-file limit is 800–1200 nonwhitespace characters.","status":"satisfied","evidence":"final.md, whole file","length_constraint":{"unit":"nonwhitespace_characters","scope":"whole_artifact","min":800,"max":1200}}
+{"requirement_id":"R-length","summary":"The agreed whole-file limit is 800–1200 nonwhitespace characters.","status":"pending","evidence":"","length_constraint":{"unit":"nonwhitespace_characters","scope":"whole_artifact","min":800,"max":1200}}
 ```
+
+Put the row in the task's `state/requirements.jsonl`, one JSON object per line, retaining other requirements. Start as `pending`; after measuring and checking the agreement, change it to `satisfied` and fill `evidence` (for example `final.md, whole file`).
+
+| Field | Correct entry |
+| --- | --- |
+| Bounds | `min` / `max`, at least one; not `minimum` or `max_chars`. |
+| Values | Nonnegative integers such as `3000`, without quotes; min must not exceed max. |
+| Counting unit | `whitespace_words` for whitespace-delimited words; `nonwhitespace_characters` is often suitable for Chinese. |
+| Counting scope | `scope: "whole_artifact"` includes headings, Markdown, citations and references. |
+
+Full provides editable [English](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/full/requirements.en.jsonl) and [Chinese](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/full/requirements.zh.jsonl) length records. Use the task's agreed numbers, not an automatic example target.
+
+Save `{"task":"your-task-id"}` as `check-draft.json`, then run from the repository root:
+
+```bash
+python3 scripts/research_workflow.py check-draft --workspace ../research-work --request check-draft.json
+```
+
+On Windows, replace `python3` with `py -3` or an installed interpreter path; with MCP, call `research_check_draft(task="your-task-id")`. Read `counts` and `length_checks` for actual counts and bounds; incorrect fields appear in `errors` with the expected form. A `pending` row still reports an unfinished requirement; a count alone does not approve it.
+
 
 Use `whitespace_words` for Python whitespace-delimited segments, or `nonwhitespace_characters` for Unicode code points except whitespace. Both count the entire UTF-8 artifact, including Markdown syntax, headings, citations and references. They are not model tokens or editor-rendered word counts. Only `whole_artifact` is supported; a body-only or page limit needs its own appropriate measurement, not a relabeled whole-file count. At least one nonnegative integer `min`/`max` is required; bounds are inclusive. Keep a distinct requirement ID and a summary of the actual agreement.
 
