@@ -18,6 +18,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Validate version manifests and parent paths before any plugin build writes; exercise real CLI file/directory symlink and Windows junction failures without partial version updates.
+- Extend advisory citation checks to file citations and file lists, and exempt indented code examples while preserving prose warnings and line numbers.
 - Fix deletion/rename synchronization for generated plugin files with ownership tracking, preservation of unmanaged content and cross-platform controls.
 - Present Lite/Full alongside each other by task, share the research baseline and document report revision, source updates and Lite-to-Full continuation; correct plugin tool counts and reviewer-tier descriptions.
 - Add draft advisories for private chat citations in either profile without new delivery gates or changed historical receipts.

@@ -5,9 +5,26 @@ import argparse
 import json
 from pathlib import Path
 import re
+import stat
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFESTS = ("plugins/research-toolkit/plugin.json", "plugins/research-toolkit/.codex-plugin/plugin.json")
+
+
+def safe_repo_file(root: Path, relative: str) -> Path:
+    """Validate a write target and every parent below the repository root."""
+    path = root / relative
+    if not path.resolve().is_relative_to(root.resolve()):
+        raise ValueError(f"Path escapes the repository: {relative}")
+    current = root
+    for component in path.relative_to(root).parts:
+        current = current / component
+        if current.is_symlink() or (current.exists() and getattr(current.lstat(), "st_file_attributes", 0)
+                                    & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0x400)):
+            raise ValueError(f"Refusing linked repository path: {relative}")
+    if path.exists() and not path.is_file():
+        raise ValueError(f"Expected a regular repository file: {relative}")
+    return path
 
 
 def check(root: Path, write: bool = False) -> list[str]:
@@ -15,13 +32,15 @@ def check(root: Path, write: bool = False) -> list[str]:
     if not re.fullmatch(r"(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)", version):
         return ["VERSION must contain one normal major.minor.patch version"]
     errors = []
-    for name in MANIFESTS:
-        path = root / name
+    # Validate both destinations before either manifest can be changed.
+    paths = [(name, safe_repo_file(root, name)) for name in MANIFESTS]
+    updates = []
+    for name, path in paths:
         value = json.loads(path.read_text(encoding="utf-8"))
         if value.get("version") != version:
             if write:
                 value["version"] = version
-                path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+                updates.append((name, json.dumps(value, ensure_ascii=False, indent=2) + "\n"))
             else:
                 errors.append(f"{name}: version must be {version}; run --write")
     for name in ("CHANGELOG.md", "CHANGELOG.zh-CN.md"):
@@ -32,6 +51,9 @@ def check(root: Path, write: bool = False) -> list[str]:
         path = root / f"docs/releases/v{version}{suffix}.md"
         if not path.is_file() or not path.read_text(encoding="utf-8").startswith(f"# Research Toolkit v{version}\n"):
             errors.append(f"Missing release notes for v{version}: {path.relative_to(root)}")
+    if not errors:
+        for name, content in updates:
+            safe_repo_file(root, name).write_text(content, encoding="utf-8")
     return errors
 
 
