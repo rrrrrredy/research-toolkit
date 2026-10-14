@@ -638,6 +638,22 @@ def assess_limitation_disclosure(message: str, limitations: list[str]) -> dict[s
             "semantic_verification": False}
 
 
+def inspect_actual_delivery(actual_message: Path | None, intended_message: str | None):
+    """Compare an optional caller capture consistently for both profiles."""
+    if actual_message is None:
+        return "not_provided", None
+    try:
+        captured = Path(actual_message).read_text(encoding="utf-8")
+    except (OSError, UnicodeError):
+        return "unreadable", ("missing_actual_delivery",
+                              "The caller-provided actual delivery capture is missing or unreadable.")
+    normalize = lambda text: text.replace("\r\n", "\n").replace("\r", "\n").strip()
+    if intended_message is None or normalize(captured) != normalize(intended_message):
+        return "mismatch", ("actual_delivery_mismatch",
+                            "The captured actual reply differs from the receipt-bound intended message.")
+    return "matched", None
+
+
 def evaluate_delivery(
     project_root: Path,
     artifact: str = "final.md",
@@ -669,7 +685,29 @@ def evaluate_delivery(
 
     if progress.get("profile") == "lite":
         from profile_policy import inspect_lite_delivery
-        return inspect_lite_delivery(root, artifact, delivery_message)
+        result = inspect_lite_delivery(root, artifact, delivery_message)
+        # A retained checklist can still match its inputs after the task is resumed.
+        # Keep that fact separate from acceptance of the current task's delivery.
+        terminal_state = progress.get("stage") == "final" and progress.get("status") == "complete"
+        result.update(checklist_valid=result["ok"], terminal_state=terminal_state,
+                      stage=progress.get("stage"), task_status=progress.get("status"))
+        if not terminal_state:
+            add("incomplete_lite_task", "Lite task is not final/complete; finish the current work before delivery.")
+        message_path = resolve_inside(root, delivery_message)
+        try:
+            message = read_text(message_path) if message_path is not None else None
+        except (OSError, UnicodeError):
+            message = None
+        observation, issue = inspect_actual_delivery(actual_message, message)
+        if issue:
+            add(*issue)
+        result["delivery_observation"] = observation
+        result["flags"].extend(flags)
+        result["findings"].extend(findings)
+        result["ok"] = not result["flags"]
+        if not result["ok"]:
+            result["status"] = "incomplete"
+        return result
 
     stage = str(progress.get("stage", "")).strip().lower()
     status = str(progress.get("status", "")).strip().lower()
@@ -867,21 +905,9 @@ def evaluate_delivery(
             "paraphrase is not verification. Inspect limitation_disclosure.unmatched_limitations."
         )
 
-    delivery_observation = "not_provided"
-    if actual_message is not None:
-        captured_path = Path(actual_message)
-        try:
-            captured = captured_path.read_text(encoding="utf-8")
-        except (OSError, UnicodeError):
-            delivery_observation = "unreadable"
-            add("missing_actual_delivery", "The caller-provided actual delivery capture is missing or unreadable.")
-        else:
-            normalize = lambda text: text.replace("\r\n", "\n").replace("\r", "\n").strip()
-            if not message_exists or normalize(captured) != normalize(message):
-                delivery_observation = "mismatch"
-                add("actual_delivery_mismatch", "The captured actual reply differs from the receipt-bound intended message.")
-            else:
-                delivery_observation = "matched"
+    delivery_observation, issue = inspect_actual_delivery(actual_message, message if message_exists else None)
+    if issue:
+        add(*issue)
 
     return {
         "ok": not flags,

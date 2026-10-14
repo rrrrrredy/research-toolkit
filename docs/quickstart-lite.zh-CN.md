@@ -60,7 +60,7 @@ python3 scripts/research_workflow.py finish --workspace ../research-work --reque
 python3 scripts/check_delivery.py ../research-work/helpdesk-lite
 ```
 
-完成后可看到 `final.md`、`state/final_checklist.json`、`status: checklist_complete`、`independent_review: false` 以及明确的 `SKIP` 日志，没有独立评审记录。新凭证还绑定任务／来源／主张记录、要求记录和已声明的本地来源文件。任一绑定输入改变后，都需要重新检查并提交 checklist。可选用每项的 `evidence_files` 列表绑定保留的检查说明，见 [Lite 阶段指南](../references/lite-workflow.zh-CN.md)。
+完成后可看到 `final.md`、`state/final_checklist.json`、`status: checklist_complete`、`independent_review: false` 以及明确的 `SKIP` 日志，进度为 `final/complete`，没有独立评审记录。接续研究会保留 checklist，但当前交付检查保持未完成，直到再次完成当前工作。新凭证还绑定任务／来源／主张记录、要求记录和已声明的本地来源文件。任一绑定输入改变后，都需要重新检查并提交 checklist。可选用每项的 `evidence_files` 列表绑定保留的检查说明，见 [Lite 阶段指南](../references/lite-workflow.zh-CN.md)。
 
 提交 checklist 前可调用 `research_check_draft(task="helpdesk-lite")`（CLI `check-draft`，请求 `{"task":"helpdesk-lite"}`），取得记录错误与实测计数；该操作不调用模型、不声明完成。先登记约定的整份文件篇幅范围，再使用范围检查结果；来源正确性仍需作者核对，见[未达标与修正](failure-handling.zh-CN.md)。
 
