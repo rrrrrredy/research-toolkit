@@ -2,7 +2,7 @@
 
 [English](quickstart-full.md) · [简体中文](quickstart-full.zh-CN.md) · [Research Toolkit](../README.zh-CN.md)
 
-与 [Lite](quickstart-lite.zh-CN.md) 共用研究底线。证据冲突、复杂比较、正式交付或明确评审要求适合使用 Full；篇幅只作辅助。下方长报告是示例，不是选择门槛。已有稿件可[接续 Full](usage-modes.zh-CN.md#接续已有研究)。
+与 [Lite](quickstart-lite.zh-CN.md) 共用研究底线。需要跟踪要求与证据变化，并保留版本化评审、修订处置和交付核对时，选择 Full。Lite 同样处理复杂比较与冲突证据；根据实际流程需要选择，篇幅只作辅助。已有稿件可[接续 Full](usage-modes.zh-CN.md#接续已有研究)。
 
 准备好一个能读取文件与研究来源的 Agent，把下面的请求发给它即可。Full 覆盖需求、来源研究、分析、分节写作、评审和修订；MCP 是可选的任务管理工具。先看成果：[国内办公 Agent 调研](case-study/report.zh-CN.md) · [APIs or browsers](case-study/api-or-browser/report.md)。
 
@@ -69,7 +69,7 @@ python3 scripts/research_workflow.py start --profile full --workspace ../researc
 
 在新任务的 `state/requirements.jsonl` 中放入 [requirements.zh.jsonl](../examples/full/requirements.zh.jsonl) 的一行，保留已有其他要求。先用 `pending`，实际核对后才改为 `satisfied`。送审前以该任务名调用 `check-draft`，见[可复制的篇幅填写与检查步骤](delivery-verification.zh-CN.md#显式篇幅要求)。
 
-CLI/MCP 的评审和交付使用[现有调用说明](usage-modes.zh-CN.md)，示例不会预填报告或伪造评审。
+自评材料的保存与复用见 [CLI 示例](usage-modes.zh-CN.md#复用任务文件并保存自评材料)，其他档位和交付见[现有调用说明](usage-modes.zh-CN.md)。示例不会预填报告或伪造评审。
 
 </details>
 

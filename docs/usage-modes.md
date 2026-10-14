@@ -269,6 +269,36 @@ CLI requests are JSON objects supplied by `--request` or stdin. Missing/unknown 
 
 A brief request is `{"task":"comparison","language":"en","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`. Review arguments include `task`, task-relative `evidence_paths`, optional `artifact` (default `final.md`) and `purpose`. The `status`, `guide`, `check-draft` and `finish` actions mirror MCP arguments. `check-draft` takes `task` and optional `artifact`, needs no delivery message and exits 1 on a failed check. JSON may also be supplied through stdin.
 
+### Reuse task files and retain a self-review packet
+
+Use the existing task directory as the working location for reports, notes and sources. Pass `artifact` and `evidence_paths` relative to it; tools read those files directly. Retain the first draft before revising, and export the final report when delivering. Additional copies solely for each tool call are unnecessary.
+
+Set the task directory below to the location returned by `start`, and use the same task ID in the request. For an existing Full task named `comparison`, after preparing its report and source/claim records, save this request as `review.json`. Replace `source.md` with the actual evidence paths. Use this self-review example only when that is the selected tier; an independent requirement keeps its configured backend.
+
+```json
+{"task":"comparison","reviewer":"self","artifact":"final.md","evidence_paths":["source.md"]}
+```
+
+The CLI above prints the complete packet. To retain it, run this Python snippet from the repository/plugin root using the same interpreter as the CLI. `start` already created `logs`; `reviews` may not exist before review. Shell redirection opens its destination before the CLI runs.
+
+```python
+import subprocess
+import sys
+from pathlib import Path
+
+task = Path("../research-work/comparison").resolve()
+with (task / "logs/self-review-01.json").open("x", encoding="utf-8") as output:
+    subprocess.run(
+        [sys.executable, "scripts/research_workflow.py", "review",
+         "--workspace", str(task.parent), "--request", "review.json"],
+        stdout=output, check=True,
+    )
+```
+
+Opening with `x` refuses to overwrite an existing record before invoking review. For a genuinely new attempt use a new filename; retain a failed attempt's output and error. If the unchanged packet was already saved successfully, use it instead of calling review again.
+
+Read `prompt`, `input_version` and `assignment` from the saved packet. In same-context self-review, verify the current report and requirement/source bindings, reuse unchanged evidence already read, and revisit changed or questioned material. Keep the complete packet; a separate reviewer receives the full required input. Submit the actual judgment as `self_review` using that `input_version`; see the [self-review fields](review-completion.md). After report or review-input changes, use the existing `revision: true` path. Reuse avoids duplicate copying, not current-version checks or required reading.
+
 ## Verification and limits
 
 The repository checks the shared workflow, package/source consistency and a real MCP stdio connection with **synthetic** reviewer subprocesses. Those tests do not call paid models or establish report quality. The implementation launches real configured model executors in normal use; a successful installation or test is not evidence that a particular research report has been reviewed.

@@ -268,6 +268,36 @@ CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知
 
 需求请求的格式为 `{"task":"comparison","language":"zh","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`。评审参数包括 `task`、任务内相对路径 `evidence_paths`，以及可选的 `artifact`（默认 `final.md`）和 `purpose`。`status`、`guide`、`finish` 对应同名 MCP 工具的参数。也可通过标准输入提供 JSON。
 
+### 复用任务文件并保存自评材料
+
+直接在已有任务目录中保存稿件、笔记和来源，向工具传入相对该目录的 `artifact` 和 `evidence_paths`，工具会读取原文件。修订前保留首稿，交付时再导出终稿，无需为每次调用另复制一套材料。
+
+将下方任务目录改为 `start` 返回的实际位置，并在请求中使用同一任务名。以下用于已有的 Full 任务 `comparison`。准备好稿件及来源／主张记录后，将请求保存为 `review.json`，把 `source.md` 换成实际证据路径。仅在已选择 self 档位时使用此例；独立评审要求继续使用所配置的后端。
+
+```json
+{"task":"comparison","reviewer":"self","artifact":"final.md","evidence_paths":["source.md"]}
+```
+
+上面的 CLI 默认输出完整材料。需要保存时，从仓库／插件根目录用 CLI 的同一解释器运行以下 Python 片段。`start` 已创建 `logs`；首次评审前可能还没有 `reviews`，而 Shell 重定向会先于 CLI 执行打开目标文件。
+
+```python
+import subprocess
+import sys
+from pathlib import Path
+
+task = Path("../research-work/comparison").resolve()
+with (task / "logs/self-review-01.json").open("x", encoding="utf-8") as output:
+    subprocess.run(
+        [sys.executable, "scripts/research_workflow.py", "review",
+         "--workspace", str(task.parent), "--request", "review.json"],
+        stdout=output, check=True,
+    )
+```
+
+`x` 模式会在调用评审前拒绝覆盖旧记录。确需新一次执行时使用新文件名；失败时保留已有输出和错误。相同输入的材料已经成功保存时，直接使用，不为重新读取再调用评审。
+
+从保存的材料读取 `prompt`、`input_version` 和 `assignment`。在同一上下文自评时，核对当前稿件及要求／来源绑定，复用已经读过且未变的证据，重读发生变化或有疑问的部分。保留完整材料；单独上下文评审者仍收到所需的完整输入。以该 `input_version` 将实际判断作为 `self_review` 提交，字段见[自评记录说明](review-completion.zh-CN.md)。稿件或评审输入变化后沿用 `revision: true` 路径。复用减少重复复制，当前版本核对和必需阅读照常完成。
+
 ## 已验证的范围
 
 仓库检查共用流程、插件与源码一致性，以及通过真实 stdio 连接、使用**合成评审子进程**的 MCP 调用链。这些检查不调用付费模型，也不证明报告质量。正常使用时会启动真实配置的模型执行器；安装或测试通过，不代表某份研究已经完成模型评审。

@@ -117,6 +117,17 @@ async def verify(base):
                 "status": "satisfied", "evidence": "final.md",
                 "length_constraint": {"unit": "whitespace_words", "scope": "whole_artifact", "min": 1, "max": 100}})+"\n", encoding="utf-8")
             arguments = {"task": task, "evidence_paths": ["source.md"], "reviewer": "self"}
+            length_file = local/"state/requirements.jsonl"
+            length_row = json.loads(length_file.read_text(encoding="utf-8"))
+            length_row.update(status="pending", evidence="")
+            length_file.write_text(json.dumps(length_row)+"\n", encoding="utf-8")
+            before = {p.relative_to(local): p.read_bytes() for p in local.rglob("*") if p.is_file()}
+            unresolved = unpack(await client.call_tool("research_check_draft", {"task": task}))
+            assert not unresolved["ok"] and unresolved["length_checks"][0]["bounds_met"], unresolved
+            assert "R-length" in unresolved["next_action"] and "still pending" in unresolved["next_action"]
+            assert before == {p.relative_to(local): p.read_bytes() for p in local.rglob("*") if p.is_file()}
+            length_row.update(status="satisfied", evidence="final.md")
+            length_file.write_text(json.dumps(length_row)+"\n", encoding="utf-8")
             before = {p.relative_to(local): p.read_bytes() for p in local.rglob("*") if p.is_file()}
             checked = unpack(await client.call_tool("research_check_draft", {"task": task}))
             assert checked["ok"] and checked["length_checks"][0]["bounds_met"], checked

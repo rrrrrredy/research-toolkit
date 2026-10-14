@@ -32,7 +32,7 @@ when revising. Maintain working records yourself and state the checks performed.
 | Workflow | When to choose it | Completion |
 | --- | --- | --- |
 | [**Lite — lightweight workflow**](./docs/quickstart-lite.md) | Bounded research where author checks fit the use | Source/claim records and author checks |
-| [**Full — complete workflow**](./docs/quickstart-full.md) | Complex comparisons, conflicting evidence, formal delivery or explicit review requirements | Selected review, revision checks and delivery consistency |
+| [**Full — complete workflow**](./docs/quickstart-full.md) | Version-bound review, tracked revisions and delivery consistency checks | Selected review, revision checks and delivery consistency |
 
 Both share the same standards for required reading, evidence, analysis and writing. Choose by the task; length is not a profile cap, and Full does not automatically mean independent review.
 

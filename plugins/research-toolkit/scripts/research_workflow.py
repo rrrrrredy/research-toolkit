@@ -902,13 +902,22 @@ def check_draft(workspace: Path, task: str, artifact="final.md") -> dict:
         warnings.append("No explicit length constraint was checked. Record any agreed whole-artifact "
                         "range in state/requirements.jsonl; use a separate measurement for other scopes.")
     warnings.extend(citation_export_warnings(report))
+    next_action = ("Correct the listed records or draft, then run check-draft again. Preserve evaluation originals."
+                   if errors else "Check claims and decisions against sources, then complete the profile's checklist/reviews and finish.")
+    pending_lengths = [f"{check['requirement_id']} ({check['actual']} {check['unit']})" for check in checks
+                       if check["bounds_met"] and check["status"] == "pending"]
+    if pending_lengths:
+        next_action = ("Measured length is within the recorded bounds for " + ", ".join(pending_lengths) +
+                       ", but these requirement records are still pending. Verify that their bounds and counting scope "
+                       "match the agreed requirement, then update only those rows in state/requirements.jsonl to "
+                       f"satisfied with evidence citing {artifact}, the measured count and scope. "
+                       "This check has not changed their status. Resolve any other listed errors, then run check-draft again. Preserve evaluation originals.")
     return {"ok": not errors, "scope": "draft_record_and_length_checks", "profile": progress.get("profile", "full"),
             "artifact": artifact, "artifact_sha256": artifact_hash, "counts": counts,
             "count_scope": "whole_artifact_including_markup_and_references", "length_checks": checks,
             "errors": errors, "warnings": warnings, "semantic_quality": "not_assessed",
             "delivery_status": "not_assessed",
-            "next_action": ("Correct the listed records or draft, then run check-draft again. Preserve evaluation originals."
-                            if errors else "Check claims and decisions against sources, then complete the profile's checklist/reviews and finish.")}
+            "next_action": next_action}
 
 
 def finish_lite(root, progress, message, artifact, checklist):
