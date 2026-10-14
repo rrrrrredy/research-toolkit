@@ -10,8 +10,6 @@
 
 [**选择流程并开始**](#快速开始) · [在你的 Agent 中使用](#使用) · [研究案例](#研究案例) · [评测结果](#evaluation-results) · [Lite 指南](./docs/quickstart-lite.zh-CN.md) · [文档](#文档)
 
-**1.0.0：**[发布说明](./docs/releases/v1.0.0.zh-CN.md) · [1.x 兼容性约定](./docs/compatibility.zh-CN.md)。
-
 先看完整成果：[国内办公 Agent 调研](./docs/case-study/report.zh-CN.md) · [APIs or browsers（英文）](./docs/case-study/api-or-browser/report.md)。两份案例均保留初稿、来源与修订记录，下方可查看关键判断如何修改。
 
 ## 快速开始
