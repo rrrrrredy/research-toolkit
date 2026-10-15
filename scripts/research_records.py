@@ -157,6 +157,8 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
             raise ValueError("Supply sources, claims, requirements or a draft to save.")
         # Validate and stage every payload before replacing any current record.
         for name, content, original in backups + plans:
+            if content == original:
+                continue
             path = safe_path(root, name)
             path.parent.mkdir(parents=True, exist_ok=True)
             temp = path.with_name(path.name + "." + operation_id + ".tmp")
@@ -171,8 +173,14 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
         if draft is not None:
             event["artifact_sha256"] = sha256_file(safe_path(root, draft["path"]))
         event["outcome"] = "saved"
-        result = {"ok": True, "saved_ids": ids, "updated_files": [p[0] for p in plans],
+        result = {"ok": True, "saved_ids": ids, "updated_files": [p[0] for p in plans if p[1] != p[2]],
                   "backups": [p[0] for p in backups], "next_action": "Continue the research; existing draft, review and delivery checks still apply."}
+        if ids:
+            from record_changes import history, summarize_save
+            try:
+                event["record_changes"] = summarize_save(root, plans, ids, history(root))
+            except (OSError, ValueError, TypeError, KeyError, AttributeError):
+                result["observation_warning"] = "Records saved; change summary unavailable. Existing checks still apply."
     except (ValueError, TypeError, OSError, KeyError) as exc:
         for path, original, changed in reversed(committed):
             if changed:
@@ -190,4 +198,7 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
         record_event(root, event)
     except (ValueError, OSError) as exc:
         result["observation_warning"] = f"Activity could not be recorded: {exc}"
+    if result["ok"]:
+        from record_changes import latest_changes
+        result["changes"] = latest_changes(root)
     return {**result, "observation": event}

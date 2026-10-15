@@ -1,0 +1,224 @@
+{
+  "verdict": "pass",
+  "report_verdict": "pass",
+  "required": [],
+  "optional": [],
+  "completed_at": "2026-10-15T02:55:01.297490+00:00",
+  "scope": "Targeted repair verification for R1 and repair-induced R2, plus new bilingual case README and execution summary. Original review retained; no full paid evaluation or unrelated host tests.",
+  "resolved": [
+    {
+      "id": "R1",
+      "decision": "resolved",
+      "file": "scripts/record_changes.py",
+      "basis": "Original independent boundary script now passes all 8 checks; supported read_evidence anchors/Markdown/line locators detect content change and return C1/body location."
+    },
+    {
+      "id": "R2",
+      "decision": "resolved",
+      "file": "scripts/record_changes.py",
+      "basis": "Explicit evidence_path original source.xml is retained and hashed alongside reading.md; required_source_inputs accepts this pair and changed XML now returns changed with C1. First failing repair retained in targeted-recheck-01.json."
+    }
+  ],
+  "commands": [
+    {
+      "command": "./.research-toolkit-venv/Scripts/python.exe -X utf8 output/astra-change-update-20261015/boundary_checks.py",
+      "exit_code": 0,
+      "passed": 8,
+      "failed": 0,
+      "output": "boundary-checks-final-result.json"
+    },
+    {
+      "command": "./.research-toolkit-venv/Scripts/python.exe -X utf8 output/astra-change-update-20261015/evidence_path_probe.py",
+      "exit_code": 0,
+      "output": "evidence-path-final-result.json"
+    },
+    {
+      "command": "./.research-toolkit-venv/Scripts/python.exe -X utf8 output/astra-change-update-20261015/recheck_evidence.py",
+      "exit_code": 0,
+      "output": "case-evidence-recheck.json"
+    }
+  ],
+  "case_checks": {
+    "timing_recomputed": {
+      "to_draft": 109.796858,
+      "to_finish": 280.343968,
+      "cli_sum": 8.484,
+      "calls": 9,
+      "nonzero_exits": 0
+    },
+    "original_files_unchanged": 67,
+    "source_texts_byte_identical": 11,
+    "record_diff": {
+      "sources": {
+        "old_count": 11,
+        "new_count": 11,
+        "ids_equal": true,
+        "updated": [
+          "S6",
+          "S10"
+        ]
+      },
+      "claims": {
+        "old_count": 16,
+        "new_count": 16,
+        "ids_equal": true,
+        "updated": [
+          "C8",
+          "C14",
+          "C15"
+        ]
+      },
+      "requirements": {
+        "old_count": 7,
+        "new_count": 7,
+        "ids_equal": true,
+        "updated": [
+          "R-procurement",
+          "R-length",
+          "R-update"
+        ]
+      }
+    },
+    "published_report_and_call_copies_byte_identical": true,
+    "whole_markdown_nonwhitespace_characters": 3930,
+    "interpretation": "Both READMEs accurately bound timing to the first captured CLI, exclude earlier source/code work and later Astra/fixes/CI/merge, leave host author/Astra tokens and billing unknown, distinguish local reading-record changes from upstream changes, and make no controlled savings claim."
+  },
+  "mirrors_exact_bytes_equal": {
+    "record_changes.py": true,
+    "research_records.py": true,
+    "research_workflow.py": true
+  },
+  "final_file_hashes": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\record_changes.py",
+      "sha256": "fd49c668d0c1d9069cd536f1e11c50758a2800cfd7236fc6e0cf89b2b45b26a8",
+      "bytes": 7363
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\check_record_workflow.py",
+      "sha256": "74bb337bdca486c796177d28a2d02dfe283ed51d32c5f117f6ca7d899c728c53",
+      "bytes": 14729
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\check_delivery.py",
+      "sha256": "f67bd9ac63a0454e78f04543cb604c03144d2785c14e2abb6d0ce163e6c3d9de",
+      "bytes": 46653
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\research_records.py",
+      "sha256": "4dd01e228bfd174dff4ce5809450380f5829056eef401672c56303f2bfbaa2cb",
+      "bytes": 12191
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\research_workflow.py",
+      "sha256": "abf3daac0e26c0f83d82ce76fb746871bf68631c2e87738c8950d249e0f268d2",
+      "bytes": 70523
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\plugins\\research-toolkit\\scripts\\record_changes.py",
+      "sha256": "fd49c668d0c1d9069cd536f1e11c50758a2800cfd7236fc6e0cf89b2b45b26a8",
+      "bytes": 7363
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\plugins\\research-toolkit\\scripts\\research_records.py",
+      "sha256": "4dd01e228bfd174dff4ce5809450380f5829056eef401672c56303f2bfbaa2cb",
+      "bytes": 12191
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\plugins\\research-toolkit\\scripts\\research_workflow.py",
+      "sha256": "abf3daac0e26c0f83d82ce76fb746871bf68631c2e87738c8950d249e0f268d2",
+      "bytes": 70523
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\plugins\\research-toolkit\\.generated-files.json",
+      "sha256": "0ff40e085f362c3bb800e0eb9be2e8be4672891734ef90904a40815ee6d25400",
+      "bytes": 4627
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\final.md",
+      "sha256": "9275ee9f135ffe2c98c9fc19a47368908ecbb01a436dfee9778dc6df39aa8a78",
+      "bytes": 9138
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\docs\\case-study\\coding-benchmark-update\\status-save-2026-10-15\\README.md",
+      "sha256": "9574f9f714928144f5aa2fe83cb62d7fa7788fcd62f3c433f807eea15e6c0424",
+      "bytes": 4187
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\docs\\case-study\\coding-benchmark-update\\status-save-2026-10-15\\README.zh-CN.md",
+      "sha256": "d7178dedd98ee1ad3bffb034bb0fe530c4b736f02001189f49578500e657249e",
+      "bytes": 3559
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\docs\\case-study\\coding-benchmark-update\\status-save-2026-10-15\\execution-summary.json",
+      "sha256": "b90f6c2400c10965427192babf6f25d5a2d50369c1d949a3fbd1e109a382d25a",
+      "bytes": 10494
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\docs\\case-study\\coding-benchmark-update\\status-save-2026-10-15\\calls.jsonl",
+      "sha256": "b4feaa92be2f29ef18cfa0992af3eeb5c592f25aa755eb5d86ec630f739acea8",
+      "bytes": 2202
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\docs\\case-study\\coding-benchmark-update\\status-save-2026-10-15\\report.zh-CN.md",
+      "sha256": "9275ee9f135ffe2c98c9fc19a47368908ecbb01a436dfee9778dc6df39aa8a78",
+      "bytes": 9138
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\docs\\case-study\\coding-benchmark-update\\status-save-2026-10-15\\first-update.zh-CN.md",
+      "sha256": "9275ee9f135ffe2c98c9fc19a47368908ecbb01a436dfee9778dc6df39aa8a78",
+      "bytes": 9138
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\docs\\case-study\\coding-benchmark-update\\status-save-2026-10-15\\previous-report.zh-CN.md",
+      "sha256": "63b6918c53dde8a8c98a1001a218f5307db2ee3c2c9a999eda89a5a4a9e794c6",
+      "bytes": 8899
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\docs\\case-study\\coding-benchmark-update\\status-save-2026-10-15\\updated-records.json",
+      "sha256": "1108c8f20ff64e69965fe281646646a104d01c3c9df0d9f7113839c146f015d9",
+      "bytes": 5618
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\docs\\case-study\\coding-benchmark-update\\status-save-2026-10-15\\source-checks.md",
+      "sha256": "da4b04a155bed7e82f30797417932410b6cdf6d6a46ce360dc0fbd10ef89ca2c",
+      "bytes": 2210
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\astra-change-update-20261015\\boundary_checks.py",
+      "sha256": "36e3ac8dbc76fd611c6582858d86c66a071ce247294d23be6b99176e2b3e66dc",
+      "bytes": 4475
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\astra-change-update-20261015\\evidence_path_probe.py",
+      "sha256": "32e08c4e86de0663452d61d7ba82a1bcaa2a37ce005728a2657dee33d099938a",
+      "bytes": 1617
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\astra-change-update-20261015\\findings.json",
+      "sha256": "6537929296221594307874fbc5bef6dfcc795768449c33f7fea95a70bbde698b",
+      "bytes": 2129
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\astra-change-update-20261015\\review.zh-CN.md",
+      "sha256": "a17d93bc9c25a54733bb278edb6411aa4edbb44c08890a32b679be0b0ff698d5",
+      "bytes": 6915
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\astra-change-update-20261015\\targeted-recheck-01.json",
+      "sha256": "76616c9487c27c59cb2ee8892aa6c41bd44fb0b1df63e3a9164db77ac2d8403a",
+      "bytes": 739
+    }
+  ],
+  "preserved_prior_results": [
+    "review.zh-CN.md",
+    "findings.json",
+    "boundary-checks-result.json",
+    "reviewed-files.sha256.json",
+    "record_changes.reviewed.py",
+    "targeted-recheck-01.json",
+    "evidence-path-recheck.json",
+    "record_changes.recheck-01.py"
+  ],
+  "limitations": "No new full-report review was necessary: the report exact byte hash is unchanged. Source access failures before the CLI capture are described by retained author records, not newly replayed. This is a host independent review, not a CLI backend receipt."
+}

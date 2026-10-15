@@ -1,0 +1,193 @@
+{
+  "ok": true,
+  "saved_ids": {
+    "claims": [
+      "C8",
+      "C14",
+      "C15"
+    ],
+    "requirements": [
+      "R-length",
+      "R-update",
+      "R-procurement"
+    ]
+  },
+  "updated_files": [
+    "data/claims_registry.csv",
+    "state/requirements.jsonl"
+  ],
+  "backups": [],
+  "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+  "changes": {
+    "available": true,
+    "operation_id": "def01acea5944bfabaecb9fed9671c45",
+    "saved_at": "2026-10-15T02:41:45.132571+00:00",
+    "records": {
+      "claims": {
+        "added": [],
+        "updated": [
+          "C8",
+          "C14",
+          "C15"
+        ],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      },
+      "requirements": {
+        "added": [],
+        "updated": [
+          "R-length",
+          "R-update",
+          "R-procurement"
+        ],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      }
+    },
+    "source_files": {},
+    "artifact": "drafts/change-first.md",
+    "affected_claims": [
+      {
+        "claim_id": "C8",
+        "claim": "Lancer初版Diamond502题500800美元；公开IC237改198离线题；官方只接受断网运行，当前断网实现依赖Linux；Manager必须用monolith镜像。",
+        "changed_source_ids": [],
+        "locations": [
+          {
+            "line": 9,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S5"
+            ]
+          },
+          {
+            "line": 11,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S6"
+            ]
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C14",
+        "claim": "V2参考/空补丁最终642题全部符合预期，两组首轮各3次基础设施失败；Agent仅模型端点，setup/verifier仍可联网；50分钟超时仍抓取部分补丁，全新镜像重评为报告成绩。",
+        "changed_source_ids": [],
+        "locations": [
+          {
+            "line": 21,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S10",
+              "source_link:S9"
+            ]
+          },
+          {
+            "line": 25,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S11"
+            ]
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C15",
+        "claim": "同版本题集、镜像、预算和评分协议先验证环境；V1/V2、Lancer IC/Manager环境不可混用；保留超时样本，并区分共享准备与逐题成本；公开分用于候选筛选，生产收益需内部任务观察。",
+        "changed_source_ids": [],
+        "locations": [
+          {
+            "line": 7,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S3"
+            ]
+          },
+          {
+            "line": 8,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S4",
+              "source_link:S8"
+            ]
+          },
+          {
+            "line": 9,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S5"
+            ]
+          },
+          {
+            "line": 11,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S6"
+            ]
+          },
+          {
+            "line": 21,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S10",
+              "source_link:S9"
+            ]
+          },
+          {
+            "line": 25,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S11"
+            ]
+          }
+        ],
+        "location_status": "matched"
+      }
+    ],
+    "unlinked_source_ids": [],
+    "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the latest registered draft, not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+  },
+  "observation": {
+    "operation": "save",
+    "operation_id": "def01acea5944bfabaecb9fed9671c45",
+    "started_at": "2026-10-15T02:41:45.085339+00:00",
+    "artifact": "drafts/change-first.md",
+    "complete_draft": true,
+    "time_basis": "existing_file_observed",
+    "artifact_sha256": "9275ee9f135ffe2c98c9fc19a47368908ecbb01a436dfee9778dc6df39aa8a78",
+    "outcome": "saved",
+    "record_changes": {
+      "records": {
+        "claims": {
+          "added": [],
+          "updated": [
+            "C8",
+            "C14",
+            "C15"
+          ],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        },
+        "requirements": {
+          "added": [],
+          "updated": [
+            "R-length",
+            "R-update",
+            "R-procurement"
+          ],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        }
+      },
+      "source_files": {},
+      "source_observations": {}
+    },
+    "finished_at": "2026-10-15T02:41:45.132571+00:00",
+    "elapsed_seconds": 0.047
+  }
+}

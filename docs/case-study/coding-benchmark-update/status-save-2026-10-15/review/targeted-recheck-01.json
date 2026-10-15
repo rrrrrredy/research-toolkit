@@ -1,0 +1,18 @@
+{
+  "snapshot": "record_changes.recheck-01.py",
+  "tested_source_sha256": "a68a6e38b6deb0bec31f52f8cb3a2c20bf837263fdca6a5c3afd28536ddb5cbd",
+  "required": [
+    {
+      "line_end": 51,
+      "id": "R2",
+      "line_start": 45,
+      "file": "scripts/record_changes.py",
+      "priority": "P2",
+      "evidence": "evidence-path-recheck.json",
+      "basis": "evidence_path=source.xml with separate reading.md is accepted and bound by required_source_inputs, but XML content change is omitted from observation",
+      "minimal_recommendation": "Prefer explicit existing evidence_path before parsing optional locator format"
+    }
+  ],
+  "verdict": "needs_revision",
+  "r1": "resolved: original boundary checks 8/8 pass"
+}

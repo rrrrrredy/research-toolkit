@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "required_source_inputs": [
+    {
+      "reading.md": "Read XML value twelve."
+    },
+    {
+      "source.xml": "f0ff85892a09cb84dfeea4ee11bd807536eec0738e9a2c8547324821e79e1aac"
+    }
+  ],
+  "first": {
+    "S1": {
+      "status": "first_observation",
+      "paths": [
+        "reading.md",
+        "source.xml"
+      ],
+      "previous_paths": []
+    }
+  },
+  "after_content_change": {
+    "available": true,
+    "operation_id": "e5235db5ed5346feb2835a5f4c9a0e43",
+    "saved_at": "2026-10-15T02:54:50.697567+00:00",
+    "records": {
+      "sources": {
+        "added": [],
+        "updated": [],
+        "unchanged": [
+          "S1"
+        ],
+        "removed": [],
+        "recovered": []
+      }
+    },
+    "source_files": {
+      "S1": {
+        "status": "changed",
+        "paths": [
+          "reading.md",
+          "source.xml"
+        ],
+        "previous_paths": [
+          "reading.md",
+          "source.xml"
+        ]
+      }
+    },
+    "artifact": "final.md",
+    "affected_claims": [
+      {
+        "claim_id": "C1",
+        "claim": "Twelve",
+        "changed_source_ids": [
+          "S1"
+        ],
+        "locations": [
+          {
+            "line": 1,
+            "heading": "",
+            "matched_by": [
+              "claim_text",
+              "source_link:S1"
+            ]
+          }
+        ],
+        "location_status": "matched"
+      }
+    ],
+    "unlinked_source_ids": [],
+    "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the latest registered draft, not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+  }
+}

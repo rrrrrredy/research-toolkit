@@ -121,6 +121,11 @@ async def verify(base):
                 "length_constraint": {"unit": "whitespace_words", "scope": "whole_artifact", "min": 1, "max": 100}}]}
             saved = unpack(await client.call_tool("research_save", record_args))
             assert saved["ok"] and saved["saved_ids"]["sources"] == ["S1"], saved
+            assert saved["changes"]["records"]["sources"]["added"] == ["S1"], saved
+            unchanged = unpack(await client.call_tool("research_save", {"task": task, "sources": [{"source_id": "S1"}]}))
+            assert unchanged["updated_files"] == [] and unchanged["changes"]["records"]["sources"]["unchanged"] == ["S1"], unchanged
+            current_changes = unpack(await client.call_tool("research_status", {"task": task}))["changes"]
+            assert current_changes == unchanged["changes"], current_changes
             bad = unpack(await client.call_tool("research_save", {"task": task, "sources": [{"source_id": "S1", "title": 42}]}))
             assert not bad["ok"] and "sources[0].title" in bad["errors"][0], bad
             arguments = {"task": task, "evidence_paths": ["source.md"], "reviewer": "self"}

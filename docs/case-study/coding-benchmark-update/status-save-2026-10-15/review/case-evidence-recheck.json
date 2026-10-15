@@ -1,0 +1,451 @@
+{
+  "timing_recomputed": {
+    "to_draft": 109.796858,
+    "to_finish": 280.343968,
+    "cli_sum": 8.484,
+    "calls": 9,
+    "nonzero_exits": 0
+  },
+  "original_files": [
+    {
+      "name": ".research-toolkit.lock",
+      "matches": true
+    },
+    {
+      "name": "analysis-notes.md",
+      "matches": true
+    },
+    {
+      "name": "delivery_message.md",
+      "matches": true
+    },
+    {
+      "name": "final.md",
+      "matches": true
+    },
+    {
+      "name": "first-draft.md",
+      "matches": true
+    },
+    {
+      "name": "revision-notes-update.md",
+      "matches": true
+    },
+    {
+      "name": "revision-notes.md",
+      "matches": true
+    },
+    {
+      "name": "source-recheck.md",
+      "matches": true
+    },
+    {
+      "name": "data/claims_registry.csv",
+      "matches": true
+    },
+    {
+      "name": "data/source_registry.csv",
+      "matches": true
+    },
+    {
+      "name": "data/uncertainty_registry.csv",
+      "matches": true
+    },
+    {
+      "name": "drafts/update-first.md",
+      "matches": true
+    },
+    {
+      "name": "logs/activity.jsonl",
+      "matches": true
+    },
+    {
+      "name": "logs/author-artifact-verification.json",
+      "matches": true
+    },
+    {
+      "name": "logs/check-delivery-result.txt",
+      "matches": true
+    },
+    {
+      "name": "logs/check-final-draft.json",
+      "matches": true
+    },
+    {
+      "name": "logs/check-first-draft-records-fixed.json",
+      "matches": true
+    },
+    {
+      "name": "logs/check-first-draft.json",
+      "matches": true
+    },
+    {
+      "name": "logs/finish-result.json",
+      "matches": true
+    },
+    {
+      "name": "logs/review-final-result.json",
+      "matches": true
+    },
+    {
+      "name": "logs/review-first-result.json",
+      "matches": true
+    },
+    {
+      "name": "logs/review.jsonl",
+      "matches": true
+    },
+    {
+      "name": "logs/self-review-final-prompt.json",
+      "matches": true
+    },
+    {
+      "name": "logs/self-review-first-prompt-utf8.json",
+      "matches": true
+    },
+    {
+      "name": "logs/self-review-first-prompt.json",
+      "matches": true
+    },
+    {
+      "name": "logs/stage-analyze.json",
+      "matches": true
+    },
+    {
+      "name": "logs/stage-draft.json",
+      "matches": true
+    },
+    {
+      "name": "sources/S1.md",
+      "matches": true
+    },
+    {
+      "name": "sources/S10.md",
+      "matches": true
+    },
+    {
+      "name": "sources/S11.md",
+      "matches": true
+    },
+    {
+      "name": "sources/S2.md",
+      "matches": true
+    },
+    {
+      "name": "sources/S3.md",
+      "matches": true
+    },
+    {
+      "name": "sources/S4.md",
+      "matches": true
+    },
+    {
+      "name": "sources/S5.md",
+      "matches": true
+    },
+    {
+      "name": "sources/S6.md",
+      "matches": true
+    },
+    {
+      "name": "sources/S7.md",
+      "matches": true
+    },
+    {
+      "name": "sources/S8.md",
+      "matches": true
+    },
+    {
+      "name": "sources/S9.md",
+      "matches": true
+    },
+    {
+      "name": "state/artifact-checks.json",
+      "matches": true
+    },
+    {
+      "name": "state/final_delivery.json",
+      "matches": true
+    },
+    {
+      "name": "state/progress.json",
+      "matches": true
+    },
+    {
+      "name": "state/requirements.jsonl",
+      "matches": true
+    },
+    {
+      "name": "state/task_spec.md",
+      "matches": true
+    },
+    {
+      "name": "reviews/08a078a5eca41bcc9244d741b295ae38bd1a6ea356d008fcddb912e36cee49e2/input.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/37c455015177596cbec8f625bd71538cac57928afc58775ba06dcb60fcfe4fe1/input.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/63ebd4dbb5e9a23c763199f052836d97c3802dcdd5821e41fe192aa8fe23200e/input.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/68030b309339f603b8a250a41a10311def88c6065ebaa7fea70a06f367ca25f7/input.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/plans/17c7a4519f2ac9f62fa6ce5c86e8e05f3e390a941f2cadbb413ef04a698542ce.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/plans/54909f4363aa85b3d20ceca62efef9a182574015f60e86324c67dd75e966c502.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/plans/83c7771746846473ebe73efb043a2bd5fb47a9bb7a1e6206b1fd5355a9f2f49a.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/plans/a323378c37355b59ad9baedb729457980bc2d35d313f43833a1128bd4fa1af02.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/08a078a5eca41bcc9244d741b295ae38bd1a6ea356d008fcddb912e36cee49e2/attempts/9e320e4880694c4e8926de4af476b298/execution.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/08a078a5eca41bcc9244d741b295ae38bd1a6ea356d008fcddb912e36cee49e2/attempts/9e320e4880694c4e8926de4af476b298/identity.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/08a078a5eca41bcc9244d741b295ae38bd1a6ea356d008fcddb912e36cee49e2/attempts/9e320e4880694c4e8926de4af476b298/request.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/08a078a5eca41bcc9244d741b295ae38bd1a6ea356d008fcddb912e36cee49e2/attempts/9e320e4880694c4e8926de4af476b298/response.txt",
+      "matches": true
+    },
+    {
+      "name": "reviews/37c455015177596cbec8f625bd71538cac57928afc58775ba06dcb60fcfe4fe1/attempts/6df18269fe2b4ae3af2e69d8f8ea344f/execution.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/37c455015177596cbec8f625bd71538cac57928afc58775ba06dcb60fcfe4fe1/attempts/6df18269fe2b4ae3af2e69d8f8ea344f/identity.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/37c455015177596cbec8f625bd71538cac57928afc58775ba06dcb60fcfe4fe1/attempts/6df18269fe2b4ae3af2e69d8f8ea344f/request.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/37c455015177596cbec8f625bd71538cac57928afc58775ba06dcb60fcfe4fe1/attempts/6df18269fe2b4ae3af2e69d8f8ea344f/response.txt",
+      "matches": true
+    },
+    {
+      "name": "reviews/63ebd4dbb5e9a23c763199f052836d97c3802dcdd5821e41fe192aa8fe23200e/attempts/d8361e3d343348d989407f00a49c2bf3/execution.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/63ebd4dbb5e9a23c763199f052836d97c3802dcdd5821e41fe192aa8fe23200e/attempts/d8361e3d343348d989407f00a49c2bf3/identity.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/63ebd4dbb5e9a23c763199f052836d97c3802dcdd5821e41fe192aa8fe23200e/attempts/d8361e3d343348d989407f00a49c2bf3/request.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/63ebd4dbb5e9a23c763199f052836d97c3802dcdd5821e41fe192aa8fe23200e/attempts/d8361e3d343348d989407f00a49c2bf3/response.txt",
+      "matches": true
+    },
+    {
+      "name": "reviews/68030b309339f603b8a250a41a10311def88c6065ebaa7fea70a06f367ca25f7/attempts/5cadd6e89c164513926b9725993aacc2/execution.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/68030b309339f603b8a250a41a10311def88c6065ebaa7fea70a06f367ca25f7/attempts/5cadd6e89c164513926b9725993aacc2/identity.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/68030b309339f603b8a250a41a10311def88c6065ebaa7fea70a06f367ca25f7/attempts/5cadd6e89c164513926b9725993aacc2/request.json",
+      "matches": true
+    },
+    {
+      "name": "reviews/68030b309339f603b8a250a41a10311def88c6065ebaa7fea70a06f367ca25f7/attempts/5cadd6e89c164513926b9725993aacc2/response.txt",
+      "matches": true
+    }
+  ],
+  "source_texts": [
+    {
+      "name": "S1.md",
+      "exact_bytes_equal": true
+    },
+    {
+      "name": "S10.md",
+      "exact_bytes_equal": true
+    },
+    {
+      "name": "S11.md",
+      "exact_bytes_equal": true
+    },
+    {
+      "name": "S2.md",
+      "exact_bytes_equal": true
+    },
+    {
+      "name": "S3.md",
+      "exact_bytes_equal": true
+    },
+    {
+      "name": "S4.md",
+      "exact_bytes_equal": true
+    },
+    {
+      "name": "S5.md",
+      "exact_bytes_equal": true
+    },
+    {
+      "name": "S6.md",
+      "exact_bytes_equal": true
+    },
+    {
+      "name": "S7.md",
+      "exact_bytes_equal": true
+    },
+    {
+      "name": "S8.md",
+      "exact_bytes_equal": true
+    },
+    {
+      "name": "S9.md",
+      "exact_bytes_equal": true
+    }
+  ],
+  "record_diff": {
+    "sources": {
+      "old_count": 11,
+      "new_count": 11,
+      "ids_equal": true,
+      "updated": [
+        "S6",
+        "S10"
+      ]
+    },
+    "claims": {
+      "old_count": 16,
+      "new_count": 16,
+      "ids_equal": true,
+      "updated": [
+        "C8",
+        "C14",
+        "C15"
+      ]
+    },
+    "requirements": {
+      "old_count": 7,
+      "new_count": 7,
+      "ids_equal": true,
+      "updated": [
+        "R-procurement",
+        "R-length",
+        "R-update"
+      ]
+    }
+  },
+  "publication_copies": [
+    {
+      "published": "previous-report.zh-CN.md",
+      "local": "previous-final.md",
+      "same_bytes": true
+    },
+    {
+      "published": "first-update.zh-CN.md",
+      "local": "drafts/change-first.md",
+      "same_bytes": true
+    },
+    {
+      "published": "report.zh-CN.md",
+      "local": "final.md",
+      "same_bytes": true
+    },
+    {
+      "published": "source-checks.md",
+      "local": "source-recheck-20261015.md",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/01-status.request.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/01-status.response.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/02-observe.request.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/02-observe.response.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/03-source-update.request.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/03-source-update.response.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/04-draft.request.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/04-draft.response.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/05-check.request.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/05-check.response.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/06-review-input.request.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/06-review-input.response.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/07-self-submit.request.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/07-self-submit.response.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/08-finish.request.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/08-finish.response.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/09-status.request.json",
+      "same_bytes": true
+    },
+    {
+      "published": "calls/09-status.response.json",
+      "same_bytes": true
+    }
+  ],
+  "report_nonwhitespace_characters": 3930
+}

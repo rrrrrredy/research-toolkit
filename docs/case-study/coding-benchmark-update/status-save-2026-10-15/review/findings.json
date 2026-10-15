@@ -1,0 +1,37 @@
+{
+  "verdict": "needs_revision",
+  "report_verdict": "pass",
+  "reviewer_context": "fresh independent Astra host context; not a CLI backend receipt",
+  "base_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+  "artifact": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\final.md",
+  "artifact_sha256": "9275ee9f135ffe2c98c9fc19a47368908ecbb01a436dfee9778dc6df39aa8a78",
+  "required": [
+    {
+      "id": "R1",
+      "priority": "P2",
+      "file": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\record_changes.py",
+      "line_start": 45,
+      "line_end": 53,
+      "title": "使用既有阅读定位解析器，避免把已变来源误报为未变",
+      "reproduction_evidence": "boundary_checks.py / boundary-checks-result.json: source.md#L1、[reading](source.md#L1)、source.md:1 都通过 inspect_reading_evidence。来源仅提供 read_evidence 时，修改 source.md 后按 ID 保存，三者均返回 source_files.S1.status=unchanged、paths=[]、affected_claims=[]；普通 source.md 正常。",
+      "impact": "合法既有任务会漏掉来源变化和关联主张，直接削弱本次缩小接续阅读范围的核心功能。不是对语义匹配的额外要求。",
+      "minimal_recommendation": "对 read_evidence 先复用 check_delivery.reading_evidence_target 提取任务相对文件，再执行现有 safe_path/hash；保留远程地址和纯文字说明的非文件行为。补合法锚点/Markdown/行号定位的回归，并同步插件副本。",
+      "related_files": [
+        {
+          "file": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\check_delivery.py",
+          "line_start": 191,
+          "line_end": 229
+        },
+        {
+          "file": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\plugins\\research-toolkit\\scripts\\record_changes.py",
+          "line_start": 45,
+          "line_end": 53
+        }
+      ]
+    }
+  ],
+  "optional": [],
+  "coverage_record": "review.zh-CN.md",
+  "input_hashes": "reviewed-files.sha256.json",
+  "verification": "verification.json"
+}

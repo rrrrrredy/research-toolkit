@@ -1,0 +1,306 @@
+{
+  "captured_at": "2026-10-15T02:48:13.711989+00:00",
+  "base_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+  "files": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\SKILL.md",
+      "sha256": "96e7c7f93ac1e5675b3a2295d395e3d5e5a1cdbc52e2280f9bce891812750199",
+      "bytes": 18358,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\SKILL.zh-CN.md",
+      "sha256": "26750a26160d06343ed513b130f791c835c61ab2aa923c73468f33a7c26c5bfb",
+      "bytes": 15994,
+      "reading_scope": "diff and relevant sections"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\docs\\usage-modes.md",
+      "sha256": "3c46f3b1203f840d53bb27055354ce6ea7fd66462917f91f0e9a026b137bbedc",
+      "bytes": 38571,
+      "reading_scope": "diff and relevant sections"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\docs\\usage-modes.zh-CN.md",
+      "sha256": "462f38f066e84616feaf502c73c74758f2f374f07ada68845be86c77028cf3a9",
+      "bytes": 34637,
+      "reading_scope": "diff and relevant sections"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\docs\\framework.html",
+      "sha256": "317de8f97ebd77835420c20799e78cd0b766cd53cea3307bb061ef2329253dfa",
+      "bytes": 35467,
+      "reading_scope": "diff and relevant sections"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\record_changes.py",
+      "sha256": "dec406882cd0081201e417604da35b6d83fc2b48865b3552c7e327b1207e23d5",
+      "bytes": 6850,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\research_records.py",
+      "sha256": "4dd01e228bfd174dff4ce5809450380f5829056eef401672c56303f2bfbaa2cb",
+      "bytes": 12191,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\research_workflow.py",
+      "sha256": "dfa9b75e3099284e7afc71d0d194a7001fa6d982196790a3ba3f25443fec541d",
+      "bytes": 71647,
+      "reading_scope": "diff and relevant sections"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\research_mcp.py",
+      "sha256": "a7e61a9c5466d9d983edbef91e26ccf4d61f99ca2e13a42e95855e0f8e7effb2",
+      "bytes": 10175,
+      "reading_scope": "diff and relevant sections"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\build_plugin.py",
+      "sha256": "19a62d4e1c72b49ed0980e36c2b5e70d47eb5ff25740b0b363274cffd08c0d1f",
+      "bytes": 6530,
+      "reading_scope": "diff and relevant sections"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\check_record_workflow.py",
+      "sha256": "2fa3cbb938e7fa502c60e6414a92a6fee1cab2a8e02080041829020fa49b57d7",
+      "bytes": 12888,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\check_mcp_contract.py",
+      "sha256": "ac3d968ae9fc6897940406befb451015c0155b2589b3e1679dec740db5983598",
+      "bytes": 18540,
+      "reading_scope": "diff and relevant sections"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\check_delivery.py",
+      "sha256": "f67bd9ac63a0454e78f04543cb604c03144d2785c14e2abb6d0ce163e6c3d9de",
+      "bytes": 46653,
+      "reading_scope": "diff and relevant sections"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\run_observation.py",
+      "sha256": "a649498d8872a82f6b05152f95e810ae4d99c6f518b51b8f7c5f0683b7eda16d",
+      "bytes": 6718,
+      "reading_scope": "diff and relevant sections"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\final.md",
+      "sha256": "9275ee9f135ffe2c98c9fc19a47368908ecbb01a436dfee9778dc6df39aa8a78",
+      "bytes": 9138,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\drafts\\change-first.md",
+      "sha256": "9275ee9f135ffe2c98c9fc19a47368908ecbb01a436dfee9778dc6df39aa8a78",
+      "bytes": 9138,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\previous-final.md",
+      "sha256": "63b6918c53dde8a8c98a1001a218f5307db2ee3c2c9a999eda89a5a4a9e794c6",
+      "bytes": 8899,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\source-recheck-20261015.md",
+      "sha256": "da4b04a155bed7e82f30797417932410b6cdf6d6a46ce360dc0fbd10ef89ca2c",
+      "bytes": 2210,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\data\\source_registry.csv",
+      "sha256": "91be35e641439209ac511ebeb7da8d75409cf9c70b57f6b239fc6b46f280e5b0",
+      "bytes": 5711,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\data\\claims_registry.csv",
+      "sha256": "5d8ca1b4c37658a1ff610d3a4a38ced31cd49a2bb579ff664420e42a238d95f9",
+      "bytes": 3316,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\state\\task_spec.md",
+      "sha256": "025287ca5bd0335dc2ed43cf03d1d114c33d4376ba0a243984b36fa970580dc6",
+      "bytes": 2914,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\state\\requirements.jsonl",
+      "sha256": "f05d8ab743684f128f25164e491735bd6fa1befc3cd4e2b19c1805971867eafb",
+      "bytes": 2953,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\sources\\S1.md",
+      "sha256": "3148269f81209e032b3a91c11f8a969578210f4fbec4ec8af0b8bf1d202ae0ee",
+      "bytes": 6574,
+      "reading_scope": "selected original-text passages"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\sources\\S2.md",
+      "sha256": "3142c6a7b82edf697fb73ffe27d4b020d62ad68900848272c5300fc532f49cba",
+      "bytes": 15991,
+      "reading_scope": "selected original-text passages"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\sources\\S3.md",
+      "sha256": "494c5a969c4d14f664382580fa1be689450aa102f0ac645acb9ba98d673bd80c",
+      "bytes": 24295,
+      "reading_scope": "selected original-text passages"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\sources\\S4.md",
+      "sha256": "891931049506dac44f36ccec4030431eac948e166ba106a08c3a3aab21e9b559",
+      "bytes": 10589,
+      "reading_scope": "selected original-text passages"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\sources\\S5.md",
+      "sha256": "d4fe6408a5cf7a56af05d8a53ffdb5ed81dde6c600343ef070488df47c8ccedc",
+      "bytes": 25446,
+      "reading_scope": "selected original-text passages"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\sources\\S6.md",
+      "sha256": "dd369403dd91b64c001f01ef68d11ef8b7a512923335a5a23d2e53f117ee3a42",
+      "bytes": 10770,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\sources\\S7.md",
+      "sha256": "1c409b1037e162c5f177d1c3a75ad42a425c2e2b4a874b51669c51f67f4813e4",
+      "bytes": 28091,
+      "reading_scope": "selected original-text passages"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\sources\\S8.md",
+      "sha256": "308ded945f0b9cfa0bfd69a95fee0ea9ce115a4aa8e910778ea6df0f272d68e5",
+      "bytes": 30242,
+      "reading_scope": "selected original-text passages"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\sources\\S9.md",
+      "sha256": "d123e530bb552979ba5f34288d027b098f7a10d7877b1e5715dc66b6eb4d4f00",
+      "bytes": 16267,
+      "reading_scope": "selected original-text passages"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\sources\\S10.md",
+      "sha256": "e609b49e92676106d859c3bb3e8fed24a366e91b894d0624c9900df2c0246c03",
+      "bytes": 8561,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\sources\\S11.md",
+      "sha256": "37134f4495511ad8ae705e1dac0e14739530bd1f1d104f635065c4b14f606343",
+      "bytes": 1058,
+      "reading_scope": "selected original-text passages"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\run-change-continuation.py",
+      "sha256": "145e363aa8970c5d8f0687ac3d77a931c23886a359203bc0bbc67ea0f1fe60cc",
+      "bytes": 1465,
+      "reading_scope": "full"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\change-continuation-20261015\\calls.jsonl",
+      "sha256": "b4feaa92be2f29ef18cfa0992af3eeb5c592f25aa755eb5d86ec630f739acea8",
+      "bytes": 2202,
+      "reading_scope": "structured evidence fields"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\change-continuation-20261015\\03-source-update.response.json",
+      "sha256": "bb765c1b12a4e3896864d871519c47d8769b1ae23b7cead74df7978b4d1d4168",
+      "bytes": 6326,
+      "reading_scope": "structured evidence fields"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\change-continuation-20261015\\01-status.response.json",
+      "sha256": "7d809b250828327960c7c8954d064204d58be1d40003d9e0f3d31b32e0b73084",
+      "bytes": 32692,
+      "reading_scope": "structured evidence fields"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\change-continuation-20261015\\02-observe.response.json",
+      "sha256": "2912a9d2e37f452d6decc07154110bbf6eebc96a1645bdd33f1e4c73df912eaf",
+      "bytes": 3118,
+      "reading_scope": "structured evidence fields"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\change-continuation-20261015\\04-draft.request.json",
+      "sha256": "117cbe60f1fc3132761308f3877ff6920bfbe62ce85421ba4aed11b460792710",
+      "bytes": 1691,
+      "reading_scope": "structured evidence fields"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\change-continuation-20261015\\04-draft.response.json",
+      "sha256": "95ec73279fb5b9d380307026ba24d2b65310e3e0fc8c29fc8db52fe6e819cd3d",
+      "bytes": 5941,
+      "reading_scope": "structured evidence fields"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\change-continuation-20261015\\05-check.response.json",
+      "sha256": "ce1528a7462e2b70844fb55c587ae19023c9fb4d4a5b97bd710172d59e7f72d1",
+      "bytes": 872,
+      "reading_scope": "structured evidence fields"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\change-continuation-20261015\\06-review-input.response.json",
+      "sha256": "0d788a551ff45fe12f29f40066e14dc2cedf0ebd321ab5588fafdd2633dee8a7",
+      "bytes": 6505,
+      "reading_scope": "structured evidence fields"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\plugins\\research-toolkit\\SKILL.md",
+      "sha256": "96e7c7f93ac1e5675b3a2295d395e3d5e5a1cdbc52e2280f9bce891812750199",
+      "bytes": 18358,
+      "reading_scope": "normalized-text comparison to reviewed source"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\plugins\\research-toolkit\\SKILL.zh-CN.md",
+      "sha256": "26750a26160d06343ed513b130f791c835c61ab2aa923c73468f33a7c26c5bfb",
+      "bytes": 15994,
+      "reading_scope": "normalized-text comparison to reviewed source"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\plugins\\research-toolkit\\docs\\usage-modes.md",
+      "sha256": "3c46f3b1203f840d53bb27055354ce6ea7fd66462917f91f0e9a026b137bbedc",
+      "bytes": 38571,
+      "reading_scope": "normalized-text comparison to reviewed source"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\plugins\\research-toolkit\\docs\\usage-modes.zh-CN.md",
+      "sha256": "462f38f066e84616feaf502c73c74758f2f374f07ada68845be86c77028cf3a9",
+      "bytes": 34637,
+      "reading_scope": "normalized-text comparison to reviewed source"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\plugins\\research-toolkit\\scripts\\record_changes.py",
+      "sha256": "dec406882cd0081201e417604da35b6d83fc2b48865b3552c7e327b1207e23d5",
+      "bytes": 6850,
+      "reading_scope": "normalized-text comparison to reviewed source"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\plugins\\research-toolkit\\scripts\\research_records.py",
+      "sha256": "4dd01e228bfd174dff4ce5809450380f5829056eef401672c56303f2bfbaa2cb",
+      "bytes": 12191,
+      "reading_scope": "normalized-text comparison to reviewed source"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\plugins\\research-toolkit\\scripts\\research_workflow.py",
+      "sha256": "dfa9b75e3099284e7afc71d0d194a7001fa6d982196790a3ba3f25443fec541d",
+      "bytes": 71647,
+      "reading_scope": "normalized-text comparison to reviewed source"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\plugins\\research-toolkit\\scripts\\research_mcp.py",
+      "sha256": "a7e61a9c5466d9d983edbef91e26ccf4d61f99ca2e13a42e95855e0f8e7effb2",
+      "bytes": 10175,
+      "reading_scope": "normalized-text comparison to reviewed source"
+    }
+  ]
+}
