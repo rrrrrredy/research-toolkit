@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Archive Astra's separate-context review of the long-report continuation and clarify the response-byte serialization method; preserve the original report and measured results.
+
 - Let local self-review callers request the frozen assignment by file reference with `include_assignment: false`, retaining complete inputs, freshness checks and the default inline response.
 - Publish an actual long-report continuation with reused records, source-confirmed changes, preserved self-review repair and observed costs; synchronize bilingual usage guidance and plugin payload.
 

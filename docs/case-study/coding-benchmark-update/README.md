@@ -26,7 +26,7 @@ The first self-review found that editing the V2 paragraph had removed the existi
 
 Two actual frictions remain in the record: the 3,803-character first update was in range but its length requirement was still pending, so the agreed bounds were verified and that record updated before rechecking; S10 was reopened after the initial tool output was truncated. S11 was also fetched as raw text for retention. This was not a zero-duplication run.
 
-Avoidable self-review transport became a product change: local callers can set `include_assignment: false` to receive the frozen input's path and hash. On the same actual review input, the response fell from **210,018 to 6,444 UTF-8 bytes, a 96.9% reduction**. Complete inputs, version binding and checks are unchanged; the default still returns the complete assignment. This measures response bytes, not overall tokens, time or monetary savings.
+Avoidable self-review transport became a product change: local callers can set `include_assignment: false` to receive the frozen input's path and hash. On the same actual review input, the response fell from **210,018 to 6,444 UTF-8 bytes, a 96.9% reduction**. Complete inputs, version binding and checks are unchanged; the default still returns the complete assignment. The measurement is the UTF-8 size of `json.dumps(parsed_response, ensure_ascii=False)` with default separators. It excludes MCP framing and pretty-printed file formatting, and does not measure overall tokens, time or monetary savings.
 
 ## Actual time and usage
 
@@ -37,3 +37,5 @@ Host counters through report completion increased by **3,084,005 input tokens**,
 Observed benefits are preserving existing research, adding specific explanations/prerequisites, avoiding reconstruction of unchanged records and shrinking one tool response. There is no paired update-versus-rewrite run, so this case does not quantify total time/rework saved or establish a general Full quality/cost advantage.
 
 The [execution summary](execution-summary.json) retains original-file hashes, input versions, report hashes, reuse counts and completion results. [First-draft checks](first-draft-check.json) preserve the pending state; [final checks](final-draft-check.json) pass. Complete frozen assignments and receipts remain in the local task; the public evidence subset is not a portable full-task snapshot.
+
+On October 15, Astra reviewed this change in a separate context without inherited author conversation: no necessary fixes were found. The optional serialization-method clarification is adopted above; the original report and measurements are preserved. See the [independent review and targeted recheck](review-2026-10-15/README.md).

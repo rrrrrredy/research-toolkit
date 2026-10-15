@@ -1,0 +1,78 @@
+{
+  "reviewer": "Astra independent clean-context review",
+  "reviewed_commit": "09e9a8c6e74e8a7075d96fc0a2dbdabb6a43925c",
+  "base_commit": "4557cad0970a14efa5afa45de7539081dfb8e053",
+  "verdict": "pass",
+  "blocking_findings": 0,
+  "necessary_fixes": [],
+  "optional_suggestions": [
+    {
+      "id": "O1",
+      "severity": "informational",
+      "necessary": false,
+      "title": "Document the JSON serialization basis of the byte measurement",
+      "locations": [
+        {
+          "file": "docs/case-study/coding-benchmark-update/README.md",
+          "line": 29
+        },
+        {
+          "file": "docs/case-study/coding-benchmark-update/README.zh-CN.md",
+          "line": 29
+        },
+        {
+          "file": "docs/case-study/coding-benchmark-update/execution-summary.json",
+          "line": 140
+        }
+      ],
+      "evidence": [
+        "output/continuation-20261014/review-full-return.json",
+        "output/continuation-20261014/review-reference-return.json",
+        "output/astra-continuation-review-20261015/measurement-recheck.json"
+      ],
+      "observed": "json.dumps(parsed_response, ensure_ascii=False), default separators, UTF-8 gives 210018 and 6444 bytes; these are not pretty-printed file or MCP wire sizes.",
+      "minimal_correction": "Optionally append the serialization formula and exclusion of MCP framing to transport.measurement."
+    }
+  ],
+  "verified": {
+    "original_hashes_matched": 50,
+    "unchanged_original_source_texts": 10,
+    "changed_source_ids": [
+      "S2",
+      "S6",
+      "S9",
+      "S10"
+    ],
+    "changed_claim_ids": [
+      "C8",
+      "C12",
+      "C13",
+      "C14",
+      "C15"
+    ],
+    "complete_assignment_equal": true,
+    "input_version": "63ebd4dbb5e9a23c763199f052836d97c3802dcdd5821e41fe192aa8fe23200e",
+    "assignment_text_sha256": "091eeed022a8afe2c3022afe3426d4c6cfa65b8d8681ebbd253a8a70711298c5",
+    "serialized_response_utf8_bytes": [
+      210018,
+      6444
+    ],
+    "response_reduction_percent": 96.93169156929407,
+    "draft_nonwhitespace_characters": [
+      3803,
+      3839
+    ],
+    "time_seconds": [
+      323.406413,
+      688.126713
+    ],
+    "published_token_delta_arithmetic_matches": true
+  },
+  "limits": [
+    "No benchmark or full model evaluation rerun.",
+    "No repo or original task mutation.",
+    "No independent host-log inspection; numeric host-snapshot provenance corroboration supplied by parent, arithmetic independently recomputed.",
+    "No network-call-count reconstruction; recorded source recheck narrative was inspected.",
+    "Observed byte reduction does not establish token, bill or total task savings."
+  ]
+}
