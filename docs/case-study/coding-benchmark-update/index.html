@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Updating an existing research report · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="How an existing coding-agent procurement report was updated: previous report, new source checks, concrete revisions and preserved review evidence, with limits."/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/"/>
+<link rel="alternate" hreflang="en" href="https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/"/>
+<link rel="alternate" hreflang="zh-CN" href="https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/index.zh-CN.html"/>
+<link rel="alternate" hreflang="x-default" href="https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015"><script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell"><nav class="report-nav"><a data-home-link href="../../index.html">Research Toolkit</a><a href="../../framework.html">Research method</a><a data-language="zh" href="index.zh-CN.html">简体中文</a></nav>
+<article class="report-article"><p class="eyebrow">RESEARCH IN PRACTICE</p><h1 id="top">New material, existing report: what actually needs to change?</h1>
+<p class="report-meta">A coding-agent procurement research case · Updates on 14–15 October 2026 · The reports are in Chinese.</p>
+<p>An existing report asked what coding-agent leaderboards can support in a procurement decision. Research Toolkit was used to continue that work: revisit relevant sources, locate affected claims and revise the complete report while retaining the original evidence. The central recommendation remained: use leaderboards to select candidates, then test them on the buyer’s own work.</p>
+<p><a href="https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-14-native-agent/reports/toolkit/final.md">Previous complete report</a> · <a href="report.zh-CN.md">14 October update</a> · <a href="status-save-2026-10-15/report.zh-CN.md">15 October continuation</a></p>
+<h2 id="changes">From source checks to specific revisions</h2>
+<p>The table summarizes revisions; it is not a new benchmark result. The <a href="source-checks.md">reading notes</a> retain source IDs and locators; the full report links to the original public sources.</p>
+<div class="table-scroll" role="region" aria-label="Source checks and report revisions" tabindex="0"><table><thead><tr><th>Previous report</th><th>Material checked</th><th>Revision in the report</th></tr></thead><tbody>
+<tr><td>Discussed defective evaluation tasks without explaining this failure mechanism.</td><td>S2: OpenAI’s coding-evaluation audit, OpenLibrary-77c16d5.</td><td>Added the one-versus-two leading-space mismatch: an answer can follow the prompt and still fail the test.</td></tr>
+<tr><td>Did not spell out the prerequisites for a valid SWE-Lancer run.</td><td>S6: official running instructions.</td><td>Added disabled internet access and Linux iptables; an online Mac trial is not an equivalent score.</td></tr>
+<tr><td>Did not distinguish the different Pro V2 repair counts.</td><td>S9/S10: V2 announcement and repository instructions.</td><td>Separated 69 contradictory-instruction tasks from 529 rewritten statements, 214 test patches and 38 reference patches. These counts are not interchangeable.</td></tr>
+<tr><td>Final control outcomes alone hid first-pass infrastructure failures.</td><td>New S11: V2 release-control record.</td><td>Separated final 642/642 control passes from three first-pass infrastructure failures per arm followed by successful reruns.</td></tr>
+</tbody></table></div>
+<h2 id="review">A real revision also introduced an omission</h2>
+<p>The first update dropped an existing explanation: differences between V1 and V2 scores cannot be read directly as model progress. Author-context self-review caught it. The next revision restored that explanation and moved the citation beside the 529/214/38 figures. The <a href="first-update.zh-CN.md">first update</a>, <a href="first-self-review.json">needs_revision response</a> and <a href="final-self-review.json">final pass</a> remain accessible.</p>
+<h2 id="continuation">The next update: locate, read, then decide</h2>
+<p>On 15 October, saving two updated source records surfaced five linked claims and report locations. Reading them led to changes in three claims, not all five: the SWE-Lancer Manager monolith-image requirement, scoring of partial patches after the Pro V2 timeout, and a recommendation to separate shared setup from per-task costs. These were details already present in the sources, not newly published upstream changes.</p>
+<p><a href="status-save-2026-10-15/previous-report.zh-CN.md">Previous version</a> · <a href="status-save-2026-10-15/source-checks.md">Source checks</a> · <a href="status-save-2026-10-15/calls/03-source-update.response.json">Actual save response</a> · <a href="status-save-2026-10-15/updated-records.json">Changed records</a> · <a href="status-save-2026-10-15/review/README.md">Separate-context Astra review and repairs</a></p>
+<h2 id="limits">What this case establishes—and its limits</h2>
+<ul><li>The first update preserved the original task’s 50 files; the next preserved its 67 files. Existing source and claim IDs were reused. <a href="execution-summary.json">First execution record</a> · <a href="status-save-2026-10-15/execution-summary.json">Continuation record</a>.</li>
+<li>Both continuations used Full/self in the author context. Later separate-context Astra reviews are archived separately; they are not CLI independent-backend receipts.</li>
+<li>No coding benchmark or complete model evaluation was rerun. There was no paired update-versus-rewrite experiment, so this case does not measure overall time saved or establish a general quality or cost advantage.</li>
+<li>Observed timings, response-byte measurements, repeated reads and missing usage data remain in the <a href="README.md">original case record</a> and <a href="status-save-2026-10-15/README.md">follow-up record</a>. Response size is not overall token, time or monetary savings. The public archive is an evidence subset, not a portable complete task snapshot.</li></ul>
+<h2 id="try">Use this approach on your own report</h2>
+<p>Give your agent the existing report, relevant source material and the decision the report must support. Ask it to identify affected passages, reuse sound evidence, revise the complete report and return a short change note. Choose Lite or Full for the task and state the review actually performed.</p>
+<p><a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.md#continue-existing-research">Continue existing research</a> · <a href="../../#start">Copy a research request</a> · <a href="../">More cases</a></p>
+</article></main></body></html>

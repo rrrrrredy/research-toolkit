@@ -21,6 +21,8 @@
 
 ## 报告与案例
 
+- [已有研究报告的实际更新](https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/index.zh-CN.html): 从旧稿到来源核对、具体修订与原始证据，保留实验限制。
+
 - [国内办公 Agent 调研档案](case-study/office-agents/README.md)：初稿、定稿、来源与主张记录，以及修改取舍。
 - [完整报告](case-study/report.zh-CN.md)：2026 年 9 月报告的中文读者版。
 - [案例说明](case-study/README.zh-CN.md)：表达、结构、产品关系与模型信息的修改。
@@ -38,6 +40,8 @@
 - [来源提取](source-extraction.zh-CN.md)：来源记录与原文留存。
 
 ## 开发
+
+- [网站发现与维护（英文）](site-maintenance.md)：静态构建、静态页面检查、部署后验证、数据口径与站长接入步骤。
 
 [项目改进计划](improvement-plan.zh-CN.md)：产品与评测工作的优先级、验收条件、盲法／任务设计和推进状态。
 
