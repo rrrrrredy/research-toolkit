@@ -1,0 +1,29 @@
+{
+  "ok": true,
+  "scope": "draft_record_and_length_checks",
+  "profile": "full",
+  "artifact": "final.md",
+  "artifact_sha256": "9275ee9f135ffe2c98c9fc19a47368908ecbb01a436dfee9778dc6df39aa8a78",
+  "counts": {
+    "whitespace_words": 54,
+    "nonwhitespace_characters": 3930
+  },
+  "count_scope": "whole_artifact_including_markup_and_references",
+  "length_checks": [
+    {
+      "requirement_id": "R-length",
+      "unit": "nonwhitespace_characters",
+      "scope": "whole_artifact",
+      "min": 2500,
+      "max": 4000,
+      "actual": 3930,
+      "bounds_met": true,
+      "status": "satisfied"
+    }
+  ],
+  "errors": [],
+  "warnings": [],
+  "semantic_quality": "not_assessed",
+  "delivery_status": "not_assessed",
+  "next_action": "Check claims and decisions against sources, then complete the profile's checklist/reviews and finish."
+}

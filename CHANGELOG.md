@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Add advisory record differences and source-linked claim/report locations to `save` and `status`, skip byte-identical writes, and exercise the public CLI in a real long-report update with bilingual guidance and plugin synchronization.
+
 - Archive Astra's separate-context review of the long-report continuation and clarify the response-byte serialization method; preserve the original report and measured results.
 
 - Let local self-review callers request the frozen assignment by file reference with `include_assignment: false`, retaining complete inputs, freshness checks and the default inline response.

@@ -1,0 +1,105 @@
+{
+  "ok": true,
+  "saved_ids": {
+    "sources": [
+      "S6",
+      "S10"
+    ]
+  },
+  "updated_files": [],
+  "backups": [],
+  "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+  "changes": {
+    "available": true,
+    "operation_id": "69e113eda4a3402499fd087e475ad54b",
+    "saved_at": "2026-10-15T02:39:56.933384+00:00",
+    "records": {
+      "sources": {
+        "added": [],
+        "updated": [],
+        "unchanged": [
+          "S6",
+          "S10"
+        ],
+        "removed": [],
+        "recovered": []
+      }
+    },
+    "source_files": {
+      "S6": {
+        "status": "first_observation",
+        "paths": [
+          "source-recheck.md",
+          "sources/S6.md"
+        ],
+        "previous_paths": []
+      },
+      "S10": {
+        "status": "first_observation",
+        "paths": [
+          "source-recheck.md",
+          "sources/S10.md"
+        ],
+        "previous_paths": []
+      }
+    },
+    "artifact": "previous-final.md",
+    "affected_claims": [],
+    "unlinked_source_ids": [],
+    "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the latest registered draft, not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+  },
+  "observation": {
+    "operation": "save",
+    "operation_id": "69e113eda4a3402499fd087e475ad54b",
+    "started_at": "2026-10-15T02:39:56.886104+00:00",
+    "artifact": "previous-final.md",
+    "complete_draft": false,
+    "time_basis": "existing_file_observed",
+    "artifact_sha256": "63b6918c53dde8a8c98a1001a218f5307db2ee3c2c9a999eda89a5a4a9e794c6",
+    "outcome": "saved",
+    "record_changes": {
+      "records": {
+        "sources": {
+          "added": [],
+          "updated": [],
+          "unchanged": [
+            "S6",
+            "S10"
+          ],
+          "removed": [],
+          "recovered": []
+        }
+      },
+      "source_files": {
+        "S6": {
+          "status": "first_observation",
+          "paths": [
+            "source-recheck.md",
+            "sources/S6.md"
+          ],
+          "previous_paths": []
+        },
+        "S10": {
+          "status": "first_observation",
+          "paths": [
+            "source-recheck.md",
+            "sources/S10.md"
+          ],
+          "previous_paths": []
+        }
+      },
+      "source_observations": {
+        "S6": {
+          "sources/S6.md": "b88d7e1ac84f779740bd1764e03ca7c7a901768ce3d2196c4cdd83a721b15a8d",
+          "source-recheck.md": "842f8906a9979cc10f3112e2ec149f3259dfedfbfd020c598ee5cc6584613b7c"
+        },
+        "S10": {
+          "sources/S10.md": "9e2ce1d65fe63377e3aaf73b2aa5a9b2595df609413d2173aae43a3cf311f704",
+          "source-recheck.md": "842f8906a9979cc10f3112e2ec149f3259dfedfbfd020c598ee5cc6584613b7c"
+        }
+      }
+    },
+    "finished_at": "2026-10-15T02:39:56.933384+00:00",
+    "elapsed_seconds": 0.047
+  }
+}

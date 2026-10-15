@@ -1,0 +1,147 @@
+{
+  "sources": {
+    "ids_preserved": [
+      "S1",
+      "S10",
+      "S11",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S9"
+    ],
+    "updated_ids": [
+      "S6",
+      "S10"
+    ],
+    "updated_rows": [
+      {
+        "source_id": "S6",
+        "title": "SWE-Lancer — preparedness repository README",
+        "url": "https://raw.githubusercontent.com/openai/preparedness/main/project/swelancer/README.md",
+        "source_type": "primary_evidence",
+        "read_scope": "relevant_sections",
+        "read_evidence": "source-recheck-20261015.md",
+        "evidence_path": "sources/S6.md",
+        "publisher_or_author": "OpenAI",
+        "date": "2025-07-17 update; main accessed 2026-10-14",
+        "access_status": "rechecked_relevant_sections_2026-10-14",
+        "used_for": "离线IC与Manager的评分／镜像配置不同；Manager必须使用monolith；本次核对官方README Docker Setup和Manager配置。",
+        "limitations": "mutable main snapshot; 198 is IC subset and not all original Diamond tasks"
+      },
+      {
+        "source_id": "S10",
+        "title": "SWE-bench Pro V2 — repository README",
+        "url": "https://raw.githubusercontent.com/scaleapi/SWE-bench_Pro-os/main/v2/README.md",
+        "source_type": "primary_evidence",
+        "read_scope": "relevant_sections",
+        "read_evidence": "source-recheck-20261015.md",
+        "evidence_path": "sources/S10.md",
+        "publisher_or_author": "Scale",
+        "date": "main accessed 2026-10-14",
+        "access_status": "rechecked_relevant_sections_2026-10-14",
+        "used_for": "V2版本与干净镜像重评；50分钟为sandbox超时，仍抓取部分补丁评分；据此解释试点超时样本与成本。",
+        "limitations": "529 rewritten prompts and website 69 contradictory prompts have different scopes; controls not a proof against all gaming"
+      }
+    ]
+  },
+  "claims": {
+    "ids_preserved": [
+      "C1",
+      "C10",
+      "C11",
+      "C12",
+      "C13",
+      "C14",
+      "C15",
+      "C16",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8",
+      "C9"
+    ],
+    "updated_ids": [
+      "C8",
+      "C14",
+      "C15"
+    ],
+    "updated_rows": [
+      {
+        "claim_id": "C8",
+        "claim": "Lancer初版Diamond502题500800美元；公开IC237改198离线题；官方只接受断网运行，当前断网实现依赖Linux；Manager必须用monolith镜像。",
+        "claim_type": "fact",
+        "supporting_sources": "S5;S6",
+        "counter_evidence": "",
+        "uncertainty": "198、502、1488分母不同；联网试跑不是有效离线成绩。"
+      },
+      {
+        "claim_id": "C14",
+        "claim": "V2参考/空补丁最终642题全部符合预期，两组首轮各3次基础设施失败；Agent仅模型端点，setup/verifier仍可联网；50分钟超时仍抓取部分补丁，全新镜像重评为报告成绩。",
+        "claim_type": "source_claim",
+        "supporting_sources": "S9;S10;S11",
+        "counter_evidence": "",
+        "uncertainty": "发布者记录；不等于首轮零失败、无任何攻击方式或本次独立复现。"
+      },
+      {
+        "claim_id": "C15",
+        "claim": "同版本题集、镜像、预算和评分协议先验证环境；V1/V2、Lancer IC/Manager环境不可混用；保留超时样本，并区分共享准备与逐题成本；公开分用于候选筛选，生产收益需内部任务观察。",
+        "claim_type": "author_judgment",
+        "supporting_sources": "S3;S4;S5;S6;S8;S9;S10;S11",
+        "counter_evidence": "",
+        "uncertainty": "筛选不等于品牌排序或提效承诺"
+      }
+    ]
+  },
+  "requirements": {
+    "ids_preserved": [
+      "R-reading",
+      "R-compare",
+      "R-critique",
+      "R-procurement",
+      "R-length",
+      "R-artifacts",
+      "R-update"
+    ],
+    "updated_ids": [
+      "R-procurement",
+      "R-length",
+      "R-update"
+    ],
+    "updated_rows": [
+      {
+        "requirement_id": "R-procurement",
+        "source_turn": "task.json",
+        "summary": "明确可用筛选信号及生产提效外推限制，提出可执行选择与内部仓库试点，不推荐未测品牌",
+        "status": "satisfied",
+        "evidence": "final.md adds timeout denominator and setup-versus-per-task cost decisions; sources support protocol facts, cost accounting remains author advice."
+      },
+      {
+        "requirement_id": "R-length",
+        "source_turn": "task.json/user",
+        "summary": "全文Markdown计2500–4000非空白字符，含语法和链接；就地引用且无资料清单",
+        "status": "satisfied",
+        "evidence": "final.md: 3930 whole-Markdown nonwhitespace characters, original 2500–4000 bounds.",
+        "length_constraint": {
+          "unit": "nonwhitespace_characters",
+          "scope": "whole_artifact",
+          "min": 2500,
+          "max": 4000
+        }
+      },
+      {
+        "requirement_id": "R-update",
+        "source_turn": "user-current-continuation",
+        "summary": "实际核对来源后更新已有长报告，保留原稿、记录具体修改和复用，交付当前完整稿。",
+        "status": "satisfied",
+        "evidence": "final.md L11/L23/L29: S6/S10 verified Manager image and partial-patch timeout protocol reach the reader; source-recheck-20261015.md records the reading; old source text and report are preserved."
+      }
+    ]
+  }
+}

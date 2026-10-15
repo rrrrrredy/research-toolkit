@@ -1,0 +1,7 @@
+{
+  "task":"changes",
+  "sources":[
+    {"source_id":"S6","read_evidence":"source-recheck-20261015.md","used_for":"离线IC与Manager的评分／镜像配置不同；Manager必须使用monolith；本次核对官方README Docker Setup和Manager配置。"},
+    {"source_id":"S10","read_evidence":"source-recheck-20261015.md","used_for":"V2版本与干净镜像重评；50分钟为sandbox超时，仍抓取部分补丁评分；据此解释试点超时样本与成本。"}
+  ]
+}

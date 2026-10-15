@@ -1,0 +1,53 @@
+{
+  "completed": true,
+  "artifact": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\changes\\final.md",
+  "delivery_check": {
+    "ok": true,
+    "delivery_contract_version": 3,
+    "length_checks": [
+      {
+        "requirement_id": "R-length",
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_artifact",
+        "min": 2500,
+        "max": 4000,
+        "actual": 3930,
+        "bounds_met": true,
+        "status": "satisfied"
+      }
+    ],
+    "current_contract_checked": true,
+    "semantic_verification": false,
+    "review_completion": {
+      "ok": true,
+      "flags": [],
+      "findings": [],
+      "required_slots": 1,
+      "completed_slots": 1,
+      "selected_attempts": {
+        "self": "d579fa52cdbb4a0f9b0d143f5630578f"
+      },
+      "record_consistency_checked": true,
+      "execution_authenticity_verified": false,
+      "semantic_verification": false,
+      "report_quality_certified": false,
+      "reviewer": "self",
+      "review_strength": "degraded"
+    },
+    "flags": [],
+    "findings": [],
+    "completion_claim": false,
+    "terminal_state": true,
+    "stage": "final",
+    "status": "complete",
+    "accepted_limitations": [],
+    "limitation_disclosure": {
+      "status": "not_applicable",
+      "unmatched_limitations": [],
+      "semantic_verification": false
+    },
+    "warnings": [],
+    "delivery_observation": "not_provided"
+  },
+  "message": "已完成编程智能体评测采购报告的本次完整更新：补充Manager镜像要求、超时部分补丁评分与试点成本拆分。原任务及来源保留；本地Full流程记录作者上下文自查，另行归档宿主干净上下文中的Astra独立复核。"
+}

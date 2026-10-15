@@ -1,0 +1,38 @@
+{
+  "task": "changes",
+  "claims": [
+    {
+      "claim_id": "C8",
+      "claim": "Lancer初版Diamond502题500800美元；公开IC237改198离线题；官方只接受断网运行，当前断网实现依赖Linux；Manager必须用monolith镜像。"
+    },
+    {
+      "claim_id": "C14",
+      "claim": "V2参考/空补丁最终642题全部符合预期，两组首轮各3次基础设施失败；Agent仅模型端点，setup/verifier仍可联网；50分钟超时仍抓取部分补丁，全新镜像重评为报告成绩。"
+    },
+    {
+      "claim_id": "C15",
+      "claim": "同版本题集、镜像、预算和评分协议先验证环境；V1/V2、Lancer IC/Manager环境不可混用；保留超时样本，并区分共享准备与逐题成本；公开分用于候选筛选，生产收益需内部任务观察。"
+    }
+  ],
+  "requirements": [
+    {
+      "requirement_id": "R-length",
+      "status": "satisfied",
+      "evidence": "final.md: 3930 whole-Markdown nonwhitespace characters, original 2500–4000 bounds."
+    },
+    {
+      "requirement_id": "R-update",
+      "status": "satisfied",
+      "evidence": "final.md L11/L23/L29: S6/S10 verified Manager image and partial-patch timeout protocol reach the reader; source-recheck-20261015.md records the reading; old source text and report are preserved."
+    },
+    {
+      "requirement_id": "R-procurement",
+      "status": "satisfied",
+      "evidence": "final.md adds timeout denominator and setup-versus-per-task cost decisions; sources support protocol facts, cost accounting remains author advice."
+    }
+  ],
+  "draft": {
+    "path": "drafts/change-first.md",
+    "complete": true
+  }
+}

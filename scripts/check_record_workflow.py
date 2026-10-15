@@ -61,6 +61,77 @@ class RecordWorkflowTests(unittest.TestCase):
         self.assertTrue(w.save_records(self.workspace, "case", requirements=[{"requirement_id": "R1", "status": "satisfied", "evidence": "drafts/first.md"}])["ok"])
         self.assertEqual(w.status(self.workspace, "case")["activity"]["failed_saves"], 2)
 
+    def test_changes_reuse_ids_locate_body_and_skip_identical_writes(self):
+        self.seed()
+        w.save_records(self.workspace, "case", draft={"path": "final.md", "content":
+            "# Findings\nTwelve shipments [source](https://example.org).\nNot this URL: https://example.org/other\n"})
+        before = (self.root/"data/source_registry.csv").stat().st_mtime_ns
+        same = w.save_records(self.workspace, "case", sources=[{"source_id": "S1"}])
+        self.assertEqual(same["updated_files"], [])
+        self.assertEqual((self.root/"data/source_registry.csv").stat().st_mtime_ns, before)
+        self.assertEqual(same["changes"]["records"]["sources"]["unchanged"], ["S1"])
+        self.assertEqual(same["changes"]["affected_claims"], [])
+        (self.root/"source.md").write_text("Thirteen shipments.", encoding="utf-8")
+        changed = w.save_records(self.workspace, "case", sources=[{"source_id": "S1"}])["changes"]
+        self.assertEqual(changed["source_files"]["S1"]["status"], "changed")
+        self.assertEqual(changed["affected_claims"][0]["claim_id"], "C1")
+        self.assertEqual([m["line"] for m in changed["affected_claims"][0]["locations"]], [2])
+        before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
+        self.assertEqual(w.status(self.workspace, "case")["changes"], changed)
+        self.assertEqual(before, {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()})
+        # A draft-only save keeps the batch but refreshes its line locations.
+        latest = w.save_records(self.workspace, "case", draft={"path": "final.md", "content": "# New\n\nNo citation here."})
+        self.assertEqual(latest["changes"]["affected_claims"][0]["location_status"], "not_located")
+
+    def test_changes_first_observation_recovery_and_failed_save(self):
+        first = self.seed()["changes"]
+        self.assertEqual(first["source_files"]["S1"]["status"], "first_observation")
+        self.assertEqual(first["records"]["sources"]["added"], ["S1"])
+        failed = w.save_records(self.workspace, "case", sources=[{"source_id": "S1", "title": 1}])
+        self.assertFalse(failed["ok"])
+        self.assertEqual(w.status(self.workspace, "case")["changes"]["operation_id"], first["operation_id"])
+        (self.root/"data/source_registry.csv").write_bytes(b'bad,"unclosed')
+        recovered = w.save_records(self.workspace, "case", sources=[{"source_id": "S1", "title": "Restored",
+            "url": "https://example.org", "source_type": "primary"}], replace=["sources"])
+        self.assertEqual(recovered["changes"]["records"]["sources"]["recovered"], ["S1"])
+
+    def test_source_changes_use_existing_reading_locator_formats(self):
+        self.seed()
+        for field in ("read_evidence", "evidence_path"):
+            for locator in ("source.md#L1", "[reading](source.md#L1)", "source.md:1"):
+                with self.subTest(field=field, locator=locator):
+                    (self.root/"source.md").write_text("Before", encoding="utf-8")
+                    w.save_records(self.workspace, "case", sources=[{"source_id": "S1",
+                        "read_evidence": "", "evidence_path": "", field: locator}])
+                    (self.root/"source.md").write_text("After", encoding="utf-8")
+                    result = w.save_records(self.workspace, "case", sources=[{"source_id": "S1"}])
+                    self.assertEqual(result["changes"]["source_files"]["S1"]["status"], "changed")
+                    self.assertEqual(result["changes"]["source_files"]["S1"]["paths"], ["source.md"])
+                    self.assertEqual(result["changes"]["affected_claims"][0]["claim_id"], "C1")
+
+    def test_changes_legacy_log_and_removed_source_keep_unknown_locations(self):
+        self.seed()
+        (self.root/"logs/activity.jsonl").write_text('not-json\n{"operation":"save","outcome":"saved"}\n', encoding="utf-8")
+        self.assertFalse(w.status(self.workspace, "case")["changes"]["available"])
+        removed = w.save_records(self.workspace, "case", sources=[], replace=["sources"])["changes"]
+        self.assertEqual(removed["records"]["sources"]["removed"], ["S1"])
+        self.assertEqual(removed["affected_claims"][0]["location_status"], "not_located")
+        # A missing source remains an error in the original draft prerequisite.
+        with self.assertRaises(ValueError):
+            w.check_stage_records(self.root, "draft")
+
+    def test_explicit_evidence_path_keeps_non_locator_extensions(self):
+        self.seed()
+        original = self.root/"source.xml"
+        original.write_text("<shipments>12</shipments>", encoding="utf-8")
+        w.save_records(self.workspace, "case", sources=[{"source_id": "S1", "evidence_path": "source.xml"}])
+        w.check_stage_records(self.root, "draft")
+        original.write_text("<shipments>13</shipments>", encoding="utf-8")
+        result = w.save_records(self.workspace, "case", sources=[{"source_id": "S1"}])
+        self.assertEqual(result["changes"]["source_files"]["S1"]["status"], "changed")
+        self.assertEqual(result["changes"]["source_files"]["S1"]["paths"], ["source.md", "source.xml"])
+        self.assertEqual(result["changes"]["affected_claims"][0]["claim_id"], "C1")
+
     def test_malformed_existing_records_can_be_replaced_with_original_backup(self):
         self.seed()
         path = self.root/"data/source_registry.csv"

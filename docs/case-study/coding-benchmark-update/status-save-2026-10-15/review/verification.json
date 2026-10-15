@@ -1,0 +1,116 @@
+{
+  "head": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+  "whole_markdown_nonwhitespace_characters": 3930,
+  "first_draft_matches_final": true,
+  "mirror_checks": [
+    {
+      "path": "SKILL.md",
+      "equal_normalized_text": true
+    },
+    {
+      "path": "SKILL.zh-CN.md",
+      "equal_normalized_text": true
+    },
+    {
+      "path": "docs/usage-modes.md",
+      "equal_normalized_text": true
+    },
+    {
+      "path": "docs/usage-modes.zh-CN.md",
+      "equal_normalized_text": true
+    },
+    {
+      "path": "scripts/record_changes.py",
+      "equal_normalized_text": true
+    },
+    {
+      "path": "scripts/research_records.py",
+      "equal_normalized_text": true
+    },
+    {
+      "path": "scripts/research_workflow.py",
+      "equal_normalized_text": true
+    },
+    {
+      "path": "scripts/research_mcp.py",
+      "equal_normalized_text": true
+    }
+  ],
+  "public_cli_evidence": [
+    {
+      "file": "01-status.response.json",
+      "ok": null,
+      "action_required": null,
+      "artifact": null,
+      "updated_files": null
+    },
+    {
+      "file": "02-observe.response.json",
+      "ok": true,
+      "action_required": null,
+      "artifact": "previous-final.md",
+      "updated_files": []
+    },
+    {
+      "file": "03-source-update.response.json",
+      "ok": true,
+      "action_required": null,
+      "artifact": "previous-final.md",
+      "updated_files": [
+        "data/source_registry.csv"
+      ]
+    },
+    {
+      "file": "04-draft.response.json",
+      "ok": true,
+      "action_required": null,
+      "artifact": "drafts/change-first.md",
+      "updated_files": [
+        "data/claims_registry.csv",
+        "state/requirements.jsonl"
+      ]
+    },
+    {
+      "file": "05-check.response.json",
+      "ok": true,
+      "action_required": null,
+      "artifact": null,
+      "updated_files": null
+    },
+    {
+      "file": "06-review-input.response.json",
+      "ok": null,
+      "action_required": "self_review",
+      "artifact": null,
+      "updated_files": null
+    }
+  ],
+  "boundary_run": {
+    "command": "./.research-toolkit-venv/Scripts/python.exe -X utf8 output/astra-change-update-20261015/boundary_checks.py",
+    "exit_code": 1,
+    "passed": 5,
+    "failed": 3,
+    "output": "boundary-checks-result.json"
+  },
+  "other_commands": [
+    {
+      "command": "git status --short; git diff --stat; git diff -- <reviewed files>",
+      "exit_code": 0,
+      "result": "working-tree changes inspected; reviewed.diff retained"
+    },
+    {
+      "command": "Get-Content / rg relevant local code, docs, task and source passages",
+      "result": "read-only inspection; one rg scripts/check* Windows glob returned exit 1 and was replaced by direct file reading"
+    },
+    {
+      "command": "web.run open official SWE-Lancer README and SWE-bench Pro V2 README",
+      "result": "both returned original public text, 193 and 108 lines; key locators recorded in review"
+    }
+  ],
+  "not_run": [
+    "full paid evaluation",
+    "benchmark model runs",
+    "all-host smoke matrix",
+    "existing 10 record tests and packaged MCP contract (reported already run by author; not re-executed here)"
+  ]
+}

@@ -378,6 +378,7 @@ def save_records(workspace: Path, task: str, sources=None, claims=None, requirem
 
 @task_operation
 def status(workspace: Path, task: str, language="en", stage: str | None = None) -> dict:
+    from record_changes import latest_changes
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
     missing = [k for k in BRIEF_FIELDS if not nonempty(progress.get("brief", {}).get(k))]
@@ -410,6 +411,7 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None) 
     current = progress.get("stage", "brief")
     return {"task": task, "task_directory": str(root), "progress": progress, "missing_fields": missing, **delivery,
             "activity": activity_summary(root),
+            "changes": latest_changes(root),
             **guidance(current, language, progress.get("profile", "full"))}
 
 

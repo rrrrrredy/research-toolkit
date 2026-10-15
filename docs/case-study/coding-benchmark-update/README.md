@@ -39,3 +39,5 @@ Observed benefits are preserving existing research, adding specific explanations
 The [execution summary](execution-summary.json) retains original-file hashes, input versions, report hashes, reuse counts and completion results. [First-draft checks](first-draft-check.json) preserve the pending state; [final checks](final-draft-check.json) pass. Complete frozen assignments and receipts remain in the local task; the public evidence subset is not a portable full-task snapshot.
 
 On October 15, Astra reviewed this change in a separate context without inherited author conversation: no necessary fixes were found. The optional serialization-method clarification is adopted above; the original report and measurements are preserved. See the [independent review and targeted recheck](review-2026-10-15/README.md).
+
+Follow-up: [October 15 continuation using status/save change summaries](status-save-2026-10-15/README.md), retaining source links, actual revisions and public CLI calls.

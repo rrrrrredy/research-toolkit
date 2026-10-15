@@ -58,6 +58,8 @@ def research_save(task: str, sources: list[dict[str, Any]] | None = None,
     replace names complete collections to repair from recovered rows; original bytes are backed up automatically.
     Records reading/verification claims as supplied, never infers truth or closes requirements automatically.
     Saves observe timestamps and failures; research_status exposes activity and returned reviewer usage.
+    changes summarizes the latest record-save batch and candidate claim/report locations; identical bytes are not rewritten.
+    Saving a source ID also compares local evidence against its previous save observation. First observations are explicit.
     """
     return mutate(workflow.save_records, task, sources, claims, requirements, draft, replace)
 
@@ -66,6 +68,8 @@ def research_save(task: str, sources: list[dict[str, Any]] | None = None,
 def research_status(task: str, language: str = "en", stage: str | None = None) -> dict[str, Any]:
     """Read progress and stage methods. Optional stage advances to collect/analyze/draft/revise only
     after prerequisite records exist. Review and final completion use their dedicated tools.
+    changes reuses the latest successful record-save batch and locates related claims in the latest registered draft.
+    Literal matches guide reading, not semantic verdicts; not_located requires inspection, not a new acceptance gate.
     """
     return (mutate(workflow.status, task, language, stage) if stage is not None
             else call(workflow.status, WORKSPACE, task, language, stage))

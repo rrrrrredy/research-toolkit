@@ -1,0 +1,300 @@
+{
+  "checks": [
+    {
+      "name": "source_locator_plain",
+      "passed": true,
+      "evidence": {
+        "locator": "source.md",
+        "existing_reading_validator_errors": [],
+        "save_ok": true,
+        "changes": {
+          "available": true,
+          "operation_id": "67859cee3c294fe59f8022b14bc1ea8c",
+          "saved_at": "2026-10-15T02:50:01.321147+00:00",
+          "records": {
+            "sources": {
+              "added": [],
+              "updated": [],
+              "unchanged": [
+                "S1"
+              ],
+              "removed": [],
+              "recovered": []
+            }
+          },
+          "source_files": {
+            "S1": {
+              "status": "changed",
+              "paths": [
+                "source.md"
+              ],
+              "previous_paths": [
+                "source.md"
+              ]
+            }
+          },
+          "artifact": "final.md",
+          "affected_claims": [
+            {
+              "claim_id": "C1",
+              "claim": "Twelve shipments",
+              "changed_source_ids": [
+                "S1"
+              ],
+              "locations": [
+                {
+                  "line": 2,
+                  "heading": "Result",
+                  "matched_by": [
+                    "claim_text",
+                    "source_link:S1"
+                  ]
+                }
+              ],
+              "location_status": "matched"
+            }
+          ],
+          "unlinked_source_ids": [],
+          "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the latest registered draft, not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+        }
+      }
+    },
+    {
+      "name": "source_locator_anchor",
+      "passed": true,
+      "evidence": {
+        "locator": "source.md#L1",
+        "existing_reading_validator_errors": [],
+        "save_ok": true,
+        "changes": {
+          "available": true,
+          "operation_id": "3d24a482f2214437958dc235fe2068b7",
+          "saved_at": "2026-10-15T02:50:01.606701+00:00",
+          "records": {
+            "sources": {
+              "added": [],
+              "updated": [],
+              "unchanged": [
+                "S1"
+              ],
+              "removed": [],
+              "recovered": []
+            }
+          },
+          "source_files": {
+            "S1": {
+              "status": "changed",
+              "paths": [
+                "source.md"
+              ],
+              "previous_paths": [
+                "source.md"
+              ]
+            }
+          },
+          "artifact": "final.md",
+          "affected_claims": [
+            {
+              "claim_id": "C1",
+              "claim": "Twelve shipments",
+              "changed_source_ids": [
+                "S1"
+              ],
+              "locations": [
+                {
+                  "line": 2,
+                  "heading": "Result",
+                  "matched_by": [
+                    "claim_text",
+                    "source_link:S1"
+                  ]
+                }
+              ],
+              "location_status": "matched"
+            }
+          ],
+          "unlinked_source_ids": [],
+          "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the latest registered draft, not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+        }
+      }
+    },
+    {
+      "name": "source_locator_markdown",
+      "passed": true,
+      "evidence": {
+        "locator": "[reading](source.md#L1)",
+        "existing_reading_validator_errors": [],
+        "save_ok": true,
+        "changes": {
+          "available": true,
+          "operation_id": "d16b22b45ae44585937e6f8a3bac7c0d",
+          "saved_at": "2026-10-15T02:50:01.927862+00:00",
+          "records": {
+            "sources": {
+              "added": [],
+              "updated": [],
+              "unchanged": [
+                "S1"
+              ],
+              "removed": [],
+              "recovered": []
+            }
+          },
+          "source_files": {
+            "S1": {
+              "status": "changed",
+              "paths": [
+                "source.md"
+              ],
+              "previous_paths": [
+                "source.md"
+              ]
+            }
+          },
+          "artifact": "final.md",
+          "affected_claims": [
+            {
+              "claim_id": "C1",
+              "claim": "Twelve shipments",
+              "changed_source_ids": [
+                "S1"
+              ],
+              "locations": [
+                {
+                  "line": 2,
+                  "heading": "Result",
+                  "matched_by": [
+                    "claim_text",
+                    "source_link:S1"
+                  ]
+                }
+              ],
+              "location_status": "matched"
+            }
+          ],
+          "unlinked_source_ids": [],
+          "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the latest registered draft, not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+        }
+      }
+    },
+    {
+      "name": "source_locator_page",
+      "passed": true,
+      "evidence": {
+        "locator": "source.md:1",
+        "existing_reading_validator_errors": [],
+        "save_ok": true,
+        "changes": {
+          "available": true,
+          "operation_id": "16cccdebdc8e4495a8d0add99bab450a",
+          "saved_at": "2026-10-15T02:50:02.261801+00:00",
+          "records": {
+            "sources": {
+              "added": [],
+              "updated": [],
+              "unchanged": [
+                "S1"
+              ],
+              "removed": [],
+              "recovered": []
+            }
+          },
+          "source_files": {
+            "S1": {
+              "status": "changed",
+              "paths": [
+                "source.md"
+              ],
+              "previous_paths": [
+                "source.md"
+              ]
+            }
+          },
+          "artifact": "final.md",
+          "affected_claims": [
+            {
+              "claim_id": "C1",
+              "claim": "Twelve shipments",
+              "changed_source_ids": [
+                "S1"
+              ],
+              "locations": [
+                {
+                  "line": 2,
+                  "heading": "Result",
+                  "matched_by": [
+                    "claim_text",
+                    "source_link:S1"
+                  ]
+                }
+              ],
+              "location_status": "matched"
+            }
+          ],
+          "unlinked_source_ids": [],
+          "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the latest registered draft, not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+        }
+      }
+    },
+    {
+      "name": "per_source_history_after_other_batch",
+      "passed": true,
+      "evidence": {
+        "S1": {
+          "status": "unchanged",
+          "paths": [
+            "source.md"
+          ],
+          "previous_paths": [
+            "source.md"
+          ]
+        }
+      }
+    },
+    {
+      "name": "rollback_with_skipped_identical_first_plan",
+      "passed": true,
+      "evidence": {
+        "result": {
+          "ok": false,
+          "errors": [
+            "reviewer controlled write failure"
+          ],
+          "next_action": "Agent: correct the indicated fields and retry. Keep research decisions with the user; do not ask them to edit CSV/JSONL.",
+          "observation": {
+            "operation": "save",
+            "operation_id": "3e423c67df9e46f5a3859a00dec0359e",
+            "started_at": "2026-10-15T02:50:02.472538+00:00",
+            "artifact": "final.md",
+            "complete_draft": false,
+            "time_basis": "saved_by_tool",
+            "outcome": "error",
+            "error": "reviewer controlled write failure",
+            "finished_at": "2026-10-15T02:50:02.505675+00:00",
+            "elapsed_seconds": 0.046
+          }
+        },
+        "replace_targets": [
+          "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\ar-fu34euhc\\plain\\data\\claims_registry.csv",
+          "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\a14tmp\\ar-fu34euhc\\plain\\final.md"
+        ]
+      }
+    },
+    {
+      "name": "status_bytes_and_mtime_read_only",
+      "passed": true,
+      "evidence": {
+        "files_checked": 11
+      }
+    },
+    {
+      "name": "source_file_boundary",
+      "passed": true,
+      "evidence": {
+        "path": "../outside.md"
+      }
+    }
+  ],
+  "passed": 8,
+  "failed": 0
+}

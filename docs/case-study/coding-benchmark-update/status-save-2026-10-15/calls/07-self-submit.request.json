@@ -1,0 +1,45 @@
+{
+  "task": "changes",
+  "artifact": "final.md",
+  "evidence_paths": [
+    "source-recheck-20261015.md"
+  ],
+  "reviewer": "self",
+  "revision": true,
+  "include_assignment": false,
+  "self_review": {
+    "input_version": "ec5c84ee43600e9b017eb799ac01b8cca98423f95af71e500c1c5de7dce86bdf",
+    "report_verdict": "pass",
+    "coverage": {
+      "requirements": {
+        "location": "final.md comparison table, audit discussion, four procurement steps; R-length",
+        "basis": "Complete comparison and original decision scope remain; whole-file 3930 meets original 2500–4000. Current additions address implementation conditions without adding benchmark obligations."
+      },
+      "evidence": {
+        "location": "final.md L11/L23/L29; S6 Docker Setup/Manager configuration, S10 locked protocol L64–67",
+        "basis": "Manager monolith requirement and partial-patch capture are supported by original repository text. Timeout-denominator and cost separation are author procurement recommendations. Previously checked unchanged evidence is reused with preserved local bytes; no claim that the upstream sources changed."
+      },
+      "adversarial_reasoning": {
+        "location": "final.md audit denominators, controls paragraph, trial conclusion",
+        "basis": "Retains nonrepresentative audit denominator, no direct V1/V2 or IC/Manager score conversion, controls not proof of all correctness, and no productivity promise. Timeout does not necessarily mean unusable patch because captured work is graded."
+      },
+      "structure_and_depth": {
+        "location": "final.md L11, L23, procurement step 1",
+        "basis": "New protocol details affect concrete setup and accounting decisions; surrounding comparisons and causal limitations remain coherent."
+      },
+      "reader_usefulness": {
+        "location": "final.md opening, comparison table and numbered trial steps",
+        "basis": "Gives procurement readers a concrete environment check and separate shared/per-task costs. Does not ask report readers to manage Toolkit records."
+      },
+      "process_language": {
+        "location": "complete final.md",
+        "basis": "Reader-facing report contains source URLs and no private citation tokens, task IDs or tool execution narration."
+      },
+      "natural_expression": {
+        "location": "complete final.md, especially added sentences",
+        "basis": "Added sentences are concrete and placed with Lancer setup, Pro timing and trial preparation. Historical date is preserved; no global claims of measured savings."
+      }
+    },
+    "findings": []
+  }
+}

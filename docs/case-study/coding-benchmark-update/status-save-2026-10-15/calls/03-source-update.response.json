@@ -1,0 +1,209 @@
+{
+  "ok": true,
+  "saved_ids": {
+    "sources": [
+      "S6",
+      "S10"
+    ]
+  },
+  "updated_files": [
+    "data/source_registry.csv"
+  ],
+  "backups": [],
+  "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+  "changes": {
+    "available": true,
+    "operation_id": "e3cca58fe9d24f319aba89f0753c9ba2",
+    "saved_at": "2026-10-15T02:41:01.399126+00:00",
+    "records": {
+      "sources": {
+        "added": [],
+        "updated": [
+          "S6",
+          "S10"
+        ],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      }
+    },
+    "source_files": {
+      "S6": {
+        "status": "changed",
+        "paths": [
+          "source-recheck-20261015.md",
+          "sources/S6.md"
+        ],
+        "previous_paths": [
+          "source-recheck.md",
+          "sources/S6.md"
+        ]
+      },
+      "S10": {
+        "status": "changed",
+        "paths": [
+          "source-recheck-20261015.md",
+          "sources/S10.md"
+        ],
+        "previous_paths": [
+          "source-recheck.md",
+          "sources/S10.md"
+        ]
+      }
+    },
+    "artifact": "previous-final.md",
+    "affected_claims": [
+      {
+        "claim_id": "C8",
+        "claim": "Lancer初版Diamond502题500800美元；公开IC237改198离线题；官方只接受断网运行，当前断网实现依赖Linux。",
+        "changed_source_ids": [
+          "S6"
+        ],
+        "locations": [
+          {
+            "line": 11,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S6"
+            ]
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C13",
+        "claim": "Pro V2公共642题/11仓库；官网69道矛盾题修正，仓库529题文重写、214测试补丁、38参考补丁修改，各数字对象不同。",
+        "changed_source_ids": [
+          "S10"
+        ],
+        "locations": [
+          {
+            "line": 21,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S10"
+            ]
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C14",
+        "claim": "V2参考/空补丁最终642题全部符合预期，但两组首轮各3次基础设施失败；Agent仅模型端点，setup/verifier仍可联网，全新镜像重评为报告成绩。",
+        "changed_source_ids": [
+          "S10"
+        ],
+        "locations": [
+          {
+            "line": 21,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S10"
+            ]
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C15",
+        "claim": "使用同版本题集、镜像、预算和评分协议先验证环境，V1/V2管线及Lancer断网条件不可混用；公开分只用于候选诊断，生产收益需内部任务观察。",
+        "changed_source_ids": [
+          "S10",
+          "S6"
+        ],
+        "locations": [
+          {
+            "line": 11,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S6"
+            ]
+          },
+          {
+            "line": 21,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S10"
+            ]
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C16",
+        "claim": "建议研发负责人先封存代表性内部任务，由维护者盲验收，对照人工流程统计净收益和回归",
+        "changed_source_ids": [
+          "S10"
+        ],
+        "locations": [
+          {
+            "line": 21,
+            "heading": "编程智能体排行榜能支持什么采购判断？",
+            "matched_by": [
+              "source_link:S10"
+            ]
+          }
+        ],
+        "location_status": "matched"
+      }
+    ],
+    "unlinked_source_ids": [],
+    "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the latest registered draft, not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+  },
+  "observation": {
+    "operation": "save",
+    "operation_id": "e3cca58fe9d24f319aba89f0753c9ba2",
+    "started_at": "2026-10-15T02:41:01.362072+00:00",
+    "outcome": "saved",
+    "record_changes": {
+      "records": {
+        "sources": {
+          "added": [],
+          "updated": [
+            "S6",
+            "S10"
+          ],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        }
+      },
+      "source_files": {
+        "S6": {
+          "status": "changed",
+          "paths": [
+            "source-recheck-20261015.md",
+            "sources/S6.md"
+          ],
+          "previous_paths": [
+            "source-recheck.md",
+            "sources/S6.md"
+          ]
+        },
+        "S10": {
+          "status": "changed",
+          "paths": [
+            "source-recheck-20261015.md",
+            "sources/S10.md"
+          ],
+          "previous_paths": [
+            "source-recheck.md",
+            "sources/S10.md"
+          ]
+        }
+      },
+      "source_observations": {
+        "S6": {
+          "sources/S6.md": "b88d7e1ac84f779740bd1764e03ca7c7a901768ce3d2196c4cdd83a721b15a8d",
+          "source-recheck-20261015.md": "da4b04a155bed7e82f30797417932410b6cdf6d6a46ce360dc0fbd10ef89ca2c"
+        },
+        "S10": {
+          "sources/S10.md": "9e2ce1d65fe63377e3aaf73b2aa5a9b2595df609413d2173aae43a3cf311f704",
+          "source-recheck-20261015.md": "da4b04a155bed7e82f30797417932410b6cdf6d6a46ce360dc0fbd10ef89ca2c"
+        }
+      }
+    },
+    "finished_at": "2026-10-15T02:41:01.399126+00:00",
+    "elapsed_seconds": 0.031
+  }
+}
