@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.2.0 — 2026-10-15
+
 - Add advisory record differences and source-linked claim/report locations to `save` and `status`, skip byte-identical writes, and exercise the public CLI in a real long-report update with bilingual guidance and plugin synchronization.
 
 - Archive Astra's separate-context review of the long-report continuation and clarify the response-byte serialization method; preserve the original report and measured results.
