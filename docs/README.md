@@ -21,6 +21,8 @@
 
 ## Reports and cases
 
+- [Updating an existing research report](https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/): Old report, new source checks, concrete revisions and retained limits.
+
 - [APIs or browsers for AI agents](case-study/api-or-browser/report.md): original English research on action coverage, completion, recovery, and cost.
 - [English case archive](case-study/api-or-browser/README.md): initial and final manuscripts, English source and claim records, complete reviews, and the revision decision.
 - [Office agent research in China](case-study/office-agents/README.md): the historical Chinese case and its retained [English translation](case-study/report.en.md).
@@ -38,6 +40,8 @@
 - [Source extraction](source-extraction.md): provenance and retained source text.
 
 ## Development
+
+- [Website discovery and maintenance](site-maintenance.md): static build, static page checks, deployment verification, measurement boundaries and owner setup steps.
 
 [Project improvement plan](improvement-plan.md): priorities, acceptance criteria, masking/task design and progress across product and evaluation work.
 
