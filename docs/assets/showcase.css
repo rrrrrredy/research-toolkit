@@ -33,9 +33,9 @@ nav{display:flex;align-items:center;gap:25px;font-size:13px}
 nav a{text-decoration:none;color:var(--ink)}
 nav button{padding:4px 0;font-size:12px;color:var(--muted)}
 .language-switch{display:inline-flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:5px;padding:3px;background:var(--soft)}
-.language-switch button{min-width:38px;min-height:34px;padding:4px 8px;border-radius:3px;font-size:12px;color:var(--muted)}
-.language-switch button[aria-pressed=true]{background:var(--ink);color:var(--bg);font-weight:650}
-.language-switch button[aria-pressed=false]:hover{background:var(--paper);color:var(--ink)}
+.language-switch a{min-width:38px;min-height:34px;padding:4px 8px;border-radius:3px;font-size:12px;color:var(--muted)}
+.language-switch a[aria-current=page]{background:var(--ink);color:var(--bg);font-weight:650}
+.language-switch a:not([aria-current=page]):hover{background:var(--paper);color:var(--ink)}
 .hero{display:grid;grid-template-columns:1fr 1.04fr;gap:72px;align-items:center;padding-top:68px;padding-bottom:82px}
 .eyebrow{font-family:Consolas,"Microsoft YaHei",monospace;letter-spacing:1.5px;font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;margin-bottom:22px}
 .hero-title{font-size:89px;line-height:1.04;letter-spacing:-5.5px;font-weight:740;margin-bottom:26px}
@@ -191,7 +191,7 @@ details[open] summary{list-style:disclosure-open}
   nav{gap:15px;font-size:11px}
   nav .nav-secondary{display:none}
   nav button{font-size:11px}
-  .language-switch button{min-width:44px;min-height:44px}
+  .language-switch a{min-width:44px;min-height:44px}
   .hero{grid-template-columns:1fr;gap:33px;padding-top:38px;padding-bottom:42px}
   .eyebrow{font-size:10px;margin-bottom:16px;letter-spacing:.7px}
   .hero-title{font-size:69px;letter-spacing:-4px;margin-bottom:23px}

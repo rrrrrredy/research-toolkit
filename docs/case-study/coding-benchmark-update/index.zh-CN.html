@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>已有研究报告的实际更新 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="一篇已有编程智能体采购报告如何更新：旧稿、新材料核对、具体正文修订与评审证据；保留真实摩擦和实验限制。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/index.zh-CN.html"/>
+<link rel="alternate" hreflang="en" href="https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/"/>
+<link rel="alternate" hreflang="zh-CN" href="https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/index.zh-CN.html"/>
+<link rel="alternate" hreflang="x-default" href="https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=seo-20261015"><script src="../../assets/reading-preferences.js?v=seo-20261015"></script></head>
+<body><main class="report-shell"><nav class="report-nav"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../../framework.zh-CN.html">研究方法</a><a data-language="en" href="./">English</a></nav>
+<article class="report-article"><p class="eyebrow">实际研究场景</p><h1 id="top">有了新材料，已有报告究竟要改哪里？</h1>
+<p class="report-meta">编程智能体采购研究案例 · 2026 年 10 月 14–15 日接续更新 · 完整报告为中文。</p>
+<p>一篇已有报告讨论“编程智能体排行榜能支持什么采购判断”。本次使用 Research Toolkit 接续这项研究：核对相关来源、定位受影响的主张，保留原始证据并修改完整报告。核心建议仍然是：用排行榜筛选候选，再在采购方自己的工作中试用。</p>
+<p><a href="https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-14-native-agent/reports/toolkit/final.md">此前完整报告</a> · <a href="report.zh-CN.md">10 月 14 日更新稿</a> · <a href="status-save-2026-10-15/report.zh-CN.md">10 月 15 日接续稿</a></p>
+<h2 id="changes">来源核对如何变成具体修订</h2>
+<p>下表是修订摘要，不是新增的基准测试结果。<a href="source-checks.md">阅读记录</a>保留来源编号和位置；完整报告链接到公开原始来源。</p>
+<div class="table-scroll" role="region" aria-label="来源核对与正文修订" tabindex="0"><table><thead><tr><th>旧稿情况</th><th>核对材料</th><th>正文中的修订</th></tr></thead><tbody>
+<tr><td>讨论了评测题缺陷，但没有展开这一错误判定机制。</td><td>S2：OpenAI 编程评测审查中的 OpenLibrary-77c16d5。</td><td>补入题面要求一个前导空格、测试要求两个的例子：遵循题面仍可能被判错。</td></tr>
+<tr><td>没有写明 SWE-Lancer 有效运行的前提。</td><td>S6：官方运行说明。</td><td>补入禁网要求和 Linux iptables 条件；联网 Mac 试跑不能作为等价成绩。</td></tr>
+<tr><td>未区分 Pro V2 中不同修复计数的对象。</td><td>S9/S10：V2 公告与仓库说明。</td><td>区分 69 道矛盾指令题、529 份题面重写、214 份测试补丁和 38 份参考补丁，不能互相替代。</td></tr>
+<tr><td>只看最终控制结果，会遗漏首轮基础设施故障。</td><td>新增 S11：V2 发布控制记录。</td><td>区分最终 642/642 通过与两组控制首轮各 3 次基础设施故障、重跑后成功。</td></tr>
+</tbody></table></div>
+<h2 id="review">一次真实修订也带来了遗漏</h2>
+<p>本次首稿改写 V2 段落时，漏掉了旧稿已有的“跨版本分数不能直接解释为模型进步”。作者上下文的 self 自查发现问题，后续修订恢复这层解释，并将引用移到 529/214/38 的数字旁。<a href="first-update.zh-CN.md">本次首稿</a>、<a href="first-self-review.json">needs_revision 首评</a>和<a href="final-self-review.json">最终通过记录</a>均保留。</p>
+<h2 id="continuation">下一轮：先定位、再阅读、再判断</h2>
+<p>10 月 15 日，保存两条更新后的来源记录，得到五条关联主张和正文位置提示。实际阅读后只修改三条主张：SWE-Lancer Manager 必须使用 monolith 镜像；Pro V2 超时后仍捕获部分补丁评分；采购核算建议分列共享准备与逐题成本。这些细节此前已经存在于来源中，不是上游刚发布了变动。</p>
+<p><a href="status-save-2026-10-15/previous-report.zh-CN.md">上轮稿件</a> · <a href="status-save-2026-10-15/source-checks.md">来源核对</a> · <a href="status-save-2026-10-15/calls/03-source-update.response.json">实际 save 返回</a> · <a href="status-save-2026-10-15/updated-records.json">记录差异</a> · <a href="status-save-2026-10-15/review/README.zh-CN.md">Astra 单独上下文复核与修复</a></p>
+<h2 id="limits">案例支持什么，限制是什么</h2>
+<ul><li>第一轮保留原任务 50 个文件，下一轮保留其 67 个文件；来源与主张编号继续复用。见<a href="execution-summary.json">首次执行记录</a>和<a href="status-save-2026-10-15/execution-summary.json">接续执行记录</a>。</li>
+<li>两轮接续均使用当前作者上下文的 Full/self；后来进行的 Astra 单独上下文复核另行归档，不冒充 CLI 独立后端回执。</li>
+<li>没有重新执行编程基准或完整模型评测，也没有“更新对完全重写”的配对实验。因此不能量化总时间节省，或据此声称普遍提质、省钱。</li>
+<li>实际时间、返回字节数、重复读取和未知用量保留在<a href="README.zh-CN.md">原始案例记录</a>与<a href="status-save-2026-10-15/README.zh-CN.md">后续记录</a>中。一次返回体缩小不等于整体 token、时间或费用降幅；公开的是证据子集，并非完整可迁移的任务快照。</li></ul>
+<h2 id="try">用于你自己的报告</h2>
+<p>把已有报告、相关来源和报告要支持的决策交给 Agent。请它定位受影响段落、复用仍可靠的证据、修改完整报告，并给出简短变更说明。按任务选择 Lite 或 Full，说明实际完成了哪一种评审。</p>
+<p><a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md#接续已有研究">接续已有研究指南</a> · <a href="../../index.zh-CN.html#start">复制研究请求</a> · <a href="../index.zh-CN.html">更多案例</a></p>
+</article></main></body></html>

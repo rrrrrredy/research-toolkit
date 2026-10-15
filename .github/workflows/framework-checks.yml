@@ -4,12 +4,63 @@ on:
   push:
   pull_request:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
 
 permissions:
   contents: read
 
 jobs:
+  static-site:
+    if: github.event_name != 'workflow_run'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify committed static build and initial HTML
+        run: |
+          python scripts/build_site.py --check
+          python scripts/check_site.py --self-test
+          node --check docs/assets/reading-preferences.js
+          node --check docs/assets/showcase.js
+
+  deployed-site:
+    if: >-
+      github.event_name == 'workflow_run' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    concurrency:
+      group: deployed-site-verification
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify deployed raw HTML, assets, language URLs and sitemap
+        run: python scripts/check_site.py --live --attempts 6 --delay 15
+      - name: Observe public star total without attribution
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/check_site.py --stars-output star-observation.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-star-observation-${{ github.event.workflow_run.head_sha }}
+          path: star-observation.json
+          if-no-files-found: ignore
+
   validate:
+    if: github.event_name != 'workflow_run'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -82,6 +133,7 @@ jobs:
         run: python scripts/check_study_verification.py
 
   minimum-python:
+    if: github.event_name != 'workflow_run'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -101,6 +153,7 @@ jobs:
           python scripts/check_mcp_contract.py
 
   windows-runtime:
+    if: github.event_name != 'workflow_run'
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4

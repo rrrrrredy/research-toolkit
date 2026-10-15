@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 
-<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>研究案例 · Research Toolkit</title><link href="../assets/showcase.css" rel="stylesheet"/><script src="../assets/reading-preferences.js"></script></head><body><main class="report-shell"><nav class="report-nav"><a data-home-link="" href="../#case">Research Toolkit</a><a data-language="en" data-preserve-reading="" href="index.html">English</a></nav><article class="report-article"><h1 id="top">研究案例</h1><details class="report-toc"><summary data-reader-label="toc">目录</summary><ul><li><a href="#writing">去 AI 化表述</a></li><li><a href="#稿件差异">稿件差异</a></li><li><a href="#修改理由">修改理由</a></li><li><a href="#审阅取舍">审阅取舍</a></li><li><a href="#process">去过程痕迹</a></li><li><a href="#稿件差异-2">稿件差异</a></li><li><a href="#修改理由-2">修改理由</a></li><li><a href="#审阅取舍-2">审阅取舍</a></li><li><a href="#versions">aily 与豆包工作</a></li><li><a href="#稿件差异-3">稿件差异</a></li><li><a href="#修改理由-3">修改理由</a></li><li><a href="#审阅取舍-3">审阅取舍</a></li><li><a href="#analysis">扣子用什么模型</a></li><li><a href="#稿件差异-4">稿件差异</a></li><li><a href="#修改理由-4">修改理由</a></li><li><a href="#审阅取舍-4">审阅取舍</a></li><li><a href="#研究请求">研究请求</a></li></ul></details>
-<p>本档案包含两个真实研究案例，保留稿件、评审和修订。Toolkit 专用七题集及其他测试材料见<a href="https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.zh-CN.md#案例与评测集清单">评测清单</a>。已有案例可以复用于测试与修复，不需要外部供题或额外外部评审者；Astra 在与作者分开的上下文中即可评审。</p>
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>研究案例 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="Research Toolkit 案例档案：API 与浏览器、国内办公 Agent，以及已有编程智能体采购报告的来源核对与修订；保留原稿、评审及限制。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/case-study/index.zh-CN.html"/>
+<!-- discovery:end -->
+<link href="../assets/showcase.css?v=seo-20261015" rel="stylesheet"/><script src="../assets/reading-preferences.js?v=seo-20261015"></script></head><body><main class="report-shell"><nav class="report-nav"><a data-home-link="" href="../index.zh-CN.html#case">Research Toolkit</a><a data-language="en" data-preserve-reading="" href="index.html">English</a></nav><article class="report-article"><h1 id="top">研究案例</h1><details class="report-toc"><summary data-reader-label="toc">目录</summary><ul><li><a href="#writing">去 AI 化表述</a></li><li><a href="#稿件差异">稿件差异</a></li><li><a href="#修改理由">修改理由</a></li><li><a href="#审阅取舍">审阅取舍</a></li><li><a href="#process">去过程痕迹</a></li><li><a href="#稿件差异-2">稿件差异</a></li><li><a href="#修改理由-2">修改理由</a></li><li><a href="#审阅取舍-2">审阅取舍</a></li><li><a href="#versions">aily 与豆包工作</a></li><li><a href="#稿件差异-3">稿件差异</a></li><li><a href="#修改理由-3">修改理由</a></li><li><a href="#审阅取舍-3">审阅取舍</a></li><li><a href="#analysis">扣子用什么模型</a></li><li><a href="#稿件差异-4">稿件差异</a></li><li><a href="#修改理由-4">修改理由</a></li><li><a href="#审阅取舍-4">审阅取舍</a></li><li><a href="#研究请求">研究请求</a></li></ul></details>
+<p>本档案包含真实研究案例与报告更新场景，保留稿件、评审和修订。Toolkit 专用七题集及其他测试材料见<a href="https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.zh-CN.md#案例与评测集清单">评测清单</a>。已有案例可以复用于测试与修复，不需要外部供题或额外外部评审者；Astra 在与作者分开的上下文中即可评审。</p>
 <ul><li><strong>AI Agent 选择 API 还是浏览器</strong>：英文原创研究，比较动作覆盖、完成核验、恢复、权限与成本。<a data-preserve-reading="" href="api-or-browser/report.html">报告</a> · <a data-preserve-reading="" href="api-or-browser/index.html">案例档案</a> · <a data-preserve-reading="" href="api-or-browser/sources.html">来源</a> · <a data-preserve-reading="" href="api-or-browser/reviews.html">评审与修订</a>。保留初稿、独立上下文评审及迁移成本修正；题面中的假设工作流与未实测成本模型仍按原样说明。</li>
 <li><strong>国内办公 Agent</strong>：中文原创研究及英文译文。<a data-preserve-reading="" href="report.zh-CN.html">中文报告</a> · <a data-preserve-reading="" href="office-agents/index.html">案例档案</a> · <a data-preserve-reading="" href="report.en.html">英文译文</a>。下文保留历史稿件比较，译文不另计新任务。</li></ul>
 <h2 id="国内办公-agent-产品研究">国内办公 Agent 产品研究</h2>
 <p>历史报告，信息截至 2026 年 9 月 9 日；部分动态文档于 9 月 10 日核对。研究基于公开资料，未安装实测。稿件变化不构成有无工具箱的对照实验。</p>
-<p><a data-preserve-reading="" href="report.zh-CN.html">完整报告（中文原文）</a> · <a data-preserve-reading="" href="../index.html?lang=zh&amp;case=writing&amp;detail=diff#case">交互案例</a></p>
+<p><a data-preserve-reading="" href="report.zh-CN.html">完整报告（中文原文）</a> · <a data-preserve-reading="" href="../index.zh-CN.html#case">交互案例</a></p>
 <h2 id="writing">去 AI 化表述</h2>
 <p>独立工作台小节的开头：从泛泛解释价值，改为描述产品怎样组织工作。</p>
 <p><strong>把套话改成具体动作与比较条件。</strong></p>
@@ -195,5 +200,5 @@ https://github.com/rrrrrredy/research-toolkit
 
 阅读 SKILL.md，澄清缺失的研究需求，确认提纲后搜集资料。
 </code></pre>
-</article></main></body></html>
+<h2 id="report-update">更新已有研究报告</h2><p><a href="coding-benchmark-update/index.zh-CN.html">编程智能体采购报告的实际更新</a>：查看旧稿、来源核对、具体修订和保留的实验限制。</p></article></main></body></html>
 

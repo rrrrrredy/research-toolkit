@@ -7,7 +7,7 @@
   function caseData() { return lang === "en" && data.englishCase ? data.englishCase : data.cases; }
   var selectedTopics = {};
   selectedTopics[lang] = state.topic;
-  var selected = caseData().pairs.findIndex(function (p) { return p.id === params.get("case"); });
+  var selected = caseData().pairs.findIndex(function (p) { return p.id === state.topic; });
   if (selected < 0) selected = 0;
   var detail = state.detail || "diff";
   if (params.get("view") === "readme") document.body.classList.add("capture-readme");
@@ -138,7 +138,8 @@
     document.querySelector(".case-choices").setAttribute("aria-label",data.i18n[lang].topicsAria);
     document.querySelector(".language-switch").setAttribute("aria-label",lang === "zh" ? "语言" : "Language");
     document.querySelectorAll(".language-switch [data-language]").forEach(function (button) {
-      button.setAttribute("aria-pressed",String(button.dataset.language === lang));
+      if (button.dataset.language === lang) button.setAttribute("aria-current", "page");
+      else button.removeAttribute("aria-current");
     });
     document.getElementById("research-prompt").textContent = data.prompts[lang];
     document.getElementById("hero-quote").replaceChildren(highlighted(caseData().hero[lang].quote,caseData().hero[lang].highlights));
@@ -178,8 +179,7 @@
     video.poster = lang === "en" && data.englishCase ? data.englishCase.poster : "assets/readme-preview."+(lang === "zh" ? "zh-CN" : "en")+".png";
     var file = lang === "en" && data.englishCase ? data.englishCase.video : "assets/case-walkthrough"+(lang === "zh" ? ".zh-CN" : "")+".mp4";
     if (source.getAttribute("src") !== file) { source.setAttribute("src",file); video.load(); }
-    document.title = lang === "zh" ? "Research Toolkit · 面向 AI Agent 的研究工具箱" : "Research Toolkit · Research methods and tools for AI agents";
-    document.querySelector('meta[name="description"]').content = data.i18n[lang].lede;
+    // Static HTML owns document language and discovery metadata.
     renderTopics(); renderTheme(); renderCase();
   }
   document.querySelector(".case-choices").addEventListener("click",function (event) {
@@ -214,15 +214,6 @@
     else if (event.key === "End") next = details.length - 1;
     else return;
     event.preventDefault(); detail = details[next].dataset.detail; renderCase(); details[next].focus();
-  });
-  document.querySelectorAll(".language-switch [data-language]").forEach(function (button) {
-    button.addEventListener("click",function () {
-      if (lang === button.dataset.language) return;
-      lang = button.dataset.language;
-      selected = caseData().pairs.findIndex(function (p) { return p.id === selectedTopics[lang]; });
-      if (selected < 0) selected = 0;
-      renderLanguage();
-    });
   });
   document.getElementById("theme-toggle").addEventListener("click",function () { theme = theme === "light" ? "dark" : "light"; reading.set({theme:theme},true); renderTheme(); });
   document.getElementById("copy-request").addEventListener("click",async function () {
