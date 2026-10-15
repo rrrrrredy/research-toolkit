@@ -138,7 +138,8 @@
     "before_response_utf8_bytes": 210018,
     "after_response_utf8_bytes": 6444,
     "measurement": "Default response captured before change; opt-in reference response captured for the same pending real review. Frozen inputs identical. Response bytes, not token/billing or overall task savings.",
-    "complete_assignment_utf8_bytes": 204323
+    "complete_assignment_utf8_bytes": 204323,
+    "serialization": "UTF-8 size of json.dumps(parsed_response, ensure_ascii=False) with default separators; excludes MCP framing and pretty-printed file formatting. Clarified after the 2026-10-15 independent review; observed values unchanged."
   },
   "delivery": {
     "completed": true,

@@ -1,0 +1,21 @@
+{
+  "checked_on": "2026-10-15",
+  "source": "Actual retained response objects and numeric host-session token_count records at the two published timestamps; no conversation messages exported.",
+  "numeric_snapshots_match": true,
+  "delta": {
+    "input_tokens": 3084005,
+    "cached_input_tokens": 3004160,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 21488,
+    "reasoning_output_tokens": 8830,
+    "total_tokens": 3105493
+  },
+  "wall_seconds_to_first_complete_draft": 323.406413,
+  "wall_seconds_to_report_completion": 688.126713,
+  "serialized_response_utf8_bytes": {
+    "before": 210018,
+    "after": 6444
+  },
+  "serialization": "Python json.dumps(parsed_response, ensure_ascii=False), default separators, UTF-8; not on-wire MCP framing or pretty-printed file size.",
+  "response_reduction_fraction": 0.9693169156929407
+}

@@ -1,0 +1,19 @@
+{
+  "targeted_workflow_tests": {
+    "status": "passed",
+    "tests": [
+      "WorkflowTests.test_self_review_file_reference_preserves_full_input_and_rejects_stale_response",
+      "WorkflowTests.test_cli_self_review_file_reference_and_invalid_switch"
+    ],
+    "result": "Ran 2 tests in 2.474s; OK",
+    "environment": "PYTHONDONTWRITEBYTECODE=1; TEMP/TMP set to authorized a14tmp",
+    "initial_environment_issue": "Default sandbox TEMP raised PermissionError during fixture creation; rerun with authorized short temp path passed."
+  },
+  "existing_mcp_contract_script": {
+    "status": "interrupted_inconclusive",
+    "command": "python -B -X utf8 scripts/check_mcp_contract.py",
+    "observation": "No output during a multi-minute optional run; interrupted using Ctrl-C. No failure assertion or completion result observed.",
+    "interpretation": "Not counted as a passing test or as evidence of a product defect; no new delivery gate imposed."
+  },
+  "repository_mutations": "None intended; git status remains clean."
+}

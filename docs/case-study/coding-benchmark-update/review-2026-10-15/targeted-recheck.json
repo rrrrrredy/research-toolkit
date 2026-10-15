@@ -1,0 +1,89 @@
+{
+  "review_type": "targeted_recheck",
+  "reviewer": "same independent Astra reviewer; continuing original independent review context",
+  "baseline_commit": "09e9a8c6e74e8a7075d96fc0a2dbdabb6a43925c",
+  "verdict": "pass",
+  "necessary_fixes": [],
+  "optional_suggestion_O1": "addressed",
+  "scope": "Only disclosure wording, serialization metadata, preserved review copies, measurement provenance and bilingual links. No rerun of original review, model evaluation or MCP tests.",
+  "conclusion_zh": "本次改动准确采纳 O1：给出 JSON 默认分隔符与 UTF-8 计量方法，并排除 MCP 封装和缩进文件格式。双语说明准确区分独立复算、父代理宿主日志计数验证、来源抓取次数的证据边界和未得结论的 MCP 运行。报告、历史自评、测量值及运行逻辑保持原样；原始独立评审三份文件与计量复算副本逐字节一致。未发现必要修正。",
+  "checks": {
+    "head_is_reviewed_commit": true,
+    "original_review_copies_byte_identical": {
+      "review.zh-CN.md": true,
+      "findings.json": true,
+      "validation.json": true,
+      "measurement-recheck.json": true
+    },
+    "execution_summary_only_added_serialization": true,
+    "serialization": "UTF-8 size of json.dumps(parsed_response, ensure_ascii=False) with default separators; excludes MCP framing and pretty-printed file formatting. Clarified after the 2026-10-15 independent review; observed values unchanged.",
+    "tracked_changed_files": [
+      "CHANGELOG.md",
+      "CHANGELOG.zh-CN.md",
+      "docs/case-study/coding-benchmark-update/README.md",
+      "docs/case-study/coding-benchmark-update/README.zh-CN.md",
+      "docs/case-study/coding-benchmark-update/execution-summary.json",
+      "docs/evaluation-status.md",
+      "docs/evaluation-status.zh-CN.md"
+    ],
+    "historical_case_files_byte_identical_to_commit": {
+      "report.zh-CN.md": true,
+      "first-update.zh-CN.md": true,
+      "first-self-review.json": true,
+      "final-self-review.json": true,
+      "first-draft-check.json": true,
+      "final-draft-check.json": true,
+      "resource-use.json": true,
+      "updated-records.json": true,
+      "source-checks.md": true
+    },
+    "implementation_unchanged": true
+  },
+  "reviewed_files_sha256_raw_bytes": {
+    "CHANGELOG.md": "9d3443cc47d8c0b746fb42efab630f2fd0721ef4b3c1ebde6d2fe9e03f6acb0c",
+    "CHANGELOG.zh-CN.md": "b8866f8b9f5e2d94cdfcb9dede290ba2bcd4b60d92972d0f525a4145ac4472ef",
+    "docs/case-study/coding-benchmark-update/README.md": "09514edb5d7da545ef54034c48955d7f6004a4b13a8cb819857e9510c8a9f0e4",
+    "docs/case-study/coding-benchmark-update/README.zh-CN.md": "09511556075c9c952bfd338152d473756bc667fcd601a05673240822df753271",
+    "docs/case-study/coding-benchmark-update/execution-summary.json": "c46bad09917e5dc66ff791550b8f4c4efc88926f20c6ec547711b33a54dde3f2",
+    "docs/evaluation-status.md": "256f373cae98c13b10334dd4b194cba75b2994f60b817c50935e65f536bc284d",
+    "docs/evaluation-status.zh-CN.md": "7022990fb15be03f93011a4c54baa1f750e475fad2a36eef5e1ec8edbaff798f",
+    "docs/case-study/coding-benchmark-update/review-2026-10-15/findings.json": "59276a59dcec06c64322bad69faa412ae2e8e430d2d8980972b0ec0658ef2bc1",
+    "docs/case-study/coding-benchmark-update/review-2026-10-15/measurement-recheck.json": "1349fcda3ddf8c1291e45beae56aa5a30b836c4279ca71cf03ebe1ad71c4fd0a",
+    "docs/case-study/coding-benchmark-update/review-2026-10-15/README.md": "07180e42907c3c7c0655c8b29d22dbdbc33553536b5b3c605ae9a5eb171e5a1a",
+    "docs/case-study/coding-benchmark-update/review-2026-10-15/README.zh-CN.md": "4a1723942297452b973442da4995c30137a280ee53e83374731f333f2816840a",
+    "docs/case-study/coding-benchmark-update/review-2026-10-15/review.zh-CN.md": "79ed15f27b3b56c8aeed2048b022858b6addb40bc4cb8291ad21e79270ba7edf",
+    "docs/case-study/coding-benchmark-update/review-2026-10-15/validation.json": "5adc88fdc1ed90398daabea06c1290af70be75189fac6bbeed2face897f66ef0"
+  },
+  "publication_note": "The README targeted-recheck.json links are intended to point to an unchanged copy of this receipt in review-2026-10-15/. That copy is not present during this recheck and is to be added by the parent; no further content review is needed for a byte-identical copy.",
+  "source_provenance_limit": "The fixed S11 upstream identity/equality claim is explicitly attributed to the parent. This targeted recheck did not independently fetch that fixed commit; initial review independently opened the original live GATE.md and verified controls/retries.",
+  "publication_lf_normalization": {
+    "scope": "Four ordinary documentation files only; text unchanged. No review or tests rerun. Raw hashes now bind publication LF bytes.",
+    "files": {
+      "CHANGELOG.md": {
+        "old_reviewed_raw_sha256": "97a4eab1e017fa44d2d95aaf4964c01ace76ec1c43cfdaaa6e2b47eeaedfdbc1",
+        "publication_lf_raw_sha256": "9d3443cc47d8c0b746fb42efab630f2fd0721ef4b3c1ebde6d2fe9e03f6acb0c",
+        "text_unchanged": true,
+        "verification": "Reconstructed prior reviewed raw hash exactly using only line-ending changes: mixed line endings near reviewed edits"
+      },
+      "CHANGELOG.zh-CN.md": {
+        "old_reviewed_raw_sha256": "45eb11a3647450c6ee8fd53239630f3c1ede5cd4ab8a543f6fbd36a6ff4ad41a",
+        "publication_lf_raw_sha256": "b8866f8b9f5e2d94cdfcb9dede290ba2bcd4b60d92972d0f525a4145ac4472ef",
+        "text_unchanged": true,
+        "verification": "Reconstructed prior reviewed raw hash exactly using only line-ending changes: mixed line endings near reviewed edits"
+      },
+      "docs/evaluation-status.md": {
+        "old_reviewed_raw_sha256": "c7076c3179639172b02632339e7002b5ac3ea5358b049d4c4f55355f6485290d",
+        "publication_lf_raw_sha256": "256f373cae98c13b10334dd4b194cba75b2994f60b817c50935e65f536bc284d",
+        "text_unchanged": true,
+        "verification": "Reconstructed prior reviewed raw hash exactly using only line-ending changes: all CRLF"
+      },
+      "docs/evaluation-status.zh-CN.md": {
+        "old_reviewed_raw_sha256": "54601d5fbf4b13f7b060bd94123c17f0cacf3e8f0afb9c4c9d84c19533fcf15b",
+        "publication_lf_raw_sha256": "7022990fb15be03f93011a4c54baa1f750e475fad2a36eef5e1ec8edbaff798f",
+        "text_unchanged": true,
+        "verification": "Reconstructed prior reviewed raw hash exactly using only line-ending changes: all CRLF"
+      }
+    },
+    "previous_receipt": "targeted-recheck.before-publication-lf-normalization.json"
+  }
+}
