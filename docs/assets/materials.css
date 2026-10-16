@@ -10,6 +10,10 @@
 .material-notes[open] summary{margin-bottom:16px}
 .material-notes p:last-child{margin-bottom:0}
 .material-body>h2:first-child{margin-top:0}
+.material-gap{margin:20px 0;padding:14px 18px;border:1px solid var(--line);background:var(--soft);font-size:14px}
+.materials-reader .material-gap>p{margin:0 0 8px;color:var(--muted)}
+.material-fragment summary{cursor:pointer;font-size:13px}
+.material-fragment pre{margin-bottom:0}
 .materials-catalog{max-width:1280px}
 .materials-catalog .report-article{max-width:none}
 .materials-catalog th:first-child,.materials-catalog td:first-child{width:30%}

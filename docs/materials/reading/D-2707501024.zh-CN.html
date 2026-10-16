@@ -18,28 +18,28 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/148</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/057ae622df7a612d979c17a55cd5cb80a9369abc4f7f5458408d1a4bd1d8a8ca.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2707501024.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2707501024.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>周论文推荐：推理方向三篇佳作，字节、阿里、腾讯多模态高产</p>
 <h3>一、模型层</h3>
 <div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
 <tr>
 <th></th>
-<th>**公司/院校/机构**</th>
-<th>**简介**</th>
-<th>**详情**</th>
+<th><strong>公司/院校/机构</strong></th>
+<th><strong>简介</strong></th>
+<th><strong>详情</strong></th>
 </tr>
 <tr>
 <td></td>
 <td>北京大学</td>
 <td>北大团队提出 LIFT：将长上下文知识注入模型参数，提升大模型长文本能力<br><br>Yansheng Mao, Yufei Xu, Jiaqi Li, Fanxu Meng, Haotong Yang, Zilong Zheng, Xiyuan Wang, Muhan Zhang.&quot;LIFT: Improving Long Context Understanding of Large Language Models through Long Input Fine-Tuning.&quot;arXiv:2502.14644 [cs.CL]</td>
-<td>长文本任务是当下大模型研究的重点之一。在实际场景和应用中，普遍存在大量长序列（文本、语音、视频等），有些甚至长达百万级 tokens。扩充模型的长文本能力不仅意味着可以在上下文窗口中装入更长的文本，更是能够更好地建模文本段落间信息的长程依赖关系，增强对长文的阅读理解和推理。<br><br>现有大模型解决长文本任务的难点之一是传统的 dot-product attention 对输入长度呈平方复杂度，且存储 KV cache 的开销随输入长度增加，时间和空间开销都较高。<br><br>此外，模型难以真正理解散落在长文本各处信息间的长程依赖。主流的长文本解决方法包括 Retrieval-Augmented Generation（RAG）[1]、long-context adaption 等。<br><br>RAG 从长文本中抽取与问题相关的信息放入 context window 进行推理，但它依赖准确的检索方法，大量的噪声和无关信息会进一步引起模型幻觉。<br><br>long-context adaption 通过在大量长文本的数据集上后训练  扩展模型的 context window，但其推理复杂度随文本长度平方增长、显存占用高，且 context window 仍然有限。<br><br>为了应对长文本开销大、难以建立长程依赖的挑战，北京大学张牧涵团队提出全新的框架 [Long Input Fine-Tuning（LIFT）](https://arxiv.org/abs/2502.14644)。通过将长输入文本训练进模型参数中，LIFT 可以使任意短上下文窗口模型获得长文本能力。</td>
+<td>长文本任务是当下大模型研究的重点之一。在实际场景和应用中，普遍存在大量长序列（文本、语音、视频等），有些甚至长达百万级 tokens。扩充模型的长文本能力不仅意味着可以在上下文窗口中装入更长的文本，更是能够更好地建模文本段落间信息的长程依赖关系，增强对长文的阅读理解和推理。<br><br>现有大模型解决长文本任务的难点之一是传统的 dot-product attention 对输入长度呈平方复杂度，且存储 KV cache 的开销随输入长度增加，时间和空间开销都较高。<br><br>此外，模型难以真正理解散落在长文本各处信息间的长程依赖。主流的长文本解决方法包括 Retrieval-Augmented Generation（RAG）[1]、long-context adaption 等。<br><br>RAG 从长文本中抽取与问题相关的信息放入 context window 进行推理，但它依赖准确的检索方法，大量的噪声和无关信息会进一步引起模型幻觉。<br><br>long-context adaption 通过在大量长文本的数据集上后训练  扩展模型的 context window，但其推理复杂度随文本长度平方增长、显存占用高，且 context window 仍然有限。<br><br>为了应对长文本开销大、难以建立长程依赖的挑战，北京大学张牧涵团队提出全新的框架 <a href="https://arxiv.org/abs/2502.14644">Long Input Fine-Tuning（LIFT）</a>。通过将长输入文本训练进模型参数中，LIFT 可以使任意短上下文窗口模型获得长文本能力。</td>
 </tr>
 <tr>
 <td></td>
 <td>字节、清华 AIR</td>
 <td>超越 DeepSeek GRPO 的关键 RL 算法，字节、清华 AIR 开源 DAPO<br><br>ByteDance Seed, Institute for AI Industry Research (AIR), Tsinghua University, The University of Hong Kong, SIA-Lab of Tsinghua AIR and ByteDance Seed.&quot;DAPO: an Open-Source LLM Reinforcement Learning System at Scale.&quot;</td>
-<td>DeepSeek 提出的 GRPO 可以极大提升 LLM 的强化学习效率，不过其论文中似乎还缺少一些关键细节，让人难以复现出大规模和工业级的强化学习系统。<br><br>近日，清华 AIR 和字节联合 SIA Lab 发布了他们的第一项研究成果：DAPO，即 Decoupled Clip and Dynamic sAmpling Policy Optimization（解耦剪辑和动态采样策略优化）。这是一个可实现大规模 LLM 强化学习的开源 SOTA 系统。此外，使用该算法训练的模型也将在近期开源发布。<br><br>使用该算法，该团队成功让 Qwen2.5-32B 模型在 AIME 2024 基准上获得了 50 分，优于同等规模的 DeepSeek-R1-Zero-Qwen-32B，同时 DAPO 版 Qwen2.5-32B 使用的训练步数还少 50%。<br><br>相较之下，如果使用 GRPO，Qwen2.5-32B 模型在 AIME 2024 基准上只能获得 30 分。<br><br>30 分的成绩远低于 DeepSeek 的强化学习（47 分）。该团队分析发现，原生版 GRPO 面临着几大关键问题，比如熵崩溃、奖励噪音和训练不稳定。事实上，该团队表示，很多研究团队在复现 DeepSeek 的结果时也遇到了类似的难题。他们表示：「这表明 R1 论文中可能省略了开发工业级、大规模且可重现的强化学习系统所需的关键训练细节。」<br><br>- 项目页面：[https://dapo-sia.github.io/](https://dapo-sia.github.io/)<br>- 论文地址：[https://dapo-sia.github.io/static/pdf/dapo_paper.pdf](https://dapo-sia.github.io/static/pdf/dapo_paper.pdf)<br>- 代码地址：[https://github.com/volcengine/verl/tree/gm-tyx/puffin/main/recipe/dapo](https://github.com/volcengine/verl/tree/gm-tyx/puffin/main/recipe/dapo)<br>- 数据：[https://huggingface.co/datasets/BytedTsinghua-SIA/DAPO-Math-17k](https://huggingface.co/datasets/BytedTsinghua-SIA/DAPO-Math-17k)</td>
+<td>DeepSeek 提出的 GRPO 可以极大提升 LLM 的强化学习效率，不过其论文中似乎还缺少一些关键细节，让人难以复现出大规模和工业级的强化学习系统。<br><br>近日，清华 AIR 和字节联合 SIA Lab 发布了他们的第一项研究成果：DAPO，即 Decoupled Clip and Dynamic sAmpling Policy Optimization（解耦剪辑和动态采样策略优化）。这是一个可实现大规模 LLM 强化学习的开源 SOTA 系统。此外，使用该算法训练的模型也将在近期开源发布。<br><br>使用该算法，该团队成功让 Qwen2.5-32B 模型在 AIME 2024 基准上获得了 50 分，优于同等规模的 DeepSeek-R1-Zero-Qwen-32B，同时 DAPO 版 Qwen2.5-32B 使用的训练步数还少 50%。<br><br>相较之下，如果使用 GRPO，Qwen2.5-32B 模型在 AIME 2024 基准上只能获得 30 分。<br><br>30 分的成绩远低于 DeepSeek 的强化学习（47 分）。该团队分析发现，原生版 GRPO 面临着几大关键问题，比如熵崩溃、奖励噪音和训练不稳定。事实上，该团队表示，很多研究团队在复现 DeepSeek 的结果时也遇到了类似的难题。他们表示：「这表明 R1 论文中可能省略了开发工业级、大规模且可重现的强化学习系统所需的关键训练细节。」<br><br>- 项目页面：<a href="https://dapo-sia.github.io/">https://dapo-sia.github.io/</a><br>- 论文地址：<a href="https://dapo-sia.github.io/static/pdf/dapo_paper.pdf">https://dapo-sia.github.io/static/pdf/dapo_paper.pdf</a><br>- 代码地址：<a href="https://github.com/volcengine/verl/tree/gm-tyx/puffin/main/recipe/dapo">https://github.com/volcengine/verl/tree/gm-tyx/puffin/main/recipe/dapo</a><br>- 数据：<a href="https://huggingface.co/datasets/BytedTsinghua-SIA/DAPO-Math-17k">https://huggingface.co/datasets/BytedTsinghua-SIA/DAPO-Math-17k</a></td>
 </tr>
 </table></div>
 
@@ -47,33 +47,32 @@
 <div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
 <tr>
 <th></th>
-<th>**公司/院校/机构**</th>
-<th>**简介**</th>
-<th>**详情**</th>
+<th><strong>公司/院校/机构</strong></th>
+<th><strong>简介</strong></th>
+<th><strong>详情</strong></th>
 </tr>
 <tr>
 <td></td>
 <td>NXAI、JKU</td>
 <td>原作者带队再次改造 xLSTM，7B 模型速度最快超 Mamba 50%，权重代码全开源<br><br>Maximilian Beck, Korbinian Pöppel, Phillip Lippe, Richard Kurle, Patrick M. Blies, Günter Klambauer, Sebastian Böck, Sepp Hochreiter.&quot;xLSTM 7B: A Recurrent LLM for Fast and Efficient Inference.&quot;arXiv:2503.13427 [cs.LG]</td>
-<td>近年来，大型语言模型（LLM）通过大量计算资源在推理阶段取得了解决复杂问题的突破。推理速度已成为 LLM 架构的关键属性，市场对高效快速的 LLM 需求不断增长。<br><br>其中，采用 Transformer 架构的模型虽然占据了主流，但在输入序列长度增加时，计算量会呈二次方增长。因此，自上个世纪 90 年代兴起的 LSTM 卷土重来，它的提出者和奠基者 Sepp Hochreiter 在去年 5 月推出了 [xLSTM](https://arxiv.org/pdf/2405.04517)，将 LSTM 扩展到数十亿参数，成为 Transformer 的有力替代品，提供了与序列长度线性相关的计算扩展和稳定的内存占用。<br><br>然而，xLSTM 在扩展至更大参数规模时存在限制，推理速度和效率具体如何也没做系统测评。<br><br>近日，Sepp Hochreiter 等来自 NXAI、JKU 的研究者再次对 xLSTM 进行了优化，现在可以扩展到 70 亿参数了。<br><br>具体来讲，xLSTM 7B 模型基于 DCLM 数据集，使用 128 块 H100 GPU，在 8192 上下文长度下训练了 2.3 万亿 token。研究者对原始 xLSTM 架构进行了改进，确保训练效率和稳定性，同时保持任务性能。新架构依靠 mLSTM 单元和并行训练模式，实现高性能的同时最大化速度。<br><br>通过修改模块架构，研究者优化了吞吐量，在低维空间运行 mLSTM 并添加前馈 MLP 层，同时去除了不必要的组件以提高 GPU 利用率。优化后的架构在保持相似性能的同时，将 token 吞吐量提高了 2 到 4 倍。研究者还优化了训练稳定性，特别是 mLSTM 单元的门控机制，有效解决了梯度问题。<br><br>在各类任务评估中，xLSTM 7B 与同规模 Transformer 和 Mamba 模型表现相当。通过架构优化，该模型在推理效率测试中实现了最高的预填充和生成吞吐量，同时保持最低的 GPU 内存占用。<br><br>论文作者之一 Günter Klambauer 表示，xLSTM 7B 成为了最快、最高效的 7B 语言模型。</td>
+<td>近年来，大型语言模型（LLM）通过大量计算资源在推理阶段取得了解决复杂问题的突破。推理速度已成为 LLM 架构的关键属性，市场对高效快速的 LLM 需求不断增长。<br><br>其中，采用 Transformer 架构的模型虽然占据了主流，但在输入序列长度增加时，计算量会呈二次方增长。因此，自上个世纪 90 年代兴起的 LSTM 卷土重来，它的提出者和奠基者 Sepp Hochreiter 在去年 5 月推出了 <a href="https://arxiv.org/pdf/2405.04517">xLSTM</a>，将 LSTM 扩展到数十亿参数，成为 Transformer 的有力替代品，提供了与序列长度线性相关的计算扩展和稳定的内存占用。<br><br>然而，xLSTM 在扩展至更大参数规模时存在限制，推理速度和效率具体如何也没做系统测评。<br><br>近日，Sepp Hochreiter 等来自 NXAI、JKU 的研究者再次对 xLSTM 进行了优化，现在可以扩展到 70 亿参数了。<br><br>具体来讲，xLSTM 7B 模型基于 DCLM 数据集，使用 128 块 H100 GPU，在 8192 上下文长度下训练了 2.3 万亿 token。研究者对原始 xLSTM 架构进行了改进，确保训练效率和稳定性，同时保持任务性能。新架构依靠 mLSTM 单元和并行训练模式，实现高性能的同时最大化速度。<br><br>通过修改模块架构，研究者优化了吞吐量，在低维空间运行 mLSTM 并添加前馈 MLP 层，同时去除了不必要的组件以提高 GPU 利用率。优化后的架构在保持相似性能的同时，将 token 吞吐量提高了 2 到 4 倍。研究者还优化了训练稳定性，特别是 mLSTM 单元的门控机制，有效解决了梯度问题。<br><br>在各类任务评估中，xLSTM 7B 与同规模 Transformer 和 Mamba 模型表现相当。通过架构优化，该模型在推理效率测试中实现了最高的预填充和生成吞吐量，同时保持最低的 GPU 内存占用。<br><br>论文作者之一 Günter Klambauer 表示，xLSTM 7B 成为了最快、最高效的 7B 语言模型。</td>
 </tr>
 <tr>
 <td></td>
 <td>腾讯 AI Lab、厦门大学</td>
 <td>腾讯 AI Lab 与厦大联合提出高效树搜索框架<br><br>Ante Wang, Linfeng Song, Ye Tian, Dian Yu, Haitao Mi, Xiangyu Duan, Zhaopeng Tu, Jinsong Su, Dong Yu.&quot;Don&#x27;t Get Lost in the Trees: Streamlining LLM Reasoning by Overcoming Tree Search Exploration Pitfalls.&quot;arXiv:2502.11183 [cs.CL]</td>
-<td>通讯作者包括腾讯 AI Lab 研究员宋林峰与涂兆鹏，以及厦门大学苏劲松教授。[论文](https://arxiv.org/abs/2502.11183)第一作者为厦门大学博士生王安特。本文探讨基于树搜索的大语言模型推理过程中存在的「过思考」与「欠思考」问题，并提出高效树搜索框架 ——Fetch。本研究由腾讯 AI Lab 与厦门大学、苏州大学研究团队合作完成。</td>
+<td>通讯作者包括腾讯 AI Lab 研究员宋林峰与涂兆鹏，以及厦门大学苏劲松教授。<a href="https://arxiv.org/abs/2502.11183">论文</a>第一作者为厦门大学博士生王安特。本文探讨基于树搜索的大语言模型推理过程中存在的「过思考」与「欠思考」问题，并提出高效树搜索框架 ——Fetch。本研究由腾讯 AI Lab 与厦门大学、苏州大学研究团队合作完成。</td>
 </tr>
 <tr>
 <td></td>
 <td>华为</td>
 <td>华为诺亚综述：生成式模型如何用于决策？<br><br>Yinchuan Li, Xinyu Shao, Jianping Zhang, Haozhi Wang, Leo Maxime Brunswic, Kaiwen Zhou, Jiqian Dong, Kaiyang Guo, Xiu Li, Zhitang Chen, Jun Wang, Jianye Hao.&quot;Generative Models in Decision Making: A Survey.&quot;arXiv:2502.17100 [cs.LG]</td>
-<td>近年来，生成模型在内容生成（AIGC）领域蓬勃发展，同时也逐渐引起了在智能决策中的应用关注。由于生成模型能够处理复杂的数据分布，并具备强大的建模能力，它们可以被引入决策系统，用于生成引导代理进入高奖励状态的轨迹或中间子目标。[本综述](https://arxiv.org/abs/2502.17100)系统性地梳理了生成模型在决策任务中的应用，并提供了全面的分类框架。</td>
+<td>近年来，生成模型在内容生成（AIGC）领域蓬勃发展，同时也逐渐引起了在智能决策中的应用关注。由于生成模型能够处理复杂的数据分布，并具备强大的建模能力，它们可以被引入决策系统，用于生成引导代理进入高奖励状态的轨迹或中间子目标。<a href="https://arxiv.org/abs/2502.17100">本综述</a>系统性地梳理了生成模型在决策任务中的应用，并提供了全面的分类框架。</td>
 </tr>
 </table></div>
 
 <h3>三、多模态</h3>
-<p>未能展开此表；以下保留该处原始捕获内容。</p>
-<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+<div class="material-gap"><p>表格缺失：现有片段无法完整还原。</p><details class="material-fragment"><summary>查看原始片段</summary><p>未能展开此表；以下保留该处原始捕获内容。</p><pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
 [
   [
     {
@@ -93,7 +92,9 @@
       &quot;type&quot;: &quot;table_header&quot;,
       &quot;attrs&quot;: {
         &quot;colspan&quot;: 1,
-        &quot;rowspan</pre>
+        &quot;rowspan</pre></details></div>
+
+
 
 
 <h2>旧生成摘要（未重写，未核实）</h2>

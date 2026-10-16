@@ -18,58 +18,57 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/215</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/994187daca97be54edababd9f2c2cb145c5ae2cd051b993bdcbc54c9da272f27.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2749437400.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2749437400.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>周论文推荐：DeepMind 智能体新研究，DeepSeek 新论文，Alec Radford 新作，小红书多篇研究</p>
 <h3>一、模型</h3>
 <div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
 <tr>
 <th></th>
-<th>**公司/院校/机构**</th>
-<th>**简介**</th>
-<th>**详情**</th>
+<th><strong>公司/院校/机构</strong></th>
+<th><strong>简介</strong></th>
+<th><strong>详情</strong></th>
 </tr>
 <tr>
 <td></td>
-<td>**深度求索、北京大学**</td>
+<td><strong>深度求索、北京大学</strong></td>
 <td>DeepSeek 新论文剧透 V4 新框架：用闲置网卡加速智能体推理性能，打破 PD 分离瓶颈<br><br>Yongtong Wu, Shaoyuan Chen, Yinmin Zhong, Rilin Huang, Yixuan Tan, Wentao Zhang, Liyue Zhang, Shangyan Zhou, Yuxuan Liu, Shunfeng Zhou, Mingxing Zhang, Xin Jin, Panpan Huang.&quot;DualPath: Breaking the Storage Bandwidth Bottleneck in Agentic LLM Inference.&quot;arXiv:2602.21548 [cs.DC]</td>
-<td>[这篇](https://arxiv.org/abs/2602.21548)新论文介绍了一个名为「DualPath」的创新推理系统，专门针对智能体工作负载下的大语言模型（LLM）推理性能进行优化。具体来讲，通过引入「双路径 KV-Cache 加载」机制，解决了在预填充 - 解码（PD）分离架构下，KV-Cache 读取负载不平衡的问题。该推理系统带来了显著效果：在离线推理场景中实现了 1.87 倍的吞吐量提升，在线服务场景下实现了 1.96 倍的服务吞吐量提升。</td>
+<td><a href="https://arxiv.org/abs/2602.21548">这篇</a>新论文介绍了一个名为「DualPath」的创新推理系统，专门针对智能体工作负载下的大语言模型（LLM）推理性能进行优化。具体来讲，通过引入「双路径 KV-Cache 加载」机制，解决了在预填充 - 解码（PD）分离架构下，KV-Cache 读取负载不平衡的问题。该推理系统带来了显著效果：在离线推理场景中实现了 1.87 倍的吞吐量提升，在线服务场景下实现了 1.96 倍的服务吞吐量提升。</td>
 </tr>
 <tr>
 <td></td>
-<td>**浙江大学、新加坡国立大学等**</td>
+<td><strong>浙江大学、新加坡国立大学等</strong></td>
 <td>浙大、新加坡国立大学等提出 LightMem：一个在 “效果” 和 “效率” 之间更平衡的记忆系统<br><br>Jizhan Fang, Xinle Deng, Haoming Xu, Ziyan Jiang, Yuqi Tang, Ziwen Xu, Shumin Deng, Yunzhi Yao, Mengru Wang, Shuofei Qiao, Huajun Chen, Ningyu Zhang.&quot;LightMem: Lightweight and Efficient Memory-Augmented Generation.&quot;arXiv:2510.18866 [cs.CL]</td>
-<td>大模型已经很强，但一旦进入 “长对话、跨多轮、多任务” 的真实智能体交互场景，模型很快就会遇到两类老问题：<br><br>一是上下文窗口有限，越聊越长时不可避免地 “塞不下”；二是经典的 lost in the middle，即使塞得下也未必用得好。<br><br>于是，给大模型配 “外部记忆系统” 尤为重要：把对话写进长期记忆、需要时再检索出来。但现实很快给出了代价 —— 记忆系统往往非常贵：频繁调用大模型做总结 / 抽取、实时做冲突消解与更新、长链路的维护开销，最终让 “有记忆的智能体” 在工程上难以承受。<br><br>这篇工作提出 [LightMem](https://arxiv.org/abs/2510.18866)：一个在 “效果” 和 “效率” 之间更平衡的记忆系统。核心目标很直接：<br><br>在不牺牲准确率的前提下，把 token、API 调用次数和运行时延降下来。</td>
+<td>大模型已经很强，但一旦进入 “长对话、跨多轮、多任务” 的真实智能体交互场景，模型很快就会遇到两类老问题：<br><br>一是上下文窗口有限，越聊越长时不可避免地 “塞不下”；二是经典的 lost in the middle，即使塞得下也未必用得好。<br><br>于是，给大模型配 “外部记忆系统” 尤为重要：把对话写进长期记忆、需要时再检索出来。但现实很快给出了代价 —— 记忆系统往往非常贵：频繁调用大模型做总结 / 抽取、实时做冲突消解与更新、长链路的维护开销，最终让 “有记忆的智能体” 在工程上难以承受。<br><br>这篇工作提出 <a href="https://arxiv.org/abs/2510.18866">LightMem</a>：一个在 “效果” 和 “效率” 之间更平衡的记忆系统。核心目标很直接：<br><br>在不牺牲准确率的前提下，把 token、API 调用次数和运行时延降下来。</td>
 </tr>
 <tr>
 <td></td>
-<td>**Anthropic**<br><br>**、斯坦福大学**</td>
+<td><strong>Anthropic</strong><br><br><strong>、斯坦福大学</strong></td>
 <td>Alec Radford 新作：给大模型做「脑部手术」，危险知识重学成本暴增 7000 倍<br><br>Neil Rathi, Alec Radford.&quot;Shaping capabilities with token-level data filtering.&quot;arXiv:2601.21571 [cs.LG]</td>
-<td>Alex Radford，出生于 1993 年 4 月，即将 33 岁，但已经拥有超过 32 万的引用量。因为这位「独立研究员」不仅是 GPT、GPT-2 和 CLIP 的第一作者，同时还参与了 GPT-3、GPT-4、PPO 算法等多个重大研究项目。<br><br>近日， Anthropic 和斯坦福研究者 Neil Rathi 与这位传奇研究者联合发布了一篇[新论文](https://arxiv.org/abs/2601.21571)，并得到了一些相当惊人的新发现。<br><br>在这项研究中，他们挑战了当前大模型安全领域的一个核心假设。长期以来，业界普遍认为要在模型发布后通过 RLHF 或微调来限制其危险行为。但 Neil Rathi 和 Alec Radford 提出了一种更本质的解法：在预训练阶段，通过 Token 级别的数据过滤，直接从「大脑」深处切除危险知识。</td>
+<td>Alex Radford，出生于 1993 年 4 月，即将 33 岁，但已经拥有超过 32 万的引用量。因为这位「独立研究员」不仅是 GPT、GPT-2 和 CLIP 的第一作者，同时还参与了 GPT-3、GPT-4、PPO 算法等多个重大研究项目。<br><br>近日， Anthropic 和斯坦福研究者 Neil Rathi 与这位传奇研究者联合发布了一篇<a href="https://arxiv.org/abs/2601.21571">新论文</a>，并得到了一些相当惊人的新发现。<br><br>在这项研究中，他们挑战了当前大模型安全领域的一个核心假设。长期以来，业界普遍认为要在模型发布后通过 RLHF 或微调来限制其危险行为。但 Neil Rathi 和 Alec Radford 提出了一种更本质的解法：在预训练阶段，通过 Token 级别的数据过滤，直接从「大脑」深处切除危险知识。</td>
 </tr>
 <tr>
 <td></td>
-<td>**University of Edinburgh; Nvidia Research; University of Groningen; University of Cambridge**</td>
+<td><strong>University of Edinburgh; Nvidia Research; University of Groningen; University of Cambridge</strong></td>
 <td>爱丁堡大学提出一种名为 SWIRL 的新型框架，用于在没有人类标注轨迹的情况下训练大型语言模型和视觉语言模型的内在世界模型<br><br>Yifu Qiu, Zheng Zhao, Waylon Li, Yftah Ziser, Anna Korhonen, Shay B. Cohen, Edoardo M. Ponti.&quot;Self-Improving World Modelling with Latent Actions.&quot;arXiv:2602.06130 [cs.LG]</td>
-<td>[论文](https://arxiv.org/abs/2602.06130)提出了一种名为 SWIRL 的新型框架，用于在没有人类标注轨迹的情况下训练大型语言模型和视觉语言模型的内在世界模型。该方法将动作视为潜在变量，并通过两阶段优化过程：前向世界建模和逆动力学建模来实现自我改进。理论分析证明了每个优化阶段的可学习性，并在多个基准测试中验证了其有效性，包括视觉环境中的 AURORA-BENCH、BYTEMORPH 和 WORLDPREDICTIONBENCH，以及文本环境中的 SCIENCEWORLD、MIND2WEB 和 STABLETOOLBENCH。实验结果表明，SWIRL 在各项任务中均优于直接微调基线，并达到与更大规模模型相当的性能。</td>
+<td><a href="https://arxiv.org/abs/2602.06130">论文</a>提出了一种名为 SWIRL 的新型框架，用于在没有人类标注轨迹的情况下训练大型语言模型和视觉语言模型的内在世界模型。该方法将动作视为潜在变量，并通过两阶段优化过程：前向世界建模和逆动力学建模来实现自我改进。理论分析证明了每个优化阶段的可学习性，并在多个基准测试中验证了其有效性，包括视觉环境中的 AURORA-BENCH、BYTEMORPH 和 WORLDPREDICTIONBENCH，以及文本环境中的 SCIENCEWORLD、MIND2WEB 和 STABLETOOLBENCH。实验结果表明，SWIRL 在各项任务中均优于直接微调基线，并达到与更大规模模型相当的性能。</td>
 </tr>
 <tr>
 <td></td>
-<td>**上海交通大学、小红书**</td>
+<td><strong>上海交通大学、小红书</strong></td>
 <td>交大、小红书提出一种全新的 scaling 维度<br><br>Yebin Yang, Huaijin Wu, Fu Guo, Lin Yao, Xiaohan Qin, Jingzhi Wang, Debing Zhang, Junchi Yan.&quot;JTok: On Token Embedding as another Axis of Scaling Law via Joint Token Self-modulation.&quot;arXiv:2602.00800 [cs.LG]</td>
-<td>近日，上海交通大学与小红书 Hi Lab 联合团队[提出](https://www.arxiv.org/abs/2602.00800)了一种全新的 scaling 维度：token-indexed parameters。该方法不依赖主干参数扩展，也不稀疏计算路径，而是通过为每个 token 引入调制向量，以查表 + 逐元素调制的方式提升模型容量。<br><br>作者们提出的 JTok / JTok-M 模块，可作为插件形式挂载在 Transformer 每一层，形成静态（JTok）或上下文感知的动态（JTok-M）调制路径，构建 token 与主干路径的交互桥梁。更关键的是，这种机制几乎不增加算力和显存开销，却带来显著且稳定的性能提升。<br><br>在从 650M 到 61B 的模型规模中，JTok-M 显著降低 loss，并在多个下游任务中大幅提分：MMLU +4.1，ARC +8.3，CEval +8.9。达到相同性能，JTok-M 直接砍掉了三分之一的算力需求；更令人兴奋的是，其 scaling 效果呈现出清晰可预测的幂律规律，可独立扩展、量化收益，完全符合构建新一代 LLM scaling law 的所有要素。<br><br>这一创新构建出 Dense、MoE 之外的第三条 scaling 路径，为未来大模型的发展打开了新的方向：<br><br>不必加算力、不依赖更多数据，仅靠结构设计与查表调制，就能持续扩大模型容量，重塑性能 - 计算的效率前沿。</td>
+<td>近日，上海交通大学与小红书 Hi Lab 联合团队<a href="https://www.arxiv.org/abs/2602.00800">提出</a>了一种全新的 scaling 维度：token-indexed parameters。该方法不依赖主干参数扩展，也不稀疏计算路径，而是通过为每个 token 引入调制向量，以查表 + 逐元素调制的方式提升模型容量。<br><br>作者们提出的 JTok / JTok-M 模块，可作为插件形式挂载在 Transformer 每一层，形成静态（JTok）或上下文感知的动态（JTok-M）调制路径，构建 token 与主干路径的交互桥梁。更关键的是，这种机制几乎不增加算力和显存开销，却带来显著且稳定的性能提升。<br><br>在从 650M 到 61B 的模型规模中，JTok-M 显著降低 loss，并在多个下游任务中大幅提分：MMLU +4.1，ARC +8.3，CEval +8.9。达到相同性能，JTok-M 直接砍掉了三分之一的算力需求；更令人兴奋的是，其 scaling 效果呈现出清晰可预测的幂律规律，可独立扩展、量化收益，完全符合构建新一代 LLM scaling law 的所有要素。<br><br>这一创新构建出 Dense、MoE 之外的第三条 scaling 路径，为未来大模型的发展打开了新的方向：<br><br>不必加算力、不依赖更多数据，仅靠结构设计与查表调制，就能持续扩大模型容量，重塑性能 - 计算的效率前沿。</td>
 </tr>
 <tr>
 <td></td>
-<td>**清华大学**</td>
+<td><strong>清华大学</strong></td>
 <td>为什么 BF16 的 FlashAttention 会把训练「炸掉」？清华首次给出机制解释，用极简改动稳住训练<br><br>Haiquan Qiu, Quanming Yao.&quot;Why Low-Precision Transformer Training Fails: An Analysis on Flash Attention.&quot;arXiv:2510.04212 [cs.LG]</td>
-<td>社区里困扰了多年的一个 “玄学” 现象终于被拆解清楚了：在 BF16 等低精度训练里，FlashAttention 不是随机出 bug，而是会在特定条件下触发有方向的数值偏置，借助注意力中涌现的相似低秩更新方向被持续放大，最终把权重谱范数和激活推到失控，导致 loss 突然爆炸。[论文](https://arxiv.org/abs/2510.04212)还给出一个几乎不改模型、只在 safe softmax 里做的极小修改，实测能显著稳定训练。</td>
+<td>社区里困扰了多年的一个 “玄学” 现象终于被拆解清楚了：在 BF16 等低精度训练里，FlashAttention 不是随机出 bug，而是会在特定条件下触发有方向的数值偏置，借助注意力中涌现的相似低秩更新方向被持续放大，最终把权重谱范数和激活推到失控，导致 loss 突然爆炸。<a href="https://arxiv.org/abs/2510.04212">论文</a>还给出一个几乎不改模型、只在 safe softmax 里做的极小修改，实测能显著稳定训练。</td>
 </tr>
 </table></div>
 
 <h3>二、<strong>推理</strong></h3>
-<p>未能展开此表；以下保留该处原始捕获内容。</p>
-<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+<div class="material-gap"><p>表格缺失：现有片段无法完整还原。</p><details class="material-fragment"><summary>查看原始片段</summary><p>未能展开此表；以下保留该处原始捕获内容。</p><pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
 [
   [
     {
@@ -143,7 +142,9 @@
       &quot;type&quot;: &quot;table_cell&quot;,
       &quot;attrs&quot;: {
         &quot;colspan&quot;: 1,
-        &quot;rows</pre>
+        &quot;rows</pre></details></div>
+
+
 
 
 <h2>旧生成摘要（未重写，未核实）</h2>

@@ -18,7 +18,7 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/226</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/076341d183df2e1c6f880665be0d5ccd563ba0622cccd62df9a357091ff609ee.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2752212952.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2752212952.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
 [loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
@@ -33,8 +33,7 @@
 [sso-ciba] MOA 无感登录 provider 已初始化
 [sso-ciba] 使用缓存的 token (剩余 574s)
 ✅ 认证成功</p>
-<p>:::title{nodeId=&quot;b142b2a649164021a13fc4501836446e&quot;}
-把 Skill 当 API 写，而不是当作文写</p>
+<h1>把 Skill 当 API 写，而不是当作文写</h1>
 <p>很多不稳定的 Skill 的写作方式：它看起来很认真，很完整，很有专家口吻，甚至会写上“请深度思考”“请全面分析”“请系统归纳”，但你一旦把它放进真实工作流里，结果往往并不稳定。同样一个任务，今天输出一份摘要，明天输出一篇评论；今天分三层结构，明天突然自由发挥；今天会标注证据来源，明天又把推测和事实混在一起。问题出在哪？很多时候不是模型忽然变笨了，而是这个 Skill 从头到尾就没有被当成一个接口来设计。</p>
 <p>所谓的“把 Skill 当 API 写”，并不是让非技术用户去学编程，而是换一种更清醒的任务表达方式：不要把 Skill 当成一个“懂你心思的写作者”，而要把它当成一个“接受输入、返回结果、遇错停下、边界清楚的能力接口”。一旦换成这个视角，很多原本说不清的问题会突然变清楚。</p>
 <p>举个工作场景的例子：要把 8 份已有报告合成 1 份统一主题的研究报告。这里面包含不同时间写的材料、不同作者的口径、重复的观点、互相冲突的数据、长短不一的章节结构，还可能夹杂一些已经过时的判断。如果你只是给系统一句话：“把这 8 个报告整合成一篇完整报告，要有深度、有洞察、有结构。” 这当然听起来很合理，但它对一个 Skill 来说，几乎等于没说。因为这里至少有六个关键信息没有被定义：</p>

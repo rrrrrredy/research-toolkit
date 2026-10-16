@@ -18,73 +18,105 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/77</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/7b1152f34bd05320a835a2e90b4a295b0e845c9d7afbea360fef60d5db43f7f1.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2476601246.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2476601246.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>Self-Play相关研究推荐</p>
 <h1>一、核心要点</h1>
 <p>1.近期业界对 Self-Play 的关注度持续高涨，今天 OpenAI 草莓相关的信息流出后，更有讨论 Self-Play 将会成为大模型新的研究范式。基于此推荐三篇相关研究，分别是 <strong>UCLA 顾全全教授团队的系列研究成果和清华、北大等发布 Self-Play 强化学习最新综述。其中，SPPO 的共同一作 Zhiqing Sun 现在就在 OpenAI</strong>。</p>
 <p>2.今年年初，加利福尼亚大学洛杉矶分校的顾全全团队提出了一种新方法 ** <strong><a href="https://arxiv.org/pdf/2401.01335.pdf">SPIN</a></strong>（Self-Play Fine-Tuning）**，可不使用额外微调数据，仅靠自我博弈就能大幅提升 LLM 的能力。</p>
 <p>3.通过充分利用人类标注数据，SPIN 让大模型靠自我博弈从弱变强。与基于人类偏好反馈的强化学习（RLHF）相比，SPIN 使 LLM 能够在没有额外人类反馈或者更强的 LLM 反馈的情况下自我改进。在包含 HuggingFace Open LLM 排行榜的多个基准数据集实验上，SPIN 显著且稳定地提高了 LLM 的性能，甚至超过了使用额外 AI 反馈训练的模型。</p>
-<p>4.今年 5 月，:[color]{}顾全全教授团队和卡内基梅隆大学（CMU）Yiming Yang 教授团队合作开发了一种名为「[/color]:[color]{}<strong>自我博弈偏好优化（Self-Play Preference Optimization, <strong>[/color]<a href="https://arxiv.org/pdf/2405.00675.pdf">SPPO</a>:[color]{}</strong>）</strong>[/color]:[color]{}」的对齐技术，这一新方法旨在通过自我博弈的框架来优化大语言模型的行为，使其更好地符合人类的偏好。通过 SPPO 方法，模型不仅在[/color]:[color]{}<strong>生成文本的流畅性</strong>[/color]:[color]{}和[/color]:[color]{}<strong>准确性</strong>[/color]:[color]{}上得到了改进，更重要的是：「它在符合人类价值和偏好方面表现得更加出色」。[/color]</p>
+<p>4.今年 5 月，顾全全教授团队和卡内基梅隆大学（CMU）Yiming Yang 教授团队合作开发了一种名为「<strong>自我博弈偏好优化（Self-Play Preference Optimization, <strong><a href="https://arxiv.org/pdf/2405.00675.pdf">SPPO</a></strong>）</strong>」的对齐技术，这一新方法旨在通过自我博弈的框架来优化大语言模型的行为，使其更好地符合人类的偏好。通过 SPPO 方法，模型不仅在<strong>生成文本的流畅性</strong>和<strong>准确性</strong>上得到了改进，更重要的是：「它在符合人类价值和偏好方面表现得更加出色」。</p>
 <h1>二、SPIN（Self-Play Fine-Tuning）</h1>
 <h2>1.背景</h2>
 <p>今年年初，加利福尼亚大学洛杉矶分校的顾全全团队提出了一种新方法** <strong><a href="https://arxiv.org/pdf/2401.01335.pdf">SPIN</a></strong>（Self-Play Fine-Tuning）**，可不使用额外微调数据，仅靠自我博弈就能大幅提升 LLM 的能力。顾全全教授表示：「授之以鱼不如授之以渔：通过自我博弈微调 (SPIN) 可以让所有大模型达到从弱到强的提升。」</p>
 <p>这项研究也在社交网络引起了不少讨论，比如宾夕法尼亚大学沃顿商学院的 Ethan Mollick 教授就表示：「更多证据表明，AI 不会受限于可供其训练的人类创造内容的数量。这篇论文再次表明使用 AI 创造的数据训练 AI 可以比仅使用人类创造的数据获得更高质量的结果。」</p>
-<p>:[color]{}大型语言模型（LLM）开启了通用人工智能（AGI）的大突破时代，它能以非凡的能力解决需要复杂推理和专业知识的广泛任务。LLM 擅长的领域包括数学推理 / 问题求解、代码生成 / 编程、文本生成、摘要和创意写作等等。[/color]</p>
-<p>:[color]{}LLM 的一大关键进步是训练之后的对齐过程，这能让模型的行为更符合需求，但这个过程却往往依赖于成本高昂的人类标注数据。经典的对齐方法包括基于人类演示的监督式微调（SFT）和基于人类偏好反馈的强化学习（RLHF）。[/color]</p>
-<p>:[color]{}而这些对齐方法全都需要大量人类标注数据。因此，为了精简对齐过程，研究人员希望开发出能有效利用人类数据的微调方法。[/color]</p>
-<p>:[color]{}这也是这项研究的目标：开发出新的微调方法，使得微调后的模型可以继续变强，而且这个微调过程无需使用微调数据集之外的人类标注数据。[/color]</p>
-<p>:[color]{}实际上，机器学习社区一直都很关注如何在不使用额外训练数据的情况下将弱模型提升成强模型，这方面的研究甚至可以追溯至 boosting 算法。也有研究表明，自训练算法可以在混合模型中将弱学习器转换成强学习器，而无需额外的标注数据。但是，要在没有外部引导的前提下自动提升 LLM 的能力既复杂又少有研究。这就引出了以下问题：我们能让 LLM 在没有额外人类标注数据的前提下实现自我提升吗？[/color]</p>
+<p>大型语言模型（LLM）开启了通用人工智能（AGI）的大突破时代，它能以非凡的能力解决需要复杂推理和专业知识的广泛任务。LLM 擅长的领域包括数学推理 / 问题求解、代码生成 / 编程、文本生成、摘要和创意写作等等。</p>
+<p>LLM 的一大关键进步是训练之后的对齐过程，这能让模型的行为更符合需求，但这个过程却往往依赖于成本高昂的人类标注数据。经典的对齐方法包括基于人类演示的监督式微调（SFT）和基于人类偏好反馈的强化学习（RLHF）。</p>
+<p>而这些对齐方法全都需要大量人类标注数据。因此，为了精简对齐过程，研究人员希望开发出能有效利用人类数据的微调方法。</p>
+<p>这也是这项研究的目标：开发出新的微调方法，使得微调后的模型可以继续变强，而且这个微调过程无需使用微调数据集之外的人类标注数据。</p>
+<p>实际上，机器学习社区一直都很关注如何在不使用额外训练数据的情况下将弱模型提升成强模型，这方面的研究甚至可以追溯至 boosting 算法。也有研究表明，自训练算法可以在混合模型中将弱学习器转换成强学习器，而无需额外的标注数据。但是，要在没有外部引导的前提下自动提升 LLM 的能力既复杂又少有研究。这就引出了以下问题：我们能让 LLM 在没有额外人类标注数据的前提下实现自我提升吗？</p>
 <h2>2.方法</h2>
-<p>:[color]{}从技术细节上讲，我们可以将来自之前迭代的 LLM 记为 pθt，其对于人类标注的 SFT 数据集中的 prompt x，可以生成响应 y&#39;。接下来的目标是找到一个新的 LLM pθ{t+1}，使其有能力区分 pθt 生成的响应 y&#39; 和人类给出的响应 y。[/color]</p>
-<p>:[color]{}这个过程可被看作是一个两个玩家的博弈过程：主玩家就是新 LLM pθ{t+1}，其目标是区分对手玩家 pθt 的响应以及人类生成的响应；对手玩家就是旧 LLM pθt，其任务是生成与人类标注的 SFT 数据集尽可能相近的响应。[/color]</p>
-<p>:[color]{}新 LLM pθ{t+1} 是通过微调旧 LLM pθt 得到的，训练过程是让新的 LLM pθ{t+1} 有很好的能力区分 pθt 生成的响应 y&#39; 和人类给出的响应 y。而这个训练不仅让新的 LLM pθ{t+1} 作为一个主玩家达到很好的区分能力，而且让新的 LLM pθ{t+1} 作为一个对手玩家在下一轮迭代中，给出更对齐 SFT 数据集的响应。在下一轮迭代中，新获得的 LLM pθ{t+1} 会变成响应生成的对手玩家。[/color]</p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2476601246/122990592016?contentType=1&isNewContent=false" alt="image.jpeg">{width=936 height=112 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122989398527?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2476601246/122989398527?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122990908903?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2476601246/122990908903?contentType=1&amp;isNewContent=false&quot;}</a></p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2476601246/122992570481?contentType=1&isNewContent=false" alt="image.jpeg">{width=844 height=246 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122991374618?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2476601246/122991374618?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122989477080?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2476601246/122989477080?contentType=1&amp;isNewContent=false&quot;}</a></p>
-<p>:[color]{}这个自我博弈的过程的目标是让 LLM 最终收敛到 pθ∗=p_data，使得可能存在的最强大的 LLM 生成的响应不再与其之前版本和人类生成的响应不同。[/color]</p>
-<p>:[color]{}有趣的是，这个新方法与 Rafailov et al. 近期提出的直接偏好优化（DPO）方法表现出了相似性，但新方法的明显区别是采用了自我博弈机制。也因此，这个新方法就有了一大显著优势：无需额外的人类偏好数据。[/color]</p>
-<p>:[color]{}此外，我们也能明显看出这种新方法与生成对抗网络（GAN）的相似性，只不过新方法中的判别器（主玩家）和生成器（对手）是同一个 LLM 在相邻两次迭代后的实例。该团队还对这个新方法进行了理论证明，结果表明：当且仅当 LLM 的分布等于目标数据分布时，即 p_θ_t=p_data 时，该方法可以收敛。[/color]</p>
+<p>从技术细节上讲，我们可以将来自之前迭代的 LLM 记为 pθt，其对于人类标注的 SFT 数据集中的 prompt x，可以生成响应 y&#39;。接下来的目标是找到一个新的 LLM pθ{t+1}，使其有能力区分 pθt 生成的响应 y&#39; 和人类给出的响应 y。</p>
+<p>这个过程可被看作是一个两个玩家的博弈过程：主玩家就是新 LLM pθ{t+1}，其目标是区分对手玩家 pθt 的响应以及人类生成的响应；对手玩家就是旧 LLM pθt，其任务是生成与人类标注的 SFT 数据集尽可能相近的响应。</p>
+<p>新 LLM pθ{t+1} 是通过微调旧 LLM pθt 得到的，训练过程是让新的 LLM pθ{t+1} 有很好的能力区分 pθt 生成的响应 y&#39; 和人类给出的响应 y。而这个训练不仅让新的 LLM pθ{t+1} 作为一个主玩家达到很好的区分能力，而且让新的 LLM pθ{t+1} 作为一个对手玩家在下一轮迭代中，给出更对齐 SFT 数据集的响应。在下一轮迭代中，新获得的 LLM pθ{t+1} 会变成响应生成的对手玩家。</p>
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2476601246/122990592016?contentType=1&amp;isNewContent=false){width=936 height=112 small=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122989398527?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122990908903?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
+
+
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2476601246/122992570481?contentType=1&amp;isNewContent=false){width=844 height=246 small=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122991374618?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122989477080?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
+<p>这个自我博弈的过程的目标是让 LLM 最终收敛到 pθ∗=p_data，使得可能存在的最强大的 LLM 生成的响应不再与其之前版本和人类生成的响应不同。</p>
+<p>有趣的是，这个新方法与 Rafailov et al. 近期提出的直接偏好优化（DPO）方法表现出了相似性，但新方法的明显区别是采用了自我博弈机制。也因此，这个新方法就有了一大显著优势：无需额外的人类偏好数据。</p>
+<p>此外，我们也能明显看出这种新方法与生成对抗网络（GAN）的相似性，只不过新方法中的判别器（主玩家）和生成器（对手）是同一个 LLM 在相邻两次迭代后的实例。该团队还对这个新方法进行了理论证明，结果表明：当且仅当 LLM 的分布等于目标数据分布时，即 p_θ_t=p_data 时，该方法可以收敛。</p>
 <h2>3.实验</h2>
-<p>:[color]{}在实验中，该团队使用了一个基于 Mistral-7B 微调后的 LLM 实例 zephyr-7b-sft-full。[/color]</p>
-<p>:[color]{}结果表明，新方法能在连续迭代中持续提升 zephyr-7b-sft-full，而作为对比，当在 SFT 数据集 Ultrachat200k 上使用 SFT 方法持续训练时，评估分数则会达到性能瓶颈，甚至出现下降情况。[/color]</p>
-<p>:[color]{}更有趣的是，新方法使用的数据集只是 Ultrachat200k 数据集的一个 50k 大小的子集！[/color]</p>
-<p>:[color]{}新方法 SPIN 还有另一项成就：可有效地将 HuggingFace Open LLM 排行榜中基础模型 zephyr-7b-sft-full 的平均分数从 58.14 提升至 63.16，其中在 GSM8k 和 TruthfulQA 上能有超过 10% 的惊人提升，在 MT-Bench 上也可从 5.94 提升至 6.78。[/color]</p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2476601246/122992590205?contentType=1&isNewContent=false" alt="image.jpeg">{width=1075 height=520 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122992488530?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2476601246/122992488530?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122991613722?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2476601246/122991613722?contentType=1&amp;isNewContent=false&quot;}</a></p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2476601246/122992011782?contentType=1&isNewContent=false" alt="image.jpeg">{width=1068 height=318 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122991295690?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2476601246/122991295690?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122991295688?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2476601246/122991295688?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>在实验中，该团队使用了一个基于 Mistral-7B 微调后的 LLM 实例 zephyr-7b-sft-full。</p>
+<p>结果表明，新方法能在连续迭代中持续提升 zephyr-7b-sft-full，而作为对比，当在 SFT 数据集 Ultrachat200k 上使用 SFT 方法持续训练时，评估分数则会达到性能瓶颈，甚至出现下降情况。</p>
+<p>更有趣的是，新方法使用的数据集只是 Ultrachat200k 数据集的一个 50k 大小的子集！</p>
+<p>新方法 SPIN 还有另一项成就：可有效地将 HuggingFace Open LLM 排行榜中基础模型 zephyr-7b-sft-full 的平均分数从 58.14 提升至 63.16，其中在 GSM8k 和 TruthfulQA 上能有超过 10% 的惊人提升，在 MT-Bench 上也可从 5.94 提升至 6.78。</p>
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2476601246/122992590205?contentType=1&amp;isNewContent=false){width=1075 height=520 small=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122992488530?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122991613722?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
+
+
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2476601246/122992011782?contentType=1&amp;isNewContent=false){width=1068 height=318 small=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122991295690?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122991295688?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
 <p>值得注意的是，在 Open LLM 排行榜上，使用 SPIN 微调的模型甚至能与再使用额外 62k 偏好数据集训练的模型媲美。</p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2476601246/122989955751?contentType=1&isNewContent=false" alt="image.jpeg">{width=1062 height=432 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122991931899?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2476601246/122991931899?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122989398526?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2476601246/122989398526?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2476601246/122989955751?contentType=1&amp;isNewContent=false){width=1062 height=432 small=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122991931899?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122989398526?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
 <h2>4.结论</h2>
 <p>通过充分利用人类标注数据，SPIN 让大模型靠自我博弈从弱变强。与基于人类偏好反馈的强化学习（RLHF）相比，SPIN 使 LLM 能够在没有额外人类反馈或者更强的 LLM 反馈的情况下自我改进。在包含 HuggingFace Open LLM 排行榜的多个基准数据集实验上，SPIN 显著且稳定地提高了 LLM 的性能，甚至超过了使用额外 AI 反馈训练的模型。</p>
 <h1>三、SPPO（Self-Play Preference Optimization）</h1>
 <h2>1.背景</h2>
-<p>今年 5 月，:[color]{}顾全全教授团队和卡内基梅隆大学（CMU）Yiming Yang教授团队合作开发了一种名为「[/color]:[color]{}<strong>自我博弈偏好优化（Self-Play Preference Optimization, <strong>[/color]<a href="https://arxiv.org/pdf/2405.00675.pdf">SPPO</a>:[color]{}</strong>）</strong>[/color]:[color]{}」的对齐技术，这一新方法旨在通过自我博弈的框架来优化大语言模型的行为，使其更好地符合人类的偏好。[/color]</p>
-<p>:[color]{}大语言模型（LLM）正成为人工智能领域的重要推动力，凭借其出色的文本生成和理解能力在种任务中表现卓越。尽管LLM的能力令人瞩目，但要使这些模型的输出行为更符合实际应用中的需求，通常需要通过对齐（alignment）过程进行微调。[/color]</p>
-<p>:[color]{}这个过程关键在于调整模型以更好地反映人类的偏好和行为准则。常见的方法包括基于人类反馈的强化学习（RLHF）或者直接偏好优化（Direct Preference Optimization,DPO）。[/color]</p>
-<p>:[color]{}基于人类反馈的强化学习（RLHF）依赖于显式的维护一个奖励模型用来调整和细化大语言模型。换言之，例如，InstructGPT就是基于人类偏好数据先训练一个服从Bradley-Terry模型的奖励函数，然后使用像近似策略优化（Proximal Policy Optimization,PPO）的强化学习算法去优化大语言模型。去年，研究者们提出了直接偏好优化（Direct Preference Optimization,DPO）。[/color]</p>
-<p>:[color]{}不同于RLHF维护一个显式的奖励模型，DPO算法隐含的服从Bradley-Terry模型，但可以直接用于大语言模型优化。已有工作试图通过多次迭代的使用DPO来进一步微调大模型。[/color]</p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2476601246/122990035854?contentType=1&isNewContent=false" alt="image.jpeg">{width=1075 height=355 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122990193587?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2476601246/122990193587?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122990273409?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2476601246/122990273409?contentType=1&amp;isNewContent=false&quot;}</a></p>
-<p>:[color]{rgb(204, 204, 204)}<em>基于Bradley-Terry模型的迭代优化方法缺乏理论理解和保证</em>[/color]</p>
-<p>:[color]{}如Bradley-Terry这样的参数模型会为每个选择提供一个数值分数。这些模型虽然提供了合理的人类偏好近似，但未能完全捕获人类行为的复杂性。[/color]</p>
-<p>:[color]{}这些模型往往假设不同选择之间的偏好关系是单调和传递的，而实证证据却常常显示出人类决策的非一致性和非线性，例如Tversky的研究观察到人类决策可能会受到多种因素的影响，并表现出不一致性。[/color]</p>
+<p>今年 5 月，顾全全教授团队和卡内基梅隆大学（CMU）Yiming Yang教授团队合作开发了一种名为「<strong>自我博弈偏好优化（Self-Play Preference Optimization, <strong><a href="https://arxiv.org/pdf/2405.00675.pdf">SPPO</a></strong>）</strong>」的对齐技术，这一新方法旨在通过自我博弈的框架来优化大语言模型的行为，使其更好地符合人类的偏好。</p>
+<p>大语言模型（LLM）正成为人工智能领域的重要推动力，凭借其出色的文本生成和理解能力在种任务中表现卓越。尽管LLM的能力令人瞩目，但要使这些模型的输出行为更符合实际应用中的需求，通常需要通过对齐（alignment）过程进行微调。</p>
+<p>这个过程关键在于调整模型以更好地反映人类的偏好和行为准则。常见的方法包括基于人类反馈的强化学习（RLHF）或者直接偏好优化（Direct Preference Optimization,DPO）。</p>
+<p>基于人类反馈的强化学习（RLHF）依赖于显式的维护一个奖励模型用来调整和细化大语言模型。换言之，例如，InstructGPT就是基于人类偏好数据先训练一个服从Bradley-Terry模型的奖励函数，然后使用像近似策略优化（Proximal Policy Optimization,PPO）的强化学习算法去优化大语言模型。去年，研究者们提出了直接偏好优化（Direct Preference Optimization,DPO）。</p>
+<p>不同于RLHF维护一个显式的奖励模型，DPO算法隐含的服从Bradley-Terry模型，但可以直接用于大语言模型优化。已有工作试图通过多次迭代的使用DPO来进一步微调大模型。</p>
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2476601246/122990035854?contentType=1&amp;isNewContent=false){width=1075 height=355 small=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122990193587?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122990273409?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
+<p><em>基于Bradley-Terry模型的迭代优化方法缺乏理论理解和保证</em></p>
+<p>如Bradley-Terry这样的参数模型会为每个选择提供一个数值分数。这些模型虽然提供了合理的人类偏好近似，但未能完全捕获人类行为的复杂性。</p>
+<p>这些模型往往假设不同选择之间的偏好关系是单调和传递的，而实证证据却常常显示出人类决策的非一致性和非线性，例如Tversky的研究观察到人类决策可能会受到多种因素的影响，并表现出不一致性。</p>
 <h2>2.SPPO的理论基础和方法</h2>
-<p><img src="https://km.sankuai.com/api/file/cdn/2476601246/122991851284?contentType=1&isNewContent=false" alt="image.jpeg">{width=1075 height=117 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122990353663?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2476601246/122990353663?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122988568843?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2476601246/122988568843?contentType=1&amp;isNewContent=false&quot;}</a></p>
-<p>:[color]{rgb(204, 204, 204)}<em>假想的两个语言模型进行常和博弈</em>[/color]</p>
-<p>:[color]{}在这些背景下，作者提出了一个新的自我博弈框架 SPPO，该框架不仅具有解决两玩家常和博弈（two-player constant-sum game）的可证明保证，而且可以扩展到大规模的高效微调大型语言模型。[/color]</p>
-<p>:[color]{}具体来说，文章将RLHF问题严格定义为一个两玩家常和博弈 。该工作的目标是识别纳什均衡策略，这种策略在平均意义上始终能提供比其他任何策略更受偏好的回复。[/color]</p>
-<p>:[color]{}为了近似地识别纳什均衡策略，作者采用了具有乘法权重的经典在线自适应算法作为解决两玩家博弈的高层框架算法。[/color]</p>
-<p>:[color]{}在该框架的每一步内，算法可以通过自我博弈机制来近似乘法权重更新，其中在每一轮中，大语言模型都在针对上一轮的自身进行微调，通过模型生成的合成数据和偏好模型的注释来进行优化。[/color]</p>
-<p>:[color]{}具体来说，大语言模型在每一轮回会针对每个提示生成若干回复；依据偏好模型的标注，算法可以估计出每个回复的胜率；算法从而可以进一步微调大语言模型的参数使得那些胜率高的回复拥有更高的出现概率。[/color]</p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2476601246/122991772517?contentType=1&isNewContent=false" alt="image.jpeg">{width=1075 height=391 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122992570479?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2476601246/122992570479?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122991454420?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2476601246/122991454420?contentType=1&amp;isNewContent=false&quot;}</a></p>
-<p>:[color]{rgb(136, 136, 136)}<em>自我博弈算法的目标是微调自身从而胜过上一轮的语言模型</em>[/color]</p>
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2476601246/122991851284?contentType=1&amp;isNewContent=false){width=1075 height=117 small=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122990353663?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122988568843?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
+<p><em>假想的两个语言模型进行常和博弈</em></p>
+<p>在这些背景下，作者提出了一个新的自我博弈框架 SPPO，该框架不仅具有解决两玩家常和博弈（two-player constant-sum game）的可证明保证，而且可以扩展到大规模的高效微调大型语言模型。</p>
+<p>具体来说，文章将RLHF问题严格定义为一个两玩家常和博弈 。该工作的目标是识别纳什均衡策略，这种策略在平均意义上始终能提供比其他任何策略更受偏好的回复。</p>
+<p>为了近似地识别纳什均衡策略，作者采用了具有乘法权重的经典在线自适应算法作为解决两玩家博弈的高层框架算法。</p>
+<p>在该框架的每一步内，算法可以通过自我博弈机制来近似乘法权重更新，其中在每一轮中，大语言模型都在针对上一轮的自身进行微调，通过模型生成的合成数据和偏好模型的注释来进行优化。</p>
+<p>具体来说，大语言模型在每一轮回会针对每个提示生成若干回复；依据偏好模型的标注，算法可以估计出每个回复的胜率；算法从而可以进一步微调大语言模型的参数使得那些胜率高的回复拥有更高的出现概率。</p>
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2476601246/122991772517?contentType=1&amp;isNewContent=false){width=1075 height=391 small=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122992570479?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122991454420?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
+<p><em>自我博弈算法的目标是微调自身从而胜过上一轮的语言模型</em></p>
 <h2>3.实验设计与成果</h2>
-<p>:[color]{}在实验中，研究团队采用了一种Mistral-7B作为基线模型，并使用了UltraFeedback数据集的60,000个提示(prompt)进行无监督训练。他们发现，通过自我博弈的方式，模型能够显著提高在多个评估平台上的表现，例如AlpacaEval 2.0和MT-Bench。这些平台广泛用于评估模型生成文本的质量和相关性。[/color]</p>
-<p>:[color]{}通过SPPO方法，模型不仅在[/color]:[color]{}<strong>生成文本的流畅性</strong>[/color]:[color]{}和[/color]:[color]{}<strong>准确性</strong>[/color]:[color]{}上得到了改进，更重要的是：「它在符合人类价值和偏好方面表现得更加出色」。[/color]<br><img src="https://km.sankuai.com/api/file/cdn/2476601246/122991215439?contentType=1&isNewContent=false" alt="image.jpeg">{width=833 height=600 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122988888031?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2476601246/122988888031?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2476601246/122992488531?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2476601246/122992488531?contentType=1&amp;isNewContent=false&quot;}</a></p>
-<p>:[color]{rgb(136, 136, 136)}<em>SPPO模型在AlpacaEval 2.0上的效果提升显著，且高于如 Iterative DPO 的其他基准方法</em>[/color]</p>
-<p>:[color]{}在AlpacaEval 2.0的测试中，经过SPPO优化的模型在长度控制胜率方面从基线模型的17.11%提升到了28.53%，显示了其对人类偏好理解的显著提高。经过三轮SPPO优化的模型在AlpacaEval2.0上显著优于多轮迭代的DPO, IPO和自我奖励的语言模型（Self-Rewarding LM）。[/color]</p>
-<p>:[color]{}此外，该模型在MT-Bench上的表现也超过了传统通过人类反馈调优的模型。这证明了SPPO在自动调整模型行为以适应复杂任务方面的有效性。[/color]</p>
+<p>在实验中，研究团队采用了一种Mistral-7B作为基线模型，并使用了UltraFeedback数据集的60,000个提示(prompt)进行无监督训练。他们发现，通过自我博弈的方式，模型能够显著提高在多个评估平台上的表现，例如AlpacaEval 2.0和MT-Bench。这些平台广泛用于评估模型生成文本的质量和相关性。</p>
+<p>通过SPPO方法，模型不仅在<strong>生成文本的流畅性</strong>和<strong>准确性</strong>上得到了改进，更重要的是：「它在符合人类价值和偏好方面表现得更加出色」。  </p>
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2476601246/122991215439?contentType=1&amp;isNewContent=false){width=833 height=600 small=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122988888031?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2476601246/122992488531?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
+<p><em>SPPO模型在AlpacaEval 2.0上的效果提升显著，且高于如 Iterative DPO 的其他基准方法</em></p>
+<p>在AlpacaEval 2.0的测试中，经过SPPO优化的模型在长度控制胜率方面从基线模型的17.11%提升到了28.53%，显示了其对人类偏好理解的显著提高。经过三轮SPPO优化的模型在AlpacaEval2.0上显著优于多轮迭代的DPO, IPO和自我奖励的语言模型（Self-Rewarding LM）。</p>
+<p>此外，该模型在MT-Bench上的表现也超过了传统通过人类反馈调优的模型。这证明了SPPO在自动调整模型行为以适应复杂任务方面的有效性。</p>
 <h1>四、清华、北大等发布的Self-Play强化学习最新综述</h1>
 <h2>1.背景</h2>
-<p>:[color]{}*<em>本</em></p>
+<p>*<em>本</em></p>
 <h2>旧生成摘要（未重写，未核实）</h2>
 <p>UCLA顾全全团队于2024年初提出SPIN（Self-Play Fine-Tuning），这是一种无需额外人类偏好数据即可提升大语言模型能力的自我博弈微调方法。SPIN将对齐过程建模为两玩家博弈：新模型作为判别器，负责区分旧模型生成的响应与真实人类响应；旧模型作为生成器，目标是生成尽可能接近人类标注的响应。这一结构与GAN类似，判别器与生成器实为同一LLM在相邻迭代中的不同实例。理论上，当模型分布收敛至目标数据分布时，SPIN达到纳什均衡。</p>
 <p>实验以Mistral-7B微调版本zephyr-7b-sft-full为基础，仅使用Ultrachat200k数据集的50k子集，SPIN便将模型在Open LLM排行榜的平均分从58.14提升至63.16，其中GSM8k和TruthfulQA两项提升超过10%。值得注意的是，经SPIN微调的模型性能可媲美额外引入62k偏好数据集训练的结果，而传统SFT方法在多轮迭代后会遭遇性能瓶颈。</p>

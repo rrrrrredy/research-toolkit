@@ -18,46 +18,45 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/153</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/c64efc99ab176f902d25a15ce22174119d2b8df03c086384d614d53b8e9ef3c0.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2709924660.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2709924660.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>周论文推荐：字节多篇研究领衔，豆包公布文生图模型技术报告、Seaweed-7B、Pixel-SAIL、SimpleAR 相继发布</p>
 <h3>一、模型层</h3>
 <div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
 <tr>
 <th></th>
-<th>**公司/院校/机构**</th>
-<th>**简介**</th>
-<th>**详情**</th>
+<th><strong>公司/院校/机构</strong></th>
+<th><strong>简介</strong></th>
+<th><strong>详情</strong></th>
 </tr>
 <tr>
 <td></td>
 <td>浙江大学、中南大学、上海交通大学、Tiktok、北京大学、南洋理工大学</td>
 <td>一行代码，FreDF频域损失稳定提升时间序列预测精度<br><br>Hao Wang, Licheng Pan, Zhichao Chen, Degui Yang, Sen Zhang, Yifei Yang, Xinggao Liu, Haoxuan Li, Dacheng Tao.&quot;FreDF: Learning to Forecast in Frequency Domain.&quot;arXiv:2402.02399 [cs.LG]</td>
-<td>[本文](https://openreview.net/forum?id=4A9IdSa1ul)由浙江大学、中南大学、上海交通大学、Tiktok、北京大学、南洋理工大学联合完成。第一作者王浩为浙江大学硕博连读生，发表 NeurIPS、ICLR、KDD、WWW、TOIS 等顶级会议和期刊十余篇。通讯作者为北京大学李昊轩助理研究员和南洋理工大学陶大程教授。<br><br>时间序列预测在气象预报、工业设备维护、医疗监测等领域具有关键应用价值。本文揭示现有方法忽略了标签序列中的自相关性，导致训练目标有偏。进一步，提出一种基于频域标签训练的新范式 ——FreDF，只需加入一行代码，即可在主流模型上实现预测精度的稳定提升。</td>
+<td><a href="https://openreview.net/forum?id=4A9IdSa1ul">本文</a>由浙江大学、中南大学、上海交通大学、Tiktok、北京大学、南洋理工大学联合完成。第一作者王浩为浙江大学硕博连读生，发表 NeurIPS、ICLR、KDD、WWW、TOIS 等顶级会议和期刊十余篇。通讯作者为北京大学李昊轩助理研究员和南洋理工大学陶大程教授。<br><br>时间序列预测在气象预报、工业设备维护、医疗监测等领域具有关键应用价值。本文揭示现有方法忽略了标签序列中的自相关性，导致训练目标有偏。进一步，提出一种基于频域标签训练的新范式 ——FreDF，只需加入一行代码，即可在主流模型上实现预测精度的稳定提升。</td>
 </tr>
 <tr>
 <td></td>
 <td>CMU</td>
 <td>专家发文质疑：LLM 过度预训练是灾难性的<br><br>Jacob Mitchell Springer, Sachin Goyal, Kaiyue Wen, Tanishq Kumar, Xiang Yue, Sadhika Malladi, Graham Neubig, Aditi Raghunathan.&quot;Overtrained Language Models Are Harder to Fine-Tune.&quot;arXiv:2503.19206 [cs.CL]</td>
-<td>:[color]{rgb(62, 62, 62)}大语言模型（LLM）是根据不断增长的 token 预算进行预训练的，其假设是更好的预训练性能可以转化为更好的下游模型。[/color]<br><br>:[color]{rgb(62, 62, 62)}在[/color][这项工作](https://arxiv.org/abs/2503.19206):[color]{rgb(62, 62, 62)}中，来自卡内基梅隆大学的研究团队及其合作者对这一假设提出了质疑，并证明扩展预训练会使模型更难微调，从而导致最终性能下降。他们将这种现象称为灾难性过度训练（catastrophic overtraining）。例如，根据 3T token 预训练的指令微调 OLMo-1B 模型在多个标准 LLM 基准上的性能比其 2.3T token 对应模型差 2% 以上。[/color]<br><br>通过对照实验和理论分析，他们发现，灾难性过度训练源于预训练参数对修改（包括但不限于微调）的广泛敏感性的系统性增加。这一研究结果要求对预训练设计进行严格的重新评估，以考虑模型的下游适应性。</td>
+<td>大语言模型（LLM）是根据不断增长的 token 预算进行预训练的，其假设是更好的预训练性能可以转化为更好的下游模型。<br><br>在<a href="https://arxiv.org/abs/2503.19206">这项工作</a>中，来自卡内基梅隆大学的研究团队及其合作者对这一假设提出了质疑，并证明扩展预训练会使模型更难微调，从而导致最终性能下降。他们将这种现象称为灾难性过度训练（catastrophic overtraining）。例如，根据 3T token 预训练的指令微调 OLMo-1B 模型在多个标准 LLM 基准上的性能比其 2.3T token 对应模型差 2% 以上。<br><br>通过对照实验和理论分析，他们发现，灾难性过度训练源于预训练参数对修改（包括但不限于微调）的广泛敏感性的系统性增加。这一研究结果要求对预训练设计进行严格的重新评估，以考虑模型的下游适应性。</td>
 </tr>
 <tr>
 <td></td>
 <td>微软</td>
 <td>微软发布首个开源、原生 1-bit 大语言模型</td>
-<td>:[color]{rgb(62, 62, 62)}在[/color][这项工作](https://arxiv.org/abs/2504.12285):[color]{rgb(62, 62, 62)}中，微软研究院团队提出了 BitNet b1.58 2B4T——首个开源、原生 1-bit 大语言模型（LLM），参数规模为 20 亿。该模型在包含 4 万亿 token 的语料库中进行了训练，并在语言理解、数学推理、编码能力和会话能力等方面进行了基准评估。[/color]<br><br>:[color]{rgb(62, 62, 62)}结果表明，BitNet b1.58 2B4T 的性能与同等规模的领先开放权重、全精度 LLM 不相上下，同时在计算效率方面具有显著优势，包括大幅减少内存占用、能耗和解码延迟。[/color]<br><br>为了促进进一步的研究和应用，他们发布了模型权重以及 GPU 和 CPU 架构的开源推理实现。</td>
+<td>在<a href="https://arxiv.org/abs/2504.12285">这项工作</a>中，微软研究院团队提出了 BitNet b1.58 2B4T——首个开源、原生 1-bit 大语言模型（LLM），参数规模为 20 亿。该模型在包含 4 万亿 token 的语料库中进行了训练，并在语言理解、数学推理、编码能力和会话能力等方面进行了基准评估。<br><br>结果表明，BitNet b1.58 2B4T 的性能与同等规模的领先开放权重、全精度 LLM 不相上下，同时在计算效率方面具有显著优势，包括大幅减少内存占用、能耗和解码延迟。<br><br>为了促进进一步的研究和应用，他们发布了模型权重以及 GPU 和 CPU 架构的开源推理实现。</td>
 </tr>
 <tr>
 <td></td>
-<td>:[color]{rgb(62, 62, 62)}新加坡国立大学和 Sea AI Lab [/color]</td>
+<td>新加坡国立大学和 Sea AI Lab </td>
 <td>ActPRM：通过主动学习高效训练 PRM<br><br>Keyu Duan, Zichen Liu, Xin Mao, Tianyu Pang, Changyu Chen, Qiguang Chen, Michael Qizhe Shieh, Longxu Dou.&quot;Efficient Process Reward Model Training via Active Learning.&quot;arXiv:2504.10559 [cs.LG]</td>
-<td>:[color]{rgb(62, 62, 62)}过程奖励模型（PRM）为大语言模型（LLMs）提供了阶段级监督，但对于人类和 LLM 来说，扩大训练数据标注仍然是一项挑战。[/color]<br><br>:[color]{rgb(62, 62, 62)}为了解决这一局限性，来自新加坡国立大学和 Sea AI Lab 的研究团队提出了一种主动学习方法 [/color][ActPRM](https://arxiv.org/abs/2504.10559):[color]{rgb(62, 62, 62)}，它可以主动选择最不确定的样本进行训练，从而大大降低标注成本。在训练过程中，他们使用 PRM 估算前向传播后的不确定性，只保留高度不确定的数据。随后，功能更强的推理模型会对这些数据进行标注。然后，他们计算与标注相关的损失，并更新 PRM 的权重。[/color]<br><br>:[color]{rgb(62, 62, 62)}他们在基于池的主动学习设置中比较了 ActPRM 和 vanilla 微调，结果表明 ActPRM 减少了 50% 的标注，但却实现了相当甚至更好的性能。除了标注效率之外，他们还利用 ActPRM 过滤了 100 多万条数学推理轨迹，保留了 60% 的数据，从而进一步提高了主动训练 PRM 的性能。与同等规模的模型相比，在这一选定数据集上进行的后续训练在 ProcessBench（75.0%）和 PRMBench（65.5%）上产生了 SOTA PRM。[/color]</td>
+<td>过程奖励模型（PRM）为大语言模型（LLMs）提供了阶段级监督，但对于人类和 LLM 来说，扩大训练数据标注仍然是一项挑战。<br><br>为了解决这一局限性，来自新加坡国立大学和 Sea AI Lab 的研究团队提出了一种主动学习方法 <a href="https://arxiv.org/abs/2504.10559">ActPRM</a>，它可以主动选择最不确定的样本进行训练，从而大大降低标注成本。在训练过程中，他们使用 PRM 估算前向传播后的不确定性，只保留高度不确定的数据。随后，功能更强的推理模型会对这些数据进行标注。然后，他们计算与标注相关的损失，并更新 PRM 的权重。<br><br>他们在基于池的主动学习设置中比较了 ActPRM 和 vanilla 微调，结果表明 ActPRM 减少了 50% 的标注，但却实现了相当甚至更好的性能。除了标注效率之外，他们还利用 ActPRM 过滤了 100 多万条数学推理轨迹，保留了 60% 的数据，从而进一步提高了主动训练 PRM 的性能。与同等规模的模型相比，在这一选定数据集上进行的后续训练在 ProcessBench（75.0%）和 PRMBench（65.5%）上产生了 SOTA PRM。</td>
 </tr>
 </table></div>
 
 <h3>二、推理</h3>
-<p>未能展开此表；以下保留该处原始捕获内容。</p>
-<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+<div class="material-gap"><p>表格缺失：现有片段无法完整还原。</p><details class="material-fragment"><summary>查看原始片段</summary><p>未能展开此表；以下保留该处原始捕获内容。</p><pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
 [
   [
     {
@@ -218,7 +217,9 @@
         &quot;bgColor&quot;: null,
         &quot;verticalAlign&quot;: null
       },
-      &quot;content&quot;: &quot;:[color]{rgb(62, 62, 62)}有效的推理对于解决复杂的数学问题至关重要。大语言模型（LLM）通过长 CoT 推理扩展了测试时计算，从而提高了性能。然而，由于其二次计算复杂度和线性内存要求，基于 transformer 的模型在扩展上下文长度方面受到了固有的限制。[/color]\n\n:[color]{rgb(62, 62, 62)}在[/color][这项工作](https://arxiv.org/abs/2504.10449):[color]{rgb(62, 62, 62)}中，来自 TogetherAI 的研究团队及其合作者提出了一种基于 Mamba 架构的混合线性 RNN 推理模型——M1，�</pre>
+      &quot;content&quot;: &quot;:[color]{rgb(62, 62, 62)}有效的推理对于解决复杂的数学问题至关重要。大语言模型（LLM）通过长 CoT 推理扩展了测试时计算，从而提高了性能。然而，由于其二次计算复杂度和线性内存要求，基于 transformer 的模型在扩展上下文长度方面受到了固有的限制。[/color]\n\n:[color]{rgb(62, 62, 62)}在[/color][这项工作](https://arxiv.org/abs/2504.10449):[color]{rgb(62, 62, 62)}中，来自 TogetherAI 的研究团队及其合作者提出了一种基于 Mamba 架构的混合线性 RNN 推理模型——M1，�</pre></details></div>
+
+
 
 
 <h2>旧生成摘要（未重写，未核实）</h2>

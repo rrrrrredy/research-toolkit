@@ -18,58 +18,57 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/169</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/0b3e88a9bb10fda94f43a887eac89e2e48ae4423855fd622346ceba7a854b81a.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2720841423.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2720841423.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>周论文推荐：字节、南洋理工多篇研究，苹果推理新论文，World Models 论文精选</p>
 <h3>一、模型</h3>
 <div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
 <tr>
 <th></th>
-<th>**公司/院校/机构**</th>
-<th>**简介**</th>
-<th>**详情**</th>
+<th><strong>公司/院校/机构</strong></th>
+<th><strong>简介</strong></th>
+<th><strong>详情</strong></th>
 </tr>
 <tr>
 <td></td>
-<td>**南洋理工大学**</td>
+<td><strong>南洋理工大学</strong></td>
 <td>南洋理工首次将多 token 预测引入微调，编程任务准确率提升 11.67%<br><br>Michael K. Chen, Xikun Zhang, Jiaxing Huang, Dacheng Tao.&quot;Improving Large Language Models with Concept-Aware Fine-Tuning.&quot;arXiv:2506.07833 [cs.LG]</td>
-<td>从 GPT 到 Claude，当前主流 LLM 都依赖 next-token prediction（下一 token 预测）进行训练，但它却让 AI 很难真正理解跨越多 token 的完整概念。<br><br>于是南洋理工大学最近提出了一项新技术 —— [概念感知微调（CAFT）](https://www.arxiv.org/abs/2506.07833)，首次实现将 multi-token prediction（多 token 预测）引入微调阶段，让模型能够像人类一样理解和学习完整概念。<br><br>原来 LLM 只能碎片化理解每个 token，现在 CAFT 可以为模型添加额外的辅助头，在主模型学习下一个词的同时，帮助学习后续 token，并通过动态调整权重，确保模型始终优先优化主要任务的损失。<br><br>最终 LLM 可以兼顾多 token 概念学习，形成更为完整的认知，在推理和生成能力增强的同时，既不会影响模型本身，也不会额外增加多余成本。<br><br>另外研究人员通过实验发现，CAFT 在编程、数学、生物医学等多个领域都能显著提升模型性能，或许未来将会让 AI 训练范式迎来根本性转变。</td>
+<td>从 GPT 到 Claude，当前主流 LLM 都依赖 next-token prediction（下一 token 预测）进行训练，但它却让 AI 很难真正理解跨越多 token 的完整概念。<br><br>于是南洋理工大学最近提出了一项新技术 —— <a href="https://www.arxiv.org/abs/2506.07833">概念感知微调（CAFT）</a>，首次实现将 multi-token prediction（多 token 预测）引入微调阶段，让模型能够像人类一样理解和学习完整概念。<br><br>原来 LLM 只能碎片化理解每个 token，现在 CAFT 可以为模型添加额外的辅助头，在主模型学习下一个词的同时，帮助学习后续 token，并通过动态调整权重，确保模型始终优先优化主要任务的损失。<br><br>最终 LLM 可以兼顾多 token 概念学习，形成更为完整的认知，在推理和生成能力增强的同时，既不会影响模型本身，也不会额外增加多余成本。<br><br>另外研究人员通过实验发现，CAFT 在编程、数学、生物医学等多个领域都能显著提升模型性能，或许未来将会让 AI 训练范式迎来根本性转变。</td>
 </tr>
 <tr>
 <td></td>
-<td>**香港城市大学、浙江大学、南方科技大学**</td>
+<td><strong>香港城市大学、浙江大学、南方科技大学</strong></td>
 <td>CoTo：让 LoRA 训练「渐入佳境」，模型融合、剪枝样样精通<br><br>Zhan Zhuang, Xiequn Wang, Wei Li, Yulong Zhang, Qiushi Huang, Shuhao Chen, Xuehao Wang, Yanbin Wei, Yuhe Nie, Kede Ma, Yu Zhang, Ying Wei.&quot;Come Together, But Not Right Now: A Progressive Strategy to Boost Low-Rank Adaptation.&quot;arXiv:2506.05713 [cs.LG]</td>
-<td>来自香港城市大学、南方科技大学、浙江大学等机构的研究者们提出了一种简单的渐进式训练策略，[CoTo](https://arxiv.org/abs/2506.05713)，通过在训练早期随机失活一部分适配器，并逐渐提高其激活概率，有效缓解了层级不均衡问题，并显著增强了模型在多任务融合和剪枝等操作上的鲁棒性和有效性。该工作已被机器学习顶会 ICML 2025 接收。</td>
+<td>来自香港城市大学、南方科技大学、浙江大学等机构的研究者们提出了一种简单的渐进式训练策略，<a href="https://arxiv.org/abs/2506.05713">CoTo</a>，通过在训练早期随机失活一部分适配器，并逐渐提高其激活概率，有效缓解了层级不均衡问题，并显著增强了模型在多任务融合和剪枝等操作上的鲁棒性和有效性。该工作已被机器学习顶会 ICML 2025 接收。</td>
 </tr>
 <tr>
 <td></td>
-<td>**香港中文大学、复旦大学等**</td>
+<td><strong>香港中文大学、复旦大学等</strong></td>
 <td>驱动 LLM 强大的过程级奖励模型（PRMs）正遭遇「信任危机」？<br><br>Mingyang Song, Zhaochen Su, Xiaoye Qu, Jiawei Zhou, Yu Cheng.&quot;PRMBench: A Fine-grained and Challenging Benchmark for Process-Level Reward Models.&quot;arXiv:2501.03124 [cs.CL]</td>
-<td>近年来，大型语言模型（LLMs）在复杂推理任务中展现出惊人的能力，这在很大程度上得益于过程级奖励模型（PRMs）的赋能。PRMs 作为 LLMs 进行多步推理和决策的关键「幕后功臣」，负责评估推理过程的每一步，以引导模型的学习方向。<br><br>然而，它们真的足够可靠吗？一项[最新研究](https://arxiv.org/abs/2501.03124) —— 已被 ACL 2025 Main 接收 —— 揭示了现有 PRMs 在识别推理过程中细微错误方面的显著不足，其表现甚至可能不如随机猜测，敲响了「信任危机」的警钟。</td>
+<td>近年来，大型语言模型（LLMs）在复杂推理任务中展现出惊人的能力，这在很大程度上得益于过程级奖励模型（PRMs）的赋能。PRMs 作为 LLMs 进行多步推理和决策的关键「幕后功臣」，负责评估推理过程的每一步，以引导模型的学习方向。<br><br>然而，它们真的足够可靠吗？一项<a href="https://arxiv.org/abs/2501.03124">最新研究</a> —— 已被 ACL 2025 Main 接收 —— 揭示了现有 PRMs 在识别推理过程中细微错误方面的显著不足，其表现甚至可能不如随机猜测，敲响了「信任危机」的警钟。</td>
 </tr>
 <tr>
 <td></td>
 <td>**MIT **</td>
 <td>MIT 研究 LLM 辅助标注对主观任务的影响，发现标注者倾向于接受 LLM 建议<br><br>Hope Schroeder, Deb Roy, Jad Kabbara.&quot;Just Put a Human in the Loop? Investigating LLM-Assisted Annotation for Subjective Tasks.&quot;arXiv:2507.15821 [cs.CY]</td>
-<td>[论文](https://arxiv.org/abs/2507.15821)探讨了在复杂主观标注任务中，提供 LLM 生成的标注建议对众包工人速度和准确性的影响。实验涉及 410 名标注者和 7000 多个标注，测试三种 AI 辅助条件。结果表明，尽管标注者自信心提高，但并未加快速度；更重要的是，标注者强烈采纳 LLM 建议，显著改变了标签分布。当使用这些受 LLM 影响的标签评估模型性能时，报告的模型性能显著提高。</td>
+<td><a href="https://arxiv.org/abs/2507.15821">论文</a>探讨了在复杂主观标注任务中，提供 LLM 生成的标注建议对众包工人速度和准确性的影响。实验涉及 410 名标注者和 7000 多个标注，测试三种 AI 辅助条件。结果表明，尽管标注者自信心提高，但并未加快速度；更重要的是，标注者强烈采纳 LLM 建议，显著改变了标签分布。当使用这些受 LLM 影响的标签评估模型性能时，报告的模型性能显著提高。</td>
 </tr>
 <tr>
 <td></td>
-<td>**上海创智学院**</td>
+<td><strong>上海创智学院</strong></td>
 <td>siiRL 开源：完全分布式强化学习框架，支持超千卡规模高效训练<br><br>Zhixin Wang, Tianyi Zhou, Liming Liu, Ao Li, Jiarui Hu, Dian Yang, Jinlong Hou, Siyuan Feng, Yuan Cheng, Yuan Qi.&quot;DistFlow: A Fully Distributed RL Framework for Scalable and Efficient LLM Post-Training.&quot;arXiv:2507.13833 [cs.DC]</td>
-<td>来自上海创智学院的研究团队正式推出 [siiRL](https://arxiv.org/abs/2507.13833)，一个支持大规模高效强化学习训练的 RL 框架。siiRL 的核心在于其创新的 多控制器 范式和 全分布式 架构，它将数据加载、计算和数据流转等任务均匀地分散到所有工作节点，从根本上解决了传统 RL 框架中由单一控制器引发的性能瓶颈。 <br><br>- 线性扩展：全分布式架构带来近乎线性的扩展能力，已在 1024 GPU 规模下成功验证；<br>- 性能再飞跃：彻底消除单点瓶颈，实现最高达到 7 倍 的端到端训练吞吐提升；<br>- 极致灵活：基于 DAG 的工作流定义，将算法逻辑与物理资源解耦，让算法创新和实验迭代快如闪电，并且能够更灵活的支持多智能体协同训练；<br>- 跨硬件平台兼容：siiRL 现已正式支持华为昇腾（Ascend）NPU，为用户提供在不同的硬件平台上进行 RL 训练的高性能选择；<br>- 开箱即用：全面开源，轻松部署。<br><br>在主流的强化学习框架中，系统通常采用一种混合或单一控制器架构，即由一个中心化的控制器节点来调度整个执行逻辑和管理数据流 。无论是初始的数据集加载，还是各计算阶段间海量中间数据的收集与分发，所有数据都必须流经这个中心节点 。<br><br>这种设计在小规模下尚可运行，但一旦扩展到数百乃至上千 GPU，该中心节点就会因巨大的 I/O 和通信开销而成为系统的性能瓶颈 。更糟糕的是，海量数据很容易压垮中心节点的内存，导致系统崩溃（OOM），从根本上限制了系统的可扩展性和稳定性 。此外，固化的算法流程也大大增加了研究者进行算法创新的难度 。</td>
+<td>来自上海创智学院的研究团队正式推出 <a href="https://arxiv.org/abs/2507.13833">siiRL</a>，一个支持大规模高效强化学习训练的 RL 框架。siiRL 的核心在于其创新的 多控制器 范式和 全分布式 架构，它将数据加载、计算和数据流转等任务均匀地分散到所有工作节点，从根本上解决了传统 RL 框架中由单一控制器引发的性能瓶颈。 <br><br>- 线性扩展：全分布式架构带来近乎线性的扩展能力，已在 1024 GPU 规模下成功验证；<br>- 性能再飞跃：彻底消除单点瓶颈，实现最高达到 7 倍 的端到端训练吞吐提升；<br>- 极致灵活：基于 DAG 的工作流定义，将算法逻辑与物理资源解耦，让算法创新和实验迭代快如闪电，并且能够更灵活的支持多智能体协同训练；<br>- 跨硬件平台兼容：siiRL 现已正式支持华为昇腾（Ascend）NPU，为用户提供在不同的硬件平台上进行 RL 训练的高性能选择；<br>- 开箱即用：全面开源，轻松部署。<br><br>在主流的强化学习框架中，系统通常采用一种混合或单一控制器架构，即由一个中心化的控制器节点来调度整个执行逻辑和管理数据流 。无论是初始的数据集加载，还是各计算阶段间海量中间数据的收集与分发，所有数据都必须流经这个中心节点 。<br><br>这种设计在小规模下尚可运行，但一旦扩展到数百乃至上千 GPU，该中心节点就会因巨大的 I/O 和通信开销而成为系统的性能瓶颈 。更糟糕的是，海量数据很容易压垮中心节点的内存，导致系统崩溃（OOM），从根本上限制了系统的可扩展性和稳定性 。此外，固化的算法流程也大大增加了研究者进行算法创新的难度 。</td>
 </tr>
 <tr>
 <td></td>
-<td>**Meta、UCB**</td>
+<td><strong>Meta、UCB</strong></td>
 <td>Meta、UCB 开源首个工业级能力的安全大语言模型 Meta-SecAlign-70B<br><br>Sizhe Chen, Arman Zharmagambetov, David Wagner, Chuan Guo.&quot;Meta SecAlign: A Secure Foundation LLM Against Prompt Injection Attacks.&quot;arXiv:2507.02735 [cs.CR]</td>
-<td>Meta 和 UCB 开源首个工业级能力的安全大语言模型 [Meta-SecAlign-70B](https://arxiv.org/pdf/2507.02735)，其对提示词注入攻击（prompt injection）的鲁棒性，超过了 SOTA 的闭源解决方案（gpt-4o, gemini-2.5-flash），同时拥有更好的 agentic ability（tool-calling，web-navigation）。第一作者陈思哲是 UC Berkeley 计算机系博士生（导师 David Wagner），Meta FAIR 访问研究员（导师郭川），研究兴趣为真实场景下的 AI 安全。共同技术 lead 郭川是 Meta FAIR 研究科学家，研究兴趣为 AI 安全和隐私。</td>
+<td>Meta 和 UCB 开源首个工业级能力的安全大语言模型 <a href="https://arxiv.org/pdf/2507.02735">Meta-SecAlign-70B</a>，其对提示词注入攻击（prompt injection）的鲁棒性，超过了 SOTA 的闭源解决方案（gpt-4o, gemini-2.5-flash），同时拥有更好的 agentic ability（tool-calling，web-navigation）。第一作者陈思哲是 UC Berkeley 计算机系博士生（导师 David Wagner），Meta FAIR 访问研究员（导师郭川），研究兴趣为真实场景下的 AI 安全。共同技术 lead 郭川是 Meta FAIR 研究科学家，研究兴趣为 AI 安全和隐私。</td>
 </tr>
 </table></div>
 
 <h3>二、推理</h3>
-<p>未能展开此表；以下保留该处原始捕获内容。</p>
-<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+<div class="material-gap"><p>表格缺失：现有片段无法完整还原。</p><details class="material-fragment"><summary>查看原始片段</summary><p>未能展开此表；以下保留该处原始捕获内容。</p><pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
 [
   [
     {
@@ -150,7 +149,9 @@
         &quot;bgColor&quot;: null,
         &quot;verticalAlign&quot;: &quot;middle&quot;
       },
-      &quot;content&quot;: &quot;:::paragraph{align=center inde</pre>
+      &quot;content&quot;: &quot;:::paragraph{align=center inde</pre></details></div>
+
+
 
 
 <h2>旧生成摘要（未重写，未核实）</h2>

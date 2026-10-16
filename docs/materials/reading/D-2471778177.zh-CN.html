@@ -18,7 +18,7 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/232</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/128c3b8ece68dfb16207d1f4ce3ce7b70894a348e26dda820463ce5fbf9d8c97.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2471778177.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2471778177.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
 [loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
@@ -33,8 +33,7 @@
 [sso-ciba] MOA 无感登录 provider 已初始化
 [sso-ciba] 使用缓存的 token (剩余 449s)
 ✅ 认证成功</p>
-<p>:::title{nodeId=&quot;b3e661e8fb0742c4ae43307c09d30246&quot;}
-Scaling Law 收益递减的争议和技术探索</p>
+<h1>Scaling Law 收益递减的争议和技术探索</h1>
 <h1>一、核心要点</h1>
 <p>1.LLM 在近几年的突破离不开 Scaling Law 的影响。然而，近期有许多声音指出 Scaling up 大模型的边际效应正在递减，进而引发了研究者在不同路线的探索。其中，一些基于强化学习改善 LLM 性能的尝试带来了一种新的思路，相比增加模型参数，将 FLOPs 预算投入 Inference-Time-Compute 似乎也能让 LLM 变得更强。</p>
 <p>2.在让 LLM 进行 self-play 的方式中，同样具有代表性的成果是谷歌 DeepMind 团队于 2024 年 7 月 AlphaGeometry 2 和 Alphaproof 的论文，以及基于该思路衍生的多篇<a href="https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/">论文</a>。然而，其他类似采用 self-play 方式的工作为模型推理能力的影响却较为参差。</p>
@@ -77,7 +76,10 @@ Scaling Law 收益递减的争议和技术探索</p>
 <p>该工作设置了一个 Tradeoff 的问题，进一步探讨了交换预训练和测试时计算之间的预算权衡，发现在非可忽略程度（non-trivial）的成功率上，把 FLOPs 投入到较小模型的测试时计算收获的回报可以超越大 14 倍的模型，但较难的问题仍是预训练更有效。</p>
 <p>① 研究者设置了一个问题：假设某个模型用 X FLOPs 进行预训练，然后用这个模型进行 Y FLOPs 的推理。如果希望增加 M 倍的总 FLOPs 预算（即，预训练和推理的总 FLOPs 为 MX+Y）来提高性能，我们应该将 FLOPs 用于增加预训练计算还是用于额外的测试时计算？</p>
 <p>② 实验选择了模型参数扩大而训练数据量固定的设置，这与开源 LLaMA 系列模型的方法相匹配，且这种设置代表了扩大预训练计算的典型方法，并将数据和参数都等比例扩大的预训练计算的最优分析留给未来的工作。</p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2471778177/122542462881?contentType=1&isNewContent=false" alt="image.jpeg">{width=754 height=306 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2471778177/122533068217?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2471778177/122533068217?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2471778177/122539268669?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2471778177/122539268669?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2471778177/122542462881?contentType=1&amp;isNewContent=false){width=754 height=306 small=&quot;https://km.sankuai.com/api/file/cdn/2471778177/122533068217?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2471778177/122539268669?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
 <p>如上图所示，在 FLOPs 匹配评估中的预训练与测试时计算之间的权衡。每条线代表在每个 Oracle 难度分段中使用 Compute-Optimal 策略 Scaling 测试时计算的性能。左图是 Revision 的结果，右图是搜索的结果。星形表示使用多 14 倍参数预训练的基础模型的 greedy pass@1 性能。x 轴是测试时计算的预算，星星的三个位置对应于在三种不同的推理计算负载下，Scaling 参数与 Scaling 测试时计算之间的 FLOPs 等效比较点。如果星星在线条下方，这意味着使用测试时计算比增加模型参数更有效，如果星星在线条上方，这意味着增加参数更有效。可以看到，在简单问题上或者在推理负载较低的设置中（例如𝑅远小于 1），测试时计算通常可以胜过模型参数。然而，在难题上或者在推理负载较高的设置中（例如𝑅远大于 1），预训练是提高性能的更有效方式。</p>
 <h1>四、Test-Time Compute 的性价比还有机会提高吗？</h1>
 <p>在「Scaling LLM Test-Time Compute」中，研究者探讨了该工作的局限和未来的研究方向。此外，拾象科技的分析师同样在一篇文章中探讨了将 LLM 的预训练资源投入推理环节的形式为开发下一代 AI 带来的机会。<br>1.「<a href="https://arxiv.org/pdf/2408.03314">Scaling LLM Test-Time Compute</a>」的作者指出，该工作的研究当前仅集中于优化验证器和建议分布的形式探索 Scaling 计算时计算的性能，尚未尝试组合其他方法。<br>① 对于未来的改进机会，研究者提出了几种潜在的方式，包括结合 PRM 树搜索技术、Revision、critic 等方法，通过动态切换评估难度和尝试解决问题的策略，以提高测试时计算的效率，或是将测试时计算的输出反馈到基础 LLM 中，实现迭代自我改进循环。<br>2.拾象科技在一篇<a href="https://mp.weixin.qq.com/s/ih74NOPai9Xeb_ncy1yW0w">文章</a>中讨论了强化学习对 Scaling Law 可能的影响，用推理时间置换训练时间或许有机会解决当前 Scaling Law 边际收益递减的现状，但也指出了用强化学习改进 LLM 推理能力面临的局限。<br>① 该文章指出，Self-play RL 需要在好的策略上持续探索，而奖励模型之于强化学习是定义“好”的标准的重要因素。<br>② 其中，PRM 会奖励好的推理步骤，当前在代码和数学领域已经有了明显的突破。除了数值，文字评价也可以作为指导模型下一步行动的奖励，基于语言模型的语义理解能力，LLM as PRM 的模式可以用于进一步改进验证器的评估效果。<br>③ 然而，这种模式面临的挑战在于，数学和编程领域对正确与否有着明确的标准，但这种标准并不适用于文本的开放领域，这些场景下的任务往往目标模糊，没有最优解，导致 RL 在语言任务上难以泛化。</p>
