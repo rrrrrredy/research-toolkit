@@ -54,8 +54,15 @@ def require(condition: bool, message: str) -> None:
         raise ValueError(message)
 
 
+# Text evidence is hashed as LF. Windows checkouts may rewrite these suffixes to CRLF.
+TEXT_SUFFIXES = {".json", ".md", ".py", ".out", ".txt"}
+
+
 def digest(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    data = path.read_bytes()
+    if path.suffix.lower() in TEXT_SUFFIXES:
+        data = data.replace(b"\r\n", b"\n")
+    return hashlib.sha256(data).hexdigest()
 
 
 def disclosed_synthetic(text: str) -> bool:
