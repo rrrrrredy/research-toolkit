@@ -14,6 +14,8 @@
 
 本轮[优化结果与实际接续验证](../evals/diagnostics/2026-10-14-optimization/README.zh-CN.md)单列代码修复、报告核对、使用路径和成本；不替换历史首轮分数。
 
+[10 月 16 日外部评测入库](../evals/studies/2026-10-16-external-batches/README.zh-CN.md)记录 Song 授权的 12 次运行，来自确认批次 2026-10-14（Toolkit `45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3`，v1.0.0，Lite）与 2026-10-15-v1（Toolkit `f31345c5a994a8f1574d946388ee58fe1177ede2`，v1.1.0，Lite×4 与 Full×2）。两道 Full 记录重复 Day-1 的研究问题，因此是 12 次运行、10 个问题。来源为已披露的合成包，原语言报告是首要记录。Lite 运行只保留作者自检。两道 Full 运行使用同会话 degraded 评审，因为独立评审后端不可用。机械清单结果予以保留。这次入库不是与原生 Agent 的对照，也不能支持普遍质量结论。被取代的对比小品和一页纸批次没有入库。
+
 ## 2026-10-12：接入与评审校准
 
 [接入记录](../evals/diagnostics/2026-10-12-connectivity/README.zh-CN.md)保留配置失败及另行冻结的补测。[Astra 校准](../evals/diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)完成四题族共 12 次首轮尝试，缺陷偏好、互换和有效平局经来源核查符合预期，三处维度分数在互换后变化。结果支持进入有界开发试验，不证明评审普遍可靠或 Toolkit 效果；下列历史样本和结果保持不变。

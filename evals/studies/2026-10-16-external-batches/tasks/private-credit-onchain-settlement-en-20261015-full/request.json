@@ -1,0 +1,13 @@
+{
+  "task": "private-credit-onchain-settlement-en-20261015-full",
+  "language": "en",
+  "profile": "full",
+  "brief": {
+    "question": "Private-credit funds piloting on-chain settlement: what operational and disclosure risks matter for LP reporting?",
+    "audience": "Private-credit GP ops/compliance and LP due-diligence readers.",
+    "scope": "Original-condition retest: reuse 2026-10-14 synthetic pack (charter, compliance issues, LP questionnaire, 90-day metrics). No live web. Change=Lite→Full+independent review requirement.",
+    "output": "final.md, ≥1500 whitespace words (suggested 1500–2500): risk map, evidence bounds, counter-evidence, disclosure (admin NAV vs on-chain). Registries/checklist separate.",
+    "depth": "Full long-form finance/tech memo with formal review tier; not a crypto product pitch.",
+    "evidence_standard": "Synthetic sources only; do not treat pilot success as production readiness; disclose synthetic; if independent backend unavailable, label same-session review and do not claim independence."
+  }
+}

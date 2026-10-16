@@ -9,6 +9,7 @@
 | 要找的内容 | 入口 |
 |---|---|
 | 完整原生 Agent 与 Toolkit 对照 | [10 月 14 日真实长任务](studies/2026-10-14-native-agent/README.zh-CN.md)：首稿、终稿盲评均平局；Full 耗时更长，实际发现的 Windows 编码错误已修复 |
+| 2026-10-14 与 2026-10-15-v1 外部批次 | [12 次 Song 授权运行](studies/2026-10-16-external-batches/README.zh-CN.md)：冻结提交 `45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3`（v1.0.0，Lite）与 `f31345c5a994a8f1574d946388ee58fe1177ede2`（v1.1.0，Lite×4 与 Full×2）。两道 Full 重复 Day-1 研究问题，故为 12 次运行、10 个问题。合成来源已披露。Full 评审为同会话 degraded 评审。 |
 | 10 月 12 日基线与 v1.0.0 的完整研究结果 | [十题前后比较及针对性修复](studies/2026-10-13-before-after/README.zh-CN.md)：未观察到稳定总体提升；首轮均分 100 → 99.5，20 篇报告、20 次盲评，两篇修订稿另行通过 |
 | 报告缺陷示例与对照片段 | [语义诊断案例](semantic_diagnostics/README.zh-CN.md) |
 | 研究质量判据与结果解释 | [五维评测标准](../docs/report-evaluation-standard.zh-CN.md)、[已有结果及公开范围](../docs/evaluation-status.zh-CN.md) |
@@ -25,6 +26,7 @@ Toolkit 专用题集在 [`cases/`](cases/)，与后来四模型测试所用的�
 | 材料 | 数量 | 用途与当前状态 |
 |---|---|---|
 | [Toolkit 研究题集](cases/) | 7 题 | [原七篇报告复验](diagnostics/2026-10-13-dedicated-seven/README.zh-CN.md)：保留15次调用，六份给定来源报告验收；管线题现已另有[具名完整报告及Astra逐项通过R01–R13的评审](repairs/2026-10-13-pipeline-complete/README.zh-CN.md)。 |
+| [外部批次 2026-10-14 与 2026-10-15-v1](studies/2026-10-16-external-batches/README.zh-CN.md) | 12 次运行、10 个问题 | Song 授权的外部任务，冻结于 Toolkit 1.0.0（`45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3`，Lite）与 1.1.0（`f31345c5a994a8f1574d946388ee58fe1177ede2`，Lite×4 与 Full×2）。合成来源已披露。两道 Full 评审为同会话 degraded 评审。 |
 | [反例夹具](regression_fixtures/manifest.json)／[正例夹具](conformance_fixtures/manifest.json) | 22／4 | 检查预期失败和有效对照的真实软件测试，不另计 26 个研究问题。 |
 | [语义诊断](semantic_diagnostics/README.zh-CN.md) | 23 组成对示例 | 当前目录加载已记录的修正，原始输入与判断继续保留。 |
 | [四模型测试题](tasksets/development-v2-synthetic/README.zh-CN.md) | 5 个题族 | [10 月 12 日运行](studies/2026-10-12-lite-four-models/README.zh-CN.md)：72 次请求、16 个有效配对，保留四个缺失配对及六个互换偏好变化。 |

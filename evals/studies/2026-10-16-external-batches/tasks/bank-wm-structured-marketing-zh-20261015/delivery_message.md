@@ -1,0 +1,1 @@
+bank-wm-structured-marketing-zh-20261015：Lite 长文已完成（ZH-N2 金融/商业，new）。合成材料；未做独立评审。

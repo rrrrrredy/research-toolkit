@@ -1,0 +1,315 @@
+{
+  "ingest_date": "2026-10-16",
+  "authorization": "Song-authorized external eval ingest",
+  "study_id": "2026-10-16-external-batches",
+  "task_count": 12,
+  "distinct_research_questions": 10,
+  "freeze_commits": {
+    "2026-10-14": {
+      "batch_dir": "2026-10-14-confirmed",
+      "commit": "45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3",
+      "version": "1.0.0",
+      "profile": "lite",
+      "runs": 6
+    },
+    "2026-10-15-v1": {
+      "batch_dir": "2026-10-15-confirmed",
+      "commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "version": "1.1.0",
+      "profiles": {
+        "lite": 4,
+        "full": 2
+      },
+      "day1_baseline_commit": "45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3"
+    }
+  },
+  "task_ids": [
+    "api-price-war-cloud-bundling-zh-retest-20261014",
+    "enterprise-kb-llm-liability-zh-20261014",
+    "ev-battery-second-life-business-zh-20261014",
+    "bank-chatbot-deflection-evidence-en-retest-20261014",
+    "open-weight-saas-lockin-en-20261014",
+    "private-credit-onchain-settlement-en-20261014",
+    "enterprise-kb-llm-liability-zh-20261015-full",
+    "dongshu-xisuan-training-procurement-zh-20261015",
+    "bank-wm-structured-marketing-zh-20261015",
+    "private-credit-onchain-settlement-en-20261015-full",
+    "saas-frontier-ai-pricing-residency-en-20261015",
+    "tokenized-deposit-cash-equivalent-en-20261015"
+  ],
+  "tasks": [
+    {
+      "task_id": "api-price-war-cloud-bundling-zh-retest-20261014",
+      "research_question": "大模型 API 降价潮下，云厂商捆绑销售对独立模型公司毛利的挤压到了何种程度？商业战略上应如何应对？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "retest",
+      "domain": "AI/商业",
+      "batch_id": "2026-10-14",
+      "toolkit_commit": "45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3",
+      "toolkit_version": "1.0.0",
+      "length_record": "2687 非空白字（目标 2500–4500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "task_id": "enterprise-kb-llm-liability-zh-20261014",
+      "research_question": "企业把内部知识库接到大模型后，幻觉与越权回答的责任应如何在法务、安全、业务之间分配？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "商业/AI",
+      "batch_id": "2026-10-14",
+      "toolkit_commit": "45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3",
+      "toolkit_version": "1.0.0",
+      "length_record": "3083 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "ev-battery-second-life-business-zh-20261014",
+      "research_question": "中国新能源车动力电池梯次利用：回收商、车企与储能集成商的利益分配是否已形成可持续商业模式？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "科技/商业",
+      "batch_id": "2026-10-14",
+      "toolkit_commit": "45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3",
+      "toolkit_version": "1.0.0",
+      "length_record": "3019 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "bank-chatbot-deflection-evidence-en-retest-20261014",
+      "research_question": "Bank chatbot pilots that cite complaint deflection rates: what evidence actually supports replacing tier-1 human queues?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "retest",
+      "domain": "金融/AI",
+      "batch_id": "2026-10-14",
+      "toolkit_commit": "45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3",
+      "toolkit_version": "1.0.0",
+      "length_record": "697 词（目标 600–900）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "task_id": "open-weight-saas-lockin-en-20261014",
+      "research_question": "How do open-weight model releases change mid-market SaaS vendors’ lock-in and pricing power through 2027?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "AI/商业",
+      "batch_id": "2026-10-14",
+      "toolkit_commit": "45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3",
+      "toolkit_version": "1.0.0",
+      "length_record": "1579 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "private-credit-onchain-settlement-en-20261014",
+      "research_question": "Private-credit funds piloting on-chain settlement: what operational and disclosure risks matter for LP reporting?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "金融/科技",
+      "batch_id": "2026-10-14",
+      "toolkit_commit": "45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3",
+      "toolkit_version": "1.0.0",
+      "length_record": "1506 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "enterprise-kb-llm-liability-zh-20261015-full",
+      "research_question": "企业把内部知识库接到大模型后，幻觉与越权回答的责任应如何在法务、安全、业务之间分配？",
+      "language": "zh",
+      "profile": "full",
+      "kind": "retest",
+      "domain": "商业/AI",
+      "batch_id": "2026-10-15-v1",
+      "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "toolkit_version": "1.1.0",
+      "length_record": "3491 非空白字（目标 3000–5000）",
+      "revisions": 1,
+      "review_mode": "same_session_degraded",
+      "independent_review": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "dongshu-xisuan-training-procurement-zh-20261015",
+      "research_question": "中国「东数西算」与大模型训练算力采购：西部绿电数据中心对东部训练客户，在时延、弃电、合同履约上是否已形成可复制的采购范式？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "科技/商业",
+      "batch_id": "2026-10-15-v1",
+      "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "toolkit_version": "1.1.0",
+      "length_record": "3074 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "bank-wm-structured-marketing-zh-20261015",
+      "research_question": "银行理财子公司「含权」产品营销话术与底层波动：投教材料与适当性流程能否支撑销售端对回撤的承诺表述？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "金融/商业",
+      "batch_id": "2026-10-15-v1",
+      "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "toolkit_version": "1.1.0",
+      "length_record": "3077 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "private-credit-onchain-settlement-en-20261015-full",
+      "research_question": "Private-credit funds piloting on-chain settlement: what operational and disclosure risks matter for LP reporting?",
+      "language": "en",
+      "profile": "full",
+      "kind": "retest",
+      "domain": "金融/科技",
+      "batch_id": "2026-10-15-v1",
+      "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "toolkit_version": "1.1.0",
+      "length_record": "2038 词（目标 1500–2500）",
+      "revisions": 1,
+      "review_mode": "same_session_degraded",
+      "independent_review": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "saas-frontier-ai-pricing-residency-en-20261015",
+      "research_question": "How should mid-market B2B software vendors price and govern AI features that call third-party frontier models when vendor margins and customer data-residency clauses conflict through 2027?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "AI/商业",
+      "batch_id": "2026-10-15-v1",
+      "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "toolkit_version": "1.1.0",
+      "length_record": "1529 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "tokenized-deposit-cash-equivalent-en-20261015",
+      "research_question": "What evidence should corporate treasuries require before treating tokenized deposit pilots as operational cash equivalents for working-capital reporting?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "科技/金融",
+      "batch_id": "2026-10-15-v1",
+      "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "toolkit_version": "1.1.0",
+      "length_record": "1523 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    }
+  ],
+  "repeated_research_questions": [
+    {
+      "task_ids": [
+        "enterprise-kb-llm-liability-zh-20261014",
+        "enterprise-kb-llm-liability-zh-20261015-full"
+      ],
+      "note": "Same research question. The 2026-10-15 record is a Full retest of the 2026-10-14 Lite run."
+    },
+    {
+      "task_ids": [
+        "private-credit-onchain-settlement-en-20261014",
+        "private-credit-onchain-settlement-en-20261015-full"
+      ],
+      "note": "Same research question. The 2026-10-15 record is a Full retest of the 2026-10-14 Lite run."
+    }
+  ],
+  "excluded": [
+    "runs/2026-10-14/_superseded-vs-compare",
+    "runs/2026-10-14/_superseded-topic-redo-short"
+  ],
+  "review_boundary": "Full runs used same-session degraded review because the independent review backend was unavailable. Those reviews are not independent. Lite runs record author self-check only.",
+  "source_boundary": "Every source pack is synthetic and disclosed in the original source text. Packs are workflow evidence, not factual authority.",
+  "tokens_cost": "unknown"
+}

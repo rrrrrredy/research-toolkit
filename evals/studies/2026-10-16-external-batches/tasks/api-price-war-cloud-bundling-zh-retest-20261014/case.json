@@ -1,0 +1,30 @@
+{
+  "task_id": "api-price-war-cloud-bundling-zh-retest-20261014",
+  "research_question": "大模型 API 降价潮下，云厂商捆绑销售对独立模型公司毛利的挤压到了何种程度？商业战略上应如何应对？",
+  "language": "zh",
+  "audience": "独立模型公司与云生态的商业战略负责人，需要可执行判断而非市场八卦。",
+  "scope": "仅用任务附带合成来源包（披露为合成）；覆盖 2024–2026 价格战与捆绑条款、毛利与分销渠道证据；不做实时联网；不复用仓库原「模型价格战」case 题面原文。",
+  "output_bounds": "final.md，约 2500–4500 非空白中文字符长文：判断、机制、证据边界、反证、战略选项与改变判断的条件；来源/判断台账与六项 checklist 单列。",
+  "depth": "Lite 长文战略分析（复测价格战方向深度），解释捆绑对毛利的传导，不做产品选型小品。",
+  "evidence_standard": "只用合成来源包；区分核实事实、来源说法与建议；披露合成材料与未做独立评审；关键数字保留单位与日期。",
+  "profile": "lite",
+  "kind": "retest",
+  "domain": "AI/商业",
+  "batch_id": "2026-10-14",
+  "batch_dir": "2026-10-14-confirmed",
+  "toolkit_commit": "45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3",
+  "toolkit_version": "1.0.0",
+  "length_record": "2687 非空白字（目标 2500–4500）",
+  "revisions": 0,
+  "mechanical": {
+    "lite_checklist": "checklist_complete",
+    "full_delivery_gate": "skipped",
+    "research_review": "skipped",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": false
+  },
+  "review_mode": "author_self_check",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false
+}

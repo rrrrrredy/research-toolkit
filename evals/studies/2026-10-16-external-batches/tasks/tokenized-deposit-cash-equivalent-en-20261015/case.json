@@ -1,0 +1,30 @@
+{
+  "task_id": "tokenized-deposit-cash-equivalent-en-20261015",
+  "research_question": "What evidence should corporate treasuries require before treating tokenized deposit pilots as operational cash equivalents for working-capital reporting?",
+  "language": "en",
+  "audience": "Corporate treasury and external auditor liaison.",
+  "scope": "Synthetic source pack only. Evidence bar vs marketing, control failures, counter-claims, disclosure. Distinct from private-credit LP reporting. No live web.",
+  "output_bounds": "final.md, ≥1500 whitespace words (suggested 1500–2500): evidence bar, control failures, counter-claims, disclosure stance. Registries/checklist separate.",
+  "depth": "Lite long-form finance/tech controls memo.",
+  "evidence_standard": "Synthetic sources only; disclose fictional evidence; disclose no independent review.",
+  "profile": "lite",
+  "kind": "new",
+  "domain": "科技/金融",
+  "batch_id": "2026-10-15-v1",
+  "batch_dir": "2026-10-15-confirmed",
+  "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+  "toolkit_version": "1.1.0",
+  "length_record": "1523 词（目标 1500–2500）",
+  "revisions": 0,
+  "mechanical": {
+    "lite_checklist": "checklist_complete",
+    "full_delivery_gate": "skipped",
+    "research_review": "skipped",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": false
+  },
+  "review_mode": "author_self_check",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false
+}

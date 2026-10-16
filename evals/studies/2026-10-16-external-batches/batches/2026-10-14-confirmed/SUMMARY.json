@@ -1,0 +1,96 @@
+{
+  "date": "2026-10-14",
+  "batch": "confirmed",
+  "supersedes": [
+    "_superseded-vs-compare",
+    "_superseded-topic-redo-short"
+  ],
+  "toolkit_commit": "45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3",
+  "toolkit_version": "1.0.0",
+  "profile": "lite",
+  "cli": "python3",
+  "workspace": "/workspace/research-toolkit-prep/runs/2026-10-14-confirmed",
+  "tokens_cost": "unknown",
+  "wall_minutes_approx": 6.7,
+  "wall_clock_note": "2026-10-14 09:32:42 CST",
+  "tasks_completed": 6,
+  "tasks_passed_mechanical": 6,
+  "revisions": 0,
+  "eval_set_pr_today": false,
+  "eval_queue_day": "1/3",
+  "eval_queue_target_pr": "2026-10-16",
+  "results": [
+    {
+      "id": "ZH-R1",
+      "task": "api-price-war-cloud-bundling-zh-retest-20261014",
+      "kind": "retest",
+      "domain": "AI/商业",
+      "check": "过",
+      "report_quality": "合格（作者自检；Lite checklist 不认证语义质量）",
+      "revisions": 0,
+      "length": "2687 非空白字（目标 2500–4500）",
+      "conclusion": "毛利压力不能单用公开价下降解释；云市场占比+捆绑/分成把独立公司实收压向获客渠道；应两本账并审计迁出惩罚与遥测不对称。",
+      "path": "/workspace/research-toolkit-prep/runs/2026-10-14-confirmed/api-price-war-cloud-bundling-zh-retest-20261014"
+    },
+    {
+      "id": "ZH-N1",
+      "task": "enterprise-kb-llm-liability-zh-20261014",
+      "kind": "new",
+      "domain": "商业/AI",
+      "check": "过",
+      "report_quality": "合格（作者自检；Lite checklist 不认证语义质量）",
+      "revisions": 0,
+      "length": "3083 非空白字（目标 3000–5000）",
+      "conclusion": "按失效点切分：幻觉对外签发主责在业务（依据不可见则平台分担）；越权优先追过滤链路，书面关控制则批准人主责；禁宽松回退与「平台一律兜底」。",
+      "path": "/workspace/research-toolkit-prep/runs/2026-10-14-confirmed/enterprise-kb-llm-liability-zh-20261014"
+    },
+    {
+      "id": "ZH-N2",
+      "task": "ev-battery-second-life-business-zh-20261014",
+      "kind": "new",
+      "domain": "科技/商业",
+      "check": "过",
+      "report_quality": "合格（作者自检；Lite checklist 不认证语义质量）",
+      "revisions": 0,
+      "length": "3019 非空白字（目标 3000–5000）",
+      "conclusion": "多数回收商尚未形成可持续梯次加工费模式；利益分配权在车企流向与集成商验收/账期；白名单+拆解双轮仅局部可活。",
+      "path": "/workspace/research-toolkit-prep/runs/2026-10-14-confirmed/ev-battery-second-life-business-zh-20261014"
+    },
+    {
+      "id": "EN-R1",
+      "task": "bank-chatbot-deflection-evidence-en-retest-20261014",
+      "kind": "retest",
+      "domain": "金融/AI",
+      "check": "过",
+      "report_quality": "合格（作者自检；Lite checklist 不认证语义质量）",
+      "revisions": 0,
+      "length": "697 词（目标 600–900）",
+      "conclusion": "Do not replace tier-1 on 62% no-handoff deflection; remetric to confirmed resolution; widget denominator excludes large phone-first demand.",
+      "path": "/workspace/research-toolkit-prep/runs/2026-10-14-confirmed/bank-chatbot-deflection-evidence-en-retest-20261014"
+    },
+    {
+      "id": "EN-N1",
+      "task": "open-weight-saas-lockin-en-20261014",
+      "kind": "new",
+      "domain": "AI/商业",
+      "check": "过",
+      "report_quality": "合格（作者自检；Lite checklist 不认证语义质量）",
+      "revisions": 0,
+      "length": "1579 词（目标 1500–2500）",
+      "conclusion": "Through 2027, pricing power migrates from closed weights to governed toolchains/evals/connectors; closed attach margins under pressure (71%→58% fixture).",
+      "path": "/workspace/research-toolkit-prep/runs/2026-10-14-confirmed/open-weight-saas-lockin-en-20261014"
+    },
+    {
+      "id": "EN-N2",
+      "task": "private-credit-onchain-settlement-en-20261014",
+      "kind": "new",
+      "domain": "金融/科技",
+      "check": "过",
+      "report_quality": "合格（作者自检；Lite checklist 不认证语义质量）",
+      "revisions": 0,
+      "length": "1506 词（目标 1500–2500）",
+      "conclusion": "Disclose as operational pilot; admin NAV authoritative; no real-time on-chain NAV marketing; exceptions can erase clean-deal time gains.",
+      "path": "/workspace/research-toolkit-prep/runs/2026-10-14-confirmed/private-credit-onchain-settlement-en-20261014"
+    }
+  ]
+}

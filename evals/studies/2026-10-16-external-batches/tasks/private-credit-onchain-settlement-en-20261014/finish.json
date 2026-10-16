@@ -1,0 +1,34 @@
+{
+  "task": "private-credit-onchain-settlement-en-20261014",
+  "message": "private-credit-onchain-settlement-en-20261014: Lite long-form complete (EN-N2 金融/科技, new). Synthetic materials; no independent review.",
+  "artifact": "final.md",
+  "checklist": {
+    "requirements": {
+      "passed": true,
+      "evidence": "final.md whitespace_words=1506 within 1500-2500; check-draft ok=True.",
+      "evidence_files": [
+        "checks/length.md"
+      ]
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "Claims match registered synthetic sources; no invented market facts beyond pack."
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "Counter-evidence and uncertainties addressed at affected conclusions."
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "Sections follow agreed outline for reader decision."
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "Readable source titles; no workflow narration or internal paths in body."
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "Synthetic materials and no independent review disclosed."
+    }
+  }
+}

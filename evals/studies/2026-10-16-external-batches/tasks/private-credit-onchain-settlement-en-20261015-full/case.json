@@ -1,0 +1,30 @@
+{
+  "task_id": "private-credit-onchain-settlement-en-20261015-full",
+  "research_question": "Private-credit funds piloting on-chain settlement: what operational and disclosure risks matter for LP reporting?",
+  "language": "en",
+  "audience": "Private-credit GP ops/compliance and LP due-diligence readers.",
+  "scope": "Original-condition retest: reuse 2026-10-14 synthetic pack (charter, compliance issues, LP questionnaire, 90-day metrics). No live web. Change=Lite→Full+independent review requirement.",
+  "output_bounds": "final.md, ≥1500 whitespace words (suggested 1500–2500): risk map, evidence bounds, counter-evidence, disclosure (admin NAV vs on-chain). Registries/checklist separate.",
+  "depth": "Full long-form finance/tech memo with formal review tier; not a crypto product pitch.",
+  "evidence_standard": "Synthetic sources only; do not treat pilot success as production readiness; disclose synthetic; if independent backend unavailable, label same-session review and do not claim independence.",
+  "profile": "full",
+  "kind": "retest",
+  "domain": "金融/科技",
+  "batch_id": "2026-10-15-v1",
+  "batch_dir": "2026-10-15-confirmed",
+  "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+  "toolkit_version": "1.1.0",
+  "length_record": "2038 词（目标 1500–2500）",
+  "revisions": 1,
+  "mechanical": {
+    "lite_checklist": null,
+    "full_delivery_gate": "pass",
+    "research_review": "same_session_degraded",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": true
+  },
+  "review_mode": "same_session_degraded",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false
+}
