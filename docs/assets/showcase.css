@@ -118,6 +118,11 @@ pre{margin:0;font-family:Consolas,"Microsoft YaHei",monospace;font-size:14px;lin
 .toolkit-explanation h3{font-size:17px;font-weight:650;margin-bottom:7px}
 .toolkit-explanation p{font-size:13px;color:var(--muted);line-height:1.9}
 .install-heading{margin-bottom:25px}
+.materials-spotlight{background:var(--note);border-bottom:1px solid var(--line)}
+.materials-spotlight-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:26px;padding-bottom:26px}
+.materials-spotlight h2{font-size:28px;letter-spacing:-.6px;color:var(--accent-ink)}
+.materials-spotlight p{font-size:14px;color:var(--muted);margin-top:8px}
+.materials-spotlight-actions{display:flex;align-items:center;flex-wrap:wrap;gap:16px 24px;flex-shrink:0}
 .materials-section{background:var(--soft)}
 .materials-actions{display:flex;align-items:center;flex-wrap:wrap;gap:20px;margin-bottom:32px}
 .materials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:26px 36px}
@@ -182,6 +187,8 @@ details[open] summary{list-style:disclosure-open}
 .capture-readme .paper-source{font-size:9px;padding-top:12px;margin-top:18px}
 .capture-readme .report-caption{font-size:9px;margin-top:12px}
 @media(max-width:1000px){
+  .materials-nav{display:none}
+  .materials-spotlight-inner{align-items:flex-start;flex-direction:column}
   .wrap{padding-left:32px;padding-right:32px}
   .hero{gap:40px;padding-top:49px;padding-bottom:58px}
   .hero-title{font-size:69px;letter-spacing:-4px}
@@ -196,6 +203,9 @@ details[open] summary{list-style:disclosure-open}
   .method-step:nth-child(n+4){border-top:1px solid var(--line)}
 }
 @media(max-width:700px){
+  .materials-spotlight-inner{gap:18px;padding-top:22px;padding-bottom:22px}
+  .materials-spotlight h2{font-size:24px}
+  .materials-spotlight p{font-size:13px}
   .wrap{padding-left:22px;padding-right:22px}
   .header-inner{height:71px;gap:14px}
   .brand{font-size:13px;gap:8px}
