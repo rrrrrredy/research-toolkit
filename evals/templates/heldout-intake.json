@@ -2,8 +2,8 @@
   "schema_version": 2,
   "status": "optional_task_selection_template",
   "purpose": "Select existing real user or development tasks for repair and verification; this empty template does not represent missing project material.",
-  "reviewer": "Astra in a separate review context",
-  "task_origin_policy": "Existing user tasks, development tasks and new tasks are usable; outside authors and custodians are not required.",
+  "reviewer": "Follow the selected task profile and reviewer tier; no additional reviewer by default.",
+  "task_origin_policy": "Existing user tasks, development tasks and new tasks are usable; outside authors and custodians are not required. Model execution and evaluation provide a user perspective; human participation is not a prerequisite.",
   "method_commit": null,
   "tasks": [],
   "task_record_fields": [
