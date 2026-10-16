@@ -63,11 +63,14 @@ class RecordWorkflowTests(unittest.TestCase):
 
     def test_changes_reuse_ids_locate_body_and_skip_identical_writes(self):
         self.seed()
+        w.save_records(self.workspace, "case", claims=[
+            {"claim_id": "C2", "claim": "Revenue not reported", "claim_type": "verified_fact", "supporting_sources": ["S1"]},
+            {"claim_id": "C3", "claim": "Shipment interpretation", "claim_type": "interpretation", "supporting_sources": ["S1"]}])
         context = ("Before the measurement.\nContinued.\n\n"
                    "Twelve shipments [source](https://example.org).\nRevenue is unknown.\n\n"
                    "Not this URL: https://example.org/other")
         w.save_records(self.workspace, "case", draft={"path": "final.md", "content":
-            "# Earlier\nOther section.\n## Findings\n" + context + "\n## Next\nAnother section.\n"})
+            "# Earlier\nOther section.\n## Findings\n" + context + "\n## Next\n" + context + "\n"})
         report_before = (self.root/"final.md").read_bytes()
         before = (self.root/"data/source_registry.csv").stat().st_mtime_ns
         same = w.save_records(self.workspace, "case", sources=[{"source_id": "S1"}])
@@ -82,7 +85,18 @@ class RecordWorkflowTests(unittest.TestCase):
         self.assertEqual(changed["affected_claims"][0]["locations"], [{
             "line": 7, "heading": "Findings", "matched_by": ["claim_text", "source_link:S1"],
             "text": "Twelve shipments [source](https://example.org).",
-            "context": {"start_line": 4, "end_line": 10, "text": context}}])
+            "context": {"start_line": 4, "end_line": 10, "text": context}}, {
+            "line": 15, "heading": "Next", "matched_by": ["claim_text", "source_link:S1"],
+            "text": "Twelve shipments [source](https://example.org).",
+            "context": {"start_line": 12, "end_line": 18, "text": context}}])
+        self.assertEqual([claim["claim_id"] for claim in changed["affected_claims"]], ["C1", "C2", "C3"])
+        for claim in changed["affected_claims"][1:]:
+            self.assertEqual(claim["changed_source_ids"], ["S1"])
+            self.assertEqual(claim["locations"], [{
+                "line": line, "heading": heading, "matched_by": ["source_link:S1"],
+                "text": "Twelve shipments [source](https://example.org).",
+                "context_ref": {"claim_id": "C1", "line": line}}
+                for line, heading in ((7, "Findings"), (15, "Next"))])
         self.assertEqual((self.root/"final.md").read_bytes(), report_before)
         before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
         self.assertEqual(w.status(self.workspace, "case")["changes"], changed)

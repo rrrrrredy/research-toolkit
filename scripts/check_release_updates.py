@@ -42,6 +42,8 @@ class ReleaseUpdateTests(unittest.TestCase):
 
     def test_new_release_returns_content_date_and_existing_location(self):
         report_before = (self.root / "report.md").read_bytes()
+        with (self.root / "data/claims_registry.csv").open("a", encoding="utf-8") as file:
+            file.write("C6,Related judgment,S3\n")
         with patch("release_updates.fetch_log", return_value=NEW) as fetch:
             result = self.check()
         fetch.assert_called_once_with(URL)
@@ -54,6 +56,11 @@ class ReleaseUpdateTests(unittest.TestCase):
             "context": {"start_line": 2, "end_line": 5,
                         "text": f"Previous version. [Release log]({URL})\nReported availability only.\n\n"
                                 "Actual editing quality remains unverified."}}])
+        self.assertEqual(result["affected_claims"][1], {
+            "claim_id": "C6", "claim": "Related judgment", "changed_source_ids": ["S3"],
+            "locations": [{"line": 2, "heading": "Alibaba", "matched_by": ["source_link:S3"],
+                           "text": f"Previous version. [Release log]({URL})",
+                           "context_ref": {"claim_id": "C5", "line": 2}}], "location_status": "matched"})
         self.assertEqual(self.baseline.read_text(encoding="utf-8"), OLD)
         self.assertEqual((self.root / "report.md").read_bytes(), report_before)
 
