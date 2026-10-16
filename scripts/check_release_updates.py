@@ -1,14 +1,18 @@
-"""Three focused controls for registered release-log comparisons; no model calls."""
+"""Focused controls for release-log comparisons and public addresses; no model calls."""
 import csv
+import io
 import json
 import os
 from pathlib import Path
+import socket
+import ssl
 import tempfile
 import unittest
 from unittest.mock import patch
 from urllib.error import URLError
 
 import research_workflow as workflow
+import release_updates
 
 # Short verbatim headings from the real QwenWork log read on 2026-10-16.
 # The bodies below are synthetic transport controls, not capability evidence.
@@ -79,6 +83,49 @@ class ReleaseUpdateTests(unittest.TestCase):
         self.assertEqual((result["status"], result["phase"]), ("failed", "fetch"))
         self.assertIn("fixture network failure", result["error"])
         self.assertEqual(self.baseline.read_text(encoding="utf-8"), OLD)
+
+
+class PublicReleaseAddressTests(unittest.TestCase):
+    def test_rejects_local_names_and_non_public_dns_before_connecting(self):
+        public = (socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP, "", ("93.184.216.34", 443))
+        private = (socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP, "", ("127.0.0.1", 443))
+        private_v6 = (socket.AF_INET6, socket.SOCK_STREAM, socket.IPPROTO_TCP, "", ("::1", 443, 0, 0))
+        with patch("release_updates.socket.socket") as connect:
+            with patch("release_updates.socket.getaddrinfo") as resolve:
+                for url in ("https://127.0.0.1./log", "https://service.internal./log"):
+                    with self.subTest(url=url), self.assertRaisesRegex(ValueError, "url:"):
+                        release_updates.fetch_log(url)
+                resolve.assert_not_called()
+            for addresses in ([private], [public, private], [private_v6]):
+                with self.subTest(addresses=addresses), patch("release_updates.socket.getaddrinfo", return_value=addresses):
+                    with self.assertRaisesRegex(ValueError, "non-public address"):
+                        release_updates.fetch_log("https://updates.example.org/log")
+            connect.assert_not_called()
+
+    def test_public_fetch_pins_address_and_preserves_https_hostname(self):
+        public = (socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP, "", ("93.184.216.34", 443))
+        changed_dns = (socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP, "", ("127.0.0.1", 443))
+        body = b"Public release notes."
+        response = (b"HTTP/1.1 200 OK\r\nContent-Type: text/plain; charset=utf-8\r\n"
+                    b"Connection: close\r\nContent-Length: " + str(len(body)).encode() + b"\r\n\r\n" + body)
+        with patch("release_updates.socket.socket") as create, \
+                patch("release_updates.socket.getaddrinfo", side_effect=[[public], [changed_dns]]) as resolve, \
+                patch("ssl.SSLContext.wrap_socket", autospec=True) as tls, \
+                patch.dict(os.environ, {"https_proxy": "http://127.0.0.1:8080", "HTTPS_PROXY": "http://127.0.0.1:8080"}):
+            connection = create.return_value
+            connection.makefile.return_value = io.BytesIO(response)
+            tls.return_value = connection
+            self.assertEqual(release_updates.fetch_log("https://Updates.Example.org./log?channel=stable"), body.decode())
+            resolve.assert_called_once_with("updates.example.org", 443, type=socket.SOCK_STREAM)
+            connection.connect.assert_called_once_with(public[4])
+            connection.settimeout.assert_called_once_with(20)
+            context = tls.call_args.args[0]
+            self.assertTrue(context.check_hostname)
+            self.assertEqual(context.verify_mode, ssl.CERT_REQUIRED)
+            self.assertEqual(tls.call_args.kwargs["server_hostname"], "updates.example.org")
+            request = b"".join(call.args[0] for call in connection.sendall.call_args_list)
+            self.assertIn(b"GET /log?channel=stable HTTP/1.1\r\n", request)
+            self.assertIn(b"Host: updates.example.org\r\n", request)
 
 
 if __name__ == "__main__":

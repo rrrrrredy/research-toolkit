@@ -3,10 +3,12 @@ from __future__ import annotations
 
 from datetime import date
 import difflib
+from http.client import HTTPSConnection
 import ipaddress
 import re
+import socket
 from urllib.parse import urlsplit
-from urllib.request import HTTPRedirectHandler, Request, build_opener
+from urllib.request import HTTPRedirectHandler, HTTPSHandler, ProxyHandler, Request, build_opener
 
 from extract_source_text import extract_html
 from record_changes import history, impact_view, rows_from
@@ -24,10 +26,49 @@ class NoRedirect(HTTPRedirectHandler):
         return None  # Read only the registered URL; do not follow other pages.
 
 
+def public_connection(address, timeout, source_address=None):
+    targets = socket.getaddrinfo(*address, type=socket.SOCK_STREAM)
+    if not targets:
+        raise ValueError("url: release-log host resolved to no addresses.")
+    for _, _, _, _, target in targets:
+        ip = ipaddress.ip_address(target[0])
+        ip = getattr(ip, "ipv4_mapped", None) or ip
+        if not ip.is_global or ip.is_multicast:
+            raise ValueError(f"url: release-log host resolved to a non-public address: {target[0]}.")
+    error = None
+    for family, kind, protocol, _, target in targets:
+        connection = None
+        try:
+            connection = socket.socket(family, kind, protocol)
+            connection.settimeout(timeout)
+            if source_address:
+                connection.bind(source_address)
+            # Connect to the checked numeric address, without another DNS lookup.
+            connection.connect(target)
+            return connection
+        except OSError as exc:
+            error = exc
+            if connection is not None:
+                connection.close()
+    raise error
+
+
+class PublicHTTPSConnection(HTTPSConnection):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self._create_connection = public_connection
+
+
+class PublicHTTPSHandler(HTTPSHandler):
+    def https_open(self, request):
+        # Keep the URL hostname for Host, TLS SNI and certificate verification.
+        return self.do_open(PublicHTTPSConnection, request, context=self._context)
+
+
 def fetch_log(url):
     parsed = urlsplit(url)
-    host = parsed.hostname or ""
-    if parsed.scheme != "https" or parsed.username or parsed.password or "." not in host:
+    host = (parsed.hostname or "").encode("idna").decode("ascii").rstrip(".").lower()
+    if parsed.scheme != "https" or parsed.username is not None or parsed.password is not None or "." not in host:
         raise ValueError("url: use a public HTTPS release-log URL without credentials.")
     try:
         address = ipaddress.ip_address(host)
@@ -35,10 +76,15 @@ def fetch_log(url):
         if host.lower().endswith((".local", ".localhost", ".internal")):
             raise ValueError("url: local hosts are not public release logs.")
     else:
-        if not address.is_global:
+        if not address.is_global or address.is_multicast:
             raise ValueError("url: local addresses are not public release logs.")
+    authority = f"[{host}]" if ":" in host else host
+    if parsed.port is not None:
+        authority += f":{parsed.port}"
+    url = parsed._replace(netloc=authority).geturl()
     request = Request(url, headers={"User-Agent": "Research-Toolkit", "Accept-Encoding": "identity"})
-    with build_opener(NoRedirect()).open(request, timeout=20) as response:
+    # A proxy could resolve the target elsewhere, bypassing the checked addresses.
+    with build_opener(ProxyHandler({}), NoRedirect(), PublicHTTPSHandler()).open(request, timeout=20) as response:
         kind = response.headers.get_content_type()
         if kind not in {"text/html", "text/plain", "text/markdown"}:
             raise ValueError(f"Unsupported content type: {kind}; expected HTML or text release notes.")
