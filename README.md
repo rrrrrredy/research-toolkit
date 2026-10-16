@@ -36,6 +36,8 @@ when revising. Maintain working records yourself and state the checks performed.
 
 Both share the same standards for required reading, evidence, analysis and writing. Choose by the task; length is not a profile cap, and Full does not automatically mean independent review.
 
+**Only need to review an existing report?** Use the standalone [Research Review](https://github.com/rrrrrredy/research-review) Skill. Toolkit already includes these review capabilities; existing users do not need a second installation.
+
 Have a draft or new material? [Revise, update or continue Lite work in Full](./docs/usage-modes.md#continue-existing-research), reusing completed research and its sources.
 
 ## Research case
@@ -95,6 +97,8 @@ Full supports author-context `self`, a configured `external` backend, or `indepe
 Public records include complete reports, original failures, reviews and repairs. They show concrete report corrections and tested workflow behavior; they do not yet establish a general quality or efficiency advantage over a native agent. Case studies, model comparisons and software checks answer different questions.
 
 [Current evidence and limits](./docs/evaluation-status.md) · [Complete-report version comparison](./evals/studies/2026-10-13-before-after/README.zh-CN.md) (Chinese) · [Datasets and checks](./evals/README.md) · [Historical data archive](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.md)
+
+Optional input: the [AI industry research corpus](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/corpora/ai-industry/README.md), with historical texts, summaries and version records to select for the current task.
 
 ## Documentation
 

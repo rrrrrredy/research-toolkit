@@ -36,6 +36,8 @@
 
 两种流程共用必读材料、证据、分析和写作标准。按任务选择，篇幅不是档位上限；Full 不自动等于独立评审。
 
+**只想审查一份现成报告？** 使用独立 Skill [Research Review](https://github.com/rrrrrredy/research-review/blob/main/README.zh-CN.md)。Toolkit 已包含相应审查能力，现有用户无需重复安装。
+
 已有稿件或新材料？直接[修订、更新或将 Lite 接续为 Full](./docs/usage-modes.zh-CN.md#接续已有研究)，复用已完成的研究与来源。
 
 ## 研究案例
@@ -95,6 +97,8 @@ Full 支持作者上下文中的 `self`、配置后端的 `external`，或单独
 公开记录保留完整报告、原始失败、评审和修订结果，展示具体正文修正与已验证的流程行为，尚不能证明相对原生 Agent 的普遍质量或效率优势。案例、模型对照和软件检查分别回答不同问题。
 
 [当前证据与边界](./docs/evaluation-status.zh-CN.md) · [完整报告版本比较](./evals/studies/2026-10-13-before-after/README.zh-CN.md) · [数据集与检查](./evals/README.zh-CN.md) · [历史数据归档](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md)
+
+可选输入：[AI 行业研究材料集](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/corpora/ai-industry/README.zh-CN.md)，按当前任务选用历史正文、摘要与版本记录。
 
 ## 文档
 
