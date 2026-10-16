@@ -6,6 +6,13 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.3.1 — 2026-10-16
+
+- Fix public release-log address filtering: normalize hostnames, reject non-public DNS results and connect to the checked address while retaining hostname-based TLS verification. Requests now connect directly; proxy-only environments may return a read failure.
+- Include the merged shared paragraph context in `save`, `status` and release-log queries; reuse identical context within each response while preserving claims, sources, match reasons, headings and line numbers.
+- Synchronize the nine-tool descriptions and plugin package. Include the already-merged bounded-verification guidance and removal of public corpus pages and entry points.
+- Publish matching bilingual [release notes](docs/releases/v1.3.1.md), version metadata and a plugin ZIP. Reuse completed implementation checks; release preparation adds no runtime logic or tests.
+
 ## v1.3.0 — 2026-10-16
 
 - Return saved supplemental requirements when explicitly entering analysis or drafting, retaining their text, status and evidence without requiring a second copy in the brief.
