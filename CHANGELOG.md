@@ -6,6 +6,14 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.3.0 — 2026-10-16
+
+- Return saved supplemental requirements when explicitly entering analysis or drafting, retaining their text, status and evidence without requiring a second copy in the brief.
+- Add the already-merged CLI `check-updates` / MCP `research_check_updates` for registered public release logs: return changes, source dates and related report locations; distinguish unchanged content from read failures.
+- Align local source-path validation between draft and delivery checks, with the exact field and a valid relative-path example in errors.
+- Include the merged bilingual reading pages, report-update case, external run records, and optional Research Review / AI industry corpus links. Materials and archived runs remain separate from product capability claims.
+- Synchronize release metadata and the generated plugin. See the [release notes](docs/releases/v1.3.0.md) for existing validation results and remaining limits; no runtime implementation changes are introduced by the release commit.
+
 ## v1.2.0 — 2026-10-15
 
 - Add advisory record differences and source-linked claim/report locations to `save` and `status`, skip byte-identical writes, and exercise the public CLI in a real long-report update with bilingual guidance and plugin synchronization.
