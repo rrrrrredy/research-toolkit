@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI信息更新20241015 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="OpenAI信息更新20241015。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2524320782.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>OpenAI信息更新20241015</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2524320782。版本：1fe2dc27b048e4f6c43a0eb18283f4d0a9c92448150ad6d16ae3cc9a815f1bb6。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/233</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/1fe2dc27b048e4f6c43a0eb18283f4d0a9c92448150ad6d16ae3cc9a815f1bb6.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 414s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;bfcdb9f3450c4fccb5450bf666022676&quot;}
+OpenAI信息更新20241015</p>
+<p>1.OpenAI 依旧保持快速增长状态，已经从纯粹的 AI Lab 演进至更加工程、产品、收入导向的公司。公司目前<strong>有 400 名以上的 Researcher，超过 1200 位非研究类员工</strong>，包含工程、销售、产品、后台支持等，对比 2023 的 770 人增加近乎一倍。</p>
+<p>2.从招聘侧重点看，近三个月，有 460 人新加入 OpenAI，<strong>其中 Member of Technical Staff 依旧占主要，共有 130 人</strong>，偏工程类员工占整体 MTS new hire 的 80%。Go-to-market 是招聘数量第二多的团队，新招聘 46 人。产品新招聘 24 人，其中包括新加入的 CPO Kevin Weil。</p>
+<p>3.GPT 4.5/4.5o：<strong>有消息本周会发布，4.5o 是基于 o1 数据训练出来的语言推理模型</strong>。</p>
+<p>4.GPT-5：<strong>GPT-5 今年不会发布</strong>，预计会在 2025 的 Q1 或 Q2 发布。</p>
+<p>5.Project Strawberry：已发布，就是 o1。<strong>目前 o1 和其他模型的 Post Training 算力已经占到了 OpenAI 算力的超过一半</strong>。</p>
+<p>6.Project Perhonen：旨在自动化某些客户服务功能，近期发布的 Swarm 蜂群概念让多个代理协同工作。该项目尚未与微软 Autogen 对标。</p>
+<p>7.Project Orion：<strong>可能是一个新模型</strong>，采用混合架构 KAN，预计与 GPT-5 相关。</p>
+<p>8.Project Cockroach：一种端侧推理模型，类似 Meta 的眼镜，支持视觉问答。它是一个较小的语言模型，预计会采用基于熵的采样方法。微软人工智能副总裁 Sébastien Bubeck（领导团队开发了 Phi 系列小模型）离职加入 OpenAI 可能就是参加这个项目。</p>
+<p>9.Prompt 机制的更新：引入“编程语言”DSPy，旨在简化 Prompt 的编写，用户可以直接告诉模型他们想要什么。</p>
+<p>10.直接竞对 Anthropic：其语音模型可能命名为 Titanium，Claude 3.5 Opus 的发布也非常接近了，可能也在本月。</p>
+<p>11.前 CTO Mira Murati：有传言 Murati 正准备创业，并挖角 OpenAI 员工；也有传言她会加盟前 OpenAI 副总 Barret Zoph 即将创办的新公司。</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>OpenAI正经历从AI实验室向工程与产品导向型公司的深度转型，员工规模近一年翻倍，目前已超1600人。过去三个月新入职460人，其中工程类员工占新招MTS（Member of Technical Staff）的80%，技术岗位主导招聘方向。</p>
+<p>在模型进展方面，GPT-5今年内不会发布，预计推迟至2025年第一季度或第二季度。o1模型已正式发布，其Post Training所消耗的算力已占OpenAI总算力的一半以上，凸显强化学习与后训练流程在新一代模型研发中的核心地位。此外，代号为Project Cockroach的端侧推理小模型正在推进中，该模型支持视觉问答能力，前微软AI副总裁Sébastien Bubeck疑似参与其中。</p>
+<p>人事层面，前CTO Mira Murati离职后传言正积极筹备创业项目，并有消息指其已着手从OpenAI挖角员工，此举引发外界对OpenAI内部人才流失风险的关注。整体来看，OpenAI在快速扩张的同时，面临核心人才出走与竞争加剧的双重压力，而算力资源向Post Training的大幅倾斜，也预示着其未来模型迭代路径将更侧重推理能力的深度优化。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>OpenAI员工规模已超1600人，其中400+研究员，较2023年的770人近乎翻倍，公司向工程、产品、收入导向全面转型</li>
+<li>GPT-5今年不会发布，预计2025年Q1或Q2推出；GPT-4.5o基于o1数据训练，本周可能发布；o1相关Post Training算力已占OpenAI总算力超过一半</li>
+<li>多个内部项目曝光：Project Orion可能采用混合架构KAN与GPT-5相关；Project Cockroach为端侧小型推理模型支持视觉问答；Project Perhonen聚焦客户服务自动化与多智能体协同</li>
+<li>前CTO Mira Murati传言正在筹备创业并挖角OpenAI员工，或将加入前副总Barret Zoph创办的新公司</li>
+<li>Anthropic竞争动态：语音模型可能命名为Titanium，Claude 3.5 Opus预计近期发布</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2524320782.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

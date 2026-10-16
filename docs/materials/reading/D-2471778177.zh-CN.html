@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Scaling Law 收益递减的争议和技术探索 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="Scaling Law 收益递减的争议和技术探索。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2471778177.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>Scaling Law 收益递减的争议和技术探索</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2471778177。版本：128c3b8ece68dfb16207d1f4ce3ce7b70894a348e26dda820463ce5fbf9d8c97。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/232</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/128c3b8ece68dfb16207d1f4ce3ce7b70894a348e26dda820463ce5fbf9d8c97.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 449s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;b3e661e8fb0742c4ae43307c09d30246&quot;}
+Scaling Law 收益递减的争议和技术探索</p>
+<h1>一、核心要点</h1>
+<p>1.LLM 在近几年的突破离不开 Scaling Law 的影响。然而，近期有许多声音指出 Scaling up 大模型的边际效应正在递减，进而引发了研究者在不同路线的探索。其中，一些基于强化学习改善 LLM 性能的尝试带来了一种新的思路，相比增加模型参数，将 FLOPs 预算投入 Inference-Time-Compute 似乎也能让 LLM 变得更强。</p>
+<p>2.在让 LLM 进行 self-play 的方式中，同样具有代表性的成果是谷歌 DeepMind 团队于 2024 年 7 月 AlphaGeometry 2 和 Alphaproof 的论文，以及基于该思路衍生的多篇<a href="https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/">论文</a>。然而，其他类似采用 self-play 方式的工作为模型推理能力的影响却较为参差。</p>
+<p>3.LLM 在后训练中自我对弈的效果有好有坏，Scaling Law 的收益疑似递减的情况下，谷歌 DeepMind 和 UC 伯克利的研究者在近期的<a href="https://arxiv.org/pdf/2408.03314">工作</a>中系统探索了一个问题，即「如果允许 LLM 使用固定但客观的推理时间计算量，它能在具有挑战性的提示上提高多少性能？」</p>
+<p>4.谷歌 DeepMind 和 UC 伯克利的研究者在 8 月初的论文《<a href="https://arxiv.org/abs/2408.03314">Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters</a>》（简称「Scaling LLM Test-Time Compute」）中探究了一个问题，即<strong>如何通过增加测试时的计算量来提高大型语言模型（LLMs）的性能</strong>。对比发现，Scaling 测试时计算环节虽然在大多问题上具有更高的性价比，但对最难的问题仍是 Scaling 预训练计算更有效。</p>
+<p>5.测试发现，在现阶段，Scaling 测试时计算环节和 Scaling 预训练环节的额外资源并不能 1：1 置换。将额外计算资源投入测试时计算在大多问题上具有较高性价比，但对最难的问题仍是预训练计算取的的进展更有效。</p>
+<h1>二、关于 Scaling Law 收益递减的争议</h1>
+<p>1.近期就 Scaling Law 收益递减的话题引发了大量讨论，也引出了许多对于开发下一代 AI 需要「替代方案」的声音。<br>①Gary Marcus 认为仅依靠 Scaling 已经无法带来显著的性能提升，但也有声音反驳称模型仍在不断进步，性能和速度都有所提升。<br>② 有声音认为模型结构、算力、数据等方面均存在局限，LLM 领域已经进入回报递减的时期，未来的发展需要新的方法和思路。<br>2.在 The Information7 月透露 OpenAI「草莓」计划后，爆料提及的 STaR（Self-Taught Reasoner）方法，以及类似通过强化学习和自我对弈（self-play），让模型迭代创建自己训练数据来提升智能水平的后训练（post-training）方式引起了许多讨论。<br>3.在让 LLM 进行 self-play 的方式中，同样具有代表性的成果是谷歌 DeepMind 团队于 2024 年 7 月 AlphaGeometry 2 和 Alphaproof 的论文，以及基于该思路衍生的多篇<a href="https://deepmind.google/discover/blog/ai-solves-imo-problems-at-silver-medal-level/">论文</a>。然而，其他类似采用 self-play 方式的工作为模型推理能力的影响却较为参差。<br>① Anthropic 在 2022 年提出的「<a href="https://arxiv.org/pdf/2212.08073">Constitutional AI</a>」方法结合了监督学习和强化学习让 LLM 进行自我改进，通过生成一对响应，并将其格式化为多项选择题，并使用偏好模型对响应进行评估，然后使用这些偏好标签进行 RL 训练，通过 RLAIF 的方式避免了使用人类偏好来识别有害输出。<br>② MIT 和谷歌大脑的研究者在 2023 年提出的<a href="https://arxiv.org/abs/2305.14325">多智能体辩论方法</a>配合「society of minds」概念能够改进语言模型在事实性和推理能力的表现。<br>③ 谷歌和 UIUC 的研究者在 2023 年的<a href="https://arxiv.org/pdf/2310.01798">工作</a>确指出 LLMs 在没有外部反馈的情况下无法做到有效的自我纠正，即使是多智能体辩论方法也没有显著优势。<br>4.LLM 在后训练中自我对弈的效果有好有坏，Scaling Law 的收益疑似递减的情况下，谷歌 DeepMind 和 UC 伯克利的研究者在近期的<a href="https://arxiv.org/pdf/2408.03314">工作</a>中系统探索了一个问题，即「如果允许 LLM 使用固定但客观的推理时间计算量，它能在具有挑战性的提示上提高多少性能？」该工作基于现有的 RL self-play + MCTS 的方法开发了类似的算法，并通过投入额外计算资源改进 LLM 的响应分布和对验证器（verifier）进行搜索的方式分析 Scaling 模型 Test-Time Compute 对推理能力的影响。</p>
+<h1>二、Test-Time Compute 能否提高 LLM 的推理能力？</h1>
+<p>谷歌 DeepMind 和 UC 伯克利的研究者在 8 月初的论文《<a href="https://arxiv.org/abs/2408.03314">Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters</a>》（简称「Scaling LLM Test-Time Compute」）中探究了一个问题，即<strong>如何通过增加测试时的计算量来提高大型语言模型（LLMs）的性能</strong>。对比发现，Scaling 测试时计算环节虽然在大多问题上具有更高的性价比，但对最难的问题仍是 Scaling 预训练计算更有效。</p>
+<p>1.研究者将近期有关改进语言模型推理能力的工作归纳为三种路径，并围绕第 2 和第 3 条路线探讨<strong>用 inference time 置换 training time 的可操作性</strong>。</p>
+<p>① 在大量聚焦数学的数据上持续进行预训练。</p>
+<p>② 通过使用强化学习进行微调，针对特定推理任务进行目标优化，使模型能够迭代地批评和修订它们的答案。</p>
+<p>③ 通过微调验证器，使 LLMs 能够从额外的测试时计算中受益。</p>
+<p>2.该工作的核心思路基于一项假设展开。即，通过在测试时（test-time）投入额外的计算资源，LLM 在理论上应该能做到比训练时更好的表现，且这种测试时获得的能力应当还有潜力在智能体和推理任务中带来新的研究方向。</p>
+<p>① 如果预训练模型的大小可以与推理期间的额外计算资源交换，那么规模较小的模型将有希望替代原本需要部署在数据中心的大规模 LLM。</p>
+<p>② 如果使用额外的推理时间计算资源来自动化改进模型输出的质量，也可以作为算法优化中减少依赖人类监督的路径。</p>
+<p>3.为探究 Scaling 测试时计算（test-time compute）具体能为 LLM 的推理能力带来多少改善，该工作测试了两种主要的测试时计算 Scaling 机制，并提出了一项自适应的“计算最优（Compute-Optimal）”策略来 Scaling 测试时计算，进而通过 parellel/sequece 采样对比测试比较额外计算资源在预训练和测试推理中的性价比。</p>
+<p>4.测试发现，在现阶段，Scaling 测试时计算环节和 Scaling 预训练环节的额外资源并不能 1：1 置换。将额外计算资源投入测试时计算在大多问题上具有较高性价比，但对最难的问题仍是预训练计算取的的进展更有效。</p>
+<p>① 在简单和中等难度的问题上，甚至在困难的问题上（取决于预训练和推理工作负载的特定条件），额外的测试时计算通常比预训练更能提升模型能力。</p>
+<p>② 研究者表示这一发现表明了与其纯粹关注 Scaling 预训练，不如在某些设置中用少量资源预训练较小的模型，然后用测试时计算来改进模型输出。</p>
+<p>③ 但在最具挑战性的问题上，研究者发现 Scaling 测试时计算的好处非常少，通过额外的预训练计算来取得进展更为有效。</p>
+<h1>三、Test-Time Compute 的 Scaling 性价比具体如何评估？</h1>
+<p>1.「<a href="https://arxiv.org/abs/2408.03314">Scaling LLM Test-Time Compute</a>」讨论了两种改进 LLM 输出的方法，一种是修改输入提示来迭代模型的提议分布，一种是在输出阶段对基础模型生成的多个候选进行搜索。</p>
+<p>① 第一种方法（proposal distribution）直接优化模型以改善其对推理任务的响应分布，主要通过类似 STaR 或 ReSTEM 等强化学习启发的微调方法来实现。具体而言，研究者通过在策略数据上进行微调并使用 Best-of-N 引导的改进来实现这种微调。</p>
+<p>② 第二种方法（Optimizing the verifier）通过优化验证器实现。这里最为典型的是 Best-of-N 采样，即采样 N 个完整的解决方案，然后根据验证器选择最好的一个。</p>
+<p>③ 研究者指出，Best-of-N 采样可以通过训练一个基于过程的验证器或过程奖励模型（PRM）来进一步改善，利用 PRM 的每步预测在解决方案的空间中进行树搜索可能会更加高效。</p>
+<p>2.围绕“如何为给定问题选择最优的测试时计算预算？”的问题，该工作定义了一个「测试时计算最 Scaling 放策略」，选择对应于给定测试时策略的超参数，以在测试时获得最大的性能收益。</p>
+<p>3.基于该策略，使用 PaLM-2 模型在具有挑战性的 MATH 基准上对上述两种 Scaling 机制（最优 N 加权、束搜索、前瞻搜索）进行测试。</p>
+<p>① 当基础模型已经具备回答问题所需的所有“知识”，而主要挑战是从这些知识中得出（复杂的）推论时，研究者希望测试时间计算能发挥最大作用。他们因此采用了数学的基准，即 MATH。</p>
+<p>② 研究者选用 PaLM 2-S* （Codey）的原因是他们认为该模型代表了当前许多 LLM 的能力，因此他们的研究结果也会适用于类似的模型。此外，该模型在 MATHand 上表现优越，且能力尚未饱和。</p>
+<p>4.研究者基于 shepherd 的方法训练了适用于搜索的 PRM 作为验证器，用于该工作的所有搜索实验，具体涉及三种方法：</p>
+<p>① 第一种是最有 N 加权（Best-of-N Weighted）方法，会根据测试时的提示自适应地更新模型的响应分布，通过在测试时对模型进行微调，使其更好地适应 prompt 和特定的问题。</p>
+<p>② 第二种是束搜索（Beam Search），通过优化 PRM 的每一步预测来改进答案。</p>
+<p>③ 第三种是前瞻搜索（Lookahead Search），通过模拟未来几步来提高每一步的估值准确性。</p>
+<p>5.测试发现，在较低的计算预算下，束搜索显著优于最佳 N 采样方法。然而，随着预算的增加，束搜索的优势逐渐减弱，甚至在某些情况下低于最佳 N 采样方法。前瞻搜索在所有预算下的表现均不如其他方法。</p>
+<p>6.研究者进而提出了一项自适应的“计算最优（Compute-Optimal）”策略来 Scaling 测试时计算，进而通过 parellel/sequece 采样对比测试比较额外计算资源在预训练和测试推理中的性价比。</p>
+<p>① Compute-Optimal 策略会根据提示选择利用测试时计算的具体方法，以便最好地利用额外的计算资源。</p>
+<p>② 基于 Compute-Optimal 策略，研究者将 Scaling 测试时计算的效率（对比最佳 N 采样）提高 4 倍以上。</p>
+<p>该工作设置了一个 Tradeoff 的问题，进一步探讨了交换预训练和测试时计算之间的预算权衡，发现在非可忽略程度（non-trivial）的成功率上，把 FLOPs 投入到较小模型的测试时计算收获的回报可以超越大 14 倍的模型，但较难的问题仍是预训练更有效。</p>
+<p>① 研究者设置了一个问题：假设某个模型用 X FLOPs 进行预训练，然后用这个模型进行 Y FLOPs 的推理。如果希望增加 M 倍的总 FLOPs 预算（即，预训练和推理的总 FLOPs 为 MX+Y）来提高性能，我们应该将 FLOPs 用于增加预训练计算还是用于额外的测试时计算？</p>
+<p>② 实验选择了模型参数扩大而训练数据量固定的设置，这与开源 LLaMA 系列模型的方法相匹配，且这种设置代表了扩大预训练计算的典型方法，并将数据和参数都等比例扩大的预训练计算的最优分析留给未来的工作。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2471778177/122542462881?contentType=1&isNewContent=false" alt="image.jpeg">{width=754 height=306 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2471778177/122533068217?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2471778177/122533068217?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2471778177/122539268669?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2471778177/122539268669?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>如上图所示，在 FLOPs 匹配评估中的预训练与测试时计算之间的权衡。每条线代表在每个 Oracle 难度分段中使用 Compute-Optimal 策略 Scaling 测试时计算的性能。左图是 Revision 的结果，右图是搜索的结果。星形表示使用多 14 倍参数预训练的基础模型的 greedy pass@1 性能。x 轴是测试时计算的预算，星星的三个位置对应于在三种不同的推理计算负载下，Scaling 参数与 Scaling 测试时计算之间的 FLOPs 等效比较点。如果星星在线条下方，这意味着使用测试时计算比增加模型参数更有效，如果星星在线条上方，这意味着增加参数更有效。可以看到，在简单问题上或者在推理负载较低的设置中（例如𝑅远小于 1），测试时计算通常可以胜过模型参数。然而，在难题上或者在推理负载较高的设置中（例如𝑅远大于 1），预训练是提高性能的更有效方式。</p>
+<h1>四、Test-Time Compute 的性价比还有机会提高吗？</h1>
+<p>在「Scaling LLM Test-Time Compute」中，研究者探讨了该工作的局限和未来的研究方向。此外，拾象科技的分析师同样在一篇文章中探讨了将 LLM 的预训练资源投入推理环节的形式为开发下一代 AI 带来的机会。<br>1.「<a href="https://arxiv.org/pdf/2408.03314">Scaling LLM Test-Time Compute</a>」的作者指出，该工作的研究当前仅集中于优化验证器和建议分布的形式探索 Scaling 计算时计算的性能，尚未尝试组合其他方法。<br>① 对于未来的改进机会，研究者提出了几种潜在的方式，包括结合 PRM 树搜索技术、Revision、critic 等方法，通过动态切换评估难度和尝试解决问题的策略，以提高测试时计算的效率，或是将测试时计算的输出反馈到基础 LLM 中，实现迭代自我改进循环。<br>2.拾象科技在一篇<a href="https://mp.weixin.qq.com/s/ih74NOPai9Xeb_ncy1yW0w">文章</a>中讨论了强化学习对 Scaling Law 可能的影响，用推理时间置换训练时间或许有机会解决当前 Scaling Law 边际收益递减的现状，但也指出了用强化学习改进 LLM 推理能力面临的局限。<br>① 该文章指出，Self-play RL 需要在好的策略上持续探索，而奖励模型之于强化学习是定义“好”的标准的重要因素。<br>② 其中，PRM 会奖励好的推理步骤，当前在代码和数学领域已经有了明显的突破。除了数值，文字评价也可以作为指导模型下一步行动的奖励，基于语言模型的语义理解能力，LLM as PRM 的模式可以用于进一步改进验证器的评估效果。<br>③ 然而，这种模式面临的挑战在于，数学和编程领域对正确与否有着明确的标准，但这种标准并不适用于文本的开放领域，这些场景下的任务往往目标模糊，没有最优解，导致 RL 在语言任务上难以泛化。</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>Scaling Law 的边际效益递减正推动研究者寻求替代路径，测试时计算（Inference-Time-Compute）作为新兴方向受到广泛关注。谷歌 DeepMind 与 UC 伯克利的研究表明，在大多数问题上，扩展测试时计算的性价比优于扩大预训练规模；但对于最难问题，预训练计算仍更为有效，且两类算力资源目前无法实现 1:1 等效置换。</p>
+<p>研究测试了两种测试时计算扩展机制——修改输入提示以优化提议分布、在输出阶段对候选结果进行搜索——并提出&quot;计算最优&quot;自适应策略，可根据不同提示动态选择最优方法，效率提升超过 4 倍。在三种搜索方法的对比中，束搜索（Beam Search）在低预算下优于最佳 N 采样，但随预算增加优势减弱；前瞻搜索（Lookahead Search）在所有预算条件下表现最差。FLOPs 权衡实验进一步显示，将算力投入较小模型的测试时计算，收益可超越参数量大 14 倍的模型的预训练效果。</p>
+<p>AlphaGeometry 2 和 AlphaProof 是 LLM self-play 方式的代表性成果，但同类工作效果参差不齐。研究同时指出，LLM 在缺乏外部反馈时无法有效自我纠正，多智能体辩论方法亦未能显著改善这一问题。</p>
+<p>未来改进方向包括结合 PRM 树搜索、Revision 及 Critic 等方法，并构建迭代自我改进循环。PRM 在代码和数学领域已取得突破，LLM as PRM 模式有望进一步提升验证器效果。以推理时间置换训练时间，或将成为缓解 Scaling Law 收益递减问题的可行路径。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Scaling Law收益递减争议：近期大量讨论指出扩大模型规模的边际效应正在递减，模型结构、算力、数据等方面均存在局限，业界呼吁寻找新的技术路线。</li>
+<li>Self-play与后训练方式的探索：STaR、Constitutional AI、多智能体辩论等强化学习和自我对弈方法被用于提升LLM推理能力，但效果参差不齐；谷歌与UIUC研究表明LLM在无外部反馈时无法有效自我纠正。</li>
+<li>Test-Time Compute Scaling的核心发现：在大多数问题上，将FLOPs投入测试时计算比扩大预训练规模更具性价比，甚至小模型的测试时计算可超越大14倍的模型；但最难的问题仍是预训练计算更有效。</li>
+<li>两种主要测试时计算Scaling机制：一是通过修改提示优化模型提议分布（基于强化学习微调），二是通过训练过程奖励模型（PRM）作为验证器进行候选搜索（如Best-of-N采样、束搜索）。</li>
+<li>Compute-Optimal自适应策略：研究者提出根据具体提示自适应选择测试时计算方法的策略，相比最佳N采样将Scaling测试时计算效率提高4倍以上；低预算下束搜索优于Best-of-N，高预算下优势减弱。</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2471778177.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

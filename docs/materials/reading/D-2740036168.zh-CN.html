@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>12月第2周：海外进入“智能体工程化与入口争夺”阶段，国内加速“AI能力在端侧与超级入口的产业化落地” · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="12月第2周：海外进入“智能体工程化与入口争夺”阶段，国内加速“AI能力在端侧与超级入口的产业化落地”。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2740036168.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>12月第2周：海外进入“智能体工程化与入口争夺”阶段，国内加速“AI能力在端侧与超级入口的产业化落地”</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2740036168。版本：02d3286a545aebd78c77c434d291d1efd5c2d776ef30075b7d441e7ec8f6df37。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/37</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/02d3286a545aebd78c77c434d291d1efd5c2d776ef30075b7d441e7ec8f6df37.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>12月第2周：海外进入“智能体工程化与入口争夺”阶段，国内加速“AI能力在端侧与超级入口的产业化落地”</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：从“更强模型”转向“可落地智能体体系”，平台开始抢“操作入口”</strong></p>
+<p>本周海外的重点是 <strong>“智能体化（Agentic）进入工程化/产业化阶段”</strong>：标准、工具接入、评测、治理、安全一起补齐，说明行业已经默认“下一代 AI”要能自己查、自己做、自己对接系统。</p>
+<ul>
+<li><strong>标准与生态正在合拢</strong>：Google 推托管 MCP 服务器、甚至把 Apigee 变成“把传统 API 转成 MCP 工具”的转换器，本质是在把企业既有 API 治理（配额、密钥、审计）迁移到智能体时代；同时还强调用 IAM/Model Armor 来应对提示注入、数据外泄等“智能体新威胁”。这意味着：谁能掌控“工具可用性 + 治理默认值”，谁就更可能成为企业 Agent 的底座。</li>
+<li><strong>“研究型智能体”开始商品化</strong>：Google 发布 Gemini Deep Research 并开放给开发者、同时开源 DeepSearchQA 评测，强调多步骤检索、反复规划与补洞（缺口识别再搜索），并把能力指向 Search/NotebookLM/Finance/Gemini App 等入口产品——这不是单点功能，而是把“研究”变成平台能力，直接改写知识工作流。</li>
+<li><strong>Agent 的“扩展规律”被显性化</strong>：Google 做了 180 组受控实验提“智能体 Scaling Law/定量扩展原则”，并声称能以任务属性预测最优架构（多智能体协作结构等）。行业从“炼金术式调参”走向“可复用方法论”，会加速企业落地。</li>
+</ul>
+<p>与此同时，海外还出现一个很关键的“入口争夺战”：</p>
+<ul>
+<li><strong>浏览器与 XR 成为新“操作系统层”</strong>：Google 用 Disco 让标签页变 Web App，把浏览器从展示窗口推向任务执行平台；Opera Neon 直接把 AI 代理嵌进浏览器并收费；Google XR 设备矩阵把 Gemini 与现实场景融合，强调“从工具到延伸感官”。这些都在争夺一个位置——AI 不再是 App，而是你“做事”的默认界面。</li>
+</ul>
+<p>最后，海外在<strong>安全、内容与商业化</strong>也给出强信号：</p>
+<ul>
+<li><strong>智能体安全成为显学</strong>：Perplexity 为浏览器代理推出 BrowseSafe，强调提示注入检测、并发布基准与论文；说明“能上网能操作”的 Agent 一旦规模化，安全将像传统 App 安全一样成为标配赛道。</li>
+<li><strong>工作流竞争超过模型竞争</strong>：Anthropic 把 Claude Code 做进 Slack，让开发任务在聊天线程内完成（读上下文、改仓库、持续同步、发 PR），直指“沟通即指令、聊天即 IDE”的新范式。</li>
+<li><strong>内容/IP 与合规边界被重新谈判</strong>：OpenAI 与迪士尼达成授权让 Sora 生成迪士尼角色内容、同时披露“成人模式”时间表；一边是 IP 商业化加速，一边是内容分级/年龄识别成为产品能力的一部分。</li>
+<li><strong>商业化路径仍在试探</strong>：Google 否认 Gemini 引入广告（至少当前），但这件事本身说明市场在逼问“免费入口靠什么变现”。</li>
+</ul>
+<p><strong>2.国内：从“发布模型”进阶到“把 AI 做成入口与可操作的产品”，并显著强调端侧/开源</strong></p>
+<p>本周国内的共性是“把能力落在<strong>具体入口</strong>（手机、输入法、办公、健康、内容生产）上”，以及“用<strong>开源 + 端侧</strong>降低生态门槛”。</p>
+<ul>
+<li><strong>智能体开始直接“接管操作”</strong>：智谱开源 AutoGLM（手机操作/多步任务），同时 GLM-4.6V 把 Function Call 原生融入视觉模型，打通“看见→调用工具→执行动作”。这两件事组合在一起，其实是在把“模型能力”转成“可执行系统”，并把手机生态的入口主动权向“Agent 层”上移。</li>
+<li><strong>输入法/语音成为新入口</strong>：智谱发布并开源 ASR 与桌面 AI 输入法，强调端侧模型、低延迟、隐私与“人设风格”；这意味着国内厂商在抢一个非常现实的高频入口：文字生产/沟通的第一触点。</li>
+<li><strong>阿里把“千问”升级为 C 端超级入口战役</strong>：成立千问 C 端事业群，目标明确是“超级 APP + 无处不在的 AI 助手”，并计划把地图/外卖/订票/办公/学习/购物等场景接入，强调“办事能力”。这比“做个聊天机器人”更激进：它是要把 AI 变成服务编排器。</li>
+<li><strong>多模态/语音在国内进入“工程打磨周”</strong>：Qwen3-TTS（多方言多音色）、Qwen3-Omni-Flash（音视频实时流式、多语言、System Prompt 深度可控）集中释放，说明国内在冲一个关键指标：可交互、可控、可规模化的实时多模态体验。</li>
+<li><strong>开源正在从“科研姿态”变成“产业策略”</strong>：智谱多项开源（GLM-4.6V/AutoGLM/ASR）、蚂蚁开源 100B 扩散语言模型 LLaDA2.0，面壁开源 TTS（VoxCPM），共同指向一个事实：在国内生态里，“开源”更像是争取开发者与硬件伙伴的市场动作，而不只是技术宣言。</li>
+<li><strong>组织/品牌重构频繁”</strong>：华为成立基础大模型部；腾讯将 Hunyuan 更名为 HY 并强调全球化命名；腾讯在线视频新技术部“用 AI 驱动内容生产”；OPPO 统一“超级小布”入口并谈 Agent-to-Agent 互联——这些都是把 AI 从研发部门推到业务中枢。</li>
+</ul>
+<p><strong>3.上周行业重点：四条“结构性主线”</strong></p>
+<ul>
+<li><p><strong>Agent 标准化与“工具可用性”成为平台战争核心</strong><br>海外 MCP 托管化 + AAIF 基金会化，本质是在避免 Agent 生态碎片化，抢“连接层”话语权；国内则以 AutoGLM/千问超级入口等方式，抢“执行层/入口层”。两边路径不同，但目标一致：把 AI 从回答者变成执行者。</p>
+</li>
+<li><p><strong>浏览器、聊天、输入法、XR——AI 正在接管“人机交互层”</strong><br>从 Claude Code 进 Slack、Disco/Neon 把浏览器变成 Agent 容器，到国内输入法/手机助手/办公软件的 AI 化，行业在争夺“默认交互界面”。谁拥有界面，谁就拥有分发、数据与习惯。</p>
+</li>
+<li><p><strong>多模态进入“实时、可控、可嵌入”的产品阶段</strong><br>微软实时 TTS、阿里全模态实时流式、面壁/阿里/智谱在语音上密集更新；同时 Apple 视频新路线（Normalizing Flow）、Runway 世界模型把视频/物理/机器人连起来。说明多模态不再只是“生成演示”，而是走向“实时交互 + 任务执行 + 物理世界建模”。</p>
+</li>
+<li><p><strong>安全、治理、内容边界成为“可规模化”的前置条件</strong><br>BrowseSafe 直指提示注入与高权限会话风险；Google 把 Model Armor/IAM/审计放到 MCP 体系里；OpenAI 成人模式与迪士尼授权说明内容分级与 IP 许可会成为 AI 平台的“基础设施”。Agent 要进企业/大众，必须先补齐这些“非模型能力”。</p>
+</li>
+</ul>
+<p><strong>4.其他层面：资本与算力版图在为“机器人/世界模型/推理落地”重新排兵布阵</strong></p>
+<p>这一周资本与硬件动作，透露出行业对下一阶段形态的押注：</p>
+<ul>
+<li><strong>机器人基础模型获得超大额融资预期</strong>：软银/英伟达拟投 Skild AI，把“机器人通用大脑”当成下一条大赛道（且 Skild 不做硬件，做通用软件/模型）。这与 Runway 强调“仅语言模型不够、需要在模拟环境体验世界”的逻辑互相印证：机器人与世界模型可能成为 LLM 后的第二增长曲线。</li>
+<li><strong>芯片/数据中心格局继续重组</strong>：英特尔拟收购 SambaNova，强调推理路线与数据流架构；同时国内外多模态实时化会推高推理侧需求（低延迟、端云协同），会进一步放大“推理算力/带宽/成本”作为竞争要素。</li>
+<li><strong>“从数字到物理”的消费级闭环开始出现</strong>：腾讯混元 3D + 拓竹让“上传照片→生成 3D→直接打印手办”变成可用产品链路，提示 AI 应用正从内容生产走向“内容—商品—制造”的闭环。</li>
+</ul>
+<p>:::heading{level=3 align=start}
+二、海外</p>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**英伟达**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n软银、英伟达拟以 140 亿美元估值投资 Skild AI\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;据知情人士及路透社获取的一份条款清单显示，日本软银集团与英伟达（NVIDIA）正洽谈参与 Skild AI 的一轮超 10 亿美元融资，此轮融资或将使这家机器人基础模型开发商的估值达到约 140 亿美元。\n\n据 PitchBook 数据，今年早些时候 Skild AI 完成 5 亿美元 B 轮融资时，估值为 47 亿美元，投资方包括英伟达、LG 风投部门及三星等。若此次融资顺利完成，其估值将较彼时增长近两倍。\n\nSkild AI 成立于 2023 年，创始团队为前元宇宙平台公司（META）人工智能研究员，且获得了亚马逊（AMZN）和光速创投的早期投资。该公司正致力于开发可作为机器人「大脑」的通用软件，以期攻克一个关键难题——这一难题此前一直阻碍着通用型机器人在工厂和家庭场景的大规模落地。\n\nSkild AI 不自行研发任何硬件，而是专注于为各类形态的机器人打造人工智能模型。该公司表示，其技术可利用海量数据，赋予机器人类似人类的感知与决策能力。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 9,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle 发布新一代 XR 设备，推动 AI 与现实场景深度融合\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;2025 年 12 月 9 日，在 Google The Android Show 特别节目（XR Edition）上，Google 推出全新 XR 设备矩阵，依托 Android XR 统一平台与 Gemini 大模型，构建了覆盖轻量化 AI 眼镜到旗舰级头显的全场景 XR 生态。\n\n此次发布的 AI 眼镜主打「时尚优先、技术隐形」，与 Warby Parker、Gentle Monster 合作打造两款形态，可实现零食识别、AR 特效生成、旅游导航等多模态交互，还能借助 Glimmer UI 工具包和 Projected Library 快速拓展应用生态。\n\n此外，由 XREAL 承载的 Project Aura 采用分离式计算模块，兼顾便携性与生产力；三星 Galaxy XR 头显则新增拟真形象、旅行模式等功能，并计划实现 2D 内容实时转 3D，为用户提供更沉浸的办公与娱乐体验。Google 此举旨在让计算渗透生活，推动 XR 设备从「工具」向「延伸感官」转变。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle 在 Doppl 应用上线可购物 AI 信息流，进一步押注虚拟试衣与电商\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;谷歌近期宣布，其实验性应用 Doppl 正式引入全新的 “可购物发现信息流”（shoppable discovery feed），让用户在浏览由 AI 生成的穿搭视频时即可直接购买对应商品，进一步推动虚拟试穿与电商深度融合。\n\nDoppl 主打 AI 可视化穿搭，能够生成用户身穿不同服饰的照片，并自动转换成动态视频，帮助用户更直观地了解真实穿着效果。此次新增的信息流将这一体验扩展为完整的可购物场景：信息流中的几乎所有商品都可直接购买；每件商品均附带商家的跳转链接；全部内容均为 AI 生成视频，而非真人模特或网红展示；系统会根据用户在 Doppl 内的偏好与互动记录，提供个性化穿搭推荐。\n\n谷歌表示，该功能的推出借鉴了 TikTok、Instagram 等平台上 “刷短视频→看穿搭→直接购买” 的购物路径，但区别在于 谷歌的内容完全由 AI 自动生成。尽管对部分用户而言，全 AI 信息流仍显陌生，但谷歌认为这是符合当下消费习惯的新展示方式，也是在亚马逊与社交媒体强势挤压下探索电商增长的必要尝试。\n\n值得注意的是，全 AI 内容的信息流正在变得越来越普遍。OpenAI 于 9 月推出人工智能视频平台 Sora，Meta 也在其 Meta AI 中上线了专为 AI 视频打造的 “Vibes” 信息流，行业趋势愈发清晰：AI 正逐步成为内容展示与消费的主角。目前，Doppl 的可购物信息流已在美国面向 iOS 与 Android 用户上线，使用者须年满 18 岁。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周海外AI产业呈现&quot;智能体工程化与入口争夺&quot;两条主线并进的态势。</p>
+<p><strong>智能体基础设施层</strong>，Google推出托管MCP服务器，将Apigee转型为&quot;传统API转MCP工具&quot;的转换器，同步发布Gemini Deep Research并开放开发者接入，还基于180组受控实验提出智能体Scaling Law，可按任务属性预测最优多智能体架构。Anthropic将Claude Code集成进Slack，实现读上下文、改仓库、发PR的&quot;聊天即IDE&quot;体验。浏览器端，Opera Neon将AI代理直接嵌入并开启商业化收费，标志浏览器正演变为Agent执行容器。</p>
+<p><strong>硬件与资本层</strong>，软银与英伟达拟参与机器人通用AI公司Skild AI超10亿美元融资，估值约140亿美元，较今年早些时候B轮的47亿美元增长近两倍；Skild AI成立于2023年，创始团队来自Meta AI研究部门，专注通用机器人模型而不自研硬件。Google同期发布新一代XR设备矩阵，基于Android XR平台与Gemini模型，联合Warby Parker、Gentle Monster推出AI眼镜，Project Aura由XREAL承载分离式计算模块。</p>
+<p><strong>内容与消费入口层</strong>，Google实验性应用Doppl上线全AI生成的可购物穿搭信息流，无真人模特、支持个性化推荐并可直接购买商品，目前已在美国iOS与Android上线；OpenAI与迪士尼达成Sora授权协议，Meta上线&quot;Vibes&quot;AI视频信息流，全AI内容信息流成行业趋势。</p>
+<p>国内方面，智谱开源AutoGLM与GLM-4.6V，打通&quot;看见→调用→执行&quot;链路；阿里成立千问C端事业群，整合地图、外卖、订票、办公场景，将AI定位为服务编排器；腾讯混元3D结合拓竹打印机，实现&quot;上传照片→生成3D→打印手办&quot;完整链路，端侧与超级入口的产业化落地加速推进。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>海外智能体进入工程化阶段，Google推托管MCP服务器并整合Apigee，将企业传统API治理迁移至智能体时代，抢占企业Agent底座</li>
+<li>Google提出智能体Scaling Law（180组受控实验），可依据任务属性预测最优多智能体架构，推动行业从经验调参走向可复用方法论</li>
+<li>国内阿里成立千问C端事业群，目标打造超级APP与AI服务编排器，接入地图/外卖/办公/购物等全场景，标志AI从聊天机器人升级为服务入口</li>
+<li>智谱开源AutoGLM与GLM-4.6V，打通手机操作—视觉感知—工具调用—动作执行完整链路，国内端侧智能体生态加速成型</li>
+<li>安全与治理成为Agent规模化前置条件，Perplexity发布BrowseSafe提示注入检测基准，Google将Model Armor和IAM纳入MCP体系，内容分级与IP授权成AI平台基础设施</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2740036168.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：OpenAI、Anthropic、DeepMind 联合发文，Meta 多篇研究，腾讯开源强化学习新算法 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：OpenAI、Anthropic、DeepMind 联合发文，Meta 多篇研究，腾讯开源强化学习新算法。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2729057112.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：OpenAI、Anthropic、DeepMind 联合发文，Meta 多篇研究，腾讯开源强化学习新算法</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2729057112。版本：85d7a79639eb59572f69eeb851bf2e5b38cce8a3f79f0942600722e8e0b96557。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/181</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/85d7a79639eb59572f69eeb851bf2e5b38cce8a3f79f0942600722e8e0b96557.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：OpenAI、Anthropic、DeepMind 联合发文，Meta 多篇研究，腾讯开源强化学习新算法</p>
+<h3>一、模型</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th></th>
+<th>**公司/院校/机构**</th>
+<th>**简介**</th>
+<th>**详情**</th>
+</tr>
+<tr>
+<td></td>
+<td>**英伟达**</td>
+<td>英伟达提出一种新的强化学习方法 RLBFF 结合人类偏好与规则验证，提升奖励模型性能<br><br>Zhilin Wang, Jiaqi Zeng, Olivier Delalleau, Ellie Evans, Daniel Egert, Hoo-Chang Shin, Felipe Soares, Yi Dong, Oleksii Kuchaiev.&quot;RLBFF: Binary Flexible Feedback to bridge between Human Feedback &amp; Verifiable Rewards.&quot;arXiv:2509.21319 [cs.CL]</td>
+<td>[论文](https://arxiv.org/abs/2509.21319)提出一种新的强化学习方法 RLBFF，结合人类反馈和可验证奖励的优点，通过提取二元原则改进奖励模型训练，显著提升 RM-Bench 和 JudgeBench 等基准测试表现，并实现用户自定义原则评估，同时提供开源方案对齐 Qwen3-32B 模型，以极低成本达到与商业模型相当的性能。</td>
+</tr>
+<tr>
+<td></td>
+<td>**加州大学**</td>
+<td>加州大学针对决策预训练 Transformer 在分布外环境表现不佳的问题，提出基于好奇心的正则化方法，提升预训练模型的泛化能力<br><br>Huitao Yang, Guanting Chen.&quot;In-Context Curiosity: Distilling Exploration for Decision-Pretrained Transformers on Bandit Tasks.&quot;arXiv:2510.00347 [cs.LG]</td>
+<td>[研究](https://www.arxiv.org/abs/2510.00347)针对决策预训练 Transformer 在分布外环境表现不佳的问题，提出一种基于好奇心的正则化方法，并设计预测驱动 Transformer 框架。通过在高斯多臂老虎机任务上的实验，证明该方法可有效缩小分布内与分布外环境的性能差距，尤其在高方差测试环境中表现出更强的鲁棒性。</td>
+</tr>
+<tr>
+<td></td>
+<td>**作业帮、香港科技大学**</td>
+<td>GRPO 进阶版来了，GVPO 重构大模型后训练范式<br><br>Kaichen Zhang, Yuzhong Hong, Junwei Bao, Hongfei Jiang, Yang Song, Dingqian Hong, Hui Xiong.&quot;GVPO: Group Variance Policy Optimization for Large Language Model Post-Training.&quot;arXiv:2504.19599 [cs.AI]</td>
+<td>大模型后训练（post-training）正在成为 AI 进化的关键一环。从最早的 SFT（监督微调），再到近来大火的 GRPO，一条核心主线贯穿始终：如何让大模型具有更强的推理能力、更好地对齐人类偏好，同时保持稳定和高效。<br><br>然而，GRPO 虽然在 DeepSeek-R1 等项目中大放异彩，但其训练不稳定、超参数敏感的问题一直限制其大规模落地。<br><br>现在，作业帮团队联合香港科技大学（广州）在 NeurIPS 2025 上提出了全新方法：[GVPO（Group Variance Policy Optimization）](https://arxiv.org/abs/2504.19599)。GVPO 通过避免重要性采样解决了 GRPO 的稳定性难题，并能在理论上提供了唯一最优解保证，并且在实验中表现全面超越现有方法。</td>
+</tr>
+<tr>
+<td></td>
+<td>**OpenAI、Anthropic、DeepMind**</td>
+<td>OpenAI、Anthropic、DeepMind 联合发文：现有 LLM 安全防御不堪一击<br><br>Milad Nasr, Nicholas Carlini, Chawin Sitawarin, Sander V. Schulhoff, Jamie Hayes, Michael Ilie, Juliette Pluto, Shuang Song, Harsh Chaudhari, Ilia Shumailov, Abhradeep Thakurta, Kai Yuanqing Xiao, Andreas Terzis, Florian Tramèr.&quot;The Attacker Moves Second: Stronger Adaptive Attacks Bypass Defenses Against Llm Jailbreaks and Prompt Injections.&quot;arXiv:2510.09023 [cs.LG]</td>
+<td>:[color]{}本文主[/color]要围绕一个问题展开：我们该如何评估语言模型防御机制的鲁棒性:[color]{rgb(61, 170, 214)}**？**[/color]<br><br>:[color]{}要知道，目前针对越狱和提示注入的防御措施（前者旨在防止攻击者诱导模型输出有害内容，后者旨在防止攻击者远程触发恶意行为）主要采用如下手段：[/color]<br><br>- :[color]{}使用一组固定的、有害攻击样本进行静态测试；[/color]<br>- :[color]{}要么依赖于一些计算能力较弱的优化方法，这些方法在设计时并未考虑到具体的防御机制。[/color]<br><br>:[color]{}换句话说，现有的防御评估大多是纸上谈兵，并没有真正模拟出一个懂防御、会反制的强攻击者。[/color]<br><br>:[color]{}所以说，当前的评估流程是有缺陷的。[/color]<br><br>:[color]{}这篇文章就是为了解决上述问题。为了更准确地评估语言模型的防御机制，本文认为我们应当假设攻击者是自适应的，也就是说，他们会根据防御机制的设计策略，刻意修改攻击方式，并投入大量资源进行优化。[/color]<br><br>:[color]{}在此基础上，本文提出了一个通用自适应攻击框架（General Adaptive Attack Framework），并采用几种通用的优化方法（比如梯度下降、强化学习、随机搜索和人类辅助探索）进行系统化调整，结果成功绕过了 12 种近期提出的防御机制，其中多数模型的攻击成功率超过了 90%，而这些防御原本声称几乎无法被攻破（攻击成功率接近 0）。[/color]<br><br>:[color]{}该研究表示，未来的防御研究必须纳入更强的攻击进行评估，才能对鲁棒性做出可靠且有说服力的结论。[/color]</td>
+</tr>
+</table></div>
+
+<h3>二、推理</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**新加坡国立大学**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n为 MoE 解绑：全新「专家即服务」推理架构发布，超细粒度扩展锐减 37.5% 成本\n:::\n\n:::paragraph{align=center indent=0}\nZiming Liu, Boyu Tian, Guoteng Wang, Zhen Jiang, Peng Sun, Zhenhua Han, Tian Tang, Xiaohe Hu, Yanmin Jia, Yan Zhang, He Liu, Mingjun Zhang, Yiqi Zhang, Qiaoling Chen, Shenggan Cheng, Mingyu Gao, Yang You, Siyuan Feng.\&quot;Expert-as-a-Service: Towards Efficient, Scalable, and Robust Large-scale MoE Serving.\&quot;arXiv:2509.17863 [cs.DC]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**上海 AI Lab、复旦大学等**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cel</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周论文推荐涵盖强化学习、安全对齐、推理优化等多个前沿方向。</p>
+<p>英伟达提出强化学习方法<strong>RLBFF</strong>，结合人类反馈与可验证奖励改进奖励模型训练，在RM-Bench和JudgeBench等基准测试中表现显著提升，其开源方案对齐Qwen3-32B模型，以极低成本达到商业模型相当性能。加州大学针对决策预训练Transformer的分布外泛化问题，提出基于好奇心的正则化方法，设计预测驱动Transformer框架，在高斯多臂老虎机任务及高方差测试环境中验证了更强鲁棒性，有效缩小分布内外的性能差距。</p>
+<p>在安全领域，<strong>OpenAI、Anthropic、DeepMind三大机构联合发文</strong>，提出通用自适应攻击框架，成功绕过12种近期防御机制，多数被测模型攻击成功率超90%，而这些防御原本声称攻击成功率接近0。研究指出现有防御方法存在严重漏洞，建议未来防御评估必须纳入更强攻击手段，才能得出可靠的鲁棒性结论。</p>
+<p>训练算法方面，作业帮联合香港科技大学（广州）在NeurIPS 2025提出<strong>GVPO</strong>新方法，通过避免重要性采样解决了GRPO训练不稳定、超参数敏感的问题，理论上可提供唯一最优解保证，实验表现全面超越现有方法。</p>
+<p>推理效率方面，新加坡国立大学发布&quot;专家即服务&quot;推理架构，针对MoE模型提出超细粒度扩展策略，可将推理成本降低<strong>37.5%</strong>。此外，上海AI Lab联合复旦大学等机构也开展了推理相关前沿研究。整体来看，本周论文在模型对齐、安全评估与高效推理三条主线上均有重要进展。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>英伟达RLBFF方法结合人类反馈与可验证奖励，以极低成本对齐Qwen3-32B，达到商业模型性能水平</li>
+<li>作业帮与香港科技大学提出GVPO，解决GRPO训练不稳定和超参数敏感问题，理论上提供唯一最优解保证</li>
+<li>OpenAI、Anthropic、DeepMind联合发文指出现有LLM越狱与提示注入防御机制存在根本性缺陷，评估流程不可靠</li>
+<li>加州大学提出基于好奇心的正则化方法，有效缩小决策预训练Transformer在分布内外环境的性能差距</li>
+<li>本期论文涵盖强化学习、模型安全、后训练优化等多个前沿方向，Meta与腾讯均有重要研究成果入选</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2729057112.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

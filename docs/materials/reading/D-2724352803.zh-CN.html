@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI行业月度观察202508 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="AI行业月度观察202508。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2724352803.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>AI行业月度观察202508</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2724352803。版本：8f5bea4c59fc2b1f9e1061edea98b7cdd88cb60695a666cdf83741e78f06102c。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/258</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/8f5bea4c59fc2b1f9e1061edea98b7cdd88cb60695a666cdf83741e78f06102c.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 401s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;999d36deb0904ba2bff50f2f6f273890&quot;}
+AI行业月度观察202508</p>
+<h3>一、整体趋势</h3>
+<h4>1.八月关键里程碑</h4>
+<p><strong>1.1.模型/技术</strong></p>
+<ul>
+<li>Gemini 2.5 Deep Think 在 “人类最后的考试（HLE）”（推理 / 知识）、LiveCodeBench（代码）、IMO 2025/AIME 2025（数学）等多个基准测试中，均超越了自家的 Gemini 2.5 Pro、OpenAI 的 o3 以及 xAI 的 Grok 4；</li>
+<li>Qwen3-235B-A22B-Instruct-2507 在 Chatbot Arena 上 斩获 1433 分，超越顶尖闭源模型 Grok4、Claude4、GPT4.1，Qwen3 位列总榜 “全球第三”；</li>
+<li>Qwen3 还在 5 个关键能力子项中摘得 “全球第一”，包括数学（math）、代码（coding）、复杂提示（hard prompts）、长文本检索（longer query）和指令遵循（instruction following）；</li>
+<li>在 Chatbot Arena 专门评估编程能力的 WebDev Arena 子榜单中，编程模型 Qwen3-Coder 性能与 Gemini2.5 Pro、DeepSeek-R1、Claude4 并列第一；</li>
+<li>在 AIME25 上，Qwen3-4B-Thinking-2507 以 81.3 的得分超过了 Gemini 2.5 Pro 和 Claude 4 Opus；</li>
+<li>GPT-oss 横扫 GPQA Diamond、AIME 2024、AIME 2025 和 Codeforces 榜单，超越 DeepSeek R1、Qwen3、Llama 4、Kimi K2 等一众开源模型；</li>
+<li>GPT-5 在文本、WebDev、视觉感知等多领域表现顶尖，硬提示、编码、数学等方面均排名第一，Arena 分数居首；</li>
+<li>百川开源大模型 Baichuan-M2，医疗能力登顶世界第一；</li>
+<li>OpenAI 内部 AI 系统在 2025 年国际信息学奥林匹克竞赛中夺金，超越 98% 人类选手；</li>
+<li>混元 Large-Vision 在国际 LMArena Vision 排行榜取得 1256 分，位列第五名（国内模型第一名），与 GPT-4.5 和 Claude-4-Sonnet 处于同一水平；</li>
+<li>苹果新模型 SlowFast-LLaVA-1.5 长视频理均刷新 LongVideoBench、MLVU 等 SOTA 基准纪录；</li>
+<li>SuperCLUE 多模态视觉 8 月评测榜：Gemini-2.5-Pro 位居第一；</li>
+</ul>
+<p><strong>1.2.产品/用户/收入</strong></p>
+<ul>
+<li>OpenAI 官宣 ChatGPT 周活 7 亿；</li>
+<li>OpenAI 单月营收已经破 10 亿美元；</li>
+<li>根据应用情报提供商 Appfigures 最新分析，自 2023 年 5 月推出以来，ChatGPT 的 iOS 和 Android 应用已在全球消费者支出中达到 20 亿美元；</li>
+<li>Manus 年化营收达到 9000 万美元；</li>
+<li>Manus 月访问量稳定在近 2 千万；</li>
+<li>可灵 2025 Q2 收入达到 2.5 亿元。</li>
+</ul>
+<h4>2.八月行业趋势</h4>
+<p><strong>2.1.海外：从“军备竞赛”到“场景落地”，将模型更好地塞进真实世界</strong></p>
+<p><strong>8 月的海外主线不再是“谁发布了更大的模型”，而是“谁能把已有模型更快、更稳、更便宜地塞进真实世界”。</strong></p>
+<ul>
+<li><strong>英伟达</strong>把 2070 TeraFLOPS 的 Thor 直接装进 130W 边缘盒子，标志着“物理 AI”从实验室走向产线；<strong>Jet-Nemotron</strong> 系列则用 2B/4B 的小参数击穿 Qwen3-8B，证明 <strong>“后 NAS + 线性注意力”</strong> 这条路线对端侧算力极度友好。</li>
+<li><strong>OpenAI</strong> 一边用 gpt-realtime 把语音 API 正式搬进生产环境，一边悄悄把 <strong>gpt-oss 系列</strong>按 Apache 2.0 开源——这是把“小模型+工具链”的护城河直接下沉到开发者生态，提前锁定下一波 B 端场景。</li>
+<li><strong>Google</strong> 的 <strong>Gemini 2.5 Flash Image（nano banana）</strong> 把图片成本打到 0.039 美元/张，相当于用定价战直接对 Midjourney、DALL·E 做一次“价格屠杀”；同时 <strong>NotebookLM</strong> 支持 80+ 语言，本质是把“播客生成”这一杀手级场景全球化，抢占教育与企业培训入口。</li>
+<li><strong>Anthropic</strong> 在 1700 亿美元估值谈判之际，把 <strong>Claude for Chrome</strong> 塞进浏览器侧边栏，表面是产品化，深层是“浏览器即入口”的入口级卡位——一旦习惯养成，后续所有 SaaS 都可能被它“代理化”。</li>
+<li><strong>Meta &amp; xAI</strong> 的人事地震与“超级智能实验室”<strong>的招聘冻结，说明硅谷已进入</strong>“人才-算力再平衡”<strong>：高薪挖人不再是主旋律，</strong>“谁能把现有算力榨干”才是 KPI。</li>
+</ul>
+<p>海外 AI 的 2025H2 关键词是 <strong>“场景折叠”</strong>——大模型能力被折叠进浏览器、IDE、终端、机器人，用户甚至感觉不到 AI 的存在，却离不开 AI 的产出。</p>
+<p><strong>2.2.国内：从“单点炫技”到“系统级工程”，中国 AI 走向“全栈开源+场景深耕”</strong></p>
+<p>8 月国内最显著的变化是：<strong>开源密度和商业落地速度超过海外</strong>。</p>
+<ul>
+<li><strong>阿里</strong>在 7 天内连发 5 款开源模型（Wan2.2-S2V、Vivid-VR、Qwen-Image-Edit 等），并配套钉钉 <strong>Agent 钉钉 ONE</strong> 与硬件 <strong>DingTalk A1</strong>，形成“云-端-OS-硬件”全栈闭环；<strong>Qoder</strong> 平台把 <strong>10 万文件级代码检索</strong>塞进 IDE，直接对标 Cursor+GPT-5 的组合。</li>
+<li><strong>字节</strong>一边开源 <strong>Seed-OSS-36B</strong>、<strong>OmniHuman-1.5</strong>，一边用 <strong>Waver 1.0</strong> 把 10 秒多风格视频做到 SOTA，并通过<strong>豆包“未成年模式”试水“合规先行”的产品思路，“技术-合规-场景”三线并行</strong>。</li>
+<li><strong>百度</strong>把搜索 AI 助手升级到“极速模型”，并把 “梯子 AI”<strong>以无广告形态独立上架，实质是在</strong>“搜索即 Agent”的新入口里提前卡位；文心快码的 <strong>Zulu-CLI</strong> 则把 AI 编码能力“终端化”，与阿里 Qoder 形成 IDE 内外夹击。</li>
+<li><strong>腾讯</strong>混元开源 <strong>HunyuanVideo-Foley</strong> 补足视频音效短板，搜狗输入法“文字图片”把文生图塞进聊天框，显示“社交入口即创作入口”的产品哲学。</li>
+<li><strong>快手</strong>可灵 2.5 亿元 Q2 收入证明“生成式内容平台化”<strong>已经跑通；MiniMax 的 海螺首尾帧上线即支持 1080P，</strong>“AI 视频工业化”在国内率先进入“可用且赚钱”阶段。</li>
+</ul>
+<p>中国 AI 正在完成一次“场景侧跳”：不再是“做大模型”，而是把模型拆成小件，开源、下沉、嵌入，最终让 AI 像水电一样流进每一个国产 App、国产硬件、国产工作流。</p>
+<h3>二、主要产品、技术更新</h3>
+<h4>1.海外</h4>
+<p>:[data2chart]{id=&quot;5cc626aa8793a2144220&quot; pageId=&quot;2724352803&quot;}</p>
+<h5>1.1.海外大公司</h5>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**分类**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 14,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;:</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<h1>AI行业月度观察202508 摘要</h1>
+<p>全球AI竞争格局持续演进，头部模型性能差距快速收窄。Qwen3-235B在Chatbot Arena斩获1433分，超越Grok4、Claude4等顶尖闭源模型，位列全球第三；GPT-5则在文本、WebDev、视觉感知等多领域表现领先，Arena综合评分高居全球首位。OpenAI宣布ChatGPT周活用户达7亿，单月营收突破10亿美元，商业化势头强劲。</p>
+<p>海外AI发展重心已从模型竞赛转向场景落地，大模型能力被深度折叠进浏览器、IDE、终端及机器人等具体场景。国内厂商在开源密度与商业落地速度上反超海外，阿里7天内连发5款开源模型并构建全栈闭环，字节、百度、腾讯等大厂呈现&quot;技术-合规-场景&quot;三线并行的全栈开源发展态势。</p>
+<p>产品层面，百度搜索AI助手升级&quot;极速模型&quot;，梯子AI独立上架，抢占&quot;搜索即Agent&quot;新入口；文心快码推出Zulu-CLI，将AI编码能力终端化，与阿里Qoder形成竞争之势。腾讯混元开源HunyuanVideo-Foley，补足视频音效短板；搜狗输入法将文生图嵌入聊天框，深化&quot;社交即创作&quot;入口逻辑。视频赛道商业化加速，快手可灵2025年Q2收入达2.5亿元，验证&quot;生成式内容平台化&quot;商业模式可行；MiniMax海螺上线首尾帧功能并支持1080P，标志AI视频工业化进入可用且盈利阶段。整体来看，中国AI战略正加速转向场景落地，通过将模型拆分开源下沉，嵌入App、硬件与工作流，构建差异化竞争壁垒。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>模型性能竞争白热化：Qwen3-235B在Chatbot Arena总榜位列全球第三，并在数学、代码、指令遵循等5项子榜摘得第一；GPT-5在硬提示、编码、数学等方面全面领先；Gemini 2.5 Deep Think在HLE、IMO 2025等多项基准超越竞品</li>
+<li>商业化里程碑显著：ChatGPT周活突破7亿，单月营收破10亿美元，iOS/Android累计消费者支出达20亿美元；可灵Q2收入2.5亿元，Manus年化营收9000万美元，AI产品变现能力大幅提升</li>
+<li>海外趋势转向场景折叠：英伟达推进物理AI边缘化，OpenAI将gpt-oss按Apache 2.0开源下沉开发者生态，Google用极低定价冲击图像生成市场，Anthropic推出Claude for Chrome抢占浏览器入口</li>
+<li>国内形成全栈开源闭环：阿里7天连发5款开源模型并构建云端OS硬件全栈；字节开源Seed-OSS-36B并推进视频SOTA；百度、腾讯、快手等在搜索、社交、视频等垂直场景深度落地，AI能力下沉至各类国产App与硬件</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2724352803.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

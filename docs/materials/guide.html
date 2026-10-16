@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI industry research corpus · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="AI industry research corpus. Existing material with source links, historical versions and unverified labels retained."/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/guide.html"/>
+<link rel="alternate" hreflang="en" href="https://rrrrrredy.github.io/research-toolkit/materials/guide.html"/>
+<link rel="alternate" hreflang="zh-CN" href="https://rrrrrredy.github.io/research-toolkit/materials/guide.zh-CN.html"/>
+<link rel="alternate" hreflang="x-default" href="https://rrrrrredy.github.io/research-toolkit/materials/guide.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../assets/materials.css">
+<script src="../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="Reading navigation"><a data-home-link href="../index.html">Research Toolkit</a><a href="index.zh-CN.html">中文目录</a><a href="index.html">English catalog</a></nav>
+<article class="report-article"><h1>AI industry research corpus</h1>
+<p><a href="guide.html">English</a> · <a href="guide.zh-CN.html">简体中文</a></p>
+<p>Optional historical research material about AI companies, products, models and industry developments, prepared from pinned versions of <code>aiknowledge-cli</code> and <code>ai-knowledge-graph</code>. Download <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">ai-industry-v1.zip</a>, extract it and open <code>README.zh-CN.md</code> to choose a document, or <code>recovered/README.zh-CN.md</code> for the five selected recoveries. The <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">release page</a> also provides SHA-256 checksums and the inventory. No retrieval service or Toolkit installation is needed.</p>
+<p><strong><a href="index.html">Browse all 281 materials online</a> · <a href="recovered/index.html">Five selected recoveries</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">Download all historical versions</a></strong></p>
+<p><a href="https://rrrrrredy.github.io/research-toolkit/materials/">Read the catalog and articles on the Toolkit website</a>. The Markdown here remains the source; the website is a static reading copy.</p>
+<p>The delivery includes readable documents, a JSONL catalog, normalized version metadata, unchanged original records, per-occurrence lineage, title-keyed excerpts, derived graph records, and an archive of every tracked input file. Differing versions remain separate; a reading copy chooses one existing record rather than assembling an article from unmatched versions. Generated summaries and metadata-generated text are explicitly separate from stored captures. Original date fields do not establish publication dates. Cleanup grants no additional redistribution or training rights.</p>
+<p><code>existing-source-map.jsonl</code> associates the material with Toolkit&#39;s frozen source pack, whose original files are retained unchanged. Materials, task-specific source packs, evaluation tasks and actual runs remain different units. This delivery adds no evaluation tasks, model runs or training demonstrations and does not change historical results. Future tasks can explicitly select the recovered material as a new input version.</p>
+<p>See the <a href="guide.zh-CN.html">Chinese guide</a> for file layout and use, <a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/inventory-summary.json">inventory summary</a> for counts, and <a href="recovery-notes.zh-CN.html">recovery notes</a> for selected findings and remaining gaps.</p>
+<p>To rebuild, place the two source repositories and <code>research-toolkit</code> beside this repository, with the pinned commits available, then run:</p>
+<pre><code class="language-bash">python scripts/build_ai_industry_corpus.py --inputs .. --output artifacts/ai-industry-v1
+</code></pre>
+<p>The standard-library-only script reuses existing immutable dataset writers and reads pinned Git objects without contacting original sites or models. Existing output directories are never overwritten. Raw deliverables follow the repository&#39;s existing <code>artifacts/</code> convention, outside the tracked source tree. The unchanged package is published as the separate <code>ai-industry-corpus-v1</code> prerelease, retaining historical versions and unverified labels without replacing the runtime dataset&#39;s latest release. This optional corpus adds neither a default Toolkit dependency nor cross-project retrieval.</p>
+<p>For website publication only, use Node 22+ with <code>marked@17.0.5</code> available, then run <code>node scripts/export_ai_industry_site.cjs ../research-toolkit/docs/materials</code> and Toolkit&#39;s existing <code>python scripts/build_site.py</code>. The exporter reuses this catalog, reading copies and recovery notes; it emits static HTML and page metadata. Toolkit installation and normal site builds do not require Node or marked. Source Markdown and the historical package are not rewritten.</p>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/README.md">Original Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">All historical versions</a></footer>
+</main></body></html>

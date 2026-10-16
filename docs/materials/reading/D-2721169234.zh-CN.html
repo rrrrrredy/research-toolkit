@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>八月第一周：GPT-5 领衔模型扎堆发布，开源与闭源路径分化 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="八月第一周：GPT-5 领衔模型扎堆发布，开源与闭源路径分化。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2721169234.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>八月第一周：GPT-5 领衔模型扎堆发布，开源与闭源路径分化</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2721169234。版本：0d46b9361042b46d4628f52ad15a2772513702c32b3d097531495f852f50f910。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/26</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/0d46b9361042b46d4628f52ad15a2772513702c32b3d097531495f852f50f910.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>八月第一周：GPT-5 领衔模型扎堆发布，开源与闭源路径分化</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外方面：三条主线正在重塑竞争规则</strong></p>
+<ul>
+<li><p><strong>模型军备竞赛进入“多弹头”阶段</strong><br>Google、OpenAI、Anthropic 不约而同地把旗舰模型拆成“全家桶”：Gemini 2.5 Deep Think、GPT-5 四兄弟、Claude Opus 4.1。表面看是矩阵化，实质是“用同一套基座做垂直细分”，把“参数越大越好”转成“任务越准越好”。未来比拼的不再是单一排行榜分数，而是“同一用户场景下的模型切换成本”。</p>
+</li>
+<li><p><strong>交互范式向“实时可操纵的世界模型”跃迁</strong><br>DeepMind 的 Genie 3 把“文本生成视频”升级为“实时可交互的 720p 世界”，Grok Imagine 把渲染时间压到 12 秒以内。这意味着“生成”正被“模拟”取代——下一步广告、游戏、影视制作的交付物不再是成片，而是一个可 fork 的数字宇宙。</p>
+</li>
+<li><p><strong>开源与闭源的路径分化</strong><br>OpenAI 在闭源 GPT-5 发布当天同步放出 gpt-oss-120b，Anthropic 则把 Claude Code Security Reviewer 开源。闭源负责赚钱、开源负责生态收割，已成海外巨头的标准打法；而 Meta、xAI 通过收购（WaveForms）或订阅分级（Grok Heavy）把开源社区逼向“付费插件”模式。开源逐渐成为获客漏斗。</p>
+</li>
+</ul>
+<p><strong>2.国内方面：轻量化与场景深潜成为主旋律</strong></p>
+<ul>
+<li><p><strong>“小模型+大场景”成为新共识</strong><br>Qwen3-4B、MiniCPM-V 4.0、混元 0.5B–7B 系列全部瞄准端侧及垂直场景。参数减半、性能对标上一代大模型，意味着国产模型不再盲目卷参数，而是卷“如何在手机里跑得快、在车里跑得稳”。这是中国独有的“芯片-终端-应用”三位一体优势带来的红利。</p>
+</li>
+<li><p><strong>超级 App 开始“模型即功能”</strong><br>高德地图 2025 把 AI Native 做成“出行生活智能体”，小米浏览器把豆包大模型当搜索栏，B 站用 AI 原声翻译做内容出海。模型不再是一个独立产品，而是被拆成原子级能力嵌入超级 App 的毛细血管。接下来谁掌握场景数据，谁就拥有模型迭代的飞轮。</p>
+</li>
+<li><p><strong>开源与闭源的“镜像战争”</strong><br>华为把 718B Ultra MoE 和 CANN 全栈开源，腾讯、小红书、科大讯飞连续放出开源框架或模型。与海外“闭源赚钱、开源获客”不同，国内大厂把开源当成“标准制定权”的争夺：先把底座铺进政企和开发者生态，再用云服务、芯片、终端闭环锁客。</p>
+</li>
+</ul>
+<p><strong>3.上周行业重点：GPT-5 的“高光 48 小时”与反噬</strong></p>
+<ul>
+<li><strong>史上最快用户破亿，也最快被吐槽</strong><br>8 月 8 日发布，8 月 9 日就被骂“缺创意”“上限太快”，逼得 Altman 连夜 AMA 并重新上架 GPT-4o。这预示着“大模型用户耐心窗口”正在指数级缩短——用户不再惊叹能力，而是立刻对比体验落差。未来发布会必须配套“灰度回滚”机制，否则口碑反噬会快于 PR 通稿。</li>
+<li><strong>“免费+付费”双轨定价的临界点</strong><br>  GPT-5 同时推出 1 美元政府版、20 美元 Plus、200 美元 Pro 以及传闻中的 10 美元 Go 版，OpenAI 在测试“价格歧视”极限。一旦 10 美元档位坐实，将直接击穿国内 20～30 元人民币的主流订阅心理价位，国产模型被迫提前进入“9.9 元包邮”时代。</li>
+<li><strong>广告开始渗透对话流</strong><br>亚马逊 Alexa+ 要在 AI 对话里插广告，Google 也在探索 AI Mode 广告位。当模型成为新的浏览器，广告即答案、答案即广告的场景将重塑“搜索竞价排名”的游戏规则；而用户愿意为无广告付多少钱，将决定 AI 时代的 ARPU 天花板。</li>
+<li><strong>企业级市场打响“代码安全”牌</strong></li>
+</ul>
+<h3>二、海外</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 5,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle 推出 Gemini 2.5 Deep Think 模型\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;8 月 1 日消息，谷歌宣布，Gemini 2.5 Deep Think 模型现已正式上线，现已在 Gemini 应用中向 Google AI Ultra 订阅用户开放。这款新模型在多个关键基准测试中超越了 OpenAI 的 o3 和 xAI 的 Grok 4。\n\n据外媒 Neowin 报道，今年 5 月，谷歌在 Google I/O 大会上首次介绍了 Gemini 2.5 Pro 的 Deep Think 模式，采用全新研究方法，可在作答前综合多个假设进行推理。本次发布的是该功能的升级版，结合早期内测用户的反馈和最新研究成果进行了优化。谷歌表示，新版本在性能上相比最初的 I/O 版本有了显著提升。\n\n谷歌还透露，这一模型是此前模型的一个变体（前述模型已在国际数学奥林匹克竞赛中获得金牌）。为适应日常使用场景，谷歌对其进行了加速优化，因此在 2025 年 IMO 基准测试中仅达到铜牌水平。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[color]{}DeepMind 宣布推出全新世界模型[/color]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;8 月 5 日晚，Google 旗下 DeepMind 正式宣布推出最新通用世界模型 Genie 3。\n\n官方介绍，只需要给一个文本提示，Genie 3 可以生成动态世界，用户可以在实时 24 帧 / 秒的速度下进行导航，并在 720p 分辨率下保持几分钟的一致性。\n\n世界模型是一种能够利用其对世界的理解来模拟世界某些方面的 AI 系统，使智能体能够预测环境将如何演变以及其行为将如何影响环境。\n\n据悉，Genie 3 相较于前代 Genie 2 和自家的视频生成模型（如 Veo 2、Veo3），它是作为第一个允许实时交互的世界模型，同时与 Genie 2 相比，其一致性和真实感也得到了提升，并且画质也从 360p 一跃至 720p。\n\n核心特点上：\n\nGenie 3 能够模拟世界物理属性，体验自然现象，如水、雷电，以及复杂的环境交互；\n\n模拟自然世界，生成充满活力的生态系统，从动物行为到复杂的植物生命；\n\n创造动画 / 小说模拟世界，捏出奇幻场景和富有表现力的动画角色；\n\n超越地理和时间的界限，探索不同的地方和过去的时代；\n\n拓展实时能力边界，并且能做到长时程环境一致性。\n\n官方表示，Genie 3 将会在迈向通用人工智能（AGI）的过程中发挥关键作用，并且智能体将在世界上扮演更重要的角色。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle AI 编程助手 “Jules” 新增拉取请求（PR）功能，实现全流程开发闭环\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;谷歌 AI 编程助手 “Jules” 在功能上进行了重大更新，新增了创建拉取请求（PR）的能力。这一更新标志着开发者们在软件开发过程中的一个重要进步，使得从编码到提交的整个流程得以更加高效地整合。\n\n根据 Jules 的更新日志，用户在完成代码变更后，可以直接请求 Jules 将这些变更打包，并生成拉取请求。这个新功能极大地方便了开发者，尤其是在团队协作和代码审查的过程中。以前，开发者在完成编码后，通常需要手动整合代码并创建 PR，而现在，Jules 能够帮助他们自动化这一过程，使得工作流更加流畅。\n\n本周被 Jules 官方称为 “Jules 发布周”，预计还会有更多新的功能推出。谷歌 AI 开发者关系负责人 Logan Kilpatrick 在社交媒体上发帖表示，这一周将会非常重要，虽然并不确定这是否只与 Jules 有关，但无疑让开发者们充满期待。\n\nJules 的这一新功能不仅提高了代码提交的效率，也帮助开发者们节省了大量的时间和精力。在当前快速发展的技术环境中，这种智能化的工具能够有效支持开发团队的工作，让他们将更多的时间投入到创新和产品开发中。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle Gemini 推出 AI 故事书生成器：几句话就能制作 10 页图文书，支持中文\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;谷歌近日为其 Gemini AI 聊天机器人新增了 \&quot;Storybook\&quot; 功能，用户仅需简单描述故事情节，系统便可自动生成一本完整的图文并茂故事书。这项功能的推出标志着 AI 内容创作工具在个性化出版领域的新突破。\n\n每本 AI 生成的故事书包含 10 个页面，每页都配有简洁的文字描述和相应的插图。Gemini 不仅能够创作故事内容，还具备语音朗读功能，为用户提供完整的多媒体阅读体验。\n\n在个性化定制方面，Storybook 功能表现出色。用户可以根据个人喜好选择不同的视觉风格，包括黏土动画、动漫和漫画等多种艺术表现形式。更为贴心的是，该功能还支持图片上传功能，家长可以将孩子的画作上传至系统，让 Gemini 以这些创作为灵感基础编写专属故事。\n\n从技术覆盖范围来看，Storybook 功能已在全球范围内正式上线，支持桌面端和移动端设备，并且兼容 Gemini 目前支持的所有语言版本。\n\n经过实际测试，该功能对中文用户友好度较高，能够生成流畅的简体中文内容，同时提供便捷的分享和导出打印选项，方便用户保存或制作实体书籍。\n\n不过，这项功能在技术细节上仍有改进空间。测试过程中发现，不同页面中同一角色的外观一致性还无法完全保证，比如故事中角色在不同页面可能出现服装颜色不统一的情况。这一技术局限表明 AI 在保持视觉连贯性方面仍需进一步优化。不过大多数情况下人物还是挺一致的，这个效果已经非常 OK 了。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[color]{}Google Gemini AI 推出「引导式学习」功能[/color]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;8 月 7 日消息，谷歌的 Gemini AI 推出了一项名为「引导式学习」（Guided Learning）的新功能，旨在帮助用户真正理解他们所学习的问题，而不仅仅是直接给出答案。谷歌首席执行官桑达尔・皮查伊（Sundar Pichai）在其博客文章中表示，这种「引导式学习」模式充当了「学习伴侣」，通过「提问和逐步指导」来引导用户。\n\n「引导式学习」模式提供的答案形式丰富多样，包括图片、视频和互动式小测验等。谷歌与学生、教育工作者、研究人员以及学习专家合作，确保该模式「有助于理解新概念，且有学习科学理论作为支撑」。\n\n作为本周三宣布的计划的一部分，谷歌现面向美国、日本、印度尼西亚、韩国和巴西的 18 岁及以上学生推出一项福利：只要在 10 月 6 日之前注册，即可免费获得 12 个月的谷歌 AI Pro 计划。此外，谷歌还承诺在未来三年内投入 10 亿美元（现汇率约合 71.88 亿元人民币）资金，用于「美国教育，包括 AI 素养项目、研究资助和云计算资源」。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>八月第一周，AI领域迎来密集的模型发布潮，开源与闭源路径的分化愈发清晰。</p>
+<p>OpenAI的GPT-5发布48小时内用户破亿，却随即遭用户吐槽&quot;缺创意&quot;，迫使Altman重新上架GPT-4o。GPT-5推出四档定价体系：1美元政府版、20美元Plus版、200美元Pro版及传闻中的10美元Go版。与此同时，OpenAI同日开源gpt-oss-120b，&quot;闭源赚钱、开源收割生态&quot;已成海外巨头的标准打法。国内方面，Qwen3-4B、MiniCPM-V 4.0、混元0.5B–7B系列主攻端侧部署，参数减半而性能对标上代大模型；华为则将718B Ultra MoE和CANN全栈开源，以开源手段争夺技术标准制定权。</p>
+<p>谷歌本周同样动作频频。Gemini 2.5 Deep Think正式上线，面向AI Ultra订阅用户开放，该模型在多项基准测试中超越OpenAI o3和xAI Grok 4，其前身正是在国际数学奥林匹克竞赛中夺金的模型变体。DeepMind发布的通用世界模型Genie 3支持实时24fps交互与720p分辨率，画质较上代Genie 2的360p大幅提升，可模拟物理属性与自然生态，并维持数分钟的环境一致性。</p>
+<p>在产品层面，谷歌将本周定为&quot;Jules发布周&quot;，AI编程助手Jules新增创建拉取请求的全流程自动化能力。Gemini新增Storybook功能，用户凭简单描述即可自动生成10页图文故事书，支持黏土动画、漫画等多种风格，已全球上线并兼容中文。此外，Gemini还推出&quot;引导式学习&quot;功能，以提问和逐步引导代替直接给答案，并搭配图片、视频、互动测验等多种形式，有学习科学理论支撑。谷歌同步宣布面向五国18岁以上学生提供免费12个月AI Pro计划，并承诺三年内向美国教育投入10亿美元。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>GPT-5发布后48小时内用户破亿，但随即因&#39;缺创意&#39;&#39;上限太快&#39;遭用户大量批评，Altman被迫重新上架GPT-4o，揭示大模型用户耐心窗口极速收窄。</li>
+<li>Google、OpenAI、Anthropic不约而同将旗舰模型矩阵化拆分，竞争焦点从参数规模转向特定任务场景下的精准能力与用户切换成本。</li>
+<li>DeepMind发布世界模型Genie 3，实现720p分辨率24帧实时可交互世界生成，标志着AI交互范式从内容生成向可交互世界模拟跃迁。</li>
+<li>国内厂商集体押注轻量化端侧模型，Qwen3-4B、MiniCPM-V 4.0、混元0.5B-7B系列参数减半但性能对标上代大模型，形成&#39;芯片-终端-应用&#39;三位一体竞争优势。</li>
+<li>海外巨头以闭源产品盈利、开源版本获取开发者生态，国内华为等大厂则以全栈开源争夺行业标准制定权，两种路径形成鲜明分化。</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2721169234.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>大模型处理时序数据的挑战和方法 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="大模型处理时序数据的挑战和方法。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2290737002.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>大模型处理时序数据的挑战和方法</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2290737002。版本：67b82b739b7b98fd737fddc886c1847a55b52bc5cd5fe0ff1dcfac1b11bd241e。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/229</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/67b82b739b7b98fd737fddc886c1847a55b52bc5cd5fe0ff1dcfac1b11bd241e.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 542s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;aacf293b307c4aa5ac334716158ffc80&quot;}
+大模型处理时序数据的挑战和方法</p>
+<p>ICML 2024 于 5 月初公布了本年度 paper List。大会收录论文中，时间序列主题的热度上涨，其相关论文数量总计 37+ 篇，对比去年大会实现翻倍。其中，多篇论文探索了如何通过基础模型处理时序任务。</p>
+<h1><strong>一、LLM 处理时序数据的挑战</strong></h1>
+<p>1.针对时间序列数据的分析和预测在零售、金融、制造和医疗保健等各个行业和相关场景中均有应用。对于此类任务，以往的大多数做法是给每一个任务都训练一个匹配模型。</p>
+<p>2.2021 年，在 Foundation Model 的概念被提出后，研究者开始尝试是否能用一个模型去完成多种分析任务，比如可以接受多模态输入，然后完成多种多样的任务。对于时序数据，相关工作的目标主要在于基础模型是否能够接受时间序列，然后完成对应的预测、缺失值填补、异常检测、分类等下游任务。</p>
+<p>3.莫纳什大学、阿里巴巴、港科大、蚂蚁等机构的研究者在 2023 年的综述中回顾了一系列时间序列大模型的进展，并基于采用的工艺对模型进行分类，而后总结 LLM 处理时序数据中的挑战。</p>
+<p>① 数据规模和多样性：时序数据和时空数据的规模通常非常庞大，且具有高度的多样性。大型模型需要能够处理和学习这些数据中的复杂模式和动态系统测量值。</p>
+<p>② 模型的泛化能力：大型模型通常是在大规模数据上预训练的，然后在特定任务上进行微调。这可能导致模型在处理未见过的数据或分布外数据时泛化能力不足。</p>
+<p>③ 隐私和对抗性攻击：时序数据可能非常敏感，特别是在医疗和金融等应用中。当大型模型在此类数据上进行训练或微调时，可能会记住训练数据中的特定细节，从而带来数据泄露的风险。</p>
+<p>④ 模型的脆弱性：大型模型在预训练和微调过程中可能会引入脆弱性，如果微调数据包含对抗性或噪声示例，模型可能会继承这些数据的偏差或脆弱性。</p>
+<p>⑤ 跨领域应用的挑战：大型模型在自然语言处理等领域表现出色，但将其应用于时序和时空数据需要解决跨领域的问题，包括不同数据模态的融合和上下文理解。</p>
+<p>⑥ 理论分析：需要更深入的理论分析来理解大型模型在时序数据上的表现，包括它们如何捕捉时间数据中的模式，并有效地应用于具体的时序和时空任务。</p>
+<h1><strong>二、通过 LLM 预训练能解决时序任务的挑战吗？</strong></h1>
+<p>自基础模型的概念出现，研究者开始尝试用预训练LLM来处理时序任务。有团队尝试规避时序数据在规模和多样性上的挑战，利用NLP预训练模型的跨领域迁移能力来提升任务表现，也有团队尝试构建大规模时序数据集，从头开始训练基础模型。</p>
+<p>1.2023 年 2 月，阿里达摩院团队在「One Fits All」论文中提出了简单且同一的框架，用冻结的预训练语言模型（GPT2），在各种主要类型的时间序列分析任务中实现了 SOTA 或相当水平的性能，包括时间序列分类、短期/长期预测、时序填充任务、异常检测、少样本和零样本预测任务。</p>
+<p>① 针对时序数据的来源不同，数据分布差异极大以及公开数据集太少的局限，采用通过 NLP 预训练模型迁移的方式跳过这两个问题，利用 NLP 预训练模型跨领域的迁移能力来提升所有时序分析下游任务的效果。</p>
+<p>② 该工作提出了 Frozen Pretrained Transformer（FPT）模型。架构保留了预训练模型中的 attention 和 FFN 模块， 由于自注意力层和 FFN 包含了大部分来自预训练语言模型的知识，研究者选择在 Fine-tuning 期间冻结模型。</p>
+<p>③ 经测试，在零试学习场景中，FPT 模型能够在没有针对特定数据集进行微调的情况下，展示出良好的跨数据集适应能力。; 少数学习场景中，即使只有很少的训练数据，FPT 模型也能快速适应并提供准确的预测。</p>
+<p>④ 研究者还通过使用不同类型的预训练模型（如 BERT 和 BEiT）来进一步证明跨领域知识迁移的通用性，这些模型在时间序列预测任务上也表现出了良好的性能。</p>
+<p>2.Nixtla 团队在 2023 年 10 月提出的 TimeGPT 被认为是业界首个时间序列基础模型，其特点是能够在不同领域之间进行泛化，让模型在训练阶段之外的数据集上产生精确的预测。</p>
+<p>① TimeGPT 采用完整的编码器-解码器 Transformer 架构，使用自注意力机制并结合局部位置编码来丰富输入。该模型采用编码器-解码器结构，每层都包含残差连接和层归一化。</p>
+<p>② TimeGPT 采用来自来自经济学、人口统计学、医疗保健、天气、物联网传感器数据、能源、网络流量、销售、交通和银行等各种领域的大量公开可用数据集，总 100 亿个数据点。</p>
+<p>③ 在论文发布时，TimeGPT 在多个领域的时间序列预测任务中表现出色，在少试和零试场景中尤为突出。论文中的实验结果显示，TimeGPT 在月度、周度、日度和小时度数据的预测中，均优于其他方法。</p>
+<p>3.2024 年 2 月，摩根斯坦利和多家加拿大高校的研究者提出的 Lag-Llama 则是首个开源的时序基础模型。</p>
+<p>① Lag-Llama 是面向单变量概率预测开发的模型，采用基于 Transfomer 的纯解码器架构。它使用不依赖于频率的通用方法来标记时间序列数据，由此让模型更好地泛化到不可见的频率。</p>
+<p>② Lag-Llama 的训练数据是由由 27 个不同领域的时间序列数据集组成的大型语料库，共有约 7,965 个不同的单变量时间序列，总共包含了大约 3.52 亿个数据 tokens。数据集涉及能源、交通、经济、自然环境和云操作等。</p>
+<p>③ 经测试，在没有针对特定下游数据集进行微调的情况下，Lag-Llama 表现了一定程度的零试泛化能力，但性能表现并非最佳。</p>
+<p>④ 有知乎文章评价称，Lag-Llama 算是构建开源预测模型的第一步，但与 TimeGPT 相比，它在功能方面存在不足。TimeGPT 可以处理多变量时间序列、不规则时间戳，并实现共形预测，对比 Lag-Llama 用的固定分布更为稳健。</p>
+<p>4.在 ICML 2024 在今年收录的论文中，有数篇论文探索了时序基础模型。</p>
+<p>① 谷歌团队提出的「TimesFM」是用于预测的时间序列基础模型，该模型在各种公共数据集上的开箱即用的零试性能表现接近于针对每个数据集监督训练的 SOTA 预测模型。</p>
+<p>② CMU 团队提出的「Moment」是用于通用时间序列分析的开源基础模型。该工作汇编了大量不同的公共时间序列，形成 &quot;时间序列堆&quot;（Time series Pile），并系统地解决了特定时间序列的挑战研究者着还设计了一个基准来验证 Moment 在最小数据量和特定任务微调下的有效性。</p>
+<p>③ SalesForce AI 研究院团队提出的「Moirai」模型是基于掩码编码器的通用时间序列预测 Transformer。该工作开发了一个大规模开放时间序列档案（LOTSA）来训练 Moirai，该档案涵盖九个领域中超过 2700 万个观测数据。经测试，Moirai 的长期预测能力可以接近以往 SOTA，在异常检测的多个数据集的上表现优异，对于时间序列的插值填充也可以实现最低的重建误差。</p>
+<h1><strong>三、LLM 处理时序任务的新方法</strong></h1>
+<p>1.基于 Prompt 的方法会直接将时间序列数据输入模型，引导模型输出预测结果。</p>
+<p>① 在数据处理的过程中，模型将时间序列中的数字作为文本内容处理，这种形式涉及如何对数字进行 tokenize。</p>
+<p>② 部分研究工作会在数字之间添加空格，确保其被准确识别和处理，从而避免传统方法在数字区分上的局限。</p>
+<p>③ 这种方法的代表性工作是 PromptCast（2022）。该方法将时间序列预测问题转化为自然语言生成的方式，首次从这个角度尝试解决时间序列预测问题。</p>
+<p>2.采用离散化的方法会先将连续的时间数据进行断点，转换为离散离散的表示，方便擅长 NLP 任务的 LLM 对数据进行处理和分析。</p>
+<p>① 离散化（Discretization）是时序数据分析中的常用方法，通常是处理对象使其易于数值计算机进行数值评估和处理的第一步。</p>
+<p>② 离散化的特征相对于连续型特征更易理解，更接近知识层面的表达。</p>
+<p>③ 这种方法的代表性工作是谷歌的 AudioLM（2022）。该工作提出了一种混合分词方案，将输入音频映射到离散 token 序列，并将音频生成视为在该表示空间中的语言建模任务，从而实现了音频合成和长期一致性的优化。</p>
+<p>3.时序-文本对齐的方法参考了多模态学习中的对齐技术，将时间序列的特征表示映射到文本空间，然后直接输入 LLM。</p>
+<p>① 这种方法的代表性工作是 UIUC 的研究者 2021 年发布的《Open Vocabulary Electroencephalography-To-Text Decoding and Zero-shot Sentiment Classification》，该工作提出的方法利用预训练的语言模型，在没有标记的脑电图情绪数据的情况下，实现对解码文本的情绪进行分类。</p>
+<p>② 莫纳什大学、蚂蚁和 IBM 研究院等机构的研究者提出的 TIME-LLM 框架（2024）通过将输入时间序列重新编程为更自然的文本原型表示，并使用声明性 Prompt（如领域专家知识和任务说明）来增强输入上下文，从而指导 LLM 进行推理。TIME-LLM 在没有微调的情况下，在多个基准测试中表现优于以往的 SOTA 预测方法。</p>
+<p>4.视觉模态时序-视觉联系的方法同样参考了多模态学习中的对齐技术，通过建立时间序列和视觉信息的联系，方便模型为下游任务提取相应的特征并完成预测或分析。</p>
+<p>① 这种方法通常会阶段进行，利用不同的模型完成时序和视觉模态的对齐，以及后续的特征提取工作。</p>
+<p>② 这种方法的代表性工作是佐治亚理工团队在 2023 年发布的《Generating Virtual On-body Accelerometer Data from Virtual Textual Descriptions for Human Activity Recognition》，通过利用 ChatGPT 生成虚拟文本描述，然后生成 3D 人体动作序列，再将其转换为虚拟 IMU 数据流，从而提高 HAR（人类行为识别）模型的识别性能。</p>
+<p>③ 清华团队提出的 VTimeLLM（2023）方法则通过三阶段方法让模型能够理解视频中的多个事件，并提供精确的时间边界。第一阶段使用图像-文本对来训练视觉适配器，将视频特征与 LLM 的语义空间对齐；第二阶段通过多轮 QA 任务让模型具有时序感知能力；第三阶段用高质量对话数据进行指令微调，提升模型对时间的理解能力；能够理解视频中的多个事件，并提供精确的时间边界。</p>
+<p>5.还有许多工作将 LLM 作为一种工具来处理时序数据。</p>
+<p>① 这种方法可能不会对大模型本身进行结构上的优化，通常也不改变时序数据的形式来适应模型需求。</p>
+<p>② 这种方法的代表性工作是 UCSD 提出的 SHARE（2023）。该工作针对 HAR 任务设计了三种标签增强方法，包括基本的标记级别增强，以及利用预训练模型的嵌入级别和序列级别增强，然后让 SHARE 通过编码器提取感官输入的特征，并通过解码器预测标签名称序列。[9]</p>
+<h1><strong>四、近期“基础模型+时序数据”相关论文汇总</strong></h1>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          308
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**:[font]{size=13}论文标题[/font]**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**:[font]{size=13}发布时间[/font]**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          381
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**:[font]{size=13}创新点[/font]**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          308
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n[PromptCast: A New Prompt-based Learning Paradigm for Time Series Forecasting](https://arxiv.org/abs/2210.08964)\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=13}2023[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          381
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=13}1.将传统的数值输入、输出转换为自然语言 prompts，并采用 sentence-to sentence 的方式进行时间序列预测；[/font]\n:::\n\n:::paragraph{align=center indent=0}\n:[font]{size=13}2.与传统的数值基础预测相比，PromptCast 在 zero-shot 设置下显示出更好的泛化能力。[/font]\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          308
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[One Fits All: Power General Time Series Analysis by Pretrained LM](https://arxiv.org/abs/2302.11939)&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<h1>大模型处理时序数据的挑战和方法</h1>
+<p>时序数据处理正成为大模型研究热点，ICML 2024收录时间序列主题论文超过37篇，较上年翻倍，多篇论文聚焦基础模型在时序任务中的应用。</p>
+<p>LLM处理时序数据面临六大核心挑战：数据规模多样性、泛化能力、隐私安全、模型脆弱性、跨领域应用以及理论分析不足。针对这些挑战，学界提出了多种代表性方案。阿里达摩院提出的「One Fits All」方案通过冻结GPT2模型的attention和FFN模块，借助NLP跨领域迁移能力，在多类时序任务上实现SOTA性能。TimeGPT被视为业界首个时序基础模型，采用编码器-解码器Transformer架构，训练数据涵盖多领域共100亿数据点，在零试和少试场景中表现突出。Lag-Llama作为首个开源时序基础模型，采用纯解码器架构，训练语料涵盖27个领域约7965个单变量时间序列、约3.52亿数据tokens，使用频率无关的通用标记方法提升泛化能力。此外，谷歌TimesFM实现了接近监督训练SOTA的零试预测性能；CMU的Moment汇编大量公共时序数据形成&quot;时间序列堆&quot;，支持通用分析；SalesForce的Moirai基于大规模开放档案LOTSA训练，在预测、异常检测和插值填充任务上表现优异；TIME-LLM则将时间序列重编程为文本原型表示，无需微调即可超越多项基准SOTA。</p>
+<p>当前处理时序数据的方法主要归纳为四类方向：基于Prompt、离散化、时序-文本对齐及时序-视觉联系，共同推动时序基础模型走向实用化。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>LLM处理时序数据面临六大挑战：数据规模与多样性、模型泛化能力不足、隐私与对抗性攻击风险、模型脆弱性、跨领域应用难题以及理论分析匮乏</li>
+<li>代表性时序基础模型包括：阿里达摩院的FPT（冻结预训练Transformer）、Nixtla的TimeGPT（首个时序基础模型）、Lag-Llama（首个开源时序基础模型），以及ICML 2024收录的TimesFM、Moment和Moirai</li>
+<li>LLM处理时序任务的四类新方法：基于Prompt直接输入数字文本（PromptCast）、离散化方法将连续数据转为离散表示（AudioLM）、时序-文本对齐方法映射到文本空间（TIME-LLM）、时序-视觉联系方法建立多模态对齐（VTimeLLM）</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2290737002.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

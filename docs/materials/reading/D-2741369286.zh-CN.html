@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI行业月度观察202512 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="AI行业月度观察202512。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2741369286.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>AI行业月度观察202512</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2741369286。版本：47c9af9fab3626082f40e09eeebab5cd6a447193d6ab7a86e9466e3f958ca7f0。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/206</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/47c9af9fab3626082f40e09eeebab5cd6a447193d6ab7a86e9466e3f958ca7f0.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>AI行业月度观察202512</p>
+<h3>一、整体趋势</h3>
+<h4>1.12 月关键里程碑</h4>
+<p><strong>1.1.模型/技术</strong></p>
+<ul>
+<li>在公开的推理类 Benchmark 测试中，DeepSeek-V3.2 达到了 GPT-5 的水平，仅略低于 Gemini-3.0-Pro；</li>
+<li>V3.2-Speciale 模型成功斩获 IMO 2025（国际数学奥林匹克）、CMO 2025（中国数学奥林匹克）、ICPC World Finals 2025（国际大学生程序设计竞赛全球总决赛）及 IOI 2025（国际信息学奥林匹克）金牌。其中，ICPC 与 IOI 成绩分别达到了人类选手第二名与第十名的水平；</li>
+<li>在 Artificial Analysis 的 Video Arena 排行榜中，Runway 的 Gen-4.5 位居第一；</li>
+<li>OpenRouter 和 a16z 联合发布报告，基于 100 万亿 Token 元数据显示开源模型流量占比达 30%，中国开源模型从 1.2% 飙升至近 30%；</li>
+<li>GPT-5.2 在众多基准测试中均刷新了最新的 SOTA 水平；</li>
+<li>GPT-5.2 API 上线首日调用量破万亿；</li>
+<li>截至 2025 年 12 月，豆包大模型日均 token 使用量突破 50 万亿，较去年同期增长超过 10 倍；目前已有超过 100 家企业客户累计 token 使用量超过 1 万亿；</li>
+<li>Gemini 3 Flash 在 SWE-Bench Verified 测试中获得 78% 分数，超越 Pro 版的 76.2%，且速度是 2.5 Pro 的 3 倍，Token 消耗量减少 30%；</li>
+</ul>
+<p><strong>1.2.产品/用户/收入</strong></p>
+<ul>
+<li>灵光上线两周创纪录，闪应用数量突破 330 万；</li>
+<li>智谱模型销售年经常性收入已超 1 亿元；</li>
+<li>OpenAI：ChatGPT 目前每周为超过 8 亿用户提供服务；</li>
+<li>千问公测 23 天，月活突破 3000 万；</li>
+<li>ChatGPT 登顶 2025 年美国 iPhone 免费应用榜首；</li>
+<li>蚂蚁阿福下载量飙升，冲上苹果 App Store 总榜第三；</li>
+<li>Manus 达 1 亿美元 ARR 里程碑；</li>
+<li>豆包日活用户数突破 1 亿；</li>
+<li>灵光闪应用创建量突破 1200 万。</li>
+</ul>
+<h4>2.12 月行业趋势</h4>
+<p><strong>2.1.海外：从“更强模型”全面转向“可执行的 Agent 系统”，协议化与工程化一起加速</strong></p>
+<p>12 月海外最核心的变化，是竞争焦点从“模型能力领先”转向“Agent 化产品 + 工具连接标准 + 推理系统工程”的组合战。</p>
+<p><strong>第一，Agent 正在从产品形态升级为“平台能力”，而平台的关键不再是 UI，而是“工具接入与治理”。</strong><br>Google 明确把平台做成 “agent-ready”：通过托管 MCP 服务器，把 Maps、BigQuery、Kubernetes 等变成智能体可直接调用的工具端点，并且把 IAM 权限、审计日志、注入防护等治理能力一起打包上来——这意味着企业做 Agent 的门槛正在从“写连接器”变成“接入受控端点”。与此同时，Linux 基金会牵头的 Agentic AI Foundation（AAIF）把 MCP、<a href="http://AGENTS.md">AGENTS.md</a> 等基础组件纳入中立组织，传递的信号是：智能体基础设施正在走向“协议化/标准化”，避免被少数平台锁死。海外的“护城河”不再只是更强的模型，而是“标准 + 工具市场 + 治理体系”。未来企业采购的不一定是某个模型 API，而是能否买到一套可审计、可控、可复用的 Agent 基建栈。</p>
+<p><strong>第二，“推理”进入成本与体验约束：长思考不再无脑堆，低延迟与能效成为硬指标。</strong><br>一条线是模型侧对推理能力的继续拉升（更强 reasoning、更复杂任务），另一条线是对“思考长度/响应时间/Token 成本”的反向约束——12 月很多动作都在告诉市场：推理不是越长越好，而是要在可靠性与成本之间找到工程最优解。对应到硬件与系统层面，AWS 推 Trainium3 强调性能与能效、并向更大规模集群推进；NVIDIA 引入 Groq 的低延迟推理能力，指向“实时推理负载”的系统补齐。2026 的主战场大概率是“推理时代的 AI 工厂”：吞吐、时延、成本、调度、可观测性会像云计算时代的 SRE 一样，成为决定体验与利润的关键变量。</p>
+<p><strong>第三，多模态（尤其视频）从“能生成”进入“可控叙事与工业化生产”。</strong><br>Runway 等强调物理规律、动作、镜头控制与一致性，国内外都在往“可用素材”逼近：这意味着视频生成正在从 demo 走向生产链路，竞争维度也从“画质”变成“可控性 + 工作流适配”。内容生成赛道的下一轮赢家，往往不是“最会画”的，而是“最能融入制作流程”的：一致性、分层编辑、镜头语言、资产管理、版权与溯源，会决定是否能进影视/广告/电商真正的生产体系。</p>
+<p><strong>第四，开发者侧进入“多 Agent 协作工具链”阶段。</strong><br>12 月海外出现明显趋势：代码与生产力工具从“一个 Copilot”演进为“一个能编排多个角色的协作环境”（IDE/插件/任务模式/Artifacts 归档），并且越来越强调权限、回滚、审计、可重复执行。AI 编程的终局不只是更会写代码，而是把研发流程产品化：需求分解、代码生成、测试、Review、发布、回滚、合规，都会被纳入同一套 Agent 化流水线。</p>
+<p><strong>2.2.国内：超级入口与产业落地提速，“Agent OS + 行业智能体规模化”成为主旋律</strong><br>12 月国内的主线是：一边争夺“入口/操作系统”，一边把智能体推到真实组织与业务指标里。<br><strong>第一，入口竞争升级：从 App 竞争走向“OS 级/平台级”竞争。</strong><br>阿里成立千问 C 端事业群，把千问、夸克、AI 硬件、UC 等整合，目标非常明确：做超级 App，并把生活服务与多终端覆盖接进来；钉钉发布 Agent OS + DingTalk Real，把企业智能体从“软件功能”推向“可部署的工作智能系统”（甚至给出“从卖功能到卖结果/按效果定价”的商业信号）。腾讯则在组织层面强化大模型与 Infra/数据/计算平台的耦合，并把关键角色直连最高决策层，说明大厂在把“模型”当作公司级基础设施来建设。国内的优势路径更像“超级入口驱动的应用规模化”。谁能把“用户触达 + 工具调用 + 数据闭环 + 权限治理”做到一体化，谁就更容易把智能体变成稳定留存与可计费的生产力。<br><strong>第二，模型侧的关键词是“推理 + 工具调用 + Agent 训练方法”。</strong><br>DeepSeek V3.2 强化 Agent 能力并把“思考推理”融入工具使用，强调在复杂任务上既要强推理，也要可执行；腾讯混元 2.0、字节（Vidi2、机器人 RL）等也都在沿着“推理/工具/执行”链路持续加码。国内模型竞争正在从“通用能力”转向“端到端可用性”：能否稳定调用工具、能否在多环境中泛化、能否在成本可控下完成任务，正在变成比单点 benchmark 更重要的指标。<br><strong>第三，多模态与视频在国内进入“平台化供给”：不仅要生成，还要剪辑、理解、结构化。</strong><br>字节 Vidi2 把视频理解、检索、脚本生成与剪辑能力往“内容生产工具”方向推；阿里万相持续迭代并在产品侧接入；快手、生数、商汤等也在各自生态里把生成能力产品化。国内内容生态强、场景密集，视频模型更容易走出“端到端闭环”：模型不止输出视频，而是输出可直接上架/投放/分发的内容资产。<br><strong>第四，产业落地出现“规模化运营指标”，智能体开始被当成组织资产管理。</strong><br>典型如零售企业构建数百个智能体覆盖多部门、数万员工使用、百万级对话——这类数据意味着企业侧正在从“试点”进入“运营阶段”：要开始算 ROI、算覆盖率、算渗透率、算流程缩短与人效提升。To B 的胜负手会从“模型效果”转向“组织落地能力”：流程重构、数据治理、权限与审计、交付与运维，决定能否从项目走向规模化续费。<br><strong>第五，生态摩擦在 12 月显性化：当 Agent 试图“跨 App 执行”，平台边界会迅速收紧。</strong><br>豆包手机助手工程机展示跨 App 操作后，出现部分应用拒绝登录/触发风控提示的现象，银行金融类 App 也对屏幕共享/助手能力更敏感。国内 Agent 落地的隐形门槛不是“能不能做”，而是“生态允不允许”。未来跨 App Agent 必然走向：更严格的系统级权限、更细粒度的动作沙箱、更标准化的调用接口，否则就会不断撞上平台风控与合规红线。</p>
+<h3>二、主要产品、技术更新</h3>
+<h4>1.海外</h4>
+<p>:[data2chart]{id=&quot;bcf92a76eee570ccedab&quot; pageId=&quot;2741369286&quot;}</p>
+<h5>1.1.海外大公司</h5>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**分类**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**亚马逊**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品发布\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;亚马逊发布新一代自研 AI 芯片 Trainium3：性能提升 4 倍，能效提升 40%&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品发布\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;亚马逊云科技推出三款 AI 智能体，Kiro 可连续自主编程数日&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 19,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google 测试搜索与 AI 对话模式无缝连接新功能&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品发布\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google 推出跨平台自动化新工具 Workspace Studio，零代码打造 Gemini AI Agent&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google 推出 Gemini 3 Deep Think 模式，AI 推理能力显著提升&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n技术更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google Titans 新架构亮相，RNN 极速响应 + Transformer 性能&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google Gemini 网页版更新 “我的内容” 文件夹，可一键访问生成的 AI 图像&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>2025年12月AI行业呈现模型能力与生态竞争双线并进的格局。模型层面，DeepSeek-V3.2在推理类Benchmark中达到GPT-5水平，其专项版本V3.2-Speciale更斩获IMO、CMO、ICPC、IOI 2025四项金牌；GPT-5.2刷新多项SOTA，API上线首日调用量破万亿。用户规模方面，豆包日均token使用量突破50万亿，日活用户突破1亿，较去年同期增长超10倍；OpenAI ChatGPT每周服务超8亿用户，登顶2025年美国iPhone免费应用榜首；千问公测23天月活突破3000万，阿里随即成立千问C端事业群整合多终端入口。</p>
+<p>Agent落地方面，国内已进入规模化运营阶段，部分零售企业构建了数百个智能体，覆盖数万员工、百万级对话。To B竞争重心也从模型效果转向组织落地能力，涵盖流程重构、数据治理与权限审计。跨App操作成为新摩擦点，豆包手机助手跨App操作功能引发部分平台风控响应，银行金融类App对屏幕共享能力尤为敏感，业界普遍认为未来出路在于系统级权限、动作沙箱与标准化调用接口。</p>
+<p>基础设施与架构层面，亚马逊发布新一代自研AI芯片Trainium3，性能提升4倍、能效提升40%，并推出可连续自主编程数日的智能体Kiro。Google方面动作密集：发布结合RNN极速响应与Transformer高性能的Titans新架构，推出支持零代码构建Gemini AI Agent的Workspace Studio，上线Gemini 3 Deep Think推理增强模式，并测试搜索与AI对话无缝连接功能。海外竞争焦点已从单一模型能力转向&quot;Agent系统+工具连接标准+推理工程&quot;的组合战。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>DeepSeek-V3.2在推理Benchmark达GPT-5水平，其Speciale版本在IMO、ICPC、IOI等顶级国际竞赛中斩获金牌，中国开源模型流量占比飙升至30%</li>
+<li>GPT-5.2刷新多项SOTA，API上线首日调用量破万亿；ChatGPT周活超8亿用户，登顶2025年美国iPhone免费应用榜首</li>
+<li>海外AI竞争从模型能力转向Agent系统工程，MCP协议标准化加速，平台护城河变为标准+工具市场+治理体系的组合</li>
+<li>国内入口竞争升级至OS级，阿里整合千问C端、钉钉推Agent OS，企业智能体落地进入规模化运营并开始计算ROI指标</li>
+<li>视频生成从技术演示走向工业化生产，竞争维度从画质转向可控性与工作流适配，推理成本与低延迟成为2026年主战场关键变量</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2741369286.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

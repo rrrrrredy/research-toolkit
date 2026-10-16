@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>谷歌最新 Agent 白皮书及往期 AI Agent 研究 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="谷歌最新 Agent 白皮书及往期 AI Agent 研究。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2700822328.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>谷歌最新 Agent 白皮书及往期 AI Agent 研究</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2700822328。版本：9f4664414794541e4e60351fe0d6f7cff6537222ccd3d2320d042f9ad865785f。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/126</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/9f4664414794541e4e60351fe0d6f7cff6537222ccd3d2320d042f9ad865785f.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>谷歌最新 Agent 白皮书及往期 AI Agent 研究</p>
+<h1>一、核心要点</h1>
+<p>1.1 月谷歌团队发布了 Agent 主题的<a href="https://www.kaggle.com/whitepaper-agents">白皮书</a>，全面地介绍了关于 Agent 的基本概念、与 LLM 的区别、核心架构、工作原理及在实际中的应用等。报告指出，<strong>Agent 是 LLM 在知识获取方式、会话管理能力、工具与逻辑层实现等方面能力的拓展，而 LLM 知识局限于训练数据，则无需这些能力</strong>。</p>
+<p>2.Agent 的工作原理可以概括为一个认知架构，这个架构包括三个核心组件：模型、工具和编排层；Agent 功能是基于模型功能的基础上，在知识获取方式、会话管理能力、工具与逻辑层实现等方面能力的拓展。</p>
+<p>3.在白皮书中，详细地介绍了 Agent 的工作原理，包括如何收集、处理信息以及决策下一步动作等。其中，报告特别提到，编排层是 Agent 认知架构的核心。编排层是一个循环过程， Agent 通过该过程接收信息、进行内部推理，并依据推理结果决定下一步行动或决策。这个循环会持续进行，直到代理达成目标或到达停止点。其复杂性因代理和任务而异，简单的可能只是包含决策规则的计算，复杂的则可能涉及链式逻辑、额外的机器学习算法或其他概率推理技术。</p>
+<p>4.Agent 与环境交互的三个工具分别是扩展、函数和数据储存。</p>
+<p>5.在实际应用中，模型有效选择合适工具对于生成高质量输出至关重要，尤其是在大规模生产环境中使用工具时。尽管一般训练有助于模型发展此技能，但现实场景往往需要超越训练数据的知识，因此需要针对性学习来提升模型在特定任务中的表现，确保 Agent 能够准确、高效地应对各种复杂情况，满足多样化的任务需求。</p>
+<h1>二、Agent 是什么？与传统的 LLM 有何区别？</h1>
+<p>白皮书中详细介绍了关于 Agent 的概念、核心架构以及工作原理。同时，在报告中，还解析了 Agent 与传统 LLM 之间的区别。报告指出，<strong>Agent 是 LLM 在知识获取方式、会话管理能力、工具与逻辑层实现等方面能力的拓展，而 LLM 知识局限于训练数据，则无需这些能力</strong>。</p>
+<p>人类在处理复杂任务时常常借助工具来补充知识并得出结论，类似地，生成式 AI 模型也可被训练使用工具以获取实时信息或执行实际行动。例如，模型能利用数据库检索工具获取客户购买历史等信息来生成个性化购物推荐，或根据用户查询进行 API 调用以发送邮件或完成金融交易等。这种结合推理、逻辑和外部信息访问能力且与生成式 AI 模型相连的方式，引出了 Agent 的概念，即超越生成式 AI 模型独立能力的程序。</p>
+<p>Agent 为解决生成式 AI 模型在实际应用中的局限性提供了思路，使得模型能够更好地应对复杂任务，通过自主规划和执行任务，以及与外部系统交互获取实时信息，大大扩展了模型的应用范围和能力边界，在众多领域展现出潜在的巨大价值，推动了 AI 技术向更实用、更智能的方向发展。</p>
+<p><strong>Agent 的工作原理可以概括为一个认知架构，这个架构包括三个核心组件：模型、工具和编排层</strong>。</p>
+<ul>
+<li>模型是 Agent 的「大脑」，负责处理信息、生成决策和输出结果。它可以是一个或多个语言模型，具备基于指令的推理和逻辑框架能力。</li>
+<li>工具是 Agent 与外部世界交互的「手脚」，使 Agent 能够获取实时信息、执行实际操作。</li>
+<li>编排层则是连接模型和工具的「桥梁」，它负责管理信息流、决策过程和任务执行的顺序。</li>
+</ul>
+<p><strong>Agent 功能是基于模型功能的基础上，在知识获取方式、会话管理能力、工具与逻辑层实现等方面能力的拓展</strong>。</p>
+<ul>
+<li>模型的知识局限于其训练数据，而 Agent 通过工具与外部系统连接，能够扩展知识范围，获取实时信息，从而更好地应对多样化的任务需求。</li>
+<li>模型通常基于用户查询进行单次推理，除非专门要求，模型一般不考虑会话历史或连续上下文，而 Agent 能够考虑会话历史，基于用户查询和编排层决策进行多轮推理，实现更连贯、上下文相关的交互。</li>
+<li>模型本身无原生工具实现和逻辑层，用户需通过构建特定提示或使用推理框架引导模型预测； Agent 则原生实现了工具和认知架构，利用如 CoT、ReAct 等推理框架或其他预构建的代理框架，使代理能够更自主、智能地执行任务。</li>
+</ul>
+<h1>三、Agent 具体是如何工作的？为什么编排层才是核心？</h1>
+<p><strong>在白皮书中，详细地介绍了 Agent 的工作原理，包括如何收集、处理信息以及决策下一步动作等。其中，报告特别提到，编排层是 Agent 认知架构的核心。</strong></p>
+<p>在 Agent 的范畴内，模型指的是作为代理过程集中决策者的语言模型，其规模可大可小，能遵循如 ReAct、Chain - of - Thought、Tree - of - Thoughts 等基于指令的推理和逻辑框架。模型具有多种类型，包括通用型、多模态型，还可根据特定代理架构需求进行微调。</p>
+<p>对于用户输入的自然语言查询， Agent 借助模型的语言理解能力进行解析，识别关键信息和意图。例如，从用户预订机票的查询中提取出出发地、目的地、时间等关键要素。对于从外部获取的信息（如 API 返回的数据或数据存储中检索到的内容）， Agent 会根据任务需求进行格式化和预处理，使其能够被模型有效利用。</p>
+<p><strong>编排层是一个循环过程， Agent 通过该过程接收信息、进行内部推理，并依据推理结果决定下一步行动或决策。这个循环会持续进行，直到代理达成目标或到达停止点。其复杂性因代理和任务而异，简单的可能只是包含决策规则的计算，复杂的则可能涉及链式逻辑、额外的机器学习算法或其他概率推理技术。</strong></p>
+<p>编排层是 Agent 认知架构的核心，负责维护记忆、状态、推理和规划，借助不断发展的提示工程及相关框架来引导推理和规划，使 Agent 能更有效地与环境交互并完成任务。通过合理的编排， Agent 能够整合模型和工具的能力，根据不同情境和任务需求，有序地执行一系列操作，从而实现复杂目标。</p>
+<h1>四、Agent 如何通过工具与环境进行交互？</h1>
+<p>白皮书详细地介绍了 Agent 如何通过使用工具来与外界环境进行交互。</p>
+<p><strong>Agent 与环境交互的第一个工具是扩展。扩展以标准化方式连接 API 与代理，使 Agent 能无缝执行 API 调用，而无需编写复杂的自定义代码。它通过示例教导 Agent 使用 API 端点及所需参数。</strong></p>
+<p>Agent 在运行时可根据模型和示例动态选择合适的扩展，从而提高了 Agent 与外部 API 交互的效率和可靠性，增强了 Agent 处理任务的能力，尤其适用于多跳规划和 API 调用场景。例如，在构建帮助用户预订航班的 Agent 时，若要使用谷歌 Flights API 获取航班信息，可通过创建扩展来实现。</p>
+<p><strong>Agent 与环境交互的第二个工具是函数。函数是完成特定任务的自包含代码模块，模型可根据函数规范决定何时使用以及所需参数。函数由模型输出，其将 API 调用逻辑和执行转移到客户端应用，在客户端执行。</strong></p>
+<p>以旅行预订 Agent 为例，当用户希望获取适合家庭滑雪旅行的城市列表时，模型可通过函数调用生成结构化的 JSON 格式输出，包含城市列表及用户偏好等信息，然后将此信息发送到客户端服务器，客户端可根据此信息调用谷歌 Places API 获取城市图片等丰富内容并返回给用�</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本文是对谷歌团队于1月发布的AI Agent主题白皮书的深度解读与总结，系统介绍了Agent的核心概念、架构组成、工作原理及与传统LLM的本质区别。白皮书指出，Agent是对LLM能力的全面拓展，弥补了LLM知识局限于训练数据、缺乏实时信息获取和工具调用能力的不足。Agent的认知架构由三大核心组件构成：模型（充当决策大脑，支持ReAct、Chain-of-Thought、Tree-of-Thoughts等推理框架）、工具（连接外部世界的执行手段）和编排层（协调信息流与决策过程的核心桥梁）。编排层被特别强调为Agent认知架构的核心，它是一个持续循环的过程，负责接收信息、内部推理并决定下一步行动，直至完成目标或到达停止点，复杂度因任务而异。Agent与LLM的主要区别体现在三方面：知识获取上Agent可通过工具连接外部系统获取实时信息；会话管理上Agent支持多轮推理和上下文连贯交互；工具与逻辑层上Agent原生实现了工具调用和认知架构。在与环境交互方面，白皮书介绍了三类工具：扩展（以标准化方式连接API，支持动态选择，适用于多跳规划场景）、函数（自包含代码模块，将API调用逻辑转移至客户端执行，输出结构化JSON）和数据存储（用于知识检索）。文章还强调，在大规模生产环境中，模型准确选择合适工具对生成高质量输出至关重要，往往需要针对特定任务进行专项训练以提升表现。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Agent是LLM能力的拓展，在知识获取、会话管理、工具调用等方面突破了LLM局限于训练数据的瓶颈</li>
+<li>Agent认知架构由模型、工具、编排层三个核心组件构成，编排层是整个架构的核心调度中枢</li>
+<li>编排层是持续循环的推理决策过程，复杂任务可涉及链式逻辑、机器学习算法或概率推理技术</li>
+<li>Agent通过扩展、函数和数据存储三类工具与外部环境交互，实现实时信息获取和实际操作执行</li>
+<li>大规模生产环境中模型准确选择工具至关重要，通常需要针对特定任务进行专项训练以确保效果</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2700822328.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：OpenAI 新论文拆解语言模型内部机制，LeCun 团队提出关于 JEPAs 的全面理论，何恺明新作让去噪模型回归基本功，字节、清华多篇研究 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：OpenAI 新论文拆解语言模型内部机制，LeCun 团队提出关于 JEPAs 的全面理论，何恺明新作让去噪模型回归基本功，字节、清华多篇研究。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2733972767.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：OpenAI 新论文拆解语言模型内部机制，LeCun 团队提出关于 JEPAs 的全面理论，何恺明新作让去噪模型回归基本功，字节、清华多篇研究</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2733972767。版本：aac01a91150826f9870f6e1cbbd67d1fccdf3dbfea2f0e6dedb53afeb70dc835。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/268</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/aac01a91150826f9870f6e1cbbd67d1fccdf3dbfea2f0e6dedb53afeb70dc835.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：OpenAI 新论文拆解语言模型内部机制，LeCun 团队提出关于 JEPAs 的全面理论，何恺明新作让去噪模型回归基本功，字节、清华多篇研究</p>
+<h3>一、模型</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**OpenAI**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI 新论文拆解语言模型内部机制：用「稀疏电路」解释模型行为\n:::\n\n:::paragraph{align=center indent=0}\nLeo Gao, Achyuta Rajaram, Jacob Coxon, Soham V. Govande, Bowen Baker, Dan Mossing.\&quot;Weight-sparse transformers have interpretable circuits.\&quot;\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;在如今的 AI 领域，大多数大语言模型在很大程度上仍以「黑箱」方式工作，即使是专业的研究者也难以完全理解它们的内部计算过程。因此，提升模型的透明度有助于分析和解释大语言模型产生幻觉、行为不稳定或在关键场景做出不可靠判断的潜在原因。\n\n近期，OpenAI 发布了一项[新研究](https://cdn.openai.com/pdf/41df8f28-d4ef-43e9-aed2-823f9393e470/circuit-sparsity-paper.pdf)，使用新方法来训练内部机制更易于解释的小型稀疏模型，其神经元之间的连接更少、更简单，从而观察它们的计算过程是否更容易被人理解。\n\n与普通模型不同，OpenAI 发现可以从该稀疏模型中提取出简单、易于理解的部件来执行特定任务，例如在代码中正确结束字符串或跟踪变量类型。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**香港中文大学、西湖大学**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nFDA 对偶锚点：模型知识迁移的新视角 —— 从参数空间到输入空间\n:::\n\n:::paragraph{align=center indent=0}\nKexuan Shi, Yandong Wen, Weiyang Liu.\&quot;Model Merging with Functional Dual Anchors.\&quot;arXiv:2510.21223 [cs.LG]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;当前，基于通用基础模型进行任务特定微调已成为主流范式。这种范式虽然能够在各个特定任务上获得高性能的专家模型，但也带来新的挑战：如何将这些特定微调得到的专家模型的能力有效整合到单一模型中并且无需访问原始训练数据，实现多任务协通，同时最小化性能损失？\n\n针对这一问题，研究者们提出了 [FDA（Model Merging with Functional Dual Anchors）](https://arxiv.org/abs/2510.21223)——一个全新的模型融合框架。与传统的参数空间操作不同，FDA 将专家模型的参数知识投射到输入-表征空间中的合成锚点，通过功能对偶的方式实现更高效的知识整合。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Meta、NYU 等**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nLeCun 团队提出关于 JEPAs 的全面理论\n:::\n\n:::paragraph{align=center indent=0}\nRandall Balestriero, Yann LeCun.\&quot;LeJEPA: Provable and Scalable Self-Supervised Learning Without the Heuristics.\&quot;arXiv:2511.08544 [cs.LG]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;这可能是 LeCun 在 Meta 发表的最后几篇论文之一。这次，LeCun 为 JEPA 架构补上了关键的理论拼图。\n\n学习世界及其动态的可操控表征是人工智能的核心。联合嵌入预测架构（JEPAs）是实现这一目标的有前景的蓝图。其核心思想是：通过最大化语义相关视图（例如图像的不同变换或裁剪）的嵌入之间的一致性，来学习一个有组织且可操作的高维嵌入空间。\n\n然而，当前的 JEPA 训练方法缺乏坚实的理论指导，导致研发过程临时且脆弱。它们面临一个共同的难题：表征崩溃（即所有输入都映射到相似的嵌入）。\n\n为了缓解这种「捷径解」，当今的先进方法严重依赖各种复杂的「启发式方法」，例如：停止梯度、教师 - 学生网络（及精心调整的 EMA 调度）、非对称的视图生成、显式的归一化和白化层。\n\n这些机制不仅使训练过程复杂、脆弱，而且对超参数、架构和数据分布非常敏感，并且缺乏坚实的理论保证。\n\nLeCun 团队[提出](https://arxiv.org/abs/2511.08544)了一个关于 JEPAs 的全面理论，并将其具体化为 LeJEPA，这是一个精简、可扩展且有理论基础的训练目标。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**北京通用人工智能研究院（通研院）**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n通研院揭秘 MoE 可解释性，提升 Context 忠实性\n:::\n\n:::paragraph{align=center indent=0}\nJun Bai, Minghao Tong, Yang Liu, Zixia Jia, Zilong Zheng.\&quot;Understanding and Leveraging the Expert Specialization of Context Faithfulness in Mixture-of-Experts LLMs.\&quot;arXiv:2508.19594 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[本文](https://arxiv.org/abs/2508.19594)针对性地提出了面向稀疏模型的机制可解释性方法「Router Lens &amp; CEFT」，聚焦于语言模型的上下文忠实性（Context Faithfulness）问题。目前，该研究已被 EMNLP 2025 接收。受 MoE 中专家特化现象的启发，我们提出了 Router Lens（路由透镜），用于识别那些真正善于利用上下文信息的专家。研究发现，这些专家能够逐步放大对关键信息的关注，并引导模型做出正确的决策。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**ETH Zurich**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nETH Zurich 提出基于强化学习和大语言模型的自动优化方法 PerfLLM，无需硬件知识即可实现高效代码转换\n:::\n\n:::paragraph{align=center indent=0}\nAndrei Ivanov, Siyuan Shen, Gioele Gottardo, Marcin Chrapek, Afif Boudaoud, Timo Schneider, Luca Benini, Torsten Hoefler.\&quot;PerfDojo: Automated ML Library Generation for Heterogeneous Architectures.\&quot;arXiv:2511.03586v1 [cs.PF]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[论文](https://arxiv.org/html/2511.03586v1)提出 PerfDojo 环境和 PerfLLM 方法，通过强化学习和大语言模型实现代码自动优化。PerfDojo 提供语义保持的代码转换表示，支持人类可读性和非破坏性转换。实验表明该方法在多种硬件架构上显著优于现有框架如 PyTorch 和 TVM，实现了最高达 13 倍的性能提升。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**IBM Research – Israel**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nIBM 提出结合 GitHub 自然语言信息增强 LLM 代码解释的新方法，通过上下文提取、解释生成和验证三阶段提升解释质量\n:::\n\n:::paragraph{align=center indent=0}\nZiv Nevo, Orna Raz, Karen Yorav.\&quot;Uncovering Code Insights: Leveraging GitHub Artifacts for Deeper Code Understanding.\&quot;arXiv:2511.03549 [cs.SE]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[论文](http://Uncovering Code Insights: Leveraging GitHub Artifacts for Deeper Code Understanding)提出一种新系统，利用 GitHub 中的自然语言工件（如 PR 描述、问题讨论和提交信息）来增强基于大语言模型的代码理解。系统包括三个组件：提取和结构化 GitHub 上下文的模块、基于此上下文生成高层次代码解释的模块以及验证解释的模块。研究实现了独立工具和 MCP 服务器集成，并通过用户研究表明，生成的见解通常有帮助且无幻觉现象，展示了在软件维护领域的有效性。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google; Pennsylvania State University**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle 提出 Synapse 框架，动态调整模型权重以合成多个 TSFM 的互补优势\n:::\n\n:::paragraph{align=center indent=0}\nSarkar Snigdha Sarathi Das, Palash Goyal, Mihir Parmar, Yiwen Song, Long T. Le, Lesly Miculicich, Jinsung Yoon, Rui Zhang, Hamid Palangi, Tomas Pfister.\&quot;Synapse: Adaptive Arbitration of Complementary Expertise in Time Series Foundational Models.\&quot;arXiv:2511.05460 [cs.LG]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[论文](https://arxiv.org/abs/2511.05460)探讨了单体时间序列基础模型的 “表示妥协” 问题，并提出了 Synapse 框架。该框架通过前向仿真机制动态调整权重，利用预测采样策略构建概率预测分布，在 GIFT-Eval 基准测试中表现优于现有方法，尤其在更长的预测范围内效果显著。研究表明，动态仲裁机制能够有效结合多个较弱模型的表现，超越单一强模型。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center ind</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周多项重要研究推进了语言模型机制理解与多领域技术突破。OpenAI发布新研究，通过训练稀疏模型提升大语言模型可解释性——稀疏模型神经元连接更简单，可提取出执行特定任务的独立组件，有望帮助分析模型幻觉与行为不稳定等问题。香港中文大学与西湖大学提出FDA对偶锚点框架，将专家模型参数知识投射至输入-表征空间，实现无需原始数据的多任务模型融合。</p>
+<p>LeCun团队针对JEPA架构提出系统性理论框架，具体化为精简可扩展的LeJEPA训练目标，直面当前JEPA方法依赖停止梯度、教师-学生网络等启发式手段导致训练脆弱的痛点，并从理论层面应对表征崩溃这一核心难题。通研院提出Router Lens与CEFT方法，聚焦MoE稀疏模型的机制可解释性，其中Router Lens可识别善于利用上下文信息的专家并引导模型决策，相关成果已被EMNLP 2025接收。</p>
+<p>代码优化方向，ETH Zurich提出PerfLLM方法，结合强化学习与LLM，在PerfDojo环境中实现语义保持的自动代码优化，无需硬件专业知识，在多种硬件架构上性能最高提升13倍，优于PyTorch和TVM。IBM Research则利用GitHub自然语言工件（PR描述、Issue、提交信息）增强LLM代码理解，用户研究显示生成见解有帮助且幻觉现象较少。</p>
+<p>时间序列预测方面，Google联合宾夕法尼亚州立大学提出Synapse框架，通过前向仿真机制动态调整权重，融合多个时序基础模型的互补优势，在GIFT-Eval基准测试中尤其在长预测范围内显著超越现有方法，验证了动态仲裁机制可使多个较弱模型组合超越单一强模型。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>OpenAI提出权重稀疏Transformer方法，通过减少神经元连接提取可解释的稀疏电路，用于分析语言模型内部机制和行为</li>
+<li>香港中文大学与西湖大学提出FDA模型融合框架，将参数知识投射到输入-表征空间实现多专家模型无数据整合</li>
+<li>LeCun团队提出LeJEPA理论，为JEPA架构提供坚实理论基础，摒弃复杂启发式方法解决表征崩溃问题</li>
+<li>北京通研院提出Router Lens与CEFT方法，揭示MoE模型中专家特化现象与上下文忠实性机制，已被EMNLP 2025接收</li>
+<li>本周研究整体聚焦模型可解释性、知识迁移融合和自监督学习理论化等AI基础性问题</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2733972767.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

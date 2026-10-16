@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>主流AI视频生成产品报告 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="主流AI视频生成产品报告。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2595303185.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>主流AI视频生成产品报告</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2595303185。版本：9d63cf6eaa9eacfc19fc116f86d85a0934f1f021a7e2d1ae14d756a630840d99。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/101</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/9d63cf6eaa9eacfc19fc116f86d85a0934f1f021a7e2d1ae14d756a630840d99.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>主流AI视频生成产品报告</p>
+<h1>一、核心要点</h1>
+<p>1.Sora之后，DiT架构成为了视频生成产品的主流技术。在这大半年里，Luma AI、Kling成为了视频生成领域的最大黑马，明星产品Runway也推出了实力强劲的Gen3模型。AI视频生成在画面表现力、语义理解、清晰度和可控性等方面都有了大幅提升；同时，多家产品在音画同步、笔刷等工具上做了更新，提升了产品的可控性。</p>
+<p>2.从交互方式来看，当前AI视频生成主要可分为文本生成视频、图片生成视频和视频生成视频三种形式。一些视频生成方法是先生成静态关键帧图像，然后构建为视频序列；同时，也存在直接端到端生成视频的技术，无需进行多阶段处理即可生成视频，如基于GAN、VAE和Transformer的方法。</p>
+<p>3.从生成方式分类，当前AI视频生成产品主要分为文生视频、图生视频、视频生视频、AI Avatar+语音生成、长视频生短视频和脚本生成+视频匹配等方向。</p>
+<p>4.从产品阶段和可用维度分类，当前AI视频生成产品主要分为专业创作工作流、开箱即用的解决方案、企业接入方案和实验阶段项目等方向。</p>
+<h1>二、主流AI视频产品能力对比</h1>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ <strong>产品能力</strong></th>
+<th>__ <strong>对比</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>可控性</td>
+<td>目前Runway Gen2、Kling 1.0、Pixverse等有笔刷工具，Kling 1.0和Pixverse支持运动方向控制，而Runway Gen2仍是控制参数最多、调节范围最精细的；Luma、Kling支持了运镜控制；Luma、Kling和Krea都支持了首尾帧生成视频的能力。</td>
+</tr>
+<tr>
+<td>清晰度排名（输出尺寸+主观感受）</td>
+<td>Runway Gen3 Alpha＞Kling 1.5＞Luma≈Runway Gen3 Alpha Turbo≈Pika 1.5大于海螺＞Kling 1.0≈Pika 1.0</td>
+</tr>
+<tr>
+<td>生成速度</td>
+<td>Runway Gen3 Alpha Turbo≈Luma AI（付费版）＞Pika＞Runway Gen2＞海螺＞Runway Gen3 Alpha≈Kling＞Luma AI（免费版）</td>
+</tr>
+<tr>
+<td>单次输出视频时长</td>
+<td>Runway Gen3＝Kling（10s）＞Luma＝Runway Gen2=Pika 1.5（5s）＞Pika 1.0（3s）</td>
+</tr>
+<tr>
+<td>提示词语义理解能力</td>
+<td>Luma＞Kling 1.5≈Runway Gen3＞海螺＞Kling 1.0</td>
+</tr>
+<tr>
+<td>画面表现力</td>
+<td>Luma≈Runway Gen3≈Kling 1.5＞海螺＞Kling1.0</td>
+</tr>
+</tbody></table></div>
+<h1>三、主流AI视频产品特点</h1>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th>**方向**</th>
+<th>**特点**</th>
+</tr>
+<tr>
+<td>文本-视频方向</td>
+<td>从语义理解、画面表现力、清晰度三个重要维度评测，Runway Gen3、Luma和Kling 1.5能力最强，Luma、Runway和海螺对视频内文本生成能力的支持较好。</td>
+</tr>
+<tr>
+<td>图像-视频方向</td>
+<td>目前Runway、Luma和Kling 1.5占据第一梯队的位置，Runway Gen3综合能力更强，Gen2可控性更强，Luma在画面表现力上更胜一筹；同时，Luma在抽象场景、材质的动画上的表现比Runway更好。</td>
+</tr>
+<tr>
+<td>视频风格倾向</td>
+<td>①Runway致力于向影视级别的产品发展，因此更擅长真实系、风景、空间视频生成；<br><br>②Pika在二次元、插画风格的支持上依然领先其他产品。体现在对平面图片中的运动元素识别更好，不用加入过多人工提示词、不用手动调整过多设置项，产出动画效果最自然、最真实。但近期Pika并未跟上竞品的速度进行迭代，已经从头部梯队掉队了，清晰度的问题饱受诟病。</td>
+</tr>
+</table></div>
+
+<h1>四、技术概况</h1>
+<h2>1.生成方法</h2>
+<p>从交互方式来看，当前AI视频生成主要可分为文本生成视频、图片生成视频和视频生成视频三种形式。一些视频生成方法是先生成静态关键帧图像，然后构建为视频序列；同时，也存在直接端到端生成视频的技术，无需进行多阶段处理即可生成视频，如基于GAN、VAE和Transformer的方法。</p>
+<h2>2.关键帧+补帧技术方式间的差异</h2>
+<p>代表产品：Deforum、AnimateDiff、Rerender A Video</p>
+<p>①关键帧生成方式很大，主要通过各种AI生成图片的方式解决，最主流的方式是Stable Diffusion，可最大程度的保证不同帧风格一致。</p>
+<p>②补帧算法：主要用于平滑关键帧之间的动作和细节。</p>
+<p>·<strong>光流补帧</strong>：通过计算两帧图像之间每个像素的运动向量，根据光流场生成中间帧。优点是计算量较小、速度快，代表产品是EbSynth。</p>
+<p>·<strong>基于姿态补帧</strong>：利用人体关键点检测计算姿态信息（关节位置、角度等信息），进行中间帧图像合成。适合为具有复杂运动的复杂对象或角色制作动画。</p>
+<p>·<strong>重参考补帧</strong>：使用相邻的后向和前向帧作为参考，通过双向帧信息进行像素级补帧。</p>
+<p>③完善策略：进一步提升生成视频的整体质量和连贯性，协调补帧算法，弥补关键帧生成可能存在的各种缺陷。不同模型使用的方法有所差异。</p>
+<p>·<strong>渐进补帧</strong>：通过迭代多次补帧完善视频质量，逐步提升分辨率和连贯性。</p>
+<p>·<strong>递归框架</strong>：递归完善每一帧，直到达到质量要求。</p>
+<p>·<strong>增强后处理</strong>：使用图像增强GAN等技术，对生成的视频进行修复和提升，特别提升存在模糊、残影等问题的区域，增强整体质量。</p>
+<p>·<strong>对比学习</strong>：指学习和对比真实高质量视频数据，从中提取提升生成视频细节的模式。</p>
+<p>·<strong>模糊处理</strong>：使用滤波、平滑等算法处理生成视频，减少帧间的不连贯引起的毛刺和锯齿问题，增强视觉流畅性。</p>
+<p>·<strong>融合多个模型</strong>：不同模型生成相同视频，进行模型融合。</p>
+<h2>3.端到端视频生成的技术差异</h2>
+<p><strong>①GAN生成对抗网络</strong></p>
+<p>GAN是一种无监督的生成模型框架，通过让两个神经网络相互博弈来进行机器学习。可以生成视觉逼真度高的视频，但控制难度大、时序建模较弱。</p>
+<p><strong>②VAE变分自编码器</strong></p>
+<p>VAE是一种可以学习数据分布的网络架构。就像把视频文件压缩成较小的文件再解压一样，它可以重建视频数据，VAE可以根据条件输入控制生成过程，但质量较GAN略低。GAN、VAE生成视频速度快，缺点是生成质量和分辨率较低、长度短、控制力弱。</p>
+<p><strong>③Tranformer自注意力机制</strong></p>
+<p>通过学习视频帧之间的关系，理解视频的长期时间变化和动作过程，这种方式对长视频建模更好，时序建模能力强，可实现细粒度语义控制，缺点是计算量大。</p>
+<h1>五、产品分类</h1>
+<h2>1.<strong>从生成方式分类</strong></h2>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 2,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120,
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**生成方式**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          691
+        ],
+        &quot;bgColor&quot;: &quot;rgb(75, 207, 209)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**产品**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n文生视频、图生视频\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          691
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nRunway、Pika、Stable Diffusion+Deforum、Stable Diffusion+Infinite zoom、table Diffusion+AnimateDiff、Warpfusion、Stability Animation\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 4,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n视频生视频\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n逐帧生成\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          691
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nStable Diffusion+Mov2Mov\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n关键帧+补帧\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          691
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nStable Diffusion+Ebsynth、Rerender A Vedio\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n动态捕捉\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          691
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nDeep Motion、Mobe AI、Wonder Dynamics\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n视频修复\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          691
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nTopaz Video AI\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nAI Avatar+语音生成\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          691
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nSynthesia、Heygem AI、D-ID\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n长视频生短视频\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          691
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpus Clip\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n脚本生成+视频匹配\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(61, 217, 153)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowsp</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>随着Sora发布，DiT架构已成为视频生成产品的主流技术方向。当前AI视频生成主要涵盖三种交互形式：文本生成视频、图片生成视频及视频生成视频。在综合能力评估中，Runway Gen3、Luma和Kling 1.5在语义理解、画面表现力与清晰度三个维度表现最为突出。其中Runway Gen3在图生视频方向综合能力最强，定位影视级产品，尤其擅长真实系、风景及空间类视频生成；Luma则在画面表现力和抽象场景处理上更具优势。</p>
+<p>技术架构层面，视频生成主要依托三类核心模型：GAN生成对抗网络视觉逼真度高，但控制难度大、时序建模较弱；VAE变分自编码器生成速度快，但质量与分辨率偏低；Transformer自注意力机制擅长长视频建模与细粒度语义控制，但计算量较大。视频生视频方向分为逐帧生成（Mov2Mov）和关键帧+补帧两条路线，后者以Stable Diffusion结合EbSynth及Rerender A Video为代表。补帧算法主要包括三类：光流补帧计算量小速度快，代表产品为EbSynth；基于姿态补帧适合复杂角色动画；重参考补帧则针对特定场景优化。</p>
+<p>垂直应用场景方面，动态捕捉领域涵盖Deep Motion、Mobe AI和Wonder Dynamics；视频修复以Topaz Video AI为代表；AI Avatar结合语音生成的主要产品包括Synthesia、Heygem AI和D-ID；长视频转短视频场景则以Opus Clip为代表工具。此外，脚本生成+视频匹配作为另一细分技术方向，也已形成完整产品链条。多家产品已在音画同步、笔刷等可控性工具上持续更新迭代。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Sora发布后DiT架构成为主流，Luma AI和Kling成为最大黑马，Runway Gen3综合实力强劲</li>
+<li>清晰度排名：Runway Gen3 Alpha最优，Kling 1.5次之，Pika因迭代缓慢已从头部梯队掉队</li>
+<li>AI视频生成分文生视频、图生视频、视频生视频等多种方式，端到端与关键帧补帧两大技术路线并行</li>
+<li>Transformer架构时序建模能力最强，适合长视频；GAN和VAE速度快但质量和控制力相对较弱</li>
+<li>多款产品新增运镜控制、首尾帧生成、笔刷工具等功能，产品可控性整体大幅提升</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2595303185.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

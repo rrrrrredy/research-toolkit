@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>二月第三周：海外 AGI 叙事战与开源博弈，国内人才军备化与开源争夺 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="二月第三周：海外 AGI 叙事战与开源博弈，国内人才军备化与开源争夺。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2733045029.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>二月第三周：海外 AGI 叙事战与开源博弈，国内人才军备化与开源争夺</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2733045029。版本：71397c15ea2614c6b8347eaa5ba5734370e3ca0681caac0ad5e599180b2a686c。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/265</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/71397c15ea2614c6b8347eaa5ba5734370e3ca0681caac0ad5e599180b2a686c.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用 MOA 无感登录...
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[sso-ciba] ✅ Token 已缓存 (有效期至 2026/3/27 21:37:26)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;a10fbae468274271bc12a979596661e0&quot;}
+二月第三周：海外 AGI 叙事战与开源博弈，国内人才军备化与开源争夺</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：AGI 叙事升级与开源闭源 &quot;镜像分化&quot;</strong></p>
+<p>海外正在经历从 &quot;性能竞赛&quot; 到 &quot;体验定义权&quot; 争夺的范式转移，同时 OpenAI 与 xAI 在开源策略上形成了耐人寻味的 &quot;镜像对立&quot;。</p>
+<p>本周最重的信号是AGI 体验的拟人化叙事。当 Sam Altman 说 GPT-4.5 带给他 &quot;比预期更深刻的 AGI 感受&quot; 时，他不是在描述技术指标，而是在重新定义产品价值标尺—— 从 &quot;更准确&quot; 转向 &quot;更 intuitively intelligent&quot;。这与马斯克将 Grok-3 包装为 &quot;地球上最聪明 AI&quot; 是同一逻辑：当基准测试分数趋于饱和，用户的心智认知成为新的战场。这种叙事竞争背后是深刻的焦虑：技术差异化窗口正在关闭，必须在用户感知层面建立护城河。</p>
+<p>更值得关注的是开源策略的 &quot;镜像分化&quot; 现象：OpenAI 在承认 &quot;站在历史错误一边&quot; 后，投票选择开源 o3 mini 还是手机模型，被网友集体喊话 &quot;我们要 GPT-4&quot;，这揭示了一个残酷现实 ——社区对 OpenAI 的期待是其无法承受的重量。而 xAI 在 Grok-3 发布仅两天后宣布 &quot;永久免费&quot;，表面是营销闪电战，实则是用开源的 &quot;精神&quot; 闭源的 &quot;肉身&quot;，既薅取了开源社区的口碑红利，又牢牢掌控模型所有权。Together AI 以 3 亿美元押注开源模型 API 服务，估值 33 亿美元，则证明开源商业模式已从 &quot;情怀&quot; 走向 &quot;算力套利&quot; 的清晰盈利路径。</p>
+<p>其他层面，Figure 发布的 Helix 模型揭示了机器人大脑架构的 &quot;双系统革命&quot;—— 将 VLM 的 &quot;慢思考&quot; 与 transformer 的 &quot;快反应&quot; 解耦，这不仅是工程优化，更是 认知架构的仿生学突破 ，可能会成为未来智能体的通用设计范式。</p>
+<p><strong>2.国内：人才战略 &quot;军备化&quot; 与开源的 &quot;阳谋化&quot;</strong></p>
+<p>国内大厂正将人才争夺从 &quot;高薪挖角&quot; 升级为 &quot;建制化储备&quot;，而开源策略已从技术贡献演变为一场重构生态位的话语权战争。</p>
+<p>字节跳动引入 Google Fellow 吴永辉并设立 &quot;Seed Edge&quot; 长期项目，配合小米千万年薪锁定罗福莉，标志着 AI 人才战略进入 &quot;建制化储备&quot; 阶段。这不是简单的个人引进，而是在组织架构层面复制贝尔实验室式的 &quot;基础研究与产品开发双轨制&quot;。吴永辉向梁汝波直接汇报、专注 AI for science，朱文佳负责模型应用，这种设计是在为 智能时代的 &quot;技术 - 商业&quot; 二元张力建立制度性缓冲带。当梁汝波喊出 &quot;追求智能上限&quot; 时，字节已清醒认识到：AGI 不是产品功能，而是需要独立进化的生命体。</p>
+<p>DeepSeek 的 &quot;幽灵效应&quot;在本周达到顶峰。月之暗面因 &quot;外部因素&quot; 砍掉投放预算，内部复盘后决定 &quot;重新训练基础模型&quot;，这是在开源模型的降维打击下的战略溃缩。更微妙的是，腾讯在元宝中全面接入 DeepSeek-R1，企业微信同步上线，甚至为微信搜索提供 &quot;紧急调用支持&quot;，这不仅是技术选型，更是用 &quot;外部最锋利的矛&quot; 刺穿自家生态的墙，换取用户增长。元宝冲到 AppStore 第二，证明模型中立化正在颠覆产品竞争逻辑。</p>
+<p>开源策略的 &quot;阳谋化&quot;是本周国内最大看点。阶跃星辰联合吉利开源 300 亿参数视频模型和首个产品级语音模型，昆仑万维开源 &quot;首个 AI 短剧模型&quot;，月之暗面开源 Muon 优化器（效率是 AdamW 的 2 倍）——开源已从 &quot;技术奉献&quot; 演变为 &quot;标准预埋&quot;。Step-Video-T2V 在评测中 &quot;显著超过市面上既有的最佳开源模型&quot;，Moonlight-16B-A3B 证明 Muon 优化器可扩展，这不是在 &quot;分享&quot;，而是在用开源模型作为技术路标的 &quot;活广告&quot;，让社区替自己完善生态，同时锁定下一代框架的话语权。</p>
+<p>**3.上周行业重点：商业化 &quot;反噬&quot; 与基础设施 &quot;过度投资&quot; 共识 **</p>
+<p>行业正经历 &quot;技术理想主义&quot; 与 &quot;商业现实主义&quot; 的剧烈碰撞，但诡异的是，巨头们在应用层受挫的同时，却在基础层达成 &quot;不计成本投入&quot; 的危险共识。**</p>
+<p><strong>商业化 &quot;反噬&quot; 现象集中爆发</strong>：Humane 以 1.16 亿美元 &quot;卖身&quot; 惠普，Ai Pin 从停止销售到服务器关停仅用 10 天，宣告 &quot;AI 硬件创新者&quot; 神话破灭。零一万物拆分数字人、AI 视频业务，李开复的标准是 &quot;先去找投资人聊&quot;，这暴露了AI 独角兽的商业模式本质上仍是 &quot;融资续命&quot;。月之暗面砍掉投放，直言 &quot;投放无效性&quot;，说明 靠买量堆起的用户规模在开源模型面前不堪一击。残酷的现实是：AGI 叙事越宏大，短期商业化缺口越致命。</p>
+<p><strong>但与此同时，基础设施 &quot;过度投资&quot; 共识却无比坚定</strong>。阿里宣布未来三年云和 AI 投入 &quot;超越过去十年总和&quot;，吴泳铭将 AI 相关收入连续六个季度三位数增长作为底气；Grok-3 训练动用 20 万张 H100，xAI 称最大挑战是 &quot;在海量 H100 上保持一致性&quot;。这揭示了一个分裂的现实：应用层还在寻找 PMF（产品市场契合度），但算力层已提前进入 &quot;赢者通吃&quot; 的军备竞赛。Together AI 融资 3 亿美元押注 Blackwell GPU 训练定制模型，硅基流动完成亿元融资升级 AI 云设施，证明资本市场正在押注 &quot;卖铲人&quot; 而非 &quot;淘金者&quot;。</p>
+<p><strong>技术创新的 &quot;微观突破&quot; 与 &quot;宏观迷茫&quot; 并存</strong>：DeepSeek 的 NSA 稀疏注意力机制在解码、前向、后向三阶段均加速，Figure 的 Helix 实现 &quot;系统 1 + 系统 2&quot; 解耦，Muon 优化器效率翻倍 ——底层创新从未停止。但当 DeepSeek 梁文锋亲自挂名论文，当吴永辉 &quot;希望做一些偏探索的工作&quot;，顶尖人才的回归表明：行业正从工程优化退守到基础创新，因为应用层的 &quot;低垂果实&quot; 已被摘完。</p>
+<p>:::heading{level=3 align=start}
+二、海外</p>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 4,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**OpenAI**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI CEO 曝光 GPT-4.5 内测反馈\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;2 月 18 日凌晨，OpenAI CEO 山姆·奥特曼发文表示：「对于高要求的测试者而言， GPT - 4.5 带来的感受 AGI 的体验，远比我预期的要深刻得多」。值得注意的是，2 月 16 日，埃隆·马斯克在 X 上发文，Grok 3 模型将于周一太平洋时间晚上 8 点（北京时间 2 月 18 日 12 点）发布，并进行现场演示。马斯克将 Grok 3 称为「地球上最聪明的人工智能。」有网友在评论区调侃：「要不在美国东部时间晚上 7 点 30 发布 GPT-4.5 」，而山姆·奥特曼则回复「这不太合适」。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI 宣布开源\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;2 月 18 日，OpenAI CEO Sam Altman 发文询问，对于 OpenAI 下一个开源项目，公司应当选择体积虽小但仍需借助 GPU 运行的 o3 mini 层级模型，还是应当致力开发一个尺寸适合手机且表现最佳的模型。对此，Altman 对发起投票。截止发稿前，o3 mini 层级模型的投票率领先。但在帖子评论区显示，相比于 o3 mini 的开源，显然高赞评论的网友更希望开源 GPT-4。值得关注的是，Altman 曾在本月初公开承认 OpenAI 的策略「站在了历史错误的一边」。前日，Altman 还表示 OpenAI 将对 GPT 4o 进行更新，并夸赞 GPT - 4o 的表现非常出色。同时其在评论区还表示，GPT - 4o 是「网上最好的搜索产品之一」。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI 推出大模型测试基准 SWE-Lancer\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;OpenAI 近日推出了一个软件工程基准数据集 SWE-Lancer。SWE-Lancer 是首个基于 Upwork 平台真实自由职业任务的评估数据集。该数据集包含超过 1400 个软件工程任务，总价值达 100 万美元，为评估 AI 模型在实际软件开发场景中的表现提供了重要参考。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI 向多国 ChatGPT Pro 用户推出 AI 代理工具 Operator：可自动执行日常任务 \n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;2 月 21 日消息，OpenAI 今日宣布，其名为「Operator」的 AI 代理工具正在向澳大利亚、巴西、加拿大、印度、日本、新加坡、韩国、英国以及大多数可以使用 ChatGPT 的国家的 ChatGPT Pro 订阅用户推出。这一功能此前已于今年 1 月在美国推出，旨在为用户提供更便捷的任务执行服务。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**X**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGrok 3 正式发布\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;2 月 18 日，马斯克旗下 xAI 正式发布 Grok 3 模型。据官方介绍，Grok 3 在 Chatbot 竞技场之称的 LMSYS 盲测中，代码、指令响应等各个方面排名第一，超过 Gemini-2 Pro、DeepSeek-V3、GPT-4o 等模型。同时，Grok-3 mini 也一同公布，其将牺牲部分性能，换取更快的响应能力。而推理版本的 Grok 3 Reasoning Beta 支持深度思考，其在最新的 AIME 竞赛中表现断层领先。值得关注的是，对比模型中还出现了近期火爆的 DeepSeek R1 模型。但 Grok-3 Reasoning 目前仍处于测试阶段。据悉，Grok 3 训练累积使用了 20 万张 H100 显卡。xAI 表示，最大的挑战是让整个模型在海量的 H100 上进行训练，并保持一致性。xAI 还一同带来了由 Grok 3 加持的 DeepSearch，号称是下一代搜索引擎。模型将自主像 agent 一样运作，并且理解用户提问背后的意图，能够在互联网以及 X 中进行全面检索。备受关注的语音模式也有了进一步的公布。马斯克在直播中透露，语音模式将是 Grok 最好的体验之一，同时在发布直播尾声，xAI 还放出了一段语音模式的预览视频，其效果十分接近人类声音。而语音模式预计在一周内发布早期版本。费用方面，X 的 Premium+ 订阅用户（每月 40 美元）将率先体验 Grok 3，而其他高级功能则被纳入 xAI 推出的新计划「SuperGrok」中。SuperGrok 的月费为 30 美元，年费为 300 美元，仅提供额外的推理和 DeepSearch 查询功能，还包含了无限量的图像生成服务。此外，Grok API 还将在未来几周内推出，包含推理模型和深度研究功能。并且 xAI 还宣布，当 Grok 3 成熟稳定之后，大概几个月将会开源 Grok 2。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nxAI 宣布 Grok 3 免费开放使用\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>AGI叙事正从性能竞赛转向体验定义权之争。Sam Altman宣称GPT-4.5带给高要求测试者的&quot;感受AGI体验&quot;远超预期，并为GPT-4o背书称其为&quot;网上最好的搜索产品之一&quot;，以感受而非指标重塑产品价值标尺。与此同时，马斯克将Grok 3定位为&quot;地球上最聪明的AI&quot;并安排直播发布，两者发布时间高度重叠，舆论竞争态势明显。Grok 3累计调用20万张H100显卡训练，在LMSYS盲测中代码、指令响应等多项排名第一，推理版本Grok 3 Reasoning Beta在AIME竞赛中表现断层领先，配套DeepSearch可跨互联网与X平台检索。定价上，X Premium+用户月费40美元可率先使用，新计划SuperGrok月费30美元或年费300美元，Grok API将于数周内推出。</p>
+<p>开源博弈方面，Altman承认OpenAI过去闭源策略&quot;站在了历史错误的一边&quot;，并就下一个开源项目发起投票；xAI则宣布待Grok 3成熟后数月内开源Grok 2，两家公司形成开源策略&quot;镜像对立&quot;，均借开源叙事争夺社区口碑与技术标准话语权。国内战场同样激烈，字节引入Google Fellow并设长期研究项目，人才战略升级为建制化储备；DeepSeek&quot;幽灵效应&quot;冲击竞争格局，月之暗面削减投放并决定重新训练基础模型。技术层面，Figure的Helix模型实现&quot;慢思考+快反应&quot;双系统解耦，OpenAI推出含1400余个真实任务、总价值达百万美元的SWE-Lancer基准数据集，Operator代理工具亦扩展至澳大利亚、英国、日本等多国。资本层面，应用商业化受挫与基础设施过度投资并存，市场明显转向押注&quot;卖铲人&quot;逻辑。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>海外AGI叙事从性能竞赛转向体验定义权争夺，OpenAI与xAI在开源策略上形成镜像分化：OpenAI面临社区开源压力，xAI则用开源精神包装闭源肉身，Together AI以33亿美元估值验证开源商业模式清晰化</li>
+<li>国内人才战略进入建制化储备阶段，字节跳动引入Google Fellow吴永辉设立Seed Edge长期研究项目，小米千万年薪锁定罗福莉，人才争夺从高薪挖角升级为复制贝尔实验室式双轨制组织架构</li>
+<li>DeepSeek幽灵效应持续发酵，月之暗面因开源模型冲击砍掉投放预算并重训基础模型，腾讯全面接入DeepSeek-R1推动元宝冲上AppStore第二，模型中立化正颠覆产品竞争逻辑</li>
+<li>国内开源策略阳谋化：阶跃星辰开源300亿参数视频模型，月之暗面开源Muon优化器（效率是AdamW两倍），开源从技术奉献演变为标准预埋与话语权争夺的战略工具</li>
+<li>行业呈现分裂态势：Humane以1.16亿美元卖身惠普、零一万物拆分业务等商业化反噬集中爆发，但阿里宣布三年AI投入超过去十年总和、Grok-3动用20万张H100，算力层已进入赢者通吃军备竞赛</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2733045029.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

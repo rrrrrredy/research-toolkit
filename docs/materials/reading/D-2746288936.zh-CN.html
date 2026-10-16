@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1 月第 5 周：海外平台级 Agent 生态卡位，国产开源反攻与工业化落地并进 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="1 月第 5 周：海外平台级 Agent 生态卡位，国产开源反攻与工业化落地并进。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2746288936.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>1 月第 5 周：海外平台级 Agent 生态卡位，国产开源反攻与工业化落地并进</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2746288936。版本：39d0c88415c56e09b3f40eb74e21a518b6cecb5a01e3f8ccb1a0ef277cc03ddd。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/273</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/39d0c88415c56e09b3f40eb74e21a518b6cecb5a01e3f8ccb1a0ef277cc03ddd.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 432s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;88942ecd59af47debcecc4d722d002d5&quot;}
+1 月第 5 周：海外平台级 Agent 生态卡位，国产开源反攻与工业化落地并进</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：AI Agent 从 &quot;对话层&quot; 下沉至 &quot;执行层&quot;，平台主权争夺与商业化阵痛并存</strong></p>
+<p>本周海外产业呈现出 <strong>&quot;Agent 操作系统化&quot;</strong> 的关键转向。Google 与 Anthropic 正将 AI Agent 从应用层锚点转变为基础设施层：Chrome&quot;自动浏览&quot; 功能标志着浏览器从信息检索工具进化为可执行复杂在线任务的代理操作系统，而 Claude 通过 MCP 协议深度集成 Slack、Figma 等生产工具，实质是在构建跨应用的 &quot;Agent 中间件标准&quot;。这种趋势揭示了一个深层洞察 —— 下一代计算平台的控制权争夺已从移动端转向 AI Agent 的调度中枢， whoever controls the agent, controls the workflow。</p>
+<p>Meta 的策略更具侵略性，其 20 亿美元收购 Manus 并计划植入 Instagram/WhatsApp，配合高达 1350 亿美元的年度 AI 资本开支，显示出社交巨头试图通过 &quot;<strong>超级应用 + 垂直 Agent</strong>&quot; 的组合拳，将 AI 能力转化为平台垄断的加固材料。值得注意的是，Meta 在意大利监管压力下被迫对第三方 AI 机器人开放 WhatsApp API，但设置的 0.069 美元 / 条消息的计费门槛，实质是以合规成本为名的平台税，这种 &quot;伪开放&quot; 策略可能成为全球平台治理的模板。</p>
+<p>更深层的结构性信号来自人才与资本的极化流动：特斯拉向 xAI 注资 20 亿美元，而苹果 AI 团队却出现向 Meta、Google 的离职潮，表明在基础模型军备竞赛中，算力承诺与模型迭代速度已成为人才择校的核心指标。与此同时，OpenAI Sora App 连续两月下载量下滑（1 月环比 - 45%）暴露出纯生成式 AI 工具的消费级瓶颈 —— 当 IP 限制收紧、社交属性缺失时，用户留存率急剧衰减，这迫使 OpenAI 加速推进迪士尼合作等版权外交，也验证了 &quot;工具属性易获客，网络效应难建立&quot; 的残酷现实。</p>
+<p>科研与高阶自动化则成为技术溢出的新出口：OpenAI Prism 整合 LaTeX 科研工作流，斯坦福 TTT-Discover 提出测试时强化学习替代传统搜索，显示头部实验室正将竞争维度从 &quot;模型参数 Scaling&quot; 转向 &quot;推理时计算范式的革新&quot;。</p>
+<p><strong>2.国内：开源生态爆发与具身智能数据层竞争并行，端侧商业化进入兑现期</strong></p>
+<p>本周国内 AI 产业呈现 <strong>&quot;开源集群反攻 + 具身智能基建 + 端侧规模落地&quot;</strong> 的三重奏。</p>
+<p><strong>开源大模型系统性突围</strong>：月之暗面 Kimi K2.5 登顶全球开源榜单，海外收入首次超越国内；阿里开源 Qwen3-ASR、推出 Qwen3-Max-Thinking 对标 GPT-5.2；商汤开源 SenseNova-MARS 超越 Gemini-3-Pro；蚂蚁灵波一周内连发 LingBot-Depth、LingBot-World、LingBot-VA 三款具身智能模型。这标志着国内厂商正通过<strong>开放权重 + 垂直场景深度优化</strong>的策略，挑战海外闭源模型的技术霸权。</p>
+<p><strong>具身智能进入 &quot;数据层&quot; 竞争</strong>：蚂蚁灵波不仅开源模型，更计划开放 200 万组真实世界深度数据；宇树科技开源 UnifoLM-VLA-0 视觉语言动作模型。这种&quot;模型 + 数据&quot; 双开源的模式，旨在建立具身智能时代的 Android 生态，通过降低开发者数据获取门槛来抢占行业标准制定权。</p>
+<p><strong>端侧 AI 商业化进入兑现期</strong> **：**阶跃星辰完成 50 亿融资并宣布终端装机量突破 4200 万台，日均服务 2000 万人次；小米 AI 眼镜深度集成支付宝无感支付。这些数据显示， 国内 AI 应用已完成从 &quot;技术演示&quot; 到 &quot;规模变现&quot; 的跨越，特别是在移动终端和可穿戴设备的本土化场景渗透上形成差异化优势。</p>
+<p><strong>3.上周行业重点：Agent 基础设施标准化与多模态生成工业化</strong></p>
+<p><strong>Agent 基础设施标准化</strong>是本周最显著的行业级事件。开源项目 Moltbot（原 Clawdbot）获得现象级关注（GitHub 76.5k stars），阿里云、火山引擎迅速推出全套云服务适配，MiniMax M2.1 与 Clawdbot 深度绑定。这预示着AI Agent 正从单点工具向分布式操作系统演进，通过 IM（即时通讯）作为交互入口，实现 &quot;对话即服务&quot;（CaaS）的新范式。相比海外依赖单一平台（如 ChatGPT Apps 或 Claude 集成），国内通过开源生态快速形成去中心化的 Agent 网络，可能催生出更灵活的 B 端自动化市场。</p>
+<p><strong>多模态生成进入 &quot;工业化生产&quot; 阶段</strong> **：**生数科技 Vidu Q3 实现 16 秒音视频直出、多镜头自动切换；快手可灵 3.0 引入智能分镜系统；腾讯混元图像 3.0 引入思维链机制实现 &quot;先思考后修图&quot;。这些产品的共同点是从 &quot;生成单张图片 / 片段&quot; 转向 &quot;生产完整叙事内容&quot;，支持多角色、多机位、声音同步的复杂影视工业化流程。这标志着 AI 视频生成开始从玩具级应用向专业影视工作流渗透，对传统影视后期制作链条的替代效应将加速显现。</p>
+<p>:::heading{level=3 align=start}
+二、海外</p>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 4,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Meta**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nMeta 提出一种基于规划的约束拓扑多智能体框架，用于可靠的多步骤特征工程和代码生成\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;论文提出了一种基于规划的约束拓扑多智能体框架，用于可靠的多步骤特征工程和代码生成。该框架通过图结构建模团队环境和代码库，使 LLM 驱动的规划器能够动态协调智能体、生成上下文感知提示，并利用下游失败来追溯修正上游输出。在新构建的 PySpark 基准数据集上，该方法比手动和无规划工作流分别提升了 38% 和 150% 的评估指标。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>2025年1月第5周，全球AI Agent生态呈现出平台级卡位与国产开源反攻并进的格局。</p>
+<p>海外方面，AI Agent正从&quot;对话层&quot;加速下沉至&quot;执行层&quot;：Chrome新增自动浏览功能，标志浏览器向代理操作系统演进；Claude借助MCP协议深度集成Slack、Figma等主流工具，确立跨应用&quot;Agent中间件标准&quot;地位；Meta斥资20亿美元收购Manus并植入Instagram与WhatsApp，全年AI资本开支高达1350亿美元。与此同时，OpenAI Sora App 1月下载量环比下滑45%，揭示纯生成式AI工具在消费级市场因缺乏社交属性而面临的结构性瓶颈。</p>
+<p>国内战线同步发力。Kimi K2.5登顶全球开源榜，阿里、商汤等厂商集中释放重磅开源模型，形成系统性突围态势。开源项目Moltbot斩获GitHub 76.5k stars，国内Agent生态加速向分布式操作系统演进，去中心化Agent网络雏形渐显。具身智能竞争重心转向&quot;数据层&quot;，蚂蚁灵波计划开放200万组真实世界深度数据，抢占行业标准制定权。多模态视频生成方面，快手、生数科技等产品已实现多角色多机位完整叙事内容的工业化生产。</p>
+<p>学术层面，一项基于规划的约束拓扑多智能体框架研究备受关注。该框架以图结构建模团队环境与代码库，由LLM驱动的规划器动态协调多个智能体并生成上下文感知提示，同时支持利用下游任务失败信息追溯修正上游输出，具备错误自愈能力。研究团队还构建了专用PySpark基准数据集，实验表明该方法较手动工作流提升约38%，较无规划工作流提升高达150%，充分验证了规划模块的核心价值。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>海外AI Agent平台化趋势显著：Google Chrome自动浏览功能、Claude通过MCP协议集成生产工具，标志AI Agent正从应用层向基础设施层演进，平台控制权争夺从移动端转向Agent调度中枢；Meta以20亿美元收购Manus并计划植入WhatsApp/Instagram，配合1350亿美元年度AI资本开支，推进&#39;超级应用+垂直Agent&#39;战略</li>
+<li>国内开源生态集群反攻：月之暗面Kimi K2.5登顶全球开源榜单、阿里Qwen3-Max-Thinking对标GPT-5.2、商汤SenseNova-MARS超越Gemini-3-Pro，蚂蚁灵波一周连发三款具身智能模型并计划开放200万组真实世界深度数据，国内厂商通过&#39;开放权重+垂直场景深度优化&#39;策略挑战海外闭源模型</li>
+<li>Agent基础设施标准化成为行业级事件：开源项目Moltbot（原Clawdbot）获得76.5k GitHub stars现象级关注，阿里云、火山引擎迅速推出云服务适配，预示AI Agent向分布式操作系统演进，形成&#39;对话即服务&#39;新范式</li>
+<li>多模态生成进入工业化生产阶段：生数科技Vidu Q3实现16秒音视频直出、快手可灵3.0引入智能分镜、腾讯混元图像3.0引入思维链，AI视频生成从玩具级应用向专业影视工作流渗透加速</li>
+<li>端侧AI商业化进入兑现期：阶跃星辰完成50亿融资、终端装机量突破4200万台、日均服务2000万人次；小米AI眼镜深度集成支付宝无感支付，国内AI应用完成从技术演示到规模变现的跨越</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2746288936.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

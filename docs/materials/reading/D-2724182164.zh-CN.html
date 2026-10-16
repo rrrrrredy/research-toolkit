@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：港大和可灵提出场景一致的交互式视频世界模型，阿里强化学习新研究，字节跳动提出首个大规模动态未来预测基准，OPPO 推出通用智能体模型新范式 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：港大和可灵提出场景一致的交互式视频世界模型，阿里强化学习新研究，字节跳动提出首个大规模动态未来预测基准，OPPO 推出通用智能体模型新范式。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2724182164.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：港大和可灵提出场景一致的交互式视频世界模型，阿里强化学习新研究，字节跳动提出首个大规模动态未来预测基准，OPPO 推出通用智能体模型新范式</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2724182164。版本：6aa18c0eb30dd0f3096b67c50216b99436a13924e56295684895eb04c5b2a85b。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/256</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/6aa18c0eb30dd0f3096b67c50216b99436a13924e56295684895eb04c5b2a85b.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 304s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;3cf70f189d8d437e893d3747c85c2727&quot;}
+周论文推荐：港大和可灵提出场景一致的交互式视频世界模型，阿里强化学习新研究，字节跳动提出首个大规模动态未来预测基准，OPPO 推出通用智能体模型新范式</p>
+<h3>一、模型</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**香港大学、快手**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n港大和可灵提出场景一致的交互式视频世界模型\n:::\n\n:::paragraph{align=center indent=0}\nJiwen Yu, Jianhong Bai, Yiran Qin, Quande Liu, Xintao Wang, Pengfei Wan, Di Zhang, Xihui Liu.\&quot;Context as Memory: Scene-Consistent Interactive Long Video Generation with Memory Retrieval.\&quot;arXiv:2506.03141 [cs.CV]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;来自港大和快手可灵的研究团队近期发表的 [Context as Memory](https://arxiv.org/abs/2506.03141) 论文，可能是目前学术界效果上最接近 Genie 3 的工作，且投稿时间早于 Genie 3 的发布。早在此前研究中，团队就发现：视频生成模型能够隐式学习视频数据中的 3D 先验，无需显式 3D 建模辅助，这与 Genie 3 的理念不谋而合。\n\n技术上，团队创新性地提出将历史生成的上下文作为「记忆」（即 Context-as-Memory），利用 context learning 技术学习上下文条件，从而在整段长视频生成中实现前后场景一致性。\n\n进一步地，为了高效利用理论上可无限延长的历史帧序列，论文提出了基于相机轨迹视场（FOV）的记忆检索机制（Memory Retrieval），从全部历史帧中筛选出与当前生成视频高度相关的帧作为记忆条件，大幅提升视频生成的计算效率并降低训练成本。\n\n在数据构建上，团队基于 Unreal Engine 5 收集了多样化场景、带有精确相机轨迹标注的长视频，用于充分训练和测试上述技术。用户只需提供一张初始图像，即可沿设定的相机轨迹自由探索生成的虚拟世界。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**香港城市大学、蚂蚁集团**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nEI-BERT：超紧凑语言模型压缩框架\n:::\n\n:::paragraph{align=center indent=0}\nMaolin Wang, Jun Chu, Sicong Xie, Xiaoling Zang, Yao Zhao, Wenliang Zhong, Xiangyu Zhao.\&quot;Put Teacher in Student&#x27;s Shoes: Cross-Distillation for Ultra-compact Model Compression Framework.\&quot;arXiv:2507.04636 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[本文](https://arxiv.org/abs/2507.04636)第一作者王茂林，为香港城市大学博士生，导师为赵翔宇教授。合作者包括蚂蚁集团储俊，臧晓玲，赵耀，谢锶聪和钟文亮。该论文荣获 2025 年 KDD ADS Track Best Paper Award Runner-Up。EI-BERT 框架通过三个关键步骤实现极致压缩：硬令牌剪枝智能筛选重要词汇，大幅减少存储需求；交叉蒸馏确保高效知识传递，突破传统方法局限；模块化量化采用 INT8 量化进一步优化存储。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**南京大学、浙江大学**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n南大、浙大提出跨平台内核生成评测框架 MultiKernelBench\n:::\n\n:::paragraph{align=center indent=0}\nZhongzhen Wen, Yinghui Zhang, Zhong Li, Zhongxin Liu, Linna Xie, Tian Zhang.\&quot;MultiKernelBench: A Multi-Platform Benchmark for Kernel Generation.\&quot;arXiv:2507.17773 [cs.DC]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;在深度学习模型的推理与训练过程中，绝大部分计算都依赖于底层计算内核（Kernel）来执行。计算内核是运行在硬件加速器（如 GPU、NPU、TPU）上的 “小型高性能程序”，它负责完成矩阵乘法、卷积、归一化等深度学习的核心算子运算。\n\n当前，这些内核通常由开发者使用 CUDA、AscendC、Pallas 等硬件专用并行编程语言手工编写 —— 这要求开发者具备精湛的性能调优技巧，并对底层硬件架构有深入理解。\n\n近年来，大语言模型（LLM）在代码生成领域的突破，使 “自动生成高性能深度学习内核” 成为新的研究热点。KernelBench、TritonBench 等评测基准相继出现，主要聚焦于评估 LLM 在 NVIDIA GPU 内核生成上的表现。\n\n已有研究表明，现有 LLM 已具备一定的 GPU 内核生成能力。例如，英伟达工程师基于 DeepSeek-R1 设计了一套工作流程，在简单的 CUDA 内核生成任务中，该流程生成的内核在数值上全部正确，达到了 100% 的通过率。\n\n然而，当前 AI 加速器架构日趋多样（如 NVIDIA GPU、华为昇腾 NPU、Google TPU、Intel GPU 等），其底层内核语言差异显著。现有评测基准普遍存在平台覆盖单一、评估维度粗糙、可扩展性不足等局限。在此背景下，关键问题浮现：大模型在 CUDA 生态下的优势能否有效迁移至异构平台？我们距离自动化生成高性能计算内核究竟还有多远？\n\n针对这些问题，近日，南京大学与浙江大学联合推出全新开源评测框架 MultiKernelBench，打破平台、维度与扩展性的限制，为 LLM 驱动的高性能内核生成提供了新的测评标准。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**清华大学、南洋理工大学、蚂蚁集团**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n清华、南洋理工、蚂蚁等团队首提大语言模型中文语料污染治理技术\n:::\n\n:::paragraph{align=center indent=0}\nQingjie Zhang, Di Wang, Haoting Qian, Liu Yan, Tianwei Zhang, Ke Xu, Qi Li, Minlie Huang, Hewu Li, Han Qiu.\&quot;Speculating LLMs&#x27; Chinese Training Data Pollution from Their Tokens.\&quot;arXiv:2508.17771 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;来自清华大学、南洋理工大学和蚂蚁集团的研究人员[发现](https://arxiv.org/abs/2508.17771)，GPT-4o/o1/o3/4。5/4。1/o4-mini 的中文词表污染高达 46。6%。研究团队对 OpenAI 近期发布的 GPT-5 和 GPT-oss 的词表也进行了分析，它们词表的中文 token 没有变化。\n\n研究团队认为，这种现象是由于来自互联网数据的大模型预训练语料库不可避免地包含污染内容，导致在此之上构建的大语言模型（LLM）词表包含污染词。那么，这些污染词会如何影响 LLM 的性能？与污染数据的关系如何呢？\n\n为了系统性研究 LLM 的中文词表和数据污染问题，研究团队首先定义和分类了中文污染词（Polluted Chinese tokens， PoC tokens），分析了它们对 LLM 性能的影响；其次，为了高效识别不同 LLM 词表里的 PoC tokens，研究团队设计了一个中文污染词检测模型；最后，通过中文词表污染有效估计数据污染，为污染数据治理提供轻量化解决方案。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**上海 AI Lab、港科广、澳门大学、中科院自动化所、苏州大学、瑞典 KTH、北大、港中文等**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n上海 AI Lab、港科广、澳门大学等机构 82 页综述剖析大模型架构\n:::\n\n:::paragraph{align=center indent=0}\nWeigao Sun, Jiaxi Hu, Yucheng Zhou, Jusen Du, Disen Lan, Kexin Wang, Tong Zhu, Xiaoye Qu, Yu Zhang, Xiaoyu Mo, Daizong Liu, Yuxuan Liang, Wenliang Chen, Guoqi Li, Yu Cheng.\&quot;Speed Always Wins: A Survey on Efficient Architectures for Large Language Models.\&quot;arXiv:2508.09834 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;本文从 LLM 架构角度出发，带你剖析大模型的效率秘诀。这一切的核心在于 Transformer 架构。Transformer 的自注意力机制虽带来了远距离建模的突破，却因 O（N2） 的复杂度在长序列任务中成本高昂。而在 RAG、智能体、长链推理、多模态等新兴场景下，长序列需求愈发突出，进一步放大了效率与性能之间的矛盾。同时 Transformer 的 FFN 部分采用密集的 MLP 层，同样面临模型规模放大后的训练和推理效率问题。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**南安普顿大学**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n南安普顿大学提出 MS-GRPO 算法，通过多步奖励分配和绝对优势加权采样提升小规模语言模型的决策能力\n:::\n\n:::paragraph{align=center indent=0}\nJim Dilkes, Vahid Yazdanpanah, Sebastian Stein.\&quot;Reinforced Language Models for Sequential Decision Making .\&quot;arXiv:2508.10839 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[研究](https://arxiv.org/abs/2508.10839)针对序列决策任务中语言模型的应用挑战，提出一种新的训练框架和算法 MS-GRPO，通过将整个回合奖励分配到每个步骤并结合创新的采样策略，显著提升 3B 参数模型性能，超越 72B 参数基线模型 50%，展示了特定任务训练比单纯扩大模型规模更有效的潜力。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**字节跳动、复旦大学、斯坦福大学、普林斯顿大学等**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n字节跳动联合复旦、斯坦福等提出首个大规模动�</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周论文推荐涵盖多个前沿研究方向。</p>
+<p>港大与快手可灵团队发表《Context as Memory》论文，提出将历史生成上下文作为&quot;记忆&quot;的交互式视频世界模型，通过基于相机轨迹FOV的记忆检索机制筛选高相关历史帧，实现长视频场景一致性，用户仅需一张初始图像即可沿设定轨迹探索虚拟世界。该工作被认为是学术界效果最接近Genie 3的研究，两者均验证了视频生成模型可隐式学习3D先验的理念，训练数据基于Unreal Engine 5构建。</p>
+<p>在模型压缩领域，EI-BERT框架通过硬令牌剪枝、交叉蒸馏、模块化量化三步实现极致压缩，荣获2025年KDD ADS Track最佳论文亚军。南京大学与浙江大学联合推出开源评测框架MultiKernelBench，针对LLM驱动的深度学习内核自动生成任务提供新评测标准，填补了现有基准平台覆盖单一、评估维度粗糙等不足，英伟达基于DeepSeek-R1设计的工作流在简单CUDA内核生成任务中通过率已达100%。</p>
+<p>清华等机构研究发现，GPT-4o/o1/o3等模型中文词表污染率高达46.6%，团队系统定义了污染词类别并设计专用检测模型，而GPT-5与GPT-oss的中文token与此前版本无变化。</p>
+<p>强化学习方向，阿里提出MS-GRPO训练框架，通过逐步分配回合奖励并结合创新采样策略，使3B参数模型性能超越72B基线模型50%，有力证明针对特定任务的专项训练比单纯扩大模型规模更具效率优势，为AI模型开发策略提供重要启示。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>港大与快手可灵联合提出Context as Memory方法，通过将历史生成上下文作为记忆并结合相机轨迹FOV记忆检索机制，实现场景一致的交互式长视频生成，被认为是学术界效果最接近Genie 3的工作</li>
+<li>香港城市大学与蚂蚁集团合作提出EI-BERT超紧凑语言模型压缩框架，通过硬令牌剪枝、交叉蒸馏和INT8模块化量化三步实现极致压缩，荣获2025年KDD ADS Track Best Paper Award Runner-Up</li>
+<li>字节跳动提出首个大规模动态未来预测基准，阿里发布强化学习新研究，OPPO推出通用智能体模型新范式，多机构共同推动AI前沿技术发展</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2724182164.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

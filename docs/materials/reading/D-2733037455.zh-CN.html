@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一月第一周：海外从“暴力堆算力”转向“架构效率+合规求生”，国内从“卷模型参数”进入“卷场景闭环+产业捆绑” · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="一月第一周：海外从“暴力堆算力”转向“架构效率+合规求生”，国内从“卷模型参数”进入“卷场景闭环+产业捆绑”。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2733037455.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>一月第一周：海外从“暴力堆算力”转向“架构效率+合规求生”，国内从“卷模型参数”进入“卷场景闭环+产业捆绑”</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2733037455。版本：1e475f168fab09c79764e9f7cb16432a97c175848a4eebed494cdcf55ddc5c2d。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/193</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/1e475f168fab09c79764e9f7cb16432a97c175848a4eebed494cdcf55ddc5c2d.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>一月第一周：海外从“暴力堆算力”转向“架构效率+合规求生”，国内从“卷模型参数”进入“卷场景闭环+产业捆绑”</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：技术路线分化与合规压力显性化</strong> </p>
+<p>本周海外 AI 巨头呈现战略路径的显著分化，而非同质化竞争：</p>
+<p>基础设施层出现 &quot;通用 vs 定制&quot; 的双线战争 **：**英伟达在 GPU 绝对领先的同时悄然组建 ASIC 团队，这是对 AWS、谷歌等云厂商自研芯片的直接反击，也预示着 AI 芯片市场正从 &quot;一家独大&quot; 走向 &quot;分层割据&quot;—— 通用算力 + 定制芯片的混合方案将成为企业级市场标配 。微软 800 亿美元数据中心投资则表明，云厂商正在将 AI 基础设施从 &quot;成本中心&quot; 升级为 &quot;战略核武器&quot;，资本开支的豪赌背后是 &quot;算力即权力&quot; 的底层逻辑。</p>
+<p><strong>模型架构迎来效率革命</strong>：Meta 开源 &quot;记忆层&quot; 是本周最被低估的技术突破。它通过算法创新打破参数规模与算力的线性诅咒 **，**本质上是在 Transformer 架构内植入 &quot;稀疏激活&quot; 机制，让万亿参数模型训练推理成本大幅下降。这可能导致行业从 &quot;暴力美学&quot;（堆参数）转向 &quot;精益创新&quot;（提效率），对初创公司尤为关键 —— 算力民主化可能重塑竞争格局。</p>
+<p><strong>产品层显现 &quot;用户主权&quot; 趋势</strong>：OpenAI 将 &quot;成人模式&quot; 纳入官方路线图极具信号意义。这不仅是内容护栏的放松，更标志着 AI 产品迭代逻辑从 &quot;技术能做什么&quot; 转向 &quot;用户想要什么&quot;。Sam Altman 直接采纳网友建议，折射出 C 端市场对 &quot;无限制 AI&quot; 的强烈需求，但也为内容安全埋雷 ——&quot;用户驱动&quot; 与 &quot;合规红线&quot; 的张力将成为 2025 年产品管理的核心矛盾。</p>
+<p><strong>版权风险从潜在威胁变为现实成本</strong>：Anthropic 与音乐巨头的妥协是里程碑事件。虽然未解决训练数据合法性这一根本问题，但 &quot;禁止生成&quot; 的权宜之计可能成为行业标准动作。值得注意的是，这只是 &quot;输出端&quot; 治理，&quot;输入端&quot; 的合理使用争议仍是悬在 AI 公司头上的达摩克利斯之剑， 法律不确定性将加速推动合成数据与授权数据市场的发展。</p>
+<p><strong>2.国内：应用层割据与生态捆绑加速</strong></p>
+<p>国内本周呈现&quot;模型 + 场景 + 硬件&quot; 的三位一体融合，竞争维度远超单点技术：</p>
+<p><strong>推理模型成为国产大模型 &quot;弯道超车&quot; 关键</strong>：智谱 GLM-Zero-Preview 考研数学 126 分，标志着国产模型从 &quot;追平 GPT-4V&quot; 的通用竞赛，转向 &quot;垂直场景碾压&quot; 的精耕细作。推理能力是 AI Agent 的 &quot;智商&quot; 基础，智谱补上这块拼图后，其模型家族已覆盖基座、多模态、视频、语音、推理全栈 ——2025 年大模型竞争将是 &quot;全家桶&quot; 生态战，单点模型优势不再奏效。</p>
+<p><strong>阿里发起 &quot;产业大模型&quot; 圈地运动</strong>：与零一万物成立联合实验室、雷鸟 AR 眼镜深度定制、Qwen-Agent 框架三连击，揭示其&quot;云 + 模型 + 硬件&quot; 的闭环野心 。阿里在 B 端押注 &quot;产业大模型&quot; 而非通用 Chatbot，本质是用模型服务绑定云计算支出，通过零一万物的技术溢价和雷鸟的场景入口，构建 &quot;离开阿里云就跑不动&quot; 的生态锁定。这是从 &quot;卖 API&quot; 到 &quot;卖解决方案&quot; 的商业升级。</p>
+<p><strong>搜索场景成为 AI 落地的 &quot;诺曼底&quot;</strong>：百度 &quot;AI 搜&quot; 的上线是传统搜索引擎的 &quot;自我革命&quot;，其核心价值在于将 AI 功能与 搜索广告、内容生态（文库、律临、健康）深度耦合。相比 Perplexity 的独立模式，百度路径是 &quot;AI 增强存量业务&quot; ，通过 @智能体功能试图在搜索框内重建应用商店 ——这既是防守（保住搜索入口），也是进攻（开辟 AI 变现新场景）。</p>
+<p><strong>字节跳动 &quot;闪电战&quot; 垂直行业</strong> ：扣子智能体与和府捞面的合作看似微小，实则代表 。当大厂还在卷通用平台时，字节已用 &quot;无代码 + 批处理&quot; 组合拳切入餐饮 SaaS，  将 AI 能力封装为可复用的业务流程模块。这种 &quot;场景找技术&quot; 而非 &quot;技术找场景&quot; 的模式，可能让字节在产业互联网领域复刻消费互联网的 &quot;流量 - 变现&quot; 效率。</p>
+<p><strong>3.上周行业重点：三大拐点信号集中释放</strong></p>
+<p>本周行业显性拐点集中在基础设施、架构创新、硬件载体三处：</p>
+<p><strong>资本拐点</strong> ：微软 800 亿美元资本开支单周官宣，意味着全球 AI 军备竞赛从 &quot;技术验证期&quot; 进入 &quot;产能军备期&quot;。这笔钱一半投向美国本土，与特朗普政府 &quot;AI 主权&quot; 政策预期直接挂钩，地缘政治正在重塑全球算力供应链布局。</p>
+<p><strong>技术拐点</strong>：Meta 记忆层开源可能触发 &quot;后 Transformer 时代&quot; 的首次架构代际迁移 。若该设计被验证可扩展， 参数效率将成为新摩尔定律，直接冲击英伟达等依赖 &quot;大模型 = 大算力&quot; 商业逻辑的公司。</p>
+<p><strong>载体拐点</strong>：雷鸟 AR 眼镜 + 通义大模型是国内&quot;AI 原生硬件&quot; 的首次深度耦合 。相比手机 App 的 &quot;移植思维&quot;，AR 眼镜的第一人称视角 + 多模态交互要求模型必须 &quot;为硬件而生&quot;。2025 年或成&quot;AI 硬件定义模型&quot; 而非 &quot;模型赋能硬件&quot; 的元年。</p>
+<p>:::heading{level=3 align=start}
+二、海外</p>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**OpenAI**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nSam Altman 确定 OpenAI 新产品，AGI、Agents、成人模式\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;1 月 1 日消息，Sam Altman 公布了 2025 年 OpenAI 即将发布的技术产品。分别是：AGI（通用人工智能）、Agents（智能体）、更好的 GPT-4o 升级版、更好的记忆存储、更好的上下文窗口、成人模式、深度研究特色功能、更好的 Sora、更好的个性化定制。上周圣诞节那天，Sam 发布了一个征集推文，2025 年你希望 OpenAI 发布哪些产品和优化功能？目前，该帖子的评论超过 1 万，浏览量超过 380 万，用户的参与度相当高。而今天公布的多数技术就是来自用户的反馈。例如，「成人模式」是由 Pliny the Liberator 网友提出来的，他希望可以让模型失去护栏，这样更简单干净。Sam 回复他的是肯定需要某种「成人模式」。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**英伟达**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n消息称英伟达已在储备 ASIC 设计人才，力图打造 AI 芯片新战线\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;1 月 2 日消息，台媒《工商时报》今日凌晨报道称，英伟达从 2024 年中就开始从台湾地区半导体公司挖脚设计服务人才，以组建自家 ASIC（专用集成电路）团队，力图在现有 Tensor Core GPU 外打造一条新的 AI 芯片战线。\n\n英伟达目前凭借 GPU 产品在 AI 芯片领域占据绝对领导地位，拥有充足市场份额和有利的议价权。在此背景下亚马逊 AWS、微软、谷歌云服务三巨头等科技企业均在推动自家 AI ASIC 项目，一方面确保自身 AI 战略不会被英伟达 GPU 供应「卡脖子」，另一方面提升同英伟达谈判时的筹码。而若英伟达自身也同博通、美满等企业一样提供 AI ASIC 设计服务，既可在通用 GPU 外提供更具性价比的按需定制解决方案，同时英伟达在 AI 软件堆栈方面的底力也有助于业务开展。报道指出，英伟达在台湾地区延揽的 ASIC 工程师涵盖前段设计验证、IP 整合、PHY 设计等各细分领域，显示其对定制芯片业务的重视。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n英伟达 7 亿美元收购 AI 初创公司 Run:ai \n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;据 Run:ai 官网公告，英伟达完成了对 AI 初创公司 Run:ai 的收购。官方表示，Run:ai 表示坚持开放平台理念，为合作伙伴提供广泛的 AI 解决方案和平台选择。并且 Run:ai 透露，将计划开源其软件，虽然 Run:ai 仅支持英伟达，但开源后将有助于应用范围扩展到整个 AI 生态系统。据多家媒体获悉，欧盟委员会在 12 月初无条件批准了英伟达斥资 7 亿美元对 Run:ai 进行收购。2024 年 10 月，欧盟曾表示该交易需接受反垄断审查，并且反垄断监管机构警告称，该交易威胁到了市场中的竞争。早在 8 月，美国司法部也曾调查英伟达收购 Run:ai 的反垄断风险。不过，欧盟委员会 12 月初表示，此收购交易不会引发竞争担忧。据了解，Run:ai 成立于 2018 年，专注于在 GPU 和类似芯片组上 AI 工作负载的编排和虚拟化软件层。自 2020 年以来，其一直和英伟达保持紧密合作。2024 年 4 月，英伟达发布新闻稿，宣布收购 Run:ai 公司。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 3,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle、Synaptics 宣布将合作开发物联网边缘 AI 技术\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;1 月 2 日消息，Synaptics 今天与 Google 宣布将在物联网边缘人工智能（Edge AI for the IoT）领域开展合作，旨在为情境感知计算定义多模态处理的最佳实现方案。据官方介绍，此次合作将在 Synaptics Astra 硬件上整合谷歌符合 MLIR 标准的 ML 内核以及开源软件和工具，将加速物联网人工智能设备的开发，可支持处理视觉、图像、语音、声音和其他模态，为可穿戴设备、家电、娱乐、嵌入式集线器、监控以及消费、汽车、企业和工业系统中的控制等应用提供无缝交互的情境。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n从微软转战 Google：硅片技术巨头 Rehan Sheikh 跳槽\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;1 月 5 日消息，近期，微软前硅片制造与工程领域的资深专家 Rehan Sheikh（谢赫）近日宣布加入谷歌，担任全球硅芯片技术和制造副总裁。谢赫在社交媒体上表达了对这一新角色的热切期待。据公开资料，谢赫的 IT 职业生涯丰富多彩，其中在英特尔度过了长达 24 年的时光，担任首席测试和硅工程技术专家。在此期间，他成功领导了多个关键产品部门的研发工作，包括 5G 数据中心处理器、独立显卡以及基于 Atom 的片上系统等。2021 年，谢赫选择加入微软，并迅速崭露头角，升任技术和产品制造工程总经理。随后在 2023 年，他再次获得晋升，成为硅片制造和封装工程副总裁。在微软期间，他主导了 Azure Cobalt 100 处理器和专为大规模 AI 工作负载设计的 Azure Maia 100 定制 AI 加速器的发布，这两款产品均代表了业界的顶尖技术水平。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周全球AI产业呈现出两条清晰主线：海外巨头从暴力堆算力转向架构效率与合规求生，国内厂商则从卷模型参数进入卷场景闭环与产业捆绑的新阶段。</p>
+<p>芯片与基础设施层面，英伟达在GPU业务之外，自2024年中起在台湾大规模招募ASIC设计人才，布局定制芯片业务，直接对抗AWS、微软、谷歌等云厂商的自研芯片战略，并以约7亿美元完成对GPU工作负载编排初创公司Run:ai的收购，后者计划开源软件以覆盖更广泛AI生态。微软宣布800亿美元数据中心投资计划，半数落地美国本土，与特朗普AI主权政策深度挂钩。谷歌则在人才与硬件两线同步推进：挖来曾主导微软Azure Cobalt 100处理器和Maia 100 AI加速器的硅芯片专家Rehan Sheikh出任全球副总裁，同时联手Synaptics开发覆盖可穿戴、汽车、工业场景的物联网边缘AI技术。</p>
+<p>模型与产品层面，OpenAI将AGI、Agents、成人模式、深度研究等多项新产品纳入2025年路线图，其中&quot;成人模式&quot;直接源于Sam Altman圣诞节征集用户意见时获得逾380万浏览、万余评论的帖子，产品逻辑从技术驱动转向用户需求驱动。Meta开源&quot;记忆层&quot;稀疏激活技术，大幅压缩万亿参数模型训练推理成本。Anthropic与音乐巨头达成协议，禁止生成相关内容，版权风险已从潜在威胁演变为现实成本。</p>
+<p>国内方面，智谱GLM-Zero-Preview在考研数学中取得126分，标志国产模型从通用竞赛转向垂直场景精耕；阿里联合零一万物、雷鸟AR眼镜与Qwen-Agent三线并进，构建云+模型+硬件闭环生态；百度上线&quot;AI搜&quot;，将AI能力与搜索广告及文库、健康等内容生态深度耦合，产业捆绑意图明显。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>海外AI巨头战略分化：英伟达布局ASIC定制芯片、微软投入800亿美元数据中心，算力基础设施竞争进入&#39;产能军备期&#39;</li>
+<li>Meta开源&#39;记忆层&#39;技术，通过稀疏激活机制大幅提升参数效率，可能引发Transformer架构代际迁移，推动行业从堆参数转向提效率</li>
+<li>OpenAI将&#39;成人模式&#39;纳入产品路线图，Anthropic与版权方妥协，AI产品面临&#39;用户主权&#39;与&#39;合规红线&#39;双重压力日益显性化</li>
+<li>国内大模型竞争升维：智谱GLM-Zero推理能力突破、阿里构建云+模型+硬件闭环生态，&#39;全家桶&#39;生态战取代单点模型竞争</li>
+<li>字节扣子智能体切入餐饮SaaS、百度AI搜重构搜索入口，国内AI落地从通用平台竞争转向垂直场景闭环与产业捆绑</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2733037455.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

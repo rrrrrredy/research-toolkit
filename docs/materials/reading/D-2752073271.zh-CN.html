@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenClaw龙虾系统专题5 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="OpenClaw龙虾系统专题5。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2752073271.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>OpenClaw龙虾系统专题5</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2752073271。版本：1db8dfe4c29b88afe135629a2c110da2a14b2cb8e83268958b58659e38793b88。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/225</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/1db8dfe4c29b88afe135629a2c110da2a14b2cb8e83268958b58659e38793b88.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用 MOA 无感登录...
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[sso-ciba] ✅ Token 已缓存 (有效期至 2026/3/27 21:26:20)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;c56e0c042b2b492e9ceb02e0139c037b&quot;}
+给龙虾装技能：一个“龙虾” Skill 从想法到上线，应该怎么做</p>
+<p>很多人说“给 OpenClaw 装一个 Skill”，听起来像是在给龙虾升级装备。但真做过几轮之后你会发现，这件事一点都不浪漫。它不是“写一段更厉害的 Prompt”，也不是“让它更像一个聪明的助手”，而是把一段原本依赖人脑、依赖经验、依赖上下文补全的知识工作，压缩成一个可以稳定执行、反复复用的小系统。换句话说，给龙虾装技能，本质上是在做能力工程。</p>
+<p>这件事最关键的，不是写得多花，而是第一步选题要对。<strong>并不是所有任务都值得做成 Skill</strong>。真正适合做成 Skill 的工作，通常有几个特点：</p>
+<ul>
+<li>它发生得足够频繁；</li>
+<li>流程足够重复；</li>
+<li>输入大体可得；</li>
+<li>输出大体固定；</li>
+<li>结果可以检查；</li>
+<li>出错之后也还能回退。</li>
+</ul>
+<p>如果拿我的工作场景来看，我觉得“周趋势洞察提炼”就是一个很典型的适合 Skill 化的任务。</p>
+<p>它为什么适合？因为这不是一次性的创作，而是一种持续性的研究生产。每周都会遇到类似的材料：公司动态、模型发布、产品更新、公开采访、融资新闻、技术社区讨论、已有洞察草稿。每次都要经历差不多的过程：先收集，再去重，再按主题归类，再提炼趋势，再形成一版给内部阅读的简报。这个过程里确实有判断，但也有大量重复劳动。Skill 的价值，正是在这里。</p>
+<p>很多人第二步就开始写 Prompt，我反而觉得，第二步应该先拆 workflow。</p>
+<p>以“周趋势洞察提炼 Skill”为例，它至少可以拆成六步。</p>
+<p><strong>第一步，收集材料。</strong>
+把本周涉及的新闻、产品动态、论文信息、访谈摘录、已有笔记放进同一个任务池。</p>
+<p><strong>第二步，去重和清洗。</strong>
+同一件事可能会有多个来源，同一个观点也可能在不同材料里反复出现。去重本身并不需要太多创造力，但非常消耗精力。</p>
+<p><strong>第三步，分类。</strong>
+例如分成海外、国内、模型、Agent、产品、商业化、组织动作等维度。这一步既可以由规则辅助，也需要一点语义理解。</p>
+<p><strong>第四步，提炼观察。</strong>
+不是简单把信息再说一遍，而是看这些事件之间有没有共性，例如产品形态是否正在收敛、商业落地是否开始加速、竞争焦点是否发生变化。</p>
+<p><strong>第五步，控制结论层级。</strong>
+这是最容易出问题的一步。因为“观察”很容易不知不觉滑向“判断”，“判断”又很容易滑向“建议”。如果边界不清，龙虾就会开始替你拍板。</p>
+<p><strong>第六步，输出固定结构。</strong>
+例如固定输出为“本周重点动态、三条趋势观察、值得继续跟进的问题、证据来源”。这比每次任它自由发挥，要稳定得多。</p>
+<p>一旦拆完这个流程，你就会更容易看清楚：哪些应该交给龙虾，哪些不该。比如，收集链接、读取文档、去重、按固定字段归档，这些更接近机械活，能脚本化的尽量脚本化；而提炼观察、归纳共性、把零散事件组织成更适合阅读的结构，这才是模型真正有价值的地方**。至于最终的战略判断、优先级建议、资源配置建议，至少在大多数情况下，不应该默认直接交给龙虾输出终稿。**</p>
+<p>接下来才轮到写路由和边界。这一步很像给龙虾划工作范围。比如你可以把这个 Skill 定义为：当用户需要将一周内的多来源行业动态整理成内部趋势简报时触发；适用于信息整理、主题归类和初步趋势观察；不适用于替代正式研究报告、对外发布材料或最终战略建议。<br>只要这句话写清楚，系统就已经少犯很多错了。因为它知道自己是在做“周趋势简报”，不是在写“季度战略建议”。</p>
+<p>再往下，是输入和输出的定义。 输入至少要包括时间范围、信息来源、目标读者、是否需要区分国内外、是否需要输出行动建议。 输出则应该固定，例如：</p>
+<p>本周最重要的 5 条动态； </p>
+<ul>
+<li>三条趋势观察；</li>
+<li>值得继续跟进的问题；</li>
+<li>证据来源。</li>
+</ul>
+<p>如果没有这种固定结构，龙虾今天可能给你写成新闻摘要，明天又写成评论文章，后天直接上升到战略报告，结果看似都对，实际上都不太能直接用。</p>
+<p>然后是异常处理。比如，如果材料里信息冲突，就保留冲突并标注来源；如果一周内事件数量太少，就输出“观察不足”，而不是硬凑三条趋势；如果用户没有提供目标读者，就默认写内部研究底稿，而不是写成面向管理层的正式汇报版本。</p>
+<p>做到这里，一个 Skill 的骨架才算基本成形。</p>
+<p><strong>但最容易被跳过的，恰恰是后面的评测。</strong></p>
+<p>很多 Skill 最大的问题，是只在“最干净的样本”上测试。给它 10 条整齐的新闻摘要，它当然能写得像模像样；可真实工作里，你拿给它的往往不是这么理想的材料，而是混杂着网页摘录、聊天记录、重复信息、观点草稿、旧版判断和临时补充的“脏现场”。<br>所以评测至少要有三类样本：</p>
+<ul>
+<li>正常样本，看它能不能稳定交付；</li>
+<li>异常样本，看它遇到缺信息、冲突信息会不会硬写；</li>
+<li>边界样本，看它会不会把“信息摘要”越权写成“战略判断”。</li>
+</ul>
+<p>只有这三类都测过，你才知道龙虾是真的学会了这个活，还是只是会在考试题上答题。</p>
+<p>最后才是上线。
+<strong>而上线最稳的方式，不是一步到位让它替你出最终版本，而是先让它做副驾驶</strong>。先让它产出建议稿、初稿、结构稿，让人来审。等你确认它在几轮真实任务里都没有明显误触发、越权和漂移，再逐步增加它的职责范围。真正危险的不是一个 Skill 不够聪明，而是你太快相信它已经足够可靠。</p>
+<p>所以，给龙虾装技能这件事，说到底不是在给它增加几句漂亮话，而是在把一段组织经验沉淀下来。你得先知道这项工作到底是怎么发生的，哪些地方靠规则，哪些地方靠判断，哪些地方可以自动化，哪些地方必须保留人工确认。只有当这些问题都想清楚，一个 Skill 才不只是“能跑”，而是“能用”。</p>
+<p><strong>给 OpenClaw 装技能，不是在训练它更像人，而是在训练我们自己，如何把经验变成系统。</strong></p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>开发适合AI系统执行的Skill，需满足五个核心条件：任务频繁发生、流程具备重复性、输入信息可获取、输出结果固定、以及执行结果可被验证。满足这五项标准的任务，才值得投入资源将其系统化为可复用技能。</p>
+<p>开发流程的关键次序是：先拆解workflow，再编写Prompt，而非反向操作。跳过流程拆解直接写Prompt，往往导致指令设计缺乏结构支撑，输出质量不稳定。在整个workflow中，模型真正创造价值的环节集中于提炼观察与归纳共性，而非机械地执行信息收集与整理工作。</p>
+<p>路由设计与边界定义需保持清晰，明确划定龙虾系统的职责范围，防止其越权输出战略判断或正式建议，避免将辅助工具误用为决策主体。输出结构应固定化，以结构模板约束生成内容，防止每次调用时风格与信息层级随机漂移，影响结果的一致性与可信度。</p>
+<p>评测阶段必须覆盖正常样本、异常样本与边界样本三类数据，仅在干净数据上测试无法反映系统在真实场景中的实际表现。上线部署应采取副驾驶模式，先由人工对输出结果进行若干轮审核，确认稳定性后再逐步扩大自动化执行的职责范围。</p>
+<p>为龙虾系统开发技能的本质，是将组织内部的经验积累与工作流程转化为结构化、可复用的系统资产，而非单纯部署一个通用语言模型。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>适合做成Skill的任务需满足：发生频繁、流程重复、输入可得、输出固定、结果可检查、出错可回退，并非所有任务都值得Skill化</li>
+<li>开发Skill的正确顺序是：选题→拆workflow（以周趋势提炼为例拆成收集、去重、分类、提炼观察、控制结论层级、固定结构输出六步）→写路由和边界→定义输入输出→设计异常处理→评测→上线，而非直接写Prompt</li>
+<li>评测必须覆盖正常样本、异常样本（缺信息/冲突信息）、边界样本（防止越权写成战略判断）三类，上线应先作副驾驶出初稿供人审核，确认稳定后再扩大职责范围</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2752073271.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

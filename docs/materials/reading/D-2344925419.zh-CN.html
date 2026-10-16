@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>十万卡集群解析 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="十万卡集群解析。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2344925419.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>十万卡集群解析</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2344925419。版本：57c71f3945b86a1cd82d647d3be0de22c526f35ccf9b73abb70cf7c19eb50a27。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/65</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/57c71f3945b86a1cd82d647d3be0de22c526f35ccf9b73abb70cf7c19eb50a27.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>十万卡集群解析</p>
+<h1>一、核心要点</h1>
+<p>1.在十万卡集群这个这个规模上，<strong>仅仅是服务器的成本就超过40亿美元</strong>，还要受到数据中心容量和电力不足等多项因素的限制。</p>
+<p>2.OpenAI在训练GPT-4时使用了大约2.15e25 BF16 FLOP（21.5百万亿ExaFLOP），在大约2万个A100上进行了90到100天的训练，峰值吞吐量只有6.28 ExaFLOPS。</p>
+<p>3.在H100上，AI实验室在训练万亿参数模型时，FP8模型FLOP利用率（MFU）最高可达35%。使用FP8，<strong>一个10万卡H100的集群只需4天就能训练GPT-4</strong>。</p>
+<p>4.GPT-4发布以来，似乎还没有出现下一代能力更强的LLM，很重要的原因就是几乎没有组织能够大规模增加专用于单个模型的计算量。</p>
+<p>5.10万卡集群所需的关键IT部件的总功率约为150MW，在如此庞大的功率中**，GPU本身的耗电实际上只有不到一半**。</p>
+<p>6.在较大参数的训练中，一般有3种不同类型的并行化——<strong>数据并行（data parallelism）</strong>、<strong>张量并行（tensor parallelism）<strong>与</strong>流水线并行（pipeline parallelism）</strong>。</p>
+<h1>二、十万卡集群现状</h1>
+<h2>1.十万卡集群的耗电量</h2>
+<p>在十万卡集群这个这个规模上，<strong>仅仅是服务器的成本就超过40亿美元</strong>，还要受到数据中心容量和电力不足等多项因素的限制。我们可以做一个简单的估算，<strong>一个10万卡集群每年耗电量约为1.59太瓦时</strong>（terawatt·h，即10e9千瓦时），:[quote]{quoteId=&quot;2344925419--d95c6bf4-814d-4279-8d15-3125cb74127e&quot;}按照美国电力的标准费率0.78美元/千瓦时，[/quote]<strong>:[quote]{quoteId=&quot;2344925419--d95c6bf4-814d-4279-8d15-3125cb74127e&quot;}每年的用电成本就达到了近1.24亿美元[/quote]</strong>:[quote]{quoteId=&quot;2344925419--d95c6bf4-814d-4279-8d15-3125cb74127e&quot;}。[/quote]</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2344925419/109828657595?contentType=1&isNewContent=false" alt="image.jpeg">{width=826.8560180664062 height=364.55 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2344925419/109825994551?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2344925419/109825994551?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2344925419/109824398726?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2344925419/109824398726?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<h2>2.十万卡集群的计算能力</h2>
+<p><strong>OpenAI在训练GPT-4时使用了大约2.15e25 BF16 FLOP（21.5百万亿ExaFLOP），在大约2万个A100上进行了90到100天的训练，峰值吞吐量只有6.28 ExaFLOPS</strong>。</p>
+<p>若使用10万个H100代替A100，峰值将飙升至198/99 FP8/FP16 ExaFLOPS，<strong>增加了31.5倍</strong>。</p>
+<p>在H100上，AI实验室在训练万亿参数模型时，FP8模型FLOP利用率（MFU）最高可达35%，FP16 MFU则为40%。MFU全称为model full utilization，是衡量潜在FLOP的有效吞吐量和利用率峰值的指标，考虑了功率限制、通信不稳定、重新计算、滞后和低效内核等各种瓶颈。</p>
+<p><strong>使用FP8，一个10万卡H100的集群只需4天就能训练GPT-4</strong>。如果进行100天的训练，你可以实现大约6e26（600百万亿ExaFLOP）的有效FP8 FLOP。不过，硬件的低可靠性会显著降低MFU。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2344925419/109824716917?contentType=1&isNewContent=false" alt="image.jpeg">{width=826.8560180664062 height=252.33 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2344925419/109828657593?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2344925419/109828657593?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2344925419/109826155013?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2344925419/109826155013?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<h2>3.集群架构限制了模型能力进化</h2>
+<p>GPT-4发布以来，似乎还没有出现下一代能力更强的LLM，很重要的原因就是几乎没有组织能够大规模增加专用于单个模型的计算量。Gemini Ultra、Nemotron 340B和Llama 3这些模型与GPT-4的训练计算量相近（约为2e25 FLOP），甚至更高，但使用了较差的集群架构，导致它们无法进一步释放能力。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2344925419/109827541806?contentType=1&isNewContent=false" alt="image.jpeg">{width=826.8560180664062 height=472.04 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2344925419/109825676814?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2344925419/109825676814?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2344925419/109828657590?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2344925419/109828657590?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<h2>4.物料清单</h2>
+<p>每10万个H100集群的总资本支出约为40亿美元，但具体金额会因所选择的网络类型而有所不同。</p>
+<p>具体来说，可以分为四种：</p>
+<p>·4层InfiniBand网络，包含32,768个GPU集群，轨道优化，7:1收敛比；</p>
+<p>·3层Spectrum X网络，包含32,768个GPU集群，轨道优化，7:1收敛比；</p>
+<p>·3层InfiniBand网络，包含24,576个GPU集群，非轨道优化，用于前端网络的集群间连接；</p>
+<p>·3层Broadcom Tomahawk 5以太网网络，包含32,768个GPU集群，轨道优化，7:1收敛比。</p>
+<p>可以看到，选项1比其他选项贵了1.3到1.6倍；选项2虽然提供了更大的集群、更高的集群间带宽和相似的成本，但需要更多的电力；而选项3则会严重降低并行方案的灵活性。综上，<strong>基于Broadcom Tomahawk 5的32k集群，搭配7:1的收敛比是最具成本效益的选项，这也是多家公司选择构建类似网络的原因</strong>。</p>
+<h1>三、十万卡集群挑战</h1>
+<p><strong>10万卡集群所需的关键IT部件的总功率约为150MW</strong>，相比之下，美国最大的国家实验室超算El Capitan的关键IT功率只有30MW，约为五分之一。<strong>在如此庞大的功率中，GPU本身的耗电实际上只有不到一半</strong>。</p>
+<p>根据官方参数，每张H100的功率为700W，但服务器上还有CPU、网卡（NIC）、供电单元（power supply unit）等设备，功率约为575W。</p>
+<p>除了H100服务器，集群中还需要部署一系列的存储服务器、网络交换机、CPU节点、光纤收发器和许多其他设备，约占IT功耗的10%。</p>
+<p>目前没有任何一座数据中心的大楼有能力部署150MW功率的设备。因此，<strong>已建成的10万GPU集群通常是分布在一整个园区中</strong>，而非单座大楼。<strong>由于可用的数据中心有限，xAI甚至选择将田纳西州孟菲斯的一家旧工厂改造为数据中心</strong>。因为服务器分布在整个园区而非单栋大楼内，联网成本就会无形增高，因为光纤收发器的成本与传输距离成正比。</p>
+<p>「多模」SR和AOC收发器仅支持最长约50m的传输距离，显然不可用。长距离「单模」DR和FR收发器能可靠地在500m～2km范围内传输信号，但成本是前者的2.5倍。此外，园区级别的800相干光收发器的传输距离可以超过2km，但价格更贵，要高出10倍以上。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2344925419/109824877333?contentType=1&isNewContent=false" alt="image.jpeg">{width=826.8560180664062 height=534.61 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2344925419/109827860787?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2344925419/109827860787?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2344925419/109827541807?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2344925419/109827541807?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>H100的小型集群通常只使用多模收发器，通过一层或两层的交换机，以400G的速度将每个GPU连接在一起。如果是大型集群，则需要增加更多层的交换机，光纤设备也会极其昂贵。在大型集群的园区中，每栋大楼包含一个或多个pod，由多模收发器（或者较为廉价的铜缆）相连，形成一个「计算岛」。每个计算岛之间再通过长距离收发器互连，岛内带宽较高，岛间带宽较低。</p>
+<h1>四、十万卡集群方案</h1>
+<h2>1.并行化方案</h2>
+<p>在较大参数的训练中，一般有3种不同类型的并行化——<strong>数据并行（data parallelism）</strong>、<strong>张量并行（tensor parallelism）<strong>与</strong>流水线并行</strong>（pipeline parallelism）。</p>
+<h3>1.1.数据并行</h3>
+<p>数据并行是其中最简单的并行方式：每个GPU拥有模型权重的全部副本，并分别保存一部分数据。前向计算过程中每个GPU独自工作，梯度更新时将所有GPU计算出的梯度相加，再一起更新，因此在三种方式中，数据并行对GPU间通信的要求最低。</p>
+<p>然而，这种方案要求每个GPU都有足够内存来存储整个模型的权重、激活函数和优化器状态。**像GPT-4这种级别的LLM，参数规模可以达到1.8万亿</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本文深度解析了十万卡（10万个H100 GPU）集群的现状、挑战与方案。在成本方面，10万卡集群仅服务器成本就超过40亿美元，年耗电约1.59太瓦时，年电费近1.24亿美元。在计算能力方面，OpenAI训练GPT-4时使用约2万个A100耗时90-100天，而10万卡H100集群仅需4天即可完成相同训练，算力提升约31.5倍。文章指出，GPT-4发布后长期缺乏更强LLM的重要原因在于：Gemini Ultra、Llama 3、Nemotron 340B等模型虽然训练计算量与GPT-4相近甚至更高，但受限于集群架构质量，无法进一步释放能力。在功耗挑战方面，10万卡集群关键IT部件总功率约150MW，是超算El Capitan的5倍，且GPU耗电不足总功耗的一半，服务器其他组件及网络存储设备同样消耗大量电力。由于单座数据中心无法承载150MW功率，集群通常分布在整个园区，xAI甚至将孟菲斯旧工厂改造为数据中心。园区化部署带来光纤收发器成本大幅上升，长距离单模收发器是多模的2.5倍，相干光收发器更高达10倍以上。网络选型方面，基于Broadcom Tomahawk 5的32k集群搭配7:1收敛比被认为是最具成本效益的方案。在并行化策略上，大规模训练通常采用数据并行、张量并行和流水线并行三种方式组合，其中数据并行对GPU间通信要求最低，但要求每个GPU能存储完整模型权重，对于GPT-4级别（1.8万亿参数）的模型存在显著内存瓶颈。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>10万卡H100集群服务器成本超40亿美元，年耗电1.59太瓦时，年电费近1.24亿美元，规模极其庞大</li>
+<li>10万卡H100集群使用FP8仅需4天可完成GPT-4训练，算力相比2万A100提升约31.5倍</li>
+<li>GPT-4后缺乏更强LLM的核心原因是极少组织能大规模增加单模型计算量，集群架构限制了模型能力进化</li>
+<li>10万卡集群总功耗约150MW，GPU耗电不足一半，集群通常分布在园区而非单栋建筑，联网成本随距离显著增加</li>
+<li>大规模训练采用数据并行、张量并行、流水线并行三种并行化方案，各有适用场景与通信开销差异</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2344925419.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

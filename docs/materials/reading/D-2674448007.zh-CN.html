@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>近期「空间推理」领域进展 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="近期「空间推理」领域进展。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2674448007.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>近期「空间推理」领域进展</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2674448007。版本：ca0329589cdb2b86251af39a4132a94a22daaa85ac501ca98d05e2838b1ba9a2。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/122</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/ca0329589cdb2b86251af39a4132a94a22daaa85ac501ca98d05e2838b1ba9a2.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>近期「空间推理」领域进展</p>
+<h1>一、核心要点</h1>
+<p>1.​来自纽约大学、耶鲁大学、斯坦福大学的李飞飞、谢赛宁等研究者近期发布了一项新工作，探究了多模态大语言模型（MLLM）是否具备具备视觉空间智能（visual-spatial intelligence）。研究发现，MLLMs 在空间推理方面的能力与人类相比有显著差距，而空间推理对人类智能至关重要。此外，谷歌、微软等大厂、AI 创企也在推进关于空间推理的技术研究，探究从不同角度和方法来增强模型的空间推理能力。</p>
+<p>2.空间推理是指理解和推理物体之间的空间关系、它们的运动和相互作用的能力，要求模型能够识别物体间的关系，并通过距离和方向进行推理。不同于 LLM 等仅关注处理结构化的数据和遵循预定义的规则，模型在现实的物理世界中的应用，如环境导航、地图理解和物体操控等，需要具备更为复杂、细致的 3D 空间推理能力。 空间推理在增强现实、机器人等领域的重要性不言而喻。</p>
+<p>3.研究发现，尽管 MLLMs 在视觉空间智能方面展现出一定的竞争力，但与人类相比仍有显著差距，特别是在空间推理方面；同时，研究还发现，传统的语言推理技术并不能提升 MLLMs 在空间任务上的表现，而生成认知地图则有助于提高模型在空间距离问题上的回答能力。</p>
+<p>4.目前，LLM、VLM 等模型在语言、视觉等 2D 的任务中能力表现出色，但在 3D 的空间推理的能力仍然有限，难以区分简单的空间概念，例如「内」和「外」以及「近」和「远」以及更复杂的关系。然而，空间推理能力在机器人、增强现实等领域至关重要，同时精确的空间感知、推理对于导航、操纵和与现实世界环境的交互等任务也十分重要。</p>
+<p>5.近期关于空间推理的研究工作，从不同角度和方法来增强 VLMs 和 LLMs 的空间推理能力，包括直接的 3D 数据整合、从多视图图像中重建场景、隐式空间表示学习、区域级特征提取等。谷歌、微软等大厂在空间推理方向的技术路线各有差异。</p>
+<h1>二、有关「空间推理」的新工作</h1>
+<p>在纽大、耶鲁等机构的<a href="https://vision-x-nyu.github.io/thinking-in-space.github.io/">这项新工作</a>中，研究者通过探究 MLLMs 在语言和视觉方面如何进行空间思考，发现空间推理能力是 MLLMs 性能提升的主要瓶颈。</p>
+<p>空间推理是指理解和推理物体之间的空间关系、它们的运动和相互作用的能力，要求模型能够识别物体间的关系，并通过距离和方向进行推理。不同于 LLM 等仅关注处理结构化的数据和遵循预定义的规则，模型在现实的物理世界中的应用，如环境导航、地图理解和物体操控等，需要具备更为复杂、细致的 3D 空间推理能力。 空间推理在增强现实、机器人等领域的重要性不言而喻。</p>
+<p>空间推理是实现空间智能的核心关键部分。目前，模型在空间推理方面仍然面临种种挑战，要求模型需要具备对空间信息的真正理解，现有的模型仍难以区分简单的空间概念，例如「内」和「外」以及「近」和「远」以及更复杂的关系。</p>
+<p>近期，业内关于空间智能、空间推理方面的探索、进展颇多。如李飞飞的创业公司「World Lab」发布了其首个项目「使用单图生成 3D 世界」；谷歌计划将其 Gemini 2.0 多模态模型所具备的空间推理能力应用于机器人领域，机器人公司 Apptronik 达成合作开发在复杂环境中工作的 AI 人形机器人等。</p>
+<p>同时，谷歌、微软等大厂、AI 创企也在推进关于空间推理的技术研究，探究从不同角度和方法来增强 VLMs 和 LLMs 的空间推理能力，包括直接的 3D 数据整合、从多视图图像中重建场景等，在技术路线上各有差异。</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th>**公司**</th>
+<th>**工作发布/更新时间**</th>
+<th>**相关技术工作**</th>
+</tr>
+<tr>
+<td rowspan="2">谷歌</td>
+<td>2024 年 2 月</td>
+<td>SpatialVLM 系统：通过构建基于互联网规模真实世界图像自动生成 3D 空间推理视觉问答（VQA）数据框架，来增强 VLM 的空间推理能力。</td>
+</tr>
+<tr>
+<td>2024 年 4 月</td>
+<td>KYN（Konw Your Neighbors）：单视图场景重建的方法，通过空间视觉语言推理改进单试图创建。</td>
+</tr>
+<tr>
+<td>微软</td>
+<td>2024 年 4 月</td>
+<td>VoT（Visualization-of-Thought）：通过思维可视化的方法来模拟人类进行空间想象和推理的能力。</td>
+</tr>
+<tr>
+<td>英伟达</td>
+<td>2024 年 10 月</td>
+<td>多模态语言模型 SpatialRGPT：理解 2D 和 3D 空间布局，通过有效表示区域信息和获取空间知识，来增强 VLMs 在区域级的空间推理能力。</td>
+</tr>
+<tr>
+<td>Meta</td>
+<td>2024 年 12 月</td>
+<td>NWM（Navigation World Models）：导航世界模型，能在已知和未知环境中导航，执行路径规划，基于单张图像生成连续一致的视频。</td>
+</tr>
+<tr>
+<td>World Lab</td>
+<td>2024 年 12 月</td>
+<td>单图生成 3D 世界项目：该项目能够用单张图片和一句话生成 3D 世界，允许用户在其中实时移动和探索2，提供持久现实和正确的几何形状体验。</td>
+</tr>
+<tr>
+<td>Niantic Lab</td>
+<td>2024 年 11 月</td>
+<td>大型地理空间模型（LGM）：基于数十亿张世界图像进行训练，用于让计算机以类似人类的方式感知、理解和导航物理世界。</td>
+</tr>
+</table></div>
+
+<p><em>部分公司近期在空间推理领域的技术进展（不完全统计）</em></p>
+<h1>三、从 2D 到 3D 真实物理环境，模型完成「空间推理」需要具备哪些能力</h1>
+<p>在纽大、耶鲁等机构的新工作中，研究者将视觉空间智能所需能力分为视觉感知、语言智能、时间处理和空间推理四类，进一步将空间推理细分成关系推理、自我中心-环境中心转换两方面能力。研究者通过构建名为「VSI-Bench」的视频基础视觉空间智能基准测试，来评估研究多模态大型语言模型（MLLMs）在理解和记忆空间信息方面的能力。</p>
+<p>研究发现，尽管 MLLMs 在视觉空间智能方面展现出一定的竞争力，但与人类相比仍有显著差距，特别是在空间推理方面；同时，研究还发现，传统的语言推理技术并不能提升 MLLMs 在空间任务上的表现，而生成认知地图则有助于提高模型在空间距离问题上的回答能力。</p>
+<p>在该工作中，研究者提出了视觉空间智能的能力框架，并详细描述了空间推理所需的能力。基于认知心理学和人类经验的视觉空间智能所需能力的分类法，研究者将视觉感知、语言智能、时间处理和空间推理划分为「VSI-Bench」所需的四部分能力。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2674448007/142780914578?contentType=1&isNewContent=false" alt="image.jpeg">{width=706 height=356 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2674448007/142780769621?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2674448007/142780769621?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2674448007/142780914576?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2674448007/142780914576?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p><em>视觉工具智能能力分类</em></p>
+<p>进一步，研究者将空间推理分为两种广泛的能力，分别为关系推理和自我中心-环境中心转换。关系推理涉及通过距离和方向识别物体间的关系；自我中心-环境中心转换则涉及从自我中心视角到环境中心视角的切换。</p>
+<p>具体来说，关系推理是通过距离和方向识别物体之间关系的能力。它还包括通过依赖于对其他物体大小的视觉空间常识来推理物体之间的距离。例如，知道标准饮料罐大约高 12 厘米，人类可以通过比较视觉比例来估算其他物体的大小。</p>
+<p>自我中心-环境中心转换涉及在自我中心（自我中心）视角和环境中心（环境中心）视角之间的切换。基于设置，每个自我中心的视频帧映射到环境中心的物体位置和摄像机轨迹。当人类观察一个空间时，其将自我中心的感知转换为环境中心的心理地图，使其能够从不同的视角进行视角转换，对于相对方向或路线规划等任务至关重要。</p>
+<p>此外，研究者还发现通过生成认知地图可以提高 MLLMs 的空间距离能力。</p>
+<p>人类在进行空间推理时会下意识地构建空间的心理表征，基于此，研究者通过认知地图探索了 MLLMs 如何记忆和表征空间信息。研究者发现，MLLM 在定位相邻物体时表现出较高的准确率（64%），显示出较强的局部空间意识。然而，随着物体间距离的增加，这种准确性显著下降，表明 MLLM 倾向于形成一系列局部世界模型，而不是统一的全局模型。而认知地图可以帮助模型在特定环境中记忆物体的位置。研究者发现，使用心理意象可以提高 MLLM 在相对距离任务上的准确率，构建心理空间世界模型或认知地图可能是解决视觉空间推理问题的一个有价值的预任务或有希望的解决方案。</p>
+<p>LLM、VLM 等在空间推理方面仍面临着<a href="https://arxiv.org/pdf/2412.14171">种种挑战</a>，包括识别物体间的关系并通过距离和方向进行推理、空间关系的准确感知、视觉空间常识、从视频数据中理解空间、理解和模拟人类视角转换等。</p>
+<h1>四、各厂商在「空间推理」方面的关键技术进展和差异</h1>
+<p>目前，LLM、VLM 等模型在语言、视觉等 2D 的任务中能力表现出色，但在 3D 的空间推理的能力仍然有限，难以区分简单的空间概念，例如「内」和「外」以及「近」和「远」以及更复杂的关系。然而，空间推理能力在机器人、增强现实等领域至关重要，同时精确的空间感知、推理对于导航、操纵和与现实世界环境的交互等任务也十分重要。</p>
+<p>近期关于空间推理</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>近期多项研究与产品进展聚焦于多模态大语言模型（MLLMs）的空间推理能力提升。纽约大学、耶鲁、斯坦福研究者通过VSI-Bench基准测试发现，MLLMs在空间推理方面与人类存在显著差距：模型定位相邻物体的准确率仅为64%，且随距离增加准确性大幅下降，其倾向于形成局部世界模型而非统一全局空间模型。研究还表明，传统语言推理技术无法有效提升MLLMs的空间任务表现，而生成认知地图的方法可改善模型对空间距离问题的回答能力。</p>
+<p>在技术突破层面，谷歌于2024年2月推出SpatialVLM，通过自动生成3D空间推理VQA数据框架增强视觉语言模型的空间推理能力；微软于2024年4月提出VoT（Visualization-of-Thought），通过思维可视化模拟人类空间想象能力；英伟达于2024年10月发布SpatialRGPT，支持对2D和3D空间布局的区域级理解；Meta于2024年12月推出导航世界模型NWM，支持已知与未知环境导航、路径规划及单图生成连续视频。</p>
+<p>产业应用方面，李飞飞创业公司World Lab于2024年12月发布首个项目，实现从单张图片生成3D世界；谷歌则计划将Gemini 2.0的空间推理能力引入机器人领域，与Apptronik合作开发AI人形机器人。当前各厂商增强空间推理的主要技术路线涵盖直接3D数据整合、多视图图像场景重建以及隐式空间表示学习三大方向。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>MLLMs在视觉空间智能方面与人类相比存在显著差距，空间推理是其性能提升的主要瓶颈</li>
+<li>传统语言推理技术无法提升MLLMs在空间任务上的表现，但生成认知地图有助于提高空间距离问题的回答能力</li>
+<li>谷歌、微软、英伟达、Meta等大厂分别从VQA数据构建、思维可视化、区域级特征、导航世界模型等不同技术路径推进空间推理研究</li>
+<li>现有模型难以区分「内/外」「近/远」等基本空间概念，3D空间推理能力是机器人和增强现实等应用落地的关键障碍</li>
+<li>李飞飞创业公司World Lab发布单图生成3D世界项目，代表空间智能从研究走向产品应用的新趋势</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2674448007.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

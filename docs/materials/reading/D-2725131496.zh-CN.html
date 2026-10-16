@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>九月第一周：模型扎堆发布，Anthropic 断供 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="九月第一周：模型扎堆发布，Anthropic 断供。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2725131496.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>九月第一周：模型扎堆发布，Anthropic 断供</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2725131496。版本：420d29f846e9daa826abfa657f8979984c0897543f97b96ad2c463522c09df41。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/260</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/420d29f846e9daa826abfa657f8979984c0897543f97b96ad2c463522c09df41.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>九月第一周：模型扎堆发布，Anthropic 断供</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外方面：从“堆算力”到“堆场景”，北美进入“AI 基建+应用”双轨冲刺期</strong></p>
+<ul>
+<li><strong>算力军备升级，但重心悄悄滑向“主权化”与“内部化”</strong><br>OpenAI 一周之内把 1 GW 印度数据中心、5 GW 阿布扎比、再加神秘 100 亿美元博通 ASIC 订单全部摆上桌。数字很唬人，真正值得咀嚼的是“地点”与“产权”：印度、中东、挪威——都在美国盟友圈边缘，既分散地缘风险，又把训练命脉握在自己手里。加上自研芯片只供内部，OpenAI 复制了谷歌 TPU 的“封闭花园”路线，标志北美大模型开始探索“后英伟达依赖”阶段。</li>
+<li><strong>产品层“拆模型、卖体验”成为显学</strong><br>ChatGPT Projects 向免费用户放开、Copilot 把 GPT-5 的多文件推理免费、Zoom AI Companion 免费……“免费”背后是把模型当获客工具，把“工作空间”当真正的付费漏斗。海外 C 端增长已见顶，谁能把 AI 埋进 workflow、让 MAU 变成 seat license，谁就能讲出第二波 SaaS 故事。OpenAI 拉来 Instacart 前 CEO 做应用 CEO、11 亿美元收购 Statsig，就是要把“实验-埋点-迭代”闭环一口气吃下来，让模型行为可 A/B、可灰度、可货币化。</li>
+<li><strong>模型人格”被正式写进 OKR</strong><br>OpenAI 把 14 人的 Model Behavior 团队并入 Post-Training，等于把“价值观”从研究外挂升级成核心代码。下一步用户与 ChatGPT 的每一次对话，背后都有一份“政治正确+品牌安全”的 reward model 在打分。大模型竞争从“谁更聪明”切换到“谁更合规矩”，合规成本将成为新进入者无法快速抹平的壁垒。</li>
+</ul>
+<p><strong>2.国内方面：开源+低价“组合拳”，抢海外退潮红利、补生态位</strong></p>
+<ul>
+<li><strong>“语音+多模态”开源抢话筒</strong><br>阶跃星辰 Step-Audio 2 mini 把端到端语音、tool calling、情感副语言一次性开源，直接对标 GPT-4o Audio；快手 Keye-VL-1.5 用 8 B 参数拿下视频理解SOTA。两条赛道都指向“实时交互”，弥补国内在语音/视频场景上的模型空白，也为硬件厂商（耳机、车载、眼镜）提供可商用的“免费内核”。</li>
+<li><strong>翻译、3D、Agent 三条垂直赛道同时“降参数、提性能”</strong><br>腾讯混元 7 B 翻译模型横扫 WMT30 项第一，Voyager3D 把“长距离漫游”+“原生 3D 重建”塞进一个模型，优图开源 Youtu-Agent 在 WebWalkerQA 刷出 71 % 准确率。打法很一致：用“小参数+大场景”切细分，先吃落地，再反卷通用大模型。当海外还在 100 B+ 参数堆算力，国内把 10 B 以内模型做到“够用+好用”，本质是提前卡位边缘部署和私域微调两大刚需。</li>
+<li><strong>价格屠刀再下探，AI 编码进入“20 元包月”时代</strong><br>智谱把 GLM-4.5 打到 Claude 1/7 价，还顺手推出“Claude 用户搬家计划”，话术赤裸：API 直接换域名就能跑。Anthropic 刚对华断供，国内厂商 24 小时内上线“平替+折扣+迁移教程”，反应速度堪比当年 TikTok 被封印度，一夜之间长出替代生态。海外“政治滤镜”越收越紧，国内模型公司把“断供”当成免费 PR，顺势收割外企在华研发机构和出海开发者。</li>
+</ul>
+<p><strong>3.其他层面</strong></p>
+<ul>
+<li>OpenAI 发论文承认“幻觉是奖励机制的内生缺陷”，等于给行业盖官方章：大模型就是会一本正经胡说。紧接着 Google 推出 Stax，让开发者自己定“什么算好答案”。两件事放一起，信号再明确不过——<strong>通用 benchmark 已失效，未来是“场景即评测”</strong>。谁能把评估器、灰度发布、用户反馈做成一站式工具，谁就能把“模型幻觉”从公关风险转嫁给客户自定义阈值，从而把 liability 变成 upsell（卖保险、卖评估、卖微调）。</li>
+<li>Anthropic 估值 1830 亿美元 yet 同时对华禁售，证明“安全溢价”可以值 300 亿美元。全球 AI 供应链正式裂成两条：一条“美系合规链”，一条“非美替代链”。对国内厂商来说，最大的机会窗口不是技术超车，而是<strong>用兼容协议+低价+本地化服务</strong>把“断供”真空全部填满，类似 2020 年半导体设备禁运后国产蚀刻机逆袭的故事。</li>
+<li><strong>自研芯片进入“保密交付”阶段</strong><br>博通 100 亿美元神秘订单坐实“云厂商+定制 ASIC”模式。云厂商需要差异化 TCO，芯片厂需要锁定长期产能，双方一拍即合。英伟达最担心的不是竞品 GPU，而是客户不再买通用芯片——当训练/推理工作流被写成针对自家 ASIC 的微码，迁移成本就是下一代护城河。</li>
+<li><strong>搜索框被重新定义</strong><br>苹果 World Knowledge Answers、Google URL Context、亚马逊 Lens Live 三箭齐发，共同指向“搜索=摄像头+语音+总结器”。传统 10 条链接的 SERP 将成历史，<strong>可交互、可购买、可生成的答案卡片</strong>才是新流量入口。SEO 的下一站是 AIO（AI Optimization），谁能在 4 秒视频、50 页 PDF、摄像头实时画面里被 AI 点名，谁就能拿到 2030 年的流量免单券。</li>
+<li><strong>浏览器公司再估值一次</strong><br>Atlassian 6.1 亿美元收购 Arc/Dia，等于宣布“浏览器=企业工作入口 2.0”。在 AI 时代，浏览器不只是网址栏，更是<strong>跨 SaaS 的上下文总线</strong>：把 Jira、Figma、Slack、Notion 的数据统一成可检索、可提示的上下文，再用 AI 记忆做自动化。国内 360、夸克、红芯其实握有同一手牌，缺的是企业生态捆绑，看谁先抄作业</li>
+</ul>
+<h3>二、海外</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 5,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle Gemini API 全面上线 \&quot;URL Context\&quot; 功能\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google Gemini API 全面上线 \&quot;URL Context\&quot; 功能，使模型能深度访问并处理来自 URL 的内容，包括网页、PDF 和图像等；该功能采用两步检索流程，可深度解析 PDF 中的表格、文本结构、脚注等，处理容量上限达 34MB，单次请求最多处理 20 个 URL；URL Context 被评价为 \&quot;RAG 的又一颗棺材钉\&quot;，无需提取、分块、矢量化和存储等繁琐流程，直接解析特斯拉 50 页 PDF 并精准提取数据。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle 推出 Stax：帮助开发者根据自定义标准评估大语言模型\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google 最近发布了一款名为 Stax 的实验性评估工具，旨在帮助开发者更有效地测试和分析大语言模型（LLMs）。与传统软件测试不同，LLMs 是概率性系统，它们可能会对相同的提示产生不同的响应，这使得评估的一致性和可重复性变得复杂。因此，Stax 为开发者提供了一种结构化的方法，可以根据自定义标准来评估和比较不同的 LLMs。\n\n在进行模型评估时，通常会使用排行榜和通用基准测试，这些方法对于高层次的模型进展跟踪有帮助，但却不能反映特定领域的需求。例如，在开放领域推理任务中表现良好的模型，可能无法处理合规性摘要、法律文本分析或特定企业问题回答等专业用例。Stax 通过允许开发者定义与其用例相关的评估流程，从而解决了这一问题。\n\nStax 的一个重要功能是 “快速比较”。这个功能使开发者能够并排测试不同模型的多种提示，从而更容易了解提示设计或模型选择对输出结果的影响，减少试错所需的时间。此外，Stax 还提供了 “项目与数据集” 功能，当需要进行更大规模的测试时，开发者可以创建结构化的测试集，并在多个样本中应用一致的评估标准，这样不仅支持了可重复性，也使得在更现实的条件下评估模型变得更加容易。\n\nStax 的核心概念是 “自动评估器”。开发者可以构建适合其用例的自定义评估器，或者使用预构建的评估器。内置选项涵盖了常见的评估类别，例如流畅性（语法正确性和可读性）、基础性(与参考材料的事实一致性)以及安全性(确保输出避免有害或不当内容)。这种灵活性使得评估能够与实际需求对接，而不是采用单一的通用指标。\n\n此外，Stax 的分析仪表板可以更方便地解释结果，开发者可以查看性能趋势、比较不同评估器的输出，并分析不同模型在同一数据集上的表现。整体上，Stax 为开发者提供了一种从临时测试转向结构化评估的工具，帮助团队在生产环境中更好地理解模型在特定条件下的表现，以及跟踪输出是否符合实际应用所需的标准。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle 相册引入 Veo 3 视频生成模型，可免费把照片转换为 4 秒视频\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;近日，谷歌宣布将 Veo 3 模型引入自家的第一方相册 Google Photos，美国用户只需在应用的「创建」选项卡中选择「细微动作」或更大胆的「手气不错」，就能将静态照片转换为四秒视频。\n\n此前于 7 月登陆该应用的 Veo 2 现已被 Veo 3 取代。谷歌发言人 Marconi 指出，这次升级能显著提升由静态图片生成视频的清晰度和真实感。\n\n目前免费 Photos 用户每天也能使用 Veo 3 生成「有限数量」视频，但不包含声音；而 Ultra 与 Pro 订阅者可享受更高的使用额度。\n\n该功能现已整合进 Photos 的「创建」标签。除了给照片加入动作，用户还能把图片重塑为 3D 动画并导出为视频。「精彩时刻」功能则能依据图库中输入的关键词，自动生成一段照片集锦视频。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle Gemini AI 推出分层会员服务\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>九月第一周，AI行业迎来密集动态。OpenAI宣布在印度部署1GW、阿布扎比部署5GW数据中心，同时斥资100亿美元向博通下达ASIC芯片订单，自研芯片仅供内部使用，复制谷歌TPU封闭路线，加速迈入&quot;后英伟达依赖&quot;阶段。与此同时，ChatGPT Projects向免费用户开放，Copilot将GPT-5多文件推理功能免费化，AI产品平权趋势持续加剧。OpenAI还以11亿美元收购Statsig，并引入Instacart前CEO，意在构建模型A/B测试与商业化闭环。</p>
+<p>供应链层面，Anthropic在估值达1830亿美元的同时宣布对华断供，引发全球AI供应链正式分裂为&quot;美系&quot;与&quot;非美&quot;两条路线。智谱迅速响应，将GLM-4.5定价压至Claude的1/7，并于24小时内推出&quot;Claude用户搬家计划&quot;；阶跃星辰同步开源端到端语音模型Step-Audio 2 mini，直接对标GPT-4o Audio。Atlassian则以6.1亿美元收购Arc/Dia浏览器，押注浏览器成为企业跨SaaS的上下文入口。</p>
+<p>谷歌方面动作同样密集。Gemini API全面上线&quot;URL Context&quot;功能，单次可处理最多20个URL、上限34MB内容，支持网页、PDF、图像等多种格式，被视为&quot;RAG的又一颗棺材钉&quot;。谷歌还发布实验性评估工具Stax，支持多模型并排测试与自定义评估器。消费端，Google相册引入Veo 3模型，可将静态照片免费转换为4秒短视频，取代今年7月上线的Veo 2，免费用户每日享有限额度，Ultra与Pro订阅用户拥有更高权限。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>OpenAI在印度、阿布扎比等地布局算力并自研ASIC芯片，推进算力主权化与去英伟达依赖</li>
+<li>AI产品层转向&#39;免费获客+工作流绑定&#39;的SaaS付费模式，OpenAI收购Statsig构建数据闭环</li>
+<li>Google推出URL Context与Stax，前者挑战RAG架构，后者标志评估体系从通用benchmark转向场景自定义</li>
+<li>Anthropic对华断供后，国内厂商（智谱等）24小时内推出平替方案，全球AI供应链加速分裂</li>
+<li>国内模型走&#39;小参数大场景&#39;路线，语音、视频、翻译、Agent多赛道同步突破，抢占边缘部署与私域微调市场</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2725131496.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

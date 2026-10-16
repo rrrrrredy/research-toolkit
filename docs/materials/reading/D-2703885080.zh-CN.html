@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>大模型行业周趋势：OpenAI动作频繁，DeepSeek热度不减，阿里、字节、腾讯齐发力 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="大模型行业周趋势：OpenAI动作频繁，DeepSeek热度不减，阿里、字节、腾讯齐发力。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2703885080.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>大模型行业周趋势：OpenAI动作频繁，DeepSeek热度不减，阿里、字节、腾讯齐发力</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2703885080。版本：9f66eb5258197db2343ec66bbdecfa4db0147d099d26e1c20cd9a4ec4942a616。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/131</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/9f66eb5258197db2343ec66bbdecfa4db0147d099d26e1c20cd9a4ec4942a616.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>大模型行业周趋势：OpenAI动作频繁，DeepSeek热度不减，阿里、字节、腾讯齐发力</p>
+<h3>一、周趋势及市场信息</h3>
+<p>1.近期阿里将25年的资本开支上调至1000亿左右，这两天又有传闻，阿里的资本开支进一步上调到1000-1200亿；同时，<strong>阿里最近在大规模储备算力</strong>，从H20到H200，甚至B卡，基本上有多少进多少。</p>
+<p>2.此前豆包和DeepSeek都用极快的速度达到了几千万DAU给了腾讯很大压力，但DeepSeek充分证明了后发有多“省力、省资源”，这对腾讯这种把持入口善于守株待兔做超级应用的公司是个很大机会**。在国内场景下，大厂们面向应用再去投入模型训练、推理，资本开支的利用效率、投资回报率，甚至可能还远高于北美**；同时，在腾讯元宝接入DeepSeek后，模型能力已经看齐豆包了，这对自研的混元模型团队压力也很大。</p>
+<p>3.近期Top 3模型公司（Google、OpenAI、Anthropic）都有下一代模型的官方或者非官方新闻，<strong>DeepSeek的压力让他们罕见地同时发布了自己的下一步技术路径</strong>。</p>
+<p>4.<strong>随着预训练的数据瓶颈愈发明显，RL+reasoning成为了新的主战场</strong>，海外Top3都投入了巨大的算力资源。下一步，为了验证多模态+合成数据+可泛化的self-play RL，势必需要更大的B卡集群，来进行足够多的实验，大量的idea都需要巨量的算力来试错。</p>
+<p>5.短期的NV需求，实际上和DeepSeek的模型发布与否，是否采用了稀疏MoE，是否没有采用NVlink，实际上是没有特别大的关系。<strong>长期来看，NV的需求关键在于能否继续scaling law，而这一点，只有足够的算力才能够充分验证</strong>。</p>
+<p>6.<strong>目前大模型下一步发展，主要有以下几个大的问题</strong>：</p>
+<ul>
+<li>合成数据能否取得突破；</li>
+<li>RL能否实现真正的self-play和泛化；</li>
+<li>多模态能否对语言能力真正产生帮助；</li>
+<li>10万B卡能否带来模型训练的惊喜；</li>
+<li>模型持续1年10x以上的降本，能否带来更繁荣的应用生态。</li>
+</ul>
+<p>7.<strong>推理模型成本大幅下降直接催化了Agent生态的成熟，加速国内端侧AI Agent产业进展</strong>。以智谱与三星的合作为例，Galaxy S25系列搭载的Agentic GLM正是基于类似的模型轻量化思路，这使其得以支持&quot;实时语音视频通话AI字幕生成&quot;、&quot;锁屏界面长按启动AI搜索&quot;等需要瞬时响应的Agent功能。今年“端侧小模型干大事”的逻辑会持续演绎（现在出了DeepSeek，后面可能也会有其他模型），且开源的DeepSeek使得“AI平权”，当技术代差被抹平，拥有场景理解优势的本土模型厂商将掌握定义Agent体验的话语权。</p>
+<p>8.<strong>据说DeepSeek下一代模型也会提升不少coding的能力</strong>，看看到时候和Anthropic到底谁才是coding第一的模型。</p>
+<h3>二、海外</h3>
+<h4>1.Top 3厂商下一代模型动态</h4>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th>**公司**</th>
+<th>**下一代模型**</th>
+</tr>
+<tr>
+<td>**OpenAI**</td>
+<td>- **GPT-4.5：**代号为“Orion”，是OpenAI最后一个“非思维链模型”，预计将在未来几周内发布。它在数学、物理等领域表现更可靠，上下文窗口扩展至256k tokens，知识截止日期延长至2024年6月，速度和准确性全面超越GPT-4。**Orion最初被认为是可以达到GPT5的模型，但是多次预训练不达预期，最后还是当做GPT4.5发布。Orion已经用上了o1/o3产生的合成数据，不过目前还处在比较早的阶段，还没能把模型带到下一代。**<br>- **GPT-5：**将在未来几个月内发布，整合了包括推理模型o3在内的多项技术，具备语音、画布、搜索、深度研究等功能。它将成为一个集成模型，支持广泛任务场景，并能自主判断何时需要长时间思考。**OpenAI下一代的核心模型将是基座模型+o3的整合。不过，这个所谓的GPT5，看起来更像是多种技术的融合， Agents + GPT-4.5 + O3-Full = GPT5。**</td>
+</tr>
+<tr>
+<td>**Google**</td>
+<td>- :[color]{rgb(0, 0, 0)}Google正在加速推进其下一代AI模型Gemini的开发，目标是超越OpenAI的GPT-4.5和GPT-5。[/color]<br>- :[color]{rgb(0, 0, 0)}Gemini将整合多模态能力（如文本、图像、音频和视频处理），并专注于提升推理scaling能力和上下文理解。[/color]<br>- :[color]{rgb(0, 0, 0)}Google计划在未来几个月内发布Gemini的升级版本，以应对OpenAI的技术竞争。[/color]<br>- :[color]{rgb(0, 0, 0)}Google正在研发新一代TPU5，专门为训练和运行大规模AI模型优化，将显著提升计算效率，降低能耗，并支持更大规模的模型训练。[/color]<br>- **单个数据中心已经不够了，Gemini已经在跨多个大城市的数据中心异步训练。Gemini 1.5已经开始使用多个大城市的计算资源，通过高速的网络连接将不同数据中心中的计算结果同步，成功实现了超大规模的训练。**<br>- Google正在将其AI技术深度整合到搜索引擎中，以提供更智能的搜索结果和交互体验。</td>
+</tr>
+<tr>
+<td>**Anthropic**</td>
+<td>- **是一种“混合型”大型语言模型，同时具备“高推理模式”和“普通模式”。**<br>- 当面对复杂问题时，会投入更多计算资源进行推理。<br>- 而对简单任务则无需高推理，像传统语言模型一样快速响应。<br>- 尤其在coding领域，Anthropic的下一代模型被认为会是SOTA。</td>
+</tr>
+</table></div>
+
+<h4>2.Top 3及其他厂商动态</h4>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgCo</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本文综合梳理了大模型行业近期周趋势，涵盖国内外主要厂商动态。国内方面，阿里大幅上调2025年资本开支至1000-1200亿，并大规模储备算力（H20至B卡）；腾讯元宝接入DeepSeek后模型能力看齐豆包，对自研混元团队形成压力，同时腾讯凭借入口优势在应用层面具备较大机会；字节豆包和DeepSeek以极快速度达到数千万DAU。DeepSeek热度持续，其后发优势充分体现</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>阿里资本开支上调至1000-1200亿并大规模储备算力，体现国内大厂对AI基础设施的高度重视</li>
+<li>OpenAI、Google、Anthropic三大厂商罕见同步披露下一代模型路线，DeepSeek压力是重要推动因素</li>
+<li>预训练数据瓶颈愈发明显，RL+reasoning成为全球顶级AI实验室的新主战场，需要巨量算力验证</li>
+<li>推理模型成本大幅下降直接催化Agent生态成熟，端侧小模型赋能本土场景的逻辑将持续演绎</li>
+<li>DeepSeek开源推动AI平权，拥有场景理解优势的本土模型厂商将掌握定义Agent体验的话语权</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2703885080.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenClaw龙虾系统专题6 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="OpenClaw龙虾系统专题6。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2752212952.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>OpenClaw龙虾系统专题6</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2752212952。版本：076341d183df2e1c6f880665be0d5ccd563ba0622cccd62df9a357091ff609ee。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/226</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/076341d183df2e1c6f880665be0d5ccd563ba0622cccd62df9a357091ff609ee.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 574s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;b142b2a649164021a13fc4501836446e&quot;}
+把 Skill 当 API 写，而不是当作文写</p>
+<p>很多不稳定的 Skill 的写作方式：它看起来很认真，很完整，很有专家口吻，甚至会写上“请深度思考”“请全面分析”“请系统归纳”，但你一旦把它放进真实工作流里，结果往往并不稳定。同样一个任务，今天输出一份摘要，明天输出一篇评论；今天分三层结构，明天突然自由发挥；今天会标注证据来源，明天又把推测和事实混在一起。问题出在哪？很多时候不是模型忽然变笨了，而是这个 Skill 从头到尾就没有被当成一个接口来设计。</p>
+<p>所谓的“把 Skill 当 API 写”，并不是让非技术用户去学编程，而是换一种更清醒的任务表达方式：不要把 Skill 当成一个“懂你心思的写作者”，而要把它当成一个“接受输入、返回结果、遇错停下、边界清楚的能力接口”。一旦换成这个视角，很多原本说不清的问题会突然变清楚。</p>
+<p>举个工作场景的例子：要把 8 份已有报告合成 1 份统一主题的研究报告。这里面包含不同时间写的材料、不同作者的口径、重复的观点、互相冲突的数据、长短不一的章节结构，还可能夹杂一些已经过时的判断。如果你只是给系统一句话：“把这 8 个报告整合成一篇完整报告，要有深度、有洞察、有结构。” 这当然听起来很合理，但它对一个 Skill 来说，几乎等于没说。因为这里至少有六个关键信息没有被定义：</p>
+<p>**第一，输入的优先级是什么。**如果八份文档观点冲突，是以后写的为准，还是以你指定的主报告为准？没有这个规则，系统就可能把旧版本的结论和新版本的判断硬拼在一起。</p>
+<p>**第二，输出层级是什么。**你要的是“一版合稿底稿”，还是“可以直接给老板看的成稿”？前者可以保留冲突、暴露缺口；后者则需要更强的选择和收束。两者不是一个任务。</p>
+<p>**第三，允许不允许保留不确定性。**如果一条趋势在文档 A 里被强调，在文档 B 里却被弱化，系统是应该替你拍板，还是应该把差异列出来，等你再判断？这决定了它是“代写结论”还是“辅助研究”。</p>
+<p>**第四，输出结构是什么。**是按“趋势—证据—案例—行动建议”写，还是按“海外—国内—重点公司—后续观察”写？没有固定结构，结果就会漂。</p>
+<p>**第五，证据要求是什么。**是不是每个判断都必须回到材料里能找到依据？能不能补充外部常识？能不能做跨文档推断？这些不说清楚，就很容易把“整合”做成“创作”。</p>
+<p>**第六，异常怎么处理。**如果发现几份文档的统计口径不一致，是继续合并，还是先标红冲突点？如果有一份材料只有半成稿，是跳过，还是作为附录处理？这就是典型的接口问题，而不是文风问题。</p>
+<p>所以，一个真正可交付的研究合稿 Skill，它需要：</p>
+<ul>
+<li>明确必需输入，例如主题、目标读者、主报告优先级、时间范围、输出格式；</li>
+<li>明确可选输入，例如章节框架、是否需要保留冲突观点、是否需要行动建议； </li>
+<li>明确默认值，例如若未指定目标读者，默认输出为内部研究底稿；</li>
+<li>明确异常处理，例如遇到冲突数据时不强行统一，而是并列展示并标注来源； </li>
+<li>明确固定输出，例如摘要、结构目录、合并后正文、冲突信息、待核实问题； </li>
+<li>明确禁止行为，例如不得把未经证实的补充信息写成正式结论。</li>
+</ul>
+<p><strong>这就是接口思维。</strong></p>
+<p>可能人会觉得，这样写是不是太“工程化”了，会不会失去灵活性。恰恰相反。<strong>知识工作的最大敌人，不是规则太多，而是大家总以为彼此理解了一样的东西，最后交付出来的却根本不是同一种结果。</strong></p>
+<p>再看另一个场景：周趋势洞察提炼。
+这类任务尤其容易失控，因为它天然介于“信息整理”和“观点判断”之间。你把最近一周的公司动态、产品动作、技术趋势和市场声音整理给系统，系统很容易一脚踩进“总结 + 判断 + 建议”三合一模式。最后明明只是想先看本周发生了什么，它却直接写出“建议公司重点关注某方向”的句子。</p>
+<p>如果用接口思维来写，这个问题就会简单很多。你可以把任务拆成三个层次：</p>
+<ul>
+<li>第一层，信息摘要：发生了什么；</li>
+<li>第二层，趋势提炼：这些事件可能说明什么；</li>
+<li>第三层，行动建议：对我们意味着什么。</li>
+</ul>
+<p>这三层完全可以由三个不同的 Skill 完成，或者至少在同一个 Skill 中明确分段、分权、分风险。一旦不拆，系统就会默认“既然你让我总结，那我顺手替你判断一下”。这其实就是很多 Skill 看起来“聪明”，用起来却不稳的根本原因：它没有接口，只有意图；没有明确的输入输出，只有一段很会说话的说明书。</p>
+<p>所以我越来越觉得，非技术用户尤其应该学会这种接口思维。因为它不是程序员专属，它本质上是在训练一种更清楚的工作表达方式： </p>
+<ul>
+<li>我要给你什么材料；</li>
+<li>我希望你产出什么；</li>
+<li>什么情况你可以自己处理；</li>
+<li>什么情况你必须停下来；</li>
+<li>哪些东西你可以整理；</li>
+<li>哪些东西你不能替我决定。</li>
+</ul>
+<p>当这些问题都被提前定义好，一个 Skill 才会真正从“看起来很厉害”，变成“真的能交付”。</p>
+<p>**作文式的 Skill，靠读者理解；接口式的 Skill，靠系统执行。**而真正能进工作流的，永远是后者。</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>《OpenClaw龙虾系统专题6》聚焦Skill设计的核心问题：作文式Skill输出不稳定，根本原因在于它从未被当作接口来设计。接口思维的本质是接受输入、返回结果、遇错停下、边界清楚，而非依赖系统&quot;懂你心思&quot;。这一区别直接决定了Skill能否真正进入工作流。</p>
+<p>以多文档合稿任务为例，有效的接口式Skill至少需定义六项关键信息，包括输入优先级、输出层级与不确定性处理等。更具体地说，任何可执行的Skill都应明确必需输入、可选输入、默认值、异常处理、固定输出格式以及禁止行为这六个要素。缺少其中任何一项，系统便只能靠猜测填补空白，稳定性随之崩塌。</p>
+<p>知识工作最大的敌人不是规则太多，而是双方误以为彼此理解，最终交付出截然不同的结果。趋势洞察类任务尤为典型，应拆解为三层独立处理：信息摘要、趋势提炼与行动建议，防止系统在未获授权的情况下越权判断，将主观推断混入客观陈述。</p>
+<p>接口思维并非技术人员的专属工具，非技术用户同样需要掌握，其本质是训练更清晰的工作表达与边界意识。作文式Skill靠读者理解，接口式Skill靠系统执行——能稳定运转于工作流中的，永远是后者。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Skill不稳定的根本原因不是模型变笨，而是从设计之初就没有被当作接口来构建，缺乏明确的输入输出定义和边界规则</li>
+<li>一个可交付的Skill需要定义六类要素：必需输入、可选输入、默认值、异常处理方式、固定输出内容、禁止行为</li>
+<li>以研究报告合稿为例，至少需回答六个关键问题：输入优先级、输出层级、是否保留不确定性、输出结构、证据要求、异常处理规则</li>
+<li>周趋势洞察类任务应拆分为信息摘要、趋势提炼、行动建议三个层次，避免系统默认将整理与判断混合输出</li>
+<li>知识工作最大的敌人不是规则太多，而是大家以为彼此理解了同样的东西，接口式Skill靠系统执行，作文式Skill靠读者理解，真正能进工作流的永远是前者</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2752212952.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

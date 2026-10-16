@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LLM 架构范式探索与模型能力的提升 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="LLM 架构范式探索与模型能力的提升。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2576018195.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>LLM 架构范式探索与模型能力的提升</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2576018195。版本：3ae9c08a451715e1c9c4ab5779518619290f02272c135c1d077df99513effdf3。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/96</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/3ae9c08a451715e1c9c4ab5779518619290f02272c135c1d077df99513effdf3.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>LLM 架构范式探索与模型能力的提升</p>
+<h1>一、核心要点</h1>
+<p>1.在人工智能发展的浪潮中，神经网络、专家系统、决策树和遗传算法等技术先后经历过兴盛、被冷藏，而后复兴的循环。自大模型热潮兴起，大多 LLM 均采用 Transformer 结构，基于预训练的 LLM 范式也是最主流的做法。然而，随着 OpenAI o1 模型、Sutton 的 Dynamic DL 范式和 Mamba、RWKV 等工作的出现，下一代 LLM 的范式可能和当前路线会有很大不同。</p>
+<p>2.Scaling Law 让 OpenAI 取得了模型能力上的绝对优势，也引发了国内外团队尝试在预训练环节投入越来越多的计算资源和海量数据。然而，在模型越做越大，越做越贵的趋势下，包括 OpenAI 在内的多个团队均在尝试改进这种高成本的 LLM 范式。</p>
+<p>3.Transformer 最开始被提出是为了解决机器翻译任务，但作者在 2017 年的论文中就提到想把这种纯基于 Attention 机制的模型应用到图片、语音、视频等任务中。伴随后续基于 Transformer 的工作不断被扩展，这一愿景某种程度上预判了 AI 近几年的主要发展方向。然而，根据不同新出现的工作，下一代 LLM 或许仍会保留 Attention，但不一定继续采用 Transformer。</p>
+<p>4.作为当前大模型领域最流行的架构，Transformer 的弊端也在发展过程中不断显现。Self-Attention 机制因其二次复杂度，使得 Transformer 架构在涉及长输入序列或资源受限情况下的计算成本十分高昂并且非常占用内存。</p>
+<p>5.关于 OpenAI o1，普遍认为要进一步提升大模型的能力，主要有两条技术路线：通过合成数据进一步扩展数据和参数规模；通过模态混合和模态穿透的方法，借助其他模态增强模型能力；</p>
+<p>6.推理能力和模型的指令跟随能力呈现出分离关系。在 OpenAI o1 表现中，尽管在数学、物理等复杂任务上的推理能力有了大幅提升，但在一些语言生成任务上，并没有体现出更大的进步。在 System Card 和 OpenAI 研究人员的访谈中也提到，OpenAI o1 专项于推理能力，而并不能作为一个很好的 Agent 和 Assistant。这种推理能力和指令跟随能力的分离在模型强大到一定程度才出现，甚至是互斥的。但对于构建通用智能体来说，如何 balance 二者关系会成为一个核心问题。</p>
+<h1>二、「压缩即智能」未必是最优选择</h1>
+<p>Ilya Sutskever 2023 年向黄仁勋描述的「AI 预测下一个单词可以实现真正的理解」的理念在一系列 LLM 进展中被验证，其带来的「压缩即智能」的观点进而得到了大量关注和认可。GPT 的训练过程被描述为对知识的无损压缩，但当前最流行的 Transfomer 架构却未必是这一路径下的最优选择。</p>
+<p>以 ChatGPT 为代表的 LLMs 在近期取得的突破验证了 Ilya 在描述的「预测下一个 token 就是在理解世界」，也验证了知识压缩理论在 LLM 中的有效性。</p>
+<p>Ilya 在 2023 年 3 月 GTC 大会和黄仁勋的对谈中表示，ChatGPT 在学习预测下一个词时，实际上理解了文本背后的现实世界过程和情感等信息，形成了「世界模型」，预训练则提高了模型对复杂过程的理解。同样在 2023 年的 2 月和 8 月，Open AI 核心研究员 Jack Rae 和尚未离开 OpenAI 的 Ilya 分别在演讲中从不同的角度讨论了为什么他们认为压缩就是智能，而 GPT 预测下个 token 等同于无损压缩，因此具备最强的智能。</p>
+<p>根据 Ilya 和 Jack Rae 的演讲，（AGI）的追求在于更强的泛化能力，而泛化能力越强，智能水平越高。压缩在这里被视作一种对数据的无损处理，即在不丢失任何信息的前提下，减少数据所需的存储空间。</p>
+<p>对于数据集的最佳无损压缩，实际上是找到了一种方式，能够以最简洁的形式表达数据集中的所有信息，这种方式能够很好地泛化到新的、未见过的数据上。</p>
+<p>从另一种角度描述，如果一个模型能够无损地压缩一个数据集，那么它很可能也能很好地处理该数据集之外的数据，因为它已经学会了数据中的通用规律和模式。</p>
+<p>GPT 之所以被认为是最好的无损压缩器，是因为它能够在无监督学习的环境下，高效地处理和整合多样化的数据，提取公用部分，并实现复杂的映射关系，从而在表征空间中达到最优的压缩效果。</p>
+<p>在 GPT 获得成功后，Transformer 成为了当前 LLM 领域最为流行的架构。但伴随围绕 Transformer 的研究逐步发展，其局限也不断被发掘，进而引发一系列工作对基于 Transformer 的 LLM 范式提出挑战。</p>
+<h1>三、LLM 范式变革的业界讨论与工作</h1>
+<p>Scaling Law 让 OpenAI 取得了模型能力上的绝对优势，也引发了国内外团队尝试在预训练环节投入越来越多的计算资源和海量数据。然而，在模型越做越大，越做越贵的趋势下，包括 OpenAI 在内的多个团队均在尝试改进这种高成本的 LLM 范式。其中，谷歌 DeepMind 团队的「Scaling LLM Test-Time Compute」和 OpenAI 在 o1 发布时介绍的尝试均映射出 LLM 的训练范式正在隐隐从预训练转向推理；而深度学习先驱深度学习先驱 Richard Sutton 的工作则在 Dynamic Deep Learning 的远期愿景下，解锁更适应持续学习环境的训练范式，规避现有大模型训练的高成本和灾难性遗忘等局限。</p>
+<p>1.<strong>谷歌 DeepMind 和 UC 伯克利的研究者在 2024 年 8 月的「</strong><a href="https://arxiv.org/abs/2408.03314">Scaling LLM Test-Time Compute</a><strong>」论文中探究了如何通过增加测试时（Test-Time）的计算量来提高 LLMs 的性能，发现这种方法在部分情况下比单纯扩展模型参数更加有效</strong>。「Scaling LLM Test-Time Compute」的核心思路在于，假设通过在测试时（test-time）投入额外的计算资源，即 Scaling test-time compute，LLM 在理论上应该能做到比训练时更好的表现。</p>
+<p>如果预训练模型的大小可以与推理期间的额外计算资源交换，那么规模较小的模型将有希望替代原本需要部署在数据中心的大规模 LLM；如果使用额外的推理时间计算资源来自动化改进模型输出的质量，也可以作为算法优化中减少依赖人类监督的路径。</p>
+<p>该工作探讨了两种主要机制来扩展测试时的计算：一种是针对基于过程的密集验证器奖励模型（PRM）进行搜索，另一种是在测试时根据 prompt 自适应地更新模型的响应分布。</p>
+<p>通过对这两种策略的研究，研究者发现不同方法的有效性高度依赖于 prompt 的难度，并提出了「计算最优」扩展策略，根据 prompt 难度自适应地分配测试时的计算资源。实验发现，将额外计算资源投入测试时计算在大多问题上具有较高性价比，但对最难的问题仍是预训练计算取得的进展更有效。</p>
+<p>「 Scaling LLM Test-Time Compute」发布于 OpenAI 推出 o1 模型（9 月）前夕。彼时，人们对仍是「草莓」的 o1 有着许多猜测，而谷歌 DeepMind 这项工作的历年传闻中草莓会在「回答前思考」的特征。在 o1 发布后，其「 RL Scaling」的新方向则进一步引发了业界对 LLM 训练范式转移的热议。</p>
+<p>2.<strong>o1 模型的特点是「三思而后行」。通过训练，o1 在响应用户之前会先产生一个很长的内部思维链，完善自己的思维过程，尝试不同的策略，并认识到自己的错误</strong>。这种思考能力使 o1 在面对复杂问题时，能够像人类一样进行长时间的思考和推理，从而得出更加准确和深入的答案。</p>
+<p>OpenAI 在 o1 技术报告称更多的强化学习（训练时计算）和更多的思考时间（测试时计算）能让 o1 的性能持续提高，且这种 Scaling 方法的限制与此前流行的预训练的限制有很大不同。</p>
+<p>围绕 OpenAI 在技术博客中对测试时计算（test-time compute）的发现，许多声音指出 Scaline Law 的范式正在从 Training-Time 转向 Inference-Time。</p>
+<p>3.<strong>北大对齐团队撰文解读了 o1 在技术上的细节，并指出 o1 象征着「Post-Training Scaling Laws」已经出现，并为该路径提供了有力的支持</strong>。</p>
+<ul>
+<li>Post-Training Scaling Laws 代表的是预训练阶段参数 Scaling Up 带来的边际收益开始递减，而后训练阶段的强化学习训练和推理阶段思考计算量的增大则能够显著提升模型性能。</li>
+<li>o1 模型可能使用了类似于 AlphaGo 中的 MCTS 和 RL 方法，通过搜索找到正确的答案路径。强化学习在 o1 中的作用是诱导合理推理过程的产生，而不是直接搜索过程和最终答案。</li>
+<li>在 o1 模型中，强化学习还可能与 Critic Model 结合，提供精准的反馈，帮助模型在更复杂的问题上生成合理的推理过程。</li>
+</ul>
+<p>4.阶跃星辰 CEO 姜大昕、清华大学教授朱军、月之暗面 CEO 杨植麟在 2024 云栖大会的论坛中分享了对 o1 的<a href="https://mp.weixin.qq.com/s/BUQAeAu6z3CHRfxEsHU5DA">看法</a>，认为 o1 的重大意义是让强化学习的通用性和泛化性上了一个大台阶，提高了 AI 的上限。</p>
+<ul>
+<li>姜大昕表示，o1 把以前的模仿学习和强化学习相结合，使模型同时有了人脑系统 1 和系统 2 的能力，首次证明了 LLM 可以有类似人脑的慢思考（系统 2）能力。系统 1、系统 2 出自《思考，快与慢》，系统 1 指快速的、无意识的快思考；系统 2 指有意识的慢思考。前者是直线型思维，类似 GPT-4 虽然会拆解、逐步解决问题，但系统 2 能够去探索不同的路径，可以自我反思、自我纠错，然后不断试错，直到找到正确的途径。</li>
+<li>朱军认为 o1 的影响来自它在工程上证明了强化学习能够在 LLM 上 Scale Up，会出发更多未来探索，也可能会推动 AGI 从 Narrow 跃迁至 General。</li>
+<li>杨植麟则认为 o1 提高了 AI 的上限。上限指 AI 能否对生产力带来 5%、10%甚至 10%的提升。AI 七八十年的历史中唯一有效例子就是 Scaling，而 o1 很大成都上解决了当下来自互联网数据数据被用完的问题，完全可能带来新的开端。</li>
+</ul>
+<p>5.在 Scaling Law 「当道」的趋势下，深度学习先驱 Rich Sutton 则从深度学习的根本缺陷上入手，解决现有深度学习方法无法适应持续学习环境的局限，解锁更好的 Dynamic Deep Learning。</p>
+<p>Sutton 在 2024 年 10 月的演讲中强调了持续学习更接近自然学习过程，所有自然系统（如动物和人类）都在持续学习，而不是在特定阶段学习。当前的深度学习是瞬态学习（Transient Learning），其在一个特殊的训练阶段学习，且算法会在持续学习环境中失败，失去可塑性，产生灾难性遗忘，并在强化学习策略中崩溃。持续学习的主要目的是确保模型更新的资源效率，最好接近只学习新的训练样本。这种能力可以避免从头开始重新训练模型的需要，规避巨大的计算和存储开销。伴随当下模型规模越来越大，重头训练的成本也越来越高。</p>
+<p>Sutton 提出的 Dynamic Deep Learning 的范式将深度神经网络分为主干（Backbone）和边缘（Fringe）两部分。这种神经网络会动态地逐步构建，通过逐个单元的增长来实现更强性能表现。</p>
+<p>Backbone 是网络中已经学习且对当前功能重要的部分，应当被保护和保留。Fringe 则是网络中动态和探索性的部分，它试图生成对 Backbone 有用的特征。</p>
+<p>Dynamic DL 的网络通过逐个单元的增长来实现，而非预先设定的固定结构。如果 Fringe 生成的特征对 Backbone 有用，它就可以成为 Backbone 的一部分。</p>
+<p>在 Dynamic Deep Learning 的范式下，如何寻找、保护和缓慢增长 Backbone 将是一系列新颖但并非不可实现的课题。</p>
+<p>作为实现 Dynamic Deep Learning 的第一步，Sutton 团队目前提出了持续反向传播算法，可以解决标准深度学习方法在持续学习环境中遇到的可塑性丧失问题。持续反向传播算法的核心思想是选择性地对网络中 contribution utility 较低的的单元进行初始化处理，从而向网络注入可变性并保持其某些权重较小，实现无限期地保持深度网络的可塑性（Plasticity）。</p>
+<h1>四、Transformer 架构的弊端与替代探索</h1>
+<p>Transformer 最开始被提出是为了解决机器翻译任务，但作者在 2017 年的论文中就提到想把这种纯基于 Attention 机制的模型应用到图片、语音、视频等任务中。伴随后续基于 Transformer 的工作不断被扩展，这一愿景某种程度上预判了 AI 近几年的主要发展方向。然而，根据不同新出现的工作，下一代 LLM 或许仍会保留 Attention，但不一定继续采用 Transformer。</p>
+<p>作为当前大模型领域最流行的架构，Transformer 的弊端也在发展过程中不断显现。Self-Attention 机制因其二次复杂度，使得 Transformer 架构在涉及长输入序列或资源受限情况下的计算成本十分高昂并且非常占用内存。</p>
+<p>Attention 机制的特点在于 O（N^2） 的复杂度与多头机制的并行性。在类似文本生成的 token by token 的任务中，每个步骤的二次复杂度和 KV cache 的内存限制会在推理过程中表现出较低效率。</p>
+<p>许多工作尝试降低 Attention 的复杂度，但会牺牲模型精度和效果；基于传统 RNN 的模型在推理效率和效果中表现较好，但由于没有多头机制无法实现高效并行训练，难以扩大规模。</p>
+<p>改善 Transformer 的尝试长期被并行训练、低成本推理和良好的扩展性能无法同时实现的「不可能三角」所阻塞，因此有许多工作试图用 Transformer 之外的架构以更低的成本挑战同等或更高的效果。</p>
+<p>1.在尝试替代 Attention 机制的路线中，最具代表性的工作之一是 RWKV，其命名代表了它的架构特征，由一个接收器向量（R）、一个权重向量（W）、一个键向量（K）和一个值向量（V）组成。</p>
+<p>这些向量在时间步长上相互作用，并通过时间依赖的 softmax 操作和层归一化来提高数值稳定性和缓解梯度消失问题。</p>
+<p>RWKV 的训练采用时间并行模式，类似于 Transformer，但 WKV 计算的时间依赖性可以通过并行扫描进一步优化。推理过程中，RWKV 利用 RNN-like 结构，可以递归地用于解码。</p>
+<p>除了可训练的权重参数 w（Weight），RWKV 还使用 r （Receptance） 参数来控制对信息的接受程度。区别于 Transformer 的 Query - Key - Value（QKV）内存寻址机制，RWKV 更像是一种联想记忆方法。</p>
+<p>2.在 RWKV 出现前，苹果团队在 2021 年提出 Attention Free Transformer（AFT），它在传统 Transformer 的基础上试验类似 Residual Connection 等技术来消除 Attention，从而减少计算量和提升性能。</p>
+<p>同样路线中另一项代表性工作是基于状态空间模型（SSM）开发的 Mamba。在提出时，Mamba 在语言建模的预训练和下游评估中表现均优于同等规模的 Transformer 模型，且能随上下文长度增加实现线性扩展。</p>
+<p>有分析表示，Mamba 与 RWKV 同属完全使用 Recurrent（循环）结构，不采用 Attention 的路线。因此 Mamba 在预测下个 Token 时，模型的内存大小永远固定，但局限在于因为内容太小因此难以外推。</p>
+<p>Mamba 作者后续在 Mamba-2 的工作中又提出了结构化状态空间对偶性（SSD）的理论框架，证明了 Transfomer 和 SSM 在数学层面上存在极为紧密的联系。</p>
+<p>3.在尝试调和 RNN 与 Attention 机制的路线中，微软亚研院和清华的研究者在 2023 年 7 月提出了 RetNet，可使用 Attention 来并行训练，但规避了推理成本和内存复杂性。</p>
+<p>① RetNet 在 Transformer 的基础上引入了多尺度保持（retention）机制替代了标准的自注意力机制，具有并行、循环和分块循环表征三种计算范式。</p>
+<p>② 并行表征与自注意力相似，能够充分使用 GPU 高效训练</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>大语言模型领域正经历深刻的架构范式变革。Transformer凭借Self-Attention机制取得显著成果，但其O(N²)计算复杂度在长序列处理场景下造成高昂计算成本与内存压力，且面临并行训练、低成本推理、良好扩展性三者无法兼得的&quot;不可能三角&quot;困境。</p>
+<p>在能力提升路径上，Ilya Sutskever提出&quot;压缩即智能&quot;理念，认为GPT预测下一个token本质上等同于无损压缩，泛化能力越强则智能越高。谷歌DeepMind研究则发现，增加测试时计算量在部分情况下比单纯扩展模型参数更为有效。OpenAI o1正是这一思路的典型实践——其通过强化学习与测试时计算（test-time compute）双重扩展，引入长内部思维链机制，使模型具备类人脑系统2的慢思考能力，能够自我反思、探索路径并纠错。北大对齐团队据此指出，o1标志着&quot;Post-Training Scaling Laws&quot;的出现，预训练阶段参数Scaling的边际收益已开始递减。值得注意的是，o1的推理能力与指令跟随能力呈分离关系，并不适合作为Agent和Assistant使用。</p>
+<p>在替代架构探索方面，多条技术路线并行推进。苹果团队于2021年提出AFT，通过引入Residual Connection等技术消除Attention以降低计算量；Mamba基于状态空间模型（SSM）开发，在预训练和下游评估中优于同等规模Transformer，支持线性扩展，其后续版本Mamba-2更通过结构化状态空间对偶性（SSD）框架从数学层面证明了Transformer与SSM的紧密联系；微软亚研院与清华于2023年7月联合提出RetNet，引入多尺度保持（retention）机制替代自注意力，兼具并行、循环、分块循环三种计算范式，实现训练与推理效率的协同优化。整体来看，下一代LLM可能保留Attention机制，但未必延续完整的Transformer架构。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>OpenAI o1通过强化学习实现模型在推理前产生长思维链，标志着Scaling Law范式从预训练时计算向推理时计算（Test-Time Compute）转移。</li>
+<li>Transformer的Self-Attention机制具有O(N²)二次复杂度，在长序列处理和资源受限场景下计算成本高昂，推动了RWKV、Mamba、RetNet等替代架构的探索。</li>
+<li>Richard Sutton提出Dynamic Deep Learning范式，通过持续反向传播算法保持网络可塑性，解决当前深度学习灾难性遗忘和无法适应持续学习环境的根本缺陷。</li>
+<li>推理能力与指令跟随能力在强大模型中呈现分离甚至互斥关系，o1虽在数学推理上大幅提升，但在语言生成和Agent能力上并未同步进步。</li>
+<li>「压缩即智能」理念认为GPT预测下一个token等同于无损压缩，泛化能力越强智能越高，但Transformer架构未必是实现这一路径的最优选择。</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2576018195.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

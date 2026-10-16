@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3月第3周：海外加速收敛编程工具与企业级服务战线，国内阵营饱和攻击Agent入口 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="3月第3周：海外加速收敛编程工具与企业级服务战线，国内阵营饱和攻击Agent入口。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2752048955.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>3月第3周：海外加速收敛编程工具与企业级服务战线，国内阵营饱和攻击Agent入口</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2752048955。版本：cc3fff955bedfab14fd5a1ee78e5d1da4bfce85030720ddde89ef2f6e3be0f14。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/219</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/cc3fff955bedfab14fd5a1ee78e5d1da4bfce85030720ddde89ef2f6e3be0f14.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>3月第3周：海外加速收敛编程工具与企业级服务战线，国内阵营饱和攻击Agent入口</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外</strong></p>
+<p><strong>1.1.英伟达 GTC：从算力供应商到 AI 工厂定义者</strong></p>
+<p>万亿营收预期与垂直整合战略。黄仁勋将 2027 年营收预期提升至 1 万亿美元，较此前预测翻倍延长，这不仅是财务指引，更是对全球 AI 基础设施投资节奏的重新定义。Vera Rubin 平台不再局限于 GPU 单芯片，而是由 7 种芯片 + 5 种机架系统构成的完整 AI 超级计算机，其中 Groq 3 LPX 机架（搭载 256 个 LPU 处理器）与 Vera CPU 机架的发布，标志着英伟达正在侵蚀传统 CPU 厂商的地盘，通过 &quot;GPU+CPU+LPU&quot; 的三位一体架构锁定数据中心升级周期。</p>
+<p>太空计算与边缘推理的前沿卡位。Space-1 Vera Rubin 模块将数据中心级算力部署至卫星和轨道数据中心（ODC），配合 Jetson Orin、IGX Thor 形成 &quot;边缘→地面→云端&quot; 的完整算力架构。这表明英伟达已不满足于地面数据中心的存量市场，正在抢占太空计算与在轨推理的增量空间，为未来太空互联网与实时地理空间智能预埋基础设施。</p>
+<p><strong>NemoClaw 与 AI 智能体基础设施化。</strong> 通过 NemoClaw 进军 &quot;龙虾产业&quot;，英伟达将 AI 智能体基础设施视为继 CUDA 之后的下一代开发者绑定平台。其定位并非简单的运行环境，而是集成 Nemotron 模型、OpenShell 运行环境、安全沙箱的完整 &quot;养虾&quot; 基础设施，支持从 RTX PC 到 DGX Station 的全场景部署。这标志着智能体开发正从黑客式的开源折腾转向工业级的标准化生产。</p>
+<p>图形技术的范式转移。DLSS 5 被定义为 &quot;图形领域的 GPT 时刻&quot;，通过将传统 3D 图形数据与生成式 AI 结合，实现预测性渲染而非逐帧计算。结合 Nemotron 3 系列（特别是 Cosmos 3 世界基础模型、Isaac GR00T N1.7 人形机器人模型、Alpamayo 1.5 自动驾驶模型）的发布，英伟达正在构建 &quot;物理 AI&quot;（Physical AI）的完整工具链，从虚拟训练场到实体机器人形成闭环。</p>
+<p><strong>1.2.智能体协议与开发工具</strong></p>
+<p><strong>WebMCP 与 CLI 路线。</strong> Google Chrome 团队推出的 WebMCP 协议具有标志性意义：AI 智能体可通过 API 直接调用网页底层功能，无需依赖截屏识图或模拟点击的低效方式。更关键的是，该协议由 Google 与 Microsoft 联合共建并已开源，这意味着MCP（Model Context Protocol）正从 Anthropic 的私有标准演变为行业通用协议。前端开发者的角色由此发生质变 —— 从 &quot;绘制视觉界面&quot; 升级为 &quot;定义 AI 与世界的结构化接口&quot;，网页将分化为面向人类视觉层与面向 AI 工具层的双轨架构。</p>
+<p><strong>Anthropic 的跨设备 Agent 操作系统。</strong> Dispatch 功能实现手机远程指挥 Mac 上的 Claude，Channels 功能通过 Telegram/Discord 接入本地 Claude Code 会话，这代表了GUI 桌面与命令行两大场景的双线布局。Anthropic 正在将 Claude 从聊天机器人重构为 &quot;跨设备、跨平台、持续运行&quot; 的 Agent 操作系统，其技术路线强调本地执行不经过云端，与纯云端方案形成差异化。</p>
+<p><strong>1.3.大模型厂商的战略收缩与聚焦</strong></p>
+<p><strong>OpenAI 的 &quot;红色警报&quot; 与战略大收缩。</strong> 面临 Anthropic 在企业市场的步步紧逼（首次采购 AI 产品的企业客户中选择 Anthropic 的比例已达 OpenAI 的三倍），OpenAI 启动成立以来最重大的战略转型：裁撤 Sora 等非核心业务，资源全面向 Codex 编程工具与企业级服务倾斜；计划收购 Astral 补强 Python 工具链，收购 Promptfoo 补强安全测试；筹备 2026 年 Q4 IPO。这种从 &quot;内部投资一系列初创公司&quot; 的多线作战转向单点突破，反映出大模型商业化进入深水区 —— 在算力成本与竞争加剧的挤压下，&quot;做多&quot; 不如 &quot;做深&quot;，编程与企业服务成为最先验证付费意愿的场景。</p>
+<p><strong>OpenAI 的产品矩阵整合。</strong> 计划将 ChatGPT、Codex 与浏览器整合为 &quot;超级应用&quot;，并推出 GPT-5.4 mini 与 nano 轻量模型（定价较旗舰模型降低 80% 以上），同时在美国免费版 ChatGPT 投放广告寻求收入多元化。这种 &quot;高端订阅 + 轻量 API + 广告&quot; 的三级变现体系，表明 OpenAI 正试图覆盖从开发者到企业再到大众市场的全谱系用户。</p>
+<p><strong>1.4.多模态与垂直领域</strong></p>
+<p><strong>3D 重建与长上下文的几何智能。</strong> Google DeepMind 联合伯克利提出的 LoGeR（长时上下文几何重建），通过参数化测试时训练（TTT）记忆模块与滑动窗口注意力（SWA）机制，解决了前馈 3D 重建模型在长序列视频中的上下文壁垒问题。这代表几何基础模型（如 DUSt3R、MonST3R、VGGT）正从短时上下文 &quot;气泡&quot; 扩展到城市级别的长时序重建，为自动驾驶、AR/VR 等需要大范围 3D 感知的场景奠定基础。</p>
+<p>生物 AI 与内容生成的专业化。ElevenLabs 推出 AI 音乐交易市场，首创 &quot;创作者分成&quot; 商业模式，试图在版权法灰色地带建立 AI 内容的资产化闭环；Perplexity Health 接入 Apple Health 等数据源，提供个性化医疗建议，标志着 AI 健康助手从通用问答向循证医学与个性化数据结合演进；亚马逊收购 Rivr 配送机器人，推进 &quot;最后一公里&quot; 自动化，目标将 75% 运营流程实现完全自动化。</p>
+<p><strong>2.国内</strong></p>
+<p><strong>2.1.组织架构深度重组</strong></p>
+<p>阿里 Token Hub：AI 商业化的组织范式革命。阿里成立 Alibaba Token Hub 事业群，由 CEO 吴泳铭亲自挂帅，整合通义实验室（Qwen 模型研发）、钉钉、夸克与悟空事业部，首次将 &quot;Token&quot; 作为商业计量单位写入组织架构名称（&quot;创造 Token、交付 Token、应用 Token&quot;）。这不仅是部门合并，而是将 AI 业务从技术支持部门重构为营收中心，试图通过组织扁平化打破研究、产品、设计间的协作壁垒。千问月活超 3 亿、平头哥自研 GPU 规模化量产、AI 收入连续十个季度三位数增长，显示其 &quot;大模型 + 云 + 芯片&quot; 全栈战略初步跑通。</p>
+<p>腾讯 AI Lab 撤销与组织架构调整。腾讯撤销 AI Lab，部分人员并入混元团队，多模态部向 TEG 总裁卢山汇报。这种调整反映出大厂对 AI 研发效率的焦虑—— 从分散的实验室制转向集中的产品化作战，试图通过组织架构压缩技术转化的路径长度。</p>
+<p>百度 MEG 人事换将。大模型算法负责人何径舟轮岗至移动生态事业群组（MEG），出任百度 APP 研发中心负责人，原搜索负责人赵世奇离职。这明确释放出 &quot;用大模型重构搜索与推荐&quot; 的信号，试图将前沿 AI 技术与核心商业场景（搜索、信息流）深度融合。</p>
+<p><strong>2.2.模型技术路线的差异化突围</strong></p>
+<p>月之暗面的架构级创新。发布 Attention Residuals（AttnRes）架构，用跨层 Softmax 注意力替代传统残差连接，让每层主动、有选择性地从前序层提取信息，在 48B 参数 / 3B 激活规模下 GPQA-Diamond 提升超 20%。Kimi K2.5 技术路线图（MuonClip 优化器、Kimi Linear 混合线性注意力）的公开，以及 &quot;Cursor 套壳 Kimi K2.5&quot; 事件的澄清（确认为授权商业合作），显示其坚持开源路径以构建开发者生态的战略定力。</p>
+<p>阿里 Qwen3.5-Max-Preview 登顶。在 LM Arena 斩获 1464 分，跻身全球前五、中国第一，数学能力全球第五。配合预训练动态数据选择范式 OPUS（从中低质量数据动态挑选击败高质量优先策略）的开源，阿里正在通过数据工程创新而非单纯算力堆砌实现模型效能提升。</p>
+<p>小米 MiMo-V2 系列的端侧布局。发布旗舰推理模型 Pro（1T 总参数 / 42B 激活参数、1M 上下文）、全模态 Omni（支持 10 小时连续音频理解）、语音合成 TTS 三件套，通过 OpenClaw 等平台接入。这代表端侧大模型正从 &quot;能力可用&quot; 向 &quot;专业可用&quot; 演进，在高强度 Agent 场景与长时音频理解等垂直领域形成差异化优势。</p>
+<p>MiniMax M2.7 的自我进化能力。 MiniMax M2.7 宣称是首个 &quot;深度参与自身迭代过程&quot; 的模型，能自行构建 Agent Harness，在强化学习、代码优化等环节参与自身训练迭代，曾无人工干预执行超 100 轮 &quot;分析→修改→评测→回退&quot; 循环将评测集效果提升 30%。这预示着模型训练可能从 &quot;人类设计算法&quot; 转向 &quot;模型自主进化&quot;的新范式。</p>
+<p><strong>2.3.垂直场景渗透</strong></p>
+<p>吉利与阶跃星辰的车载智能体。极氪 8X 首发搭载阶跃星辰 Step 3.5 Flash，发布 &quot;超级 Eva&quot; 智能体，实现 &quot;带我去接孩子放学，顺便找麦当劳，5 点前到学校&quot; 的模糊指令自主规划与执行。这标志着车载 AI 从 &quot;语音助手&quot; 向 &quot;任务规划智能体&quot; 跃迁，车机系统开始具备跨应用、跨域（座舱 / 智驾 / 数字生态）的原生融合能力。</p>
+<p>LiblibAI 的 Agent 化视频创作。 推出 LibTV 定位 &quot;同时服务人类创作者与 Agent 的视频创作系统&quot;，通过 Skill 接口向 OpenClaw 开放能力，支持一句话生成 5 分钟短剧、输入 URL 复刻风格等。这代表创意生产工具正从 &quot;人主导、AI 辅助&quot; 向 &quot;Agent 主导、人监督&quot;的工作流转变。</p>
+<p>字节 Seedance2.0 的短剧工业化。上线首个搭载 Seedance2.0 的短剧 Agent，支持 10 万字剧本一键成片、2D/3D / 仿真人画风、统一角色形象，内测爆款《万兽独尊》4 天播放破亿，5 人 8 天完成 60 集制作。华策影视、柠萌影视的接入，显示影视工业化生产可能跳过传统工具阶段，直接进入 Agent 原生时代。</p>
+<p><strong>3.龙虾（OpenClaw）：Agent 入口争夺已升级为操作系统级别的生态战争</strong></p>
+<p>本周国内 AI 产业呈现 &quot;万物皆可龙虾&quot; 的饱和式攻击态势，Agent 入口争夺已升级为操作系统级别的生态战争。</p>
+<p><strong>3.1.产品矩阵全景：全场景、全终端覆盖</strong></p>
+<p><strong>企业级办公入口</strong>：阿里悟空（钉钉团队打造，&quot;AI 用钉钉来工作&quot;，覆盖电商、法律、财税等十大行业 OPT 方案）、飞书 aily（&quot;一次点击拥有专属 Agent&quot;，深度嵌入文档 / 日程 / 消息上下文）、百度 DuMate（国内首个国产企业级满血版，支持本地部署与沙箱隔离）。</p>
+<p><strong>个人与家庭终端</strong>：腾讯 QClaw（微信入口升级为小程序，业内首创微信直连）、微信 ClawBot（官方插件，扫码绑定）、QQ 机器人（支持富媒体双向交互，内测频道 AI 开放计划）、百度 RedClaw（移动端零部署）、小度 &quot;家用小龙虾&quot;（全球首款家庭场景 Agent）。</p>
+<p><strong>云端与存储集成</strong>：百度网盘 GenFlow（一键部署云端小龙虾，直接调用网盘文件）、阿里云 Lighthouse、腾讯云 WorkBuddy。</p>
+<p><strong>硬件与边缘计算</strong>：面壁智能 EdgeClaw Box（内置 MiniCPM 端侧模型，S1/S2/S3 三级隐私路由）、智谱机械革命盒子（全球首款 GLM 模型 &quot;龙虾盒子&quot;）。</p>
+<p><strong>开发工具与平台</strong>：阿里秒哒 Skill（全球首个 OpenClaw 应用开发 Skill，&quot;对话即应用&quot;）、百度伐谋 Skill（科研与算法场景）、LiblibAI Skill 接口。</p>
+<p><strong>3.2.技术路线分化与生态绑定</strong></p>
+<p><strong>路线一</strong>：深度集成办公上下文。钉钉、飞书、企微等平台利用既有工作流数据优势，让 Agent 天生理解企业组织架构与文档关系，强调 &quot;零配置&quot; 即开即用。</p>
+<p><strong>路线二</strong>：微信 / QQ 社交链渗透。腾讯系产品利用国民级社交入口，通过微信小程序、QQ 频道等降低 &quot;养虾&quot; 门槛，试图将 Agent 转化为社交关系链中的 &quot;数字员工&quot;。</p>
+<p><strong>路线三</strong>：硬件绑定与端侧隔离。面壁智能 EdgeClaw Box、阿里松果派等通过本地硬件实现隐私隔离，采用 &quot;本地简单任务 + 云端复杂任务&quot; 的分层策略，解决企业数据出域焦虑。</p>
+<p><strong>3.3.安全风险：从边缘议题上升为核心基础设施</strong></p>
+<p><strong>国家部委的警示与行业响应</strong>。国家安全部罕见发布《&quot;龙虾&quot; 安全养殖手册》，将 OpenClaw 定位为 &quot;数字员工&quot; 并进行合规警示；微软电脑管家上线 &quot;一键卸载 / 停止龙虾&quot; 功能；腾讯 &quot;龙虾管家&quot; 提供沙箱隔离、文件保护、端口暴露检测；蚂蚁数科 &quot;龙虾卫士&quot; 针对权限越界、记忆污染、恶意诱导等风险提供全生命周期防护。</p>
+<p><strong>风险图谱具象化</strong>：根据字节跳动内部安全规范，OpenClaw 存在五类核心风险：访问控制设置不当（38 万个实例公网暴露）、提示词注入、敏感信息窃取、供应链漏洞（Skills 插件投毒）、恶意插件投毒。百度 DuMate、面壁 EdgeClaw Box 等均强调 &quot;预装安全沙箱&quot;&quot; 强制用户明确授权 &quot;&quot;操作全程可审计&quot; 等企业级安全能力。</p>
+<p><strong>安全正从 &quot;可选项&quot; 变为 Agent 商业化的 &quot;前提条件&quot;</strong>。当 Agent 获得本地文件操作、浏览器控制、跨应用权限时，其风险等级已从 &quot;信息泄露&quot; 升级为 &quot;系统破坏&quot;。缺乏安全护栏的龙虾部署可能面临政策红线与用户信任的双重危机，这也解释了为何微软、腾讯等巨头在推自身 Agent 产品的同时，反而提供 &quot;一键卸载竞品&quot; 的安全工具 —— 既是竞争手段，也是生态责任。</p>
+<p>:::heading{level=3 align=start}
+二、海外</p>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**英伟达**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n黄仁勋 GTC 演讲：万亿营收、LPU、太空芯片、一键「养虾」\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;北京时间周二凌晨，英伟达 CEO 黄仁勋在长达两个半小时的演讲中，对 AI 产业的软硬件概念进行了一场「地毯式轰炸」。对资本市场来说，今天也是收获颇丰的日子——事前预期中会出现的炒作概念基本全部兑现，还意外获得黄仁勋对算力芯片营收的最新炸裂财务预期。\n\n**关键热词：1 万亿美元**\n\n黄仁勋在演讲中确认，英伟达的旗舰芯片将帮助公司到 2027 年创造 1 万亿美元的营收。\n\n至于这句话利好的程度则取决于每个投资者的理解。他此前</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周AI产业呈现海外巨头收敛聚焦、国内阵营饱和布局的分化态势。</p>
+<p>英伟达黄仁勋在GTC发表长达两个半小时的演讲，将2027年营收目标上调至1万亿美元，较此前预期翻倍。Vera Rubin平台由7种芯片与5种机架系统构成，英伟达正加速侵蚀传统CPU厂商市场份额，演讲内容全面兑现市场预期并超预期披露财务目标。</p>
+<p>海外格局加速收敛：OpenAI启动成立以来最重大战略转型，裁撤Sora等非核心业务，将资源集中押注Codex编程工具与企业级服务；Anthropic企业市场首次采购占比已达OpenAI三倍。Google与Microsoft联合共建WebMCP协议并开源，MCP正演变为行业通用标准。</p>
+<p>国内方面，阿里、腾讯同步进行组织重构：阿里成立Alibaba Token Hub事业群，由CEO吴泳铭挂帅，整合通义、钉钉、夸克；腾讯撤销AI Lab，相关人员并入混元团队，从实验室制转向集中产品化。模型层面，阿里Qwen3.5-Max-Preview在LM Arena斩获1464分，跻身全球前五、中国第一；小米MiMo-V2发布Pro版本，参数总量1T、激活42B，支持1M上下文；MiniMax M2.5可自主构建Agent Harness参与自身训练，无人工干预执行超100轮迭代，效果提升30%。</p>
+<p>应用层同样爆发：字节Seedance 2.0短剧Agent支持10万字剧本一键成片，5人8天完成60集制作，内测作品4天播放破亿；极氪8X搭载阶跃星辰Step 3.5 Flash，实现跨应用跨域模糊指令自主规划。国内围绕Agent入口的饱和式布局已覆盖企业办公、个人终端、云存储、硬件及开发工具全场景。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>英伟达GTC发布Vera Rubin全栈AI超算平台与NemoClaw智能体基础设施，战略从GPU供应商向AI工厂定义者转型，2027年营收目标1万亿美元</li>
+<li>OpenAI因企业市场被Anthropic三倍差距反超，启动最大规模战略收缩，资源聚焦Codex编程与企业服务，同时筹备2026年Q4 IPO</li>
+<li>国内AI组织架构深度重组：阿里成立Token Hub事业群、腾讯撤销AI Lab、百度MEG人事换将，均指向AI技术向商业场景的加速融合</li>
+<li>国内Agent入口争夺呈饱和攻击态势，OpenClaw（龙虾）生态全面覆盖企业办公、社交终端、硬件边缘、云端存储等全场景，安全合规成商业化前提条件</li>
+<li>月之暗面AttnRes架构、阿里Qwen3.5-Max-Preview登顶、MiniMax M2.7自主迭代训练等技术突破，显示国内模型研发走向差异化架构竞争与自进化新范式</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2752048955.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

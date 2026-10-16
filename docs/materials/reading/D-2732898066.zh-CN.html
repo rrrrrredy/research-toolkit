@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一月第二周：海外把 AI 从 “语言” 升级到 “物理”，国内把大模型做成 “水电煤” · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="一月第二周：海外把 AI 从 “语言” 升级到 “物理”，国内把大模型做成 “水电煤”。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2732898066.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>一月第二周：海外把 AI 从 “语言” 升级到 “物理”，国内把大模型做成 “水电煤”</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2732898066。版本：012146bb7f1fdb00b954a7daaf1c3e51db2187dc366c1d2696e3a899901ff950。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/191</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/012146bb7f1fdb00b954a7daaf1c3e51db2187dc366c1d2696e3a899901ff950.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>一月第二周：海外把 AI 从 “语言” 升级到 “物理”，国内把大模型做成 “水电煤”</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：从 “更大” 到 “更懂物理”，从 “云” 到 “边缘” 的再平衡</strong></p>
+<p><strong>物理 AI 成为新圣杯</strong><br>英伟达 Cosmos 世界模型与 Google 组建 “世界模型” 团队前后脚亮相，标志着行业焦点从 “语言大模型” 转向 “物理大模型”。Cosmos 用 2000 万小时驾驶 / 机器人视频做预训练，本质是 “把 YouTube 变成物理引擎”，解决自动驾驶和机器人 “缺乏可扩展仿真环境” 的痛点。这意味着：</p>
+<ul>
+<li>数据飞轮重写 —— 真实视频取代手工仿真，数据壁垒从 “标注” 转向 “原始版权”。</li>
+<li>硬件形态重写 —— 模型必须跑在车端 / 机端，倒逼边缘算力（Orin、Snapdragon X）同步升级。</li>
+</ul>
+<p><strong>PC 迎来 “AI 原生” 价格带</strong><br>高通 Snapdragon X 把 Copilot+ PC 打到 600 美元，第一次把 NPU 算力与主流消费价盘对齐。微软同步开源 14B 参数的 Phi-4，数学能力反超 70B 模型，给出 “小模型 + 终端” 的示范。二者叠加，Windows 阵营试图复制苹果 M 系列 “换芯 + 换体验” 的路径，2025 年或出现 “500 美元 AI 笔记本” 品类，直接冲击教育、SMB 市场。</p>
+<p><strong>融资端 “再分层”</strong><br>Anthropic 拟以 600 亿估值再融资 20 亿，估值半年翻倍，高于 OpenAI 去年 10 月 1570 亿估值的 38% 折算倍数。市场愿意给 “安全 + 企业级” 溢价，说明资本对 “大模型六小龙” 已分化：头部安全标签公司吸走大额资金，尾部面临 “模型即商品” 的估值杀。</p>
+<p><strong>2.国内：把大模型做成 “水电煤”，付费规模先行于技术参数</strong></p>
+<p><strong>“场景深耕” 优先于 “参数内卷”</strong><br>百度文库 9000 万 MAU、4000 万付费用户，把 AI 做成国内最大付费 AI 应用；高德红绿灯 AI 领航用实时轨迹 + 灯态数据做 “灯前 300 米决策”，把大模型压缩成 “省 30 秒等灯” 的可感知价值。两条案例共同验证：</p>
+<ul>
+<li>国内用户愿为 “省时间”“省脑力” 买单，不愿为 “更大参数” 买单；</li>
+<li>数据闭环在 “国民级 App” 手里，比纯模型创业公司更先到达 PMF（Product-Market Fit）。</li>
+</ul>
+<p><strong>终端本地化进入 “可用” 阶段</strong><br>传音 PHANTOM V Fold2 把通义千问 14B 做到端侧离线跑，联发科 9300 芯片 + 模型瘦身 40% 的组合，让非洲、印度等弱网市场第一次拥有 “离线多轮对话”。伴随天工 4.0 o1/4o、昆仑万视 “Skywork o1” 开源，国产 o1-like 推理模型出现 “中文逻辑 + 端侧小尺寸” 双标签，预示 2025 年国产旗舰机将标配 “离线 10B 级推理”，把云端 API 成本直接打穿。</p>
+<p><strong>视频生成进入 “秒级可用”</strong><br>通义万相 2.1 登顶 VBench，MiniMax S2V-01 把 “单图生成一致主体视频” 做到传统方案 1% 成本，两者都把 “等待时长” 压到分钟级以内。视频生成从 “demo 好看” 走向 “广告 / 短剧 MVP”：</p>
+<ul>
+<li>抖音、快手 MCN 已开始用 S2V-01 做 15 秒商品短片，成本降至 30 元 / 条；</li>
+<li>品牌方把 “视频 A/B 测试” 周期从 3 天缩到 3 小时，直接吃掉传统拍剪预算。</li>
+</ul>
+<p><strong>3.上周重点：组织再洗牌、机器人回归、端侧小模型 “撞线”</strong></p>
+<ul>
+<li><strong>组织</strong>：Google 把 AI Studio+Gemini API 团队并入 DeepMind，意味着 “研究 —API— 产品” 三段式缩短为 “一段式”，加速内部模型→外部 API 的转化，对标 OpenAI 的 “Day 0 API” 策略。</li>
+<li><strong>硬件</strong>：OpenAI 重启机器人部门，自研传感器 + 模型一体化，呼应 Cosmos 世界模型，验证 “物理 AI 需要垂直整合” 趋势。</li>
+<li><strong>模型</strong>：Phi-4 与通义千问 14B 同时证明 “10B 级小模型 + 高质量数据” 可在数学、推理、多轮对话上逼近 70B，端侧算力需求曲线被拉平，2025 年边缘 AI 芯片出货量有望首次出现 30% 以上年增。</li>
+</ul>
+<p><strong>4.补充维度：数据版权、安全幻觉、地缘 AI</strong></p>
+<ul>
+<li><strong>数据版权</strong>：Cosmos 被曝用 YouTube 视频，OpenAI 机器人也要 “真实世界数据”。海外平台版权诉讼进入 “集体谈判” 阶段，可能诞生 “数据版 ASCAP”（版权集中管理组织），模型厂商成本结构将新增 “数据版税”。</li>
+<li><strong>安全幻觉</strong>：智谱 GLM-4-9B 以 1.3% 幻觉率超越 GPT-4，国内模型在 “事实一致性” 赛道第一次拿到全球第一，给金融、医疗等高风险场景提供 “国产替代” 论据。</li>
+<li><strong>地缘 AI</strong>：微软 30 亿美元增资印度，同时承诺 2030 年前培训 1000 万 AI 人才 —— 软件外包大国转型 “AI 外包”，将与中国争夺全球企业级实施市场，低价服务 + 英语红利可能分流中国 AI 外包订单。</li>
+</ul>
+<p><strong>5.总结</strong></p>
+<ul>
+<li>海外正在把 AI 从 “语言” 升级到 “物理”，谁能掌握 “真实世界数据 + 边缘算力” 谁就拿到下一程船票；</li>
+<li>国内把 AI 做成 “水电煤” 的节奏全球最快，付费规模已先于参数规模登顶，下一步考验的是 “跨场景数据打通” 与 “端侧商业闭环”；</li>
+<li>当 “小模型 + 终端” 与 “物理 AI + 硬件” 同时爆发，2025 年 AI 赛道将不再是 “单点模型” 竞争，而是 “模型 - 数据 - 硬件 - 场景” 四位一体的生态战争。</li>
+</ul>
+<p>:::heading{level=3 align=start}
+二、海外</p>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**高通**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n高通推出新款 AI 芯片，搭载 PC 售价低至 600 美元\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;当地时间周一，在拉斯维加斯举办的消费电子展 (CES) 上，高通宣布推出新的人工智能 (AI) 芯片 Snapdragon X，旨在为个人电脑 (PC) 提供强大的运算能力，使其能够运行最新的 AI 软件，让更多用户能够以较低的成本享受到 AI 赋能的 PC 体验。据介绍，Snapdragon X 采用 4 纳米制程工艺制造，配备高通的 Oryon CPU，拥有 8 个核心，最高主频可达 3GHz，为下一代 PC 提供了强大的计算性能。高通表示，Snapdragon X 将支持微软 Copilot+软件。Copilot+是微软基于生成式人工智能开发的 AI 助手，能够帮助用户完成复杂任务。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**英伟达**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n英伟达推出 Cosmos 世界基础模型平台，支持物理 AI 系统开发\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;1 月 7 日，英伟达在 CES 上，由 CEO 黄仁勋介绍了名为 Cosmos 的一系列世界基础模型：这些模型能够预测并生成「物理感知」（physics-aware）的视频，其目的是为了解决当前 AI 模型「知其然不知其所以然」的问题，旨在推动自动驾驶汽车（AV）和机器人等物理人工智能系统的开发。\n\n这些模型参数规模从 40 亿到 140 亿不等，Nano 是最小的模型，Ultra 是最大的。虽然参数越多性能通常越好，但开发者仍然可根据具体应用进行微调，并可通过英伟达的 API 和 NGC 目录、GitHub 以及 Hugging Face AI 开发平台获取。据黄仁勋在演讲中介绍，这些模型基于 9000 万亿个标记（tokens）和 2000 万小时的真实世界人机交互、环境、工业、机器人及驾驶数据训练而成，但并未透露这些学习数据的具体来源：此前已经有报道表示这些数据来源是 YouTube 视频。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**微软**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n微软 CEO 纳德拉：将在印度投资 30 亿美元扩展 Azure 云计算和人工智能能力\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;1 月 7 日，据路透社报道，微软首席执行官萨蒂亚・纳德拉在一次活动上宣布，将向印度投资 30 亿美元（当前约 219.99 亿元人民币），以扩展该国的人工智能（AI）能力，并扩大其在印度的 Azure 云计算服务业务。纳德拉在周二的活动上表示：「我非常激动地宣布，我们将进行迄今为止在印度规模最大的一次扩张，追加 30 亿美元投资，以扩展我们的 Azure 容量。」他还透露，公司目前正在印度进行大量的区域扩张。纳德拉还表示，到 2030 年微软将在印度培训 1000 万人进行人工智能培训。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n微软开源 14B 参数小语言 AI 模型 Phi-4\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;近日，微软在 Hugging Face 平台上开源小语言模型 Phi-4。据微软官方称，得益于更优质的训练数据，这款模型相比其前代产品在多个方面都有所提升，尤其在数学问题解决能力上表现出色。据悉，Phi-4 拥有 140 亿参数规模，虽然其参数数量仅为前沿大型语言模型（LLM）的一小部分，但在数学能力基准测试中， Phi-4 的表现却优于参数多五倍的 LLM，这也意味着 Phi-4 的运行成本更低，效率更高。微软 Phi-4 模型发布于 2024 年 12 月。据官方介绍，除了传统的语言处理外，Phi-4 还擅长数学等领域的复杂推理。同时 Phi-4 也是 Phi 系列小型语言模型的最新成员，官方表示其展示了微软继续探索 SLM 边界的可能性。目前微软已在 Hugging Face 平台上开源 Phi-4。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Anthropic**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nAnthropic 拟募资 20 亿美元，估值达 600 亿美元\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;1 月 7 日，据 CNBC 证实，AI 初创公司 Anthropic 正以 600 亿美元估值进行新一轮融资，计划筹集 20 亿美元，是 AI 行业估值最高的公司之一。目前，公司正处于融资的后期谈判阶段，此轮融资由 Lightspeed Venture Partners 领投。知情人士透露，本轮融资由 Lightspeed Venture Partners 领投。目前 Anthropic 正处于融资的后期谈判阶段。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::parag</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周AI领域最引人注目的动向，是行业焦点正从语言模型向物理模型迁移。英伟达在CES发布Cosmos世界基础模型平台，基于2000万小时真实世界视频及90万亿tokens训练，参数规模覆盖40亿至140亿，专为自动驾驶和机器人等物理AI场景设计，标志着大模型能力边界从&quot;理解语言&quot;延伸至&quot;理解物理世界&quot;。</p>
+<p>硬件端，高通发布Snapdragon X AI芯片，采用4纳米制程、8核Oryon CPU，搭载该芯片的Copilot+ PC售价低至600美元，首次将NPU算力与主流消费价位对齐，生成式AI向大众普及再下一城。</p>
+<p>模型层面，微软在Hugging Face开源14B参数的Phi-4，其数学基准表现超越参数量五倍的大型模型，再度验证&quot;小模型+高质量数据&quot;路线的竞争力。Anthropic则以600亿美元估值推进新一轮融资，计划募资20亿美元，由Lightspeed Venture Partners领投，估值较半年前翻倍。微软CEO纳德拉同期宣布向印度投资30亿美元扩展Azure云计算与AI能力，并承诺到2030年完成1000万人的AI技能培训。</p>
+<p>国内方面，百度文库MAU达9000万、付费用户突破4000万，成为国内规模最大的付费AI应用；传音手机将通义千问14B部署于端侧离线，面向非洲、印度弱网市场实现离线多轮对话；MiniMax S2V-01将单图生成视频成本压至传统方案的1%，已被抖音、快手MCN用于商品短片制作；智谱GLM-4-9B幻觉率降至1.3%，首次在事实一致性指标上超越GPT-4。整体来看，国内大模型正加速向基础设施化方向演进。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>英伟达Cosmos世界基础模型用2000万小时真实视频预训练，将AI能力从语言扩展到物理感知，驱动自动驾驶与机器人发展</li>
+<li>高通Snapdragon X将AI PC售价压至600美元，微软Phi-4小模型数学能力超70B，&#39;小模型+终端&#39;路线成立</li>
+<li>国内百度文库4000万付费用户、高德AI红绿灯等案例证明：用户为&#39;省时省力&#39;买单，场景落地优先于参数竞争</li>
+<li>通义万相2.1、MiniMax S2V-01将视频生成成本和时间大幅压缩，视频AI从演示走向广告短剧商业落地</li>
+<li>智谱GLM-4-9B幻觉率1.3%超越GPT-4，国产模型在事实一致性赛道首次拿下全球第一，为高风险场景提供国产替代依据</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2732898066.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

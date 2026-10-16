@@ -1,0 +1,10 @@
+/* Material pages reuse the site's existing report typography and theme. */
+.materials-reader .report-nav{flex-wrap:wrap}
+.materials-reader pre{max-width:100%;overflow-x:auto;padding:18px;background:var(--soft);border:1px solid var(--line);font-size:13px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.materials-reader blockquote{margin:24px 0;padding:12px 18px;border-left:3px solid var(--accent);background:var(--note)}
+.materials-reader blockquote p:last-child{margin-bottom:0}
+.materials-reader img{max-width:100%;height:auto}
+.materials-catalog{max-width:1280px}
+.materials-catalog .report-article{max-width:none}
+.materials-catalog th:first-child,.materials-catalog td:first-child{width:30%}
+.materials-provenance{max-width:740px;margin:40px auto 0;padding-top:18px;border-top:1px solid var(--line);font-size:13px}

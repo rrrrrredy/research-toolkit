@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：LSTM 之父新作，苹果提出新型反向传播，快手、字节、阿里、小红书多篇研究 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：LSTM 之父新作，苹果提出新型反向传播，快手、字节、阿里、小红书多篇研究。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2732410826.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：LSTM 之父新作，苹果提出新型反向传播，快手、字节、阿里、小红书多篇研究</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2732410826。版本：79d6d95c5d757f69edc71a36afd76f95dfce700397acc6e05c914f44e5e0fcda。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/188</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/79d6d95c5d757f69edc71a36afd76f95dfce700397acc6e05c914f44e5e0fcda.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：LSTM 之父新作，苹果提出新型反向传播，快手、字节、阿里、小红书多篇研究</p>
+<h3>一、模型</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**华为、上海交通大学、华中科技大学**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n华为联合上海交通大学、华中科技大学推出了世界模型 WorldGrow\n:::\n\n:::paragraph{align=center indent=0}\nSikuang Li, Chen Yang, Jiemin Fang, Taoran Yi, Jia Lu, Jiazhong Cen, Lingxi Xie, Wei Shen, Qi Tian.\&quot;WorldGrow: Generating Infinite 3D World.\&quot;arXiv:2510.21682 [cs.CV]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;华为联合上海交通大学、华中科技大学推出了世界模型 [WorldGrow](https://arxiv.org/abs/2510.21682)，可以生成 1800㎡超大室内场景（19x39 块），单卡 30 分钟就跑了 272㎡。\n\n本文一作是来自上海交通大学的 Sikuang Li 和 Chen Yang，研究完成于他们在华为实习期间。\n\nChen Yang 目前仍为华为研究实习生，研究聚焦于计算机视觉和计算机图形学，导师之一就是这项研究的通讯作者、AI 大牛田奇。\n\n田奇，华为终端 BG 首席科学家，国际欧亚科学院院士，ACM/IEEE Fellow。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**苹果**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n苹果提出新型反向传播：一台 iPhone 15 Pro Max 就能微调 LLM\n:::\n\n:::paragraph{align=center indent=0}\nCongzheng Song, Xinyu Tang.\&quot;Memory-Efficient Backpropagation for Fine-Tuning LLMs on Resource-Constrained Mobile Devices.\&quot;arXiv:2510.03425 [cs.LG]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;用 iPhone 本地跑大模型已经不是新鲜事了，但能不能在 iPhone 上微调模型呢？\n\n最近，苹果亲自上场，用一篇[论文](https://arxiv.org/abs/2510.03425)展示了其可行性。在这篇论文中，苹果提出了一种内存高效型反向传播（MeBP）。该方法可在内存使用量和计算时间之间提供比零阶优化（ZO/zeroth-order optimization）更好的权衡，同时还比 ZO 基线收敛更快、性能更优。他们还在 iPhone 15 Pro Max 上验证了 MeBP 的有效性。\n\n苹果团队（宋丛峥与 Xinyu Tang）也在论文中表示会发布一个 MeBP 实现，但其公开的链接目前还空无一码。\n\n在这篇论文中，苹果团队的研究重点是使用 LoRA 微调 LLM。因此，主要的内存瓶颈在于模型参数和中间激活值。该团队的目标是将微调的内存使用量保持在现代移动设备可接受的范围内，例如 PocketLLM 所建议的「低于 1GB」。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**中国移动**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n中移动九天团队 MultiPL-MoE：全新 Hybrid-MoE 架构用于增强通用大模型低资源代码能力\n:::\n\n:::paragraph{align=center indent=0}\nQing Wang, Xue Han, Jiahui Wang, Lehao Xing, Qian Hu, Lianlian Zhang, Chao Deng, Junlan Feng.\&quot;MultiPL-MoE: Multi-Programming-Lingual Extension of Large Language Models through Hybrid Mixture-of-Experts.\&quot;arXiv:2508.19268 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;大语言模型（LLM）虽已展现出卓越的代码生成潜力，却依然面临着一道艰巨的挑战：如何在有限的计算资源约束下，同步提升对多种编程语言的理解与生成能力，同时不损害其在主流语言上的性能？\n\n为此，中国移动九天团队创新性地提出了 Hybrid MoE 架构 —— [MultiPL-MoE](https://arxiv.org/abs/2508.19268)，该方案的核心在于耦合两个层次的专家选择机制进行优化：在 Token 层级，采用配备共享专家及新颖门控权重归一化方法的稀疏 MoE，以实现与段落层级专家的高效协同；在 Segment 层级，则创新性地引入滑动窗口划分与专家选择路由策略，使模型能够精准捕捉不同编程语言的语法结构与深层上下文模式。目前，该项研究已被 EMNLP 2025 接收。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**阿里巴巴**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n通义实验室探讨了大型语言模型在复杂多轮交互中的置信度校准问题，提出基于置信度的测试时扩展方法 BrowseConf\n:::\n\n:::paragraph{align=center indent=0}\nLitu Ou, Kuan Li, Huifeng Yin, Liwen Zhang, Zhongwang Zhang, Xixi Wu, Rui Ye, Zile Qiao, Yong Jiang, Pengjun Xie, Fei Huang, Jingren Zhou.\&quot;BrowseConf: Confidence-Guided Test-Time Scaling for Web Agents.\&quot;arXiv:2510.23458 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[研究](https://arxiv.org/abs/2510.23458?ref=blog.anyreach.ai)探讨了大型语言模型在复杂多轮交互中的置信度校准问题，提出基于置信度的测试时扩展方法 BrowseConf，通过动态分配计算资源提高任务准确率和效率，在 BrowseComp 等基准测试中表现优异。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Microsoft Research; UC Berkeley; MIT**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nMicrosoft Research 提出扩展 logit 矩阵，揭示语言模型低秩结构，支持生成和理论分析\n:::\n\n:::paragraph{align=center indent=0}\nNoah Golowich, Allen Liu, Abhishek Shetty.\&quot;Sequences of Logits Reveal the Low Rank Structure of Language Models.\&quot;arXiv:2510.24966 [cs.LG]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[研究](https://arxiv.org/abs/2510.24966)发现现代语言模型的扩展 logit 矩阵具有低秩特性，可通过线性组合无关提示生成连贯回复，并提出时间变化 ISAN 模型解释该现象。实验验证了多种模型和数据集的低秩特性，并探讨其在生成和安全性方面的影响。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**字节跳动**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n字节跳动推出 Ouro 循环语言模型，预训练阶段直接构建推理能力，革新大模型知识操纵范式\n:::\n\n:::paragraph{align=center indent=0}\nRui-Jie Zhu, Zixuan Wang, Kai Hua, Tianyu Zhang, Ziniu Li, Haoran Que, Boyi Wei, Zixin Wen, Fan Yin, He Xing, Lu Li, Jiajun Shi, Kaijing Ma, Shanda Li, Taylor Kergan, Andrew Smith, Xingwei Qu, Mude Hui, Bohong Wu, Qiyang Min, Hongzhi Huang, Xun Zhou, Wei Ye, Jiaheng Liu, Jian Yang, Yunfeng Shi, Chenghua Lin, Enduo Zhao, Tianle Cai, Ge Zhang, Wenhao Huang, Yoshua Bengio, Jason Eshraghian.\&quot;Scaling Latent Reasoning via Looped Language Models.\&quot;arXiv:2510.25741 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[Ouro](https://arxiv.org/abs/2510.25741) 是字节跳动 Seed 团队联合多家机构推出的循环语言模型（Looped Language Models）项目，旨在将推理能力直接构建到预训练阶段，而非依赖训练后的 “思维链” 等显式文本生成过程。该项目包含 Ouro-1.4B、Ouro-1.4B-Thinking、Ouro-2.6B、Ouro-2.6B-Thinking 等多类预训练模型，核心采用共享权重层堆栈的循环架构，集成学习到的 “退出门” 实现自适应计算 —— 简单输入可提前退出以节省资源，复杂输入则分配更多迭代次数进行深层处理，在潜在空间构建 “潜在思想链” 以提升知识操纵能力。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**小红书、北京理工大学**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n小红书 AI 搜索和北理工提出 “容量差距法则”\n:::\n\n:::paragraph{align=center indent=0}\nChen Zhang, Qiuchi Li, Dawei Song, Zheyu Ye, Yan Gao, Yan Hu.\&quot;Towards the Law of Capacity Gap in Distilling Language Models.\&quot;arXiv:2311.07052 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;在 ACL 2025 大会上，小红书 AI 搜索团队与北京理工大学宋大为教授团队的合作论文 《[Towards the Law of Capacity Gap in Distilling Language Models](https://arxiv.org/abs/2311.07052)》 荣获杰出论文奖（Outstanding Paper Award）。该研究首次提出 “容量差距法则（Law of Capacity Gap）”，揭示了在语言模型蒸馏中，学生模型与教师模型的最优规模关系呈线性规律（约为 2.5 倍），大幅降低了寻找最佳教师模型的算力成本，并成功将蒸馏效率与性能推向帕累托前沿。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周论文推荐涵盖多家科技公司及高校的前沿研究成果。</p>
+<p>华为联合上海交通大学、华中科技大学推出世界模型<strong>WorldGrow</strong>，可生成最大1800㎡的超大室内场景，单卡30分钟即可完成272㎡场景生成，通讯作者田奇为华为终端BG首席科学家、ACM/IEEE Fellow。苹果发表内存高效型反向传播方法<strong>MeBP</strong>，专为移动端设备设计，目标将LoRA微调LLM的内存占用控制在1GB以下，已在iPhone 15 Pro Max上验证可行，且在内存与计算时间的权衡上优于零阶优化方法ZO，收敛更快、性能更优。</p>
+<p>中国移动九天团队提出<strong>MultiPL-MoE</strong>混合专家架构，耦合Token层级稀疏MoE与Segment层级滑动窗口路由两套专家选择机制，增强大模型多编程语言代码能力，该研究已被EMNLP 2025接收。阿里通义实验室提出置信度校准方法<strong>BrowseConf</strong>，通过动态分配计算资源提升任务准确率。</p>
+<p>Microsoft Research发现语言模型扩展logit矩阵具有低秩特性，提出时间变化ISAN模型加以解释，并探讨其潜在安全影响。字节跳动Seed团队推出循环语言模型<strong>Ouro</strong>，含1.4B和2.6B两种规模共四个版本，采用共享权重循环架构与自适应&quot;退出门&quot;机制，在潜在空间构建&quot;潜在思想链&quot;，将推理能力直接融入预训练阶段。</p>
+<p>小红书AI搜索团队与北京理工大学宋大为教授团队合作论文荣获<strong>ACL 2025杰出论文奖</strong>，首次提出&quot;容量差距法则（Law of Capacity Gap）&quot;，揭示知识蒸馏中学生与教师模型的最优规模比约为<strong>2.5倍</strong>的线性规律，大幅降低寻找最佳教师模型所需算力成本，将蒸馏效率与性能推向帕累托前沿。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>华为联合上海交大、华中科大推出WorldGrow世界模型，可生成1800㎡超大室内3D场景，单卡30分钟完成272㎡生成</li>
+<li>苹果提出内存高效反向传播MeBP，支持在iPhone 15 Pro Max上本地微调LLM，内存占用低于1GB</li>
+<li>中国移动九天团队MultiPL-MoE采用双层次专家选择机制，提升LLM多编程语言低资源代码能力，已被EMNLP 2025接收</li>
+<li>阿里通义实验室提出BrowseConf，解决LLM复杂多轮交互中的置信度校准问题，提升Web Agent测试时性能</li>
+<li>本期还涵盖LSTM之父新作及快手、字节、小红书等多家机构前沿研究，展示国内AI生态的活跃创新态势</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2732410826.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

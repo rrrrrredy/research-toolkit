@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>12月第3周：海外 Agent 平台化加速，国内入口与工作流迅速落地 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="12月第3周：海外 Agent 平台化加速，国内入口与工作流迅速落地。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2740327710.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>12月第3周：海外 Agent 平台化加速，国内入口与工作流迅速落地</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2740327710。版本：c9569a56e23fc167f023c5131797ba967e451237f2e09fc57800e7fec166d17d。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/203</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/c9569a56e23fc167f023c5131797ba967e451237f2e09fc57800e7fec166d17d.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>12月第3周：海外 Agent 平台化加速，国内入口与工作流迅速落地</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：从 “模型发布周” 转向 “Agent 平台化周”，并同时补齐三件事：开源底座、内容可信、端侧可用</strong></p>
+<p><strong>NVIDIA：开源不再是 “社区姿态”，而是 “生态主权”</strong></p>
+<p>英伟达一边发布 Nemotron 3 系列开源模型（Nano/Super/Ultra，面向 agentic AI 与多智能体场景），一边收购 Slurm 背后的 SchedMD，把数据中心调度这一层关键基础设施也纳入自己生态版图。它的逻辑不是 “我也做模型”，而是用开源模型 + 开源调度 + CUDA 软件标准把训练 / 推理的 “操作系统层” 锁定在自家硬件最擅长的轨道上。</p>
+<p><strong>OpenAI：ChatGPT 正在变成 “工作流入口 + 应用商店 + 多模态创作套件”</strong></p>
+<p><strong>这一周 OpenAI 的动作非常 “产品化”</strong>：</p>
+<ul>
+<li>图像侧推出 GPT Image 1.5，并强化“可控编辑”（添加 / 移除 / 组合 / 移位）与文本渲染，直接把 ChatGPT 变成“随身修图工作室”；</li>
+<li>分发侧推进 “应用目录 / 应用商店”，开放开发者提交应用，强调对话内完成订购、转 PPT、找房等动作，且开始探索变现路径；</li>
+<li>交互侧把 “对话分支” 扩展到移动端，让对话成为 “多线程思考 / 多工作流并行” 的容器；</li>
+<li>工具侧 Codex 支持 Agent Skills，并 “接入 Anthropic 主导的全行业标准规范”，提供技能创建 / 安装工具与官方 Skill 库。</li>
+</ul>
+<p><strong>Google：用“更便宜更快的可用模型” 把 AI 从“对话” 推到“生产系统”</strong></p>
+<p>Google Gemini 3 Flash 的叙事非常清晰：用更低价格、更高速度把推理能力下放并进入搜索体系，同时配套工作流构建器（Workflow Builder）把门槛继续拉低。并且 Google 在做两条“补课线”：</p>
+<ul>
+<li>可信与溯源：用 SynthID 做视频水印检测，并给出细化报告（检测音轨 / 视觉轨道）；</li>
+<li>端侧可用：推出 FunctionGemma（Gemma 3 270M 微调）把函数调用能力带到手机 / 边缘设备。</li>
+</ul>
+<p><strong>多模态：从 “生成” 转向 “编辑与一致性”，并开始触及 “世界 / 3D”</strong></p>
+<ul>
+<li>Apple 开源 SHARP：单张 2D 照片一秒转 3D 场景，强调近乎实时与空间计算想象力；</li>
+<li>Luma Ray3 Modify：强调 “保留演员表演细节” 前提下的一键换装 / 换场景 / 镜头过渡，本质是把视频 AIGC 从 “重拍” 变成 “后期”；</li>
+<li>Meta 开源 SAM Audio（音频分割一切声音），并预告 2026 上半年 Mango/Avocado，提到探索 “世界模型”。</li>
+</ul>
+<p><strong>2.国内：入口（微信 / 地图）+ 企业工作流（飞书 / MCP）+ 多模态（世界模型 / 视频）三线并进，全面 “Agent 化”</strong></p>
+<p><strong>超级入口开始 “轻 Agent 化”：从聊天机器人到“帮你记事、帮你出行、帮你办事”</strong></p>
+<ul>
+<li>微信元宝用 “一句话设置提醒”，把 agent 的第一步落在高频、低门槛、强粘性的任务（提醒 / 待办）上，且以 “好友形态” 嵌入微信对话流；</li>
+<li>千问 App 接入高德地图，直接把 “导航 + 生活服务检索 + 顺路筛选 + 新能源补能 / 限行” 做成一体化对话体验；</li>
+</ul>
+<p>国内的 agent 更像 “入口改造 ”—— 不急着展示复杂推理，而是先把 AI 变成用户每天都要用的 “流程按钮”。</p>
+<p><strong>企业场景进入 “任务模式 + 标准化接入” 的阶段：MCP 变成组织能力的接口</strong></p>
+<p>飞书 aily 上线任务模式，支持定时任务、跨模块联动、企业自定义 MCP 接入，并把产出沉淀在文档 / 知识库 / 多维表格中。这不是简单 “加一个智能助手”，而是在做企业内部的Agent 编排层 ：可触达数据、可写回系统、可定时运行、可被审计（至少可追踪）。企业 AI 的胜负手越来越像 “能不能接进你的系统、跑进你的流程”。</p>
+<p><strong>国内多模态竞争开始 “抬升天花板”：世界模型与音画生成并行推进</strong></p>
+<ul>
+<li>腾讯混元发布实时世界模型 1.5，强调可交互探索、记忆三维结构、24FPS 720P 实时生成，并开源全链路框架（数据 / 训练 / 流式推理部署）；</li>
+<li>字节发布 Seedance 1.5 pro 音视频联合生成，强调多语言方言、口型对齐、电影级运镜、15 秒长视频。</li>
+</ul>
+<p>国内多模态的主战场正在从 “能生成” 转向 “能互动 / 能叙事 / 能对齐”。世界模型是更长期的方向，但短期商业化更可能先在 “可控短视频生产、广告、短剧工业化” 上兑现。</p>
+<p><strong>模型侧的 “效率叙事” 明显升温：快、便宜、开源、为 Agent 优化</strong></p>
+<p>小米 MiMo-V2-Flash 309B（激活 15B）MoE，强调 Hybrid 注意力 + 多层 MTP 加速、长上下文、面向 agent 基准、MIT 开源与低价 API。国内厂商越来越清楚：在 agent 时代，“聪明” 不够，推理吞吐、时延、成本曲线会直接决定能否进入真实业务。</p>
+<p><strong>3.上周行业重点：三场 “合流” 正在发生（Agent 平台化 × 多模态编辑化 × 基础设施 / 治理工程化）</strong></p>
+<p><strong>Agent 的 “平台化” 开始进入实战形态</strong></p>
+<ul>
+<li>海外：ChatGPT 应用生态（提交应用 / 目录）+ Skills + 多线程对话，让 agent 从 “单次任务” 变成 “可复用能力库”；</li>
+<li>国内：飞书任务模式 + MCP，把 agent 变成 “能跑在组织系统里的自动化”。</li>
+</ul>
+<p>2026 年可能会出现越来越清晰的分层**：** 入口（分发）— 编排（工作流 / 技能 / MCP）— 模型（推理 / 多模态）— 执行（系统权限 / 数据写回）。谁能把这四层闭环，谁就会形成 “平台型” 壁垒。</p>
+<p><strong>多模态进入 “编辑与一致性” 时代，而非 “纯生成”</strong></p>
+<p>OpenAI 强调可控编辑与文字渲染，Luma 强调保留表演细节的改造，阿里 / 腾讯 / 字节都在推进叙事 / 交互 / 对齐。下一阶段的核心 KPI 会变成 “可控度 / 一致性 / 可迭代编辑成本”，而不仅是视觉质量。</p>
+<p><strong>AI 正在被迫 “工程化与治理化”</strong></p>
+<ul>
+<li>内容可信：Google 用 SynthID 检测视频水印；</li>
+<li>未成年人安全：OpenAI 更新规范并强调青少年安全优先；</li>
+<li>基础设施：NVIDIA 通过 Slurm 这种关键组件补齐栈底。</li>
+</ul>
+<p>AI 正从“能力竞赛” 进入 <strong>“</strong> 可部署、可追责、可审计、可运维” 的阶段。很多产品竞争会输在治理与工程细节，而不是模型分数。</p>
+<p>:::heading{level=3 align=start}
+二、海外</p>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**英伟达**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n英伟达发布 Nemotron 3 开源模型系列\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;12 月 15 日，英伟达发布最新版系列开源人工智能模型「Nemotron」，以及配套的数据和库，旨在为各行各业提供透明、高效、可定制的智能体 AI（agentic AI）开发能力。该公司表示，这一新模型家族在速度、成本和智能水平方面都将优于此前的产品。\n\nNemotron3 将提供三种不同规模的版本：Nemotron 3 Nano，拥有 300 亿参数，主要用于目标明确、效率要求极高的任务；Nemotron 3 Super，拥有 1000 亿参数，面向多智能体应用，并具备高精度推理能力；Nemotron 3 Ultra，配备更强大的推理引擎，参数规模约为 5000 亿，适用于更加复杂的应用场景。\n\n该公司表示，在构建 Nemotron 3 模型时，英伟达表示采用了一种混合型「专家混合」架构，以提升模型的可扩展性和效率。英伟达在新闻稿中称，通过这一架构，其新模型在构建多智能体自主系统时，能够为企业提供更高的开放性和性能表现。\n\n此前，据媒体报道，Meta 正在考虑转向闭源模型路线，这可能使英伟达成为美国最主要的开源模型提供商之一。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n加码开源技术，英伟达收购 AI 软件公司 SchedMD\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;12 月 15 日，英伟达宣布，已收购人工智能软件公司 SchedMD。此举彰显了这家芯片设计巨头对开源技术的加倍投入，并进一步加码人工智能生态系统投资，以应对日益激烈的竞争。\n\n除了高性能芯片，英伟达同时也提供涵盖物理仿真、自动驾驶等多个领域的自有 AI 模型，并以开源软件形式供研究人员和企业使用。其专有的 CUDA 软件已成为大多数开发者的行业标准，是推动其芯片销售的关键优势，也凸显了软件在其维持 AI 领域主导地位中的核心作用。\n\nSchedMD 提供的软件可协助调度大规模计算任务，此类任务往往占用数据中心服务器容量的很大一部分。该公司核心技术 Slurm 为开源软件，开发者和企业可免费使用，而 SchedMD 则通过提供工程支持与维护服务实现商业化。\n\n本次交易的财务条款未予披露。英伟达表示，将继续以开源方式分发 SchedMD 的软件。英伟达在一篇博客文章中指出：“Slurm 已支持最新的英伟达硬件，也是生成式 AI 所需的关键基础设施之一，被基础模型开发者和 AI 构建者广泛用于管理模型训练与推理需求。”\n\n同日早些时候，英伟达还发布了一个全新的开源 AI 模型系列，称其相较以往产品将更快速、更经济、更智能。\n\nSchedMD 由 Slurm 软件开发者莫里斯・“莫”・吉特（Morris “Moe” Jette）和丹尼・奥布尔（Danny Auble）于 2010 年在美国加利福尼亚州利弗莫尔创立。据公司官网显示，目前员工约 40 人，其客户包括云基础设施公司 CoreWeave 和巴塞罗那超级计算中心等机构。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**蝴蝶效应**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nManus 1.6 Max 发布\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Manus 1.6 Max 发布，实现从 \&quot;辅助工具\&quot; 到 \&quot;独立承包商\&quot; 的质变，用户满意度提升 19.2%, 采用子 Agent 并行处理架构，能独立完成复杂 Excel 财务建模和数据分析；新增移动开发功能，支持端到端 App 开发流程，用户只需描述需求即可生成可运行的 iOS 和 Android 应用；推出 Design View 设计视图，实现局部修图、精准文字渲染和多图层合成，解决 AI 生图不可控的痛点。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 12,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**OpenAI**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI 开源模型 Circuit-Sparsity，0.4B，99.9% 权重为零\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;OpenAI 开源 Circuit-Sparsity 模型参数量仅 0.4B，强制 99.9% 权重为零仅保留 0.1% 非零权重，解决模型可解释性问题；稀疏模型内部形成紧凑可读的 \&quot;电路\&quot;，规模比密集模型缩减 16 倍，神经元激活具有明确语义，但运算速度慢 100 至 1000 倍；研究团队提出 \&quot;桥梁网络\&quot; 方案在稀疏模型与密集模型间插入编码器 - 解码器对，实现对现有大模型的可解释性行为编辑。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI 挖角谷歌高管，任命 Albert Lee 为企业发展副总裁\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周AI领域呈现出海外平台化提速、国内场景落地加快的双线并进态势。</p>
+<p>英伟达动作频频：一方面发布开源模型系列Nemotron 3，涵盖Nano（300亿）、Super（1000亿）、Ultra（5000亿）三档规模，采用混合型MoE架构，专为多智能体自主系统与企业级应用设计；另一方面收购拥有约40名员工的AI调度软件公司SchedMD，其核心产品Slurm已被CoreWeave、巴塞罗那超级计算中心等广泛用于管理训练与推理任务，收购后将继续以开源方式分发。若Meta转向闭源，英伟达将成为美国最主要的开源模型提供商之一。</p>
+<p>OpenAI方面，推出GPT Image 1.5，强化可控编辑与文本渲染能力；同步推进应用商店，开放开发者提交应用，支持对话内完成订购、转PPT等操作；研究层面则开源了参数量仅0.4B、99.9%权重为零的Circuit-Sparsity模型，并提出&quot;桥梁网络&quot;方案，可对现有大模型进行可解释性行为编辑。Google发布主打低价高速的Gemini 3 Flash，并配套工作流构建器降低使用门槛。</p>
+<p>Agent产品Manus迭代至1.6 Max版本，引入子Agent并行架构，用户满意度提升19.2%，新增iOS/Android应用生成功能及支持局部修图的Design View模块。</p>
+<p>国内侧，微信元宝上线&quot;一句话设置提醒&quot;，以好友形态嵌入对话流；飞书aily推出任务模式，支持定时任务、跨模块联动与企业自定义MCP接入；腾讯混元发布实时世界模型1.5，实现24FPS 720P实时生成并全链路开源。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>NVIDIA发布Nemotron 3三档开源模型并收购SchedMD，以开源模型+调度软件+CUDA标准构建完整AI生态主权壁垒</li>
+<li>OpenAI将ChatGPT打造为工作流入口+应用商店+多模态创作套件，推动Agent从单次任务转向可复用能力库</li>
+<li>国内超级入口（微信元宝、千问+高德）率先落地轻Agent化，以高频低门槛任务为突破口改造用户流程</li>
+<li>飞书Aily任务模式+MCP接入标志着企业AI进入编排层竞争，核心在于能否接入组织系统并写回数据</li>
+<li>多模态竞争重心从</li>
+<li>转向</li>
+<li>，腾讯世界模型1.5和字节Seedance 1.5 Pro代表国内天花板抬升</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2740327710.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

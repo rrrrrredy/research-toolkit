@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>九月第二周：ChatGPT 宣布支持 MCP，Meta 开源小模型，通义、混元、文心模型连发，支付宝推出国内首个“AI 付” · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="九月第二周：ChatGPT 宣布支持 MCP，Meta 开源小模型，通义、混元、文心模型连发，支付宝推出国内首个“AI 付”。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2725389700.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>九月第二周：ChatGPT 宣布支持 MCP，Meta 开源小模型，通义、混元、文心模型连发，支付宝推出国内首个“AI 付”</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2725389700。版本：1dfdb143d36745ad8a7167a5d8efd97871619bb11a454604c9b392a52d16ecc1。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/261</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/1dfdb143d36745ad8a7167a5d8efd97871619bb11a454604c9b392a52d16ecc1.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 371s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;57ad5c20a8c940239ed655d372a55e88&quot;}
+九月第二周：ChatGPT 宣布支持 MCP，Meta 开源小模型，通义、混元、文心模型连发，支付宝推出国内首个“AI 付”</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：从“堆算力”到“堆控制力”，AI 进入“后 Scaling 时代”的精细化竞争</strong></p>
+<ul>
+<li><strong>算力采购常态化、多元化</strong>：OpenAI 与甲骨文签下 3000 亿美元五年长约，加上此前与 Google Cloud 的“竞合”订单，标志超大模型公司已将“云冗余”视为生存红线——不再押注单一云，而是把算力当大宗商品做全球套利。</li>
+<li><strong>公司形态“PBC 化”</strong>：OpenAI 与微软的非约束性谅解备忘录，把营利子公司转为 Public Benefit Corporation，实质是用治理结构换融资弹性：既安抚监管与“非营利原教旨”股东，又为未来上市预留出口。AI 独角兽后续融资大概率复制“PBC+双股权”模板，非营利控股公司成为标配。</li>
+<li><strong>模型层“去随机化”成为新赛道</strong>：Thinking Machines Lab 首篇论文直击 LLM 非确定性的 GPU kernel 根源，本质是把“可控性”做成下一代模型的差异化卖点。当行业从“能跑通”走向“可交付”，确定性输出是 ToB 落地最后一公里，也是 RL 训练效率的倍增器。</li>
+<li><strong>硬件分工颗粒度变细</strong>：英伟达 Rubin CPX 把“长上下文推理”拆成独立 SKU，宣告 GPU 也开始按场景拆分子品牌。未来硬件竞争焦点不再是单卡峰值算力，而是“场景 ROI”——每 1 亿美元 CapEx 能换多少 Token 收入，将成为 CFO 评估算力预算的新北极星指标。</li>
+<li><strong>小模型“效率拐点”已至</strong>：Meta MobileLLM-R1 用 2 T token 打平 36 T 的 Qwen3-0.6B，说明数据效率而非参数规模成为决定性能的新变量。端侧模型进入“训练 &lt;5 T token”时代，给手机、PC OEM 带来可接受的本地微调成本，2026 年“出厂即内置”或将成为高端机型标配。</li>
+</ul>
+<p><strong>2.国内：场景公司反向定义模型，“AI 原生工作流”开始闭环</strong></p>
+<ul>
+<li><strong>模型工厂进入“垂直深耕”阶段</strong>：通义千问一周内连发 Qwen3-ASR-Flash、Qwen3-Next 架构，把“唱歌语音识别”“30B 参数 10 倍推理吞吐”做成可插拔模块，暗示阿里不再追通用 Benchmark，而是把模型当“芯片 IP”卖——客户按场景挑模块、按 Token 计价即可。</li>
+<li><strong>支付+AI 首次打通商业闭环</strong>：支付宝“AI 付”在瑞幸落地，完成“语音下单→身份核验→支付”全链路。金融级支付接口一旦向智能体开放，意味着中国率先跑通“Agent 能挣钱”的合规框架，后续外卖、打车、本地生活场景会批量复制，或将引发 Agent 补贴战。</li>
+<li><strong>“AI 就业”成为政府流量新入口</strong>：支付宝发布“晓叶”就业助手，1200 万岗位一键匹配+AI 面试，本质是拿 AI 做“就业维稳”工具。ToG 场景对准确率要求远低于 ToB，却拥有巨大数据红利，预计将成为国内大模型迭代的“影子训练场”。</li>
+<li><strong>手机厂商升格为“AI 集成商”</strong>：荣耀与阿里战略合作，把通义大模型、飞猪/高德 Agent 预装进 Magic V5，表明国产高端机开始走“AI 即渠道”路线——硬件利润让位于 AI 服务分成，手机公司摇身一变成为云厂商的线下发行商。</li>
+<li><strong>视频生成进入“参考图驱动”中国标准</strong>：生数 Vidu Q1 支持 7 张参考图，对标 Google Nano Banana，却先落地在电商、剧情短视频等“强一致性”需求场景。中国厂商把“多图一致性”做成视频大模型的差异化卖点，有望定义下一代短视频广告的技术路线。</li>
+</ul>
+<p><strong>3.本周行业重点：AI 搜索、AI 视频、AI 支付“三箭齐发”，拉开“多模态原生应用”序幕</strong></p>
+<ul>
+<li><p><strong>搜索</strong>：Google AI Mode 新增 5 种语言、Gemini App 支持 3 小时音频上传，把“搜索”升级为“多语+多模态问答机”，直接对冲 Perplexity 和 ChatGPT Search。</p>
+</li>
+<li><p><strong>视频</strong>：Google Veo 3 降价 47% 并开放 9:16 竖屏，英伟达 Rubin CPX 把长视频生成推理成本砍到 1/30，两大信号叠加，预示“1080P 竖屏 AI 视频”成本将在半年内跌破 0.1 美元/秒，短视频平台即将迎来生成式内容洪水。</p>
+</li>
+<li><p><strong>支付</strong>：蚂蚁“AI 付”首跑通，Agent 可直接调用支付接口，意味着“大模型→交易→履约”数据闭环正式跑通，CTR→CVR→GMV 的全链路优化将首次在 AI 侧完成。</p>
+</li>
+<li><p><strong>开源进入“小参数+高数据效率”黄金期</strong><br>Meta MobileLLM、腾讯混元 2.1、B 站 IndexTTS-2.0 均主打 &lt;1 B 参数可商用开源，配合 LoRA/QLoRA 生态，让“本地微调”成本降到 1 张 4090 跑一晚即可交付。2025 年 Q4 将出现第一波“个人开发者+小模型”百万收入案例，开源商业化进入“个体户”时代。</p>
+</li>
+</ul>
+<h3>二、海外</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 4,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGemini App 支持音频文件上传\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;谷歌在近期对 Gemini 相关产品进行了更新，更新包括 Gemini App 的音频文件上传功能。\n\n日前，谷歌实验室和 Gemini 副总裁 Josh Woodward 在社交平台 X 上表示，本次更新是由于用户对音频文件上传功能的呼声非常大。\n\n新功能的具体限制如下：免费 Gemini 用户最多可使用 10 分钟的音频，每天有五个免费 prompts。而 AI Pro 或 AI Ultra 用户则可以上传长达三小时的音频。所有 Gemini prompts 均支持最多 10 个文件，支持包括 ZIP 文件在内的多种文件格式。\n\n此外，根据该公司博客的报道，由于 Gemini 2.5 与搜索功能的集成，Google 搜索的 AI 模式也推出了五种新的语言选项：印地语、印度尼西亚语、日语、韩语和巴西葡萄牙语。「通过这次更新，现在更多的人可以使用 AI 模式用自己偏好的语言提出复杂问题，同时更深入地探索网络。」&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle AI Mode 新增五种语言，扩展全球用户访问\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;谷歌近日宣布，其 AI 驱动的搜索体验 “AI 模式” 将支持五种新语言，包括印地语、印尼语、日语、韩语和巴西葡萄牙语。这一更新让更多全球用户能够享受到 AI 搜索的便利，之前该功能仅限于英语用户，经历了超过六个月的测试期。\n\n根据谷歌的介绍，AI 模式的推出旨在帮助用户用自己熟悉的语言提出复杂问题，从而更深入地探索网络内容。谷歌产品管理副总裁赫玛・布达拉朱（Hema Budaraju）在博客中提到，此次扩展将使更多人能够在他们的首选语言中使用 AI 模式，提升搜索体验。\n\nAI 模式最初于今年三月作为实验项目向 Google One AI Premium 订阅用户推出，旨在与 Perplexity 和 OpenAI 的 ChatGPT 搜索等 AI 搜索平台竞争。该功能使用了定制版本的 Gemini2.5，具备多模态和推理能力。\n\n在八月，谷歌在 AI 模式中引入了智能特性，让用户可以进行餐厅预订，并计划未来支持本地服务预约和活动票务预订。目前，这些更新仅对美国的 Google AI Ultra 订阅用户开放，用户可以通过实验室中的 “AI 模式中的智能功能” 进行体验。Ultra 订阅的费用为每月249.99美元。\n\n截至目前，用户可以通过搜索结果页面的专用标签和搜索栏中的按钮访问 AI 模式。谷歌似乎正朝着将这一 AI 主导的搜索体验作为默认设置的方向发展，谷歌 DeepMind 的产品经理洛根・基尔帕特里克（Logan Kilpatrick）在上周回应用户在社交平台 X 上的帖子时提到这一点。\n\n然而，谷歌最近的一些 AI 更新，包括 AI 模式和 AI 概述，受到了一些批评，认为这些新功能可能影响网站流量。尽管如此，谷歌上个月否认其 AI 搜索特性正在削减网站点击率。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle Veo 3 已支持生成 1080P 分辨率与竖屏视频，且费用大降\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;谷歌为其 Veo 3 AI 视频生成工具新增了 1080P 分辨率与竖屏视频格式支持。据谷歌开发者博客公告显示，Veo 3 及简化版模型 Veo 3 Fast（后者生成速度更快、成本更低，但视频质量相对较低）现已支持生成 9:16 比例视频，该比例更适合在移动设备及社交媒体应用中展示。\n\n博客指出，开发者只需在 API 请求中将“aspectRatio”参数设为 9:16，即可启用竖屏视频功能，这意味着该特性主要面向开发支持 Veo 3 视频生成功能应用的开发者。此次更新还允许开发者将生成视频的分辨率从之前的 720P 提升至 1080P，但据报道，目前 1080P 分辨率仅支持 16:9 比例的视频。\n\n谷歌同时表示，已让 Veo 3 与 Veo 3 Fast“达到稳定状态，可通过 Gemini API 投入规模化生产使用”，且降低了开发者使用这两款工具生成视频的成本。其中，Veo 3 的生成费用从每秒 0.75 美元降至 0.40 美元（IT之家注：现汇率约合 2.8 元人民币），Veo 3 Fast 则从每秒 0.40 美元降至 0.15 美元（现汇率约合 1.1 元人民币）。\n\n其实竖屏视频格式支持的推出并不意外，谷歌今年 6 月曾宣布，“今年夏末”将在 YouTube Shorts 中加入 Veo 3 支持。而向开发者开放该格式支持，意味着未来 TikTok、Instagram Reels 等更多竖屏视频平台上，可能会出现大量由 Veo 3 生成的内容。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle 发布低成本订阅方案“AI Plus”：面向印尼等市场，每月仅需约 4.6 美元\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;谷歌近期推出了新的订阅服务“AI Plus”，旨在让新兴市场用户以更低成本更高效地使用谷歌 AI。\n\nAI Plus 位于免费版和 AI Pro 之间，后者在美国的月费为 19.99 美元。订阅者将获得更多对 Gemini 2.5 Pro 的访问权限，作为对比，免费用户每天仅能使用五次提示。\n\n谷歌尚未公布 AI Plus 的具体使用限制。参考来看，AI Pro 每天提供 100 次提示，AI Ultra 为 500 次提示。\n\nGemini 应用的上下文窗口为 128K token，高于免费用户的 32K，但低于满额的 100 万 token。\n\nAI Plus 还包括预计集成在 Gemini 应用中的 Veo 3 Fast，并额外提供对 Google Flow 视频制作工具和 Whisk 图转视频工具的访问。用户还能在 Gmail、Google Docs 和 Sheets 中使用 Gemini 侧边栏，并获得 NotebookLM 的扩展使用权限。不仅如此，订阅者还可获得 200GB 的 Google One 存储空间。\n\n目前，AI Plus 仅面向新兴市场，首先在印尼上线，其他国家将随后推出。印尼市场中，AI Pro 月费为约 18.79 美元，AI Plus 月费为约 4.56 美元。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 4,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**OpenAI**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nXcode AI 开发工具 Alex 的创始团队加入 OpenAI\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Xcode AI 开发工具</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周AI领域动态密集，多项重磅进展集中落地。</p>
+<p>OpenAI宣布ChatGPT正式支持MCP协议，推动AI工具互联互通；同期与甲骨文签订3000亿美元五年算力长约，并推进营利子公司向公共利益公司（PBC）转型。Meta发布MobileLLM-R1，仅用2T token训练即打平使用36T数据的Qwen3-0.6B，数据效率成为模型竞争新变量。国内方面，通义千问一周内连发多款模型，聚焦语音识别与高吞吐推理；荣耀与阿里战略合作，将通义大模型及飞猪、高德Agent预装至Magic V5；支付宝推出国内首个&quot;AI付&quot;，在瑞幸实现语音下单、身份核验、支付全链路闭环。</p>
+<p>谷歌动作同样频繁。Gemini App新增音频上传功能，免费用户支持10分钟音频，AI Ultra用户可上传至3小时。AI搜索模式新增印地语、印尼语等五种语言，基于定制版Gemini 2.5，并引入餐厅智能预订功能，目前仅向美国AI Ultra用户（月费249.99美元）开放。视频生成侧，Veo 3新增1080P及9:16竖屏支持，价格从每秒0.75美元降至0.40美元，降幅约47%；Veo 3 Fast更降至0.15美元。谷歌同步推出面向新兴市场的&quot;AI Plus&quot;订阅层级，首发印尼，月费约4.56美元，包含Gemini 2.5 Pro及200GB存储。苹果则将AI能力深度整合至Xcode，强化iOS/macOS开发者的智能编程体验。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>ChatGPT宣布支持MCP协议，AI Agent生态互操作性进一步增强</li>
+<li>支付宝&#39;AI付&#39;在瑞幸落地，完成语音下单→身份核验→支付全链路，国内首个Agent支付闭环跑通</li>
+<li>Meta发布MobileLLM-R1小模型，用2T token训练打平使用36T token训练的Qwen3-0.6B，数据效率成为小模型新竞争变量</li>
+<li>通义千问连发Qwen3-ASR-Flash和Qwen3-Next架构，腾讯混元2.1、百度文心同期发布，国内模型厂商转向垂直场景精细化竞争</li>
+<li>Google Gemini App新增最长3小时音频上传，AI搜索模式扩展印地语等5种语言，多模态搜索能力全面升级</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2725389700.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

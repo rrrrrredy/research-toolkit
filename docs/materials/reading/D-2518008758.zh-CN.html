@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>近期大模型行业重要信息202410-1 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="近期大模型行业重要信息202410-1。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2518008758.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>近期大模型行业重要信息202410-1</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2518008758。版本：1c7595f8a5ec59b3798fe5cc26abcf3a4a112d676f718e9551fb20fcb278a3d3。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/40</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/1c7595f8a5ec59b3798fe5cc26abcf3a4a112d676f718e9551fb20fcb278a3d3.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>近期大模型行业重要信息202410-1</p>
+<h1>一、技术</h1>
+<h2>1.上海交大复现 o1 进展报告</h2>
+<p>10 月 9 日，上海交大的研究者发布题为「o1 Replication Journey: A Strategic Progress Report 」的报告，复现了 OpenAI o1 项目进展。</p>
+<ul>
+<li>技术报告链接：<a href="https://github.com/GAIR-NLP/O1-Journey/blob/main/resource/report.pdf">https://github.com/GAIR-NLP/O1-Journey/blob/main/resource/report.pdf</a></li>
+<li>Github 链接：<a href="https://github.com/GAIR-NLP/O1-Journey">https://github.com/GAIR-NLP/O1-Journey</a></li>
+<li>o1 讨论资源：<a href="https://github.com/GAIR-NLP/O1-Journey/tree/main/resource">https://github.com/GAIR-NLP/O1-Journey/tree/main/resource</a></li>
+</ul>
+<p>该工作将大多数现有的机器学习或大模型训练方法（如监督式微调）归类为 &quot;捷径学习&quot; （Shortcut Learning），即模型学习到达正确答案的直接路径，并且提出了一种新的学习范式，称为旅程学习（Journey Learning），旨在使人工智能系统能够通用学习、反思、回溯和适应不断进步，就像人类一样，从而展现出更高水平的智能，进而对比了捷径学习和旅程学习的差异。Shortcut Learning 的特点在于注重快速结果、高度依赖数据、泛化能力有限、缺乏自我纠正能力。Journey Learning 的优势在于通过学习完整的探索过程，包括试错和反思，展现出更高的智能水平和适应性<br>该工作探索了 o1 的思维链和长思维机制，通过分析 OpenAI o1 在解决数学问题时的推理过程，提取了反映 o1 如何处理和推理复杂方程的底层思维链，并归纳了一系列特征；同时，该工作还探讨了长思维的运作模式，长思维的构建方法，奖励模型的构建方法和 on-policy 推理树的构建方法等课题，并透明地记录和分享探索过程；此外，该工作使用可视化数据分析平台直观评估模型表现，进行人工审查实际案例。</p>
+<h2>2.苹果 MM1.5 系列多模态大模型</h2>
+<p>10 月 8 日，苹果的 AI 研究团队发布论文，提出了 MM1.5 系列模型，包含 MM1.5-Video 和 MM1.5-UI 两个版本，分别专用于<strong>视频理解和移动界面分析</strong>。MM1.5 系列模型为多模态大型语言模型 （MLLM），能够整合文本和图像等多种数据类型，处理复杂任务，且能够处理包含文本的图像或细粒度视觉任务。该系列模型支持图像生成任务并能解释多模态数据。此外，MM1.5 系列模型包括密集模型和 MoE 模型，参数从 10 亿到 3000 亿不等，确保可扩展性和灵活部署。</p>
+<p>MM1.5 的训练过程分为预训练、持续预训练和监督微调三阶段。</p>
+<p>① 第一阶段是大规模预训练，使用 20 亿图像-文本对、6 亿交错图像-文本文档和 2 万亿仅限文本的标记；</p>
+<p>② 第二阶段是持续预训练，使用 4500 万高质量的 OCR 数据和 700 万合成描述来进一步提升对文本丰富图像任务的性能；</p>
+<p>③ 第三阶段是监督微调，使用精心选择的单图像、多图像和仅限文本数据进行优化，使其更擅长细粒度视觉引用和多图像推理。</p>
+<p>经测试，MM1.5 系列模型在处理含文本图像理解的基准测试中，比之前模型提高了 1.4 个百分点。</p>
+<h2>3.Yoshua Bengio 提出精简版 RNN</h2>
+<p>10 月 4 日，Yoshua Bengio 团队发布<a href="https://arxiv.org/abs/2410.01201">论文</a>，提出了精简版的 RNN 架构，可以在性能上与 Transformer 等序列模型相媲美。该工作重新审视传统的循环神经网络（如 LSTM 和 GRU），通过移除其输入、遗忘和更新门中的隐藏状态依赖性，使其能够高效地并行训练，并提出 RNN 的简化版本，分别为 minGRU 和 minLSTM。</p>
+<p>传统 LSTM 通过引入输入门、遗忘门、候选细胞状态和输出门来缓解梯度消失问题，但其复杂的结构和需要时间步长反向传播（BPTT）的限制了其扩展性。传统 GRU 简化了 LSTM 的结构，使用两个门和一个状态来实现类似的功能，但仍需 BPTT 进行训练。经测试，minGRU 和 minLSTM 在训练效率上显著优于传统的 LSTM 和 GRU，minGRU 在序列长度为 512 时的训练速度比 GRU 快 175 倍，minLSTM 快 235 倍。</p>
+<p>内存消耗方面，由于并行计算图的增加，minGRU 和 minLSTM 的内存消耗比传统 RNN 高约 88%，但训练时间的显著缩短弥补了这一缺点。性能表现方面，minGRU 和 minLSTM 在多个任务上（如选择性复制任务、强化学习和语言建模）的表现与最新的序列模型相当，甚至在某些情况下表现更优。</p>
+<h2>4.微软&amp;清华提出提出了差分 Transformer 架构（DIFF Transformer）</h2>
+<p>10 月 9 日微软研究院和清华大学的研究者发布<a href="https://arxiv.org/pdf/2410.05258">论文</a>，提出了差分 Transformer 架构（DIFF Transformer）。该工作针对 Transformer 无法妥善处理注意力噪声的局限，尝试通过新的注意力机制来解决该问题，增强上下文建模能力。</p>
+<p>DIFF Transformer 通过差分注意力机制来增强对相关上下文的关注，同时减少噪声干扰。该模型通过计算两个独立的 softmax 注意力图的差值来获得注意力分数，从而促进稀疏注意力模式的出现。相比于 Transformer，DIFF Transformer 的主要差别在于使用差分注意力替换了传统的 softmax 注意力，同时保持整体宏观布局不变。</p>
+<p>此外，研究者也参考 LLaMA 采用了 pre-RMSNorm 和 SwiGLU 这两项改进措施。研究者从多个角度评估了 DIFF Transformer 在 LLM 中的应用。他们使用 1T token 训练了一个 3B 大小的差分 Transformer 语言模型，并与之前的 Transformer 语言模型做了比较。在语言建模任务中，DIFF Transformer 在不同规模的模型大小和训练 token 数量上均优于 Transformer，仅需常规 Transformer 65% 左右的模型大小或训练 token 数量就能达到相媲美的性能。在长上下文评估、关键信息检索、幻觉等评估维度，DIFF Transformer 同样表现更优。</p>
+<h2>5.Meta 推出 Meta Movie Gen 视频生成工具</h2>
+<p>10 月 5 日，Meta 首次公开展示了「用于媒体的突破性生成式 AI 研究」的成果，称为 <a href="https://ai.meta.com/static-resource/movie-gen-research-paper">Meta Movie Gen</a>。Movie Gen 是 Meta 开发的媒体生成基础模型系列，包含 Movie Gen Video、Movie Gen Audio。</p>
+<ul>
+<li>Movie Gen Video 含 30B 参数，用于联合文本到图像和文本到视频生成。模型通过 Flow Matching 训练目标进行预训练，并在高质量视频和文本上进行微调。</li>
+<li>Movie Gen Audio 含 13B 参数，用于视频和文本到音频生成。模型采用 Flow Matching 训练目标，并在大量音频和视频数据上进行预训练。</li>
+</ul>
+<p>Movie Gen 采用 Transformer 架构，整体位于 Llama 3 的设计空间中。该模型采用多阶段训练方法。</p>
+<ul>
+<li>模型首先在文生图（T2I）任务上进行初始训练，之后再在文生图和文生视频（T2V）任务上进行联合训练；</li>
+<li>模型第二阶段会逐步从低分辨率 256 像素的数据扩展成 768 像素的高分辨率数据；</li>
+<li>第三阶段针对计算和时间限制，使用改进过的数据集和已优化的训练方法进行持续训练。</li>
+</ul>
+<p>在推理优化环节，研究者采用了多种并行化技术，包括张量并行化（TP））、序列并行化（SP）、上下文并行化（CP）和全共享式数据并行（FSDP）。 推理优化环节还引入了 Llama 3 进行提示词重写，以提升生成质量。</p>
+<p>根据展示，用户可以提供人物图像和文本提示词，由 Movie Gen Video 生成包含该人物的个性化视频。Meta 表示该功能在保留人类身份和运动方面达到了 SOTA 水平。Movie Gen Audio 在声音效果生成、联合声音效果和音乐生成以及音频扩展方面优于 PikaLabs 和 ElevenLabs 等模型。</p>
+<h2>6.Liquid AI 推出多模态模型 LFM</h2>
+<p>10 月 1 日，由 MIT 计算机科学与人工智能实验室（CSAIL）前研究员创立的初创公司 Liquid AI 近日推出多模态 AI 模型 Liquid Foundation Models（LFM）系列。LFM 是基于第性一原理构建的生成式 AI 模型，包括 1B、3B 和 40B 三种规模。Liquid AI 的研究者从秀丽隐杆线虫的神经结构中获取灵感，开发了一种液态神经网络（LNN）。LNN 是一个连续时间模型，由多个简单的动态系统组成，这些系统通过非线性门相互调节。这种网络的特点是时间常数可变，输出通过求解微分方程得到。</p>
+<p>Liquid AI 的研究者而后提出了一种近似方法，可以用闭式解来高效地模拟神经元和突触之间的相互作用（ Closed-form continuous-time neural networks ），由此提高模型的计算速度，强化可扩展性。经测试，LFM - 1B 在同等规模模型的各项基准测试中取得最高分；LFM 1.3B 在第三方基准测试中优于 Meta 的 Llama 3.2-1.2B 和微软的 Phi-1.5，且规模更小；LFM - 40B 在模型大小和输出质量间实现新平衡，在运行时可以激活 12B 参数。Liquid AI 成立于 2023 年 3 月，由 MIT CSAIL 孵化，主要创始人为前 MIT CSAIL 主任 Daniela Rus。该公司在 2023 年 12 月获得了 3750 万美元的种子轮融资，估值达到 3 亿美元</p>
+<h2>7.MIT &amp; Meta FAIR 提出异构预训练 Transformer（HPT）模型</h2>
+<p>10 月 6 日，来自 MIT、Meta FAIR 团队近日发布论文提出异构预训练<a href="https://arxiv.org/pdf/2409.20537">Transformer（HPT）模型</a>。HPT 旨在预训练一个大型、可共享的神经网络主干，学习与任务和机器人形态无关的共享表示。HPT 的核心思路是将 OpenX、仿真数据、以及人类视频数据等多达 50 多种不同的数据集中异构的数据放在一起，然后进行 tokenize，然后将其映射到中间的 Transformer，然后再将其映射回到每个独立的任务，训练一个大模型。</p>
+<p>HPT 使用了特定于本体的分词器（stem）来对齐各种传感器输入，其中涵盖本体 tokenizer 和视觉 tokenizer，分别将不同载体的本体感知和视觉输入映射到固定数量的 token。Stam 映射的 token 会映射到 Transformer 结构的共享主干（trunk）将 token 映射为共享表示并进行预训练。随后用特定于任务的动作解码器（head）来生成下游动作输出。经测试，HPT 在 Meta-world、RoboMimic 和 Fleet-Tools 等多个模拟基准上的任务成功率显著高于基线模型，同时具备 Scaling 的表现。随着数据集数量和模型规模的增加，HPT 的验证损失趋于稳定，且数据规模越大损失越低。</p>
+<h1>二、国外</h1>
+<h2>1.OpenAI</h2>
+<h3>1.1.<strong>OpenAI 完成 66 亿美元的新融资</strong></h3>
+<p>10 月 3 日，OpenAI 发布公告称，其完成了 66 亿美元的融资，估值达到 1570 亿美元。OpenAI 本次融资由 Thrive Capital 领投，微软、英伟达、软银等公司参投。其中，Thrive 投资了大约 13 亿美元，微软投资了近 10 亿美元；而英伟达承诺投资 1 亿美元，软银投入了 5 亿美元。Thrive 还获得了一项独家选择权（未向其他投资者提供），如果 OpenAI 实现收入目标，Thrive 明年可以以相同的估值再投资 10 亿美元。OpenAI 的融资附带了一些不寻常的条件，包括禁止投资者支持特定的竞争对手，如 Anthropic、xAI 以及 OpenAI 联合创始人 Ilya Sutskever 的新公司 SSI。媒体指出 OpenAI 的盈利部门由一个非营利机构管理，但其 CEO Sam Altman 暗示 OpenAI 将在未来几个月内摆脱非营利治理，转向营利公司。</p>
+<h3>1.2.OpenAI 关键人员变动</h3>
+<p>截至目前，OpenAI 的创始成员几乎已经流失殆尽，同时更多精英人才也在不断脱离。OpenAI o1 推理模型作者离职 Luke Metz 和 Sora 项目负责人 Tim Brooks 也已经离职。</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__</th>
+<th>__ <strong>人员</strong></th>
+<th>__ <strong>岗位</strong></th>
+<th>__ <strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td>Tim Brooks</td>
+<td>Sora 负责人</td>
+<td>Sora 团队负责人 Tim Brooks 加入了 Google DeepMind。Tim Brooks 是 OpenAI Sora 项目研究主管之一，另一位主管则是 Bill Peebles。他俩都是「Sora 之父」，并且这两人都非常年轻 —— 两人都是 2023 年刚刚博士毕业。博士毕业后，Tim Brooks 加入 OpenAI，参与过 GPT-4 等多项研究，更是在 2023 年 1 月与 Peebles 一起共同启动了 Sora 项目 —— 他也是 Sora 技术报告的第一作者。Tim Brooks 的下一站谷歌自然也有自己的视频生成模型 Veo，并且其很快就会集成到 YouTube 短片应用中。</td>
+</tr>
+<tr>
+<td></td>
+<td>Mira Murati</td>
+<td>首席技术官 CTO</td>
+<td>Mira Murati:[color]{rgb(0, 0, 0)} 在 [/color]OpenAI :[color]{rgb(0, 0, 0)}工作六年多后决定离职。在一份发给员工并在 [/color]X :[color]{rgb(0, 0, 0)}上分享的备忘录中，[/color]Murati​:[color]{rgb(0, 0, 0)}表示，她将离职[/color]“:[color]{rgb(0, 0, 0)}以腾出时间和空间进行自己的探索[/color]”:[color]{rgb(0, 0, 0)}，但她没有给出任何细节。[/color]</td>
+</tr>
+<tr>
+<td></td>
+<td>Bob McGrew</td>
+<td>首席研究官</td>
+<td>:[color]{rgb(0, 0, 0)}Bob McGrew 于 2017 年作为技术团队的一员加入 OpenAI，次年便被提拔为研究副总裁，后又被任命为首席研究官，已在 OpenAI 工作近 8 年时间。[/color]</td>
+</tr>
+<tr>
+<td></td>
+<td>Barret Zoph</td>
+<td>研究副总裁</td>
+<td>:[color]{rgb(0, 0, 0)}Barret Zoph 是在 2022 年 ChatGPT 问世之前加入 OpenAI 的，此前曾在谷歌担任研究科学家。加入 OpenAI 后，他和 John Schulman 等人一起从零开始建立了 OpenAI 的后训练团队。[/color]</td>
+</tr>
+<tr>
+<td></td>
+<td>Andrej Karpathy</td>
+<td>著名研究科学家</td>
+<td>Andrej Karpathy 在加入 OpenAI 一年后于 2024 年 2 月离开 OpenAI，离职后创办 Eureka Labs 的 AI 课程教育公司，自己担任讲师帮助学生更好理解 AI 与 LLM 训练。</td>
+</tr>
+<tr>
+<td></td>
+<td>Ilya Sutskever</td>
+<td>联合创始人、首席科学家</td>
+<td>Ilya 于 2024 年 5 月与 SuperAlignment Co-lead Jan Leike 接连离职。Ilya 在离职后创办了 SSI，致力于构建安全超级智能 。而 GPT-4 的核心人物 Jakub 接任了 Chief Scientist 的角色。Ilya 对于 OpenAI 是指明方向的灵魂人物。但也有观点是 Ilya 的远见对于 OpenAI 初期带来很大帮助，但在 OpenAI 已经明确远期方向后，Illya离开的影响并不大。</td>
+</tr>
+<tr>
+<td></td>
+<td>Jan Leike</td>
+<td>安全负责人</td>
+<td>Jan Leike 跟随 Ilya 一同离职后加入 Anthropic，继续负责 Alignment 方向工作。John Schulman 和 Jan Leike 的加入意味着 OpenAI 的研究路线图对于 Anthropic 团队几乎是一张明牌。</td>
+</tr>
+<tr>
+<td></td>
+<td>John Schulman</td>
+<td>联合创始人</td>
+<td>John Schulman 离开 OpenAI 加入 Anthropic。晋升为 alignment lead 前，John 曾是 reinforcement learning team lead，是 RLHF 的开创者，确定了 OpenAI RL 的路线。John 是 OpenAI 创始团队之一，师从 Pieter Abbeel。离开 OpenAI 后，John 加入 Anthropic。</td>
+</tr>
+<tr>
+<td></td>
+<td>Peter Deng</td>
+<td>Product VP</td>
+<td>Peter Deng 作为 Product VP 离开 OpenAI，Kevin Weil 作为 OpenAI 新加入的 CPO �</td>
+</tr>
+</tbody></table></div>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>2024年10月初，AI领域多项重要进展集中涌现。学术层面，上海交大发布o1复现报告，提出&quot;旅程学习&quot;新范式，使模型具备试错、反思与回溯能力；Yoshua Bengio团队推出简化RNN架构minGRU和minLSTM，训练速度较传统架构分别提升175倍和235倍；微软与清华联合提出差分Transformer架构DIFF Transformer，仅需标准Transformer 65%的参数量即可实现相当性能，并在长上下文处理、关键信息检索及幻觉抑制等方面表现更优。</p>
+<p>模型发布层面，苹果推出MM1.5系列多模态模型，参数规模覆盖10亿至3000亿，支持视频理解与移动界面分析；Meta发布Movie Gen媒体生成模型系列，视频模型参数量达30B，音频模型为13B，基于Transformer架构并整合Llama 3设计空间，支持文本到图像、视频及音频的全链路生成；Liquid AI发布LFM系列多模态模型，灵感源自秀丽隐杆线虫神经结构，含1B、3B、40B三档规模，其中LFM-40B运行时可激活12B参数；MIT与Meta FAIR联合推出HPT机器人预训练模型，整合逾50种异构数据集训练统一大模型。</p>
+<p>商业动态方面，OpenAI完成66亿美元新一轮融资，估值达1570亿美元，由Thrive Capital领投，微软、英伟达、软银等参投，融资条款中附加限制，禁止投资者同时投资Anthropic、xAI等竞争对手。与此同时，OpenAI人才流失问题持续加剧，Sora负责人Tim Brooks及o1作者Luke Metz等多名核心成员相继离职。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>上海交大复现o1提出「旅程学习」范式，使AI能像人类一样进行试错、反思和回溯，相较捷径学习具备更强泛化和自我纠正能力</li>
+<li>Yoshua Bengio团队提出minGRU和minLSTM，通过去除隐藏状态依赖实现并行训练，速度提升百倍以上且性能可比肩Transformer</li>
+<li>微软与清华提出DIFF Transformer，差分注意力机制有效降低注意力噪声，仅需65%参数量或训练量即可达到与标准Transformer相当的性能</li>
+<li>Meta发布Movie Gen系列模型，Video（30B）和Audio（13B）分别在视频生成和音频生成领域达到SOTA，支持个性化人物视频生成</li>
+<li>OpenAI完成66亿美元融资估值1570亿美元，但多位核心高管和创始团队成员相继离职，公司治理结构也面临从非营利向营利转型的变革</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2518008758.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

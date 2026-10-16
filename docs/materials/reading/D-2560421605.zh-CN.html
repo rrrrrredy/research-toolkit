@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>近期大模型行业重要信息202411 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="近期大模型行业重要信息202411。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2560421605.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>近期大模型行业重要信息202411</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2560421605。版本：b973f3984b85b39496f85a1f1004fd29373de326104b319cfc14ebc66eb8741b。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/234</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/b973f3984b85b39496f85a1f1004fd29373de326104b319cfc14ebc66eb8741b.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>近期大模型行业重要信息202411</p>
+<h1>一、国外</h1>
+<h2>1.OpenAI</h2>
+<p>①o1 即将更新的功能：</p>
+<p>Function calling（函数调用）</p>
+<p>Developer messages（开发者messages）</p>
+<p>Streaming（流式传输）</p>
+<p>Structured outputs（结构化输出）</p>
+<p>Image understanding（图像理解）</p>
+<p>②Sam Altman 表示 OpenAI 的核心目标在于全面提升大语言模型的性能，尤其是推理能力，这已成为 OpenAI 当前的主要发展焦点。</p>
+<p>③OpenAI 芯片相关信息</p>
+<p>OpenAI 面临着训练和运营服务的高昂成本，自 2020 年起，OpenAI 便在微软建造的大型超级计算机上开始训练模型，OpenAI 此前几乎完全依赖这些 GPU 进行训练。</p>
+<p>最开始，OpenAI 打算的是建立自己的芯片代工厂，但建立自己的芯片代工厂网络需要大量的时间和资源投入，因此，OpenAI 不得不开始探索替代方案，转而专注于与芯片企业合作设计定制芯片，与谷歌的「TPU」和微软的「Maia 100」的做法相似。</p>
+<p>此外，OpenAI 仍在考虑是否为其芯片设计开发或购买其他组件，而且会聘请更多合作伙伴。目前，OpenAI 为了定制内部芯片已组建了一个约 20 人的研发团队，其中包括曾参与谷歌 Tensor 处理器开发的首席工程师，以及 Thomas Norrie 和 Richard Ho 等行业专家。</p>
+<p>目前，OpenAI正在与博通（Broadcom）合作，开发专为其需求定制的AI推理芯片。</p>
+<p>④OpenAI 表示，ChatGPT search 是 GPT-4o 的微调版本，使用新颖的合成数据生成技术进行后期训练，包括从 OpenAI o1-preview 中提炼输出。ChatGPT 搜索利用第三方搜索提供商以及 OpenAI 的合作伙伴直接提供的内容来提供用户正在寻找的信息。有消息称，为了构建 AI 搜索引擎，OpenAI 还在积极挖走谷歌员工加入自己的搜索团队。</p>
+<p>⑤「GPT-5」可能会找12 月发布，但名字不一定叫「GPT-5」。未来 o 系列和 GPT 系的模型都会发布，在某个时间点他们会融合.</p>
+<p>⑥未来几个月，o1 会提供图像输入和工具使用功能，o1 正式版相比 o1 preview 的提升会很显著。</p>
+<p>⑦ChatGPT 个人用户付费转化率在 <a href="https://mp.weixin.qq.com/s/2HAXUluebhnh8lcPf4yaAw">5%-6%</a>，企业版年化收入已非常可观。</p>
+<h2>2.苹果新作探讨训练小型语言模型计算瓶颈</h2>
+<p>苹果近日发布<a href="https://arxiv.org/pdf/2410.19456">论文</a>，通过检查各种超参数和配置的影响，包括 GPU 类型、批量大小、模型大小、通信协议、注意力类型和 GPU 数量，探究了训练 SLMs（最高 2B 参数）的计算瓶颈。该工作的目标是探究训练 SLMs 时，哪些因素（如 GPU 类型、批量大小等）对训练效率影响最大，进而提供实用的指导，帮助选择最有效的硬件和并行化方法，以优化 SLM 训练。<br>该工作聚焦于 LLaMa 架构，评估了四种不同模型大小（100M、500M、1B 和 2B 参数），评估了三种 NVIDIA GPU 类型：A100-40GB、A100-80GB 和 H100-80GB。<br>该工作还研究了单节点单 GPU、单节点多 GPU 和多节点多 GPU 的配置，并比较了分布式数据并行（DDP）和全分片数据并行（FSDP）两种通信方案，研究了 FlashAttention 对 SLMs 的影响。通过实验，该工作发现 Flash Attention 对 SLM 训练效果有显著影响。在模型尺寸和批量规模较小的 FlashAttention 提高了 SLMs 的 Token/Dollar 比。<br>该工作指出，对于较小的模型，A100-40GB GPU 是更经济的选择；而对于较大的模型（1B 和 2B），使用多个 A100-80GB GPU 更为合适。此外，对于较小的模型，DDP 是更好的选择，因为其通信量较小；而对于较大的模型（2B），FSDP 表现更好，特别是在大批量训练时。</p>
+<h2>3.微软开源基于大模型的屏幕解析工具 OmniParser</h2>
+<p>微软近期开源了基于大模型的屏幕解析工具 <a href="https://huggingface.co/microsoft/OmniParser">OmniParser</a>，可将 UI（操作界面） 截图转换成结构化的元素。OmniParser 使用一个检测模型和一个描述模型进行互补，分别在相应的数据集上进行微调。<br>检测模型的微调采用可交互区域检测数据集。其数据从常见的网页中搜集整理而来，其中所有可点击和可操作的区域都进行了标注。描述模型采用图标描述数据集进行微调。该数据集用于将每个 UI 元素与其相应的功能关联起来，模型训练后能够提取检测到的元素的功能语义，为预期操作生成准确符合上下文的描述。<br>OmniParser 能够解析用户任务和 UI 截图，输出解析后的截图和局部语义，包括边界框和数值 ID，以及提取出的文本和图表描述。借助 OmniParser，用户可以创建能够控制计算机（包括电脑和手机）的智能体。经测试，OmniParser 可大幅提升 GPT-4V 在 ScreenSpot 基准上的性能。在 Mind2Web 基准上，OmniParser + GPT-4V 的表现优于从 HTML 提取额外信息的 GPT-4V。在 AITW 基准上，OmniParser 的表现优于一个经过增强的 GPT-4V。</p>
+<h2>4.Meta 提出「Agent-as-a-Judge」评估方法</h2>
+<p>Meta 和 KAUST 的研究者近期发布<a href="https://arxiv.org/abs/2410.10934v1">论文</a>，提出了「Agent-as-a-Judge」框架，能够让 AI 智能体以类似人类的方式评估其他 AI 智能体，从而减少评估成本和时间，并提供丰富的中间反馈。「Agent-as-a-Judge」是基于 Meta2023 年提出的「LLM-as-a-Judge」框架的延展。Agent-as-a-Judge 框架包括图像模块、定位模块、读取模块、搜索模块、检索模块、查询模块、记忆模块和规划模块，并支持跨 33 种不同格式的数据读取和理解。「Agent-as-a-Judge」应用于代码生成任务，并引入了一个新的基准测试「DevAI」，包含 55 个现实的自动化 AI 开发任务和 365 个分层用户需求。任务涵盖了监督学习、强化学习、计算机视觉、自然语言处理和生成模型等多个关键领域。<br>为评估该框架的能力，研究者提出了 DevAI 基准，包含 55 个真实 AI 开发任务的概念验证测试，其中的任务带有详细的手动注释，覆盖了 AI 的多个关键领域。<br>经测试，在 DevAI 基准测试中，「Agent-as-a-Judge」框架优于「LLM-as-a-Judge」框架，使用「Agent-as-a-Judge」框架的成本和时间减少了 97%。在与人类评估者比较时，「Agent-as-a-Judge」在某些情况下相比人类专家评估节省了 97.72%的时间和 97.64%的成本。</p>
+<h2>5.Grok 模型上线图像理解功能</h2>
+<p>近期，Grok 模型推出新功能，支持图像理解，包括识别手写公式和梗图等。Grok 能够描述图片中的主体和场景，但对某些梗图的理解并不总是准确，且中文识别能力有待提高。此外，Grok 还可以将手写公式转换为 LaTeX 格式，且准确率较高。</p>
+<p>马斯克表示，Grok 的进展较为迅速，尽管在某些方面可能落后于 ChatGPT，但他们更注重功能的打磨和用户体验。此外，虽然 Grok 的识图功能很惊艳，但 ChatGPT 在某些方面表现更为出色，尤其是在理解中文和解释梗图方面。Grok 目前需要付费使用，标准版每月 4.2 美元，升级版每月 8.4 美元。</p>
+<h2>6.传 Meta 正在研发 AI 搜索引擎</h2>
+<p>Meta 正在研发一款 AI 驱动的搜索引擎，旨在为使用 Meta AI 聊天机器人的用户提供关于时事的对话式回答，同时降低对谷歌和微软的依赖。据 The Information 报道，Meta 正在开发一款 AI 搜索引擎，旨在为使用 Meta AI 聊天机器人的用户提供关于时事的对话式回答。<br>据媒体报道，Meta 的 AI 搜索引擎研发团队由华人高级工程师 Xueyuan Su 领头，致力于建立网络索引，将整合大量网络信息，以确保提供相关度较高的回答内容。据知情人透露，Meta 希望通过自研 AI 搜索引擎的方式，降低对谷歌搜索和微软必应的依赖。目前，这两个搜索引擎向使用 Meta AI 的用户提供新闻、体育和股票信息。</p>
+<h2>7.GitHub Copilot 引入 Claude 3.5 Sonnet 等多款模型</h2>
+<p>近日，GitHub Copilot 新增了 Claude 3.5 Sonnet、Gemini 1.5 Pro 等多个主流模型，供开发者使用。</p>
+<p>①Claude 3.5 Sonnet 将在一周内推出，Gemini 1.5 Pro 将在几周内推出。<br>② Claude 3.5 Sonnet 在软件开发全过程中表现较为出色，尤其在复杂和多步骤编码任务方面。<br>③ Gemini 1.5 Pro 具有 200 万 token 上下文窗口，支持多模态处理，响应速度较快。<br>④ OpenAI o1-preview 和 o1-mini 推理能力更强，能更深入理解代码约束和边缘情况。<br>此外，GitHub 还推出了用自然语言构建应用程序的 AI 原生工具，GitHub Spark。其支持集成 AI 功能和外部数据源。用户可以从初始提示开始，实时预览应用程序，自动保存每个迭代版本。</p>
+<h2>8.Meta 推出 NotebookLM 开源版本</h2>
+<p>近日，Meta 推出了谷歌 NotebookLM 的开源版本「<a href="https://techcrunch.com/2024/10/27/meta-releases-an-open-version-of-googles-podcast-generator/">NotebookLlama</a>」，基于 Llama 模型进行大部分任务处理。据悉，NotebookLlama 可以根据上传的文本文件（如新闻文章或博客文章的 PDF）创建文字记录，并生成来回播客式摘要。其通过四个步骤实现 PDF 到播客的转换，包括预处理、转录编写、内容优化和文本到语音生成。<br>Karpathy 展示了利用 NotebookLlama 快速创建了系列博客和播客视频。但其生成的声音带有机器人特质，容易出现干扰，且文本转语音模型的限制影响了自然度。研究人员提到可以通过让两个代理讨论感兴趣的话题并编写播客大纲来进一步提升播客的自然度和质量。<br>据媒体报道，NotebookLlama 并不是第一个尝试复制 NotebookLM 播客功能的项目，但尚未有项目能完全解决 AI 生成的幻觉问题。所有人工智能生成的播客都包含一些虚构的内容，这是当前技术的局限。</p>
+<h2>9.xAI 的 AI 超算「Colossus」将扩大规模</h2>
+<p>近日，马斯克透露，xAI 此前公布的 AI 超级算力集群 Colossus <a href="https://www.servethehome.com/inside-100000-nvidia-gpu-xai-colossus-cluster-supermicro-helped-build-for-elon-musk/3/">将扩大规模</a>，扩展至 20 万张 H100/H200 显卡。马斯克透露，xAI 的 AI 超级算力集群 Colossus 将扩展至 20 万张 H100/H200 显卡。<br>①AI 超算 Colossus 采用高带宽连接，每条光纤连接速率为 400GbE，每台 GPU 计算服务器的带宽达到约 3.6Tbps。其使用英伟达 BlueField-3 SuperNIC 和 Spectrum-X 网络，确保数据准确传输，避免瓶颈。<br>②AI 超算 Colossus 的 Supermicro 系统采用液冷设计，支持快速维护和高效冷却，所有组件均来自同一供应商。液冷机架的每个机架包含八台 4U 服务器，每台服务器配备八个英伟达 H100，共计 64 个 GPU。<br>③AI 超算 Colossus 在训练超大规模的 Grok 时，保持了 95%的数据吞吐量。其用于训练 xAI 的 Grok，并为 X Premium 订阅用户提供聊天机器人功能。<br>④AI 超算 Colossus 的 10 万块 H100 显卡用半个多月搭建完成，并计划将 GPU 容量扩大到 20 万张 H100/H200 显卡。</p>
+<h2>10.DeepMind Alpha 系列核心作者加入 Anthropic</h2>
+<p>近日，DeepMind Alpha 系列的核心作者 Julian Schrittwieser 在其社交媒体平台宣布，已从谷歌离职，加入 Anthropic。Julian Schrittwieser 在谷歌工作期间，任 DeepMind 首席研究工程师，是 Alpha 系列、MuZero 等研究的核心作者。有媒体推测，随着 OpenAI o1 模型的推出，强化学习技术成为新的关注重点，Julian Schrittwieser 作为强化学习领域的大牛，是 Anthropic 的 Calude 团队招揽 Julian Schrittwieser 的出发点。</p>
+<h1>二、国内</h1>
+<h2>1.浙大和上海 AI Lab 提出长视频的开放问答评测基准 MMBench-Video</h2>
+<p>浙江大学、上海人工智能实验室等机构的研究者近期发表<a href="https://arxiv.org/abs/2406.14515">论文</a>，提出了名为「<a href="https://mmbench-video.github.io/">MMBench-Video</a>」的开放性视频理解评测基准，以弥补现有基准在时序理解和复杂任务处理方面的不足。</p>
+<p>该工作首先梳理了现有的视频基准测试存在的问题，主要包含四方面：<br>① 多数基准测试更注重短视频，难以考察模型的长时序理解能力。<br>② 模型考察局限于一些简单任务，许多细粒度能力未被覆盖。<br>③ 现有基准仍可以仅凭单帧图像获得较高分数，表明问题和画面的时序性关联不强。<br>④ 对开放性问题的评估仍采用较旧的 GPT-3.5，评分与人类偏好有较大偏差，容易高估模型性能。<br>该工作开发了 MMBench-Video 开放性视频理解评测基准，并针对当前主流 MLLM 构建了开源的视频理解能力评估榜单。<br>MMBench-Video 在视频数据集、视频内容和种类、测试题覆盖面等方面作了特殊设计：<br>① MMBench-Video 的数据集所涵盖的视频时长跨度较广，镜头数多变。其采集的视频时长从 30 秒到 6 分钟不等，避免了因时长过短或过长带来的问题；视频涵盖的镜头数整体呈长尾分布，镜头的场景与语境信息丰富；<br>② 针对模型的视频理解能力评估，MMBench-Video 设计了感知和推理两部分题目，面向 26 个细粒度能力，且用数十到数百个问答对进行评估；不与现有任务的集合。<br>③ MMBench-Video 的数据集还对视频种类的丰富度和问答语言多样性方面进行加强，覆盖人文、体育、科教、美食、金融等 16 个主要领域。同时，数据的时序独立性和标注质量也做了强化。<br>该工作基于 MMBench-Video 对 11 个代表性的视频语言模型，6 个开源图文多模态大模型及 GPT-4o 等 5 个闭源模型进行评测。实验结果发现，GPT-4o 在视频理解方面表现突出，Gemini-Pro-v1.5 表现同样优越。</p>
+<h2>2.通义推出「代码模式」</h2>
+<p>近日，阿里旗下的 AI 助手应用「通义」推出「<a href="https://mp.weixin.qq.com/s/D-nPYWzci8g1X5lkqGP8cA">代码模式</a>」，并开放试用预约。「代码模式」具有实时生成代码的功能，用户在与 AI 大模型交流时，AI 生成的代码会实时在网页上运行。其还支持 AI 持续编辑代码，随时解决用户的新需求。<br>通义代码模式基于 Qwen 2.5 大模型，具备较强的代码生成和推理能力。其支持 40 多种编程语言，能够生成小游戏、网页和数据图表等应用。</p>
+<h2>3.传 MiniMax 将发布对标 GPT-4o 的 Realtime API 服务</h2>
+<p>有消息称，MiniMax 将于今年 11 月发布对标 GPT-4o 的 Realtime API 服务，这款端到端实时语音对话的 Realtime API 服务，将服务于企业协作、社交、直播、游戏等多种场景。该产品对标 OpenAI 的 GPT-4o。GPT-4o 是一个能够实时进行音频、视觉和文本推理的 AI 模型，响应音频输入的时间与人类对话反应速度一致，且其在 API 使用方面相比前代产品价格更低、速度更快。</p>
+<h2>4.:[color]{}百川智能推出「1+3」产品矩阵[/color]</h2>
+<p>:[color]{}近日，[/color]百川智能正式面向企业用户，发布了「1+3」<a href="https://platform.baichuan-ai.com/homePage">一站式大模型商业化解决方案</a>，包括全链路优质通用训练数据、Baichuan4-Turbo、Baichuan4-Air两款模型，以及全链路领域增强工具链。:[color]{}「1+3」的组合，覆盖了从数据构建、模型训练到强化调优、部署运营的全流程。通过这个产品矩阵，企业既能保障自身数据和隐私安全，还能以较低成本高效实现效果最佳的大模型私有化部署，用大模型赋能多种业务场景。[/color]</p>
+<h2>:[color]{}5.MiniMax[/color]</h2>
+<p>外媒曝出 MiniMax 的预计年收入为 7000 万美金，而其中的主要收入来源，来自 MiniMax 的出海 C 端AI 应用 Talkie。</p>
+<p>根据 Sensor Tower 的监测，自发布以来，Talkie 就长居全球陪伴类AI应用下载量的前三，另外两名则是美国的知名独角兽 Characte.AI 和 Replika。据了解，用户的高速增长，也为 Talkie 带来了不菲的广告收入。当然，作为一款 ToC �</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>2024年11月，AI大模型行业在芯片研发、模型迭代、工具生态及商业化等多个维度持续推进。</p>
+<p>芯片层面，OpenAI正与博通合作开发定制AI推理芯片，已组建约20人专属团队；xAI的超算Colossus计划将H100/H200显卡规模从10万张扩展至20万张，训练期间维持95%数据吞吐量。模型层面，OpenAI计划近期发布GPT-5，并透露o系列与GPT系列未来将融合；GitHub Copilot新增Claude 3.5 Sonnet、Gemini 1.5 Pro、OpenAI o1等多款模型供开发者自由选用；Grok上线图像理解功能，支持识别手写公式并转换为LaTeX，但中文识别能力仍待提升。</p>
+<p>工具与评测层面，微软开源屏幕解析工具OmniParser，可将UI截图转换为结构化元素，显著提升GPT-4V基准表现；Meta提出&quot;Agent-as-a-Judge&quot;评估框架，相比人工评估节省约97%的时间和成本；浙大与上海AI Lab联合推出长视频评测基准MMBench-Video，覆盖16个领域、26项细粒度能力，测试结果中GPT-4o表现最优，Gemini-Pro-v1.5紧随其后。</p>
+<p>国内进展方面，通义推出基于Qwen 2.5的「代码模式」，支持40余种编程语言实时生成与运行；百川智能发布「1+3」商业化方案，涵盖Baichuan4-Turbo和Baichuan4-Air两款模型及全链路工具链；MiniMax预计年收入达7000万美元，主要依托出海陪伴应用Talkie的广告收入，该应用长居全球同类下载量前三，与Character.AI、Replika并列。此外，DeepMind强化学习专家Julian Schrittwieser离开谷歌加入Anthropic，Meta则同步推进AI搜索引擎研发，由华人工程师Xueyuan Su主导，意在降低对谷歌和必应的依赖。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>OpenAI o1模型即将支持函数调用、图像理解、流式传输等新功能，GPT-5可能12月发布，未来o系列与GPT系列将融合；同时与博通合作开发定制AI推理芯片</li>
+<li>苹果论文揭示SLM训练瓶颈：FlashAttention显著提升训练效率，小模型推荐A100-40GB+DDP组合，大模型（2B）推荐多卡A100-80GB+FSDP组合</li>
+<li>微软开源OmniParser屏幕解析工具，Meta提出Agent-as-a-Judge框架（相比人类评估节省97%时间和成本），xAI超算Colossus扩展至20万张H100/H200显卡</li>
+<li>国内：浙大与上海AI Lab推出MMBench-Video长视频评测基准，覆盖26个细粒度能力；阿里通义推出Qwen 2.5驱动的代码模式，支持40+编程语言</li>
+<li>行业人才与商业动态：DeepMind强化学习专家Julian Schrittwieser加入Anthropic；MiniMax预计年收入7000万美元，出海应用Talkie为主要来源；百川智能发布全链路1+3商业化产品矩阵</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2560421605.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

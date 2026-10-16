@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>近期关于 Scaling Law 的业界探讨 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="近期关于 Scaling Law 的业界探讨。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2589239558.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>近期关于 Scaling Law 的业界探讨</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2589239558。版本：e7620f80ec9cdd3fea8e0b0a5cf1590236ada673f750c1209dc99f3d42b1e831。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/39</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/e7620f80ec9cdd3fea8e0b0a5cf1590236ada673f750c1209dc99f3d42b1e831.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>近期关于 Scaling Law 的业界探讨</p>
+<h1>一、核心要点</h1>
+<p>1.近日， The Information 的一篇报道引发了关于「模型 Scaling Laws 范式是否已经达到极限」的争议。OpenAI o1 模型的推出将 Scaling Laws 范式从预训练带向了推理层，模型推理层的开发和规模增长成为 AI 大模型玩家们新一轮「竞赛」的重点。涉及复杂计算和决策，缓慢逻辑思考的「System 2」思维成为主导。</p>
+<p>2.传统的模型 Scaling Laws 来自 OpenAI 的论文《<a href="https://arxiv.org/abs/2001.08361">Scaling Laws for Neural Language Models</a>》，强调了模型大小与性能之间的正相关性，即通过在预训练中使用更多的数据和算力来实现模型性能的提升。在 o1 模型推出后，模型的 Scaling Laws 范式从预训练阶段转向后训练即推理阶段，通过更多的强化学习（训练时计算）和更多的思考时间（测试时计算）来持续提高 o1 的性能。o1 在响应用户之前会先产生一个很长的内部思维链，完善自己的思维过程，尝试不同的策略，并认识到自己的错误。</p>
+<p>3.前 OpenAI 首席科学家 Ilya Sutskever 更加专注「Scaling What」，Scaling Laws 的对象才是关键，重要的是「扩大正确的规模」。Ilya <a href="https://www.reuters.com/technology/artificial-intelligence/openai-rivals-seek-new-path-smarter-ai-current-methods-hit-limitations-2024-11-11/">认为</a>，「大模型的 scaling 只是一种假设，还远不是 law，将采用不同的方式来扩展大模型性能。」据路透社报道，Ilya 的创业公司 SSI 正在尝试一种与 OpenAI 不同的 Scaling 方法。</p>
+<p>4.o1 的推出将传统的 Scaling Laws 范式带向了「Post-Training Scaling Law」，关注点逐渐转向推理层的 Scaling 。o1 在训练时间和测试时间推理中应用了「让我们一步一步思考」的思路链 （CoT） 范式，「思考」时间越长，模型就能解决更复杂的问题。相比于使用 CoT 扩展训练时间，o1 证明了扩展测试时间更为重要。据 o1 的技术博客，在 AIME 任务上，准确率和测试时间计算呈对数线性关系。简单来说，随着计算指数增加，准确率也会线性上升。</p>
+<p>5.尽管 o1 带来了新的推理范式，但距离实现真正的「System 2」还有很长一段距离。目前的「LLM + 推理模型」的模式还不能实现真正的类人智能。o1 带来的范式转变是从记住答案到记住正确的推理逻辑，从而输出正确结论。「测试时训练」像是一块「补丁」，给这个大模型一个「临时记忆」。当你给它一个新的问题时，不是通过改变其原来所有的知识，而是只针对这个新问题，临时调整反应，让大模型能够回答这个问题。这个过程就像是给大模型一个「提示卡」，上面提示「嘿，当看到这个新问题时，记得要这样反应。」而这个「提示卡」只在处理这个特定问题时有用，处理完这个问题后，提示卡就被扔掉，大模型又回到了原来的状态。</p>
+<h1>二、Scaling Laws 范式的业界争议</h1>
+<p>近日，The Information 的一篇<a href="https://www.theinformation.com/articles/openai-shifts-strategy-as-rate-of-gpt-ai-improvements-slows">报道</a>内容引发了争议。报道表示，由于高质量文本和其他数据的供应量减少的原因，GPT 系列模型性能的提升正在放缓。OpenAI 计划发布的新一代模型 Orion 相比于 GPT-3 和 GPT-4 两款模型之间的飞跃，模型质量的提升要小得多。</p>
+<p>据此前 The Verge 的<a href="https://www.theverge.com/2024/10/24/24278999/openai-plans-orion-ai-model-release-december">报道</a>，Orion 模型是 OpenAI 计划在今年 12 月之前推出的下一代模型，与 GPT 系列模型不同的是，Orion 主要面向企业客户，计划首先向密切合作的公司提供 Orion 模型的访问权限。</p>
+<p>The Information 报道表示，OpenAI 目前只完成了 Orion 训练过程的 20%，在智能和完成任务和回答问题的能力方面已经与 GPT-4 不相上下。而 Orion 模型相比于该公司发布的最新两款旗舰模型 GPT-3 和 GPT-4 之间的飞跃，质量的提升要小得多。由此，引发了关于大模型 Scaling Laws 进入边际效应递减阶段甚至达到极限的一系列争议。</p>
+<p>传统的模型 Scaling Laws 来自 OpenAI 的论文《<a href="https://arxiv.org/abs/2001.08361">Scaling Laws for Neural Language Models</a>》，强调了模型大小与性能之间的正相关性，即通过在预训练中使用更多的数据和算力来实现模型性能的提升。在 o1 模型推出后，模型的 Scaling Laws 范式从预训练阶段转向后训练即推理阶段，通过更多的强化学习（训练时计算）和更多的思考时间（测试时计算）来持续提高 o1 的性能。o1 在响应用户之前会先产生一个很长的内部思维链，完善自己的思维过程，尝试不同的策略，并认识到自己的错误。</p>
+<p>对于传统的模型 Scaling Laws 范式是否已经达到极限，业内有着不同的观点。</p>
+<p>① OpenAI 的 CEO Sam Altman 认为，目前尚未达到传统 Scaling Laws 的极限。OpenAI 成立了一个基础团队来研究应对模型的 Scaling Laws 将持续到什么时候。但 Altman 此前也曾在公开场合多次提到，后续模型能力提升可能是渐进式而非跳跃式的。</p>
+<p>② 心理学家 Gary Marcus 和数据科学家 Yam Peleg 则认为传统的 Scaling Laws 已经进入边际效应递减阶段。</p>
+<p>③ OpenAI 的 Adam 则认为，「大模型的 Scaling Laws 和推理时间的优化是两个可以互相增益的维度。」The Information 报道文章的作者同样也表达了类似的看法，「更确切地说，未来似乎是 LLM 与推理模型相结合，推理能力更强，效果更好。」</p>
+<p>④ 前 OpenAI 首席科学家 Ilya Sutskever 更加专注「Scaling What」，Scaling Laws 的对象才是关键，重要的是「扩大正确的规模」。Ilya <a href="https://www.reuters.com/technology/artificial-intelligence/openai-rivals-seek-new-path-smarter-ai-current-methods-hit-limitations-2024-11-11/">认为</a>，「大模型的 scaling 只是一种假设，还远不是 law，将采用不同的方式来扩展大模型性能。」据路透社报道，Ilya 的创业公司 SSI 正在尝试一种与 OpenAI 不同的 Scaling 方法。</p>
+<h1>三、扩展「测试时间计算」能否真正解决问题</h1>
+<p>o1 的推出将传统的 Scaling Laws 范式带向了「Post-Training Scaling Law」，关注点逐渐转向推理层的 Scaling 。o1 在训练时间和测试时间推理中应用了「让我们一步一步思考」的思路链 （CoT） 范式，「思考」时间越长，模型就能解决更复杂的问题。</p>
+<p>相比于使用 CoT 扩展训练时间，o1 证明了扩展测试时间更为重要。据 o1 的技术博客，在 AIME 任务上，准确率和测试时间计算呈对数线性关系。简单来说，随着计算指数增加，准确率也会线性上升。</p>
+<p>「测试时计算（Test-Time Compute）」和「测试时训练（Test-Time Training）」是近期业内关注的两项重点技术。「测试时计算」来自谷歌 DeepMind 和 UC 伯克利的研究者在 2024 年 8 月发布的论文《<a href="https://arxiv.org/pdf/2408.03314">Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters</a>》，该论文探究了如何通过增加测试时的计算量来提高大型语言模型（LLMs）的性能。</p>
+<p>研究者基于现有的 RL self-play + MCTS 的方法开发了类似算法，并通过投入额外计算资源改进 LLM 的响应分布和对验证器（verifier）进行搜索的方式分析了 Scaling 模型 Test-Time Compute 对推理能力的影响。</p>
+<p>该工作在一定程度上证实了用测试时计算来改进模型输出的可行性。在简单和中等难度的问题上，甚至在困难的问题上（取决于预训练和推理工作负载的特定条件），额外的测试时计算通常比预训练更能提升模型能力。但在最具挑战性的问题上，Scaling 测试时计算的好处则非常少，通过额外的预训练</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本文围绕近期业界对「Scaling Law」范式的争议与探讨展开，核心触发点是The Information的一篇报道：由于高质量训练数据供应减少，GPT系列模型性能提升正在放缓，OpenAI下一代模型Orion相比GPT-3到GPT-4的飞跃，质量提升幅度明显缩小，由此引发了传统Scaling Laws是否已达极限的广泛争论。</p>
+<p>传统Scaling Laws源自OpenAI论文《Scaling Laws for Neural Language Models》，核心思想是通过增加模型参数、数据量和算力来线性提升模型性能（预训练阶段Scaling）。业界对此存在分歧：OpenAI CEO Sam Altman认为尚未到达极限，但承认后续提升可能是渐进式的；心理学家Gary Marcus和数据科学家Yam Peleg认为已进入边际效应递减阶段；OpenAI的Adam认为预训练Scaling和推理时间优化是两个互相增益的维度；前OpenAI首席科学家Ilya Sutskever则强调「Scaling What」更重要，认为大模型scaling只是假设而非定律，其创业公司SSI正探索不同的Scaling路径。</p>
+<p>OpenAI o1模型的推出标志着Scaling Laws范式从预训练转向「Post-Training Scaling Law」，即通过更多强化学习（训练时计算）和更长思考时间（测试时计算）提升性能。o1采用思维链（CoT）范式，在响应前生成长内部思维链，在AIME任务上准确率与测试时计算量呈对数线性关系。谷歌DeepMind与UC伯克利联合发布的论文《Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters》进一步验证了测试时计算的可行性，在简单到中等难度问题上，测试时计算的收益甚至优于预训练扩展，但在最具挑战性的问题上收益有限。</p>
+<p>文章还指出，尽管o1带来了新推理范式，但距离真正的「System 2」类人智能仍有较大距离。「测试时训练」本质上是给模型一个针对特定问题的临时记忆补丁，问题处理完成后即失效，并未从根本上改变模型的知识结构。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>传统Scaling Laws强调预训练阶段通过增加数据和算力提升性能，但The Information报道显示GPT系列新模型Orion性能提升幅度明显缩小，引发范式是否达到极限的争议</li>
+<li>OpenAI o1模型将Scaling Laws范式从预训练阶段扩展至推理阶段，通过测试时计算和CoT思维链实现性能提升，在AIME任务上准确率与计算量呈对数线性关系</li>
+<li>Ilya Sutskever认为Scaling只是假设而非定律，关键在于「Scaling What」即扩展正确的对象，其公司SSI正探索与OpenAI不同的扩展路径</li>
+<li>谷歌DeepMind与UC伯克利研究证明，在简单和中等难度问题上测试时计算比预训练扩展更有效，但在最具挑战性问题上收益极为有限</li>
+<li>当前LLM加推理模型的组合模式距离真正的System 2类人智能仍有差距，测试时训练本质是针对特定问题的临时记忆补丁，不能从根本上改变模型知识</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2589239558.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

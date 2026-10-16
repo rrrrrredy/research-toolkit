@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>谷歌、OpenAI&amp;微软、xAI数据中心信息 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="谷歌、OpenAI&amp;微软、xAI数据中心信息。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2468277809.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>谷歌、OpenAI&amp;微软、xAI数据中心信息</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2468277809。版本：9f8ad665d199bf92a3f086388bb300eb6b070338db8d794edcac4a5c68787916。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/74</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/9f8ad665d199bf92a3f086388bb300eb6b070338db8d794edcac4a5c68787916.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>谷歌、OpenAI&amp;微软、xAI数据中心信息</p>
+<h1>一、核心要点</h1>
+<p>1.从2021年到2024年底，仅英伟达就将出货超过500万H100的加速器（大部分是H100的出货量），预计到2025年初，人工智能数据中心的容量需求将超过10GW。</p>
+<p>2.尽管人工智能的蓬勃发展预计将迅速增加数据中心的电力消耗，但短期内全球数据中心的电力使用量仍将远低于全球总发电量的24%。预计到2030年，人工智能将推动数据中心使用全球4.5%的能源。</p>
+<p>3.未来几年，数据中心容量的复合年增长率将从12-15%加速到25%。全球数据中心关键IT电力需求将从2023年的49GW激增至2026年的96GW，其中人工智能将消耗约40GW。然而，建设进程并非一帆风顺，真正的电力危机可能即将到来。</p>
+<p>4.人工智能训练工作负载具有独特的要求，与传统数据中心部署的硬件不同。人工智能训练主要集中于训练数据的输入，训练对延迟不敏感，因此不需要靠近主要人口中心。同时，人工智能训练工作负载的能耗非常高，与传统的非加速超大规模或企业工作负载相比，人工智能硬件运行的功率水平更接近其热设计功率，因此大量廉价电力的可用性更为重要。</p>
+<p>5.在利用率为80%且PUE为1.25的情况下，理论上拥有20,480个 GPU集群的数据中心将从电网平均获取28-29MW的电力，每年总计249,185兆瓦时，按照美国平均电价0.083美元/千瓦时计算，每年的电费将达到2070万美元。</p>
+<p>6.大多数公司才刚刚开始接触采用英伟达GB200架构的高密度液体冷却人工智能芯片，预计明年将增加到数百万单位。另一方面，谷歌已经部署了数百万液体冷却的TPU，占超过1千兆瓦（GW）的液体冷却人工智能芯片容量。</p>
+<p>7.微软和OpenAI非常清楚它们在短期内在基础设施方面的劣势，他们正在构建接近千兆瓦规模的超密集液体冷却数据中心园区，并与甲骨文、Crusoe、CoreWeave、QTS、Compass等公司合作，以帮助他们实现比谷歌更大的总AI训练和推理能力。</p>
+<p>8.xAI团队仅仅用了122天时间，就建成了有10万张H100的Colossus集群，是目前世界上最强大的AI训练系统。而且，未来几个月规模还要翻一倍，扩展到15万张H100+5万张H200。据悉，是戴尔开发、组装了Colossus系统。</p>
+<p>9.论GPU数量，Meta在今年1月就已经计划采购35万张H100，但实际运行时是分成了不同集群。之所以还没有其他公司能造出10万GPU规模的集群，很难说是因为缺钱，:[quote]{quoteId=&quot;2468277809--6fd2c049-6337-4d9c-9e9d-dff31f275dca&quot;}更重要的因素是网络解决方案。串联起所有GPU的网络，需要保证足够的高带宽、低延迟和可靠性，才能让10万张芯片协同起来像一台计算机一样工作。[/quote]</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2468277809/122181117034?contentType=1&isNewContent=false" alt="image.jpeg">{width=678 height=391 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2468277809/122180957495?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2468277809/122180957495?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2468277809/122178591926?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2468277809/122178591926?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>10.各大AI云公司推出加速器芯片的积极计划将推动这一增长。OpenAI计划在其最大的多站点训练集群中部署数十万个GPU，这需要数百兆瓦的关键IT功率。我们可以通过观察物理基础设施的建设情况，相当准确地跟踪它们的集群规模。Meta计划到今年年底安装65万个H100当量。GPU云提供商CoreWeave计划在德克萨斯州的Plano工厂投资16亿美元，这意味着计划投入高达50兆瓦的关键IT电源，并在该设施中安装3万至4万个GPU，为整个公司250兆瓦的数据中心足迹提供明确的途径。</p>
+<h1>二、谷歌数据中心信息</h1>
+<p>1.谷歌拥有当今世界上最先进的计算系统，并率先大规模使用了许多关键技术，这些技术直到最近才开始被其他公司采用，例如他们的机架规模液体冷却架构和多数据中心训练。尽管拥有更多的浮点运算能力，但他们现有的模型在合成数据、强化学习（RL）和模型架构方面仍然落后于OpenAI和Anthropic，但即将发布的Gemini 2将改变这一局面。</p>
+<p>2.大多数公司才刚刚开始接触采用英伟达GB200架构的高密度液体冷却人工智能芯片，预计明年将增加到数百万单位。另一方面，谷歌已经部署了数百万液体冷却的TPU，占超过1千兆瓦（GW）的液体冷却人工智能芯片容量。</p>
+<p>3.谷歌的人工智能训练园区已经拥有接近300兆瓦的电力容量，并将在明年提升至500兆瓦。除了规模巨大，这些设施还非常节能，大型冷却塔和集中设施水系统，通过水管连接三栋建筑，能够排出接近200兆瓦的热量。</p>
+<p>4.谷歌在建设基础设施方面总是有着独特的方式。虽然他们目前的单个数据中心设计比微软、亚马逊和Meta的更先进，但这并没有完全体现出他们在基础设施方面的优势。谷歌十多年来一直在建设大规模的园区。谷歌Council Bluffs爱荷华州园区就是一个很好的例子，尽管已经建成多年，但其西部部分的IT容量接近300兆瓦。虽然大部分容量被分配给了传统工作负载，但底部的建筑内部署了大量TPU。随着他们最新数据中心设计在东部的扩建，将进一步增加人工智能训练的容量。</p>
+<p>5.谷歌最大的人工智能数据中心彼此距离很近。谷歌拥有两个主要的多数据中心区域，一个位于俄亥俄州，另一个位于爱荷华州/内布拉斯加州。目前，Council Bluffs周边地区正在积极扩建，其现有容量正在扩大到超过两倍。除了上述园区，谷歌在该地区还拥有三个其他正在建设中的园区，这些园区都在进行升级，以安装高带宽的光纤网络。</p>
+<p>有三个地点彼此相距约15英里（分别是Council Bluffs、Omaha和Papillon Iowa），以及另一个位于内布拉斯加州Lincoln约50英里远的地方。如下图所示的Papillon园区为谷歌在Omaha和Council Bluffs周围的运营增加了超过250兆瓦的容量，与上述地点合计，到2023年总容量将超过500兆瓦，其中很大一部分分配给了TPU。另外两个地点目前规模还没有那么大，但正在快速扩建：将这四个园区结合起来，到2026年将形成一个千兆瓦规模的人工智能训练集群。位于大约50英里外的Lincoln数据中心将成为谷歌最大的单个地点。谷歌庞大的TPU足迹不止于此。另一个即将到来的千兆瓦规模集群位于俄亥俄州哥伦布周围——该地区正遵循类似的主旋律，正在开发三个园区，到2025年底总计达到1千兆瓦。</p>
+<p>6.New Albany集群，预计将成为谷歌最大的数据中心之一，并且已经开始部署TPU v4、v5和v6版本。</p>
+<h1>三、OpenAI&amp;微软数据中心信息</h1>
+<h2>1.背景信息</h2>
+<p>1.1.微软目前最大的训练集群，不支持液体冷却，并且每栋建筑的IT容量大约低35%，尽管建筑面积（GFA）大致相似。公布的数据显示其PUE（能源使用效率）为1.223，但PUE的计算对空气冷却系统是有利的，因为服务器内部的风扇功率没有得到适当的计算——对于空气冷却的H100服务器来说，这是超过15%的服务器功率，而对于液体DLC冷却的服务器来说，这个比例小于5%。因此，对于每瓦特输送到芯片的功率，微软需要额外约45%以上的功率用于服务器风扇功率、设施冷却和其他非IT负载，而谷歌每瓦IT功率的额外负载接近15%。再加上TPU更高的效率，情况就变得复杂了。</p>
+<p>1.2.此外，为了在沙漠地区（亚利桑那州）实现合理的能源效率，微软需要大量的水——显示出2.24的用水效率比（L/kWh），远高于行业平均的0.49，以及谷歌略高于1的平均值。这种高水耗已经引起了媒体的负面关注，他们已经被要求为该Campus即将到来的数据中心转�</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本文深度分析了谷歌、OpenAI与微软、xAI三大AI巨头的数据中心建设现状与规划。从宏观层面看，2021至2024年底英伟达将出货超500万H100加速器，全球数据中心关键IT电力需求将从2023年的49GW激增至2026年的96GW，AI将消耗约40GW，数据中心容量年复合增长率将从12-15%加速至25%。谷歌方面，已部署数百万液冷TPU，液冷AI芯片容量超1GW，是目前液冷AI基础设施最领先的公司。其AI训练园区电力容量接近300MW并将提升至500MW，在爱荷华州/内布拉斯加州和俄亥俄州分别布局多园区集群，预计到2026年各形成千兆瓦级AI训练集群，New Albany集群已部署TPU v4/v5/v6。OpenAI与微软方面，微软现有最大训练集群不支持液冷，能效明显低于谷歌，PUE实际效率存在计算口径问题，亚利桑那数据中心用水效率比高达2.24L/kWh。两者正构建接近千兆瓦规模的超密集液冷数据中心园区，并与甲骨文、CoreWeave、Crusoe、QTS、Compass等公司合作扩大AI训练与推理能力。xAI方面，团队仅用122天建成拥有10万张H100的Colossus集群，由戴尔开发组装，是目前全球最强AI训练系统，未来将扩展至15万H100加5万H200。文章还指出，制约超大规模GPU集群建设的关键瓶颈并非资金，而是能保障高带宽、低延迟、高可靠性的网络解决方案。Meta计划年底安装65万H100当量，CoreWeave在德克萨斯州Plano投资16亿美元建设数据中心。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>全球数据中心关键IT电力需求将从2023年的49GW激增至2026年的96GW，AI约占40GW，数据中心容量年复合增长率加速至25%。</li>
+<li>谷歌已部署液冷TPU超1GW，远超其他公司，并在爱荷华州和俄亥俄州规划两个千兆瓦级AI训练集群，预计2026年建成。</li>
+<li>xAI仅用122天建成全球最强10万H100 Colossus集群，由戴尔组装，未来扩展至20万张GPU规模。</li>
+<li>微软现有训练集群不支持液冷，能效显著低于谷歌，正与多家云厂商合作构建千兆瓦级液冷数据中心以追赶差距。</li>
+<li>制约超大规模GPU集群建设的核心瓶颈是网络方案，需保证高带宽、低延迟和高可靠性使10万张GPU协同如单机工作。</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2468277809.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

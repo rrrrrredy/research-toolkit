@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>本次整理与重点恢复 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="本次整理与重点恢复。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/recovery-notes.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../assets/materials.css">
+<script src="../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../index.zh-CN.html">Research Toolkit</a><a href="index.zh-CN.html">中文目录</a><a href="index.html">English catalog</a></nav>
+<article class="report-article"><h1>本次整理与重点恢复</h1>
+<p>整理日期：2026-10-16。以下结论针对固定仓库快照及明确列出的核对范围。</p>
+<h2>全量基础整理</h2>
+<p>两个快照共有 93 个已跟踪文件，其中 49 个 JSON 数据文件。全部原始字节收入 <code>history-inputs.zip</code>，包括累计检查点、重建版本、公开导出、图谱数据、脚本与已有日志。</p>
+<p>文档集合共有 5,851 次记录出现。按完整 JSON 记录内容去重后保留 2,133 个不同版本，归属于 281 个原始文档 ID；3,718 次相同记录出现共用一份内容，出处并未删除。“281”不包含 103 组仅以标题定位的片段，也不把节点和边算成文章。</p>
+<p>每份阅读稿选取一份已有记录：优先有保存正文的版本，再按明确文件优先级选择，不把该优先级称为更新时间排序。259 份有保存正文，22 份只有摘要或元数据。已知 5 份 <code>raw_text_method=llm_generated_from_metadata</code> 的文本按内容哈希识别并保留为生成内容，不填补原文缺口。实体名称兼容字符串和对象，日期保留各版本原值，没有用其他版本的日期悄悄补齐所选记录。</p>
+<p>全量阅读稿展开了 39 张完整 JSON 表格；151 份所选记录遇到不可解码的表格时保留原始片段，没有补括号或猜测缺失内容。151 是遇到表格问题的记录数，不是全部残缺表格的总量估计。深度恢复只处理下面五份，另外保留了四张截断表中 59 个完整单元格及其原始字符位置、行列序号和合并跨度。</p>
+<p>图谱保留 4,549 条不同节点记录和 6,294 条不同关系记录，按完整记录去重，不把同名实体、不同属性或不同出处的关系强行合并。这不是已核实的实体或事实数量。分类、BM25 文档集合、标题片段和现有质量检查报告也已盘点；旧 PASS 不升级为事实认证。</p>
+<h2>五份重点材料</h2>
+<p>选择依据是它们已经进入 Toolkit 来源包，并出现过会影响判断的具体问题。</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>既有来源</th>
+<th>本次恢复与核对结果</th>
+<th>可用内容与剩余缺口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>S006《大模型降价潮分析》</td>
+<td>恢复正文、价格单位及截断表的 16 个完整单元格。正文分别使用元／百万 tokens、元／千 tokens、元／万 tokens；表头区分输入、输出与降价前后。</td>
+<td><code>recovered/D-2279323149.md</code> 可用于查回比较口径。后续表格已截断，本轮未据各厂商历史价目表核实金额与生效日，不用作当前报价。旧来源包隔离状态保留。</td>
+</tr>
+<tr>
+<td>S012《OpenAI近期信息报告-2024年初》</td>
+<td>原记录确有团队与薪酬正文，旧摘要“没有可用事实”不能代表整个保存文本。恢复正文和 13 个完整表格单元格。</td>
+<td><code>recovered/D-2073114610.md</code> 保留“待进一步证实”。表内原有“24.5万-38.5万语法”等异常文本和尾部截断，未猜成美元或补全。人数、薪酬与组织未据原始访谈核实，旧隔离记录不改。</td>
+</tr>
+<tr>
+<td>S010《字节AI全景解析》</td>
+<td>恢复战略正文和 16 个完整表格单元格，可辨认基础模型、应用平台、已有产品及云服务等原有分类，合并跨度保留。</td>
+<td><code>recovered/D-2271174789.md</code> 可作历史布局线索。时间线仍是未取得的 drawio 引用，后半表格截断，发布日期未知，不能据此判断当前产品状态。旧隔离记录不改。</td>
+</tr>
+<tr>
+<td>S007《AI行业月度观察202602》</td>
+<td>保存正文把 4.12 万亿 tokens 对应到 2 月 9—15 日，把 5.16 万亿对应到 16—22 日；缺失周次可从同一记录找回。另恢复 14 个完整单元格。</td>
+<td><code>recovered/D-2748557520.md</code> 说明两数不应仅因不同而当作同周期冲突。数字本身、覆盖范围与“三周大涨 127%”未向原始统计方核实，不能外推为全市场份额。历史排除决定保留。</td>
+</tr>
+<tr>
+<td>S011《腾讯AI全景解析》</td>
+<td>保存正文也写了“腾讯提出 XGBoost”，问题不只在摘要。在线核对原论文署名和导言，作者为 Tianqi Chen、Carlos Guestrin，机构为华盛顿大学。</td>
+<td><code>recovered/D-2499046308.md</code> 保留旧文；使用时排除这项归属断言并引用原论文，更正说明独立保存。其他腾讯历史陈述没有因此被标为正确。</td>
+</tr>
+</tbody></table></div>
+<p>XGBoost 核对来源：<a href="https://arxiv.org/html/1603.02754v3">原论文 v3</a>，阅读范围为署名、机构与第 1 节；<a href="https://arxiv.org/abs/1603.02754">arXiv 版本元数据</a>。这是 2026-10-16 真实在线读取，其余四份恢复来自已有仓库文本，不是重新访问原站。未通读或复现论文实验。</p>
+<h2>与现有来源包、任务和轨迹结合</h2>
+<p><code>existing-source-map.jsonl</code> 记录 12 条既有来源对应的材料 ID、原包文件、固定 Toolkit 提交及哈希。标题一致用于关联，不冒充内容完全相同。原包的 9 条活动来源、3 条隔离来源及已有额外排除规则保持原样。</p>
+<p>以后若用恢复的正文改进某个任务，只修改该任务的新输入版本，引用所选正文和仍适用的限制；保留原来源包、原问题、首次输出及真实运行记录。历史评测不重算，也不把 281 份材料计为 281 道题。本轮新增评测任务、模型运行和训练示范均为 0。</p>
+<p>现在可以直接打开单篇正文与重点残表，不必从多份大 JSON 手动提取。研究正文质量、用户省时幅度及模型效果提升尚未通过实际使用或评测验证。</p>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/recovery-notes.zh-CN.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

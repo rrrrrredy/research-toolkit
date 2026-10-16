@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Agent研究报告 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="AI Agent研究报告。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2495089975.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>AI Agent研究报告</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2495089975。版本：cad6230f37593be4bce42cc950b8e142d1159a92b06ec988e452320f865f4391。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/80</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/cad6230f37593be4bce42cc950b8e142d1159a92b06ec988e452320f865f4391.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>AI Agent研究报告</p>
+<h1>一、核心要点</h1>
+<p>1.整体来说，目前AI Agent技术栈分为<strong>平台、记忆、规划与编排、执行和应用</strong>5个板块。</p>
+<p>2.2024年开始，国内的大量AI应用也开始初见产品价值，从ToB延伸到ToC，从生产力和效率延伸到综合的社交娱乐和其他的多模态等各个领域Agentic applicaitons发展呈现出多元化、深入化的趋势。</p>
+<p>3.目前更常见的框架大多聚焦于single-agent的场景。Single-agent的核心在于LLM与工具的配合。LLM通过理解用户的任务，推理出需要调用的工具，并基于调用结果给用户反馈。在完成任务的过程中，Agent可能与用户有多轮交互。</p>
+<p>4.与此同时，越来越多的agent框架开始聚焦于multi-agent场景。为了完成任务，multi-agent会为不同的agent赋予不同的角色定位，通过agent之间的协同合作来完成复杂的任务。而在完成任务的过程中，相比于single-agent来说，与用户的交互会更少一些。</p>
+<p>5.Multi-agent策略框架有其优势，在某些场景下大概率会是最佳实践。但目前确实还存在很多关键问题，例如：高昂的LLM调用成本、LongContext LLM的需求、可操控性不够好等等问题。本质上，multi-agent策略框架跟LLM一样，也是个工具。</p>
+<h1>二、AI Agent</h1>
+<h2>1.定义</h2>
+<p>Agent是一种智能实体，具备自主环境感知与决策行动能力，旨在达成既定目标。作为个人或组织之数字化替身，AI代理执行特定任务与交易，其核心价值在于简化工作流程，削减繁复性，并有效降低人力投入与沟通障碍，促进效率与协作的双重提升。</p>
+<p>《<a href="https://arxiv.org/abs/2210.03629">ReAct: Synergizing Reasoning and Acting in Language Models</a>》被公认为基于LLM的智能体的开篇。而AutoGPT可以说是第一个真正意义上出圈的AI Agent。它尝试设计了一个流程，任何问题都有一个通用的元思路去解决，每个负责解决问题的模块都由一个GPT-4去驱动。AutoGPT的设计者认为这世界上几乎所有的问题解决步骤都是类似的，明确问题，明确解决问题需要的步骤，完成任务，检查，总结。所以按照这个SOP，他们涉及了一个互相之间传递信息的AI Agent，每个模块都是独立记忆的模型，好像几个人类在分工，一个专门负责明确问题，一个专门负责拆解问题。AutoGPT是基于OpenAI API开发的，它的核心在于基于最少的人工输入/提示，利用GPT-4的推理能力解决更广泛、更复杂的问题。在具体的执行上，程序会访问互联网搜索和收集信息，使用GPT-4生成文本和代码，使用GPT-3.5存储和汇总文件。</p>
+<h2>2.基于LLM智能体的三个关键部分</h2>
+<p>在基于LLM的智能体中，LLM的充当着智能体的“大脑”的角色，同时还有3个关键部分：</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ <strong>功能分类</strong></th>
+<th>__ <strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>规划（Planning）</strong></td>
+<td>智能体会把大型任务分解为子任务，并规划执行任务的流程。智能体会对任务执行的过程进行思考和反思，从而决定是继续执行任务，或判断任务完结并终止运行。</td>
+</tr>
+<tr>
+<td><strong>记忆（Memory）</strong></td>
+<td>短期记忆，是指在执行任务的过程中的上下文，会在子任务的执行过程产生和暂存，在任务完结后被清空。长期记忆是长时间保留的信息，一般是指外部知识库，通常用向量数据库来存储和检索。</td>
+</tr>
+<tr>
+<td><strong>工具使用（Tool use）</strong></td>
+<td>为智能体配备工具 API，比如：计算器、搜索工具、代码执行器、数据库查询工具等。有了这些工具 API，智能体就可以与物理世界交互，解决实际的问题。</td>
+</tr>
+</tbody></table></div>
+<p>:[color]{rgb(0, 0, 0)}<strong>2.1.规划（Planing）</strong>[/color]</p>
+<p>规划，可以为理解观察和思考。如果用人类来类比，当我们接到一个任务，我们的思维模式可能会像下面这样:</p>
+<ul>
+<li>我们首先会思考怎么完成这个任务。</li>
+<li>然后我们会审视手头上所拥有的工具，以及如何使用这些工具高效地达成目的。</li>
+<li>我们会把任务拆分成子任务（就像我们会使用 TAPD 做任务拆分）。</li>
+<li>在执行任务的时候，我们会对执行过程进行反思和完善，吸取教训以完善未来的步骤</li>
+<li>执行过程中思考任务何时可以终止</li>
+</ul>
+<p>这是人类的规划能力，我们希望智能体也拥有这样的思维模式，因此可以通过 LLM 提示工程，为智能体赋予这样的思维模式。在智能体中，最重要的是让 LLM 具备这以下两个能力：</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ <strong>功能分类</strong></th>
+<th>__ <strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>子任务分解</strong></td>
+<td>通过大型语言模型（LLM）使得智能体能够将大型任务分解为更小、更可控的子任务，有效完成复杂任务。</td>
+</tr>
+<tr>
+<td><strong>思维链（Chain of Thoughts, CoT）</strong></td>
+<td>一种标准提示技术，通过要求LLM「think step by step」，将问题分解成多个步骤，逐步思考和解决，以提高结果的准确性。</td>
+</tr>
+<tr>
+<td><strong>思维链的prompt示例</strong></td>
+<td>&quot;Answer the question: Q: {question}? Let&#39;s think step by step:&quot;</td>
+</tr>
+<tr>
+<td><strong>思维树（Tree-of-thought, ToT）</strong></td>
+<td>对CoT的扩展，将每一步的推理展开成多个分支，形成思维树，使用启发式方法和搜索算法来评估和探索各个分支。</td>
+</tr>
+<tr>
+<td><strong>反思和完善</strong></td>
+<td>智能体在执行任务过程中，通过LLM对子任务进行反思，吸取教训，完善步骤，提高任务完成质量，并判断任务是否完成以终止任务。</td>
+</tr>
+<tr>
+<td><strong>ReAct</strong></td>
+<td>ReAct方法结合了推理（Reasoning）和行动（Acting），通过《ReAct: Synergizing Reasoning and Acting in Language Models》论文提出，以增强LLM的推理和决策效果。</td>
+</tr>
+<tr>
+<td><strong>推理（Reasoning）</strong></td>
+<td>LLM基于已有知识或行动后获取的知识推导出结论的过程。</td>
+</tr>
+<tr>
+<td><strong>行动（Acting）</strong></td>
+<td>LLM根据实际情况使用工具获取知识或完成子任务以得到阶段性信息。</td>
+</tr>
+</tbody></table></div>
+<p>:[color]{rgb(0, 0, 0)}<strong>2.2.记忆（Memory）</strong>[/color]</p>
+<p>记忆是什么？当我们在思考这个问题，其实人类的大脑已经在使用记忆。记忆是大脑存储、保留和回忆信息的能力。记忆可以分为不同的类型：</p>
+<ol>
+<li><strong>短期记忆（或工作记忆）</strong>：这是一种持续时间较短的记忆，能够暂时存储和处理有限数量的信息。例如，记住一个电话号码直到拨打完毕。</li>
+<li><strong>长期记忆</strong>：这是一种持续时间较长的记忆，可以存储大量信息，从几分钟到一生。长期记忆可以进一步分为显性记忆和隐性记忆。显性记忆，可以有意识地回忆和表达的信息，显性记忆又可以分为情景记忆（个人经历的具体事件）和语义记忆（一般知识和概念）。隐性记忆，这种记忆通常是无意识的，涉及技能和习惯，如骑自行车或打字。</li>
+</ol>
+<p>仿照人类的记忆机制，<strong>智能体实现了两种记忆机制</strong>:</p>
+<ul>
+<li><strong>短期记忆</strong>：在当前任务执行过程中所产生的信息，比如某个工具或某个子任务执行的结果，会写入短期记忆中。记忆在当前任务过程中产生和暂存，在任务完结后被清空。</li>
+<li><strong>长期记忆</strong>：长期记忆是长时间保留的信息。一般是指外部知识库，通常用向量数据库来存储和检索。</li>
+</ul>
+<p>:[color]{rgb(0, 0, 0)}<strong>2.3.工具使用（Tool use）</strong>[/color]</p>
+<p>LLM是数字世界中的程序，想要与现实世界互动、获取未知的知识，或是计算某个复杂的公式等，都离不开不工具。所以我们需要为智能体配备各种工具以及赋予它使用工具的能力。</p>
+<p>工具是什么？它可以是锤子、螺丝刀，也可以是函数（function）、软件开发工具包（sdk）。工具是人类智慧的具象化，扩展我们的能力，提升工作效率。在智能体中，工具就是函数（Function），工具使用就是调用函数（Call Function）。</p>
+<p>在LLM中实现函数调用，使用到LLM的这个能力:</p>
+<p><a href="https://platform.openai.com/docs/guides/function-calling/function-calling">Function Calling</a></p>
+<p>Function Calling是<strong>一种实现大型语言模型连接外部工具的机制</strong>。通过API调用LLM时，调用方可以描述函数，包括函数的功能描述、请求参数说明、响应参数说明，让LLM根据用户的输入，合适地选择调用哪个函数，同时理解用户的自然语言，并转换为调用函数的请求参数（通过JSON格式返回）。调用方使用LLM返回的函数名称和参数，调用函数并得到响应。最后，如果需求，把函数的响应传给LLM，让LLM组织成自然语言回复用户。</p>
+<p>function calling具体工作流程如下图所示：</p>
+<p>:::drawio{src=&quot;<a href="https://km.sankuai.com/api/file/cdn/2495089975/124865775839?contentType=0&isNewContent=false">https://km.sankuai.com/api/file/cdn/2495089975/124865775839?contentType=0&amp;isNewContent=false</a>&quot; width=676 height=396}</p>
+<h2>3.Agent分类</h2>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          102
+        ],
+        &quot;bgColor&quot;: &quot;var(--table-header-bg)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**分类标准**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          118
+        ],
+        &quot;bgColor&quot;: &quot;var(--table-header-bg)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**类型**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          340
+        ],
+        &quot;bgColor&quot;: &quot;var(--table-header-bg)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**描述**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          284
+        ],
+        &quot;bgColor&quot;: &quot;var(--table-header-bg)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**示例示例**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 4,
+        &quot;colwidth&quot;: [
+          102
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**功能**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          118
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**感知Agent**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          340
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;能够感知环境并做出响应，但不具有长期记忆或学习的能力。&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          284
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;简单的温度控制器或烟雾报警器。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          118
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**反应Agent**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          340
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;对环境变化做出即时反应，但没有考虑过去的经验。&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          284
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;视频游戏中的非玩家角色（NPC）的简单行为。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          118
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**值预测Agent**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          340
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;能够预测行为的值（如奖励），并基于此做出决策。&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          284
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;AlphaGo，通过预测赢得游戏的概率来选择走法。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          118
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**学习Agent**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          340
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;能够从经验中学习并改进其行为。&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          284
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;自主驾驶汽车，通过学习改善驾驶策略。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 3,
+        &quot;colwidth&quot;: [
+          102
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**领域**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          118
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**虚拟Agent**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          340
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;在虚拟环境中操作，如在线游戏或模拟软件。&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          284
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;虚拟助手，如Siri或Alexa。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          118
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**物理Agent**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          340
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;在现实世界中操作，如机器人或自动驾驶汽车。&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>AI Agent技术栈由平台、记忆、规划与编排、执行和应用5个核心板块构成。基于LLM的智能体包含规划（Planning）、记忆（Memory）、工具使用（Tool use）三个关键部分：规划能力通过提示工程实现，核心机制为子任务分解与思维链（CoT）；记忆系统分为任务结束后清空的短期记忆和依托外部向量数据库的长期记忆；工具使用则依赖Function Calling机制，将自然语言转换为函数调用参数，实现LLM与外部工具的连接。</p>
+<p>AutoGPT作为第一个真正出圈的AI Agent，基于OpenAI API开发，核心推理能力来源于GPT-4。Multi-agent框架目前面临LLM调用成本高、需要Long Context支持以及可操控性差等关键瓶颈。2024年国内AI应用呈现从ToB向ToC延伸、从效率工具向社交娱乐和多模态领域扩展的趋势。</p>
+<p>从功能维度划分，AI Agent涵盖感知Agent、反应Agent、值预测Agent和学习Agent等多种类型：感知Agent能响应环境但不具备长期记忆；反应Agent对环境即时反应而不依赖历史经验；值预测Agent通过预测行为价值做出决策，AlphaGo即属此类，通过预测赢得游戏的概率来选择每步走法；学习Agent则能从经验中持续改进行为，自主驾驶汽车是典型代表。从应用领域划分，AI Agent分为虚拟Agent和物理Agent两大类，前者涵盖Siri、Alexa等在线服务，后者以机器人和自动驾驶汽车为代表形态。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>AI Agent技术栈分为平台、记忆、规划与编排、执行和应用5个板块，LLM充当智能体的&#39;大脑&#39;角色</li>
+<li>基于LLM的智能体三大核心组件为规划（Planning）、记忆（Memory）和工具使用（Tool use）</li>
+<li>规划能力通过CoT、ToT、ReAct等提示工程方法实现，支持子任务分解、推理行动和反思完善</li>
+<li>Multi-agent框架通过角色分工协同完成复杂任务，但面临高LLM调用成本、LongContext需求和可操控性差等挑战</li>
+<li>2024年国内AI应用从ToB延伸至ToC，覆盖多模态、社交娱乐等多元领域，Agentic应用持续深入化</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2495089975.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

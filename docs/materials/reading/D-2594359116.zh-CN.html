@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>数据标注公司Scale AI研究报告 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="数据标注公司Scale AI研究报告。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2594359116.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>数据标注公司Scale AI研究报告</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2594359116。版本：8cefe5e98b11f4d16fe121fa504f62bef2ae9148ffa780e7b1441737069f0fe3。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/100</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/8cefe5e98b11f4d16fe121fa504f62bef2ae9148ffa780e7b1441737069f0fe3.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>数据标注公司Scale AI研究报告</p>
+<h1>一、背景&amp;团队</h1>
+<h2>1.背景</h2>
+<p>Scale AI是于2016年诞生于Y Combinator创业项目，由两位年轻华人创办，创始人为Alexandr Wang和Lucy Guo。旨在 &quot;建立以数据为中心的基础设施平台&quot; 以 &quot;加速人工智能应用的发展&quot;。<strong>它的核心理念和所有业务均 &quot;数据是新的代码&quot;的假设</strong>。</p>
+<p>Scale AI 2019年跻身独角兽行列，当时估值73亿美金，ARR接近3亿美金。Scale AI核心业务为数据标注，从自动驾驶场景起家，后切入政府、电商、机器人、大模型等场景，分别对应着过去AI行业几次大机会的出现。受益于Alex超强的个人能力及超强的团队执行力，Scale AI在每波大趋势到来时都能快速捕捉机会，推出相应的产品，在细分领域迅速做到极高的市场份额。<strong>2020年，Scale AI突破了1亿美元的ARR，成为有史以来达到这一里程碑的最快公司之一</strong>。同时，Scale AI作为OpenAI的上游供应商，伴随着ChatGPT的爆火，也成为了行业备受瞩目的公司。</p>
+<p>Scale AI创始人Alexandr Wang生于1997年，在MIT就读。2016年，Wang（当时19岁）联手Lucy Guo（当时21岁，同是大学辍学生，卡内基梅隆大学），进入YC的2016年春季批次。他们在进入YC时还不太清楚自己要做什么，但Wang和许多创始人一样，善于观察。</p>
+<p>“当我深入研究AI时意识到，数据是建立有意义的AI应用的瓶颈。我们需要花费大量时间和资源来做数据处理，使其可用于机器学习。没有标准化的工具或基础设施，AWS、Stripe或Twilio也未曾解决这个问题。比如我当时想在冰箱里建一个摄像头，让它告诉我什么时候该买东西，现在家里缺什么了。但我没有任何数据来实现这个功能。”因此，Alex和Lucy在YC期间创办了Scale，在2016年6月正式发布，最初的名字是Scale API。</p>
+<p>当时，他们的价值主张很明确：一行代码搞定繁杂的手工作业。因此，<strong>Scale 认为自己是一个更可靠、更高质量的 Amazon Mechanical Turk（亚马逊运营的人工智能众包平台）</strong>。它使用 API 来简化请求工作的过程，并在后端进行真人审查、同行评审系统等，以确保高质量产出。例如，一家公司想审核内容时，可以通过 Scale 的 API 将内容提供给经过训练的外包团队，而不用内部雇佣。</p>
+<h2>2.团队</h2>
+<p>团队整体方面，Scale AI整体执行力非常强，工作节奏和企业文化非常激进，偏好招顶级院校的应届毕业生，聪明、勤奋、执行力强、肯加班，Scale AI的“卷”在硅谷非常有名。Scale AI团队综合能力非常优秀，尤其是运营能力，以及对数据标注整套流程和体系的管理。Scale AI的流程与管理体系、经验管理效果和效率都明显优于其他竞对企业，包括如何管理数据工人、如何给他们分工、如何进行激励或惩罚、如何检查质量、如何将数据交到客户手中、如何服务客户、又如何根据客户反馈重新标注数据提升标注质量等等，整个链路非常复杂，Scale AI的高材生们能够把整套流程控制好，每一个环节都极其高效、流畅、准确。而Alex也在很多事情上亲力亲为，或亲自监督。整体来看，Scale AI的团队综合素质和执行力非常强。</p>
+<p>企业管理和企业文化方面，Scale AI给年轻人足够大的发展机会和发展空间、足够快速和清晰的上升的机会、足够多的激励，但同时在处理老员工的关系上存在很多问题，因此这其中存在较大的冲突与矛盾。此外，Scale AI高强度的工作、激进的管理方式，也导致了严重的人才流失，或是让很多人才在选择公司的时候就望而却步。</p>
+<h2>3.数据标注范式的转变</h2>
+<p>数据标注的核心是质量和效率，对于数据标注的客户公司而言，数据标注并非公司核心业务，外包意愿强。客户标注数据主要通过内部自建团队、众包平台、与第三方数据标注创业公司合作。</p>
+<p>早期，数据全部由人工手动标注，以构建和积累机器学习模型的训练数据集。尽管耗时且成本高昂，但手动标注数据确实在准确率等方面具有优势。数据标注公司往往在菲律宾、肯尼亚、委内瑞拉等劳动力价格较为低廉的国家或地区寻找合适的数据标注人员。</p>
+<p>随着机器学习模型的发展，自动化数据标注的准确性提高，可以使用模型来辅助人工标注，比如模型预处理数据再发送给标注员；或人类作为审核员，审核并纠正模型给出的标注结果等等。与纯手动标记相比，AI辅助标注加快数据标注的速度。目前，Scale AI等数据标注公司都在努力减少数据标注过程中的人工参与比例。</p>
+<p>RLHF 的数据标注与此前的用低成本劳动力完成的简单数据标注工作也有所不同，需要非常专业的人士来写词条，针对相应的问题和指令，给出符合人类逻辑与表达的高质量的答案。据称<strong>OpenAI内部招了几十名PhDs来做RLHF的标注，Scale作为OpenAI的上游供应商，同样招聘了几十名PhDs在为OpenAI提供此类服务</strong>，具体的分工是<strong>Scale更多完成标注的动作，而OpenAI更多是进行质量检测</strong>。标注数据是ChatGPT效果区别于其他竞争对手的原因之一。</p>
+<h1>二、产品&amp;技术</h1>
+<h2>1.核心业务——数据标注</h2>
+<p>数据标注（Data Labeling）为Scale AI的核心业务。数据标注位于模型开发的上游阶段，该过程需要先识别原始数据，然后为该数据添加一个或多个标签。数据类型包括结构化数据和非结构化数据，后者包括图像、视频、3D（LiDAR、雷达等）、文本和音频等。数据标注的核心是质量和效率，对于数据标注的客户公司而言，数据标注并非公司核心业务，外包意愿强。客户标注数据主要通过内部自建团队、众包平台、与第三方数据标注创业公司合作。该赛道玩家除了Scale AI之外，还有Dataloop、SuperAnnotate、Labelbox、Snorkel、V7、Appen等。同一客户公司内部的不同部门，可能会根据不同的需求和场景选择不同的数据标注玩家。</p>
+<h2>2.数据标注产品线</h2>
+<p>Scale AI有着非常丰富的产品线，其产品主要分成4大类：<strong>数据标注（Annotate）、管理和评估（Manage &amp; Evaluate）、自动化（Automate）和合成（Generate）</strong>。</p>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#531CAB&quot; borderStyle=&quot;dashed&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(239, 225, 250)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}**场景**[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(239, 225, 250)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}**产品**[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          502
+        ],
+        &quot;bgColor&quot;: &quot;rgb(239, 225, 250)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}**简介**[/font]\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 9,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}数据标注（Annotate）[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}Scale Rapid[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          502
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}可以在用户上传数据后加快数据标签的形成，要求数据由Scale标注。Scale Rapid正在试图赶上Super Annotate在创建工作流和质量方面的领先地位。[/font]\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}Scale Studio[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          502
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}提供数据标注工具，用户可以批注、监控和提高数据质量，要求用户自带标注人员。[/font]\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}Scale 3D Sensor Fusion[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          502
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}3D传感器数据标注。[/font]\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}Scale Image[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          502
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}图像标注。[/font]\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}Scale Video[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          502
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}视频标注。[/font]\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}Scale Text[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          502
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}文档标注。[/font]\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}Scale Audio[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          502
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}人工音频标注和分类。[/font]\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}Scale Mapping[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          502
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}地图标注，可自定义。[/font]\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}Scale Catalog[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          502
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}电商和零售团队可用于商品标注，AI生成产品图。[/font]\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}管理和评估（Manage &amp; Evaluate）[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}Scale Nucleus[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          502
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}2020年8月推出的数据管理平台，用户可以在Nucleus中可视化查看标签性能、搜索特定标签条件下的图片、直接微调/修正标签、比较不同版本ML模型的准确度指标、查找相似图片、协作等，该产品为Scale AI拓展了更多小企业客户。[/font]\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}Scale Launch[/font]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          502
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[font]{size=15}帮助用户在生产中部署和交付ML模型，可以配置和拓展CPU和GPU计算，进行影子部署、A/B测试和rollback，实时监控ML的性能、延迟时间等。Scale Launc</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>Scale AI是一家定位于高质量数据标注服务的科技公司，其核心价值在于通过API接口将人工标注请求流程系统化，本质上可理解为面向AI训练数据场景的精品版Amazon Mechanical Turk。</p>
+<p>在数据标注的市场格局中，客户通常通过三条路径获取标注服务：自建内部标注团队、依托众包平台，或与Scale AI此类第三方专业公司合作。早期行业生态高度依赖菲律宾、肯尼亚、委内瑞拉等低劳动力成本国家的人工标注员完成基础任务。随着技术演进，AI辅助标注模式逐渐普及——或由模型预处理数据后交由人工复核，或由人工审核模型生成的标注结果，整体效率显著提升。</p>
+<p>值得关注的是，以RLHF（基于人类反馈的强化学习）为代表的新型标注需求与传统低成本简单标注存在本质差异。RLHF标注要求标注人员具备较高专业素养，能够独立撰写高质量示范答案，而非简单执行分类或打标任务。OpenAI为此在内部专门招募了数十名博士级研究人员从事RLHF相关标注工作，Scale AI亦为OpenAI提供同等级别的专业标注服务。两者在合作中分工明确：Scale AI负责标注任务的具体执行与交付，OpenAI则承担质量检测与标准制定职责。</p>
+<p>在产品能力层面，Scale AI旗下的Scale Launch模块支持ML模型在生产环境中的部署与交付，提供CPU与GPU计算资源的灵活配置与弹性扩展，并内置影子部署、A/B测试及版本回滚等多种部署策略，同时对模型性能、推理延迟等关键指标提供实时监控，覆盖从数据标注到模型上线的完整AI开发链路。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Scale AI由Alexandr Wang和Lucy Guo于2016年创办，2019年估值73亿美元跻身独角兽，2020年ARR突破1亿美元，是史上最快达到该里程碑的公司之一</li>
+<li>Scale AI作为OpenAI上游供应商，专门招募数十名博士为其提供RLHF数据标注服务，高质量标注数据是ChatGPT区别于竞争对手的核心原因之一</li>
+<li>数据标注范式从纯人工标注演进至AI辅助标注，Scale AI持续推进自动化以降低人工参与比例，提升标注效率和质量</li>
+<li>Scale AI产品线涵盖数据标注、管理评估、自动化和合成四大类，支持图像、视频、3D传感器、文本、音频等多种数据类型</li>
+<li>Scale AI团队执行力极强、工作节奏激进，在硅谷以高强度文化著称，但同时面临严重的人才流失和老员工管理冲突问题</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2594359116.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

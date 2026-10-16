@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI行业月度观察202601 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="AI行业月度观察202601。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2745919284.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>AI行业月度观察202601</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2745919284。版本：f673ffbfa7c20fc2911336f40b799fed29b1699e18ea59b4dd66e114f5954365。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/272</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/f673ffbfa7c20fc2911336f40b799fed29b1699e18ea59b4dd66e114f5954365.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 468s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;0bb259a4b6414a5eb4e5f58a1cd64806&quot;}
+AI行业月度观察202601</p>
+<h3>一、整体趋势</h3>
+<h4>1.一月关键里程碑</h4>
+<p><strong>1.1.模型/技术</strong></p>
+<ul>
+<li>IQuest-Coder-V1 登上了 SWE-Bench Verified 榜单，40B 参数的版本更是取得了高达 81.4% 的优异成绩，超越了 Claude Opus-4.5 和 GPT-5.2；</li>
+<li>在 WMT25 等国际测试中，HY-MT1.5 7B 版本的得分超过了 Gemini3.0Pro 以及许多专业的翻译模型；1.8B 版本在人类真实测试中的评分，也超过了百度、谷歌、微软等主流商业翻译系统；；</li>
+<li>阿里千问下载量单月击败 Meta、OpenAI 等全球巨头总和；</li>
+<li>GPT-5.2 在 ARC-AGI-2 基准测试中的表现已正式超越人类基线水平；</li>
+<li>阶跃星辰原生语音推理模型 Step-Audio-R1.1 在 Artificial Analysis Speech Reasoning 中登顶；</li>
+<li>智谱华为合作 GLM-Image 模型登顶 Hugging Face Trending；</li>
+<li>在最新的 LMArena 文本排行榜中，ERNIE-5.0-0110 以 1460 分的高分位列全球第八，成为唯一进入该榜单前十名的中国国产大模型；</li>
+<li>ERNIE-5.0-011 的数学处理能力目前已冲至全球第二，性能表现仅次于 GPT-5.2-High；</li>
+<li>在 SWE-bench Verified、τ²-Bench 等主流基准测试中，GLM-4.7-Flash 的综合表现超过 gpt-oss-20b、Qwen3-30B-A3B-Thinking-2507，在相同和近似尺寸模型系列中取得开源 SOTA 分数；</li>
+<li>Kimi K2.5 发布 24 小时登顶全球开源榜单;</li>
+</ul>
+<p><strong>1.2.产品/用户/收入</strong></p>
+<ul>
+<li>字节跳动旗下海外 AI 助手 Dola 日活破千万；</li>
+<li>Grok 全球用户突破 3000 万；</li>
+<li>可灵 AI 12 月收入超 2000 万美元，ARR 突破 2.4 亿美元；</li>
+<li>千问月活破 1 亿：两个月登顶全球增速榜；</li>
+<li>Genspark 官宣 ARR 突破 1 亿美元；</li>
+<li>OpenAI ARR 达 200 亿美元；</li>
+<li>百度文心助手月活破 2 亿；</li>
+<li>可灵 AI MAU 突破 1200 万 日均收入较 12 月提升约 30%；</li>
+<li>下载超 10 亿、衍生模型破 20 万，阿里千问刷新全球开源模型纪录；</li>
+<li>OpenAI 靠 API 业务月增超 10 亿美元年化收入；</li>
+<li>搜狗输入法宣布全面 AI 化：AI 用户规模破亿，日均语音使用近 20 亿次；</li>
+<li>Kimi 海外收入首次超越国内，K2.5 推动全球用户激增。</li>
+</ul>
+<h4>2.一月行业趋势</h4>
+<p><strong>2.1.海外：Agent 操作系统化与平台主权争夺白热化</strong> </p>
+<p><strong>本月海外产业的核心脉络，在于 AI Agent 正从 &quot;对话层&quot; 下沉为 &quot;执行层&quot;，并在这个过程中重构计算平台的控制权</strong>。Google Chrome 推出 &quot;自动浏览&quot; 功能、Anthropic 通过 MCP 协议将 Claude 深度集成至 Slack/Figma 等生产力工具、Meta 以 20 亿美元收购 Manus 并计划植入 Instagram/WhatsApp，这些动作共同揭示了一个深层趋势：下一代计算平台的争夺已从移动端转向 Agent 的调度中枢。 Whoever controls the agent, controls the workflow. 头部企业正试图将 AI 能力从 &quot;功能插件&quot; 转变为 &quot;基础设施层&quot;，通过控制跨应用的工作流接口来锁定生态位。</p>
+<p><strong>与此同时，算力自主化与商业化阵痛并行</strong>。Anthropic 绕过 Google 云直接采购百万颗 TPU v7、xAI 自建第三座超大规模数据中心并自供能源，标志着顶级玩家彻底摆脱云厂商依赖的决心，算力竞赛进入 &quot;架构信仰&quot; 阶段。然而 OpenAI Sora App 连续两月下载量环比下滑 45%、启动广告测试与低价订阅方案 Go 并存，暴露出纯生成式工具在消费级市场的留存瓶颈 —— 当 IP 限制收紧、缺乏网络效应时，&quot;工具属性&quot; 难以支撑长期用户粘性。这迫使海外巨头加速推进 &quot;混合变现 + 协议控制&quot; 策略，如 Google 联合 20 余家零售巨头开源 UCP 购物协议，实质是通过制定 Agent 支付标准来复制 Android 时代的生态控制力。</p>
+<p><strong>2.2.国内：开源集群反攻与端侧工业化并进</strong> </p>
+<p><strong>本月国内 AI 产业呈现出 &quot;开源霸权 + 场景深潜&quot; 的双重爆发</strong>。千问模型单月下载量超越全球第 2-9 名总和、Kimi K2.5 登顶全球开源榜单、智谱 GLM-Image 登顶 Hugging Face、蚂蚁灵波一周内连发三款具身智能开源模型、商汤 SenseNova-MARS 超越 Gemini-3-Pro—— 这一系列密集动作标志着中国厂商正通过 &quot;开放权重 + 垂直场景深度优化&quot; 的策略，系统性挑战海外闭源模型的技术霸权。开源不再仅是技术理想，而是演变为标准制定权的低成本路径，旨在构建 Llama 之外的第二极生态。</p>
+<p>更具战略意义的是端侧 AI 与具身智能的工业化落地。阶跃星辰完成超 50 亿融资并宣布终端装机量突破 4200 万台，小米 AI 眼镜深度集成支付宝无感支付，阿里 &quot;真武&quot; 芯片实现万卡集群部署并对标 H20，标志着国内 AI 应用已完成从 &quot;技术演示&quot; 到 &quot;规模变现&quot; 的跨越。与海外押注人形机器人不同，国内更倾向 &quot;轻量级、快渗透、强整合&quot; 的路径，将多模态能力塞进眼镜、手机、汽车等终端，依托丰富的 IoT 生态构建场景闭环。特别是蚂蚁灵波开源 200 万组真实世界深度数据、宇树科技开源 VLA 模型，旨在通过 &quot;模型 + 数据&quot; 双开源建立具身智能时代的 Android 生态，抢占行业标准制定权。</p>
+<p><strong>2.3.行业重点方面：Agent 协议层战争与架构创新临界点</strong></p>
+<p><strong>本月最显著的行业级事件，是 Agent 基础设施的标准化争夺</strong>。Google UCP 与支付宝 ACT 协议虽名称不同，但本质都是为 AI Agent 跨平台执行构建 &quot;信任与授权&quot; 基础设施，强调 &quot;用户最终确认付款&quot; 的防火墙机制。这标志着行业共识：Agent 的可靠性不取决于模型能力，而取决于协议对 &quot;权责边界&quot; 的定义。开源项目 Moltbot（Clawdbot）获得 GitHub 76.5k stars 的现象级关注，阿里云、火山引擎迅速推出全套云服务适配，预示着 AI Agent 正从单点工具向分布式操作系统演进，通过 IM 实现 &quot;对话即服务&quot;（CaaS）的新范式。</p>
+<p>另一方面，大模型架构创新进入 &quot;后 Transformer&quot; 探索期。DeepSeek 发布的 Engram 架构通过 O (1) 查找式记忆解耦静态知识与动态推理，腾讯 WeDLM 用扩散模型改造自回归语言模型实现 3-10 倍速度提升，Liquid AI 的非 Transformer 推理模型在手机上跑通 —— 这些创新共同指向：未来模型将分裂为 &quot;记忆密集型&quot; 与 &quot;推理密集型&quot; 双轨，而非所有任务共享同一套参数。架构创新正成为打破算力封锁、实现 &quot;以小博大&quot; 的关键解。</p>
+<p><strong>2.4.其他补充层面</strong> </p>
+<p><strong>地缘政治与算力韧性</strong>：特朗普政府有条件放行英伟达 H200 对华出口（限 50% 销量 + 25% 附加费），策略从 &quot;一刀切断供&quot; 转向 &quot;关税 + 配额&quot; 组合拳，这反而倒逼中国 AI 企业加速 &quot;国产替代&quot;。智谱 GLM-Image 全栈国产训练成功、阿里 &quot;真武&quot; 芯片万卡部署，短期内是被动应对，长期看可能催生 &quot;中美双生态&quot;。企业需构建 &quot;可切换&quot; 的算力韧性以应对不稳定政策。</p>
+<p><strong>能耗与可持续</strong>：xAI Colossus 2 成为全球首个 GW 级超算集群导致 PJM 电网 6700 万居民面临停电风险，Meta 官宣能源使用将 &quot;成倍增长&quot;，揭示 AI 发展的物理极限已现。未来竞争不仅是芯片性能，更是每瓦特 Token 产出率。&quot;东数西算&quot; 与绿色算力将从 ESG 口号变为生存底线。</p>
+<p><strong>人才价值重估</strong> ：OpenAI 核心人才（如 Jerry Tworek、Andrea Vallone）流向 Anthropic 或离职创业，清华陈立杰加盟 OpenAI，苹果 AI 团队向 Meta/Google 流失 —— 显示顶尖人才的选择已从 &quot;去哪赚钱&quot; 转向 &quot;去哪实现技术理想&quot;。当大模型能力趋同，拥有特定领域架构直觉和场景 know-how 的团队成为稀缺资产，&quot;人才并购&quot;（Acqui-hire）进入常态化。</p>
+<h3>二、主要产品、技术更新</h3>
+<h4>1.海外</h4>
+<p>:[data2chart]{id=&quot;36f7a72a455a9a748a91&quot; pageId=&quot;2745919284&quot;}</p>
+<h5>1.1.海外大公司</h5>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**分类**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 7,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**英伟达**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品投产\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;黄仁勋官宣英伟达已投产 Vera Rubin：训练 AI 速度是 Blackwell 架构 3.5 倍&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n数据集\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;英伟达开源了训练框架和全球最大的开放多模态数据集，其中包括 10 万亿个语言训练 tokens、50 万条机器人轨迹、45.5 万个蛋白质结构以及 100TB 的车辆传感器数据&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品发布\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;针对物理 AI（Physical AI），NVIDIA 发布了 Cosmos 世界模型平台，旨在赋予机器人类似人类的推理与世界生成能力&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n计算架构\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;英伟达推出新一代 Rubin 芯片架构，全面提升 AI 计算能力&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n技术更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;英伟达提出 GDPO，专攻多奖励优化&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n芯片出口\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;美国政府正式批准英伟达 H200 芯片对华出口&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n技术更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;斯坦福联合英伟达发布 TTT-Discover：用“测试时强化学习”攻克科学难题&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**亚马逊**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品发布\n:::&quot;</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>2026年1月，全球AI行业在模型能力、基础设施与地缘博弈三条主线上同步提速。</p>
+<p>模型层面，千问单月下载量超越全球第2至9名总和，月活破1亿，两个月登顶全球增速榜；Kimi K2.5发布24小时登顶全球开源榜单，海外收入首次超越国内；GPT-5.2在ARC-AGI-2基准测试中正式超越人类基线；OpenAI ARR达200亿美元，API业务月增超10亿美元年化收入。架构创新方面，DeepSeek发布Engram新架构，实现O(1)查找式记忆，将静态知识与动态推理解耦；腾讯WeDLM以扩散模型改造自回归语言模型，速度提升3至10倍；斯坦福联合英伟达发布TTT-Discover，以测试时强化学习攻克科学领域难题。</p>
+<p>算力与数据层面，英伟达Vera Rubin已投产，训练速度是Blackwell的3.5倍；xAI Colossus 2成为全球首个GW级超算集群，但导致6700万居民面临停电风险。英伟达同步开源训练框架与全球最大开放多模态数据集，包含10万亿语言训练tokens、50万条机器人轨迹、45.5万个蛋白质结构及100TB车辆传感器数据，并发布面向物理AI的Cosmos世界模型平台与GDPO多奖励优化算法。</p>
+<p>生态与政策层面，AI Agent从&quot;对话层&quot;下沉为&quot;执行层&quot;，Google UCP与支付宝ACT协议竞相争夺跨平台信任标准；开源项目Moltbot获GitHub 76.5k stars；特朗普政府转向&quot;关税+配额&quot;组合拳，倒逼国内加速国产替代，而美国政府同期批准英伟达H200芯片对华出口，中美科技博弈走势仍存变数。顶尖AI人才择业逻辑亦已从薪酬转向技术理想，人才并购趋于常态化。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>模型技术突破密集：IQuest-Coder-V1在SWE-Bench Verified达81.4%、GPT-5.2超越人类基线、阿里千问单月下载量超全球第2-9名总和、Kimi K2.5发布24小时登顶全球开源榜单；</li>
+<li>商业化规模加速：OpenAI ARR达200亿美元、可灵AI ARR突破2.4亿美元、千问月活破1亿、百度文心助手月活破2亿，AI产品从技术演示跨越至规模变现阶段；</li>
+<li>Agent基础设施标准化成核心战场：Google UCP协议与支付宝ACT协议争夺跨平台执行标准，Anthropic通过MCP协议深度集成生产力工具，Meta20亿美元收购Manus，AI Agent正从单点工具向分布式操作系统演进；</li>
+<li>大模型架构进入后Transformer探索期：DeepSeek Engram架构实现O(1)查找式记忆、腾讯WeDLM用扩散模型实现3-10倍速度提升，未来模型将分裂为记忆密集型与推理密集型双轨；</li>
+<li>地缘政治与能耗成新变量：特朗普政府有条件放行H200对华出口倒逼国产替代加速，xAI GW级超算集群引发电网压力，算力竞争已延伸至每瓦特Token产出率维度。</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2745919284.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

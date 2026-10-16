@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>多模态趋势下的架构选择 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="多模态趋势下的架构选择。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2227377518.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>多模态趋势下的架构选择</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2227377518。版本：56a04f6e351a5cbd628d1581496ac00013f2ccdb48f52c750b209fefb5c04e50。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/54</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/56a04f6e351a5cbd628d1581496ac00013f2ccdb48f52c750b209fefb5c04e50.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>多模态趋势下的架构选择</p>
+<h1>一、CNN VS.Transformer，做多模态谁更强？</h1>
+<p>1.一直以来，Transformer 都被认作为 AI 大模型的主流架构。但在近期的一些研究工作中，RWKV、Mamba、Hyena，以及 Recurrent Memory Transformers 等新的架构出现，也许「最先进的模型仍然是基于 Transformer 」的局面未来可能会改变。<br>2.腾讯 AI 实验室与港中文联合团队提出的 CNN 架构「UniRepLKNet」，在图像识别精度和速度上均超过了 Transformer 架构模型。作者认为，Transformer 和 CNN 仅仅是相互交融的两种结构设计思路，没有理由认为前者具有本质的优越性。<br>3.此前，CNN 长期以来一直是图像处理任务的首选。<br>① CNN 擅长通过卷积层捕获局部空间信息，从而实现分层特征提取。CNN 擅长从大量图像数据中学习，并在图像分类、目标检测和分割等任务中效果显著。<br>② CNN 由于其可并行性而具有更高计算效率，这使得它们适用于需要实时运行和资源受限的应用程序。<br>4.在多模态学习中，Transformer 的输入可以包含一个或多个 token 序列，每个序列的属性（例如，模态标签、顺序）可以自然地进行 MML 而无需架构修改。此外，通过控制 self-attention 的输入模态可以简单地实现学习每个模态的特异性和模态间的相关性。<br>① Transformer 的优势在于它们可以以与模态无关的方式工作。因此，它们与各种模态（和模态的组合）兼容。<br>② 相较于 CNN， Vision Transformer 拥有全局注意力和上下文理解等至关重要的优势。<br>③ 但 Vision Transformer 通常需要大量的训练数据才能达到与 CNN 相当的性能。<br>5.目前，大多数先进的模型都是以 CNN-Transformer 混合体的形式设计的。这些模型主要在初期阶段使用卷积块，并将 Transformer 块的堆叠保留到最后阶段。目前，无论是卷积块还是 Transformer 块，在现有工作中都不能同时实现高效性和性能。</p>
+<h1>二、基于 Transformer 的多模态模型又有哪些局限性？</h1>
+<p><strong>1.融合困难</strong><br>① 一般来说，MML Transformers 主要在三个常规级别融合多种模态的信息：输入（即早期融合）、中间表示（即中间融合）和预测（即晚期融合）。将两种模态的表示直接输入标准注意力模块可以实现中间融合和潜在适应，最终得到最终双模态表示的后期融合。<br>② 选择合适的融合方法（早期、晚期或中间融合）是实现高效多模态学习的关键难点。<br><strong>2.对齐挑战</strong><br>① 现实世界的数据通常以多种具有内在同步的模态出现（例如，视听对应），这支持了跨模态对齐。最近，基于 Transformers 的对齐导致利用大量网络数据（例如，图像-文本对）进行视觉和语言任务的激增。主要思想是将两种模态映射到一个共同的表示空间中，并在配对样本上进行对比学习。<br>② 跨模态对齐是许多实际应用程序的关键因素，这要求模型能够理解和处理来自不同源的数据之间的复杂相互关系，确保数据间的有效协同。<br><strong>3.可迁移性难题</strong><br>① 可迁移性是基于 Transformer 的多模态学习的主要挑战，涉及如何在不同数据集和应用程序之间迁移模型的问题。数据增强和对抗性扰动策略帮助多模态 Transformers 提高泛化能力。<br>② 过拟合是迁移的主要障碍。由于建模能力大，多模态 Transformer 在训练期间可能过度拟合数据集偏差。<br>③ 跨任务差距是迁移的另一个主要障碍，因为不同的推理和输入输出工作流程，例如，如何使用多模态数据集来微调语言预训练模型是困难的。在实际应用中，由于缺少模态的问题，多模态预训练的 Transformer 有时需要在推理阶段处理单模态数据。<br>④ 对于基于 Transformer 的多模态学习的可迁移性，还应考虑跨语言差距，例如从英语到非英语多模态上下文的通用跨语言泛化。<br><strong>4.效率问题</strong><br>多模态 Transformer 存在两个主要的效率问题：<br>① 由于模型参数容量大，它们需要大量数据，因此依赖于大规模的训练数据集。<br>② 它们受到时间和内存复杂度的限制，这些复杂度与输入序列长度呈二次方增长，这是由自注意引起的。这两个瓶颈是相互依赖的。<br>稳健性难题： 在大规模语料库上预训练的多模态 Transformer 实现了各种多模态应用的最新技术，但它们的稳健性仍不清楚和研究不足。这至少涉及两个关键挑战，即如何从理论上分析稳健性，如何提高稳健性。<br><strong>5.通用性挑战</strong><br>① 由于多模态学习的任务和模态高度多样化，通用性是多模态 Transformer 模型的一个重要问题。最近的大量尝试研究如何使用尽可能统一的 pipeline 来处理各种模态和多模态任务。<br>② 理想情况下，统一的多模态 Transformer 可以兼容各种数据（例如，对齐和未对齐、单模态和多模态）和任务（例如，有监督和无监督、单模态和多模态、判别和生成），同时具有 few-shot 甚至 zero-shot 泛化能力。因此，目前针对多模态 Transformer 的通用性目标的解决方案是初步探索。</p>
+<h1>三、溯源：「多模态+大模型」是如何结合的？</h1>
+<p><strong>大模型+多模态包括 3 种实现方法：</strong><br><strong>1.以 LLM 为核心，调用其他多模态组件</strong><br>2023 年 5 月，微软亚洲研究院（MSRA）联合浙江大学发布了 HuggingGPT 框架，该框架能够以 LLM 为核心，调用其他的多模态组件来合作完成复杂的 AI 任务。<br><strong>2.直接利用多模态的对齐数据来训练多模态大模型</strong><br>① 这种方法的核心理念是分别构建多个单模态编码器，得到各自的特征向量，然后基于类 Transformer 对各个模态的特征进行交互和融合，实现在多模态的语义空间对齐。<br>② 由此训练得到的多模态大模型具备很强的泛化能力和小样本、零样本推理能力，这得益于大规模的多模态对齐的预训练语料。与此同时，由于训练参数量较大，往往需要较多的训练资源和较长的训练时长。VideoBERT、CLIP、CoCa、CoDi 等都是基于该思路实现。<br><strong>3.以 LLM 为底座模型，训练跨模态编码器：</strong><br>① 以预训练好的 LLM 为底座模型，冻结 LLM 的大部分参数来训练跨模态编码器，既能够有效地利用 LLM 强大的自然语言理解和推理能力，又能完成复杂的多模态任务。<br>② 这种训练方法还有一个显而易见的好处，在训练过程中对 LLM 的大部分参数进行了冻结，导致模型可训练的参数量远远小于真正的多模态大模型，因此其训练时长较短，对训练资源的要求也不高。<br>③ 例如，在模型架构上，LLaVA 模型使用 Vicuna 模型作为文本编码器，使用 CLIP 模型作为图像编码器。</p>
+<h1>四、Transformer 的发展回顾及对应的关键研究工作</h1>
+<p><strong>1.Vanilla Transformer: Transformer 研究领域的起源</strong><br>① Vanilla Transformer 具有编码器-解码器结构，是基于 Transformer 的研究领域的起源。其编码器和解码器都由 Transformer 层/块堆叠。每个块都有两个子层，即一个多头自注意力 （MHSA） 层和一个位置全连接前馈网络（FFN）。<br>② 得益于其自注意力机制，Vanilla Transformer 受益于自注意力机制，是最初为 NLP 提出的序列特定表示学习的突破性模型，在各种 NLP 上实现了 state-of-the-art 任务。<br>③ Vanilla Transformer 专为高效处理长序列数据设计，利用并行计算显著提升效率。在输入标记化阶段，输入序列被转换成一组标记，为处理自然语言或其他序列数据打下基础。<br>④ 通过自注意力和多头自注意力机制，模型能够动态关注序列的不同位置，同时从多个子空间捕获信息，增强处理能力。最后，前馈网络对自注意力层的输出进行线性变换和激活函数处理，进一步优化数据表达。这些组成部分使原生变换器在序列数据处理上表现出高效率和强大的灵活性。<br>⑤ 随着 Vanilla Transformer 的巨大成功，许多衍生模型被提出，例如，BERT、BART、GPT、GPT-2. GPT-3. Longformer、Transformer-XL、XLNet。<br><strong>2.Vision Transformer：打破了 CV 和 NLP 之间的壁垒</strong><br>① Transformers 目前在 NLP 领域占据主导地位，研究者尝试将 Transformers 应用于其他模态，例如视觉领域。在视觉领域的早期尝试中，早期探索的一般流程是「CNN 特征 + 标准 Transformer 编码器」，研究人员通过调整原始图像大小到低分辨率并 reshape 为一维序列来实现 BERT 风格的预训练。<br>② 近几年，Transformer 跨界迁移到 CV 领域的研究工作大多基于两个思路：一是注意力机制与 CNN 结合；二是在整体结构不变的情况下注意力机制替换 CNN 某些结构。<br>③ 2020 年，谷歌大脑发表论文《An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale》，ViT 通过将图像切分为固定大小的块（patches），然后将这些块线性嵌入到与 Transformer 兼容的序列中来处理图像。<br>④ Vision Transformer （ViT） 是一项开创性的工作，它通过将 Transformer 的编码器应用于图像来提供端到端的解决方案。<br><strong>3.多模态 Transformer：进一步发展</strong><br>① 在 Transformer 和 ViT 的推动下，许多 VideoTransformer 被提出来，包括 TimeSformer、Timesformer 等工作，将每一帧视频抽象成图像，并与其前一帧和后一帧相结合进行运算。与 3D 卷积神经网络（CNN）相比，TimeSformer 的训练逮度大约是其 4 倍，而推断所所需的计算量不足其十分之一。TimeSformer 的高效让在高空间分辨率（例如高达 560x560 像素的帧）和长视频（包括高达 96 帧）上训练模型成为可能。<br>② VideoBERT 是一项突破性的工作，是第一个将 Transformer 扩展到多模态任务的工作。 VideoBERT 展示了 Transformer 在多模态环境中的巨大潜力。<br>③ 2021 年，OpenAI 提出的文本-图像多模态预训练大模型 CLIP，是一个新的里程碑。CLIP 使用多模态预训练将分类转换为检索任务，使预训练模型能够处理零样本识别。CLIP 的结构是典型的双塔模型，有两个 encoder，一个对应图片，一个对应文本，图像和文本经过各自的 encoder 后，通过简单的点乘来代表不同模态的交互（相似性）。CLIP 的主要贡献在于将不同模式的数据（文本和图像）映射到一个共享的嵌入空间。这种共享的多模态嵌入空间使得文本到图像和图像到文本的任务变得更加容易。</p>
+<h1>五、基于 Transformer 的预训练有哪些主流趋势？</h1>
+<p>1.视觉-语言预训练（VLP）是该领域的一个主要研究问题，包括「图像+语言」和「视频+语言」，也称为视觉-语言预训练。已经提出了大量优秀的工作，例如 VideoBERT、ViLBERT、LXMERT 等。</p>
+<p>2.由于自动语音识别 （ASR） 技术的最新进展，在多模态上下文中，可以通过现成的语音识别工具将语音转换为文本。例如，VideoBERT 和 CBT 通过提取高级语义文本，充分利用语音而不是低级声音作为跨模态监督的来源。</p>
+<p>3.大多数基于 Transformer 的多模态预训练以自监督的方式工作，但过度依赖于对齐良好的多模态样本对/元组。使用跨模态对齐作为跨模态监督对于大规模应用来说成本很高。因此，如何使用弱对齐甚至未配对/未对齐的多模态数据作为预训练语料库仍然没有得到充分研究。</p>
+<p>4.本质上，在多模态预训练场景中，Transformer 模型基于 self-attention。因此，从模型结构的角度考虑，现有的用于多模态预训练的 Transformer 也主要分为三类，即单流、多流、混合流。</p>
+<p>5.对于基于 Transformer 的多模态预训练，关键是驱动 Transformer 学习跨模态交互。在现有的基于 Transformer 的多模态预训练实践中，跨模态交互是灵活的，可以在预训练 pipeline 中的各个组件/级别内执行。一般来说，基于 Transformer 的多模态预训练 pipeline 具有三个关键组件：标记化、Transformer 表示、监督。不仅对于多模态预训练，而且对于特定的多模态任务，跨模态交互可以在三者的任意组件内执行。</p>
+<h1>六、案例解读：腾讯+港中文新 CNN 架构——「UniRepLKNet」</h1>
+<p>2023年12 月 24 日，腾讯 AI 实验室与港中文联合团队提出了新 CNN 架构「UniRepLKNet」，在图像识别精度和速度上都超过了 Transformer 架构模型。<br>1.UniRepLKNet 的设计遵循了四条 guideline，包括使用大卷积核来保证大感受野，使用 depthwise 小卷积来提高特征抽象层次，以及使用高效结构来增强模型的深度和表示能力。<br>2.UniRepLKNet 的每个 block 主要由 depthwise conv、SE Block 和 FFN 三个部分组成。其中 depthwise conv 可以是大卷积核，也可以只是 depthwise 3x3。<br>3.UniRepLKNet 在多个图像任务上表现出色，包括 ImageNet、COCO 和 ADE20K，其精度和速度都达到了 SOTA 水平。同时，切换到点云、音频、视频等其他模态，也无需改变模型结构，简单预处理即可接近甚至超越 SOTA。<br>① UniRepLKNet-XL 的 ImageNet 精度达到 88%，而且实际速度是 DeiT III-L 的三倍；<br>② 在 COCO 目标检测任务上，UniRepLKNet-L 不及 InternImage-L，但是 UniRepLKnet-XL 超过了 InternImage-XL。<br>③ 在 ADE20K 语义分割上，UniRepLKNet 的优势相当显著，最高达到 55.6 的 mIoU。与 ConvNeXt-XL 相比超出了整整 1.6。<br>4.此外，为了验证 UniRepLKNet 处理时序数据的能力，该工作还挑战了一个数据规模超大的《Nature》级别的任务：全球气温和风速预测。实验结果显示，UniRepLKNet 在时序预测任务上超越了基于 Transformer 的前 SOTA 模型。<br>研究者认为，「CNN 在大一统这一点上可能不弱于 Transformer」。Transformer 和 CNN 仅仅是相互交融的两种结构设计思路，没有理由认为前者具有本质的优越性。在该项工作上，证明了 CNN 在点云、音频、视频方面的优势。</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>多模态与大模型的结合有其清晰的技术演进脉络，Transformer自提出以来经历了若干关键研究节点，逐步从自然语言处理扩展至视觉、跨模态等领域，形成了以BERT、GPT、ViT等为代表的多条主流预训练技术路线。在多模态任务中，CNN与Transformer之间存在架构能力层面的直接竞争：Transformer凭借全局注意力机制在跨模态对齐上表现突出，但其已知局限性——包括计算复杂度随序列长度的二次方增长、对局部结构建模能力相对不足——持续是研究界关注的焦点。</p>
+<p>CNN路线并未就此式微。腾讯联合香港中文大学提出的新型CNN架构「UniRepLKNet」代表了该路线的最新进展，通过重参数化大核卷积设计，试图在保留CNN归纳偏置优势的同时扩展感受野，以应对多模态场景下对长程依赖建模的需求。这一工作表明，在Transformer主导的趋势下，CNN架构仍具备通过结构创新重新参与竞争的空间。</p>
+<p>当前多模态架构选择并非非此即彼，而是在效率、可扩展性与任务适配性之间寻求平衡。Transformer路线的持续演进与CNN路线的针对性突破，共同构成了多模态大模型架构研究的双线张力。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>腾讯AI实验室与港中文联合提出UniRepLKNet，在图像识别精度和速度上均超越Transformer架构，挑战了Transformer架构的主流地位</li>
+<li>多模态Transformer面临融合困难、对齐挑战、可迁移性难题、效率瓶颈和通用性挑战五大核心局限性</li>
+<li>多模态大模型有三种实现路径：以LLM为核心调用组件、直接训练多模态大模型、以LLM为底座训练跨模态编码器</li>
+<li>CLIP是多模态预训练里程碑，通过双塔模型将图文映射到共享嵌入空间，实现零样本图像识别</li>
+<li>当前主流模型多为CNN-Transformer混合架构，CNN负责初期局部特征提取，Transformer处理后期全局语义融合</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2227377518.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

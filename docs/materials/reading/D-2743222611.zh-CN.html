@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：OpenAI 提出新的监控性评估框架和指标，深度求索新论文，微信提出扩散语言模型，字节 Seed 推理新研究 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：OpenAI 提出新的监控性评估框架和指标，深度求索新论文，微信提出扩散语言模型，字节 Seed 推理新研究。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2743222611.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：OpenAI 提出新的监控性评估框架和指标，深度求索新论文，微信提出扩散语言模型，字节 Seed 推理新研究</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2743222611。版本：f9b0008504ef415aed49220ec3ecf3a13fd1429f5d6875cbe0f6c38b1611ad41。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/207</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/f9b0008504ef415aed49220ec3ecf3a13fd1429f5d6875cbe0f6c38b1611ad41.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：OpenAI 提出新的监控性评估框架和指标，深度求索新论文，微信提出扩散语言模型，字节 Seed 推理新研究</p>
+<h3>一、模型</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th></th>
+<th>**公司/院校/机构**</th>
+<th>**简介**</th>
+<th>**详情**</th>
+</tr>
+<tr>
+<td></td>
+<td>**UC Berkeley; Cornell University; Scale AI**</td>
+<td>UC Berkeley 研究在多轮语言模型代理训练中使用模仿学习存在的协变量偏移问题，提出一种新的数据生成方法：在线专家修正 (OEC)<br><br>Niklas Lauffer, Xiang Deng, Srivatsa Kundurthy, Brad Kenstler, Jeff Da.&quot;Imitation Learning for Multi-turn LM Agents via On-policy Expert Corrections.&quot;arXiv:2512.14895 [cs.LG]</td>
+<td>[论文](https://arxiv.org/abs/2512.14895)研究了在多轮语言模型代理训练中使用模仿学习存在的协变量偏移问题，提出一种新的数据生成方法 —— 在线专家修正 (OEC)，通过学生模型和专家模型切换生成部分在线数据。实验表明 OEC 在 7B 和 32B 参数规模上分别比传统模仿学习提升 14% 和 13%，强调结合专家演示与在线数据的重要性。</td>
+</tr>
+<tr>
+<td></td>
+<td>**深度求索**</td>
+<td>深度求索发布新论文，提出名为「流形约束超连接」（mHC）的训练框架<br><br>Zhenda Xie, Yixuan Wei, Huanqi Cao, Chenggang Zhao, Chengqi Deng, Jiashi Li, Damai Dai, Huazuo Gao, Jiang Chang, Liang Zhao, Shangyan Zhou, Zhean Xu, Zhengyan Zhang, Wangding Zeng, Shengding Hu, Yuqing Wang, Jingyang Yuan, Lean Wang, Wenfeng Liang.&quot;mHC: Manifold-Constrained Hyper-Connections.&quot;arXiv:2512.24880 [cs.CL]</td>
+<td>1 月 2 日，DeepSeek 发布一篇全新[论文](https://arxiv.org/abs/2512.24880)，提出名为「流形约束超连接」（mHC）的训练框架，再次引发业内讨论。虽然 2025 年未见 DeepSeek 推出全新大模型，但这一年其持续迭代 DeepSeek V3.X，并公布多项关键技术，为下一代模型铺路。<br><br>论文聚焦深度学习中的「超连接」稳定性问题。研究指出，传统 HC 结构在大参数模型训练中容易出现数值放大、损失激增，难以长期稳定运行。DeepSeek 提出的 mHC 方法，通过约束放大总量，使训练过程保持可控。在 27B 参数模型测试中，训练时间仅小幅增加，复杂推理和阅读理解任务准确率却有明显提升。<br><br>更受关注的是，论文中提到相关结论已通过「内部大规模实验」进一步验证。业内普遍认为，这一表述暗示新一代基座模型 DeepSeek V4 的训练工作已经完成。结合去年 DeepSeek R1 的发布时间节点，多方预测，DeepSeek V4 有望在春节前后正式发布。</td>
+</tr>
+<tr>
+<td></td>
+<td>**USI &amp; SUPSI 瑞士 AI 实验室**</td>
+<td>LSTM 之父提出 PoPE：终结 RoPE 泛化难题<br><br>Anand Gopalakrishnan, Robert Csordás, Jürgen Schmidhuber, Michael C. Mozer.&quot;Decoupling the &quot;What&quot; and &quot;Where&quot; With Polar Coordinate Positional Embeddings.&quot;arXiv:2509.10534 [cs.LG]</td>
+<td>Transformer 架构中的注意力机制是根据内容（what）和序列中的位置（where）将键（key）与查询（query）进行匹配。<br><br>而在近期 LSTM 之父 Jürgen Schmidhuber 的 USI &amp; SUPSI 瑞士 AI 实验室团队的一项新研究中，分析表明，当前流行的旋转位置嵌入（RoPE）方法中的 what 与 where 是纠缠在一起的。这种纠缠会损害模型性能，特别是当决策需要对这两个因素进行独立匹配时。<br><br>基于这一观察，他们提出了新的方案：极坐标位置嵌入（Polar Coordinate Position Embedding ），简称[PoPE](https://arxiv.org/abs/2509.10534)。</td>
+</tr>
+</table></div>
+
+<h3>二、<strong>推理</strong></h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**北京邮电大学**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nV-Thinker: 让模型像人一样「边画边想」\n:::\n\n:::paragraph{align=center indent=0}\nRunqi Qiao, Qiuna Tan, Minghan Yang, Guanting Dong, Peiqing Yang, Shiqiang Lang, Enhui Wan, Xiaowan Wang, Yida Xu, Lan Yang, Chong Sun, Chen Li, Jing Lyu, Honggang Zhang.\&quot;V-Thinker: Interactive Thinking with Images.\&quot;arXiv:2511.04460 [cs.CV]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;北京邮电大学提出 [V-Thinker](https://arxiv.org/abs/2511.04460)，一个面向视觉交互推理的多模态推理框架。通过冷启动监督微调与强化学习相结合的训练，使模型能够在推理过程中自主生成代码并与图像交互，从而实现「边画边思考」的视觉推理方式。\n\n在数据层面，团队提出 Data Evolution Flywheel（数据演化飞轮），能够在多样性、质量与难度三个维度上自动合成、演化并校验视觉交互推理数据，并进一步构建开源了数据集 V-Interaction-400K，为视觉交互推理和图像到代码转换等任务提供了基础支撑。\n\n在训练层面，团队设计了一套渐进式视觉训练范式，通过构建 V-Perception-40K 首先提升模型的视觉感知能力，再通过结合监督微调与强化学习的两阶段训练，使模型掌握基于视觉交互的推理能力。\n\n在评测方面，团队构建了 VTBench，一个面向视觉交互推理场景的专家标注基准。实验结果表明，V-Thinker 在交互式推理与通用推理任务上均有提升。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**OpenAI**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[color]{rgb(0, 0, 0)}OpenAI 提出新的监控性评估框架和指标，检测模型推理过程的可监控性[/color]\n:::\n\n:::paragraph{align=center indent=0}\nMelody Y. Guan, Miles Wang, Micah Carroll, Zehao Dou, Annie Y. Wei, Marcus Williams, Benjamin Arnav, Joost Huizinga, Ian Kivlichan, Mia Glaese, Jakub Pachocki, Bowen Baker.\&quot;Monitoring Monitorability.\&quot;arXiv:2512.18311 [cs.AI]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[论文](https://arxiv.org/abs/2512.18311)研究了现代 AI 系统中链式思维（CoT）监控的可靠性问题，提出了三种评估原型和新的监控性度量标准，并通过广泛的实验评估了前沿模型的监控性表现。研究表明，较长的 CoT 通常具有更高的监控性，强化学习优化不会显著降低监控性。此外，通过后续问题可以提高监控性。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**小红书**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n让模型自己找关键帧、视觉线索，小红书 Video-Thinker 破解视频推理困局\n:::\n\n:::paragraph{align=center indent=0}\nShijian Wang, Jiarui Jin, Xingjian Wang, Linxin Song, Runhao Fu, Hecheng Wang, Zongyuan Ge, Yuan Lu, Xuelian Cheng.\&quot;Video-Thinker: Sparking \&quot;Thinking with Videos\&quot; via Reinforcement Learning.\&quot;arXiv:2510.23473 [cs.CV]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;随着多模态大语言模型（MLLM）的飞速发展，“Thinking with Images” 范式已在图像理解和推理任务上取得了革命性突破 —— 模型不再是被动接收视觉信息，而是学会了主动定位与思考。\n\n然而，当面对包含复杂时序依赖与动态叙事的视频推理任务时，这一能力尚未得到有效延伸。现有的视频推理方法往往受限于对外部工具的依赖或预设的提示词策略，难以让模型内生出对时间序列的自主导航与深度理解能力，导致模型在处理长视频或复杂逻辑时显得捉襟见肘。\n\n为攻克这一难题，来自小红书的研究团队提出了 [Video-Thinker](https://www.arxiv.org/abs/2510.23473)：一种全新的 “Thinking with Videos” 范式，旨在通过强化学习激发 MLLM 在视频推理中的内生智能。\n\n与传统方法不同，Video-Thinker 不依赖构建和调用外部工具，而是将 “时序定位（Grounding）” 与 “视觉描述（Captioning）” 这两种核心能力内化在模型的思维链（CoT）中，使其能在推理过程中自主寻找关键帧并提取视觉线索。\n\n团队精心构建了包含 10K 高质量样本的 Video-Thinker-10K 数据集，并采用 “监督微调 + 强化学习” 的两阶段训练策略。这一方法成功让模型在无外部辅助的情况下，实现了对视频内容的自主探索与自我修正。\n\n实验结果显示，Video-Thinker-7B 凭借极高的数据效率，在 Video-Holmes 等多个高难度�</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周AI领域多项重要研究相继发布。UC Berkeley等机构提出在线专家修正（OEC）方法，通过学生模型与专家模型切换生成部分在线数据，解决多轮LLM代理训练中的协变量偏移问题，在7B和32B参数规模上分别比传统模仿学习提升14%和13%。</p>
+<p>DeepSeek于1月2日发布论文，提出&quot;流形约束超连接&quot;（mHC）训练框架，通过约束放大总量解决传统HC结构在大参数模型训练中的数值放大和损失激增问题。在27B参数模型测试中，mHC仅小幅增加训练时间，却显著提升复杂推理和阅读理解准确率。论文提及结论已通过&quot;内部大规模实验&quot;验证，业内普遍认为暗示DeepSeek V4训练已完成，预计春节前后发布。此外，LSTM之父Jürgen Schmidhuber团队指出RoPE方法中&quot;内容&quot;与&quot;位置&quot;信息存在纠缠，并提出极坐标位置嵌入（PoPE）方案加以改进。</p>
+<p>OpenAI研究了链式思维（CoT）监控可靠性，提出三种CoT监控评估原型和新的监控性度量标准，研究表明较长CoT通常具有更高监控性，强化学习优化不会显著降低监控性。</p>
+<p>视觉推理方面，北京邮电大学提出V-Thinker，结合冷启动监督微调与强化学习实现&quot;边画边思考&quot;，并开源V-Interaction-400K数据集及VTBench评测基准。小红书研究团队则提出Video-Thinker，将&quot;时序定位&quot;与&quot;视觉描述&quot;能力内化于模型思维链，构建Video-Thinker-10K数据集，Video-Thinker-7B以极高数据效率在Video-Holmes等高难度基准上取得显著成绩。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>深度求索提出mHC训练框架，解决超连接训练不稳定问题，暗示DeepSeek V4已完成训练，预计春节前后发布</li>
+<li>UC Berkeley等机构提出在线专家修正（OEC）方法，有效缓解多轮LM代理训练中的协变量偏移，性能提升约13-14%</li>
+<li>LSTM之父团队提出极坐标位置嵌入PoPE，解耦RoPE中内容与位置的信息纠缠，提升模型泛化能力</li>
+<li>OpenAI提出新的监控性评估框架和指标，为AI系统安全性与能力评估提供更系统化的方法论</li>
+<li>微信团队提出扩散语言模型，将扩散生成范式引入NLP领域，探索非自回归文本生成新路径</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2743222611.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

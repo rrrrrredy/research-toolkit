@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>大模型成本研究 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="大模型成本研究。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2447425504.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>大模型成本研究</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2447425504。版本：fe5f45bc6868ffca39020401428d293a4ef00c27dc0bf7374505da0ea72c8b9b。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/72</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/fe5f45bc6868ffca39020401428d293a4ef00c27dc0bf7374505da0ea72c8b9b.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>大模型成本研究</p>
+<h1>一、核心要点</h1>
+<p>1.Dario Amodei 表示从现在开始的三年内，<strong>AI 模型的训练成本将上升到 100 亿美元甚至 1000 亿美元</strong>。</p>
+<p>2.方舟投资则在《<a href="https://www.ark-invest.com/big-ideas-2024">Big Idea 2024</a>》年度报告中指出，从 Traning Performance 来看，<strong>在接下来的三年中，大模型的训练成本每年下降 75%，推理成本每年下降 86%</strong>。</p>
+<p>3.对于大模型的训练成本中的开销构成，业界已经陆续有过很多分析。对比以 Dario Amodei 为代表的训练成本激增的判断，以及方舟投资对训练成本下降趋势的观察，两者的主要区别在于前者讨论从零开始组建团队训练最强的大模型，后者则参考 Wright&#39;s Law，将固定成本在复用中分摊和因算法改进而提升训练效果的「性价比」纳入了考量范围。</p>
+<p>4.根据 Wright&#39;s Law 来估算 AI 训练成本，加速计算硬件硬件的改进应当会使 AI 相关计算单元（RCU）的生产成本每年降低 53%，而算法模型的增强可能会进一步使训练成本每年降低 47%。换句话说，硬件和软件的融合可能会推动 AI 训练成本以每年 75%的速率下降，直到 2030 年。</p>
+<p>5.Semianalysis 在 2023 年初的一篇<a href="https://www.semianalysis.com/p/the-ai-brick-wall-a-practical-limit">文章</a>中分析了头部厂商在 AI 模型训练上的成本，并介绍了用于改善大模型的训练和推理成本/效率的技术与策略，分别是<strong>稀疏性（sparsity）、剪枝（pruning）、专家混合（MoE）以及提 early exit/token dropping/token merging</strong>。该文章的分析逻辑仅关注硬件成本，通过参数数量、token 数量和模型架构计算了许多流行模型的理论训练成本，并强调即便采用 Nvidia A100 GPU，其模型/硬件的 FLOPS 利用率的商业也只有 60%在此基础上，该文章介绍的四种技术从不同层面提高了 FLOPS 利用率。</p>
+<h1>二、大模型的成本是在激增还是骤降？</h1>
+<p>以斯坦福《<a href="https://aiindex.stanford.edu/wp-content/uploads/2024/05/HAI_AI-Index-Report-2024.pdf">AI Index 2024</a>》报告和 Anthropic CEO<a href="https://the-decoder.com/anthropic-ceo-believes-leading-ai-models-will-soon-cost-up-to-ten-billion-dollars/">Dario Amodei</a>均指出大模型的训练成本正在急剧上升，但方舟投资（Ark Invest）的报告确指出大模型的训练和推理成本均在下降，<a href="https://www.ark-invest.com/podcast/an-ai-conversation-with-andrew-ng">吴恩达在近期与方舟投资的对谈</a>中同样认可了这一趋势观察。虽然两种声音对大模型训练成本的看法截然相反，但从两者的出发点来看似乎并不冲突。</p>
+<p>Dario Amodei 在自今年以来多次于访谈中分享了对人工智能以及大模型技术未来趋势的看法，并强调大模型的训练成本将持续上升。Dario Amodei 在 4 月与《纽约时报》的访谈中表示，在不久的将来，大语言模型的训练成本将<strong>从现在的 1 亿美元上升至 10 亿美元左右</strong>。而后在 7 月与 In Good Company 的播客节目中，Dario Amodei 对训练成本的涨幅预测进一步上升，他表示从现在开始的三年内，<strong>AI 模型的训练成本将上升到 100 亿美元甚至 1000 亿美元</strong>。</p>
+<p>Amodei 表示，AGI 不会在某个节点突然实现。相反，这将是一个循序渐进的过程。如果 AI 模型每年的性能提高十倍，我们可以合理地预测它们所需的硬件的性能也会至少提高十倍，因而硬件可能是 AI 训练中最大的成本驱动因素。</p>
+<p>斯坦福在《<a href="https://aiindex.stanford.edu/wp-content/uploads/2024/05/HAI_AI-Index-Report-2024.pdf">AI Index 2024</a>》报告中同样指出 AI 模型的训练成本正在飞速增长，在短短几年中从千余美元上涨至以亿美元为单位计算。 《<a href="https://aiindex.stanford.edu/wp-content/uploads/2024/05/HAI_AI-Index-Report-2024.pdf">AI Index 2024</a>》强调了模型参数和训练成本的关系，模型参数越大，其训练所需的算力和能耗越高。该报告指出，<em><strong>2017 年训练初版 Transformer 的成本仅消耗 900 美元左右，但 2019 年训练 RoBERTa Large 的成本已升至约 160000 美元，而 2023 年 OpenAI 训练 GPT-4 的成本为 7800 万美元（后被 Altman 证明是 1 亿），谷歌训练 Gemini Ultra 则需消耗约 1.91 亿美元</strong></em>。</p>
+<p>另一方面，方舟投资在《<a href="https://www.ark-invest.com/big-ideas-2024">Big Idea 2024</a>》年度报告中指出，从 Training Performance 来看，在接下来的三年中，大模型的训练成本每年下降 75%，推理成本每年下降 86%。 而吴恩达近日于方舟投资的对谈中则指出，虽然并不确定报告中的数据是否准确，但打确实看到了成本在迅速下降。而训练和推理成本的下降将会推动更多的应用，对进一步创新非常有利。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2447425504/120089661366?contentType=1&isNewContent=false" alt="image.jpeg">{width=749 height=308 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2447425504/120090615636?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2447425504/120090615636?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2447425504/120087777714?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2447425504/120087777714?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p><em>AI 训练硬件成本和基于神经网络的软件训练成本趋势</em></p>
+<h1>三、模型成本应该如何计算？</h1>
+<p>对于大模型的训练成本中的开销构成，业界已经陆续有过很多分析。对比以 Dario Amodei 为代表的训练成本激增的判断，以及方舟投资对训练成本下降趋势的观察，两者的主要区别在于<strong>前者讨论从零开始组建团队训练最强的大模型</strong>，<strong>后者则参考 Wright&#39;s Law，将固定成本在复用中分摊和因算法改进而提升训练效果的「性价比」纳入了考量范围</strong>。</p>
+<p>1.根据 Dario Amodei 在访谈中的描述，以及业界的补充分析，<strong>AI 模型的训练成本主要来自「硬件采购」「能源消耗」「人才」和「数据」几方面</strong>。</p>
+<p>① 硬件成本（或算力成本）是公认支出大头。随着 AI 模型的规模扩大，训练所需的硬件（如 GPU、TPU、CPU 集群等）需求也在不断增加。</p>
+<p>② 能源消耗在模型训练成本中占据较高比例。训练是一个高度能源密集的过程，数据中心的电力消耗、冷却设施运行以及潜在的碳排放成本构成了能源成本。</p>
+<p>③ 训练 AI 模型的一部分成本来自人才。公司需要一支专业的工程师和科学家团队，包括数据工程师、AI 研究员、软件工程师等。为了吸引和保留这些人才，公司需要支付高额的薪资和福利。</p>
+<p>④ 数据成本同样是模型训练的重要考量，高质量、大规模的训练数据对于 AI 模型的性能至关重要。数据采集、标注、清洗、存储和传输等环节会产生相应的成本。</p>
+<p>2.方舟投资在《<a href="https://www.ark-invest.com/big-ideas-2024">Big Idea 2024</a>》年度报告中通过 Wright&#39;s Law 来估算 AI 训练成本，<strong>发现加速计算硬件硬件的改进应当会使 AI 相关计算单元（RCU）的生产成本每年降低 53%，而算法模型的增强可能会进一步使训练成本每年降低 47%。换句话说，硬件和软件的融合可能会推动 AI 训练成本以每年 75%的速率下降，直到 2030 年</strong>。</p>
+<p>① Wright&#39;s Law 是一个经验法则，其核心观点是，当生产某一产品的数量增加时，生产过程中的固定成本（如研发、设备投资）可以分摊到更多的单位产品上，导致单位产品的平均成本下降。</p>
+<p>② 在模型训练成本的背景下，Wright&#39;s Law 同样适用。随着 AI 模型训练的数量增加，相关的固定成本（如硬件投资、数据收集和标注成本）可以在更多的模型或模型迭代上分摊。</p>
+<p>③ 随着技术的进步和规模化生产，用于训练 AI 模型的硬件和软件也可能变得更加高效和经济。由此，随着时间的推移和训练数量的增加，单位模型的训练成本可能会下降。</p>
+<p>3.在前一年的报告（《<a href="https://research.ark-invest.com/hubfs/1_Download_Files_ARK-Invest/Big_Ideas/ARK%20Invest_Presentation_Big%20Ideas%202023_FINAL_V2.pdf">Big Idea 2023</a>》）中，方舟投资对 AI 训练成本的估算为每年以 70%的速度下降。以将一个 LLM 训练到 GPT-3 水平为例，其成本从 2020 年的 460 万美元在 2022 年下降至 45 万美元（将至 10%）。根据报告研究组的建模，训练一个比 GPT-3 多 57 倍参数和 720 倍语言符号的 AI 模型的成本，将从 2022 年的 170 亿美元下降到 2030 年的 60 万美元。</p>
+<p>4.《<a href="https://www.ark-invest.com/big-ideas-2024">Big Idea 2024</a>》的另一个观察是，<strong>研究人员通过在训练和推理、硬件以及模型设计上的创新带来了模型训练的提升和成本的降低</strong>。这部分从硬件和软件的角度估算了技术创新让模型对模型训练效果的帮助。相比硬件，报告认为算法和软件层面的进会为模型训练带来更高的性价比，在实现同样性能的前提下成本更低。</p>
+<p>5.吴恩达在访谈中认可了 Ark Invest 对趋势的判断，并补充表示开源的预训练模型同样也是新团队节约了大量的成本，而开发更好的流程（agentic workflow）可让预训练模型表现更好，不用从头训练。吴恩达还在访谈中提到，有关 AI 模型的训练和推理在未来将会可能变成两套设施。当前有很多公司因为设施在训练上有效果而惯性地将其用作推理，但推理和训练的设施是否存在足够差异，甚至需要新的架构仍是值得讨论的问题。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2447425504/120090851670?contentType=1&isNewContent=false" alt="image.jpeg">{width=692 height=454 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2447425504/120088689542?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2447425504/120088689542?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2447425504/120088929451?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2447425504/120088929451?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p><em>《Big Idea 2024》中技术创新对模型表现的影响评估</em></p>
+<h1>四、降低模型成本的手段有哪些？</h1>
+<p>由于硬件的迭代和算力的价格并非模型开发者能够掌控，许多团队会选择采用开源预训练模型进行微调+RAG，或是基于大尺寸的模型蒸馏出参数规模更小的模型，避免从头训练的成本。Meta 此前在发布 Llama 3.1 405B 时同样强调了他们对开源的努力。另一方面，也有很多团队通过算法或是数据工作上的创新来提高模型表现，同时节约成本。</p>
+<p>1.Semianalysis 在 2023 年初的一篇<a href="https://www.semianalysis.com/p/the-ai-brick-wall-a-practical-limit">文章</a>中分析了头部厂商在 AI 模型训练上的成本，并介绍了用于改善大模型的训练和推理成本/效率的技术与策略，分别是<strong>稀疏性（sparsity）、剪枝（pruning）、专家混合（MoE）以及提 early exit/token dropping/token merging</strong>。该文章的分析逻辑仅关注硬件成本，通过参数数量、token 数量和模型架构计算了许多流行模型的理论训练成本，并强调即便采用 Nvidia A100 GPU，其模型/硬件的 FLOPS 利用率的商业也只有 60%在此基础上，该文章介绍的四种技术从不同层面提高了 FLOPS 利用率。</p>
+<p>2.稀疏性（Sparsity）指在模型训练过程中，许多权重参数实际上为零。这种现象在大型模型训练初期尤为常见。</p>
+<p>① 由于任何数乘以 0 都是 0，这些零权重实际上是无效的计算操作，但它们仍然消耗计算资源。</p>
+<p>② 通过利用稀疏性，可以跳过这些无效的计算，从而减少计算量，提高训练效率，并降低能耗。</p>
+<p>③ 论文《Large Models are Parsimonious Learners: Activation Sparsity in Trained Transformers》探讨了大型 Transformer 模型在训练过程中的激活稀疏性，并展示了如何利用这种稀疏性来提高效率。</p>
+<p>3.剪枝（Pruning）是一种有意识地将模型中的某些权重设置为零的技术，以此来实现稀疏性。</p>
+<p>① 通过剪枝，可以去除模型中不重要或贡献较小的连接，从而减少模型的参数数量和计算需求。</p>
+<p>② 减少参数数量意味着在训练和推理时需要处理的数据量减少，这直接降低了计算成本和存储需求。</p>
+<p>③ 论文《<a href="https://arxiv.org/abs/2111.12763">Sparse is Enough in Scaling Transformer</a>》证明了通过剪枝可以在保持相似模型性能的同时显著加快训练速度。</p>
+<p>4.专家混合（MoE， Mixture of Experts）是一种将大型模型分解为多个较小的“专家”网络的技术，每个专家负责处理特定类型的输入。</p>
+<p>① 在训练或推理过程中，根据输入的特征动态选择合适的专家进行处理，而不是整个模型都参与计算。</p>
+<p>② 这种方法可以显著减少在任何给定时间需要激活的模型部分的大小，从而减少计算量和内存使用，提高效率。</p>
+<p>③ 《<a href="https://arxiv.org/abs/2305.14705">Mixture-of-Experts Meets Instruction Tuning: A Winning Combination for Large Language Models</a>》，证明了混合专家模型（MoE）与指令调优的结合能够让大型语言模型（LLM）的性能大幅提升。</p>
+<p>④ Mistral 在 2023 年底开源的 Mixtral 8x7B 模型同样采用了稀疏混合专家网络，在当时引起了对该技术的大量关注。</p>
+<p>5.Early Exit/token dropping/token merging 的主要思想在于减少已知答案前提下的计算量。</p>
+<p>① 谷歌在 NeurIPS 2024 的「CaLM」论文中采用了 Early Exit 策略，通过在模型中间层进行预测来减少计算量，同时保持了高准确性。</p>
+<p>② 对于多模态模型，《<a href="https://arxiv.org/abs/2211.11152">You Need Multiple Exiting: Dynamic Early Exiting for Accelerating Unified Vision Language Model</a>》则提出了动态 Early Exit 的概念，用于加速统一视觉语言模型的推理过程。</p>
+<h1>五、近期模型成本优化案例</h1>
+<p>1.DeepSeek 团队将其 DeepSeek-V2 模型的服务定价为每百万 tokens 输入/输出价格分别 1/2 元，某种程度上触发了后续的大模型价格战。SemiAnalysis 分析发现，<a href="https://www.semianalysis.com/p/openai-is-doomed-et-tu-microsoft">该模型的训练成本同样很低，仅为 GPT4 的 10%</a>。根据 DeepSeek-V2 的论文，该模型在架构上带来了许多创新。他们没有照搬西方公司的做法，在 MoE、RoPE 和 Attention 均提出了优化设计。该模型采用了 DeepSeekMoE 架构，通过细粒度的专家分割和共享专家隔离。盖家沟利用稀疏计算，仅激活每个 token 所需的一小部分参数，减少了每次迭代的计算量。该工作在训练过程中提出了设备级别的 Token-Dropping 策略，通过丢弃一些低亲和力的 token 来控制每台设备的计算预算，减少因负载不平衡造成的计算浪费。</p>
+<p>2.Hugging Face 近日发布了 <a href="https://huggingface.co/blog/smollm">Iinstant-SmoLLM 小模型</a>，分别在 2 亿、5 亿和 20 亿参数规模下在浏览器中实现 SOTA 性能。该工作发现，使用大模型筛选过滤网络数据能够带来更显著的性能突破。他们使用 Llama3-70B-Struct 生成的标注开发了一个分类器，仅保留 FineWeb 数据集中最具教育意义的网页。使用经过严格过滤的网络数据后，模型性能直线上升，并在大多数基准测试中超过了所有其他类似大小的模型，包括 Phi-1.5。</p>
+<p>3.Sony AI 和 UC Riverside 的研究者于 7 月发布<a href="https://arxiv.org/pdf/2407.15811">论文</a>，提出了一种低成本的端到端 pipeline，用于文本到图像的扩散模型训练，仅用 1890 美元成功训练了一个具有 11.6 亿参数的扩散模型。</p>
+<p>① 该工作采用了延迟遮蔽（deferred masking）策略，通过在 Transformer 的输入层随机遮蔽掉部分 token，减少了 transformer 处理每张图像的有效 patch 数量，还使用了 patch-mixer 来预处理所有 patch，保留了有关整个图像的语义信息。</p>
+<p>② 研究者基于提出的 pipeline，用 3700 万张图像训练了 11.6 亿参数的稀疏 transformer 扩散模型，成本为 1890 美元，仅为 Stab</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>大模型训练成本正呈现出一种看似矛盾却实则并行的双重趋势：Anthropic CEO Dario Amodei预测三年内训练成本将攀升至100亿至1000亿美元，而方舟投资报告则指出训练成本每年下降75%、推理成本每年下降86%。两者并不矛盾——前者描述绝对投入的膨胀，后者反映单位性价比的提升。斯坦福AI Index 2024数据显示，GPT-4训练成本约1亿美元，Gemini Ultra约1.91亿美元；而2017年训练初版Transformer仅需900美元，六年间成本增长超过十万倍。</p>
+<p>成本下降的驱动力来自硬件改进与算法优化的双重作用：RCU生产成本年降53%，算法增强再贡献47%的降幅。Wright&#39;s Law进一步解释了规模效应带来的单位成本摊薄。吴恩达亦指出，开源预训练模型与更成熟的agentic workflow可大幅压缩从头训练的需求，并建议未来训练与推理采用两套独立基础设施。在技术层面，稀疏性、剪枝、MoE（混合专家）及Token Dropping等方法成为降本核心手段。</p>
+<p>这些技术已在实际模型中落地：DeepSeek-V2训练成本仅为GPT-4的10%，定价每百万tokens仅1至2元，其在MoE架构、RoPE及Attention机制上均有创新，并引入设备级Token-Dropping策略。Mixtral 8x7B于2023年底开源，同样采用稀疏MoE网络。Hugging Face发布的SmolLM系列在2亿至20亿参数规模下实现浏览器端SOTA性能，借助Llama3-70B-Struct筛选训练数据，表现超越Phi-1.5。极端案例方面，Sony AI与UC Riverside仅花费1890美元，利用延迟遮蔽与patch-mixer技术训练了一个11.6亿参数的扩散模型，数据规模达3700万张图像。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Dario Amodei预测AI模型训练成本三年内将从约1亿美元上升至100亿乃至1000亿美元，硬件采购是最大成本驱动因素</li>
+<li>方舟投资基于Wright&#39;s Law预测：硬件与算法改进将推动训练成本每年下降75%、推理成本每年下降86%，直至2030年</li>
+<li>两种观点核心分歧在于：前者讨论从零训练最强模型的绝对成本，后者关注固定成本分摊与算法效率提升后的单位性价比</li>
+<li>稀疏性、剪枝、MoE及Early Exit等技术可显著提升FLOPS利用率，是降低模型训练和推理成本的主要技术路径</li>
+<li>DeepSeek-V2通过MoE架构创新与Token-Dropping策略将训练成本降至GPT-4的10%，触发了国内大模型价格战</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2447425504.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

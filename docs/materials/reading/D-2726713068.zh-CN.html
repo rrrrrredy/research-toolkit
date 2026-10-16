@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：快手可灵团队提出 MIDAS，清华、上海 AI Lab 等发布推理模型 RL 超全综述，小红书发布 SOTA 对话生成模型 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：快手可灵团队提出 MIDAS，清华、上海 AI Lab 等发布推理模型 RL 超全综述，小红书发布 SOTA 对话生成模型。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2726713068.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：快手可灵团队提出 MIDAS，清华、上海 AI Lab 等发布推理模型 RL 超全综述，小红书发布 SOTA 对话生成模型</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2726713068。版本：a2c2643bf7788194a92c09f5c343b2ca6da8e29cb899ebe25dccaaa8dcf75c4f。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/176</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/a2c2643bf7788194a92c09f5c343b2ca6da8e29cb899ebe25dccaaa8dcf75c4f.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：快手可灵团队提出 MIDAS，清华、上海 AI Lab 等发布推理模型 RL 超全综述，小红书发布 SOTA 对话生成模型</p>
+<h3>一、模型</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**中国科学院大学、中国科学院自动化研究所、黎世联邦理工学院等**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nEvolKV：只用 1.5% 的内存预算，性能就能超越使用完整 KV cache 的模型\n:::\n\n:::paragraph{align=center indent=0}\nBohan Yu, Yekun Chai.\&quot;EvolKV: Evolutionary KV Cache Compression for LLM Inference.\&quot;arXiv:2509.08315 [cs.LG]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**普渡大学**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n普渡大学提出 INABHYD 数据集，评估 LLMs 在复杂世界模型下的归纳和溯因推理能力\n:::\n\n:::paragraph{align=center indent=0}\nYunxin Sun, Abulhair Saparov.\&quot;Language Models Do Not Follow Occam&#x27;s Razor: A Benchmark for Inductive and Abductive Reasoning.\&quot;arXiv:2509.03345 [cs.AI]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[研究](https://arxiv.org/abs/2509.03345)设计了 INABHYD 数据集，包含虚构世界模型和观察数据，要求 LLMs 生成假设解释观察。评估了五种主流 LLMs 在不同复杂度任务中的表现，发现模型在简单场景中表现良好，但在复杂场景中难以生成高质量假设。研究还探讨了推理增强技术对归纳和溯因推理的影响，为未来改进提供了方向。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Stanford University; SLAC National Accelerator Laboratory**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n斯坦福大学研究测试了五种 LLM 模型在 100 个数学问题上的表现，揭示 LLMs 在复杂数值任务中缺乏 “数字感知”，尤其在启发式搜索中表现不佳\n:::\n\n:::paragraph{align=center indent=0}\nRoussel Rahman, Aashwin Ananda Mishra.\&quot;A Fragile Number Sense: Probing the Elemental Limits of Numerical Reasoning in LLMs.\&quot;arXiv:2509.06332 [cs.LG]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[研究](https://arxiv.org/abs/2509.06332)测试了五种 LLM 模型在 100 个数学问题上的表现，涵盖基础运算、高级运算、素数检测和 24 点游戏。结果表明，尽管模型在确定性算法任务上表现良好，但在需要试错搜索的 24 点游戏中失败，暴露了其数值推理能力的局限性，表明现有模型更多依赖模式匹配而非真正的分析推理能力。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**剑桥大学 **\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n剑桥大学 Scaling Law 新研究：每一步的微小提升会带来指数级增长\n:::\n\n:::paragraph{align=center indent=0}\nAkshit Sinha, Arvindh Arun, Shashwat Goel, Steffen Staab, Jonas Geiping.\&quot;The Illusion of Diminishing Returns: Measuring Long Horizon Execution in LLMs.\&quot;arXiv:2509.09677 [cs.AI]\n:::\n\n:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;如果继续扩大计算规模，边际收益却在递减，企业继续真金白银投入更大模型的训练是否还是一个合理的选择？大概从去年开始，AI 领域就在争论这一问题。\n\n最近，有篇论文给出了一个有意思的观点：虽然 scaling law 显示 LLM 在测试损失等指标上存在收益递减，但模型在现实世界的价值往往源于一个智能体能够完成任务的长度。从这个角度来看，更大的模型非但没有收益递减，反而能将单步准确率的微小提升复合放大，在任务完成长度上实现指数级跃升。\n\n这篇[论文](https://arxiv.org/abs/2509.09677)来自剑桥大学等机构。论文指出，长期以来，完成长程任务一直是深度学习的致命弱点。自动驾驶 demo 很炫酷，但要真正上路跑长途，用了十多年才实现。AI 能生成惊艳的图片，但拍一段连贯、一致的长视频至今仍是难题。现在企业都想要 AI 帮忙处理整个项目，而不只是回答零散问题。但这里有个核心疑问：我们该如何衡量 LLM 能可靠执行多少步的工作？\n\nLLM 在简单长任务上的失败被认为是推理能力的根本缺陷。尽管 LLM 在复杂推理基准测试上有了巨大改进，依然有论文声称思考模型只是给出了「思考的幻觉」（arXiv:2506.06941），因为当任务变得更长时，它们最终会失败。\n\n这些结果在社区中引发了很多争论。但本文作者认为，我们可以通过解耦推理或智能体任务中规划（planning）和执行（execution）的需求来解决这个问题。\n\n规划涉及决定检索什么信息或使用什么工具以及使用顺序，而执行就是让规划变成现实。在《思考的幻觉》论文中，LLM 显然知道规划，因为它最初正确地执行了许多步骤。本文研究者认为，最终的失败在于执行 —— 随着任务变长，模型在执行规划时更容易犯错。尽管人们非常关注 LLM 的规划能力，但执行仍然是一个研究不足的挑战。随着 LLM 开始用于长推理和智能体任务，这一方向变得越来越重要。&quot;
+    }
+  ]
+]
+:::
+
+### 二、推理
+
+:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**清华、上海 AI Lab 等**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n清华、上海 AI Lab 等发布推理模型 RL 超全综述\n:::\n\n:::paragraph{align=center indent=0}\nKaiyan Zhang, Yuxin Zuo, Bingxiang He, Youbang Sun, Runze Liu, Che Jiang, Yuchen Fan, Kai Tian, Guoli Jia, Pengfei Li, Yu Fu, Xingtai Lv, Yuchen Zhang, Sihang Zeng, Shang Qu, Haozhan Li, Shijie Wang, Yuru Wang, Xinwei Long, Fangfu Liu, Xiang Xu, Jiaze Ma, Xuekai Zhu, Ermo Hua, Yihao Liu, Zonglin Li, Huayu Chen, Xiaoye Qu, Yafu Li, Weize Chen, Zhenzhao Yuan, Junqi Gao, Dong Li, Zhiyuan Ma, Ganqu Cui, Zhiyuan Liu, Biqing Qi, Ning Ding, Bowen Zhou.\&quot;A Survey of Reinforcement Learning for Large Reasoning Models.\&quot;arXiv:2509.08827 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;过去两个月里，来自清华大学和上海人工智能实验室等的研究者们组织并总结了推理模型的最新 RL 研究，形成了一份非常全面的调查综述，回顾最新进展，讨论面临的问题，并展望未来的发展方向。\n\n[本文](https://arxiv.org/abs/2509.08827)综述了近年来强化学习在大语言模型推理能力方面的最新进展。\n\nRL 在推动 LLM 能力边界上取得了显著成果，尤其在数学、编程等复杂逻辑任务中表现突出。因此，RL 已逐渐成为将 LLM 演化为具备更强推理能力的大推理模型（LRM）的核心方法。\n\n随着该领域的快速发展，如何进一步扩展 RL 在 LRM 上的应用，已面临基础性挑战 —— 不仅涉及算力资源，也包括算法设计、训练数据与基础设施建设。为此，研究者们认为此时有必要回顾这一领域的发展历程，重新审视其未来方向，并探索提升 RL 可扩展性以迈向通用人工超级智能（Artificial SuperIntelligence, ASI）的策略。\n\n本文重点梳理了自 DeepSeek-R1 发布以来，RL 在 LLM 与 LRM 推理能力上的应用研究，涵盖其基础组件、核心问题、训练资源及下游应用，以此识别未来的研究机遇与发展路径。本文综述或许能够推动 RL 在更广泛推理模型中的研究与应用。\n\n本文介绍了面向大推理模型的强化学习的基础组件，以及尚待解决的问题、训练资源和应用场景。本综述的核心重点在于：聚焦语言智能体（language agents）与环境之间的大规模交互，以及这一过程在长期演化中的关键作用。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周论文推荐涵盖多个前沿研究方向。</p>
+<p>在KV缓存优化领域，中国科学院大学、中科院自动化所与苏黎世联邦理工学院等机构联合提出EvolKV方法，仅需1.5%的内存预算即可超越使用完整KV cache模型的性能，为大模型高效推理提供了新路径。</p>
+<p>推理能力评估方面，普渡大学推出INABHYD数据集，专门用于测试LLMs的归纳与溯因推理能力，数据集包含虚构世界模型和观察数据，要求模型生成假设以解释观察现象；评估结果表明，LLMs在简单场景表现尚可，但面对复杂场景时难以生成高质量假设。斯坦福对五种LLM在100道数学题上的测试同样揭示，模型在24点游戏等试错搜索任务中普遍失败，更多依赖模式匹配而非真正的分析推理。</p>
+<p>剑桥大学的研究则带来乐观视角：单步准确率的微小提升可在任务完成长度上实现指数级放大，并进一步区分了LLM的&quot;规划&quot;与&quot;执行&quot;能力，指出长任务失败的根源在于执行层面而非规划层面，执行能力是当前研究亟待攻克的方向。</p>
+<p>在综述研究方面，清华大学与上海人工智能实验室等机构联合发布推理模型强化学习综述（arxiv 2509.08827），重点梳理DeepSeek-R1发布以来RL在LLM推理能力上的最新进展，内容覆盖RL基础组件、核心问题、训练资源及下游应用四大方向，最终目标是探索提升RL可扩展性、迈向通用人工超级智能（ASI）的可行策略。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>EvolKV仅用1.5%内存预算即可超越完整KV cache模型性能，大幅降低LLM推理内存开销</li>
+<li>剑桥大学研究表明单步准确率的微小提升在长程任务中可实现指数级放大，为Scaling Law提供新视角</li>
+<li>清华、上海AI Lab等联合发布推理模型RL训练超全综述，系统梳理强化学习在推理模型中的应用进展</li>
+<li>快手可灵团队提出MIDAS视频生成新方法，进一步提升视频生成质量与可控性</li>
+<li>小红书发布SOTA对话生成模型，在对话质量评估基准上取得业界领先成绩</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2726713068.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

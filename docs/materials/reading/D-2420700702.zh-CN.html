@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Machine Unlearning 技术解析 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="Machine Unlearning 技术解析。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2420700702.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>Machine Unlearning 技术解析</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2420700702。版本：633e9168c8dcff9b85ecbbfd2180311b7bb9e42fbe04a224b8d87d52b63ebefb。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/70</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/633e9168c8dcff9b85ecbbfd2180311b7bb9e42fbe04a224b8d87d52b63ebefb.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>Machine Unlearning 技术解析</p>
+<h1>一、核心要点</h1>
+<p>1.政府对数据安全、伦理、隐私保护，以及 AI 技术与版权、用户权益等方面的约束条款愈发清晰。在此趋势下，可以用于保护用户隐私数据的 Machine Unlearning 技术也在引起越来越多的关注。</p>
+<p>2.Machine Unlearning（遗忘学习）是一个相对较新的研究领域，它关注于从已经训练好的机器学习模型中移除特定数据样本的影响。Machine Unlearning 通常针对特定数据。在让模型遗忘某个数据后，其表现能力应当等同于该数据没有参与模型训练时，该模型所具备的状态。</p>
+<p>3.Machine Unlearning 方法大体可分为四个类别，分别是<strong>集中式遗忘、联邦（分布式）遗忘、遗忘验证以及有关 Machine Unlearning 中的隐私和安全问题。</strong></p>
+<ol start="4">
+<li>现有的 Unlearning 方法大多几种于分类模型上，但它们在计算成本和适用性的局限性使其无法直接应用于 LLMs。即便是流行的 RLHF 业存在极大的资源消耗，需要收集大量高质量的人类编写的样本。</li>
+</ol>
+<p>5.现有的许多 Unlearning 方法计算成本过高。其中，数据分片和梯度上升等涉及全局权重修改的方法需要大量的计算资源，这种 Unlearning 方式这不仅延长了遗忘过程的时间，还增加了实现遗忘所需的硬件成本。</p>
+<h1>二、什么是 Machine Unlearning？</h1>
+<h2>1.Machine Unlearning 综述</h2>
+<p>2024 年 5 月发布的综述《Machine Unlearning: A Comprehensive Survey》提供了对 Machine Unlearning 技术的全面概述。该工作采用 SLR 方法，通过设计搜索字符串、识别适当的数字数据库并定义数据提取策略，系统地回顾了现有 Machine Unlearning 方法，并讨论了在近期有关「被遗忘的权利」立法对 Machine Unlearning 研究的影响。<br>Machine Unlearning（遗忘学习）是一个相对较新的研究领域，它关注于从已经训练好的机器学习模型中移除特定数据样本的影响。Machine Unlearning 的概念主要是为了响应数据隐私保护的需求，特别是随着「被遗忘的权利」（Right to be Forgotten）在全球范围内的立法实施，这一技术愈发受到重视。<br>Machine Unlearning 通常针对特定数据。在让模型遗忘某个数据后，其表现能力应当等同于该数据没有参与模型训练时，该模型所具备的状态。</p>
+<h2>2.Machine Unlearning 分类</h2>
+<p>迄今为止，Machine Unlearning 方法大体可分为四个类别，分别是<strong>集中式遗忘、联邦（分布式）遗忘、遗忘验证以及有关 Machine Unlearning 中的隐私和安全问题</strong>。<br>①** 集中式遗忘（Centralized Unlearning）**方法具体可分为「精确遗忘（Exact Unlearning）」和「近似遗忘（Approximate Unlearning）」两种主要类型。<br>② **联邦遗忘（FL Unlearning）**方法主要应用于分布式环境中，尤其是联邦学习（FL）场景。其具体方法包含：通过存储和估计上传参数的贡献来实现去学习，而无需与客户端交互；或是采用知识蒸馏来恢复客户端模型的贡献，从而不需要依赖客户端的参与和数据限制。<br>③ **遗忘验证（Unlearning Verification ）**是评估和确认去学习方法是否有效地从模型中移除指定数据的过程。由于 Unlearning 操作可能会影响模型的性能和准确性，因此需要其有效性和安全性。<br>④ **隐私与安全问题（Privacy and Security Issues in Machine Unlearning）**指包含成员推理攻击，隐私重建攻击隐私与安全威胁与对应的防御方法。</p>
+<h3>2.1.精确遗忘（Exact Unlearning）</h3>
+<p>精确遗忘（Exact Unlearning）的目标是设计一些机制来减少重新训练模型时的计算成本，同时尽量保持去学习后模型与如果从未学习过某些数据的模型之间的一致性。<br>① 精确遗忘中最具代表性的工作是 IEEE S&amp;P 2021 论文《Machine Unlearning》提出的 SISA 方法，其基本思想是将原始数据集分割成多个子集，然后使用每个子集训练子模型，最后通过集成这些子模型来形成最终的去学习模型。[2]<br>② 精确遗忘的另一个代表性方法是 Amnesiac Unlearning。该方法于 2020 年提出，通过存储训练批次的参数，并在去学习请求出现时从中减去，来实现 Unlearning。<br>③ GraphEraser 是针对图数据的精确遗忘方法。与 SISA 类似，GraphEraser 首先切断一些连接边，将总图分割成一些子图，然后在这些子图上训练构成图模型，并将它们集成起来进行最终的预测任务。[4]<br>④ 其他具有代表性的精确遗忘方法还有 ARCANE、RecEraser 和 HedgeCut 等。</p>
+<h3>2.2.近似遗忘（Approximate Unlearning）</h3>
+<p>近似遗忘（Approximate Unlearning）的目标是直接基于训练模型和被删除的数据样本来去学习，从而同时减少计算和存储成本。基本思想是通过估计和移除被删除样本的贡献来实现去学习，因为不要求参数分布相同，因此这种方法存在更为多样的路线。[5]<br>① 近似遗忘中较有代表性的是基于差分隐私的方法，通过借鉴差分隐私的定义涉及模型遗忘的定义，明确模型 Unlearning 前后的参数分布的关系，然后基于 DP-SGD 开发 Unlearning 算法。其代表性工作有「Certified Data Removal」、「PUMA」、「Bayesian-based Unlearning」和等。然而这类方法极重理论推导，难以用于大型模型。<br>② 另一种路线是基于历史信息快速重训练，通过记录初始训练阶段的梯度和参数信息，在遗忘阶段通过泰勒展开快速近似来计算遗忘阶段的梯度和参数信息，其代表性工作有「DeltaGrad」和「FedRecover」等。然而，这类方法大多在深度神经网络上误差较大，导致模型 Unlearning 后性能下降严重，因此多用于防御后门攻击。</p>
+<h3>2.3.联邦遗忘（Federated Unlearning）</h3>
+<p>联邦遗忘（Federated Unlearning）是在联邦学习（Federated Learning， FL）环境中实现 Unlearning 的一种方法。联邦学习中，数据保留在本地设备上，只有模型的更新被发送到服务器进行聚合。其目标是在不访问本地数据的情况下，从全局模型中移除特定客户端的数据或影响。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2420700702/117422161951?contentType=1&isNewContent=false" alt="image.jpeg">{width=586 height=600 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2420700702/117421812209?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2420700702/117421812209?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2420700702/117421733052?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2420700702/117421733052?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p><em>Machine Unlearning（机器遗忘学习）方法分类。具体涉及集中式遗忘、联邦遗忘、遗忘验证以及机器学习中的隐私和安全问题。</em><br>联邦遗忘的代表性工作有「FedEraser」、「Federated Unlearning with Knowledge Distillation」和「Bayesian Federated Unlearning」等。</p>
+<h1>三、关注 Unlearning的原因</h1>
+<p>在过去的十年中，数据量的大幅增加和硬件性能的快速提升推动了机器学习技术的快速发展。伴随近几年 LLM 模型的发展则进一步带来了对各类数据的需求和消耗。伴随人工智能技术所需的数据量不断增加，许多国家最近立法实施「被遗忘的权利（Right to Forgotten）」。<br>① 「被遗忘的权利」中显著的例子是欧盟的通用数据保护条例（GDPR）、加拿大的个人信息保护与电子文件法（PIPEDA）隐私立法和美国的加州消费者隐私法案（CCPA）。<br>② 根据这些法律，公司必须采取合理措施保证在请求时删除个人数据。<br>③ 截至近期，联合国即将进入执行的《人工智能法案》和美国多个州政府最近的立法行动也对人工智能在用户隐私、版权等方面的提出规范。<br>在此趋势下，Machine Unlearning 技术受到越来越多的关注。<br>① 由于企业会利用用户数据训练模型。当用户行使「被遗忘的权利」，要求公司停止使用其数据，如果每次都要重新训练模型以响应用户的要求，将对企业造成巨大的开销和损失。<br>② 从技术层面看，Machine Unlearning 领域的研究不仅限于隐私保护，还包括分析不同数据对模型收敛时所贡献的梯度。这种分析有助于实现更精准的去学习，同时也能增强模型对噪声数据的检测能力（Noisy Data Detection）。</p>
+<h1>四、LLM 中的 Unlearning 与广义ML 的区别</h1>
+<p>罗维拉-伊-维尔吉利大学、CYBERCAT 和华为等机构的研究者在综述《Digital Forgetting in Large Language Models: A Survey of Unlearning Methods》讨论了在 LLM 中的数字遗忘问题，并梳理了 LLM 中所涉及的 Unlearning 方法进行梳理和对比。这些方法与广义 Machine Unlearning 的方法既有交叉，也有区别。<br>1.该工作围绕自 2022 年 11 月 ChatGPT 发布以来，LLM 的广泛应用和引发的问题，以数字遗忘为核心解决方案，阐述了包含 Machine Unlearning 在解决 LLM 对市场、隐私、版权等方面的影响。该工作指出，LLM 的普及引发了有关模型与社会价值观和法治的一致性许多问题。这些问题包括各类 LLM 对劳动力市场的影响、对个人隐私权的影响、对版权法的影响、对加剧偏见和歧视的影响，以及可能生成有害内容，包括可能被用来造成伤害的内容。<br>2.该工主要围绕数字遗忘技术展开讨论，其目标是给定一个具有不期望知识或行为的模型，经过数字遗忘处理后获得一个新模型，在该模型中不再存在检测到的问题。有效的数字遗忘机制必须满足潜在冲突的要求包含：遗忘的有效性，即新模型遗忘不期望知识/行为的效果（无论是通过正式保证还是通过经验评估）；模型在期望任务上的保留性能；以及遗忘过程的时效性和可扩展性。<br>3.该工作讨论了 LLM 的背景，描述了数字遗忘的动机、类型和期望属性，并介绍了 LLMs 中数字遗忘的方法，其中 Unlearning 的方法是盘点核心。<br>4.该工作将适用于 LLM 的 Unlearning 方法分为四个大类，分别是<strong>全局权重修改、局部权重修改、架构修改和输入/输出修改方法</strong>。<br>① 全局权重修改（Global Weight Modification）指修改模型的所有参数以实现遗忘，其代表性方法包含数据分片（Data sharding）、梯度上升（Gradient ascent）、知识蒸馏（KD）、Generic alternatives 和强化学习。<br>② 局部权重修改（Local Weight Modification）指今修改模型中与遗忘目标相关的特定参数，其代表性方法为局部重训练（local retraining）、任务向量调整（task vector）和直接修改（Direct modification）<br>③ 架构修改（Architectur Modification）指在模型结构中添加新的层或应用线性变换，其代表性方法涉及额外的课学习层和线性变换。<br>④ 输入/输出修改（Input/output Modification）指在 LLM 的输入或输出层面上进行修改，但不改变模型内部参数，其代表性方法包含输入操纵和信息检索。<br>5.研究者对适用于 LLM 的 Unlearning 方法展开了一系列评估，包括所使用的数据集、模型和度量标准。<br>① 其分析的度量标准含三方面：模型是否有效地遗忘了目标知识；模型是否保留了其余的能力；遗忘过程的计算成本。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2420700702/117421812206?contentType=1&isNewContent=false" alt="image.jpeg">{width=709 height=600 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2420700702/117422980420?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2420700702/117422980420?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2420700702/117422519175?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2420700702/117422519175?contentType=1&amp;isNewContent=false&quot;}</a><br><em>表 ：LLM Unlearning 方法对比，L、M 和 H 分别表示低、中和高，Sgnf 表示极高。</em></p>
+<h1>五、LLM 中的 Unlearning 方法亟待解决的问题</h1>
+<p>Machine Unlearning 作为一项新技术，在人工智能与大模型领域正在逐渐收到重视。然而，大多数现有方法仍存在不同层面的局限，而仍在发展中的 LLM 的部分特性则为 Machine Unlearning 带来了更多挑战。在。2023 年 10 月发布的综述《Large Language Model Unlearning》、2024 年的综述《《Digital Forgetting in Large Language Models: A Survey of Unlearning Methods》以及近期的工作中均指出了 Unlearning 方法当前面临的问题。</p>
+<p>1.在 2023 年 10 月发布的综述《Large Language Model Unlearning》中，研究者重点关注了如何在 LLM 中进行 Unlearning。对比传统的分类模型，Unlearning 在 LLM 中面临着一些不同的挑战：</p>
+<p>① LLMs 的输出空间远大于标签类别，其带来的可能的结果数量远超传统分类模型。</p>
+<p>② LLMs 的规模巨大，任何昂贵的 Unlearning 方法在 LLMs 上都不切实际。</p>
+<p>③ LLMs 的训练语料库庞大且通常无法访问，难以获取训练数据的真实模型和行为，使得评估也变得困难。</p>
+<p>④ 现有的 Unlearning 方法大多几种于分类模型上，但它们在计算成本和适用性的局限性使其无法直接应用于 LLMs。即便是流行的 RLHF 业存在极大的资源消耗，需要收集大量高质量的人类编写的样本。</p>
+<p>2.《数字遗忘》的研究者指出，LLM 中，Machine Unlearning 是一个新的热点，但尚未成熟的研究领域。[6]</p>
+<p>① 现有的许多 Unlearning 方法计算成本过高。其中，数据分片和梯度上升等涉及全局权重修改的方法需要大量的计算资源，这种 Unlearning 方式这不仅延长了遗忘过程的时间，还增加了实现遗忘所需的硬件成本。</p>
+<p>② 由于在训练和推理过程中，模型需要占用大量的内存，LLM 尤为明显。因此，的 Unlearning 方法在处理大规模模型时可能会遇到内存限制。</p>
+<p>③ 现有的 Unlearning 方法往往无法完全删除模型中的不期望知识。一些方法可能只是减少了这些知识的影响，而不是完全消除。这可能导致模型在某些情况下仍然表现出不期望的行为。</p>
+<p>④ 泛化能力不足：一些 Unlearning 方法在处理特定任务或领域时表现良好，但在其他任务或领域上效果不佳。这意味着这些方法可能缺乏足够的泛化能力，无法在所有情况下都有效。</p>
+<p>⑤ 某些 Unlearning 方法可能只适用于特定的数据类型或模型架构。同样的，一些 Unlearning 方法在处理特定任务或领域时表现良好，但在其他任务或领域上效果不佳。</p>
+<p>⑥ 由于 LLM 的输出空间巨大，评估 Unlearning 方法的成功与否非常困难。现有的评估指标和方法可能无法充分捕捉到 Unlearning 方法的实际效果。</p>
+<p>3.华盛顿大学、普林斯顿大学和南加州大学等机构的研究者在近期发布的《MUSE》论文中提出了面向 LLM 中 Unlearning 方法的综合评估基准。他们评估发现绝大多数 Unlearning 算法会降低模型的一般效用，且不能持续地适应连续的遗忘请求或大规模内容删除。[8]</p>
+<p>① 该工作提出的 MUSE（Machine Unlearning Six-Way Evaluation）评估基准通过六个维度来评估 unlearning 方法的有效性。</p>
+<p>② 六个评估维度分别是：</p>
+<p>·不精确记忆（No verbatim memorization）</p>
+<p>·不记忆知识（No knowledge memorization）</p>
+<p>·不泄露隐私（No privacy leakage）</p>
+<p>·保留未删除数据的效用（Utility preservation on data not intended for removal）</p>
+<p>·可扩展性（Scalability with respect to the size of removal requests）</p>
+<p>·可持续性（Sustainability over sequential unlearning requests）</p>
+<p>③ 该工作强调了现有的 unlearning 方法更多像一把「双刃剑」，它们可能会使像 OpenAI 的 GPT-4o 或 Meta 的 Llama 3.1 405B 这样的模型在回答基本问题上变得能力大减。目前，还没有有效的方法能够让模型在不显著损失效用的情况下忘记特定数据。</p>
+<p>​</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>Machine Unlearning 是指从已训练模型中移除特定数据样本影响的技术，使模型表现等同于该数据从未参与训练时的状态。随着欧盟 GDPR、加拿大 PIPEDA 和美国 CCPA 等法规相继确立&quot;被遗忘的权利&quot;，该技术的工程落地需求日益迫切——相比每次响应遗忘请求时重新训练模型，Unlearning 可显著降低企业合规成本。</p>
+<p>在技术分类上，Machine Unlearning 涵盖集中式遗忘、联邦遗忘、遗忘验证及隐私与安全四大方向。集中式遗忘又分为精确遗忘与近似遗忘：精确遗忘的代表方法 SISA 通过数据分片训练子模型集成实现遗忘；近似遗忘则基于差分隐私或历史梯度信息，理论性较强但难以应用于大型模型。联邦遗忘在不访问本地数据的前提下，从全局模型中移除特定客户端数据的影响。</p>
+<p>针对大语言模型（LLM）的 Unlearning 方法可进一步细分为全局权重修改（如数据分片、梯度上升、知识蒸馏）、局部权重修改（如局部重训练、任务向量调整）、架构修改以及输入/输出修改四类。LLM 场景面临独特挑战：输出空间远大于分类模型，模型规模巨大，且训练语料通常无法访问，导致现有方法普遍存在计算成本过高、内存占用大、不期望知识无法彻底消除、跨领域泛化能力不足等局限。</p>
+<p>在评估体系方面，由华盛顿大学、普林斯顿大学等机构联合提出的 MUSE 基准从不精确记忆、不记忆知识、不泄露隐私、效用保留、可扩展性与可持续性六个维度系统衡量 Unlearning 效果。研究结果显示，绝大多数现有 Unlearning 算法会不同程度地降低模型通用效用，且无法有效应对连续或大规模遗忘请求，揭示出该领域在实用化方向上仍存在明显的技术缺口。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Machine Unlearning旨在从已训练模型中移除特定数据影响，使模型等同于该数据从未参与训练的状态，是响应「被遗忘权利」立法的核心技术手段。</li>
+<li>现有方法分为精确遗忘和近似遗忘两大集中式路线，代表性工作包括SISA、Amnesiac Unlearning、GraphEraser和基于差分隐私的方法。</li>
+<li>LLM中的Unlearning方法分为全局权重修改、局部权重修改、架构修改和输入/输出修改四类，各类方法在计算成本和遗忘效果上存在显著差异。</li>
+<li>LLM的超大输出空间、巨大模型规模和不可访问的训练语料，使得现有分类模型的Unlearning方法无法直接迁移应用于LLM。</li>
+<li>MUSE评估基准研究发现，现有绝大多数Unlearning算法会降低模型通用效用，且无法持续适应连续或大规模遗忘请求，尚无兼顾效果与效用的有效方案。</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2420700702.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

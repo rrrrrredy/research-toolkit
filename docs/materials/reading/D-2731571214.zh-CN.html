@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI行业月度观察202510 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="AI行业月度观察202510。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2731571214.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>AI行业月度观察202510</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2731571214。版本：d6373859d053f19b562680abc3aa8cc6136d413636cb4a0e1e567809a2350a5d。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/186</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/d6373859d053f19b562680abc3aa8cc6136d413636cb4a0e1e567809a2350a5d.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>AI行业月度观察202510</p>
+<h3>一、整体趋势</h3>
+<h4>1.十月关键里程碑</h4>
+<p><strong>1.1.模型/技术</strong></p>
+<ul>
+<li>混元图像 3.0 登顶 LMArena；</li>
+<li>快手可灵 2.5 Turbo 模型在  Artificial Analysis 图生视频和文生视频领域登顶；</li>
+<li>Google AI 模型每月处理量突破 1.3 万亿 tokens；</li>
+<li>腾讯优图实验室 Youtu-Embedding 在 CMTEB 中文语义评测基准上以 77.46 分登顶；</li>
+<li>截至 2025 年 9 月底，豆包大模型日均 tokens 调用量已突破 30 万亿，相比今年 5 月底增长超 80%；</li>
+<li>百度的文心 X1.1 在 SuperCLUE-CPIF 中，以 75.51 分的成绩获得了国内第一的位置；</li>
+<li>MiniMax M2 在 τ²-Bench、GAIA、BrowseComp 等多项测试中表现优异，在 FinSearchComp-global 金融搜索基准 65.5 分全球登顶；</li>
+</ul>
+<p><strong>1.2.产品/用户/收入</strong></p>
+<ul>
+<li>OpenAI Sora 登顶苹果美区 App Store 免费应用排行榜；</li>
+<li>OpenAI 两年内达到 400 万开发者、8 亿周活 ChatGPT 用户、API 每分钟 60 亿 token 消耗量；</li>
+<li>Sora 首周 iOS 下载量超 ChatGPT，日下载峰值近 11 万；</li>
+<li>Sora 上线不到五天下载量突破 100 万次；</li>
+<li>中国生成式 AI 用户规模达 5.15 亿人，2025 上半年环比增长 106.6%；</li>
+<li>百度 AI 搜索连续三季登顶，移动端 AI 应用月活突破 7 亿；</li>
+<li>蚂蚁 AQ 跻身中国 AI 应用榜第 7，行业增速第一，超越文小言等通用 AI 产品。</li>
+</ul>
+<h4>2.十月行业趋势</h4>
+<p><strong>2.1.海外：从“模型狂欢”到“系统级卡位”</strong></p>
+<p><strong>趋势信号</strong>：十月海外不再追逐单点 SOTA，而是把模型能力封装成 “难以绕开的公共基础设施”，谁掌握 API + 数据 + 硬件的纵向闭环，谁就锁定未来五年的收税权。</p>
+<ul>
+<li><strong>OpenAI</strong>：用 Sora 2 把 “视频生成” 做成社交入口，用 ChatGPT Atlas 把 “浏览器” 变成 Agent Runtime，再用 PayPal 结账、沃尔玛货架把交易闭环搬到 Chat 对话框里。它正在复刻 “微信→小程序→支付” 的路径，只不过载体是生成式 UI。</li>
+<li><strong>英伟达</strong>：Vera Rubin 超级芯片 + OmniVinci 全模态模型双轨并行，一边把算力密度再提 3 倍，一边用 1/6 训练数据就能打平对手。其意图是用 “硬件 + 模型” 的组合拳定义下一代 AI 研发的经济账：别人拼效率，它直接改成本曲线。</li>
+<li><strong>Google</strong>：把 Gemini 塞进 Earth AI、Meet 妆容、Chrome Copilot、GM 汽车，一月之内连投四颗 “场景钉子”。当模型成为地图、会议、浏览器、汽车的默认接口，搜索广告就不再是单一商业模式，而是变成 “模型税”—— 每一次调用都在交过路费。</li>
+<li><strong>Anthropic</strong>：Claude 生命科学版 + Excel 插件 + 百亿美元谷歌云合约，走 “合规 + 纵深” 路线。在 OpenAI 被娱乐内容反噬的舆论窗口，它用 “科学严肃场景” 树立安全标杆，换取企业采购与公共部门信任，完成差异化卡位。</li>
+</ul>
+<p>**洞察：**海外已走出 “Demo 追逐赛”，进入 “系统锁定期”。模型差距收敛后，真正的壁垒是 “谁能在第一屏、第一算力、第一入口” 里把模型变成默认选项。OpenAI 锁交互、英伟达锁算力、谷歌锁场景、Anthropic 锁合规 —— 四条护城河同时开工，留给追赶者的时间窗口以季度计。</p>
+<p><strong>2.2.国内：开源+低价“双杀”，把模型做成“水电煤”，用场景纵深换时间</strong></p>
+<p><strong>趋势信号</strong>：十月国内厂商集体把“参数天花板”打成“价格地板”，用开源、小参数、垂直优化三件套，把模型从“卖点”变成“标配”，以换取行业 Know-how 与数据回流。</p>
+<ul>
+<li><strong>字节跳动</strong>：豆包 Seedance 1.0 pro fast 把 1080P 视频拉到 1 元 / 条，价格刀法直接对标 Sora 成本 1/10；同时 Sa2VA 多模态分割、Seed3D 单图建模补全 “生成 - 编辑 - 3D 资产” 全链路。路径很清晰：用抖音生态的天量短视频需求反向摊薄训练成本，把 “视频模型” 做成内容供应链的 “自来水”。</li>
+<li><strong>阿里</strong>：Qwen3-VL 一口气开源 24 个尺寸，2B-32B 全覆盖，Thinking 版把推理链搬到端侧；钉钉 A1 录音笔、夸克 AI 眼镜、淘宝 6 大 AI 导购同时上架，模型 - 设备 - 电商三线合围。打法是 “模型即渠道”：每多一个开源尺寸，就多一块硬件 / 场景试验田，用生态分销换市场穿透。</li>
+<li><strong>腾讯</strong>：混元世界模型 1.1 单卡秒级 3D、ima 2.0 任务模式、元宝 Excel 一句话处理，三箭齐发指向 “3D + 办公 + 表格” 高频刚需。把 AI 能力嵌进微信 / QQ 流量入口，用 “无需换 App” 降低用户摩擦，完成私域数据飞轮。</li>
+<li><strong>快手</strong>：KAT-Coder 开源版 74.6% SWE-bench 刷新开源纪录，CodeFlicker 在内部 80% 工程师渗透；视频 + 编程双轮驱动，把 “生成式内容” 与 “自动化产研” 并线，用工程师场景反哺模型，再用模型降低内容制作成本，形成 “自吃狗粮” 闭环。</li>
+</ul>
+<p><strong>洞察</strong>：国内已默认 “模型无法直接赚钱”，于是把模型当杠杆，撬的是电商成交、广告时长、云计算消费、开发者生态。谁先用 “低价 + 开源” 把模型铺进百业千行，谁就能提前拿到行业数据与场景 API，换回下一版模型的领先权。价格战不是目的，是用资本补贴换取 “场景锁定期”。</p>
+<h3>二、主要产品、技术更新</h3>
+<h4>1.海外</h4>
+<p>:[data2chart]{id=&quot;d03757190b07c82a0acc&quot; pageId=&quot;2731571214&quot;}</p>
+<h5>1.1.海外大公司</h5>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**分类**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 19,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品发布\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google 发布新款 Google Home 智能音箱：首搭 Gemini AI 助手，售价 99 美元&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Nano Banana 新增 2 大功能，开放 API，单图不到 3 毛钱&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Gemini AI 引入 Chrome 代码审查流程，提升开发效率与安全性&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google Gemini CLI 推出扩展功能，提升 AI 命令行个性化体验&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品发布\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;DeepMind 发布代码修复 AI 智能体 CodeMender，实现“被动响应”与“主动防御”一体化&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品发布\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google Cloud 推出 Gemini Enterprise&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google Chrome 即将引入 Gemini 新功能，浏览网页将变得更智能&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n技术更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google 提出 ReasoningBank 记忆框架，扩展 AI 自我进化范式&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google Meet 推出 AI 妆容滤镜：开会也能“素颜变精致”&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google AI 视频生成工具 Flow 升级：编辑更灵活，音频功能强大&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新 \n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;ve</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>2025年10月AI行业呈现出用户规模与技术能力双轨爆发的态势。</p>
+<p>用户增长方面，OpenAI ChatGPT周活用户突破8亿，API每分钟消耗60亿token，两年内聚合400万开发者；Google AI模型月处理量超1.3万亿tokens；字节跳动豆包大模型日均tokens调用量突破30万亿，较5月底增长逾80%。中国生成式AI用户规模达5.15亿人，2025上半年环比增长高达106.6%，市场渗透速度显著提速。</p>
+<p>视频生成赛道竞争激烈。快手可灵2.5 Turbo在Artificial Analysis图生视频与文生视频两项评测中双双登顶；字节豆包Seedance 1.0 Pro Fast将1080P视频生成价格压至1元/条，约为Sora成本的十分之一，引发行业价格重构预期。Sora上线不到五天下载量破百万，首周iOS下载量超越ChatGPT，但成本优势已受到国内厂商挑战。代码智能化方面，快手KAT-Coder开源版在SWE-bench评测中得分74.6%，刷新开源模型纪录，内部工程师渗透率已达80%。</p>
+<p>Google在本月动作密集：发布搭载Gemini AI助手的新款Google Home智能音箱（售价99美元）；将Gemini引入Chrome代码审查流程；推出企业级产品Gemini Enterprise；DeepMind发布兼具被动响应与主动防御能力的代码修复智能体CodeMender；Google Meet上线AI实时妆容滤镜；视频生成工具Flow完成升级，新增灵活编辑与音频功能；同时提出ReasoningBank记忆框架，探索扩展AI自主推理与自我进化的长期路径。</p>
+<p>整体来看，本月AI行业在规模化普及、成本下探与工程落地三个维度均取得显著进展。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>海外AI巨头进入系统锁定期，OpenAI锁交互、英伟达锁算力、谷歌锁场景、Anthropic锁合规，四条护城河同时构建</li>
+<li>国内厂商集体推行开源+低价双杀策略，将模型从卖点变成标配，以换取行业数据与场景API回流</li>
+<li>豆包大模型日均tokens调用量突破30万亿，OpenAI ChatGPT周活用户达8亿，中国生成式AI用户规模达5.15亿</li>
+<li>快手可灵2.5 Turbo登顶视频生成榜，字节Seedance将1080P视频生成压至1元/条，价格战重塑视频AI成本曲线</li>
+<li>混元图像3.0、腾讯Youtu-Embedding、百度文心X1.1、MiniMax M2分别在各自评测基准上取得国内或全球第一</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2731571214.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

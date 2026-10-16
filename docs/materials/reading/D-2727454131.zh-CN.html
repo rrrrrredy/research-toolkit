@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：LeCun 新作，Meta、字节、阿里多篇新研究，vivo AI Lab 提出新的后训练方法 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：LeCun 新作，Meta、字节、阿里多篇新研究，vivo AI Lab 提出新的后训练方法。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2727454131.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：LeCun 新作，Meta、字节、阿里多篇新研究，vivo AI Lab 提出新的后训练方法</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2727454131。版本：16e1d450ce0dfb57fbf37fd75f4ad9ece140059d6ef0061aa50dc9428db991ca。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/178</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/16e1d450ce0dfb57fbf37fd75f4ad9ece140059d6ef0061aa50dc9428db991ca.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：LeCun 新作，Meta、字节、阿里多篇新研究，vivo AI Lab 提出新的后训练方法</p>
+<h3>一、模型</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th></th>
+<th>**公司/院校/机构**</th>
+<th>**简介**</th>
+<th>**详情**</th>
+</tr>
+<tr>
+<td></td>
+<td>**纽约大学、布朗大学等**</td>
+<td>LeCun 新作 LLM-JEPA：用 CV 的思路训练 LLM，性能鲁棒性双丰收<br><br>Hai Huang, Yann LeCun, Randall Balestriero.&quot;LLM-JEPA: Large Language Models Meet Joint Embedding Predictive Architectures.&quot;arXiv:2509.14252 [cs.CL]</td>
+<td>Hai Huang、Yann LeCun 及 Randall Balestriero 提出了[LLM-JEPA](https://www.arxiv.org/abs/2509.14252)。这项工作基于 JEPA 理念，首次将这种高效的自监督学习架构成功地从视觉领域扩展到了 LLM。该工作通过将（文本、代码）等数据对视为同一概念的多种视图，成功地将 JEPA 目标应用于 LLM，作为标准「文本→代码」等生成任务的有效补充。这既保留了 LLM 强大的生成能力，又引入了 JEPA 在嵌入空间学习高质量表征的优势。</td>
+</tr>
+<tr>
+<td></td>
+<td>**vivo**</td>
+<td>SFT 与 RL 的结合，vivo AI Lab 提出新的后训练方法<br><br>Min Zeng, Jingfei Sun, Xueyou Luo, Caiquan Liu, Shiqi Zhang, Li Xie, Xiaoxin Chen.&quot;GTA: Supervised-Guided Reinforcement Learning for Text Classification with Large Language Models.&quot;arXiv:2509.12108 [cs.CL]</td>
+<td>监督微调（SFT）和强化学习（RL）微调是大模型后训练常见的两种手段。通过强化学习微调大模型在众多 NLP 场景都取得了较好的进展，但是在文本分类场景，强化学习未取得较大的进展，其表现往往不如监督学习。<br><br>SFT 和 RL 在训练的过程中都存在各自的特点：SFT 直接对着答案「死记硬背」，简单且有效，收敛速度快，但是泛化能力不行。而 RL 通过探索来获得答案，泛化能力强。但强化学习只会一味地探索，而不学习答案，学习速度缓慢，可能出现长期无法得到收敛甚至最后出现训练不稳定的现象。<br><br>为了解决这些难题，最近，vivo AI Lab 算法团队[提出](https://arxiv.org/abs/2509.12108)了一种新的大模型后训练框架 GTA，该方法可以综合发挥出 SFT 的优点和 RL 的优点，成功解决了文本分类场景中 RL 收敛速度慢的问题。该论文已被 AI 顶级学术会议之一的 EMNLP 2025 录用。</td>
+</tr>
+<tr>
+<td></td>
+<td>**字节跳动、约翰霍普金斯大学**</td>
+<td>字节提出 TARL，通过 LLM 评估解决长任务信用分配问题<br><br>Weiting Tan, Xinghua Qu, Ming Tu, Meng Ge, Andy T. Liu, Philipp Koehn, Lu Lu.&quot;Process-Supervised Reinforcement Learning for Interactive Multimodal Tool-Use Agents.&quot;arXiv:2509.14480 [cs.CL]</td>
+<td>[论文](https://arxiv.org/abs/2509.14480)介绍了一种用于训练交互式工具使用代理的沙盒环境，支持语音文本交替。核心策略 TARL 利用大型语言模型作为评判器提供回合级评估，并结合数学推理问题的混合任务训练增强探索。相比强 RL 基线，该方法在基于文本的 τ-bench 上提升了 6% 以上的任务通过率，并成功微调多模态基础模型具备工具使用能力。</td>
+</tr>
+<tr>
+<td></td>
+<td>**University of Oxford; Trinity College Dublin**</td>
+<td>牛津大学揭示 LLMs 在生成有效且最小化反事实解释时的局限性，指出其在高风险场景中的潜在误导性<br><br>Harry Mayne, Ryan Othniel Kearns, Yushi Yang, Andrew M. Bean, Eoin Delaney, Chris Russell, Adam Mahdi.&quot;LLMs Don&#x27;t Know Their Own Decision Boundaries: The Unreliability of Self-Generated Counterfactual Explanations.&quot;arXiv:2509.09396 [cs.LG]</td>
+<td>[研究](https://arxiv.org/abs/2509.09396)探讨了 LLMs 生成自生反事实解释（SCEs）的能力，发现 SCEs 通常有效但非最小化，或最小化却无效。这种有效性与最小化之间的权衡表明 SCEs 作为解释工具的低效性，可能误导人类决策，特别是在高风险应用中。论文强调了改进 LLMs 自我预测能力的重要性，并提供了实验代码支持进一步研究。</td>
+</tr>
+<tr>
+<td></td>
+<td>**Google**</td>
+<td>Google 提出两阶段分解方法，先总结交互再提取意图，显著提升小模型性能<br><br>Danielle Cohen, Yoni Halpern, Noam Kahlon, Joel Oren, Omri Berkovitch, Sapir Caduri, Ido Dagan, Anatoly Efros.&quot;Small Models, Big Results: Achieving Superior Intent Extraction through Decomposition.&quot;arXiv:2509.12423 [cs.AI]</td>
+<td>[研究](https://arxiv.org/abs/2509.12423)聚焦于从用户界面交互轨迹中提取用户意图的任务，提出一种新颖的两阶段分解方法。第一阶段对每次交互进行结构化总结，第二阶段基于汇总的总结提取意图。实验表明，该方法在资源受限的小模型上表现优异，甚至超越大型多模态语言模型的基础性能。</td>
+</tr>
+</table></div>
+
+<h3>二、推理</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**南洋理工大学**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nMini-Omni-Reasoner：实时推理，定义下一代端到端对话模型\n:::\n\n:::paragraph{align=center indent=0}\nZhifei Xie, Ziyang Ma, Zihang Liu, Kaiyu Pang, Hongyu Li, Jialin Zhang, Yue Liao, Deheng Ye, Chunyan Miao, Shuicheng Yan.\&quot;Mini-Omni-Reasoner: Token-Level Thinking-in-Speaking in Large Speech Models.\&quot;arXiv:2508.15827 [cs.CL]\n:::\n\n:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[Mini-Omni-Reasoner](https://arxiv.org/abs/2508.15827)——一种专为对话场景打造的实时推理新范式。它通过「Thinking-in-Speaking」实现边思考边表达，既能实时反馈、输出自然流畅的语音内容，又能保持高质量且可解释的推理过程。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**牛津大学、Meta**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n牛津大学、Meta 用 CaT 解决 RL 监督难题\n:::\n\n:::paragraph{align=center indent=0}\nDulhan Jayalath, Shashwat Goel, Thomas Foster, Parag Jain, Suchin Gururangan, Cheng Zhang, Anirudh Goyal, Alan Schelten.\&quot;Compute as Teacher: Turning Inference Compute Into Reference-Free Supervision.\&quot;arXiv:2509.14234 [cs.LG]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:[color]{}在 AI 领域，大家通常采取后训练方式来让模型获取专项技能。然而后训练一般依赖带有标注参考的监督微调，或通过可验证的程序化检查器提供奖励。[/color]\n\n:[color]{}这就带来一些问题，目前许多有价值的任务可能同时缺乏这两种资源。例如在不可验证的场景中（临床、自由对话和创意写作），可能存在多个有效答案，确定性规则检查难以实施。[/color]\n\n:[color]{}在这种情况下，实践者往往只能依赖（i）繁琐的标注流程，或（ii）通过另一个 LLM 对自由形式输出进行粗略奖励。[/color]\n\n:[color]{}然而，当后训练缺乏真实标注时，学习信号从何而来？[/color]\n\n:[color]{}为了回答这一问题，来自牛津大学、Meta 超级智能实验室等机构的研究者提出设想：[/color]\n\n�</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周论文推荐涵盖多个前沿研究方向，亮点纷呈。</p>
+<p>LeCun联合纽约大学、布朗大学等机构提出<strong>LLM-JEPA</strong>，首次将JEPA架构从视觉领域扩展至大语言模型，将文本、代码等数据对视为同一概念的多种视图，在保留LLM生成能力的同时，引入嵌入空间高质量表征学习能力。</p>
+<p>vivo AI Lab提出后训练框架<strong>GTA</strong>，综合SFT快速收敛与强化学习强泛化能力的优点，专门解决RL在文本分类场景中收敛慢、训练不稳定的痛点，该论文已被EMNLP 2025录用。字节跳动与约翰霍普金斯大学联合提出<strong>TARL</strong>，利用LLM作为评判器解决长任务信用分配难题，在τ-bench上相比强RL基线提升超6%的任务通过率，并支持语音文本交替沙盒环境与数学推理混合任务训练。</p>
+<p>牛津大学研究揭示LLMs生成的反事实解释在有效性与最小化之间存在固有权衡，指出这一局限性可能误导高风险场景中的人类决策。Google提出两阶段UI意图分解方法，先总结交互再提取用户意图，在资源受限小模型上超越大型多模态语言模型基础性能。南洋理工大学推出<strong>Mini-Omni-Reasoner</strong>，采用&quot;Thinking-in-Speaking&quot;机制实现边思考边输出语音，兼顾实时反馈与可解释推理。</p>
+<p>此外，牛津大学与Meta超级智能实验室合作提出<strong>CaT</strong>方法，专门应对临床、自由对话、创意写作等不可验证场景中后训练缺乏真实标注时的学习信号来源问题，为强化学习监督信号不足提供新思路。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>LeCun新作LLM-JEPA首次将JEPA自监督架构从视觉领域扩展至LLM，实现性能与鲁棒性双提升</li>
+<li>vivo AI Lab提出GTA框架，融合SFT与RL优点，解决文本分类场景中强化学习收敛慢的难题，已被EMNLP 2025录用</li>
+<li>字节跳动提出TARL策略，借助LLM评判器解决长任务信用分配问题，τ-bench任务通过率提升超6%</li>
+<li>牛津大学研究揭示LLM自生反事实解释存在有效性与最小化的内在矛盾，在高风险场景中具有潜在误导性</li>
+<li>本期论文覆盖模型训练架构、后训练方法、多模态工具使用代理及LLM可解释性等多个前沿AI研究方向</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2727454131.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

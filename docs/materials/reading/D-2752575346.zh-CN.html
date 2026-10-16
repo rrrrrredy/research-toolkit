@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenClaw龙虾系统专题8 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="OpenClaw龙虾系统专题8。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2752575346.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>OpenClaw龙虾系统专题8</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2752575346。版本：f833f19dcc39e9d4d51398166c304b2c118a7803937839438a5708f639f18188。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/228</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/f833f19dcc39e9d4d51398166c304b2c118a7803937839438a5708f639f18188.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 576s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;cc36456023af44f9b44037a2a275c9bc&quot;}
+别把龙虾养成一支假忙团队：单 Agent、多 Agent、Skills 的边界到底在哪</p>
+<blockquote>
+<p><em><strong>Skills 试验田：</strong></em>:[open_link]{href=&quot;<a href="https://friday.sankuai.com/skills/space-detail?id=2160">https://friday.sankuai.com/skills/space-detail?id=2160</a>&quot; nodeId=&quot;8be54b0b7bff4c429f071c261c22e401&quot; type=&quot;20ec1b7ca9&quot;}</p>
+</blockquote>
+<h2>一、为什么大家都开始给龙虾配子 Agent，但问题也随之变复杂了</h2>
+<p>很多同学开始给自己的龙虾配角色：有人给它挂上数据分析师、行业研究员、文档处理员、知识库问答助手，有人再往上加一个评审员、一个路由员、一个总控。有些同学会觉得，这样的龙虾更“灵动”，更像一个小团队；也有人觉得，很多事情明明一只虾就能干，硬拆成几只反而更重、更慢、更难维护。</p>
+<p>这类讨论之所以容易越聊越乱，不是因为大家理解力不同，而是因为很多人在讨论时，其实把四件事混在了一起。<strong>第一件事是角色设定</strong>，也就是要不要给龙虾不同的人设；<strong>第二件事是上下文隔离</strong>，也就是不同任务要不要放进不同 session；<strong>第三件事是能力组织</strong>，也就是一些能力到底应该做成子 Agent，还是做成 Skills；<strong>第四件事是流程编排</strong>，也就是这些东西之间到底谁调谁、怎么传递状态、出了问题谁负责回退。表面上看，大家在讨论“单 Agent 和多 Agent 哪个更强”；本质上，大家在讨论的是一套系统如何组织信息、能力和责任边界。</p>
+<p>所以，我不想通过这篇文章来回答一个很窄的问题，不是“龙虾到底该配几个 Agent”，而是一个更实用的问题：**在龙虾这样的真实使用环境里，单 Agent、多 Agent、子 Agent 和 Skills 各自解决什么问题，什么场景下值得上，什么场景下反而会把系统做复杂。**我的观点也先摆在前面：<strong>多 Agent 不是比单 Agent 更高级的形态，它只是复杂任务下的一种组织方式；真正决定系统质量的，通常不是配了几只虾，而是有没有把上下文、工具、技能、评审和协作关系设计清楚。</strong></p>
+<h2>二、真正的区别，不是“几只虾”，而是谁看见什么</h2>
+<p>很多人一提多 Agent，第一反应是“底层模型不是一样的吗，那为什么会更好？”这个问题问得非常对。多 Agent 真正变化的，并不是底层模型权重，而是上下文的切法。OpenAI 在官方构建指南里把 agent 体系分成单 Agent 和多 Agent 两类，同时<strong>明确建议团队先尽量榨干单 Agent 的能力</strong>，只有当复杂逻辑和工具重叠已经开始明显拖累质量时，再考虑拆成多个 Agent；Anthropic 也在公开工程文章里写得很直白，长任务做得好的关键之一，就是把任务拆成可处理的块，并通过结构化产物在不同 session 之间交接上下文。</p>
+<p>**说白了就是“谁看见什么”。**单 Agent 模式下，所有信息都挤在同一个 context window 里，龙虾既要看原始数据，又要想分析思路，又要写报告，还要自查、自我解释、自我修订。它不会瞬间“崩掉”，但会逐步出现几个很典型的问题：前面的信息权重开始下降，后面的生成越来越受最近几轮对话支配；任务一长，模型会更倾向于走熟路、收尾、给出看起来完整但其实没那么扎实的答案；最麻烦的是，它一边干活一边给自己打分，往往会高估自己的输出质量。<strong>这里的本质，不是虾傻了，而是同一个认知系统在一个不断变脏、不断膨胀的上下文里被迫兼顾太多角色。</strong></p>
+<p>**多 Agent 模式的价值，就在于给同一只虾更好的工作条件。**数据分析 Agent 只看数据和分析任务，写报告 Agent 只看分析结论和写作要求，评审 Agent 只看报告和评审 rubric。它们底层可以是同一个模型，但每个 Agent 都站在一块相对干净的石板上工作。Anthropic 的 Claude Code 文档明确把 subagent 的一个核心价值写成“<strong>把探索和实现从主对话中隔离开，保持主上下文清爽</strong>”，并且可以限制不同 subagent 可用的工具和权限。</p>
+<p><em>所以，单 Agent 和多 Agent 的真正区别，不是“一个人干”和“多个人干”这么简单，而是“一个不断被污染的上下文”与“多个边界清晰的上下文”之间的差别。多 Agent 首先解决的，不是智力问题，而是专注度、稳定性和可验证性问题，它更像一种信息工程，而不是魔法工程。</em></p>
+<h2>三、单 Agent 并不落后，很多时候一只虾就够了</h2>
+<p>一提到多 Agent，很多人容易自动得出一个结论：复杂系统一定比简单系统先进。这个结论在龙虾场景里经常是错的。因为单 Agent 的优势其实非常朴素，但也非常重要，那就是路径短、维护轻、反馈快、出错点少。对大量一次性、低风险、低歧义的任务来说，单 Agent 不只是“也能做”，而且往往是最优解。</p>
+<p>比如，给一份不太复杂的表格做基础分析并写一版简短结论，给一份会议纪要做结构化整理，基于知识库回答一个相对明确的问题，或者把一段草稿润色成正式文档。这些任务的共同点是，<strong>输入清楚，工序不长，所需工具有限，结果也不需要多轮审查</strong>。这时候如果你上来就拆成分析 Agent、写作 Agent、评审 Agent、调度 Agent，系统并不会更聪明，只会更啰嗦。每多一个 Agent，就多一层提示词、多一层调用、多一个中间态、多一个失败点。最后很可能出现一种很荒诞的情况：<strong>系统看起来很忙，产出却没有明显比单 Agent 更好。</strong></p>
+<p>OpenAI 的官方建议其实非常务实。他们并不鼓励一开始就采用多 Agent 框架，而是建议先用一个能力足够强、工具定义清晰的单 Agent 建立基线，再观察到底是哪里出了问题。只有当 prompt 逻辑已经复杂到难维护，或者工具数量虽然不多但相互重叠、频繁误选时，拆 Agent 才开始有意义。</p>
+<p>*所以我很赞同一个更成熟的判断：单 Agent 不是过渡方案，而是默认方案。多 Agent 不应该成为一种“看起来更高级”的装饰，而应该是单 Agent 已经暴露出明确边界之后的工程升级。*<em><strong>多数人真正的问题，不是“Agent 不够多”，而是“还没把一只虾养明白，就急着养一群虾”。</strong></em></p>
+<h2>四、多 Agent 真正解决了什么</h2>
+<p>如果一定要为多 Agent 找一句最准确的定义，我会说，多 Agent 不是为了让系统更像团队，而是为了让系统更像生产线。这里面真正有价值的，并不是把每个名词都变成一个角色，而是把几个最容易互相污染的环节分开。</p>
+<p>**第一个值得拆开的，是执行与评审。**单 Agent 最明显的问题之一，就是它既当选手又当裁判。自己分析、自己写、自己夸自己，很容易出现“看起来通顺，但事实不严谨”“结构完整，但论证发虚”“写得像那么回事，但关键数字没核对”的情况。把评审单独拿出去，即便底层仍然是同一个模型，也会因为上下文独立而明显改善这种自评偏差。Anthropic 近期关于长任务 harness 的工程文章就公开展示了一个 planner、generator、evaluator 的三层架构，其中 evaluator 的职责不是继续生成，而是按标准去挑错和评分。</p>
+<p>**第二个值得拆开的，是原始材料与终稿生成。**一个常见的坏模式是，龙虾一边消化大量原始材料，一边直接面向最终输出。这时候它既要做理解压缩，又要做表达组织，还要顾及风格和格式，负担非常重。多 Agent 的价值在于让前一个 Agent 先把粗材料变成结构化中间态，再让后一个 Agent 专注于把这个中间态变成最终表达。**这里最关键的不是“接力”这件事本身，而是中间态的质量。**如果中间态只是随手写的一段松散总结，后面的 Agent 仍然会失真；如果中间态是结构化的证据、结论、待确认点、引用来源，那后面的写作和评审就会稳很多。</p>
+<p>**第三个值得拆开的，是复杂工具选择。**很多系统并不是输在模型不够强，而是输在工具太多、接口太像、调用规则太含糊。OpenAI 在官方指南里提到，问题不只是工具数量，更是工具之间是否重叠。少量但定义相似的工具，往往比十几个边界清楚的工具更容易让 Agent 选错。这也是为什么，<strong>很多时候多 Agent 的真实价值，并不是“并行干活”，而是先把工具的使用责任分区</strong>。让检索型 Agent 管检索，让执行型 Agent 管动作，让评审型 Agent 管核查，往往比让一个总 Agent 面对一堆近似工具更稳。</p>
+<p><em>但这里我要补一句反直觉的话：多 Agent 的价值通常不是“越拆越多”，而是“先拆对最关键的一刀”。而这最关键的一刀，往往不是把每个能力都角色化，而是把执行与评审分开，把原始材料处理和最终表达分开。</em></p>
+<h2>五、子 Agent 和 Skills 到底有什么不同</h2>
+<p>这是龙虾系统里最容易混、也最值得讲透的一件事。很多人会给龙虾配很多“角色”，<strong>但实际上里面有一部分，本来就不该做成子 Agent，而应该做成 Skills</strong>。这个边界如果不讲清，系统很快就会变成“<strong>角色像角色，工具像角色，技能也像角色</strong>”，最后没人说得清到底谁负责什么。</p>
+<p>我的理解是，<strong>子 Agent 解决的是“谁来干这件相对完整的子任务”</strong>。它更像一个独立工作台，有自己的上下文、角色设定、可用工具和行为边界。Anthropic 的 Claude Code 文档也基本是这个思路。官方说明里把 subagent 的价值写得很明确，包括保持主对话上下文干净、通过更聚焦的 system prompt 专门化行为、限制不同 subagent 的工具权限，甚至可以根据任务路由到更快更便宜的模型。</p>
+<p>而 <strong>Skills 解决的是“这类事情应该怎么做”</strong>。它不是再造一个新的会话主体，而是给龙虾增加一套可复用的能力包、方法包、说明书或操作模板。Anthropic 官方文档把 Skills 定义为通过 <code>SKILL.md</code> 扩展 Claude 能力的机制，Claude 会在相关场景自动加载，或者由用户显式调用；官方还特别强调，skills 本质上是 prompt 驱动的 playbook，而不是固定逻辑的硬编码命令。</p>
+<p>**这两个东西最大的区别，不在“复杂度”，而在“责任对象”。**如果你要解决的是一个完整子任务，比如“读完这批数据后给出异常诊断”“把这批文档整成面向老板的汇报草稿”“只基于报告正文做严格挑错”，那更适合子 Agent。因为你需要一个独立上下文和稳定角色，让它在自己的工作台上把事情做完。如果你要解决的是一种反复出现的方法，比如“如何做行业研究的证据卡片抽取”“如何给知识库答案加引用和不确定性标记”“如何清洗 Excel 并输出固定字段”，那更适合 Skills。因为你真正想复用的，不是一个角色，而是一套动作规范。</p>
+<p><em>子 Agent 更像岗位，Skills 更像 SOP。岗位负责交付一段完整工作，SOP 负责规定这段工作里的某些动作该怎么做。真正成熟的龙虾系统，通常不是把所有能力都做成 Agent，而是把稳定、重复、可复用的方法沉淀成 Skills，再把那些确实需要独立上下文和独立判断的部分交给子 Agent。</em></p>
+<h2>六、Agent 怎么协作，最强的方式往往不是最复杂的方式</h2>
+<p><strong>一旦系统里不止一只虾，协作就成了工程问题</strong>。很多人一想到多 Agent，就会想象一群智能体彼此对话、自动协商、动态决策，听起来非常先进。但在大多数内部场景里，越花哨的协作方式，往往越容易出问题。真正好用的协作，不是最拟人化的协作，而是最容易 debug、最容易审计、最容易回退的协作。</p>
+<p><strong>最稳的一种方式，其实是文件或结构化产物中转</strong>。分析 Agent 跑完，写一个结论文件；报告 Agent 只读这个文件；评审 Agent 再只读报告和检查 rubric。它看起来不“智能”，但优点非常硬：流程清楚，状态可见，出错可查。Anthropic 在工程文章里提到的一个关键经验，就是用结构化产物在不同 session 之间传递上下文，而不是把所有对话历史一股脑往后塞。</p>
+<p><strong>第二种常见方式是 orchestrator，也就是一个总控去调度多个专职 Agent</strong>。OpenAI 在官方指南里把多 Agent 的编排方式概括成两类，一类是 manager 模式，也就是中央管理者调用多个专门 Agent；另一类是去中心化 handoff，也就是 Agent 之间彼此交接。在企业内部的大多数任务里，我更倾向于 manager 模式，因为它更适合控制成本、权限和流程顺序。<strong>真正的难点不在于“总控要不要存在”，而在于总控不要变成一个新的万能大脑</strong>。很多系统的问题恰恰出在这里：名义上是多 Agent，实际上 orchestrator 最忙、最重、最难调，最后只是把单 Agent 的复杂度转移到了总控身上。</p>
+<p><strong>第三种方式是子 Agent 动态派生</strong>，也就是当前 Agent 在执行过程中判断自己需要一个新的子任务，再临时拉出一个子 Agent 去处理。这种模式很灵活，特别适合中途才暴露出额外问题的任务。但它也最容易失控，因为调用链一旦变深，谁在什么上下文里做了什么、用了哪些工具、为什么做出那个判断，都会迅速变得难追踪。Anthropic 的 subagent 文档强调了 delegated subagent 的边界和工具限制，这也是为了防止这种灵活性反过来吞掉系统可控性。</p>
+<p><em>所以我的判断很简单：在龙虾的真实使用场景里，Agent 之间通信越简单越好，复杂协作逻辑尽量让 orchestrator 或人来控制，不要轻易把“该调谁、何时调、调完如何继续”完全交给 Agent 自己去即兴决定。能用清晰接力解决的问题，就不要浪漫化成自由协商。</em></p>
+<h2>七、放到龙虾的真实场景里，该怎么选</h2>
+<p><strong>先说知识库场景</strong>。很多人一上来会想配一个检索 Agent、一个回答 Agent、一个事实核查 Agent。但在绝大多数企业知识库问答里，真正影响体验的，首先不是 Agent 数量，而是检索是否命中、引用是否可信、回答是否老实。这里最有效的往往是一个主 Agent 配一套知识库 Skill，让它学会如何检索、如何引用、如何标记不确定性、何时拒答。只有当问题开始跨多个资料源、存在冲突信息、需要把“查找”“整合”“反证”分开时，子 Agent 才开始有意义。<strong>换句话说，知识库场景的大多数问题不是“虾不够多”，而是“检索和引用规范没有被能力化”。</strong></p>
+<p><strong>再说行业研究</strong>。这个场景非常典型，因为它天然容易把上下文越堆越长。做一篇行业研究，往往要看多份材料、不断修订观点、补证据、改结构、核查时间线。如果全程只用一个 Agent，早期的素材、保留意见和关键证据，后面很容易被风格化输出淹没。这时，多 Agent 的价值会明显体现出来。一个 Agent 负责资料初筛和证据卡片，一个 Agent 负责写初稿，一个 Agent 专门做反驳和挑错，会比一只虾从头干到尾稳很多。<strong>但这里同样有个前提，证据卡片和中间态必须足够结构化，否则只是把混乱从一个上下文搬到另一个上下文</strong>。</p>
+<p><strong>数据分析加报告写作</strong>，是最容易理解多 Agent 价值的场景。分析和写作表面上连着，实际上是两类不同负担。分析更重证据和逻辑，写作更重表达、结构和受众。把两者塞在一个上下文里，常见的问题是分析过程太多噪音，影响最终写作；或者为了赶输出，模型直接把还没想清楚的分析写成确定性的结论。如果把分析 Agent、报告 Agent、评审 Agent 分开，各自只接触自己该接触的材料，质量通常会稳定很多。但如果任务只是一次性的“小表格</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<h1>《OpenClaw龙虾系统专题8》摘要</h1>
+<p>多Agent系统的核心价值不在于底层模型权重的差异，而在于重构上下文的切割方式。单Agent模式下，所有信息挤压在同一context window中，容易引发质量下滑和自我高估问题；多Agent的本质是为每个Agent提供边界清晰、相对干净的工作上下文，解决的是专注度、稳定性与可验证性问题，而非某种架构魔法。</p>
+<p>多Agent最首要的价值是将执行与评审分离，避免系统既当选手又当裁判。具体实践中，子Agent负责完整子任务，类似岗位职责；Skills负责可复用的方法规范，类似SOP，两者不应混淆。成熟系统应将稳定方法沉淀为Skills，Agent协作优先采用结构化产物中转，状态可见、出错可查。Orchestrator模式比去中心化handoff更适合企业场景，但Orchestrator本身不能退化为新的万能大脑。</p>
+<p>在知识库场景中，多数问题的根源不是Agent不够多，而是检索命中率低、引用规范缺失、回答诚实性不足。大多数情况下，主Agent配知识库Skill即可满足需求，只有在跨多资料源、存在冲突信息时，引入子Agent才真正有意义。在行业研究和数据报告场景中，多Agent可有效分离初筛、写作与反驳职责，防止未想清楚的分析被直接写成确定结论。</p>
+<p>文章反复强调：系统看起来很忙不等于产出更好，建议先用强能力单Agent建立基线，暴露明确边界后再升级为多Agent架构。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>多Agent与单Agent的本质区别不在于底层模型，而在于上下文切分方式——单Agent是&#39;一个不断被污染的上下文&#39;，多Agent是&#39;多个边界清晰的上下文&#39;，核心解决专注度、稳定性和可验证性问题</li>
+<li>单Agent是默认方案而非过渡方案，适合输入清楚、工序不长、工具有限的任务；多Agent应在单Agent已暴露明确边界后才引入，最值得拆开的是&#39;执行与评审&#39;、&#39;原始材料处理与终稿生成&#39;、&#39;复杂工具选择责任&#39;三个环节</li>
+<li>子Agent是独立工作台（类比岗位），有独立上下文、角色设定和工具权限；Skills是可复用的能力包/方法包（类比SOP），通过SKILL.md扩展能力；成熟系统应将稳定重复的方法沉淀为Skills，将需要独立上下文和判断的部分交给子Agent</li>
+<li>Agent协作原则：优先使用结构化产物中转、manager模式总控调度；避免orchestrator变成新的万能大脑；动态派生子Agent虽灵活但易失控；通信越简单越好，不要把&#39;该调谁、何时调&#39;完全交给Agent自行决定</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2752575346.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

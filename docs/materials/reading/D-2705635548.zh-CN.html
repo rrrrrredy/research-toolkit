@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agent 的未来是端到端强化学习微调——OpenAI Deep Research 团队分享 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="Agent 的未来是端到端强化学习微调——OpenAI Deep Research 团队分享。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2705635548.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>Agent 的未来是端到端强化学习微调——OpenAI Deep Research 团队分享</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2705635548。版本：00f87757f3da5dcd666b7e72ffc032a45a408f3f0d54b0726eb5c46457ee4007。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/144</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/00f87757f3da5dcd666b7e72ffc032a45a408f3f0d54b0726eb5c46457ee4007.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>Agent 的未来是端到端强化学习微调——OpenAI Deep Research 团队分享</p>
+<p>:[color]{}第一次体验 OpenAI Deep Research 那天，瞠目结舌，在朋友圈发了一个感慨：[/color]</p>
+<blockquote>
+<p>:[color]{}人类专家级分析员水准，质量极高，无论从任何角度看——信息广度、分析深度、技术专业度、数据详实度、来源权威性&amp;多样性等等，都几乎无懈可击。[/color]</p>
+</blockquote>
+<p>:[color]{}当时很多人觉得我自嗨、言过其实，即使看了我非常详尽真实的 Case 分析后，很多人依然无法感同身受。[/color]</p>
+<p>:[color]{}但因为 ODR 隐藏了真实思考过程，只是放出来一个不知所云的整理版cot，也就没办法进一步说明了——直到最近，[/color]:[color]{}<strong>唯一真正接近 OpenAI Deep Research 效果（</strong>[/color]:[color]{}虽然还有明显差距）的 [/color]:[color]{}**Grok Deep Search **[/color]:[color]{}带着完整思考过程上线。（btw：其他竞品，包括接入 R1 的各类Deep Research，效果还完全无法相提并论）[/color]</p>
+<p>:[color]{}——阅读 Grok 冗长、有趣又让人震惊的思考过程，已经让我身边的每个人都心服口服。[/color]</p>
+<p>:[color]{}我们知道，OpenAI 官方明确说明了 Deep Research 是基于 o3 模型做了 RFT 强化微调，Grok 虽然没有说明 Deep Search 的实现方式，但明确了其底座 Grok 3 大量采用强化学习 RL 的方法，所以我们可以合理推断，Grok Deep Search 也是采用了类似的强化学习微调的方法端到端训练出来的。[/color]</p>
+<p>:[color]{}说明什么？这背后，是[/color]:[color]{}<strong>推理模型经过强化学习端到端训练后，处理复杂任务的能力有了质的飞跃</strong>[/color]:[color]{}。这里有几个关键词：[/color]:[color]{rgb(255, 76, 65)}<strong>推理模型、强化学习RL/强化微调RFT、端到端、远距离多跳复杂任务。</strong>[/color]:[color]{rgb(0, 0, 0)}<strong>这些是构建 Agent 的关键。</strong>[/color]</p>
+<p>:[color]{}换个角度说：[/color]:[color]{rgb(255, 76, 65)}<strong>模型比人类聪明</strong>[/color]——我们总认为自己写的代码比模型更聪明，结果是，模型往往能找到比人类更好的解决方案。</p>
+<p>:[color]{}还是不明就里？那就看看OpenAI Deep Research 的负责人怎么说，[/color]:[color]{}<strong>内容不长，全是重点</strong>[/color]:[color]{}，先总结一下：[/color]</p>
+<p>:[color]{}OpenAI Deep Research 负责人 Isa Fulford 和 Josh Tobin 在采访中讨论了 Deep Research 如何通过[/color]:[color]{rgb(255, 76, 65)}<strong>端到端而不是使用僵化的操作图</strong>[/color]来训练模型，从而在人工智能研究能力方面实现突破。他们解释了:[color]{rgb(255, 76, 65)}<strong>高质量的训练数据</strong>[/color]:[color]{rgb(255, 76, 65)}和 [/color]:[color]{rgb(255, 76, 65)}<strong>o3 模型的推理能力</strong>[/color]是如何实现:[color]{rgb(255, 76, 65)}<strong>适应性研究策略</strong>[/color]的，以及为什么 Sam Altman 认为深度研究将在所有知识任务中占据重要比例。建立透明度和信任度的关键产品决策包括:[color]{}<strong>引用</strong>[/color]和:[color]{}<strong>澄清流程</strong>[/color]。通过将几小时的工作压缩到几分钟，深度研究改变了许多企业和消费者使用案例的可能性。</p>
+<p>:[color]{}<strong>正文</strong>[/color]</p>
+<p>:[color]{}00:01:02[/color]</p>
+<p>:[color]{}<strong><strong>Sonya Huang:</strong></strong>[/color]</p>
+<p>:[color]{}我们邀请到OpenAI的Deep Research产品负责人Isa Fulford和Josh Tobin。Deep Research在三周前推出后迅速走红，包括Collisons在内的科技界知名人士都在使用它，应用场景涵盖行业分析、医学研究，甚至是生日派对策划。这个产品使用端到端强化学习在复杂的浏览和推理任务上进行训练，是OpenAI继Operator之后推出的第二个agent产品。今天我们将与Isa和Josh讨论Deep Research的使用场景、技术原理，以及OpenAI未来的agent产品计划。[/color]</p>
+<p>:[color]{}<strong><strong>Lauren Reeder:</strong></strong>[/color]</p>
+<p>:[color]{}让我们来聊聊Deep Research是什么？请介绍一下它的起源和这个产品在做什么。[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}Deep Research是一个能够搜索多个在线网站的agent，它可以创建非常全面的报告。这个agent能够完成需要人类花费数小时才能完成的任务。它在ChatGPT里面运行，通常需要5到30分钟来回答你的问题。与普通的ChatGPT相比，它能够进行更深入的研究，并提供更详细的答案和具体的信息来源。它是我们发布的第一批agent之一。我们最近刚发布了Operator，而Deep Research是我们的第二个agent。[/color]:[color]{rgb(255, 76, 65)}<strong>未来我们还会推出更多的agent。</strong>[/color]</p>
+<p>:[color]{}<strong><strong>Sonya Huang:</strong></strong>[/color]</p>
+<p>:[color]{}Deep Research的起源故事是什么？它是什么时候开始的？背后的灵感是什么？团队有多少人？具体是怎么实现的？[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}<strong>大约一年前，我们在内部看到这种新的推理范式取得了很多成功，我们在训练模型先思考再回答，主要集中在数学和科学领域。</strong>[/color]:[color]{}这种新的推理模型还能解锁一种能力，就是处理需要代理能力的长期任务。[/color]:[color]{rgb(255, 76, 65)}<strong>我们发现很多人需要做大量在线研究或需要外部上下文的任务，这需要很强的推理能力和分辨信息源的能力，同时也需要创造力。</strong>[/color]:[color]{}当我们终于有了能处理这些任务的模型和训练方法时，我们决定开始训练模型来处理浏览任务，用训练推理模型的方法来处理更现实的任务。[/color]</p>
+<p>:[color]{}最初是我和Yash Patil一起开始的，他在OpenAI正在做另一个即将发布的相关项目，我们都很期待。后来Thomas Dimpson也加入了，他是那种特别棒的工程师，能够深入任何领域，快速搞定各种事情，这让整个过程非常有趣。[/color]</p>
+<p>:[color]{}<strong><strong>Josh Tobin:</strong></strong>[/color]</p>
+<p>:[color]{}我是六个月前从我的创业公司重新加入OpenAI的。我之前在OpenAI早期就工作过，这次回来后我查看了各个项目，对我们正在做的一些代理项目产生了很大兴趣，包括这个项目，所以就参与进来了。[/color]</p>
+<p>:[color]{}00:04:30[/color]</p>
+<p>:[color]{}<strong><strong>Lauren Reeder:</strong></strong>[/color]</p>
+<p>:[color]{}听起来非常有趣！告诉我们一下，你们是为谁开发这个产品的？[/color]</p>
+<p>:[color]{}<strong><strong>Josh Tobin:</strong></strong>[/color]</p>
+<p>:[color]{}这个产品其实是[/color]:[color]{rgb(255, 76, 65)}<strong>为所有在日常工作或生活中需要进行知识工作的人设计</strong>[/color]的。我们看到很多用户在工作中使用它，比如研究市场、公司、房地产等领域。</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}我们也看到了很多科学研究和医疗领域的应用案例。[/color]</p>
+<p>:[color]{}<strong><strong>Josh Tobin:</strong></strong>[/color]</p>
+<p>:[color]{}让我特别兴奋的是，当你需要花很多时间去搜索和整合信息时，这个工具不仅在工作中有用，在购物和旅行规划方面也很实用。[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}我们很期待Plus版本的发布，这样更多人就能尝试Deep Research，也许能发现更多新的使用场景。[/color]</p>
+<p>:[color]{}<strong><strong>Lauren Reeder:</strong></strong>[/color]</p>
+<p>:[color]{}这确实是我最近几周使用最多的产品之一，[/color]:[color]{}<strong>不仅用于工作，也用于个人事务</strong>[/color]:[color]{}。比如我最近在考虑买新车，想要了解新款车型的发布时间。网上有很多推测性的博客和制造商的信息，我就让Deep Research分析了所有这些消息，它为我生成了一份很棒的报告，建议我可以等几个月，因为新款应该会在今年接下来的几个月内发布。[/color]</p>
+<p>:[color]{}<strong><strong>Josh Tobin:</strong></strong>[/color]</p>
+<p>:[color]{}是的，这个产品一个很酷的特点是，它不仅能[/color]:[color]{}<strong>广泛收集信息</strong>[/color]:[color]{}，还特别擅长找到互联网上那些非常具体的、[/color]:[color]{}<strong>可能不会出现在搜索结果第一页的奇特信息。</strong>[/color]</p>
+<p>:[color]{}00:06:22[/color]</p>
+<p>:[color]{}<strong><strong>Lauren Reeder:</strong></strong>[/color]:[color]{}  你们看到了哪些令人惊讶的使用场景？[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}最让我惊讶的是很多人在用它来[/color]:[color]{}<strong>编程</strong>[/color]:[color]{}，这其实是我之前完全没有想到的使用场景。我在Twitter和其他反馈渠道看到，人们不仅用它来进行代码搜索，还会用它查找某个软件包的最新文档，或者帮助编写脚本。[/color]</p>
+<p>:[color]{}<strong><strong>Josh Tobin:</strong></strong>[/color]</p>
+<p>:[color]{}我感到很惭愧，因为我们居然没有预见到这个用例。对ChatGPT用户来说这似乎是很显而易见的事情，而且效果确实非常好。[/color]</p>
+<p>:[color]{}<strong><strong>Sonya Huang:</strong></strong>[/color]</p>
+<p>:[color]{}你们觉得商业用户和个人用户的使用比例会如何发展？比如说在一两年后Plus版本发布时，这会主要是一个商业工具还是消费者工具？[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}我希望两者都是。我认为这是一个[/color]:[color]{}<strong>通用能力</strong>[/color]:[color]{}，在工作和个人生活中都能发挥作用。[/color]</p>
+<p>:[color]{}<strong><strong>Josh Tobin:</strong></strong>[/color]</p>
+<p>:[color]{}我对这两种场景都很期待。这个工具最神奇的地方在于它能为人们节省大量时间。有些任务可能需要花费数小时，甚至有人反馈说要花费数天，但使用它就能快速获得90%相同的结果。我倾向于认为在商业场景中存在更多这样的任务，但我相信它肯定会成为人们在两种场景中生活的一部分。[/color]</p>
+<p>:[color]{}<strong><strong>Lauren Reeder:</strong></strong>[/color]</p>
+<p>:[color]{}<strong>我现在几乎都在使用Deep Research模式而不是普通模式。</strong>[/color]:[color]{}在消费者场景下，你们看到了哪些令人兴奋的应用？[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}<strong>我认为</strong>[/color]:[color]{rgb(255, 76, 65)}<strong>购物和旅行推荐</strong>[/color]<strong>是最主要的应用场景。</strong>:[color]{}我个人已经使用这个模型好几个月了。在日本Deep Research发布期间，它帮助我找到了很多符合特定要求的餐厅，发现了一些可能自己难以找到的地方。[/color]</p>
+<p>:[color]{}<strong><strong>Josh Tobin:</strong></strong>[/color]</p>
+<p>:[color]{}<strong>特别是在一些</strong>[/color]:[color]{rgb(255, 76, 65)}<strong>重要决策场景</strong>[/color]:[color]{}<strong>下，比如购买昂贵商品或规划特别的旅行时，这个工具非常有价值。原本我可能需要花费很多很多小时去阅读网上所有相关的评论和论坛内容，而Deep Research能够快速把这些信息整合在一起</strong>[/color]:[color]{}，非常实用。[/color]</p>
+<p>:[color]{}00:09:00[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}这个模型在遵循指令方面特别出色。如果你的查询包含很多不同部分或问题，比如你想了解产品信息，还想和其他产品做对比，同时还想看看Reddit上的评价之类的，你可以提出这些不同的要求，它都会帮你完成。[/color]</p>
+<p>:[color]{}<strong><strong>Josh Tobin:</strong></strong>[/color]</p>
+<p>:[color]{}对，还有个技巧就是让它用表格形式展示，虽然它通常会自动这样做，但明确要求的话特别有用，尤其是当你需要整理很多引用和不同类别的研究内容时。[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}是的。我们还有一些功能希望在未来某个时候能加入到产品中。[/color]:[color]{}<strong>底层模型已经能够处理图像，可以找到产品的图片。</strong>[/color]:[color]{}而且，虽然这不是面向消费者的用例，但它还能创建图表并嵌入到回复中。所以希望这些功能很快也能在ChatGPT上使用。[/color]</p>
+<p>:[color]{}<strong><strong>Josh Tobin:</strong></strong>[/color]</p>
+<p>:[color]{}说到这个，个性化教育也是个非常有趣的应用场景。比如说，如果你一直想学习某个主题，或者需要复习生物知识，或者想了解一些世界大事，它真的很擅长这个。你可以告诉它你觉得哪些地方不太明白，想研究哪些方面，它就会为你整理一份很好的报告。[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}我有个朋友正在考虑创办一家消费品公司，他一直在大量使用它来研究类似产品、检查特定名字的域名是否已被注册、做市场规模分析等等。他会和我分享这些报告，看着真的很有意思。[/color]</p>
+<p>:[color]{}<strong><strong>Josh Tobin:</strong></strong>[/color]</p>
+<p>:[color]{}另一个有趣的用例是[/color]:[color]{}<strong>它特别擅长在网上找到一些</strong>[/color]:[color]{rgb(255, 76, 65)}<strong>特定的冷门信息</strong>[/color]:[color]{}。比如说你想找某个冷门电视节目的某一集，它会深入搜索，找到网上那唯一的一条相关信息。[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}对，我哥哥的朋友的父亲就有个很具体的问题，是关于某个奥地利将军在一场战役中某人死亡时的具体情况，非常小众的历史细节。GPT之前给出了错误答案，他很确定那是错的，还特意去公共图书馆查证过。但Deep Research能给出正确答案，这让他很兴奋。[/color]</p>
+<p>:[color]{}<strong><strong>Sonya Huang:</strong></strong>[/color]</p>
+<p>:[color]{}Deep Research的基本思维模型是什么？Deep Research现在特别擅长什么？在什么场景下人们应该使用O系列模型？[/color]</p>
+<p>:[color]{}<strong><strong>Josh Tobin:</strong></strong>[/color]</p>
+<p>:[color]{}当你有一个需要详细描述的问题，而且获得最佳答案需要大量阅读互联网内容时，Deep Research真的特别擅长。如果你提出一个比较宽泛的问题，它会帮你理清楚具体想要什么。但它最出色的表现是在查找特定信息时。[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}它非常擅长整合遇到的信息，特别是在寻找那些难以获取的特定信息方面。它能从收集到的信息中产生一些新的见解，但现在还不能做出新的科学发现。至于我个人，在处理编程相关的问题时会选择使用O系列模型，因为这类问题通常只需要用到模型预训练中已有的知识。通常在编程时，我会使用o1 Pro或o1，有时也会用o3-mini High。[/color]</p>
+<p>:[color]{}<strong><strong>Lauren Reeder:</strong></strong>[/color]</p>
+<p>:[color]{}Deep Research是OpenAI新产品方向的一个很好的例子。我很好奇它是如何工作的？[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}<strong>Deep Research背后的模型是经过微调的o3</strong>[/color]:[color]{}，这是我们最先进的推理模型。[/color]:[color]{}<strong>我们专门收集了一些困难的浏览任务和其他推理任务来训练它。</strong>[/color]:[color]{}这个模型同时具有浏览工具和Python工具的访问权限。通过对这些任务的端到端训练，模型学会了解决问题的策略，最终在在线搜索分析方面表现出色。[/color]</p>
+<p>:[color]{}<strong><strong>Josh Tobin:</strong></strong>[/color]</p>
+<p>:[color]{}从直观上来说，工作流程是这样的：用户首先提供一个详细的请求，模型会认真思考这个请求。然后它会搜索信息，阅读并理解这些信息与请求的关系，再决定下一步要搜索什么，以便更接近最终答案。模型经过训练，能够将所有信息整合成一份带有原始信息引用的简洁报告。[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}<strong>我认为Deep Research作为一种agent能力的创新之处在于</strong>[/color]:[color]{rgb(255, 76, 65)}<strong>端到端训练</strong>[/color]<strong>。在研究过程中有许多</strong>:[color]{rgb(255, 76, 65)}<strong>事先无法预测的任务</strong>[/color]<strong>需要处理，普通的语言模型程序或脚本很难达到模型通过训练获得的灵活性。</strong>:[color]{}模型能够根据实时网络信息调整策略，展现出创造性的搜索能力。从思维链总结中可以看出它寻找下一个搜索内容的智能方式。[/color]</p>
+<p>:[color]{}00:15:03[/color]</p>
+<p>:[color]{}<strong><strong>Sonya Huang:</strong></strong>[/color]</p>
+<p>:[color]{}John Carlson最近发了一条广受关注的推文。[/color]:[color]{}<strong>Deep Research的能力到底有多少来自实时网络访问，又有多少来自链式思考呢？</strong>[/color]</p>
+<p>:[color]{}<strong><strong>Isa Fulford:</strong></strong>[/color]</p>
+<p>:[color]{}这绝对是两者的结合。[/color]:[color]{}**我们可以看到，其</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>OpenAI Deep Research（ODR）是继 Operator 之后推出的第二个 Agent 产品，基于 o3 模型进行强化微调（RFT），单次任务通常耗时 5 至 30 分钟。该项目起源于约一年前，灵感来自推理模型在数学和科学领域&quot;先思考再回答&quot;范式的成功实践。</p>
+<p>Deep Research 的核心突破在于采用端到端强化学习训练，而非依赖传统的僵化操作图或脚本。训练数据专门针对困难浏览任务和推理任务收集，模型同时具备浏览工具与 Python 工具的访问权限。这种端到端训练方式使推理模型在处理远距离多跳复杂任务时实现质的飞跃——研究过程中存在大量事先无法预测的中间步骤，端到端训练赋予模型动态调整策略的灵活性，而非按固定流程执行。</p>
+<p>其核心工作流程为：接收用户请求→模型思考→搜索信息→理解内容关联→决定下一步搜索方向→整合输出带引用的完整报告。模型能力的本质来源是实时网络访问与链式思考（CoT）的结合，从思维链输出中可清晰观察到智能规划搜索路径的过程。</p>
+<p>产品面向所有知识工作者，擅长挖掘不会出现在搜索结果首页的冷门、细分信息，支持市场调研、医疗科研、购物决策、旅行规划等复杂多维度查询。目前唯一接近 ODR 效果的竞品是 Grok Deep Search，其完整思考过程也间接佐证了端到端 RL 训练路线的有效性。底层模型已支持图像处理与图表生成，但相关功能尚未完全向 ChatGPT 用户开放；编程类问题则更适合直接使用 o1 或 o3-mini，因其依赖预训练知识而非网络搜索。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Deep Research基于o3推理模型进行端到端强化微调（RFT），通过收集困难浏览和推理任务训练，模型自主习得复杂研究策略</li>
+<li>端到端训练而非僵化操作图是Deep Research实现突破的关键，推理模型经RL训练后处理复杂任务能力实现质的飞跃</li>
+<li>Deep Research能将人类需要数小时甚至数天的知识研究任务压缩至5至30分钟，覆盖商业和个人消费两大场景</li>
+<li>产品设计引入引用机制与澄清流程，以建立用户透明度和信任度，是Agent产品化的重要决策</li>
+<li>OpenAI将持续推出更多Agent产品，Deep Research与Operator仅是开始，推理模型+强化学习是Agent未来核心技术方向</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2705635548.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>
