@@ -140,10 +140,6 @@ def check_updates(workspace, task, source_id):
         events = history(root)
         artifact = next((e["artifact"] for e in reversed(events) if e.get("artifact")), None)
         impact = impact_view(root, {"source_files": {source_id: {"status": "changed"}}}, artifact)
-        lines = safe_path(root, artifact).read_text(encoding="utf-8").splitlines() if artifact else []
-        for claim in impact["affected_claims"]:
-            for location in claim["locations"]:
-                location["text"] = lines[location["line"] - 1]
         result.update(artifact=artifact, affected_claims=impact["affected_claims"],
                       unlinked_source_ids=impact["unlinked_source_ids"],
                       location_scope="Existing literal claim/source-link matches; inspect these passages before deciding what to revise.")
