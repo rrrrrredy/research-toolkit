@@ -139,6 +139,7 @@ def impact_view(root, summary, artifact):
             heading = line.lstrip("# ")
         locations.append((number, line, heading))
     affected = []
+    contexts = {}
     for key, row in claims.items():
         supporting = set(re.split(r"[;,|\s]+", row.get("supporting_sources", "").strip())) - {""}
         linked = supporting & source_ids
@@ -154,8 +155,16 @@ def impact_view(root, summary, artifact):
                 if (url and re.search(re.escape(url) + r"(?=$|[\s)<>\]\"'])", line)) or re.search(r"\[" + re.escape(sid) + r"\]", line):
                     reasons.append("source_link:" + sid)
             if reasons:
-                matches.append({"line": number, "heading": heading, "matched_by": reasons,
-                                "text": line, "context": paragraph_context(lines, number - 1)})
+                location = {"line": number, "heading": heading, "matched_by": reasons, "text": line}
+                context = paragraph_context(lines, number - 1)
+                identity = (artifact, context["start_line"], context["end_line"], context["text"])
+                if identity in contexts:
+                    location["context_ref"] = contexts[identity]
+                else:
+                    location["context"] = context
+                    # References always target an inline context in this same response.
+                    contexts[identity] = {"claim_id": key, "line": number}
+                matches.append(location)
         affected.append({"claim_id": key, "claim": row.get("claim"), "changed_source_ids": sorted(linked),
                          "locations": matches, "location_status": "matched" if matches else "not_located"})
     return {"records": records, "source_files": summary.get("source_files", {}), "artifact": artifact,
