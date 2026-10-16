@@ -2,8 +2,6 @@
 
 This site uses committed HTML in `docs/`, deployed by the existing GitHub Pages build. No framework migration, CMS, analytics service or deployment-setting change is needed. Website work here improves discoverability and source traceability; it does not promise indexing, rankings, AI citations, usage or stars.
 
-The optional `docs/materials/` reading pages are exported from `agent-trajectory-data/corpora/ai-industry` using that repository's `scripts/export_ai_industry_site.cjs`. Edit the source Markdown there, export, then run the normal site builder. `materials/pages.json` extends the existing metadata manifest; no additional website runtime is needed. Catalogs and guides have bilingual entries; article bodies keep their original language. The original Markdown and all historical versions remain linked from each page.
-
 ## Editing and checks
 
 Run from the repository root with Python 3.10+ (standard library only):
