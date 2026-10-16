@@ -11,12 +11,15 @@
 <body><main class="report-shell materials-reader">
 <nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
 <article class="report-article"><h1>大模型领域近期热门论文202410-1</h1>
+<p class="material-status">保存正文，尚未核实</p>
+<details class="material-notes"><summary>来源、历史版本与整理说明</summary>
 <p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
 材料编号：D-2536812517。版本：9bd1dbae6d94f91750ba2160f27e83ebb643a81dfbc2441796adbf5a019adce4。</p>
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/88</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/9bd1dbae6d94f91750ba2160f27e83ebb643a81dfbc2441796adbf5a019adce4.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<h2>保存的正文</h2>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2536812517.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<section class="material-body"><h2>保存的正文</h2>
 <p>大模型领域近期热门论文202410-1</p>
 <h1>一、苹果发布论文质疑 LLM 的思考与推理能力</h1>
 <p>苹果的研究者近期发布<a href="https://arxiv.org/abs/2410.05229">论文</a>，探究了 AI 大模型（LLM）是否能像人类理解的那样「思考」或「推理」，其结论更倾向于「否」。改论文一作是苹果机器学习研究工程师 Iman Mirzadeh，图灵奖得主 Yoshua Bengio 的弟弟 Samy Bengio 也是作者之一。该工作通过向小学数学问题中添加无关的额外信息，测试了大型语言模型（LLM）在数学推理任务中的表现。研究者创建了一个名为 GSM-Symbolic 的增强基准，使用符号模板生成 GSM8K 问题的多样化变体，以评估 LLM 在不同设置下的性能，通过比较模型在原始问题和添加了无关信息的问题上的表现，了解模型是否真正理解了问题，还是仅仅依赖于模式匹配。<br>该工作的核心发现在于，LLMs 在回答同一问题的不同实例时表现出显著的差异；当问题中的数值发生变化时，所有模型的性能都会下降；随着问题中子句数量的增加，数学推理能力显著下降；添加一个看似相关但实际上不影响推理链的子句，会导致模型性能大幅下降（最高达 65%）。<br>经测试，在 GSM - Symbolic 基准下，对比 25 个模型的表现，研究者发现模型在该基准上的平均性能低于 GSM8K，且所有模型在处理同一问题的不同表述时，性能波动较大。不同模型在 GSM8K 测试中得分差异明显，如 Llama 8B 得分在 70% - 80%，Phi - 3 得分在 75% - 90% 等。模型对专有名词的变化相对稳健，但对数值变化非常敏感，随着子句数量增加，模型性能下降，方差增加，如在 GSM - Symbolic 不同难度变体测试中，从 GSM - M1 到 GSM - P2，性能逐渐下降，方差逐渐增大。</p>
@@ -63,6 +66,7 @@
 <li>REPA通过将预训练视觉表征对齐扩散Transformer，实现超17.5倍训练加速，FID达1.42的生成质量SOTA</li>
 <li>DeepSeek提出Janus框架，将多模态理解与生成的视觉编码路径解耦，在统一框架下超越专用任务模型性能</li>
 </ul>
+</section>
 </article>
-<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2536812517.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+
 </main></body></html>
