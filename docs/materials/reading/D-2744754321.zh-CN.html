@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1 月第 3 周：海外推实时推理与多模态应用，国内全栈技术加速场景化应用 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="1 月第 3 周：海外推实时推理与多模态应用，国内全栈技术加速场景化应用。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2744754321.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>1 月第 3 周：海外推实时推理与多模态应用，国内全栈技术加速场景化应用</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2744754321。版本：8a017f95e4f1a60c30934d82ce93865d04427277013399fefb1a0567456bb9b5。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/35</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/8a017f95e4f1a60c30934d82ce93865d04427277013399fefb1a0567456bb9b5.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>1 月第 3 周：海外推实时推理与多模态应用，国内全栈技术加速场景化应用</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：算力竞争加剧与商业化模式变革</strong></p>
+<p>本周海外 AI 的趋势呈现出 “多层次算力竞争与商业化生态重塑” 的局面。</p>
+<p><strong>1.1.</strong> <strong>算力层呈现 &quot;软硬协同 + 垂直整合&quot; 双重特征</strong>。 英伟达提出 GDPO 算法挑战 GRPO，将硬件厂商的战场延伸至训练算法层，试图通过软件定义 GPU 价值；Meta 启动 &quot;Meta Compute&quot; 基础设施计划并大规模扩招，标志着 AI 算力正从外部采购转向 &quot;自建 + 自研&quot; 的体系化竞争；OpenAI 与 Cerebras 的超百亿合作则将专用芯片价值推向台前 ——750 兆瓦算力直指 &quot;实时推理&quot; 场景，暗示下一代 AI 竞争焦点将是响应速度而非单纯参数量。这种趋势表明，算力战争已进入 &quot;效能细分&quot; 阶段：训练芯片、推理芯片、实时交互芯片的需求开始分化。</p>
+<p><strong>1.2. 商业化从单一订阅走向 &quot;混合变现 + 协议控制&quot;。</strong> OpenAI 启动广告测试并推出 8 美元 ChatGPT Go，ARR 突破 200 亿美元，清晰传递信号：头部企业正构建 &quot;免费增值广告 + 分层订阅 + 企业服务&quot; 的三位一体模式。更关键的是 Google 开源 UCP 购物协议，联合 Shopify、沃尔玛等 20 家零售巨头定义 AI Agent 支付标准 —— 这不仅是技术开源，更是支付入口的 &quot;圈地运动&quot;，试图复制 Android 时代的生态控制力。广告、交易佣金、协议授权将成为 AI 应用层的三大现金流。</p>
+<p><strong>1.3. 多模态与 Agent 能力完成 &quot;从可用到原生&quot; 的跃迁。</strong> Google Veo3.1 直接内嵌 YouTube Shorts 创作流，取消 &quot;先生成再上传&quot; 的割裂；Apple Intelligence 正式采用 Gemini 作为基础模型，意味着 device-cloud-native 的混合架构成为高端玩家的唯一选择 ；Anthropic 将 Cowork 下放至 20 美元 Pro 用户，微软 VS Code Copilot Studio 扩展下载破 1.3 万次，印证 Agent 能力正从 &quot;极客玩具&quot; 变为 &quot;生产力标配&quot;。 2026 年将是 Agent 协议标准化与场景碎片化并存的一年，谁能定义工作流接口，谁就能收割企业市场。</p>
+<p><strong>2.国内：全栈自主突破与场景深度卡位</strong></p>
+<p>本周国内 AI 的核心趋势是 “自主研发加速与场景化应用快速落地”。</p>
+<p><strong>2.1. 国产 AI 基础设施迎来 &quot;全栈验证&quot; 里程碑。</strong> 智谱 GLM-Image 在昇腾 Atlas 800T A2 芯片 + MindSpore 框架上完成从数据到训练的全流程，并登顶 Hugging Face Trending 榜首，这标志着国产 AI 芯片与框架组合首次在 SOTA 多模态模型上验证 &quot;性能无损&quot;。这不是简单的适配成功，而是证明中国已具备绕过 CUDA 生态构建自主技术栈的可行性，其战略意义堪比鸿蒙突破安卓壁垒。DeepSeek Engram 架构论文署名创始人梁文锋，更暗示下一代模型将深度融合 &quot;查找式记忆&quot;，在架构层与 Transformer 拉开代差。</p>
+<p><strong>2.2. 超级 App 的 &quot;AI 吞噬效应&quot; 全面显现。</strong> 阿里千问 App 月活破亿仅用时两个月，通过 ACT 协议打通淘宝、支付宝、飞猪、高德等 40 余个场景，实现 &quot;一句话点外卖、订机票、办签证&quot;—— 这不是功能升级，而是超级 App 向 &quot;AI 操作系统&quot; 的惊险一跃。同样，滴滴 &quot;小滴&quot;Agent 将十年精细化运营数据（车型、后备箱空间、司机偏好）转化为 AI 决策壁垒，证明中国企业的核心优势不在基座模型，而在场景数据的 &quot;密度&quot; 与 &quot;闭环&quot;。豆包将 &quot;豆包爱学&quot; 从独立 App 并入主应用，进一步印证中国 AI 竞争已进入 &quot;主阵地决战&quot;，独立 AI 应用窗口期关闭。</p>
+<p><strong>2.3 垂直领域实现 &quot;单点超越&quot; 与 &quot;标准输出&quot;。</strong> 百川智能 M3 医疗模型在 HealthBench 全面超越 GPT-5.2，幻觉率低至 3.5%；阶跃星辰 Step-Audio-R1.1 在 Artificial Analysis 语音推理榜单以 96.4% 准确率碾压 Grok、Gemini；百度 ERNIE-5.0-0110 数学能力全球第二。更关键的是，这些突破伴随标准输出：面壁智能开源 AgentCPM-Explore 4B，MiniMax 发布 OctoCodingBench 基准，显示中国企业从 &quot;对标&quot; 转向 &quot;定义&quot;。2026 年中国 AI 的核心战场将是垂直场景的能力密度 + 评测标准话语权。</p>
+<p><strong>2.4. 视频生成从 &quot;离线渲染&quot; 迈向 &quot;实时世界模型&quot;。</strong> 快手可灵 ARR 突破 2.4 亿美元（12 月单月收入 2000 万美元），证明中国视频生成已成功商业化闭环；而生数科技 Vidu&quot;一键 AI MV&quot;、爱诗科技 PixVerse R1&quot;实时 1080P 世界生成&quot;、昆仑万维 Skywork Video&quot;项目制工作流&quot;，则共同指向视频生成正从 &quot;片段生产工具&quot; 升级为 &quot;实时交互引擎&quot;。尤其 PixVerse R1 的 &quot;流式记忆机制&quot; 让生成过程可连续调整，这标志着 AI 视频进入 &quot;可编程&quot; 时代，创作者不再是等待渲染的被动者，而是实时导演。</p>
+<p><strong>3.上周行业重点：Agent 协议层战争与架构创新第二曲线</strong></p>
+<p><strong>3.1. Agent 协议层成为中美观摩战的新高地。</strong> Google UCP 与支付宝 ACT 虽名字不同，但本质都是为 AI Agent 跨平台执行任务构建 &quot;信任与授权&quot; 基础设施。两者均强调 &quot;用户最终确认付款&quot; 的防火墙机制，显示行业共识：Agent 的可靠性不取决于模型能力，取决于协议对 &quot;权责边界&quot; 的定义。谁能让商家以最低成本接入、让用户最安心授权，谁就能掌握 &quot;AI 代办&quot; 的入口。本周 20 余家零售巨头支持 UCP，阿里生态全面接入 ACT，协议层战争已非技术之争，而是生态引力之争。</p>
+<p><strong>3.2. 大模型架构创新进入 &quot;后 Transformer&quot; 探索期。</strong> DeepSeek Engram 提出的 O (1) 查找式记忆、腾讯 WeDLM 用扩散模型改造自回归语言模型，标志着中国企业在架构层开始 &quot;查缺补漏&quot; 而非 &quot;跟随优化&quot;。Engram 将静态知识从计算中解耦，直击 Transformer&quot;重复构造已知模式&quot; 的效率瓶颈；WeDLM 用拓扑重排实现并行推理，速度提升 3-10 倍。这些创新共同指向一个方向：未来模型将分裂为 &quot;记忆密集型&quot; 与 &quot;推理密集型&quot; 双轨，而非所有任务共享同一套参数。架构创新是打破算力封锁的唯一解。</p>
+<p><strong>3.3. 商业化与监管进入 &quot;动态博弈&quot; 窗口期。</strong> OpenAI 在美国启动广告测试，同时承诺广告不出现在政治、健康、心理健康等敏感话题附近；xAI 因 Grok 生成未成年人不当内容遭加州、印度、印尼等 8 国调查，被迫紧急限权。这揭示生成式 AI 商业化的底层矛盾：个性化推荐需要数据纵深，但内容安全要求 &quot;主动刹车&quot;。各国监管步调不一（欧盟严格、美国分化、东南亚直接封禁），2026 年 AI 企业的全球化扩张速度将取决于其 &quot;合规架构&quot; 的灵活性，而非模型性能。</p>
+<p><strong>3.4. 人才流动从 &quot;薪酬战&quot; 升级为 &quot;理念战&quot;。</strong> OpenAI 心理安全负责人 Vallone 转投 Anthropic，公开理由是 &quot;在全新情境下通过微调塑造 Claude 安全准则&quot;；陈立杰从 UC Berkeley 停薪留职加盟 OpenAI 数学团队，显示顶尖人才的选择已从 &quot;去哪赚钱&quot; 转向 &quot;去哪实现技术理想&quot;。Thinking Machines Lab 两位创始人 &quot;闪电回归&quot;OpenAI，则暴露初创公司在算力与资本密度面前的生存困境：当巨头愿意支付 &quot;时间溢价&quot; 收购团队，独立创新的窗口期可能不足 18 个月。</p>
+<p><strong>4.补充层面：地缘政治、能耗瓶颈与开源的战略性</strong></p>
+<p><strong>4.1. 地缘政治从 &quot;全面封锁&quot; 转向 &quot;精准管控&quot;。</strong> 特朗普政府有条件放行英伟达 H200 对华出口（限 50% 销量 + 军事用途审查 + 25% 附加费），策略从拜登时代的 &quot;一刀切断供&quot; 转向 &quot;关税 + 配额 + 安全审查&quot; 的组合拳。这反而倒逼中国 AI 企业加速 &quot;国产替代&quot;—— 智谱 GLM-Image 全栈国产训练成功，DeepSeek 坚持开源架构创新，短期看是被动应对，长期看可能催生 &quot;中美双生态&quot;。但 H200 的放行也暗示美国在 AI 芯片管制上存在 &quot;商业利益&quot; 与 &quot;国家安全&quot; 的内部分裂，未来管制政策将更不稳定，企业需构建 &quot;可切换&quot; 的算力韧性。</p>
+<p><strong>4.2. AI 能耗正从 &quot;商业成本&quot; 变为 &quot;公共问题&quot;。</strong> xAI Colossus 2 首个 GW 级集群导致 PJM 电网 6700 万居民面临停电风险，Meta 官宣 &quot;能源使用将成倍增长&quot;，揭示 AI 发展的物理极限已现。2025 年全球数据中心用电量占全球 3%，2030 年预计达 15%，&quot;绿色算力&quot; 将从 ESG 口号变为生存底线。未来 AI 竞争不仅是芯片性能，更是每瓦特 Token 产出率。中国 &quot;东数西算&quot; 工程的战略价值将凸显，能耗效率可能成为超越模型参数的新护城河。</p>
+<p><strong>4.3. 开源从 &quot;技术理想&quot; 进化为 &quot;商业武器&quot;。</strong> Google 开源 UCP 协议是为锁定支付生态，智谱开源 GLM-Image 是验证国产芯片能力，面壁智能开源 4B Agent 模型是争夺端侧标准，开源不再是 &quot;免费贡献&quot;，而是 &quot;标准制定权&quot; 的低成本路径。尤其 TranslateGemma 12B 性能反超 27B 基线，证明开源模型可通过架构创新实现 &quot;以小博大&quot;，这对依赖闭源大参数模型的商业模式构成根本挑战。2026 年，开源将不再是 &quot;可选项&quot;，而是 AI 企业生态扩张的 &quot;必选项&quot;。</p>
+<p><strong>4. AI 安全从 &quot;合规成本&quot; 转向 &quot;产品核心竞争力&quot;。</strong> xAI 因 Grok 内容安全漏洞遭 8 国监管围攻，Anthropic 用 &quot;安全文化&quot; 吸引 OpenAI 核心人才，百度文心 App 内测 &quot;多人多 Agent 群聊&quot; 强调 AI&quot;理解群聊氛围精准介入&quot;，显示 &quot;可控性&quot; 正成为用户选择 AI 产品的首要因素。过去 &quot;能力越强越受欢迎&quot;，未来将是 &quot;能力越强越需安全护栏&quot;。AI 产品的 PMF（产品市场契合度）公式已从 &quot;能力 &gt; 体验&quot; 演变为 &quot;安全 &gt; 能力 &gt; 体验&quot;，谁在安全对齐上投入更早，谁就能在 To B 和 To G 市场获得溢价。</p>
+<p>:::heading{level=3 align=start}
+二、海外</p>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 3,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**英伟达**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n挑战 GRPO，英伟达提出 GDPO，专攻多奖励优化\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;GRPO 是促使 DeepSeek-R1 成功的基础技术之一。最近一两年，GRPO 及其变体因其高效性和简洁性，已成为业内广泛采用的强化学习算法。\n\n但随着语言模型能力的不断提升，用户对它们的期待也在发生变化：不仅要回答正确，还要在各种不同场景下表现出符合多样化人类偏好的行为。为此，强化学习训练流程开始引入多种奖励信号，每一种奖励对应一种不同的偏好，用来共同引导模型走向理想的行为模式。\n\n但英伟达的一篇新论文却指出，在进行多奖励优化时，GRPO 可能不是最佳选择。\n\n具体来说，在多奖励优化场景中，GRPO 会将不同的奖励组合归一化为相同的优势值。这会削弱训练信号，降低奖励水平。\n\n为了解决这一问题，他们提出了一种新的策略优化方法 —— 组奖励解耦归一化策略优化（GDPO）。该方法通过对各个奖励信号分别进行归一化，避免了不同奖励之间被混合「抹平」，从而更真实地保留它们的相对差异，使多奖励优化更加准确，同时显著提升了训练过程的稳定性。\n\n在工具调用、数学推理和代码推理这三类任务上，论文将 GDPO 与 GRPO 进行了对比评测，既考察了正确性指标（如准确率、缺陷比例），也评估了对约束条件的遵守情况（如格式、长度）。结果显示，在所有设置中，GDPO 都稳定地优于 GRPO，验证了其在多奖励强化学习优化中的有效性和良好泛化能力。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n美国政府正式批准英伟达 H200 芯片对华出口\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;1 月 13 日，美国特朗普政府周二正式放行英伟达面向中国的第二强人工智能芯片 H200 出口，在华盛顿对华强硬派的强烈忧虑声中，为这款芯片对华出货打开通道。\n\n根据新规，经第三方测试实验室确认技术性能后，H200 才能出口中国，同时销往中国的数量不得超过面向美国客户销售总量的 50%。英伟达需出具证明，确保美国本土拥有足够数量的 H200 芯片，而中国客户则必须证明具备「充足的安全程序」，且不得将该芯片用于军事目的。\n\n美国总统特朗普上月宣布，将允许相关芯片向中国销售，并对相关销售征收 25% 的费用，此举随即遭到美国朝野对华强硬派的批评，认为这将大幅增强北京在人工智能领域的实力，削弱美国在该领域的领先优势。正是出于类似担忧，拜登政府此前曾禁止向中国出口先进 AI 芯片。\n\n不过，现任政府内部以白宫「人工智能主管」大卫・萨克斯为代表的阵营则主张，通过向中国出口先进 AI 芯片，可以抑制包括华为在内的中国竞争对手加倍投入，自主追赶英伟达和超微半导体（AMD）等公司最先进芯片设计的动力。报道称，这一政策调整预计将加速英伟达 H200 芯片面向中国市场的发货进程，但围绕美国对华人工智能技术管控走向的国内争论仍将持续。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;:</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周AI领域呈现出海外算力竞争与国内全栈自主两条并行主线。算法层面，英伟达提出GDPO算法正面挑战DeepSeek-R1所依赖的GRPO——后者在多奖励优化场景中会将不同奖励归一化为相同优势值，削弱训练信号，而GDPO通过对各奖励信号分别归一化加以修正，在工具调用、数学推理、代码推理三类任务上全面优于GRPO，将硬件厂商之争延伸至训练算法层。</p>
+<p>算力与商业层面，OpenAI与Cerebras达成超百亿美元合作，750兆瓦算力专攻实时推理场景；OpenAI启动广告测试，ARR突破200亿美元，并推出8美元版ChatGPT Go。人才流动同样值得关注：竞赛顶尖选手陈立杰从UC Berkeley停薪留职加盟OpenAI数学团队，Thinking Machines Lab两位创始人亦回归OpenAI，折射出初创公司在算力与资本压力下独立窗口期不足18个月的残酷现实。</p>
+<p>地缘博弈上，特朗普政府有条件批准H200对华出口，要求对华销量不超过美国销量的50%，客户须通过第三方认证且不得用于军事目的，白宫AI主管萨克斯认为此举可抑制华为等企业自研动力，策略从全面封锁转向精准管控。</p>
+<p>国内方面，智谱GLM-Image在昇腾芯片与MindSpore框架上完成全流程验证并登顶Hugging Face榜首，实现全栈国产化训练；阿里千问App月活破亿仅用两个月，通过ACT协议打通40余个场景；百川智能M3医疗模型在HealthBench上超越GPT-5.2，幻觉率低至3.5%；DeepSeek创始人梁文锋署名的Engram架构提出O(1)查找式记忆机制。此外，Google开源UCP购物协议联合Shopify等20家零售商定义AI Agent支付标准，xAI Grok内容安全漏洞遭8国监管围攻，AI能源消耗问题亦随Colossus 2 GW级集群影响PJM电网6700万居民而升级为公共议题。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>英伟达提出GDPO算法，通过对各奖励信号分别归一化解决GRPO在多奖励优化中的信号削弱问题，在工具调用、数学推理、代码推理任务上全面优于GRPO</li>
+<li>智谱GLM-Image在昇腾+MindSpore全国产技术栈上完成SOTA多模态模型训练并验证性能无损，标志中国具备绕过CUDA生态构建自主技术栈的可行性</li>
+<li>Google开源UCP购物协议联合20家零售巨头，阿里ACT协议打通40余个场景，Agent协议层战争本质是AI代办入口的生态圈地运动</li>
+<li>百川智能M3医疗模型幻觉率低至3.5%并超越GPT-5.2，阶跃星辰Step-Audio-R1.1语音推理准确率96.4%，国内垂直领域AI实现单点超越并开始输出评测标准</li>
+<li>DeepSeek Engram与腾讯WeDLM分别提出查找式记忆和扩散语言模型，标志大模型架构创新进入后Transformer探索期</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2744754321.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

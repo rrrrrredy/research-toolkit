@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：字节多篇研究领衔，豆包公布文生图模型技术报告、Seaweed-7B、Pixel-SAIL、SimpleAR 相继发布 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：字节多篇研究领衔，豆包公布文生图模型技术报告、Seaweed-7B、Pixel-SAIL、SimpleAR 相继发布。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2709924660.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：字节多篇研究领衔，豆包公布文生图模型技术报告、Seaweed-7B、Pixel-SAIL、SimpleAR 相继发布</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2709924660。版本：c64efc99ab176f902d25a15ce22174119d2b8df03c086384d614d53b8e9ef3c0。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/153</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/c64efc99ab176f902d25a15ce22174119d2b8df03c086384d614d53b8e9ef3c0.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：字节多篇研究领衔，豆包公布文生图模型技术报告、Seaweed-7B、Pixel-SAIL、SimpleAR 相继发布</p>
+<h3>一、模型层</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th></th>
+<th>**公司/院校/机构**</th>
+<th>**简介**</th>
+<th>**详情**</th>
+</tr>
+<tr>
+<td></td>
+<td>浙江大学、中南大学、上海交通大学、Tiktok、北京大学、南洋理工大学</td>
+<td>一行代码，FreDF频域损失稳定提升时间序列预测精度<br><br>Hao Wang, Licheng Pan, Zhichao Chen, Degui Yang, Sen Zhang, Yifei Yang, Xinggao Liu, Haoxuan Li, Dacheng Tao.&quot;FreDF: Learning to Forecast in Frequency Domain.&quot;arXiv:2402.02399 [cs.LG]</td>
+<td>[本文](https://openreview.net/forum?id=4A9IdSa1ul)由浙江大学、中南大学、上海交通大学、Tiktok、北京大学、南洋理工大学联合完成。第一作者王浩为浙江大学硕博连读生，发表 NeurIPS、ICLR、KDD、WWW、TOIS 等顶级会议和期刊十余篇。通讯作者为北京大学李昊轩助理研究员和南洋理工大学陶大程教授。<br><br>时间序列预测在气象预报、工业设备维护、医疗监测等领域具有关键应用价值。本文揭示现有方法忽略了标签序列中的自相关性，导致训练目标有偏。进一步，提出一种基于频域标签训练的新范式 ——FreDF，只需加入一行代码，即可在主流模型上实现预测精度的稳定提升。</td>
+</tr>
+<tr>
+<td></td>
+<td>CMU</td>
+<td>专家发文质疑：LLM 过度预训练是灾难性的<br><br>Jacob Mitchell Springer, Sachin Goyal, Kaiyue Wen, Tanishq Kumar, Xiang Yue, Sadhika Malladi, Graham Neubig, Aditi Raghunathan.&quot;Overtrained Language Models Are Harder to Fine-Tune.&quot;arXiv:2503.19206 [cs.CL]</td>
+<td>:[color]{rgb(62, 62, 62)}大语言模型（LLM）是根据不断增长的 token 预算进行预训练的，其假设是更好的预训练性能可以转化为更好的下游模型。[/color]<br><br>:[color]{rgb(62, 62, 62)}在[/color][这项工作](https://arxiv.org/abs/2503.19206):[color]{rgb(62, 62, 62)}中，来自卡内基梅隆大学的研究团队及其合作者对这一假设提出了质疑，并证明扩展预训练会使模型更难微调，从而导致最终性能下降。他们将这种现象称为灾难性过度训练（catastrophic overtraining）。例如，根据 3T token 预训练的指令微调 OLMo-1B 模型在多个标准 LLM 基准上的性能比其 2.3T token 对应模型差 2% 以上。[/color]<br><br>通过对照实验和理论分析，他们发现，灾难性过度训练源于预训练参数对修改（包括但不限于微调）的广泛敏感性的系统性增加。这一研究结果要求对预训练设计进行严格的重新评估，以考虑模型的下游适应性。</td>
+</tr>
+<tr>
+<td></td>
+<td>微软</td>
+<td>微软发布首个开源、原生 1-bit 大语言模型</td>
+<td>:[color]{rgb(62, 62, 62)}在[/color][这项工作](https://arxiv.org/abs/2504.12285):[color]{rgb(62, 62, 62)}中，微软研究院团队提出了 BitNet b1.58 2B4T——首个开源、原生 1-bit 大语言模型（LLM），参数规模为 20 亿。该模型在包含 4 万亿 token 的语料库中进行了训练，并在语言理解、数学推理、编码能力和会话能力等方面进行了基准评估。[/color]<br><br>:[color]{rgb(62, 62, 62)}结果表明，BitNet b1.58 2B4T 的性能与同等规模的领先开放权重、全精度 LLM 不相上下，同时在计算效率方面具有显著优势，包括大幅减少内存占用、能耗和解码延迟。[/color]<br><br>为了促进进一步的研究和应用，他们发布了模型权重以及 GPU 和 CPU 架构的开源推理实现。</td>
+</tr>
+<tr>
+<td></td>
+<td>:[color]{rgb(62, 62, 62)}新加坡国立大学和 Sea AI Lab [/color]</td>
+<td>ActPRM：通过主动学习高效训练 PRM<br><br>Keyu Duan, Zichen Liu, Xin Mao, Tianyu Pang, Changyu Chen, Qiguang Chen, Michael Qizhe Shieh, Longxu Dou.&quot;Efficient Process Reward Model Training via Active Learning.&quot;arXiv:2504.10559 [cs.LG]</td>
+<td>:[color]{rgb(62, 62, 62)}过程奖励模型（PRM）为大语言模型（LLMs）提供了阶段级监督，但对于人类和 LLM 来说，扩大训练数据标注仍然是一项挑战。[/color]<br><br>:[color]{rgb(62, 62, 62)}为了解决这一局限性，来自新加坡国立大学和 Sea AI Lab 的研究团队提出了一种主动学习方法 [/color][ActPRM](https://arxiv.org/abs/2504.10559):[color]{rgb(62, 62, 62)}，它可以主动选择最不确定的样本进行训练，从而大大降低标注成本。在训练过程中，他们使用 PRM 估算前向传播后的不确定性，只保留高度不确定的数据。随后，功能更强的推理模型会对这些数据进行标注。然后，他们计算与标注相关的损失，并更新 PRM 的权重。[/color]<br><br>:[color]{rgb(62, 62, 62)}他们在基于池的主动学习设置中比较了 ActPRM 和 vanilla 微调，结果表明 ActPRM 减少了 50% 的标注，但却实现了相当甚至更好的性能。除了标注效率之外，他们还利用 ActPRM 过滤了 100 多万条数学推理轨迹，保留了 60% 的数据，从而进一步提高了主动训练 PRM 的性能。与同等规模的模型相比，在这一选定数据集上进行的后续训练在 ProcessBench（75.0%）和 PRMBench（65.5%）上产生了 SOTA PRM。[/color]</td>
+</tr>
+</table></div>
+
+<h3>二、推理</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[color]{rgb(62, 62, 62)}浙江大学、西湖大学[/color]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n大模型是否会真正的数学推理\n:::\n\n:::paragraph{align=center indent=0}\nYang Yan, Yu Lu, Renjun Xu, Zhenzhong Lan.\&quot;Do PhD-level LLMs Truly Grasp Elementary Addition? Probing Rule Learning vs. Memorization in Large Language Models.\&quot;arXiv:2504.05262 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:[color]{rgb(62, 62, 62)}尽管 benchmark 分数很高，但大语言模型（LLM）经常在简单的问题上失败，这就提出了一个关键问题：LLM 是在学习数学原理，还是仅仅在记忆模式？[/color]\n\n:[color]{rgb(62, 62, 62)}在[/color][这项工作](https://arxiv.org/abs/2504.05262):[color]{rgb(62, 62, 62)}中，来自浙江大学和西湖大学的研究团队没有设计更为复杂的 benchmark，而是使用基本的二进制加法（0 到 2^64）来研究这个问题，探究了两个核心特性：交换律（A+B=B+A）和组合泛化（通过同构符号映射，例如，7 映射为 y）。SOTA LLM 在数字加法上的准确率为 73.8%-99.8%，而在符号映射下的准确率则下降到 7.5% 及以下，这表明所学规则的泛化失败。数字数量增加时的非单调性能变化，以及频繁的交换律违反（超过 1700 例“A+B 不等于 B+A”），进一步证明了这一点。明确提供加法规则会使性能平均下降 81.2%，而自我解释则能保持基线准确率，这表明 LLM 的算术处理与人类定义的原则不一致。[/color]\n\n:[color]{rgb(62, 62, 62)}研究结果表明，当前的 LLM 依赖于记忆模式，而不是真正的规则学习，这凸显了架构上的局限性，以及需要新方法来实现真正的数学推理。[/color]&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nTogetherAI\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nM1：基于 Mamba 的混合线性 RNN 推理模型\n:::\n\n:::paragraph{align=center indent=0}\nJunxiong Wang, Wen-Ding Li, Daniele Paliotta, Daniel Ritter, Alexander M. Rush, Tri Dao.\&quot;M1: Towards Scalable Test-Time Compute with Mamba Reasoning Models.\&quot;arXiv:2504.10449 [cs.LG]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:[color]{rgb(62, 62, 62)}有效的推理对于解决复杂的数学问题至关重要。大语言模型（LLM）通过长 CoT 推理扩展了测试时计算，从而提高了性能。然而，由于其二次计算复杂度和线性内存要求，基于 transformer 的模型在扩展上下文长度方面受到了固有的限制。[/color]\n\n:[color]{rgb(62, 62, 62)}在[/color][这项工作](https://arxiv.org/abs/2504.10449):[color]{rgb(62, 62, 62)}中，来自 TogetherAI 的研究团队及其合作者提出了一种基于 Mamba 架构的混合线性 RNN 推理模型——M1，�</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周论文推荐以字节跳动多篇研究为主，涵盖文生图、视频生成等方向，同时多项来自高校与科研机构的工作引发关注。</p>
+<p>浙大等六机构联合提出<strong>FreDF</strong>，基于频域标签训练，一行代码即可提升时间序列预测精度，揭示了现有方法忽略标签序列自相关性导致的训练偏差问题，已发表于ICLR。卡内基梅隆大学研究发现&quot;灾难性过度训练&quot;现象：OLMo-1B模型在3T token预训练后，多个基准性能反比2.3T版本差2%以上，根源在于预训练参数对修改的敏感性系统性增加。微软研究院发布<strong>BitNet b1.58 2B4T</strong>，首个开源原生1-bit大语言模型，参数量20亿，在4万亿token上训练，性能与同规模全精度LLM相当，但内存、能耗和延迟显著更低。</p>
+<p>新加坡国立大学与Sea AI Lab提出主动学习方法<strong>ActPRM</strong>，通过筛选不确定性最高样本训练，将标注成本减少50%，在ProcessBench（75.0%）和PRMBench（65.5%）上达到SOTA，同时过滤100万条数学推理轨迹后仅保留60%数据即可进一步提升PRM性能。浙江大学与西湖大学团队以二进制加法（0到2^64）测试LLM数学理解能力，发现SOTA模型准确率虽达73.8%–99.8%，但在符号映射下骤降至7.5%以下，且出现超过1700例交换律违反，明确提供加法规则后性能平均下降81.2%，表明当前LLM依赖记忆模式而非真正规则学习。此外，TogetherAI提出基于Mamba架构的混合线性RNN推理模型<strong>M1</strong>，专攻复杂数学问题，采用线性RNN架构突破Transformer在长上下文推理中的二次复杂度瓶颈。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>字节跳动豆包集中发布文生图技术报告、Seaweed-7B视频生成模型、Pixel-SAIL像素级理解及SimpleAR自回归图像生成等多项成果，展现多模态生成领域全面布局。</li>
+<li>FreDF提出频域标签训练新范式，仅需一行代码即可修复时间序列预测中标签自相关性被忽略的问题，在主流模型上实现稳定精度提升。</li>
+<li>CMU团队发现LLM</li>
+<li>现象：过度扩展预训练token量会使模型对参数修改更敏感，导致微调后下游性能反而下降。</li>
+<li>微软发布BitNet b1.58 2B4T，首个开源原生1-bit LLM，在保持与同规模全精度模型相当性能的同时，显著降低内存占用、能耗和解码延迟。</li>
+<li>ActPRM通过主动学习机制选取不确定性最高样本进行标注，解决过程奖励模型训练中数据标注成本高昂的瓶颈问题。</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2709924660.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

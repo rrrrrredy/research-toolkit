@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>字节Coze/扣子概况 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="字节Coze/扣子概况。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2622291986.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>字节Coze/扣子概况</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2622291986。版本：4c8bed17542588694545cea1c9f51f4210248ac69650a51517dc27c283f62c36。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/238</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/4c8bed17542588694545cea1c9f51f4210248ac69650a51517dc27c283f62c36.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 384s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;abb3f6bf11e144b3a478f6862a781da4&quot;}
+字节Coze/扣子概况</p>
+<h1>一、核心要点梳理</h1>
+<p><strong>1.产品定位</strong>：扣子是字节跳动推出的AI应用开发平台，允许用户快速开发AI应用。产品支持无编程基础的用户通过可视化配置搭建AI应用。扣子定位为AI智能体开发平台，提供对话式AI服务。产品支持将AI应用发布到社交平台、通讯软件或网站等渠道。</p>
+<p><strong>2.用户群体</strong>：目标用户包括有AI应用开发需求的B端企业和C端个人。主要用户群体为中大型企业、创业公司、中小企业、AI爱好者和有效率提升需求的个人。</p>
+<p><strong>3.产品功能</strong>：提供AI应用编排能力，包括Prompt、插件、知识库、工作流、大模型、记忆功能。支持发布到豆包、扣子bot商店、应用分发平台、社媒账号平台和开发者社区。</p>
+<p><strong>4.商业化模式</strong>：扣子通过提供基础版和专业版服务实现商业化，专业版提供更高级的功能和服务。海外版Coze提供基于积分的套餐服务。</p>
+<p><strong>5.市场规模和竞争</strong>：扣子在Agent应用开发平台领域具有较高的用户规模和品牌热度。与百度APPBuilder、腾讯元器等竞品相比，扣子在应用编排能力和商业化探索上领先。</p>
+<p>**6.**对于非技术用户，产品的使用难度高，关键配置能力使用门槛高。对于有编程基础的用户，智能体的商业变现模式不清晰。</p>
+<h1>二、产品概述</h1>
+<h3>1.1.扣子产品概况</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ <strong>核心内容</strong></th>
+<th>__ <strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>产品定义</td>
+<td>扣子是字节跳动推出的AI应用开发平台，允许用户快速开发AI应用，解决多种AI应用场景。</td>
+</tr>
+<tr>
+<td>产品形态</td>
+<td>海外版名为Coze，国内版名为扣子，两者产品形态基本相同，但使用模型和插件能力略有不同。</td>
+</tr>
+<tr>
+<td>用户定位</td>
+<td>面向所有用户，包括无编程基础的用户，通过可视化配置快速搭建AI应用。</td>
+</tr>
+<tr>
+<td>核心特点</td>
+<td>1. AI应用开发平台，无需编程基础。<br>2. 应用以对话聊天Bot形式提供服务。<br>3. 支持发布到社交平台等外部渠道。</td>
+</tr>
+<tr>
+<td>产品功能</td>
+<td>允许用户基于大模型快速开发各类Bot，并将其发布到社交平台、通讯软件或部署到网站等渠道。</td>
+</tr>
+<tr>
+<td>访问方式</td>
+<td>海外版Coze需科学上网访问（<a href="https://www.coze.com/">www.coze.com</a>），国内版扣子可直接访问（<a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/www.coze.cn">www.coze.cn</a>）。</td>
+</tr>
+</tbody></table></div>
+<h3>1.2.字节为什么要做扣子这款产品？</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ <strong>核心内容</strong></th>
+<th>__ <strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AI Agent（智能体）的行业关注度</td>
+<td>AI智能体是AI和大模型兴起背景下的一个热点概念，被广泛讨论。</td>
+</tr>
+<tr>
+<td>AI时代的应用呈现形式</td>
+<td>业界普遍认同AI时代的应用将以Agent（智能体）的形式呈现，类似于移动互联网时代的APP。</td>
+</tr>
+<tr>
+<td>大厂对Agent的认知</td>
+<td>字节跳动等大厂的高层和专家认同Agent概念，其产品豆包也体现了这一点。</td>
+</tr>
+<tr>
+<td>AI应用领域的平台需求</td>
+<td>AI时代需要一个平台，以低门槛帮助用户快速搭建和分发AI应用，类似于应用商店。</td>
+</tr>
+<tr>
+<td>Agent开发平台的演变</td>
+<td>最初GPTs的出现让大家看到平台的雏形，但因其简单性，未能满足专业开发需求，随后更专业的Agent开发平台如扣子应运而生。</td>
+</tr>
+<tr>
+<td>豆包对扣子发展的推动</td>
+<td>豆包作为一个综合性AI智能体平台，其发展和对智能体的需求可能加速了扣子产品的发展。</td>
+</tr>
+</tbody></table></div>
+<h3>1.3.产品用户画像</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th>**核心内容**</th>
+<th>**描述**</th>
+</tr>
+<tr>
+<td>产品定位</td>
+<td>扣子是一个面向无编程基础用户的AI开发平台。</td>
+</tr>
+<tr>
+<td>主要目标客户群体</td>
+<td>包括有AI应用开发需求的B端企业和C端个人。</td>
+</tr>
+<tr>
+<td>B端企业“开发者”</td>
+<td>1. 中大型企业的研发部门和数字化提效团队：利用扣子减少开发成本，满足业务需求。<br><br>2. 创业公司和中小企业：快速搭建提升生产和企业效率的AI应用工具。</td>
+</tr>
+<tr>
+<td>C端个人“开发者”</td>
+<td>1. 关注AI的程序员群体：技术动态研究者和有研发效率需求的开发者。<br><br>2. AI科技爱好者：对AI科技有浓厚兴趣的用户，愿意了解AI工具和产品。<br><br>3. AI效率需求群体：需要提升个人办公、学习、生活、生产效率的群体，如办公白领和大学生。</td>
+</tr>
+</table></div>
+
+<h3>1.4.扣子的核心产品服务和功能</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ <strong>核心产品能力</strong></th>
+<th>__ <strong>描述</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AI应用编排能力</td>
+<td>包括Prompt、插件、知识库、工作流、大模型、记忆功能。</td>
+</tr>
+<tr>
+<td>Prompt</td>
+<td>提示词编排能力，用于创建智能体，扣子提供提示词优化功能。</td>
+</tr>
+<tr>
+<td>插件</td>
+<td>提供官方和用户创建的插件，累计上架700+个，官方插件50+个，包括效率工具、网页搜索、生活服务等。</td>
+</tr>
+<tr>
+<td>知识库</td>
+<td>支持上传本地文档、网页链接、笔记、在线文档、数据表、图片等格式。</td>
+</tr>
+<tr>
+<td>工作流</td>
+<td>提供流程编排能力，使用难度较大，但有模板功能降低门槛。</td>
+</tr>
+<tr>
+<td>记忆功能</td>
+<td>提供变量、数据库、文件、长期记忆等功能，以克服模型上下文限制。</td>
+</tr>
+<tr>
+<td>大模型</td>
+<td>提供字节豆包大模型服务，以及阿里通义千问等第三方模型服务。</td>
+</tr>
+<tr>
+<td>Bot应用发布渠道</td>
+<td>包括豆包、扣子bot商店，飞书应用中心，抖音小程序，微信小程序，社媒账号平台，开发者社区等。</td>
+</tr>
+<tr>
+<td>Bot商店</td>
+<td>用户可在Bot商店寻找现成的AI智能体工具，提高个人效率。</td>
+</tr>
+<tr>
+<td>企业版和商业化能力</td>
+<td>包括团队空间、专业版SaaS解决方案，以及将智能体发布为API/SDK的能力。</td>
+</tr>
+</tbody></table></div>
+<ul>
+<li>插件的种类：目前效率工具类的插件比较多，其次是网页搜索、生活服务、新闻工具类插件，具体明细数据如下</li>
+</ul>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          111
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n分类\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          108
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n总插件数量  \n​\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          156
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n官方插件数量  \n​\n:::&quot;
+    }
+  ],
+  [],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          111
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n新闻工具\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          108
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n60\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          156
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n7\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          111
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n照片与摄影  \n​\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          108
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n39\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          156
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n4\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          111
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n实用工具\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          108
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n426\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          156
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n22\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          111
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n便利生活\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          108
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n65\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          156
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n10\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          111
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n网页搜索\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          108
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n71\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          156
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n5\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          111
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n科学与教育\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          108
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n56\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          156
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n3\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          111
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n社交\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          108
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n13\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          156
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n0\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          111
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n游戏与娱乐\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          108
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n38\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          156
+        ],
+        &quot;bgCo</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>扣子（Coze）是字节跳动推出的AI智能体开发平台，分为国内版coze.cn和海外版coze.com，功能基本一致，模型略有差异。平台支持无编程基础用户通过可视化配置搭建AI应用，核心定位是让Bot以Agent形式落地，类比移动互联网时代的APP。</p>
+<p>目标用户覆盖B端与C端两大群体：B端包括中大型企业研发部门及创业公司，核心诉求是降低开发成本、提升效率；C端则面向程序员、AI爱好者、办公白领及大学生等有效率提升需求的个人用户。</p>
+<p>平台核心编排能力由六大模块构成：Prompt、插件、知识库、工作流、大模型和记忆功能。插件生态已累计上架700余个，其中官方插件50余个，涵盖效率工具、网页搜索、生活服务等类别。记忆功能提供变量、数据库、文件及长期记忆等多种选项，有效突破模型上下文长度限制。Bot支持发布至豆包、飞书、抖音、微信小程序及社媒账号等多个主流渠道，分发能力较为完善。</p>
+<p>商业化方面，扣子提供企业版产品，支持团队空间、SaaS方案及智能体API/SDK发布。与百度AppBuilder、腾讯元器等同类竞品相比，扣子在应用编排能力和商业化探索上处于领先位置。当前主要挑战在于非技术用户使用门槛较高，技术用户则面临智能体商业变现路径不清晰的问题。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>扣子定位为AI智能体开发平台，无需编程基础，支持可视化配置搭建对话式AI应用，并发布到社交平台、通讯软件或网站等渠道</li>
+<li>核心功能包括Prompt编排、700+插件、知识库（支持多格式上传）、工作流、记忆功能及多模型支持（豆包、通义千问等）</li>
+<li>目标用户涵盖B端中大型企业/创业公司和C端AI爱好者/效率需求个人，商业化通过基础版与专业版区分，海外版Coze采用积分套餐模式</li>
+<li>字节推出扣子的背景是AI Agent成为行业热点，业界认为AI时代应用将以Agent形式呈现，扣子填补低门槛Agent开发平台的市场需求</li>
+<li>与百度APPBuilder、腾讯元器等竞品相比，扣子在应用编排能力和商业化探索上具有领先优势，但非技术用户使用门槛较高</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2622291986.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

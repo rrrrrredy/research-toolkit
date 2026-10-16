@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kimi推理架构 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="Kimi推理架构。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2353060535.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>Kimi推理架构</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2353060535。版本：aa490ebdeabdaf08b7f482cb1068ae8c69aeb498fb8abd76ae02c01696995c97。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/66</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/aa490ebdeabdaf08b7f482cb1068ae8c69aeb498fb8abd76ae02c01696995c97.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>Kimi推理架构</p>
+<h1>一、核心要点</h1>
+<p>1.月之暗面和清华KVCache.ai团队公布了Kimi背后的推理架构（Mooncake）<a href="http://chrome-extension://bocbaocobfecmglnmeaeppambideimao/pdf/viewer.html?file=https%3A%2F%2Farxiv.org%2Fpdf%2F2407.00079">论文</a>，主要特点是采取了<strong>分离式的设计方案</strong>。</p>
+<p>2.本论文与很多 Prefill/Decoding 分离的论文不同的是，这套方案已经在大规模集群上进行几个月的验证并证明了方案的有效性。<strong>目前这套系统承载了 Kimi 线上80% 以上的流量</strong>。</p>
+<p>3.Mooncake在设计之时就考虑了可能出现的大流量场景，并针对这种情况专门研发。在模拟场景下，<strong>Mooncake最高能带来525%的吞吐量增长，实际场景中也能多处理75%请求</strong>。</p>
+<p>4.<strong>有行业观点认为，Mooncake这类的存算分离策略会是一个长期趋势</strong>。分离之后，允许整个系统往 “算力/$” 和 “带宽/$” 的两个方向独立发展，对硬件优化是更友好的。</p>
+<p>5.有很多方向可能会让Mooncake的架构变成没必要的方案：</p>
+<p>·given hardware lottery，新架构演进会是一个相当缓慢的过程（不AR、用RAG做 Attention等等方案），不能因噎废食。</p>
+<p>·很多资源也被投入在打破现有框架上，有理由相信在可见的未来推理方案还会变动。</p>
+<p>·由于目前海量的推理压力，所以软件系统做为一个迭代速度极快的方案，就应该一代模型一次跟进。</p>
+<p>·预测这个状态至少会持续2~3年，因此集群层面现在已经值得做拆分了。</p>
+<p>·芯片层面值得做为一个重要的设计考量，在芯片的IO能力上要多预留一些能力。</p>
+<p>​<img src="https://km.sankuai.com/api/file/cdn/2353060535/110635442960?contentType=1&isNewContent=false" alt="image.jpeg">{width=569 height=361 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2353060535/110636292125?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2353060535/110636292125?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2353060535/110636212383?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2353060535/110636212383?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2353060535/110636172767?contentType=1&isNewContent=false" alt="image.jpeg">{width=402 height=316 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2353060535/110635877437?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2353060535/110635877437?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2353060535/110636094656?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2353060535/110636094656?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2353060535/110635975025?contentType=1&isNewContent=false" alt="image.jpeg">{width=637 height=356 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2353060535/110634726531?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2353060535/110634726531?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2353060535/110635526918?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2353060535/110635526918?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>这就导致了两者在计算复杂度、内存访问方式、并行粒度和对延迟的敏感度上都存在差异：</p>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(255, 255, 255)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**阶段**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 3,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120,
+          120,
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(255, 255, 255)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n计算复杂度\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 2,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120,
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(255, 255, 255)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n内存访问方式\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 3,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120,
+          120,
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(255, 255, 255)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n并行粒度\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: &quot;rgb(255, 255, 255)&quot;,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n延迟敏感度\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n处理Token数量\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n主要影响因素\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n增长方式\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n方式\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n主要侧重点\n:::</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本文介绍了月之暗面（Moonshot AI）与清华KVCache.ai团队联合公布的Kimi线上推理架构——Mooncake。该架构的核心设计理念是采用分离式方案，即将Prefill（预填充）阶段与Decoding（解码）阶段进行分离，实现存算分离的推理架构。与其他同类Prefill/Decoding分离论文不同，Mooncake已在大规模生产集群上经过数月验证，目前承载了Kimi线上80%以上的真实流量，具有极高的工程可信度。在性能表现上，Mooncake在高流量模拟场景下最高可带来525%的吞吐量提升，在实际生产环境中也能多处理75%的用户请求，效果显著。文章还从多个维度分析了Prefill与Decoding两个阶段的本质差异，包括计算复杂度、内存访问方式、并行粒度以及延迟敏感度，这些差异是进行阶段分离的理论基础。从行业趋势角度，有观点认为以Mooncake为代表的存算分离策略将是长期发展方向，分离后系统可沿</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Mooncake是月之暗面与清华KVCache.ai团队联合研发的Kimi线上推理架构，核心采用Prefill与Decoding分离的存算分离设计方案</li>
+<li>该架构已在大规模生产集群验证数月，目前承载Kimi线上80%以上流量，具备充分的工程实践背书</li>
+<li>性能表现突出：模拟高流量场景下吞吐量最高提升525%，实际生产环境中可多处理75%的用户请求</li>
+<li>Prefill与Decoding两阶段在计算复杂度、内存访问方式、并行粒度和延迟敏感度上存在本质差异，是分离架构的核心依据</li>
+<li>存算分离被认为是长期趋势，可使系统沿算力与带宽两维度独立优化，芯片设计应在IO能力上预留更多空间</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2353060535.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

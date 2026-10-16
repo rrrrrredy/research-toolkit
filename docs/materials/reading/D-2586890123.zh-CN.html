@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>近期大模型行业重要信息202411-3 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="近期大模型行业重要信息202411-3。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2586890123.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>近期大模型行业重要信息202411-3</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2586890123。版本：8125a465bbf873a11cba54346eff218bdb4a89ed1675912d87e3467179c16d51。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/237</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/8125a465bbf873a11cba54346eff218bdb4a89ed1675912d87e3467179c16d51.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>近期大模型行业重要信息202411-3</p>
+<h1>一、国外</h1>
+<h2>1.谷歌新研究：由视频生成带有相机轨迹的新视频</h2>
+<p>:[color]{rgb(62, 62, 62)}最近，视频建模技术取得了突破性进展，可以在生成的视频中控制相机轨迹。然而，这些方法不能直接应用于用户提供的视频，因为这些视频不是由视频模型生成的。在这项研究中，来自谷歌和新加坡国立大学的研究团队[/color]<a href="https://arxiv.org/abs/2411.05003">提出</a>:[color]{rgb(62, 62, 62)}了 [/color]<a href="https://generative-video-camera-controls.github.io/">ReCapture</a>:[color]{rgb(62, 62, 62)}，这是一种从单个用户提供的视频中生成带有新颖相机轨迹的新视频的方法。通过这一方法，他们可以从不同的角度，以电影镜头的运动方式，重新生成包含所有现有场景运动的参考视频。[/color]</p>
+<p>:[color]{rgb(62, 62, 62)}值得注意的是，使用这一方法，他们还可以生成参考视频中无法观察到的场景部分。他们的方法是：（1）使用多视角扩散模型或基于深度的点云渲染技术，用新的相机轨迹生成有噪声的锚视频，然后（2）使用遮蔽视频微调技术，将锚视频重新生成干净且时间上一致的重新纠缠视频。[/color]</p>
+<h2>:[color]{rgb(62, 62, 62)}2.[/color]业界热议数据精度对 LLM 训练及 Scaling Law 影响</h2>
+<p>哈佛大学、斯坦福大学、MIT 和 CMU 等机构的研究者近日发布<a href="https://arxiv.org/abs/2411.04330">论文</a>，探究了在训练和推理大型语言模型时，数据精度对模型质量和成本的影响。该工作指出，当前的 Scaling Law 并未考虑到数据精度的影响，因而研究者尝试设计出「精度感知」的 Scaling Law，以预测不同精度下训练和推理的性能下降。<br>研究者首先分析了训练后量化（PTQ）对模型性能的影响，发现训练时间越长或预训练期间「看到」的数据越多，模型在推理时对量化就越敏感。<br>这种损失退化大致是预训练期间看到的 token/参数比值的幂律，因此可以提前预测关键数据大小，超过该数据大小的更多数据的预训练会非常有害。该工作提出了一个统一的 Scaling Law，引入了「有效参数计数」的概念，结合训练后量化退化，以预测不同精度下训练和推理的性能下降。研究者在超过 465 次预训练运行上拟合了这个定律，并在 1.7B 参数的模型上验证了其预测。<br>该工作对 Scaling Law 的解析引起了学界和社区的热议。UCSD 助理教授 Dan Fu 认为这篇论文指明了大模型量化的方向。CMU 教授 Tim Dettmers 表示，这是很长一段时间以来最重要的一篇论文。</p>
+<h2>3.斯坦福团队提出 HourVideo 长视频理解基准数据集</h2>
+<p>斯坦福的研究者近日发布论文，提出了<a href="https://arxiv.org/abs/2411.04998v1">HourVideo</a>基准数据集，用于评估多模态模型对长度 1 小时的视频的理解能力。该工作指出，多模态模型的发展使人们期待模型能够处理和理解更长时间的视觉数据，类似于人类在现实世界中感知、规划和行动的能力。然而，现有的视频理解和评估基准主要集中在单个图像或短视频片段上，这些通常只包含几秒钟到最多三分钟的视频，限制了对长视频理解能力的全面评估。<br>HourVideo 数据中涵盖大量长时间视频和设计的任务套件，涵盖总结、感知（回忆、跟踪）、视觉推理（空间、时间、预测、因果、反事实）和导航（房间到房间、对象检索）任务。<br>数据集包含 500 个第一人称视角的视频，时长在 20 到 120 分钟之间，涵盖 77 种日常活动，并包含了 12,976 个高质量、五选一的多项选择题。该工作基于 HourVideo 实验发现，即使是目前最先进的多模态模型，在长视频理解任务上的表现也仅略好于随机猜测，远远落后于人类专家的表现。其中，人类专家在 HourVideo 数据集上的表现准确率为 85.0%，而专为长上下文多模态理解设计 Gemini Pro 1.5 模型的准确率为 37.3%。</p>
+<h2>4.DeepMind 开源 AlphaFold3</h2>
+<p>DeepMind 近日在 github 平台开源了诺奖化学模型。<a href="https://github.com/google-deepmind/alphafold3">AlphaFold3</a> 模型是由谷歌 DeepMind 团队推出的 AI 模型，不仅能够预测蛋白质结构，还能预测出蛋白质与 DNA、RNA、抗体、小分子的相互作用。<br>AlphaFold3 的论文此前发表于《Nature》杂志上，但当时并未开源，学界许多声音对此表示不满。<br>在开源后，用户在本地部署 AlphaFold3 需要准备好 Linux 运行环境，至少 1TB 的磁盘空间和一块具有计算能力 8.0 或更高的 NVIDIA GPU 的硬件环境。同时，通过 git 下载 AlphaFold3 的代码库并利用「curl」和「zstd」获取基因数据库。</p>
+<h2>5.Scaling Law 瓶颈热议</h2>
+<p>据外媒 The Information 报道，OpenAI 的下一代旗舰模型在质量提升上可能不如前代模型显著，这引发了对 AI 发展 Scaling Law 是否遇到瓶颈的讨论。<br>有观点认为，随着可用数据的减少，基于数据的大模型发展可能放缓。OpenAI 的研究科学家 Noam Brown 等人表示反对，他们认为 AI 发展短期内不会放缓，并对 CEO 山姆·奥特曼关于 AGI（人工通用智能）发展路径的言论表示认同。也有意见指出，AI 行业正将重心转向在初始训练后对模型进行提升，以应对训练数据的匮乏。</p>
+<p>①「Orion」的模型并没达到预期效果。比如，到了夏末的时候，Orion 在处理没见过的编程问题时表现还不够理想；内部人士称，Orion 的编码性能不佳是由于缺乏足够的编码数据进行训练。</p>
+<p>②谷歌的下一个 Gemini 迭代本应是一次重大升级，但其表现也低于内部预期。同样，期待已久的 Anthropic Claude 3.5 Opus 的发布也被推迟；</p>
+<p>③谷歌正借鉴 OpenAI 推理模型的做法，弥补在模型训练阶段使用传统 Scaling Law 所带来的进展放缓。最近几周，DeepMind 在其 Gemini 团队中组建了一个新的小组，由首席研究科学家 Jack Rae 和前 Character.AI 联合创始人 Noam Shazeer 领导，旨在开发类似的能力。</p>
+<p>④另外，据透露，开发 Gemini 的 DeepMind 研究人员，也一直专注于对模型进行「手动改进」。其中便包括调整模型的「超参数」，即决定模型如何处理信息的变量，比如它如何快速地在训练数据中的不同概念或模式之间建立联系。研究人员在为模型调优的过程中，测试不同的超参数，以确定哪些变量能带来最佳结果。</p>
+<p>⑤谷歌在其传统方法中还遇到了一个问题：在用于开发 Gemini 的训练数据中发现了「大量重复信息」。他们表示，这种数据重复可能降低了 Gemini 的性能表现。对此，谷歌发言人表示，这类问题对研发团队来说并不陌生。</p>
+<p>谷歌此前寄希望于通过合成数据，以及音频和视频作为 Gemini 训练数据的一部分，能够带来显著性能提升，但这些尝试似乎并未产生预期的重大突破。</p>
+<p>对此，谷歌发言人表示，Gemini 模型「在处理音频和视觉信息方面已经展现出强劲的性能，我们将继续探索和推进多模态功能。</p>
+<p>⑥10月，Anthropic 官网上与 3.5 Opus 有关的措辞，包括表明它将「在今年晚些时候」到来和「即将推出」等，都被删除了。这引发了业内对 Opus 开发进展的猜测。</p>
+<p>知情人士表示，Caldue 3.5 Opus 在评估中的表现确实比旧版本好，但考虑到模型的规模以及构建和运行它的成本，性能提升并不如预期那么多。</p>
+<p>Anthropic 的发言人表示，关于 Opus 的语言从网站上移除是出于营销决策，只展示可用和已进行基准测试的模型。当被问及 Opus 3.5 是否仍会在今年推出时，该发言人指向了 Amodei 在播客中的言论。在采访中，这位CEO表示 Anthropic 仍计划发布该模型，但多次拒绝承诺具体时间表。6.OpenAI</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本文汇总了2024年11月大模型行业的多项重要进展。谷歌与新加坡国立大学联合提出ReCapture方法，能够从用户提供的单个视频中生成带有新颖相机轨迹的新视频，支持电影级镜头运动，并可还原原视频中不可见的场景区域，技术路径包括多视角扩散模型和基于深度的点云渲染。哈佛、斯坦福、MIT、CMU等顶校研究者联合发表论文，探讨数据精度对LLM训练与推理的影响，提出</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>谷歌与新加坡国立大学提出ReCapture方法，可将用户上传视频转换为带有新相机轨迹的新视频，支持生成原视频中不可见的场景内容</li>
+<li>多顶校联合研究提出精度感知Scaling Law，发现训练数据越多模型推理量化越敏感，基于465次预训练运行验证并在1.7B模型上确认预测有效性</li>
+<li>斯坦福HourVideo基准数据集显示，Gemini Pro 1.5在长视频理解任务上准确率仅37.3%，远低于人类专家85.0%，表明当前多模态模型长视频理解能力严重不足</li>
+<li>DeepMind开源AlphaFold3，可预测蛋白质与DNA、RNA、抗体及小分子相互作用，但本地部署硬件门槛较高</li>
+<li>Scaling Law瓶颈引发业界热议：OpenAI Orion编码性能不佳、谷歌Gemini训练数据重复问题突出、Anthropic Claude 3.5 Opus推迟发布，各公司开始转向推理阶段优化策略</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2586890123.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

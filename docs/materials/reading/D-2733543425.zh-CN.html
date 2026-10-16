@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>一月第三周：海外闭源堆栈“锁生态”，国内拆场景卷成本 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="一月第三周：海外闭源堆栈“锁生态”，国内拆场景卷成本。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2733543425.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>一月第三周：海外闭源堆栈“锁生态”，国内拆场景卷成本</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2733543425。版本：204e78ad26a0bc56da0131ecc7b002fc9d16faa23156a2ff009306fa65c58146。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/196</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/204e78ad26a0bc56da0131ecc7b002fc9d16faa23156a2ff009306fa65c58146.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>一月第三周：海外闭源堆栈“锁生态”，国内拆场景卷成本</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：平台级 “闭环” 竞争进入 2.0，安全与数据成为新护城河</strong></p>
+<ul>
+<li>微软、OpenAI、英伟达三家动作可以连起来看：<br>微软把 DevDiv、AI Platform、CTO 办公室打包成 CoreAI，表面是 “端到端 Copilot 堆栈”，实质是把 “模型 - 工具 - 运行时 - 云” 全部锁在自家生态，倒逼第三方在 Azure 上完成开发 - 部署 - 盈利闭环。</li>
+<li>OpenAI 上线 Tasks，把 ChatGPT 从 “对话” 升级为 “操作系统里的一个调度进程”，抢占用户 24h 的 “意图入口”；一旦意图数据沉淀，反向训练模型的飞轮将甩开追赶者。</li>
+<li>英伟达甩出 6.3 T tokens 的 Nemotron-CC，并同步发布 NIM 护栏 + Garak 扫描工具，相当于 “卖铲子之余再卖安检门”—— 训练数据、推理加速、安全合规一站式打包，客户预算一次性锁死。</li>
+</ul>
+<p>洞察：海外巨头正从 “卖 API” 转向 “卖系统”，把数据、算力、安全做成一张账单；留给初创公司的窗口只剩 “垂直场景插件” 或 “非主流芯片架构” 两条缝。</p>
+<p><strong>2.国内：流量见顶，开始 “拆场景、卷时延、压成本”</strong></p>
+<ul>
+<li>字节豆包月活破亿但独占 50%，预示 “超级 App” 红利见顶，第二梯队必须深耕细分。</li>
+<li>阿里妈妈 “图生视频”（淘宝星辰）、生数 Vidu 2.0 把 “电商短视频” 这一拆出来，目标是 “5 秒大片” 替代 “美工外包”，直接把 ROI 算到 CTR 层面，商家付费意愿远高于 “通用生成”。</li>
+<li>科大讯飞 X1、阶跃星辰 Step R-mini 主打 “深度推理 + 国产算力”，瞄准的是 “数学、医疗、代码” 三大高价值场景 —— 既能拉高单客价，又能规避中美算力卡脖子。</li>
+<li>面壁 MiniCPM-o 2.6 把 “端侧延迟” 压到 300 ms 级，宣告 7B 以下模型也能做 “实时多模态”，直接动摇 “云端推理” 商业模型；谁掌握 NPU IP，谁就拿到下一波手机 / 车机换机周期门票。</li>
+</ul>
+<p>洞察：国内已从 “大炼模型” 进入 “拆芯片、拆场景、拆预算” 的三拆阶段，竞争指标从参数规模转向 “每美元 token 成本” 和 “每毫秒延迟”。</p>
+<p><strong>3.上周行业重点：AI 安全从 “合规选项” 变成 “交付前提”</strong><br>英伟达 NIM 护栏、腾讯朱雀检测、OpenAI Tasks 的 “意图审计” 三线并进，说明 2025 年海内外招标书里将首次出现 “安全 KPI”—— 客户不再问 “有没有护栏”，而是问 “护栏漏报率 ≤0.1% 多少钱”。<br>一旦安全成为硬指标，会触发两个连锁反应：</p>
+<ul>
+<li>私有云 / 混合云需求回潮 —— 公有云多租户逻辑很难通过强合规审计；</li>
+<li>中小模型厂被迫外采安全层，英伟达、微软、腾讯的 “安全即服务” 将吃掉 10~15% 的算法预算，进一步挤压纯模型公司毛利。</li>
+</ul>
+<p><strong>4.补充视角：硬件碎片化 + 数据稀缺化，正在重塑成本曲线</strong></p>
+<ul>
+<li>硬件：微软 AI 搜索限定 “Copilot+ PC（NPU 40 TOPS）”、Luma Ray2 只给 720P/10s，背后都是 “算力预算刚性”—— 模型效果不再由参数决定，而由 TOPS 和显存墙决定。</li>
+<li>数据：英伟达 6.3 T tokens 里 30% 是合成数据，且公开喊 “高质量 + 已清洗”。当 Common Crawl 类公共资源被 “吃干榨尽”，合成数据质量就是下一个 “卡脖子” 变量；拥有闭环场景（如淘宝、微信、抖音）的公司将享受 “数据租金”。</li>
+</ul>
+<p>:::heading{level=3 align=start}
+二、海外</p>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**微软**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n微软组建新 AI 团队，瞄准端到端应用开发与部署\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;1 月 14 日消息，当地时间周一，微软 CEO 萨蒂亚・纳德拉发布博客，宣布将组建一个新的 AI 组织——CoreAI，专注于开发端到端的 AI 应用平台与工具，涵盖从应用开发到部署和运行的整个过程。据介绍，CoreAI 将汇集 Dev Div、AI Platform 以及 CTO 办公室的部分关键团队（IT 之家注：包括 AI 超级计算机、AI 智能体运行时和 Engineering Thrive），将由网络安全初创公司 Lacework 前首席执行官、Meta 前全球工程主管 Jay Parikh 领导，Eric Boyd、Jason Taylor、Julia Liuson、Tim Bozarth 及其各自的团队将向 Jay 汇报。其使命是为我们的第一方和第三方客户打造端到端的 Copilot 和 AI 堆栈，以构建和运行 AI 应用程序及智能体。该团队还将构建 GitHub Copilot，从而在领先的 AI 产品和 AI 平台之间建立紧密的反馈循环，以推动堆栈及其路线图的发展。纳德拉强调，微软在面对外部客户和竞争者时，应该突破部门之间的边界，鼓励跨部门合作，以提高反应速度和创新能力。他表示，新成立的团队将汇聚来自不同领域的专家，集中力量推动 AI 平台、工具和基础设施的研发。他补充说，微软未来能否在 AI 领域取得成功，将依赖于构建一个强大的 AI 平台、完善的开发工具和可靠的基础设施。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n微软开启 Windows AI 搜索测试\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;微软正在针对 Windows 11 Insider 测试者的新开发通道构建中测试人工智能驱动的 Windows 搜索。这一引擎已于 10 月份宣布，它使用语义索引让用户可以使用更随意的语言搜索本地文件。与其他微软 AI 功能一样，您需要一台 Copilot Plus PC 才能使用该功能。该功能适用于设置、文件资源管理器或任务栏中的搜索框。由于 Copilot Plus 电脑上的 NPU 芯片，无需连接互联网即可使用。目前，AI 搜索仅限于 Windows 设置以及图像和文本格式（包括 JPEG、PNG、PDF、TXT 和 XLS）的文件。微软表示，搜索仅适用于选择索引的位置中的文件。用户可以使用「设置」、「隐私」、「安全」、「搜索 Windows」下的选项调整这些位置，或者打开「增强」，为整个机器建立索引。该公司补充说，该功能最终将扩展到云数据，如存储在 OneDrive 中的数据。微软写道，人工智能支持的 Windows 搜索「将逐步推广到搭载骁龙处理器的 Copilot+ PC 上的 Windows Insiders」，稍后将支持英特尔或 AMD Copilot Plus 计算机。该功能将适用于设置为中文、英文、法文、德文、日文和西班牙文的电脑。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**英伟达**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n英伟达发布 6.3 万亿 Token 大型 AI 训练数据库 Nemotron-CC\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;1 月 13 日消息，据英伟达官方博客，英伟达宣布推出一款名为 Nemotron-CC 的大型英文 AI 训练数据库，总计包含 6.3 万亿个 Token，其中 1.9 万亿为合成数据。英伟达声称该训练数据库可以帮助为学术界和企业界进一步推动大语言模型的训练过程。目前，业界各类 AI 模型的具体性能主要取决于相应模型的训练数据。然而现有公开数据库在规模和质量上往往存在局限性，英伟达称 Nemotron-CC 的出现正是为了解决这一瓶颈，该训练数据库 6.3 万亿 Token 的规模内含大量经过验证的高质量数据，号称是「训练大型语言模型的理想素材」。数据来源方面，Nemotron-CC 基于 Common Crawl 网站数据构建，并在经过严格的数据处理流程后，提取而成高质量子集 Nemotron-CC-HQ。在性能方面，英伟达称与目前业界领先的公开英文训练数据库 DCLM（Deep Common Crawl Language Model）相比，使用 Nemotron-CC-HQ 训练的模型在 MMLU（Massive Multitask Language Understanding）基准测试中的分数提高了 5.6 分。进一步测试显示，使用 Nemotron-CC 训练的 80 亿参数模型在 MMLU 基准测试中分数提升 5 分，在 ARC-Challenge 基准测试中提升 3.1 分，并在 10 项不同任务的平均表现中提高 0.5 分，超越了基于 Llama 3 训练数据集开发的 Llama 3.1 8B 模型。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n英伟达推出 NIM AI 护栏服务，防止模型遭用户 “越狱”\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;1 月 18 日消息，英伟达宣布推出一项名为「NIM」的 AI 护栏服务，该服务现已以英伟达 NeMo 护栏（NeMo Guardrails）套件的形式提供，可以让开发人员为大语言模型（LLM）添加一系列护栏规则，旨在解决用户通过提示词「越狱」大模型，防止 AI 生成不符合预期的内容。英伟达表示，相应 AI 护栏服务套件基于英伟达的 Aegis 内容安全数据集进行训练而成，该数据集包含了 3.5 万个标注的数据样本，并已在 Hugging Face 上公开。英伟达指出，相应 AI 护栏套件具有体积小、效率高的特点，在大部分场合中都能流畅运行，企业可以在开发 AI 模型时直接嵌入相应安全套件，可以改善医疗、汽车、制造业等领域部署的 AI 安全性。此外，英伟达还提供了公布了一项名为 Garak 的漏洞扫描工具，用于检测模型的安全性，防止模型可能输出幻觉内容或泄露企业内部机密信息。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**OpenAI**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI 推出新功能“Tasks”，ChatGPT 可变身成 AI 私人助理\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;1 月 15 日消息，据外媒报道，OpenAI 今日在社交网络上宣布，为 ChatGPT 引入「Tasks」（任务）功能，支持用户安排提醒、更新和警报，来增强用户体验。目的是将 ChatGPT 转变为一个主动的助手。新功能「Tasks」目前还处于测试阶段，仅向付费订阅用户开放。凭借这一新增功能，用户可以使用简单、自然的语言提示轻松安排各种活动。ChatGPT 现在可以提供每日天气更新，提醒用户诸如护照续签或门票销售等重要日期，甚至还可以每天晚上给孩子们发送有趣的笑话。一旦安排好，ChatGPT 将在指定时间自动执行这些任务，使其成为管理日常活动的高效工具。要使用此功能，符合条件的用户必须从模型选择器中选择「带计划任务的 GPT - 4o」，并描述所需任务及其时间。虽然可以在任何平台上设置任务，但目前只能通过网页版的「任务」部分在个人资料菜单中管理和修改任务。该功能还提供一定程度的自动化，ChatGPT 会根据用户互动建议任务。用户可以选择接受或拒绝这些建议，让助手更好地满足个人需求。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;conte</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周AI产业呈现出海外巨头&quot;锁生态&quot;、国内厂商&quot;拆场景降本&quot;的分化态势。</p>
+<p>微软宣布整合DevDiv、AI Platform及CTO办公室，组建新部门CoreAI，由前Lacework CEO、Meta前全球工程主管Jay Parikh领导，目标是为内外部客户构建端到端的Copilot与AI堆栈，形成&quot;模型-工具-运行时-云&quot;闭环。与此同时，微软在Windows 11 Insider通道测试基于NPU芯片的本地语义搜索功能，当前支持设置、图片及文本文件，未来将延伸至OneDrive云端数据。</p>
+<p>英伟达同步发力数据与安全两条线：发布规模达6.3万亿Token的Nemotron-CC训练数据集，其中含1.9万亿合成数据；使用其高质量子集训练的80亿参数模型性能超越Llama 3.1 8B，MMLU得分较DCLM高出5.6分。安全侧，英伟达推出基于3.5万标注样本Aegis数据集的NIM护栏服务，并配套发布漏洞扫描工具Garak。OpenAI则为付费用户上线Tasks功能，支持自然语言设定定时提醒与自动任务，并可根据用户行为主动建议任务，将ChatGPT从对话工具升级为意图调度入口。</p>
+<p>国内方面，字节豆包月活破亿、独占50%市场份额，但AI超级App流量红利趋于见顶。阿里妈妈与生数Vidu 2.0聚焦电商短视频，直指替代美工外包并优化CTR；科大讯飞X1、阶跃星辰Step R-mini主打深度推理，瞄准数学、医疗、代码三大高价值场景；面壁MiniCPM-o 2.6将端侧推理延迟压至300ms级，7B以下模型实现实时多模态。随着英伟达合成数据占比达30%，拥有淘宝、微信、抖音等闭环场景的企业将率先获取&quot;数据租金&quot;优势。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>海外巨头从卖API转向卖系统：微软CoreAI、英伟达Nemotron-CC+NIM护栏、OpenAI Tasks三线并进，将数据、算力、安全打包成一张账单锁定客户生态</li>
+<li>AI安全正成为硬性交付指标，护栏漏报率等量化KPI将推动私有云需求回潮，并使安全即服务吞噬10-15%算法预算</li>
+<li>国内AI竞争进入三拆阶段：拆芯片、拆场景、拆预算，核心指标从参数规模转向每美元token成本与每毫秒端侧延迟</li>
+<li>面壁MiniCPM-o 2.6将7B以下模型端侧多模态延迟压至300ms级，直接动摇云端推理商业模式，NPU IP掌控者将获下一波硬件换机红利</li>
+<li>合成数据质量成下一个卡脖子变量：英伟达Nemotron-CC中30%为合成数据，拥有淘宝、微信、抖音等闭环场景数据的平台将享受数据租金优势</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2733543425.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

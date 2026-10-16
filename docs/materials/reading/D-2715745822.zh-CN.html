@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>六月第三周：多模态与 Agent 热持续，OpenAI、MiniMax与月之暗面等接连更新，字节、阿里、腾讯逐步强化产品与外部生态合作 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="六月第三周：多模态与 Agent 热持续，OpenAI、MiniMax与月之暗面等接连更新，字节、阿里、腾讯逐步强化产品与外部生态合作。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2715745822.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>六月第三周：多模态与 Agent 热持续，OpenAI、MiniMax与月之暗面等接连更新，字节、阿里、腾讯逐步强化产品与外部生态合作</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2715745822。版本：adf6e500f383af6a5d0951944e872282129fe9dd6c65f0fb12f994fefb42dc28。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/249</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/adf6e500f383af6a5d0951944e872282129fe9dd6c65f0fb12f994fefb42dc28.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 553s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;ef8bc564401b45f5bf54c7232f071fb4&quot;}
+六月第三周：多模态与 Agent 热持续，OpenAI、MiniMax与月之暗面等接连更新，字节、阿里、腾讯逐步强化产品与外部生态合作</p>
+<p>周趋势：</p>
+<h3>一、周趋势总结</h3>
+<ul>
+<li><strong>海外方面</strong>，Google、Midjourney 等纷纷推出视频生成模型，推动内容创作变革；模型架构创新需求凸显，谷歌承认 Transformer 缺陷，Gemini 向 “主动式 AI” 转变；AI 应用不断拓展深化，从广告视频生成到代码审查，多领域融入 AI，提升工作效率与内容质量；模型性能优化与成本控制并重，Gemini 2.5 Flash Lite 等模型兼具低延迟、低成本与高性能，Multiverse 框架实现大模型原生并行生成 token，为行业带来新思路。海外 AI 企业在技术创新、应用拓展和性能优化等方面持续发力，引领行业前沿发展。</li>
+<li><strong>国内方面</strong>，多模态技术突破不断，字节跳动豆包 P 图功能、Seed 团队与比亚迪合作，腾讯 LeVo 模型、百度 PP-StructureV3 文档解析产品等成果频出，拓展应用场景；AI Agent 技术崭露头角，月之暗面 Kimi-Researcher、MiniMax Agent 和 Hailuo Video Agent 推动复杂任务处理和智能交互发展；模型开源与共享生态建设加速，阿里巴巴通义千问 Qwen3 模型、蚂蚁 Ring-lite 模型开源，促进资源共享与技术普及；AI 企业战略布局调整，字节跳动 AI 团队架构人事变动，腾讯举办算法大赛、推出 AI Builder 平台与开源音乐模型，积极布局人才、应用与创作领域。国内 AI 行业在技术突破、应用拓展、开源共享和战略布局等方面齐头并进，展现强劲发展势头。</li>
+<li><strong>多模态</strong>：Midjourney、Google、松下等多家公司都在推进多模态技术。Midjourney 即将推出视频生成功能，其 V1 模型主打图像到视频的转换，为内容创作带来新可能；Google 的 Veo3 视频生成模型在短视频创作中应用前景广阔，且 YouTube Shorts 计划引入该技术；松下发布的 OmniFlow 多模态大模型，可实现文本、图像与音频间的自由切换，提升生成任务的灵活性和质量；字节跳动的豆包推出 P 图功能，效果受用户认可；Poe 平台上线即梦 3.0 图像模型和 Seedance1.0 Lite 视频模型，完善多模态创作体验。腾讯推出 LeVo AI 唱歌模型，支持零样本音色克隆，音质和音乐性出色。百度发布飞桨 PP-StructureV3 文档解析产品，提升文档解析精度和效率。</li>
+<li><strong>Agent</strong>：月之暗面发布的 Kimi-Researcher 深度研究模型内测，采用异步执行方式，逐步推理、检索和撰写内容，提高信息覆盖度和质量。MiniMax 发布的 MiniMax Agent 和 Hailuo Video Agent，分别在处理长期复杂任务和视频创作领域表现出色，支持多步规划、任务分解和端到端执行，推动 Agent 技术应用拓展。</li>
+<li><strong>模型性能优化与成本控制并重</strong>：Gemini 2.5 Flash Lite 以低延迟、低成本为优势，同时性能在多项测试中超越前代；Multiverse 框架实现大模型原生并行生成 token，不仅加速推理，还带来思考方式的转变，兼顾性能优化和成本效益，满足市场需求。</li>
+<li><strong>AI 应用拓展与深化</strong>：在视频创作领域，如 Midjourney、Google Veo3 等模型为短视频创作者带来新机遇；在广告领域，Meta 测试 AI 自动生成视频广告功能，降低广告商成本；在代码开发领域，Qodo 与 Google Cloud 合作提供免费 AI 代码审查工具，提升代码质量。AI 正加速融入各行业，改变工作流程和创作方式。</li>
+<li><strong>模型开源与共享生态建设</strong>：阿里巴巴通义千问团队开源 Qwen3 全系列 32 款 MLX 量化模型，适配苹果芯片，降低部署门槛，促进模型共享和应用。蚂蚁技术团队开源轻量级 MoE 推理模型 Ring-lite，在多项推理榜单上成绩优异，验证 MoE 架构推理潜力，为开发者提供更多优质模型资源。</li>
+</ul>
+<h3>二、海外</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 5,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle AI 路线图承认 Transformer 有致命缺陷，需在核心架构层进行全新创新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;谷歌 AI 路线图承认现有 Transformer 注意力机制无法实现无限上下文，需要在核心架构层面进行全新创新。Gemini 未来将成为谷歌的 \&quot;统一线程\&quot;，连接所有服务并向 \&quot;主动式 AI\&quot; 转变，支持全模态能力和智能体功能。谷歌重组 AI 团队，将研究与产品团队整合到 DeepMind，加速创新节奏，Gemini 2.5 Pro 是重大转折点。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle Gemini 2.5 Flash 推出轻量化版本\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;6 月 17 日晚，Google 正式更新 Gemini 2.5 家族，其中 Gemini 2.5 Pro 和 Flash 的正式版均与预览版保持一致规格，同时还推出 Gemini 2.5 Flash Lite 预览版。\n\n官方表示，Gemini 2.5 Flash Lite 拥有 2.5 家族中最低的延迟和成本。该模型依然为推理模型，允许通过 API 参数动态控制思考预算。并且 Gemini 2.5 Flash Lite 支持 Google 所有原生工具。\n\n基准测试上，Gemini 2.5 Flash Lite 在思考模式下，多项测试中超越前代 2.0 Flash；而在未开启思考的情况下，也能在多项测试中媲美 Gemini 2.0 Flash。\n\n价格方面，Gemini 2.5 Flash Lite 定价为输入 0.1 美元 / 百万 tokens，输出 0.4 美元 / 百万 tokens（其中音频输入为 0.5 美元 / 百万 tokens)。\n\n另外，2.5 Flash 定价也有所调整：输入从 0.15 美元涨至 0.3 美元；输出从 3.5 美元下调至 2.5 美元。（单位：美元 / 百万 tokens）&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nQodo 与 Google Cloud 合作：直接在平台内为开发者提供免费的 AI 代码审查工具\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;以色列人工智能编码初创公司 Qodo 宣布与 Google Cloud 建立战略合作伙伴关系，旨在全面提升人工智能生成软件的质量和完整性。随着企业日益依赖 AI 生成庞大的代码库，对高效的监督和质量保证工具的需求也变得前所未有的迫切。\n\nQodo 首席执行官伊塔马尔・弗里德曼（Itamar Friedman）强调，人工智能生成的代码已不再是辅助性工具，而是现代开发的基础。“想象一个未来，所有代码都由人工智能编写；人类将无法审查，” 弗里德曼指出，“必须有一个系统来确保代码背后的价值观和意图保持完整。”&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[color]{}Google Gemini 客户端新增 AI 视频上传分析功能，支持 iOS / 安卓平台[/color]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;谷歌现已为其 Gemini AI 客户端新增视频上传分析功能，用户将自己的应用更新至最新版本（IT 之家注：iOS 用户需更新至 1.2025.2362302 版本，安卓用户需更新 Google 应用至 16.24 正式版）即可看到相应视频上传选项，无需订阅 Gemini 会员即可使用。\n\n据介绍，在用户上传视频后，Gemini 会根据用户的提示词对视频内容进行逐帧分析，以回答用户提出的内容。例如用户可以将自己的监控摄像头录屏上传 Gemin 内，同时询问「视频是在什么时候拍摄的」，Gemini 便会根据视频中的时间码并结合视频内的环境情况给出自己的见解。\n\n需要注意的是，相应视频上传功能目前正在逐步上线中，不同设备和账号可能开放时间略有差异。现阶段相应功能支持 Gemini 2.5 Flash / 2.5 Pro 模型，如果用户在上传文件时可看到「文件类型不受支持」的提示，这说明该功能尚未在其账号上开放，需要等待一段时间。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n​YouTube Shorts 即将引入 Veo3 AI 视频生成技术\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;在戛纳国际创意节上，YouTube 首席执行官尼尔・莫汉（Neal Mohan）宣布，YouTube 将于今年夏天晚些时候将其最新的 Veo3AI 视频生成模型引入 YouTube Shorts。Veo3 被称为 “一个流氓的梦想”，它的推出将为短视频创作者带来新的创作可能。\n\n目前，短视频创作者已经能够使用 Veo2 模型来生成背景视频和独立剪辑。虽然尼尔・莫汉没有具体说明 Veo3 在 Shorts 中将带来哪些具体功能，但他提到 Veo3 在视频质量方面有了显著提升，并且可以融入音频元素，这表明这些升级将会出现在短视频创作中。\n\nVeo3 的推出可能会极大地改变短视频创作的方式，但目前尚不清楚短视频创作者是否需要支付额外费用来使用这一新功能。目前，生成 Veo3 视频需要订阅谷歌的 AI Pro 或 AI Ultra 计划，具体的收费标准尚未公布。\n\n除了 Veo3 的消息，莫汉还透露了一个令人瞩目的数据：YouTube Shorts 目前平均每天的浏览量已超过 2000 亿次。这一数字表明，短视频的热度持续攀升，成为用户获取信息和娱乐的重要渠道。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 6,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**OpenAI**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n​OpenAI 终止与 Scale AI 合作\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;OpenAI 宣布将逐步停止与数据供应商 Scale AI 的合作。这一消息引发了业内的广泛关注，尤其是在 Meta 公司宣布向 Scale AI 投资数十亿美元之后。这一投资不仅改变了 Scale AI 的业务环境，也促使 OpenAI 重新审视与该公司的合作关系。\n\n据 OpenAI 的发言人透露，尽管公司之前表示会继续与 Scale AI 合作，但随着 Meta 的投资，OpenAI 的态度已经发生了变化。实际上，在 Meta 的投资消息发布前，OpenAI 就已经开始减少与 Scale AI 的合作。OpenAI 希望能够找到更专业的数据供应商，以支持其日益复杂的人工智能模型开发需求。\n\n这项变动引发了对 Scale AI 核心数据标注业务的质疑。根据路透社的报道，谷歌也正在考虑停止使用 Scale AI 作为其数据提供商。这表明，随着 Meta 与 Scale AI 达成合作，很多客户对数据中立性的担忧逐渐上升，开始寻求更为中立的合作伙伴。\n\n在此背景下，Scale AI 在其博客上发布声明，试图消除外界对 Meta 获得特殊待遇的猜测。Scale AI 的高层表示，他们不会将其他客户的机密信息与 Meta 共享，并且新任首席执行官 Wang 不会直接参与公司的日常运营。尽管如此，OpenAI 及其他潜在</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>六月第三周，AI领域多模态与Agent热度持续攀升，各大科技公司密集发布新产品与技术更新。</p>
+<p>谷歌动作频繁，公开承认现有Transformer注意力机制无法实现无限上下文，需在核心架构层面进行创新。Gemini未来将作为谷歌&quot;统一线程&quot;连接所有服务，向&quot;主动式AI&quot;方向升级，支持全模态能力。谷歌同步重组AI团队，将研究与产品部门整合至DeepMind。在产品层面，谷歌正式发布Gemini 2.5 Flash Lite预览版，定价为输入0.1美元/百万tokens、输出0.4美元/百万tokens，兼具低延迟与低成本优势，支持动态控制思考预算及所有Google原生工具。与此同时，YouTube CEO宣布将于今年夏天把Veo3视频生成模型引入YouTube Shorts，该平台日均浏览量已超2000亿次。谷歌还为Gemini客户端新增视频上传分析功能，支持逐帧解析，无需订阅即可使用。</p>
+<p>国内方面，月之暗面发布Kimi-Researcher深度研究模型内测版，采用异步执行方式提升信息覆盖度；MiniMax推出支持多步规划与任务分解的Agent产品；阿里通义千问开源32款MLX量化模型以适配苹果芯片，蚂蚁同步开源轻量级MoE推理模型Ring-lite；字节跳动豆包上线P图功能，腾讯发布LeVo AI唱歌模型，支持零样本音色克隆。</p>
+<p>此外，OpenAI宣布逐步停止与数据供应商Scale AI的合作，起因之一是Meta向Scale AI投资数十亿美元，引发数据中立性担忧。谷歌亦在考虑终止与Scale AI的合作，后者随即发表声明承诺不会将客户机密信息与Meta共享。AI编码公司Qodo与Google Cloud达成战略合作，其CEO指出AI生成代码已成现代开发的基础性工具，而非辅助手段。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Google承认Transformer注意力机制存在无法实现无限上下文的致命缺陷，推出Gemini 2.5 Flash Lite预览版，主打低延迟低成本，并宣布Gemini将向&#39;主动式AI&#39;转变，整合全模态与智能体功能</li>
+<li>国内Agent技术加速落地：月之暗面发布Kimi-Researcher深度研究模型（内测），采用异步执行逐步推理；MiniMax同步推出MiniMax Agent和Hailuo Video Agent，支持多步规划与端到端任务执行</li>
+<li>多模态应用场景全面扩展：字节豆包P图功能获用户认可，腾讯LeVo推出支持零样本音色克隆的AI唱歌模型，百度发布PP-StructureV3文档解析产品，Poe平台接入即梦3.0与Seedance1.0 Lite</li>
+<li>开源生态加速建设：阿里通义千问开源Qwen3全系列32款MLX量化模型适配苹果芯片，蚂蚁开源轻量级MoE推理模型Ring-lite，降低开发者使用门槛并促进技术普及</li>
+<li>国内大厂战略布局同步调整：字节跳动AI团队发生架构人事变动，腾讯举办算法大赛并推出AI Builder平台及开源音乐模型，积极布局人才培育与应用生态</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2715745822.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

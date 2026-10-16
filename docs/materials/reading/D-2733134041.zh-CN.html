@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>二月第二周：海外重构技术栈，国内聚合新生态 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="二月第二周：海外重构技术栈，国内聚合新生态。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2733134041.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>二月第二周：海外重构技术栈，国内聚合新生态</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2733134041。版本：48a4525f6a5c44463a1ae34946b284ab800c6664ae6cb7675bd3bbcbfcd83e1e。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/266</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/48a4525f6a5c44463a1ae34946b284ab800c6664ae6cb7675bd3bbcbfcd83e1e.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 550s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;dd5daad4375341019263167adbb400ec&quot;}
+二月第二周：海外重构技术栈，国内聚合新生态</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：技术栈垂直整合与意识形态建构</strong> </p>
+<p>本周海外巨头在战略卡位而非产品迭代上动作显著，三大信号值得警惕：</p>
+<p><strong>1.1.OpenAI 打响 &quot;去英伟达化&quot; 与 &quot;模型大一统&quot; 双重战役</strong><br>Sam Altman 宣布 GPT-4.5（Orion）将是最后一个 &quot;非思维链&quot; 模型，后续直接统一 O 系与 GPT 系，这并非简单的产品线合并，而是对 AI 架构哲学的一次重置 —— 意图终结 &quot;模型碎片化&quot; 时代，构建类似操作系统的统一智能体平台。更关键的是，自研芯片上半年流片、2026 年量产，配合 &quot;模型规范&quot; 中高调宣示的 &quot;思想自由、拒绝审查&quot; 原则，OpenAI 正在构建&quot;硬件 - 软件 - 意识形态&quot; 三位一体的闭环护城河 。这种从底层芯片到上层价值观的垂直整合，是在为后 Scaling Law 时代的 &quot;生态锁定&quot; 做准备。</p>
+<p><strong>1.2.Anthropic 的价值在于 &quot;反叙事&quot;</strong><br>当行业沉迷于 &quot;AI 替代人类&quot; 时，其经济指数报告揭示 57% 场景是增强而非自动化，这不仅是数据，更是对恐慌性叙事的理性对冲。报告基于 Claude 真实交互数据，实际在争夺&quot;AI 经济学&quot; 话语权 —— 谁定义 AI 的价值尺度，谁就掌握监管与商业化的叙事主导权。</p>
+<p><strong>1.3.Adobe 的 &quot;民主化陷阱&quot;</strong><br>免费开放 Firefly 视频生成看似普惠，实则是将专业创作工具降维为 UGC 玩具，5 秒时长限制精准卡位社交媒体短内容，本质是用免费策略收割数据飞轮 ，反哺其企业级 Creative Cloud 生态。这不是慈善，而是数据殖民。</p>
+<p><strong>2.国内：DeepSeek 引爆 &quot;国产生态奇点&quot;</strong></p>
+<p>本周中国 AI 产业发生结构性突变，DeepSeek-R1 成为事实上的 &quot;国产基础层&quot;，其渗透深度与广度超出预期：</p>
+<p><strong>2.1.DeepSeek-R1 成为 &quot;中国 AI 的 Linux 内核&quot;</strong><br>从华为、vivo、联想等硬件厂商，到腾讯、百度、支付宝等应用平台，再到无问芯穹等算力服务商，全栈式接入呈现出惊人共识。这不仅是技术选型，更是地缘政治压力下的 &quot;安全冗余&quot; 构建—— 美国芯片禁运风险倒逼国产模型 + 国产算力闭环。无问芯穹同时适配 7 款国产芯片（壁仞、海光、摩尔线程等），标志着&quot;M 种模型 ×N 种芯片&quot; 的异构生态从口号走向工程化 。</p>
+<p><strong>2.2.阿里巴巴的 &quot;开源阳谋&quot;</strong><br>Huggingface 榜单前十全是 Qwen 衍生品，9 万 + 衍生模型超越 Llama，这不是简单的数量胜利。当苹果因 &quot;DeepSeek 团队缺乏大客户支持能力&quot; 而放弃、最终选择阿里时，暴露了一个残酷事实：开源模型的战争本质是生态服务能力的战争 。Qwen 通过 &quot;开源模型 + 云计算 + 企业服务&quot; 的三位一体，正复刻 Redis/MongoDB 的开源商业化路径 —— 免费的是代码，收费的是兜底能力。百度宣布 6 月开源文心 4.5 系列，实为被动跟进，担心在开发者心智中掉队。</p>
+<p><strong>2.3.字节跳动的 &quot;成本革命&quot;</strong><br>UltraMem 架构将推理成本降低 83%，直击 MoE 架构的访存瓶颈。在大厂纷纷接入 DeepSeek 的 &quot;模型同质化&quot; 趋势下， &quot;成本即战略&quot; 成为新铁律。字节此举意在将 AI 应用毛利率从 20% 提升至 60% 以上，为抖音、豆包等亿级 DAU 场景的规模部署撕开成本空间。</p>
+<p><strong>3.上周行业重点：战略拐点而非产品更新</strong></p>
+<p>本周的焦点不是单点技术突破，而是产业逻辑切换：</p>
+<p><strong>3.1.DeepSeek 的 &quot;安卓时刻&quot;</strong><br>微信灰测、百度搜索全量接入，意味着 DeepSeek-R1 正从 &quot;技术网红&quot; 升级为国民级 AI 基础设施。对比 OpenAI 的封闭生态，中国正在走一条 &quot;强开源模型 + 超级应用嫁接&quot; 的安卓路线。微信的私域数据 + DeepSeek 的推理能力，可能诞生首个 10 亿级用户的 C 端 AI 原生体验，这是 ChatGPT 都无法企及的护城河。</p>
+<p><strong>3.2.模型价值的 &quot;梯度重构&quot;</strong><br>OpenAI 将 GPT-5 免费无限制开放，百度文心一言 4 月全面免费，表面是价格战，实则是 &quot;基础模型价值归零，高级功能溢价&quot; 的梯度重构。免费层承担教育市场和数据回流职能，付费层转向 &quot;深度研究、语音、记忆&quot; 等高阶能力。商业模式从 &quot;API 调用税&quot; 转向 &quot;智能体服务税&quot;。</p>
+<p><strong>4.其他补充层面：暗流涌动的四场战争</strong></p>
+<p><strong>4.1.&quot;记忆权&quot; 战争</strong><br>谷歌 Gemini 的全局记忆与 OpenAI 的 &quot;Moonshine&quot;（月光）功能，本质是争夺用户数字生命史&quot; 的所有权。谁掌握跨会话记忆，谁就拥有持续学习用户意图的能力，这将成为下一代 AI 助手最坚固的护城河。国内小艺助手、蓝心小 V 的跟进速度，决定了能否在 &quot;个人化 AI&quot; 赛道保持同步。</p>
+<p><strong>4.2.&quot;世界模型&quot; 路线之争</strong><br>昆仑万维的 Matrix-Zero 与字节 VideoWorld 代表了视频生成的两条路径 ：前者重 &quot;可交互 3D 场景生成&quot;，对标 World Labs，目标是构建虚拟世界引擎；后者重 &quot;无语言模型的纯视觉认知&quot;，探索视频作为通用知识载体。前者服务元宇宙 / 游戏，后者服务机器人 / 自动驾驶**，** 视频大模型正在分化为 &quot;造世界&quot; 与 &quot;看世界&quot; 两大阵营。</p>
+<p>** 4.3.&quot;搜索的 AI 化&quot; vs &quot;AI 的搜索化&quot;**<br>腾讯元宝整合公众号信息源、微信 AI 搜索调用 DeepSeek-R1，百度 &quot;深度搜索&quot; 功能，揭示一个趋势：搜索引擎与大模型能力正在双向融合。传统搜索在 &quot;索引 + 排序&quot; 中加入生成式推理，AI 助则在生成中加入实时信源校验。最终形态可能是&quot;答案引擎&quot; 统一两者 ，URL 点击率归零，SEO 行业消亡。</p>
+<p><strong>4.4.&quot;安全话语权的军备竞赛&quot;</strong><br>OpenAI 在模型规范中高调宣示 &quot;思想自由&quot;，本质是抢占 AI 治理的道德制高点 ，为未来的监管游说积累筹码。当美国国会讨论 AI 安全时，OpenAI 可以此作为 &quot;自我监管&quot; 的证据。国内需注意： 技术脱钩后，意识形态脱钩正在同步发生，AI 模型的价值观输出将成为大国博弈的新战场。</p>
+<p><strong>5.总结</strong> **：**DeepSeek-R1 的裂变式渗透速度证明，在开源模型时代，工程适配能力 + 场景分发能力比模型参数本身更具战略价值。海外则是 &quot;巨头筑墙周&quot; ，OpenAI 通过垂直整合构建 &quot;反脆弱&quot; 体系。未来 3-6 个月，行业将目睹 &quot;开源吞噬封闭&quot; 与  &quot;成本颠覆性能&quot;  两大战役的胜负手。</p>
+<p>:::heading{level=3 align=start}
+二、海外</p>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Anthropic**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nAnthropic 发布首份 AI 经济指数报告\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;近期，AI 初创公司 Anthropic 发布了首份 AI 经济指数（Economic Index）报告，其中显示，软件工程师和作家最先接纳 AI，并表示现阶段 AI 的定位并非替代者，而是协作工具。据悉，该报告基于数百万次与 Claude AI 模型交互。其中，AI 主要被用作协作者，同时揭示了人工智能如何融入现实世界任务，并发现 AI 主要应用于软件开发和技术写作等领域，更多地用于增强而非自动化人类能力。数据还显示，人工智能的使用略微倾向于增强人类能力，占比 57%，而非自动化任务（43%）。在大多数情况下，人工智能并非用于取代人类，而是与人类协作，例如验证工作、辅助学习新知识和技能，以及迭代任务等。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 6,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**OpenAI**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI 公布 GPT-4.5 / 5 更多信息\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;2 月 13 日凌晨，OpenAI CEO Sam Altman 公布了 GPT-4.5 和 GPT-5 的发展路线，并表示未来 OpenAI 旗下产品将简化分类。Altman 介绍，接下来 OpenAI 将会推出 GPT-4.5，该模型内部命名为「Orion」，将作为 OpenAI 最后一个非思维链模型推出；此后，OpenAI 将会推出集成化模型系统，来统一 O 系列模型以及 GPT 系列模型。据 Altman 透露，GPT-5 将作为一个集成了 OpenAI 多项技术的系统进行发布，其中包含 o3 模型，同时 o3 模型将不再单独进行发布。Altman 还公布，ChatGPT 免费版将能够对 GPT-5 进行无限制的聊天访问，而 Plus / Pro 订阅会员依旧能够拥有更高的智能水平访问权限，支持 Deep Research、语音聊天等功能。此外，Altman 在早些时候表示，未来将扩大 ChatGPT 的 Deep Research 免费试用权限。据了解，OpenAI 最初设定 Deep Research 的每月免费版使用权限为 2 次，而 ChatGPT Plus 会员使用权限为 10 次。目前，Deep Research 已向 ChatGPT Pro 会员开放，每月最多可访问 100 次。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGPT - 4o 迎来更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;OpenAI CEO 萨姆・奥特曼在社交平台 X 上表示，该公司对 GPT 4o 进行了更新。他表示，GPT - 4o 的表现非常出色，在评论区他还表示，GPT - 4o 是「网上最好的搜索产品之一」。OpenAI 于去年 5 月发布了 GPT-4o，其中的「o」代表「omni」（即全面、全能的意思），这个模型同时具备文本、图片、视频和语音方面的能力，甚至就是 GPT-5 的一个未完成版。而在同年 7 月，OpenAI 官宣推出 GPT-3.5 Turbo 的替代品——GPT-4o mini，这是 GPT-4o 更小参数量的简化版本。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI 首款自研芯片被曝上半年交由台积电流片\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;2 月 10 日消息，路透社报道称，OpenAI 正积极推进其自研 AI 芯片计划，以减少对英伟达芯片的依赖。该公司计划在未来几个月内完成首款自研 AI 芯片的设计，并在今年上半年交由台积电进行流片。OpenAI 始终将自研芯片视为与芯片供应商谈判的筹码。OpenAI 正朝着其 2026 年在台积电实现量产的目标迈进。这一举措标志着 OpenAI 在硬件领域的重大突破，同时也可能对全球 AI 芯片市场格局产生深远影响。当然，哪怕是台积电也无法保证该芯片第一次流片就能完美收工，而每次流片典型成本为数千万美元，并且需要大约六个月的时间才能生产出成品芯片，除非 OpenAI 愿意加钱。尽管如此，OpenAI 内部依然对项目进展持乐观态度，认为其首款芯片有望在今年晚些时候进入量产阶段。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI 承诺其 AI 模型不审查、不屏蔽观点，保障思想自由\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;2 月 13 日，OpenAI 在其更新的模型规范（Model Spec）中明确表示，其人工智能模型将不会回避敏感话题，并且不会做出可能「排斥某些观点」的断言。该模型规范是一套高层次的规则，间接地指导 OpenAI 模型的行为。OpenAI 在新的模型规范中强调：「我们的模型绝不能试图以直接或间接的方式引导用户追求其自身的议程。」公司进一步阐述：「OpenAI 坚信思想自由，这包括拥有、听取和讨论观点的自由。模型不应以某种方式回避或审查话题，以免在规模扩�</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<h1>摘要</h1>
+<p>本周AI领域呈现&quot;海外重构技术栈、国内聚合新生态&quot;两条主线并行推进的格局。</p>
+<p>OpenAI宣布GPT-4.5（代号&quot;Orion&quot;）将是最后一个非思维链模型，GPT-5将整合o3等技术统一发布，终结模型碎片化时代。ChatGPT免费版将可无限制访问GPT-5，Deep Research免费用户每月2次、Pro会员最多100次。与此同时，OpenAI首款自研芯片计划今年上半年交台积电流片、2026年量产，推进去英伟达化战略，构建&quot;硬件-软件-意识形态&quot;三位一体闭环。2月13日，OpenAI更新模型规范，明确要求模型不回避敏感话题、不引导用户追求模型自身议程，强调观点中立与思想自由。Anthropic报告则揭示，57%的AI应用场景是增强而非替代人类，当前AI主要集中于软件开发与技术写作领域。Adobe免费开放Firefly视频生成功能，5秒时长限制精准卡位社交短内容，实质是以免费策略收割数据反哺企业级生态。</p>
+<p>国内方面，DeepSeek-R1已成为国产AI基础层，华为、腾讯、百度全栈接入，形成国产模型与国产算力闭环；其快速渗透印证工程适配与场景分发能力比模型参数更具战略价值。阿里Qwen衍生模型在Hugging Face突破9万个，超越Llama，苹果最终选择阿里合作，印证生态服务能力才是核心竞争力。字节跳动UltraMem架构将推理成本降低83%，有望将AI应用毛利率从20%大幅提升至60%以上。</p>
+<p>宏观层面，技术脱钩与意识形态脱钩正同步演进，AI模型的价值观输出已成大国博弈新战场，未来3至6个月&quot;开源吞噬封闭&quot;与&quot;成本颠覆性能&quot;两大战役走向值得持续关注。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>OpenAI宣布GPT-4.5将是最后一个非思维链模型，并推进自研芯片量产，构建硬件-软件-意识形态三位一体闭环护城河</li>
+<li>DeepSeek-R1成为国产AI事实基础层，华为、vivo、联想、腾讯、百度、支付宝等全栈接入，无问芯穹同时适配7款国产芯片标志异构生态工程化落地</li>
+<li>阿里Qwen在Huggingface榜单前十全占，9万+衍生模型超越Llama，苹果最终选择阿里而非DeepSeek，印证开源模型战争本质是生态服务能力的战争</li>
+<li>字节跳动UltraMem架构将推理成本降低83%，意在将AI应用毛利率从20%提升至60%以上，为抖音豆包等亿级DAU场景撕开成本空间</li>
+<li>谷歌Gemini全局记忆与OpenAI Moonshine功能引发记忆权争夺，视频大模型分化为昆仑万维造世界与字节VideoWorld看世界两大阵营</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2733134041.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

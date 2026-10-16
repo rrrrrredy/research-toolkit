@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>「撞墙」争议下，关于 Scaling Law 的下一步探索 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="「撞墙」争议下，关于 Scaling Law 的下一步探索。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2644289456.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>「撞墙」争议下，关于 Scaling Law 的下一步探索</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2644289456。版本：c1a4c7661eace3df9cb7ea9aadb3bf40c30b21461f4584be114de41e42ed663e。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/115</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/c1a4c7661eace3df9cb7ea9aadb3bf40c30b21461f4584be114de41e42ed663e.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>「撞墙」争议下，关于 Scaling Law 的下一步探索</p>
+<h1>一、核心要点</h1>
+<p>1.关于 Scaling Law 是否撞墙的争议在近期持续发生，不时有人给出 Scaling Law 将会撞墙的佐证，也有许多工作证明了 Scaling Law 的潜力尚未被充分挖掘，这一争议带来的是业界对 AI 下一步发展路线的众说纷纭。</p>
+<p>2.SSI 创始人、前 OpenAI 首席科学家 Ilya Sutskever 曾在访谈中表达「Scaling the right thing matters more now than ever。」近期在NeurIPS 2024的演讲中，他进一步补充了「现有的预训练方法将会结束」的观点。</p>
+<p>3.LLM 的 Scaling Law 揭示了性能与其参数和数据规模之间的关系，但并非唯一视角。在 Scaling Law 撞墙与否的争议之外，仍有许多工作从不同的方向探求解锁下一代 AI 的路径。对于评估不同规模 LLM 训练质量的方法上，清华大学刘知远教授团队近期提出了 <a href="https://arxiv.org/pdf/2412.04315v2">Densing Law</a>（密度定律），从 Scaling Law 之外的维度对 LLM 能力进行推演，提供指导性的规律发现。</p>
+<p>4.对于如何改进 Scaling Law 可能存在的放缓趋势，同样有工作尝试从预训练环节的数据入手，让模型从预训练中学到更强的推理能力。哈佛、斯坦福、MIT 和 CMU 的研究者在 11 月的论文《<a href="https://arxiv.org/abs/2411.04330">Scaling Law for Precision</a>》中提出了「精度感知」的 Scaling Law，以预测不同精度下训练和推理的性能下降。</p>
+<p>5.OpenAI o1 的推出将传统的 Scaling 范式从预训练带向了后训练，其关注点逐渐转向推理层的 Scaling 。参考 OpenAI 描述的「更多的强化学习（训练时计算）和更多的思考时间（测试时计算）能让 o1 的性能持续提高」的路径，衍生出了诸如「Self-Play RL+ LLM 」、「Post-Training Scaling Law」、「Test-Time Training」等路线。</p>
+<p>6.Scaling Law 撞墙与否的争议源自 LLM 在大规模预训练阶段取得的成效疑似放缓。但对于深度学习的远期发展，包含 Richard Sutton 在内的许多研究者正在尝试解决深度学习方法根本上的缺陷，让 AI 系统能够更好地适应持续学习的环境。</p>
+<h1>二、关于 Scaling Law 的下一步探索</h1>
+<p>Scaling Law 在 2024 年底又一次引发热议，也一直被一些顶级研究员视为实现 AGI 的「圣经」。也是因此，当有关 Scaling Law 撞墙的消息传出后引发了大量消极的论调。回顾 2022 年，深度学习领域也曾面临类似的“撞墙”质疑，但事实证明，这些担忧并未成为现实。语言模型的 Scaling Law 允许研究者预测模型性能随参数、数据和计算资源变化的趋势。尽管其在推动 AI 发展中扮演了重要角色，但构建更强大的 AI 系统并非只有一条路径。</p>
+<p>2024 年里，AI 领域中有关 Scaling Law 是否到头的争议反复引起讨论。其话题冲突的核心在于，大模型的性能提升是否还能继续靠无限堆叠数据和参数规模从而大力出奇迹。</p>
+<p>6 月，Gary Marcus 的「Is scaling all you need？」就 Scaling Law 收益递减的话题引发了大量讨论。Marcus 认为仅靠 Scaling 已经无法带来显著的性能提升，同期有声音认为 LLM 领域已经进入回报递减的时期，未来的发展需要新的方法和思路。</p>
+<p>11 月，The Information 的报道《随着 GPT 提升减速，OpenAI 改变策略》，以及许多大型基础实验室声称均遇到预训练的瓶颈的声音又一次将 Scaling Law 撞墙的争议变成热议话题。</p>
+<p>认为 Scaling Law 撞墙的佐证不断翻新，而反驳的观点也随着话题的热度不断涌现。以 OpenAI CEO Sam Altman 为代表的反驳观点认为，Scaling Law 的潜力尚未穷尽，而 OpenAI 的 o 系列和 GPT 系列均是 Scaling 仍然有效的范例。</p>
+<p><strong>SSI 创始人、前 OpenAI 首席科学家 Ilya Sutskever 曾在访谈中表达「Scaling the right thing matters more now than ever。」近期在NeurIPS 2024的演讲中，他进一步补充了「现有的预训练方法将会结束」的观点。</strong></p>
+<p>① Sutskever在演讲强调了数据枯竭的担忧，我们只有一个互联网，尽管现有数据仍能推动人工智能的发展，但可用的新数据已经耗尽，需要寻找新的方法来进一步提升AI的能力。</p>
+<p>② 由于数据资源的有限性，Sutskever 认为这一趋势最终将迫使行业改变当前的模型训练方式。他预测下一代模型将会「以真正的方式表现出自主性」，并且具备推理能力。</p>
+<p>③ Sutskever 提出，AI 可能会超越现有的预训练方法，发现全新的扩展路径。这可能涉及到新的学习算法、更高效的数据处理技术，或者是能够从更少的数据中提取更多信息的方法。</p>
+<p><strong>LLM 的 Scaling Law 揭示了性能与其参数和数据规模之间的关系，但并非唯一视角。在 Scaling Law 撞墙与否的争议之外，仍有许多工作从不同的方向探求解锁下一代 AI 的路径。对于评估不同规模 LLM 训练质量的方法上，清华大学刘知远教授团队近期提出了 <strong><a href="https://arxiv.org/pdf/2412.04315v2">Densing Law</a></strong>（密度定律），从 Scaling Law 之外的维度对 LLM 能力进行推演，提供指导性的规律发现。</strong></p>
+<p>① 该工作针对近几年 LLM 工作中看似矛盾的「为了有效性而扩展 LLMs 的规模，为了效率而缩小 LLMs 的规模」路径，提出了 Capability Density（能力密度）度量指标，用于量化评估不同规模 LLMs 的质量。</p>
+<p>② Capability Density 被定义为 LLM「有效参数量」于实际参数量的比值。「有效参数量」指参考模型达到与目标模型相当性能所需的最小参数数量。</p>
+<p>③ 该工作用 Capability Density 评估了 29 个头部开源 LLM，并基于分析结果提出了 Density Law，即，LLM 的最大密度随时间呈指数增长，大约每 3.3 个月（约 100 天）翻一倍。</p>
+<p>④ 结合 Densing Law 与摩尔定律，研究者指出，伴随 LLMs 密度+芯片计算能力各自随时间的增长，两者的交汇意味着主流终端如 PC、手机将能运行更高能力密度的模型，推动端侧智能在消费市场普及。</p>
+<p>⑤ 结合 Densing Law 与 Scaling Law，研究者指出每个新模型的高性价比「有效期」不断缩短。开发者必须考虑模型密度的增长趋势，并采用更有效和通用的训练技术来提高模型密度。</p>
+<p><strong>从「Scaling What」更重要的视角出发，近期的许多工作探索新的 Scaling 目标。</strong></p>
+<p>① 以 OpenAI o1 模型的发布为契机，有一种说法认为 Scaling 的范式正在从预训练转移到推理阶段，其相关工作涉及「测试时计算（Test-Time Compute）」和「测试时训练（Test-Time Training）」等。</p>
+<p>② 也有工作尝试从预训练数据入手，如哈佛等高校研究者尝试设计的「精度感知」的 Scaling Law，以及 UCL 和 Cohere 对预训练数据中「程序性知识」的研究。</p>
+<p>③ 还有一类工作尝试用更高维度的数据和知识入手，如空间智能、世界模型和具身智能领域的相关工作。</p>
+<h1>三、预训练数据仍会是「The Right Thing to Scale」吗？</h1>
+<p>对于如何改进 Scaling Law 可能存在的放缓趋势，同样有工作尝试从预训练环节的数据入手，让模型从预训练中学到更强的推理能力。哈佛、斯坦福、MIT 和 CMU 的研究者在 11 月的论文《<a href="https://arxiv.org/abs/2411.04330">Scaling Law for Precision</a>》中提出了「精度感知」的 Scaling Law，以预测不同精度下训练和推理的性能下降。</p>
+<p>① 该工作首先分析了训练后量化（PTQ）对模型性能的影响，发现训练时间越长或预训练期间「看到」的数据越多，模型在推理时对量化就越敏感。</p>
+<p>② 这种损失退化大致是预训练期间看到的 token/参数比值的幂律，因此可以提前预测关键数据大小，超过该数据大小的更多数据的预训练会非常有害。</p>
+<p>③ 研究者进而提出了「有效参数计数」的概念，结合训练后量化退化，以预测不同精度下训练和推理的性能下降。研究者在超过 465 次预训练运行上拟合了这个定律，并在 1.7B 参数的模型上验证了其预测。</p>
+<p><strong>Cohere 和 UCL 的研究者则在 11 月的</strong><a href="https://arxiv.org/abs/2411.12580">论文</a><strong>中通过研究模型在执行推理任务时依赖的预训练数据，发现了「程序性知识」对模型推理能力影响。</strong></p>
+<p>① 该工作总结了有关 LLM 是否存在推理能力的争论，指出大多持反对意见的工作认为 LLM 推理依赖于训练数据中类似问题的频率，但也有工作发现 LLM 并不会一直照搬训练数据中的数学推理步骤。</p>
+<p>② 该工作的核心发现在于， LLM 其实能从训练数据的「程序性知识」里学到一种通用的推理方法，但不同语料确实会影响模型的推理能力。</p>
+<p>③ 在所有的程序性知识中，UCL 和 Cohere 的研究者发现代码预料在所有的任务中均有作用。这一发现也带来了一个新的可能性，即「是否可能存在一种预训练数据（如代码）可以让 LLM 从中学习到多种任务？」</p>
+<h1>四、转向推理的 Scaling 范式</h1>
+<p>OpenAI o1 的推出将传统的 Scaling 范式从预训练带向了后训练，其关注点逐渐转向推理层的 Scaling 。参考 OpenAI 描述的「更多的强化学习（训练时计算）和更多的思考时间（测试时计算）能让 o1 的性能持续提高」的路径，衍生出了诸如「Self-Play RL+ LLM 」、「Post-Training Scaling Law」、「Test-Time Training」等路线。</p>
+<p>OpenAI 的 o1 在发布后引起了业内许多人对其技术细节的推测，有一种声音认为。较有代表性的分析包含新浪新技术研发负责人张俊林和北京大学对齐与交互实验室 PAIR-Lab 的分析文章。</p>
+<p>对于 o1 通过让大模型自动找寻&lt;问题，正确答案&gt;之间的推理步骤的做法，张俊林猜测如果 o1 仅仅是走 MCTS 搜索技术路线，通过增加搜索深度或宽度的做法自然会带来训练和推理时更大的算力，这其实是搜索树本来应有之义，不至于升格到 RL 的 Scaling Law。</p>
+<p><strong>北大对齐团队分析了 o1 的技术细节，指出 o1 的核心技术在于强化学习的搜索与学习机制。</strong></p>
+<p>① 文章指出，该思路代表着 Post-Training Scaling Laws 已经出现，从而支持将迭代式的 Bootstrap 模型产生合理推理过程（Rationales） 的能力融合到训练过程内，让模型学会进行推理。</p>
+<p>② 在 Post-Training Scaling Laws 中，训练阶段的计算量在参数量上升之外，还会包含 RL 探索时 LLM Inference 的计算量，而模型在测试阶段的推理和反思带来的计算量也将影响模型的最终表现。</p>
+<p><strong>「测试时计算（Test-Time Compute）」和「测试时训练（Test-Time Training，TTT）」则是同期业内关注的两项重点技术。</strong></p>
+<p>① 「测试时计算」来自谷歌 DeepMind 和 UC 伯克利的研究者在 2024 年 8 月发布的论文《Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters》，该论文探究了如何通过增加测试时的计算量来提高大型语言模型（LLMs）的性能。[14]</p>
+<p>② TTT 是 MIT 团队提出的在推理阶段提升模型性能的另一种方法。该工作研究了 TTT 对提高语言模型抽象和推理语料库（ARC）任务上的性能方面的有效性。[15]</p>
+<p>在类似思路的指导下，复旦和美团的研究者则在 11 月发布的<a href="http://arxiv.org/abs/2411.16579">论文</a>中提出了提出了一种双模型协作架构（Two-Player Paradigm），通过增加大型语言模型（LLMs）在回应前的思考和反思时间来有效解决科学、编程和数学等领域中的复杂推理任务。</p>
+<h1>五、用更高维数据训 AI 的工作</h1>
+<p>在 Scaling Law 推动的 AI 发展进程中，有关互联网文本数据耗尽的问题是 AI 社区中频繁讨论的挑战。为此，有许多工作希望采用图像、视频等维度更高的数据来训练 AI 系统，其中较为有代表性的方向有世界模型、空间智能和具身智能等。</p>
+<p><strong>Yann LeCun 作为最早开始推崇世界模型的研究者之一，他带领 FAIR 团队在 2024 年提出了一系列世界模型方面的进展。</strong></p>
+<p>① 11 月，LeCun 团队提出了一种可基于离线的轨迹数据集构建与任务无关的世界模型的方法，称为 <a href="https://arxiv.org/abs/2411.04983">DINO-WM</a>，用于在不重建视觉世界的情况下模拟视觉动态。</p>
+<p>② 12 月，LeCun 团队提出了导航世界模型 <a href="https://arxiv.org/abs/2412.03572">NVM</a>，能在已知和未知环境中导航，执行路径规划，还能基于单张图像生成连续一致的视频。</p>
+<p>③ 该工作提出了一种条件扩散 Transformer（CDiT），能够处理长序列数据，并且具有线性复杂度，用于预测给定过去图像状态和动作的下一个图像状态。</p>
+<p>④ 研究者使用来自不同机器人智能体的视频和导航动作对 CDiT 进行了训练，通过独立地或与外部导航策略一起模拟导航规划而实现规划，从而取得了当前最先进的视觉导航性能。</p>
+<p><strong>谷歌 DeepMind 在 2024 年同样公布了团队在世界模型的突破。其在年初推出的世界模型 Genie 能够生成多种 2D 世界，而在 12 月 5 日发布的第二代 Genie 2 则实现了质的飞跃，能够通过单图生成可交互的 3D 世界。</strong></p>
+<p>① 12 月发布的 Genie 2 是一个基础世界模型（foundation world model），能够模拟虚拟世界，包括采取任何动作的后果。</p>
+<p>② Genie 2 基于 Transformer 开发，使用与大型语言模型类似的因果掩码进行训练。推理时，Genie 2 能够以自回归方式进行采样，逐帧采取单个动作和过去的潜在帧。</p>
+<p>③ 谷歌称，Genie 2 展示了基础世界模型在创建多样化 3D 环境和加速智能体研究方面的潜力。其有能力生成无限多种可控制动作、可玩的 3D 环境，而这些 3D 环境又可用于训练和评估具身智能体。</p>
+<p><strong>李飞飞的创业公司 World Labs 的路线则是通过开发大世界模型（LWM），让 AI 模型从 2D 像素平面提升到完整的 3D 世界（虚拟和现实世界），赋予 AI 与人类一样丰富的空间智能。</strong></p>
+<p>① 李飞飞团队强调了空间智能不仅仅是对现有数据的理解，而是关于理解新的数据，并且将 AI 从大型数据中心带出来，放入 3D/4D 世界中，使其能够理解这个世界的丰富性。</p>
+<p>② 对于空间智能，World Labs 认为三维才是表征的核心，如果将三维表征放在核心的位置，问题与表示方式之间会更加匹配，且通过对动态三维世界进行二维投影的建模也能处理二维的问题。</p>
+<p>③ World Labs 近期已公布了第一个项目成果，其技术能够通过单张图片和一句话生成 3D 世界。</p>
+<p>④ 同样是基于单图生成 3D 世界，但也有专家分析表示 Genie 2 和 World Labs 的新项目存在本质区别。前者仍然是通过 video diffusion 来进行像素预测，但后者是更进一步挖掘世界的物理本质：从图片出发，估计图片中不同景物的深度和相对关系，生成了更加物理世界的 3D 环境建模。</p>
+<p>同在空间智能的方向，宝可梦 Go 的开发团队 Niantic Labs 也在 12 月提出了大规模地理空间模型「LGM」，可以让计算机感知和理解物理空间，应用于 AR 眼镜以及其他领域。此外，具身智能领域同样需要世界模型与空间智能来支持具身智能体在真实世界中完成感知、导航、操作等任务。而如何利用好人类演示视频、合成数据和遥操数据等不同模态的数据训练能可泛化的模型是当前的主要课题之一。</p>
+<h1>六、瞄准深度学习更远期能力的工作</h1>
+<p>Scaling Law 撞墙与否的争议源自 LLM 在大规模预训练阶段取得的成效疑似放缓。但对于深度学习的远期发展，包含 Richard Sutton 在内的许多研究者正在尝试解决深度学习方法根本上的缺陷，让 AI 系统能够更好地适应持续学习的环境。</p>
+<p>Sutton 的 Dynamic Deep Learning�</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>围绕Scaling Law是否&quot;撞墙&quot;的争议，学界与业界正从多个维度探索其下一步走向。</p>
+<p>Ilya Sutskever在NeurIPS 2024演讲中明确指出，现有预训练范式将走向终结，可用新数据已近枯竭；而Sam Altman则持相反态度，认为Scaling Law潜力尚未穷尽，OpenAI的o系列与GPT系列正是其有效性的佐证。</p>
+<p>在理论层面，哈佛、斯坦福、MIT、CMU研究者联合提出&quot;精度感知&quot;Scaling Law，揭示训练时间越长或预训练数据越多，模型推理时对量化越敏感，超过临界数据量后继续训练反而有害。清华刘知远团队则提出&quot;密度定律&quot;（Densing Law），定义&quot;能力密度&quot;为有效参数量与实际参数量之比，发现LLM最大能力密度约每3.3个月翻一倍，结合摩尔定律预测终端设备将逐步支持高能力密度模型。</p>
+<p>在范式转移层面，OpenAI o1的发布标志着Scaling重心从预训练转向后训练与推理阶段。北大对齐团队指出其核心在于强化学习的搜索与学习机制，Post-Training Scaling Law已初现雏形；谷歌DeepMind亦证明，增加测试时计算量可比扩大模型参数更高效地提升性能。</p>
+<p>在世界模型与空间智能方向，李飞飞创立的World Labs致力于构建大世界模型（LWM），通过3D物理建模处理空间智能问题；谷歌Genie 2实现从2D到3D世界模型的跨越，可由单图生成可交互3D环境；Niantic Labs提出大规模地理空间模型LGM，面向AR等物理空间感知应用。Richard Sutton等人则聚焦深度学习的持续学习缺陷，探索AI系统的长期进化能力。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Ilya Sutskever在NeurIPS 2024演讲中指出现有预训练方法将会结束，数据枯竭促使行业需寻找全新扩展路径</li>
+<li>清华刘知远团队提出Densing Law：LLM能力密度约每3.3个月翻倍，为衡量模型质量提供新维度指标</li>
+<li>OpenAI o1推动Scaling范式从预训练转向推理阶段，Test-Time Compute和Post-Training Scaling Law成为新研究热点</li>
+<li>哈佛等高校提出精度感知Scaling Law，Cohere与UCL发现代码等程序性知识可提升LLM多任务推理能力</li>
+<li>Genie 2、World Labs和DINO-WM等世界模型与空间智能工作，探索用更高维数据突破文本数据枯竭瓶颈</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2644289456.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

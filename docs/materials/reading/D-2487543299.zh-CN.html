@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenAI o1最新信息20240919 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="OpenAI o1最新信息20240919。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2487543299.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>OpenAI o1最新信息20240919</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2487543299。版本：1dcd9761ce0f503dfbf0504c127a70ad22df2d4ff39f1fbc66181a63da608945。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/79</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/1dcd9761ce0f503dfbf0504c127a70ad22df2d4ff39f1fbc66181a63da608945.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>OpenAI o1最新信息20240919</p>
+<h1>一、核心要点</h1>
+<p>1.从 o1-preview 博客文章中可以看出，模型的关键更新就是使用「内部思维链」，将问题分解成更简单的步骤，然后再解决。然而，这一关键的工作过程，并不会向客户展示。o1 模型展示出来的，是一个「模型生产的思维链摘要」，也就是说，在客户看到之前，o1 的思维过程是被完全不同的模型重新编写的。</p>
+<p>2.o1 模型对于开发者来说，比用 4o 这些模型更难。因为 o1 内嵌 cot，对很多开发者来说要重新改 product flow，原来自己做的 cot 都不行。对于 API 的 finetune 要求也会更高。可以看到 o1 的早期客户一开始用的感受是小幅提升，但经过合作 finetune 后，模型效果提升明显。</p>
+<p>3.o1 解锁了很多研究员的心结。第一个是发现了一条稳步提升性能的新路径，第二个是发现 API 可以不管 First Token Latency，而且还有场景，很多 researchers 都会往这个方向再做一遍。但 RL 的难度比 Pretrain 更高，寻找信号过程非常难，而且特别吃算力。可以说 GPT-4 大家基本上都会做了，但是 RL 除了头部三家+xAI，还有比较大的挑战。</p>
+<p>4.CUDA 在 RL 领域的壁垒比 Pretrain 大。要用到很多通用的算子，原来是算子收敛到 Pretrain 就够了，现在是算子更宽了。那 GPU 还是几乎唯一的 Scalable 的方法。但另一方面，单卡性能优化、和模型公司自研 asic，可能会削弱英伟达的壁垒。而且从 o1 的作者名单可以看出来 OpenAI 重写的 Data Infra，这些也是一开始就围绕 GPU 做的工程体系。</p>
+<p>5.o1 对集群的影响：隐藏推理都算到 context window 里，KV Cache 就会变得非常大。如果 Context Window 很大，可能还是要用到 NVL36 或者 72。但如果场景可以接受更高的延时，那可能不一定需要。反过来如果场景要大幅缩短延时，那就得上 NVL72。</p>
+<p>6.目前很少有专门 for RL 的集群，都是 posttrain 和 pretrain 一起用，倾向于按照 pretrain 要求组建集群。当然，长期看，如果有专门为了 RL 的集群，那么互联要求会比 pretrain 低，但会比 finetune 和传统 RLHF 高。而且另一方面，推理的集群化需求会更高。</p>
+<p>7.OpenAI 强调 o1 不是一个“系统”，而是一个经过系统训练的模型，即将支持更大的输入上下文。mini 在某些方面确实更好，只是世界知识不够多，但 OpenAI 正在为模型添加广泛的世界知识。同时，强化学习 (RL) 用于改善 o1 中的 CoT，GPT-4o 无法仅通过提示匹配其 CoT 性能。</p>
+<h1>二、DeepMind 论文揭示 o1 原理</h1>
+<p>DeepMind 一篇发表在 8 月的<a href="https://arxiv.org/pdf/2402.12875">论文</a>，揭示原理和 o1 的工作方式几乎一致。这项研究表明，增加测试时（test-time）计算比扩展模型参数更有效。基于论文提出的计算最优（compute-optimal）测试时计算扩展策略，规模较小的基础模型在一些任务上可以超越一个<strong>14倍大</strong>的模型。</p>
+<p>谷歌DeepMind这篇论文的题目是《Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters》，即<strong>优化 LLM 测试时计算比扩大模型参数规模更高效</strong>。</p>
+<p>研究团队设计了一组实验，使用 PaLM2-S*在MATH 数据集上测试。</p>
+<p>主要分析了两种方法：</p>
+<p><strong>（1）迭代自我修订</strong>：让模型多次尝试回答一个问题，在每次尝试后进行修订以得到更好的回答。<br><strong>（2）搜索</strong>：在这种方法中，模型生成多个候选答案。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2487543299/124092461918?contentType=1&isNewContent=false" alt="image.jpeg">{width=685 height=426 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2487543299/124092342133?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2487543299/124092342133?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2487543299/124090072398?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2487543299/124090072398?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>可以看到，使用自我修订方法时，随着测试时计算量增加，标准最佳 N 策略（Best-of-N）与计算最优扩展策略之间的差距逐渐扩大。使用搜索方法，计算最优扩展策略在初期表现出比较明显优势。并在一定情况下，达到与最佳 N 策略相同效果，<strong>计算量仅为其 1/4</strong>。</p>
+<p>在与预训练计算相当的 FLOPs 匹配评估中，对比 PaLM 2-S*（使用计算最优策略）一个 14 倍大的预训练模型（不进行额外推理）。结果发现，使用自我修订方法时，当推理 tokns 远小于预训练 tokens 时，使用测试时计算策略的效果比预训练效果更好。但是当比率增加，或者在更难的问题上，还是预训练的效果更好。也就是说，在两种情况下，根据不同测试时计算扩展方法是否有效，关键在于<strong>提示的难度</strong>。研究还进一步比较不同的 PRM 搜索方法，结果显示前向搜索（最右）需要更多的计算量。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2487543299/124090790577?contentType=1&isNewContent=false" alt="image.jpeg">{width=673 height=310 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2487543299/124093754810?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2487543299/124093754810?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2487543299/124093020787?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2487543299/124093020787?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>在计算量较少的情况下，使用计算最优策略最多可节省4倍资源。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2487543299/124090391599?contentType=1&isNewContent=false" alt="image.jpeg">{width=611 height=221 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2487543299/124092104462?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2487543299/124092104462?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2487543299/124092781703?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2487543299/124092781703?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>对比 OpenAI 的 o1 模型，这篇研究几乎是给出了相同的结论。o1 模型学会完善自己的思维过程，尝试不同的策略，并认识到自己的错误。并且随着更多的强化学习（训练时计算）和更多的思考时间（测试时计算），o1 的性能持续提高。</p>
+<h1>三、OpenAI 隐藏 o1 思维链</h1>
+<p>在 o1 发布时 OpenAI 就给出了隐藏模型完整思维过程的理由。简单来说就是 OpenAI 内部需要监测模型的思维过程，因此不能在这些原始 tokens 中加入安全限制，也就不方便让用户看到。</p>
+<p>只要提示词里带“reasoning trace”、“show your chain of thought”等关键词就会收到警告。甚至完全避免出现关键词，使用其他手段诱导模型绕过限制都会被检测到。</p>
+<p>有人指出，o1 思维过程就是其他模型最好的训练数据，所以 OpenAI 不想这些宝贵数据被别的公司扒走。也有人认为这说明 o1 并没有什么护城河，一旦开发者能访问完整的 CoT，那他们很快会训练和微调出具有相似性能的开源模型。</p>
+<p>The Information 也专门<a href="https://www.theinformation.com/articles/why-openai-is-hiding-its-reasoning-models-thoughts">发文</a>，解释了 OpenAI 为何要隐藏推理模型的「思维」。从 o1-preview 博客文章中可以看出，模型的关键更新就是使用「内部思维链」，将问题分解成更简单的步骤，然后再解决。然而，这一关键的工作过程，并不会向客户展示。o1 模型展示出来的，是一个「模型生产的思维链摘要」，也就是说，在客户看到之前，o1 的思维过程是被完全不同的模型重新编写的。</p>
+<p>OpenAI 的解释是，这样就可以仅限 OpenAI 员工来「读懂」模型的思维，了解其运作方式。OpenAI 不希望展示模型未经过滤的思想，因为指不定其中有什么不安全的想法。此外，公司也希望可以监控模型，确保它不会产生不当行为，比如「操纵」用户。这也说明，如果不被过滤思维链，o1-preview 的表现可能会更好。因为这样的话，用户就能根据模型的思考过程来完善他们的问题，获得更多信息。</p>
+<h1>四、OpenAI o1 市场反馈</h1>
+<p>①开发者反馈：o1 模型对于开发者来说，比用 4o 这些模型更难。因为 o1 内嵌 cot，对很多开发者来说要重新改 product flow，原�</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本文围绕OpenAI于2024年9月发布的o1模型，从技术原理、思维链隐藏策略、市场反馈及基础设施影响等多维度进行了深度分析。</p>
+<p>核心技术层面，o1模型的关键创新在于引入「内部思维链（CoT）」，通过将问题分解为更简单步骤再逐步求解，实现推理能力大幅提升。但用户看到的并非原始思维过程，而是由另一独立模型重写的「思维链摘要」，OpenAI以安全监控为由对完整CoT进行了隐藏。这一设计也被认为是OpenAI保护核心训练数据资产、防止竞争对手复制的商业策略。</p>
+<p>论文佐证层面，谷歌DeepMind于2024年8月发表论文《Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters》，通过在MATH数据集上的实验证明，优化测试时计算（test-time compute）比单纯扩大模型参数规模更高效。使用计算最优搜索策略，较小模型可超越14倍大的模型，且计算量仅为Best-of-N策略的1/4。该研究结论与o1的工作原理高度吻合，印证了o1通过强化学习和增加推理时计算来持续提升性能的路径。</p>
+<p>开发者体验层面，o1对开发者集成难度较高，因内嵌CoT导致原有产品流程需要重构。早期用户反馈初期效果提升有限，但经过针对性微调后效果显著提升。</p>
+<p>RL训练挑战层面，RL的难度远超预训练，信号搜索困难且算力消耗极大。目前仅OpenAI、Anthropic、Google及xAI等头部机构具备完整RL能力，CUDA在RL领域的壁垒比预训练更高，GPU仍是几乎唯一可规模化的方案，但单卡性能优化和自研ASIC可能削弱英伟达壁垒。</p>
+<p>基础设施层面，o1的隐藏推理占用大量KV Cache，对集群互联和NVLink（NVL36/72）的需求视延迟要求而定，推理集群化需求也将持续增加。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>o1模型使用内部思维链将问题分解求解，但用户看到的是经另一模型重写的摘要，完整CoT被刻意隐藏以保护数据安全与商业利益</li>
+<li>DeepMind论文证明测试时计算最优扩展策略可使小模型超越14倍大模型，与o1原理高度一致，计算效率提升可达4倍</li>
+<li>RL训练难度远超预训练，信号稀疏且极耗算力，目前仅少数头部机构具备完整能力，CUDA在RL领域壁垒更高</li>
+<li>o1对开发者集成难度大，需重构原有CoT产品流程，经针对性微调后效果可显著提升</li>
+<li>o1推理过程占用大量KV Cache，大Context Window场景需依赖NVL72等高互联集群，推理集群化需求持续上升</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2487543299.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

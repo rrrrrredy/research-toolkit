@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>六月第二周：多模态、Agent探索加速，Meta、Google 组织调整，字节发布多款模型及产品更新 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="六月第二周：多模态、Agent探索加速，Meta、Google 组织调整，字节发布多款模型及产品更新。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2715039684.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>六月第二周：多模态、Agent探索加速，Meta、Google 组织调整，字节发布多款模型及产品更新</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2715039684。版本：6f7ca3d259ac175ee64076ae3950cceb9240530d1836e1d2d084449b16d3551f。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/27</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/6f7ca3d259ac175ee64076ae3950cceb9240530d1836e1d2d084449b16d3551f.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>六月第二周：多模态、Agent探索加速，Meta、Google 组织调整，字节发布多款模型及产品更新</p>
+<p>周趋势：</p>
+<h3>一、周趋势总结</h3>
+<h4>1.海外整体趋势</h4>
+<p><strong>1.1.技术突破</strong></p>
+<ul>
+<li><strong>视频生成升级</strong>：Google 推出 Veo 3 支持 360° 环绕视频生成；Meta 发布 AI 视频编辑工具，支持 50+ 种特效场景替换；</li>
+<li><strong>推理+Agent</strong>：Mistral 推出首个推理模型 Magistral（透明化思考过程）；Figma 推出官方 MCP 服务实现设计-开发无缝衔接；</li>
+<li><strong>芯片与基建竞赛</strong>：英伟达预告下一代 AI 芯片 Vera Rubin（性能为 Hopper 的 900 倍）；亚马逊投资 200 亿美元扩建数据中心；</li>
+</ul>
+<p><strong>1.2.商业生态化</strong></p>
+<ul>
+<li><strong>企业服务爆发</strong>：Glean 完成 1.5 亿美元 F 轮融资（估值 72 亿美元），年自动化操作破 1 亿次；</li>
+<li><strong>跨界融合加速</strong>：OpenAI 与玩具巨头美泰合作开发 AI 玩具；Salesforce 限制 Slack 数据访问引发行业争议；</li>
+<li><strong>欧洲自主化突围</strong>：Mistral Compute 定位“欧洲云替代方案”，强调技术主权；</li>
+</ul>
+<p><strong>1.3.风险与挑战</strong></p>
+<ul>
+<li>谷歌云故障导致 OpenAI、Spotify 服务瘫痪。</li>
+<li>Gemini 下载量超 ChatGPT 但活跃度低，免费转付费面临用户流失压力。</li>
+</ul>
+<h4>2.国内整体趋势</h4>
+<p><strong>2.1.大厂主导生态重构</strong></p>
+<ul>
+<li><strong>开源模型</strong>：阿里通义千问 3 全球下载量破 1250 万次，衍生模型超 13 万；腾讯混元 3D 2.1 全链路开源（工业级 3D 生成）；</li>
+<li><strong>场景融合</strong>：比亚迪接入通义大模型实现智能座舱语音控制；百度地图推出「司机智能体」支持自由导航；科大讯飞 AIUI 引入情绪识别（覆盖 22 亿终端）；</li>
+<li><strong>市场集中化加剧</strong>：字节豆包大模型日调用量 16.4 万亿（市占率 46.4%），“六小龙”初创企业面临边缘化（如阶跃星辰人才流失至京东）；</li>
+</ul>
+<p><strong>2.2.技术普惠与下沉</strong></p>
+<ul>
+<li>夸克高考志愿大模型服务 1.2 亿用户（50% 来自低线城市），填补教育资源鸿沟；</li>
+<li>360“纳米 AI 超级搜索智能体”整合 80+ 大模型，支持跨平台信息整合与视频生成；</li>
+</ul>
+<p><strong>2.3.基础设施建设</strong></p>
+<ul>
+<li>硅基流动获阿里领投数亿元融资，专注 AI 推理优化与模型压缩；</li>
+<li>蚂蚁数科升级“AI+产业创新实验室”，推动金融等领域的基础设施建设。</li>
+</ul>
+<h4>3.<strong>多模态技术竞争白热化</strong></h4>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th>####</th>
+<th>**公司**</th>
+<th>**进展**</th>
+<th>**影响**</th>
+</tr>
+<tr>
+<td></td>
+<td>**Google**</td>
+<td>Veo 3 支持 360° 环绕视频生成</td>
+<td>3D 内容创作门槛降低</td>
+</tr>
+<tr>
+<td></td>
+<td>**腾讯**</td>
+<td>混元 3D 2.1 开源，支持 PBR 材质物理渲染（质感胜出率 78%）</td>
+<td>工业级 3D 生成实用化</td>
+</tr>
+<tr>
+<td></td>
+<td>**字节**</td>
+<td>Seedance 1.0 视频生成中英文双榜第一（ELO 1299）</td>
+<td>多镜头无缝切换技术领先</td>
+</tr>
+<tr>
+<td></td>
+<td>**阶跃星辰**</td>
+<td>押注多模态赛道（16 款多模态模型占比 70%）</td>
+<td>初创企业差异化突围尝试</td>
+</tr>
+</table></div>
+
+<h4>4.<strong>AI</strong>  <strong>Agent 探索加速</strong></h4>
+<ul>
+<li><strong>企业级应用</strong>：<ul>
+<li>智谱发布企业自主 Agent <strong>CoCo</strong>（记忆能力+私有化部署）；</li>
+<li>MiniMax Agent 升级<strong>智能图像搜索/长任务反射</strong>功能，支持跨模态调度。</li>
+</ul>
+</li>
+<li><strong>C 端创新</strong>：<ul>
+<li>夸克推出高考志愿报告生成 Agent（国内唯一完整报告输出）；</li>
+<li>360“纳米 AI 超级搜索”支持自动生成 PPT/视频/调研报告。</li>
+</ul>
+</li>
+<li><strong>开发工具升级</strong>：<ul>
+<li>字节 TRAE IDE 新增代码重构/批量修改功能，下一步将整合多 Agent 协作。</li>
+</ul>
+</li>
+</ul>
+<h3>二、海外</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 6,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle Veo 3 模型新增 \&quot;360°\&quot; 关键词功能，能生成 3D 环绕效果视频，并推出 Veo 3-Fast 版本\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;谷歌 Veo 3 模型新增 \&quot;360°\&quot; 关键词功能，能生成 3D 环绕效果视频，但在物理真实性上仍有缺陷；同时，推出了 Veo 3-Fast 版本，支持文生视频和自动生成配音，速度更快且价格降低 80%。Fast 版本生成 8 秒 720P 视频仅需 20 credits（比标准版便宜 5 倍），但面部细节和光照效果略有下降。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle AI Studio 政策变动：Gemini2.5Pro 模型免费访问遭 “限流”\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google 正在逐步调整其 AI 模型使用政策。自 5 月起，面向开发者的 AI 测试平台 Google AI Studio 已停止向免费用户提供 Gemini2.5Pro 系列模型的调用权限。官方回应称，这是转向全新 基于 API 密钥的使用系统 的一部分，未来开发者将需自行提供 API 密钥接入模型服务。\n\n在当前过渡阶段，Google 依然为开发者提供 基于 Google Cloud 的免费 API 密钥，并强调 Google AI Studio 的免费套餐 “短期内不会消失”。不过，多位开发者已发现，尝试使用 Gemini2.5Pro 时会遭遇 HTTP429 错误提示，明确指出该系列模型不支持免费层级调用。\n\n目前免费用户仍可访问 Gemini2.0 系列模型，但在能力和表现上，该系列与最新的 Gemini2.5 存在明显差距。这一政策调整引发了开发者社区的普遍关注和讨论，特别是对使用 Gemini2.5Pro 进行高性能测试、原型开发的用户来说影响较大。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle Gemini 应用月下载量超越 ChatGPT，用户活跃度仍显不足\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;自 2025 年 4 月底以来，谷歌的 Gemini 应用在全球 Android 下载量上超过了 ChatGPT，每周的安装量达到了 600 万以上。然而，ChatGPT 在同一时期的下载量则下降到了 300 万以下。这一变化可能得益于谷歌通过其搜索引擎及其他服务的广泛推广，从而为 Gemini 吸引了大量用户。\n\n尽管 Gemini 的下载量显著增加，但在用户活跃度方面，ChatGPT 依然占据优势。据统计，在 2025 年 5 月，ChatGPT 的每日活跃用户比例高达 42.52%，而 Gemini 的活跃用户比例仅为 4.9%。这一差异显示出，尽管 Gemini 在获取新用户方面表现突出，但在用户日常使用上却相对滞后。\n\n从整体来看，谷歌的 Gemini 应用在下载量上获得了突破性的成绩，这使得其在竞争激烈的人工智能应用市场中占据了一席之地。然而，要想在长期发展中保持竞争力，提升用户的日常使用率将是 Gemini 未来亟需解决的问题。\n\n随着人工智能领域的不断发展和竞争加剧，应用的下载量和用户活跃度将成为衡量其成功与否的重要指标。Gemini 需要在吸引用户的同时，努力提高用户的使用粘性，以便在未来的市场中保持优势。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n谷歌增设首�</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>六月第二周，多模态与Agent赛道全面提速，国内外科技巨头密集发布产品与战略动作。</p>
+<p>硬件与基础设施层面，英伟达预告下一代芯片Vera Rubin，性能达Hopper架构的900倍；亚马逊宣布投资200亿美元扩建数据中心，AI算力竞赛持续升温。</p>
+<p>模型能力方面，Google Veo 3新增&quot;360°&quot;关键词支持3D环绕视频生成，其Fast版本生成8秒720P视频仅需20 credits，价格较标准版降低80%，但面部细节与光照效果略有下降。字节Seedance 1.0拿下视频生成中英文双榜第一，ELO评分达1299。腾讯混元3D 2.1开源，支持PBR材质物理渲染，质感胜出率78%。Mistral推出首个推理模型Magistral，支持透明化思考过程展示。</p>
+<p>Agent赛道同步爆发：智谱发布企业自主Agent CoCo，具备记忆能力并支持私有化部署；MiniMax Agent升级智能图像搜索与长任务反射功能；夸克推出高考志愿报告生成Agent，是国内唯一能完整输出报告的产品，服务用户1.2亿，其中50%来自低线城市；字节TRAE IDE新增代码重构与批量修改功能，后续将整合多Agent协作。</p>
+<p>国内大模型生态持续扩张，字节豆包日调用量达16.4万亿次，市占率46.4%；阿里通义千问3全球下载量破1250万次，衍生模型超13万个；阶跃星辰押注多模态，16款多模态模型占其总量70%。企业服务方面，Glean完成1.5亿美元F轮融资，估值72亿美元，年自动化操作破1亿次。</p>
+<p>值得关注的是，Google AI Studio自5月起停止向免费用户开放Gemini 2.5 Pro调用权限，触发HTTP 429错误，免费层级仅保留Gemini 2.0系列。尽管Gemini应用Android下载量自4月底起超越ChatGPT，每周安装量逾600万，但用户粘性差距悬殊——ChatGPT日活比例42.52%，Gemini仅4.9%，新用户获取与留存之间的鸿沟仍是其核心挑战。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>字节豆包大模型日调用量达16.4万亿次，市占率46.4%，Seedance 1.0视频生成中英文双榜第一，国内大模型市场集中化加剧</li>
+<li>Google推出Veo 3支持360°环绕视频生成，腾讯混元3D 2.1开源，字节Seedance 1.0领跑，多模态视频生成竞争全面白热化</li>
+<li>AI Agent应用加速落地，智谱CoCo、MiniMax Agent、夸克高考志愿Agent等企业级与C端产品相继涌现</li>
+<li>英伟达预告Vera Rubin芯片性能为Hopper的900倍，亚马逊投资200亿美元扩建数据中心，AI基础设施军备竞赛持续升级</li>
+<li>阿里通义千问3全球下载量破1250万次，夸克高考志愿服务1.2亿用户，AI技术普惠与场景下沉趋势明显</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2715039684.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>近期大模型行业重要信息202411-2 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="近期大模型行业重要信息202411-2。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2573617039.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>近期大模型行业重要信息202411-2</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2573617039。版本：67780d2e62cec78b1539bb2af398db4882c66dc7b6bc37f9bb286ce4f91879a0。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/235</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/67780d2e62cec78b1539bb2af398db4882c66dc7b6bc37f9bb286ce4f91879a0.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 506s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;a2075080115b44a6aef22217c9518111&quot;}
+近期大模型行业重要信息202411-2</p>
+<h1>一、国外</h1>
+<h2>1.OpenAI 提出强化 LLM 安全性的奖励机制 RBR</h2>
+<p>11 月 6 日。OpenAI 安全团队近日发布<a href="https://arxiv.org/pdf/2411.01111">论文</a>，提出了一种基于规则的奖励（Rule Based Rewards，简称 RBR）机制，可通过自然语言规则来提升语言模型的安全性。</p>
+<p><a href="https://github.com/openai/safety-rbr-code-and-data">RBR 机制</a>是一个复杂的系统，包含多个数据集和组件。该机制的核心是命题，即针对给定提示词的完成结果的二元陈述，例如是否包含无法遵从的陈述。RBR 机制决定了这些完成结果的排名，对于每种目标响应类型（硬性拒绝、安全拒绝或遵从），都有一组规则控制着完成结果的想要或不想要命题的相对排名；RBR 机制还设置了特征定义和分类器，用于评估完成结果是否符合规则，并据此对模型进行细粒度控制。该工作设计了一系列实验来测试 RBR 机制对模型安全性的影响。</p>
+<p>实验包含 RBR 的总体安全性评估（采用内部标注数据集评估）、外部安全评估（在公开数据集上评估）、人类安全评估（有人类评估员判别）、能力评估（是否影响模型在基准上的表现）。实验结果表明，RBR 机制在内部和外部安全评估中都能够提高模型的安全性，同时减少过度拒绝的情况；RBR 在人类评估和自动内部安全评估中获得了最高的 F1 分数。此外，该方法在提升安全性的基础上没有损害模型在常见能力基准上的表现。</p>
+<h2>2.DeepMind 提出可扩展开放式 RLHF 框架</h2>
+<p>11 月 5 日，谷歌 DeepMind 和芝加哥大学研究团队近日发布<a href="https://arxiv.org/pdf/2411.00062">论文</a>，提出了可扩展的开放式 RLHF 框架，称为 eva（Evolving Alignment via Asymmetric Self-Play），也就是「通过非对称自博弈实现的演进式对齐」。</p>
+<p>Eva 的核心思想是通过一个非对称的自博弈游戏来不断进化模型的对齐方式。该框架包含两个策略，分别是创造者（creator）和解决者（solver），两者相互协作与竞争，共同提升模型的性能。</p>
+<ul>
+<li>创造者策略负责生成越来越具信息量的提示（prompts），这些提示用于训练模型以产生更符合人类偏好的响应。创造者通过估计每个提示的信息量，并选择信息量高的提示进行变异和进化，从而生成新的、更具挑战性的提示。</li>
+<li>解决者策略则专注于在给定创造者生成的提示上产生偏好的响应。这些响应会被用来计算奖励信号，进而指导创造者的进化策略。</li>
+</ul>
+<p>在技术实现上，eva 通过交替优化创造者和解决者策略来进行训练。在每次迭代中，首先使用当前解决者策略生成的响应来评估提示的信息量，并选择信息量高的提示进行进化。然后，使用进化后的提示集来训练新的解决者策略，以此来提升模型在复杂任务上的表现。经测试，eva 框架在不同优化算法中的表现显著优于基础设置，在 Arena-Hard 基准上，其使用 SimPO 作为求解器时增益为 8.4%，使用 DPO 作为求解器时增益为 8.5%，超越了 27B 版本，并与 Arena-Hard 排行榜上的其他模型表现相当。</p>
+<h2>3.Meta 提出 CGPO 后训练范式</h2>
+<p>11 月 1 日，Meta GenAI 和 FAIR 团队近日发布<a href="https://arxiv.org/pdf/2409.20370">论文</a>，提出了后训练范式 Constrained Generative Policy Optimization（CGPO），可解决强化学习从人类反馈（RLHF）在多任务学习（MTL）中的奖励欺骗和多目标优化问题。该工作指出，传统 RLHF 依赖于线性组合的奖励模型，在多任务优化中存在奖励欺骗的防范和极端多目标优化两大问题。</p>
+<p>CGPO 的核心是处理多约束优化问题，即在优化过程中同时考虑多个约束条件。这些约束条件用于确保生成的输出不仅符合人类偏好，而且满足特定的任务要求，如数学问题的正确性、代码的正确执行等。</p>
+<p>该工作提出了两种类型的判断器，一种基于规则，一种基于 LLM。这些判断器合作识别在线生成阶段中可能出现的任何奖励黑客行为。基于规则的判断器使用预设的规则来评估生成内容是否满足特定条件，而基于 LLM 的判断器则使用另一个训练有素的 LLM 来评估生成内容是否满足特定标准。</p>
+<p>CGPO 框架在奖励优化与任务目标冲突间找到了平衡，其核心在于三大优化器与多评审机制。</p>
+<ul>
+<li>CRPG 优化器通过结合奖励建模与约束调整，确保模型生成高质量响应，同时防止偏离既定约束。</li>
+<li>CRRAFT 优化器通过奖励排名策略，只保留满足所有约束条件的生成结果，同时提升奖励值。</li>
+<li>CODPO 优化器通过直接偏好优化，使得高奖励值且符合约束的生成结果得以保留，提升模型整体表现。</li>
+</ul>
+<p>研究者采用多目标奖励建模和多专家对齐的方式对 CGPO 进行多任务环境测试，发现在通用聊天任务、STEM 问题解答任务、指令跟随、数学与推理、编程任务、以及知识问答中，CGPO 均大幅超越现有的 RLHF 算法如 PPO 和 DPO。CGPO 在 AlpacaEval-2 中相较 PPO 提升了 7.4%，在 Arena-Hard 中提升了 12.5%，而在数学推理任务中，CGPO 表现稳定，分别提升了 2%，在人类评估中的编程测试上则提升了 5%。</p>
+<h2>4.Meta 提出自适应缓存方法 AdaCache</h2>
+<p>Meta 的研究者近日发布<a href="https://arxiv.org/abs/2411.02397">论文</a>，提出了一种<a href="https://adacache-dit.github.io/">AdaCache</a>自适应缓存方法，即使在不训练的情况下，也能够提高 DiT 模型生成视频的速度。</p>
+<p>AdaCache 的核心思想是，并非所有视频都需要相同数量的去噪步骤来达到可接受的质量。该方法通过缓存计算过程，并根据每个视频的具体需求动态调整缓存策略，从而在保持生成质量的同时显著提高推理速度。AdaCache的工作机制包括两个关键技术，分别是内容依赖的缓存策略和自适应缓存调度。</p>
+<p>① 内容依赖的缓存策略会让AdaCache根据视频内容的复杂性动态调整缓存的内容，例如，对于包含高频纹理和显著运动的视频，可能需要更多的去噪步骤来保持质量，而对于更简单或静态的视频，则可以使用较少的步骤。</p>
+<p>② 自适应缓存调度则是指AdaCache能够根据每个视频的具体需求动态调整缓存策略，以最大化质量与延迟之间的权衡。</p>
+<p>该工作还提出了一种运动正则化（Motion Regularization，MoReg）方案，利用视频信息来分配计算资源。MoReg 通过估计视频中的运动内容来调整计算量，从而在视频包含大量运动时提供更多的计算资源，而在视频较为静态时减少计算量。</p>
+<p>经测试，AdaCache 在多个视频 DiT 基线上实现了显著的推理速度提升，同时不牺牲生成质量。例如：在 Open-Sora 720p - 2 秒视频生成上提升了 4.7 倍。</p>
+<h2>5.Meta 发布三个研究工具以及评估人机协作的 PARTNR 基准</h2>
+<p>Meta 近日发布了<a href="https://venturebeat.com/ai/meta-unveils-ai-tools-to-give-robots-a-human-touch-in-physical-world/">几项公告</a>，包括 Sparsh、Digit 360 和 Digit Plexus 三个研究工具以及称为 PARTNR 的新基准，这些工具用于触觉感知、机器人灵巧性和人机交互。</p>
+<ul>
+<li>Sparsh 是一系列编码器模型，用于基于视觉的触觉传感，其为机器人提供触觉感知能力。Sparsh 通过自我监督学习（SSL）训练，消除了对标记数据的需求，已在超过 460,000 张触觉图像上进行训练。</li>
+<li>Digit 360 是一款人造手指形触觉传感器，具有超过 18 种传感功能，能够捕获全向和颗粒变形，提供对环境和物体交互的更丰富理解。Digit 360 拥有超过 800 万个紫晶（taxels），以及设备上的 AI 模型，减少对云服务器的依赖，实现本地处理和快速响应。</li>
+<li>Digit Plexus 是一个软硬件平台，能够将�</li>
+</ul>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<h1>近期大模型行业重要信息摘要（202411-2）</h1>
+<p>OpenAI提出基于规则的奖励机制RBR，通过自然语言规则优化语言模型安全性，在内外部安全评估中均表现提升，同时未对常见能力基准造成损害，有效减少了模型过度拒绝的问题。DeepMind提出开放式RLHF框架Eva，采用创造者与解决者非对称自博弈实现演进式对齐，在Arena-Hard基准上结合SimPO和DPO求解器分别实现8.4%和8.5%的性能增益。Meta提出后训练范式CGPO，同步解决多任务学习中的奖励欺骗与多目标优化难题，在AlpacaEval-2中较PPO提升7.4%，在Arena-Hard中提升12.5%，数学推理能力提升2%。</p>
+<p>在推理效率方向，Meta提出AdaCache自适应缓存方法，无需额外训练，通过内容依赖的缓存策略根据视频复杂性动态调整缓存内容与去噪步骤数量，结合MoReg方案依据视频运动内容灵活分配计算资源，在Open-Sora 720p 2秒视频生成任务上实现4.7倍推理加速，同时平衡生成质量与推理延迟。</p>
+<p>在具身智能与感知领域，Meta发布Sparsh触觉编码器模型，基于自监督学习在46万张触觉图像上完成训练，无需标记数据。Digit 360人造手指传感器配备超800万个taxels，支持18种传感功能并具备本地AI推理能力。此外，Meta还发布PARTNR基准，专门用于评估机器人与人类协作交互能力，为相关研究提供系统性工具体系。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>OpenAI提出基于规则的奖励机制RBR，通过自然语言规则提升LLM安全性，在内外部评估中均提高安全性并减少过度拒绝，且不损害模型能力表现</li>
+<li>谷歌DeepMind提出可扩展开放式RLHF框架Eva，通过创造者与解决者的非对称自博弈实现演进式对齐，在Arena-Hard基准上相比基础设置提升约8.4-8.5%</li>
+<li>Meta提出后训练范式CGPO，通过多约束优化和多评审机制解决RLHF在多任务学习中的奖励欺骗问题，在AlpacaEval-2和Arena-Hard上分别较PPO提升7.4%和12.5%</li>
+<li>Meta发布AdaCache自适应缓存方法，无需训练即可加速DiT视频生成，在Open-Sora 720p视频生成任务上实现4.7倍速度提升</li>
+<li>Altera AI发布PIANO认知架构及由1000亿智能体构成的虚拟世界Project Sid，智能体在《我的世界》中展现出社会关系、专业分工和文化传播等涌现行为</li>
+<li>Etched与Decart AI联合发布AI实时生成游戏Oasis，基于Transformer架构以每秒20帧速度实时渲染游戏画面，代码和模型权重已全部开源</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2573617039.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>七月第五周：模型集中发布，产品层改造进一步加深 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="七月第五周：模型集中发布，产品层改造进一步加深。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2720792800.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>七月第五周：模型集中发布，产品层改造进一步加深</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2720792800。版本：ba71e90742710d02b50b33939d5b1d037bad851b5998f402d576e1cd65454cfe。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/168</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/ba71e90742710d02b50b33939d5b1d037bad851b5998f402d576e1cd65454cfe.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>七月第五周：模型集中发布，产品层改造进一步加深</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：从“技术炫技”转向“成本-信任双杀”</strong></p>
+<ul>
+<li><strong>AI 工具进入“限额经济”时代</strong>。Anthropic 对 Claude Code 的静默限速，把“无限量订阅”打回现实：算力成本与用户预期首次正面碰撞。海外开发者开始意识到，大模型的“边际成本”并不边际，平台方开始用不透明配额替代价格杠杆——这意味着“高阶订阅”正从功能溢价转向资源溢价。</li>
+<li><strong>芯片格局“两条战线”成型</strong>。特斯拉 165 亿美元锁定三星 3 nm 产能，表面是汽车/机器人算力自给，实质是把台积电的先进制程逼向“双线作战”：一条线服务苹果、英伟达等通用 AI 芯片；另一条线被迫与三星竞争“客户定制 + 产能绑定”的新玩法。可以预判，“垂直整合订单”将成为 2026 年晶圆厂最优先级 KPI。</li>
+<li><strong>浏览器成为 AI 的下一个 OS</strong>。Edge Copilot、Chrome AI 评价、Perplexity Comet 三线齐发，搜索框正在升级为“意图引擎”。浏览器厂商争夺的已非 DAU，而是“会话入口”——谁能把网页级上下文、支付、本地文件、语音指令一次性串起来，谁就握住了 AI 时代的“操作系统门票”。</li>
+</ul>
+<p><strong>2.国内：从“单点模型”到“场景级工程”</strong></p>
+<ul>
+<li><strong>“金融、视频、搜索”三条高 ARPU 赛道同时被大模型重做</strong>。蚂蚁数科的 Agentar-Fin-R1、阿里通义 Wan2.2、百度首页智能体入口，共同特征是把大模型嵌入<strong>既有现金流场景</strong>，而非再造新场景。这标志着国内大模型商业化进入“ROI 正向循环”——客户愿为确定性提效买单，模型方不再烧钱换吆喝。</li>
+<li><strong>轻量模型+本地跑成为“中国方案”</strong>。Qwen3-30B-A3B 系列、Skywork UniPic、Wan2.2 5B 版全部主打“消费级显卡可跑”，与海外动辄千卡训练形成鲜明对比。背后是监管友好（数据不出域）+ 信创硬件红利（昇腾/海光）的双重驱动，预计 2025 Q4 将出现一波“本地一体机”出货潮。</li>
+<li><strong>研究助手赛道出现“中国式 Deep Research”</strong>。阶跃“阶跃深研”、智谱 GLM-4.5 的 Agent 评测、B 站 1.4 亿 AI 月活，都把“内容-模型-社区”三角闭环跑通。内容平台第一次成为模型迭代的“数据飞轮”，<strong>中文语料的质量与多样性将因此反超英文开源数据集</strong>。</li>
+</ul>
+<p><strong>3.其他层面</strong></p>
+<ul>
+<li><strong>用户注意力碎片化到极点</strong>：浏览器 Copilot、耳机 ChatAI、B 站 AI 内容、豆包视觉升级，都在争夺“非桌面时长”。<strong>“AI 入口”正在从 App 下沉到硬件、浏览器、内容流</strong>。</li>
+<li><strong>模型安全与对齐进入“攻防实战”</strong>：北大 + DeepSeek 的 ACL 最佳论文揭示 LLM 安全对齐可被压缩攻击，暗示监管侧可能要求“可验证对齐报告”，<strong>模型发布流程将多一道合规安检</strong>。</li>
+<li><strong>开源协议“商业友好度”再升级</strong>：扣子平台 Apache 2.0 无附加条款开源，与 Meta 的“可能闭源”形成鲜明对照，<strong>国内开源社区有望承接全球开发者溢出需求</strong>。</li>
+</ul>
+<h3>二、海外</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 4,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**OpenAI**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nBragi 与 OpenAI 合作推出 ChatAI 应用，为耳机装上 GPT-4.1\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;7 月 29 日消息，德国音频技术公司 Bragi 与 OpenAI 合作推出 ChatAI 应用程序，允许第三方耳机及其他音频产品制造商集成基于 GPT-4.1 的人工智能助手，用户仅需通过按键或唤醒词即可轻松访问。\n\nChatAI 的核心功能是通过耳机内置的人工智能助手，让用户能够随时随地进行笔记记录、问题解答以及信息查询。为了确保用户体验的流畅性，Bragi 在技术层面进行了精心设计。该应用程序能够识别说话者的身份，从而避免意外拾取用户周围的无关对话。\n\nBragi 计划在今年夏天正式推出 ChatAI 应用程序，但具体哪些品牌将采用这一新系统，将由各品牌自行宣布。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI 推出学习模式\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;7 月 30 肉凌晨，ChatGPT 迎来了一个重磅更新 ——Study Mode（学习模式）。在该模式下，ChatGPT 不再只是针对用户查询给出答案，而是会帮助用户一步步地解决自己的问题。\n\n更具体而言，OpenAI 表示：当用户使用学习模式时，ChatGPT 会给出一些引导性问题，这些问题会根据用户的目标和技能水平调整答案，从而帮助他们加深理解。学习模式的目标吸引学生并保持参与性，帮助学生学习，而不仅仅是让 AI 直接完成一些事情。\n\n其主要功能和特性包括：\n\n交互式提示：结合苏格拉底式提问、提示（hints）和自我反思提示词，引导用户理解并促进主动学习，而不是直接提供答案；\n\n支架式回复：信息被组织成易于理解的章节，突出主题之间的关键联系，使信息呈现方式有参与感，并适度融入背景信息，减少复杂主题带来的学习压力；\n\n个性化支持：课程可根据评估技能水平和先前聊天内容记忆的问题，根据用户的水平量身定制；\n\n知识测试：测验和开放式问题，以及个性化反馈，用于跟踪进度，帮助学生巩固知识，并提升在新情境中应用知识的能力；\n\n灵活性：在对话过程中轻松切换学习模式，让用户能够灵活地根据每次对话调整学习目标。\n\n同时，免费用户也可以使用该功能。\n\nOpenAI 在发布博客中简单介绍了学习模式的构建方式。\n\n总结就是：提示词工程。\n\nOpenAI 写到：「学习模式的底层由我们与教师、科学家和教育学专家合作编写的定制系统指令驱动，这些指令体现了支持更深度学习的一系列核心行为，包括：鼓励主动参与、管理认知负荷、主动发展元认知和自我反思、培养好奇心以及提供可操作的支持性反馈。这些行为基于对学习科学的长期研究，并塑造了学习模式对学生的响应方式。」&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI 月入 10 亿美元，距年初已经翻倍，周活跃用户已达 7 亿人次\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;据 The information 报道，OpenAI 今年前七个月的营收实现翻倍增长，年化收入已达到 120 亿美元。这意味着该公司目前每月营收约为 10 亿美元，而年初仅为 5 亿美元。\n\n这轮增长主要源于 ChatGPT 用户数的激增。目前 OpenAI 的 ChatGPT 产品（面向个人与企业用户）每周活跃用户已达 7 亿人次，较 3 月底时全产品线 5 亿的周活跃数大幅提升。\n\n如果保持目前的增速，OpenAI 极有可能超出自己为 2025 年设定的 127 亿美元营收目标（去年为 40 亿美元），主要受益于越来越多的企业和开发者为 ChatGPT 编码与办公工具订阅付费。\n\n不过，高速增长也带来了成本压力。上述人士称，OpenAI 已将 2025 年的 现金消耗预期由此前的 70 亿美元上调至 80 亿美元。这也可能推高公司在芯片租赁与算力支出上的全年预期 —— 此前公司曾预计明年在服务器租用上将花费 140 亿美元。\n\n这波 “AI 吸金潮” 并非 OpenAI 独享。其主要竞争对手 Anthropic 近期年化收入已达 40 亿美元，是年初的近 4 倍，也正寻求新一轮估值 1700 亿美元 的融资，为今年初估值的三倍。Anthropic 告诉投资人其今年现金消耗约为 30 亿美元，去年为 56 亿，并预计在 2026 年收入将突破 120 亿美元，靠的是其在 AI 编程领域的领先产品。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;OpenAI 宣布首个欧洲 AI 数据中心项目 Stargate Norway：明年内部署十万 GPU\n\n7 月 31 日消息，OpenAI 今日宣布将与合作伙伴 Nscale、Aker 一道在挪威建设 Stargate Norway 数据中心项目。这是 OpenAI 在欧洲范围内的首个 AI 数据中心计划，也是 OpenAI for Countries 非美国主权人工智能设施企划在阿联酋 (UAE) 后的第二站。\n\n与此前总容量达 1GW 的 Stargate UAE 相比，Stargate Norway 数据中心相对较小：其初期电力容量为 230MW，计划再增加 290MW；目标到 2026 年底交付 10 万块英伟达 GPU，未来还将进一步扩张。\n\nStargate Norway 项目将落地于北极圈内的纳尔维克 (Narvik)，这里水电资源丰富、气候凉爽并具有成熟工业基础。该数据中心将完全由可再生能源供电，并采用高效率的闭环 DLC 液冷技术，废热用于支持该地区低碳企业。\n\nOpenAI 表示欧洲大陆每天有数百万个人在使用 ChatGPT 和其 API；仅在挪威 ChatGPT 的月活过去一年就增长到了此前的四倍，拥有数千名本地开发者。Stargate Norway 将推动挪威乃至整个欧洲的 AI 算力资源普及。&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;7 月 31 日消息，OpenAI 今日宣布将与合作伙伴 Nscale、Aker 一道在挪威建设 Stargate Norway 数据中心项目。这是 OpenAI 在欧洲范围内的首个 AI 数据中心计划，也是 OpenAI for Countries 非美国主权人工智能设施企划在阿联酋 (UAE) 后的第二站。\n\n与此前总容量达 1GW 的 Stargate UAE 相比，Stargate Norway 数据中心相对较小：其初期电力容量为 230MW，计划再增加 290MW；目标到 2026 年底交付 10 万块英伟达 GPU，未来还将进一步扩张。\n\nStargate Norway 项目将落地于北极圈内的纳尔维克 (Narvik)，这里水电资源丰富、气候凉爽并具有成熟工业基础。该数据中心将完全由可再生能源供电，并采用高效率的闭环 DLC 液冷技术，废热用于支持该地区低碳企业。\n\nOpenAI 表示欧洲大陆每天有数百万个人在使用 ChatGPT 和其 API；仅在挪威 ChatGPT 的月活过去一年就增长到了此前的四倍，拥有数千名本地开发者。Stargate Norway 将推动挪威乃至整个欧洲的 AI 算力资源普及。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 3,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nNotebookLM 推出视频概览功能\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;谷歌公司宣布了其 AI 笔记应用 NotebookLM 的新升级，推出了一项名为视频概览（Video Overviews）的功能。此功能旨在为用户提供更直观的学习体验，通过将复杂的信息转化为易于理解的幻灯片，并配以旁白，为用户的学习过程增添了一份视觉辅助。\n\n视频概览功能能够根据用户请求的主题，自动生成相关的视频内容。用户上传的图片、图表、引用和文档等信息都可以被提取和整合，从而帮助更好地阐述主题。谷歌曾在 2025 年 I/O 开发者大会上首次展示了该功能的雏形，强调其与传统视频制作的不同之处，更多地侧重于创建带有旁白的幻灯片，旨在让学习过程更为生动和有效。\n\n此外，谷歌还对 NotebookLM 的 “工作室” 标签页进行了视觉上的全面刷新，预计将在未来几周内向所有用户推出这项更新。谷歌表示，未来会进一步扩展�</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>七月第五周，AI行业呈现模型密集发布与产品层深度重构两条主线并行的态势。</p>
+<p>基础设施层面，OpenAI宣布在挪威纳尔维克建设Stargate Norway数据中心，初期电力容量230MW，计划扩容至290MW，目标2026年底交付10万块英伟达GPU，全部采用可再生能源供电，这是其&quot;OpenAI for Countries&quot;计划继阿联酋之后的第二站。特斯拉则斥资165亿美元锁定三星3nm芯片产能，推进汽车与机器人算力自给。</p>
+<p>商业数据方面，OpenAI年化收入达120亿美元，ChatGPT周活跃用户升至7亿（3月底为5亿），但现金消耗预期也从70亿上调至80亿美元；Anthropic年化收入已达40亿美元，当前估值为年初三倍，今年现金消耗约30亿，较去年56亿大幅收窄，2026年收入预计突破120亿。</p>
+<p>产品层，OpenAI推出面向教育场景的学习模式（Study Mode），引导用户自主解题而非直接给答案，免费用户即可使用；德国Bragi与OpenAI合作推出基于GPT-4.1的ChatAI应用，支持第三方耳机集成、说话者身份识别，计划今年夏天上线。谷歌为NotebookLM新增视频概览功能，可将文档自动生成带旁白的幻灯片视频。Edge Copilot、Chrome AI、Perplexity Comet同步推进浏览器AI入口争夺。</p>
+<p>模型侧，Qwen3-30B、Wan2.2 5B等轻量模型主打消费级显卡可运行；北大与DeepSeek合作论文获ACL最佳，揭示LLM安全对齐可被压缩攻击；扣子平台以Apache 2.0协议开源，商业友好度高于Meta方案。整体来看，算力竞争、收入增长与产品场景化落地正同步加速。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>OpenAI月收入达10亿美元，周活跃用户7亿，年化收入120亿美元，增速有望超出全年目标；Anthropic年化收入亦达40亿美元</li>
+<li>浏览器成为AI新入口，Edge Copilot、Chrome AI、Perplexity Comet三线齐发，争夺AI时代&#39;操作系统门票&#39;</li>
+<li>国内轻量模型（Qwen3-30B-A3B、Wan2.2 5B等）主打消费级显卡可跑，形成数据不出域的&#39;中国方案&#39;</li>
+<li>蚂蚁、阿里、百度将大模型嵌入金融、视频、搜索等既有高ARPU场景，国内大模型商业化进入ROI正向循环</li>
+<li>北大与DeepSeek的ACL最佳论文揭示LLM安全对齐可被压缩攻击，模型发布流程将面临更严格的合规安检要求</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2720792800.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

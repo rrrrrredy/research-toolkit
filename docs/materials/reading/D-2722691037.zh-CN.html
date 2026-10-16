@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>八月第二周：海外用定价权和安全叙事巩固领先，国内用垂直场景和开源速度抢落地 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="八月第二周：海外用定价权和安全叙事巩固领先，国内用垂直场景和开源速度抢落地。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2722691037.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>八月第二周：海外用定价权和安全叙事巩固领先，国内用垂直场景和开源速度抢落地</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2722691037。版本：aefdb14be6f7f976f2293515073134613c2941e9244f2f0f66f67014de71a9bf。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/172</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/aefdb14be6f7f976f2293515073134613c2941e9244f2f0f66f67014de71a9bf.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>八月第二周：海外用定价权和安全叙事巩固领先，国内用垂直场景和开源速度抢落地</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：从“参数崇拜”走向“场景定价”与“安全护栏”</strong><br>• <strong>性能天花板继续被抬高</strong>：Anthropic 把 Claude 的上下文一口气推到 100 万 token，OpenAI 的内部推理系统在 IOI 夺金，都说明“长上下文 + 强推理”已成为海外第一梯队的新基线。但更值得玩味的是 Anthropic 的超 200K 加价策略——把“超长记忆”当成可计价的稀缺资源，正式把技术领先转化为定价权；<br>• <strong>安全范式迁移</strong>：GPT-5 的“输出监控”取代“输入审查”，标志 OpenAI 把安全成本后置到模型端，而不是前置过滤用户。这一做法既降低误判率，也为未来广告/个性化留出更大商业空间；<br>• <strong>人才与组织暗流</strong>：xAI 与微软同时大规模从 Google、Meta“定向挖人”，但 xAI 的“40 名前 Googler”占比过高，反而暴露其原创体系的脆弱；微软用“强制薪酬匹配”闪电抢人，则把大模型人才战推向“现金对现金”的硬碰硬阶段；<br>• 资本与反垄断：Perplexity 345 亿美元要约收购 Chrome，看似“蛇吞象”，实质是把美国司法部的反垄断压力变现为“并购叙事”，提前锁定浏览器入口。浏览器即检索，检索即广告，Perplexity 想一步到位解决分发瓶颈。</p>
+<p><strong>2.国内：垂直场景“小模型+工具链”正在崛起</strong><br>• <strong>医疗、游戏、数字人三条赛道出现“单点爆品”</strong>：百川 Baichuan-M2 以 60.1 分拿下 HealthBench 全球第一，证明在数据壁垒高的垂直领域，“小模型+专有数据”可以跑赢通用模型；昆仑万维五天连发五款模型，把“视频-游戏-音乐-科研”做了一次全栈 demo；<br>• <strong>开源成为 ToB 获客手段</strong>：智谱 GLM-4.5V、阿里 1688“诚信通 AI 版”、华为 UCM、腾讯混元 GameCraft 均把核心能力开源或免费额度放出，背后逻辑是通过工具链锁定开发者，再把云资源、电商流量、广告位卖给 B 端；<br>• <strong>“端侧化”与“轻量化”进入实操</strong>：Gemma 3 270M 跑在 Pixel 9 Pro；华为 UCM 把 KV-Cache 卸载到存储，实现 90% 首 token 延迟下降；腾讯混元 3D-Lite 把显存压到 17 GB 以下——都在用工程手段吃下“消费级硬件”长尾市场；<br>• 资本层面仍由“国家队+大厂”主导：没有出现海外式的“反垄断+并购”剧情，取而代之的是地方政府、运营商、央国企的算力订单与场景采购。</p>
+<p><strong>3.上周行业重点：视频生成与 Agent 进入“可商用”临界点</strong><br>•** 视频生成**：Pika 音频驱动表演、Midjourney 高清视频、昆仑 SkyReels-A3、快手可灵 AI 组织升级——技术（DiT+插帧+强化学习）与算力（国产 GPU 上云）同时到位，短视频、广告、电商详情页将迎来“零拍摄”时代；<br>• <strong>Agent</strong>：Claude Code/Anthropic Learning Mode、智元 GE 世界模型、阿里 RynnRCP、字节 M3-Agent-Control——“写代码-控机器人-调用工具”三条路径第一次在同一周内给出开源可复现版本，预示 2025 下半年将出现“Agent 应用商店”大战。</p>
+<p><strong>4.其他层面：商业模式、安全伦理、监管</strong><br>• <strong>商业模式</strong>：OpenAI 首次公开讨论“广告”，Perplexity 探索“浏览器即流量入口”，阿里 1688 把 AI 打包进会员费——“订阅+广告+交易抽佣”三元模型正在 AI 产品层面试跑；<br>• <strong>安全伦理</strong>：Anthropic 给 Claude 加“自保”终止开关，把 AI 伦理话题从“人类安全”扩展到“模型自身福利”，为行业抛出新的合规灰区；<br>• <strong>监管</strong>：欧盟对 Google Flight Deals 的调查、美国法官对 Google 搜索的反垄断裁决，都在逼迫平台把“算法可解释性”与“数据共享”纳入产品迭代节奏；</p>
+<p>**人才与资本再分配地图：**人才流向呈现“大厂→初创→大厂”的螺旋：Google → xAI/Perplexity、Meta → 微软、OpenAI → Anthropic/Meta，循环速度比移动互联网时代快 3 倍，导致技术半衰期缩短，初创公司必须在 12-18 个月内完成技术-商业闭环；资本正在从“模型训练”转向“推理 infra 与工具链”：英伟达股价高位震荡，而 vLLM、UCM、VeOmni 等推理优化框架获得一线基金加注，说明“谁帮用户省钱”比“谁更烧钱”更具估值吸引力。</p>
+<h3>二、海外</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n事件\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**xAI**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGrok 4 已免费开放，非订阅用户每天可限量使用\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;8 月 11 日消息，马斯克上午宣布，Grok 4 现在对所有用户免费开放。免费用户每天可完成少量查询，超过限制则需要订阅。\n\n根据 xAI 官方 X 账号的介绍，只需使用「自动」模式，Grok 就会将复杂的查询路由到 Grok 4。若用户偏好「掌控一切」，则可以切换到「专家」模式。在限定的时间内，xAI 将提供「慷慨的」使用额度。\n\n据此前报道，马斯克曾宣称 Grok 4 是全球最强 AI 模型，在处理学术问题上的表现已经达到博士级别。\n\n从官方公布的跑分数据来看，Grok 4 模型具备非常亮眼的成绩，在实时速度、推理能力和高级视觉等方面，将和 OpenAI、Anthropic 顶尖模型同台较量。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nxAI 大量挖角 Google 人才，X 和 xAI 合并困难\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;当地时间 8 月 14 日，xAI 联创伊戈尔・巴布什金宣布离职，将创办巴布什金风投公司，支持 AI 安全研究并投资相关初创企业。\n\n有趣的是，据 The Information 报道，xAI 对 Google 人才的依赖程度很高。\n\nLinkedIn 和社交平台 X 上员工档案的分析显示，自马斯克 2023 年成立 xAI 以来，该公司已招募至少 40 名前 Google 员工，其中包括 19 名今年新加入的研究人员和工程师。\n\n数据显示，该公司还从 Meta 挖走至少 21 名研究人员和工程师，从字节跳动招募 12 人，从微软引进 11 人，这些新员工大多在 2025 年入职。\n\n此外，尽管马斯克今年 3 月宣布已将 xAI 与社交平台 X 合并，并称这笔交易将「整合两家公司的数据、模型、计算能力、分发渠道和人才资源」，释放巨大潜力，但实际整合进展缓慢。\n\n知情人士透露，两个部门在日常运营中仍相对独立，各自使用不同的内部系统，导致工作效率受到影响。比如 X 和 xAI 使用不同的 Slack 通讯系统，团队间沟通存在障碍，部分团队甚至改用 Signal 群聊来解决沟通问题。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 6,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle Finance 推出 AI 升级，支持智能问答与高级图表功能\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google 于近期宣布，为其金融信息与商业新闻平台 Google Finance 带来 AI 升级。新版本将支持用户通过 AI 查询金融问题、使用高级图表工具，并获取实时数据与新闻。升级后，用户可直接向 AI 提出详细的金融问题，并获得包含相关网站链接的综合解答。相比逐一搜索个股信息，现在可以一次性完成复杂查询。\n\n在图表功能方面，Google 表示，新工具可让用户可视化超越简单资产表现的数据，例如查看移动平均包络线等技术指标，或切换至 K 线图等不同展示方式。\n\nGoogle Finance 还将新增市场数据，包括大宗商品及更多加密货币，并上线实时新闻流，方便用户即时查看市场动态。\n\n此举被认为是 Google 向 Yahoo Finance、Seeking Alpha 等竞争对手发起挑战，同时也希望借助 AI 回答与可视化功能，减少用户转向 ChatGPT 等 AI 聊天机器人获取复杂金融解答的情况。\n\n据悉，AI 版 Google Finance 将在未来数周内向美国用户陆续推送，并允许用户在新旧界面间自由切换。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle 为 Slides 和 Vids 引入全新 AI 图像编辑功能，轻松替换和扩展背景\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;近日，谷歌宣布将为其 Google Slides 和 Google Vids 平台推出两项全新的基于 Gemini 的 AI 图像编辑功能。这些新功能旨在帮助用户更轻松地处理图像背景，无论是替换还是扩展，都能实现简单快捷的操作。\n\n第一项功能允许用户通过简单的文本提示，完全替换图片的背景。用户只需选中一张图片，然后右键点击 “编辑图片” 或点击 “生成图片” 图标，接着在弹出的侧面板中选择 “替换背景”。在这里，用户可以输入想要替换的内容，系统将自动生成新背景。谷歌表示，这一功能特别适合将产品置入真实环境中，或者用于统一员工头像的背景。\n\n第二项功能则是扩展图片背景。用户同样需选择图片，然后在侧面板中点击 “生成图像” 图标，选择扩展功能，接着选择新的宽高比，例如 16:9 或 4:3。系统会提供多种选项，用于填充背景。这一功能使得用户可以将小型竖屏图片转换为大型横屏横幅，且不会造成原始图像的扭曲。\n\n此次功能的推出时间安排也颇为细致。对于参与谷歌快速发布计划的域名，更新将于 7 月 28 日开始；而对于其他常规发布的用户，预计将在 8 月 14 日全面推出。这两项功能将惠及众多 Google Workspace 订阅用户，包括商务标准版、Plus 版、企业标准版和 Plus 版，以及拥有 Gemini Education、Gemini Education Premium、AI Pro 或 Ultra 插件的用户。同时，拥有旧版 Gemini Business 和 Enterprise 插件的用户也可以使用这些功能。\n\n值得一提的是，谷歌在今年早些时候宣布，将在 Workspace 订阅中整合多项 AI 功能，而无需额外支付 Gemini 插件费用。这些功能包括图像背景移除、Meet 中的 Studio Look、Studio Lighting 和 Studio Sound 增强等，进一步提升了用户的工作效率。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGemini 新增 \&quot;记忆\&quot; 功能和隐私聊天模式\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;谷歌近日为其 Gemini AI 助手推出了两项备受期待的新功能 ——\&quot;记忆\&quot; 功能和 \&quot;临时聊天\&quot; 模式，这标志着 AI 助手在个性化服务和隐私保护方面迈出了重要一步。\n\n\&quot;记忆\&quot; 功能是此次更新的核心亮点，它能够持续学习和记录用户的个人信息、使用习惯和偏好设置。通过这一功能，Gemini 能够构建用户的个性化档案，从而在后续交互中提供更加精准和贴心的服务建议。\n\n这项功能的实际应用场景相当丰富。例如，如果用户经常询问关于健身的问题，Gemini 会记住用户的运动偏好和健身目标，在后续对话中主动提供相关的健身计划或营养建议。同样，对于工作相关的查询，AI 助手能够记住用户的职业背景和工作习惯，提供更有针对性的专业支持。\n\n更值得�</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周AI行业呈现海外巩固领先、国内抢占场景的分化格局。</p>
+<p>人才争夺战持续升温，xAI与微软同步从Google、Meta定向挖角，xAI已引进至少40名前Google员工、21名前Meta员工及12名字节跳动员工，多数于2025年入职。与此同时，xAI联创伊戈尔·巴布什金宣布离职，将创立专注AI安全研究的风投公司。马斯克高调宣称Grok 4已达博士级学术处理能力并向免费用户开放，但其宣布的xAI与X合并实际进展迟缓，两部门仍各自独立运营，甚至使用不同Slack系统。</p>
+<p>技术与产品层面，Anthropic将Claude上下文窗口扩展至100万token，超出200K用量部分采取加价策略；OpenAI GPT-5则以&quot;输出监控&quot;取代&quot;输入审查&quot;，将安全成本后置至模型端。Perplexity提出以345亿美元要约收购Chrome，意图锁定浏览器搜索入口。Google方面动作密集：Google Finance引入AI智能问答与高级图表功能，直接对标Yahoo Finance与ChatGPT；Gemini为Slides和Vids新增文本提示替换背景等图像编辑功能，并上线可持续记录用户习惯的&quot;记忆&quot;功能，同步提供&quot;临时聊天&quot;隐私模式作为平衡选项。</p>
+<p>国内方面，百川Baichuan-M2在HealthBench以60.1分夺得全球第一，验证垂直领域小模型路线的可行性；昆仑万维五天连发五款模型，覆盖视频、游戏、音乐、科研全栈场景。视频生成领域Pika、Midjourney、快手可灵多方并进，短视频广告正迈向零拍摄时代。资本端，行业资金流向已从模型训练转至推理基础设施，vLLM等推理优化框架获得一线基金加注。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Anthropic将Claude上下文扩展至100万token并对超200K加价，将技术优势转化为可计价定价权，开创稀缺资源商业化新模式</li>
+<li>百川Baichuan-M2以60.1分夺得HealthBench全球第一，证明垂直领域&#39;小模型+专有数据&#39;策略可超越通用大模型</li>
+<li>Perplexity提出345亿美元收购Chrome，借美国反垄断压力构建浏览器流量入口，探索&#39;浏览器即检索即广告&#39;商业闭环</li>
+<li>国内厂商普遍采用开源+免费额度策略抢占ToB市场，以工具链锁定开发者再变现云资源与广告位</li>
+<li>Agent与视频生成同周出现多个开源可复现版本，标志两大方向进入可商用临界点，2025下半年将爆发应用层竞争</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2722691037.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

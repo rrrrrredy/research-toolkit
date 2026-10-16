@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>腾讯AI全景解析：恢复阅读稿 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="腾讯AI全景解析：恢复阅读稿。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/recovered/D-2499046308.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>腾讯AI全景解析：恢复阅读稿</h1>
+<p><a href="index.zh-CN.html">五份重点整理</a> · <a href="index.html">English index</a></p>
+<blockquote>
+<p>保留历史原文及单独更正：“腾讯提出 XGBoost”归属有误；原论文作者来自华盛顿大学。其余陈述尚未核实。 <a href="../recovery-notes.zh-CN.html">核对依据</a>。</p>
+</blockquote>
+<blockquote>
+<p>Historical text with a separate correction: the claim that Tencent introduced XGBoost is incorrect; the original authors were at the University of Washington. Other claims remain unverified.</p>
+</blockquote>
+<p>原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/36fe072b2ceacb3274d3a7a1d3ffc49789f511841c8db0426673e74b4554227e.json</code> · <a href="../reading/D-2499046308.zh-CN.html">基本阅读稿及旧摘要</a> · <a href="../recovery-notes.zh-CN.html">本次发现与使用限制</a></p>
+<p>仅从同一保存版本恢复正文和完整单元格，不补写缺失内容。事实与发布日期仍按恢复说明判断。</p>
+<p>腾讯AI全景解析</p>
+<h1>一、腾讯AI布局</h1>
+<p>腾讯在人工智能领域的布局始于 2012 年前后，早期以各事业群内建 AI 团队为主。其中最具实力的是彼时社交网络事业群 (SNG) 旗下的腾讯优图实验室，主要专注于计算机视觉领域，包括人脸识别、图像识别、OCR 等技术的研发和应用。</p>
+<p>2016 年，腾讯开始从集团层面布局 AI 战略并成立了腾讯人工智能实验室 (AI Lab)，从全球招募相关领域的顶尖科学家。AI Lab 隶属于技术工程事业群 (TEG)，专注于包括计算机视觉、 语音识别、自然语言处理和机器学习方向的基础研究，和内容、社交、游戏等方向的应用探索。</p>
+<p>2017 年，腾讯提出了 “基础研究-场景共建-能力开放” 的三层战略架构对 AI 持续深入布局：</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ 部门/领域</th>
+<th>__ 研究重点/方向</th>
+<th>__ 具体内容和目标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>基础研究</td>
+<td>AI Lab + RoboticsX</td>
+<td>连接虚拟和真实世界，合力攻坚通用人工智能 (AGI) 终极目标。</td>
+</tr>
+<tr>
+<td></td>
+<td>AI Lab</td>
+<td>机器学习、计算机视觉、语音识别、自然语言处理。</td>
+</tr>
+<tr>
+<td></td>
+<td>RoboticsX</td>
+<td>&quot;ABC&quot; 基础能力：人工智能 (AI)、机器人本体 (Body)、自动控制 (Control)。</td>
+</tr>
+<tr>
+<td></td>
+<td>RoboticsX</td>
+<td>&quot;DEFG&quot; 机器智能：进化学习 (Developmental Learning)、情感理解与拟人 (EQ)、灵活弹性 (Flexibility)。</td>
+</tr>
+<tr>
+<td>场景共建</td>
+<td>游戏 AI</td>
+<td>从围棋 AI &quot;绝艺&quot; 转移到《星际争霸》、《Dota2》等复杂游戏类型。</td>
+</tr>
+<tr>
+<td></td>
+<td>虚拟与现实探索</td>
+<td>探索更复杂空间下的 AI 能力边际。</td>
+</tr>
+<tr>
+<td>AI 开放</td>
+<td>AI 应用场景</td>
+<td>内容、社交、游戏、医疗。</td>
+</tr>
+<tr>
+<td></td>
+<td>开放平台</td>
+<td>通过开放平台对外提供内部使用的 AI 技术和能力。</td>
+</tr>
+</tbody></table></div>
+<p>近五年AI布局时间线：</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ <strong>时间</strong></th>
+<th>__ <strong>事件</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2018 年</td>
+<td>腾讯人工智能和前沿科技两大实验室矩阵成型，包括 AI Lab、腾讯优图实验室、微信事业群下的 AI 团队，确立核心研发体系；同年 9 月发布 AI 开放平台</td>
+</tr>
+<tr>
+<td>2020 年 7 月</td>
+<td>公布 AI 全景布局，发布白皮书，推出“Light 2.0 计划”，开放四大平台产品</td>
+</tr>
+<tr>
+<td>2022 年 4 月</td>
+<td>披露“混元”大模型研发情况</td>
+</tr>
+<tr>
+<td>2023 年 3 月</td>
+<td>管理层阐释 AI 布局，强调混元大模型重要性</td>
+</tr>
+<tr>
+<td>2023 年 9 月</td>
+<td>腾讯混元大模型正式亮相并通过腾讯云对外开放</td>
+</tr>
+<tr>
+<td>2024 年 3 月</td>
+<td>AI、大模型等成为增长新故事，混元大模型关键，内部多业务场景接入，企业微信等部署生成式 AI 功能，腾讯云有相关动作，总裁透露新计划</td>
+</tr>
+</tbody></table></div>
+<h1><strong>二、腾讯AI核心能力</strong></h1>
+<h2><strong>1.</strong><a href="https://ai.tencent.com/ailab/">腾讯AI Lab</a></h2>
+<p><strong>腾讯 AI Lab</strong> 是腾讯公司旗下的人工智能实验室，成立于 2016 年。作为腾讯在人工智能领域的重要布局之一，该实验室旨在推动人工智能技术的发展，探索其在各个领域的应用，为全球用户提供更加智能、便捷的服务。</p>
+<p>腾讯 AI Lab 的定位是：</p>
+<ul>
+<li>腾讯人工智能技术的研发中心</li>
+<li>世界一流的人工智能研究机构</li>
+<li>人工智能人才的聚集地</li>
+</ul>
+<p>腾讯 AI Lab 的主要研究包括计算机视觉、语音技术、自然语言处理和机器学习四大基础领域，在这些领域，实验室致力于深入研究，并取得了一系列重要成果。除了基础研究外，腾讯 AI Lab 还积极探索 AI 在各个领域及跨学科的应用和行业的创新结合，旨在推动 AI 技术在更广泛领域的应用和发展。</p>
+<h2><strong>2.基础研究</strong></h2>
+<h3><strong>2.1.计算机视觉</strong></h3>
+<p>研究定位：</p>
+<ul>
+<li><strong>目标</strong>：让计算机更好地理解真实世界，并拥有创造可视内容的能力。</li>
+<li><strong>主要方向</strong>：超大规模图像分类、语义分割、描述生成，人像分析、检测、跟踪、识别、3D建模、生成，视频内容分析、分类、缩略、描述生成、搜索、推荐等。</li>
+</ul>
+<p>腾讯 AI Lab 在计算机视觉领域的研究主要涉及以下几个方面：</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ 领域/研究方向</th>
+<th>__ 研究内容/技术/合作机构</th>
+<th>__ 具体方法/模型/应用</th>
+<th><strong>目标/效果</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>低中层视觉问题</td>
+<td>原始视觉信号处理</td>
+<td>去模糊、超分辨率、物体分割、色彩恒定性</td>
+<td>基于深度学习技术</td>
+</tr>
+<tr>
+<td>图像/视频描述生成</td>
+<td>与浙江大学合作</td>
+<td>SCA-CNN (Spatial and Channel-wise Attention in Convolutional Networks for Image Captioning)</td>
+<td>动态提取上下文信息，提高性能</td>
+</tr>
+<tr>
+<td>强化学习图像描述生成</td>
+<td>基于强化学习</td>
+<td>Self-Critical Sequence Training for Image Captioning</td>
+<td>优化 CIDEr 评价标准，提高生成质量</td>
+</tr>
+<tr>
+<td>自适应注意力机制</td>
+<td>应用自适应注意力</td>
+<td>Knowing When to Look: Adaptive Attention via a Visual Sentinel for Image Captioning</td>
+<td>实现自适应关注图像和语言信息</td>
+</tr>
+<tr>
+<td>内容 AI</td>
+<td>理解文本、图像、视频信息</td>
+<td>个性化推荐、内容生成</td>
+<td>理解内容本身，提供服务</td>
+</tr>
+</tbody></table></div>
+<p>在计算机视觉领域，腾讯的研究已取得了一系列突破性成果。在国际计算机视觉竞赛上，其算法也多次获得冠军。</p>
+<h3><strong>2.2.语音技术</strong></h3>
+<p>研究定位：</p>
+<ul>
+<li><strong>目标</strong>：致力于音频信号高效高质量采集、增强、传输、回放；致力于让机器能用语音与人进行更自然的交互。</li>
+<li><strong>研究方向</strong>：音频编解码，麦克风阵列远场信号处理，语音分离与增强，声纹识别，语音识别，语音/歌声合成，语音转换等。</li>
+</ul>
+<p>腾讯 AI Lab 在语音技术领域的研究情况如下：</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ 领域/研究方向</th>
+<th>__ 研究内容/技术/应用</th>
+<th>__ 具体成果/解决方案</th>
+<th><strong>目标/效果</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>阵列前端</td>
+<td>语音唤醒、噪声消除、回声消除</td>
+<td>Voice Processing 解决方案</td>
+<td>提升语音质量</td>
+</tr>
+<tr>
+<td></td>
+<td>基于 LSTM RNN 的文本相关语音增强技术</td>
+<td>显著提升关键词检测质量</td>
+<td>在噪声环境下表现突出</td>
+</tr>
+<tr>
+<td>语音分离</td>
+<td>回声消除研究</td>
+<td>《一种用于块稀疏系统的改进型集合-元素比例自适应算法》</td>
+<td>提供回声消除算法</td>
+</tr>
+<tr>
+<td>多模态交互技术</td>
+<td>多模态生成/合成、数字人技术</td>
+<td>AI 数字人</td>
+<td>应用多项基础研究能力</td>
+</tr>
+<tr>
+<td>语音交互形态</td>
+<td>近场到远场再到多模态交互</td>
+<td>完整的技术链条</td>
+<td>推进研究与应用</td>
+</tr>
+</tbody></table></div>
+<p>腾讯 AI Lab 在语音技术领域的研究也取得了显著的研究成果，研究成果已广泛应用于智能硬件、智能电视、智能车载等领域，例如微信里的语音转文字、声纹识别、电视节目中的摇一摇等功能。</p>
+<h3><strong>2.3.自然语言处理</strong></h3>
+<p>研究定位：</p>
+<ul>
+<li><strong>目标</strong>：赋予计算机系统以自然语言文本方式与外界交互的能力，追踪和研究最前沿的自然语言文本理解和生成技术，孵化下一代自然语言处理技术与商业应用场景。</li>
+<li><strong>研究方向</strong>：文本理解、文本生成、智能对话、机器翻译等。</li>
+</ul>
+<p>腾讯 AI Lab 在自然语言处理 (NLP) 领域的研究涵盖了多个方面：</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ 领域/研究方向</th>
+<th>__ 研究任务/技术</th>
+<th>__ 具体方法/模型/应用</th>
+<th>__ 目标/效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>文本理解</td>
+<td>文本分类、命名实体识别、关系抽取、情感分析</td>
+<td>深度学习技术、CNN、RNN</td>
+<td>提高文本理解准确性</td>
+</tr>
+<tr>
+<td>文本生成</td>
+<td>文本摘要、机器翻译、对话生成</td>
+<td>Seq2Seq模型、注意力机制</td>
+<td>提高文本生成质量和流畅性</td>
+</tr>
+<tr>
+<td>智能对话</td>
+<td>任务型对话、闲聊型对话、问答系统</td>
+<td>基于规则的方法、基于深度学习的方法</td>
+<td>提高智能对话系统准确性和自然性</td>
+</tr>
+<tr>
+<td>机器翻译</td>
+<td>翻译任务</td>
+<td>神经机器翻译（NMT）模型、多模态机器翻译</td>
+<td>提高翻译准确性和流畅性</td>
+</tr>
+<tr>
+<td>知识图谱</td>
+<td>构建知识图谱</td>
+<td>大规模中文知识图谱</td>
+<td>应用于智能问答、推荐系统</td>
+</tr>
+<tr>
+<td>预训练模型</td>
+<td>预训练语言模型</td>
+<td>基于Transformer结构的模型，如BERT、GPT</td>
+<td>提高模型准确性和泛化能力</td>
+</tr>
+</tbody></table></div>
+<p>在该领域，腾讯 AI Lab 同样取得了世界领先水平的成果。例如其研发的 “腾讯AI阅读理解” 在全球性评测比赛 SQuAD 中名列前茅。此外，他们还将研究成果转化为系统和开源数据，如文本理解系统 TexSmart、交互翻译系统 TranSmart、智能创作助手「文涌（Effidit）」等。</p>
+<h3><strong>2.4.机器学习</strong></h3>
+<p>研究定位：</p>
+<ul>
+<li><strong>目标</strong>：从数据中自动分析并学习规律，并利用规律对未知数据进行预测。</li>
+<li><strong>研究方向</strong>：机器学习理论，元学习，联邦学习，图深度学习，生成学习，序列学习，自动化机器学习，强化学习等。</li>
+</ul>
+<p>腾讯 AI Lab 在机器学习领域的研究主要集中在以下四个方向：</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ 领域/研究方向</th>
+<th>__ 研究内容/技术领域</th>
+<th>__ 具体应用场景或目标</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>机器学习的基础理论研究</td>
+<td>模型表示、优化算法、学习理论</td>
+<td>构建更高效、更准确的机器学习模型</td>
+</tr>
+<tr>
+<td>计算机视觉</td>
+<td>图像识别、目标检测、图像生成、三维重建</td>
+<td>自动驾驶、智能医疗、虚拟现实等场景</td>
+</tr>
+<tr>
+<td>语音识别和自然语言处理</td>
+<td>语音识别、语音合成、机器翻译、情感分析</td>
+<td>智能客服、语音助手、新闻推荐等场景</td>
+</tr>
+<tr>
+<td>平台型AI</td>
+<td>构建开放的机器学习和AI应用平台</td>
+<td>提供统一API和SDK，应用于智能家居、智能交通、智能医疗等</td>
+</tr>
+</tbody></table></div>
+<p>腾讯 AI Lab 在机器学习领域的成果也很显著。例如，腾讯提出了 “XGBoost” 梯度提升决策树算法，该算法在 kaggle 等多个竞赛中取得了冠军成绩。团队在野狐围棋平台上展示了名为 “绝艺” 的 AI 棋手，成功晋升至 “十段”，击败了国内外众多围棋高手。总之，腾讯 AI Lab 在机器学习领域的研究涵盖了从基础理论到实际应用的全链条，旨在推动 AI 技术的发展和应用。</p>
+<h2><strong>2.5.应用探索</strong></h2>
+<h3><strong>AI + 社交</strong></h3>
+<p>腾讯 AI Lab 在社交方向上的应用探索主要体现在以下几个方面：</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ 领域/研究方向</th>
+<th>__ 技术应用</th>
+<th>__ 功能/服务</th>
+<th>__ 目标/效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>智能推荐</td>
+<td>机器学习</td>
+<td>个性化推荐新闻、音乐、视频等</td>
+<td>提高用户体验和用户粘性</td>
+</tr>
+<tr>
+<td>智能客服</td>
+<td>自然语言处理</td>
+<td>自动回答问题、解决问题</td>
+<td>提高客服效率、降低成本、提高用户满意度</td>
+</tr>
+<tr>
+<td>语音助手</td>
+<td>语音识别、自然语言处理</td>
+<td>完成查询天气、设定闹钟、播放音乐等任务</td>
+<td>提供便捷的服务体验</td>
+</tr>
+<tr>
+<td>社交广告</td>
+<td>机器学习</td>
+<td>精准广告投放</td>
+<td>提高广告效果、降低成本、提高 ROI</td>
+</tr>
+<tr>
+<td>社交媒体分析</td>
+<td>自然语言处理</td>
+<td>分析用户情绪、观点和趋势</td>
+<td>为企业市场策略和产品研发提供洞察</td>
+</tr>
+</tbody></table></div>
+<p>腾讯 AI Lab 的社交 AI 可以通过技术手段，使得人与人之间的交互变得更便利。这些应用不仅提高了用户体验和服务效率，还为广告主和企业提供了有价值的数据洞察和市场策略建议。</p>
+<h3><strong>2.6.AI + 游戏</strong></h3>
+<p>腾讯 AI Lab 在游戏领域的探索主要涉及以下几个方面：</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ 领域/研究方向</th>
+<th>__ 技术应用</th>
+<th>__ 具体服务或功能</th>
+<th>__ 目标/效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>游戏内容生成与优化</td>
+<td>混元大模型</td>
+<td>地图、角色、剧情、对话生成与优化</td>
+<td>降低开发成本和时间，提升游戏品质和体验</td>
+</tr>
+<tr>
+<td>游戏AI训练与优化</td>
+<td>&quot;绝悟&quot; 团队、大规模强化学习</td>
+<td>泛化模型训练，降低角色训练成本</td>
+<td>提升游戏制作、运营及周边生态效率</td>
+</tr>
+<tr>
+<td>游戏AI角色设计</td>
+<td>AI 技术</td>
+<td>角色外观、动作、技能设计</td>
+<td>快速创建独特风格角色，提升游戏吸引力和可玩性</td>
+</tr>
+<tr>
+<td>游戏AI玩家行为预测</td>
+<td>AI 技术</td>
+<td>玩家行为分析和预测</td>
+<td>提供个性化游戏体验，调整游戏难度和内容推荐</td>
+</tr>
+<tr>
+<td>游戏AI辅助开发</td>
+<td>AI 辅助开发工具</td>
+<td>自动生成游戏关卡、智能调试</td>
+<td>提升开发效率，高效完成游戏开发任务</td>
+</tr>
+</tbody></table></div>
+<p>腾讯 AI Lab 在游戏领域的应用探索为游戏开发者提供了强大的支持和优化工具，同时也为玩家带来了更优质的游戏体验。腾讯 AI Lab 在游戏领域的代表作品包括：</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ 事件/项目名称</th>
+<th>__ 时间</th>
+<th>__ 描述/成果/应用场景</th>
+<th>__ 目标/效果/意义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>《王者荣耀》AI “绝悟”</td>
+<td>2019 年 8 月</td>
+<td>与职业选手赛区联队的 5v5 竞技中获胜</td>
+<td>达到电竞职业水平，展示 AI 在竞技游戏中的潜力</td>
+</tr>
+<tr>
+<td>电竞虚拟人 “T.E.G (天鹅静)”</td>
+<td>2019 年 6 月</td>
+<td>发布首个电竞虚拟人，具有自然声音和生动表情</td>
+<td>多角色应用，如游戏解说、虚拟歌手等</td>
+</tr>
+<tr>
+<td>AI Enhanced Procedural City Generation</td>
+<td>2023年 GDC 主题分享</td>
+<td>3D 虚拟场景自动生成解决方案，提升生产效率</td>
+<td>低成本创造多样化、现实感强的虚拟城市</td>
+</tr>
+<tr>
+<td>棋牌类 AI “绝艺” LuckyJ</td>
+<td>2023年 7 月</td>
+<td>在「天凤」平台上达到十段水平</td>
+<td>刷新 AI 在麻将领域的最好成绩，展示决策水平</td>
+</tr>
+</tbody></table></div>
+<p>腾讯 AI Lab 拥有业内顶尖的游戏 AI 研究团队，基于游戏场景不断提升 AI 能力上限，同时也持续思考如何应用 AI 技术，为游戏创造新动能至于，如何有效解决现实世界的问题：其自主研发的棋牌游戏 AI 「绝艺」在担任国家围棋队训练专用 AI 同时，逐步拓展麻将等非完全信息类博弈能力。决策智能 AI「绝悟」从各类游戏场景之后，也尝试跨领域应用于医疗等领域，推动 AI 往解决现实问题、科技向善的大目标靠近。</p>
+<h3><strong>2.7.AI + 内容</strong></h3>
+<p>腾讯 AI Lab 在内容产业方向的探索主要涉及以下几个方面：</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ 领域/研究方向</th>
+<th>__ 产品/系统名称</th>
+<th>__ 特色功能/技术应用</th>
+<th>__ 应用场景/效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>自然语言理解</td>
+<td>TexSmart</td>
+<td>细粒度命名实体识别、语义联想、深度语义表达</td>
+<td>腾讯业务及产品中数千亿次调用量</td>
+</tr>
+<tr>
+<td>对话及文本生成</td>
+<td>研究领域</td>
+<td>对话生成、文本摘要、情感分析</td>
+<td>提高人机交互自然度和效率，智能化内容生成</td>
+</tr>
+<tr>
+<td>机器翻译</td>
+<td>研究领域</td>
+<td>提高翻译质量和效率，多语言实时翻译</td>
+<td>跨语言内容创作和分发，全球化支持</td>
+</tr>
+<tr>
+<td>文本理解</td>
+<td>研究领域</td>
+<td>文本分类、情感分析、实体识别</td>
+<td>更准确地理解用户需求，个性化内容推荐</td>
+</tr>
+<tr>
+<td>内容推荐</td>
+<td>研究领域</td>
+<td>用户兴趣建模、内容匹配、推荐策略</td>
+<td>高效内容分发，提高用户满意度</td>
+</tr>
+<tr>
+<td>AI智能创作助手</td>
+<td>腾讯智影</td>
+<td>快速生成数字人播报视频</td>
+<td>为内容创作者提供便捷视频制作工具</td>
+</tr>
+</tbody></table></div>
+<p>腾讯 AI Lab 在内容产业方向的应�</p>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/recovered/D-2499046308.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI行业月度观察202502 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="AI行业月度观察202502。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2732875970.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>AI行业月度观察202502</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2732875970。版本：83b25dbb2c28dfdac5f3b41c9846a330e39a71fb3b21e9b6e5dada33cfda904a。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/190</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/83b25dbb2c28dfdac5f3b41c9846a330e39a71fb3b21e9b6e5dada33cfda904a.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>AI行业月度观察202502</p>
+<h3>一、整体趋势</h3>
+<h4>1.二月关键里程碑</h4>
+<p><strong>1.1.模型/技术</strong></p>
+<ul>
+<li>Qwen2.5-Max 超越 DeepSeek V3、o1-mini 和 Claude-3.5-Sonnet 等模型，以 1332 分位列全球第七名，也是非推理类的中国大模型冠军；</li>
+<li>DeepMind 新 AI 系统超越国际数学奥林匹克金牌选手；</li>
+<li>DeepSeek GitHub 平台热门项目星数超 OpenAI；</li>
+<li>近日，全球最大 AI 开源社区 Huggingface 发布了最新的开源大模型榜单（Open LLM Leaderboard），其中榜单显示，其排名前十的开源大模型全部是基于阿里通义千问（Qwen）开源模型二次训练的衍生模型；</li>
+<li>OpenAI 最新论文：o3 在 IOI 2024 严格规则下拿到 395.64 分达成金牌成就；</li>
+<li>在 LlaMA Question、Web Questions 等 5 大主流公开测试集中，阶跃 Step-Audio 模型性能均超过了行业内同类型开源模型，位列第一；</li>
+<li>据全球动态基准测试平台 LiveCodeBench 显示，k1.6 登上测试榜榜首。具体显示，k1.6-high 在多项代码生成基准测试中超越 OpenAI 的 GPT o3-mini、o1 和通义 QwQ-Max 等多款模型；</li>
+<li>在权威评测集 VBench 中，万相 2.1 以总分 86.22% 的成绩超越 Sora、Luma、Pika 等国内外模型，稳居榜首位置；</li>
+</ul>
+<p><strong>1.2.产品/用户/收入</strong></p>
+<ul>
+<li>DeepSeek 官网日活跃量超 Google Gemini；</li>
+<li>腾讯元宝冲上中国区 AppStore 第二，仅次于 DeepSeek。</li>
+</ul>
+<h4>2.二月行业趋势</h4>
+<p><strong>1.海外：从 &quot;能力竞赛&quot; 到 &quot;范式定义&quot;，巨头博弈进入战略纵深</strong></p>
+<p>二月海外 AI 战场呈现三大标志性转向：产品形态正在从 &quot;对话工具&quot; 进化为 &quot;行动代理&quot;，技术路线从 &quot;参数崇拜&quot; 转向 &quot;效率革命&quot;，而商业伦理则在激进扩张与自我约束间撕裂。</p>
+<p>**1.1. 推理模型成为下一代 AI 分水岭：**Anthropic 发布的 Claude 3.7 Sonnet 首次实现 &quot;标准模式&quot; 与 &quot;扩展思考模式&quot; 的混合架构，这种 &quot;双模态&quot; 设计揭示了行业共识，未来模型必须同时兼顾即时响应与深度推理两种场景。该模型在 SWE-bench Verified 编程基准测试中创下新纪录，更值得注意的是其内部 Pokémon 游戏测试中展现的强决策能力，表明推理能力正从单一任务泛化到通用环境交互。OpenAI 的 GPT-4.5 虽被 Altman 称为 &quot;非推理模型&quot;，但其 75 美元 / 百万 tokens 的天价（是 DeepSeek 的 280 倍）反而暴露了战略矛盾 —— 当技术领先性不足时，通过价格筛选高端客户成为短期护城河。这种 &quot;性能不够，定价来凑&quot; 的策略，恰恰印证 DeepSeek 式效率革命给行业带来的深层焦虑。</p>
+<p><strong>1.2. Agent 工具开启 &quot;意图经济&quot; 时代</strong><br>OpenAI 的 Operator 代理向多国 Pro 用户开放，标志着 ChatGPT 从 &quot;信息生成器&quot; 正式升级为 &quot;任务执行器&quot;。该工具能自动完成订餐、购票等跨系统操作，实质上构建了 &quot;意图 - 行动&quot; 的闭环。与之呼应，xAI 的 Grok 3 以 &quot;20 万张 H100 显卡&quot; 的暴力美学登顶 LMSYS 榜单后，立即免费开放使用，马斯克通过 &quot;性能第一 + 零门槛&quot; 的组合拳，意图重写 AI 入口规则。更激进的信号来自 Perplexity，其宣布开发 AI 浏览器 &quot;comet&quot;，直指 &quot;搜索 - 浏览 - 执行&quot; 一体化，试图终结现有互联网流量分配体系。</p>
+<p><strong>1.3. 基础设施竞赛进入 &quot;万亿美元俱乐部&quot;</strong><br>Meta 被曝筹划 2000 亿美元数据中心，电力需求达 5-7GW，规模超过微软 Azure 全球总量。这不仅是军备竞赛升级，更揭示 AGI 信仰下的资本末日思维 ——当技术路径不确定时，先锁住物理世界的稀缺资源。OpenAI 自研芯片启动台积电流片、微软 Muse 模型开源游戏生成能力，均指向同一逻辑：控制从硅片到应用的完整价值链。值得关注的是，Google 悄然删除 &quot;不将 AI 用于武器和监视&quot; 的承诺，这种伦理底线的让渡，暗示当技术竞争上升到国家战略层面时，企业价值观必须为生存让路。</p>
+<p>**1.4. 开源与闭源的认知撕裂：**OpenAI 启动 &quot;开源路线投票&quot;，Altman 承认 &quot;站在历史错误一边&quot;，但社区高赞评论却要求开源 GPT-4 而非 o3-mini，揭示深刻矛盾，用户要的是顶尖模型民主化，而非施舍性开源 。这种撕裂在 Adobe Firefly 视频生成器免费开放、微软 Copilot 全面开放 o1 模型和语音通话的举措中得到印证 —— 闭源巨头被迫用 &quot;功能免费&quot; 缓解 &quot;模型封闭&quot; 的信任赤字。</p>
+<p><strong>2.国内方面：DeepSeek 引爆 &quot;鲶鱼效应&quot;，生态重构快于技术迭代</strong></p>
+<p>二月国内市场呈现 **&quot;**一超多强&quot; 向 &quot;多极共生&quot; 的加速演变，DeepSeek 不仅是技术变量，更是激活全行业的催化剂。</p>
+<p><strong>2.1. DeepSeek 效应：从模型突破到生态标准</strong><br>DeepSeek-V3 以 558 万美元训练成本实现 GPT-4 级性能，R1 用 &quot;顿悟时刻&quot; 激活 MoE 潜力，其 GitHub 星数超越 OpenAI 最热门项目，标志着中国团队首次在工程创新维度定义行业标准。更深远的影响在于开源策略：五次 &quot;开源周&quot; 释放 FlashMLA、DeepEP、DeepGEMM 等全栈优化工具，其中 FlashMLA 对国产 GPU 的适配潜力被投资人称为 &quot;重大利好&quot;，无问芯穹借此完成壁仞、海光、摩尔线程等七家国产芯片的 DeepSeek-R1 部署。这种 &quot;软件定义硬件&quot; 的路径，为国产算力生态提供了绕过 CUDA 壁垒的可能性。</p>
+<p><strong>2.2. 巨头抢滩：接入与自研的 &quot;双轨制&quot;</strong><br>二月上演史上最快技术渗透：华为小艺、腾讯元宝、百度文心、阿里百炼、字节飞书在两周内密集接入 DeepSeek，vivo、联想 moto、吉利、岚图等车企更将其视为 &quot;AI 上车&quot; 标配。但 &quot;接入&quot; 不等于 &quot;放弃自研&quot;——这是防御性布局与进攻性创新的组合拳。阿里 Qwen2.5-Max 在 Chatbot Arena 夺魁，其衍生模型突破 9 万个，超 Llama 成全球第一开源生态，同时宣布 3800 亿元云与 AI 基础设施投资，显示 &quot;开源领袖 + 云底座&quot; 的战略野心。字节跳动则在接入同时，自研 VideoWorld（无语言模型视频理解）、Eino 框架（Golang 大模型开发）、UltraMem（稀疏架构降本 83%），并挖来 Google Fellow 吴永辉负责 Seed 基础研究，明确 &quot;自研为主&quot; 路线。这种 &quot;接入快变量，坚守慢变量&quot; 的策略，反映出巨头对 DeepSeek 的复杂心态：既需借势，又防被定义。</p>
+<p><strong>2.3. 商业化奇点：API 定价权与场景深度绑定</strong><br>DeepSeek-V3 优惠期结束后，输出 tokens 价格从 2 元涨至 8 元，但仍维持极强性价比。更创新的是推出 &quot;夜间空闲时段 25 折&quot; 的错峰定价，这种&quot;算力期货&quot; 思维 将成本优化与用户体验动态平衡，为行业提供了新定价范式。与此同时，阿里百炼将 R1 满血版定价为 4 元 / 百万 tokens，蒸馏版低至 0.5 元，配合 &quot;1 元 200 万 tokens&quot; 补贴，实质是通过 &quot;模型即入口&quot; 抢夺开发者生态，最终导向阿里云消费。</p>
+<p><strong>2.4. 人才与资本：AGI 信仰驱动的资源重配</strong><br>雷军千万年薪挖角 DeepSeek 关键人物罗福莉，许主洪、吴永辉等顶级科学家加盟阿里、字节，揭示 AI 人才定价已脱离传统薪酬逻辑，进入 &quot;信仰溢价&quot; 阶段 。月之暗面砍掉投放预算回归模型本身，印证行业共识：** ** 当 DeepSeek 证明技术可以低成本实现时，烧钱的规模化获客逻辑已然破产。</p>
+<h3>二、主要产品、技术更新</h3>
+<h4>1.海外</h4>
+<p>:[data2chart]{id=&quot;0c4b8975b1bacfe994c7&quot; pageId=&quot;2732875970&quot;}</p>
+<h5>1.1.海外大公司</h5>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**分类**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 3,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**微软**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;微软 Copilot 大升级：o1 推理模型免费开放，Think Deeper 让思考更深一层&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;微软 Copilot 免费开放语音通话和深度思考，无限使用&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;微软 Copilot 新技能：背靠 500 万 Clipchamp 素材库，秒速生成 AI 视频&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 4,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google 翻译将增 “提问” 功能，AI 解锁翻译新体验&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n政策更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google 更新 AI 政策，移除“不将 AI 用于武器和监视”的承诺&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n技术里程碑\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;DeepMind 新 AI 系统超越国际数学奥林匹克金牌选手&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品发布\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google 推出基于 Gemini 2.0 的 AI 科研助手&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Meta**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n技术更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Meta 发布前沿 AI 框</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>2025年2月，AI行业呈现出中国模型崛起与全球巨头加速投入的双重主线。</p>
+<p>阿里Qwen系列表现亮眼，Qwen2.5-Max跻身全球榜单第七，位列非推理类中国大模型首位，Hugging Face开源榜前十全部基于Qwen二次训练，衍生模型数量超9万个居全球第一。阿里同步宣布3800亿元云与AI基础设施投资计划，并以&quot;1元200万tokens&quot;的激进补贴策略发动价格战，蒸馏版模型低至0.5元，意在锁定开发者生态。</p>
+<p>DeepSeek持续引发行业震动。其GitHub星数超越OpenAI，以558万美元训练成本实现GPT-4级性能，从根本上动摇了此前依赖大规模投入的竞争逻辑。华为、腾讯、百度、阿里、字节等主流厂商在两周内密集完成接入，DeepSeek还发布FlashMLA等全栈优化工具，支持七家国产芯片部署R1模型。</p>
+<p>人才争夺同步白热化。雷军开出千万年薪挖角DeepSeek关键人物罗福莉，AI人才定价进入&quot;信仰溢价&quot;阶段；顶级科学家许主洪、吴永辉分别加盟阿里与字节。与此形成对比的是，月之暗面削减投放预算，选择回归模型研发本身，放弃烧钱规模化获客路线。</p>
+<p>国际大厂方面，微软Copilot大幅升级，o1推理模型免费开放，新增Think Deeper深度思考与语音通话功能，且支持无限次免费使用，并引入AI视频生成功能，可调用Clipchamp 500万素材库。Google方面动作同样密集：DeepMind新AI系统数学能力超越国际数学奥林匹克金牌得主，推出基于Gemini 2.0的AI科研助手，并更新AI使用政策，删除此前&quot;不将AI用于武器和监视&quot;的承诺，引发广泛关注。Meta则筹划2000亿美元数据中心建设，电力需求达5至7GW，超过微软Azure全球总量。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>DeepSeek以558万美元训练成本实现GPT-4级性能，GitHub热度超越OpenAI，并通过五次开源周推动国产芯片生态建设</li>
+<li>Qwen2.5-Max登顶非推理类中国大模型榜首，Qwen衍生模型超9万个，成为全球第一开源生态，阿里宣布3800亿元AI基础设施投资</li>
+<li>Claude 3.7 Sonnet首创双模态推理架构，推理模型成为行业下一代分水岭，GPT-4.5天价定价暴露闭源巨头面对效率革命的战略焦虑</li>
+<li>海外AI竞争从能力竞赛转向范式定义，Agent工具（Operator、Grok 3）开启意图经济，Meta筹划2000亿美元数据中心标志基础设施竞赛升级</li>
+<li>国内巨头采用&#39;接入DeepSeek快变量+坚守自研慢变量&#39;双轨策略，AI人才竞争进入信仰溢价阶段，烧钱规模化获客逻辑宣告破产</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2732875970.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

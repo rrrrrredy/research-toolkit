@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：姚顺雨腾讯新作，苹果发布 PCG 语音生成技术，小红书世界模型新论文，何恺明团队新作 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：姚顺雨腾讯新作，苹果发布 PCG 语音生成技术，小红书世界模型新论文，何恺明团队新作。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2747384695.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：姚顺雨腾讯新作，苹果发布 PCG 语音生成技术，小红书世界模型新论文，何恺明团队新作</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2747384695。版本：5f7b7e496ef9e4fa7e38f374b2856fee1fc1d13f93cb18f11a84c816b6ae875c。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/274</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/5f7b7e496ef9e4fa7e38f374b2856fee1fc1d13f93cb18f11a84c816b6ae875c.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：姚顺雨腾讯新作，苹果发布 PCG 语音生成技术，小红书世界模型新论文，何恺明团队新作</p>
+<h3>一、模型</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th></th>
+<th>**公司/院校/机构**</th>
+<th>**简介**</th>
+<th>**详情**</th>
+</tr>
+<tr>
+<td></td>
+<td>**斯坦福大学、英伟达等**</td>
+<td>斯坦福联合英伟达发布 TTT-Discover：用「测试时强化学习」攻克科学难题<br><br>Mert Yuksekgonul, Daniel Koceja, Xinhao Li, Federico Bianchi, Jed McCaleb, Xiaolong Wang, Jan Kautz, Yejin Choi, James Zou, Carlos Guestrin, Yu Sun.&quot;Learning to Discover at Test Time.&quot;arXiv:2601.16175 [cs.LG]</td>
+<td>在技术如火如荼发展的当下，业界常常在思考一个问题：如何利用 AI 发现科学问题的新最优解？<br><br>一个普遍的解法是「测试时搜索」（Test-time search），即提示一个冻结的（不更新参数的）大语言模型（LLM）进行多次尝试，这一点类似人类在做编程作业时的「猜」解法，尤其是进化搜索方法（如 AlphaEvolve），会将以往的尝试存入缓冲区，并通过人工设计、与领域相关的启发式规则生成新的提示。<br><br>可是，尽管这些提示能够帮助 LLM 改进以往的解法，但 LLM 本身并不会真正提升，就像一个学生始终无法内化作业背后的新思想一样。<br><br>实际上，能够让 LLM 真正进步的最直接方式是学习。<br><br>尽管「学习」和「搜索」都能随着算力扩展而良好地增长，但在 AI 的发展历史中，对于围棋、蛋白质折叠等这类困难问题，「学习」往往最终超越了「搜索」。因为，科学发现本质是：超出训练数据与人类现有知识的 out-of-distribution 问题。<br><br>为此，斯坦福大学、英伟达等机构联合提出一种[新方法](https://arxiv.org/abs/2601.16175)：在测试时进行强化学习（RL），即让 LLM 在尝试解决特定测试问题的过程中持续训练自己。</td>
+</tr>
+<tr>
+<td></td>
+<td>**哥伦比亚大学**</td>
+<td>哥伦比亚大学聚焦于联邦学习在数据分布随时间变化时的灾难性遗忘问题，提出客户端经验回放机制，有效提升模型准确率<br><br>Sahasra Kokkula, Daniel David, Aaditya Baruah.&quot;Federated Learning Under Temporal Drift -- Mitigating Catastrophic Forgetting via Experience Replay.&quot;arXiv:2601.13456 [cs.LG]</td>
+<td>[研究](https://arxiv.org/abs/2601.13456)聚焦于联邦学习在数据分布随时间变化时的灾难性遗忘问题。通过在客户端引入小型记忆缓冲区存储过往样本，并在本地训练中混合当前与历史数据，成功将模型准确率从 28% 提升至 78-82%。实验基于 Fashion-MNIST 数据集的季节性漂移模拟，验证了该方法在保持标准 FedAvg 聚合逻辑的同时，显著改善了模型对早期知识的记忆能力。</td>
+</tr>
+<tr>
+<td></td>
+<td>**斯坦福大学**</td>
+<td>斯坦福大学探讨了通过执行反馈改进大型语言模型（LLM）生成研究想法的能力，构建了一个大规模并行执行器，用于自动执行模型生成的想法，并在开放式的 LLM 研究问题上验证其有效性<br><br>Chenglei Si, Zitong Yang, Yejin Choi, Emmanuel Candès, Diyi Yang, Tatsunori Hashimoto.&quot;Towards Execution-Grounded Automated AI Research.&quot;arXiv:2601.14525 [cs.CL]</td>
+<td>[论文](https://arxiv.org/abs/2601.14525)探讨了通过执行反馈改进大型语言模型（LLM）生成研究想法的能力。作者构建了一个大规模并行执行器，用于自动执行模型生成的想法，并在开放式的 LLM 研究问题上验证其有效性，包括预训练和后训练任务。研究分析了基于执行反馈的进化搜索和强化学习的效果，发现进化搜索在样本效率和效果上表现优异，但扩展性有限；而强化学习则因多样性崩溃未能提高上限。最终，研究展示了自动化执行反馈循环的可行性和潜力，同时揭示了未来改进的重要限制。</td>
+</tr>
+<tr>
+<td></td>
+<td>:[color]{rgb(0, 0, 0)}**剑桥大学**[/color]</td>
+<td>剑桥大学提出 GameTalk 框架，通过适应 GRPO、DPO 和 STaR 等微调方法，使 LLMs 在多轮对话中优化全局目标<br><br>Victor Conchello Vendrell, Max Ruiz Luyten, Mihaela van der Schaar.&quot;GameTalk: Training LLMs for Strategic Conversation.&quot;arXiv:2601.16276 [cs.CL]</td>
+<td>[论文](https://arxiv.org/abs/2601.16276)提出 GameTalk 框架，通过适应 GRPO、DPO 和 STaR 等微调方法，使 LLMs 在多轮对话中优化全局目标。实验表明，该方法显著优于未训练模型，尤其在奖励塑形下表现突出，DPO 算法效果最佳。</td>
+</tr>
+<tr>
+<td></td>
+<td>**腾讯、复旦大学**</td>
+<td>腾讯混元研究博客首发姚顺雨团队最新成果：前沿模型仍难真正 “用好上下文”<br><br>Hunyuan Team, Tencent Fudan University.&quot;CL-BENCH: A BENCHMARK FOR CONTEXT LEARNING.&quot;</td>
+<td>2 月 3 日，腾讯混元团队与复旦大学联合发布了全新的语言模型评测基准 [CL-bench](https://www.clbench.com/)，并同步上线混元研究博客，系统阐述了当前前沿模型在「上下文学习」能力上的核心瓶颈。值得注意的是。这是姚顺雨加入腾讯担任首席 AI 科学家后首次署名的研究成果。研究指出，尽管当今顶级大模型在复杂推理、编程和专业考试中表现亮眼，但这些能力主要依赖预训练阶段形成的「参数化知识」。在真实世界场景中，人类往往依赖即时出现的上下文信息完成任务，例如阅读从未见过的 SDK 文档、理解新游戏规则或从实验日志中归纳规律，而当前模型在这些任务上普遍表现不佳。CL-bench 的目标正是衡量模型能否从提供的上下文中学习全新知识并正确应用。基准包含 500 个复杂上下文、1899 个任务和 31607 个验证标准，覆盖四类典型场景：领域知识推理、规则系统应用、程序性任务执行以及经验发现与模拟。所有任务均为完全自包含，且通过虚构内容、小众知识和变体构造确保无训练数据污染。实验结果显示，即便是表现最好的 GPT-5.1（High），在 CL-bench 上的任务解决率也仅为 23.7%，平均水平更是只有 17.2%。研究团队指出，模型失败的主要原因并非信息缺失，而是忽略或误用上下文；长上下文处理和指令遵循虽重要，但不足以支撑真正的上下文学习；归纳推理尤其困难，任务成功率通常不足 10%。研究还发现，提高推理强度在部分任务上能带来有限提升，但整体仍受限于模型无法有效吸收和组织上下文信息。此外，context 的难度不仅来自长度，也来自其结构复杂度和隐含规则。腾讯混元团队认为，未来模型若能真正掌握上下文学习，人类在 AI 系统中的角色将从「训练数据提供者」转向「上下文提供者」。但在当下，上下文学习仍是「临时性的」，如何让模型将从上下文中获得的知识持久化，将成为今年的重要研究方向。团队强调，只有让上下文学习能力走向现实，语言模型才能迈向更高价值的应用场景。</td>
+</tr>
+</table></div>
+
+<h3>二、<strong>推理</strong></h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**复旦大学、上海 AI Lab**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n复旦大学、上海 AI Lab** **隐式 CoT 研究：让推理不再「碎碎念」\n:::\n\n:::paragraph{align=center indent=0}\nXilin Wei, Xiaoran Liu, Yuhang Zang, Xiaoyi Dong, Yuhang Cao, Jiaqi Wang, Xipeng Qiu, Dahua Lin.\&quot;SIM-CoT: Supervised Implicit Chain-of-Thought.\&quot;arXiv:2509.20317 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Implicit Chain-of-Thought（隐式推理） 的最新进展 —— [SIM-CoT（Supervised Implicit Chain-of-Thought）](https://arxiv.org/abs/2509.20317)。它直击隐式 CoT 一直「扶不起来」的核心痛点：隐式 token 一旦 scale 上去，训练就容易</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周学术论文推荐涵盖多个前沿方向。斯坦福大学联合英伟达提出TTT-Discover，通过测试时强化学习让LLM在解决特定问题过程中持续更新自身参数，以应对科学发现这类超出训练数据的out-of-distribution挑战，研究发现对围棋、蛋白质折叠等困难问题，&quot;学习&quot;最终往往超越单纯&quot;搜索&quot;方法。同期，斯坦福另一项研究构建大规模并行执行器自动改进LLM生成研究想法的能力，发现进化搜索样本效率优异但扩展性有限，强化学习则因多样性崩溃未能突破性能上限。</p>
+<p>哥伦比亚大学针对联邦学习中数据随时间漂移导致的灾难性遗忘问题，提出客户端经验回放机制，基于Fashion-MNIST模拟季节性数据漂移场景，将模型准确率从28%大幅提升至78-82%。剑桥大学提出GameTalk框架，适配GRPO、DPO、STaR等多种微调方法优化LLM多轮对话全局目标，实验显示DPO算法表现最佳。</p>
+<p>腾讯混元与复旦大学联合发布评测基准CL-bench，这也是姚顺雨担任腾讯首席AI科学家后首次署名的研究成果。CL-bench包含500个复杂上下文、1899个任务及31607个验证标准，覆盖领域知识推理、规则系统应用等四类场景。测试显示表现最好的GPT-4.1（High）任务解决率仅23.7%，平均仅17.2%，主因是模型忽略或误用上下文，而非信息缺失。</p>
+<p>此外，复旦大学与上海AI Lab联合发布SIM-CoT（Supervised Implicit Chain-of-Thought），针对隐式推理中token数量扩大后训练不稳定的核心痛点，致力于解决隐式CoT难以有效扩展的关键问题。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>斯坦福联合英伟达提出TTT-Discover：在测试时通过强化学习让LLM持续自我训练，相比传统冻结模型的测试时搜索方法更能实现真正的知识内化，适用于科学发现等out-of-distribution问题</li>
+<li>哥伦比亚大学提出联邦学习客户端经验回放机制，通过存储历史样本并混合训练解决灾难性遗忘问题，模型准确率从28%大幅提升至78-82%</li>
+<li>斯坦福大学构建大规模并行执行器用于自动化AI研究，发现进化搜索样本效率优于强化学习，但强化学习存在多样性崩溃问题</li>
+<li>剑桥大学GameTalk框架通过GRPO、DPO、STaR等微调方法训练LLM优化多轮对话中的全局目标，DPO算法表现最佳</li>
+<li>本期还涵盖腾讯姚顺雨新作、苹果PCG语音生成技术、小红书世界模型以及何恺明团队等多项重要研究成果</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2747384695.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

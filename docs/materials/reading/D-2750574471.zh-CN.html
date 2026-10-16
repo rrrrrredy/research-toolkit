@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenClaw龙虾系统专题1 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="OpenClaw龙虾系统专题1。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2750574471.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>OpenClaw龙虾系统专题1</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2750574471。版本：6e830bb8f6be6c9c128367b9eb0b070e0f42037b2619108db1fcffee222f47b2。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/221</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/6e830bb8f6be6c9c128367b9eb0b070e0f42037b2619108db1fcffee222f47b2.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>如何写好 Skill：不是一段漂亮的 Prompt</p>
+<h3>先摆正概念</h3>
+<p>**Skill 不是一段漂亮提示词。**很多人刚开始写 Agent Skill 时，都会把注意力放在提示词本身：措辞是不是足够专业，结构是不是足够完整，限制条件是不是写得足够多。可一旦真的做过几个 skills，就会很快发现，决定 skill 上限的，往往不是“文案能力”，而是“系统设计能力”。</p>
+<p>Skill 更像是一个<strong>小型的 workflow</strong>：前面是<strong>路由元数据</strong>（什么时候该触发），中间是<strong>执行说明</strong>（步骤、边界、失败处理），后面接<strong>工具/脚本/上下文</strong>。所以写 skill，核心不是“文采”，<strong>skill 的本质也不是“让模型多说一点”，而是“让系统在对的时机，用对的方法，调用对的能力”。</strong></p>
+<p><strong>写好 Skill，核心其实只有四件事：</strong></p>
+<ul>
+<li>会定义触发条件；</li>
+<li>会定义输入输出；</li>
+<li>会拆分“模型判断”和“确定性执行”；</li>
+<li>会做失败兜底和评测。</li>
+</ul>
+<p>只要这四件事没想清楚，Skill 再长、再像样，也很可能只是一个“看起来很专业”的 Prompt。</p>
+<h3>第一件事：先别急着写 Skill，先学会拆工作流</h3>
+<p>很多人一上来就写 description、写步骤、写限制条件，但更有效的路径其实是**：先别写 Skill，先拆 workflow。**</p>
+<p>可以拿日常最重复的 10 个任务来练练手，按这个格式写出来：</p>
+<ul>
+<li>任务名</li>
+<li>触发时机</li>
+<li>输入材料</li>
+<li>决策点</li>
+<li>固定步骤</li>
+<li>输出格式</li>
+<li>常见失败</li>
+</ul>
+<p>比如“写周报”不是一个 skill 名，而是至少能拆成：</p>
+<ul>
+<li>汇总 commit / PR / issue</li>
+<li>提炼本周进展</li>
+<li>归并风险和阻塞</li>
+<li>生成固定模板输出</li>
+</ul>
+<p>你一旦能这么拆，skill 就已经写了一半。</p>
+<h3>第二件事：专练“路由描述”</h3>
+<p>很多 skills 写不好，不是文本差，而是 description 太泛。OpenAI 官方就专门强调：description 不是介绍文案，而是<strong>路由契约</strong>；如果路由不准，先改 metadata，不要先加更多正文。你可以这样理解<strong>路由契约：路由契约 = 触发规则 + 边界规则 + 输入输出规则。</strong><br>它解决的不是“这个 skill 写得优不优美”，而是“模型会不会在对的时机，用对的方法，调用对的能力”。如果这层契约很模糊，模型就容易误触发、乱传参数，或者把不该它做的任务也接过去。</p>
+<p>你要练的是这种改写：</p>
+<p>反面示例：</p>
+<blockquote>
+<p>写周报</p>
+</blockquote>
+<p>这不叫路由契约，这只是一个名字。模型根本不知道：</p>
+<ul>
+<li>是写工作周报，还是生活周报</li>
+<li>是根据已有事实整理，还是可以自己发挥</li>
+<li>是给老板看的，还是给团队同步的</li>
+<li>输出要写成一段话，还是分点列出</li>
+</ul>
+<p>修改版：</p>
+<blockquote>
+<p>当用户需要把本周已经发生的工作事项整理成一份日常工作周报时触发，适用于行政、运营、销售支持、项目跟进、日常协同等场景。仅用于对已有事实进行归纳整理，不用于凭空编造工作成果，不用于写长篇总结感想或战略分析。若时间范围未说明，默认整理最近 7 天内容，并在输出中写明。输出固定为“本周完成事项、待跟进事项、问题与风险、下周计划”四部分。</p>
+</blockquote>
+<p>这样会使路由准确率会直接上一个台阶。更进一步看，这个例子里其实已经把路由描述的四个关键问题都回答了：</p>
+<p><strong>第一，什么时候该用。</strong><br>当用户手里已经有一堆零散的日常工作内容，想把它们整理成周报时，就该用这个 Skill。例如，本周对接了几场会议、跟进了供应商进度、处理了报销和合同流转、协调了跨部门事项、跟进了活动准备情况。</p>
+<p><strong>第二，什么时候不该用。</strong><br>它不是用来凭空编成绩的，也不是拿来写年终总结、做战略复盘、写个人感悟或深度分析报告的。</p>
+<p><strong>第三，需要什么输入。</strong><br>至少要有一些事实材料，比如本周做过的事情、会议纪要、聊天记录摘要、To-do 清单，以及已完成和未完成事项。</p>
+<p><strong>第四，输出长什么样。</strong><br>输出必须固定为“本周完成事项、待跟进事项、问题与风险、下周计划”四部分。这样别人一看结构，就知道这份周报是什么，不需要再去猜。路由契约写清楚之后，Skill 的触发准确率通常会立刻上一个台阶。因为模型终于不再靠猜，而是在按约定做事。</p>
+<h3>第三件事：把“机械活”剥出去，让模型只做它擅长的事</h3>
+<p>Skill 效果差还有一个典型原因：把所有事情都交给模型来做。看起来很省事，实际上很不稳定。更好的做法是把工作拆成两类：需要语义理解的部分交给模型，重复、固定、可脚本化的部分交给工具或脚本。</p>
+<p>在写 Skill 时，最好先问自己两个问题：</p>
+<p>第一，哪一步真的需要模型理解语义？<br>第二，哪一步其实用 API 或脚本会更稳？</p>
+<p>比如“整理会议纪要成正式文档”：</p>
+<p>**模型负责：**理解会议讨论的重点，提炼决策、待办事项和责任分工，把零散记录整理成清晰、正式、适合流转的文档。</p>
+<p>**脚本负责：**提取录音转写内容、合并多人笔记、去重口头重复、识别时间和人物信息，并按议题分段整理原始材料。</p>
+<p>这一步做对，skill 才会从“会整理文字”变成“能稳定产出正式文档”。</p>
+<h3>第四件事：每个 Skill 都必须有评测集（进阶版）</h3>
+<p>有时候做 Skill 会有一种典型错觉：只要某一次结果“看起来差不多”，这个 Skill 就能用了。**但真正决定 Skill 能否进入生产环境的，从来不是那一次输出看起来顺不顺，而是它面对不同输入、不同噪声、不同异常时，能不能持续做对。**这一点在 Excel 数据处理场景里尤其明显。很多人做 Excel 处理类 Skill 时，最容易掉进去的误区，就是只要某一次结果“看起来差不多”，就以为这个 Skill 已经能用了。但在日后的使用中往往会出现：列名稍微变一下，字段就识别错了；日期格式一混，处理逻辑就偏了；表格合并时出现重复匹配或漏匹配；数值列被当成文本，导致统计全错；空值、异常值、脏数据没有被识别出来；最后表面上得到的是一张整齐的表，实际上关键统计口径已经偏了。所以，Excel 类 Skill 想从“偶尔能跑通”变成“稳定能交付”，一定要做评测集。<strong>评测集的意义，不是证明它某一次跑得漂亮，而是验证：面对不同格式、不同脏数据、不同异常情况，它还能不能持续做对。</strong></p>
+<p>进阶点、激进点的做法是，让每个 Skill 都要有评测集。Anthropic 官方把“先定义成功标准，再做评测”当成 prompt/agent 开发中心流程；OpenAI 也在 cookbook 里把 resilient prompts 和 eval flywheel 作为持续改进方法。</p>
+<p><strong>可以参考的做法</strong>：</p>
+<ul>
+<li>给每个 skill 准备 20 条测试样本</li>
+<li>分 4 类：<ul>
+<li>应该触发</li>
+<li>不该触发</li>
+<li>应该部分触发但需追问</li>
+<li>应该拒绝或升级处理</li>
+</ul>
+</li>
+<li>每次只改一个变量：<ul>
+<li>改 description</li>
+<li>改步骤</li>
+<li>改输出格式</li>
+<li>改工具权限</li>
+</ul>
+</li>
+</ul>
+<p>你会很快发现：<strong>写 skill 其实更像写单测驱动的 prompt 程序。</strong></p>
+<h3>真正需要培养的，不是“写 Prompt 的手感”，而是六种工程思维</h3>
+<p>Skill 写到后面，拼的已经不是字句技巧，而是思维方式。</p>
+<p><strong>第一种是路由思维。</strong><br>Skill 首先不是“怎么做”，而是“什么时候该进来”。你要不断问自己：什么输入一定触发，什么输入绝不触发，什么输入最容易误触发。</p>
+<p><strong>第二种是边界思维。</strong><br>一个好的 Skill，一定要写清楚 When to use 和 When not to use。没有不适用场景的 Skill，最后几乎都会滥用。</p>
+<p><strong>第三种是接口思维。</strong><br>把 Skill 当 API 写，而不是当作文写。输入字段是什么，缺字段怎么办，输出结构固定成什么，哪些字段必须引用原文或原数据，这些都要写清楚。</p>
+<p><strong>第四种是状态机思维。</strong><br>大多数 Skill 不是一步完成的，而是“收集信息—校验信息—执行—验证—产出—失败回退”的阶段式过程。你要习惯把它写成阶段，而不是一坨大 Prompt。</p>
+<p><strong>第五种是最小权限思维。</strong><br>默认少给权限，不够再加。读文件的 Skill 就别给写权限，总结类 Skill 就别给部署权限。权限一旦给宽，行为就更容易漂移。</p>
+<p><strong>第六种是失败优先思维。</strong><br>不要只想正常情况怎么跑通，更要先想缺输入怎么办、数据冲突怎么办、工具超时怎么办、输出不确定怎么办、是否要回退到人工确认。很多 Skill 真正的质量差异，并不体现在顺风局，而体现在异常路径。</p>
+<h3>怎么写？以“周报 Skill”为例</h3>
+<p>如果要把一套方法压缩成最可操作的写法，我通常会按下面的结构来写 Skill：</p>
+<p>**第一段是名称：**别用大词，用“动作 + 对象”最稳，比如 pr-summary、weekly-status、bug-repro-check、spec-to-tasks。</p>
+<p>**第二段是 description：**这一句必须同时交代四件事：做什么、什么时候用、什么时候不用、输出是什么。</p>
+<p>**第三段是输入：**明确写清必需输入、可选输入，以及缺失时的处理方式。</p>
+<p>**第四段是前置检查：**比如先确认 branch、repo、文件是否存在，issue 编号是否有效，目标格式是否指定。</p>
+<p><strong>第五段是执行步骤</strong>：每步只做一件事，最好控制在四到八步，不要写那种“请认真分析并给出全面总结”的空话。</p>
+<p><strong>第六段是输出</strong>：输出格式必须固定，没有固定输出，Skill 很难稳定。</p>
+<p><strong>第七段是失败处理</strong>：信息不足时列缺口，事实冲突时并列展示，高风险动作先停下来请求确认。</p>
+<p><strong>第八段是例子和反例</strong>：至少给两个正例、两个反例、一个边界例。这些例子的价值，往往比再多写两百行“请仔细思考”更大。</p>
+<p><em>以“周报 Skill”为例：</em></p>
+<hr>
+<p>name: weekly-report</p>
+<p>description: 当用户需要把本周已有的 commit、PR、issue、会议纪要或文档更新整理成固定模板周报时触发。仅用于事实归纳与风险提炼，不用于从零虚构进展、战略分析或长篇文章写作。</p>
+<hr>
+<h2>When to use</h2>
+<ul>
+<li><p>用户要求写本周周报、项目进展、研发同步摘要</p>
+</li>
+<li><p>已经存在可引用材料，如代码提交、PR、issue、文档、会议纪要</p>
+</li>
+</ul>
+<h2>When not to use</h2>
+<ul>
+<li><p>用户只是想 brainstorm 下周计划</p>
+</li>
+<li><p>没有任何事实材料，且用户希望“你自己补全”</p>
+</li>
+<li><p>用户要的是战略分析、行业分析、汇报 deck</p>
+</li>
+</ul>
+<h2>Required inputs</h2>
+<ul>
+<li><p>时间范围</p>
+</li>
+<li><p>数据来源（如 git / PR / issue / docs / notes）</p>
+</li>
+<li><p>输出模板（若未给出，则使用默认模板）</p>
+</li>
+</ul>
+<h2>Procedure</h2>
+<ol>
+<li><p>收集该时间范围内的事实材料</p>
+</li>
+<li><p>去重并按主题归类</p>
+</li>
+<li><p>区分“已完成 / 进行中 / 风险阻塞 / 下周计划”</p>
+</li>
+<li><p>仅基于证据写结论，不补造事实</p>
+</li>
+<li><p>若证据不足，显式列出信息缺口</p>
+</li>
+</ol>
+<h2>Output format</h2>
+<h3>本周完成</h3>
+<h3>关键进展</h3>
+<h3>风险与阻塞</h3>
+<h3>需要协同事项</h3>
+<h3>下周计划</h3>
+<h3>证据来源</h3>
+<h2>Failure handling</h2>
+<ul>
+<li><p>若缺少时间范围，先默认“最近 7 天”并说明</p>
+</li>
+<li><p>若数据冲突，保留冲突并标注来源</p>
+</li>
+<li><p>若材料不足，不输出“本周完成”，改为“待补充信息”</p>
+</li>
+</ul>
+<h3>结语：写好 Skill，本质上是在训练一种工程表达能力</h3>
+<p>写 Skill 这件事，表面上看是在给 Agent 增加能力，实际上是在训练一种更底层的能力：把一个原本依赖经验、依赖临场判断、依赖人脑补完的任务，压缩成一个系统可以稳定执行的能力单元。这意味着你不能只会“写得像人”，还得会定义触发条件，会划边界，会写输入输出，会拆分模型与工具，会设计失败路径，会建立评测机制。真正强的 Skill，从来不是“字写得漂亮”，而是“像一个可以上线、可以维护、可以反复调用的小系统”。</p>
+<p>所以，如果要用一句话来概括写好 Skill 的关键，那就是：**不要把 Skill 当成 Prompt 去润色，而要把 Skill 当成能力去设计。**这两种思路的区别，看起来很小，但最终决定的，是你的 Skill 只能做一次漂亮 demo，还是能真正进入稳定交付的生产场景。</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本文系统阐述了如何正确设计Agent Skill，核心观点是Skill不是一段漂亮的提示词，而是一个需要工程思维设计的小型workflow。文章指出，决定Skill上限的是系统设计能力而非文案能力，写好Skill的四个核心要素是：定义触发条件、定义输入输出、拆分模型判断与确定性执行、建立失败兜底和评测机制。文章强调应先拆解工作流再写Skill，通过将日常任务拆分为触发时机、输入材料、决策点、固定步骤、输出格式和常见失败等维度来构建清晰结构。在路由描述方面，description应作为路由契约而非介绍文案，需同时明确何时触发、何时不触发、需要什么输入、输出格式是什么四个关键问题，从而大幅提升路由准确率。文章还强调应将机械性工作（如API调用、数据提取、格式处理）交给脚本，让模型专注于语义理解与判断，实现稳定输出。评测集方面，每个Skill应准备至少20条测试样本，涵盖应触发、不该触发、部分触发和应拒绝四类场景，每次只改一个变量进行迭代优化。文章还总结了六种核心工程思维：路由思维、边界思维、接口思维、状态机思维、最小权限思维和失败优先思维，并以周报Skill为实际案例展示了标准的八段式写法结构，包括名称、description、输入、前置检查、执行步骤、输出格式、失败处理和正反例，为读者提供了可直接落地的方法论。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Skill本质是小型workflow而非提示词，核心是在对的时机用对的方法调用对的能力，写好Skill需掌握触发条件定义、输入输出定义、模型与确定性执行拆分、失败兜底与评测四件事</li>
+<li>路由描述是Skill的核心契约，description必须回答四个问题：什么时候该用、什么时候不该用、需要什么输入、输出格式是什么，模糊的路由契约会导致误触发和乱传参数</li>
+<li>应将机械性固定步骤（数据提取、格式转换、去重等）交给脚本或API处理，让模型只负责需要语义理解的部分，从而提升Skill稳定性和可靠性</li>
+<li>每个Skill必须建立评测集，准备覆盖应触发、不该触发、部分触发、应拒绝四类场景的测试样本，每次迭代只改一个变量，将Skill开发当作单测驱动的程序开发来对待</li>
+<li>写好Skill需培养六种工程思维：路由思维（何时进入）、边界思维（When not to use）、接口思维（输入输出规范）、状态机思维（阶段式拆分）、最小权限思维（默认少给权限）、失败优先思维（异常路径设计）</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2750574471.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：可灵提出高效强化学习后训练扩散模型新范式，LeCun、谢赛宁团队新作，腾讯提出推理新框架，英伟达多篇论文 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：可灵提出高效强化学习后训练扩散模型新范式，LeCun、谢赛宁团队新作，腾讯提出推理新框架，英伟达多篇论文。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2745794619.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：可灵提出高效强化学习后训练扩散模型新范式，LeCun、谢赛宁团队新作，腾讯提出推理新框架，英伟达多篇论文</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2745794619。版本：98455ec3cefcd23756cd8ec988492787bdbc7d05049dd38bb1348b183245e990。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/271</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/98455ec3cefcd23756cd8ec988492787bdbc7d05049dd38bb1348b183245e990.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 510s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;cfb7f4525d9b4844bd70a428c29a7173&quot;}
+周论文推荐：可灵提出高效强化学习后训练扩散模型新范式，LeCun、谢赛宁团队新作，腾讯提出推理新框架，英伟达多篇论文</p>
+<h3>一、模型</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th></th>
+<th>**公司/院校/机构**</th>
+<th>**简介**</th>
+<th>**详情**</th>
+</tr>
+<tr>
+<td></td>
+<td>**墨尔本大学**</td>
+<td>墨尔本大学提出神经网络可重编程性（Neural Network Reprogrammability）<br><br>Zesheng Ye, Chengyi Cai, Ruijiang Dong, Jianzhong Qi, Lei Feng, Pin-Yu Chen, Feng Liu.&quot;Neural Network Reprogrammability: A Unified Theme on Model Reprogramming, Prompt Tuning, and Prompt Instruction.&quot;arXiv:2506.04650 [cs.LG]</td>
+<td>从模型重编程（Model Reprogramming），到参数高效微调（PEFT），再到当下大模型时代的 Prompt Tuning ，Prompt Instruction 和 In-context Learning，研究者和从业人员不断地探索一个核心问题：在尽量不改动模型参数的前提下，如何最大化地复用预训练模型的能力？<br><br>过去几年，这类方法在不同社区中以各自独立的形式快速发展 —— 有的来自对抗鲁棒性与迁移学习，有的服务于下游任务适配，有的则成为大模型对齐与应用的基础工具。然而，这些看似分散的技术路线，背后是否存在一个更统一、更本质的理论视角？<br><br>近期，来自墨尔本大学可信赖机器学习与推理（TMLR）研究小组和 IBM AI 研究所的研究者系统性地提出了「[神经网络可重编程性（Neural Network Reprogrammability）](https://arxiv.org/abs/2506.04650)」这一统一主题，在最近的一篇 survey 中，将模型重编程，Prompt Tuning、Prompt Instruction 和 In-context Learning 纳入同一分析框架，从操纵位置、操纵类型、操纵算子和输出对齐四个维度进行了系统梳理与对比。同时，该团队也在 AAAI 2026 上带来同名 Tutorial，帮助研究者与工程实践者全面理解这一正在重塑模型使用范式的关键能力。</td>
+</tr>
+<tr>
+<td></td>
+<td>**清华大学**</td>
+<td>清华刘壮团队新论文提出了一种非常简单的新激活层 Derf（Dynamic erf），让「无归一化（Normalization-Free）」的 Transformer 不仅能稳定训练<br><br>Mingzhi Chen, Taiming Lu, Jiachen Zhu, Mingjie Sun, Zhuang Liu.&quot;Stronger Normalization-Free Transformers.&quot;arXiv:2512.10938 [cs.LG]</td>
+<td>刘壮带队的无需归一化 Transformer 又有新的版本了。<br><br>一直以来，在 Transformer 架构里，LayerNorm 几乎是标配，但它也有明显问题：比如计算和访存成本高，尤其在大模型推理阶段。<br><br>因此，「无归一化（Normalization-Free）」Transformer 成为研究者探索的一个长期目标，但一直卡在两个难点上：训练不稳定，以及性能明显不如带归一化的模型。<br><br>而这篇[新论文](https://arxiv.org/abs/2512.10938)提出了一种非常简单的新激活层 Derf（Dynamic erf），让「无归一化（Normalization-Free）」的 Transformer 不仅能稳定训练，还在多个设置下性能超过了带 LayerNorm 的标准 Transformer。</td>
+</tr>
+<tr>
+<td></td>
+<td>**Google**</td>
+<td>Google DeepMind 提出 MultiMax 等新探测器架构，显著提升长上下文数据的泛化性能<br><br>János Kramár, Joshua Engels, Zheng Wang, Bilal Chughtai, Rohin Shah, Neel Nanda, Arthur Conmy.&quot;Building Production-Ready Probes For Gemini.&quot;arXiv:2601.11516 [cs.LG]</td>
+<td>[研究](https://arxiv.org/abs/2601.11516)聚焦于开发高效的激活探测器以检测网络攻击性提示，创新性地提出了多种新探测器架构（如 MultiMax）和自动化搜索方法，有效提升了对长上下文和多轮对话的适应能力，同时结合大语言模型形成级联分类器，大幅降低计算成本并提高准确性。这些技术已成功应用于 Google 前沿语言模型 Gemini 的实际部署中。</td>
+</tr>
+<tr>
+<td></td>
+<td>**IBM Research Europe - Ireland; IT:U - Interdisciplinary Transformation University Austria**</td>
+<td>IBM 提出了一种名为 FACTCORRECTOR 的新方法，用于纠正大型语言模型生成内容中的事实性错误<br><br>Javier Carnerero-Cano, Massimiliano Pronesti, Radu Marinescu, Tigran Tchrakian, James Barry, Jasmina Gajcin, Yufang Hou, Alessandra Pascale, Elizabeth Daly.&quot;FactCorrector: A Graph-Inspired Approach to Long-Form Factuality Correction of Large Language Models.&quot;arXiv:2601.11232 [cs.CL]</td>
+<td>[论文](https://arxiv.org/abs/2601.11232)提出了一种名为 FACTCORRECTOR 的新方法，用于纠正大型语言模型生成内容中的事实性错误。该方法通过分解生成内容为原子单元并检索外部证据，使用概率图模型评估每个单元的真实性，并生成修正版本。研究还引入了 VELI5 基准数据集，包含系统注入的事实错误和修正标准。实验表明，FACTCORRECTOR 在多个数据集上显著提高了事实准确性，优于现有基线方法。</td>
+</tr>
+<tr>
+<td></td>
+<td>**香港大学、复旦大学、慕尼黑大学、曼切斯特大学、腾讯等**</td>
+<td>香港大学、复旦大学、慕尼黑大学、曼切斯特大学、腾讯等联合发布“可实践的机制可解释性”综述<br><br>Hengyuan Zhang, Zhihao Zhang, Mingyang Wang, Zunhai Su, Yiwei Wang, Qianli Wang, Shuzhou Yuan, Ercong Nie, Xufeng Duan, Qibo Xue, Zeping Yu, Chenming Shang, Xiao Liang, Jing Xiong, Hui Shen, Chaofan Tao, Zhengwu Liu, Senjie Jin, Zhiheng Xi, Dongdong Zhang, Sophia Ananiadou, Tao Gui, Ruobing Xie, Hayden Kwok-Hay So, Hinrich Schütze, Xuanjing Huang, Qi Zhang, Ngai Wong.&quot;Locate, Steer, and Improve: A Practical Survey of Actionable Mechanistic Interpretability in Large Language Models.&quot;arXiv:2601.14004 [cs.CL]</td>
+<td>过去几年，机制可解释性（Mechanistic Interpretability）让研究者得以在 Transformer 这一 “黑盒” 里追踪信息如何流动、表征如何形成：从单个神经元到注意力头，再到跨层电路。但在很多场景里，研究者真正关心的不只是 “模型为什么这么答”，还包括 “能不能更稳、更准、更省，更安全”。<br><br>正是在这一背景下，来自香港大学、复旦大学、慕尼黑大学、曼切斯特大学、腾讯等机构的研究团队联合发布了 “[可实践的机制可解释性”（Actionable Mechanistic Interpretability）](https://arxiv.org/abs/2601.14004)综述。文章通过 &quot;Locate, Steer, and Improve&quot; 的三阶段范式，系统梳理了如何将 MI 从 “显微镜” 转化为 “手术刀”，为大模型的对齐、能力增强和效率提升提供了一套具体的方法论。</td>
+</tr>
+</table></div>
+
+<h3>二、<strong>推理</strong></h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Carnegie Mellon University; Amazon**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nCMU 提出 TRIM 框架，在多步推理任务中通过目标逐步路由优化模型使用效率\n:::\n\n:::paragraph{align=center indent=0}\nVansh Kapoor, Aman Gupta, Hao Chen, Anurag Beniwal, Jing Huang, Aviral Kumar.\&quot;TRIM: Hybrid Inference via Targeted Stepwise Routing in Multi-Step Reasoning Tasks.\&quot;arXiv:2601.10245 [cs.AI]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[论文](https://arxiv.org/abs/2601.10245)提出 TRIM 框架，在多步推理任务中通过目标逐步路由优化模型使用效率。核心思想是在推理过程中仅对可能出错的关键步骤调用大模型，而让小模型处理常规步骤。研究设计多种路由策略，包括简单阈值策略和基于 RL 及 POMDP 的高级策略。实验表明，即使最简单的阈值策略也比现有方法成本效率高 5 倍，而更先进的策略在保持性能的同时可减少 80% 昂贵模型调用。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>近期多项AI研究在模型效率、安全与可解释性方向取得重要进展。墨尔本大学TMLR研究小组与IBM AI研究所联合提出&quot;神经网络可重编程性&quot;统一框架，将模型重编程、PEFT、Prompt Tuning、In-context Learning等技术纳入同一分析体系，从操纵位置、类型、算子和输出对齐四维度系统梳理，并将在AAAI 2026带来同名Tutorial。</p>
+<p>在模型架构优化方面，刘壮团队提出动态激活层Derf（Dynamic erf），有效解决LayerNorm计算与访存成本高的问题，使无归一化Transformer在多个设置下性能超越标准Transformer。Google则聚焦安全领域，开发高效激活探测器并提出MultiMax等新架构，结合大语言模型构建级联分类器，大幅降低计算成本并提升攻击检测准确率，相关技术已成功部署于Gemini模型。</p>
+<p>事实纠错方面，FACTCORRECTOR方法将生成内容分解为原子单元，结合外部证据检索与概率图模型评估真实性，并引入VELI5基准数据集验证效果，在多个数据集上显著优于现有基线。香港大学、复旦大学、腾讯等机构联合发布&quot;可实践的机制可解释性&quot;综述，提出&quot;Locate, Steer, and Improve&quot;三阶段范式，推动机制可解释性从分析工具转向实践手段。</p>
+<p>推理效率方面，腾讯提出TRIM框架，针对多步推理任务采用目标逐步路由策略，关键步骤调用大模型、常规步骤交由小模型处理。最简单的阈值策略即可将成本效率提升至现有方法的5倍，而先进的RL及POMDP路由策略在维持模型性能的同时可减少80%的大模型调用。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>墨尔本大学提出「神经网络可重编程性（Neural Network Reprogrammability）」统一主题，将模型重编程、Prompt Tuning、In-context Learning等纳入同一分析框架，从操纵位置、操纵类型、操纵算子和输出对齐四个维度进行系统梳理</li>
+<li>清华大学刘壮团队提出新激活层Derf（Dynamic erf），解决无归一化Transformer训练不稳定和性能不足两大难点，在多个设置下性能超过带LayerNorm的标准Transformer</li>
+<li>本周论文涉及多个重要机构和方向，包括可灵的扩散模型强化学习后训练、腾讯推理框架、英伟达多项研究成果以及LeCun与谢赛宁团队合作新作</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2745794619.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

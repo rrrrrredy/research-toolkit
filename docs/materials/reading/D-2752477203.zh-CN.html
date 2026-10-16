@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：浙大开源高性能 LLM Steering 统一框架，字节提出 ReGFT 方法，阿里发布 PrismAudio 视频生成音频框架，中科院领衔世界模型最新综述 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：浙大开源高性能 LLM Steering 统一框架，字节提出 ReGFT 方法，阿里发布 PrismAudio 视频生成音频框架，中科院领衔世界模型最新综述。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2752477203.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：浙大开源高性能 LLM Steering 统一框架，字节提出 ReGFT 方法，阿里发布 PrismAudio 视频生成音频框架，中科院领衔世界模型最新综述</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2752477203。版本：6006a7e4d963177324394b481f8cf1c7753dd7d17662b565dc77dee4ebd18b3e。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/220</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/6006a7e4d963177324394b481f8cf1c7753dd7d17662b565dc77dee4ebd18b3e.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：浙大开源高性能 LLM Steering 统一框架，字节提出 ReGFT 方法，阿里发布 PrismAudio 视频生成音频框架，中科院领衔世界模型最新综述</p>
+<h3>一、模型</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th></th>
+<th>**公司/院校/机构**</th>
+<th>**简介**</th>
+<th>**详情**</th>
+</tr>
+<tr>
+<td></td>
+<td>**浙江大学**</td>
+<td>浙大开源 EasySteer：高性能 LLM Steering 统一框架<br><br>Haolei Xu, Xinyu Mei, Yuchen Yan, Rui Zhou, Wenqi Zhang, Weiming Lu, Yueting Zhuang, Yongliang Shen.&quot;EasySteer: A Unified Framework for High-Performance and Extensible LLM Steering.&quot;arXiv:2509.25175 [cs.CL]</td>
+<td>大语言模型 (LLM) 在部署后如何灵活地控制其行为，一直是业界面临的核心挑战。微调代价高昂且存在灾难性遗忘风险，提示工程又只能提供表层的控制，缺乏行为保证。LLM Steering 技术通过在推理阶段对模型隐藏状态进行定向操作，在不修改模型权重的情况下实现精准行为控制，为这一问题提供了一条轻量且可行的路径。<br><br>近年来，社区已涌现出 repeng、pyreft、EasyEdit2 等代表性框架，分别在分析式向量提取、学习式表征微调、综合编辑等方向做出了重要探索。不过，随着 Steering 技术从单一实验场景走向多目标、大规模的生产部署，现有框架在推理效率、控制粒度和算法扩展性上仍有进一步提升的空间。<br><br>在此背景下，浙江大学研究团队提出了 [EasySteer](https://arxiv.org/abs/2509.25175)——一个基于 vLLM 构建的高性能、可扩展 LLM Steering 统一框架。该框架通过与 vLLM 推理引擎的深度集成，相比现有 Steering 框架实现了 10.8-22.3 倍的推理加速，同时提供更细粒度的干预控制，并为八大应用场景提供了预计算 Steering 向量与完整复现示例，方便研究者快速上手和对照复现。</td>
+</tr>
+<tr>
+<td></td>
+<td rowspan="2">**清华大学**</td>
+<td>清华提出交叉熵分解：“误差熵” 才是大模型规模定律真正的驱动项<br><br>Junxi Yan, Zixi Wei, Qingyao Ai, Yiqun Liu, Jingtao Zhan.&quot;What Scales in Cross-Entropy Scaling Law?&quot;arXiv:2510.04067 [cs.LG]</td>
+<td>规模定律（Scaling Law）一直是大语言模型开发的核心指导工具。从 Kaplan 等人提出的经典幂律关系，到 Chinchilla 团队对最优训练策略的计算，业界形成了共识：随着模型参数量的增长，交叉熵损失会以可预测的幂律速率持续下降。然而，越来越多的研究者开始发现令人不安的现象：交叉熵规模定律在超大模型上失效了。损失的下降从幂律预测偏移，这让依赖 Scaling Law 来指导百亿甚至千亿参数模型训练的团队措手不及。来自清华大学的研究团队在一篇发表在 ICLR 2026 上的[论文](https://arxiv.org/abs/2510.04067)中，对这一问题给出了一个颇具洞察力的回答：交叉熵损失本身并不真正遵循规模定律；真正 scale 的，是它内部一个隐藏的成分。研究团队提出了一种全新的交叉熵分解方法，将其拆分为三个部分：误差熵（Error-Entropy）、自对齐（Self-Alignment）和置信度（Confidence）。通过在多个数据集上对 32 个模型进行系统实验，他们发现只有误差熵严格遵循幂律缩放，其余两项基本不随模型增大而变化。这一发现不仅为交叉熵规模定律失效提供了新的解释，也为大模型的训练和理论研究提供了一个更可靠的度量基准。</td>
+</tr>
+<tr>
+<td></td>
+<td>大模型的无监督强化学习能走多远？清华团队给出了系统性答案<br><br>Bingxiang He, Yuxin Zuo, Zeyuan Liu, Shangziqi Zhao, Zixuan Fu, Junlin Yang, Cheng Qian, Kaiyan Zhang, Yuchen Fan, Ganqu Cui, Xiusi Chen, Youbang Sun, Xingtai Lv, Xuekai Zhu, Li Sheng, Ran Li, Huan-ang Gao, Yuchen Zhang, Bowen Zhou, Zhiyuan Liu, Ning Ding.&quot;How Far Can Unsupervised RLVR Scale LLM Training?&quot;arXiv:2603.08660 [cs.LG]</td>
+<td>强化学习正在重塑大模型能力边界。OpenAI o3、DeepSeek-R1、Gemini 3 等顶尖模型都在用大规模 RLVR（可验证奖励强化学习）刷新推理任务的天花板。但所有人都知道，纯监督式训练不可持续。人工标注成本指数级增长，在专业领域获取可靠标注越来越难。当模型能力逼近甚至超越人类专家时，谁来给它打分？<br><br>从 TTRL 开始，无监督 RLVR（Unsupervised RLVR）应运而生，让模型在没有人工标注的情况下持续进化。这不仅是降本增效的需求，更是通往超级智能的必经之路。就像预训练用无标注数据 training 出了 GPT，无监督 RLVR 能否延续这一奇迹？<br><br>清华团队一项最新[研究](https://arxiv.org/abs/2603.08660)，给这个看似美好的图景画出了第一条边界。研究者系统解剖了无监督 RLVR 的内在机制，发现所有基于模型自身信号的内在奖励方法，无论多数投票、熵奖励还是其他变体，都遵循着一条相似的轨迹：训练初期性能快速攀升，但到达某个临界点后，开始不可逆地滑落。这不是某个方法的缺陷，而是机制的宿命：它们本质上都在锐化模型已有的偏好，像一个回声室，让模型不断重复自己最初相信的东西。如果初始自信恰好正确，效果惊人；如果错配，坍塌只是时间问题。</td>
+</tr>
+<tr>
+<td></td>
+<td>**NVIDIA**</td>
+<td>NVIDIA 介绍了 Megatron-Core MoE 框架，用于解决大规模 MoE 模型训练中的系统挑战<br><br>Zijie Yan, Hongxiao Bai, Xin Yao, Dennis Liu, Tong Liu, Hongbin Liu, Pingtian Li, Evan Wu, Shiqing Fan, Li Tao, Robin Zhang, Yuzhong Wang, Shifang Xu, Jack Chang, Xuwen Chen, Kunlun Li, Yan Bai, Gao Deng, Nan Zheng, Vijay Anand Korthikanti, Abhinav Khattar, Ethan He, Soham Govande, Sangkug Lym, Zhongbo Zhu, Qi Zhang, Haochen Yuan, Xiaowei Ren, Deyu Fu, Tailai Ma, Shunkang Zhang, Jiang Shao, Ray Wang, Santosh Bhavani, Xipeng Li, Chandler Zhou, David Wu, Yingcan Wei, Ashwath Aithal, Michael Andersch, Mohammad Shoeybi, Jiajie Yao, June Yang.&quot;Scalable Training of Mixture-of-Experts Models with Megatron Core.&quot;arXiv:2603.07685 [cs.DC]</td>
+<td>[论文](https://arxiv.org/abs/2603.07685)介绍了 Megatron-Core MoE 框架，用于解决大规模 MoE 模型训练中的系统挑战。通过集成内存、通信和计算优化，包括细粒度重计算、专家并行性、分组 GEMM 等技术，突破了内存墙、通信墙和计算效率墙的限制。支持 FP8/FP4 低精度训练和长上下文训练，在 NVIDIA GB300 和 GB200 上实现了优异性能，为学术界和工业界提供了可扩展的开源解决方案。</td>
+</tr>
+<tr>
+<td></td>
+<td>**新加坡国立大学、加州大学伯克利分校**</td>
+<td>拒绝「降智、减配、乱收费」：面向 LLM API 的可信验证框架<br><br>Yanpei Guo, Wenjie Qu, Linyu Wu, Shengfang Zhai, Lionel Z. Wang, Ming Xu, Yue Liu, Binhang Yuan, Dawn Song, Jiaheng Zhang.&quot;IMMACULATE: A Practical LLM Auditing Framework via Verifiable Computation.&quot;arXiv:2602.22700 [cs.CR]</td>
+<td>大语言模型（LLM）已经成为各类 AI 应用的基础设施，然而，在通过云端 API 便捷接入这些强大模型的同时，此类黑盒服务模式也引发了一个现实的信任危机：如何确保大模型服务提供商真的运行了所承诺的模型，并如实报告实际使用了 Token 数量，以防止潜在的 LLM 服务 “降智、减配、乱收费”？<br><br>事实上，围绕 LLM 服务 “降智” 的讨论，已经在国内外多个开发者社区中反复出现，不少用户都报告过模型在使用一段时间后表现明显下滑的现象。与此同时，若服务商出于竞争或策略原因，对特定用户群体提供差异化甚至低质量服务，则会进一步加剧黑盒 AI 服务的信任危机。<br><br>针对这一系列问题，研究者们最近[提出](https://arxiv.org/abs/2602.22700)了一种新的利用可验证计算（Verifiable Computation）来证明推理过程正确性的 LLM 服务审计框架 ——IMMACULATE。 借助该框架，用户能够在完全不暴露模型内部信息的情况下，仅需 1% 的额外开销，就能轻松验证黑盒 LLM API 的执行完整性，以有效检测模型替换、过度量化以及 Token 虚报计费等 LLM 服务违规行为。相关论文与代码已公开。</td>
+</tr>
+<tr>
+<td></td>
+<td>**北京大学**</td>
+<td>北大团队提出 SHINE：将任意文本转化为大模型 LoRA，仅需一次前向传播<br><br>Yewei Liu, Xiyuan Wang, Yansheng Mao, Yoav Gelbery, Haggai Maron, Muhan Zhang.&quot;SHINE: A Scalable In-Context Hypernetwork for Mapping Context to LoRA in a Single Pass.&quot;arXiv:2602.06358 [cs.CL]</td>
+<td>团队[提出](https://arxiv.org/abs/2602.06358)了一种全新的超网络（Hypernetwork）架构：仅需一次前向传播，即可将几乎任意文本转化为大语言模型的 LoRA 参数。通过这种方式，文本中的知识可以被直接内化到大模型参数中，并支持基于该文本进行多轮对话。<br><br>团队的工作与当前大模型研究中的多个热点方向密切相关，包括大模型快速适配（adaptation）、持续学习（continual learning）、参数化记忆（parametric memory）、面向大模型的超网络（hypernetwork）设计等。</td>
+</tr>
+</table></div>
+
+<h3>二、*</h3>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周AI研究领域呈现多项重要进展。浙江大学开源EasySteer框架，基于vLLM构建，相比现有LLM Steering框架实现10.8至22.3倍推理加速，支持八大应用场景，提供预计算Steering向量与完整复现示例，可在推理阶段操控模型隐藏状态而无需修改权重。</p>
+<p>清华大学在ICLR 2026发表研究，提出交叉熵分解方法，将其拆分为误差熵、自对齐、置信度三部分，基于32个模型的系统实验发现，只有误差熵严格遵循幂律缩放，揭示其为大模型规模定律的真正驱动项。同一团队还系统研究无监督RLVR，发现所有内在奖励方法在训练后期均会出现性能下滑，本质上是锐化模型已有偏好，初始判断正确则有效，错误则导致坍塌。</p>
+<p>NVIDIA提出Megatron-Core MoE框架，集成细粒度重计算、专家并行、分组GEMM等优化技术，支持FP8/FP4低精度训练与长上下文训练，在GB300和GB200硬件上突破内存墙、通信墙与计算效率墙。</p>
+<p>新加坡国立大学与UC伯克利联合提出IMMACULATE框架，借助可验证计算审计LLM API服务合规性，仅需1%额外开销即可检测模型替换、过度量化、Token虚报计费等违规行为。北京大学提出SHINE超网络架构，仅需一次前向传播即可将任意文本转化为LLM的LoRA参数，实现文本知识直接内化至模型参数，并支持基于该文本的多轮对话，涉及快速适配、持续学习、参数化记忆等多个研究热点。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>浙大EasySteer基于vLLM构建LLM Steering统一框架，相比现有框架实现10.8-22.3倍推理加速，支持细粒度行为控制</li>
+<li>清华研究发现交叉熵损失中只有&#39;误差熵&#39;严格遵循幂律缩放规律，这是大模型规模定律真正的驱动项</li>
+<li>清华团队揭示无监督RLVR存在系统性局限，内在奖励方法本质上锐化模型已有偏好，训练后期会不可逆性能下滑</li>
+<li>NVIDIA推出Megatron-Core MoE框架，系统解决百亿至千亿参数级别MoE模型的大规模分布式训练挑战</li>
+<li>阿里PrismAudio和字节ReGFT分别在视频音频生成与参数高效微调方向提出新方法，中科院综述梳理世界模型研究进展</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2752477203.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

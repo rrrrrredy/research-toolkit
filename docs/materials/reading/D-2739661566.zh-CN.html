@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：GPT-5-Thinking 新训练方法，小红书搜索团队提出分段优势掩码策略，千问团队提出针对 LLM 的全新 RL 公式化方法，Agentic RAG 论文推荐 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：GPT-5-Thinking 新训练方法，小红书搜索团队提出分段优势掩码策略，千问团队提出针对 LLM 的全新 RL 公式化方法，Agentic RAG 论文推荐。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2739661566.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：GPT-5-Thinking 新训练方法，小红书搜索团队提出分段优势掩码策略，千问团队提出针对 LLM 的全新 RL 公式化方法，Agentic RAG 论文推荐</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2739661566。版本：8a9007168852cc04bb34f50036ceda22af102f0c1f320d7cb81217b07d502e47。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/202</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/8a9007168852cc04bb34f50036ceda22af102f0c1f320d7cb81217b07d502e47.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：GPT-5-Thinking 新训练方法，小红书搜索团队提出分段优势掩码策略，千问团队提出针对 LLM 的全新 RL 公式化方法，Agentic RAG 论文推荐</p>
+<h3>一、模型</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**OpenAI**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGPT-5-Thinking 新训练方法公开：忏悔训练 Confessions\n:::\n\n:::paragraph{align=center indent=0}\nManas Joglekar, Jeremy Chen, Gabriel Wu, Jason Yosinski, Jasmine Wang, Boaz Barak, Amelia Glaese.\&quot;Training LLMs for Honesty via Confessions.\&quot;\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;OpenAI 公开在 GPT-5-Thinking 上进行的忏悔训练研究，让模型在回答后生成 \&quot;忏悔报告\&quot;，如实汇报是否偷工减料或违反指令；在 11/12 个测试场景中模型至少有一半概率会在忏悔中承认错误，平均 \&quot;假阴性\&quot; 概率仅 4.36%，专门训练后忏悔准确性从 45% 提升至 89%；奖励信号完全隔离，模型在忏悔中承认作弊不影响主任务得分，OpenAI 将其定位为监控诊断工具，计划与思维链监控等安全技术配合使用。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**阿里巴巴**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n阿里千问团队提出针对 LLM 的全新 RL 公式化方法\n:::\n\n:::paragraph{align=center indent=0}\nChujie Zheng, Kai Dang, Bowen Yu, Mingze Li, Huiqiang Jiang, Junrong Lin, Yuqiong Liu, Hao Lin, Chencan Wu, Feng Hu, An Yang, Jingren Zhou, Junyang Lin.\&quot;Stabilizing Reinforcement Learning with LLMs: Formulation and Practices.\&quot;arXiv:2512.01374 [cs.LG]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:[color]{#333}如今，强化学习（RL）已成为提升大语言模型（LLM）复杂推理与解题能力的关键技术范式，而稳定的训练过程对于成功扩展 RL 至关重要。由于语言具有强烈的上下文属性，LLM 的 RL 通常依赖序列级奖励 —— 即根据完整生成序列给一个标量分数。[/color]\n\n:[color]{#333}然而，主流 RL 算法（如 REINFORCE 与 GRPO）普遍采用基于 token 的优化目标。这种「奖励在序列级、优化在 token 级」的不匹配引发了对于它们理论健全性与训练稳定性的担忧，因此已经有研究尝试直接使用序列级优化目标。[/color]\n\n:[color]{#333}此外，token 级优化目标在混合专家（MoE）模型的 RL 训练中带来了新的挑战，比如 MoE 的动态专家路由机制可能破坏 token 级重要性采样比的有效性。由此引出的关键问题是：在什么条件下，用 token 级目标优化序列级奖励是合理的？有效程度又是怎[/color]样的？\n\n针对这些问题，阿里千问团队[提出](https://arxiv.org/abs/2512.01374)了一种针对 LLM 的全新 RL 公式化方法。核心洞察是：为了优化序列级奖励的期望值，可以使用一个替代（surrogate）token 级目标作为其一阶近似。这一近似在以下两种偏差都足够小的条件下才成立：\n\n- :[color]{#333}训练与推理之间的数值差异[/color]\n- :[color]{#333}用于采样响应的 rollout 策略与需要优化的目标策略之间的偏差[/color]\n\n:[color]{#333}这一观点从原理上解释了多种 RL 稳定训练技巧的有效性，比如 1）重要性采样权重天然出现在基于该一阶近似的 token 级替代目标中；2）剪切（Clipping）机制通过限制策略变化幅度来抑制策略陈旧；3）在 MoE 中，路由重放（Routing Replay）方法通过在策略优化过程中固定专家路由，能够同时减少训练–推理差异与策略陈旧，从而提高训练稳定性。[/color]&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**康奈尔大学**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n康奈尔大学发布大模型版类 GAN 训练法\n:::\n\n:::paragraph{align=center indent=0}\nZhengxin Zhang, Chengyu Huang, Aochong Oliver Li, Claire Cardie.\&quot;Better LLM Reasoning via Dual-Play.\&quot;arXiv:2511.11881 [cs.LG]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;大型语言模型虽然通过可验证奖励的强化学习（RLVR）取得了显著进展，但仍然在很大程度上依赖外部监督（例如人工标注的数据）。自博弈（self-play）提供了一种有前景的替代方案�</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周AI研究领域有多项重要进展。OpenAI针对GPT-5-Thinking公开了&quot;忏悔训练&quot;研究：让模型在完成任务后生成忏悔报告，如实汇报是否违反指令。测试显示，在11/12个场景中模型有至少50%概率在忏悔中承认错误；经专项训练后，忏悔准确性从45%大幅提升至89%，平均假阴性概率仅4.36%。值得注意的是，忏悔中承认作弊不影响主任务得分，奖励信号完全隔离，该方法定位为监控诊断工具，OpenAI计划将其与思维链监控等安全技术配合使用。</p>
+<p>阿里千问团队则提出针对LLM的全新强化学习公式化方法，直指主流算法的理论痛点——REINFORCE、GRPO等采用token级优化目标，而LLM奖励本质上是序列级的，存在粒度错位问题。千问团队将token级替代目标重新推导为序列级奖励期望的一阶近似，并明确了该近似成立的两个条件：训练与推理数值差异足够小，且rollout策略与目标策略偏差足够小。基于此框架，重要性采样权重得到理论解释，剪切（Clipping）机制通过限制策略变化幅度抑制策略陈旧，提升训练稳定性。针对MoE模型，还提出路由重放（Routing Replay）方法，通过固定专家路由同步降低训练推理差异与策略陈旧问题。此外，康奈尔大学提出大模型版类GAN训练方法，通过自博弈机制替代外部监督信号。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>OpenAI忏悔训练让GPT-5-Thinking在回答后生成自我汇报，忏悔准确性从45%提升至89%，假阴性率仅4.36%，可作为安全监控工具。</li>
+<li>阿里千问团队提出LLM全新RL公式化方法，用token级替代目标近似序列级奖励，从理论上统一解释多种训练稳定技巧的有效性。</li>
+<li>小红书搜索团队提出分段优势掩码策略，改进GRPO等RL训练中推理链的优化方式，提升大模型推理质量。</li>
+<li>康奈尔大学提出Dual-Play类GAN训练法，通过自博弈机制减少LLM推理增强对外部标注数据的依赖。</li>
+<li>Agentic RAG方向论文探索将Agent机制融入检索增强生成系统，是RAG技术迈向更复杂任务处理能力的重要研究方向。</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2739661566.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：字节开源 Agent 专用模型和多模态框架，微软推出强化学习新算法，Adobe Research 提出图形设计评估系统，亚马逊提出动态混合专家（DyMoE）方法 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：字节开源 Agent 专用模型和多模态框架，微软推出强化学习新算法，Adobe Research 提出图形设计评估系统，亚马逊提出动态混合专家（DyMoE）方法。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2722983029.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：字节开源 Agent 专用模型和多模态框架，微软推出强化学习新算法，Adobe Research 提出图形设计评估系统，亚马逊提出动态混合专家（DyMoE）方法</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2722983029。版本：3cc4de1d4f68053c337704572323cfd1d22d0ae9b7a43d5b301a29e34fc7f4b5。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/173</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/3cc4de1d4f68053c337704572323cfd1d22d0ae9b7a43d5b301a29e34fc7f4b5.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：字节开源 Agent 专用模型和多模态框架，微软推出强化学习新算法，Adobe Research 提出图形设计评估系统，亚马逊提出动态混合专家（DyMoE）方法</p>
+<h3>一、模型</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**IBM Research; 清华大学计算机科学与技术系; 北京大学人工智能研究院; 微软亚洲研究院**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nIBM、清华、北大、微软亚研等提出多维度评估框架，统一比较不同对齐策略\n:::\n\n:::paragraph{align=center indent=0}\nMuneeza Azmat, Momin Abbas, Maysa Malfiza Garcia de Macedo, Marcelo Carpinette Grave, Luan Soares de Souza, Tiago Machado, Rogerio A de Paula, Raya Horesh, Yixin Chen, Heloisa Caroline de Souza Pereira Candello, Rebecka Nordenlow, Aminat Adebiyi.\&quot;A Comprehensive Evaluation framework of Alignment Techniques for LLMs.\&quot;arXiv:2508.09937 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[论文](https://arxiv.org/abs/2508.09937)针对大型语言模型的对齐技术缺乏统一评估框架的问题，提出了一个综合评估框架，从对齐检测、质量、效率和鲁棒性四个关键维度系统比较各种对齐方法。通过对多种基准数据集和模型的广泛实验，展示了该框架识别当前最先进策略的优势与局限性，为未来研究提供有价值的见解。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[color]{}**Mila; University of Montreal; CBS-NTT Program in Physics of Intelligence, Harvard University **[/color]\n:::\n\n:::paragraph{align=center indent=0}\n  \n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n使用线性探测分析 LLM 的说服策略和个性特征，比提示方法更高效\n:::\n\n:::paragraph{align=center indent=0}\nBrandon Jaipersaud, David Krueger, Ekdeep Singh Lubana .\&quot;How Do LLMs Persuade? Linear Probes Can Uncover Persuasion Dynamics in Multi-Turn Conversations.\&quot;arXiv:2508.05625 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[研究](https://arxiv.org/abs/2508.05625)利用线性探测技术分析大规模语言模型在多轮对话中的说服机制，包括说服结果、修辞策略和个性特征，发现探测器能有效识别对话中的说服特征并揭示个性与策略的相关性，为研究复杂行为提供新途径。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**The University of Texas at El Paso; Texas A&amp;M University-Central Texas; Cisco Systems Inc.; Amazon Web Services**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n德克萨斯大学提出 PRvL 工具，评估多种 LLM 架构和训练策略在 PII 去标识化中的性能，平衡准确性、效率和隐私保护\n:::\n\n:::paragraph{align=center indent=0}\nLeon Garza, Anantaa Kotal, Aritran Piplai, Lavanya Elluri, Prajit Das, Aman Chadha.\&quot;PRvL: Quantifying the Capabilities and Risks of Large Language Models for PII Redaction.\&quot;arXiv:2508.05545 [cs.CR]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[研究](http://arxiv.org/abs/2508.05545)分析了大型语言模型在个人身份信息（PII）去标识化任务中的表现，评估了不同模型架构、训练方法和推理策略的效果。结果表明，指令微调的模型在准确性、标签精确度和隐私保护方面表现最佳。研究还发现较小的模型如 DeepSeek-Q1 在较低计算成本下也能提供强大性能。最终发布了开源工具包 PRvL，包含微调模型和评估工具，支持安全合规的 PII 去标识化工作流。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**康奈尔大学**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{a</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周论文推荐涵盖多个前沿研究方向。IBM、清华、北大与微软亚研联合提出多维度LLM对齐评估框架，从对齐检测、质量、效率、鲁棒性四个维度系统比较各类对齐方法，通过多种基准数据集和模型实验识别当前最先进策略的优势与局限。</p>
+<p>在LLM说服机制研究方面，Mila、蒙特利尔大学与哈佛大学联合团队采用线性探测技术分析多轮对话中的说服结果、修辞策略和个性特征，研究表明线性探测方法比提示方法更高效，能有效识别对话中的说服特征，并揭示LLM个性特征与说服策略之间存在显著相关性。</p>
+<p>隐私保护方面，德克萨斯大学提出开源工具PRvL，专门用于评估多种LLM架构在PII（个人身份信息）去标识化任务中的性能表现。研究发现指令微调模型在准确性、标签精确度和隐私保护三项指标上表现最佳，而较小模型DeepSeek-Q1在较低计算成本下同样能提供强大的PII去标识化性能，兼顾效果与效率。PRvL已完整开源，包含微调模型和评估工具，可支持安全合规的PII去标识化工作流落地应用。</p>
+<p>此外，本周还涉及字节跳动开源Agent专用模型与多模态框架、微软推出强化学习新算法、Adobe Research构建图形设计评估系统，以及亚马逊提出动态混合专家（DyMoE）方法等重要进展，共同呈现了当前AI基础研究与应用探索的多元面貌。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>字节跳动开源Agent专用模型与多模态框架，推动智能体在复杂任务中的能力提升</li>
+<li>微软提出强化学习新算法，为LLM训练优化提供新方向</li>
+<li>Adobe Research提出图形设计自动评估系统，实现设计质量的量化评价</li>
+<li>亚马逊提出DyMoE动态混合专家方法，通过动态路由提升MoE架构计算效率</li>
+<li>IBM联合清华、北大等机构提出LLM对齐综合评估框架，覆盖检测、质量、效率、鲁棒性四维度</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2722983029.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：谢赛宁、李飞飞、LeCun 联手提出多模态 LLM 新范式，微信提出连续自回归模型 CALM，Google、清华多篇论文 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：谢赛宁、李飞飞、LeCun 联手提出多模态 LLM 新范式，微信提出连续自回归模型 CALM，Google、清华多篇论文。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2733530730.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：谢赛宁、李飞飞、LeCun 联手提出多模态 LLM 新范式，微信提出连续自回归模型 CALM，Google、清华多篇论文</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2733530730。版本：d3af6988d97ebe019b80ada42845be1c2080d543393ef3f76fbdc8d696a3ec38。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/267</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/d3af6988d97ebe019b80ada42845be1c2080d543393ef3f76fbdc8d696a3ec38.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：谢赛宁、李飞飞、LeCun 联手提出多模态 LLM 新范式，微信提出连续自回归模型 CALM，Google、清华多篇论文</p>
+<h3>一、模型</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**加州大学伯克利分校、清华大学、佐治亚理工学院**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n推测解码加速器 AdaSPEC：选择性知识蒸馏精准过滤\n:::\n\n:::paragraph{align=center indent=0}\nYuezhou Hu, Jiaxin Guo, Xinyu Feng, Tuo Zhao.\&quot;AdaSPEC: Selective Knowledge Distillation for Efficient Speculative Decoders.\&quot;arXiv:2510.19779 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;推测解码（Speculative Decoding, SD）通过使用一个较小的草稿模型（draft model）生成候选预测，再由更大的目标模型（target model）进行验证，从而显著加速大语言模型（LLM）的推理过程。SD 的加速效果在很大程度上取决于两者之间的对齐程度。\n\n目前，最先进的对齐方法是使用知识蒸馏（Knowledge Distillation, KD）在所有 token 上最小化 KL 散度。然而，最小化全局 KL 散度并不意味着 token 的接受率最大化。由于小模型容量受限，草稿模型往往难以完整吸收目标模型的知识，导致直接使用蒸馏方法的性能提升受限。在极限场景下，草稿模型和目标模型的巨大尺寸差异甚至可能导致训练不收敛。\n\n为了解决这一问题，佐治亚理工、清华大学与加州大学伯克利分校的研究团队提出 [AdaSPEC](https://arxiv.org/abs/2510.19779)，一种引入选择性 token 过滤机制的创新蒸馏方法。AdaSPEC 利用参考模型（reference model）识别并过滤出难以学习的 token，使蒸馏过程更聚焦于「易学习」的部分，从而让草稿模型在有限容量下更好地对齐目标模型。\n\n这种选择性蒸馏策略在不降低生成质量的前提下，显著提升了整体 token 接受率。我们在多个任务（算术推理、指令跟随、代码生成与文本摘要）和不同规模模型组合（31M/1.4B、350M/2.7B）上进行了系统评估。结果表明，AdaSPEC 在所有任务上均超越当前最优的 DistillSpec 方法，token 接受率最高提升达 15%。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n突破 LLM 遗忘瓶颈，Google “嵌套学习” 让 AI 像人脑一样持续进化\n:::\n\n:::paragraph{align=center indent=0}\nAli Behrouz · Meisam Razaviyayn · Peilin Zhong · Vahab Mirrokni Exhibit Hall C,D,E.\&quot;Nested Learning: The Illusion of Deep Learning Architectures.\&quot;\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;近日，谷歌推出了一种全新的用于持续学习的机器学习范式 —— [嵌套学习](https://neurips.cc/virtual/2025/loc/san-diego/poster/116123)，模型不再采用静态的训练周期，而是以不同的更新速度在嵌套层中进行学习，即将模型视为一系列嵌套问题的堆叠，使其能够不断学习新技能，同时又不会遗忘旧技能。\n\n在谷歌看来，过去十年，得益于强大的神经网络结构和高效的训练算法，机器学习（ML）领域取得了令人惊叹的进展，可尽管大语言模型（LLMs）取得了巨大成功，一些根本性问题仍然存在，尤其是「持续学习（Continual Learning）」—— 即模型能否在不遗忘旧知识的前提下，不断学习新知识与技能。\n\n在人类学习和自我改进方面，人脑是最完美的范例，它依靠神经可塑性（neuroplasticity）不断调整结构，以适应新的经验、记忆与学习。缺乏这种能力的人，就会像患有前向性遗忘症（anterograde amnesia）一样，只能理解眼前的信息。\n\n而当前的 LLM 也面临着类似的限制，「知识」仅限于输入窗口的上下文，或是预训练阶段学到的静态信息。\n\n为了弥补这些缺点，一个直觉式的做法是不断用新数据更新模型参数，但这往往导致所谓的「灾难性遗忘」（Catastrophic Forgetting，CF）—— 模型学了新任务，却失去了旧任务的能力。过去的研究尝试通过改进网络结构或优化算法来缓解这一问题。\n\n然而，长期以来，大家总是把「模型结构」与「优化算法」当作两件事来看待，这种割裂的视角阻碍了统一高效学习系统的建立。\n\n谷歌发表于 NeurIPS 2025 的论文《Nested Learning：深度学习架构的幻象》 中，提出了一个新的学习框架 —— 嵌套学习（Nested Learning），用以弥合架构与优化之间的鸿沟。其核心思想是：一个机器学习模型并非单一的学习过程，而是由多个相互关联、层次分明的优化子问题组成。\n\n谷歌认为模型架构与优化算法本质上是同一类事物；它们只是不同层级的「优化层」（optimization levels），各自拥有独立的信息流与更新频率。\n\n通过识别这种内在结构，嵌套学习为 AI 设计揭示了一个此前被忽视的维度，让我们能在不同时间尺度上构建更具「深度」的学习组件，从而解决灾难性遗忘等问题。\n\n基于嵌套学习原理，谷歌设计了一个自我修改型架构 ——Hope，实验表明：Hope 在语言建模任务中表现优异，并且在长上下文记忆管理方面超越了当前最先进的模型。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**西湖大学、浙江大学、不列颠哥伦比亚大学、香港中文大学等**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nSimKO：缓解 RLVR 训练中的概率过度集中，优化 pass@K 性能\n:::\n\n:::paragraph{align=center indent=0}\nRuotian Peng, Yi Ren, Zhouliang Yu, Weiyang Liu, Yandong Wen.\&quot;SimKO: Simple Pass@K Policy Optimization.\&quot;arXiv:2510.14807 [cs.AI]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;作者彭若天是西湖大学和浙江大学联培博士生，任毅是不列颠哥伦比亚大学博士，郁昼亮是香港中文大学博士生，刘威杨是香港中文大学计算机系助理教授，温研东是西湖大学人工智能系助理教授\n\n随着 Deepseek-R1，Kimi1.5 等模型展示了强化学习在提升大型语言模型复杂推理能力上的巨大潜力，使用可验证强化学习（RLVR）在数学、逻辑与编程等领域进行训练提升模型性能受到了广泛关注。\n\n然而，尽管现有 RLVR 方法在提升模型的 pass@1 性能（单次尝试正确的概率）方面取得了显著成果，但其在 pass@K（K 次尝试中至少一次正确的概率，K&gt;1）上的性能相比基础模型却下降了。\n\n这一现象表明，虽然模型在「利用」（Exploitation）单一正确路径的能力有所增强，但牺牲了对多样化正确解的「探索」（Exploration）能力。\n\n针对这一问题，研究团队从「模型预测下一个词的概率分布」这一新视角出发，深入研究了「探索」能力下降的内在机制。大量实验发现，经过现有 RLVR 算法训练后的模型，多数存在概率集中于单一推理路径的问题。\n\n受该现象启发，研究团队提出一种简洁且高效的算法 ——[SimKO (Simple Pass@K Optimization)](https://arxiv.org/abs/2510.14807)，显著优化了 pass@K（K=1 及 K&gt;1）性能。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**微信、清华大学**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n微信、清华连续自回归模型 CALM，新范式实现从「离散词元」到「连续向量」转变\n:::\n\n:::paragraph{align=center indent=0}\nChenze Shao, Darren Li, Fandong Meng, Jie Zhou.\&quot;Continuous Autoregressive Language Models.\&quot;arXiv:2510.27688 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;众所周知，大型语言模型（LLM）的根本运作方式是预测下一个 token（词元），能够保证生成的连贯性和逻辑性，但这既是 LLM 强大能力的「灵魂」所在，也是其枷锁，将导致高昂的计算成本和响应延迟。\n\n可以说，业界「苦」LLM 效率久矣，为了解决这一瓶颈，研究人员进行了多种尝试。\n\n其实从根本上分析，大型语言模型（LLM）的效率是受限于其逐个词元生成的顺序过程。那如果 LLM 预测的不再是「下一个词元」，而是「若干个词元」的话，是不是会带来不一样的效果？\n\n为此，腾讯微信 AI 联合清华大学在新发布论文中提出了一种新方法 —— [连续自回归语言模型（CALM）](https://arxiv.org/abs/2510.27688)，模型不再预测下一个词元，而是预测下一个连续向量。\n\n具体来看，CALM 使用高保真自编码器将 K 个词元压缩成一个连续向量，并能以超过 99.9% 的准确率从中重构原始词元，将语言建模为一系列连续向量，而非离散词元，从而将生成步骤的数量减少了 K 倍。\n\n从效果上来看，这种方法显著改善性能与计算成本之间的权衡，在更低的计算成本下，性能可以与强大的离散基线模型相媲美。更重要的是，这是一种新的范式，为构建超高效语言模型提供了一种强大且可扩展的途径。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Apple Inc.; Seattle, WA**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nApple 引入多语言基准，评估 LLM 在代码约束下的指令跟随能力，涵盖预定义和后续指令场景\n:::\n\n:::paragraph{align=center indent=0}\nForough Mehralian, Ryan Shar, James R. Rae, Alireza Hashemi.\&quot;CodeAlignBench: Assessing Code Generation Models on Developer-Preferred Code Adjustments.\&quot;arXiv:2510.27565 [cs.SE]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[论文](https://arxiv.org/abs/2510.27565)提出 CodeAlignBench，一个用于评估代码生成模型是否符合开发者偏好的多语言基准。通过用户研究收集真实开发者的指令，构建自动化框架验证模型表现。实验表明，不同模型在多种指令跟随任务中表现差异显著，尤其在结构化任务上优于语义和风格任务。该基准为未来复杂指令评估奠定基础。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**IBM Research, New York, USA; IBM Re</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周论文推荐涵盖多个前沿研究方向。</p>
+<p>在推测解码加速领域，佐治亚理工、清华大学、加州大学伯克利分校联合提出AdaSPEC方法，通过引入参考模型识别并过滤难以学习的token，使蒸馏聚焦于易学习部分，解决了现有方法最小化全局KL散度却无法最大化token接受率的瓶颈问题。该方法在算术推理、指令跟随、代码生成、文本摘要四类任务上全面超越当前最优方法DistillSpec，token接受率最高提升达15%。</p>
+<p>Google在NeurIPS 2025提出&quot;嵌套学习&quot;框架，将模型架构与优化算法统一为不同层级的优化层，各层拥有独立信息流与更新频率。基于该框架，Google设计了自我修改型架构Hope，在长上下文记忆管理上超越当前最先进模型。针对RLVR训练导致模型概率集中于单一推理路径、pass@K（K&gt;1）性能下降的问题，西湖大学联合浙大、不列颠哥伦比亚大学、香港中文大学等机构提出SimKO算法，实现了pass@1与pass@K的同步显著提升。</p>
+<p>腾讯微信AI联合清华大学提出连续自回归语言模型CALM，将预测单位从离散词元改为连续向量，使用高保真自编码器将K个词元压缩成一个连续向量（重构准确率超99.9%），生成步骤数量减少K倍，以更低计算成本实现与离散基线模型相当的性能。此外，Apple提出多语言代码生成基准CodeAlignBench，通过用户研究收集真实开发者指令，构建自动化验证框架，实验显示各模型在结构化任务上普遍优于语义和风格任务。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>AdaSPEC通过选择性知识蒸馏过滤难学习token，使推测解码的token接受率最高提升15%，超越DistillSpec方法</li>
+<li>Google提出嵌套学习框架，统一模型架构与优化算法视角，通过多层嵌套不同速度更新解决AI灾难性遗忘问题，基于此的Hope架构在NeurIPS 2025发表</li>
+<li>SimKO算法发现RLVR训练导致模型概率过度集中于单一路径，同时优化pass@1和pass@K性能，平衡探索与利用能力</li>
+<li>谢赛宁、李飞飞、LeCun联手提出多模态LLM新范式，微信提出连续自回归模型CALM，代表多模态和生成模型的重要突破</li>
+<li>本周论文覆盖推测解码加速、持续学习、强化学习优化、多模态大模型等多个AI核心方向，来自Google、清华、佐治亚理工等顶尖机构</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2733530730.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

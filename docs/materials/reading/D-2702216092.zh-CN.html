@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>小红书大模型探索案例 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="小红书大模型探索案例。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2702216092.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>小红书大模型探索案例</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2702216092。版本：00dd61aa6e21ae66f364975d75a257e09ef1a657fa1b05e76f3c3975fafd2476。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/127</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/00dd61aa6e21ae66f364975d75a257e09ef1a657fa1b05e76f3c3975fafd2476.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>小红书大模型探索案例</p>
+<h1>一、从 0 到 1 构建 RLHF 系统:[color]{}——[/color]小红书大模型团队的探索与实践</h1>
+<h2>1.RLHF 框架设计</h2>
+<h3>1.1.整体架构</h3>
+<blockquote>
+<p>:[color]{rgb(0, 0, 0)}<strong>架构选型</strong>[/color]
+<strong>训练：</strong>
+apex/nemo/megatron-lm/pytorch-lighting/accelerate/ray 
+=&gt; <strong>Megatron-core+ray</strong>
+<strong>推理：</strong>
+<strong>vLLM 推理引</strong>擎（logp 用 megatron）</p>
+</blockquote>
+<p>框架选型上小红书吸取了开源比如 trlx/openrlhf 的痛点，比如 apex/nemo/megatron 等混合框架的组合缝合怪方式，这会给代码维护和更新增加成本，因此他们降维到 megatron-core 作训练，ray 做调度的方式降低维护成本；推理服务小红书使用 vllm 推理引擎，当然需要注意的是，vllm 也可以输出训练所需要的 logp 数据，但还是要和训练保持一致，走 megatron 框架，否则会引入框架之间的 diff，成为训练的 bias，引入风险。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2702216092/145732501963?contentType=1&isNewContent=false" alt="image.jpeg">{width=879 height=482 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732523589?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2702216092/145732523589?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732582797?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2702216092/145732582797?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>上图为小红书的整体架构，上面是 make-experience 的第一步骤，dataloader 迭代器返回 prompt 之后，通过 vllm 的 generate 输出 response，prompt 和 response 组合之后成为新的 forward 数据集；左下方是第二步骤，也就是进行 4 个模型的 forward，生成最终的 ppo-elements 或者简称 rollout，构造最终的 train 数据集；右方为 PPO 训练，actor 训练之后会进行参数同步，这里会涉及到 medusa-sft 的协同训练流程，最终同步给 vLLM 进行新一轮的 generate 等。</p>
+<h3>1.2.异构组网架构</h3>
+<blockquote>
+<p>:[color]{rgb(0, 0, 0)}<strong>从 0 到 1 优化设计</strong>[/color]
+**1.Forward-Offload：**纯串行实现，分时复用 model：4-&gt;2
+**2.Training-Seperated：**actor/critic 独立集群异步训练（并行化）
+**启动流程：**actor 集群上进行 torchrun 启动主进程训练，并自动以 mock 方式拉起 critic 所在集群——remote-func</p>
+</blockquote>
+<p>RL 的 workload 涉及到 4 个模型，如果全都串行实例化每个 model，成本较高，但根据前述分析来看模型结构相同，所以小红书设计了异构组网架构，能够大幅提升性能。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2702216092/145732651203?contentType=1&isNewContent=false" alt="image.jpeg">{width=815 height=321 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732484273?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2702216092/145732484273?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732179316?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2702216092/145732179316?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>如上图所示：</p>
+<p>Forward 阶段涉及到的 4 个模型通过 offload 的方式可以进行串行实现（actor-&gt;offload-&gt;ref，critic-&gt;offload-&gt;RM），能够分时复用集群，整体 model Memory 从 4 降到 2，以 llama3 70B 为例，需要 8 机 64 卡跑一个模型，那么原始的纯并行方式需要 4 倍，也就是 32 机 256 卡跑一组实验，通过 offload 的方式可以降低到 16 机 128 卡，降低模型所需要的 GPU 集群规模。</p>
+<p>Training 阶段实现 seperated 分离的方式，一方面 actor/critic 模型需要独立参数，另一方面通过独立集群部署可以实现异步训练，所以通过异步的方式可以保证吞吐最大化，这一版本架构已经具备一定可用性，相比开源框架比如 trlx/openrlhf 提升 50% 以上。</p>
+<p>启动方式：异步的启动方式是复用 torchrun 拉起主任务，小红书实现 mock-run 的方式，继承同等规模的 actor 集群信息，能够在远端自动拉起 critic 所在的集群。</p>
+<h3>1.3.:[color]{}<strong>同构组网架构</strong>[/color]</h3>
+<blockquote>
+<p>:[color]{rgb(0, 0, 0)}<strong>新的瓶颈出现，见招拆招</strong>[/color]
+<strong>异构组网的痛点：</strong></p>
+<ol>
+<li>数据量，seq，模型参数量，集群规模压力加大（以llama3 70B为例，SFT模型本身需要4机32卡，32k长文下CP2=&gt;8机64卡</li>
+<li>rollout同步：序列长度、多模数据量增加，同步的通信耗时增加
+  AC同构组网架构：AC复用集群，main-model 2-&gt;1 ——tride-off
+  forward阶段：offload param进行模型切换training阶段：offload中间状态（param/grad/ddp-bucket/opt）</li>
+</ol>
+</blockquote>
+<p>当数据量、模型规模等都增大的情况下，集群规模压力也大幅增大。以 llama3 70B 为例，SFT 模型本身需要 4 机 32 卡，32k 长文下需要开启 CP2，也就是需要 8 机 64 卡，即便是 DP1，原始异构组网也需要 16 机 128 卡，这个对于资源的压力是较大的；另外异构组网因为需要 master-worker 架构的拉远实现，需要同步 rollout 的 buffer 数据，当多模数据增加了图片等数据后，会大幅增加 rollout 同步所需要的开销。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2702216092/145732179314?contentType=1&isNewContent=false" alt="image.jpeg">{width=842 height=330 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732129668?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2702216092/145732129668?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732375558?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2702216092/145732375558?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>所以小红书进一步实现了异步组网架构，前面讲到 forward 阶段的 2 个模型的同构，训练阶段是异步的，但其实 actor 和 critc 部分也是类似，可以通过 offload 完成进一步的 scale，集群规模降低到单个 sft 所需的训练规模，具体实现上，forward 阶段只需要 offload-param 即可完成模型切换，training 阶段，需要切换较多的状态，包括 param、grad/ddp-bucket/opt-state 等所有显存开销,虽然会增加上下文切换的开销，但相比训练本身的时间相对较小。这里列举了方案对比，AC 异构训练，吞吐最高，但所需集群规模较大，AC 同构组网通过完全复用集群的方式，集群资源最小，且最大化性能。</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ <strong>架构</strong></th>
+<th>__ <strong>原理</strong></th>
+<th>__ <strong>优点</strong></th>
+<th>__ <strong>缺点</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AC 异构组网</td>
+<td>AC 分离，异步并行</td>
+<td>性能最大化</td>
+<td>所需集群较大，rollout 同步压力较大</td>
+</tr>
+<tr>
+<td>AC 同构组网</td>
+<td>AC 复用，同步串行</td>
+<td>集群资源最小化</td>
+<td>频繁 offload 等切换</td>
+</tr>
+</tbody></table></div>
+<h2>2.训推一体化</h2>
+<h3>2.1.训练性能优化</h3>
+<blockquote>
+<p>**数据加载：**prefetch，双 dataloader（ptx-loss）
+**并行优化：**TP/PP/CP/SP
+**显存优化：**recompute，大模型+长文本
+**Dynamic-batch：**推理、训练不同 batchsize
+**负载均衡：**prompt 请求- Round-Robin 到 vllm-engines
+**vllm 优化：**调整切分，虽降低 running-batch，能提高并发</p>
+</blockquote>
+<p>首先是一些常规的训练性能优化方法，数据加载部分采用 prefetch，比如 ptx-loss 的时候存在双 dataloader，这里就需要降低 num-workers 数，防止 CPU-OOM；并行策略上，使用 megatron 的 TP/PP/CP/SP 并行方法；在长文和大模型下采用 recompute 方式进行显存优化；dynamic-batch 部分的训练和推理用不同的 batchsize，因为推理不需要梯度优化器等显存占用，所以 bs 可以更大；vllm 部分优化采用的是 round-robin 的方式把 prompt 请求分发给多个 vllm-engines 进行负载均衡，并且推理服务的 TP 并行切分可以更细，比如 TP4 到 TP1，虽然降低了 running-batch，但是能够增大 vllm 并发数，把整体的吞吐进一步提升。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2702216092/145732326698?contentType=1&isNewContent=false" alt="image.jpeg">{width=640 height=364 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732228418?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2702216092/145732228418?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732434621?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2702216092/145732434621?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<h3>2.2.:[color]{}<strong>Pipeline 优化</strong>[/color]</h3>
+<blockquote>
+<p><strong>问题：</strong>
+actor 进行采样阶段，训练无需进行，存在较大的空窗
+<strong>思路：</strong>
+•训推集群混布，增大 serving 并发，降低 generate 耗时
+•类比 pp 并行，把 generate 和 forward 阶段进行流水线并行
+<strong>整体调度优化：</strong>
+•全量 offload：
+•vLLM：kvcache 销毁，param-offload
+•Forward：actor/critic的param/buffer-offload
+•资源最大化：vLLM 资源合并到 train
+•流水线优化：Make-experience 阶段最大化</p>
+</blockquote>
+<p>进一步分析发现，actor 进行采样阶段，训练无需进行，存在资源浪费，即便是通过训推资源的混合切换，也会存在较大的空窗；因此小红书设计了 pipeline 的流水线。主要思路是首先通过训推集群混布，增大 serving 并发，降低 generate 耗时，小红书实现了 vllm 和 megatron 的全量 offload；vllm 部分支持 kvcache 的销毁，param-offload，forward 部分涉及到 actor/critic 的 param 以及其他 buffer 的 offload 切换，最终可以把vllm资源合并到 train 内部，实现资源最大化；并且通过类比 PP 并行，把 generate 和 forward 阶段进行流水线并行,通过细粒度的 mini-batch 切分 workload，大幅降低 make-experience 阶段的整体耗时。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2702216092/145732562811?contentType=1&isNewContent=false" alt="image.jpeg">{width=887 height=274 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732287264?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2702216092/145732287264?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732339293?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2702216092/145732339293?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>对比一下不同的实现方式：</p>
+<ul>
+<li><strong>常规版本</strong>：每个节点独立运行各自的任务，推理在推理集群上部署，ac 的训练和推理也在各自的集群上部署，但是推理服务和训练性能差异较大，存在一定优化空间；</li>
+<li><strong>全量 offload</strong>：相当于 vllm/actor/critic 分别进行全集群的资源利用，这种方法实现简单，可以充分提高 generate 的并发能力，roi 较高；但是也引入了明显的 offload/restart 等空隙；</li>
+<li><strong>Pipeline 版本</strong>：通过流水线机制可以 overlap 掉数据落盘、restart/offload，以及一部分 forward 等开销，在多模等复杂场景下，可以进一步 overlap vit 等上下文开销，在开源模型上训练时性能最优。</li>
+</ul>
+<h3>2.3.<strong>PPO 细节处理</strong></h3>
+<p><img src="https://km.sankuai.com/api/file/cdn/2702216092/145732740479?contentType=1&isNewContent=false" alt="image.jpeg">{width=450 height=473 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732326697?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2702216092/145732326697?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732139579?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2702216092/145732139579?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>针对 PPO，小红书做了一些细节处理：</p>
+<ul>
+<li>padding-free 优化，对 generate/forward/train 三阶段进行 padding 的去除，vllm 通过 running-batch 进行排队，forward 和 train 通过 megatron 的 1F1B 之前进行 broadcast 即可保证 micro-batch 内部的正常运算，整体提升 10%；</li>
+<li>Vllm 和训练部分的参数同步上，通过提前和 ray-vllm 组建 ncclGroup 的方式完成，相比走文件系统的 reload 方式进一步提升几十秒；</li>
+<li>CP 并行部分与传统 sft 不同，需要进行 logp 以及 values/reward 的重排，比如 logp 部分，规避对 logits 进行 gather 的方式，先统一得到 total 的 logp，这样可以把通信量从 bsh 降低到 bs。</li>
+</ul>
+<h3>2.4.<strong>多模 MLLM 优化</strong></h3>
+<blockquote>
+<p><strong>MLLM （Multimodal Large Language Model）</strong>
+<strong>痛点：</strong>
+vlm 部分需要图像处理，图文混合，负载不均衡
+<strong>特点：</strong>
+1.视觉部分计算量大，但参数量较小
+2.PPO 场景下图像处理存在冗余
+<strong>优化：</strong>
+1.组网优化：llm 的 tp/pp/cp 用作视觉部分的 dp
+2.多路复用：vllm/actor/critic 复用相同的 img_feature
+3.Prefetch：frozen visual-model，通过 prefetch 的机制，融合 进make-experience 做 Pipeline 的 overlap</p>
+</blockquote>
+<p><img src="https://km.sankuai.com/api/file/cdn/2702216092/145732631588?contentType=1&isNewContent=false" alt="image.jpeg">{width=587 height=461 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732396022?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2702216092/145732396022?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732434622?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2702216092/145732434622?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>在大规模的场景下，图文混合场景增大的复杂度，也带来了新的瓶颈，因此需要进行特定的性能优化：</p>
+<p>小红书观察到视觉部分计算量大，llm 部分模型权重大。针对这个现象，可以对视觉部分和 llm 使用不同的并行策略：视觉部分只有 dp; llm 部分有 mp + pp + cp。把 llm 部分的 pp、mp、cp 用作视觉部分的dp；MLLM 针对特定的训练任务进行优化，目前 sft/RL 阶段均采用 frozenvisual-model 的方式进行，只是微调 adapter 部分，所以可以进行多路服用，vllm/actor/critic 三者复用相同的 img_feature；并且通过 prefetch 的机制，类似把 vit 视觉部分的整个实现放到 dataloader 内部，通过 与 make-experience 阶段结合 Pipeline 做 overlap，能进一步降低预处理的耗时。</p>
+<h3>2.5.训推一致性</h3>
+<blockquote>
+<p>:[color]{rgb(0, 0, 0)}<strong>确定性训练和推理</strong>[/color]
+<strong>问题：</strong>
+1.RM 的精度要求——RM-serving，acc 掉点
+2.推理评估的精度要求
+<strong>原因：</strong>
+rm 的 vhead 是一个 linear，y=xA^T+b
+本质上是一个矩阵乘，[1,hidden] * [hidden,1]
+如果 logits 存在框架等 diff，则会放大误差：初始 diff ~= 0.001，矩阵乘之后达到 0.3</p>
+</blockquote>
+<p>训推一致性是对工程架构的一个考验，比如训练之后的模型走推理框架评估可能会存在打分差异，特别的，算法上严格要求 RM（Reward-Model）的精度一致，最早通过 RM-serving 进行 accuracy 统计发现掉点，经过排查发现是因为框架的diff，逐位误差在千分位，但是 RM 的 vhead 是一个 linear，本质上是一个矩阵乘，相当于扩大了 hidden 平方倍，精度无法容忍。</p>
+<p>小红书的解决方法如下：</p>
+<ul>
+<li>RM+RL 的训练均使用相同的训练框架；</li>
+<li>RL 场景下要把 RM-serving 走 api 的方式转为本地 offload 去做 forward，这样能够保证训推完全一致，且没有额外的 serving 占用和通信开销；</li>
+<li>训推一致性，训练和推理采样 mcore 的计算 workload，保证评测任务上训推 tokenwise 一致，如下图所示，多个评测 case 上完全相同；这里也会涉及到一些技术实现，比如通过 allgather+local-reduce 实现替换 allreduce，cublas 的调优选项对齐等细节处理。</li>
+</ul>
+<p><img src="https://km.sankuai.com/api/file/cdn/2702216092/145732228420?contentType=1&isNewContent=false" alt="image.jpeg">{width=835 height=221 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732228417?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2702216092/145732228417?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732474397?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2702216092/145732474397?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<h3>2.6.<strong>Medusa 提升采样效率</strong></h3>
+<blockquote>
+<p>:[color]{rgb(0, 0, 0)}<strong>投机采样无损优化</strong>[/color]
+<strong>问题：</strong>
+•actor进行generate采样耗时较为明显
+•传统量化等方式有一定的精度损失，要求无损优化
+<strong>推理优化：</strong>
+•投机采样能无损优化自回归性能
+•计算换空间，FLOPS -&gt; VRAM带宽
+•Medusa：多个head，frozen主干
+•Running-batch：吞吐量最大化</p>
+</blockquote>
+<p>Rollout 阶段的 generate 耗时始终是一个大头，所以小红书结合推理部分进一步优化，但传统量化等方式有一定的精度损失，为了稳定 PPO 训练，也要要求无损优化。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2702216092/145732339291?contentType=1&isNewContent=false" alt="image.jpeg">{width=605 height=489 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732159421?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2702216092/145732159421?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2702216092/145732267466?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2702216092/145732267466?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>投机采样是一种无损优化，通过多个头的预测来降低 decode 次数，因为自回归部分主要为</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>小红书在大模型RLHF工程实践中，构建了以Megatron-core+Ray为训练骨架、vLLM为推理引擎的完整框架，并通过持续的组网架构演进和系统级优化，大幅提升了训练效率与资源利用率。</p>
+<p>在组网架构上，早期异构组网将actor/critic部署于独立集群，相比trlx/openrlhf等开源框架吞吐提升50%以上，但随模型规模扩大面临集群压力大、rollout同步通信耗时增加等瓶颈。为此，小红书转向AC同构组网方案：forward阶段通过offload参数切换模型，training阶段offload全部中间状态，使所需集群规模压缩至单个SFT训练规模。以Llama3 70B为例，offload方案将集群需求从32机256卡直接降至16机128卡。</p>
+<p>性能优化层面，系统引入数据prefetch、TP/PP/CP/SP多维并行及recompute显存优化；vLLM推理的TP切分从TP4细化至TP1，在降低running-batch的同时提升整体并发吞吐；padding-free优化覆盖generate、forward、train三阶段，整体性能提升约10%；参数同步改为提前组建ncclGroup方式，相比文件系统reload节省数十秒；CP并行中logp计算规避对logits进行gather操作，通信量从bsh量级降低至bs量级。</p>
+<p>多模态场景下，视觉部分仅采用DP并行，LLM部分使用MP+PP+CP组合，两者并行策略完全解耦；SFT/RL阶段对frozen visual-model的img_feature在vLLM、actor、critic三者间复用共享。针对RM精度问题，由于vhead矩阵乘结构会放大框架千分位误差至不可接受程度，方案改为本地offload做forward，并通过allgather+local-reduce替换allreduce、对齐cublas调优选项，最终实现训推tokenwise级别的数值一致性。此外，还采用Medusa投机采样（多头预测结合frozen主干）对Rollout阶段的generate耗时进行无损优化。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>小红书RLHF系统选用Megatron-core+Ray训练调度、vLLM推理引擎，避免混合框架缝合带来的维护成本和训练偏差风险</li>
+<li>异构组网架构通过Forward-Offload将模型显存从4降至2，actor/critic异步并行训练，相比开源框架吞吐提升50%以上</li>
+<li>同构组网架构实现AC集群完全复用，通过offload参数和优化器状态切换，将集群规模降至单SFT训练所需，实现资源最小化</li>
+<li>Pipeline流水线优化将generate与forward阶段并行重叠，结合全量offload机制消除训练空窗，显著降低make-experience整体耗时</li>
+<li>多模态MLLM优化通过DP复用LLM并行组网、复用img_feature及prefetch机制，解决图文混合负载不均衡和计算冗余问题</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2702216092.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

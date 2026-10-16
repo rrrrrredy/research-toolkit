@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：Google 推出新模型架构，字节、快手、京东新研究，Transformer 改进架构论文精选 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：Google 推出新模型架构，字节、快手、京东新研究，Transformer 改进架构论文精选。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2719316673.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：Google 推出新模型架构，字节、快手、京东新研究，Transformer 改进架构论文精选</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2719316673。版本：c29e02e5ad1e7579d4b58c348860ecee63b4665db8edb4715dd6012afe944c2a。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/166</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/c29e02e5ad1e7579d4b58c348860ecee63b4665db8edb4715dd6012afe944c2a.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：Google 推出新模型架构，字节、快手、京东新研究，Transformer 改进架构论文精选</p>
+<h3>一、模型</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle DeepMind 新架构 MoR 实现两倍推理速度\n:::\n\n:::paragraph{align=center indent=0}\nSangmin Bae, Yujin Kim, Reza Bayat, Sungnyun Kim, Jiyoun Ha, Tal Schuster, Adam Fisch, Hrayr Harutyunyan, Ziwei Ji, Aaron Courville, Se-Young Yun.\&quot;Mixture-of-Recursions: Learning Dynamic Recursive Depths for Adaptive Token-Level Computation.\&quot;arXiv:2507.10524 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;大型语言模型已展现出卓越的能力，但其部署仍面临巨大的计算与内存开销所带来的挑战。随着模型参数规模扩大至数千亿级别，训练和推理的成本变得高昂，阻碍了其在许多实际应用中的推广与落地。这促使研究者们围绕两个主要方向积极探索高效化技术：一是通过权重共享提升参数效率，二是根据输入复杂度动态分配计算资源，实现自适应计算。\n\n而一切的基础则是 Transformer 架构。这次谷歌又一次坐不住了，在递归 Transformer 的基础上再次进化，发布了名为 [Mixture-of-Recursions （MoR）](http://alphaxiv.org/abs/2507.10524)的新 LLM 模型架构，有学者认为这个新架构「有潜力成为 Transformer 的杀手」。\n\nMoR 框架引入了一种统一方法，同时实现参数共享和自适应计算。与以往孤立处理参数减少或自适应计算的方法不同，MoR 将动态 token 级路由集成到参数高效的递归 Transformer 中，创建了一种协同架构，实现了「无需承担大模型成本的大模型质量」。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**CMU **\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nCMU 提出 MoC 框架，通过条件干预隐藏状态提升代码安全性\n:::\n\n:::paragraph{align=center indent=0}\nWeichen Yu, Ravi Mangal, Terry Zhuo, Matt Fredrikson, Corina S. Pasareanu.\&quot;A Mixture of Linear Corrections Generates Secure Code.\&quot;arXiv:2507.09508 [cs.CR]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[研究](http://arxiv.org/pdf/2507.09508v1)发现 LLM 内部隐藏状态包含漏洞信息，通过线性探测可有效识别漏洞代码。基于此提出 MoC 框架，在推理时应用修正向量指导代码生成，显著提升 Qwen2.5-Coder-7B 的安全性达 8.9%，同时提高功能性 2.1%。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**伦敦帝国理工学院**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n伦敦帝国理工学院提出 REAL-IoT 框架，整合数据集与物理测试平台评估 GNN 模型的鲁棒性\n:::\n\n:::paragraph{align=center indent=0}\nZhonghao Zhan, Huichi Zhou, Hamed Haddadi.\&quot;REAL-IoT: Characterizing GNN Intrusion Detection Robustness under Practical Adversarial Attack.\&quot;arXiv:2507.10836 [cs.CR]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[论文](http://arxiv.org/pdf/2507.10836v1)探讨了基于图神经网络（GNN）的物联网（IoT）入侵检测系统（NIDS）在面对分布漂移和实际对抗攻击时的脆弱性。为解决这些问题，作者提出了 REAL-IoT 框架，通过统一数据集方法和物理 IoT 测试平台生成新数据集，评估 GNN 模型在真实环境中的性能。研究发现现有模型在标准基准上的表现被高估，并展示了大型语言模型（LLM）在增强 GNN 鲁棒性方面的潜力。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**中国科学院自动化研究所、伦敦大学学院及香港科技大学（广州）**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**CMU**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nCMU 提出使用体现无关的动作表示（光流）预训练世界模型，并通过潜在策略引导改进策略输出\n:::\n\n:::paragraph{align=center indent=0}\nYiqi Wang, Mrinal Verghese, Jeff Schneider.\&quot;Latent Policy Steering with Embodiment-Agnostic Pretrained World Models.\&quot;arXiv:2507.13340 [cs.RO]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[研究](https://arxiv.org/abs/2507.13340)提出了一种利用体现无关动作表示（光流）预训练世界模型的方法，通过在多实体数据集上预训练并在少量机器人数据上微调，显著减少了数据收集需求。此外，提出潜在策略引导技术，在推理过程中通过搜索世界模型的潜在空间优化动作序列，从而提升行为克隆策略的表现。实验表明该方法在小数据场景下表现优异，具有重要的应用潜力。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**牛津大学**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n牛津大学新研究揭示对话式 AI 的说服力主要来源于后训练和提示方法，而非模型规模或个人化\n:::\n\n:::paragraph{align=center indent=0}\nKobi Hackenburg, Ben M. Tappin, Luke Hewitt, Ed Saunders, Sid Black, Hause Lin, Catherine Fist, Helen Margetts, David G. Rand, Christopher Summerfield.\&quot;The Levers of Political Persuasion with Conversational AI.\&quot;arXiv:2507.13919 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;[研究](https://www.arxiv.org/abs/2507.13919)采用了三种大规模在线调查实验，涉及 76,977 名参与者和 707 个政治议题。作者使用了多种后训练方法（如监督微调和奖励建模）来增强模型的说服力，并通过信息密度和事实准确性来评估这些方法的效果。此外，作者还测试了不同的说服策略，如信息提供、道德重构和讲故事等。\n\n实验结果表明，模型规模的增加确实提高了说服力，但后训练方法（如奖励建模）的效果更为显著，能将说服力提高多达 51%。信息密集型对话是最有效的说服策略，但这种方法往往伴随着事实准确性的下降。例如，GPT-4.5 生成的信息中有超过 30% 被判定为不准确。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**字节跳动**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n字节跳动开源 Seed-X:70 亿参数小模型支持 28 种语言翻译\n:::\n\n:::paragraph{align=center indent=0}\nShanbo Cheng, Yu Bao, Qian Cao, Luyang Huang, Liyan Kang, Zhicheng Liu, Yu Lu, Wenhao Zhu, Jingwen Chen, Zhichao Huang, Tao Li, Yifu Li, Huiying Lin, Sitong Liu, Ningxin Peng, Shuaijie She, Lu Xu, Nuo Xu, Sen Yang, Runsheng Yu, Yiming Yu, Liehao Zou, Hang Li, Lu Lu, Yuxuan Wang, Yonghui Wu.\&quot;Seed-X: Building Strong Multilingual Translation LLM with 7B Parameters.\&quot;arXiv:2507.13618 [cs.CL]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;论文介绍了 Seed-X，一个开源的多语言翻译大模型系列，包含指令模型和强化学习模型。基础模型在 28 种语言的高质量数据上进行预训练，指令模型通过链式思维推理和强化学习进一步增强。实验表明，Seed-X 在自动评估和人工评估中均优于现有开源模型，并接近闭源超大规模模型的表现。作者分享了详细的训练方法和优化策略，推动翻译研究和应用的发展。&quot;
+    }
+  ]
+]
+:::
+
+### 二、推理
+
+:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周AI研究领域涌现多项重要进展。Google DeepMind发布新型LLM架构<strong>Mixture-of-Recursions（MoR）</strong>，基于递归Transformer演化而来，首次将参数共享与自适应计算两大方向整合为一体，通过动态token级路由机制实现约两倍推理速度提升，目标是以小模型成本达到大模型质量，有学者称其具备成为&quot;Transformer杀手&quot;的潜力。</p>
+<p>在代码安全方向，CMU提出<strong>MoC框架</strong>，通过条件干预LLM隐藏状态中的漏洞信息提升代码生成安全性，使Qwen2.5-Coder-7B的安全性提升8.9%、功能性提升2.1%。伦敦帝国理工学院提出<strong>REAL-IoT框架</strong>，整合数据集与物理测试平台评估图神经网络（GNN）鲁棒性，揭示现有GNN模型在标准基准上存在高估问题，同时验证了LLM在增强GNN鲁棒性方面的潜力。</p>
+<p>机器人学习领域，CMU联合中国科学院自动化研究所等机构提出以<strong>光流</strong>作为体现无关的动作表示来预训练世界模型，并引入潜在策略引导技术，在推理阶段优化动作序列，大幅降低机器人数据收集需求。</p>
+<p>在AI说服力研究方面，牛津大学依托76,977名参与者、707个政治议题开展大规模在线调查实验，发现后训练方法（如奖励建模）比单纯扩大模型规模更能提升说服效果，最高可提升51%；但信息密集型对话中事实准确性下降明显，GPT-4.5超30%的信息被判定不准确。</p>
+<p>字节跳动开源<strong>Seed-X</strong>翻译模型，70亿参数，支持28种语言，同时提供指令模型与强化学习模型两个版本，在自动评估与人工评估中均优于现有开源模型，性能接近闭源超大规模商业模型。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Google DeepMind提出MoR架构，融合递归Transformer与动态token级路由，实现参数共享和自适应计算，推理速度提升两倍</li>
+<li>CMU提出MoC框架，利用LLM隐藏状态中的漏洞信息，通过线性修正向量显著提升代码安全性达8.9%</li>
+<li>伦敦帝国理工学院REAL-IoT框架揭示现有GNN入侵检测模型在真实对抗环境下性能被高估，LLM可增强其鲁棒性</li>
+<li>本期论文覆盖字节跳动、快手、京东等国内顶尖机构的最新AI研究成果</li>
+<li>文章专题精选了多篇Transformer改进架构论文，涵盖参数效率、自适应计算等核心技术方向</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2719316673.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>大模型行业双周趋势：DeepSeek引发范式讨论，国内外厂商应用探索加速 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="大模型行业双周趋势：DeepSeek引发范式讨论，国内外厂商应用探索加速。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2703288693.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>大模型行业双周趋势：DeepSeek引发范式讨论，国内外厂商应用探索加速</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2703288693。版本：52687f238be704bb9be56949bf0bc5bc2e6e31163d3cb8bb9dd45e909f5695d6。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/34</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/52687f238be704bb9be56949bf0bc5bc2e6e31163d3cb8bb9dd45e909f5695d6.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>大模型行业双周趋势：DeepSeek引发范式讨论，国内外厂商应用探索加速</p>
+<h3>一、双周趋势总结</h3>
+<p>1.DeepSeek掀起了对中国大模型、中国AI应用的讨论。总体上，中国采用AI的成本比美国低大约80%（以字节跳动为例，其百万token的输入成本和输出成本分别仅为OpenAI GPT-4o成本的4%和3%）。</p>
+<p>2.焦点回到了中国本土产业链发展上。DeepSeek的刺激下，出口限制还不确定，如果限制变严格，反而会刺激中国本土芯片产业发展；有预测，中国整体上半导体自给率将在2026年达到25%；DeepSeek开源模式，字节跳动、百度、阿里巴巴等竞品可能会相应下调模型使用价格。</p>
+<p>3.在模型价格上，字节最新的LLM Doubao-1.5-pro价格最低，每百万输入/输出tokens分别为$0.11/$0.28，仅为GPT-4o价格的 4%/3%，甚至低于DeepSeek R1。有媒体报道称，Doubao-1.5-pro的毛利率达50%。</p>
+<p>4.从国外方面来看，CoT-based models链式思维型模型的趋势将显著推高推理计算的需求，而微软、Meta、OpenAI、Anthropic等企业的反应表明，他们没有放慢AI基础设施建设的计划；由于算力需求的重心正在从大规模训练转向大规模推理，网络、数据中心、电力及芯片等基础设施的弹性都在重新被定价。</p>
+<p>5.在强化学习的应用上，Moonshot AI的最新模型Kimi k1.5（2025年1月20日发布）也投入了大量精力强化RL，但全程使用了SFT；阿里巴巴最新的Qwen2.5-Max模型（2025年1月28日发布）声称性能超越DeepSeek V3，并采用精心设计的SFT和RLHF方法进行后期训练；此外，字节跳动也在训练阶段使用了SFT结合RL。</p>
+<p>6.在MoE的应用上，阿里巴巴引入了全局批量负载均衡（LBL）方法，解决了专家的token限制问题；字节跳动动态调整模型参数，将MoE效率提升了7倍；MiniMax则尽量采用线性注意力，部分替代了Transformer架构中的传统方法。</p>
+<p>7.在多模态方向上，腾讯发布的混元3D 2.0能够在数秒内基于图像或文本生成3D模型，其视频生成LLM混元视频的性能与全球领先的闭源模型相当；字节跳动的实时语音模型已在豆包上提供端到端的语音AI对话；同时，字节的视频LLM VideoWorld依靠视觉学习而非语言模型，在游戏专业领域达到了职业水平，并能在多种场景下执行机器人任务；阿里巴巴今年1月发布的最新视频LLM Qwen2.5-VL系列，能够分析60分钟的视频并充当代理（例如，为手机、电脑或网页控制进行定位和思考）。</p>
+<h3>二、重要发布</h3>
+<h4>1.海外</h4>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          239
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          658
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n谷歌\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          239
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n谷歌发布新一代Gemini 2.0系列大模型\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          658
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;2月6日，谷歌发布了新一代Gemini 2.0系列大模型，包括：\n\n- Gemini 2.0 Pro实验版本：针对编码和复杂提示的最佳模型，具有200万上下文，可原生调用谷歌搜索、地图等工具。\n- Gemini 2.0 Flash： “高效主力模型”，图像生成和文本转语音功能即将推出。\n- Gemini 2.0 Flash Thinking：升级的推理模型，能直接访问YouTube、搜索、地图等应用。\n- Gemini 2.0 Flash - Lite： “最具性价比的模型”，支持100万上下文和多模态输入。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nHugging Face\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          239
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nHugging Face发布两款最小AI视觉语言模型\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          658
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:[color]{}1月23日，Hugging Face宣布推出两款全新的视觉语言模型（VLM）：SmolVLM-256M和SmolVLM-500M。SmolVLM-256M拥有2.56亿参数，号称“全球最小的视觉语言模型”，可以在内存低于1GB的PC上运行；SmolVLM-500M则具备5亿参数，在文档问答（DocVQA）和多学科多模态理解（MMMU）等任务中表现突出。[/color]与之前的SmolVLM 2B模型相比，这两款新模型在效率、数据混合和设计权衡方面进行了优化。值得注意的是，SmolVLM-256M的性能已超越17个月前发布的Idefics 80B模型，实现了模型体积缩减300倍以上的突破。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[color]{}Mistral[/color]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          239
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n:[color]{}Mistral发布开源模型Small 3[/color]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          658
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:[color]{}Mistral发布了开源模型[/color][Mistral Small 3](https://mistral.ai/news/mistral-small-3/):[color]{}，这是一个拥有240亿参数的低延迟优化模型，在性能上与更大的模型（如Llama 3.3 70B和Qwen 32B）相当，同时在相同硬件上速度更快，延迟更低，特别适合需要快速响应的生成式AI任务。Mistral Small 3在多个基准测试中表现出色，包括代码、数学、常识和指令遵循等领域。它还支持本地部署，尤其适合对延迟要求较高的应用场景，如虚拟助手、自动化工作流、领域专家模型的微调以及本地推理等。[/color]&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 5,
+        &quot;colwidth&quot;: [
+          120
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          239
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI推发布首个AI智能体Operator\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          658
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;1月23日，OpenAI发布智能体Operator，这是一个可以替用户执行任务的AI智能体：它可以查看网页，并通过输入、点击和滚动的方式交互。OpenAI称，Operator可以处理各种常见的浏览器操作，比如填写表格、订购杂货，甚至是创建表情包，帮助用户节省日常任务时间。\n\nOperator由一种被称为计算机使用代理（Computer-Using Agent, CUA）的新模型驱动。CUA将GPT-4o的视觉能力与强化学习的高级推理能力相结合，[经过训练可以与图形用户界面（GUI）交互](https://mp.weixin.qq.com/s?__biz=MzkwNDQ5MjM1Mw==&amp;mid=2247489264&amp;idx=1&amp;sn=a0b1ab1b99e736abeb25e25a5bdee8c7&amp;scene=21#wechat_redirect)。具体来说，Operator可以（通过屏幕截图）「看见」、并与网页上的按钮、菜单、文本框等GUI元素「交互」，就像人类使用鼠标和键盘操作一样。如果遇到问题，Operator可以利用其推理能力自我纠正，遇到故障卡顿、需要帮助时，它会将控制权还给用户，就像自动驾驶一样。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          239
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI发布o3-mini推理模型\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          658
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;2月3日，OpenAI正式推出发布o3-mini推理模型，:[color]{}并首次向ChatGPT的免费用户开放体验，只需在聊天栏中选择Reason功能即可，速率限制与现有的GPT-4o限制类似。[/color]开发者可以通过OpenAI的API服务（包括Chat Completions API、Assistants API和Batch API）使用o3-mini。:[color]{}o3-mini默认使用中等推理强度，付费用户可以选择o3-mini-high，以获得更高智能的版本，但响应生成时间会稍长。[/color]  \n:[color]{}此外，OpenAI将Plus和Team用户的每日消息限制提高3倍，达到每天150条，Pro用户则可以无限使用o3-mini和o3-mini-high。在性能方面，o3-mini比o1-mini响应速度提升24%，答案准确性也有所提高。与o1-mini类似，o3-mini会展示推理过程，而非仅提供答案。据悉，该模型在数学代码等基准测试中刷新SOTA，相关测试中o3-mini（high）在准确率和校准误差（Calibration Error）均是最优。[/color]&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          239
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nChatGPT推出Deep Research功能\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          658
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;2月3日，OpenAI宣布为ChatGPT推出一项名为“深度研究”（Deep Research）的新功能，旨在帮助用户进行深入、复杂的信息查询与分析。该功能主要面向金融、科学、政策、工程等领域的专业人士，以及需要进行详细研究的消费者，例如购买汽车、家电或家具等场景。:[color]{}与ChatGPT传统的快速回答不同，“深度研究”功能适用于需要从多个网站和来源综合信息的场景。用户只需在ChatGPT的输入框选择“深度研究”模式并输入问题。目前，“深度研究”功能已向ChatGPT Pro用户开放，每月限100次查询。ChatGPT Plus、Team以及企业版用户将在未来推出。OpenAI计划在一个月内向Plus用户推出该功能，并承诺付费用户的查询限制将“显著提高”。不过，该功能在英国、瑞士和欧洲经济区的发布时间尚未确定。OpenAI表示，“深度研究”功能目前仅支持文本输出，但未来计划增加嵌入式图片、数据可视化和其他分析性输出。此外，OpenAI还计划扩展功能，支持连接更多专业数据源，包括订阅资源和内部资源。值得一提的是，谷歌Gemini在2024年11月也推出过一款同名的AI功能，旨在提供类似的信息查询服务。[/color]&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          239
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nChatGPT搜索功能全面开放，无需注册即可使用\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          658
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;2月6日凌晨，OpenAI宣布:[color]{}ChatGPT[/color]向所有用户开放搜索功能，无需注册即可使用。此前，OpenAI于2024年10月推出了搜索引擎功能，最初仅:[color]{}向付费用户开放，同年12月[/color]向所有用户开放。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>DeepSeek的崛起正在重塑全球AI行业格局。字节跳动Doubao-1.5-pro将百万token成本压至输入$0.11/输出$0.28，仅为OpenAI的4%/3%，且毛利率维持50%；阿里Qwen2.5-Max声称性能超越DeepSeek V3，字节跳动同步将MoE效率提升7倍，阿里则通过全局批量负载均衡突破专家token限制。出口管制收紧的压力反而加速了中国本土芯片发展，预测2026年自给率将达25%。与此同时，算力需求重心已从训练明显转向推理，微软、Meta、OpenAI、Anthropic均未放缓基础设施投入。</p>
+<p>模型能力边界持续拓展。谷歌发布Gemini 2.0系列四款模型，最大支持200万token上下文，Flash Thinking版本可直接调用YouTube、搜索、地图等服务；腾讯混元3D 2.0实现秒级3D模型生成；阿里Qwen2.5-VL支持分析60分钟视频并执行代理任务。端侧方向，Hugging Face推出仅2.56亿参数的SmolVLM-256M，在不足1GB内存设备上运行，性能却超越17个月前的Idefics 80B；Mistral Small 3以240亿参数媲美Llama 3.3 70B，专为本地低延迟场景设计。</p>
+<p>OpenAI在应用层集中发力。1月23日发布首个AI智能体产品Operator，基于CUA模型融合GPT-4o视觉与强化学习能力，可自主操作网页并在卡顿时自动交还控制权。2月3日同步推出o3-mini推理模型，首次向免费用户开放，响应速度较o1-mini提升24%，并在数学、代码基准测试中刷新SOTA。同日上线的&quot;深度研究&quot;功能可跨多来源进行深度分析，目前向Pro用户开放每月100次；2月6日，ChatGPT搜索功能进一步向全体用户免注册开放。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>DeepSeek引发行业震动，中国AI成本远低于美国，字节Doubao-1.5-pro每百万token成本仅为GPT-4o的4%/3%</li>
+<li>CoT链式思维模型趋势推高推理计算需求，算力重心从训练转向推理，基础设施估值逻辑重构</li>
+<li>国内厂商在强化学习和MoE架构上持续创新，阿里LBL方法优化MoE，字节MoE效率提升7倍</li>
+<li>多模态方向全面爆发，腾讯混元3D、字节VideoWorld、阿里Qwen2.5-VL等均取得重要突破</li>
+<li>出口限制不确定性或反向刺激中国本土芯片产业，预测2026年半导体自给率将达25%</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2703288693.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

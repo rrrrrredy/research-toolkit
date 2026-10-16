@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenClaw龙虾系统专题4 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="OpenClaw龙虾系统专题4。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2751553539.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>OpenClaw龙虾系统专题4</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2751553539。版本：9aabcac1e1ee9442f0870d0069c3784f14f7b33601cffc43485692a0a74aa924。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/224</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/9aabcac1e1ee9442f0870d0069c3784f14f7b33601cffc43485692a0a74aa924.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用 MOA 无感登录...
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[sso-ciba] ✅ Token 已缓存 (有效期至 2026/3/27 22:06:38)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;2371c61220bb48c68f3202c7208b3815&quot;}
+路由契约，才是 Skill 的灵魂</p>
+<p>很多人一提到 Skill，第一反应还是“写提示词”。好像只要措辞再专业一点，步骤再细一点，限制条件再多一点，效果就会自然变好。但真正在实际工作里把 Skill 用起来之后，你很快会发现，很多问题根本不是出在“执行阶段”，而是出在更前面：<strong>它在不该被触发的时候被触发了。</strong></p>
+<p>这听起来像一个小问题，实际上却决定了 Skill 的上限。</p>
+<p>举个非常常见的场景。你正在做一份 AI 行业研究，手里有过去两周的新闻、产品更新、公开采访、融资动态和几份内部讨论纪要。你对系统说一句：“帮我整理一下最近两周 AI 动态。”
+这句话在人类同事之间也许还能靠上下文猜一猜，但对一个 Skill 来说，它其实高度含糊。你到底想要什么？是想做一份按公司分类的信息整理？是想做一页给老板看的调研摘要？是想提炼三条趋势判断？还是希望它进一步上升成战略建议？</p>
+<p>这时候，如果一个 Skill 只是写着“负责 AI 行业分析与总结”，那它几乎必然会做歪。因为它没有边界。它会一边整理信息，一边开始归纳趋势；一边归纳趋势，一边忍不住替你给建议；最后你本来只想先看材料，它却直接递给你一份像模像样、但结论密度过高、证据不够扎实的“判断稿”。</p>
+<p>这就是为什么我越来越觉得，Skill 的灵魂不在正文里，而在路由契约里。</p>
+<p><strong>所谓路由契约，本质上就是一份约定：什么情况下该调用这个 Skill，什么情况下不该调用；调用它时，最少要给它什么材料；如果材料不够，它应该怎么停下来；最后它输出的东西，应该是一个提纲、一份摘要、一张清单，还是一份正式报告。</strong></p>
+<p>很多知识工作场景，尤其需要这层契约。因为知识工作最大的问题，从来都不是任务太机械，而是任务太容易“长歪”。</p>
+<p>比如“信息调研”和“研究判断”看起来很接近，实际上不是一回事。前者更像收集、归纳、去重、分类；后者则意味着上升抽象、给出解释、做出取舍。又比如“战略规划材料整理”和“战略结论”也不是一回事。前者可以帮你把零散讨论整理成“目标、抓手、风险、待决策项”四栏；后者却已经进入管理判断，牵涉立场、资源、优先级和责任。</p>
+<p><strong>没有路由契约的时候，系统最容易犯的错，就是把这些层级混在一起。</strong></p>
+<p><strong>有一个特别典型的例子</strong>：有同学想整理一轮战略讨论，把几份会议纪要、几段聊天记录和几页手写笔记，变成一份更清晰的讨论底稿。原始需求其实只是：“把这些材料整理一下，形成一个方便下次开会继续讨论的版本。” 结果系统最后给出来的却是一份“年度方向建议”，甚至还把一些会上只是临时提出的想法，写成了像是已经形成共识的判断。这不是它“写得不够好”，而是它根本没被告知：这次任务只是整理，不是定案；只是归纳，不是拍板；只是让讨论更清楚，不是替讨论收口。</p>
+<p>所以，一个好的路由契约，至少要把下面几件事写清楚。</p>
+<p><strong>第一，触发场景。</strong>
+比如：当用户需要把过去两周公开信息和既有材料整理成研究简报时触发。适用于信息归类、事件整理、初步主题提炼，不直接用于形成高结论密度的战略建议。</p>
+<p><strong>第二，非适用场景。</strong>
+比如：当用户只是想 brainstorm 一个方向，或者希望直接输出高风险结论、对外口径、正式决策建议时，不应调用这个 Skill。</p>
+<p><strong>第三，必需输入。</strong>
+比如：时间范围、信息来源、目标读者、输出层级。如果用户没说清楚是给自己看、给老板看还是对外分享，输出要求其实是完全不同的。</p>
+<p><strong>第四，默认处理。</strong>
+比如：如果时间范围没写，默认最近两周；如果来源混杂，先做分类清单；如果证据不足，显式列出信息缺口，而不是主动补满结论。</p>
+<p><strong>第五，固定输出。</strong>
+比如：输出固定为“关键信息摘要、主题归类、初步观察、待验证问题、证据来源”。只有当输出结构固定，调用者才知道自己拿到的是什么，而不是每次都要重新解释。</p>
+<p><strong>第六，升级条件。</strong>
+比如：一旦涉及战略优先级排序、资源配置建议、带判断色彩的竞争结论，就必须停下来，转为“供人审阅的建议稿”，而不是直接当最终结果。</p>
+<p><strong>你会发现，路由契约真正解决的，从来不是“这段文字写得优不优雅”，而是“系统到底知不知道自己在做哪一类工作”。</strong></p>
+<p>这一点在知识型工作里尤其重要。因为这类工作最怕的不是慢，而是错位。你让它做整理，它却给你判断；你让它出提纲，它却替你写终稿；你只是想先收集信息，它却已经开始“代表你思考”。表面上看，这是它变聪明了；实际上，这是边界失控了。</p>
+<p>所以我越来越相信，一个 Skill 的专业，<strong>不体现在它多会接活，而体现在它多会拒绝不属于自己的活</strong>。 真正靠谱的 Skill，首先不是“什么都能做”，而是“知道什么时候不该做”。</p>
+<p><strong>Skill 的第一职责不是表现，而是对齐。不是尽可能多做一点，而是在对的时机，做对的那一层。</strong></p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<h1>《OpenClaw龙虾系统专题4》摘要</h1>
+<p>路由契约是定义Skill运作边界的核心机制，其本质不是提示词优化，而是对触发条件、输入要求、输出格式与边界的精确约定。一个合格的路由契约需包含六要素：触发场景、非适用场景、必需输入、默认处理、固定输出、升级条件，缺少任何一项都会导致系统行为不稳定。</p>
+<p>Skill最常见的失效模式并非执行阶段表现差，而是在不该触发时被触发，造成任务层级错乱。典型案例是将信息调研与研究判断混为一谈——前者负责收集与整理，后者负责推断与结论，二者属于不同层级的工作。一旦混淆，结果往往是结论密度过高却缺乏充分证据支撑。</p>
+<p>输出结构的固定性同样至关重要。若输出格式不统一，调用方每次都需重新解释预期，系统无法形成稳定可复用的工作模式，协作效率大幅下降。</p>
+<p>知识型工作最大的风险不是执行速度慢，而是任务错位：让Skill整理却收到判断，要提纲却得到终稿。一个专业的Skill，核心能力体现在懂得拒绝不属于自己层级的任务，而非什么都揽着做。Skill的第一职责是对齐——在正确的时机完成正确层级的工作，克制多做多输出的冲动，才是系统稳定运转的根本。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Skill最常见的失败不在执行阶段，而在路由阶段——它在不该被触发的时候被触发，或越界完成了不属于自己层级的工作</li>
+<li>路由契约的六要素：触发场景、非适用场景、必需输入、默认处理、固定输出、升级条件，共同构成Skill的边界约定</li>
+<li>知识工作中信息整理、研究判断、战略决策是不同层级，没有路由契约的Skill极易将这些层级混淆，例如把整理任务做成定案</li>
+<li>一个专业Skill的核心能力不是&#39;什么都能做&#39;，而是&#39;知道什么时候不该做&#39;，其第一职责是对齐而非表现</li>
+<li>固定输出结构（如关键信息摘要、主题归类、初步观察、待验证问题、证据来源）是调用方能明确预期结果的前提</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2751553539.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

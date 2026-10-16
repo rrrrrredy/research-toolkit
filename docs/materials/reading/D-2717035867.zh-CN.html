@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：清华强化学习新论文，小红书、字节新研究，Jeff Dean、朱军团队新作，Agent 领域多篇佳作 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：清华强化学习新论文，小红书、字节新研究，Jeff Dean、朱军团队新作，Agent 领域多篇佳作。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2717035867.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：清华强化学习新论文，小红书、字节新研究，Jeff Dean、朱军团队新作，Agent 领域多篇佳作</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2717035867。版本：fd194b99cf0b69544b9a67cfb749ece9803264cc49221475dc38785e033a9de8。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/253</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/fd194b99cf0b69544b9a67cfb749ece9803264cc49221475dc38785e033a9de8.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 486s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;a898337e615b49f88cd972eedc45201a&quot;}
+周论文推荐：清华强化学习新论文，小红书、字节新研究，Jeff Dean、朱军团队新作，Agent 领域多篇佳作</p>
+<h3>一、模型</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th></th>
+<th>**公司/院校/机构**</th>
+<th>**简介**</th>
+<th>**详情**</th>
+</tr>
+<tr>
+<td></td>
+<td>**Georgia Tech、微软**</td>
+<td>Georgia Tech、微软提出一种多阶段压缩框架，有效减少参数量同时保持性能<br><br>Zichong Li, Chen Liang, Zixuan Zhang, Ilgee Hong, Young Jin Kim, Weizhu Chen, Tuo Zhao.&quot;SlimMoE: Structured Compression of Large MoE Models via Expert Slimming and Distillation.&quot;arXiv:2506.18349 [cs.LG]</td>
+<td>[论文](https://arxiv.org/abs/2506.18349)提出 SlimMoE，一种多阶段压缩框架，通过专家瘦身和知识蒸馏将大型 MoE 模型压缩为更小、高效的版本。使用不到 10% 的原始训练数据，将 Phi-3.5-MoE 压缩为 Phi-mini-MoE 和 Phi-tiny-MoE，在多种任务上表现优异，显著优于其他类似规模的模型。</td>
+</tr>
+</table></div>
+
+<h3>二、推理</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th></th>
+<th>**公司/院校/机构**</th>
+<th>**简介**</th>
+<th>**详情**</th>
+</tr>
+<tr>
+<td></td>
+<td>**清华大学**</td>
+<td>突破通用领域推理的瓶颈，清华 NLP 实验室强化学习新研究 RLPR<br><br>Tianyu Yu, Bo Ji, Shouli Wang, Shu Yao, Zefan Wang, Ganqu Cui, Lifan Yuan, Ning Ding, Yuan Yao, Zhiyuan Liu, Maosong Sun, Tat-Seng Chua.&quot;RLPR: Extrapolating RLVR to General Domains without Verifiers.&quot;arXiv:2506.18254 [cs.LG]</td>
+<td>Deepseek 的 R1、OpenAI 的 o1/o3 等推理模型的出色表现充分展现了 RLVR（Reinforcement Learning with Verifiable Reward，基于可验证奖励的强化学习）的巨大潜力。<br><br>然而，现有方法的应用范围局限于数学和代码等少数领域。面对自然语言固有的丰富多样性，依赖规则验证器的方法难以拓展到通用领域上。<br><br>针对这一关键挑战，清华大学自然语言处理实验室提出了一项关键性技术 —— [基于参考概率奖励的强化学习（Reinforcement Learning with Reference Probability Reward，RLPR](https://github.com/OpenBMB/RLPR/blob/main/RLPR_paper.pdf)）。</td>
+</tr>
+<tr>
+<td></td>
+<td>**普渡大学**</td>
+<td>普渡大学通过 Kubernetes 集群优化 GPU 资源动态分配和负载均衡，实现高效的 AI 推理服务<br><br>Dmitry Kondratyev, Benedikt Riedel, Yuan-Tang Chou, Miles Cochran-Branson, Noah Paladino, David Schultz, Mia Liu, Javier Duarte, Philip Harris, Shih-Chieh Hsu.&quot;SuperSONIC: Cloud-Native Infrastructure for ML Inferencing.&quot;arXiv:2506.20657 [cs.DC]</td>
+<td>[论文](https://arxiv.org/abs/2506.20657)提出 SuperSONIC 项目，一种基于云原生的机器学习推理框架，利用 NVIDIA Triton 推理服务器和 Kubernetes 实现动态扩展、负载均衡及资源优化。已在多个科学实验（如 CMS、ATLAS、IceCube 和 LIGO）中部署测试，展示了其在不同计算环境中的适应性和高效性，解决了异构资源利用率低的问题。</td>
+</tr>
+</table></div>
+
+<h3>三、多模态</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**中国人民大学、字节跳动**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n人民大学 &amp; 字节 Seed：利用 μP 实现 Diffusion Transformers 高效扩展\n:::\n\n:::paragraph{align=center indent=0}\nChenyu Zheng, Xinyu Zhang, Rongzhen Wang, Wei Huang, Zhi Tian, Weilin Huang, Jun Zhu, Chongxuan Li.\&quot;Scaling Diffusion Transformers Efficiently via.\&quot;arXiv:2505.15270 [cs.LG]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;近年来，diffusion Transformers 已经成为了现代视觉生成模型的主干网络。随着数据量和任务复杂度的进一步增加，diffusion Transformers 的规模也在快速增长。然而在模型进一步扩大的过程中，如何调得较好的超参（如学习率）已经成为了一个巨大的问题，阻碍了大规模 diffusion Transformers 释放其全部的潜能。\n\n为此，人大高瓴李崇轩团队和字节跳动 Seed 团队的研究员引入了大语言模型训练中的 μP 理论，并将其扩展到 diffusion Transformers 的训练中。μP 通过调整网络不同模块的初始化和学习率，实现不同大小 diffusion Transformers 共享最优的超参，使得小模型上搜到的超参可以直接迁移到最终大模型上进行训练，从而极大地减小了超参搜索的耗费。\n\n团队在 DiT，PixArt 和 MMDiT（Stable Diffusion 的基座）上进行了系统的大规模实验验证。在 MMDiT 的实验中，0.18B 小模型上搜得的超参成功被用在 18B 大模型的训练中，并击败了人工专家的手调基线。其中，小模型超参搜索的计算量（FLOPs）仅是专家手调的 3% 左右。\n\n团队已在近期开放在线[论文](https://arxiv.org/abs/2505.15270)，并开源代码。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**美国东北大学、香港中文大学、Adobe Research 等**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n2 倍 GPU 端到端推理加速 —— 视频扩散模型加速方法 DraftAttention\n:::\n\n:::paragraph{align=center indent=0}\nXuan Shen, Chenxia Han, Yufa Zhou, Yanyue Xie, Yifan Gong, Quanyi Wang, Yiwei Wang, Yanzhi Wang, Pu Zhao, Jiuxiang Gu.\&quot;DraftAttention: Fast Video Diffusion via Low-Resolution Attention Guidance.\&quot;arXiv:2505.14708 [cs.CV]\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;在高质量视频生成任务中，扩散模型（Diffusion Models）已经成为主流。然而，随着视频长度和分辨率的提升，Diffusion Transformer（DiT）模型中的注意力机制计算量急剧增加，成为推理效率的最大瓶颈。这是因为在视频生成中，DiT 通常使用 3D 全局注意力来建模时空一致性，虽然效果出色，但计算量会随着 token 数量呈平方增长，带来了巨大的计算负担。在 HunyuanVideo 等视频生成模型中，注意力模块计算时间占比超过 80%，生成仅 8 秒的 720p 视频甚至需要接近一小时的时间。因此，提升视频生成模型的生成速度成为了迫切的需求。\n\n现有视频生成加速方法，如 Sparse VideoGen（[https://arxiv.org/abs/2502.01776](https://arxiv.org/abs/2502.01776)）和 AdaSpa（[https://arxiv.org/abs/2502.21079](https://arxiv.org/abs/2502.21079)），多采用稀疏注意力机制，在 GPU 上实现了一定程度的端到端加速。然而，受限于稀疏度不足和稀疏模式设计的刚性，这些方法的加速效果仍不理想。此外，它们普遍依赖固定的稀疏算子，缺乏对输入内容的动态适应能力，难以实现细粒度、内容感知的稀疏模式调控。因此，设计一种具备动态可调性、硬件友好且无需训练的稀疏注意力机制，对提升视频扩散模型的效率与实用性具有重要意义。\n\n近期，来自美国东北大学、香港中文大学、Adobe Research 等机构的研究团队提出了一种无需训练、即插即用的，基于动态稀疏注意力的视频扩散模型加速方法 ——[DraftAttention](https://arxiv.org/abs/2505.14708)，显著降低了注意力机制的计算开销，并且在几乎不损失生成质量的前提下，实现高达 2 倍的 GPU 端到端推理加速。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**中国人民大学高瓴人工智能学院 GeWu-Lab 实验室、上海人工智能实验室**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本期周论文推荐涵盖模型压缩、强化学习、推理加速等多个方向，汇聚清华、人大、字节、小红书及Jeff Dean等团队最新研究成果。</p>
+<p>在模型压缩领域，SlimMoE提出多阶段压缩框架，结合专家瘦身与知识蒸馏技术，仅使用不足10%的原始训练数据，成功将Phi-3.5-MoE压缩为Phi-mini-MoE与Phi-tiny-MoE两个精简版本，压缩后模型在多项任务上显著优于同规模竞品。</p>
+<p>强化学习方向，清华大学NLP实验室针对RLVR（基于可验证奖励的强化学习）应用范围局限于数学、代码等少数领域的问题，提出RLPR技术（基于参考概率奖励的强化学习），旨在将推理增强能力拓展至通用自然语言场景，对标DeepSeek R1与OpenAI o1/o3路线。</p>
+<p>超参迁移方面，人大高瓴李崇轩团队联合字节跳动Seed团队将μP理论引入Diffusion Transformers训练，通过调整初始化与学习率实现超参跨规模迁移。在MMDiT实验中，0.18B小模型搜得的超参成功应用于18B大模型并超越人工调参基线，搜索计算量仅为手动调参的3%。</p>
+<p>视频生成推理加速方面，东北大学、香港中文大学与Adobe Research联合提出DraftAttention，针对HunyuanVideo等模型中注意力模块计算占比超80%、生成8秒720p视频耗时近一小时的瓶颈，采用无需训练、即插即用的动态稀疏注意力机制，实现最高2倍GPU端到端推理加速，有效弥补了Sparse VideoGen等现有方法稀疏度不足、缺乏内容自适应的缺陷。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>Georgia Tech与微软联合提出SlimMoE多阶段压缩框架，通过专家瘦身和知识蒸馏将大型MoE模型高效压缩，使用不到10%原始训练数据将Phi-3.5-MoE压缩为更小版本且性能优异</li>
+<li>清华大学NLP实验室提出RLPR强化学习新研究，致力于突破通用领域推理瓶颈，将RLVR方法外推至无需验证器的通用领域</li>
+<li>本周论文推荐覆盖模型、推理、Agent等多个AI核心方向，汇聚小红书、字节跳动、Jeff Dean团队、朱军团队等多个顶尖机构的最新成果</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2717035867.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OpenClaw龙虾系统专题2 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="OpenClaw龙虾系统专题2。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2751464791.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>OpenClaw龙虾系统专题2</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2751464791。版本：b2bb745090b824cdbe3ebea4976f9d60cc27abb938bfd650879a1901fd7cd49f。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/222</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/b2bb745090b824cdbe3ebea4976f9d60cc27abb938bfd650879a1901fd7cd49f.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>别让龙虾把事做歪：OpenClaw 的误触发、越权、漂移与 Skill 设计</p>
+<h3>一、误触发、越权、漂移</h3>
+<p>很多人以为，OpenClaw 把事做歪，应该是那种一眼就看得出来的错误：答非所问、明显胡说、格式混乱、逻辑断裂。可在真实工作里，更麻烦的反而不是这种“显错”，而是另一种：它看起来八九不离十，甚至比很多人手工写出来还顺，但细看会发现，最关键的那一层已经偏掉了。**这种“偏而不显”的问题，比“错得离谱”更危险。**因为前者很容易直接流入后续流程，最后以一种非常正式、非常体面的方式，把错误放大。</p>
+<p>可以把这类问题分成三种：误触发、越权、漂移。</p>
+<p>**误触发的意思很简单：这个 Skill 根本不该在这个时机被调起来。**比如你只是想让系统帮你整理一下最近两周某个方向的公开信息，方便自己先过一遍材料。正常情况下，它应该先做信息归类、去重、按主题挂接，最多再补一版调研摘要。但如果路由太宽，它很可能直接把任务理解成“写一篇研究简报”，进一步又滑向“给出几条趋势判断”，甚至顺手附上“对我们战略的三点启发”。问题是，你明明还没走到那一步。你要的是收材料，它却直接替你进了判断层。很多知识工作就是这样被做歪的：不是不会写，而是写早了。</p>
+<p>**越权比误触发更进一步。**误触发至少还是调错了 Skill，越权则是 Skill 已经被调起来了，但它做了本不该由它做的事。一个很典型的例子，是战略规划材料整理。<br>你把几份讨论纪要、几页手写想法、几段聊天记录交给系统，原意只是想把这些零散内容整理成一版“目标、抓手、风险、待决策项”的讨论底稿，好让下次会议更高效。这时候，一个边界清楚的 Skill 应该做的是归纳、去重、分层、标注冲突。但一个边界模糊的 Skill 很容易越权：它会开始替你判断哪条路径更重要、哪块资源更应该倾斜、哪些讨论应该被收口成统一方向。这已经不是整理，而是代替管理判断了。越权最可怕的地方在于，它常常披着“主动性”的外衣。看起来像是系统更懂事了、更有想法了、更能往前推进工作了。但从组织视角看，这恰恰是最需要收住的地方。因为一旦系统把整理、建议、裁决混成同一层，责任边界就彻底模糊了。</p>
+<p>**漂移不是一下子越权，而是慢慢偏。**最开始它可能还是忠实的，后来随着输出变长、材料变杂、结论层级升高，它开始不自觉地把“事实”加工成“判断”，再把“判断”加工成“结论”。研究报告合稿里尤其容易出现这种事。一开始，系统还在认真合并几份材料里的观点。可一旦发现几份文档里有相近信号，它就可能把这些“重复出现的现象”上升为“已经形成的趋势”；再往后，它会把个别作者的判断写成“普遍共识”；最后甚至把资料里没有明确支持的话，写成一种很像成熟分析的表达。表面看，文章更顺了，实际上，证据和结论已经脱钩了。漂移并不总是因为模型“爱幻想”，很多时候只是因为系统没有被要求持续回指证据，也没有被要求在不确定时停下来。它一路写顺了，于是就一路漂远了。</p>
+<p>这三类问题，在工作场景里都特别常见：信息调研最怕误触发，你只想收材料，它却先帮你得出结论；战略讨论最怕越权，你只是想整理讨论，它却替你做收口；研究合稿最怕漂移，你只是想整合已有观点，它却开始偷偷“优化”成一种并不存在的统一判断。那怎么防？</p>
+<p>**第一，路由要收紧。**不要写那种“负责行业研究与战略分析”的大 Skill。越大越空，越空越容易误触发。最好明确：这是信息整理、调研摘要、趋势观察，还是战略建议。层级不一样，权限就不一样。</p>
+<p>**第二，输出要分层。**尤其不要把“事实摘要、观察判断、行动建议”揉在一起。哪怕放在同一篇文稿里，也要明确分段、分标签、分责任。这样至少你知道哪里是事实，哪里是解释，哪里是建议。</p>
+<p>**第三，权限要后置。**默认先让它整理、归纳、列问题，而不是直接让它替你做结论。对高风险层级，宁可先停下来，让人来确认。</p>
+<p>**第四，证据要回指。**尤其是做研究和规划时，任何稍微强一点的判断，都应该能回到材料里找到支撑。如果找不到，就应该显式写成“推测”或“待验证”，而不是写成像事实一样的句子。</p>
+<p>**第五，异常要允许停机。**材料不够，停；信息冲突，停；任务意图不清，先停在较低层级。很多漂移，都是因为系统被默认要求“无论如何都要写点什么”。</p>
+<p>说到底，OpenClaw 真正危险的地方，不是它不会做，而是它做错的时候依然显得很会做。这也是为什么我越来越觉得，一个靠谱的 Agent 系统，第一原则不是“多做一点”，而是“少做错一点”。</p>
+<h3>二、实操案例：<strong>一个“月度 AI 行业分析”的 Skill 应该怎么写</strong></h3>
+<h4><strong>1.事无巨细完整版</strong></h4>
+<h2>:::collapse{}
+点击展开内容</h2>
+<p><strong>name</strong>: 月度 AI 行业分析<br><strong>version:</strong> v1<br><strong>category</strong>: research</p>
+<p><strong>description</strong>: &gt;<br>将指定月度窗口内的 AI 行业相关材料进行整理、去重、归类和初步分析，输出适合内部阅读的月度分析稿。该 Skill 重点解决“信息收拢、结构化整理、主题归类、有限度观察提炼”的问题，不直接替代正式战略规划、投资判断、业务决策或对外发布口径。</p>
+<p><strong>when_to_use</strong>:</p>
+<ul>
+<li>用户明确要“月报 / 月度分析 / 月度简报 / 月度回顾”</li>
+<li>用户希望基于一个月内的多来源 AI 行业材料生成分析稿</li>
+<li>用户需要给研究团队、负责人或管理层准备月度观察材料</li>
+<li>用户需要为后续深度报告或战略讨论准备月度底稿</li>
+<li>用户请求“整理 + 归类 + 初步观察”，而不是单点事实查询</li>
+</ul>
+<p><strong>when_not_to_use</strong>:</p>
+<ul>
+<li>只查单一公司、单一产品、单一模型或单一事件</li>
+<li>只做链接清单、新闻汇总、原始资料收集</li>
+<li>只要提纲、邮件、一页摘要等轻量输出</li>
+<li>需要季度、年度或跨周期专题研究</li>
+<li>需要明确的战略建议、资源配置建议、投资判断、业务决策</li>
+<li>材料明显不足，无法支撑月度分析层级输出</li>
+</ul>
+<p><strong>routing_notes</strong>:</p>
+<ul>
+<li>该 Skill 只处理“月度分析”层级，不默认升级为“战略建议”</li>
+<li>若用户意图不清，默认按“L2 研究分析版”执行</li>
+<li>若用户只要事实整理，应路由到更轻量的信息整理或调研摘要 Skill</li>
+<li>若用户请求高风险结论，应停在分析输入层，不继续上升</li>
+</ul>
+<p><strong>required_inputs</strong>:</p>
+<ul>
+<li>time_range: 月度时间范围</li>
+<li>analysis_scope: 分析范围（全球 / 国内 / 海外 / 某专题）</li>
+<li>source_scope: 信息来源范围</li>
+<li>audience: 目标读者</li>
+<li>output_level: L1 / L2 / L3</li>
+</ul>
+<p><strong>optional_inputs</strong>:</p>
+<ul>
+<li>geography_split: 是否区分国内外</li>
+<li>topic_dimensions: 是否按固定主题分栏</li>
+<li>focus_entities: 是否重点关注某些公司/产品/方向</li>
+<li>output_format: markdown / brief / table / ppt_text</li>
+<li>include_sources: 是否保留证据来源</li>
+<li>include_followups: 是否输出“待跟进问题”</li>
+</ul>
+<p><strong>default_values</strong>:<br>time_range: 最近一个完整自然月<br>analysis_scope: 全球 AI 行业<br>audience: 研究团队内部<br>output_level: L2<br>include_sources: true<br>include_followups: true<br>geography_split: false</p>
+<p><strong>output_levels</strong>:<br><strong>L1</strong>:<br>description: 信息整理版<br>includes:  </p>
+<ul>
+<li>period_and_scope  </li>
+<li>executive_summary  </li>
+<li>thematic_breakdown  </li>
+<li>source_notes<br><strong>L2</strong>:<br>description: 研究分析版（默认）<br>includes:  </li>
+<li>period_and_scope  </li>
+<li>executive_summary  </li>
+<li>thematic_breakdown  </li>
+<li>monthly_observations  </li>
+<li>followup_questions  </li>
+<li>source_notes<br><strong>L3</strong>:<br>descriptio</li>
+</ul>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本文围绕OpenClaw龙虾系统的核心风险问题展开，重点分析了AI Agent在知识工作场景中容易出现的三类典型偏差：误触发、越权与漂移。误触发指某个Skill在不该被调起的时机被激活，例如用户只想收集整理材料，系统却直接跳跃到趋势判断乃至战略建议层级，导致工作被</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>三类核心偏差：误触发（不该调起的Skill被激活）、越权（Skill做了职责范围外的事）、漂移（输出随过程逐渐从事实滑向结论），三者均属于&#39;偏而不显&#39;的危险错误，比显性错误更难察觉且更易被放大</li>
+<li>五条防范原则：路由收紧（Skill定义精细化）、输出分层（事实/判断/建议明确隔离）、权限后置（默认先整理再结论）、证据回指（强判断必须溯源材料）、允许停机（不确定时停在低层级而非强行输出）</li>
+<li>越权的最大危险在于披着&#39;主动性&#39;外衣，系统看似更有想法、更能推进工作，实则将整理、建议、裁决混成同一层，导致组织责任边界彻底模糊</li>
+<li>漂移的根本原因不是模型&#39;爱幻想&#39;，而是系统未被要求持续回指证据、在不确定时停下来，一路写顺便一路漂远，行文越流畅越危险</li>
+<li>规范的Skill设计应包含精确的when_to_use与when_not_to_use、明确的routing_notes防止层级跃升、分级的output_levels（L1/L2/L3）以及required_inputs与optional_inputs的清晰区分</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2751464791.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>主流视频生成模型的进展与挑战 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="主流视频生成模型的进展与挑战。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2607403887.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>主流视频生成模型的进展与挑战</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2607403887。版本：f703adb2b8124700e9b808764ac8bd9e0bf3ff2b29746cdd256992819d91c4b2。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/4</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/f703adb2b8124700e9b808764ac8bd9e0bf3ff2b29746cdd256992819d91c4b2.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>主流视频生成模型的进展与挑战</p>
+<h1>一、核心要点</h1>
+<p>1.近日，有消息称 OpenAI 的视频生成模型 Sora 将正式上线。在 Sora 发布后的近 9 个月时间里，MiniMax-Video-01. Kling 1.5 等视频生成模型陆续发布，不少产品都表示已经达到了 Sora 级别。</p>
+<p>2.目前，视频生成技术仍处于早期不成熟阶段。文生视频模型的研究主要分为三条技术路径。其中，以 Sora 为代表的 DiT 架构是当下主流的技术路径。</p>
+<p>3.针对于文生视频领域，技术进展主要集中在长视频、视频分辨率、多物体生成/交互、复杂场景、多镜头、动态运动<a href="https://arxiv.org/pdf/2405.10674">等方面</a>。</p>
+<p>4.在文本到视频生成过程中，目前市面上的主流模型普遍面临着一些挑战，包括在文本对齐生成时的空间和时间维度问题、低分辨率区域（如小脸）的生成难题、动态运动的处理、推理能力的局限性、长期序列（如 10 秒或更长）内身份一致性的保持、多镜头场景的适应、空间-时间关系的构建、复杂物理交互的模拟以及遵循物理规则（例如破碎的玻璃、充气的气球和玩球）的能力等。同时，在多语言文本生成和稳定性方面也存在<a href="https://arxiv.org/pdf/2410.05227">不足</a>。</p>
+<p>5.目前，业内认为文生视频技术提升核心关键是提高压缩率。在训练视频生成能力时，模型需要先把视频变成 token，但 token 会非常长，导致复杂度很高。因此，需要在算法方面把压缩率提高、把 token 的复杂度降低。同样，目前增加视频时长，仅需增加算力即可实现，本质上是让模型不断地预测下一帧。关键在于探索视频生成技术的「牛顿第一定律」，即如何通过投入算力和数据来获得可预测的提升。</p>
+<h1>二、主流视频生成模型们超越 Sora 了吗？</h1>
+<p>今年 2 月，视频生成模型 Sora 发布 demo，可以输出长达一分钟的高质量视频，打破了在此之前仅可生成几秒视频的限制。且生成效果惊艳，可以维持时间和空间上的一致性，特别是在动态场景的 3D 一致性和长时依赖关系处理方面表现优异。</p>
+<p>然而 Sora 作为「期货」迟迟没有发布，屡次传出研究搁置、将于近期正式上线等消息。在 Sora 发布后的近 9 个月时间里，MiniMax-Video-01. Kling 1.5 等视频生成模型陆续发布，不少表示已经达到了 Sora 级别。</p>
+<p>目前，视频生成技术仍处于早期不成熟阶段。文生视频模型的研究主要分为三条技术路径。其中，以 Sora 为代表的 DiT 架构是当下主流的技术路径。</p>
+<p>① 以 Stable Diffusion 为基础，沿着文生图，将文生图拓展到时间维度，采用逐帧生成的思想，适用于时长较短地视频生成；</p>
+<p>② 将扩散模型（Diffusion Models）应用于视频生成，如 Meta 的 Make-a-video、Runway 的 Gen 系列模型均采用了扩散架构。在此基础之下，又出现了 Diffusion Transformers（DiT）架构，将 Transformer 引入到扩散模型中，Transformer 能够通过自注意力机制（Self-Attention）能够捕捉全局依赖关系，能够更好地理解和生成复杂图像结构。Sora、Vidu 等均是 DiT 架构，相较于第一条路径，DiT 架构对于长文本或长视频的理解能力会更强，生成能力也更好，是目前的主流技术路径；</p>
+<p>③ 还有一条目前应用较少，但同样有潜力的技术路径，即基于大型语言模型（LLM）的自回归架构，如谷歌团队发布的 VideoPoet 模型，能够从多种条件信号合成高质量视频，采用了仅解码器的 Transformer 架构，处理包括图像、视频、文本和音频在内的多模态输入。</p>
+<p>④ 此外，还有一种研究方向为通过大世界模型（Large World Model）来做视频生成模型，通过整合视频和语言数据，来实现多模态理解和生成。如 UC Berkeley 的 LWM，设计了 RingAttention 机制，可以高效处理长达 100 万个 token 的序列。</p>
+<p>在 Sora 模型之后，国内外<a href="https://arxiv.org/pdf/2410.05227">不乏</a>有<a href="https://huggingface.co/spaces/Vchitect/VBench_Leaderboard">多个</a>模型在生成视频时长、分辨率、复杂场景等维度逼平或超越了 Sora 模型。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2607403887/136033780271?contentType=1&isNewContent=false" alt="image.jpeg">{width=996 height=600 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2607403887/136033661553?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2607403887/136033661553?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2607403887/136033348245?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2607403887/136033348245?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p><em>2024 年文生视频模型及产品信息（部分）</em></p>
+<p><strong>1) abab-video-1( MiniMax)</strong><br>① abab-video-1 模型主打高清视频生成，可以生成原生高分辨率、高帧率视频，最高支持原生分辨率 1280*720 的 25 帧视频，效果不亚于 Sora。在视频生成模型评测体系 VBench 上，在画质、连贯性等方面处于领先，其中 Quality Score 为 85.13%，位列第二，仅次于谷歌的 T2V-Turbo-v2（85.13%）。<br>② abab-video-1 模型由 MiniMax 于今年 9 月发布，基于该模型的海螺 AI 创意视频平台支持文生视频、图生视频功能，在运动场景的生成方面生成效果优越，尤其是人体动作的流畅度和逼真度表现。<br><strong>2）Kling 1.5（快手）</strong><br>① Kling 模型实现了生成视频时长的突破，可以生成长达 2 分钟的视频。Sora 生成的视频时长为 1 分钟。<br>② Kling 模型由快手于今年 6 月发布，能够生成时长 2 分钟、1080p 分辨率的高质量视频。9 月，推出了 1.5 版本，新版本模型提高了画质，能够直出 1080p 视频，在画面主体动幅更大、动作、质量、文本响应度方面进行了优化。同时，引入了「运动笔刷」功能，提升了视频生成的控制能力。<br><strong>3）豆包视频生成（字节）</strong><br>① 豆包视频生成模型 PixelDance 和 Seaweed 主要的优势在精准的语义理解，以及多动作多主体交互，在多个镜头切换时，能保持主体、风格、氛围和逻辑的一致性。根据论文《<a href="https://arxiv.org/abs/2311.10982">Make Pixels Dance: High-Dynamic Video Generation</a>》，PixelDance 在使用文本指令基础之上，还引入了图像指令，包括视频的第一帧和最后一帧的图像，可以提供更精细的视觉细节和控制视频的开始和结束场景。同时，能够生成连续的视频片段，并在生成过程中使用前一片段的最后一帧作为下一片段的第一帧指令，以确保时间一致性和视频质量。<br>② PixelDance、Seaweed 两款模型由字节跳动于今年 9 月推出，基于自研的 DiT（Document Image Transformer）架构，主打时序性复杂动作指令和交互能力。模型支持多摄像头控制（如缩放、平移、旋转和跟踪），并能生成 3D 动画、2D 动画和传统艺术风格等多种类型的视频。<br><strong>4) Dream Machine 1.5( Luma AI)</strong><br>① Dream Machine 模型被称为是 Sora 的「最强竞品」，能够根据文字或图片生成高质量的逼真视频，视频生成速度快，能够在 120 秒的时间内生成 120 帧画面。<br>② 今年 8 月，Luma AI 发布了 Dream Machine 1.5 版本，相较于 1.0 版本，提升了视频生成效果以及动作追踪能力，同时能生成更准确的带有文字的画面。<br><strong>5) Gen-3 Alpha( Runway)</strong><br>① Gen-3 Alpha Turbo 模型在生成视频一致性和运动控制方面具有优势。Gen-3 Alpha Turbo 模型拥有摄像机控制功能，用户能够精确控制摄像机运动，实现平滑环绕和戏剧性变焦。在 Runway 展示的示例视频中，用户可以自由地放大和缩小场景，保持 AI 生成的角色和背景的完整性，3D 效果逼真。在视频生成模型评测体系 VBench 上，Gen-3 的 motion smoothness 的评分较高为 99.23%，Gen-2 为 99.58%。<br>② Gen-3 Alpha 模型由 Runway 于今年 6 月发布 ，对比上一代模型在在光影、质量、构图以及文本语义还原等方面实现了提升。Gen-3 Alpha 是新模型系列的首款，支持高度可描述性的视频生成，包括时间密集字幕和创意场景过渡。<br>尽管生成效果惊艳的视频生成模型陆续推出，但视频生成模型目前存在的动态运动、多镜头场景、在长时间视频中保持动态一致性等方面的共同缺陷仍存在。</p>
+<h1>三、文生视频领域关键技术进展盘点</h1>
+<p>针对于文生视频领域，技术进展主要集中在长视频、视频分辨率、多物体生成/交互、复杂场景、多镜头、动态运动<a href="https://arxiv.org/pdf/2405.10674">等方面</a>。</p>
+<h2>1.长视频生成</h2>
+<p>① 长视频生成是文本到视频（T2V）领域的一个研究方向，要求模型能够理解和模拟长期时间依赖关系，并保持视频内容的连贯性。</p>
+<p>② 长视频生成目前面临着预测误差累积、长期时间依赖性捕捉以及计算资源需求高等挑战，研究方向主要集中在通过回顾机制减少预测误差、结合时间无关和时间敏感模型来提高视频质量、利用层次化框架和预训练模型来增强视频内容的连贯性和多样性，以及通过稀疏训练和高效运动生成器设计来实现高分辨率和长期时间连贯性的视频生成等。</p>
+<p>③ 具有代表性的工作，Phenaki 是一个能够从开放领域文本描述中生成视频的模型，通过将视频数据压缩成紧凑的标记化表示，从而实现一致、详细和时间上连贯的视频生成。Phenaki 通过设计休闲注意力机制（causal attention），能够处理可变长度的视频，并通过对新提示的扩展来生成更长的视频序列。这种机制使得模型能够根据文本提示生成视频，并且能够通过扩展视频来生成更长的序列。</p>
+<h2>2.生成视频分辨率</h2>
+<p>① 生成高分辨率视频的关键难题在于文本与视频对齐和细节捕捉。一是需要确保文本描述与生成的视频内容之间保持精确的对齐，将直接影响到视频内容的准确性和相关性；另一是在提高分辨率的同时，模型需要能够捕捉到更多的细节信息，考验了模型的学习能力和数据处理能力。</p>
+<p>② 具有代表性的工作，Video LDM （High-Resolution Video Synthesis with Latent Diffusion Models） 通过训练一个时间对齐模型，Video LDM 能够生成高达 1280×2048 分辨率的视频。核心研究思路在于利用预训练的图像 LDM 进行视频生成，通过时间对齐模型确保生成的视频在具有高分辨率的同时保持时间上的连贯性。</p>
+<h2>3.提高帧率和减少视频伪影</h2>
+<p>① 高帧率视频能够避免如时间抖动和运动模糊等常见的视频质量问题。但生成高帧率视频存在的挑战包括如何保持视频中的运动连贯性、处理视频中的遮挡问题，以及如何生成平滑的过渡效果。目前的研究方向主要包括利用深度学习模型来预测中间帧，以及开发新的算法来优化视频帧的插值，来提高视频的流畅度和质量。</p>
+<p>② DAIN （Depth-Aware Video Frame Interpolation） 通过引入深度感知的流投影层，DAIN 能够在合成中间帧时优先考虑前景物体，从而有效处理视频中的遮挡和运动问题。其核心研究思路是利用深度信息来检测视频中的遮挡，并在帧插值过程中优先合成更接近的物体，以解决视频中的遮挡问题；FLAVR （Flow-agnostic Video Representations for Fast Frame Interpolation） 通过 3D 时空卷积进行运动建模，直接从视频数据中学习运动属性，简化训练和部署过程，从而能够快速生成高帧率视频，其核心研究思路为通过设计一个能够从视频数据中直接学习运动属性的架构，来解决生成高帧率视频的挑战。</p>
+<h2>4.多物体生成、交互</h2>
+<p>① 视频生成中处理多个对象涉及到对象的属性混合、对象混合以及对象消失等问题，会直接影响视频的真实感和连贯性。在多对象场景中，如何清晰地区分和生成每个对象，保持它们在整个视频序列中的一致性，以及如何处理对象间的交互和动态关系，是该领域面临的主要挑战。目前研究方向包括利用检测模型来增强对象的分离和清晰度，使用隐式神经表示和自推断布局运动技术来生成视频，以及通过多条件交叉注意力和偏差高斯噪声来管理复杂场景中的对象等。</p>
+<p>② VideoDreamer 在保持主体身份和视觉一致性方面取得了进展。VideoDreamer 通过结合 Stable Diffusion 的潜在代码运动动态和跨帧时序注意力，以及 Disen-Mix Fine-tuning 和 Human-in-the-Loop Re-finetuning 策略，来生成高分辨率视频，同时保持时序一致性和主体身份。具体来说，VideoDreamer 利用 Stable Diffusion 模型来处理视频的潜在代码，这些代码包含了运动信息，同时使用跨帧注意力机制来保持视频帧之间的一致性。通过 Disen-Mix Fine-tuning，模型能够更好地处理多个主体和复杂场景，而 Human-in-the-Loop Re-finetuning 允许模型在人类的反馈下进行进一步的优化，以确保生成的视频在视觉上与输入文本描述保持一致，并且在主体身份上没有混淆。</p>
+<h2>5.复杂场景生成</h2>
+<p>① 生成复杂场景的视频是一个挑战，要求对详细的环境、动态交互和变化的光照条件有深刻的理解和复制能力。在复杂场景中，需要准确地模拟和渲染多个动态元素及其相互作用，以及如何保持场景的 3D 一致性。</p>
+<p>② VideoDirectorGPT 通过利用大型语言模型（LLM）的能力来进行视频内容规划，生成详细的场景描述和实体布局，并确保场景间的视觉连贯性。首先，VideoDirectorGPT 使用 LLM 将文本提示转换成详细的动态场景语法（DSS），包括场景描述、对象布局和运动模式。然后，通过迭代细化布局以符合文本提示，从而合成具有复杂动态和变换的连贯视频。</p>
+<h2>6.动态运动</h2>
+<p>① 运动生成中的挑战包括如何保持运动的连贯性和一致性，以及如何处理复杂场景中的长距离运动等。同时，模型还需要能够理解和模拟物理世界中的运动规律，以生成真实感强的视频。</p>
+<p>② Lumiere 等模型在生成连贯、自然的运动序列方面取得了进展。如 Lumiere 的 Space-Time U-Net 架构能够一次性生成整个视频，确保了全局时间一致性。与传统模型不同，Lumiere 不是生成关键帧然后填充间隙，而是一次性生成整个视频。这种方法通过捕捉视频中的时空特征，提高了运动生成的性能，确保了视频中的运动连贯性和真实感。通过这种方式，Lumiere 能够有效地处理视频中的运动动态，生成具有高度连贯性和细节丰富的运动场景。</p>
+<h1>四、当下 AI 视频生成技术的挑战</h1>
+<p>在文本到视频生成过程中，目前市面上的主流模型普遍面临着一些挑战，包括在文本对齐生成时的空间和时间维度问题、低分辨率区域（如小脸）的生成难题、动态运动的处理、推理能力的局限性、长期序列（如 10 秒或更长）内身份一致性的保持、多镜头场景的适应、空间-时间关系的构建、复杂物理交互的模拟以及遵循物理规则（例如破碎的玻璃、充气的气球和玩球）的能力等。同时，在多语言文本生成和稳定性方面也存在<a href="https://arxiv.org/pdf/2410.05227">不足</a>。</p>
+<p>简单来说，视频生成应用距离「好用」还有三个方面，一是准确性，如何将用户的意图准确地表达出来；二是可控性，如何按照用户的意图对视频进行控制；三是效率问题，如何迅速地生成视频。</p>
+<p>当下视频生成面临的最常见的问题是视频内容一致性无法保证，如故事连贯性、人物身份的持续性以及动作的连贯性。新加坡南洋理工大学助理教授刘子纬认为，目前视频生成技术处于 GPT-3 时代，距离成熟还有半年左右的时间。同时，他认为目前文生视频模型的三条技术路径未来可�</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>2024年视频生成技术迎来密集突破，但整体仍处于早期阶段。OpenAI的Sora于2月发布demo，支持最长1分钟高质量视频生成，在3D一致性与长时依赖处理上表现突出；快手Kling 1.5已将上限拓展至2分钟1080p视频，超越Sora；MiniMax abab-video-1以VBench质量评分85.13%位居第二，原生支持1280×720/25帧输出；字节豆包PixelDance/Seaweed则专注多主体交互与多镜头风格一致性。技术路径上，以Sora、Vidu为代表的DiT架构已成当前主流，对长文本与长视频的理解能力显著优于逐帧生成和LLM自回归方式。</p>
+<p>在具体技术实现上，Lumiere采用Space-Time U-Net架构一次性生成完整视频，避免了关键帧插值带来的时间不连贯问题；Runway Gen-3 Alpha在VBench评测中motion smoothness评分达99.23%，其Turbo版本支持精确摄像机运动控制；Luma AI的Dream Machine 1.5于2024年8月更新，强化了动作追踪与文字画面准确性；VideoDirectorGPT则借助LLM将文本提示转化为动态场景语法，实现复杂场景的连贯合成。</p>
+<p>然而，当前模型普遍面临内容一致性不足的核心问题，涵盖人物身份持续性、故事连贯性、动作连贯性等维度，同时在空间时间对齐、小目标生成、复杂物理交互模拟及长序列身份保持方面存在明显短板。业内将视频生成与&quot;好用&quot;之间的差距归结为三点：准确性、可控性与生成效率。南洋理工大学教授刘子纬判断，当前视频生成技术大致处于GPT-3水平，距离真正成熟还需约半年时间。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>以Sora为代表的DiT架构是当前文生视频的主流技术路径，Sora、Vidu等均采用此架构，在长文本和长视频理解生成上优于其他路径</li>
+<li>MiniMax、快手Kling、字节豆包、Luma AI、Runway等多家机构发布的模型在视频时长、分辨率、复杂场景等维度已逼平或超越Sora</li>
+<li>当前视频生成普遍面临长序列身份一致性、复杂物理交互模拟、多镜头场景适应、动态运动处理等核心挑战</li>
+<li>业内认为提高视频token压缩率是技术提升的关键，需在算法层面降低token复杂度以支撑更长时长视频生成</li>
+<li>视频生成技术当前处于GPT-3时代水平，距离成熟仍有差距，核心待解问题集中在生成准确性、可控性和效率三方面</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2607403887.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

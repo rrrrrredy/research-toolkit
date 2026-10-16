@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI行业月度观察202511 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="AI行业月度观察202511。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2735792255.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>AI行业月度观察202511</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2735792255。版本：00e5bcb3dcaae4f978c134fd241b030c20199cfabcb44d71d97c72391244c946。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/269</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/00e5bcb3dcaae4f978c134fd241b030c20199cfabcb44d71d97c72391244c946.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 549s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;ced668b946f140a6956be5a864d3cfa8&quot;}
+AI行业月度观察202511</p>
+<h3>一、整体趋势</h3>
+<h4>1.11 月关键里程碑</h4>
+<p><strong>1.1.模型/技术</strong></p>
+<ul>
+<li>Qwen 3 Max 与 DeepSeek V3.1 分别夺得加密货币投资大赛冠亚军；</li>
+<li>在八大类任务、29 项测试中，360 FG-CLIP2 登顶全球最强图文跨模态模型；</li>
+<li>微软联手英伟达刷新 AI 推理纪录，其 Azure ND GB300 v6 虚拟机在运行 Meta 的 Llama2 70B 模型时，推理速度达到了每秒 110 万个 token；</li>
+<li>在人类最后的考试（HLE）、测试自主网络浏览能力的 BrowseComp，和复杂信息收集推理基准测试 SEAL-0 等评测基准中，Kimi K2 Thinking 都刷新了 SOTA，超越 GPT-5、Claude Sonnet 4.5（Thinking）等闭源模型；</li>
+<li>据 LMArena 大模型竞技场最新排名显示，文心全新模型 ERNIE-5.0-Preview-1022 登上文本排行榜全球并列第二、中国第一；</li>
+<li>阿里 Qwen3-Max-Thinking 在全球数学竞赛中拔得头筹；</li>
+<li>豆包编程模型 Doubao-Seed-Code 在 SWE-Bench-Verified 榜单中取得 78.80% 的成绩，刷新 SOTA 纪录；</li>
+<li>LMArena 公布最新大模型排名：Claude、GPT-5 与智谱 GLM-4.6 并列第一；</li>
+<li>MiniMax M2 成为 OpenRouter 上第一个日 token 消耗量超过 500 亿的中国模型，并且免费版加付费版模型的 Token 日调用量已超过 800 亿，都进入了 Top 10（分列第 4 和第 7）；</li>
+<li>Grok 4.1 在多项基准中刷新自身纪录：MT-Bench 得分 8.97，首次突破 8.9；HumanEval 代码生成通过率保持 87.1%; 多轮对话一致性达 91.4%，较前代提升 6 个百分点；</li>
+<li>Grok 4.1 Thinking 版以 1483 Elo 登顶 LMArena，非推理版本 1465 Elo 排名第二，超越 Gemini 2.5 Pro；</li>
+<li>Grok 4.1 Thinking 在 EQ-Bench 情商测试中以 1586 Elo 成绩登顶，创意写作比上代提升 600 分，幻觉率暴降 3 倍；</li>
+<li>Gemini 3 Pro 在数学、推理、多模态与 Agent 工具使用等关键标准上全面“碾压”竞品。在极高难度的数学竞赛基准 MathArena 中，其他模型仍停留在 1% 左右正确率，而 Gemini 3 Pro 直接达到 23.4%；在 Humanity&#39;s Last Exam（人类最终大考）上，它以 37.5% 的成绩远超 GPT-5.1 和 Claude Sonnet 4.5；</li>
+<li>在 SWE-Bench Verified 测试中，GPT-5.1-Codex-Max 以 77.9% 的准确率小幅领先于 Gemini 3 Pro 的 76.2%，排名第一；</li>
+<li>Claude Opus 4.5 在真实世界软件工程测试中达到了行业 SOTA 水平，超越了 GPT-5.1-Codex-Max、Gemini 3 Pro 以及自家 Sonnet 4.5；</li>
+<li>Claude Opus 4.5 在 SWE-bench Multilingual 基准中，在 8 种编程语言中的 7 种上表现领先；</li>
+<li>HunyuanOCR 在 OmniDocBench 测评中获得 94.1 分，超越 Google Gemini 3-pro 等领先模型；</li>
+<li>HunyuanOCR 在 OCRBench 榜单上以 860 分成绩刷新了 3B 以下模型的最佳表现；</li>
+<li>HunyuanOCR 在 ICDAR2025 文档翻译比赛小模型赛道中夺冠；</li>
+<li>Qwen3-VL 登顶 SpatialBench：空间推理 13. 5 分刷新 SOTA，3D 检测能力再升级；</li>
+<li>通义千问 “门控注意力机制” 研究获 NeurIPS 2025 最佳论文；</li>
+</ul>
+<p><strong>1.2.产品/用户/收入</strong></p>
+<ul>
+<li>OpenAI 全球企业用户突破百万，席位数量超 700 万；</li>
+<li>Sora Android 版上线首日安装量接近 47 万次；</li>
+<li>Lovable 平台月活用户已逼近 800 万；</li>
+<li>仅在双十一预售首日，淘宝的 AI 大模型调用量就超过 150 亿次，算法处理的用户行为实例从 1000 次猛增到 10 万次，直接将购买效率提升了 25%；</li>
+<li>在 MLPerf AI 训练基准测试中，英伟达基于 Blackwell Ultra 架构的 GB300 NVL72 平台包揽了全部 7 个项目的冠军，取得了压倒性胜利；</li>
+<li>蚂蚁集团全模态 AI 助手 “灵光” 三天冲上 App Store 总榜前十；</li>
+<li>蚂蚁灵光上线 4 天下载量突破 100 万，冲上 App Store 中国区免费榜第六；</li>
+<li>阿里 “千问” 公测首周下载量冲破千万；</li>
+</ul>
+<h4>2.11 月行业趋势</h4>
+<p><strong>2.1.海外：从 “军备竞赛” 到 “规则重写”</strong></p>
+<p>① 算力叙事出现分叉</p>
+<p>英伟达 GB300 NVL72 在 MLPerf 上以 10 分钟训完 4050 亿参数模型，硬件性能曲线依旧陡峭；但 Google、Meta、OpenAI 同月纷纷加码自研芯片（TPU、MTIA、Axion），并对外释放 “多云混合” 信号。训练侧 “核弹级” 集群仍由英伟达定义，但推理侧正快速 “去 NV 化”。云厂商 + 超大规模用户集体自研，意味着 “卖铲子” 逻辑从 GPU 独尊转向多元异构，2026 年将是 ASIC/TPU/LPU 在推理市场反超的第一拐点。</p>
+<p>② 模型能力 “外卷”—— 从通用智力到专业工种</p>
+<p>OpenAI 连发 GPT-5.1 系列、Codex-Max、Pro、教育版、群聊、购物研究，一个月内把 ChatGPT 拆成 7 个 SKU；Google Gemini 3 Pro 在 MathArena 正确率 23.4%，首次把数学竞赛基准拉到 “人类省队” 水平。海外大模型进入 “工种细分” 阶段：代码、医疗、退税、购物、教师、群聊…… 每个场景都重新封装一次模型。标志性地说明：通用底座已商品化，竞争焦点转向 “最后一英里” 的产品化速度与合规设计（FERPA、FERA、C2PA）。</p>
+<p>③ 数据主权与 “主权 AI” 成为隐形战场</p>
+<p>Google 在德国、德州 “百亿美元” 数据中心大单，配套热能回收、电工培训；OpenAI 与鸿海绑定 “美国制造” 硬件原型；亚马逊 500 亿美元扩建 GovCloud，1.3 GW 容量对标政府 Top Secret。AI 基础设施正被 “国家项目化”。数据本地化、芯片本地化、制造本地化三箭齐发，背后是对 “模型即武器” 的共识。2026 年起，跨境数据流动、模型出口与硬件禁运将取代关税，成为新贸易摩擦主战场。</p>
+<p>④ 交互范式 “可视化 + 操作化”</p>
+<p>Google Generative UI、OpenAI App Directory、Anthropic MCP Apps，三家同月把 “文本框” 升级为 “实时生成界面 + 第三方插件市场”。海外正在重写浏览器与操作系统的边界 ——AI 不再只是 “回答”，而是直接渲染可点击、可交易、可付费的 UI。如果 2024 年是 Chat 之年，2025 年就是 Click 之年，2026 年或将成为 “Checkout 之年”：用户在对话流内完成支付，平台抽佣。</p>
+<p><strong>2.2.国内：从 “模型狂热” 到 “系统级扎根”</strong></p>
+<p>① 底座模型完成 “性能 - 成本” 双拐点</p>
+<p>阿里 Qwen3-Max 把 batch 调用价格打对折，千问 App 一周破千万下载；字节 Doubao-Seed-Code 订阅 9.9 元 / 月，性能对标 Claude 3.5 但价格 8%；MiniMax M2 9.9 元套餐冲上 OpenRouter Top5。国产模型首次同时实现 “性能追平 GPT-4.5” 与 “成本低于 Claude 1/10”。价格屠刀背后，是 MoE + 稀疏激活 + 国产 GPU 万卡集群的量产化。</p>
+<p>② 应用层 “深度场景化” 抢跑</p>
+<p>蚂蚁 “灵光” 30 秒生成多模态小应用，4 天下载破百万；阿里 1688 “遨虾” 一键打通选品 - 工厂 - 物流；百度文心 5.0 + 昆仑芯 M300，把大模型 + 自研芯片塞进智慧城市场景；快手 Keye-VL-671B 在港口 POC 空间误差 &lt; 2cm。与海外 “SKU 化” 不同，国内走的是 “场景纵深” 路线：用 AI 反向整合供应链、制造、物流、零售。谁先拿到产业数据飞轮，谁就拥有模型迭代的 “私家油田”。2026 年竞争壁垒不在参数，而在 “场景深度 + 数据闭环”。</p>
+<p>③ 硬件载体 “去手机化”</p>
+<p>夸克 AI 眼镜 S1、百度小度眼镜 Pro、小米 MiMo-Embodied、华为 “智能憨憨” 陪聊机器人，单月集中发布；蚂蚁、阿里、腾讯均把多模态模型塞进眼镜、音箱、摄像头。国内的部分共识是 “让 AI 离开手机”。眼镜 = 第一人称视角 + 即时交互，机器人 = 家庭数据入口，车载 = 第二生活空间。谁能做出千元级、24 克、续航一整天的 AI 眼镜，谁就拿到下一代流量门票。小米和阿里已把价格拉到 3799 元，2026 年 Q2 将击穿 2000 元。</p>
+<h3>二、主要产品、技术更新</h3>
+<h4>1.海外</h4>
+<p>:[data2chart]{id=&quot;ca70ea3ca6e4657f1d81&quot; pageId=&quot;2735792255&quot;}</p>
+<h5>1.1.海外大公司</h5>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**分类**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: &quot;rgb(185, 240, 237)&quot;,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 28,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Chrome Canary 新增 Gemini AI 功能：Nano Banana 与深度搜索正式登场&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;YouTube 推出 AI 超分辨率功能，电视端将对标 Netflix&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Gemini Canvas 上线 “PPT 生成” 功能&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;​Google Chrome 推新 AI 模式快捷按钮&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n产品更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Gemini AI 推出深度研究新功能&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n技术更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;突破 LLM 遗忘瓶颈，Google “嵌套学习” 让 AI 像人脑一样持续进化&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n数据中心\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google 在德国投资 64 亿美元 建设新 AI 数据中心&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          189
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n技术更新\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          605
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;Google 推出 “私有 AI 计算” 云端系统：在隔离环境中实现 AI 数据 “零访问”&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;:</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>2025年11月，AI行业在模型性能、基础设施、产品形态与地缘竞争四条主线上同步提速。</p>
+<p>模型层面，Gemini 3 Pro在高难度数学竞赛基准MathArena中以23.4%正确率断层领先（其他模型约1%），Claude Opus 4.5在真实世界软件工程测试中夺得行业SOTA，超越GPT-5.1-Codex-Max与Gemini 3 Pro。国产模型首次同步实现&quot;性能追平GPT-4.5&quot;与&quot;成本低于Claude十分之一&quot;的双拐点，蚂蚁灵光上线4天下载量破百万，阿里千问公测首周冲破千万，场景纵深与数据闭环成为2026年核心竞争壁垒。</p>
+<p>算力层面，英伟达GB300 NVL72在MLPerf测试中包揽全部7项冠军，10分钟可训完4050亿参数模型；但推理侧&quot;去NV化&quot;加速，Google、Meta、OpenAI加码自研ASIC芯片，2026年或成反超拐点。Google宣布在德国投资64亿美元建设AI数据中心，谷歌、OpenAI、亚马逊同步大规模投建，AI基础设施加速&quot;国家项目化&quot;，数据、芯片、制造本地化三箭齐发，模型出口将成新贸易摩擦主战场。</p>
+<p>产品层面，三大AI厂商同月将文本框升级为&quot;实时生成界面+第三方插件市场&quot;，重写交互范式；2025年被定义为&quot;Click之年&quot;，2026年或成&quot;Checkout之年&quot;。Chrome Canary集成Gemini Nano及深度搜索，YouTube推出AI超分辨率功能对标Netflix，Gemini Canvas上线PPT生成，AI办公与消费场景持续渗透。</p>
+<p>技术研究层面，Google探索&quot;嵌套学习&quot;技术以突破LLM遗忘瓶颈，并推出&quot;私有AI计算&quot;云端系统，支持隔离环境下的零访问数据保护。通用底座模型商品化已成定局，竞争焦点全面转向产品化速度与合规设计。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>模型性能竞争激烈：Gemini 3 Pro在MathArena达23.4%正确率，Claude Opus 4.5在SWE-bench Multilingual中7种语言领先，Grok 4.1 Thinking以1483 Elo登顶LMArena；国内Kimi K2 Thinking、文心ERNIE-5.0、Qwen3-Max-Thinking等相继刷新SOTA</li>
+<li>产品商业化加速：OpenAI全球企业用户突破百万，阿里千问公测首周下载破千万，蚂蚁灵光4天下载破百万，MiniMax M2成为OpenRouter日token消耗超500亿的首个中国模型</li>
+<li>国内外战略分化：海外走&#39;SKU化&#39;路线将模型拆分为多个专业工种产品，国内走&#39;场景纵深&#39;路线用AI反向整合供应链、制造、物流、零售，2026年竞争壁垒将在场景深度和数据闭环</li>
+<li>硬件形态变革：国内夸克AI眼镜S1、百度小度眼镜Pro、小米MiMo-Embodied等集中发布，AI载体加速去手机化，AI眼镜价格已降至3799元，预计2026年Q2击穿2000元</li>
+<li>算力格局重塑：英伟达GB300 NVL72包揽MLPerf全部7项冠军，但Google、Meta、OpenAI同步加码自研芯片，推理侧快速去NV化，2026年将是ASIC/TPU/LPU在推理市场反超的第一拐点</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2735792255.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

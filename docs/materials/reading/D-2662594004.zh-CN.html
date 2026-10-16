@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gemini 2.0 如何映射 DeepMind 的研究路线 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="Gemini 2.0 如何映射 DeepMind 的研究路线。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2662594004.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>Gemini 2.0 如何映射 DeepMind 的研究路线</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2662594004。版本：a850c32b1ff4e662115bce2368591ac2c017c2dba1d20f9923c7b21432c7971b。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/239</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/a850c32b1ff4e662115bce2368591ac2c017c2dba1d20f9923c7b21432c7971b.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 348s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;5e2283e698f443c9b45cd4a9511a2e77&quot;}
+Gemini 2.0 如何映射 DeepMind 的研究路线</p>
+<h1>一、核心要点</h1>
+<p>1.在 Gemini 2.0 模型发布后，DeepMind Drastic Research 副总裁兼 Gemini 联合技术负责人 Oriol Vinyals 在最新一期的谷歌 DeepMind<a href="https://www.youtube.com/watch?v=78mEYaztGaw">官方播客</a>中，与 Hannah Fry 教授进一步分享了关于 Gemini 2.0 模型的下一步计划，并从 Gemini 2.0 在设计出发，分享了他对于 AI Agent、多模态系统以及自主决策等方面的看法。</p>
+<p>2.Vinyals 在播客中表示，AI Agent 已从执行单一任务的局限中突破，转向能够模拟人类及其他智能实体交互的多智能体系统，这使得 AI 能在更复杂的环境中进行决策和行动，提升了其灵活性和适应性。</p>
+<p>3.Vinyals 指出，自主决策系统除了需要「CPU」，即大语言模型或多模态模型以外，还需要为系统提供一个「数字身体」，使其不仅具备处理信息的能力，还能够执行网上的任务。</p>
+<p>4.Vinyals 提到记忆能力是自主决策系统处理复杂任务的基础，主要分为工作记忆和情景记忆。工作记忆能力增加了 AI agent 在短时间内能够存储和处理的信息量，从而提高了其推理和规划能力。</p>
+<p>5.Vinyals 还指出，当前的 AI agent 主要依赖于人类提供的奖励信号进行优化，但在复杂任务中，如何定义和提供客观可量化的有效反馈仍然是一个挑战。AGI 需要能够自我评估和改进其决策过程。</p>
+<h1>二、Oriol Vinyals 透露了 Gemini 2.0 的哪些额外信息？</h1>
+<p>在此次播客中，Oriol Vinyals 透露了谷歌即将在 Gemini 2.0 模型中推出的三个功能。</p>
+<p>1.Chrome「伴侣」功能，一个集成在 Chrome 浏览器中的辅助工具 ，允许用户通过简单的文本输入与 Gemini 2.0 进行交互，完成各种任务，如预订酒店、查找航班信息或执行其他重复性的在线任务。</p>
+<p>2.谷歌正在尝试将 Gemini 2.0 模型与浏览器结合，使模型能够更好地理解网页内容，从而为用户提供相关的建议和服务。</p>
+<p>3.Gemini 2.0 模型即将推出游戏伴侣功能，该功能能够辅助用户玩游戏、提供游戏建议、讲笑话等。</p>
+<p>围绕 Gemini 2.0 在 AI Agent、多模态系统以及自主决策方面的设计和进展，Oriol Vinyals 就这些主题进一步分享了他对技术进展的观察和未来的判断。</p>
+<h1>三、AI Agent 正在经历根本性的转变：从单一任务转向广泛通用</h1>
+<p>Gemini 2.0 模型专为 AI Agent 设计，Vinyals 在播客中进一步讨论了 AI Agent 如何通过模型架构和权重的优化，以及强化学习与预训练技术的结合，来提高自主决策能力，以推动多智能体系统的发展。</p>
+<p>Vinyals 在播客中表示，AI Agent 已从执行单一任务的局限中突破，转向能够模拟人类及其他智能实体交互的多智能体系统，这使得 AI 能在更复杂的环境中进行决策和行动，提升了其灵活性和适应性。</p>
+<p>早期的 AI Agent 通常被设计用于执行特定的任务，如图像识别、语音识别或游戏中的策略制定。例如，谷歌的 AlphaGo 和 AlphaStar，通过预训练学会了下围棋和玩《星际争霸》等特定任务。随着深度学习和强化学习的结合，现在的 AI Agent 能够处理更通用和多样化的任务，并在多种环境中自主学习和适应。例如，DeepMind 的 AlphaGo 和 AlphaZero 通过强化学习算法，在围棋和国际象棋等游戏中达到了超越人类的水平。</p>
+<p>Vinyals 提到，在 AI Agent 向多智能体系统转变的过程中，模型架构经历了多次变革，从最初的神经网络到现在的 Transformer 结构，AI Agent 通过大量的训练数据和学习算法，能够自动调整权重以适应不同的任务需求。</p>
+<p>Vinyals 表示，架构决定了系统如何处理输入数据并生成输出结果，尽管有突破性的架构出现，但大多数改进都是对现有架构的微调。例如，增加或减少神经元层、调整层的宽度等。同时，Vinyals 指出，权重决定了信息在神经元之间的流动，是影响模型性能的关键因素。在训练过程中，算法会模仿大量人类生成的数据来调整这些权重，以更好地模仿人类行为。</p>
+<p>Vinyals 强调，强化学习与预训练在实现多智能体系统的过程中同样发挥了巨大重要。多智能体系统能够通过强化学习，与环境互动并根据奖励信号调整策略，从而在动态环境中进行复杂的自主决策和学习。例如，在游戏中，通过自我对弈，模型可以发现新的策略和技巧，从而在游戏中达到更高的水平。预训练能够让多智能体系统学习语言、图像、视频等多种形式的多模态数据，掌握人类的广泛基础知识和行为模式，提高模型的广泛适用性，从而在多种任务中进行推理和决策。</p>
+<h1>四、LLM 是构建多模态系统的基础，就像计算机中的 CPU</h1>
+<p>Gemini 2.0 模型的一个特点在于多模态处理能力，支持图像、视频、音频多模态输入和输出，在整合和处理不同类型数据方面有了很大提升。Vinyal 进一步就多模态系统未来的发展问题深入了探讨，包括大型语言模型（LLMs）对多模态系统发展的影响、LLMs 面临的挑战，以及谷歌针对这些挑战所采取的策略。</p>
+<p>Vinyals 指出，大型语言模型类似于多模态系统的「CPU」，通过在 LLMs 中引入视觉和音频数据，研究人员能够创建多模态模型，这些模型不仅能够理解和生成文本，还能够处理图像和语音数据，以实现更复杂和全面的理解和决策。</p>
+<p>大语言模型的核心优势在于其能够从海量的人类生成数据中学习，并生成连贯且有意义的文本。这种能力为多模态模型提供了坚实的基础。谷歌 DeepMind 的 Gemini 模型就是一个典型的多模态模型。它结合了语言模型的强大文本处理能力和视觉模型的图像识别能力，使得模型能够在更广泛的任务中进行推理和决策。</p>
+<p>在与 Hannah Fry 教授进一步讨论 LLMs 和多模态系统发展的问题时，Vinyals 指出模型规模的增加并不会带来模型线性性能的提升，而是遵循收益递减的原则，并指出收益递减的主要原因在于数据和计算资源的有限性。</p>
+<p>① Vinyals 表示互联网上虽然有大量的数据可供训练，但高质量的数据是有限的，需要创新的方法来扩充数据集。</p>
+<p>② 随着模型规模的扩大，所需的计算资源和训练时间也在以超线性的速度增长，这种资源限制使得单纯依靠规模扩展来提升模型性能变得不再可行。</p>
+<p>③ Vinyals 指出，在强化学习中，模型可能会利用奖励系统的漏洞来最大化其获得的奖励，而不是通过学习任务的实际目标来提高性能。</p>
+<p>为应对收益递减的挑战，Vinyals 分享了谷歌近期用于提升模型性能和效率的策略，包括架构创新、合成数据、优化训练过程等。</p>
+<p>① Vinyals 提到，谷歌旗下的模型尽管主要依赖于 Transformer 架构，但通过微调如移除某些神经元、增加层数或调整宽度等小改动优化了模型性能。</p>
+<p>② 其次，谷歌正在探索新的数据来源和技术。例如，谷歌利用合成数据生成技术弥补数据不足的问题，通过生成高质量的合成数据，能够扩展训练数据集，从而提升模型的泛化能力和鲁棒性。</p>
+<p>③ 谷歌在 Gemini 模型中优化了其训练过程，包括数据呈现顺序、训练时长、使用更多高质量的预训练数据等，从而更有效地利用现有数据，提升模型的训练效率和性能。</p>
+<h1>五、LLM 之外，自主决策系统需要一个「数字身体」</h1>
+<p>Gemini 2.0 模型具备强大的通用性，能够调用 Google Search、代码执行、第三方用户定义的函数等外部资源和工具，为构建能够主动思考并作出决策的系统奠定了基础。Vinyals 进一步就「数字身体」、推理和规划能力以及记忆能力三个方面对自主决策领域的影响展开了分享。</p>
+<p>Vinyals 指出，自主决策系统除了需要「CPU」，即大语言模型或多模态模型以外，还需要为系统提供一个「数字身体」，使其不仅具备处理信息的能力，还能够执行网上的任务。</p>
+<p>「数字身体」通过集成浏览器和搜索引擎，能够让 AI agent 访问和处理在线信息，执行复杂的任务，如自动化旅行规划、游戏伴侣和编程辅助。这种能力使得 AI agent 超越了传统算法的限制，通过与互联网的互动学习新技能和知识，为用户提供更加个性化和高效的服务。</p>
+<p>Vinyals 还指出，推理和规划能力也是构建自主决策系统的重要组成部分，使得模型能够在复杂的环境中进行多步骤的决策。</p>
+<p>模型通过搜索引擎和浏览器访问外部信息，进行复杂的推理。例如，AI agent 可以检索最新的新闻文章，分析数据，并根据用户的偏好提供定制化的摘要。这种能力使 AI agent 能够结合历史数据和趋势，为用户提供深入有价值的见解和建议。AI agent 的规划能力体现在其查看用户日历、安排行程、甚至预测未来事件的能力，使得 AI agent 能够根据用户的个人习惯和偏好，提前规划和调整日程。 例如，考虑用户的预算限制并在销售季节提醒用户购物，从而有效的管理时间和资源，并提供更加智能和自动化的个人助理服务。</p>
+<p>Vinyals 提到记忆能力是自主决策系统处理复杂任务的基础，主要分为工作记忆和情景记忆。工作记忆能力增加了 AI agent 在短时间内能够存储和处理的信息量，从而提高了其推理和规划能力。例如，AI agent 能够处理长篇文档或视频，同时保持对关键信息的记忆，从而进行深入分析和推理。情景记忆使 AI agent 通过集成搜索引擎，检索和重建过去的事件和信息，从而结合历史信息和当前情况为用户提供更加个性化和有针对性的服务。例如，用户可以通过语音或文本指令让 AI agent 回忆某个特定日期的事件。</p>
+<h1>六、朝着 AGI 的方向行进，我们仍面临诸多挑战</h1>
+<p>Vinyals 指出，虽然当前的 AI agent 在特定任务上已经达到了人类甚至超越人类的水平，如 AlphaFold 能够预测蛋白质的三维结构，但要实现真正的 AGI，我们仍面临诸多挑战，包括反馈机制、模型的泛化能力，以及模型自主学习和研究的能力。</p>
+<p>Vinyals 还指出，当前的 AI agent 主要依赖于人类提供的奖励信号进行优化，但在复杂任务中，如何定义和提供客观可量化的有效反馈仍然是一个挑战。AGI 需要能够自我评估和改进其决策过程。</p>
+<p>虽然当前的大型语言模型在处理大量数据时表现出色，但它们在生成新信息和概念方面的能力仍然有限。Vinyals 在播客中提到，模型目前主要是重复互联网上的内容，而不是从中提取出更深层次的概念和知识。Vinyals 认为，未来的模型需要具备自主学习和研究的能力，例如通过互联网进行搜索、阅读论坛、下载游戏并学习如何玩。这种能力将大大提高模型的通用性和自主性，但目前仍处于早期阶段。</p>
+<p>Vinyals 表示，为了实现 AGI，DeepMind 一直在技术创新、模型安全性和多模态模型应用等方面进行努力，以提高模型的泛化和自主决策能力。</p>
+<p>DeepMind 正在探索如何让模型具备自主学习和自我改进的能力，以适应多样化和复杂的任务环境。例如，DeepMind 通过让模型在不同的环境和任务中进行自我对弈和学习，逐步提高其泛化能力和决策能力。Vinyals 强调，随着 AI 技术的进步，安全和伦理问题也越来越重要。DeepMind 在开发 Gemini 2.0 时，特别注重模型的安全性和可解释性，以确保其在实际应用中的可靠性和透明性。DeepMind 正在探索如何将强大的多模态模型应用于科学、模拟和定理证明等领域，以实现超级智能。</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>Gemini 2.0 是 Google DeepMind 专为 AI Agent 时代设计的多模态模型，支持图像、视频、音频的输入与输出，标志着 AI 系统从执行单一任务向多智能体协作决策的重大跨越。DeepMind 研究员 Vinyals 将大型语言模型定位为多模态系统的&quot;CPU&quot;，视其为构建复杂自主系统的核心基础。</p>
+<p>构建真正自主的决策系统，仅有 LLM 作为&quot;大脑&quot;远远不够，还需要配备&quot;数字身体&quot;。这一&quot;数字身体&quot;通过集成浏览器与搜索引擎，赋予 AI Agent 访问在线信息、执行网络实际任务的能力。为此，Gemini 2.0 即将推出 Chrome 伴侣、浏览器集成及游戏伴侣三项新功能，进一步拓展模型的实际应用边界。</p>
+<p>推理、规划与记忆能力是自主决策系统的关键支柱。其中记忆能力细分为工作记忆与情景记忆，共同支撑模型完成多步骤复杂任务。在技术路径上，强化学习与预训练的结合被视为推动多智能体系统发展的核心方向。然而，随着模型规模持续扩大，收益递减效应日益显著，高质量训练数据日趋稀缺，计算资源消耗也呈超线性增长，对单纯依赖规模扩展的路线构成挑战。</p>
+<p>尽管当前 AI 在特定任务上已超越人类，但实现 AGI 仍面临反馈机制不完善、泛化能力不足等深层挑战。现有大型语言模型主要依赖复现互联网内容，尚不具备提取深层概念与自主开展研究的能力。DeepMind 正持续在技术创新、模型安全性与多模态应用三个维度协同推进，以期逐步跨越通往 AGI 的鸿沟。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>AI Agent正经历根本性转变，从执行单一任务（如AlphaGo下棋）演进为能模拟人类交互的多智能体系统，通过强化学习与预训练结合提升自主决策能力</li>
+<li>LLM类似多模态系统的「CPU」，是构建多模态能力的基础；但模型规模扩展遵循收益递减原则，谷歌通过架构微调、合成数据和优化训练流程来应对性能瓶颈</li>
+<li>自主决策系统除需要LLM作为「大脑」外，还需要集成浏览器、搜索引擎等工具构成「数字身体」，并具备工作记忆与情景记忆能力；Gemini 2.0即将推出Chrome伴侣、浏览器集成和游戏伴侣三项新功能</li>
+<li>迈向AGI仍面临三大挑战：如何定义客观可量化的有效反馈信号、模型泛化能力不足（目前主要重复互联网内容而非提取深层知识）、以及模型自主学习与自我改进能力的缺失</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2662594004.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

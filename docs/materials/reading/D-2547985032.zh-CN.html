@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>近期大模型行业重要信息202410-2 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="近期大模型行业重要信息202410-2。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2547985032.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>近期大模型行业重要信息202410-2</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2547985032。版本：549b6cb1ba8a80907abf8eb30180f720afc85c46829732e8d2f8e3a99f520efb。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/89</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/549b6cb1ba8a80907abf8eb30180f720afc85c46829732e8d2f8e3a99f520efb.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>近期大模型行业重要信息202410-2</p>
+<h1>一、国外</h1>
+<h2>:[color]{}1.OpenAI 计划在 12 月推出模型 Orion[/color]</h2>
+<p>与 OpenAI 最近发布的两个模型GPT-4o和o1不同，Orion 不会通过 ChatGPT 广泛发布。相反，OpenAI 计划首先向与其密切合作的公司授予访问权限，以便它们构建自己的产品和功能，消息人士透露。</p>
+<p>OpenAI 正在准备最早于 11 月在 Azure 上托管 Orion。虽然 Orion 在 OpenAI 内部被视为 GPT-4 的继任者，但尚不清楚公司是否会在外部称其为 GPT-5。和往常一样，发布计划可能会有所变动并可能推迟。</p>
+<p>:[color]{}Orion 被一位 OpenAI 高管调侃为可能比 GPT-4 强大多达 100 倍；它与 OpenAI 在九月发布的 o1 推理模型是不同的。公司的目标是随着时间的推移，将其 LLMs 结合起来，创造一个更强大的模型，最终可能被称为人工通用智能。此前有信源表示，OpenAI 正在使用 o1，代号为草莓，来提供合成数据以训练 Orion，此模型已在九月完成训练。[/color]</p>
+<p>OpenAI 已请求访问更多托管 Nvidia 更强大 H100 GPU 的微软服务器，而不是 OpenAI 迄今为止主要使用的 A100 GPU。Nvidia 的 H100 芯片提高了 AI 推理性能，并且在训练 AI 模型方面表现更好，使其成为下一代 OpenAI 模型的理想候选者。</p>
+<p>在微软工程师为 OpenAI 的 Orion 模型准备服务器容量时，曾经密切的两家公司关系出现了紧张迹象。紧张的核心是构建和运行 OpenAI 模型所需的高昂计算能力和服务器容量，OpenAI 抱怨微软没有为他们提供足够的计算能力。</p>
+<h2>2.微软开源 1.58bit 大模型推理框架</h2>
+<p>近日，微软开源了 1.58 bit 大模型推理框架 <a href="https://github.com/microsoft/BitNet">BitNet b1.58</a>，开源不到一周 GitHub 揽获 7.9k Star。BitNet b1.58 的量化方法将传统大模型的 16 位浮点数参数转换为三进制{-1， 0， 1}，每个参数用 1.58 位信息表示，显著减少存储空间和计算资源。<br>BitNet b1.58 基于 BitNet 模型优化，增加了额外的 0 值，采用 absmean 量化函数约束权重。其架构借鉴了 Llama，使用了 RMSNorm、SwiGLU、旋转位置编码等组件，并移除了所有偏置项。BitNet b1.58 支持在 CPU 上进行快速且无损的 1.58bit 模型推理，未来将扩展支持 NPU 和 GPU。其在 ARM CPU 上可实现 1.37 至 5.07 倍的加速，能耗降低 55.4%至 70.0%；在 x86 CPU 上加速效果介于 2.37 至 6.17 倍之间，能耗减少 71.9%至 82.2%。<br>BitNet b1.58 与 Llama 相比在矩阵乘法方面节省了 71.4 倍的计算能耗。其推理速度可达每秒 5-7 个 token，接近人类阅读速度。<br>此外，Huggingface Transformers 整合了 BitNet b1.58，使得现有模型可以直接微调到 1.58bit。</p>
+<h2>3.Meta 开源多个工具</h2>
+<p>近日，Meta 开源了多个工具和研究项目，包括 <a href="https://github.com/facebookresearch/sam2">SAM 2.1</a>、<a href="https://arxiv.org/abs/2402.05755">Spirit LM</a>、<a href="https://arxiv.org/abs/2404.16710">Layer Skip</a>、<a href="https://github.com/facebookresearch/lingua">Lingua</a>、<a href="https://arxiv.org/abs/2409.12737">MEXMA</a> 和<a href="https://arxiv.org/abs/2408.02666">自学习评估器</a>。Meta 推出了增强版的 SAM 2.1，旨在提升对视觉相似物体和小物体的处理能力。其通过引入新的数据增强技术和改进模型的训练方式，SAM 2.1 在长帧序列上进行训练，并优化了空间和物体指针内存位置的编码。该模型已在医学图像和气象学等多个领域取得较好的效果。<br>为了解决传统文本到语音流程中表达损失的问题，Meta 发布了多模态语言模型 Spirit LM，该模型通过词级交织训练语音和文本数据集，实现了语音和文本的无缝集成。<br>Meta 提出的 Layer Skip 是一种端到端解决方案，旨在加速大型语言模型（LLM）的生成速度，同时降低计算和内存需求。其通过只执行部分层并利用后续层进行校正，Layer Skip 能将模型性能提升高达 1.7 倍。此外，Meta 还发布了推理代码和微调检查点。<br>Lingua 是一个轻量级的代码库，专为大规模训练语言模型设计，强调简单性和可复用性。该平台支持研究人员快速实验并测试想法。<br>MEXMA 是一种新型的跨语言句子编码器，结合了 token 层级和句子层级的训练目标，提升了编码器性能。它支持 80 种语言，并在句子分类等任务中表现较好。<br>Meta 提出的自学习评估器通过合成偏好数据来训练奖励模型，减少对人工标注的依赖。实验表明，该模型在 RewardBench 上的表现优于传统依赖人工标注的模型。</p>
+<h2>4.xAI 正式上线 API</h2>
+<p>近日，xAI 正式上线 API，开发者可以使用 Grok 2 和 Grok 2 mini 来构建各种应用程序。xAI API 系统是由 Rust 语言编写，整个系统支持多个地区，可以在本地或云端运行。此外，xAI 还为开发者提供了使用情况探索器，类似于主要云服务提供商的功能，帮助小公司简化团队管理，提升系统的安全性。<br>Grok 2 的价格为每百万输入 token 5 美元，而 grok-beta 的价格为每百万输入 token 15 美元，这一价格是 GPT-4o 的两倍，此外，X 平台的 Premium 用户也没有免费的试用 credit。已有部分开发者开始使用 API 构建各种应用，包括金融智能体、数据分析师智能体、网络搜索智能体等，还能在 VSCode 中集成 Grok 模型作为代码助手。xAI API 系统提供了多种安全措施，包括 TouchID、安全密钥（如 Yubikey）和双因素身份验证（2FA）。每次从新 IP 地址登录账户时，系统都会发送提醒邮件。</p>
+<h1>二、国内</h1>
+<h2>1.智源研究发布原生多模态世界模型 Emu3</h2>
+<p>智源研究院发布了原生多模态世界模型 <a href="https://emu.baai.ac.cn/">Emu3</a>，该模型仅通过预测下一个 token，无需扩散模型或组合方法，即可实现文本、图像、视频三种模态数据的理解与生成。<br>Emu3 在图像生成、视频生成、视觉语言理解等任务中超越 SDXL、LLaVA、OpenSora 等模型。此外，基于人类偏好评测，Emu3 表现优于 SD-1.5 和 SDXL，视觉语言理解基准测试得分高于 LlaVA-1.6，视频生成任务超越 OpenSora 1.2。<br>Emu3 的视觉 tokenizer 将视频和图像转换为离散 token，支持 Any-to-Any 任务。其直接偏好优化（DPO）可无缝应用于自回归视觉生成。<br>Emu3 具有较强的视觉理解能力，不依赖基础 LLM 或 CLIP，其能够生成高质量图像和视频，适应灵活的分辨率和风格。</p>
+<h2>2.昆仑万维与北大团队提出 MoE++通用架构</h2>
+<p>昆仑万维 2050 研究院与北大近日发布论文提出新一代 MoE 架构 <a href="https://arxiv.org/abs/2410.07348">MoE++</a>。该工作提出了一种通用且异构的 MoE 架构，称为 MoE++。该架构通过引入“零计算量专家”来提升性能和推理速度，同时降低计算成本。<br>该工作设计了三种类型的零计算专家：零专家、复制专家和常数专家，分别对应于丢弃、跳过和替换操作。通过门控残差机制，每个令牌在选择适当专家时可以考虑前一层的路径，从而进一步提高性能。<br>① 零专家完全不进行任何计算，直接输出零向量。<br>② 复制专家直接复制输入向量，不进行任何变换。<br>③ 常数专家则会输出一个固定的常数向量。<br>经测试，在 0.6B 到 7B 参数规模的 LLMs 上，MoE++在相同模型大小的情况下，相比传统 MoE，性能更优，同时实现了 1.1 到 2.1 倍的专家吞吐速度。<br>当 MoE++模型的参数规模扩展到 7B，并使用 1T Tokens 进行训练时，其性能优于 OpenMoE-8B/32E 模型。OpenMoE-8B/32E 是一个更大的 MoE 模型，使用 1.1T Tokens 从头开始训练。MoE++仅使用了大约 57%的计算成本，就达到了与 OpenMoE-8B/32E 相当的性能。</p>
+<h2>3.DeepSeek 提出多模态理解与生成统一模型</h2>
+<p>DeepSeek 团队近日发布论文，提出一种基于自回归的多模态理解与生成统一模型 <a href="https://arxiv.org/pdf/2410.13848">Janus</a>，在多模态理解和视觉生成任务上超越了之前的统一模型，并且与专门针对单一任务优化的模型相比也具有竞争力或更好的性能。</p>
+<p>Janus 使用两个独立的视觉编码器分别负责多模态理解和生成任务，然后用一个统一的 Transformer 结构处理不同的输入信息。其训练过程包含三个阶段。<br>① Janus 训练的第一阶段使用 Image Caption 数据和 ImageNet 文生图数据对理解适配器、生成适配器和图像头进行训练。<br>② Janus 训练的第二阶段加入了 LLM 和文本头，使用大量纯文本、图生文和文生图数据进行联合预训练。<br>③ Janus 训练的第三阶段加入理解编码器，使用指令跟随数据进行训练。<br>Janus 使用 Next-Token-Prediction 的方式进行推理，可以利用针对 LLM 进行的优化，如 KV Cache 和 vLLM 等，以加速推理过程。<br>经测试，Janus-1.3B 在多个 benchmark 上超越了之前同规模的统一模型，甚至在某些情况下超越了更大规模的模型（如 LLaVA-v1.5-7B）。此外，其在图像质量评价和指令跟随能力超越了之前同规模的统一模型和一些专用图像生成模型（如 SDXL）。</p>
+<h2>4.荣耀 MagicOS 9.0 引入 AI Agent</h2>
+<p><a href="https://mp.weixin.qq.com/s/WT0cjN_2xKvf9Us7-cYkgQ">MagicOS 9.0</a> 支持多种大模型（语言、图像、语音等），实现了更快的加载和更低的功耗。新的多模态大模型使得手机具备了语义理解、内容解析等能力。<br>① AI 智能体能够自动执行任务，提升用户体验，例如通过语音指令点咖啡。<br>② 新系统通过 AI 智能体实现了「自动驾驶」式的操作，简化了人机交互流程。<br>③ AI 智能体可以读取屏幕内容并自动操作应用，无需复杂的对话。<br>此外，荣耀 AI 智能体能够通过语音指令执行复杂任务，如取消自动续费、点外卖、传输文件等，实现手机的「自动驾驶」，且还与第三方应用合作，实现更广泛的功能。据媒体报道，新一代旗舰手机 Magic7 系列将于 10 月 30 日发布，搭载骁龙 8 至尊版芯片，支持 AI 换脸检测技术，提供 AI 反欺诈功能。</p>
+<h2>6.OPPO ColorOS 15 引入 AI Agent</h2>
+<p>OPPO 发布的 <a href="https://mp.weixin.qq.com/s/Vz_WqZmbWvmFtzYnH28S7g">ColorOS 15</a> 手机操作系统，该系统集成了多种 AI 功能。ColorOS 15 操作系统具有小布助手、AI 摄影、AI 写作、OPPO 文档等功能。<br>① 小布助手为升级后的语音助手，其可识别屏幕上的内容并回答问题并支持连续多轮对话。<br>② AI 摄影可使系统通过 AI 算法去除照片中的玻璃反光、拖影，提升照片清晰度，甚至将低分辨率照片增强至 4K。<br>③ AI 写作可 基于屏幕内容创作文案，适配不同风格和平台，如朋友圈、小红书等。<br>④ OPPO 文档提供文档管理工具，包括总结翻译、内容润色、格式转换和跨应用搜索。<br>ColorOS 15 正式版将于 OPPO Find X8 系列和一加 13 中首发搭载。其他支持机型包括 OPPO Find 系列 X5/N2 及以上、Reno 系列 8 Pro+及以上、K 系列 11 及以上，以及一加 10Pro、11、12 和 Ace 系列机型，预计在明年一季度全部开放升级。<br>此外，OPPO 即将收购 AI 创业公司波形智能，其可能采取保持独立工商信息的方式入股波形智能，蓝驰创投等核心投资方通过非公开方式进行资本有序退出。</p>
+<h2>7.微软亚洲研究院前首席研究经理谭旭加入月之暗面</h2>
+<p>微软亚洲研究院前首席研究经理谭旭于 8 月加入大模型创业公司月之暗面，主要负责研发端到端语音模型。谭旭于今年 8 月加入月之暗面，主要负责研发端到端语音模型。此前，他在微软亚洲研究院担任首席研究经理，专注于生成式 AI、语音/音频/视频内容生成，其论文引用量达上万次，曾担任 NeurIPS 等学术会议期刊的审稿人，多项研究成果已应用于 Azure、Bing 等微软产品与服务中。<br>据悉，谭旭的主要目标之一是帮助月之暗面打造「类似 GPT-4o」的端到端语音模型，具备更低延时和可随时打断的特性。月之暗面的多模态研究始于 2023 年 10 月，目前有约 10 人团队在研发视频模型。媒体报道称，月之暗面为确保产品更具差异性，对外发布计划仍在推迟。</p>
+<h2>8.智谱推出情感语音模型 GLM-4-Voice</h2>
+<p>:[color]{}智谱在上周推出了他们在多模态领域的最新成果——端到端语音模型 GLM-4-Voice[/color]，让人和机器的交流能够以自然聊天的状态进行。据介绍，GLM-4-Voice 能够直接理解和生成中英文语音，进行实时语音对话，在情绪感知、情感共鸣、情绪表达、多语言、多方言等方面实现突破，且延时更低，可随时打断。</p>
+<p>:[color]{}<strong>整体而言，GLM-4-Voice 具备以下优势和特点：</strong>[/color]</p>
+<ul>
+<li>:[color]{rgb(62, 62, 62)}情感表达和情感共鸣：模拟不同的情感和语调，如高兴、悲伤、生气、害怕等情绪，用合适的情绪语气进行回复。传统 TTS 通常在情感表达上比较僵硬，声音缺少起伏和细腻的变化。[/color]</li>
+<li>:[color]{rgb(62, 62, 62)}调节语速：在同一轮对话中，可以要求 TA 快点说 or 慢点说。[/color]</li>
+<li>:[color]{rgb(62, 62, 62)}随时打断，灵活输入指令：根据实时的用户指令，调整语音输出的内容、风格和情感，支持更灵活的对话互动。例如，你可以随时打断 TA，让 TA 输出新的内容，更加符合日常对话情境。[/color]</li>
+<li>:[color]{rgb(62, 62, 62)}多语言、多方言支持：目前 GLM-4-Voice 尤其擅长北京话、重庆话和粤语。[/color]</li>
+<li>:[color]{rgb(62, 62, 62)}结合视频通话，能看也能说：即将上线视频通话功能，打造真正能看又能说的语音助理。[/color]</li>
+</ul>
+<p>:[color]{rgb(62, 62, 62)}同时，GLM-4-Voice 发布即开源，这也是智谱首个[/color]<a href="https://github.com/THUDM/GLM-4-Voice">开源</a>:[color]{rgb(62, 62, 62)}的端到端多模态模型。[/color]</p>
+<h2>9.腾讯刚上线的 AI 智能工作台</h2>
+<p>这款产品名叫<a href="https://ima.qq.com/">ima.copilot</a>，来自腾讯 PCG 团队。目前产品仅支持 Mac 端，在官网即可下载体验。ima copilot 的产品定位是个人知识助理和效率工具，属于大模型应用的理性慢思考类型。产品的 slogan 叫做「<strong>智慧因你而生</strong>」，「会思考的知识库，开启搜读写新体验」；从中可以看出，其价值目标是利用大模型通用知识，加上用户个性化知识，为用户在搜索、阅读、写作场景提高效率和提供洞察。</p>
+<p>ima copilot 主要有三大功能模块，分别是<strong>搜索、知识库、笔记</strong>。</p>
+<p>:[color]{}①[/color]:[color]{}<strong>搜索模块</strong>[/color]</p>
+<p>ima 可以直接提问基于全网资料搜索，也可以基于个人知识库搜索；搜索时支持截图识别或上传最多 10 个文件。</p>
+<p>AI 搜索的整体体验较好，达到了市面上同类搜索产品的体验预期。回答内容准确、结构清晰，有参考资料列表以及文内引用，点击资料可在产品内直接打开链接阅读原文，并<strong>将原文添加进知识库</strong>；除此之外，在回答下方，除了有相关度高的发散引导追问，还可<strong>一键生成思维导图、一键将回答添加至新的笔记</strong>。</p>
+<p>:[color]{}②[/color]:[color]{}<strong>知识库模块</strong>[/color]</p>
+<p>知识库首页呈现的是所有从本地添加的文件或从端内保存的笔记，还可以对知识库的每篇内容编辑标签，知识库右侧还有可以快速唤醒的 copilot 模式的核心问答功能。知识库内也有 AI 搜索入口，可以基于知识库内容进行问答。</p>
+<p>:[color]{}③[/color]:[color]{}<strong>笔记模块</strong>[/color]</p>
+<p>除了上述有提到的，可以将 AI 回答内容和链接原文内容一键添加到笔记内，ima 笔记重点有写作功能和解读功能。在首页点击「智能写作」，可以看到有论文、作文、文案的类型模板，满足学习和生产的内容诉求；用户除了输入主</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>近期大模型行业动态密集，多项重要进展值得关注。</p>
+<p>OpenAI计划12月推出新一代模型Orion，内部定位为GPT-4继任者，性能可能强100倍，已于9月完成训练，采用o1模型生成的合成数据，最早将于11月在Azure上托管并优先向合作企业开放。微软同期开源1.58bit大模型推理框架BitNet b1.58，将参数压缩为三进制，在ARM CPU上能耗降低55-70%，x86 CPU上推理速度提升2.37-6.17倍，与Llama相比矩阵乘法节省71.4倍计算能耗。</p>
+<p>模型与架构层面，DeepSeek发布Janus模型，采用两个独立视觉编码器分别处理理解与生成任务，其1.3B版本在图像质量和指令跟随能力上超越SDXL等专用模型。昆仑万维与北京大学联合提出MoE++架构，引入零专家、复制专家、常数专家等零计算量专家，推理速度提升1.1至2.1倍，7B参数规模下仅用57%计算成本即可达到OpenMoE-8B/32E相当性能。智源研究院发布Emu3，仅通过next token预测实现文本、图像、视频三模态统一理解与生成。</p>
+<p>语音与多模态方向，智谱发布并开源GLM-4-Voice端到端语音模型，支持情感表达、多方言及随时打断；月之暗面引入微软亚研院前首席研究经理谭旭，目标打造类GPT-4o端到端语音模型。终端侧，荣耀MagicOS 9.0和OPPO ColorOS 15均深度集成AI智能体能力。腾讯PCG团队推出ima.copilot智能工作台，目前仅支持Mac端，聚焦搜索、阅读、写作三大场景，支持个人知识库管理与智能写作模板。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>OpenAI计划12月推出Orion模型，被称为GPT-4继任者，可能强100倍，将使用o1合成数据训练并优先向合作企业开放</li>
+<li>微软开源BitNet b1.58推理框架，将模型参数压缩为1.58bit三进制，CPU推理能耗降低55-82%，速度提升最高6倍以上</li>
+<li>智源研究院Emu3和DeepSeek Janus均探索多模态统一生成与理解架构，前者无需扩散模型，后者采用双编码器设计</li>
+<li>国内手机厂商荣耀和OPPO同步在新系统中引入AI Agent，实现语音指令驱动的自动化任务执行能力</li>
+<li>昆仑万维与北大提出MoE++架构，引入零计算量专家机制，仅用57%计算成本达到更大MoE模型的同等性能</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2547985032.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

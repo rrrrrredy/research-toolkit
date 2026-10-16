@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LeCun AI 战略变化 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="LeCun AI 战略变化。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2602417889.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>LeCun AI 战略变化</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2602417889。版本：a0b59e17684a1e679760bb52a2b2189ab6f183cbeb78016f131fd713e327fd58。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/103</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/a0b59e17684a1e679760bb52a2b2189ab6f183cbeb78016f131fd713e327fd58.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>LeCun AI 战略变化</p>
+<h1>一、核心要点</h1>
+<p>1.Andrey Karpathy 近日有关「悔做 RL」的言论引起许多关注，而他在后悔的同时对 Yann LeCun 从一开始就不看好强化学习的态度始终正确的说法引发了 AI 社区对另一件事的兴趣，即「LeCun 的 AI 战略是否出现过摇摆？」</p>
+<p>2.相比于 Karpathy 的「悔恨」，知名 AI 学者、图灵奖得主 Yann LeCun 对其所推崇的技术路线十分坚定。在他历年的学术大会和访谈等公开场合分享的观点中，LeCun 始终强调实现人类水平智能不可能是监督学习或纯强化学习，他所推崇的技术也在这条主线上逐步更迭。</p>
+<p>3.LeCun 认为强化学习需要过多（Insane Amounts）的实验来学习，存在样本利用率低、过度依赖大量训练数据等局限，且仅完成特定目标后给予奖励，缺少对过程的反馈。但 LeCun 没有否认 RL 的价值，他列举了 RL 当时在各类游戏中取得的成就。然而，他认为在简单的虚拟世界中有效的 RL 无法实时且并行地在真实世界中运行，这与人类学习的方式存在显著差异，不适用大多数真实世界场景，因此建议将 RL 视为最后的选择即蛋糕上的樱桃。</p>
+<p>4.在 2022 年，Yann LeCun 不断强调世界模型和 EBM（能量模型）对实现未来自主智能（Autonomous Intelligence）的重要性。到了 2023 年，LeCun 在以往工作的基础上提出了 Objective-Driven AI Architecture，即「目标驱动的 AI 架构」，并更新了达到自主智能，或是高级机器智能（Advanced Machine Intelligence，AMI）应当具备的条件。</p>
+<h1>二、LeCun 推崇技术的更替</h1>
+<p>OpenAI 创始成员、研究科学家、原特斯拉前 AI 高级总监 Andrej Karpathy 近期在社交平台上有关「<a href="https://x.com/karpathy/status/1857980896776990830">悔做 RL</a>」的评论引起了极大关注，他将自己在 OpenAI 选择强化学习而没有选择自回归语言模型的决策描述为「有史以来最大、最令人困惑的研究生涯错误」。</p>
+<p>Karpathy 所描述的「弯路」在于他早期对语言模型的潜力有所认识，但后来却将研究重心转向了强化学习，没有持续在语言模型这一方向上深耕。在 2015 年前后，当时普遍看法认为 RNN 难以训练，但 Karpathy 在 2015 年的文章《<a href="https://karpathy.github.io/2015/05/21/rnn-effectiveness/">RNN 的不合理有效性</a>》中探讨了循环神经网络（RNN）的潜力，并通过实验展示了 RNN 在文本生成、代码生成等方面的能力。</p>
+<p>Karpathy 提到 Yann LeCun 当时对强化学习持保留态度，并用「蛋糕」比喻来说明强化学习在整个 AI 领域中的次要地位，而 Karpathy 认为 LeCun 在概念上一直是正确的。</p>
+<p>相比于 Karpathy 的「悔恨」，知名 AI 学者、图灵奖得主 Yann LeCun 对其所推崇的技术路线十分坚定。在他历年的学术大会和访谈等公开场合分享的观点中，LeCun 始终强调实现人类水平智能不可能是监督学习或纯强化学习，他所推崇的技术也在这条主线上逐步更迭。</p>
+<p>① 2016 年，LeCun <a href="https://www.youtube.com/watch?v=Ount2Y4qxQo">强调</a>无监督学习「根据任何可用信息预测过去、现在或未来的任何部分感知」的能力可以填补机器学习不具备预测能力的空白，并将其比喻为一个蛋糕的主体。</p>
+<p>② 2019 年，LeCun <a href="https://www.youtube.com/watch?v=YzD7Z2yRL7Y">用「自监督学习」取代了「无监督学习」</a>，并预测未来的神经网络是拥有大量数据和超大网络的自监督学习。</p>
+<p>③ 2019 年末，LeCun 在 SSL 是未来的基础上开始推崇能量模型，即 Energy-Based SSL，而后<a href="https://www.youtube.com/watch?t=2169&v=A7AnCvYDQrU&feature=youtu.be">强调</a>能量模型和世界模型对下一代 AI 的重要性。</p>
+<p>④ 2023 年，LeCun 在实现人类水平的 AI 的必要条件清单中<a href="https://www.reddit.com/r/MachineLearning/comments/kc8ruw/d_what_exactly_is_yann_lecuns_energy_based/">增加</a>了 Objective-DrivenAI 架构，与世界模型、能量模型和其他组件共同构成了自主智能（autonomous intelligence）的大框架。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2602417889/135561010148?contentType=1&isNewContent=false" alt="image.jpeg">{width=942.6666870117188 height=460.67 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2602417889/135561010149?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2602417889/135561010149?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2602417889/135561341977?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2602417889/135561341977?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p><em>LeCun 历年推崇的关键技术</em></p>
+<h1>三、Energy-Based SSL 和世界模型的关系</h1>
+<p>Yann LeCun 在 2016 年的 NIPS（现在的 NeuRIPS）大会上首次提出了「蛋糕比喻」，他将智能（Intelligence）比作一个蛋糕，其中大部分蛋糕（主体）是无监督学习，蛋糕上的糖霜（小部分）是监督学习，蛋糕上的樱桃（极小部分）是强化学习（RL）。这个比喻在 AI 社区中广为流传，并确立了 LeCun 作为无监督学习的坚定支持者。</p>
+<p>LeCun 一直在强调，人类会利用预测和推理等能力从可用信息中推断未来，而非通过筛选大量标记数据来理解世界。无监督学习或预测学习可以弥补当前 AI 在推理不同对象之间的关系或预测人类动作等方面的空白。</p>
+<p>在 2019 年 5 月的 ISSCC 大会中，LeCun 开始重新表述他的观点，给予了自监督学习（SSL）更高的评价，认为这种特殊的无监督学习方式是构建人工智能未来的重要因素，并在后续逐步提出了围绕 SSL 的一系列新概念。</p>
+<p>相较于对无监督学习/自监督学习的重视，LeCun 在历年的演讲和访谈等场合均表达了对（纯）强化学习方法的不看好。虽然该论调持续吸引了许多来自 RL 社区的反击，但他的态度始终没有改变。</p>
+<p>LeCun 认为强化学习需要过多（Insane Amounts）的实验来学习，存在样本利用率低、过度依赖大量训练数据等局限，且仅完成特定目标后给予奖励，缺少对过程的反馈。但 LeCun 没有否认 RL 的价值，他列举了 RL 当时在各类游戏中取得的成就。然而，他认为在简单的虚拟世界中有效的 RL 无法实时且并行地在真实世界中运行，这与人类学习的方式存在显著差异，不适用大多数真实世界场景，因此建议将 RL 视为最后的选择，即蛋糕上的樱桃。</p>
+<p>2019 年 5 月在 ISSCC 的演讲中，LeCun 将下阶段 AI 所需的核心技术从无监督学习改为了 SSL，后在在该年 9 月，<strong>他 UCLA 的演讲中重点介绍了 Energy-Based SSL，即能量模型（EBM）</strong>。</p>
+<p>① EMB 在机器学习领域并不是新概念，但随着相关研究的深入，能量模型的可行性和应用前景在不断提升。EBM 提供了一种新的视角，允许人们放弃对概率模型的依赖，转而关注能量函数本身，从而简化模型的构建和训练过程。</p>
+<p>② LeCun 在 2019 年 11 月于 IPAM 的演讲《Energy-Based Slef-Supervised Learning》中介绍了 EMB 对人工智能的价值，它借用统计物理学的概念，通过能量函数来描述数据的一致性或相容性。</p>
+<p>③ EBM 的优势在于，在概率方法难以处理的情况下（例如，非常大的离散空间，如「所有可能的句子」），EBM 更易于处理，并且它们允许灵活地设计评分函数。</p>
+<p>④ 该场演讲引起了一些<a href="https://www.reddit.com/r/MachineLearning/comments/kc8ruw/d_what_exactly_is_yann_lecuns_energy_based/">争议</a>，当时有声音认为 LeCun 的 EMB 仍处于「PPT 阶段」，即便有人说他在过去四年中十分热衷于这一概念，但没有 EBM 的实质性进展。</p>
+<p>LeCun <a href="https://www.zdnet.com/article/metas-ai-luminary-lecun-explores-deep-learnings-energy-frontier/">认为</a>，自主人工智能需要一个统一的世界模型来进行规划，而 EBM 提供了实现这一目标的潜在途径。根据 LeCun 后续几年的工作和他在公共场合的发言，他对 EBM 也越发推崇。</p>
+<p>① 2021 年，LeCun 在「<a href="https://arxiv.org/abs/2103.03230">Barlow Twins</a>」和「<a href="https://arxiv.org/abs/2105.04906">VICReg</a>」两篇论文中描述了能量模型研究的现状。而后在 2022 年，他和团队提出了 JEPA（Joint Embedding Predictive Architecture）架构，也是他在能量模型研究的代表工作。</p>
+<p>② JEPA 核心思想是将输入数据（如视频片段、图像等）嵌入到一个抽象的表征空间中，然后在这个空间里进行预测和推理，类似于婴儿通过观察世界来学习直观的物理规律和其他知识。</p>
+<p>③ 在 2022 年的一场访谈中，LeCun 表示能量模型是通向自主人工智能系统的重要起点，它在抽象表征空间中的预测能力能够为深度学习系统带来「巨大的优势」。</p>
+<p>④ LeCun 提到的「世界模型」指能够对场景之间的相关性和不同输入数据（如图像、语音等）的相关性进行建模的统一模型，它能够进行规划和预测。</p>
+<p>⑤ EBM 与世界模型的关系在于，以 JEPA 为代表的能量模型框架能够为深度学习解锁「预测世界的抽象表征」的能力而可以构建一个能够对世界的不同状态进行编码和预测的系统，这也是实现统一「世界模型」的重要工具。</p>
+<h1>四、目标驱动的 AI 如何满足 AMI 的必要条件</h1>
+<p>在 2022 年，Yann LeCun 不断强调世界模型和 EBM（能量模型）对实现未来自主智能（Autonomous Intelligence）的重要性。到了 2023 年，LeCun 在以往工作的基础上提出了 Objective-Driven AI Architecture，即「目标驱动的 AI 架构」，并更新了达到自主智能，或是高级机器智能（Advanced Machine Intelligence，AMI）应当具备的条件。</p>
+<p>在 2023 年之前的演讲中，LeCun 罗列的 AMI 必要条件包含：从感官输入中学习世界模型的 AI 系统；具有持久记忆的系统；具有规划行动的系统；可控和安全的系统。在 2023 年《The Impact of chatGPT talks》演讲中，LeCun 为 AMI 所需的条件清单增加了目标驱动的 AI 架构。</p>
+<p>Objective-driven AI 强调构建以目标为导向的人工智能系统，这些系统能够根据预设的目标（objectives）或「护栏」（guardrails）来驱动其行为和决策过程。该架构的核心是一个可预测的世界模型，它允许系统预测其行动的后果，并规划一系列行动来优化一组目标。系统通过感知模块获取对世界状态的抽象表征，并结合记忆内容初始化世界模型。然后，系统会想象一系列行动，并将其输入到世界模型中，以预测这些行动的后果。Objective-driven AI 能够进行分层规划（Hierachical Planning），类似人类先从非常高的层次进行规划，然后逐步细化，最后通过低级肌肉控制完成具体行动。</p>
+<p>在 Objective-driven AI 架构中，能量模型用于帮助 AI 系统（世界模型部分）学习世界的抽象表征，从而进行有效的预测和规划。能量模型通过将系统状态和目标以能量的方式表示，来捕捉变量之间的相互依赖性。优化目标函数来寻找最佳解，能量模型的思路可以应用于诸如机器人控制、路径规划等任务。</p>
+<p>同样在 2023 年，由于 ChatGPT 引起了大量关注，LeCun 在许多场合试图澄清公众对 ChatGPT 的误解，并结合 Objective-Driven AI 强调下一代 AI 需要的技术。LeCun 强调自回归 LLM 对潜在现实的了解有限，缺乏常识，没有记忆，因此无法进行有效的规划和推理，它们不可控、呈指数发散，并且这些缺陷很难修复。LeCun 认为自回归 LLM 仅仅是世界模型的一种简化的特殊情况，他提出将联合嵌入预测架构（JEPA）作为解决方案，强调放弃生成模型，支持联合嵌入架构；放弃概率模型，支持基于能量的模型（EBM）；放弃对比方法，支持正则化方法；放弃强化学习，支持模型-预测控制。</p>
+<p>在最近两年中，LeCun 在许多场合<a href="https://www.youtube.com/watch?v=MiqLoAZFRSE">讨论</a>了人类水平的人工智能（AI）的含义，强调要实现这样的 AI，机器需要能够理解世界、记忆信息、拥有直觉、具备常识、进行推理和规划，并达到与人类相同的水平。在这样的条件下，尽管机器最终将超越人类智能，但它们将始终受到控制，因为它们是目标驱动的。LeCun 同样在演讲中表示，Meta 已经基本放弃了纯语言模型，因为仅通过文本训练，AI 无法达到接近人类水平的智能。</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>Karpathy曾坦承放弃语言模型转向强化学习是&quot;有史以来最大的研究生涯错误&quot;，并认为LeCun从一开始就不看好强化学习的判断在概念上始终正确。LeCun长期坚持一个核心立场：实现人类水平智能既不能依赖监督学习，也不能依赖纯强化学习，他将RL定位为&quot;蛋糕上的樱桃&quot;，批评其样本利用率低、难以适用于真实世界场景。</p>
+<p>LeCun的技术路线经历了四次明显更迭，从无监督学习到自监督学习，再到Energy-Based SSL，最终演进至目标驱动AI架构。2019年，他在IPAM演讲中系统介绍能量模型（EBM），借用统计物理学概念描述数据一致性，强调EBM相比概率方法更易处理大型离散空间，并允许灵活设计评分函数，从而摆脱对传统概率模型的依赖。2022年，LeCun团队进一步提出JEPA架构，将输入数据嵌入抽象表征空间以完成预测与推理任务。</p>
+<p>2023年，LeCun正式提出&quot;目标驱动的AI架构&quot;（Objective-Driven AI），并更新了达到人类水平机器智能（AMI）所应具备的条件清单。该架构以可预测的世界模型为核心，支持分层规划，能够预测行动后果并持续优化目标。与此同时，LeCun对自回归LLM提出系统性批评，认为其缺乏常识、无法有效规划推理，且这些缺陷难以从根本上修复。他明确主张以JEPA替代生成模型、以EBM替代概率模型、以模型预测控制替代强化学习。Meta目前已基本放弃纯语言模型路线，LeCun坚信仅靠文本训练无法实现接近人类水平的智能。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>LeCun自2016年起始终坚持纯强化学习和监督学习无法实现人类水平智能，其技术路线从无监督学习演进至自监督学习、能量模型，再到目标驱动AI架构</li>
+<li>LeCun将强化学习定位为&#39;蛋糕上的樱桃&#39;，认为其样本效率低、缺乏过程反馈，难以在真实世界实时并行运行</li>
+<li>2022年LeCun团队提出JEPA架构，将数据嵌入抽象表征空间进行预测推理，是实现统一世界模型的代表性能量模型工作</li>
+<li>2023年LeCun提出目标驱动AI架构，强调AI需具备世界模型、持久记忆、分层规划和目标导向能力，批评自回归LLM存在根本性缺陷且难以修复</li>
+<li>Meta已基本放弃纯语言模型路线，LeCun主张以JEPA替代生成模型、以EBM替代概率模型、以模型预测控制替代强化学习</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2602417889.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>「程序性知识」与大模型推理 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="「程序性知识」与大模型推理。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2618443676.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>「程序性知识」与大模型推理</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2618443676。版本：3a384f2ce67a06ab963117711530aea1ce998cac6ce46b68c07b45dd17fa59f8。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/107</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/3a384f2ce67a06ab963117711530aea1ce998cac6ce46b68c07b45dd17fa59f8.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>「程序性知识」与大模型推理</p>
+<h1>一、核心要点</h1>
+<p>1.LLM 在近几年的发展中不断取得突破，但关于模型是否具备「真的推理能力」的辩论一直没有盖棺定论。其中，相信「预测下个 token 就能实现真正的理解」，相信预训练能够让模型从数据中学习世界的抽象表征的 Ilya Sutskever 也在最近的访谈中表示「Scaling the right thing matters more now than ever。」在这一趋势下，有许多工作开始探究推理层的 Scaling Law。但 UCL 和 Cohere 的新作发现，影响模型推理能力的「thing」也可能是预训练中的程序性知识。</p>
+<p>2.在 LLM 推理能力的争论中，大多持反对意见的工作的共同发现是，LLM 推理依赖于训练数据中类似问题的频率。然而，也有工作发现 LLM 并不会一直照搬训练数据中的数学推理步骤，回答事实问题和推理问题的「思路」也不一样。Cohere 和 UCL 的在 2024 年 11 月的工作中<a href="https://arxiv.org/abs/2411.12580">发现</a>了一个「折衷」的结论，即 LLM 其实能从训练数据的「程序性知识」里学到一种通用的推理方法，但不同语料确实会影响模型的推理能力。</p>
+<p>3.「程序性知识」（procedural knowledge）是一种知识类型，它涉及执行特定任务或解决问题所需的步骤和方法。这种知识通常包括一系列的操作或规则，指导个体如何进行特定的活动或推理过程。程序性知识是关于「如何做」的知识。在 LLM 的语境下，程序性知识指的是模型从预训练数据中学习到的，用于执行推理任务的一系列逻辑步骤或计算过程。</p>
+<p>4.UCL 和 Cohere 的研究者在论文《<a href="https://arxiv.org/abs/2411.12580">PROCEDURAL KNOWLEDGE IN PRETRAINING DRIVES REASONING IN LARGE LANGUAGE MODELS</a>》中梳理以往有关证明「LLM 是否具备推理能力」的系列工作，发现大多数研究在得出结论认为模型不是真正推理时，并没有进一步去研究预训练数据。围绕「LLMs 是如何从预训练数据中学习推理的？」的问题，该工作采取了与大多数可解释性研究相辅相成的方法，关注语言模型用于泛化的预训练数据，而不是解释模型权重本身。</p>
+<h1>二、「The Right Thing to Scale? 」 的程序性知识</h1>
+<p>1.对于「LLM 是否具备推理能力」的辩论中，有许多工作发现经过预训练的 LLM 在零试条件下展现出具备处理各类陌生任务的能力。</p>
+<p>① UCLA 的 Webb 等研究者在 2022 年 12 月的<a href="https://arxiv.org/abs/2212.09196">论文</a>中发现，LLM 在零试条件下，具有通过类比推理解决新问题的能力，类似 GPT-3 和 GPT-4 的模型在抽象模式归纳方面表现出色，大多数情况下匹配甚至超过了人类的能力。</p>
+<p>② Webb 等人的工作在发布后受到了质疑，称 LLM 在零试条件下对基于文本的类比问题展现的推理能力可能只是测试问题与模型训练数据中的材料相似，但 Webb 在后续的工作<a href="https://arxiv.org/abs/2404.13070">澄清</a>了测试材料，并进一步提供了证明 LLM 的推理能力可以泛化到「反事实」任务中。</p>
+<p>③ 对于 LLM 在算数方面的能力局限，McLeish 等人在 2024 年 5 月的<a href="https://arxiv.org/abs/2405.17399">论文</a>则提出用特殊的嵌入方法（Abacus Embedding）就能改善，让模型完成简单的算数，并且这种方式有希望解锁对多步推理任务的改进。</p>
+<p>2.在否定 LLM 具备真实推理能力的声音中，最为流行的假设认为 LLM 的「推理」过程实际是某种形式的近似检索，也有很多工作发现 LLM 处理语言形式的能力存在局限，或是无法处理微小的任务变化，能力不够稳健等。</p>
+<p>① 苹果团队在 2024 年 7 月的<a href="https://arxiv.org/abs/2410.05229">论文</a>中通过 GSM-Symbolic 数据集验证了 LLM 的数学能力，分析发现 OpenAI 的 GPT-4 或开源的 Llama、Phi、等模型都没有展现出任何形式推理的证据，而是更像是复杂的模式匹配器。</p>
+<p>② 哈佛的研究者 2023 年 2 月的<a href="https://arxiv.org/pdf/2302.08399">论文</a>发现，LLMs 在一些理论心智任务上表现出了一定的能力，但这些能力很脆弱的，在面对任务的微小变化时就会崩溃。这表明 LLMs 可能并没有真正理解理论心智，而是在依赖于对特定任务的模式识别和记忆。</p>
+<p>③ MIT 和波士顿大学的研究者在 2024 年 6 月的<a href="https://aclanthology.org/2024.naacl-long.102/">论文</a>中指出，尽管 LLMs 在某些任务上显示出了一定程度的泛化能力，但它们在面对与预训练数据中常见的任务不同的反事实任务时，性能会下降。</p>
+<p>3.在 LLM 推理能力的争论中，大多持反对意见的工作的共同发现是，LLM 推理依赖于训练数据中类似问题的频率。然而，也有工作发现 LLM 并不会一直照搬训练数据中的数学推理步骤，回答事实问题和推理问题的「思路」也不一样。Cohere 和 UCL 的在 2024 年 11 月的工作中<a href="https://arxiv.org/abs/2411.12580">发现</a>了一个「折衷」的结论，即 LLM 其实能从训练数据的「程序性知识」里学到一种通用的推理方法，但不同语料确实会影响模型的推理能力。</p>
+<p>① 「程序性知识」（procedural knowledge）是一种知识类型，它涉及执行特定任务或解决问题所需的步骤和方法。这种知识通常包括一系列的操作或规则，指导个体如何进行特定的活动或推理过程。</p>
+<p>② 程序性知识是关于「如何做」的知识。在 LLM 的语境下，程序性知识指的是模型从预训练数据中学习到的，用于执行推理任务的一系列逻辑步骤或计算过程。</p>
+<p>③ 在 LLM 预训练数据中，数学题的步骤或运算序列就是程序性知识的一部分。当处理一个数学问题时，模型不仅需要知道最终答案，还需要知道如何通过一系列数学运算来得到这个答案。</p>
+<p>该工作表明，对于事实问题，模型确实依赖于特定的文档来检索答案。然而，对于推理问题，答案通常不会出现在最具影响力的数据中。LLM 使用的推理方法看起来不同于检索，而更像是「从许多文档中综合程序性知识并进行类似的推理」的一种通用策略。</p>
+<p>① 模型在面对一个新的推理问题时，会利用它从预训练数据中学到的类似任务的解决步骤来生成答案。</p>
+<p>② 上述行为与简单地从预训练数据中检索（retrieval）已知事实或答案不同，模型实际上是在应用一种更通用的策略，将从多种文档中提取的程序性知识综合起来，以解决新的推理问题。</p>
+<p>在所有的程序性知识中，UCL 和 Cohere 的研究者发现代码预料在所有的任务中均有作用。这一发现也带来了一个新的可能性，即「是否可能存在一种预训练数据（如代码）可以让 LLM 从中学习到多种任务？」</p>
+<h1>三、程序性知识如何影响 LLM 进行推理</h1>
+<p>1.UCL 和 Cohere 的研究者在论文《<a href="https://arxiv.org/abs/2411.12580">PROCEDURAL KNOWLEDGE IN PRETRAINING DRIVES REASONING IN LARGE LANGUAGE MODELS</a>》中梳理以往有关证明「LLM 是否具备推理能力」的系列工作，发现大多数研究在得出结论认为模型不是真正推理时，并没有进一步去研究预训练数据。围绕「LLMs 是如何从预训练数据中学习推理的？」的问题，该工作采取了与大多数可解释性研究相辅相成的方法，关注语言模型用于泛化的预训练数据，而不是解释模型权重本身。</p>
+<p>该工作采用了一种系统的方法来探究大型语言模型（LLM）在执行推理任务时所依赖的预训练数据，以及这些数据如何影响模型的泛化策略。其研究目标是理解 LLM 在处理推理问题时是否依赖于预训练数据中的特定实例，或者是否能够采用一种更通用的策略来综合程序性知识。研究者们首先构建了一个包含 40 个推理问题（称为「文档」）和 40 个事实问题的查询集（称�</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本文围绕「程序性知识」与大模型推理能力的关系展开深度探讨。文章首先梳理了学界关于「LLM是否具备真正推理能力」的长期争论：支持方发现LLM在零样本条件下具备类比推理、抽象模式归纳等能力（UCLA Webb等人工作），反对方则认为LLM本质上是复杂的模式匹配器，推理能力依赖训练数据中类似问题的频率（苹果团队GSM-Symbolic、哈佛心智理论研究等）。核心焦点是UCL与Cohere研究者2024年11月发表的论文《PROCEDURAL KNOWLEDGE IN PRETRAINING DRIVES REASONING IN LARGE LANGUAGE MODELS》，该研究提出了一个折衷结论：LLM能从预训练数据的「程序性知识」中学习到通用推理方法，但不同语料对推理能力的影响确实存在差异。程序性知识是关于「如何做」的知识，包括执行特定任务所需的步骤和方法，在LLM语境下指模型从预训练数据中学到的用于推理任务的逻辑步骤或计算过程。研究发现，对于事实性问题，模型依赖特定文档检索答案；而对于推理问题，模型采用的是从多种文档中综合程序性知识的通用策略，而非简单检索。研究还特别发现代码语料在所有推理任务中均有正向作用，由此提出一个新可能性：代码预训练数据或许能让LLM学习到跨多种任务的通用推理能力。该研究方法聚焦于预训练数据本身，而非解释模型权重，与可解释性研究形成互补。Ilya Sutskever也在近期访谈中强调「Scaling the right thing matters more than ever」，呼应了预训练数据质量与类型对模型能力的关键影响。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>UCL与Cohere研究发现LLM能从预训练数据的程序性知识中习得通用推理方法，但不同语料类型确实会影响推理能力表现</li>
+<li>对事实问题LLM依赖特定文档检索答案，而对推理问题则综合多文档程序性知识形成通用推理策略，两者机制不同</li>
+<li>程序性知识是关于「如何做」的知识，涵盖执行任务所需的步骤与方法，是区别于事实性陈述知识的关键概念</li>
+<li>代码预训练语料在所有推理任务中均展现出正向作用，暗示代码数据可能是提升LLM多任务推理能力的关键数据类型</li>
+<li>反对LLM真实推理能力的研究普遍发现模型性能依赖训练数据中类似问题频率，且面对微小任务变化时能力不稳健</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2618443676.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

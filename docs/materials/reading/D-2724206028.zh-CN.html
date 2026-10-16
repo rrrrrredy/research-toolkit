@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>八月第四周：开源和多模态的双线主题 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="八月第四周：开源和多模态的双线主题。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2724206028.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>八月第四周：开源和多模态的双线主题</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2724206028。版本：332d610b9d4286b7b69f1d07f65fd815b637cafdfe2ff3cb9bd257209048e9cc。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/257</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/332d610b9d4286b7b69f1d07f65fd815b637cafdfe2ff3cb9bd257209048e9cc.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
+[loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
+🔐 正在认证用户: luosong03
+[initSsoAuth] 使用统一认证 - citadel - TargetClientId: com.sankuai.it.ead.citadel, UserId: luosong03
+[ensureCommandAvailable] 包 @mtfe/mtsso-auth-official 已是 latest tag 的最新版本 1.0.3
+[probeModSeamlessSupport] MOA 无感登录能力可用 (status=supported, endpoint=wss://localhost.moa.sankuai.com:16161/)
+[detectAuthStrategy] 检测到 MOA 无感登录支持
+[sso-ciba] 初始化完成 
+  目标 ClientId: com.sankuai.it.ead.citadel 
+  认证策略: moa-seamless (MOA 无感登录（mtsso-moa-local-exchange）)
+[sso-ciba] MOA 无感登录 provider 已初始化
+[sso-ciba] 使用缓存的 token (剩余 445s)
+✅ 认证成功</p>
+<p>:::title{nodeId=&quot;28eabe08098f4330837bf15895fa2d31&quot;}
+八月第四周：开源和多模态的双线主题</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：从“算力军备”走向“场景落地”，小模型与边缘 AI 成为新亮点</strong></p>
+<ul>
+<li><strong>英伟达把“核弹”做成“插座”</strong>：Jetson AGX Thor 把 2 PFLOPS 级 AI 算力塞进 130 W 边缘盒子，首次让物理 AI（机器人、工业控制）在本地跑大模型成为量产级选项。这意味着“云端训练-本地推理”的正向循环正在闭合，机器人公司可能不再需要自建 GPU 农场，而是直接买“带 AI 的乐高”。</li>
+<li><strong>小模型进入“后 NAS 时代”</strong>：Jet-Nemotron 2B/4B 用 PostNAS+线性注意力把 H100 吞吐提高 50 倍，验证了“小但专”的范式——当 GPU 不再稀缺，效率提升的核心不再是参数，而是架构搜索与 IO 压缩。微软、Google、Meta 同期都在做类似减法，海外正在经历一次“大模型瘦身潮”。</li>
+<li><strong>语音、音效、图像编辑全面“长内容化”</strong>：微软 VibeVoice 90 分钟合成、OpenAI gpt-realtime 的情感多语言、腾讯混元开源 Foley 的“电影级音效”都指向一个信号——AI 不再满足于“秒级”交互，而是要接管完整创作流。内容平台必须重新思考版权、分润与实时审核机制。</li>
+<li><strong>Meta 超级智能实验室“闪电式失血”</strong>：三名核心研究员回流 OpenAI，反映“超高薪+超算力”已无法抵消组织文化与战略摇摆带来的摩擦成本。AI 人才正从“大厂军备竞赛”转向“创业自由度”与“研究话语权”的再平衡。</li>
+</ul>
+<p><strong>2.国内：从“单点模型”到“全链路产品”，场景公司开始主导话语权</strong></p>
+<ul>
+<li><strong>阿里“开源周”打出组合拳</strong>：Wan2.2-S2V、Vivid-VR、Mobile-Agent-v3 三连发，显示阿里不再只卖算力，而是用开源模型占领开发者心智，再反向拉动阿里云与钉钉商业闭环。开源=获客，已成为中国云厂商的共识。</li>
+<li><strong>钉钉把 AI 塞进“会议纪要硬件”</strong>：DingTalk A1 把大模型做成 799 元“随身秘书”，标志着 AI 的下一个主战场是“硬件即渠道”。当 AI 能力被封装成 MP3 大小的磁吸录音笔，企业采购决策从“IT 预算”变成“办公用品预算”，渗透率将指数级上升。</li>
+<li><strong>字节跳动“多模态全家桶”</strong>：OmniHuman-1.5、Waver 1.0、OmniHuman-1.5 双人驱动、FutureX 预测基准……一套组合拳把短视频、教育、广告三大现金牛全部武装一遍。字节正在用“内容生成+内容分发”双轮驱动，构筑 AIGC 时代的“数据-模型-流量”护城河。</li>
+<li><strong>视频工具进入功能细分阶段</strong>：MiniMax、面壁、爱诗、腾讯混元等创业/大厂团队齐发首尾帧、音效、极速视频工具，说明“中国版 Sora”已进入功能细分阶段——与其做大而全的通用模型，不如在 10 秒短视频、直播礼物、广告素材等垂直环节做到极致体验，再反向吃数据。</li>
+</ul>
+<p><strong>3.上周行业重点：AI 进入“多模态工作流”拐点，商业化节奏分化</strong></p>
+<ul>
+<li><p><strong>技术拐点</strong>：单模态→多模态→“全链路工作流”（语音+音效+视频+字幕+发布）。谁能把 5 个环节串成一键 Pipeline，谁就拥有下一个 Canva/Adobe 级机会。</p>
+</li>
+<li><p><strong>商业化节奏分化</strong>：<br>– To B 云厂商（阿里、腾讯、百度）通过开源/硬件抢开发者，再卖云资源；<br>– To C 场景公司（字节、钉钉）直接做终端硬件或嵌入超级 App，用“订阅+增值”收税；<br>– 中间层模型公司（MiniMax、面壁、爱诗）面临“被集成”压力，必须找到独家数据或独占场景，否则沦为算力批发商。</p>
+</li>
+<li><p><strong>人才与组织</strong>：Meta 的“九位数美元”挖角遇挫，侧面证明“研究自由+创业期权”对顶级研究者的吸引力已超过现金。中国大厂同样面临“冯佳时式”出走——当模型进入工程化落地期，学术明星的价值曲线正在下降，产品经理与场景运营话语权上升。</p>
+</li>
+</ul>
+<p><strong>4.其他层面</strong><br><strong>隐私政策再收紧</strong>：Claude 默认收集用户对话用于训练，国内豆包上线未成年模式，显示全球监管正从“事后罚单”转向“产品功能级”合规。后续所有面向 C 端的 AI 功能都必须内置“一键关闭数据训练”开关，否则面临下架风险。</p>
+<p><strong>出版商分润模式萌芽</strong>：Perplexity 4250 万美元基金把“AI 搜索广告”拆成 CPA（按出现次数）+订阅分成，预示着内容产业将从“流量分成”过渡到“模型调用分成”。国内长视频、网文平台可能跟进，重塑版权经济。</p>
+<p><strong>边缘 AI 生态”初成</strong>：英伟达 Jetson Thor + 阿里开源小模型 + RISC-V 边缘芯片，可能催生中国版“机器人 App Store”。一旦机器人 OEM 把 Jetson 当主板卖，开发者即可像写手机 App 一样写机器人 Skill，硬件迭代周期从 3 年压缩到 6 个月。</p>
+<p><strong>“AI 生成内容溯源”技术刚需</strong>：随着 90 分钟语音、10 秒视频一键生成，深度伪造门槛趋近于零。谁在链路上先做“生成即签名+区块链存证”，谁就可能成为下一代内容平台的合规基础设施。</p>
+<h3>二、海外</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nGoogle 发布新图像生成模型 nano banana\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;8 月 27 日凌晨，Google 正式提出了其最先进的图像生成与编辑模型——Gemini 2.5 Flash Image（又名 nano banana）。\n\n据官方介绍，Gemini 2.5 Flash Image 的主要特点包括下面几点：\n\n充分保持角色的一致性：它可以轻松地将同一个角色置于不同的环境中，或者从多个角度展示同一款产品，同时完美地保持其核心主体不变；\n\n基于提示的图片编辑：允许用户通过简单的自然语言指令，对图片进行精准的局部修改 ；\n\n利用 Gemini 的现实世界知识：模型可借助 Gemini 强大的世界知识库，让图像生成变得更加「智能」；\n\n多幅图像融合：可以将一张图片中的物体「放」进另一张图片的场景里，整个过程只需一条提示指令就能完成。\n\n性能表现上，Gemini 2.5 Flash Image 在多项基准测试上均为第一名，超越 OpenAI ChatGPT 4o（GPT Image 1 high）、Qwen Image Edit 等模型。\n\n关于调用 API，具体的定价是每百万输出 token 30 美元，官方介绍，生成一张图片大约消耗 1290 个输出 token，也就是说，每张图片的成本约为 0.039 美元，换算下来人民币不到 3 毛钱。\n\n目前，Gemini 2.5 Flash Image 已经可以通过 Gemini APP、Gemini API、Google AI Studio 和 Vertex AI 进行访问。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nNotebookLM 视频概览新增支持 80 多种语言，支持中文\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;谷歌旗下的人工智能笔记工具 NotebookLM 迎来重大更新，其视频概览（Video Overviews）功能现已支持超过 80 种语言，包括法语、德语、西班牙语、日语，以及多种印度语言如印地语、泰米尔语和马拉地语。这一更新于 2025 年 8 月 26 日正式公布，标志着 NotebookLM 在全球化和包容性上迈出了重要一步。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**OpenAI**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nOpenAI 推出 gpt-realtime 语音对话模型：支持情感感知、多语言无缝切换\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;8 月 29 日消息，OpenAI 已将其「Realtime API」正式投入生产环境，将其移出测试阶段（Beta）。这款 API 主要面向企业与开发者群体，旨在助力他们开发适用于实际场景的语音助手，覆盖客户支持、教育、个人效率提升等领域。其核心组件「gpt-realtime」模型采用端到端 Speech-to-Speech 架构，可直接生成并处理语音，省去了常规的文本转换步骤。据 OpenAI 介绍，相比前代版本，该模型响应速度更快、语音更自然，对复杂指令的处理能力也更强。\n\nOpenAI 表示，目前 gpt-realtime 模型能够捕捉笑声等非语言信号，支持对话过程中中途切换语言，还可调整语音语气——例如实现「带法国口音的友好语调」或「语速较快的专业语调」。此外，该模型新增了「Cedar」和「Marin」两种语音，并对现有的 8 种语音效果进行了优化。\n\n在性能基准测试中，gpt-realtime 模型表现显著提升：在 Big Bench Audio 基准测试中准确率从 65.6% 升至 82.8%，在 MultiChallenge 基准测试中从 20.6% 升至 30.5%，在 ComplexFuncBench 基准测试中则从 49.7% 提升至 66.5%。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 3,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Meta**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nMeta 研究科学家 Rishabh Agarwal 离职\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;8 月 26 日凌晨，Meta 研究科学家 Rishabh Agarwal 发文宣布自己将要离开 Meta 的超级智能团队：\n\n是否继续加入新的 Superintelligence TBD 实验室对我来说是一个艰难的决定，尤其是在那样的人才与算力高度集中的环境下。但他指出，「在 Google Brain、DeepMind 和 Meta 度过了 7.5 年之后，我还是感受到一种驱动力——去承担一种不同类型的风险。」\n\n但在文末，Rishabh 却指出：「Mark（扎克伯格）和 Alexandr Wang 提出的加入 Superintelligence 团队的愿景极具吸引力。但最终我选择遵循 Mark 本人的建议：‘在一个变化如此之快的世界里，你能冒的最大风险就是不冒任何风险。’」\n\n有趣的是，Meta 的超级智能实验室才刚刚拉开大幕，资金、算力应有尽有，CEO 扎克伯格更是亲自下场喊口号，势必要让「人人都有超级智能」。而为了赢得 AI 竞赛，最近的 Meta 的招聘节奏也是异常激进。\n\n据悉，扎克伯格向不少顶级研究员开出了高达九位数美元的薪酬，甚至亲自通过电子邮件和 WhatsApp 等方式从 OpenAI、Google 等公司招募人才，开出的总薪酬有时能达到 1 亿美元。\n\n截至 8 月中旬，Meta 已成功从 OpenAI 挖走超 20 人，从 Google 挖走至少 13 人，3 名来自苹果 ，3 名来自 xAI，2 名来自 Anthropic，总计新员工超过 50 名。然而，最近有传言称，Meta 在持续数月大举招揽了超过 50 名 AI 研究员和工程师后，已于上周开始冻结其 AI 部门的人员招聘，并全面缩减 AI 部门规模，重组 AI 团队。\n\n而据了解，Rishabh 在 Meta 中和团队折腾出了不少成果，比如推动了在「思考型」模型在后训练方面的进展；通过 RL 扩展，将一个 80 亿参数的稠密模型推到了接近 Deepseek-R1 的性能。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\nMeta 被曝多名新研究员离职\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;据《Wired》报道，日前至少有三名 AI 研究人员从 Meta 新成立的「超级智能实验室」（MSL）离职，</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>八月第四周，AI行业呈现开源化与多模态两条并行主线。硬件端，英伟达Jetson AGX Thor将2PFLOPS算力压缩至130W边缘设备，物理AI本地推理进入量产阶段；架构层面，Jet-Nemotron通过PostNAS与线性注意力组合将H100吞吐提升50倍，小模型优化成为新趋势。</p>
+<p>模型发布层面动作密集。谷歌推出Gemini 2.5 Flash Image（代号&quot;nano banana&quot;），支持角色一致性保持、自然语言局部编辑及多图融合，在多项基准测试中超越GPT Image 1与Qwen Image Edit，API定价每百万输出token 30美元，生成单张图片成本约0.039美元；谷歌NotebookLM同步新增80余种语言支持。OpenAI将Realtime API正式移出测试阶段，gpt-realtime采用端到端语音架构，Big Bench Audio准确率从65.6%跃升至82.8%，可捕捉笑声等非语言信号并支持实时切换语言。</p>
+<p>人才博弈持续升温。扎克伯格向顶级研究员开出九位数美元薪酬，从OpenAI、谷歌累计挖走逾50名研究员，但Meta超级智能实验室（MSL）随即传出至少三名核心研究员离职，其中Rishabh Agarwal曾将80亿参数模型性能推近DeepSeek-R1水平，高薪已难以抵消组织摩擦成本。</p>
+<p>商业格局上，阿里以开源模型构建&quot;获客→云服务变现&quot;闭环，钉钉推出799元AI录音硬件将采购门槛降至办公用品级别，字节跳动多模态矩阵覆盖短视频、教育与广告，Perplexity则设立4250万美元基金探索内容分润新机制。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>英伟达Jetson AGX Thor将2PFLOPS算力压缩至130W边缘设备，推动机器人和工业控制本地大模型成为量产级选项</li>
+<li>阿里开源周三连发（Wan2.2-S2V、Vivid-VR、Mobile-Agent-v3），开源占领开发者心智反向拉动云商业闭环已成中国云厂商共识</li>
+<li>字节跳动多模态全家桶覆盖短视频、教育、广告三大业务，构建数据-模型-流量护城河</li>
+<li>商业化路径三分化：云厂商靠开源/硬件抢开发者卖云资源，终端场景公司做硬件或超级App收订阅税，中间层模型公司面临被集成压力</li>
+<li>Google发布Gemini 2.5 Flash Image，支持角色一致性、自然语言图片编辑、多图融合，性能基准超越GPT Image 1和Qwen Image Edit</li>
+<li>隐私合规趋严与出版商分润模式萌芽，AI生成内容溯源成为基础设施刚需</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2724206028.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

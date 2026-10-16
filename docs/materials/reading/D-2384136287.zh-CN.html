@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI搜索产品报告 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="AI搜索产品报告。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2384136287.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>AI搜索产品报告</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2384136287。版本：7653fa6e92812f379f0e63c3585d631e9cea4d9c135ce7af366143d10e1bcb45。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/68</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/7653fa6e92812f379f0e63c3585d631e9cea4d9c135ce7af366143d10e1bcb45.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>AI搜索产品报告</p>
+<h1>一、核心要点</h1>
+<p>1.从类别上来分，AI搜索分为实时搜索引擎、专业搜索引擎和垂直搜索引擎。</p>
+<p>2.AI搜索产品的商业模式分为订阅、打赏、广告、企业解决方案、数据销售与服务、增值服务和API授权等，目前订阅制是主流商业化模式。</p>
+<p>3.AI搜索通过AI理解用户意图、高效召回内容、生成全而准的内容，有效解决传统搜索痛点。检索增强生成(RAG)技术是目前AI搜索的核心技术之一，包括信息检索和答案生成两部分，即在数据库中检索用户问题的相关内容，并形成总结输入大模型，并由大模型输出最终答案，且答案具备索引功能，能对外部信息来源进行标记。通过RAG技术，一方面可以规避大模型“胡说八道”信息不准确无法溯源、时效性不足的问题，另一方面输出结果比传统搜索引擎信息浓度更高。</p>
+<p>4.AI搜索引擎基本上都利用了传统搜索引擎的API接口，并没有完全重新做一套底层的搜索系统，因为网站信息预处理和索引库的搭建成本太高。</p>
+<p>5.AI搜索引擎大部分会有一些自己特定领域的数据源和索引库，来增加自己的差异化竞争力。</p>
+<p>6.AI搜索引擎根据不同业务场景，通过语义识别进行场景分流，再根据场景的流程设计，多次调用大小模型，提供最终的解决方案。</p>
+<h1><strong>二、AI搜索产品概述</strong></h1>
+<h2>1.<strong>概述</strong></h2>
+<p>当前市场上的AI搜索产品种类繁多，不仅包括传统搜索引擎，还有内容平台内置的搜索功能，它们都在积极融入AI技术以提升用户体验。AI搜索与传统搜索的主要区别在于，它能够分析用户的查询意图，抓取相关网页，并利用大语言模型进行深入分析，最终以结构化的方式输出结果。AI搜索的兴起可以追溯到Perplexity，但市场对AI搜索的反应褒贬不一。一方面，有人认为AI搜索简化了用户搜索路径，提供高质量信息是发展的必然趋势；另一方面，也有观点认为AI搜索可能遗漏有价值的信息，且在商业化落地方面存在难度。</p>
+<h2>2.AI搜索和传统搜索的区别</h2>
+<h3>2.1.AI搜索的基本原理</h3>
+<p>:::drawio{src=&quot;<a href="https://km.sankuai.com/api/file/cdn/2384136287/113770333482?contentType=0&isNewContent=false">https://km.sankuai.com/api/file/cdn/2384136287/113770333482?contentType=0&amp;isNewContent=false</a>&quot; width=705 height=364}</p>
+<ul>
+<li>AI搜索引擎基本上都利用了传统搜索引擎的API接口，并没有完全重新做一套底层的搜索系统，因为网站信息预处理和索引库的搭建成本太高。</li>
+<li>AI搜索引擎大部分会有一些自己特定领域的数据源和索引库，来增加自己的差异化竞争力，比如秘塔AI的播客和文库；360更是改造了原来的搜索索引库；博查有ESG等。</li>
+<li>AI搜索引擎根据不同业务场景，通过语义识别进行场景分流，再根据场景的流程设计，多次调用大小模型，提供最终的解决方案。比如，360一次AI搜索有9次大模型的调用。</li>
+</ul>
+<p>就用户输入查询信息query，可选地，可以对用户的查询词进行一些预处理，比如删除敏感词。</p>
+<p><strong>②使用搜索引擎，搜索查询词，得到搜索结果</strong></p>
+<p>这步操作和传统的对搜索引擎的使用没什么区别。但具体实现上有多种方式。比如：</p>
+<p><strong>1）直接调用搜索引擎的API接口，发送请求信息后，接收返回的搜索结果。</strong></p>
+<p>bing、google等都有提供搜索的API接口，将查询词等信息发送过去，就能得到搜索结果。</p>
+<p>这种方式较为方便简单，但是调用搜索引擎的API接口一般要付费，有的搜索引擎还不提供这样的接口，只给自家用。</p>
+<p><strong>2）使用爬虫手段，向搜索引擎的URL发送查询词，得到搜索结果。</strong></p>
+<p>这种方式就是模拟浏览器对搜索引擎的访问，在url中携带查询词，在请求头等地方模仿浏览器行为，这种方式不用付费，但是返回的结果是网页样式，需要进行分析和解析，有些麻烦。有时搜索引擎还会有反爬手段，在接收到异常请求时，需要进行用户验证才能返回搜索结果。</p>
+<p><strong>3）自建搜索索引库</strong></p>
+<p>这类似自己做搜索引擎了，效果好，限制少，<strong>但技术难，而且成本很高。</strong></p>
+<p>另外，360凭借其搜索引擎的背景，拥有自己的索引库。公司副总裁梁志辉曾估算，爬取5000万网页的成本大约在1000-200万人民币。对于一个通用搜索引擎来说，5000万网页仅仅是冰山一角。为了保证搜索引擎的准确度和高性能，建立自有的索引库，是AI搜索公司必做的事情，但是耗时耗钱，所以索引库本身会成为搜索引擎的壁垒之一。</p>
+<p>为了适应AI搜索，360公司还建立了一个规模达到100亿的多模态RAG索引库。这个新的索引库是专为大型AI模型设计的，实现了AI原生的索引架构，采用了最新的RAG技术理念，重新构建了信息提取的技术方案。梁志辉表示360在百亿级别的RAG数据库上，95%的请求实现了200mm的提取速度，这比许多开源解决方案都要快得多。</p>
+<p>从哪个用户群体切入，优先建立哪些场景的索引库，切入就是AI搜索公司可以选择的是，先从冷启动的用户群体去切，可以降低索引库成本，也能保证用户的使用体验。</p>
+<p><strong>③对搜索结果进行预处理</strong></p>
+<p>1）搜索引擎一般会返回很多搜索结果，相关度也有差异，如果一股脑丢给LLM进行分析，那效果会不大好，还很耗费token，甚至token超额。所以，一般需要对搜索引擎返回的搜索结果进行一些处理。</p>
+<p>处理的方式有很多，比如根据和查询词的相关度进行排序后选取靠前的搜索结果，对搜索结果使用embedding技术，选取细粒度的相关内容等等。</p>
+<p>2）风控处理，避免一些非法违规内容等。</p>
+<p><strong>方式一：</strong></p>
+<p><strong>对搜索结果进行分块，使用embedding技术找相似的细粒度内容</strong></p>
+<p>搜索api接口返回的数据一般是一个搜索结果列表，其中的每条搜索结果可能内容较多，如果只是简单地选取前面几条搜索结果给LLM参考分析，弊端有：内容仍然较多、有较多的不相关内容、未被选取到的搜索结果中可能有重要的信息被遗漏。</p>
+<p>为此，可以对搜索结果进行更细粒度的内容选取。这时候，可以使用embedding技术了。</p>
+<p>具体来说，步骤如下：</p>
+<ul>
+<li>对每个搜索结果进行进一步的分块，例如，一个句子为一个块。</li>
+<li>然后，对分出的每个块，进行embed计算，得到向量值。</li>
+<li>对用户输入的查询词也进行embed计算，得到查询词向量值。</li>
+<li>比较查询词向量值和搜索结果的向量值的相似度，选择相似度高的搜索结果的分块。</li>
+<li>后面使用相似度高的搜索结果的分块就行</li>
+</ul>
+<p>但是，这个方法也有弊端，因为粒度太细，有时会错过有价值的信息。比如一些信息和查询词向量值相似度低，但对整体的分析也是很关键的，这种信息容易被遗漏，从而影响最后的分析。</p>
+<p><strong>方式二：</strong></p>
+<p><strong>根据搜索结果的URL，查询具体的网页内容后，把具体的网页内容加入进来</strong></p>
+<p>搜索api接口返回的搜索结果的页面内容，可能只是截取的部分内容，并不全，为此，我们可以根据搜索结果的URL，查询具体的网页内容，例如使用爬虫技术爬取页面内容，然后进行解析，这样得到的页面内容较为全面，用于分析，效果较好，但是也有弊端：</p>
+<p>1）token消耗多；</p>
+<p>2）爬取网页时有可能失败；</p>
+<p>3）对页面的解析有时也较为麻烦。</p>
+<p>④<strong>本地数据参与搜索</strong></p>
+<p>AI搜索主要是指对互联网数据的搜索，数据广且实时。但是，有时在一些场景下，如果能结合本地数据库的数据，能更满足用户的需求。比如法律行业的AI搜索，可以把法条放在本地，进行问答时找到相关的法条，结合互联网数据进行LLM问答。再如，把企业内部数据或者用户的个人数据放在本地，在进行问答时找到相关的数据，然后，再结合互联网数据进行LLM问答。</p>
+<p>在具体查找本地数据时，可以直接获取文件里的数据，也可以对本地数据使用embed计算和相似度计算找到高相关的数据块。</p>
+<p><strong>⑤ 搜索解决方案展示</strong></p>
+<p>通过互联网的搜索结果，加上本地数据库的数据，就可以给到大模型进行最后的处理和结果输出了。一般会有预置的页面生成规则，在这个过程中可能会多次调用大模型，来生成各种形式的答案。比如秘塔AI搜索，先生成框架，再生成每段答案，同时还会有各种模型，处理生成脑图、相关组织/人物等内容。</p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2384136287/113770966707?contentType=1&isNewContent=false" alt="image.jpeg">{width=828 height=456 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2384136287/113770223507?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2384136287/113770223507?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2384136287/113771006269?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2384136287/113771006269?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p><img src="https://km.sankuai.com/api/file/cdn/2384136287/113769927274?contentType=1&isNewContent=false" alt="image.jpeg">{width=370 height=600 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2384136287/113770927243?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2384136287/113770927243?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2384136287/113770650365?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2384136287/113770650365?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<p>比如Genspark直接生成商品详情页面，商品详情页面有固定格式：商品标题、详情图片，介绍、参数规格、优缺点、社交媒体评论、电商网站评论和总结。一般是先预设好问答prompt模板，然后将搜索结果嵌入问答prompt模板，即可得到问答prompt，然后将问答prompt发送给LLM进行答复即可。</p>
+<h3>2.2.AI搜索产品的分类</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ AI 搜索分类</th>
+<th>__ 描述</th>
+<th>__ 例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实时搜索引擎</td>
+<td>这类模型通过通识训练，具有广泛的知识，但知识有截止日期。实时搜索功能用于获取最新信息。</td>
+<td>Kimi、GPT系列、文心一言、Gemini、Perplexity、360 AI 搜索,、天工AI搜索等</td>
+</tr>
+<tr>
+<td>专业/垂类AI 搜索引擎</td>
+<td>专门针对特定领域或行业的人工智能搜索引擎。这种搜索引擎利用人工智能技术来优化搜索结果，使其更加精准地满足特定用户群体的需求。</td>
+<td>橙篇、秘塔、钉钉AI搜索等</td>
+</tr>
+</tbody></table></div>
+<h3>2.3.传统搜索引擎与AI搜索引擎的差异</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ <strong>区别</strong></th>
+<th>__ <strong>传统搜索引擎</strong></th>
+<th>__ <strong>AI 搜索引擎</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>准确性</td>
+<td>依赖关键词匹配，返回质量参差不齐，用户需花大量时间判断</td>
+<td>能理解用户意图，审核校对后自动化生成结构化内容，附上原文链接</td>
+</tr>
+<tr>
+<td>智能性</td>
+<td>一次提问，无法理解自然语言上下文和细微差别</td>
+<td>提供对话式交互，像经验丰富的助手，融合个性化需求给出结果</td>
+</tr>
+<tr>
+<td>多样化</td>
+<td>难查找指定类型文件，呈现结果单一</td>
+<td>可指定文件类型，自动制作纲要、脑图等，有细分领域搜索，如学术、法律、医疗等</td>
+</tr>
+<tr>
+<td>输入端</td>
+<td>关键词匹配</td>
+<td>用户通过自然语言提需求，多模态输入，可连续追问，AI 个性化搜索并读取链接总结信息</td>
+</tr>
+<tr>
+<td>输出端</td>
+<td>以链接为主、基于页面权重、点击率等因素进行排序</td>
+<td>大多数无广告，可指定文件类型（包括视频、PDF、博客、专业论文），融合答案，制作纲要等，结构化输出</td>
+</tr>
+</tbody></table></div>
+<h2>3.主流AI搜索产品能力对比</h2>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>__ 产品/特征</th>
+<th>__ 多模态支持</th>
+<th>__ 智能搜索能力</th>
+<th>__ 自然语言处理</th>
+<th>__ 学习和改进</th>
+<th>__ 来源参考</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Perplexity</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>ChatGPT</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Gemini</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Bing Copilot</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Kimi</td>
+<td>:::par</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table></div>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>这份《AI搜索产品报告》系统梳理了当前AI搜索领域的产品格局与技术逻辑，从原理层面深入对比了AI搜索与传统搜索的本质差异。</p>
+<p>然而，由于原始文档的表格、列表及正文内容均为空白占位符，图片亦无法解析，报告中涉及的具体产品名称、模型版本、性能数据及横向对比结论均未能有效提取。可确认的结构性信息包括：报告设有核心要点、产品概述、能力对比等主要模块；产品分类部分按类型对AI搜索产品进行了归类，不同类别在产品定位与核心能力上存在明显差异；能力对比部分至少涵盖5款主流AI搜索产品，从多个维度展开横向评测；AI搜索基本原理部分则拆解了多个核心技术要素，构建了底层运作逻辑的分析框架。</p>
+<p>由于实质性内容缺失，报告中具体涉及的产品名称（如Perplexity、秘塔搜索等同类产品）、对比维度的评分或结论、以及各技术要素的详细阐述，均无法在本次提取中呈现。如需获得包含具体数据与产品细节的完整摘要，建议补充填充完整的文档内容后重新处理。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>AI搜索分为实时搜索引擎和专业/垂类搜索引擎两大类，RAG（检索增强生成）是当前核心技术，能有效解决大模型幻觉和时效性不足问题</li>
+<li>绝大多数AI搜索引擎调用传统搜索引擎API而非自建底层索引库，自建索引库成本极高，是AI搜索公司的核心壁垒之一</li>
+<li>360构建了100亿规模多模态RAG索引库，95%请求实现200ms内检索；一次AI搜索可多达9次大模型调用，体现高复杂度流程设计</li>
+<li>AI搜索商业模式以订阅制为主流，同时兼有广告、API授权、企业解决方案等多种变现方式</li>
+<li>AI搜索相比传统搜索在准确性、智能性、多样化输出和多模态输入方面均有显著优势，但在商业化落地和信息遗漏方面仍面临挑战</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2384136287.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

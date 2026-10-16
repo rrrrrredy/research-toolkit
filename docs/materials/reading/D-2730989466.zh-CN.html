@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>十月第5周：海外把 “内存 + 精度” 当新护城河，国内把 “降价 + 开源” 打成一套组合拳 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="十月第5周：海外把 “内存 + 精度” 当新护城河，国内把 “降价 + 开源” 打成一套组合拳。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2730989466.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>十月第5周：海外把 “内存 + 精度” 当新护城河，国内把 “降价 + 开源” 打成一套组合拳</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2730989466。版本：9b1917c47dc5d7b514d1aade432d118c03f5912ae911e067247a64330a4377ee。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/185</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/9b1917c47dc5d7b514d1aade432d118c03f5912ae911e067247a64330a4377ee.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>十月第5周：海外把 “内存 + 精度” 当新护城河，国内把 “降价 + 开源” 打成一套组合拳</p>
+<h3>一、周趋势总结</h3>
+<p><strong>1.海外：从“算力通胀”到“应用通缩”，资本正在重新定价“AI 杠杆”</strong></p>
+<ul>
+<li><strong>算力侧：HBM4+NVLink144 拉开 “内存即性能” 新军备</strong></li>
+</ul>
+<p>Nvidia Vera Rubin 把 HBM4 首次塞进量产 Roadmap，单卡 288 GB、13 TB/s 带宽，等于把一台 DGX 的内存墙直接推到 2027 年的 1 TB HBM4e。注意，黄仁勋刻意用 PFLOPS@FP4 而非 FP16 做标称，透露两大信号：①训练 / 推理精度正在向下位宽迁移，LLM 对数值精度的敏感度低于 CV；②内存带宽 &gt; 晶体管数量，成为 AI 芯片第一性指标。台积电 CoWoS-L 产能已锁定到 2027 年，留给 AMD/Intel 的窗口只有 18 个月，先进封装产能才是 AI 芯片的 “OPEC 配额”。</p>
+<ul>
+<li><strong>模型侧：全能≠通用，开始“场景硬化”</strong></li>
+</ul>
+<p>OmniVinci、Earth AI、Grokipedia 都在做 “模态补齐”，但路径出现分叉：一类（OmniVinci）用统一 Transformer + 对齐网络走 “dense 全能”，另一类（Google Earth AI）走 “Agent 路由 + 专家模型” 的 MOE-plus，把地理、人口、气象做成可插拔 API。市场终于意识到 “通用大模型” 是伪命题，谁能把行业知识先转成可执行 Plan，谁就能先完成 “模型商品化”。资本也同步投票：Poolside 120 亿美金估值≈1/3 GitHub 市值，等于把 “AI 编程” 当成下一个 Adobe Creative Suite—— 工具 -&gt; 云 -&gt; 平台的三段跃迁。</p>
+<ul>
+<li><strong>商业侧：基础设施公司开始“向下吃”应用利润</strong></li>
+</ul>
+<p>OpenAI 把 PayPal 塞进 ChatGPT，xAI 让 Grok 直接生成视频并 Remix，Nvidia 连投 Poolside+Wayve。过去 18 个月是 “应用公司借算力”，现在反转为 “算力公司摘应用桃子”。云厂商 + 芯片厂掌握 25~40% 的 COGS，一旦他们把支付、分发、创作工具嵌进模型层，SaaS 毛利将被二次收割。留给纯应用初创的只有两条路：①48 小时内把 PMF 做成 “工作流插件”，占住数据飞轮；②切垂直合规市场（医疗、国防、政务）做重服务，用政策门槛抵毛利侵蚀。</p>
+<p><strong>2.国内：把“降价+开源”打成一套组合拳</strong></p>
+<ul>
+<li><strong>价格侧：视频生成进入 “分 / 厘” 时代，1 万元≈1 万条 5s 片</strong></li>
+</ul>
+<p>豆包 Pro Fast 把 1080P/5s 视频打到 1.03 元，MiniMax Hailuo 2.3 Fast 再降 50%，相当于把 Runway 的 18 美元 / 分钟直接砍到 1/60。背后的账其实按 GPU 算：H100 单卡≈0.5 美元 / 小时，5 秒视频若用 8 卡并行，成本≈0.006 美元，国内云厂商折扣 + 政府算力券后，还能再打 3 折。字节、MiniMax 正在用 “廉价 FLOPS” 换 “创作用户时间”，把短视频工作流锁进自家云，重演 2020 年抖音剪映的路径 —— 先免费，再闭环投流。</p>
+<ul>
+<li><strong>开源侧：把“权重”当“SDK”发，换开发者生态</strong></li>
+</ul>
+<p>MiniMax M2、蚂蚁 Ring-mini-sparse-2.0-exp、月之暗面 Kimi CLI 在同一周开源，看似热闹，实则同一逻辑：国产 GPU（寒武纪、燧原）生态缺口靠 “开源模型 + 量化” 去填。M2 用 1/12 Claude 价格跑 69.4 SWE-bench，等于告诉开发者 “别买 A100，用国产卡 + 开源权重也能跑 SOTA”。一旦在开发者心智里把 “CUDA≠唯一选择” 钉住，就能从软件侧给国产芯片 18 个月打磨驱动。过去我们缺 “CPU 操作系统”，现在要在 AI 时代补 “GPU 操作系统”，开源模型就是新内核。</p>
+<ul>
+<li><strong>场景侧：AI 硬件开始“去手机化”</strong></li>
+</ul>
+<p>钉钉 A1 青春版、Haivivi Pal、Rokid Glasses 都把 MiniMax 语音当默认 TTS，说明 “AI 硬件” 第一波不是复制手机，而是做 “语音 + 记忆” 的随身副屏。中国供应链把骨传导麦克风 + 6nm 音频芯片打到 499 元，等于把 AirPods Pro 的价格拆成硬件白牌，再送一年 ASR+TTS 云订阅。逻辑和 2020 年 TWS 耳机爆发一样：先让 AI 成为 “标配功能”，再反向训练云模型。“硬件即获客” 将是中国 AI 独有路径，因为海外有 GDPR/FTC 拦路，国内可以把数据 - 模型 - 硬件闭环跑完。</p>
+<p><strong>3.总结</strong>：十月第五周表面是 “模型秀肌肉”，实质是 “资本、云、芯片” 三方重新议定 AI 价值链的分配比例。海外把 “内存 + 精度” 当新护城河，国内把 “降价 + 开源” 打成一套组合拳，双方都在为 2026 年的 “百 Exaflops” 时代提前锁链。</p>
+<h3>二、海外</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/机构/组织**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**事件**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 4,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**英伟达**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n英伟达推出 OmniVinci 全模态大语言模型，通过创新架构（如 OmniAlignNet 等）和高质量数据合成方法，实现了视觉、音频和文本的联合理解\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;论文介绍了一种名为 OmniVinci 的全模态大语言模型，通过创新架构（如 OmniAlignNet 等）和高质量数据合成方法，实现了视觉、音频和文本的联合理解。相比 Qwen2.5-Omni，在 DailyOmni、MMAR 和 Video-MME 基准上分别提升 19.05、1.7 和 3.9 分，同时仅需其 1/6 的训练数据量，并在机器人、医疗 AI 等领域展现广泛应用潜力。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n英伟达发布 Vera Rubin 超级芯片：算力跃升三倍，HBM4 显存首登场\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;10 月 29 日的 GTC 大会上，英伟达 CEO 黄仁勋正式发布了下一代超级芯片平台——Vera Rubin Superchip，标志着英伟达在高性能计算和 AI 加速领域的又一次巨大飞跃。新平台采用了全新的架构设计，由一颗 Vera CPU 与两颗 Rubin GPU 组成，配备多达 32 个 LPDDR 内存插槽，并首次引入 HBM4 高带宽显存，带宽与容量均较前代大幅提升。\n\nRubin GPU 由台积电代工，搭载双 Reticle 尺寸核心芯片和 8 个 HBM4 接口；而 Vera CPU 则集成 88 个定制 Arm 架构核心，可支持 176 线程。根据英伟达规划，该 GPU 将于 2026 年第三至第四季度量产，性能比当前的 Blackwell Ultra「GB300」平台提升约三倍。\n\n首发的 Vera Rubin NVL144 平台 拥有 50 PFLOPS（FP4 精度）算力和 288GB HBM4 显存，系统总带宽达 13TB/s，可实现 3.6 Exaflops（推理）与 1.2 Exaflops（训练） 的性能输出。英伟达还公布了更高端的 Rubin Ultra NVL576 平台 计划，将在 2027 年推出，配备 1TB HBM4e 显存与四颗 GPU 核心，算力高达 15 Exaflops（推理），整体性能是 GB300 平台的 14 倍。\n\n这次发布不仅意味着 HBM4 显存正式商用，也预示着 AI 训练与推理进入 百 Exaflops 时代。Rubin 系列将成为继 Hopper 与 Blackwell 之后，推动 AI 超级计算持续演进的关键节点。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n英伟达成为首家市值突破 5 万亿美元的上市公司\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;10 月 29 日，当地时间周三美股开盘，英伟达暴涨 3.2%，市值站上 5 万亿美元，成为史上第一家市值跨越这一里程碑的上市公司，最高涨幅甚至超过 5%，市值超过 5.13 万亿美元。\n\n英伟达公司总市值从 4 万亿美元跨上 5 万亿美元仅用时 113 天，而从 3 万亿到 4 万亿则耗时 410 天。\n\n高达 5 万亿美元的总市值，早已超过英、法、德等国家的股市总市值，并且正逼近印度股市总价值（5.3 万亿美元）。\n\n值得一提的是，英伟达股价已较 4 月低点反弹超 135%，市值也增加了 2.9 万亿美元，该公司股价今年已累计上涨 54%&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n英伟达再掷十亿美元，加码 AI 编程新锐 Poolside\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;据彭博社援引知情人士消息，芯片巨头英伟达（Nvidia）计划向 AI 编程模型公司 Poolside 追加投资 5 亿至 10 亿美元，助力后者完成总额 20 亿美元的新一轮融资。该轮融资对 Poolside 的投前估值为 120 亿美元，若交割顺利，英伟达最终出资金额将视其他投资者到位情况最高升至 10 亿美元。\n\nPoolside 总部位于美国与巴黎，专注为软件开发场景构建大模型，其工具主要面向代码生成、调试及自动化编程流程，客户已覆盖国防与政府部门。值得注意的是，这并非英伟达首次押注该公司 ——2024 年 10 月 Poolside 进行 5 亿美元 B 轮融资时，英伟达就已参投，当时公司估值仅 30 亿美元，一年内估值有望翻两番。\n\n英伟达近年来持续扩大其 AI 生态圈投资版图。除 Poolside 外，公司 10 月刚被曝有意向英国自动驾驶企业 Wayve 投资 5 亿美元，并于 9 月豪掷 50 亿美元购入英特尔股份，谋求未来芯片协作。加上此前对 Cohere、Runway、Perplexity 等百余家 AI 初创企业的出资，英伟达已构建起横跨算力、模型与应用的完整链条，进一步锁定对其高端 GPU 的刚性需求。\n\nPoolside 本轮已获超 10 亿美元出资承诺，现有股东 Magnetar Capital 等亦继续跟进，最终交割预计于年底前完成。英伟达与 Poolside 均未对交易细节置评，但市场普遍认为，该笔投资将加速 AI 辅助编程工具落地，并巩固英伟达在生成式 AI 基础设施中的核心地位。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**高通**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n高通发布 AI200 和 AI250 人工智能芯片\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          572
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;10 月 27 日，高通发布其新一代数据中心 AI 推理优化解决方案：基于高通 AI200 和 AI250 芯片的加速卡和机架。\n\n高通 AI200 推出一款专为机架级 AI 推理设计的解决方案，旨在提供低拥有总成本（TCO）和优化的性能，用于大型语言和多模态模型（LLM、LMM）推理和其他 AI 工作负载。每张卡支持 768GB 的 LPDDR 内存，以实现更高的内存容量和更低的成本。\n\n高通 AI250 解决方案将采用基于近内存计算（near-memory computing）的创新内存架构，通过提供超过 10 倍的内存带宽提升和降低功耗，为 AI 推理工作负载带来更高的效率与性能。\n\n这两种机架解决方案均采用直接液冷技术以提高散热效率，支持 PCIe 扩展、以太网扩展、机密计算以保障 AI 工作负载安全，以及 160 kW 的机架级功耗。截至 10 月 27 日 22:38，高通公司股价大涨 20%。&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 2,
+        &quot;colwidth&quot;: [
+          155
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**Google**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          248
+        ],
+        &quot;bgColor&quot;: null,</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周AI硬件与市场格局呈现出鲜明的中西分野。英伟达在GTC大会发布Vera Rubin超级芯片，由1颗集成88个Arm核心的Vera CPU与2颗Rubin GPU组成，首次引入HBM4显存。NVL144平台算力达50 PFLOPS（FP4），单系统288GB显存、13TB/s带宽；2027年更高端的Rubin Ultra NVL576将搭载1TB HBM4e显存，推理算力达15 Exaflops，为GB300的14倍。黄仁勋以FP4而非FP16标称性能，明确释放AI推理向低位宽迁移的信号，而台积电CoWoS-L封装产能已锁定至2027年，成为实际量产瓶颈。10月29日，英伟达市值突破5万亿美元，从4万亿升至5万亿仅历时113天，较4月低点反弹超135%。与此同时，英伟达拟向AI编程公司Poolside追加5至10亿美元投资，后者本轮投前估值达120亿美元，较2024年B轮翻近四倍。高通则发布AI200/AI250推理加速卡，单卡支持768GB LPDDR内存，AI250采用近内存计算架构，带宽提升超10倍，消息公布当日股价大涨20%。</p>
+<p>国内战场则以价格与开源为主轴：豆包Pro Fast将1080P/5秒视频生成价格压至1.03元，较Runway降幅超98%；MiniMax M2以Claude定价1/12的成本跑出69.4分SWE-bench成绩。英伟达自研的OmniVinci全模态大模型仅用Qwen2.5-Omni六分之一训练数据，在DailyOmni、MMAR、Video-MME三项基准上分别领先19.05、1.7、3.9分。OpenAI整合PayPal支付、xAI嵌入视频生成，算力巨头向应用层下探的趋势愈发清晰。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>英伟达发布Vera Rubin超级芯片，HBM4首次量产商用，NVL144算力50 PFLOPS，内存带宽成AI芯片第一性指标，2027年Rubin Ultra算力将达15 Exaflops</li>
+<li>英伟达市值突破5万亿美元，成史上首家，从4万亿到5万亿仅用113天，今年股价累计上涨54%</li>
+<li>国内视频生成价格进入分厘时代，豆包与MiniMax将5秒视频成本打至Runway的1/60，以廉价算力换锁定创作用户</li>
+<li>MiniMax M2、蚂蚁Ring-mini-sparse等国产开源模型同期发布，意在填补国产GPU生态缺口，将开源模型定位为AI时代的GPU操作系统内核</li>
+<li>OpenAI、xAI、英伟达等算力/基础设施公司向应用层扩张，嵌入支付、创作、分发工具，AI价值链分配格局正在重构</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2730989466.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

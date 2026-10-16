@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>本周论文推荐 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="本周论文推荐。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2689650728.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>本周论文推荐</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2689650728。版本：6a1d70f8944f824c14b189e40b98d24bb09b8fa71bba3c7f12ac7282350f47de。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/125</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/6a1d70f8944f824c14b189e40b98d24bb09b8fa71bba3c7f12ac7282350f47de.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>本周论文推荐</p>
+<h1>一、统一视觉理解与生成，MetaMorph 模型问世</h1>
+<p>:[color]{}如今，多模态大模型（MLLM）已经在视觉理解领域取得了长足进步，其中视觉指令调整方法已被广泛应用。该方法是具有数据和计算效率方面的优势，其有效性表明大语言模型（LLM）拥有了大量固有的视觉知识，使得它们能够在指令调整过程中有效地学习和发展视觉理解。[/color]</p>
+<p>:[color]{}在 Meta 和纽约大学合作的一篇[/color]<a href="https://arxiv.org/pdf/2412.14164v1">论文</a>:[color]{}中，研究者探究了 LLM 是否也可以通过微调来生成具有同等效率和有效性的视觉信息？论文作者中包括了 AI 领域的几位知名学者，包括图灵奖得主 Yann LeCun、纽约大学计算机科学助理教授谢赛宁、FAIR 研究科学家刘壮（将于明年 9 月[/color]<a href="https://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&mid=2650939405&idx=2&sn=9d32562767ad288569f6f223dbfd5799&scene=21#wechat_redirect">加盟普林斯顿大学</a>:[color]{}，担任计算机科学系助理教授）。[/color]</p>
+<h1>:[color]{}二、[/color]NUS 邵林团队提出全新交互式表征</h1>
+<p>近期，新加坡国立大学计算机学院的邵林团队提出了 <a href="https://nus-lins-lab.github.io/drograspweb/">D(R,O) Grasp</a>：一种面向跨智能体灵巧抓取的机器人与物体交互统一表示。该方法通过创新性地建模机器人手与物体在抓取姿态下的交互关系，成功实现了对多种机器人手型与物体几何形状的高度泛化能力，为灵巧抓取技术的未来开辟了全新的方向。该论文在 CoRL 2024 MAPoDeL Workshop 中获得了 Best Robotics Paper Award。</p>
+<p><a href="https://arxiv.org/abs/2410.01702">本文</a>:[color]{}的作者均来自新加坡国立大学 LinS Lab。本文的共同第一作者为上海交通大学实习生卫振宇和新加坡国立大学博士生徐志轩，主要研究方向为机器人学习和灵巧操纵，其余作者分别为实习生郭京翔，博士生侯懿文、高崇凯，以及硕士生蔡哲豪、罗嘉宇。本文的通讯作者为新加坡国立大学助理教授邵林。[/color]</p>
+<h1>:[color]{}三、[/color]Meta 研究者提出无需 Tokenizer 的 LLM 架构</h1>
+<p>Meta、华盛顿大学和芝加哥大学的研究者近日发布<a href="https://arxiv.org/pdf/2412.09871">论文</a>，提出了 <a href="https://github.com/facebookresearch/blt">Byte Latent Transformer</a>（BLT） 架构，可让 LLM 直接从原始字节数据中学习，无需 tokenizer，避免了静态词汇表的限制，并能更好地处理多样化和带噪声的输入。<br>BLT 架构由三个主要部分组成：轻量级的局部编码器（Local Encoder）、计算成本较高的全局潜在变换器（Latent Transformer），以及轻量级的局部解码器（Local Decoder）。<br>局部编码器负责将输入字节序列映射到 patch 表示，全局潜在变换器处理这些 patch 表示，而局部解码器则将它们解码回原始字节序列。BLT 通过动态地将字节分组到 patches 中，不使用固定的词汇表，从而更有效地分配计算资源。<br>BLT 的核心在于将字节（Bytes）动态地编码成可变大小的 patches。其 patching 函数根据下一个字节的熵来分割字节，创建具有相对均匀信息密度的上下文化字节分组。这种方法允许模型在数据可预测性高时选择更长的 patches，从而节省计算资源，并在数据复杂度高时增加计算资源，以提高模型性能。<br>研究者展示了在 8B 参数和 4T 训练字节的规模下，BLT 能够训练端到端的模型，且无需固定词汇表的分词（Tokenization）。结果表明，BLT 在训练 flop 控制性能上与 Llama 3 相当，同时在推理时使用的 flop 减少了高达 50%。<br>模型能力方面，BLT 模型在常识推理、世界知识、代码生成等下游任务上的表现与基于分词的最新模型（如 Llama 3）性能相当，而且在某些任务上实现了更好的结果。</p>
+<h1>四、李飞飞团队提出行为统一的多模态模型框架</h1>
+<p>斯坦福大学李飞飞团队近日发布<a href="https://arxiv.org/abs/2412.10523v1">论文</a>，提出了一种多模态语言模型框架，用于统一人类的言语和非言语行为。该工作的核心思想是将人类的动作和语言统一在一个高维的语义空间中，称为「概念」空间，其中「概念」对应于句子或话语级别的意义单元。研究者将人体划分为脸部、手部、上身和下身四个区域，每个区域的动作以 6D 旋转形式表示，以捕捉身体语言和表情变化。通过应用向量量化变分自编码器（VQ-VAE）技术，模型能够将连续的动作特征编码为离散的 token，进而重建原始动作数据。<br>研究者设计了两阶段式训练流程。在预训练阶段，模型通过身体组合动作对齐和音频-文本对齐来实现不同模态之间的对齐。预训练完成后，研究者将下游任务编译成指令，并根据指令训练模型，使模型能够遵循各种任务指令。最终得到的模型可以同时接受音频和文本输入来生成动作，还支持动作编辑，在更换动作指令后保持动作自然流畅，并与语音内容保持协调。此外，模型可以根据动作预测情绪，阅读人的肢体语言。</p>
+<h1>五、西湖大学提出时间预测扩散模型 TPDM</h1>
+<p>西湖大学、华南理工大学和北大等机构的研究者近日发布<a href="https://arxiv.org/abs/2412.01243">论文</a>，提出了一种时间预测扩散模型（Time Prediction Diffusion Model, TPDM）的方法，可通过一个即插即用的时间预测模块（Time Prediction Module, TPM），预测每一步去噪后的下一个噪声水平，从而实现对去噪步骤的动态调整。</p>
+<p>TPDM的核心是一个即插即用的时间预测模块（TPM），该模块能够在每一步去噪后预测下一个噪声水平，从而实现对去噪计划的动态调整。<br>TPM通过强化学习进行训练，其目标是将由去噪步骤数量打折后的最终图像质量最大化。该过程将多步去噪过程视为一个完整的轨迹，并将打折后的图像质量作为奖励。<br>TPM可以集成到任何扩散模型中，只需额外的边际计算，就能自动调整样本步骤和每一步的噪声水平，实现图像质量和效率之间的平衡，无需人为干预。<br>研究者多个扩散模型基准上训练了TPDM，包括Stable Diffusion和Flux。经测试，TPDM能够在保持图像质量的同时，平均减少约50%的去噪步骤。在实验中，使用Stable Diffusion 3 Medium架构的TPDM在美学评分和人类偏好评分（HPS）上均优于基线模型，同时使用的去噪步骤更少。</p>
+<h1>六、Meta、斯坦福等：AI 的下一个前沿是形式化数学推理</h1>
+<p>AI 研究者来说，数学既是一类难题，也是一个标杆，能够成为衡量 AI 技术的发展重要尺度。近段时间，随着 AI 推理能力的提升，使用 AI 来证明数学问题已经成为一个重要的研究探索方向。著名数学家陶哲轩就是这一方向的推动者，他曾表示：未来数学家可以通过向类似 GPT 的 AI 解释证明，AI 会将其形式化为 Lean 证明。这种助手型 AI 不仅能生成 LaTeX 文件，还能帮助提交论文，从而大幅提高数学家的工作效率和便利性。如今，已经诞生了 Gemini 2.0 Flash Thinking 和 o1/o3 等强大推理模型，那么用 AI 来进行形式化数学推理又已经走到了哪一步呢？Meta FAIR 和斯坦福大学等多所机构的一篇新的<a href="https://arxiv.org/pdf/2412.16075">论文</a>（position paper）或许给出了这个问题的答案。</p>
+<h1>七、Meta 推出 ExploreToM系统：专门用来培养 AI 的社交认知能力</h1>
+<p>Meta 开发了<a href="https://arxiv.org/abs/2412.12175">ExploreToM</a>系统，通过复杂社交场景测试AI的情商和“心智理论”能力。目前的 AI 在理解复杂认知和情感差异时表现有限，尤其在处理信息传递、非对称认知和误导性场景时准确率较低。通过特定训练，AI 的社交认知能力有所提升，但仍在复杂任务中存在较大不足，且训练数据的质量比数量更为关键。</p>
+<h1>八、人大&amp;蚂蚁团队：自下而上数据合成让大模型能够多模态推理</h1>
+<p>自中国人民大学高瓴人工智能学院和蚂蚁技术研究院的研究团队在 EMNLP 2024 上<a href="https://arxiv.org/pdf/2406.19934">提出</a>了一套解决方案。他们基于“由浅入深”（from the least to the most）的理念，设计了一个即插即用的视觉推理框架，并配套开发了一种高效的自下而上数据合成方法。这种方法可以低成本合成高质量视觉推理链。目前该团队已开源了包含百万量级推理链的数据集，希望能够推动多模态推理的研究。</p>
+<h1>九、纽大、耶鲁等高校的研究者发文探究 MLLM 的空间推理能力</h1>
+<p>纽约大学、耶鲁大学和斯坦福大学的研究者发布<a href="https://arxiv.org/pdf/2412.14171v1">论文</a>，提出了一个基于视频的视觉空间智能基准测试 VSI-Bench 来评估 MLLMs 的空间推理能力。<br>该测试基准基于 288 个 ScanNet 等数据集的室内场景视频，设计了超过 5000 个问答对，任务类型广泛，包括物体计数，判断两物体间距，路线规划等。<br>研究者基于 VSI - Bench 对 15 个支持视频的多模态大语言模型进行了评测，包括 Gemini - 1.5、GPT - 4o 等闭源模型和 InternVL2. ViLA 等开源模型。<br>结果显示，人类在 VSI-Bench 上的平均准确率达到 79%，在配置型和时空任务上准确率更高，处于 94%-100%之间。相比之下，表现最好的闭源模型是 Gemini-1.5 Pro，平均准确率为 48.8%，开源模型 LLaVA-NeXT-Video-72B 和 LLaVA-OneVision-72B 与之相近。<br>研究者指出，尽管 MLLMs 在视频理解、文本理解和空间推理方面仍有很多局限，但它们已经展现出了一定的视觉空间智能，尽管此智能低于人类水平。<br>研究表示，即使是最先进的多模态大模型，在空间认知方面与人类相比仍有显著差距，测试中约 71%的错误都源于空间推理方面的缺陷，即空间推理能力是当前主要瓶颈。思维链、思维树等常用的语言提示技术不会提升模型在空间任务上的表现，反而会使性能下降。</p>
+<h1>十、腾讯提出 LLM 量化的 Scaling Laws</h1>
+<p>腾讯 AI Lab 近期发布了一篇<a href="https://arxiv.org/abs/2411.17691">论文</a>，介绍了一套针对于低比特量化的 Scaling Laws。低比特量化（low-bit quantization）和低比特大语言模型（low-bit LLM）近期受到了广泛的关注，因为有一些研究发现，它们能够以更小的模型规模、更低的内存占用和更少的计算资源，取得与 fp16 或 bf16 精度相当的性能表现。这一发现让低比特语言模型一度被认为是实现模型高效化的一个非常有前景的方向。</p>
+<p>然而，这一观点受到了腾讯 AI Lab 的挑战。他们的研究发现，低比特量化只有在未充分训练的 LLM（训练量通常在 1000 亿 tokens 以内，基本不会超过 5000 亿 tokens：这种 setting 在当前的学术界研究论文中非常常见）上才能取得与 fp16/bf16 相当的性能表现。随着训练的深入和模型逐渐被充分训练，低比特量化与 fp16/bf16 之间的性能差距会显著扩大。</p>
+<h1>十一、港科大开源 VideoVAE+，视频重建质量全面超越最新模型</h1>
+<p>港科大团队重磅<a href="https://arxiv.org/abs/2412.17805">开源</a> <a href="https://github.com/VideoVerses/VideoVAEPlus">VideoVAE+</a>，提出了一种强大的跨模态的视频变分自编码器（Video VAE），通过提出新的时空分离的压缩机制和创新性引入文本指导，实现了对大幅运动视频的高效压缩与精准重建，同时保持很好的时间一致性和运动恢复。VideoVAE + 模型大幅超过最新模型包括英伟达在 2024.11 发布的 Cosmos Tokenizer，同时也超越一众方法包括腾讯在 2024.12 发布的 Hunyuan Video，CogvideoX VAE，WF-VAE，CV-VAE，Open Sora，Open Sora Plan, Easy Animate-VAE。</p>
+<h1>十二、Meta 探索大模型记忆层，扩展至 1280 亿个参数，优于 MoE</h1>
+<p>最近，Meta 的一项新<a href="https://arxiv.org/pdf/2412.09764">研究</a>使记忆层超越了概念验证，证明了它们在大型语言模型（LLM）扩展中的实用性。:[color]{}在下游任务中，通过改进的记忆层增强的语言模型的性能优于计算预算两倍以上的密集模型，以及在计算和参数相当的专家混合（MoE）模型。[/color]</p>
+<p>:[color]{}这项工作表明，当记忆层得到充分改进和扩展时，可以用于增强密集神经网络，从而带来巨大的性能提升。通过用记忆层替换一个或多个 transformer 层的前馈网络（FFN）来实现这一点（保持其他层不变）。这些优势在各种基本模型大小（从 1.34 亿到 80 亿参数）和内存容量（最多 1280 亿参数）中都是一致的。这意味着存储容量实现了两个数量级的飞跃。[/color]</p>
+<h1>:[color]{}十三、[/color]腾讯优图等提出基于 MLLM 的文生图稳定性增强方案</h1>
+<p>腾讯优图、南洋理工和浙大等研究机构的研究者近日发布<a href="https://arxiv.org/abs/2412.03255">论文</a>，提出了 DynamicControl 架构，可用于增强文本到图像扩散模型的可控性，将多模态大语言模型（MLLM）的推理能力集成到文本生成图像（T2I）任务中。</p>
+<p>DynamicControl 框架的核心在于动态组合多种控制信号，以适应不同条件的需求。<br>① 该方法首先利用双循环控制器（Double-cycle Controller）为输入的多个条件生成初始的真实分数排序。<br>② 控制器利用预训练的条件生成模型和判别模型，通过比较提取的条件与输入条件之间的相似性，以及生成图像与源图像之间的像素级相似性，来评估条件的重要性。<br>双循环控制器包含「条件一致性」和「图像一致性」两个一致性评分。前者通过比较输入条件和生成图像中提取的条件之间的相似度来优化；后者通过最小化生成图像和源图像之间的像素级和语义差异来保证生成图像与源图像的相似性。<br>DynamicControl 采用多模态大型语言模型（MLLM，如 LLaVA）作为条件评估器，基于分数排名优化条件排序，为多控制适配器提供输入。从而实现自适应地选择和组合不同的控制信号，以改善文本到图像的生成质量。<br>为了适配多种动态控制条件的同时应用，论文还设计多控制适配器，可自适应地解释复杂控制信号，从而实现从文本提示和动态空间条件中提取多控制嵌入。<br>经测试，DynamicControl 在 MultiGen-20M、ADE20K、COCOStuff 数据集上 F1-Score（39.26）、mAP（82.63）、mIoU（48.46）等多个指标超越 Gligen、T2I-Adapter 和 ControlNet 等，显示 DynamicControl 在增强可控性同时不会牺牲图像质量或图像文本对齐。</p>
+<h1>十四、港科大开源视频处理模型 VideoVAE+</h1>
+<p>近日，来自港科大的研究者<a href="https://arxiv.org/abs/2412.17805">提出</a>了一种跨模态的视频变分自编码器（Video VAE）模型 VideoVAE +，其在视频压缩、重建等方面的质量效果优于多数现有模型。VideoVAE 模型是一种基于深度学习的视频处理模型，用于对视频数据进行压缩、重建和生成，但目前存在局限性，如出现逐帧压缩忽略时间关联性，出现严重的时序闪烁，以及冗余信息未被充分压缩等。<br>VideoVAE + 工作提出了一种 cross-modal Video VAE 架构，具体包括，<br>① 时空分离的压缩机制：提出一种时序感知的空间压缩方法，有效分离空间和时间信息处理，避免因时空耦合而导致的运动伪影；<br>② 轻量级运动压缩模型：专门设计了一个模型用于时序压缩，高效捕获视频中的运动动态；<br>③ 文本信息融合：利用文本到视频数据集中的文本信息作为指导，提高视频细节的保留能力和时间稳定性；<br>④ 图像和视频的联合训练：通过在图像和视频数据上的联合训练，增强了模型在多任务上的重建性能和适应性。<br>经实验测试，Vi</p>
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周论文推荐涵盖多模态学习、视觉生成、模型架构等多个前沿方向。Meta与纽约大学合作提出MetaMorph模型（作者含图灵奖得主Yann LeCun与谢赛宁），探索LLM通过微调统一视觉理解与生成能力；Meta还提出BLT架构，使LLM可直接从原始字节学习，无需tokenizer，推理flop减少50%；Meta FAIR另开发ExploreToM系统，通过复杂社交场景测试AI心智理论能力，发现训练数据质量比数量更关键。李飞飞团队提出多模态框架，将人类言语与非言语行为统一在高维语义&quot;概念&quot;空间中。NUS邵林团队提出D(R,O) Grasp，实现跨智能体灵巧抓取的统一表示，荣获CoRL 2024最佳论文。</p>
+<p>在数据与基准测试方面，VSI-Bench测试显示人类空间推理准确率达79%，而最强模型Gemini-1.5 Pro仅48.8%，且思维链、思维树等提示技术不仅未能提升空间任务表现，反而导致性能下降。人大与蚂蚁团队提出自下而上数据合成框架，已开源百万量级视觉推理链数据集。腾讯研究则发现低比特量化仅在训练不足的LLM上有效，充分训练后性能差距显著扩大。</p>
+<p>在模型效率与生成质量方面，西湖大学等机构提出时间预测扩散模型TPDM，可动态调整去噪步骤，平均减少约50%去噪步骤。港科大开源VideoVAE+，采用时空分离压缩机制与轻量级运动压缩模型，视频重建质量超越Cosmos Tokenizer、Hunyuan Video等主流模型。腾讯优图提出DynamicControl架构，在F1-Score（39.26）、mAP（82.63）、mIoU（48.46）等指标上全面超越ControlNet。Meta还证明记忆层的实用性，其性能优于计算预算两倍以上的密集模型，存储容量提升两个数量级。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>BLT架构无需Tokenizer直接从字节学习，推理flop减少50%，性能与Llama 3相当，支持多样化和噪声输入</li>
+<li>VSI-Bench基准测试显示最佳MLLM空间推理准确率仅48.8%，远低于人类79%，思维链等提示技术反而降低空间任务性能</li>
+<li>腾讯AI Lab发现低比特量化仅在欠训练LLM（训练量≤5000亿tokens）上有效，充分训练后与fp16性能差距显著扩大</li>
+<li>TPDM通过强化学习训练的即插即用时间预测模块动态调整去噪步骤，平均减少约50%步骤同时保持图像质量</li>
+<li>Meta记忆层研究将参数规模扩展至1280亿，性能优于计算预算两倍的密集模型及同等规模MoE模型</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2689650728.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>周论文推荐：字节、阿里多篇论文发布，DeepSeek、小红书两项研究亮眼 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="周论文推荐：字节、阿里多篇论文发布，DeepSeek、小红书两项研究亮眼。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/reading/D-2704065453.zh-CN.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../../assets/materials.css">
+<script src="../../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
+<article class="report-article"><h1>周论文推荐：字节、阿里多篇论文发布，DeepSeek、小红书两项研究亮眼</h1>
+<p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
+材料编号：D-2704065453。版本：dff2f1d189d5f86296f94e4fc1ed004d5b8b442ea56011b93b1468174b1eb5d7。</p>
+<p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/132</p>
+<p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/dff2f1d189d5f86296f94e4fc1ed004d5b8b442ea56011b93b1468174b1eb5d7.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
+<p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
+<h2>保存的正文</h2>
+<p>周论文推荐：字节、阿里多篇论文发布，DeepSeek、小红书两项研究亮眼</p>
+<h3>一、模型层</h3>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<tr>
+<th></th>
+<th>**公司/院校/机构**</th>
+<th>**简介**</th>
+<th>**详情**</th>
+</tr>
+<tr>
+<td></td>
+<td>苹果</td>
+<td>苹果提出了新的蒸馏扩展定律</td>
+<td>近日，苹果研究人员提出了一种[蒸馏扩展定律](https://arxiv.org/pdf/2502.08606)，基于计算预算及其在学生和教师之间的分配，我们现在开始可以估算蒸馏模型的性能了。苹果研究者认为，该发现降低了大规模使用蒸馏的风险，现在我们可以基于此优化教师和学生模型的计算分配，以最大化学生模型的性能。该工作提供的计算最优的蒸馏方案适用于两种情况：1）已有教师模型，或 2）需要训练教师模型。<br><br>如果要蒸馏多个学生模型，或者已有教师模型，蒸馏在计算水平上优于监督预训练，直到计算水平随着学生模型规模的增加而可预测地增长。如果要蒸馏一个学生模型且还需要训练教师模型，则应采用监督学习。此外，作者在大规模蒸馏研究中提供了深入的见解，这些见解增加了我们对蒸馏的理解，并为实验设计提供了信息。</td>
+</tr>
+<tr>
+<td></td>
+<td>Meta</td>
+<td>比知识蒸馏好用，田渊栋等提出连续概念混合，再度革新Transformer预训练框架</td>
+<td>来自Meta等机构的研究者提出了一种新颖且高效的预训练框架：[连续概念混合（Continuous Concept Mixing, CoCoMix](https://arxiv.org/pdf/2502.08524)），其将离散的下一个token预测与连续概念相结合。CoCoMix用来预测从预训练的稀疏自编码器中学习到的连续概念，并通过 token隐藏表示交错的方式将其混合到模型的隐藏状态中。<br><br>具体来说，本文使用经过预训练的SAE提取语义概念，并根据归因（attribution）分数选择最具影响力的概念，这些分数量化了每个概念对模型输出的影响。然后，模型通过交叉熵损失训练，从其隐藏状态中预测这些选定的概念。一旦预测出多个概念，就将它们压缩为单个连续概念，并通过与token嵌入交错的方式混合（或插入）到隐藏状态中，从而直接贡献于下一个token的预测。<br><br>本文通过在多个语言建模基准和不同规模的预训练模型（从百万级到十亿级参数规模）上进行了评估，从而证明了CoCoMix的有效性。结果表明，CoCoMix采样效率更高，优于标准的下一个token预测、知识蒸馏以及插入停顿token。本文发现，在端到端的框架中结合概念学习和交错技术对于性能提升至关重要。</td>
+</tr>
+<tr>
+<td></td>
+<td>Unsloth AI</td>
+<td>Unsloth AI将GRPO上海 AI Lab、清华等团队提出计算最优的TTS 框架训练内存降低80%</td>
+<td>开源项目Unsloth AI近日发布[更新](https://unsloth.ai/blog/r1-reasoning)，在结合Unsloth和GRPO的同时将后者训练需要的内存减少了80%，引起大量关注。<br><br>GRPO（Group Relative Policy Optimization）是由DeepSeek团队提出的一种强化学习训练方法，在R1模型中沿用，并取得了极大成效。Unsloth AI项目对GRPO进行了优化，使其训练的内存使用降低了80%，用户能够在仅需7GB VRAM的GPU上本地运行和训练推理模型，实现模型推理能力的大幅提升。<br><br>通过Unsloth，使用者可以将如Llama 3.1（8B）、Phi-4（14B）、Mistral（7B）或 Qwen2.5（7B）等15B参数以下的模型转化为推理模型。除GRPO之外，Unsloth还增加了对Online DPO、PPO和RLOO等强化学习训练方法的支持，降低Online DPO微调时的显存需求。同时，还优化与 vLLM 的集成，提高模型的吞吐量，减少VRAM消耗，还能自动选择参数、支持加载LoRA，提高GRPO训练运行速度。<br><br>经测试，经过GRPO训练的Phi-4等模型的推理能力有所提升。Unsloth优化后，使用在线DPO微调的模型在与GPT 4o-mini对比时，表现有所提高。Unsloth与vLLM结合，在不同GPU上实现较低的VRAM消耗。</td>
+</tr>
+<tr>
+<td></td>
+<td>上海AI Lab、清华等团</td>
+<td>上海AI Lab、清华等团队提出计算最优的TTS 框架</td>
+<td>近日，来自上海AI Lab、清华等高校的研究者发表[论文](https://arxiv.org/abs/2502.06703)，探究了如何通过优化推理阶段的计算资源分配（即Test-Time Scaling, TTS）来提升大型语言模型的性能，并提出了一种计算最优的TTS方法。<br><br>该工作探究了跨不同策略模型、PRM和问题难度下的最优TTS方式，以及TTS对提升语言模型在复杂任务上表现的程度，验证小模型超越大模型的可能性。<br><br>研究者在MATH-500和AIME24数学推理数据集上，用多个不同规模的策略模型和PRM，评估Best-of-N、Beam Search和Diverse Verifier Tree Search三种TTS方法。发现最优TTS方法依赖于策略模型、PRM和问题难度。</td>
+</tr>
+<tr>
+<td></td>
+<td>中国人民大学、蚂蚁集团</td>
+<td>语言模型新范式：首个8B扩散大语言模型LLaDA发布，性能比肩LLaMA 3</td>
+<td>最近，人大高瓴李崇轩、文继荣团队和蚂蚁集团的研究员提出了一种新的洞察：大语言模型展现的语言智能（如上下文学习、指令遵循、推理和多轮对话等能力）并非自回归机制独有，而在于背后所遵循的生成建模原则，即通过最大似然估计（或最小化KL散度）来逼近真实语言分布。<br><br>:[color]{}正是基于这一理念，团队开发了[/color][LLaDA](https://arxiv.org/abs/2502.09992):[color]{}（Large Language Diffusion with mAsking）—— 一种基于掩码扩散模型的语言生成方法。与传统自回归模型不同，LLaDA采用了前向掩码加噪和反向去噪的机制，不仅突破了单向生成的局限，还通过优化似然下界，提供了一种不同于自回归的、原理严谨的概率建模方案。[/color]<br><br>:[color]{}通过大规模实验，LLaDA 8B在可扩展性、下游语言任务中全面媲美现代大语言模型，如Llama3 8B。这些结果一定程度上表明，LLMs的核心能力（如可扩展性、上下文学习和指令遵循）并非自回归模型独有，而是源自于合理的生成建模策略和充分的模型数据规模。LLaDA不仅提出了一种新的大语言模型的概率建模框架，也有助于我们进一步理解语言智能。[/color]<br><br>:[color]{}本文由中国人民大学高瓴人工智能学院李崇轩、文继荣教授团队和蚂蚁集团共同完成。共同一作聂燊和朱峰琪是中国人民大学高瓴人工智能学院的博士生，导师为李崇轩副教授，论文为二者在蚂蚁实习期间完成。蚂蚁集团张晓露、胡俊，人民大学林衍凯、李崇轩为共同项目负责人。李崇轩副教授为唯一通讯作者。LLaDA基于李崇轩课题组的前期工作 RADD和SMDM。目前这两篇论文均已被ICLR2025接收。[/color]</td>
+</tr>
+<tr>
+<td></td>
+<td>深度求索</td>
+<td>DeepSeek新论文公开新注意力架构NSA</td>
+<td>据介绍，DeepSeek 的这篇[新论文](https://arxiv.org/abs/2502.11089)提出了一种新的注意力机制 ——NSA。这是一个用于超快长上下文训练和推断的本地可训练的稀疏注意力机制，并且还具有与硬件对齐的特点。</td>
+</tr>
+</table></div>
+
+<h3>二、推理</h3>
+<p>未能展开此表；以下保留该处原始捕获内容。</p>
+<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+[
+  [
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          159
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**公司/院校/机构**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          333
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**简介**\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_header&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          447
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: &quot;middle&quot;
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n**详情**\n:::&quot;
+    }
+  ],
+  [
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,
+        &quot;rowspan&quot;: 1,
+        &quot;colwidth&quot;: [
+          50
+        ],
+        &quot;bgColor&quot;: null,
+        &quot;verticalAlign&quot;: null
+      },
+      &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
+    },
+    {
+      &quot;type&quot;: &quot;table_cell&quot;,
+      &quot;attrs&quot;: {
+        &quot;colspan&quot;: 1,</pre>
+
+
+<h2>旧生成摘要（未重写，未核实）</h2>
+<p>本周AI领域多项重要研究成果集中发布。苹果提出蒸馏扩展定律，可基于计算预算预估蒸馏模型性能，并指出蒸馏多个学生模型时计算效率优于监督预训练，但若仅蒸馏单个学生且需训练教师模型，则建议采用监督学习。Meta田渊栋等人提出连续概念混合框架CoCoMix，将离散的下一个token预测与连续概念表示相结合，利用预训练SAE提取语义概念并通过归因分数筛选关键概念，在百万至十亿参数规模测试中全面优于标准token预测和知识蒸馏方法。</p>
+<p>Unsloth AI对GRPO训练方法进行优化，内存占用降低80%，用户仅需7GB VRAM即可在本地训练推理模型，支持Llama 3.1、Phi-4、Qwen2.5等15B以下模型，并新增Online DPO、PPO、RLOO等强化学习训练方式。上海AI Lab与清华等机构联合提出计算最优的Test-Time Scaling框架，在MATH-500和AIME24数据集上系统评估了Best-of-N、Beam Search、Diverse Verifier Tree Search三种方法，并验证了小模型在特定条件下超越大模型的可能性。</p>
+<p>人民大学高瓴团队与蚂蚁集团联合推出扩散大语言模型LLaDA，基于掩码扩散机制替代自回归机制，LLaDA 8B性能全面媲美Llama3 8B，表明LLMs核心能力并非自回归模型独有。此外，DeepSeek发布新型注意力机制NSA，这是一种本地可训练的稀疏注意力架构，专为超快长上下文训练与推断设计，具备硬件对齐特性，兼顾实际部署需求。</p>
+<h2>旧提取要点（未核实）</h2>
+<ul>
+<li>苹果提出蒸馏扩展定律，可预测蒸馏模型性能并指导计算最优的教师-学生模型资源分配</li>
+<li>Meta提出CoCoMix连续概念混合预训练框架，采样效率更高，优于知识蒸馏和标准token预测</li>
+<li>Unsloth AI优化GRPO训练方法，将内存需求降低80%，支持在7GB VRAM GPU上训练推理模型</li>
+<li>上海AI Lab与清华团队提出计算最优TTS框架，探索推理阶段计算资源分配以提升LLM性能</li>
+<li>本周字节、阿里、DeepSeek、小红书等多家机构集中发布论文，DeepSeek与小红书研究尤为亮眼</li>
+</ul>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2704065453.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>

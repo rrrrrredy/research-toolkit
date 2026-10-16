@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 行业研究材料集 · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="AI 行业研究材料集。保留已有材料、来源与历史版本，以及未核实和缺失内容说明。"/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/materials/guide.zh-CN.html"/>
+<link rel="alternate" hreflang="en" href="https://rrrrrredy.github.io/research-toolkit/materials/guide.html"/>
+<link rel="alternate" hreflang="zh-CN" href="https://rrrrrredy.github.io/research-toolkit/materials/guide.zh-CN.html"/>
+<link rel="alternate" hreflang="x-default" href="https://rrrrrredy.github.io/research-toolkit/materials/guide.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../assets/showcase.css?v=site-20261015">
+<link rel="stylesheet" href="../assets/materials.css">
+<script src="../assets/reading-preferences.js?v=site-20261015"></script></head>
+<body><main class="report-shell materials-reader">
+<nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../index.zh-CN.html">Research Toolkit</a><a href="index.zh-CN.html">中文目录</a><a href="index.html">English catalog</a></nav>
+<article class="report-article"><h1>AI 行业研究材料集</h1>
+<p><a href="guide.html">English</a> · <a href="guide.zh-CN.html">简体中文</a></p>
+<p>供研究者按题目选择的材料集：AI 公司、产品、模型、产业趋势和论文相关的历史报告、保存正文、摘要与来源线索。材料来自 <code>aiknowledge-cli</code> 和 <code>ai-knowledge-graph</code> 的固定版本。清洗后的文件可以直接阅读，也可以作为当前研究任务的附件；无需安装检索服务或导入 Toolkit。</p>
+<p><strong><a href="index.zh-CN.html">在线分类目录：281 份材料</a> · <a href="recovered/index.zh-CN.html">五份重点整理</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">下载完整历史版本包</a></strong></p>
+<p><a href="https://rrrrrredy.github.io/research-toolkit/materials/index.zh-CN.html">在 Toolkit 网站内阅读目录和文章</a>。这里的 Markdown 仍是内容来源，网站提供静态阅读副本。</p>
+<h2>使用</h2>
+<p>在线可直接阅读分类目录和单篇材料；需要原始记录与其他历史版本时，下载 <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">ai-industry-v1.zip</a>，解压后打开 <code>README.zh-CN.md</code>，按标题选择材料，再打开对应的 <code>documents/</code> 文件；五份重点恢复材料从 <code>recovered/README.zh-CN.md</code> 进入。每份阅读稿标明所选记录、正文性质及其他历史版本的位置。<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">Release 页面</a>另附 SHA-256 校验值和盘点结果。</p>
+<p>例如，研究历史 API 价格变化时，读取《大模型降价潮分析》的保存正文与表格，保留元／千 tokens、元／百万 tokens、输入／输出及时间差异。旧生成摘要放在单独章节，不能代替正文证据。要判断当下价格，需要另外读取当前官方资料。</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
+<thead>
+<tr>
+<th>文件</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>README.zh-CN.md</code>、<code>documents/</code></td>
+<td>可浏览的全量目录与单篇阅读稿。</td>
+</tr>
+<tr>
+<td><code>catalog.jsonl</code>、<code>versions.jsonl</code></td>
+<td>材料目录、各版本的规范字段和正文性质；实体字符串与对象统一为名称列表，原字段保留。</td>
+</tr>
+<tr>
+<td><code>versions/</code>、<code>lineage.jsonl</code></td>
+<td>每份不同的原记录，以及它出现在哪个仓库、提交、文件和 JSON 位置。</td>
+</tr>
+<tr>
+<td><code>history-inputs.zip</code>、<code>inventory.json</code></td>
+<td>两个固定提交中所有已跟踪文件的原始字节，以及逐文件数量、类型、哈希。包括已有检查点；没有拼接未知的版本历史。</td>
+</tr>
+<tr>
+<td><code>snippets.jsonl</code>、<code>categories.json</code></td>
+<td>原有片段和分类。仅按标题关联的片段不补成全文。</td>
+</tr>
+<tr>
+<td><code>graph/</code></td>
+<td>去重后保留出处的节点与关系，供浏览线索使用；关系不是已经核实的事实。</td>
+</tr>
+<tr>
+<td><code>existing-source-map.jsonl</code>、<code>existing-source-pack/</code></td>
+<td>与 Toolkit 已有来源包的对应关系及未改动的冻结输入。</td>
+</tr>
+<tr>
+<td><code>recovery-notes.zh-CN.md</code></td>
+<td>本次按价值选择的恢复结果、可使用内容与尚缺依据。</td>
+</tr>
+</tbody></table></div>
+<p>日期保留原字段及其出处。<code>created_date</code> 不自动当作发布日期；未知日期留空。<code>raw_text</code> 中明确由元数据生成的内容单列，不作原文。阅读稿只整理展示格式，不改写事实，也不补写缺失内容。材料沿用原有使用限制，清洗不增加再分发或训练授权。</p>
+<h2>与原有数据的关系</h2>
+<p>材料集回答“可以读什么”；来源包回答“这个任务实际提供了什么”；任务集包含问题与适用的判断依据；运行记录保存某个 Agent 真正执行过什么。四者用材料与版本引用关联，分别计数。</p>
+<p>这次只增加材料和关联说明，不增加评测任务、模型运行、训练示范或质量分数。已有来源包、测试题、隔离结论和运行档案保持原样。新研究可以选用本次恢复的正文；如果未来据此修订任务输入，应另存新版本，不回写历史结果。</p>
+<p>材料集是可选资源，不进入 Toolkit 核心安装，也不会自动加入每次研究上下文。它不提供跨项目检索。</p>
+<h2>重建本地交付</h2>
+<p>将 <code>aiknowledge-cli</code>、<code>ai-knowledge-graph</code> 和 <code>research-toolkit</code> 克隆到同一父目录，确保包含脚本固定的提交。在本仓库执行：</p>
+<pre><code class="language-bash">python scripts/build_ai_industry_corpus.py --inputs .. --output artifacts/ai-industry-v1
+</code></pre>
+<p>Python 标准库即可。脚本使用 <code>git show</code> 读取固定提交，复用现有数据集的哈希和不可覆盖写入逻辑，不调用模型或原站服务。输出目录已存在时停止；选择新目录才能生成另一版本。原始材料遵循仓库现有约定保存在 <code>artifacts/</code>，不写入 Git 源码树。本轮已将原有材料包原样发布为独立的 <code>ai-industry-corpus-v1</code> 预发布资产，保留历史版本及未核实标记，不替换现有运行数据集的 latest。</p>
+<p>盘点结果见 <a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/inventory-summary.json">inventory-summary.json</a>，深度恢复说明见 <a href="recovery-notes.zh-CN.html">recovery-notes.zh-CN.md</a>。</p>
+<p>网站发布时，在 Node 22+ 环境中提供 <a href="mailto:marked@17.0.5">marked@17.0.5</a>，运行 node scripts/export_ai_industry_site.cjs ../research-toolkit/docs/materials，再运行 Toolkit 现有的 python scripts/build_site.py。导出器复用本目录、阅读稿和恢复说明，只生成静态 HTML 与页面元数据；Toolkit 安装和日常网站构建不增加 Node 或 marked 依赖。原 Markdown 和历史材料包保持不变。</p>
+</article>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/README.zh-CN.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+</main></body></html>
