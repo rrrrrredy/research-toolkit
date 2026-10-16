@@ -1,0 +1,30 @@
+{
+  "task_id": "enterprise-kb-llm-liability-zh-20261015-full",
+  "research_question": "企业把内部知识库接到大模型后，幻觉与越权回答的责任应如何在法务、安全、业务之间分配？",
+  "language": "zh",
+  "audience": "法务、信息安全与业务线共同决策的治理委员会。",
+  "scope": "原条件复测：复用 2026-10-14 合成来源包（法务备忘、红队、SLA/事故、顾问参照）；截止材料 2026-09；不联网。变化=Lite→Full+独立评审要求。",
+  "output_bounds": "final.md，≥3000 非空白中文字符（建议 3000–5000）：按失效模式切分责任、证据边界与反证、落地条件与未决；台账与 checklist 单列。",
+  "depth": "Full 长文治理分析（商业/AI）；正式评审档；强调幻觉与越权不同责任链。",
+  "evidence_standard": "只用合成来源；不得把供应商宣传写成已证合规；披露合成；独立评审若后端不可用须标明同会话评审且不得声称独立。",
+  "profile": "full",
+  "kind": "retest",
+  "domain": "商业/AI",
+  "batch_id": "2026-10-15-v1",
+  "batch_dir": "2026-10-15-confirmed",
+  "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+  "toolkit_version": "1.1.0",
+  "length_record": "3491 非空白字（目标 3000–5000）",
+  "revisions": 1,
+  "mechanical": {
+    "lite_checklist": null,
+    "full_delivery_gate": "pass",
+    "research_review": "same_session_degraded",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": true
+  },
+  "review_mode": "same_session_degraded",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false
+}

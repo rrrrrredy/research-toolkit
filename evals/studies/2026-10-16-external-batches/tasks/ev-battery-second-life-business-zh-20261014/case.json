@@ -1,0 +1,30 @@
+{
+  "task_id": "ev-battery-second-life-business-zh-20261014",
+  "research_question": "中国新能源车动力电池梯次利用：回收商、车企与储能集成商的利益分配是否已形成可持续商业模式？",
+  "language": "zh",
+  "audience": "产业战略与投资尽调读者。",
+  "scope": "仅用任务附带合成来源包；覆盖成本结构、残值、渠道与政策约束；不做实时联网；科技/商业长文。",
+  "output_bounds": "final.md，约 3000–5000 非空白中文字符：是否可持续的判断、利益分配机制、反证与情景；台账与 checklist 单列。",
+  "depth": "Lite 长文产业商业模式分析，不做单点产品选型。",
+  "evidence_standard": "只用合成来源；区分案例与整体；披露合成与未做独立评审。",
+  "profile": "lite",
+  "kind": "new",
+  "domain": "科技/商业",
+  "batch_id": "2026-10-14",
+  "batch_dir": "2026-10-14-confirmed",
+  "toolkit_commit": "45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3",
+  "toolkit_version": "1.0.0",
+  "length_record": "3019 非空白字（目标 3000–5000）",
+  "revisions": 0,
+  "mechanical": {
+    "lite_checklist": "checklist_complete",
+    "full_delivery_gate": "skipped",
+    "research_review": "skipped",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": false
+  },
+  "review_mode": "author_self_check",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false
+}

@@ -1,0 +1,1 @@
+enterprise-kb-llm-liability-zh-20261015-full：Full 原条件复测已完成（ZH-R1）。合成材料。已知限制：本批声明需要独立评审，但环境无评审后端，仅完成同会话 degraded 自评（非独立）；R-independent-review 记为 accepted_limitation。已修订 1 轮。

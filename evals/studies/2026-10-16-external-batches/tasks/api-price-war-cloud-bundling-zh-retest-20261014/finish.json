@@ -1,0 +1,34 @@
+{
+  "task": "api-price-war-cloud-bundling-zh-retest-20261014",
+  "message": "api-price-war-cloud-bundling-zh-retest-20261014：Lite 长文已完成（ZH-R1 AI/商业，retest）。合成材料；未做独立评审。",
+  "artifact": "final.md",
+  "checklist": {
+    "requirements": {
+      "passed": true,
+      "evidence": "final.md nonwhitespace_characters=2687 within 2500-4500; check-draft ok=True.",
+      "evidence_files": [
+        "checks/length.md"
+      ]
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "Claims match registered synthetic sources; no invented market facts beyond pack."
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "Counter-evidence and uncertainties addressed at affected conclusions."
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "Sections follow agreed outline for reader decision."
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "Readable source titles; no workflow narration or internal paths in body."
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "Synthetic materials and no independent review disclosed."
+    }
+  }
+}
