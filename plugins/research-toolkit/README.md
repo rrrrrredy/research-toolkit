@@ -2,11 +2,11 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-One installation bundles the research Skill, detailed methods and eight local MCP tools. The agent clarifies the brief, researches and writes with its own tools, then executes the selected review and delivery checks through the shared workflow.
+One installation bundles the research Skill, detailed methods and nine local MCP tools. The agent clarifies the brief, researches and writes with its own tools, then executes the selected review and delivery checks through the shared workflow.
 
 Use the host's supported plugin installation mechanism. The guide below covers Python 3.10+ and MCP dependencies. Bundled manifests launch `python`: the interpreter found by the host process must have the dependencies installed. If the host cannot select that environment for the plugin, connect MCP separately with the absolute virtual-environment interpreter path from the guide.
 
-Open a new session, select Research Toolkit, and confirm the eight `research_*` tools appear. Supply a question or existing report, sources and intended use; the agent recommends Lite/Full and maintains the working records.
+Open a new session, select Research Toolkit, and confirm the nine `research_*` tools appear. Supply a question or existing report, sources and intended use; the agent recommends Lite/Full and maintains the working records.
 
 **[Full installation and usage guide](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.md)** · [Research instructions](SKILL.md) · [Complete standard](references/research-standard.md)
 
