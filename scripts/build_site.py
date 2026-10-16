@@ -145,6 +145,10 @@ def chinese_home(source):
         if 'data-case-link' in a: a['href']=links[a['data-case-link']]
         if 'data-method-link' in a: a['href']='framework.zh-CN.html'
         if 'data-update-case' in a: a['href']='case-study/coding-benchmark-update/index.zh-CN.html'
+        if 'data-review-home' in a: a['href']='https://github.com/rrrrrredy/research-review/blob/main/README.zh-CN.md'
+        if 'data-corpus-page' in a:
+            fragment=urlsplit(a['href']).fragment
+            a['href']='https://github.com/rrrrrredy/agent-trajectory-data/blob/main/corpora/ai-industry/'+a['data-corpus-page']+'.zh-CN.md'+('#'+fragment if fragment else '')
         if n.tag=='a' and 'data-language' in a:
             a.pop('aria-current',None)
             if a['data-language']=='zh': a['aria-current']='page'
