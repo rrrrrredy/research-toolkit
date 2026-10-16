@@ -377,6 +377,12 @@ def save_records(workspace: Path, task: str, sources=None, claims=None, requirem
 
 
 @task_operation
+def check_updates(workspace: Path, task: str, source_id: str) -> dict:
+    from release_updates import check_updates as compare
+    return compare(workspace, task, source_id)
+
+
+@task_operation
 def status(workspace: Path, task: str, language="en", stage: str | None = None) -> dict:
     from record_changes import latest_changes
     root = task_root(workspace, task)
@@ -1069,7 +1075,8 @@ def workspace_default() -> Path:
 
 def dispatch(action: str, request: dict, workspace: Path):
     actions = {"start": start, "status": status, "guide": guidance, "review": review,
-               "finish": finish, "save": save_records, "check-draft": check_draft, "check-reviewer": review_readiness}
+               "finish": finish, "save": save_records, "check-draft": check_draft, "check-reviewer": review_readiness,
+               "check-updates": check_updates}
     if action not in actions:
         raise ValueError("Unknown workflow action. Use " + ", ".join(actions) + ".")
     if not isinstance(request, dict) or any(not isinstance(key, str) for key in request):
@@ -1095,7 +1102,7 @@ def main():
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "save", "check-draft", "check-reviewer"])
+    parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "save", "check-draft", "check-reviewer", "check-updates"])
     parser.add_argument("--profile", choices=["lite", "full"], help="Profile for a new task (default: full).")
     parser.add_argument("--workspace", type=Path, default=workspace_default())
     parser.add_argument("--request", type=Path, help="JSON arguments; otherwise read stdin.")

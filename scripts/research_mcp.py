@@ -65,6 +65,16 @@ def research_save(task: str, sources: list[dict[str, Any]] | None = None,
 
 
 @server.tool(structured_output=True)
+def research_check_updates(task: str, source_id: str) -> dict[str, Any]:
+    """Read one registered public release log and compare its latest saved date and newer entries.
+    Return added/removed content, source dates and existing claim/report locations; unchanged ends the check.
+    Requires official_release/release_notes/changelog and saved evidence with dated version entries.
+    Read failures are explicit. Does not follow links, change evidence/reading status, or revise reports.
+    """
+    return mutate(workflow.check_updates, task, source_id)
+
+
+@server.tool(structured_output=True)
 def research_status(task: str, language: str = "en", stage: str | None = None) -> dict[str, Any]:
     """Read progress and stage methods. Optional stage advances to collect/analyze/draft/revise only
     after prerequisite records exist. Review and final completion use their dedicated tools.

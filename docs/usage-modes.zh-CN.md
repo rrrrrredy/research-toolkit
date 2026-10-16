@@ -62,6 +62,24 @@ python3 scripts/research_workflow.py save --workspace ../research-work --request
 
 已有来源正文改动后，保存该来源 ID（如 `{"sources":[{"source_id":"S1"}]}`）即可比较本地证据文件与上次保存时的哈希，不必重交其他字段。首次观察会明确标记，不能据此推断更早是否变化；旧任务无需迁移或补建历史。工具不会监控远端网页。内容字节相同的文件不重写，`updated_files` 只列实际写入；状态查询不写文件。只登记新稿会沿用最近记录批次并更新正文位置，下一批记录保存会替换该摘要；它不是待办清单，也不新增完成条件。
 
+### 按需检查已登记的版本日志
+
+`research_check_updates(task, source_id)`（CLI：`check-updates`）读取一个已登记的公开版本日志，对比已保存的最新日期条目及其后的版本，返回新增／修订内容、来源标注日期，以及现有主张和稿件的关联位置。无变化返回 `status: unchanged` 后结束；网络、读取、格式或对照失败返回 `status: failed`、`phase` 和原因，CLI 退出码为1。
+
+```json
+{"task":"alibaba-20261016","source_id":"S3"}
+```
+
+```bash
+python3 scripts/research_workflow.py check-updates --workspace ../research-work --request check-updates.json
+```
+
+来源的 `source_type` 使用已有的 `official_release`，或 `release_notes`／`changelog`；`url` 是公开 HTTPS 日志地址，`evidence_path`（或可解析的 `read_evidence`）指向任务内已保存的 UTF-8 日志正文。只支持 HTML／纯文本／Markdown 中独占一行的 `YYYY-MM-DD` 或 `YYYY年MM月DD日`，下一非空行须含版本号，随后为条目正文；已有网页工具导出的 `L数字:` 行号会被忽略。登录页、依赖 JavaScript 才能显示的正文、其他日期格式和无可对应旧版本的页面明确报错，不当作无变化。
+
+这是一项手动调用：每次只请求登记网址，不跟随跳转、不抓其他页面、不定时运行。仅比较最新保存日期和更新条目，不追查更早版本的修订。相同条目中的删改也会返回，日期是来源标签，不冒充精确发布时间。关联段落复用现有字面匹配；未定位时需自行检查。
+
+调用不覆盖旧证据、不改变阅读状态、结论或交付记录。有变化时返回 `current_excerpt`，供 Agent 阅读后另存并通过现有 `research_save` 更新来源；未采纳前再次调用仍会相对旧证据报告变化。网络失败可在恢复访问后重试同一请求。
+
 ## 接续已有研究
 
 提供已有报告、相关来源和新的用途即可，记录整理由 Agent 负责。支持从零研究，也支持以下两条路径：
