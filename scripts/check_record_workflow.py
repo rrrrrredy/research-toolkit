@@ -63,8 +63,12 @@ class RecordWorkflowTests(unittest.TestCase):
 
     def test_changes_reuse_ids_locate_body_and_skip_identical_writes(self):
         self.seed()
+        context = ("Before the measurement.\nContinued.\n\n"
+                   "Twelve shipments [source](https://example.org).\nRevenue is unknown.\n\n"
+                   "Not this URL: https://example.org/other")
         w.save_records(self.workspace, "case", draft={"path": "final.md", "content":
-            "# Findings\nTwelve shipments [source](https://example.org).\nNot this URL: https://example.org/other\n"})
+            "# Earlier\nOther section.\n## Findings\n" + context + "\n## Next\nAnother section.\n"})
+        report_before = (self.root/"final.md").read_bytes()
         before = (self.root/"data/source_registry.csv").stat().st_mtime_ns
         same = w.save_records(self.workspace, "case", sources=[{"source_id": "S1"}])
         self.assertEqual(same["updated_files"], [])
@@ -75,7 +79,11 @@ class RecordWorkflowTests(unittest.TestCase):
         changed = w.save_records(self.workspace, "case", sources=[{"source_id": "S1"}])["changes"]
         self.assertEqual(changed["source_files"]["S1"]["status"], "changed")
         self.assertEqual(changed["affected_claims"][0]["claim_id"], "C1")
-        self.assertEqual([m["line"] for m in changed["affected_claims"][0]["locations"]], [2])
+        self.assertEqual(changed["affected_claims"][0]["locations"], [{
+            "line": 7, "heading": "Findings", "matched_by": ["claim_text", "source_link:S1"],
+            "text": "Twelve shipments [source](https://example.org).",
+            "context": {"start_line": 4, "end_line": 10, "text": context}}])
+        self.assertEqual((self.root/"final.md").read_bytes(), report_before)
         before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
         self.assertEqual(w.status(self.workspace, "case")["changes"], changed)
         self.assertEqual(before, {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()})

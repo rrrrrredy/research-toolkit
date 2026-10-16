@@ -32,21 +32,30 @@ class ReleaseUpdateTests(unittest.TestCase):
             writer.writeheader()
             writer.writerow({"source_id": "S3", "url": URL, "source_type": "official_release", "evidence_path": "sources/log.md"})
         (self.root / "data/claims_registry.csv").write_text("claim_id,claim,supporting_sources\nC5,Previous version,S3\n", encoding="utf-8")
-        (self.root / "report.md").write_text(f"## Alibaba\nPrevious version. [Release log]({URL})\n", encoding="utf-8")
+        (self.root / "report.md").write_text(
+            f"## Alibaba\nPrevious version. [Release log]({URL})\nReported availability only.\n\n"
+            "Actual editing quality remains unverified.\n## Other\nUnrelated section.\n", encoding="utf-8")
         (self.root / "logs/activity.jsonl").write_text(json.dumps({"outcome": "saved", "artifact": "report.md"}) + "\n", encoding="utf-8")
 
     def check(self):
         return workflow.dispatch("check-updates", {"task": "case", "source_id": "S3"}, self.workspace)
 
     def test_new_release_returns_content_date_and_existing_location(self):
+        report_before = (self.root / "report.md").read_bytes()
         with patch("release_updates.fetch_log", return_value=NEW) as fetch:
             result = self.check()
         fetch.assert_called_once_with(URL)
         self.assertEqual(result["status"], "changed")
         self.assertEqual([(e["date"], e["version"], e["added_content"]) for e in result["changes"]],
                          [("2026-10-15", "1.3.1", ["New release body."])])
-        self.assertEqual(result["affected_claims"][0]["locations"][0]["line"], 2)
+        self.assertEqual(result["affected_claims"][0]["locations"], [{
+            "line": 2, "heading": "Alibaba", "matched_by": ["claim_text", "source_link:S3"],
+            "text": f"Previous version. [Release log]({URL})",
+            "context": {"start_line": 2, "end_line": 5,
+                        "text": f"Previous version. [Release log]({URL})\nReported availability only.\n\n"
+                                "Actual editing quality remains unverified."}}])
         self.assertEqual(self.baseline.read_text(encoding="utf-8"), OLD)
+        self.assertEqual((self.root / "report.md").read_bytes(), report_before)
 
     def test_unchanged_ignores_web_export_markup_and_stops(self):
         self.baseline.write_text("L22: 2026年10月09日\nL24: 千问办公 1.2.5\nL26: * Previous release body.\n", encoding="utf-8")

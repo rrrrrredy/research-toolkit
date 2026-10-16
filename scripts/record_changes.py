@@ -96,6 +96,33 @@ def summarize_save(root, plans, ids, events):
     return summary
 
 
+def paragraph_context(lines, index):
+    """Return literal text blocks around a match, bounded by blank lines/headings."""
+    def span(at):
+        start = end = at
+        if not lines[at].startswith("#"):
+            while start > 0 and lines[start - 1].strip() and not lines[start - 1].startswith("#"):
+                start -= 1
+            while end + 1 < len(lines) and lines[end + 1].strip() and not lines[end + 1].startswith("#"):
+                end += 1
+        return start, end
+
+    start, end = span(index)
+    first, last = start, end
+    before = start - 1
+    while before >= 0 and not lines[before].strip():
+        before -= 1
+    if before >= 0 and not lines[index].startswith("#") and not lines[before].startswith("#"):
+        first, _ = span(before)
+    after = end + 1
+    while after < len(lines) and not lines[after].strip():
+        after += 1
+    if after < len(lines) and not lines[after].startswith("#"):
+        _, last = span(after)
+    return {"start_line": first + 1, "end_line": last + 1,
+            "text": "\n".join(lines[first:last + 1])}
+
+
 def impact_view(root, summary, artifact):
     from research_workflow import safe_path
     records = summary.get("records", {})
@@ -127,7 +154,8 @@ def impact_view(root, summary, artifact):
                 if (url and re.search(re.escape(url) + r"(?=$|[\s)<>\]\"'])", line)) or re.search(r"\[" + re.escape(sid) + r"\]", line):
                     reasons.append("source_link:" + sid)
             if reasons:
-                matches.append({"line": number, "heading": heading, "matched_by": reasons})
+                matches.append({"line": number, "heading": heading, "matched_by": reasons,
+                                "text": line, "context": paragraph_context(lines, number - 1)})
         affected.append({"claim_id": key, "claim": row.get("claim"), "changed_source_ids": sorted(linked),
                          "locations": matches, "location_status": "matched" if matches else "not_located"})
     return {"records": records, "source_files": summary.get("source_files", {}), "artifact": artifact,
