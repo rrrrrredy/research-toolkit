@@ -36,6 +36,8 @@
 
 两种流程共用必读材料、证据、分析和写作标准。按任务选择，篇幅不是档位上限；Full 不自动等于独立评审。
 
+**只想审查一份现成报告？** 使用独立 Skill [Research Review](https://github.com/rrrrrredy/research-review/blob/main/README.zh-CN.md)。Toolkit 已包含相应审查能力，现有用户无需重复安装。
+
 已有稿件或新材料？直接[修订、更新或将 Lite 接续为 Full](./docs/usage-modes.zh-CN.md#接续已有研究)，复用已完成的研究与来源。
 
 ## 研究案例

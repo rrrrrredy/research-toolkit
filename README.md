@@ -36,6 +36,8 @@ when revising. Maintain working records yourself and state the checks performed.
 
 Both share the same standards for required reading, evidence, analysis and writing. Choose by the task; length is not a profile cap, and Full does not automatically mean independent review.
 
+**Only need to review an existing report?** Use the standalone [Research Review](https://github.com/rrrrrredy/research-review) Skill. Toolkit already includes these review capabilities; existing users do not need a second installation.
+
 Have a draft or new material? [Revise, update or continue Lite work in Full](./docs/usage-modes.md#continue-existing-research), reusing completed research and its sources.
 
 ## Research case
