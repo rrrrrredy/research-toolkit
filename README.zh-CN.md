@@ -10,12 +10,6 @@
 
 [**开始使用**](#快速开始) · [看研究案例](#研究案例) · [Agent 接入](#agent-接入) · [文档](#文档)
 
-## AI 行业研究材料
-
-**281 份材料 · 六个主题 · 五份重点整理。** 在线阅读公司分析、模型与 Agent 研究、算力成本、行业观察和论文笔记，保留原文、历史版本与未核实标记。
-
-[**按主题浏览**](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/corpora/ai-industry/BROWSE.zh-CN.md) · [五份重点整理](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/corpora/ai-industry/recovered/README.zh-CN.md) · [完整历史材料包](https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1)
-
 <a id="使用"></a>
 
 ## 快速开始
@@ -103,6 +97,8 @@ Full 支持作者上下文中的 `self`、配置后端的 `external`，或单独
 公开记录保留完整报告、原始失败、评审和修订结果，展示具体正文修正与已验证的流程行为，尚不能证明相对原生 Agent 的普遍质量或效率优势。案例、模型对照和软件检查分别回答不同问题。
 
 [当前证据与边界](./docs/evaluation-status.zh-CN.md) · [完整报告版本比较](./evals/studies/2026-10-13-before-after/README.zh-CN.md) · [数据集与检查](./evals/README.zh-CN.md) · [历史数据归档](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md)
+
+可选输入：[AI 行业研究材料集](https://rrrrrredy.github.io/research-toolkit/materials/index.zh-CN.html)，按当前任务选用历史正文、摘要与版本记录。
 
 ## 文档
 

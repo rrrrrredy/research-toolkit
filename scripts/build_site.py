@@ -65,6 +65,10 @@ TITLES = {
     'case-study/api-or-browser/initial.html': 'Initial API-or-browser draft · Research Toolkit',
 }
 
+MATERIALS = json.loads((DOCS/'materials/pages.json').read_text(encoding='utf-8'))
+DESCRIPTIONS.update(MATERIALS['descriptions'])
+PAIRS.extend(tuple(pair) for pair in MATERIALS['pairs'])
+
 def url(path):
     return BASE + (path[:-10] if path.endswith('index.html') else path)
 
@@ -148,7 +152,8 @@ def chinese_home(source):
         if 'data-review-home' in a: a['href']='https://github.com/rrrrrredy/research-review/blob/main/README.zh-CN.md'
         if 'data-corpus-page' in a:
             fragment=urlsplit(a['href']).fragment
-            a['href']='https://github.com/rrrrrredy/agent-trajectory-data/blob/main/corpora/ai-industry/'+a['data-corpus-page']+'.zh-CN.md'+('#'+fragment if fragment else '')
+            page={'BROWSE':'materials/index', 'recovered/README':'materials/recovered/index'}[a['data-corpus-page']]
+            a['href']=page+'.zh-CN.html'+('#'+fragment if fragment else '')
         if n.tag=='a' and 'data-language' in a:
             a.pop('aria-current',None)
             if a['data-language']=='zh': a['aria-current']='page'
