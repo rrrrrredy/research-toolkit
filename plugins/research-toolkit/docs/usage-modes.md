@@ -82,6 +82,8 @@ Use the existing `official_release` source type, or `release_notes`/`changelog`.
 
 This is a manual call: one registered URL, no redirects, other-page crawling or scheduling. It compares the latest saved date and newer entries, not revisions to older history. Deletions/replacements within compared entries are returned too. Dates are source labels, not exact publication timestamps. Report locations reuse literal matching; inspect manually when no location is found.
 
+Release-log requests normalize the hostname and require every resolved address to be public. Connections use those checked addresses while preserving hostname-based HTTPS verification. This call connects directly without environment/system proxies, whose target resolution cannot be checked locally; environments requiring a proxy return a reading failure if direct access is unavailable.
+
 The call does not overwrite evidence or change reading status, conclusions or delivery records. Changed results include `current_excerpt` for the agent to read, save separately and register through the existing `research_save` flow. Until adopted, another call still compares against the old evidence. Retry the same request after resolving a network failure.
 
 ## Continue existing research
