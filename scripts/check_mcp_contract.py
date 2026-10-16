@@ -46,7 +46,7 @@ async def verify(base):
     async with Client(server, read_timeout_seconds=30) as client:
         tools = await client.list_tools()
         names = {tool.name for tool in tools.tools}
-        assert names == {"research_start", "research_save", "research_status", "research_guide", "research_review", "research_finish", "research_check_reviewer", "research_check_draft"}, names
+        assert names == {"research_start", "research_save", "research_status", "research_guide", "research_review", "research_finish", "research_check_reviewer", "research_check_draft", "research_check_updates"}, names
         guide = unpack(await client.call_tool("research_guide", {"stage": "brief", "language": "zh"}))
         assert "研究工作流" in guide["guidance"][0]["content"]
         for language, suffix in (("en", ".md"), ("zh", ".zh-CN.md")):

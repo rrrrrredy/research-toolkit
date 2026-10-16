@@ -62,6 +62,24 @@ Format errors identify the collection, row and field. The agent fixes those inpu
 
 After changing local source text, save its ID (for example `{"sources":[{"source_id":"S1"}]}`) to compare evidence-file hashes with the previous save observation, without resending other fields. First observations are explicit and say nothing about earlier changes; old tasks need no migration or reconstructed history. Remote pages are not monitored. Byte-identical files are not rewritten and `updated_files` lists actual writes; status is read-only. Registering only a new draft keeps the latest record batch and refreshes its body locations; the next record save replaces that summary. This is not a backlog or a new completion requirement.
 
+### Check a registered release log on demand
+
+`research_check_updates(task, source_id)` (CLI: `check-updates`) reads one registered public release log. It compares the latest saved date and newer entries, returning added/revised content, source-labelled dates, and existing claim/report locations. No change returns `status: unchanged` and ends the check. Network, reading, format or comparison failures return `status: failed`, `phase` and an explanation; the CLI exits with code 1.
+
+```json
+{"task":"alibaba-20261016","source_id":"S3"}
+```
+
+```bash
+python3 scripts/research_workflow.py check-updates --workspace ../research-work --request check-updates.json
+```
+
+Use the existing `official_release` source type, or `release_notes`/`changelog`. The registered `url` must be a public HTTPS log; `evidence_path` (or a parseable `read_evidence`) points to saved UTF-8 log text inside the task. Supported HTML/plain text/Markdown has standalone `YYYY-MM-DD` or `YYYY年MM月DD日` dates, a version on the next nonempty line, and a body. Saved web-tool `Lnumber:` prefixes are ignored. Login pages, JavaScript-only bodies, other date formats, or pages missing the latest saved release fail explicitly rather than reporting no change.
+
+This is a manual call: one registered URL, no redirects, other-page crawling or scheduling. It compares the latest saved date and newer entries, not revisions to older history. Deletions/replacements within compared entries are returned too. Dates are source labels, not exact publication timestamps. Report locations reuse literal matching; inspect manually when no location is found.
+
+The call does not overwrite evidence or change reading status, conclusions or delivery records. Changed results include `current_excerpt` for the agent to read, save separately and register through the existing `research_save` flow. Until adopted, another call still compares against the old evidence. Retry the same request after resolving a network failure.
+
 ## Continue existing research
 
 Provide the report, relevant sources and intended use; the agent maintains the records. Starting from a question remains supported. Two adjacent requests are:

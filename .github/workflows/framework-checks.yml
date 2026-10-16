@@ -104,6 +104,7 @@ jobs:
           python scripts/check_research_workflow.py
           python scripts/check_draft_contract.py
           python scripts/check_record_workflow.py
+          python scripts/check_release_updates.py
           python scripts/check_task_lock.py
       - name: Check profiles and reviewer backends
         run: python scripts/check_profiles_reviewers.py
