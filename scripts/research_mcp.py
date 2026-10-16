@@ -78,6 +78,7 @@ def research_check_updates(task: str, source_id: str) -> dict[str, Any]:
 def research_status(task: str, language: str = "en", stage: str | None = None) -> dict[str, Any]:
     """Read progress and stage methods. Optional stage advances to collect/analyze/draft/revise only
     after prerequisite records exist. Review and final completion use their dedicated tools.
+    Explicit analyze/draft entry includes saved requirements as JSONL text when present, preserving statuses and evidence.
     changes reuses the latest successful record-save batch and locates related claims in the latest registered draft.
     Literal matches guide reading, not semantic verdicts; not_located requires inspection, not a new acceptance gate.
     """

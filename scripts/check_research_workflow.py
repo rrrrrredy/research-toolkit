@@ -426,6 +426,29 @@ class WorkflowTests(unittest.TestCase):
             self.assertTrue(self.review(runner, purpose="evaluation")["evaluation_complete"])
         self.assertEqual(runner.calls, ["reviewer", "auditor"])
 
+    def test_stage_entry_returns_saved_requirements_without_changing_them(self):
+        self.assertNotIn("requirements", workflow.status(self.workspace, "case", stage="analyze"))
+        ledger = self.root/"state/requirements.jsonl"
+        rows = [
+            {"requirement_id": "R1", "summary": "Compare shipments and revenue.", "status": "pending"},
+            {"requirement_id": "R2", "summary": "Keep the revenue evidence limit.", "status": "satisfied",
+             "evidence": ["final.md, paragraph 2"]},
+        ]
+        content = "".join(json.dumps(row)+"\n" for row in rows)
+        ledger.write_text(content, encoding="utf-8")
+        original = ledger.read_bytes()
+        for stage in ("analyze", "draft"):
+            result = workflow.status(self.workspace, "case", stage=stage)
+            self.assertEqual(result["requirements"], content)
+            self.assertEqual(ledger.read_bytes(), original)
+        self.assertNotIn("requirements", workflow.status(self.workspace, "case"))
+        self.assertNotIn("requirements", workflow.status(self.workspace, "case", stage="collect"))
+        before = (self.root/"state/progress.json").read_bytes()
+        ledger.write_text("{broken json}", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "Requirement"):
+            workflow.status(self.workspace, "case", stage="draft")
+        self.assertEqual((self.root/"state/progress.json").read_bytes(), before)
+
     def test_requirements_are_supplied_to_both_contexts_and_bound_at_delivery(self):
         requirement = {"requirement_id": "R1", "source_turn": "2", "summary": "Distinguish shipments from revenue.",
                        "status": "satisfied", "evidence": ["final.md, paragraph 2"]}

@@ -388,6 +388,7 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None) 
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
     missing = [k for k in BRIEF_FIELDS if not nonempty(progress.get("brief", {}).get(k))]
+    requirements = ""
     if stage is not None:
         if stage not in {"collect", "analyze", "draft", "revise"}:
             raise ValueError("Review and final stages are entered by review and finish.")
@@ -395,6 +396,7 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None) 
             raise ValueError("Resolve the critical brief before advancing.")
         if stage in {"analyze", "draft"}:
             check_stage_records(root, stage)
+            requirements = requirement_input(root)
         progress.update(stage=stage, status="in_progress", next_action=f"Complete the {stage} requirements.")
         save(root, "state/progress.json", progress)
     delivery = {}
@@ -416,6 +418,7 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None) 
                         "next_action": "Resolve the current delivery findings, then review/check and finish the changed report."}
     current = progress.get("stage", "brief")
     return {"task": task, "task_directory": str(root), "progress": progress, "missing_fields": missing, **delivery,
+            **({"requirements": requirements} if requirements else {}),
             "activity": activity_summary(root),
             "changes": latest_changes(root),
             **guidance(current, language, progress.get("profile", "full"))}
