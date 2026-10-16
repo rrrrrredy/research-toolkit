@@ -18,7 +18,7 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/80</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/cad6230f37593be4bce42cc950b8e142d1159a92b06ec988e452320f865f4391.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2495089975.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2495089975.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>AI Agent研究报告</p>
 <h1>一、核心要点</h1>
@@ -53,7 +53,7 @@
 <td>为智能体配备工具 API，比如：计算器、搜索工具、代码执行器、数据库查询工具等。有了这些工具 API，智能体就可以与物理世界交互，解决实际的问题。</td>
 </tr>
 </tbody></table></div>
-<p>:[color]{rgb(0, 0, 0)}<strong>2.1.规划（Planing）</strong>[/color]</p>
+<p><strong>2.1.规划（Planing）</strong></p>
 <p>规划，可以为理解观察和思考。如果用人类来类比，当我们接到一个任务，我们的思维模式可能会像下面这样:</p>
 <ul>
 <li>我们首先会思考怎么完成这个任务。</li>
@@ -103,7 +103,7 @@
 <td>LLM根据实际情况使用工具获取知识或完成子任务以得到阶段性信息。</td>
 </tr>
 </tbody></table></div>
-<p>:[color]{rgb(0, 0, 0)}<strong>2.2.记忆（Memory）</strong>[/color]</p>
+<p><strong>2.2.记忆（Memory）</strong></p>
 <p>记忆是什么？当我们在思考这个问题，其实人类的大脑已经在使用记忆。记忆是大脑存储、保留和回忆信息的能力。记忆可以分为不同的类型：</p>
 <ol>
 <li><strong>短期记忆（或工作记忆）</strong>：这是一种持续时间较短的记忆，能够暂时存储和处理有限数量的信息。例如，记住一个电话号码直到拨打完毕。</li>
@@ -114,17 +114,19 @@
 <li><strong>短期记忆</strong>：在当前任务执行过程中所产生的信息，比如某个工具或某个子任务执行的结果，会写入短期记忆中。记忆在当前任务过程中产生和暂存，在任务完结后被清空。</li>
 <li><strong>长期记忆</strong>：长期记忆是长时间保留的信息。一般是指外部知识库，通常用向量数据库来存储和检索。</li>
 </ul>
-<p>:[color]{rgb(0, 0, 0)}<strong>2.3.工具使用（Tool use）</strong>[/color]</p>
+<p><strong>2.3.工具使用（Tool use）</strong></p>
 <p>LLM是数字世界中的程序，想要与现实世界互动、获取未知的知识，或是计算某个复杂的公式等，都离不开不工具。所以我们需要为智能体配备各种工具以及赋予它使用工具的能力。</p>
 <p>工具是什么？它可以是锤子、螺丝刀，也可以是函数（function）、软件开发工具包（sdk）。工具是人类智慧的具象化，扩展我们的能力，提升工作效率。在智能体中，工具就是函数（Function），工具使用就是调用函数（Call Function）。</p>
 <p>在LLM中实现函数调用，使用到LLM的这个能力:</p>
 <p><a href="https://platform.openai.com/docs/guides/function-calling/function-calling">Function Calling</a></p>
 <p>Function Calling是<strong>一种实现大型语言模型连接外部工具的机制</strong>。通过API调用LLM时，调用方可以描述函数，包括函数的功能描述、请求参数说明、响应参数说明，让LLM根据用户的输入，合适地选择调用哪个函数，同时理解用户的自然语言，并转换为调用函数的请求参数（通过JSON格式返回）。调用方使用LLM返回的函数名称和参数，调用函数并得到响应。最后，如果需求，把函数的响应传给LLM，让LLM组织成自然语言回复用户。</p>
 <p>function calling具体工作流程如下图所示：</p>
-<p>:::drawio{src=&quot;<a href="https://km.sankuai.com/api/file/cdn/2495089975/124865775839?contentType=0&isNewContent=false">https://km.sankuai.com/api/file/cdn/2495089975/124865775839?contentType=0&amp;isNewContent=false</a>&quot; width=676 height=396}</p>
+<div class="material-gap"><p>图表缺失：材料只保留引用，未保存可显示的图表内容。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>:::drawio{src=&quot;https://km.sankuai.com/api/file/cdn/2495089975/124865775839?contentType=0&amp;isNewContent=false&quot; width=676 height=396}</pre></details></div>
+
+
+
 <h2>3.Agent分类</h2>
-<p>未能展开此表；以下保留该处原始捕获内容。</p>
-<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+<div class="material-gap"><p>表格缺失：现有片段无法完整还原。</p><details class="material-fragment"><summary>查看原始片段</summary><p>未能展开此表；以下保留该处原始捕获内容。</p><pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
 [
   [
     {
@@ -439,7 +441,9 @@
       &quot;content&quot;: &quot;在现实世界中操作，如机器人或自动驾驶汽车。&quot;
     },
     {
-      &quot;type&quot;: &quot;table</pre>
+      &quot;type&quot;: &quot;table</pre></details></div>
+
+
 
 
 <h2>旧生成摘要（未重写，未核实）</h2>

@@ -18,58 +18,56 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/138</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/54c76550d7547be110aa1c4b714a1905b2ae3ec5c0930dee50fbf6340db99a68.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2705047087.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2705047087.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>DeepSeek跟踪研究及外部访谈</p>
 <h3>一、DeepSeek开源周复盘</h3>
 <h4><strong>1.开源项目介绍</strong></h4>
 <p>Deepseek的模型架构由MOE架构和其自创的MLA（Multi-Head Latent Attention）架构构成，这两者是该模型的核心特点。基于这些架构，Deepseek进行了多项加速优化，推动了推理和训练效率的提升。此次开源项目的优化，特别是在算法和硬件适配上的创新，与Deepseek的核心架构紧密相关。</p>
-<p>:[color]{}<strong>①FlashMLA</strong>[/color]</p>
-<p>:[color]{}FlashMLA是专门面向Hopper GPU的一款高效解码内核，针对大模型中可变长度序列的处理进行了优化。可变长度序列在大模型中，尤其是长文档或长对话的处理过程中，会导致计算开销急剧增加。FlashMLA通过优化Attention机制，显著提高了长短不一序列的处理速度。它的优化体现在内存带宽上达到了3000 GB/s，计算性能上达到了580 TFLOPS，几乎接近H800 GPU的性能极限。[/color]</p>
-<p>:[color]{}简单来说，FlashMLA是一种针对Attention机制（尤其是MLA架构）的核心优化，它解决了大语言模型中注意力机制计算复杂度和内存消耗的问题。FlashMLA的发布展示了Deepseek从算法层面到硬件适配的全栈优化能力，也暗示了未来大模型架构可能会从算法层面突破现有的计算复杂度限制。[/color]</p>
-<p>:[color]{}FlashMLA优化了Attention机制，提升了大语言模型的推理速度和能力。通过这一技术，Deepseek不仅展示了其算法优化的实力，也展示了从硬件适配到算法实现的全栈优化能力。这为未来大模型的演进奠定了基础，也为Deepseek的后续版本（如R2）可能发布的全栈优化工作提供了预示。[/color]</p>
-<p>:[color]{} ②[/color]<strong>DeepEP</strong></p>
-<p>:[color]{}第二天，Deepseek发布了一个名为DeepEP的项目，这是一个针对MOE（混合专家模型）架构的优化工作。DeepEP是首个开源的专家并行通信库，主要解决了MOE模型中不同专家之间的通信效率问题。MOE模型通过只激活特定的专家来提高计算效率，而DeepEP优化了这些专家之间的通信效率。简单来说，它就像是为MOE架构中的专家团队提供了一个高效的沟通系统，使得专家间的信息传递速度极为迅速，极大提升了模型的整体效率。[/color]</p>
-<p>:[color]{}DeepEP的开源和优化，表明了Deepseek对MOE架构作为下一代大模型架构的战略布局。传统的密集（Dense）模型已经接近效率瓶颈，而MOE模型代表了在参数规模和计算效率之间的平衡，成为了新的发展方向。然而，MOE模型的高效实现依赖于专家之间的低延迟通信，DeepEP正是解决这一挑战的关键技术。通过这一优化，Deepseek为MOE架构提供了技术优势，推动了开源社区和行业进一步深挖MOE架构。随着DeepEP的发布，MOE架构有可能成为未来的主流选择。MOE模型和Dense模型有着明显的区别，因此，如果团队已经在MOE模型上投入大量工作，他们将难以转向Dense模型。同样地，已经在Dense模型上深耕的团队也难以切换到MOE模型。因此，Deepseek在MOE架构上的优化工作，促进了整个行业在MOE领域的进一步发展，也可能导致更多团队舍弃Dense路线，转向MOE模型。[/color]</p>
+<p><strong>①FlashMLA</strong></p>
+<p>FlashMLA是专门面向Hopper GPU的一款高效解码内核，针对大模型中可变长度序列的处理进行了优化。可变长度序列在大模型中，尤其是长文档或长对话的处理过程中，会导致计算开销急剧增加。FlashMLA通过优化Attention机制，显著提高了长短不一序列的处理速度。它的优化体现在内存带宽上达到了3000 GB/s，计算性能上达到了580 TFLOPS，几乎接近H800 GPU的性能极限。</p>
+<p>简单来说，FlashMLA是一种针对Attention机制（尤其是MLA架构）的核心优化，它解决了大语言模型中注意力机制计算复杂度和内存消耗的问题。FlashMLA的发布展示了Deepseek从算法层面到硬件适配的全栈优化能力，也暗示了未来大模型架构可能会从算法层面突破现有的计算复杂度限制。</p>
+<p>FlashMLA优化了Attention机制，提升了大语言模型的推理速度和能力。通过这一技术，Deepseek不仅展示了其算法优化的实力，也展示了从硬件适配到算法实现的全栈优化能力。这为未来大模型的演进奠定了基础，也为Deepseek的后续版本（如R2）可能发布的全栈优化工作提供了预示。</p>
+<p> ②<strong>DeepEP</strong></p>
+<p>第二天，Deepseek发布了一个名为DeepEP的项目，这是一个针对MOE（混合专家模型）架构的优化工作。DeepEP是首个开源的专家并行通信库，主要解决了MOE模型中不同专家之间的通信效率问题。MOE模型通过只激活特定的专家来提高计算效率，而DeepEP优化了这些专家之间的通信效率。简单来说，它就像是为MOE架构中的专家团队提供了一个高效的沟通系统，使得专家间的信息传递速度极为迅速，极大提升了模型的整体效率。</p>
+<p>DeepEP的开源和优化，表明了Deepseek对MOE架构作为下一代大模型架构的战略布局。传统的密集（Dense）模型已经接近效率瓶颈，而MOE模型代表了在参数规模和计算效率之间的平衡，成为了新的发展方向。然而，MOE模型的高效实现依赖于专家之间的低延迟通信，DeepEP正是解决这一挑战的关键技术。通过这一优化，Deepseek为MOE架构提供了技术优势，推动了开源社区和行业进一步深挖MOE架构。随着DeepEP的发布，MOE架构有可能成为未来的主流选择。MOE模型和Dense模型有着明显的区别，因此，如果团队已经在MOE模型上投入大量工作，他们将难以转向Dense模型。同样地，已经在Dense模型上深耕的团队也难以切换到MOE模型。因此，Deepseek在MOE架构上的优化工作，促进了整个行业在MOE领域的进一步发展，也可能导致更多团队舍弃Dense路线，转向MOE模型。</p>
 <p>③<strong>DeepGEMM</strong></p>
-<p>:[color]{}接下来，第三天Deepseek发布了DeepGEMM项目，这是一款针对DeepSeek-V3架构专门设计的、用于FP8精度的通用矩阵乘法（GEMM）优化库。DeepGEMM支持普通模型和MOE混合专家模型（Mix-of-Experts, MoE）中矩阵乘法的运算，且仅支持H系列GPU。它通过优化FP8计算，提供了极致的矩阵乘法速度，特别适用于DeepSeek-V3模型。[/color]</p>
-<p>:[color]{}DeepGEMM是深度学习中最基础的操作之一，矩阵乘法在AI模型计算中占据了重要地位，几乎所有的深度学习模型都需要进行矩阵乘法运算。DeepGEMM的设计优化使其在矩阵乘法计算上比Nvidia自家的库快了约2.7倍，而且只用大约300行代码。它的优化极大提升了基础算子的计算效率，并展示了Deepseek在硬件优化方面的能力。这个优化不仅加速了DeepSeek-V3的运算，还为AI模型的底层计算提供了一个良好的优化范本。[/color]</p>
-<p>:[color]{}Deepseek的DeepEP和DeepGEMM项目分别针对MOE架构的专家通信和基础矩阵乘法进行了优化，推动了行业对MOE架构的进一步关注，同时也为DeepSeek-V3架构的应用提供了更加高效的计算工具。[/color]</p>
+<p>接下来，第三天Deepseek发布了DeepGEMM项目，这是一款针对DeepSeek-V3架构专门设计的、用于FP8精度的通用矩阵乘法（GEMM）优化库。DeepGEMM支持普通模型和MOE混合专家模型（Mix-of-Experts, MoE）中矩阵乘法的运算，且仅支持H系列GPU。它通过优化FP8计算，提供了极致的矩阵乘法速度，特别适用于DeepSeek-V3模型。</p>
+<p>DeepGEMM是深度学习中最基础的操作之一，矩阵乘法在AI模型计算中占据了重要地位，几乎所有的深度学习模型都需要进行矩阵乘法运算。DeepGEMM的设计优化使其在矩阵乘法计算上比Nvidia自家的库快了约2.7倍，而且只用大约300行代码。它的优化极大提升了基础算子的计算效率，并展示了Deepseek在硬件优化方面的能力。这个优化不仅加速了DeepSeek-V3的运算，还为AI模型的底层计算提供了一个良好的优化范本。</p>
+<p>Deepseek的DeepEP和DeepGEMM项目分别针对MOE架构的专家通信和基础矩阵乘法进行了优化，推动了行业对MOE架构的进一步关注，同时也为DeepSeek-V3架构的应用提供了更加高效的计算工具。</p>
 <p>④<strong>DualPipe和EPLB</strong></p>
-<p>:[color]{}第四天，Deepseek发布了DualPipe和EPLB两个项目。[/color]</p>
-<p>:[color]{}DualPipe是一个双向流水线并行算法，旨在优化DeepSeek-V3和R1模型训练中的计算与通信重叠时间，减少流水线上的气泡（即等待时间）。在训练过程中，显卡可能会因为等待其他显卡的计算或通信而处于空闲状态，称为流水线气泡。DualPipe算法通过在等待时间内分配其他任务，充分利用显卡的空闲时间，从而提高计算资源的利用率和训练速度。该算法目前仅支持NVIDIA的H系列显卡，使用时需要配备H系列GPU。[/color]</p>
-<p>:[color]{}EPLB（专家并行负载均衡器）是一个冗余专家策略，旨在优化硬件利用率，减少推理阶段的资源浪费。EPLB主要通过均衡多个专家之间的工作负载，避免某个专家过载或空闲，提高推理效率。与DualPipe不同，EPLB不仅限于DeepSeek模型，它具有较强的通用性，能够在各种MOE模型中使用。EPLB同样只支持H系列显卡。[/color]</p>
-<p>:[color]{}通俗理解，DualPipe类似于生产线上的多条流水线，优化等待时间，以填充显卡的空闲期，从而提升效率；而EPLB像是对多位专家的工作负载进行智能调度，确保各专家高效运行，不会出现过载或空闲现象，进一步提升推理速度。[/color]</p>
-<p>:[color]{}DualPipe和EPLB解决了大规模并行训练中的关键问题：计算资源利用率低和负载不均衡。DualPipe通过重新编排计算任务，打破传统的流水线并行模式；EPLB则为MOE模型提供了智能资源调度策略。这两个技术的开源，体现了Deepseek在分布式系统优化上的深入思考，尤其是针对H系列显卡的优化，推动了开源社区和行业在这一领域的发展。[/color]</p>
+<p>第四天，Deepseek发布了DualPipe和EPLB两个项目。</p>
+<p>DualPipe是一个双向流水线并行算法，旨在优化DeepSeek-V3和R1模型训练中的计算与通信重叠时间，减少流水线上的气泡（即等待时间）。在训练过程中，显卡可能会因为等待其他显卡的计算或通信而处于空闲状态，称为流水线气泡。DualPipe算法通过在等待时间内分配其他任务，充分利用显卡的空闲时间，从而提高计算资源的利用率和训练速度。该算法目前仅支持NVIDIA的H系列显卡，使用时需要配备H系列GPU。</p>
+<p>EPLB（专家并行负载均衡器）是一个冗余专家策略，旨在优化硬件利用率，减少推理阶段的资源浪费。EPLB主要通过均衡多个专家之间的工作负载，避免某个专家过载或空闲，提高推理效率。与DualPipe不同，EPLB不仅限于DeepSeek模型，它具有较强的通用性，能够在各种MOE模型中使用。EPLB同样只支持H系列显卡。</p>
+<p>通俗理解，DualPipe类似于生产线上的多条流水线，优化等待时间，以填充显卡的空闲期，从而提升效率；而EPLB像是对多位专家的工作负载进行智能调度，确保各专家高效运行，不会出现过载或空闲现象，进一步提升推理速度。</p>
+<p>DualPipe和EPLB解决了大规模并行训练中的关键问题：计算资源利用率低和负载不均衡。DualPipe通过重新编排计算任务，打破传统的流水线并行模式；EPLB则为MOE模型提供了智能资源调度策略。这两个技术的开源，体现了Deepseek在分布式系统优化上的深入思考，尤其是针对H系列显卡的优化，推动了开源社区和行业在这一领域的发展。</p>
 <p>⑤<strong>3FS文件系统和Smallpond</strong></p>
-<p>:[color]{}第五天，Deepseek发布了3FS文件系统和Smallpond。[/color]</p>
-<p>:[color]{}3FS是一种高性能并行文件系统，能够实现文件系统与GPU之间的快速数据传输。它的设计目标是提升在大规模数据处理和大模型训练中的数据访问效率，尤其适用于需要高效数据传输的任务。    [/color]</p>
-<p>:[color]{}Smallpond是基于3FS的一个分析工具，适用于处理海量数据。它的设计主要为优化硬盘与GPU之间的传输效率，尤其适合大规模计算任务，如大模型训练。Smallpond最初是幻方量化团队的技术，被Deepseek团队采用并开源。Smallpond具有广泛的通用性，可以用于不同类型模型的文件传输和GPU通信，尤其在量化和大模型训练中表现突出。尽管它最初用于量化优化，但由于量化过程也需要处理大量数据，因此Smallpond的底层传输技术也能有效提升大模型训练中的数据处理效率。[/color]</p>
-<p>:[color]{}3FS和Smallpond的组合极大提升了数据处理效率，并颠覆了传统的数据准备模式，从“先处理后训练”转变为“边处理边训练”。这两个技术不仅优化了训练过程中的加速算法，还在数据处理环节实现了加速，进一步推动了整个训练流程的高效化。Deepseek将这些技术开源，几乎覆盖了整个训练过程，开发者可以基于这些开源工具部署和训练Deepseek模型，接近Deepseek团队的训练速度。[/color]</p>
+<p>第五天，Deepseek发布了3FS文件系统和Smallpond。</p>
+<p>3FS是一种高性能并行文件系统，能够实现文件系统与GPU之间的快速数据传输。它的设计目标是提升在大规模数据处理和大模型训练中的数据访问效率，尤其适用于需要高效数据传输的任务。    </p>
+<p>Smallpond是基于3FS的一个分析工具，适用于处理海量数据。它的设计主要为优化硬盘与GPU之间的传输效率，尤其适合大规模计算任务，如大模型训练。Smallpond最初是幻方量化团队的技术，被Deepseek团队采用并开源。Smallpond具有广泛的通用性，可以用于不同类型模型的文件传输和GPU通信，尤其在量化和大模型训练中表现突出。尽管它最初用于量化优化，但由于量化过程也需要处理大量数据，因此Smallpond的底层传输技术也能有效提升大模型训练中的数据处理效率。</p>
+<p>3FS和Smallpond的组合极大提升了数据处理效率，并颠覆了传统的数据准备模式，从“先处理后训练”转变为“边处理边训练”。这两个技术不仅优化了训练过程中的加速算法，还在数据处理环节实现了加速，进一步推动了整个训练流程的高效化。Deepseek将这些技术开源，几乎覆盖了整个训练过程，开发者可以基于这些开源工具部署和训练Deepseek模型，接近Deepseek团队的训练速度。</p>
 <h4><strong>2.DeepSeek的成本与利润率争议</strong></h4>
-<p><strong>①</strong>Deepseek发布了一个名为<a href="https://github.com/deepseek-ai/open-infra-index/blob/main/202502OpenSourceWeek/day_6_one_more_thing_deepseekV3R1_inference_system_overview.md">One More Thing</a>的报告，揭秘了V3和R1推理系统的利润率情况。根据计算，DeepSeek的成本利润率大约为545%，这些数据是基于Deepseek R1模型的标准API定价进行测算的。然而，实际收入远低于这个数字，因为大部分调用并不是Deepseek R1，而是Deepseek V3。具体比例没有公布，也未进行测算。:[color]{}以ChatGPT为例，ChatGPT-4的推理占比约为80%，而GPT-3的推理模型占比约为20%。类似地，Deepseek V3的API调用占绝大多数，且V3的定价远低于R1。因此，以R1的标准定价来计算实际收入存在偏差，实际收入会低于理论收入。只有部分服务实现了货币化，网页和APP访问都是免费的，但这些已计入实际价格。此外，非高峰时段也有夜间折扣，不是按标准API价格计算。[/color]</p>
-<p>:[color]{}如果所有时段和API调用都按标准定价，且全部使用推理模型服务，利润率将非常高。发布成本利润率的目的是鼓励同行部署此模型为用户提供服务。由于这一周发布的推理加速和成本优化工作已基本开源，大家可以简单部署低成本的R1模型来提供服务。报告显示，高利润率是为了鼓励更多人部署和提供服务，表明大家不会亏钱。推理系统的设计采用了计算和通信重叠架构，即在计算的同时进行通信，将计算过程中的空余时间用通信任务填充，从而大幅提升计算效率。系统包括多个专家模型来实现负载均衡。在编码和解码阶段，专家模型分别参与负载均衡，确保各个阶段的高效运行。整个系统通过这种架构设计提升了推理性能和服务质量。 [/color]</p>
+<p><strong>①</strong>Deepseek发布了一个名为<a href="https://github.com/deepseek-ai/open-infra-index/blob/main/202502OpenSourceWeek/day_6_one_more_thing_deepseekV3R1_inference_system_overview.md">One More Thing</a>的报告，揭秘了V3和R1推理系统的利润率情况。根据计算，DeepSeek的成本利润率大约为545%，这些数据是基于Deepseek R1模型的标准API定价进行测算的。然而，实际收入远低于这个数字，因为大部分调用并不是Deepseek R1，而是Deepseek V3。具体比例没有公布，也未进行测算。以ChatGPT为例，ChatGPT-4的推理占比约为80%，而GPT-3的推理模型占比约为20%。类似地，Deepseek V3的API调用占绝大多数，且V3的定价远低于R1。因此，以R1的标准定价来计算实际收入存在偏差，实际收入会低于理论收入。只有部分服务实现了货币化，网页和APP访问都是免费的，但这些已计入实际价格。此外，非高峰时段也有夜间折扣，不是按标准API价格计算。</p>
+<p>如果所有时段和API调用都按标准定价，且全部使用推理模型服务，利润率将非常高。发布成本利润率的目的是鼓励同行部署此模型为用户提供服务。由于这一周发布的推理加速和成本优化工作已基本开源，大家可以简单部署低成本的R1模型来提供服务。报告显示，高利润率是为了鼓励更多人部署和提供服务，表明大家不会亏钱。推理系统的设计采用了计算和通信重叠架构，即在计算的同时进行通信，将计算过程中的空余时间用通信任务填充，从而大幅提升计算效率。系统包括多个专家模型来实现负载均衡。在编码和解码阶段，专家模型分别参与负载均衡，确保各个阶段的高效运行。整个系统通过这种架构设计提升了推理性能和服务质量。 </p>
 <p>②业界质疑，DeepSeek推算利润时将B端和C端业务混算，且采用特殊算法，如把所有服务用户按GPU的API卖，将B端和C端loading拉齐计算价格，这种方式不合理，若按其官方价，市面上大部分厂商会亏损。其计算成本时使用的H800租金2美元每小时也远低于行业平均水平，A100租金每小时约36元人民币(5美元多)， H800每小时在40多元人民币(5-6美元之间)。<br>③就其他厂商利润率而言，头部大厂在当前定价下，如16元时，大概有15%左右利润，未亏损，而其他厂商大多亏损。原因一是大厂有较多算力储备，可用便宜卡降低硬件分摊成本，二是大厂业务量多可分担成本，保持高loading。在DeepSeek相关技术未开源前，MaaS业务毛利能保持到30%-40%，现在单纯看模型业务毛利跌到15%左右，若大厂复刻相关技术，成本下降，毛利有望回到25%-30%。</p>
-<p>:::note{type=info}</p>
 <hr>
 <p><strong>外部访谈观点2</strong>：DeepSeek的计算方法有点蹊跷，它能做到16块能盈利，但它本身不追求盈利，只追求不亏或微利，更想要技术影响力、技术品牌以及技术规范，让模型广泛被使用，未来再考虑商业化。对于将其部署到自己集群的厂家，很难盈利，原因一是硬成本高，DS有3000万日活分担loading，一般企业业务单一做不到高并发高速率，运算成本高；二是这些技术有其know-how，别人只能接近不能超越，成本依然较高。在AI领域，模型能力和价格被大厂拉齐后，接下来要拼成本、推理速度，还要拼产品，未来客户会为产品买单，大厂都会规划模型并推出一系列好产品来拉开差异化竞争。</p>
-<h4>:[color]{}<strong>3.</strong>[/color]<strong>Deepseek开源周的项目特点</strong></h4>
+<h4>**3.**<strong>Deepseek开源周的项目特点</strong></h4>
 <ul>
-<li>:[color]{}<strong>项目集中于AI infra加速：</strong>[/color]:[color]{}本次开源周的项目主要围绕AI infra的加速进行，包括高效解码计算，如Flash MLA、DeepGEMM等。这些项目利用了最新硬件（如Hopper GPU）和低精度格式（如FP8），以减少内存和计算需求。还包括优化通信、并行处理、负载均衡、性能分析和数据处理优化，整体旨在加速Deepseek系列模型的训练和推理，并有一些泛化的加速项目。    [/color]</li>
-<li>:[color]{}<strong>专门针对NVIDIA H系列GPU优化：</strong>[/color]:[color]{}大约一半的项目专门针对NVIDIA H系列卡进行优化，例如Flash MLA、DeepEP、DeepGEMM等。这些优化仅适用于H系列GPU，无法在A100、A800等A系列GPU上使用。因此，这些优化是特定硬件绑定的，无法泛用到其他GPU型号。[/color]</li>
+<li>**项目集中于AI infra加速：**本次开源周的项目主要围绕AI infra的加速进行，包括高效解码计算，如Flash MLA、DeepGEMM等。这些项目利用了最新硬件（如Hopper GPU）和低精度格式（如FP8），以减少内存和计算需求。还包括优化通信、并行处理、负载均衡、性能分析和数据处理优化，整体旨在加速Deepseek系列模型的训练和推理，并有一些泛化的加速项目。    </li>
+<li>**专门针对NVIDIA H系列GPU优化：**大约一半的项目专门针对NVIDIA H系列卡进行优化，例如Flash MLA、DeepEP、DeepGEMM等。这些优化仅适用于H系列GPU，无法在A100、A800等A系列GPU上使用。因此，这些优化是特定硬件绑定的，无法泛用到其他GPU型号。</li>
 </ul>
-<p>:[color]{}开源周的项目主要集中在针对特定硬件（H系列GPU）和特定模型（如Deepseek V3、R1）进行优化，但也有一些通用工具和加速项目，支持更广泛的应用。 [/color]</p>
+<p>开源周的项目主要集中在针对特定硬件（H系列GPU）和特定模型（如Deepseek V3、R1）进行优化，但也有一些通用工具和加速项目，支持更广泛的应用。 </p>
 <h4><strong>4.主要影响与趋势</strong></h4>
-<p>:[color]{}<strong>①边际上，可能会利好广大的中小云服务的供应商，还有AI应用团队进一步降低Deepseek部署成本，扩大Deepseek的使用范围。</strong>[/color]</p>
+<p><strong>①边际上，可能会利好广大的中小云服务的供应商，还有AI应用团队进一步降低Deepseek部署成本，扩大Deepseek的使用范围。</strong></p>
 <ul>
-<li>:[color]{}<strong>降低Deepseek部署成本并扩大使用范围：</strong>[/color]:[color]{}这些开源工具专为Deepseek的V3和R1系列模型优化（如Flash MLA和DualPipe等），将有助于中小云服务供应商和AI应用团队降低部署成本。通过开源工具，更多公司能够更轻松地采用Deepseek模型，避免了大量适配工作。因此，更多公司会倾向于选择Deepseek模型，从而提高R1模型的采用率，并扩大Deepseek模型在开源市场的影响力。[/color]</li>
-<li>:[color]{}<strong>解决复现困难：</strong>[/color]:[color]{}Deepseek在发布论文和模型后，尽管提供了详细的部署方法，但很多厂商未能有效复现论文中的成果，导致Deepseek服务器高负载，且其他厂商部署的Deepseek模型效率低下。很多第三方服务商采用低效部署方式，造成推理速度慢、用户体验差，且成本高，这使得很多中小型云服务厂商无法以合理的成本提供与Deepseek相同水平的服务。由于亏损严重，一些厂商每月可能亏损上亿元，这在长期内不可持续。[/color]</li>
-<li>:[color]{}<strong>促进大规模使用和生态建设：</strong>[/color]:[color]{}为了扩大Deepseek模型的影响力，并加速生态系统的发展，Deepseek选择将具体的部署代码开源，减少了企业根据论文复现的难度。大多数中小型云服务厂商缺乏复现能力，因此无法快速实施高效的Deepseek模型部署。开源代码让这些厂商可以直接使用，而不需要重新实现论文中的方法，从而促进了Deepseek模型的广泛应用和生态建设。[/color]</li>
+<li>**降低Deepseek部署成本并扩大使用范围：**这些开源工具专为Deepseek的V3和R1系列模型优化（如Flash MLA和DualPipe等），将有助于中小云服务供应商和AI应用团队降低部署成本。通过开源工具，更多公司能够更轻松地采用Deepseek模型，避免了大量适配工作。因此，更多公司会倾向于选择Deepseek模型，从而提高R1模型的采用率，并扩大Deepseek模型在开源市场的影响力。</li>
+<li>**解决复现困难：**Deepseek在发布论文和模型后，尽管提供了详细的部署方法，但很多厂商未能有效复现论文中的成果，导致Deepseek服务器高负载，且其他厂商部署的Deepseek模型效率低下。很多第三方服务商采用低效部署方式，造成推理速度慢、用户体验差，且成本高，这使得很多中小型云服务厂商无法以合理的成本提供与Deepseek相同水平的服务。由于亏损严重，一些厂商每月可能亏损上亿元，这在长期内不可持续。</li>
+<li>**促进大规模使用和生态建设：**为了扩大Deepseek模型的影响力，并加速生态系统的发展，Deepseek选择将具体的部署代码开源，减少了企业根据论文复现的难度。大多数中小型云服务厂商缺乏复现能力，因此无法快速实施高效的Deepseek模型部署。开源代码让这些厂商可以直接使用，而不需要重新实现论文中的方法，从而促进了Deepseek模型的广泛应用和生态建设。</li>
 </ul>
-<p>:::note{type=info}</p>
 <hr>
-<p>:[color]{}<strong>外部访谈观点：</strong>[/color]</p>
-<p>:[color]{}1. [/color]:[color]{}<strong>推理方面</strong>[/color]:[color]{}：[/color]:[color]{}<strong>Deepseek的推理部分几乎已经完全开源。</strong>[/color]:[color]{}对于其他公司，尤其是�</p>
+<p><strong>外部访谈观点：</strong></p>
+<p>1. <strong>推理方面</strong>：__Deepseek的推理部分几乎已经完全开源。__对于其他公司，尤其是�</p>
 <h2>旧生成摘要（未重写，未核实）</h2>
 <p>DeepSeek近期密集开源了一批底层技术组件，覆盖训练与推理全链路。技术层面，FlashMLA是专为Hopper GPU优化的解码内核，内存带宽达3000 GB/s、计算性能达580 TFLOPS；DeepGEMM以约300行代码实现FP8矩阵乘法，速度较Nvidia官方库快约2.7倍；DeepEP作为首个开源MOE专家并行通信库，解决了大规模专家间通信效率瓶颈；DualPipe双向流水线算法通过填充GPU空闲时间压缩流水线气泡，但仅支持H系列GPU；EPLB负责均衡MOE模型的专家工作负载；3FS高性能并行文件系统与基于其构建的Smallpond（源自幻方量化团队）则将训练模式从&quot;先处理后训练&quot;升级为&quot;边处理边训练&quot;。上述优化均围绕DeepSeek核心架构的两大支柱——MOE与自研MLA（多头潜在注意力）——展开。</p>
 <p>商业层面，DeepSeek理论成本利润率高达545%，但实际收入有限，原因在于多数调用集中于定价更低的V3而非R1。其H800租金仅2美元/小时，远低于行业均价5至6美元，但DeepSeek本身并不以盈利为目标，而是借助3000万日活摊薄算力成本，以技术影响力与品牌为核心诉求。对第三方云厂商而言，处境则截然不同——当前行业MaaS毛利率已从30%至40%骤降至15%，多数中小厂商处于亏损状态，部分低效部署者每月亏损逾亿元。开源代码的释出虽有助于解决复现难题、降低中小云服务商部署成本，但开源工具中约半数仅适配NVIDIA H系列GPU，A100/A800等A系列用户无法直接受益。</p>

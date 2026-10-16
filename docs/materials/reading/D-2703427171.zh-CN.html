@@ -18,58 +18,57 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/129</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/3feb07b166f6e2eab73ddf798851fdfd32abcd5c7fd839e06dc7c41420809501.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2703427171.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2703427171.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>论文推荐：多模态、推理研究井喷，字节多方向发力</p>
 <h3>一、模型层</h3>
 <div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
 <tr>
 <th></th>
-<th>**公司/院校/机构**</th>
-<th>**简介**</th>
-<th>**详情**</th>
+<th><strong>公司/院校/机构</strong></th>
+<th><strong>简介</strong></th>
+<th><strong>详情</strong></th>
 </tr>
 <tr>
 <td></td>
 <td>Sakana AI</td>
 <td>Sakana AI 提出 Transformer² 自适应模型架构，能像生物一样动态调整权重适应任务，支持终生学习。</td>
-<td>[本文](https://arxiv.org/abs/2412.09616):[color]{}共同一作为葛俊岐 (清华大学本科生)，陈子熠 (清华[/color]日本 AI 初创公司 Sakana AI 提出 [Transformer²](https://arxiv.org/pdf/2501.06252) 自适应模型架构，能像生物一样动态调整权重适应任务，支持终生学习。<br><br>Transformer^2 这个名称反映了它的两步过程：首先，模型分析传入的任务以了解其要求，然后应用特定于任务的调整来生成最佳结果。通过有选择地调整模型权重的关键组成部分，该框架允许 LLM 实时动态地适应新任务。<br><br>Transformer^2 在各种任务（例如数学、编程、推理和视觉理解）上展示了显著进步，在效率和特定于任务的性能方面优于 LoRA 等传统静态方法，同时需要的参数少得多。<br><br>作者表示，这项研究为人们提供了一个未来 AI 模型不再静态的初步展望。这些系统将在测试时动态地调整其计算能力，以适应它们所遇到的任务的复杂性，体现出能够持续变化和终生学习的「活」的智能。</td>
+<td><a href="https://arxiv.org/abs/2412.09616">本文</a>共同一作为葛俊岐 (清华大学本科生)，陈子熠 (清华日本 AI 初创公司 Sakana AI 提出 <a href="https://arxiv.org/pdf/2501.06252">Transformer²</a> 自适应模型架构，能像生物一样动态调整权重适应任务，支持终生学习。<br><br>Transformer^2 这个名称反映了它的两步过程：首先，模型分析传入的任务以了解其要求，然后应用特定于任务的调整来生成最佳结果。通过有选择地调整模型权重的关键组成部分，该框架允许 LLM 实时动态地适应新任务。<br><br>Transformer^2 在各种任务（例如数学、编程、推理和视觉理解）上展示了显著进步，在效率和特定于任务的性能方面优于 LoRA 等传统静态方法，同时需要的参数少得多。<br><br>作者表示，这项研究为人们提供了一个未来 AI 模型不再静态的初步展望。这些系统将在测试时动态地调整其计算能力，以适应它们所遇到的任务的复杂性，体现出能够持续变化和终生学习的「活」的智能。</td>
 </tr>
 <tr>
 <td></td>
 <td>腾讯</td>
 <td>腾讯混元提出低比特浮点数训练 Scaling Laws</td>
-<td>:[color]{}大模型低精度训练和推理是大模型领域中的重要研究方向，旨在通过降低模型精度来减少计算和存储成本，同时保持模型的性能。因为在大模型研发成本降低上的巨大价值而受到行业广泛关注 。近期，业界对低精度训练和推理的广泛关注与讨论。在实际的研发过程中，特别是模型训练方面，经验表明浮点数量化方案相比整数量化方案对模型效果造成的损失更小，所以浮点数常常被用作量化训练的类型。这就引出了一些问题：整数类型量化训练的经验能否直接应用到浮点数类型的量化训练任务中？如果不能，浮点数类型又会有怎样的结论？量化训练到底有没有极限？[/color]<br><br>:[color]{}大模型社区亟需一个更加适合实际浮点数量化训练的 Scaling Laws，指导大模型量化的实际选择和未来探索方向。为了回答这些问题，腾讯混元团队进行了 366 组不同参数规模和精度的浮点数量化训练，对浮点数量化训练进行详细分析后[/color][提出](https://huggingface.co/papers/2501.02423):[color]{}了浮点数量化的 Scaling Laws。[/color]</td>
+<td>大模型低精度训练和推理是大模型领域中的重要研究方向，旨在通过降低模型精度来减少计算和存储成本，同时保持模型的性能。因为在大模型研发成本降低上的巨大价值而受到行业广泛关注 。近期，业界对低精度训练和推理的广泛关注与讨论。在实际的研发过程中，特别是模型训练方面，经验表明浮点数量化方案相比整数量化方案对模型效果造成的损失更小，所以浮点数常常被用作量化训练的类型。这就引出了一些问题：整数类型量化训练的经验能否直接应用到浮点数类型的量化训练任务中？如果不能，浮点数类型又会有怎样的结论？量化训练到底有没有极限？<br><br>大模型社区亟需一个更加适合实际浮点数量化训练的 Scaling Laws，指导大模型量化的实际选择和未来探索方向。为了回答这些问题，腾讯混元团队进行了 366 组不同参数规模和精度的浮点数量化训练，对浮点数量化训练进行详细分析后<a href="https://huggingface.co/papers/2501.02423">提出</a>了浮点数量化的 Scaling Laws。</td>
 </tr>
 <tr>
 <td></td>
 <td>微软</td>
 <td>微软提出「大型行动模型」（Large Aciton Model，LAM），该模型可理解用户多形式输入指令并转化为行动步骤。</td>
-<td>近日，来自微软的研究者发表[论文](https://arxiv.org/pdf/2412.10047)，提出「大型行动模型」（Large Aciton Model，LAM），该模型可理解用户多形式输入指令并转化为行动步骤。<br><br>LAM 能够理解用户的各种输入，包括文字、语音和图像，然后将这些请求转化为详细的步骤计划，并根据实时情况调整其行动策略。  <br>该工作专门构建了复杂任务的数据集。研究者研究者首先从 Microsoft 文档、wikiHow 文章和 Bing 搜索中收集 29,000 对任务和计划示例，构建了训练数据集；而后利用 GPT-4o 将简单的任务转换为更复杂的任务，从而将数据集增加到 76000 对，增长了 150%。最后从所有示例中将约 2,000 个行动序列纳入最终的训练集。  <br>为使 LAM 能够将用户输入映射到适当的计划和可执行的行动，从而实现复杂任务的完成，研究者采用分阶段的训练策略。其具体为任务-计划预训练，从专家学习，自我增强探索，从奖励模型学习。  <br>首先，LAM 从学习结构化的任务计划开始，将任务分解为逻辑步骤，并向 GPT-4o 等先进 AI 学习如何将计划转化为具体行动。然后，LAM 会探索新解决方案，从自身成功中自我增强，并基于奖励机制进行微调优化。该工作以 Mistral-7B 为基础构建了 LAM 模型，并在 Word 测试环境中进行测试。结果显示，LAM 成功完成任务的概率为 71%，超过 GPT-4o 无视觉信息的情况下的 63%；并且在任务执行速度上 LAM 每个任务仅需 30 秒，而 GPT-4o 则需要 86 秒。</td>
+<td>近日，来自微软的研究者发表<a href="https://arxiv.org/pdf/2412.10047">论文</a>，提出「大型行动模型」（Large Aciton Model，LAM），该模型可理解用户多形式输入指令并转化为行动步骤。<br><br>LAM 能够理解用户的各种输入，包括文字、语音和图像，然后将这些请求转化为详细的步骤计划，并根据实时情况调整其行动策略。  <br>该工作专门构建了复杂任务的数据集。研究者研究者首先从 Microsoft 文档、wikiHow 文章和 Bing 搜索中收集 29,000 对任务和计划示例，构建了训练数据集；而后利用 GPT-4o 将简单的任务转换为更复杂的任务，从而将数据集增加到 76000 对，增长了 150%。最后从所有示例中将约 2,000 个行动序列纳入最终的训练集。  <br>为使 LAM 能够将用户输入映射到适当的计划和可执行的行动，从而实现复杂任务的完成，研究者采用分阶段的训练策略。其具体为任务-计划预训练，从专家学习，自我增强探索，从奖励模型学习。  <br>首先，LAM 从学习结构化的任务计划开始，将任务分解为逻辑步骤，并向 GPT-4o 等先进 AI 学习如何将计划转化为具体行动。然后，LAM 会探索新解决方案，从自身成功中自我增强，并基于奖励机制进行微调优化。该工作以 Mistral-7B 为基础构建了 LAM 模型，并在 Word 测试环境中进行测试。结果显示，LAM 成功完成任务的概率为 71%，超过 GPT-4o 无视觉信息的情况下的 63%；并且在任务执行速度上 LAM 每个任务仅需 30 秒，而 GPT-4o 则需要 86 秒。</td>
 </tr>
 <tr>
 <td></td>
 <td>布朗大学、康奈尔大学等高校</td>
 <td>布朗大学等高校用现代网络架构重新设计 GAN 模型</td>
-<td>近日，来自布朗大学、康奈尔大学的研究者发布[论文](https://arxiv.org/abs/2501.05441)，提出了生成对抗网络（GAN）架构 R3GAN，其通过引入正则化相对性损失函数，以解决传统 GAN 在训练过程中常见的模式崩溃和不稳定性问题。该工作提出了一种正则化相对论 GAN 损失函数（RpGAN + R1 + R2），结合了相对论配对 GAN 损失（RpGAN）和零中心梯度惩罚（R1 和 R2）来增强训练的稳定性。  <br>在此基础上，研究者们摒弃了传统 GAN 中依赖的经验性技巧，转而采用现代的网络架构设计，并提出了 R3GAN。该模型包括生成器 （G） 的 VGG 风格骨干网络、判别器 （D） 的 ResNet 结构、一系列促进基于风格生成的 tricks，以及许多弥补弱主干网络缺陷的 tricks。其去除了 （作为参考的）StyleGAN2 中所有非必要的特性，并应用提出的损失函数，逐步现代化改造网络骨干。  <br>经测试，在 StackedMNIST、FFHQ、CIFAR-10、ImageNet 等多个数据集上，R3GAN 生成的图像质量稳定且优于其他先进 GAN 模型和扩散模型。R3GAN 在实现高性能的同时，模型参数量更少。如在 FFHQ-64 数据集上，R3GAN 的生成器参数数量不到 EDM 的一半，且仅需一次函数评估即可生成样本，而扩散模型通常需要数十到数百次评估。</td>
+<td>近日，来自布朗大学、康奈尔大学的研究者发布<a href="https://arxiv.org/abs/2501.05441">论文</a>，提出了生成对抗网络（GAN）架构 R3GAN，其通过引入正则化相对性损失函数，以解决传统 GAN 在训练过程中常见的模式崩溃和不稳定性问题。该工作提出了一种正则化相对论 GAN 损失函数（RpGAN + R1 + R2），结合了相对论配对 GAN 损失（RpGAN）和零中心梯度惩罚（R1 和 R2）来增强训练的稳定性。  <br>在此基础上，研究者们摒弃了传统 GAN 中依赖的经验性技巧，转而采用现代的网络架构设计，并提出了 R3GAN。该模型包括生成器 （G） 的 VGG 风格骨干网络、判别器 （D） 的 ResNet 结构、一系列促进基于风格生成的 tricks，以及许多弥补弱主干网络缺陷的 tricks。其去除了 （作为参考的）StyleGAN2 中所有非必要的特性，并应用提出的损失函数，逐步现代化改造网络骨干。  <br>经测试，在 StackedMNIST、FFHQ、CIFAR-10、ImageNet 等多个数据集上，R3GAN 生成的图像质量稳定且优于其他先进 GAN 模型和扩散模型。R3GAN 在实现高性能的同时，模型参数量更少。如在 FFHQ-64 数据集上，R3GAN 的生成器参数数量不到 EDM 的一半，且仅需一次函数评估即可生成样本，而扩散模型通常需要数十到数百次评估。</td>
 </tr>
 <tr>
 <td></td>
-<td>:[color]{}中科院、北大等多家机构[/color]</td>
+<td>中科院、北大等多家机构</td>
 <td>中科院北大等揭示「蒸馏真相」：除Claude豆包Gemini，其他很多模型都「蒸」过头</td>
-<td>:[color]{rgb(0, 0, 0)}模型蒸馏是一种将知识从大型语言模型（LLMs）转移到较小模型的技术，旨在创建资源高效且性能卓越的模型。[/color]<br><br>:[color]{rgb(0, 0, 0)}然而，过度蒸馏可能会导致同质化，降低模型之间的多样性，并削弱它们稳健处理复杂或新任务的能力。这些限制凸显了系统地量化蒸馏过程及其影响的必要性。[/color]<br><br>:[color]{rgb(0, 0, 0)}来自中国科学院深圳先进技术研究院、北京大学等多家机构的研究者们[/color][提出](https://github.com/Aegis1863/LLMs-Distillation-Quantification/blob/main/paper.pdf):[color]{rgb(0, 0, 0)}了一个评估和量化模型蒸馏的metric。其方法解决了两个关键方面的问题：[/color]<br><br>- :[color]{rgb(0, 0, 0)}识别身份认知矛盾，以评估模型在感知和表示身份相关信息方面的差异；[/color]<br>- :[color]{rgb(0, 0, 0)}分析模型间的多粒度响应相似性，以衡量同质化的程度。[/color]<br><br>:[color]{rgb(0, 0, 0)}实验结果揭示了两个关键发现：[/color]<br><br>- :[color]{rgb(0, 0, 0)}除了Claude、豆包（Doubao）和Gemini之外，知名的闭源和开源大语言模型通常表现出较高的蒸馏程度。[/color]<br>- :[color]{rgb(0, 0, 0)}基础大语言模型比对齐后的大语言模型表现出更高的蒸馏程度。[/color]<br><br>:[color]{rgb(0, 0, 0)}通过提供一种系统的方法来提高大语言模型数据蒸馏的透明度，研究人员呼吁大语言模型进行更独立的开发，并提供更透明的技术报告，以提高大语言模型的稳健性和安全性。[/color]</td>
+<td>模型蒸馏是一种将知识从大型语言模型（LLMs）转移到较小模型的技术，旨在创建资源高效且性能卓越的模型。<br><br>然而，过度蒸馏可能会导致同质化，降低模型之间的多样性，并削弱它们稳健处理复杂或新任务的能力。这些限制凸显了系统地量化蒸馏过程及其影响的必要性。<br><br>来自中国科学院深圳先进技术研究院、北京大学等多家机构的研究者们<a href="https://github.com/Aegis1863/LLMs-Distillation-Quantification/blob/main/paper.pdf">提出</a>了一个评估和量化模型蒸馏的metric。其方法解决了两个关键方面的问题：<br><br>- 识别身份认知矛盾，以评估模型在感知和表示身份相关信息方面的差异；<br>- 分析模型间的多粒度响应相似性，以衡量同质化的程度。<br><br>实验结果揭示了两个关键发现：<br><br>- 除了Claude、豆包（Doubao）和Gemini之外，知名的闭源和开源大语言模型通常表现出较高的蒸馏程度。<br>- 基础大语言模型比对齐后的大语言模型表现出更高的蒸馏程度。<br><br>通过提供一种系统的方法来提高大语言模型数据蒸馏的透明度，研究人员呼吁大语言模型进行更独立的开发，并提供更透明的技术报告，以提高大语言模型的稳健性和安全性。</td>
 </tr>
 <tr>
 <td></td>
 <td>清华大学、东北大学 、面壁智能等</td>
 <td>清华 NLP 开源 RAG 开箱即用框架，自动适配知识库无需纠结模型选型</td>
-<td>RAG 系统的搭建与优化是一项庞大且复杂的系统工程，通常需要兼顾测试制定、检索调优、模型调优等关键环节，繁琐的工作流程往往让人无从下手。<br><br>近日，针对以上痛点，清华大学 THUNLP 团队联合东北大学 NEUIR、面壁智能及 9#AISoft 团队共同[推出](https://github.com/OpenBMB/UltraRAG)了 UltraRAG 框架，该框架革新了传统RAG系统的开发与配置方式，极大降低了学习成本和开发周期。<br><br>UltraRAG 不仅具备满足专业用户需求的“单反相机”级精细化配置能力，同时也提供类似“卡片机”的一键式便捷操作，让 RAG 系统的构建变得极简且高效。</td>
+<td>RAG 系统的搭建与优化是一项庞大且复杂的系统工程，通常需要兼顾测试制定、检索调优、模型调优等关键环节，繁琐的工作流程往往让人无从下手。<br><br>近日，针对以上痛点，清华大学 THUNLP 团队联合东北大学 NEUIR、面壁智能及 9#AISoft 团队共同<a href="https://github.com/OpenBMB/UltraRAG">推出</a>了 UltraRAG 框架，该框架革新了传统RAG系统的开发与配置方式，极大降低了学习成本和开发周期。<br><br>UltraRAG 不仅具备满足专业用户需求的“单反相机”级精细化配置能力，同时也提供类似“卡片机”的一键式便捷操作，让 RAG 系统的构建变得极简且高效。</td>
 </tr>
 </table></div>
 
 <h3>二、推理</h3>
-<p>未能展开此表；以下保留该处原始捕获内容。</p>
-<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+<div class="material-gap"><p>表格缺失：现有片段无法完整还原。</p><details class="material-fragment"><summary>查看原始片段</summary><p>未能展开此表；以下保留该处原始捕获内容。</p><pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
 [
   [
     {
@@ -86,7 +85,9 @@
       &quot;content&quot;: &quot;:::paragraph{align=center indent=0}\n\n:::&quot;
     },
     {
-      &quot;type&quot;: &quot;</pre>
+      &quot;type&quot;: &quot;</pre></details></div>
+
+
 
 
 <h2>旧生成摘要（未重写，未核实）</h2>

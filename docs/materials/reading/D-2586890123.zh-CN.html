@@ -18,14 +18,14 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/237</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/8125a465bbf873a11cba54346eff218bdb4a89ed1675912d87e3467179c16d51.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2586890123.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2586890123.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>近期大模型行业重要信息202411-3</p>
 <h1>一、国外</h1>
 <h2>1.谷歌新研究：由视频生成带有相机轨迹的新视频</h2>
-<p>:[color]{rgb(62, 62, 62)}最近，视频建模技术取得了突破性进展，可以在生成的视频中控制相机轨迹。然而，这些方法不能直接应用于用户提供的视频，因为这些视频不是由视频模型生成的。在这项研究中，来自谷歌和新加坡国立大学的研究团队[/color]<a href="https://arxiv.org/abs/2411.05003">提出</a>:[color]{rgb(62, 62, 62)}了 [/color]<a href="https://generative-video-camera-controls.github.io/">ReCapture</a>:[color]{rgb(62, 62, 62)}，这是一种从单个用户提供的视频中生成带有新颖相机轨迹的新视频的方法。通过这一方法，他们可以从不同的角度，以电影镜头的运动方式，重新生成包含所有现有场景运动的参考视频。[/color]</p>
-<p>:[color]{rgb(62, 62, 62)}值得注意的是，使用这一方法，他们还可以生成参考视频中无法观察到的场景部分。他们的方法是：（1）使用多视角扩散模型或基于深度的点云渲染技术，用新的相机轨迹生成有噪声的锚视频，然后（2）使用遮蔽视频微调技术，将锚视频重新生成干净且时间上一致的重新纠缠视频。[/color]</p>
-<h2>:[color]{rgb(62, 62, 62)}2.[/color]业界热议数据精度对 LLM 训练及 Scaling Law 影响</h2>
+<p>最近，视频建模技术取得了突破性进展，可以在生成的视频中控制相机轨迹。然而，这些方法不能直接应用于用户提供的视频，因为这些视频不是由视频模型生成的。在这项研究中，来自谷歌和新加坡国立大学的研究团队<a href="https://arxiv.org/abs/2411.05003">提出</a>了 <a href="https://generative-video-camera-controls.github.io/">ReCapture</a>，这是一种从单个用户提供的视频中生成带有新颖相机轨迹的新视频的方法。通过这一方法，他们可以从不同的角度，以电影镜头的运动方式，重新生成包含所有现有场景运动的参考视频。</p>
+<p>值得注意的是，使用这一方法，他们还可以生成参考视频中无法观察到的场景部分。他们的方法是：（1）使用多视角扩散模型或基于深度的点云渲染技术，用新的相机轨迹生成有噪声的锚视频，然后（2）使用遮蔽视频微调技术，将锚视频重新生成干净且时间上一致的重新纠缠视频。</p>
+<h2>2.业界热议数据精度对 LLM 训练及 Scaling Law 影响</h2>
 <p>哈佛大学、斯坦福大学、MIT 和 CMU 等机构的研究者近日发布<a href="https://arxiv.org/abs/2411.04330">论文</a>，探究了在训练和推理大型语言模型时，数据精度对模型质量和成本的影响。该工作指出，当前的 Scaling Law 并未考虑到数据精度的影响，因而研究者尝试设计出「精度感知」的 Scaling Law，以预测不同精度下训练和推理的性能下降。<br>研究者首先分析了训练后量化（PTQ）对模型性能的影响，发现训练时间越长或预训练期间「看到」的数据越多，模型在推理时对量化就越敏感。<br>这种损失退化大致是预训练期间看到的 token/参数比值的幂律，因此可以提前预测关键数据大小，超过该数据大小的更多数据的预训练会非常有害。该工作提出了一个统一的 Scaling Law，引入了「有效参数计数」的概念，结合训练后量化退化，以预测不同精度下训练和推理的性能下降。研究者在超过 465 次预训练运行上拟合了这个定律，并在 1.7B 参数的模型上验证了其预测。<br>该工作对 Scaling Law 的解析引起了学界和社区的热议。UCSD 助理教授 Dan Fu 认为这篇论文指明了大模型量化的方向。CMU 教授 Tim Dettmers 表示，这是很长一段时间以来最重要的一篇论文。</p>
 <h2>3.斯坦福团队提出 HourVideo 长视频理解基准数据集</h2>
 <p>斯坦福的研究者近日发布论文，提出了<a href="https://arxiv.org/abs/2411.04998v1">HourVideo</a>基准数据集，用于评估多模态模型对长度 1 小时的视频的理解能力。该工作指出，多模态模型的发展使人们期待模型能够处理和理解更长时间的视觉数据，类似于人类在现实世界中感知、规划和行动的能力。然而，现有的视频理解和评估基准主要集中在单个图像或短视频片段上，这些通常只包含几秒钟到最多三分钟的视频，限制了对长视频理解能力的全面评估。<br>HourVideo 数据中涵盖大量长时间视频和设计的任务套件，涵盖总结、感知（回忆、跟踪）、视觉推理（空间、时间、预测、因果、反事实）和导航（房间到房间、对象检索）任务。<br>数据集包含 500 个第一人称视角的视频，时长在 20 到 120 分钟之间，涵盖 77 种日常活动，并包含了 12,976 个高质量、五选一的多项选择题。该工作基于 HourVideo 实验发现，即使是目前最先进的多模态模型，在长视频理解任务上的表现也仅略好于随机猜测，远远落后于人类专家的表现。其中，人类专家在 HourVideo 数据集上的表现准确率为 85.0%，而专为长上下文多模态理解设计 Gemini Pro 1.5 模型的准确率为 37.3%。</p>

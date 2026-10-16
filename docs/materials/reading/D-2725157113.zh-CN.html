@@ -18,52 +18,51 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/175</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/8641be58bb4abad25a8fdf77c2e71dd2e85694b32ded2dc7a3b528f13ce537e6.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2725157113.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2725157113.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>周论文推荐：OpenAI 新论文，Meta 超级智能实验室首篇论文，MIT 针对模型灾难性遗忘新研究，快手与清华联合提出灵犀系统</p>
 <h3>一、模型</h3>
 <div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
 <tr>
 <th></th>
-<th>**公司/院校/机构**</th>
-<th>**简介**</th>
-<th>**详情**</th>
+<th><strong>公司/院校/机构</strong></th>
+<th><strong>简介</strong></th>
+<th><strong>详情</strong></th>
 </tr>
 <tr>
 <td></td>
-<td>**Google**</td>
+<td><strong>Google</strong></td>
 <td>Google 新研究：用 LLM+树搜索编写专家级软件<br><br>Eser Aygün, Anastasiya Belyaeva, Gheorghe Comanici, Marc Coram, Hao Cui, Jake Garrison, Renee Johnston Anton Kast, Cory Y. McLean, Peter Norgaard, Zahra Shamsi, David Smalling, James Thompson, Subhashini Venugopalan, Brian P. Williams, Chujun He, Sarah Martinson, Martyna Plomecka, Lai Wei, Yuchen Zhou, Qian-Ze Zhu, Matthew Abraham, Erica Brand, Anna Bulanova, Jeffrey A. Cardille, Chris Co, Scott Ellsworth, Grace Joseph, Malcolm Kane, Ryan Krueger, Johan Kartiwa, Dan Liebling, Jan-Matthis Lueckmann, Paul Raccuglia, Xuefei (Julie)Wang, Katherine Chou, James Manyika, Yossi Matias, John C. Platt, Lizzie Dorfman, Shibl Mourad, Michael P. Brenner.&quot;An AI system to help scientists write expert-level empirical software.&quot;arXiv:2509.06503 [cs.AI]</td>
-<td>近期，谷歌发表了一篇[论文](https://arxiv.org/abs/2509.06503)，提出了一个能够帮助科研人员编写「专家级」科研软件的 AI 系统。<br><br>该系统融合了大语言模型和传统树搜索，能够自动编写和优化科研任务中所需的软件程序，能够获取多种渠道的现有知识，整合并且重组这些知识来构建一个新的研究思路。<br><br>谷歌生成，该系统不仅稳定达到专家水平，还常常超越人类。在基因组学、公共健康、数值分析等多个领域，这套系统的表现甚至超过了顶尖研究团队和国家级集成系统。</td>
+<td>近期，谷歌发表了一篇<a href="https://arxiv.org/abs/2509.06503">论文</a>，提出了一个能够帮助科研人员编写「专家级」科研软件的 AI 系统。<br><br>该系统融合了大语言模型和传统树搜索，能够自动编写和优化科研任务中所需的软件程序，能够获取多种渠道的现有知识，整合并且重组这些知识来构建一个新的研究思路。<br><br>谷歌生成，该系统不仅稳定达到专家水平，还常常超越人类。在基因组学、公共健康、数值分析等多个领域，这套系统的表现甚至超过了顶尖研究团队和国家级集成系统。</td>
 </tr>
 <tr>
 <td></td>
-<td>**OpenAI**</td>
+<td><strong>OpenAI</strong></td>
 <td>OpenAI 新论文系统性地揭示了幻觉的根源<br><br>Adam Tauman Kalai, Ofir Nachum, Santosh S. Vempala, Edwin Zhang.&quot;Why Language Models Hallucinate.&quot;arXiv:2509.04664 [cs.CL]</td>
-<td>OpenAI [表示](https://www.arxiv.org/abs/2509.04664)，幻觉持续存在，部分原因是当前的评估方法设置了错误的激励机制。虽然评估本身不会直接导致幻觉，但大多数评估模型性能的方式会鼓励模型进行猜测，而不是诚实地面对不确定性。<br><br>可以把它想象成一个多项选择题测试。如果你不知道答案，但随意猜测，你可能会很幸运地猜对。留空则必定得零分。同样，当模型仅根据准确度（即完全答对问题的百分比）进行评分时，它们会被鼓励进行猜测，而不是承认「我不知道」。<br><br>再举一个例子，假设一个语言模型被问及某人的生日，但它不知道。如果它猜测「9 月 10 日」，那么它有 1/365 的概率猜对。说「我不知道」则必定得零分。在数千道测试题中，猜测型模型最终在记分牌上的表现要优于谨慎且承认不确定的模型。<br><br>对于只有一个「正确答案」的问题，可以考虑三类答案：准确答案、错误答案以及模型不愿冒险猜测的弃权答案。<br><br>OpenAI 表示，弃权答案是谦逊（humility）指标的一部分，而谦逊是 OpenAI 的核心价值观之一。<br><br>大多数分数指标会根据准确度对模型进行优先排序，但错误答案比弃权答案更糟糕。OpenAI 的模型规范指出，指出不确定性或要求澄清会更好，而不是自信地提供可能不正确的信息。</td>
+<td>OpenAI <a href="https://www.arxiv.org/abs/2509.04664">表示</a>，幻觉持续存在，部分原因是当前的评估方法设置了错误的激励机制。虽然评估本身不会直接导致幻觉，但大多数评估模型性能的方式会鼓励模型进行猜测，而不是诚实地面对不确定性。<br><br>可以把它想象成一个多项选择题测试。如果你不知道答案，但随意猜测，你可能会很幸运地猜对。留空则必定得零分。同样，当模型仅根据准确度（即完全答对问题的百分比）进行评分时，它们会被鼓励进行猜测，而不是承认「我不知道」。<br><br>再举一个例子，假设一个语言模型被问及某人的生日，但它不知道。如果它猜测「9 月 10 日」，那么它有 1/365 的概率猜对。说「我不知道」则必定得零分。在数千道测试题中，猜测型模型最终在记分牌上的表现要优于谨慎且承认不确定的模型。<br><br>对于只有一个「正确答案」的问题，可以考虑三类答案：准确答案、错误答案以及模型不愿冒险猜测的弃权答案。<br><br>OpenAI 表示，弃权答案是谦逊（humility）指标的一部分，而谦逊是 OpenAI 的核心价值观之一。<br><br>大多数分数指标会根据准确度对模型进行优先排序，但错误答案比弃权答案更糟糕。OpenAI 的模型规范指出，指出不确定性或要求澄清会更好，而不是自信地提供可能不正确的信息。</td>
 </tr>
 <tr>
 <td></td>
-<td>**ETH Zürich; University of Copenhagen; University of Science and Technology of China; University of Amsterdam; East China Normal University**</td>
+<td><strong>ETH Zürich; University of Copenhagen; University of Science and Technology of China; University of Amsterdam; East China Normal University</strong></td>
 <td>ETH Zürich 等提出 InsightTab 框架，整合规则总结、策略示例和反思学习，提升 LLM 在表格分类任务中的性能<br><br>Yifei Yuan, Jiatong Li, Weijia Zhang, Mohammad Aliannejadi, Evangelos Kanoulas, Renjun Hu.&quot;Summarize-Exemplify-Reflect: Data-driven Insight Distillation Empowers LLMs for Few-shot Tabular Classification.&quot;arXiv:2508.21561v1 [cs.LG]</td>
-<td>[本文](https://arxiv.org/abs/2508.21561)提出一种新颖的 InsightTab 框架，通过将数据提炼为可操作的洞察来增强大型语言模型在少量样本表格分类中的性能。该方法受人类学习过程启发，采用分而治之、易优先和反思学习原则，结合传统机器学习技术和 LLM 的优势，实现更有效的表格分类。实验表明，该方法在九个数据集上均优于现有方法。</td>
+<td><a href="https://arxiv.org/abs/2508.21561">本文</a>提出一种新颖的 InsightTab 框架，通过将数据提炼为可操作的洞察来增强大型语言模型在少量样本表格分类中的性能。该方法受人类学习过程启发，采用分而治之、易优先和反思学习原则，结合传统机器学习技术和 LLM 的优势，实现更有效的表格分类。实验表明，该方法在九个数据集上均优于现有方法。</td>
 </tr>
 <tr>
 <td></td>
-<td>**南加州大学**</td>
+<td><strong>南加州大学</strong></td>
 <td>南加州大学引入 TSAIA 基准，评估 LLM 作为时间序列 AI 助手的能力，涵盖预测、诊断、分析等任务<br><br>Wen Ye, Jinbo Liu, Defu Cao, Wei Yang, Yan Liu.&quot;When LLM Meets Time Series: Can LLMs Perform Multi-Step Time Series Reasoning and Inference.&quot;arXiv:2509.01822 [cs.LG]</td>
-<td>[论文](http://arxiv.org/abs/2509.01822)探讨了大型语言模型在时间序列分析中的应用潜力，提出 TSAIA 基准以评估其在复杂推理和多步分析中的表现。研究发现现有模型在组装复杂工作流方面存在局限性，强调需要针对特定领域优化的方法。基准测试包含 33 种任务类型，采用动态生成方式支持扩展，并使用任务特定标准进行评估。实验结果表明，尽管某些模型在狭窄任务上表现良好，但无一能在所有任务中可靠泛化。此研究为开发具备推理能力的时间序列 AI 助手提供了重要基础。</td>
+<td><a href="http://arxiv.org/abs/2509.01822">论文</a>探讨了大型语言模型在时间序列分析中的应用潜力，提出 TSAIA 基准以评估其在复杂推理和多步分析中的表现。研究发现现有模型在组装复杂工作流方面存在局限性，强调需要针对特定领域优化的方法。基准测试包含 33 种任务类型，采用动态生成方式支持扩展，并使用任务特定标准进行评估。实验结果表明，尽管某些模型在狭窄任务上表现良好，但无一能在所有任务中可靠泛化。此研究为开发具备推理能力的时间序列 AI 助手提供了重要基础。</td>
 </tr>
 <tr>
 <td></td>
 <td>**MIT **</td>
 <td>MIT 针对模型灾难性遗忘新研究<br><br>Idan Shenfeld, Jyothish Pari, Pulkit Agrawal.&quot;RL&#x27;s Razor: Why Online Reinforcement Learning Forgets Less.&quot;arXiv:2509.04259 [cs.LG]</td>
-<td>在大模型的实际使用中我们发现，大部分的模型还只是某个细分领域任务的大牛，离我们理想中的 AGI 仍然遥遥无期。<br><br>准确的说，这些投入部署的大模型大多是「静态」模型，对于其预训练或微调时优化的系列任务表现良好，但是在动态学习，自我提升这部分能力是缺位的。<br><br>如果我们希望实现更加通用的大模型，使其能像长期的智能助手一样，随时间不断适应新的任务与需求，很多技术瓶颈亟待突破。而最大的挑战之一就是「灾难性遗忘」。<br><br>相信大家对这个概念已经非常熟悉了，灾难性遗忘指的是模型在学习新任务时，会丢掉之前学到的技能。扩大模型规模、增加预训练数据确实能稍微缓解遗忘现象，但始终不能彻底解决。<br><br>针对灾难性遗忘的问题，研究者们提出了各种各样的改进方法，包括正则化、经验回放、参数微调等等。<br><br>但有没有一种可能，我们对大模型遗忘的研究想的有些太复杂了，如无必要勿增实体的剃刀原则才是根治问题的最佳手段。<br><br>几天前，来自麻省理工学院（MIT）Improbable AI Lab 的研究者针对该问题发表了一篇[研究论文](https://www.arxiv.org/abs/2509.04259v1)，将奥卡姆的剃刀伸向了大模型后训练，揭示了大模型遗忘现象的基本规律和训练策略，目前已在 Alphaxiv 上热度排名第一。</td>
+<td>在大模型的实际使用中我们发现，大部分的模型还只是某个细分领域任务的大牛，离我们理想中的 AGI 仍然遥遥无期。<br><br>准确的说，这些投入部署的大模型大多是「静态」模型，对于其预训练或微调时优化的系列任务表现良好，但是在动态学习，自我提升这部分能力是缺位的。<br><br>如果我们希望实现更加通用的大模型，使其能像长期的智能助手一样，随时间不断适应新的任务与需求，很多技术瓶颈亟待突破。而最大的挑战之一就是「灾难性遗忘」。<br><br>相信大家对这个概念已经非常熟悉了，灾难性遗忘指的是模型在学习新任务时，会丢掉之前学到的技能。扩大模型规模、增加预训练数据确实能稍微缓解遗忘现象，但始终不能彻底解决。<br><br>针对灾难性遗忘的问题，研究者们提出了各种各样的改进方法，包括正则化、经验回放、参数微调等等。<br><br>但有没有一种可能，我们对大模型遗忘的研究想的有些太复杂了，如无必要勿增实体的剃刀原则才是根治问题的最佳手段。<br><br>几天前，来自麻省理工学院（MIT）Improbable AI Lab 的研究者针对该问题发表了一篇<a href="https://www.arxiv.org/abs/2509.04259v1">研究论文</a>，将奥卡姆的剃刀伸向了大模型后训练，揭示了大模型遗忘现象的基本规律和训练策略，目前已在 Alphaxiv 上热度排名第一。</td>
 </tr>
 </table></div>
 
 <h3>二、推理</h3>
-<p>未能展开此表；以下保留该处原始捕获内容。</p>
-<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+<div class="material-gap"><p>表格缺失：现有片段无法完整还原。</p><details class="material-fragment"><summary>查看原始片段</summary><p>未能展开此表；以下保留该处原始捕获内容。</p><pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
 [
   [
     {
@@ -170,7 +169,9 @@
         &quot;bgColor&quot;: null,
         &quot;verticalAlign&quot;: null
       },
-      &quot;content&quot;: &quot;近日，Meta AI 联合加州大学圣地亚哥分校（UCSD）推出了一种名为 [Deep Think with Confidence（DeepConf）](https://arxiv.org/abs/2508.15260) 的新技术，旨在帮助企业在大语言模型（LLM）的复杂推理任务中，有效降低算力成本的同时保持高准确率 。\n\n当前，提高 LLM 推理能力常依赖“自一致性 + 多次采样再表决”的策略（即 majo</pre>
+      &quot;content&quot;: &quot;近日，Meta AI 联合加州大学圣地亚哥分校（UCSD）推出了一种名为 [Deep Think with Confidence（DeepConf）](https://arxiv.org/abs/2508.15260) 的新技术，旨在帮助企业在大语言模型（LLM）的复杂推理任务中，有效降低算力成本的同时保持高准确率 。\n\n当前，提高 LLM 推理能力常依赖“自一致性 + 多次采样再表决”的策略（即 majo</pre></details></div>
+
+
 
 
 <h2>旧生成摘要（未重写，未核实）</h2>

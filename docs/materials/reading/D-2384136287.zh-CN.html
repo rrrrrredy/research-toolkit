@@ -18,7 +18,7 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/68</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/7653fa6e92812f379f0e63c3585d631e9cea4d9c135ce7af366143d10e1bcb45.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2384136287.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2384136287.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>AI搜索产品报告</p>
 <h1>一、核心要点</h1>
@@ -33,7 +33,10 @@
 <p>当前市场上的AI搜索产品种类繁多，不仅包括传统搜索引擎，还有内容平台内置的搜索功能，它们都在积极融入AI技术以提升用户体验。AI搜索与传统搜索的主要区别在于，它能够分析用户的查询意图，抓取相关网页，并利用大语言模型进行深入分析，最终以结构化的方式输出结果。AI搜索的兴起可以追溯到Perplexity，但市场对AI搜索的反应褒贬不一。一方面，有人认为AI搜索简化了用户搜索路径，提供高质量信息是发展的必然趋势；另一方面，也有观点认为AI搜索可能遗漏有价值的信息，且在商业化落地方面存在难度。</p>
 <h2>2.AI搜索和传统搜索的区别</h2>
 <h3>2.1.AI搜索的基本原理</h3>
-<p>:::drawio{src=&quot;<a href="https://km.sankuai.com/api/file/cdn/2384136287/113770333482?contentType=0&isNewContent=false">https://km.sankuai.com/api/file/cdn/2384136287/113770333482?contentType=0&amp;isNewContent=false</a>&quot; width=705 height=364}</p>
+<div class="material-gap"><p>图表缺失：材料只保留引用，未保存可显示的图表内容。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>:::drawio{src=&quot;https://km.sankuai.com/api/file/cdn/2384136287/113770333482?contentType=0&amp;isNewContent=false&quot; width=705 height=364}</pre></details></div>
+
+
+
 <ul>
 <li>AI搜索引擎基本上都利用了传统搜索引擎的API接口，并没有完全重新做一套底层的搜索系统，因为网站信息预处理和索引库的搭建成本太高。</li>
 <li>AI搜索引擎大部分会有一些自己特定领域的数据源和索引库，来增加自己的差异化竞争力，比如秘塔AI的播客和文库；360更是改造了原来的搜索索引库；博查有ESG等。</li>
@@ -80,8 +83,16 @@
 <p>在具体查找本地数据时，可以直接获取文件里的数据，也可以对本地数据使用embed计算和相似度计算找到高相关的数据块。</p>
 <p><strong>⑤ 搜索解决方案展示</strong></p>
 <p>通过互联网的搜索结果，加上本地数据库的数据，就可以给到大模型进行最后的处理和结果输出了。一般会有预置的页面生成规则，在这个过程中可能会多次调用大模型，来生成各种形式的答案。比如秘塔AI搜索，先生成框架，再生成每段答案，同时还会有各种模型，处理生成脑图、相关组织/人物等内容。</p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2384136287/113770966707?contentType=1&isNewContent=false" alt="image.jpeg">{width=828 height=456 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2384136287/113770223507?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2384136287/113770223507?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2384136287/113771006269?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2384136287/113771006269?contentType=1&amp;isNewContent=false&quot;}</a></p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2384136287/113769927274?contentType=1&isNewContent=false" alt="image.jpeg">{width=370 height=600 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2384136287/113770927243?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2384136287/113770927243?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2384136287/113770650365?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2384136287/113770650365?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2384136287/113770966707?contentType=1&amp;isNewContent=false){width=828 height=456 small=&quot;https://km.sankuai.com/api/file/cdn/2384136287/113770223507?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2384136287/113771006269?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
+
+
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2384136287/113769927274?contentType=1&amp;isNewContent=false){width=370 height=600 small=&quot;https://km.sankuai.com/api/file/cdn/2384136287/113770927243?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2384136287/113770650365?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
 <p>比如Genspark直接生成商品详情页面，商品详情页面有固定格式：商品标题、详情图片，介绍、参数规格、优缺点、社交媒体评论、电商网站评论和总结。一般是先预设好问答prompt模板，然后将搜索结果嵌入问答prompt模板，即可得到问答prompt，然后将问答prompt发送给LLM进行答复即可。</p>
 <h3>2.2.AI搜索产品的分类</h3>
 <div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
@@ -182,15 +193,12 @@
 <td>√</td>
 <td>√</td>
 </tr>
-<tr>
-<td>Kimi</td>
-<td>:::par</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table></div>
+<div class="material-gap"><p>表格缺失：现有片段无法完整还原。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>|  Kimi  | :::par</pre></details></div>
+
+
+
+
 <h2>旧生成摘要（未重写，未核实）</h2>
 <p>这份《AI搜索产品报告》系统梳理了当前AI搜索领域的产品格局与技术逻辑，从原理层面深入对比了AI搜索与传统搜索的本质差异。</p>
 <p>然而，由于原始文档的表格、列表及正文内容均为空白占位符，图片亦无法解析，报告中涉及的具体产品名称、模型版本、性能数据及横向对比结论均未能有效提取。可确认的结构性信息包括：报告设有核心要点、产品概述、能力对比等主要模块；产品分类部分按类型对AI搜索产品进行了归类，不同类别在产品定位与核心能力上存在明显差异；能力对比部分至少涵盖5款主流AI搜索产品，从多个维度展开横向评测；AI搜索基本原理部分则拆解了多个核心技术要素，构建了底层运作逻辑的分析框架。</p>

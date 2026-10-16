@@ -18,7 +18,7 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/79</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/1dcd9761ce0f503dfbf0504c127a70ad22df2d4ff39f1fbc66181a63da608945.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2487543299.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2487543299.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>OpenAI o1最新信息20240919</p>
 <h1>一、核心要点</h1>
@@ -35,12 +35,21 @@
 <p>研究团队设计了一组实验，使用 PaLM2-S*在MATH 数据集上测试。</p>
 <p>主要分析了两种方法：</p>
 <p><strong>（1）迭代自我修订</strong>：让模型多次尝试回答一个问题，在每次尝试后进行修订以得到更好的回答。<br><strong>（2）搜索</strong>：在这种方法中，模型生成多个候选答案。</p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2487543299/124092461918?contentType=1&isNewContent=false" alt="image.jpeg">{width=685 height=426 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2487543299/124092342133?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2487543299/124092342133?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2487543299/124090072398?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2487543299/124090072398?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2487543299/124092461918?contentType=1&amp;isNewContent=false){width=685 height=426 small=&quot;https://km.sankuai.com/api/file/cdn/2487543299/124092342133?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2487543299/124090072398?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
 <p>可以看到，使用自我修订方法时，随着测试时计算量增加，标准最佳 N 策略（Best-of-N）与计算最优扩展策略之间的差距逐渐扩大。使用搜索方法，计算最优扩展策略在初期表现出比较明显优势。并在一定情况下，达到与最佳 N 策略相同效果，<strong>计算量仅为其 1/4</strong>。</p>
 <p>在与预训练计算相当的 FLOPs 匹配评估中，对比 PaLM 2-S*（使用计算最优策略）一个 14 倍大的预训练模型（不进行额外推理）。结果发现，使用自我修订方法时，当推理 tokns 远小于预训练 tokens 时，使用测试时计算策略的效果比预训练效果更好。但是当比率增加，或者在更难的问题上，还是预训练的效果更好。也就是说，在两种情况下，根据不同测试时计算扩展方法是否有效，关键在于<strong>提示的难度</strong>。研究还进一步比较不同的 PRM 搜索方法，结果显示前向搜索（最右）需要更多的计算量。</p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2487543299/124090790577?contentType=1&isNewContent=false" alt="image.jpeg">{width=673 height=310 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2487543299/124093754810?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2487543299/124093754810?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2487543299/124093020787?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2487543299/124093020787?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2487543299/124090790577?contentType=1&amp;isNewContent=false){width=673 height=310 small=&quot;https://km.sankuai.com/api/file/cdn/2487543299/124093754810?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2487543299/124093020787?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
 <p>在计算量较少的情况下，使用计算最优策略最多可节省4倍资源。</p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2487543299/124090391599?contentType=1&isNewContent=false" alt="image.jpeg">{width=611 height=221 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2487543299/124092104462?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2487543299/124092104462?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2487543299/124092781703?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2487543299/124092781703?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2487543299/124090391599?contentType=1&amp;isNewContent=false){width=611 height=221 small=&quot;https://km.sankuai.com/api/file/cdn/2487543299/124092104462?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2487543299/124092781703?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
 <p>对比 OpenAI 的 o1 模型，这篇研究几乎是给出了相同的结论。o1 模型学会完善自己的思维过程，尝试不同的策略，并认识到自己的错误。并且随着更多的强化学习（训练时计算）和更多的思考时间（测试时计算），o1 的性能持续提高。</p>
 <h1>三、OpenAI 隐藏 o1 思维链</h1>
 <p>在 o1 发布时 OpenAI 就给出了隐藏模型完整思维过程的理由。简单来说就是 OpenAI 内部需要监测模型的思维过程，因此不能在这些原始 tokens 中加入安全限制，也就不方便让用户看到。</p>

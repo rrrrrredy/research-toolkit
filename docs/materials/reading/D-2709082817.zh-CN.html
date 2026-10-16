@@ -18,7 +18,7 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/244</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/4e4c0fc2218289339db986886281b4b2e4b3265392b5366443f20611e1752752.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2709082817.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2709082817.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>[0;32m✓ [citadel] Node.js 版本检查通过: v22.x.x[0m
 [loadDefaultUserId] 从 OpenClaw 配置获取用户 ID: luosong03
@@ -33,45 +33,43 @@
 [sso-ciba] MOA 无感登录 provider 已初始化
 [sso-ciba] 使用缓存的 token (剩余 596s)
 ✅ 认证成功</p>
-<p>:::title{nodeId=&quot;7b0e98e703f14e46a1025eab955f47ca&quot;}
-周论文推荐：推理层佳作频出，上海 AI Lab 多篇论文亮眼，字节发布 Seed-Thinking-v1.5 技术报告</p>
+<h1>周论文推荐：推理层佳作频出，上海 AI Lab 多篇论文亮眼，字节发布 Seed-Thinking-v1.5 技术报告</h1>
 <h3>一、模型层</h3>
 <div class="table-scroll" tabindex="0" role="region" aria-label="表格，可横向滚动"><table>
 <tr>
 <th></th>
-<th>**公司/院校/机构**</th>
-<th>**简介**</th>
-<th>**详情**</th>
+<th><strong>公司/院校/机构</strong></th>
+<th><strong>简介</strong></th>
+<th><strong>详情</strong></th>
 </tr>
 <tr>
 <td></td>
-<td>:[color]{rgb(62, 62, 62)}南加州大学[/color]</td>
+<td>南加州大学</td>
 <td>南加大：自适应课程强化微调 AdaRFT<br><br>Taiwei Shi, Yiyang Wu, Linxin Song, Tianyi Zhou, Jieyu Zhao.&quot;Efficient Reinforcement Finetuning via Adaptive Curriculum Learning.&quot;arXiv:2504.05520 [cs.LG]</td>
-<td>:[color]{rgb(62, 62, 62)}强化微调（RFT）在增强大语言模型（LLM）的数学推理能力方面显示出潜力，但通常在采样和计算方面效率低，需要大量训练。[/color]<br><br>:[color]{rgb(62, 62, 62)}在这项工作中，南加州大学团队提出了 [/color][AdaRFT](https://arxiv.org/abs/2504.05520):[color]{rgb(62, 62, 62)}（自适应课程强化微调），这是一种通过自适应课程学习提高 RFT 效率和最终准确性的方法，可根据奖励信号动态调整训练问题的难度，确保模型始终在具有挑战性但可解决的任务上进行训练。这种自适应采样策略能保持最佳难度范围，避免在太容易或太难的问题上浪费计算，从而加快学习速度。AdaRFT 只需要对标准 RFT 算法（如 PPO）进行轻量级扩展，而无需修改奖励函数或模型架构。[/color]<br><br>在竞赛级数学数据集（包括 AMC、AIME 和 IMO 类型的问题）上进行的实验证明，AdaRFT 提高了训练效率和推理性能。他们评估了 AdaRFT 的多种数据分布和模型大小，结果表明它减少了 2 倍的训练步骤，并提高了准确性，提供了一个更具可扩展性和更有效的 RFT 框架。</td>
+<td>强化微调（RFT）在增强大语言模型（LLM）的数学推理能力方面显示出潜力，但通常在采样和计算方面效率低，需要大量训练。<br><br>在这项工作中，南加州大学团队提出了 <a href="https://arxiv.org/abs/2504.05520">AdaRFT</a>（自适应课程强化微调），这是一种通过自适应课程学习提高 RFT 效率和最终准确性的方法，可根据奖励信号动态调整训练问题的难度，确保模型始终在具有挑战性但可解决的任务上进行训练。这种自适应采样策略能保持最佳难度范围，避免在太容易或太难的问题上浪费计算，从而加快学习速度。AdaRFT 只需要对标准 RFT 算法（如 PPO）进行轻量级扩展，而无需修改奖励函数或模型架构。<br><br>在竞赛级数学数据集（包括 AMC、AIME 和 IMO 类型的问题）上进行的实验证明，AdaRFT 提高了训练效率和推理性能。他们评估了 AdaRFT 的多种数据分布和模型大小，结果表明它减少了 2 倍的训练步骤，并提高了准确性，提供了一个更具可扩展性和更有效的 RFT 框架。</td>
 </tr>
 <tr>
 <td></td>
 <td>香港中文大学、清华大学</td>
 <td>港中文、清华等提出「三位一体」框架，持续自我进化<br><br>Xiaoying Zhang, Da Peng, Yipeng Zhang, Zonghao Guo, Chengyue Wu, Chi Chen, Wei Ke, Helen Meng, Maosong Sun.&quot;Will Pre-Training Ever End? A First Step Toward Next-Generation Foundation MLLMs via Self-Improving Systematic Cognition.&quot;arXiv:2503.12303 [cs.CV]</td>
-<td>近日，港中文联合清华等高校[提出](https://arxiv.org/html/2503.12303v5)：未来大模型性能的持续提升，需依赖「预训练、推理阶段的计算扩展、后训练优化」三者的深度协同。这一观点打破了传统依赖单一预训练路径的范式，为下一代多模态基础大模型（Foundation MLLMs）的构建提供了全新思路。<br><br>在此基础上，研究团队提出了创新性框架 ——SICOG（Structured In-Context Optimization and Generation），旨在重塑大模型的进化路径。SICOG 引入了独创的「链式描述」技术，通过五步渐进式视觉解析引擎，实现模型从显著内容捕捉到细粒度关联推理的全面感知跃升。<br><br>该框架同时采用了「结构化思维链」机制，有效增强模型对多模态信息的融合处理与复杂推理能力。更具突破性的是，SICOG 通过自生成数据闭环 + 语义一致性筛选机制，使模型在零人工标注的条件下实现认知能力的持续进化，真正迈向高效、自主的学习范式。<br><br>SICOG 的提出，不仅打破了当前模型在数据、算力与微调优化三者割裂发展的瓶颈，也为未来通用人工智能（AGI）模型的构建提供了可扩展、可迁移的新路径。</td>
+<td>近日，港中文联合清华等高校<a href="https://arxiv.org/html/2503.12303v5">提出</a>：未来大模型性能的持续提升，需依赖「预训练、推理阶段的计算扩展、后训练优化」三者的深度协同。这一观点打破了传统依赖单一预训练路径的范式，为下一代多模态基础大模型（Foundation MLLMs）的构建提供了全新思路。<br><br>在此基础上，研究团队提出了创新性框架 ——SICOG（Structured In-Context Optimization and Generation），旨在重塑大模型的进化路径。SICOG 引入了独创的「链式描述」技术，通过五步渐进式视觉解析引擎，实现模型从显著内容捕捉到细粒度关联推理的全面感知跃升。<br><br>该框架同时采用了「结构化思维链」机制，有效增强模型对多模态信息的融合处理与复杂推理能力。更具突破性的是，SICOG 通过自生成数据闭环 + 语义一致性筛选机制，使模型在零人工标注的条件下实现认知能力的持续进化，真正迈向高效、自主的学习范式。<br><br>SICOG 的提出，不仅打破了当前模型在数据、算力与微调优化三者割裂发展的瓶颈，也为未来通用人工智能（AGI）模型的构建提供了可扩展、可迁移的新路径。</td>
 </tr>
 <tr>
 <td></td>
 <td>中科大、中兴</td>
 <td>中科大、中兴提出新后训练范式：小尺寸多模态模型，成功复现 R1 推理<br><br>Huilin Deng, Ding Zou, Rui Ma, Hongchen Luo, Yang Cao, Yu Kang.&quot;Boosting the Generalization and Reasoning of Vision Language Models with Curriculum Reinforcement Learning.&quot;arXiv:2503.07065 [cs.CV]</td>
-<td>:[color]{rgba(0, 0, 0, 0.9)}本文第一作者为邓慧琳，中国科学技术大学硕博连读四年级，研究方向为多模态模型视觉理解、推理增强（R1强化学习）、异常检测。在 TAI、TASE、ICCV 等期刊和顶会发表论文。[/color]<br><br>:[color]{rgba(0, 0, 0, 0.9)}近年来，随着大型语言模型（LLMs）的快速发展，多模态理解领域取得了前所未有的进步。像 OpenAI、InternVL 和 Qwen-VL 系列这样的最先进的视觉-语言模型（VLMs），在处理复杂的视觉-文本任务时展现了卓越的能力。[/color]<br><br>:[color]{rgba(0, 0, 0, 0.9)}然而，这些成就主要依赖于大规模模型扩展（&gt;32B 参数），这在资源受限的环境中造成了显著的部署障碍。因此，如何通过有效的后训练（post-training）范式来缩小小规模多模态模型与大规模模型之间的性能差距，是亟待解决的问题。[/color]<br><br>:[color]{rgba(0, 0, 0, 0.9)}目前，VLM 的主流训练方法是监督微调（SFT），即使用人工标注或 AI 生成的高质量数据对模型进行有监督训练。但这种方法在小模型上存在两个关键问题：[/color]<br><br>- :[color]{rgba(0, 0, 0, 0.9)}域外泛化能力不足（Out-of-Domain generalization collapse）：容易过拟合训练数据，在未见过的场景时性能显著下降。[/color]  <br>  <br><br>- :[color]{rgba(0, 0, 0, 0.9)}推理能力有限（shallow reasoning abilities）：倾向于浅层模式匹配，而非真正的理解和推理。这导致模型虽能应对相似问题，但难以处理需要深度思考的复杂问题。[/color]<br><br>:[color]{rgba(0, 0, 0, 0.9)}然而，在实践中我们观察到一个显著的「砖墙」（Brick Wall）现象：小规模模型在简单任务上快速进步，但在复杂任务上遇到瓶颈，甚至导致已掌握能力的退化。这种现象表现为训练过程的剧烈震荡，最终导致模型收敛到次优解。[/color]<br><br>:[color]{rgba(0, 0, 0, 0.9)}为突破这一瓶颈，我们从课程学习（Curriculum Learning, CL）中汲取灵感。课程学习是一种将模型逐步暴露于递增复杂任务的训练策略。我们[/color][提出](https://arxiv.org/pdf/2503.07065):[color]{rgba(0, 0, 0, 0.9)}了课程式强化学习后训练范式（Curr-ReFT），确保模型能力从基础任务到复杂推理任务的稳步提升。[/color]<br><br>:[color]{rgba(0, 0, 0, 0.9)}这一创新方法能够帮助小型 VLMs 突破性能瓶颈，在保持部署友好性的同时，实现与大规模模型相媲美的推理能力。[/color]</td>
+<td>本文第一作者为邓慧琳，中国科学技术大学硕博连读四年级，研究方向为多模态模型视觉理解、推理增强（R1强化学习）、异常检测。在 TAI、TASE、ICCV 等期刊和顶会发表论文。<br><br>近年来，随着大型语言模型（LLMs）的快速发展，多模态理解领域取得了前所未有的进步。像 OpenAI、InternVL 和 Qwen-VL 系列这样的最先进的视觉-语言模型（VLMs），在处理复杂的视觉-文本任务时展现了卓越的能力。<br><br>然而，这些成就主要依赖于大规模模型扩展（&gt;32B 参数），这在资源受限的环境中造成了显著的部署障碍。因此，如何通过有效的后训练（post-training）范式来缩小小规模多模态模型与大规模模型之间的性能差距，是亟待解决的问题。<br><br>目前，VLM 的主流训练方法是监督微调（SFT），即使用人工标注或 AI 生成的高质量数据对模型进行有监督训练。但这种方法在小模型上存在两个关键问题：<br><br>- 域外泛化能力不足（Out-of-Domain generalization collapse）：容易过拟合训练数据，在未见过的场景时性能显著下降。  <br>  <br><br>- 推理能力有限（shallow reasoning abilities）：倾向于浅层模式匹配，而非真正的理解和推理。这导致模型虽能应对相似问题，但难以处理需要深度思考的复杂问题。<br><br>然而，在实践中我们观察到一个显著的「砖墙」（Brick Wall）现象：小规模模型在简单任务上快速进步，但在复杂任务上遇到瓶颈，甚至导致已掌握能力的退化。这种现象表现为训练过程的剧烈震荡，最终导致模型收敛到次优解。<br><br>为突破这一瓶颈，我们从课程学习（Curriculum Learning, CL）中汲取灵感。课程学习是一种将模型逐步暴露于递增复杂任务的训练策略。我们<a href="https://arxiv.org/pdf/2503.07065">提出</a>了课程式强化学习后训练范式（Curr-ReFT），确保模型能力从基础任务到复杂推理任务的稳步提升。<br><br>这一创新方法能够帮助小型 VLMs 突破性能瓶颈，在保持部署友好性的同时，实现与大规模模型相媲美的推理能力。</td>
 </tr>
 <tr>
 <td></td>
 <td>清华、上海 AI Lab</td>
 <td>过程奖励模型也可以测试时扩展？清华、上海 AI Lab 23K 数据让 1.5B 小模型逆袭 GPT-4o<br><br>Jian Zhao, Runze Liu, Kaiyan Zhang, Zhimu Zhou, Junqi Gao, Dong Li, Jiafei Lyu, Zhouyi Qian, Biqing Qi, Xiu Li, Bowen Zhou.&quot;GenPRM: Scaling Test-Time Compute of Process Reward Models via Generative Reasoning.&quot;arXiv:2504.00891 [cs.CL]</td>
-<td>随着 OpenAI o1 和 DeepSeek R1 的爆火，大语言模型（LLM）的推理能力增强和测试时扩展（TTS）受到广泛关注。然而，在复杂推理问题中，如何精准评估模型每一步回答的质量，仍然是一个亟待解决的难题。传统的过程奖励模型（PRM）虽能验证推理步骤，但受限于标量评分机制，难以捕捉深层逻辑错误，且其判别式建模方式限制了测试时的拓展能力。<br><br>那么，是否有办法通过测试时拓展提升过程奖励模型的过程监督推理能力呢？<br><br>为此，清华大学联合上海 AI Lab 提出生成式过程奖励模型 ——[GenPRM](http://arxiv.org/abs/2504.00891)，将生成式思维链推理（CoT）与代码验证相结合，并引入测试时拓展机制，为过程监督推理提供了新思路。与 DeepSeek 近期发布的逐点生成奖励模型（GRM）类似，GenPRM 也通过生成式建模和测试时扩展增强奖励模型的推理能力，但 GenPRM 更专注于过程奖励模型，弥补了 GRM 在过程监督方面的不足。</td>
+<td>随着 OpenAI o1 和 DeepSeek R1 的爆火，大语言模型（LLM）的推理能力增强和测试时扩展（TTS）受到广泛关注。然而，在复杂推理问题中，如何精准评估模型每一步回答的质量，仍然是一个亟待解决的难题。传统的过程奖励模型（PRM）虽能验证推理步骤，但受限于标量评分机制，难以捕捉深层逻辑错误，且其判别式建模方式限制了测试时的拓展能力。<br><br>那么，是否有办法通过测试时拓展提升过程奖励模型的过程监督推理能力呢？<br><br>为此，清华大学联合上海 AI Lab 提出生成式过程奖励模型 ——<a href="http://arxiv.org/abs/2504.00891">GenPRM</a>，将生成式思维链推理（CoT）与代码验证相结合，并引入测试时拓展机制，为过程监督推理提供了新思路。与 DeepSeek 近期发布的逐点生成奖励模型（GRM）类似，GenPRM 也通过生成式建模和测试时扩展增强奖励模型的推理能力，但 GenPRM 更专注于过程奖励模型，弥补了 GRM 在过程监督方面的不足。</td>
 </tr>
 </table></div>
 
 <h3>二、推理</h3>
-<p>未能展开此表；以下保留该处原始捕获内容。</p>
-<pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
+<div class="material-gap"><p>表格缺失：现有片段无法完整还原。</p><details class="material-fragment"><summary>查看原始片段</summary><p>未能展开此表；以下保留该处原始捕获内容。</p><pre>:::table{borderColor=&quot;#dddddd&quot; borderStyle=&quot;solid&quot; borderWidth=1 responsive=false}
 [
   [
     {
@@ -178,7 +176,9 @@
         &quot;bgColor&quot;: null,
         &quot;verticalAlign&quot;: null
       },
-      &quot;content&quot;: &quot;:[color]{rgb(62, 62, 62)}大语言模型（LLM）是真正具有推理能力，还是只是从大量网络抓取的训练数据集中回忆答案？公开发布的基准一旦被纳入后续的 LLM 训练集，就不可避免地会受到污染，从而损害其作为忠实评估的可靠性。[/color]\n\n:[color]{rgb(62, 62, 62)}为了解决这个问题，来自北京大学的研究团队及其合作者提出了一个生成式评估框架——[/color][KUMO](https://arxiv.org/abs/2504.02810):[color]{rgb(62, 62, 62)}，专门用于评估 LLM 的推理。KUMO 将 LLM 与符号引擎协同结合，动</pre>
+      &quot;content&quot;: &quot;:[color]{rgb(62, 62, 62)}大语言模型（LLM）是真正具有推理能力，还是只是从大量网络抓取的训练数据集中回忆答案？公开发布的基准一旦被纳入后续的 LLM 训练集，就不可避免地会受到污染，从而损害其作为忠实评估的可靠性。[/color]\n\n:[color]{rgb(62, 62, 62)}为了解决这个问题，来自北京大学的研究团队及其合作者提出了一个生成式评估框架——[/color][KUMO](https://arxiv.org/abs/2504.02810):[color]{rgb(62, 62, 62)}，专门用于评估 LLM 的推理。KUMO 将 LLM 与符号引擎协同结合，动</pre></details></div>
+
+
 
 
 <h2>旧生成摘要（未重写，未核实）</h2>

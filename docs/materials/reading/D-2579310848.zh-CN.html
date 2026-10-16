@@ -18,7 +18,7 @@
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/97</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/04bfeff96125878179de37bf84e439f771a8b6e7f3fbaed28dd87947591dafad.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2579310848.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/0a9fbda1b8b185caf797b25b9d52b52b29518d97/corpora/ai-industry/reading/D-2579310848.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
 <section class="material-body"><h2>保存的正文</h2>
 <p>近期业界Agent相关信息202411</p>
 <h1>一、AI Agent成为新的叙事核心</h1>
@@ -29,21 +29,24 @@
 <p>④谷歌正开发同类新项目「Project Jarvis」，能将Chrome网页任务自动化，该项目将由Gemini 2.0驱动，预计在12月亮相；</p>
 <p>⑤微软团队日前推出了OmniParser，也在笃定AI Agent操控屏幕的未来。OmniParser主要是一个屏幕解析的工具，可以将截图转化为结构化数据，帮助AI精准理解用户意图。</p>
 <h1>二、智谱AutoGLM原理</h1>
-<p>:[color]{}AutoGLM是基于一个名叫[/color]<a href="https://arxiv.org/abs/2308.15272">Autodroid</a>:[color]{}的科研项目成果实现。GLM做的工作主要是[/color]:[color]{}<strong>LLM任务的生成可控性</strong>[/color]:[color]{}、[/color]:[color]{}<strong>应用的GUI转化为可以被描述的事件</strong>[/color]:[color]{}。[/color]</p>
-<p>:[color]{}<strong>Autodroid的工作之一，就是将GUI的表示转化为一种HTML的表示形式</strong>[/color]:[color]{}，HTML这种形式对LLM来说比自然语言更好，可以保留UI元素的属性信息，比如“button”、“checkbox”、“scroller”、“input”和“p”，分别表示可以单击、选中、滑动、编辑和任何其他视图的元素。因为是模拟人类操作，不能接触底层注入，所以LLM需要被限制来选择固定的动作。[/color]</p>
-<p>:[color]{}<strong>用户语音被转化为文字，给LLM理解用户的意图提出步骤</strong>[/color]:[color]{}，再拿着UTG的转换信息给到[/color]:[color]{}<strong>LLM的上下文，通过结构化数据，输出动作命令，从而实现Agent。</strong>[/color]</p>
-<p>:[color]{}其中UI、执行动作的数据集，是[/color]:[color]{}<strong>OCR</strong>[/color]:[color]{}并被人工注释的，数据集是OCR的，而任务进行中的动作执行并不是纯OCR的。其次，如何微调LLM使其更擅长理解UI和动作之间的关系并做出动作呢？那就需要QA问答的数据集，其中也用到了[/color]:[color]{}<strong>CoT</strong>[/color]:[color]{}，一步一步推理：[/color]</p>
-<p>:[color]{}①手机上完成这个任务需要这下步骤：“…”[/color]</p>
-<p>:[color]{}②分析任务和之前的UI操作和现在的UI状态的关系[/color]</p>
-<p>:[color]{}③根据之前的操作，任务可以被解决吗？“是/不是” 下一步应该是“…/无”[/color]</p>
-<p>:[color]{}④任务可以在当前的UI下继续进行吗？是/否。“填写下一个动作”[/color]</p>
-<p>:[color]{}这样就完成了一个用户提出动作问题、LLM解答问题的循环[/color]</p>
-<p>:[color]{}iPhone的Ferret 2方案，也是基于XCUITest的自动化测试框架实现的，是多模态语言模型MLLM多平台的Lable的通用方案，引入了AnyResolution的图像编码方案，训练数据生成中是CLIP类似的方案，所以未来的LAM是MLLM的。[/color]</p>
-<p>:[color]{}<strong>而AutoGLM for Web浏览器任务的工作已经有了，叫</strong>[/color]<a href="https://arxiv.org/abs/2404.03648">AutoWebGLM</a>:[color]{}。关键还是在[/color]:[color]{}<strong>UI意图学习</strong>[/color]:[color]{}，[/color]:[color]{}<strong>让LLM理解点击这个会发生什么，点完了下一步点什么</strong>[/color]:[color]{}。结构化数据和可控性已经不是问题，所以用户提问也就不是问题。[/color]</p>
-<h1>:[color]{}三、CRM推出的[/color]Agentforce</h1>
+<p>AutoGLM是基于一个名叫<a href="https://arxiv.org/abs/2308.15272">Autodroid</a>的科研项目成果实现。GLM做的工作主要是<strong>LLM任务的生成可控性</strong>、<strong>应用的GUI转化为可以被描述的事件</strong>。</p>
+<p><strong>Autodroid的工作之一，就是将GUI的表示转化为一种HTML的表示形式</strong>，HTML这种形式对LLM来说比自然语言更好，可以保留UI元素的属性信息，比如“button”、“checkbox”、“scroller”、“input”和“p”，分别表示可以单击、选中、滑动、编辑和任何其他视图的元素。因为是模拟人类操作，不能接触底层注入，所以LLM需要被限制来选择固定的动作。</p>
+<p><strong>用户语音被转化为文字，给LLM理解用户的意图提出步骤</strong>，再拿着UTG的转换信息给到<strong>LLM的上下文，通过结构化数据，输出动作命令，从而实现Agent。</strong></p>
+<p>其中UI、执行动作的数据集，是<strong>OCR</strong>并被人工注释的，数据集是OCR的，而任务进行中的动作执行并不是纯OCR的。其次，如何微调LLM使其更擅长理解UI和动作之间的关系并做出动作呢？那就需要QA问答的数据集，其中也用到了<strong>CoT</strong>，一步一步推理：</p>
+<p>①手机上完成这个任务需要这下步骤：“…”</p>
+<p>②分析任务和之前的UI操作和现在的UI状态的关系</p>
+<p>③根据之前的操作，任务可以被解决吗？“是/不是” 下一步应该是“…/无”</p>
+<p>④任务可以在当前的UI下继续进行吗？是/否。“填写下一个动作”</p>
+<p>这样就完成了一个用户提出动作问题、LLM解答问题的循环</p>
+<p>iPhone的Ferret 2方案，也是基于XCUITest的自动化测试框架实现的，是多模态语言模型MLLM多平台的Lable的通用方案，引入了AnyResolution的图像编码方案，训练数据生成中是CLIP类似的方案，所以未来的LAM是MLLM的。</p>
+<p><strong>而AutoGLM for Web浏览器任务的工作已经有了，叫</strong><a href="https://arxiv.org/abs/2404.03648">AutoWebGLM</a>。关键还是在<strong>UI意图学习</strong>，<strong>让LLM理解点击这个会发生什么，点完了下一步点什么</strong>。结构化数据和可控性已经不是问题，所以用户提问也就不是问题。</p>
+<h1>三、CRM推出的Agentforce</h1>
 <p>2.昨天Jefferries发了篇渠道调研发现CRM新出的agent产品能改善收入。CRM目前已成为美股最大的agent叙事代言人，势头超越了微软。</p>
 <p>3.Evercore最近的报告对CRM的ROI做了详细分析。按照Consumption model，每对话2美金，可以让CRM的客户们，节省近80%的人力成本。</p>
-<p><img src="https://km.sankuai.com/api/file/cdn/2579310848/133226496902?contentType=1&isNewContent=false" alt="image.jpeg">{width=945 height=283 small=&quot;<a href="https://km.sankuai.com/api/file/cdn/2579310848/133225221417?contentType=1&isNewContent=false">https://km.sankuai.com/api/file/cdn/2579310848/133225221417?contentType=1&amp;isNewContent=false</a>&quot; origin=&quot;<a href="https://km.sankuai.com/api/file/cdn/2579310848/133226496901?contentType=1&isNewContent=false%22%7D">https://km.sankuai.com/api/file/cdn/2579310848/133226496901?contentType=1&amp;isNewContent=false&quot;}</a></p>
+<div class="material-gap"><p>图片缺失：图片文件未随材料保存。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>![image.jpeg](https://km.sankuai.com/api/file/cdn/2579310848/133226496902?contentType=1&amp;isNewContent=false){width=945 height=283 small=&quot;https://km.sankuai.com/api/file/cdn/2579310848/133225221417?contentType=1&amp;isNewContent=false&quot; origin=&quot;https://km.sankuai.com/api/file/cdn/2579310848/133226496901?contentType=1&amp;isNewContent=false&quot;}</pre></details></div>
+
+
+
 <p>4.最核心的就是：坐席订阅制改为用量消费制。客户节省下的大量人力成本，就是CRM定价的锚，抽成一部分，也远超CRM丢掉的席位收入。这点很关键，过去大家认为AI对软件最大威胁就是“席位制”商业模式受损，但通过Agent+用量消费收费制，商业模式的天花板反而打开。</p>
 <p>5根据.Jefferies的渠道调研，CRM渠道合作伙伴反馈，Agentforce一经上线就已经促成了deal（速度远超过去的新产品），且带动了其数据云服务的销售。这个结论让昨晚CRM股价+6%。</p>
 <p>6.Evercore报告对Agentforce的相关计算</p>
@@ -57,8 +60,16 @@
 <p>每次对话为客户节省的成本：7.62美元</p>
 <p>Agentforce与人工代表相比节省的百分比：79%</p>
 <p>7.两份报告参考</p>
-<p>:::attachment{src=&quot;<a href="https://km.sankuai.com/api/file/cdn/2579310848/133222455352?contentType=0">https://km.sankuai.com/api/file/cdn/2579310848/133222455352?contentType=0</a>&quot; name=&quot;1_Jefferies-CRM Partner Checks Indicate A Pick Up In Momentum(1).pdf&quot; size=&quot;541.15KB&quot;}</p>
-<p>:::attachment{src=&quot;<a href="https://km.sankuai.com/api/file/cdn/2579310848/133220857834?contentType=0">https://km.sankuai.com/api/file/cdn/2579310848/133220857834?contentType=0</a>&quot; name=&quot;1_EVERCORE ISI-Deep Dive The Agentforce Unlock Thinking Through The Oppor...-111300130.pdf&quot; size=&quot;1.37MB&quot;}</p>
+<div class="material-gap"><p>附件缺失：材料只保留附件引用。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>:::attachment{src=&quot;https://km.sankuai.com/api/file/cdn/2579310848/133222455352?contentType=0&quot; name=&quot;1_Jefferies-CRM Partner Checks Indicate A Pick Up In Momentum(1).pdf&quot; size=&quot;541.15KB&quot;}</pre></details></div>
+
+
+
+
+
+<div class="material-gap"><p>附件缺失：材料只保留附件引用。</p><details class="material-fragment"><summary>查看原始片段</summary><pre>:::attachment{src=&quot;https://km.sankuai.com/api/file/cdn/2579310848/133220857834?contentType=0&quot; name=&quot;1_EVERCORE ISI-Deep Dive The Agentforce Unlock Thinking Through The Oppor...-111300130.pdf&quot; size=&quot;1.37MB&quot;}</pre></details></div>
+
+
+
 <p>​</p>
 <p>​</p>
 <h2>旧生成摘要（未重写，未核实）</h2>
