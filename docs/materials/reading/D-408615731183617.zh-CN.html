@@ -11,12 +11,15 @@
 <body><main class="report-shell materials-reader">
 <nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
 <article class="report-article"><h1>DeepSeek-R1 及类强推理模型开发解读</h1>
+<p class="material-status">保存正文，尚未核实</p>
+<details class="material-notes"><summary>来源、历史版本与整理说明</summary>
 <p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
 材料编号：D-408615731183617。版本：202db092375c54ee3d66a019598eefbec24b935489a74cac379203af742858c3。</p>
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base_rebuilt.json #/262</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/202db092375c54ee3d66a019598eefbec24b935489a74cac379203af742858c3.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<h2>保存的正文</h2>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-408615731183617.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<section class="material-body"><h2>保存的正文</h2>
 <p>[LLM生成摘要，原文为外部文档] DeepSeek-R1是由深度求索（DeepSeek）公司推出的强推理能力大语言模型，代表了当前AI领域在推理增强方向的重要突破。该模型通过大规模强化学习（RL）训练范式，无需依赖大量人工标注的监督数据，即可激发模型的自主推理能力，包括链式思维（Chain-of-Thought）、自我反思与验证等高级认知行为。DeepSeek-R1的核心技术路线包括：基于GRPO（Group Relative Policy Optimization）算法的强化学习训练、冷启动数据构造策略、以及多阶段训练流程设计。模型在数学推理、代码生成、逻辑推断等基准测试上达到或超越OpenAI o1系列模型的水平，同时以更低的训练成本实现了可比的性能表现。此外，DeepSeek团队还开源了多个规模的蒸馏版本（1.5B至70B），通过将R1的推理能力蒸馏到较小模型中，极大降低了强推理模型的部署门槛。该技术报告的解读涵盖模型架构设计、训练策略、强化学习奖励机制设计、以及与同类模型（如OpenAI o1、QwQ等）的对比分析，为学术界和工业界理解和复现类强推理模型提供了系统性参考。</p>
 <h2>旧生成摘要（未重写，未核实）</h2>
 <p>DeepSeek-R1是由深度求索（DeepSeek）公司推出的强推理能力大语言模型，代表了当前AI领域在推理增强方向的重要突破。该模型通过大规模强化学习（RL）训练范式，无需依赖大量人工标注的监督数据，即可激发模型的自主推理能力，包括链式思维（Chain-of-Thought）、自我反思与验证等高级认知行为。DeepSeek-R1的核心技术路线包括：基于GRPO（Group Relative Policy Optimization）算法的强化学习训练、冷启动数据构造策略、以及多阶段训练流程设计。模型在数学推理、代码生成、逻辑推断等基准测试上达到或超越OpenAI o1系列模型的水平，同时以更低的训练成本实现了可比的性能表现。此外，DeepSeek团队还开源了多个规模的蒸馏版本（1.5B至70B），通过将R1的推理能力蒸馏到较小模型中，极大降低了强推理模型的部署门槛。该技术报告的解读涵盖模型架构设计、训练策略、强化学习奖励机制设计、以及与同类模型（如OpenAI o1、QwQ等）的对比分析，为学术界和工业界理解和复现类强推理模型提供了系统性参考。</p>
@@ -28,6 +31,7 @@
 <li>团队开源了从1.5B到70B的系列蒸馏模型，通过知识蒸馏将强推理能力迁移至小模型，推动了强推理模型的普及化与工程化部署</li>
 <li>该工作揭示了纯强化学习驱动下大模型自主涌现推理能力的可行性，为后续类o1模型研究提供了重要的技术路径参考</li>
 </ul>
+</section>
 </article>
-<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-408615731183617.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+
 </main></body></html>

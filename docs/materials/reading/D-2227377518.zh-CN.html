@@ -11,12 +11,15 @@
 <body><main class="report-shell materials-reader">
 <nav class="report-nav" aria-label="阅读导航"><a data-home-link href="../../index.zh-CN.html">Research Toolkit</a><a href="../index.zh-CN.html">中文目录</a><a href="../index.html">English catalog</a></nav>
 <article class="report-article"><h1>多模态趋势下的架构选择</h1>
+<p class="material-status">保存正文，尚未核实</p>
+<details class="material-notes"><summary>来源、历史版本与整理说明</summary>
 <p><a href="../index.zh-CN.html">分类目录</a> · <a href="../index.html">English index</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>
 材料编号：D-2227377518。版本：56a04f6e351a5cbd628d1581496ac00013f2ccdb48f52c750b209fefb5c04e50。</p>
 <p>来源：aiknowledge-cli @ 63f5c8b1803aa9aa6551a97a50afff9bfa4daf63 / data/knowledge_base.json #/54</p>
 <p>所选原记录见<a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/download/ai-industry-corpus-v1/ai-industry-v1.zip">历史版本包</a>内 <code>versions/56a04f6e351a5cbd628d1581496ac00013f2ccdb48f52c750b209fefb5c04e50.json</code>；其他版本及出处见包内 <code>lineage.jsonl</code>。</p>
 <p>材料性质：保存正文，尚未核实。保存文本的完整性、事实与发布日期未据原站核实。</p>
-<h2>保存的正文</h2>
+<p><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/reading/D-2227377518.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></p></details>
+<section class="material-body"><h2>保存的正文</h2>
 <p>多模态趋势下的架构选择</p>
 <h1>一、CNN VS.Transformer，做多模态谁更强？</h1>
 <p>1.一直以来，Transformer 都被认作为 AI 大模型的主流架构。但在近期的一些研究工作中，RWKV、Mamba、Hyena，以及 Recurrent Memory Transformers 等新的架构出现，也许「最先进的模型仍然是基于 Transformer 」的局面未来可能会改变。<br>2.腾讯 AI 实验室与港中文联合团队提出的 CNN 架构「UniRepLKNet」，在图像识别精度和速度上均超过了 Transformer 架构模型。作者认为，Transformer 和 CNN 仅仅是相互交融的两种结构设计思路，没有理由认为前者具有本质的优越性。<br>3.此前，CNN 长期以来一直是图像处理任务的首选。<br>① CNN 擅长通过卷积层捕获局部空间信息，从而实现分层特征提取。CNN 擅长从大量图像数据中学习，并在图像分类、目标检测和分割等任务中效果显著。<br>② CNN 由于其可并行性而具有更高计算效率，这使得它们适用于需要实时运行和资源受限的应用程序。<br>4.在多模态学习中，Transformer 的输入可以包含一个或多个 token 序列，每个序列的属性（例如，模态标签、顺序）可以自然地进行 MML 而无需架构修改。此外，通过控制 self-attention 的输入模态可以简单地实现学习每个模态的特异性和模态间的相关性。<br>① Transformer 的优势在于它们可以以与模态无关的方式工作。因此，它们与各种模态（和模态的组合）兼容。<br>② 相较于 CNN， Vision Transformer 拥有全局注意力和上下文理解等至关重要的优势。<br>③ 但 Vision Transformer 通常需要大量的训练数据才能达到与 CNN 相当的性能。<br>5.目前，大多数先进的模型都是以 CNN-Transformer 混合体的形式设计的。这些模型主要在初期阶段使用卷积块，并将 Transformer 块的堆叠保留到最后阶段。目前，无论是卷积块还是 Transformer 块，在现有工作中都不能同时实现高效性和性能。</p>
@@ -46,6 +49,7 @@
 <li>CLIP是多模态预训练里程碑，通过双塔模型将图文映射到共享嵌入空间，实现零样本图像识别</li>
 <li>当前主流模型多为CNN-Transformer混合架构，CNN负责初期局部特征提取，Transformer处理后期全局语义融合</li>
 </ul>
+</section>
 </article>
-<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/reading/D-2227377518.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+
 </main></body></html>

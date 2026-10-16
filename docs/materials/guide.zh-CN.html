@@ -71,8 +71,8 @@
 <pre><code class="language-bash">python scripts/build_ai_industry_corpus.py --inputs .. --output artifacts/ai-industry-v1
 </code></pre>
 <p>Python 标准库即可。脚本使用 <code>git show</code> 读取固定提交，复用现有数据集的哈希和不可覆盖写入逻辑，不调用模型或原站服务。输出目录已存在时停止；选择新目录才能生成另一版本。原始材料遵循仓库现有约定保存在 <code>artifacts/</code>，不写入 Git 源码树。本轮已将原有材料包原样发布为独立的 <code>ai-industry-corpus-v1</code> 预发布资产，保留历史版本及未核实标记，不替换现有运行数据集的 latest。</p>
-<p>盘点结果见 <a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/inventory-summary.json">inventory-summary.json</a>，深度恢复说明见 <a href="recovery-notes.zh-CN.html">recovery-notes.zh-CN.md</a>。</p>
+<p>盘点结果见 <a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/inventory-summary.json">inventory-summary.json</a>，深度恢复说明见 <a href="recovery-notes.zh-CN.html">recovery-notes.zh-CN.md</a>。</p>
 <p>网站发布时，在 Node 22+ 环境中提供 <a href="mailto:marked@17.0.5">marked@17.0.5</a>，运行 node scripts/export_ai_industry_site.cjs ../research-toolkit/docs/materials，再运行 Toolkit 现有的 python scripts/build_site.py。导出器复用本目录、阅读稿和恢复说明，只生成静态 HTML 与页面元数据；Toolkit 安装和日常网站构建不增加 Node 或 marked 依赖。原 Markdown 和历史材料包保持不变。</p>
 </article>
-<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/6a2f118e4cffa1914563b44696908f87abb37559/corpora/ai-industry/README.zh-CN.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
+<footer class="materials-provenance"><a href="https://github.com/rrrrrredy/agent-trajectory-data/blob/a8c008037918c53260a1a8680398cb37c86a28c1/corpora/ai-industry/README.zh-CN.md">原始 Markdown</a> · <a href="https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1">全部历史版本</a></footer>
 </main></body></html>
