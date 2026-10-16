@@ -492,6 +492,29 @@ class ProfileTests(unittest.TestCase):
         (self.root/"source.md").unlink()
         self.assertFalse(evaluate_delivery(self.root)["ok"])
 
+    def test_local_source_paths_agree_between_draft_and_delivery(self):
+        self.task("lite")
+        items = {key: {"passed": True, "evidence": "final.md and source.md"} for key in CHECKLIST}
+        self.assertTrue(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+        original = w.registry_rows(self.root, "data/source_registry.csv", ("source_id",))[0]
+        w.save_records(self.workspace, "case", sources=[{
+            "source_id": "S1", "url": "C:/reports/old.md"}])
+        draft = w.check_draft(self.workspace, "case")
+        self.assertFalse(draft["ok"], draft)
+        error = draft["errors"][0]
+        self.assertIn("row S1, url:", error)
+        self.assertIn("task-relative", error)
+        self.assertIn("sources/S1.md", error)
+        with self.assertRaises(ValueError) as failed:
+            w.finish(self.workspace, "case", "Complete.", checklist=items)
+        self.assertEqual(str(failed.exception), error)
+        self.assertIn(error, " ".join(evaluate_delivery(self.root)["findings"]))
+        for url in ("source.md", original["url"]):
+            with self.subTest(url=url):
+                w.save_records(self.workspace, "case", sources=[{"source_id": "S1", "url": url}])
+                self.assertTrue(w.check_draft(self.workspace, "case")["ok"])
+                self.assertTrue(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+
     def test_full_without_cli_performs_degraded_self_review_and_delivery(self):
         with patch("review_runner.shutil.which", side_effect=AssertionError("no CLI probe for self")):
             started = self.task()

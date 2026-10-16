@@ -21,7 +21,7 @@ from profile_policy import CHECKLIST, LITE_LOG, checklist_errors, inspect_lite_d
 
 from check_delivery import (REQUIRED_HASH_INPUTS, OPTIONAL_HASH_INPUTS, evaluate_delivery,
                             inspect_csv_text, inspect_jsonl, inspect_jsonl_text,
-                            inspect_reading_evidence, inspect_required_reading, reading_evidence_target,
+                            inspect_reading_evidence, inspect_source_reading_evidence, inspect_required_reading, reading_evidence_target,
                             inspect_length_constraints,
                             REQUIREMENT_DECISION_STATUSES, resolve_inside, sha256_file)
 from check_review_completion import (inspect_review_completion, matches_review_slot,
@@ -222,9 +222,9 @@ def check_stage_records(root, stage):
     for row in sources:
         if row.get("read_scope") not in {"full_text", "relevant_sections"}:
             continue
-        errors = inspect_reading_evidence(root, row.get("read_evidence"))
+        errors = inspect_source_reading_evidence(root, row)
         if errors:
-            raise ValueError(f"Source {row['source_id']}: " + "; ".join(errors))
+            raise ValueError("; ".join(errors))
         read_ids.add(row["source_id"].strip())
     if not read_ids:
         raise ValueError("Record the actual reading scope and locatable reading evidence before analysis.")

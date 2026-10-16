@@ -40,7 +40,8 @@ def checklist_errors(value):
 def lite_input_hashes(root: Path, items: dict) -> dict:
     """Bind declared local inputs without adding Full review/source-text gates."""
     # Local import keeps the standalone delivery checker and profile policy acyclic.
-    from check_delivery import inspect_csv_text, reading_evidence_target, resolve_inside, sha256_file
+    from check_delivery import (inspect_csv_text, inspect_source_reading_evidence,
+                                reading_evidence_target, resolve_inside, sha256_file)
     hashes = {}
     volatile = {"state/progress.json", "state/final_checklist.json", "logs/profile.jsonl", "delivery_message.md"}
 
@@ -75,6 +76,9 @@ def lite_input_hashes(root: Path, items: dict) -> dict:
     for source in sources:
         if source.get("read_scope") not in {"full_text", "relevant_sections"}:
             continue
+        errors = inspect_source_reading_evidence(root, source)
+        if errors:
+            raise ValueError("; ".join(errors))
         for field in ("url", "read_evidence"):
             target = reading_evidence_target(source.get(field))
             if target:

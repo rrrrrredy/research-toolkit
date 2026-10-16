@@ -211,12 +211,14 @@ def reading_evidence_target(value: Any) -> str | None:
     return target.replace("\\", "/")
 
 
-def inspect_reading_evidence(root: Path, value: Any) -> list[str]:
+def inspect_reading_evidence(root: Path, value: Any, *, local_path=False) -> list[str]:
     """Check clear local file references; other locators still need content review."""
     if not nonempty_text(value):
         return ["Reading evidence needs a nonempty reference."]
     try:
         target = reading_evidence_target(value)
+        if local_path:
+            target = value.strip()
     except ValueError as exc:
         return [str(exc)]
     if target is None:
@@ -230,6 +232,22 @@ def inspect_reading_evidence(root: Path, value: Any) -> list[str]:
     except OSError:
         return [f"Local reading evidence is unreadable: {target}"]
     return [] if populated else [f"Local reading evidence is empty: {target}"]
+
+
+def inspect_source_reading_evidence(root: Path, source: dict[str, Any]) -> list[str]:
+    """Use the same local-source checks before drafting and binding delivery inputs."""
+    findings = []
+    source_id = source.get("source_id", "unknown")
+    for field in ("url", "read_evidence", "evidence_path"):
+        value = source.get(field)
+        if field != "read_evidence" and not nonempty_text(value):
+            continue
+        for error in inspect_reading_evidence(root, value, local_path=field == "evidence_path"):
+            findings.append(
+                f"data/source_registry.csv row {source_id}, {field}: {error.rstrip('.')}. "
+                f"For a local file, use a task-relative path to an existing nonempty file, "
+                f"such as sources/{source_id}.md; put reading-location explanations in locator.")
+    return findings
 
 
 def inspect_required_reading(row: dict[str, Any], registry_path: Path) -> list[str]:
