@@ -10,6 +10,12 @@ Use it for industry research, product comparisons, company analysis and technica
 
 [**Start here**](#quick-start) · [See a research case](#research-case) · [Agent setup](#agent-setup) · [Documentation](#documentation)
 
+## AI industry research materials
+
+**281 materials · 6 themes · 5 selected recoveries.** Read company analyses, model and agent research, compute economics, industry tracking and paper notes online. Original texts, historical versions and unverified labels are retained.
+
+[**Browse by topic**](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/corpora/ai-industry/BROWSE.md) · [Five selected recoveries](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/corpora/ai-industry/recovered/README.md) · [Full archive](https://github.com/rrrrrredy/agent-trajectory-data/releases/tag/ai-industry-corpus-v1)
+
 <a id="usage"></a>
 
 ## Quick start
@@ -97,8 +103,6 @@ Full supports author-context `self`, a configured `external` backend, or `indepe
 Public records include complete reports, original failures, reviews and repairs. They show concrete report corrections and tested workflow behavior; they do not yet establish a general quality or efficiency advantage over a native agent. Case studies, model comparisons and software checks answer different questions.
 
 [Current evidence and limits](./docs/evaluation-status.md) · [Complete-report version comparison](./evals/studies/2026-10-13-before-after/README.zh-CN.md) (Chinese) · [Datasets and checks](./evals/README.md) · [Historical data archive](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.md)
-
-Optional input: the [AI industry research corpus](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/corpora/ai-industry/BROWSE.md), with historical texts, summaries and version records to select for the current task.
 
 ## Documentation
 
