@@ -98,6 +98,8 @@ Full 支持作者上下文中的 `self`、配置后端的 `external`，或单独
 
 [当前证据与边界](./docs/evaluation-status.zh-CN.md) · [完整报告版本比较](./evals/studies/2026-10-13-before-after/README.zh-CN.md) · [数据集与检查](./evals/README.zh-CN.md) · [历史数据归档](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md)
 
+可选输入：[AI 行业研究材料集](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/corpora/ai-industry/README.zh-CN.md)，按当前任务选用历史正文、摘要与版本记录。
+
 ## 文档
 
 | 需要什么 | 入口 |

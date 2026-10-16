@@ -98,6 +98,8 @@ Public records include complete reports, original failures, reviews and repairs.
 
 [Current evidence and limits](./docs/evaluation-status.md) · [Complete-report version comparison](./evals/studies/2026-10-13-before-after/README.zh-CN.md) (Chinese) · [Datasets and checks](./evals/README.md) · [Historical data archive](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.md)
 
+Optional input: the [AI industry research corpus](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/corpora/ai-industry/README.md), with historical texts, summaries and version records to select for the current task.
+
 ## Documentation
 
 | Need | Entry |
