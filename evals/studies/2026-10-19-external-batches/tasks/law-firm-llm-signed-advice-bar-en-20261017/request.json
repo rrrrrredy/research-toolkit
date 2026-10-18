@@ -1,0 +1,13 @@
+{
+  "task": "law-firm-llm-signed-advice-bar-en-20261017",
+  "language": "en",
+  "profile": "lite",
+  "brief": {
+    "question": "Before a mid-market law firm allows associates to use third-party LLM tools on client contract review and draft advice memos, what evidence bar and operational/disclosure controls are required so that tool outputs can support partner-signed advice or client disclosure duties through 2027—and when must the firm treat “AI legal research” claims as insufficient for signed work product?",
+    "audience": "Law-firm general counsel / professional-responsibility lead and practice-innovation partners.",
+    "scope": "Synthetic source pack only; work-product tiers (research assist vs signed opinion), human accountability and source-trace evidence, privilege/confidentiality failure modes, kill criteria. No live web.",
+    "output": "final.md, ≥1500 whitespace words (suggested 1500–2500): tiers, controls, counter-evidence, kill criteria. Registries and checklist separate.",
+    "depth": "Lite long-form professional-responsibility memo; not a legal-tech bake-off.",
+    "evidence_standard": "Synthetic sources disclosed; do not treat LLM drafts as partner-signed advice without controls; disclose no independent review."
+  }
+}

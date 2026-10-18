@@ -1,0 +1,33 @@
+{
+  "task_id": "open-weight-saas-lockin-en-20261017-retest",
+  "research_question": "How do open-weight model releases change mid-market SaaS vendors’ lock-in and pricing power through 2027?",
+  "language": "en",
+  "audience": "Mid-market SaaS strategy and pricing leads.",
+  "scope": "Synthetic source pack only (same pack as Day-1 / 2026-10-14 original-condition retest; disclosed). Cover switching costs, feature differentiation, inference cost, and customer bargaining through 2027 scenarios. No live web. Change = Toolkit 1.0.0→1.3.0.",
+  "output_bounds": "final.md, about 1500–2500 whitespace words (≥1500): mechanisms, scenarios, counter-evidence, strategic options. Registries and checklist separate.",
+  "depth": "Lite original-condition retest (version regression); long-form AI/business analysis.",
+  "evidence_standard": "Synthetic sources only; separate facts, attributed claims, and recommendations; disclose synthetic materials and no independent review.",
+  "profile": "lite",
+  "kind": "retest",
+  "domain": "AI/商业",
+  "batch_id": "2026-10-17-v2",
+  "batch_dir": "2026-10-17-confirmed",
+  "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+  "toolkit_version": "1.3.0",
+  "length_record": "1861 词（目标 1500–2500）",
+  "revisions": 0,
+  "mechanical": {
+    "lite_checklist": "checklist_complete",
+    "full_delivery_gate": "skipped",
+    "research_review": "skipped",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": false,
+    "outer_grok_note": "recorded_pass_not_toolkit_independent_review"
+  },
+  "review_mode": "author_self_check",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false,
+  "copied_unchanged_from": "open-weight-saas-lockin-en-20261014",
+  "question_text_identical_to_copied_pack": true
+}

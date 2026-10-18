@@ -1,0 +1,33 @@
+{
+  "task_id": "guide-fund-hardtech-return-ratio-zh-20261016",
+  "research_question": "地方政府引导基金直投硬科技项目时，「返投比例」考核与退出通道（并购／回购／二级市场）的证据，能否支撑财政与社会 LP 对「既要产业落地又要财务回报」的同期表述？",
+  "language": "zh",
+  "audience": "引导基金管理机构与财政/国资监督方。",
+  "scope": "仅用任务附带合成来源包；覆盖返投口径、可核验证据、退出路径现实性与披露红线；不联网。",
+  "output_bounds": "final.md，≥3000 非空白中文字符（建议 3000–5000）：返投口径与证据；退出现实性；反证与披露红线；未决事项；台账与 checklist 单列。",
+  "depth": "Lite 长文金融/产业政策决策备忘。",
+  "evidence_standard": "合成来源并披露；不得把个案退出写成普遍可兑现；披露未做独立评审。",
+  "profile": "lite",
+  "kind": "new",
+  "domain": "金融/商业",
+  "batch_id": "2026-10-16-v1",
+  "batch_dir": "2026-10-16-confirmed",
+  "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+  "toolkit_version": "1.1.0",
+  "length_record": "3056 非空白字（目标 3000–5000）",
+  "revisions": 0,
+  "mechanical": {
+    "lite_checklist": "checklist_complete",
+    "full_delivery_gate": "skipped",
+    "research_review": "skipped",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": false,
+    "outer_grok_note": null
+  },
+  "review_mode": "author_self_check",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false,
+  "copied_unchanged_from": null,
+  "question_text_identical_to_copied_pack": null
+}

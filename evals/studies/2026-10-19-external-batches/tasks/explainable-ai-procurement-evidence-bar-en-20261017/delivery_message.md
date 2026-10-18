@@ -1,0 +1,1 @@
+explainable-ai-procurement-evidence-bar-en-20261017: Lite complete. Synthetic S1–S4; no independent review. Post-hoc NL alone insufficient for adverse-action production; require Tier-2 replay/auditability or assistive-only wording; encode kill/hold criteria.

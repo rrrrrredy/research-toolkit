@@ -1,0 +1,33 @@
+{
+  "task_id": "bank-chatbot-deflection-evidence-en-20261016-retest",
+  "research_question": "Bank retail chatbot “deflection” metrics: does the published evidence support replacing tier-1 human handling based on no-handoff rates?",
+  "language": "en",
+  "audience": "Retail-bank digital CX and model-risk / compliance.",
+  "scope": "Use only the synthetic source pack (same as Day-1 original-condition retest). Focus on deflection metrics, sample frames, escalation paths, and complaint outcomes. No live web. Change = Toolkit 1.0.0→1.1.0.",
+  "output_bounds": "final.md, ≥600 whitespace words (suggested ~600–900, match Day-1 band): judgment, evidence discipline, counter-evidence, conditions that would change the call. Keep registries and checklist separate.",
+  "depth": "Lite original-condition retest (version regression); deep memo on banking-chatbot evidence discipline.",
+  "evidence_standard": "Synthetic sources only; do not treat vendor deflection % as proven replacement of tier-1 human queues; disclose synthetic materials and no independent review.",
+  "profile": "lite",
+  "kind": "retest",
+  "domain": "金融/AI",
+  "batch_id": "2026-10-16-v1",
+  "batch_dir": "2026-10-16-confirmed",
+  "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+  "toolkit_version": "1.1.0",
+  "length_record": "750 词（目标 600–900）",
+  "revisions": 0,
+  "mechanical": {
+    "lite_checklist": "checklist_complete",
+    "full_delivery_gate": "skipped",
+    "research_review": "skipped",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": false,
+    "outer_grok_note": null
+  },
+  "review_mode": "author_self_check",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false,
+  "copied_unchanged_from": "bank-chatbot-deflection-evidence-en-retest-20261014",
+  "question_text_identical_to_copied_pack": false
+}
