@@ -8,7 +8,7 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## v1.3.2 — 2026-10-19
 
-- Ship the corrected Lite self-check instructions and diagnostics from PR #81 in the installed plugin: read the current report, address repeated or off-topic passages, and record concrete findings instead of changing a pass flag to satisfy an error.
+- Ship the corrected Lite self-check instructions and diagnostics from PR #81 and PR #82 in the installed plugin: read the current report, address repeated or off-topic passages, and record concrete findings instead of changing a pass flag to satisfy an error.
 - Keep the six checklist items, validation predicates and public interfaces unchanged. The effect of these wording changes on false self-reported passes remains unverified.
 - Align bilingual repository, installation, plugin and website descriptions with the existing nine MCP tools; the tool count is unchanged from v1.3.1.
 - Preserve original reports and historical results alongside four separate report revisions and current-result corrections. These are report repairs, not a Toolkit core-capability upgrade. Publish matching bilingual [release notes](docs/releases/v1.3.2.md), version metadata and plugin ZIP without new runtime logic or tests.
