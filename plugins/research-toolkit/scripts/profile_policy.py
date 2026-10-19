@@ -9,7 +9,7 @@ CHECKLIST = {
     "claims_and_sources": "Check important claims against their sources and citations.",
     "counterevidence": "Address counter-evidence and uncertainty; qualify conclusions.",
     "sections": "Inspect each section of the current report for explanation and coverage, not repeated filler.",
-    "reader_edit": "Read the complete current report; remove repeated or off-topic passages, internal IDs and production narration. Cite the passages checked and actual findings or corrections.",
+    "reader_edit": "Check the full report and reject duplicated filler, repeated boilerplate, and cross-task or off-topic template text used to pad length; keep it useful to the named reader without internal IDs or production records, and cite the passages checked and any corrections.",
     "limitations": "Disclose evidence limits and the absence of independent review.",
 }
 LITE_LOG = [
