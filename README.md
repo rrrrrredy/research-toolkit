@@ -85,7 +85,7 @@ Public-source analysis dated 10 October 2026, not a deployment test. Also read t
 | Save progress and call workflow tools | [MCP installation and client configuration](./docs/usage-modes.md#connect-mcp-separately) · [CLI](./docs/usage-modes.md#skill-only-and-cli-fallback) |
 | Try the local tools | [Runnable MCP example and captured responses](./examples/mcp/README.md); replays a supplied self-review without an external model call. |
 
-The eight local tools manage task records, stage guidance, registered release-log queries, reviews and delivery checks. MCP needs Python 3.10+ and a client that can start a local process; the installation guide covers Windows, macOS and Linux.
+The nine local tools manage task records, stage guidance, registered release-log queries, reviews and delivery checks. MCP needs Python 3.10+ and a client that can start a local process; the installation guide covers Windows, macOS and Linux.
 
 Full supports author-context `self`, a configured `external` backend, or `independent` review in a separate context. Astra can provide independent review without an outside person or another vendor. State the tier actually used; an explicit independent-review requirement cannot be silently downgraded. [Review configuration](./docs/usage-modes.md#reviewer-backends)
 

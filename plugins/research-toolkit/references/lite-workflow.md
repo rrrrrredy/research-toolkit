@@ -58,15 +58,15 @@ With tools, call `research_check_draft(task, artifact)` (CLI: `check-draft`) bef
 
 ## final — Complete the author checklist
 
-Check the current report against the brief and material follow-ups. Keep failed or unchecked items open and correct them before recording a pass. Each of the six items needs a real check and a concrete location or explanation:
+Read the complete current report against the brief and material follow-ups before filling the checklist. Record the passages/sources checked and actual findings or corrections; copying a criterion such as "edited for the reader" is not evidence. Keep failed or unchecked items false until the work is done. A checklist error asks you to complete the work, not merely change `passed` to `true`. Each of the six items refers to this report:
 
 | Key | What to check |
 | --- | --- |
 | `requirements` | Required questions, follow-ups, format and length are satisfied; record the actual length and counting convention. |
 | `claims_and_sources` | Important claims and citations match the sources actually read. |
 | `counterevidence` | Counter-evidence and uncertainty are addressed at the affected conclusions. |
-| `sections` | Each necessary section has adequate explanation and coverage. |
-| `reader_edit` | The report is useful to its reader and excludes production records. |
+| `sections` | Each necessary section explains its own point and covers the brief without repeated filler. |
+| `reader_edit` | Read the whole report for repeated or off-topic passages and production records; identify the passages checked and any corrections. |
 | `limitations` | Material evidence limits and the absence of independent review are disclosed. |
 
 With tools, call `research_finish` with the task, artifact and intended delivery message to get the checklist template. Submit every item's `passed` and `evidence` after checking; only actual passes use `passed: true`. The tool saves `state/final_checklist.json`. New receipts bind the report, delivery message, task specification, source/claim registries, requirement ledger (including its absence), and declared local files for sources marked read. An item may also declare `evidence_files: ["checks/length.md"]` for a retained check note; these task-relative, nonempty files are bound too. Workflow output files cannot serve as those check notes. Address any returned error before claiming completion; recheck and resubmit after any bound input changes. A remote URL or page locator remains a recorded reference, not a downloaded or monitored source. Older receipts retain their original report/message-only checks.
