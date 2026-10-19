@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 from check_review_completion import content_review_rows, inspect_review_completion
+from record_changes import repeated_text_positions
 
 import argparse
 import json
@@ -283,7 +284,7 @@ def count_registry_sources(
 
 
 def repeated_line_flags(final_text: str) -> list[str]:
-    normalized_counts: dict[str, int] = {}
+    normalized_lines = []
     for line in final_text.splitlines():
         line = re.sub(r"\s+", " ", line.strip()).casefold()
         if len(re.sub(r"\s+", "", line)) < 24:
@@ -291,8 +292,9 @@ def repeated_line_flags(final_text: str) -> list[str]:
         # Normalize citation noise without erasing English words and their meaning.
         line = re.sub(r"《[^》]+》", "《SOURCE》", line)
         line = re.sub(r"\b[sp]\d{3,}\b", "SOURCE_ID", line)
-        normalized_counts[line] = normalized_counts.get(line, 0) + 1
-    return [line for line, count in normalized_counts.items() if count >= 3]
+        normalized_lines.append(line)
+    # Length is checked before citation normalization, as in the original evaluator.
+    return list(repeated_text_positions(normalized_lines, minimum_chars=0, minimum_count=3))
 
 
 def bullet_ratio(final_text: str) -> float:

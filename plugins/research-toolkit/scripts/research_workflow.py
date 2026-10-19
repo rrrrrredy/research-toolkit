@@ -872,8 +872,8 @@ def content_review_summary(reviews: dict, rows: list[dict], artifact_hash: str) 
             "reviewer_contexts": [r["execution_id"] for r in reviews.values()]}
 
 
-def citation_export_warnings(report: str) -> list[str]:
-    """Flag known private chat citations in prose, leaving code examples alone."""
+def prose_lines(report: str) -> list[str]:
+    """Mask code blocks while retaining original prose and line positions."""
     fence = None
     paragraph = False
     prose = []
@@ -897,9 +897,14 @@ def citation_export_warnings(report: str) -> list[str]:
         else:
             prose.append(line)
             paragraph = not bool(re.match(r"^ {0,3}(?:#{1,6}(?:\s|$)|(?:[-*_]\s*){3,}$)", line))
+    return prose
+
+
+def citation_export_warnings(report: str) -> list[str]:
+    """Flag known private chat citations in prose, leaving code examples alone."""
     # Backtick-delimited examples can span lines. Preserve line numbers in warnings.
     text = re.sub(r"(`+)(?!`)([\s\S]*?)(?<!`)\1(?!`)",
-                  lambda match: "\n" * match[0].count("\n"), "".join(prose))
+                  lambda match: "\n" * match[0].count("\n"), "".join(prose_lines(report)))
     matches = list(re.finditer(r"\ue200(?:cite|filecite|filenavlist)\ue202[^\ue201\n]*\ue201", text))
     if not matches:
         return []
@@ -908,6 +913,39 @@ def citation_export_warnings(report: str) -> list[str]:
             f"at line(s) {', '.join(map(str, lines))}. Replace them using the actual source title/URL "
             "and locator; do not guess or drop the citation. Literal syntax examples belong in code. "
             "This advisory does not verify source support or change delivery eligibility."]
+
+
+def repeated_paragraph_warnings(report: str) -> list[str]:
+    """Locate exact repeated prose only; do not infer padding or remove text."""
+    from record_changes import paragraph_span, repeated_text_positions
+
+    lines = [line.rstrip("\r\n") for line in prose_lines(report)]
+    blocks, locations = [], []
+    heading = "(before first heading)"
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        if line.startswith("#"):
+            heading = line.lstrip("# ")
+            index += 1
+        elif not line.strip():
+            index += 1
+        else:
+            start, end = paragraph_span(lines, index)
+            block = lines[start:end + 1]
+            # Tables, lists, block quotes and reference definitions are not prose paragraphs.
+            if not any("|" in row or re.match(
+                    r"^\s*(?:>|[-+*]\s|\d+[.)]\s|\[[^\]]+\]:|(?:[-*_]\s*){3,}$|=+\s*$)", row)
+                    for row in block):
+                blocks.append("\n".join(block))
+                locations.append(f"{heading} (lines {start + 1}-{end + 1})")
+            index = end + 1
+    warnings = []
+    for text, indices in repeated_text_positions(blocks).items():
+        warnings.append(f"Repeated paragraph warning: {len(indices)} identical occurrences at "
+                        + "; ".join(locations[i] for i in indices)
+                        + "\nOriginal paragraph:\n" + text)
+    return warnings
 
 
 @task_operation
@@ -941,6 +979,7 @@ def check_draft(workspace: Path, task: str, artifact="final.md") -> dict:
         warnings.append("No explicit length constraint was checked. Record any agreed whole-artifact "
                         "range in state/requirements.jsonl; use a separate measurement for other scopes.")
     warnings.extend(citation_export_warnings(report))
+    warnings.extend(repeated_paragraph_warnings(report))
     next_action = ("Correct the listed records or draft, then run check-draft again. Preserve evaluation originals."
                    if errors else "Check claims and decisions against sources, then complete the profile's checklist/reviews and finish.")
     pending_lengths = [f"{check['requirement_id']} ({check['actual']} {check['unit']})" for check in checks
