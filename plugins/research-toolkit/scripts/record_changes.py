@@ -96,29 +96,40 @@ def summarize_save(root, plans, ids, events):
     return summary
 
 
+def repeated_text_positions(texts, *, minimum_chars=24, minimum_count=2):
+    """Group exact text, retaining every occurrence; callers own normalization."""
+    positions = {}
+    for index, text in enumerate(texts):
+        if len(re.sub(r"\s+", "", text)) >= minimum_chars:
+            positions.setdefault(text, []).append(index)
+    return {text: indices for text, indices in positions.items() if len(indices) >= minimum_count}
+
+
+def paragraph_span(lines, index):
+    """Locate one literal block, bounded by blank lines/headings."""
+    start = end = index
+    if not lines[index].startswith("#"):
+        while start > 0 and lines[start - 1].strip() and not lines[start - 1].startswith("#"):
+            start -= 1
+        while end + 1 < len(lines) and lines[end + 1].strip() and not lines[end + 1].startswith("#"):
+            end += 1
+    return start, end
+
+
 def paragraph_context(lines, index):
     """Return literal text blocks around a match, bounded by blank lines/headings."""
-    def span(at):
-        start = end = at
-        if not lines[at].startswith("#"):
-            while start > 0 and lines[start - 1].strip() and not lines[start - 1].startswith("#"):
-                start -= 1
-            while end + 1 < len(lines) and lines[end + 1].strip() and not lines[end + 1].startswith("#"):
-                end += 1
-        return start, end
-
-    start, end = span(index)
+    start, end = paragraph_span(lines, index)
     first, last = start, end
     before = start - 1
     while before >= 0 and not lines[before].strip():
         before -= 1
     if before >= 0 and not lines[index].startswith("#") and not lines[before].startswith("#"):
-        first, _ = span(before)
+        first, _ = paragraph_span(lines, before)
     after = end + 1
     while after < len(lines) and not lines[after].strip():
         after += 1
     if after < len(lines) and not lines[after].startswith("#"):
-        _, last = span(after)
+        _, last = paragraph_span(lines, after)
     return {"start_line": first + 1, "end_line": last + 1,
             "text": "\n".join(lines[first:last + 1])}
 

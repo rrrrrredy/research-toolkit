@@ -19,6 +19,58 @@ class DraftChecks(unittest.TestCase):
     def snapshot(self):
         return {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
 
+    def test_archived_repeated_paragraphs_warn_and_repairs_remain_clear(self):
+        repo = Path(__file__).resolve().parents[1]
+        originals = repo / "evals/studies/2026-10-19-external-batches/tasks"
+        repairs = repo / "evals/repairs/2026-10-19-reader-edit/reports"
+        progress = w.load(self.root, "state/progress.json")
+        w.save(self.root, "state/progress.json", {**progress, "profile": "lite"})
+        cases = (
+            ("iIoT-predictive-maintenance-arr-zh-20261016", "局限", [39, 51]),
+            ("guide-fund-hardtech-return-ratio-zh-20261016", "局限", [41, 53, 65]),
+            ("scope3-factor-rfq-evidence-en-20261016", "Limitations", [37, 49, 61, 73, 85, 97]),
+            ("regional-bank-llm-credit-memo-controls-en-20261016", "Limitations", [42, 54, 66, 78, 90, 102]),
+        )
+        for slug, heading, line_numbers in cases:
+            with self.subTest(task=slug):
+                original = (originals / slug / "final.md").read_text(encoding="utf-8")
+                passage = original.splitlines()[line_numbers[0] - 1]
+                for text, expect_warning in ((original, True),
+                        ((repairs / (slug + ".md")).read_text(encoding="utf-8"), False)):
+                    w.save_text(self.root, "final.md", text)
+                    before = self.snapshot()
+                    result = w.check_draft(self.workspace, "case")
+                    warnings = [s for s in result["warnings"] if s.startswith("Repeated paragraph warning:")]
+                    self.assertEqual(bool(warnings), expect_warning)
+                    if expect_warning:
+                        warning, = [s for s in warnings if s.endswith("\nOriginal paragraph:\n" + passage)]
+                        self.assertIn(f"{len(line_numbers)} identical occurrences", warning)
+                        for line in line_numbers:
+                            self.assertIn(f"{heading} (lines {line}-{line})", warning)
+                    self.assertTrue(result["ok"], result)
+                    self.assertEqual(result["semantic_quality"], "not_assessed")
+                    self.assertEqual(result["delivery_status"], "not_assessed")
+                    self.assertEqual(before, self.snapshot())
+
+    def test_exact_multiline_prose_keeps_locations_and_ignores_other_blocks(self):
+        paragraph = "The source describes the procurement constraint.\nThe decision remains conditional on local demand."
+        report = (f"# Findings\n\n{paragraph}\n\n## Discussion\n\n{paragraph}\n\n"
+                  f"## Examples\n\n```text\n{paragraph}\n\n{paragraph}\n```\n\n"
+                  + ("\n".join("    " + row for row in paragraph.splitlines()) + "\n\n") * 2
+                  + ("\n".join("> " + row for row in paragraph.splitlines()) + "\n\n") * 2
+                  + ("- " + paragraph.replace("\n", " ") + "\n\n") * 2
+                  + ("| " + paragraph.replace("\n", " ") + " |\n\n") * 2
+                  + paragraph.lower() + "\n\n" + paragraph + ".\n\nShort note.\n\nShort note.\n")
+        w.save_text(self.root, "final.md", report)
+        before = self.snapshot()
+        result = w.check_draft(self.workspace, "case")
+        warning, = [s for s in result["warnings"] if s.startswith("Repeated paragraph warning:")]
+        self.assertIn("2 identical occurrences", warning)
+        self.assertIn("Findings (lines 3-4); Discussion (lines 8-9)", warning)
+        self.assertTrue(warning.endswith("\nOriginal paragraph:\n" + paragraph))
+        self.assertTrue(result["ok"], result)
+        self.assertEqual(before, self.snapshot())
+
     def test_private_citations_warn_in_both_profiles_without_mutation_or_new_gate(self):
         for profile in ("lite", "full"):
             progress = w.load(self.root, "state/progress.json")
