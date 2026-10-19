@@ -1,0 +1,28 @@
+{
+  "completed": true,
+  "artifact": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\library-self-check-20261019\\runs\\v1.3.2\\tasks\\library-evening-access-zh-20261019\\final.md",
+  "profile": "lite",
+  "delivery_check": {
+    "ok": true,
+    "profile": "lite",
+    "status": "checklist_complete",
+    "warnings": [],
+    "flags": [],
+    "findings": [],
+    "log": [
+      "SKIP research_review: profile=lite; no independent review is performed.",
+      "SKIP full delivery gates: profile=lite; brief, claims and final checklist remain required."
+    ],
+    "full_delivery_gates_checked": false,
+    "independent_review": false,
+    "review_strength": "unreviewed",
+    "input_binding_scope": "report_message_and_research_inputs",
+    "semantic_verification": false,
+    "report_quality_certified": false
+  },
+  "log": [
+    "SKIP research_review: profile=lite; no independent review is performed.",
+    "SKIP full delivery gates: profile=lite; brief, claims and final checklist remain required."
+  ],
+  "message": "已完成必要修订和作者自检，`check-draft` 与 `finish` 均通过。\n\n- [报告](C:/Users/luosong03/Documents/ChatGPT/Others/output/library-self-check-20261019/runs/v1.3.2/tasks/library-evening-access-zh-20261019/final.md)\n- [最终清单](C:/Users/luosong03/Documents/ChatGPT/Others/output/library-self-check-20261019/runs/v1.3.2/tasks/library-evening-access-zh-20261019/state/final_checklist.json)\n- [修订说明](C:/Users/luosong03/Documents/ChatGPT/Others/output/library-self-check-20261019/runs/v1.3.2/tasks/library-evening-access-zh-20261019/revision-notes.md)\n\n首次清单、对应报告及接口请求与返回已保留。"
+}

@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+[October 19 public-library self-check comparison](studies/2026-10-19-library-self-check/README.md): one research question, two Lite runs on v1.3.1 and v1.3.2 with the same model, materials and draft. Both corrected two explicitly injected defects before their first passing checklist. Neither falsely passed; this case showed no incremental v1.3.2 benefit. First drafts, first checks, final reports and actual costs are retained.
+
 [October 14 complete native-Agent comparison](studies/2026-10-14-native-agent/README.md): one existing real long task, tied first/final blind assessments, higher Full resource use, and a Windows encoding failure turned into a targeted fix.
 
 [October 16 external batches](studies/2026-10-16-external-batches/README.md): 12 Song-authorized runs from confirmed batches 2026-10-14 (Toolkit `45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3`, v1.0.0, Lite) and 2026-10-15-v1 (Toolkit `f31345c5a994a8f1574d946388ee58fe1177ede2`, v1.1.0, Lite×4 and Full×2). Two Full records repeat a Day-1 research question, so the set is 12 runs and 10 questions. Synthetic sources are disclosed. The Full reviews are same-session degraded reviews.

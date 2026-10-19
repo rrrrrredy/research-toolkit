@@ -1,0 +1,24 @@
+{
+  "version": "v1.3.2",
+  "started_at": "2026-10-19T04:41:13.699422+00:00",
+  "finished_at": "2026-10-19T04:47:34.694673+00:00",
+  "elapsed_seconds": 381.0,
+  "exit_code": 0,
+  "model_requested": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "usage": {
+    "output_tokens": 14595,
+    "cache_write_input_tokens": 0,
+    "input_tokens": 544619,
+    "reasoning_output_tokens": 3833,
+    "cached_input_tokens": 492288
+  },
+  "completed_item_counts": {
+    "agent_message": 5,
+    "command_execution": 20,
+    "error": 1,
+    "file_change": 5
+  },
+  "errors": [],
+  "researcher_feedback_during_run": 0
+}
