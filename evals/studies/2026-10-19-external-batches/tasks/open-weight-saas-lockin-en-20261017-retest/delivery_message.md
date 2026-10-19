@@ -1,0 +1,1 @@
+open-weight-saas-lockin-en-20261017-retest: Lite original-condition retest done. Synthetic S1–S4; no independent review. Open-weight compresses AI-add-on pricing power; rebuild lock-in on audit/permissions/evals and portable toolchains; workflow/schema embeds remain primary switching cost through 2027 under pack scenarios.

@@ -1,0 +1,34 @@
+{
+  "task": "explainable-ai-procurement-evidence-bar-en-20261017",
+  "message": "explainable-ai-procurement-evidence-bar-en-20261017: Lite complete. Synthetic S1\u2013S4; no independent review. Post-hoc NL alone insufficient for adverse-action production; require Tier-2 replay/auditability or assistive-only wording; encode kill/hold criteria.",
+  "artifact": "final.md",
+  "checklist": {
+    "requirements": {
+      "passed": true,
+      "evidence": "final.md whitespace_words=1563 within 1500-2500; agreed coverage met; check-draft ok=True.",
+      "evidence_files": [
+        "checks/length.md"
+      ]
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "C1\u2013C5 match S1\u2013S4; bake-off fluency\u2260faithfulness retained."
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "Section 8: assistive-only labeling, n=3, unset numeric faithfulness threshold, prompt-logs\u2260Tier2."
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "Sections 1\u201310: judgment, RFP, tiers, bake-off, questionnaire mapping, kill criteria, applicability, counter-evidence, recommendations, limitations."
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "Procurement/model-risk/security; no local paths."
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "Synthetic + no independent review; S4 not regulator text; disclosed at top and \u00a710."
+    }
+  }
+}

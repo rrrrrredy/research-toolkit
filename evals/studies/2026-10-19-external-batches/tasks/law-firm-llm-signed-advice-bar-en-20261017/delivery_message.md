@@ -1,0 +1,1 @@
+law-firm-llm-signed-advice-bar-en-20261017: Lite complete. Synthetic S1–S4; not legal advice; no independent review. Tier A research-assist vs Tier B signed advice; vendor AI-research claims insufficient for signed work; kill on silent AI, hallucinated cites, cross-matter leakage.

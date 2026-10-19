@@ -1,0 +1,34 @@
+{
+  "task": "law-firm-llm-signed-advice-bar-en-20261017",
+  "message": "law-firm-llm-signed-advice-bar-en-20261017: Lite complete. Synthetic S1\u2013S4; not legal advice; no independent review. Tier A research-assist vs Tier B signed advice; vendor AI-research claims insufficient for signed work; kill on silent AI, hallucinated cites, cross-matter leakage.",
+  "artifact": "final.md",
+  "checklist": {
+    "requirements": {
+      "passed": true,
+      "evidence": "final.md whitespace_words=1859 within 1500-2500; agreed coverage met; check-draft ok=True.",
+      "evidence_files": [
+        "checks/length.md"
+      ]
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "C1\u2013C7 match S1\u2013S4; questionnaire answers not treated as clearing signed-advice bar."
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "Section 8: pilot scope, non-bar-opinion ethics extract, jurisdiction variance, verified clause-spotting benefit."
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "Sections 1\u201310: judgment, GC baseline, pilot, tiers, controls, questionnaire limits, kill criteria, uncertainties, policy package, limitations."
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "GC/PR and innovation partners; labeled not legal advice; no local paths."
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "Synthetic + no independent review; not a bar opinion; disclosed at top and \u00a710."
+    }
+  }
+}

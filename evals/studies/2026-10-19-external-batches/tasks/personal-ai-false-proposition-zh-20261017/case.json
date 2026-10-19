@@ -1,0 +1,33 @@
+{
+  "task_id": "personal-ai-false-proposition-zh-20261017",
+  "research_question": "面向 C 端与知识工作者的「Personal AI / 个人超级助手」产品与融资叙事中，关于持续记忆、跨设备一致性、个人数据权属与付费转化的证据门槛，能否支撑「已实现个人 AI」的定位主张？该主张对用户体验、投资人 DD、隐私/合规三方各自是否构成伪命题？",
+  "language": "zh",
+  "audience": "消费级/生产力 AI 产品负责人与早期投资人。",
+  "scope": "仅用任务附带合成来源包；覆盖记忆/一致性/权属/转化四维证据门槛与「对谁伪」分层；不联网。",
+  "output_bounds": "final.md，≥3000 非空白中文字符（建议 3000–5000）：拆分对谁伪、四维证据门槛、反证与 kill 条件；台账与 checklist 单列。",
+  "depth": "Lite 长文产品—投资—合规交叉题；非助手 App 功能对比表。",
+  "evidence_standard": "合成来源并披露；不得把会话记忆 demo 写成已实现个人 AI；披露未做独立评审。",
+  "profile": "lite",
+  "kind": "new",
+  "domain": "AI/商业",
+  "batch_id": "2026-10-17-v2",
+  "batch_dir": "2026-10-17-confirmed",
+  "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+  "toolkit_version": "1.3.0",
+  "length_record": "3154 非空白字（目标 3000–5000）",
+  "revisions": 0,
+  "mechanical": {
+    "lite_checklist": "checklist_complete",
+    "full_delivery_gate": "skipped",
+    "research_review": "skipped",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": false,
+    "outer_grok_note": "recorded_pass_not_toolkit_independent_review"
+  },
+  "review_mode": "author_self_check",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false,
+  "copied_unchanged_from": null,
+  "question_text_identical_to_copied_pack": null
+}

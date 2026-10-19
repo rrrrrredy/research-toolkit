@@ -1,0 +1,367 @@
+{
+  "ingest_date": "2026-10-19",
+  "authorization": "Song-authorized external eval ingest",
+  "study_id": "2026-10-19-external-batches",
+  "prior_ingest": "evals/studies/2026-10-16-external-batches",
+  "task_count": 12,
+  "distinct_research_questions": 12,
+  "freeze_commits": {
+    "2026-10-16-v1": {
+      "batch_dir": "2026-10-16-confirmed",
+      "commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "version": "1.1.0",
+      "profile": "lite",
+      "runs": 6
+    },
+    "2026-10-17-v2": {
+      "batch_dir": "2026-10-17-confirmed",
+      "commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "version": "1.3.0",
+      "profile": "lite",
+      "runs": 6,
+      "day3_baseline_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2"
+    }
+  },
+  "task_ids": [
+    "ev-battery-second-life-business-zh-20261016-retest",
+    "iIoT-predictive-maintenance-arr-zh-20261016",
+    "guide-fund-hardtech-return-ratio-zh-20261016",
+    "bank-chatbot-deflection-evidence-en-20261016-retest",
+    "scope3-factor-rfq-evidence-en-20261016",
+    "regional-bank-llm-credit-memo-controls-en-20261016",
+    "bank-wm-structured-marketing-zh-20261017-retest",
+    "personal-ai-false-proposition-zh-20261017",
+    "bank-llm-explainability-production-bar-zh-20261017",
+    "open-weight-saas-lockin-en-20261017-retest",
+    "law-firm-llm-signed-advice-bar-en-20261017",
+    "explainable-ai-procurement-evidence-bar-en-20261017"
+  ],
+  "tasks": [
+    {
+      "task_id": "ev-battery-second-life-business-zh-20261016-retest",
+      "research_question": "动力电池梯次利用商家：回收—拆解—重组环节的利益分配与可持续加工费模式是否成立？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "retest",
+      "domain": "科技/商业",
+      "batch_id": "2026-10-16-v1",
+      "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "toolkit_version": "1.1.0",
+      "length_record": "3038 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": false,
+      "copied_unchanged_from": "ev-battery-second-life-business-zh-20261014",
+      "question_text_identical_to_copied_pack": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "iIoT-predictive-maintenance-arr-zh-20261016",
+      "research_question": "工业互联网平台向离散制造企业售卖「预测性维护」多年订阅时，传感器与产线数据权属、停机 SLA 与违约金条款，能否支撑平台侧的 ARR 定价与客户侧的采购审批？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "科技/商业",
+      "batch_id": "2026-10-16-v1",
+      "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "toolkit_version": "1.1.0",
+      "length_record": "3081 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": false,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "guide-fund-hardtech-return-ratio-zh-20261016",
+      "research_question": "地方政府引导基金直投硬科技项目时，「返投比例」考核与退出通道（并购／回购／二级市场）的证据，能否支撑财政与社会 LP 对「既要产业落地又要财务回报」的同期表述？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "金融/商业",
+      "batch_id": "2026-10-16-v1",
+      "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "toolkit_version": "1.1.0",
+      "length_record": "3056 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": false,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "bank-chatbot-deflection-evidence-en-20261016-retest",
+      "research_question": "Bank retail chatbot “deflection” metrics: does the published evidence support replacing tier-1 human handling based on no-handoff rates?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "retest",
+      "domain": "金融/AI",
+      "batch_id": "2026-10-16-v1",
+      "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "toolkit_version": "1.1.0",
+      "length_record": "750 词（目标 600–900）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": false,
+      "copied_unchanged_from": "bank-chatbot-deflection-evidence-en-retest-20261014",
+      "question_text_identical_to_copied_pack": false,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ]
+    },
+    {
+      "task_id": "scope3-factor-rfq-evidence-en-20261016",
+      "research_question": "How should mid-market manufacturers set an evidence bar for third-party Scope-3 emissions factors before using them in customer RFQ sustainability questionnaires through 2027?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "科技/商业",
+      "batch_id": "2026-10-16-v1",
+      "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "toolkit_version": "1.1.0",
+      "length_record": "1501 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": false,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "regional-bank-llm-credit-memo-controls-en-20261016",
+      "research_question": "What operational and disclosure controls should regional banks require before allowing relationship managers to use third-party LLM copilots when drafting credit memos?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "金融/AI",
+      "batch_id": "2026-10-16-v1",
+      "toolkit_commit": "f31345c5a994a8f1574d946388ee58fe1177ede2",
+      "toolkit_version": "1.1.0",
+      "length_record": "1521 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": false,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "bank-wm-structured-marketing-zh-20261017-retest",
+      "research_question": "银行理财子公司「含权」产品营销话术与底层波动：投教材料与适当性流程能否支撑销售端对回撤的承诺表述？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "retest",
+      "domain": "金融/商业",
+      "batch_id": "2026-10-17-v2",
+      "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "toolkit_version": "1.3.0",
+      "length_record": "3009 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": "bank-wm-structured-marketing-zh-20261015",
+      "question_text_identical_to_copied_pack": true,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "personal-ai-false-proposition-zh-20261017",
+      "research_question": "面向 C 端与知识工作者的「Personal AI / 个人超级助手」产品与融资叙事中，关于持续记忆、跨设备一致性、个人数据权属与付费转化的证据门槛，能否支撑「已实现个人 AI」的定位主张？该主张对用户体验、投资人 DD、隐私/合规三方各自是否构成伪命题？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "AI/商业",
+      "batch_id": "2026-10-17-v2",
+      "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "toolkit_version": "1.3.0",
+      "length_record": "3154 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "bank-llm-explainability-production-bar-zh-20261017",
+      "research_question": "商业银行将第三方大模型接入授信审批或反欺诈决策辅助时，「事后自然语言解释报告」与「事前可审计特征/规则/日志」两类证据，能否支撑模型风险与采购问卷中「已可解释部署」的结论并进入生产？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "金融/AI",
+      "batch_id": "2026-10-17-v2",
+      "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "toolkit_version": "1.3.0",
+      "length_record": "3007 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "open-weight-saas-lockin-en-20261017-retest",
+      "research_question": "How do open-weight model releases change mid-market SaaS vendors’ lock-in and pricing power through 2027?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "retest",
+      "domain": "AI/商业",
+      "batch_id": "2026-10-17-v2",
+      "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "toolkit_version": "1.3.0",
+      "length_record": "1861 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": "open-weight-saas-lockin-en-20261014",
+      "question_text_identical_to_copied_pack": true,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "law-firm-llm-signed-advice-bar-en-20261017",
+      "research_question": "Before a mid-market law firm allows associates to use third-party LLM tools on client contract review and draft advice memos, what evidence bar and operational/disclosure controls are required so that tool outputs can support partner-signed advice or client disclosure duties through 2027—and when must the firm treat “AI legal research” claims as insufficient for signed work product?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "AI/商业",
+      "batch_id": "2026-10-17-v2",
+      "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "toolkit_version": "1.3.0",
+      "length_record": "1859 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "explainable-ai-procurement-evidence-bar-en-20261017",
+      "research_question": "For enterprise buyers and model-risk reviewers evaluating vendor “explainable AI” claims for high-stakes workflows (including adverse-action or customer-facing decision support), does post-hoc natural-language explanation evidence suffice versus requiring pre-deployment audit trails of features/rules/logs—and can that bar support production procurement and questionnaire answers through 2027?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "AI/商业",
+      "batch_id": "2026-10-17-v2",
+      "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "toolkit_version": "1.3.0",
+      "length_record": "1563 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    }
+  ],
+  "question_lineage": [
+    {
+      "task_id": "bank-wm-structured-marketing-zh-20261017-retest",
+      "earlier_task_id": "bank-wm-structured-marketing-zh-20261015",
+      "earlier_study": "evals/studies/2026-10-16-external-batches",
+      "same_question_text": true,
+      "note": "Original-condition Lite retest on Toolkit 1.3.0 of the question ingested from 2026-10-15-v1. The earlier run is not copied into this folder."
+    },
+    {
+      "task_id": "open-weight-saas-lockin-en-20261017-retest",
+      "earlier_task_id": "open-weight-saas-lockin-en-20261014",
+      "earlier_study": "evals/studies/2026-10-16-external-batches",
+      "same_question_text": true,
+      "note": "Original-condition Lite retest on Toolkit 1.3.0 of the question ingested from 2026-10-14. The earlier run is not copied into this folder."
+    },
+    {
+      "task_id": "ev-battery-second-life-business-zh-20261016-retest",
+      "earlier_task_id": "ev-battery-second-life-business-zh-20261014",
+      "earlier_study": "evals/studies/2026-10-16-external-batches",
+      "same_question_text": false,
+      "note": "Original-condition Lite retest on Toolkit 1.1.0. The Day-1 synthetic pack is copied unchanged. The brief question is restated, so this folder records the question that was run."
+    },
+    {
+      "task_id": "bank-chatbot-deflection-evidence-en-20261016-retest",
+      "earlier_task_id": "bank-chatbot-deflection-evidence-en-retest-20261014",
+      "earlier_study": "evals/studies/2026-10-16-external-batches",
+      "same_question_text": false,
+      "note": "Original-condition Lite retest on Toolkit 1.1.0. The Day-1 synthetic pack is copied unchanged. The brief question is restated, so this folder records the question that was run."
+    }
+  ],
+  "excluded": [
+    "runs/2026-10-14/_superseded-vs-compare",
+    "runs/2026-10-14/_superseded-topic-redo-short",
+    "eval-queue/2026-10-17-gate/2026-10-17-v1",
+    "2026-10-18-v1"
+  ],
+  "review_boundary": "All 12 runs are Lite and record author self-check only. checklist_complete does not certify semantic quality. The independent review backend was unavailable and was not required. The six 2026-10-17-v2 outer Grok notes are separate-context readings. They are not Toolkit independent reviews and do not replace the formal review Lite skips.",
+  "source_boundary": "Every source pack is synthetic and disclosed in the original source text. Packs are workflow evidence, not factual authority.",
+  "tokens_cost": "unknown"
+}

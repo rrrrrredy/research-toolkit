@@ -1,0 +1,34 @@
+{
+  "task": "bank-wm-structured-marketing-zh-20261017-retest",
+  "message": "bank-wm-structured-marketing-zh-20261017-retest：Lite 原条件复测完成。合成来源 S1–S4；未做独立评审。判断：投教/适当性不能支撑销售端回撤承诺强度表述。",
+  "artifact": "final.md",
+  "checklist": {
+    "requirements": {
+      "passed": true,
+      "evidence": "final.md nonwhitespace_characters=3009 within 3000-5000; covers speech–underlying mapping, commitment-strength evidence test, counter-evidence/red lines, landing/open issues; check-draft ok=True.",
+      "evidence_files": [
+        "checks/length.md"
+      ]
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "C1–C8 match registered synthetic sources S1–S4; marketing speech not treated as proven return protection."
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "Section 4 addresses dual-口径 conflict, stress scenario, dual-record gaps, and complaint non-closure; S4 flip conditions noted."
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "Sections 1–5 follow outline: core judgment, speech–underlying mapping, education/suitability gaps, counter-evidence/red lines, landing/open issues/limits."
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "Compliance/product/channel-facing Chinese memo; source ledger and checklist in appendices; no workflow narration in body."
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "Synthetic materials and absence of independent review disclosed at top and §5; sample sizes and non-audit status noted."
+    }
+  }
+}
