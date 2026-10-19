@@ -1,0 +1,20 @@
+{
+  "ok": true,
+  "scope": "draft_record_and_length_checks",
+  "profile": "lite",
+  "artifact": "final.md",
+  "artifact_sha256": "04fe86be6e254b91f14bc0d8bce9aa606e39c3563781887ddd70b5ba862bfac8",
+  "counts": {
+    "whitespace_words": 98,
+    "nonwhitespace_characters": 2634
+  },
+  "count_scope": "whole_artifact_including_markup_and_references",
+  "length_checks": [],
+  "errors": [],
+  "warnings": [
+    "No explicit length constraint was checked. Record any agreed whole-artifact range in state/requirements.jsonl; use a separate measurement for other scopes."
+  ],
+  "semantic_quality": "not_assessed",
+  "delivery_status": "not_assessed",
+  "next_action": "Check claims and decisions against sources, then complete the profile's checklist/reviews and finish."
+}

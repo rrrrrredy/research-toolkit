@@ -1,0 +1,34 @@
+{
+  "task": "library-evening-access-zh-20261019",
+  "artifact": "final.md",
+  "message": "已完成必要修订和作者自检，`check-draft` 与 `finish` 均通过。\n\n- [报告](C:/Users/luosong03/Documents/ChatGPT/Others/output/library-self-check-20261019/runs/v1.3.2/tasks/library-evening-access-zh-20261019/final.md)\n- [最终清单](C:/Users/luosong03/Documents/ChatGPT/Others/output/library-self-check-20261019/runs/v1.3.2/tasks/library-evening-access-zh-20261019/state/final_checklist.json)\n- [修订说明](C:/Users/luosong03/Documents/ChatGPT/Others/output/library-self-check-20261019/runs/v1.3.2/tasks/library-evening-access-zh-20261019/revision-notes.md)\n\n首次清单、对应报告及接口请求与返回已保留。",
+  "checklist": {
+    "requirements": {
+      "passed": true,
+      "evidence": "已对照 state/task_spec.md 全文及空的 state/requirements.jsonl：final.md 第3行给出有条件建议，第9–15行比较增加人工、自助延时、保持现状，第19–29行解释人员、实施限制与反例，第33–39行说明下一步和证据边界。中文 Markdown、三来源链接齐备，无另设最低字数。logs/cli/05-check-draft.response.json 实测 whole_artifact_including_markup_and_references：2886个非空白字符、114个空白分隔词；未约定字数区间，length_checks为空，不声称区间达标。用户要求的首次请求及对应报告在本次提交前留档，修订说明独立于读者报告。"
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "已完整阅读 sources/S1.md、S2.md、S3.md 提供的全部摘录，未扩展为读过原网页全文或链接文件。final.md 第7、19行的17:15–20:00、20–30分钟、闭馆前10–15分钟、求助及照护者条件对应S1原行L40–L89；第27行79厘米仅指Clevedon一处出口，对应S1 L95–L98；第21行16岁及工作日9:00–17:00对应S2 L12、L17；第29行2017年指南回顾2014年75%咨询对应S3 L530–L532；第33行参与和咨询对应S3 L516–L527。data/claims_registry.csv C1–C7已同步，C5为推论、C7为指南观点。全文6处引用仅使用source_registry.csv的3个原URL。没有新增成本、效果或节省数据。"
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "final.md 第19–21行保留人员工作及求助时段限制，并明确Norfolk页面缺漏不能证明有或没有全天候支持；第25–27行保留需要现场帮助、受准入条件限制和特定出口无障碍受限的反例。第29行没有将2014年75%咨询比例外推为当地当前需求或实施效果。第3、35–39行据此限定试点、暂缓、暂停和扩大的建议，不据名义开放时数或进馆量推断全面适用。对应data/claims_registry.csv C2–C6的uncertainty与C5的counter_evidence。"
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "逐节检查final.md：第3行明确条件性建议；第一节第5–15行说明服务内容、设施及时长边界并比较三种方案；第二节第17–21行说明培训、远程支持及人员工作；第三节第23–29行解释不适用情形、建筑限制及历史案例的证明范围；第四节第31–39行给出当地咨询、成本与责任核实、试点监测和调整条件。各节覆盖task_spec.md的收益、人员、限制、反例、建议及下一步，表格注明管理分析，建议未伪装成实测结果。"
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "已通读当前final.md第1–40行，并核对logs/before-self-check/final.md：删除原第四节以“如果新增晚间需求主要来自需要咨询帮助的读者”开头的重复段落，第三节保留该反例；删除以“连锁酒店应在节假日前调整客房价格和渠道库存”开头的跨任务段落。复读全部四节及结尾后未见重复填充、无关模板、内部主张编号、本地路径、自检清单或工作过程。完整段落重复扫描为空，酒店文字不存在。三方案表及第35–37行的行动条件面向公共图书馆管理者，过程说明单独放在revision-notes.md。"
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "final.md第3、15、21、29、37、39行分别说明拟实施馆需求与成本未知、比较是分析而非实测、晚间支持信息不完整、2014年咨询不能代表当前效果、无统一节省或推广阈值，以及访问日期不等于发布日期/政策生效日期；仅使用三份相关摘录。revision-notes.md明确披露“本次为 Lite 作者自检，未进行独立评审”，并列出后续实施仍需的本地资料；本次授权范围内无已知必要修订遗留。",
+      "evidence_files": [
+        "revision-notes.md"
+      ]
+    }
+  }
+}

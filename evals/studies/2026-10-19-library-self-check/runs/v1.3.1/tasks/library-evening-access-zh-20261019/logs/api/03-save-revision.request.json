@@ -1,0 +1,19 @@
+{
+  "task": "library-evening-access-zh-20261019",
+  "sources": [
+    {"source_id": "S1", "read_scope": "relevant_sections", "read_evidence": "sources/S1.md，已读全部所提供摘录 L26–L129；原网页其他内容及链接文件未读。"},
+    {"source_id": "S2", "read_scope": "relevant_sections", "read_evidence": "sources/S2.md，已读全部所提供摘录 L3–L17；原网页其他内容及链接文件未读。"},
+    {"source_id": "S3", "read_scope": "relevant_sections", "read_evidence": "sources/S3.md，已读全部所提供摘录 L516–L532；原指南其他章节及链接文件未读。"}
+  ],
+  "claims": [
+    {"claim_id": "C1", "claim": "North Somerset 页面列出晚间17:15至20:00的延时自助服务，包括借还、电脑、打印及阅读空间，须注册并参加说明；自助时段厕所不开放。", "claim_type": "fact", "supporting_sources": ["S1"], "uncertainty": "来源 S1 L27–L58；是服务说明而非使用效果评估；访问日期2026-10-19，发布日期未注明。"},
+    {"claim_id": "C2", "claim": "North Somerset 自助时段没有现场人员，须先参加20至30分钟说明，提供紧急求助电话；照护者也须注册和参加说明。通常16岁可准入，15岁可获家长许可，15岁及以下可由已注册该服务的家长或照护者陪同。", "claim_type": "fact", "supporting_sources": ["S1"], "uncertainty": "来源 S1 L56–L89；未提供拟实施馆成本或人员总工作量；这些条件不能直接作为其他地区规则。"},
+    {"claim_id": "C3", "uncertainty": "来源 S2 L12–L17；该页面列出的客服时间不能证明存在或不存在其他晚间响应机制；未读链接中的条款。"},
+    {"claim_id": "C4", "uncertainty": "来源 S3 L528–L532；75%是2014年Peterborough咨询中认为正常开放时间外的使用机会重要的答复比例，不能外推为当前其他地区需求或实施效果；摘录未提供样本量及抽样信息。"},
+    {"claim_id": "C5", "uncertainty": "依据 S1 L40–L53、L68–L89，S2 L12，S3 L531–L532形成的管理判断；拟实施馆需求、成本与故障情况未知，尚不能决定全面铺开或削减人员。"},
+    {"claim_id": "C6", "claim": "North Somerset 页面说明Yatton自助时段楼上、电梯和厕所不可用；Clevedon一处紧急出口宽79厘米，轮椅或代步车使用者可能无法通行，需在说明时商定替代安排。", "claim_type": "fact", "supporting_sources": ["S1"], "counter_evidence": "同一页面的概括性无障碍描述不能消除其逐馆列明的限制。", "uncertainty": "来源 S1 L85–L98、L113–L118；属于指定馆的设施安排，不能视为所有图书馆均存在同样限制。"},
+    {"claim_id": "C7", "claim": "2017年Libraries Taskforce指南要求一线员工及当前非使用者参与服务设计，咨询应呈现多个选项、明确可影响的事项，并解释计划如何随咨询改变。", "claim_type": "fact", "supporting_sources": ["S3"], "counter_evidence": "", "uncertainty": "来源 S3 L516–L527；这是历史规划指南的建议，不是已发生的本地咨询或实施效果。"},
+    {"claim_id": "C8", "claim": "只有当地需求适合自助、安全与无障碍及响应安排可落实、预算可承担时，才建议先在一个具备条件的馆试行；人员帮助仍是核心需求时应调整人员与时段，条件未落实则暂缓。", "claim_type": "inference", "supporting_sources": ["S1", "S2", "S3"], "counter_evidence": "准入、设施和现场帮助限制可能使名义延长的时数不能覆盖主要需求。", "uncertainty": "依据 S1 L53–L129、S2 L12–L17及S3 L516–L532形成的作者建议；一馆为建议试行范围，不是来源中的效果阈值，尚无当地预算、需求或运行记录。"}
+  ],
+  "draft": {"path": "final.md", "complete": true}
+}

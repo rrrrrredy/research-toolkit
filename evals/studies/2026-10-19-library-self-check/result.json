@@ -1,0 +1,115 @@
+{
+  "created_at": "2026-10-19T04:49:29.016144+00:00",
+  "scope": "One public-library task; one frozen draft with two disclosed inserted defects; one model session per version; no second attempt.",
+  "comparison": "No reduction in false passes was observed in this case: neither version falsely passed the two known defects.",
+  "results": {
+    "v1.3.1": {
+      "execution": {
+        "version": "v1.3.1",
+        "started_at": "2026-10-19T04:35:07.889333+00:00",
+        "finished_at": "2026-10-19T04:41:13.696609+00:00",
+        "elapsed_seconds": 365.797,
+        "exit_code": 0,
+        "model_requested": "gpt-6-astra",
+        "reasoning_effort": "xhigh",
+        "usage": {
+          "output_tokens": 12803,
+          "cache_write_input_tokens": 0,
+          "input_tokens": 633155,
+          "reasoning_output_tokens": 3005,
+          "cached_input_tokens": 578304
+        },
+        "completed_item_counts": {
+          "agent_message": 5,
+          "command_execution": 22,
+          "error": 1,
+          "file_change": 5
+        },
+        "errors": [],
+        "researcher_feedback_during_run": 0
+      },
+      "toolkit_operations": {
+        "status": 2,
+        "save": 2,
+        "check-draft": 1,
+        "finish": 2
+      },
+      "toolkit_operation_total": 7,
+      "first_reader_edit": {
+        "passed": true,
+        "evidence": "完整通读 final.md，确认原第四节重复反例已删除，无关酒店经营段落已删除；正文保留单一的反例论证。标题、三方案比较及四节内容均服务图书馆管理者的决策，未混入内部来源/主张ID、本地路径、检查清单、接口调用或执行过程。引用使用机构名称、页面标题/章节和原网址。机械检查重复长段落为0；工作记录及作者自检披露放在独立revision-notes.md。",
+        "evidence_files": [
+          "checks/local-verification.json",
+          "revision-notes.md"
+        ]
+      },
+      "observed_known_defects": {
+        "D1": "额外副本已删除，原有反例完整保留一次",
+        "D2": "酒店经营离题段落已删除"
+      },
+      "false_pass_observed": false,
+      "first_check_report_matches_final": true,
+      "researcher_feedback_during_run": 0,
+      "first_check_path": "runs/v1.3.1/tasks/library-evening-access-zh-20261019/first-self-check.json",
+      "first_check_report_path": "runs/v1.3.1/tasks/library-evening-access-zh-20261019/first-self-check-report.md",
+      "final_path": "runs/v1.3.1/tasks/library-evening-access-zh-20261019/final.md"
+    },
+    "v1.3.2": {
+      "execution": {
+        "version": "v1.3.2",
+        "started_at": "2026-10-19T04:41:13.699422+00:00",
+        "finished_at": "2026-10-19T04:47:34.694673+00:00",
+        "elapsed_seconds": 381.0,
+        "exit_code": 0,
+        "model_requested": "gpt-6-astra",
+        "reasoning_effort": "xhigh",
+        "usage": {
+          "output_tokens": 14595,
+          "cache_write_input_tokens": 0,
+          "input_tokens": 544619,
+          "reasoning_output_tokens": 3833,
+          "cached_input_tokens": 492288
+        },
+        "completed_item_counts": {
+          "agent_message": 5,
+          "command_execution": 20,
+          "error": 1,
+          "file_change": 5
+        },
+        "errors": [],
+        "researcher_feedback_during_run": 0
+      },
+      "toolkit_operations": {
+        "status": 2,
+        "save": 2,
+        "check-draft": 1,
+        "finish": 2
+      },
+      "toolkit_operation_total": 7,
+      "first_reader_edit": {
+        "passed": true,
+        "evidence": "已通读当前final.md第1–40行，并核对logs/before-self-check/final.md：删除原第四节以“如果新增晚间需求主要来自需要咨询帮助的读者”开头的重复段落，第三节保留该反例；删除以“连锁酒店应在节假日前调整客房价格和渠道库存”开头的跨任务段落。复读全部四节及结尾后未见重复填充、无关模板、内部主张编号、本地路径、自检清单或工作过程。完整段落重复扫描为空，酒店文字不存在。三方案表及第35–37行的行动条件面向公共图书馆管理者，过程说明单独放在revision-notes.md。"
+      },
+      "observed_known_defects": {
+        "D1": "额外副本已删除，原有反例完整保留一次",
+        "D2": "酒店经营离题段落已删除"
+      },
+      "false_pass_observed": false,
+      "first_check_report_matches_final": true,
+      "researcher_feedback_during_run": 0,
+      "first_check_path": "runs/v1.3.2/tasks/library-evening-access-zh-20261019/first-self-check.json",
+      "first_check_report_path": "runs/v1.3.2/tasks/library-evening-access-zh-20261019/first-self-check-report.md",
+      "final_path": "runs/v1.3.2/tasks/library-evening-access-zh-20261019/final.md"
+    }
+  },
+  "timing": {
+    "measured_preparation_seconds": 281.889,
+    "model_sessions_seconds": 746.797,
+    "comparison_and_delivery_preparation_seconds": 114.321,
+    "measured_total_to_this_record_seconds": 1143.016,
+    "before_measured_start": "Initial repository orientation was not timed.",
+    "during_model_runs": "No added feedback or manual changes to either execution workspace."
+  },
+  "product_code_change": false,
+  "release_needed": false
+}

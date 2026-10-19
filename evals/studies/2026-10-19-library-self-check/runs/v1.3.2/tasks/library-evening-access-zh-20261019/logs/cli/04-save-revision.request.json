@@ -1,0 +1,56 @@
+{
+  "task": "library-evening-access-zh-20261019",
+  "claims": [
+    {
+      "claim_id": "C1",
+      "claim": "North Somerset 页面列出晚间17:15至20:00延时服务、先参加20至30分钟说明等准入条件；可使用自助借还、电脑、打印和阅读空间，厕所不开放，电脑在闭馆前10至15分钟自动退出。",
+      "claim_type": "fact",
+      "supporting_sources": ["S1"],
+      "uncertainty": "sources/S1.md 原网页行号 L40–L58、L68–L74；服务说明不是使用效果评估。页面未注明内容发布日期，2026-10-19只是记录中的访问日期。"
+    },
+    {
+      "claim_id": "C2",
+      "claim": "North Somerset 自助时段没有现场工作人员，设有非值守时段紧急求助电话；一般设备问题仅在特定时间可电话联系馆员，需要陪同的照护者也要注册并参加说明。",
+      "claim_type": "fact",
+      "supporting_sources": ["S1"],
+      "uncertainty": "sources/S1.md 原网页行号 L75–L89；未提供拟实施馆成本或人员总工作量，不能推定全天候一般故障支持或净节省工时。"
+    },
+    {
+      "claim_id": "C3",
+      "claim": "Norfolk 预约页面说明部分时段无工作人员，16岁及以上读者可刷借阅卡进入，列出的客户服务电话时间为工作日9:00至17:00。",
+      "claim_type": "fact",
+      "supporting_sources": ["S2"],
+      "uncertainty": "sources/S2.md 原网页行号 L12、L17；页面未充分说明晚间故障响应，既不能证明全天候支持，也不能证明晚间完全没有支持。"
+    },
+    {
+      "claim_id": "C4",
+      "uncertainty": "sources/S3.md 原网页行号 L530–L532；75%是2014年当地咨询中对正常开放时间之外使用机会重要性的答复，不是新增访问量或满意度，也不能外推为当前其他地区的需求比例。摘录未给样本量及抽样方法。"
+    },
+    {
+      "claim_id": "C5",
+      "claim": "自助延时更适合能够自行完成操作的晚间需求；保留既有人工服务并落实安全、准入、求助、维护和预算后可先试点，不应直接替代依赖人工帮助的服务。",
+      "claim_type": "inference",
+      "supporting_sources": ["S1", "S2", "S3"],
+      "counter_evidence": "需要现场帮助、受准入条件限制或无法使用相关设施的读者可能无法获得同等服务。",
+      "uncertainty": "属基于服务边界的管理分析和建议；拟实施馆需求、成本与效果未知，试点、暂停和扩大条件不是来源已验证的统一标准。"
+    },
+    {
+      "claim_id": "C6",
+      "claim": "Clevedon 馆有一处紧急出口仅宽79厘米，North Somerset 页面提示轮椅或代步车使用者可能无法通过，需在入门说明时商定替代安排。",
+      "claim_type": "fact",
+      "supporting_sources": ["S1"],
+      "uncertainty": "sources/S1.md 原网页行号 L95–L98；这是该馆特定出口的限制，不能推广为所有馆、所有出口都无法通行。"
+    },
+    {
+      "claim_id": "C7",
+      "claim": "2017年规划指南强调听取一线员工、使用者和非使用者意见，咨询应提供多种方案并实际影响决策。",
+      "claim_type": "source_claim",
+      "supporting_sources": ["S3"],
+      "uncertainty": "sources/S3.md 原网页行号 L516–L527；属于历史指南提出的方法，不是本地需求已被验证的证据。"
+    }
+  ],
+  "draft": {
+    "path": "final.md",
+    "complete": true
+  }
+}

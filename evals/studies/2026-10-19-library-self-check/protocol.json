@@ -1,0 +1,48 @@
+{
+  "measured_preparation_start_utc": "2026-10-19T04:30:26+00:00",
+  "initial_orientation": "计量起点前的少量仓库定位未计量；模型运行各用单调时钟计时。",
+  "created_at": "2026-10-19T04:34:32.786390+00:00",
+  "task": "library-evening-access-zh-20261019",
+  "mode": "Lite self-check and revision on the same frozen draft; one independent CLI session per version; no reviewer or follow-up session",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "model_selection": "Both use the existing local model and reasoning-effort configuration, explicitly pinned in command arguments.",
+  "sources": "Three fetched public primary-source excerpts, fixed before either run. Read scope and original extraction line numbers retained.",
+  "draft_author": "Parent research agent; first draft prepared once from the three sources.",
+  "controlled_defects": "Exactly one duplicated paragraph and one unrelated hotel-pricing paragraph were added after preserving first-draft.md; see records/injected-defects.json. This ledger and first draft are not supplied to execution sessions.",
+  "conditions": {
+    "v1.3.1": {
+      "commit": "590c7b909a3388f4f89b48b8f70ec59d35c472fb",
+      "draft_sha256": "0f76c6caeac66c6c5f2893310c06019215627a9423c63e8a5fb9c91a2a0d05f9",
+      "brief_sha256": "8ae22d635767127aafa100f482a19b7b7d7d8c4ffdda34537da95186538a982c",
+      "source_hashes": {
+        "S1.md": "0bcecd913968323d2044ccd878f1acc55ac09178570d221ce7927d8b4bc42d6d",
+        "S2.md": "09ac3be3685f892f0bd0ead76f1c88adeedb7cdcef86ea63dd2b404ce6acef32",
+        "S3.md": "db278feac7f75065e147f4b89bac91cdbad9f141da508c611fbc825d5055b757"
+      },
+      "registry_hashes": {
+        "claims_registry.csv": "8794ca33ed55d11bc1dba7416787084664d1cffab58ee711d8d6606b279f39b5",
+        "source_registry.csv": "4b9ecd3299a13faca97bd176c0bdae9989396453ad0ad2502806b870691d84d4",
+        "uncertainty_registry.csv": "2e6875d44bcc649d1c3a0943d810fc05f600930dfef39aa72f79283bc78117dd"
+      },
+      "request_sha256": "147e60943e440cf519a228f9fbf6ef6ceb98cb2c738965a7e12cfbe6f68c697a"
+    },
+    "v1.3.2": {
+      "commit": "97bd8a20a0d83bea117aa5feb64a7e3f4c3ad4fe",
+      "draft_sha256": "0f76c6caeac66c6c5f2893310c06019215627a9423c63e8a5fb9c91a2a0d05f9",
+      "brief_sha256": "8ae22d635767127aafa100f482a19b7b7d7d8c4ffdda34537da95186538a982c",
+      "source_hashes": {
+        "S1.md": "0bcecd913968323d2044ccd878f1acc55ac09178570d221ce7927d8b4bc42d6d",
+        "S2.md": "09ac3be3685f892f0bd0ead76f1c88adeedb7cdcef86ea63dd2b404ce6acef32",
+        "S3.md": "db278feac7f75065e147f4b89bac91cdbad9f141da508c611fbc825d5055b757"
+      },
+      "registry_hashes": {
+        "claims_registry.csv": "8794ca33ed55d11bc1dba7416787084664d1cffab58ee711d8d6606b279f39b5",
+        "source_registry.csv": "4b9ecd3299a13faca97bd176c0bdae9989396453ad0ad2502806b870691d84d4",
+        "uncertainty_registry.csv": "2e6875d44bcc649d1c3a0943d810fc05f600930dfef39aa72f79283bc78117dd"
+      },
+      "request_sha256": "147e60943e440cf519a228f9fbf6ef6ceb98cb2c738965a7e12cfbe6f68c697a"
+    }
+  },
+  "rule": "No extra feedback round, rerun, model judge, or test-suite execution. True is false-pass only if known defect remains in the draft corresponding to the checklist; editing before true is valid. False with unresolved defects is honest but incomplete."
+}

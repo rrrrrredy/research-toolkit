@@ -1,0 +1,16 @@
+{
+  "previous_local_inspection": {
+    "exit_code": 1,
+    "error": "AssertionError: inspection expected receipt.checklist; actual receipt stores the six entries under items.",
+    "handling": "Read the actual saved receipt, then verify its items field; no receipt, report or submitted checklist changed."
+  },
+  "stage": "final",
+  "status": "complete",
+  "items_count": 6,
+  "all_six_passed": true,
+  "saved_items_match_first_submission": true,
+  "first_request_unchanged": true,
+  "first_report_unchanged": true,
+  "input_hashes_match": true,
+  "artifact_hashes_match": true
+}
