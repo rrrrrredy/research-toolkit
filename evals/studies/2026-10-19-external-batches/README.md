@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+**Result correction, 2026-10-19:** The predictive-maintenance, guide-fund, Scope-3 RFQ and credit-memo originals contain repeated passages; some also contain off-topic templates. The author's qualified/pass descriptions conflict with the prose: these four originals do not meet the report-quality requirements. Original mechanical outcomes remain historical records. [Four separate revisions and change notes](../../repairs/2026-10-19-reader-edit/README.md) reuse the source packs; they add no runs and are not a Toolkit core-capability upgrade. The table below records original runs, not current quality approval.
+
 Song authorized these 12 recorded Lite runs for the research evaluation set. They were executed on frozen Toolkit commits and are stored here with the original-language brief, synthetic source pack, final report, and mechanical check output.
 
 Task identity is the research question. The 12 question texts in this folder are distinct from one another. Two of them repeat a question already stored in the [October 16 external batches](../2026-10-16-external-batches/README.md). An English gloss of a Chinese question is a guide in this note, not a second task.
@@ -27,7 +29,7 @@ The six 2026-10-17-v2 runs also keep `review/outer_grok_review.md`. That note is
 
 Not in this folder: the compare-puzzle set `runs/2026-10-14/_superseded-vs-compare`, the one-pager topic redo `runs/2026-10-14/_superseded-topic-redo-short`, the superseded `2026-10-17-v1` topic gate, and `2026-10-18-v1` (the next three-day window).
 
-## Runs
+## Original run records
 
 | Task | Batch | Profile | Kind | Length | Revisions | Review |
 |---|---|---|---|---|---:|---|

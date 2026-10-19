@@ -8,8 +8,8 @@ CHECKLIST = {
     "requirements": "Answer the agreed brief and material follow-up requirements.",
     "claims_and_sources": "Check important claims against their sources and citations.",
     "counterevidence": "Address counter-evidence and uncertainty; qualify conclusions.",
-    "sections": "Draft and inspect each section for adequate explanation and coverage.",
-    "reader_edit": "Remove internal IDs and production narration; edit for the reader.",
+    "sections": "Inspect each section of the current report for explanation and coverage, not repeated filler.",
+    "reader_edit": "Read the complete current report; remove repeated or off-topic passages, internal IDs and production narration. Cite the passages checked and actual findings or corrections.",
     "limitations": "Disclose evidence limits and the absence of independent review.",
 }
 LITE_LOG = [
@@ -20,8 +20,8 @@ LITE_LOG = [
 
 def checklist_errors(value):
     if not isinstance(value, dict):
-        return ["Provide the final checklist with every item and its evidence."]
-    errors = [f"Checklist {key}: require passed=true and a substantive evidence/location."
+        return ["Check the current report before submitting the checklist; record each item's actual findings and report/source locations, not a restatement of the criterion."]
+    errors = [f"Checklist {key}: complete the check and resolve report defects before marking passed=true; evidence must describe actual findings and report/source locations. Keep passed=false while unchecked or unresolved; changing the flag alone does not fix the report."
             for key in CHECKLIST if not isinstance(value.get(key), dict)
             or value[key].get("passed") is not True
             or not isinstance(value[key].get("evidence"), str) or not value[key]["evidence"].strip()]

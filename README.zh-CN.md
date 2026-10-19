@@ -85,7 +85,7 @@
 | 保存进度并调用执行工具 | [MCP 安装与客户端配置](./docs/usage-modes.zh-CN.md#单独接入-mcp) · [CLI](./docs/usage-modes.zh-CN.md#只用-skill或使用-cli) |
 | 体验本地工具 | [可运行的 MCP 示例与实际返回](./examples/mcp/README.zh-CN.md)；重放已提供的作者自评，不调用外部模型。 |
 
-八个本地工具负责任务记录、阶段方法、已登记版本日志查询、评审与交付检查。MCP 需要 Python 3.10+ 和能启动本地进程的客户端；安装指南覆盖 Windows、macOS 和 Linux。
+九个本地工具负责任务记录、阶段方法、已登记版本日志查询、评审与交付检查。MCP 需要 Python 3.10+ 和能启动本地进程的客户端；安装指南覆盖 Windows、macOS 和 Linux。
 
 Full 支持作者上下文中的 `self`、配置后端的 `external`，或单独上下文中的 `independent`。Astra 即可承担独立评审，无需外部人员或另一家模型。交付时如实说明实际档位，明确的独立评审要求不能静默降级。[评审配置](./docs/usage-modes.zh-CN.md#评审后端)
 
