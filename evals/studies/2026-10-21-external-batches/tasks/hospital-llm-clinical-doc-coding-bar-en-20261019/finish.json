@@ -1,0 +1,34 @@
+{
+  "task": "hospital-llm-clinical-doc-coding-bar-en-20261019",
+  "message": "hospital-llm-clinical-doc-coding-bar-en-20261019: Lite done. Synthetic S1\u2013S4; no independent review. Keep LLM clinical docs assistive-only for coding/medical-necessity claims until immutable payer-exportable overrides, raw-draft sampling, and omission surveillance clear; cleaned-note \u226590% concordance is not Tier-2 proof.",
+  "artifact": "final.md",
+  "checklist": {
+    "requirements": {
+      "passed": true,
+      "evidence": "final.md whitespace_words=1509 within 1500-2500; agreed coverage met; check-draft ok=True.",
+      "evidence_files": [
+        "checks/length.md"
+      ]
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "C1\u2013C6 match S1\u2013S4; pitch gaps, worksheet, tiers/kill, and shadow metrics attributed to synthetic pack only."
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "Section 4: cleaned-note inflation, out-of-scope omission exclusions, weak overrides, ROI fee discounts."
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "Sections 1\u20139 (+7a/7b): judgment, tiers, evidence bar, counter-evidence, overrides, kill criteria, decisions, implementation, roles, payer posture, limitations."
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "Clinical ops/HIM/compliance/payer memo; source ledger appended; no workflow narration."
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "Synthetic materials and absence of independent review disclosed at top and \u00a79."
+    }
+  }
+}

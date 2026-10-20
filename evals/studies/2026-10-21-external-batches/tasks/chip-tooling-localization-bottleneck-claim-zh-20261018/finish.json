@@ -1,0 +1,34 @@
+{
+  "task": "chip-tooling-localization-bottleneck-claim-zh-20261018",
+  "message": "chip-tooling-localization-bottleneck-claim-zh-20261018：Lite 新题完成。合成 S1–S4；未独立评审。判断：证据不能支撑「关键设备国产化已解除产线瓶颈」；对投资人与采购均过度。",
+  "artifact": "final.md",
+  "checklist": {
+    "requirements": {
+      "passed": true,
+      "evidence": "nonwhitespace_characters=3153 within 3000-5000; check-draft ok.",
+      "evidence_files": [
+        "checks/length.md"
+      ]
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "Claims match S1–S4; key overclaim not upgraded."
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "Counter-evidence and kill/downgrade conditions stated."
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "Core judgment, layering, counterevidence, landing, appendices."
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "Chinese decision memo; appendices for ledger/checklist; no workflow narration."
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "Synthetic materials and no independent review disclosed."
+    }
+  }
+}

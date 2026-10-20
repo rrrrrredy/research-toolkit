@@ -1,0 +1,33 @@
+{
+  "task_id": "chip-tooling-localization-bottleneck-claim-zh-20261018",
+  "research_question": "国内先进制程晶圆厂与关键设备商在对外融资／客户 DD 材料中，关于「关键设备国产化已解除产线瓶颈」的主张，现有证据门槛能否支撑？该主张对战略投资人与产线采购各自是否构成过度承诺？",
+  "language": "zh",
+  "audience": "半导体战略投资与晶圆厂设备采购联合决策。",
+  "scope": "仅用任务附带合成来源包；拆分「对谁过度」；瓶颈解除的证据分层（产能／良率／备件／工艺窗口）；反证与 kill 条件；不联网。",
+  "output_bounds": "final.md，≥3000 非空白中文字符（建议 3000–5000）：对谁过度、证据分层、反证与不得写「已解除」的条件；台账与 checklist 单列。",
+  "depth": "Lite 长文科技—融资—采购交叉题；非设备选型参数表。",
+  "evidence_standard": "合成来源并披露；不得把单机台验收写成全产线瓶颈已解除；披露未做独立评审。",
+  "profile": "lite",
+  "kind": "new",
+  "domain": "科技/商业",
+  "batch_id": "2026-10-18-v1",
+  "batch_dir": "2026-10-18-confirmed",
+  "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+  "toolkit_version": "1.3.0",
+  "length_record": "3153 非空白字（目标 3000–5000）",
+  "revisions": 0,
+  "mechanical": {
+    "lite_checklist": "checklist_complete",
+    "full_delivery_gate": "skipped",
+    "research_review": "skipped",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": false,
+    "outer_grok_note": "recorded_pass_not_toolkit_independent_review"
+  },
+  "review_mode": "author_self_check",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false,
+  "copied_unchanged_from": null,
+  "question_text_identical_to_copied_pack": null
+}

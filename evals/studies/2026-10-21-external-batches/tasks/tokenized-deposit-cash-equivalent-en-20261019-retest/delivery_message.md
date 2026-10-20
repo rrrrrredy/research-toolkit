@@ -1,0 +1,1 @@
+tokenized-deposit-cash-equivalent-en-20261019-retest: Lite original-condition retest done. Synthetic S1–S4; no independent review. Withhold cash-equivalent WC treatment until legal memo + stress redeemability + dual-control/daily recon + restricted disclosure; reject atomic/bankruptcy-remote/auditor-OK'd marketing for this Bank-T pilot.

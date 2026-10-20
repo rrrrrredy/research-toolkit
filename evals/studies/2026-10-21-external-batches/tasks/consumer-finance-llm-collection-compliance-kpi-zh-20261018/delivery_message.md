@@ -1,0 +1,1 @@
+consumer-finance-llm-collection-compliance-kpi-zh-20261018：Lite 新题完成。合成 S1–S4；未独立评审。判断：质检通过率不能支撑「催收合规已达标」；须降级为辅助质检、人工终责。

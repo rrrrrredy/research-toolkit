@@ -1,0 +1,34 @@
+{
+  "task": "ai-agent-workforce-fte-roi-bar-en-20261018",
+  "message": "ai-agent-workforce-fte-roi-bar-en-20261018: Lite done. Synthetic S1–S4; no independent review. Demo/pilot completion ≠ FTE replacement; without workflow ownership, costed exceptions, and auditable overrides, headcount-ROI claims are a false proposition through 2027.",
+  "artifact": "final.md",
+  "checklist": {
+    "requirements": {
+      "passed": true,
+      "evidence": "final.md whitespace_words=1588 within 1500-2500; agreed coverage met; check-draft ok=True.",
+      "evidence_files": [
+        "checks/length.md"
+      ]
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "C1–C6 match S1–S4; pilot rates, FTE slide, shadow queue, and 90-day metrics attributed to synthetic pack only."
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "Section 4: shadow 2.5 FTE queue; pre-scoped pilots; override gaps; promo ROI; single deployment limits."
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "Sections 1–8: judgment, tiers, ROI mapping, counter-evidence, kill criteria, buyer posture, change triggers, limitations."
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "Enterprise IT/ops and CFO memo; source ledger appended; no workflow narration."
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "Synthetic materials and absence of independent review disclosed at top and §8."
+    }
+  }
+}

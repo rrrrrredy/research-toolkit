@@ -1,0 +1,1 @@
+hospital-llm-clinical-doc-coding-bar-en-20261019: Lite done. Synthetic S1–S4; no independent review. Keep LLM clinical docs assistive-only for coding/medical-necessity claims until immutable payer-exportable overrides, raw-draft sampling, and omission surveillance clear; cleaned-note ≥90% concordance is not Tier-2 proof.

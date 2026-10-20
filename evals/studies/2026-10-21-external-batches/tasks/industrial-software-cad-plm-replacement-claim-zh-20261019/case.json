@@ -1,0 +1,33 @@
+{
+  "task_id": "industrial-software-cad-plm-replacement-claim-zh-20261019",
+  "research_question": "国内工业软件（CAD/CAE/PLM）厂商与集成商在融资／大客户 DD 材料中，关于「已可替代海外主力位、产线可切换」的主张，现有证据门槛能否支撑？该主张对战略投资人与工厂 IT／工艺部门各自是否构成过度承诺？",
+  "language": "zh",
+  "audience": "工业软件战略投资与制造企业信息化/工艺联合决策。",
+  "scope": "仅用任务附带合成来源包；拆分「对谁过度」；替代证据分层（功能覆盖／数据迁移／工艺窗口／售后备件）；反证与 kill 条件（何种缺失则不得写「可切换主力位」）；不联网。",
+  "output_bounds": "final.md，≥3000 非空白中文字符（建议 3000–5000）：对谁过度、证据分层、反证与不得写「可切换」的条件；台账与 checklist 单列。",
+  "depth": "Lite 长文科技—融资—产线交叉题；非软件选型参数表。",
+  "evidence_standard": "合成来源并披露；不得把单模块验收写成全产线可切换主力位；披露未做独立评审。",
+  "profile": "lite",
+  "kind": "new",
+  "domain": "科技/商业",
+  "batch_id": "2026-10-19-v1",
+  "batch_dir": "2026-10-19-confirmed",
+  "toolkit_commit": "e245b90a324933f53fddf0deea039a7715708005",
+  "toolkit_version": "1.3.1",
+  "length_record": "3077 非空白字（目标 3000–5000）",
+  "revisions": 0,
+  "mechanical": {
+    "lite_checklist": "checklist_complete",
+    "full_delivery_gate": "skipped",
+    "research_review": "skipped",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": false,
+    "outer_grok_note": "recorded_pass_not_toolkit_independent_review"
+  },
+  "review_mode": "author_self_check",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false,
+  "copied_unchanged_from": null,
+  "question_text_identical_to_copied_pack": null
+}

@@ -1,0 +1,1 @@
+industrial-software-cad-plm-replacement-claim-zh-20261019：Lite 完成。合成 S1–S4；未独立评审。判断：证据不能支撑「已可替代海外主力位、产线可切换」；对战略投资人与工厂IT/工艺均过度但机制不同。

@@ -1,0 +1,1 @@
+sovereign-ai-cloud-portability-claim-en-20261019: Lite done. Synthetic S1–S4; no independent review. Refuse joint sovereignty+portability marketing through 2027 without exportable toolchain, portable/production-parity eval harness, and auditable residency kill-switch; open-weight SKU ≠ portable sovereignty.

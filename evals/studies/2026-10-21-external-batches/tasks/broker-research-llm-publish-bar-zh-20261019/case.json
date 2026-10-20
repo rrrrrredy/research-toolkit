@@ -1,0 +1,33 @@
+{
+  "task_id": "broker-research-llm-publish-bar-zh-20261019",
+  "research_question": "券商／资管将 LLM 用于投研底稿与报告草稿时，「模型生成 + 合规词表过滤」能否支撑对外「研报已可发布／可外发客户」口径？何种失效模式必须把该口径降为「辅助起草、人工署名终责」？",
+  "language": "zh",
+  "audience": "券商合规、研究所负责人与模型风险联合决策。",
+  "scope": "仅用任务附带合成来源包；底稿轨 vs 外发轨的证据分层；署名与披露映射；反证（幻觉引用、利益冲突漏检、静默改写评级表述）；kill 条件；不联网。",
+  "output_bounds": "final.md，≥3000 非空白中文字符（建议 3000–5000）：证据分层、署名映射、反证与 kill 条件；台账与 checklist 单列。",
+  "depth": "Lite 长文金融内容生产—合规双轨题；非提示词工程小品。",
+  "evidence_standard": "合成来源并披露；不得把词表过滤通过写成可发布；披露未做独立评审。",
+  "profile": "lite",
+  "kind": "new",
+  "domain": "金融/AI",
+  "batch_id": "2026-10-19-v1",
+  "batch_dir": "2026-10-19-confirmed",
+  "toolkit_commit": "e245b90a324933f53fddf0deea039a7715708005",
+  "toolkit_version": "1.3.1",
+  "length_record": "3057 非空白字（目标 3000–5000）",
+  "revisions": 0,
+  "mechanical": {
+    "lite_checklist": "checklist_complete",
+    "full_delivery_gate": "skipped",
+    "research_review": "skipped",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": false,
+    "outer_grok_note": "recorded_pass_not_toolkit_independent_review"
+  },
+  "review_mode": "author_self_check",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false,
+  "copied_unchanged_from": null,
+  "question_text_identical_to_copied_pack": null
+}

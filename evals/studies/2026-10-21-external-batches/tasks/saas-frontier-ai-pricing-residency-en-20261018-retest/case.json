@@ -1,0 +1,33 @@
+{
+  "task_id": "saas-frontier-ai-pricing-residency-en-20261018-retest",
+  "research_question": "How should mid-market B2B software vendors price and govern AI features that call third-party frontier models when vendor margins and customer data-residency clauses conflict through 2027?",
+  "language": "en",
+  "audience": "Mid-market SaaS product, pricing, and legal leads.",
+  "scope": "Synthetic source pack only (same as Day-2 / 2026-10-15 original-condition retest). Cover margin vs residency, contracting patterns, options/kill-criteria through 2027. Distinct from open-weight lock-in. No live web. Change = Toolkit 1.1.0→1.3.0.",
+  "output_bounds": "final.md, ≥1500 whitespace words (suggested 1500–2500): margin vs residency, contracting patterns, counter-evidence, options/kill-criteria. Registries/checklist separate.",
+  "depth": "Lite original-condition retest (version regression); long-form commercial mechanism memo.",
+  "evidence_standard": "Synthetic sources disclosed; disclose fictional evidence; disclose no independent review.",
+  "profile": "lite",
+  "kind": "retest",
+  "domain": "AI/商业",
+  "batch_id": "2026-10-18-v1",
+  "batch_dir": "2026-10-18-confirmed",
+  "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+  "toolkit_version": "1.3.0",
+  "length_record": "1616 词（目标 1500–2500）",
+  "revisions": 0,
+  "mechanical": {
+    "lite_checklist": "checklist_complete",
+    "full_delivery_gate": "skipped",
+    "research_review": "skipped",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": false,
+    "outer_grok_note": "recorded_pass_not_toolkit_independent_review"
+  },
+  "review_mode": "author_self_check",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false,
+  "copied_unchanged_from": "saas-frontier-ai-pricing-residency-en-20261015",
+  "question_text_identical_to_copied_pack": true
+}
