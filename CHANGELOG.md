@@ -6,6 +6,13 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.3.3 — 2026-10-20
+
+- Ship the exact repeated-paragraph advisory from PR #85: `check-draft` returns original prose, headings and every line range in existing `warnings`. It does not change `ok`, delivery eligibility or report contents.
+- Ship the Lite analysis guidance from PR #86: choose comparison, explanation or decision methods as needed, with a short example from archived synthetic SaaS materials. English, Chinese and plugin copies stay synchronized; no fixed report structure is required.
+- Reduction in false self-check passes and improvements in research quality remain unverified. The archived public-library comparison found no false passes in either v1.3.1 or v1.3.2 and no incremental benefit in that case.
+- Publish matching bilingual [release notes](docs/releases/v1.3.3.md), version metadata and plugin ZIP. Reuse completed implementation checks; no new tools, required fields, calls or task migrations.
+
 ## v1.3.2 — 2026-10-19
 
 - Ship the corrected Lite self-check instructions and diagnostics from PR #81 and PR #82 in the installed plugin: read the current report, address repeated or off-topic passages, and record concrete findings instead of changing a pass flag to satisfy an error.
