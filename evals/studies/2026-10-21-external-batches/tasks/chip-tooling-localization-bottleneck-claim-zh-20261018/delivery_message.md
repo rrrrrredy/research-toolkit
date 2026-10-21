@@ -1,0 +1,1 @@
+chip-tooling-localization-bottleneck-claim-zh-20261018：Lite 新题完成。合成 S1–S4；未独立评审。判断：证据不能支撑「关键设备国产化已解除产线瓶颈」；对投资人与采购均过度。

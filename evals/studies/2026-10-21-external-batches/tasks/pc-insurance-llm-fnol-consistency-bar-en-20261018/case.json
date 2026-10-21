@@ -1,0 +1,33 @@
+{
+  "task_id": "pc-insurance-llm-fnol-consistency-bar-en-20261018",
+  "research_question": "Before a mid-market P&C insurer allows LLM-drafted first-notice-of-loss (FNOL) summaries into adjuster workflows, what evidence bar and human-override controls are required so outputs can support regulatory / actuarial consistency claims—and when must “AI claims acceleration” marketing be treated as assistive-only?",
+  "language": "en",
+  "audience": "P&C claims ops, actuarial, and compliance.",
+  "scope": "Synthetic source pack only; work-product tiers (draft assist vs consistency claim); override/audit evidence; counter-evidence (silent omission of coverage triggers); kill criteria through 2027. No live web.",
+  "output_bounds": "final.md, ≥1500 whitespace words (suggested 1500–2500): tiers, controls, counter-evidence, kill criteria. Registries and checklist separate.",
+  "depth": "Lite long-form insurance ops memo; not a claims chatbot bake-off.",
+  "evidence_standard": "Synthetic sources disclosed; do not treat LLM FNOL drafts as consistency-certified without controls; disclose no independent review.",
+  "profile": "lite",
+  "kind": "new",
+  "domain": "金融/AI",
+  "batch_id": "2026-10-18-v1",
+  "batch_dir": "2026-10-18-confirmed",
+  "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+  "toolkit_version": "1.3.0",
+  "length_record": "1533 词（目标 1500–2500）",
+  "revisions": 0,
+  "mechanical": {
+    "lite_checklist": "checklist_complete",
+    "full_delivery_gate": "skipped",
+    "research_review": "skipped",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": false,
+    "outer_grok_note": "recorded_pass_not_toolkit_independent_review"
+  },
+  "review_mode": "author_self_check",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false,
+  "copied_unchanged_from": null,
+  "question_text_identical_to_copied_pack": null
+}

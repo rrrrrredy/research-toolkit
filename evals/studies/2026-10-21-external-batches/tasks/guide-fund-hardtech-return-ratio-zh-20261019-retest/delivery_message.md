@@ -1,0 +1,1 @@
+guide-fund-hardtech-return-ratio-zh-20261019-retest：Lite 原条件复测完成。合成 S1–S4；未独立评审。判断：现有证据不能支撑「既要产业落地又要财务回报」的同期合并表述；须分栏披露且返投≠财务回报。

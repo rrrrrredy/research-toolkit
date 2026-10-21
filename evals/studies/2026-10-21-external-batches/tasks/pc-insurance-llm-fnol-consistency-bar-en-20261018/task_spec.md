@@ -1,0 +1,25 @@
+# Research brief
+
+## question
+
+Before a mid-market P&C insurer allows LLM-drafted first-notice-of-loss (FNOL) summaries into adjuster workflows, what evidence bar and human-override controls are required so outputs can support regulatory / actuarial consistency claims—and when must “AI claims acceleration” marketing be treated as assistive-only?
+
+## audience
+
+P&C claims ops, actuarial, and compliance.
+
+## scope
+
+Synthetic source pack only; work-product tiers (draft assist vs consistency claim); override/audit evidence; counter-evidence (silent omission of coverage triggers); kill criteria through 2027. No live web.
+
+## output
+
+final.md, ≥1500 whitespace words (suggested 1500–2500): tiers, controls, counter-evidence, kill criteria. Registries and checklist separate.
+
+## depth
+
+Lite long-form insurance ops memo; not a claims chatbot bake-off.
+
+## evidence_standard
+
+Synthetic sources disclosed; do not treat LLM FNOL drafts as consistency-certified without controls; disclose no independent review.

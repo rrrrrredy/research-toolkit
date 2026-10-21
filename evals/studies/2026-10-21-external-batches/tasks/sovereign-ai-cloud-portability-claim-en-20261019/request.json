@@ -1,0 +1,13 @@
+{
+  "task": "sovereign-ai-cloud-portability-claim-en-20261019",
+  "language": "en",
+  "profile": "lite",
+  "brief": {
+    "question": "For enterprise buyers evaluating “sovereign / residency-first AI cloud” offerings that also advertise open-weight model choice, what evidence bar is required before procurement can accept sovereignty + model-portability marketing as jointly true through 2027—and when must buyers treat the joint claim as a false proposition without portable eval harnesses, exportable toolchains, and auditable residency kill-switches?",
+    "audience": "Enterprise cloud procurement, CISO, and AI platform owners.",
+    "scope": "Synthetic source pack only; evidence tiers for residency vs portability; joint-claim mapping; counter-evidence (API lock-in behind open weights); kill criteria through 2027. No live web.",
+    "output": "final.md, ≥1500 whitespace words (suggested 1500–2500): tiers, joint-claim mapping, counter-evidence, kill criteria. Registries and checklist separate.",
+    "depth": "Lite long-form procurement memo; not a cloud SKU bake-off.",
+    "evidence_standard": "Synthetic sources disclosed; do not treat open-weight SKU as portable sovereignty; disclose no independent review."
+  }
+}

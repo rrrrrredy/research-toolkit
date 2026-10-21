@@ -1,0 +1,25 @@
+# Research brief
+
+## question
+
+What evidence should corporate treasuries require before treating tokenized deposit pilots as operational cash equivalents for working-capital reporting?
+
+## audience
+
+Corporate treasury and external auditor liaison.
+
+## scope
+
+Synthetic source pack only (same fixed pack as Day-2 / 2026-10-15 original-condition retest). Evidence bar vs marketing, control failures, counter-claims, disclosure. No live web. Change = Toolkit 1.1.0→1.3.1.
+
+## output
+
+final.md, ≥1500 whitespace words (suggested 1500–2500): evidence bar, control failures, counter-claims, disclosure stance. Registries/checklist separate.
+
+## depth
+
+Lite original-condition retest (version regression); long-form finance/tech controls memo.
+
+## evidence_standard
+
+Synthetic sources only; disclose fictional evidence; disclose no independent review.

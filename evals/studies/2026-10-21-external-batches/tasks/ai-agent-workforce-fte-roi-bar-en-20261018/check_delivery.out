@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "profile": "lite",
+  "status": "checklist_complete",
+  "length_checks": [
+    {
+      "requirement_id": "R-length",
+      "unit": "whitespace_words",
+      "scope": "whole_artifact",
+      "min": 1500,
+      "max": 2500,
+      "actual": 1588,
+      "bounds_met": true,
+      "status": "satisfied"
+    }
+  ],
+  "warnings": [],
+  "flags": [],
+  "findings": [],
+  "log": [
+    "SKIP research_review: profile=lite; no independent review is performed.",
+    "SKIP full delivery gates: profile=lite; brief, claims and final checklist remain required."
+  ],
+  "full_delivery_gates_checked": false,
+  "independent_review": false,
+  "review_strength": "unreviewed",
+  "input_binding_scope": "report_message_and_research_inputs",
+  "semantic_verification": false,
+  "report_quality_certified": false,
+  "checklist_valid": true,
+  "terminal_state": true,
+  "stage": "final",
+  "task_status": "complete",
+  "delivery_observation": "not_provided"
+}

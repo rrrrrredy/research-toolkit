@@ -1,0 +1,1 @@
+ai-agent-workforce-fte-roi-bar-en-20261018: Lite done. Synthetic S1–S4; no independent review. Demo/pilot completion ≠ FTE replacement; without workflow ownership, costed exceptions, and auditable overrides, headcount-ROI claims are a false proposition through 2027.

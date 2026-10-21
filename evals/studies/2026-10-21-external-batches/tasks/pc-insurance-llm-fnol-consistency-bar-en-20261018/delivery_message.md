@@ -1,0 +1,1 @@
+pc-insurance-llm-fnol-consistency-bar-en-20261018: Lite done. Synthetic S1–S4; no independent review. LLM FNOL drafts stay assistive-only without coverage-trigger checks, immutable overrides, and actuarial sampling; kill consistency claims when silent omission, weak audit, or coding drift persist through 2027.

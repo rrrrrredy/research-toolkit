@@ -1,0 +1,34 @@
+{
+  "task": "saas-frontier-ai-pricing-residency-en-20261018-retest",
+  "message": "saas-frontier-ai-pricing-residency-en-20261018-retest: Lite original-condition retest done. Synthetic S1–S4; no independent review. Dual-SKU/surcharge + disable beats silent margin absorption when frontier regional costs and residency MSAs conflict through 2027; freeze AI-included under CFO <15% GM / <4pp lift kill line.",
+  "artifact": "final.md",
+  "checklist": {
+    "requirements": {
+      "passed": true,
+      "evidence": "final.md whitespace_words=1616 within 1500-2500; agreed coverage met; check-draft ok=True.",
+      "evidence_files": [
+        "checks/length.md"
+      ]
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "C1–C7 match S1–S4; attach GM, MSA counts, stress scenarios, and options attributed to synthetic pack only."
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "Section 5: sales strategic-deal pull vs finance selection bias; waitlist/≤1.2× improvement; open-weight fallback uncosted."
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "Sections 1–8: judgment, margin mechanics, MSA patterns, options, counter-evidence, decision framework, change triggers, limitations."
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "Mid-market SaaS product/pricing/legal memo; source ledger appended; no workflow narration."
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "Synthetic materials and absence of independent review disclosed at top and §8."
+    }
+  }
+}

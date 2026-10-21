@@ -1,0 +1,1 @@
+dongshu-xisuan-training-procurement-zh-20261018-retest：Lite 原条件复测完成。合成 S1–S4；未独立评审。判断：尚未形成可复制统一采购范式，仅可筛选客户子集上的可复制模块。

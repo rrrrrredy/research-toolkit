@@ -1,0 +1,270 @@
+{
+  "date": "2026-10-19",
+  "batch": "2026-10-19-v1",
+  "confirmed": true,
+  "confirmed_at_asia_shanghai": "2026-10-19 ~09:41 CST (Song: 前两项我确认排版。六题确认)",
+  "prep_completed_at_asia_shanghai": "2026-10-19 09:44:24 CST",
+  "toolkit_commit": "e245b90a324933f53fddf0deea039a7715708005",
+  "toolkit_version": "1.3.1",
+  "toolkit_checkout": "/workspace/research-toolkit",
+  "profiles": {
+    "lite": 6,
+    "full": 0
+  },
+  "cli": "python3",
+  "workspace": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed",
+  "tokens_cost": "unknown",
+  "wall_minutes_approx": null,
+  "tasks_prepared": 6,
+  "tasks_completed": 6,
+  "independent_review_backend": "unavailable (not required; all Lite)",
+  "eval_set_pr_today": false,
+  "eval_queue_day": "new_window_day_1 (post-#80; 10-18-v1 + 10-19-v1 queued)",
+  "eval_queue_pr": "https://github.com/rrrrrredy/research-toolkit/pull/80",
+  "eval_queue_note": "PR #80 squash-merged at open (16-v1+17-v2). This batch and 2026-10-18-v1 roll to next ingest window (day 1). No Issue/PR/merge/ingest today.",
+  "phase": "batch_closed",
+  "results": [
+    {
+      "id": "ZH-R1",
+      "task": "guide-fund-hardtech-return-ratio-zh-20261019-retest",
+      "kind": "retest",
+      "domain": "金融/商业",
+      "profile": "lite",
+      "status": "closed",
+      "mechanical": "pass",
+      "revisions": 0,
+      "length": {
+        "nonblank": 3180,
+        "unit": "nonwhitespace_chars",
+        "target": ">=3000 (3000-5000)",
+        "met": true
+      },
+      "conclusion": "不能支撑「产业+财务」同期合并表述；须分栏披露且返投≠财务回报",
+      "path": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/guide-fund-hardtech-return-ratio-zh-20261019-retest",
+      "first_complete": true,
+      "outer_review_verdict": "达标",
+      "outer_review_path": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/guide-fund-hardtech-return-ratio-zh-20261019-retest/review/outer_grok_review.md",
+      "outer_review_one_liner": "不能支撑「产业+财务」同期合并表述；须分栏披露且返投≠财务回报",
+      "outer_review": "pass"
+    },
+    {
+      "id": "ZH-N1",
+      "task": "industrial-software-cad-plm-replacement-claim-zh-20261019",
+      "kind": "new",
+      "domain": "科技/商业",
+      "profile": "lite",
+      "status": "closed",
+      "mechanical": "pass",
+      "revisions": 0,
+      "length": {
+        "nonblank": 3077,
+        "unit": "nonwhitespace_chars",
+        "target": ">=3000 (3000-5000)",
+        "met": true
+      },
+      "conclusion": "不能支撑「已可替代海外主力位、产线可切换」；对投资人与工厂过度机制不同",
+      "path": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/industrial-software-cad-plm-replacement-claim-zh-20261019",
+      "first_complete": true,
+      "outer_review_verdict": "达标",
+      "outer_review_path": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/industrial-software-cad-plm-replacement-claim-zh-20261019/review/outer_grok_review.md",
+      "outer_review_one_liner": "不能支撑「已可替代海外主力位、产线可切换」；对投资人与工厂过度机制不同",
+      "outer_review": "pass"
+    },
+    {
+      "id": "ZH-N2",
+      "task": "broker-research-llm-publish-bar-zh-20261019",
+      "kind": "new",
+      "domain": "金融/AI",
+      "profile": "lite",
+      "status": "closed",
+      "mechanical": "pass",
+      "revisions": 0,
+      "length": {
+        "nonblank": 3057,
+        "unit": "nonwhitespace_chars",
+        "target": ">=3000 (3000-5000)",
+        "met": true
+      },
+      "conclusion": "「词表过滤」不能支撑「可发布／可外发」；须降为辅助起草、人工署名终责",
+      "path": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/broker-research-llm-publish-bar-zh-20261019",
+      "first_complete": true,
+      "outer_review_verdict": "达标",
+      "outer_review_path": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/broker-research-llm-publish-bar-zh-20261019/review/outer_grok_review.md",
+      "outer_review_one_liner": "「词表过滤」不能支撑「可发布／可外发」；须降为辅助起草、人工署名终责",
+      "outer_review": "pass"
+    },
+    {
+      "id": "EN-R1",
+      "task": "tokenized-deposit-cash-equivalent-en-20261019-retest",
+      "kind": "retest",
+      "domain": "金融/科技",
+      "profile": "lite",
+      "status": "closed",
+      "mechanical": "pass",
+      "revisions": 0,
+      "length": {
+        "words": 1549,
+        "unit": "whitespace_words",
+        "target": ">=1500 (1500-2500)",
+        "met": true
+      },
+      "conclusion": "Controls incomplete: do not treat Bank-T tokenized deposit pilot as WC cash equivalent; reject atomic/bankruptcy-remote/auditor-OK’d claims.",
+      "path": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/tokenized-deposit-cash-equivalent-en-20261019-retest",
+      "first_complete": true,
+      "outer_review_verdict": "达标",
+      "outer_review_path": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/tokenized-deposit-cash-equivalent-en-20261019-retest/review/outer_grok_review.md",
+      "outer_review_one_liner": "Controls incomplete: do not treat Bank-T tokenized deposit pilot as WC cash equivalent",
+      "outer_review": "pass"
+    },
+    {
+      "id": "EN-N1",
+      "task": "sovereign-ai-cloud-portability-claim-en-20261019",
+      "kind": "new",
+      "domain": "AI/商业",
+      "profile": "lite",
+      "status": "closed",
+      "mechanical": "pass",
+      "revisions": 0,
+      "length": {
+        "words": 1568,
+        "unit": "whitespace_words",
+        "target": ">=1500 (1500-2500)",
+        "met": true
+      },
+      "conclusion": "Without exportable toolchain, portable eval harness, and auditable residency kill-switch, joint “sovereign+portable” claim is a false proposition through 2027.",
+      "path": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/sovereign-ai-cloud-portability-claim-en-20261019",
+      "first_complete": true,
+      "outer_review_verdict": "达标",
+      "outer_review_path": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/sovereign-ai-cloud-portability-claim-en-20261019/review/outer_grok_review.md",
+      "outer_review_one_liner": "Without exportable toolchain, portable eval harness, and auditable residency kill-switch, joint claim is a false proposition through 2027",
+      "outer_review": "pass"
+    },
+    {
+      "id": "EN-N2",
+      "task": "hospital-llm-clinical-doc-coding-bar-en-20261019",
+      "kind": "new",
+      "domain": "医疗/AI",
+      "profile": "lite",
+      "status": "closed",
+      "mechanical": "pass",
+      "revisions": 0,
+      "length": {
+        "words": 1509,
+        "unit": "whitespace_words",
+        "target": ">=1500 (1500-2500)",
+        "met": true
+      },
+      "conclusion": "LLM clinical docs assistive-only until immutable exportable override, raw-draft sampling, and omission monitoring; cleaned-note ≥90% cannot support coding/medical-necessity claims.",
+      "path": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/hospital-llm-clinical-doc-coding-bar-en-20261019",
+      "first_complete": true,
+      "outer_review_verdict": "达标",
+      "outer_review_path": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/hospital-llm-clinical-doc-coding-bar-en-20261019/review/outer_grok_review.md",
+      "outer_review_one_liner": "LLM clinical docs assistive-only; cleaned-note ≥90% cannot support coding/medical-necessity claims",
+      "outer_review": "pass"
+    }
+  ],
+  "observations": [
+    "Song confirmed 2026-10-19-v1 all six Lite; pin toolkit 1.3.1/e245b90 as proposed.",
+    "Retest sources copied byte-identical from Day-16 guide-fund and Day-15 tokenized-deposit; do not modify.",
+    "New topics have minimal synthetic S1–S4 packs with disclosure.",
+    "Board cards to be created Status=进行中 / bot=Toolkit研究员.",
+    "Do not run research_workflow start in this prep; researcher owns execution.",
+    "Do not open Issue/PR; do not merge #80.",
+    "Researcher completed all six Lite on 1.3.1; outer review pending Toolkit复核员.",
+    "Outer Grok review completed 2026-10-19: all six Lite 达标; no Toolkit fix; SUMMARY phase=outer_review_completed.",
+    "Batch closed 2026-10-19 09:54 CST Asia/Shanghai: outer_review=all_pass; toolkit_fix_needed=false; board→完成/Toolkit评测员; no Issue/PR/ingest."
+  ],
+  "board": {
+    "project": "PVT_kwHOB_eTds4BnTWo",
+    "status": "完成",
+    "owner_bot": "Toolkit评测员",
+    "ok": 6,
+    "fail": 0,
+    "item_ids": [
+      "PVTI_lAHOB_eTds4BnTWozhBtXiM",
+      "PVTI_lAHOB_eTds4BnTWozhBtXnM",
+      "PVTI_lAHOB_eTds4BnTWozhBtXr0",
+      "PVTI_lAHOB_eTds4BnTWozhBtXvs",
+      "PVTI_lAHOB_eTds4BnTWozhBtXzs",
+      "PVTI_lAHOB_eTds4BnTWozhBtX3Y"
+    ],
+    "cards": [
+      {
+        "title": "2026-10-19 ZH-R1 · guide-fund-hardtech-return-ratio-zh-20261019-retest · Lite 复测",
+        "item_id": "PVTI_lAHOB_eTds4BnTWozhBtXiM",
+        "ok": true
+      },
+      {
+        "title": "2026-10-19 ZH-N1 · industrial-software-cad-plm-replacement-claim-zh-20261019 · Lite 新题",
+        "item_id": "PVTI_lAHOB_eTds4BnTWozhBtXnM",
+        "ok": true
+      },
+      {
+        "title": "2026-10-19 ZH-N2 · broker-research-llm-publish-bar-zh-20261019 · Lite 新题",
+        "item_id": "PVTI_lAHOB_eTds4BnTWozhBtXr0",
+        "ok": true
+      },
+      {
+        "title": "2026-10-19 EN-R1 · tokenized-deposit-cash-equivalent-en-20261019-retest · Lite 复测",
+        "item_id": "PVTI_lAHOB_eTds4BnTWozhBtXvs",
+        "ok": true
+      },
+      {
+        "title": "2026-10-19 EN-N1 · sovereign-ai-cloud-portability-claim-en-20261019 · Lite 新题",
+        "item_id": "PVTI_lAHOB_eTds4BnTWozhBtXzs",
+        "ok": true
+      },
+      {
+        "title": "2026-10-19 EN-N2 · hospital-llm-clinical-doc-coding-bar-en-20261019 · Lite 新题",
+        "item_id": "PVTI_lAHOB_eTds4BnTWozhBtX3Y",
+        "ok": true
+      }
+    ],
+    "log": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/_requests/board-create.log",
+    "result": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/_requests/board-result.txt",
+    "status_note": "批次已收口；看板六卡→完成 / 负责 bot=Toolkit评测员",
+    "owner_bot_after_outer": "Toolkit评测员"
+  },
+  "tasks_passed_mechanical": 6,
+  "revisions_total": 0,
+  "wall_clock_note": "confirm ~09:41 → research ~09:45–09:50 → outer ~09:52 → closed 2026-10-19 09:54 CST Asia/Shanghai; tokens/cost unknown",
+  "research_completed_at_asia_shanghai": "2026-10-19 ~09:50 CST",
+  "outer_review": "all_pass",
+  "outer_review_detail": {
+    "type": "outer_grok_lite",
+    "not_full_or_astra": true,
+    "completed_at_asia_shanghai": "2026-10-19 ~09:52 CST",
+    "reviewer_role": "Toolkit复核员",
+    "batch_summary": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/OUTER_REVIEW_BATCH_SUMMARY.md",
+    "all_pass": true,
+    "toolkit_fix_suggested": false,
+    "tokens_cost": "unknown",
+    "results_summary": "六题全部达标；无 Toolkit 修复项"
+  },
+  "outer_review_completed_at_asia_shanghai": "2026-10-19 ~09:52 CST",
+  "outer_review_summary": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/OUTER_REVIEW_BATCH_SUMMARY.md",
+  "outer_review_assignee": "Toolkit复核员",
+  "toolkit_fix_needed": false,
+  "closed_at_asia_shanghai": "2026-10-19 09:54 CST",
+  "batch_closed_at_asia_shanghai": "2026-10-19 09:54 CST",
+  "board_closed": {
+    "project": "PVT_kwHOB_eTds4BnTWo",
+    "status": "完成",
+    "owner_bot": "Toolkit评测员",
+    "ok": 6,
+    "fail": 0,
+    "mutations_ok": 12,
+    "mutations_fail": 0,
+    "item_ids": [
+      "PVTI_lAHOB_eTds4BnTWozhBtXiM",
+      "PVTI_lAHOB_eTds4BnTWozhBtXnM",
+      "PVTI_lAHOB_eTds4BnTWozhBtXr0",
+      "PVTI_lAHOB_eTds4BnTWozhBtXvs",
+      "PVTI_lAHOB_eTds4BnTWozhBtXzs",
+      "PVTI_lAHOB_eTds4BnTWozhBtX3Y"
+    ],
+    "log": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/_requests/board-to-done.log",
+    "result": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/_requests/board-done-result.txt"
+  },
+  "daily_brief": "/workspace/research-toolkit-prep/runs/2026-10-19-confirmed/DAILY_BRIEF.md"
+}

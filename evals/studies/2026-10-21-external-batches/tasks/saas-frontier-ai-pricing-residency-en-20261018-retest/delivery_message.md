@@ -1,0 +1,1 @@
+saas-frontier-ai-pricing-residency-en-20261018-retest: Lite original-condition retest done. Synthetic S1–S4; no independent review. Dual-SKU/surcharge + disable beats silent margin absorption when frontier regional costs and residency MSAs conflict through 2027; freeze AI-included under CFO <15% GM / <4pp lift kill line.

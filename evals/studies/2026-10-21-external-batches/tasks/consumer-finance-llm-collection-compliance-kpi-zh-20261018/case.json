@@ -1,0 +1,33 @@
+{
+  "task_id": "consumer-finance-llm-collection-compliance-kpi-zh-20261018",
+  "research_question": "消费金融公司将 LLM 同时用于催收话术生成与合规质检时，「质检通过率」类 KPI 能否支撑对外「催收合规已达标」口径？何种失效模式必须把该口径降为「辅助质检、人工终责」？",
+  "language": "zh",
+  "audience": "消金合规、催收运营与模型风险联合决策。",
+  "scope": "仅用任务附带合成来源包；生成轨 vs 质检轨证据分层；KPI 与监管口径映射；反证（质检与真实通话脱节、话术越界漏检）；kill 条件；不联网。",
+  "output_bounds": "final.md，≥3000 非空白中文字符（建议 3000–5000）：双轨证据、KPI 映射、反证与降级口径条件；台账与 checklist 单列。",
+  "depth": "Lite 长文合规—运营双轨题；非话术模板库。",
+  "evidence_standard": "合成来源并披露；不得把质检通过率写成监管已达标；披露未做独立评审。",
+  "profile": "lite",
+  "kind": "new",
+  "domain": "金融/AI",
+  "batch_id": "2026-10-18-v1",
+  "batch_dir": "2026-10-18-confirmed",
+  "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+  "toolkit_version": "1.3.0",
+  "length_record": "3028 非空白字（目标 3000–5000）",
+  "revisions": 0,
+  "mechanical": {
+    "lite_checklist": "checklist_complete",
+    "full_delivery_gate": "skipped",
+    "research_review": "skipped",
+    "semantic_quality_certified": false,
+    "limitation_disclosure_needs_semantic_review": false,
+    "outer_grok_note": "recorded_pass_not_toolkit_independent_review"
+  },
+  "review_mode": "author_self_check",
+  "independent_review": false,
+  "sources_disclosed_synthetic": true,
+  "factual_authority": false,
+  "copied_unchanged_from": null,
+  "question_text_identical_to_copied_pack": null
+}

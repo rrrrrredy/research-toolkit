@@ -1,0 +1,368 @@
+{
+  "ingest_date": "2026-10-21",
+  "authorization": "Song-authorized external eval ingest",
+  "study_id": "2026-10-21-external-batches",
+  "prior_ingest": "evals/studies/2026-10-19-external-batches",
+  "task_count": 12,
+  "distinct_research_questions": 12,
+  "freeze_commits": {
+    "2026-10-18-v1": {
+      "batch_dir": "2026-10-18-confirmed",
+      "commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "version": "1.3.0",
+      "profile": "lite",
+      "runs": 6,
+      "same_commit_as_ingested_batch": "2026-10-17-v2"
+    },
+    "2026-10-19-v1": {
+      "batch_dir": "2026-10-19-confirmed",
+      "commit": "e245b90a324933f53fddf0deea039a7715708005",
+      "version": "1.3.1",
+      "profile": "lite",
+      "runs": 6
+    }
+  },
+  "task_ids": [
+    "dongshu-xisuan-training-procurement-zh-20261018-retest",
+    "chip-tooling-localization-bottleneck-claim-zh-20261018",
+    "consumer-finance-llm-collection-compliance-kpi-zh-20261018",
+    "saas-frontier-ai-pricing-residency-en-20261018-retest",
+    "ai-agent-workforce-fte-roi-bar-en-20261018",
+    "pc-insurance-llm-fnol-consistency-bar-en-20261018",
+    "guide-fund-hardtech-return-ratio-zh-20261019-retest",
+    "industrial-software-cad-plm-replacement-claim-zh-20261019",
+    "broker-research-llm-publish-bar-zh-20261019",
+    "tokenized-deposit-cash-equivalent-en-20261019-retest",
+    "sovereign-ai-cloud-portability-claim-en-20261019",
+    "hospital-llm-clinical-doc-coding-bar-en-20261019"
+  ],
+  "tasks": [
+    {
+      "task_id": "dongshu-xisuan-training-procurement-zh-20261018-retest",
+      "research_question": "中国「东数西算」与大模型训练算力采购：西部绿电数据中心对东部训练客户，在时延、弃电、合同履约上是否已形成可复制的采购范式？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "retest",
+      "domain": "科技/商业",
+      "batch_id": "2026-10-18-v1",
+      "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "toolkit_version": "1.3.0",
+      "length_record": "3125 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": "dongshu-xisuan-training-procurement-zh-20261015",
+      "question_text_identical_to_copied_pack": true,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "chip-tooling-localization-bottleneck-claim-zh-20261018",
+      "research_question": "国内先进制程晶圆厂与关键设备商在对外融资／客户 DD 材料中，关于「关键设备国产化已解除产线瓶颈」的主张，现有证据门槛能否支撑？该主张对战略投资人与产线采购各自是否构成过度承诺？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "科技/商业",
+      "batch_id": "2026-10-18-v1",
+      "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "toolkit_version": "1.3.0",
+      "length_record": "3153 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "consumer-finance-llm-collection-compliance-kpi-zh-20261018",
+      "research_question": "消费金融公司将 LLM 同时用于催收话术生成与合规质检时，「质检通过率」类 KPI 能否支撑对外「催收合规已达标」口径？何种失效模式必须把该口径降为「辅助质检、人工终责」？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "金融/AI",
+      "batch_id": "2026-10-18-v1",
+      "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "toolkit_version": "1.3.0",
+      "length_record": "3028 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "saas-frontier-ai-pricing-residency-en-20261018-retest",
+      "research_question": "How should mid-market B2B software vendors price and govern AI features that call third-party frontier models when vendor margins and customer data-residency clauses conflict through 2027?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "retest",
+      "domain": "AI/商业",
+      "batch_id": "2026-10-18-v1",
+      "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "toolkit_version": "1.3.0",
+      "length_record": "1616 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": "saas-frontier-ai-pricing-residency-en-20261015",
+      "question_text_identical_to_copied_pack": true,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "ai-agent-workforce-fte-roi-bar-en-20261018",
+      "research_question": "For enterprise buyers evaluating “AI agent workforce” / digital-employee vendors, does evidence of demo or pilot task completion support production claims of FTE replacement / headcount ROI through 2027—or must buyers treat headcount-replacement claims as a false proposition without workflow ownership, exception handling, and auditable override trails?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "AI/商业",
+      "batch_id": "2026-10-18-v1",
+      "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "toolkit_version": "1.3.0",
+      "length_record": "1588 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "pc-insurance-llm-fnol-consistency-bar-en-20261018",
+      "research_question": "Before a mid-market P&C insurer allows LLM-drafted first-notice-of-loss (FNOL) summaries into adjuster workflows, what evidence bar and human-override controls are required so outputs can support regulatory / actuarial consistency claims—and when must “AI claims acceleration” marketing be treated as assistive-only?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "金融/AI",
+      "batch_id": "2026-10-18-v1",
+      "toolkit_commit": "fedf7cde832139c86cad585883cb5ec2f666427f",
+      "toolkit_version": "1.3.0",
+      "length_record": "1533 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "guide-fund-hardtech-return-ratio-zh-20261019-retest",
+      "research_question": "地方政府引导基金直投硬科技项目时，「返投比例」考核与退出通道（并购／回购／二级市场）的证据，能否支撑财政与社会 LP 对「既要产业落地又要财务回报」的同期表述？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "retest",
+      "domain": "金融/商业",
+      "batch_id": "2026-10-19-v1",
+      "toolkit_commit": "e245b90a324933f53fddf0deea039a7715708005",
+      "toolkit_version": "1.3.1",
+      "length_record": "3180 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": "guide-fund-hardtech-return-ratio-zh-20261016",
+      "question_text_identical_to_copied_pack": true,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "industrial-software-cad-plm-replacement-claim-zh-20261019",
+      "research_question": "国内工业软件（CAD/CAE/PLM）厂商与集成商在融资／大客户 DD 材料中，关于「已可替代海外主力位、产线可切换」的主张，现有证据门槛能否支撑？该主张对战略投资人与工厂 IT／工艺部门各自是否构成过度承诺？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "科技/商业",
+      "batch_id": "2026-10-19-v1",
+      "toolkit_commit": "e245b90a324933f53fddf0deea039a7715708005",
+      "toolkit_version": "1.3.1",
+      "length_record": "3077 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "broker-research-llm-publish-bar-zh-20261019",
+      "research_question": "券商／资管将 LLM 用于投研底稿与报告草稿时，「模型生成 + 合规词表过滤」能否支撑对外「研报已可发布／可外发客户」口径？何种失效模式必须把该口径降为「辅助起草、人工署名终责」？",
+      "language": "zh",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "金融/AI",
+      "batch_id": "2026-10-19-v1",
+      "toolkit_commit": "e245b90a324933f53fddf0deea039a7715708005",
+      "toolkit_version": "1.3.1",
+      "length_record": "3057 非空白字（目标 3000–5000）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "tokenized-deposit-cash-equivalent-en-20261019-retest",
+      "research_question": "What evidence should corporate treasuries require before treating tokenized deposit pilots as operational cash equivalents for working-capital reporting?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "retest",
+      "domain": "金融/科技",
+      "batch_id": "2026-10-19-v1",
+      "toolkit_commit": "e245b90a324933f53fddf0deea039a7715708005",
+      "toolkit_version": "1.3.1",
+      "length_record": "1549 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": "tokenized-deposit-cash-equivalent-en-20261015",
+      "question_text_identical_to_copied_pack": true,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "sovereign-ai-cloud-portability-claim-en-20261019",
+      "research_question": "For enterprise buyers evaluating “sovereign / residency-first AI cloud” offerings that also advertise open-weight model choice, what evidence bar is required before procurement can accept sovereignty + model-portability marketing as jointly true through 2027—and when must buyers treat the joint claim as a false proposition without portable eval harnesses, exportable toolchains, and auditable residency kill-switches?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "AI/商业",
+      "batch_id": "2026-10-19-v1",
+      "toolkit_commit": "e245b90a324933f53fddf0deea039a7715708005",
+      "toolkit_version": "1.3.1",
+      "length_record": "1568 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    },
+    {
+      "task_id": "hospital-llm-clinical-doc-coding-bar-en-20261019",
+      "research_question": "Before a regional hospital system allows LLM-drafted clinical documentation into coding / billing workflows, what evidence bar and human-override controls are required so outputs can support medical-necessity / coding consistency claims—and when must “AI documentation acceleration” marketing be treated as assistive-only?",
+      "language": "en",
+      "profile": "lite",
+      "kind": "new",
+      "domain": "医疗/AI",
+      "batch_id": "2026-10-19-v1",
+      "toolkit_commit": "e245b90a324933f53fddf0deea039a7715708005",
+      "toolkit_version": "1.3.1",
+      "length_record": "1509 词（目标 1500–2500）",
+      "revisions": 0,
+      "review_mode": "author_self_check",
+      "independent_review": false,
+      "outer_grok_note": true,
+      "copied_unchanged_from": null,
+      "question_text_identical_to_copied_pack": null,
+      "source_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ]
+    }
+  ],
+  "question_lineage": [
+    {
+      "task_id": "dongshu-xisuan-training-procurement-zh-20261018-retest",
+      "earlier_task_id": "dongshu-xisuan-training-procurement-zh-20261015",
+      "earlier_study": "evals/studies/2026-10-16-external-batches",
+      "same_question_text": true,
+      "note": "Original-condition Lite retest on Toolkit 1.3.0 of the question ingested from 2026-10-15-v1. The earlier synthetic pack is copied unchanged. The earlier run stays in the October 16 ingest."
+    },
+    {
+      "task_id": "saas-frontier-ai-pricing-residency-en-20261018-retest",
+      "earlier_task_id": "saas-frontier-ai-pricing-residency-en-20261015",
+      "earlier_study": "evals/studies/2026-10-16-external-batches",
+      "same_question_text": true,
+      "note": "Original-condition Lite retest on Toolkit 1.3.0 of the question ingested from 2026-10-15-v1. The earlier synthetic pack is copied unchanged. The earlier run stays in the October 16 ingest."
+    },
+    {
+      "task_id": "guide-fund-hardtech-return-ratio-zh-20261019-retest",
+      "earlier_task_id": "guide-fund-hardtech-return-ratio-zh-20261016",
+      "earlier_study": "evals/studies/2026-10-19-external-batches",
+      "same_question_text": true,
+      "note": "Original-condition Lite retest on Toolkit 1.3.1 of the question ingested from 2026-10-16-v1. The earlier synthetic pack is copied unchanged. The earlier run stays in the October 19 ingest. That ingest later recorded that the 20261016 original does not meet report-quality requirements. This retest does not replace that correction."
+    },
+    {
+      "task_id": "tokenized-deposit-cash-equivalent-en-20261019-retest",
+      "earlier_task_id": "tokenized-deposit-cash-equivalent-en-20261015",
+      "earlier_study": "evals/studies/2026-10-16-external-batches",
+      "same_question_text": true,
+      "note": "Original-condition Lite retest on Toolkit 1.3.1 of the question ingested from 2026-10-15-v1. The earlier synthetic pack is copied unchanged. The earlier run stays in the October 16 ingest."
+    }
+  ],
+  "excluded": [
+    "runs/2026-10-14/_superseded-vs-compare",
+    "runs/2026-10-14/_superseded-topic-redo-short",
+    "eval-queue/2026-10-17-gate/2026-10-17-v1",
+    "2026-10-20-v2"
+  ],
+  "review_boundary": "All 12 runs are Lite and record author self-check only. checklist_complete does not certify semantic quality. The independent review backend was unavailable and was not required. All 12 outer Grok notes are separate-context readings. They are not Toolkit independent reviews and do not replace the formal review Lite skips.",
+  "source_boundary": "Every source pack is synthetic and disclosed in the original source text. Packs are workflow evidence, not factual authority.",
+  "tokens_cost": "unknown"
+}

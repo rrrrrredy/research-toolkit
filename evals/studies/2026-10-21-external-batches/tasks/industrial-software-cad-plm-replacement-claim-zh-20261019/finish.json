@@ -1,0 +1,34 @@
+{
+  "task": "industrial-software-cad-plm-replacement-claim-zh-20261019",
+  "message": "industrial-software-cad-plm-replacement-claim-zh-20261019：Lite 完成。合成 S1–S4；未独立评审。判断：证据不能支撑「已可替代海外主力位、产线可切换」；对战略投资人与工厂IT/工艺均过度但机制不同。",
+  "artifact": "final.md",
+  "checklist": {
+    "requirements": {
+      "passed": true,
+      "evidence": "nonwhitespace within 3000-5000; covers audience split/layers/kill; check-draft ok.",
+      "evidence_files": [
+        "checks/length.md"
+      ]
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "C1–C7 match S1–S4; 单模块验收未写成全产线可切换。"
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "停发工28小时、法务拒绝融资口径入验收、Kill四项缺失。"
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "对谁过度、证据分层、反证Kill、落地未决、附录。"
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "战略投资与工厂IT/工艺中文备忘；附录单列；无工具流程叙述。"
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "合成材料与未独立评审已披露；单厂试点与促销窗口混入已标明。"
+    }
+  }
+}
