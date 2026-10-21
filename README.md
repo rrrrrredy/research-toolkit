@@ -66,7 +66,7 @@ Have a draft or new material? [Revise, update or continue Lite work in Full](./d
 
 The review identified a missing counterexample: replacing a working browser step may cost more than the expected savings. The revision makes that trade-off part of the recommendation.
 
-[Explore the revision](https://rrrrrredy.github.io/research-toolkit/?lang=en&case=migration&detail=reason#case) · [Video walkthrough](./docs/assets/api-browser-walkthrough.en.mp4)
+[Explore the revision](https://rrrrrredy.github.io/research-toolkit/?lang=en&case=migration&detail=reason#case)
 
 </details>
 

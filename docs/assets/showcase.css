@@ -131,10 +131,6 @@ details[open] summary{list-style:disclosure-open}
 .install-table th{width:90px;font-weight:650}
 .details p{font-size:12px;line-height:1.9;color:var(--muted);margin-top:14px}
 .documentation-links{display:flex;gap:18px 30px;flex-wrap:wrap;font-size:13px;margin-top:24px}
-.walkthrough{margin-top:22px;color:var(--muted)}
-.walkthrough summary{font-size:12px;font-weight:500}
-.walkthrough video{width:100%;max-width:1000px;display:block;margin:18px auto;border:1px solid var(--line)}
-.walkthrough p{font-size:11px}
 .site-footer{border-top:1px solid var(--line);padding:38px 0 40px}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:30px}
 .footer-brand{font-size:29px;letter-spacing:-1px;font-weight:700;line-height:1.2}

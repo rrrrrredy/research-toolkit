@@ -158,8 +158,6 @@ def chinese_home(source):
             anchor={'textLink':'只能在聊天中使用时','skillLink':'安装后重复使用','fallbackGuide':'选择工具'}.get(a.get('data-i18n'),'直接读取使用')
             a['href']='https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md#'+anchor
         if n.tag=='time': a['datetime']=case['information_cutoff']
-        if n.tag=='video': a['poster']='assets/readme-preview.zh-CN.png'
-        if n.tag=='source': a['src']='assets/case-walkthrough.zh-CN.mp4'
         if a.get('property')=='og:image': a['content']=BASE+'assets/readme-preview.zh-CN.png'
         if a.get('class')=='case-choices js-only':
             a['aria-label']=words['topicsAria']
