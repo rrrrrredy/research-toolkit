@@ -15,3 +15,5 @@ All three were fixed and covered by targeted reruns. The reviewer reported no fu
 Maintainer review also checked generated files, bilingual documentation, API compatibility, platform skips and new-file contents. An installation staging-test comparison was corrected separately; see [validation](task-continuity-validation.md). No extra semantic gate, mandatory legacy migration or relaxed independent-review proof was added.
 
 No second model review of unchanged content was requested. Fixes were checked against the original findings, exact changes and targeted tests. Long-term maintenance and research-quality benefits remain unmeasured.
+
+Release CI additionally exposed noncanonical Windows paths: capture paths were resolved while the task root could retain a short-name alias, breaking relative-path calculation. The root is now resolved consistently; an equivalent `..` path reproduced the failure before the fix. The Windows workflow also restores the immediate exit-code check after record tests so a later command cannot mask their failure. These are follow-up CI repairs, not findings attributed to the independent reviewer above.

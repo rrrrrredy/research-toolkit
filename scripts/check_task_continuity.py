@@ -213,14 +213,16 @@ class ContinuityTests(unittest.TestCase):
             w.append_row(self.root, {"record_type": "model_review", "attempt_id": str(i), "slot_id": "same",
                 "artifact_sha256": "same", "input": {}, "status": "failed",
                 "execution": {"path": f"reviews/test/{i}/execution.json"}})
-        summary = activity_summary(self.root)
-        self.assertEqual(len(summary["imported_reviews"]), 2)
-        self.assertEqual(summary["self_review_submissions"], 1)
-        self.assertEqual(len(summary["review_invocations"]), 1)
-        self.assertEqual(summary["review_retries"], 0)
-        self.assertEqual(summary["failed_review_attempts"], 0)
-        self.assertEqual(summary["observed_review_usage"], {"input_tokens": 7, "output_tokens": 3})
-        self.assertTrue(all(x["review_elapsed_seconds"] is None for x in summary["imported_reviews"]))
+        for root in (self.root, self.root / ".." / self.root.name):
+            with self.subTest(root=str(root)):
+                summary = activity_summary(root)
+                self.assertEqual(len(summary["imported_reviews"]), 2, summary)
+                self.assertEqual(summary["self_review_submissions"], 1)
+                self.assertEqual(len(summary["review_invocations"]), 1)
+                self.assertEqual(summary["review_retries"], 0)
+                self.assertEqual(summary["failed_review_attempts"], 0)
+                self.assertEqual(summary["observed_review_usage"], {"input_tokens": 7, "output_tokens": 3})
+                self.assertTrue(all(x["review_elapsed_seconds"] is None for x in summary["imported_reviews"]))
 
     def test_diagnostic_catalog_is_structural_not_a_quality_test(self):
         from check_semantic_diagnostics import validate_catalog

@@ -177,6 +177,7 @@ jobs:
           python scripts/check_draft_contract.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/check_record_workflow.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/check_task_continuity.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/check_profiles_reviewers.py

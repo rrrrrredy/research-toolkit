@@ -66,6 +66,9 @@ def record_event(root, event):
 
 def _activity_summary(root):
     from research_workflow import safe_path
+    # safe_path resolves its result. Use the same base for relative paths,
+    # including Windows short-name temp roots and equivalent paths with '..'.
+    root = root.resolve()
     events, warnings = [], []
     path = safe_path(root, "logs/activity.jsonl")
     if path.exists():
