@@ -8,7 +8,7 @@
 
 Passed: 14 continuity tests, 12 record-workflow tests, 79 workflow tests, 35 profile/reviewer tests, the packaged stdio MCP contract, and 28 existing semantic-diagnostic tests. The workflow tests use synthetic reviewers and establish execution contracts, not model judgment quality. The existing 23 diagnostic pairs were not rewritten.
 
-Of 24 plugin-build/installation tests, 17 passed and seven Windows symlink tests were skipped. Two junction tests passed with the necessary local permissions. Version consistency, bilingual Skill/HTML synchronization, generated plugin consistency, static-site checks and diff formatting also passed.
+Executable plugin-build/installation checks passed; seven Windows symlink tests were skipped locally. Two junction tests passed with the necessary local permissions. Version consistency, bilingual Skill/HTML synchronization, generated plugin consistency, static-site checks and diff formatting also passed.
 
 Windows needed a writable short workspace temporary path, an extended path for deeply nested review fixtures, and authorized execution for junctions, the local HTTP mock and MCP stdio. Environment failures were retained as such; product checks were not disabled. Changed behavior was retested, without repeatedly rerunning an unchanged full workflow. A separate installation-test defect was fixed: working-tree staging must be compared with the working-tree files it copied, while Git-reference tests remain separate.
 
