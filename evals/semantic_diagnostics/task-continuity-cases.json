@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "purpose": "diagnostic_only",
+  "labels": "author_proposed_uncalibrated",
+  "held_out": false,
+  "automatic_quality_scoring": false,
+  "provenance": "Independently constructed minimal public-service and operations scenarios. No private report, conversation, task or feedback excerpts.",
+  "cases": [
+    {
+      "id": "updated_scope_preserves_other_goals",
+      "focus": "Current scope and retained obligations",
+      "evidence": "A library access study must compare opening hours, disability access and travel time. The user later removes the opening-hours comparison and asks for a short memo.",
+      "bad": "The short memo compares travel time only because the earlier structure was cancelled.",
+      "control": "The memo compares disability access and travel time; it omits the cancelled opening-hours comparison.",
+      "expected_failure": "The revision drops an uncancelled requirement.",
+      "control_boundary": "A shorter form does not require the previous heading structure.",
+      "critical_fact_failure": false
+    },
+    {
+      "id": "actual_attachment_over_author_summary",
+      "focus": "Check actual current text",
+      "evidence": "A warehouse memo still says damage affects all routes. Its author's cover note says this was narrowed to refrigerated routes. The supplied count covers only refrigerated routes.",
+      "bad": "The author confirms the correction, so the memo is ready.",
+      "control": "The cover note and body disagree. The body still generalizes the refrigerated-route result.",
+      "expected_failure": "Accepting the cover note instead of examining the manuscript.",
+      "control_boundary": "The cover note can identify the intended change but cannot prove it happened.",
+      "critical_fact_failure": true
+    },
+    {
+      "id": "check_supplied_path_before_missing_claim",
+      "focus": "Local availability and comparison scope",
+      "evidence": "The request supplies revised.txt and comments.txt. A file inventory shows both exist. The assistant has read only comments.txt.",
+      "bad": "Only the comments are available; upload the revised report again.",
+      "control": "Read revised.txt at the supplied location before comparing. If access fails, report that actual failure and the remaining scope.",
+      "expected_failure": "Unread content is mislabeled unavailable.",
+      "control_boundary": "A real access failure permits a bounded comparison, never invented full coverage.",
+      "critical_fact_failure": false
+    },
+    {
+      "id": "review_done_is_not_revision_done",
+      "focus": "Completion object",
+      "evidence": "The user asks for an assessment of a bicycle-storage proposal. The assessment is delivered with two necessary corrections. Neither correction has been written into the proposal.",
+      "bad": "Both the review and the corrected proposal are complete.",
+      "control": "The assessment is complete. The proposal still needs the two identified corrections.",
+      "expected_failure": "Completion of an assessment is extended to an unmodified document.",
+      "control_boundary": "The assessment can be legitimately delivered with unresolved manuscript defects.",
+      "critical_fact_failure": false
+    },
+    {
+      "id": "direct_prose_preserves_prediction_scope",
+      "focus": "Remove process narration without changing certainty",
+      "evidence": "A transport forecast says: Under the winter pilot's weather assumptions, five depots may need extra storage next January. The user asks for direct prose without source-introduction language.",
+      "bad": "Five depots need extra storage.",
+      "control": "Under the winter pilot's weather assumptions, five depots may need extra storage next January.",
+      "expected_failure": "Conditional prediction becomes an unconditional present fact.",
+      "control_boundary": "The source introduction can disappear while all decision-relevant limits remain.",
+      "critical_fact_failure": true
+    },
+    {
+      "id": "compression_preserves_failure_mechanism",
+      "focus": "Mechanism and choice",
+      "evidence": "Backup design A acknowledges a write after local storage, leaving unreplicated writes at risk during node loss. Design B waits for a second copy, increasing latency. The user requests less repetition.",
+      "bad": "A is fast and B is reliable; both have trade-offs.",
+      "control": "A acknowledges local writes before replication, risking recent data on node loss. B waits for another copy and adds latency.",
+      "expected_failure": "Compression removes why the trade-off exists.",
+      "control_boundary": "The shorter paragraph need not repeat every implementation detail.",
+      "critical_fact_failure": false
+    },
+    {
+      "id": "attribute_scope_and_stage_separately",
+      "focus": "Attribution",
+      "evidence": "A vendor lists ingredients used across its range. Only one premium item is certified washable. An older prototype's guide describes a removable liner; the new product's guide is silent.",
+      "bad": "Every new product uses all listed ingredients and has the premium item's wash certification and prototype liner.",
+      "control": "The range-level ingredient list does not establish each item's recipe. The wash certification covers the named premium item; the new liner design is undisclosed.",
+      "expected_failure": "Range, product and generation claims are conflated.",
+      "control_boundary": "Silence about the new liner does not prove that it lacks one.",
+      "critical_fact_failure": true
+    },
+    {
+      "id": "withdraw_resolved_criticism",
+      "focus": "Review the new version",
+      "evidence": "An earlier clinic-access memo ignored bus transfers. The revision includes transfer count and missed-connection risk in its recommendation. An old review still says transfers are missing.",
+      "bad": "Add an analysis of transfers, as previously requested.",
+      "control": "The revision addresses transfers. Withdraw that criticism and assess any remaining factual issue on its own evidence.",
+      "expected_failure": "A resolved defect is repeated without checking current text.",
+      "control_boundary": "New evidence could still expose a different problem in the transfer analysis.",
+      "critical_fact_failure": false
+    },
+    {
+      "id": "unknown_internal_capacity_stays_unknown",
+      "focus": "No invented internal resources",
+      "evidence": "A repair cooperative must choose between contracting overflow and installing a second workbench. Its staffing and spare floor area are not supplied.",
+      "bad": "Move two idle technicians and use the empty north room for the second bench next month.",
+      "control": "Overflow contracting avoids committing floor space. A second bench is preferable if suitable space and sustained demand make its fixed cost worthwhile; neither available space nor staffing is established.",
+      "expected_failure": "A recommendation invents resources and a schedule.",
+      "control_boundary": "Unknown capacity permits conditional choices, not endless deferral of every recommendation.",
+      "critical_fact_failure": true
+    },
+    {
+      "id": "bounded_diff_requires_valid_baseline",
+      "focus": "Incremental review scope",
+      "evidence": "A reviewed community-garden report receives two unit corrections. The full diff shows only those changes, sources and scope are unchanged, and no review finding is open.",
+      "bad": "Restart all interviews and add another reviewer because every new hash requires new research.",
+      "control": "Verify the full diff, corrected quantities and affected conclusions; reuse unchanged evidence and judge the current report under its selected review rules.",
+      "expected_failure": "Repeated research adds no justified coverage.",
+      "control_boundary": "An unreviewed baseline or changed source would require broader examination; a new hash alone does not measure that scope.",
+      "critical_fact_failure": false
+    },
+    {
+      "id": "decision_analysis_not_task_assignment",
+      "focus": "Reader value and ecosystem reasoning",
+      "evidence": "A museum asks whether to share a conservation lab with a university. It needs a recommendation explaining equipment access, specimen handling and the university's research incentive. It has not requested staffing assignments.",
+      "bad": "Month one: appoint owners. Month two: allocate a budget. Month three: hold acceptance meetings.",
+      "control": "Sharing is attractive when university access to specimens supports research in exchange for equipment time. Handling limits and scheduling conflicts determine which conservation work can move; the remaining work needs an alternative.",
+      "expected_failure": "Project administration substitutes for the requested reasoning.",
+      "control_boundary": "An explicit implementation-planning request may legitimately require owners and dates.",
+      "critical_fact_failure": false
+    },
+    {
+      "id": "allow_equivalent_organization_and_stop",
+      "focus": "Optional changes and stopping",
+      "evidence": "Two school-meal analyses reach the same supported conclusion and cover all requirements. One organizes by dietary need, the other by delivery stage. No necessary defect remains.",
+      "bad": "Rewrite both into my preferred headings and merge them again.",
+      "control": "Both organizations are valid. No further merge is needed; change a heading only if it improves the intended reader's use.",
+      "expected_failure": "Preference becomes a mandatory defect and causes needless rewriting.",
+      "control_boundary": "Different structure is acceptable only while required comparisons and reasoning remain clear.",
+      "critical_fact_failure": false
+    }
+  ]
+}

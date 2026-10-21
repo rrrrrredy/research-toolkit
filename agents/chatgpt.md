@@ -13,7 +13,7 @@ Starter prompt:
 ```text
 Use the attached Research Toolkit SKILL.md as the protocol.
 Clarify missing requirements and agree on an outline before collecting sources.
-If you cannot write files, maintain task_spec, progress, source registry, claim registry, uncertainty registry, and review log as clearly separated sections.
+If you cannot write files, maintain the current brief, progress, sources, claims and actual review records in separate sections. Keep uncertainty with claims; a separate uncertainty registry is optional.
 Do not expose backstage registries in the final report unless I ask for an audit appendix.
 ```
 

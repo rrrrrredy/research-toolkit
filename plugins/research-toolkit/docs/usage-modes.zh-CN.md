@@ -15,7 +15,7 @@
 
 读取和使用研究方法，无须安装 Python 或特定厂商 CLI。检索与文件访问由撰写 Agent 提供；独立审阅需要另一个评审者，仅提供指令不会自动执行审阅。
 
-## 八个工具何时用、何时可忽略
+## 九个工具何时用、何时可忽略
 
 **按任务选择 [Lite](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.zh-CN.md) 或 [Full](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-full.zh-CN.md)。** 两者共用研究底线，Agent 维护记录。Lite 完成作者自检；Full 增加所选评审、修订核对和交付一致性检查。可直接读方法，CLI/MCP 按需接入。
 
@@ -130,7 +130,7 @@ Full 的形式检查验证声明范围内的版本和记录一致性；它们不
 | --- | --- | --- |
 | Skill | 入口指令与详细研究方法 | 原生技能发现或明确读取文件 |
 | 插件 | Skill、参考文件和本地 MCP 服务，一次安装 | 支持该软件包格式与本地 stdio MCP |
-| MCP | 初始化、保存进度、加载方法、审阅和检查交付的八个工具 | 能启动并调用本地 stdio MCP 服务 |
+| MCP | 初始化、保存进度、加载方法、审阅和检查交付的九个工具 | 能启动并调用本地 stdio MCP 服务 |
 
 共享 CLI 需要 Python 3.10+，只使用标准库。Linux 上优先使用 `python3`；本机已有的 Python 3.10+ 解释器即可。MCP 还需安装 `requirements-mcp.txt` 中的依赖。未配置后端时，新建 Full 任务自动进入标明强度降级的 self 评审；外部／独立评审可使用任一受支持命令或端点，无强制厂商账户。
 
@@ -364,3 +364,20 @@ with (task / "logs/self-review-01.json").open("x", encoding="utf-8") as output:
 工具能约束自身的完成条件，不能阻止 Agent 绕过工具或在外部修改文件，也不能用机械检查证明事实正确。内容审查与原始证据仍是验收的一部分。
 
 CLI 的 `check-draft` 使用 `task` 和可选 `artifact`，无需交付说明；检查失败退出码为 1。未达标稿件遵循[修正与停止规则](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/failure-handling.zh-CN.md)：修正普通报告的新版本，保留冻结评测原件，不反复重跑未修改的有效负面判断直到通过。
+
+
+## 当前主稿与需求变更
+
+`research_save` 新增可选 `brief` 局部更新：只传变更的 question/audience/scope/output/depth/evidence_standard，未传字段保留，并同步规格和进度中的 brief。与受影响要求一起保存，不需要再维护一份范围台账。
+
+```json
+{"task":"comparison","brief":{"output":"一份修订后的比较报告"},"draft":{"path":"drafts/revised.md","main":true,"kind":"report"}}
+```
+
+`draft.main=true` 显式选定当前工作文件；`kind` 可选 report/comparison/review。保存其他章节或参考稿不改变该选择。`complete` 仍只记录完整草稿。`save/status.current_work` 返回当前文件、未结要求和恢复路径；status 另列上次交付引用。新主稿或需求修订不会继承终态，旧凭证保留。审阅／交付传当前主稿的 artifact。旧任务不必迁移，未选主稿时保持原行为；当前文件观察摘要不是批准。
+
+`start/status.runtime` 返回执行实现的位置、版本、代码摘要和可用入口摘要；host_loaded_entry=not_observed，不推断宿主读了哪个 Skill。工具只识别登记的文件，不监控任意新目录。
+
+`activity.imported_reviews` 与真实调用、自审分开；自定义适配器以 capture.import_only=true 声明导入，导入耗时不是模型耗时，未知用量保持 null。旧捕获中的 import_only 同样识别。该标记不放宽执行身份和版本核验。
+
+阅读要求在保存时检查 full_text/relevant_sections 和非空、不重复的 required_source_ids；配对字段可在既有行上局部更新。无效批次不部分覆盖正文或状态。详细方法见[任务接续](../references/task-continuity.zh-CN.md)。

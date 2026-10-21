@@ -133,7 +133,7 @@ Use local MCP when the host can start a local process, or the bundled plugin whe
 | --- | --- | --- |
 | Skill | Entry instructions and detailed research methods | Native Skill discovery or explicit file reading |
 | Plugin | Skill, references, and the local MCP server in one package | Support for the package format and local stdio MCP |
-| MCP | Eight callable tools for task setup, progress, guidance, reviews, and delivery checks | A client that can start and call a local stdio MCP server |
+| MCP | Nine callable tools for task setup, progress, guidance, reviews, and delivery checks | A client that can start and call a local stdio MCP server |
 
 The shared CLI needs Python 3.10+ and only its standard library. Prefer `python3` on Linux; any installed Python 3.10+ interpreter is enough. MCP also needs the dependency in `requirements-mcp.txt`. Without a backend, new Full tasks use explicitly degraded self-review. External/independent review accepts any supported command or endpoint; no vendor account is mandatory.
 
@@ -365,3 +365,20 @@ A separate [guided real-model check of plugin `0.1.2`](https://github.com/rrrrrr
 The tools enforce their own completion conditions. They cannot prevent an agent from ignoring tools or editing files outside them, and they cannot mechanically certify factual truth. Acceptance follows the selected profile and reviewer tier; independent review is required only when declared.
 
 For failed drafts, follow the [repair and stopping rules](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/failure-handling.md). Correct ordinary report versions, preserve frozen evaluation originals, and never repeat an unchanged valid negative judgment until it passes.
+
+
+## Current artifact and scope updates
+
+Optional `research_save.brief` updates only supplied question/audience/scope/output/depth/evidence_standard fields and synchronizes the specification with progress.brief. Save affected requirements together where practical; no second scope ledger is needed.
+
+```json
+{"task":"comparison","brief":{"output":"A revised comparison report"},"draft":{"path":"drafts/revised.md","main":true,"kind":"report"}}
+```
+
+`draft.main=true` explicitly selects the current work file; optional kind is report/comparison/review. Other chapter/reference saves do not change this selection. `complete` still records draft completeness only. `save/status.current_work` returns the current file, open requirements and resume paths; status separately references the last delivery. A new main or changed brief cannot inherit a terminal state; old receipts remain intact. Review/finish must pass the registered main as artifact. Legacy tasks need no migration and retain previous behavior without an explicit main. The saved file observation is not approval.
+
+`start/status.runtime` identifies the implementation path, version, code hash and available entry hash; host_loaded_entry=not_observed. It does not infer which Skill the host read. Tools identify registered files, not arbitrary new directories.
+
+`activity.imported_reviews` separates imports from invocations and self submissions. Custom adapters declare capture.import_only=true; import time is not model time and unavailable usage stays null. Legacy import_only captures are recognized. This flag does not relax execution identity or version checks.
+
+Reading requirements are validated at save: full_text/relevant_sections paired with a nonempty distinct required_source_ids list. Partial updates to a valid existing pair remain supported. Invalid batches cannot partially overwrite reports or state. See [task continuity](../references/task-continuity.md) for the workflow.

@@ -224,6 +224,19 @@ async def verify(base):
         assert (local/"state/progress.json").read_bytes() == recorded
         history = [json.loads(line) for line in (local/"logs/review.jsonl").read_text(encoding="utf-8").splitlines()]
         assert [r["report_verdict"] for r in history if r.get("record_type") == "model_review"] == ["needs_revision", "pass"]
+        # Optional continuity fields travel through the packaged MCP schema.
+        before_receipt = (local/"state/final_delivery.json").read_bytes()
+        current = unpack(await client.call_tool("research_save", {"task": "template-mcp",
+            "brief": {"output": "A comparison note"},
+            "draft": {"path": "comparison.md", "content": "Comparison underway.", "main": True, "kind": "comparison"}}))
+        assert current["ok"] and current["current_work"]["artifact"]["kind"] == "comparison"
+        resumed = unpack(await client.call_tool("research_status", {"task": "template-mcp"}))
+        assert resumed["progress"]["status"] == "in_progress"
+        assert resumed["current_work"]["last_delivery"]["artifact"] == "memo.md"
+        assert resumed["runtime"]["host_loaded_entry"] == "not_observed"
+        wrong = await client.call_tool("research_finish", {"task": "template-mcp", "artifact": "memo.md", "message": "Done"})
+        assert wrong.is_error
+        assert (local/"state/final_delivery.json").read_bytes() == before_receipt
         resources = await client.list_resources()
         assert any(str(r.uri) == "research-toolkit://instructions" for r in resources.resources)
         prompts = await client.list_prompts()

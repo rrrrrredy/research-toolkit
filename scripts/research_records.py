@@ -6,8 +6,10 @@ import json
 import os
 import time
 import uuid
+import hashlib
+import re
 from check_delivery import (inspect_csv_text, inspect_jsonl_text, length_constraint_errors, sha256_file,
-                            has_evidence, REQUIREMENT_DECISION_STATUSES)
+                            has_evidence, REQUIREMENT_DECISION_STATUSES, READING_REQUIREMENTS)
 from run_observation import now, record_event
 
 SCHEMAS = {
@@ -17,6 +19,23 @@ SCHEMAS = {
                ["claim_id", "claim", "claim_type", "supporting_sources", "counter_evidence", "uncertainty"]),
     "requirements": ("state/requirements.jsonl", "requirement_id", "R", "summary", []),
 }
+
+
+def revised_spec(original, previous, updates):
+    """Replace known brief values while retaining manually added sections."""
+    text = original.decode("utf-8-sig").replace("\r\n", "\n").replace("\r", "\n")
+    for key, value in updates.items():
+        if previous.get(key) == value:
+            continue
+        header = f"## {key}\n\n"
+        if key not in previous and not re.search(r"(?m)^## " + re.escape(key) + r"\s*$", text):
+            text = text.rstrip() + "\n\n" + header + value + "\n"
+            continue
+        pattern = re.compile(r"(?m)^" + re.escape(header + previous.get(key, "")) + r"(?=\n|$)")
+        if len(list(pattern.finditer(text))) != 1:
+            raise ValueError(f"brief.{key}: task_spec no longer matches the saved field. Agent: reconcile that field with the actual specification before retrying; retain other sections.")
+        text = pattern.sub(lambda _: header + value, text, count=1)
+    return text.encode("utf-8")
 
 
 def merge_records(root, kind, incoming, replace):
@@ -99,6 +118,16 @@ def merge_records(root, kind, incoming, replace):
             if "required_source_ids" in row and (not isinstance(row["required_source_ids"], list)
                     or not row["required_source_ids"] or not all(isinstance(s, str) and s.strip() for s in row["required_source_ids"])):
                 raise ValueError(f"requirements[{index}].required_source_ids: use a nonempty list of source IDs.")
+            # An explicit user scope decision can retire a legacy obligation
+            # without inventing a corrected reading promise for that old row.
+            if row["status"] not in REQUIREMENT_DECISION_STATUSES and ("reading_requirement" in row or "required_source_ids" in row):
+                if not isinstance(row.get("reading_requirement"), str) or row["reading_requirement"] not in READING_REQUIREMENTS:
+                    raise ValueError(f"requirements[{index}].reading_requirement: use full_text or relevant_sections.")
+                source_ids = row.get("required_source_ids")
+                if (not isinstance(source_ids, list) or not source_ids
+                        or not all(isinstance(s, str) and s.strip() for s in source_ids)
+                        or len(source_ids) != len(set(source_ids))):
+                    raise ValueError(f"requirements[{index}].required_source_ids: use a nonempty list of distinct source IDs.")
             if "length_constraint" in row:
                 errors = length_constraint_errors(row["length_constraint"])
                 if errors:
@@ -118,12 +147,24 @@ def merge_records(root, kind, incoming, replace):
     return name, content.encode("utf-8"), original, ids
 
 
-def save_records(root, sources=None, claims=None, requirements=None, draft=None, replace=None):
-    from research_workflow import safe_path
+def save_records(root, sources=None, claims=None, requirements=None, draft=None, replace=None, brief=None):
+    from research_workflow import safe_path, load, BRIEF_FIELDS
     started, stamp, operation_id = time.monotonic(), now(), uuid.uuid4().hex
     event = {"operation": "save", "operation_id": operation_id, "started_at": stamp}
     plans, backups, ids, temporary, committed = [], [], {}, [], []
     try:
+        progress = load(root, "state/progress.json")
+        old_progress = dict(progress)
+        if brief is not None:
+            if (not isinstance(brief, dict) or not brief or any(k not in BRIEF_FIELDS for k in brief)
+                    or any(not isinstance(v, str) or not v.strip() for v in brief.values())):
+                raise ValueError("brief: provide nonempty text updates to question/audience/scope/output/depth/evidence_standard.")
+            previous_brief = progress.get("brief", {})
+            progress["brief"] = {**previous_brief, **brief}
+            if progress["brief"] != previous_brief:
+                path = safe_path(root, "state/task_spec.md")
+                original_spec = path.read_bytes()
+                plans.append(("state/task_spec.md", revised_spec(original_spec, previous_brief, brief), original_spec))
         values = {"sources": sources, "claims": claims, "requirements": requirements}
         replace = [] if replace is None else replace
         if not isinstance(replace, list) or any(k not in SCHEMAS or values[k] is None for k in replace):
@@ -135,14 +176,18 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                 if kind in replace and original is not None:
                     backups.append((f"logs/record-backups/{operation_id}/{name}", original, None))
         if draft is not None:
-            if not isinstance(draft, dict) or set(draft) - {"path", "content", "complete"}:
-                raise ValueError("draft: use path, optional content, and complete=true only for a complete first/final draft.")
+            if not isinstance(draft, dict) or set(draft) - {"path", "content", "complete", "main", "kind"}:
+                raise ValueError("draft: use path, optional content/complete/main/kind; complete records draft completeness, not delivery approval.")
             name = draft.get("path")
             path = safe_path(root, name)
             if name.split("/")[0] in {"state", "data", "logs", "reviews"} or path.suffix not in {".md", ".txt"}:
                 raise ValueError("draft.path: use a report .md/.txt path outside state/data/logs/reviews.")
             if type(draft.get("complete", False)) is not bool:
                 raise ValueError("draft.complete: use true or false.")
+            if type(draft.get("main", False)) is not bool:
+                raise ValueError("draft.main: use true or false.")
+            if draft.get("kind", "report") not in {"report", "comparison", "review"}:
+                raise ValueError("draft.kind: use report, comparison or review for the work being delivered.")
             original = path.read_bytes() if path.exists() else None
             content = draft.get("content")
             if "content" not in draft:
@@ -153,8 +198,22 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                 plans.append((name, content.encode("utf-8"), original))
             event.update(artifact=name, complete_draft=draft.get("complete", False),
                          time_basis="saved_by_tool" if "content" in draft else "existing_file_observed")
-        if not plans and draft is None:
+            current = progress.get("current_artifact", {})
+            if draft.get("main") or current.get("path") == name:
+                normalized = content.replace("\r\n", "\n").replace("\r", "\n")
+                progress["current_artifact"] = {"path": name,
+                    "sha256": hashlib.sha256(normalized.encode("utf-8")).hexdigest(),
+                    "kind": draft.get("kind", current.get("kind", "report") if current.get("path") == name else "report")}
+        if not plans and draft is None and brief is None:
             raise ValueError("Supply sources, claims, requirements or a draft to save.")
+        if progress != old_progress:
+            # Keep historical receipts and reviews intact. An explicit new main
+            # draft or brief revision cannot retain a terminal current state.
+            if progress.get("stage") in {"final", "review"} or progress.get("status") == "complete":
+                progress.update(stage="revise", status="in_progress",
+                                next_action="Continue the current work; reconcile affected requirements and review this version before delivery.")
+            path = safe_path(root, "state/progress.json")
+            plans.append(("state/progress.json", (json.dumps(progress, ensure_ascii=False, indent=2) + "\n").encode("utf-8"), path.read_bytes()))
         # Validate and stage every payload before replacing any current record.
         for name, content, original in backups + plans:
             if content == original:
@@ -200,5 +259,7 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
         result["observation_warning"] = f"Activity could not be recorded: {exc}"
     if result["ok"]:
         from record_changes import latest_changes
+        from task_context import current_work
         result["changes"] = latest_changes(root)
+        result["current_work"] = current_work(root, load(root, "state/progress.json"))
     return {**result, "observation": event}

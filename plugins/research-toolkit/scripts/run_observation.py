@@ -10,6 +10,9 @@ def now():
 
 
 def timed_capture(capture, started_at, started):
+    if capture.get("import_only") is True:
+        return {**capture, "import_started_at": started_at, "import_finished_at": now(),
+                "import_elapsed_seconds": round(time.monotonic() - started, 6)}
     return {**capture, "started_at": started_at, "finished_at": now(),
             "elapsed_seconds": round(time.monotonic() - started, 6)}
 
@@ -81,7 +84,8 @@ def _activity_summary(root):
             elapsed = (datetime.fromisoformat(first["finished_at"]) - datetime.fromisoformat(start)).total_seconds()
         except (ValueError, KeyError, TypeError):
             warnings.append("Draft interval unavailable; original observations retained.")
-    attempts, totals, self_submissions = [], {}, 0
+    attempts, totals, self_submissions, imports = [], {}, 0, []
+    imported_paths = set()
     # Only actual invocation captures; reusing a review creates no new capture.
     reviews = safe_path(root, "reviews")
     if reviews.exists():
@@ -89,6 +93,12 @@ def _activity_summary(root):
             try:
                 path.resolve().relative_to(root.resolve())
                 capture = json.loads(path.read_text(encoding="utf-8"))
+                if capture.get("import_only") is True:
+                    imported_paths.add(path.relative_to(root).as_posix())
+                    imports.append({"path": path.relative_to(root).as_posix(),
+                                    "import_elapsed_seconds": capture.get("import_elapsed_seconds", capture.get("elapsed_seconds")),
+                                    "review_elapsed_seconds": None, "usage": None})
+                    continue
                 if capture.get("external_execution") is False:
                     self_submissions += 1
                     continue
@@ -107,6 +117,8 @@ def _activity_summary(root):
                 row = json.loads(line)
                 if row.get("record_type") != "model_review" or row.get("reviewer") == "self":
                     continue
+                if isinstance(row.get("execution"), dict) and row["execution"].get("path") in imported_paths:
+                    continue
                 key = (row.get("slot_id"), row.get("artifact_sha256"), json.dumps(row.get("input"), sort_keys=True))
                 retry_groups.setdefault(key, set()).add(row.get("attempt_id"))
                 failed += row.get("status") != "completed"
@@ -118,6 +130,7 @@ def _activity_summary(root):
             "review_invocations": attempts, "observed_review_usage": totals or None,
             "failed_review_attempts": failed, "review_retries": sum(max(0, len(ids) - 1) for ids in retry_groups.values()),
             "self_review_submissions": self_submissions,
+            "imported_reviews": imports,
             "review_invocations_without_usage": sum(a["usage"] is None for a in attempts),
             "author_usage": None, "warnings": warnings,
             "scope": "Tool-observed draft saves and invocation captures; no host author usage, billing or quality inference."}

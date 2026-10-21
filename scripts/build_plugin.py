@@ -9,7 +9,7 @@ from check_version import check as check_version, safe_repo_file
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT/"plugins/research-toolkit"
-RUNTIME = ["profile_policy.py", "check_delivery.py", "check_review_completion.py", "research_workflow.py", "research_records.py", "record_changes.py", "release_updates.py", "extract_source_text.py", "run_observation.py", "review_runner.py", "review_process.py", "task_lock.py"]
+RUNTIME = ["profile_policy.py", "check_delivery.py", "check_review_completion.py", "research_workflow.py", "research_records.py", "record_changes.py", "release_updates.py", "extract_source_text.py", "run_observation.py", "review_runner.py", "review_process.py", "task_lock.py", "task_context.py"]
 MANIFEST = ".generated-files.json"
 
 

@@ -227,3 +227,5 @@ Choose a structure around the task’s argument and delivery constraints. The fo
 Use the requested citation form. Inline links can supply references; add an appendix only when requested or useful within the brief. A request for no appendix or a compact answer takes precedence over these examples.
 
 If the draft reads like a list of sources, rewrite around mechanisms, causality, comparison, and implications.
+
+For multi-turn revisions and stale projects, follow [task continuity](task-continuity.md), reusing this task’s specification, requirements and state without a second tracker.
