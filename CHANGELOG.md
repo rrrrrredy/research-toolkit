@@ -6,6 +6,14 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.0 — 2026-10-21
+
+- Add optional partial `research_save.brief` updates and explicit `draft.main` / `draft.kind` selection. Preserve custom specification sections and historical receipts; a revised main artifact cannot reuse the wrong delivery.
+- Return runtime identity and current-work references at resume, without claiming that the host loaded the displayed Skill or that a file hash proves quality.
+- Validate active reading requirements when saving, preserve explicit legacy waivers, and distinguish imported reviews from actual model calls, self submissions, timing and usage.
+- Add bilingual continuity guidance, 14 targeted tests and 12 independently constructed semantic diagnostics. An independent code review found three defects, which were corrected and tested.
+- Synchronize the plugin and bilingual [release notes](docs/releases/v1.4.0.md). The three-mode short-task probe found no answer-quality advantage; managed execution took more time and tokens. Long-task benefits remain unverified. Nine tools and existing task formats remain compatible; no mandatory new input or migration.
+
 ## v1.3.3 — 2026-10-20
 
 - Ship the exact repeated-paragraph advisory from PR #85: `check-draft` returns original prose, headings and every line range in existing `warnings`. It does not change `ok`, delivery eligibility or report contents.

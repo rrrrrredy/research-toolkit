@@ -7,7 +7,7 @@ from check_delivery import inspect_csv_text, inspect_jsonl_text, reading_evidenc
 REGISTRIES = {"sources": ("data/source_registry.csv", "source_id"),
               "claims": ("data/claims_registry.csv", "claim_id"),
               "requirements": ("state/requirements.jsonl", "requirement_id")}
-SCOPE = ("Latest successful record-save batch; locations are literal source-link or claim-text matches in the latest registered draft, "
+SCOPE = ("Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), "
          "not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. "
          "No changes to review or delivery checks.")
 
@@ -185,11 +185,13 @@ def impact_view(root, summary, artifact):
 
 def latest_changes(root):
     try:
+        from research_workflow import load
         events = history(root)
         latest = next((e for e in reversed(events) if "record_changes" in e), None)
         if latest is None:
             return {"available": False, "scope": SCOPE}
-        artifact = next((e["artifact"] for e in reversed(events) if e.get("artifact")), None)
+        current = load(root, "state/progress.json").get("current_artifact", {})
+        artifact = current.get("path") or next((e["artifact"] for e in reversed(events) if e.get("artifact")), None)
         return {"available": True, "operation_id": latest["operation_id"], "saved_at": latest.get("finished_at"),
                 **impact_view(root, latest["record_changes"], artifact)}
     except (OSError, ValueError, TypeError, KeyError, AttributeError):

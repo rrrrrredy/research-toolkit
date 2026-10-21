@@ -50,10 +50,13 @@ def research_start(task: str, brief: dict[str, str], language: str = "en",
 @server.tool(structured_output=True)
 def research_save(task: str, sources: list[dict[str, Any]] | None = None,
                   claims: list[dict[str, Any]] | None = None, requirements: list[dict[str, Any]] | None = None,
-                  draft: dict[str, Any] | None = None, replace: list[str] | None = None) -> dict[str, Any]:
+                  draft: dict[str, Any] | None = None, replace: list[str] | None = None,
+                  brief: dict[str, str] | None = None) -> dict[str, Any]:
     """Save/update source, claim and requirement objects by stable ID; the tool writes CSV/JSONL.
     Omitted IDs are assigned or matched by URL/claim/summary. Partial updates retain other fields and rows.
     draft uses path, optional content and complete=true for a complete draft; omit content to register an existing file.
+    draft.main=true explicitly selects the current work; optional kind is report/comparison/review.
+    Chapter/reference drafts do not change the main selection. brief updates only supplied brief fields and task_spec together.
     Returns assigned IDs and field errors for the agent to resolve, without asking users to manage records.
     replace names complete collections to repair from recovered rows; original bytes are backed up automatically.
     Records reading/verification claims as supplied, never infers truth or closes requirements automatically.
@@ -61,7 +64,7 @@ def research_save(task: str, sources: list[dict[str, Any]] | None = None,
     changes summarizes the latest record-save batch and candidate claim/report locations; identical bytes are not rewritten.
     Saving a source ID also compares local evidence against its previous save observation. First observations are explicit.
     """
-    return mutate(workflow.save_records, task, sources, claims, requirements, draft, replace)
+    return mutate(workflow.save_records, task, sources, claims, requirements, draft, replace, brief)
 
 
 @server.tool(structured_output=True)
@@ -81,6 +84,8 @@ def research_status(task: str, language: str = "en", stage: str | None = None) -
     Explicit analyze/draft entry includes saved requirements as JSONL text when present, preserving statuses and evidence.
     changes reuses the latest successful record-save batch and locates related claims in the latest registered draft.
     Literal matches guide reading, not semantic verdicts; not_located requires inspection, not a new acceptance gate.
+    current_work locates the main artifact, requirements and historical receipt separately. runtime identifies this implementation,
+    not the Skill actually read by the host. Status does not discover arbitrary unregistered files.
     """
     return (mutate(workflow.status, task, language, stage) if stage is not None
             else call(workflow.status, WORKSPACE, task, language, stage))
