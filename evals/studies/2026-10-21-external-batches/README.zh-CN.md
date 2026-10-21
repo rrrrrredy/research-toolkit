@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+**2026-10-21 结果更正：**FTE 与券商研报原稿把缺少原因码的比例写成完整度，作者自检和外层 Grok 评审均漏检。两篇原稿的无条件达标及批次全部达标结论已由[更正说明与两篇另存修订稿](../../repairs/2026-10-21-source-polarity/README.zh-CN.md)取代。历史原件不变，其他十篇未在本轮重新判定通过；仍为 12 次运行，含 8 道新题和 4 次复测。
+
 Song 授权将这 12 次已执行的 Lite 运行计入研究评测集。它们在冻结的 Toolkit 提交上完成，此处保留原语言题面、合成来源包、终稿和机械检查输出。
 
 任务身份是研究问题。本目录里的 12 段题面彼此不同。其中四段与更早入库的题面相同。本说明里对中文题的英文转述、以及对英文题的中文转述只是导读，不另计任务。
@@ -35,11 +37,11 @@ Lite 运行保留作者自检。`checklist_complete` 表示 Lite 机械清单通
 | [`chip-tooling-localization-bottleneck-claim-zh-20261018`](tasks/chip-tooling-localization-bottleneck-claim-zh-20261018/final.md) | 2026-10-18-v1 | Lite | new | 3153 非空白字（目标 3000–5000） | 0 | 作者自检；[外层 Grok 笔记](tasks/chip-tooling-localization-bottleneck-claim-zh-20261018/review/outer_grok_review.md) |
 | [`consumer-finance-llm-collection-compliance-kpi-zh-20261018`](tasks/consumer-finance-llm-collection-compliance-kpi-zh-20261018/final.md) | 2026-10-18-v1 | Lite | new | 3028 非空白字（目标 3000–5000） | 0 | 作者自检；[外层 Grok 笔记](tasks/consumer-finance-llm-collection-compliance-kpi-zh-20261018/review/outer_grok_review.md) |
 | [`saas-frontier-ai-pricing-residency-en-20261018-retest`](tasks/saas-frontier-ai-pricing-residency-en-20261018-retest/final.md) | 2026-10-18-v1 | Lite | retest | 1616 词（目标 1500–2500） | 0 | 作者自检；[外层 Grok 笔记](tasks/saas-frontier-ai-pricing-residency-en-20261018-retest/review/outer_grok_review.md) |
-| [`ai-agent-workforce-fte-roi-bar-en-20261018`](tasks/ai-agent-workforce-fte-roi-bar-en-20261018/final.md) | 2026-10-18-v1 | Lite | new | 1588 词（目标 1500–2500） | 0 | 作者自检；[外层 Grok 笔记](tasks/ai-agent-workforce-fte-roi-bar-en-20261018/review/outer_grok_review.md) |
+| [`ai-agent-workforce-fte-roi-bar-en-20261018`](tasks/ai-agent-workforce-fte-roi-bar-en-20261018/final.md) | 2026-10-18-v1 | Lite | new | 1588 词（目标 1500–2500） | 0 | 作者自检；[外层 Grok 笔记](tasks/ai-agent-workforce-fte-roi-bar-en-20261018/review/outer_grok_review.md) ; [达标结论已更正](../../repairs/2026-10-21-source-polarity/README.zh-CN.md) |
 | [`pc-insurance-llm-fnol-consistency-bar-en-20261018`](tasks/pc-insurance-llm-fnol-consistency-bar-en-20261018/final.md) | 2026-10-18-v1 | Lite | new | 1533 词（目标 1500–2500） | 0 | 作者自检；[外层 Grok 笔记](tasks/pc-insurance-llm-fnol-consistency-bar-en-20261018/review/outer_grok_review.md) |
 | [`guide-fund-hardtech-return-ratio-zh-20261019-retest`](tasks/guide-fund-hardtech-return-ratio-zh-20261019-retest/final.md) | 2026-10-19-v1 | Lite | retest | 3180 非空白字（目标 3000–5000） | 0 | 作者自检；[外层 Grok 笔记](tasks/guide-fund-hardtech-return-ratio-zh-20261019-retest/review/outer_grok_review.md) |
 | [`industrial-software-cad-plm-replacement-claim-zh-20261019`](tasks/industrial-software-cad-plm-replacement-claim-zh-20261019/final.md) | 2026-10-19-v1 | Lite | new | 3077 非空白字（目标 3000–5000） | 0 | 作者自检；[外层 Grok 笔记](tasks/industrial-software-cad-plm-replacement-claim-zh-20261019/review/outer_grok_review.md) |
-| [`broker-research-llm-publish-bar-zh-20261019`](tasks/broker-research-llm-publish-bar-zh-20261019/final.md) | 2026-10-19-v1 | Lite | new | 3057 非空白字（目标 3000–5000） | 0 | 作者自检；[外层 Grok 笔记](tasks/broker-research-llm-publish-bar-zh-20261019/review/outer_grok_review.md) |
+| [`broker-research-llm-publish-bar-zh-20261019`](tasks/broker-research-llm-publish-bar-zh-20261019/final.md) | 2026-10-19-v1 | Lite | new | 3057 非空白字（目标 3000–5000） | 0 | 作者自检；[外层 Grok 笔记](tasks/broker-research-llm-publish-bar-zh-20261019/review/outer_grok_review.md) ; [达标结论已更正](../../repairs/2026-10-21-source-polarity/README.zh-CN.md) |
 | [`tokenized-deposit-cash-equivalent-en-20261019-retest`](tasks/tokenized-deposit-cash-equivalent-en-20261019-retest/final.md) | 2026-10-19-v1 | Lite | retest | 1549 词（目标 1500–2500） | 0 | 作者自检；[外层 Grok 笔记](tasks/tokenized-deposit-cash-equivalent-en-20261019-retest/review/outer_grok_review.md) |
 | [`sovereign-ai-cloud-portability-claim-en-20261019`](tasks/sovereign-ai-cloud-portability-claim-en-20261019/final.md) | 2026-10-19-v1 | Lite | new | 1568 词（目标 1500–2500） | 0 | 作者自检；[外层 Grok 笔记](tasks/sovereign-ai-cloud-portability-claim-en-20261019/review/outer_grok_review.md) |
 | [`hospital-llm-clinical-doc-coding-bar-en-20261019`](tasks/hospital-llm-clinical-doc-coding-bar-en-20261019/final.md) | 2026-10-19-v1 | Lite | new | 1509 词（目标 1500–2500） | 0 | 作者自检；[外层 Grok 笔记](tasks/hospital-llm-clinical-doc-coding-bar-en-20261019/review/outer_grok_review.md) |
