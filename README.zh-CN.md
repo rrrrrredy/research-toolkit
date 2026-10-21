@@ -66,7 +66,7 @@
 
 两份不同时期的资料能够说明各自的产品方向，却不足以证明版本继承或功能迁移。修订保留能力描述，并收窄了这项推断。
 
-[查看来源、差异与审阅取舍](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=versions&detail=review#case) · [视频演示](./docs/assets/case-walkthrough.zh-CN.mp4)
+[查看来源、差异与审阅取舍](https://rrrrrredy.github.io/research-toolkit/?lang=zh&case=versions&detail=review#case)
 
 </details>
 
