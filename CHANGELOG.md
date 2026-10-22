@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.3 — 2026-10-22
+
+- Ship PR #97's shared language handling: `start`, `status` and `guide` accept `zh-CN` as an alias for `zh`, retaining `en/zh` compatibility and the existing Chinese methods.
+- Validate language before writing research records or saving a stage change. Unsupported values name the `language` field and its accepted values. Synchronize MCP descriptions, English/Chinese usage docs and plugin copies.
+- Publish matching bilingual [release notes](docs/releases/v1.4.3.md), version metadata and plugin ZIP. The archived failing request now succeeds in the targeted regression; invalid-language cases preserve research records. Overall research speedup remains unverified. Reuse PR #97's completed implementation checks without rerunning research tasks.
+
 ## v1.4.2 — 2026-10-22
 
 - Ship PR #94's `research_save`, CLI save and collect guidance: distinguish actual `read_scope` from required `reading_requirement`, document its two allowed values and its pairing with `required_source_ids` after partial-update merging.
