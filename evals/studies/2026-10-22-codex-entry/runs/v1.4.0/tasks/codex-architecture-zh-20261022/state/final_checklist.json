@@ -1,0 +1,57 @@
+{
+  "schema_version": 2,
+  "profile": "lite",
+  "artifact": "final.md",
+  "items": {
+    "requirements": {
+      "passed": true,
+      "evidence": "已通读 final.md 全文并逐项对照 brief。第5–11行解释五层角色和单次任务；第15–23行职责表区分 CLI/SDK、本地 app-server 与三种托管环境配置；第25–31行覆盖技能、权限、跨轮接续及长任务；第33行给出选择与成本判断。按正文口径实测：含日期和表格，排除主标题、参考文献、引注编号及 Markdown 标记，2171个非空字符，其中1621个汉字、66个拉丁／数字词项；没有把全文3221字符当作正文。约2000字无硬性下限，覆盖充分且没有为长度填充。首次稿在06-check-draft之前由04-register-first-draft登记；首次自检与全文一并保存。",
+      "evidence_files": [
+        "notes/first-length-count.json"
+      ]
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "已将现稿重要判断对应到已读原文：第5行开放边界与第17–18行入口对应S1 L7–49；第9–11行Thread/Turn/Item、生命周期与终态对应S2 L194–209、L1360–1361、L1429–1445；第19–23行环境与应用责任对应S6 L9–31、L52–54、L77–109；第25行技能加载与显式注入对应S3 L33–48、L93–103及S2 L1514；第27行权限及自动审批对应S4 L59–74、L246–263、L318–357；第29行历史与文件分离对应S2 L474–488、L876–878；第31行实验条件、25小时/13M token/30k行及非生产就绪对应S5 L7–9、L79–83、L162。六个文献网址与目录一致，正文引注[1]–[6]均有对应文献；数字仅作来源报告，未计算无依据价格或成功率。"
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "已核对限制是否实质约束结论：第23行以函数处理器不可用导致等待反驳“托管即免除可靠性责任”；第25行保留技能目录可能遗漏条目；第27行区分命令禁网与其他连接、Legacy与当前Cloud；第29行用thread/revert不改文件反驳“恢复对话即恢复工作区”；第31行保留完整访问权限和非生产就绪，并明确不能隔离项目记忆等措施的因果贡献或推广至所有版本。第33行没有凭运行规模判断成本胜负。"
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "按论证单元检查全文：开篇解释组件如何分工；单次任务用具体修复请求串起输入、循环、审批、事件和终态；表格用一致的执行位置与应用责任维度比较入口；技能段解释初始占用与发现不确定性的交换；权限段连接边界、等待和审批用量；接续段区分三类状态，长任务段解释反馈及持久工件；末段给出按任务选择环境和成本组成。各段均承担不同问题，没有重复段落或背景堆叠。"
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "已通读第1–44行完整稿。Harness、Thread、Turn、Item均在首次出现时说明；仅保留有解释作用的少量接口名，未附安装命令或配置教程。职责表能帮助读者选择接入方式，表前标明适用判断为设计分析；引用是读者可追溯的六条公开文献，正文没有S/C/R内部编号、本地路径、检查状态或任务过程。没有竞争产品大全、战略史、长引文、跨任务模板或重复填充。未发现必须进行的正文修正，保留原稿，不为产生修订而改写。"
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "已核对第27行自动审批无延迟/误判率证据，第29行压缩细节不明，第31行历史实验条件和推广限制，第33行无可比账单或成功率，第37行厂商文档/案例不构成独立跨版本性能验证。未声称了解闭源模型或托管服务内部算法。revision-notes.md及拟交付说明集中披露“完成作者自检，未经独立评审”；没有以Lite工具状态认证研究语义质量。",
+      "evidence_files": [
+        "revision-notes.md"
+      ]
+    }
+  },
+  "input_hashes": {
+    "state/task_spec.md": "ff8f357f8c013eb6ec29e22e6134d1d283826c0695e929dd684c0c95f4b3217e",
+    "data/source_registry.csv": "9abca3573a783daf9ce54203c55d643a07804c0e73381e4689538bc525d8f0a2",
+    "data/claims_registry.csv": "6a9f2c45330f37b45723e433e1c921e138147d989708ab4dde209b4ba9ae8922",
+    "state/requirements.jsonl": "c93586e7ce8e40ae88d5c4455ed62ffe592aa275404b2bea8db2ca4588a30425",
+    "sources/S1.md": "d70c621816efc612d2456f98376a21e10d8c284bbc567f0e0fee2856c73fa804",
+    "sources/S2.md": "ec95bb1c39619b85c72e07ce8c7d8b9f11ec56ed3681a3c5cfc9aa96a7e94e49",
+    "sources/S3.md": "57357a7d4a9f381150a31e68b51c8df31194eab6e49188d831f603e9af49c3ed",
+    "sources/S4.md": "960538acca68acc24eab9efc25d46cb14ed53621b8714fb6d3f495afe9744113",
+    "sources/S5.md": "a029ee22a6975680acacb3521614a71092f77f50f3fab1e80462883191ec8c03",
+    "sources/S6.md": "5e9d69a85af5c1840e46626f6e3e6d34cf58ddaf44c0efe8d3d0e4374fc55759",
+    "notes/first-length-count.json": "ea75cd816f96609a60fe9ce8f6c9f0d3e95427523b7c54b78f5cd6914e1e2c0e",
+    "revision-notes.md": "534d0452ded2ee0e90778c84829d63f09b89f5ccbb00632d5e22332c8979e006"
+  },
+  "review_strength": "unreviewed",
+  "independent_review": false,
+  "artifacts": {
+    "final.md": "b5bdabfe6a40835b22a21b79a2039e6499ae44862860cc8d3b851f0ecdb48ba3",
+    "delivery_message.md": "78742f73980208e7eb550d8c1d6b24fda5775aca865ebb4c021154486070b263"
+  }
+}

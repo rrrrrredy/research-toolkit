@@ -1,0 +1,166 @@
+[
+  {
+    "source_id": "S1",
+    "title": "Codex as a platform: build on the open agent harness",
+    "url": "https://developers.openai.com/blog/codex-as-a-platform",
+    "path": "sources/S1.md",
+    "read_scope": "relevant_sections",
+    "ranges": [
+      [
+        1,
+        135
+      ]
+    ],
+    "fetched_at_utc": "2026-10-22T04:16:24.362747+00:00",
+    "raw_sha256": "d045ab02d574fff3584bc48f11dce8e36e1d55f72b9a31dea5cccee9cacbb0b0",
+    "sha256": "2c6da91eb8c4813f4589b021464b1adf2abe33c718ae4be6881ef028f7d4c855"
+  },
+  {
+    "source_id": "S2",
+    "title": "Codex App Server：接口、执行生命周期、状态与事件",
+    "url": "https://learn.chatgpt.com/docs/app-server",
+    "path": "sources/S2.md",
+    "read_scope": "relevant_sections",
+    "ranges": [
+      [
+        1,
+        8
+      ],
+      [
+        57,
+        105
+      ],
+      [
+        194,
+        210
+      ],
+      [
+        472,
+        489
+      ],
+      [
+        874,
+        884
+      ],
+      [
+        964,
+        975
+      ],
+      [
+        1014,
+        1066
+      ],
+      [
+        1085,
+        1125
+      ],
+      [
+        1328,
+        1425
+      ],
+      [
+        1427,
+        1460
+      ],
+      [
+        1512,
+        1536
+      ]
+    ],
+    "fetched_at_utc": "2026-10-22T04:16:28.526975+00:00",
+    "raw_sha256": "f879715bb0d440db60b71e7a5bfe1258d045520feabe3fc6b11847100c8d064b",
+    "sha256": "39f6bb6203751178ff3d92a959293c2ef09f13cdc21b3b46b118d9fa77cca686"
+  },
+  {
+    "source_id": "S3",
+    "title": "Build skills：渐进披露、调用与分发",
+    "url": "https://learn.chatgpt.com/docs/build-skills",
+    "path": "sources/S3.md",
+    "read_scope": "relevant_sections",
+    "ranges": [
+      [
+        1,
+        48
+      ],
+      [
+        91,
+        104
+      ],
+      [
+        136,
+        165
+      ],
+      [
+        220,
+        240
+      ]
+    ],
+    "fetched_at_utc": "2026-10-22T04:16:25.808479+00:00",
+    "raw_sha256": "ed6e324f747d47adf6f60ee1fca13ba469b3671f55f58c3a78f35947af6919d5",
+    "sha256": "ea363fbce8ff77b56ad591d94cb1ea712c497909b83e79c1ecdf2a28feb3d13d"
+  },
+  {
+    "source_id": "S4",
+    "title": "Agent approvals & security：执行权限和审批",
+    "url": "https://learn.chatgpt.com/docs/agent-approvals-security",
+    "path": "sources/S4.md",
+    "read_scope": "relevant_sections",
+    "ranges": [
+      [
+        1,
+        15
+      ],
+      [
+        48,
+        75
+      ],
+      [
+        246,
+        370
+      ],
+      [
+        424,
+        454
+      ]
+    ],
+    "fetched_at_utc": "2026-10-22T04:17:25.980354+00:00",
+    "raw_sha256": "595db3a5a3276996071dcc2442e2cfcfef2c11c50cf46fccfd1de4a869a82017",
+    "sha256": "21d7467d392ec96b19e47901950862a1083c080d121d9030c6ad06b59dde9957"
+  },
+  {
+    "source_id": "S5",
+    "title": "Run long horizon tasks with Codex：历史长任务案例",
+    "url": "https://developers.openai.com/blog/run-long-horizon-tasks-with-codex",
+    "path": "sources/S5.md",
+    "read_scope": "relevant_sections",
+    "ranges": [
+      [
+        1,
+        85
+      ],
+      [
+        160,
+        195
+      ]
+    ],
+    "fetched_at_utc": "2026-10-22T04:17:26.839746+00:00",
+    "raw_sha256": "d986256b92108e5d76e08e1b06707b93fe3b0a52693080fcde0e275c03042d3f",
+    "sha256": "b08ee67e5acb492d62049ea74c89bc023e9d4fd2076ef510247d93bfb135473d"
+  },
+  {
+    "source_id": "S6",
+    "title": "Agents API Architecture：托管 Harness、执行环境与应用",
+    "url": "https://developers.openai.com/api/docs/guides/agents-api/architecture",
+    "path": "sources/S6.md",
+    "read_scope": "relevant_sections",
+    "ranges": [
+      [
+        1,
+        140
+      ]
+    ],
+    "fetched_at_utc": "2026-10-22T04:17:27.389213+00:00",
+    "raw_sha256": "755df9fa1c04a492876c914dab97e88a358ef069a96c2acc39f88d189bdfc2e3",
+    "sha256": "bb76e16015856fc482204a32067f2bcd618e2cb7d96e082f9f6ce852b9b9c092"
+  }
+]

@@ -1,0 +1,395 @@
+{
+  "ok": true,
+  "saved_ids": {
+    "sources": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6"
+    ],
+    "claims": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8",
+      "C9"
+    ],
+    "requirements": [
+      "R1",
+      "R2",
+      "R3",
+      "R4",
+      "R5",
+      "R6"
+    ]
+  },
+  "updated_files": [
+    "data/source_registry.csv",
+    "data/claims_registry.csv",
+    "state/requirements.jsonl"
+  ],
+  "backups": [],
+  "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+  "changes": {
+    "available": true,
+    "operation_id": "b331bf6ee9c7431b8126ce507ca7db60",
+    "saved_at": "2026-10-22T04:31:59.121362+00:00",
+    "records": {
+      "sources": {
+        "added": [
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "updated": [],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      },
+      "claims": {
+        "added": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7",
+          "C8",
+          "C9"
+        ],
+        "updated": [],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      },
+      "requirements": {
+        "added": [
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "R5",
+          "R6"
+        ],
+        "updated": [],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      }
+    },
+    "source_files": {
+      "S1": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S1.md"
+        ],
+        "previous_paths": []
+      },
+      "S2": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S2.md"
+        ],
+        "previous_paths": []
+      },
+      "S3": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S3.md"
+        ],
+        "previous_paths": []
+      },
+      "S4": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S4.md"
+        ],
+        "previous_paths": []
+      },
+      "S5": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S5.md"
+        ],
+        "previous_paths": []
+      },
+      "S6": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S6.md"
+        ],
+        "previous_paths": []
+      }
+    },
+    "artifact": null,
+    "affected_claims": [
+      {
+        "claim_id": "C1",
+        "claim": "开源Harness提供状态、工具循环、流式执行和权限边界；模型访问与托管服务另属其他层。",
+        "changed_source_ids": [
+          "S1"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C2",
+        "claim": "app-server以thread/turn/item组织交互，支持开始、恢复、分叉、引导和中断，通过事件返回状态。",
+        "changed_source_ids": [
+          "S2"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C3",
+        "claim": "技能先提供名称描述路径，选中再加载全文；目录预算可能截短描述或省略技能。",
+        "changed_source_ids": [
+          "S2",
+          "S3"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C4",
+        "claim": "跨轮接续涉及持久历史、有限模型上下文和外部产物；恢复或压缩历史不等于文件回滚或无损记忆。",
+        "changed_source_ids": [
+          "S2",
+          "S5"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C5",
+        "claim": "GPT-5.3-Codex Extra High在空仓库、完全访问条件下约运行25小时、13M tokens并生成30k行代码，是来源作者报告的非生产实验。",
+        "changed_source_ids": [
+          "S5"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C6",
+        "claim": "Agents API由OpenAI托管Harness，可无执行环境、托管执行环境或自备执行环境；应用仍需维护函数工具与自备环境生命周期。",
+        "changed_source_ids": [
+          "S6"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C7",
+        "claim": "沙箱限制技术能力，审批决定何时放行；本地命令网络限制不覆盖模型请求、MCP、搜索等所有连接。",
+        "changed_source_ids": [
+          "S4"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C8",
+        "claim": "自动审批可减少人工中断，却增加模型调用；只审已需审批的合资格动作，超时或审查失败时仍不执行。",
+        "changed_source_ids": [
+          "S4"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C9",
+        "claim": "按交互、文件计算和私网需求分配Harness及环境责任；总成本要考虑模型、计算、应用运维和修复。",
+        "changed_source_ids": [
+          "S1",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      }
+    ],
+    "unlinked_source_ids": [],
+    "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+  },
+  "current_work": {
+    "task_spec": "state/task_spec.md",
+    "requirements": "state/requirements.jsonl",
+    "artifact": null,
+    "open_requirements": [
+      {
+        "requirement_id": "R1",
+        "summary": "解释一次任务及各组件配合，覆盖跨轮与长任务。",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R2",
+        "summary": "区分本地app-server、CLI/SDK与托管服务；比较能力、成本和体验，含有用比较表。",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R3",
+        "summary": "仅用给定S1—S6，重要判断按原始行号追溯，区分文档、历史案例与推断。",
+        "status": "pending",
+        "required_source_ids": [
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "reading_requirement": "relevant_sections"
+      },
+      {
+        "requirement_id": "R4",
+        "summary": "中文Markdown正文约2000字，无硬性下限；参考文献另列。作者按正文实测，不登记whole_artifact硬范围。",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R5",
+        "summary": "UTF-8，保留检查前first-draft.md和首次自检及对应全文，不覆盖；交付final.md、revision-notes.md，保留Toolkit实际请求返回，记录与正文分开。",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R6",
+        "summary": "Lite正常自检，不联网、不读越界材料、不启动其他Agent/独立评审/测试套件、不改toolkit或inputs；完成即结束。",
+        "status": "pending"
+      }
+    ],
+    "warnings": [],
+    "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+  },
+  "observation": {
+    "operation": "save",
+    "operation_id": "b331bf6ee9c7431b8126ce507ca7db60",
+    "started_at": "2026-10-22T04:31:59.038694+00:00",
+    "outcome": "saved",
+    "record_changes": {
+      "records": {
+        "sources": {
+          "added": [
+            "S1",
+            "S2",
+            "S3",
+            "S4",
+            "S5",
+            "S6"
+          ],
+          "updated": [],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        },
+        "claims": {
+          "added": [
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "C7",
+            "C8",
+            "C9"
+          ],
+          "updated": [],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        },
+        "requirements": {
+          "added": [
+            "R1",
+            "R2",
+            "R3",
+            "R4",
+            "R5",
+            "R6"
+          ],
+          "updated": [],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        }
+      },
+      "source_files": {
+        "S1": {
+          "status": "first_observation",
+          "paths": [
+            "sources/S1.md"
+          ],
+          "previous_paths": []
+        },
+        "S2": {
+          "status": "first_observation",
+          "paths": [
+            "sources/S2.md"
+          ],
+          "previous_paths": []
+        },
+        "S3": {
+          "status": "first_observation",
+          "paths": [
+            "sources/S3.md"
+          ],
+          "previous_paths": []
+        },
+        "S4": {
+          "status": "first_observation",
+          "paths": [
+            "sources/S4.md"
+          ],
+          "previous_paths": []
+        },
+        "S5": {
+          "status": "first_observation",
+          "paths": [
+            "sources/S5.md"
+          ],
+          "previous_paths": []
+        },
+        "S6": {
+          "status": "first_observation",
+          "paths": [
+            "sources/S6.md"
+          ],
+          "previous_paths": []
+        }
+      },
+      "source_observations": {
+        "S1": {
+          "sources/S1.md": "d70c621816efc612d2456f98376a21e10d8c284bbc567f0e0fee2856c73fa804"
+        },
+        "S2": {
+          "sources/S2.md": "ec95bb1c39619b85c72e07ce8c7d8b9f11ec56ed3681a3c5cfc9aa96a7e94e49"
+        },
+        "S3": {
+          "sources/S3.md": "57357a7d4a9f381150a31e68b51c8df31194eab6e49188d831f603e9af49c3ed"
+        },
+        "S4": {
+          "sources/S4.md": "960538acca68acc24eab9efc25d46cb14ed53621b8714fb6d3f495afe9744113"
+        },
+        "S5": {
+          "sources/S5.md": "a029ee22a6975680acacb3521614a71092f77f50f3fab1e80462883191ec8c03"
+        },
+        "S6": {
+          "sources/S6.md": "5e9d69a85af5c1840e46626f6e3e6d34cf58ddaf44c0efe8d3d0e4374fc55759"
+        }
+      }
+    },
+    "finished_at": "2026-10-22T04:31:59.121362+00:00",
+    "elapsed_seconds": 0.078
+  }
+}

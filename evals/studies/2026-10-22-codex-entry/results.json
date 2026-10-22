@@ -1,0 +1,243 @@
+{
+  "question_count": 1,
+  "run_count": 2,
+  "additional_research_reviewers": 0,
+  "versions": {
+    "v1.4.0": {
+      "execution": {
+        "version": "v1.4.0",
+        "started_at_utc": "2026-10-22T04:19:39.099087+00:00",
+        "finished_at_utc": "2026-10-22T04:27:32.374703+00:00",
+        "wall_seconds": 473.265,
+        "exit_code": 0,
+        "turn_usage": [
+          {
+            "input_tokens": 983547,
+            "cached_input_tokens": 912128,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 14810,
+            "reasoning_output_tokens": 2825
+          }
+        ],
+        "followup_prompts": 0
+      },
+      "command_count": 18,
+      "method_read_commands": 7,
+      "toolkit_calls": [
+        {
+          "request": "research-records\\toolkit-calls\\01-start.request.json",
+          "response": "research-records\\toolkit-calls\\01-start.response.json",
+          "ok": null,
+          "errors": null,
+          "stage": "collect"
+        },
+        {
+          "request": "research-records\\toolkit-calls\\02-save-evidence.request.json",
+          "response": "research-records\\toolkit-calls\\02-save-evidence.response.json",
+          "ok": true,
+          "errors": null,
+          "stage": null
+        },
+        {
+          "request": "research-records\\toolkit-calls\\03-status-draft.request.json",
+          "response": "research-records\\toolkit-calls\\03-status-draft.response.json",
+          "ok": null,
+          "errors": null,
+          "stage": "draft"
+        },
+        {
+          "request": "research-records\\toolkit-calls\\04-register-first-draft.request.json",
+          "response": "research-records\\toolkit-calls\\04-register-first-draft.response.json",
+          "ok": true,
+          "errors": null,
+          "stage": null
+        },
+        {
+          "request": "research-records\\toolkit-calls\\05-register-main.request.json",
+          "response": "research-records\\toolkit-calls\\05-register-main.response.json",
+          "ok": true,
+          "errors": null,
+          "stage": null
+        },
+        {
+          "request": "research-records\\toolkit-calls\\06-check-draft.request.json",
+          "response": "research-records\\toolkit-calls\\06-check-draft.response.json",
+          "ok": true,
+          "errors": [],
+          "stage": null
+        },
+        {
+          "request": "research-records\\toolkit-calls\\07-finish-template.request.json",
+          "response": "research-records\\toolkit-calls\\07-finish-template.response.json",
+          "ok": null,
+          "errors": [
+            "Requirement R1 is not terminally resolved (status: pending).",
+            "Requirement R2 is not terminally resolved (status: pending).",
+            "Requirement R3 is not terminally resolved (status: pending).",
+            "Requirement R4 is not terminally resolved (status: pending).",
+            "Requirement R5 is not terminally resolved (status: pending).",
+            "Requirement R6 is not terminally resolved (status: pending).",
+            "Requirement R7 is not terminally resolved (status: pending)."
+          ],
+          "stage": null
+        },
+        {
+          "request": "research-records\\toolkit-calls\\08-save-completion.request.json",
+          "response": "research-records\\toolkit-calls\\08-save-completion.response.json",
+          "ok": true,
+          "errors": null,
+          "stage": null
+        },
+        {
+          "request": "research-records\\toolkit-calls\\09-finish.request.json",
+          "response": "research-records\\toolkit-calls\\09-finish.response.json",
+          "ok": null,
+          "errors": null,
+          "stage": null
+        }
+      ],
+      "snapshot_hashes": {
+        "first-draft.md": "b5bdabfe6a40835b22a21b79a2039e6499ae44862860cc8d3b851f0ecdb48ba3",
+        "first-self-check.json": "70196b115258aa0ff67433301df9c2ce01f68d25873b0b7b91363e212b32e576",
+        "first-self-check-report.md": "b5bdabfe6a40835b22a21b79a2039e6499ae44862860cc8d3b851f0ecdb48ba3",
+        "final.md": "b5bdabfe6a40835b22a21b79a2039e6499ae44862860cc8d3b851f0ecdb48ba3",
+        "revision-notes.md": "dca90adf582c738cf1605157f87405914b93736f72dd8e53a2b92763a3909f9f"
+      },
+      "first_draft_equals_self_check_report": true,
+      "first_draft_equals_final": true,
+      "first_self_check_passed": {
+        "requirements": true,
+        "claims_and_sources": true,
+        "counterevidence": true,
+        "sections": true,
+        "reader_edit": true,
+        "limitations": true
+      },
+      "input_changes": [],
+      "toolkit_changes": [],
+      "request_unchanged": true,
+      "brief_unchanged": true,
+      "event_errors": []
+    },
+    "v1.4.1": {
+      "execution": {
+        "version": "v1.4.1",
+        "started_at_utc": "2026-10-22T04:27:32.377900+00:00",
+        "finished_at_utc": "2026-10-22T04:37:35.865381+00:00",
+        "wall_seconds": 603.484,
+        "exit_code": 0,
+        "turn_usage": [
+          {
+            "input_tokens": 909203,
+            "cached_input_tokens": 827392,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 20526,
+            "reasoning_output_tokens": 4452
+          }
+        ],
+        "followup_prompts": 0
+      },
+      "command_count": 30,
+      "method_read_commands": 4,
+      "toolkit_calls": [
+        {
+          "request": "records\\toolkit-calls\\01-start.request.json",
+          "response": "records\\toolkit-calls\\01-start.request.response.json",
+          "ok": null,
+          "errors": null,
+          "stage": "collect"
+        },
+        {
+          "request": "records\\toolkit-calls\\02-evidence.request.json",
+          "response": "records\\toolkit-calls\\02-evidence.request.response.json",
+          "ok": false,
+          "errors": [
+            "requirements[2].reading_requirement: use full_text or relevant_sections."
+          ],
+          "stage": null
+        },
+        {
+          "request": "records\\toolkit-calls\\03-evidence-corrected.request.json",
+          "response": "records\\toolkit-calls\\03-evidence-corrected.request.response.json",
+          "ok": true,
+          "errors": null,
+          "stage": null
+        },
+        {
+          "request": "records\\toolkit-calls\\04-draft.request.json",
+          "response": "records\\toolkit-calls\\04-draft.request.response.json",
+          "ok": true,
+          "errors": null,
+          "stage": null
+        },
+        {
+          "request": "records\\toolkit-calls\\05-check-draft.request.json",
+          "response": "records\\toolkit-calls\\05-check-draft.request.response.json",
+          "ok": false,
+          "errors": [
+            "data/source_registry.csv row S1, read_evidence: Local reading evidence is missing, not a file, or outside the task: sources/S1.md；已阅读给定快照全部所存段落，原文L行号定位，实际范围以文件提供内容为准。省略内容和外链未读；快照日期2026-10-22。. For a local file, use a task-relative path to an existing nonempty file, such as sources/S1.md; put reading-location explanations in locator."
+          ],
+          "stage": null
+        },
+        {
+          "request": "records\\toolkit-calls\\06-fix-locators.request.json",
+          "response": "records\\toolkit-calls\\06-fix-locators.request.response.json",
+          "ok": true,
+          "errors": null,
+          "stage": null
+        },
+        {
+          "request": "records\\toolkit-calls\\07-final-records.request.json",
+          "response": "records\\toolkit-calls\\07-final-records.request.response.json",
+          "ok": true,
+          "errors": null,
+          "stage": null
+        },
+        {
+          "request": "records\\toolkit-calls\\08-check-corrected.request.json",
+          "response": "records\\toolkit-calls\\08-check-corrected.request.response.json",
+          "ok": true,
+          "errors": [],
+          "stage": null
+        },
+        {
+          "request": "records\\toolkit-calls\\09-finish-template.request.json",
+          "response": "records\\toolkit-calls\\09-finish-template.request.response.json",
+          "ok": null,
+          "errors": [],
+          "stage": null
+        },
+        {
+          "request": "records\\toolkit-calls\\10-finish.request.json",
+          "response": "records\\toolkit-calls\\10-finish.request.response.json",
+          "ok": null,
+          "errors": null,
+          "stage": null
+        }
+      ],
+      "snapshot_hashes": {
+        "first-draft.md": "0367ed14ee213c2ea2bc6b45b13fbc7d9c4ee4cba97016199e46c59fbe67585f",
+        "first-self-check.json": "8f9a42b70f8e58c35623f7884e94066249240398d22a1f2134e90ed095f3968e",
+        "first-self-check-report.md": "0367ed14ee213c2ea2bc6b45b13fbc7d9c4ee4cba97016199e46c59fbe67585f",
+        "final.md": "c199a500eec621271987b706a0be557a2052249610adadcfa9092b055969d845",
+        "revision-notes.md": "d713fba8bf7110440874ad33ef04c78f1e0b134e6dea40bf56bf3aeeb4c37c27"
+      },
+      "first_draft_equals_self_check_report": true,
+      "first_draft_equals_final": false,
+      "first_self_check_passed": {
+        "requirements": true,
+        "claims_and_sources": false,
+        "counterevidence": true,
+        "sections": true,
+        "reader_edit": true,
+        "limitations": false
+      },
+      "input_changes": [],
+      "toolkit_changes": [],
+      "request_unchanged": true,
+      "brief_unchanged": true,
+      "event_errors": []
+    }
+  },
+  "recorded_at_utc": "2026-10-22T04:39:06.750566+00:00"
+}

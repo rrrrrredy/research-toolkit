@@ -1,0 +1,17 @@
+{
+  "version": "v1.4.0",
+  "started_at_utc": "2026-10-22T04:19:39.099087+00:00",
+  "finished_at_utc": "2026-10-22T04:27:32.374703+00:00",
+  "wall_seconds": 473.265,
+  "exit_code": 0,
+  "turn_usage": [
+    {
+      "input_tokens": 983547,
+      "cached_input_tokens": 912128,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 14810,
+      "reasoning_output_tokens": 2825
+    }
+  ],
+  "followup_prompts": 0
+}

@@ -1,0 +1,520 @@
+{
+  "ok": true,
+  "saved_ids": {
+    "sources": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6"
+    ]
+  },
+  "updated_files": [
+    "data/source_registry.csv"
+  ],
+  "backups": [],
+  "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+  "changes": {
+    "available": true,
+    "operation_id": "8d2f798c5d724eb7bf9c557a35a80855",
+    "saved_at": "2026-10-22T04:35:07.536685+00:00",
+    "records": {
+      "sources": {
+        "added": [],
+        "updated": [
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      }
+    },
+    "source_files": {
+      "S1": {
+        "status": "unchanged",
+        "paths": [
+          "sources/S1.md"
+        ],
+        "previous_paths": [
+          "sources/S1.md"
+        ]
+      },
+      "S2": {
+        "status": "unchanged",
+        "paths": [
+          "sources/S2.md"
+        ],
+        "previous_paths": [
+          "sources/S2.md"
+        ]
+      },
+      "S3": {
+        "status": "unchanged",
+        "paths": [
+          "sources/S3.md"
+        ],
+        "previous_paths": [
+          "sources/S3.md"
+        ]
+      },
+      "S4": {
+        "status": "unchanged",
+        "paths": [
+          "sources/S4.md"
+        ],
+        "previous_paths": [
+          "sources/S4.md"
+        ]
+      },
+      "S5": {
+        "status": "unchanged",
+        "paths": [
+          "sources/S5.md"
+        ],
+        "previous_paths": [
+          "sources/S5.md"
+        ]
+      },
+      "S6": {
+        "status": "unchanged",
+        "paths": [
+          "sources/S6.md"
+        ],
+        "previous_paths": [
+          "sources/S6.md"
+        ]
+      }
+    },
+    "artifact": "final.md",
+    "affected_claims": [
+      {
+        "claim_id": "C1",
+        "claim": "开源Harness提供状态、工具循环、流式执行和权限边界；模型访问与托管服务另属其他层。",
+        "changed_source_ids": [
+          "S1"
+        ],
+        "locations": [
+          {
+            "line": 37,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S1"
+            ],
+            "text": "- S1：[Codex as a platform: build on the open agent harness](https://developers.openai.com/blog/codex-as-a-platform)，OpenAI，重点为Harness分工、开源范围与集成入口。",
+            "context": {
+              "start_line": 35,
+              "end_line": 42,
+              "text": "以下均为2026年10月22日保存的材料快照；正文L编号指摘录保留的原始Markdown行号，动态网页可能变化。\n\n- S1：[Codex as a platform: build on the open agent harness](https://developers.openai.com/blog/codex-as-a-platform)，OpenAI，重点为Harness分工、开源范围与集成入口。\n- S2：[Codex App Server](https://learn.chatgpt.com/docs/app-server)，OpenAI，重点为生命周期、线程历史、事件、审批与技能输入。\n- S3：[Build skills](https://learn.chatgpt.com/docs/build-skills)，OpenAI，重点为渐进披露及显式／隐式调用。\n- S4：[Agent approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)，OpenAI，重点为沙箱、网络控制范围及自动审批。\n- S5：[Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex)，OpenAI官方作者的GPT-5.3-Codex历史实验；不视为2026年10月各版本的共同实测。\n- S6：[Agents API Architecture](https://developers.openai.com/api/docs/guides/agents-api/architecture)，OpenAI，重点为托管Harness、环境选择及应用责任。"
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C2",
+        "claim": "app-server以thread/turn/item组织交互，支持开始、恢复、分叉、引导和中断，通过事件返回状态。",
+        "changed_source_ids": [
+          "S2"
+        ],
+        "locations": [
+          {
+            "line": 38,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S2"
+            ],
+            "text": "- S2：[Codex App Server](https://learn.chatgpt.com/docs/app-server)，OpenAI，重点为生命周期、线程历史、事件、审批与技能输入。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 37
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C3",
+        "claim": "技能先提供名称描述路径，选中再加载全文；目录预算可能截短描述或省略技能。",
+        "changed_source_ids": [
+          "S2",
+          "S3"
+        ],
+        "locations": [
+          {
+            "line": 38,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S2"
+            ],
+            "text": "- S2：[Codex App Server](https://learn.chatgpt.com/docs/app-server)，OpenAI，重点为生命周期、线程历史、事件、审批与技能输入。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 37
+            }
+          },
+          {
+            "line": 39,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S3"
+            ],
+            "text": "- S3：[Build skills](https://learn.chatgpt.com/docs/build-skills)，OpenAI，重点为渐进披露及显式／隐式调用。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 37
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C4",
+        "claim": "跨轮接续涉及持久历史、有限模型上下文和外部产物；恢复或压缩历史不等于文件回滚或无损记忆。",
+        "changed_source_ids": [
+          "S2",
+          "S5"
+        ],
+        "locations": [
+          {
+            "line": 38,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S2"
+            ],
+            "text": "- S2：[Codex App Server](https://learn.chatgpt.com/docs/app-server)，OpenAI，重点为生命周期、线程历史、事件、审批与技能输入。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 37
+            }
+          },
+          {
+            "line": 41,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S5"
+            ],
+            "text": "- S5：[Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex)，OpenAI官方作者的GPT-5.3-Codex历史实验；不视为2026年10月各版本的共同实测。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 37
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C5",
+        "claim": "GPT-5.3-Codex Extra High在空仓库、完全访问条件下约运行25小时、13M tokens并生成30k行代码，是来源作者报告的非生产实验。",
+        "changed_source_ids": [
+          "S5"
+        ],
+        "locations": [
+          {
+            "line": 41,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S5"
+            ],
+            "text": "- S5：[Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex)，OpenAI官方作者的GPT-5.3-Codex历史实验；不视为2026年10月各版本的共同实测。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 37
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C6",
+        "claim": "Agents API由OpenAI托管Harness，可无执行环境、托管执行环境或自备执行环境；应用仍需维护函数工具与自备环境生命周期。",
+        "changed_source_ids": [
+          "S6"
+        ],
+        "locations": [
+          {
+            "line": 42,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S6"
+            ],
+            "text": "- S6：[Agents API Architecture](https://developers.openai.com/api/docs/guides/agents-api/architecture)，OpenAI，重点为托管Harness、环境选择及应用责任。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 37
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C7",
+        "claim": "沙箱限制技术能力，审批决定何时放行；本地命令网络限制不覆盖模型请求、MCP、搜索等所有连接。",
+        "changed_source_ids": [
+          "S4"
+        ],
+        "locations": [
+          {
+            "line": 40,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S4"
+            ],
+            "text": "- S4：[Agent approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)，OpenAI，重点为沙箱、网络控制范围及自动审批。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 37
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C8",
+        "claim": "自动审批可减少人工中断，却增加模型调用；只审已需审批的合资格动作，超时或审查失败时仍不执行。",
+        "changed_source_ids": [
+          "S4"
+        ],
+        "locations": [
+          {
+            "line": 40,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S4"
+            ],
+            "text": "- S4：[Agent approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)，OpenAI，重点为沙箱、网络控制范围及自动审批。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 37
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C9",
+        "claim": "按交互、文件计算和私网需求分配Harness及环境责任；总成本要考虑模型、计算、应用运维和修复。",
+        "changed_source_ids": [
+          "S1",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "locations": [
+          {
+            "line": 37,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S1"
+            ],
+            "text": "- S1：[Codex as a platform: build on the open agent harness](https://developers.openai.com/blog/codex-as-a-platform)，OpenAI，重点为Harness分工、开源范围与集成入口。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 37
+            }
+          },
+          {
+            "line": 40,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S4"
+            ],
+            "text": "- S4：[Agent approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)，OpenAI，重点为沙箱、网络控制范围及自动审批。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 37
+            }
+          },
+          {
+            "line": 41,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S5"
+            ],
+            "text": "- S5：[Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex)，OpenAI官方作者的GPT-5.3-Codex历史实验；不视为2026年10月各版本的共同实测。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 37
+            }
+          },
+          {
+            "line": 42,
+            "heading": "Codex 如何把一次请求变成可持续的工作",
+            "matched_by": [
+              "source_link:S6"
+            ],
+            "text": "- S6：[Agents API Architecture](https://developers.openai.com/api/docs/guides/agents-api/architecture)，OpenAI，重点为托管Harness、环境选择及应用责任。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 37
+            }
+          }
+        ],
+        "location_status": "matched"
+      }
+    ],
+    "unlinked_source_ids": [],
+    "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+  },
+  "current_work": {
+    "task_spec": "state/task_spec.md",
+    "requirements": "state/requirements.jsonl",
+    "artifact": {
+      "path": "final.md",
+      "sha256": "0367ed14ee213c2ea2bc6b45b13fbc7d9c4ee4cba97016199e46c59fbe67585f",
+      "kind": "report",
+      "current_sha256": "0367ed14ee213c2ea2bc6b45b13fbc7d9c4ee4cba97016199e46c59fbe67585f",
+      "changed_since_save": false
+    },
+    "open_requirements": [
+      {
+        "requirement_id": "R1",
+        "summary": "解释一次任务及各组件配合，覆盖跨轮与长任务。",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R2",
+        "summary": "区分本地app-server、CLI/SDK与托管服务；比较能力、成本和体验，含有用比较表。",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R3",
+        "summary": "仅用给定S1—S6，重要判断按原始行号追溯，区分文档、历史案例与推断。",
+        "status": "pending",
+        "required_source_ids": [
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "reading_requirement": "relevant_sections"
+      },
+      {
+        "requirement_id": "R4",
+        "summary": "中文Markdown正文约2000字，无硬性下限；参考文献另列。作者按正文实测，不登记whole_artifact硬范围。",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R5",
+        "summary": "UTF-8，保留检查前first-draft.md和首次自检及对应全文，不覆盖；交付final.md、revision-notes.md，保留Toolkit实际请求返回，记录与正文分开。",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R6",
+        "summary": "Lite正常自检，不联网、不读越界材料、不启动其他Agent/独立评审/测试套件、不改toolkit或inputs；完成即结束。",
+        "status": "pending"
+      }
+    ],
+    "warnings": [],
+    "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+  },
+  "observation": {
+    "operation": "save",
+    "operation_id": "8d2f798c5d724eb7bf9c557a35a80855",
+    "started_at": "2026-10-22T04:35:07.488098+00:00",
+    "outcome": "saved",
+    "record_changes": {
+      "records": {
+        "sources": {
+          "added": [],
+          "updated": [
+            "S1",
+            "S2",
+            "S3",
+            "S4",
+            "S5",
+            "S6"
+          ],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        }
+      },
+      "source_files": {
+        "S1": {
+          "status": "unchanged",
+          "paths": [
+            "sources/S1.md"
+          ],
+          "previous_paths": [
+            "sources/S1.md"
+          ]
+        },
+        "S2": {
+          "status": "unchanged",
+          "paths": [
+            "sources/S2.md"
+          ],
+          "previous_paths": [
+            "sources/S2.md"
+          ]
+        },
+        "S3": {
+          "status": "unchanged",
+          "paths": [
+            "sources/S3.md"
+          ],
+          "previous_paths": [
+            "sources/S3.md"
+          ]
+        },
+        "S4": {
+          "status": "unchanged",
+          "paths": [
+            "sources/S4.md"
+          ],
+          "previous_paths": [
+            "sources/S4.md"
+          ]
+        },
+        "S5": {
+          "status": "unchanged",
+          "paths": [
+            "sources/S5.md"
+          ],
+          "previous_paths": [
+            "sources/S5.md"
+          ]
+        },
+        "S6": {
+          "status": "unchanged",
+          "paths": [
+            "sources/S6.md"
+          ],
+          "previous_paths": [
+            "sources/S6.md"
+          ]
+        }
+      },
+      "source_observations": {
+        "S1": {
+          "sources/S1.md": "d70c621816efc612d2456f98376a21e10d8c284bbc567f0e0fee2856c73fa804"
+        },
+        "S2": {
+          "sources/S2.md": "ec95bb1c39619b85c72e07ce8c7d8b9f11ec56ed3681a3c5cfc9aa96a7e94e49"
+        },
+        "S3": {
+          "sources/S3.md": "57357a7d4a9f381150a31e68b51c8df31194eab6e49188d831f603e9af49c3ed"
+        },
+        "S4": {
+          "sources/S4.md": "960538acca68acc24eab9efc25d46cb14ed53621b8714fb6d3f495afe9744113"
+        },
+        "S5": {
+          "sources/S5.md": "a029ee22a6975680acacb3521614a71092f77f50f3fab1e80462883191ec8c03"
+        },
+        "S6": {
+          "sources/S6.md": "5e9d69a85af5c1840e46626f6e3e6d34cf58ddaf44c0efe8d3d0e4374fc55759"
+        }
+      }
+    },
+    "finished_at": "2026-10-22T04:35:07.536685+00:00",
+    "elapsed_seconds": 0.047
+  }
+}

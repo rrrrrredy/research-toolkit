@@ -1,0 +1,12 @@
+{
+  "task": "codex-architecture-zh-20261022",
+  "draft": {"path": "final.md", "complete": true, "main": true, "kind": "report"},
+  "requirements": [
+    {"requirement_id":"R1","status":"satisfied","evidence":"final.md第3–13行解释职责、任务循环、方法加载与跨轮长任务；首次作者通读见first-self-check.json。"},
+    {"requirement_id":"R2","status":"satisfied","evidence":"final.md第15–27行及五行比较表，分开Harness与执行环境责任，说明交互、成本与权限取舍。"},
+    {"requirement_id":"R3","status":"satisfied","evidence":"给定S1—S6已实际阅读并保留快照；source_registry.csv现将证据路径与定位分开；final.md第11行补S2 L194–209，案例与推断均注明边界。"},
+    {"requirement_id":"R4","status":"satisfied","evidence":"checks/first-body-count.json：正文2139个可见非空白字符，含表，排除标题/文献/引用标记；1610汉字及63英文数字词段。终稿只增加引用定位，不改变正文计数。无硬性下限或全文范围。"},
+    {"requirement_id":"R5","status":"satisfied","evidence":"first-draft.md在首次check-draft前保存；首次自检JSON及对应完整正文以排他创建保存。final.md只补引用；revision-notes.md解释修正。所有文本UTF-8；records/toolkit-calls保留实际调用和错误。"},
+    {"requirement_id":"R6","status":"satisfied","evidence":"仅本作者读取工作区给定材料并调用本地Lite CLI；无网络检索、其他Agent、独立评审或测试套件，无修改toolkit/inputs。revision-notes.md明确未经独立评审。"}
+  ]
+}

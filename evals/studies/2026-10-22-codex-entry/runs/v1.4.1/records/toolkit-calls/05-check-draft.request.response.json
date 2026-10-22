@@ -1,0 +1,22 @@
+{
+  "ok": false,
+  "scope": "draft_record_and_length_checks",
+  "profile": "lite",
+  "artifact": "final.md",
+  "artifact_sha256": "0367ed14ee213c2ea2bc6b45b13fbc7d9c4ee4cba97016199e46c59fbe67585f",
+  "counts": {
+    "whitespace_words": 105,
+    "nonwhitespace_characters": 3245
+  },
+  "count_scope": "whole_artifact_including_markup_and_references",
+  "length_checks": [],
+  "errors": [
+    "data/source_registry.csv row S1, read_evidence: Local reading evidence is missing, not a file, or outside the task: sources/S1.md；已阅读给定快照全部所存段落，原文L行号定位，实际范围以文件提供内容为准。省略内容和外链未读；快照日期2026-10-22。. For a local file, use a task-relative path to an existing nonempty file, such as sources/S1.md; put reading-location explanations in locator."
+  ],
+  "warnings": [
+    "No explicit length constraint was checked. Record any agreed whole-artifact range in state/requirements.jsonl; use a separate measurement for other scopes."
+  ],
+  "semantic_quality": "not_assessed",
+  "delivery_status": "not_assessed",
+  "next_action": "Correct the listed records or draft, then run check-draft again. Preserve evaluation originals."
+}
