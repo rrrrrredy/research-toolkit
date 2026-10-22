@@ -7,6 +7,22 @@
 
 Profile rules: Lite skips review and full delivery gates, retaining `state/final_checklist.json` and explicit skip logs. Full self records require `reviewer: self` and `review_strength: degraded`, with the author identity as both reviewer and execution_id; they still require a structured review of the current report and the existing Full delivery checks, and cannot fill an independent slot. External uses the configured backend; independent retains the original separate-context requirements. A historical plan without a reviewer field remains independent. See [profiles and backends](../SKILL.md#choosing-a-profile).
 
+## Conduct the selected review
+
+Read this section when preparing Full review. Backend setup and calls are in [reviewer backends](usage-modes.md#reviewer-backends); Lite uses its [author checklist](../references/lite-workflow.md#final--complete-the-author-checklist).
+
+| Tier | Review relationship | Use |
+| --- | --- | --- |
+| `self` | Author-context review, recorded as `reviewer: self` and `review_strength: degraded` | Tasks accepting author-context checks without an independent-review requirement |
+| `external` | Review from a configured command or model endpoint | Tasks using the configured review service |
+| `independent` | A fresh context separate from the author, with any task-declared audits | Tasks requiring independent review; a separate Astra context is sufficient |
+
+All tiers assess requirements, evidence, adversarial reasoning, structure and depth, reader usefulness, process language and natural expression against the actual report. Retain original responses, specific locations, findings and version bindings. A valid negative review completes review work but unresolved necessary corrections prevent Full delivery. Preserve negative results and use evidenced no-change decisions for mistaken findings rather than rerunning an unchanged report to seek a pass.
+
+Self-review uses the existing prompt and frozen input returned by `research_review`; submit the actual result with its `input_version`. For local reading without repeating the full packet, use the existing [self-review file example](usage-modes.md#reuse-task-files-and-retain-a-self-review-packet). State that this is author-context review without weakening facts that their sources adequately support.
+
+Use `research_check_reviewer` or CLI `check-reviewer` for local configuration checks. Restore required external or independent access when unavailable; do not substitute self for an explicit independent requirement. Add audits only when declared. The backend guide covers same-model independent contexts, model-participant task observations and usage; repeated runs retain their task identity, and changed assignments or criteria need checks appropriate to that change.
+
 ## Choose the Completion Question
 
 - **Evaluation:** all declared review slots must have effective results and evidenced dispositions. A valid negative judgment, confirmed sample defect or unresolved source question can be retained as an evaluation outcome.

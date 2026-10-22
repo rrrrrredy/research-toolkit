@@ -19,6 +19,14 @@ python3 <skill-directory>/scripts/check_delivery.py <task-directory>
 
 档位规则：Lite 跳过评审与完整交付门槛，仅保留 `state/final_checklist.json` 和明确跳过日志。Full 的 self 记录须标记 `reviewer: self`、`review_strength: degraded`，评审身份及 execution_id 均为作者上下文；它仍须完成当前稿件的结构化评审和既有 Full 交付检查，不能填充独立评审席位。external 使用配置的外部后端，independent 保留原有独立上下文要求；历史计划缺少 reviewer 字段时仍按 independent 处理。见 [档位与后端](../SKILL.zh-CN.md#选择档位)。
 
+## 完成 Full 交付
+
+以下要求适用于 Full。Lite 使用[最终 checklist](../references/lite-workflow.zh-CN.md#final--完成作者自检)。
+
+对照实际回答和证据核对必答问题及补充指令。完成所选内容评审和明确要求的审计，解决必要修正，保留与当前报告绑定的全文通过结果。有效负评算评审完成，不等于允许报告交付。
+
+按本页格式，在 `state/final_delivery.json` 绑定当前成果、必需输入、评审和拟交付说明。最终状态须同时为 `stage: final` 与 `status: complete`。可以执行脚本时，从工具箱安装目录运行上方的现有检查命令。必需输入缺失、检查失败、评审过期或必需检查无法运行时，该项仍未完成；解决问题，或准确交付阶段成果并说明剩余工作。哈希与离线 PASS 只证明记录一致性，不证明研究质量或模型实际执行。
+
 ## 需求关闭与阅读记录
 
 `state/requirements.jsonl` 中，`satisfied` 需要非空证据字符串或字符串列表。以 `waived`、`out_of_scope` 或 `accepted_limitation` 关闭的要求，需要 `user_decision` 对象，内含非空 `source_turn` 和 `quote`。决定须与该要求相关；用户最初明确排除的事项也可确立边界。状态标签、作者自行决定或披露缺口，不能替代用户的决定。

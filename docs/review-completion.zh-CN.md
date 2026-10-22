@@ -7,6 +7,22 @@
 
 档位规则：Lite 跳过评审与完整交付门槛，仅保留 `state/final_checklist.json` 和明确跳过日志。Full 的 self 记录须标记 `reviewer: self`、`review_strength: degraded`，评审身份及 execution_id 均为作者上下文；它仍须完成当前稿件的结构化评审和既有 Full 交付检查，不能填充独立评审席位。external 使用配置的外部后端，independent 保留原有独立上下文要求；历史计划缺少 reviewer 字段时仍按 independent 处理。见 [档位与后端](../SKILL.zh-CN.md#选择档位)。
 
+## 执行所选评审
+
+准备 Full 评审时读取本节。后端配置与调用见[评审后端](usage-modes.zh-CN.md#reviewer-backends)；Lite 使用[作者 checklist](../references/lite-workflow.zh-CN.md#final--完成作者自检)。
+
+| 档位 | 评审关系 | 适用情况 |
+| --- | --- | --- |
+| `self` | 作者上下文自评，记录 `reviewer: self` 与 `review_strength: degraded` | 接受作者上下文核对，未要求独立意见的任务 |
+| `external` | 配置的命令或模型端点提供评审 | 使用已配置评审服务的任务 |
+| `independent` | 与作者分开的新上下文，以及任务声明的审计 | 要求独立评审的任务；Astra 单独上下文即可 |
+
+各档位均对照实际报告检查需求、证据、反向论证、结构与深度、读者价值、过程语言和自然表达，保留原始回复、具体位置、发现与版本绑定。有效负评算评审完成，必要修正未解决时不能完成 Full 交付。保留负面结果；误判用有证据的“不修改”决定处理，不对未变报告重跑以追求通过。
+
+self 使用 `research_review` 返回的现有提示与冻结输入，提交实际结果及对应 `input_version`。本地读取而不重复返回整份材料时，使用已有的[自评文件示例](usage-modes.zh-CN.md#复用任务文件并保存自评材料)。说明实际完成的是作者上下文自评，不将有充分来源支持的事实统一弱化。
+
+用 `research_check_reviewer` 或 CLI `check-reviewer` 检查本地配置。必需的外部或独立评审不可用时恢复相应访问，不用 self 替代明确的独立要求。仅在任务声明时增加审计。后端指南保留同模型独立上下文、模型参与任务观察及用量说明；重跑沿用任务身份，分工或标准变化后只做与变化相应的核对。
+
 ## 先区分完成的对象
 
 - **评测**：每个必需评审席位取得有效结果，并完成有证据的处置。有效负评、样本的已证缺陷或未解决来源问题可以作为评测结果保留。
