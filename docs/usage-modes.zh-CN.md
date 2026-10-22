@@ -336,7 +336,7 @@ python3 scripts/research_workflow.py start --workspace /path/to/tasks --request 
 python3 scripts/research_workflow.py review --workspace /path/to/tasks --request review.json
 ```
 
-CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知字段提示会在创建或改变任务前列出操作、字段和输入方式。来源／主张校验错误指出 CSV 文件、记录编号及缺失字段；修正对应记录后重复原操作。指南语言参数为 `en` 或 `zh`。失败命令返回 JSON 和非零退出码；修复已获授权的任务不需要新增用户确认。
+CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知字段提示会在创建或改变任务前列出操作、字段和输入方式。来源／主张校验错误指出 CSV 文件、记录编号及缺失字段；修正对应记录后重复原操作。`start`、`status`、`guide` 及对应 MCP 工具的 `language` 接受 `"en"`（英文），或 `"zh"` / `"zh-CN"`（同一套中文方法）。不支持的值会在写入任务记录或改变阶段前报错，指出 `language` 字段及可用值。失败命令返回 JSON 和非零退出码；修复已获授权的任务不需要新增用户确认。
 
 需求请求的格式为 `{"task":"comparison","language":"zh","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`。评审参数包括 `task`、任务内相对路径 `evidence_paths`，以及可选的 `artifact`（默认 `final.md`）和 `purpose`。`status`、`guide`、`finish` 对应同名 MCP 工具的参数。也可通过标准输入提供 JSON。
 
