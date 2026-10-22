@@ -66,6 +66,17 @@ python3 scripts/research_workflow.py save --workspace ../research-work --request
 
 已有来源正文改动后，保存该来源 ID（如 `{"sources":[{"source_id":"S1"}]}`）即可比较本地证据文件与上次保存时的哈希，不必重交其他字段。首次观察会明确标记，不能据此推断更早是否变化；旧任务无需迁移或补建历史。工具不会监控远端网页。内容字节相同的文件不重写，`updated_files` 只列实际写入；状态查询不写文件。只登记新稿会沿用最近记录批次并更新正文位置，下一批记录保存会替换该摘要；它不是待办清单，也不新增完成条件。
 
+### 任务记录字段
+
+已明确的需求与提纲保存在 `state/task_spec.md`。重要补充要求在 `state/requirements.jsonl` 使用稳定编号；关闭要求和明确的范围变更沿用[需求记录](delivery-verification.zh-CN.md#需求关闭与阅读记录)规则。
+
+`progress.json.stage` 使用 `brief`、`collect`、`analyze`、`draft`、`review`、`revise`、`final`。
+`progress.json.status` 使用 `in_progress`、`paused`、`blocked`、`complete`。
+
+记录实际阶段、未决问题和下一步。恢复时读取规格、进度、存在时的要求台账及有用的已有笔记。`research_status(task)` 沿用保存的档位；单独调用 `research_guide` 时须显式传入所需档位。核对实际重试与返回用量时使用 `research_status.activity`。调用路径相对于任务目录，脚本从工具箱安装目录运行。
+
+`state/findings.jsonl`、`state/directions_tried.json`、`state/iteration_log.jsonl` 和 `logs/work.jsonl` 仅在有助于当前任务时使用，不是普遍必交文件。不确定性可直接记在主张中，`data/uncertainty_registry.csv` 按需使用。字段约定见已有[工作流参考](../references/research-workflow.zh-CN.md#3-状态记录)。
+
 ### 按需检查已登记的版本日志
 
 `research_check_updates(task, source_id)`（CLI：`check-updates`）读取一个已登记的公开版本日志，对比已保存的最新日期条目及其后的版本，返回新增／修订内容、来源标注日期，以及现有主张和稿件的关联位置。无变化返回 `status: unchanged` 后结束；网络、读取、格式或对照失败返回 `status: failed`、`phase` 和原因，CLI 退出码为1。

@@ -66,6 +66,17 @@ Each matched location also returns `text` (the matched line). The first occurren
 
 After changing local source text, save its ID (for example `{"sources":[{"source_id":"S1"}]}`) to compare evidence-file hashes with the previous save observation, without resending other fields. First observations are explicit and say nothing about earlier changes; old tasks need no migration or reconstructed history. Remote pages are not monitored. Byte-identical files are not rewritten and `updated_files` lists actual writes; status is read-only. Registering only a new draft keeps the latest record batch and refreshes its body locations; the next record save replaces that summary. This is not a backlog or a new completion requirement.
 
+### Task record fields
+
+Keep the agreed brief and outline in `state/task_spec.md`. Record substantive follow-up requirements with stable IDs in `state/requirements.jsonl`; closure and explicit scope decisions follow [requirement records](delivery-verification.md#requirement-closure-and-reading-records).
+
+`progress.json.stage` uses `brief`, `collect`, `analyze`, `draft`, `review`, `revise`, and `final`.
+`progress.json.status` accepts `in_progress`, `paused`, `blocked`, and `complete`.
+
+Record the actual stage, open issues and next action. Read the specification, progress, requirements when present, and useful existing notes when resuming. `research_status(task)` inherits the saved profile; standalone `research_guide` needs the intended profile explicitly. Use `research_status.activity` when inspecting actual retries and returned usage. Paths in calls are relative to the task directory; run scripts from the toolkit installation.
+
+Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log.jsonl` and `logs/work.jsonl` only when useful to the task; they are not universal deliverables. Uncertainty can stay with claims, with `data/uncertainty_registry.csv` optional. Field conventions are in the existing [workflow reference](../references/research-workflow.md#3-state-system).
+
 ### Check a registered release log on demand
 
 `research_check_updates(task, source_id)` (CLI: `check-updates`) reads one registered public release log. It compares the latest saved date and newer entries, returning added/revised content, source-labelled dates, and existing claim/report locations. No change returns `status: unchanged` and ends the check. Network, reading, format or comparison failures return `status: failed`, `phase` and an explanation; the CLI exits with code 1.

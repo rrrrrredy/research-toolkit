@@ -84,7 +84,7 @@ class DeliveryContractTests(unittest.TestCase):
     def test_progress_status_contract_is_documented(self):
         # Check the caller-facing enum against the real checker, not a second
         # hand-maintained list. A native checkpoint exposed this documentation gap.
-        lines = (REPO / "SKILL.md").read_text(encoding="utf-8").splitlines()
+        lines = (REPO / "docs/usage-modes.md").read_text(encoding="utf-8").splitlines()
         declaration = [line for line in lines if line.startswith("`progress.json.status` accepts ")]
         self.assertEqual(len(declaration), 1, "The status enum must be discoverable in the normative source")
         values = re.findall(r"`([^`]+)`", declaration[0])[1:]

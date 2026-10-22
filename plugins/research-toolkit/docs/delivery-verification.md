@@ -19,6 +19,14 @@ Use `--delivery-message note.md` for a non-default intended message. The receipt
 
 Profile rules: Lite skips review and full delivery gates, retaining `state/final_checklist.json` and explicit skip logs. Full self records require `reviewer: self` and `review_strength: degraded`, with the author identity as both reviewer and execution_id; they still require a structured review of the current report and the existing Full delivery checks, and cannot fill an independent slot. External uses the configured backend; independent retains the original separate-context requirements. A historical plan without a reviewer field remains independent. See [profiles and backends](../SKILL.md#choosing-a-profile).
 
+## Full delivery completion
+
+The requirements below apply to Full. Lite follows its [final checklist](../references/lite-workflow.md#final--complete-the-author-checklist).
+
+Reconcile required questions and follow-up instructions with the actual answer and evidence. Complete the selected content reviews and expressly required audits, resolve necessary corrections, and retain the passing full-report assessment bound to the current report. A completed negative review does not approve delivery.
+
+Use `state/final_delivery.json` to bind current artifacts, required inputs, reviews and the intended delivery message as described on this page. The coherent terminal state is `stage: final` and `status: complete`. When script execution is available, run the existing checker shown above from the toolkit installation. A missing required input, failed check, stale review or unavailable required check remains unfinished; resolve it or deliver an accurate checkpoint with the remaining work. Hashes and offline PASS establish record consistency, not research quality or authentic model execution.
+
 ## Requirement closure and reading records
 
 In `state/requirements.jsonl`, `satisfied` needs a non-empty evidence string or list of strings. A requirement closed as `waived`, `out_of_scope`, or `accepted_limitation` needs a `user_decision` object with non-empty `source_turn` and `quote`. The quoted decision must concern that requirement; an original user exclusion can establish scope. A status label, the author's decision, or disclosure of a gap does not replace the user's decision.

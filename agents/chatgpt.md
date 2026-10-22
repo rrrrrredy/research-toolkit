@@ -11,16 +11,15 @@ Provide the repository URL or attach `SKILL.md`. If file attachments are limited
 Starter prompt:
 
 ```text
-Use the attached Research Toolkit SKILL.md as the protocol.
-Clarify missing requirements and agree on an outline before collecting sources.
-If you cannot write files, maintain the current brief, progress, sources, claims and actual review records in separate sections. Keep uncertainty with claims; a separate uncertainty registry is optional.
-Do not expose backstage registries in the final report unless I ask for an audit appendix.
+Use the attached Research Toolkit SKILL.md and the methods relevant to this task.
+Research question or revision request: [Include the audience and intended use.]
+Requirements and material: [Include scope, format, sources and any existing report.]
+Use the conversation and material to proceed; ask only about consequential choices you cannot resolve.
+Deliver the requested research with substantive analysis and usable citations; add a short change note for revisions.
 ```
 
 ## Operating Notes
 
-- State the audience, scope, evidence needs, and intended output before research starts.
-- For long tasks, request section-by-section work instead of one-shot drafting.
-- When the context gets long, ask the agent to summarize state in the same field names used by the framework.
-- Before final delivery, ask it to use the research completion checklist and remove execution notes from the report.
-- Conversation-only state is a reduced-capability fallback, not proof of durable file recovery or artifact-bound delivery checks. Use the [integration guide](./README.md#chat-only-use) to assess this boundary before starting a long task.
+The agent is responsible for organizing the research, reading relevant methods, maintaining necessary records, continuing work and completing the selected checks. It should carry the user's requirements into the actual report and keep execution notes outside it; the user does not need to prompt each step.
+
+When the interface cannot save files, the agent keeps the useful working notes separate from the report and prepares a continuation summary when needed. The user may need to save or reattach that material if the host cannot carry it between conversations. For those host limitations, see [chat-only use](README.md#chat-only-use).
