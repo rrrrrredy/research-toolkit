@@ -1,0 +1,30 @@
+{
+  "task": "compressed-air-priorities-zh-20261022",
+  "requirements": [
+    {
+      "requirement_id": "R3",
+      "status": "satisfied",
+      "evidence": "final.md开篇、比较表及修漏/降压/换机段分别说明适用条件、机制、耦合、通常顺序与改变顺序的例外；first-self-check.json对应requirements/sections/counterevidence。"
+    },
+    {
+      "requirement_id": "R4",
+      "status": "satisfied",
+      "evidence": "final.md三组现场数据覆盖生产与服务边界、同步运行曲线、设备状况与当前成本；比较段给出生产归一化与共同服务基准；末段不外推旧算例、不编造现场值、节能率或回收期。"
+    },
+    {
+      "requirement_id": "R5",
+      "status": "satisfied",
+      "evidence": "中文Markdown正文含一张四措施比较表，参考文献另列。正文含标题、表格及引用实测1327个汉字/1675个非空白字符，全文含Markdown与参考文献2154个非空白字符；约1500字为软目标，无硬性下限或全文范围。"
+    },
+    {
+      "requirement_id": "R6",
+      "status": "satisfied",
+      "evidence": "final.md以[1]/[2]短引用给出页码和原文URL；S1印刷页与PDF对应关系、局部阅读范围明确；仅使用两份给定材料。主张和定位见data/claims_registry.csv，首次自检claims_and_sources保留具体核对位置。"
+    },
+    {
+      "requirement_id": "R7",
+      "status": "satisfied",
+      "evidence": "任务profile=lite，研究记录由research_*保存；first-draft.md在首次check-draft之前保存，首次六项first-self-check.json及对应正文first-self-check-report.md已保存不覆盖；final.md与首稿相同，revision-notes.md明确无必要修订。文件均在当前任务目录且UTF-8。仅既有一次稿件检查和一次作者自检，无其他Agent、独立评审、测试套件或联网，不修改toolkit/inputs。"
+    }
+  ]
+}

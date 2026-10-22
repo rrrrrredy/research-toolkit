@@ -1,0 +1,1 @@
+已完成简报及首次产物留存。final.md 为读者版；同目录保留 first-draft.md、first-self-check.json、first-self-check-report.md 和 revision-notes.md。仅使用给定材料，完成 Lite 作者自检，未经独立评审。

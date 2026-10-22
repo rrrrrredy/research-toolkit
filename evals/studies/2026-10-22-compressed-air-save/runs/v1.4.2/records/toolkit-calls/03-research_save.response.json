@@ -1,0 +1,187 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"ok\": true,\n  \"saved_ids\": {\n    \"sources\": [\n      \"S1\",\n      \"S2\"\n    ],\n    \"requirements\": [\n      \"R1\",\n      \"R2\",\n      \"R3\",\n      \"R4\",\n      \"R5\",\n      \"R6\",\n      \"R7\"\n    ]\n  },\n  \"updated_files\": [\n    \"data/source_registry.csv\",\n    \"state/requirements.jsonl\"\n  ],\n  \"backups\": [],\n  \"next_action\": \"Continue the research; existing draft, review and delivery checks still apply.\",\n  \"changes\": {\n    \"available\": true,\n    \"operation_id\": \"90e8331783524310b048e1bba22cdcb8\",\n    \"saved_at\": \"2026-10-22T07:05:51.194427+00:00\",\n    \"records\": {\n      \"sources\": {\n        \"added\": [\n          \"S1\",\n          \"S2\"\n        ],\n        \"updated\": [],\n        \"unchanged\": [],\n        \"removed\": [],\n        \"recovered\": []\n      },\n      \"requirements\": {\n        \"added\": [\n          \"R1\",\n          \"R2\",\n          \"R3\",\n          \"R4\",\n          \"R5\",\n          \"R6\",\n          \"R7\"\n        ],\n        \"updated\": [],\n        \"unchanged\": [],\n        \"removed\": [],\n        \"recovered\": []\n      }\n    },\n    \"source_files\": {\n      \"S1\": {\n        \"status\": \"first_observation\",\n        \"paths\": [\n          \"sources/S1.md\"\n        ],\n        \"previous_paths\": []\n      },\n      \"S2\": {\n        \"status\": \"first_observation\",\n        \"paths\": [\n          \"sources/S2.md\"\n        ],\n        \"previous_paths\": []\n      }\n    },\n    \"artifact\": null,\n    \"affected_claims\": [],\n    \"unlinked_source_ids\": [\n      \"S1\",\n      \"S2\"\n    ],\n    \"scope\": \"Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks.\"\n  },\n  \"current_work\": {\n    \"task_spec\": \"state/task_spec.md\",\n    \"requirements\": \"state/requirements.jsonl\",\n    \"artifact\": null,\n    \"open_requirements\": [\n      {\n        \"requirement_id\": \"R1\",\n        \"summary\": \"解释查漏修复、压力与控制优化、更换空压机的适用条件、相互影响及实施顺序，并说明决策所需现场数据；面向工厂设备与能源管理人员。\",\n        \"status\": \"pending\"\n      },\n      {\n        \"requirement_id\": \"R4\",\n        \"summary\": \"约1500字中文Markdown决策简报，含一张有用措施比较表，参考文献另列；无硬性最低字数或约定全文字符上下界。\",\n        \"status\": \"pending\",\n        \"evidence\": \"按正文口径人工测量并报告；不擅自把约1500字转成whole_artifact硬性min/max。\"\n      },\n      {\n        \"requirement_id\": \"R5\",\n        \"summary\": \"仅给定S1、S2材料，重要建议可定位；不虚构工厂、测量、回收期或保证节能比例，不把旧价格和算例外推为当前结论。\",\n        \"status\": \"pending\"\n      },\n      {\n        \"requirement_id\": \"R6\",\n        \"summary\": \"首次完整稿在首次稿件检查或作者自检前保留first-draft.md且不覆盖；首次六项passed/evidence自检保留first-self-check.json及对应正文first-self-check-report.md；最终final.md和revision-notes.md另存。\",\n        \"status\": \"pending\"\n      },\n      {\n        \"requirement_id\": \"R7\",\n        \"summary\": \"执行既有Lite流程和作者自检；不联网、不启动其他Agent、独立评审或测试套件，不改toolkit/和inputs/，研究与过程文件限当前目录、UTF-8、正文过程分开，完成结束。\",\n        \"status\": \"pending\"\n      }\n    ],\n    \"warnings\": [],\n    \"scope\": \"Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks.\"\n  },\n  \"observation\": {\n    \"operation\": \"save\",\n    \"operation_id\": \"90e8331783524310b048e1bba22cdcb8\",\n    \"started_at\": \"2026-10-22T07:05:51.117434+00:00\",\n    \"outcome\": \"saved\",\n    \"record_changes\": {\n      \"records\": {\n        \"sources\": {\n          \"added\": [\n            \"S1\",\n            \"S2\"\n          ],\n          \"updated\": [],\n          \"unchanged\": [],\n          \"removed\": [],\n          \"recovered\": []\n        },\n        \"requirements\": {\n          \"added\": [\n            \"R1\",\n            \"R2\",\n            \"R3\",\n            \"R4\",\n            \"R5\",\n            \"R6\",\n            \"R7\"\n          ],\n          \"updated\": [],\n          \"unchanged\": [],\n          \"removed\": [],\n          \"recovered\": []\n        }\n      },\n      \"source_files\": {\n        \"S1\": {\n          \"status\": \"first_observation\",\n          \"paths\": [\n            \"sources/S1.md\"\n          ],\n          \"previous_paths\": []\n        },\n        \"S2\": {\n          \"status\": \"first_observation\",\n          \"paths\": [\n            \"sources/S2.md\"\n          ],\n          \"previous_paths\": []\n        }\n      },\n      \"source_observations\": {\n        \"S1\": {\n          \"sources/S1.md\": \"5bf21000c52f9125df5680f17b6f210e5c098264a7858f8d052238ba36447ca7\"\n        },\n        \"S2\": {\n          \"sources/S2.md\": \"73fe8b64ae2f8da3bccd7b73fa6745f5e8a8b07be488c898906229a30e324aaa\"\n        }\n      }\n    },\n    \"finished_at\": \"2026-10-22T07:05:51.194427+00:00\",\n    \"elapsed_seconds\": 0.078\n  }\n}"
+      }
+    ],
+    "structured_content": {
+      "ok": true,
+      "saved_ids": {
+        "sources": [
+          "S1",
+          "S2"
+        ],
+        "requirements": [
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "R5",
+          "R6",
+          "R7"
+        ]
+      },
+      "updated_files": [
+        "data/source_registry.csv",
+        "state/requirements.jsonl"
+      ],
+      "backups": [],
+      "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+      "changes": {
+        "available": true,
+        "operation_id": "90e8331783524310b048e1bba22cdcb8",
+        "saved_at": "2026-10-22T07:05:51.194427+00:00",
+        "records": {
+          "sources": {
+            "added": [
+              "S1",
+              "S2"
+            ],
+            "updated": [],
+            "unchanged": [],
+            "removed": [],
+            "recovered": []
+          },
+          "requirements": {
+            "added": [
+              "R1",
+              "R2",
+              "R3",
+              "R4",
+              "R5",
+              "R6",
+              "R7"
+            ],
+            "updated": [],
+            "unchanged": [],
+            "removed": [],
+            "recovered": []
+          }
+        },
+        "source_files": {
+          "S1": {
+            "status": "first_observation",
+            "paths": [
+              "sources/S1.md"
+            ],
+            "previous_paths": []
+          },
+          "S2": {
+            "status": "first_observation",
+            "paths": [
+              "sources/S2.md"
+            ],
+            "previous_paths": []
+          }
+        },
+        "artifact": null,
+        "affected_claims": [],
+        "unlinked_source_ids": [
+          "S1",
+          "S2"
+        ],
+        "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+      },
+      "current_work": {
+        "task_spec": "state/task_spec.md",
+        "requirements": "state/requirements.jsonl",
+        "artifact": null,
+        "open_requirements": [
+          {
+            "requirement_id": "R1",
+            "summary": "解释查漏修复、压力与控制优化、更换空压机的适用条件、相互影响及实施顺序，并说明决策所需现场数据；面向工厂设备与能源管理人员。",
+            "status": "pending"
+          },
+          {
+            "requirement_id": "R4",
+            "summary": "约1500字中文Markdown决策简报，含一张有用措施比较表，参考文献另列；无硬性最低字数或约定全文字符上下界。",
+            "status": "pending",
+            "evidence": "按正文口径人工测量并报告；不擅自把约1500字转成whole_artifact硬性min/max。"
+          },
+          {
+            "requirement_id": "R5",
+            "summary": "仅给定S1、S2材料，重要建议可定位；不虚构工厂、测量、回收期或保证节能比例，不把旧价格和算例外推为当前结论。",
+            "status": "pending"
+          },
+          {
+            "requirement_id": "R6",
+            "summary": "首次完整稿在首次稿件检查或作者自检前保留first-draft.md且不覆盖；首次六项passed/evidence自检保留first-self-check.json及对应正文first-self-check-report.md；最终final.md和revision-notes.md另存。",
+            "status": "pending"
+          },
+          {
+            "requirement_id": "R7",
+            "summary": "执行既有Lite流程和作者自检；不联网、不启动其他Agent、独立评审或测试套件，不改toolkit/和inputs/，研究与过程文件限当前目录、UTF-8、正文过程分开，完成结束。",
+            "status": "pending"
+          }
+        ],
+        "warnings": [],
+        "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+      },
+      "observation": {
+        "operation": "save",
+        "operation_id": "90e8331783524310b048e1bba22cdcb8",
+        "started_at": "2026-10-22T07:05:51.117434+00:00",
+        "outcome": "saved",
+        "record_changes": {
+          "records": {
+            "sources": {
+              "added": [
+                "S1",
+                "S2"
+              ],
+              "updated": [],
+              "unchanged": [],
+              "removed": [],
+              "recovered": []
+            },
+            "requirements": {
+              "added": [
+                "R1",
+                "R2",
+                "R3",
+                "R4",
+                "R5",
+                "R6",
+                "R7"
+              ],
+              "updated": [],
+              "unchanged": [],
+              "removed": [],
+              "recovered": []
+            }
+          },
+          "source_files": {
+            "S1": {
+              "status": "first_observation",
+              "paths": [
+                "sources/S1.md"
+              ],
+              "previous_paths": []
+            },
+            "S2": {
+              "status": "first_observation",
+              "paths": [
+                "sources/S2.md"
+              ],
+              "previous_paths": []
+            }
+          },
+          "source_observations": {
+            "S1": {
+              "sources/S1.md": "5bf21000c52f9125df5680f17b6f210e5c098264a7858f8d052238ba36447ca7"
+            },
+            "S2": {
+              "sources/S2.md": "73fe8b64ae2f8da3bccd7b73fa6745f5e8a8b07be488c898906229a30e324aaa"
+            }
+          }
+        },
+        "finished_at": "2026-10-22T07:05:51.194427+00:00",
+        "elapsed_seconds": 0.078
+      }
+    }
+  },
+  "error": null,
+  "status": "completed"
+}

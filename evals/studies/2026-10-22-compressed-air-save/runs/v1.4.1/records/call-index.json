@@ -1,0 +1,208 @@
+[
+  {
+    "event_id": "item_9",
+    "event_line": 20,
+    "started": {
+      "line": 19,
+      "received_at_utc": "2026-10-22T06:54:57.989098+00:00",
+      "elapsed_seconds": 48.203
+    },
+    "completed": {
+      "line": 20,
+      "received_at_utc": "2026-10-22T06:54:58.043697+00:00",
+      "elapsed_seconds": 48.25
+    },
+    "tool": "research_start",
+    "request": "records/toolkit-calls/01-research_start.request.json",
+    "response": "records/toolkit-calls/01-research_start.response.json",
+    "error_signal": false,
+    "ok": null,
+    "tool_wall_seconds": 0.047,
+    "returned_guidance_paths": [
+      "references/lite-workflow.zh-CN.md"
+    ]
+  },
+  {
+    "event_id": "item_20",
+    "event_line": 41,
+    "started": {
+      "line": 40,
+      "received_at_utc": "2026-10-22T06:56:34.535216+00:00",
+      "elapsed_seconds": 144.734
+    },
+    "completed": {
+      "line": 41,
+      "received_at_utc": "2026-10-22T06:56:34.599244+00:00",
+      "elapsed_seconds": 144.796
+    },
+    "tool": "research_save",
+    "request": "records/toolkit-calls/02-research_save.request.json",
+    "response": "records/toolkit-calls/02-research_save.response.json",
+    "error_signal": false,
+    "ok": true,
+    "tool_wall_seconds": 0.062
+  },
+  {
+    "event_id": "item_22",
+    "event_line": 44,
+    "started": {
+      "line": 43,
+      "received_at_utc": "2026-10-22T06:58:38.357535+00:00",
+      "elapsed_seconds": 268.562
+    },
+    "completed": {
+      "line": 44,
+      "received_at_utc": "2026-10-22T06:58:38.380052+00:00",
+      "elapsed_seconds": 268.578
+    },
+    "tool": "research_save",
+    "request": "records/toolkit-calls/03-research_save.request.json",
+    "response": "records/toolkit-calls/03-research_save.response.json",
+    "error_signal": false,
+    "ok": true,
+    "tool_wall_seconds": 0.016
+  },
+  {
+    "event_id": "item_24",
+    "event_line": 48,
+    "started": {
+      "line": 47,
+      "received_at_utc": "2026-10-22T06:59:50.098010+00:00",
+      "elapsed_seconds": 340.296
+    },
+    "completed": {
+      "line": 48,
+      "received_at_utc": "2026-10-22T06:59:50.124557+00:00",
+      "elapsed_seconds": 340.328
+    },
+    "tool": "research_status",
+    "request": "records/toolkit-calls/04-research_status.request.json",
+    "response": "records/toolkit-calls/04-research_status.response.json",
+    "error_signal": false,
+    "ok": null,
+    "tool_wall_seconds": 0.032,
+    "returned_guidance_paths": [
+      "references/lite-workflow.zh-CN.md"
+    ]
+  },
+  {
+    "event_id": "item_25",
+    "event_line": 50,
+    "started": {
+      "line": 49,
+      "received_at_utc": "2026-10-22T06:59:50.125563+00:00",
+      "elapsed_seconds": 340.328
+    },
+    "completed": {
+      "line": 50,
+      "received_at_utc": "2026-10-22T06:59:50.154303+00:00",
+      "elapsed_seconds": 340.359
+    },
+    "tool": "research_save",
+    "request": "records/toolkit-calls/05-research_save.request.json",
+    "response": "records/toolkit-calls/05-research_save.response.json",
+    "error_signal": false,
+    "ok": true,
+    "tool_wall_seconds": 0.031
+  },
+  {
+    "event_id": "item_27",
+    "event_line": 54,
+    "started": {
+      "line": 53,
+      "received_at_utc": "2026-10-22T07:00:09.853985+00:00",
+      "elapsed_seconds": 360.062
+    },
+    "completed": {
+      "line": 54,
+      "received_at_utc": "2026-10-22T07:00:09.883478+00:00",
+      "elapsed_seconds": 360.078
+    },
+    "tool": "research_save",
+    "request": "records/toolkit-calls/06-research_save.request.json",
+    "response": "records/toolkit-calls/06-research_save.response.json",
+    "error_signal": false,
+    "ok": true,
+    "tool_wall_seconds": 0.016
+  },
+  {
+    "event_id": "item_28",
+    "event_line": 56,
+    "started": {
+      "line": 55,
+      "received_at_utc": "2026-10-22T07:00:09.885062+00:00",
+      "elapsed_seconds": 360.093
+    },
+    "completed": {
+      "line": 56,
+      "received_at_utc": "2026-10-22T07:00:09.899491+00:00",
+      "elapsed_seconds": 360.109
+    },
+    "tool": "research_check_draft",
+    "request": "records/toolkit-calls/07-research_check_draft.request.json",
+    "response": "records/toolkit-calls/07-research_check_draft.response.json",
+    "error_signal": false,
+    "ok": true,
+    "tool_wall_seconds": 0.016
+  },
+  {
+    "event_id": "item_29",
+    "event_line": 58,
+    "started": {
+      "line": 57,
+      "received_at_utc": "2026-10-22T07:00:09.899491+00:00",
+      "elapsed_seconds": 360.109
+    },
+    "completed": {
+      "line": 58,
+      "received_at_utc": "2026-10-22T07:00:09.913375+00:00",
+      "elapsed_seconds": 360.109
+    },
+    "tool": "research_finish",
+    "request": "records/toolkit-calls/08-research_finish.request.json",
+    "response": "records/toolkit-calls/08-research_finish.response.json",
+    "error_signal": false,
+    "ok": null,
+    "tool_wall_seconds": 0.0
+  },
+  {
+    "event_id": "item_36",
+    "event_line": 70,
+    "started": {
+      "line": 69,
+      "received_at_utc": "2026-10-22T07:02:46.174054+00:00",
+      "elapsed_seconds": 516.375
+    },
+    "completed": {
+      "line": 70,
+      "received_at_utc": "2026-10-22T07:02:46.204145+00:00",
+      "elapsed_seconds": 516.406
+    },
+    "tool": "research_save",
+    "request": "records/toolkit-calls/09-research_save.request.json",
+    "response": "records/toolkit-calls/09-research_save.response.json",
+    "error_signal": false,
+    "ok": true,
+    "tool_wall_seconds": 0.031
+  },
+  {
+    "event_id": "item_38",
+    "event_line": 74,
+    "started": {
+      "line": 73,
+      "received_at_utc": "2026-10-22T07:02:48.922352+00:00",
+      "elapsed_seconds": 519.125
+    },
+    "completed": {
+      "line": 74,
+      "received_at_utc": "2026-10-22T07:02:49.070276+00:00",
+      "elapsed_seconds": 519.265
+    },
+    "tool": "research_finish",
+    "request": "records/toolkit-calls/10-research_finish.request.json",
+    "response": "records/toolkit-calls/10-research_finish.response.json",
+    "error_signal": false,
+    "ok": null,
+    "tool_wall_seconds": 0.14
+  }
+]

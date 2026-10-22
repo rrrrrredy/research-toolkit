@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "profile": "lite",
+  "artifact": "final.md",
+  "items": {
+    "requirements": {
+      "passed": true,
+      "evidence": "2026-10-22首次作者自检，核对正文开篇、四行比较表、修漏与控制段、降压段、换机两段、三组现场数据及结尾限制：回答三类措施的条件、原因、耦合和顺序。参考文献另列；正文在参考文献之前，含标题/表格/引用，实测1327个汉字、1675个非空白字符，符合约1500字的软目标；全文含Markdown和参考文献为2154个非空白字符，不另设全文硬性范围。S2两页全文及S1印刷28–42、60–64/PDF33–47、65–69章节已读，R1/R2分别保留要求和阅读依据。首次完整稿已在research_check_draft之前保存，first-self-check-report.md为本次所查全文快照。",
+      "evidence_files": [
+        "first-self-check-report.md",
+        "revision-notes.md"
+      ]
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "已将当前全文与已读来源核对：修漏闭环对应S2 PDF1L23–44、2L89–91和S1 PDF35L6–58；卸载耗电及储气影响对应S1 PDF40L45–58、44L60–93；基载/调节机对应PDF42L72–85、47L55–70；末端压降及降低压力边界对应PDF36L48–94、37L60–100；变频限制对应PDF41L57–79、47L28–53；同步测量和生产归一化对应PDF65L19–33、66L23–73。换机、可靠性和经济比较规则由PDF67–69系统分析内容综合提出，正文标为综合建议，没有伪称来源给出统一换机阈值。参考文献两网址与inputs/sources.json一致；[1]明确使用印刷页码并保留PDF对应范围，[2]使用PDF页码。",
+      "evidence_files": [
+        "first-self-check-report.md"
+      ]
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "开篇把通常顺序限定于仍能可靠供气的系统；修漏段说明漏损已低而控制浪费突出可先处理控制；降压段保留峰值末端最低压力边界；换机段说明供气可靠性受损时可并行开展替换比选；变频段说明满负荷驱动损耗与低速效率下降，并保留定速基载/单台调节机选择。比较段解释节气不等于同比节电及多个节能率不可相加；未采用S1不同章节中表述不一致的降压合计经验比例。无现场数据只支持条件判断，不支持本厂确定的节能率或换机结论。",
+      "evidence_files": [
+        "first-self-check-report.md",
+        "analysis-notes.md"
+      ]
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "逐段检查当前全文：开篇提供条件化顺序；比较表用于识别现场信号及收益约束；修漏段解释从减流到减电的控制机制；降压段区分供压与局部压降；换机段区分能力/效率/可靠性触发条件；变频段说明负荷适配；三项数据清单支持下一步诊断与经济比选；比较段规定共同生产和服务基准，末段集中限制。各段提供不同的决策信息，未靠重复段落补篇幅。",
+      "evidence_files": [
+        "first-self-check-report.md"
+      ]
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "完成对final.md整篇（包括表格、数据清单和参考文献）的首次通读；first-self-check-report.md保存同一正文。设备与能源管理人员可从表格找到优先信号，从后续段落理解原因和改变建议的条件，并按三组数据清单准备现场信息。未发现重复填充、离题模板或待补占位；正文没有任务ID、工具状态、执行日志或作者自检过程。首次稿与现稿逐字节一致；本次没有需要修正的正文事项，未为形成修订而改稿。",
+      "evidence_files": [
+        "first-self-check-report.md",
+        "revision-notes.md"
+      ]
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "正文末段明确通用漏率、2000年电价与算例不是本厂数据，无测量和当前报价不能给出具体换机结论、保证节能率或回收期。参考文献[1]声明只读指定章节、未读整本及未从缺失图形取数；[2]注明年代并保留两页全文范围。按Lite允许的交付说明方式，revision-notes.md和拟交付说明明确本次仅作者自检、未经独立评审；不将MCP机械检查或checklist当成质量认证。",
+      "evidence_files": [
+        "first-self-check-report.md",
+        "revision-notes.md"
+      ]
+    }
+  },
+  "input_hashes": {
+    "state/task_spec.md": "1b40e27bb17fc213af1e9d7c513c1e5ab60b049c37b078a77834bce61a418123",
+    "data/source_registry.csv": "0a3b0f6ec14aa18d86aaa71c2f3f5778defe3ca89f9c1ad4fd4e371b90393c1a",
+    "data/claims_registry.csv": "2037bfea40fff4b9bed8cf0bc4561c941ee32a42357f40857b2ec9d1d163fc21",
+    "state/requirements.jsonl": "29719251f955bc0ec8b331031580fd4f94984993bf8730ccc04dd8a3235d51de",
+    "sources/S1.md": "5bf21000c52f9125df5680f17b6f210e5c098264a7858f8d052238ba36447ca7",
+    "sources/S2.md": "73fe8b64ae2f8da3bccd7b73fa6745f5e8a8b07be488c898906229a30e324aaa",
+    "first-self-check-report.md": "694eafd12e25bc86dd7ca4bbd436f1a50b796b262a1337b4da1f2e7c5c015e8d",
+    "revision-notes.md": "69198f5ff2ddf4f432f068999ebb5650908507c3de8c818e0d0f31392f1809ee",
+    "analysis-notes.md": "733207ab104bc958e16c33a2c01f513549a04cc0b80240f3c49eecfa5a6efecb"
+  },
+  "review_strength": "unreviewed",
+  "independent_review": false,
+  "artifacts": {
+    "final.md": "694eafd12e25bc86dd7ca4bbd436f1a50b796b262a1337b4da1f2e7c5c015e8d",
+    "delivery_message.md": "c262f85d68b571f93a1c009c7fee038302722dfbe742ff774f388d374414aac2"
+  }
+}

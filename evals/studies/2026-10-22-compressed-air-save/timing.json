@@ -1,0 +1,19 @@
+{
+  "preparation_started_at_utc": "2026-10-22T06:48:03+00:00",
+  "boundary": "First recorded clock reading in this turn; preceding opening and initial file reads unmeasured.",
+  "preparation_finished_at_utc": "2026-10-22T06:54:09.785310+00:00",
+  "shared_preparation_seconds": 366.785,
+  "run_wall_seconds": {
+    "v1.4.1": 540.125,
+    "v1.4.2": 606.187
+  },
+  "sum_run_wall_seconds": 1146.312,
+  "both_runs_finished_at_utc": "2026-10-22T07:13:16.124975+00:00",
+  "result_organization_recorded_at_utc": "2026-10-22T07:15:31.273965+00:00",
+  "result_organization_seconds_to_recording": 135.149,
+  "recorded_total_seconds_to_artifact_creation": 1648.274,
+  "timing_definition": "Per-run wall time is child process launch to exit, including thinking, method/material reads, calls, corrections, writing and final message. Event timestamps are received-at times. Preparation is shared. Result organization is separate and no model reruns are included. Work before first clock reading is unmeasured; final UI presentation after this record is not included.",
+  "delivery_files_completed_at_utc": "2026-10-22T07:19:05.854080+00:00",
+  "result_organization_seconds": 349.729,
+  "recorded_total_seconds_to_delivery_files": 1862.854
+}

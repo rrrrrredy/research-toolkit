@@ -1,0 +1,190 @@
+{
+  "task": "compressed-air-priorities-zh-20261022",
+  "question_count": 1,
+  "execution_count": 2,
+  "runs_per_version": 1,
+  "model": "gpt-6-astra",
+  "reasoning_effort": "xhigh",
+  "injected_defects": [],
+  "conclusion": "两版首次保存均成功，保存参数错误和保存纠错均为0；本例未观察到v1.4.2减少首次填写错误或保存返工的增益。新版总耗时更长。",
+  "versions": {
+    "v1.4.1": {
+      "execution": {
+        "version": "v1.4.1",
+        "started_at_utc": "2026-10-22T06:54:09.785310+00:00",
+        "finished_at_utc": "2026-10-22T07:03:09.925086+00:00",
+        "wall_seconds": 540.125,
+        "exit_code": 0,
+        "turn_usage": [
+          {
+            "input_tokens": 800345,
+            "cached_input_tokens": 723712,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 13953,
+            "reasoning_output_tokens": 3541
+          }
+        ],
+        "followup_prompts": 0
+      },
+      "first_save": {
+        "event_id": "item_20",
+        "request": "records/toolkit-calls/02-research_save.request.json",
+        "response": "records/toolkit-calls/02-research_save.response.json",
+        "success": true,
+        "elapsed_seconds_to_request": 144.734,
+        "elapsed_seconds_to_response": 144.796,
+        "source_first_submission_errors": 0,
+        "required_reading_first_submission_errors": 0
+      },
+      "save_call_count": 5,
+      "save_failures": 0,
+      "save_correction_calls": 0,
+      "save_error_recovery_seconds": 0,
+      "mcp_calls": 10,
+      "method_read_or_search_shell_commands": 5,
+      "method_commands_with_nonzero_exit": 1,
+      "check_draft_calls": 1,
+      "first_author_self_checks": 1,
+      "finish_template_requests": 1,
+      "final_finish_submissions": 1,
+      "in_run_human_interventions": 0,
+      "original_artifacts": {
+        "first-draft.md": {
+          "path": "runs/v1.4.1/tasks/compressed-air-priorities-zh-20261022/first-draft.md",
+          "sha256": "694eafd12e25bc86dd7ca4bbd436f1a50b796b262a1337b4da1f2e7c5c015e8d"
+        },
+        "first-self-check.json": {
+          "path": "runs/v1.4.1/tasks/compressed-air-priorities-zh-20261022/first-self-check.json",
+          "sha256": "9d39dd32de929b17bfc04422de91036d7aee86e80fe3016f9a1908f70460a199"
+        },
+        "first-self-check-report.md": {
+          "path": "runs/v1.4.1/tasks/compressed-air-priorities-zh-20261022/first-self-check-report.md",
+          "sha256": "694eafd12e25bc86dd7ca4bbd436f1a50b796b262a1337b4da1f2e7c5c015e8d"
+        },
+        "final.md": {
+          "path": "runs/v1.4.1/tasks/compressed-air-priorities-zh-20261022/final.md",
+          "sha256": "694eafd12e25bc86dd7ca4bbd436f1a50b796b262a1337b4da1f2e7c5c015e8d"
+        },
+        "revision-notes.md": {
+          "path": "runs/v1.4.1/tasks/compressed-air-priorities-zh-20261022/revision-notes.md",
+          "sha256": "69198f5ff2ddf4f432f068999ebb5650908507c3de8c818e0d0f31392f1809ee"
+        }
+      },
+      "first_draft_equals_final": true,
+      "input_and_install_integrity": {
+        "checked_against": "protocol.json",
+        "mismatches": [],
+        "basis": "One read-only SHA256 comparison after both runs completed; recorded inputs and released install files unchanged."
+      },
+      "other_tool_parameter_correction_calls": 0,
+      "corrections": {
+        "save_parameter_corrections": [],
+        "other_tool_parameter_corrections": [],
+        "normal_finish_sequence": {
+          "template_request_returns_pending_requirements": true,
+          "requirements_closed_after_author_check": true,
+          "classified_as_save_parameter_error": false
+        }
+      }
+    },
+    "v1.4.2": {
+      "execution": {
+        "version": "v1.4.2",
+        "started_at_utc": "2026-10-22T07:03:09.927890+00:00",
+        "finished_at_utc": "2026-10-22T07:13:16.124975+00:00",
+        "wall_seconds": 606.187,
+        "exit_code": 0,
+        "turn_usage": [
+          {
+            "input_tokens": 743497,
+            "cached_input_tokens": 671872,
+            "cache_write_input_tokens": 0,
+            "output_tokens": 14142,
+            "reasoning_output_tokens": 3262
+          }
+        ],
+        "followup_prompts": 0
+      },
+      "first_save": {
+        "event_id": "item_21",
+        "request": "records/toolkit-calls/03-research_save.request.json",
+        "response": "records/toolkit-calls/03-research_save.response.json",
+        "success": true,
+        "elapsed_seconds_to_request": 161.171,
+        "elapsed_seconds_to_response": 161.281,
+        "source_first_submission_errors": 0,
+        "required_reading_first_submission_errors": 0
+      },
+      "save_call_count": 5,
+      "save_failures": 0,
+      "save_correction_calls": 0,
+      "save_error_recovery_seconds": 0,
+      "mcp_calls": 12,
+      "method_read_or_search_shell_commands": 3,
+      "method_commands_with_nonzero_exit": 0,
+      "check_draft_calls": 1,
+      "first_author_self_checks": 1,
+      "finish_template_requests": 1,
+      "final_finish_submissions": 1,
+      "in_run_human_interventions": 0,
+      "original_artifacts": {
+        "first-draft.md": {
+          "path": "runs/v1.4.2/tasks/compressed-air-priorities-zh-20261022/first-draft.md",
+          "sha256": "c20ea1816f187dff772002f60193e5d25d5a60196652609bdcbb1c1c53107b2d"
+        },
+        "first-self-check.json": {
+          "path": "runs/v1.4.2/tasks/compressed-air-priorities-zh-20261022/first-self-check.json",
+          "sha256": "a7b933aec6e1287a40e39084de5c324be0b80e8bd585037e62f866e10d8d3ec9"
+        },
+        "first-self-check-report.md": {
+          "path": "runs/v1.4.2/tasks/compressed-air-priorities-zh-20261022/first-self-check-report.md",
+          "sha256": "43020a39bc056a2ab6b30ab57e337ba182c577fdb72a2ebdb2f494dfd69e665d"
+        },
+        "final.md": {
+          "path": "runs/v1.4.2/tasks/compressed-air-priorities-zh-20261022/final.md",
+          "sha256": "c20ea1816f187dff772002f60193e5d25d5a60196652609bdcbb1c1c53107b2d"
+        },
+        "revision-notes.md": {
+          "path": "runs/v1.4.2/tasks/compressed-air-priorities-zh-20261022/revision-notes.md",
+          "sha256": "07eef00252152560e3ba5034753d50fe456d8ed88d4f0aa03041db402e00a5b4"
+        }
+      },
+      "first_draft_equals_final": true,
+      "input_and_install_integrity": {
+        "checked_against": "protocol.json",
+        "mismatches": [],
+        "basis": "One read-only SHA256 comparison after both runs completed; recorded inputs and released install files unchanged."
+      },
+      "other_tool_parameter_correction_calls": 1,
+      "corrections": {
+        "save_parameter_corrections": [],
+        "other_tool_parameter_corrections": [
+          {
+            "tool": "research_start",
+            "wrong_value": {
+              "language": "zh-CN"
+            },
+            "corrected_value": {
+              "language": "zh"
+            },
+            "failed_request": "records/toolkit-calls/01-research_start.request.json",
+            "failed_response": "records/toolkit-calls/01-research_start.response.json",
+            "correction_request": "records/toolkit-calls/02-research_start.request.json",
+            "correction_response": "records/toolkit-calls/02-research_start.response.json",
+            "error_response_to_corrected_response_seconds": 10.812,
+            "first_attempt_to_corrected_response_seconds": 10.859,
+            "extra_method_reads_for_this_correction": 0,
+            "attribution": "research_start language parameter, outside v1.4.2 research_save documentation change; no code change inferred."
+          }
+        ],
+        "normal_finish_sequence": {
+          "template_request_returns_pending_requirements": true,
+          "requirements_closed_after_author_check": true,
+          "classified_as_save_parameter_error": false
+        }
+      }
+    }
+  },
+  "wall_seconds_delta_v142_minus_v141": 66.062,
+  "first_save_seconds_delta_v142_minus_v141": 16.485
+}

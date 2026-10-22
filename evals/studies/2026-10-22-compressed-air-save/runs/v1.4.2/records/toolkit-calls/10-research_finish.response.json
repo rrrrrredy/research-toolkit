@@ -1,0 +1,37 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"completed\": false,\n  \"action_required\": \"final_checklist\",\n  \"checklist\": {\n    \"requirements\": \"Answer the agreed brief and material follow-up requirements.\",\n    \"claims_and_sources\": \"Check important claims against their sources and citations.\",\n    \"counterevidence\": \"Address counter-evidence and uncertainty; qualify conclusions.\",\n    \"sections\": \"Inspect each section of the current report for explanation and coverage, not repeated filler.\",\n    \"reader_edit\": \"Check the full report and reject duplicated filler, repeated boilerplate, and cross-task or off-topic template text used to pad length; keep it useful to the named reader without internal IDs or production records, and cite the passages checked and any corrections.\",\n    \"limitations\": \"Disclose evidence limits and the absence of independent review.\"\n  },\n  \"profile\": \"lite\",\n  \"log\": [\n    \"SKIP research_review: profile=lite; no independent review is performed.\",\n    \"SKIP full delivery gates: profile=lite; brief, claims and final checklist remain required.\"\n  ],\n  \"length_checks\": [],\n  \"errors\": [\n    \"Requirement R1 is not terminally resolved (status: pending).\",\n    \"Requirement R4 is not terminally resolved (status: pending).\",\n    \"Requirement R5 is not terminally resolved (status: pending).\",\n    \"Requirement R6 is not terminally resolved (status: pending).\",\n    \"Requirement R7 is not terminally resolved (status: pending).\"\n  ]\n}"
+      }
+    ],
+    "structured_content": {
+      "completed": false,
+      "action_required": "final_checklist",
+      "checklist": {
+        "requirements": "Answer the agreed brief and material follow-up requirements.",
+        "claims_and_sources": "Check important claims against their sources and citations.",
+        "counterevidence": "Address counter-evidence and uncertainty; qualify conclusions.",
+        "sections": "Inspect each section of the current report for explanation and coverage, not repeated filler.",
+        "reader_edit": "Check the full report and reject duplicated filler, repeated boilerplate, and cross-task or off-topic template text used to pad length; keep it useful to the named reader without internal IDs or production records, and cite the passages checked and any corrections.",
+        "limitations": "Disclose evidence limits and the absence of independent review."
+      },
+      "profile": "lite",
+      "log": [
+        "SKIP research_review: profile=lite; no independent review is performed.",
+        "SKIP full delivery gates: profile=lite; brief, claims and final checklist remain required."
+      ],
+      "length_checks": [],
+      "errors": [
+        "Requirement R1 is not terminally resolved (status: pending).",
+        "Requirement R4 is not terminally resolved (status: pending).",
+        "Requirement R5 is not terminally resolved (status: pending).",
+        "Requirement R6 is not terminally resolved (status: pending).",
+        "Requirement R7 is not terminally resolved (status: pending)."
+      ]
+    }
+  },
+  "error": null,
+  "status": "completed"
+}

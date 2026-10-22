@@ -1,0 +1,32 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"ok\": true,\n  \"scope\": \"draft_record_and_length_checks\",\n  \"profile\": \"lite\",\n  \"artifact\": \"final.md\",\n  \"artifact_sha256\": \"694eafd12e25bc86dd7ca4bbd436f1a50b796b262a1337b4da1f2e7c5c015e8d\",\n  \"counts\": {\n    \"whitespace_words\": 89,\n    \"nonwhitespace_characters\": 2154\n  },\n  \"count_scope\": \"whole_artifact_including_markup_and_references\",\n  \"length_checks\": [],\n  \"errors\": [],\n  \"warnings\": [\n    \"No explicit length constraint was checked. Record any agreed whole-artifact range in state/requirements.jsonl; use a separate measurement for other scopes.\"\n  ],\n  \"semantic_quality\": \"not_assessed\",\n  \"delivery_status\": \"not_assessed\",\n  \"next_action\": \"Check claims and decisions against sources, then complete the profile's checklist/reviews and finish.\"\n}"
+      }
+    ],
+    "structured_content": {
+      "ok": true,
+      "scope": "draft_record_and_length_checks",
+      "profile": "lite",
+      "artifact": "final.md",
+      "artifact_sha256": "694eafd12e25bc86dd7ca4bbd436f1a50b796b262a1337b4da1f2e7c5c015e8d",
+      "counts": {
+        "whitespace_words": 89,
+        "nonwhitespace_characters": 2154
+      },
+      "count_scope": "whole_artifact_including_markup_and_references",
+      "length_checks": [],
+      "errors": [],
+      "warnings": [
+        "No explicit length constraint was checked. Record any agreed whole-artifact range in state/requirements.jsonl; use a separate measurement for other scopes."
+      ],
+      "semantic_quality": "not_assessed",
+      "delivery_status": "not_assessed",
+      "next_action": "Check claims and decisions against sources, then complete the profile's checklist/reviews and finish."
+    }
+  },
+  "error": null,
+  "status": "completed"
+}
