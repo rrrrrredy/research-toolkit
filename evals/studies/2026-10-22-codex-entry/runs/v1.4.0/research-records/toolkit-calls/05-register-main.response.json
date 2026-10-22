@@ -1,0 +1,496 @@
+{
+  "ok": true,
+  "saved_ids": {},
+  "updated_files": [
+    "state/progress.json"
+  ],
+  "backups": [],
+  "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+  "changes": {
+    "available": true,
+    "operation_id": "c24c0a9d416749b8ba3b6fa4d56a5581",
+    "saved_at": "2026-10-22T04:23:10.676105+00:00",
+    "records": {
+      "sources": {
+        "added": [
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "updated": [],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      },
+      "claims": {
+        "added": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7",
+          "C8",
+          "C9",
+          "C10",
+          "C11"
+        ],
+        "updated": [],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      },
+      "requirements": {
+        "added": [
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "R5",
+          "R6",
+          "R7"
+        ],
+        "updated": [],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      }
+    },
+    "source_files": {
+      "S1": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S1.md"
+        ],
+        "previous_paths": []
+      },
+      "S2": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S2.md"
+        ],
+        "previous_paths": []
+      },
+      "S3": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S3.md"
+        ],
+        "previous_paths": []
+      },
+      "S4": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S4.md"
+        ],
+        "previous_paths": []
+      },
+      "S5": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S5.md"
+        ],
+        "previous_paths": []
+      },
+      "S6": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S6.md"
+        ],
+        "previous_paths": []
+      }
+    },
+    "artifact": "final.md",
+    "affected_claims": [
+      {
+        "claim_id": "C1",
+        "claim": "开放 Harness 管理会话、工具循环、流式执行与审批；应用提供业务上下文、界面和工具；模型访问及托管服务另属一层。",
+        "changed_source_ids": [
+          "S1"
+        ],
+        "locations": [
+          {
+            "line": 39,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S1"
+            ],
+            "text": "1. OpenAI，[Codex as a platform: build on the open agent harness](https://developers.openai.com/blog/codex-as-a-platform)，L5–49、L74–80：开放 Harness、集成入口与应用职责。",
+            "context": {
+              "start_line": 37,
+              "end_line": 44,
+              "text": "以下均为 2026 年 10 月 22 日保存的 OpenAI 文档或官方作者文章摘录；L 为摘录保留的原文行号。文档提供接口与职责说明，案例提供作者报告，均不构成独立的跨版本性能验证。\n\n1. OpenAI，[Codex as a platform: build on the open agent harness](https://developers.openai.com/blog/codex-as-a-platform)，L5–49、L74–80：开放 Harness、集成入口与应用职责。\n2. OpenAI，[Codex App Server](https://learn.chatgpt.com/docs/app-server)，L194–209、L472–488、L874–878、L1085–1125、L1358–1399、L1427–1459、L1512–1514：任务生命周期、恢复、压缩、事件与审批。\n3. OpenAI，[Build skills](https://learn.chatgpt.com/docs/build-skills)，L5–15、L33–48、L91–103：技能组成、渐进披露与调用。\n4. OpenAI，[Agent approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)，L59–74、L246–263、L310–357：沙箱与审批、网络控制范围、自动审批。\n5. OpenAI，[Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex)，L5–9、L42–83、L160–185：历史实验条件、执行反馈与项目记忆。\n6. OpenAI，[Agents API Architecture](https://developers.openai.com/api/docs/guides/agents-api/architecture)，L5–31、L48–54、L75–109：托管 Harness、可选环境、应用与 executor 的分工。"
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C2",
+        "claim": "app-server 用 Thread/Turn/Item 组织任务，经初始化、创建或恢复线程、启动回合、工具和消息事件、最终状态完成一轮；活跃回合可 steer 或 interrupt。",
+        "changed_source_ids": [
+          "S2"
+        ],
+        "locations": [
+          {
+            "line": 40,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S2"
+            ],
+            "text": "2. OpenAI，[Codex App Server](https://learn.chatgpt.com/docs/app-server)，L194–209、L472–488、L874–878、L1085–1125、L1358–1399、L1427–1459、L1512–1514：任务生命周期、恢复、压缩、事件与审批。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C3",
+        "claim": "本地 CLI 适合有界非交互作业，SDK 提供程序化任务接口，app-server 适合掌握对话、事件和审批体验的产品。",
+        "changed_source_ids": [
+          "S1",
+          "S2"
+        ],
+        "locations": [
+          {
+            "line": 39,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S1"
+            ],
+            "text": "1. OpenAI，[Codex as a platform: build on the open agent harness](https://developers.openai.com/blog/codex-as-a-platform)，L5–49、L74–80：开放 Harness、集成入口与应用职责。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          },
+          {
+            "line": 40,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S2"
+            ],
+            "text": "2. OpenAI，[Codex App Server](https://learn.chatgpt.com/docs/app-server)，L194–209、L472–488、L874–878、L1085–1125、L1358–1399、L1427–1459、L1512–1514：任务生命周期、恢复、压缩、事件与审批。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C4",
+        "claim": "Agents API 由 OpenAI 托管 Harness，可无执行环境，或使用 OpenAI 托管环境、自有环境；自有环境由应用管理供给、连接恢复、关闭和文件保存。",
+        "changed_source_ids": [
+          "S6"
+        ],
+        "locations": [
+          {
+            "line": 44,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S6"
+            ],
+            "text": "6. OpenAI，[Agents API Architecture](https://developers.openai.com/api/docs/guides/agents-api/architecture)，L5–31、L48–54、L75–109：托管 Harness、可选环境、应用与 executor 的分工。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C5",
+        "claim": "函数工具需应用处理调用并返回结果；处理器不可用会使 Agent 等待，事件和生命周期处理失败也会影响推进。",
+        "changed_source_ids": [
+          "S6"
+        ],
+        "locations": [
+          {
+            "line": 44,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S6"
+            ],
+            "text": "6. OpenAI，[Agents API Architecture](https://developers.openai.com/api/docs/guides/agents-api/architecture)，L5–31、L48–54、L75–109：托管 Harness、可选环境、应用与 executor 的分工。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C6",
+        "claim": "Skill 先以名称、描述及 Codex 路径进入目录，选中后加载完整 SKILL.md；初始列表默认最多占上下文窗口 2%，未知窗口时限 8000 字符，目录过大可缩短描述或遗漏技能。",
+        "changed_source_ids": [
+          "S2",
+          "S3"
+        ],
+        "locations": [
+          {
+            "line": 40,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S2"
+            ],
+            "text": "2. OpenAI，[Codex App Server](https://learn.chatgpt.com/docs/app-server)，L194–209、L472–488、L874–878、L1085–1125、L1358–1399、L1427–1459、L1512–1514：任务生命周期、恢复、压缩、事件与审批。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          },
+          {
+            "line": 41,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S3"
+            ],
+            "text": "3. OpenAI，[Build skills](https://learn.chatgpt.com/docs/build-skills)，L5–15、L33–48、L91–103：技能组成、渐进披露与调用。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C7",
+        "claim": "沙箱决定技术权限，审批决定何时请求授权；命令网络代理不覆盖模型请求、搜索、连接器或 MCP 等全部连接。",
+        "changed_source_ids": [
+          "S4"
+        ],
+        "locations": [
+          {
+            "line": 42,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S4"
+            ],
+            "text": "4. OpenAI，[Agent approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)，L59–74、L246–263、L310–357：沙箱与审批、网络控制范围、自动审批。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C8",
+        "claim": "自动审批可把符合条件的审批交给 reviewer agent，但保持沙箱边界，并增加模型调用和用量；部分失败按关闭方式处理。",
+        "changed_source_ids": [
+          "S4"
+        ],
+        "locations": [
+          {
+            "line": 42,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S4"
+            ],
+            "text": "4. OpenAI，[Agent approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)，L59–74、L246–263、L310–357：沙箱与审批、网络控制范围、自动审批。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C9",
+        "claim": "会话恢复、模型可见历史压缩、工作区持久文件是不同状态层；app-server 的 thread/revert 不回滚本地文件。",
+        "changed_source_ids": [
+          "S2",
+          "S5",
+          "S6"
+        ],
+        "locations": [
+          {
+            "line": 40,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S2"
+            ],
+            "text": "2. OpenAI，[Codex App Server](https://learn.chatgpt.com/docs/app-server)，L194–209、L472–488、L874–878、L1085–1125、L1358–1399、L1427–1459、L1512–1514：任务生命周期、恢复、压缩、事件与审批。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          },
+          {
+            "line": 43,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S5"
+            ],
+            "text": "5. OpenAI，[Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex)，L5–9、L42–83、L160–185：历史实验条件、执行反馈与项目记忆。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          },
+          {
+            "line": 44,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S6"
+            ],
+            "text": "6. OpenAI，[Agents API Architecture](https://developers.openai.com/api/docs/guides/agents-api/architecture)，L5–31、L48–54、L75–109：托管 Harness、可选环境、应用与 executor 的分工。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C10",
+        "claim": "历史作者实验使用 GPT-5.3-Codex、Extra High、空仓库和 full access，报告连续约25小时、约1300万token、约3万行代码，并明确非生产就绪。",
+        "changed_source_ids": [
+          "S5"
+        ],
+        "locations": [
+          {
+            "line": 43,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S5"
+            ],
+            "text": "5. OpenAI，[Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex)，L5–9、L42–83、L160–185：历史实验条件、执行反馈与项目记忆。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          }
+        ],
+        "location_status": "matched"
+      },
+      {
+        "claim_id": "C11",
+        "claim": "长任务宜把目标、约束、里程碑与状态保存在可重读工件，并以执行反馈推进修正；成本评估应涵盖循环调用、环境、等待与返工。",
+        "changed_source_ids": [
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "locations": [
+          {
+            "line": 42,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S4"
+            ],
+            "text": "4. OpenAI，[Agent approvals & security](https://learn.chatgpt.com/docs/agent-approvals-security)，L59–74、L246–263、L310–357：沙箱与审批、网络控制范围、自动审批。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          },
+          {
+            "line": 43,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S5"
+            ],
+            "text": "5. OpenAI，[Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex)，L5–9、L42–83、L160–185：历史实验条件、执行反馈与项目记忆。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          },
+          {
+            "line": 44,
+            "heading": "参考文献",
+            "matched_by": [
+              "source_link:S6"
+            ],
+            "text": "6. OpenAI，[Agents API Architecture](https://developers.openai.com/api/docs/guides/agents-api/architecture)，L5–31、L48–54、L75–109：托管 Harness、可选环境、应用与 executor 的分工。",
+            "context_ref": {
+              "claim_id": "C1",
+              "line": 39
+            }
+          }
+        ],
+        "location_status": "matched"
+      }
+    ],
+    "unlinked_source_ids": [],
+    "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+  },
+  "current_work": {
+    "task_spec": "state/task_spec.md",
+    "requirements": "state/requirements.jsonl",
+    "artifact": {
+      "path": "final.md",
+      "sha256": "b5bdabfe6a40835b22a21b79a2039e6499ae44862860cc8d3b851f0ecdb48ba3",
+      "kind": "report",
+      "current_sha256": "b5bdabfe6a40835b22a21b79a2039e6499ae44862860cc8d3b851f0ecdb48ba3",
+      "changed_since_save": false
+    },
+    "open_requirements": [
+      {
+        "requirement_id": "R1",
+        "summary": "解释一次任务和模型、Harness、客户端、工具、执行环境的配合",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R2",
+        "summary": "区分本地 app-server、CLI/SDK 与托管服务职责，包含有用比较表",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R3",
+        "summary": "解释上下文、技能按需加载、跨轮接续和长任务机制",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R4",
+        "summary": "解释真正影响能力、成本、体验的设计取舍和反证限制",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R5",
+        "summary": "中文正文约2000字，无硬性最低字数，参考文献另列；人工按正文口径核对，不创建全文硬性上下限",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R6",
+        "summary": "仅用给定六份材料，重要判断可追溯，区分文档、历史案例与作者推断",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R7",
+        "summary": "完整首稿在首次稿件检查及自检前冻结；首次六项自检和对应全文不覆盖；交付终稿与简短修订说明，调用记录与正文分离",
+        "status": "pending"
+      }
+    ],
+    "warnings": [],
+    "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+  },
+  "observation": {
+    "operation": "save",
+    "operation_id": "bb03878101f74b10857b647ea7a936b8",
+    "started_at": "2026-10-22T04:24:54.247180+00:00",
+    "artifact": "final.md",
+    "complete_draft": true,
+    "time_basis": "existing_file_observed",
+    "artifact_sha256": "b5bdabfe6a40835b22a21b79a2039e6499ae44862860cc8d3b851f0ecdb48ba3",
+    "outcome": "saved",
+    "finished_at": "2026-10-22T04:24:54.253132+00:00",
+    "elapsed_seconds": 0.016
+  }
+}

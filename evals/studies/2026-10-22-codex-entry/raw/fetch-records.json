@@ -1,0 +1,101 @@
+[
+  {
+    "id": "overview",
+    "requested_url": "https://learn.chatgpt.com/docs/overview.md",
+    "fetched_at_utc": "2026-10-22T04:16:22.781194+00:00",
+    "final_url": "https://learn.chatgpt.com/docs/overview.md",
+    "status": 200,
+    "content_type": "text/markdown; charset=utf-8",
+    "bytes": 219
+  },
+  {
+    "id": "features",
+    "requested_url": "https://learn.chatgpt.com/docs/features.md",
+    "fetched_at_utc": "2026-10-22T04:16:23.609113+00:00",
+    "final_url": "https://learn.chatgpt.com/docs/features.md",
+    "status": 200,
+    "content_type": "text/markdown; charset=utf-8",
+    "bytes": 10367
+  },
+  {
+    "id": "platform",
+    "requested_url": "https://developers.openai.com/blog/codex-as-a-platform.md",
+    "fetched_at_utc": "2026-10-22T04:16:24.362747+00:00",
+    "final_url": "https://developers.openai.com/blog/codex-as-a-platform.md",
+    "status": 200,
+    "content_type": "text/markdown; charset=utf-8",
+    "bytes": 9941
+  },
+  {
+    "id": "security",
+    "requested_url": "https://learn.chatgpt.com/docs/security.md",
+    "fetched_at_utc": "2026-10-22T04:16:25.076772+00:00",
+    "final_url": "https://learn.chatgpt.com/docs/security.md",
+    "status": 200,
+    "content_type": "text/markdown; charset=utf-8",
+    "bytes": 4794
+  },
+  {
+    "id": "skills",
+    "requested_url": "https://developers.openai.com/codex/skills.md",
+    "fetched_at_utc": "2026-10-22T04:16:25.808479+00:00",
+    "final_url": "https://learn.chatgpt.com/docs/build-skills.md",
+    "status": 200,
+    "content_type": "text/markdown; charset=utf-8",
+    "bytes": 11035
+  },
+  {
+    "id": "app",
+    "requested_url": "https://developers.openai.com/codex/app/features.md",
+    "fetched_at_utc": "2026-10-22T04:16:27.129506+00:00",
+    "final_url": "https://learn.chatgpt.com/docs/features.md",
+    "status": 200,
+    "content_type": "text/markdown; charset=utf-8",
+    "bytes": 10367
+  },
+  {
+    "id": "app-server",
+    "requested_url": "https://developers.openai.com/codex/app-server.md",
+    "fetched_at_utc": "2026-10-22T04:16:28.526975+00:00",
+    "final_url": "https://learn.chatgpt.com/docs/app-server.md",
+    "status": 200,
+    "content_type": "text/markdown; charset=utf-8",
+    "bytes": 102656
+  },
+  {
+    "id": "cli",
+    "requested_url": "https://developers.openai.com/codex/cli/features.md",
+    "fetched_at_utc": "2026-10-22T04:16:30.268651+00:00",
+    "final_url": "https://learn.chatgpt.com/docs/codex/cli.md",
+    "status": 200,
+    "content_type": "text/markdown; charset=utf-8",
+    "bytes": 6710
+  },
+  {
+    "id": "approvals",
+    "requested_url": "https://learn.chatgpt.com/docs/agent-approvals-security.md",
+    "fetched_at_utc": "2026-10-22T04:17:25.980354+00:00",
+    "final_url": "https://learn.chatgpt.com/docs/agent-approvals-security.md",
+    "status": 200,
+    "content_type": "text/markdown; charset=utf-8",
+    "bytes": 35349
+  },
+  {
+    "id": "long-horizon",
+    "requested_url": "https://developers.openai.com/blog/run-long-horizon-tasks-with-codex.md",
+    "fetched_at_utc": "2026-10-22T04:17:26.839746+00:00",
+    "final_url": "https://developers.openai.com/blog/run-long-horizon-tasks-with-codex.md",
+    "status": 200,
+    "content_type": "text/markdown; charset=utf-8",
+    "bytes": 11686
+  },
+  {
+    "id": "architecture",
+    "requested_url": "https://developers.openai.com/api/docs/guides/agents-api/architecture.md",
+    "fetched_at_utc": "2026-10-22T04:17:27.389213+00:00",
+    "final_url": "https://developers.openai.com/api/docs/guides/agents-api/architecture.md",
+    "status": 200,
+    "content_type": "text/markdown; charset=utf-8",
+    "bytes": 5845
+  }
+]

@@ -1,0 +1,1 @@
+已完成中文报告，包含职责比较表与可追溯引用。交付 final.md、first-draft.md、first-self-check.json、first-self-check-report.md、revision-notes.md。仅使用给定六份材料，已完成作者自检，未经独立评审；实际 Toolkit 请求与返回保存在 research-records/toolkit-calls。

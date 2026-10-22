@@ -1,0 +1,16 @@
+{
+  "ok": false,
+  "errors": [
+    "requirements[2].reading_requirement: use full_text or relevant_sections."
+  ],
+  "next_action": "Agent: correct the indicated fields and retry. Keep research decisions with the user; do not ask them to edit CSV/JSONL.",
+  "observation": {
+    "operation": "save",
+    "operation_id": "23eb0bcf32ce4160aa6b9719489cee95",
+    "started_at": "2026-10-22T04:31:43.036840+00:00",
+    "outcome": "error",
+    "error": "requirements[2].reading_requirement: use full_text or relevant_sections.",
+    "finished_at": "2026-10-22T04:31:43.041052+00:00",
+    "elapsed_seconds": 0.0
+  }
+}

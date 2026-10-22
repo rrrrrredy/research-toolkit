@@ -1,0 +1,214 @@
+{
+  "task": "codex-architecture-zh-20261022",
+  "sources": [
+    {
+      "source_id": "S1",
+      "title": "Codex as a platform: build on the open agent harness",
+      "url": "https://developers.openai.com/blog/codex-as-a-platform",
+      "source_type": "primary",
+      "read_scope": "relevant_sections",
+      "read_evidence": "2026-10-22 已读给定摘录全部正文；原文标记 L1–L115。来源快照时间 2026-10-22T04:16:24.362747+00:00。原网页省略内容、图片本体及链接页面未提供、未读；不视为原网页全文阅读。",
+      "evidence_path": "sources/S1.md"
+    },
+    {
+      "source_id": "S2",
+      "title": "Codex App Server：接口、执行生命周期、状态与事件",
+      "url": "https://learn.chatgpt.com/docs/app-server",
+      "source_type": "primary",
+      "read_scope": "relevant_sections",
+      "read_evidence": "2026-10-22 已读给定摘录全部正文；原文标记 L1–L8, L57–L105, L194–L210, L472–L489, L874–L884, L964–L975, L1014–L1066, L1085–L1125, L1328–L1425, L1427–L1460, L1512–L1536。来源快照时间 2026-10-22T04:16:28.526975+00:00。原网页省略内容、图片本体及链接页面未提供、未读；不视为原网页全文阅读。",
+      "evidence_path": "sources/S2.md"
+    },
+    {
+      "source_id": "S3",
+      "title": "Build skills：渐进披露、调用与分发",
+      "url": "https://learn.chatgpt.com/docs/build-skills",
+      "source_type": "primary",
+      "read_scope": "relevant_sections",
+      "read_evidence": "2026-10-22 已读给定摘录全部正文；原文标记 L1–L48, L91–L104, L136–L165, L220–L233。来源快照时间 2026-10-22T04:16:25.808479+00:00。原网页省略内容、图片本体及链接页面未提供、未读；不视为原网页全文阅读。",
+      "evidence_path": "sources/S3.md"
+    },
+    {
+      "source_id": "S4",
+      "title": "Agent approvals & security：执行权限和审批",
+      "url": "https://learn.chatgpt.com/docs/agent-approvals-security",
+      "source_type": "primary",
+      "read_scope": "relevant_sections",
+      "read_evidence": "2026-10-22 已读给定摘录全部正文；原文标记 L1–L15, L48–L75, L246–L370, L424–L454。来源快照时间 2026-10-22T04:17:25.980354+00:00。原网页省略内容、图片本体及链接页面未提供、未读；不视为原网页全文阅读。",
+      "evidence_path": "sources/S4.md"
+    },
+    {
+      "source_id": "S5",
+      "title": "Run long horizon tasks with Codex：历史长任务案例",
+      "url": "https://developers.openai.com/blog/run-long-horizon-tasks-with-codex",
+      "source_type": "primary",
+      "read_scope": "relevant_sections",
+      "read_evidence": "2026-10-22 已读给定摘录全部正文；原文标记 L1–L85, L160–L195。来源快照时间 2026-10-22T04:17:26.839746+00:00。原网页省略内容、图片本体及链接页面未提供、未读；不视为原网页全文阅读。",
+      "evidence_path": "sources/S5.md"
+    },
+    {
+      "source_id": "S6",
+      "title": "Agents API Architecture：托管 Harness、执行环境与应用",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/architecture",
+      "source_type": "primary",
+      "read_scope": "relevant_sections",
+      "read_evidence": "2026-10-22 已读给定摘录全部正文；原文标记 L1–L111。来源快照时间 2026-10-22T04:17:27.389213+00:00。原网页省略内容、图片本体及链接页面未提供、未读；不视为原网页全文阅读。",
+      "evidence_path": "sources/S6.md"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "C1",
+      "claim": "开放 Harness 管理会话、工具循环、流式执行与审批；应用提供业务上下文、界面和工具；模型访问及托管服务另属一层。",
+      "claim_type": "source_claim",
+      "supporting_sources": [
+        "S1"
+      ],
+      "counter_evidence": "本地 Harness 开源并不证明模型或托管服务内部实现开放。",
+      "uncertainty": "来源为官方架构说明，未检查其链接代码库。"
+    },
+    {
+      "claim_id": "C2",
+      "claim": "app-server 用 Thread/Turn/Item 组织任务，经初始化、创建或恢复线程、启动回合、工具和消息事件、最终状态完成一轮；活跃回合可 steer 或 interrupt。",
+      "claim_type": "source_claim",
+      "supporting_sources": [
+        "S2"
+      ],
+      "counter_evidence": "turn/completed 可携带 interrupted 或 failed，通知名称不等于成功。",
+      "uncertainty": "本地接口描述不推广为全部托管接口语义。"
+    },
+    {
+      "claim_id": "C3",
+      "claim": "本地 CLI 适合有界非交互作业，SDK 提供程序化任务接口，app-server 适合掌握对话、事件和审批体验的产品。",
+      "claim_type": "source_claim",
+      "supporting_sources": [
+        "S1",
+        "S2"
+      ],
+      "counter_evidence": "S2 推荐 CI 使用 SDK，S1 同时给出 codex exec；属于不同集成粒度，非互斥性能结论。",
+      "uncertainty": "材料没有同任务性能或接入成本比较。"
+    },
+    {
+      "claim_id": "C4",
+      "claim": "Agents API 由 OpenAI 托管 Harness，可无执行环境，或使用 OpenAI 托管环境、自有环境；自有环境由应用管理供给、连接恢复、关闭和文件保存。",
+      "claim_type": "source_claim",
+      "supporting_sources": [
+        "S6"
+      ],
+      "counter_evidence": "self_hosted 指环境，不表示 Harness 自托管；无环境仍可使用远程 MCP 和应用函数工具。",
+      "uncertainty": "托管服务闭源内部实现未披露。"
+    },
+    {
+      "claim_id": "C5",
+      "claim": "函数工具需应用处理调用并返回结果；处理器不可用会使 Agent 等待，事件和生命周期处理失败也会影响推进。",
+      "claim_type": "source_claim",
+      "supporting_sources": [
+        "S6"
+      ],
+      "counter_evidence": "托管循环不免除应用集成故障。",
+      "uncertainty": "未给出故障率、恢复 SLA 或可靠性比较。"
+    },
+    {
+      "claim_id": "C6",
+      "claim": "Skill 先以名称、描述及 Codex 路径进入目录，选中后加载完整 SKILL.md；初始列表默认最多占上下文窗口 2%，未知窗口时限 8000 字符，目录过大可缩短描述或遗漏技能。",
+      "claim_type": "source_claim",
+      "supporting_sources": [
+        "S3",
+        "S2"
+      ],
+      "counter_evidence": "预算仅限初始列表，不是技能正文总预算；显式 skill 输入可避免仅依赖模型解析名称。",
+      "uncertainty": "没有技能命中率或节省 token 的对照实测。"
+    },
+    {
+      "claim_id": "C7",
+      "claim": "沙箱决定技术权限，审批决定何时请求授权；命令网络代理不覆盖模型请求、搜索、连接器或 MCP 等全部连接。",
+      "claim_type": "source_claim",
+      "supporting_sources": [
+        "S4"
+      ],
+      "counter_evidence": "本地默认禁止命令联网不能解释成产品全链路离线；Legacy Cloud 设置不能推广到 Current Cloud。",
+      "uncertainty": "当前 Cloud 细则只提供外链，本次未取得。"
+    },
+    {
+      "claim_id": "C8",
+      "claim": "自动审批可把符合条件的审批交给 reviewer agent，但保持沙箱边界，并增加模型调用和用量；部分失败按关闭方式处理。",
+      "claim_type": "source_claim",
+      "supporting_sources": [
+        "S4"
+      ],
+      "counter_evidence": "沙箱内动作不加此评审；自动评审并非普遍要求，也非零成本。",
+      "uncertainty": "未提供额外延迟、费用或误判率。"
+    },
+    {
+      "claim_id": "C9",
+      "claim": "会话恢复、模型可见历史压缩、工作区持久文件是不同状态层；app-server 的 thread/revert 不回滚本地文件。",
+      "claim_type": "analysis",
+      "supporting_sources": [
+        "S2",
+        "S5",
+        "S6"
+      ],
+      "counter_evidence": "保持线程不证明完整历史一直在模型窗口；工作区持久化也不能从 session 维护自动推定。",
+      "uncertainty": "压缩保真度、摘要算法及跨服务持久化细节不明。"
+    },
+    {
+      "claim_id": "C10",
+      "claim": "历史作者实验使用 GPT-5.3-Codex、Extra High、空仓库和 full access，报告连续约25小时、约1300万token、约3万行代码，并明确非生产就绪。",
+      "claim_type": "source_claim",
+      "supporting_sources": [
+        "S5"
+      ],
+      "counter_evidence": "单例、较宽权限且没有对照，不能证明当前各版本普遍可靠、划算或可生产使用。",
+      "uncertainty": "不含 token 输入输出拆分、账单或本轮复现实测。"
+    },
+    {
+      "claim_id": "C11",
+      "claim": "长任务宜把目标、约束、里程碑与状态保存在可重读工件，并以执行反馈推进修正；成本评估应涵盖循环调用、环境、等待与返工。",
+      "claim_type": "analysis",
+      "supporting_sources": [
+        "S4",
+        "S5",
+        "S6"
+      ],
+      "counter_evidence": "持续运行时间和代码产量不等于交付质量；模型能力也会影响长程一致性，案例无法隔离 Harness 的贡献。",
+      "uncertainty": "属于设计建议与成本组成分析，不是已量化的收益或因果证明。"
+    }
+  ],
+  "requirements": [
+    {
+      "requirement_id": "R1",
+      "summary": "解释一次任务和模型、Harness、客户端、工具、执行环境的配合",
+      "status": "pending"
+    },
+    {
+      "requirement_id": "R2",
+      "summary": "区分本地 app-server、CLI/SDK 与托管服务职责，包含有用比较表",
+      "status": "pending"
+    },
+    {
+      "requirement_id": "R3",
+      "summary": "解释上下文、技能按需加载、跨轮接续和长任务机制",
+      "status": "pending"
+    },
+    {
+      "requirement_id": "R4",
+      "summary": "解释真正影响能力、成本、体验的设计取舍和反证限制",
+      "status": "pending"
+    },
+    {
+      "requirement_id": "R5",
+      "summary": "中文正文约2000字，无硬性最低字数，参考文献另列；人工按正文口径核对，不创建全文硬性上下限",
+      "status": "pending"
+    },
+    {
+      "requirement_id": "R6",
+      "summary": "仅用给定六份材料，重要判断可追溯，区分文档、历史案例与作者推断",
+      "status": "pending"
+    },
+    {
+      "requirement_id": "R7",
+      "summary": "完整首稿在首次稿件检查及自检前冻结；首次六项自检和对应全文不覆盖；交付终稿与简短修订说明，调用记录与正文分离",
+      "status": "pending"
+    }
+  ]
+}

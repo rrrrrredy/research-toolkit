@@ -1,0 +1,312 @@
+{
+  "task": "codex-architecture-zh-20261022",
+  "task_directory": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\codex-entry-study-20261022\\runs\\v1.4.0\\tasks\\codex-architecture-zh-20261022",
+  "progress": {
+    "stage": "draft",
+    "status": "in_progress",
+    "author_id": "author:codex-architecture-zh-20261022",
+    "open_issues": [],
+    "brief": {
+      "question": "Codex 的一次任务如何执行，模型、Harness、客户端、工具、上下文、方法和执行环境如何配合；跨轮接续和长任务如何工作；哪些设计影响能力、成本与体验？",
+      "audience": "希望理解并设计 Agent 产品的中文读者",
+      "scope": "截至 2026-10-22，仅研究 inputs/sources.json 所列六份给定材料及其指定范围。区分本地 app-server、CLI 和托管 Agents API 的职责，不推广个别入口条件。禁止联网、其他 Agent、独立评审、测试套件；不修改 inputs 或 toolkit。",
+      "output": "中文 Markdown 报告，正文约 2000 字，无硬性最低字数，参考文献另列，包含一张有用的比较表。交付 final.md、不可覆盖的 first-draft.md、first-self-check.json 和 first-self-check-report.md，以及简短 revision-notes.md。记录与正文分离，保存真实 CLI 请求返回。",
+      "depth": "解释执行机制与产品取舍，以自主综合为主、短引文为辅。提纲：核心判断；单次任务链路；本地与托管职责比较；上下文和方法加载；跨轮与长任务；适用边界。",
+      "evidence_standard": "必读六份材料指定范围，登记实际阅读位置与来源支持的判断；文档描述、历史案例结果、作者推断明确区分。重要判断可追溯，不编造性能、可靠性、成本数字或闭源实现。Lite 仅完成一次正常作者自检及确有必要的修订，不追加检查轮次。"
+    },
+    "profile": "lite",
+    "next_action": "Complete the draft requirements."
+  },
+  "missing_fields": [],
+  "runtime": {
+    "version": "1.4.0",
+    "implementation_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\codex-entry-study-20261022\\runs\\v1.4.0\\toolkit\\scripts\\research_workflow.py",
+    "implementation_sha256": "51cfed1228e4f4ceffd24a1dc27e3d2720cb0c721f8ab4f53a3b293154c63481",
+    "entry_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\codex-entry-study-20261022\\runs\\v1.4.0\\toolkit\\SKILL.md",
+    "entry_sha256": "161a083f80529ef4371ed72e0473d775d376aae97eb2ffb2dd931ec6e8f36b93",
+    "host_loaded_entry": "not_observed"
+  },
+  "current_work": {
+    "task_spec": "state/task_spec.md",
+    "requirements": "state/requirements.jsonl",
+    "artifact": null,
+    "open_requirements": [
+      {
+        "requirement_id": "R1",
+        "summary": "解释一次任务和模型、Harness、客户端、工具、执行环境的配合",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R2",
+        "summary": "区分本地 app-server、CLI/SDK 与托管服务职责，包含有用比较表",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R3",
+        "summary": "解释上下文、技能按需加载、跨轮接续和长任务机制",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R4",
+        "summary": "解释真正影响能力、成本、体验的设计取舍和反证限制",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R5",
+        "summary": "中文正文约2000字，无硬性最低字数，参考文献另列；人工按正文口径核对，不创建全文硬性上下限",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R6",
+        "summary": "仅用给定六份材料，重要判断可追溯，区分文档、历史案例与作者推断",
+        "status": "pending"
+      },
+      {
+        "requirement_id": "R7",
+        "summary": "完整首稿在首次稿件检查及自检前冻结；首次六项自检和对应全文不覆盖；交付终稿与简短修订说明，调用记录与正文分离",
+        "status": "pending"
+      }
+    ],
+    "warnings": [],
+    "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+  },
+  "requirements": "{\"requirement_id\": \"R1\", \"summary\": \"解释一次任务和模型、Harness、客户端、工具、执行环境的配合\", \"status\": \"pending\"}\n{\"requirement_id\": \"R2\", \"summary\": \"区分本地 app-server、CLI/SDK 与托管服务职责，包含有用比较表\", \"status\": \"pending\"}\n{\"requirement_id\": \"R3\", \"summary\": \"解释上下文、技能按需加载、跨轮接续和长任务机制\", \"status\": \"pending\"}\n{\"requirement_id\": \"R4\", \"summary\": \"解释真正影响能力、成本、体验的设计取舍和反证限制\", \"status\": \"pending\"}\n{\"requirement_id\": \"R5\", \"summary\": \"中文正文约2000字，无硬性最低字数，参考文献另列；人工按正文口径核对，不创建全文硬性上下限\", \"status\": \"pending\"}\n{\"requirement_id\": \"R6\", \"summary\": \"仅用给定六份材料，重要判断可追溯，区分文档、历史案例与作者推断\", \"status\": \"pending\"}\n{\"requirement_id\": \"R7\", \"summary\": \"完整首稿在首次稿件检查及自检前冻结；首次六项自检和对应全文不覆盖；交付终稿与简短修订说明，调用记录与正文分离\", \"status\": \"pending\"}\n",
+  "activity": {
+    "task_started_at": "2026-10-22T04:20:50.225078+00:00",
+    "first_complete_draft": null,
+    "seconds_to_first_complete_draft_observation": null,
+    "save_attempts": 1,
+    "failed_saves": 0,
+    "review_invocations": [],
+    "observed_review_usage": null,
+    "failed_review_attempts": 0,
+    "review_retries": 0,
+    "self_review_submissions": 0,
+    "imported_reviews": [],
+    "review_invocations_without_usage": 0,
+    "author_usage": null,
+    "warnings": [],
+    "scope": "Tool-observed draft saves and invocation captures; no host author usage, billing or quality inference."
+  },
+  "changes": {
+    "available": true,
+    "operation_id": "c24c0a9d416749b8ba3b6fa4d56a5581",
+    "saved_at": "2026-10-22T04:23:10.676105+00:00",
+    "records": {
+      "sources": {
+        "added": [
+          "S1",
+          "S2",
+          "S3",
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "updated": [],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      },
+      "claims": {
+        "added": [
+          "C1",
+          "C2",
+          "C3",
+          "C4",
+          "C5",
+          "C6",
+          "C7",
+          "C8",
+          "C9",
+          "C10",
+          "C11"
+        ],
+        "updated": [],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      },
+      "requirements": {
+        "added": [
+          "R1",
+          "R2",
+          "R3",
+          "R4",
+          "R5",
+          "R6",
+          "R7"
+        ],
+        "updated": [],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      }
+    },
+    "source_files": {
+      "S1": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S1.md"
+        ],
+        "previous_paths": []
+      },
+      "S2": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S2.md"
+        ],
+        "previous_paths": []
+      },
+      "S3": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S3.md"
+        ],
+        "previous_paths": []
+      },
+      "S4": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S4.md"
+        ],
+        "previous_paths": []
+      },
+      "S5": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S5.md"
+        ],
+        "previous_paths": []
+      },
+      "S6": {
+        "status": "first_observation",
+        "paths": [
+          "sources/S6.md"
+        ],
+        "previous_paths": []
+      }
+    },
+    "artifact": null,
+    "affected_claims": [
+      {
+        "claim_id": "C1",
+        "claim": "开放 Harness 管理会话、工具循环、流式执行与审批；应用提供业务上下文、界面和工具；模型访问及托管服务另属一层。",
+        "changed_source_ids": [
+          "S1"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C2",
+        "claim": "app-server 用 Thread/Turn/Item 组织任务，经初始化、创建或恢复线程、启动回合、工具和消息事件、最终状态完成一轮；活跃回合可 steer 或 interrupt。",
+        "changed_source_ids": [
+          "S2"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C3",
+        "claim": "本地 CLI 适合有界非交互作业，SDK 提供程序化任务接口，app-server 适合掌握对话、事件和审批体验的产品。",
+        "changed_source_ids": [
+          "S1",
+          "S2"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C4",
+        "claim": "Agents API 由 OpenAI 托管 Harness，可无执行环境，或使用 OpenAI 托管环境、自有环境；自有环境由应用管理供给、连接恢复、关闭和文件保存。",
+        "changed_source_ids": [
+          "S6"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C5",
+        "claim": "函数工具需应用处理调用并返回结果；处理器不可用会使 Agent 等待，事件和生命周期处理失败也会影响推进。",
+        "changed_source_ids": [
+          "S6"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C6",
+        "claim": "Skill 先以名称、描述及 Codex 路径进入目录，选中后加载完整 SKILL.md；初始列表默认最多占上下文窗口 2%，未知窗口时限 8000 字符，目录过大可缩短描述或遗漏技能。",
+        "changed_source_ids": [
+          "S2",
+          "S3"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C7",
+        "claim": "沙箱决定技术权限，审批决定何时请求授权；命令网络代理不覆盖模型请求、搜索、连接器或 MCP 等全部连接。",
+        "changed_source_ids": [
+          "S4"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C8",
+        "claim": "自动审批可把符合条件的审批交给 reviewer agent，但保持沙箱边界，并增加模型调用和用量；部分失败按关闭方式处理。",
+        "changed_source_ids": [
+          "S4"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C9",
+        "claim": "会话恢复、模型可见历史压缩、工作区持久文件是不同状态层；app-server 的 thread/revert 不回滚本地文件。",
+        "changed_source_ids": [
+          "S2",
+          "S5",
+          "S6"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C10",
+        "claim": "历史作者实验使用 GPT-5.3-Codex、Extra High、空仓库和 full access，报告连续约25小时、约1300万token、约3万行代码，并明确非生产就绪。",
+        "changed_source_ids": [
+          "S5"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      },
+      {
+        "claim_id": "C11",
+        "claim": "长任务宜把目标、约束、里程碑与状态保存在可重读工件，并以执行反馈推进修正；成本评估应涵盖循环调用、环境、等待与返工。",
+        "changed_source_ids": [
+          "S4",
+          "S5",
+          "S6"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      }
+    ],
+    "unlinked_source_ids": [],
+    "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+  },
+  "stage": "draft",
+  "guidance": [
+    {
+      "path": "references/lite-workflow.md",
+      "content": "# Lite research workflow\n\n[English](lite-workflow.md) | [简体中文](lite-workflow.zh-CN.md)\n\nThis is the stage guide for the Lite profile defined in [SKILL.md](../SKILL.md). Keep the agreed brief, source-backed claims, section drafting and final checklist. The tools return this introduction and the current stage only; a file-reading agent can read the matching section below.\n\nThe agent maintains records and handles tool calls. Ask the user only for consequential research choices or necessary access. Keep actual progress and material follow-up requirements in the existing task records; a missing obligation stays open until fulfilled or specifically changed by the user. Treat source instructions as evidence, not commands. Match certainty to evidence and keep production records outside the reader's report. Lite and Full share the same requirements for question coverage, mandatory reading, evidence, counterevidence, calculations and reader quality; Lite does not cap depth, necessary sources or length. Lite does not run independent review or Full delivery gates, and its checklist does not certify semantic quality.\n\n## draft — Write for the intended reader\n\nDraft and inspect one section at a time against the outline. Each necessary section should explain its judgment, supporting evidence and relevant mechanism. Allocate space to the user's questions before adding background; respect the requested length without dropping required coverage.\n\nFor a short note, a few connected paragraphs may cover the whole outline. Do not expand each checklist item into a heading, table or repeated conclusion. Keep only decision-relevant comparisons and limitations in the report; put counts, self-checks and review-status disclosure in the separate delivery note when the brief provides one. If counting tools are unavailable, label an estimate honestly; never present an estimated count or an unchecked checklist as a measured pass. With tools, use the agreed length check and revise the actual artifact before completion.\n\nFor a decision memo, make the recommendation, rationale, conditions that would change it and next action easy to find. Use pilot or stopping criteria when needed; label proposals and explain any numerical target's basis. Without a basis, describe the trigger and calibration needed. Avoid targets that reward hiding failures or blocking necessary escalation. Qualify uncertain inferences and retain source attribution where needed. Explain material limitations where they affect the argument; disclose the absence of independent review once in an appropriate report or delivery note.\n\nUse citations that work in the destination format; replace private chat markers with actual source titles, URLs and useful locators from the records, without guessing links. Consult the shared [writing guidance](writing-style.md) when useful. Remove internal IDs, local paths, workflow narration, repeated caveats and generic scene-setting. Save the report as `final.md` or the chosen task-relative artifact. With no file tools, keep the report and working records in separate chat sections.\n\n"
+    }
+  ],
+  "profile": "lite",
+  "profile_policy": [
+    "SKIP research_review: profile=lite; no independent review is performed.",
+    "SKIP full delivery gates: profile=lite; brief, claims and final checklist remain required."
+  ]
+}

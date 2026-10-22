@@ -1,0 +1,40 @@
+{
+  "task": "codex-architecture-zh-20261022",
+  "requirements": [
+    {
+      "requirement_id": "R1",
+      "status": "satisfied",
+      "evidence": "final.md第5–11行：角色、请求与工具反馈循环、审批、事件及终态。"
+    },
+    {
+      "requirement_id": "R2",
+      "status": "satisfied",
+      "evidence": "final.md第15–23行：五行比较表与托管/自有责任说明。"
+    },
+    {
+      "requirement_id": "R3",
+      "status": "satisfied",
+      "evidence": "final.md第25–31行：按需技能、历史压缩、线程恢复与文件状态、长任务项目记忆。"
+    },
+    {
+      "requirement_id": "R4",
+      "status": "satisfied",
+      "evidence": "final.md第23–33行：工具处理故障、发现代价、授权用量、验收与成本组成及限制。"
+    },
+    {
+      "requirement_id": "R5",
+      "status": "satisfied",
+      "evidence": "notes/first-length-count.json：正文2171个非空字符（1621汉字、66拉丁/数字词项）；不含主标题和参考文献，无硬性最低字数。"
+    },
+    {
+      "requirement_id": "R6",
+      "status": "satisfied",
+      "evidence": "data/source_registry.csv登记六份给定摘录实际已读位置；first-self-check.json claims_and_sources项记录逐项原文核对；正文文献1–6给出网址和原文定位。"
+    },
+    {
+      "requirement_id": "R7",
+      "status": "satisfied",
+      "evidence": "first-draft.md于首次检查前保存；first-self-check.json与first-self-check-report.md已同时冻结；revision-notes.md说明未发现必改问题且未改稿；真实请求与返回在research-records/toolkit-calls。"
+    }
+  ]
+}
