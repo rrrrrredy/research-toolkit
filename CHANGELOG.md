@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.2 — 2026-10-22
+
+- Ship PR #94's `research_save`, CLI save and collect guidance: distinguish actual `read_scope` from required `reading_requirement`, document its two allowed values and its pairing with `required_source_ids` after partial-update merging.
+- Clarify local `read_evidence` paths and the existing `locator` field; preserve supported reference forms and optional `evidence_path`. Synchronize English, Chinese and plugin copies without changing interfaces, validation rules or task formats.
+- Publish matching bilingual [release notes](docs/releases/v1.4.2.md), version metadata and plugin ZIP. Archived failing and corrected requests support the examples; reduced rework remains unverified. Reuse PR #94's completed checks without replaying research tasks.
+
 ## v1.4.1 — 2026-10-22
 
 - Ship PR #91's revised default entry: understand the user's requirements, follow instructions and develop a useful research answer. Remove guidance that asks users to remind or dispatch the Agent.
