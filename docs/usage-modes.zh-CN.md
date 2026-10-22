@@ -36,14 +36,18 @@
 
 Agent 使用 `research_save`（CLI：`save`）提交来源、主张和要求对象。用户描述研究需求、决定范围和用途，不管理 CSV、编号或评审返回 JSON。工具按 ID 合并局部更新，保留其他行和字段，写入既有 CSV／JSONL 格式。省略 ID 时，按唯一网址／主张／要求摘要匹配已有记录，否则分配 ID 并返回；后续修改使用返回的 ID。来源仍由 Agent 实际阅读并准确整理。
 
+必读要求使用 `requirements[].reading_requirement`，取值为 `full_text` 或 `relevant_sections`；`sources[].read_scope` 记录实际阅读范围，不能代替前者。仍需履行的必读要求与已保存行合并后，应同时具有 `reading_requirement` 和 `required_source_ids`。`required_source_ids` 是非空、无重复的来源 ID 列表，例如 `["S1"]`，对应来源记录。局部更新可省略已保存的字段；没有必读要求的行无需填写这两个字段。
+
+使用本地文件时，推荐将 `read_evidence` 写成 `"sources/S1.md"`，即任务内现有非空文件的相对路径。页码、章节、阅读范围和说明放在已有的 `locator` 字段，例如 `"第2–4页，仅读取相关章节"`，不要把说明文字拼在路径后。网址、页码及已支持的本地引用形式继续有效。需要本地 UTF-8 来源文本时仍使用可选的 `evidence_path`；它不能代替或修复无效的 `read_evidence`。
+
 以下是给 Agent 的调用示例，来源正文已保存在任务目录：
 
 ```json
 {
   "task": "example",
-  "sources": [{"title":"来源标题","url":"https://example.org/source","source_type":"primary","read_scope":"relevant_sections","read_evidence":"sources/source.md"}],
+  "sources": [{"source_id":"S1","title":"来源标题","url":"https://example.org/source","source_type":"primary","read_scope":"relevant_sections","read_evidence":"sources/source.md","locator":"第2–4页，仅读取相关章节"}],
   "claims": [{"claim":"有来源支持的判断","claim_type":"fact","supporting_sources":["S1"]}],
-  "requirements": [{"summary":"解释比较结果","status":"pending"}],
+  "requirements": [{"summary":"阅读 S1 相关章节并解释比较结果","status":"pending","reading_requirement":"relevant_sections","required_source_ids":["S1"]}],
   "draft": {"path":"first-draft.md","complete":true}
 }
 ```

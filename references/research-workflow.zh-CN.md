@@ -52,7 +52,7 @@ data/
 
 重要补充要求在 `requirements.jsonl` 各占一行，字段为 `requirement_id`、`source_turn`、`summary`、`status`、`evidence`；措辞变更时保留稳定编号。`satisfied` 需要完成证据；`accepted_limitation`、`waived`、`out_of_scope` 需要[核心行为约束](research-standard.zh-CN.md#3-行为约束)所要求的具体用户决定，用 `user_decision.source_turn` 和 `user_decision.quote` 定位。普通研究不确定性不能取消已承诺的交付项。该台账不进入公开文章。
 
-必读要求增加 `reading_requirement`（`full_text` 或 `relevant_sections`）及 `required_source_ids`；来源行记录 `read_scope` 和 `read_evidence`，说明实际读了什么、笔记在哪里。HTTP 成功或登记了网址不算阅读证据；辅助材料没有一律全文阅读的要求。字段示例与新旧检查边界见[交付检查](../docs/delivery-verification.zh-CN.md)。
+必读要求增加 `reading_requirement`（`full_text` 或 `relevant_sections`）及非空、无重复的 `required_source_ids` 列表，例如 `["S1"]`。仍需履行的必读要求与已保存行合并后须保留这两个字段，局部更新可省略未变字段；没有必读要求的行无需填写。ID 对应的来源行记录 `read_scope` 和 `read_evidence`，说明实际读了什么、笔记在哪里；来源的 `read_scope` 不能代替要求中的 `reading_requirement`。HTTP 成功或登记了网址不算阅读证据；辅助材料没有一律全文阅读的要求。字段示例与新旧检查边界见[交付检查](../docs/delivery-verification.zh-CN.md)。
 
 最终交付才创建 `final_delivery.json`：
 
@@ -90,7 +90,7 @@ data/
 
 来源位置统一使用 `url`，可填写网址或任务内相对路径。主张引用及必读要求涉及的来源应有本地正文；`read_evidence` 指向可读文本时自动送评。仅有网址、页码或二进制原件时，用可选字段 `evidence_path` 指向完整正文或要求范围内的 UTF-8 提取文本。必要原件、阅读凭据和提取文本会按登记范围纳入版本检查；其他辅助文件不会自动发送。
 
-新任务模板已包含 `evidence_path`。将相关来源内容保存为任务内的 UTF-8 文本，例如 `sources/S1.md`，并在该列填写相对路径；原始网址与阅读定位保留在各自字段中。可用[本地来源提取工具](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/source-extraction.zh-CN.md)处理保存的 HTML；保存文件本身不证明读过相关内容。已有登记表在 `read_evidence` 中填写本地文本路径的方式继续有效。
+新任务模板已包含 `evidence_path`。将相关来源内容保存为任务内的 UTF-8 文本，例如 `sources/S1.md`，并在该列填写相对路径。使用本地 `read_evidence` 时，推荐填写任务内现有非空文件的相对路径；页码、章节和阅读说明放在 `locator`，例如 `"第2–4页，仅读取相关章节"`，不要拼在路径后。网址、页码及已支持的本地引用形式继续有效；`evidence_path` 不能修复无效的 `read_evidence`。可用[本地来源提取工具](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/source-extraction.zh-CN.md)处理保存的 HTML；保存文件本身不证明读过相关内容。已有登记表在 `read_evidence` 中填写本地文本路径的方式继续有效。
 
 ## 4. 来源处理
 
