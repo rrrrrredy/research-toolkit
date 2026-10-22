@@ -37,6 +37,7 @@ def mutate(function, task, *args):
 def research_start(task: str, brief: dict[str, str], language: str = "en",
                    profile: Literal["lite", "full"] = "full") -> dict[str, Any]:
     """Create a research task or complete its missing brief. Returns its directory and stage guidance.
+    language accepts "en" (English), "zh" or "zh-CN" (the same Chinese methods); checked before task records are written.
     Assemble concrete coverage and expected results from context; brief uses question, audience, scope, output, depth and evidence_standard.
     Returned clarification_questions guide the agent; do not forward them as a questionnaire. Explain consequential alternatives and resolve critical choices with the user.
     Choose and pass profile explicitly from the task's purpose and evidence needs; full remains the API default.
@@ -88,6 +89,7 @@ def research_check_updates(task: str, source_id: str) -> dict[str, Any]:
 def research_status(task: str, language: str = "en", stage: str | None = None) -> dict[str, Any]:
     """Read progress and stage methods. Optional stage advances to collect/analyze/draft/revise only
     after prerequisite records exist. Review and final completion use their dedicated tools.
+    language accepts "en" (English), "zh" or "zh-CN" (the same Chinese methods); checked before any stage change.
     Explicit analyze/draft entry includes saved requirements as JSONL text when present, preserving statuses and evidence.
     changes reuses the latest successful record-save batch and locates related claims in the latest registered draft.
     Literal matches guide reading, not semantic verdicts; not_located requires inspection, not a new acceptance gate.
@@ -101,6 +103,7 @@ def research_status(task: str, language: str = "en", stage: str | None = None) -
 @server.tool(structured_output=True)
 def research_guide(stage: str, language: str = "en", profile: Literal["lite", "full"] = "full") -> dict[str, Any]:
     """Read brief/collect/analyze/draft/review/revise/final methods without a task.
+    language accepts "en" (English), "zh" or "zh-CN" (the same Chinese methods).
     Pass the intended profile explicitly (API default: full).
     Lite returns compact guidance for this stage. For an existing task use research_status to inherit its saved profile.
     """

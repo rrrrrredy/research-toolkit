@@ -172,11 +172,20 @@ def rows_for(root):
     return rows
 
 
+def normalize_language(language: str) -> str:
+    if language in ("zh", "zh-CN"):
+        return "zh"
+    if language == "en":
+        return "en"
+    raise ValueError('language must be "en" (English), "zh" or "zh-CN" (Chinese).')
+
+
 def guidance(stage: str, language: str = "en", profile: str = "full") -> dict:
+    language = normalize_language(language)
     if profile not in {"lite", "full"}:
         raise ValueError("Profile must be lite or full.")
-    if stage not in STAGE_FILES or language not in {"en", "zh"}:
-        raise ValueError("Unknown stage or language. Use stage brief/collect/analyze/draft/review/revise/final and language en/zh.")
+    if stage not in STAGE_FILES:
+        raise ValueError("stage must be brief/collect/analyze/draft/review/revise/final.")
     files = []
     for name in (["references/lite-workflow.md"] if profile == "lite" else STAGE_FILES[stage]):
         if language == "zh":
@@ -315,6 +324,7 @@ def requirement_input(root):
 
 @task_operation
 def start(workspace: Path, task: str, brief: dict, language="en", profile="full") -> dict:
+    language = normalize_language(language)
     started_at = now()
     if profile not in {"lite", "full"}:
         raise ValueError("Profile must be lite or full.")
@@ -390,6 +400,7 @@ def check_updates(workspace: Path, task: str, source_id: str) -> dict:
 
 @task_operation
 def status(workspace: Path, task: str, language="en", stage: str | None = None) -> dict:
+    language = normalize_language(language)
     from record_changes import latest_changes
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")

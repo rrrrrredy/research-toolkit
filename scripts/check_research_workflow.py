@@ -138,6 +138,43 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(result["missing_fields"], [])
         self.assertEqual(result["review_readiness"]["status"], "blocked")
 
+    def test_language_alias_replays_saved_request_and_preserves_en_zh(self):
+        request_path = (workflow.TOOLKIT / "evals/studies/2026-10-22-compressed-air-save/runs/v1.4.2/records"
+                        / "toolkit-calls/01-research_start.request.json")
+        request = json.loads(request_path.read_text(encoding="utf-8"))
+        self.assertEqual(request["language"], "zh-CN")
+        for language, suffix in (("zh-CN", ".zh-CN.md"), ("zh", ".zh-CN.md"), ("en", ".md")):
+            with self.subTest(language=language):
+                args = {**request, "language": language}
+                if language != "zh-CN":
+                    args["task"] = "language-" + language
+                started = workflow.dispatch("start", args, self.workspace)
+                self.assertTrue(started["ready_for_collection"])
+                current = workflow.dispatch("status", {"task": args["task"], "stage": "collect",
+                                                       "language": language}, self.workspace)
+                guide = workflow.dispatch("guide", {"stage": "collect", "profile": "lite",
+                                                     "language": language}, self.workspace)
+                self.assertEqual(started["guidance"], current["guidance"])
+                self.assertEqual(current["guidance"], guide["guidance"])
+                self.assertEqual(guide["guidance"][0]["path"], "references/lite-workflow" + suffix)
+        incomplete = workflow.start(self.workspace, "language-brief", {}, language="zh-CN", profile="lite")
+        self.assertEqual(incomplete["clarification_questions"], list(workflow.BRIEF_FIELDS_ZH.values()))
+
+    def test_invalid_language_does_not_write_task_records_or_advance_stage(self):
+        error = r'language.*"en".*"zh".*"zh-CN"'
+        with self.assertRaisesRegex(ValueError, error):
+            workflow.start(self.workspace, "invalid-language", BRIEF, language="de", profile="lite")
+        root = self.workspace / "invalid-language"
+        for directory in ("state", "data", "logs"):
+            self.assertFalse((root / directory).exists())
+        before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
+        with self.assertRaisesRegex(ValueError, error):
+            workflow.status(self.workspace, "case", language="de", stage="revise")
+        self.assertEqual(before, {p.relative_to(self.root): p.read_bytes()
+                                  for p in self.root.rglob("*") if p.is_file()})
+        with self.assertRaisesRegex(ValueError, error):
+            workflow.guidance("collect", language="de")
+
     def test_path_escape_is_rejected(self):
         for task in ("../outside", "/absolute", "x/y"):
             with self.assertRaises(ValueError):
