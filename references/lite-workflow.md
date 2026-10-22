@@ -20,7 +20,9 @@ Read the sources needed for the agreed questions, including required material. D
 
 Use the existing `data/source_registry.csv`: `source_id`, `title`, `url`, `source_type`, `read_scope` and `read_evidence`. Before advancing to analysis, record the actual reading as `full_text` or `relevant_sections` with locatable evidence. A stored extract must not imply that an omitted report, table or linked document was read. Stop searching a route that adds nothing and try a relevant alternative; keep required gaps visible.
 
-New templates also include `evidence_path` for task-relative UTF-8 source text, such as `sources/S1.md`. Preserve the original URL and actual reading locator; this field is useful when `read_evidence` contains only a URL or page reference.
+For local reading evidence, prefer `read_evidence: "sources/S1.md"`, pointing to an existing nonempty file inside the task. Put page/section locations and reading notes in `locator`, for example `"pp. 2-4; relevant sections only"`, not appended to the path. URL/page locators and supported local-reference forms remain valid. New templates also include optional `evidence_path` for task-relative UTF-8 source text when `read_evidence` contains only a URL or page reference; it does not repair an invalid `read_evidence` value.
+
+For an active mandatory-reading requirement, use `reading_requirement: "full_text"` or `"relevant_sections"` with `required_source_ids`, a nonempty list of distinct source IDs such as `["S1"]`. The pair must be present after merging with the saved requirement; partial updates may omit unchanged fields. The IDs refer to source records, whose `read_scope` records actual reading and cannot replace `reading_requirement` in a requirement. Requirements without mandatory reading need neither field.
 
 ## analyze — Form supported judgments
 

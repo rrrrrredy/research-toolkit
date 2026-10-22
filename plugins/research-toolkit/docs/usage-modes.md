@@ -36,14 +36,18 @@ The table applies when you choose the managed local workflow, through MCP **or t
 
 The agent uses `research_save` (CLI: `save`) to save source, claim and requirement objects. Users describe the research and make scope/use decisions; they do not manage CSV, IDs or review-response JSON. The tool merges partial updates by ID, retains other rows/columns, and writes the existing CSV/JSONL formats. If an ID is omitted, it matches a unique URL/claim/summary or assigns an ID and returns it. Use that ID for later edits. The agent still reads sources and supplies accurate content.
 
+For required reading, `requirements[].reading_requirement` specifies `full_text` or `relevant_sections`; `sources[].read_scope` records what was actually read and cannot replace it. An active mandatory-reading requirement needs both `reading_requirement` and `required_source_ids` after merging with its saved row. `required_source_ids` is a nonempty list of distinct source IDs, such as `["S1"]`, referring to source records. Partial updates may omit already-saved fields; requirements without mandatory reading need neither field.
+
+For a local file, prefer `read_evidence: "sources/S1.md"`, a task-relative path to an existing nonempty file. Put page/section locations, reading scope and notes in the existing `locator` field, for example `"pp. 2-4; relevant sections only"`, rather than appending prose to the path. URL/page locators and already-supported local-reference forms remain valid. Optional `evidence_path` still locates local UTF-8 source text when needed; it does not replace or repair an invalid `read_evidence` value.
+
 Example request for the agent, after saving the source text in the task directory:
 
 ```json
 {
   "task": "example",
-  "sources": [{"title":"Source title","url":"https://example.org/source","source_type":"primary","read_scope":"relevant_sections","read_evidence":"sources/source.md"}],
+  "sources": [{"source_id":"S1","title":"Source title","url":"https://example.org/source","source_type":"primary","read_scope":"relevant_sections","read_evidence":"sources/source.md","locator":"pp. 2-4; relevant sections only"}],
   "claims": [{"claim":"The source-backed finding","claim_type":"fact","supporting_sources":["S1"]}],
-  "requirements": [{"summary":"Explain the comparison","status":"pending"}],
+  "requirements": [{"summary":"Read the relevant sections of S1 and explain the comparison","status":"pending","reading_requirement":"relevant_sections","required_source_ids":["S1"]}],
   "draft": {"path":"first-draft.md","complete":true}
 }
 ```

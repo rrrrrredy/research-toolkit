@@ -54,6 +54,13 @@ def research_save(task: str, sources: list[dict[str, Any]] | None = None,
                   brief: dict[str, str] | None = None) -> dict[str, Any]:
     """Save/update source, claim and requirement objects by stable ID; the tool writes CSV/JSONL.
     Omitted IDs are assigned or matched by URL/claim/summary. Partial updates retain other fields and rows.
+    sources.read_scope records actual reading; requirements.reading_requirement specifies required reading, not read_scope.
+    For an active mandatory-reading requirement, the merged row needs reading_requirement="full_text" or "relevant_sections"
+    and required_source_ids, a nonempty list of distinct source IDs, e.g. ["S1"]. Other requirements can omit both.
+    IDs refer to source records; partial updates may omit fields already saved on the requirement.
+    For local read_evidence, prefer a task-relative path to an existing nonempty file, e.g. "sources/S1.md";
+    put reading locations and notes in locator, e.g. "pp. 2-4; relevant sections only", not appended to the path.
+    URL/page locators and supported local-reference forms remain valid; optional evidence_path locates local UTF-8 source text.
     draft uses path, optional content and complete=true for a complete draft; omit content to register an existing file.
     draft.main=true explicitly selects the current work; optional kind is report/comparison/review.
     Chapter/reference drafts do not change the main selection. brief updates only supplied brief fields and task_spec together.

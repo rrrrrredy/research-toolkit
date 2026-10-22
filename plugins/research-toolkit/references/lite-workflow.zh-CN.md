@@ -20,7 +20,9 @@ Agent 负责维护记录和调用工具，只向用户询问重要研究取舍�
 
 沿用 `data/source_registry.csv` 的 `source_id`、`title`、`url`、`source_type`、`read_scope` 和 `read_evidence`。进入分析前，将真实阅读范围记为 `full_text` 或 `relevant_sections`，并提供可定位的阅读依据。保存摘录不能暗示已读省略的报告、表格或链接文件。无新增信息的检索方向应更换，必需材料缺口仍保持开放。
 
-新模板还包含 `evidence_path`，用于填写任务内 UTF-8 来源文本的相对路径，例如 `sources/S1.md`。保留原始网址和真实阅读定位；`read_evidence` 只有网址或页码时可使用该字段。
+使用本地阅读依据时，推荐将 `read_evidence` 写成 `"sources/S1.md"`，指向任务内现有非空文件。页码、章节和阅读说明放在 `locator`，例如 `"第2–4页，仅读取相关章节"`，不要拼在路径后。网址、页码及已支持的本地引用形式继续有效。`read_evidence` 只有网址或页码时，新模板中的可选 `evidence_path` 可填写任务内 UTF-8 来源文本的相对路径；它不能修复无效的 `read_evidence`。
+
+仍需履行的必读要求使用 `reading_requirement: "full_text"` 或 `"relevant_sections"`，并配合非空、无重复的 `required_source_ids` 列表，例如 `["S1"]`。与已保存要求合并后须保留这两个字段，局部更新可省略未变字段。ID 对应来源记录；来源的 `read_scope` 记录实际阅读范围，不能代替要求中的 `reading_requirement`。没有必读要求的行无需填写这两个字段。
 
 ## analyze — 形成有支持的判断
 
