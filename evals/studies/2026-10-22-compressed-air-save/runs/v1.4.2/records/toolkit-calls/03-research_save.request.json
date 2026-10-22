@@ -1,0 +1,77 @@
+{
+  "task": "compressed-air-priorities-zh-20261022",
+  "sources": [
+    {
+      "source_id": "S1",
+      "title": "Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition",
+      "url": "https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf",
+      "source_type": "primary",
+      "read_scope": "relevant_sections",
+      "read_evidence": "sources/S1.md",
+      "evidence_path": "sources/S1.md",
+      "locator": "已读全部所供提取文本：印刷页28–42、60–64，对应PDF页33–47、65–69；包括泄漏、压降、控制、基线与系统分析章节。不是整本手册全文；图2.5–2.8只有图题和周边解释，未读取曲线数值。",
+      "read_date": "2026-10-22",
+      "limitations": "第三版技术指南；不代表当前设备报价或本厂表现；提取文本不含图形，未据缺失图形补数值。"
+    },
+    {
+      "source_id": "S2",
+      "title": "Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3, December 2000",
+      "url": "https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf",
+      "source_type": "primary",
+      "read_scope": "full_text",
+      "read_evidence": "sources/S2.md",
+      "evidence_path": "sources/S2.md",
+      "locator": "PDF第1–2页全部提取文本，含第1页孔径/压力流量表及第2页算例、项目介绍和联络信息。",
+      "read_date": "2026-10-22",
+      "limitations": "2000年资料；旧电价、运行小时、单位产气功率及化工厂算例不是当前项目参数。S2引用同一DOE手册早期版，并非独立现场验证。"
+    }
+  ],
+  "requirements": [
+    {
+      "requirement_id": "R1",
+      "summary": "解释查漏修复、压力与控制优化、更换空压机的适用条件、相互影响及实施顺序，并说明决策所需现场数据；面向工厂设备与能源管理人员。",
+      "status": "pending"
+    },
+    {
+      "requirement_id": "R2",
+      "summary": "必读S1手册印刷页28–42、60–64相关章节（PDF页33–47、65–69），保留实际阅读范围和页码，不声称整本已读。",
+      "reading_requirement": "relevant_sections",
+      "required_source_ids": [
+        "S1"
+      ],
+      "status": "satisfied",
+      "evidence": "sources/S1.md全部所供20页提取文本已读；source S1 locator记录页码、图形限制和非整本范围。"
+    },
+    {
+      "requirement_id": "R3",
+      "summary": "完整阅读S2两页短指南并保留页码定位。",
+      "reading_requirement": "full_text",
+      "required_source_ids": [
+        "S2"
+      ],
+      "status": "satisfied",
+      "evidence": "sources/S2.md，PDF第1–2页全文，含两张页面中的表、算例和机构介绍。"
+    },
+    {
+      "requirement_id": "R4",
+      "summary": "约1500字中文Markdown决策简报，含一张有用措施比较表，参考文献另列；无硬性最低字数或约定全文字符上下界。",
+      "status": "pending",
+      "evidence": "按正文口径人工测量并报告；不擅自把约1500字转成whole_artifact硬性min/max。"
+    },
+    {
+      "requirement_id": "R5",
+      "summary": "仅给定S1、S2材料，重要建议可定位；不虚构工厂、测量、回收期或保证节能比例，不把旧价格和算例外推为当前结论。",
+      "status": "pending"
+    },
+    {
+      "requirement_id": "R6",
+      "summary": "首次完整稿在首次稿件检查或作者自检前保留first-draft.md且不覆盖；首次六项passed/evidence自检保留first-self-check.json及对应正文first-self-check-report.md；最终final.md和revision-notes.md另存。",
+      "status": "pending"
+    },
+    {
+      "requirement_id": "R7",
+      "summary": "执行既有Lite流程和作者自检；不联网、不启动其他Agent、独立评审或测试套件，不改toolkit/和inputs/，研究与过程文件限当前目录、UTF-8、正文过程分开，完成结束。",
+      "status": "pending"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"completed\": true,\n  \"artifact\": \"C:\\\\Users\\\\luosong03\\\\Documents\\\\ChatGPT\\\\Others\\\\output\\\\compressed-air-save-study-20261022\\\\runs\\\\v1.4.1\\\\tasks\\\\compressed-air-priorities-zh-20261022\\\\final.md\",\n  \"profile\": \"lite\",\n  \"delivery_check\": {\n    \"ok\": true,\n    \"profile\": \"lite\",\n    \"status\": \"checklist_complete\",\n    \"warnings\": [],\n    \"flags\": [],\n    \"findings\": [],\n    \"log\": [\n      \"SKIP research_review: profile=lite; no independent review is performed.\",\n      \"SKIP full delivery gates: profile=lite; brief, claims and final checklist remain required.\"\n    ],\n    \"full_delivery_gates_checked\": false,\n    \"independent_review\": false,\n    \"review_strength\": \"unreviewed\",\n    \"input_binding_scope\": \"report_message_and_research_inputs\",\n    \"semantic_verification\": false,\n    \"report_quality_certified\": false\n  },\n  \"log\": [\n    \"SKIP research_review: profile=lite; no independent review is performed.\",\n    \"SKIP full delivery gates: profile=lite; brief, claims and final checklist remain required.\"\n  ],\n  \"message\": \"已完成中文决策简报 final.md，含措施比较表、实施顺序、换机条件和现场数据清单。已保留 first-draft.md、first-self-check.json、first-self-check-report.md 与 revision-notes.md；正文与过程记录分开。本次为 Research Toolkit Lite 作者自检，未经独立评审。\"\n}"
+      }
+    ],
+    "structured_content": {
+      "completed": true,
+      "artifact": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\compressed-air-save-study-20261022\\runs\\v1.4.1\\tasks\\compressed-air-priorities-zh-20261022\\final.md",
+      "profile": "lite",
+      "delivery_check": {
+        "ok": true,
+        "profile": "lite",
+        "status": "checklist_complete",
+        "warnings": [],
+        "flags": [],
+        "findings": [],
+        "log": [
+          "SKIP research_review: profile=lite; no independent review is performed.",
+          "SKIP full delivery gates: profile=lite; brief, claims and final checklist remain required."
+        ],
+        "full_delivery_gates_checked": false,
+        "independent_review": false,
+        "review_strength": "unreviewed",
+        "input_binding_scope": "report_message_and_research_inputs",
+        "semantic_verification": false,
+        "report_quality_certified": false
+      },
+      "log": [
+        "SKIP research_review: profile=lite; no independent review is performed.",
+        "SKIP full delivery gates: profile=lite; brief, claims and final checklist remain required."
+      ],
+      "message": "已完成中文决策简报 final.md，含措施比较表、实施顺序、换机条件和现场数据清单。已保留 first-draft.md、first-self-check.json、first-self-check-report.md 与 revision-notes.md；正文与过程记录分开。本次为 Research Toolkit Lite 作者自检，未经独立评审。"
+    }
+  },
+  "error": null,
+  "status": "completed"
+}

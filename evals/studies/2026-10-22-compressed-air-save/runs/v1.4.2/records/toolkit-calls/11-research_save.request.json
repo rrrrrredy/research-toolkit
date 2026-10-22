@@ -1,0 +1,30 @@
+{
+  "task": "compressed-air-priorities-zh-20261022",
+  "requirements": [
+    {
+      "requirement_id": "R1",
+      "status": "satisfied",
+      "evidence": "final.md开篇、四行措施表、联动与降压段、换机两段、三组现场数据及末段验证；first-self-check-report.md第1、3、4项。"
+    },
+    {
+      "requirement_id": "R4",
+      "status": "satisfied",
+      "evidence": "final.md为中文Markdown，四行措施表及单列参考文献；正文（排除标题、参考文献）1559个非空白字符，含标点、引用和表格Markdown；1253个汉字。全文2058个非空白字符。符合约1500字软目标，未设置硬性下限。"
+    },
+    {
+      "requirement_id": "R5",
+      "status": "satisfied",
+      "evidence": "正文与研究记录仅S1/S2；重要判断有页码，表后说明换机触发为综合判断；末段说明无现场数据、报价与节能保证，未沿用旧算例数字。详见first-self-check-report.md第2、6项。"
+    },
+    {
+      "requirement_id": "R6",
+      "status": "satisfied",
+      "evidence": "first-draft.md由首次research_save完整稿保存，先于首次research_check_draft及作者自检；final.md为其副本，无正文修订。首次六项passed/evidence留存在first-self-check.json，对应正文为first-self-check-report.md；revision-notes.md说明无修订，首次产物不覆盖。"
+    },
+    {
+      "requirement_id": "R7",
+      "status": "satisfied",
+      "evidence": "使用现有research_*管理Lite任务，研究文本与记录仅本任务目录；仅给定材料，未联网、未启用其他Agent、独立评审或测试套件，未改toolkit/与inputs/。正文、笔记和自检分开，全部UTF-8；首次检查后无附加检查轮次。"
+    }
+  ]
+}

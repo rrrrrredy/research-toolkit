@@ -1,0 +1,37 @@
+[
+  {
+    "name": "sourcebook.pdf",
+    "url": "https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf",
+    "started_at_utc": "2026-10-22T06:49:34.841097+00:00",
+    "status": 200,
+    "final_url": "https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf",
+    "content_type": "application/pdf",
+    "bytes": 2376295,
+    "sha256": "ecf69bc0b8fee4157187deb38c2502ee52de5bdb5e3acb8a1300c190cc9cc3de",
+    "finished_at_utc": "2026-10-22T06:49:47.228951+00:00"
+  },
+  {
+    "name": "cheat-sheet.pdf",
+    "url": "https://betterbuildingssolutioncenter.energy.gov/sites/default/files/attachments/Better%20Plants%20-%20Compressed%20Air%20System%20Cheat%20Sheet.pdf",
+    "started_at_utc": "2026-10-22T06:49:34.842604+00:00",
+    "error": "<urlopen error [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。>",
+    "finished_at_utc": "2026-10-22T06:49:56.353448+00:00"
+  },
+  {
+    "name": "leak-tip.pdf",
+    "url": "https://www1.eere.energy.gov/manufacturing/tech_assistance/pdfs/compressed_air3.pdf",
+    "started_at_utc": "2026-10-22T06:50:51.870330+00:00",
+    "error": "<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)>",
+    "finished_at_utc": "2026-10-22T06:50:52.500069+00:00"
+  },
+  {
+    "name": "leak-tip.pdf",
+    "url": "https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf",
+    "started_at_utc": "2026-10-22T06:51:07.485049+00:00",
+    "status": 200,
+    "final_url": "https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf",
+    "bytes": 554378,
+    "sha256": "2bab4fd6cbe8a77d9e229bf51f705b40f5f445a220c6245285d70549130135fe",
+    "finished_at_utc": "2026-10-22T06:51:10.381488+00:00"
+  }
+]

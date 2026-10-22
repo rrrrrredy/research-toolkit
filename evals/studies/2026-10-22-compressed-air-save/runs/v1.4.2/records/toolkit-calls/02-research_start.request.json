@@ -1,0 +1,13 @@
+{
+  "task": "compressed-air-priorities-zh-20261022",
+  "profile": "lite",
+  "language": "zh",
+  "brief": {
+    "question": "工厂压缩空气系统节能：什么时候先查漏、调压和优化控制，什么时候值得更换空压机？",
+    "audience": "需要理解改造优先级的工厂设备与能源管理人员",
+    "scope": "仅使用 inputs/sources/ 和 inputs/sources.json 的 S1、S2。S2 两页全文；S1 印刷页28–42、60–64（PDF页33–47、65–69）提供的章节，记录实际范围。比较查漏修复、压力与控制优化、更换设备的适用条件、相互影响、实施顺序及现场数据需求。无现场数据，不虚构工厂、测量、回收期或保证节能率；不将旧价格算例当成当前项目结论。",
+    "output": "约1500字中文Markdown决策简报，参考文献另列，含有用的措施比较表；在任务目录交付final.md及第一次检查前的first-draft.md、首次六项passed/evidence作者自检first-self-check.json及first-self-check-report.md、简短revision-notes.md；正文与过程记录分开，UTF-8。",
+    "depth": "解释因果与适用边界，综合为可执行的改造优先级；沿用既有Lite流程，仅一次自然作者自检，不独立评审、不启动其他Agent或测试套件。",
+    "evidence_standard": "重要建议可追溯至给定来源和页码；区分来源事实与综合判断，保留条件和局限，不追加联网检索、不读取上级或其他项目。首次产物保留不覆盖，必要修订只在final.md进行。"
+  }
+}

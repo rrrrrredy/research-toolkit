@@ -1,0 +1,3 @@
+source_id,title,url,source_type,read_scope,read_evidence,evidence_path
+S1,"Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition",https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf,primary,relevant_sections,2026-10-22 阅读全部给定章节提取文本：印刷页28–42、60–64，PDF33–47、65–69。泄漏PDF33–35；压降与压力PDF36–38；控制PDF39–47；基线PDF65–66；系统分析PDF67–69。P42被工具输出截断部分已补读完整。只读这些章节，未读整本手册；提取文本不含图形曲线，不据图补数值。,sources/S1.md
+S2,"Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3, December 2000",https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf,primary,full_text,2026-10-22 完整阅读两页提取文本。PDF1：泄漏影响、检测、修复闭环及孔口流量表；PDF2：机构介绍、历史联络信息与化工厂算例（P2L74–91）。2000年价格、算例和联络信息不作当前项目事实。,sources/S2.md

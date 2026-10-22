@@ -1,0 +1,254 @@
+[
+  {
+    "event_id": "item_9",
+    "event_line": 20,
+    "started": {
+      "line": 19,
+      "received_at_utc": "2026-10-22T07:03:47.616558+00:00",
+      "elapsed_seconds": 37.687
+    },
+    "completed": {
+      "line": 20,
+      "received_at_utc": "2026-10-22T07:03:47.657357+00:00",
+      "elapsed_seconds": 37.734
+    },
+    "tool": "research_start",
+    "request": "records/toolkit-calls/01-research_start.request.json",
+    "response": "records/toolkit-calls/01-research_start.response.json",
+    "error_signal": true,
+    "ok": null,
+    "error_text": [
+      "Error executing tool research_start: Unknown stage or language. Use stage brief/collect/analyze/draft/review/revise/final and language en/zh."
+    ],
+    "tool_wall_seconds": 0.047
+  },
+  {
+    "event_id": "item_10",
+    "event_line": 22,
+    "started": {
+      "line": 21,
+      "received_at_utc": "2026-10-22T07:03:58.448502+00:00",
+      "elapsed_seconds": 48.515
+    },
+    "completed": {
+      "line": 22,
+      "received_at_utc": "2026-10-22T07:03:58.471454+00:00",
+      "elapsed_seconds": 48.546
+    },
+    "tool": "research_start",
+    "request": "records/toolkit-calls/02-research_start.request.json",
+    "response": "records/toolkit-calls/02-research_start.response.json",
+    "error_signal": false,
+    "ok": null,
+    "tool_wall_seconds": 0.031,
+    "returned_guidance_paths": [
+      "references/lite-workflow.zh-CN.md"
+    ]
+  },
+  {
+    "event_id": "item_21",
+    "event_line": 43,
+    "started": {
+      "line": 42,
+      "received_at_utc": "2026-10-22T07:05:51.092275+00:00",
+      "elapsed_seconds": 161.171
+    },
+    "completed": {
+      "line": 43,
+      "received_at_utc": "2026-10-22T07:05:51.215424+00:00",
+      "elapsed_seconds": 161.281
+    },
+    "tool": "research_save",
+    "request": "records/toolkit-calls/03-research_save.request.json",
+    "response": "records/toolkit-calls/03-research_save.response.json",
+    "error_signal": false,
+    "ok": true,
+    "tool_wall_seconds": 0.11
+  },
+  {
+    "event_id": "item_22",
+    "event_line": 45,
+    "started": {
+      "line": 44,
+      "received_at_utc": "2026-10-22T07:07:22.265971+00:00",
+      "elapsed_seconds": 252.343
+    },
+    "completed": {
+      "line": 45,
+      "received_at_utc": "2026-10-22T07:07:22.289643+00:00",
+      "elapsed_seconds": 252.359
+    },
+    "tool": "research_status",
+    "request": "records/toolkit-calls/04-research_status.request.json",
+    "response": "records/toolkit-calls/04-research_status.response.json",
+    "error_signal": false,
+    "ok": null,
+    "tool_wall_seconds": 0.016,
+    "returned_guidance_paths": [
+      "references/lite-workflow.zh-CN.md"
+    ]
+  },
+  {
+    "event_id": "item_25",
+    "event_line": 50,
+    "started": {
+      "line": 49,
+      "received_at_utc": "2026-10-22T07:08:11.053850+00:00",
+      "elapsed_seconds": 301.125
+    },
+    "completed": {
+      "line": 50,
+      "received_at_utc": "2026-10-22T07:08:11.081501+00:00",
+      "elapsed_seconds": 301.156
+    },
+    "tool": "research_save",
+    "request": "records/toolkit-calls/05-research_save.request.json",
+    "response": "records/toolkit-calls/05-research_save.response.json",
+    "error_signal": false,
+    "ok": true,
+    "tool_wall_seconds": 0.031
+  },
+  {
+    "event_id": "item_26",
+    "event_line": 52,
+    "started": {
+      "line": 51,
+      "received_at_utc": "2026-10-22T07:08:11.083019+00:00",
+      "elapsed_seconds": 301.156
+    },
+    "completed": {
+      "line": 52,
+      "received_at_utc": "2026-10-22T07:08:11.109551+00:00",
+      "elapsed_seconds": 301.187
+    },
+    "tool": "research_status",
+    "request": "records/toolkit-calls/06-research_status.request.json",
+    "response": "records/toolkit-calls/06-research_status.response.json",
+    "error_signal": false,
+    "ok": null,
+    "tool_wall_seconds": 0.031,
+    "returned_guidance_paths": [
+      "references/lite-workflow.zh-CN.md"
+    ]
+  },
+  {
+    "event_id": "item_27",
+    "event_line": 54,
+    "started": {
+      "line": 53,
+      "received_at_utc": "2026-10-22T07:09:57.271687+00:00",
+      "elapsed_seconds": 407.343
+    },
+    "completed": {
+      "line": 54,
+      "received_at_utc": "2026-10-22T07:09:57.297108+00:00",
+      "elapsed_seconds": 407.359
+    },
+    "tool": "research_save",
+    "request": "records/toolkit-calls/07-research_save.request.json",
+    "response": "records/toolkit-calls/07-research_save.response.json",
+    "error_signal": false,
+    "ok": true,
+    "tool_wall_seconds": 0.016
+  },
+  {
+    "event_id": "item_29",
+    "event_line": 58,
+    "started": {
+      "line": 57,
+      "received_at_utc": "2026-10-22T07:09:59.604212+00:00",
+      "elapsed_seconds": 409.671
+    },
+    "completed": {
+      "line": 58,
+      "received_at_utc": "2026-10-22T07:09:59.641124+00:00",
+      "elapsed_seconds": 409.703
+    },
+    "tool": "research_save",
+    "request": "records/toolkit-calls/08-research_save.request.json",
+    "response": "records/toolkit-calls/08-research_save.response.json",
+    "error_signal": false,
+    "ok": true,
+    "tool_wall_seconds": 0.032
+  },
+  {
+    "event_id": "item_30",
+    "event_line": 60,
+    "started": {
+      "line": 59,
+      "received_at_utc": "2026-10-22T07:10:26.270816+00:00",
+      "elapsed_seconds": 436.343
+    },
+    "completed": {
+      "line": 60,
+      "received_at_utc": "2026-10-22T07:10:26.290620+00:00",
+      "elapsed_seconds": 436.359
+    },
+    "tool": "research_check_draft",
+    "request": "records/toolkit-calls/09-research_check_draft.request.json",
+    "response": "records/toolkit-calls/09-research_check_draft.response.json",
+    "error_signal": false,
+    "ok": true,
+    "tool_wall_seconds": 0.016
+  },
+  {
+    "event_id": "item_32",
+    "event_line": 64,
+    "started": {
+      "line": 63,
+      "received_at_utc": "2026-10-22T07:10:28.599976+00:00",
+      "elapsed_seconds": 438.671
+    },
+    "completed": {
+      "line": 64,
+      "received_at_utc": "2026-10-22T07:10:28.616444+00:00",
+      "elapsed_seconds": 438.687
+    },
+    "tool": "research_finish",
+    "request": "records/toolkit-calls/10-research_finish.request.json",
+    "response": "records/toolkit-calls/10-research_finish.response.json",
+    "error_signal": false,
+    "ok": null,
+    "tool_wall_seconds": 0.016
+  },
+  {
+    "event_id": "item_35",
+    "event_line": 69,
+    "started": {
+      "line": 68,
+      "received_at_utc": "2026-10-22T07:12:53.750648+00:00",
+      "elapsed_seconds": 583.812
+    },
+    "completed": {
+      "line": 69,
+      "received_at_utc": "2026-10-22T07:12:53.785460+00:00",
+      "elapsed_seconds": 583.859
+    },
+    "tool": "research_save",
+    "request": "records/toolkit-calls/11-research_save.request.json",
+    "response": "records/toolkit-calls/11-research_save.response.json",
+    "error_signal": false,
+    "ok": true,
+    "tool_wall_seconds": 0.047
+  },
+  {
+    "event_id": "item_36",
+    "event_line": 71,
+    "started": {
+      "line": 70,
+      "received_at_utc": "2026-10-22T07:12:53.787384+00:00",
+      "elapsed_seconds": 583.859
+    },
+    "completed": {
+      "line": 71,
+      "received_at_utc": "2026-10-22T07:12:53.949417+00:00",
+      "elapsed_seconds": 584.015
+    },
+    "tool": "research_finish",
+    "request": "records/toolkit-calls/12-research_finish.request.json",
+    "response": "records/toolkit-calls/12-research_finish.response.json",
+    "error_signal": false,
+    "ok": null,
+    "tool_wall_seconds": 0.156
+  }
+]

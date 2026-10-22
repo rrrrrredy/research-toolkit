@@ -1,0 +1,27 @@
+{
+  "save_parameter_corrections": [],
+  "other_tool_parameter_corrections": [
+    {
+      "tool": "research_start",
+      "wrong_value": {
+        "language": "zh-CN"
+      },
+      "corrected_value": {
+        "language": "zh"
+      },
+      "failed_request": "records/toolkit-calls/01-research_start.request.json",
+      "failed_response": "records/toolkit-calls/01-research_start.response.json",
+      "correction_request": "records/toolkit-calls/02-research_start.request.json",
+      "correction_response": "records/toolkit-calls/02-research_start.response.json",
+      "error_response_to_corrected_response_seconds": 10.812,
+      "first_attempt_to_corrected_response_seconds": 10.859,
+      "extra_method_reads_for_this_correction": 0,
+      "attribution": "research_start language parameter, outside v1.4.2 research_save documentation change; no code change inferred."
+    }
+  ],
+  "normal_finish_sequence": {
+    "template_request_returns_pending_requirements": true,
+    "requirements_closed_after_author_check": true,
+    "classified_as_save_parameter_error": false
+  }
+}

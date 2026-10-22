@@ -1,0 +1,317 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"ok\": true,\n  \"saved_ids\": {},\n  \"updated_files\": [\n    \"state/progress.json\"\n  ],\n  \"backups\": [],\n  \"next_action\": \"Continue the research; existing draft, review and delivery checks still apply.\",\n  \"changes\": {\n    \"available\": true,\n    \"operation_id\": \"e376c37e5a60476db9505e5477611989\",\n    \"saved_at\": \"2026-10-22T06:58:38.369213+00:00\",\n    \"records\": {\n      \"claims\": {\n        \"added\": [\n          \"C1\",\n          \"C2\",\n          \"C3\",\n          \"C4\",\n          \"C5\",\n          \"C6\",\n          \"C7\",\n          \"C8\"\n        ],\n        \"updated\": [],\n        \"unchanged\": [],\n        \"removed\": [],\n        \"recovered\": []\n      }\n    },\n    \"source_files\": {},\n    \"artifact\": \"final.md\",\n    \"affected_claims\": [\n      {\n        \"claim_id\": \"C1\",\n        \"claim\": \"泄漏增加耗气、运行时间和压降，可能诱发不必要扩容；应记录、优先修大漏、验证并持续管理，修后重评控制。\",\n        \"changed_source_ids\": [],\n        \"locations\": [\n          {\n            \"line\": 32,\n            \"heading\": \"压缩空气节能：先优化系统，何时再换机\",\n            \"matched_by\": [\n              \"source_link:S1\"\n            ],\n            \"text\": \"[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。\",\n            \"context\": {\n              \"start_line\": 30,\n              \"end_line\": 34,\n              \"text\": \"**参考文献**\\n\\n[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。\\n\\n[2] 美国能源部，*Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3*，2000年12月。[原文PDF](https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf)。已读两页全文；正文页码为PDF页码。\"\n            }\n          },\n          {\n            \"line\": 34,\n            \"heading\": \"压缩空气节能：先优化系统，何时再换机\",\n            \"matched_by\": [\n              \"source_link:S2\"\n            ],\n            \"text\": \"[2] 美国能源部，*Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3*，2000年12月。[原文PDF](https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf)。已读两页全文；正文页码为PDF页码。\",\n            \"context\": {\n              \"start_line\": 32,\n              \"end_line\": 34,\n              \"text\": \"[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。\\n\\n[2] 美国能源部，*Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3*，2000年12月。[原文PDF](https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf)。已读两页全文；正文页码为PDF页码。\"\n            }\n          }\n        ],\n        \"location_status\": \"matched\"\n      },\n      {\n        \"claim_id\": \"C2\",\n        \"claim\": \"节气量不能等同节电量：螺杆机卸载仍耗电，储气不足的短循环可使部分负荷表现更差；控制应减少无效运行并协调多机基载与调节机。\",\n        \"changed_source_ids\": [],\n        \"locations\": [\n          {\n            \"line\": 32,\n            \"heading\": \"压缩空气节能：先优化系统，何时再换机\",\n            \"matched_by\": [\n              \"source_link:S1\"\n            ],\n            \"text\": \"[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。\",\n            \"context_ref\": {\n              \"claim_id\": \"C1\",\n              \"line\": 32\n            }\n          }\n        ],\n        \"location_status\": \"matched\"\n      },\n      {\n        \"claim_id\": \"C3\",\n        \"claim\": \"应先定位压降与关键末端最低压力，再在峰值下验证降低供压；高压增加压缩功及未调压用气，局部问题不应直接推导为全厂升压或扩容。\",\n        \"changed_source_ids\": [],\n        \"locations\": [\n          {\n            \"line\": 32,\n            \"heading\": \"压缩空气节能：先优化系统，何时再换机\",\n            \"matched_by\": [\n              \"source_link:S1\"\n            ],\n            \"text\": \"[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。\",\n            \"context_ref\": {\n              \"claim_id\": \"C1\",\n              \"line\": 32\n            }\n          },\n          {\n            \"line\": 34,\n            \"heading\": \"压缩空气节能：先优化系统，何时再换机\",\n            \"matched_by\": [\n              \"source_link:S2\"\n            ],\n            \"text\": \"[2] 美国能源部，*Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3*，2000年12月。[原文PDF](https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf)。已读两页全文；正文页码为PDF页码。\",\n            \"context_ref\": {\n              \"claim_id\": \"C1\",\n              \"line\": 34\n            }\n          }\n        ],\n        \"location_status\": \"matched\"\n      },\n      {\n        \"claim_id\": \"C4\",\n        \"claim\": \"变频机适合需求波动且运行时间较长的部分负荷应用，满负荷驱动损耗与低速效率下降可能抵消优势；多机时应匹配调节范围与基载机。\",\n        \"changed_source_ids\": [],\n        \"locations\": [\n          {\n            \"line\": 32,\n            \"heading\": \"压缩空气节能：先优化系统，何时再换机\",\n            \"matched_by\": [\n              \"source_link:S1\"\n            ],\n            \"text\": \"[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。\",\n            \"context_ref\": {\n              \"claim_id\": \"C1\",\n              \"line\": 32\n            }\n          }\n        ],\n        \"location_status\": \"matched\"\n      },\n      {\n        \"claim_id\": \"C5\",\n        \"claim\": \"通常先建立基线，结合修漏、降低压降和控制调整获得剩余需求，再定换机容量；若已排除需求侧/控制问题仍失配、能力不足，或设备状态危及可靠供气，可提前开展替换比选。\",\n        \"changed_source_ids\": [],\n        \"locations\": [\n          {\n            \"line\": 32,\n            \"heading\": \"压缩空气节能：先优化系统，何时再换机\",\n            \"matched_by\": [\n              \"source_link:S1\"\n            ],\n            \"text\": \"[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。\",\n            \"context_ref\": {\n              \"claim_id\": \"C1\",\n              \"line\": 32\n            }\n          },\n          {\n            \"line\": 34,\n            \"heading\": \"压缩空气节能：先优化系统，何时再换机\",\n            \"matched_by\": [\n              \"source_link:S2\"\n            ],\n            \"text\": \"[2] 美国能源部，*Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3*，2000年12月。[原文PDF](https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf)。已读两页全文；正文页码为PDF页码。\",\n            \"context_ref\": {\n              \"claim_id\": \"C1\",\n              \"line\": 34\n            }\n          }\n        ],\n        \"location_status\": \"matched\"\n      },\n      {\n        \"claim_id\": \"C6\",\n        \"claim\": \"比较方案需同步测功率、流量、压力和温度，覆盖不同班次与停产工况，并按生产水平归一化；流量参考状态应一致。\",\n        \"changed_source_ids\": [],\n        \"locations\": [\n          {\n            \"line\": 32,\n            \"heading\": \"压缩空气节能：先优化系统，何时再换机\",\n            \"matched_by\": [\n              \"source_link:S1\"\n            ],\n            \"text\": \"[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。\",\n            \"context_ref\": {\n              \"claim_id\": \"C1\",\n              \"line\": 32\n            }\n          }\n        ],\n        \"location_status\": \"matched\"\n      },\n      {\n        \"claim_id\": \"C7\",\n        \"claim\": \"经济比选应在同等供气服务、修漏后负荷下比较保留优化与换机，使用各负荷时段功率乘小时和当地电价，再计安装、维护与停机成本；不能简单叠加修漏、调压和换机百分比。\",\n        \"changed_source_ids\": [],\n        \"locations\": [\n          {\n            \"line\": 32,\n            \"heading\": \"压缩空气节能：先优化系统，何时再换机\",\n            \"matched_by\": [\n              \"source_link:S1\"\n            ],\n            \"text\": \"[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。\",\n            \"context_ref\": {\n              \"claim_id\": \"C1\",\n              \"line\": 32\n            }\n          },\n          {\n            \"line\": 34,\n            \"heading\": \"压缩空气节能：先优化系统，何时再换机\",\n            \"matched_by\": [\n              \"source_link:S2\"\n            ],\n            \"text\": \"[2] 美国能源部，*Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3*，2000年12月。[原文PDF](https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf)。已读两页全文；正文页码为PDF页码。\",\n            \"context_ref\": {\n              \"claim_id\": \"C1\",\n              \"line\": 34\n            }\n          }\n        ],\n        \"location_status\": \"matched\"\n      },\n      {\n        \"claim_id\": \"C8\",\n        \"claim\": \"短时需求峰值可先评估储气位置和容量；压力/流量控制器不适用所有系统，其上游高压成本需与下游稳压收益一起评估。\",\n        \"changed_source_ids\": [],\n        \"locations\": [\n          {\n            \"line\": 32,\n            \"heading\": \"压缩空气节能：先优化系统，何时再换机\",\n            \"matched_by\": [\n              \"source_link:S1\"\n            ],\n            \"text\": \"[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。\",\n            \"context_ref\": {\n              \"claim_id\": \"C1\",\n              \"line\": 32\n            }\n          }\n        ],\n        \"location_status\": \"matched\"\n      }\n    ],\n    \"unlinked_source_ids\": [],\n    \"scope\": \"Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks.\"\n  },\n  \"current_work\": {\n    \"task_spec\": \"state/task_spec.md\",\n    \"requirements\": \"state/requirements.jsonl\",\n    \"artifact\": {\n      \"path\": \"final.md\",\n      \"sha256\": \"694eafd12e25bc86dd7ca4bbd436f1a50b796b262a1337b4da1f2e7c5c015e8d\",\n      \"kind\": \"report\",\n      \"current_sha256\": \"694eafd12e25bc86dd7ca4bbd436f1a50b796b262a1337b4da1f2e7c5c015e8d\",\n      \"changed_since_save\": false\n    },\n    \"open_requirements\": [\n      {\n        \"requirement_id\": \"R3\",\n        \"summary\": \"比较查漏修复、压力与控制优化、更换设备的适用条件、相互影响、实施顺序；解释原因及改变优先级的条件。\",\n        \"status\": \"pending\",\n        \"evidence\": \"待完整稿与作者自检。\"\n      },\n      {\n        \"requirement_id\": \"R4\",\n        \"summary\": \"说明做具体选择前需要的现场数据；不虚构工厂、测量、投资回收期、保证节能比例，不将历史价格/算例外推。\",\n        \"status\": \"pending\",\n        \"evidence\": \"待正文完成；仅两份给定公开材料，无现场数据。\"\n      },\n      {\n        \"requirement_id\": \"R5\",\n        \"summary\": \"约1500字中文Markdown决策简报，参考文献另列，含一张有用的措施比较表；正文为软篇幅目标，无硬性最低字数或全文字符上下限。\",\n        \"status\": \"pending\",\n        \"evidence\": \"完成时按正文与参考文献分开实测；不登记并不存在的whole_artifact硬性范围。\"\n      },\n      {\n        \"requirement_id\": \"R6\",\n        \"summary\": \"重要建议短引用可追溯原文页码，以解释和综合分析为主；仅给定材料，不联网或读上级/其他项目/历史/用户资料。\",\n        \"status\": \"pending\",\n        \"evidence\": \"研究范围限inputs/sources.json列出的S1、S2；待稿件引用自检。\"\n      },\n      {\n        \"requirement_id\": \"R7\",\n        \"summary\": \"使用既有Lite和research_*；保留首次完整稿first-draft.md、首次六项passed/evidence自检first-self-check.json及first-self-check-report.md，不覆盖；final.md与revision-notes.md分开；UTF-8、全部在当前任务目录；无其他Agent、独立评审、测试套件，不修改toolkit/inputs，不额外检查或等待。\",\n        \"status\": \"pending\",\n        \"evidence\": \"已profile=lite创建任务；将自然首次产物保存，完成既有检查即结束。\"\n      }\n    ],\n    \"warnings\": [],\n    \"scope\": \"Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks.\"\n  },\n  \"observation\": {\n    \"operation\": \"save\",\n    \"operation_id\": \"ab63297f81e24babbae87706615d8bdd\",\n    \"started_at\": \"2026-10-22T07:00:09.858964+00:00\",\n    \"artifact\": \"final.md\",\n    \"complete_draft\": true,\n    \"time_basis\": \"existing_file_observed\",\n    \"artifact_sha256\": \"694eafd12e25bc86dd7ca4bbd436f1a50b796b262a1337b4da1f2e7c5c015e8d\",\n    \"outcome\": \"saved\",\n    \"finished_at\": \"2026-10-22T07:00:09.869260+00:00\",\n    \"elapsed_seconds\": 0.016\n  }\n}"
+      }
+    ],
+    "structured_content": {
+      "ok": true,
+      "saved_ids": {},
+      "updated_files": [
+        "state/progress.json"
+      ],
+      "backups": [],
+      "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+      "changes": {
+        "available": true,
+        "operation_id": "e376c37e5a60476db9505e5477611989",
+        "saved_at": "2026-10-22T06:58:38.369213+00:00",
+        "records": {
+          "claims": {
+            "added": [
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "C7",
+              "C8"
+            ],
+            "updated": [],
+            "unchanged": [],
+            "removed": [],
+            "recovered": []
+          }
+        },
+        "source_files": {},
+        "artifact": "final.md",
+        "affected_claims": [
+          {
+            "claim_id": "C1",
+            "claim": "泄漏增加耗气、运行时间和压降，可能诱发不必要扩容；应记录、优先修大漏、验证并持续管理，修后重评控制。",
+            "changed_source_ids": [],
+            "locations": [
+              {
+                "line": 32,
+                "heading": "压缩空气节能：先优化系统，何时再换机",
+                "matched_by": [
+                  "source_link:S1"
+                ],
+                "text": "[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。",
+                "context": {
+                  "start_line": 30,
+                  "end_line": 34,
+                  "text": "**参考文献**\n\n[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。\n\n[2] 美国能源部，*Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3*，2000年12月。[原文PDF](https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf)。已读两页全文；正文页码为PDF页码。"
+                }
+              },
+              {
+                "line": 34,
+                "heading": "压缩空气节能：先优化系统，何时再换机",
+                "matched_by": [
+                  "source_link:S2"
+                ],
+                "text": "[2] 美国能源部，*Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3*，2000年12月。[原文PDF](https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf)。已读两页全文；正文页码为PDF页码。",
+                "context": {
+                  "start_line": 32,
+                  "end_line": 34,
+                  "text": "[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。\n\n[2] 美国能源部，*Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3*，2000年12月。[原文PDF](https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf)。已读两页全文；正文页码为PDF页码。"
+                }
+              }
+            ],
+            "location_status": "matched"
+          },
+          {
+            "claim_id": "C2",
+            "claim": "节气量不能等同节电量：螺杆机卸载仍耗电，储气不足的短循环可使部分负荷表现更差；控制应减少无效运行并协调多机基载与调节机。",
+            "changed_source_ids": [],
+            "locations": [
+              {
+                "line": 32,
+                "heading": "压缩空气节能：先优化系统，何时再换机",
+                "matched_by": [
+                  "source_link:S1"
+                ],
+                "text": "[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。",
+                "context_ref": {
+                  "claim_id": "C1",
+                  "line": 32
+                }
+              }
+            ],
+            "location_status": "matched"
+          },
+          {
+            "claim_id": "C3",
+            "claim": "应先定位压降与关键末端最低压力，再在峰值下验证降低供压；高压增加压缩功及未调压用气，局部问题不应直接推导为全厂升压或扩容。",
+            "changed_source_ids": [],
+            "locations": [
+              {
+                "line": 32,
+                "heading": "压缩空气节能：先优化系统，何时再换机",
+                "matched_by": [
+                  "source_link:S1"
+                ],
+                "text": "[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。",
+                "context_ref": {
+                  "claim_id": "C1",
+                  "line": 32
+                }
+              },
+              {
+                "line": 34,
+                "heading": "压缩空气节能：先优化系统，何时再换机",
+                "matched_by": [
+                  "source_link:S2"
+                ],
+                "text": "[2] 美国能源部，*Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3*，2000年12月。[原文PDF](https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf)。已读两页全文；正文页码为PDF页码。",
+                "context_ref": {
+                  "claim_id": "C1",
+                  "line": 34
+                }
+              }
+            ],
+            "location_status": "matched"
+          },
+          {
+            "claim_id": "C4",
+            "claim": "变频机适合需求波动且运行时间较长的部分负荷应用，满负荷驱动损耗与低速效率下降可能抵消优势；多机时应匹配调节范围与基载机。",
+            "changed_source_ids": [],
+            "locations": [
+              {
+                "line": 32,
+                "heading": "压缩空气节能：先优化系统，何时再换机",
+                "matched_by": [
+                  "source_link:S1"
+                ],
+                "text": "[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。",
+                "context_ref": {
+                  "claim_id": "C1",
+                  "line": 32
+                }
+              }
+            ],
+            "location_status": "matched"
+          },
+          {
+            "claim_id": "C5",
+            "claim": "通常先建立基线，结合修漏、降低压降和控制调整获得剩余需求，再定换机容量；若已排除需求侧/控制问题仍失配、能力不足，或设备状态危及可靠供气，可提前开展替换比选。",
+            "changed_source_ids": [],
+            "locations": [
+              {
+                "line": 32,
+                "heading": "压缩空气节能：先优化系统，何时再换机",
+                "matched_by": [
+                  "source_link:S1"
+                ],
+                "text": "[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。",
+                "context_ref": {
+                  "claim_id": "C1",
+                  "line": 32
+                }
+              },
+              {
+                "line": 34,
+                "heading": "压缩空气节能：先优化系统，何时再换机",
+                "matched_by": [
+                  "source_link:S2"
+                ],
+                "text": "[2] 美国能源部，*Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3*，2000年12月。[原文PDF](https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf)。已读两页全文；正文页码为PDF页码。",
+                "context_ref": {
+                  "claim_id": "C1",
+                  "line": 34
+                }
+              }
+            ],
+            "location_status": "matched"
+          },
+          {
+            "claim_id": "C6",
+            "claim": "比较方案需同步测功率、流量、压力和温度，覆盖不同班次与停产工况，并按生产水平归一化；流量参考状态应一致。",
+            "changed_source_ids": [],
+            "locations": [
+              {
+                "line": 32,
+                "heading": "压缩空气节能：先优化系统，何时再换机",
+                "matched_by": [
+                  "source_link:S1"
+                ],
+                "text": "[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。",
+                "context_ref": {
+                  "claim_id": "C1",
+                  "line": 32
+                }
+              }
+            ],
+            "location_status": "matched"
+          },
+          {
+            "claim_id": "C7",
+            "claim": "经济比选应在同等供气服务、修漏后负荷下比较保留优化与换机，使用各负荷时段功率乘小时和当地电价，再计安装、维护与停机成本；不能简单叠加修漏、调压和换机百分比。",
+            "changed_source_ids": [],
+            "locations": [
+              {
+                "line": 32,
+                "heading": "压缩空气节能：先优化系统，何时再换机",
+                "matched_by": [
+                  "source_link:S1"
+                ],
+                "text": "[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。",
+                "context_ref": {
+                  "claim_id": "C1",
+                  "line": 32
+                }
+              },
+              {
+                "line": 34,
+                "heading": "压缩空气节能：先优化系统，何时再换机",
+                "matched_by": [
+                  "source_link:S2"
+                ],
+                "text": "[2] 美国能源部，*Minimize Compressed Air Leaks — Compressed Air Tip Sheet #3*，2000年12月。[原文PDF](https://www.energystar.gov/sites/default/files/buildings/tools/compressed_air3.pdf)。已读两页全文；正文页码为PDF页码。",
+                "context_ref": {
+                  "claim_id": "C1",
+                  "line": 34
+                }
+              }
+            ],
+            "location_status": "matched"
+          },
+          {
+            "claim_id": "C8",
+            "claim": "短时需求峰值可先评估储气位置和容量；压力/流量控制器不适用所有系统，其上游高压成本需与下游稳压收益一起评估。",
+            "changed_source_ids": [],
+            "locations": [
+              {
+                "line": 32,
+                "heading": "压缩空气节能：先优化系统，何时再换机",
+                "matched_by": [
+                  "source_link:S1"
+                ],
+                "text": "[1] 美国能源部，*Improving Compressed Air System Performance: A Sourcebook for Industry, Third Edition*。[原文PDF](https://bptraining.ornl.gov/wp-content/uploads/2022/09/Compressed-air-sourcebook-by-DOE_3rd-Edition.pdf)。本简报实际阅读范围仅为所给印刷页28–42、60–64的章节提取文本，对应PDF第33–47、65–69页；未读整本手册。正文对[1]的页码均为印刷页码，未从未提供的图表曲线取数。",
+                "context_ref": {
+                  "claim_id": "C1",
+                  "line": 32
+                }
+              }
+            ],
+            "location_status": "matched"
+          }
+        ],
+        "unlinked_source_ids": [],
+        "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+      },
+      "current_work": {
+        "task_spec": "state/task_spec.md",
+        "requirements": "state/requirements.jsonl",
+        "artifact": {
+          "path": "final.md",
+          "sha256": "694eafd12e25bc86dd7ca4bbd436f1a50b796b262a1337b4da1f2e7c5c015e8d",
+          "kind": "report",
+          "current_sha256": "694eafd12e25bc86dd7ca4bbd436f1a50b796b262a1337b4da1f2e7c5c015e8d",
+          "changed_since_save": false
+        },
+        "open_requirements": [
+          {
+            "requirement_id": "R3",
+            "summary": "比较查漏修复、压力与控制优化、更换设备的适用条件、相互影响、实施顺序；解释原因及改变优先级的条件。",
+            "status": "pending",
+            "evidence": "待完整稿与作者自检。"
+          },
+          {
+            "requirement_id": "R4",
+            "summary": "说明做具体选择前需要的现场数据；不虚构工厂、测量、投资回收期、保证节能比例，不将历史价格/算例外推。",
+            "status": "pending",
+            "evidence": "待正文完成；仅两份给定公开材料，无现场数据。"
+          },
+          {
+            "requirement_id": "R5",
+            "summary": "约1500字中文Markdown决策简报，参考文献另列，含一张有用的措施比较表；正文为软篇幅目标，无硬性最低字数或全文字符上下限。",
+            "status": "pending",
+            "evidence": "完成时按正文与参考文献分开实测；不登记并不存在的whole_artifact硬性范围。"
+          },
+          {
+            "requirement_id": "R6",
+            "summary": "重要建议短引用可追溯原文页码，以解释和综合分析为主；仅给定材料，不联网或读上级/其他项目/历史/用户资料。",
+            "status": "pending",
+            "evidence": "研究范围限inputs/sources.json列出的S1、S2；待稿件引用自检。"
+          },
+          {
+            "requirement_id": "R7",
+            "summary": "使用既有Lite和research_*；保留首次完整稿first-draft.md、首次六项passed/evidence自检first-self-check.json及first-self-check-report.md，不覆盖；final.md与revision-notes.md分开；UTF-8、全部在当前任务目录；无其他Agent、独立评审、测试套件，不修改toolkit/inputs，不额外检查或等待。",
+            "status": "pending",
+            "evidence": "已profile=lite创建任务；将自然首次产物保存，完成既有检查即结束。"
+          }
+        ],
+        "warnings": [],
+        "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+      },
+      "observation": {
+        "operation": "save",
+        "operation_id": "ab63297f81e24babbae87706615d8bdd",
+        "started_at": "2026-10-22T07:00:09.858964+00:00",
+        "artifact": "final.md",
+        "complete_draft": true,
+        "time_basis": "existing_file_observed",
+        "artifact_sha256": "694eafd12e25bc86dd7ca4bbd436f1a50b796b262a1337b4da1f2e7c5c015e8d",
+        "outcome": "saved",
+        "finished_at": "2026-10-22T07:00:09.869260+00:00",
+        "elapsed_seconds": 0.016
+      }
+    }
+  },
+  "error": null,
+  "status": "completed"
+}

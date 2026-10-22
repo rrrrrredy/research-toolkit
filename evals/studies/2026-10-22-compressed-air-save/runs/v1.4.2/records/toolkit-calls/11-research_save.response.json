@@ -1,0 +1,95 @@
+{
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"ok\": true,\n  \"saved_ids\": {\n    \"requirements\": [\n      \"R1\",\n      \"R4\",\n      \"R5\",\n      \"R6\",\n      \"R7\"\n    ]\n  },\n  \"updated_files\": [\n    \"state/requirements.jsonl\"\n  ],\n  \"backups\": [],\n  \"next_action\": \"Continue the research; existing draft, review and delivery checks still apply.\",\n  \"changes\": {\n    \"available\": true,\n    \"operation_id\": \"e039992c8f7a4487a2d1bbad7ace9900\",\n    \"saved_at\": \"2026-10-22T07:12:53.768312+00:00\",\n    \"records\": {\n      \"requirements\": {\n        \"added\": [],\n        \"updated\": [\n          \"R1\",\n          \"R4\",\n          \"R5\",\n          \"R6\",\n          \"R7\"\n        ],\n        \"unchanged\": [],\n        \"removed\": [],\n        \"recovered\": []\n      }\n    },\n    \"source_files\": {},\n    \"artifact\": \"final.md\",\n    \"affected_claims\": [],\n    \"unlinked_source_ids\": [],\n    \"scope\": \"Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks.\"\n  },\n  \"current_work\": {\n    \"task_spec\": \"state/task_spec.md\",\n    \"requirements\": \"state/requirements.jsonl\",\n    \"artifact\": {\n      \"path\": \"final.md\",\n      \"sha256\": \"c20ea1816f187dff772002f60193e5d25d5a60196652609bdcbb1c1c53107b2d\",\n      \"kind\": \"report\",\n      \"current_sha256\": \"c20ea1816f187dff772002f60193e5d25d5a60196652609bdcbb1c1c53107b2d\",\n      \"changed_since_save\": false\n    },\n    \"open_requirements\": [],\n    \"warnings\": [],\n    \"scope\": \"Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks.\"\n  },\n  \"observation\": {\n    \"operation\": \"save\",\n    \"operation_id\": \"e039992c8f7a4487a2d1bbad7ace9900\",\n    \"started_at\": \"2026-10-22T07:12:53.757828+00:00\",\n    \"outcome\": \"saved\",\n    \"record_changes\": {\n      \"records\": {\n        \"requirements\": {\n          \"added\": [],\n          \"updated\": [\n            \"R1\",\n            \"R4\",\n            \"R5\",\n            \"R6\",\n            \"R7\"\n          ],\n          \"unchanged\": [],\n          \"removed\": [],\n          \"recovered\": []\n        }\n      },\n      \"source_files\": {},\n      \"source_observations\": {}\n    },\n    \"finished_at\": \"2026-10-22T07:12:53.768312+00:00\",\n    \"elapsed_seconds\": 0.015\n  }\n}"
+      }
+    ],
+    "structured_content": {
+      "ok": true,
+      "saved_ids": {
+        "requirements": [
+          "R1",
+          "R4",
+          "R5",
+          "R6",
+          "R7"
+        ]
+      },
+      "updated_files": [
+        "state/requirements.jsonl"
+      ],
+      "backups": [],
+      "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+      "changes": {
+        "available": true,
+        "operation_id": "e039992c8f7a4487a2d1bbad7ace9900",
+        "saved_at": "2026-10-22T07:12:53.768312+00:00",
+        "records": {
+          "requirements": {
+            "added": [],
+            "updated": [
+              "R1",
+              "R4",
+              "R5",
+              "R6",
+              "R7"
+            ],
+            "unchanged": [],
+            "removed": [],
+            "recovered": []
+          }
+        },
+        "source_files": {},
+        "artifact": "final.md",
+        "affected_claims": [],
+        "unlinked_source_ids": [],
+        "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+      },
+      "current_work": {
+        "task_spec": "state/task_spec.md",
+        "requirements": "state/requirements.jsonl",
+        "artifact": {
+          "path": "final.md",
+          "sha256": "c20ea1816f187dff772002f60193e5d25d5a60196652609bdcbb1c1c53107b2d",
+          "kind": "report",
+          "current_sha256": "c20ea1816f187dff772002f60193e5d25d5a60196652609bdcbb1c1c53107b2d",
+          "changed_since_save": false
+        },
+        "open_requirements": [],
+        "warnings": [],
+        "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+      },
+      "observation": {
+        "operation": "save",
+        "operation_id": "e039992c8f7a4487a2d1bbad7ace9900",
+        "started_at": "2026-10-22T07:12:53.757828+00:00",
+        "outcome": "saved",
+        "record_changes": {
+          "records": {
+            "requirements": {
+              "added": [],
+              "updated": [
+                "R1",
+                "R4",
+                "R5",
+                "R6",
+                "R7"
+              ],
+              "unchanged": [],
+              "removed": [],
+              "recovered": []
+            }
+          },
+          "source_files": {},
+          "source_observations": {}
+        },
+        "finished_at": "2026-10-22T07:12:53.768312+00:00",
+        "elapsed_seconds": 0.015
+      }
+    }
+  },
+  "error": null,
+  "status": "completed"
+}

@@ -1,0 +1,67 @@
+{
+  "schema_version": 2,
+  "profile": "lite",
+  "artifact": "final.md",
+  "items": {
+    "requirements": {
+      "passed": true,
+      "evidence": "已通读final.md。开篇给默认顺序及严重故障例外；四行表覆盖查漏、压力、控制与储气、换机；后文解释耦合、换机条件及三组现场数据。正文去掉标题与参考文献后为1559个非空白字符（含标点、引用及表格Markdown），其中1253个汉字；全文2058个非空白字符。约1500字为软目标，无硬性下限或全文范围。first-draft.md已在第一次research_check_draft及作者自检前另存；六项首次自检与说明另存，不覆盖。",
+      "evidence_files": [
+        "first-self-check-report.md"
+      ]
+    },
+    "claims_and_sources": {
+      "passed": true,
+      "evidence": "已把开篇及表格与S1印刷28–34、62–64页和S2第1–2页核对；联动段对应S1印刷34–40、42、64页，降压及压力/流量控制器段对应31–33、38–39页，变速机条件对应36–38、42页，数据与验证对应60–64页。换机触发、收益不相加及成本比较明确属于综合建议。S1只登记所供20页节选；S2两页全文已读。未借缺失图形、旧算例或材料外信息给出数字结论。",
+      "evidence_files": [
+        "first-self-check-report.md",
+        "research-notes.md"
+      ]
+    },
+    "counterevidence": {
+      "passed": true,
+      "evidence": "核对了开篇的故障并行处置，表中峰值最低压力约束，联动段卸载耗电及储气不能补持续缺口，降压段停止下调条件和控制器供气升压代价，换机段满载驱动损耗与极低速效率下降；现场数据条目要求识别停产保留用气，收尾按可比产量验证。没有把先查漏或变频节能绝对化。",
+      "evidence_files": [
+        "first-self-check-report.md"
+      ]
+    },
+    "sections": {
+      "passed": true,
+      "evidence": "逐段核对默认顺序、比较表、修漏控制机制、降压机制、措施收益重叠、换机条件、全年成本、三组数据和效果验证。表格提供判别信号，后文解释原因与实施边界；覆盖适用条件、相互影响、顺序和数据需求，未用重复背景充数。",
+      "evidence_files": [
+        "first-self-check-report.md"
+      ]
+    },
+    "reader_edit": {
+      "passed": true,
+      "evidence": "通读final.md标题至两项参考文献：开篇直接回答优先级，表格便于对照现场信号，正文解释节气不等于节电以及何时值得换机，三项数据可用于安排测量。S1/S2仅作引用标识；正文未混入任务ID、工具调用、检查计数、评审状态或执行日志，也无跨任务模板文字。未发现需修正的重复或表述问题，本次无正文修订。",
+      "evidence_files": [
+        "first-self-check-report.md"
+      ]
+    },
+    "limitations": {
+      "passed": true,
+      "evidence": "收尾说明缺少本厂测量和当前报价，不能确定回收期或保证节能率；参考文献声明S1仅节选、未推算缺失图形，S2全文及2000年日期，两项指南有关联。研究记录说明不是独立现场试验证据。未经独立评审的流程限制披露于first-self-check-report.md与最终交付说明，不混入读者正文。",
+      "evidence_files": [
+        "first-self-check-report.md",
+        "research-notes.md"
+      ]
+    }
+  },
+  "input_hashes": {
+    "state/task_spec.md": "2d08da0acff01951a12537abcb71149eafbd00cdbc06f2a81eedbd92996eb00a",
+    "data/source_registry.csv": "30c9be9aeb8234e339e1e8cd75acb838a29912fcc3777f7f2cb106b07a39bee7",
+    "data/claims_registry.csv": "a2cca417a116e54e3468b296cca84a92391a3d752def9d6b3d986ed9df7179ef",
+    "state/requirements.jsonl": "8ed60df44a4cca6d6c212876d47d15060021b18b9d64e19371253f3aec3bd389",
+    "sources/S1.md": "5bf21000c52f9125df5680f17b6f210e5c098264a7858f8d052238ba36447ca7",
+    "sources/S2.md": "73fe8b64ae2f8da3bccd7b73fa6745f5e8a8b07be488c898906229a30e324aaa",
+    "first-self-check-report.md": "43020a39bc056a2ab6b30ab57e337ba182c577fdb72a2ebdb2f494dfd69e665d",
+    "research-notes.md": "024b1e8920cbe91c7fe41d6f755b46f25025052356cabed761e47b502c1d048a"
+  },
+  "review_strength": "unreviewed",
+  "independent_review": false,
+  "artifacts": {
+    "final.md": "c20ea1816f187dff772002f60193e5d25d5a60196652609bdcbb1c1c53107b2d",
+    "delivery_message.md": "4f5735cf9b125b6b96cdb82ec87195330702d0920beda8b8700dc8302ca967fc"
+  }
+}
