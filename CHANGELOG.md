@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.1 — 2026-10-22
+
+- Ship PR #91's revised default entry: understand the user's requirements, follow instructions and develop a useful research answer. Remove guidance that asks users to remind or dispatch the Agent.
+- Load existing methods as needed. Move review configuration, record fields and delivery details into existing reference documents; synchronize English, Chinese, Framework pages and plugin copies without adding a workflow or required step.
+- Publish matching bilingual [release notes](docs/releases/v1.4.1.md), version metadata and plugin ZIP. The standalone Skill `quick_validate.py` check remains incomplete because PyYAML is unavailable. Improvements in instruction following, user effort and research quality remain unverified; shorter documentation is not evidence of those benefits.
+
 ## v1.4.0 — 2026-10-21
 
 - Add optional partial `research_save.brief` updates and explicit `draft.main` / `draft.kind` selection. Preserve custom specification sections and historical receipts; a revised main artifact cannot reuse the wrong delivery.
