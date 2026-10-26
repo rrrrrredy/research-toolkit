@@ -113,9 +113,33 @@ data/
 
 ## 7. 深度规划
 
-起草前明确读者、输出深度（简报、标准报告、深度报告或可发表长文）、篇幅区间或章节展开目标、需充分展开的单元、可简写的单元及理由，以及过度压缩的信号，如机制浅、罗列公司、缺少反证、综合分析止于对比表。
+按已明确的读者、用途和必答问题规划论证，再分配篇幅。对需要展开的问题，想清楚正文要解释什么关系、哪些具体材料支持或改变答案，以及从材料到判断还需要说明哪一步推理。比较、机制解释、反证与建议按问题选用；这些考虑可融入已有提纲或分析笔记，不是固定报告结构或另一份必填清单。
 
-来源数、主张数、链接数、登记完整度或文件大小都不能替代内容深度。
+写作时保留使判断成立的具体细节，让读者理解为什么得出结论，而不只看到对象名称、事实罗列和泛泛限定。按问题的重要性、复杂程度与证据安排展开，遵守约定的篇幅和格式，压缩重复背景。材料中的未知只限制受影响的判断，继续展开其他有依据的分析。
+
+### 示例：从 Serving 问题到正文论证
+
+以下复用[八家公司管线研究](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/repairs/2026-10-13-pipeline-complete)中已取得的材料，示范其中一个问题的展开。该研究的[首次审阅 F02](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/reviews/01-review.json)指出：提到容器、轨迹和部署配置，仍不足以解释 Serving 在 Agent 任务中的变化。
+
+**用户问题（据原任务归纳）：**Agent 出现后，Serving 的侧重点发生什么变化？公司的具体设计怎样体现这些变化及其取舍？
+
+**可用于回答的已有证据：**
+
+| 材料中的具体事实或来源说法 | 对问题的作用 |
+| --- | --- |
+| [Gemini 2.5 技术报告 §2.5](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s03)介绍额外推理计算和可设定的思考预算，并报告预算与任务表现的关系。 | 用于解释一次回答的质量与推理计算之间怎样取舍。 |
+| [Seed2.0 模型卡 §1–2](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s07)将不同规格定位于复杂推理、通用应用或高吞吐低延迟负荷。 | 用于比较通过选择模型规格适配负荷的设计，不把官方定位当作跨公司实测排名。 |
+| [2025 年 5 月 Codex 系统卡首页](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s01)描述装有仓库和开发依赖的独立容器，以及其中的文件修改、命令执行和结果交付。 | 用于说明完整任务还包含模型生成之外的执行环节；不代表当前所有 Codex 形态。 |
+
+**如何形成论证：**前两项支持比较模型调用层面的计算选择，第三项提供任务执行层面的具体实例。把它们连接起来，可以解释为什么还要考察完整任务的质量、时间与成本；这一步是综合分析，不能写成三家公司共同测得的效果，也不能由此断言此前的 Serving 没有工具或状态管理。
+
+**可写入正文的示范：**
+
+> Serving 的取舍既发生在模型调用中，也发生在完整任务中。Gemini 2.5 的思考预算允许调节一次回答投入的推理计算；Seed2.0 则用不同规格适配能力、速度与吞吐需求。前者调节思考投入，后者选择承担负荷的模型，两者提供了不同的调节方式。因此，比较方案时除了模型名称，还需结合任务需要的能力，说明采用什么推理预算或模型规格。[Gemini 技术报告](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s03)；[Seed 模型卡](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s07)
+>
+> 单次生成更快，却未必让整项任务更快完成。2025 年 5 月的 Codex 把代码任务放进配置了仓库和依赖的容器，模型还要修改文件、执行命令并交付结果。由此，本文认为这类任务的 Serving 分析应从单次生成扩展到完成任务所需的推理、环境准备与工具执行。如果节省的生成时间被额外的纠错抵消，局部提速就不能证明任务提速；如果主要等待来自工具，仅调整模型推理也未必能解决问题。这些是取舍条件，不是该系统卡报告的实测结果。比较具体方案，应在满足任务质量的前提下看总时延和总成本；上述材料尚不足以判定哪种方案总体更快或更便宜。[Codex 系统卡](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s01)
+
+示范保留了具体设计，解释它们怎样改变比较对象，再得出有条件的判断。实际报告应使用本题证据展开相应问题，不照搬这里的 Serving 结论或段落安排。
 
 ## 8. 分阶段执行
 
