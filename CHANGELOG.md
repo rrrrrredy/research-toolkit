@@ -6,6 +6,13 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.5 — 2026-10-26
+
+- Ship PR #101's cleanup of remaining Lite/Full choices in current examples, issue forms and usage guidance. Keep legacy task parameters, completion rules, links and historical records intact.
+- Remove generic object, lens and section-length quotas, fixed bookkeeping intervals and fixed search/revision round counts. Let user requirements, the question and available evidence determine coverage and depth while retaining useful analysis methods.
+- Add bilingual writing guidance and a before/after example: cut redundancy while preserving actors, actions, causal links and judgment conditions needed for understanding. Synchronize the methods, web guidance and plugin.
+- Publish matching bilingual [release notes](docs/releases/v1.4.5.md), version metadata and plugin ZIP. Reuse PR #101's completed CI and local checks; research quality, comprehension efficiency and reduced rework remain unverified.
+
 ## v1.4.4 — 2026-10-26
 
 - Ship PR #99's single research entry: remove the Lite/Full choice from default instructions, quickstarts, agent setup cards and website links. Load the same existing complete methods for each stage; let the request determine depth, length and method selection.
