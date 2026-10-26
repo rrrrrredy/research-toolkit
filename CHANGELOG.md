@@ -6,6 +6,13 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.4 — 2026-10-26
+
+- Ship PR #99's single research entry: remove the Lite/Full choice from default instructions, quickstarts, agent setup cards and website links. Load the same existing complete methods for each stage; let the request determine depth, length and method selection.
+- Retain legacy arguments, saved-task completion rules and historical records. Old quickstart links point to the unified guide; useful analysis guidance joins the shared methods. Synchronize English, Chinese and plugin copies.
+- Keep contribution guidance specific to the project: select necessary verification for the changed behavior, reuse existing coverage and avoid redundant runs. Do not impose one test type on all contributions.
+- Publish matching bilingual [release notes](docs/releases/v1.4.4.md), version metadata and plugin ZIP. Reuse PR #99's completed implementation checks. Unified entry and method loading are verified engineering changes; research quality improvement remains unverified.
+
 ## v1.4.3 — 2026-10-22
 
 - Ship PR #97's shared language handling: `start`, `status` and `guide` accept `zh-CN` as an alias for `zh`, retaining `en/zh` compatibility and the existing Chinese methods.
