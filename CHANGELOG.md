@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.6 — 2026-10-26
+
+- Ship PR #103's depth-planning guidance: develop the argument from the user's questions, relevant evidence and reasoning, then allocate space. Compress repeated reminders while preserving task-specific length and format requirements.
+- Add a complete worked example from the existing eight-company pipeline study: question, evidence, reasoning and report prose. Distinguish source claims from analysis without prescribing a report structure or adding tools, records or checks; synchronize English, Chinese and plugin copies.
+- Publish matching bilingual [release notes](docs/releases/v1.4.6.md), version metadata and plugin ZIP. Reuse completed PR #103 verification; research quality, instruction-following and reduced rework benefits remain unverified.
+
 ## v1.4.5 — 2026-10-26
 
 - Ship PR #101's cleanup of remaining Lite/Full choices in current examples, issue forms and usage guidance. Keep legacy task parameters, completion rules, links and historical records intact.
