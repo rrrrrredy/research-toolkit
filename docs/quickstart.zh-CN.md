@@ -38,7 +38,7 @@ RAG、长上下文和混合路线各在什么条件下适用？
 | 使用方式 | 最短路径 |
 | --- | --- |
 | Codex：直接使用方法 | 打开或提供仓库文件，发送上面的请求。使用 Agent 已有的检索、文件和上下文能力完成研究；无需先安装 MCP。 |
-| Cursor：接入本地 MCP | 按[虚拟环境安装步骤](usage-modes.zh-CN.md#单独接入-mcp)安装，将 [README 配置](../README.zh-CN.md#作为-mcp-服务使用)合入 `.cursor/mcp.json`，确认九个 `research_*` 工具可见，再发送请求。 |
+| Cursor：接入本地 MCP | 按[虚拟环境安装与 MCP 配置说明](usage-modes.zh-CN.md#单独接入-mcp)安装，将其中的 JSON 配置合入 `.cursor/mcp.json`，确认九个 `research_*` 工具可见，再发送请求。 |
 
 其他 Agent 也可通过文件、链接或文本读取同一方法，见[接入说明](../agents/README.zh-CN.md)。客户端配置依据：[Codex MCP](https://developers.openai.com/codex/mcp) · [Cursor MCP](https://cursor.com/docs/mcp)。
 
