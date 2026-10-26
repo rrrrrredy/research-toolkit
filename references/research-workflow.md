@@ -187,16 +187,33 @@ In a requested comparison, use the strongest relevant evidence to explain each n
 
 ## 7. Depth Planning
 
-Before drafting a longform deliverable, define:
+Plan the argument around the established reader, purpose and required questions, then allocate space. For a question that needs development, identify the relationship the text should explain, the specific evidence that supports or changes the answer, and the reasoning needed to connect evidence to judgment. Use comparison, mechanism explanation, counterevidence and recommendations where the question calls for them. These considerations can fit into an existing outline or analysis notes; they are not a fixed report structure or another required checklist.
 
-- expected reader: executive, practitioner, investor, researcher, public reader, or mixed
-- expected output depth: briefing, standard report, deep report, or publishable longform article
-- rough length band or section-level expansion target
-- units that require extended treatment because they are central, complex, controversial, or evidence-rich
-- units that may be intentionally short and why
-- signals that the draft is too compressed, such as shallow mechanism explanation, list-like company coverage, missing counter-evidence, or no synthesis beyond a comparison table
+Preserve the details that make a judgment work so the reader can understand why it follows, rather than seeing only names, a list of facts and generic caveats. Develop the answer according to the question's importance, complexity and evidence, respect the agreed length and format, and compress repeated background. Unknowns limit the judgments they affect; continue the analysis that the evidence does support.
 
-Do not use source count, claim count, link count, registry completeness, or file size as a substitute for depth. A report can be evidence-complete and still be too short for the assignment.
+### Example: From a Serving Question to a Written Argument
+
+This example reuses material already obtained for the [eight-company pipeline study](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/repairs/2026-10-13-pipeline-complete) to develop one of its questions. [Finding F02 in its first review](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/reviews/01-review.json) identified the gap: mentioning containers, trajectories and deployment configuration did not adequately explain how serving changes for agent tasks.
+
+**User question, paraphrased from the original task:** How does the emphasis of serving change with agents? How do specific company designs illustrate those changes and their trade-offs?
+
+**Available evidence for the answer:**
+
+| Specific fact or source claim | Role in answering the question |
+| --- | --- |
+| [Gemini 2.5 technical report, §2.5](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s03) describes additional inference computation and a configurable thinking budget, and reports the relationship between budget and task performance. | Explains the trade-off between answer quality and inference computation within a model call. |
+| [Seed2.0 model card, §§1–2](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s07) positions different model sizes for complex reasoning, general applications, or workloads requiring high throughput and low latency. | Supports comparing a design that matches model size to workload; official positioning is not a measured ranking across companies. |
+| [May 2025 Codex system card, first page](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s01) describes isolated containers with repository code and development dependencies, file edits, command execution and result delivery. | Shows that a complete task includes execution beyond model generation; it does not describe every current Codex deployment. |
+
+**Developing the argument:** The first two sources support comparing computation choices within model calls; the third supplies a concrete example of task execution. Connecting them explains why complete-task quality, time and cost also matter. This connection is synthesis, not a jointly measured effect across the three companies, and it does not establish that earlier serving systems lacked tools or state management.
+
+**Example passage for the report:**
+
+> Serving involves trade-offs within model calls and across complete tasks. Gemini 2.5's thinking budget adjusts the inference computation spent on an answer; Seed2.0 offers different model sizes for capability, speed and throughput needs. One adjusts thinking effort, while the other selects the model that will handle the workload. These are distinct ways to adjust a system. Comparing options therefore requires more than naming the model: it also requires explaining the chosen thinking budget or model size in relation to the task's capability needs. [Gemini technical report](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s03); [Seed model card](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s07)
+>
+> Faster generation does not necessarily finish the task sooner. In May 2025, Codex ran coding tasks in containers configured with repository code and dependencies, where the model edited files, executed commands and delivered results. For such tasks, I argue that serving analysis should extend beyond an individual generation to the inference, environment preparation and tool execution needed to finish the task. If additional correction work consumes the generation time saved, local speed gains do not establish a faster task; if tools account for most of the wait, changing model inference alone may not resolve the problem. These are conditions affecting the choice, not measured results reported in the system card. Compare total time and cost while meeting the task's quality requirements; these sources do not establish which option is faster or cheaper overall. [Codex system card](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s01)
+
+The example retains specific designs, explains how they change what is being compared, and develops a conditional judgment. An actual report should develop its own questions from its own evidence, rather than copy the serving conclusion or paragraph arrangement.
 
 ## 8. Staged Execution
 
