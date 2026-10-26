@@ -2,7 +2,7 @@
 
 [English](eval-protocol-v2.md) · [简体中文](eval-protocol-v2.zh-CN.md)
 
-这是[固定来源 Lite 试点](eval-protocol.zh-CN.md)的可选扩展，用于后续执行，不改写 10 月 10 日冻结研究。最初的协议修改没有提供质量结果；后续带日期的接入与校准记录作为单独证据保留。继续支持 schema 1；schema 2 暂只接受 `prospective_development`，已暴露题目不能改个标签就变成留出集。
+本页记录历史[固定来源 Lite 试点](eval-protocol.zh-CN.md)的扩展及保留的执行器，不是当前研究入口；新研究使用[统一方法](../SKILL.zh-CN.md)。10 月 10 日冻结研究保持原样。最初的协议修改没有提供质量结果；后续带日期的接入与校准记录作为单独证据保留。继续支持 schema 1；schema 2 暂只接受 `prospective_development`，已暴露题目不能改个标签就变成留出集。
 
 ## 冻结什么
 
@@ -32,7 +32,7 @@ python scripts/run_blinded_evals.py prepare --study evals/tasksets/development-v
 
 ## 2026-10-13 后续指令修正
 
-新冻结的作者方法包注入实际 Lite 阶段指南，替换这个纯指令执行器此前注入的 Full 流程参考。JSON 提示明确要求 `report`、`notes` 都为字符串；解析器原本已严格检查，不放宽规则。两组共同的末尾格式提醒将生产状态留在 notes，并保留题目的篇幅和引用约定。修正追溯到[10 月 12 日实际失败](../evals/studies/2026-10-12-lite-four-models/README.zh-CN.md)，旧代码、输入、失败和分数保持冻结。新的[八次请求反馈诊断](../evals/diagnostics/2026-10-13-feedback-probes/README.zh-CN.md)采用两个独立任务，已实际执行。
+10 月 13 日修正时，新冻结的作者方法包注入当时的 Lite 阶段指南，替换纯指令执行器此前注入的 Full 流程参考。这些是历史方法配置；保留的执行器不用于为新研究选择方法。JSON 提示明确要求 `report`、`notes` 都为字符串；解析器原本已严格检查，不放宽规则。两组共同的末尾格式提醒将生产状态留在 notes，并保留题目的篇幅和引用约定。修正追溯到[10 月 12 日实际失败](../evals/studies/2026-10-12-lite-four-models/README.zh-CN.md)，旧代码、输入、失败和分数保持冻结。新的[八次请求反馈诊断](../evals/diagnostics/2026-10-13-feedback-probes/README.zh-CN.md)采用两个独立任务，已实际执行。
 
 ## 任务准入和信息分离
 

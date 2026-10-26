@@ -2,7 +2,7 @@
 
 [English](eval-protocol-v2.md) · [简体中文](eval-protocol-v2.zh-CN.md)
 
-This is an opt-in extension of the [fixed-source Lite pilot](eval-protocol.md). It changes prospective execution, not the frozen October 10 study. The original protocol change supplied no quality results; subsequent dated connectivity and calibration records remain separate evidence. Schema 1 remains supported. Schema 2 currently accepts `prospective_development` only; an exposed task pack cannot become held out by changing its label.
+This records the extension of the historical [fixed-source Lite pilot](eval-protocol.md) and its retained runner. It is not the current research entry; new research uses the [shared methods](../SKILL.md). The frozen October 10 study is unchanged. The original protocol change supplied no quality results; subsequent dated connectivity and calibration records remain separate evidence. Schema 1 remains supported. Schema 2 currently accepts `prospective_development` only; an exposed task pack cannot become held out by changing its label.
 
 ## What is frozen
 
@@ -32,7 +32,7 @@ This inspection command makes zero model calls. The supplied model/endpoint valu
 
 ## 2026-10-13 prospective instruction correction
 
-New freezes use the actual Lite stage guide in the author method bundle, replacing the Full workflow reference previously injected by this instruction-only harness. JSON instructions now explicitly require string-valued `report` and `notes`; the parser was already strict and is not relaxed. A common final envelope reminder in both conditions keeps process disclosures in notes and preserves the brief's length/citation contract. These changes address concrete [October 12 failures](../evals/studies/2026-10-12-lite-four-models/README.md); old code, packets, failures and scores remain frozen. The new [eight-request feedback diagnostic](../evals/diagnostics/2026-10-13-feedback-probes/README.md) uses two new real tasks using fictional source materials and is not an efficacy study.
+At the time of the October 13 correction, new freezes used the Lite stage guide in the author method bundle, replacing the Full workflow reference previously injected by that instruction-only harness. These are historical method configurations; the retained runner is not a way to select methods for new research. JSON instructions now explicitly require string-valued `report` and `notes`; the parser was already strict and is not relaxed. A common final envelope reminder in both conditions keeps process disclosures in notes and preserves the brief's length/citation contract. These changes address concrete [October 12 failures](../evals/studies/2026-10-12-lite-four-models/README.md); old code, packets, failures and scores remain frozen. The new [eight-request feedback diagnostic](../evals/diagnostics/2026-10-13-feedback-probes/README.md) uses two new real tasks using fictional source materials and is not an efficacy study.
 
 ## Task admission and information separation
 

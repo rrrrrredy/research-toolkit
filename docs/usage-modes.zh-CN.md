@@ -77,7 +77,7 @@ python3 scripts/research_workflow.py save --workspace ../research-work --request
 `progress.json.stage` 使用 `brief`、`collect`、`analyze`、`draft`、`review`、`revise`、`final`。
 `progress.json.status` 使用 `in_progress`、`paused`、`blocked`、`complete`。
 
-记录实际阶段、未决问题和下一步。恢复时读取规格、进度、存在时的要求台账及有用的已有笔记。`research_status(task)` 沿用保存的档位；单独调用 `research_guide` 时须显式传入所需档位。核对实际重试与返回用量时使用 `research_status.activity`。调用路径相对于任务目录，脚本从工具箱安装目录运行。
+记录实际阶段、未决问题和下一步。恢复时读取规格、进度、存在时的要求台账及有用的已有笔记。`research_status(task)` 保留旧任务的完成要求；它与单独调用的 `research_guide` 均返回同一套阶段方法，无需选择研究档位。核对实际重试与返回用量时使用 `research_status.activity`。调用路径相对于任务目录，脚本从工具箱安装目录运行。
 
 `state/findings.jsonl`、`state/directions_tried.json`、`state/iteration_log.jsonl` 和 `logs/work.jsonl` 仅在有助于当前任务时使用，不是普遍必交文件。不确定性可直接记在主张中，`data/uncertainty_registry.csv` 按需使用。字段约定见已有[工作流参考](../references/research-workflow.zh-CN.md#3-状态记录)。
 
@@ -362,7 +362,7 @@ with (task / "logs/self-review-01.json").open("x", encoding="utf-8") as output:
 
 另有一次[插件 `0.1.2` 的真实模型引导验证](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-status.zh-CN.md#当前实现)：在一份采用虚构来源材料的真实任务上完成评审与审查恢复，保留负面结果，并正确拦截交付。该次验证需要修正配置和审查输出契约，不证明无人干预运行可靠。
 
-工具能约束自身的完成条件，不能阻止 Agent 绕过工具或在外部修改文件，也不能用机械检查证明事实正确。内容审查与原始证据仍是验收的一部分。
+工具能约束自身的完成条件，不能阻止 Agent 绕过工具或在外部修改文件，也不能用机械检查证明事实正确。验收按任务完成要求和评审配置执行；只有明确要求时才需要独立评审，旧任务保留已有完成约定。内容审查与原始证据仍是验收的一部分。
 
 CLI 的 `check-draft` 使用 `task` 和可选 `artifact`，无需交付说明；检查失败退出码为 1。未达标稿件遵循[修正与停止规则](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/failure-handling.zh-CN.md)：修正普通报告的新版本，保留冻结评测原件，不反复重跑未修改的有效负面判断直到通过。
 

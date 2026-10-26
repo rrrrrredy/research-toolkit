@@ -138,7 +138,7 @@ Publishing Frontend
 <li>Revise the section and registries.</li>
 <li>Update progress and define the next stage.</li>
 </ul>
-<p>If a full operating cycle for one bounded unit adds no new evidence, case, counterexample, framework, or judgment, increment <code>stale_count</code>; reset it to <code>0</code> when a later cycle adds one. At <code>stale_count &gt;= 2</code>, pivot the structural angle. This is separate from the three-pass source-direction stop below.</p>
+<p>When work stops adding useful evidence or analysis, identify the unresolved question and whether a different source or approach could answer it. Change or stop unproductive work according to the question and task constraints, without fixed cycle counts. Existing <code>stale_count</code> records remain compatible; they do not require per-cycle bookkeeping or determine completion.</p>
 <p>For longform deliverables, source counts, claim counts, link counts, and file size are backend health signals only. They cannot substitute for a depth review. Before final assembly, compare the draft against the depth budget and expand thin units before reader review.</p>
 <h2 id="08-analysis-lens-scheduling">Analysis Lens Scheduling</h2>
 <p>Choose the lens that fits the research question:</p>
@@ -151,7 +151,7 @@ Publishing Frontend
 <li>policy/legitimacy analysis</li>
 <li>counter-case analysis</li>
 </ul>
-<p>Pick one primary lens and at most two secondary lenses unless the user explicitly requests a multi-method report.</p>
+<p>Choose and combine lenses according to the user's questions, required coverage and available evidence. Each should contribute a useful explanation or distinction; there is no fixed count or required report structure.</p>
 <h2 id="09-subagent-and-review-scheduling">Subagent And Review Scheduling</h2>
 <p>Use subagents for bounded work only:</p>
 <ul>
@@ -167,7 +167,7 @@ Publishing Frontend
 <h2 id="10-evidence-handling">Evidence Handling</h2>
 <ul>
 <li>Every important hard claim needs a confidence boundary.</li>
-<li>Every 20 important facts, figures, or judgments should update source and claim registries.</li>
+<li>Keep source and claim records aligned with the evidence and judgments used, especially when these change or work needs to be resumed. Batch related updates when useful, without a fixed fact count or time interval.</li>
 <li>Official materials show stated position; they do not prove adoption.</li>
 <li>Media materials show public framing; they need corroboration for hard facts.</li>
 <li>User/community evidence shows reception; it is not automatically representative.</li>
@@ -196,14 +196,14 @@ Publishing Frontend
 </ul>
 <h2 id="12-execution-guardrails">Execution Guardrails</h2>
 <ul>
-<li>If three consecutive searches or source passes add no relevant evidence, stop that direction and draft or pivot.</li>
+<li>Continue collection where it could resolve an important open question; change or stop unproductive directions when further work is unlikely to help. Preserve unresolved requirements and relevant access limits.</li>
 <li>If <code>source_registry.csv</code> grows while <code>claims_registry.csv</code> stays thin, pause collection and extract claims.</li>
-<li>Cap full review-revise cycles at two per section unless the user asks for more. Keep unfinished required work open at that checkpoint; the limit does not authorize final delivery.</li>
+<li>Correct concrete defects and recheck affected content. Stop when the agreed requirements are satisfied; if revisions stall, change the approach or deliver an accurate checkpoint with unresolved work. Do not add rounds for unchanged content.</li>
 <li>Before reader review, compare the draft against the depth budget and expand thin units.</li>
 <li>If new work falls outside <code>task_spec.md</code>, record it as a proposed extension and ask before expanding.</li>
 <li>Subagent prompts must ask reviewers to actively look for issues; if no issue is found, they must explain the basis for PASS.</li>
 </ul>
-<p>The numeric thresholds are operational heuristics, not measured optima. Clarification questions concern missing essential information. The two-cycle signal counts full research cycles; the three-pass signal counts searches or source-processing passes in one direction. Keep their counts and actions separate. See the <a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-roadmap.md">evaluation roadmap</a> for the evidence limits and planned validation.</p>
+<p>Coverage, analytical dimensions and depth follow the user's needs, the question and the evidence. Bookkeeping and review support that work; fixed counts or intervals are not research requirements. See the <a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-roadmap.md">evaluation roadmap</a> for the evidence limits and planned validation.</p>
 <h2 id="suitable-and-unsuitable-tasks">Suitable and Unsuitable Tasks</h2>
 <p>Suitable for:</p>
 <ul>

@@ -45,7 +45,7 @@ Toolkit 专用题集在 [`cases/`](cases/)，与后来四模型测试所用的�
 | [参考写作样例](taste_anchors/README.zh-CN.md) | 4 组 | 可复用来解释具体判据，按实记录先前用途、虚构事实或来源缺少日期的情况。 |
 | [来源包](source_packs/) | 3 包 | 题目提供的证据；保留来源事实及出处信息。 |
 | [公开研究案例](../docs/case-study/README.zh-CN.md) | 2 个 | 国内办公 Agent 中文研究与 API／浏览器英文原创研究，保留稿件、评审与修订；译文不另计任务。 |
-| [模板](templates/)及 [Lite 示例](../examples/lite/) | 工作流辅助材料 | 用于复用配置和入门。 |
+| [模板](templates/)及 [客服工具比较示例](../examples/lite/) | 工作流辅助材料 | 用于复用配置和入门。 |
 
 七道专用题如下：
 
@@ -71,9 +71,9 @@ PR #38 当时离线检查了全部七题的提示生成及一份完整评审足�
 
 [2026-09-07 原始开发材料](diagnostics/2026-09-07/)包含四份初稿、两份修订、三模型文字诊断及保留的不完整回复；它们是已实际执行的独立任务与测试。日期化原件按原语言和哈希保存，本页提供中文导读。
 
-前瞻的 5–10 个任务族试验见[盲评配对协议](../docs/eval-protocol.zh-CN.md)。脚本冻结并记录种子／顺序，对评审隐藏 A/B 条件，保留首份产出、判断与失败。[2026-10-10 四模型试验](studies/2026-10-10-lite-four-models/README.zh-CN.md)已覆盖同样五个任务族的全部 20 对模型—任务评审，保留全部首轮尝试及失败，格式诊断与重新生成补跑单列；不证明通用效果。仅复查既有公开两组档案时，运行 `python scripts/reproduce_calibration.py`，生成 `evals/runs/calibration-reproduction/inventory.json` 与 `inventory.md`，不调用模型。
+历史[盲评配对协议](../docs/eval-protocol.zh-CN.md)说明固定来源 Lite 试点及保留的执行器，不是当前研究入口。脚本冻结并记录种子／顺序，对评审隐藏 A/B 条件，保留首份产出、判断与失败。[2026-10-10 四模型试验](studies/2026-10-10-lite-four-models/README.zh-CN.md)已覆盖同样五个任务族的全部 20 对模型—任务评审，保留全部首轮尝试及失败，格式诊断与重新生成补跑单列；不证明通用效果。仅复查既有公开两组档案时，运行 `python scripts/reproduce_calibration.py`，生成 `evals/runs/calibration-reproduction/inventory.json` 与 `inventory.md`，不调用模型。
 
-新增[协议 v2](../docs/eval-protocol-v2.zh-CN.md)，附[五个独立测试任务](tasksets/development-v2-synthetic/README.zh-CN.md)和[独立评审校准对照](tasksets/judge-calibration-v3/README.zh-CN.md)。[带日期的 Astra 校准](diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)已新增 12 份首轮判断及来源裁定；[四模型开发试验](studies/2026-10-12-lite-four-models/README.zh-CN.md)现已完成，保留四个缺失配对和六个互换偏好变化。这些材料与既有七个流程案例分开。
+历史[协议 v2](../docs/eval-protocol-v2.zh-CN.md)，附[五个独立测试任务](tasksets/development-v2-synthetic/README.zh-CN.md)和[独立评审校准对照](tasksets/judge-calibration-v3/README.zh-CN.md)。[带日期的 Astra 校准](diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)已新增 12 份首轮判断及来源裁定；[四模型开发试验](studies/2026-10-12-lite-four-models/README.zh-CN.md)现已完成，保留四个缺失配对和六个互换偏好变化。这些材料与既有七个流程案例分开。
 
 
 [10 月 13 日改进复验](diagnostics/2026-10-13-feedback-probes/README.zh-CN.md)保留提示／方法修正后的八次新首轮尝试：全部可解析，仅三篇篇幅达标且仍有语义错误。五篇真实篇幅失败稿与两篇事后编辑对照验证现有交付门槛，不声称质量改善。

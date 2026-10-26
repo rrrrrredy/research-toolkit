@@ -2,7 +2,7 @@
 
 [English](report-evaluation-standard.md) | [简体中文](report-evaluation-standard.zh-CN.md)
 
-This page defines how the project checks reports, fixes problems and verifies changes. Use existing real tasks; model execution and evaluation provide a user perspective. Review follows the selected profile and task requirements, with no human-participation prerequisite or added reviewer by default. Preserve original reports, reviewer counts and results from older experiments; their configurations are not defaults for new work.
+This page defines how the project checks reports, fixes problems and verifies changes. Use existing real tasks; model execution and evaluation provide a user perspective. Review follows the task requirements, with no human-participation prerequisite or added reviewer by default. Preserve original reports, reviewer counts and results from older experiments; their configurations are not defaults for new work.
 
 <a id="报告评测现行标准"></a>
 <a id="report-evaluation-current-standard"></a>
@@ -17,7 +17,7 @@ Routine repair does not require scoring for its own sake. Identifying the proble
 
 1. **Confirm it:** check the task and source; reproduce code failures with a minimal case. When review advice is mistaken, record the specific evidence instead of applying it automatically.
 2. **Repair it:** maintainers fix code, parsing, checker or workflow defects in PRs. Authors correct report facts, recommendations, omissions and length. More warnings, scores or proposed tests are not a substitute for a fix.
-3. **Verify the change:** compile or build affected code and run mandatory repository checks. Add necessary tests only for explicit task requirements or concrete failures; do not repeat passed, unaffected checks. For a report, read changed passages and their context against sources, measure any agreed length, and follow the selected profile without adding review steps.
+3. **Verify the change:** compile or build affected code and run mandatory repository checks. Add necessary tests only for explicit task requirements or concrete failures; do not repeat passed, unaffected checks. For a report, read changed passages and their context against sources, measure any agreed length, without adding review steps.
 4. **Complete delivery:** resolve necessary issues and pass relevant checks through the task's existing delivery process; merge ready PRs. Stop when requirements are met, without demanding that reviewers can never suggest optional edits.
 
 | Confirmed problem | Action |

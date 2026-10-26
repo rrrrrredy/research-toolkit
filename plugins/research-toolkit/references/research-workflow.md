@@ -67,7 +67,7 @@ Use state files to survive context loss. Do not rely on chat history as the only
 
 Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log.jsonl` and `logs/work.jsonl` only when they help the task. They are optional history, not delivery prerequisites. Uncertainty can stay with the claims; a separate `data/uncertainty_registry.csv` is optional.
 
-`progress.json` should track current stage, status, completed units, open issues, stale_count, and next action.
+`progress.json` should track current stage, status, completed units, open issues and next action. Preserve existing `stale_count` fields for compatibility; maintaining a cycle counter is not a research requirement.
 
 Keep `progress.json` as a compact snapshot of the current task. Optional notes can retain useful history; no per-cycle transcript is required.
 
@@ -85,7 +85,7 @@ Create `final_delivery.json` only for terminal delivery. It is a receipt for cur
 
 The delivery checker binds the actual report, inputs, progress, effective reviews and delivery message. Contract 3 supports ordinary report plans with `audit_required: false`; declared audits and existing audited plans retain their validity, disposition and sampling requirements. Rebuilding a receipt does not refresh an old review. Preserve original records; do not invent missing review or user-decision evidence.
 
-When useful, `directions_tried.json` can prevent repeated digging in the same direction. If two complete operating passes add no analytical value, change the approach; this heuristic does not require a separate history file.
+When useful, `directions_tried.json` can prevent repeated digging in the same direction. Change an unproductive approach based on the unresolved question and the likelihood of useful evidence or analysis, without a fixed cycle count or a separate required history file.
 
 Record an alternative route or an access dependency for unfinished mandatory reading. Stopping the failed route does not close the requirement.
 
@@ -156,7 +156,7 @@ Minimum fields:
 - uncertainty
 - intended_section
 
-Every 20 important facts, figures, or judgments, update source and claim registries before continuing.
+Keep source and claim records aligned with the evidence used and judgments made, especially when those change or work needs to be resumed. Batch related updates when useful; do not interrupt research after a fixed number of facts or at fixed time intervals. Records should support traceability and continuation without becoming a separate counting task.
 
 ## 6. Analysis Units
 

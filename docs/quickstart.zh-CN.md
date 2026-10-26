@@ -65,7 +65,7 @@ RAG、长上下文和混合路线各在什么条件下适用？
 python3 scripts/research_workflow.py start --workspace ../research-work --request examples/full/start.zh.json
 ```
 
-它建立 `../research-work/knowledge-assistant-full-zh`。Agent 负责实际检索、读写和分节起草；命令负责创建任务。修改了示例研究问题时，也修改请求文件中的 `brief`；已有任务通过 `status` 恢复。
+它建立 `../research-work/knowledge-assistant-zh`。示例目录保留旧名称以兼容已有链接，请求使用统一入口。Agent 负责实际检索、读写和分节起草；命令负责创建任务。修改了示例研究问题时，也修改请求文件中的 `brief`；已有任务通过 `status` 恢复。
 
 Agent 通过 `research_save`／CLI `save` 的 `requirements` 参数保存实际约定的篇幅，不让用户编辑 JSONL。先记 `pending`，实际核对后提交带依据的 `satisfied` 更新；见[记录保存示例](usage-modes.zh-CN.md#保存研究记录与稿件)。
 

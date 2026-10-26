@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prepare or run a seeded, fixed-source, instruction-only Lite pairwise pilot."""
+"""Retained runner for the historical fixed-source Lite pilot, not the current research entry."""
 from __future__ import annotations
 import argparse
 from datetime import datetime, timezone

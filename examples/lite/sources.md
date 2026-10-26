@@ -2,7 +2,7 @@
 
 [English](sources.md) · [简体中文](sources.zh-CN.md)
 
-These two repository-authored notes describe invented services. Prices and capabilities are fictional, for a short Lite exercise only; they are not market evidence or evaluation results. Use only these supplied materials.
+These two repository-authored notes describe invented services. Prices and capabilities are fictional, for this bounded comparison example only; they are not market evidence or evaluation results. Use only these supplied materials.
 
 ## S1 — Cedar plan note
 

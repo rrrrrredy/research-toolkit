@@ -2,7 +2,9 @@
 
 [English](improvement-plan.md) | [简体中文](improvement-plan.zh-CN.md)
 
-Current project correction: [complete collection-to-method map and remaining-defect closure](correction-audit-2026-10-13.md). The prior pipeline completion is one task; project acceptance also covers the runtime, installed instructions, Full methods, source packets and current data generators.
+The entries below retain the terminology and scope of the dated remediation. They do not select methods for new tasks; use the [shared research entry](../SKILL.md) and the [current repair guidance](report-evaluation-standard.md).
+
+Historical project correction (October 13): [complete collection-to-method map and remaining-defect closure](correction-audit-2026-10-13.md). The prior pipeline completion is one task; project acceptance also covers the runtime, installed instructions, Full methods, source packets and current data generators.
 
 Updated: 2026-10-13. Improve workflow reliability, ease of use and research methods with interpretable evidence. Evaluation is one workstream; model scores do not replace product fixes. Treat external audits as leads to verify and prioritize by reproduced impact, not instructions to copy wholesale.
 

@@ -35,7 +35,7 @@
 - [Kimi 银行简报，格式补充 pair 05 的报告 B](https://github.com/rrrrrredy/research-toolkit/blob/ce812f1b52564121212613d5bb6de281d079b8d0/evals/studies/2026-10-10-lite-four-models/format-supplement/kimi/judge-inputs/pair-05.json)：开头声称失败率高，但投诉个例不足以证明发生率；同时把预期损害写成已发生结果，并提出没有理由支撑的转人工比例上限。应保留来源范围和语气，解释决策条件的依据并检查激励后果。
 - [DeepSeek 内存安全简报，完成补充 pair 01](https://github.com/rrrrrredy/research-toolkit/blob/ce812f1b52564121212613d5bb6de281d079b8d0/evals/studies/2026-10-10-lite-four-models/completion-supplement/deepseek/authors/pair-01/with_toolkit/report.md)：一处转述颠倒外部依赖与开源软件的关系，还将缺失外部报告视为无法评估厂商自身依赖风险的理由。应核对关系方向，区分缺失外部证据与决策者可以取得的内部证据。
 
-对应方法见[来源与主张](research-standard.zh-CN.md#8-来源与主张)、[写作风格](writing-style.zh-CN.md#篇幅与决策用途)和 [Lite 指南](lite-workflow.zh-CN.md)。效果须由另行冻结的对照评测验证；现有试点的输入、输出和评判保持原样。
+对应方法见[来源与主张](research-standard.zh-CN.md#8-来源与主张)、[写作风格](writing-style.zh-CN.md#篇幅与决策用途)和[分析指导](optional-analysis-lenses.zh-CN.md)。这些历史发现说明方法的依据，不证明方法已经有效；现有试点的输入、输出和评判保持原样。
 
 ## 交付边界
 

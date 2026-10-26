@@ -51,7 +51,7 @@ async def capture(output, pause, resume):
             return raw["structuredContent"]
         if not resume:
             started = await call("research_start", read(HERE / "start.json"))
-            await call("research_guide", {"stage": "draft", "language": "en", "profile": "full"})
+            await call("research_guide", {"stage": "draft", "language": "en"})
             task = Path(started["task_directory"])
             for source, dest in (("source.md", "source.md"), ("final.md", "final.md"), ("source_registry.csv", "data/source_registry.csv"), ("claims_registry.csv", "data/claims_registry.csv")):
                 (task / dest).write_text((HERE / source).read_text(encoding="utf-8"), encoding="utf-8")

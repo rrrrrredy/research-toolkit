@@ -39,11 +39,9 @@ Cover:
 
 Compare the object with current peers, substitutes, or adjacent cases.
 
-First classify the comparison scenario:
+Determine coverage from the user's requirements and the question. Include every required object; choose additional peers or substitutes for the differences they help explain, without a fixed object count. If there is no direct competitor, examine the category, barriers, market, regulation or indirect substitutes.
 
-- Scenario A: no direct competitor. Analyze why: new category, high barrier, small market, regulatory limits, or indirect substitutes.
-- Scenario B: one or two direct competitors. Compare each deeply.
-- Scenario C: three or more competitors. Select the most representative three to five and mention the rest briefly.
+Develop each comparison to the depth needed to answer the question. Uneven evidence should be disclosed, not used to silently omit required objects or fill gaps with invented symmetry.
 
 Possible dimensions:
 
@@ -75,19 +73,13 @@ Answer:
 
 - Prioritize readability over a mechanical consulting report.
 - Use chronological explanation in the vertical section, but keep facts traceable.
-- Use comparison in the horizontal section, but keep it explanatory rather than tabular.
+- Use tables for comparable facts and prose to explain mechanisms, differences and trade-offs.
 - Make judgments, but mark speculation clearly.
 - Avoid empty terms such as "empower", "closed loop", or "strategic foothold" unless they are being critically analyzed.
 
-## Suggested Length
+## Depth And Length
 
-Adjust to complexity:
-
-- vertical analysis: 6,000-15,000 Chinese characters for complex objects
-- horizontal analysis: 3,000-10,000 Chinese characters
-- intersection judgment: 1,500-3,000 Chinese characters
-
-These ranges are guidance, not hard quotas. Depth and relevance matter more than even allocation.
+Follow any agreed length constraint. Allocate detail according to the user's purpose, the questions that need explaining, complexity and available evidence. Historical reconstruction, current comparison and synthesis need not receive equal space or meet preset section lengths. Sparse evidence calls for an explicit limit, not filler or a shallower answer to the whole assignment.
 
 ## Output Pattern
 

@@ -19,7 +19,7 @@ For paired evaluation, use the same task and source conditions for both reports.
 
 ## Repair verification and optional comparisons
 
-Routine work follows problem, repair and recheck. Fix tool defects in PRs and report errors in revised drafts, then verify affected behavior. Review follows the selected Lite/Full profile and task requirements, without adding a reviewer by default. Retain original failures separately from revisions so changes are visible; original cases remain useful regressions.
+Routine work follows problem, repair and recheck. Fix tool defects in PRs and report errors in revised drafts, then verify affected behavior. Review follows the task's agreed requirements, without adding a reviewer by default. Retain original failures separately from revisions so changes are visible; original cases remain useful regressions.
 
 An effect comparison simply compares results with and without the Toolkit. When that question is relevant, specify tasks, versions, resources and the comparison before running. It is not a prerequisite for repairs or merges. A specific claim to use previously unused held-out tasks needs an accurate usage history; record that study-specific usage label alongside the real task’s identity.
 

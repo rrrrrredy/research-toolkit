@@ -6,7 +6,7 @@ Use this file when selecting a method for a specific research question. Do not f
 
 ## Selection Rule
 
-Pick one primary lens and at most two secondary lenses unless the user explicitly asks for a full multi-method report.
+Select lenses that help answer the user's questions, based on the required coverage, useful explanatory dimensions and available evidence. Combine them when they contribute different explanations; omit those that merely repeat a point. There is no fixed number of primary or supporting lenses, and their names need not become report headings.
 
 Ask:
 

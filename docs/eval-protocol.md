@@ -2,6 +2,8 @@
 
 [English](eval-protocol.md) · [简体中文](eval-protocol.zh-CN.md)
 
+Historical fixed-source pilot protocol and runner documentation. Lite/Full below name the original study conditions, not current research options. New research uses the [shared entry](../SKILL.md); preserve frozen inputs and results.
+
 **Status: a [four-model, five-family development pilot](../evals/studies/2026-10-10-lite-four-models/README.md) now has judgments for all 20 model–task pairs.** It uses a declared native-CLI judge adapter, a post-hoc format supplement and a separate completion supplement; original failures and valid judgments remain unchanged. The historical n=2 comparisons remain unblinded for efficacy and toolkit-first in both tasks; their public records do not fully establish matched model and brief. A general Toolkit quality advantage remains unproven.
 
 For new development runs, [protocol v2](eval-protocol-v2.md) adds frozen output parsing, request ceilings, task design records and position swaps. The original schema-1 protocol and historical study stay available.

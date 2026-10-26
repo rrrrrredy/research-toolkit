@@ -255,7 +255,7 @@ If enough context is available, proceed without repeating questions. Keep work t
 - Revise the section and registries.
 - Update progress and define the next stage.
 
-If a full operating cycle for one bounded unit adds no new evidence, case, counterexample, framework, or judgment, increment `stale_count`; reset it to `0` when a later cycle adds one. At `stale_count >= 2`, pivot the structural angle. This is separate from the three-pass source-direction stop below.
+When work stops adding useful evidence or analysis, identify the unresolved question and whether a different source or approach could answer it. Change or stop unproductive work according to the question and task constraints, without fixed cycle counts. Existing `stale_count` records remain compatible; they do not require per-cycle bookkeeping or determine completion.
 
 For longform deliverables, source counts, claim counts, link counts, and file size are backend health signals only. They cannot substitute for a depth review. Before final assembly, compare the draft against the depth budget and expand thin units before reader review.
 
@@ -271,7 +271,7 @@ Choose the lens that fits the research question:
 - policy/legitimacy analysis
 - counter-case analysis
 
-Pick one primary lens and at most two secondary lenses unless the user explicitly requests a multi-method report.
+Choose and combine lenses according to the user's questions, required coverage and available evidence. Each should contribute a useful explanation or distinction; there is no fixed count or required report structure.
 
 ## Subagent And Review Scheduling
 
@@ -290,7 +290,7 @@ Subagents should not rewrite the whole report or own the thesis.
 ## Evidence Handling
 
 - Every important hard claim needs a confidence boundary.
-- Every 20 important facts, figures, or judgments should update source and claim registries.
+- Keep source and claim records aligned with the evidence and judgments used, especially when these change or work needs to be resumed. Batch related updates when useful, without a fixed fact count or time interval.
 - Official materials show stated position; they do not prove adoption.
 - Media materials show public framing; they need corroboration for hard facts.
 - User/community evidence shows reception; it is not automatically representative.
@@ -320,14 +320,14 @@ Limits:
 
 ## Execution Guardrails
 
-- If three consecutive searches or source passes add no relevant evidence, stop that direction and draft or pivot.
+- Continue collection where it could resolve an important open question; change or stop unproductive directions when further work is unlikely to help. Preserve unresolved requirements and relevant access limits.
 - If `source_registry.csv` grows while `claims_registry.csv` stays thin, pause collection and extract claims.
-- Cap full review-revise cycles at two per section unless the user asks for more. Keep unfinished required work open at that checkpoint; the limit does not authorize final delivery.
+- Correct concrete defects and recheck affected content. Stop when the agreed requirements are satisfied; if revisions stall, change the approach or deliver an accurate checkpoint with unresolved work. Do not add rounds for unchanged content.
 - Before reader review, compare the draft against the depth budget and expand thin units.
 - If new work falls outside `task_spec.md`, record it as a proposed extension and ask before expanding.
 - Subagent prompts must ask reviewers to actively look for issues; if no issue is found, they must explain the basis for PASS.
 
-The numeric thresholds are operational heuristics, not measured optima. Clarification questions concern missing essential information. The two-cycle signal counts full research cycles; the three-pass signal counts searches or source-processing passes in one direction. Keep their counts and actions separate. See the [evaluation roadmap](evaluation-roadmap.md) for the evidence limits and planned validation.
+Coverage, analytical dimensions and depth follow the user's needs, the question and the evidence. Bookkeeping and review support that work; fixed counts or intervals are not research requirements. See the [evaluation roadmap](evaluation-roadmap.md) for the evidence limits and planned validation.
 
 ## Suitable and Unsuitable Tasks
 
