@@ -156,7 +156,7 @@ class WorkflowTests(unittest.TestCase):
                                                      "language": language}, self.workspace)
                 self.assertEqual(started["guidance"], current["guidance"])
                 self.assertEqual(current["guidance"], guide["guidance"])
-                self.assertEqual(guide["guidance"][0]["path"], "references/lite-workflow" + suffix)
+                self.assertEqual(guide["guidance"][0]["path"], "references/research-workflow" + suffix)
         incomplete = workflow.start(self.workspace, "language-brief", {}, language="zh-CN", profile="lite")
         self.assertEqual(incomplete["clarification_questions"], list(workflow.BRIEF_FIELDS_ZH.values()))
 

@@ -31,7 +31,7 @@ python scripts/research_workflow.py check-draft --workspace ../research-work --r
 1. 保留原评审，在现有任务记录中定位缺陷、稿件版本、段落、要求／来源、影响及拟修正内容。原稿尚未留存时，编辑前另存一份草稿。
 2. 修正受影响的文本与论断，再运行 `check-draft`。按证据处理未完成的需求记录；不能为通过计数而改动原约定范围。
 3. 将最终推荐与比较部分的同一组数字和条件逐项核对。没有观测的事项保持未知，缩稿后再查必要内容是否齐全。
-4. Lite：对当前输入重做六项自检，再 `finish`。Full：对修改版本调用 `research_review`，设置 `revision: true`，处理必要问题后再 `finish`。已授权的修正无需另行批准；仅任务明确要求时才必须独立评审。
+4. 对修改版本调用 `research_review`，设置 `revision: true`，处理必要问题后再 `finish`。已授权的修正无需另行批准；仅任务明确要求时才必须独立评审。
 
 ## 限制无效循环
 

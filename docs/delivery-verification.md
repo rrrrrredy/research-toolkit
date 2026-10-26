@@ -17,11 +17,13 @@ The receipt binds the current artifact, brief, progress, source and claim record
 Use `--delivery-message note.md` for a non-default intended message. The receipt must bind that selected filename. Artifact, receipt and intended-message paths must resolve inside the task directory.
 
 
-Profile rules: Lite skips review and full delivery gates, retaining `state/final_checklist.json` and explicit skip logs. Full self records require `reviewer: self` and `review_strength: degraded`, with the author identity as both reviewer and execution_id; they still require a structured review of the current report and the existing Full delivery checks, and cannot fill an independent slot. External uses the configured backend; independent retains the original separate-context requirements. A historical plan without a reviewer field remains independent. See [profiles and backends](../SKILL.md#choosing-a-profile).
+New tasks use the shared research methods and existing delivery path. Self is author review; external/independent retain the selected review requirements. Do not add reviewers or audits automatically. Saved tasks retain their completion requirements; see [historical task compatibility](usage-modes.md#historical-task-compatibility).
 
-## Full delivery completion
+<a id="full-delivery-completion"></a>
 
-The requirements below apply to Full. Lite follows its [final checklist](../references/lite-workflow.md#final--complete-the-author-checklist).
+## Research delivery completion
+
+The following describes the existing tool-managed delivery path.
 
 Reconcile required questions and follow-up instructions with the actual answer and evidence. Complete the selected content reviews and expressly required audits, resolve necessary corrections, and retain the passing full-report assessment bound to the current report. A completed negative review does not approve delivery.
 
@@ -51,7 +53,7 @@ The checker compares these declared fields. It cannot detect an omitted requirem
 
 ## Explicit length requirements
 
-Lite and Full can measure a declared range using an optional `length_constraint` in the existing requirement ledger. Record the task's agreed range and counting convention before drafting/review; do not invent a default minimum or infer one from prose. This **synthetic format example** is not a universal length target:
+Tasks can measure a declared range using an optional `length_constraint` in the existing requirement ledger. Record the task's agreed range and counting convention before drafting/review; do not invent a default minimum or infer one from prose. This **synthetic format example** is not a universal length target:
 
 ```json
 {"requirement_id":"R-length","summary":"The agreed whole-file limit is 800–1200 nonwhitespace characters.","status":"pending","evidence":"","length_constraint":{"unit":"nonwhitespace_characters","scope":"whole_artifact","min":800,"max":1200}}
@@ -79,7 +81,7 @@ On Windows, replace `python3` with `py -3` or an installed interpreter path; wit
 
 Use `whitespace_words` for Python whitespace-delimited segments, or `nonwhitespace_characters` for Unicode code points except whitespace. Both count the entire UTF-8 artifact, including Markdown syntax, headings, citations and references. They are not model tokens or editor-rendered word counts. Only `whole_artifact` is supported; a body-only or page limit needs its own appropriate measurement, not a relabeled whole-file count. At least one nonnegative integer `min`/`max` is required; bounds are inclusive. Keep a distinct requirement ID and a summary of the actual agreement.
 
-`research_finish` recomputes counts and refuses out-of-range `satisfied` claims before writing a receipt or replacing the delivery message. The receipt stores `length_checks`; the offline checker recomputes them. Lite's checklist preview returns the counts and any errors. Existing requirement-closure rules apply to these rows in both profiles: an unresolved status still needs resolution, and an existing user decision can waive/change scope or accept a limitation. A waived range retains its actual count and `bounds_met: false` when outside the range; it is not rewritten as a satisfied measurement. Full reviews already freeze the ledger, so changing the agreed range requires the normal current-version review. Previous receipts without structured length requirements keep their original checks.
+`research_finish` recomputes counts and refuses out-of-range `satisfied` claims before writing a receipt or replacing the delivery message. The receipt stores `length_checks`; the offline checker recomputes them. The historical checklist preview returns the counts and any errors. Existing requirement-closure rules apply to these rows for current and historical tasks: an unresolved status still needs resolution, and an existing user decision can waive/change scope or accept a limitation. A waived range retains its actual count and `bounds_met: false` when outside the range; it is not rewritten as a satisfied measurement. Current reviews already freeze the ledger, so changing the agreed range requires the normal current-version review. Previous receipts without structured length requirements keep their original checks.
 
 The eval runner also checks declared length requirements at terminal delivery when its optional receipt check is disabled. These checks validate counts against declared bounds. They cannot discover an omitted requirement, prove the bounds accurately reflect the user's request, or establish sufficient depth or research quality. Neither author self-claims nor extra words repair missing reasoning.
 
@@ -89,7 +91,7 @@ The eval runner also checks declared length requirements at terminal delivery wh
 python3 <skill-directory>/scripts/check_delivery.py <task-directory> --actual-message captured-reply.md
 ```
 
-For both Lite and Full, the supplied capture is compared with the bound intended message, normalizing only line endings and outer whitespace. A runtime caller can retain its final-message output separately and call the checker after the run. Retain the original runtime output and document any extraction of client metadata; do not silently remove substantive differences.
+For current and historical tasks, the supplied capture is compared with the bound intended message, normalizing only line endings and outer whitespace. A runtime caller can retain its final-message output separately and call the checker after the run. Retain the original runtime output and document any extraction of client metadata; do not silently remove substantive differences.
 
 The `delivery_observation` result is `not_provided`, `matched`, `mismatch`, or `unreadable`. Missing or different supplied captures fail. `not_provided` means only the intended message was checked, not that the actual user received it.
 

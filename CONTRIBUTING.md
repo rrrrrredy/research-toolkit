@@ -33,7 +33,7 @@ These are small contribution ideas, not a list of already-open Issues. Pick a co
 
 1. State the concrete failure, adoption problem, or evidence gap.
 2. Prefer the smallest change that affects an observable result.
-3. For changes to deterministic behavior, add a regression for the demonstrated failure when existing fixtures do not cover it.
+3. Prefer a clear, correct implementation. Do not add unit tests after implementing code. If isolated system verification is necessary, identify its possible failure modes before implementation.
 4. Preserve a valid control so the checker cannot improve by rejecting everything. Documentation-only changes need checks of their claims, examples and links, without new test cases.
 5. Use synthetic or rights-cleared data. Sanitized internal summaries are workflow seeds, not public factual authority.
 6. Preserve frozen study inputs after runs begin; identify later changes as a separate version.
@@ -42,7 +42,11 @@ These are small contribution ideas, not a list of already-open Issues. Pick a co
 
 Choose release numbers using the [1.x compatibility policy](docs/compatibility.md). Preserve documented interfaces and saved-work compatibility; document migration steps for a breaking major release.
 
-Run the checks relevant to the changed behavior. The [CI workflow](.github/workflows/framework-checks.yml) is the authoritative check inventory; the commands below are common entry points, not a count of distinct test cases. The DSH validation command checks an optional adapter configuration; it does not install or start that runtime. Repeat or broaden checks only when a change, failure or unresolved concern requires it.
+By default, stop after compiling or building the affected code and completing mandatory repository checks. Add verification only when explicitly requested, required by repository rules, or justified by a concrete failure signal. Prefer reusing an existing end-to-end check as the testing mechanism, without adding companion unit tests. Use a medium-to-high difficulty scenario that can expose the target problem, retaining verifiable inputs, commands and output artifacts that can be reproduced. The simplest happy path is not sufficient evidence for a complex feature.
+
+Do not repeat passing checks that add no information or automatically stack reviews, version comparisons or research-task reruns. If the environment prevents verification, state the remaining item and reason, minimal manual steps, expected result and caveats. Before testing beyond this scope, explain the purpose, scope and estimated time and obtain user confirmation.
+
+ The [CI workflow](.github/workflows/framework-checks.yml) is the authoritative check inventory; the commands below are common entry points, not a count of distinct test cases. The DSH validation command checks an optional adapter configuration; it does not install or start that runtime. Repeat or broaden checks only when a change, failure or unresolved concern requires it.
 
 ```bash
 python scripts/check_docs_sync.py

@@ -1,4 +1,4 @@
-# WorkBuddy：第一个 Lite 任务
+# WorkBuddy：使用完整研究方法
 
 [English](workbuddy.md) | [简体中文](workbuddy.zh-CN.md)
 
@@ -15,15 +15,15 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 在 WorkBuddy 中打开该工作目录，发送：
 
 ```text
-读取 research-toolkit/SKILL.md，选择 profile=lite。
-读取 research-toolkit/examples/lite/start.zh.json 和
-research-toolkit/examples/lite/sources.zh-CN.md，完成这个虚构客服
-工具比较。分别交付短报告、sources/claims 记录及完整的六项
-Lite checklist。成果保存在独立任务目录。
-披露材料虚构且没有独立评审。
+读取提供的 research-toolkit/SKILL.md，按当前工作加载完整方法。
+研究问题：[填写问题、读者与用途。]
+范围与深度：[填写覆盖范围、信息截止日及篇幅要求。]
+已有材料：[提供来源或已有报告。]
+充分展开证据、比较、解释与综合判断，交付完整报告和可用引用。
+无法读取必需材料时说明具体缺口，不编造内容。
 ```
 
-预计约 5–15 分钟产出 600–900 字简报及记录。[完整入门](../docs/quickstart-lite.zh-CN.md)。
+提供研究问题、读者、范围与已有材料；按所需深度交付完整报告和可用引用。工作记录单独保存。
 
 ## 无法读取时
 

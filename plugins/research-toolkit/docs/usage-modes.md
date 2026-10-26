@@ -17,20 +17,20 @@ No Python or vendor CLI installation is required merely to read and apply the me
 
 ## When to use each tool
 
-**Choose [Lite](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.md) or [Full](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-full.md) from the task.** Both share the research baseline and agent-managed records. Lite completes author checks; Full adds the selected review, revision checks and delivery consistency. Read the methods directly; connect CLI/MCP when useful.
+**Use the [single research entry](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.md).** The agent loads complete methods as needed, maintains records and completes agreed checks. CLI/MCP are optional; omit `profile` in new requests.
 
 The table applies when you choose the managed local workflow, through MCP **or the [shared CLI](#skill-only-and-cli-fallback)**. Required methods still apply when you read them directly.
 
 | Tool | When it is needed | When you can skip the call |
 | --- | --- | --- |
-| `research_start` | Create a new managed task and its brief; explicitly select `lite` or `full` from use, evidence complexity and review needs. | Resume an existing task with `research_status`, or keep records yourself without local workflow tools. |
+| `research_start` | Create a new managed task and its brief using the complete methods, without a profile choice. | Resume an existing task with `research_status`, or keep records yourself without local workflow tools. |
 | `research_save` | Save/update sources, claims, requirements and drafts; correct located format errors. | No record or draft changes. |
 | `research_status` | Resume a managed task, inspect saved progress, or change its recorded stage. | You do not need to read or update progress; a methods-only session can use its own notes. |
 | `research_guide` | Retrieve the method for a stage when it is not already available in context. | Read the relevant `SKILL.md` and `references/` files directly. |
-| `research_review` | Complete the declared reviews in a Full task, including explicit self-review when that is the chosen tier. | Lite skips review; never skip a review explicitly required by the assignment. |
+| `research_review` | Complete agreed reviews, including an actual self-review when that is the selected relationship. | Reuse completed reviews with unchanged inputs; retain explicitly required reviews. |
 | `research_check_draft` | Check current draft records and explicit length bounds without model calls or a delivery receipt. | Optional before review/finish; inspect sources and meaning separately. |
-| `research_finish` | Complete a managed task: Lite records the six-item checklist; Full checks the reviewed report and delivery requirements. | Without local workflow tools, complete the checklist yourself and return the records without claiming a local receipt. |
-| `research_check_reviewer` | Diagnose external backend setup or a configuration failure before attempting review. | Lite and self-review need no external backend; a separate call is unnecessary when `research_start` has already confirmed the unchanged configuration. |
+| `research_finish` | Complete a managed task by checking the current report and its delivery requirements. | Without local workflow tools, complete the checklist yourself and return the records without claiming a local receipt. |
+| `research_check_reviewer` | Diagnose external backend setup or a configuration failure before attempting review. | Self-review needs no external backend; a separate call is unnecessary when `research_start` has already confirmed the unchanged configuration. |
 
 ## Save research records and drafts
 
@@ -110,7 +110,7 @@ Use Research Toolkit to check this report against the related sources,
 focusing on important problems that change a conclusion or action.
 Preserve the original, locate each issue and its evidence, make the necessary
 minimal revision, check the result, and return a short change note.
-Recommend Lite or Full for the use. Do not rewrite for optional style preferences.
+Do not rewrite for optional style preferences.
 ```
 
 ```text
@@ -120,25 +120,17 @@ Update affected passages, sources and claims; reuse unaffected research.
 Deliver the revised report and change note, refreshing checks invalidated by the changes.
 ```
 
-When continuing the saved profile, start with `research_status(task)` and preserve the previous report. Keep existing source, claim and requirement IDs and their reading evidence. Use `research_save` to update only affected records together, registering the saved draft by its existing path; unchanged records need no resubmission. After actually checking a requirement, save its status and concrete evidence with the relevant update. Recheck changed or questioned source sections; reuse still-valid local evidence without fetching it again. Review the complete current report under its selected tier before claiming completion. See the [executed long-report update](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.md) for actual reuse, source-confirmed changes, rework and costs.
-
-### Continue Lite work in Full
-
-When formal review or delivery checks are needed, preserve the Lite task and create a linked Full task with a new ID. The agent uses the original brief, noting the old task location, report version and new purpose in `task_spec.md`; reuse the report, source texts and reading scope, claims and known requirements. Unchanged work with still-valid evidence need not be repeated; check new or affected requirements. The user does not refill internal forms.
-
-The new Full task has its own progress, review plan and receipts. Do not copy Lite `progress.json`, passed flags, checklist, review logs or receipts as Full completion evidence, or rewrite the original Lite profile. Earlier author checks remain historical context, not an independent opinion.
-
-Existing tool path: `research_start(new_task, original_brief, profile="full")` → agent arranges reusable material → `research_status(new_task, stage="draft")` → `research_check_draft` → `research_review` → necessary revision/recheck → `research_finish`. Select self, external or independent according to the task; an explicit independent requirement needs actual execution, and Astra in a separate context is sufficient. Methods-only use can retain the same drafts and reviews without claiming a local receipt.
+When continuing a saved task, start with `research_status(task)` and preserve the previous report. Keep existing source, claim and requirement IDs and their reading evidence. Use `research_save` to update only affected records together, registering the saved draft by its existing path; unchanged records need no resubmission. After actually checking a requirement, save its status and concrete evidence with the relevant update. Recheck changed or questioned source sections; reuse still-valid local evidence without fetching it again. Review the complete current report under its selected tier before claiming completion. See the [executed long-report update](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.md) for actual reuse, source-confirmed changes, rework and costs.
 
 ### When content or sources change
 
 | Change | Reuse and recheck |
 | --- | --- |
 | Resume interrupted work with unchanged inputs | Read `research_status` and continue unfinished work; completed valid reviews can be reused. |
-| Report, requirements, bound sources or claims change | Update affected analysis. Earlier checks do not approve the current version; Lite rechecks affected items and submits the current checklist, while Full uses `revision=true` for required reviews and delivery checks of current inputs. |
+| Report, requirements, bound sources or claims change | Update affected analysis. Earlier checks do not approve the current version; use `revision=true` for required reviews and delivery checks of current inputs. Historical checklist tasks keep their saved completion requirements. |
 | A source webpage changes but the saved text does not | Tools do not monitor remote pages. The agent reads and retains the new version, explains its date and effect, then handles it as changed input. |
 
-Full's formal checks establish version and record consistency within the declared scope, not source credibility. The private-chat-citation advisory in `research_check_draft` scans only the supplied report and ignores code examples; it changes neither `ok` nor historical receipt meanings. Repair citations from actual sources; reading and review still establish semantic support.
+The formal checks establish version and record consistency within the declared scope, not source credibility. The private-chat-citation advisory in `research_check_draft` scans only the supplied report and ignores code examples; it changes neither `ok` nor historical receipt meanings. Repair citations from actual sources; reading and review still establish semantic support.
 
 ## Optional workflow tools
 
@@ -150,7 +142,7 @@ Use local MCP when the host can start a local process, or the bundled plugin whe
 | Plugin | Skill, references, and the local MCP server in one package | Support for the package format and local stdio MCP |
 | MCP | Nine callable tools for task setup, progress, guidance, reviews, and delivery checks | A client that can start and call a local stdio MCP server |
 
-The shared CLI needs Python 3.10+ and only its standard library. Prefer `python3` on Linux; any installed Python 3.10+ interpreter is enough. MCP also needs the dependency in `requirements-mcp.txt`. Without a backend, new Full tasks use explicitly degraded self-review. External/independent review accepts any supported command or endpoint; no vendor account is mandatory.
+The shared CLI needs Python 3.10+ and only its standard library. Prefer `python3` on Linux; any installed Python 3.10+ interpreter is enough. MCP also needs the dependency in `requirements-mcp.txt`. Without a backend, new tasks use explicitly degraded self-review. External/independent review accepts any supported command or endpoint; no vendor account is mandatory.
 
 CI exercises the CLI and packaged MCP workflow on Python 3.10/Linux, plus the broader checks on Python 3.12/Linux and Windows. Use the same interpreter for dependency installation and your client's server command. These are server/protocol checks, not tests of every client GUI.
 
@@ -240,7 +232,7 @@ If no tools appear, run `python -c "import sys, mcp; print(sys.executable)"` wit
 | `research_guide` | Loads the applicable methods without starting a task; supports English and Chinese |
 | `research_review` | Binds full inputs, runs content reviews and retains replies/failures; executes additional auditing only when configured |
 | `research_check_draft` | Return current counts, declared range checks and record errors without changing task state; `ok` does not certify content or delivery |
-| `research_finish` | Records the final checklist for Lite; Full checks the reviewed artifact, evidence, unresolved requirements and delivery text before writing completion state and a receipt |
+| `research_finish` | Checks the reviewed artifact, evidence, unresolved requirements and delivery text before writing completion state and a receipt |
 | `research_check_reviewer` | Checks local backend configuration and dependencies without model calls |
 
 The author agent still searches, reads, analyzes and writes, using its existing tools. It must save required source texts and source/claim records in the task directory. Stage guidance reduces repeated context loading; it does not establish that a model has obeyed every instruction.
@@ -253,7 +245,7 @@ Reviews require the full task, report and source files, not just URLs. The local
 
 ## Reviewer backends
 
-Reviewer tier describes the review relationship; backend describes the command or endpoint that receives the report and evidence and returns a structured review. With no backend configured, a new Full report defaults to `self`; a configured backend defaults to `independent`. Explicit tiers and saved independent/audited plans never silently fall back after an error.
+Reviewer tier describes the review relationship; backend describes the command or endpoint that receives the report and evidence and returns a structured review. With no backend configured, a new report defaults to `self`; a configured backend defaults to `independent`. Explicit tiers and saved independent/audited plans never silently fall back after an error.
 
 Astra in a fresh context separate from the author can provide the independent review, including when the author uses the same model. Give it the same task, report and source materials; keep author notes and evaluation condition mappings out of a blind review. No additional outside person, vendor or fixed reviewer panel is required. Existing user and development tasks are independent real tasks, and their executed tests are real tests; record their actual reuse without treating it as missing task material. Model execution and evaluation also provide a user perspective: judge usefulness from actual context use, extra reading, time, rework and research results. Human participation is not a prerequisite; describe the observed benefit and its task scope.
 
@@ -298,15 +290,9 @@ Commands come only from trusted startup configuration, never report contents or 
 
 Generic entries may include `parameters`, for example `{"max_tokens":4096}`, for provider-supported output limits or reasoning options. They cannot override `model`, `messages` or `stream`, and remain part of the assignment binding.
 
-### Self-review and Lite
+### Author self-review
 
-`research_start` accepts `profile: "lite" | "full"`, default full. For Lite, `research_finish` returns the final checklist; complete each item with `{passed: true, evidence: "specific location and basis"}` and submit it as `checklist`. Review and full delivery gates are skipped with explicit logs; the brief, claims and section drafting remain required.
-
-New Lite receipts use `schema_version: 2` and `input_hashes` to bind the task specification, source/claim registries, optional requirement ledger and declared local files of read sources, alongside the report and delivery message. Optional `evidence_files` on a checklist item binds retained check notes using task-relative paths. Missing, empty, escaping or workflow-output evidence files return an error before replacing a receipt. Text hashes normalize newlines; binary originals use exact byte hashes. The checker reports `input_binding_scope`; legacy receipts keep report/message-only checks. Hashes detect changed inputs, not whether an evidence explanation is correct or a remote page has changed.
-
-Choose the profile from the brief and pass it explicitly when starting. For an existing task use `research_status(task)` to inherit its saved profile. Standalone `research_guide(stage, profile="lite")` returns the introduction and requested stage from the [compact Lite guide](../references/lite-workflow.md), without Full review or delivery instructions. File-reading agents use the same guide. The default remains Full for existing integrations.
-
-Full `research_review` accepts `reviewer: "self" | "external" | "independent"`. The first self call returns the prompt, assignment and input_version. Explicitly switch to the reviewer role in the author context, then submit report_verdict, seven-dimension coverage, findings and input_version as self_review. Records retain the author context and degraded strength, never a fabricated independent execution. New tasks without a backend use this path automatically; explicit or saved independent requirements do not fall back.
+`research_review` accepts `reviewer: "self" | "external" | "independent"`. The first self call returns the prompt, assignment and input_version. Explicitly switch to the reviewer role in the author context, then submit report_verdict, seven-dimension coverage, findings and input_version as self_review. Records retain the author context and degraded strength, never a fabricated independent execution. New tasks without a backend use this path automatically; explicit or saved independent requirements do not fall back.
 
 ### Recovery and acceptance
 
@@ -316,7 +302,7 @@ Reviewer stderr with invalid UTF-8 is displayed with replacement characters and 
 
 Invalid configuration, a missing executable or a configured CLI's failed login blocks that route with guidance. Restore access in its actual environment. Unconfigured ordinary tasks can use self without login. The reviewer process does not automatically inherit the author agent's model access; keep credential files outside tasks.
 
-Preserve original responses and failures. Do not rerun an unchanged valid negative response; unresolved necessary corrections block Full delivery. Record evidenced [no-change decisions](review-completion.md) for mistaken findings, then resume finish. After correcting an ordinary report, call `research_review` with `revision: true` to review the new version. This is the normal revision loop; already authorized corrections do not need another user confirmation. Reconcile changes to research scope in the task records first. A changed reviewer assignment also needs `revision: true`; frozen evaluations reject assignment changes. Timeouts remain 1–1800 seconds, default 600; a timeout-only change does not alter the assignment.
+Preserve original responses and failures. Do not rerun an unchanged valid negative response; unresolved necessary corrections block delivery. Record evidenced [no-change decisions](review-completion.md) for mistaken findings, then resume finish. After correcting an ordinary report, call `research_review` with `revision: true` to review the new version. This is the normal revision loop; already authorized corrections do not need another user confirmation. Reconcile changes to research scope in the task records first. A changed reviewer assignment also needs `revision: true`; frozen evaluations reject assignment changes. Timeouts remain 1–1800 seconds, default 600; a timeout-only change does not alter the assignment.
 
 New review plans retain the exact reviewer and auditor instructions in `instruction_snapshot`. Resuming an unchanged assignment uses that snapshot even after the installed references change; completed valid reviews are reused and only unfinished work resumes. An explicit ordinary `revision: true` selects the current instructions and records any assignment change. Frozen evaluations still reject changed assignments. Legacy plans without a snapshot keep their existing version checks; the tool does not invent historical instructions or silently certify an upgrade as equivalent.
 
@@ -345,7 +331,7 @@ A brief request is `{"task":"comparison","language":"en","brief":{"question":"..
 
 Use the existing task directory as the working location for reports, notes and sources. Pass `artifact` and `evidence_paths` relative to it; tools read those files directly. Retain the first draft before revising, and export the final report when delivering. Additional copies solely for each tool call are unnecessary.
 
-Set the task directory below to the location returned by `start`, and use the same task ID in the request. For an existing Full task named `comparison`, after preparing its report and source/claim records, save this request as `review.json`. Replace `source.md` with the actual evidence paths. Use this self-review example only when that is the selected tier; an independent requirement keeps its configured backend.
+Set the task directory below to the location returned by `start`, and use the same task ID in the request. For an existing task named `comparison`, after preparing its report and source/claim records, save this request as `review.json`. Replace `source.md` with the actual evidence paths. Use this self-review example only when that is the selected tier; an independent requirement keeps its configured backend.
 
 ```json
 {"task":"comparison","reviewer":"self","artifact":"final.md","evidence_paths":["source.md"],"include_assignment":false}
@@ -397,3 +383,9 @@ Optional `research_save.brief` updates only supplied question/audience/scope/out
 `activity.imported_reviews` separates imports from invocations and self submissions. Custom adapters declare capture.import_only=true; import time is not model time and unavailable usage stays null. Legacy import_only captures are recognized. This flag does not relax execution identity or version checks.
 
 Reading requirements are validated at save: full_text/relevant_sections paired with a nonempty distinct required_source_ids list. Partial updates to a valid existing pair remain supported. Invalid batches cannot partially overwrite reports or state. See [task continuity](../references/task-continuity.md) for the workflow.
+
+## Historical task compatibility
+
+Older clients may still pass `profile`; saved `lite`/`full` values and completion receipts remain supported. Omit the parameter for new research. Both historical record types now receive the same complete research methods; the field no longer selects a separate method set. Saved checklist-only tasks retain their [original completion requirements](../references/lite-workflow.md#final--complete-the-author-checklist); existing review plans and records are preserved.
+
+If a historical checklist task gains a formal review requirement, preserve the old task and use the existing linked-task approach, reusing its report, sources, claims and requirements. Address new requirements and affected content; do not copy old passed flags as a new review receipt.

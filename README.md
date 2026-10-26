@@ -24,21 +24,18 @@ Question or revision request: [Include the audience and intended use.]
 Scope and length: [Include the information cutoff and counting unit.]
 Material: [Attach sources, links or an existing report, if available.]
 
-Recommend Lite or Full for the task, briefly explain why, and respect my choice.
+Use the complete research methods as needed to develop evidence, comparisons, explanations and judgments.
 Deliver the complete report with usable citations; include a short change note
 when revising. Maintain working records yourself and state the checks performed.
 ```
 
-| Workflow | When to choose it | Completion |
-| --- | --- | --- |
-| [**Lite — lightweight workflow**](./docs/quickstart-lite.md) | Bounded research where author checks fit the use | Source/claim records and author checks |
-| [**Full — complete workflow**](./docs/quickstart-full.md) | Version-bound review, tracked revisions and delivery consistency checks | Selected review, revision checks and delivery consistency |
+[**Start research: one usage guide**](./docs/quickstart.md)
 
-Both share the same standards for required reading, evidence, analysis and writing. Choose by the task; length is not a profile cap, and Full does not automatically mean independent review.
+One method set supports long-form and in-depth research, revisions and updates. The request determines scope, length and depth; the agent loads methods, maintains records and completes agreed checks as needed.
 
 **Only need to review an existing report?** Use the standalone [Research Review](https://github.com/rrrrrredy/research-review) Skill. Toolkit already includes these review capabilities; existing users do not need a second installation.
 
-Have a draft or new material? [Revise, update or continue Lite work in Full](./docs/usage-modes.md#continue-existing-research), reusing completed research and its sources.
+Have a draft or new material? [Revise or update existing research](./docs/usage-modes.md#continue-existing-research), reusing completed research and its sources.
 
 ## Research case
 
@@ -87,7 +84,7 @@ Public-source analysis dated 10 October 2026, not a deployment test. Also read t
 
 The nine local tools manage task records, stage guidance, registered release-log queries, reviews and delivery checks. MCP needs Python 3.10+ and a client that can start a local process; the installation guide covers Windows, macOS and Linux.
 
-Full supports author-context `self`, a configured `external` backend, or `independent` review in a separate context. Astra can provide independent review without an outside person or another vendor. State the tier actually used; an explicit independent-review requirement cannot be silently downgraded. [Review configuration](./docs/usage-modes.md#reviewer-backends)
+Reviews support author-context `self`, a configured `external` backend, or `independent` review in a separate context. Astra can provide independent review without an outside person or another vendor. State the tier actually used; an explicit independent-review requirement cannot be silently downgraded. [Review configuration](./docs/usage-modes.md#reviewer-backends)
 
 <a id="evaluation-suite"></a>
 <a id="evaluation-results"></a>

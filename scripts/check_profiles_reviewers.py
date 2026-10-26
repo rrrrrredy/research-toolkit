@@ -266,21 +266,13 @@ class ProfileTests(unittest.TestCase):
         history = w.rows_for(root)
         self.assertEqual([row["report_verdict"] for row in history if row.get("record_type") == "model_review"], ["needs_revision", "pass"])
 
-    def test_lite_guidance_is_stage_specific_in_both_languages(self):
+    def test_legacy_profile_uses_shared_methods_in_both_languages(self):
         for language, suffix in (("en", ".md"), ("zh", ".zh-CN.md")):
             for stage in w.STAGE_FILES:
                 with self.subTest(language=language, stage=stage):
                     result = w.guidance(stage, language, "lite")
                     self.assertEqual(result["profile"], "lite")
-                    self.assertEqual([item["path"] for item in result["guidance"]],
-                                     ["references/lite-workflow" + suffix])
-                    content = result["guidance"][0]["content"]
-                    headings = [line.split()[1] for line in content.splitlines() if line.startswith("## ")]
-                    self.assertEqual(headings, [stage])
-                    self.assertNotIn("state/final_delivery.json", content)
-                    if stage == "final":
-                        for key in CHECKLIST:
-                            self.assertIn("`" + key + "`", content)
+                    self.assertEqual(result["guidance"], w.guidance(stage, language)["guidance"])
 
     def test_full_guidance_keeps_its_existing_methods_and_default(self):
         for language in ("en", "zh"):
@@ -295,20 +287,20 @@ class ProfileTests(unittest.TestCase):
 
     def test_lite_status_uses_saved_profile_through_delivery(self):
         started = self.task("lite")
-        self.assertEqual(started["guidance"][0]["path"], "references/lite-workflow.md")
+        self.assertEqual(started["guidance"], w.guidance("collect")["guidance"])
         items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source.md."}
                  for k in CHECKLIST}
         with patch.object(w, "run_reviewer", side_effect=AssertionError("must not call a backend")):
             for stage in ("analyze", "draft", "revise"):
                 result = w.status(self.workspace, "case", language="zh", stage=stage)
                 self.assertEqual(result["profile"], "lite")
-                self.assertEqual(result["guidance"][0]["path"], "references/lite-workflow.zh-CN.md")
+                self.assertEqual(result["guidance"], w.guidance(stage, "zh")["guidance"])
             self.assertTrue(w.finish(self.workspace, "case", "Complete, without independent review.",
                                      checklist=items)["completed"])
             final = w.status(self.workspace, "case", language="zh")
         self.assertEqual(final["profile"], "lite")
         self.assertEqual(final["stage"], "final")
-        self.assertEqual(final["guidance"][0]["path"], "references/lite-workflow.zh-CN.md")
+        self.assertEqual(final["guidance"], w.guidance("final", "zh")["guidance"])
 
     def test_lite_keeps_claims_and_checklist_without_review(self):
         with patch("review_runner.shutil.which", return_value=None):

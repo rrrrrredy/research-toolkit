@@ -31,36 +31,26 @@ description: "用于有据研究、分析、报告修订与资料更新。理解
 
 按用户指令保持范围与交付物。未完成的必需工作继续保持开放，直到完成或用户变更要求。保留评测原稿、失败与首个有效评审，修订另存，不对未变输出反复评审以追求更好的结论。
 
-## 选择档位
-
-Lite 与 Full 共用指令遵循、必读材料、证据、分析和写作标准。Lite 减少正式评审与交付管理，不限制深度、来源或篇幅。结合上下文简短推荐，尊重用户选择，无需档位问卷。
-
-| 任务需要 | 流程 |
-| --- | --- |
-| 边界明确，作者自检满足用途，不要求正式评审 | `lite`：使用 [Lite 指南](references/lite-workflow.zh-CN.md)的相关章节及最终 checklist |
-| 版本化评审、修订跟踪与交付一致性 | `full`：使用下方相关方法及选定评审档位 |
-| 明确要求独立评审 | `full` 的 `independent`；Astra 单独上下文即可 |
-
-影响重大的决策宜推荐独立评审并说明理由。Full 不自动等于独立评审。接续时沿用已保存的流程与约定评审要求，不因失败静默降级。冻结评测沿用原协议。使用工具、选择后端或将 Lite 接续为 Full 时，再读[使用与接入](docs/usage-modes.zh-CN.md)的相关章节。
-
 ## 按需读取方法
 
-Lite 使用[精简指南](references/lite-workflow.zh-CN.md)的相关章节，需要补充方法时沿其链接读取；Full 按下表选用。只读当前工作所需部分，不在启动时加载全部参考文件。已从工具或文件取得且未变的指南无需重复加载。下表组织已有方法，不规定统一报告结构或额外步骤。
+所有研究使用同一套完整方法。按当前工作读取所需章节，不在启动时加载全部参考文件，也不因减少方法读取而缩减研究要求。已取得且未变的方法无需重复加载。方法按问题选用，不规定统一报告结构。
+
+长文和深度研究先按已有方法明确需充分展开的问题、比较、解释和章节安排；写作时保留论证与具体材料，组稿时补足薄弱部分。篇幅与展开程度由需求决定，不由流程档位决定。
 
 | 当前工作 | 已有方法 |
 | --- | --- |
-| 理解需求、规划 Full 研究 | [研究需求与任务规格](references/research-workflow.zh-CN.md#1-明确研究需求) |
+| 理解需求、规划研究深度 | [研究需求与任务规格](references/research-workflow.zh-CN.md#1-明确研究需求)；[深度规划](references/research-workflow.zh-CN.md#7-深度规划) |
 | 阅读来源、形成有支持的判断 | [来源与主张](references/research-standard.zh-CN.md#8-来源与主张) |
 | 选择比较、解释或提出建议的方法 | [可选分析视角](references/optional-analysis-lenses.zh-CN.md)；需要时读[纵横分析](references/horizontal-vertical-analysis.zh-CN.md) |
 | 起草、编辑并保留分析深度 | [写作风格](references/writing-style.zh-CN.md)；[工作循环](references/research-standard.zh-CN.md#7-工作循环) |
 | 接续或修订已有研究 | [任务接续](references/task-continuity.zh-CN.md) |
-| 执行 Full 所选评审 | [评审角色与方法](references/subagents-and-review-loop.zh-CN.md)；[档位与评审记录](docs/review-completion.zh-CN.md#执行所选评审) |
-| 完成 Full 交付 | [质量关卡](references/quality-gates.zh-CN.md)；[交付细节](docs/delivery-verification.zh-CN.md#完成-full-交付) |
+| 执行任务约定的评审 | [评审角色与方法](references/subagents-and-review-loop.zh-CN.md)；[评审记录](docs/review-completion.zh-CN.md#执行所选评审) |
+| 完成研究交付 | [质量关卡](references/quality-gates.zh-CN.md)；[交付细节](docs/delivery-verification.zh-CN.md#完成研究交付) |
 | 使用工具或维护任务记录 | 按需读取[记录保存](docs/usage-modes.zh-CN.md#保存研究记录与稿件)、[CLI](docs/usage-modes.zh-CN.md#只用-skill或使用-cli)和[评审配置](docs/usage-modes.zh-CN.md#reviewer-backends) |
 | 诊断反复出现的问题 | [常见失误](references/gotchas.zh-CN.md)；[研究设计经验](references/postmortem-lessons.zh-CN.md) |
 
 ## 完成用户要求的成果
 
-交付前，对照当前需求及补充指令检查实际回答，解决必要修正。完成所选流程的既有检查：[Lite checklist](references/lite-workflow.zh-CN.md#final--完成作者自检)，或上方链接中的 Full 评审与交付要求。记录实际完成的检查，不能用状态填写代替工作。
+交付前，对照当前需求及补充指令检查实际回答，解决必要修正。完成任务约定的自检、评审与交付要求。评审配置和记录方式按需读取上方文档，不让用户选择研究档位，不自动追加评审者或审计轮次。接续历史任务时保留已有完成约定。记录实际完成的检查，不能用状态填写代替工作。
 
 交付用户要求的成果，提供可用引用，说明重要限制；修订时附简短变化说明。内部记录放在报告之外。必需工作和所选检查完成后结束，不无故追加评审轮次或重复检查未变内容。

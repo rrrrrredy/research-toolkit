@@ -6,17 +6,17 @@ The [Doubao developer portal](https://open.doubao.com/document/doubao-developer-
 
 ## Use the material your session can read
 
-If your Doubao Work session accepts files or pasted text, provide `SKILL.md`, the relevant `references/` files, [the brief](../examples/lite/start.en.json) and [the source notes](../examples/lite/sources.md). Paste the [Lite quickstart request](../docs/quickstart-lite.md), replacing the repository-reading instruction with the supplied files/text.
+Provide `SKILL.md`, required references, the research request and source material; use the [shared research request](../docs/quickstart.md).
 
-The target is a 350–500 word report, separate source/claim records and a six-item checklist. Allow about 5–15 minutes once the session can read the material. Export the records if the client does not preserve files.
+Provide the research question, audience, scope and existing material. Deliver the complete report at the requested depth with usable citations; save working records separately.
 
 ## Check access
 
 Send this before starting:
 
 ```text
-From the supplied material, identify the Lite profile rules, the brief's
-word limit and the two source titles. List anything you cannot read;
+From the supplied material, identify the research requirements, the requested scope,
+depth and supplied sources. List anything you cannot read;
 do not infer missing file contents from filenames.
 ```
 

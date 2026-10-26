@@ -29,7 +29,7 @@ Acceptance of feedback is not proof of repair. Keep accepted changes pending unt
 ## Review the necessary scope
 
 - **Full comparison:** read both supplied current documents across the requested scope. Differences in summaries are leads, not the comparison itself. Preserve valid complementary explanations without concatenating both texts or forcing one author's organization.
-- **Bounded revision with a valid baseline:** inspect the complete diff, changed passages and context, affected sources/requirements and any open findings. Reuse unchanged evidence already read. In Full, use the existing `revision=true` path and make a real judgment of the current complete report with its frozen input; never copy the old PASS, replace its hash or infer global approval from a local check. A separate reviewer still receives the complete required assignment.
+- **Bounded revision with a valid baseline:** inspect the complete diff, changed passages and context, affected sources/requirements and any open findings. Reuse unchanged evidence already read. Use the existing `revision=true` path and make a real judgment of the current complete report with its frozen input; never copy the old PASS, replace its hash or infer global approval from a local check. A separate reviewer still receives the complete required assignment.
 - **Missing or unreliable baseline:** identify the uncovered scope and read enough to assess it. Do not retrospectively certify intervening versions. A last small edit does not make an unreviewed earlier revision approved.
 
 Self-review is not independent review. An explicit independent requirement needs a separate context. Existing adapter imports must preserve the actual execution identity, original response and exact assignment; when marked `capture.import_only=true`, the import is accounted separately from model calls. This flag neither verifies independence nor relaxes review binding. Do not fabricate an execution identity, duration or token count for old feedback.
@@ -46,6 +46,6 @@ For decision-oriented research, preserve the recommendation, its reasons, altern
 
 Read the existing specification, effective user changes, available drafts and unresolved feedback. Preserve originals; resolve contradictory references using actual contents and user decisions, not directory timestamps. Select the current artifact explicitly. Repair only the records needed to continue; `replace` retains backups for recovered collections. Do not normalize every historical file, infer unobserved reading or reconstruct past execution receipts.
 
-Continue a valid existing profile. If adopting tool-managed Full from methods-only or Lite, use the documented continuation procedure and link reused materials; keep the previous work's status honest. A malformed manual progress file may need a separate valid task instead of a forced migration. State which history is unknown.
+Preserve existing completion requirements and use [historical task compatibility](../docs/usage-modes.md#historical-task-compatibility). Reuse valid materials without rewriting history.
 
 These practices can reduce specific omissions; deterministic checks and diagnostic cases do not establish a general improvement in report quality or time saved.

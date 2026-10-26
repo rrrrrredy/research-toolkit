@@ -17,11 +17,13 @@ python3 <skill-directory>/scripts/check_delivery.py <task-directory>
 用 `--delivery-message note.md` 指定其他交付说明文件，凭证须绑定选定文件。成果、凭证和拟交付说明的路径均须位于任务目录内。
 
 
-档位规则：Lite 跳过评审与完整交付门槛，仅保留 `state/final_checklist.json` 和明确跳过日志。Full 的 self 记录须标记 `reviewer: self`、`review_strength: degraded`，评审身份及 execution_id 均为作者上下文；它仍须完成当前稿件的结构化评审和既有 Full 交付检查，不能填充独立评审席位。external 使用配置的外部后端，independent 保留原有独立上下文要求；历史计划缺少 reviewer 字段时仍按 independent 处理。见 [档位与后端](../SKILL.zh-CN.md#选择档位)。
+新任务使用统一研究方法及现有交付路径。self 是作者自评，external／independent 沿用选定的评审要求；不自动追加评审者或审计。历史任务保留原完成约定，见[历史任务兼容](usage-modes.zh-CN.md#历史任务兼容)。
 
-## 完成 Full 交付
+<a id="完成-full-交付"></a>
 
-以下要求适用于 Full。Lite 使用[最终 checklist](../references/lite-workflow.zh-CN.md#final--完成作者自检)。
+## 完成研究交付
+
+以下说明现有工具的研究交付路径。
 
 对照实际回答和证据核对必答问题及补充指令。完成所选内容评审和明确要求的审计，解决必要修正，保留与当前报告绑定的全文通过结果。有效负评算评审完成，不等于允许报告交付。
 
@@ -51,7 +53,7 @@ python3 <skill-directory>/scripts/check_delivery.py <task-directory>
 
 ## 显式篇幅要求
 
-Lite 与 Full 都可在已有要求台账中，用可选的 `length_constraint` 记录可测范围。起草／送审前记录任务已约定的篇幅及计数口径，不自行设置默认最小篇幅，也不从自然语言猜测阈值。以下是**合成格式示例**，不是通用字数目标：
+任务可在已有要求台账中，用可选的 `length_constraint` 记录可测范围。起草／送审前记录任务已约定的篇幅及计数口径，不自行设置默认最小篇幅，也不从自然语言猜测阈值。以下是**合成格式示例**，不是通用字数目标：
 
 ```json
 {"requirement_id":"R-length","summary":"已约定整个文件为 800—1200 个非空白字符。","status":"pending","evidence":"","length_constraint":{"unit":"nonwhitespace_characters","scope":"whole_artifact","min":800,"max":1200}}
@@ -66,7 +68,7 @@ Lite 与 Full 都可在已有要求台账中，用可选的 `length_constraint` 
 | 计数方式 | 中文常用 `nonwhitespace_characters`；空白分隔词用 `whitespace_words`。 |
 | 计数范围 | `scope: "whole_artifact"`，整份文件包含标题、Markdown、引用和参考资料。 |
 
-Full 示例提供可修改的 [中文篇幅记录](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/full/requirements.zh.jsonl)及[英文篇幅记录](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/full/requirements.en.jsonl)。不要求使用示例数字，填写任务实际约定。
+研究示例提供可修改的 [中文篇幅记录](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/full/requirements.zh.jsonl)及[英文篇幅记录](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/full/requirements.en.jsonl)。不要求使用示例数字，填写任务实际约定。
 
 把 `{"task":"你的任务名"}` 保存为 `check-draft.json`，从仓库根目录执行：
 
@@ -79,7 +81,7 @@ Windows 可将 `python3` 替换为 `py -3` 或已有解释器路径；MCP 可直
 
 `whitespace_words` 按 Python 空白分词；`nonwhitespace_characters` 统计除空白外的 Unicode 码点。两者均计算整个 UTF-8 文件，包含 Markdown 标记、标题、引用及参考文献；不是模型 token 或编辑器渲染后的字数。目前仅支持 `whole_artifact`。若约定只统计正文或按页限制，应使用相应测量，不能改称全文计数。`min`／`max` 至少提供一个非负整数，范围包含端点；使用独立要求编号，并在 summary 中说明实际约定。
 
-`research_finish` 重算实际篇幅，超出范围的 `satisfied` 自述会在写入凭证或替换交付消息之前被拒绝。凭证保存 `length_checks`，离线检查会重新测量；Lite checklist 预览返回计数及错误。两档对此类记录沿用既有关闭规则：未解决状态仍需处理，已有用户决定可免除要求、调整范围或接受限制。超范围后获免除的记录仍保留实际计数和 `bounds_met: false`，不改写成满足范围。Full 评审已经冻结要求台账，修改约定范围须按正常流程做当前版本评审。此前没有结构化篇幅要求的凭证保留原检查范围。
+`research_finish` 重算实际篇幅，超出范围的 `satisfied` 自述会在写入凭证或替换交付消息之前被拒绝。凭证保存 `length_checks`，离线检查会重新测量；历史 checklist 预览返回计数及错误。新旧任务对此类记录沿用既有关闭规则：未解决状态仍需处理，已有用户决定可免除要求、调整范围或接受限制。超范围后获免除的记录仍保留实际计数和 `bounds_met: false`，不改写成满足范围。当前评审已经冻结要求台账，修改约定范围须按正常流程做当前版本评审。此前没有结构化篇幅要求的凭证保留原检查范围。
 
 评测 runner 在终态交付时也检查显式篇幅要求，即使关闭了可选凭证检查。这些检查只验证实际计数与声明的范围，不能发现漏记要求、证明范围忠实于用户指示，也不能认证研究深度或质量。作者自述或增加篇幅都不能补足缺失的论证。
 
@@ -89,11 +91,11 @@ Windows 可将 `python3` 替换为 `py -3` 或已有解释器路径；MCP 可直
 python3 <skill-directory>/scripts/check_delivery.py <task-directory> --actual-message captured-reply.md
 ~~~
 
-Lite 和 Full 均将提供的回复记录与已绑定的拟交付说明比较，只规范换行和首尾空白。运行环境可以单独保存最终输出，在运行后调用检查器；保留原始输出并说明如何提取客户端元数据，不能悄悄删掉实质差异。
+新旧任务均将提供的回复记录与已绑定的拟交付说明比较，只规范换行和首尾空白。运行环境可以单独保存最终输出，在运行后调用检查器；保留原始输出并说明如何提取客户端元数据，不能悄悄删掉实质差异。
 
 `delivery_observation` 为 `not_provided`、`matched`、`mismatch` 或 `unreadable`。指定的记录缺失或不一致会失败。`not_provided` 仅表示检查了拟发送文本，不证明用户收到它。
 
-Lite 的 `checklist_valid` 表示保留的 checklist 是否仍匹配输入及已记录要求；`terminal_state` 表示任务当前是否为 `final/complete`。通过 `research_status(stage="revise")` 接续后，checklist 保留，但交付检查返回 `ok: false` 和 `incomplete_lite_task`，直到 `research_finish` 完成当前工作。检查不改写任务记录，也不要求未提供的实际回复记录。
+历史 checklist 任务的 `checklist_valid` 表示保留的 checklist 是否仍匹配输入及已记录要求；`terminal_state` 表示任务当前是否为 `final/complete`。通过 `research_status(stage="revise")` 接续后，checklist 保留，但交付检查返回 `ok: false` 和 `incomplete_lite_task`，直到 `research_finish` 完成当前工作。检查不改写任务记录，也不要求未提供的实际回复记录。
 
 调用方提供的文件不是真实交付的认证。Agent 再写一份预期说明不构成独立捕获证据。本接口本身不拦截或强制约束实际最终回复。
 
