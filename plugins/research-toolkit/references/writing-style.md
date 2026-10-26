@@ -51,6 +51,20 @@ When the brief asks for an executable plan, make its first step usable: identify
 
 For a short brief, combine related answers instead of reproducing a long-report structure. A table, background section, references appendix and repeated summary are not mandatory. Check the recommendation against every current hard constraint; do not silently trade a budget limit for performance or turn a growth forecast into an existing requirement. Preserve a source's time, sample and measurement conditions through the conclusion. A missing measurement means unknown, not a measured difference or a proven absence. Keep production disclosures in the separate delivery note when the agreed format provides one; retain substantive evidence limits in the report.
 
+## Cut Redundancy, Preserve Relationships
+
+Cut repeated background, filler and qualifications that do not affect the judgment. Preserve the relationships readers need to follow the argument: who acts, what changes, why it matters, and which conditions or contrasts connect the evidence to the conclusion. Use concrete subjects and verbs; explain the role of necessary technical terms instead of compressing actions and reasoning into abstract noun stacks. Keep connective words and explanations where they aid understanding; shorter wording is not always clearer.
+
+Before:
+
+> Source changes do not directly invalidate conclusions; perform impact scoping and evidence-sufficiency reassessment.
+
+After:
+
+> First identify which facts changed, then ask whether those facts affect the original conclusion. A page update alone does not overturn it; if the change concerns a fact the conclusion depends on, reassess the reasoning.
+
+The rewrite makes the order of actions and the judgment conditions explicit while preserving the original evidence boundary.
+
 ## Chinese Longform Preferences
 
 For Chinese final articles:

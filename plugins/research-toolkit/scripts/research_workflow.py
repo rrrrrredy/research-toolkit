@@ -1004,7 +1004,7 @@ def check_draft(workspace: Path, task: str, artifact="final.md") -> dict:
     warnings.extend(citation_export_warnings(report))
     warnings.extend(repeated_paragraph_warnings(report))
     next_action = ("Correct the listed records or draft, then run check-draft again. Preserve evaluation originals."
-                   if errors else "Check claims and decisions against sources, then complete the profile's checklist/reviews and finish.")
+                   if errors else "Check claims and decisions against sources, then complete the task's required checks/reviews and finish.")
     pending_lengths = [f"{check['requirement_id']} ({check['actual']} {check['unit']})" for check in checks
                        if check["bounds_met"] and check["status"] == "pending"]
     if pending_lengths:

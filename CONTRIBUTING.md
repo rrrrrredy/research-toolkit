@@ -9,7 +9,7 @@ The i18n sync workflow leaves a non-blocking PR reminder when only one of a READ
 
 ## Start with a failure case
 
-[**Submit a failure case**](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml) without changing code. Include the research question, expected and observed result, an original report excerpt, available sources, and the profile/reviewer tier. Remove private or identifying material before posting. Reproducible cases with original material can become regressions after review; see the [case contribution process](evals/README.md).
+[**Submit a failure case**](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml) without changing code. Include the research question, expected and observed result, an original report excerpt, available sources and review configuration; include a saved legacy profile only when relevant to reproducing an older task. Remove private or identifying material before posting. Reproducible cases with original material can become regressions after review; see the [case contribution process](evals/README.md).
 
 ## Good first issue ideas
 

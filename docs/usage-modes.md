@@ -77,7 +77,7 @@ Keep the agreed brief and outline in `state/task_spec.md`. Record substantive fo
 `progress.json.stage` uses `brief`, `collect`, `analyze`, `draft`, `review`, `revise`, and `final`.
 `progress.json.status` accepts `in_progress`, `paused`, `blocked`, and `complete`.
 
-Record the actual stage, open issues and next action. Read the specification, progress, requirements when present, and useful existing notes when resuming. `research_status(task)` inherits the saved profile; standalone `research_guide` needs the intended profile explicitly. Use `research_status.activity` when inspecting actual retries and returned usage. Paths in calls are relative to the task directory; run scripts from the toolkit installation.
+Record the actual stage, open issues and next action. Read the specification, progress, requirements when present, and useful existing notes when resuming. `research_status(task)` preserves the saved task's completion requirements; it and standalone `research_guide` return the same shared stage methods without requiring a profile choice. Use `research_status.activity` when inspecting actual retries and returned usage. Paths in calls are relative to the task directory; run scripts from the toolkit installation.
 
 Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log.jsonl` and `logs/work.jsonl` only when useful to the task; they are not universal deliverables. Uncertainty can stay with claims, with `data/uncertainty_registry.csv` optional. Field conventions are in the existing [workflow reference](../references/research-workflow.md#3-state-system).
 
@@ -363,7 +363,7 @@ The repository checks the shared workflow, package/source consistency and a real
 
 A separate [guided real-model check of plugin `0.1.2`](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-status.md#current-implementation) completed review and audit recovery on one real task using fictional source material while preserving a negative result and correctly blocking delivery. It required configuration and audit-contract corrections; it does not establish unattended reliability.
 
-The tools enforce their own completion conditions. They cannot prevent an agent from ignoring tools or editing files outside them, and they cannot mechanically certify factual truth. Acceptance follows the selected profile and reviewer tier; independent review is required only when declared.
+The tools enforce their own completion conditions. They cannot prevent an agent from ignoring tools or editing files outside them, and they cannot mechanically certify factual truth. Acceptance follows the task's completion requirements and review configuration; independent review is required only when declared. Saved legacy tasks retain their existing completion requirements.
 
 For failed drafts, follow the [repair and stopping rules](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/failure-handling.md). Correct ordinary report versions, preserve frozen evaluation originals, and never repeat an unchanged valid negative judgment until it passes.
 

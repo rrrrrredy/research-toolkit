@@ -177,9 +177,7 @@ For each stage:
 6. Revise the section and registries.
 7. Update progress and define the next stage.
 
-Treat a full pass through steps 1-7 for one bounded unit as an operating cycle. If a cycle adds no new evidence, case, counterexample, framework, or judgment, increment `stale_count`; reset it to `0` when a later cycle adds one of those contributions. At `stale_count >= 2`, pivot the structural angle rather than merely searching harder.
-
-This cycle counter is separate from the source-direction stop below: three consecutive searches or source passes with no relevant evidence stop that collection direction even if a full operating cycle has not completed.
+When work stops contributing relevant evidence or analysis, identify the unresolved question and whether a different source, method or explanation could answer it. Change or stop an unproductive approach based on that judgment and the task's constraints, not a fixed search or cycle count. Preserve unresolved required work. The existing `stale_count` field remains compatible but need not be updated after each cycle and does not decide when to stop.
 
 For longform deliverables, do not use source count, claim count, link count, or file size as completion substitutes. They are backend health signals, not proof that the finished report has enough depth. Before final assembly, compare the draft against the depth budget and expand thin units before reader review.
 
@@ -232,7 +230,7 @@ Choose the lens that fits the research question:
 - policy/legitimacy analysis: regulation, compliance, trust, geopolitical or institutional pressure
 - counter-case analysis: strongest alternative explanation and failure modes
 
-Pick one primary lens and at most two secondary lenses unless the user explicitly requests a multi-method report.
+Choose and combine lenses according to the user's questions, required coverage and available evidence. Each should contribute a useful explanation or distinction; there is no fixed count or required report structure.
 
 Read `references/optional-analysis-lenses.md` when choosing lenses. Read `references/horizontal-vertical-analysis.md` only after that lens has been selected.
 
@@ -312,9 +310,9 @@ Limits:
 
 Use these guardrails to prevent loops, overcollection, and scope drift:
 
-1. Source collection: if three consecutive searches or source passes add no relevant evidence, stop collecting in that direction, note the decision in existing task records, and draft or pivot.
+1. Source collection: continue where a source could resolve an important open question. Change or stop an unproductive direction when further work is unlikely to help, retaining unresolved requirements and relevant access limits in existing records.
 2. Claim extraction: if `source_registry.csv` grows while `claims_registry.csv` stays thin, pause collection and extract claims before gathering more sources.
-3. Review loop: cap full review-revise cycles at two per section unless the user asks for more; retain unresolved issues and choose a different approach or an honest checkpoint. Reaching a cycle limit does not close required work or permit final delivery.
+3. Review loop: correct concrete defects and recheck the affected content. Stop when the agreed requirements are satisfied; if revisions stall, change the approach or deliver an accurate checkpoint with unresolved work. Do not repeat unchanged checks to fill a round count.
 4. Depth check: before reader review, compare the draft against the depth budget and expand thin units before optimizing prose.
 5. Scope expansion: if new work falls outside `task_spec.md`, record it as a proposed extension and ask before expanding the project.
 6. Subagent review: prompts must ask the reviewer to actively look for issues; if no issue is found, the reviewer must state what evidence supports PASS.
@@ -343,7 +341,7 @@ Read `references/gotchas.md` when diagnosing repeated drift, improving evals, or
 Stop the current path and repair state before continuing when any of these occur:
 
 1. Brief stop: a substantial research task lacks reader, scope, output form, evidence standard, or depth budget after the clarification gate.
-2. Evidence stop: three consecutive searches or source passes add no new relevant evidence, case, counterexample, or judgment.
+2. Evidence stop: the current collection direction no longer helps resolve the question, and repeating it is unlikely to add useful evidence.
 3. Claim stop: `source_registry.csv` grows while `claims_registry.csv` remains empty, generic, or detached from the draft.
 4. Draft stop: final prose still contains process language, internal source IDs, audit labels, file paths, or source-pack wording.
 5. Depth stop: the draft is shorter or thinner than the depth budget and no explicit scope reduction has been recorded.

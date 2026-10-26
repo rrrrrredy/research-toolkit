@@ -9,7 +9,7 @@
 
 ## 从失败案例开始贡献
 
-无需改代码，也可以[**提交失败案例**](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)。说明研究问题、期望与实际结果，附报告原文片段、可用来源以及 profile／评审档位；公开前去掉隐私和可识别信息。有原始材料、可复现的案例，经评审后可成为回归用例，详见[案例贡献流程](evals/README.zh-CN.md)。
+无需改代码，也可以[**提交失败案例**](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)。说明研究问题、期望与实际结果，附报告原文片段、可用来源和评审配置；仅复现旧任务需要时附已保存的 profile 值。公开前去掉隐私和可识别信息。有原始材料、可复现的案例，经评审后可成为回归用例，详见[案例贡献流程](evals/README.zh-CN.md)。
 
 ## 适合首次贡献的小任务
 

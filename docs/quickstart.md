@@ -69,7 +69,7 @@ From the repository root, use Python 3.10+; the CLI needs only the standard libr
 python3 scripts/research_workflow.py start --workspace ../research-work --request examples/full/start.en.json
 ```
 
-This creates `../research-work/knowledge-assistant-full-en`. The agent performs retrieval, reading and section writing; the command creates the task. If you change the example question, update the request file's `brief` too. Resume existing tasks with `status`.
+This creates `../research-work/knowledge-assistant-en`. The example directory retains its old name for existing links; the request uses the unified entry. The agent performs retrieval, reading and section writing; the command creates the task. If you change the example question, update the request file's `brief` too. Resume existing tasks with `status`.
 
 The agent saves the agreed length through `research_save` / CLI `save` using `requirements`; users do not edit JSONL. Start pending, then submit an evidenced satisfied update after checking. See the [record-saving example](usage-modes.md#save-research-records-and-drafts).
 

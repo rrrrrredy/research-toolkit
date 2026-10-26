@@ -52,7 +52,7 @@ The dedicated Toolkit task set is [`cases/`](cases/). It is separate from the la
 | [Writing examples](taste_anchors/README.md) | 4 groups | Reusable examples for concrete criteria; prior exposure and fictional or undated source facts remain explicit. |
 | [Source packs](source_packs/) | 3 packs | Supplied evidence for tasks; source facts and provenance are preserved. |
 | [Public research cases](../docs/case-study/README.md) | 2 cases | Chinese office-agent research and original English API/browser research, with drafts, reviews and revisions. Translations are not additional tasks. |
-| [Templates](templates/) and [Lite example](../examples/lite/) | Workflow aids | Reusable configuration and onboarding examples. |
+| [Templates](templates/) and [helpdesk comparison example](../examples/lite/) | Workflow aids | Reusable configuration and onboarding examples. |
 
 The seven dedicated cases are:
 
@@ -81,7 +81,7 @@ Actual outputs are available in the [2026-09-07 development package](./diagnosti
 See [evaluation status and version boundaries](../docs/evaluation-status.md) for completed historical first-review counts and their interpretation. The public files below are a subset of the retained evaluation material.
 
 
-New [protocol v2](../docs/eval-protocol-v2.md) includes [five independent test tasks](tasksets/development-v2-synthetic/README.md) and [separate judge controls](tasksets/judge-calibration-v3/README.md). The [dated Astra calibration](diagnostics/2026-10-12-astra-calibration/README.md) adds 12 first judgments and source adjudication; the [four-model development run](studies/2026-10-12-lite-four-models/README.md) is complete, retaining four missing pairs and six swap preference changes. These input packs are separate from the seven workflow cases above.
+The historical [protocol v2](../docs/eval-protocol-v2.md) includes [five independent test tasks](tasksets/development-v2-synthetic/README.md) and [separate judge controls](tasksets/judge-calibration-v3/README.md). The [dated Astra calibration](diagnostics/2026-10-12-astra-calibration/README.md) adds 12 first judgments and source adjudication; the [four-model development run](studies/2026-10-12-lite-four-models/README.md) is complete, retaining four missing pairs and six swap preference changes. These input packs are separate from the seven workflow cases above.
 
 The [October 13 feedback probes](diagnostics/2026-10-13-feedback-probes/README.md) retain eight new first attempts after prompt/method corrections: all parse, but only three meet length and semantic errors remain. Five real length failures and two post-result editorial controls exercise the existing delivery gate; no quality-benefit claim.
 
@@ -89,11 +89,11 @@ The [October 13 feedback probes](diagnostics/2026-10-13-feedback-probes/README.m
 
 ## Optional comparisons and defect labels / 可选比较与缺陷标签
 
-For an optional with/without Toolkit comparison, use the [paired-study template](templates/paired-study.json) and [comparison guidance](../docs/evaluation-roadmap.md#next-study-freeze-the-design-then-collect-new-evidence). Routine repairs do not require this comparison. The template is not a frozen cohort or a run result. [Necessary-defect labels](../docs/necessary-defects.md) provide stable categories; the [23-case overlay](semantic_diagnostics/defect-tags.v1.json) preserves the existing diagnostic-only boundary. The Lite quickstart is onboarding, not another eval case.
+For an optional with/without Toolkit comparison, use the [paired-study template](templates/paired-study.json) and [comparison guidance](../docs/evaluation-roadmap.md#next-study-freeze-the-design-then-collect-new-evidence). Routine repairs do not require this comparison. The template is not a frozen cohort or a run result. [Necessary-defect labels](../docs/necessary-defects.md) provide stable categories; the [23-case overlay](semantic_diagnostics/defect-tags.v1.json) preserves the existing diagnostic-only boundary. The research quickstart is onboarding, not another eval case.
 
-需要比较使用／不使用工具箱时，可用[配对模板](templates/paired-study.json)和[比较说明](../docs/evaluation-roadmap.zh-CN.md#下一项研究先冻结设计再产生新证据)，不作为正常修复的前提；模板不代表已冻结样本或运行结果。[必要缺陷标签](../docs/necessary-defects.zh-CN.md)提供稳定类别，[23 例覆盖层](semantic_diagnostics/defect-tags.v1.json)保持开发诊断边界。Lite 入门不计为新增评测案例。
+需要比较使用／不使用工具箱时，可用[配对模板](templates/paired-study.json)和[比较说明](../docs/evaluation-roadmap.zh-CN.md#下一项研究先冻结设计再产生新证据)，不作为正常修复的前提；模板不代表已冻结样本或运行结果。[必要缺陷标签](../docs/necessary-defects.zh-CN.md)提供稳定类别，[23 例覆盖层](semantic_diagnostics/defect-tags.v1.json)保持开发诊断边界。研究入门不计为新增评测案例。
 
-For an executable prospective 5–10-family pilot, see the [blinded pairwise protocol](../docs/eval-protocol.md). The script freezes and logs seed/order, masks A/B judge inputs, and retains first outputs, judgments and failures. The [2026-10-10 four-model pilot](studies/2026-10-10-lite-four-models/README.md) covers all 20 model–task judgments across five shared families, retaining all first attempts and failures and separately labeling format diagnostics and regenerated completion pairs; it does not establish general efficacy. To reproduce only the existing public two-pair archive inventory, run `python scripts/reproduce_calibration.py`; expected outputs are `evals/runs/calibration-reproduction/inventory.json` and `inventory.md`, with zero model calls.
+The historical [blinded pairwise protocol](../docs/eval-protocol.md) describes the fixed-source Lite pilot and its retained runner; it is not the current research entry. The script freezes and logs seed/order, masks A/B judge inputs, and retains first outputs, judgments and failures. The [2026-10-10 four-model pilot](studies/2026-10-10-lite-four-models/README.md) covers all 20 model–task judgments across five shared families, retaining all first attempts and failures and separately labeling format diagnostics and regenerated completion pairs; it does not establish general efficacy. To reproduce only the existing public two-pair archive inventory, run `python scripts/reproduce_calibration.py`; expected outputs are `evals/runs/calibration-reproduction/inventory.json` and `inventory.md`, with zero model calls.
 
 ## Contribute a failure case
 

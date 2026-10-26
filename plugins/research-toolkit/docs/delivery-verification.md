@@ -68,7 +68,7 @@ The agent passes this row in `research_save(requirements=[...])` / CLI `save`; t
 | Counting unit | `whitespace_words` for whitespace-delimited words; `nonwhitespace_characters` is often suitable for Chinese. |
 | Counting scope | `scope: "whole_artifact"` includes headings, Markdown, citations and references. |
 
-Full provides editable [English](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/full/requirements.en.jsonl) and [Chinese](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/full/requirements.zh.jsonl) length records. Use the task's agreed numbers, not an automatic example target.
+The research example provides editable [English](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/full/requirements.en.jsonl) and [Chinese](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/full/requirements.zh.jsonl) length records. Use the task's agreed numbers, not an automatic example target.
 
 Save `{"task":"your-task-id"}` as `check-draft.json`, then run from the repository root:
 
@@ -95,7 +95,7 @@ For current and historical tasks, the supplied capture is compared with the boun
 
 The `delivery_observation` result is `not_provided`, `matched`, `mismatch`, or `unreadable`. Missing or different supplied captures fail. `not_provided` means only the intended message was checked, not that the actual user received it.
 
-For Lite, `checklist_valid` reports whether the retained checklist still matches its inputs and recorded obligations; `terminal_state` reports whether the task is currently `final/complete`. Resuming with `research_status(stage="revise")` keeps the checklist but makes the delivery check return `ok: false` and `incomplete_lite_task` until `research_finish` completes the current work. These checks do not rewrite task records or require a capture when none was supplied.
+For saved legacy checklist-only tasks, `checklist_valid` reports whether the retained checklist still matches its inputs and recorded obligations; `terminal_state` reports whether the task is currently `final/complete`. Resuming with `research_status(stage="revise")` keeps the checklist but makes the delivery check return `ok: false` and `incomplete_lite_task` until `research_finish` completes the current work. These checks do not rewrite task records or require a capture when none was supplied.
 
 A caller-supplied file is not authenticated delivery attestation. An agent writing another copy of its intended message does not create independent capture evidence. This interface alone does not intercept or enforce the live final reply.
 

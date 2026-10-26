@@ -2,7 +2,7 @@
 
 [English](evaluation-roadmap.md) | [简体中文](evaluation-roadmap.zh-CN.md)
 
-Current work fixes observed problems and checks the result. Use existing real tasks, including model execution and evaluation as a user perspective. Apply the selected profile and task requirements without adding human participation, reviewers or a comparison study as prerequisites. See the [report checking and repair standard](report-evaluation-standard.md).
+Current work fixes observed problems and checks the result. Use existing real tasks, including model execution and evaluation as a user perspective. Apply the task requirements without adding human participation, reviewers or a comparison study as prerequisites. See the [report checking and repair standard](report-evaluation-standard.md).
 
 <a id="current-report-and-review-plan"></a>
 
@@ -10,7 +10,7 @@ Current work fixes observed problems and checks the result. Use existing real ta
 
 1. Locate the problem in existing reports and execution records; distinguish software defects, missing methods, missed instructions and draft errors.
 2. Fix reproducible software failures and submit a PR; compile or build affected code and run mandatory checks, adding necessary tests only for task requirements or concrete failures. Change instructions when a method is actually missing; do not turn every model error into more rules.
-3. Correct inaccurate facts, recommendations, omissions or length in failing drafts. Check affected content against the task and sources, using the selected profile without an added review step.
+3. Correct inaccurate facts, recommendations, omissions or length in failing drafts. Check affected content against the task and sources, without an added review step.
 4. Deliver or merge after necessary issues are resolved and relevant checks pass. Keep original failures and repaired versions separately.
 
 This work does not wait for an additional research project. Tests verify a change rather than repeatedly sample for a favorable result.
