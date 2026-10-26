@@ -40,7 +40,7 @@ Before collecting more material, write:
 - staged structure
 - completion criteria
 
-For a brief with several must-answer questions, use the existing task specification to separate the parts that can be answered independently. An explicitly requested comparison should retain its named objects and dimensions; a broad heading such as "commercialization" does not by itself preserve separate questions about availability, buyer costs and production. Keep this working map backstage and use a form proportionate to the task.
+When turning the request into a task specification, retain its purpose, key constraints, and any original wording or context needed to preserve its meaning. For a brief with several must-answer questions, separate the parts that can be answered independently. An explicitly requested comparison should retain its named objects and dimensions; a broad heading such as "commercialization" does not by itself preserve separate questions about availability, buyer costs and production. If the summary or outline diverges from the original request or later applicable instructions, correct the plan using that input. Keep this working map backstage and use a form proportionate to the task.
 
 For each part, note what the sources already read establish and what evidence is still needed. Choose the next source from that gap: a seller's announcement can establish its offer, while a claim about buyer experience needs evidence from that perspective. Reading a required source and answering the associated question are separate checks; relevant evidence inside a read source can still be omitted from the analysis.
 
