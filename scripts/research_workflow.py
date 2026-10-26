@@ -187,25 +187,19 @@ def guidance(stage: str, language: str = "en", profile: str = "full") -> dict:
     if stage not in STAGE_FILES:
         raise ValueError("stage must be brief/collect/analyze/draft/review/revise/final.")
     files = []
-    for name in (["references/lite-workflow.md"] if profile == "lite" else STAGE_FILES[stage]):
+    # Saved profiles govern legacy completion records, never the research methods.
+    for name in STAGE_FILES[stage]:
         if language == "zh":
             name = name.replace(".md", ".zh-CN.md")
         text = (TOOLKIT / name).read_text(encoding="utf-8")
         # The complete standard stays available; send only the applicable sections.
-        if profile == "lite":
-            chunks = re.split(r"(?m)(?=^## )", text)
-            sections = [chunk for chunk in chunks[1:]
-                        if re.match(rf"## {stage}(?:\s|$)", chunk)]
-            if len(sections) != 1:
-                raise ValueError(f"Lite guidance needs exactly one {stage} section in {name}.")
-            text = chunks[0].rstrip() + "\n\n" + sections[0]
-        elif "research-standard" in name:
+        if "research-standard" in name:
             numbers = (3, 8, 13, 15) if stage == "collect" else (7, 8, 9)
             chunks = re.split(r"(?m)(?=^## \d+\. )", text)
             text = "\n".join(c for c in chunks if any(c.startswith(f"## {n}. ") for n in numbers))
         files.append({"path": name, "content": text})
     return {"stage": stage, "guidance": files, "profile": profile,
-            "profile_policy": LITE_LOG if profile == "lite" else ["Full uses the declared reviewer tier; unconfigured new tasks use degraded self-review."]}
+            "profile_policy": LITE_LOG if profile == "lite" else ["Use the declared reviewer tier; unconfigured new tasks use author self-review."]}
 
 
 def content_review_instructions() -> str:
@@ -1175,7 +1169,7 @@ def main():
             stream.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "save", "check-draft", "check-reviewer", "check-updates"])
-    parser.add_argument("--profile", choices=["lite", "full"], help="Profile for a new task (default: full).")
+    parser.add_argument("--profile", choices=["lite", "full"], help=argparse.SUPPRESS)
     parser.add_argument("--workspace", type=Path, default=workspace_default())
     parser.add_argument("--request", type=Path, help="JSON arguments; otherwise read stdin.")
     args = parser.parse_args()

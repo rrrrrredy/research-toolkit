@@ -5,7 +5,6 @@
 Use this file when planning or restarting a complex longform research task.
 
 
-**Profile scope:** Full review/delivery requirements on this page apply to Full. Lite retains the brief, claims, section drafting and final checklist with explicit review/gate skip logs. New Full tasks without a backend may use degraded self-review; non-author-context requirements apply to external/independent tiers and tasks explicitly requiring independent review, never to a self-review relabelled independent. Frozen evaluations retain their original protocol. Use the [Skill profile rules](../SKILL.md#choosing-a-profile).
 
 ## 1. Research Brief Gate
 

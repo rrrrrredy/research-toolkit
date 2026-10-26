@@ -36,7 +36,7 @@ When independent review is required, Astra reads the actual task, complete repor
 
 Give authors and reviewers the same complete sources and necessary provenance. Mask author identity, private notes and condition mappings, without removing evidence needed for judgment. Programs measure exact length, Astra checks content, and authors revise; model-reported counts do not replace measurement.
 
-Check serious findings and disagreements against the original evidence. Recheck affected content; do not repeat valid unaffected checks just to improve a score. Ordinary Full delivery uses the existing version-bound review process. Lite retains its author checklist without a new gate from this page.
+Check serious findings and disagreements against the original evidence. Recheck affected content; do not repeat valid unaffected checks just to improve a score. Ordinary delivery uses the existing version-bound review process. Historical checklist tasks retain their completion requirements without a new gate from this page.
 
 ## Originals and revisions
 

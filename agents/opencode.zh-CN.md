@@ -1,4 +1,4 @@
-# OpenCode：第一个 Lite 任务
+# OpenCode：使用完整研究方法
 
 [English](opencode.md) | [简体中文](opencode.zh-CN.md)
 
@@ -16,18 +16,17 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 
 ## 使用
 
-选中技能后发送：
-
 ```text
-使用 research-toolkit，选择 profile=lite。
+使用 research-toolkit。
 读取 .opencode/skills/research-toolkit/SKILL.md。
-读取同一工具箱里的 examples/lite/start.zh.json 和
-examples/lite/sources.zh-CN.md，完成这个虚构客服工具比较。
-分别交付短报告、sources/claims 记录和完整的六项 Lite checklist。
-成果放在工具箱安装目录之外，披露材料虚构且未进行独立评审。
+研究问题：[填写问题、读者与用途。]
+范围与篇幅：[填写研究范围、信息截止日和预期深度。]
+已有材料：[提供来源、文件或已有报告。]
+按当前工作读取完整方法，充分展开证据、比较、机制解释和综合判断。
+交付完整报告与可用引用，由你维护工作记录。
 ```
 
-Agent 已就绪时，预计约 5–15 分钟产出 600–900 字简报、记录和 checklist。MCP 与评审后端均可不配置。[完整入门](../docs/quickstart-lite.zh-CN.md)。
+[统一研究指南](../docs/quickstart.zh-CN.md)提供完整请求和接入说明。
 
 ## 无法加载时
 

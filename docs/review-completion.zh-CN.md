@@ -5,11 +5,11 @@
 [SKILL.md](../SKILL.md) 规定必需行为。本页说明模型评审、有效性核查、发现处置和抽查的离线记录接口。具体审查方法见[角色与工作规范](../references/subagents-and-review-loop.zh-CN.md)。
 
 
-档位规则：Lite 跳过评审与完整交付门槛，仅保留 `state/final_checklist.json` 和明确跳过日志。Full 的 self 记录须标记 `reviewer: self`、`review_strength: degraded`，评审身份及 execution_id 均为作者上下文；它仍须完成当前稿件的结构化评审和既有 Full 交付检查，不能填充独立评审席位。external 使用配置的外部后端，independent 保留原有独立上下文要求；历史计划缺少 reviewer 字段时仍按 independent 处理。见 [档位与后端](../SKILL.zh-CN.md#选择档位)。
+新任务使用统一研究方法及现有交付路径。self 是作者自评，external／independent 沿用选定的评审要求；不自动追加评审者或审计。历史任务保留原完成约定，见[历史任务兼容](usage-modes.zh-CN.md#历史任务兼容)。
 
 ## 执行所选评审
 
-准备 Full 评审时读取本节。后端配置与调用见[评审后端](usage-modes.zh-CN.md#reviewer-backends)；Lite 使用[作者 checklist](../references/lite-workflow.zh-CN.md#final--完成作者自检)。
+需要执行约定评审时读取本节。后端与调用见[评审配置](usage-modes.zh-CN.md#reviewer-backends)。
 
 | 档位 | 评审关系 | 适用情况 |
 | --- | --- | --- |
@@ -17,7 +17,7 @@
 | `external` | 配置的命令或模型端点提供评审 | 使用已配置评审服务的任务 |
 | `independent` | 与作者分开的新上下文，以及任务声明的审计 | 要求独立评审的任务；Astra 单独上下文即可 |
 
-各档位均对照实际报告检查需求、证据、反向论证、结构与深度、读者价值、过程语言和自然表达，保留原始回复、具体位置、发现与版本绑定。有效负评算评审完成，必要修正未解决时不能完成 Full 交付。保留负面结果；误判用有证据的“不修改”决定处理，不对未变报告重跑以追求通过。
+各档位均对照实际报告检查需求、证据、反向论证、结构与深度、读者价值、过程语言和自然表达，保留原始回复、具体位置、发现与版本绑定。有效负评算评审完成，必要修正未解决时不能完成 研究交付。保留负面结果；误判用有证据的“不修改”决定处理，不对未变报告重跑以追求通过。
 
 self 使用 `research_review` 返回的现有提示与冻结输入，提交实际结果及对应 `input_version`。本地读取而不重复返回整份材料时，使用已有的[自评文件示例](usage-modes.zh-CN.md#复用任务文件并保存自评材料)。说明实际完成的是作者上下文自评，不将有充分来源支持的事实统一弱化。
 

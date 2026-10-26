@@ -17,20 +17,20 @@
 
 ## 九个工具何时用、何时可忽略
 
-**按任务选择 [Lite](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-lite.zh-CN.md) 或 [Full](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart-full.zh-CN.md)。** 两者共用研究底线，Agent 维护记录。Lite 完成作者自检；Full 增加所选评审、修订核对和交付一致性检查。可直接读方法，CLI/MCP 按需接入。
+**使用[统一研究入口](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.zh-CN.md)。** Agent 按当前工作读取完整方法，维护记录并完成约定检查。CLI/MCP 按需接入，新请求省略 `profile`。
 
 下表适用于选择了本地任务管理的情况，MCP 与[共享 CLI](#只用-skill或使用-cli)均可使用。直接读取方法时，研究要求仍然适用。
 
 | 工具 | 何时需要 | 何时可跳过调用 |
 | --- | --- | --- |
-| `research_start` | 创建新的本地任务和需求记录；按用途、版本化评审和修订需要显式选择 `lite` 或 `full`。 | 已有任务用 `research_status` 恢复，或不使用本地执行工具、自行维护记录。 |
+| `research_start` | 创建新的本地任务和需求记录；使用完整方法，无需选择档位。 | 已有任务用 `research_status` 恢复，或不使用本地执行工具、自行维护记录。 |
 | `research_save` | 保存／更新来源、主张、要求与稿件，由 Agent 处理定位到的格式错误。 | 记录与稿件均无变化。 |
 | `research_status` | 恢复本地任务、查看已保存进度或更新记录中的阶段。 | 无需查看或更新进度时；只使用方法的会话可用自己的笔记。 |
 | `research_guide` | 当前上下文尚未包含所需阶段的方法，需要读取时。 | 已直接阅读相应 `SKILL.md` 和 `references/` 文件。 |
-| `research_review` | Full 任务须完成约定评审；选择 self 档时也要显式执行自评。 | Lite 跳过评审；任务明确要求的评审不可省略。 |
+| `research_review` | 完成任务约定的评审；使用 self 时提交实际自评。 | 复用已完成且输入未变的评审；明确要求的评审不可省略。 |
 | `research_check_draft` | 无模型调用地检查当前稿件记录与显式篇幅，不生成交付凭证。 | 评审／交付前可选；来源与含义仍需单独核对。 |
-| `research_finish` | 完成本地任务：Lite 保存六项 checklist；Full 核对已评审报告与交付要求。 | 不使用本地执行工具时，自行完成 checklist 并交付记录，不声称已生成本地凭证。 |
-| `research_check_reviewer` | 外部后端配置或连接前置条件有问题，需要在评审前排查时。 | Lite 和 self 无需外部后端；`research_start` 已确认且配置未变时，无需重复调用。 |
+| `research_finish` | 完成本地任务：核对当前报告与任务约定的交付要求。 | 不使用本地执行工具时，自行完成 checklist 并交付记录，不声称已生成本地凭证。 |
+| `research_check_reviewer` | 外部后端配置或连接前置条件有问题，需要在评审前排查时。 | self 无需外部后端；`research_start` 已确认且配置未变时，无需重复调用。 |
 
 ## 保存研究记录与稿件
 
@@ -108,7 +108,7 @@ python3 scripts/research_workflow.py check-updates --workspace ../research-work 
 ```text
 用 Research Toolkit 检查这份报告和相关来源，重点看会改变结论或行动的重要问题。
 保留原稿，定位问题与依据，做必要的最小修订，核对修改并给我变化说明。
-根据用途建议 Lite 或 Full；不为文风偏好重写整篇，不把可选建议当成必改。
+不为文风偏好重写整篇，不把可选建议当成必改。
 ```
 
 ```text
@@ -117,25 +117,17 @@ python3 scripts/research_workflow.py check-updates --workspace ../research-work 
 交付更新稿及简短变化说明；重新完成本次改动使之失效的检查。
 ```
 
-按已保存的档位接续时，先用 `research_status(task)` 读取状态并保留旧稿。沿用来源、主张和要求编号及已有阅读依据；用 `research_save` 一并更新受影响记录，按已有路径登记稿件，未变记录无需重交。实际核对要求后，将状态和具体依据随相关更新保存。重读变化或有疑问的来源段落，复用仍有效的本地证据，无需再次获取；按所选档位核对完整当前稿，再声明完成。[长报告实际更新案例](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.zh-CN.md)保留复用、来源确认的问题、返工及消耗。
-
-### Lite 接续 Full
-
-用户需要补正式评审或交付核对时，保留原 Lite 任务，以新 ID 创建关联的 Full 任务。Agent 从原 brief 建立新任务，在 `task_spec.md` 说明原任务位置、稿件版本及新增用途；复用报告、来源原文与阅读范围、主张和已知要求。内容不变、依据仍有效的工作无需重做；新增或受影响的要求重新核对。无需用户重填表格。
-
-新 Full 任务使用自己的进度、评审计划和回执。不要复制 Lite 的 `progress.json`、通过标记、checklist、评审日志或收据来充当 Full 完成凭证，也不改写原 Lite 档位。旧作者检查可作为历史说明，不能冒充独立意见。
-
-已有工具路径：`research_start(new_task, original_brief, profile="full")` → Agent 整理可复用材料 → `research_status(new_task, stage="draft")` → `research_check_draft` → `research_review` → 修订及必要复验 → `research_finish`。Full 的 self、external、independent 按任务选择；明确独立要求须实际执行，Astra 单独上下文即可。纯方法使用也按这一路径保留稿件和评审，不能声称产生本地回执。
+接续已有任务时，先用 `research_status(task)` 读取状态并保留旧稿。沿用来源、主张和要求编号及已有阅读依据；用 `research_save` 一并更新受影响记录，按已有路径登记稿件，未变记录无需重交。实际核对要求后，将状态和具体依据随相关更新保存。重读变化或有疑问的来源段落，复用仍有效的本地证据，无需再次获取；按任务约定核对完整当前稿，再声明完成。[长报告实际更新案例](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.zh-CN.md)保留复用、来源确认的问题、返工及消耗。
 
 ### 内容或资料变化后
 
 | 变化 | 复用与复验 |
 | --- | --- |
 | 恢复中断任务，输入未变 | 用 `research_status` 读现有状态，继续未完成工作；有效的已完成评审可复用。 |
-| 报告、需求、已绑定来源／主张改变 | 更新受影响分析。旧检查不代表当前版本通过；Lite 重做相应检查并提交当前 checklist，Full 以 `revision=true` 对当前输入完成所需评审与交付核对。 |
+| 报告、需求、已绑定来源／主张改变 | 更新受影响分析。旧检查不代表当前版本通过；以 `revision=true` 对当前输入完成所需评审与交付核对。历史 checklist 任务沿用其保存的完成约定。 |
 | 来源网页有更新，但本地保存件未变 | 工具不监控远程网页。Agent 读取并保留新版本、说明日期和结论差异后，再按输入变化处理。 |
 
-Full 的形式检查验证声明范围内的版本和记录一致性；它们不会判断新来源是否可信。`research_check_draft` 的私有聊天引用提示只扫描传入稿件、忽略代码示例，提示不改变 `ok` 或历史收据含义。引用修复须依据真实来源；具体语义仍由实际阅读和评审核对。
+工具的形式检查验证声明范围内的版本和记录一致性；它们不会判断新来源是否可信。`research_check_draft` 的私有聊天引用提示只扫描传入稿件、忽略代码示例，提示不改变 `ok` 或历史收据含义。引用修复须依据真实来源；具体语义仍由实际阅读和评审核对。
 
 ## 可选执行工具
 
@@ -147,7 +139,7 @@ Full 的形式检查验证声明范围内的版本和记录一致性；它们不
 | 插件 | Skill、参考文件和本地 MCP 服务，一次安装 | 支持该软件包格式与本地 stdio MCP |
 | MCP | 初始化、保存进度、加载方法、审阅和检查交付的九个工具 | 能启动并调用本地 stdio MCP 服务 |
 
-共享 CLI 需要 Python 3.10+，只使用标准库。Linux 上优先使用 `python3`；本机已有的 Python 3.10+ 解释器即可。MCP 还需安装 `requirements-mcp.txt` 中的依赖。未配置后端时，新建 Full 任务自动进入标明强度降级的 self 评审；外部／独立评审可使用任一受支持命令或端点，无强制厂商账户。
+共享 CLI 需要 Python 3.10+，只使用标准库。Linux 上优先使用 `python3`；本机已有的 Python 3.10+ 解释器即可。MCP 还需安装 `requirements-mcp.txt` 中的依赖。未配置后端时，新建任务自动进入标明强度降级的 self 评审；外部／独立评审可使用任一受支持命令或端点，无强制厂商账户。
 
 CI 在 Python 3.10／Linux 上检查 CLI 和打包 MCP 流程，并在 Python 3.12／Linux、Windows 上执行更完整的检查。安装依赖与客户端启动服务须使用同一解释器。这些验证覆盖服务和协议，不代表所有客户端 GUI 均已实测。
 
@@ -232,12 +224,12 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 
 | 工具 | 实际动作与完成条件 |
 | --- | --- |
-| `research_start` | 初始化记录，列出关键需求缺项，并选择档位、检查已配置的后端 |
+| `research_start` | 初始化记录，列出关键需求缺项，并检查已配置的后端 |
 | `research_status` | 返回进度和阶段规范；推进到分析、写作前检查来源与主张记录 |
 | `research_guide` | 不创建任务，直接读取某阶段的方法，支持中英文 |
 | `research_review` | 绑定完整输入并启动内容评审，保留回复与失败；只执行配置中声明的额外审计 |
 | `research_check_draft` | 返回当前计数、声明范围检查与记录错误，不改变任务状态；`ok` 不认证内容或交付 |
-| `research_finish` | Lite 保存最终 checklist；Full 核对已评审正文、证据、未完成要求和交付文字，通过后才写入完成状态与回执 |
+| `research_finish` | 核对已评审正文、证据、未完成要求和交付文字，通过后才写入完成状态与回执 |
 | `research_check_reviewer` | 本地检查后端配置与依赖，不调用模型 |
 
 检索、阅读、分析、写作仍由撰写 Agent 使用其已有工具完成。Agent 需要把必要的来源全文、来源表和主张表写入任务目录。按阶段加载规范可以减少反复读取，但不证明模型已遵守每条要求。
@@ -252,7 +244,7 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 
 <a id="reviewer-backends"></a>
 
-评审档位描述评审关系，后端描述接收报告与证据、返回结构化评审的命令或端点。新建 Full 报告未配置后端时默认使用 `self`；已配置后端时默认使用 `independent`。显式指定的档位及已保存的独立／审计计划遇到错误时，不得静默回退。
+评审档位描述评审关系，后端描述接收报告与证据、返回结构化评审的命令或端点。新建报告未配置后端时默认使用 `self`；已配置后端时默认使用 `independent`。显式指定的档位及已保存的独立／审计计划遇到错误时，不得静默回退。
 
 Astra 在与作者分开的新上下文中即可承担独立评审，作者使用相同模型也可以。评审收到同一题目、报告和来源材料；盲评时不接收作者 notes 和评测分组映射。不要求额外的外部人员、供应商或固定评审面板。既有用户任务和开发任务都是独立的真实任务，已执行测试都是真实测试；如实记录复用，不将其视为缺少任务材料。模型实际执行和参与评测同样提供用户视角：根据上下文使用、额外阅读、耗时、返工和研究结果判断收益，不以真人参与为前提；说明实际观察到的作用及其任务范围。
 
@@ -297,15 +289,9 @@ python3 scripts/research_workflow.py check-reviewer
 
 generic 配置可加入 `parameters` 对象，例如 `{"max_tokens":4096}`，传递服务支持的输出上限或推理选项；不得覆盖 `model`、`messages`、`stream`。这些参数随评审任务一起绑定版本。
 
-### self 与 Lite
+### 作者自评
 
-`research_start` 接受 `profile: "lite" | "full"`，默认 full。Lite 在 `research_finish` 返回最终 checklist 后，逐项填写 `{passed: true, evidence: "具体位置与依据"}`，通过 `checklist` 提交；不会运行评审或完整交付硬门槛，返回明确跳过日志。分段起草、brief 和 claim 登记仍须完成。
-
-新 Lite 凭证使用 `schema_version: 2` 和 `input_hashes`，在稿件及交付说明之外，绑定任务说明、来源／主张表、可选的要求记录和已读来源声明的本地文件。checklist 每项可选填 `evidence_files`，用任务相对路径绑定保留的检查说明。文件缺失、为空、越界或指向工作流输出时，在替换凭证前返回错误。文本哈希归一化换行，二进制原件按精确字节计算。检查器返回 `input_binding_scope`；历史凭证继续只检查稿件／交付说明。哈希检验输入是否变化，不证明证据解释正确，也不监测远程网页变化。
-
-新建任务时根据需求选择并显式传入档位；已有任务用 `research_status(task)` 沿用保存的档位。单独调用 `research_guide(stage, profile="lite")` 仅返回[精简 Lite 指南](../references/lite-workflow.zh-CN.md)的共同说明和指定阶段，不加载 Full 评审或交付规范。直接读取文件的 Agent 使用同一指南。默认值仍为 Full，以兼容已有集成。
-
-Full 的 `research_review` 可显式选择 `reviewer: "self" | "external" | "independent"`。self 首次调用返回 prompt、assignment 与 input_version；在当前作者上下文显式切换评审角色，然后将 report_verdict、七维 coverage、findings 与 input_version 作为 self_review 提交。记录保留作者上下文和强度降级标记，不伪造独立执行。无后端的新任务自动走这条路径；显式独立要求与历史独立计划不会回退。
+`research_review` 可显式选择 `reviewer: "self" | "external" | "independent"`。self 首次调用返回 prompt、assignment 与 input_version；在当前作者上下文显式切换评审角色，然后将 report_verdict、七维 coverage、findings 与 input_version 作为 self_review 提交。记录保留作者上下文和强度降级标记，不伪造独立执行。无后端的新任务自动走这条路径；显式独立要求与历史独立计划不会回退。
 
 ### 失败恢复与验收
 
@@ -315,7 +301,7 @@ CLI、MCP 与 Python 工作流操作共用本地操作系统任务锁。同一�
 
 配置错误、依赖缺失或已配置 CLI 的登录失败会明确阻塞；根据自查指引恢复该后端的实际环境。普通未配置任务可使用 self，无须登录。子进程的模型访问不自动继承撰写 Agent 的账户；不要把凭据文件放进任务。
 
-保留所有原始响应与失败，不重跑同一未变版本已有的有效负面评审；必要问题未解决时 Full 交付被拒绝。误判可按[不修改决定](review-completion.zh-CN.md)记录具体证据，再继续 finish。普通报告修正后，用 `revision: true` 调用 `research_review` 评审新版本。这是正常修稿循环，已获授权的修正不需要再次向用户确认；研究范围变更应先在任务记录中处理。更换评审配置也须传入 `revision: true`，冻结评测不得更改原始任务。时间上限为 1—1800 秒，默认 600 秒；仅修改超时不会改变任务版本。
+保留所有原始响应与失败，不重跑同一未变版本已有的有效负面评审；必要问题未解决时交付被拒绝。误判可按[不修改决定](review-completion.zh-CN.md)记录具体证据，再继续 finish。普通报告修正后，用 `revision: true` 调用 `research_review` 评审新版本。这是正常修稿循环，已获授权的修正不需要再次向用户确认；研究范围变更应先在任务记录中处理。更换评审配置也须传入 `revision: true`，冻结评测不得更改原始任务。时间上限为 1—1800 秒，默认 600 秒；仅修改超时不会改变任务版本。
 
 新评审计划在 `instruction_snapshot` 中保存完整的评审者与审计者指令。恢复未变更的任务时沿用该快照，不受已安装参考文档更新影响；复用已完成的有效评审，只继续未完成部分。普通报告显式传入 `revision: true` 时使用当前指令，并记录发生的任务变更；冻结评测仍拒绝改变原任务。没有快照的历史计划继续执行原有版本检查，不补造历史指令，也不静默认定升级前后等价。
 
@@ -344,7 +330,7 @@ CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知
 
 直接在已有任务目录中保存稿件、笔记和来源，向工具传入相对该目录的 `artifact` 和 `evidence_paths`，工具会读取原文件。修订前保留首稿，交付时再导出终稿，无需为每次调用另复制一套材料。
 
-将下方任务目录改为 `start` 返回的实际位置，并在请求中使用同一任务名。以下用于已有的 Full 任务 `comparison`。准备好稿件及来源／主张记录后，将请求保存为 `review.json`，把 `source.md` 换成实际证据路径。仅在已选择 self 档位时使用此例；独立评审要求继续使用所配置的后端。
+将下方任务目录改为 `start` 返回的实际位置，并在请求中使用同一任务名。以下用于已有任务 `comparison`。准备好稿件及来源／主张记录后，将请求保存为 `review.json`，把 `source.md` 换成实际证据路径。仅在已选择 self 档位时使用此例；独立评审要求继续使用所配置的后端。
 
 ```json
 {"task":"comparison","reviewer":"self","artifact":"final.md","evidence_paths":["source.md"],"include_assignment":false}
@@ -396,3 +382,9 @@ CLI 的 `check-draft` 使用 `task` 和可选 `artifact`，无需交付说明；
 `activity.imported_reviews` 与真实调用、自审分开；自定义适配器以 capture.import_only=true 声明导入，导入耗时不是模型耗时，未知用量保持 null。旧捕获中的 import_only 同样识别。该标记不放宽执行身份和版本核验。
 
 阅读要求在保存时检查 full_text/relevant_sections 和非空、不重复的 required_source_ids；配对字段可在既有行上局部更新。无效批次不部分覆盖正文或状态。详细方法见[任务接续](../references/task-continuity.zh-CN.md)。
+
+## 历史任务兼容
+
+旧客户端的 `profile` 参数、已保存的 `lite`／`full` 字段与完成凭证继续支持，新研究请求省略该参数。两类历史记录现在读取相同的完整研究方法，字段不再选择另一套研究指导。旧 checklist 任务仍按[原完成约定](../references/lite-workflow.zh-CN.md#final--完成作者自检)接续；旧评审计划与记录保持原样。
+
+若历史 checklist 任务新增了正式评审要求，保留原任务，沿用已有做法创建关联的新任务，复用报告、来源、主张和要求；只处理新要求及受影响内容。不将旧通过标记复制成新任务的评审凭证。

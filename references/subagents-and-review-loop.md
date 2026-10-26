@@ -5,13 +5,12 @@
 Use this reference when assigning research reviews. [SKILL.md](../SKILL.md) defines the protocol; this file gives role instructions and working methods. The main author owns the argument and synthesis.
 
 
-**Profile scope:** Full review/delivery requirements on this page apply to Full. Lite retains the brief, claims, section drafting and final checklist with explicit review/gate skip logs. New Full tasks without a backend may use degraded self-review; non-author-context requirements apply to external/independent tiers and tasks explicitly requiring independent review, never to a self-review relabelled independent. Frozen evaluations retain their original protocol. Use the [Skill profile rules](../SKILL.md#choosing-a-profile).
 
 Independent review means a review context separate from the author, not an outside organization or a different model vendor. A fresh Astra context can provide that review, including when the author also uses Astra. Use the reviewer count required by the task; do not add a fixed panel.
 
 ## Assign Work by Perspective
 
-Ordinary research follows the selected tier: Lite skips review; Full without a backend uses explicitly degraded self-review; configured external/independent reviews use non-author contexts. Independent adjudication, reviewer auditing and formal sampling apply only to explicitly audited plans. New evaluations do not automatically add an auditor.
+Ordinary research follows the agreed checks and reviews: without a backend, use author self-review; configured external/independent reviews use non-author contexts. Independent adjudication, reviewer auditing and formal sampling apply only to explicitly audited plans. New evaluations do not automatically add an auditor.
 
 A perspective is a responsibility, not a mandatory extra model call. Combine compatible responsibilities in one bounded assignment and list the coverage for each. Select domain specialists only when the task needs their methods. When a study requires several model judges on a common rubric, every judge still covers that rubric; specialist emphasis does not remove common dimensions.
 

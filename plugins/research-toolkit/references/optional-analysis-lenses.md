@@ -113,3 +113,16 @@ Questions:
 - Which examples contradict the main thesis?
 - Which claims are company PR, investor hope, or media amplification?
 - What would make the conclusion wrong?
+
+
+## Applying methods to the question
+
+Use the relevant approaches; these are not required report sections.
+
+- **Compare objects:** choose dimensions that matter to the question and explain the differences. Keep populations, treatment/correction status, dates and units comparable; another sample's accuracy cannot complete a throughput comparison. Joint requirements must hold for the same delivery process.
+- **Explain development or differences:** use [historical and comparative analysis](horizontal-vertical-analysis.md) where useful to connect choices, constraints, turning points and outcomes. Weigh alternative explanations; distinguish a proposed mechanism from an established cause, and an undocumented difference from an observed change.
+- **Make a choice:** compare options that meet all current hard requirements, using consistent total costs, capacity, dates and thresholds. Explain the trade-off and what would change the recommendation. Forecast demand, proposed discounts, exceptions and future upgrades remain conditional, not proof of current eligibility. Allow time to obtain quotes and performance evidence before expansion becomes urgent.
+
+Ground decisive claims in source passages: who said what, when, observed or expected, example or population, and direction of the relationship. Distinguish facts, attributed claims, interpretations, recommendations and assumptions. Rates need a denominator and suitable sample. Seek counterevidence; missing evidence limits the affected judgment without proving its opposite or blocking other supported analysis.
+
+Example from the existing [synthetic SaaS materials](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-19-external-batches/tasks/open-weight-saas-lockin-en-20261017-retest/sources): S4 reports 81% versus 76% exact-match success on 500 tasks for a closed model and OW-A, with list inference prices of $4.20 versus $1.10 per 1,000 tasks. S2 says only 2 of 11 advisory-board members have MLOps capacity; others want vendor-managed options. This supports comparing vendor-managed open-weight deployment, rather than recommending customer self-hosting from price alone. Whether switching is worthwhile depends on the success-rate gap and operating/error-handling costs absent from the pack. These are synthetic inputs, not market findings.

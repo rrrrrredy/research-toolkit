@@ -31,7 +31,7 @@ For an ordinary report:
 1. Preserve the original review and identify the defect, report version, passage, requirement/source, consequence and proposed correction in existing task records. Keep a separate draft copy before editing if an original report is not already retained.
 2. Correct the affected text and claims, then run `check-draft`. Resolve pending ledger entries using evidence; never change the agreed bounds merely to make the count pass.
 3. Check the final decision against the same numbers and conditions as the comparison. Treat missing observations as unknown. Inspect required coverage after shortening.
-4. Lite: recheck all six checklist items against current inputs and call `finish`. Full: call `research_review` with `revision: true` for the changed version, resolve necessary findings and call `finish`. Already authorized repairs need no extra permission. Independent review is required only when the task declares it.
+4. call `research_review` with `revision: true` for the changed version, resolve necessary findings and call `finish`. Already authorized repairs need no extra permission. Independent review is required only when the task declares it.
 
 ## Bound the loop
 

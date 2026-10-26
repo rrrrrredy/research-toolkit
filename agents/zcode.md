@@ -1,4 +1,4 @@
-# ZCode: first Lite task
+# ZCode: use the complete research methods
 
 [English](zcode.md) | [简体中文](zcode.zh-CN.md)
 
@@ -16,20 +16,18 @@ In Settings → Skills, refresh and enable `research-toolkit`, then select `$res
 
 ## Try it
 
-Send this request after selecting the skill:
-
 ```text
-Use research-toolkit with profile=lite.
+Use research-toolkit.
 Read $HOME/.zcode/skills/research-toolkit/SKILL.md.
-Within that same toolkit, read examples/lite/start.en.json and
-examples/lite/sources.md.
-Complete that fictional helpdesk comparison. Return the short report,
-separate sources/claims records and all six Lite checklist items.
-Keep outputs outside the installed toolkit. Disclose the fictional
-evidence and absence of independent review.
+Research question: [Question, audience and intended use.]
+Scope and length: [Coverage, information cutoff and expected depth.]
+Existing material: [Sources, files or an existing report.]
+Load the complete methods as needed and develop the evidence, comparisons,
+mechanisms and synthesis. Deliver the complete report with usable citations;
+maintain the working records yourself.
 ```
 
-Expect a 350–500 word report plus records and checklist in about 5–15 minutes with your agent ready. MCP and a reviewer backend are optional. [Full walkthrough](../docs/quickstart-lite.md).
+The [shared research guide](../docs/quickstart.md) provides a complete request and setup details.
 
 ## If it does not load
 

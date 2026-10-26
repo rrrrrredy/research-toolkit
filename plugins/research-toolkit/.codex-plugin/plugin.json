@@ -1,7 +1,7 @@
 {
   "name": "research-toolkit",
   "version": "1.4.3",
-  "description": "Source-backed research with task-appropriate Lite or Full checks.",
+  "description": "Complete research methods for in-depth analysis, long-form reports and revisions.",
   "author": {
     "name": "rrrrrredy"
   },
@@ -9,11 +9,11 @@
   "interface": {
     "displayName": "Research Toolkit",
     "shortDescription": "Research, sources and updates",
-    "longDescription": "Clarify the research brief, preserve evidence and progress, and produce sourced briefs or long reports. Lite uses author checks; Full binds selected reviews and revision decisions to the delivery version. State the review actually performed.",
+    "longDescription": "Understand the research request, develop source-backed comparisons and explanations, and deliver well-reasoned reports. Load complete methods as needed and preserve useful work across revisions.",
     "developerName": "rrrrrredy",
     "category": "Productivity",
     "capabilities": [],
-    "defaultPrompt": "Use Research Toolkit to research or revise this topic. Recommend Lite or Full for the task, use the context to establish the brief, and deliver the report with usable citations and the checks performed."
+    "defaultPrompt": "Use Research Toolkit to research or revise this topic. Establish the requirements from context, use the complete methods as needed, and deliver a fully developed report with usable citations."
   },
   "homepage": "https://github.com/rrrrrredy/research-toolkit",
   "repository": "https://github.com/rrrrrredy/research-toolkit",

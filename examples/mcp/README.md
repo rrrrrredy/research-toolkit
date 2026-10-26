@@ -2,7 +2,7 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-This is a three-paragraph English report about an explicitly fictional shipment note. It demonstrates Full with self-review; it is not a research evaluation or an independent opinion. The report, source, registries and substantive author-context review are supplied. Lite remains the recommended first research task and skips review.
+This is a three-paragraph English report about an explicitly fictional shipment note. It demonstrates tool-managed delivery with self-review; it is not a research evaluation or an independent opinion. The report, source, registries and substantive author-context review are supplied. See the [complete research guide](../../docs/quickstart.md) to begin research.
 
 After installing `requirements-mcp.txt`, run from the repository root:
 

@@ -28,8 +28,8 @@ PAIRS = [
 # These indexes contain different historical material, not translated equivalents.
 # Do not manufacture hreflang pairs for unrelated research cases.
 DESCRIPTIONS = {
-    'index.html': 'Research methods and optional workflow tools for AI agents: investigate questions, revise existing reports, and trace conclusions to sources with Lite or Full.',
-    'index.zh-CN.html': '面向 AI Agent 的研究方法与可选工作流工具：调研问题、修订已有报告，并通过 Lite 或 Full 工作流将判断关联到可追溯来源。',
+    'index.html': 'Research methods and optional workflow tools for AI agents: investigate questions, revise existing reports, and trace conclusions to sources using the complete research methods.',
+    'index.zh-CN.html': '面向 AI Agent 的研究方法与可选工作流工具：调研问题、修订已有报告，并通过完整研究方法形成有依据的分析与判断。',
     'framework.html': 'Research Toolkit methods for scoping a question, reading sources, developing analysis, reviewing revisions and delivering a traceable research report.',
     'framework.zh-CN.html': 'Research Toolkit 研究方法：界定问题、阅读来源、展开分析、评审修订，并交付判断明确、来源可追溯的研究报告。',
     'case-study/index.html': 'Research Toolkit case archive: API versus browser research, Chinese office agents, and source-linked updates to an existing coding-agent procurement report.',
@@ -150,7 +150,7 @@ def chinese_home(source):
         if n.tag=='a' and 'data-language' in a:
             a.pop('aria-current',None)
             if a['data-language']=='zh': a['aria-current']='page'
-        for attr, filename in [('data-quickstart-link','quickstart-full'),('data-lite-link','quickstart-lite'),('data-eval-link','evaluation-status')]:
+        for attr, filename in [('data-quickstart-link','quickstart'),('data-eval-link','evaluation-status')]:
             if attr in a: a['href']='https://github.com/rrrrrredy/research-toolkit/blob/main/docs/'+filename+'.zh-CN.md'
         if 'data-continue-link' in a: a['href']='https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md#接续已有研究'
         if 'data-usage-link' in a: a['href']='https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md'+('#单独接入-mcp' if a.get('data-i18n')=='mcpLink' else '#安装插件')

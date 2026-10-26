@@ -1,4 +1,4 @@
-# WorkBuddy: first Lite task
+# WorkBuddy: use the complete research methods
 
 [English](workbuddy.md) | [简体中文](workbuddy.zh-CN.md)
 
@@ -15,15 +15,16 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 Open that working folder in WorkBuddy and send:
 
 ```text
-Read research-toolkit/SKILL.md and use profile=lite.
-Read research-toolkit/examples/lite/start.en.json and
-research-toolkit/examples/lite/sources.md. Complete that fictional
-helpdesk comparison with a short report, separate sources/claims
-records and all six Lite checklist items. Save outputs in a separate
-task folder. Disclose the fictional evidence and no independent review.
+Read the supplied research-toolkit/SKILL.md and load complete methods as needed.
+Research question: [Question, audience and purpose.]
+Scope and depth: [Coverage, information cutoff and length requirements.]
+Existing material: [Sources or an existing report.]
+Develop evidence, comparisons, explanations and synthesis. Deliver the complete
+report with usable citations. Identify inaccessible required material without
+inventing its contents.
 ```
 
-Allow about 5–15 minutes; expect 350–500 words plus records. [Complete walkthrough](../docs/quickstart-lite.md).
+Allow about 5–15 minutes; expect 350–500 words plus records. [Complete walkthrough](../docs/quickstart.md).
 
 ## If it cannot read the files
 

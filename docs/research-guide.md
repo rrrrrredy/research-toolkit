@@ -5,7 +5,7 @@
 [Project overview](../README.md) · [Documentation](README.md) · [Installation and workflow tools](usage-modes.md)
 
 
-Choose [Lite or Full](../SKILL.md#choosing-a-profile) before applying this guide. Research requirements are shared; formal review/receipt requirements follow the selected workflow. For checking a report or incorporating new material, see [continuation](usage-modes.md#continue-existing-research).
+Use the [shared research entry](../SKILL.md) and complete methods below, developing the research to the requested depth. See [continuation](usage-modes.md#continue-existing-research) for report revision and updates.
 
 ## Example Tasks
 
@@ -59,7 +59,7 @@ Use this checklist to find omissions before delivery. It does not replace readin
 
 ## Review and Acceptance
 
-Reviews cover intent and requirements, evidence and data, adversarial reasoning, structure and depth, reader usefulness, process-language removal and natural expression. Add field-specific review when the research question needs it. Compatible perspectives can share a reviewer; Lite uses author checks; Full completes its selected review tier and delivery checks. Self uses the author context; external/independent tasks require the corresponding context. Astra in a separate context can review independently, with no fixed provider panel.
+Reviews cover intent and requirements, evidence and data, adversarial reasoning, structure and depth, reader usefulness, process-language removal and natural expression. Add field-specific review when the research question needs it. Compatible perspectives can share a reviewer; complete the task’s agreed author checks, reviews and delivery checks. Self uses the author context; external/independent tasks require the corresponding context. Astra in a separate context can review independently, with no fixed provider panel.
 
 | Stage | Review focus |
 | --- | --- |
@@ -70,7 +70,7 @@ Reviews cover intent and requirements, evidence and data, adversarial reasoning,
 
 **Every required model-review slot must obtain a complete, version-bound, substantive response.** A call attempt, error record, truncated reply or generic PASS does not complete it. Preserve failures, diagnose the cause and resume the missing assignment. A valid negative judgment is complete and stays in the evaluation results.
 
-Ordinary reports follow the [profile and backend choices](../SKILL.md#choosing-a-profile): Lite skips review; Full without a backend uses degraded self-review, with external/independent review available through configuration. Extra auditing and sampling apply when declared; frozen evaluations retain their protocol.
+Ordinary reports follow the agreed author checks and reviews; see [reviewer configuration](usage-modes.md#reviewer-backends). Extra auditing and sampling apply only when declared; frozen evaluations retain their protocol.
 
 Evaluation preserves original defects for toolkit improvement. Reader-ready delivery additionally resolves required corrections in the current report. Scripts check record consistency; actual execution evidence and content review remain necessary.
 

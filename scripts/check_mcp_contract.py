@@ -52,9 +52,9 @@ async def verify(base):
         for language, suffix in (("en", ".md"), ("zh", ".zh-CN.md")):
             lite_guide = unpack(await client.call_tool("research_guide", {
                 "stage": "final", "language": language, "profile": "lite"}))
-            assert [item["path"] for item in lite_guide["guidance"]] == ["references/lite-workflow" + suffix]
-            assert "`claims_and_sources`" in lite_guide["guidance"][0]["content"]
-            assert "state/final_delivery.json" not in lite_guide["guidance"][0]["content"]
+            shared_guide = unpack(await client.call_tool("research_guide", {
+                "stage": "final", "language": language}))
+            assert lite_guide["guidance"] == shared_guide["guidance"]
         denied = await client.call_tool("research_start", {"task": "../outside", "brief": BRIEF})
         assert denied.is_error
         brief = unpack(await client.call_tool("research_start", {"task": "case", "brief": {"question": "What changed?"}}))
@@ -172,7 +172,7 @@ async def verify(base):
             resumed = unpack(await client.call_tool("research_status", {"task": task, "language": "zh"}))
             assert resumed["profile"] == profile
             if profile == "lite":
-                assert resumed["guidance"][0]["path"] == "references/lite-workflow.zh-CN.md"
+                assert resumed["guidance"][0]["path"] == "references/quality-gates.zh-CN.md"
                 assert resumed["delivery_check"]["terminal_state"] and resumed["delivery_check"]["checklist_valid"]
                 receipt = (local/"state/final_checklist.json").read_bytes()
                 resumed = unpack(await client.call_tool("research_status", {"task": task, "stage": "revise"}))
