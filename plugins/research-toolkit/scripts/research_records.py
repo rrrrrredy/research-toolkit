@@ -180,8 +180,11 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                 raise ValueError("draft: use path, optional content/complete/main/kind; complete records draft completeness, not delivery approval.")
             name = draft.get("path")
             path = safe_path(root, name)
-            if name.split("/")[0] in {"state", "data", "logs", "reviews"} or path.suffix not in {".md", ".txt"}:
-                raise ValueError("draft.path: use a report .md/.txt path outside state/data/logs/reviews.")
+            target_name = path.relative_to(root.resolve()).as_posix()
+            protected = {"state", "data", "logs", "reviews"}
+            if (name.split("/")[0] in protected or target_name.split("/")[0] in protected
+                    or path.suffix not in {".md", ".txt"}):
+                raise ValueError("draft.path: use a report .md/.txt path outside state/data/logs/reviews, including resolved link targets; for example, reports/draft.md.")
             if type(draft.get("complete", False)) is not bool:
                 raise ValueError("draft.complete: use true or false.")
             if type(draft.get("main", False)) is not bool:

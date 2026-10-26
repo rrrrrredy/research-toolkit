@@ -42,7 +42,7 @@ apply the research methods directly.
 | Route | Shortest path |
 | --- | --- |
 | Codex: methods directly | Open or provide the repository files and send the request. Research with the agent's existing retrieval, file and context capabilities; MCP installation is optional. |
-| Cursor: local MCP | Follow the [virtual environment setup](usage-modes.md#connect-mcp-separately), merge the [README configuration](../README.md#use-as-an-mcp-server) into `.cursor/mcp.json`, confirm the nine `research_*` tools appear, then send the request. |
+| Cursor: local MCP | Follow the [virtual environment setup and MCP configuration](usage-modes.md#connect-mcp-separately), merge the JSON configuration into `.cursor/mcp.json`, confirm the nine `research_*` tools appear, then send the request. |
 
 Other agents can read the same methods through files, links or text; see [agent setup](../agents/README.md). Client configuration references: [Codex MCP](https://developers.openai.com/codex/mcp) · [Cursor MCP](https://cursor.com/docs/mcp).
 
