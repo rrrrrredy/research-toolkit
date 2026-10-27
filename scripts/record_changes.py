@@ -134,6 +134,13 @@ def paragraph_context(lines, index):
             "text": "\n".join(lines[first:last + 1])}
 
 
+def claim_source_ids(row, registered):
+    """Reuse review-input ID rules; counter-evidence prose is not an inferred link."""
+    supporting = set(re.split(r"[;,|\s]+", row.get("supporting_sources", "").strip())) - {""}
+    counter = set(re.split(r"[;,|\s]+", row.get("counter_evidence", "").strip())) & set(registered)
+    return supporting | counter
+
+
 def impact_view(root, summary, artifact):
     from research_workflow import safe_path
     records = summary.get("records", {})
@@ -152,8 +159,8 @@ def impact_view(root, summary, artifact):
     affected = []
     contexts = {}
     for key, row in claims.items():
-        supporting = set(re.split(r"[;,|\s]+", row.get("supporting_sources", "").strip())) - {""}
-        linked = supporting & source_ids
+        related = claim_source_ids(row, sources)
+        linked = related & source_ids
         if not linked and key not in claim_ids:
             continue
         matches = []
@@ -161,7 +168,7 @@ def impact_view(root, summary, artifact):
             reasons = []
             if row.get("claim") and row["claim"] in line:
                 reasons.append("claim_text")
-            for sid in sorted(supporting if key in claim_ids else linked):
+            for sid in sorted(related if key in claim_ids else linked):
                 url = sources.get(sid, {}).get("url")
                 if (url and re.search(re.escape(url) + r"(?=$|[\s)<>\]\"'])", line)) or re.search(r"\[" + re.escape(sid) + r"\]", line):
                     reasons.append("source_link:" + sid)

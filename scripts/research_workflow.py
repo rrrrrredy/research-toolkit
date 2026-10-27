@@ -271,15 +271,12 @@ def check_stage_records(root, stage):
 
 def required_source_inputs(root):
     """Validate current records and collect only declared, relevant source files."""
+    from record_changes import claim_source_ids
     check_stage_records(root, "draft")
     sources = registry_rows(root, "data/source_registry.csv", ("source_id",))
     claims = registry_rows(root, "data/claims_registry.csv", ("claim_id", "supporting_sources"))
-    required = {sid for row in claims for sid in re.split(r"[;,|\s]+", row["supporting_sources"].strip()) if sid}
-    # Counter-evidence is free text; only explicit, registered ID tokens select files.
     registered = {row["source_id"] for row in sources}
-    required.update(sid for row in claims
-                    for sid in re.split(r"[;,|\s]+", row.get("counter_evidence", "").strip())
-                    if sid in registered)
+    required = {sid for row in claims for sid in claim_source_ids(row, registered)}
     requirements, _ = inspect_jsonl_text(requirement_input(root), "Requirement")
     for row in requirements:
         if "reading_requirement" not in row and "required_source_ids" not in row:
