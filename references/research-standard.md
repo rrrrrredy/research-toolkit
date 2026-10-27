@@ -262,16 +262,7 @@ The final article or report contains reader-facing material. Choose useful eleme
 - implications
 - references in the requested form, such as inline links; an appendix when requested or useful within the brief
 
-Keep source attribution and operational details when the reader’s question needs them. Remove internal production narration that does not answer the task:
-
-- visible source IDs
-- audit labels
-- file paths
-- "the user provided"
-- "the material shows"
-- "this source supplements"
-- "this section passed audit"
-- excessive caveats that weaken rather than clarify judgment
+Keep source attribution and operational details when the reader's question needs them. Remove internal production narration that does not answer the task. Keep internal source IDs, audit labels and local paths out of the body unless the task asks to present or explain them. Use the [writing guidance](writing-style.md#process-language-cleanup) to judge a sentence's actual role; do not treat attribution, necessary qualifications or explanations requested by the user as prohibited wording.
 
 ## 12. Validation And Limits
 
