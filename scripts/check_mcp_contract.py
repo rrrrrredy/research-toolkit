@@ -73,7 +73,7 @@ async def verify(base):
                     if stage == "revise":
                         assert guide["guidance"][1]["path"] == "references/subagents-and-review-loop" + suffix
                 print(json.dumps({"stage": stage, "language": language, "path": first["path"],
-                                  "headings": headings, "returned_characters": len(text)}, ensure_ascii=False))
+                                  "headings": headings, "returned_characters": len(text)}))
             lite_guide = unpack(await client.call_tool("research_guide", {
                 "stage": "final", "language": language, "profile": "lite"}))
             shared_guide = unpack(await client.call_tool("research_guide", {
