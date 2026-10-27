@@ -81,6 +81,46 @@ Meaning-preserving alternatives, depending on where the fact appears:
 | Table | Human edits missing reason codes: 62% (this pilot). |
 | Conclusion | This pilot has gaps in its records of why humans made edits. This proportion alone does not establish the share of all tasks requiring human edits or a rate of workforce replacement. |
 
+## Worked Choices in Research Prose
+
+Read the relevant example when deciding what to develop, remove or revise. These use synthetic material in public archives, not real-company investigations; original reports and historical records remain unchanged. The first two are teaching adaptations of original and separately revised reports; the third adds a constructed follow-up requirement. They are not unique answers. Different wording and structures can work if they answer the current question and explain the evidence-to-judgment connection. The author's intended conclusion remains subject to the evidence.
+
+### Develop the Analysis: Does Less Downtime Justify Multiyear Prepayment?
+
+**Question and material.** A manufacturer must decide whether predictive maintenance justifies multiyear prepayment. The [90-day review](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-external-batches/tasks/iIoT-predictive-maintenance-arr-zh-20261016/sources/S3.md) records downtime falling from 1,840 to 1,510 minutes, alongside a 6% reduction in production load and a changed spare-parts strategy. The [procurement minutes](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-external-batches/tasks/iIoT-predictive-maintenance-arr-zh-20261016/sources/S2.md) also record a non-bottleneck workshop accepting weaker terms.
+
+**The original gap.** [Section 3 of the original](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-external-batches/tasks/iIoT-predictive-maintenance-arr-zh-20261016/final.md) already warns against attributing all improvement to the model, but quickly concludes that downtime ROI is only marketing, not a basis for contractual consideration. It does not explain how the observed improvement connects to procurement value, and risks dismissing useful observations. [Sections 4–6 of the separate revision](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-19-reader-edit/reports/iIoT-predictive-maintenance-arr-zh-20261016.md) develop that connection.
+
+**Rewritten passage:**
+
+> Downtime fell by 330 minutes, about 17.9% of the comparison-period total, which warrants investigating the product's contribution. But production load and spare-parts policy changed too. Neither assigning all 330 minutes to the model nor subtracting 6% from 17.9% establishes net benefit: load and downtime are different measures. Deciding whether benefits cover the subscription requires linking particular faults, loss per minute and human handling costs. A non-bottleneck workshop's acceptance of weaker terms suggests that a limited trial may still make sense; it does not replace loss estimates, missed-alert liability or prepaid-fee refund terms for a bottleneck line. The evidence supports further assessment of specific uses, but not approval of multiyear prepayment for the critical line.
+
+**Why this choice helps.** Keep the observed improvement and counterexample, then supply the missing connections among observed change, attribution, economic value and contract choice. This needs more explanation. Adding only “limited sample” or making the conclusion more cautious would still leave the procurement question unanswered.
+
+### Remove Distractions: What Determines an RFQ Answer?
+
+**Question and material.** A manufacturer wants to answer a customer RFQ using an emissions-factor library. The [synthetic brochure](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-external-batches/tasks/scope3-factor-rfq-evidence-en-20261016/sources/S1.md) advertises over 12,000 factors and use in 40 RFQs without buyer challenges. The factors are industry-average or spend-based estimates; premium ranges cover only 30% of SKUs, and the library provides no third-party assurance. The [advisor extract](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-external-batches/tasks/scope3-factor-rfq-evidence-en-20261016/sources/S4.md) says some buyers accept labelled screening estimates.
+
+**The original gap.** The [original](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-external-batches/tasks/scope3-factor-rfq-evidence-en-20261016/final.md) has useful tiered advice, but its ending repeatedly explains what makes a qualified long-form report and restates evidence discipline. These reminders do not help determine whether the current factor is suitable. [Sections 1, 3 and 6 of the revision](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-19-reader-edit/reports/scope3-factor-rfq-evidence-en-20261016.md) use the space to match the buyer's question to the evidence.
+
+**Rewritten passage:**
+
+> Whether this answer can be submitted depends on what the buyer asks. Preliminary screening may use an average estimate whose purpose is clear and accepted by the buyer; comparison of a particular supplier's product requires explaining why that average fits the product. Premium ranges for 30% of SKUs do not establish coverage of this product, nor turn an average into a measurement or an assured conclusion. If the customer requires independent assurance, the current material is insufficient. If the purpose is only screening, that limit need not prohibit every use of the library.
+
+**Why this choice helps.** Catalogue size and “no challenges” can describe the product, but do not establish this answer's suitability, so they are not piled into the decision paragraph. Repeated writing advice is removed. Keep the premium coverage limit and the screening counterexample because they change the recommendation. Cutting makes space for necessary analysis; minimum length is not the goal.
+
+### Revise Locally: Which Judgments Change with the Requirements?
+
+**Original question and material.** The [archived Maple task](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-13-targeted-recheck/judges/maple-storage-en/packet.json) concerns fictional storage procurement: first-year total cost at most 10 units, recovery within 4 hours, data on premises and current demand of 12 TB. A costs 11 units, recovers in 2 hours and holds 24 TB; B is 8/5/24 and C is 8/3/14. All are on premises. Another 4 TB next year is only a forecast; C's expansion price and recovery time are unknown.
+
+**Original passage and change.** The [archived report](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-astra/maple-storage-en.md) recommends C, correctly under those requirements. This example adds a **constructed follow-up**: an approved budget increase to 11, with 16 TB now mandatory; other conditions stay unchanged. Continuing to recommend C retains an obsolete premise. Replacing all analysis with “insufficient information; research again” discards comparisons that still hold.
+
+**Rewritten passage:**
+
+> Under the revised 11-unit budget and current 16 TB capacity requirement, A qualifies with 11 units in total cost, 2-hour recovery and 24 TB capacity. B still exceeds the recovery limit at 5 hours. C's 14 TB is now insufficient; an expansion with unknown price and performance cannot count as meeting the requirement. All three remain on premises, and the evidence still cannot compare reliability or operating labor. The switch to A follows from changed budget and capacity requirements, not new measurements of prices or reliability.
+
+**Why this choice helps.** Change the recommendation and its budget/capacity reasoning while retaining B's recovery limit, the location finding and the unknowns. Revise a judgment when new input changes its premises, not merely because a new file or a large update exists. Follow-up requirements and evidence in an actual task must come from its actual inputs, not be invented to imitate this example.
+
 ## Chinese Longform Preferences
 
 For Chinese final articles:

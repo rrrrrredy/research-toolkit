@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+[October 27 research-writing choices](studies/2026-10-27-research-writing-choices/README.md): two new constructed tasks, four fixed-condition first outputs and two blinded reviews. Added examples accompanied some useful cost reasoning and mechanism explanation, alongside omissions; no consistent whole-report improvement or reduced substantive rework was observed. Original prose, review inputs/outputs and actual timings are retained, without an aggregate score.
+
 [October 22 compressed-air save-guidance comparison](studies/2026-10-22-compressed-air-save/README.md): one research question, two Lite runs on v1.4.1 and v1.4.2 with the same model, configuration and materials. Both first saves succeeded; this case showed no v1.4.2 reduction in field-entry errors or save rework. The newer run took 606.187 s versus 540.125 s. Its language-parameter correction is recorded separately. First save requests/responses, corrections, method reads, first drafts, first self-checks, final outputs and actual timings are retained.
 
 [October 22 Codex research-entry comparison](studies/2026-10-22-codex-entry/README.md): one research question, two Lite runs on v1.4.0 and v1.4.1 with the same model, configuration and frozen materials. No observed v1.4.1 gain in requirement understanding, instruction following or research quality; the newer run took 603.484 s versus 473.265 s. Existing interface error recovery is not a new-version benefit. First drafts, first self-checks, final reports, method reads and actual timings are retained.

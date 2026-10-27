@@ -1,0 +1,48 @@
+{
+  "baseline_commit": "8e3db9db49aeda63bc9c3b1790da7702f8b66649",
+  "nature": "Two new constructed research tasks; no target final answers supplied to authors. Fixed one output per method and task. Not new real-company evidence.",
+  "model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "service_tier": "default",
+  "temperature": "not exposed/set by Codex CLI; same provider default in all runs",
+  "seed": "generation seed not exposed; label shuffle seed 20261027",
+  "author_runs": 4,
+  "blinded_review_runs": 2,
+  "task_families": 2,
+  "order": [
+    [
+      "archive-digitization",
+      "before"
+    ],
+    [
+      "archive-digitization",
+      "after"
+    ],
+    [
+      "cold-chain-revision",
+      "after"
+    ],
+    [
+      "cold-chain-revision",
+      "before"
+    ]
+  ],
+  "review": "One fresh context per pair; receives only task/materials, numbered A/B outputs, current review guidance. No method text, labels, timing, expected preference or other review.",
+  "observations": [
+    "material selection",
+    "comparison and reasoning in actual prose",
+    "unchanged quality",
+    "omissions/template transfer/lost qualifiers/regressions",
+    "substantive human edits still needed"
+  ],
+  "stop": "No score, repeated sampling, swapped-label rerun or task retuning. Keep first valid outputs. If no benefit is observed, revise or withdraw added examples rather than add rules; any post-observation change is not tested by the original pair.",
+  "hashes": {
+    "methods\\common.md": "15426cf0dd628510c29935097927630f7e2902d13f73e5545be6ed4e9499d7ec",
+    "methods\\after\\writing-style.md": "cd7469fcc5bbc25f7d5ab42e7000c2e6958c8498bd6394155db24c9ae38c6c28",
+    "methods\\after\\writing-style.zh-CN.md": "eefc232be1ad001948d4620ad4bb160fd99df5cfd8af523d2afdf6fae9789553",
+    "methods\\before\\writing-style.md": "1995b4a0f782c680ff4e57eb4d683148ce25ae51a0624b2d28372e33f5e982cd",
+    "methods\\before\\writing-style.zh-CN.md": "f16430e6fad16a165e85e26af836f29a1efd9153c364d4b06f725bef21a70e0b",
+    "tasks\\archive-digitization\\input.md": "fb42d1689cce47026b5dcdd6d2145eb0fb8d651b4982dd012ae1bc15e634263a",
+    "tasks\\cold-chain-revision\\input.md": "fafbf0dd2cc8fa6d7ee026a59b26ad1ec03d48b97bc33943abe1cefe0f2438ce"
+  }
+}

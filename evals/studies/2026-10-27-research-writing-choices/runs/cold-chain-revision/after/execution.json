@@ -1,0 +1,17 @@
+{
+  "started_at_utc": "2026-10-27T02:39:06.768993+00:00",
+  "finished_at_utc": "2026-10-27T02:40:09.670824+00:00",
+  "wall_seconds": 62.907,
+  "exit_code": 0,
+  "turn_usage": [
+    {
+      "input_tokens": 21548,
+      "cached_input_tokens": 9728,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 953,
+      "reasoning_output_tokens": 205
+    }
+  ],
+  "followup_prompts": 0,
+  "output_present": true
+}
