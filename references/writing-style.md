@@ -8,27 +8,7 @@ For concrete choices about developing, cutting or revising an argument, consult 
 
 ## Voice
 
-Write as the author of a finished research article, not as an assistant reporting a work process.
-
-Avoid:
-
-- "the user provided"
-- "the material shows"
-- "this source supplements"
-- "based on the collected materials"
-- "the evidence registry"
-- "this section passed audit"
-- "I searched"
-- "I processed"
-
-Prefer:
-
-- direct claims
-- precise mechanisms
-- clear comparisons
-- explicit uncertainty where it affects judgment
-- concise source attribution when needed
-- reader-facing implications
+Write for the audience, genre and style specified in the brief. Explain judgments, mechanisms, comparisons and implications directly, with source attribution and uncertainty where they affect the judgment. If the user asks for methodology, source scope or operating instructions, those belong in the answer too. See [Process-Language Cleanup](#process-language-cleanup) for deciding whether to remove process narration.
 
 ## Structure
 
@@ -55,7 +35,7 @@ For a short brief, combine related answers instead of reproducing a long-report 
 
 ## Cut Redundancy, Preserve Relationships
 
-Cut repeated background, filler and qualifications that do not affect the judgment. Preserve the relationships readers need to follow the argument: who acts, what changes, why it matters, and which conditions or contrasts connect the evidence to the conclusion. Use concrete subjects and verbs; explain the role of necessary technical terms instead of compressing actions and reasoning into abstract noun stacks. Keep connective words and explanations where they aid understanding; shorter wording is not always clearer.
+Cut repeated summaries, background and filler that do not advance the answer. Preserve the actors, actions, conditions, negations, causes and contrasts readers need to follow the argument. Reusing a term, comparing different options on the same dimension, or briefly returning to a key reason in the conclusion is not redundant merely because the wording is similar. Use concrete subjects and verbs and explain necessary terms rather than compressing reasoning into abstract noun stacks. Expand where a relationship needs explaining; a rewrite must retain facts, attribution and the corresponding citations.
 
 Before:
 
@@ -132,8 +112,7 @@ For Chinese final articles:
 - Use numbered insights when the opening is dense.
 - Keep English technical terms only when they are real industry terms.
 - Replace translationese with natural Chinese.
-- Avoid overexplaining the research process.
-- Do not show internal source IDs in the body.
+- Remove production narration unrelated to the question; retain internal source IDs only when the task asks to present or explain them.
 - Follow the brief's citation form. Use a reference list only when requested or useful within that brief; omit it when the task excludes one. Retain source attribution and locators needed to understand or verify the answer.
 
 ## English Longform Preferences
@@ -148,13 +127,13 @@ For English final articles:
 
 ## Process-Language Cleanup
 
-Remove process narration without removing attribution, uncertainty or the scope of the source. These are editing directions, not fixed replacements:
+Decide whether to cut, revise or retain a sentence by its role in the current answer, not by a matched phrase or sentence pattern:
 
-- "the user-provided material says..." -> name the speaker or publisher and the specific claim
-- "the source shows..." -> state the supported finding; retain "reports", "estimates" or "expects" when needed
-- "this material supplements..." -> explain how the added evidence changes the analysis, with attribution where relevant
-- "the evidence gap means..." -> identify the affected conclusion and the evidence needed to resolve it
-- "this report will..." -> use a direct section transition or remove it
+- Remove narration of collection, recording or review actions that does not help readers understand the answer. When the task explicitly requests this information, present it as agreed.
+- If "the material shows" is vague, identify the material and the judgment it supports. Keep necessary attribution such as "reports" or "estimates" rather than turning a source's claim into an independently confirmed fact. Keep "user-provided" when it defines the scope of the material.
+- Retain comparisons, parallel structures, transitions, headings and qualifications that help readers distinguish options, follow reasoning or find information. Condense passages that only repeat a conclusion without adding a reason, distinction or use. Frequent use of a language feature does not establish poor writing quality.
+
+For example, the [archived synthetic cold-chain brief](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-27-research-writing-choices/runs/cold-chain-revision/after/output.md) describes the independent tests' environment, starting temperature and applicable operating conditions: these support the comparison. Its distinction between round-the-clock customer support and immediate vehicle dispatch separates a service claim from delivery assurance. Keep both. By contrast, "meets all these requirements" also sweeps in next week's delivery date, which is not confirmed. Name the capacity, temperature-control and budget conditions that are met, and state that the delivery date still needs confirmation. The reason for the edit is an inaccurate scope of judgment, not an AI-like sentence pattern.
 
 ## References
 
@@ -164,7 +143,7 @@ For public writing, references should be readable:
 - organization or source type
 - title
 
-Do not include internal source IDs, file paths, access status, or audit grades unless the user asks for an audit appendix.
+Retain internal source IDs, local paths, access status or audit grades only when the task asks to present or explain them.
 
 Check citations in the destination format. In exported Markdown or documents, replace chat/tool citation tokens with the corresponding source title, URL and useful locator from the source record. A token that worked in the originating chat is not a portable reference. Verify its target rather than guessing a URL; retain literal tokens when the task is explaining the syntax itself.
 
