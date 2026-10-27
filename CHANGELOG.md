@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.9 — 2026-10-27
+
+- Distribute PR #110's three optional research-choice examples: develop the link from downtime observations to procurement value, remove repeated writing advice from an RFQ answer, and revise a storage recommendation when constructed follow-up requirements change its premises. Synchronize English, Chinese and plugin copies; retain original reports and historical records.
+- Retain both new-task comparisons: four first outputs and two blinded reviews show local additions in cost reasoning and thermal-risk explanation, alongside omissions. No consistent whole-report improvement or reduced substantive rework was observed; do not treat existing correct decisions as new benefits.
+- Publish matching bilingual [release notes](docs/releases/v1.4.9.md), version metadata and plugin ZIP. Reuse completed PR #110 verification and comparison records; no new tools, required steps, research runs or evaluation mechanisms.
+
 ## v1.4.8 — 2026-10-27
 
 - Ship PR #108's writing guidance: preserve key facts' population, metric definition and relevant scope when condensing body text into tables, summaries and conclusions. Use a source's full description when its label can be misleading.
