@@ -65,6 +65,22 @@ After:
 
 The rewrite makes the order of actions and the judgment conditions explicit while preserving the original evidence boundary.
 
+When condensing body text into a summary, table or conclusion, preserve the meaning of key facts. Keep a number connected to its population, metric definition and scope where they affect the judgment. Shortening must not turn a missing-record rate into a completeness rate, or a proportion within a sample into a proportion of all tasks. When a source's label and detailed description can be confused, paraphrase the full description rather than carrying over the label alone.
+
+Example ([archived synthetic pilot material](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-21-external-batches/tasks/ai-agent-workforce-fte-roi-bar-en-20261018/sources/S4.md#L7), not a real-company statistic): the label says "completeness," but the description states that 62% of human edits lacked reason codes. The [original report and correction record](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-21-source-polarity/README.md) retain both accurate paraphrases and incorrect shortened versions within the same draft.
+
+Incorrect shortening:
+
+> Reason-code completeness was 62%.
+
+Meaning-preserving alternatives, depending on where the fact appears:
+
+| Location | Example wording |
+| --- | --- |
+| Body text | In this pilot, 62% of human edits lacked reason codes. |
+| Table | Human edits missing reason codes: 62% (this pilot). |
+| Conclusion | This pilot has gaps in its records of why humans made edits. This proportion alone does not establish the share of all tasks requiring human edits or a rate of workforce replacement. |
+
 ## Chinese Longform Preferences
 
 For Chinese final articles:
