@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.8 — 2026-10-27
+
+- Ship PR #108's writing guidance: preserve key facts' population, metric definition and relevant scope when condensing body text into tables, summaries and conclusions. Use a source's full description when its label can be misleading.
+- Include the archived synthetic 62% missing-reason-code example, contrasting the incorrect completeness reading with meaning-preserving body, table and conclusion wording. Synchronize English, Chinese and plugin copies; retain original reports and historical records.
+- Publish matching bilingual [release notes](docs/releases/v1.4.8.md), version metadata and plugin ZIP. Reuse completed PR #108 verification; reduced metric-misreading and research-quality benefits remain unverified. No new tools, checks or workflow steps.
+
 ## v1.4.7 — 2026-10-27
 
 - Ship PR #106's draft protection fix: check both the supplied path and the resolved target before writing a batch, preventing task-local links from redirecting draft saves into protected task records. Keep ordinary report saves and links to ordinary report directories working.
