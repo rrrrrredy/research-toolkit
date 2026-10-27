@@ -192,11 +192,25 @@ def guidance(stage: str, language: str = "en", profile: str = "full") -> dict:
         if language == "zh":
             name = name.replace(".md", ".zh-CN.md")
         text = (TOOLKIT / name).read_text(encoding="utf-8")
-        # The complete standard stays available; send only the applicable sections.
+        # Keep full references available; return the guidance needed at this stage.
+        chunks = re.split(r"(?m)(?=^## )", text)
         if "research-standard" in name:
             numbers = (3, 8, 13, 15) if stage == "collect" else (7, 8, 9)
             chunks = re.split(r"(?m)(?=^## \d+\. )", text)
             text = "\n".join(c for c in chunks if any(c.startswith(f"## {n}. ") for n in numbers))
+        elif "research-workflow" in name:
+            numbers = (1, 2, 6, 7) if stage == "brief" else (4, 5)
+            selected = [chunks[0]]
+            for chunk in chunks[1:]:
+                if any(chunk.startswith(f"## {n}. ") for n in numbers):
+                    if chunk.startswith("## 7. "):
+                        example = "\n### 示例：" if language == "zh" else "\n### Example:"
+                        chunk = chunk.split(example, 1)[0]
+                    selected.append(chunk)
+            text = "\n".join(selected)
+        elif "writing-style" in name:
+            example = "## 研究段落的取舍示范" if language == "zh" else "## Worked Choices in Research Prose"
+            text = "\n".join(c for c in chunks if not c.startswith(example))
         files.append({"path": name, "content": text})
     return {"stage": stage, "guidance": files, "profile": profile,
             "profile_policy": LITE_LOG if profile == "lite" else ["Use the declared reviewer tier; unconfigured new tasks use author self-review."]}

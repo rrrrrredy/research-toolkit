@@ -4,7 +4,7 @@
 
 Use this file when planning or restarting a complex longform research task.
 
-
+For record fields and task recovery, consult the [state reference](research-workflow.md#3-state-system) as needed.
 
 ## 1. Research Brief Gate
 
@@ -190,6 +190,8 @@ In a requested comparison, use the strongest relevant evidence to explain each n
 Plan the argument around the established reader, purpose and required questions, then allocate space. For a question that needs development, identify the relationship the text should explain, the specific evidence that supports or changes the answer, and the reasoning needed to connect evidence to judgment. Use comparison, mechanism explanation, counterevidence and recommendations where the question calls for them. These considerations can fit into an existing outline or analysis notes; they are not a fixed report structure or another required checklist.
 
 Preserve the details that make a judgment work so the reader can understand why it follows, rather than seeing only names, a list of facts and generic caveats. Develop the answer according to the question's importance, complexity and evidence, respect the agreed length and format, and compress repeated background. Unknowns limit the judgments they affect; continue the analysis that the evidence does support.
+
+For a complete example of developing an argument from source material, see the [serving study](research-workflow.md#example-from-a-serving-question-to-a-written-argument).
 
 ### Example: From a Serving Question to a Written Argument
 
