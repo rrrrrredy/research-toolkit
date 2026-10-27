@@ -89,6 +89,8 @@ data/
 
 来源位置统一使用 `url`，可填写网址或任务内相对路径。主张引用及必读要求涉及的来源应有本地正文；`read_evidence` 指向可读文本时自动送评。仅有网址、页码或二进制原件时，用可选字段 `evidence_path` 指向完整正文或要求范围内的 UTF-8 提取文本。必要原件、阅读凭据和提取文本会按登记范围纳入版本检查；其他辅助文件不会自动发送。
 
+`counter_evidence` 仍可自由填写文字。其中以空格、分号、逗号或 `|` 分隔的已登记来源编号（如 `S2; S3`），也会将对应原文纳入现有评审输入与版本绑定，无须重复填入 `supporting_sources`。说明文字原样保留，工具不从文字含义推断来源关联。
+
 新任务模板已包含 `evidence_path`。将相关来源内容保存为任务内的 UTF-8 文本，例如 `sources/S1.md`，并在该列填写相对路径。使用本地 `read_evidence` 时，推荐填写任务内现有非空文件的相对路径；页码、章节和阅读说明放在 `locator`，例如 `"第2–4页，仅读取相关章节"`，不要拼在路径后。网址、页码及已支持的本地引用形式继续有效；`evidence_path` 不能修复无效的 `read_evidence`。可用[本地来源提取工具](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/source-extraction.zh-CN.md)处理保存的 HTML；保存文件本身不证明读过相关内容。已有登记表在 `read_evidence` 中填写本地文本路径的方式继续有效。
 
 ## 4. 来源处理
