@@ -47,9 +47,33 @@ async def verify(base):
         tools = await client.list_tools()
         names = {tool.name for tool in tools.tools}
         assert names == {"research_start", "research_save", "research_status", "research_guide", "research_review", "research_finish", "research_check_reviewer", "research_check_draft", "research_check_updates"}, names
-        guide = unpack(await client.call_tool("research_guide", {"stage": "brief", "language": "zh"}))
-        assert "研究工作流" in guide["guidance"][0]["content"]
         for language, suffix in (("en", ".md"), ("zh", ".zh-CN.md")):
+            for stage in ("brief", "collect", "draft", "revise"):
+                guide = unpack(await client.call_tool("research_guide", {"stage": stage, "language": language}))
+                first = guide["guidance"][0]
+                text = first["content"]
+                headings = [line for line in text.splitlines() if line.startswith("## ")]
+                if stage in {"brief", "collect"}:
+                    assert first["path"] == "references/research-workflow" + suffix
+                    assert "\n## 3. " not in text and "artifact_sha256" not in text
+                    if stage == "brief":
+                        assert all(any(h.startswith(f"## {n}. ") for h in headings) for n in (1, 2, 6, 7))
+                        assert "research-workflow" + suffix + "#" in text
+                        assert "\n### " not in text
+                    else:
+                        assert all(any(h.startswith(f"## {n}. ") for h in headings) for n in (4, 5))
+                        assert not any(h.startswith("## 1. ") for h in headings)
+                else:
+                    assert first["path"] == "references/writing-style" + suffix
+                    assert "writing-style" + suffix + "#" in text
+                    assert "\n## Worked Choices in Research Prose" not in text
+                    assert "\n## 研究段落的取舍示范" not in text
+                    length_heading = "Length And Decision Usefulness" if language == "en" else "篇幅与决策用途"
+                    assert "\n## " + length_heading in text
+                    if stage == "revise":
+                        assert guide["guidance"][1]["path"] == "references/subagents-and-review-loop" + suffix
+                print(json.dumps({"stage": stage, "language": language, "path": first["path"],
+                                  "headings": headings, "returned_characters": len(text)}))
             lite_guide = unpack(await client.call_tool("research_guide", {
                 "stage": "final", "language": language, "profile": "lite"}))
             shared_guide = unpack(await client.call_tool("research_guide", {

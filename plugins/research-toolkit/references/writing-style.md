@@ -4,6 +4,8 @@
 
 Use this file before drafting, rewriting, or finalizing.
 
+For concrete choices about developing, cutting or revising an argument, consult the [worked examples](writing-style.md#worked-choices-in-research-prose) as needed.
+
 ## Voice
 
 Write as the author of a finished research article, not as an assistant reporting a work process.
@@ -43,7 +45,7 @@ Do not make the article follow the order in which sources were collected.
 
 ## Length And Decision Usefulness
 
-Allocate space to the required questions before drafting. Before delivery, count the actual report using the requested convention (English words or Chinese characters, with headings and references handled as agreed). Record the count and convention in the existing checklist or delivery notes. If no convention is given, state a reasonable one. Cut repeated background and caveats before cutting required analysis; a short-report limit still applies when the analysis is good.
+Allocate space to the required questions before drafting. When the task has a length constraint or delivery requires a length count, count the actual report before delivery using the requested convention (English words or Chinese characters, with headings and references handled as agreed), and record the count and convention in the existing checklist or delivery notes. If a count is needed but no convention is given, state a reasonable one. Cut repeated background and caveats before cutting required analysis; a short-report limit still applies when the analysis is good.
 
 For a decision memo, state the recommendation, rationale, next action and conditions that would change the decision. Distinguish measured results from proposed pilot criteria. Explain any proposed numerical target using the decision's risks, a baseline or an agreed service requirement; without such a basis, describe the trigger and how to calibrate it. Check that a target does not reward hiding failures or blocking necessary escalation. For example, capping human handoffs can conflict with giving customers timely access to a person.
 

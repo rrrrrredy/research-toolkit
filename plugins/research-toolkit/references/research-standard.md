@@ -96,7 +96,7 @@ The latest global review and each task-required review scope must record the rev
 
 Creating an artifact is not enough to satisfy a transition. The recorded content must meet the exit gate. If a gate fails, keep or return the task to the stage that owns that gate and repair state before continuing.
 
-For each bounded unit, repeat `draft -> review -> revise -> review` until its gates pass. `final` is a terminal label, not a work-in-progress stage: never set `stage` to `final` or `status` to `complete` before every required unit and final quality gate has passed.
+Correct confirmed defects and check the affected content; follow the task's declared review requirements without adding a fixed review cycle for every unit. `final` is a terminal label, not a work-in-progress stage: never set `stage` to `final` or `status` to `complete` before every required unit and final quality gate has passed.
 
 ## 4. Architecture
 
