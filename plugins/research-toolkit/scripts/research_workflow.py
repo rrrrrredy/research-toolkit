@@ -275,6 +275,11 @@ def required_source_inputs(root):
     sources = registry_rows(root, "data/source_registry.csv", ("source_id",))
     claims = registry_rows(root, "data/claims_registry.csv", ("claim_id", "supporting_sources"))
     required = {sid for row in claims for sid in re.split(r"[;,|\s]+", row["supporting_sources"].strip()) if sid}
+    # Counter-evidence is free text; only explicit, registered ID tokens select files.
+    registered = {row["source_id"] for row in sources}
+    required.update(sid for row in claims
+                    for sid in re.split(r"[;,|\s]+", row.get("counter_evidence", "").strip())
+                    if sid in registered)
     requirements, _ = inspect_jsonl_text(requirement_input(root), "Requirement")
     for row in requirements:
         if "reading_requirement" not in row and "required_source_ids" not in row:
