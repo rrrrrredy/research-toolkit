@@ -63,6 +63,46 @@
 | 表格 | 人工修改原因码缺失率：62%（该试点）。 |
 | 结论 | 该试点的修改原因记录存在缺口；这一比例不能单独说明人工修改占全部任务的比例，也不能据此推算岗位替代率。 |
 
+## 研究段落的取舍示范
+
+需要决定补什么、删什么或改到哪里时，选读相关示范。它们复用公开归档中的合成材料，不是现实企业调查；原稿和历史记录保持不变。前两组是据原稿与另存修订稿整理的教学改写，第三组的后续要求为本次构造。示范不是唯一答案：措辞和结构可以不同，但要回答当前问题、说明证据如何支持判断；作者想表达的结论也须接受证据检验。
+
+### 补充分析：停机下降，为什么还不能决定多年预付？
+
+**问题与材料。** 制造企业要判断预测性维护是否值得多年预付。[90 天复盘](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-external-batches/tasks/iIoT-predictive-maintenance-arr-zh-20261016/sources/S3.md)记录停机从 1,840 降至 1,510 分钟，同期排产负荷下降 6%、备件策略改变；[采购纪要](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-external-batches/tasks/iIoT-predictive-maintenance-arr-zh-20261016/sources/S2.md)另有非瓶颈车间接受较弱条款的反例。
+
+**原稿的不足。** [原稿第 3 节](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-external-batches/tasks/iIoT-predictive-maintenance-arr-zh-20261016/final.md)已经提醒不能全部归因，却很快跳到“停机 ROI 只能当营销，不能当合同对价”，没有解释改善幅度怎样连接采购价值，也容易把仍有用的观察一并否定。[另存修订稿第 4—6 节](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-19-reader-edit/reports/iIoT-predictive-maintenance-arr-zh-20261016.md)补足了这层分析。
+
+**正文改写：**
+
+> 停机减少 330 分钟，约为对照期的 17.9%，值得继续追查产品贡献。但同期排产与备件策略也变了，既不能把 330 分钟全部计作模型收益，也不能用 17.9% 减去 6% 得到净收益：负荷变化与停机变化并非同一指标。要判断收益能否覆盖订阅费，还需联系具体故障、每分钟损失和人工处置成本。另一非瓶颈车间接受弱条款，说明限定范围的试用仍可能成立；它不能替代瓶颈产线的损失测算、漏报责任与预付款退还约定。因此，当前依据支持继续评估特定场景，尚不足以批准关键产线多年预付。
+
+**取舍理由。** 保留下降幅度与反例，补上“观察变化—归因—经济价值—合同选择”之间缺失的关系。这里需要增加解释；仅补一句“样本有限”或把结论改得更谨慎，都没有回答采购问题。
+
+### 删减内容：什么材料决定一份 RFQ 能怎样回答？
+
+**问题与材料。** 制造商要用排放因子库回答客户询价。[合成产品手册](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-external-batches/tasks/scope3-factor-rfq-evidence-en-20261016/sources/S1.md)宣称含 12,000 多个因子、曾用于 40 份无人质疑的 RFQ；实际是行业平均或支出估算，付费档仅为 30% 的 SKU 提供区间，也不提供第三方保证。[顾问摘录](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-external-batches/tasks/scope3-factor-rfq-evidence-en-20261016/sources/S4.md)则称部分买方接受标明用途的筛选估计。
+
+**原稿的不足。** [原稿](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-external-batches/tasks/scope3-factor-rfq-evidence-en-20261016/final.md)已有有用的分层建议，却在结尾反复解释“合格长文”与证据纪律。这些提醒不能帮助读者判断当前因子是否适用。[修订稿第 1、3、6 节](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-19-reader-edit/reports/scope3-factor-rfq-evidence-en-20261016.md)把篇幅用于买方问题与证据的匹配。
+
+**正文改写：**
+
+> 是否能提交这份回答，取决于买方在问什么。初步筛选可以使用买方接受、用途明确的平均估计；特定供应商产品的排放比较，则需要说明平均因子为何适用于该产品。付费档为 30% 的 SKU 提供区间，不能证明本次产品被覆盖，更不能把平均值变成实测值或保证结论。若客户要求独立保证，当前材料不足；若只做筛选，也不必因此一概停用因子库。
+
+**取舍理由。** 目录规模与“无人质疑”可以作为产品背景，却不能证明本次回答适用，故不再堆进这个决策段落；重复的写作说教直接删除。保留付费档覆盖范围和筛选用途的反例，是因为它们改变具体建议。删减让必要分析有空间，不以最短为目标。
+
+### 局部修订：需求变了，哪些判断跟着变？
+
+**原有问题与材料。** [归档 Maple 任务](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-13-targeted-recheck/judges/maple-storage-en/packet.json)为虚构存储采购：首年总预算 10 单位、恢复不超过 4 小时、数据留在本地、当前需求 12 TB。A 为 11 单位／2 小时／24 TB，B 为 8／5／24，C 为 8／3／14；三者均为本地部署。下一年增加 4 TB 当时只是预测，C 扩容价格与恢复时间未知。
+
+**原文与变化。** [归档正文](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-astra/maple-storage-en.md)据此推荐 C，原判断符合当时要求。本示范新增一条**构造要求**：预算已批准提高到 11，16 TB 成为现在必须满足的容量，其余条件不变。此时继续推荐 C 会沿用失效前提；把所有分析改成“资料不足，重新调研”，又会丢掉仍然成立的比较。
+
+**正文改写：**
+
+> 按更新后的 11 单位预算和 16 TB 当前容量要求，A 以 11 单位总成本、2 小时恢复和 24 TB 容量满足条件。B 的 5 小时恢复仍超过上限；C 的 14 TB 现在不足，不能用价格与性能尚未确定的扩容方案视为已满足。三者均为本地部署的判断仍成立，现有材料仍不足以比较可靠性和运维劳动。此次改选 A，是因为预算与容量要求改变，不是报价或可靠性有了新的实测结果。
+
+**取舍理由。** 修改推荐及其预算、容量理由，保留 B 的恢复限制、本地部署与未知项。是否改判取决于新输入改变了哪项前提，不取决于更新幅度或是否出现了新文件；真实任务中的补充要求与证据须来自实际输入，不能仿造本例。
+
 ## 中文长文
 
 - 标题清楚、直接。

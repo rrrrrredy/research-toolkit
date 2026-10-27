@@ -1,0 +1,155 @@
+{
+  "author_calls": 4,
+  "blinded_review_calls": 2,
+  "task_families": 2,
+  "author_wall_seconds_sum": 291.735,
+  "review_wall_seconds_sum": 308.266,
+  "all_wall_seconds_sum": 600.001,
+  "timing_scope": "Monotonic process wall time, including CLI startup and network/model latency; excludes preparation and maintainer analysis. No efficiency claim.",
+  "runs": [
+    {
+      "run": "runs/archive-digitization/after",
+      "started_at_utc": "2026-10-27T02:37:42.544914+00:00",
+      "finished_at_utc": "2026-10-27T02:39:06.659857+00:00",
+      "wall_seconds": 84.109,
+      "exit_code": 0,
+      "turn_usage": [
+        {
+          "input_tokens": 21452,
+          "cached_input_tokens": 9728,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1739,
+          "reasoning_output_tokens": 733
+        }
+      ],
+      "followup_prompts": 0,
+      "output_present": true,
+      "completed_item_types": [
+        "error",
+        "agent_message"
+      ],
+      "tool_calls_observed": 0,
+      "usage_scope": "Codex turn.completed usage; not a bill or backend HTTP-attempt log"
+    },
+    {
+      "run": "runs/archive-digitization/before",
+      "started_at_utc": "2026-10-27T02:36:17.615250+00:00",
+      "finished_at_utc": "2026-10-27T02:37:42.542913+00:00",
+      "wall_seconds": 84.938,
+      "exit_code": 0,
+      "turn_usage": [
+        {
+          "input_tokens": 19559,
+          "cached_input_tokens": 9728,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1737,
+          "reasoning_output_tokens": 753
+        }
+      ],
+      "followup_prompts": 0,
+      "output_present": true,
+      "completed_item_types": [
+        "error",
+        "agent_message"
+      ],
+      "tool_calls_observed": 0,
+      "usage_scope": "Codex turn.completed usage; not a bill or backend HTTP-attempt log"
+    },
+    {
+      "run": "runs/cold-chain-revision/after",
+      "started_at_utc": "2026-10-27T02:39:06.768993+00:00",
+      "finished_at_utc": "2026-10-27T02:40:09.670824+00:00",
+      "wall_seconds": 62.907,
+      "exit_code": 0,
+      "turn_usage": [
+        {
+          "input_tokens": 21548,
+          "cached_input_tokens": 9728,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 953,
+          "reasoning_output_tokens": 205
+        }
+      ],
+      "followup_prompts": 0,
+      "output_present": true,
+      "completed_item_types": [
+        "error",
+        "agent_message"
+      ],
+      "tool_calls_observed": 0,
+      "usage_scope": "Codex turn.completed usage; not a bill or backend HTTP-attempt log"
+    },
+    {
+      "run": "runs/cold-chain-revision/before",
+      "started_at_utc": "2026-10-27T02:40:09.674175+00:00",
+      "finished_at_utc": "2026-10-27T02:41:09.447199+00:00",
+      "wall_seconds": 59.781,
+      "exit_code": 0,
+      "turn_usage": [
+        {
+          "input_tokens": 19655,
+          "cached_input_tokens": 9728,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 960,
+          "reasoning_output_tokens": 195
+        }
+      ],
+      "followup_prompts": 0,
+      "output_present": true,
+      "completed_item_types": [
+        "error",
+        "agent_message"
+      ],
+      "tool_calls_observed": 0,
+      "usage_scope": "Codex turn.completed usage; not a bill or backend HTTP-attempt log"
+    },
+    {
+      "run": "reviews/archive-digitization",
+      "started_at_utc": "2026-10-27T02:42:19.400014+00:00",
+      "finished_at_utc": "2026-10-27T02:45:09.990729+00:00",
+      "wall_seconds": 170.594,
+      "exit_code": 0,
+      "turn_usage": [
+        {
+          "input_tokens": 15380,
+          "cached_input_tokens": 9728,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3057,
+          "reasoning_output_tokens": 516
+        }
+      ],
+      "followup_prompts": 0,
+      "output_present": true,
+      "completed_item_types": [
+        "error",
+        "agent_message"
+      ],
+      "tool_calls_observed": 0,
+      "usage_scope": "Codex turn.completed usage; not a bill or backend HTTP-attempt log"
+    },
+    {
+      "run": "reviews/cold-chain-revision",
+      "started_at_utc": "2026-10-27T02:45:09.997751+00:00",
+      "finished_at_utc": "2026-10-27T02:47:27.664543+00:00",
+      "wall_seconds": 137.672,
+      "exit_code": 0,
+      "turn_usage": [
+        {
+          "input_tokens": 14974,
+          "cached_input_tokens": 9728,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2868,
+          "reasoning_output_tokens": 863
+        }
+      ],
+      "followup_prompts": 0,
+      "output_present": true,
+      "completed_item_types": [
+        "error",
+        "agent_message"
+      ],
+      "tool_calls_observed": 0,
+      "usage_scope": "Codex turn.completed usage; not a bill or backend HTTP-attempt log"
+    }
+  ]
+}
