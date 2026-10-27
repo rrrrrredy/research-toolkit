@@ -6,6 +6,13 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.11 — 2026-10-27
+
+- Distribute PR #114's fix: registered source IDs explicitly referenced in `counter_evidence` now include their original text in review input and the existing version binding, even when not separately supplied in `evidence_paths`.
+- Reuse source selection, local reading, deduplication and revision handling. Free text remains supported; no new fields, calls or review steps. Synchronize English, Chinese and plugin copies, preserving original reports and historical inputs.
+- Publish matching [release notes](docs/releases/v1.4.11.md), version metadata and plugin ZIP. Reuse PR #114's targeted verification and passing CI; do not rerun research tasks or already-passed local behavior checks.
+- The constructed before/after case confirms counter-source text inclusion and version binding. Improved research quality, fewer report errors, reduced rework and time savings remain unverified.
+
 ## v1.4.10 — 2026-10-27
 
 - Distribute PR #112's guidance changes: count report length only when the task has a length constraint or delivery requires a count; replace the fixed per-unit review cycle with confirmed-defect correction, affected-content checks and the task's declared review requirements.
