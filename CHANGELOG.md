@@ -6,6 +6,13 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.10 — 2026-10-27
+
+- Distribute PR #112's guidance changes: count report length only when the task has a length constraint or delivery requires a count; replace the fixed per-unit review cycle with confirmed-defect correction, affected-content checks and the task's declared review requirements.
+- Reuse section selection so `start`, `status` and `guide` return guidance for the current stage. Keep complete examples and state details available through links; preserve example prose, original reports, historical records, public interfaces and saved-task behavior.
+- Synchronize bilingual [release notes](docs/releases/v1.4.10.md), version metadata and the plugin ZIP. PR #112's CI passed, including Windows MCP after a one-line diagnostic-output encoding fix. Reuse that verification; no research reruns or new model comparisons.
+- Reduced default guidance content is an observed return-size change, not evidence of improved research quality, reduced rework or overall speedup. Those benefits remain unverified.
+
 ## v1.4.9 — 2026-10-27
 
 - Distribute PR #110's three optional research-choice examples: develop the link from downtime observations to procurement value, remove repeated writing advice from an RFQ answer, and revise a storage recommendation when constructed follow-up requirements change its premises. Synchronize English, Chinese and plugin copies; retain original reports and historical records.
