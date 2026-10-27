@@ -6,6 +6,13 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.12 — 2026-10-27
+
+- Distribute PR #116's fix: source updates now retain claims linked only through registered IDs in `counter_evidence`. `save`, `status` and registered release-log queries share the existing association and passage-location path.
+- Reuse the review-input source-ID rules, literal locations, adjacent text and context deduplication. Synchronize English, Chinese and plugin copies without new fields, calls or completion requirements; preserve original reports and historical records.
+- Publish matching [release notes](docs/releases/v1.4.12.md), version metadata and plugin ZIP. Reuse the completed focused checks and PR #116's passing CI; no research or already-passed local behavior checks are rerun.
+- The controlled replay returned two previously omitted counter-evidence associations while retaining the supporting association. Release-log verification used saved synthetic material, not live reading. Improved research quality, reduced rework and time savings remain unverified.
+
 ## v1.4.11 — 2026-10-27
 
 - Distribute PR #114's fix: registered source IDs explicitly referenced in `counter_evidence` now include their original text in review input and the existing version binding, even when not separately supplied in `evidence_paths`.
