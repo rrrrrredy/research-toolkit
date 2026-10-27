@@ -6,6 +6,13 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.7 — 2026-10-27
+
+- Ship PR #106's draft protection fix: check both the supplied path and the resolved target before writing a batch, preventing task-local links from redirecting draft saves into protected task records. Keep ordinary report saves and links to ordinary report directories working.
+- Correct the English and Chinese quickstart links to the existing Cursor MCP setup and configuration. Synchronize the generated plugin code.
+- Ship PR #105's task-specification guidance: retain the request's purpose, key constraints and meaningful original context; correct summaries or outlines that diverge from the original request or later applicable instructions.
+- Publish matching bilingual [release notes](docs/releases/v1.4.7.md), version metadata and plugin ZIP. Reuse completed verification. Real Windows directory-junction behavior was verified; the file-symlink case remains unverified because creation failed with WinError 1314. Research-quality and reduced-omission benefits of the guidance remain unverified.
+
 ## v1.4.6 — 2026-10-26
 
 - Ship PR #103's depth-planning guidance: develop the argument from the user's questions, relevant evidence and reasoning, then allocate space. Compress repeated reminders while preserving task-specific length and format requirements.
