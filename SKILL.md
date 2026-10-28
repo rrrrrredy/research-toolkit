@@ -43,8 +43,8 @@ For long-form and in-depth research, use the existing methods to plan the questi
 | --- | --- |
 | Understand requirements and plan research depth | [Research brief and task specification](references/research-workflow.md#1-research-brief-gate); [depth planning](references/research-workflow.md#7-depth-planning) |
 | Read sources and develop supported judgments | [Sources and claims](references/research-standard.md#8-source-and-claim-discipline) |
-| Choose ways to compare, explain or develop a recommendation | [Optional analysis lenses](references/optional-analysis-lenses.md); [horizontal and vertical analysis](references/horizontal-vertical-analysis.md) when useful |
-| Draft, edit and preserve analytical depth | [Writing style](references/writing-style.md); [working loop](references/research-standard.md#7-operating-loop) |
+| Compare differences, explain causes, synthesize material or recommend | [Apply methods to the question](references/optional-analysis-lenses.md#applying-methods-to-the-question); [horizontal and vertical analysis](references/horizontal-vertical-analysis.md) when useful |
+| Draft, edit and organize a complete report | [Writing style](references/writing-style.md); [assembly and whole-report example](references/research-workflow.md#9-assembly) |
 | Continue or revise existing work | [Task continuity](references/task-continuity.md) |
 | Conduct the agreed review | [Review roles and methods](references/subagents-and-review-loop.md); for CLI/MCP-managed reviews, [review records](docs/review-completion.md#conduct-the-selected-review) |
 | Complete research delivery | [Quality gates](references/quality-gates.md); for CLI/MCP-managed delivery, [delivery details](docs/delivery-verification.md#research-delivery-completion) |

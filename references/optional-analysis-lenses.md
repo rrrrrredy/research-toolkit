@@ -15,6 +15,34 @@ Ask:
 - What kind of claim is the report making?
 - Which lens would change the answer, not merely add decoration?
 
+## Applying methods to the question
+
+Choose the approaches that help answer the current question and combine them when useful. They are not sequential steps or required sections. Domain lenses follow below; see [assembly](research-workflow.md#9-assembly) for organizing a complete report.
+
+### Compare: what does the difference change?
+
+Choose dimensions around the options or phenomena the reader needs to distinguish, and explain each object against that same question. Shared capabilities may show that a feature no longer differentiates the options. Differences need consequences: conditions for adoption, sources of cost or divisions of responsibility. Retain concrete designs and facts that affect the judgment instead of converting each table cell into a sentence.
+
+Where evidence is uneven, compare what it supports and identify which differences remain unresolved. Explain the comparable scope of results with different populations, dates, units or measurement conditions. Another sample's accuracy cannot complete a throughput comparison, and separately achieved metrics do not establish that one option meets all requirements together.
+
+### Explain: what conditions produce the outcome?
+
+Connect relevant conditions, actions and outcomes, explaining how the intermediate steps work. Compare possible explanations against specific material: which facts make one explanation more convincing than another? For example, increased adoption may relate to capability, price or distribution changes. Coincidence is a lead; user behavior, timing or other discriminating evidence is needed to distinguish the explanations.
+
+Treat an explanation as revisable and change it when the material does not support it. Develop historical turning points that explain the current question, using [historical and comparative analysis](horizontal-vertical-analysis.md) when useful. When causes cannot be distinguished, explain what relationship is known and what remains unknown, while answering other supported questions.
+
+### Synthesize: what do the sources establish together?
+
+Bring facts addressing the same question together. Determine whether they support each other, expose a trade-off, or appear to conflict because their objects, periods or definitions differ. Identify which cases support a cross-case pattern; unexplained differences may narrow its scope or become an important finding. Multiple articles repeating one original claim do not add independent support.
+
+A synthesis passage should advance the reader's understanding: what the preceding sections jointly support, which conditions explain divergence, and how this answers the original question. Retain the sources and conditions used in that reasoning. Neither source volume nor a forceful conclusion establishes depth.
+
+### Recommend: why choose this path?
+
+When the task calls for a choice, distinguish currently feasible options from conditional ones, then explain trade-offs against the user's objectives. Compare cost, performance and timing within the same delivery scope, and explain whether an advantage changes the choice. Forecast demand, proposed discounts and unconfirmed upgrades can inform scenarios; state which changes in conditions would change the recommendation.
+
+Example from the existing [synthetic SaaS materials](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-19-external-batches/tasks/open-weight-saas-lockin-en-20261017-retest/sources): S4 reports 81% versus 76% exact-match success on 500 tasks for a closed model and OW-A, with list inference prices of $4.20 versus $1.10 per 1,000 tasks. S2 says only 2 of 11 advisory-board members have MLOps capacity; others want vendor-managed options. This supports comparing vendor-managed open-weight deployment, rather than recommending customer self-hosting from price alone. Whether switching is worthwhile depends on the success-rate gap and operating/error-handling costs absent from the pack. These are synthetic inputs, not market findings.
+
 ## Framing And Category Analysis
 
 Use when the topic involves positioning, legitimacy, category creation, belief formation, media translation, strategic communication, or public meaning.
@@ -113,16 +141,3 @@ Questions:
 - Which examples contradict the main thesis?
 - Which claims are company PR, investor hope, or media amplification?
 - What would make the conclusion wrong?
-
-
-## Applying methods to the question
-
-Use the relevant approaches; these are not required report sections.
-
-- **Compare objects:** choose dimensions that matter to the question and explain the differences. Keep populations, treatment/correction status, dates and units comparable; another sample's accuracy cannot complete a throughput comparison. Joint requirements must hold for the same delivery process.
-- **Explain development or differences:** use [historical and comparative analysis](horizontal-vertical-analysis.md) where useful to connect choices, constraints, turning points and outcomes. Weigh alternative explanations; distinguish a proposed mechanism from an established cause, and an undocumented difference from an observed change.
-- **Make a choice:** compare options that meet all current hard requirements, using consistent total costs, capacity, dates and thresholds. Explain the trade-off and what would change the recommendation. Forecast demand, proposed discounts, exceptions and future upgrades remain conditional, not proof of current eligibility. Allow time to obtain quotes and performance evidence before expansion becomes urgent.
-
-Ground decisive claims in source passages: who said what, when, observed or expected, example or population, and direction of the relationship. Distinguish facts, attributed claims, interpretations, recommendations and assumptions. Rates need a denominator and suitable sample. Seek counterevidence; missing evidence limits the affected judgment without proving its opposite or blocking other supported analysis.
-
-Example from the existing [synthetic SaaS materials](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-19-external-batches/tasks/open-weight-saas-lockin-en-20261017-retest/sources): S4 reports 81% versus 76% exact-match success on 500 tasks for a closed model and OW-A, with list inference prices of $4.20 versus $1.10 per 1,000 tasks. S2 says only 2 of 11 advisory-board members have MLOps capacity; others want vendor-managed options. This supports comparing vendor-managed open-weight deployment, rather than recommending customer self-hosting from price alone. Whether switching is worthwhile depends on the success-rate gap and operating/error-handling costs absent from the pack. These are synthetic inputs, not market findings.

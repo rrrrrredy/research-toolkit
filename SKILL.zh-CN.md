@@ -43,8 +43,8 @@ description: "用于有据研究、分析、报告修订与资料更新。理解
 | --- | --- |
 | 理解需求、规划研究深度 | [研究需求与任务规格](references/research-workflow.zh-CN.md#1-明确研究需求)；[深度规划](references/research-workflow.zh-CN.md#7-深度规划) |
 | 阅读来源、形成有支持的判断 | [来源与主张](references/research-standard.zh-CN.md#8-来源与主张) |
-| 选择比较、解释或提出建议的方法 | [可选分析视角](references/optional-analysis-lenses.zh-CN.md)；需要时读[纵横分析](references/horizontal-vertical-analysis.zh-CN.md) |
-| 起草、编辑并保留分析深度 | [写作风格](references/writing-style.zh-CN.md)；[工作循环](references/research-standard.zh-CN.md#7-工作循环) |
+| 比较差异、解释原因、综合材料或提出建议 | [按问题运用方法](references/optional-analysis-lenses.zh-CN.md#按问题运用方法)；需要时读[纵横分析](references/horizontal-vertical-analysis.zh-CN.md) |
+| 起草、编辑并组织完整报告 | [写作风格](references/writing-style.zh-CN.md)；[组稿与整篇示范](references/research-workflow.zh-CN.md#9-组稿) |
 | 接续或修订已有研究 | [任务接续](references/task-continuity.zh-CN.md) |
 | 执行任务约定的评审 | [评审角色与方法](references/subagents-and-review-loop.zh-CN.md)；采用 CLI／MCP 管理评审时读[评审记录](docs/review-completion.zh-CN.md#执行所选评审) |
 | 完成研究交付 | [质量关卡](references/quality-gates.zh-CN.md)；采用 CLI／MCP 管理交付时读[交付细节](docs/delivery-verification.zh-CN.md#完成研究交付) |

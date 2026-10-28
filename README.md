@@ -31,20 +31,18 @@ For a first use, start directly with the Skill. Add task tools when persistent s
 
 ## Quick start
 
-Send this request to an agent that can read the repository and your sources. No installation is needed to use the methods directly.
+Describe your question or requested revision in your own words to an agent that can read the repository and sources. The example below is a starting point; you do not need to fill in undecided details. The agent uses existing context to propose an approach and clarifies only consequential gaps. No installation is needed to use the methods directly.
 
 ```text
 Use Research Toolkit: https://github.com/rrrrrredy/research-toolkit
 Read SKILL.md and follow the methods needed for this task.
 
-Question or revision request: [Include the audience and intended use.]
-Scope and length: [Include the information cutoff and counting unit.]
-Material: [Attach sources, links or an existing report, if available.]
+I want to understand or resolve: [The question, or what to change in an existing report.]
+Audience and purpose: [Who will read it and why, if known.]
+Material and explicit requirements: [Sources, scope, cutoff, format or length, if available.]
 
-Use the complete research methods as needed to develop evidence, comparisons, explanations and judgments.
-Deliver the complete report with usable citations; include a short change note
-when revising. Reuse existing material and notes, preserve what continuation
-needs, and state the checks performed.
+Deliver a complete report that answers these questions with usable citations;
+include a short change note when revising.
 ```
 
 [**Start research: one usage guide**](./docs/quickstart.md)
