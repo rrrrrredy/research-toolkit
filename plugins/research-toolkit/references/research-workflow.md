@@ -22,7 +22,7 @@ Establish the following from context; this is an internal planning checklist, no
 
 Ask only about consequential choices that cannot be inferred. Name the actual alternatives and explain how they change the result; do not ask users to define scope or choose a depth label. Consolidate necessary questions and do not repeat answered ones. If the context is sufficient, state the proposed coverage and proceed without an extra confirmation. Keep user requirements and agent-proposed defaults distinct. An unanswered critical choice keeps dependent work pending; continue unaffected work and keep reasonable non-critical defaults with the existing brief or notes.
 
-For example, when a domestic and overseas Personal Agent study is already intended as industry research: “I will compare representative products, the tasks they can complete, pricing and availability limits, then explain their competitive differences and what may sustain adoption. You will receive a Chinese report with product comparisons, industry judgments and source links.” Ask further only if an unresolved choice would change that plan; this example is not a required report template.
+For example, a domestic and overseas Personal Agent study may need to explain competitive differences and adoption conditions for an industry reader, or choose a product within a buyer's usage and deployment constraints. When context establishes the purpose, propose the research focus from it. Ask about intended use only when that distinction would change the result and context does not resolve it. Turning “understand the competitive landscape” into “select the best product” changes the assignment. See the [whole-report example](#example-organizing-the-eight-company-study-into-an-argument) for how requirements affect source selection and report organization.
 
 ## 2. Task Specification
 
@@ -212,31 +212,38 @@ The example retains specific designs, explains how they change what is being com
 
 ## 8. Staged Execution
 
-For each stage:
-
-1. Plan the stage: scope, inputs, output, done criteria.
-2. Execute: collect, process, analyze, or draft.
-3. Review: coverage, evidence, structure, skepticism, and reader experience where appropriate.
-4. Revise: check findings against the task, current text, and evidence; batch necessary corrections and record reasons for no-change decisions.
-5. Update state: progress, findings, sources, claims, uncertainty, next action.
-
-Do not treat a partial-stage pass as whole-project completion.
+Organize reading, analysis or writing around the unresolved question, using the [operating loop](research-standard.md#7-operating-loop). A stage identifies the work in progress; entering it does not automatically start a planning, drafting, review and revision cycle. CLI/MCP-managed tasks retain their state and completion contract. Local completion does not establish completion of the whole task.
 
 ## 9. Assembly
 
-Choose a structure around the task’s argument and delivery constraints. The following are possible elements, not eight required sections:
+Identify the question each part of the existing draft or outline actually answers, then organize the report around the relationships the reader needs to understand them. Earlier facts can support later explanations; passages answering the same question may be combined, while missing reasoning needs development. When evidence changes the initial judgment, adjust the outline and conclusion rather than selecting material to fit the original idea.
 
-1. core insights or executive summary
-2. scope and method note
-3. main analytical sections
-4. cross-case synthesis
-5. counter-evidence and uncertainty
-6. implications
-7. conclusion
-8. reader-facing references
+A multi-object study must retain the requested objects and dimensions while explaining their relationships. Establish shared background once, retain facts showing distinctive mechanisms in named sections, and use cross-object analysis to explain which differences affect the overall judgment. For objects with limited evidence, state what can be answered rather than filling gaps with another company's facts. Allocate space by importance and complexity while completing required coverage.
 
-Use the requested citation form. Inline links can supply references; add an appendix only when requested or useful within the brief. A request for no appendix or a compact answer takes precedence over these examples.
+Synthesis builds on reasoning developed in the body: what the sections jointly support, which conditions explain divergence, and what that means for the original question. Use this to present the answer in the opening and ending. Re-listing section conclusions adds little, and a separate synthesis section is not always needed. Facts, inferences and recommendations retain their meanings throughout; qualifications that affect a conclusion stay with that judgment.
 
-If the draft reads like a list of sources, rewrite around mechanisms, causality, comparison, and implications.
+Use or combine core insights, scope, analysis, counterevidence, implications and references as the task needs. Follow the agreed citation form; inline links can supply references, and appendices belong only where permitted and useful. Preserve an existing structure that answers the question well rather than rewriting the whole report to apply this method.
 
 For multi-turn revisions and stale projects, follow [task continuity](task-continuity.md), reusing this task’s specification, requirements and state without a second tracker.
+
+### Example: Organizing the Eight-Company Study into an Argument
+
+This explanation reuses the [archived pipeline study](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/repairs/2026-10-13-pipeline-complete); it is not new research or a new effect comparison. Paraphrasing the task and its review records: how do data, training, infrastructure, evaluation and organization work together in eight model companies, and what changes with agents? The answer needs both coverage of the companies and their differences.
+
+The [original draft](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/versions/01-report.zh-CN.md) already had a pipeline overview, an eight-company comparison, data and annotation, training/infrastructure/evaluation, and harness/coding-agent sections. [Findings F01–F03 of the first review](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/reviews/01-review.json) still identified omitted organizational responsibilities available in the sources, an undeveloped explanation of serving changes, and task-process narration in the body. The [revision](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/report.zh-CN.md) kept the main structure and developed those answers. Having the sections did not solve the problem, and repairing it did not require a new table of contents.
+
+| Existing part | Role in the report's argument and location of the repair |
+| --- | --- |
+| Pipeline overview | Explains dependencies among data, training, evaluation and deployment as shared background for company differences; technical functions do not automatically imply separate departments. |
+| Eight-company comparison | Retains all eight companies and their release nodes; adds existing evidence such as Google's internal evaluation responsibilities outside the development team and Kimi's data-team work on instructions and criteria, making organization and division of work concrete. |
+| Data and annotation; training, infrastructure and evaluation | Moves from company facts to handoffs and collaboration: how task criteria inform training feedback and how release evaluations inform decisions. Engineering recommendations remain distinct from disclosed organizational facts. |
+| Harness and coding agents | Explains why stateful execution extends the analysis to environments and complete tasks; the revision adds serving trade-offs involving thinking budgets, tool waits and total task cost, building on the preceding training and delivery questions. |
+| Core points and uncertainty | Answers what differentiates the companies and which organizational arrangements may be useful, retaining historical dates and undisclosed matters; it does not present the recommendations as a system shared by all eight companies. |
+
+For example, a company passage about Kimi's task criteria can lead into cross-company analysis of evaluation. The two paragraphs below are a teaching transition based on the archived report and [sources S02 and S05](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md). They do not replace the historical report:
+
+> Kimi K2's data team writes complex conditional instructions and task criteria; training combines verifiable feedback with model evaluation. Data work therefore extends to deciding which behavior is worth learning: task definitions and judgments of outcomes affect which trajectories enter training. [Kimi material](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s05)
+>
+> Those criteria address training feedback. Release evaluation also has to establish whether a product can be delivered. Claude 4's disclosed release process explains how evaluation findings enter release responsibility and decisions. Read together, these materials distinguish feedback used for learning from evidence used for release decisions; they do not establish that the two companies have the same internal division of work. For organizational design, the implication is to specify who uses evaluation results and which decisions those results inform. [Claude material](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-pipeline-complete/sources.md#s02)
+
+The first passage supplies a named mechanism; the next uses another source to explain a difference in function and develop a recommendation. Build such relationships around the actual research question rather than copying these company pairings or section order.

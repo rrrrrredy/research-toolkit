@@ -7,7 +7,7 @@ Give the request below to an agent that can read files and research sources. The
 
 ## 1. Copy the request and begin
 
-This example is ready to start. For your own question, also change the audience, scope, available material and length.
+Describe what you want researched, who it is for, why it is needed, and any available material or explicit constraints. You need not write execution steps for the agent. The selection example below has established requirements; keep the conditions your own task needs rather than filling in as many fields.
 
 ```text
 Use Research Toolkit. Read SKILL.md:
@@ -24,18 +24,13 @@ as assumptions to verify, and make conditional recommendations.
 Deliver final.md with 3000–4000 whitespace-delimited words across the
 whole file, including headings, Markdown, citations and references.
 
-Establish the brief and outline, research and read sources, and connect
-important judgments to their actual support. Develop evidence, comparisons and
-counterevidence by section, with concrete recommendations and first steps.
-Complete the agreed author checks. Use a separate review context when
-independent review is required; do not add review rounds automatically. Fix concrete findings and recheck affected content, then deliver
-the complete report. Cite source titles and URLs, reuse existing material
-and notes, and preserve what continuation needs. If CLI/MCP task management
-has been selected, use it for saving and delivery; otherwise apply the
-research methods directly.
+Explain the differences and reasons for choosing a route, with concrete
+recommendations and first steps. Cite source titles and URLs in the report.
 ```
 
 3000–4000 words is this example's agreement, not a universal research minimum. Use existing questions and material directly; clarify only gaps that affect the research. If the agent cannot read GitHub, supply `SKILL.md` and the required references from a [downloaded copy](https://github.com/rrrrrredy/research-toolkit/archive/refs/heads/main.zip).
+
+The Skill guides the agent to infer purpose from context, retain requirements and ask when needed; the host agent performs that interpretation. CLI/MCP saves the requirements it assembles and reports missing fields. It does not choose the research purpose for the user or establish understanding merely because fields are filled. Users supply consequential decisions that depend on their needs.
 
 ## 2. Use your existing agent
 

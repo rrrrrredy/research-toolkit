@@ -6,6 +6,14 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.14 — 2026-10-28
+
+- Develop the existing analysis guidance into concrete approaches to comparison, explanation, synthesis and recommendations; retain optional domain lenses and the archived SaaS example.
+- Expand whole-report assembly using the eight-company pipeline study's original report, revision and review records. Explain how sections support one argument, with an explicitly labeled teaching transition; historical materials remain unchanged.
+- Replace the blanket per-stage planning/drafting/review cycle with work organized around unresolved research questions. Retain agreed checks, tool-managed completion contracts and saved-task compatibility.
+- Simplify README and quickstart requests so users express their questions, purpose and constraints. Clarify that the host agent interprets intent while CLI/MCP stores requirements and reports missing fields. Synchronize English, Chinese, plugin copies and website method pages.
+- Publish matching [release notes](docs/releases/v1.4.14.md) and plugin package. Reuse completed documentation checks; no new research runs or model comparisons. Improved research quality, intent recognition and user effort remain unmeasured.
+
 ## v1.4.13 — 2026-10-28
 
 - Distribute PR #119: Skill-only research no longer defaults to tool task files, CSV/JSONL registries or delivery receipts. Reuse conversations, material, citations and existing notes as needed. Required reading, research depth, instruction following and agreed reviews remain; CLI/MCP-managed contracts and saved-task compatibility are unchanged.

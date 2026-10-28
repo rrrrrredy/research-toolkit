@@ -140,19 +140,13 @@ The agent owns gathering the brief, reading applicable methods, maintaining reco
 
 ## 7. Operating Loop
 
-For each stage:
+Organize reading, analysis and writing around unresolved research questions. Read relevant sources when drafting exposes missing support; revise the affected reasoning when new material changes a judgment; develop the answer directly when the material is sufficient. Use the [comparison, explanation, synthesis and recommendation methods](optional-analysis-lenses.md#applying-methods-to-the-question) as needed, retaining useful judgments in the existing outline or analysis notes.
 
-1. Run the research brief gate, then plan the scope, inputs, output, and done criteria.
-2. Collect or process only the sources needed for that stage.
-3. Convert sources into claims, uncertainty, and analysis notes.
-4. Draft a bounded section or unit.
-5. Review the section for evidence, coverage, structure, skepticism, and prose.
-6. Revise the section and any affected evidence notes or managed records.
-7. Identify what remains and continue from there.
+Check relevant aspects of consequential judgments, existing drafts or identified problems, and correct the affected content. Complete the task's agreed whole-report author checks and reviews. Reading a source, entering a stage or completing a unit does not automatically trigger another review. Preserve what continuation needs; tool-managed tasks retain their existing contract.
 
 When work stops contributing relevant evidence or analysis, identify the unresolved question and whether a different source, method or explanation could answer it. Change or stop an unproductive approach based on that judgment and the task's constraints, not a fixed search or cycle count. Preserve unresolved required work. The existing `stale_count` field remains compatible but need not be updated after each cycle and does not decide when to stop.
 
-For longform deliverables, do not use source count, claim count, link count, or file size as completion substitutes. They are backend health signals, not proof that the finished report has enough depth. Before final assembly, compare the draft against the depth budget and expand thin units before reader review.
+Source counts, claim counts, link counts and file size describe backstage activity, not depth. For long reports, use [assembly guidance](research-workflow.md#9-assembly) to connect the answers across sections and develop missing reasoning. Fragments and short answers follow their own task and length requirements.
 
 ## 8. Source And Claim Discipline
 

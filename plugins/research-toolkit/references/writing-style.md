@@ -12,16 +12,7 @@ Write for the audience, genre and style specified in the brief. Explain judgment
 
 ## Structure
 
-For long reports, prefer:
-
-1. conclusion-first key insights
-2. scope note
-3. sections organized by argument, case, company, period, or mechanism
-4. synthesis section that does more than summarize
-5. counter-evidence or boundary section
-6. reader-facing reference appendix
-
-Do not make the article follow the order in which sources were collected.
+Organize the text around the reader's questions, retaining the required coverage and format rather than following source-collection order. For organizing a long report, connecting section arguments or reducing repeated introductions, consult [assembly and the whole-report example](research-workflow.md#9-assembly) as needed. Use the rest of this page for prose and paragraph edits.
 
 ## Length And Decision Usefulness
 
