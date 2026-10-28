@@ -48,8 +48,8 @@ If the migration imports this framework into a nested imports folder, you can us
 - Hermes supports skills as procedural memory; this framework should remain an instruction bundle, not a plugin or core tool.
 - Installed skills are available as slash commands. Use `/skills` to inspect the catalog, then invoke the skill by its installed name when useful.
 - Use `hermes model` and `hermes tools` normally, but do not make this framework depend on a specific provider.
-- Keep `state/`, `logs/`, `data/`, drafts, and final reports in the research project workspace.
-- For messaging-gateway use, ask Hermes to summarize and persist `state/progress.json` after each stage so long tasks survive across conversations.
+- Keep research outputs in the project workspace, separate from the installed Skill. Fixed state directories apply only when using CLI/MCP task management.
+- For messaging-gateway work that crosses sessions, the agent preserves effective requirements, the draft and unfinished work using existing material or notes; it need not create `progress.json` for Skill-only use.
 
 ## 中文提示
 

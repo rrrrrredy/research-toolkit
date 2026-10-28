@@ -2,6 +2,8 @@
 
 [English](review-completion.md) | [简体中文](review-completion.zh-CN.md)
 
+本记录接口用于 CLI／MCP 管理的评审及明确要求它的研究。纯 Skill 可在已有对话或文件中保留实质反馈及对应稿件版本，无需创建这些 JSON 记录。
+
 [SKILL.md](../SKILL.md) 规定必需行为。本页说明模型评审、有效性核查、发现处置和抽查的离线记录接口。具体审查方法见[角色与工作规范](../references/subagents-and-review-loop.zh-CN.md)。
 
 

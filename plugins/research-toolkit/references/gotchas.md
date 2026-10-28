@@ -48,8 +48,8 @@ Repair:
 
 1. Reopen the canonical stage that owns the blocking issue.
 2. Reconcile every material follow-up requirement. Missing promised work stays open until completed or specifically changed by the user; a disclosed limitation does not supply that decision.
-3. Inspect the intended delivery message alongside current state, then run `scripts/check_delivery.py` when available.
-4. Check that the global review actually covers the current report, then check the delivery receipt. Preserve local-review scope and disclose material limitations. Current record checks still do not certify reading or prose quality.
+3. Inspect the intended delivery message alongside current state, then use the existing delivery check for CLI/MCP-managed tasks.
+4. Check that the agreed review covers the current report; check a delivery receipt when using tool-managed delivery. Preserve local-review scope and disclose material limitations. Current record checks still do not certify reading or prose quality.
 
 Eval signal: completion language appears before the last material requirement turn; progress is non-final or noncanonical; blockers remain; review scope is local; limitations are hidden; or receipt hashes are stale.
 
@@ -71,7 +71,7 @@ Symptom: the report is concise and clean, but central units are compressed or ge
 
 Repair:
 
-1. Re-read the depth budget in `task_spec.md`.
+1. Re-read the agreed depth in the original request or existing plan.
 2. Identify thin units by section, company, period, mechanism, or case.
 3. Expand the units with mechanisms, examples, counter-evidence, and implications before reader cleanup.
 

@@ -8,7 +8,24 @@
 
 Use it for industry research, product comparisons, company analysis and technical research. Start a new study, revise an existing report against its sources, or update conclusions when new material arrives. Your agent researches and writes; Toolkit supplies the methods and optional workflow tools.
 
-[**Start here**](#quick-start) · [See a research case](#research-case) · [Agent setup](#agent-setup) · [Documentation](#documentation)
+[**Choose an entry**](#which-should-i-use) · [Start research](#quick-start) · [See a research case](#research-case) · [Documentation](#documentation)
+
+## Which should I use?
+
+**The Skill provides research methods, CLI and MCP expose the same local tools, and the plugin bundles the Skill with MCP.** These are not four research methods or separate choices for briefs, long reports or research depth.
+
+| Your situation | What to use or install | How to start |
+| --- | --- | --- |
+| You want your existing agent to follow the research methods | **Skill**: read the repository directly without installation, or install the Skill for repeated use. No Python or MCP required. | Send the request below; the agent reads methods as needed and uses its existing research and writing capabilities. |
+| You want methods and task tools together, and your host supports plugins | **Plugin**: installs the Skill and MCP together; local tools need Python 3.10+ and MCP dependencies. | Follow the [plugin instructions](./docs/usage-modes.md#install-the-plugin), reopen the session, select Toolkit and describe the research. |
+| You need saved task state, recovery and links between sources and drafts, and your host supports local MCP | **MCP**: configure the local service and use the same Skill for methods. No separate MCP setup is needed if the plugin already supplies it. | Follow the [MCP setup](./docs/usage-modes.md#connect-mcp-separately); the agent calls `research_*` tools. |
+| You work in a terminal or script, or your host has no MCP support | **CLI**: download the repository and use Python 3.10+; no MCP dependencies needed. | The agent reads the same Skill and invokes the same task tools through the [command line](./docs/usage-modes.md#skill-only-and-cli-fallback). |
+
+For a first use, start directly with the Skill. Add task tools when persistent state, tool-managed reviews or delivery checks help the work, not because a report reaches a word count. You do not need to install all four or use them in sequence. Skill-only use supports in-depth long reports without requiring the tools' CSV/JSONL registries or delivery receipts.
+
+**Which tasks fit?** Industry, company, technology and policy research requiring multiple sources, comparison, explanation or supported recommendations; long reports, revisions and continuing updates. A one-page selection brief can need these methods too. Simple factual questions, routine translation or minor wording edits usually need only your existing agent. Toolkit does not supply a search service or replace the agent's access to and reading of sources.
+
+[Research from scratch](./docs/quickstart.md#research-from-scratch) · [Revise or update a report](./docs/quickstart.md#revise-or-update-a-report) · [Install for your host](./agents/README.md#choose-your-tool)
 
 <a id="usage"></a>
 
@@ -26,12 +43,13 @@ Material: [Attach sources, links or an existing report, if available.]
 
 Use the complete research methods as needed to develop evidence, comparisons, explanations and judgments.
 Deliver the complete report with usable citations; include a short change note
-when revising. Maintain working records yourself and state the checks performed.
+when revising. Reuse existing material and notes, preserve what continuation
+needs, and state the checks performed.
 ```
 
 [**Start research: one usage guide**](./docs/quickstart.md)
 
-One method set supports long-form and in-depth research, revisions and updates. The request determines scope, length and depth; the agent loads methods, maintains records and completes agreed checks as needed.
+One method set supports long-form and in-depth research, revisions and updates. The request determines scope, length and depth; the agent loads methods as needed and completes agreed checks.
 
 **Only need to review an existing report?** Use the standalone [Research Review](https://github.com/rrrrrredy/research-review) Skill. Toolkit already includes these review capabilities; existing users do not need a second installation.
 

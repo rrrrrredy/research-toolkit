@@ -41,18 +41,18 @@ Then tell OpenClaw:
 ```text
 Use the research-toolkit skill for this research task.
 Read SKILL.md first. Load references only when the current stage requires them.
-Create state/, logs/, and data/ in the research project folder, not inside the skill folder.
+Keep research outputs in the project workspace, separate from the installed Skill.
 ```
 
 ## Operating Notes
 
 - Keep this repository read-only during ordinary research runs.
-- Use the task workspace for `state/`, `logs/`, `data/`, drafts, and final reports.
+- Keep drafts and reports in the task workspace; fixed state directories apply only to CLI/MCP-managed tasks.
 - This framework does not require `skills.entries.<key>.env` or `skills.entries.<key>.apiKey`; it is an instruction bundle, not a secret-backed tool.
 - If your OpenClaw config uses skill allowlists, allow the skill by its frontmatter name: `research-toolkit`.
 - Skill or config changes may require a new session before every agent sees the refreshed skill snapshot.
 - If OpenClaw has no skill loader in the current environment, paste or attach `SKILL.md` and load `references/` files manually when needed.
-- For long research work, ask OpenClaw to update `state/progress.json` after each stage so the task can recover across sessions.
+- When work needs to continue across sessions, the agent preserves effective requirements, the draft and unfinished work using existing material or notes. Skill-only use does not require `progress.json`; CLI/MCP-managed tasks retain their existing records.
 
 ## 中文提示
 

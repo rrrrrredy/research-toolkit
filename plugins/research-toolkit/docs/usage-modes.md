@@ -17,19 +17,19 @@ No Python or vendor CLI installation is required merely to read and apply the me
 
 ## When to use each tool
 
-**Use the [single research entry](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.md).** The agent loads complete methods as needed, maintains records and completes agreed checks. CLI/MCP are optional; omit `profile` in new requests.
+**Use the [single research entry](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.md).** The agent loads complete methods as needed and completes agreed checks. CLI/MCP are optional; omit `profile` in new requests.
 
-The table applies when you choose the managed local workflow, through MCP **or the [shared CLI](#skill-only-and-cli-fallback)**. Required methods still apply when you read them directly.
+The table applies when you choose the managed local workflow, through MCP **or the [shared CLI](#skill-only-and-cli-fallback)**. Skill-only use keeps the same research requirements without creating these registries or receipts.
 
 | Tool | When it is needed | When you can skip the call |
 | --- | --- | --- |
-| `research_start` | Create a new managed task and its brief using the complete methods, without a profile choice. | Resume an existing task with `research_status`, or keep records yourself without local workflow tools. |
+| `research_start` | Create a new managed task and its brief using the complete methods, without a profile choice. | Resume an existing task with `research_status`, or apply the Skill directly without a managed task. |
 | `research_save` | Save/update sources, claims, requirements and drafts; correct located format errors. | No record or draft changes. |
 | `research_status` | Resume a managed task, inspect saved progress, or change its recorded stage. | You do not need to read or update progress; a methods-only session can use its own notes. |
 | `research_guide` | Retrieve the method for a stage when it is not already available in context. | Read the relevant `SKILL.md` and `references/` files directly. |
 | `research_review` | Complete agreed reviews, including an actual self-review when that is the selected relationship. | Reuse completed reviews with unchanged inputs; retain explicitly required reviews. |
 | `research_check_draft` | Check current draft records and explicit length bounds without model calls or a delivery receipt. | Optional before review/finish; inspect sources and meaning separately. |
-| `research_finish` | Complete a managed task by checking the current report and its delivery requirements. | Without local workflow tools, complete the checklist yourself and return the records without claiming a local receipt. |
+| `research_finish` | Complete a managed task by checking the current report and its delivery requirements. | For Skill-only use, complete the agreed checks and deliver the requested report and citations; no tool receipt is required. |
 | `research_check_reviewer` | Diagnose external backend setup or a configuration failure before attempting review. | Self-review needs no external backend; a separate call is unnecessary when `research_start` has already confirmed the unchanged configuration. |
 
 ## Save research records and drafts
@@ -103,7 +103,7 @@ The call does not overwrite evidence or change reading status, conclusions or de
 
 ## Continue existing research
 
-Provide the report, relevant sources and intended use; the agent maintains the records. Starting from a question remains supported. Two adjacent requests are:
+Provide the report, relevant sources and intended use. Reuse existing material and notes without first reconstructing a tool ledger. Starting from a question remains supported. Two adjacent requests are:
 
 ```text
 Use Research Toolkit to check this report against the related sources,
@@ -120,9 +120,11 @@ Update affected passages, sources and claims; reuse unaffected research.
 Deliver the revised report and change note, refreshing checks invalidated by the changes.
 ```
 
-When continuing a saved task, start with `research_status(task)` and preserve the previous report. Keep existing source, claim and requirement IDs and their reading evidence. Use `research_save` to update only affected records together, registering the saved draft by its existing path; unchanged records need no resubmission. After actually checking a requirement, save its status and concrete evidence with the relevant update. Recheck changed or questioned source sections; reuse still-valid local evidence without fetching it again. Review the complete current report under its selected tier before claiming completion. See the [executed long-report update](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.md) for actual reuse, source-confirmed changes, rework and costs.
+When continuing a CLI/MCP-managed task, start with `research_status(task)` and preserve the previous report. Keep existing source, claim and requirement IDs and their reading evidence. Use `research_save` to update only affected records together, registering the saved draft by its existing path; unchanged records need no resubmission. After actually checking a requirement, save its status and concrete evidence with the relevant update. Recheck changed or questioned source sections; reuse still-valid local evidence without fetching it again. Review the complete current report under its selected tier before claiming completion. See the [executed long-report update](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.md) for actual reuse, source-confirmed changes, rework and costs.
 
 ### When content or sources change
+
+The following calls apply to CLI/MCP-managed tasks.
 
 | Change | Reuse and recheck |
 | --- | --- |

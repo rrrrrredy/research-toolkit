@@ -21,7 +21,7 @@
 </ul>
 <p>The toolkit's state files, source and claim registries, stage reviews, and reader-focused revisions address these problems.</p>
 <h2 id="02-scope-of-the-toolkit">Scope of the Toolkit</h2>
-<p>This repository provides methods, workflows, task records, and checks for substantial research reports. Its protocol specifies the work, records, and checks required at each stage. These can reveal some execution errors; preventing an action depends on the agent and its tools. A theory system, standalone product architecture, and universal modeling language are outside its scope.</p>
+<p>This repository provides methods, workflows, task records, and checks for substantial research reports. The methods guide the research itself; the record contract applies when using CLI/MCP task management. These can reveal some execution errors; preventing an action depends on the agent and its tools. A theory system, standalone product architecture, and universal modeling language are outside its scope.</p>
 <p>Keep inside this repository:</p>
 <ul>
 <li><strong>Process</strong>: research scope calibration, staged execution, source processing, drafting, review, revision, and final cleanup.</li>
@@ -47,7 +47,7 @@
 <p>Research brief gate before collection: ask one compact clarification batch when decision-critical information is missing.</p>
 </li>
 <li>
-<p>State before scale: write task state before expanding source collection.</p>
+<p>Preserve continuity when needed using existing material and notes; a long report does not automatically require fixed-format state files.</p>
 </li>
 <li>
 <p>Evidence is not prose: registries and audit labels stay backstage.</p>
@@ -72,18 +72,18 @@
 </li>
 </ul>
 <h3 id="stage-transitions">Stage Transitions</h3>
-<p>Follow the <a href="https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-standard.md#protocol-contract">state contract</a> for the execution requirements; this README explains them and gives examples.</p>
+<p>For CLI/MCP-managed tasks, follow the <a href="https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-standard.md#protocol-contract">state contract</a>. Skill-only work uses the same research methods without maintaining these machine-readable stage fields.</p>
 <p>The stages are <code>brief -&gt; collect -&gt; analyze -&gt; draft -&gt; review -&gt; revise -&gt; final</code>. Each stage specifies the records to update, checks to pass, and where to return if a check fails. Having a file does not by itself complete a stage. Set <code>final</code> only after every required unit and check passes.</p>
 <h2 id="04-architecture">Architecture</h2>
 <pre><code class="language-text">Main Agent
   owns thesis, structure, final judgment
 
 Research Backend
-  state files
-  source registry
-  claim registry
-  uncertainty list
-  review logs
+  brief and existing notes
+  source material
+  supported judgments
+  uncertainty
+  review feedback
 
 Publishing Frontend
   thesis
@@ -95,26 +95,8 @@ Publishing Frontend
 </code></pre>
 <p>Subagents may inspect or challenge bounded parts of the backend, but the main agent owns the argument and final prose.</p>
 <h2 id="05-state-file-system">State File System</h2>
-<pre><code class="language-text">{task}/state/
-  task_spec.md
-  progress.json
-
-{task}/logs/
-  review.jsonl
-
-{task}/data/
-  source_registry.csv
-  claims_registry.csv
-</code></pre>
-<p>Use state files to recover after context loss. Do not rely on chat history as the only memory.</p>
-<p>Keep <code>state/findings.jsonl</code>, <code>state/directions_tried.json</code>, <code>state/iteration_log.jsonl</code> and <code>logs/work.jsonl</code> only when they help the task. They are optional history, not delivery prerequisites. Uncertainty can stay with the claims; a separate <code>data/uncertainty_registry.csv</code> is optional.</p>
-<p>Recovery protocol:</p>
-<ul>
-<li>Read <code>state/task_spec.md</code> for objective, scope, reader, output, depth, evidence standard, and assumptions.</li>
-<li>Read <code>state/progress.json</code> for current stage, status, completed units, open issues, stale_count, and next action.</li>
-<li>Read existing research notes only when they help recover the task; do not create retrospective history.</li>
-<li>Resume from the matching step in the operating loop. Do not re-run completed stages or re-ask an answered research brief.</li>
-</ul>
+<p>Skill-only research reuses the request, materials, citations and existing notes, without creating a fixed set of task files. For resumption or handoff, preserve the effective requirements, current draft, evidence and unfinished work that would otherwise be lost. See <a href="https://github.com/rrrrrredy/research-toolkit/blob/main/references/task-continuity.md">task continuity</a>.</p>
+<p>CLI/MCP-managed tasks use the existing <a href="https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-workflow.md#3-state-system">state layout and fields</a>. Tools maintain them; existing completion requirements remain in effect. Do not reconstruct history or repeat completed work.</p>
 <h2 id="06-questions-to-settle-before-research">Questions to Settle Before Research</h2>
 <p>Before collecting sources, the agent checks the conversation and materials for missing decision-critical information and asks one compact batch about those gaps. There is no question quota. Ask about length or depth if it is missing and cannot be inferred from the requested output; offer concrete choices where useful.</p>
 <p>Ask only for missing critical information:</p>
@@ -127,7 +109,7 @@ Publishing Frontend
 <li>required sources or materials, source exclusions, and evidence standard</li>
 <li>time period, geography, deadline, and whether charts/tables are expected</li>
 </ul>
-<p>If enough context is available, proceed without repeating questions. Keep work that depends on an unanswered critical decision pending; continue unaffected work. Record non-critical defaults or decisions the user has delegated in <code>task_spec.md</code>. The agent owns reading the methods, tracking progress, executing reviews, recovering failures, and checking completion; users supply research decisions and necessary access.</p>
+<p>If enough context is available, proceed without repeating questions. Keep work that depends on an unanswered critical decision pending; continue unaffected work. Keep non-critical defaults or delegated decisions with the existing brief or notes. The agent owns reading the methods, tracking progress, executing reviews, recovering failures, and checking completion; users supply research decisions and necessary access.</p>
 <h2 id="07-section-by-section-research-and-revision">Section-by-Section Research and Revision</h2>
 <ul>
 <li>Run the research brief gate, then plan the scope, inputs, output, and done criteria.</li>
@@ -135,7 +117,7 @@ Publishing Frontend
 <li>Convert sources into claims, uncertainty, and analysis notes.</li>
 <li>Draft a bounded section or unit.</li>
 <li>Review the section for evidence, coverage, structure, skepticism, and prose.</li>
-<li>Revise the section and registries.</li>
+<li>Revise the section and any affected notes or managed records.</li>
 <li>Update progress and define the next stage.</li>
 </ul>
 <p>When work stops adding useful evidence or analysis, identify the unresolved question and whether a different source or approach could answer it. Change or stop unproductive work according to the question and task constraints, without fixed cycle counts. Existing <code>stale_count</code> records remain compatible; they do not require per-cycle bookkeeping or determine completion.</p>
@@ -197,10 +179,10 @@ Publishing Frontend
 <h2 id="12-execution-guardrails">Execution Guardrails</h2>
 <ul>
 <li>Continue collection where it could resolve an important open question; change or stop unproductive directions when further work is unlikely to help. Preserve unresolved requirements and relevant access limits.</li>
-<li>If <code>source_registry.csv</code> grows while <code>claims_registry.csv</code> stays thin, pause collection and extract claims.</li>
+<li>If collected material grows without useful judgments, pause collection and extract claims.</li>
 <li>Correct concrete defects and recheck affected content. Stop when the agreed requirements are satisfied; if revisions stall, change the approach or deliver an accurate checkpoint with unresolved work. Do not add rounds for unchanged content.</li>
 <li>Before reader review, compare the draft against the depth budget and expand thin units.</li>
-<li>If new work falls outside <code>task_spec.md</code>, record it as a proposed extension and ask before expanding.</li>
+<li>If new work falls outside the agreed scope, record it as a proposed extension and ask before expanding.</li>
 <li>Subagent prompts must ask reviewers to actively look for issues; if no issue is found, they must explain the basis for PASS.</li>
 </ul>
 <p>Coverage, analytical dimensions and depth follow the user's needs, the question and the evidence. Bookkeeping and review support that work; fixed counts or intervals are not research requirements. See the <a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-roadmap.md">evaluation roadmap</a> for the evidence limits and planned validation.</p>
@@ -247,7 +229,9 @@ Turn those needs into a concrete approach and proceed when the context is suffic
 
 Carry follow-up instructions into the actual research and report. Preserve requirements that remain valid and useful work already completed. For continuing work, read the relevant parts of [task continuity](references/task-continuity.md).
 
-The agent chooses and reads methods, organizes the work, maintains the necessary records, handles tool errors and completes the selected checks. Do not ask the user to remind you to summarize progress, run checks or manage internal files.
+The agent chooses and reads methods, organizes the work, handles tool errors and completes the selected checks. Do not ask the user to remind you to summarize progress, run checks or manage internal files.
+
+Using the Skill does not require CLI/MCP task files, registries or receipts. Reuse the conversation, supplied materials, citations and existing notes; preserve requirements, source support and unfinished work where needed for continuation, without duplicating them into a fixed set of files. When using CLI/MCP task management, follow its record contract and let the tools maintain those records. Research depth and agreed checks are the same in either case.
 
 ## Develop the answer
 
@@ -272,8 +256,8 @@ For long-form and in-depth research, use the existing methods to plan the questi
 | Choose ways to compare, explain or develop a recommendation | [Optional analysis lenses](references/optional-analysis-lenses.md); [horizontal and vertical analysis](references/horizontal-vertical-analysis.md) when useful |
 | Draft, edit and preserve analytical depth | [Writing style](references/writing-style.md); [working loop](references/research-standard.md#7-operating-loop) |
 | Continue or revise existing work | [Task continuity](references/task-continuity.md) |
-| Conduct the agreed review | [Review roles and methods](references/subagents-and-review-loop.md); [review records](docs/review-completion.md#conduct-the-selected-review) |
-| Complete research delivery | [Quality gates](references/quality-gates.md); [delivery details](docs/delivery-verification.md#research-delivery-completion) |
+| Conduct the agreed review | [Review roles and methods](references/subagents-and-review-loop.md); for CLI/MCP-managed reviews, [review records](docs/review-completion.md#conduct-the-selected-review) |
+| Complete research delivery | [Quality gates](references/quality-gates.md); for CLI/MCP-managed delivery, [delivery details](docs/delivery-verification.md#research-delivery-completion) |
 | Use tools or maintain task records | [Save records](docs/usage-modes.md#save-research-records-and-drafts), [CLI](docs/usage-modes.md#skill-only-and-cli-fallback) and [reviewer configuration](docs/usage-modes.md#reviewer-backends), as needed |
 | Diagnose a recurring problem | [Gotchas](references/gotchas.md); [research design lessons](references/postmortem-lessons.md) |
 

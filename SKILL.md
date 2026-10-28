@@ -19,7 +19,9 @@ Turn those needs into a concrete approach and proceed when the context is suffic
 
 Carry follow-up instructions into the actual research and report. Preserve requirements that remain valid and useful work already completed. For continuing work, read the relevant parts of [task continuity](references/task-continuity.md).
 
-The agent chooses and reads methods, organizes the work, maintains the necessary records, handles tool errors and completes the selected checks. Do not ask the user to remind you to summarize progress, run checks or manage internal files.
+The agent chooses and reads methods, organizes the work, handles tool errors and completes the selected checks. Do not ask the user to remind you to summarize progress, run checks or manage internal files.
+
+Using the Skill does not require CLI/MCP task files, registries or receipts. Reuse the conversation, supplied materials, citations and existing notes; preserve requirements, source support and unfinished work where needed for continuation, without duplicating them into a fixed set of files. When using CLI/MCP task management, follow its record contract and let the tools maintain those records. Research depth and agreed checks are the same in either case.
 
 ## Develop the answer
 
@@ -44,8 +46,8 @@ For long-form and in-depth research, use the existing methods to plan the questi
 | Choose ways to compare, explain or develop a recommendation | [Optional analysis lenses](references/optional-analysis-lenses.md); [horizontal and vertical analysis](references/horizontal-vertical-analysis.md) when useful |
 | Draft, edit and preserve analytical depth | [Writing style](references/writing-style.md); [working loop](references/research-standard.md#7-operating-loop) |
 | Continue or revise existing work | [Task continuity](references/task-continuity.md) |
-| Conduct the agreed review | [Review roles and methods](references/subagents-and-review-loop.md); [review records](docs/review-completion.md#conduct-the-selected-review) |
-| Complete research delivery | [Quality gates](references/quality-gates.md); [delivery details](docs/delivery-verification.md#research-delivery-completion) |
+| Conduct the agreed review | [Review roles and methods](references/subagents-and-review-loop.md); for CLI/MCP-managed reviews, [review records](docs/review-completion.md#conduct-the-selected-review) |
+| Complete research delivery | [Quality gates](references/quality-gates.md); for CLI/MCP-managed delivery, [delivery details](docs/delivery-verification.md#research-delivery-completion) |
 | Use tools or maintain task records | [Save records](docs/usage-modes.md#save-research-records-and-drafts), [CLI](docs/usage-modes.md#skill-only-and-cli-fallback) and [reviewer configuration](docs/usage-modes.md#reviewer-backends), as needed |
 | Diagnose a recurring problem | [Gotchas](references/gotchas.md); [research design lessons](references/postmortem-lessons.md) |
 

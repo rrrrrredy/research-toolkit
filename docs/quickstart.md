@@ -24,27 +24,29 @@ as assumptions to verify, and make conditional recommendations.
 Deliver final.md with 3000–4000 whitespace-delimited words across the
 whole file, including headings, Markdown, citations and references.
 
-Establish the brief and outline, research and read sources, and register
-sources and important claims. Develop evidence, comparisons and
+Establish the brief and outline, research and read sources, and connect
+important judgments to their actual support. Develop evidence, comparisons and
 counterevidence by section, with concrete recommendations and first steps.
 Complete the agreed author checks. Use a separate review context when
 independent review is required; do not add review rounds automatically. Fix concrete findings and recheck affected content, then deliver
-the complete report. Retain source/claim records, review findings and revisions
-separately. Cite source titles and URLs in the report.
-Use CLI/MCP for progress, counts and delivery when connected; otherwise
-apply the research methods directly.
+the complete report. Cite source titles and URLs, reuse existing material
+and notes, and preserve what continuation needs. If CLI/MCP task management
+has been selected, use it for saving and delivery; otherwise apply the
+research methods directly.
 ```
 
 3000–4000 words is this example's agreement, not a universal research minimum. Use existing questions and material directly; clarify only gaps that affect the research. If the agent cannot read GitHub, supply `SKILL.md` and the required references from a [downloaded copy](https://github.com/rrrrrredy/research-toolkit/archive/refs/heads/main.zip).
 
 ## 2. Use your existing agent
 
-| Route | Shortest path |
-| --- | --- |
-| Codex: methods directly | Open or provide the repository files and send the request. Research with the agent's existing retrieval, file and context capabilities; MCP installation is optional. |
-| Cursor: local MCP | Follow the [virtual environment setup and MCP configuration](usage-modes.md#connect-mcp-separately), merge the JSON configuration into `.cursor/mcp.json`, confirm the nine `research_*` tools appear, then send the request. |
+Use the [README selection table](../README.md#which-should-i-use) and configure only the entry you need:
 
-Other agents can read the same methods through files, links or text; see [agent setup](../agents/README.md). Client configuration references: [Codex MCP](https://developers.openai.com/codex/mcp) · [Cursor MCP](https://cursor.com/docs/mcp).
+- **Skill:** provide the repository or install the Skill, then send the request. No tool commands or fixed registries are required.
+- **Plugin:** follow the [plugin instructions](usage-modes.md#install-the-plugin), reopen the session and select Toolkit. It includes the Skill and MCP; do not install a second MCP service.
+- **MCP:** follow the [local MCP setup](usage-modes.md#connect-mcp-separately), confirm the nine `research_*` tools appear, and give the agent access to the same Skill.
+- **CLI:** download the repository and use Python 3.10+ to invoke `scripts/research_workflow.py`. A task-creation example is below; see the [CLI instructions](usage-modes.md#skill-only-and-cli-fallback) for the commands.
+
+Retrieval, browsing sources and writing use the agent's existing capabilities. Host-specific locations and setup for Codex, Cursor and other agents are in [agent setup](../agents/README.md).
 
 Choose review at the start using the capabilities already available:
 
@@ -54,11 +56,33 @@ Choose review at the start using the capabilities already available:
 
 A host-session review can serve the methods-only workflow; it does not automatically become a CLI/MCP review record. When using local tools to manage delivery, run the configured backend for those records.
 
+### Research from scratch
+
+The knowledge-assistant question above illustrates the steps. The user supplies needs, material and necessary decisions; the agent performs the work. These are not instructions for the user to supervise each step.
+
+| Step | What the agent actually does | If CLI/MCP task management is selected |
+| --- | --- | --- |
+| 1. Understand the brief | Establish the reader, comparison conditions, material and deliverable; clarify only consequential gaps. | Create a local task with `research_start` / CLI `start`; use `status` for an existing task. |
+| 2. Read and analyze | Read original sources, compare the specified update, permission, quality and cost questions, and explain differences and conditions with support and counterevidence. | Use `save` for sources, judgments and requirements actually used; a registered URL is not reading. |
+| 3. Draft | Organize around the questions, develop comparisons and reasoning, and give conditional recommendations with locatable citations. | Use `save` for drafts and register the main artifact. Use `guide` only when the method is not already available. |
+| 4. Check and revise | Read the current full report, check requirements, support and argument, complete agreed self-checks or reviews, and repair concrete defects. | Run the selected `review`; optional `check-draft` does not replace reading the report. |
+| 5. Deliver or continue | Deliver the current result; if unfinished, retain effective requirements, the draft and remaining work, then resume from there. | Use `finish` for completion and `status` for resumption. Tools maintain their existing records. |
+
+MCP names use the `research_` prefix (for example `research_save`); CLI uses the corresponding subcommand. Do not call both interfaces for the same step. Skill-only work follows the middle column using available conversation, material, citations or existing notes, without adopting the right column's record formats.
+
+### Revise or update a report
+
+1. Supply the current report, related sources and requested change. For an update, supply new material or authorize research and specify the required cutoff. If only the report is available, establish what can be checked.
+2. The agent compares effective requirements, the draft and affected sources, identifies which facts, conditions or inferences change, and preserves analysis that still holds. A changed source does not automatically invalidate a conclusion.
+3. Save the revision separately, check changes and affected reasoning, complete agreed checks, and deliver the complete current report with a short change note.
+
+For a saved managed task, resume with `status` and update affected records with `save`, without another `start`. Skill-only work reuses the report and material directly; no historical ledger must first be reconstructed. See [continuation requests and tool details](usage-modes.md#continue-existing-research) and the [executed update case](case-study/coding-benchmark-update/README.md), which retains the original report, source changes and revisions.
+
 ## 3. Deliver the complete work
 
-Return the complete report, source/claim records, review findings and revisions. The report should contain evidence-backed comparisons, specific conclusions and their conditions; citations should remain usable in the exported document. Keep workflow records separate from the reader's report.
+Return the requested report with usable citations and, for a revision, a short change note. Include supported comparisons, specific conclusions and their conditions; citations should remain usable when exported. Registries, raw reviews and tool receipts are attachments only when the task needs them, not mandatory deliverables for every report.
 
-With local tools, use `research_check_draft` to measure length before review. After repairing the draft, complete review of the current version and call `research_finish`. This follows the existing workflow.
+For tool-managed tasks, complete current-version review under the existing contract, then call `research_finish`. Optional `research_check_draft` can help inspect the draft and explicit length requirements; it is not an additional mandatory step.
 
 <details>
 <summary>Optional: create a local task and length record with the CLI</summary>

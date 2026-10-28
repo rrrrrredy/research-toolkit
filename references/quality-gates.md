@@ -22,11 +22,10 @@ Use these gates before declaring any stage or final deliverable complete.
 
 ## After Context Loss Or Restart
 
-- `state/task_spec.md` has been read.
-- `state/progress.json` has been read.
-- Existing research notes have been consulted when useful; optional history is not required to resume.
-- Completed stages are not re-run.
-- The research brief is not re-asked if answers already exist in `task_spec.md`.
+- Effective requirements, the current draft and unfinished work have been recovered from existing material.
+- Existing research notes have been consulted when useful; no retrospective history is required.
+- Completed work is not repeated, and answered brief questions are not asked again.
+- For CLI/MCP-managed tasks, resume with `status` and read the relevant saved specification and requirements.
 
 ## Before Drafting
 
@@ -37,17 +36,16 @@ Use these gates before declaring any stage or final deliverable complete.
 - Claims are separated from sources.
 - Uncertainty is explicit.
 - Collection directions are assessed against unresolved questions and the likelihood of useful evidence; unproductive routes are changed or stopped without silently dropping required work.
-- If `source_registry.csv` is growing while `claims_registry.csv` stays thin, claim extraction happens before further collection.
+- If collected material grows without useful judgments, analyze it before collecting more.
 - Analysis units are defined.
 - The draft thesis is written in one sentence.
 - The depth budget identifies which units need extended analysis and which can be brief.
 
 ## Keeping Evidence Records Current
 
-- Keep `source_registry.csv` and `claims_registry.csv` aligned with the evidence and judgments used; batch related updates when useful, without a fixed fact count or time interval.
-- Update `uncertainty_registry.csv` if needed.
-- Check whether any claim depends on a weak or inaccessible source.
-- Remove or downgrade claims that cannot be supported.
+- Important judgments remain traceable to the actual sources, relevant conditions and uncertainty through citations, source passages or existing notes.
+- Check whether a claim depends on weak or inaccessible support; remove or qualify unsupported claims.
+- For CLI/MCP-managed tasks, keep source and claim records aligned with the work; update an uncertainty registry only when one is used. Batch related updates without a fixed fact count or time interval.
 
 ## Before Completing A Section
 
@@ -111,17 +109,9 @@ The gates below concern reader-ready delivery. Evaluation completion preserves f
 - No visible audit labels, file paths, or source IDs remain in the body.
 - Remaining limitations are stated cleanly when they matter.
 - Every material follow-up requirement has evidence of satisfaction or the user's specific decision changing it; required reading records distinguish actual reading from access attempts.
-- `progress.json.stage` is `final` if and only if `status` is `complete`; neither terminal value may appear alone.
-- Every required content review is complete; any expressly required audit work is complete. A global PASS cannot replace a missing required review.
-- The latest parseable review for the full report or global final delivery is PASS with no open issues. A later failure supersedes an earlier PASS, and malformed review rows fail closed.
-- Its `artifact_sha256`, and the hashes of any task-required review scopes, match the current report. A local or generic reader review does not establish that an explicitly required specialist review was completed.
-- The intended user-visible message matches current state and discloses accepted limitations that affect the result.
-- `state/final_delivery.json` names the actual final artifact and binds the current artifact, brief, progress, source, claim, review log, intended delivery message, and any present requirement and uncertainty files with SHA-256 hashes; text hashes are computed after CRLF/CR normalization to LF.
+- Every agreed content review and expressly required audit is complete for the delivered version; necessary corrections are resolved. A local check does not replace a required full-report or specialist review.
+- The user-visible message describes the actual result and discloses material limitations.
 
-When the repository scripts are available, run:
-
-```bash
-python scripts/check_delivery.py <task-directory>
-```
+For CLI/MCP-managed delivery, also satisfy the existing [delivery contract](../docs/delivery-verification.md#research-delivery-completion): consistent terminal state, valid current-version reviews and the receipt binding current artifacts and inputs. `finish` runs the delivery checks. Skill-only use does not require stage fields, review JSON, hashes or a receipt merely because the scripts are available.
 
 If the work is still in progress, deliver it explicitly as a stage artifact, state the open work and next action, and do not create a final receipt or use terminal completion language.

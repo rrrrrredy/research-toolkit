@@ -2,6 +2,8 @@
 
 [English](review-completion.md) | [简体中文](review-completion.zh-CN.md)
 
+This record interface is for CLI/MCP-managed reviews and studies that explicitly require it. Skill-only work can retain substantive feedback and its report version in existing conversations or files without creating these JSON records.
+
 [SKILL.md](../SKILL.md) defines the required behavior. This page describes the offline record interface for required model reviews, validity checks, finding dispositions and sampling. [Role instructions](../references/subagents-and-review-loop.md) describe the actual review work.
 
 

@@ -21,7 +21,7 @@
 </ul>
 <p>工具箱中的状态文件、来源台账、判断台账、阶段审阅和读者修订，都是为了解决这些问题。</p>
 <h2 id="02-工具箱包含什么">工具箱包含什么</h2>
-<p>本仓库提供完成研究报告所需的方法、流程、任务记录和检查工具。这里的“协议”规定各阶段需要完成哪些工作、留下哪些记录、通过哪些检查。它能帮助发现一部分执行错误；能否阻止某个动作，还取决于所用 Agent 及其工具。理论系统、独立产品架构和通用建模语言不属于本项目。</p>
+<p>本仓库提供完成研究报告所需的方法、流程、任务记录和检查工具。研究方法指导实际工作，记录契约用于 CLI／MCP 管理的任务。它能帮助发现一部分执行错误；能否阻止某个动作，还取决于所用 Agent 及其工具。理论系统、独立产品架构和通用建模语言不属于本项目。</p>
 <p>允许放进这个仓库的内容：</p>
 <ul>
 <li><strong>研究流程</strong>：研究范围校准、分阶段执行、资料处理、写作、审阅、修订和终稿清理。</li>
@@ -41,7 +41,7 @@
 <ul>
 <li><strong>交付物优先</strong>：如果用户要的是文章或报告，不要偏移成系统设计、prompt 设计或流程说明。</li>
 <li><strong>先做研究范围校准</strong>：如果缺少影响方向、范围、交付物或深度判断的关键信息，先集中提问；其中必须确认预期篇幅或研究深度。</li>
-<li><strong>先建状态，再扩资料</strong>：长任务必须把目标、范围、进度、发现、待核项写入文件，而不是只依赖聊天上下文。</li>
+<li><strong>按需支持接续</strong>：需要跨会话或交接时保留有效要求、材料、稿件和未完成工作，复用已有笔记；不因长文而自动要求固定格式的状态文件。</li>
 <li><strong>证据不是正文</strong>：来源台账、审阅记录、访问失败、内部来源编号留在后台，不能直接污染终稿。</li>
 <li><strong>先定深度，再写终稿</strong>：在写作前明确预期篇幅、章节展开计划、重点单元的深度要求，以及什么情况属于“太短”。</li>
 <li><strong>分阶段推进</strong>：规划、收集、分析、写作、审阅、修订、更新状态，按阶段循环。</li>
@@ -52,7 +52,7 @@
 </ul>
 <h3 id="阶段推进规则">阶段推进规则</h3>
 <p>具体执行要求以 <a href="https://github.com/rrrrrredy/research-toolkit/blob/main/SKILL.md"><code>SKILL.md</code></a> 为准。本 README 用于说明和举例。</p>
-<p>研究按 <code>brief -&gt; collect -&gt; analyze -&gt; draft -&gt; review -&gt; revise -&gt; final</code> 推进，即明确需求、搜集、分析、起草、审阅、修改、交付。每个阶段都有必须更新的记录、进入下一阶段的条件，以及检查失败后的处理方式。仅有文件不代表完成了阶段；所有必要单元和检查通过后，才能将阶段设为 <code>final</code>。</p>
+<p>CLI／MCP 管理的任务按 <code>brief -&gt; collect -&gt; analyze -&gt; draft -&gt; review -&gt; revise -&gt; final</code> 推进，即明确需求、搜集、分析、起草、审阅、修改、交付。每个阶段都有必须更新的记录、进入下一阶段的条件，以及检查失败后的处理方式。仅有文件不代表完成了阶段；所有必要单元和检查通过后，才能将阶段设为 <code>final</code>。</p>
 <h2 id="04-研究前需要明确的问题">研究前需要明确的问题</h2>
 <p>收集资料前，Agent 结合已有对话与材料检查关键缺项，集中提出一组简短问题，不规定问题数量；适合时提供具体选项。篇幅或深度缺失且无法从所需成果判断时，需要询问。</p>
 <p>优先确认：</p>
@@ -65,17 +65,10 @@
 <li>必须使用或排除的来源、证据标准</li>
 <li>时间范围、地域范围、截止时间，以及是否需要图表</li>
 </ul>
-<p>信息充分时直接开始，不重复追问。未答复的关键决定所涉及的工作保持待定，只推进不受影响的部分；非关键默认值或用户授权自行作出的选择写入 <code>task_spec.md</code>。读取规范、维护进度、执行评审、恢复失败和检查完成情况由 Agent 负责；用户提供研究决策与必要访问条件。</p>
+<p>信息充分时直接开始，不重复追问。未答复的关键决定所涉及的工作保持待定，只推进不受影响的部分；非关键默认值或用户授权自行作出的选择保留在已有需求说明或笔记中。读取规范、维护进度、执行评审、恢复失败和检查完成情况由 Agent 负责；用户提供研究决策与必要访问条件。</p>
 <h2 id="05-研究后台与成稿">研究后台与成稿</h2>
-<p>研究后台保留以下核心记录。<code>state/findings.jsonl</code>、<code>state/directions_tried.json</code>、<code>state/iteration_log.jsonl</code> 和 <code>logs/work.jsonl</code> 仅在有助于当前任务时使用，不是普遍必交文件。不确定性可直接记在主张中，独立的 <code>data/uncertainty_registry.csv</code> 按需使用。</p>
-<p>核心记录包括：</p>
-<ul>
-<li><code>state/task_spec.md</code></li>
-<li><code>state/progress.json</code></li>
-<li><code>logs/review.jsonl</code></li>
-<li><code>data/source_registry.csv</code></li>
-<li><code>data/claims_registry.csv</code></li>
-</ul>
+<p>纯 Skill 复用请求、材料、引用和已有笔记，不要求固定的一组任务文件。需要接续或交接时，保留否则会丢失的有效要求、稿件、依据和未完成工作，见<a href="https://github.com/rrrrrredy/research-toolkit/blob/main/references/task-continuity.zh-CN.md">任务接续</a>。</p>
+<p>CLI／MCP 管理的任务使用既有<a href="https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-workflow.zh-CN.md#3-状态记录">状态目录和字段</a>，由工具维护，原完成要求不变。不补造历史，不重复已完成工作。</p>
 <p>面向读者的成稿包括：</p>
 <ul>
 <li>核心判断</li>
@@ -94,20 +87,20 @@
 <li>将资料整理为判断、不确定性记录和分析笔记。</li>
 <li>起草一个范围明确的章节或分析单元。</li>
 <li>检查该章节的证据、覆盖、结构、反证和表达。</li>
-<li>修改章节，并更新来源与判断记录。</li>
+<li>修改章节及受影响的笔记或工具记录。</li>
 <li>更新进度，明确下一阶段。</li>
 </ul>
 <p>对于长篇报告，来源数、判断数、链接数和文件大小只能反映研究记录的状况，不能代替深度审阅。组装全文前，应对照预期深度补充薄弱单元，再做读者审阅。连续循环没有新增内容时的处理见下一节。</p>
 <h2 id="06-断点恢复与执行护栏">断点恢复与执行护栏</h2>
-<p>断点恢复时，读取 <code>state/task_spec.md</code>、<code>state/progress.json</code> 和存在的重要补充要求；有帮助时读取已有的研究笔记。不要为了恢复而补造历史日志，也不要重复已完成阶段或已明确的研究需求。</p>
+<p>断点恢复时，从已有材料恢复有效要求、当前稿件和未完成工作；有帮助时读取已有笔记。工具管理的任务通过 <code>status</code> 读取任务规格、进度和重要补充要求。不要为了恢复而补造历史日志，也不要重复已完成阶段或已明确的研究需求。</p>
 <p>执行中遵守这些护栏：</p>
 <ul>
 <li>来源可能解决重要未决问题时继续收集；继续投入已难有帮助时调整或停止该方向，保留未完成要求和相关访问限制。</li>
 <li>分析停滞时，根据未解决的问题以及其他来源或方法能否提供帮助来调整路线，不设固定循环次数。已有 <code>stale_count</code> 记录保持兼容，无须逐轮更新，也不由该计数决定完成。</li>
-<li>来源台账持续增长但判断台账很薄时，暂停收集，先做判断提取。</li>
+<li>资料持续增加却未形成有用判断时，先展开分析。</li>
 <li>修正具体缺陷并复核受影响内容，达到约定要求后停止；修改停滞时换方法或准确交付带未决工作的检查点，不对未变化内容追加轮次。</li>
 <li>读者审阅前必须对照深度预算，先补薄弱单元，再优化表达。</li>
-<li>新工作超出 <code>task_spec.md</code> 时，先记录为扩展建议，不直接扩大任务。</li>
+<li>新工作超出约定范围时，先记录为扩展建议，不直接扩大任务。</li>
 <li>子 agent 必须主动寻找问题；若判定 PASS，必须说明依据。</li>
 </ul>
 <p>覆盖范围、分析维度和深度按用户需求、问题和材料决定，不限定对象、视角或章节字数。来源与判断记录应对应实际采用的依据，相关更新可合并处理，不按固定事实数量或时间间隔打断研究。现有依据与后续验证安排见<a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-roadmap.zh-CN.md">评测计划</a>。</p>
@@ -173,7 +166,9 @@ description: "用于有据研究、分析、报告修订与资料更新。理解
 
 将补充指令落实到实际研究和正文，保留仍有效的要求与已完成的有用工作。接续任务时，按需读取[任务接续](references/task-continuity.zh-CN.md)的相关部分。
 
-方法选择与读取、工作组织、必要记录、工具错误处理和所选检查由 Agent 负责。不让用户提醒总结进度、执行检查或管理内部文件。
+方法选择与读取、工作组织、工具错误处理和所选检查由 Agent 负责。不让用户提醒总结进度、执行检查或管理内部文件。
+
+只用 Skill 不要求创建 CLI／MCP 的任务文件、登记表或回执。复用已有对话、材料、引用和笔记；需要接续时保留有效要求、判断依据与未完成工作，不将已有信息重复搬进固定的一组文件。采用 CLI／MCP 管理任务时，遵循其记录契约，由工具维护相应记录。两种情况下，研究深度与约定检查的要求相同。
 
 ## 形成有分析价值的回答
 
@@ -198,8 +193,8 @@ description: "用于有据研究、分析、报告修订与资料更新。理解
 | 选择比较、解释或提出建议的方法 | [可选分析视角](references/optional-analysis-lenses.zh-CN.md)；需要时读[纵横分析](references/horizontal-vertical-analysis.zh-CN.md) |
 | 起草、编辑并保留分析深度 | [写作风格](references/writing-style.zh-CN.md)；[工作循环](references/research-standard.zh-CN.md#7-工作循环) |
 | 接续或修订已有研究 | [任务接续](references/task-continuity.zh-CN.md) |
-| 执行任务约定的评审 | [评审角色与方法](references/subagents-and-review-loop.zh-CN.md)；[评审记录](docs/review-completion.zh-CN.md#执行所选评审) |
-| 完成研究交付 | [质量关卡](references/quality-gates.zh-CN.md)；[交付细节](docs/delivery-verification.zh-CN.md#完成研究交付) |
+| 执行任务约定的评审 | [评审角色与方法](references/subagents-and-review-loop.zh-CN.md)；采用 CLI／MCP 管理评审时读[评审记录](docs/review-completion.zh-CN.md#执行所选评审) |
+| 完成研究交付 | [质量关卡](references/quality-gates.zh-CN.md)；采用 CLI／MCP 管理交付时读[交付细节](docs/delivery-verification.zh-CN.md#完成研究交付) |
 | 使用工具或维护任务记录 | 按需读取[记录保存](docs/usage-modes.zh-CN.md#保存研究记录与稿件)、[CLI](docs/usage-modes.zh-CN.md#只用-skill或使用-cli)和[评审配置](docs/usage-modes.zh-CN.md#reviewer-backends) |
 | 诊断反复出现的问题 | [常见失误](references/gotchas.zh-CN.md)；[研究设计经验](references/postmortem-lessons.zh-CN.md) |
 
