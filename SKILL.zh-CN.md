@@ -19,7 +19,9 @@ description: "用于有据研究、分析、报告修订与资料更新。理解
 
 将补充指令落实到实际研究和正文，保留仍有效的要求与已完成的有用工作。接续任务时，按需读取[任务接续](references/task-continuity.zh-CN.md)的相关部分。
 
-方法选择与读取、工作组织、必要记录、工具错误处理和所选检查由 Agent 负责。不让用户提醒总结进度、执行检查或管理内部文件。
+方法选择与读取、工作组织、工具错误处理和所选检查由 Agent 负责。不让用户提醒总结进度、执行检查或管理内部文件。
+
+只用 Skill 不要求创建 CLI／MCP 的任务文件、登记表或回执。复用已有对话、材料、引用和笔记；需要接续时保留有效要求、判断依据与未完成工作，不将已有信息重复搬进固定的一组文件。采用 CLI／MCP 管理任务时，遵循其记录契约，由工具维护相应记录。两种情况下，研究深度与约定检查的要求相同。
 
 ## 形成有分析价值的回答
 
@@ -44,8 +46,8 @@ description: "用于有据研究、分析、报告修订与资料更新。理解
 | 选择比较、解释或提出建议的方法 | [可选分析视角](references/optional-analysis-lenses.zh-CN.md)；需要时读[纵横分析](references/horizontal-vertical-analysis.zh-CN.md) |
 | 起草、编辑并保留分析深度 | [写作风格](references/writing-style.zh-CN.md)；[工作循环](references/research-standard.zh-CN.md#7-工作循环) |
 | 接续或修订已有研究 | [任务接续](references/task-continuity.zh-CN.md) |
-| 执行任务约定的评审 | [评审角色与方法](references/subagents-and-review-loop.zh-CN.md)；[评审记录](docs/review-completion.zh-CN.md#执行所选评审) |
-| 完成研究交付 | [质量关卡](references/quality-gates.zh-CN.md)；[交付细节](docs/delivery-verification.zh-CN.md#完成研究交付) |
+| 执行任务约定的评审 | [评审角色与方法](references/subagents-and-review-loop.zh-CN.md)；采用 CLI／MCP 管理评审时读[评审记录](docs/review-completion.zh-CN.md#执行所选评审) |
+| 完成研究交付 | [质量关卡](references/quality-gates.zh-CN.md)；采用 CLI／MCP 管理交付时读[交付细节](docs/delivery-verification.zh-CN.md#完成研究交付) |
 | 使用工具或维护任务记录 | 按需读取[记录保存](docs/usage-modes.zh-CN.md#保存研究记录与稿件)、[CLI](docs/usage-modes.zh-CN.md#只用-skill或使用-cli)和[评审配置](docs/usage-modes.zh-CN.md#reviewer-backends) |
 | 诊断反复出现的问题 | [常见失误](references/gotchas.zh-CN.md)；[研究设计经验](references/postmortem-lessons.zh-CN.md) |
 

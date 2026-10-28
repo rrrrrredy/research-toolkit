@@ -34,11 +34,11 @@ git clone https://github.com/rrrrrredy/research-toolkit.git ~/.openclaw/skills/r
 ```text
 使用 research-toolkit 技能完成研究。
 先读 SKILL.md，按阶段需要读取 references。
-state/、logs/、data/ 放在研究项目目录，不写入技能目录。
+研究成果保存在项目工作区，与安装的技能分开。
 ```
 
 ## 执行要点
 
-普通研究期间技能只读。任务状态、草稿和成稿均写入研究目录。工具箱不需要 `skills.entries.<key>.env` 或 `apiKey`；它是指令包，不是依赖秘密的工具。
+普通研究期间技能只读。草稿和成稿写入研究目录，固定状态目录仅用于 CLI／MCP 管理的任务。工具箱不需要 `skills.entries.<key>.env` 或 `apiKey`；它是指令包，不是依赖秘密的工具。
 
-启用技能允许列表时，允许元数据名称 `research-toolkit`。技能或配置更新后可能需要新会话刷新快照。没有技能加载器时，粘贴或上传主文件，按需手动读取参考文件。长任务每阶段更新 `state/progress.json`，供后续会话恢复。
+启用技能允许列表时，允许元数据名称 `research-toolkit`。技能或配置更新后可能需要新会话刷新快照。没有技能加载器时，粘贴或上传主文件，按需手动读取参考文件。需要跨会话时，由 Agent 利用已有材料或笔记保留有效要求、稿件和未完成工作。纯 Skill 不要求 `progress.json`；CLI／MCP 管理的任务沿用既有记录。

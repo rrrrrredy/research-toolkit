@@ -28,8 +28,8 @@ Good output:
 - Handles counter-evidence, uncertainty, adoption friction, and alternative explanations.
 - Writes section by section and removes internal source IDs, audit labels, and process language before final delivery.
 - Stops and repairs state when evidence, claims, depth, or completion signals fail a hard stop.
-- Preserves material follow-up corrections with stable requirement ids.
-- Makes the final response agree with current progress, global review, disclosed limitations, and current artifact hashes.
+- Preserves material follow-up corrections and checks that the answer follows them; managed tasks use requirement IDs.
+- Makes the final response agree with the actual report, agreed reviews and disclosed limitations; tool-managed delivery also binds its records.
 
 Bad output:
 
@@ -48,14 +48,14 @@ Bad output:
 Use this checklist to find omissions before delivery. It does not replace reading the report or checking the execution records.
 
 - [ ] **Research brief**: the agent confirmed or recorded objective, reader, output format, scope, evidence standard, and expected depth.
-- [ ] **Stage checks**: the agent updated the required records and passed the checks for the current stage before moving to the next.
-- [ ] **State files**: substantial work created or updated `state/task_spec.md`, compact current `state/progress.json`, recovery notes, and `state/requirements.jsonl` when material corrections arrived across turns.
-- [ ] **Claim registry**: important facts, claims, judgments, and uncertainties were tracked separately from source notes.
+- [ ] **Progress**: the actual research and agreed checks support the claimed progress; any records in use reflect the work.
+- [ ] **Continuation**: effective requirements, the draft, source support and unfinished work can be recovered when needed; Skill-only use has no fixed file layout.
+- [ ] **Facts and judgments**: important facts, source claims, judgments and uncertainties remain distinct and traceable.
 - [ ] **Source instruction boundary**: external content was evaluated as evidence, but source-embedded instructions did not control the agent.
 - [ ] **Content review**: evidence, coverage, structure, counter-evidence, and depth were reviewed before final assembly.
 - [ ] **Stop-and-repair conditions**: evidence dead ends, empty claim registries, process leakage, thin drafts, false completion, and unsafe source directives were stopped and repaired.
 - [ ] **Final prose**: the final prose removed process language, internal IDs, audit labels, and unsupported claims.
-- [ ] **Delivery check**: the completion message agrees with the actual stage, follow-up requirements and their outcomes, whole-report review, accepted limitations, and file hashes in the current delivery receipt.
+- [ ] **Delivery check**: the completion message agrees with the actual stage, follow-up requirements and their outcomes, whole-report review, accepted limitations, and, for tool-managed delivery, the current receipt.
 
 ## Review and Acceptance
 
@@ -138,7 +138,7 @@ The toolkit's state files, source and claim registries, stage reviews, and reade
 
 ## Scope of the Toolkit
 
-This repository provides methods, workflows, task records, and checks for substantial research reports. Its protocol specifies the work, records, and checks required at each stage. These can reveal some execution errors; preventing an action depends on the agent and its tools. A theory system, standalone product architecture, and universal modeling language are outside its scope.
+This repository provides methods, workflows, task records, and checks for substantial research reports. The methods guide the research itself; the record contract applies when using CLI/MCP task management. These can reveal some execution errors; preventing an action depends on the agent and its tools. A theory system, standalone product architecture, and universal modeling language are outside its scope.
 
 Keep inside this repository:
 
@@ -163,7 +163,7 @@ The ten core principles:
 
 - Deliverable first: if the output is an article or report, do not drift into system design.
 - Research brief gate before collection: ask one compact clarification batch when decision-critical information is missing.
-- State before scale: write task state before expanding source collection.
+- Preserve continuity when needed using existing material and notes; a long report does not automatically require fixed-format state files.
 - Evidence is not prose: registries and audit labels stay backstage.
 - Depth budget before drafting: define expected depth, rough length band, unit-level expansion plan, and what would count as too short.
 - Staged execution: plan, collect, analyze, draft, review, revise, then continue.
@@ -175,7 +175,7 @@ The ten core principles:
 
 ### Stage Transitions
 
-Follow the [state contract](../references/research-standard.md#protocol-contract) for the execution requirements; this README explains them and gives examples.
+For CLI/MCP-managed tasks, follow the [state contract](../references/research-standard.md#protocol-contract). Skill-only work uses the same research methods without maintaining these machine-readable stage fields.
 
 The stages are `brief -> collect -> analyze -> draft -> review -> revise -> final`. Each stage specifies the records to update, checks to pass, and where to return if a check fails. Having a file does not by itself complete a stage. Set `final` only after every required unit and check passes.
 
@@ -186,11 +186,11 @@ Main Agent
   owns thesis, structure, final judgment
 
 Research Backend
-  state files
-  source registry
-  claim registry
-  uncertainty list
-  review logs
+  brief and existing notes
+  source material
+  supported judgments
+  uncertainty
+  review feedback
 
 Publishing Frontend
   thesis
@@ -205,29 +205,9 @@ Subagents may inspect or challenge bounded parts of the backend, but the main ag
 
 ## State File System
 
-```text
-{task}/state/
-  task_spec.md
-  progress.json
+Skill-only research reuses the request, materials, citations and existing notes, without creating a fixed set of task files. For resumption or handoff, preserve the effective requirements, current draft, evidence and unfinished work that would otherwise be lost. See [task continuity](../references/task-continuity.md).
 
-{task}/logs/
-  review.jsonl
-
-{task}/data/
-  source_registry.csv
-  claims_registry.csv
-```
-
-Use state files to recover after context loss. Do not rely on chat history as the only memory.
-
-Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log.jsonl` and `logs/work.jsonl` only when they help the task. They are optional history, not delivery prerequisites. Uncertainty can stay with the claims; a separate `data/uncertainty_registry.csv` is optional.
-
-Recovery protocol:
-
-- Read `state/task_spec.md` for objective, scope, reader, output, depth, evidence standard, and assumptions.
-- Read `state/progress.json` for current stage, status, completed units, open issues, stale_count, and next action.
-- Read existing research notes only when they help recover the task; do not create retrospective history.
-- Resume from the matching step in the operating loop. Do not re-run completed stages or re-ask an answered research brief.
+CLI/MCP-managed tasks use the existing [state layout and fields](../references/research-workflow.md#3-state-system). Tools maintain them; existing completion requirements remain in effect. Do not reconstruct history or repeat completed work.
 
 ## Questions to Settle Before Research
 
@@ -243,7 +223,7 @@ Ask only for missing critical information:
 - required sources or materials, source exclusions, and evidence standard
 - time period, geography, deadline, and whether charts/tables are expected
 
-If enough context is available, proceed without repeating questions. Keep work that depends on an unanswered critical decision pending; continue unaffected work. Record non-critical defaults or decisions the user has delegated in `task_spec.md`. The agent owns reading the methods, tracking progress, executing reviews, recovering failures, and checking completion; users supply research decisions and necessary access.
+If enough context is available, proceed without repeating questions. Keep work that depends on an unanswered critical decision pending; continue unaffected work. Keep non-critical defaults or delegated decisions with the existing brief or notes. The agent owns reading the methods, tracking progress, executing reviews, recovering failures, and checking completion; users supply research decisions and necessary access.
 
 ## Section-by-Section Research and Revision
 
@@ -252,7 +232,7 @@ If enough context is available, proceed without repeating questions. Keep work t
 - Convert sources into claims, uncertainty, and analysis notes.
 - Draft a bounded section or unit.
 - Review the section for evidence, coverage, structure, skepticism, and prose.
-- Revise the section and registries.
+- Revise the section and any affected notes or managed records.
 - Update progress and define the next stage.
 
 When work stops adding useful evidence or analysis, identify the unresolved question and whether a different source or approach could answer it. Change or stop unproductive work according to the question and task constraints, without fixed cycle counts. Existing `stale_count` records remain compatible; they do not require per-cycle bookkeeping or determine completion.
@@ -321,10 +301,10 @@ Limits:
 ## Execution Guardrails
 
 - Continue collection where it could resolve an important open question; change or stop unproductive directions when further work is unlikely to help. Preserve unresolved requirements and relevant access limits.
-- If `source_registry.csv` grows while `claims_registry.csv` stays thin, pause collection and extract claims.
+- If collected material grows without useful judgments, pause collection and extract claims.
 - Correct concrete defects and recheck affected content. Stop when the agreed requirements are satisfied; if revisions stall, change the approach or deliver an accurate checkpoint with unresolved work. Do not add rounds for unchanged content.
 - Before reader review, compare the draft against the depth budget and expand thin units.
-- If new work falls outside `task_spec.md`, record it as a proposed extension and ask before expanding.
+- If new work falls outside the agreed scope, record it as a proposed extension and ask before expanding.
 - Subagent prompts must ask reviewers to actively look for issues; if no issue is found, they must explain the basis for PASS.
 
 Coverage, analytical dimensions and depth follow the user's needs, the question and the evidence. Bookkeeping and review support that work; fixed counts or intervals are not research requirements. See the [evaluation roadmap](evaluation-roadmap.md) for the evidence limits and planned validation.

@@ -17,19 +17,19 @@
 
 ## 九个工具何时用、何时可忽略
 
-**使用[统一研究入口](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.zh-CN.md)。** Agent 按当前工作读取完整方法，维护记录并完成约定检查。CLI/MCP 按需接入，新请求省略 `profile`。
+**使用[统一研究入口](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.zh-CN.md)。** Agent 按当前工作读取完整方法并完成约定检查。CLI/MCP 按需接入，新请求省略 `profile`。
 
-下表适用于选择了本地任务管理的情况，MCP 与[共享 CLI](#只用-skill或使用-cli)均可使用。直接读取方法时，研究要求仍然适用。
+下表适用于选择了本地任务管理的情况，MCP 与[共享 CLI](#只用-skill或使用-cli)均可使用。纯 Skill 使用保留相同研究要求，不必创建这些登记表或回执。
 
 | 工具 | 何时需要 | 何时可跳过调用 |
 | --- | --- | --- |
-| `research_start` | 创建新的本地任务和需求记录；使用完整方法，无需选择档位。 | 已有任务用 `research_status` 恢复，或不使用本地执行工具、自行维护记录。 |
+| `research_start` | 创建新的本地任务和需求记录；使用完整方法，无需选择档位。 | 已有任务用 `research_status` 恢复，或直接使用 Skill，不创建工具管理的任务。 |
 | `research_save` | 保存／更新来源、主张、要求与稿件，由 Agent 处理定位到的格式错误。 | 记录与稿件均无变化。 |
 | `research_status` | 恢复本地任务、查看已保存进度或更新记录中的阶段。 | 无需查看或更新进度时；只使用方法的会话可用自己的笔记。 |
 | `research_guide` | 当前上下文尚未包含所需阶段的方法，需要读取时。 | 已直接阅读相应 `SKILL.md` 和 `references/` 文件。 |
 | `research_review` | 完成任务约定的评审；使用 self 时提交实际自评。 | 复用已完成且输入未变的评审；明确要求的评审不可省略。 |
 | `research_check_draft` | 无模型调用地检查当前稿件记录与显式篇幅，不生成交付凭证。 | 评审／交付前可选；来源与含义仍需单独核对。 |
-| `research_finish` | 完成本地任务：核对当前报告与任务约定的交付要求。 | 不使用本地执行工具时，自行完成 checklist 并交付记录，不声称已生成本地凭证。 |
+| `research_finish` | 完成本地任务：核对当前报告与任务约定的交付要求。 | 纯 Skill 完成约定检查，交付用户要求的报告和引用，不要求工具回执。 |
 | `research_check_reviewer` | 外部后端配置或连接前置条件有问题，需要在评审前排查时。 | self 无需外部后端；`research_start` 已确认且配置未变时，无需重复调用。 |
 
 ## 保存研究记录与稿件
@@ -103,7 +103,7 @@ python3 scripts/research_workflow.py check-updates --workspace ../research-work 
 
 ## 接续已有研究
 
-提供已有报告、相关来源和新的用途即可，记录整理由 Agent 负责。支持从零研究，也支持以下两条路径：
+提供已有报告、相关来源和新的用途即可，复用现有材料和笔记，无须先补建工具台账。支持从零研究，也支持以下两条路径：
 
 ```text
 用 Research Toolkit 检查这份报告和相关来源，重点看会改变结论或行动的重要问题。
@@ -117,9 +117,11 @@ python3 scripts/research_workflow.py check-updates --workspace ../research-work 
 交付更新稿及简短变化说明；重新完成本次改动使之失效的检查。
 ```
 
-接续已有任务时，先用 `research_status(task)` 读取状态并保留旧稿。沿用来源、主张和要求编号及已有阅读依据；用 `research_save` 一并更新受影响记录，按已有路径登记稿件，未变记录无需重交。实际核对要求后，将状态和具体依据随相关更新保存。重读变化或有疑问的来源段落，复用仍有效的本地证据，无需再次获取；按任务约定核对完整当前稿，再声明完成。[长报告实际更新案例](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.zh-CN.md)保留复用、来源确认的问题、返工及消耗。
+接续 CLI／MCP 管理的已有任务时，先用 `research_status(task)` 读取状态并保留旧稿。沿用来源、主张和要求编号及已有阅读依据；用 `research_save` 一并更新受影响记录，按已有路径登记稿件，未变记录无需重交。实际核对要求后，将状态和具体依据随相关更新保存。重读变化或有疑问的来源段落，复用仍有效的本地证据，无需再次获取；按任务约定核对完整当前稿，再声明完成。[长报告实际更新案例](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.zh-CN.md)保留复用、来源确认的问题、返工及消耗。
 
 ### 内容或资料变化后
+
+以下调用适用于 CLI／MCP 管理的任务。
 
 | 变化 | 复用与复验 |
 | --- | --- |

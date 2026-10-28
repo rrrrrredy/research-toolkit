@@ -2,6 +2,8 @@
 
 [English](delivery-verification.md) | [简体中文](delivery-verification.zh-CN.md)
 
+本契约用于 CLI／MCP 管理交付或任务明确要求其回执的情况。纯 Skill 报告完成约定研究与检查即可，不要求创建这些状态文件或回执。
+
 这是可选的离线一致性检查，不是运行时权限钩子，也不能证明 Agent 实际调用过它。研究和写作要求以 [SKILL.md](../SKILL.md) 为准；本页说明接口，不另加写作规则。
 
 默认采用 **delivery contract 3**。交付凭证外层仍为 `schema_version: 1`，契约版本表示执行了哪些检查。结果包含 `delivery_contract_version`、`current_contract_checked` 和 `semantic_verification: false`，均不认证用户授权、实际阅读或编辑质量。

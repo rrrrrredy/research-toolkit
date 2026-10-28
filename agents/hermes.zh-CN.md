@@ -35,4 +35,4 @@ hermes claw migrate
 
 保持为指令包，不改成插件或核心工具。用 `/skills` 查看并按名称调用。模型和工具按 `hermes model`、`hermes tools` 配置，工具箱不依赖特定供应商。
 
-状态、日志、数据、草稿和报告放在研究工作区。消息网关的长任务每阶段持久保存 `state/progress.json`，以便继续对话。
+研究成果放在工作区，与安装的 Skill 分开；固定状态目录仅用于 CLI／MCP 任务管理。消息网关任务需要跨会话时，由 Agent 利用已有材料或笔记保留有效要求、稿件和未完成工作，纯 Skill 无需另建 `progress.json`。
