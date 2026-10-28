@@ -6,6 +6,13 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v1.4.13 — 2026-10-28
+
+- Distribute PR #119: Skill-only research no longer defaults to tool task files, CSV/JSONL registries or delivery receipts. Reuse conversations, material, citations and existing notes as needed. Required reading, research depth, instruction following and agreed reviews remain; CLI/MCP-managed contracts and saved-task compatibility are unchanged.
+- Explain the relationship, installation choices and scope of Skill, CLI, MCP and plugin at the start of the README. Extend the existing quickstart with steps for new research, revisions and updates, without choosing capabilities by report length or requiring every entry in sequence. Synchronize both languages, plugin copies and website method pages.
+- Also distribute previously merged, unreleased PR #118: edit sentences by their role in the argument, correct blanket phrase bans and preserve necessary attribution, qualifiers, comparisons and explanations. Retain the archived synthetic cold-chain task's local revision separately from original reports and historical results; no external project content was incorporated.
+- Synchronize [bilingual release notes](docs/releases/v1.4.13.md), version metadata and the plugin ZIP. Reuse completed documentation, build and CI results without rerunning research or already-passed local checks. Documentation changes and a local revision do not establish better overall research quality, lower operating costs or less rework.
+
 ## v1.4.12 — 2026-10-27
 
 - Distribute PR #116's fix: source updates now retain claims linked only through registered IDs in `counter_evidence`. `save`, `status` and registered release-log queries share the existing association and passage-location path.
