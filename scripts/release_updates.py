@@ -156,7 +156,7 @@ def compare_entries(previous, current):
 
 
 def check_updates(workspace, task, source_id):
-    from research_workflow import safe_path, task_root
+    from task_storage import safe_path, task_root
     root = task_root(workspace, task)
     sources = rows_from(safe_path(root, "data/source_registry.csv").read_bytes(), "sources")
     if source_id not in sources:

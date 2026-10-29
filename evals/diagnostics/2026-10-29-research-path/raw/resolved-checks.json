@@ -1,0 +1,33 @@
+[
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/check_research_workflow.py",
+      "WorkflowTests.test_binary_original_is_bound_with_its_readable_extract",
+      "WorkflowTests.test_changed_auditor_resumes_audit_without_repeating_reviewer",
+      "WorkflowTests.test_complete_review_and_delivery",
+      "WorkflowTests.test_direct_review_validates_inputs_before_model_calls_or_state_changes",
+      "WorkflowTests.test_length_requirement_change_needs_current_review",
+      "WorkflowTests.test_replaying_completed_review_preserves_every_file_and_receipt",
+      "WorkflowTests.test_required_original_is_sent_to_both_contexts_without_sending_unrelated_files",
+      "WorkflowTests.test_requirements_are_supplied_to_both_contexts_and_bound_at_delivery",
+      "WorkflowTests.test_retired_slot_keeps_history_without_repeating_completed_reviews",
+      "WorkflowTests.test_source_changed_while_preparing_delivery_is_not_sealed"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 3.047,
+    "temporary_root": "C:\\Users\\Public\\rt15-n0tcko1o"
+  },
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/check_record_workflow.py",
+      "RecordWorkflowTests.test_first_complete_draft_is_retained_and_status_and_checks_stay_readonly"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 0.39,
+    "temporary_root": "C:\\Users\\Public\\rt15-n0tcko1o"
+  }
+]

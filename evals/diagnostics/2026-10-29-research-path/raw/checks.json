@@ -1,0 +1,177 @@
+[
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/check_draft_contract.py"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 6.281,
+    "log": "check_draft_contract.log"
+  },
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/check_task_continuity.py"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 4.859,
+    "log": "check_task_continuity.log"
+  },
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/check_release_updates.py"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 1.297,
+    "log": "check_release_updates.log"
+  },
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/check_task_lock.py"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 4.594,
+    "log": "check_task_lock.log"
+  },
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/check_profiles_reviewers.py"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 20.734,
+    "log": "check_profiles_reviewers.log"
+  },
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/build_plugin.py",
+      "--check"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 0.641,
+    "log": "build_plugin.log"
+  },
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/check_plugin_build.py"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 23.171,
+    "log": "check_plugin_build.log"
+  },
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/check_version.py",
+      "--self-test"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 0.641,
+    "log": "check_version.log"
+  },
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/run_dsh_evals.py",
+      "validate"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 0.875,
+    "log": "run_dsh_evals.log"
+  },
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/build_site.py",
+      "--check"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 0.453,
+    "log": "build_site.log"
+  },
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/check_site.py",
+      "--self-test"
+    ],
+    "returncode": 0,
+    "elapsed_seconds": 1.656,
+    "log": "check_site.log"
+  },
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/check_research_workflow.py",
+      "WorkflowTests.test_added_reviewer_keeps_completed_slots",
+      "WorkflowTests.test_binary_original_is_bound_with_its_readable_extract",
+      "WorkflowTests.test_changed_auditor_resumes_audit_without_repeating_reviewer",
+      "WorkflowTests.test_changed_command_does_not_reuse_same_model_label",
+      "WorkflowTests.test_changed_evidence_blocks_delivery",
+      "WorkflowTests.test_changed_instruction_snapshot_does_not_silently_change_assignment",
+      "WorkflowTests.test_complete_review_and_delivery",
+      "WorkflowTests.test_default_report_uses_one_review_without_process_history",
+      "WorkflowTests.test_delivery_rejects_legacy_packets_that_omitted_required_material",
+      "WorkflowTests.test_direct_review_validates_inputs_before_model_calls_or_state_changes",
+      "WorkflowTests.test_evaluation_cannot_drop_its_declared_audit_requirement",
+      "WorkflowTests.test_evidenced_no_change_delivers_without_rewriting_or_reviewing_again",
+      "WorkflowTests.test_existing_default_audited_plan_resumes_its_original_contract",
+      "WorkflowTests.test_frozen_evaluation_cannot_be_replaced_by_changed_evidence",
+      "WorkflowTests.test_frozen_evaluation_cannot_retire_or_rename_a_negative_reviewer",
+      "WorkflowTests.test_frozen_input_tampering_is_rejected",
+      "WorkflowTests.test_global_audit_defect_keeps_valid_reviews_but_blocks_report_readiness",
+      "WorkflowTests.test_incomplete_response_recovers_and_preserves_failure",
+      "WorkflowTests.test_interrupted_audit_does_not_repeat_completed_reviewer",
+      "WorkflowTests.test_legacy_dispositions_resume_without_inventing_an_actor",
+      "WorkflowTests.test_length_requirement_change_needs_current_review",
+      "WorkflowTests.test_method_change_preserves_completed_review_until_explicit_revision",
+      "WorkflowTests.test_missing_source_mapping_cannot_be_silently_replaced_by_an_unrelated_file",
+      "WorkflowTests.test_model_cannot_override_execution_bindings",
+      "WorkflowTests.test_model_change_uses_new_assignment_and_preserves_original",
+      "WorkflowTests.test_no_change_does_not_erase_later_global_failure_or_declared_audit",
+      "WorkflowTests.test_open_requirement_keeps_persistent_state_nonterminal",
+      "WorkflowTests.test_pending_evaluation_pins_review_and_audit_methods_across_upgrade",
+      "WorkflowTests.test_plan_change_needs_authorization_bound_snapshots_and_continuity",
+      "WorkflowTests.test_rename_and_return_preserve_first_valid_results_and_plan_chain",
+      "WorkflowTests.test_replaying_completed_review_preserves_every_file_and_receipt",
+      "WorkflowTests.test_report_defect_prevents_final_delivery",
+      "WorkflowTests.test_required_original_is_sent_to_both_contexts_without_sending_unrelated_files",
+      "WorkflowTests.test_requirements_are_supplied_to_both_contexts_and_bound_at_delivery",
+      "WorkflowTests.test_retired_slot_keeps_history_without_repeating_completed_reviews",
+      "WorkflowTests.test_source_changed_while_preparing_delivery_is_not_sealed",
+      "WorkflowTests.test_timeout_recovery_retains_review_and_frozen_evaluation",
+      "WorkflowTests.test_unchanged_legacy_reviews_are_not_repeated",
+      "WorkflowTests.test_unknown_history_is_not_silently_ignored",
+      "WorkflowTests.test_valid_negative_evaluation_is_retained_without_rerunning"
+    ],
+    "returncode": 1,
+    "elapsed_seconds": 27.515,
+    "log": "check_research_workflow.log"
+  },
+  {
+    "command": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+      "-B",
+      "scripts/check_record_workflow.py"
+    ],
+    "returncode": 1,
+    "elapsed_seconds": 4.829,
+    "log": "check_record_workflow.log"
+  }
+]

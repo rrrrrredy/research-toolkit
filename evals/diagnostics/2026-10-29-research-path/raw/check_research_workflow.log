@@ -1,0 +1,207 @@
+
+.EE...E..E..........E.........E.EEEE....
+======================================================================
+ERROR: test_binary_original_is_bound_with_its_readable_extract (__main__.WorkflowTests.test_binary_original_is_bound_with_its_readable_extract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\check_research_workflow.py", line 951, in test_binary_original_is_bound_with_its_readable_extract
+    self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 82, in locked
+    return function(workspace, task, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 952, in finish
+    shutil.copytree(root, candidate, symlinks=True)
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 600, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 554, in _copytree
+    raise Error(errors)
+shutil.Error: [('C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-2rp0mf2m\\case\\reviews\\b06bbaf2a3ab250bf7e756dd7a73b7d7a59c8da4ecad0c60d2eb17ac5b3fdb4d\\sample-audits-8fc4fbd2c47341cc7020d8b906e86342f3480d94638aaf4607edbe57a1887e2f.json', 'C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-2rp0mf2m\\research-delivery-vljhugoa\\task\\reviews\\b06bbaf2a3ab250bf7e756dd7a73b7d7a59c8da4ecad0c60d2eb17ac5b3fdb4d\\sample-audits-8fc4fbd2c47341cc7020d8b906e86342f3480d94638aaf4607edbe57a1887e2f.json', '[WinError 3] 系统找不到指定的路径。')]
+
+======================================================================
+ERROR: test_changed_auditor_resumes_audit_without_repeating_reviewer (__main__.WorkflowTests.test_changed_auditor_resumes_audit_without_repeating_reviewer)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\check_research_workflow.py", line 321, in test_changed_auditor_resumes_audit_without_repeating_reviewer
+    self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 82, in locked
+    return function(workspace, task, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 952, in finish
+    shutil.copytree(root, candidate, symlinks=True)
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 600, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 554, in _copytree
+    raise Error(errors)
+shutil.Error: [('C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-mu4gs3a8\\case\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-5bfa37dbe5ecb108e6c7e6210277db23570f73dee678717830100e3b40dd29c6.json', 'C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-mu4gs3a8\\research-delivery-vabbjjpk\\task\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-5bfa37dbe5ecb108e6c7e6210277db23570f73dee678717830100e3b40dd29c6.json', '[WinError 3] 系统找不到指定的路径。'), ('C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-mu4gs3a8\\case\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-d6e5165e7e1a168f43d9b0b3d28f5a10d09cf631d443a823934a6ca2a4deefb9.json', 'C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-mu4gs3a8\\research-delivery-vabbjjpk\\task\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-d6e5165e7e1a168f43d9b0b3d28f5a10d09cf631d443a823934a6ca2a4deefb9.json', '[WinError 3] 系统找不到指定的路径。')]
+
+======================================================================
+ERROR: test_complete_review_and_delivery (__main__.WorkflowTests.test_complete_review_and_delivery)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\check_research_workflow.py", line 518, in test_complete_review_and_delivery
+    delivered = workflow.finish(self.workspace, "case", "The final report is complete.")
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 82, in locked
+    return function(workspace, task, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 952, in finish
+    shutil.copytree(root, candidate, symlinks=True)
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 600, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 554, in _copytree
+    raise Error(errors)
+shutil.Error: [('C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-sgsjkf_z\\case\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-3e397bd2054b91aa1bffd4a37899bfecbbbc750a07562c28251497b28c8e85f0.json', 'C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-sgsjkf_z\\research-delivery-5fet1svx\\task\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-3e397bd2054b91aa1bffd4a37899bfecbbbc750a07562c28251497b28c8e85f0.json', '[WinError 3] 系统找不到指定的路径。')]
+
+======================================================================
+ERROR: test_direct_review_validates_inputs_before_model_calls_or_state_changes (__main__.WorkflowTests.test_direct_review_validates_inputs_before_model_calls_or_state_changes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\check_research_workflow.py", line 870, in test_direct_review_validates_inputs_before_model_calls_or_state_changes
+    self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 82, in locked
+    return function(workspace, task, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 952, in finish
+    shutil.copytree(root, candidate, symlinks=True)
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 600, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 554, in _copytree
+    raise Error(errors)
+shutil.Error: [('C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-xyfkphk9\\case\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-1f3643dd910b7403d9ec992463ffd74a902b473f44b56a2b7c2f084d0dcdd5c7.json', 'C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-xyfkphk9\\research-delivery-ddw8f_ss\\task\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-1f3643dd910b7403d9ec992463ffd74a902b473f44b56a2b7c2f084d0dcdd5c7.json', '[WinError 3] 系统找不到指定的路径。')]
+
+======================================================================
+ERROR: test_length_requirement_change_needs_current_review (__main__.WorkflowTests.test_length_requirement_change_needs_current_review)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\check_research_workflow.py", line 657, in test_length_requirement_change_needs_current_review
+    self.assertTrue(workflow.finish(self.workspace, "case", "The report is complete.")["completed"])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 82, in locked
+    return function(workspace, task, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 952, in finish
+    shutil.copytree(root, candidate, symlinks=True)
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 600, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 554, in _copytree
+    raise Error(errors)
+shutil.Error: [('C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-5w_issy_\\case\\reviews\\29841830cbac9a57797503642d6b32f1b5e4d1c0d09f156e357dcee2545f85ca\\sample-audits-ba80e0be327ffcfab2282be1d4f7ed9621569a139a5a9c74e7f208eb6c678953.json', 'C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-5w_issy_\\research-delivery-oitn3la3\\task\\reviews\\29841830cbac9a57797503642d6b32f1b5e4d1c0d09f156e357dcee2545f85ca\\sample-audits-ba80e0be327ffcfab2282be1d4f7ed9621569a139a5a9c74e7f208eb6c678953.json', '[WinError 3] 系统找不到指定的路径。'), ('C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-5w_issy_\\case\\reviews\\6da9c66fdf7c7a613d53595abd58b589edbc18dc9dba58edbdebc1b7409ad2ab\\sample-audits-e1741de24dbdceb2f1f11f65c054521b86b0048e5232a97e445921c2a1e77f1e.json', 'C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-5w_issy_\\research-delivery-oitn3la3\\task\\reviews\\6da9c66fdf7c7a613d53595abd58b589edbc18dc9dba58edbdebc1b7409ad2ab\\sample-audits-e1741de24dbdceb2f1f11f65c054521b86b0048e5232a97e445921c2a1e77f1e.json', '[WinError 3] 系统找不到指定的路径。')]
+
+======================================================================
+ERROR: test_replaying_completed_review_preserves_every_file_and_receipt (__main__.WorkflowTests.test_replaying_completed_review_preserves_every_file_and_receipt)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\check_research_workflow.py", line 970, in test_replaying_completed_review_preserves_every_file_and_receipt
+    workflow.finish(self.workspace, "case", "The final report is complete.")
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 82, in locked
+    return function(workspace, task, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 952, in finish
+    shutil.copytree(root, candidate, symlinks=True)
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 600, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 554, in _copytree
+    raise Error(errors)
+shutil.Error: [('C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-tdo9lis8\\case\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-2b75536f40e9089011554865a9b0d6b6a2c7e52a43cf690fe0057244c4a77c46.json', 'C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-tdo9lis8\\research-delivery-p8waz924\\task\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-2b75536f40e9089011554865a9b0d6b6a2c7e52a43cf690fe0057244c4a77c46.json', '[WinError 3] 系统找不到指定的路径。')]
+
+======================================================================
+ERROR: test_required_original_is_sent_to_both_contexts_without_sending_unrelated_files (__main__.WorkflowTests.test_required_original_is_sent_to_both_contexts_without_sending_unrelated_files)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\check_research_workflow.py", line 888, in test_required_original_is_sent_to_both_contexts_without_sending_unrelated_files
+    self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 82, in locked
+    return function(workspace, task, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 952, in finish
+    shutil.copytree(root, candidate, symlinks=True)
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 600, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 554, in _copytree
+    raise Error(errors)
+shutil.Error: [('C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-tcb5rrv_\\case\\reviews\\4dbc084ef4f353838406239338592525e68bf787eed476d59127d591f339b929\\sample-audits-35433713d9d4ff850e3f58821f80773fe12c07ff41fd0dad71cca6ef2df01bab.json', 'C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-tcb5rrv_\\research-delivery-w_l0tpqv\\task\\reviews\\4dbc084ef4f353838406239338592525e68bf787eed476d59127d591f339b929\\sample-audits-35433713d9d4ff850e3f58821f80773fe12c07ff41fd0dad71cca6ef2df01bab.json', '[WinError 3] 系统找不到指定的路径。')]
+
+======================================================================
+ERROR: test_requirements_are_supplied_to_both_contexts_and_bound_at_delivery (__main__.WorkflowTests.test_requirements_are_supplied_to_both_contexts_and_bound_at_delivery)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\check_research_workflow.py", line 504, in test_requirements_are_supplied_to_both_contexts_and_bound_at_delivery
+    self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 82, in locked
+    return function(workspace, task, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 952, in finish
+    shutil.copytree(root, candidate, symlinks=True)
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 600, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 554, in _copytree
+    raise Error(errors)
+shutil.Error: [('C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-_3ph3yad\\case\\reviews\\1a0626b1e767fb6b98a60b870c10a132ab11bc5508404a747bf6f9a3739f5de8\\sample-audits-56c6d37cfcd04d3c1205d05afd37eaf45d37731de2912f4b99857789f151df2e.json', 'C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-_3ph3yad\\research-delivery-20u339h5\\task\\reviews\\1a0626b1e767fb6b98a60b870c10a132ab11bc5508404a747bf6f9a3739f5de8\\sample-audits-56c6d37cfcd04d3c1205d05afd37eaf45d37731de2912f4b99857789f151df2e.json', '[WinError 3] 系统找不到指定的路径。')]
+
+======================================================================
+ERROR: test_retired_slot_keeps_history_without_repeating_completed_reviews (__main__.WorkflowTests.test_retired_slot_keeps_history_without_repeating_completed_reviews)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\check_research_workflow.py", line 356, in test_retired_slot_keeps_history_without_repeating_completed_reviews
+    self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 82, in locked
+    return function(workspace, task, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 952, in finish
+    shutil.copytree(root, candidate, symlinks=True)
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 600, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 554, in _copytree
+    raise Error(errors)
+shutil.Error: [('C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-6hhpx871\\case\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-3e614ad16d9d68e35c1c914d03bbbcf843fe7db3cbc3af7ade9d98950e6d0310.json', 'C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-6hhpx871\\research-delivery-dsl5f_29\\task\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-3e614ad16d9d68e35c1c914d03bbbcf843fe7db3cbc3af7ade9d98950e6d0310.json', '[WinError 3] 系统找不到指定的路径。'), ('C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-6hhpx871\\case\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-a3771afa211a2446c16aed66ed42e1e7217d459f5104bb63daaeb9d8e08d236d.json', 'C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-6hhpx871\\research-delivery-dsl5f_29\\task\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-a3771afa211a2446c16aed66ed42e1e7217d459f5104bb63daaeb9d8e08d236d.json', '[WinError 3] 系统找不到指定的路径。')]
+
+======================================================================
+ERROR: test_source_changed_while_preparing_delivery_is_not_sealed (__main__.WorkflowTests.test_source_changed_while_preparing_delivery_is_not_sealed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\check_research_workflow.py", line 963, in test_source_changed_while_preparing_delivery_is_not_sealed
+    result = workflow.finish(self.workspace, "case", "The final report is complete.")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 82, in locked
+    return function(workspace, task, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 952, in finish
+    shutil.copytree(root, candidate, symlinks=True)
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1139, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1143, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\unittest\mock.py", line 1204, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\check_research_workflow.py", line 961, in changing_copy
+    return copytree(source, target, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 600, in copytree
+    return _copytree(entries=entries, src=src, dst=dst, symlinks=symlinks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\shutil.py", line 554, in _copytree
+    raise Error(errors)
+shutil.Error: [('C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-bp_k57k5\\case\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-cef903fabd7c07fff125d1a4aba1de4c1f0cd636740abc50a9d97afdb17f4d92.json', 'C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\rt150\\research-workflow-test-bp_k57k5\\research-delivery-4mu3ytmg\\task\\reviews\\5667acefbfd12bb16de80b34bbd2519d4ee992b57ec1278aaf9fe6e95920c9aa\\sample-audits-cef903fabd7c07fff125d1a4aba1de4c1f0cd636740abc50a9d97afdb17f4d92.json', '[WinError 3] 系统找不到指定的路径。')]
+
+----------------------------------------------------------------------
+Ran 40 tests in 27.109s
+
+FAILED (errors=10)

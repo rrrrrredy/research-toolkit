@@ -391,3 +391,30 @@ Reading requirements are validated at save: full_text/relevant_sections paired w
 Older clients may still pass `profile`; saved `lite`/`full` values and completion receipts remain supported. Omit the parameter for new research. Both historical record types now receive the same complete research methods; the field no longer selects a separate method set. Saved checklist-only tasks retain their [original completion requirements](../references/lite-workflow.md#final--complete-the-author-checklist); existing review plans and records are preserved.
 
 If a historical checklist task gains a formal review requirement, preserve the old task and use the existing linked-task approach, reusing its report, sources, claims and requirements. Address new requirements and affected content; do not copy old passed flags as a new review receipt.
+
+
+## Research delegation and handoff
+
+Reuse `status`, the host's agent tools and `save`, without another required step. Replace the example IDs and paths with registered task inputs. Omitting `methods` keeps stage defaults; `available_methods` lists optional choices. Select what helps the question, not every method.
+
+```json
+{"task":"study","methods":["compare","delegate"],"work":{"question":"Does the cost difference change the choice?","requirement_ids":["R2"],"claim_ids":["C1"],"paths":["reports/current.md"]}}
+```
+
+Pass this to CLI `status --request request.json` or MCP `research_status`. Omitting `stage` does not advance global progress. All `work` fields are optional: `requirement_ids` selects work being addressed, `claim_ids` selects claims, `source_ids` selects sources directly and `paths` selects originals or existing analyses. Claims bring both supporting and counter-evidence sources; reading requirements bring their specified sources. Unselected files are not injected in full; read additional material through its existing paths when needed.
+
+`work_context` returns the specification, effective requirements and scope decisions, selected records, readable originals in `files`, binary-original references, input hashes in `inputs` and the main-artifact reference. Missing or unreadable selected material identifies the field and path. The executor still performs the reading; returning text does not change reading status. `effective_requirements` includes satisfied rows so ongoing constraints remain visible, without requiring completed actions to be repeated. `scope_decisions` retains user-authorized waivers, exclusions and limitations. Preserve original wording in the existing specification and requirement `source_turn`/`quote` fields; the code does not silently capture host conversation history.
+
+The lead sends the returned originals and requirements through the host's agent tools with the assignment boundary and result purpose. Retain the real host task reference; transfer readable content across environments rather than only local paths. Use host capabilities for concurrency, follow-up, waiting and cancellation. Toolkit does not launch an agent itself or require a user-selected execution tier.
+
+A worker can register a completed independent analysis through existing `save`:
+
+```json
+{"task":"study","draft":{"path":"analysis/cost.md","kind":"analysis","host_task":"actual-host-task-reference"}}
+```
+
+Omit `content` to register an existing file, or supply it to save text. To track inputs, copy the returned `work_context.inputs` object into optional `draft.based_on` rather than entering hashes manually. Short analyses can be returned inline without a new file. Saving `kind=analysis` does not implicitly select the main report; content updates preserve the prior version through the existing backup directory.
+
+`save/status.current_work.research_outputs` recovers contributions, host references and input changes from existing activity records. `changed_inputs` reports changed files, including whole-registry changes; the lead judges relevance rather than automatically invalidating the analysis. Read the contribution through `work.paths`, integrate it into the explicitly registered main report and use the existing review/delivery path. Branch completion does not automatically close requirements or finish the whole task. Legacy tasks need no new fields.
+
+When a configured review backend is unavailable, `start.review_readiness` still reports the issue, but `ready_for_collection` depends only on the brief. Collection, analysis and independent research can proceed. The selected review still validates its backend and full inputs at invocation, without silently downgrading requirements.

@@ -2,12 +2,29 @@
 
 [English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)
 
-Use this reference when assigning research reviews. [SKILL.md](../SKILL.md) defines the protocol; this file gives role instructions and working methods. The main author owns the argument and synthesis.
+Read the relevant part when delegating research or assigning content review. [SKILL.md](../SKILL.md) is the entry; this file owns collaboration and review methods. The lead owns the overall argument and synthesis.
 
 
 
 Independent review means a review context separate from the author, not an outside organization or a different model vendor. A fresh Astra context can provide that review, including when the author also uses Astra. Use the reviewer count required by the task; do not add a fixed panel.
 
+<!-- method:delegate -->
+## Research production and handoff
+
+Delegate an independent research question as soon as its boundaries are sufficiently clear, including in the first round. The lead continues the overall research. A worker may read, search further, compare, calculate, explain mechanisms and write a local argument in one continuous assignment. Keep tightly coupled work with one executor; ordinary parallel reads can use tools directly.
+
+Explain the question and its use in the report, relevant original requirements and corrections, readable inputs, responsibility and expected artifact. The lead owns whole-report constraints such as overall length; workers apply constraints relevant to their contribution. Express this naturally in the assignment without another handoff form.
+
+The lead maintains the main report and overall requirements; workers own their analyses or local drafts. Short results can be returned inline; long arguments, calculations and resumable work can use files, and existing artifacts can be referenced. Return substantive results with evidence, assumptions, conditions and consequential gaps. The receiver reads the actual content rather than assembling from filenames or completion notices. Across execution environments, supply originals or attachments the receiver can actually access.
+
+With CLI/MCP, existing `status` can select requirements, claims, sources and files through `work`, returning `work_context`; `methods` selects applicable research guidance. Send that input through the host's agent tools. The host owns execution, notifications, waiting and cancellation. Retain its real task/session reference; when continuity needs it, save `host_task` on the relevant existing requirement row. `save` with `draft.kind="analysis"` registers a contribution; optional `based_on` copies `work_context.inputs` and `host_task` retains the executor reference. Returned output locations and input changes do not mark integration or review complete. See [requests](../docs/usage-modes.md#research-delegation-and-handoff). Skill-only work uses the same division of research with existing conversation and files.
+
+The lead forwards new user requirements to affected workers. Continue an existing host session when supported, stop work whose premise has changed, or give a one-shot executor updated input and reusable prior results. A launch-time parent snapshot does not include later messages automatically. Continue independent work while branches run and wait when their result is needed. Use host records for task references and lifecycle state rather than guessing from summaries.
+
+The lead reconciles comparison definitions, conflicting evidence and cross-section explanations, retaining useful completed analysis to answer the original question. A branch finishing means its local output is available; overall delivery still concerns the current complete report and effective requirements. Keep research contributions and independent review opinions distinct; a context that wrote the material cannot pose as its non-author reviewer.
+<!-- /method:delegate -->
+
+<!-- method:review -->
 ## Assign Work by Perspective
 
 Ordinary research follows the agreed checks and reviews: without a backend, use author self-review; configured external/independent reviews use non-author contexts. Independent adjudication, reviewer auditing and formal sampling apply only to explicitly audited plans. New evaluations do not automatically add an auditor.
@@ -117,3 +134,4 @@ For evaluation studies, preserve the first submitted artifact, valid negative ju
 For reader-ready delivery, batch confirmed corrections and check affected dimensions plus task-required current-version reviews. Keep old reviews bound to what they actually read; resealing cannot turn them into new reviews. Stop when the task's quality requirements are met. Optional preferences do not force further cycles, and a cycle limit does not close unfinished requirements.
 
 For the machine-readable interface, see [review completion records](../docs/review-completion.md). The record checker does not establish research quality, reviewer accuracy or a general toolkit benefit.
+<!-- /method:review -->

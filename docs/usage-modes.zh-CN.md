@@ -390,3 +390,30 @@ CLI 的 `check-draft` 使用 `task` 和可选 `artifact`，无需交付说明；
 旧客户端的 `profile` 参数、已保存的 `lite`／`full` 字段与完成凭证继续支持，新研究请求省略该参数。两类历史记录现在读取相同的完整研究方法，字段不再选择另一套研究指导。旧 checklist 任务仍按[原完成约定](../references/lite-workflow.zh-CN.md#final--完成作者自检)接续；旧评审计划与记录保持原样。
 
 若历史 checklist 任务新增了正式评审要求，保留原任务，沿用已有做法创建关联的新任务，复用报告、来源、主张和要求；只处理新要求及受影响内容。不将旧通过标记复制成新任务的评审凭证。
+
+
+## 研究委派与成果交接
+
+沿用已有 `status`、宿主 Agent 工具与 `save`，不增加必经步骤。下例中的 ID 和路径替换为当前任务已登记内容。未指定 `methods` 时保留阶段默认指导；可选名称由 `available_methods` 返回，按实际问题选择，不要求全部执行。
+
+```json
+{"task":"study","methods":["compare","delegate"],"work":{"question":"两种方案的成本差异是否改变选择？","requirement_ids":["R2"],"claim_ids":["C1"],"paths":["reports/current.md"]}}
+```
+
+将它交给 CLI `status --request request.json` 或 MCP `research_status`。不传 `stage` 时不会推动整个任务的阶段。`work` 各字段均可省略：`requirement_ids` 选当前处理的要求，`claim_ids` 选主张，`source_ids` 可直接选来源，`paths` 选需要的原文或已有分析。主张关联同时取支持与反证来源，必读要求带入指定来源。未选择的文件不全文注入；需要更多材料时沿现有路径读取。
+
+`work_context` 返回任务原文、有效要求及范围决定、选定记录、可读原文 `files`、二进制原件的引用、输入哈希 `inputs` 和当前主稿位置。缺失或不可读的选定材料直接指出具体字段和路径。材料阅读仍由执行者完成，返回原文不改变阅读状态。`effective_requirements` 包含已满足的要求；这保留有效约束，不要求重做已完成动作。`scope_decisions` 保留用户同意的豁免、排除与限制。原始请求或重要纠正可放在已有规格和要求行的 `source_turn`、`quote` 中，代码不从宿主暗中抓取历史。
+
+主 Agent 将返回的原文和要求交给宿主的子 Agent，同时说明工作边界与成果用途。保留宿主返回的真实任务引用；跨环境时传递实际可读内容，不只传本机路径。是否并行、追加消息、等待或中断使用宿主能力。Toolkit 不自行启动 Agent，也不要求用户选择执行档位。
+
+子任务写好独立分析后，可沿用 `save` 登记：
+
+```json
+{"task":"study","draft":{"path":"analysis/cost.md","kind":"analysis","host_task":"实际宿主任务引用"}}
+```
+
+省略 `content` 登记已存在文件；也可直接提供内容。需要跟踪输入时，将取得的 `work_context.inputs` 对象原样放到可选 `draft.based_on`，不要手填哈希。短分析也可以直接返回给主作者，不要求每次建文件。`kind=analysis` 的保存不会自动选择为主稿；更新其内容时沿用现有备份目录保留原版本。
+
+`save/status.current_work.research_outputs` 从现有活动记录恢复成果、宿主引用和输入变化。`changed_inputs` 只说明文件发生变化，由主作者判断影响；整个登记表发生变化也会提示，不能直接认定局部分析失效。主作者用 `work.paths` 取得分析全文，整合到明确登记的主稿，复用既有评审与交付。子任务的完成不会自动关闭要求或完成整项研究。恢复旧任务无需补填这些可选字段。
+
+已配置评审后端不可用时，`start.review_readiness` 仍报告问题，但 `ready_for_collection` 只取决于需求是否齐备；收集、分析与独立研究可以继续。调用约定评审时仍检查后端与完整输入，不静默降低评审要求。

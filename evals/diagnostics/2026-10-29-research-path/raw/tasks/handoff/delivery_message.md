@@ -1,0 +1,1 @@
+Synthetic integration memo; no measured research quality or time-saving claim.

@@ -1,0 +1,124 @@
+{
+  "ok": true,
+  "saved_ids": {
+    "requirements": [
+      "R2"
+    ]
+  },
+  "updated_files": [
+    "state/requirements.jsonl"
+  ],
+  "backups": [],
+  "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+  "changes": {
+    "available": true,
+    "operation_id": "e2d751623a364a69b932b25dfa1fee28",
+    "saved_at": "2026-10-29T04:23:28.704928+00:00",
+    "records": {
+      "requirements": {
+        "added": [],
+        "updated": [
+          "R2"
+        ],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      }
+    },
+    "source_files": {},
+    "artifact": "report.md",
+    "affected_claims": [],
+    "unlinked_source_ids": [],
+    "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+  },
+  "current_work": {
+    "task_spec": "state/task_spec.md",
+    "requirements": "state/requirements.jsonl",
+    "artifact": {
+      "path": "report.md",
+      "sha256": "b852744da28a87f2855083b1c753d647c1aca6157098daa99f193d022dab771a",
+      "kind": "report",
+      "current_sha256": "b852744da28a87f2855083b1c753d647c1aca6157098daa99f193d022dab771a",
+      "changed_since_save": false
+    },
+    "open_requirements": [
+      {
+        "requirement_id": "R2",
+        "summary": "Compare cost and reliability; peak-load continuity is now decisive.",
+        "status": "pending",
+        "source_turn": "fixture-2",
+        "quote": "Prioritize peak-load continuity."
+      }
+    ],
+    "effective_requirements": [
+      {
+        "requirement_id": "R1",
+        "summary": "Retain peak-load limitations in every revision.",
+        "status": "satisfied",
+        "evidence": "Initial memo preserves this condition.",
+        "source_turn": "fixture-1",
+        "quote": "Keep the pilot limitations."
+      },
+      {
+        "requirement_id": "R2",
+        "summary": "Compare cost and reliability; peak-load continuity is now decisive.",
+        "status": "pending",
+        "source_turn": "fixture-2",
+        "quote": "Prioritize peak-load continuity."
+      }
+    ],
+    "scope_decisions": [],
+    "warnings": [],
+    "brief": {
+      "question": "Compare two cooling retrofit options for a warehouse.",
+      "audience": "Operations manager",
+      "scope": "Synthetic integration fixture: two options; preserve reliability conditions.",
+      "output": "English decision memo",
+      "depth": "Explain cost and reliability trade-offs",
+      "evidence_standard": "Use supplied inputs; do not turn a pilot into a population estimate."
+    },
+    "research_outputs": [
+      {
+        "path": "analysis/cost.md",
+        "sha256": "12ff523ec5500574be15b827dfe4943f12fd29f63e1a91c1c0e97f552463da8e",
+        "host_task": "fixture-host:cost-branch",
+        "based_on": {
+          "state/task_spec.md": "fe6d7a5103b6479268b971ecc2c41c27a6153c25680bd1b4a7b045b163aa5694",
+          "sources/a.md": "9c0a7b115a4d5e8f6417d91df0f0e491fad7307dadf5b9e8c9d34db49289ace3",
+          "sources/b.md": "0f3896c3449c6585d0a7435f13813efc567c6b5ab75d781ea888300c867ce342",
+          "state/requirements.jsonl": "305188a085a5d4a5fe216a965f7020134db83fba533f428e032252553b538458",
+          "data/source_registry.csv": "91c93c0741ee96d0f629368c0a0dcaff4d33ea09fc25c137229c8d13cd707b8b",
+          "data/claims_registry.csv": "98f8958db28ab017a0796d7677ffcd534c82ef784e5db2c81acc3e8a13dbbd16"
+        },
+        "changed_inputs": [
+          "state/requirements.jsonl"
+        ],
+        "changed_since_save": false
+      }
+    ],
+    "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+  },
+  "observation": {
+    "operation": "save",
+    "operation_id": "e2d751623a364a69b932b25dfa1fee28",
+    "started_at": "2026-10-29T04:23:28.660416+00:00",
+    "outcome": "saved",
+    "record_changes": {
+      "records": {
+        "requirements": {
+          "added": [],
+          "updated": [
+            "R2"
+          ],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        }
+      },
+      "source_files": {},
+      "source_observations": {}
+    },
+    "finished_at": "2026-10-29T04:23:28.704928+00:00",
+    "elapsed_seconds": 0.047
+  }
+}

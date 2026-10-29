@@ -16,7 +16,10 @@ import time
 from functools import wraps
 from task_lock import task_lock
 from run_observation import now, timed_capture, activity_summary, record_event
-from task_context import current_work, runtime_identity, require_current_artifact
+from task_context import (current_work, runtime_identity, require_current_artifact,
+                          task_inputs, source_inputs, prepare_work)
+from task_storage import nonempty, digest, safe_path, load, save, save_text, task_root
+from research_guidance import BRIEF_FIELDS, BRIEF_FIELDS_ZH, STAGE_FILES, normalize_language, guidance
 
 from profile_policy import CHECKLIST, LITE_LOG, checklist_errors, inspect_lite_delivery, lite_input_hashes, lite_completion_errors
 
@@ -31,34 +34,8 @@ from review_runner import (ReviewFailure, assignment_config, load_review_config,
                            run_reviewer, validate_review_config, backend_configured, backend_kind, BACKEND_HELP)
 
 TOOLKIT = Path(__file__).resolve().parents[1]
-# Agent-facing guidance for unresolved fields, not a questionnaire to forward.
-BRIEF_FIELDS = {
-    "question": "Use the stated topic; ask what the user wants to understand or decide only if unclear.",
-    "audience": "Infer the reader and purpose from context; ask only if different uses would change the report.",
-    "scope": "Propose specific subjects, places and dates to cover; explain consequential alternatives before asking the user to choose.",
-    "output": "Propose a concrete deliverable in the requested format and language; clarify only constraints that cannot be inferred.",
-    "depth": "Describe the questions to answer and the comparisons, explanations or evidence the result will contain; clarify consequential trade-offs with concrete examples.",
-    "evidence_standard": "Apply suitable source standards and supplied materials; ask only about required materials, access or evidence constraints needing a user decision.",
-}
-BRIEF_FIELDS_ZH = {
-    "question": "沿用已给出的题目；只有目标不明时，才询问用户想理解什么或据此决定什么。",
-    "audience": "从上下文判断读者与用途；只有不同用途会改变报告时才询问。",
-    "scope": "先提出具体覆盖哪些对象、地区和时段；需要用户取舍时，说明实际备选及其影响。",
-    "output": "依据已知形式和语言提出具体交付物；仅澄清无法推断的必要限制。",
-    "depth": "先说明要回答哪些问题、完成哪些比较和解释、提供什么证据；需要取舍时用具体成果差别提问。",
-    "evidence_standard": "采用适当的来源标准并沿用已提供材料；仅询问需要用户决定的必读材料、访问条件或证据限制。",
-}
 DIMENSIONS = ["requirements", "evidence", "adversarial_reasoning", "structure_and_depth",
               "reader_usefulness", "process_language", "natural_expression"]
-STAGE_FILES = {
-    "brief": ["references/research-workflow.md"],
-    "collect": ["references/research-workflow.md", "references/research-standard.md"],
-    "analyze": ["references/research-standard.md"],
-    "draft": ["references/writing-style.md"],
-    "review": ["references/subagents-and-review-loop.md"],
-    "revise": ["references/writing-style.md", "references/subagents-and-review-loop.md"],
-    "final": ["references/quality-gates.md", "docs/delivery-verification.md"],
-}
 REVIEW_INSTRUCTIONS = """Review the complete supplied task, report and source documents.
 Do not edit the report or initiate another workflow. Check every assigned dimension against
 specific report passages and source evidence. Look for counterexamples and omissions.
@@ -97,38 +74,6 @@ SAMPLING_METHOD = ("Inspect each reviewer slot, the first and last substantive r
                    "recording an evidenced follow-up; unresolved review validity remains incomplete.")
 
 
-def nonempty(value) -> bool:
-    return isinstance(value, str) and bool(value.strip())
-
-
-def digest(value) -> str:
-    data = json.dumps(value, ensure_ascii=False, sort_keys=True).encode("utf-8")
-    return hashlib.sha256(data).hexdigest()
-
-
-def safe_path(root: Path, name: str) -> Path:
-    if not isinstance(name, str) or not name or ":" in name or "\\" in name:
-        raise ValueError("Use a task-relative path with forward slashes.")
-    if name.startswith("/") or any(p in {".", "..", ""} for p in name.split("/")):
-        raise ValueError("Path must stay inside the task directory.")
-    path = (root / name).resolve()
-    path.relative_to(root.resolve())
-    return path
-
-
-def task_root(workspace: Path, task: str, *, create=False) -> Path:
-    if not isinstance(task, str) or not re.fullmatch(r"[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}", task):
-        raise ValueError("Task ID must use letters, numbers, underscores or hyphens.")
-    workspace = workspace.expanduser().resolve()
-    root = (workspace / task).resolve()
-    root.relative_to(workspace)
-    if create:
-        root.mkdir(parents=True, exist_ok=True)
-    elif not root.is_dir():
-        raise ValueError("Task does not exist. Start it first.")
-    return root
-
-
 def task_operation(function):
     @wraps(function)
     def locked(workspace, task, *args, **kwargs):
@@ -136,22 +81,6 @@ def task_operation(function):
         with task_lock(root):
             return function(workspace, task, *args, **kwargs)
     return locked
-
-
-def load(root, name):
-    return json.loads(safe_path(root, name).read_text(encoding="utf-8"))
-
-
-def save(root, name, data):
-    path = safe_path(root, name)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, ensure_ascii=False, indent=2)+"\n", encoding="utf-8")
-
-
-def save_text(root, name, content):
-    path = safe_path(root, name)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(content, encoding="utf-8")
 
 
 def append_row(root, row):
@@ -170,50 +99,6 @@ def rows_for(root):
     if errors:
         raise ValueError("Review history is malformed; preserve it and resolve the record error.")
     return rows
-
-
-def normalize_language(language: str) -> str:
-    if language in ("zh", "zh-CN"):
-        return "zh"
-    if language == "en":
-        return "en"
-    raise ValueError('language must be "en" (English), "zh" or "zh-CN" (Chinese).')
-
-
-def guidance(stage: str, language: str = "en", profile: str = "full") -> dict:
-    language = normalize_language(language)
-    if profile not in {"lite", "full"}:
-        raise ValueError("Profile must be lite or full.")
-    if stage not in STAGE_FILES:
-        raise ValueError("stage must be brief/collect/analyze/draft/review/revise/final.")
-    files = []
-    # Saved profiles govern legacy completion records, never the research methods.
-    for name in STAGE_FILES[stage]:
-        if language == "zh":
-            name = name.replace(".md", ".zh-CN.md")
-        text = (TOOLKIT / name).read_text(encoding="utf-8")
-        # Keep full references available; return the guidance needed at this stage.
-        chunks = re.split(r"(?m)(?=^## )", text)
-        if "research-standard" in name:
-            numbers = (3, 8, 13, 15) if stage == "collect" else (7, 8, 9)
-            chunks = re.split(r"(?m)(?=^## \d+\. )", text)
-            text = "\n".join(c for c in chunks if any(c.startswith(f"## {n}. ") for n in numbers))
-        elif "research-workflow" in name:
-            numbers = (1, 2, 6, 7) if stage == "brief" else (4, 5)
-            selected = [chunks[0]]
-            for chunk in chunks[1:]:
-                if any(chunk.startswith(f"## {n}. ") for n in numbers):
-                    if chunk.startswith("## 7. "):
-                        example = "\n### 示例：" if language == "zh" else "\n### Example:"
-                        chunk = chunk.split(example, 1)[0]
-                    selected.append(chunk)
-            text = "\n".join(selected)
-        elif "writing-style" in name:
-            example = "## 研究段落的取舍示范" if language == "zh" else "## Worked Choices in Research Prose"
-            text = "\n".join(c for c in chunks if not c.startswith(example))
-        files.append({"path": name, "content": text})
-    return {"stage": stage, "guidance": files, "profile": profile,
-            "profile_policy": LITE_LOG if profile == "lite" else ["Use the declared reviewer tier; unconfigured new tasks use author self-review."]}
 
 
 def content_review_instructions() -> str:
@@ -290,46 +175,11 @@ def required_source_inputs(root):
         if errors:
             raise ValueError("; ".join(errors))
         required.update(row["required_source_ids"])
-    texts, originals = {}, {}
-    text_suffixes = {".md", ".txt", ".html", ".htm", ".csv", ".tsv", ".json", ".jsonl", ".rst", ".log", ".yaml", ".yml"}
-    for source in sources:
-        if source["source_id"] not in required:
-            continue
-        names = set()
-        if nonempty(source.get("evidence_path")):
-            names.add(source["evidence_path"].strip())
-        for field in ("url", "read_evidence"):
-            target = reading_evidence_target(source.get(field))
-            if target:
-                path = resolve_inside(root, target)
-                if path is None:
-                    raise ValueError(f"Source {source['source_id']}: evidence must stay inside the task.")
-                names.add(path.relative_to(root.resolve()).as_posix())
-        readable = False
-        for name in sorted(names):
-            path = safe_path(root, name)
-            if not path.is_file() or not path.read_bytes().strip():
-                raise ValueError(f"Source {source['source_id']}: missing or empty evidence {name}.")
-            if path.suffix.lower() in text_suffixes:
-                try:
-                    texts[name] = path.read_text(encoding="utf-8")
-                except UnicodeError as exc:
-                    raise ValueError(f"Source {source['source_id']}: provide a UTF-8 evidence_path for {name}.") from exc
-                readable = readable or bool(texts[name].strip())
-            else:
-                originals[name] = sha256_file(path)
-        if not readable:
-            raise ValueError(f"data/source_registry.csv row {source['source_id']}, evidence_path: set a task-relative UTF-8 source text or extract, such as sources/{source['source_id']}.md. URLs and page locators alone cannot be reviewed.")
-    return texts, originals
+    return source_inputs(root, [source for source in sources if source['source_id'] in required])
 
 
 def requirement_input(root):
-    path = safe_path(root, "state/requirements.jsonl")
-    content = path.read_text(encoding="utf-8") if path.exists() else ""
-    _, errors = inspect_jsonl_text(content, "Requirement")
-    if errors:
-        raise ValueError("; ".join(errors))
-    return content if content.strip() else ""
+    return task_inputs(root)['requirements']
 
 
 @task_operation
@@ -354,7 +204,7 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
                 raise ValueError("Research already started; reconcile changed scope explicitly in its task records.")
             readiness = ({"status": "skipped", "log": LITE_LOG} if profile == "lite" else review_readiness())
             return {**status(workspace, task, language), "review_readiness": readiness,
-                    "ready_for_collection": readiness["status"] != "blocked"}
+                    "ready_for_collection": True}
         brief = {**progress.get("brief", {}), **brief}
     else:
         for name, content in {
@@ -378,7 +228,6 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
     readiness = ({"status": "skipped", "log": LITE_LOG} if profile == "lite" else review_readiness())
     progress.update(brief=brief, profile=profile, stage="brief" if missing else "collect",
                     next_action="Use context to propose concrete coverage and results; clarify only consequential unknowns." if missing else
-                    "Restore required review access before collection." if readiness["status"] == "blocked" else
                     "Collect and read the required evidence.")
     save(root, "state/progress.json", progress)
     spec = "# Research brief\n\n" + "\n\n".join(f"## {key}\n\n{value}" for key, value in brief.items())
@@ -389,8 +238,8 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
             record_event(root, {"operation": "start", "started_at": started_at, "finished_at": now(), "outcome": "created"})
         except (ValueError, OSError) as exc:
             observation["observation_warning"] = f"Task start could not be observed: {exc}"
-    return {"task": task, "task_directory": str(root), "ready_for_collection": not missing and readiness["status"] != "blocked",
-            "runtime": runtime_identity(TOOLKIT),
+    return {"task": task, "task_directory": str(root), "ready_for_collection": not missing,
+            "runtime": runtime_identity(TOOLKIT), "current_work": current_work(root, progress),
             "review_readiness": readiness, "profile": profile, "log": LITE_LOG if profile == "lite" else [],
             "missing_fields": missing, "clarification_questions": [(BRIEF_FIELDS_ZH if language == "zh" else BRIEF_FIELDS)[k] for k in missing],
             **observation, **guidance(progress["stage"], language, profile)}
@@ -409,13 +258,16 @@ def check_updates(workspace: Path, task: str, source_id: str) -> dict:
 
 
 @task_operation
-def status(workspace: Path, task: str, language="en", stage: str | None = None) -> dict:
+def status(workspace: Path, task: str, language="en", stage: str | None = None,
+           methods: list[str] | None = None, work: dict | None = None) -> dict:
     language = normalize_language(language)
     from record_changes import latest_changes
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
     missing = [k for k in BRIEF_FIELDS if not nonempty(progress.get("brief", {}).get(k))]
     requirements = ""
+    method_guide = guidance(stage or progress.get("stage", "brief"), language, progress.get("profile", "full"), methods)
+    work_packet = prepare_work(root, progress, work) if work is not None else None
     if stage is not None:
         if stage not in {"collect", "analyze", "draft", "revise"}:
             raise ValueError("Review and final stages are entered by review and finish.")
@@ -459,7 +311,8 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None) 
             **({"requirements": requirements} if requirements else {}),
             "activity": activity_summary(root),
             "changes": latest_changes(root),
-            **guidance(current, language, progress.get("profile", "full"))}
+            **({"work_context": work_packet} if work_packet is not None else {}),
+            **method_guide}
 
 
 def checked_review(value, dimensions):
@@ -637,14 +490,15 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     sources = {name: safe_path(root, name).read_text(encoding="utf-8") for name in source_names}
     if any(not text.strip() for text in sources.values()):
         raise ValueError("Required source input is empty.")
-    packet = {"task": safe_path(root, "state/task_spec.md").read_text(encoding="utf-8"),
+    shared_inputs = task_inputs(root)
+    packet = {"task": shared_inputs["task"],
               "report_path": artifact, "report": report, "sources": sources, "dimensions": DIMENSIONS,
               "purpose": purpose}
     if audit_required:
         packet["sampling_method"] = SAMPLING_METHOD
     if originals:
         packet["source_files"] = originals
-    requirements = requirement_input(root)
+    requirements = shared_inputs["requirements"]
     if requirements:
         packet["requirements"] = requirements
     if len(json.dumps(packet, ensure_ascii=False).encode("utf-8")) > 16 * 1024 * 1024:

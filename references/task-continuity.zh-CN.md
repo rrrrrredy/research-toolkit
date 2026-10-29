@@ -51,3 +51,6 @@ brief 更新保留规格中手工补充的章节。如果某字段已被直接�
 已有任务保留完成约定，按[历史任务兼容](../docs/usage-modes.zh-CN.md#历史任务兼容)接续。复用仍有效的材料，不重写历史。
 
 这些做法针对具体遗漏；机械检查和诊断样本不能证明报告质量或耗时普遍改善。
+
+
+`current_work.effective_requirements` 保留仍适用的要求，包括已满足项；`open_requirements` 继续只列待完成工作，`scope_decisions` 保留范围决定。`research_outputs` 恢复已登记分析成果、宿主引用与输入变化。需要交接或修订原文时，使用现有 `status.work` 取得相关内容，见[研究委派与成果交接](../docs/usage-modes.zh-CN.md#研究委派与成果交接)。不要因要求已满足而在改稿时丢掉它，也不要因输入改变就重新做完所有工作。

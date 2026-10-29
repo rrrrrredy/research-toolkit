@@ -131,10 +131,10 @@ class WorkflowTests(unittest.TestCase):
         self.assertTrue(ready["ready_for_collection"])
         self.assertIn("研究工作流", ready["guidance"][0]["content"])
 
-    def test_start_surfaces_blocked_review_access_before_collection(self):
+    def test_start_surfaces_blocked_review_access_without_blocking_collection(self):
         with patch.object(workflow, "review_readiness", return_value={"status": "blocked", "model_access_verified": False}):
             result = workflow.start(self.workspace, "no-access", BRIEF)
-        self.assertFalse(result["ready_for_collection"])
+        self.assertTrue(result["ready_for_collection"])
         self.assertEqual(result["missing_fields"], [])
         self.assertEqual(result["review_readiness"]["status"], "blocked")
 

@@ -1,0 +1,9 @@
+{
+  "task": "handoff",
+  "evidence_paths": [
+    "sources/a.md",
+    "sources/b.md"
+  ],
+  "artifact": "report.md",
+  "reviewer": "self"
+}

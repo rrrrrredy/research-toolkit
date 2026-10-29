@@ -1,0 +1,9 @@
+
+test_cli_and_direct_operations_share_lock_and_preserve_records (__main__.TaskLockTests.test_cli_and_direct_operations_share_lock_and_preserve_records) ... ok
+test_crashed_process_releases_lock_without_deleting_lock_file (__main__.TaskLockTests.test_crashed_process_releases_lock_without_deleting_lock_file) ... ok
+test_nested_same_thread_and_exception_release (__main__.TaskLockTests.test_nested_same_thread_and_exception_release) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 4.198s
+
+OK

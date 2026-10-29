@@ -1,0 +1,41 @@
+{
+  "completed": true,
+  "artifact": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\research-v1.5.0\\tasks\\handoff\\report.md",
+  "delivery_check": {
+    "ok": true,
+    "delivery_contract_version": 3,
+    "current_contract_checked": true,
+    "semantic_verification": false,
+    "review_completion": {
+      "ok": true,
+      "flags": [],
+      "findings": [],
+      "required_slots": 1,
+      "completed_slots": 1,
+      "selected_attempts": {
+        "self": "b4515e74352346dc8cb64cf333221631"
+      },
+      "record_consistency_checked": true,
+      "execution_authenticity_verified": false,
+      "semantic_verification": false,
+      "report_quality_certified": false,
+      "reviewer": "self",
+      "review_strength": "degraded"
+    },
+    "flags": [],
+    "findings": [],
+    "completion_claim": false,
+    "terminal_state": true,
+    "stage": "final",
+    "status": "complete",
+    "accepted_limitations": [],
+    "limitation_disclosure": {
+      "status": "not_applicable",
+      "unmatched_limitations": [],
+      "semantic_verification": false
+    },
+    "warnings": [],
+    "delivery_observation": "not_provided"
+  },
+  "message": "Synthetic integration memo; no measured research quality or time-saving claim."
+}

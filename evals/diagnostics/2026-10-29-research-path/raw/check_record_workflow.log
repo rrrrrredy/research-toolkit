@@ -1,0 +1,31 @@
+
+......E.....
+======================================================================
+ERROR: test_first_complete_draft_is_retained_and_status_and_checks_stay_readonly (__main__.RecordWorkflowTests.test_first_complete_draft_is_retained_and_status_and_checks_stay_readonly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\check_record_workflow.py", line 198, in test_first_complete_draft_is_retained_and_status_and_checks_stay_readonly
+    self.assertTrue(w.status(self.workspace, "case")["activity"]["warnings"])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 82, in locked
+    return function(workspace, task, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\research_workflow.py", line 282, in status
+    work = current_work(root, progress)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\task_context.py", line 188, in current_work
+    result['research_outputs'] = research_outputs(root, result['warnings'])
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\research-toolkit\scripts\task_context.py", line 72, in research_outputs
+    for line in path.read_text(encoding='utf-8').splitlines():
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\pathlib.py", line 1028, in read_text
+    return f.read()
+           ^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 0: invalid start byte
+
+----------------------------------------------------------------------
+Ran 12 tests in 4.283s
+
+FAILED (errors=1)

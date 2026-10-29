@@ -17,8 +17,7 @@ Use these gates before declaring any stage or final deliverable complete.
 - Required coverage is listed.
 - Out-of-scope claims are listed.
 - Evidence standard is defined.
-- Expected depth, rough length band, and unit-level expansion plan are defined.
-- Initial structure is drafted.
+- Structure and expansion plans develop with the question and available material; no fixed planning form is required before collection.
 
 ## After Context Loss Or Restart
 
@@ -37,9 +36,7 @@ Use these gates before declaring any stage or final deliverable complete.
 - Uncertainty is explicit.
 - Collection directions are assessed against unresolved questions and the likelihood of useful evidence; unproductive routes are changed or stopped without silently dropping required work.
 - If collected material grows without useful judgments, analyze it before collecting more.
-- Analysis units are defined.
-- The draft thesis is written in one sentence.
-- The depth budget identifies which units need extended analysis and which can be brief.
+- Use [depth planning](research-workflow.md#7-depth-planning) where the question needs it; existing analysis supports the current writing without a mandatory per-unit template.
 
 ## Keeping Evidence Records Current
 
@@ -49,12 +46,7 @@ Use these gates before declaring any stage or final deliverable complete.
 
 ## Before Completing A Section
 
-- The section has a local thesis.
-- Evidence supports the thesis rather than merely filling space.
-- Mechanisms are explained.
-- Counter-evidence is handled where relevant.
-- The section advances the whole argument.
-- No internal source IDs or process language remain.
+The section fulfills its role in the whole report: background, facts, comparison, explanation or synthesis as needed. Not every section needs its own thesis. Check the relevant evidence, reasoning and counter-evidence against the question; use [writing guidance](writing-style.md) for expression.
 
 ## Before Final Assembly
 
@@ -63,7 +55,7 @@ Use these gates before declaring any stage or final deliverable complete.
 - The draft meets the depth budget; if it does not, thin units are expanded before reader review.
 - Source count, claim count, link count, and file size are not used as proof of completion.
 - Repeated points are merged.
-- The synthesis is more than a summary.
+- Synthesis explains what the parts establish together; it may connect or qualify existing judgments without manufacturing a new conclusion.
 - Counter-evidence is integrated.
 - Citations follow the brief; any requested reference appendix is reader-facing.
 

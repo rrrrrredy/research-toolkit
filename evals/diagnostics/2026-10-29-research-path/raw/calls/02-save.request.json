@@ -1,0 +1,53 @@
+{
+  "task": "handoff",
+  "sources": [
+    {
+      "source_id": "S1",
+      "title": "A pilot",
+      "url": "sources/a.md",
+      "source_type": "primary",
+      "read_scope": "full_text",
+      "read_evidence": "sources/a.md"
+    },
+    {
+      "source_id": "S2",
+      "title": "B pilot",
+      "url": "sources/b.md",
+      "source_type": "primary",
+      "read_scope": "full_text",
+      "read_evidence": "sources/b.md"
+    }
+  ],
+  "requirements": [
+    {
+      "requirement_id": "R1",
+      "summary": "Retain peak-load limitations in every revision.",
+      "status": "satisfied",
+      "evidence": "Initial memo preserves this condition.",
+      "source_turn": "fixture-1",
+      "quote": "Keep the pilot limitations."
+    },
+    {
+      "requirement_id": "R2",
+      "summary": "Compare total cost and reliability.",
+      "status": "pending"
+    }
+  ],
+  "claims": [
+    {
+      "claim_id": "C1",
+      "claim": "Both simple paybacks are five years; reliability coverage differs.",
+      "claim_type": "analysis",
+      "supporting_sources": [
+        "S1"
+      ],
+      "counter_evidence": "S2",
+      "uncertainty": "Pilots have different operating conditions."
+    }
+  ],
+  "draft": {
+    "path": "report.md",
+    "content": "# Retrofit decision\n\nA and B have different pilot coverage. Peak-load reliability remains important.\n",
+    "main": true
+  }
+}

@@ -6,6 +6,7 @@ Use this file before drafting, rewriting, or finalizing.
 
 For concrete choices about developing, cutting or revising an argument, consult the [worked examples](writing-style.md#worked-choices-in-research-prose) as needed.
 
+<!-- method:writing -->
 ## Voice
 
 Write for the audience, genre and style specified in the brief. Explain judgments, mechanisms, comparisons and implications directly, with source attribution and uncertainty where they affect the judgment. If the user asks for methodology, source scope or operating instructions, those belong in the answer too. See [Process-Language Cleanup](#process-language-cleanup) for deciding whether to remove process narration.
@@ -54,6 +55,8 @@ Meaning-preserving alternatives, depending on where the fact appears:
 | Table | Human edits missing reason codes: 62% (this pilot). |
 | Conclusion | This pilot has gaps in its records of why humans made edits. This proportion alone does not establish the share of all tasks requiring human edits or a rate of workforce replacement. |
 
+<!-- /method:writing -->
+
 ## Worked Choices in Research Prose
 
 Read the relevant example when deciding what to develop, remove or revise. These use synthetic material in public archives, not real-company investigations; original reports and historical records remain unchanged. The first two are teaching adaptations of original and separately revised reports; the third adds a constructed follow-up requirement. They are not unique answers. Different wording and structures can work if they answer the current question and explain the evidence-to-judgment connection. The author's intended conclusion remains subject to the evidence.
@@ -94,6 +97,7 @@ Read the relevant example when deciding what to develop, remove or revise. These
 
 **Why this choice helps.** Change the recommendation and its budget/capacity reasoning while retaining B's recovery limit, the location finding and the unknowns. Revise a judgment when new input changes its premises, not merely because a new file or a large update exists. Follow-up requirements and evidence in an actual task must come from its actual inputs, not be invented to imitate this example.
 
+<!-- method:language-style -->
 ## Chinese Longform Preferences
 
 For Chinese final articles:
@@ -147,3 +151,4 @@ Example categories:
 - media coverage and longform commentary
 - user, developer, and community discussions
 - criticism, failures, disputes, and counter-evidence
+<!-- /method:language-style -->

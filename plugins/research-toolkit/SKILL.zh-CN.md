@@ -46,10 +46,13 @@ description: "用于有据研究、分析、报告修订与资料更新。理解
 | 比较差异、解释原因、综合材料或提出建议 | [按问题运用方法](references/optional-analysis-lenses.zh-CN.md#按问题运用方法)；需要时读[纵横分析](references/horizontal-vertical-analysis.zh-CN.md) |
 | 起草、编辑并组织完整报告 | [写作风格](references/writing-style.zh-CN.md)；[组稿与整篇示范](references/research-workflow.zh-CN.md#9-组稿) |
 | 接续或修订已有研究 | [任务接续](references/task-continuity.zh-CN.md) |
+| 委派独立研究、接收分析与局部稿件 | [实质研究与交接](references/subagents-and-review-loop.zh-CN.md#实质研究与交接)；主 Agent 持续研究与统稿，按问题使用宿主的子 Agent 能力 |
 | 执行任务约定的评审 | [评审角色与方法](references/subagents-and-review-loop.zh-CN.md)；采用 CLI／MCP 管理评审时读[评审记录](docs/review-completion.zh-CN.md#执行所选评审) |
 | 完成研究交付 | [质量关卡](references/quality-gates.zh-CN.md)；采用 CLI／MCP 管理交付时读[交付细节](docs/delivery-verification.zh-CN.md#完成研究交付) |
 | 使用工具或维护任务记录 | 按需读取[记录保存](docs/usage-modes.zh-CN.md#保存研究记录与稿件)、[CLI](docs/usage-modes.zh-CN.md#只用-skill或使用-cli)和[评审配置](docs/usage-modes.zh-CN.md#reviewer-backends) |
 | 诊断反复出现的问题 | [常见失误](references/gotchas.zh-CN.md)；[研究设计经验](references/postmortem-lessons.zh-CN.md) |
+
+上述方法按任务与上下文、证据与分析、成稿与修订、审阅与交付四项职责维护，执行时围绕问题组合使用。CLI／MCP 的 `status` 可用 `methods` 选择方法，用 `work` 取得相关原始输入；`current_work` 同时保留有效要求、未完成工作和已登记分析成果。纯 Skill 直接读取相关方法与现有材料。
 
 ## 完成用户要求的成果
 
