@@ -51,6 +51,10 @@ For long-form and in-depth research, use the existing methods to plan the questi
 | Use tools or maintain task records | [Save records](docs/usage-modes.md#save-research-records-and-drafts), [CLI](docs/usage-modes.md#skill-only-and-cli-fallback) and [reviewer configuration](docs/usage-modes.md#reviewer-backends), as needed |
 | Diagnose a recurring problem | [Gotchas](references/gotchas.md); [research design lessons](references/postmortem-lessons.md) |
 
+Methods are maintained under task/context, evidence/analysis, writing/revision and review/delivery responsibilities; combine them around the question. CLI/MCP `status` can select `methods` and prepare relevant originals through `work`; `current_work` retains effective requirements, unfinished work and registered analyses. Skill-only work reads applicable methods and existing material directly.
+
+For independent research, use [research production and handoff](references/subagents-and-review-loop.md#research-production-and-handoff). Workers can analyze, calculate and draft; the lead continues research and assembly using the host's agent capabilities.
+
 ## Complete the requested work
 
 Before delivery, reconcile the actual answer with the current request, including follow-up instructions, and resolve necessary corrections. Complete the task's agreed author checks, reviews and delivery requirements. Read review configuration and record details only when needed; do not ask the user to select a research profile or automatically add reviewers or audit rounds. Preserve existing completion requirements when resuming historical tasks. Record checks actually performed; a status label cannot replace the work.

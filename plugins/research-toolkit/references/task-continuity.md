@@ -51,3 +51,6 @@ Read the existing specification, effective user changes, available drafts and un
 Preserve existing completion requirements and use [historical task compatibility](../docs/usage-modes.md#historical-task-compatibility). Reuse valid materials without rewriting history.
 
 These practices can reduce specific omissions; deterministic checks and diagnostic cases do not establish a general improvement in report quality or time saved.
+
+
+`current_work.effective_requirements` retains applicable rows, including satisfied ones; `open_requirements` continues to list unfinished work and `scope_decisions` retains scope decisions. `research_outputs` recovers registered analyses, host references and input changes. Use existing `status.work` for readable handoff/revision input; see [research handoff](../docs/usage-modes.md#research-delegation-and-handoff). A satisfied requirement can still constrain revision; changed input does not require repeating all previous work.

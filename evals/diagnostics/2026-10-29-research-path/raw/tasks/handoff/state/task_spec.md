@@ -1,0 +1,25 @@
+# Research brief
+
+## question
+
+Compare two cooling retrofit options for a warehouse.
+
+## audience
+
+Operations manager
+
+## scope
+
+Synthetic integration fixture: two options; preserve reliability conditions.
+
+## output
+
+English decision memo
+
+## depth
+
+Explain cost and reliability trade-offs
+
+## evidence_standard
+
+Use supplied inputs; do not turn a pilot into a population estimate.

@@ -1,0 +1,207 @@
+{
+  "ok": true,
+  "saved_ids": {
+    "sources": [
+      "S1",
+      "S2"
+    ],
+    "claims": [
+      "C1"
+    ],
+    "requirements": [
+      "R1",
+      "R2"
+    ]
+  },
+  "updated_files": [
+    "data/source_registry.csv",
+    "data/claims_registry.csv",
+    "state/requirements.jsonl",
+    "report.md",
+    "state/progress.json"
+  ],
+  "backups": [],
+  "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+  "changes": {
+    "available": true,
+    "operation_id": "db06120702ee4c7cb0eb7655fbb6f5c6",
+    "saved_at": "2026-10-29T04:23:26.271823+00:00",
+    "records": {
+      "sources": {
+        "added": [
+          "S1",
+          "S2"
+        ],
+        "updated": [],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      },
+      "claims": {
+        "added": [
+          "C1"
+        ],
+        "updated": [],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      },
+      "requirements": {
+        "added": [
+          "R1",
+          "R2"
+        ],
+        "updated": [],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      }
+    },
+    "source_files": {
+      "S1": {
+        "status": "first_observation",
+        "paths": [
+          "sources/a.md"
+        ],
+        "previous_paths": []
+      },
+      "S2": {
+        "status": "first_observation",
+        "paths": [
+          "sources/b.md"
+        ],
+        "previous_paths": []
+      }
+    },
+    "artifact": "report.md",
+    "affected_claims": [
+      {
+        "claim_id": "C1",
+        "claim": "Both simple paybacks are five years; reliability coverage differs.",
+        "changed_source_ids": [
+          "S1",
+          "S2"
+        ],
+        "locations": [],
+        "location_status": "not_located"
+      }
+    ],
+    "unlinked_source_ids": [],
+    "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+  },
+  "current_work": {
+    "task_spec": "state/task_spec.md",
+    "requirements": "state/requirements.jsonl",
+    "artifact": {
+      "path": "report.md",
+      "sha256": "b852744da28a87f2855083b1c753d647c1aca6157098daa99f193d022dab771a",
+      "kind": "report",
+      "current_sha256": "b852744da28a87f2855083b1c753d647c1aca6157098daa99f193d022dab771a",
+      "changed_since_save": false
+    },
+    "open_requirements": [
+      {
+        "requirement_id": "R2",
+        "summary": "Compare total cost and reliability.",
+        "status": "pending"
+      }
+    ],
+    "effective_requirements": [
+      {
+        "requirement_id": "R1",
+        "summary": "Retain peak-load limitations in every revision.",
+        "status": "satisfied",
+        "evidence": "Initial memo preserves this condition.",
+        "source_turn": "fixture-1",
+        "quote": "Keep the pilot limitations."
+      },
+      {
+        "requirement_id": "R2",
+        "summary": "Compare total cost and reliability.",
+        "status": "pending"
+      }
+    ],
+    "scope_decisions": [],
+    "warnings": [],
+    "brief": {
+      "question": "Compare two cooling retrofit options for a warehouse.",
+      "audience": "Operations manager",
+      "scope": "Synthetic integration fixture: two options; preserve reliability conditions.",
+      "output": "English decision memo",
+      "depth": "Explain cost and reliability trade-offs",
+      "evidence_standard": "Use supplied inputs; do not turn a pilot into a population estimate."
+    },
+    "research_outputs": [],
+    "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+  },
+  "observation": {
+    "operation": "save",
+    "operation_id": "db06120702ee4c7cb0eb7655fbb6f5c6",
+    "started_at": "2026-10-29T04:23:26.135221+00:00",
+    "artifact": "report.md",
+    "artifact_kind": "report",
+    "complete_draft": false,
+    "time_basis": "saved_by_tool",
+    "artifact_sha256": "b852744da28a87f2855083b1c753d647c1aca6157098daa99f193d022dab771a",
+    "outcome": "saved",
+    "record_changes": {
+      "records": {
+        "sources": {
+          "added": [
+            "S1",
+            "S2"
+          ],
+          "updated": [],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        },
+        "claims": {
+          "added": [
+            "C1"
+          ],
+          "updated": [],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        },
+        "requirements": {
+          "added": [
+            "R1",
+            "R2"
+          ],
+          "updated": [],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        }
+      },
+      "source_files": {
+        "S1": {
+          "status": "first_observation",
+          "paths": [
+            "sources/a.md"
+          ],
+          "previous_paths": []
+        },
+        "S2": {
+          "status": "first_observation",
+          "paths": [
+            "sources/b.md"
+          ],
+          "previous_paths": []
+        }
+      },
+      "source_observations": {
+        "S1": {
+          "sources/a.md": "9c0a7b115a4d5e8f6417d91df0f0e491fad7307dadf5b9e8c9d34db49289ace3"
+        },
+        "S2": {
+          "sources/b.md": "0f3896c3449c6585d0a7435f13813efc567c6b5ab75d781ea888300c867ce342"
+        }
+      }
+    },
+    "finished_at": "2026-10-29T04:23:26.271823+00:00",
+    "elapsed_seconds": 0.141
+  }
+}

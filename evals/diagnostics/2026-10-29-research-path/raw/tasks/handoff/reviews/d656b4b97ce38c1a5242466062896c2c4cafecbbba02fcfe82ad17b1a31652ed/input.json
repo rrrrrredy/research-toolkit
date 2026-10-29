@@ -1,0 +1,22 @@
+{
+  "task": "# Research brief\n\n## question\n\nCompare two cooling retrofit options for a warehouse.\n\n## audience\n\nOperations manager\n\n## scope\n\nSynthetic integration fixture: two options; preserve reliability conditions.\n\n## output\n\nEnglish decision memo\n\n## depth\n\nExplain cost and reliability trade-offs\n\n## evidence_standard\n\nUse supplied inputs; do not turn a pilot into a population estimate.\n",
+  "report_path": "report.md",
+  "report": "# Warehouse cooling retrofit\n\nBoth pilots imply a five-year simple payback (100/20 and 140/28). That equality does not establish equal operating reliability: the A pilot excludes peak-load days, while B includes them. With peak-load continuity now decisive, B has the more relevant operating evidence. Confirm site fit before commitment; neither pilot establishes a general failure rate.\n\nSources: [A pilot](sources/a.md), [B pilot](sources/b.md).\n",
+  "sources": {
+    "data/claims_registry.csv": "claim_id,claim,claim_type,supporting_sources,counter_evidence,uncertainty\nC1,Both simple paybacks are five years; reliability coverage differs.,analysis,S1,S2,Pilots have different operating conditions.\n",
+    "data/source_registry.csv": "source_id,title,url,source_type,read_scope,read_evidence,evidence_path\nS1,A pilot,sources/a.md,primary,full_text,sources/a.md,\nS2,B pilot,sources/b.md,primary,full_text,sources/b.md,\n",
+    "sources/a.md": "Synthetic fixture. A costs 100 units; pilot saves 20 units annually. Pilot excludes peak-load days.\n",
+    "sources/b.md": "Synthetic fixture. B costs 140 units; pilot saves 28 units annually and includes peak-load days.\n"
+  },
+  "dimensions": [
+    "requirements",
+    "evidence",
+    "adversarial_reasoning",
+    "structure_and_depth",
+    "reader_usefulness",
+    "process_language",
+    "natural_expression"
+  ],
+  "purpose": "report_delivery",
+  "requirements": "{\"requirement_id\": \"R1\", \"summary\": \"Retain peak-load limitations in every revision.\", \"status\": \"satisfied\", \"evidence\": \"Initial memo preserves this condition.\", \"source_turn\": \"fixture-1\", \"quote\": \"Keep the pilot limitations.\"}\n{\"requirement_id\": \"R2\", \"summary\": \"Compare cost and reliability; peak-load continuity is now decisive.\", \"status\": \"satisfied\", \"source_turn\": \"fixture-2\", \"quote\": \"Prioritize peak-load continuity.\", \"evidence\": \"report.md compares payback and preserves peak-load coverage.\"}\n"
+}

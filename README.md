@@ -10,6 +10,8 @@ Use it for industry research, product comparisons, company analysis and technica
 
 [**Choose an entry**](#which-should-i-use) · [Start research](#quick-start) · [See a research case](#research-case) · [Documentation](#documentation)
 
+Research capabilities cover task/context, evidence/analysis, writing/revision and review/delivery. The lead continues research and assembly; independent questions can be delegated for analysis, calculation and local writing. See [collaboration and actual requests](docs/usage-modes.md#research-delegation-and-handoff).
+
 ## Which should I use?
 
 **The Skill provides research methods, CLI and MCP expose the same local tools, and the plugin bundles the Skill with MCP.** These are not four research methods or separate choices for briefs, long reports or research depth.

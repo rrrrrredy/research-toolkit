@@ -1,0 +1,275 @@
+{
+  "task": "handoff",
+  "task_directory": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\research-v1.5.0\\tasks\\handoff",
+  "progress": {
+    "stage": "collect",
+    "status": "in_progress",
+    "author_id": "author:handoff",
+    "open_issues": [],
+    "brief": {
+      "question": "Compare two cooling retrofit options for a warehouse.",
+      "audience": "Operations manager",
+      "scope": "Synthetic integration fixture: two options; preserve reliability conditions.",
+      "output": "English decision memo",
+      "depth": "Explain cost and reliability trade-offs",
+      "evidence_standard": "Use supplied inputs; do not turn a pilot into a population estimate."
+    },
+    "profile": "full",
+    "next_action": "Collect and read the required evidence.",
+    "current_artifact": {
+      "path": "report.md",
+      "sha256": "b852744da28a87f2855083b1c753d647c1aca6157098daa99f193d022dab771a",
+      "kind": "report"
+    }
+  },
+  "missing_fields": [],
+  "runtime": {
+    "version": "1.5.0",
+    "implementation_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\scripts\\research_workflow.py",
+    "implementation_sha256": "63647b2d7812e974c173cb00b1e6b3eb33ed23d5348d27f84033cf8f3f9049f7",
+    "entry_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\research-toolkit\\SKILL.md",
+    "entry_sha256": "7e93eb2fdc8e44e5b49a241acb7f91402ffb27a7e08681995783c7d7748fa1ba",
+    "host_loaded_entry": "not_observed"
+  },
+  "current_work": {
+    "task_spec": "state/task_spec.md",
+    "requirements": "state/requirements.jsonl",
+    "artifact": {
+      "path": "report.md",
+      "sha256": "b852744da28a87f2855083b1c753d647c1aca6157098daa99f193d022dab771a",
+      "kind": "report",
+      "current_sha256": "b852744da28a87f2855083b1c753d647c1aca6157098daa99f193d022dab771a",
+      "changed_since_save": false
+    },
+    "open_requirements": [
+      {
+        "requirement_id": "R2",
+        "summary": "Compare cost and reliability; peak-load continuity is now decisive.",
+        "status": "pending",
+        "source_turn": "fixture-2",
+        "quote": "Prioritize peak-load continuity."
+      }
+    ],
+    "effective_requirements": [
+      {
+        "requirement_id": "R1",
+        "summary": "Retain peak-load limitations in every revision.",
+        "status": "satisfied",
+        "evidence": "Initial memo preserves this condition.",
+        "source_turn": "fixture-1",
+        "quote": "Keep the pilot limitations."
+      },
+      {
+        "requirement_id": "R2",
+        "summary": "Compare cost and reliability; peak-load continuity is now decisive.",
+        "status": "pending",
+        "source_turn": "fixture-2",
+        "quote": "Prioritize peak-load continuity."
+      }
+    ],
+    "scope_decisions": [],
+    "warnings": [],
+    "brief": {
+      "question": "Compare two cooling retrofit options for a warehouse.",
+      "audience": "Operations manager",
+      "scope": "Synthetic integration fixture: two options; preserve reliability conditions.",
+      "output": "English decision memo",
+      "depth": "Explain cost and reliability trade-offs",
+      "evidence_standard": "Use supplied inputs; do not turn a pilot into a population estimate."
+    },
+    "research_outputs": [
+      {
+        "path": "analysis/cost.md",
+        "sha256": "12ff523ec5500574be15b827dfe4943f12fd29f63e1a91c1c0e97f552463da8e",
+        "host_task": "fixture-host:cost-branch",
+        "based_on": {
+          "state/task_spec.md": "fe6d7a5103b6479268b971ecc2c41c27a6153c25680bd1b4a7b045b163aa5694",
+          "sources/a.md": "9c0a7b115a4d5e8f6417d91df0f0e491fad7307dadf5b9e8c9d34db49289ace3",
+          "sources/b.md": "0f3896c3449c6585d0a7435f13813efc567c6b5ab75d781ea888300c867ce342",
+          "state/requirements.jsonl": "305188a085a5d4a5fe216a965f7020134db83fba533f428e032252553b538458",
+          "data/source_registry.csv": "91c93c0741ee96d0f629368c0a0dcaff4d33ea09fc25c137229c8d13cd707b8b",
+          "data/claims_registry.csv": "98f8958db28ab017a0796d7677ffcd534c82ef784e5db2c81acc3e8a13dbbd16"
+        },
+        "changed_inputs": [
+          "state/requirements.jsonl"
+        ],
+        "changed_since_save": false
+      }
+    ],
+    "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+  },
+  "activity": {
+    "task_started_at": "2026-10-29T04:23:25.595701+00:00",
+    "first_complete_draft": null,
+    "seconds_to_first_complete_draft_observation": null,
+    "save_attempts": 3,
+    "failed_saves": 0,
+    "review_invocations": [],
+    "observed_review_usage": null,
+    "failed_review_attempts": 0,
+    "review_retries": 0,
+    "self_review_submissions": 0,
+    "imported_reviews": [],
+    "review_invocations_without_usage": 0,
+    "author_usage": null,
+    "warnings": [],
+    "scope": "Tool-observed draft saves and invocation captures; no host author usage, billing or quality inference."
+  },
+  "changes": {
+    "available": true,
+    "operation_id": "e2d751623a364a69b932b25dfa1fee28",
+    "saved_at": "2026-10-29T04:23:28.704928+00:00",
+    "records": {
+      "requirements": {
+        "added": [],
+        "updated": [
+          "R2"
+        ],
+        "unchanged": [],
+        "removed": [],
+        "recovered": []
+      }
+    },
+    "source_files": {},
+    "artifact": "report.md",
+    "affected_claims": [],
+    "unlinked_source_ids": [],
+    "scope": "Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+  },
+  "work_context": {
+    "question": "Explain comparable payback and reliability conditions.",
+    "task": "# Research brief\n\n## question\n\nCompare two cooling retrofit options for a warehouse.\n\n## audience\n\nOperations manager\n\n## scope\n\nSynthetic integration fixture: two options; preserve reliability conditions.\n\n## output\n\nEnglish decision memo\n\n## depth\n\nExplain cost and reliability trade-offs\n\n## evidence_standard\n\nUse supplied inputs; do not turn a pilot into a population estimate.\n",
+    "task_directory": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\research-v1.5.0\\tasks\\handoff",
+    "effective_requirements": [
+      {
+        "requirement_id": "R1",
+        "summary": "Retain peak-load limitations in every revision.",
+        "status": "satisfied",
+        "evidence": "Initial memo preserves this condition.",
+        "source_turn": "fixture-1",
+        "quote": "Keep the pilot limitations."
+      },
+      {
+        "requirement_id": "R2",
+        "summary": "Compare cost and reliability; peak-load continuity is now decisive.",
+        "status": "pending",
+        "source_turn": "fixture-2",
+        "quote": "Prioritize peak-load continuity."
+      }
+    ],
+    "scope_decisions": [],
+    "selected_requirements": [
+      {
+        "requirement_id": "R2",
+        "summary": "Compare cost and reliability; peak-load continuity is now decisive.",
+        "status": "pending",
+        "source_turn": "fixture-2",
+        "quote": "Prioritize peak-load continuity."
+      }
+    ],
+    "claims": [
+      {
+        "claim_id": "C1",
+        "claim": "Both simple paybacks are five years; reliability coverage differs.",
+        "claim_type": "analysis",
+        "supporting_sources": "S1",
+        "counter_evidence": "S2",
+        "uncertainty": "Pilots have different operating conditions."
+      }
+    ],
+    "sources": [
+      {
+        "source_id": "S1",
+        "title": "A pilot",
+        "url": "sources/a.md",
+        "source_type": "primary",
+        "read_scope": "full_text",
+        "read_evidence": "sources/a.md",
+        "evidence_path": ""
+      },
+      {
+        "source_id": "S2",
+        "title": "B pilot",
+        "url": "sources/b.md",
+        "source_type": "primary",
+        "read_scope": "full_text",
+        "read_evidence": "sources/b.md",
+        "evidence_path": ""
+      }
+    ],
+    "files": {
+      "sources/a.md": "Synthetic fixture. A costs 100 units; pilot saves 20 units annually. Pilot excludes peak-load days.\n",
+      "sources/b.md": "Synthetic fixture. B costs 140 units; pilot saves 28 units annually and includes peak-load days.\n",
+      "analysis/cost.md": "Synthetic analyst result: 100/20 and 140/28 both give five years. The evidence does not establish equal reliability: A excludes peak load. Keep this condition when choosing.\n"
+    },
+    "source_files": {},
+    "main_artifact": {
+      "path": "report.md",
+      "sha256": "b852744da28a87f2855083b1c753d647c1aca6157098daa99f193d022dab771a",
+      "kind": "report",
+      "current_sha256": "b852744da28a87f2855083b1c753d647c1aca6157098daa99f193d022dab771a",
+      "changed_since_save": false
+    },
+    "research_outputs": [
+      {
+        "path": "analysis/cost.md",
+        "sha256": "12ff523ec5500574be15b827dfe4943f12fd29f63e1a91c1c0e97f552463da8e",
+        "host_task": "fixture-host:cost-branch",
+        "based_on": {
+          "state/task_spec.md": "fe6d7a5103b6479268b971ecc2c41c27a6153c25680bd1b4a7b045b163aa5694",
+          "sources/a.md": "9c0a7b115a4d5e8f6417d91df0f0e491fad7307dadf5b9e8c9d34db49289ace3",
+          "sources/b.md": "0f3896c3449c6585d0a7435f13813efc567c6b5ab75d781ea888300c867ce342",
+          "state/requirements.jsonl": "305188a085a5d4a5fe216a965f7020134db83fba533f428e032252553b538458",
+          "data/source_registry.csv": "91c93c0741ee96d0f629368c0a0dcaff4d33ea09fc25c137229c8d13cd707b8b",
+          "data/claims_registry.csv": "98f8958db28ab017a0796d7677ffcd534c82ef784e5db2c81acc3e8a13dbbd16"
+        },
+        "changed_inputs": [
+          "state/requirements.jsonl"
+        ],
+        "changed_since_save": false
+      }
+    ],
+    "inputs": {
+      "state/task_spec.md": "fe6d7a5103b6479268b971ecc2c41c27a6153c25680bd1b4a7b045b163aa5694",
+      "sources/a.md": "9c0a7b115a4d5e8f6417d91df0f0e491fad7307dadf5b9e8c9d34db49289ace3",
+      "sources/b.md": "0f3896c3449c6585d0a7435f13813efc567c6b5ab75d781ea888300c867ce342",
+      "analysis/cost.md": "12ff523ec5500574be15b827dfe4943f12fd29f63e1a91c1c0e97f552463da8e",
+      "state/requirements.jsonl": "9e430998bbdebd8fcf28b0ee1e1247ba7bf1bb6898f7f9af26f9c34dfb789bfc",
+      "data/source_registry.csv": "91c93c0741ee96d0f629368c0a0dcaff4d33ea09fc25c137229c8d13cd707b8b",
+      "data/claims_registry.csv": "98f8958db28ab017a0796d7677ffcd534c82ef784e5db2c81acc3e8a13dbbd16"
+    },
+    "input_version": "c754fe5705e0d9d565707638e35f4d20edce42d9b66ba7582cdd0f41d46c4453"
+  },
+  "stage": "collect",
+  "guidance": [
+    {
+      "path": "references/research-workflow.md",
+      "content": "# Research Workflow\n\n[English](research-workflow.md) | [简体中文](research-workflow.zh-CN.md)\n\nUse this file when planning or restarting a complex longform research task.\n\nFor continuation, use [task continuity](task-continuity.md). The [state reference](#3-state-system) documents CLI/MCP-managed records; Skill-only research does not require those files.\n\n## 9. Assembly\n\nIdentify the question each part of the existing draft or outline actually answers, then organize the report around the relationships the reader needs to understand them. Earlier facts can support later explanations; passages answering the same question may be combined, while missing reasoning needs development. When evidence changes the initial judgment, adjust the outline and conclusion rather than selecting material to fit the original idea.\n\nA multi-object study must retain the requested objects and dimensions while explaining their relationships. Establish shared background once, retain facts showing distinctive mechanisms in named sections, and use cross-object analysis to explain which differences affect the overall judgment. For objects with limited evidence, state what can be answered rather than filling gaps with another company's facts. Allocate space by importance and complexity while completing required coverage.\n\nSynthesis builds on reasoning developed in the body: what the sections jointly support, which conditions explain divergence, and what that means for the original question. Use this to present the answer in the opening and ending. Re-listing section conclusions adds little, and a separate synthesis section is not always needed. Facts, inferences and recommendations retain their meanings throughout; qualifications that affect a conclusion stay with that judgment.\n\nUse or combine core insights, scope, analysis, counterevidence, implications and references as the task needs. Follow the agreed citation form; inline links can supply references, and appendices belong only where permitted and useful. Preserve an existing structure that answers the question well rather than rewriting the whole report to apply this method.\n\nFor multi-turn revisions and stale projects, follow [task continuity](task-continuity.md), reusing this task’s specification, requirements and state without a second tracker.\n\n",
+      "methods": [
+        "assemble"
+      ]
+    }
+  ],
+  "profile": "full",
+  "available_methods": [
+    "brief",
+    "collect",
+    "evidence",
+    "analyze",
+    "write",
+    "review",
+    "deliver",
+    "delivery-records",
+    "compare",
+    "explain",
+    "synthesize",
+    "recommend",
+    "depth",
+    "assemble",
+    "delegate",
+    "resume"
+  ],
+  "profile_policy": [
+    "Use the declared reviewer tier; unconfigured new tasks use author self-review."
+  ]
+}

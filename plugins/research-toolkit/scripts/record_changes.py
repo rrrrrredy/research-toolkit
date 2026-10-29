@@ -25,7 +25,7 @@ def rows_from(content, kind):
 
 
 def history(root):
-    from research_workflow import safe_path
+    from task_storage import safe_path
     path = safe_path(root, "logs/activity.jsonl")
     events = []
     if path.exists():
@@ -40,7 +40,7 @@ def history(root):
 
 
 def source_files(root, row):
-    from research_workflow import safe_path
+    from task_storage import safe_path
     files = {}
     for field in ("evidence_path", "read_evidence"):
         # evidence_path is an explicit file path, including original formats
@@ -142,7 +142,7 @@ def claim_source_ids(row, registered):
 
 
 def impact_view(root, summary, artifact):
-    from research_workflow import safe_path
+    from task_storage import safe_path
     records = summary.get("records", {})
     changed = lambda kind: sorted({key for cat, keys in records.get(kind, {}).items() if cat != "unchanged" for key in keys})
     source_ids = set(changed("sources")) | {k for k, v in summary.get("source_files", {}).items() if v["status"] == "changed"}
@@ -192,7 +192,7 @@ def impact_view(root, summary, artifact):
 
 def latest_changes(root):
     try:
-        from research_workflow import load
+        from task_storage import load
         events = history(root)
         latest = next((e for e in reversed(events) if "record_changes" in e), None)
         if latest is None:

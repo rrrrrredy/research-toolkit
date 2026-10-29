@@ -1,0 +1,17 @@
+{
+  "task": "handoff",
+  "draft": {
+    "path": "analysis/cost.md",
+    "kind": "analysis",
+    "content": "Synthetic analyst result: 100/20 and 140/28 both give five years. The evidence does not establish equal reliability: A excludes peak load. Keep this condition when choosing.\n",
+    "based_on": {
+      "state/task_spec.md": "fe6d7a5103b6479268b971ecc2c41c27a6153c25680bd1b4a7b045b163aa5694",
+      "sources/a.md": "9c0a7b115a4d5e8f6417d91df0f0e491fad7307dadf5b9e8c9d34db49289ace3",
+      "sources/b.md": "0f3896c3449c6585d0a7435f13813efc567c6b5ab75d781ea888300c867ce342",
+      "state/requirements.jsonl": "305188a085a5d4a5fe216a965f7020134db83fba533f428e032252553b538458",
+      "data/source_registry.csv": "91c93c0741ee96d0f629368c0a0dcaff4d33ea09fc25c137229c8d13cd707b8b",
+      "data/claims_registry.csv": "98f8958db28ab017a0796d7677ffcd534c82ef784e5db2c81acc3e8a13dbbd16"
+    },
+    "host_task": "fixture-host:cost-branch"
+  }
+}

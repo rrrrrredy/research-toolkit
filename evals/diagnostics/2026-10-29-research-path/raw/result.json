@@ -1,0 +1,15 @@
+{
+  "ok": true,
+  "nature": "Controlled CLI integration, supplied analyst prose and self-review; no model or host execution",
+  "operations": 12,
+  "elapsed_seconds": 9.625,
+  "observed": [
+    "effective satisfied constraints retained",
+    "counter-evidence included",
+    "selected methods only",
+    "missing input rejected",
+    "branch output and host reference recovered",
+    "changed requirements visible on handoff",
+    "full report reaches existing review and delivery"
+  ]
+}

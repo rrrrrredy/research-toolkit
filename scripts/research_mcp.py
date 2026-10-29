@@ -42,7 +42,7 @@ def research_start(task: str, brief: dict[str, str], language: str = "en",
     Returned clarification_questions guide the agent; do not forward them as a questionnaire. Explain consequential alternatives and resolve critical choices with the user.
     Use the complete shared research methods. Omit profile; it is retained only for older clients and saved tasks.
     Resume an existing task through research_status, preserving its recorded completion requirements.
-    Inspect review_readiness before collection: restore blocked dependencies/access; local checks do not verify quota.
+    review_readiness reports review access; collection and analysis can proceed while review access is unavailable.
     """
     return mutate(workflow.start, task, brief, language, profile)
 
@@ -62,7 +62,10 @@ def research_save(task: str, sources: list[dict[str, Any]] | None = None,
     put reading locations and notes in locator, e.g. "pp. 2-4; relevant sections only", not appended to the path.
     URL/page locators and supported local-reference forms remain valid; optional evidence_path locates local UTF-8 source text.
     draft uses path, optional content and complete=true for a complete draft; omit content to register an existing file.
-    draft.main=true explicitly selects the current work; optional kind is report/comparison/review.
+    draft.main=true explicitly selects the current work; optional kind is report/comparison/review/analysis.
+    For a research contribution use kind=analysis without main=true. Optional based_on copies work_context.inputs;
+    host_task retains the actual host task/session reference. Existing activity records return these contributions
+    in current_work.research_outputs, including changed inputs; changed inputs do not automatically invalidate analysis.
     Chapter/reference drafts do not change the main selection. brief updates only supplied brief fields and task_spec together.
     Returns assigned IDs and field errors for the agent to resolve, without asking users to manage records.
     replace names complete collections to repair from recovered rows; original bytes are backed up automatically.
@@ -85,7 +88,8 @@ def research_check_updates(task: str, source_id: str) -> dict[str, Any]:
 
 
 @server.tool(structured_output=True)
-def research_status(task: str, language: str = "en", stage: str | None = None) -> dict[str, Any]:
+def research_status(task: str, language: str = "en", stage: str | None = None,
+                    methods: list[str] | None = None, work: dict[str, Any] | None = None) -> dict[str, Any]:
     """Read progress and stage methods. Optional stage advances to collect/analyze/draft/revise only
     after prerequisite records exist. Review and final completion use their dedicated tools.
     language accepts "en" (English), "zh" or "zh-CN" (the same Chinese methods); checked before any stage change.
@@ -94,19 +98,29 @@ def research_status(task: str, language: str = "en", stage: str | None = None) -
     Literal matches guide reading, not semantic verdicts; not_located requires inspection, not a new acceptance gate.
     current_work locates the main artifact, requirements and historical receipt separately. runtime identifies this implementation,
     not the Skill actually read by the host. Status does not discover arbitrary unregistered files.
+    current_work includes effective_requirements (including satisfied), scope_decisions and research_outputs.
+    Optional methods selects named methods from research_guide.available_methods instead of the stage defaults.
+    Optional work prepares readable input for research, delegation or revision: question, requirement_ids,
+    claim_ids, source_ids and paths (all optional). Selected claims include supporting and counter-evidence sources.
+    work_context includes originals, effective requirements, references and inputs hashes. Choose scope yourself;
+    send the packet through the host's existing agent tools, preserving its actual task handle for follow-up.
+    No host agent is launched by this read. Omit stage to prepare independent work without changing global progress.
     """
-    return (mutate(workflow.status, task, language, stage) if stage is not None
-            else call(workflow.status, WORKSPACE, task, language, stage))
+    return (mutate(workflow.status, task, language, stage, methods, work) if stage is not None
+            else call(workflow.status, WORKSPACE, task, language, stage, methods, work))
 
 
 @server.tool(structured_output=True)
-def research_guide(stage: str, language: str = "en", profile: str = "full") -> dict[str, Any]:
+def research_guide(stage: str, language: str = "en", profile: str = "full",
+                   methods: list[str] | None = None) -> dict[str, Any]:
     """Read brief/collect/analyze/draft/review/revise/final methods without a task.
     language accepts "en" (English), "zh" or "zh-CN" (the same Chinese methods).
     All tasks receive the same complete methods for this stage; omit the legacy profile argument.
     For an existing task use research_status to preserve its recorded completion requirements.
+    Optional methods selects named capabilities (e.g. compare/explain/assemble/delegate) for the current question.
+    Omit methods to keep stage defaults; available_methods lists choices. No additional step is required.
     """
-    return call(workflow.guidance, stage, language, profile)
+    return call(workflow.guidance, stage, language, profile, methods)
 
 
 @server.tool(structured_output=True)

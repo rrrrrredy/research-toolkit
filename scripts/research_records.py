@@ -39,7 +39,7 @@ def revised_spec(original, previous, updates):
 
 
 def merge_records(root, kind, incoming, replace):
-    from research_workflow import safe_path
+    from task_storage import safe_path
     name, identity, prefix, natural_key, defaults = SCHEMAS[kind]
     path = safe_path(root, name)
     original = path.read_bytes() if path.exists() else None
@@ -148,7 +148,8 @@ def merge_records(root, kind, incoming, replace):
 
 
 def save_records(root, sources=None, claims=None, requirements=None, draft=None, replace=None, brief=None):
-    from research_workflow import safe_path, load, BRIEF_FIELDS
+    from task_storage import safe_path, load
+    from research_guidance import BRIEF_FIELDS
     started, stamp, operation_id = time.monotonic(), now(), uuid.uuid4().hex
     event = {"operation": "save", "operation_id": operation_id, "started_at": stamp}
     plans, backups, ids, temporary, committed = [], [], {}, [], []
@@ -176,8 +177,8 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                 if kind in replace and original is not None:
                     backups.append((f"logs/record-backups/{operation_id}/{name}", original, None))
         if draft is not None:
-            if not isinstance(draft, dict) or set(draft) - {"path", "content", "complete", "main", "kind"}:
-                raise ValueError("draft: use path, optional content/complete/main/kind; complete records draft completeness, not delivery approval.")
+            if not isinstance(draft, dict) or set(draft) - {"path", "content", "complete", "main", "kind", "based_on", "host_task"}:
+                raise ValueError("draft: use path, optional content/complete/main/kind/based_on/host_task; complete records draft completeness, not delivery approval.")
             name = draft.get("path")
             path = safe_path(root, name)
             target_name = path.relative_to(root.resolve()).as_posix()
@@ -189,8 +190,22 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                 raise ValueError("draft.complete: use true or false.")
             if type(draft.get("main", False)) is not bool:
                 raise ValueError("draft.main: use true or false.")
-            if draft.get("kind", "report") not in {"report", "comparison", "review"}:
-                raise ValueError("draft.kind: use report, comparison or review for the work being delivered.")
+            if draft.get("kind", "report") not in {"report", "comparison", "review", "analysis"}:
+                raise ValueError("draft.kind: use report, comparison, review or analysis (a research contribution).")
+            if 'host_task' in draft:
+                if not isinstance(draft['host_task'], str) or not draft['host_task'].strip():
+                    raise ValueError('draft.host_task: retain the actual host task/session reference as text.')
+                event['host_task'] = draft['host_task']
+            if 'based_on' in draft:
+                if not isinstance(draft['based_on'], dict):
+                    raise ValueError('draft.based_on: use the work_context.inputs path-to-SHA256 object.')
+                for input_name, checksum in draft['based_on'].items():
+                    safe_path(root, input_name)
+                    if not isinstance(checksum, str) or not re.fullmatch('[a-f0-9]{64}', checksum):
+                        raise ValueError(f'draft.based_on[{input_name}]: use the SHA256 returned in work_context.inputs.')
+                event['based_on'] = draft['based_on']
+            # Preserve earlier contributions through the existing backup mechanism.
+            # A child contribution never implicitly replaces the registered main draft.
             original = path.read_bytes() if path.exists() else None
             content = draft.get("content")
             if "content" not in draft:
@@ -199,7 +214,10 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                 raise ValueError("draft.content: provide nonempty report text or an existing nonempty UTF-8 file.")
             if "content" in draft:
                 plans.append((name, content.encode("utf-8"), original))
-            event.update(artifact=name, complete_draft=draft.get("complete", False),
+                if draft.get('kind') == 'analysis' and original is not None and original != content.encode('utf-8'):
+                    backups.append((f'logs/record-backups/{operation_id}/{name}', original, None))
+            event.update(artifact=name, artifact_kind=draft.get('kind', 'report'),
+                         complete_draft=draft.get("complete", False) and draft.get('kind') != 'analysis',
                          time_basis="saved_by_tool" if "content" in draft else "existing_file_observed")
             current = progress.get("current_artifact", {})
             if draft.get("main") or current.get("path") == name:

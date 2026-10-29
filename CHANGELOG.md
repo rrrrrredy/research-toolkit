@@ -4,6 +4,14 @@
 
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
+## v1.5.0 — Local preparation, unreleased
+
+- Load existing guidance through stable method markers and optional question-specific selection; consolidate conflicting/repeated requirements.
+- Shared context retains effective requirements and scope decisions, with selected supporting/counter-evidence originals and input versions.
+- Existing save registers analyses, actual host references and changed inputs, reusing activity records and backups for assembly.
+- Review-backend availability no longer blocks collection; review, delivery and legacy-task contracts remain. English, Chinese and plugin synchronized.
+- Execution capability changes; report-quality and user-time effects have not been measured.
+
 ## Unreleased
 
 ## v1.4.14 — 2026-10-28

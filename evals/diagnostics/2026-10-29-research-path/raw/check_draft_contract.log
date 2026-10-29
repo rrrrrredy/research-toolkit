@@ -1,0 +1,20 @@
+
+test_archived_repeated_paragraphs_warn_and_repairs_remain_clear (__main__.DraftChecks.test_archived_repeated_paragraphs_warn_and_repairs_remain_clear) ... ok
+test_bad_records_report_and_requirement_all_remain_visible (__main__.DraftChecks.test_bad_records_report_and_requirement_all_remain_visible) ... ok
+test_cli_failure_then_success_exit_codes_without_stage_change (__main__.DraftChecks.test_cli_failure_then_success_exit_codes_without_stage_change) ... ok
+test_cli_review_preserves_unicode_with_legacy_pipe_encoding (__main__.DraftChecks.test_cli_review_preserves_unicode_with_legacy_pipe_encoding) ... ok
+test_exact_multiline_prose_keeps_locations_and_ignores_other_blocks (__main__.DraftChecks.test_exact_multiline_prose_keeps_locations_and_ignores_other_blocks) ... ok
+test_export_citation_examples_and_ordinary_references_do_not_warn (__main__.DraftChecks.test_export_citation_examples_and_ordinary_references_do_not_warn) ... ok
+test_failed_then_revised_lite_report_rechecks_current_bytes_without_receipt (__main__.DraftChecks.test_failed_then_revised_lite_report_rechecks_current_bytes_without_receipt) ... ok
+test_indented_code_examples_preserve_prose_warnings_and_line_numbers (__main__.DraftChecks.test_indented_code_examples_preserve_prose_warnings_and_line_numbers) ... ok
+test_length_input_errors_identify_the_field_and_correction_without_mutation (__main__.DraftChecks.test_length_input_errors_identify_the_field_and_correction_without_mutation) ... ok
+test_missing_invalid_utf8_and_escaping_reports_fail_without_mutation (__main__.DraftChecks.test_missing_invalid_utf8_and_escaping_reports_fail_without_mutation) ... ok
+test_no_declared_bound_warns_without_inferring_limit_from_brief (__main__.DraftChecks.test_no_declared_bound_warns_without_inferring_limit_from_brief) ... ok
+test_pending_requirement_does_not_become_satisfied_by_counting (__main__.DraftChecks.test_pending_requirement_does_not_become_satisfied_by_counting) ... ok
+test_private_citations_warn_in_both_profiles_without_mutation_or_new_gate (__main__.DraftChecks.test_private_citations_warn_in_both_profiles_without_mutation_or_new_gate) ... ok
+test_whole_artifact_unicode_and_markup_are_counted_on_custom_path (__main__.DraftChecks.test_whole_artifact_unicode_and_markup_are_counted_on_custom_path) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 5.844s
+
+OK
