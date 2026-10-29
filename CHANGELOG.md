@@ -4,7 +4,7 @@
 
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
-## v1.5.0 — Local preparation, unreleased
+## v1.5.0 — 2026-10-29
 
 - Load existing guidance through stable method markers and optional question-specific selection; consolidate conflicting/repeated requirements.
 - Shared context retains effective requirements and scope decisions, with selected supporting/counter-evidence originals and input versions.
