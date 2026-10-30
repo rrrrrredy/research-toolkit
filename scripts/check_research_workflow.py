@@ -180,6 +180,8 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(workflow.sha256_file(frozen), ref["sha256"])
 
     def test_cli_native_assignments_and_invalid_switch(self):
+        workflow.save_records(self.workspace, "case", draft={"path": "final.md", "main": True,
+                              "host_task": "synthetic-cli-author", "complete": True})
         request = {"task": "case", "evidence_paths": ["source.md"], "include_assignment": False}
         command = [sys.executable, "-X", "utf8", str(workflow.TOOLKIT/"scripts/research_workflow.py"),
                    "review", "--workspace", str(self.workspace)]
