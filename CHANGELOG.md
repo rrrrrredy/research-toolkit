@@ -4,6 +4,14 @@
 
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
+## v2.0.1 — 2026-10-30
+
+- Invalidate unit readiness when retained review evidence or replies change; preserve actual production history and draft snapshots in independent review inputs.
+- Reuse complete shared-upstream results within one dependency inspection. Every new call still checks the originals, identities and results.
+- Bind full-report review to requirement meaning and scope, allowing actual fulfilment to be recorded before delivery without invalidating completed independent work. Meaning changes still require the affected review.
+- Align current evaluation prompts with existing independent responsibilities and task-specific length requirements; synchronize English, Chinese and plugin content.
+- Publish matching [bilingual release notes](docs/releases/v2.0.1.md), version metadata and plugin package. Preserve v2.0.0 public interfaces and older materials. Completed controls and CI verify input, dependency and delivery behavior; they do not establish improved research quality.
+
 ## v2.0.0 — 2026-10-30
 
 - Connect native host research units, full-artifact handoffs, actual dependencies and progressive assembly through the existing interfaces.
