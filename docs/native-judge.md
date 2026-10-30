@@ -2,6 +2,8 @@
 
 [English](native-judge.md) · [简体中文](native-judge.zh-CN.md)
 
+This adapter reproduces the dated fixed-source evaluation design below. Its call limits, disabled tools and usage accounting describe that experiment, not ordinary research. Current research uses the host-native assignments in [the review contract](review-completion.md).
+
 Schema 2 can use `transport: codex_exec` for its judge. Authors still use the compatible HTTP transport. [The dated Astra settings](../evals/configs/development-20261012/astra-judge.json) request `gpt-6-astra`; the local Codex CLI must already be signed in. Set `RESEARCH_CODEX_EXECUTABLE` to its absolute executable path. This is a local process setting, not an API credential or a repository configuration change.
 
 The adapter starts one fresh ephemeral CLI process per packet in a neutral temporary directory. It supplies the frozen judge instruction and the packet, ignores user configuration, disables project instructions, memories, host skill discovery, plugins, apps, shell/browser/computer/image tools and delegation, and passes only a system-environment allowlist. Author API keys and parent conversation identifiers do not enter that environment. No resume/fork operation is used. The process retains the read-only sandbox. A separate provider configuration uses Codex's normal authentication with HTTP and stream retries both set to zero; current CLI versions reject attempts to override the reserved `openai` provider.

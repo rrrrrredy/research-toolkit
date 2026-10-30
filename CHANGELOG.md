@@ -4,6 +4,13 @@
 
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
+## v2.0.0 — Unreleased
+
+- Connect native host research units, full-artifact handoffs, actual dependencies and progressive assembly through the existing interfaces.
+- Require independent content perspectives, audit and separate final acceptance for new/resumed work; retain original replies, identities and version bindings. Author self-review cannot complete delivery.
+- Consolidate method ownership and stage loading; synchronize English, Chinese and plugin sources. Remove default research runtime cutoffs and time/token summaries, preserving failure recovery and historical evidence.
+- Preserve old materials and receipts; the changed completion contract requires a major version. Local validation and RSI continuation are in progress; this version has not been published.
+
 ## v1.5.0 — 2026-10-29
 
 - Load existing guidance through stable method markers and optional question-specific selection; consolidate conflicting/repeated requirements.

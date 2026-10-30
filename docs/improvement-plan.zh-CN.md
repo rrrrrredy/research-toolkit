@@ -2,6 +2,8 @@
 
 [English](improvement-plan.md) | [简体中文](improvement-plan.zh-CN.md)
 
+本页保留早期改进计划与当时的执行记录，不是 v2 的研究操作规范；其中旧评审人数、可选审计和执行上限仅描述原计划。当前入口见[快速开始](quickstart.zh-CN.md)，当前完成要求见[审阅契约](review-completion.zh-CN.md)。
+
 下文保留对应日期整改的术语与范围，不用于为新任务选择方法；新研究使用[统一入口](../SKILL.zh-CN.md)，修复工作见[当前说明](report-evaluation-standard.zh-CN.md)。
 
 10 月 13 日历史项目整改见[完整集合、方法改动与缺陷处置](correction-audit-2026-10-13.zh-CN.md)。此前管线完成只是一项任务；项目验收还覆盖运行时、安装指令、Full方法、来源输入和当前数据生成器。

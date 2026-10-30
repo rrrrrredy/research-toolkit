@@ -1,199 +1,98 @@
-# Review Completion Records
+# Independent review, audit and acceptance
 
 [English](review-completion.md) | [简体中文](review-completion.zh-CN.md)
 
-This record interface is for CLI/MCP-managed reviews and studies that explicitly require it. Skill-only work can retain substantive feedback and its report version in existing conversations or files without creating these JSON records.
+This page describes how the existing `research_review` and completion checker retain independent work. The [role reference](../references/subagents-and-review-loop.md) owns the substantive methods. New research and continued deliveries use the current contract; frozen results retain their original contract and history.
 
-[SKILL.md](../SKILL.md) defines the required behavior. This page describes the offline record interface for required model reviews, validity checks, finding dispositions and sampling. [Role instructions](../references/subagents-and-review-loop.md) describe the actual review work.
+## Conduct the independent work
 
+The host runs the agents. Toolkit prepares their inputs, preserves outputs and reports which work remains. Codex/Claude Code subagents use the host's existing access; no separate API setup is required.
 
-New tasks use the shared research methods and existing delivery path. Self is author review; external/independent retain the selected review requirements. Do not add reviewers or audits automatically. Saved tasks retain their completion requirements; see [historical task compatibility](usage-modes.md#historical-task-compatibility).
-
-## Conduct the selected review
-
-Read this section when conducting an agreed review. See [reviewer configuration](usage-modes.md#reviewer-backends).
-
-| Tier | Review relationship | Use |
-| --- | --- | --- |
-| `self` | Author-context review, recorded as `reviewer: self` and `review_strength: degraded` | Tasks accepting author-context checks without an independent-review requirement |
-| `external` | Review from a configured command or model endpoint | Tasks using the configured review service |
-| `independent` | A fresh context separate from the author, with any task-declared audits | Tasks requiring independent review; a separate Astra context is sufficient |
-
-All tiers assess requirements, evidence, adversarial reasoning, structure and depth, reader usefulness, process language and natural expression against the actual report. Retain original responses, specific locations, findings and version bindings. A valid negative review completes review work but unresolved necessary corrections prevent delivery. Preserve negative results and use evidenced no-change decisions for mistaken findings rather than rerunning an unchanged report to seek a pass.
-
-Self-review uses the existing prompt and frozen input returned by `research_review`; submit the actual result with its `input_version`. For local reading without repeating the full packet, use the existing [self-review file example](usage-modes.md#reuse-task-files-and-retain-a-self-review-packet). State that this is author-context review without weakening facts that their sources adequately support.
-
-Use `research_check_reviewer` or CLI `check-reviewer` for local configuration checks. Restore required external or independent access when unavailable; do not substitute self for an explicit independent requirement. Add audits only when declared. The backend guide covers same-model independent contexts, model-participant task observations and usage; repeated runs retain their task identity, and changed assignments or criteria need checks appropriate to that change.
-
-## Choose the Completion Question
-
-- **Evaluation:** all declared review slots must have effective results and evidenced dispositions. A valid negative judgment, confirmed sample defect or unresolved source question can be retained as an evaluation outcome.
-- **Report delivery:** declared content reviews are complete, required corrections are resolved, and the current report meets its task and delivery checks. Additional auditing follows the declared plan.
-
-Run the review-completion check from the repository directory, replacing the task path:
-
-~~~bash
-python scripts/check_review_completion.py <task-directory> --artifact final.md
-~~~
-
-This command checks the declared review plan in `state/progress.json` and the records in `logs/review.jsonl`. It does not call a model, retry a request, edit a report or charge a provider. Its exit status reports record consistency, not whether the report is good.
-
-The delivery checker uses **contract 3** by default and includes this check for terminal report delivery. The eval runner applies it to terminal records even when the case's optional delivery-receipt check is disabled. Use the standalone command for evaluation-panel completion; an offline report-conformance score is a different result.
-
-## Review Plan
-
-The shared workflow includes the role reference's [content-review methods](../references/subagents-and-review-loop.md#assign-work-by-perspective) in the reviewer instructions. The existing reviewer checks question coverage, evidence, comparable measures and reader usefulness with those methods; this adds no review slot. The supplied methods are retained in the original request and included in the assignment signature. A methods update does not rewrite completed results or automatically rerun them.
-
-For ordinary reports the executor writes `audit_required: false`. Complete `model_review` records, original responses, execution captures, dimension coverage and input bindings remain required; `review_audit` and `sampling_audit` are not required. Delivery requires no unresolved necessary correction. A justified `no_change` disposition can clear a mistaken finding without replacing the original negative verdict; `optional` suggestions do not block delivery. The global result summarizes the reviews and their dispositions without another model call.
-
-New evaluations can set `audit_required: false` and use their configured independent reviewer without an auditor. Explicitly configured audits and saved plans without this field retain the audited contract. Do not rewrite saved audited plans to change their completion conditions.
-
-Add `review_plan` to the existing progress record. It contains:
-
-| Field | Meaning |
+| Assignment | Independent responsibility |
 | --- | --- |
-| `purpose` | `evaluation` or `report_delivery`; the delivery checker requires the latter |
-| `audit_required` | `false` for new reports and evaluations without a configured auditor; omitted or `true` for declared audited plans |
-| `author_id` | Identity of the author context |
-| `artifact_sha256` | Hash of the actual primary artifact |
-| `slots` | Nonempty list of assignments for the declared reviewer tier |
-| `sampling` | Population, method and selected/mandatory ids for declared audited plans |
+| Seven content perspectives | A separate non-author context for each: requirements, evidence, adversarial reasoning, structure and depth, reader usefulness, process language, natural expression. Each sees the whole current report and necessary originals. |
+| Domain review | Check task-specific expertise, calculations, terminology or technical assumptions. It supplements the base perspectives. |
+| Audit | A different agent examines review validity, consequential findings and decisions, decisive report claims and samples of passed content. It can return necessary corrections. |
+| Final acceptance | Another independent agent reads the complete current report, effective requirements, audit and actual corrections before accepting delivery. |
 
-Each slot has `slot_id`, `reviewer_id`, `model`, `scope`, `dimensions` and `input`. The shared executor also records `reviewer_signature` for the configured reviewer and instructions, plus `auditor_signature` in the plan and audit rows when an auditor is configured. Timeout changes are excluded from these assignment bindings. When present, signatures must match before selecting the first valid result; a prior model's result cannot fill a changed slot. Legacy records without these fields remain inspectable without inventing evidence of earlier execution. Slot ids are unique; external/independent reviewers are not the author, and each dimension is named explicitly. Compatible perspectives may share a slot. There is no fixed provider list in the checker.
+Authors, research contributors and the assembling agent are production participants. They may explain or correct their work but cannot fill independent assignments about it. Use actual host task/session identities; changing a label within the author's context is not another agent. Models may be the same.
 
-`input` is a file reference: `{"path": "reviews/input.json", "sha256": "..."}`. Replace `...` with the actual hash; the fragment illustrates the shape and is not a completed record. Keep the original full task, report, evidence and criteria in the captured input, with any actual provider-envelope transformation documented. A separate hash or a list of source URLs does not establish that the model received full source text.
+Early review of an outline, assumption, calculation or argument unit checks the input on which further work depends. It is saved against that unit's artifact and sources. It does not count as whole-report review or final acceptance. The final perspectives consider the complete assembled argument, including cross-section consistency.
 
-All referenced files must be nonempty UTF-8 text inside the task directory. Hashing uses the delivery checker's normalization: CRLF and CR become LF for recognized text suffixes. It does not rewrite the original files. Keep credentials out of input and execution captures.
+## Native requests and original results
 
-Declare scope, reviewers, inputs and retry policy before examining outcomes. For declared audited plans, also declare the sampling method and record its actual population and selected ids. Local record checks cannot prove when a plan was frozen or that the declared plan captured every user requirement.
+Call `research_review` with the current task, artifact and evidence paths. With no configured external executor, it returns pending native-host assignments and retained complete inputs. The host launches each required independent agent with the assignment and access to original files.
 
-## Plan Changes and Historical Attempts
-
-For an explicitly authorized report-delivery assignment change, append a `review_plan_change` row with `revision_authorized: true` and `previous_plan` / `current_plan` file references. Each reference binds the complete retained plan by task-relative path and hash. Changes form a continuous chain ending at the current plan; every snapshot retains its original author, artifact and full slot input bindings. The shared executor creates these records when `revision: true` accompanies a material assignment change. The flag records the caller's authorization declaration; the checker cannot authenticate user consent.
-
-A retired slot is legitimate history only when its record matches an assignment in a verified earlier plan. It does not count toward the current plan. Unknown slots, altered snapshots and broken chains fail. Keep original failures and negative results. Do not reconstruct missing history by inventing earlier plans; recover a legacy change from preserved original plans and actual authorization before accepting it. Frozen evaluation plans cannot use this route to remove or rename reviewers.
-
-## Original Attempts
-
-Append one `model_review` row for each attempt. Keep failures as separate attempts rather than overwriting them.
-
-| Field | Required value or content |
-| --- | --- |
-| `record_type` | `model_review` |
-| `attempt_id`, `slot_id` | Unique attempt and the declared required slot |
-| `status` | `completed`, `failed` or `incomplete` |
-| `reviewer_id`, `model`, `scope`, `input` | Match the declared slot for an effective review |
-| `artifact_sha256` | Match the reviewed artifact |
-| `execution_id` | Actual observable request/session/turn identifier, not a fabricated replacement |
-| `execution` | Reference to retained execution capture |
-| `response` | Reference to the complete original model response, distinct from the execution capture |
-| `report_verdict` | `pass`, `needs_revision` or `not_assessed`; separate from attempt completion |
-| `coverage` | Object keyed by every declared dimension; each entry has a concrete `location` and `basis` |
-| `findings` | List of located observations; use an empty list when justified |
-
-Each finding contains `finding_id`, `severity`, `location` and `basis`. Severity is `critical`, `major`, `minor` or `optional`. Keep quotes, original ratings, source details and suggested changes in the original response or additional fields. Structured records do not replace it.
-
-A completed invocation alone is insufficient: its response must substantively cover the declared dimensions with locations and reasons. Failed or truncated attempts remain incomplete. Declared audited plans additionally require a valid audit. Preserve execution/error evidence and the recovery action.
-
-The same execution id or response file cannot fill two slots. Identical response text is not by itself proof of a duplicate execution; execution provenance and substantive review remain necessary. The checker compares declared model identifiers with the slot; it cannot authenticate provider identity from caller-created files.
-
-## No-change Decisions for Ordinary Reports
-
-After checking a disputed finding against the unchanged report and reviewed sources, the author can append a `finding_disposition` row to the existing `logs/review.jsonl`. This is a finding disposition, not a new model review or audit. No additional file, reviewer or model call is required. Reports without disputed findings need no such row.
-
-This is a **synthetic format example**; use the actual attempt and finding IDs:
+An illustrative submission shape is:
 
 ```json
-{"record_type":"finding_disposition","schema_version":2,"attempt_id":"actual-attempt-id","finding_id":"F1","decision":"no_change","decision_actor":{"id":"author:actual-task-id","role":"author"},"artifact_sha256":"copy from the original model_review record","response_sha256":"copy from that record's response.sha256","reason":"The report explicitly says revenue is not reported; the criticism misreads it.","evidence":"final.md paragraph 2 and source.md paragraph 1: no revenue figure is supplied."}
+{
+  "task": "study",
+  "artifact": "reports/current.md",
+  "evidence_paths": ["sources/primary.md"],
+  "host_result": {
+    "slot_id": "copy-the-returned-slot-id",
+    "host_task": "actual-independent-host-task-id",
+    "response_path": "reviews/host/original-response.json",
+    "execution_path": "reviews/host/original-execution.json"
+  }
+}
 ```
 
-Keep the original response, verdict and severity unchanged. `attempt_id` binds the disposition to that review's report and input version; `finding_id` identifies the exact finding. Both `reason` and `evidence` must be nonempty, specific explanations with locatable support. The latest disposition for that pair applies, while earlier decisions remain in the log.
+These are placeholders, not a completed review. Preserve the actual original response and execution record as nonempty UTF-8 files inside the task. The returned assignment specifies the response content. Do not construct a favorable reply from the author's interpretation, replace a negative response, or invent a host identifier. Record failed and incomplete attempts too.
 
-New ordinary review plans and attempts declare `disposition_schema_version: 2`. Their dispositions require the schema shown above, the actual decision actor, and hashes copied from the retained attempt. `decision_actor.role` is `author`, `reviewer` or `user`; author/reviewer IDs must match the task/attempt identities. A user ID is a declared reference, not authenticated consent. Do not label an author's decision as a user's or an independent audit. These fields establish declared provenance only, not identity authentication or correctness. Unchanged historical attempts without the version marker retain the old shape; do not invent their actors or hashes. A changed ordinary assignment adopts the new contract; simply resuming an old assignment does not rewrite it.
+Each returned `assignments` entry provides `slot_id`, `role`, `assignment_ref` and `assignment_version`; the operation also returns `input_version`. The original JSON response must quote both versions. The original execution record identifies `host_task`, `status: "completed"`, `assignment_version` and the actual observed host events. These must come from the execution that produced the response.
 
-Only `no_change` clears the corresponding finding. `confirmed_defect`, `unresolved` or merely declaring `resolved` does not clear a necessary correction on the unchanged draft. A `needs_revision` verdict can be cleared only when all its necessary findings have evidenced no-change decisions. `not_assessed`, an unexplained negative verdict, missing/invalid reviews and unrelated blockers still prevent delivery. Changed report or source inputs still require current-version review.
+`scope` defaults to `full_report`. `domains` names the required domain review areas and defaults to `["domain"]`; full-report review always includes the seven base perspectives. For an early unit review, use its registered `unit_id` as `scope` and select the relevant existing `perspectives`. This does not remove final whole-report duties.
 
-Call the existing `research_finish` after recording dispositions. It reconciles the executor's own review summary and binds the retained log to the receipt; it cannot overwrite a separate later global failure. Saved audited plans retain their existing requirements. These are record-consistency checks, not certification that an author's no-change decision is correct.
+The same operation accepts content results, prepares the independent audit, and then prepares final acceptance when the necessary work is resolved. Repeated calls with unchanged valid results resume pending work rather than generating another pass. `include_assignment` defaults to `false`, using retained input references; every worker must still be able to read the full packet and referenced source originals.
 
-## Validity and Finding Dispositions
+Configured command/endpoint execution is optional; see [usage](usage-modes.md#reviewer-backends). It must fulfill the same independence and current-version requirements. Legacy `self` results remain readable historical records; they are author checks, not the current independent review route.
 
-This section and the sampling records below apply to declared audited tasks. Ordinary content reviews do not require these additional records.
+## Inputs and version binding
 
-A `review_audit` row records an actual examination of a particular response:
+Retain the actual brief, effective requirements, report, source and claim records, selected original sources and method instructions used by each assignment. Supporting and registered counter-evidence sources enter the review input together. A URL list or the author's summary cannot replace necessary source text.
 
-- `attempt_id`, `auditor_id`;
-- `result`: `valid` or `invalid`;
-- `response_sha256`: the exact original response being audited;
-- `basis`: why the review did or did not substantively address its assignment;
-- `evidence`: a file reference to the actual audit record;
-- `dispositions`: an object keyed by every finding id in a valid review, with no extra ids.
+The plan and each result bind the artifact and required input versions. Inputs, instruction snapshots, original responses and execution captures remain in the task. Text hashes normalize newlines; they do not modify the original research records. File references must resolve inside the task and match their hashes.
 
-The reviewer cannot validate or invalidate their own response. Every invalidation also needs a context separate from the author; changing an earlier validity decision cannot bypass independent adjudication. Each disposition needs `decision`, `reason` and a locatable `evidence` explanation. Decisions are `confirmed_defect`, `no_change`, `unresolved` or `resolved`. Report delivery accepts only resolved or justified no-change dispositions; evaluation can retain defects and unresolved evidence outcomes.
+Current tasks use `progress.review_contract: 2` and `review_plan.contract_version: 2`. The existing `logs/review.jsonl` retains `model_review` and `review_audit` records plus the independent `final_acceptance`. These are review-contract identifiers, distinct from the delivery checker's contract number.
 
-Critical/major findings need an auditor context distinct from both the author and original reviewer. The same independence requirement applies under the protocol to decisive disputes and consequential no-change decisions even if a record understates their severity. Scripts cannot infer whether a severity label was honest.
+After a substantive edit, save the new report or source version and use `revision: true` for the affected review. Preserve earlier assignments and responses. Current whole-report acceptance must cover the final text. Historical results are evidence of what was checked then, not automatic approval of later prose.
 
-Keep validity audits and their evidence, including invalidations. The checker uses the latest validity decision for an attempt, then the first valid completed attempt in append order for each slot's current artifact and input version. Historical attempts remain in the log under their original slot ids. An authorized report-delivery plan change may retire or rename a slot when its original assignment is bound by the plan history described below. Within that assignment version, an earlier valid negative result cannot be replaced by a later favorable result. A separately authorized report revision needs current-version coverage; keep its input capture at a new path and preserve the earlier report, input and reviews. Changing the plan or input solely to obtain a favorable result is prohibited. Do not invalidate a response merely because it found a defect or made an isolated, adjudicable mistake. Changed validity decisions require actual evidence and remain visible in the log.
+## Findings and necessary corrections
 
-If a response is generic, reads the wrong material or omits required dimensions, mark the content audit invalid and complete that missing assignment. Schema compliance alone cannot distinguish a careful review from well-formatted boilerplate.
+An effective review includes located observations, the source or reasoning behind them, and coverage of the assigned perspective. A valid negative result completes that review; it leaves its necessary corrections open. A generic PASS, truncated reply or wrong-input response does not complete the assignment.
 
-## Sampling
+Keep the original verdict and severity. The author may propose a correction or a supported no-change response. Independent adjudication checks whether the criticism is mistaken, has been resolved in the actual text, or remains unresolved. Authors cannot clear their own required findings by appending a disposition. Optional preferences need not become changes; important no-change decisions must be inspected against the original report and evidence.
 
-`review_plan.sampling` contains:
+Do not rerun an unchanged valid negative review until it passes. Revisit the changed or genuinely missing work. A response may contain an isolated mistake without invalidating the rest of its substantive review; retain and adjudicate the actual finding.
 
-- `method`: the predeclared selection and escalation method;
-- `population`: unique ids of candidate items;
-- `selected`: unique ids actually selected;
-- `mandatory`: decisive items that must all occur in `selected`, possibly empty when none apply.
+## Audit and sampling
 
-Every selected item must belong to the population. The protocol requires risk-based full checks plus task-proportionate coverage of passed items, no-change decisions, sections, source types and review slots. The checker checks the declared sets, not whether the population is exhaustive or the selection statistically sound.
+The auditor reads the complete current report, requirements, review outputs and relevant original material. It selects checks from that input rather than receiving only author-selected highlights.
 
-Append a `sampling_audit` row with:
+Check all decisive requirements and conclusions, key numbers and citations, consequential counter-evidence, major findings, important no-change decisions and claimed corrections that affect the result. Sample other passed/no-issue content across the actual research, including branch-to-report transformations, retained conditions and cross-section conclusions.
 
-- `auditor_id`, separate from the author;
-- `artifact_sha256` and `selected`, matching the plan;
-- `evidence`, referencing the actual sampling audit;
-- `checks`, an object containing every selected item exactly once.
+For each selection, retain its location, reason, evidence examined and result. No fixed first/last/hash paragraph rule or sampling percentage substitutes for this choice. A defect expands examination by its cause—for example the same source, measure, branch or transformation—until the affected work is understood and necessary defects are resolved. The auditor performs this within its existing assignment; no additional sampling role or scoring system is needed.
 
-Each check has `result` (`clear` or `defect`) and a locatable `evidence` explanation. A defect additionally needs:
+Review validity, report readiness and final acceptance are separate judgments. An audit can find that a negative review was valid and that the report still needs correction. Final acceptance must inspect the resulting complete report, not merely count passed review records.
 
-- `defect_type`: `report` or `review_validity`;
-- `follow_up.decision`: `resolved`, `no_change`, `confirmed_defect` or `unresolved`;
-- `follow_up.reason`: the actual expanded checks, outcome and justification;
-- `follow_up.evidence`: a file reference to the completed follow-up work.
+## Completion and recovery
 
-Report delivery accepts only resolved or justified no-change sampling dispositions. Evaluation may retain confirmed or unresolved report defects as findings. Review-validity failures require resolved or justified no-change dispositions for either purpose; recording an unresolved failure does not complete the review. A plain future-action string does not satisfy this gate.
+`research_finish` checks the current report, effective requirements and completed independent responsibilities before writing terminal state and the receipt. The author does not hand-write a replacement global PASS or receipt to close missing work.
 
-The latest sampling record must cover the current artifact and selection. A review or sampling file does not authenticate the identity, independence or diligence of its author.
+For inspection of a managed task:
 
-## Reading the Result
+```bash
+python3 scripts/check_review_completion.py <task-directory> --artifact reports/current.md
+```
 
-The result includes `required_slots`, `completed_slots`, `selected_attempts`, flags and explanations. `ok` checks the actual plan: reports and evaluations without a configured auditor do not need audit or sampling records; declared audited plans still do.
+This reads records and bindings; it does not run another reviewer. Actual substantive review is in the original responses and evidence. Preserve the full responses, not just parsed fields.
 
-These fields remain false even on success:
+If the host cancels, a dependency is unavailable, or a response is malformed, retain the original failure and continue that assignment after the cause is addressed. No fixed execution-duration or model-call threshold changes the research obligations. Same-task writes use the existing task lock; no new coordination service is required.
 
-- `execution_authenticity_verified`;
-- `semantic_verification`;
-- `report_quality_certified`.
+## Historical records
 
-Actual execution captures and original responses must be checked against the available runtime/provider evidence. Content auditing must inspect the report and relevant sources. No local JSON schema can prove that a model executed, understood the input or judged correctly.
+Keep earlier `model_review`, `review_audit`, `sampling_audit`, dispositions and receipts under the conditions they actually used. Existing 1.x self-review, merged-perspective and optional-audit records do not become v2 acceptance. A continued delivery reuses the original materials and completes the current independent work, without erasing earlier failures or claiming it happened previously. See [compatibility](compatibility.md).
 
-## Failure Recovery and Compatibility
-
-Preserve each failure, diagnose the cause and resume the required assignment. Bounded retry batches trigger recovery or a request for a concrete missing dependency, not permission to omit a required reviewer. Do not retry valid negative reviews or silently substitute a specified model.
-
-Contracts 1 and 2 remain available only for labelled historical record inspection. They do not check this model-review contract. Keep frozen research inputs, original responses and historical failures unchanged; new records are not retrospective evidence of earlier execution.
-
-~~~bash
-python scripts/check_delivery.py <historical-task-directory> --contract-version 2
-python scripts/run_evals.py --delivery-contract-version 2
-~~~
-
-The new record types coexist with whole-report delivery review rows in `logs/review.jsonl`. Attempt failures do not become unresolved editorial findings, and a global delivery PASS cannot erase a missing model slot. The delivery receipt binds the log and progress; file references in the plan and audit rows bind the retained inputs, responses and evidence.
-
-For synthetic positive/negative record controls, run:
-
-~~~bash
-python scripts/check_review_completion_contract.py
-~~~
-
-Those fixtures are labelled synthetic and exercise consistency rules. They are not model calls or evidence of review quality.
+Frozen evaluation fixtures and research comparisons retain their recorded protocols. They describe those studies; they are not default instructions for new research. Software control fixtures are labelled synthetic and do not stand in for actual host execution.

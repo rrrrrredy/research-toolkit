@@ -2,7 +2,9 @@
 
 > Complete research methods for in-depth analysis and long-form reports. 一套完整研究方法，支持深度分析与长文写作。
 
-Use the methods through repository access, files, attachments, or pasted instructions. Native Skill installation is optional. Plugin and local MCP integrations provide executable workflow tools; their dependencies and reviewer configuration are described in the usage guide.
+Use the methods through repository access, files, attachments, or pasted instructions. Native Skill installation is optional. Plugin and local MCP integrations provide executable workflow tools; their shared context, handoff and native-host review are described in the usage guide. The host runs independent production and assessment agents without separate API setup.
+
+The four connected responsibilities are task/context, evidence/analysis, writing/revision and review/delivery. Content perspectives, domain review, audit and final acceptance use separate independent host contexts.
 
 ## Research methods
 
@@ -16,12 +18,12 @@ Use the methods through repository access, files, attachments, or pasted instruc
 - [Project overview](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/README.md): Capabilities, a complete research request, and the case study.
 - [中文项目介绍](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/README.zh-CN.md): Chinese overview and research request.
 - [Agent setup](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/agents/README.md): Repository, file, attachment, and text input methods.
-- [Tools and configuration](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/usage-modes.md): Optional plugin and MCP setup, dependencies, and reviewer configuration.
+- [Tools and configuration](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/usage-modes.md): Optional plugin/MCP setup, common task context, native-host assignments and current delivery contract.
 - [工具与配置](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/usage-modes.zh-CN.md): Chinese usage guide.
 
 ## Research case
 
-- [Updating an existing research report](https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/): old report, source checks, concrete revisions and original evidence; no controlled estimate of time saved.
+- [Updating an existing research report](https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/): old report, changed evidence, concrete revisions and preserved originals.
 - [已有研究报告的实际更新](https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/index.zh-CN.html): 中文场景说明，链接旧稿、新材料、具体修订及实验限制。
 
 - [APIs or browsers for AI agents](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/case-study/api-or-browser/report.md): original English research from primary documentation on action coverage, completion, recovery, and cost; no comparative performance experiment.

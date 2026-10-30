@@ -456,12 +456,12 @@ def run_smoke(args: argparse.Namespace) -> int:
         f"with the exact name {SKILL_NAME}, inspect the loaded instructions, and then finish."
     )
     try:
-        version = command_version(command, env, min(args.timeout, 90))
+        version = command_version(command, env, 90)
         result = run_process(
             command + ["--profile", "headless", prompt],
             cwd=workspace,
             env=env,
-            timeout=args.timeout,
+            timeout=None,
         )
     except subprocess.TimeoutExpired as exc:
         runtime_error = f"DSH timed out after {exc.timeout} seconds"
@@ -549,7 +549,7 @@ def run_live(args: argparse.Namespace) -> int:
     )
     env = os.environ.copy()
     env.update({"NO_COLOR": "1", "FORCE_COLOR": "0"})
-    version = command_version(command, env, min(args.timeout, 90))
+    version = command_version(command, env, 90)
     started = time.monotonic()
     runtime_error = ""
     try:
@@ -557,7 +557,7 @@ def run_live(args: argparse.Namespace) -> int:
             command + ["--profile", "headless", prompt],
             cwd=workspace,
             env=env,
-            timeout=args.timeout,
+            timeout=None,
         )
     except subprocess.TimeoutExpired as exc:
         runtime_error = f"DSH timed out after {exc.timeout} seconds"
@@ -585,7 +585,6 @@ def run_live(args: argparse.Namespace) -> int:
             "profile": "headless",
             "version": version,
             "exitCode": result.returncode,
-            "elapsedSeconds": elapsed,
             "error": runtime_error,
         },
         "evaluation": evaluation,
@@ -612,10 +611,10 @@ def run_live(args: argparse.Namespace) -> int:
     return 0 if evaluation["conformance_status"] in allowed else 1
 
 
-def add_runtime_arguments(parser: argparse.ArgumentParser, *, default_timeout: int) -> None:
+def add_runtime_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--case", default=DEFAULT_CASE_ID, help="Eval case id to stage and validate.")
     parser.add_argument("--output-dir", help="Empty output directory; defaults under evals/runs/dsh/.")
-    parser.add_argument("--timeout", type=int, default=default_timeout, help="DSH timeout in seconds.")
+    parser.add_argument("--timeout", type=int, default=None, help=argparse.SUPPRESS)
     parser.add_argument(
         "--dsh-command-json",
         help=(
@@ -645,13 +644,13 @@ def main() -> int:
         "smoke",
         help="Run real DSH headless discovery/invocation against a local scripted endpoint.",
     )
-    add_runtime_arguments(smoke_parser, default_timeout=240)
+    add_runtime_arguments(smoke_parser)
 
     live_parser = subparsers.add_parser(
         "live",
         help="Run a configured model through DSH headless and score the produced artifacts.",
     )
-    add_runtime_arguments(live_parser, default_timeout=1800)
+    add_runtime_arguments(live_parser)
     live_parser.add_argument(
         "--allow-review",
         action="store_true",

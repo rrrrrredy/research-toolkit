@@ -21,10 +21,11 @@ class ReviewFailure(RuntimeError):
         self.capture = capture
 
 
-BACKEND_HELP = ("Choose RESEARCH_TOOLKIT_REVIEW_BACKEND=codex (installed CLI/account), "
+BACKEND_HELP = ("Use the host's native agents; no API configuration is required. "
+                "For an explicitly configured external bridge, choose RESEARCH_TOOLKIT_REVIEW_BACKEND=codex (installed CLI/account), "
                 "claude (installed CLI/account), or generic (RESEARCH_TOOLKIT_REVIEW_BASE_URL, "
                 "RESEARCH_TOOLKIT_REVIEW_MODEL and optional RESEARCH_TOOLKIT_REVIEW_API_KEY). "
-                "Without a configured backend, new ordinary reports use degraded self-review.")
+                "Native host assignments are the default.")
 
 
 def backend_kind(config):
@@ -66,12 +67,12 @@ def validate_review_config(config: dict) -> dict:
     if not isinstance(config, dict):
         raise ValueError("Review configuration must be an object.")
     reviewers = config.get("reviewers")
-    if not isinstance(reviewers, list) or not reviewers or len(reviewers) > 8:
-        raise ValueError("Review configuration needs 1-8 reviewers.")
+    if not isinstance(reviewers, list) or not reviewers:
+        raise ValueError("Review configuration needs reviewer entries.")
     ids = []
-    for reviewer in reviewers + ([config["auditor"]] if "auditor" in config else []):
+    for reviewer in reviewers + [config[role] for role in ("auditor", "acceptance") if role in config]:
         if not isinstance(reviewer, dict):
-            raise ValueError("Each configured reviewer or auditor must be an object.")
+            raise ValueError("Each configured reviewer, auditor or acceptor must be an object.")
         for field in ("id", "model"):
             if not isinstance(reviewer.get(field), str) or not reviewer[field].strip():
                 raise ValueError(f"Reviewer configuration needs {field}.")
@@ -92,17 +93,17 @@ def validate_review_config(config: dict) -> dict:
         if command is not None and (not isinstance(command, list) or not command
                                     or not all(isinstance(x, str) and x for x in command)):
             raise ValueError("A reviewer command must be a nonempty argv list.")
-        timeout = reviewer.get("timeout_seconds", 600)
-        if not isinstance(timeout, (int, float)) or isinstance(timeout, bool) or not 1 <= timeout <= 1800:
-            raise ValueError("Reviewer timeout_seconds must be between 1 and 1800.")
+        # Accept old timeout fields without applying a research runtime cutoff.
         ids.append(reviewer["id"])
     if len(ids) != len(set(ids)):
-        raise ValueError("Reviewer and auditor configuration IDs must be distinct.")
+        raise ValueError("Reviewer, auditor and acceptance configuration IDs must be distinct.")
     self_entries = [r for r in reviewers if backend_kind(r) == "self"]
-    if self_entries and (len(reviewers) != 1 or "auditor" in config):
+    if self_entries and (len(reviewers) != 1 or "auditor" in config or "acceptance" in config):
         raise ValueError("Self-review cannot be mixed with independent slots or auditors.")
     if "auditor" in config and backend_kind(config["auditor"]) == "self":
         raise ValueError("The author cannot serve as an independent auditor.")
+    if "acceptance" in config and backend_kind(config["acceptance"]) == "self":
+        raise ValueError("The author cannot perform independent final acceptance.")
     return config
 
 
@@ -114,6 +115,9 @@ def assignment_config(config: dict) -> dict:
 
 def review_readiness() -> dict:
     """Inspect configuration and local login without sending report data or model calls."""
+    if not backend_configured():
+        return {"status": "host_native", "checks": [], "review_strength": "independent",
+                "guidance": "Dispatch the returned assignments with the host's independent agent tools; no API configuration is needed."}
     try:
         config = load_review_config()
     except (ValueError, OSError, UnicodeError) as exc:
@@ -190,7 +194,7 @@ def run_generic(config, request):
         headers["Authorization"] = "Bearer " + key
     req = http.Request(endpoint_url(config), data=json.dumps(body, ensure_ascii=False).encode("utf-8"), headers=headers, method="POST")
     try:
-        with http.build_opener(NoRedirect).open(req, timeout=config.get("timeout_seconds", 600)) as response:
+        with http.build_opener(NoRedirect).open(req) as response:
             raw = response.read().decode("utf-8")
             request_id = response.headers.get("x-request-id")
     except error.HTTPError as exc:
@@ -256,9 +260,7 @@ def run_reviewer(config: dict, request: dict, cwd: Path) -> dict:
                        "--strict-mcp-config", "--mcp-config", '{"mcpServers":{}}', "--setting-sources", ""]
             if config["model"] != "claude-configured":
                 command += ["--model", config["model"]]
-    timeout = config.get("timeout_seconds", 600)
-    if not isinstance(timeout, (int, float)) or isinstance(timeout, bool) or not 1 <= timeout <= 1800:
-        raise ValueError("Reviewer timeout_seconds must be between 1 and 1800.")
+    timeout = None
     wire = json.dumps(request, ensure_ascii=False)
     if kind in {"codex-jsonl", "claude-json"}:
         wire = ("Perform only the bounded review assignment below in this fresh context. "

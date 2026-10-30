@@ -19,17 +19,15 @@ The receipt binds the current artifact, brief, progress, source and claim record
 Use `--delivery-message note.md` for a non-default intended message. The receipt must bind that selected filename. Artifact, receipt and intended-message paths must resolve inside the task directory.
 
 
-New tasks use the shared research methods and existing delivery path. Self is author review; external/independent retain the selected review requirements. Do not add reviewers or audits automatically. Saved tasks retain their completion requirements; see [historical task compatibility](usage-modes.md#historical-task-compatibility).
+New and continued deliveries require separate independent content perspectives, domain review, audit and final acceptance. Historical receipts remain readable under their original completion rules; see [compatibility](compatibility.md).
 
 <a id="full-delivery-completion"></a>
 
 ## Research delivery completion
 
-The following describes the existing tool-managed delivery path.
+Reconcile the actual answer with effective requirements and evidence. Complete current-version independent content reviews, audit and final acceptance, resolving necessary corrections in the report. A valid negative review completes that review but leaves delivery pending.
 
-Reconcile required questions and follow-up instructions with the actual answer and evidence. Complete the selected content reviews and expressly required audits, resolve necessary corrections, and retain the passing full-report assessment bound to the current report. A completed negative review does not approve delivery.
-
-Use `state/final_delivery.json` to bind current artifacts, required inputs, reviews and the intended delivery message as described on this page. The coherent terminal state is `stage: final` and `status: complete`. When script execution is available, run the existing checker shown above from the toolkit installation. A missing required input, failed check, stale review or unavailable required check remains unfinished; resolve it or deliver an accurate checkpoint with the remaining work. Hashes and offline PASS establish record consistency, not research quality or authentic model execution.
+Call `research_finish` with the current artifact and delivery message. The operation binds inputs and review results, writes `state/final_delivery.json`, and enters `stage: final` with `status: complete` only when the required work is complete. Do not hand-write a duplicate receipt or author a global PASS to replace independent acceptance. Use the standalone checker when inspecting retained records; it is not another content-review invocation.
 
 ## Requirement closure and reading records
 
@@ -97,21 +95,19 @@ For current and historical tasks, the supplied capture is compared with the boun
 
 The `delivery_observation` result is `not_provided`, `matched`, `mismatch`, or `unreadable`. Missing or different supplied captures fail. `not_provided` means only the intended message was checked, not that the actual user received it.
 
-For saved legacy checklist-only tasks, `checklist_valid` reports whether the retained checklist still matches its inputs and recorded obligations; `terminal_state` reports whether the task is currently `final/complete`. Resuming with `research_status(stage="revise")` keeps the checklist but makes the delivery check return `ok: false` and `incomplete_lite_task` until `research_finish` completes the current work. These checks do not rewrite task records or require a capture when none was supplied.
+Saved checklist-only task captures remain historical evidence under their original contract. A new continuation preserves those originals and completes the current independent requirements; it does not obtain a current acceptance by repeating the old checklist.
 
 A caller-supplied file is not authenticated delivery attestation. An agent writing another copy of its intended message does not create independent capture evidence. This interface alone does not intercept or enforce the live final reply.
 
 ## Required model-review completion
 
-Contract 3 checks [review-completion records](review-completion.md). Ordinary report plans use `purpose: report_delivery` and `audit_required: false`, retaining content reviews, original responses, execution evidence and version bindings. New evaluations also support `audit_required: false`. Explicitly audited plans retain validity audits, dispositions and sampling; upgrades do not silently relax saved plans.
+The delivery checker inspects the [review-completion records](review-completion.md). Current tasks identify `review_contract: 2`; their plans bind separate content perspectives and domain review, an independent audit, and final acceptance. Each retains actual original responses, execution evidence and input versions. Author checks do not satisfy those roles.
 
-A global PASS cannot fill a missing slot. A failed invocation is retained separately from editorial findings. Review validity and report verdict are separate; use `check_review_completion.py` with purpose `evaluation` when checking that a panel is complete despite negative report judgments. The delivery checker continues to require the actual report to be ready.
-
-These are declared-record checks. They cannot authenticate a provider, prove that an auditor is independent or certify actual reading, truthful severity labels or sound adjudication.
+A global PASS cannot fill a missing assignment. Failed invocations remain separate from editorial findings. Review completion and report readiness are distinct: an actual negative review can be complete, while required corrections still block delivery. The independent auditor checks findings and sampled content; final acceptance covers the complete resulting report. Historical record inspection does not rewrite the earlier contract.
 
 ## Task-declared review requirements
 
-A task may already require several review scopes. It can declare these in `progress.json` as `required_review_scopes`, a list of distinct non-empty scope names. The latest record for each declared scope must pass without open issues before terminal delivery; the global review is still required. This optional interface does not require extra reviewers or review cycles for ordinary work. A model's PASS remains a model judgment, not proof of factual or editorial quality.
+Tasks may declare additional required scopes in `progress.required_review_scopes`. Their current results must be complete without open necessary issues, in addition to the current independent content, audit and acceptance duties. Preserve the actual scope and artifact binding; a partial-unit result cannot stand in for a whole-report decision.
 
 The latest global review and each declared required scope also need `artifact_sha256`, the SHA-256 of the primary report they reviewed after LF newline normalization. For example, add that hash to the actual review row alongside its scope and result. A missing or malformed hash fails with `missing_review_artifact_binding`; a different current report fails with `stale_review_artifact`. The receipt separately binds the current review log. Resealing that receipt cannot make an earlier review cover edited prose. A local recheck cannot refresh the global binding, and a global PASS cannot refresh a task-required specialist binding.
 
@@ -125,10 +121,6 @@ The standalone checker and eval runner share review and open-issue semantics. A 
 
 `text_covered` means the recorded limitation text was found after punctuation/whitespace normalization, not that it is factually correct or asserted honestly. `needs_review` reports `unmatched_limitations` and a visible warning when only some limitations match, the wording is paraphrased, or the message is generic. These uncertain cases do not fail solely for using a valid paraphrase, but a mechanical PASS must not be reported as verified disclosure. `semantic_verification` is always false: a content reviewer must check meaning, coverage and material contradictions. There is no compulsory wording, extra declaration file or model/API dependency.
 
-中文说明：两个入口现在共享问题关闭和审查历史的判断。“安排了后续动作”不等于问题解决，后来的局部阻断也不能被旧全稿PASS掩盖。限制披露会区分明显否认、未见披露信号、文字覆盖和待语义复核；只出现“限制”二字不再被表述为披露已核验。文字覆盖及机械PASS仍不证明事实正确；正常同义表达不会仅因无法精确匹配就被当成错误。
-
-当前默认检查版本为3，交付凭证的JSON外层仍是schema 1。必做要求若改为放弃、排除或接受未完成，需要记录用户对应决定；披露“没有做完”不能自动关闭要求。必读材料需分清要求读到哪里、实际读到哪里；没有要求全文阅读的辅助资料不因此被强制全文阅读。最新全稿审阅及任务明确要求的专项审阅都要绑定实际审阅稿件的哈希，重新生成交付凭证不能替旧审阅补看新稿。这些检查验证记录的一致性，不认证批准真实性、实际阅读或文章质量。
-
 ## Draft checks before delivery
 
 `research_check_draft` (CLI `check-draft`) measures the current artifact and checks draft record prerequisites without changing progress or writing a receipt. It returns explicit length checks even before a delivery message exists; an absent bound is a warning, not a range pass. `ok` covers these mechanical checks only; semantic quality and delivery remain `not_assessed`. The shared task lock may create its normal empty file for a legacy task. `finish` always checks the current version again.
@@ -139,7 +131,7 @@ The existing `warnings` list also reports ordinary prose paragraphs repeated ver
 
 Use `--contract-version 1` or `--contract-version 2` only to inspect unchanged historical records that predate these fields. The result and CLI output explicitly label legacy checks and set `current_contract_checked: false`. The eval runner has matching `--delivery-contract-version 1` and `2` options. Version 2 includes requirement decisions, reading scope and report hashes, but omits model-review completion and sampling. Legacy success is not acceptance under the current contract. Do not add invented approval quotes or review hashes to old runs to make them pass; perform and record the missing work for a new delivery instead.
 
-旧记录可按原契约检查，不倒填历史。新普通报告保留内容评审及版本绑定，额外审计按已声明计划执行；新评测不默认追加审计，已保存审计计划的要求保留。
+Retain original historical outcomes without backfilling reviews. On continuation, reuse original reports and sources while completing the current independent work.
 
 ## Regression coverage
 

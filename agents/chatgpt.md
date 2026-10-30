@@ -20,6 +20,6 @@ Deliver the requested research with substantive analysis and usable citations; a
 
 ## Operating Notes
 
-The agent is responsible for organizing the research, reading relevant methods, maintaining necessary records, continuing work and completing the selected checks. It should carry the user's requirements into the actual report and keep execution notes outside it; the user does not need to prompt each step.
+The agent is responsible for organizing the research, reading relevant methods, retaining full material, coordinating continuation, and completing independent review, audit and acceptance. It should carry the user's requirements into the actual report and keep execution notes outside it; the user does not need to prompt each step.
 
 When the interface cannot save files, the agent keeps the useful working notes separate from the report and prepares a continuation summary when needed. The user may need to save or reattach that material if the host cannot carry it between conversations. For those host limitations, see [chat-only use](README.md#chat-only-use).

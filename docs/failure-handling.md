@@ -11,12 +11,12 @@ Preserve the failure, identify its cause, make a specific correction, and verify
 | Reproducible runtime, parsing, state or checker defect | Maintainer: reproduce with a minimal case, fix in a PR, retain a valid control, run relevant tests and CI, then merge. | The failure is caught or corrected, the valid control still works, and the merged commit is identified. |
 | Draft violates a declared length range | Author: measure the actual artifact, edit for the agreed coverage and range, then recheck. | Current-file counts meet the original rule; required content remains covered. A short but wrong report still fails content review. |
 | Wrong recommendation, calculation, attribution or causal claim | Author and applicable reviewer: compare the exact passage with sources, correct the decision and affected claims/citations, then review the new version. | Located source evidence and a justified decision; a model PASS or agreement between models alone is insufficient. |
-| Reviewer error or label/order disagreement | Check the underlying passage and source. Retain the original judgment and use an evidenced disposition for ordinary delivery; report disagreement in an evaluation. | The reason and material evidence are recorded. Do not discard a negative review because it is inconvenient. |
-| Timeout, quota, missing access or malformed output | Preserve raw output and execution status; diagnose before another attempt. | Any later attempt is separately identified and within the declared budget; it does not replace the failure. |
+| Reviewer error or label/order disagreement | An independent reviewer/auditor checks the underlying passage and source. Retain the original judgment and the evidenced disposition for delivery; report disagreement in an evaluation. | The reason and material evidence are recorded. Do not discard a negative review because it is inconvenient. |
+| Timeout, quota, missing access or malformed output | Preserve raw output and execution status; diagnose before another attempt. | Any later attempt is separately identified and addresses the observed cause; it does not replace the failure. |
 
 ## Check before delivery
 
-For a managed task, call `research_check_draft(task, artifact="final.md")`, or save `{"task":"comparison","artifact":"final.md"}` as a request file and run:
+When a managed draft needs mechanical inspection, call `research_check_draft(task, artifact="final.md")`, or save `{"task":"comparison","artifact":"final.md"}` as a request file and run:
 
 ```bash
 python scripts/research_workflow.py check-draft --workspace ../research-work --request check-draft.json
@@ -29,17 +29,17 @@ The check uses the shared task lock and changes no progress, report, review or r
 For an ordinary report:
 
 1. Preserve the original review and identify the defect, report version, passage, requirement/source, consequence and proposed correction in existing task records. Keep a separate draft copy before editing if an original report is not already retained.
-2. Correct the affected text and claims, then run `check-draft`. Resolve pending ledger entries using evidence; never change the agreed bounds merely to make the count pass.
+2. Correct the affected text and claims, use `check-draft` when the correction affects its mechanical checks. Resolve pending ledger entries using evidence; never change the agreed bounds merely to make the count pass.
 3. Check the final decision against the same numbers and conditions as the comparison. Treat missing observations as unknown. Inspect required coverage after shortening.
-4. call `research_review` with `revision: true` for the changed version, resolve necessary findings and call `finish`. Already authorized repairs need no extra permission. Independent review is required only when the task declares it.
+4. call `research_review` with `revision: true` for the changed version, resolve necessary findings and call `finish`. Already authorized repairs need no extra permission. Current delivery completes the independent content perspectives, audit and final acceptance.
 
-## Bound the loop
+## Correct the cause and continue
 
-Before another paid repair or review batch, record the change hypothesis, relevant defect IDs, new version, acceptance criteria and request/token/time ceiling. Use the existing review and task records; no extra service is required. The draft checker does not enforce a paid-call budget.
+Locate the actual defect, affected input and report version. Use existing task and review records to preserve the original judgment, proposed correction and its evidence; do not add a separate repair protocol.
 
-Do not rerun an unchanged valid negative judgment. If a targeted correction leaves the same necessary defect, inspect the source and correction directly and change the strategy instead of repeating the same prompt. Use a reviewer appropriate to the declared tier or perform a source-based correction within the existing authorization. Stop additional paid attempts when the declared budget is exhausted or the next attempt has no specific corrective hypothesis. Keep necessary issues open and report the remaining work; do not claim completion. Ask the user only if progress needs a real scope/access/budget decision. Optional polish does not justify an endless loop, and a disclosed limitation does not waive a required task.
+If a targeted correction leaves the same necessary defect, inspect the source and the edited text and change the approach. Repeating the same unchanged prompt or negative review adds no resolution. Continue the substantive work and independent assessment required by the task, without a default time, token or call ceiling. Ask the user only for a consequential scope or access decision the agents cannot make.
 
-In a frozen evaluation, leave the original report, first valid judgment, missing outcomes and budget accounting untouched. Create product regressions or clearly labeled editorial examples separately. After a method change, recheck the original failure and relevant existing tasks, recording the new version. Keep original failures and repaired outcomes separate; routine repair does not require a new held-out dataset.
+Frozen evaluation originals, first valid judgments and execution records remain untouched. Save repaired reports or clearly labelled examples separately. Verification follows the changed behavior and actual task, not an automatic new comparison or a replay of every prior case.
 
 ## Current failures and source checks
 

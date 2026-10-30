@@ -2,7 +2,7 @@
 
 [English](usage-modes.md) | [简体中文](usage-modes.zh-CN.md)
 
-[1.x 兼容性约定](compatibility.zh-CN.md)覆盖公开工具、已有任务和安装要求。从 v0.2.7 升级到 v1.0.0 无需迁移任务数据。
+[版本与兼容性](compatibility.zh-CN.md)说明当前完成契约和旧任务接续。保留历史原件，继续研究时复用已有材料。
 
 **通过仓库链接、文件、附件或粘贴文本使用研究方法。** 按 Agent 支持的输入方式使用；原生 Skill、插件和 MCP 是宿主的独立能力。
 
@@ -17,9 +17,9 @@
 
 ## 九个工具何时用、何时可忽略
 
-**使用[统一研究入口](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.zh-CN.md)。** Agent 按当前工作读取完整方法并完成约定检查。CLI/MCP 按需接入，新请求省略 `profile`。
+**使用[统一研究入口](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.zh-CN.md)。** 各 Agent 按当前工作读取方法，完成独立审阅、审计和验收。CLI/MCP 按需接入，新请求省略 `profile`。
 
-下表适用于选择了本地任务管理的情况，MCP 与[共享 CLI](#只用-skill或使用-cli)均可使用。纯 Skill 使用保留相同研究要求，不必创建这些登记表或回执。
+下表适用于选择了本地任务管理的情况，MCP 与[共享 CLI](#只用-skill或使用-cli)均可使用。纯 Skill 保留相同研究和独立审阅职责，不必创建这些登记表或回执。
 
 | 工具 | 何时需要 | 何时可跳过调用 |
 | --- | --- | --- |
@@ -27,10 +27,11 @@
 | `research_save` | 保存／更新来源、主张、要求与稿件，由 Agent 处理定位到的格式错误。 | 记录与稿件均无变化。 |
 | `research_status` | 恢复本地任务、查看已保存进度或更新记录中的阶段。 | 无需查看或更新进度时；只使用方法的会话可用自己的笔记。 |
 | `research_guide` | 当前上下文尚未包含所需阶段的方法，需要读取时。 | 已直接阅读相应 `SKILL.md` 和 `references/` 文件。 |
-| `research_review` | 完成任务约定的评审；使用 self 时提交实际自评。 | 复用已完成且输入未变的评审；明确要求的评审不可省略。 |
+| `research_review` | 为宿主准备独立审阅、审计及验收任务，保存真实回复和输入版本。 | 未变输入已有完整有效结果时复用，继续未完成工作。 |
+| `research_check_updates` | 按需读取已登记公开版本日志，关联受影响主张和正文。 | 当前无更新问题或没有已登记版本日志。 |
 | `research_check_draft` | 无模型调用地检查当前稿件记录与显式篇幅，不生成交付凭证。 | 评审／交付前可选；来源与含义仍需单独核对。 |
-| `research_finish` | 完成本地任务：核对当前报告与任务约定的交付要求。 | 纯 Skill 完成约定检查，交付用户要求的报告和引用，不要求工具回执。 |
-| `research_check_reviewer` | 外部后端配置或连接前置条件有问题，需要在评审前排查时。 | self 无需外部后端；`research_start` 已确认且配置未变时，无需重复调用。 |
+| `research_finish` | 完成本地任务：核对当前报告与任务约定的交付要求。 | 纯 Skill 完成独立审阅、审计与验收后交付报告和引用，不要求工具回执。 |
+| `research_check_reviewer` | 已选择自配后端时，诊断配置与依赖问题。 | 宿主原生子 Agent 无需另查外部服务配置。 |
 
 ## 保存研究记录与稿件
 
@@ -62,7 +63,7 @@ python3 scripts/research_workflow.py save --workspace ../research-work --request
 
 显式调用 `research_status(task, stage="analyze")` 或 `stage="draft"` 时，返回的 `requirements` 包含已保存的补充要求原文（JSONL），保留状态和处理依据，Agent 可直接用于分析与起草，无需再复制进 brief。没有补充要求时省略该字段；普通状态查询不附加正文。返回要求不表示要求已满足，仍需按其内容完成研究。
 
-`research_status` 的 `activity` 汇总任务开始时间、首次观察到的完整稿 UTC 时间／哈希及距创建任务的耗时、保存失败、实际评审尝试／重试、调用耗时及返回用量。`saved_by_tool` 表示工具保存时间；`existing_file_observed` 表示登记时间，不冒充旧文件创建时间。只读状态／草稿／交付检查不追加日志；复用评审不算新调用，作者上下文自评提交单独计数。缓存 token 不重复计入输入总量，缺失用量为未知。工具看不到宿主作者的全程 token、账单或登记前耗时。这些观察不增加交付要求，也不等于首次可用结果时间或研究质量判定。
+`research_status` 从已保存活动中恢复工作与成果引用。事件时间用于识别保存和交接顺序，不构成研究限时或优化目标；登记审阅时保留原始执行证据。
 
 `save` 与 `status` 的 `changes` 给出最近一次成功保存记录的批次：新增、更新、未变、删除或格式恢复的 ID，关联主张，以及最近登记稿件中的行号／标题。来源关联同时读取 `supporting_sources` 和 `counter_evidence` 中明确登记的来源编号，沿用评审输入的空白、分号、逗号或 `|` 分隔规则，不从反证说明的文字含义推断关联；已登记版本日志查询复用这些关联。位置来自主张原文或来源链接的字面匹配，可能指向引用段或资料表；改写后的表述可通过引用链接找回，`not_located` 表示需自行定位，不等于没有影响。Agent 根据提示读取相关段落，核对来源后决定改哪些结论；不自动认定主张失效。
 
@@ -77,7 +78,7 @@ python3 scripts/research_workflow.py save --workspace ../research-work --request
 `progress.json.stage` 使用 `brief`、`collect`、`analyze`、`draft`、`review`、`revise`、`final`。
 `progress.json.status` 使用 `in_progress`、`paused`、`blocked`、`complete`。
 
-记录实际阶段、未决问题和下一步。恢复时读取规格、进度、存在时的要求台账及有用的已有笔记。`research_status(task)` 保留旧任务的完成要求；它与单独调用的 `research_guide` 均返回同一套阶段方法，无需选择研究档位。核对实际重试与返回用量时使用 `research_status.activity`。调用路径相对于任务目录，脚本从工具箱安装目录运行。
+记录实际阶段、未决问题和下一步。接续时用 `status` 取得任务规格、有效要求、提纲、当前主稿及相关分析。调用路径相对任务目录；阶段名称描述当前工作，能否推进由实际依赖决定。
 
 `state/findings.jsonl`、`state/directions_tried.json`、`state/iteration_log.jsonl` 和 `logs/work.jsonl` 仅在有助于当前任务时使用，不是普遍必交文件。不确定性可直接记在主张中，`data/uncertainty_registry.csv` 按需使用。字段约定见已有[工作流参考](../references/research-workflow.zh-CN.md#3-状态记录)。
 
@@ -117,7 +118,7 @@ python3 scripts/research_workflow.py check-updates --workspace ../research-work 
 交付更新稿及简短变化说明；重新完成本次改动使之失效的检查。
 ```
 
-接续 CLI／MCP 管理的已有任务时，先用 `research_status(task)` 读取状态并保留旧稿。沿用来源、主张和要求编号及已有阅读依据；用 `research_save` 一并更新受影响记录，按已有路径登记稿件，未变记录无需重交。实际核对要求后，将状态和具体依据随相关更新保存。重读变化或有疑问的来源段落，复用仍有效的本地证据，无需再次获取；按任务约定核对完整当前稿，再声明完成。[长报告实际更新案例](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.zh-CN.md)保留复用、来源确认的问题、返工及消耗。
+接续 CLI／MCP 管理的已有任务时，先用 `research_status(task)` 读取状态并保留旧稿。沿用来源、主张和要求编号及已有阅读依据；用 `research_save` 一并更新受影响记录，按已有路径登记稿件，未变记录无需重交。实际核对要求后，将状态和具体依据随相关更新保存。重读变化或有疑问的来源段落，复用仍有效的本地证据，无需再次获取；完成当前完整报告的独立内容审阅、审计和验收，再声明完成。[长报告实际更新案例](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.zh-CN.md)保留复用材料、来源确认的问题和实际修订。
 
 ### 内容或资料变化后
 
@@ -141,7 +142,7 @@ python3 scripts/research_workflow.py check-updates --workspace ../research-work 
 | 插件 | Skill、参考文件和本地 MCP 服务，一次安装 | 支持该软件包格式与本地 stdio MCP |
 | MCP | 初始化、保存进度、加载方法、审阅和检查交付的九个工具 | 能启动并调用本地 stdio MCP 服务 |
 
-共享 CLI 需要 Python 3.10+，只使用标准库。Linux 上优先使用 `python3`；本机已有的 Python 3.10+ 解释器即可。MCP 还需安装 `requirements-mcp.txt` 中的依赖。未配置后端时，新建任务自动进入标明强度降级的 self 评审；外部／独立评审可使用任一受支持命令或端点，无强制厂商账户。
+共享 CLI 需要 Python 3.10+，只使用标准库。Linux 上优先使用 `python3`；本机已有的 Python 3.10+ 解释器即可。MCP 还需安装 `requirements-mcp.txt` 中的依赖。默认由宿主原生 Agent 完成研究和独立审阅；另配后端是可选方式，不决定宿主能否委派。
 
 CI 在 Python 3.10／Linux 上检查 CLI 和打包 MCP 流程，并在 Python 3.12／Linux、Windows 上执行更完整的检查。安装依赖与客户端启动服务须使用同一解释器。这些验证覆盖服务和协议，不代表所有客户端 GUI 均已实测。
 
@@ -216,7 +217,7 @@ args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
 RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 ```
 
-重启客户端，确认能看到九个 `research_*` 工具。[可执行示例](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.zh-CN.md)使用虚构报告与明确降级的自评，采集本地服务真实返回。
+重启客户端，确认能看到九个 `research_*` 工具。[可执行示例](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.zh-CN.md)使用明确标注的合成输入说明接口，历史真实运行保留其实际审阅范围。
 
 官方配置说明：[Claude Desktop 本地服务](https://modelcontextprotocol.io/docs/develop/connect-local-servers)、[Cursor MCP](https://cursor.com/docs/mcp)、[Codex MCP](https://developers.openai.com/codex/mcp)。Cursor 可使用项目 `.cursor/mcp.json` 或全局 `~/.cursor/mcp.json`，Codex 使用 `~/.codex/config.toml`；Claude Desktop 从 Settings → Developer → Edit Config 打开配置。
 
@@ -226,43 +227,50 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 
 | 工具 | 实际动作与完成条件 |
 | --- | --- |
-| `research_start` | 初始化记录，列出关键需求缺项，并检查已配置的后端 |
+| `research_start` | 建立统一任务与需求，返回共同上下文及待补充的重要缺项 |
 | `research_status` | 返回进度和阶段规范；推进到分析、写作前检查来源与主张记录 |
 | `research_guide` | 不创建任务，直接读取某阶段的方法，支持中英文 |
-| `research_review` | 绑定完整输入并启动内容评审，保留回复与失败；只执行配置中声明的额外审计 |
+| `research_review` | 连接内容审阅、独立审计与最终验收，保存宿主原件和版本绑定 |
 | `research_check_draft` | 返回当前计数、声明范围检查与记录错误，不改变任务状态；`ok` 不认证内容或交付 |
 | `research_finish` | 核对已评审正文、证据、未完成要求和交付文字，通过后才写入完成状态与回执 |
-| `research_check_reviewer` | 本地检查后端配置与依赖，不调用模型 |
+| `research_check_reviewer` | 诊断可选自配后端，不作为宿主原生协作前置步骤 |
 
-检索、阅读、分析、写作仍由撰写 Agent 使用其已有工具完成。Agent 需要把必要的来源全文、来源表和主张表写入任务目录。按阶段加载规范可以减少反复读取，但不证明模型已遵守每条要求。
+研究和统稿 Agent 使用宿主工具与共同任务输入完成检索、阅读、分析和写作。Agent 需要把必要的来源全文、来源表和主张表写入任务目录。按阶段加载规范可以减少反复读取，但不证明模型已遵守每条要求。
 
 进入分析前，来源须有编号、标题、定位信息和类型，至少一条来源还须记录全文或相关章节的阅读范围与阅读凭据。进入写作前，主张须有正文和类型，来源引用必须对应已登记、已记录阅读的来源。明确标为假设且说明不确定性的内容可以暂缺支持，但整体至少要有一条有来源支持的主张。阅读凭据若指向本地文件，文件须位于任务目录内、实际存在且内容非空，支持附带锚点和页码、章节说明。网址及章节、页码定位仍可使用，但不会因此自动完成内容核查。这些检查识别空记录与无效关联，不证明模型真正理解了材料。
 
+`status` 同时提供 `work` 时，分析／起草检查使用所选来源、主张及声明的上游输入，不让无关支线尚未完成的工作阻塞当前单元。单元可先从已选来源展开分析，再登记新形成的主张；全文审阅和交付仍核对完整任务及主张依据。
+
 评审会自动纳入非空的 `state/requirements.jsonl`，评审者和审查者都能看到完整需求台账，包括后续澄清与变更。评审后更改或删除该台账会阻止交付，须先处理发生变化的任务。空台账不增加需求。
 
-评审输入包含完整任务、正文与来源文件，不能只给网址。本地输入上限为 16 MiB，超限会拒绝，不会静默截断；这也不意味着所选模型一定能够接受这么长的上下文。
+评审保留完整任务、正文与相关来源文件，不能只给网址。宿主原生任务默认返回可读文件引用；必需材料超过一个模型上下文时，评审者分段读取保留的原件并完成所分配的审阅，不能静默用摘要替代必需材料。
 
 ## 评审后端
 
 <a id="reviewer-backends"></a>
 
-评审档位描述评审关系，后端描述接收报告与证据、返回结构化评审的命令或端点。新建报告未配置后端时默认使用 `self`；已配置后端时默认使用 `independent`。显式指定的档位及已保存的独立／审计计划遇到错误时，不得静默回退。
+### 宿主原生审阅
 
-Astra 在与作者分开的新上下文中即可承担独立评审，作者使用相同模型也可以。评审收到同一题目、报告和来源材料；盲评时不接收作者 notes 和评测分组映射。不要求额外的外部人员、供应商或固定评审面板。既有用户任务和开发任务都是独立的真实任务，已执行测试都是真实测试；如实记录复用，不将其视为缺少任务材料。模型实际执行和参与评测同样提供用户视角：根据上下文使用、额外阅读、耗时、返工和研究结果判断收益，不以真人参与为前提；说明实际观察到的作用及其任务范围。
+直接使用 Codex、Claude Code 等宿主已有的子 Agent 能力。`research_review` 准备任务，绑定完整需求、报告和原始证据；宿主为每项基础视角和所需领域专审启动不同的独立 Agent，再运行独立审计与最终验收。作者和统稿 Agent 不承担这些独立任务，这条路径无需另配 API。
 
-| 后端 | 配置成本 | 评审强度 | 材料去向与用量 |
-| --- | --- | --- | --- |
-| `self` | 无 | 作者上下文自评，强度降级 | 沿用当前作者上下文及其模型用量，不增加评审服务 |
-| `codex` — Codex CLI | 设置 `RESEARCH_TOOLKIT_REVIEW_BACKEND=codex`，安装并登录 CLI；可选 `RESEARCH_TOOLKIT_REVIEW_MODEL` | 新的评审上下文，支持独立评审 | 发往 CLI 配置的模型服务，消耗对应账户额度；自定义时须传递实际 `CODEX_HOME` |
-| `claude` — Claude Code CLI | 设置 `RESEARCH_TOOLKIT_REVIEW_BACKEND=claude`，安装并认证 CLI；模型可选 | 禁用工具的新评审上下文，支持独立评审 | 发往 CLI 配置的服务／账户，消耗其订阅或 API 用量 |
-| `generic` — 兼容 HTTP 端点 | 后端设为 `generic`，配置 `RESEARCH_TOOLKIT_REVIEW_BASE_URL`、`RESEARCH_TOOLKIT_REVIEW_MODEL`；按需配置 `RESEARCH_TOOLKIT_REVIEW_API_KEY` | 每次请求携带完整任务，支持独立评审，但不保证统计独立 | 完整材料发送到你选择的端点，由对应账户付费；本地端点遵循自己的托管策略 |
-| 可信自定义命令 | `RESEARCH_TOOLKIT_REVIEW_CONFIG` 配置 argv 列表和 `format: "json"` | 取决于适配器实际上下文与证据 | 去向与用量由命令决定，发送材料前须说明 |
+七项基础视角是需求、证据、对抗推理、结构与深度、读者用途、过程语言、自然表达，各自使用独立上下文。模型可以相同，执行上下文和生产职责必须分开。[审阅契约](review-completion.zh-CN.md)说明任务、原始结果和当前版本的完成条件。
 
-配置自查仅在本地进行，不能证明服务可用或额度充足。凭据保留在运行环境中，不进入报告或版本化配置。generic 使用 `/chat/completions`；base URL 可含 `/v1`，也可填写完整路由。远程端点须使用 HTTPS；只有 `localhost` 或明确的回环 IP 地址（如 `127.0.0.1`、`::1`）可用 HTTP。即使没有 API key 也适用，因为请求携带报告和来源。请求、响应及恢复方法见[后端接口](#reviewer-backends)。
+宿主保留每次真实回复与执行记录，通过同一个 `review` 提交路径。内容审阅具备完整结果后，下一项任务是独立审计；报告和审计中的必要问题解决后进入最终验收。前段研究单元需要审阅时，指明对应单元；该结果支撑后续依赖工作，不代替全稿审阅。
 
-### 配置与调用
+### 可选的自配执行方式
 
-配置环境变量后重启 MCP 服务，或在同一终端运行 CLI。下面的 URL 和模型名应替换为你选择的服务；不需要将密钥写进文件。
+只在主动选用独立命令或端点执行评审时配置这一节。宿主原生子 Agent 不需要这些配置。
+
+| 后端 | 配置 |
+| --- | --- |
+| `codex` | `RESEARCH_TOOLKIT_REVIEW_BACKEND=codex`，使用已安装、已登录的 CLI；可选 `RESEARCH_TOOLKIT_REVIEW_MODEL`。 |
+| `claude` | `RESEARCH_TOOLKIT_REVIEW_BACKEND=claude`，使用已安装 CLI 及其现有配置。 |
+| `generic` | 后端 `generic`、`RESEARCH_TOOLKIT_REVIEW_BASE_URL`、`RESEARCH_TOOLKIT_REVIEW_MODEL`；所选端点需要认证时才使用认证环境变量。 |
+| 可信命令 | `RESEARCH_TOOLKIT_REVIEW_CONFIG` 指向含 argv 列表及 `format: "json"` 的 JSON 配置。 |
+
+宿主原生与自配执行方式履行相同的当前审阅职责。旧自评结果保留其历史含义，不能替代独立审阅、审计或验收。
+
+选择 generic 后端时：
 
 ```powershell
 $env:RESEARCH_TOOLKIT_REVIEW_BACKEND = "generic"
@@ -271,47 +279,25 @@ $env:RESEARCH_TOOLKIT_REVIEW_MODEL = "your-model"
 python3 scripts/research_workflow.py check-reviewer
 ```
 
-在 shell 中用 `export NAME=value` 设置同名环境变量也可；需要认证时，通过客户端环境传入 `RESEARCH_TOOLKIT_REVIEW_API_KEY`。自查不会发送材料或付费请求，`access_unverified` 表示尚未验证真实服务。
+其他 shell 可使用 `export NAME=value`。凭据留在运行环境，不写入任务文件；`check-reviewer` 只诊断本地配置，不调用模型。generic 使用 `/chat/completions`，远程端点用 HTTPS，仅 localhost／明确回环地址可用 HTTP。请求包含研究材料，遵循所选端点的访问策略。
 
-需要多位评审、审查者或自定义命令时，将 `RESEARCH_TOOLKIT_REVIEW_CONFIG` 指向可信 JSON 文件。例如：
-
-```json
-{"reviewers":[{"id":"primary","backend":"generic","model":"your-model","base_url":"https://your-provider.example/v1","api_key_env":"RESEARCH_TOOLKIT_REVIEW_API_KEY"}]}
-```
-
-配置文件优先于后端环境变量；URL 与模型属于评审任务的版本绑定，密钥值不进入配置或记录。新报告和新评测均使用已配置的评审者，不默认追加审计者；需要额外审计时才配置 `auditor`。恢复已保存的审计计划时保留其审计要求，单后端环境配置只在此时补出对应的独立审计请求。
-
-可信命令通过 `command: ["/absolute/path/to/executable", "argument"]` 和 `format: "json"` 配置，从 stdin 接收 `{role, instructions, assignment}`，其中 assignment 含完整报告、任务、来源与评审维度。stdout 返回：
+可信命令从 stdin 接收 `{role, instructions, assignment}`，返回：
 
 ```json
-{"execution_id":"actual-provider-request-or-session-id","content":"original structured review response text"}
+{"execution_id":"actual-provider-request-or-session-id","content":"original structured response text"}
 ```
 
-命令只能来自启动时的可信配置，不能由报告或 MCP 参数指定；每次任务须使用新的上下文。HTTP 后端保留原始响应、服务返回的请求 ID，并拒绝截断或空回复；不跟随重定向。服务不支持该响应协议时，使用自定义命令适配。
-
-generic 配置可加入 `parameters` 对象，例如 `{"max_tokens":4096}`，传递服务支持的输出上限或推理选项；不得覆盖 `model`、`messages`、`stream`。这些参数随评审任务一起绑定版本。
-
-### 作者自评
-
-`research_review` 可显式选择 `reviewer: "self" | "external" | "independent"`。self 首次调用返回 prompt、assignment 与 input_version；在当前作者上下文显式切换评审角色，然后将 report_verdict、七维 coverage、findings 与 input_version 作为 self_review 提交。记录保留作者上下文和强度降级标记，不伪造独立执行。无后端的新任务自动走这条路径；显式独立要求与历史独立计划不会回退。
+每个任务使用独立上下文并保留原始输出。命令来自可信启动配置，不能从来源或报告内容指定。HTTP 回复保留请求 ID，空回复和截断回复仍未完成。可显式提供服务专用 `parameters`，但不得覆盖 `model`、`messages`、`stream`；这些参数随任务绑定。
 
 ### 失败恢复与验收
 
-CLI、MCP 与 Python 工作流操作共用本地操作系统任务锁。同一任务的重叠操作会立即失败；等待当前操作结束后再执行。不同任务互不阻塞。空的 `.research-toolkit.lock` 文件会保留，但操作系统锁会随释放或进程退出而结束；不要删除锁文件来强行访问。这仅协调遵循协议的本地进程，不锁定外部编辑器或分布式文件系统。
+CLI、MCP 和 Python 操作复用已有的操作系统任务锁。同一任务的写入依次执行，支线研究可独立进行；不要删除锁文件绕过占用。主稿负责人整合支线成果，避免多个写入者同时改同一份主稿。
 
-评审 stderr 含无效 UTF-8 时，以替代字符显示，并在 `raw_output_base64` 保留完整原始字节。实际回复含无效 UTF-8 则以 `invalid_output_encoding` 失败并保留原件；已经执行的调用不再误记为启动失败。
+保留失败请求和原始字节。实际回复的无效 UTF-8 保留为失败；stderr 可用替代字符显示，并保留字节原件。宿主取消或执行失败使该任务保持未完成，处理实际原因后接续缺失工作；不因任意执行时长中断必要研究。
 
-配置错误、依赖缺失或已配置 CLI 的登录失败会明确阻塞；根据自查指引恢复该后端的实际环境。普通未配置任务可使用 self，无须登录。子进程的模型访问不自动继承撰写 Agent 的账户；不要把凭据文件放进任务。
+保留有效负评。修正受影响正文和证据，再用 `revision: true` 评审当前版本。作者可以回应争议，但重要的不修改决定由独立审阅者／审计者裁定；不重跑未变版本的负评寻求通过。
 
-保留所有原始响应与失败，不重跑同一未变版本已有的有效负面评审；必要问题未解决时交付被拒绝。误判可按[不修改决定](review-completion.zh-CN.md)记录具体证据，再继续 finish。普通报告修正后，用 `revision: true` 调用 `research_review` 评审新版本。这是正常修稿循环，已获授权的修正不需要再次向用户确认；研究范围变更应先在任务记录中处理。更换评审配置也须传入 `revision: true`，冻结评测不得更改原始任务。时间上限为 1—1800 秒，默认 600 秒；仅修改超时不会改变任务版本。
-
-新评审计划在 `instruction_snapshot` 中保存完整的评审者与审计者指令。恢复未变更的任务时沿用该快照，不受已安装参考文档更新影响；复用已完成的有效评审，只继续未完成部分。普通报告显式传入 `revision: true` 时使用当前指令，并记录发生的任务变更；冻结评测仍拒绝改变原任务。没有快照的历史计划继续执行原有版本检查，不补造历史指令，也不静默认定升级前后等价。
-
-`reviews_complete` 和 `review_check` 表示约定评审是否执行完成，负面评审也可算完成。`delivery_ready` 和已有的 `completion_check` 表示普通报告是否可进入交付验证，其中的计数不包含仍有报告缺陷的评审。`open_issues` 列出具体发现，并同步到进度和下一步。评审完成不等于报告通过。
-
-保存的进度声称完成时，`research_status` 会检查当前交付输入与凭证。检查失败返回 `progress.status: stale`、`delivery_check` 和原来的 `recorded_status`；查询不重写哈希绑定的进度或历史凭证。先处理发现，再完成适用的复审／checklist 与 finish，才能宣称当前版本完成。
-
-额外审计只在声明时执行，恢复时仅补齐缺失工作。超时会清理本地执行进程，但不代表远端请求已取消。客户端须允许必要的工具调用并提供足够等待时间；同一任务避免并发写入。
+指令快照、原始输入和版本在修订中继续可用。未变输入的有效完成结果可复用；报告或必需输入变化，要由相关审阅和最终全稿验收处理。状态查询发现旧回执过期时如实返回，不重写历史完成记录。详见[审阅完成](review-completion.zh-CN.md)及[兼容性](compatibility.zh-CN.md)。
 
 ## 只用 Skill，或使用 CLI
 
@@ -328,92 +314,78 @@ CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知
 
 需求请求的格式为 `{"task":"comparison","language":"zh","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`。评审参数包括 `task`、任务内相对路径 `evidence_paths`，以及可选的 `artifact`（默认 `final.md`）和 `purpose`。`status`、`guide`、`finish` 对应同名 MCP 工具的参数。也可通过标准输入提供 JSON。
 
-### 复用任务文件并保存自评材料
+<a id="复用任务文件并保存自评材料"></a>
 
-直接在已有任务目录中保存稿件、笔记和来源，向工具传入相对该目录的 `artifact` 和 `evidence_paths`，工具会读取原文件。修订前保留首稿，交付时再导出终稿，无需为每次调用另复制一套材料。
+### 复用任务文件并保存审阅材料
 
-将下方任务目录改为 `start` 返回的实际位置，并在请求中使用同一任务名。以下用于已有任务 `comparison`。准备好稿件及来源／主张记录后，将请求保存为 `review.json`，把 `source.md` 换成实际证据路径。仅在已选择 self 档位时使用此例；独立评审要求继续使用所配置的后端。
+报告、分析和来源原件保存在任务目录，`artifact` 与 `evidence_paths` 直接引用这些文件。保留首稿和后续版本，不为每次工具调用另复制材料。
+
+已有工具任务可准备：
 
 ```json
-{"task":"comparison","reviewer":"self","artifact":"final.md","evidence_paths":["source.md"],"include_assignment":false}
+{"task":"comparison","artifact":"final.md","evidence_paths":["sources/source.md"],"include_assignment":false}
 ```
 
-此本地示例返回 `prompt`、`input_version`、`task_directory` 和 `assignment_ref`（相对路径及文本 SHA-256）；完整冻结输入仍保存在任务内。调用方需要直接取得全文时，省略 `include_assignment` 或设为 `true`，默认行为及 external／independent 的输入传递不变。从仓库／插件根目录用 CLI 的同一解释器运行以下 Python 片段，保存返回内容。`start` 已创建 `logs`；首次评审前可能还没有 `reviews`，而 Shell 重定向会先于 CLI 执行打开目标文件。
-
-```python
-import subprocess
-import sys
-from pathlib import Path
-
-task = Path("../research-work/comparison").resolve()
-with (task / "logs/self-review-01.json").open("x", encoding="utf-8") as output:
-    subprocess.run(
-        [sys.executable, "scripts/research_workflow.py", "review",
-         "--workspace", str(task.parent), "--request", "review.json"],
-        stdout=output, check=True,
-    )
+```bash
+python3 scripts/research_workflow.py review --workspace ../research-work --request review.json
 ```
 
-`x` 模式会在调用评审前拒绝覆盖旧记录。确需新一次执行时使用新文件名；失败时保留已有输出和错误。相同输入的材料已经成功保存时，直接使用，不为重新读取再调用评审。
+宿主原生执行时，返回待完成任务及其保存的完整输入。每位执行者都应能够打开完整任务与引用原件；跨环境传递可读内容，不只传无法访问的本地路径。保留真实宿主任务 ID、完整原始回复和执行记录，再通过同一操作的 `host_result` 提交，字段见[审阅契约](review-completion.zh-CN.md)。
 
-从保存的返回内容读取 `prompt`、`input_version`，再读取 `Path(task_directory) / assignment_ref["path"]` 对应的完整冻结输入；文本哈希统一使用 LF 换行。如果返回中已有 `assignment`，直接使用。文件引用适用于能读取该任务目录的调用方。在同一上下文自评时，核对当前稿件及要求／来源绑定，复用已经读过且未变的证据，重读发生变化或有疑问的部分。保留完整材料；单独上下文评审者仍收到所需的完整输入。以该 `input_version` 将实际判断作为 `self_review` 提交，字段见[自评记录说明](review-completion.zh-CN.md)。稿件或评审输入变化后沿用 `revision: true` 路径。复用减少重复复制，当前版本核对和必需阅读照常完成。
+宿主继续返回的审阅、审计或验收任务。摘要用于定位结果，不替代完整结果或来源原文。正文或必需输入改变时保留前一材料包，用 `revision: true` 处理新版本。
 
 ## 已验证的范围
 
-仓库检查共用流程、插件与源码一致性，以及通过真实 stdio 连接、使用**合成评审子进程**的 MCP 调用链。这些检查不调用付费模型，也不证明报告质量。正常使用时会启动真实配置的模型执行器；安装或测试通过，不代表某份研究已经完成模型评审。
+现有软件检查使用明确标注的合成材料，验证记录一致性、原始输入绑定、打包及 MCP 传输。真实宿主执行另有其来源、回复和结果；[评测现状](evaluation-status.zh-CN.md)列出实际观察。安装成功或机械检查通过，不是内容审阅结果。
 
-另有一次[插件 `0.1.2` 的真实模型引导验证](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-status.zh-CN.md#当前实现)：在一份采用虚构来源材料的真实任务上完成评审与审查恢复，保留负面结果，并正确拦截交付。该次验证需要修正配置和审查输出契约，不证明无人干预运行可靠。
-
-工具能约束自身的完成条件，不能阻止 Agent 绕过工具或在外部修改文件，也不能用机械检查证明事实正确。验收按任务完成要求和评审配置执行；只有明确要求时才需要独立评审，旧任务保留已有完成约定。内容审查与原始证据仍是验收的一部分。
-
-CLI 的 `check-draft` 使用 `task` 和可选 `artifact`，无需交付说明；检查失败退出码为 1。未达标稿件遵循[修正与停止规则](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/failure-handling.zh-CN.md)：修正普通报告的新版本，保留冻结评测原件，不反复重跑未修改的有效负面判断直到通过。
-
+当前交付要求独立内容审阅、审计和验收。工具落实保存的完成契约，Agent 实际阅读并作出内容判断。旧回执按原契约保留，不写成当前验收。具体失败按[修复说明](failure-handling.zh-CN.md)接续受影响工作。
 
 ## 当前主稿与需求变更
 
 `research_save` 新增可选 `brief` 局部更新：只传变更的 question/audience/scope/output/depth/evidence_standard，未传字段保留，并同步规格和进度中的 brief。与受影响要求一起保存，不需要再维护一份范围台账。
 
 ```json
-{"task":"comparison","brief":{"output":"一份修订后的比较报告"},"draft":{"path":"drafts/revised.md","main":true,"kind":"report"}}
+{"task":"comparison","brief":{"output":"一份修订后的比较报告"},"draft":{"path":"drafts/revised.md","main":true,"kind":"report","host_task":"actual-main-writer-host-task"}}
 ```
 
-`draft.main=true` 显式选定当前工作文件；`kind` 可选 report/comparison/review。保存其他章节或参考稿不改变该选择。`complete` 仍只记录完整草稿。`save/status.current_work` 返回当前文件、未结要求和恢复路径；status 另列上次交付引用。新主稿或需求修订不会继承终态，旧凭证保留。审阅／交付传当前主稿的 artifact。旧任务不必迁移，未选主稿时保持原行为；当前文件观察摘要不是批准。
+`draft.main=true` 显式选定当前工作文件；`kind` 可选 report/comparison/review/analysis。保存其他章节或参考稿不改变该选择。`complete` 仍只记录完整草稿。`save/status.current_work` 返回当前文件、有效要求、未结工作和恢复路径；status 另列上次交付引用。新主稿或需求修订不会继承终态，旧凭证保留。审阅／交付传当前主稿的 artifact。旧任务不必迁移，未选主稿时保持原行为；当前文件观察摘要不是批准。
 
 `start/status.runtime` 返回执行实现的位置、版本、代码摘要和可用入口摘要；host_loaded_entry=not_observed，不推断宿主读了哪个 Skill。工具只识别登记的文件，不监控任意新目录。
-
-`activity.imported_reviews` 与真实调用、自审分开；自定义适配器以 capture.import_only=true 声明导入，导入耗时不是模型耗时，未知用量保持 null。旧捕获中的 import_only 同样识别。该标记不放宽执行身份和版本核验。
 
 阅读要求在保存时检查 full_text/relevant_sections 和非空、不重复的 required_source_ids；配对字段可在既有行上局部更新。无效批次不部分覆盖正文或状态。详细方法见[任务接续](../references/task-continuity.zh-CN.md)。
 
 ## 历史任务兼容
 
-旧客户端的 `profile` 参数、已保存的 `lite`／`full` 字段与完成凭证继续支持，新研究请求省略该参数。两类历史记录现在读取相同的完整研究方法，字段不再选择另一套研究指导。旧 checklist 任务仍按[原完成约定](../references/lite-workflow.zh-CN.md#final--完成作者自检)接续；旧评审计划与记录保持原样。
+1.x 任务、报告、输入快照和回执继续可读，保留原身份及当时的完成结果。历史 `profile`、`self_review` 字段不构成第二套研究入口，也不能满足当前独立职责。
 
-若历史 checklist 任务新增了正式评审要求，保留原任务，沿用已有做法创建关联的新任务，复用报告、来源、主张和要求；只处理新要求及受影响内容。不将旧通过标记复制成新任务的评审凭证。
-
+在原工具任务中接续材料：取得当前工作，保留旧稿和回执，为本次接续准备当前版本审阅。复用有效来源、分析与原始评审，补齐当前契约所需的角色与实质工作。不把旧自评改写成独立执行，也不补造缺失审阅。见[版本兼容性](compatibility.zh-CN.md)。
 
 ## 研究委派与成果交接
 
-沿用已有 `status`、宿主 Agent 工具与 `save`，不增加必经步骤。下例中的 ID 和路径替换为当前任务已登记内容。未指定 `methods` 时保留阶段默认指导；可选名称由 `available_methods` 返回，按实际问题选择，不要求全部执行。
+提纲和原始要求保留在现有任务规格中，按有意义的研究单元及实际依赖分工。即使按技术问题拆分，国内／海外或其他明确覆盖维度仍应可见。
+
+用 `status` 准备下一位执行者的输入。以下格式示例假定引用的上游单元及记录已存在：
 
 ```json
-{"task":"study","methods":["compare","delegate"],"work":{"question":"两种方案的成本差异是否改变选择？","requirement_ids":["R2"],"claim_ids":["C1"],"paths":["reports/current.md"]}}
+{"task":"study","methods":["compare","delegate"],"work":{"unit_id":"route-comparison","question":"哪些技术差异会改变选择？","depends_on":["route-evidence"],"requirement_ids":["R2"],"claim_ids":["C1"],"paths":["reports/current.md"]}}
 ```
 
-将它交给 CLI `status --request request.json` 或 MCP `research_status`。不传 `stage` 时不会推动整个任务的阶段。`work` 各字段均可省略：`requirement_ids` 选当前处理的要求，`claim_ids` 选主张，`source_ids` 可直接选来源，`paths` 选需要的原文或已有分析。主张关联同时取支持与反证来源，必读要求带入指定来源。未选择的文件不全文注入；需要更多材料时沿现有路径读取。
+`work` 各字段均可选，首次保存前可用新的 `unit_id` 标识本次分工。所选主张带入支持与已登记反证来源，阅读要求带入指定来源。已登记单元会带回完整成果及其原始输入，依赖带入上游全文与原件。`work_context` 返回任务、有效要求、选定记录、可读 `files`、二进制原件引用、依赖及其就绪情况、`inputs` 和 `input_version`。
 
-`work_context` 返回任务原文、有效要求及范围决定、选定记录、可读原文 `files`、二进制原件的引用、输入哈希 `inputs` 和当前主稿位置。缺失或不可读的选定材料直接指出具体字段和路径。材料阅读仍由执行者完成，返回原文不改变阅读状态。`effective_requirements` 包含已满足的要求；这保留有效约束，不要求重做已完成动作。`scope_decisions` 保留用户同意的豁免、排除与限制。原始请求或重要纠正可放在已有规格和要求行的 `source_turn`、`quote` 中，代码不从宿主暗中抓取历史。
+仍适用的 `satisfied` 要求继续出现在 `effective_requirements`，`scope_decisions` 保留明确的放弃、排除或接受未完成决定。工具不会从宿主对话自动猜出要求；使用已有字段保存真实原话和受影响要求。按具体记录 ID 绑定的工作不再因无关来源／主张行改变而过期，有效要求的变化仍需处理。
 
-主 Agent 将返回的原文和要求交给宿主的子 Agent，同时说明工作边界与成果用途。保留宿主返回的真实任务引用；跨环境时传递实际可读内容，不只传本机路径。是否并行、追加消息、等待或中断使用宿主能力。Toolkit 不自行启动 Agent，也不要求用户选择执行档位。
+通过宿主子 Agent 工具传递返回的问题、要求与可访问原件，保留真实宿主任务／会话标识。宿主负责启动、消息、等待和取消，Toolkit 不另造一套运行时。
 
-子任务写好独立分析后，可沿用 `save` 登记：
+执行者用 `save` 保存成果：
 
 ```json
-{"task":"study","draft":{"path":"analysis/cost.md","kind":"analysis","host_task":"实际宿主任务引用"}}
+{"task":"study","draft":{"path":"analysis/routes.md","kind":"analysis","unit_id":"route-comparison","question":"哪些技术差异会改变选择？","depends_on":["route-evidence"],"host_task":"actual-producing-host-task-id","complete":false,"handoff":{"summary":"比较已展开，部署假设仍待解决。","pending":["对照原始要求解决部署假设。"],"decisions":["两条路线使用相同工作量和质量口径。"]}}}
 ```
 
-省略 `content` 登记已存在文件；也可直接提供内容。需要跟踪输入时，将取得的 `work_context.inputs` 对象原样放到可选 `draft.based_on`，不要手填哈希。短分析也可以直接返回给主作者，不要求每次建文件。`kind=analysis` 的保存不会自动选择为主稿；更新其内容时沿用现有备份目录保留原版本。
+省略 `content` 可登记已有非空文件，也可提供文本保存；把 `work_context.inputs` 原样放入可选 `draft.based_on`，不编造哈希。`complete` 描述已保存单元或稿件的完整性，不代表全任务交付。上游已登记工作未完成、已变化或尚缺必需独立审阅时，不能将依赖它的单元声明完成；先以 `complete: false` 保存进行中的工作并解决依赖。
 
-`save/status.current_work.research_outputs` 从现有活动记录恢复成果、宿主引用和输入变化。`changed_inputs` 只说明文件发生变化，由主作者判断影响；整个登记表发生变化也会提示，不能直接认定局部分析失效。主作者用 `work.paths` 取得分析全文，整合到明确登记的主稿，复用既有评审与交付。子任务的完成不会自动关闭要求或完成整项研究。恢复旧任务无需补填这些可选字段。
+`current_work.work_units` 与 `research_outputs` 从已有活动日志恢复单元、原始快照、宿主引用、交接和输入变化，不另建任务看板。交接 `summary`、`pending`、`decisions` 用于导航，接收的研究者、统稿者或审阅者可以读取完整成果和原始来源；同一 Agent 接下一阶段也复用这些记录。
 
-已配置评审后端不可用时，`start.review_readiness` 仍报告问题，但 `ready_for_collection` 只取决于需求是否齐备；收集、分析与独立研究可以继续。调用约定评审时仍检查后端与完整输入，不静默降低评审要求。
+`draft.main: true` 只指定当前主稿，保存的 `host_task` 是写入负责人，其他支线保留独立文件。交接写入责任时，由当前负责人保存接收方宿主任务／会话的 `handoff.to`；仅换 `host_task` 不能接管主稿或已有负责人单元。
+
+保留每次已保存单元的版本。新要求或证据先返回受影响分析和提纲，再依赖修订结果；`changed_inputs` 表示绑定变化，不自动认定研究结论失效。单元审阅以 `unit_id` 作为 `review.scope`，最终审阅、审计和验收仍覆盖完整当前报告。

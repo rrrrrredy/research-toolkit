@@ -10,7 +10,7 @@ import unittest
 from unittest.mock import patch
 
 import research_workflow as w
-from check_research_workflow import BRIEF, SyntheticRunner
+from check_research_workflow import BRIEF, SyntheticRunner, historical_profile, legacy_finish
 from profile_policy import CHECKLIST
 from review_runner import ReviewFailure
 from run_observation import capture_usage
@@ -59,7 +59,9 @@ class RecordWorkflowTests(unittest.TestCase):
         self.assertFalse(missing["ok"])
         self.assertIn(".evidence", missing["errors"][0])
         self.assertTrue(w.save_records(self.workspace, "case", requirements=[{"requirement_id": "R1", "status": "satisfied", "evidence": "drafts/first.md"}])["ok"])
-        self.assertEqual(w.status(self.workspace, "case")["activity"]["failed_saves"], 2)
+        self.assertNotIn('activity', w.status(self.workspace, 'case'))
+        events = [json.loads(line) for line in (self.root/'logs/activity.jsonl').read_text(encoding='utf-8').splitlines()]
+        self.assertEqual(len([row for row in events if row.get('operation') == 'save' and row.get('outcome') == 'error']), 2)
 
     def test_changes_reuse_ids_locate_body_and_skip_identical_writes(self):
         self.seed()
@@ -185,31 +187,38 @@ class RecordWorkflowTests(unittest.TestCase):
 
     def test_first_complete_draft_is_retained_and_status_and_checks_stay_readonly(self):
         self.seed()
-        first = w.status(self.workspace, "case")["activity"]["first_complete_draft"]
-        self.assertGreaterEqual(w.status(self.workspace, "case")["activity"]["seconds_to_first_complete_draft_observation"], 0)
-        self.assertEqual(first["time_basis"], "saved_by_tool")
+        path = self.root/'logs/activity.jsonl'
+        original = path.read_bytes()
+        first = next(json.loads(line) for line in original.decode('utf-8').splitlines() if json.loads(line).get('complete_draft'))
+        self.assertEqual(first['artifact'], 'drafts/first.md')
+        self.assertNotIn('elapsed_seconds', first)
+        self.assertNotIn('activity', w.status(self.workspace, 'case'))
         self.assertTrue(w.save_records(self.workspace, "case", draft={"path": "final.md", "content": "Updated report.", "complete": True})["ok"])
-        self.assertEqual(w.status(self.workspace, "case")["activity"]["first_complete_draft"], first)
+        self.assertTrue(path.read_bytes().startswith(original))
         before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
         w.status(self.workspace, "case")
         w.check_draft(self.workspace, "case", "final.md")
         self.assertEqual(before, {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()})
         (self.root/"logs/activity.jsonl").write_bytes(b"\xff")
-        self.assertTrue(w.status(self.workspace, "case")["activity"]["warnings"])
+        self.assertTrue(w.status(self.workspace, "case")["current_work"]["warnings"])
 
-    def test_cli_save_and_changed_inputs_stale_the_existing_lite_checklist(self):
+    def test_cli_save_resumes_current_contract_and_preserves_historical_lite_checklist(self):
         self.seed()
         w.save_records(self.workspace, "case", requirements=[{"requirement_id": "R1", "status": "satisfied", "evidence": "drafts/first.md"}])
         items = {k: {"passed": True, "evidence": "drafts/first.md and source.md"} for k in CHECKLIST}
-        self.assertTrue(w.finish(self.workspace, "case", "Complete.", artifact="drafts/first.md", checklist=items)["completed"])
+        historical_profile(self.workspace, 'case', 'lite')
+        self.assertTrue(legacy_finish(self.workspace, "case", "Complete.", artifact="drafts/first.md", checklist=items)["completed"])
         receipt = (self.root/"state/final_checklist.json").read_bytes()
         result = subprocess.run([sys.executable, "-X", "utf8", str(w.TOOLKIT/"scripts/research_workflow.py"),
             "save", "--workspace", str(self.workspace)], input=json.dumps({"task": "case", "claims": [{"claim_id": "C1", "uncertainty": "New qualification"}]}), text=True, encoding="utf-8", capture_output=True)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertEqual(w.status(self.workspace, "case")["progress"]["status"], "stale")
+        progress = w.status(self.workspace, 'case')['progress']
+        self.assertEqual(progress['status'], 'in_progress')
+        self.assertEqual(progress['review_contract'], 2)
+        self.assertFalse(w.finish(self.workspace, 'case', 'Complete.', artifact='drafts/first.md')['completed'])
         self.assertEqual((self.root/"state/final_checklist.json").read_bytes(), receipt)
 
-    def test_returned_usage_and_failed_review_retry_are_observed_not_invented(self):
+    def test_failed_backend_capture_is_retained_without_default_activity_totals(self):
         workspace = self.workspace
         w.start(workspace, "full", BRIEF)
         root = workspace/"full"
@@ -225,16 +234,20 @@ class RecordWorkflowTests(unittest.TestCase):
             return {**SyntheticRunner()({}, request, cwd), "capture": capture}
         config = {"reviewers": [{"id": "one", "model": "synthetic", "format": "json"}]}
         result = w.review(workspace, "full", ["source.md"], config=config, runner=runner)
-        self.assertTrue(result["reviews_complete"], result)
-        info = w.status(workspace, "full")["activity"]
-        self.assertEqual(info["review_retries"], 1)
-        self.assertEqual(info["failed_review_attempts"], 1)
-        self.assertEqual(info["observed_review_usage"], {"input_tokens": 200, "output_tokens": 20, "cached_input_tokens": 120})
-        self.assertIsNone(info["author_usage"])
-        self.assertTrue(all(i["elapsed_seconds"] >= 0 for i in info["review_invocations"]))
-        w.review(workspace, "full", ["source.md"], config=config, runner=runner)
-        self.assertEqual(len(calls), 2)
-        self.assertEqual(w.status(workspace, "full")["activity"], info)
+        self.assertFalse(result['reviews_complete'])
+        failed = root/result['retained_execution']
+        failed_bytes = failed.read_bytes()
+        self.assertEqual(capture_usage(json.loads(failed_bytes)), {'input_tokens': 100, 'output_tokens': 10, 'cached_input_tokens': 60})
+        self.assertNotIn('activity', w.status(workspace, 'full'))
+        resumed = w.review(workspace, "full", ["source.md"], config=config, runner=runner)
+        self.assertTrue(resumed['delivery_ready'], resumed)
+        self.assertEqual(len(calls), 11)  # One interrupted transport; ten completed independent assignments.
+        self.assertEqual(failed.read_bytes(), failed_bytes)
+        history = (root/'logs/review.jsonl').read_bytes()
+        self.assertTrue(w.review(workspace, 'full', ['source.md'], config=config, runner=runner)['delivery_ready'])
+        self.assertEqual(len(calls), 11)
+        self.assertEqual((root/'logs/review.jsonl').read_bytes(), history)
+        self.assertNotIn('activity', w.status(workspace, 'full'))
         self.assertIsNone(capture_usage({"format": "json", "stdout": "{}"}))
 
 

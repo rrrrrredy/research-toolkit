@@ -9,7 +9,7 @@ import unittest
 from unittest.mock import patch
 
 import research_workflow as w
-from check_research_workflow import BRIEF, SyntheticRunner
+from check_research_workflow import BRIEF, SyntheticRunner, historical_profile, legacy_finish
 from profile_policy import CHECKLIST
 from run_observation import activity_summary, timed_capture
 
@@ -33,9 +33,11 @@ class ContinuityTests(unittest.TestCase):
         return {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
 
     def finish_lite(self):
+        # Build a retained pre-v2 receipt; current delivery never follows this path.
         w.save_records(self.workspace, "case", requirements=[{"requirement_id": "R1", "status": "satisfied", "evidence": "report-a.md paragraph 1"}])
+        historical_profile(self.workspace, 'case', 'lite')
         checklist = {k: {"passed": True, "evidence": "report-a.md paragraph 1 and source.md"} for k in CHECKLIST}
-        result = w.finish(self.workspace, "case", "Complete.", artifact="report-a.md", checklist=checklist)
+        result = legacy_finish(self.workspace, "case", "Complete.", artifact="report-a.md", checklist=checklist)
         self.assertTrue(result["completed"], result)
 
     def test_new_main_does_not_inherit_delivery_or_rewrite_receipt(self):
@@ -60,17 +62,23 @@ class ContinuityTests(unittest.TestCase):
         self.assertEqual(result["current_work"]["artifact"]["path"], "report-a.md")
         self.assertEqual(result["changes"]["artifact"], "report-a.md")
 
-    def test_main_retry_is_idempotent_and_external_edit_is_visible(self):
+    def test_main_resume_activates_current_contract_then_retry_is_idempotent(self):
         self.finish_lite()
-        progress = (self.root / "state/progress.json").read_bytes()
+        receipt = (self.root / 'state/final_checklist.json').read_bytes()
         saved = w.save_records(self.workspace, "case", draft={"path": "report-a.md", "main": True})
         self.assertTrue(saved["ok"])
+        current = w.status(self.workspace, 'case')['progress']
+        self.assertEqual(current['review_contract'], 2)
+        self.assertEqual(current['status'], 'in_progress')
+        progress = (self.root / "state/progress.json").read_bytes()
+        self.assertTrue(w.save_records(self.workspace, 'case', draft={'path': 'report-a.md', 'main': True})['ok'])
         self.assertEqual((self.root / "state/progress.json").read_bytes(), progress)
-        self.assertEqual(w.status(self.workspace, "case")["progress"]["status"], "complete")
+        self.assertEqual((self.root / 'state/final_checklist.json').read_bytes(), receipt)
+        self.assertFalse(w.finish(self.workspace, 'case', 'Complete.', artifact='report-a.md')['completed'])
         (self.root / "report-a.md").write_text("External edit", encoding="utf-8")
         status = w.status(self.workspace, "case")
         self.assertTrue(status["current_work"]["artifact"]["changed_since_save"])
-        self.assertEqual(status["progress"]["status"], "stale")
+        self.assertEqual(status["progress"]["status"], "in_progress")
         w.save_records(self.workspace, "case", draft={"path": "report-a.md"})
         self.assertEqual(w.status(self.workspace, "case")["progress"]["stage"], "revise")
 
@@ -198,7 +206,7 @@ class ContinuityTests(unittest.TestCase):
         reviewed = w.review(self.workspace, "full", ["source.md"], artifact="b.md", revision=True, config=config, runner=runner)
         self.assertTrue(reviewed["reviews_complete"], reviewed)
         self.assertTrue(w.finish(self.workspace, "full", "Revised report complete", artifact="b.md")["completed"])
-        self.assertEqual(len(runner.calls), 2)
+        self.assertEqual(len(runner.calls), 20)  # Two distinct versions, each seven perspectives + domain + audit + acceptance.
 
     def test_imports_are_not_model_invocations_or_self_submissions(self):
         import time

@@ -24,7 +24,7 @@ report with usable citations. Identify inaccessible required material without
 inventing its contents.
 ```
 
-Allow about 5–15 minutes; expect 350–500 words plus records. [Complete walkthrough](../docs/quickstart.md).
+Develop the report to the depth the request requires, preserving its original material and independent assessments. [Complete walkthrough](../docs/quickstart.md).
 
 ## If it cannot read the files
 

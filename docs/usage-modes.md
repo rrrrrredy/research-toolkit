@@ -2,7 +2,7 @@
 
 [English](usage-modes.md) | [简体中文](usage-modes.zh-CN.md)
 
-The [1.x compatibility policy](compatibility.md) covers the public tools, saved tasks and installation requirements. Upgrading from v0.2.7 to v1.0.0 requires no task-data migration.
+The [compatibility policy](compatibility.md) explains the current completion contract and continuation of older tasks. Preserve original records and reuse the existing materials.
 
 **Use the research methods through a repository link, files, attachments, or pasted text.** Choose the input method your agent supports. Native Skill, plugin, and MCP support are separate capabilities of the host.
 
@@ -17,9 +17,9 @@ No Python or vendor CLI installation is required merely to read and apply the me
 
 ## When to use each tool
 
-**Use the [single research entry](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.md).** The agent loads complete methods as needed and completes agreed checks. CLI/MCP are optional; omit `profile` in new requests.
+**Use the [single research entry](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.md).** Agents load methods for their work and complete independent review, audit and acceptance. CLI/MCP are optional; omit `profile` in new requests.
 
-The table applies when you choose the managed local workflow, through MCP **or the [shared CLI](#skill-only-and-cli-fallback)**. Skill-only use keeps the same research requirements without creating these registries or receipts.
+The table applies when you choose the managed local workflow, through MCP **or the [shared CLI](#skill-only-and-cli-fallback)**. Skill-only use keeps the same research and independent assessment responsibilities without creating these registries or receipts.
 
 | Tool | When it is needed | When you can skip the call |
 | --- | --- | --- |
@@ -27,10 +27,11 @@ The table applies when you choose the managed local workflow, through MCP **or t
 | `research_save` | Save/update sources, claims, requirements and drafts; correct located format errors. | No record or draft changes. |
 | `research_status` | Resume a managed task, inspect saved progress, or change its recorded stage. | You do not need to read or update progress; a methods-only session can use its own notes. |
 | `research_guide` | Retrieve the method for a stage when it is not already available in context. | Read the relevant `SKILL.md` and `references/` files directly. |
-| `research_review` | Complete agreed reviews, including an actual self-review when that is the selected relationship. | Reuse completed reviews with unchanged inputs; retain explicitly required reviews. |
+| `research_review` | Prepare native-host review, audit and acceptance assignments; retain real responses and bound inputs. | Reuse valid complete results for unchanged inputs; continue unfinished work. |
+| `research_check_updates` | Read a registered public release log and locate affected claims/report passages. | No new-source question or no registered release log. |
 | `research_check_draft` | Check current draft records and explicit length bounds without model calls or a delivery receipt. | Optional before review/finish; inspect sources and meaning separately. |
-| `research_finish` | Complete a managed task by checking the current report and its delivery requirements. | For Skill-only use, complete the agreed checks and deliver the requested report and citations; no tool receipt is required. |
-| `research_check_reviewer` | Diagnose external backend setup or a configuration failure before attempting review. | Self-review needs no external backend; a separate call is unnecessary when `research_start` has already confirmed the unchanged configuration. |
+| `research_finish` | Complete a managed task by checking the current report and its delivery requirements. | For Skill-only use, complete independent review, audit and acceptance and deliver the requested report and citations; no tool receipt is required. |
+| `research_check_reviewer` | Diagnose configuration and dependencies for an explicitly selected external backend. | Host-native subagents need no external service configuration check. |
 
 ## Save research records and drafts
 
@@ -62,7 +63,7 @@ Format errors identify the collection, row and field. The agent fixes those inpu
 
 Explicit `research_status(task, stage="analyze")` or `stage="draft"` calls return saved supplemental requirements as JSONL text in `requirements`, retaining their statuses and handling evidence. The agent can use them directly in analysis and drafting without copying them into the brief. The field is omitted when no requirements exist; ordinary status queries do not include the text. Returning a requirement does not establish that the research satisfies it.
 
-`research_status` returns an `activity` summary: task start, first observed complete draft with UTC time/hash and elapsed time since task creation, failed saves, actual review attempts/retries, elapsed invocation time and returned usage. `saved_by_tool` timestamps the save; `existing_file_observed` timestamps registration, not historical creation. Read-only status/draft/delivery checks do not append activity. Review reuse is not a new invocation; author self-review submissions are counted separately. Cached tokens remain a subset of input; unavailable usage is unknown. The tool cannot see the host author's overall tokens, bill, or time before registration. These observations add no delivery requirement and do not establish first usable-result time or research quality.
+`research_status` recovers work and artifact references from saved activity. Event times identify the sequence of saves and handoffs; they are not research deadlines or optimization targets. Original execution evidence is retained when review results are recorded.
 
 `save` and `status` return `changes` for the latest successful record-save batch: added, updated, unchanged, removed or recovered IDs, related claims, and line/heading locations in the latest registered draft. Source associations include `supporting_sources` and the exact registered IDs in `counter_evidence`, using the same whitespace/semicolon/comma/`|` separators as review inputs; free-text counter-evidence is not interpreted as a link. Registered release-log queries reuse these associations. Locations are literal claim-text or source-link matches and may point to a citation paragraph or bibliography; a paraphrase can be found through its citation, while `not_located` means inspect manually, not no impact. Use them to read relevant passages and verify sources before deciding which conclusions to revise; claims are not automatically invalidated.
 
@@ -77,7 +78,7 @@ Keep the agreed brief and outline in `state/task_spec.md`. Record substantive fo
 `progress.json.stage` uses `brief`, `collect`, `analyze`, `draft`, `review`, `revise`, and `final`.
 `progress.json.status` accepts `in_progress`, `paused`, `blocked`, and `complete`.
 
-Record the actual stage, open issues and next action. Read the specification, progress, requirements when present, and useful existing notes when resuming. `research_status(task)` preserves the saved task's completion requirements; it and standalone `research_guide` return the same shared stage methods without requiring a profile choice. Use `research_status.activity` when inspecting actual retries and returned usage. Paths in calls are relative to the task directory; run scripts from the toolkit installation.
+Record the actual stage, unresolved issues and next action. On resumption, retrieve the specification, effective requirements, outline, current main draft and related analysis through `status`. Paths in calls are relative to the task directory. Stage names describe the work; real dependencies determine what can proceed.
 
 Keep `state/findings.jsonl`, `state/directions_tried.json`, `state/iteration_log.jsonl` and `logs/work.jsonl` only when useful to the task; they are not universal deliverables. Uncertainty can stay with claims, with `data/uncertainty_registry.csv` optional. Field conventions are in the existing [workflow reference](../references/research-workflow.md#3-state-system).
 
@@ -120,7 +121,7 @@ Update affected passages, sources and claims; reuse unaffected research.
 Deliver the revised report and change note, refreshing checks invalidated by the changes.
 ```
 
-When continuing a CLI/MCP-managed task, start with `research_status(task)` and preserve the previous report. Keep existing source, claim and requirement IDs and their reading evidence. Use `research_save` to update only affected records together, registering the saved draft by its existing path; unchanged records need no resubmission. After actually checking a requirement, save its status and concrete evidence with the relevant update. Recheck changed or questioned source sections; reuse still-valid local evidence without fetching it again. Review the complete current report under its selected tier before claiming completion. See the [executed long-report update](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.md) for actual reuse, source-confirmed changes, rework and costs.
+When continuing a CLI/MCP-managed task, start with `research_status(task)` and preserve the previous report. Keep existing source, claim and requirement IDs and their reading evidence. Use `research_save` to update only affected records together, registering the saved draft by its existing path; unchanged records need no resubmission. After actually checking a requirement, save its status and concrete evidence with the relevant update. Recheck changed or questioned source sections; reuse still-valid local evidence without fetching it again. Complete the current report’s independent content reviews, audit and acceptance before claiming completion. See the [executed long-report update](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/coding-benchmark-update/README.md) for preserved materials, source-confirmed changes and revisions.
 
 ### When content or sources change
 
@@ -129,7 +130,7 @@ The following calls apply to CLI/MCP-managed tasks.
 | Change | Reuse and recheck |
 | --- | --- |
 | Resume interrupted work with unchanged inputs | Read `research_status` and continue unfinished work; completed valid reviews can be reused. |
-| Report, requirements, bound sources or claims change | Update affected analysis. Earlier checks do not approve the current version; use `revision=true` for required reviews and delivery checks of current inputs. Historical checklist tasks keep their saved completion requirements. |
+| Report, requirements, bound sources or claims change | Update affected analysis. Earlier checks do not approve the current version; use `revision=true` for required reviews and delivery checks of current inputs. Historical receipts remain unchanged; continued work uses the current completion contract. |
 | A source webpage changes but the saved text does not | Tools do not monitor remote pages. The agent reads and retains the new version, explains its date and effect, then handles it as changed input. |
 
 The formal checks establish version and record consistency within the declared scope, not source credibility. The private-chat-citation advisory in `research_check_draft` scans only the supplied report and ignores code examples; it changes neither `ok` nor historical receipt meanings. Repair citations from actual sources; reading and review still establish semantic support.
@@ -144,7 +145,7 @@ Use local MCP when the host can start a local process, or the bundled plugin whe
 | Plugin | Skill, references, and the local MCP server in one package | Support for the package format and local stdio MCP |
 | MCP | Nine callable tools for task setup, progress, guidance, reviews, and delivery checks | A client that can start and call a local stdio MCP server |
 
-The shared CLI needs Python 3.10+ and only its standard library. Prefer `python3` on Linux; any installed Python 3.10+ interpreter is enough. MCP also needs the dependency in `requirements-mcp.txt`. Without a backend, new tasks use explicitly degraded self-review. External/independent review accepts any supported command or endpoint; no vendor account is mandatory.
+The shared CLI needs Python 3.10+ and only its standard library. Prefer `python3` on Linux; any installed Python 3.10+ interpreter is enough. MCP also needs the dependency in `requirements-mcp.txt`. Research and independent review use host-native agents by default. Separate backend configuration is optional and does not determine whether the host can delegate.
 
 CI exercises the CLI and packaged MCP workflow on Python 3.10/Linux, plus the broader checks on Python 3.12/Linux and Windows. Use the same interpreter for dependency installation and your client's server command. These are server/protocol checks, not tests of every client GUI.
 
@@ -219,7 +220,7 @@ args = ["/absolute/path/to/research-toolkit/scripts/research_mcp.py"]
 RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 ```
 
-Restart the client and confirm the nine `research_*` tools appear. The [executable example](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.md) captures real local responses with a fictional report and explicitly degraded self-review.
+Restart the client and confirm the nine `research_*` tools appear. The [executable example](https://github.com/rrrrrredy/research-toolkit/blob/main/examples/mcp/README.md) explains the local request contract using clearly labelled synthetic inputs; historical real runs retain their original scope.
 
 Official configuration references: [Claude Desktop local servers](https://modelcontextprotocol.io/docs/develop/connect-local-servers), [Cursor MCP](https://cursor.com/docs/mcp), [Codex MCP](https://developers.openai.com/codex/mcp). Cursor supports project `.cursor/mcp.json` or global `~/.cursor/mcp.json`; Codex uses `~/.codex/config.toml`. In Claude Desktop, open Settings → Developer → Edit Config.
 
@@ -229,41 +230,48 @@ If no tools appear, run `python -c "import sys, mcp; print(sys.executable)"` wit
 
 | Tool | Action and completion boundary |
 | --- | --- |
-| `research_start` | Creates task records; returns missing brief fields and selects the profile and checks configured backend readiness |
+| `research_start` | Create the unified task and brief, returning shared context and consequential missing fields |
 | `research_status` | Returns saved progress and current methods; changing to analysis/drafting requires prerequisite source/claim records |
 | `research_guide` | Loads the applicable methods without starting a task; supports English and Chinese |
-| `research_review` | Binds full inputs, runs content reviews and retains replies/failures; executes additional auditing only when configured |
+| `research_review` | Connect content review, independent audit and final acceptance, retaining native-host originals and version bindings |
 | `research_check_draft` | Return current counts, declared range checks and record errors without changing task state; `ok` does not certify content or delivery |
 | `research_finish` | Checks the reviewed artifact, evidence, unresolved requirements and delivery text before writing completion state and a receipt |
-| `research_check_reviewer` | Checks local backend configuration and dependencies without model calls |
+| `research_check_reviewer` | Diagnose an optional external backend, without gating native-host collaboration |
 
-The author agent still searches, reads, analyzes and writes, using its existing tools. It must save required source texts and source/claim records in the task directory. Stage guidance reduces repeated context loading; it does not establish that a model has obeyed every instruction.
+Research and assembling agents search, read, analyze and write using their host tools and shared task inputs. It must save required source texts and source/claim records in the task directory. Stage guidance reduces repeated context loading; it does not establish that a model has obeyed every instruction.
 
 Before analysis, source records need an ID, title, locator and source type, with at least one full-text or relevant-section reading record and a reading-evidence reference. Before drafting, claims need substantive text and a type; source references must resolve to registered, read sources. Explicit hypotheses may remain unsupported with recorded uncertainty, but at least one grounded claim is required. Local file references in reading evidence must stay inside the task directory and identify an existing, nonempty file; anchors and page/section suffixes are allowed. URLs and section/page locators remain valid references without an automatic content check. These checks detect incomplete records, not whether a source was truly understood.
 
+When `status` also receives `work`, analysis/drafting checks use that selection's sources and claims, including its declared upstream inputs. Unrelated unfinished branches do not block it. A unit can develop its analysis from selected sources before registering new claims; whole-report review and delivery still check the complete task and its claim evidence.
+
 Reviews automatically include nonempty `state/requirements.jsonl` alongside the brief, report and source files. Both reviewer and auditor receive the full ledger, including later clarifications and changes. Editing or deleting that ledger after review prevents delivery until the changed assignment is addressed. An empty ledger adds no requirements.
 
-Reviews require the full task, report and source files, not just URLs. The local input limit is 16 MiB; oversized input is rejected rather than silently truncated. This limit is not a promise that the configured model accepts a context of that size.
+Reviews retain the full task, report and relevant source files, not just URLs. Native-host assignments return readable file references by default. If the material exceeds one model context, the reviewer reads the retained originals in parts and completes the assigned assessment; a summary must not silently replace required material.
 
 ## Reviewer backends
 
-Reviewer tier describes the review relationship; backend describes the command or endpoint that receives the report and evidence and returns a structured review. With no backend configured, a new report defaults to `self`; a configured backend defaults to `independent`. Explicit tiers and saved independent/audited plans never silently fall back after an error.
+### Native host review
 
-Astra in a fresh context separate from the author can provide the independent review, including when the author uses the same model. Give it the same task, report and source materials; keep author notes and evaluation condition mappings out of a blind review. No additional outside person, vendor or fixed reviewer panel is required. Existing user and development tasks are independent real tasks, and their executed tests are real tests; record their actual reuse without treating it as missing task material. Model execution and evaluation also provide a user perspective: judge usefulness from actual context use, extra reading, time, rework and research results. Human participation is not a prerequisite; describe the observed benefit and its task scope.
+Use the subagent capability already present in Codex, Claude Code or the chosen host. `research_review` prepares assignments and binds the complete task, report and original evidence. The host starts a different independent agent for each base perspective and the relevant domain review; it then runs independent audit and final acceptance. The author and assembling agents do not fill these assignments. No API configuration is needed for this route.
 
-| Backend | Configuration cost | Review strength | Material destination and usage |
-| --- | --- | --- | --- |
-| `self` | None | Degraded author-context review | Current author context; its existing model usage; no additional reviewer service |
-| `codex` — Codex CLI | Set `RESEARCH_TOOLKIT_REVIEW_BACKEND=codex`; install and sign in to the CLI; optional `RESEARCH_TOOLKIT_REVIEW_MODEL` | Fresh review context; supports independent review | Configured CLI model service and account quota; forward the intended `CODEX_HOME` when customized |
-| `claude` — Claude Code CLI | Set `RESEARCH_TOOLKIT_REVIEW_BACKEND=claude`; install and authenticate the CLI; optional model | Fresh review context, without tools; supports independent review | Service/account configured by the CLI; consumes that account's subscription or API usage |
-| `generic` — compatible HTTP endpoint | Set backend to `generic`, `RESEARCH_TOOLKIT_REVIEW_BASE_URL`, `RESEARCH_TOOLKIT_REVIEW_MODEL`; optional `RESEARCH_TOOLKIT_REVIEW_API_KEY` | Fresh request with the full assignment; supports independent review, not guaranteed statistical independence | Complete materials go to your chosen endpoint; its account is billed; local endpoints follow your own hosting policy |
-| Trusted custom command | `RESEARCH_TOOLKIT_REVIEW_CONFIG` with an argv list and `format: "json"` | Depends on the adapter's actual context and evidence | Destination and usage are controlled by that command; document them before sending materials |
+The seven base perspectives are requirements, evidence, adversarial reasoning, structure and depth, reader usefulness, process language and natural expression. They are separate review contexts. Models may be the same; context and production responsibility must be distinct. The [review contract](review-completion.md) specifies the assignments, original results and current-version completion.
 
-The configuration check is local and does not establish service availability or quota. Credentials belong in the runtime environment, never in reports or versioned configuration. The generic adapter uses `/chat/completions`; a base URL may include `/v1` or the complete route. Remote endpoints require HTTPS; HTTP is accepted only for `localhost` or a literal loopback IP address, such as `127.0.0.1` or `::1`. This applies even without an API key because requests contain the report and sources. See the [backend interface](#reviewer-backends) for requests, responses and recovery.
+The host preserves each actual response and its execution record, then submits their paths through the existing `review` operation. Once the required content results exist, the next assignment is independent audit; final acceptance follows the resolved report and audit. If a task needs an early review of a research unit, identify that unit. Its result supports dependent work and does not replace full-report review.
 
-### Configuration and calls
+### Optional configured execution
 
-Restart the MCP server after configuring its environment, or run the CLI from the same terminal. Replace the URL and model below with your provider; do not write keys into files.
+Use this only when choosing a separate command or endpoint to execute review. It is not the setup for native host subagents.
+
+| Backend | Configuration |
+| --- | --- |
+| `codex` | `RESEARCH_TOOLKIT_REVIEW_BACKEND=codex`; uses the installed, signed-in CLI. Optional `RESEARCH_TOOLKIT_REVIEW_MODEL`. |
+| `claude` | `RESEARCH_TOOLKIT_REVIEW_BACKEND=claude`; uses the installed CLI and its existing configuration. |
+| `generic` | Backend `generic`, `RESEARCH_TOOLKIT_REVIEW_BASE_URL` and `RESEARCH_TOOLKIT_REVIEW_MODEL`; an authentication environment variable only if the selected endpoint requires one. |
+| Trusted command | `RESEARCH_TOOLKIT_REVIEW_CONFIG` points to a JSON configuration with an argv list and `format: "json"`. |
+
+Native-host and configured execution fulfill the same current review responsibilities. A legacy self-review result remains historical evidence; it cannot replace a required independent review, audit or acceptance.
+
+For a chosen generic backend:
 
 ```bash
 export RESEARCH_TOOLKIT_REVIEW_BACKEND=generic
@@ -272,47 +280,25 @@ export RESEARCH_TOOLKIT_REVIEW_MODEL=your-model
 python3 scripts/research_workflow.py check-reviewer
 ```
 
-On PowerShell, set each variable with `$env:NAME = "value"`. If authentication is required, pass `RESEARCH_TOOLKIT_REVIEW_API_KEY` through the client's environment. The check sends no materials or paid request; `access_unverified` means live service access remains untested.
+Use `$env:NAME = "value"` in PowerShell. Credentials stay in the runtime environment, not task files. `check-reviewer` diagnoses local setup; it is not a model invocation. The generic route uses `/chat/completions`, HTTPS for remote endpoints and HTTP only for localhost/literal loopback addresses. Requests contain the research material and follow the chosen endpoint's access policy.
 
-For multiple reviewers, an auditor or a custom command, set `RESEARCH_TOOLKIT_REVIEW_CONFIG` to a trusted JSON file, for example:
-
-```json
-{"reviewers":[{"id":"primary","backend":"generic","model":"your-model","base_url":"https://your-provider.example/v1","api_key_env":"RESEARCH_TOOLKIT_REVIEW_API_KEY"}]}
-```
-
-The file takes precedence over backend environment variables. Endpoint and model are assignment-bound; secret values never enter configuration or records. New reports and evaluations use the configured reviewer without adding an auditor. Include `auditor` only when an additional audit is intended. Resuming a saved audited plan retains its auditor requirement; a single-backend environment configuration supplies that separate request only for such a saved plan.
-
-A trusted command uses `command: ["/absolute/path/to/executable", "argument"]` and `format: "json"`. It receives `{role, instructions, assignment}` on stdin; assignment includes the complete report, brief, sources and review dimensions. It returns this envelope on stdout:
+Trusted commands receive `{role, instructions, assignment}` on stdin and return:
 
 ```json
-{"execution_id":"actual-provider-request-or-session-id","content":"original structured review response text"}
+{"execution_id":"actual-provider-request-or-session-id","content":"original structured response text"}
 ```
 
-Commands come only from trusted startup configuration, never report contents or MCP arguments; use a fresh context per assignment. The HTTP adapter retains the original response and service request ID, rejects empty/truncated replies and does not follow redirects. Use a custom command for services with a different response protocol.
-
-Generic entries may include `parameters`, for example `{"max_tokens":4096}`, for provider-supported output limits or reasoning options. They cannot override `model`, `messages` or `stream`, and remain part of the assignment binding.
-
-### Author self-review
-
-`research_review` accepts `reviewer: "self" | "external" | "independent"`. The first self call returns the prompt, assignment and input_version. Explicitly switch to the reviewer role in the author context, then submit report_verdict, seven-dimension coverage, findings and input_version as self_review. Records retain the author context and degraded strength, never a fabricated independent execution. New tasks without a backend use this path automatically; explicit or saved independent requirements do not fall back.
+Keep each task in a separate context and retain original output. Command configuration comes from trusted startup configuration, never source text or a report. HTTP responses retain request IDs; empty or truncated responses remain incomplete. Provider-specific `parameters` may be supplied deliberately, but cannot replace `model`, `messages` or `stream` and are bound to the assignment.
 
 ### Recovery and acceptance
 
-CLI, MCP and Python workflow operations share a local OS task lock. An overlapping operation on the same task fails promptly; wait for the current operation to finish. Different tasks remain independent. The empty `.research-toolkit.lock` file is retained, but OS ownership ends on release or process exit; do not delete it to force access. This coordinates cooperating local processes, not external editors or distributed filesystems.
+CLI, MCP and Python operations share the existing OS task lock. Serialize writes to the same task; branch work can proceed independently. Do not remove the lock file to bypass ownership. The designated main-draft owner integrates branch artifacts instead of multiple writers editing the same report.
 
-Reviewer stderr with invalid UTF-8 is displayed with replacement characters and retained as exact bytes in `raw_output_base64`. Invalid UTF-8 in the actual response fails as `invalid_output_encoding`, with the original bytes retained; a completed call is not mislabeled as a launch failure.
+Preserve failed calls and original bytes. Invalid UTF-8 in a response is retained as a failure; stderr can be displayed with replacement characters while its bytes remain available. A host cancellation or execution failure leaves that assignment unfinished. Resume the missing work after resolving its actual cause; do not cancel substantive work because it has run for an arbitrary duration.
 
-Invalid configuration, a missing executable or a configured CLI's failed login blocks that route with guidance. Restore access in its actual environment. Unconfigured ordinary tasks can use self without login. The reviewer process does not automatically inherit the author agent's model access; keep credential files outside tasks.
+A valid negative review is retained. Correct the affected report and evidence, then use `revision: true` for the current version. Authors can respond to a disputed finding, but an independent reviewer/auditor adjudicates consequential no-change decisions. Do not rerun unchanged negative results looking for a pass.
 
-Preserve original responses and failures. Do not rerun an unchanged valid negative response; unresolved necessary corrections block delivery. Record evidenced [no-change decisions](review-completion.md) for mistaken findings, then resume finish. After correcting an ordinary report, call `research_review` with `revision: true` to review the new version. This is the normal revision loop; already authorized corrections do not need another user confirmation. Reconcile changes to research scope in the task records first. A changed reviewer assignment also needs `revision: true`; frozen evaluations reject assignment changes. Timeouts remain 1–1800 seconds, default 600; a timeout-only change does not alter the assignment.
-
-New review plans retain the exact reviewer and auditor instructions in `instruction_snapshot`. Resuming an unchanged assignment uses that snapshot even after the installed references change; completed valid reviews are reused and only unfinished work resumes. An explicit ordinary `revision: true` selects the current instructions and records any assignment change. Frozen evaluations still reject changed assignments. Legacy plans without a snapshot keep their existing version checks; the tool does not invent historical instructions or silently certify an upgrade as equivalent.
-
-`reviews_complete` and `review_check` describe whether the declared reviews were completed; a negative review can count as completed. `delivery_ready` and the existing `completion_check` describe whether an ordinary report is ready for delivery verification. Its slot count excludes reviews with unresolved report defects. `open_issues` lists the findings, also reflected in progress and the next action. A completed review is not a passing report.
-
-When saved progress claims completion, `research_status` checks the current delivery inputs and receipt. Failed checks return `progress.status: stale`, `delivery_check` and the original `recorded_status`; the query does not rewrite hash-bound progress or the historical receipt. Repair the findings and repeat the applicable review/checklist and finish steps before claiming current completion.
-
-Additional audits apply only when declared; recovery completes only missing work. Timeouts clean up local processes without proving remote cancellation. The client must permit the necessary tool calls and wait long enough; avoid concurrent writers for one task.
+Instruction snapshots, original input files and input versions remain available through revision. Unchanged completed results can be reused; changes to the report or its required inputs must be addressed by the relevant review and final whole-report acceptance. When status finds a stale historical receipt, it reports that condition without rewriting the original completion record. See [review completion](review-completion.md) and [compatibility](compatibility.md).
 
 ## Skill only and CLI fallback
 
@@ -329,92 +315,78 @@ CLI requests are JSON objects supplied by `--request` or stdin. Missing/unknown 
 
 A brief request is `{"task":"comparison","language":"en","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`. Review arguments include `task`, task-relative `evidence_paths`, optional `artifact` (default `final.md`) and `purpose`. The `status`, `guide`, `check-draft` and `finish` actions mirror MCP arguments. `check-draft` takes `task` and optional `artifact`, needs no delivery message and exits 1 on a failed check. JSON may also be supplied through stdin.
 
-### Reuse task files and retain a self-review packet
+<a id="reuse-task-files-and-retain-a-self-review-packet"></a>
 
-Use the existing task directory as the working location for reports, notes and sources. Pass `artifact` and `evidence_paths` relative to it; tools read those files directly. Retain the first draft before revising, and export the final report when delivering. Additional copies solely for each tool call are unnecessary.
+### Reuse task files and retain a review packet
 
-Set the task directory below to the location returned by `start`, and use the same task ID in the request. For an existing task named `comparison`, after preparing its report and source/claim records, save this request as `review.json`. Replace `source.md` with the actual evidence paths. Use this self-review example only when that is the selected tier; an independent requirement keeps its configured backend.
+Keep reports, analysis and source originals in the task directory. `artifact` and `evidence_paths` address those files directly. Preserve the first draft and subsequent revisions; do not create a new material copy just to invoke another tool.
+
+For an existing managed task:
 
 ```json
-{"task":"comparison","reviewer":"self","artifact":"final.md","evidence_paths":["source.md"],"include_assignment":false}
+{"task":"comparison","artifact":"final.md","evidence_paths":["sources/source.md"],"include_assignment":false}
 ```
 
-This local example returns `prompt`, `input_version`, `task_directory` and `assignment_ref` (relative path and text SHA-256); the complete frozen input remains in the task. Omit `include_assignment` or set it to `true` when the caller needs the full assignment in the response. The default and external/independent input delivery are unchanged. Retain the response by running this Python snippet from the repository/plugin root using the same interpreter as the CLI. `start` already created `logs`; `reviews` may not exist before review. Shell redirection opens its destination before the CLI runs.
-
-```python
-import subprocess
-import sys
-from pathlib import Path
-
-task = Path("../research-work/comparison").resolve()
-with (task / "logs/self-review-01.json").open("x", encoding="utf-8") as output:
-    subprocess.run(
-        [sys.executable, "scripts/research_workflow.py", "review",
-         "--workspace", str(task.parent), "--request", "review.json"],
-        stdout=output, check=True,
-    )
+```bash
+python3 scripts/research_workflow.py review --workspace ../research-work --request review.json
 ```
 
-Opening with `x` refuses to overwrite an existing record before invoking review. For a genuinely new attempt use a new filename; retain a failed attempt's output and error. If the unchanged packet was already saved successfully, use it instead of calling review again.
+With native-host execution, the result identifies pending assignments and their retained input files. Each worker must be able to open the full assignment and referenced originals; across environments, transfer readable content rather than inaccessible local paths. Preserve the real host task ID and the complete original reply and execution record. Submit those records through the same operation using `host_result`; the [review contract](review-completion.md) describes its fields.
 
-Read `prompt` and `input_version` from the saved response, then the complete frozen assignment at `Path(task_directory) / assignment_ref["path"]`; its text hash uses canonical LF newlines. If `assignment` is returned inline, use it directly. A local file reference is useful only when the caller can read that task directory. In same-context self-review, verify the current report and requirement/source bindings, reuse unchanged evidence already read, and revisit changed or questioned material. Keep the complete packet; a separate reviewer receives the full required input. Submit the actual judgment as `self_review` using that `input_version`; see the [self-review fields](review-completion.md). After report or review-input changes, use the existing `revision: true` path. Reuse avoids duplicate copying, not current-version checks or required reading.
+The host continues the returned assignment, audit or acceptance work. A summary locates an existing result; it does not replace the result or source text. If the report or required inputs change, retain the earlier packet and use `revision: true` for the new version.
 
 ## Verification and limits
 
-The repository checks the shared workflow, package/source consistency and a real MCP stdio connection with **synthetic** reviewer subprocesses. Those tests do not call paid models or establish report quality. The implementation launches real configured model executors in normal use; a successful installation or test is not evidence that a particular research report has been reviewed.
+Existing software checks exercise record consistency, original-input binding, packaging and MCP transport with labelled synthetic data. Real host executions retain their separate source material, responses and outcomes. The [evaluation status](evaluation-status.md) describes the work actually observed; installation and mechanical checks are not content-review results.
 
-A separate [guided real-model check of plugin `0.1.2`](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/evaluation-status.md#current-implementation) completed review and audit recovery on one real task using fictional source material while preserving a negative result and correctly blocking delivery. It required configuration and audit-contract corrections; it does not establish unattended reliability.
-
-The tools enforce their own completion conditions. They cannot prevent an agent from ignoring tools or editing files outside them, and they cannot mechanically certify factual truth. Acceptance follows the task's completion requirements and review configuration; independent review is required only when declared. Saved legacy tasks retain their existing completion requirements.
-
-For failed drafts, follow the [repair and stopping rules](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/failure-handling.md). Correct ordinary report versions, preserve frozen evaluation originals, and never repeat an unchanged valid negative judgment until it passes.
-
+Current delivery requires independent content review, audit and acceptance. The tools enforce their saved contract; the agents perform the substantive reading and judgment. Preserve historical receipts and report their actual contract rather than presenting them as current acceptance. For actual failures, follow the [repair guidance](failure-handling.md) and continue the affected work.
 
 ## Current artifact and scope updates
 
 Optional `research_save.brief` updates only supplied question/audience/scope/output/depth/evidence_standard fields and synchronizes the specification with progress.brief. Save affected requirements together where practical; no second scope ledger is needed.
 
 ```json
-{"task":"comparison","brief":{"output":"A revised comparison report"},"draft":{"path":"drafts/revised.md","main":true,"kind":"report"}}
+{"task":"comparison","brief":{"output":"A revised comparison report"},"draft":{"path":"drafts/revised.md","main":true,"kind":"report","host_task":"actual-main-writer-host-task"}}
 ```
 
-`draft.main=true` explicitly selects the current work file; optional kind is report/comparison/review. Other chapter/reference saves do not change this selection. `complete` still records draft completeness only. `save/status.current_work` returns the current file, open requirements and resume paths; status separately references the last delivery. A new main or changed brief cannot inherit a terminal state; old receipts remain intact. Review/finish must pass the registered main as artifact. Legacy tasks need no migration and retain previous behavior without an explicit main. The saved file observation is not approval.
+`draft.main=true` explicitly selects the current work file; optional kind is report/comparison/review/analysis. Other chapter/reference saves do not change this selection. `complete` still records draft completeness only. `save/status.current_work` returns the current file, effective requirements, unfinished work and resume paths; status separately references the last delivery. A new main or changed brief cannot inherit a terminal state; old receipts remain intact. Review/finish must pass the registered main as artifact. Legacy tasks need no migration and retain previous behavior without an explicit main. The saved file observation is not approval.
 
 `start/status.runtime` identifies the implementation path, version, code hash and available entry hash; host_loaded_entry=not_observed. It does not infer which Skill the host read. Tools identify registered files, not arbitrary new directories.
-
-`activity.imported_reviews` separates imports from invocations and self submissions. Custom adapters declare capture.import_only=true; import time is not model time and unavailable usage stays null. Legacy import_only captures are recognized. This flag does not relax execution identity or version checks.
 
 Reading requirements are validated at save: full_text/relevant_sections paired with a nonempty distinct required_source_ids list. Partial updates to a valid existing pair remain supported. Invalid batches cannot partially overwrite reports or state. See [task continuity](../references/task-continuity.md) for the workflow.
 
 ## Historical task compatibility
 
-Older clients may still pass `profile`; saved `lite`/`full` values and completion receipts remain supported. Omit the parameter for new research. Both historical record types now receive the same complete research methods; the field no longer selects a separate method set. Saved checklist-only tasks retain their [original completion requirements](../references/lite-workflow.md#final--complete-the-author-checklist); existing review plans and records are preserved.
+Saved 1.x tasks, reports, input snapshots and receipts remain readable with their original identities and declared completion results. Historical `profile` and `self_review` fields do not create a second research entry or satisfy current independent responsibilities.
 
-If a historical checklist task gains a formal review requirement, preserve the old task and use the existing linked-task approach, reusing its report, sources, claims and requirements. Address new requirements and affected content; do not copy old passed flags as a new review receipt.
-
+Continue existing material in the same managed task: retrieve its current work, preserve the previous report and receipt, and prepare a current-version review when completing the continuation. Reuse valid sources, analysis and original reviews; complete the roles and content still needed under the current contract. Do not rewrite an old self-review as independent execution or reconstruct missing reviews. See [version compatibility](compatibility.md).
 
 ## Research delegation and handoff
 
-Reuse `status`, the host's agent tools and `save`, without another required step. Replace the example IDs and paths with registered task inputs. Omitting `methods` keeps stage defaults; `available_methods` lists optional choices. Select what helps the question, not every method.
+The outline and original requirements stay in the existing task specification. Assign meaningful research units and their actual dependencies; keep domestic/overseas coverage or other required dimensions visible even when work is split by technical problem.
+
+Use `status` to prepare the next worker's input. This illustrative request assumes its referenced unit and records already exist:
 
 ```json
-{"task":"study","methods":["compare","delegate"],"work":{"question":"Does the cost difference change the choice?","requirement_ids":["R2"],"claim_ids":["C1"],"paths":["reports/current.md"]}}
+{"task":"study","methods":["compare","delegate"],"work":{"unit_id":"route-comparison","question":"Which technical differences change the choice?","depends_on":["route-evidence"],"requirement_ids":["R2"],"claim_ids":["C1"],"paths":["reports/current.md"]}}
 ```
 
-Pass this to CLI `status --request request.json` or MCP `research_status`. Omitting `stage` does not advance global progress. All `work` fields are optional: `requirement_ids` selects work being addressed, `claim_ids` selects claims, `source_ids` selects sources directly and `paths` selects originals or existing analyses. Claims bring both supporting and counter-evidence sources; reading requirements bring their specified sources. Unselected files are not injected in full; read additional material through its existing paths when needed.
+All `work` fields are optional. A new `unit_id` can name the assignment before its first save. Selected claims bring supporting and registered counter-evidence sources, and reading requirements bring their sources. For a saved unit, its full artifact and inherited original inputs are returned; dependencies bring upstream full outputs and originals. `work_context` includes the task, effective requirements, selected records, readable `files`, binary-original references, dependencies and their readiness, `inputs` and `input_version`.
 
-`work_context` returns the specification, effective requirements and scope decisions, selected records, readable originals in `files`, binary-original references, input hashes in `inputs` and the main-artifact reference. Missing or unreadable selected material identifies the field and path. The executor still performs the reading; returning text does not change reading status. `effective_requirements` includes satisfied rows so ongoing constraints remain visible, without requiring completed actions to be repeated. `scope_decisions` retains user-authorized waivers, exclusions and limitations. Preserve original wording in the existing specification and requirement `source_turn`/`quote` fields; the code does not silently capture host conversation history.
+Satisfied requirements stay in `effective_requirements` when still applicable. `scope_decisions` retains explicit waivers, exclusions and accepted limits. Requirements are not automatically inferred from host conversations; save the actual user wording and affected requirement through the existing fields. An unrelated source/claim row change does not invalidate a selection bound to specific record IDs; a changed effective requirement remains relevant.
 
-The lead sends the returned originals and requirements through the host's agent tools with the assignment boundary and result purpose. Retain the real host task reference; transfer readable content across environments rather than only local paths. Use host capabilities for concurrency, follow-up, waiting and cancellation. Toolkit does not launch an agent itself or require a user-selected execution tier.
+Send the returned question, requirements and accessible originals through the host's subagent tools. Keep the actual host task/session reference. The host owns startup, messages, waiting and cancellation. Toolkit does not create a second agent runtime.
 
-A worker can register a completed independent analysis through existing `save`:
+A worker saves a result through `save`:
 
 ```json
-{"task":"study","draft":{"path":"analysis/cost.md","kind":"analysis","host_task":"actual-host-task-reference"}}
+{"task":"study","draft":{"path":"analysis/routes.md","kind":"analysis","unit_id":"route-comparison","question":"Which technical differences change the choice?","depends_on":["route-evidence"],"host_task":"actual-producing-host-task-id","complete":false,"handoff":{"summary":"Comparison developed; the deployment assumption still needs resolution.","pending":["Resolve the deployment assumption against the original requirement."],"decisions":["Use the same workload and quality measure for both routes."]}}}
 ```
 
-Omit `content` to register an existing file, or supply it to save text. To track inputs, copy the returned `work_context.inputs` object into optional `draft.based_on` rather than entering hashes manually. Short analyses can be returned inline without a new file. Saving `kind=analysis` does not implicitly select the main report; content updates preserve the prior version through the existing backup directory.
+Omit `content` to register an existing nonempty file or supply it to save text. Copy `work_context.inputs` into optional `draft.based_on` rather than inventing hashes. `complete` describes the saved unit or draft, not whole-task delivery. A dependent unit cannot be completed while its upstream registered work is incomplete, changed or awaiting required independent review; save the in-progress work with `complete: false` and resolve the dependency.
 
-`save/status.current_work.research_outputs` recovers contributions, host references and input changes from existing activity records. `changed_inputs` reports changed files, including whole-registry changes; the lead judges relevance rather than automatically invalidating the analysis. Read the contribution through `work.paths`, integrate it into the explicitly registered main report and use the existing review/delivery path. Branch completion does not automatically close requirements or finish the whole task. Legacy tasks need no new fields.
+`current_work.work_units` and `research_outputs` recover registered units, their original snapshots, host references, handoffs and changed inputs. They share the existing activity log, not a second task board. The handoff summary, `pending` and `decisions` are navigation; the next researcher, assembling agent or reviewer can read the full artifact and original sources. The same agent can resume its next phase through these records.
 
-When a configured review backend is unavailable, `start.review_readiness` still reports the issue, but `ready_for_collection` depends only on the brief. Collection, analysis and independent research can proceed. The selected review still validates its backend and full inputs at invocation, without silently downgrading requirements.
+Use `draft.main: true` only for the designated main draft. Its saved `host_task` is the writer; other branches remain separate artifacts. To transfer writing responsibility, the current owner saves `handoff.to` with the receiving host task/session. Merely changing `host_task` cannot seize the main report or an owned unit.
+
+Preserve each saved unit version. New requirements or evidence return to affected analyses and the outline before relying on the revised result. `changed_inputs` identifies changed bindings, not automatic invalidity of the research conclusion. Unit review uses its `unit_id` as `review.scope`; final review, audit and acceptance still cover the complete current report.

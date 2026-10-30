@@ -2,12 +2,11 @@
 
 [English](quickstart.md) · [简体中文](quickstart.zh-CN.md) · [Research Toolkit](../README.md)
 
-
-Give the request below to an agent that can read files and research sources. The methods cover the brief, source research, analysis, section drafts, review and revision; MCP is an optional tool for managing task state. See the results: [APIs or browsers](case-study/api-or-browser/report.md) · [Office agents in China](case-study/report.zh-CN.md).
+Use one research entry for long reports, substantial revisions and continuing updates. The host agents use the methods for their current work; Toolkit connects the requirements, source material, analysis, writing and independent assessment. CLI/MCP task management is optional.
 
 ## 1. Copy the request and begin
 
-Describe what you want researched, who it is for, why it is needed, and any available material or explicit constraints. You need not write execution steps for the agent. The selection example below has established requirements; keep the conditions your own task needs rather than filling in as many fields.
+Describe the question, audience, intended use, available material and explicit constraints. The agents organize the work; users do not need to schedule its steps.
 
 ```text
 Use Research Toolkit. Read SKILL.md:
@@ -24,75 +23,64 @@ as assumptions to verify, and make conditional recommendations.
 Deliver final.md with 3000–4000 whitespace-delimited words across the
 whole file, including headings, Markdown, citations and references.
 
-Explain the differences and reasons for choosing a route, with concrete
-recommendations and first steps. Cite source titles and URLs in the report.
+Explain route differences and selection reasons, with concrete
+recommendations and first steps. Cite source titles and URLs.
 ```
 
-3000–4000 words is this example's agreement, not a universal research minimum. Use existing questions and material directly; clarify only gaps that affect the research. If the agent cannot read GitHub, supply `SKILL.md` and the required references from a [downloaded copy](https://github.com/rrrrrredy/research-toolkit/archive/refs/heads/main.zip).
-
-The Skill guides the agent to infer purpose from context, retain requirements and ask when needed; the host agent performs that interpretation. CLI/MCP saves the requirements it assembles and reports missing fields. It does not choose the research purpose for the user or establish understanding merely because fields are filled. Users supply consequential decisions that depend on their needs.
+The word range belongs to this example, not every research task. Use existing context to infer the purpose and ask only about consequential gaps. If GitHub is unavailable, provide `SKILL.md` and its references from a [downloaded copy](https://github.com/rrrrrredy/research-toolkit/archive/refs/heads/main.zip).
 
 ## 2. Use your existing agent
 
-Use the [README selection table](../README.md#which-should-i-use) and configure only the entry you need:
+Choose the [entry](../README.md#which-should-i-use) your host supports:
 
-- **Skill:** provide the repository or install the Skill, then send the request. No tool commands or fixed registries are required.
-- **Plugin:** follow the [plugin instructions](usage-modes.md#install-the-plugin), reopen the session and select Toolkit. It includes the Skill and MCP; do not install a second MCP service.
-- **MCP:** follow the [local MCP setup](usage-modes.md#connect-mcp-separately), confirm the nine `research_*` tools appear, and give the agent access to the same Skill.
-- **CLI:** download the repository and use Python 3.10+ to invoke `scripts/research_workflow.py`. A task-creation example is below; see the [CLI instructions](usage-modes.md#skill-only-and-cli-fallback) for the commands.
+- **Skill:** supply the repository or install the Skill; use the host's research and subagent capabilities. No fixed CSV/JSONL records are required.
+- **Plugin:** install the [package](usage-modes.md#install-the-plugin), reopen the session and select Toolkit. The Skill and MCP are included.
+- **MCP:** connect the [local server](usage-modes.md#connect-mcp-separately) and make the same Skill available.
+- **CLI:** use Python 3.10+ and `scripts/research_workflow.py`; MCP dependencies are unnecessary.
 
-Retrieval, browsing sources and writing use the agent's existing capabilities. Host-specific locations and setup for Codex, Cursor and other agents are in [agent setup](../agents/README.md).
-
-Choose review at the start using the capabilities already available:
-
-- **A fresh host context:** supply the task, complete report and necessary sources to Astra or another available reviewer. Return its findings to the author for revision. No outside person or different model vendor is required.
-- **Automated CLI/MCP review:** configure the existing `codex`, `claude` or compatible endpoint backend. `research_review` retains inputs, responses and version bindings; see [backend setup](usage-modes.md#reviewer-backends).
-- **Self-review:** new tasks without a backend default to explicitly labeled self-review. Complete independent review when the task requires it.
-
-A host-session review can serve the methods-only workflow; it does not automatically become a CLI/MCP review record. When using local tools to manage delivery, run the configured backend for those records.
+Codex, Claude Code and other capable hosts run their own research and review agents. No separate API setup is needed for these host-native tasks. The same model can serve different independent contexts. [Host setup](../agents/README.md) explains installation; [review completion](review-completion.md) explains native assignments and retained responses.
 
 ### Research from scratch
 
-The knowledge-assistant question above illustrates the steps. The user supplies needs, material and necessary decisions; the agent performs the work. These are not instructions for the user to supervise each step.
-
-| Step | What the agent actually does | If CLI/MCP task management is selected |
+| Work | What the agents do | With CLI/MCP task management |
 | --- | --- | --- |
-| 1. Understand the brief | Establish the reader, comparison conditions, material and deliverable; clarify only consequential gaps. | Create a local task with `research_start` / CLI `start`; use `status` for an existing task. |
-| 2. Read and analyze | Read original sources, compare the specified update, permission, quality and cost questions, and explain differences and conditions with support and counterevidence. | Use `save` for sources, judgments and requirements actually used; a registered URL is not reading. |
-| 3. Draft | Organize around the questions, develop comparisons and reasoning, and give conditional recommendations with locatable citations. | Use `save` for drafts and register the main artifact. Use `guide` only when the method is not already available. |
-| 4. Check and revise | Read the current full report, check requirements, support and argument, complete agreed self-checks or reviews, and repair concrete defects. | Run the selected `review`; optional `check-draft` does not replace reading the report. |
-| 5. Deliver or continue | Deliver the current result; if unfinished, retain effective requirements, the draft and remaining work, then resume from there. | Use `finish` for completion and `status` for resumption. Tools maintain their existing records. |
+| Understand and outline | Retain the user's original questions and constraints; establish an outline and meaningful research units with real dependencies. Assign researchers, a main-draft owner and independent review responsibilities. | `start` creates a task; `status` recovers existing work, effective requirements and the current outline. |
+| Investigate and analyze | Research agents read originals, compare, calculate and explain their assigned questions. The lead continues synthesis and resolves cross-unit questions. | `status.work` supplies relevant records and original material; `save` retains sources, claims and substantial analysis. |
+| Develop and hand off | Complete an analysis or argument unit, including its support, conditions and unresolved questions. Independent review examines important premises before dependent work relies on them. | Save the result and its actual host reference, input bindings and handoff; read the original result when integrating it. |
+| Assemble progressively | The designated assembling agent reads branch arguments and originals, reconciles definitions and connections, and grows one main draft. New findings update affected units and the outline. | Keep branches separate; explicitly register the main artifact. `status` exposes dependencies and changed inputs for continuation. |
+| Review the whole report | Seven distinct independent agents cover the base perspectives, with relevant domain review. Each reads the complete current report and necessary originals. | `review` prepares the host assignments and retains each actual response and input version. |
+| Audit and revise | A separate auditor checks review validity, decisive claims and consequential decisions, and samples passed content from the full report. Authors repair necessary defects; affected work is re-examined. | Use the same `review` operation for the auditor's original result; preserve earlier negative results and revisions. |
+| Accept and deliver | A separate acceptance agent reads the current whole report, effective requirements, audit and corrections. Deliver after necessary work is complete. | `finish` checks the accepted current version and writes the receipt; it does not replace the independent acceptance. |
 
-MCP names use the `research_` prefix (for example `research_save`); CLI uses the corresponding subcommand. Do not call both interfaces for the same step. Skill-only work follows the middle column using available conversation, material, citations or existing notes, without adopting the right column's record formats.
+MCP tools use the `research_` prefix; CLI uses the corresponding subcommand. Use one interface for an operation. Skill-only work follows the middle column using the host's files, conversation and source material; it has the same independent content responsibilities without reproducing the tools' record formats.
+
+For the knowledge-assistant question, research can be split among document updates and permissions, route-quality comparisons, and the calculation of a stated workload. The outline preserves every requested dimension; a separate assembling agent connects these results into a decision. Early review examines the comparison's assumptions and calculation method before later conclusions depend on them. Final whole-report reviewers see the assembled argument, not just branch summaries.
+
+If the user adds “private deployment is required,” retain the original permission, quality and cost questions. Send the effective change to affected work, revise its analysis and then the main report. A satisfied requirement remains active when it still constrains the answer. Previously completed reading is reused, with original text available for changed or disputed points.
 
 ### Revise or update a report
 
-1. Supply the current report, related sources and requested change. For an update, supply new material or authorize research and specify the required cutoff. If only the report is available, establish what can be checked.
-2. The agent compares effective requirements, the draft and affected sources, identifies which facts, conditions or inferences change, and preserves analysis that still holds. A changed source does not automatically invalidate a conclusion.
-3. Save the revision separately, check changes and affected reasoning, complete agreed checks, and deliver the complete current report with a short change note.
+1. Supply the current report, relevant sources and change request. For an update, supply new material or authorize research and specify the cutoff.
+2. Read the current requirements, report and affected sources. Preserve still-valid explanations and change the claims, conditions or recommendations affected by the new evidence.
+3. Retain the original and hand revised analysis to the main-draft owner. Complete current-version content review, independent audit and final acceptance, then deliver the complete report and a short change note.
 
-For a saved managed task, resume with `status` and update affected records with `save`, without another `start`. Skill-only work reuses the report and material directly; no historical ledger must first be reconstructed. See [continuation requests and tool details](usage-modes.md#continue-existing-research) and the [executed update case](case-study/coding-benchmark-update/README.md), which retains the original report, source changes and revisions.
+Managed tasks resume with `status`, without another `start` or reconstructing unaffected records. A 1.x completion receipt remains historical; continued work adopts the current completion contract while reusing its materials. See [continuation calls](usage-modes.md#continue-existing-research), [compatibility](compatibility.md) and the [retained update case](case-study/coding-benchmark-update/README.md).
 
 ## 3. Deliver the complete work
 
-Return the requested report with usable citations and, for a revision, a short change note. Include supported comparisons, specific conclusions and their conditions; citations should remain usable when exported. Registries, raw reviews and tool receipts are attachments only when the task needs them, not mandatory deliverables for every report.
+Return the requested report with usable citations and, for revisions, a short change note. Keep raw research, review and execution records available for continuation; they need not occupy the reader-facing article. The report should contain the analysis, comparisons and conditions the task requires.
 
-For tool-managed tasks, complete current-version review under the existing contract, then call `research_finish`. Optional `research_check_draft` can help inspect the draft and explicit length requirements; it is not an additional mandatory step.
+Tool-managed work uses `research_finish` after independent acceptance of the current version. It writes the delivery receipt; agents do not prepare a duplicate receipt by hand. Optional `research_check_draft` helps inspect mechanical draft issues, but is not content review.
 
 <details>
-<summary>Optional: create a local task and length record with the CLI</summary>
+<summary>Optional: create a local task with the CLI</summary>
 
-From the repository root, use Python 3.10+; the CLI needs only the standard library, without MCP dependencies. Use `python3` on Linux/macOS, or `py -3` or an installed interpreter path on Windows.
+From the repository root, use Python 3.10+:
 
 ```bash
 python3 scripts/research_workflow.py start --workspace ../research-work --request examples/full/start.en.json
 ```
 
-This creates `../research-work/knowledge-assistant-en`. The example directory retains its old name for existing links; the request uses the unified entry. The agent performs retrieval, reading and section writing; the command creates the task. If you change the example question, update the request file's `brief` too. Resume existing tasks with `status`.
-
-The agent saves the agreed length through `research_save` / CLI `save` using `requirements`; users do not edit JSONL. Start pending, then submit an evidenced satisfied update after checking. See the [record-saving example](usage-modes.md#save-research-records-and-drafts).
-
-Use the [CLI capture and reuse example](usage-modes.md#reuse-task-files-and-retain-a-self-review-packet) for a self-review packet, and the [CLI/MCP instructions](usage-modes.md) for other tiers and delivery. The example does not prefill a report or a review.
+This creates `../research-work/knowledge-assistant-en`. The directory name is retained for existing links; it uses the unified entry. Edit the example's `brief` for a different question. Existing tasks resume through `status`. Record an explicit word range through `save.requirements` only when the task has one; the [saving guide](usage-modes.md#save-research-records-and-drafts) shows the fields. [Native review requests](usage-modes.md#reuse-task-files-and-retain-a-review-packet) retain the actual original responses.
 
 </details>
-

@@ -141,7 +141,7 @@ class DraftChecks(unittest.TestCase):
         self.assertEqual(self.snapshot(), revised)
         # A later edit cannot reuse the earlier check as delivery permission.
         w.save_text(self.root, "final.md", "Short again.")
-        denied = w.finish(self.workspace, "case", "Synthetic delivery.", checklist={
+        denied = fixtures.legacy_finish(self.workspace, "case", "Synthetic historical delivery.", checklist={
             key: {"passed": True, "evidence": "Synthetic false assertion."} for key in CHECKLIST})
         self.assertFalse(denied["completed"])
         self.assertEqual(denied["length_checks"][0]["actual"], 2)
@@ -261,14 +261,14 @@ class DraftChecks(unittest.TestCase):
     def test_cli_review_preserves_unicode_with_legacy_pipe_encoding(self):
         marker = "\ue200filecite\ue202turn0file0\ue201"
         w.save_text(self.root, "source.md", "中文来源：twelve shipments. " + marker)
-        request = {"task": "case", "evidence_paths": ["source.md"], "reviewer": "self",
-                   "config": {"reviewers": [{"id": "primary", "backend": "self", "model": "author-context"}]}}
+        request = {"task": "case", "evidence_paths": ["source.md"], "include_assignment": True}
         result = subprocess.run([sys.executable, str(Path(w.__file__)), "review", "--workspace", str(self.workspace)],
                                 input=json.dumps(request, ensure_ascii=False).encode("utf-8"), capture_output=True,
                                 env={**os.environ, "PYTHONIOENCODING": "gbk", "PYTHONUTF8": "0"})
         self.assertEqual(result.returncode, 0, result.stderr.decode("utf-8", errors="replace"))
         response = json.loads(result.stdout.decode("utf-8"))
-        self.assertEqual(response["action_required"], "self_review")
+        self.assertEqual(response["action_required"], "host_agents")
+        self.assertEqual(len(response['assignments']), 8)
         self.assertIn("中文来源", result.stdout.decode("utf-8"))
         self.assertIn(marker, result.stdout.decode("utf-8"))
 

@@ -94,6 +94,7 @@ def verify(root=ROOT):
 
 
 class DeliveryControls(unittest.TestCase):
+    """Replay the archived version-1 length gate; not current-task delivery."""
     def gate(self, task, report):
         import research_workflow as w
         from profile_policy import CHECKLIST
@@ -126,7 +127,11 @@ class DeliveryControls(unittest.TestCase):
             self.assertEqual(preflight["ok"], not errors)
             self.assertEqual(preflight["semantic_quality"], "not_assessed")
             self.assertEqual(before, {p.relative_to(root): p.read_bytes() for p in root.rglob("*") if p.is_file()})
-            result = w.finish(workspace, "probe", "Gate test only; no independent review or semantic certification.",
+            # Restore the archived contract explicitly; new entry points still require independent review.
+            progress = w.load(root, "state/progress.json")
+            progress.update(profile="lite", review_contract=1)
+            w.save(root, "state/progress.json", progress)
+            result = w.legacy_finish(workspace, "probe", "Gate test only; no independent review or semantic certification.",
                               checklist={key: {"passed": True, "evidence": "Synthetic assertion against final.md and S1.md; length must be checked by the tool"} for key in CHECKLIST})
             return result, checks, errors, (root / "state/final_checklist.json").exists()
 
@@ -142,6 +147,7 @@ class DeliveryControls(unittest.TestCase):
                 self.assertEqual(checks[0]["actual"], row["length"]["actual"])
                 self.assertTrue(errors)
                 self.assertFalse(result["completed"])
+                self.assertEqual(result["errors"], errors)
                 self.assertFalse(receipt)
 
     def test_two_editorial_controls_pass_the_existing_length_gate(self):

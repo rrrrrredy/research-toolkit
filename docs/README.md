@@ -10,14 +10,20 @@
 - [Use with your agent](../agents/README.md): common input methods, chat-only limits, and host-specific setup.
 - [Updating an installation](installation-versioning.md): choose and replace the intended package copy.
 
-## Research and writing
+## Find methods for the current work
 
-- [Research guide](research-guide.md): requests, output standards, evidence, review, task records, and research limits.
-- [Research workflow](../references/research-workflow.md): scope, collection, analysis, drafting, revision, and recovery.
-- [Writing style](../references/writing-style.md): concrete judgments, natural prose, and reader-facing structure.
-- [Optional analysis methods](../references/optional-analysis-lenses.md): choose methods according to the question.
-- [Review roles and standards](../references/subagents-and-review-loop.md): non-author content review and additional task-specific roles.
-- [Recurring research problems](../references/gotchas.md): failure patterns and repairs.
+These are on-demand entry points within one study, not a reading list to finish at startup.
+
+| What you are doing | Where to read |
+| --- | --- |
+| Understand the request and plan depth | [Research requirements and depth planning](../references/research-workflow.md); the [research guide](research-guide.md) introduces first use. |
+| Read material, compare and explain | [Sources and claims](../references/research-standard.md#8-source-and-claim-discipline) · [Choose analysis methods by question](../references/optional-analysis-lenses.md) |
+| Delegate research and receive usable results | [Research production and handoff](../references/subagents-and-review-loop.md#research-production-and-handoff) · [Shared context and actual requests](usage-modes.md#research-delegation-and-handoff) |
+| Write, assemble and revise a complete report | [Writing style](../references/writing-style.md) · [Assembly](../references/research-workflow.md#9-assembly) |
+| Resume work or apply new requirements | [Task continuity](../references/task-continuity.md) · [Current artifact and scope updates](usage-modes.md#current-artifact-and-scope-updates) |
+| Complete independent review, audit and acceptance | [Review methods](../references/subagents-and-review-loop.md#assign-work-by-perspective) · [Completion conditions](../references/quality-gates.md); tool record details are under “Reviews and evaluation” below. |
+
+Consult [recurring research problems](../references/gotchas.md) when a specific problem arises; no separate workflow is needed.
 
 ## Reports and cases
 
@@ -41,8 +47,19 @@
 
 ## Development
 
+Directories retain their content roles; shared implementations connect the research responsibilities:
+
+| Location | What it maintains |
+| --- | --- |
+| `SKILL.md` and `references/` | One entry, research standards and on-demand methods. |
+| `scripts/` | Shared CLI/MCP logic: `task_context.py` assembles work inputs, `research_records.py` saves records and outputs, and `research_workflow.py` connects research, native-host review and delivery operations. |
+| `docs/` and `agents/` | Usage, website and host integration; hosts run agents and carry messages. |
+| `plugins/research-toolkit/` | Package contents generated from shared sources, without a separate method set. |
+| `examples/` and `evals/` | Request examples, research records and relevant checks; historical evidence stays intact. |
+
+- [DSH adapter maintenance](dsh-adapter-validation.md): existing loading checks, separate from normal research.
 - [Website discovery and maintenance](site-maintenance.md): static build, static page checks, deployment verification, measurement boundaries and owner setup steps.
 
-[Project improvement plan](improvement-plan.md): priorities, acceptance criteria, masking/task design and progress across product and evaluation work.
+[Historical improvement plans](improvement-plan.md): earlier priorities, study designs and their recorded outcomes.
 
 [Contributing](../CONTRIBUTING.md) · [Changelog](../CHANGELOG.md) · [Plugin package](../plugins/research-toolkit/) · [Scripts](../scripts/) · [MIT license](../LICENSE)

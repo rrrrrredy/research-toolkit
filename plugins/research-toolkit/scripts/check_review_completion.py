@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from typing import Any, Callable
 
-REVIEW_RECORD_TYPES = {"model_review", "review_audit", "sampling_audit", "review_plan_change", "finding_disposition"}
+REVIEW_RECORD_TYPES = {"model_review", "review_audit", "sampling_audit", "review_plan_change", "finding_disposition", "final_acceptance"}
 PURPOSES = {"evaluation", "report_delivery"}
 DECISIONS = {"confirmed_defect", "no_change", "unresolved", "resolved"}
 SEVERITIES = {"critical", "major", "minor", "optional"}
@@ -86,6 +86,9 @@ def inspect_review_completion(
     root: Path, progress: dict, artifact: str, rows: list[dict], *,
     hash_file: Callable, resolve_path: Callable, require_report_ready: bool = True,
 ) -> dict:
+    if progress.get("review_plan", {}).get("contract_version") == 2 or progress.get("review_contract", 1) >= 2:
+        from host_review import inspect
+        return inspect(root, progress, artifact, require_report_ready=require_report_ready)
     if progress.get("profile") == "lite":
         from profile_policy import LITE_LOG
         return {"ok": True, "skipped": True, "profile": "lite", "log": LITE_LOG,

@@ -2,55 +2,53 @@
 
 [English](task-continuity.md) | [简体中文](task-continuity.zh-CN.md)
 
-Use the existing task and records when a user supplies new material, requests a comparison, changes scope or asks for revision. A new report filename is not a new research task. These instructions apply at resume, substantive change and delivery, not after every sentence edit.
+Use the existing task when new material, changed instructions, a comparison or a revision arrives. A new report filename is not a new research task. Preserve originals and continue the affected work.
 
 ## Project entry
 
-A project's existing agent instructions can point here without copying the toolkit or adding a tracker:
+Resume from the original request and currently effective requirements, current outline and report, relevant sources, complete research contributions and unfinished work. Recover this material from existing host conversations and files in Skill-only use, or through the managed task's `status` output. Do not rely on a completion summary as evidence that the report meets the request.
 
-> Resume from the effective user requirements, current report, relevant sources and unfinished work. Reuse valid research, preserve earlier versions when revising, and check the actual result before declaring completion. Follow the task's agreed review requirements.
-
-Skill-only work can recover this information from the conversation, supplied files and existing notes. When handing off or changing sessions, preserve what would otherwise be lost; no fixed registry, version log or receipt is required. New user instructions replace conflicting old ones; goals that were not cancelled remain effective. Accepting feedback does not establish that the report has been corrected.
-
-For a CLI/MCP-managed task, use its task ID and workspace as described below. `start/status.runtime` identifies the local implementation and available entry file, not the Skill actually loaded by the host. If the installed entry is suspect, use the existing installation comparison against an explicit revision; do not add a routine health check or silently upgrade an ongoing task.
+New instructions replace conflicting old instructions; uncancelled goals remain effective. A requirement marked satisfied still constrains subsequent analysis and editing. An approved scope change preserves the actual user decision. Accepting feedback does not prove that the report has been corrected.
 
 ## Resume and save
 
-This section applies to CLI/MCP-managed tasks; Skill-only work uses the existing material described above.
+For managed tasks, `research_status.current_work` includes effective requirements, open work, scope decisions, the explicitly selected main artifact, registered contributions and prior delivery references. `status.work` prepares relevant originals and input versions for the assignment; use its files and records rather than guessing from the latest filename.
 
-`research_status` returns `current_work`: specification and requirement paths, open requirement records, an explicitly selected artifact, and a separate last-delivery reference when present. Read relevant existing notes and the actual documents; a summary or author reply does not substitute for them. Check supplied local paths before declaring an attachment unavailable. If it is genuinely unavailable, describe the comparison's actual scope and continue unaffected work.
+Use `research_save` to change affected fields and records. Partial `brief` updates retain manually added specification sections and update the saved brief consistently. Stable requirement IDs connect changed instructions to existing work. If direct edits conflict with the saved brief, reconcile that conflict before saving; do not overwrite unrelated content.
 
-Use `research_save` to update only affected fields and records. Optional `brief` is a partial update to the six brief fields and writes `state/task_spec.md` with `progress.brief` together. Save changed requirements with stable IDs in the same request where practical. New user instructions replace conflicting old instructions; goals that were not cancelled remain effective. Keep the user's actual scope decision when waiving a requirement.
+The designated main writer registers the report with `draft.main=true`; other workers save separate contributions. `complete=true` marks a complete draft, not whole-task delivery. Keep contribution inputs, dependencies, real host identity and a concise handoff with the artifact. Preserve previous content when revising; a changed source or requirement calls for inspection of its actual dependent reasoning, not an automatic rewrite of every branch.
 
-Brief updates preserve manually added specification sections. If a field was edited directly and no longer matches its saved value, reconcile that field before retrying; the batch is rejected without overwriting other content. An explicit scope decision may retire a legacy reading obligation without rewriting its historical metadata; reopening it requires a valid reading requirement. Use `save.current_work` to inspect the returned state instead of immediately repeating the same status query.
+Source/claim records and full local originals remain accessible, including counterevidence. Saved record versions support determining what changed. A summary does not replace required original reading or the full analysis that supports a conclusion.
 
-Register a current main artifact with `draft.main=true`. Optional `draft.kind` identifies `report`, `comparison` or `review`; it describes what this task is delivering, not the maturity of a different document being reviewed. `complete=true` records a complete draft, not completed delivery. A partial/reference draft never becomes the main artifact just because it was saved later. Saving the registered main path updates its observed hash. Review and finish must name that path. Legacy tasks without a registered main retain their existing behavior; no newest-file guess is made.
+## Handoff and context compression
 
-Acceptance of feedback is not proof of repair. Keep accepted changes pending until the actual text and relevant context have been checked; then save specific evidence with the existing requirement or finding disposition. Do not create a second feedback ledger. For a comparison or review delivery, distinguish a completed assessment from revisions still needed in the assessed document.
+Handoff applies across agents and across phases of the same agent. Reuse the current context when it contains the necessary work; when handing off or compressing, preserve:
+
+- The actual question, effective instructions and working outline.
+- Completed contributions, their conclusions and conditions, and their original-source locations.
+- Current report/version, dependencies, unresolved issues and the next concrete action.
+- Original reviews, required fixes, independent dispositions and the actual host execution references.
+
+This can be a concise note attached to existing artifacts; it is not a second tracker. Keep full files and raw responses. The receiver reads the relevant full work before relying on it, and opens original sources when needed to understand or revise the judgment.
+
+Send material changes to affected host agents explicitly. A subagent's launch snapshot does not include later messages automatically. Continue the same host task where supported, or supply its full reusable output and new inputs to the next context. The host handles notifications and execution recovery; Toolkit keeps research inputs and artifacts connected.
 
 ## Review the necessary scope
 
-- **Full comparison:** read both supplied current documents across the requested scope. Differences in summaries are leads, not the comparison itself. Preserve valid complementary explanations without concatenating both texts or forcing one author's organization.
-- **Bounded revision with a valid baseline:** inspect the complete diff, changed passages and context, affected sources/requirements and any open findings. Reuse unchanged evidence already read. For tool-managed review, use the existing `revision=true` path and make a real judgment of the current complete report with its frozen input; never copy the old PASS, replace its hash or infer global approval from a local check. A separate reviewer still receives the complete required assignment.
-- **Missing or unreliable baseline:** identify the uncovered scope and read enough to assess it. Do not retrospectively certify intervening versions. A last small edit does not make an unreviewed earlier revision approved.
+For a full comparison, read both current documents across the requested scope; differences in summaries are only leads. For a bounded revision with a reliable baseline, read the complete diff, changed passages with context, affected sources and requirements, and open findings. The reviewer receives the current full artifact and the precise changed scope; a local recheck is not relabelled as a new full review. Missing baseline coverage must actually be read.
 
-Self-review is not independent review. An explicit independent requirement needs a separate context. Existing adapter imports must preserve the actual execution identity, original response and exact assignment; when marked `capture.import_only=true`, the import is accounted separately from model calls. This flag neither verifies independence nor relaxes review binding. Do not fabricate an execution identity, duration or token count for old feedback.
+Use separate native contexts for independent review. All production identities remain distinct from the seven base perspectives, domain reviewers, auditor and final acceptor. Preserve actual execution identity, original response and exact assignment when importing host output. Never fabricate historical execution details or copy a prior PASS onto a changed artifact.
 
-Withdraw criticisms resolved by the new text. Use optional or evidenced no-change decisions for preference differences. Once required issues are resolved and the declared checks pass, stop; an unchanged result does not need another reviewer simply to find something new.
+The existing independent reviewer checks affected changes; the auditor examines disputes, important no-change decisions and repairs; final acceptance reads the current complete report. The [role methods](subagents-and-review-loop.md) determine their responsibilities. A coordinator or author cannot clear required findings merely by updating a status.
 
 ## Editing without losing the analysis
 
-Remove repeated exposition and process narration while retaining dates, prediction status, experimental conditions and the limits of each source. Check attribution across entities, product versions and research stages. Presence of a term or section proves neither correct explanation nor application to the conclusion.
+Retain dates, prediction status, experimental conditions, actors and source limitations when removing repetition. Carry meaningful comparisons, calculations, mechanisms and counterevidence into revised text. Changes in a requirement alter the judgments that depend on it; preserve other valid conclusions. Keep facts, inferences and recommendations consistent across paragraphs, tables and conclusions.
 
-For decision-oriented research, preserve the recommendation, its reasons, alternative costs and conditions that would change it. Explain relevant technical mechanisms and cooperation incentives where the question requires them. Avoid inventing internal teams, resources or schedules. A request to stop assigning responsibilities does not remove the need to analyze the relevant ecosystem. Titles and section counts follow the current user's request, not a universal report template.
+Use the user's actual format and style requirements. For decision-oriented work, retain the choice, reasons and conditions that would change it. For explanatory work, preserve the relationships that make the explanation useful. Do not turn every revision into a recommendation or a universal report template.
 
-## Recover a manual or stale project
+## Recover a manual or historical project
 
-Read the existing specification, effective user changes, available drafts and unresolved feedback. Preserve originals; resolve contradictory references using actual contents and user decisions, not directory timestamps. Select the current artifact explicitly. Repair only records needed to continue. For tool-managed collections, `replace` retains backups. Do not normalize every historical file, infer unobserved reading or reconstruct past execution receipts.
+Read the existing request, effective changes, full artifacts and unresolved feedback. Resolve contradictory file references using their contents and user decisions, not timestamps. Select the main artifact explicitly, repair only records needed for continuation and preserve originals. Do not infer unobserved source reading or reconstruct old execution receipts.
 
-Preserve existing completion requirements and use [historical task compatibility](../docs/usage-modes.md#historical-task-compatibility). Reuse valid materials without rewriting history.
-
-These practices can reduce specific omissions; deterministic checks and diagnostic cases do not establish a general improvement in report quality or time saved.
-
-
-`current_work.effective_requirements` retains applicable rows, including satisfied ones; `open_requirements` continues to list unfinished work and `scope_decisions` retains scope decisions. `research_outputs` recovers registered analyses, host references and input changes. Use existing `status.work` for readable handoff/revision input; see [research handoff](../docs/usage-modes.md#research-delegation-and-handoff). A satisfied requirement can still constrain revision; changed input does not require repeating all previous work.
+Completed historical tasks retain their original artifacts, labels and completion evidence. Continued research reuses valid materials and fills the current independent review, audit and acceptance responsibilities; old author checklists remain author checklists. See [historical task compatibility](../docs/usage-modes.md#historical-task-compatibility).

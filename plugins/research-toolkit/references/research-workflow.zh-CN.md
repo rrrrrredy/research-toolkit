@@ -21,81 +21,46 @@
 <!-- method:spec -->
 ## 2. 任务规格
 
-继续收集前，依据已有请求、提纲或笔记明确目标、读者、输出形式与语言、核心问题、必需覆盖、排除的主张、最低证据标准、深度预算与单元展开计划、来源类别、分阶段结构和完成条件。复用已有信息；纯 Skill 使用不要求单独创建任务规格文件。
+继续收集前，依据已有请求、提纲或笔记明确目标、读者、输出形式与语言、核心问题、必需覆盖、排除的主张、最低证据标准、所需分析深度与单元展开计划、来源类别、分阶段结构和完成条件。复用已有信息；纯 Skill 使用不要求单独创建任务规格文件。
 
 将已有需求整理成任务规格时，保留用途、关键限制，以及影响理解的原话或背景。将多个必答问题拆成可独立回答的部分。明确要求的比较应保留指定对象和维度；“商业化”之类的大标题不能替代可获得性、买方成本和生产情况等独立问题。摘要和提纲若偏离原要求或后续有效补充，依据原输入修正规划。工作映射留在后台，规模与任务相称。
 
 逐项写清已读资料证明了什么、还缺什么，再据此选来源。例如卖方公告可以证明卖方提供什么，买方体验需要买方视角的证据。读过必读材料与回答了对应问题是两项检查；资料中的相关内容也可能没有进入分析。
 
-组稿时，从原问题反查正文答复和证据。经核查后有明确边界的未知可以构成答案，尚未检查的事项仍未完成。不能用“报告已完成”统一关闭多个问题。复用任务规格和现有记录，不额外强制文件、评分、表格或评审者；必读须实际完成，范围变更以用户指令为准；采用 CLI／MCP 管理任务时，按下述规则保存。
+组稿时，从原问题反查正文答复和证据。经核查后有明确边界的未知可以构成答案，尚未检查的事项仍未完成。不能用“报告已完成”统一关闭多个问题。复用任务规格和现有记录，按统一的独立审阅责任执行；必读须实际完成，范围变更以用户指令为准；采用 CLI／MCP 管理任务时，按下述规则保存。
 <!-- /method:spec -->
 
 ## 3. 状态记录
 
-本节说明既有 CLI／MCP 任务格式，由 `start`、`save` 等工具建立和维护，字段按需查阅。这不是纯 Skill 研究的必建文件清单，也不因报告较长而成为要求。已有工具管理任务保留原完成契约。
-
-`state/findings.jsonl`、`state/directions_tried.json`、`state/iteration_log.jsonl` 和 `logs/work.jsonl` 仅在有助于当前任务时使用，不是普遍必交文件。不确定性可直接记在主张中，独立的 `data/uncertainty_registry.csv` 按需使用。
-
-核心记录：
+本节说明 CLI／MCP 管理的任务。由工具维护已有记录；纯 Skill 在可访问对话和文件中保留同样的研究信息，不必重复搬入此目录。
 
 ```text
-state/
-  task_spec.md
-  progress.json
-  requirements.jsonl      # 有重要补充要求的多轮任务
-  final_delivery.json     # 仅最终交付时生成
-logs/
-  review.jsonl
-data/
-  source_registry.csv
-  claims_registry.csv
+state/task_spec.md          # 需求与持续更新的提纲
+state/progress.json         # 当前工作、依赖与显式选定的主稿
+state/requirements.jsonl     # 有效用户要求与完成依据
+logs/review.jsonl            # 原始评审与处置
+data/source_registry.csv     # 来源、阅读范围与原件位置
+data/claims_registry.csv     # 判断、支持、反证与不确定性
+state/final_delivery.json    # finish 为已验收的最终交付生成
 ```
 
-`progress.json` 保留当前阶段、状态、已完成单元、未决事项和下一步。已有 `stale_count` 字段保持兼容，维护循环计数不是研究要求。已有笔记可保留有用历史，不要求逐轮记录执行经过。
+要求使用稳定编号。`satisfied` 仍可约束后续工作。`waived`、`out_of_scope`、`accepted_limitation` 等范围决定保留用户的实际指令，不能把未读材料或未做工作改称已完成义务。
 
-重要补充要求在 `requirements.jsonl` 各占一行，字段为 `requirement_id`、`source_turn`、`summary`、`status`、`evidence`；措辞变更时保留稳定编号。`satisfied` 需要完成证据；`accepted_limitation`、`waived`、`out_of_scope` 需要[核心行为约束](research-standard.zh-CN.md#3-行为约束)所要求的具体用户决定，用 `user_decision.source_turn` 和 `user_decision.quote` 定位。普通研究不确定性不能取消已承诺的交付项。该台账不进入公开文章。
+必读使用 `reading_requirement`（`full_text` 或 `relevant_sections`）配合非空、无重复的 `required_source_ids`。来源的 `read_scope` 记录实际阅读，`read_evidence` 与 `locator` 说明可读凭据及位置，需要时由 `evidence_path` 提供原始 UTF-8 内容。登记网址或下载成功不是阅读证据。`counter_evidence` 中的已登记来源编号与支持来源一样，将原文送入评审。具体写法见[保存参数](../docs/usage-modes.zh-CN.md#保存研究记录与稿件)。
 
-必读要求增加 `reading_requirement`（`full_text` 或 `relevant_sections`）及非空、无重复的 `required_source_ids` 列表，例如 `["S1"]`。仍需履行的必读要求与已保存行合并后须保留这两个字段，局部更新可省略未变字段；没有必读要求的行无需填写。ID 对应的来源行记录 `read_scope` 和 `read_evidence`，说明实际读了什么、笔记在哪里；来源的 `read_scope` 不能代替要求中的 `reading_requirement`。HTTP 成功或登记了网址不算阅读证据；辅助材料没有一律全文阅读的要求。字段示例与新旧检查边界见[交付检查](../docs/delivery-verification.zh-CN.md)。
+通过已有稿件记录登记实质成果，保留真实宿主引用、输入版本、单元／依赖信息与交接。完整成果和旧版本继续可读。由指定主稿写入者登记实际主报告，不将最新保存的文件自动视为主稿。成果或草稿完整不等于最终交付完成。
 
-最终交付才创建 `final_delivery.json`：
-
-- `schema_version: 1`、`status: pass`、`scope: global_final_delivery`。
-- `artifact` 指向主要读者成果，通常是 `final.md`。
-- `artifacts` 记录主要成果、任务规格、来源与主张表，以及存在时的要求台账和不确定性表的 SHA-256；文本按 LF 换行归一化。
-- `open_issues: []`。
-- `accepted_limitations` 列明会影响交付判断的已接受限制；重要限制也须出现在交付说明中。
-
-交付检查绑定当前报告、输入、进度、有效评审和交付说明。contract 3 支持 `audit_required: false` 的普通报告计划；已声明审计和原有审计计划继续核对有效性、处置与抽查。重建回执不能更新旧评审，不补造评审或用户决定。
-
-已有探索记录有助于避免重复时可以复用。根据未解决的问题，以及能否增加有用证据或分析来调整无效路线，不规定循环次数，也不另设必需历史文件。未完成必读应记录替代路线或访问依赖，停止失败路线不等于取消要求。
+`progress.json.stage` 使用 `brief`、`collect`、`analyze`、`draft`、`review`、`revise` 或 `final`，状态和推进按[状态契约](research-standard.zh-CN.md#状态契约)。已有可选历史与 `stale_count` 保持可读，不变成新的必需记录。
 
 ### 中断恢复
 
-读取任务规格、当前状态和存在时的要求台账；已有研究笔记只在有助于恢复时读取，再从相应阶段继续。不要重跑已完成阶段，或重复询问已有答案的研究需求。
+通过 `status` 恢复有效要求、当前成果、研究产物、输入变化和未完成工作。继续依赖任务前，阅读相关规格、原始材料及完整成果。宿主交接与上下文压缩见[任务接续](task-continuity.zh-CN.md)。不重问已有答案，不补造缺失历史。
 
-### 字段参考
+### 交付记录
 
-以下字段供实际使用的记录参考；列出可选历史文件的字段，不表示任务必须维护这些文件。
+`finish` 根据已验收现稿和独立审阅、审计、验收记录生成交付说明与回执，绑定必需输入、来源和实际稿件版本；改回执不能刷新旧评审。历史已完成成果与回执保留原契约标签，继续研究时保留这些原件并完成当前独立责任。
 
-| 文件 | 字段 |
-|---|---|
-| `progress.json` | `stage, status, completed_units, open_issues, stale_count, next_action, updated_at` |
-| `findings.jsonl` | `timestamp, unit, finding, claim_type, evidence_level, source_refs, intended_section` |
-| `directions_tried.json` | `direction, reason_tried, result, status, next_decision` |
-| `requirements.jsonl` | `requirement_id, source_turn, summary, status, evidence` |
-| `logs/work.jsonl` | `timestamp, level, decision, reason, files_changed, next_action` |
-| `logs/review.jsonl` | `timestamp, review_type, scope, result, issues, routed_actions` |
-| `source_registry.csv` | `source_id, title, url, source_type, read_scope, read_evidence, publisher_or_author, date, access_status, used_for, limitations` |
-| `claims_registry.csv` | `claim_id, claim, claim_type, evidence_level, supporting_sources, counter_evidence, uncertainty, intended_section` |
-| `uncertainty_registry.csv` | `uncertainty_id, issue, affected_claims, reason, risk_level, handling` |
-
-`stage` 使用 `brief`、`collect`、`analyze`、`draft`、`review`、`revise`、`final`。`status` 与检查点含义见[状态契约](research-standard.zh-CN.md#状态契约)。暂停原因和下一步写入 `next_action`，不要发明状态值。字段在同一任务中保持稳定，仅在改善恢复或证据追溯时加列。
-
-来源位置统一使用 `url`，可填写网址或任务内相对路径。主张引用及必读要求涉及的来源应有本地正文；`read_evidence` 指向可读文本时自动送评。仅有网址、页码或二进制原件时，用可选字段 `evidence_path` 指向完整正文或要求范围内的 UTF-8 提取文本。必要原件、阅读凭据和提取文本会按登记范围纳入版本检查；其他辅助文件不会自动发送。
-
-`counter_evidence` 仍可自由填写文字。其中以空格、分号、逗号或 `|` 分隔的已登记来源编号（如 `S2; S3`），也会将对应原文纳入现有评审输入与版本绑定，无须重复填入 `supporting_sources`。说明文字原样保留，工具不从文字含义推断来源关联。
-
-新任务模板已包含 `evidence_path`。将相关来源内容保存为任务内的 UTF-8 文本，例如 `sources/S1.md`，并在该列填写相对路径。使用本地 `read_evidence` 时，推荐填写任务内现有非空文件的相对路径；页码、章节和阅读说明放在 `locator`，例如 `"第2–4页，仅读取相关章节"`，不要拼在路径后。网址、页码及已支持的本地引用形式继续有效；`evidence_path` 不能修复无效的 `read_evidence`。可用[本地来源提取工具](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/source-extraction.zh-CN.md)处理保存的 HTML；保存文件本身不证明读过相关内容。已有登记表在 `read_evidence` 中填写本地文本路径的方式继续有效。
+字段细节、可迁移引用与历史格式由[交付验证](../docs/delivery-verification.zh-CN.md)和[评审完成](../docs/review-completion.zh-CN.md)维护，不在研究方法中复制一套接口说明。
 
 <!-- method:sources -->
 ## 4. 来源处理
@@ -118,11 +83,13 @@ data/
 <!-- method:units -->
 ## 6. 分析单元
 
-按任务选择公司、产品、细分市场、技术、政策、人物、地区、事件或案例。按问题选用时间线、当前位置、作用机制、最强证据、反证或替代解释，以及对读者的影响等分析问题。有用的分析笔记留在现有记录中，无需逐单元填写固定分析卡。
+选择能形成实质回答的单元：公司、产品、政策、地区、技术机制、计算、比较或连贯论证。分工时保留全部明确对象与地域，明确谁承担跨单元综合。
 
-不要平均分配篇幅；按重要性、证据丰富度和复杂程度展开。
+在已有提纲或成果中，写清推进单元的问题、相关要求、当前依据、要展开的论证及实际依赖。独立单元可以并行；依赖有争议的定义、决定性计算或正在变化的来源时，先解决并独立核查该前提。
 
-任务要求比较时，用相关证据中最有解释力的例子说明各具名对象的独特机制及其后果。已有例子能够改变比较判断时，不能只留下名称或泛泛的限定语。证据支持的细节程度不同时说明差别，不编造对称信息，也不规定平均字数。
+单元负责人从阅读、分析推进到可用正文或其他实质成果。时间线、位置、机制、最强证据、反证和影响按问题选用，不填写通用分析卡。完整推理和原件按[交接方法](subagents-and-review-loop.zh-CN.md#实质研究与交接)交回。
+
+不平均分配各对象篇幅；必需比较用具体的区分性证据展开，解释证据覆盖不均，保留成立条件，不编造对称信息。单元完成对应其真实产物，后续组稿与全文验收仍是另外的工作。
 <!-- /method:units -->
 
 <!-- method:depth -->
@@ -161,10 +128,14 @@ data/
 
 ## 8. 分阶段执行
 
-按当前未解决的问题安排阅读、分析或写作，具体做法见[工作循环](research-standard.zh-CN.md#7-工作循环)。阶段用于定位工作；进入一个阶段不自动启动一轮规划、起草、评审和修订。CLI／MCP 管理的任务仍遵循原状态与完成契约，局部完成不代表整项任务完成。
+按单元的实际输入与依赖推进。形成提纲后，在大范围依赖写作前取得独立的要求与结构核查；重要证据、计算和前提可用时即进行相关核查。逐步产出连贯分析与正文，由指定写入者整合已就绪成果。
+
+新材料或指令改变前提时，更新提纲、受影响的任务和下游正文，同时保留有效工作，独立分支继续。完整内容审阅、审计与最终验收按[统一角色方法](subagents-and-review-loop.zh-CN.md#阶段安排与验收)执行，早期局部检查保留真实范围。工具阶段记录这些工作，不强制所有分支同时进入同一阶段。
 
 <!-- method:assembly -->
 ## 9. 组稿
+
+明确一位主稿写入负责人。组稿前读取当前提纲、有效要求、完整分支分析与稿件、原件位置及实质交接。定义或前提冲突交回相关研究者处理，不能把分支摘要直接拼成报告，也不能凭完成消息判定可用。可以一边整合已就绪单元，一边继续其他独立研究，未满足的依赖保持可见。
 
 从已有稿件和提纲中找出各部分实际回答的问题，按读者理解它们所需的关系组织全文。前文提供的事实可以成为后文解释的依据；重复回答同一问题的段落可以合并；缺少中间推理的地方补足解释。若材料改变了原来的判断，调整提纲和结论，不围绕最初设想挑选材料。
 
