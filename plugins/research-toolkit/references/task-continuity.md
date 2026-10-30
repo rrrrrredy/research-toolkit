@@ -10,6 +10,8 @@ Resume from the original request and currently effective requirements, current o
 
 New instructions replace conflicting old instructions; uncancelled goals remain effective. A requirement marked satisfied still constrains subsequent analysis and editing. An approved scope change preserves the actual user decision. Accepting feedback does not prove that the report has been corrected.
 
+When a requirement explicitly applies only to named research units, retain that assignment in its optional `unit_ids`; omitted or empty means global. All effective requirements stay readable. A unit's input binding includes global requirements and those assigned to it or its actual upstream units, so a local change does not invalidate unrelated branches. Do not infer applicability from wording, the assigned agent, or which requirements happen to be selected for reading.
+
 ## Resume and save
 
 For managed tasks, `research_status.current_work` includes effective requirements, open work, scope decisions, the explicitly selected main artifact, registered contributions and prior delivery references. `status.work` prepares relevant originals and input versions for the assignment; use its files and records rather than guessing from the latest filename.

@@ -4,12 +4,14 @@
 
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
-## v2.0.0 — Unreleased
+## v2.0.0 — 2026-10-30
 
 - Connect native host research units, full-artifact handoffs, actual dependencies and progressive assembly through the existing interfaces.
 - Require independent content perspectives, audit and separate final acceptance for new/resumed work; retain original replies, identities and version bindings. Author self-review cannot complete delivery.
 - Consolidate method ownership and stage loading; synchronize English, Chinese and plugin sources. Remove default research runtime cutoffs and time/token summaries, preserving failure recovery and historical evidence.
-- Preserve old materials and receipts; the changed completion contract requires a major version. Local validation and RSI continuation are in progress; this version has not been published.
+- Preserve old materials and receipts; the changed completion contract requires a major version. The retained RSI task completed native research collaboration, progressive assembly, independent review, audit and final acceptance; four necessary findings were corrected in the report.
+- Keep global requirements visible while explicitly scoped requirements affect the relevant units. Revision assignments retain earlier review evidence and change locations; optional unit audits can resolve concrete disputes, and an unidentified main writer cannot enter independent review. Unit reviews no longer add an unspecified domain perspective by default.
+- Local checks and the Linux, minimum Python and Windows CI passed. These observations establish exercised behavior, not a measured improvement in overall research quality or user effort.
 
 ## v1.5.0 — 2026-10-29
 

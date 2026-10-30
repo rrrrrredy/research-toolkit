@@ -54,6 +54,8 @@ def research_save(task: str, sources: list[dict[str, Any]] | None = None,
                   brief: dict[str, str] | None = None) -> dict[str, Any]:
     """Save/update source, claim and requirement objects by stable ID; the tool writes CSV/JSONL.
     Omitted IDs are assigned or matched by URL/claim/summary. Partial updates retain other fields and rows.
+    requirements.unit_ids optionally assigns a requirement to named research units; omit it or use [] for global scope.
+    work.requirement_ids selects records to read, not their applicability. All effective requirements remain accessible.
     sources.read_scope records actual reading; requirements.reading_requirement specifies required reading, not read_scope.
     For an active mandatory-reading requirement, the merged row needs reading_requirement="full_text" or "relevant_sections"
     and required_source_ids, a nonempty list of distinct source IDs, e.g. ["S1"]. Other requirements can omit both.
@@ -67,7 +69,7 @@ def research_save(task: str, sources: list[dict[str, Any]] | None = None,
     depends_on lists actual upstream unit IDs. complete=true records a finished unit, not an independent review or delivery;
     a dependent unit cannot complete before its declared upstream versions are finished and independently reviewed.
     based_on copies work_context.inputs unchanged: file paths and record:sources:S1 / record:claims:C1 /
-    record:requirements:effective map to SHA256. Only relevant record changes affect these bindings.
+    record:requirements:effective or effective@unit IDs map to SHA256; copy the returned keys rather than constructing them.
     handoff uses summary, optional pending/decisions text lists and to (the receiving host task/session).
     The registered main writer transfers ownership through handoff.to; another host cannot silently replace the main draft.
     Saved unit originals and prior versions are retained in existing record-backups; summaries do not replace original analysis.
@@ -142,7 +144,7 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
                           include_assignment: bool = False,
                           host_result: dict[str, Any] | None = None,
                           scope: str = "full_report", perspectives: list[str] | None = None,
-                          domains: list[str] | None = None) -> dict[str, Any]:
+                          domains: list[str] | None = None, audit: bool | None = None) -> dict[str, Any]:
     """Prepare independent assignments or receive the host's actual completed result; no API setup is needed.
     The host dispatches distinct non-author agents: seven whole-report perspectives and domain review,
     then an independent audit with independently selected samples, then independent final acceptance.
@@ -152,14 +154,17 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
     evidence_paths may be empty when registered original evidence suffices; required sources are included automatically.
     include_assignment=False returns frozen assignment files instead of repeating their full text. Read the full input.
     For progressive work set scope to a saved unit_id and artifact to its draft; perspectives selects relevant unit reviews.
-    Whole-report review always covers all seven perspectives; domains supplies needed specialist perspectives.
+    New units default to no domain review; domains supplies needed specialist perspectives. audit=True adds independent
+    unit adjudication when needed, retaining existing content results. An enabled audit cannot be removed; full reports
+    always require audit and final acceptance. Main drafts must have their actual producer registered via save draft.host_task.
+    Revision assignments reference earlier reviews, frozen inputs and changed locations; these are reading aids, not current PASS.
     A completed negative review is retained. Correct the draft, then use revision=True; do not reroll for a pass.
     reviewer=self and self_review remain recognizable legacy parameters but cannot complete current independent review.
     Explicitly configured external backends execute the same assignments; ordinary use stays in the host.
     """
     return await asyncio.to_thread(mutate, workflow.review, task, evidence_paths,
                                    artifact, purpose, revision, reviewer, self_review, include_assignment,
-                                   host_result, scope, perspectives, domains)
+                                   host_result, scope, perspectives, domains, audit)
 
 
 @server.tool(structured_output=True)

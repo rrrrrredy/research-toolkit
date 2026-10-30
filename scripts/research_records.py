@@ -105,6 +105,12 @@ def merge_records(root, kind, incoming, replace):
         else:
             if not isinstance(row.get("summary", row.get("description")), str):
                 raise ValueError(f"requirements[{index}].summary: provide the requirement in plain language.")
+            if "unit_ids" in row:
+                unit_ids = row["unit_ids"]
+                if (not isinstance(unit_ids, list)
+                        or any(not isinstance(value, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', value) for value in unit_ids)
+                        or len(set(unit_ids)) != len(unit_ids)):
+                    raise ValueError(f"requirements[{index}].unit_ids: use distinct research-unit IDs, such as [\"domestic\"]; omit or use [] for a global requirement.")
             row.setdefault("status", "pending")
             if row["status"] not in {"pending", "open", "in_progress", "blocked", "satisfied", "waived", "out_of_scope", "accepted_limitation"}:
                 raise ValueError(f"requirements[{index}].status: use pending/open/in_progress/blocked/satisfied/waived/out_of_scope/accepted_limitation.")

@@ -139,14 +139,16 @@ def research_outputs(root, warnings, progress=None):
 
 def prepare_work(root, progress, work):
     """Assemble the Agent's explicit selection; do not infer scope or choose a plan."""
-    from record_changes import claim_source_ids, input_digest
+    from record_changes import claim_source_ids, input_digest, requirements_for_units
     allowed = {'question', 'unit_id', 'depends_on', 'requirement_ids', 'claim_ids', 'source_ids', 'paths'}
     if not isinstance(work, dict) or set(work) - allowed:
         raise ValueError('work: use optional question, unit_id, depends_on, requirement_ids, claim_ids, source_ids and paths.')
     if 'question' in work and not nonempty(work['question']):
         raise ValueError('work.question: provide the specific research question as text.')
-    if 'unit_id' in work and not nonempty(work['unit_id']):
-        raise ValueError('work.unit_id: provide the saved or newly assigned research unit ID.')
+    if 'unit_id' in work:
+        import re
+        if not isinstance(work['unit_id'], str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', work['unit_id']):
+            raise ValueError('work.unit_id: use a saved or new research-unit ID with letters, numbers, dots, underscores or hyphens.')
     for key in allowed - {'question', 'unit_id'}:
         if key in work and (not isinstance(work[key], list) or any(not nonempty(v) for v in work[key])):
             raise ValueError(f'work.{key}: use a list of IDs or task-relative paths.')
@@ -163,7 +165,8 @@ def prepare_work(root, progress, work):
             if name.startswith('record:'):
                 _, kind, identity = name.split(':', 2)
                 field = {'sources': 'source_ids', 'claims': 'claim_ids', 'requirements': 'requirement_ids'}[kind]
-                if identity != 'effective' and identity not in record_ids[field]:
+                aggregate = kind == 'requirements' and (identity == 'effective' or identity.startswith('effective@'))
+                if not aggregate and identity not in record_ids[field]:
                     record_ids[field].append(identity)
             elif name not in {'state/task_spec.md', 'state/requirements.jsonl', 'data/source_registry.csv', 'data/claims_registry.csv'}:
                 paths.append(name)
@@ -211,7 +214,10 @@ def prepare_work(root, progress, work):
         except (OSError, ValueError) as exc:
             raise ValueError(f'work.paths: cannot read {name}; use an existing task-relative UTF-8 file.') from exc
     input_names = ['state/task_spec.md', *files, *originals]
-    input_names.append('record:requirements:effective')
+    requirement_unit_ids = sorted({work['unit_id'], *seen}) if work.get('unit_id') else None
+    requirement_binding = ('record:requirements:effective@' + ','.join(requirement_unit_ids)
+                           if requirement_unit_ids else 'record:requirements:effective')
+    input_names.append(requirement_binding)
     input_names.extend('record:sources:' + source['source_id'] for source in selected_sources)
     input_names.extend('record:claims:' + claim['claim_id'] for claim in claims)
     inputs = {name: input_digest(root, name) for name in dict.fromkeys(input_names)}
@@ -222,6 +228,8 @@ def prepare_work(root, progress, work):
                                                 if item.get('unit_id') == dependency), ['not_registered'])}
                                for dependency in dependencies],
               'task_directory': str(root), 'effective_requirements': context['effective_requirements'],
+              'applicable_requirements': requirements_for_units(context['effective_requirements'], requirement_unit_ids),
+              'requirement_unit_ids': requirement_unit_ids,
               'scope_decisions': context['scope_decisions'], 'selected_requirements': requirements,
               'claims': claims, 'sources': selected_sources, 'files': files, 'source_files': originals,
               'main_artifact': context['artifact'], 'research_outputs': context['research_outputs'], 'inputs': inputs,

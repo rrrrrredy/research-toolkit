@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import uuid
+from difflib import SequenceMatcher
 from pathlib import Path
 
 from task_storage import digest, load, nonempty, safe_path, save, save_text
@@ -66,6 +67,37 @@ def history_activity(root):
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()] if path.exists() else []
 
 
+def revision_context(root, previous_plan, packet, bindings):
+    """Point the next reader to retained work; never reuse its approval."""
+    previous = load(root, previous_plan["input"]["path"])
+    selected = selected_results(root, previous_plan)
+    audits = selected.get("audit", {}).get("result_data", {}).get("review_checks", {})
+    reviews = {}
+    for slot in previous_plan["slots"]:
+        row = selected.get(slot["slot_id"])
+        validity = audits.get(slot["slot_id"], {}).get("result")
+        if slot["role"] == "reviewer" and row and validity != "invalid":
+            reviews[slot["slot_id"]] = {"attempt_id": row["attempt_id"], "response": row["response"],
+                "input": row["input"], "execution": row["execution"], "execution_id": row["execution_id"],
+                "report_verdict": row["report_verdict"], "review_validity": validity or "not_separately_audited"}
+    before, after = previous["report"].splitlines(), packet["report"].splitlines()
+    changes = [{"change": kind,
+                "previous_lines": [i + 1, j] if j > i else None,
+                "current_lines": [k + 1, n] if n > k else None,
+                "previous_text": "\n".join(before[i:j]), "current_text": "\n".join(after[k:n])}
+               for kind, i, j, k, n in SequenceMatcher(None, before, after, autojunk=False).get_opcodes()
+               if kind != "equal"]
+    old_bindings = previous_plan.get("bindings", {})
+    names = sorted(set(old_bindings) | set(bindings))
+    return {"historical_only": True, "input": previous_plan["input"],
+            "input_version": previous_plan["input_version"], "reviews": reviews,
+            "changed_inputs": [{"path": name, "previous_sha256": old_bindings.get(name),
+                                "current_sha256": bindings.get(name)} for name in names
+                               if old_bindings.get(name) != bindings.get(name)],
+            "unchanged_inputs": [name for name in names if old_bindings.get(name) == bindings.get(name)],
+            "report_changes": changes}
+
+
 def packet_for(root, progress, evidence_paths, artifact, scope, previous_plan=None):
     from research_workflow import required_source_inputs
     from check_delivery import sha256_file
@@ -108,6 +140,9 @@ def packet_for(root, progress, evidence_paths, artifact, scope, previous_plan=No
               "scope_decisions": work["scope_decisions"], "report_path": artifact,
               "report": report, "sources": sources, "source_files": binaries,
               "research_outputs": outputs, "analyses": analyses, "scope": scope}
+    if scope != "full_report":
+        packet["applicable_requirements"] = work_packet["applicable_requirements"]
+        packet["requirement_unit_ids"] = work_packet["requirement_unit_ids"]
     # Keep earlier required criticism visible after revision; do not turn a new
     # version into an opportunity to silently lose an unresolved finding.
     previous_packet = load(root, previous_plan['input']['path']) if previous_plan else None
@@ -162,6 +197,16 @@ def assignment(root, plan, slot, selected, *, persist=True):
                "artifact_sha256": plan["artifact_sha256"], "scope": plan["scope"],
                "dimensions": slot.get("dimensions", []), "assignment": packet,
                "instructions": plan["instructions"][role]}
+    if plan.get("revision_context"):
+        retained = plan["revision_context"]
+        request["revision_context"] = {**retained, "reviews": (
+            {slot["slot_id"]: retained["reviews"][slot["slot_id"]]}
+            if role == "reviewer" and slot["slot_id"] in retained["reviews"] else
+            {} if role == "reviewer" else retained["reviews"])}
+        request["instructions"] += ("\nUse the retained previous response and frozen input to recover checks already performed. "
+            "The change locations and input hashes help find what changed; they do not decide its substantive impact. "
+            "Confirm the current complete artifact in your assigned perspective, inspect affected evidence and cross-part effects, "
+            "and reuse unchanged reading where appropriate. Historical results are not current approval.")
     if slot.get("domain"):
         request["domain"] = slot["domain"]
     if role == "reviewer":
@@ -189,6 +234,17 @@ unresolved, reason, evidence in the current draft), report_verdict (pass/needs_r
 and open_issues (list). A valid negative review remains valid. Do not clear a real
 defect as resolved while it remains in the frozen draft. No generic PASS evidence.
 """
+            if plan["scope"] != "full_report":
+                request["instructions"] = request["instructions"].replace(
+                    "include requirement_id for EVERY effective\nrequirement", "include requirement_id for EVERY applicable\nrequirement")
+                request["instructions"] += ("\nThis audit is for research unit " + plan["scope"] +
+                    ", not whole-report delivery. Read its complete artifact, relevant originals and submitted reviews. "
+                    "Check every applicable_requirements entry and decisive premise within this unit; the full effective "
+                    "requirements remain available as context. Do not claim unrelated whole-report obligations are completed. "
+                    "report_verdict describes whether this unit's reviewed work can support its dependants. "
+                    "Independently adjudicate any disputed necessary findings and sample the unit's passed content.")
+                request["sampling"] = SAMPLING.replace("whole current report", "complete current research unit").replace(
+                    "every effective requirement", "every requirement applicable to this unit")
         else:
             audit = selected["audit"]
             request["audit"] = {"record": audit, "original": safe_path(root, audit["response"]["path"]).read_text(encoding="utf-8")}
@@ -268,7 +324,8 @@ def validate_result(value, request):
     if not isinstance(critical, list) or not critical or any(not isinstance(c, dict)
             or c.get("result") not in {"clear", "defect"} or not all(nonempty(c.get(k)) for k in ("location", "evidence")) for c in critical):
         raise ValueError("Audit critical_checks needs actual located checks.")
-    ids = {r.get("requirement_id") for r in request["assignment"]["effective_requirements"]}
+    requirements = request["assignment"].get("applicable_requirements", request["assignment"]["effective_requirements"])
+    ids = {r.get("requirement_id") for r in requirements}
     if not ids.issubset({c.get("requirement_id") for c in critical}):
         raise ValueError("Audit omitted a currently effective requirement.")
     prior = request["assignment"]["prior_required_findings"]
@@ -339,7 +396,7 @@ def next_slots(plan, selected):
     missing = [s for s in content if s["slot_id"] not in selected]
     if missing:
         return missing
-    if plan["scope"] != "full_report":
+    if not plan.get("audit_required"):
         return []
     audit = selected.get("audit")
     if audit is None:
@@ -354,10 +411,15 @@ def next_slots(plan, selected):
 
 
 def review(workflow, root, progress, evidence_paths, artifact, purpose, revision, include_assignment,
-           host_result=None, scope="full_report", perspectives=None, domains=None):
+           host_result=None, scope="full_report", perspectives=None, domains=None, audit=None):
     from check_delivery import sha256_file
     if scope == "full_report":
         workflow.require_current_artifact(progress, artifact)
+        current = progress.get("current_artifact", {})
+        if current.get("path") != artifact or not nonempty(current.get("owner")):
+            raise ValueError("Register the main draft's actual producer before independent review: "
+                "save draft.path, draft.main=true and draft.host_task with the real producing host task/session. "
+                "Historical files and results remain readable.")
     else:
         units = [x for x in research_outputs(root, [], progress) if x.get("unit_id") == scope and x.get("path") == artifact]
         if not units:
@@ -367,12 +429,18 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
     if purpose not in {"report_delivery", "evaluation"}:
         raise ValueError("purpose must be report_delivery or evaluation.")
     old = progress.get("review_plan") if scope == "full_report" else progress.get("unit_review_plans", {}).get(scope)
+    if audit is not None and type(audit) is not bool:
+        raise ValueError("audit must be true or false when supplied.")
+    audit_required = scope == "full_report" or bool(old and old.get("audit_required")) or audit is True
+    if audit is False and audit_required:
+        raise ValueError("audit cannot disable whole-report audit or an already declared unit audit.")
     dimensions = DIMENSIONS if scope == "full_report" else (perspectives or ["evidence", "adversarial_reasoning", "structure_and_depth"])
     if not isinstance(dimensions, list) or not dimensions or len(set(dimensions)) != len(dimensions) or any(d not in DIMENSIONS for d in dimensions):
         raise ValueError("perspectives must select distinct existing review perspectives.")
     if scope == "full_report" and perspectives not in (None, DIMENSIONS):
         raise ValueError("Whole-report review requires all seven distinct perspectives.")
-    domains = (old.get("domains", ["domain"]) if old else ["domain"]) if domains is None else domains
+    default_domains = ["domain"] if scope == "full_report" else []
+    domains = (old.get("domains", default_domains) if old else default_domains) if domains is None else domains
     if not isinstance(domains, list) or any(not nonempty(d) for d in domains) or len(set(domains)) != len(domains):
         raise ValueError("domains must list the needed domain perspectives.")
     same_selection = (old and old.get('contract_version') == 2 and old.get('domains') == domains
@@ -385,14 +453,22 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
     input_ref = frozen(root, f"{run_prefix(version)}/input.json", packet)
     slots = [{"slot_id": d, "role": "reviewer", "dimensions": [d]} for d in dimensions]
     slots += [{"slot_id": "domain-" + str(i + 1), "role": "reviewer", "dimensions": ["domain"], "domain": d} for i, d in enumerate(domains)]
+    if audit_required:
+        slots.append({"slot_id": "audit", "role": "auditor"})
     if scope == "full_report":
-        slots += [{"slot_id": "audit", "role": "auditor"}, {"slot_id": "acceptance", "role": "acceptance"}]
-    plan = {"contract_version": 2, "purpose": purpose, "reviewer": "independent", "audit_required": scope == "full_report",
+        slots.append({"slot_id": "acceptance", "role": "acceptance"})
+    plan = {"contract_version": 2, "purpose": purpose, "reviewer": "independent", "audit_required": audit_required,
             "author_id": progress["author_id"], "producer_contexts": producers(root, progress),
             "scope": scope, "artifact": artifact, "artifact_sha256": sha256_file(safe_path(root, artifact)),
             "input_version": version, "input": input_ref, "bindings": bindings, "domains": domains, "slots": slots,
             "instructions": (old["instructions"] if old and old.get("input_version") == version
                              and "instructions" in old else {role: methods(role) for role in ("reviewer", "auditor", "acceptance")})}
+    if old and old.get("contract_version") == 2:
+        if old.get("input_version") == version:
+            if old.get("revision_context"):
+                plan["revision_context"] = old["revision_context"]
+        else:
+            plan["revision_context"] = revision_context(root, old, packet, bindings)
     if old != plan:
         if old:
             frozen(root, "reviews/plans/" + digest(old) + ".json", old)
@@ -420,9 +496,9 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
                          "assignment_ref": request_ref, "assignment_version": request["assignment_version"],
                          **({"assignment": request} if include_assignment else {})})
     result = inspect(root, progress, artifact, plan=plan)
-    if scope != "full_report" and result["ok"]:
+    if scope != "full_report":
         progress.setdefault("unit_reviews", {})[scope] = {
-            "artifact_sha256": plan["artifact_sha256"], "input_version": version, "ok": True,
+            "artifact_sha256": plan["artifact_sha256"], "input_version": version, "ok": result["ok"],
             "reviewers": [r["execution_id"] for r in selected.values()], "record_path": plan["input"]["path"]}
         save(root, "state/progress.json", progress)
     if scope == "full_report" and result["ok"]:
@@ -449,6 +525,14 @@ def checked_files(root, plan):
     files.add(plan["input"]["path"])
     if reference(root, plan["input"]["path"]) != plan["input"]:
         raise ValueError("Frozen review input changed.")
+    retained = plan.get("revision_context", {})
+    previous_refs = [retained["input"]] if retained else []
+    previous_refs.extend(row[key] for row in retained.get("reviews", {}).values()
+                         for key in ("input", "response", "execution"))
+    for ref in previous_refs:
+        if reference(root, ref["path"]) != ref:
+            raise ValueError("Retained revision context changed: " + ref["path"])
+        files.add(ref["path"])
     for row in selected_results(root, plan).values():
         for key in ("input", "response", "execution"):
             if reference(root, row[key]["path"]) != row[key]:
@@ -467,6 +551,8 @@ def inspect(root, progress, artifact, *, plan=None, require_report_ready=True):
         try:
             checked_files(root, plan)
             content = [s for s in plan["slots"] if s["role"] == "reviewer"]
+            if plan.get("audit_required") and not any(s["slot_id"] == "audit" and s["role"] == "auditor" for s in plan["slots"]):
+                raise ValueError("The declared independent audit assignment is missing.")
             if plan["scope"] == "full_report" and not set(DIMENSIONS).issubset({s["slot_id"] for s in content}):
                 raise ValueError("All seven independent perspectives are required.")
             if plan["scope"] == "full_report":
@@ -512,7 +598,7 @@ def inspect(root, progress, artifact, *, plan=None, require_report_ready=True):
                 if row["execution_id"] in producers(root, progress):
                     raise ValueError("An author/producer performed independent review.")
                 if require_report_ready:
-                    if slot["role"] == "reviewer" and plan["scope"] != "full_report":
+                    if slot["role"] == "reviewer" and plan["scope"] != "full_report" and not plan.get("audit_required"):
                         from check_review_completion import content_review_issues
                         findings.extend(content_review_issues(original, {}))
                     elif slot["role"] == "auditor" and (original["result"] != "valid" or original["report_verdict"] != "pass"):
@@ -531,13 +617,13 @@ def inspect(root, progress, artifact, *, plan=None, require_report_ready=True):
 
 
 def run_configured(workflow, root, progress, evidence_paths, artifact, purpose, revision,
-                   include_assignment, host_result, scope, perspectives, domains, config, runner):
+                   include_assignment, host_result, scope, perspectives, domains, config, runner, audit=None):
     """Optional existing backend bridge; the same assignments and completion contract apply."""
     from review_runner import backend_kind, ReviewFailure
     if any(backend_kind(c) == "self" for c in config["reviewers"]):
         raise ValueError("Author self-review cannot satisfy independent assignments. Use native host agents.")
     result = review(workflow, root, progress, evidence_paths, artifact, purpose, revision,
-                    False, host_result, scope, perspectives, domains)
+                    False, host_result, scope, perspectives, domains, audit)
     while result["assignments"]:
         for job in result["assignments"]:
             request = load(root, job["assignment_ref"]["path"])
@@ -561,7 +647,7 @@ def run_configured(workflow, root, progress, evidence_paths, artifact, purpose, 
             result = review(workflow, root, load(root, "state/progress.json"), evidence_paths, artifact,
                 purpose, False, False, {"slot_id": job["slot_id"], "host_task": returned["execution_id"],
                     "response_path": prefix + "/response.txt", "execution_path": prefix + "/execution.json"},
-                scope, perspectives, domains)
+                scope, perspectives, domains, audit)
             if role == 'auditor' and any(item['role'] == 'reviewer' for item in result['assignments']):
                 result['action_required'] = 'repair_review'
                 result['recovery'] = 'The audit identified incomplete or invalid review work. Repair that assignment before continuing; its original result is retained.'

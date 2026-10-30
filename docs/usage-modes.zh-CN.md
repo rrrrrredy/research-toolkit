@@ -35,6 +35,8 @@
 
 ## 保存研究记录与稿件
 
+可选 `requirements[].unit_ids` 记录要求明确适用的研究单元，例如 `["domestic"]`；未填或 `[]` 表示全局要求，如读者、整体范围和格式。单元编号沿用 `draft.unit_id` 的写法。保留实际指令，不能因某 Agent 负责处理就把全局要求改成局部要求。`work.requirement_ids` 只选择读取的记录，不决定适用范围。
+
 Agent 使用 `research_save`（CLI：`save`）提交来源、主张和要求对象。用户描述研究需求、决定范围和用途，不管理 CSV、编号或评审返回 JSON。工具按 ID 合并局部更新，保留其他行和字段，写入既有 CSV／JSONL 格式。省略 ID 时，按唯一网址／主张／要求摘要匹配已有记录，否则分配 ID 并返回；后续修改使用返回的 ID。来源仍由 Agent 实际阅读并准确整理。
 
 必读要求使用 `requirements[].reading_requirement`，取值为 `full_text` 或 `relevant_sections`；`sources[].read_scope` 记录实际阅读范围，不能代替前者。仍需履行的必读要求与已保存行合并后，应同时具有 `reading_requirement` 和 `required_source_ids`。`required_source_ids` 是非空、无重复的来源 ID 列表，例如 `["S1"]`，对应来源记录。局部更新可省略已保存的字段；没有必读要求的行无需填写这两个字段。
@@ -372,7 +374,7 @@ python3 scripts/research_workflow.py review --workspace ../research-work --reque
 
 `work` 各字段均可选，首次保存前可用新的 `unit_id` 标识本次分工。所选主张带入支持与已登记反证来源，阅读要求带入指定来源。已登记单元会带回完整成果及其原始输入，依赖带入上游全文与原件。`work_context` 返回任务、有效要求、选定记录、可读 `files`、二进制原件引用、依赖及其就绪情况、`inputs` 和 `input_version`。
 
-仍适用的 `satisfied` 要求继续出现在 `effective_requirements`，`scope_decisions` 保留明确的放弃、排除或接受未完成决定。工具不会从宿主对话自动猜出要求；使用已有字段保存真实原话和受影响要求。按具体记录 ID 绑定的工作不再因无关来源／主张行改变而过期，有效要求的变化仍需处理。
+仍适用的 `satisfied` 要求继续出现在 `effective_requirements`，`scope_decisions` 保留明确的放弃、排除或接受未完成决定。工具不会从宿主对话自动猜出要求；使用已有字段保存真实原话和受影响要求。`applicable_requirements` 包含全局要求及明确适用于当前单元或实际上游的要求（`requirement_unit_ids`），全部有效要求仍可读。输入绑定采用相同范围，无关局部要求或来源／主张的变化不使该单元过期；未指定 `unit_id` 时仍绑定全任务要求。历史 `record:requirements:effective` 绑定继续采用全任务含义，接续时原样使用新返回的 `inputs`。
 
 通过宿主子 Agent 工具传递返回的问题、要求与可访问原件，保留真实宿主任务／会话标识。宿主负责启动、消息、等待和取消，Toolkit 不另造一套运行时。
 

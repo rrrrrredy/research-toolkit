@@ -17,6 +17,8 @@ The host runs the agents. Toolkit prepares their inputs, preserves outputs and r
 
 Authors, research contributors and the assembling agent are production participants. They may explain or correct their work but cannot fill independent assignments about it. Use actual host task/session identities; changing a label within the author's context is not another agent. Models may be the same.
 
+Register the main manuscript's actual producing context through the existing `research_save` draft `host_task` (with `main: true` when selecting the main manuscript). Compatible older save inputs still work, but an unregistered main author must be identified before independent assignments are prepared. Earlier producer identities stay in the activity history and remain excluded from independent roles.
+
 Early review of an outline, assumption, calculation or argument unit checks the input on which further work depends. It is saved against that unit's artifact and sources. It does not count as whole-report review or final acceptance. The final perspectives consider the complete assembled argument, including cross-section consistency.
 
 ## Native requests and original results
@@ -43,7 +45,9 @@ These are placeholders, not a completed review. Preserve the actual original res
 
 Each returned `assignments` entry provides `slot_id`, `role`, `assignment_ref` and `assignment_version`; the operation also returns `input_version`. The original JSON response must quote both versions. The original execution record identifies `host_task`, `status: "completed"`, `assignment_version` and the actual observed host events. These must come from the execution that produced the response.
 
-`scope` defaults to `full_report`. `domains` names the required domain review areas and defaults to `["domain"]`; full-report review always includes the seven base perspectives. For an early unit review, use its registered `unit_id` as `scope` and select the relevant existing `perspectives`. This does not remove final whole-report duties.
+`scope` defaults to `full_report`. `domains` names required specialist areas; a new full-report plan defaults to `["domain"]` and includes all seven base perspectives. For an early unit review, use its registered `unit_id` as `scope` and select relevant `perspectives`. A new unit defaults to `domains: []`; previously declared specialists remain selected when the parameter is omitted. Unit review does not remove final whole-report duties.
+
+When a unit needs independent adjudication of a necessary finding or a supported no-change response, use the same `research_review` call with `audit: true`. Existing content reviews of that input stay valid; the next assignment is the unit auditor. The enabled audit remains required on continuation and cannot be removed with `audit: false`. A unit does not acquire final acceptance. Full-report audit is always required. Unit audit covers `applicable_requirements` (global requirements and those assigned to the unit or its upstream dependencies); all effective requirements remain available as context.
 
 The same operation accepts content results, prepares the independent audit, and then prepares final acceptance when the necessary work is resolved. Repeated calls with unchanged valid results resume pending work rather than generating another pass. `include_assignment` defaults to `false`, using retained input references; every worker must still be able to read the full packet and referenced source originals.
 
@@ -58,6 +62,8 @@ The plan and each result bind the artifact and required input versions. Inputs, 
 Current tasks use `progress.review_contract: 2` and `review_plan.contract_version: 2`. The existing `logs/review.jsonl` retains `model_review` and `review_audit` records plus the independent `final_acceptance`. These are review-contract identifiers, distinct from the delivery checker's contract number.
 
 After a substantive edit, save the new report or source version and use `revision: true` for the affected review. Preserve earlier assignments and responses. Current whole-report acceptance must cover the final text. Historical results are evidence of what was checked then, not automatic approval of later prose.
+
+New revision assignments include `revision_context`: the prior frozen input, the same perspective's retained original reply and execution reference, input hashes identifying changed and unchanged material, and before/after report lines. Auditors and acceptance agents can consult the retained content-review references. Use these to recover earlier checks and examine affected reasoning while confirming the complete current artifact; do not automatically carry an old PASS forward. Already frozen assignments remain unchanged.
 
 ## Findings and necessary corrections
 

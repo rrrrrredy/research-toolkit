@@ -432,7 +432,7 @@ def record_plan_change(root, previous, current):
 @task_operation
 def review(workspace: Path, task: str, evidence_paths: list[str], artifact="final.md",
            purpose="report_delivery", revision=False, reviewer=None, self_review=None, include_assignment=False,
-           host_result=None, scope="full_report", perspectives=None, domains=None, *, config=None, runner=run_reviewer) -> dict:
+           host_result=None, scope="full_report", perspectives=None, domains=None, audit=None, *, config=None, runner=run_reviewer) -> dict:
     """Prepare or receive independent host work using the existing review interface."""
     import host_review
     root = task_root(workspace, task)
@@ -446,9 +446,9 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
     if config is not None or backend_configured() or reviewer == "external":
         trusted = validate_review_config(config) if config is not None else load_review_config()
         return host_review.run_configured(sys_module(), root, progress, evidence_paths, artifact, purpose,
-            revision, include_assignment, host_result, scope, perspectives, domains, trusted, runner)
+            revision, include_assignment, host_result, scope, perspectives, domains, trusted, runner, audit)
     return host_review.review(sys_module(), root, progress, evidence_paths, artifact, purpose,
-        revision, include_assignment, host_result, scope, perspectives, domains)
+        revision, include_assignment, host_result, scope, perspectives, domains, audit)
 
 
 def sys_module():

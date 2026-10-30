@@ -24,6 +24,22 @@ def rows_from(content, kind):
     return {r.get(identity, r.get("id")): {k: v for k, v in r.items() if v != ""} for r in rows}
 
 
+def requirements_for_units(rows, unit_ids=None):
+    """Keep global requirements and explicit unit assignments, never infer scope."""
+    if unit_ids is None:
+        return list(rows)
+    selected = set(unit_ids)
+    result = []
+    for row in rows:
+        assigned = row.get('unit_ids', [])
+        if (not isinstance(assigned, list) or any(not isinstance(value, str) or not
+                re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', value) for value in assigned)):
+            raise ValueError(f"Requirement {row.get('requirement_id', row.get('id', '?'))}.unit_ids: use research-unit IDs as a list; omit it or use [] for a global requirement.")
+        if not assigned or selected.intersection(assigned):
+            result.append(row)
+    return result
+
+
 def input_digest(root, name):
     """Bind selected records without invalidating work on unrelated registry edits."""
     from task_storage import digest, safe_path
@@ -47,6 +63,12 @@ def input_digest(root, name):
             return result
         if identity == 'effective':
             return digest({key: meaning(row) for key, row in rows.items()})
+        if identity.startswith('effective@'):
+            unit_ids = identity.removeprefix('effective@').split(',')
+            if any(not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', value) for value in unit_ids):
+                raise ValueError(f'{name}: use the requirement binding returned by work_context.inputs.')
+            selected = requirements_for_units(rows.values(), unit_ids)
+            return digest({row.get('requirement_id', row.get('id')): meaning(row) for row in selected})
         if identity in rows:
             return digest(meaning(rows[identity]))
     elif identity in rows:
