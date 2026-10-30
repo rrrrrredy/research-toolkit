@@ -105,6 +105,25 @@ def research_outputs(root, warnings, progress=None):
     if not isinstance(reviews, dict):
         warnings.append('Unit review references are malformed; retained work requires an intact review record.')
         reviews = {}
+    # Cached approval is useful only while the actual review inputs and retained
+    # replies still match. Supplemental review evidence need not be in based_on.
+    # Reuse the file checks, not inspect(), which itself reads research_outputs.
+    current_reviews = set()
+    plans = (progress or {}).get('unit_review_plans', {})
+    for unit_id, item in units.items():
+        review = reviews.get(unit_id, {})
+        plan = plans.get(unit_id, {}) if isinstance(plans, dict) else {}
+        if (not isinstance(review, dict) or not isinstance(plan, dict)
+                or review.get('ok') is not True or review.get('artifact_sha256') != item['sha256']
+                or plan.get('input_version') != review.get('input_version')
+                or plan.get('artifact') != item['path'] or plan.get('artifact_sha256') != item['sha256']):
+            continue
+        try:
+            from host_review import checked_files
+            checked_files(root, plan)
+            current_reviews.add(unit_id)
+        except (OSError, ValueError, KeyError, TypeError, AttributeError) as exc:
+            warnings.append(f'Unit {unit_id}: independent review is no longer current: {exc}')
     def inspect_unit(unit_id, visiting):
         if unit_id in visiting:
             return ['cyclic_dependency']
@@ -121,8 +140,7 @@ def research_outputs(root, warnings, progress=None):
         if any(units.get(dependency, {}).get('sha256') != checksum
                for dependency, checksum in item.get('dependency_versions', {}).items()):
             issues.append('dependency_version_changed')
-        review = reviews.get(unit_id, {})
-        if review.get('ok') is not True or review.get('artifact_sha256') != item['sha256']:
+        if unit_id not in current_reviews:
             issues.append('independent_review_pending')
         if any(inspect_unit(dependency, visiting | {unit_id}) for dependency in item.get('depends_on', [])):
             issues.append('dependency_pending')

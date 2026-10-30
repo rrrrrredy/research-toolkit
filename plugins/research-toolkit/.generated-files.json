@@ -11,8 +11,8 @@
     "docs/delivery-verification.zh-CN.md": "7b3ef89c4204095d17b5c483a0d2c8d38af9d1ffbbc36a9a86508b46d8da3c46",
     "docs/review-completion.md": "54c4983cbd516f57734cee898901f0196318a4f38e5687a2ff90f0df33e7f9f5",
     "docs/review-completion.zh-CN.md": "7d1d7f21c795762c28bdd24557d16cf4c7ba6e9bc40427b6eb5fbc0b63497db2",
-    "docs/usage-modes.md": "88e1804fd52cab5af01648c37df368271b8f113212c92446947b087e6ff88f69",
-    "docs/usage-modes.zh-CN.md": "cb0680a7ed6fcd1918d2efb33dd590002ce23463889763a7f725e9caaf1918e6",
+    "docs/usage-modes.md": "30a028ad280746ee90f767f7efcb310d809865f1f45929145b5c95d574867701",
+    "docs/usage-modes.zh-CN.md": "2aaf39ed30842a1849ea457edb4026a1902642d09da7f0d843678839150eca1a",
     "references/gotchas.md": "8a84c5af5527177bb2a5dd3991772e1f26624180cf9e16e2a932248ea6a6dea2",
     "references/gotchas.zh-CN.md": "2f6d2e94cd6200a5217337584f05776a50a79d3990e9a58b8862ad63bc3a80c4",
     "references/horizontal-vertical-analysis.md": "30096c9646c82c5cafd7ac2d716bc0d105a6415da3f85372ef25d283ed4a0723",
@@ -39,7 +39,7 @@
     "scripts/check_delivery.py": "10bf1dd0def255e5b14f6b05b78c46204e70fcf127cc8ed4df64ccbc1addb447",
     "scripts/check_review_completion.py": "612cc52317541bab1ccfd28cb1a145cfeed90724876153f26fe8128378de8a3e",
     "scripts/extract_source_text.py": "788f0560ed5837d1e07e06a394eceaba5a3025db5d5efabbcad46b3bd220fae8",
-    "scripts/host_review.py": "068675a13f07d734f75529a0db97e4b109406e4fe9750099a383d37bf74c5dbd",
+    "scripts/host_review.py": "dd60d36a101616e92c0710dade85c8a4339b62766d515ceb547cdb24981fcddd",
     "scripts/profile_policy.py": "fdcb0e3afba41378371f0afa06044a96b6a23d2a82ea75c74c55d1835dc3f3a9",
     "scripts/record_changes.py": "68b09d1f5aaa7298e97bcddfdc1f93cf9d69c08ceb0ab417f143ae3cba949828",
     "scripts/release_updates.py": "ba0dc0f10a14cd3a5ea6cf3eacb528d9917f265b1c70ae2c40603f1cbb0bdf32",
@@ -50,7 +50,7 @@
     "scripts/review_process.py": "f0663472716aee7edb39f5a68252b273f0a7eea33dc7c70ad017575999eea532",
     "scripts/review_runner.py": "478eaa62b701163451afdf336811ec0e25119887a747e38da6058c3b282ebc45",
     "scripts/run_observation.py": "c571cb9bbdc7c9c2d9a0f2a09dc298c5aa650e39c1435e89b02d3f92fed36aa2",
-    "scripts/task_context.py": "e0113844500eda3a9bffc07c68abc75a9e67f6ad6bd149d75b35536057261e06",
+    "scripts/task_context.py": "929f27d624169281245d015eae83c19ef2ab53d5981381c4a0da391bfc9e415e",
     "scripts/task_lock.py": "3c595a95336e6966b61658523b5213e8764f666a441f3ba4a6f87a2f6dcd4bb6",
     "scripts/task_storage.py": "ac736d5d715d03a87fdbc25e4fc34163e9045a0639a5843f2dc22b05b3d3adc3"
   }

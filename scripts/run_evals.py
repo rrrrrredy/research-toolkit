@@ -836,17 +836,17 @@ def make_prompt(case: dict[str, Any], sources_by_id: dict[str, dict[str, Any]]) 
     if case.get("language") == "zh":
         review_lines = [
             "## 评审与修复",
-            "现有及以后的用户题、开发题、参考测试和案例均为真实独立任务；实际执行的测试都是真实测试，可直接用于评测、修复和复查。模型实际执行和参与评测同样提供用户视角：根据上下文使用、额外阅读、耗时、返工和研究结果判断收益，不以真人参与为前提；说明实际观察到的作用及其任务范围。Astra 在与作者分开的新上下文中即可承担独立评审，作者使用同一模型也可以；不要求额外外部评审者、外部供题或固定评审面板。",
+            "实际执行的研究与模型评测都提供真实任务和用户视角。新研究交付按 references/subagents-and-review-loop.zh-CN.md 完成各项独立内容视角、适用的领域专审、审计与最终验收；历史评测的单一评分结果不能替代当前研究交付职责。",
             "评审须收到同一题目、当前报告、完整来源及必要出处信息。盲评只隐藏作者身份、私有 notes 和分组映射，不删除判断所需证据。分工、评审输入或验收标准变化时，对受影响部分针对性复验。",
-            "程序测量篇幅，Astra 核对内容，作者修复确认的问题并另存版本复查。保留首稿、原评审和失败；不对未修改稿件反复测试以取得通过，也不按评审记录条数追加无必要评审。",
+            "仅在题目明确要求篇幅时测量对应范围。作者将确认的问题修入正文并另存版本，相关独立审阅者核查改文。保留首稿、原评审和失败，不对未修改稿件反复测试以取得通过。",
             "",
         ]
     else:
         review_lines = [
             "## Review and repair",
-            "Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Use these tasks directly for evaluation, repair and verification. Model execution and evaluation also provide a user perspective: judge usefulness from actual context use, extra reading, time, rework and research results. Human participation is not a prerequisite; describe the observed benefit and its task scope. Astra in a fresh context separate from the author can provide independent review, including when both use the same model; no additional outside reviewer, outside task contribution or fixed panel is required.",
+            "Executed research and model evaluations provide real tasks and a user perspective. For new research delivery, follow references/subagents-and-review-loop.md for each independent content perspective, applicable domain review, audit and final acceptance. A historical evaluation's single scoring result does not replace current research-delivery responsibilities.",
             "Give the reviewer the same task, current report, complete sources and necessary provenance. Blind review hides only author identity, private notes and condition mappings, not evidence needed for judgment. Changes to assignments, reviewer inputs or acceptance criteria require targeted revalidation.",
-            "Programs measure length, Astra checks content, and the author repairs confirmed defects in a separately saved version for recheck. Preserve first drafts, original reviews and failures; do not repeatedly test unchanged reports for a pass or add unnecessary reviews to meet a row count.",
+            "Measure length only where the task explicitly requires it. The author repairs confirmed defects in a separately saved version, and the relevant independent reviewers examine the revision. Preserve first drafts, original reviews and failures; do not repeatedly test unchanged reports for a pass.",
             "",
         ]
 
