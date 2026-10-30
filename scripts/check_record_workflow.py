@@ -224,7 +224,8 @@ class RecordWorkflowTests(unittest.TestCase):
         root = workspace/"full"
         w.save_text(root, "source.md", "Twelve shipments.")
         w.save_records(workspace, "full", sources=[{"title": "Source", "url": "https://example.org", "source_type": "primary", "read_scope": "full_text", "read_evidence": "source.md"}],
-            claims=[{"claim": "Twelve shipments", "claim_type": "verified_fact", "supporting_sources": ["S1"]}], draft={"path": "final.md", "content": "Twelve shipments.", "complete": True})
+            claims=[{"claim": "Twelve shipments", "claim_type": "verified_fact", "supporting_sources": ["S1"]}], draft={"path": "final.md", "content": "Twelve shipments.", "complete": True,
+                    "main": True, "host_task": "synthetic-backend-author"})
         calls = []
         def runner(config, request, cwd):
             calls.append(1)

@@ -259,6 +259,8 @@ class DraftChecks(unittest.TestCase):
         self.assertEqual(w.load(self.root, "state/progress.json")["stage"], "collect")
 
     def test_cli_review_preserves_unicode_with_legacy_pipe_encoding(self):
+        w.save_records(self.workspace, "case", draft={"path": "final.md", "main": True,
+                       "host_task": "synthetic-unicode-author", "complete": True})
         marker = "\ue200filecite\ue202turn0file0\ue201"
         w.save_text(self.root, "source.md", "中文来源：twelve shipments. " + marker)
         request = {"task": "case", "evidence_paths": ["source.md"], "include_assignment": True}

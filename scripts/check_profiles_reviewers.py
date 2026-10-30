@@ -255,6 +255,8 @@ class HistoricalProfileTests(unittest.TestCase):
                 writer = csv.DictWriter(stream, fieldnames=fields); writer.writeheader(); writer.writerow(row)
         call("status", {"task": task, "stage": "draft"})
         (root/"final.md").write_text("The source reports twelve shipments.\n\nRevenue is twelve.\n", encoding="utf-8")
+        call("save", {"task": task, "draft": {"path": "final.md", "main": True,
+                     "host_task": "synthetic-template-author", "complete": True}})
         args = {"task": task, "evidence_paths": ["sources/S1.md"], "include_assignment": False}
         pending = call("review", args)
         self.assertEqual(pending["action_required"], "host_agents")
@@ -506,6 +508,8 @@ class HistoricalProfileTests(unittest.TestCase):
     def test_full_without_cli_uses_native_independent_assignments(self):
         with patch("review_runner.shutil.which", side_effect=AssertionError("native agents need no CLI probe")):
             started = self.task()
+            w.save_records(self.workspace, "case", draft={"path": "final.md", "main": True,
+                           "host_task": "synthetic-native-author", "complete": True})
             pending = w.review(self.workspace, "case", ["source.md"])
         self.assertEqual(started["review_readiness"]["status"], "host_native")
         self.assertEqual(pending["action_required"], "host_agents")
