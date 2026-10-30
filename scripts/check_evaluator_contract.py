@@ -129,12 +129,12 @@ class EvaluatorContractTests(unittest.TestCase):
             with self.subTest(case=case["case_id"]):
                 prompt = (output / case["case_id"] / "prompt.md").read_text(encoding="utf-8")
                 self.assertIn(case["prompt"], prompt)
-                self.assertIn("Astra", prompt)
+                self.assertIn("references/subagents-and-review-loop.zh-CN.md", prompt)
                 self.assertIn("不删除判断所需证据", prompt)
-                self.assertIn("不按评审记录条数追加无必要评审", prompt)
+                self.assertIn("审计与最终验收", prompt)
                 self.assertIn("完整来源", prompt)
         english = evaluator.make_prompt({**cases[0], "language": "en"}, self.sources)
-        self.assertIn("both use the same model", english)
+        self.assertIn("references/subagents-and-review-loop.md", english)
         self.assertIn("complete sources and necessary provenance", english)
         self.assertIn("Preserve first drafts, original reviews and failures", english)
 

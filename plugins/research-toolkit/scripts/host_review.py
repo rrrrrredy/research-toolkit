@@ -111,7 +111,12 @@ def packet_for(root, progress, evidence_paths, artifact, scope, previous_plan=No
         sources = {name: safe_path(root, name).read_text(encoding="utf-8") for name in files}
         outputs = all_outputs
         bindings = {name: sha256_file(safe_path(root, name)) for name in
-                    [artifact, "state/task_spec.md", "state/requirements.jsonl", *files]}
+                    [artifact, "state/task_spec.md", *files]}
+        # Recording actual fulfilment after audit/acceptance must not invalidate
+        # those results. Requirement meaning/scope remains version-bound; the
+        # frozen packet retains the original rows and finish hashes current rows.
+        from record_changes import input_digest
+        bindings['record:requirements:effective'] = input_digest(root, 'record:requirements:effective')
     else:
         work_packet = prepare_work(root, progress, {"unit_id": scope, "paths": evidence_paths})
         sources, binaries = work_packet["files"], work_packet["source_files"]
@@ -122,8 +127,26 @@ def packet_for(root, progress, evidence_paths, artifact, scope, previous_plan=No
                    "selected_claim_records": json.dumps(work_packet["claims"], ensure_ascii=False)}
     # Readiness is a derived view, not part of the evidence being reviewed.
     outputs = [{k: v for k, v in item.items() if k in {"path", "sha256", "kind", "complete", "unit_id",
-        "depends_on", "dependency_versions", "host_task", "contributors", "question", "based_on", "handoff", "artifact_snapshot"}}
+        "depends_on", "dependency_versions", "host_task", "contributors", "question", "based_on", "handoff",
+        "artifact_snapshot", "history", "previous_version"}}
         for item in outputs if item]
+    # Freeze just the selected production history. Binding the live activity log
+    # would invalidate an assignment when review itself appends an observation.
+    artifact_paths = {item['path'] for item in outputs}
+    production_history = [{k: v for k, v in row.items() if k in {
+        'operation_id', 'started_at', 'finished_at', 'artifact', 'artifact_sha256',
+        'artifact_kind', 'unit_id', 'unit_complete', 'complete_draft', 'question',
+        'depends_on', 'dependency_versions', 'host_task', 'handoff',
+        'artifact_snapshot', 'previous_version'}}
+        for row in history_activity(root)
+        if row.get('outcome') == 'saved' and row.get('artifact') in artifact_paths]
+    for row in production_history:
+        for key in ('artifact_snapshot', 'previous_version'):
+            ref = row.get(key)
+            if ref:
+                if reference(root, ref['path']) != ref:
+                    raise ValueError('Retained production version changed: ' + ref['path'])
+                bindings[ref['path']] = ref['sha256']
     if any(not value.strip() for value in sources.values()):
         raise ValueError("A required evidence file is empty.")
     report = safe_path(root, artifact).read_text(encoding="utf-8")
@@ -139,7 +162,8 @@ def packet_for(root, progress, evidence_paths, artifact, scope, previous_plan=No
               "effective_requirements": work["effective_requirements"],
               "scope_decisions": work["scope_decisions"], "report_path": artifact,
               "report": report, "sources": sources, "source_files": binaries,
-              "research_outputs": outputs, "analyses": analyses, "scope": scope}
+              "research_outputs": outputs, "production_history": production_history,
+              "analyses": analyses, "scope": scope}
     if scope != "full_report":
         packet["applicable_requirements"] = work_packet["applicable_requirements"]
         packet["requirement_unit_ids"] = work_packet["requirement_unit_ids"]
@@ -215,12 +239,18 @@ def assignment(root, plan, slot, selected, *, persist=True):
         request["instructions"] += ("\nYour assigned perspective is " + slot["slot_id"] +
             ". Read the complete supplied draft and relevant originals. Do the assigned substantive assessment "
             "in a context separate from every producer and the other perspectives. Do not edit the draft.")
+        if slot['slot_id'] == 'structure_and_depth' and 'production_history' in packet:
+            request['instructions'] += ("\nWhen the task requires progressive research or writing, inspect production_history "
+                "and its retained drafts against the requested progression; save counts alone do not establish substantive stages.")
     else:
         content = {s["slot_id"]: selected[s["slot_id"]] for s in plan["slots"] if s["role"] == "reviewer"}
         request["reviews"] = {key: {"record": value, "original": safe_path(root, value["response"]["path"]).read_text(encoding="utf-8")}
                               for key, value in content.items()}
         request["sampling"] = SAMPLING
         if role == "auditor":
+            if 'production_history' in packet:
+                request['instructions'] += ("\nFor required production and handoff behavior, inspect production_history and its "
+                    "original draft references. The saved history supplies navigation, not proof that an agent read or followed it.")
             request["instructions"] += """
 Return one JSON object with result (valid/invalid, judging review validity), basis,
 review_checks keyed by every review slot (each result valid/invalid and basis),
@@ -542,7 +572,17 @@ def checked_files(root, plan):
 
 
 def inspect(root, progress, artifact, *, plan=None, require_report_ready=True):
+    # Shared upstreams need one complete inspection per call, never a cached
+    # approval across calls that could conceal changed files or review records.
+    return _inspect(root, progress, artifact, plan=plan, require_report_ready=require_report_ready,
+                    walk={"outputs": None, "completed": {}})
+
+
+def _inspect(root, progress, artifact, *, plan, require_report_ready, walk):
     plan = plan or progress.get("review_plan", {})
+    key = (artifact, digest(plan), require_report_ready)
+    if key in walk["completed"]:
+        return walk["completed"][key]
     findings = []
     selected = selected_results(root, plan) if plan.get("contract_version") == 2 else {}
     if plan.get("contract_version") != 2 or plan.get("artifact") != artifact:
@@ -563,7 +603,9 @@ def inspect(root, progress, artifact, *, plan=None, require_report_ready=True):
                     raise ValueError("Each required content perspective must retain its own assignment.")
                 if len([s for s in content if s.get('dimensions') == ['domain']]) != len(plan.get('domains', [])):
                     raise ValueError("Declared domain reviews are incomplete.")
-            contribution = next((x for x in research_outputs(root, [], progress) if x['path'] == artifact), None)
+            if walk["outputs"] is None:
+                walk["outputs"] = research_outputs(root, [], progress)
+            contribution = next((x for x in walk["outputs"] if x['path'] == artifact), None)
             if contribution and contribution.get('unit_id'):
                 if not contribution['complete']:
                     raise ValueError('The registered research unit is still incomplete: ' + contribution['unit_id'])
@@ -574,7 +616,8 @@ def inspect(root, progress, artifact, *, plan=None, require_report_ready=True):
                     unit_plan = progress.get('unit_review_plans', {}).get(dependency)
                     if not unit_plan:
                         raise ValueError('Missing independent review of upstream research: ' + dependency)
-                    upstream = inspect(root, progress, unit_plan['artifact'], plan=unit_plan)
+                    upstream = _inspect(root, progress, unit_plan['artifact'], plan=unit_plan,
+                                        require_report_ready=True, walk=walk)
                     if not upstream['ok']:
                         findings.extend('Upstream ' + dependency + ': ' + f for f in upstream['findings'])
             identities = []
@@ -609,11 +652,13 @@ def inspect(root, progress, artifact, *, plan=None, require_report_ready=True):
                 raise ValueError("Review perspectives, audit and acceptance must use distinct host contexts.")
         except (ValueError, OSError, KeyError, TypeError) as exc:
             findings.append(str(exc))
-    return {"ok": not findings, "flags": ["incomplete_independent_review"] if findings else [],
+    result = {"ok": not findings, "flags": ["incomplete_independent_review"] if findings else [],
             "findings": findings, "required_slots": len(plan.get("slots", [])), "completed_slots": len(selected),
             "selected_attempts": {k: r["attempt_id"] for k, r in selected.items()},
             "independent_review": True, "record_consistency_checked": True,
             "reviewer": "independent", "review_strength": "independent"}
+    walk["completed"][key] = result
+    return result
 
 
 def run_configured(workflow, root, progress, evidence_paths, artifact, purpose, revision,

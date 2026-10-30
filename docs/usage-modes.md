@@ -389,6 +389,12 @@ Omit `content` to register an existing nonempty file or supply it to save text. 
 
 `current_work.work_units` and `research_outputs` recover registered units, their original snapshots, host references, handoffs and changed inputs. They share the existing activity log, not a second task board. The handoff summary, `pending` and `decisions` are navigation; the next researcher, assembling agent or reviewer can read the full artifact and original sources. The same agent can resume its next phase through these records.
 
+The review packet's `production_history` retains saved production records, handoffs and original draft locations for the selected artifacts. Existing snapshots are bound to the review input; appending review activity does not itself change that version. Missing historical stages are not reconstructed. When the task requires progressive research or writing, structure-and-depth review and audit use these originals to inspect the actual development, rather than treating save counts as completion evidence.
+
 Use `draft.main: true` only for the designated main draft. Its saved `host_task` is the writer; other branches remain separate artifacts. To transfer writing responsibility, the current owner saves `handoff.to` with the receiving host task/session. Merely changing `host_task` cannot seize the main report or an owned unit.
 
 Preserve each saved unit version. New requirements or evidence return to affected analyses and the outline before relying on the revised result. `changed_inputs` identifies changed bindings, not automatic invalidity of the research conclusion. Unit review uses its `unit_id` as `review.scope`; final review, audit and acceptance still cover the complete current report.
+
+Unit readiness also checks its review inputs and original replies, including originals supplied separately through `review.evidence_paths`. If these change, both `status` and downstream `save` treat the unit as awaiting current review; unaffected branches retain their state.
+
+Full-report review retains the original requirement rows and binds their meaning and applicability. After independent review, audit and acceptance actually finish, save the factual completion status and evidence, then call `finish`; that bookkeeping alone does not invalidate the results. Changes to requirement content or scope still require current review, and the final receipt records the current requirements file.
