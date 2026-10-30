@@ -24,8 +24,10 @@ Scope and length: [Coverage, information cutoff and expected depth.]
 Existing material: [Sources, files or an existing report.]
 Load the complete methods as needed and develop the evidence, comparisons,
 mechanisms and synthesis. Deliver the complete report with usable citations;
-maintain the working records yourself.
+preserve sources and full analysis for handoff; organize independent review, audit and acceptance through the host.
 ```
+
+Use the host’s native subagents for production, assembly, independent content review, audit and acceptance. They use the host’s existing model access, without separate API configuration. Share current requirements and original materials, and retain full handoffs.
 
 The [shared research guide](../docs/quickstart.md) provides a complete request and setup details.
 

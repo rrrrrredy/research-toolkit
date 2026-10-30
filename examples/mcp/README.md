@@ -1,8 +1,8 @@
-# A local MCP workflow example
+# Local MCP call example
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-This is a three-paragraph English report about an explicitly fictional shipment note. It demonstrates tool-managed delivery with self-review; it is not a research evaluation or an independent opinion. The report, source, registries and substantive author-context review are supplied. See the [complete research guide](../../docs/quickstart.md) to begin research.
+The fictional shipment note demonstrates interface calls, not a complete research task or quality study. The current capture prepares independent host assignments; it does not replay the supplied historical author self-review. See the [quickstart](../../docs/quickstart.md) for complete research.
 
 After installing `requirements-mcp.txt`, run from the repository root:
 
@@ -10,10 +10,14 @@ After installing `requirements-mcp.txt`, run from the repository root:
 python examples/mcp/capture.py --output ../mcp-example-run
 ```
 
-Use a new, short output path outside the checkout (especially on Windows). The script starts `scripts/research_mcp.py` over real stdio, calls start and guide, copies the supplied author files to the returned task directory, advances to draft with status, requests the self-review prompt, submits the supplied review with the current input version, then calls finish. It replays an existing author review; it does not call a model or generate a fresh assessment. For a new research task, the agent must write and review the actual report.
+The script uses real MCP stdio to create the task, load methods and register the supplied materials. It saves references to complete independent assignments in `review-request.json`. The host dispatches native agents to read the assignments and originals and perform the actual reviews. Missing required results leave the task incomplete.
 
-Expected files: `transcript.json` with full MCP responses, `review-request.json`, and `tasks/shipment-note/` containing the report, source/claim CSVs, `logs/review.jsonl`, review response files, and `state/final_delivery.json`. The review and receipt retain `reviewer: self` and `review_strength: degraded`; the finish response has `completed: true`.
+Submit a completed assignment using a JSON file containing `slot_id`, the actual `host_task`, and original `response_path` and `execution_path`:
 
-[Published capture](captured.json) contains complete inputs and selected response fields from the 10 October 2026 local execution. Large method text, repeated prompt retrieval, local paths and detailed checks are omitted; the remaining fields are copied from server responses. Runtime IDs and timestamps may differ on a rerun.
+```bash
+python examples/mcp/capture.py --output ../mcp-example-run --resume --host-result actual-result.json
+```
 
-To read the actual assignment before submitting a review, add `--pause-before-review`; inspect `review-request.json`, then resume with the same `--output` and `--resume`. The stored review only applies to the supplied unchanged report and source; the script checks input hashes and refuses changed example files. [Recording instructions](../../docs/assets/mcp-demo.md).
+The original response quotes its `input_version` and `assignment_version`. The execution capture retains the actual host identity, completed status and assignment version. See the [independent review interface](../../docs/review-completion.md). Actual content reviews, independent audit and separate final acceptance precede `finish`; only the current completed contract permits delivery. `transcript.json` preserves every actual MCP request and return.
+
+The [October 10, 2026 capture](captured.json), `self-review.json` and its binding preserve the historical implementation and results. The current script does not submit them as independent opinions or apply their old receipt to new work.

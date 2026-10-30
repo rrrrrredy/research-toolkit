@@ -2,6 +2,8 @@
 
 [English](improvement-plan.md) | [简体中文](improvement-plan.zh-CN.md)
 
+This page preserves earlier improvement plans and their execution history. It is not the v2 research procedure; earlier reviewer counts, optional audits and execution limits describe those plans. Use the [quick start](quickstart.md) and [current review contract](review-completion.md) for current work.
+
 The entries below retain the terminology and scope of the dated remediation. They do not select methods for new tasks; use the [shared research entry](../SKILL.md) and the [current repair guidance](report-evaluation-standard.md).
 
 Historical project correction (October 13): [complete collection-to-method map and remaining-defect closure](correction-audit-2026-10-13.md). The prior pipeline completion is one task; project acceptance also covers the runtime, installed instructions, Full methods, source packets and current data generators.

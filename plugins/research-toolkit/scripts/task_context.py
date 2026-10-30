@@ -53,10 +53,11 @@ def source_inputs(root, sources):
 
 
 def changed_inputs(root, inputs):
+    from record_changes import input_digest
     changed = []
     for name, expected in inputs.items():
         try:
-            if sha256_file(safe_path(root, name)) == expected:
+            if input_digest(root, name) == expected:
                 continue
         except (OSError, ValueError):
             pass
@@ -64,7 +65,7 @@ def changed_inputs(root, inputs):
     return changed
 
 
-def research_outputs(root, warnings):
+def research_outputs(root, warnings, progress=None):
     """Recover saved branch artifacts from the existing activity log, not another ledger."""
     outputs = {}
     try:
@@ -77,33 +78,114 @@ def research_outputs(root, warnings):
         for line in text.splitlines():
             try:
                 row = json.loads(line)
-                if not isinstance(row, dict) or row.get('outcome') != 'saved' or row.get('artifact_kind') != 'analysis':
+                if (not isinstance(row, dict) or row.get('outcome') != 'saved'
+                        or not row.get('artifact') or (row.get('artifact_kind') != 'analysis'
+                            and not row.get('unit_id') and not row.get('host_task'))):
                     continue
-                item = {'path': row['artifact'], 'sha256': row['artifact_sha256']}
-                for key in ('host_task', 'based_on'):
+                previous = outputs.get(row['artifact'], {})
+                item = {'path': row['artifact'], 'sha256': row['artifact_sha256'],
+                        'kind': row.get('artifact_kind'), 'complete': row.get('unit_complete', row.get('complete_draft', False)),
+                        'contributors': sorted(set(previous.get('contributors', [])) | ({row['host_task']} if row.get('host_task') else set())),
+                        'history': {'path': 'logs/activity.jsonl', 'artifact': row['artifact']}}
+                for key in ('host_task', 'based_on', 'unit_id', 'depends_on', 'dependency_versions', 'handoff', 'question',
+                            'artifact_snapshot', 'previous_version'):
                     if key in row:
                         item[key] = row[key]
-                item['changed_inputs'] = changed_inputs(root, row.get('based_on', {}))
+                    elif key in previous:
+                        item[key] = previous[key]
+                item['owner'] = item.get('handoff', {}).get('to') or item.get('host_task')
+                item['changed_inputs'] = [name for name in changed_inputs(root, item.get('based_on', {}))
+                                          if name.startswith('record:') or safe_path(root, name) != safe_path(root, item['path'])]
                 item['changed_since_save'] = bool(changed_inputs(root, {item['path']:item['sha256']}))
                 outputs[item['path']] = item
             except (ValueError, KeyError, TypeError, AttributeError):
                 warnings.append('Unreadable analysis observation; original activity row retained.')
+    units = {item['unit_id']: item for item in outputs.values() if item.get('unit_id')}
+    reviews = (progress or {}).get('unit_reviews', {})
+    if not isinstance(reviews, dict):
+        warnings.append('Unit review references are malformed; retained work requires an intact review record.')
+        reviews = {}
+    def inspect_unit(unit_id, visiting):
+        if unit_id in visiting:
+            return ['cyclic_dependency']
+        item = units.get(unit_id)
+        if item is None:
+            return ['not_registered']
+        issues = []
+        if not item['complete']:
+            issues.append('not_complete')
+        if item['changed_inputs']:
+            issues.append('inputs_changed')
+        if item['changed_since_save']:
+            issues.append('artifact_changed')
+        if any(units.get(dependency, {}).get('sha256') != checksum
+               for dependency, checksum in item.get('dependency_versions', {}).items()):
+            issues.append('dependency_version_changed')
+        review = reviews.get(unit_id, {})
+        if review.get('ok') is not True or review.get('artifact_sha256') != item['sha256']:
+            issues.append('independent_review_pending')
+        if any(inspect_unit(dependency, visiting | {unit_id}) for dependency in item.get('depends_on', [])):
+            issues.append('dependency_pending')
+        return issues
+    for item in outputs.values():
+        item['dependencies'] = [{'unit_id': unit_id, 'path': units.get(unit_id, {}).get('path'),
+                                 'issues': inspect_unit(unit_id, set())}
+                                for unit_id in item.get('depends_on', [])]
+        if item.get('unit_id'):
+            item['readiness_issues'] = inspect_unit(item['unit_id'], set())
+            item['review'] = reviews.get(item['unit_id'])
     return list(outputs.values())
 
 
 def prepare_work(root, progress, work):
     """Assemble the Agent's explicit selection; do not infer scope or choose a plan."""
-    from record_changes import claim_source_ids
-    allowed = {'question', 'requirement_ids', 'claim_ids', 'source_ids', 'paths'}
+    from record_changes import claim_source_ids, input_digest, requirements_for_units
+    allowed = {'question', 'unit_id', 'depends_on', 'requirement_ids', 'claim_ids', 'source_ids', 'paths'}
     if not isinstance(work, dict) or set(work) - allowed:
-        raise ValueError('work: use optional question, requirement_ids, claim_ids, source_ids and paths.')
+        raise ValueError('work: use optional question, unit_id, depends_on, requirement_ids, claim_ids, source_ids and paths.')
     if 'question' in work and not nonempty(work['question']):
         raise ValueError('work.question: provide the specific research question as text.')
-    for key in allowed - {'question'}:
+    if 'unit_id' in work:
+        import re
+        if not isinstance(work['unit_id'], str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', work['unit_id']):
+            raise ValueError('work.unit_id: use a saved or new research-unit ID with letters, numbers, dots, underscores or hyphens.')
+    for key in allowed - {'question', 'unit_id'}:
         if key in work and (not isinstance(work[key], list) or any(not nonempty(v) for v in work[key])):
             raise ValueError(f'work.{key}: use a list of IDs or task-relative paths.')
     supplied = task_inputs(root)
     context = current_work(root, progress)
+    unit = next((item for item in context['research_outputs'] if item.get('unit_id') == work.get('unit_id')),
+                None) if work.get('unit_id') else None
+    paths = list(work.get('paths', []))
+    record_ids = {key: list(work.get(key, [])) for key in ('requirement_ids', 'claim_ids', 'source_ids')}
+    upstream = []
+    def take_inputs(item):
+        paths.append(item['path'])
+        for name in item.get('based_on', {}):
+            if name.startswith('record:'):
+                _, kind, identity = name.split(':', 2)
+                field = {'sources': 'source_ids', 'claims': 'claim_ids', 'requirements': 'requirement_ids'}[kind]
+                aggregate = kind == 'requirements' and (identity == 'effective' or identity.startswith('effective@'))
+                if not aggregate and identity not in record_ids[field]:
+                    record_ids[field].append(identity)
+            elif name not in {'state/task_spec.md', 'state/requirements.jsonl', 'data/source_registry.csv', 'data/claims_registry.csv'}:
+                paths.append(name)
+    if unit:
+        take_inputs(unit)
+    dependencies = list(work.get('depends_on', (unit or {}).get('depends_on', [])))
+    seen = set()
+    def take_upstream(dependency):
+        if dependency in seen:
+            return
+        seen.add(dependency)
+        selected = next((item for item in context['research_outputs'] if item.get('unit_id') == dependency), None)
+        if selected:
+            upstream.append(selected)
+            take_inputs(selected)
+            for ancestor in selected.get('depends_on', []):
+                take_upstream(ancestor)
+    for dependency in dependencies:
+        take_upstream(dependency)
     def select(rows, field, ids, label):
         missing = set(ids) - {r.get(field, r.get('id')) for r in rows}
         if missing:
@@ -115,10 +197,10 @@ def prepare_work(root, progress, work):
         if errors:
             raise ValueError('; '.join(errors))
         return rows
-    requirements = select(supplied['rows'], 'requirement_id', work.get('requirement_ids', []), 'requirement_ids')
-    claims = select(registry('data/claims_registry.csv', 'claim_id'), 'claim_id', work.get('claim_ids', []), 'claim_ids')
+    requirements = select(supplied['rows'], 'requirement_id', record_ids['requirement_ids'], 'requirement_ids')
+    claims = select(registry('data/claims_registry.csv', 'claim_id'), 'claim_id', record_ids['claim_ids'], 'claim_ids')
     sources = registry('data/source_registry.csv', 'source_id')
-    source_ids = set(work.get('source_ids', []))
+    source_ids = set(record_ids['source_ids'])
     registered = {s['source_id'] for s in sources}
     for claim in claims:
         source_ids.update(claim_source_ids(claim, registered))
@@ -126,24 +208,32 @@ def prepare_work(root, progress, work):
         source_ids.update(requirement.get('required_source_ids', []))
     selected_sources = select(sources, 'source_id', source_ids, 'source_ids')
     files, originals = source_inputs(root, selected_sources)
-    for name in work.get('paths', []):
+    for name in dict.fromkeys(paths):
         try:
             files[name] = safe_path(root, name).read_text(encoding='utf-8')
         except (OSError, ValueError) as exc:
             raise ValueError(f'work.paths: cannot read {name}; use an existing task-relative UTF-8 file.') from exc
     input_names = ['state/task_spec.md', *files, *originals]
-    if safe_path(root, 'state/requirements.jsonl').exists():
-        input_names.append('state/requirements.jsonl')
-    if selected_sources:
-        input_names.append('data/source_registry.csv')
-    if claims:
-        input_names.append('data/claims_registry.csv')
-    inputs = {name: sha256_file(safe_path(root, name)) for name in dict.fromkeys(input_names)}
-    result = {'question': work.get('question'), 'task': supplied['task'],
+    requirement_unit_ids = sorted({work['unit_id'], *seen}) if work.get('unit_id') else None
+    requirement_binding = ('record:requirements:effective@' + ','.join(requirement_unit_ids)
+                           if requirement_unit_ids else 'record:requirements:effective')
+    input_names.append(requirement_binding)
+    input_names.extend('record:sources:' + source['source_id'] for source in selected_sources)
+    input_names.extend('record:claims:' + claim['claim_id'] for claim in claims)
+    inputs = {name: input_digest(root, name) for name in dict.fromkeys(input_names)}
+    result = {'question': work.get('question', (unit or {}).get('question')), 'unit_id': work.get('unit_id'),
+              'unit': unit, 'upstream_outputs': upstream, 'task': supplied['task'],
+              'dependencies': [{'unit_id': dependency,
+                                'issues': next((item.get('readiness_issues', []) for item in upstream
+                                                if item.get('unit_id') == dependency), ['not_registered'])}
+                               for dependency in dependencies],
               'task_directory': str(root), 'effective_requirements': context['effective_requirements'],
+              'applicable_requirements': requirements_for_units(context['effective_requirements'], requirement_unit_ids),
+              'requirement_unit_ids': requirement_unit_ids,
               'scope_decisions': context['scope_decisions'], 'selected_requirements': requirements,
               'claims': claims, 'sources': selected_sources, 'files': files, 'source_files': originals,
-              'main_artifact': context['artifact'], 'research_outputs': context['research_outputs'], 'inputs': inputs}
+              'main_artifact': context['artifact'], 'research_outputs': context['research_outputs'], 'inputs': inputs,
+              'production_contexts': context['production_contexts']}
     result['input_version'] = digest({'question': result['question'], 'inputs': inputs})
     return result
 
@@ -190,7 +280,11 @@ def current_work(root, progress):
                     result["open_requirements"].append(row)
     except (OSError, ValueError):
         result["warnings"].append("Requirements unreadable; inspect existing records before recovery.")
-    result['research_outputs'] = research_outputs(root, result['warnings'])
+    result['research_outputs'] = research_outputs(root, result['warnings'], progress)
+    result['work_units'] = [item for item in result['research_outputs'] if item.get('unit_id')]
+    result['production_contexts'] = sorted({host for item in result['research_outputs']
+                                          for host in item.get('contributors', [])}
+                                         | ({progress['author_id']} if nonempty(progress.get('author_id')) else set()))
     result["scope"] = "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
     return result
 

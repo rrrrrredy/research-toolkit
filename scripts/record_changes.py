@@ -7,7 +7,7 @@ from check_delivery import inspect_csv_text, inspect_jsonl_text, reading_evidenc
 REGISTRIES = {"sources": ("data/source_registry.csv", "source_id"),
               "claims": ("data/claims_registry.csv", "claim_id"),
               "requirements": ("state/requirements.jsonl", "requirement_id")}
-SCOPE = ("Latest successful record-save batch; locations are literal source-link or claim-text matches in the explicit main draft (latest registered draft for legacy tasks), "
+SCOPE = ("Latest successful record-save batch; report locations are literal source-link or claim-text matches, and research-output links use saved input and unit dependencies in the explicit main draft (latest registered draft for legacy tasks), "
          "not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. "
          "No changes to review or delivery checks.")
 
@@ -22,6 +22,58 @@ def rows_from(content, kind):
     if errors:
         raise ValueError("; ".join(errors))
     return {r.get(identity, r.get("id")): {k: v for k, v in r.items() if v != ""} for r in rows}
+
+
+def requirements_for_units(rows, unit_ids=None):
+    """Keep global requirements and explicit unit assignments, never infer scope."""
+    if unit_ids is None:
+        return list(rows)
+    selected = set(unit_ids)
+    result = []
+    for row in rows:
+        assigned = row.get('unit_ids', [])
+        if (not isinstance(assigned, list) or any(not isinstance(value, str) or not
+                re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', value) for value in assigned)):
+            raise ValueError(f"Requirement {row.get('requirement_id', row.get('id', '?'))}.unit_ids: use research-unit IDs as a list; omit it or use [] for a global requirement.")
+        if not assigned or selected.intersection(assigned):
+            result.append(row)
+    return result
+
+
+def input_digest(root, name):
+    """Bind selected records without invalidating work on unrelated registry edits."""
+    from task_storage import digest, safe_path
+    if not isinstance(name, str):
+        raise ValueError('Input reference must be a task-relative path or record:collection:ID.')
+    if not name.startswith('record:'):
+        return sha256_file(safe_path(root, name))
+    parts = name.split(':', 2)
+    if len(parts) != 3 or parts[1] not in REGISTRIES or not parts[2]:
+        raise ValueError(f'{name}: use record:sources:S1, record:claims:C1 or record:requirements:effective.')
+    kind, identity = parts[1:]
+    path = safe_path(root, REGISTRIES[kind][0])
+    rows = rows_from(path.read_bytes() if path.exists() else b'', kind)
+    if kind == 'requirements':
+        # Fulfilment is not applicability. A completed comparison or audience
+        # requirement remains binding; retiring/replacing it changes this input.
+        def meaning(row):
+            result = {k: v for k, v in row.items() if k not in {'status', 'evidence'}}
+            result['status'] = row.get('status') if row.get('status') in {
+                'waived', 'out_of_scope', 'accepted_limitation'} else 'active'
+            return result
+        if identity == 'effective':
+            return digest({key: meaning(row) for key, row in rows.items()})
+        if identity.startswith('effective@'):
+            unit_ids = identity.removeprefix('effective@').split(',')
+            if any(not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', value) for value in unit_ids):
+                raise ValueError(f'{name}: use the requirement binding returned by work_context.inputs.')
+            selected = requirements_for_units(rows.values(), unit_ids)
+            return digest({row.get('requirement_id', row.get('id')): meaning(row) for row in selected})
+        if identity in rows:
+            return digest(meaning(rows[identity]))
+    elif identity in rows:
+        return digest(rows[identity])
+    raise ValueError(f'{name}: selected record is missing.')
 
 
 def history(root):
@@ -185,8 +237,18 @@ def impact_view(root, summary, artifact):
                 matches.append(location)
         affected.append({"claim_id": key, "claim": row.get("claim"), "changed_source_ids": sorted(linked),
                          "locations": matches, "location_status": "matched" if matches else "not_located"})
+    from task_context import research_outputs
+    from task_storage import load
+    progress = load(root, 'state/progress.json') if (root / 'state/progress.json').is_file() else {}
+    outputs = research_outputs(root, [], progress)
+    affected_outputs = [{key: item[key] for key in ('path', 'unit_id', 'question', 'changed_inputs', 'changed_since_save', 'dependencies', 'artifact_snapshot') if key in item}
+                        for item in outputs if item['changed_inputs'] or item['changed_since_save']
+                        or 'dependency_version_changed' in item.get('readiness_issues', []) or any(
+                            any(issue in {'inputs_changed', 'artifact_changed', 'dependency_version_changed', 'dependency_pending'} for issue in dependency['issues'])
+                            for dependency in item['dependencies'])]
     return {"records": records, "source_files": summary.get("source_files", {}), "artifact": artifact,
             "affected_claims": affected, "unlinked_source_ids": sorted(source_ids - {sid for a in affected for sid in a["changed_source_ids"]}),
+            "affected_outputs": affected_outputs,
             "scope": SCOPE}
 
 

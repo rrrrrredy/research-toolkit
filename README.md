@@ -6,11 +6,35 @@
 
 **Turn a research question or existing material into a report with concrete judgments and traceable sources.**
 
-Use it for industry research, product comparisons, company analysis and technical research. Start a new study, revise an existing report against its sources, or update conclusions when new material arrives. Your agent researches and writes; Toolkit supplies the methods and optional workflow tools.
+Use it for industry research, product comparisons, company analysis and technical research. Start a new study, revise an existing report against its sources, or update conclusions when new material arrives. Your host agents research, write and independently review; Toolkit connects their methods, evidence and deliverables through one research entry and optional task tools.
 
 [**Choose an entry**](#which-should-i-use) · [Start research](#quick-start) · [See a research case](#research-case) · [Documentation](#documentation)
 
-Research capabilities cover task/context, evidence/analysis, writing/revision and review/delivery. The lead continues research and assembly; independent questions can be delegated for analysis, calculation and local writing. See [collaboration and actual requests](docs/usage-modes.md#research-delegation-and-handoff).
+## How does a study get done?
+
+The lead agent maintains the research question, effective requirements and overall judgment. Research agents investigate, compare, calculate and write substantial parts. A designated assembling agent reads their full work and sources, reconciles the argument and develops the main report progressively. Different independent agents review it, audit the findings and accept the final version.
+
+| Responsibility | How the work connects |
+| --- | --- |
+| Task and context | Keep the current brief, outline, effective requirements and dependencies together. Satisfied requirements remain visible when they still constrain later work. |
+| Evidence and analysis | Give each researcher a bounded question, relevant original material and related findings. Preserve its evidence, reasoning, conditions and unresolved questions in the handoff. |
+| Writing and revision | Develop meaningful research units, review premises before dependent work, and integrate their complete analysis into one owned main draft. Changes return to affected units and the outline. |
+| Review and delivery | Complete seven separate content-review perspectives, relevant domain review, independent audit and final acceptance against the current report and sources. Resolve necessary corrections before delivery. |
+
+These are four connected responsibilities, not four fixed agents or four independent pipelines. Codex, Claude Code and similar hosts run the agents and carry messages; Toolkit provides shared inputs, methods, artifact relationships and completion checks. Host-native collaboration does not require separate API setup. [Research steps](docs/quickstart.md#research-from-scratch) · [Handoff and calls](docs/usage-modes.md#research-delegation-and-handoff)
+
+```mermaid
+flowchart LR
+  L[Lead: question and outline] --> R[Research agents: evidence and arguments]
+  R --> W[Designated assembling agent: progressive main draft]
+  R --> U[Independent review at important dependencies]
+  U --> R
+  W --> V[Seven content perspectives + domain review]
+  V --> A[Independent audit]
+  A --> F[Independent final acceptance]
+  A -->|Necessary correction| R
+  F --> D[Complete report]
+```
 
 ## Which should I use?
 
@@ -49,7 +73,7 @@ include a short change note when revising.
 
 [**Start research: one usage guide**](./docs/quickstart.md)
 
-One method set supports long-form and in-depth research, revisions and updates. The request determines scope, length and depth; the agent loads methods as needed and completes agreed checks.
+One method set supports long-form and in-depth research, revisions and updates. The request determines scope, length and depth; the agents load methods for their current work and complete independent review, audit and acceptance.
 
 **Only need to review an existing report?** Use the standalone [Research Review](https://github.com/rrrrrredy/research-review) Skill. Toolkit already includes these review capabilities; existing users do not need a second installation.
 
@@ -98,11 +122,11 @@ Public-source analysis dated 10 October 2026, not a deployment test. Also read t
 | Read the methods directly | Send the request above; for files or text-only chats, see [agent setup](./agents/README.md#use-without-installation). |
 | Install a Skill or plugin | [Choose your agent](./agents/README.md#choose-your-tool) · [Plugin installation](./docs/usage-modes.md#install-the-plugin) |
 | Save progress and call workflow tools | [MCP installation and client configuration](./docs/usage-modes.md#connect-mcp-separately) · [CLI](./docs/usage-modes.md#skill-only-and-cli-fallback) |
-| Try the local tools | [Runnable MCP example and captured responses](./examples/mcp/README.md); replays a supplied self-review without an external model call. |
+| Try the local tools | [Runnable MCP example and captured responses](./examples/mcp/README.md); synthetic examples explain the interface, while real execution records retain their actual review scope. |
 
-The nine local tools manage task records, stage guidance, registered release-log queries, reviews and delivery checks. MCP needs Python 3.10+ and a client that can start a local process; the installation guide covers Windows, macOS and Linux.
+Nine local tools provide shared task context, on-demand methods, source and analysis saving, registered release-log queries, reviews and delivery checks. CLI and MCP use the same implementation. MCP requires Python 3.10+ and a client that can launch local processes; setup covers Windows, macOS and Linux.
 
-Reviews support author-context `self`, a configured `external` backend, or `independent` review in a separate context. Astra can provide independent review without an outside person or another vendor. State the tier actually used; an explicit independent-review requirement cannot be silently downgraded. [Review configuration](./docs/usage-modes.md#reviewer-backends)
+Independent review uses fresh host contexts. Each required perspective has its own reviewer; authors and assembling agents do not review their own work. Audit and final acceptance have separate assignments. CLI/MCP retains the original host responses and input versions through the same `research_review` operation. [Review and acceptance](./docs/review-completion.md)
 
 <a id="evaluation-suite"></a>
 <a id="evaluation-results"></a>
@@ -118,6 +142,7 @@ Public records include complete reports, original failures, reviews and repairs.
 | Need | Entry |
 | --- | --- |
 | Research and writing methods | [Research guide](./docs/research-guide.md) · [Skill instructions](./SKILL.md) |
+| Delegate research and integrate results | [Collaboration and requests](./docs/usage-modes.md#research-delegation-and-handoff) · [Research production and handoff](./references/subagents-and-review-loop.md#research-production-and-handoff) |
 | Existing reports and source updates | [Continue existing research](./docs/usage-modes.md#continue-existing-research) |
 | Installation and configuration | [Agent setup](./agents/README.md) · [Usage guide](./docs/usage-modes.md) |
 | Development and changes | [Contributing](./CONTRIBUTING.md) · [Changelog](./CHANGELOG.md) |

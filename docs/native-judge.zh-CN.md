@@ -2,6 +2,8 @@
 
 [English](native-judge.md) · [简体中文](native-judge.zh-CN.md)
 
+本适配器用于复现下述带日期的固定来源评测。调用上限、工具禁用和用量统计描述该实验，不是普通研究要求。当前研究使用[审阅契约](review-completion.zh-CN.md)中的宿主原生任务。
+
 Schema 2 的评审可使用 `transport: codex_exec`；作者继续使用兼容 HTTP 接口。[带日期的 Astra 设置](../evals/configs/development-20261012/astra-judge.json)请求 `gpt-6-astra`，本机 Codex CLI 须已登录。把 `RESEARCH_CODEX_EXECUTABLE` 设为可执行文件的绝对路径；这是本地进程设置，不是 API 密钥，也不修改仓库配置。
 
 每份评审输入启动一个全新、临时 CLI 进程，在中性的临时目录中运行。只提供冻结的评审指令和输入包，忽略用户配置，关闭项目指令、记忆、宿主技能发现、插件、应用、命令行／浏览器／电脑／图像工具及委派；子进程只继承系统环境白名单，不接收作者 API 密钥或父对话标识，不恢复或分叉已有对话，保留只读沙箱。独立 provider 配置使用 Codex 正常认证，并将 HTTP 与流重试均设为零；当前 CLI 会拒绝覆盖保留的 `openai` provider。

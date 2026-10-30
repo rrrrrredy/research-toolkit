@@ -10,14 +10,20 @@
 - [在你的 Agent 中使用](../agents/README.zh-CN.md)：通用输入方式、纯聊天边界与各工具的接入。
 - [更新安装](installation-versioning.zh-CN.md)：选择和替换预期的软件包副本。
 
-## 研究与写作
+## 按当前工作找方法
 
-- [研究指南](research-guide.zh-CN.md)：研究请求、输出标准、证据、审阅、任务记录与研究边界。
-- [研究流程](../references/research-workflow.zh-CN.md)：需求、资料、分析、起草、修订与断点恢复。
-- [写作规范](../references/writing-style.zh-CN.md)：具体判断、自然表达与面向读者的结构。
-- [可选分析方法](../references/optional-analysis-lenses.zh-CN.md)：按研究问题选择分析方法。
-- [审阅角色与工作标准](../references/subagents-and-review-loop.zh-CN.md)：非作者内容审阅与任务所需的其他角色。
-- [常见研究问题](../references/gotchas.zh-CN.md)：失败模式及修复方法。
+这些是同一项研究中按需使用的入口，不是启动时要读完的文档清单。
+
+| 正在做什么 | 直接读哪里 |
+| --- | --- |
+| 理解请求、确定需要展开的问题 | [研究需求与深度规划](../references/research-workflow.zh-CN.md)；首次使用可看[研究指南](research-guide.zh-CN.md)。 |
+| 阅读材料、比较和解释 | [来源与主张](../references/research-standard.zh-CN.md#8-来源与主张) · [按问题选择分析方法](../references/optional-analysis-lenses.zh-CN.md) |
+| 委派独立研究、接收可用成果 | [实质研究与交接](../references/subagents-and-review-loop.zh-CN.md#实质研究与交接) · [共同上下文与实际调用](usage-modes.zh-CN.md#研究委派与成果交接) |
+| 写出完整报告、统稿与修订 | [写作规范](../references/writing-style.zh-CN.md) · [组稿](../references/research-workflow.zh-CN.md#9-组稿) |
+| 接续任务或落实新要求 | [任务接续](../references/task-continuity.zh-CN.md) · [当前主稿与需求变更](usage-modes.zh-CN.md#当前主稿与需求变更) |
+| 完成独立审阅、审计与验收 | [审阅方法](../references/subagents-and-review-loop.zh-CN.md#按视角分工) · [完成条件](../references/quality-gates.zh-CN.md)；工具记录细节见下方“审阅与评测”。 |
+
+遇到具体问题时再查[常见研究问题](../references/gotchas.zh-CN.md)，无需另起一套流程。
 
 ## 报告与案例
 
@@ -41,8 +47,19 @@
 
 ## 开发
 
+目录按内容用途保留，研究职责通过共用实现连接：
+
+| 位置 | 维护内容 |
+| --- | --- |
+| `SKILL.md` 与 `references/` | 统一入口、研究规范及按需方法。 |
+| `scripts/` | CLI／MCP 共用逻辑；`task_context.py` 组织工作输入，`research_records.py` 保存记录与成果，`research_workflow.py` 连接研究、评审与交付操作。 |
+| `docs/` 与 `agents/` | 使用说明、网站与宿主接入；宿主负责 Agent 的运行和消息。 |
+| `plugins/research-toolkit/` | 从共享源文件生成的安装包内容，不单独维护另一套方法。 |
+| `examples/` 与 `evals/` | 调用示例、实际研究记录及相应检查；历史证据保持原样。 |
+
+- [DSH 接入维护](dsh-adapter-validation.zh-CN.md)：已有加载检查，与普通研究分开。
 - [网站发现与维护（英文）](site-maintenance.md)：静态构建、静态页面检查、部署后验证、数据口径与站长接入步骤。
 
-[项目改进计划](improvement-plan.zh-CN.md)：产品与评测工作的优先级、验收条件、盲法／任务设计和推进状态。
+[历史改进计划](improvement-plan.zh-CN.md)：早期优先级、研究设计及当时结果。
 
 [贡献指南](../CONTRIBUTING.zh-CN.md) · [更新记录](../CHANGELOG.zh-CN.md) · [插件包](../plugins/research-toolkit/README.zh-CN.md) · [脚本](../scripts/) · [MIT 许可](../LICENSE)

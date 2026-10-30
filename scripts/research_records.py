@@ -4,7 +4,6 @@ import csv
 import io
 import json
 import os
-import time
 import uuid
 import hashlib
 import re
@@ -106,6 +105,12 @@ def merge_records(root, kind, incoming, replace):
         else:
             if not isinstance(row.get("summary", row.get("description")), str):
                 raise ValueError(f"requirements[{index}].summary: provide the requirement in plain language.")
+            if "unit_ids" in row:
+                unit_ids = row["unit_ids"]
+                if (not isinstance(unit_ids, list)
+                        or any(not isinstance(value, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', value) for value in unit_ids)
+                        or len(set(unit_ids)) != len(unit_ids)):
+                    raise ValueError(f"requirements[{index}].unit_ids: use distinct research-unit IDs, such as [\"domestic\"]; omit or use [] for a global requirement.")
             row.setdefault("status", "pending")
             if row["status"] not in {"pending", "open", "in_progress", "blocked", "satisfied", "waived", "out_of_scope", "accepted_limitation"}:
                 raise ValueError(f"requirements[{index}].status: use pending/open/in_progress/blocked/satisfied/waived/out_of_scope/accepted_limitation.")
@@ -150,7 +155,7 @@ def merge_records(root, kind, incoming, replace):
 def save_records(root, sources=None, claims=None, requirements=None, draft=None, replace=None, brief=None):
     from task_storage import safe_path, load
     from research_guidance import BRIEF_FIELDS
-    started, stamp, operation_id = time.monotonic(), now(), uuid.uuid4().hex
+    stamp, operation_id = now(), uuid.uuid4().hex
     event = {"operation": "save", "operation_id": operation_id, "started_at": stamp}
     plans, backups, ids, temporary, committed = [], [], {}, [], []
     try:
@@ -177,8 +182,10 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                 if kind in replace and original is not None:
                     backups.append((f"logs/record-backups/{operation_id}/{name}", original, None))
         if draft is not None:
-            if not isinstance(draft, dict) or set(draft) - {"path", "content", "complete", "main", "kind", "based_on", "host_task"}:
-                raise ValueError("draft: use path, optional content/complete/main/kind/based_on/host_task; complete records draft completeness, not delivery approval.")
+            allowed = {"path", "content", "complete", "main", "kind", "based_on", "host_task",
+                       "unit_id", "depends_on", "handoff", "question"}
+            if not isinstance(draft, dict) or set(draft) - allowed:
+                raise ValueError("draft: use path and optional content/complete/main/kind/based_on/host_task/unit_id/depends_on/handoff/question; complete records draft or unit completeness, not delivery approval.")
             name = draft.get("path")
             path = safe_path(root, name)
             target_name = path.relative_to(root.resolve()).as_posix()
@@ -192,18 +199,103 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                 raise ValueError("draft.main: use true or false.")
             if draft.get("kind", "report") not in {"report", "comparison", "review", "analysis"}:
                 raise ValueError("draft.kind: use report, comparison, review or analysis (a research contribution).")
+            from task_context import research_outputs
+            outputs = research_outputs(root, [], progress)
+            previous = next((item for item in outputs if safe_path(root, item['path']) == path), {})
+            current = progress.get("current_artifact", {})
+            writes_current = bool(current.get('path') and safe_path(root, current['path']) == path)
+            unit_id = draft.get('unit_id', previous.get('unit_id'))
+            if unit_id is not None:
+                if not isinstance(unit_id, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', unit_id):
+                    raise ValueError('draft.unit_id: use a stable research-unit ID with letters, numbers, dots, underscores or hyphens.')
+                if previous.get('unit_id') not in {None, unit_id} or any(
+                        item.get('unit_id') == unit_id and safe_path(root, item['path']) != path for item in outputs):
+                    raise ValueError('draft.unit_id: retain the registered unit and its original artifact path; use a new ID for different work.')
+                if not isinstance(draft.get('host_task'), str) or not draft['host_task'].strip():
+                    raise ValueError('draft.host_task: identify the actual producing host task/session when saving a research unit.')
+                event['unit_id'] = unit_id
+                event['unit_complete'] = draft.get('complete', False)
+            if 'question' in draft:
+                if not isinstance(draft['question'], str) or not draft['question'].strip():
+                    raise ValueError('draft.question: state the research question this contribution answers.')
+                event['question'] = draft['question']
+            elif previous.get('question'):
+                event['question'] = previous['question']
+            dependencies = draft.get('depends_on', previous.get('depends_on', []))
+            if (not isinstance(dependencies, list) or any(not isinstance(value, str) or not value.strip() for value in dependencies)
+                    or len(set(dependencies)) != len(dependencies) or unit_id in dependencies):
+                raise ValueError('draft.depends_on: use distinct upstream research-unit IDs; a unit cannot depend on itself.')
+            if dependencies and unit_id is None:
+                raise ValueError('draft.unit_id: identify the research unit whose dependencies are being saved.')
+            if unit_id:
+                graph = {item['unit_id']: item.get('depends_on', []) for item in outputs if item.get('unit_id')}
+                graph[unit_id] = dependencies
+                def cyclic(identity, visiting):
+                    return identity in visiting or any(cyclic(parent, visiting | {identity}) for parent in graph.get(identity, []))
+                if cyclic(unit_id, set()):
+                    raise ValueError('draft.depends_on: remove the cyclic dependency; retain only actual upstream work.')
+                event['depends_on'] = dependencies
+                upstream_versions = {}
+                supplied_inputs = draft.get('based_on', {})
+                if not isinstance(supplied_inputs, dict):
+                    raise ValueError('draft.based_on: use the work_context.inputs reference-to-SHA256 object.')
+                for dependency in dependencies:
+                    upstream = next((item for item in outputs if item.get('unit_id') == dependency), None)
+                    if upstream:
+                        upstream_versions[dependency] = supplied_inputs.get(upstream['path'],
+                            previous.get('dependency_versions', {}).get(dependency, upstream['sha256']))
+                event['dependency_versions'] = upstream_versions
+                if draft.get('complete'):
+                    pending = []
+                    for dependency in dependencies:
+                        upstream = next((item for item in outputs if item.get('unit_id') == dependency), None)
+                        issues = upstream.get('readiness_issues', []) if upstream else ['not_registered']
+                        if upstream and upstream_versions[dependency] != upstream['sha256']:
+                            issues = issues + ['dependency_version_changed']
+                        if issues:
+                            pending.append(f"{dependency}: {', '.join(issues)}")
+                    if pending:
+                        raise ValueError('draft.complete: upstream work is not ready (' + '; '.join(pending)
+                                         + '). Save the current draft with complete=false; finish or revise and independently review the affected upstream work.')
             if 'host_task' in draft:
                 if not isinstance(draft['host_task'], str) or not draft['host_task'].strip():
                     raise ValueError('draft.host_task: retain the actual host task/session reference as text.')
                 event['host_task'] = draft['host_task']
+            handoff = draft.get('handoff')
+            if handoff is not None:
+                if (not isinstance(handoff, dict) or set(handoff) - {'summary', 'pending', 'decisions', 'to'}
+                        or not isinstance(handoff.get('summary'), str) or not handoff['summary'].strip()):
+                    raise ValueError('draft.handoff: use summary, optional pending/decisions lists and to (the receiving host task/session).')
+                for field in ('pending', 'decisions'):
+                    if field in handoff and (not isinstance(handoff[field], list) or any(
+                            not isinstance(value, str) or not value.strip() for value in handoff[field])):
+                        raise ValueError(f'draft.handoff.{field}: use a list of substantive points; retain full analysis in the artifact.')
+                if 'to' in handoff and (not isinstance(handoff['to'], str) or not handoff['to'].strip()):
+                    raise ValueError('draft.handoff.to: use the receiving host task/session reference.')
+                if not event.get('host_task'):
+                    raise ValueError('draft.host_task: identify the sender of the handoff.')
+                event['handoff'] = handoff
+            # The main manuscript has one declared writer. Transfer is a saved
+            # handoff from that writer, not another writer silently claiming main.
+            main_owner = current.get('owner')
+            owner = main_owner if (writes_current or draft.get('main')) and main_owner else previous.get('owner') if unit_id else None
+            if owner and event.get('host_task') != owner:
+                raise ValueError(f'draft.host_task: {owner} owns this manuscript or research unit. Save an explicit handoff.to from that owner before another host writes it.')
             if 'based_on' in draft:
                 if not isinstance(draft['based_on'], dict):
-                    raise ValueError('draft.based_on: use the work_context.inputs path-to-SHA256 object.')
+                    raise ValueError('draft.based_on: use the work_context.inputs reference-to-SHA256 object.')
                 for input_name, checksum in draft['based_on'].items():
-                    safe_path(root, input_name)
+                    if isinstance(input_name, str) and input_name.startswith('record:'):
+                        parts = input_name.split(':', 2)
+                        if len(parts) != 3 or parts[1] not in SCHEMAS or not parts[2]:
+                            raise ValueError(f'draft.based_on[{input_name}]: use a record reference returned in work_context.inputs.')
+                    else:
+                        safe_path(root, input_name)
                     if not isinstance(checksum, str) or not re.fullmatch('[a-f0-9]{64}', checksum):
                         raise ValueError(f'draft.based_on[{input_name}]: use the SHA256 returned in work_context.inputs.')
                 event['based_on'] = draft['based_on']
+            elif previous.get('based_on'):
+                event['based_on'] = previous['based_on']
             # Preserve earlier contributions through the existing backup mechanism.
             # A child contribution never implicitly replaces the registered main draft.
             original = path.read_bytes() if path.exists() else None
@@ -214,19 +306,44 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                 raise ValueError("draft.content: provide nonempty report text or an existing nonempty UTF-8 file.")
             if "content" in draft:
                 plans.append((name, content.encode("utf-8"), original))
-                if draft.get('kind') == 'analysis' and original is not None and original != content.encode('utf-8'):
-                    backups.append((f'logs/record-backups/{operation_id}/{name}', original, None))
+                if original is not None and original != content.encode('utf-8'):
+                    backup = f'logs/record-backups/{operation_id}/{name}'
+                    backups.append((backup, original, None))
+                    event['previous_version'] = {'path': backup, 'sha256': sha256_file(path)}
+            if unit_id:
+                # Retain the saved version even if a host subsequently edits its
+                # working file directly. Handoff summaries never replace it.
+                snapshot = f'logs/record-backups/{operation_id}/saved/{name}'
+                backups.append((snapshot, content.encode('utf-8') if 'content' in draft else original, None))
+                event['artifact_snapshot'] = {'path': snapshot,
+                    'sha256': hashlib.sha256(content.replace('\r\n', '\n').replace('\r', '\n').encode('utf-8')).hexdigest()}
             event.update(artifact=name, artifact_kind=draft.get('kind', 'report'),
-                         complete_draft=draft.get("complete", False) and draft.get('kind') != 'analysis',
-                         time_basis="saved_by_tool" if "content" in draft else "existing_file_observed")
-            current = progress.get("current_artifact", {})
-            if draft.get("main") or current.get("path") == name:
+                         complete_draft=draft.get("complete", False) and draft.get('kind') != 'analysis')
+            if draft.get("main") or writes_current:
                 normalized = content.replace("\r\n", "\n").replace("\r", "\n")
                 progress["current_artifact"] = {"path": name,
                     "sha256": hashlib.sha256(normalized.encode("utf-8")).hexdigest(),
                     "kind": draft.get("kind", current.get("kind", "report") if current.get("path") == name else "report")}
+                active_owner = (handoff or {}).get('to') or event.get('host_task') or main_owner
+                if active_owner:
+                    progress['current_artifact']['owner'] = active_owner
+                if unit_id:
+                    progress['current_artifact']['unit_id'] = unit_id
         if not plans and draft is None and brief is None:
             raise ValueError("Supply sources, claims, requirements or a draft to save.")
+        research_changed = any(content != original for _, content, original in plans)
+        if draft is not None:
+            research_changed = research_changed or progress != old_progress or any(
+                key in event and event[key] != previous.get(key)
+                for key in ('unit_id', 'depends_on', 'handoff', 'based_on', 'host_task', 'question'))
+            content_hash = hashlib.sha256(content.replace('\r\n', '\n').replace('\r', '\n').encode('utf-8')).hexdigest()
+            research_changed = (research_changed or previous.get('sha256') != content_hash
+                or ('complete' in draft and draft['complete'] != previous.get('complete', False)))
+        if research_changed:
+            progress['review_contract'] = 2
+            if progress.get('stage') in {'final', 'review'} or progress.get('status') == 'complete':
+                progress.update(stage='revise', status='in_progress',
+                    next_action='Continue the affected research and independent review; historical receipts remain retained.')
         if progress != old_progress:
             # Keep historical receipts and reviews intact. An explicit new main
             # draft or brief revision cannot retain a terminal current state.
@@ -273,7 +390,7 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
     finally:
         for temp in temporary:
             temp.unlink(missing_ok=True)
-    event.update(finished_at=now(), elapsed_seconds=round(time.monotonic() - started, 6))
+    event.update(finished_at=now())
     try:
         record_event(root, event)
     except (ValueError, OSError) as exc:

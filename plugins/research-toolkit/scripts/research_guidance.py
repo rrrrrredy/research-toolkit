@@ -47,6 +47,8 @@ METHODS = {
     'analyze': ('references/research-standard.md', ['research-loop', 'lenses']),
     'write': ('references/writing-style.md', ['writing', 'language-style']),
     'review': ('references/subagents-and-review-loop.md', ['review']),
+    'audit': ('references/subagents-and-review-loop.md', ['audit']),
+    'acceptance': ('references/subagents-and-review-loop.md', ['acceptance']),
     'deliver': ('references/quality-gates.md', None),
     'delivery-records': ('docs/delivery-verification.md', None),
     'compare': ('references/optional-analysis-lenses.md', ['compare']),
@@ -62,7 +64,7 @@ STAGE_METHODS = {
     'brief': ['brief'], 'collect': ['collect', 'evidence'],
     'analyze': ['analyze', 'evidence'], 'draft': ['write'],
     'review': ['review'], 'revise': ['write', 'review'],
-    'final': ['deliver', 'delivery-records'],
+    'final': ['deliver'],
 }
 
 
@@ -97,4 +99,4 @@ def guidance(stage: str, language: str = 'en', profile: str = 'full', methods: l
                 entry['content'] += section + '\n\n'
     return {'stage': stage, 'guidance': list(files.values()), 'profile': profile,
             'available_methods': list(METHODS),
-            'profile_policy': LITE_LOG if profile == 'lite' else ['Use the declared reviewer tier; unconfigured new tasks use author self-review.']}
+            'profile_policy': ['Use host-native independent perspectives, audit and final acceptance. Historical profile names do not select another research method.']}

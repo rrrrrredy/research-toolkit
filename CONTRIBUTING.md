@@ -40,7 +40,7 @@ These are small contribution ideas, not a list of already-open Issues. Pick a co
 
 ## Verification
 
-Choose release numbers using the [1.x compatibility policy](docs/compatibility.md). Preserve documented interfaces and saved-work compatibility; document migration steps for a breaking major release.
+Choose release numbers using the [current compatibility policy](docs/compatibility.md). Preserve documented interfaces and saved-work compatibility; document migration steps for a breaking major release.
 
 Compile or build the affected code and complete mandatory repository checks. Choose any additional verification for the changed behavior or demonstrated failure, reusing existing coverage. Workflow changes may need an end-to-end scenario; deterministic parsing, path or state behavior may be better covered by a focused check. Preserve the inputs, commands and outputs needed to reproduce a result. Documentation changes do not by themselves require a new research run or test suite.
 

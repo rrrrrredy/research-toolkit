@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Capture real MCP calls using a fictional report and an explicitly supplied self-review."""
+"""Capture native-host assignments over real MCP; preserve the old example as history."""
 from __future__ import annotations
 import argparse
 import hashlib
@@ -30,7 +30,7 @@ def verify_inputs(base=HERE):
             raise ValueError(f"Changed example input: {name}; the supplied self-review applies only to the original example")
 
 
-async def capture(output, pause, resume):
+async def capture(output, pause, resume, host_result=None):
     verify_inputs()
     if resume:
         calls = read(output / "transcript.json")
@@ -56,19 +56,18 @@ async def capture(output, pause, resume):
             for source, dest in (("source.md", "source.md"), ("final.md", "final.md"), ("source_registry.csv", "data/source_registry.csv"), ("claims_registry.csv", "data/claims_registry.csv")):
                 (task / dest).write_text((HERE / source).read_text(encoding="utf-8"), encoding="utf-8")
             await call("research_status", {"task": "shipment-note", "stage": "draft"})
-        arguments = {"task": "shipment-note", "evidence_paths": ["source.md"], "reviewer": "self"}
-        pending = await call("research_review", arguments)
+        arguments = {"task": "shipment-note", "evidence_paths": ["source.md"], "include_assignment": False}
+        pending = await call("research_review", {**arguments, **({"host_result": read(host_result)} if host_result else {})})
         save(output / "review-request.json", pending)
-        if pause:
-            print("Self-review prompt saved in review-request.json; no review submitted.")
+        if not pending.get("delivery_ready"):
+            print("Independent host assignments and current findings are in review-request.json. "
+                  "Have the host agents read the frozen inputs; submit each actual result with --resume --host-result. "
+                  "No supplied self-review is replayed and no independent model work is claimed by this capture script.")
             return
-        review = read(HERE / "self-review.json")
-        reviewed = await call("research_review", {**arguments, "self_review": {**review, "input_version": pending["input_version"]}})
-        finished = await call("research_finish", {"task": "shipment-note", "message": "The fictional shipment note is complete, with self-review only and no independent review."})
-        if not reviewed.get("reviews_complete") or not finished.get("completed"):
+        finished = await call("research_finish", {"task": "shipment-note", "message": "The fictional shipment note has completed its independent review, audit and acceptance."})
+        if not finished.get("completed"):
             raise RuntimeError("Example did not complete; inspect transcript.json")
-        print("Captured real MCP calls in transcript.json; replayed the supplied author self-review, with degraded strength. No external model was called.")
-        print(json.dumps({"reviews_complete": reviewed["reviews_complete"], "review_strength": reviewed["review_strength"], "completed": finished["completed"]}))
+        print("Original MCP calls, host submissions and the current receipt are retained in the output directory.")
 
 
 def main():
@@ -76,11 +75,14 @@ def main():
     parser.add_argument("--output", type=Path, required=True, help="New output directory outside the installed toolkit")
     parser.add_argument("--pause-before-review", action="store_true")
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--host-result", type=Path, help="JSON with the actual slot_id, host_task, response_path and execution_path")
     args = parser.parse_args()
     output = args.output.resolve()
     if output == ROOT or ROOT in output.parents:
         parser.error("Use an output directory outside the installed toolkit")
-    asyncio.run(capture(output, args.pause_before_review, args.resume))
+    if args.host_result and not args.resume:
+        parser.error("Use --resume when submitting a completed host assignment")
+    asyncio.run(capture(output, args.pause_before_review, args.resume, args.host_result))
 
 
 if __name__ == "__main__":

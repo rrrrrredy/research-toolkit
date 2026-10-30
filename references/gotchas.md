@@ -35,8 +35,8 @@ Symptom: verified facts, company claims, media framing, user anecdotes, and auth
 Repair:
 
 1. Label each important claim as fact, source claim, interpretation, author judgment, or speculation.
-2. Downgrade any conclusion supported only by PR, media amplification, or community evidence.
-3. Add uncertainty or counter-evidence where the source class cannot prove the claim.
+2. Check what the actual source can establish: an official statement can establish its stated position, but not automatically the outcome it promotes.
+3. Correct the claim's strength and retain relevant counter-evidence and uncertainty.
 
 Eval signal: thin or empty `claims_registry.csv`, absolute language without uncertainty, weak claim discipline terms.
 
@@ -49,7 +49,7 @@ Repair:
 1. Reopen the canonical stage that owns the blocking issue.
 2. Reconcile every material follow-up requirement. Missing promised work stays open until completed or specifically changed by the user; a disclosed limitation does not supply that decision.
 3. Inspect the intended delivery message alongside current state, then use the existing delivery check for CLI/MCP-managed tasks.
-4. Check that the agreed review covers the current report; check a delivery receipt when using tool-managed delivery. Preserve local-review scope and disclose material limitations. Current record checks still do not certify reading or prose quality.
+4. Complete the independent content reviews, audit and final acceptance of the current report; use a delivery receipt for managed tasks. Preserve local-review scope and material limitations rather than replacing actual reading with a completion label.
 
 Eval signal: completion language appears before the last material requirement turn; progress is non-final or noncanonical; blockers remain; review scope is local; limitations are hidden; or receipt hashes are stale.
 
@@ -63,7 +63,7 @@ Repair:
 2. Move chronology to existing append-only logs and keep only the requirement ledger needed to preserve user intent.
 3. Remove proposed control machinery from the plan unless it changes a concrete research decision or verification result.
 
-Eval signal: a case-specific state-size or control-file budget is exceeded while reader-facing work remains unchanged.
+Diagnostic signal: new control records repeat existing information without improving recovery, a research decision or the delivered text.
 
 ## Depth Collapse
 
@@ -91,15 +91,15 @@ Eval signal: final prose explains the method more than the industry question.
 
 ## Subagent Sprawl
 
-Symptom: subagents expand scope, rewrite the whole report, or produce conflicting theses.
+Symptom: agents expand scope without a decision, overwrite one another's work, or return incompatible assumptions that are never reconciled.
 
 Repair:
 
-1. Give subagents bounded files, sections, or source classes.
-2. Require PASS/FAIL criteria and issue lists.
-3. Keep thesis ownership with the main agent.
+1. Assign substantive research questions with their effective requirements, original inputs, dependencies and expected artifacts.
+2. Keep one designated main writer and separate branch artifacts; the assembler reads full contributions and resolves cross-part conflicts.
+3. Keep overall direction with the lead, and production separate from independent review, audit and acceptance. Whole-report assembly can itself be delegated.
 
-Eval signal: review logs contain broad rewrites instead of actionable findings, or final prose loses a stable argument.
+Diagnostic signal: a handoff omits the reasoning or its conditions, an unreviewed branch premise becomes a report conclusion, or several agents overwrite the main draft.
 
 ## Source Instruction Leakage
 

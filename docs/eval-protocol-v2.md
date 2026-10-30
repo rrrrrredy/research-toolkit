@@ -2,6 +2,8 @@
 
 [English](eval-protocol-v2.md) · [简体中文](eval-protocol-v2.zh-CN.md)
 
+This page is a retained historical fixed-source study protocol, explaining original records and their conditions. It is not a runbook for new research or maintenance. Its study profiles, task/call counts, token/time ceilings and single-judge arrangements describe that historical design; current research uses the [unified entry](../SKILL.md) and independent collaboration without inheriting those quotas. Frozen inputs and outputs remain unchanged.
+
 This records the extension of the historical [fixed-source Lite pilot](eval-protocol.md) and its retained runner. It is not the current research entry; new research uses the [shared methods](../SKILL.md). The frozen October 10 study is unchanged. The original protocol change supplied no quality results; subsequent dated connectivity and calibration records remain separate evidence. Schema 1 remains supported. Schema 2 currently accepts `prospective_development` only; an exposed task pack cannot become held out by changing its label.
 
 ## What is frozen

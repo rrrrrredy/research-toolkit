@@ -75,7 +75,7 @@ Answer:
 - Use chronological explanation in the vertical section, but keep facts traceable.
 - Use tables for comparable facts and prose to explain mechanisms, differences and trade-offs.
 - Make judgments, but mark speculation clearly.
-- Avoid empty terms such as "empower", "closed loop", or "strategic foothold" unless they are being critically analyzed.
+- Name the actor, action and mechanism behind abstract wording. Keep a term when it has a defined role in the evidence or the reader's field; use the [writing method](writing-style.md#process-language-cleanup) to edit by function rather than by a banned-word list.
 
 ## Depth And Length
 
@@ -83,11 +83,4 @@ Follow any agreed length constraint. Allocate detail according to the user's pur
 
 ## Output Pattern
 
-Use:
-
-1. vertical analysis
-2. horizontal analysis
-3. intersection judgment
-4. source notes or reference appendix
-
-If the broader report has a different structure, integrate this method into the relevant sections instead of forcing these headings into the final article.
+Connect historical explanation, current comparison and their combined implications in the structure the question needs. They may form separate sections or appear within object-specific arguments. Use the agreed reference form; an appendix is included when requested or useful within the task. The method does not prescribe chapter names or require a separate block for every direction.

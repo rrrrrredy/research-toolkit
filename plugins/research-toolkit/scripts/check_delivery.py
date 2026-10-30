@@ -701,7 +701,7 @@ def evaluate_delivery(
     if not isinstance(progress, dict):
         progress = {}
 
-    if progress.get("profile") == "lite":
+    if progress.get("profile") == "lite" and progress.get("review_contract", 1) < 2:
         from profile_policy import inspect_lite_delivery
         result = inspect_lite_delivery(root, artifact, delivery_message)
         # A retained checklist can still match its inputs after the task is resumed.

@@ -27,6 +27,26 @@ CONFIG = {"reviewers": [{"id": "primary", "model": "synthetic", "format": "json"
           "auditor": {"id": "audit", "model": "synthetic", "format": "json"}}
 
 
+def historical_profile(workspace, task, profile=None):
+    """Restore an explicitly historical fixture, never a current user workflow."""
+    root = Path(workspace)/task
+    progress = workflow.load(root, 'state/progress.json')
+    progress['review_contract'] = 1
+    if profile is not None:
+        progress['profile'] = profile
+    workflow.save(root, 'state/progress.json', progress)
+
+
+def legacy_review(workspace, task, *args, **kwargs):
+    historical_profile(workspace, task)
+    return workflow.legacy_review(workspace, task, *args, **kwargs)
+
+
+def legacy_finish(workspace, task, *args, **kwargs):
+    historical_profile(workspace, task)
+    return workflow.legacy_finish(workspace, task, *args, **kwargs)
+
+
 class SyntheticRunner:
     def __init__(self, *, negative=False, bad_review=0, bad_audit=0, reuse=False, inject=False):
         self.negative, self.bad_review, self.bad_audit = negative, bad_review, bad_audit
@@ -38,6 +58,10 @@ class SyntheticRunner:
         role = request["role"]
         self.calls.append(role)
         self.requests.append(request)
+        if request.get('contract_version') == 2:
+            value = self.current_contract(request)
+            return {"execution_id": "synthetic-reused" if self.reuse else "synthetic-"+uuid.uuid4().hex,
+                    "content": json.dumps(value), "capture": {"synthetic": True, "role": role}}
         if role == "reviewer":
             if self.bad_review:
                 self.bad_review -= 1
@@ -67,8 +91,55 @@ class SyntheticRunner:
         return {"execution_id": "synthetic-reused" if self.reuse else "synthetic-"+uuid.uuid4().hex,
                 "content": json.dumps(value), "capture": {"synthetic": True, "role": role}}
 
+    def current_contract(self, request):
+        """Deterministic transport fixture, not an independent research judgment."""
+        role = request['role']
+        basis = 'Synthetic control: source.md counts shipments; final.md paragraph 2 must not relabel them revenue.'
+        coverage = {d: {'location': 'final.md paragraphs 1–3; source.md paragraph 1', 'basis': basis}
+                    for d in request.get('dimensions', workflow.DIMENSIONS)}
+        defect = {'finding_id': 'F1', 'severity': 'major', 'location': 'final.md paragraph 2', 'basis': basis}
+        sample = {'location': 'final.md paragraph 2', 'selection_reason': 'This passage transforms the source metric into a report conclusion.',
+                  'evidence': basis, 'result': 'defect' if self.negative else 'clear'}
+        if self.negative:
+            sample['expansion'] = {'locations': ['source.md paragraph 1', 'data/claims_registry.csv C1', 'final.md paragraphs 1–3'],
+                                   'outcome': 'The same unsupported revenue inference appears only in paragraph 2.'}
+        if role == 'reviewer':
+            value = {'report_verdict': 'needs_revision' if self.negative else 'pass',
+                     'findings': [defect] if self.negative else [], 'coverage': coverage}
+            if self.bad_review:
+                self.bad_review -= 1
+                value['coverage'] = {}
+        elif role == 'auditor':
+            if self.bad_audit:
+                self.bad_audit -= 1
+                raise ReviewFailure('Synthetic interrupted audit', {'synthetic': True, 'status': 'failed'})
+            reviews = request['reviews']
+            current_findings = {sid+'/'+f['finding_id']: f for sid, row in reviews.items() for f in row['record'].get('findings', [])}
+            critical = [{'location': 'final.md paragraphs 1–3', 'evidence': basis, 'result': 'clear',
+                         'requirement_id': row.get('requirement_id', row.get('id'))}
+                        for row in request['assignment']['effective_requirements']]
+            critical.append({'location': 'final.md paragraph 2; source.md paragraph 1', 'evidence': basis,
+                             'result': 'defect' if self.negative else 'clear'})
+            value = {'result': 'valid', 'basis': basis,
+                     'review_checks': {sid: {'result': 'valid', 'basis': basis} for sid in reviews},
+                     'dispositions': {key: {'decision': 'confirmed_defect', 'reason': basis, 'evidence': basis} for key in current_findings},
+                     'critical_checks': critical, 'sample_checks': [sample],
+                     'prior_findings': {row['attempt_id']+'/'+row['finding']['finding_id']: {
+                         'decision': 'unresolved' if self.negative else 'resolved', 'reason': basis,
+                         'evidence': 'The current paragraph states that revenue is not reported.' if not self.negative else basis}
+                         for row in request['assignment']['prior_required_findings']},
+                     'report_verdict': 'needs_revision' if self.negative or current_findings else 'pass',
+                     'open_issues': [basis] if self.negative or current_findings else []}
+        else:
+            value = {'result': 'fail' if self.negative else 'pass', 'basis': basis,
+                     'coverage': {d: {'location': 'final.md paragraphs 1–3; source.md paragraph 1', 'basis': basis} for d in workflow.DIMENSIONS},
+                     'sample_checks': [sample], 'open_issues': [basis] if self.negative else []}
+        value.update(input_version=request['input_version'], assignment_version=request['assignment_version'])
+        return value
+
 
 class WorkflowTests(unittest.TestCase):
+    """Retained version-1 execution and protection controls; MCP covers current delivery."""
     def setUp(self):
         readiness = patch.object(workflow, "review_readiness", return_value={"status": "local_checks_passed", "model_access_verified": False})
         readiness.start()
@@ -77,6 +148,7 @@ class WorkflowTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.workspace = Path(self.temp.name)
         workflow.start(self.workspace, "case", BRIEF)
+        historical_profile(self.workspace, 'case', 'full')
         self.root = self.workspace/"case"
         (self.root/"final.md").write_text("The source reports twelve shipments.\n\nRevenue is not reported.\n\nFurther evidence is needed for a revenue estimate.\n", encoding="utf-8")
         (self.root/"source.md").write_text("Company A reports twelve shipments in 2026. No revenue figure is supplied.\n", encoding="utf-8")
@@ -84,12 +156,12 @@ class WorkflowTests(unittest.TestCase):
         (self.root/"data/claims_registry.csv").write_text("claim_id,claim,claim_type,supporting_sources\nC1,Twelve shipments,verified_fact,S1\n", encoding="utf-8")
 
     def review(self, runner, purpose="report_delivery", **kwargs):
-        return workflow.review(self.workspace, "case", ["source.md"], purpose=purpose,
+        return legacy_review(self.workspace, "case", ["source.md"], purpose=purpose,
                                config=kwargs.pop("config", CONFIG), runner=runner, **kwargs)
 
     def test_self_review_file_reference_preserves_full_input_and_rejects_stale_response(self):
-        full = workflow.review(self.workspace, "case", ["source.md"], reviewer="self")
-        compact = workflow.review(self.workspace, "case", ["source.md"], reviewer="self", include_assignment=False)
+        full = legacy_review(self.workspace, "case", ["source.md"], reviewer="self")
+        compact = legacy_review(self.workspace, "case", ["source.md"], reviewer="self", include_assignment=False)
         self.assertIn("assignment", full)
         self.assertNotIn("assignment", compact)
         self.assertEqual(full["input_version"], compact["input_version"])
@@ -103,20 +175,27 @@ class WorkflowTests(unittest.TestCase):
         response["input_version"] = compact["input_version"]
         (self.root/"source.md").write_text("Changed source content.\n", encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "current frozen input_version"):
-            workflow.review(self.workspace, "case", ["source.md"], reviewer="self",
+            legacy_review(self.workspace, "case", ["source.md"], reviewer="self",
                             self_review=response, include_assignment=False)
         self.assertEqual(workflow.sha256_file(frozen), ref["sha256"])
 
-    def test_cli_self_review_file_reference_and_invalid_switch(self):
-        request = {"task": "case", "evidence_paths": ["source.md"], "reviewer": "self", "include_assignment": False}
+    def test_cli_native_assignments_and_invalid_switch(self):
+        workflow.save_records(self.workspace, "case", draft={"path": "final.md", "main": True,
+                              "host_task": "synthetic-cli-author", "complete": True})
+        request = {"task": "case", "evidence_paths": ["source.md"], "include_assignment": False}
         command = [sys.executable, "-X", "utf8", str(workflow.TOOLKIT/"scripts/research_workflow.py"),
                    "review", "--workspace", str(self.workspace)]
         result = subprocess.run(command, input=json.dumps(request), encoding="utf-8", capture_output=True)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         value = json.loads(result.stdout)
-        self.assertNotIn("assignment", value)
-        self.assertEqual(value["action_required"], "self_review")
-        self.assertTrue((self.root/value["assignment_ref"]["path"]).is_file())
+        self.assertEqual(value["action_required"], "host_agents")
+        self.assertEqual(len(value['assignments']), 8)
+        for item in value['assignments']:
+            self.assertNotIn('assignment', item)
+            self.assertTrue((self.root/item['assignment_ref']['path']).is_file())
+        rejected = subprocess.run(command, input=json.dumps({**request, 'reviewer': 'self'}), encoding='utf-8', capture_output=True)
+        self.assertEqual(rejected.returncode, 1)
+        self.assertIn('self-review', json.loads(rejected.stdout)['error'])
         request["include_assignment"] = "false"
         result = subprocess.run(command, input=json.dumps(request), encoding="utf-8", capture_output=True)
         self.assertEqual(result.returncode, 1)
@@ -180,7 +259,7 @@ class WorkflowTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 workflow.start(self.workspace, task, BRIEF)
         with self.assertRaises(ValueError):
-            workflow.review(self.workspace, "case", ["../secret.txt"], config=CONFIG)
+            legacy_review(self.workspace, "case", ["../secret.txt"], config=CONFIG)
 
     def test_dispatch_missing_and_unknown_arguments_are_actionable_without_mutation(self):
         before = (self.root/"state/progress.json").read_bytes()
@@ -318,7 +397,7 @@ class WorkflowTests(unittest.TestCase):
         result = self.review(runner, config=changed, revision=True)
         self.assertTrue(result["reviews_complete"], result)
         self.assertEqual(runner.calls, ["reviewer", "auditor", "auditor"])
-        self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertTrue(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
 
     def test_changed_command_does_not_reuse_same_model_label(self):
         runner = SyntheticRunner()
@@ -353,7 +432,7 @@ class WorkflowTests(unittest.TestCase):
         retained = workflow.rows_for(self.root)
         self.assertEqual(retained[:len(original)], original)
         self.assertEqual(len([r for r in retained if r.get("record_type") == "review_plan_change"]), 1)
-        self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertTrue(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
 
     def test_rename_and_return_preserve_first_valid_results_and_plan_chain(self):
         runner = SyntheticRunner()
@@ -497,11 +576,11 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual([r["assignment"]["requirements"] for r in runner.requests], [content, content])
         requirement["summary"] = "Include a comparison table."
         ledger.write_text(json.dumps(requirement)+"\n", encoding="utf-8")
-        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
         ledger.unlink()
-        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
         ledger.write_text(content, encoding="utf-8")
-        self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertTrue(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
 
     def test_malformed_requirements_never_reach_a_reviewer(self):
         (self.root/"state/requirements.jsonl").write_text("{broken json}", encoding="utf-8")
@@ -515,7 +594,7 @@ class WorkflowTests(unittest.TestCase):
         result = self.review(runner)
         self.assertEqual(runner.calls, ["reviewer", "auditor"])
         self.assertTrue(result["completion_check"]["ok"], result)
-        delivered = workflow.finish(self.workspace, "case", "The final report is complete.")
+        delivered = legacy_finish(self.workspace, "case", "The final report is complete.")
         self.assertTrue(delivered["completed"], delivered)
         self.assertEqual(workflow.load(self.root, "state/progress.json")["status"], "complete")
         self.assertTrue(workflow.evaluate_delivery(self.root)["ok"])
@@ -529,13 +608,13 @@ class WorkflowTests(unittest.TestCase):
             self.assertFalse(workflow.load(self.root, "state/progress.json")["review_plan"]["audit_required"])
             for name in ("state/findings.jsonl", "state/directions_tried.json", "state/iteration_log.jsonl", "logs/work.jsonl"):
                 self.assertFalse((self.root/name).exists())
-            self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+            self.assertTrue(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
             before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
             self.assertTrue(self.review(runner, config=None)["reused"])
             self.assertEqual(runner.calls, ["reviewer"])
             self.assertEqual(before, {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()})
         (self.root/"source.md").write_text("Changed after review.", encoding="utf-8")
-        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
 
     def test_review_receives_shared_content_methods_in_existing_call(self):
         runner = SyntheticRunner(negative=True)
@@ -569,7 +648,7 @@ class WorkflowTests(unittest.TestCase):
             self.assertTrue(self.review(runner, config=config)["reused"])
             self.assertEqual(runner.calls, ["reviewer"])
             self.assertEqual(before, {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()})
-            self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+            self.assertTrue(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
             self.assertTrue(self.review(runner, config=config, revision=True)["reviews_complete"])
         self.assertEqual(runner.calls, ["reviewer", "reviewer"])
         self.assertIn("units, denominators, time windows and calculations", runner.requests[-1]["instructions"])
@@ -583,7 +662,7 @@ class WorkflowTests(unittest.TestCase):
             self.assertFalse(result["completion_check"]["ok"])
             self.assertTrue(self.review(runner, config=None)["reused"])
         self.assertEqual(runner.calls, ["reviewer"])
-        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
         self.assertFalse((self.root/"state/final_delivery.json").exists())
 
     def no_change_record(self):
@@ -601,7 +680,7 @@ class WorkflowTests(unittest.TestCase):
         decision = self.no_change_record()
         decision.pop("decision_actor", None)
         workflow.append_row(self.root, decision)
-        result = workflow.finish(self.workspace, "case", "The final report is complete.")
+        result = legacy_finish(self.workspace, "case", "The final report is complete.")
         self.assertFalse(result["completed"], result)
         self.assertFalse((self.root/"state/final_delivery.json").exists())
 
@@ -617,7 +696,7 @@ class WorkflowTests(unittest.TestCase):
                 log.write_bytes(history)
                 workflow.append_row(self.root, {**self.no_change_record(), **changed})
                 before = log.read_bytes()
-                self.assertFalse(workflow.finish(self.workspace, "case", "The report is complete.")["completed"])
+                self.assertFalse(legacy_finish(self.workspace, "case", "The report is complete.")["completed"])
                 self.assertEqual(log.read_bytes(), before)
 
     def test_legacy_dispositions_resume_without_inventing_an_actor(self):
@@ -638,7 +717,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertTrue(self.review(runner, config=config)["reused"])
         self.assertTrue(self.review(runner, config=config, revision=True)["reused"])
         self.assertEqual(runner.calls, ["reviewer"])
-        result = workflow.finish(self.workspace, "case", "The final report is complete.")
+        result = legacy_finish(self.workspace, "case", "The final report is complete.")
         self.assertTrue(result["completed"], result)
         self.assertIn(decision, workflow.rows_for(self.root))
 
@@ -652,9 +731,9 @@ class WorkflowTests(unittest.TestCase):
         runner = SyntheticRunner()
         self.review(runner)
         set_limit(90)
-        self.assertFalse(workflow.finish(self.workspace, "case", "The report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The report is complete.")["completed"])
         self.review(runner, revision=True)
-        self.assertTrue(workflow.finish(self.workspace, "case", "The report is complete.")["completed"])
+        self.assertTrue(legacy_finish(self.workspace, "case", "The report is complete.")["completed"])
 
     def test_evidenced_no_change_delivers_without_rewriting_or_reviewing_again(self):
         runner = SyntheticRunner(negative=True)
@@ -664,7 +743,7 @@ class WorkflowTests(unittest.TestCase):
         preserved = {p: (self.root/p).read_bytes() for p in
                      ("final.md", "source.md", original["response"]["path"], original["execution"]["path"])}
         workflow.append_row(self.root, self.no_change_record())
-        delivered = workflow.finish(self.workspace, "case", "The final report is complete.")
+        delivered = legacy_finish(self.workspace, "case", "The final report is complete.")
         self.assertTrue(delivered["completed"], delivered)
         self.assertTrue(workflow.evaluate_delivery(self.root)["ok"])
         self.assertTrue(self.review(runner, config=config)["reused"])
@@ -672,7 +751,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(preserved, {p: (self.root/p).read_bytes() for p in preserved})
         self.assertIn(original, workflow.rows_for(self.root))
         (self.root/"source.md").write_text("Changed after the no-change decision.", encoding="utf-8")
-        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
 
     def test_no_change_cannot_hide_missing_basis_unresolved_or_unknown_findings(self):
         self.review(SyntheticRunner(negative=True), config={"reviewers": CONFIG["reviewers"]})
@@ -684,7 +763,7 @@ class WorkflowTests(unittest.TestCase):
                 log.write_bytes(history)
                 workflow.append_row(self.root, {**self.no_change_record(), **changed})
                 before = log.read_bytes()
-                self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+                self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
                 self.assertEqual(log.read_bytes(), before)
                 self.assertFalse((self.root/"state/final_delivery.json").exists())
 
@@ -698,7 +777,7 @@ class WorkflowTests(unittest.TestCase):
             return response
         self.review(additional_issue, config={"reviewers": CONFIG["reviewers"]})
         workflow.append_row(self.root, self.no_change_record())
-        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
         decision = self.no_change_record()
         workflow.append_row(self.root, {**decision, "finding_id": "second"})
         rows = workflow.rows_for(self.root)
@@ -714,11 +793,11 @@ class WorkflowTests(unittest.TestCase):
         workflow.append_row(self.root, {"scope": "global_final_delivery", "result": "fail",
             "artifact_sha256": workflow.sha256_file(self.root/"final.md"), "open_issues": ["Missing required comparison."]})
         before = (self.root/"logs/review.jsonl").read_bytes()
-        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
         self.assertEqual((self.root/"logs/review.jsonl").read_bytes(), before)
         # A later explicitly audited assignment continues to use its independent decisions.
         self.review(SyntheticRunner(negative=True), revision=True)
-        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
 
     def test_default_report_recovers_only_incomplete_review(self):
         runner = SyntheticRunner(bad_review=1)
@@ -738,7 +817,7 @@ class WorkflowTests(unittest.TestCase):
         result = self.review(inconsistent, config={"reviewers": CONFIG["reviewers"]})
         self.assertTrue(result["reviews_complete"])
         self.assertFalse(result["completion_check"]["ok"])
-        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
 
     def test_existing_default_audited_plan_resumes_its_original_contract(self):
         runner = SyntheticRunner(bad_audit=1)
@@ -788,7 +867,7 @@ class WorkflowTests(unittest.TestCase):
         result = self.review(SyntheticRunner(negative=True))
         self.assertTrue(result["reviews_complete"])
         self.assertFalse(result["completion_check"]["ok"])
-        delivered = workflow.finish(self.workspace, "case", "The final report is complete.")
+        delivered = legacy_finish(self.workspace, "case", "The final report is complete.")
         self.assertFalse(delivered["completed"])
         self.assertFalse((self.root/"state/final_delivery.json").exists())
 
@@ -831,7 +910,7 @@ class WorkflowTests(unittest.TestCase):
     def test_changed_evidence_blocks_delivery(self):
         self.review(SyntheticRunner())
         (self.root/"source.md").write_text("Changed after review.", encoding="utf-8")
-        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
 
     def test_reused_execution_cannot_validate_its_own_review(self):
         result = self.review(SyntheticRunner(reuse=True))
@@ -842,7 +921,7 @@ class WorkflowTests(unittest.TestCase):
         (self.root/"state/requirements.jsonl").write_text(json.dumps({
             "requirement_id": "R1", "source_turn": "1", "summary": "Provide calculations.",
             "status": "open", "evidence": []})+"\n", encoding="utf-8")
-        result = workflow.finish(self.workspace, "case", "The final report is complete.")
+        result = legacy_finish(self.workspace, "case", "The final report is complete.")
         self.assertFalse(result["completed"], result)
         self.assertEqual(workflow.load(self.root, "state/progress.json")["status"], "in_progress")
 
@@ -867,7 +946,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertEqual(runner.calls, [])
         # Importing an existing report does not require a prior stage transition.
         self.assertTrue(self.review(runner)["reviews_complete"])
-        self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertTrue(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
 
     def add_required_source(self):
         with (self.root/"data/source_registry.csv").open("a", encoding="utf-8") as stream:
@@ -885,9 +964,9 @@ class WorkflowTests(unittest.TestCase):
         for request in runner.requests:
             self.assertEqual(request["assignment"]["sources"]["required.md"], (self.root/"required.md").read_text(encoding="utf-8"))
             self.assertNotIn("unrelated-private.md", request["assignment"]["sources"])
-        self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertTrue(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
         (self.root/"required.md").write_text("Twenty-four shipments instead.\n", encoding="utf-8")
-        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
 
     def test_counter_source_reaches_review_and_binds_revisions(self):
         # End-to-end record save -> review packet -> changed-source revision.
@@ -903,7 +982,7 @@ class WorkflowTests(unittest.TestCase):
             {"claim_id": "C1", "counter_evidence": "S2; S1"},
             {"claim_id": "C2", "claim": "Revenue is unknown", "claim_type": "interpretation",
              "supporting_sources": ["S1"], "counter_evidence": "No revenue figure; S20x is not a registered source."}])
-        result = workflow.review(self.workspace, "case", ["source.md"], reviewer="self")
+        result = legacy_review(self.workspace, "case", ["source.md"], reviewer="self")
         packet = result["assignment"]
         self.assertEqual(packet["sources"]["counter.md"], counter.read_text(encoding="utf-8"))
         self.assertEqual(set(packet["sources"]), {
@@ -912,8 +991,8 @@ class WorkflowTests(unittest.TestCase):
         original = frozen.read_bytes()
         counter.write_text("Only six of the twelve shipments were delivered.\n", encoding="utf-8")
         with self.assertRaises(ValueError):
-            workflow.review(self.workspace, "case", ["source.md"], reviewer="self")
-        revised = workflow.review(self.workspace, "case", ["source.md"], reviewer="self", revision=True)
+            legacy_review(self.workspace, "case", ["source.md"], reviewer="self")
+        revised = legacy_review(self.workspace, "case", ["source.md"], reviewer="self", revision=True)
         self.assertNotEqual(result["input_version"], revised["input_version"])
         self.assertEqual(revised["assignment"]["sources"]["counter.md"], counter.read_text(encoding="utf-8"))
         self.assertEqual(frozen.read_bytes(), original)
@@ -923,7 +1002,7 @@ class WorkflowTests(unittest.TestCase):
         # Construct the packet generated by the earlier caller-only evidence selection.
         with patch.object(workflow, "required_source_inputs", return_value=({}, {})):
             self.assertTrue(self.review(SyntheticRunner())["reviews_complete"])
-        result = workflow.finish(self.workspace, "case", "The final report is complete.")
+        result = legacy_finish(self.workspace, "case", "The final report is complete.")
         self.assertFalse(result["completed"], result)
         self.assertFalse((self.root/"state/final_delivery.json").exists())
 
@@ -948,10 +1027,10 @@ class WorkflowTests(unittest.TestCase):
         packet = runner.requests[0]["assignment"]
         self.assertIn("source.md", packet["sources"])
         self.assertEqual(packet["source_files"]["original.pdf"], workflow.sha256_file(original))
-        self.assertTrue(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertTrue(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
         original.write_bytes(b"%PDF-changed-original\xff\x00")
         self.assertFalse(workflow.evaluate_delivery(self.root)["ok"])
-        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
 
     def test_source_changed_while_preparing_delivery_is_not_sealed(self):
         self.review(SyntheticRunner())
@@ -960,14 +1039,14 @@ class WorkflowTests(unittest.TestCase):
             (self.root/"source.md").write_text("Changed while preparing the snapshot.", encoding="utf-8")
             return copytree(source, target, *args, **kwargs)
         with patch.object(workflow.shutil, "copytree", side_effect=changing_copy):
-            result = workflow.finish(self.workspace, "case", "The final report is complete.")
+            result = legacy_finish(self.workspace, "case", "The final report is complete.")
         self.assertFalse(result["completed"], result)
         self.assertFalse((self.root/"state/final_delivery.json").exists())
 
     def test_replaying_completed_review_preserves_every_file_and_receipt(self):
         runner = SyntheticRunner()
         self.review(runner)
-        workflow.finish(self.workspace, "case", "The final report is complete.")
+        legacy_finish(self.workspace, "case", "The final report is complete.")
         before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
         result = self.review(runner)
         self.assertTrue(result["reviews_complete"])
@@ -997,7 +1076,7 @@ class WorkflowTests(unittest.TestCase):
         self.assertFalse(result["completion_check"]["ok"])
         self.assertIn("report_not_ready", result["completion_check"]["flags"])
         self.assertNotEqual(workflow.load(self.root, "state/progress.json")["next_action"], "Run delivery verification.")
-        self.assertFalse(workflow.finish(self.workspace, "case", "The final report is complete.")["completed"])
+        self.assertFalse(legacy_finish(self.workspace, "case", "The final report is complete.")["completed"])
         workflow.start(self.workspace, "evaluation", BRIEF)
         import shutil
         shutil.copytree(self.root, self.workspace/"evaluation", dirs_exist_ok=True)
@@ -1005,10 +1084,11 @@ class WorkflowTests(unittest.TestCase):
         (self.workspace/"evaluation/state/progress.json").write_text(json.dumps({
             "brief": BRIEF, "stage": "draft", "status": "in_progress", "author_id": "author:evaluation", "open_issues": []}), encoding="utf-8")
         (self.workspace/"evaluation/logs/review.jsonl").write_text("", encoding="utf-8")
-        evaluated = workflow.review(self.workspace, "evaluation", ["source.md"], purpose="evaluation", config=CONFIG, runner=global_failure)
+        evaluated = legacy_review(self.workspace, "evaluation", ["source.md"], purpose="evaluation", config=CONFIG, runner=global_failure)
         self.assertTrue(evaluated["evaluation_complete"], evaluated)
 
-    def test_timeout_terminates_descendants_even_after_wrapper_exit(self):
+    def test_transport_cancellation_terminates_descendants_even_after_wrapper_exit(self):
+        from review_process import run_bounded
         for wrapper_exits in (False, True):
             with self.subTest(wrapper_exits=wrapper_exits):
                 marker = self.workspace/f"child-{wrapper_exits}.txt"
@@ -1018,18 +1098,13 @@ class WorkflowTests(unittest.TestCase):
                     f"subprocess.Popen([sys.executable, '-c', {child!r}], creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))\n"+
                     ("" if wrapper_exits else "time.sleep(10)\n"), encoding="utf-8")
                 began = time.monotonic()
-                with self.assertRaises(ReviewFailure) as raised:
-                    run_reviewer({"id": "timeout", "model": "synthetic", "format": "json", "timeout_seconds": 1,
-                                  "command": [sys.executable, str(worker)]}, {}, self.workspace)
-                capture = raised.exception.capture
-                if not wrapper_exits or capture.get("status") == "timeout":
-                    self.assertEqual(capture["status"], "timeout")
-                    self.assertEqual(capture["local_process_cleanup"], "terminated")
-                    self.assertEqual(capture["remote_request_cancelled"], "unknown")
+                try:
+                    result = run_bounded([sys.executable, str(worker)], '{}', self.workspace, 1)
+                except subprocess.TimeoutExpired:
+                    pass  # An explicit transport cancellation, not a research runtime limit.
                 else:
-                    # A completed wrapper with detached stdio can return before timeout;
-                    # job/group cleanup must still remove its surviving descendants.
-                    self.assertEqual(capture["exit_code"], 0)
+                    self.assertTrue(wrapper_exits)
+                    self.assertEqual(result.returncode, 0)
                 self.assertLess(time.monotonic()-began, 2.5)
                 time.sleep(max(0, 3.0-(time.monotonic()-began)))
                 self.assertFalse(marker.exists())
@@ -1130,14 +1205,14 @@ class ReadinessTests(unittest.TestCase):
         config = copy.deepcopy(CONFIG)
         for entry in [*config["reviewers"], config["auditor"]]:
             entry["command"] = [sys.executable, "custom-adapter.py"]
-        with patch("review_runner.load_review_config", return_value=config), patch("review_runner.subprocess.run") as run:
+        with patch("review_runner.backend_configured", return_value=True), patch("review_runner.load_review_config", return_value=config), patch("review_runner.subprocess.run") as run:
             result = review_readiness()
         self.assertEqual(result["status"], "unverified")
         self.assertFalse(result["model_access_verified"])
         run.assert_not_called()
 
     def test_invalid_config_is_a_concrete_readiness_failure(self):
-        with patch("review_runner.load_review_config", side_effect=ValueError("private configuration detail")):
+        with patch("review_runner.backend_configured", return_value=True), patch("review_runner.load_review_config", side_effect=ValueError("private configuration detail")):
             result = review_readiness()
         self.assertEqual(result["status"], "blocked")
         self.assertNotIn("private configuration detail", json.dumps(result))

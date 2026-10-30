@@ -41,8 +41,8 @@ def research_start(task: str, brief: dict[str, str], language: str = "en",
     Assemble concrete coverage and expected results from context; brief uses question, audience, scope, output, depth and evidence_standard.
     Returned clarification_questions guide the agent; do not forward them as a questionnaire. Explain consequential alternatives and resolve critical choices with the user.
     Use the complete shared research methods. Omit profile; it is retained only for older clients and saved tasks.
-    Resume an existing task through research_status, preserving its recorded completion requirements.
-    review_readiness reports review access; collection and analysis can proceed while review access is unavailable.
+    Resume saved materials through research_status; historical receipts remain unchanged.
+    New work uses independent host review, audit and acceptance. review_readiness defaults to host_native.
     """
     return mutate(workflow.start, task, brief, language, profile)
 
@@ -54,6 +54,8 @@ def research_save(task: str, sources: list[dict[str, Any]] | None = None,
                   brief: dict[str, str] | None = None) -> dict[str, Any]:
     """Save/update source, claim and requirement objects by stable ID; the tool writes CSV/JSONL.
     Omitted IDs are assigned or matched by URL/claim/summary. Partial updates retain other fields and rows.
+    requirements.unit_ids optionally assigns a requirement to named research units; omit it or use [] for global scope.
+    work.requirement_ids selects records to read, not their applicability. All effective requirements remain accessible.
     sources.read_scope records actual reading; requirements.reading_requirement specifies required reading, not read_scope.
     For an active mandatory-reading requirement, the merged row needs reading_requirement="full_text" or "relevant_sections"
     and required_source_ids, a nonempty list of distinct source IDs, e.g. ["S1"]. Other requirements can omit both.
@@ -63,14 +65,20 @@ def research_save(task: str, sources: list[dict[str, Any]] | None = None,
     URL/page locators and supported local-reference forms remain valid; optional evidence_path locates local UTF-8 source text.
     draft uses path, optional content and complete=true for a complete draft; omit content to register an existing file.
     draft.main=true explicitly selects the current work; optional kind is report/comparison/review/analysis.
-    For a research contribution use kind=analysis without main=true. Optional based_on copies work_context.inputs;
-    host_task retains the actual host task/session reference. Existing activity records return these contributions
-    in current_work.research_outputs, including changed inputs; changed inputs do not automatically invalidate analysis.
+    For a contribution use kind=analysis, unit_id and the actual producing host_task; question states its research question.
+    depends_on lists actual upstream unit IDs. complete=true records a finished unit, not an independent review or delivery;
+    a dependent unit cannot complete before its declared upstream versions are finished and independently reviewed.
+    based_on copies work_context.inputs unchanged: file paths and record:sources:S1 / record:claims:C1 /
+    record:requirements:effective or effective@unit IDs map to SHA256; copy the returned keys rather than constructing them.
+    handoff uses summary, optional pending/decisions text lists and to (the receiving host task/session).
+    The registered main writer transfers ownership through handoff.to; another host cannot silently replace the main draft.
+    Saved unit originals and prior versions are retained in existing record-backups; summaries do not replace original analysis.
+    current_work.research_outputs returns contributions, owners, current dependencies and changed inputs for research judgment.
     Chapter/reference drafts do not change the main selection. brief updates only supplied brief fields and task_spec together.
     Returns assigned IDs and field errors for the agent to resolve, without asking users to manage records.
     replace names complete collections to repair from recovered rows; original bytes are backed up automatically.
     Records reading/verification claims as supplied, never infers truth or closes requirements automatically.
-    Saves observe timestamps and failures; research_status exposes activity and returned reviewer usage.
+    Saves retain event timestamps and original failures for task continuity.
     changes summarizes the latest record-save batch and candidate claim/report locations; identical bytes are not rewritten.
     Saving a source ID also compares local evidence against its previous save observation. First observations are explicit.
     """
@@ -91,7 +99,8 @@ def research_check_updates(task: str, source_id: str) -> dict[str, Any]:
 def research_status(task: str, language: str = "en", stage: str | None = None,
                     methods: list[str] | None = None, work: dict[str, Any] | None = None) -> dict[str, Any]:
     """Read progress and stage methods. Optional stage advances to collect/analyze/draft/revise only
-    after prerequisite records exist. Review and final completion use their dedicated tools.
+    after prerequisite records exist. When work selects a branch, check its sources/claims and declared upstream inputs;
+    unrelated pending branches do not block it. Whole-report review and final completion retain complete task checks.
     language accepts "en" (English), "zh" or "zh-CN" (the same Chinese methods); checked before any stage change.
     Explicit analyze/draft entry includes saved requirements as JSONL text when present, preserving statuses and evidence.
     changes reuses the latest successful record-save batch and locates related claims in the latest registered draft.
@@ -100,9 +109,13 @@ def research_status(task: str, language: str = "en", stage: str | None = None,
     not the Skill actually read by the host. Status does not discover arbitrary unregistered files.
     current_work includes effective_requirements (including satisfied), scope_decisions and research_outputs.
     Optional methods selects named methods from research_guide.available_methods instead of the stage defaults.
-    Optional work prepares readable input for research, delegation or revision: question, requirement_ids,
-    claim_ids, source_ids and paths (all optional). Selected claims include supporting and counter-evidence sources.
-    work_context includes originals, effective requirements, references and inputs hashes. Choose scope yourself;
+    Optional work prepares readable input for research, delegation or revision: question, unit_id, depends_on,
+    requirement_ids, claim_ids, source_ids and paths (all optional). unit_id resumes saved work; depends_on selects upstream
+    units for a new assignment. Their full artifacts and bound originals are included, not just handoff summaries.
+    Selected claims include supporting and counter-evidence sources. Dependency results distinguish incomplete work,
+    changed inputs/versions and pending independent review. Fulfilled requirements remain effective unless superseded.
+    work_context includes originals, effective requirements, references and inputs hashes (files plus selected record bindings).
+    current_work.production_contexts retains recorded production identities for independent assignments. Choose scope yourself;
     send the packet through the host's existing agent tools, preserving its actual task handle for follow-up.
     No host agent is launched by this read. Omit stage to prepare independent work without changing global progress.
     """
@@ -128,33 +141,41 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
                           purpose: str = "report_delivery", revision: bool = False,
                           reviewer: Literal["self", "external", "independent"] | None = None,
                           self_review: dict[str, Any] | None = None,
-                          include_assignment: bool = True) -> dict[str, Any]:
-    """Run the configured content reviews and any declared audits, retaining original evidence.
-    Without a configured backend, new tasks return a self-review prompt; submit the actual result as self_review.
-    Explicit external/independent selections never silently downgrade. Historical checklist-only tasks retain their skip logs.
-    External calls send the full task/report/evidence to the configured model account. May consume its usage.
-    evidence_paths are UTF-8 files relative to the task; required registry materials are included automatically.
-    Use evidence_path in source records for local source text/extracts. Use purpose=evaluation to preserve defects.
-    Resume incomplete assignments; never retry a valid negative result to improve the verdict.
-    After correcting a report, pass revision=True for its new version; this is the normal report-delivery loop.
-    Already authorized corrections do not need another user confirmation. Reconcile changed scope in task records first.
-    For local self-review, include_assignment=False returns the frozen input path/hash instead of repeating its full text.
-    Read the current assignment locally and reuse already-read unchanged evidence; review and freshness checks are identical.
+                          include_assignment: bool = False,
+                          host_result: dict[str, Any] | None = None,
+                          scope: str = "full_report", perspectives: list[str] | None = None,
+                          domains: list[str] | None = None, audit: bool | None = None) -> dict[str, Any]:
+    """Prepare independent assignments or receive the host's actual completed result; no API setup is needed.
+    The host dispatches distinct non-author agents: seven whole-report perspectives and domain review,
+    then an independent audit with independently selected samples, then independent final acceptance.
+    host_result uses slot_id, host_task (actual session handle), response_path and execution_path (task-relative
+    original UTF-8 response and completed host capture). Original responses quote input_version and assignment_version.
+    execution_path records host_task, status=completed and assignment_version. Do not fabricate responses or identities.
+    evidence_paths may be empty when registered original evidence suffices; required sources are included automatically.
+    include_assignment=False returns frozen assignment files instead of repeating their full text. Read the full input.
+    For progressive work set scope to a saved unit_id and artifact to its draft; perspectives selects relevant unit reviews.
+    New units default to no domain review; domains supplies needed specialist perspectives. audit=True adds independent
+    unit adjudication when needed, retaining existing content results. An enabled audit cannot be removed; full reports
+    always require audit and final acceptance. Main drafts must have their actual producer registered via save draft.host_task.
+    Revision assignments reference earlier reviews, frozen inputs and changed locations; these are reading aids, not current PASS.
+    A completed negative review is retained. Correct the draft, then use revision=True; do not reroll for a pass.
+    reviewer=self and self_review remain recognizable legacy parameters but cannot complete current independent review.
+    Explicitly configured external backends execute the same assignments; ordinary use stays in the host.
     """
     return await asyncio.to_thread(mutate, workflow.review, task, evidence_paths,
-                                   artifact, purpose, revision, reviewer, self_review, include_assignment)
+                                   artifact, purpose, revision, reviewer, self_review, include_assignment,
+                                   host_result, scope, perspectives, domains, audit)
 
 
 @server.tool(structured_output=True)
 async def research_finish(task: str, message: str, artifact: str = "final.md",
                           checklist: dict[str, Any] | None = None) -> dict[str, Any]:
     """Verify report delivery and publish its receipt/terminal state only when checks pass.
-    Historical checklist-only tasks accept their original checklist; omitting it returns a template.
-    Optional evidence_files lists retained task-relative check notes; checklist receipts also bind research inputs.
+    Current work requires completed independent perspectives, audit and acceptance bound to the current full artifact.
+    Historical checklist receipts remain readable; checklist cannot replace current independent work.
     Explicit length_constraint rows in state/requirements.jsonl are measured; no limit is inferred from prose.
     message is the intended user-visible delivery text. This does not send messages or publish externally.
-    For evidenced no-change decisions, append finding_disposition rows to logs/review.jsonl as documented.
-    New ordinary-review attempts require schema_version 2, decision_actor and original artifact/response hashes in those rows.
+    Independent audit adjudicates no-change decisions; an author's appended disposition cannot clear required findings.
     Evaluation tasks end with evaluation_complete from research_review, without repairing samples.
     """
     return await asyncio.to_thread(mutate, workflow.finish, task, message, artifact, checklist)

@@ -15,7 +15,7 @@ import uuid
 import time
 from functools import wraps
 from task_lock import task_lock
-from run_observation import now, timed_capture, activity_summary, record_event
+from run_observation import now, timed_capture, record_event
 from task_context import (current_work, runtime_identity, require_current_artifact,
                           task_inputs, source_inputs, prepare_work)
 from task_storage import nonempty, digest, safe_path, load, save, save_text, task_root
@@ -118,9 +118,10 @@ def registry_rows(root, name, fields):
     return rows
 
 
-def check_stage_records(root, stage):
-    sources = registry_rows(root, "data/source_registry.csv",
-        ("source_id", "title", "url", "source_type", "read_scope", "read_evidence"))
+def check_stage_records(root, stage, selection=None):
+    sources = (selection['sources'] if selection is not None else
+        registry_rows(root, "data/source_registry.csv",
+            ("source_id", "title", "url", "source_type", "read_scope", "read_evidence")))
     for row in sources:
         missing = [k for k in ("source_id", "title", "url", "source_type") if not nonempty(row.get(k))]
         if missing:
@@ -136,7 +137,8 @@ def check_stage_records(root, stage):
     if not read_ids:
         raise ValueError("Record the actual reading scope and locatable reading evidence before analysis.")
     if stage == "draft":
-        claims = registry_rows(root, "data/claims_registry.csv", ("claim_id", "claim", "claim_type", "supporting_sources"))
+        claims = (selection['claims'] if selection is not None else
+            registry_rows(root, "data/claims_registry.csv", ("claim_id", "claim", "claim_type", "supporting_sources")))
         grounded = False
         for row in claims:
             missing = [k for k in ("claim_id", "claim", "claim_type") if not nonempty(row.get(k))]
@@ -150,7 +152,7 @@ def check_stage_records(root, stage):
                 raise ValueError(f"data/claims_registry.csv row {row['claim_id']}, supporting_sources: cite read sources, "
                                  "or record claim_type hypothesis/assumption with explicit uncertainty when warranted.")
             grounded = grounded or bool(supporting)
-        if not grounded:
+        if not grounded and selection is None:
             raise ValueError("Develop at least one source-backed claim before drafting.")
 
 
@@ -197,12 +199,12 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
     created = not progress_file.exists()
     if progress_file.exists():
         progress = load(root, "state/progress.json")
-        if progress.get("profile", "full") != profile:
-            raise ValueError("A task profile is fixed at creation; resume with its saved profile or create a new task.")
+        # The historical profile describes old records, not a second current entry.
+        profile = progress.get("profile", "full")
         if progress.get("stage") != "brief":
             if brief and any(progress.get("brief", {}).get(k) != v for k, v in brief.items()):
                 raise ValueError("Research already started; reconcile changed scope explicitly in its task records.")
-            readiness = ({"status": "skipped", "log": LITE_LOG} if profile == "lite" else review_readiness())
+            readiness = review_readiness()
             return {**status(workspace, task, language), "review_readiness": readiness,
                     "ready_for_collection": True}
         brief = {**progress.get("brief", {}), **brief}
@@ -215,8 +217,9 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
         }.items():
             if safe_path(root, name).exists():
                 raise ValueError("Task contains existing records. Use a new task ID or inspect them before import.")
+        profile = "full"
         progress = {"stage": "brief", "status": "in_progress", "author_id": f"author:{task}",
-                    "open_issues": []}
+                    "review_contract": 2, "open_issues": []}
         for name, content in {
             "data/source_registry.csv": "source_id,title,url,source_type,read_scope,read_evidence,evidence_path\n",
             "data/claims_registry.csv": "claim_id,claim,claim_type,supporting_sources,counter_evidence,uncertainty\n",
@@ -225,7 +228,7 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
         }.items():
             save_text(root, name, content)
     missing = [key for key in BRIEF_FIELDS if not nonempty(brief.get(key))]
-    readiness = ({"status": "skipped", "log": LITE_LOG} if profile == "lite" else review_readiness())
+    readiness = review_readiness()
     progress.update(brief=brief, profile=profile, stage="brief" if missing else "collect",
                     next_action="Use context to propose concrete coverage and results; clarify only consequential unknowns." if missing else
                     "Collect and read the required evidence.")
@@ -240,7 +243,7 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
             observation["observation_warning"] = f"Task start could not be observed: {exc}"
     return {"task": task, "task_directory": str(root), "ready_for_collection": not missing,
             "runtime": runtime_identity(TOOLKIT), "current_work": current_work(root, progress),
-            "review_readiness": readiness, "profile": profile, "log": LITE_LOG if profile == "lite" else [],
+            "review_readiness": readiness, "profile": profile,
             "missing_fields": missing, "clarification_questions": [(BRIEF_FIELDS_ZH if language == "zh" else BRIEF_FIELDS)[k] for k in missing],
             **observation, **guidance(progress["stage"], language, profile)}
 
@@ -274,13 +277,19 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None,
         if missing:
             raise ValueError("Resolve the critical brief before advancing.")
         if stage in {"analyze", "draft"}:
-            check_stage_records(root, stage)
+            # A selected branch can proceed while unrelated branches are still
+            # reading. Whole-report review and delivery retain the full checks.
+            check_stage_records(root, stage, work_packet)
             requirements = requirement_input(root)
-        progress.update(stage=stage, status="in_progress", next_action=f"Complete the {stage} requirements.")
+        progress.update(stage=stage, status="in_progress", review_contract=2,
+                        next_action=f"Advance the {stage} work through its actual research dependencies.")
         save(root, "state/progress.json", progress)
     delivery = {}
     work = current_work(root, progress)
-    receipt_name = "state/final_checklist.json" if progress.get("profile") == "lite" else "state/final_delivery.json"
+    legacy_lite = progress.get("profile") == "lite" and progress.get("review_contract", 1) < 2
+    receipt_name = "state/final_checklist.json" if legacy_lite else "state/final_delivery.json"
+    if not safe_path(root, receipt_name).exists() and safe_path(root, "state/final_checklist.json").exists():
+        receipt_name = "state/final_checklist.json"
     if safe_path(root, receipt_name).exists():
         try:
             previous = load(root, receipt_name)
@@ -290,7 +299,7 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None,
             work["warnings"].append("Historical receipt unreadable; retained without alteration.")
     if progress.get("stage") == "final" or progress.get("status") == "complete":
         try:
-            name = "state/final_checklist.json" if progress.get("profile") == "lite" else "state/final_delivery.json"
+            name = "state/final_checklist.json" if legacy_lite else "state/final_delivery.json"
             receipt = load(root, name)
             artifact = receipt["artifact"]
             require_current_artifact(progress, artifact)
@@ -309,7 +318,6 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None,
     return {"task": task, "task_directory": str(root), "progress": progress, "missing_fields": missing, **delivery,
             "runtime": runtime_identity(TOOLKIT), "current_work": work,
             **({"requirements": requirements} if requirements else {}),
-            "activity": activity_summary(root),
             "changes": latest_changes(root),
             **({"work_context": work_packet} if work_packet is not None else {}),
             **method_guide}
@@ -423,7 +431,35 @@ def record_plan_change(root, previous, current):
 
 @task_operation
 def review(workspace: Path, task: str, evidence_paths: list[str], artifact="final.md",
+           purpose="report_delivery", revision=False, reviewer=None, self_review=None, include_assignment=False,
+           host_result=None, scope="full_report", perspectives=None, domains=None, audit=None, *, config=None, runner=run_reviewer) -> dict:
+    """Prepare or receive independent host work using the existing review interface."""
+    import host_review
+    root = task_root(workspace, task)
+    progress = load(root, "state/progress.json")
+    if type(include_assignment) is not bool:
+        raise ValueError("include_assignment must be true or false.")
+    if reviewer == "self" or self_review is not None:
+        raise ValueError("Author self-review cannot complete independent review. Use the host's separate agents and submit host_result.")
+    if reviewer not in {None, "independent", "external"}:
+        raise ValueError("reviewer must be independent or external; omit it for native host agents.")
+    if config is not None or backend_configured() or reviewer == "external":
+        trusted = validate_review_config(config) if config is not None else load_review_config()
+        return host_review.run_configured(sys_module(), root, progress, evidence_paths, artifact, purpose,
+            revision, include_assignment, host_result, scope, perspectives, domains, trusted, runner, audit)
+    return host_review.review(sys_module(), root, progress, evidence_paths, artifact, purpose,
+        revision, include_assignment, host_result, scope, perspectives, domains, audit)
+
+
+def sys_module():
+    import sys
+    return sys.modules[__name__]
+
+
+@task_operation
+def legacy_review(workspace: Path, task: str, evidence_paths: list[str], artifact="final.md",
            purpose="report_delivery", revision=False, reviewer=None, self_review=None, include_assignment=True, *, config=None, runner=run_reviewer) -> dict:
+    """Historical execution replay only; not exposed by the CLI or MCP entry."""
     if type(include_assignment) is not bool:
         raise ValueError("include_assignment must be true or false.")
     root = task_root(workspace, task)
@@ -727,6 +763,9 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
 
 def checked_review_files(root, progress, artifact):
     """Check the exact snapshot that will be sealed, including declared originals."""
+    if progress.get("review_plan", {}).get("contract_version") == 2:
+        from host_review import checked_files
+        return checked_files(root, progress["review_plan"])
     required_sources, originals = required_source_inputs(root)
     plan = progress["review_plan"]
     reviewed_files = set()
@@ -927,10 +966,25 @@ def finish_lite(root, progress, message, artifact, checklist):
 
 @task_operation
 def finish(workspace: Path, task: str, message: str, artifact="final.md", checklist=None) -> dict:
+    progress = load(task_root(workspace, task), "state/progress.json")
+    require_current_artifact(progress, artifact)
+    if progress.get("review_plan", {}).get("contract_version") != 2:
+        return {"completed": False, "action_required": "host_agents",
+                "error": "Continue with independent host review, audit and acceptance. Historical receipts remain readable and unchanged."}
+    return finish_recorded(workspace, task, message, artifact, checklist)
+
+
+@task_operation
+def legacy_finish(workspace: Path, task: str, message: str, artifact="final.md", checklist=None) -> dict:
+    """Historical fixture replay, not a public workflow action."""
+    return finish_recorded(workspace, task, message, artifact, checklist, legacy=True)
+
+
+def finish_recorded(workspace, task, message, artifact, checklist, *, legacy=False):
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
     require_current_artifact(progress, artifact)
-    if progress.get("profile", "full") == "lite":
+    if legacy and progress.get("profile") == "lite":
         return finish_lite(root, progress, message, artifact, checklist)
     if progress.get("review_plan", {}).get("purpose") != "report_delivery":
         raise ValueError("Report delivery needs report_delivery reviews. Evaluations end with their review result.")
@@ -947,7 +1001,13 @@ def finish(workspace: Path, task: str, message: str, artifact="final.md", checkl
     if not nonempty(message):
         raise ValueError("Provide the intended user-visible delivery message.")
     # Validate a temporary candidate; persistent state is never marked final on a failed check.
-    with tempfile.TemporaryDirectory(prefix="research-delivery-", dir=workspace.resolve()) as tmp:
+    candidate_parent = str(workspace.resolve())
+    if os.name == 'nt' and not candidate_parent.startswith('\\\\?\\'):
+        # The candidate adds a directory level to retained legacy review paths.
+        # Use Windows' extended path spelling instead of renaming evidence files.
+        candidate_parent = ('\\\\?\\UNC\\' + candidate_parent[2:] if candidate_parent.startswith('\\\\')
+                            else '\\\\?\\' + candidate_parent)
+    with tempfile.TemporaryDirectory(prefix="research-delivery-", dir=candidate_parent) as tmp:
         candidate = Path(tmp)/"task"
         shutil.copytree(root, candidate, symlinks=True)
         try:

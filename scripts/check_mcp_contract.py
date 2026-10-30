@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Exercise the packaged server over real MCP stdio with synthetic reviewer processes."""
+"""Packaged MCP stdio control with retained synthetic host executions; no research-quality claim."""
 from __future__ import annotations
 import asyncio
-import csv
 import json
 import os
 from pathlib import Path
@@ -30,248 +29,190 @@ async def verify(base):
         f"sys.path.insert(0,{str(ROOT/'scripts')!r})\n"
         "from check_research_workflow import SyntheticRunner\n"
         "request=json.load(sys.stdin)\n"
-        "corrected='The source reports twelve shipments. No revenue figure is supplied.\\n'\n"
-        "result=SyntheticRunner(negative=request['assignment']['report']!=corrected)({},request,None)\n"
-        "print(json.dumps({'execution_id':result['execution_id'],'content':result['content']}))\n",
-        encoding="utf-8")
-    worker_config = {"format": "json", "model": "synthetic-process",
-                     "command": [sys.executable, "-B", "-X", "utf8", str(worker)]}
-    config = base/"review-config.json"
-    config.write_text(json.dumps({"reviewers": [{"id": "primary", **worker_config}]}), encoding="utf-8")
+        "result=SyntheticRunner(negative='Revenue is twelve.' in request['assignment']['report'],bad_review=int('--malformed' in sys.argv))({},request,None)\n"
+        "print(json.dumps(result))\n", encoding="utf-8")
     workspace = base/"tasks"
-    env = {"RESEARCH_TOOLKIT_WORKSPACE": str(workspace),
-           "RESEARCH_TOOLKIT_REVIEW_CONFIG": str(config), "PYTHONDONTWRITEBYTECODE": "1"}
-    server = StdioServerParameters(command=sys.executable, args=[
-        "-B", "-X", "utf8", str(ROOT/"plugins/research-toolkit/scripts/research_mcp.py")], env=env)
+    env = {"RESEARCH_TOOLKIT_WORKSPACE": str(workspace), "RESEARCH_TOOLKIT_REVIEW_CONFIG": "",
+           "RESEARCH_TOOLKIT_REVIEW_BACKEND": "", "PYTHONDONTWRITEBYTECODE": "1"}
+    server = StdioServerParameters(command=sys.executable,
+        args=["-B", "-X", "utf8", str(ROOT/"plugins/research-toolkit/scripts/research_mcp.py")], env=env)
     async with Client(server, read_timeout_seconds=30) as client:
-        tools = await client.list_tools()
-        names = {tool.name for tool in tools.tools}
-        assert names == {"research_start", "research_save", "research_status", "research_guide", "research_review", "research_finish", "research_check_reviewer", "research_check_draft", "research_check_updates"}, names
-        for language, suffix in (("en", ".md"), ("zh", ".zh-CN.md")):
-            for stage in ("brief", "collect", "draft", "revise"):
-                guide = unpack(await client.call_tool("research_guide", {"stage": stage, "language": language}))
-                first = guide["guidance"][0]
-                text = first["content"]
-                headings = [line for line in text.splitlines() if line.startswith("## ")]
-                if stage in {"brief", "collect"}:
-                    assert first["path"] == "references/research-workflow" + suffix
-                    assert "\n## 3. " not in text and "artifact_sha256" not in text
-                    if stage == "brief":
-                        assert all(any(h.startswith(f"## {n}. ") for h in headings) for n in (1, 2, 6, 7))
-                        assert "research-workflow" + suffix + "#" in text
-                        assert "\n### " not in text
-                    else:
-                        assert all(any(h.startswith(f"## {n}. ") for h in headings) for n in (4, 5))
-                        assert not any(h.startswith("## 1. ") for h in headings)
-                else:
-                    assert first["path"] == "references/writing-style" + suffix
-                    assert "writing-style" + suffix + "#" in text
-                    assert "\n## Worked Choices in Research Prose" not in text
-                    assert "\n## 研究段落的取舍示范" not in text
-                    length_heading = "Length And Decision Usefulness" if language == "en" else "篇幅与决策用途"
-                    assert "\n## " + length_heading in text
-                    if stage == "revise":
-                        assert guide["guidance"][1]["path"] == "references/subagents-and-review-loop" + suffix
-                print(json.dumps({"stage": stage, "language": language, "path": first["path"],
-                                  "headings": headings, "returned_characters": len(text)}))
-            lite_guide = unpack(await client.call_tool("research_guide", {
-                "stage": "final", "language": language, "profile": "lite"}))
-            shared_guide = unpack(await client.call_tool("research_guide", {
-                "stage": "final", "language": language}))
-            assert lite_guide["guidance"] == shared_guide["guidance"]
-        denied = await client.call_tool("research_start", {"task": "../outside", "brief": BRIEF})
-        assert denied.is_error
-        brief = unpack(await client.call_tool("research_start", {"task": "case", "brief": {"question": "What changed?"}}))
-        assert not brief["ready_for_collection"]
-        ready = unpack(await client.call_tool("research_start", {"task": "case", "brief": BRIEF}))
-        assert ready["ready_for_collection"]
-        assert ready["review_readiness"]["status"] == "unverified"
-        assert not ready["review_readiness"]["model_access_verified"]
-        root = Path(ready["task_directory"])
-        (root/"final.md").write_text("The source reports twelve shipments.\n\nRevenue is not reported.\n", encoding="utf-8")
-        (root/"source.md").write_text("Company A reported twelve shipments in 2026.\n", encoding="utf-8")
-        (root/"data/source_registry.csv").write_text("source_id,title,url,source_type,read_scope,read_evidence\nS1,,,,,\n", encoding="utf-8")
-        empty = await client.call_tool("research_status", {"task": "case", "stage": "draft"})
-        assert empty.is_error
-        denied_review = await client.call_tool("research_review", {"task": "case", "evidence_paths": ["source.md"]})
-        assert denied_review.is_error
-        (root/"data/source_registry.csv").write_text("source_id,title,url,source_type,read_scope,read_evidence\nS1,Shipments,https://example.org/source,primary,full_text,source.md\n", encoding="utf-8")
-        (root/"data/claims_registry.csv").write_text("claim_id,claim,claim_type,supporting_sources\nC1,Twelve shipments,verified_fact,S1\n", encoding="utf-8")
-        draft = unpack(await client.call_tool("research_status", {"task": "case", "stage": "draft"}))
-        assert draft["progress"]["stage"] == "draft"
-        reviewed = unpack(await client.call_tool("research_review", {"task": "case", "evidence_paths": ["source.md"]}))
-        assert reviewed["reviews_complete"], reviewed
+        async def call(name, arguments, *, error=False):
+            result = await client.call_tool(name, arguments)
+            with (base/"transport.jsonl").open("a", encoding="utf-8") as log:
+                log.write(json.dumps({"tool": name, "arguments": arguments,
+                    "return": result.model_dump(mode="json", by_alias=True)}, ensure_ascii=False)+"\n")
+            if error:
+                assert result.is_error, result
+                return result
+            return unpack(result)
 
+        tools = await client.list_tools()
+        assert {tool.name for tool in tools.tools} == {"research_start", "research_save", "research_status",
+            "research_guide", "research_review", "research_finish", "research_check_reviewer", "research_check_draft", "research_check_updates"}
+        for language, suffix in (("en", ".md"), ("zh", ".zh-CN.md")):
+            for stage in ("brief", "collect", "draft", "revise", "final"):
+                guide = await call("research_guide", {"stage": stage, "language": language})
+                assert all(item["path"].endswith(suffix) for item in guide["guidance"])
+                assert all(item["content"].strip() for item in guide["guidance"])
+                if stage in {"brief", "collect"}:
+                    assert "artifact_sha256" not in guide["guidance"][0]["content"]
+                if stage == "final":
+                    assert [item["path"] for item in guide["guidance"]] == ["references/quality-gates"+suffix]
+                if stage in {"draft", "revise"}:
+                    assert "\n## Worked Choices in Research Prose" not in guide["guidance"][0]["content"]
+                    assert "\n## 研究段落的取舍示范" not in guide["guidance"][0]["content"]
+            old_alias = await call("research_guide", {"stage": "final", "language": language, "profile": "lite"})
+            assert old_alias["guidance"] == guide["guidance"]
+        await call("research_start", {"task": "../outside", "brief": BRIEF}, error=True)
+        first = await call("research_start", {"task": "case", "brief": {"question": "What changed?"}, "profile": "lite"})
+        assert not first["ready_for_collection"] and first["profile"] == "full"
+        ready = await call("research_start", {"task": "case", "brief": BRIEF})
+        assert ready["ready_for_collection"] and ready["review_readiness"]["status"] == "host_native"
+        root = Path(ready["task_directory"])
+        assert json.loads((root/"state/progress.json").read_text(encoding="utf-8"))["review_contract"] == 2
+        (root/"source.md").write_text("Company A reports twelve shipments in 2026. No revenue figure is supplied.\n", encoding="utf-8")
+        (root/"counter.md").write_text("The product catalog lists delivery options, not booked or recognized revenue.\n", encoding="utf-8")
+        (root/"final.md").write_text("The source reports twelve shipments.\n\nRevenue is twelve.\n\nA revenue estimate requires prices and revenue recognition evidence.\n", encoding="utf-8")
+        (root/"data/source_registry.csv").write_text("source_id,title,url,source_type,read_scope,read_evidence\nS1,,,,,\n", encoding="utf-8")
+        await call("research_status", {"task": "case", "stage": "draft"}, error=True)
+        await call("research_review", {"task": "case", "evidence_paths": []}, error=True)
+        saved = await call("research_save", {"task": "case", "replace": ["sources"],
+            "sources": [{"source_id": "S1", "title": "Shipments", "url": "https://example.org/source", "source_type": "primary",
+                         "read_scope": "full_text", "read_evidence": "source.md"},
+                        {"source_id": "S2", "title": "Catalog", "url": "https://example.org/catalog", "source_type": "primary",
+                         "read_scope": "full_text", "read_evidence": "counter.md"}],
+            "claims": [{"claim_id": "C1", "claim": "Twelve shipments", "claim_type": "verified_fact",
+                        "supporting_sources": ["S1"], "counter_evidence": "S2"}],
+            "requirements": [{"requirement_id": "R1", "summary": "Distinguish shipment counts from revenue and explain the missing evidence.",
+                              "status": "satisfied", "evidence": "final.md paragraphs 1–3",
+                              "length_constraint": {"unit": "whitespace_words", "scope": "whole_artifact", "min": 10, "max": 150}}],
+            "draft": {"path": "final.md", "main": True, "host_task": "synthetic-author", "complete": True}})
+        assert saved["ok"] and saved["saved_ids"]["sources"] == ["S1", "S2"]
+        untouched = await call("research_save", {"task": "case", "sources": [{"source_id": "S1"}]})
+        assert untouched["updated_files"] == [] and untouched["changes"]["records"]["sources"]["unchanged"] == ["S1"]
+        bad = await call("research_save", {"task": "case", "sources": [{"source_id": "S1", "title": 42}]})
+        assert not bad["ok"] and "sources[0].title" in bad["errors"][0]
+        pending_req = {"requirement_id": "R1", "status": "pending", "evidence": ""}
+        await call("research_save", {"task": "case", "requirements": [pending_req]})
+        before = {p.relative_to(root): p.read_bytes() for p in root.rglob("*") if p.is_file()}
+        checked = await call("research_check_draft", {"task": "case"})
+        assert not checked["ok"] and checked["length_checks"][0]["bounds_met"]
+        assert before == {p.relative_to(root): p.read_bytes() for p in root.rglob("*") if p.is_file()}
+        await call("research_save", {"task": "case", "requirements": [{"requirement_id": "R1", "status": "satisfied", "evidence": "final.md paragraphs 1–3"}]})
+        checked = await call("research_check_draft", {"task": "case"})
+        assert checked["ok"] and checked["semantic_quality"] == checked["delivery_status"] == "not_assessed"
+        # A separate unfinished branch must not block selected, already-read work.
+        (root/'unread.md').write_text('The separate depot reports two test routes. This supplies no Company A revenue evidence.\n', encoding='utf-8')
+        await call('research_save', {'task': 'case',
+            'sources': [{'source_id': 'S3', 'title': 'Independent branch', 'url': 'https://example.org/other-depot',
+                         'source_type': 'primary', 'read_scope': 'not_read', 'evidence_path': 'unread.md'}],
+            'claims': [{'claim_id': 'C2', 'claim': 'The separate depot reports two test routes.',
+                        'claim_type': 'verified_fact', 'supporting_sources': ['S3']}]})
+        await call('research_status', {'task': 'case', 'stage': 'draft'}, error=True)
+        selected = await call('research_status', {'task': 'case', 'stage': 'draft',
+            'work': {'question': 'What can the already-read Company A records establish?', 'claim_ids': ['C1']}})
+        assert selected['progress']['stage'] == 'draft'
+        assert {row['source_id'] for row in selected['work_context']['sources']} == {'S1', 'S2'}
+        assert 'unread.md' not in selected['work_context']['files']
+        await call('research_save', {'task': 'case',
+            'sources': [{'source_id': 'S3', 'read_scope': 'full_text', 'read_evidence': 'unread.md'}]})
+        await call('research_status', {'task': 'case', 'stage': 'draft'})
+        args = {"task": "case", "evidence_paths": [], "domains": ["shipment and financial metric interpretation"], "include_assignment": True}
+        await call("research_review", {**args, "reviewer": "self"}, error=True)
+        pending = await call("research_review", args)
+        assert len(pending["assignments"]) == 8 and pending["action_required"] == "host_agents"
+        assert "counter.md" in pending["assignments"][0]["assignment"]["assignment"]["sources"]
+        sequence = 0
+        async def submit(item, *, malformed=False, producer=False):
+            nonlocal sequence
+            sequence += 1
+            folder = root/"captures"/str(sequence)
+            folder.mkdir(parents=True)
+            request = item["assignment"]
+            (folder/"request.json").write_text(json.dumps(request, ensure_ascii=False, indent=2), encoding="utf-8")
+            command = [sys.executable, "-B", "-X", "utf8", str(worker)] + (["--malformed"] if malformed else [])
+            process = await asyncio.create_subprocess_exec(*command, stdin=asyncio.subprocess.PIPE,
+                stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
+            stdout, stderr = await process.communicate(json.dumps(request, ensure_ascii=False).encode("utf-8"))
+            (folder/"stdout.json").write_bytes(stdout); (folder/"stderr.txt").write_bytes(stderr)
+            (folder/"command.json").write_text(json.dumps(command), encoding="utf-8")
+            assert process.returncode == 0, stderr
+            result = json.loads(stdout)
+            identity = "synthetic-author" if producer else result["execution_id"]
+            (folder/"response.json").write_text(result["content"], encoding="utf-8")
+            (folder/"execution.json").write_text(json.dumps({"host_task": identity, "status": "completed",
+                "assignment_version": request["assignment_version"], "synthetic": True, "returncode": process.returncode}), encoding="utf-8")
+            return await call("research_review", {**args, "host_result": {"slot_id": item["slot_id"], "host_task": identity,
+                "response_path": (folder/"response.json").relative_to(root).as_posix(),
+                "execution_path": (folder/"execution.json").relative_to(root).as_posix()}}, error=malformed or producer)
+
+        # One malformed first response and one producer impersonation are retained/rejected; then complete actual slots.
+        await submit(pending["assignments"][0], producer=True)
+        await submit(pending["assignments"][0], malformed=True)
+        while pending["assignments"]:
+            pending = await submit(pending["assignments"][0])
+        assert pending["reviews_complete"] and not pending["delivery_ready"] and pending["open_issues"]
         rows = [json.loads(line) for line in (root/"logs/review.jsonl").read_text(encoding="utf-8").splitlines()]
-        assert len([row for row in rows if row.get("record_type") == "model_review"]) == 1
-        assert not any(row.get("record_type") in {"review_audit", "sampling_audit"} for row in rows)
-        blocked = unpack(await client.call_tool("research_finish", {"task": "case", "message": "The final report is complete."}))
-        assert not blocked["completed"], blocked
-        original = next(row for row in rows if row.get("record_type") == "model_review")
-        decision = {"record_type": "finding_disposition", "attempt_id": original["attempt_id"],
+        negatives = [row for row in rows if row.get("record_type") == "model_review" and row.get("status") == "completed"]
+        assert len(negatives) == 8 and all(row["report_verdict"] == "needs_revision" for row in negatives)
+        assert any(row.get("status") == "incomplete" for row in rows)
+        for original in negatives:
+            with (root/"logs/review.jsonl").open("a", encoding="utf-8") as log:
+                log.write(json.dumps({"record_type": "finding_disposition", "attempt_id": original["attempt_id"],
                     "schema_version": 2, "decision_actor": {"id": "author:case", "role": "author"},
                     "artifact_sha256": original["artifact_sha256"], "response_sha256": original["response"]["sha256"],
-                    "finding_id": "F1", "decision": "no_change",
-                    "reason": "The report states that revenue is not reported; the review misreads it.",
-                    "evidence": "final.md paragraph 2 and source.md paragraph 1 report shipments, not revenue."}
-        with (root/"logs/review.jsonl").open("a", encoding="utf-8") as log:
-            log.write(json.dumps(decision)+"\n")
-        finished = unpack(await client.call_tool("research_finish", {"task": "case", "message": "The final report is complete."}))
-        assert finished["completed"], finished
-        current = unpack(await client.call_tool("research_status", {"task": "case"}))
-        assert current["progress"]["status"] == "complete"
+                    "finding_id": "F1", "decision": "no_change", "reason": "Synthetic author tries to waive the defect.",
+                    "evidence": "final.md paragraph 2"})+"\n")
+        assert not (await call("research_finish", {"task": "case", "message": "Complete."}))["completed"]
+        first_report = (root/"final.md").read_bytes()
+        (root/"first-draft.md").write_bytes(first_report)
+        first_log = (root/"logs/review.jsonl").read_bytes()
+        (root/"first-review-log.jsonl").write_bytes(first_log)
+        # An input-only revision must carry unresolved findings even when prose is identical.
+        await call("research_save", {"task": "case", "sources": [{"source_id": "S2", "title": "Catalog and delivery terms"}],
+            "requirements": [{"requirement_id": "R1", "summary": "Distinguish shipment counts from revenue, explain missing evidence, and preserve the source's reporting period."}]})
+        input_revision = await call("research_review", {**args, "revision": True})
+        assert (root/"final.md").read_bytes() == first_report
+        carried = input_revision["assignments"][0]["assignment"]["assignment"]["prior_required_findings"]
+        assert len(carried) == 8 and all(item["finding"]["finding_id"] == "F1" for item in carried), carried
+        corrected = "The source reports twelve shipments.\n\nRevenue is not reported. A shipment count cannot establish recognized revenue without prices and recognition terms.\n\nThe catalog adds product details but no financial evidence, so it does not resolve the gap.\n"
+        changed = await call("research_save", {"task": "case", "draft": {"path": "final.md", "content": corrected,
+            "host_task": "synthetic-author", "complete": True}})
+        assert changed["ok"] and changed["backups"]
+        pending = await call("research_review", {**args, "revision": True})
+        while pending["assignments"]:
+            pending = await submit(pending["assignments"][0])
+        assert pending["delivery_ready"] and pending["completion_check"]["completed_slots"] == 10, pending
+        done = await call("research_finish", {"task": "case", "message": "The requested report is complete."})
+        assert done["completed"], done
+        current = await call("research_status", {"task": "case"})
+        assert current["progress"]["status"] == "complete" and current["delivery_check"]["ok"]
+        assert (root/"first-draft.md").read_bytes() == first_report
+        assert (root/"first-review-log.jsonl").read_bytes() == first_log
         receipt = (root/"state/final_delivery.json").read_bytes()
-        history = (root/"logs/review.jsonl").read_bytes()
-        replay = unpack(await client.call_tool("research_review", {"task": "case", "evidence_paths": ["source.md"]}))
-        assert replay["reviews_complete"] and replay["reused"], replay
-        current = unpack(await client.call_tool("research_status", {"task": "case"}))
-        assert current["progress"]["status"] == "complete"
-        assert (root/"state/final_delivery.json").read_bytes() == receipt
-        assert (root/"logs/review.jsonl").read_bytes() == history
-        readiness = unpack(await client.call_tool("research_check_reviewer", {}))
-        assert readiness["status"] == "unverified"
-        from profile_policy import CHECKLIST
-        for profile, task in (("lite", "lite-case"), ("full", "self-case")):
-            created = unpack(await client.call_tool("research_start", {"task": task, "brief": BRIEF, "profile": profile}))
-            local = Path(created["task_directory"])
-            (local/"source.md").write_bytes((root/"source.md").read_bytes())
-            record_args = {"task": task,
-                "sources": [{"source_id": "S1", "title": "Shipments", "url": "https://example.org/source", "source_type": "primary", "read_scope": "full_text", "read_evidence": "source.md"}],
-                "claims": [{"claim_id": "C1", "claim": "Twelve shipments", "claim_type": "verified_fact", "supporting_sources": ["S1"]}],
-                "draft": {"path": "final.md", "content": (root/"final.md").read_text(encoding="utf-8"), "complete": True},
-                "requirements": [{
-                "requirement_id": "R-length", "summary": "Synthetic whole-file limit of 1–100 words.",
-                "status": "satisfied", "evidence": "final.md",
-                "length_constraint": {"unit": "whitespace_words", "scope": "whole_artifact", "min": 1, "max": 100}}]}
-            saved = unpack(await client.call_tool("research_save", record_args))
-            assert saved["ok"] and saved["saved_ids"]["sources"] == ["S1"], saved
-            assert saved["changes"]["records"]["sources"]["added"] == ["S1"], saved
-            unchanged = unpack(await client.call_tool("research_save", {"task": task, "sources": [{"source_id": "S1"}]}))
-            assert unchanged["updated_files"] == [] and unchanged["changes"]["records"]["sources"]["unchanged"] == ["S1"], unchanged
-            current_changes = unpack(await client.call_tool("research_status", {"task": task}))["changes"]
-            assert current_changes == unchanged["changes"], current_changes
-            bad = unpack(await client.call_tool("research_save", {"task": task, "sources": [{"source_id": "S1", "title": 42}]}))
-            assert not bad["ok"] and "sources[0].title" in bad["errors"][0], bad
-            arguments = {"task": task, "evidence_paths": ["source.md"], "reviewer": "self"}
-            length_file = local/"state/requirements.jsonl"
-            length_row = json.loads(length_file.read_text(encoding="utf-8"))
-            length_row.update(status="pending", evidence="")
-            assert unpack(await client.call_tool("research_save", {"task": task, "requirements": [length_row]}))["ok"]
-            before = {p.relative_to(local): p.read_bytes() for p in local.rglob("*") if p.is_file()}
-            unresolved = unpack(await client.call_tool("research_check_draft", {"task": task}))
-            assert not unresolved["ok"] and unresolved["length_checks"][0]["bounds_met"], unresolved
-            assert "R-length" in unresolved["next_action"] and "still pending" in unresolved["next_action"]
-            assert before == {p.relative_to(local): p.read_bytes() for p in local.rglob("*") if p.is_file()}
-            length_row.update(status="satisfied", evidence="final.md")
-            assert unpack(await client.call_tool("research_save", {"task": task, "requirements": [length_row]}))["ok"]
-            before = {p.relative_to(local): p.read_bytes() for p in local.rglob("*") if p.is_file()}
-            checked = unpack(await client.call_tool("research_check_draft", {"task": task}))
-            assert checked["ok"] and checked["length_checks"][0]["bounds_met"], checked
-            assert checked["semantic_quality"] == checked["delivery_status"] == "not_assessed"
-            assert before == {p.relative_to(local): p.read_bytes() for p in local.rglob("*") if p.is_file()}
-            pending = unpack(await client.call_tool("research_review", arguments))
-            finish_args = {"task": task, "message": "The report is complete; no independent review was performed."}
-            if profile == "lite":
-                assert pending["skipped"]
-                needed = unpack(await client.call_tool("research_finish", finish_args))
-                assert needed["action_required"] == "final_checklist"
-                finish_args["checklist"] = {k: {"passed": True, "evidence": "Synthetic MCP control: final.md and source.md."} for k in CHECKLIST}
-            else:
-                assert pending["action_required"] == "self_review"
-                arguments["include_assignment"] = False
-                compact = unpack(await client.call_tool("research_review", arguments))
-                assert "assignment" in pending and "assignment" not in compact
-                assert compact["input_version"] == pending["input_version"]
-                assert compact["assignment_ref"] == pending["assignment_ref"]
-                frozen = local/compact["assignment_ref"]["path"]
-                assert json.loads(frozen.read_text(encoding="utf-8")) == pending["assignment"]
-                from check_research_workflow import SyntheticRunner
-                value = json.loads(SyntheticRunner()({}, {"role": "reviewer"}, None)["content"])
-                arguments["self_review"] = {**value, "input_version": pending["input_version"]}
-                reviewed = unpack(await client.call_tool("research_review", arguments))
-                assert reviewed["reviews_complete"] and reviewed["review_strength"] == "degraded"
-            done = unpack(await client.call_tool("research_finish", finish_args))
-            assert done["completed"], done
-            assert done["delivery_check"]["length_checks"][0]["bounds_met"] is True
-            resumed = unpack(await client.call_tool("research_status", {"task": task, "language": "zh"}))
-            assert resumed["profile"] == profile
-            if profile == "lite":
-                assert resumed["guidance"][0]["path"] == "references/quality-gates.zh-CN.md"
-                assert resumed["delivery_check"]["terminal_state"] and resumed["delivery_check"]["checklist_valid"]
-                receipt = (local/"state/final_checklist.json").read_bytes()
-                resumed = unpack(await client.call_tool("research_status", {"task": task, "stage": "revise"}))
-                assert resumed["progress"]["status"] == "in_progress"
-                process = await asyncio.create_subprocess_exec(sys.executable, "-X", "utf8",
-                    str(ROOT/"plugins/research-toolkit/scripts/check_delivery.py"), str(local), "--json",
-                    stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE)
-                stdout, stderr = await process.communicate()
-                checked = json.loads(stdout)
-                assert process.returncode == 1 and "incomplete_lite_task" in checked["flags"], (checked, stderr)
-                assert checked["checklist_valid"] and not checked["terminal_state"]
-                assert (local/"state/final_checklist.json").read_bytes() == receipt
-                done = unpack(await client.call_tool("research_finish", finish_args))
-                assert done["completed"], done
-                resumed = unpack(await client.call_tool("research_status", {"task": task}))
-                assert resumed["progress"]["status"] == "complete" and resumed["delivery_check"]["ok"]
-        # Fill only the columns emitted by start, then correct a real negative
-        # synthetic verdict and re-review through the packaged stdio interface.
-        created = unpack(await client.call_tool("research_start", {"task": "template-mcp", "brief": BRIEF, "profile": "full"}))
-        local = Path(created["task_directory"])
-        (local/"sources").mkdir()
-        corrected = "The source reports twelve shipments. No revenue figure is supplied.\n"
-        (local/"sources/S1.md").write_text(corrected, encoding="utf-8")
-        for name, row in (("source_registry.csv", {"source_id": "S1", "title": "Shipments", "url": "https://example.org/source",
-                "source_type": "primary", "read_scope": "full_text", "read_evidence": "https://example.org/source#p1", "evidence_path": "sources/S1.md"}),
-                ("claims_registry.csv", {"claim_id": "C1", "claim": "Twelve shipments", "claim_type": "verified_fact", "supporting_sources": "S1"})):
-            path = local/"data"/name
-            with path.open(encoding="utf-8", newline="") as stream:
-                fields = next(csv.reader(stream))
-            with path.open("w", encoding="utf-8", newline="") as stream:
-                writer = csv.DictWriter(stream, fieldnames=fields); writer.writeheader(); writer.writerow(row)
-        (local/"memo.md").write_text("The source reports twelve shipments.\n\nRevenue is twelve.\n", encoding="utf-8")
-        unpack(await client.call_tool("research_status", {"task": "template-mcp", "stage": "draft"}))
-        args = {"task": "template-mcp", "artifact": "memo.md", "evidence_paths": ["sources/S1.md"]}
-        reviewed = unpack(await client.call_tool("research_review", args))
-        assert reviewed["reviews_complete"] and reviewed["review_check"]["completed_slots"] == 1
-        assert not reviewed["delivery_ready"] and reviewed["open_issues"]
-        (local/"memo.md").write_text(corrected, encoding="utf-8")
-        revised = unpack(await client.call_tool("research_review", {**args, "revision": True}))
-        assert revised["delivery_ready"] and not revised["open_issues"]
-        delivered = unpack(await client.call_tool("research_finish", {"task": "template-mcp", "artifact": "memo.md", "message": "The memo is complete."}))
-        assert delivered["completed"], delivered
-        resumed = unpack(await client.call_tool("research_status", {"task": "template-mcp"}))
-        assert resumed["progress"]["status"] == "complete" and resumed["delivery_check"]["ok"]
-        recorded = (local/"state/progress.json").read_bytes()
-        (local/"memo.md").write_text("Changed after delivery.", encoding="utf-8")
-        stale = unpack(await client.call_tool("research_status", {"task": "template-mcp"}))
+        progress_bytes = (root/"state/progress.json").read_bytes()
+        (root/"counter.md").write_text("Changed after delivery.\n", encoding="utf-8")
+        stale = await call("research_status", {"task": "case"})
         assert stale["progress"]["status"] == "stale" and not stale["delivery_check"]["ok"]
-        assert (local/"state/progress.json").read_bytes() == recorded
-        history = [json.loads(line) for line in (local/"logs/review.jsonl").read_text(encoding="utf-8").splitlines()]
-        assert [r["report_verdict"] for r in history if r.get("record_type") == "model_review"] == ["needs_revision", "pass"]
-        # Optional continuity fields travel through the packaged MCP schema.
-        before_receipt = (local/"state/final_delivery.json").read_bytes()
-        current = unpack(await client.call_tool("research_save", {"task": "template-mcp",
-            "brief": {"output": "A comparison note"},
-            "draft": {"path": "comparison.md", "content": "Comparison underway.", "main": True, "kind": "comparison"}}))
-        assert current["ok"] and current["current_work"]["artifact"]["kind"] == "comparison"
-        resumed = unpack(await client.call_tool("research_status", {"task": "template-mcp"}))
-        assert resumed["progress"]["status"] == "in_progress"
-        assert resumed["current_work"]["last_delivery"]["artifact"] == "memo.md"
-        assert resumed["runtime"]["host_loaded_entry"] == "not_observed"
-        wrong = await client.call_tool("research_finish", {"task": "template-mcp", "artifact": "memo.md", "message": "Done"})
-        assert wrong.is_error
-        assert (local/"state/final_delivery.json").read_bytes() == before_receipt
+        assert (root/"state/final_delivery.json").read_bytes() == receipt
+        assert (root/"state/progress.json").read_bytes() == progress_bytes
         resources = await client.list_resources()
-        assert any(str(r.uri) == "research-toolkit://instructions" for r in resources.resources)
+        assert any(str(item.uri) == "research-toolkit://instructions" for item in resources.resources)
         prompts = await client.list_prompts()
-        assert any(p.name == "research" for p in prompts.prompts)
-    print("PASS: packaged MCP discovery, bilingual guidance, template-based review/revision/delivery, stale status and preserved negative reviews.")
+        assert any(item.name == "research" for item in prompts.prompts)
+    (base/"RESULT.json").write_text(json.dumps({"result": "pass", "kind": "synthetic_stdio_contract_control",
+        "research_quality_assessed": False, "completed_current_slots": 10, "retained_initial_negative_slots": 8,
+        "command": "python scripts/check_mcp_contract.py", "artifacts": str(base)}, indent=2), encoding="utf-8")
+    print("PASS: v2 packaged MCP stdio, independent perspectives/audit/acceptance, preserved failure and negative results, rejected author clearance, source binding and stale delivery.")
+    print("Retained control artifacts: " + str(base))
 
 
 def main():
-    temp_root = os.environ.get("IRF_TEST_TMPDIR")
-    with tempfile.TemporaryDirectory(prefix="research-mcp-test-", dir=temp_root) as tmp:
-        asyncio.run(verify(Path(tmp)))
+    destination = Path(os.environ.get("IRF_TEST_ARTIFACT_DIR", ROOT/"evals/runs"))
+    destination.mkdir(parents=True, exist_ok=True)
+    base = Path(tempfile.mkdtemp(prefix="mcp-contract-", dir=destination))
+    asyncio.run(verify(base))
 
 
 if __name__ == "__main__":

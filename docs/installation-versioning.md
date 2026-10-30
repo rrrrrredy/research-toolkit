@@ -52,7 +52,7 @@ README entry points should explain what readers can do: read online, load the Sk
 
 ## Package version and release
 
-The [1.x compatibility policy](compatibility.md) defines supported interfaces, saved-task behavior and version increments. v1.0.0 preserves the v0.2.7 runtime and needs no task-data migration.
+The [compatibility policy](compatibility.md) defines supported interfaces, historical record inspection and continuation under the current completion contract. The commands above illustrate the historical v1.0.0 release; replace its tag and note path with the version being released.
 
 The root `VERSION` is the single current package-version source. Both plugin manifests are generated mirrors. Changelog entries and release notes describe that version; older version references describe history and must not be mass-replaced.
 

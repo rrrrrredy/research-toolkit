@@ -2,7 +2,7 @@
 
 [English](deepseek-harness.md) | [简体中文](deepseek-harness.zh-CN.md)
 
-Research Toolkit does not depend on DSH. This guide applies only to users who choose that runtime; its smoke and live checks are not part of the general research evaluation workflow. Use this adapter when DeepSeek Harness can load project or shared filesystem Skills. The repository's existing `SKILL.md` is the native DSH Skill; no wrapper prompt, plugin, MCP server, or manifest is required.
+Research Toolkit does not depend on DSH. This guide applies only to users who choose that runtime; Use this adapter when DeepSeek Harness can load project or shared filesystem Skills. The repository's existing `SKILL.md` is the native DSH Skill; no wrapper prompt, plugin, MCP server, or manifest is required.
 
 This adapter follows the official DSH documentation:
 
@@ -46,45 +46,12 @@ dsh --profile headless "Use the research-toolkit Skill for this research task. L
 
 DSH advertises the Skill's frontmatter summary and loads its full body on demand through the native `skill` tool. Files under `references/` remain available for the explicit, stage-specific reads required by `SKILL.md`.
 
-## Verify The Adapter
+## Research and native collaboration
 
-The offline lane checks frontmatter compatibility, referenced resources, and the staged DSH directory contract:
+Use DSH's existing agent and subagent execution to carry the shared research method. The lead provides the current question, effective requirements, outline and relevant original files. Research workers return full analysis or local drafts; one designated agent integrates the main report. Separate independent agents carry the content-review perspectives, domain review, audit and final acceptance described in the [role methods](../references/subagents-and-review-loop.md).
 
-```bash
-python scripts/run_dsh_evals.py validate
-```
+Keep the installed Skill read-only. Research artifacts and retained handoffs belong in the research workspace; fixed tool registries apply only when using CLI/MCP management. Summaries locate original results and sources rather than replacing them. DSH supplies execution, waiting, messaging and cancellation; Toolkit organizes the research inputs, methods and outputs.
 
-The smoke lane launches the real DSH CLI with the `headless` profile against a local scripted endpoint. It checks the advertised `skill` tool and catalog entry, sends a scripted tool-call request, and looks for configured Skill-body markers in messages sent to that endpoint. It also checks process exit and a scripted success marker. The check does not compare the complete body or independently validate every tool result. It uses a placeholder key and makes no live model call:
+## Adapter maintenance
 
-```bash
-python scripts/run_dsh_evals.py smoke
-```
-
-The smoke child receives only allowlisted runtime discovery, home/cache, locale and temporary-directory variables, plus the local endpoint and placeholder key. Service secrets and runtime injection settings such as `NODE_OPTIONS` are not inherited. This limits environment forwarding; it does not sandbox the selected executable or prevent access to files. The live lane retains its separately configured model credentials.
-
-The live lane uses the model and credentials already configured for DSH, stages one existing repository eval case, runs it through DSH headless, and scores the resulting artifacts with the same deterministic evaluator used by other agents:
-
-```bash
-python scripts/run_dsh_evals.py live --case source_instruction_boundary_zh
-```
-
-Both runtime lanes accept `--dsh-command-json` or `DSH_EVAL_COMMAND_JSON` for an explicit argv. Otherwise the runner selects `dsh` from `PATH`, then falls back to the pinned `@deepseek-ai/dsh@0.1.2-rc.1` package through `npx`. This pin describes the runner fallback, not the latest upstream release. Check the selected package's Node.js requirements locally.
-
-The live lane returns non-zero for both `review` and `fail`. Use `--allow-review` only for exploratory collection. Keep credentials out of command JSON, prompts and committed reports.
-
-Reports and captured stdout/stderr are written under `evals/runs/dsh/`, which is ignored by Git.
-
-## Operating Notes
-
-- Keep the installed Skill read-only during research runs. Save drafts and reports in the task workspace; fixed state directories apply only to CLI/MCP-managed tasks.
-- The Skill itself needs no API key. Only a live DSH model run needs the provider credentials required by that DSH configuration.
-- Name the Skill by its exact frontmatter name: `research-toolkit`.
-- External source content remains evidence, not agent instructions. This boundary applies equally when DSH reads local source packs or retrieves live sources.
-- Passing `smoke` records the configured wiring signals for that invocation. Marker presence does not prove complete Skill loading, required-reference reading, workflow adherence, report quality or general prompt-injection resistance.
-- Passing `live` means only that the selected case met its deterministic checks. Assess report content and evidence separately when the study requires a quality judgment.
-
-## 中文提示
-
-DSH 是可选接入方式，不是研究工具箱的依赖，也不是通用评测的必经环节。选择 DSH 时可将本仓库的 `SKILL.md` 作为原生 Skill 使用。把仓库放到项目的 `.dsh/skills/research-toolkit` 或 `.agents/skills/research-toolkit`，并确保 `SKILL.md` 就在该目录第一层，不要多套一层目录。
-
-`validate` 只做离线结构与装配检查。`smoke` 启动真实 headless runtime，检查工具与目录项是否出现，发送脚本化调用，并在发送给接口的消息中查找几个正文标记；它没有逐字核对完整正文，也不能证明必读参考文件已读或研究步骤已执行。`live` 使用 DSH 已配置的模型完成一个案例，再复用机械检查器。Skill 本身不需要 API key，真实模型运行需要对应凭据。
+[Existing validate, smoke and live checks](../docs/dsh-adapter-validation.md) are for maintainers diagnosing the adapter. They do not run during ordinary research. Source content remains evidence rather than instructions.
