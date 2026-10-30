@@ -572,7 +572,17 @@ def checked_files(root, plan):
 
 
 def inspect(root, progress, artifact, *, plan=None, require_report_ready=True):
+    # Shared upstreams need one complete inspection per call, never a cached
+    # approval across calls that could conceal changed files or review records.
+    return _inspect(root, progress, artifact, plan=plan, require_report_ready=require_report_ready,
+                    walk={"outputs": None, "completed": {}})
+
+
+def _inspect(root, progress, artifact, *, plan, require_report_ready, walk):
     plan = plan or progress.get("review_plan", {})
+    key = (artifact, digest(plan), require_report_ready)
+    if key in walk["completed"]:
+        return walk["completed"][key]
     findings = []
     selected = selected_results(root, plan) if plan.get("contract_version") == 2 else {}
     if plan.get("contract_version") != 2 or plan.get("artifact") != artifact:
@@ -593,7 +603,9 @@ def inspect(root, progress, artifact, *, plan=None, require_report_ready=True):
                     raise ValueError("Each required content perspective must retain its own assignment.")
                 if len([s for s in content if s.get('dimensions') == ['domain']]) != len(plan.get('domains', [])):
                     raise ValueError("Declared domain reviews are incomplete.")
-            contribution = next((x for x in research_outputs(root, [], progress) if x['path'] == artifact), None)
+            if walk["outputs"] is None:
+                walk["outputs"] = research_outputs(root, [], progress)
+            contribution = next((x for x in walk["outputs"] if x['path'] == artifact), None)
             if contribution and contribution.get('unit_id'):
                 if not contribution['complete']:
                     raise ValueError('The registered research unit is still incomplete: ' + contribution['unit_id'])
@@ -604,7 +616,8 @@ def inspect(root, progress, artifact, *, plan=None, require_report_ready=True):
                     unit_plan = progress.get('unit_review_plans', {}).get(dependency)
                     if not unit_plan:
                         raise ValueError('Missing independent review of upstream research: ' + dependency)
-                    upstream = inspect(root, progress, unit_plan['artifact'], plan=unit_plan)
+                    upstream = _inspect(root, progress, unit_plan['artifact'], plan=unit_plan,
+                                        require_report_ready=True, walk=walk)
                     if not upstream['ok']:
                         findings.extend('Upstream ' + dependency + ': ' + f for f in upstream['findings'])
             identities = []
@@ -639,11 +652,13 @@ def inspect(root, progress, artifact, *, plan=None, require_report_ready=True):
                 raise ValueError("Review perspectives, audit and acceptance must use distinct host contexts.")
         except (ValueError, OSError, KeyError, TypeError) as exc:
             findings.append(str(exc))
-    return {"ok": not findings, "flags": ["incomplete_independent_review"] if findings else [],
+    result = {"ok": not findings, "flags": ["incomplete_independent_review"] if findings else [],
             "findings": findings, "required_slots": len(plan.get("slots", [])), "completed_slots": len(selected),
             "selected_attempts": {k: r["attempt_id"] for k, r in selected.items()},
             "independent_review": True, "record_consistency_checked": True,
             "reviewer": "independent", "review_strength": "independent"}
+    walk["completed"][key] = result
+    return result
 
 
 def run_configured(workflow, root, progress, evidence_paths, artifact, purpose, revision,
