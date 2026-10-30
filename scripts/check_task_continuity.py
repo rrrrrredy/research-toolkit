@@ -192,13 +192,15 @@ class ContinuityTests(unittest.TestCase):
         w.save_records(self.workspace, "full", sources=[{"title": "Records", "url": "https://example.org",
             "source_type": "primary", "read_scope": "full_text", "read_evidence": "source.md"}],
             claims=[{"claim": "Twelve shipments", "claim_type": "verified_fact", "supporting_sources": ["S1"]}],
-            draft={"path": "a.md", "content": "Twelve shipments. Revenue unknown.", "main": True})
+            draft={"path": "a.md", "content": "Twelve shipments. Revenue unknown.", "main": True,
+                   "host_task": "synthetic-continuity-author"})
         config = {"reviewers": [{"id": "one", "model": "synthetic", "format": "json"}]}
         runner = SyntheticRunner()
         self.assertTrue(w.review(self.workspace, "full", ["source.md"], artifact="a.md", config=config, runner=runner)["reviews_complete"])
         self.assertTrue(w.finish(self.workspace, "full", "Complete", artifact="a.md")["completed"])
         receipt = (root / "state/final_delivery.json").read_bytes()
-        w.save_records(self.workspace, "full", draft={"path": "b.md", "content": "Twelve shipments. Revenue remains unknown.", "main": True})
+        w.save_records(self.workspace, "full", draft={"path": "b.md", "content": "Twelve shipments. Revenue remains unknown.", "main": True,
+                       "host_task": "synthetic-continuity-author"})
         self.assertFalse(w.finish(self.workspace, "full", "Complete", artifact="b.md")["completed"])
         self.assertEqual((root / "state/final_delivery.json").read_bytes(), receipt)
         with self.assertRaisesRegex(ValueError, "registered main"):
