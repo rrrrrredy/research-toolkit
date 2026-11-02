@@ -4,6 +4,13 @@
 
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
+## v2.1.0 — 2026-11-02
+
+- Add a readable input entry to research preparation and pending native-host content review, audit and final acceptance. Existing calls return `reading_ref` alongside their original input fields and frozen JSON references.
+- Keep complete long text in linked UTF-8 files, with structured records, original paths and version references available. Share identical content and retain earlier views when inputs change.
+- Preserve existing input hashes, assignment versions, independent responsibilities, saved-task compatibility and completion conditions. Ordinary status without `work` does not generate reading files.
+- Synchronize English, Chinese and the plugin package. Retained-input comparisons and existing checks verify text preservation and interface behavior; no new research/model run or measured report-quality gain is claimed. See [release notes](docs/releases/v2.1.0.md).
+
 ## v2.0.2 — 2026-11-02
 
 - Carry required findings from content review, audit and final acceptance into revisions, retaining their original replies, inputs and version bindings. Reuse the existing audit disposition checks.

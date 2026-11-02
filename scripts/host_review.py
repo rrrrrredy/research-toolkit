@@ -566,7 +566,9 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
     requests = []
     for slot in pending:
         request, request_ref = assignment(root, plan, slot, selected)
+        from task_reading import reading_view
         requests.append({"slot_id": slot["slot_id"], "role": slot["role"],
+                         "reading_ref": reading_view(root, request),
                          "assignment_ref": request_ref, "assignment_version": request["assignment_version"],
                          **({"assignment": request} if include_assignment else {})})
     result = inspect(root, progress, artifact, plan=plan)

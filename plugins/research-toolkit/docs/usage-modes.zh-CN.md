@@ -332,7 +332,9 @@ CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知
 python3 scripts/research_workflow.py review --workspace ../research-work --request review.json
 ```
 
-宿主原生执行时，返回待完成任务及其保存的完整输入。每位执行者都应能够打开完整任务与引用原件；跨环境传递可读内容，不只传无法访问的本地路径。保留真实宿主任务 ID、完整原始回复和执行记录，再通过同一操作的 `host_result` 提交，字段见[审阅契约](review-completion.zh-CN.md)。
+宿主原生执行时，每项待完成任务返回 `reading_ref`（`path`、`sha256`）作为同一输入的阅读入口，`assignment_ref` 仍指向原始冻结 JSON。将 `task_directory` 和阅读入口交给执行者。入口按已有字段组织实际指令、任务、完整稿件、证据、分析和保留意见；长字符串以完整 UTF-8 文本打开，不再嵌在 JSON 转义字符串中，结构化记录保留每个字段和列表顺序。不同角色按内容共用文本，内容变化后在 `logs/reading/` 保留另一份视图。原文件引用及哈希继续可读。这些是派生阅读文件，不是另一套证据台账或通过记录；任务版本、完成条件和 `include_assignment` 均不改变。
+
+每位执行者都应能够打开完整任务与引用原件；跨环境传递阅读文件和所需原件，不只传无法访问的本地路径。保留真实宿主任务 ID、完整原始回复和执行记录，再通过同一操作的 `host_result` 提交，字段见[审阅契约](review-completion.zh-CN.md)。
 
 宿主继续返回的审阅、审计或验收任务。摘要用于定位结果，不替代完整结果或来源原文。正文或必需输入改变时保留前一材料包，用 `revision: true` 处理新版本。
 
@@ -372,7 +374,7 @@ python3 scripts/research_workflow.py review --workspace ../research-work --reque
 {"task":"study","methods":["compare","delegate"],"work":{"unit_id":"route-comparison","question":"哪些技术差异会改变选择？","depends_on":["route-evidence"],"requirement_ids":["R2"],"claim_ids":["C1"],"paths":["reports/current.md"]}}
 ```
 
-`work` 各字段均可选，首次保存前可用新的 `unit_id` 标识本次分工。所选主张带入支持与已登记反证来源，阅读要求带入指定来源。已登记单元会带回完整成果及其原始输入，依赖带入上游全文与原件。`work_context` 返回任务、有效要求、选定记录、可读 `files`、二进制原件引用、依赖及其就绪情况、`inputs` 和 `input_version`。
+`work` 各字段均可选，首次保存前可用新的 `unit_id` 标识本次分工。所选主张带入支持与已登记反证来源，阅读要求带入指定来源。已登记单元会带回完整成果及其原始输入，依赖带入上游全文与原件。`work_context` 返回任务、有效要求、选定记录、可读 `files`、二进制原件引用、依赖及其就绪情况、`inputs` 和 `input_version`。同一次返回另有 `reading_ref`，按上文说明的阅读视图分文件读取、交接这些输入；`work_context` 及绑定不变。不带 `work` 的普通状态查询不生成阅读文件。
 
 仍适用的 `satisfied` 要求继续出现在 `effective_requirements`，`scope_decisions` 保留明确的放弃、排除或接受未完成决定。工具不会从宿主对话自动猜出要求；使用已有字段保存真实原话和受影响要求。`applicable_requirements` 包含全局要求及明确适用于当前单元或实际上游的要求（`requirement_unit_ids`），全部有效要求仍可读。输入绑定采用相同范围，无关局部要求或来源／主张的变化不使该单元过期；未指定 `unit_id` 时仍绑定全任务要求。历史 `record:requirements:effective` 绑定继续采用全任务含义，接续时原样使用新返回的 `inputs`。
 
