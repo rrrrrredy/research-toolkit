@@ -315,10 +315,13 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None,
             progress = {**progress, "status": "stale", "open_issues": check["findings"],
                         "next_action": "Resolve the current delivery findings, then review/check and finish the changed report."}
     current = progress.get("stage", "brief")
+    reading = {}
     if work_packet is not None:
         from task_context import retain_prepared_work
+        from task_reading import reading_view
+        reading = {"reading_ref": reading_view(root, work_packet)}
         retain_prepared_work(root, work_packet)
-    return {"task": task, "task_directory": str(root), "progress": progress, "missing_fields": missing, **delivery,
+    return {"task": task, "task_directory": str(root), **reading, "progress": progress, "missing_fields": missing, **delivery,
             "runtime": runtime_identity(TOOLKIT), "current_work": work,
             **({"requirements": requirements} if requirements else {}),
             "changes": latest_changes(root),

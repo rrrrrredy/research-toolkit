@@ -14,7 +14,7 @@ When a requirement explicitly applies only to named research units, retain that 
 
 ## Resume and save
 
-For managed tasks, `research_status.current_work` includes effective requirements, open work, scope decisions, the explicitly selected main artifact, registered contributions and prior delivery references. `status.work` prepares relevant originals and input versions for the assignment; use its files and records rather than guessing from the latest filename.
+For managed tasks, `research_status.current_work` includes effective requirements, open work, scope decisions, the explicitly selected main artifact, registered contributions and prior delivery references. `status.work` prepares relevant originals and input versions for the assignment; open its `reading_ref` to read the files and records, rather than expanding all text in JSON or guessing from the latest filename.
 
 Use `research_save` to change affected fields and records. Partial `brief` updates retain manually added specification sections and update the saved brief consistently. Stable requirement IDs connect changed instructions to existing work. If direct edits conflict with the saved brief, reconcile that conflict before saving; do not overwrite unrelated content.
 

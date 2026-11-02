@@ -116,9 +116,11 @@ def research_status(task: str, language: str = "en", stage: str | None = None,
     Selected claims include supporting and counter-evidence sources. Dependency results distinguish incomplete work,
     changed inputs/versions and pending independent review. Fulfilled requirements remain effective unless superseded.
     work_context includes originals, effective requirements, references and inputs hashes (files plus selected record bindings).
+    reading_ref opens a readable view of that same work input, with full text in linked files instead of escaped JSON strings.
+    Pass this entry and task_directory to the host worker; work_context and its input hashes remain unchanged.
     Preparing a unit records its selection in existing activity history for the next save; ordinary status remains read-only.
     current_work.production_contexts retains recorded production identities for independent assignments. Choose scope yourself;
-    send the packet through the host's existing agent tools, preserving its actual task handle for follow-up.
+    send the input through the host's existing agent tools, preserving its actual task handle for follow-up.
     No host agent is launched by this read. Omit stage to prepare independent work without changing global progress.
     """
     return (mutate(workflow.status, task, language, stage, methods, work) if stage is not None or work is not None
@@ -154,7 +156,8 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
     original UTF-8 response and completed host capture). Original responses quote input_version and assignment_version.
     execution_path records host_task, status=completed and assignment_version. Do not fabricate responses or identities.
     evidence_paths may be empty when registered original evidence suffices; required sources are included automatically.
-    include_assignment=False returns frozen assignment files instead of repeating their full text. Read the full input.
+    Each pending assignment includes reading_ref: open its readable input and full-text links when dispatching the host agent.
+    assignment_ref remains the original frozen JSON; include_assignment=False avoids repeating it inline. Versions are unchanged.
     For progressive work set scope to a saved unit_id and artifact to its draft; perspectives selects relevant unit reviews.
     New units default to no domain review; domains supplies needed specialist perspectives. audit=True adds independent
     unit adjudication when needed, retaining existing content results. An enabled audit cannot be removed; full reports

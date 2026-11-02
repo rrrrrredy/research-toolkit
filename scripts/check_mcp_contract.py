@@ -115,6 +115,9 @@ async def verify(base):
         assert selected['progress']['stage'] == 'draft'
         assert {row['source_id'] for row in selected['work_context']['sources']} == {'S1', 'S2'}
         assert 'unread.md' not in selected['work_context']['files']
+        assert (root/selected['reading_ref']['path']).is_file()
+        # Reading navigation is supplementary; actual selected input and originals remain.
+        assert 'input_version' in (root/selected['reading_ref']['path']).read_text(encoding='utf-8')
         await call('research_save', {'task': 'case',
             'sources': [{'source_id': 'S3', 'read_scope': 'full_text', 'read_evidence': 'unread.md'}]})
         await call('research_status', {'task': 'case', 'stage': 'draft'})
@@ -130,6 +133,11 @@ async def verify(base):
             folder = root/"captures"/str(sequence)
             folder.mkdir(parents=True)
             request = item["assignment"]
+            reading = root/item['reading_ref']['path']
+            assert reading.is_file() and 'assignment_version' in reading.read_text(encoding='utf-8')
+            from check_delivery import sha256_file
+            assert sha256_file(reading) == item['reading_ref']['sha256']
+            assert json.loads((root/item['assignment_ref']['path']).read_text(encoding='utf-8')) == request
             (folder/"request.json").write_text(json.dumps(request, ensure_ascii=False, indent=2), encoding="utf-8")
             command = [sys.executable, "-B", "-X", "utf8", str(worker)] + (["--malformed"] if malformed else [])
             process = await asyncio.create_subprocess_exec(*command, stdin=asyncio.subprocess.PIPE,
