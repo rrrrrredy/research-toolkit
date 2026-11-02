@@ -157,6 +157,9 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
     execution_path records host_task, status=completed and assignment_version. Do not fabricate responses or identities.
     evidence_paths may be empty when registered original evidence suffices; required sources are included automatically.
     Each pending assignment includes reading_ref: open its readable input and full-text links when dispatching the host agent.
+    On revision, resume_host_task identifies the earlier independent context to continue when available;
+    revision_context compares the current input with that role's actual reviewed version and retains its original work.
+    Omitted perspectives/domains continue the saved unit selection; explicit values change the selection.
     assignment_ref remains the original frozen JSON; include_assignment=False avoids repeating it inline. Versions are unchanged.
     For progressive work set scope to a saved unit_id and artifact to its draft; perspectives selects relevant unit reviews.
     New units default to no domain review; domains supplies needed specialist perspectives. audit=True adds independent

@@ -97,6 +97,16 @@ def required_findings(row):
     return findings
 
 
+def report_changes(previous, current):
+    before, after = previous.splitlines(), current.splitlines()
+    return [{"change": kind,
+             "previous_lines": [i + 1, j] if j > i else None,
+             "current_lines": [k + 1, n] if n > k else None,
+             "previous_text": "\n".join(before[i:j]), "current_text": "\n".join(after[k:n])}
+            for kind, i, j, k, n in SequenceMatcher(None, before, after, autojunk=False).get_opcodes()
+            if kind != "equal"]
+
+
 def revision_context(root, previous_plan, packet, bindings):
     """Point the next reader to retained work; never reuse its approval."""
     previous = load(root, previous_plan["input"]["path"])
@@ -106,20 +116,26 @@ def revision_context(root, previous_plan, packet, bindings):
     for slot in previous_plan["slots"]:
         row = selected.get(slot["slot_id"])
         validity = audits.get(slot["slot_id"], {}).get("result")
-        if row and (slot["role"] != "reviewer" or validity != "invalid"):
+        if slot["role"] == "reviewer" and validity == "invalid":
+            continue
+        if row:
             reviews[slot["slot_id"]] = {"attempt_id": row["attempt_id"], "response": row["response"],
                 "input": row["input"], "execution": row["execution"], "execution_id": row["execution_id"],
                 "role": slot["role"],
                 "report_verdict": row.get("report_verdict", row.get("result_data", {}).get("report_verdict",
                     row.get("result_data", {}).get("result"))),
                 "review_validity": validity or "not_separately_audited"}
-    before, after = previous["report"].splitlines(), packet["report"].splitlines()
-    changes = [{"change": kind,
-                "previous_lines": [i + 1, j] if j > i else None,
-                "current_lines": [k + 1, n] if n > k else None,
-                "previous_text": "\n".join(before[i:j]), "current_text": "\n".join(after[k:n])}
-               for kind, i, j, k, n in SequenceMatcher(None, before, after, autojunk=False).get_opcodes()
-               if kind != "equal"]
+        else:
+            retained = previous_plan.get("revision_context", {}).get("reviews", {}).get(slot["slot_id"])
+            if retained:
+                reviews[slot["slot_id"]] = dict(retained)
+        if slot["slot_id"] in reviews:
+            retained = reviews[slot["slot_id"]]
+            original = load(root, retained["input"]["path"])
+            # Read the actual earlier responsibility, including across versions
+            # prepared without a reply. Do not relabel it after a domain change.
+            retained.update(input_version=original["input_version"],
+                            dimensions=original["dimensions"], domain=original.get("domain"))
     old_bindings = previous_plan.get("bindings", {})
     names = sorted(set(old_bindings) | set(bindings))
     return {"historical_only": True, "input": previous_plan["input"],
@@ -128,7 +144,7 @@ def revision_context(root, previous_plan, packet, bindings):
                                 "current_sha256": bindings.get(name)} for name in names
                                if old_bindings.get(name) != bindings.get(name)],
             "unchanged_inputs": [name for name in names if old_bindings.get(name) == bindings.get(name)],
-            "report_changes": changes}
+            "report_changes": report_changes(previous["report"], packet["report"])}
 
 
 def packet_for(root, progress, evidence_paths, artifact, scope, previous_plan=None):
@@ -267,14 +283,37 @@ def assignment(root, plan, slot, selected, *, persist=True):
                "instructions": plan["instructions"][role]}
     if plan.get("revision_context"):
         retained = plan["revision_context"]
+        previous = retained["reviews"].get(slot["slot_id"])
+        same_work = (previous and previous.get("role") == role
+                     and previous.get("dimensions") == slot.get("dimensions", [])
+                     and previous.get("domain") == slot.get("domain"))
         request["revision_context"] = {**retained, "reviews": (
-            {slot["slot_id"]: retained["reviews"][slot["slot_id"]]}
-            if role == "reviewer" and slot["slot_id"] in retained["reviews"] else
+            {slot["slot_id"]: previous}
+            if role == "reviewer" and previous and (same_work or "dimensions" not in previous) else
             {} if role == "reviewer" else retained["reviews"])}
         request["instructions"] += ("\nUse the retained previous response and frozen input to recover checks already performed. "
             "The change locations and input hashes help find what changed; they do not decide its substantive impact. "
             "Confirm the current complete artifact in your assigned perspective, inspect affected evidence and cross-part effects, "
             "and reuse unchanged reading where appropriate. Historical results are not current approval.")
+        if same_work:
+            before = load(root, previous["input"]["path"])["assignment"]
+            context = request["revision_context"]
+            context["report_changes"] = report_changes(before["report"], packet["report"])
+            sections = ("sources", "source_files", "analyses")
+            context["changed_materials"] = [
+                {"section": section, "path": name} for section in sections
+                for name in sorted(set(before.get(section, {})) | set(packet.get(section, {})))
+                if before.get(section, {}).get(name) != packet.get(section, {}).get(name)]
+            context["changed_context"] = [name for name in sorted(set(before) | set(packet))
+                if name not in {*sections, "report"} and before.get(name) != packet.get(name)]
+            if previous["execution_id"] not in plan.get("producer_contexts", []):
+                request["resume_host_task"] = previous["execution_id"]
+            request["instructions"] += (
+                "\nContinue the retained assessment in its original independent host task when available. "
+                "report_changes, changed_materials and changed_context compare the current input with the input "
+                "you actually reviewed, even after intervening revisions. Reuse the original supported analysis; "
+                "check these changes and their effect on your responsibility for the current complete report. "
+                "If the host task is unavailable, give this retained work to a new independent context.")
     if slot.get("domain"):
         request["domain"] = slot["domain"]
     if role == "reviewer":
@@ -508,7 +547,10 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
     audit_required = scope == "full_report" or bool(old and old.get("audit_required")) or audit is True
     if audit is False and audit_required:
         raise ValueError("audit cannot disable whole-report audit or an already declared unit audit.")
-    dimensions = DIMENSIONS if scope == "full_report" else (perspectives or ["evidence", "adversarial_reasoning", "structure_and_depth"])
+    default_dimensions = ([s["slot_id"] for s in (old or {}).get("slots", [])
+                           if s["role"] == "reviewer" and s.get("dimensions") != ["domain"]]
+                          or ["evidence", "adversarial_reasoning", "structure_and_depth"])
+    dimensions = DIMENSIONS if scope == "full_report" else (default_dimensions if perspectives is None else perspectives)
     if not isinstance(dimensions, list) or not dimensions or len(set(dimensions)) != len(dimensions) or any(d not in DIMENSIONS for d in dimensions):
         raise ValueError("perspectives must select distinct existing review perspectives.")
     if scope == "full_report" and perspectives not in (None, DIMENSIONS):
@@ -570,6 +612,7 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
         requests.append({"slot_id": slot["slot_id"], "role": slot["role"],
                          "reading_ref": reading_view(root, request),
                          "assignment_ref": request_ref, "assignment_version": request["assignment_version"],
+                         **({"resume_host_task": request["resume_host_task"]} if "resume_host_task" in request else {}),
                          **({"assignment": request} if include_assignment else {})})
     result = inspect(root, progress, artifact, plan=plan)
     if scope != "full_report":
