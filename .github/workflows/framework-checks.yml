@@ -2,6 +2,8 @@ name: Framework checks
 
 on:
   push:
+    branches: [main]
+    tags: ['v*']
   pull_request:
   workflow_dispatch:
   workflow_run:
@@ -12,8 +14,22 @@ permissions:
   contents: read
 
 jobs:
+  release-metadata:
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check release tag and packaged metadata
+        run: |
+          python scripts/check_version.py
+          python scripts/build_plugin.py --check
+          python -c "import os; from pathlib import Path; assert os.environ['GITHUB_REF_NAME'] == 'v' + Path('VERSION').read_text().strip(), 'Release tag must match VERSION'"
+
   static-site:
-    if: github.event_name != 'workflow_run'
+    if: github.event_name != 'workflow_run' && (github.event_name != 'push' || !startsWith(github.ref, 'refs/tags/'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -60,7 +76,7 @@ jobs:
           if-no-files-found: ignore
 
   validate:
-    if: github.event_name != 'workflow_run'
+    if: github.event_name != 'workflow_run' && (github.event_name != 'push' || !startsWith(github.ref, 'refs/tags/'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -138,7 +154,7 @@ jobs:
         run: python scripts/check_study_verification.py
 
   minimum-python:
-    if: github.event_name != 'workflow_run'
+    if: github.event_name != 'workflow_run' && (github.event_name != 'push' || !startsWith(github.ref, 'refs/tags/'))
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -159,7 +175,7 @@ jobs:
           python scripts/check_mcp_contract.py
 
   windows-runtime:
-    if: github.event_name != 'workflow_run'
+    if: github.event_name != 'workflow_run' && (github.event_name != 'push' || !startsWith(github.ref, 'refs/tags/'))
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4

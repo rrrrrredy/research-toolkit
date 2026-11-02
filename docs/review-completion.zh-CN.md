@@ -45,7 +45,7 @@
 
 返回的 `assignments` 每项提供 `slot_id`、`role`、`assignment_ref`、`assignment_version`，本次操作另有 `input_version`。原始 JSON 回复须带回两个版本。原始执行记录包含 `host_task`、`status: "completed"`、`assignment_version` 及实际观察到的宿主事件，必须来自产生该回复的实际执行。
 
-`scope` 默认是 `full_report`；`domains` 指定领域专审名称，新全稿计划默认 `["domain"]`，始终包含七项基础视角。前段单元审阅将已登记 `unit_id` 作为 `scope`，在现有 `perspectives` 中选择相关视角。新单元默认 `domains: []`，省略参数时保留此前已声明的领域专审；单元审阅不减少最终全稿职责。
+`scope` 默认是 `full_report`；`domains` 指定领域专审名称，新全稿计划默认 `["domain"]`，始终包含七项基础视角。前段单元审阅将已登记 `unit_id` 作为 `scope`，在现有 `perspectives` 中选择相关视角。新单元默认 `domains: []`；后续调用省略 `perspectives` 或 `domains` 时，各自保留此前的选择，不必随每次回复重复填写。显式传值仍可调整配置；单元审阅不减少最终全稿职责。
 
 单元的必要发现或有据不改回应需要独立裁定时，在同一 `research_review` 调用中使用 `audit: true`。该输入已有的内容审阅继续有效，下一项任务是单元审计。开启后，后续调用保留这项责任，不能通过 `audit: false` 撤掉；单元不会因此增加最终验收。全稿始终需要审计。单元审计核对 `applicable_requirements`，包括全局要求、明确分配给本单元或其上游依赖的要求；全部有效要求仍可回读。
 
@@ -63,7 +63,11 @@
 
 实质修改后保存新稿或来源版本，使用 `revision: true` 处理受影响审阅，保留之前的任务和回复。最终全稿验收覆盖交付正文；历史结果表示当时检查过什么，不自动批准后来的文字。
 
-新的修订任务通过 `revision_context` 提供之前的冻结输入、同一视角的原始回复与执行引用、变化和未变材料的输入哈希，以及改稿前后的原文与行号；审计和验收也可回查已保留的内容审阅、审计及验收原回复。`prior_required_findings` 承接三类角色的必要问题；审计／验收缺陷保留原 `critical_checks`、`sample_checks` 或 `open_issues` 位置，以 `attempt_id/字段/序号` 接入已有审计处置键。仅在 `basis` 表达的否定判断也会保留。原输入、回复与执行记录继续绑定版本，新稿不会清除这些发现。审计在已有 `prior_findings` 中对照当前正文逐项处置，验收取得该审计及对应原件。执行者据此找回已有核查，检查受影响的推理并确认完整当前稿，不自动沿用旧 PASS。已冻结的任务说明保持原样。
+修订任务的 `revision_context` 保留各自最后一次实际完成的原始回复和冻结输入。中间连续改稿、尚未收到新回复，或只收到部分回复时，其余角色的已有工作继续保留。`resume_host_task` 返回相同职责的原独立 Agent 标识，宿主可直接继续该任务；原任务不可用时，将这些原件交给新的独立上下文。审计和验收也可回查已保留的各类原回复。
+
+在这些接续任务中，`report_changes` 提供相对该角色实际已审稿件的改前／改后原文和行号，`changed_materials`、`changed_context` 定位相对其已审输入变化的材料和任务内容。`reviews` 内的 `input_version`、视角和领域标明原工作的范围。计划级 `changed_inputs`／`unchanged_inputs` 仍比较相邻两版的输入哈希；各角色可能读过不同版本，应以自己的原输入和上述差异继续核查。原文始终可访问，差异用于定位。
+
+`prior_required_findings` 承接三类角色的必要问题；审计／验收缺陷保留原 `critical_checks`、`sample_checks` 或 `open_issues` 位置，以 `attempt_id/字段/序号` 接入已有审计处置键。仅在 `basis` 表达的否定判断也会保留。原输入、回复与执行记录继续绑定版本，新稿不会清除这些发现。审计在已有 `prior_findings` 中对照当前正文逐项处置，验收取得该审计及对应原件。执行者据此找回已有核查，检查受影响的推理并确认完整当前稿，不自动沿用旧 PASS。已冻结的任务说明保持原样。
 
 ## 发现与必要修正
 

@@ -147,7 +147,7 @@ async def verify(base):
             (folder/"command.json").write_text(json.dumps(command), encoding="utf-8")
             assert process.returncode == 0, stderr
             result = json.loads(stdout)
-            identity = "synthetic-author" if producer else result["execution_id"]
+            identity = "synthetic-author" if producer else item.get("resume_host_task", result["execution_id"])
             (folder/"response.json").write_text(result["content"], encoding="utf-8")
             (folder/"execution.json").write_text(json.dumps({"host_task": identity, "status": "completed",
                 "assignment_version": request["assignment_version"], "synthetic": True, "returncode": process.returncode}), encoding="utf-8")
@@ -187,11 +187,34 @@ async def verify(base):
         assert len(content_findings) == 8 and all(item['finding']['finding_id'] == 'F1' for item in content_findings), carried
         assert {item['finding']['finding_id'] for item in carried if item['slot_id'] == 'audit'} == {
             'critical_checks/1', 'sample_checks/0', 'open_issues/0'}, carried
+        for item in input_revision['assignments']:
+            previous = item['assignment']['revision_context']['reviews'][item['slot_id']]
+            assert item['resume_host_task'] == previous['execution_id']
+        # Only one reviewer answers this intermediate version; the others must
+        # still recover their own earlier work after another manuscript change.
+        input_revision = await submit(input_revision['assignments'][0])
         corrected = "The source reports twelve shipments.\n\nRevenue is not reported. A shipment count cannot establish recognized revenue without prices and recognition terms.\n\nThe catalog adds product details but no financial evidence, so it does not resolve the gap.\n"
         changed = await call("research_save", {"task": "case", "draft": {"path": "final.md", "content": corrected,
             "host_task": "synthetic-author", "complete": True}})
         assert changed["ok"] and changed["backups"]
         pending = await call("research_review", {**args, "revision": True})
+        for item in pending['assignments']:
+            context = item['assignment']['revision_context']
+            previous = context['reviews'][item['slot_id']]
+            assert item['resume_host_task'] == previous['execution_id']
+            old = json.loads((root/previous['input']['path']).read_text(encoding='utf-8'))
+            assert context['report_changes'] == [
+                {'change': 'replace', 'previous_lines': [line, line], 'current_lines': [line, line],
+                 'previous_text': old['assignment']['report'].splitlines()[line - 1],
+                 'current_text': corrected.splitlines()[line - 1]} for line in (3, 5)]
+            if item['slot_id'] == 'requirements':
+                assert previous['input_version'] == input_revision['input_version']
+                assert 'requirements' not in context['changed_context']
+            else:
+                assert previous['input_version'] != input_revision['input_version']
+                assert 'requirements' in context['changed_context']
+                assert {'section': 'sources', 'path': 'data/source_registry.csv'} in context['changed_materials']
+        assert not (await call('research_finish', {'task': 'case', 'message': 'Not yet confirmed.'}))['completed']
         while pending["assignments"]:
             pending = await submit(pending["assignments"][0])
         assert pending["delivery_ready"] and pending["completion_check"]["completed_slots"] == 10, pending
@@ -212,6 +235,20 @@ async def verify(base):
         assert any(str(item.uri) == "research-toolkit://instructions" for item in resources.resources)
         prompts = await client.list_prompts()
         assert any(item.name == "research" for item in prompts.prompts)
+        # The same saved research task continues a selected unit review without
+        # copying its perspective/domain configuration into every result call.
+        await call('research_save', {'task': 'case', 'draft': {
+            'path': 'analysis/outline.md', 'kind': 'analysis', 'unit_id': 'outline',
+            'host_task': 'synthetic-outline-author', 'complete': True,
+            'content': 'Explain shipments and their reporting period. Separate the missing revenue evidence from the observed shipment count.'}})
+        unit_args = {'task': 'case', 'artifact': 'analysis/outline.md', 'scope': 'outline', 'evidence_paths': []}
+        unit = await call('research_review', {**unit_args,
+            'perspectives': ['requirements', 'structure_and_depth'], 'domains': ['reporting measures']})
+        resumed = await call('research_review', unit_args)
+        assert resumed['input_version'] == unit['input_version']
+        assert [x['slot_id'] for x in resumed['assignments']] == ['requirements', 'structure_and_depth', 'domain-1']
+        changed = await call('research_review', {**unit_args, 'perspectives': ['evidence'], 'revision': True})
+        assert [x['slot_id'] for x in changed['assignments']] == ['evidence', 'domain-1']
     (base/"RESULT.json").write_text(json.dumps({"result": "pass", "kind": "synthetic_stdio_contract_control",
         "research_quality_assessed": False, "completed_current_slots": 10, "retained_initial_negative_slots": 8,
         "command": "python scripts/check_mcp_contract.py", "artifacts": str(base)}, indent=2), encoding="utf-8")
