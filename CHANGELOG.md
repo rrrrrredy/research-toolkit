@@ -4,6 +4,14 @@
 
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
+## v2.0.2 — 2026-11-02
+
+- Carry required findings from content review, audit and final acceptance into revisions, retaining their original replies, inputs and version bindings. Reuse the existing audit disposition checks.
+- Preserve explicitly prepared research-unit inputs in the existing activity history and automatically inherit them, the question and dependencies on save. Explicit input bindings remain supported; ordinary status queries stay read-only.
+- Clear the affected cached unit approval when its selected inputs, question or dependencies change. Keep original review records.
+- Keep global requirements in the task specification and local outlines with their analysis units, using existing file and unit dependencies. Older mixed specifications retain their whole-file binding; no automatic migration is performed.
+- Synchronize English, Chinese, plugin content and [release notes](docs/releases/v2.0.2.md). Controlled state replays and existing checks verify these continuity behaviors, not improved report quality or reduced user rework.
+
 ## v2.0.1 — 2026-10-30
 
 - Invalidate unit readiness when retained review evidence or replies change; preserve actual production history and draft snapshots in independent review inputs.

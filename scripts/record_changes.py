@@ -76,7 +76,7 @@ def input_digest(root, name):
     raise ValueError(f'{name}: selected record is missing.')
 
 
-def history(root):
+def history(root, *, outcome="saved"):
     from task_storage import safe_path
     path = safe_path(root, "logs/activity.jsonl")
     events = []
@@ -84,7 +84,7 @@ def history(root):
         for line in path.read_text(encoding="utf-8").splitlines():
             try:
                 row = json.loads(line)
-                if isinstance(row, dict) and row.get("outcome") == "saved":
+                if isinstance(row, dict) and (outcome is None or row.get("outcome") == outcome):
                     events.append(row)
             except ValueError:
                 continue

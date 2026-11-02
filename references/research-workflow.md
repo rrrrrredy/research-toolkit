@@ -55,7 +55,7 @@ At assembly, work from these questions back to the actual answer passages and th
 This section describes CLI/MCP-managed tasks. Use the tools to maintain the existing records; Skill-only work preserves the same research substance in accessible conversations and files without duplicating it into this layout.
 
 ```text
-state/task_spec.md          # brief and evolving outline
+state/task_spec.md          # original request and global constraints
 state/progress.json         # current work, dependencies and selected main artifact
 state/requirements.jsonl     # effective user requirements and their evidence
 logs/review.jsonl            # original review results and dispositions
@@ -68,7 +68,7 @@ Use stable requirement IDs. A `satisfied` requirement remains applicable to futu
 
 Mandatory reading uses `reading_requirement` (`full_text` or `relevant_sections`) with a nonempty distinct `required_source_ids` list. Source `read_scope` records the actual reading, while `read_evidence` and `locator` identify readable evidence and location; `evidence_path` supplies original UTF-8 content when needed. A saved URL or successful download is not evidence of reading. Registered IDs in `counter_evidence` include their originals in review input alongside supporting sources. See [save parameters](../docs/usage-modes.md#save-research-records-and-drafts) for current syntax.
 
-Register substantive contributions through the existing draft record, with their real host reference, input versions, unit/dependency information and handoff. Keep full artifacts and previous versions. The task's named main writer registers the actual main report; the latest saved file does not become the main report automatically. A complete contribution or complete draft does not imply final delivery.
+Register substantive contributions through the existing draft record, with their real host reference, input versions, unit/dependency information and handoff. Keep local outlines with their corresponding analysis; connect them through selected files or actual unit dependencies as described in [handoff](../docs/usage-modes.md#research-delegation-and-handoff). Keep full artifacts and previous versions. The task's named main writer registers the actual main report; the latest saved file does not become the main report automatically. A complete contribution or complete draft does not imply final delivery.
 
 `progress.json.stage` uses `brief`, `collect`, `analyze`, `draft`, `review`, `revise` or `final`; its status and advancement follow the [protocol contract](research-standard.md#protocol-contract). Existing optional histories and `stale_count` remain readable but are not new mandatory records.
 

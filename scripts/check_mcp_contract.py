@@ -175,7 +175,10 @@ async def verify(base):
         input_revision = await call("research_review", {**args, "revision": True})
         assert (root/"final.md").read_bytes() == first_report
         carried = input_revision["assignments"][0]["assignment"]["assignment"]["prior_required_findings"]
-        assert len(carried) == 8 and all(item["finding"]["finding_id"] == "F1" for item in carried), carried
+        content_findings = [item for item in carried if item['slot_id'] != 'audit']
+        assert len(content_findings) == 8 and all(item['finding']['finding_id'] == 'F1' for item in content_findings), carried
+        assert {item['finding']['finding_id'] for item in carried if item['slot_id'] == 'audit'} == {
+            'critical_checks/1', 'sample_checks/0', 'open_issues/0'}, carried
         corrected = "The source reports twelve shipments.\n\nRevenue is not reported. A shipment count cannot establish recognized revenue without prices and recognition terms.\n\nThe catalog adds product details but no financial evidence, so it does not resolve the gap.\n"
         changed = await call("research_save", {"task": "case", "draft": {"path": "final.md", "content": corrected,
             "host_task": "synthetic-author", "complete": True}})

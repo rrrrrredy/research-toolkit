@@ -67,6 +67,36 @@ def history_activity(root):
     return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()] if path.exists() else []
 
 
+def required_findings(row):
+    """Read necessary criticism from its original result, without a second issue ledger."""
+    if row.get('record_type') == 'model_review':
+        return [finding for finding in row.get('findings', []) if finding.get('severity') != 'optional']
+    if row.get('record_type') not in {'review_audit', 'final_acceptance'}:
+        return []
+    value = row.get('result_data', {})
+    findings = []
+    fields = (('critical_checks', 'sample_checks', 'open_issues') if row['record_type'] == 'review_audit'
+              else ('sample_checks', 'open_issues'))
+    for field in fields:
+        for index, item in enumerate(value.get(field, [])):
+            if field != 'open_issues' and item.get('result') != 'defect':
+                continue
+            pointer = f'{field}/{index}'
+            findings.append({'finding_id': pointer, 'severity': 'required',
+                'location': item.get('location', pointer) if isinstance(item, dict) else pointer,
+                'basis': item, 'original_location': row['response']['path'] + '#/' + pointer})
+    # A negative overall judgment without a structured new defect must not
+    # disappear either. Do not duplicate findings already identified by the
+    # audit's current or historical dispositions.
+    negative = value.get('report_verdict') == 'needs_revision' or value.get('result') == 'fail'
+    already_identified = (any(d.get('decision') != 'no_change' for d in value.get('dispositions', {}).values())
+                          or any(d.get('decision') == 'unresolved' for d in value.get('prior_findings', {}).values()))
+    if negative and not findings and not already_identified:
+        findings.append({'finding_id': 'basis', 'severity': 'required', 'location': 'basis',
+            'basis': value['basis'], 'original_location': row['response']['path'] + '#/basis'})
+    return findings
+
+
 def revision_context(root, previous_plan, packet, bindings):
     """Point the next reader to retained work; never reuse its approval."""
     previous = load(root, previous_plan["input"]["path"])
@@ -76,10 +106,13 @@ def revision_context(root, previous_plan, packet, bindings):
     for slot in previous_plan["slots"]:
         row = selected.get(slot["slot_id"])
         validity = audits.get(slot["slot_id"], {}).get("result")
-        if slot["role"] == "reviewer" and row and validity != "invalid":
+        if row and (slot["role"] != "reviewer" or validity != "invalid"):
             reviews[slot["slot_id"]] = {"attempt_id": row["attempt_id"], "response": row["response"],
                 "input": row["input"], "execution": row["execution"], "execution_id": row["execution_id"],
-                "report_verdict": row["report_verdict"], "review_validity": validity or "not_separately_audited"}
+                "role": slot["role"],
+                "report_verdict": row.get("report_verdict", row.get("result_data", {}).get("report_verdict",
+                    row.get("result_data", {}).get("result"))),
+                "review_validity": validity or "not_separately_audited"}
     before, after = previous["report"].splitlines(), packet["report"].splitlines()
     changes = [{"change": kind,
                 "previous_lines": [i + 1, j] if j > i else None,
@@ -179,10 +212,21 @@ def packet_for(root, progress, evidence_paths, artifact, scope, previous_plan=No
         # Retain those earlier findings too, for independent current adjudication.
         packet["prior_required_findings"] = [
             {"attempt_id": r["attempt_id"], "slot_id": r["slot_id"],
-             "artifact_sha256": r["artifact_sha256"], "response": r["response"], "finding": f}
-            for r in history(root) if r.get("record_type") == "model_review" and r.get("contract_version") == 2
+             "artifact_sha256": r["artifact_sha256"], "response": r["response"],
+             "input": r["input"], "execution": r["execution"], "finding": f}
+            for r in history(root) if r.get("contract_version") == 2
             and r.get("scope") == scope and r.get("status") == "completed"
-            for f in r.get("findings", []) if f.get("severity") != "optional"]
+            for f in required_findings(r)]
+    for finding in packet['prior_required_findings']:
+        # Old frozen packets keep their original contract. New packets bind all
+        # three retained originals on every call, including result ingestion.
+        if 'input' not in finding:
+            continue
+        for key in ('input', 'response', 'execution'):
+            ref = finding[key]
+            if reference(root, ref['path']) != ref:
+                raise ValueError('Retained finding original changed: ' + ref['path'])
+            bindings[ref['path']] = ref['sha256']
     bindings.update({name: sha256_file(safe_path(root, name)) for name in [artifact, *analyses]})
     bindings.update(binaries)
     return packet, bindings

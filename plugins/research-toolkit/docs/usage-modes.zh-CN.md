@@ -71,11 +71,11 @@ python3 scripts/research_workflow.py save --workspace ../research-work --request
 
 每个命中位置还返回 `text`（命中行原文）。一段上下文首次出现时返回 `context`，包含 `start_line`、`end_line` 与原文 `text`：命中段落及同一章节内前后至多各一段。后续位置的报告文件、行范围与原文完全相同时，返回 `context_ref: {"claim_id": "C1", "line": 7}`，不再重复 `context`；它直接指向同一 `affected_claims` 列表中对应主张、行号下的完整上下文。所有主张、来源关联、命中原因、章节与命中行号仍保留在各自条目中；原文相同但位置不同的段落不合并。按空行分段，以 `#` 标题为边界；行号从 1 开始，包含起止行。已登记版本日志查询使用同一份定位输出，无需新增输入字段或调用，也不修改报告。
 
-已有来源正文改动后，保存该来源 ID（如 `{"sources":[{"source_id":"S1"}]}`）即可比较本地证据文件与上次保存时的哈希，不必重交其他字段。首次观察会明确标记，不能据此推断更早是否变化；旧任务无需迁移或补建历史。工具不会监控远端网页。内容字节相同的文件不重写，`updated_files` 只列实际写入；状态查询不写文件。只登记新稿会沿用最近记录批次并更新正文位置，下一批记录保存会替换该摘要；它不是待办清单，也不新增完成条件。
+已有来源正文改动后，保存该来源 ID（如 `{"sources":[{"source_id":"S1"}]}`）即可比较本地证据文件与上次保存时的哈希，不必重交其他字段。首次观察会明确标记，不能据此推断更早是否变化；旧任务无需迁移或补建历史。工具不会监控远端网页。内容字节相同的文件不重写，`updated_files` 只列实际写入；未准备研究单元或推进阶段的普通状态查询不写文件。只登记新稿会沿用最近记录批次并更新正文位置，下一批记录保存会替换该摘要；它不是待办清单，也不新增完成条件。
 
 ### 任务记录字段
 
-已明确的需求与提纲保存在 `state/task_spec.md`。重要补充要求在 `state/requirements.jsonl` 使用稳定编号；关闭要求和明确的范围变更沿用[需求记录](delivery-verification.zh-CN.md#需求关闭与阅读记录)规则。
+原始请求和全局约束保存在 `state/task_spec.md`，持续修改的局部提纲留在对应研究单元的分析中。重要补充要求在 `state/requirements.jsonl` 使用稳定编号；关闭要求和明确的范围变更沿用[需求记录](delivery-verification.zh-CN.md#需求关闭与阅读记录)规则。
 
 `progress.json.stage` 使用 `brief`、`collect`、`analyze`、`draft`、`review`、`revise`、`final`。
 `progress.json.status` 使用 `in_progress`、`paused`、`blocked`、`complete`。
@@ -364,7 +364,7 @@ python3 scripts/research_workflow.py review --workspace ../research-work --reque
 
 ## 研究委派与成果交接
 
-提纲和原始要求保留在现有任务规格中，按有意义的研究单元及实际依赖分工。即使按技术问题拆分，国内／海外或其他明确覆盖维度仍应可见。
+按有意义的研究单元及实际依赖分工。`state/task_spec.md` 保留原始要求与全局约束；局部提纲随对应分析文件保存，由 `work.paths` 或已有单元的 `depends_on` 接入实际使用它的工作。例如国内分支调整自己的论证安排，不改变海外分支输入；共同的时间范围或比较口径改变则影响相关分支。整篇提纲供统稿与全稿审阅读取，不自动成为每个分支的依赖。旧任务中混合保存的规格仍按原整文件绑定，工具不猜测或自动迁移其中的局部内容。即使按技术问题拆分，国内／海外或其他明确覆盖维度仍应可见。
 
 用 `status` 准备下一位执行者的输入。以下格式示例假定引用的上游单元及记录已存在：
 
@@ -384,7 +384,7 @@ python3 scripts/research_workflow.py review --workspace ../research-work --reque
 {"task":"study","draft":{"path":"analysis/routes.md","kind":"analysis","unit_id":"route-comparison","question":"哪些技术差异会改变选择？","depends_on":["route-evidence"],"host_task":"actual-producing-host-task-id","complete":false,"handoff":{"summary":"比较已展开，部署假设仍待解决。","pending":["对照原始要求解决部署假设。"],"decisions":["两条路线使用相同工作量和质量口径。"]}}}
 ```
 
-省略 `content` 可登记已有非空文件，也可提供文本保存；把 `work_context.inputs` 原样放入可选 `draft.based_on`，不编造哈希。`complete` 描述已保存单元或稿件的完整性，不代表全任务交付。上游已登记工作未完成、已变化或尚缺必需独立审阅时，不能将依赖它的单元声明完成；先以 `complete: false` 保存进行中的工作并解决依赖。
+省略 `content` 可登记已有非空文件，也可提供文本保存。`status.work` 准备了 `unit_id` 后，保存同一单元会自动承接准备时的输入版本、问题和依赖，除非显式提供这些字段。准备结果按单元记入已有活动日志，其他分支的准备不会覆盖它；再次准备也会带回该单元尚未保存的选择。保存使用准备时的哈希，不替换成文件最新版本。显式 `draft.based_on` 继续支持，原样使用 `work_context.inputs`，不编造哈希。没有准备记录时，已有单元沿用已保存输入，不补造旧阅读历史。输入选择改变时，只清除该单元的缓存通过状态，原始审阅保留用于修订。`complete` 描述已保存单元或稿件的完整性，不代表全任务交付。上游已登记工作未完成、已变化或尚缺必需独立审阅时，不能将依赖它的单元声明完成；先以 `complete: false` 保存进行中的工作并解决依赖。
 
 `current_work.work_units` 与 `research_outputs` 从已有活动日志恢复单元、原始快照、宿主引用、交接和输入变化，不另建任务看板。交接 `summary`、`pending`、`decisions` 用于导航，接收的研究者、统稿者或审阅者可以读取完整成果和原始来源；同一 Agent 接下一阶段也复用这些记录。
 
