@@ -270,7 +270,7 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None,
     missing = [k for k in BRIEF_FIELDS if not nonempty(progress.get("brief", {}).get(k))]
     requirements = ""
     method_guide = guidance(stage or progress.get("stage", "brief"), language, progress.get("profile", "full"), methods)
-    work_packet = prepare_work(root, progress, work) if work is not None else None
+    work_packet = prepare_work(root, progress, work, resume_prepared=True) if work is not None else None
     if stage is not None:
         if stage not in {"collect", "analyze", "draft", "revise"}:
             raise ValueError("Review and final stages are entered by review and finish.")
@@ -315,6 +315,9 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None,
             progress = {**progress, "status": "stale", "open_issues": check["findings"],
                         "next_action": "Resolve the current delivery findings, then review/check and finish the changed report."}
     current = progress.get("stage", "brief")
+    if work_packet is not None:
+        from task_context import retain_prepared_work
+        retain_prepared_work(root, work_packet)
     return {"task": task, "task_directory": str(root), "progress": progress, "missing_fields": missing, **delivery,
             "runtime": runtime_identity(TOOLKIT), "current_work": work,
             **({"requirements": requirements} if requirements else {}),

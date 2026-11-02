@@ -199,12 +199,18 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                 raise ValueError("draft.main: use true or false.")
             if draft.get("kind", "report") not in {"report", "comparison", "review", "analysis"}:
                 raise ValueError("draft.kind: use report, comparison, review or analysis (a research contribution).")
-            from task_context import research_outputs
+            from task_context import research_outputs, prepared_work
             outputs = research_outputs(root, [], progress)
             previous = next((item for item in outputs if safe_path(root, item['path']) == path), {})
             current = progress.get("current_artifact", {})
             writes_current = bool(current.get('path') and safe_path(root, current['path']) == path)
             unit_id = draft.get('unit_id', previous.get('unit_id'))
+            prepared = prepared_work(root, unit_id) or {}
+            # Bind the versions actually returned at preparation, not current
+            # file hashes at save time. Explicit callers retain their override.
+            supplied_inputs = draft.get('based_on', prepared.get('based_on', previous.get('based_on', {})))
+            if not isinstance(supplied_inputs, dict):
+                raise ValueError('draft.based_on: use the work_context.inputs reference-to-SHA256 object.')
             if unit_id is not None:
                 if not isinstance(unit_id, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', unit_id):
                     raise ValueError('draft.unit_id: use a stable research-unit ID with letters, numbers, dots, underscores or hyphens.')
@@ -219,9 +225,9 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                 if not isinstance(draft['question'], str) or not draft['question'].strip():
                     raise ValueError('draft.question: state the research question this contribution answers.')
                 event['question'] = draft['question']
-            elif previous.get('question'):
-                event['question'] = previous['question']
-            dependencies = draft.get('depends_on', previous.get('depends_on', []))
+            elif prepared.get('question') or previous.get('question'):
+                event['question'] = prepared.get('question') or previous['question']
+            dependencies = draft.get('depends_on', prepared.get('depends_on', previous.get('depends_on', [])))
             if (not isinstance(dependencies, list) or any(not isinstance(value, str) or not value.strip() for value in dependencies)
                     or len(set(dependencies)) != len(dependencies) or unit_id in dependencies):
                 raise ValueError('draft.depends_on: use distinct upstream research-unit IDs; a unit cannot depend on itself.')
@@ -236,9 +242,6 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                     raise ValueError('draft.depends_on: remove the cyclic dependency; retain only actual upstream work.')
                 event['depends_on'] = dependencies
                 upstream_versions = {}
-                supplied_inputs = draft.get('based_on', {})
-                if not isinstance(supplied_inputs, dict):
-                    raise ValueError('draft.based_on: use the work_context.inputs reference-to-SHA256 object.')
                 for dependency in dependencies:
                     upstream = next((item for item in outputs if item.get('unit_id') == dependency), None)
                     if upstream:
@@ -281,10 +284,8 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
             owner = main_owner if (writes_current or draft.get('main')) and main_owner else previous.get('owner') if unit_id else None
             if owner and event.get('host_task') != owner:
                 raise ValueError(f'draft.host_task: {owner} owns this manuscript or research unit. Save an explicit handoff.to from that owner before another host writes it.')
-            if 'based_on' in draft:
-                if not isinstance(draft['based_on'], dict):
-                    raise ValueError('draft.based_on: use the work_context.inputs reference-to-SHA256 object.')
-                for input_name, checksum in draft['based_on'].items():
+            if 'based_on' in draft or prepared or previous.get('based_on'):
+                for input_name, checksum in supplied_inputs.items():
                     if isinstance(input_name, str) and input_name.startswith('record:'):
                         parts = input_name.split(':', 2)
                         if len(parts) != 3 or parts[1] not in SCHEMAS or not parts[2]:
@@ -293,9 +294,18 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                         safe_path(root, input_name)
                     if not isinstance(checksum, str) or not re.fullmatch('[a-f0-9]{64}', checksum):
                         raise ValueError(f'draft.based_on[{input_name}]: use the SHA256 returned in work_context.inputs.')
-                event['based_on'] = draft['based_on']
-            elif previous.get('based_on'):
-                event['based_on'] = previous['based_on']
+                event['based_on'] = supplied_inputs
+            if unit_id:
+                def other_inputs(item):
+                    return {key: value for key, value in item.get('based_on', {}).items()
+                            if key.startswith('record:') or safe_path(root, key) != path}
+                if (other_inputs(event) != other_inputs(previous)
+                        or dependencies != previous.get('depends_on', [])
+                        or event.get('question') != previous.get('question')):
+                    # This cached approval describes the previous input selection.
+                    # Keep its plan and original results for the next revision.
+                    progress['unit_reviews'] = {key: value for key, value in progress.get('unit_reviews', {}).items()
+                                                if key != unit_id}
             # Preserve earlier contributions through the existing backup mechanism.
             # A child contribution never implicitly replaces the registered main draft.
             original = path.read_bytes() if path.exists() else None

@@ -35,7 +35,7 @@
 本节说明 CLI／MCP 管理的任务。由工具维护已有记录；纯 Skill 在可访问对话和文件中保留同样的研究信息，不必重复搬入此目录。
 
 ```text
-state/task_spec.md          # 需求与持续更新的提纲
+state/task_spec.md          # 原始请求与全局约束
 state/progress.json         # 当前工作、依赖与显式选定的主稿
 state/requirements.jsonl     # 有效用户要求与完成依据
 logs/review.jsonl            # 原始评审与处置
@@ -48,7 +48,7 @@ state/final_delivery.json    # finish 为已验收的最终交付生成
 
 必读使用 `reading_requirement`（`full_text` 或 `relevant_sections`）配合非空、无重复的 `required_source_ids`。来源的 `read_scope` 记录实际阅读，`read_evidence` 与 `locator` 说明可读凭据及位置，需要时由 `evidence_path` 提供原始 UTF-8 内容。登记网址或下载成功不是阅读证据。`counter_evidence` 中的已登记来源编号与支持来源一样，将原文送入评审。具体写法见[保存参数](../docs/usage-modes.zh-CN.md#保存研究记录与稿件)。
 
-通过已有稿件记录登记实质成果，保留真实宿主引用、输入版本、单元／依赖信息与交接。完整成果和旧版本继续可读。由指定主稿写入者登记实际主报告，不将最新保存的文件自动视为主稿。成果或草稿完整不等于最终交付完成。
+通过已有稿件记录登记实质成果，保留真实宿主引用、输入版本、单元／依赖信息与交接。局部提纲随对应分析保存，通过选定文件或实际单元依赖接续，见[交接用法](../docs/usage-modes.zh-CN.md#研究委派与成果交接)。完整成果和旧版本继续可读。由指定主稿写入者登记实际主报告，不将最新保存的文件自动视为主稿。成果或草稿完整不等于最终交付完成。
 
 `progress.json.stage` 使用 `brief`、`collect`、`analyze`、`draft`、`review`、`revise` 或 `final`，状态和推进按[状态契约](research-standard.zh-CN.md#状态契约)。已有可选历史与 `stale_count` 保持可读，不变成新的必需记录。
 

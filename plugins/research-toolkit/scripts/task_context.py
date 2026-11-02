@@ -155,7 +155,38 @@ def research_outputs(root, warnings, progress=None):
     return list(outputs.values())
 
 
-def prepare_work(root, progress, work):
+def prepared_work(root, unit_id):
+    """Find this unit's unconsumed preparation in the existing activity history."""
+    if not unit_id:
+        return None
+    from record_changes import history
+    for row in reversed(history(root, outcome=None)):
+        if row.get('unit_id') != unit_id:
+            continue
+        if row.get('operation') == 'save' and row.get('outcome') == 'saved':
+            return None
+        if row.get('operation') == 'prepare_work' and row.get('outcome') == 'prepared':
+            return row
+    return None
+
+
+def retain_prepared_work(root, packet):
+    """Remember an explicit unit preparation; plain status remains read-only."""
+    if not packet.get('unit_id'):
+        return
+    from run_observation import record_event, now
+    prepared = {'unit_id': packet['unit_id'], 'question': packet['question'],
+                'depends_on': [item['unit_id'] for item in packet['dependencies']],
+                'based_on': packet['inputs'], 'input_version': packet['input_version']}
+    previous = prepared_work(root, packet['unit_id'])
+    if previous and all(previous.get(key) == value for key, value in prepared.items()):
+        return
+    stamp = now()
+    record_event(root, {'operation': 'prepare_work', 'outcome': 'prepared',
+                       'started_at': stamp, 'finished_at': stamp, **prepared})
+
+
+def prepare_work(root, progress, work, *, resume_prepared=False):
     """Assemble the Agent's explicit selection; do not infer scope or choose a plan."""
     from record_changes import claim_source_ids, input_digest, requirements_for_units
     allowed = {'question', 'unit_id', 'depends_on', 'requirement_ids', 'claim_ids', 'source_ids', 'paths'}
@@ -174,11 +205,13 @@ def prepare_work(root, progress, work):
     context = current_work(root, progress)
     unit = next((item for item in context['research_outputs'] if item.get('unit_id') == work.get('unit_id')),
                 None) if work.get('unit_id') else None
+    pending = prepared_work(root, work.get('unit_id')) if resume_prepared else None
     paths = list(work.get('paths', []))
     record_ids = {key: list(work.get(key, [])) for key in ('requirement_ids', 'claim_ids', 'source_ids')}
     upstream = []
     def take_inputs(item):
-        paths.append(item['path'])
+        if item.get('path'):
+            paths.append(item['path'])
         for name in item.get('based_on', {}):
             if name.startswith('record:'):
                 _, kind, identity = name.split(':', 2)
@@ -190,7 +223,9 @@ def prepare_work(root, progress, work):
                 paths.append(name)
     if unit:
         take_inputs(unit)
-    dependencies = list(work.get('depends_on', (unit or {}).get('depends_on', [])))
+    if pending:
+        take_inputs(pending)
+    dependencies = list(work.get('depends_on', (pending or unit or {}).get('depends_on', [])))
     seen = set()
     def take_upstream(dependency):
         if dependency in seen:
@@ -239,7 +274,7 @@ def prepare_work(root, progress, work):
     input_names.extend('record:sources:' + source['source_id'] for source in selected_sources)
     input_names.extend('record:claims:' + claim['claim_id'] for claim in claims)
     inputs = {name: input_digest(root, name) for name in dict.fromkeys(input_names)}
-    result = {'question': work.get('question', (unit or {}).get('question')), 'unit_id': work.get('unit_id'),
+    result = {'question': work.get('question', (pending or unit or {}).get('question')), 'unit_id': work.get('unit_id'),
               'unit': unit, 'upstream_outputs': upstream, 'task': supplied['task'],
               'dependencies': [{'unit_id': dependency,
                                 'issues': next((item.get('readiness_issues', []) for item in upstream
