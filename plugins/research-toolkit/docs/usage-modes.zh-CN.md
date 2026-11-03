@@ -399,3 +399,27 @@ python3 scripts/research_workflow.py review --workspace ../research-work --reque
 单元是否就绪同时核对其审阅输入与原始回复，包括通过 `review.evidence_paths` 另行提供的原件。它们变化后，`status` 和下游 `save` 均将该单元视为待重新审阅；未受影响分支保留原状态。
 
 全稿审阅保留当时的要求原文，按要求含义与适用范围绑定版本；独立审阅、审计及验收实际完成后，如实保存完成状态和依据，再调用 `finish`，不会仅因这次记账使已有结果失效。要求内容或范围变化仍需重新审阅，最终收据记录当前要求文件。
+
+<a id="codex-host-execution"></a>
+### 用已安装的 Codex 宿主执行所选工作
+
+Agent 可以通过 `scripts/research_host.py` 执行自己选定的分析／写作单元与独立审阅任务。适配器沿用 Codex 当前登录、模型与原生持久会话，使用同一 Toolkit 工作目录。来源收集和研究规划使用已有宿主工具，无需另配 API。
+
+已有任务已登记来源 `S1` 时，请求文件可直接复用当前参数：
+
+```json
+[
+  {"work":{"unit_id":"routes","question":"解释哪些技术差异会改变选择。","source_ids":["S1"]},"draft":{"path":"analysis/routes.md","kind":"analysis","complete":true},"review":{"evidence_paths":[],"domains":[]}},
+  {"work":{"unit_id":"report","question":"根据完整分析与当前要求展开完整报告。","depends_on":["routes"]},"draft":{"path":"report.md","main":true,"complete":true},"review":{"evidence_paths":[]}}
+]
+```
+
+```bash
+python scripts/research_host.py --workspace <task-store> --task study --request work.json --language zh
+```
+
+工作、依赖和领域专审按实际问题选择。`review` 使用现有参数与职责，全稿仍包含所有必要的独立视角、审计和验收。适配器在上游真实就绪后才派发依赖它的写作者；在 `logs/host/` 保留原始回复、实际会话／轮次标识和执行事件，再调用已有 `save` 与评审结果校验。保存的材料绑定来自实际送达的输入包。
+
+适配器运行期间，工作输入变化会回到同一生产者：执行中的工作追加消息，已结束的工作续接已保存的原生会话。审阅修订使用已有任务返回的 `resume_host_task`。中断后再次执行请求会复用已保存的成果与负责人，不重置研究任务。宿主执行失败或结果未被接受时，保留原件并返回待处理情况；负面审阅不会触发自动改写或返评。
+
+请求结束只表示本批工作已有结果，最终交付继续使用已有要求记录与 `finish`。进程退出时关闭自己启动的宿主连接，不增加常驻服务或另一份任务数据库。
