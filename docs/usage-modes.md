@@ -400,3 +400,27 @@ Preserve each saved unit version. New requirements or evidence return to affecte
 Unit readiness also checks its review inputs and original replies, including originals supplied separately through `review.evidence_paths`. If these change, both `status` and downstream `save` treat the unit as awaiting current review; unaffected branches retain their state.
 
 Full-report review retains the original requirement rows and binds their meaning and applicability. After independent review, audit and acceptance actually finish, save the factual completion status and evidence, then call `finish`; that bookkeeping alone does not invalidate the results. Changes to requirement content or scope still require current review, and the final receipt records the current requirements file.
+
+<a id="codex-host-execution"></a>
+### Execute selected work with the installed Codex host
+
+An Agent can execute its selected analysis/writing units and independent assignments with `scripts/research_host.py`. The adapter uses Codex's current login/model, native persistent threads and the same Toolkit workspace. Source collection and research planning use the existing host tools. No separate API setup is needed.
+
+For an existing task with source `S1` already registered, a request file can reuse the current arguments:
+
+```json
+[
+  {"work":{"unit_id":"routes","question":"Explain which technical differences change the choice.","source_ids":["S1"]},"draft":{"path":"analysis/routes.md","kind":"analysis","complete":true},"review":{"evidence_paths":[],"domains":[]}},
+  {"work":{"unit_id":"report","question":"Develop the complete report using the full analysis and current requirements.","depends_on":["routes"]},"draft":{"path":"report.md","main":true,"complete":true},"review":{"evidence_paths":[]}}
+]
+```
+
+```bash
+python scripts/research_host.py --workspace <task-store> --task study --request work.json --language en
+```
+
+Select work, dependencies and domain review for the actual question. `review` uses the existing arguments and responsibilities; full-report review still includes all required independent perspectives, audit and acceptance. The adapter submits a dependent writer only after its upstream is ready. It stores original responses, native session/turn IDs and execution events under `logs/host/`, then uses existing `save` and review-result validation. Saved input bindings come from the actual delivered packet.
+
+While the adapter is running, changed work inputs return to the same producer. Running work receives a steering message; settled work resumes its saved native thread. A review revision uses `resume_host_task` from the existing assignment. Re-running the request after an interruption reuses saved outputs and owners rather than resetting the task. A native failure or unaccepted result retains its originals and is reported for handling. Negative review is not automatically rewritten or rerolled.
+
+The request finishing means this batch of work has settled. Use the existing requirement records and `finish` for final delivery. The process closes its own host connection when it exits; it adds no permanent service or second task database.

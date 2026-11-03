@@ -4,6 +4,13 @@
 
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
+## v2.2.0 — 2026-11-03
+
+- Add an optional local Codex execution adapter for selected research work and independent review assignments. Reuse the installed host's login and model configuration, Toolkit inputs, saved artifacts and review contracts.
+- Resume the recorded producer when inputs change, steer running work, wait for upstream results, and import original outputs with their delivered input versions. Negative findings return for substantive revision; they do not trigger automatic rewriting until approval.
+- Distribute the already-merged review-continuation repair: retain the original independent context and prior inputs for revision, alongside current originals and concrete changes.
+- Synchronize English, Chinese and plugin content. One constructed-material task exercised real Codex sessions, subsequent requirements, revision, independent review, audit and acceptance. Retain its raw records separately; the final scheduling repair used saved-state replay. No measured report-quality or rework-reduction gain is claimed. See [release notes](docs/releases/v2.2.0.md).
+
 ## v2.1.0 — 2026-11-02
 
 - Add a readable input entry to research preparation and pending native-host content review, audit and final acceptance. Existing calls return `reading_ref` alongside their original input fields and frozen JSON references.
