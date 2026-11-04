@@ -94,7 +94,7 @@ def stage_skill(workspace: Path) -> Path:
         shutil.copy2(REPO_ROOT / "scripts" / name, scripts_dir / name)
     docs_dir = destination / "docs"
     docs_dir.mkdir()
-    for name in ("review-completion.md", "delivery-verification.md",
+    for name in ("review-completion.md", "delivery-verification.md", "usage-data.md", "usage-data.zh-CN.md",
                  "review-completion.zh-CN.md", "delivery-verification.zh-CN.md"):
         shutil.copy2(REPO_ROOT / "docs" / name, docs_dir / name)
     return destination

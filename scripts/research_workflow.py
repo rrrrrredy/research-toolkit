@@ -88,6 +88,8 @@ def append_row(root, row):
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as handle:
         handle.write(json.dumps(row, ensure_ascii=False)+"\n")
+    from usage_events import observe_record
+    observe_record(root, row)
 
 
 def ref(root, name):
@@ -1075,7 +1077,7 @@ def workspace_default() -> Path:
     return (Path(plugin_data) if plugin_data else Path.home()/".research-toolkit")/"tasks"
 
 
-def dispatch(action: str, request: dict, workspace: Path):
+def _dispatch(action: str, request: dict, workspace: Path):
     actions = {"start": start, "status": status, "guide": guidance, "review": review,
                "finish": finish, "save": save_records, "check-draft": check_draft, "check-reviewer": review_readiness,
                "check-updates": check_updates}
@@ -1095,6 +1097,11 @@ def dispatch(action: str, request: dict, workspace: Path):
                          "Supply a JSON object using --request <file.json> or stdin. "
                          f"Allowed fields: {', '.join(parameters) or '(none)' }.")
     return function(**request) if action in {"guide", "check-reviewer"} else function(workspace, **request)
+
+
+def dispatch(action: str, request: dict, workspace: Path):
+    from usage_events import observed_call
+    return observed_call(_dispatch, (action, request, workspace), entry="cli")
 
 
 def main():

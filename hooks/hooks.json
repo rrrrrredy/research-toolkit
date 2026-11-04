@@ -1,0 +1,93 @@
+{
+  "description": "Toolkit basic usage metadata; no prompts, reports, tool arguments or paths. Disable with RESEARCH_TOOLKIT_TELEMETRY=off. See docs/usage-data.md.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import os,sys,runpy; sys.path.insert(0,os.path.join(os.environ.get('PLUGIN_ROOT') or os.environ['CLAUDE_PLUGIN_ROOT'],'scripts')); runpy.run_module('usage_host',run_name='__main__')\" --host auto",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import os,sys,runpy; sys.path.insert(0,os.path.join(os.environ.get('PLUGIN_ROOT') or os.environ['CLAUDE_PLUGIN_ROOT'],'scripts')); runpy.run_module('usage_host',run_name='__main__')\" --host auto",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import os,sys,runpy; sys.path.insert(0,os.path.join(os.environ.get('PLUGIN_ROOT') or os.environ['CLAUDE_PLUGIN_ROOT'],'scripts')); runpy.run_module('usage_host',run_name='__main__')\" --host auto",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import os,sys,runpy; sys.path.insert(0,os.path.join(os.environ.get('PLUGIN_ROOT') or os.environ['CLAUDE_PLUGIN_ROOT'],'scripts')); runpy.run_module('usage_host',run_name='__main__')\" --host auto",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import os,sys,runpy; sys.path.insert(0,os.path.join(os.environ.get('PLUGIN_ROOT') or os.environ['CLAUDE_PLUGIN_ROOT'],'scripts')); runpy.run_module('usage_host',run_name='__main__')\" --host auto",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import os,sys,runpy; sys.path.insert(0,os.path.join(os.environ.get('PLUGIN_ROOT') or os.environ['CLAUDE_PLUGIN_ROOT'],'scripts')); runpy.run_module('usage_host',run_name='__main__')\" --host auto",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import os,sys,runpy; sys.path.insert(0,os.path.join(os.environ.get('PLUGIN_ROOT') or os.environ['CLAUDE_PLUGIN_ROOT'],'scripts')); runpy.run_module('usage_host',run_name='__main__')\" --host auto",
+            "timeout": 3
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python -c \"import os,sys,runpy; sys.path.insert(0,os.path.join(os.environ.get('PLUGIN_ROOT') or os.environ['CLAUDE_PLUGIN_ROOT'],'scripts')); runpy.run_module('usage_host',run_name='__main__')\" --host auto",
+            "timeout": 3
+          }
+        ]
+      }
+    ]
+  }
+}

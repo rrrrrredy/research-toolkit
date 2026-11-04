@@ -6,6 +6,8 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Add shared default-on basic usage collection for CLI/MCP and native host observers, with a notice, opt-out, private reporting and one-time selected-content sharing. The online receiver is not deployed yet; this work is not part of a published release.
+
 - Use a common Agent session interface with Claude Code/OpenCode native CLI drivers. Codex remains one host driver, rather than a fixed dependency of shared execution.
 - Do not fall back to Codex for host selection. Deliver updates through steering where supported, otherwise resume the same session after the active invocation; original outputs retain their actual input bindings.
 - Remove implicit Codex selection from ambiguous external review configuration; legacy entries with an explicit host response format remain usable.

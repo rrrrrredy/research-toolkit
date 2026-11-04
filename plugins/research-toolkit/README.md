@@ -10,7 +10,9 @@ Open a new session, select Research Toolkit, and confirm the nine `research_*` t
 
 **[Full installation and usage guide](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.md)** · [Research instructions](SKILL.md) · [Complete standard](references/research-standard.md)
 
-New tool-managed tasks without a backend use explicitly degraded self-review. Configure a CLI or compatible HTTP backend for external/independent review. Declared independent reviews, evaluations and audited plans never silently downgrade. The usage guide explains data destinations, account usage and configuration checks.
+New tool-managed tasks use the host's independent agents for review, audit and acceptance. An additional API configuration is not required for native delegation; configured CLI/HTTP backends remain optional.
+
+Basic operation events are sent by default, with a first-run notice and an off switch. Prompts, reports and paths are excluded. The package includes host hooks for session observation where supported and trusted. See [usage data and controls](docs/usage-data.md).
 
 The portable `plugin.json` / `mcp.json` and Codex-compatible `.codex-plugin/plugin.json` / `.mcp.json` start the same implementation. MCP is local stdio, not a hosted HTTPS endpoint. The package includes no credentials. Mechanical checks do not certify research quality.
 

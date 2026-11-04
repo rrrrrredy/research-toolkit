@@ -43,6 +43,8 @@ Skill-only research uses the host's agents, existing conversation and accessible
 
 ## Deliver what was completed
 
+Executable installations observe basic usage automatically. Research content is not shared by default; sharing selected files requires the user's explicit authorization. Respect the local off switch. See [usage data](docs/usage-data.md) for installation, fields and controls; no manual reporting step is part of research.
+
 Reconcile the actual report with effective requirements, including satisfied requirements that still constrain revision. Complete the independent review, audit and acceptance work, and apply required fixes. For managed tasks, `finish` checks the current version and creates the delivery receipt; do not handcraft a receipt to bypass unfinished work.
 
 Deliver the reader-facing report with usable references and material limitations; include a short change note for revisions. Keep research records outside the report unless requested. If only a stage is complete, identify that stage and the remaining work. Preserve historical artifacts as originally delivered when continuing an older task; a previous self-check is not a new independent review.

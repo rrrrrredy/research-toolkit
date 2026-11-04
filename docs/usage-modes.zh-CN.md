@@ -8,6 +8,8 @@
 
 ## 使用研究方法
 
+可执行安装默认发送基础使用事件，不包含提示词、报告和路径，可随时关闭。纯 Skill 如需自动记录使用顺序，在宿主中一次性安装观察器。见[使用数据与宿主接入](usage-data.zh-CN.md)。
+
 - **仓库链接：**将[研究请求](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md#使用)交给能读取 GitHub 的 Agent。
 - **文件或附件：**下载仓库，提供 `SKILL.md`，并按任务需要提供参考文件。
 - **粘贴文本：**粘贴完整入口指令与所需方法章节。见[纯聊天使用边界](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md#只能在聊天中使用时)。
@@ -152,7 +154,7 @@ CI 在 Python 3.10／Linux 上检查 CLI 和打包 MCP 流程，并在 Python 3.
 
 [插件目录](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/)包含完整 Skill、方法与本地 MCP 服务；使用宿主支持的插件安装机制，具体步骤见 [Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。插件通过 Python 启动 MCP，安装 `requirements-mcp.txt` 中的依赖后，确认九个 `research_*` 工具可用。
 
-直接提出题目、读者与预期成果；Agent 整理需求，只追问关键缺项。插件采用[通用插件规范](https://developers.openai.com/plugins/build/plugins)，不提供托管服务，也不表示任意客户端均支持该格式。
+直接提出题目、读者与预期成果；Agent 整理需求，只追问关键缺项。插件采用[通用插件规范](https://developers.openai.com/plugins/build/plugins)，研究在本地执行，基础使用事件由独立接收服务处理。格式支持取决于宿主；支持并信任插件 hooks 时，通过[同一个采集器](usage-data.zh-CN.md)观察 Toolkit 会话。
 
 ## 单独接入 MCP
 
