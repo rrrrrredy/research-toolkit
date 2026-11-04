@@ -17,7 +17,7 @@ from review_process import WindowsJob, WINDOWS_GATE
 class CodexSession:
     """Keep native threads and their original events, using the host's login/config."""
 
-    def __init__(self, cwd: Path, directory: Path):
+    def __init__(self, cwd: Path, directory: Path, command=None):
         self.cwd = cwd.resolve()
         directory.mkdir(parents=True, exist_ok=True)
         self.events = queue.Queue()
@@ -29,11 +29,11 @@ class CodexSession:
         self.stderr = (directory / "stderr.txt").open("a", encoding="utf-8")
         self.job = None
         self.process = None
-        executable = shutil.which("codex.exe") or shutil.which("codex")
-        if not executable:
+        executable = command or [shutil.which("codex.exe") or shutil.which("codex")]
+        if not executable[0]:
             self.close()
             raise OSError("Codex executable not found. Use the installed host's native agents, or add Codex to PATH.")
-        command = [executable, "app-server", "--listen", "stdio://"]
+        command = executable + ["app-server", "--listen", "stdio://"]
         try:
             self.job = WindowsJob() if os.name == "nt" else None
             argv = ([sys.executable, "-c", WINDOWS_GATE, json.dumps(command)] if self.job else command)

@@ -31,13 +31,11 @@ Use the host’s native subagents for production, assembly, independent content 
 
 The [shared research guide](../docs/quickstart.md) provides a complete request and setup details.
 
-## Execute prepared work through the local host
+## Agent execution adapter
 
-For programmatic execution of already selected analysis, comparison and writing units, `scripts/research_host.py` connects the existing work and review assignments to the installed Codex app-server. It uses the current login and model settings. The Agent supplies the existing `work`, `draft` and optional `review` arguments; users do not need another installation or API configuration. See the [execution example](../docs/usage-modes.md#codex-host-execution).
+For script-managed work, use the shared [Agent execution adapter](../docs/usage-modes.md#agent-host-execution) with `--host codex`. Native subagent tools also use the same work/save/review contracts. Both paths use the current host's login and model configuration.
 
-The adapter waits for actual upstream readiness, retains the producing session and full original response, and saves against the inputs supplied to that session. While it is running, changed inputs are sent back to the same producer. Review assignments use separate native sessions and resume the original reviewer when the existing assignment specifies one. The existing content-review, audit and acceptance contract remains in force. Negative assessments return to the coordinator for a substantive revision decision.
-
-Research questions, division of work, source collection and final synthesis remain research responsibilities. The adapter runs the selected work; it does not choose a fixed team, automatically rewrite until approval, or remain running after the submitted work has settled. Its task records are the same records used by CLI and MCP.
+The shared example describes dependencies, input updates, original records and independent review. Use one dispatcher for a work unit; do not launch it through native tools and the adapter at the same time.
 
 ## If it does not load
 

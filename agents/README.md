@@ -22,6 +22,8 @@ These methods apply instructions to the task. They do not register a native Skil
 
 <a id="chat-only-use"></a>
 
+The [Agent execution adapter](../docs/usage-modes.md#agent-host-execution) shares research inputs, saving, dependencies and review logic across native host sessions. Hosts with native subagents can execute the shared assignments directly, without an additional script dispatcher.
+
 ## Native collaboration and chat-only use
 
 In hosts such as Codex and Claude Code, use the host's own subagent tools for research, assembly and independent assessment. No separate API setup is required. Follow the [shared handoff methods](../references/subagents-and-review-loop.md): give each worker current requirements, the bounded question and accessible originals; retain complete contributions and actual host identities.

@@ -21,7 +21,7 @@ The lead agent maintains the research question, effective requirements and overa
 | Writing and revision | Develop meaningful research units, review premises before dependent work, and integrate their complete analysis into one owned main draft. Changes return to affected units and the outline. |
 | Review and delivery | Complete seven separate content-review perspectives, relevant domain review, independent audit and final acceptance against the current report and sources. Resolve necessary corrections before delivery. |
 
-These are four connected responsibilities, not four fixed agents or four independent pipelines. Codex, Claude Code and similar hosts run the agents and carry messages; Toolkit provides shared inputs, methods, artifact relationships and completion checks. Host-native collaboration does not require separate API setup. [Research steps](docs/quickstart.md#research-from-scratch) · [Handoff and calls](docs/usage-modes.md#research-delegation-and-handoff)
+These are four connected responsibilities, not four fixed agents or four independent pipelines. Codex, Claude Code and similar hosts run the agents and carry messages; Toolkit provides shared inputs, methods, artifact relationships and completion checks. Host-native collaboration does not require separate API setup. For script-managed execution, the shared [Agent execution adapter](docs/usage-modes.md#agent-host-execution) connects to Claude Code, OpenCode or Codex, according to the current host. [Research steps](docs/quickstart.md#research-from-scratch) · [Handoff and calls](docs/usage-modes.md#research-delegation-and-handoff)
 
 ```mermaid
 flowchart LR

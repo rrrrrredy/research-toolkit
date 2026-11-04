@@ -23,6 +23,8 @@
 
 <a id="只能在聊天中使用时"></a>
 
+[Agent 执行适配器](../docs/usage-modes.zh-CN.md#agent-host-execution)共用研究输入、保存、依赖和审阅逻辑，按宿主连接原生会话。已有原生子 Agent 的宿主可以直接执行共同任务，不必增加脚本调度。
+
 ## 原生协作与聊天使用
 
 在 Codex、Claude Code 等宿主中，直接使用其子 Agent 工具完成研究、统稿和独立审阅，无需另配 API。按[共同交接方法](../references/subagents-and-review-loop.zh-CN.md)提供当前要求、有边界的问题和可读原件，保留完整贡献及真实宿主身份。

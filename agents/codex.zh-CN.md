@@ -30,13 +30,11 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 
 [统一研究指南](../docs/quickstart.zh-CN.md)提供完整请求和接入说明。
 
-## 用本地宿主执行已准备的工作
+## Agent 执行适配器
 
-需要程序执行已选定的分析、比较和写作单元时，`scripts/research_host.py` 将已有研究输入和审阅任务接到本机 Codex app-server，沿用当前登录与模型设置。Agent 提供现有 `work`、`draft` 和可选的 `review` 参数，用户无需另行安装或配置 API。见[执行示例](../docs/usage-modes.zh-CN.md#codex-host-execution)。
+需要脚本管理执行时，使用共同的 [Agent 执行适配器](../docs/usage-modes.zh-CN.md#agent-host-execution)，指定 `--host codex`。原生子 Agent 工具也可通过同一套 work／save／review 契约工作，均沿用当前宿主的登录与模型配置。
 
-适配器等待真实上游就绪，保留生产会话和完整原始回复，按实际传入的材料版本保存成果。运行期间输入变化会送回同一生产者。审阅使用相互独立的原生会话；已有任务指定原审阅者时，续接该会话。内容审阅、审计和验收仍由现有契约约束。负面意见交回协调者，由研究者判断怎样修订。
-
-研究问题、工作分配、来源收集和最终综合仍由研究者负责。适配器执行已选工作，不选择固定团队，不自动改到通过，也不在本批工作结束后常驻。它与 CLI、MCP 共用同一份任务记录。
+共同示例说明依赖、输入更新、原始记录和独立审阅。同一研究单元使用一处调度，不同时通过原生工具和适配器重复启动。
 
 ## 无法加载时
 

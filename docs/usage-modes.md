@@ -271,6 +271,8 @@ Use this only when choosing a separate command or endpoint to execute review. It
 | `generic` | Backend `generic`, `RESEARCH_TOOLKIT_REVIEW_BASE_URL` and `RESEARCH_TOOLKIT_REVIEW_MODEL`; an authentication environment variable only if the selected endpoint requires one. |
 | Trusted command | `RESEARCH_TOOLKIT_REVIEW_CONFIG` points to a JSON configuration with an argv list and `format: "json"`. |
 
+External review JSON configuration should name `backend` explicitly. Existing `command`, `format: "json"` and host-specific formats remain recognized. A model-only entry now reports the required `reviewer.backend` field instead of selecting Codex implicitly. Native-host execution needs no such configuration.
+
 Native-host and configured execution fulfill the same current review responsibilities. A legacy self-review result remains historical evidence; it cannot replace a required independent review, audit or acceptance.
 
 For a chosen generic backend:
@@ -402,9 +404,12 @@ Unit readiness also checks its review inputs and original replies, including ori
 Full-report review retains the original requirement rows and binds their meaning and applicability. After independent review, audit and acceptance actually finish, save the factual completion status and evidence, then call `finish`; that bookkeeping alone does not invalidate the results. Changes to requirement content or scope still require current review, and the final receipt records the current requirements file.
 
 <a id="codex-host-execution"></a>
-### Execute selected work with the installed Codex host
+<a id="agent-host-execution"></a>
+### Agent execution adapter
 
-An Agent can execute its selected analysis/writing units and independent assignments with `scripts/research_host.py`. The adapter uses Codex's current login/model, native persistent threads and the same Toolkit workspace. Source collection and research planning use the existing host tools. No separate API setup is needed.
+An Agent can execute selected analysis/writing units and independent assignments with `scripts/research_host.py`. Shared research logic uses a host-neutral session interface; Claude Code, OpenCode and Codex connect through their installed CLI/session protocols, using the host's existing login and model configuration. Source collection and research planning use the existing host tools. No separate API setup is needed.
+
+Native subagent tools can already run the same assignments and return results through CLI/MCP. Use that path when the host is managing the workers directly. The execution adapter handles launch, continuation and original-result import when those operations are delegated to a local script. Use one execution path for a work unit, so the native dispatcher and the script do not start duplicate workers. Other hosts use the shared native assignment and result contract; adding a CLI driver does not change the research workflow.
 
 For an existing task with source `S1` already registered, a request file can reuse the current arguments:
 
@@ -416,11 +421,15 @@ For an existing task with source `S1` already registered, a request file can reu
 ```
 
 ```bash
-python scripts/research_host.py --workspace <task-store> --task study --request work.json --language en
+python scripts/research_host.py --host claude --workspace <task-store> --task study --request work.json --language en
 ```
 
-Select work, dependencies and domain review for the actual question. `review` uses the existing arguments and responsibilities; full-report review still includes all required independent perspectives, audit and acceptance. The adapter submits a dependent writer only after its upstream is ready. It stores original responses, native session/turn IDs and execution events under `logs/host/`, then uses existing `save` and review-result validation. Saved input bindings come from the actual delivered packet.
+Use `--host opencode` or `--host codex` for those hosts. Without the flag, selection uses `RESEARCH_TOOLKIT_HOST`, a recognized current-host context, or a sole installed CLI. An ambiguous selection asks for `--host`; it never falls back to Codex. `--executable` accepts a native executable path when PATH only exposes a wrapper. No permission-bypass flag or model override is added.
 
-While the adapter is running, changed work inputs return to the same producer. Running work receives a steering message; settled work resumes its saved native thread. A review revision uses `resume_host_task` from the existing assignment. Re-running the request after an interruption reuses saved outputs and owners rather than resetting the task. A native failure or unaccepted result retains its originals and is reported for handling. Negative review is not automatically rewritten or rerolled.
+The script runs prepared contributions: it supplies the existing stage guidance and retained full input texts. Claude Code/OpenCode CLI workers receive read-only file tools for those pages and return the complete contribution; the coordinator saves it. Successful access outside those pages is reported as an execution failure instead of importing an incorrectly bound result. These per-process settings do not edit the user's host configuration. Source discovery or work requiring additional execution tools can use native subagents with the same Toolkit contracts.
+
+Select work, dependencies and domain review for the actual question. `review` uses the existing arguments and responsibilities; full-report review still includes all required independent perspectives, audit and acceptance. The adapter submits a dependent writer only after its upstream is ready. It stores original responses, native session IDs, turn identifiers and raw execution events under `logs/host/`, then uses existing `save` and review-result validation. CLI turn identifiers identify one captured invocation; the native session ID comes from the host. Saved input bindings come from the actual delivered packet.
+
+While the adapter is running, changed inputs return to the same producer. The Codex driver can steer an active turn. Claude Code and OpenCode CLI drivers resume the recorded session after the active invocation finishes: the first output retains its old inputs, then a continuation receives the current packet. A review revision uses `resume_host_task` from the existing assignment. New Claude Code/OpenCode IDs include their host name, and old unqualified Codex IDs remain resumable. An ID from another host is not silently reused or replaced. Re-running a request after interruption reuses saved outputs and owners. A native failure or unaccepted result retains its originals and is reported for handling. Negative review is not automatically rewritten or rerolled.
 
 The request finishing means this batch of work has settled. Use the existing requirement records and `finish` for final delivery. The process closes its own host connection when it exits; it adds no permanent service or second task database.
