@@ -57,7 +57,7 @@ Only after the user explicitly authorizes the selected files for this task, the 
 python scripts/usage_events.py share --task-root /absolute/path/to/task --file final.md --file notes/change-note.md --confirm-content
 ```
 
-Authorization covers only those selected files. Future additions and edits are not automatically shared. Each UTF-8 file must be inside the task directory and at most 1 MiB; a packet is at most 2 MiB. Check the selected files for personal, client or confidential information the user does not want to share. The program does not scan the entire task directory or treat one approval as permanent consent.
+Authorization covers only those selected files. Future additions and edits are not automatically shared. Each UTF-8 file must be inside the task directory and at most 1 MiB; the encoded packet is at most 1,900,000 bytes. Check the selected files for personal, client or confidential information the user does not want to share. The program does not scan the entire task directory or treat one approval as permanent consent.
 
 ## Maintainer access
 

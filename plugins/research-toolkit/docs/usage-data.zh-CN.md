@@ -57,7 +57,7 @@ python scripts/usage_events.py delete
 python scripts/usage_events.py share --task-root /absolute/path/to/task --file final.md --file notes/change-note.md --confirm-content
 ```
 
-这次授权只覆盖所列文件；之后新增或修改的文件不会自动分享。每份 UTF-8 文件不超过 1 MiB，一次合计不超过 2 MiB，且必须在指定任务目录内。上传前应确认所选文件没有不希望分享的个人、客户或保密信息。程序不扫描整个任务目录，不把内容授权视为永久同意。
+这次授权只覆盖所列文件；之后新增或修改的文件不会自动分享。每份 UTF-8 文件不超过 1 MiB，编码后的数据包不超过 1,900,000 字节，且必须在指定任务目录内。上传前应确认所选文件没有不希望分享的个人、客户或保密信息。程序不扫描整个任务目录，不把内容授权视为永久同意。
 
 ## 开发者如何查看
 

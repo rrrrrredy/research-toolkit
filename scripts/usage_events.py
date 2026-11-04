@@ -25,7 +25,7 @@ from urllib.parse import urlsplit
 from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_ENDPOINT = ""  # Filled with the verified receiver before distribution.
+DEFAULT_ENDPOINT = "https://research-toolkit-usage.luosongred.workers.dev"
 CONTEXT = ContextVar("research_toolkit_usage", default={})
 HOSTS = {"codex", "claude", "opencode", "unknown"}
 ENTRIES = {"cli", "mcp", "skill", "plugin", "adapter", "library", "unknown"}
@@ -412,8 +412,8 @@ def main():
                 files.append({"name": f"file-{index+1}.txt", "text": source.read_text(encoding="utf-8")})
             packet = {"id": uuid.uuid4().hex, "task": opaque(config, "task", str(root)),
                       "consent": True, "files": files, "at": datetime.now(timezone.utc).isoformat()}
-            if len(json.dumps(packet).encode()) > 2*1024*1024:
-                parser.error("selected content exceeds 2 MiB")
+            if len(json.dumps(packet).encode()) > 1_900_000:
+                parser.error("selected content packet exceeds 1,900,000 bytes")
             db.execute("INSERT INTO content VALUES (?,?,?)", (packet["id"], time.time(), json.dumps(packet)))
             print(json.dumps({"queued": packet["id"], "files": len(files)}))
         elif args.action == "delete":
