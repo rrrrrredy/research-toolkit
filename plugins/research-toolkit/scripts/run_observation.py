@@ -62,6 +62,8 @@ def record_event(root, event):
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", encoding="utf-8") as stream:
         stream.write(json.dumps(event, ensure_ascii=False) + "\n")
+    from usage_events import observe_record
+    observe_record(root, event)
 
 
 def _activity_summary(root):

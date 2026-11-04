@@ -9,7 +9,7 @@ from check_version import check as check_version, safe_repo_file
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN = ROOT/"plugins/research-toolkit"
-RUNTIME = ["task_storage.py", "research_guidance.py", "profile_policy.py", "check_delivery.py", "check_review_completion.py", "research_workflow.py", "research_records.py", "record_changes.py", "release_updates.py", "extract_source_text.py", "run_observation.py", "review_runner.py", "review_process.py", "task_lock.py", "task_context.py", "task_reading.py", "host_review.py", "codex_session.py", "agent_session.py", "cli_agent_session.py", "research_host.py"]
+RUNTIME = ["task_storage.py", "research_guidance.py", "profile_policy.py", "check_delivery.py", "check_review_completion.py", "research_workflow.py", "research_records.py", "record_changes.py", "release_updates.py", "extract_source_text.py", "run_observation.py", "review_runner.py", "review_process.py", "task_lock.py", "task_context.py", "task_reading.py", "host_review.py", "codex_session.py", "agent_session.py", "cli_agent_session.py", "research_host.py", "usage_events.py", "usage_host.py", "install_usage.py", "usage_opencode.mjs"]
 MANIFEST = ".generated-files.json"
 
 
@@ -19,7 +19,7 @@ def digest(content: bytes) -> str:
 
 def managed_name(relative: str) -> bool:
     parts = PurePosixPath(relative).parts
-    return (relative in {"VERSION", "SKILL.md", "SKILL.zh-CN.md", "LICENSE", "requirements-mcp.txt"}
+    return (relative in {"VERSION", "SKILL.md", "SKILL.zh-CN.md", "LICENSE", "requirements-mcp.txt", "scripts/usage_opencode.mjs", "hooks/hooks.json"}
             or len(parts) == 2 and parts[0] in {"references", "docs", "scripts"}
             and parts[1] not in {".", ".."} and relative == "/".join(parts)
             and "\\" not in relative
@@ -45,7 +45,8 @@ def payload() -> dict[str, bytes]:
         "compatibility.md", "compatibility.zh-CN.md",
         "review-completion.md", "review-completion.zh-CN.md",
         "usage-modes.md", "usage-modes.zh-CN.md",
-        "delivery-verification.md", "delivery-verification.zh-CN.md")]
+        "delivery-verification.md", "delivery-verification.zh-CN.md", "usage-data.md", "usage-data.zh-CN.md")]
+    paths.append(ROOT/"hooks/hooks.json")
     mcp = ROOT/"scripts/research_mcp.py"
     if mcp.is_file():
         paths.extend([mcp, ROOT/"requirements-mcp.txt"])

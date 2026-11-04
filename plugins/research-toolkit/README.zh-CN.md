@@ -10,7 +10,9 @@
 
 **[完整安装与使用说明](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md)** · [研究入口](SKILL.zh-CN.md) · [完整规范](references/research-standard.zh-CN.md)
 
-新建工具管理任务未配置后端时，使用明确标注强度降级的 self 评审；external／independent 可配置 CLI 或兼容 HTTP 后端。已声明的独立评审、评测与审计计划不静默降级。材料去向、额度及配置自查见完整使用说明。
+新建工具管理任务通过宿主的独立 Agent 完成审阅、审计与验收。原生委派不要求另配 API；自配 CLI／HTTP 后端仍是可选方式。
+
+基础操作事件默认发送，首次运行提示并提供关闭方式，不含提示词、报告和路径。插件附带宿主 hooks，在宿主支持并信任后观察会话顺序。见[使用数据与控制](docs/usage-data.zh-CN.md)。
 
 通用 `plugin.json` / `mcp.json` 与 Codex 兼容清单 `.codex-plugin/plugin.json` / `.mcp.json` 启动相同实现。MCP 通过本地 stdio 接入，不是托管的 HTTPS 服务。包内没有凭据，机械检查也不证明研究质量。
 

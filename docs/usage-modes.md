@@ -8,6 +8,8 @@ The [compatibility policy](compatibility.md) explains the current completion con
 
 ## Use the research methods
 
+Executable installs send basic usage events by default. Prompts, reports and paths are excluded; collection can be disabled. For Skill-only automatic observation, install the native host observer once. See [usage data and host setup](usage-data.md).
+
 - **Repository link:** send the [research request](https://github.com/rrrrrredy/research-toolkit/blob/main/README.md#usage) to an agent that can read GitHub.
 - **Files or attachments:** download the repository, provide `SKILL.md`, and make the required reference files available.
 - **Text-only input:** paste the complete entry instructions and relevant method sections. See [chat-only use](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md#chat-only-use).
@@ -155,7 +157,7 @@ CI exercises the CLI and packaged MCP workflow on Python 3.10/Linux, plus the br
 
 The [plugin directory](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/) bundles the Skill, methods and local MCP server. Use your host's supported plugin installation mechanism; [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md) has host-specific instructions. Install `requirements-mcp.txt` in the Python environment that starts MCP, then confirm the nine `research_*` tools are available.
 
-Describe the topic, reader and expected result; the agent assembles the brief and asks only about critical missing choices. The package follows the [portable plugin specification](https://developers.openai.com/plugins/build/plugins); it is not a hosted service and does not imply every client supports that format.
+Describe the topic, reader and expected result; the agent assembles the brief and asks only about critical missing choices. The package follows the [portable plugin specification](https://developers.openai.com/plugins/build/plugins). Research runs locally; the separate usage receiver handles basic events. Format support depends on the host. Plugin hooks, where supported and trusted, observe Toolkit sessions using the [same collector](usage-data.md).
 
 ## Connect MCP separately
 

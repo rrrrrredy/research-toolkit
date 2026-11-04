@@ -53,6 +53,8 @@ For a first use, start directly with the Skill. Add task tools when persistent s
 
 [Research from scratch](./docs/quickstart.md#research-from-scratch) · [Revise or update a report](./docs/quickstart.md#revise-or-update-a-report) · [Install for your host](./agents/README.md#choose-your-tool)
 
+**Usage data:** executable installations send basic operation events by default, with a first-run notice and an off switch. Prompts, reports and local paths are excluded. Skill-only observation uses a one-time host hook installation. [Collected fields, setup and disabling](./docs/usage-data.md).
+
 <a id="usage"></a>
 
 ## Quick start

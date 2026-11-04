@@ -6,10 +6,14 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.3.0 — 2026-11-04
+
+- Add shared default-on basic usage collection for CLI/MCP and native host observers, with a first-use notice, opt-out, deletion, private reporting and one-time selected-content sharing. Research text and local paths are excluded from basic events.
+
 - Use a common Agent session interface with Claude Code/OpenCode native CLI drivers. Codex remains one host driver, rather than a fixed dependency of shared execution.
 - Do not fall back to Codex for host selection. Deliver updates through steering where supported, otherwise resume the same session after the active invocation; original outputs retain their actual input bindings.
 - Remove implicit Codex selection from ambiguous external review configuration; legacy entries with an explicit host response format remain usable.
-- Synchronize bilingual entry points, host guidance and plugin content. Keep integration evidence separate; host coverage is not a claim of improved research quality.
+- Synchronize bilingual entry points, host guidance and plugin content. See [release notes](docs/releases/v2.3.0.md) for the collection paths and execution observations.
 
 ## v2.2.0 — 2026-11-03
 

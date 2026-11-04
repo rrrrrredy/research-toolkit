@@ -18,7 +18,8 @@ TASK_LOCKS = defaultdict(threading.Lock)
 
 def call(function, *args):
     try:
-        return function(*args)
+        from usage_events import observed_call
+        return observed_call(function, args, entry="mcp")
     except (ValueError, OSError, KeyError, TypeError) as exc:
         raise ToolError(str(exc)) from None
 

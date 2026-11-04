@@ -13,6 +13,9 @@ on:
 permissions:
   contents: read
 
+env:
+  RESEARCH_TOOLKIT_TELEMETRY: 'off'
+
 jobs:
   release-metadata:
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
