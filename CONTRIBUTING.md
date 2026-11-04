@@ -44,7 +44,7 @@ Choose release numbers using the [current compatibility policy](docs/compatibili
 
 Compile or build the affected code and complete mandatory repository checks. Choose any additional verification for the changed behavior or demonstrated failure, reusing existing coverage. Workflow changes may need an end-to-end scenario; deterministic parsing, path or state behavior may be better covered by a focused check. Preserve the inputs, commands and outputs needed to reproduce a result. Documentation changes do not by themselves require a new research run or test suite.
 
-Do not repeat passing checks that add no information or automatically stack reviews, version comparisons or research-task reruns. If the environment prevents verification, state the remaining item and reason, minimal manual steps, expected result and caveats.
+Do not repeat passing checks that add no information or automatically stack reviews, version comparisons or research-task reruns. Report the checks actually run and their results, including any execution errors.
 
 The [CI workflow](.github/workflows/framework-checks.yml) is the authoritative check inventory; the commands below are common entry points, not a count of distinct test cases. The DSH validation command checks an optional adapter configuration; it does not install or start that runtime. Repeat or broaden checks only when a change, failure or unresolved concern requires it.
 

@@ -58,13 +58,13 @@ Choose the client you actually use; a model name alone does not determine Skill 
 | QwenWork (千问办公) | Repository-link installation | [Install and start](qwenwork.md) |
 | WorkBuddy | Read a local checkout; native import is a separate option | [Provide files and start](workbuddy.md) |
 | Grok Bot | Provide instructions; save a private skill after the task | [Provide instructions](grok-bot.md) |
-| Doubao Work (豆包工作) | Conditional file/text route; native import requirements unverified | [Input requirements and limits](doubao-work.md) |
+| Doubao Work (豆包工作) | Files or pasted instructions, where supported by the session | [Input requirements and limits](doubao-work.md) |
 | OpenClaw | Skill directory or direct file reading | [Existing setup guide](openclaw.md) |
 | Hermes Agent | Skill directory and invocation | [Existing setup guide](hermes.md) |
 | ChatGPT / other chat agents | Files, attachments or pasted instructions | [General input guide](chatgpt.md) |
 | DeepSeek Harness (optional) | Native Skill and optional adapter | [Existing setup guide](deepseek-harness.md) |
 
-Host documentation establishes an installation route, not a completed research run on every client. Confirm the actual loaded path and readable example files using the card's troubleshooting step. Availability depends on your client version, account and permissions; the [file/text route](#use-without-installation) remains available wherever the session can read the supplied material.
+Confirm the actual loaded path and readable example files using the card's troubleshooting step. Availability depends on your client version, account and permissions; the [file/text route](#use-without-installation) remains available wherever the session can read the supplied material.
 
 For an unlisted agent, check its official `SKILL.md` support first. Use its documented Skill directory if supported; otherwise provide the files or text explicitly. Neither route adds web search, persistent storage or command execution to the host.
 
