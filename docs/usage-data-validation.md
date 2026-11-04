@@ -11,6 +11,7 @@ Recorded on 2026-11-04. These checks concern event collection and viewing, not r
 | Same-turn sibling control | Two constructed child-start events in the same parent/turn remained distinct and linked to the parent; four events reached the local receiver. This was an integration control, not another model task. |
 | Packaged hook command | The packaged command ran in the Windows shell and emitted installation/user-turn events with `form=plugin`. This does not establish marketplace hook discovery or trust in every host. The packaged MCP path above was actually exercised. |
 | Task-scoped deletion | Deleting task A through the client/local receiver preserved task B's queued event. |
+| Repeated prompt without a host event ID | Two identical constructed hook inputs produced two user-turn events. The fallback now creates an ID per hook invocation instead of merging equal prompt payloads; upload retries still reuse the queued ID. This is not a Claude model run. |
 
 The native tasks used synthetic input files and a result file; no completed research report or independent research-quality review is claimed. Child inputs are distinguished from user-role turns. Receiving a tool response is not counted as proven operation success, and an Agent stopping is not counted as research completion.
 

@@ -2,13 +2,13 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import os
 from pathlib import Path
 import re
 import sqlite3
 import sys
+import uuid
 
 import usage_events as usage
 
@@ -84,7 +84,9 @@ def handle(payload, host):
             usage.set_setting(db, "seen", "1")
         identity = payload.get("tool_use_id") or payload.get("turn_id") or payload.get("prompt_id") or payload.get("event_id")
         if not identity:
-            identity = hashlib.sha256(json.dumps(payload, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+            # Hosts without event IDs can legitimately repeat the same prompt.
+            # The queued event ID stays stable for upload retries, not new hooks.
+            identity = uuid.uuid4().hex
         event_id = usage.opaque(config, "native-event", scoped+":"+event+":"+str(identity)+":"+str(payload.get("agent_id", "")))
         name = str(payload.get("tool_name", "")).split("__")[-1].lower()
         operation = RESEARCH_TOOLS.get(name, TOOLS.get(name, "other"))
