@@ -30,8 +30,8 @@ Managed execution cost more time and tokens. It performed persistence work absen
 
 This was one bundle per mode, without randomized order or an old-versus-new comparison. It does not establish longitudinal continuity, open-web research quality, real Full model-review performance or reduced user reminders.
 
-## Boundaries and release
+## Diagnostic cases and release
 
-The 12 new independent cases in `evals/semantic_diagnostics/task-continuity-cases.json` were structurally validated, not all evaluated by a model. Labels are author-proposed and uncalibrated; the cases are not held out. Runtime references and project instructions cannot prove host compliance or semantic quality. Installed-entry upgrades, private historical-task migration, all-platform symlink behavior and long-term effects remain unverified.
+The 12 new independent cases in `evals/semantic_diagnostics/task-continuity-cases.json` were structurally validated, not all evaluated by a model. Labels are author-proposed and uncalibrated; the cases are not held out.
 
-Source and local plugin copies were synchronized. Version remains 1.3.3; no release or installed-entry change was made. The compatible optional API features justify consideration for the next feature release, recommended as 1.4.0, subject to release authorization.
+Source and local plugin copies were synchronized against v1.3.3. These changes were subsequently released in [v1.4.0](releases/v1.4.0.md).

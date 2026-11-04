@@ -84,21 +84,21 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 - Distribute PR #116's fix: source updates now retain claims linked only through registered IDs in `counter_evidence`. `save`, `status` and registered release-log queries share the existing association and passage-location path.
 - Reuse the review-input source-ID rules, literal locations, adjacent text and context deduplication. Synchronize English, Chinese and plugin copies without new fields, calls or completion requirements; preserve original reports and historical records.
 - Publish matching [release notes](docs/releases/v1.4.12.md), version metadata and plugin ZIP. Reuse the completed focused checks and PR #116's passing CI; no research or already-passed local behavior checks are rerun.
-- The controlled replay returned two previously omitted counter-evidence associations while retaining the supporting association. Release-log verification used saved synthetic material, not live reading. Improved research quality, reduced rework and time savings remain unverified.
+- The controlled replay returned two previously omitted counter-evidence associations while retaining the supporting association. Release-log verification used saved synthetic material, not live reading.
 
 ## v1.4.11 — 2026-10-27
 
 - Distribute PR #114's fix: registered source IDs explicitly referenced in `counter_evidence` now include their original text in review input and the existing version binding, even when not separately supplied in `evidence_paths`.
 - Reuse source selection, local reading, deduplication and revision handling. Free text remains supported; no new fields, calls or review steps. Synchronize English, Chinese and plugin copies, preserving original reports and historical inputs.
 - Publish matching [release notes](docs/releases/v1.4.11.md), version metadata and plugin ZIP. Reuse PR #114's targeted verification and passing CI; do not rerun research tasks or already-passed local behavior checks.
-- The constructed before/after case confirms counter-source text inclusion and version binding. Improved research quality, fewer report errors, reduced rework and time savings remain unverified.
+- The constructed before/after case confirms counter-source text inclusion and version binding.
 
 ## v1.4.10 — 2026-10-27
 
 - Distribute PR #112's guidance changes: count report length only when the task has a length constraint or delivery requires a count; replace the fixed per-unit review cycle with confirmed-defect correction, affected-content checks and the task's declared review requirements.
 - Reuse section selection so `start`, `status` and `guide` return guidance for the current stage. Keep complete examples and state details available through links; preserve example prose, original reports, historical records, public interfaces and saved-task behavior.
 - Synchronize bilingual [release notes](docs/releases/v1.4.10.md), version metadata and the plugin ZIP. PR #112's CI passed, including Windows MCP after a one-line diagnostic-output encoding fix. Reuse that verification; no research reruns or new model comparisons.
-- Reduced default guidance content is an observed return-size change, not evidence of improved research quality, reduced rework or overall speedup. Those benefits remain unverified.
+- The four affected stages return their current guidance while keeping complete references available on demand.
 
 ## v1.4.9 — 2026-10-27
 
@@ -110,52 +110,52 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 - Ship PR #108's writing guidance: preserve key facts' population, metric definition and relevant scope when condensing body text into tables, summaries and conclusions. Use a source's full description when its label can be misleading.
 - Include the archived synthetic 62% missing-reason-code example, contrasting the incorrect completeness reading with meaning-preserving body, table and conclusion wording. Synchronize English, Chinese and plugin copies; retain original reports and historical records.
-- Publish matching bilingual [release notes](docs/releases/v1.4.8.md), version metadata and plugin ZIP. Reuse completed PR #108 verification; reduced metric-misreading and research-quality benefits remain unverified. No new tools, checks or workflow steps.
+- Publish matching bilingual [release notes](docs/releases/v1.4.8.md), version metadata and plugin ZIP. Reuse completed PR #108 verification. No new tools, checks or workflow steps.
 
 ## v1.4.7 — 2026-10-27
 
 - Ship PR #106's draft protection fix: check both the supplied path and the resolved target before writing a batch, preventing task-local links from redirecting draft saves into protected task records. Keep ordinary report saves and links to ordinary report directories working.
 - Correct the English and Chinese quickstart links to the existing Cursor MCP setup and configuration. Synchronize the generated plugin code.
 - Ship PR #105's task-specification guidance: retain the request's purpose, key constraints and meaningful original context; correct summaries or outlines that diverge from the original request or later applicable instructions.
-- Publish matching bilingual [release notes](docs/releases/v1.4.7.md), version metadata and plugin ZIP. Reuse completed verification. Real Windows directory-junction behavior was verified; the file-symlink case remains unverified because creation failed with WinError 1314. Research-quality and reduced-omission benefits of the guidance remain unverified.
+- Publish matching bilingual [release notes](docs/releases/v1.4.7.md), version metadata and plugin ZIP. Reuse completed verification. Real Windows directory-junction behavior was verified; file-symlink creation stopped with WinError 1314.
 
 ## v1.4.6 — 2026-10-26
 
 - Ship PR #103's depth-planning guidance: develop the argument from the user's questions, relevant evidence and reasoning, then allocate space. Compress repeated reminders while preserving task-specific length and format requirements.
 - Add a complete worked example from the existing eight-company pipeline study: question, evidence, reasoning and report prose. Distinguish source claims from analysis without prescribing a report structure or adding tools, records or checks; synchronize English, Chinese and plugin copies.
-- Publish matching bilingual [release notes](docs/releases/v1.4.6.md), version metadata and plugin ZIP. Reuse completed PR #103 verification; research quality, instruction-following and reduced rework benefits remain unverified.
+- Publish matching bilingual [release notes](docs/releases/v1.4.6.md), version metadata and plugin ZIP. Reuse completed PR #103 verification.
 
 ## v1.4.5 — 2026-10-26
 
 - Ship PR #101's cleanup of remaining Lite/Full choices in current examples, issue forms and usage guidance. Keep legacy task parameters, completion rules, links and historical records intact.
 - Remove generic object, lens and section-length quotas, fixed bookkeeping intervals and fixed search/revision round counts. Let user requirements, the question and available evidence determine coverage and depth while retaining useful analysis methods.
 - Add bilingual writing guidance and a before/after example: cut redundancy while preserving actors, actions, causal links and judgment conditions needed for understanding. Synchronize the methods, web guidance and plugin.
-- Publish matching bilingual [release notes](docs/releases/v1.4.5.md), version metadata and plugin ZIP. Reuse PR #101's completed CI and local checks; research quality, comprehension efficiency and reduced rework remain unverified.
+- Publish matching bilingual [release notes](docs/releases/v1.4.5.md), version metadata and plugin ZIP. Reuse PR #101's completed CI and local checks.
 
 ## v1.4.4 — 2026-10-26
 
 - Ship PR #99's single research entry: remove the Lite/Full choice from default instructions, quickstarts, agent setup cards and website links. Load the same existing complete methods for each stage; let the request determine depth, length and method selection.
 - Retain legacy arguments, saved-task completion rules and historical records. Old quickstart links point to the unified guide; useful analysis guidance joins the shared methods. Synchronize English, Chinese and plugin copies.
 - Keep contribution guidance specific to the project: select necessary verification for the changed behavior, reuse existing coverage and avoid redundant runs. Do not impose one test type on all contributions.
-- Publish matching bilingual [release notes](docs/releases/v1.4.4.md), version metadata and plugin ZIP. Reuse PR #99's completed implementation checks. Unified entry and method loading are verified engineering changes; research quality improvement remains unverified.
+- Publish matching bilingual [release notes](docs/releases/v1.4.4.md), version metadata and plugin ZIP. Reuse PR #99's completed implementation checks.
 
 ## v1.4.3 — 2026-10-22
 
 - Ship PR #97's shared language handling: `start`, `status` and `guide` accept `zh-CN` as an alias for `zh`, retaining `en/zh` compatibility and the existing Chinese methods.
 - Validate language before writing research records or saving a stage change. Unsupported values name the `language` field and its accepted values. Synchronize MCP descriptions, English/Chinese usage docs and plugin copies.
-- Publish matching bilingual [release notes](docs/releases/v1.4.3.md), version metadata and plugin ZIP. The archived failing request now succeeds in the targeted regression; invalid-language cases preserve research records. Overall research speedup remains unverified. Reuse PR #97's completed implementation checks without rerunning research tasks.
+- Publish matching bilingual [release notes](docs/releases/v1.4.3.md), version metadata and plugin ZIP. The archived failing request now succeeds in the targeted regression; invalid-language cases preserve research records. Reuse PR #97's completed implementation checks without rerunning research tasks.
 
 ## v1.4.2 — 2026-10-22
 
 - Ship PR #94's `research_save`, CLI save and collect guidance: distinguish actual `read_scope` from required `reading_requirement`, document its two allowed values and its pairing with `required_source_ids` after partial-update merging.
 - Clarify local `read_evidence` paths and the existing `locator` field; preserve supported reference forms and optional `evidence_path`. Synchronize English, Chinese and plugin copies without changing interfaces, validation rules or task formats.
-- Publish matching bilingual [release notes](docs/releases/v1.4.2.md), version metadata and plugin ZIP. Archived failing and corrected requests support the examples; reduced rework remains unverified. Reuse PR #94's completed checks without replaying research tasks.
+- Publish matching bilingual [release notes](docs/releases/v1.4.2.md), version metadata and plugin ZIP. Archived failing and corrected requests support the examples. Reuse PR #94's completed checks without replaying research tasks.
 
 ## v1.4.1 — 2026-10-22
 
 - Ship PR #91's revised default entry: understand the user's requirements, follow instructions and develop a useful research answer. Remove guidance that asks users to remind or dispatch the Agent.
 - Load existing methods as needed. Move review configuration, record fields and delivery details into existing reference documents; synchronize English, Chinese, Framework pages and plugin copies without adding a workflow or required step.
-- Publish matching bilingual [release notes](docs/releases/v1.4.1.md), version metadata and plugin ZIP. The standalone Skill `quick_validate.py` check remains incomplete because PyYAML is unavailable. Improvements in instruction following, user effort and research quality remain unverified; shorter documentation is not evidence of those benefits.
+- Publish matching bilingual [release notes](docs/releases/v1.4.1.md), version metadata and plugin ZIP. The standalone Skill validator stopped with a missing-PyYAML error in the recorded local run.
 
 ## v1.4.0 — 2026-10-21
 
@@ -163,19 +163,19 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 - Return runtime identity and current-work references at resume, without claiming that the host loaded the displayed Skill or that a file hash proves quality.
 - Validate active reading requirements when saving, preserve explicit legacy waivers, and distinguish imported reviews from actual model calls, self submissions, timing and usage.
 - Add bilingual continuity guidance, 14 targeted tests and 12 independently constructed semantic diagnostics. An independent code review found three defects, which were corrected and tested.
-- Synchronize the plugin and bilingual [release notes](docs/releases/v1.4.0.md). The three-mode short-task probe found no answer-quality advantage; managed execution took more time and tokens. Long-task benefits remain unverified. Nine tools and existing task formats remain compatible; no mandatory new input or migration.
+- Synchronize the plugin and bilingual [release notes](docs/releases/v1.4.0.md). The three-mode short-task probe found no answer-quality advantage; managed execution took more time and tokens. Nine tools and existing task formats remain compatible; no mandatory new input or migration.
 
 ## v1.3.3 — 2026-10-20
 
 - Ship the exact repeated-paragraph advisory from PR #85: `check-draft` returns original prose, headings and every line range in existing `warnings`. It does not change `ok`, delivery eligibility or report contents.
 - Ship the Lite analysis guidance from PR #86: choose comparison, explanation or decision methods as needed, with a short example from archived synthetic SaaS materials. English, Chinese and plugin copies stay synchronized; no fixed report structure is required.
-- Reduction in false self-check passes and improvements in research quality remain unverified. The archived public-library comparison found no false passes in either v1.3.1 or v1.3.2 and no incremental benefit in that case.
+- The archived public-library comparison found no false passes in either v1.3.1 or v1.3.2 and no incremental benefit in that case.
 - Publish matching bilingual [release notes](docs/releases/v1.3.3.md), version metadata and plugin ZIP. Reuse completed implementation checks; no new tools, required fields, calls or task migrations.
 
 ## v1.3.2 — 2026-10-19
 
 - Ship the corrected Lite self-check instructions and diagnostics from PR #81 and PR #82 in the installed plugin: read the current report, address repeated or off-topic passages, and record concrete findings instead of changing a pass flag to satisfy an error.
-- Keep the six checklist items, validation predicates and public interfaces unchanged. The effect of these wording changes on false self-reported passes remains unverified.
+- Keep the six checklist items, validation predicates and public interfaces unchanged.
 - Align bilingual repository, installation, plugin and website descriptions with the existing nine MCP tools; the tool count is unchanged from v1.3.1.
 - Preserve original reports and historical results alongside four separate report revisions and current-result corrections. These are report repairs, not a Toolkit core-capability upgrade. Publish matching bilingual [release notes](docs/releases/v1.3.2.md), version metadata and plugin ZIP without new runtime logic or tests.
 
