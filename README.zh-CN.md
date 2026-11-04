@@ -21,7 +21,7 @@
 | 成稿与修订 | 按有意义的研究单元推进，先审阅后续分析所依赖的关键前提；完整分析进入明确负责人的主稿，变化返回受影响单元与提纲。 |
 | 审阅与交付 | 七项基础视角分别独立审阅，补齐所需领域专审，再完成独立审计和最终验收；必要问题落实到当前正文后交付。 |
 
-这四项是相互连接的职责，不是四个固定 Agent 或四套流程。Codex、Claude Code 等宿主负责启动 Agent 和传递消息；Toolkit 提供共同输入、方法、成果关联和完成检查。宿主原生协作无需另配 API。[研究步骤](docs/quickstart.zh-CN.md#从零研究的步骤) · [交接与实际调用](docs/usage-modes.zh-CN.md#研究委派与成果交接)
+这四项是相互连接的职责，不是四个固定 Agent 或四套流程。Codex、Claude Code 等宿主负责启动 Agent 和传递消息；Toolkit 提供共同输入、方法、成果关联和完成检查。宿主原生协作无需另配 API。 如需脚本执行，使用同一套 [Agent 执行适配器](docs/usage-modes.zh-CN.md#agent-host-execution)，按当前宿主接入 Claude Code、OpenCode 或 Codex。[研究步骤](docs/quickstart.zh-CN.md#从零研究的步骤) · [交接与实际调用](docs/usage-modes.zh-CN.md#研究委派与成果交接)
 
 ```mermaid
 flowchart LR

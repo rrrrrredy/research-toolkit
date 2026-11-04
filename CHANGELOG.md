@@ -4,9 +4,16 @@
 
 Released changes are grouped by tag. `Unreleased` describes work not yet included in a published version.
 
+## Unreleased
+
+- Use a common Agent session interface with Claude Code/OpenCode native CLI drivers. Codex remains one host driver, rather than a fixed dependency of shared execution.
+- Do not fall back to Codex for host selection. Deliver updates through steering where supported, otherwise resume the same session after the active invocation; original outputs retain their actual input bindings.
+- Remove implicit Codex selection from ambiguous external review configuration; legacy entries with an explicit host response format remain usable.
+- Synchronize bilingual entry points, host guidance and plugin content. Keep integration evidence separate; host coverage is not a claim of improved research quality.
+
 ## v2.2.0 — 2026-11-03
 
-- Add an optional local Codex execution adapter for selected research work and independent review assignments. Reuse the installed host's login and model configuration, Toolkit inputs, saved artifacts and review contracts.
+- Add an optional local Agent execution adapter, initially implementing only Codex, for selected research work and independent review assignments. Reuse the installed host's login and model configuration, Toolkit inputs, saved artifacts and review contracts.
 - Resume the recorded producer when inputs change, steer running work, wait for upstream results, and import original outputs with their delivered input versions. Negative findings return for substantive revision; they do not trigger automatic rewriting until approval.
 - Distribute the already-merged review-continuation repair: retain the original independent context and prior inputs for revision, alongside current originals and concrete changes.
 - Synchronize English, Chinese and plugin content. One constructed-material task exercised real Codex sessions, subsequent requirements, revision, independent review, audit and acceptance. Retain its raw records separately; the final scheduling repair used saved-state replay. No measured report-quality or rework-reduction gain is claimed. See [release notes](docs/releases/v2.2.0.md).

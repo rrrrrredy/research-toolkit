@@ -270,6 +270,8 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 | `generic` | 后端 `generic`、`RESEARCH_TOOLKIT_REVIEW_BASE_URL`、`RESEARCH_TOOLKIT_REVIEW_MODEL`；所选端点需要认证时才使用认证环境变量。 |
 | 可信命令 | `RESEARCH_TOOLKIT_REVIEW_CONFIG` 指向含 argv 列表及 `format: "json"` 的 JSON 配置。 |
 
+外部评审 JSON 配置应显式填写 `backend`。已有 `command`、`format: "json"` 或宿主专属格式仍按原方式识别；只有模型名称而未写后端的配置会指出 `reviewer.backend` 的正确写法，不再默认为 Codex。宿主原生路径无需此配置。
+
 宿主原生与自配执行方式履行相同的当前审阅职责。旧自评结果保留其历史含义，不能替代独立审阅、审计或验收。
 
 选择 generic 后端时：
@@ -401,9 +403,12 @@ python3 scripts/research_workflow.py review --workspace ../research-work --reque
 全稿审阅保留当时的要求原文，按要求含义与适用范围绑定版本；独立审阅、审计及验收实际完成后，如实保存完成状态和依据，再调用 `finish`，不会仅因这次记账使已有结果失效。要求内容或范围变化仍需重新审阅，最终收据记录当前要求文件。
 
 <a id="codex-host-execution"></a>
-### 用已安装的 Codex 宿主执行所选工作
+<a id="agent-host-execution"></a>
+### Agent 执行适配器
 
-Agent 可以通过 `scripts/research_host.py` 执行自己选定的分析／写作单元与独立审阅任务。适配器沿用 Codex 当前登录、模型与原生持久会话，使用同一 Toolkit 工作目录。来源收集和研究规划使用已有宿主工具，无需另配 API。
+Agent 可以通过 `scripts/research_host.py` 执行选定的分析／写作单元与独立审阅任务。共享研究逻辑使用通用会话接口，Claude Code、OpenCode 和 Codex 分别通过自身已安装的 CLI／会话协议接入，沿用宿主已有的登录和模型配置。来源收集和研究规划使用已有宿主工具，无需另配 API。
+
+宿主原生子 Agent 已能执行同一份任务，并通过 CLI／MCP 回传结果；宿主直接管理工作者时，沿用这条路径。需要交由本地脚本执行时，Agent 执行适配器负责启动、续接和原始结果回存。同一研究单元采用一种执行路径，避免宿主调度和脚本重复派工。其他宿主也使用共同的原生任务与结果契约；新增 CLI 接入不改变研究流程。
 
 已有任务已登记来源 `S1` 时，请求文件可直接复用当前参数：
 
@@ -415,11 +420,15 @@ Agent 可以通过 `scripts/research_host.py` 执行自己选定的分析／写�
 ```
 
 ```bash
-python scripts/research_host.py --workspace <task-store> --task study --request work.json --language zh
+python scripts/research_host.py --host claude --workspace <task-store> --task study --request work.json --language zh
 ```
 
-工作、依赖和领域专审按实际问题选择。`review` 使用现有参数与职责，全稿仍包含所有必要的独立视角、审计和验收。适配器在上游真实就绪后才派发依赖它的写作者；在 `logs/host/` 保留原始回复、实际会话／轮次标识和执行事件，再调用已有 `save` 与评审结果校验。保存的材料绑定来自实际送达的输入包。
+使用 OpenCode 或 Codex 时，分别传 `--host opencode` 或 `--host codex`。省略该参数时，依次采用 `RESEARCH_TOOLKIT_HOST`、可识别的当前宿主环境，或唯一已安装的 CLI。无法唯一确定时返回 `--host` 的正确写法，不兜底选择 Codex。PATH 只有包装脚本时，可用 `--executable` 指定原生可执行文件。适配器不添加跳过权限的参数，也不覆盖模型选择。
 
-适配器运行期间，工作输入变化会回到同一生产者：执行中的工作追加消息，已结束的工作续接已保存的原生会话。审阅修订使用已有任务返回的 `resume_host_task`。中断后再次执行请求会复用已保存的成果与负责人，不重置研究任务。宿主执行失败或结果未被接受时，保留原件并返回待处理情况；负面审阅不会触发自动改写或返评。
+脚本执行的是已准备输入的研究贡献，会提供现有阶段指导和保留的完整输入原文。Claude Code／OpenCode CLI 工作者使用只读文件工具读取这些页面，返回完整贡献，由协调者保存；成功读取范围外材料时返回执行问题，不导入材料绑定不符的结果。这些设置只作用于本次进程，不修改用户的宿主配置。来源发现或需要其他执行工具的工作，可以继续用原生子 Agent 履行同一套 Toolkit 契约。
+
+工作、依赖和领域专审按实际问题选择。`review` 使用现有参数与职责，全稿仍包含所有必要的独立视角、审计和验收。适配器在上游真实就绪后才派发依赖它的写作者；在 `logs/host/` 保留原始回复、实际会话标识、轮次标识和原始执行事件，再调用已有 `save` 与评审结果校验。CLI 轮次标识对应一次被记录的调用，原生会话标识来自宿主返回。保存的材料绑定来自实际送达的输入包。
+
+适配器运行期间，工作输入变化会回到同一生产者。Codex 接入可向执行中的轮次追加消息；Claude Code 与 OpenCode CLI 接入则在当前调用结束后续接原会话：首份结果保留旧输入绑定，后续调用接收当前输入包。审阅修订使用已有任务返回的 `resume_host_task`。新保存的 Claude Code／OpenCode 标识带宿主名称，旧的无前缀 Codex 标识仍可续接；不同宿主的标识不会被悄悄混用或替换。中断后再次执行请求会复用已保存的成果与负责人。宿主执行失败或结果未被接受时，保留原件并返回待处理情况；负面审阅不会触发自动改写或返评。
 
 请求结束只表示本批工作已有结果，最终交付继续使用已有要求记录与 `finish`。进程退出时关闭自己启动的宿主连接，不增加常驻服务或另一份任务数据库。

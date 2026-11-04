@@ -28,6 +28,12 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 
 [统一研究指南](../docs/quickstart.zh-CN.md)提供完整请求和接入说明。
 
+## Agent 执行适配器
+
+需要脚本管理执行时，使用共同的 [Agent 执行适配器](../docs/usage-modes.zh-CN.md#agent-host-execution)，指定 `--host opencode`。原生子 Agent 工具也可通过同一套 work／save／review 契约工作，均沿用当前宿主的登录与模型配置。
+
+共同示例说明依赖、输入更新、原始记录和独立审阅。同一研究单元使用一处调度，不同时通过原生工具和适配器重复启动。
+
 ## 无法加载时
 
 在同一项目目录执行：

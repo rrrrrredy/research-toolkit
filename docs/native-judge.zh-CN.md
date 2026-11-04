@@ -1,4 +1,4 @@
-# Codex 评审执行
+# 历史评测的 Codex 执行方式
 
 [English](native-judge.md) · [简体中文](native-judge.zh-CN.md)
 

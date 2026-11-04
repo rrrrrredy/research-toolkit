@@ -31,6 +31,12 @@ Use the host’s native subagents for production, assembly, independent content 
 
 The [shared research guide](../docs/quickstart.md) provides a complete request and setup details.
 
+## Agent execution adapter
+
+For script-managed work, use the shared [Agent execution adapter](../docs/usage-modes.md#agent-host-execution) with `--host claude`. Native subagent tools also use the same work/save/review contracts. Both paths use the current host's login and model configuration.
+
+The shared example describes dependencies, input updates, original records and independent review. Use one dispatcher for a work unit; do not launch it through native tools and the adapter at the same time.
+
 ## If it does not load
 
 Run this from the same project directory:
