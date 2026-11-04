@@ -26,6 +26,8 @@ BACKEND_HELP = ("Use the host's native agents; no API configuration is required.
                 "claude (installed CLI/account), or generic (RESEARCH_TOOLKIT_REVIEW_BASE_URL, "
                 "RESEARCH_TOOLKIT_REVIEW_MODEL and optional RESEARCH_TOOLKIT_REVIEW_API_KEY). "
                 "Native host assignments are the default.")
+MISSING_BACKEND = ("reviewer.backend: specify codex, claude, generic or command in external review configuration; "
+                   "the model name does not select a host. For native agents, omit external review configuration.")
 
 
 def backend_kind(config):
@@ -37,8 +39,7 @@ def backend_kind(config):
     legacy = {"codex-jsonl": "codex", "claude-json": "claude", "self": "self"}
     if config.get("format") in legacy:
         return legacy[config["format"]]
-    raise ValueError("reviewer.backend: specify codex, claude, generic or command in external review configuration; "
-                     "the model name does not select a host. For native agents, omit external review configuration.")
+    raise ValueError(MISSING_BACKEND)
 
 
 def response_format(config):
@@ -131,7 +132,8 @@ def review_readiness() -> dict:
     except (ValueError, OSError, UnicodeError) as exc:
         return {"status": "blocked", "checks": [{"status": "invalid_configuration",
                 "action": "Correct the trusted review configuration. " + BACKEND_HELP,
-                "error_type": type(exc).__name__, "error": str(exc)}], "model_access_verified": False}
+                "error_type": type(exc).__name__,
+                **({"error": MISSING_BACKEND} if str(exc) == MISSING_BACKEND else {})}], "model_access_verified": False}
     checks, logins = [], {}
     for entry in config["reviewers"] + ([config["auditor"]] if "auditor" in config else []):
         backend = backend_kind(entry)
