@@ -48,13 +48,13 @@ state/final_delivery.json    # finish 为已验收的最终交付生成
 
 必读使用 `reading_requirement`（`full_text` 或 `relevant_sections`）配合非空、无重复的 `required_source_ids`。来源的 `read_scope` 记录实际阅读，`read_evidence` 与 `locator` 说明可读凭据及位置，需要时由 `evidence_path` 提供原始 UTF-8 内容。登记网址或下载成功不是阅读证据。`counter_evidence` 中的已登记来源编号与支持来源一样，将原文送入评审。具体写法见[保存参数](../docs/usage-modes.zh-CN.md#保存研究记录与稿件)。
 
-通过已有稿件记录登记实质成果，保留真实宿主引用、输入版本、单元／依赖信息与交接。局部提纲随对应分析保存，通过选定文件或实际单元依赖接续，见[交接用法](../docs/usage-modes.zh-CN.md#研究委派与成果交接)。完整成果和旧版本继续可读。由指定主稿写入者登记实际主报告，不将最新保存的文件自动视为主稿。成果或草稿完整不等于最终交付完成。
+通过已有稿件记录登记实质成果，保留实际执行 Agent 的任务／会话引用、输入版本、单元／依赖信息与交接。局部提纲随对应分析保存，通过选定文件或实际单元依赖接续，见[交接用法](../docs/usage-modes.zh-CN.md#研究委派与成果交接)。完整成果和旧版本继续可读。由指定主稿写入者登记实际主报告，不将最新保存的文件自动视为主稿。成果或草稿完整不等于最终交付完成。
 
 `progress.json.stage` 使用 `brief`、`collect`、`analyze`、`draft`、`review`、`revise` 或 `final`，状态和推进按[状态契约](research-standard.zh-CN.md#状态契约)。已有可选历史与 `stale_count` 保持可读，不变成新的必需记录。
 
 ### 中断恢复
 
-通过 `status` 恢复有效要求、当前成果、研究产物、输入变化和未完成工作。继续依赖任务前，阅读相关规格、原始材料及完整成果。宿主交接与上下文压缩见[任务接续](task-continuity.zh-CN.md)。不重问已有答案，不补造缺失历史。
+通过 `status` 恢复有效要求、当前成果、研究产物、输入变化和未完成工作。继续依赖任务前，阅读相关规格、原始材料及完整成果。Agent 任务交接与上下文压缩见[任务接续](task-continuity.zh-CN.md)。不重问已有答案，不补造缺失历史。
 
 ### 交付记录
 

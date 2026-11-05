@@ -2,7 +2,7 @@
 
 [English](dsh-adapter-validation.md) | [简体中文](dsh-adapter-validation.zh-CN.md)
 
-本页从宿主安装卡片移入已有接入维护命令，不是研究任务的必经步骤。[安装与原生协作](../agents/deepseek-harness.zh-CN.md)。
+本页从 Agent 工具安装卡片移入已有接入维护命令，不是研究任务的必经步骤。[安装与原生协作](../agents/deepseek-harness.zh-CN.md)。
 
 ## 专用接入检查
 

@@ -6,7 +6,7 @@ Use the existing task when new material, changed instructions, a comparison or a
 
 ## Project entry
 
-Resume from the original request and currently effective requirements, current outline and report, relevant sources, complete research contributions and unfinished work. Recover this material from existing host conversations and files in Skill-only use, or through the managed task's `status` output. Do not rely on a completion summary as evidence that the report meets the request.
+Resume from the original request and currently effective requirements, current outline and report, relevant sources, complete research contributions and unfinished work. Recover this material from existing agent tool conversations and files in Skill-only use, or through the managed task's `status` output. Do not rely on a completion summary as evidence that the report meets the request.
 
 New instructions replace conflicting old instructions; uncancelled goals remain effective. A requirement marked satisfied still constrains subsequent analysis and editing. An approved scope change preserves the actual user decision. Accepting feedback does not prove that the report has been corrected.
 
@@ -18,7 +18,7 @@ For managed tasks, `research_status.current_work` includes effective requirement
 
 Use `research_save` to change affected fields and records. Partial `brief` updates retain manually added specification sections and update the saved brief consistently. Stable requirement IDs connect changed instructions to existing work. If direct edits conflict with the saved brief, reconcile that conflict before saving; do not overwrite unrelated content.
 
-The designated main writer registers the report with `draft.main=true`; other workers save separate contributions. `complete=true` marks a complete draft, not whole-task delivery. Keep contribution inputs, dependencies, real host identity and a concise handoff with the artifact. Preserve previous content when revising; a changed source or requirement calls for inspection of its actual dependent reasoning, not an automatic rewrite of every branch.
+The designated main writer registers the report with `draft.main=true`; other workers save separate contributions. `complete=true` marks a complete draft, not whole-task delivery. Keep contribution inputs, dependencies, real agent identity and a concise handoff with the artifact. Preserve previous content when revising; a changed source or requirement calls for inspection of its actual dependent reasoning, not an automatic rewrite of every branch.
 
 Source/claim records and full local originals remain accessible, including counterevidence. Saved record versions support determining what changed. A summary does not replace required original reading or the full analysis that supports a conclusion.
 
@@ -29,17 +29,17 @@ Handoff applies across agents and across phases of the same agent. Reuse the cur
 - The actual question, effective instructions and working outline.
 - Completed contributions, their conclusions and conditions, and their original-source locations.
 - Current report/version, dependencies, unresolved issues and the next concrete action.
-- Original reviews, required fixes, independent dispositions and the actual host execution references.
+- Original reviews, required fixes, independent dispositions and the actual agent tool execution references.
 
 This can be a concise note attached to existing artifacts; it is not a second tracker. Keep full files and raw responses. The receiver reads the relevant full work before relying on it, and opens original sources when needed to understand or revise the judgment.
 
-Send material changes to affected host agents explicitly. A subagent's launch snapshot does not include later messages automatically. Continue the same host task where supported, or supply its full reusable output and new inputs to the next context. The host handles notifications and execution recovery; Toolkit keeps research inputs and artifacts connected.
+Send material changes to affected agents explicitly. A subagent's launch snapshot does not include later messages automatically. Continue the same agent task where supported, or supply its full reusable output and new inputs to the next context. The agent tool handles notifications and execution recovery; Toolkit keeps research inputs and artifacts connected.
 
 ## Review the necessary scope
 
 For a full comparison, read both current documents across the requested scope; differences in summaries are only leads. For a bounded revision with a reliable baseline, read the complete diff, changed passages with context, affected sources and requirements, and open findings. The reviewer receives the current full artifact and the precise changed scope; a local recheck is not relabelled as a new full review. Missing baseline coverage must actually be read.
 
-Use separate native contexts for independent review. All production identities remain distinct from the seven base perspectives, domain reviewers, auditor and final acceptor. Preserve actual execution identity, original response and exact assignment when importing host output. Never fabricate historical execution details or copy a prior PASS onto a changed artifact.
+Use separate native contexts for independent review. All production identities remain distinct from the seven base perspectives, domain reviewers, auditor and final acceptor. Preserve actual execution identity, original response and exact assignment when importing agent output. Never fabricate historical execution details or copy a prior PASS onto a changed artifact.
 
 The existing independent reviewer checks affected changes; the auditor examines disputes, important no-change decisions and repairs; final acceptance reads the current complete report. The [role methods](subagents-and-review-loop.md) determine their responsibilities. A coordinator or author cannot clear required findings merely by updating a status.
 

@@ -57,6 +57,22 @@ DESCRIPTIONS = {
     'case-study/coding-benchmark-update/index.html': 'How an existing coding-agent procurement report was updated: previous report, new source checks, concrete revisions and preserved review evidence, with limits.',
     'case-study/coding-benchmark-update/index.zh-CN.html': '一篇已有编程智能体采购报告如何更新：旧稿、新材料核对、具体正文修订与评审证据；保留真实摩擦和实验限制。',
 }
+DESCRIPTIONS.update({
+    'case-study/office-agents-2026-11/index.zh-CN.html': '2026 年 11 月 5 日国内办公 Agent 研究：完整稿、来源、分析与独立审阅。',
+    'case-study/office-agents-2026-11/report.zh-CN.html': '2026 年 11 月 5 日国内办公 Agent 研究：完整稿、来源、分析与独立审阅。',
+    'case-study/office-agents-2026-11/initial.zh-CN.html': '2026 年 11 月 5 日国内办公 Agent 研究：完整稿、来源、分析与独立审阅。',
+    'case-study/office-agents-2026-11/brief.zh-CN.html': '2026 年 11 月 5 日国内办公 Agent 研究：完整稿、来源、分析与独立审阅。',
+    'case-study/office-agents-2026-11/sources.zh-CN.html': '2026 年 11 月 5 日国内办公 Agent 研究：完整稿、来源、分析与独立审阅。',
+    'case-study/office-agents-2026-11/analysis.zh-CN.html': '2026 年 11 月 5 日国内办公 Agent 研究：完整稿、来源、分析与独立审阅。',
+    'case-study/office-agents-2026-11/reviews.zh-CN.html': '2026 年 11 月 5 日国内办公 Agent 研究：完整稿、来源、分析与独立审阅。',
+    'case-study/api-or-browser-2026-11/index.html': '5 November 2026 API/browser research: complete reports, sources, analyses and independent reviews.',
+    'case-study/api-or-browser-2026-11/report.html': '5 November 2026 API/browser research: complete reports, sources, analyses and independent reviews.',
+    'case-study/api-or-browser-2026-11/initial.html': '5 November 2026 API/browser research: complete reports, sources, analyses and independent reviews.',
+    'case-study/api-or-browser-2026-11/brief.html': '5 November 2026 API/browser research: complete reports, sources, analyses and independent reviews.',
+    'case-study/api-or-browser-2026-11/sources.html': '5 November 2026 API/browser research: complete reports, sources, analyses and independent reviews.',
+    'case-study/api-or-browser-2026-11/analysis.html': '5 November 2026 API/browser research: complete reports, sources, analyses and independent reviews.',
+    'case-study/api-or-browser-2026-11/reviews.html': '5 November 2026 API/browser research: complete reports, sources, analyses and independent reviews.',
+})
 TITLES = {
     'index.html': 'Research Toolkit · Research methods and tools for AI agents',
     'index.zh-CN.html': 'Research Toolkit · 面向 AI Agent 的研究工具箱',
@@ -135,7 +151,7 @@ class Tree(HTMLParser):
 
 def chinese_home(source):
     tree=Tree(source); data=json.loads(''.join(tree.by_id('showcase-data').children)); words=data['i18n']['zh']; case=data['cases']; pair=case['pairs'][0]; text=pair['zh']
-    links=dict(report='case-study/report.zh-CN.html', **{k:'case-study/office-agents/'+f+'.html' for k,f in [('archive','index'),('brief','brief'),('sources','sources'),('claims','claims'),('reviews','reviews')]})
+    links=case['links']
     for n in tree.nodes:
         a=n.attrs
         if n.tag=='html': a['lang']='zh-CN'
@@ -186,7 +202,7 @@ def outputs():
         result[path]=metadata(path,(DOCS/path).read_text(encoding='utf-8'))
     result['index.zh-CN.html']=chinese_home(result['index.html'])
     # Curated useful entry points; raw evidence and intermediate drafts stay accessible.
-    entries=[p for p in DESCRIPTIONS if p.startswith(('index.','framework.')) or p.endswith(('index.html','index.zh-CN.html')) or p in ('case-study/report.en.html','case-study/report.zh-CN.html','case-study/api-or-browser/report.html')]
+    entries=[p for p in DESCRIPTIONS if p.startswith(('index.','framework.')) or p.endswith(('index.html','index.zh-CN.html')) or p.endswith(('/report.html','/report.zh-CN.html')) or p in ('case-study/report.en.html','case-study/report.zh-CN.html','case-study/api-or-browser/report.html')]
     root=ET.Element('urlset',xmlns='http://www.sitemaps.org/schemas/sitemap/0.9')
     for p in sorted(entries): ET.SubElement(ET.SubElement(root,'url'),'loc').text=url(p)
     ET.indent(root)

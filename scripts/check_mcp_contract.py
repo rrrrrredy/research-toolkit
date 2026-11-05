@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Packaged MCP stdio control with retained synthetic host executions; no research-quality claim."""
+"""Packaged MCP stdio control with retained synthetic agent tool executions; no research-quality claim."""
 from __future__ import annotations
 import asyncio
 import json

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Capture native-host assignments over real MCP; preserve the old example as history."""
+"""Capture native-agent assignments over real MCP; preserve the old example as history."""
 from __future__ import annotations
 import argparse
 import hashlib
@@ -60,14 +60,14 @@ async def capture(output, pause, resume, host_result=None):
         pending = await call("research_review", {**arguments, **({"host_result": read(host_result)} if host_result else {})})
         save(output / "review-request.json", pending)
         if not pending.get("delivery_ready"):
-            print("Independent host assignments and current findings are in review-request.json. "
-                  "Have the host agents read the frozen inputs; submit each actual result with --resume --host-result. "
+            print("Assignments for independent agents and current findings are in review-request.json. "
+                  "Have the agents read the frozen inputs; submit each actual result with --resume --host-result. "
                   "No supplied self-review is replayed and no independent model work is claimed by this capture script.")
             return
         finished = await call("research_finish", {"task": "shipment-note", "message": "The fictional shipment note has completed its independent review, audit and acceptance."})
         if not finished.get("completed"):
             raise RuntimeError("Example did not complete; inspect transcript.json")
-        print("Original MCP calls, host submissions and the current receipt are retained in the output directory.")
+        print("Original MCP calls, agent submissions and the current receipt are retained in the output directory.")
 
 
 def main():
@@ -81,7 +81,7 @@ def main():
     if output == ROOT or ROOT in output.parents:
         parser.error("Use an output directory outside the installed toolkit")
     if args.host_result and not args.resume:
-        parser.error("Use --resume when submitting a completed host assignment")
+        parser.error("Use --resume when submitting a completed agent assignment")
     asyncio.run(capture(output, args.pause_before_review, args.resume, args.host_result))
 
 

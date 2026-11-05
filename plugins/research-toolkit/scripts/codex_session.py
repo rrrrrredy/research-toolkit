@@ -1,4 +1,4 @@
-"""Small stdio client for the installed Codex host; no model or account overrides."""
+"""Small stdio client for the installed Codex agent tool; no model or account overrides."""
 from __future__ import annotations
 
 from datetime import datetime, timezone
@@ -15,7 +15,7 @@ from review_process import WindowsJob, WINDOWS_GATE
 
 
 class CodexSession:
-    """Keep native threads and their original events, using the host's login/config."""
+    """Keep native threads and their original events, using the agent tool's login/config."""
 
     def __init__(self, cwd: Path, directory: Path, command=None):
         self.cwd = cwd.resolve()
@@ -32,7 +32,7 @@ class CodexSession:
         executable = command or [shutil.which("codex.exe") or shutil.which("codex")]
         if not executable[0]:
             self.close()
-            raise OSError("Codex executable not found. Use the installed host's native agents, or add Codex to PATH.")
+            raise OSError("Codex executable not found. Use the installed agent tool's native agents, or add Codex to PATH.")
         command = executable + ["app-server", "--listen", "stdio://"]
         try:
             self.job = WindowsJob() if os.name == "nt" else None

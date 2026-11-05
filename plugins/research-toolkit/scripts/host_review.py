@@ -1,6 +1,6 @@
-"""Version-bound review assignments executed by the host's independent agents.
+"""Version-bound review assignments executed by the agent tool's independent agents.
 
-The host owns spawning, waiting and cancellation. This module reuses the task's
+The agent tool owns spawning, waiting and cancellation. This module reuses the task's
 source reader, storage and review log; it never starts a second agent runtime.
 """
 from __future__ import annotations
@@ -309,11 +309,11 @@ def assignment(root, plan, slot, selected, *, persist=True):
             if previous["execution_id"] not in plan.get("producer_contexts", []):
                 request["resume_host_task"] = previous["execution_id"]
             request["instructions"] += (
-                "\nContinue the retained assessment in its original independent host task when available. "
+                "\nContinue the retained assessment in its original independent agent task when available. "
                 "report_changes, changed_materials and changed_context compare the current input with the input "
                 "you actually reviewed, even after intervening revisions. Reuse the original supported analysis; "
                 "check these changes and their effect on your responsibility for the current complete report. "
-                "If the host task is unavailable, give this retained work to a new independent context.")
+                "If the agent task is unavailable, give this retained work to a new independent context.")
     if slot.get("domain"):
         request["domain"] = slot["domain"]
     if role == "reviewer":
@@ -467,7 +467,7 @@ def accept_result(root, progress, plan, slot, request, request_ref, supplied, se
         raise ValueError("A production/assembly context cannot perform independent review, audit or acceptance.")
     if any(r.get("execution_id") == identity and r.get("slot_id") != slot["slot_id"] for r in history(root)
            if r.get("contract_version") == 2):
-        raise ValueError("Different review perspectives, audit and acceptance need different host contexts.")
+        raise ValueError("Different review perspectives, audit and acceptance need different agent contexts.")
     previous = selected.get(slot["slot_id"])
     if previous:
         audit = selected.get("audit", {}).get("result_data", {})
@@ -491,7 +491,7 @@ def accept_result(root, progress, plan, slot, request, request_ref, supplied, se
         execution = json.loads(execution_raw.decode("utf-8"))
         if (execution.get("host_task") != identity or execution.get("status") != "completed"
                 or execution.get("assignment_version") != request["assignment_version"]):
-            raise ValueError("execution_path must retain the actual completed host identity and assignment_version.")
+            raise ValueError("execution_path must retain the actual completed agent identity and assignment_version.")
         value = json.loads(raw.decode("utf-8"))
         validate_result(value, request)
         row.update(status="completed", result_data=value)
@@ -500,7 +500,7 @@ def accept_result(root, progress, plan, slot, request, request_ref, supplied, se
     except (ValueError, UnicodeError, AttributeError, TypeError) as exc:
         row.update(status="incomplete", failure=str(exc))
         append(root, row)
-        raise ValueError(f"Original host result retained at {prefix}; {exc}") from exc
+        raise ValueError(f"Original agent result retained at {prefix}; {exc}") from exc
     append(root, row)
 
 
@@ -531,7 +531,7 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
         current = progress.get("current_artifact", {})
         if current.get("path") != artifact or not nonempty(current.get("owner")):
             raise ValueError("Register the main draft's actual producer before independent review: "
-                "save draft.path, draft.main=true and draft.host_task with the real producing host task/session. "
+                "save draft.path, draft.main=true and draft.host_task with the real producing agent task/session. "
                 "Historical files and results remain readable.")
     else:
         units = [x for x in research_outputs(root, [], progress) if x.get("unit_id") == scope and x.get("path") == artifact]
@@ -675,7 +675,7 @@ def _inspect(root, progress, artifact, *, plan, require_report_ready, walk):
     findings = []
     selected = selected_results(root, plan) if plan.get("contract_version") == 2 else {}
     if plan.get("contract_version") != 2 or plan.get("artifact") != artifact:
-        findings.append("The current artifact needs the independent host review contract.")
+        findings.append("The current artifact needs the independent agent review contract.")
     else:
         try:
             checked_files(root, plan)
@@ -724,7 +724,7 @@ def _inspect(root, progress, artifact, *, plan, require_report_ready, walk):
                 capture = load(root, row['execution']['path'])
                 if (capture.get('host_task') != row['execution_id'] or capture.get('status') != 'completed'
                         or capture.get('assignment_version') != request['assignment_version']):
-                    raise ValueError("Execution identity/version differs from the retained host capture.")
+                    raise ValueError("Execution identity/version differs from the retained execution capture.")
                 validate_result(original, request)
                 identities.append(row["execution_id"])
                 if row["execution_id"] in producers(root, progress):
@@ -738,7 +738,7 @@ def _inspect(root, progress, artifact, *, plan, require_report_ready, walk):
                     elif slot["role"] == "acceptance" and original["result"] != "pass":
                         findings.extend(original["open_issues"] or ["Independent final acceptance did not pass."])
             if len(set(identities)) != len(identities):
-                raise ValueError("Review perspectives, audit and acceptance must use distinct host contexts.")
+                raise ValueError("Review perspectives, audit and acceptance must use distinct agent contexts.")
         except (ValueError, OSError, KeyError, TypeError) as exc:
             findings.append(str(exc))
     result = {"ok": not findings, "flags": ["incomplete_independent_review"] if findings else [],
@@ -755,7 +755,7 @@ def run_configured(workflow, root, progress, evidence_paths, artifact, purpose, 
     """Optional existing backend bridge; the same assignments and completion contract apply."""
     from review_runner import backend_kind, ReviewFailure
     if any(backend_kind(c) == "self" for c in config["reviewers"]):
-        raise ValueError("Author self-review cannot satisfy independent assignments. Use native host agents.")
+        raise ValueError("Author self-review cannot satisfy independent assignments. Use native agents.")
     result = review(workflow, root, progress, evidence_paths, artifact, purpose, revision,
                     False, host_result, scope, perspectives, domains, audit)
     while result["assignments"]:

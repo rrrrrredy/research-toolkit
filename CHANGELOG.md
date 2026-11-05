@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.3.2 — 2026-11-05
+
+- Align direct method use with default first-use configuration: the agent reuses or downloads a complete copy, configures basic recording with Python, and explains Codex session reload. Research continues when configuration cannot run or is not yet active.
+- Replace product-facing host terminology with agent tools, product names or the actual agent responsibility. Preserve interface identifiers, existing links and historical originals; synchronize English, Chinese, the plugin and website.
+- Redo both homepage research cases with sources read on 5 November, retaining earlier cases, first drafts, analyses, independent reviews and revisions. These refreshed reports are not a controlled quality or efficiency comparison. See [release notes](docs/releases/v2.3.2.md).
+
 ## v2.3.1 — 2026-11-05
 
 - Include usage-recording setup in Skill installation and first-use instructions for Codex, Claude Code and OpenCode, including use from a repository link. Reuse the bundled scripts and active plugin configuration.
@@ -14,23 +20,23 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## v2.3.0 — 2026-11-04
 
-- Add shared default-on basic usage collection for CLI/MCP and native host observers, with a first-use notice, opt-out, deletion, private reporting and one-time selected-content sharing. Research text and local paths are excluded from basic events.
+- Add shared default-on basic usage collection for CLI/MCP and agent-tool events, with a first-use notice, opt-out, deletion, private reporting and one-time selected-content sharing. Research text and local paths are excluded from basic events.
 
-- Use a common Agent session interface with Claude Code/OpenCode native CLI drivers. Codex remains one host driver, rather than a fixed dependency of shared execution.
-- Do not fall back to Codex for host selection. Deliver updates through steering where supported, otherwise resume the same session after the active invocation; original outputs retain their actual input bindings.
-- Remove implicit Codex selection from ambiguous external review configuration; legacy entries with an explicit host response format remain usable.
-- Synchronize bilingual entry points, host guidance and plugin content. See [release notes](docs/releases/v2.3.0.md) for the collection paths and execution observations.
+- Use a common Agent session interface with Claude Code/OpenCode native CLI drivers. Codex remains one agent tool driver, rather than a fixed dependency of shared execution.
+- Do not fall back to Codex for agent tool selection. Deliver updates through steering where supported, otherwise resume the same session after the active invocation; original outputs retain their actual input bindings.
+- Remove implicit Codex selection from ambiguous external review configuration; legacy entries with an explicit agent tool response format remain usable.
+- Synchronize bilingual entry points, agent tool guidance and plugin content. See [release notes](docs/releases/v2.3.0.md) for the collection paths and execution observations.
 
 ## v2.2.0 — 2026-11-03
 
-- Add an optional local Agent execution adapter, initially implementing only Codex, for selected research work and independent review assignments. Reuse the installed host's login and model configuration, Toolkit inputs, saved artifacts and review contracts.
+- Add an optional local Agent execution adapter, initially implementing only Codex, for selected research work and independent review assignments. Reuse the installed agent tool's login and model configuration, Toolkit inputs, saved artifacts and review contracts.
 - Resume the recorded producer when inputs change, steer running work, wait for upstream results, and import original outputs with their delivered input versions. Negative findings return for substantive revision; they do not trigger automatic rewriting until approval.
 - Distribute the already-merged review-continuation repair: retain the original independent context and prior inputs for revision, alongside current originals and concrete changes.
 - Synchronize English, Chinese and plugin content. One constructed-material task exercised real Codex sessions, subsequent requirements, revision, independent review, audit and acceptance. Retain its raw records separately; the final scheduling repair used saved-state replay. No measured report-quality or rework-reduction gain is claimed. See [release notes](docs/releases/v2.2.0.md).
 
 ## v2.1.0 — 2026-11-02
 
-- Add a readable input entry to research preparation and pending native-host content review, audit and final acceptance. Existing calls return `reading_ref` alongside their original input fields and frozen JSON references.
+- Add a readable input entry to research preparation and pending native-agent content review, audit and final acceptance. Existing calls return `reading_ref` alongside their original input fields and frozen JSON references.
 - Keep complete long text in linked UTF-8 files, with structured records, original paths and version references available. Share identical content and retain earlier views when inputs change.
 - Preserve existing input hashes, assignment versions, independent responsibilities, saved-task compatibility and completion conditions. Ordinary status without `work` does not generate reading files.
 - Synchronize English, Chinese and the plugin package. Retained-input comparisons and existing checks verify text preservation and interface behavior; no new research/model run or measured report-quality gain is claimed. See [release notes](docs/releases/v2.1.0.md).
@@ -53,7 +59,7 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## v2.0.0 — 2026-10-30
 
-- Connect native host research units, full-artifact handoffs, actual dependencies and progressive assembly through the existing interfaces.
+- Connect native-agent research units, full-artifact handoffs, actual dependencies and progressive assembly through the existing interfaces.
 - Require independent content perspectives, audit and separate final acceptance for new/resumed work; retain original replies, identities and version bindings. Author self-review cannot complete delivery.
 - Consolidate method ownership and stage loading; synchronize English, Chinese and plugin sources. Remove default research runtime cutoffs and time/token summaries, preserving failure recovery and historical evidence.
 - Preserve old materials and receipts; the changed completion contract requires a major version.
@@ -64,7 +70,7 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 - Load existing guidance through stable method markers and optional question-specific selection; consolidate conflicting/repeated requirements.
 - Shared context retains effective requirements and scope decisions, with selected supporting/counter-evidence originals and input versions.
-- Existing save registers analyses, actual host references and changed inputs, reusing activity records and backups for assembly.
+- Existing save registers analyses, actual agent references and changed inputs, reusing activity records and backups for assembly.
 - Review-backend availability no longer blocks collection; review, delivery and legacy-task contracts remain. English, Chinese and plugin synchronized.
 - Execution capability changes; report-quality and user-time effects have not been measured.
 
@@ -75,7 +81,7 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 - Develop the existing analysis guidance into concrete approaches to comparison, explanation, synthesis and recommendations; retain optional domain lenses and the archived SaaS example.
 - Expand whole-report assembly using the eight-company pipeline study's original report, revision and review records. Explain how sections support one argument, with an explicitly labeled teaching transition; historical materials remain unchanged.
 - Replace the blanket per-stage planning/drafting/review cycle with work organized around unresolved research questions. Retain agreed checks, tool-managed completion contracts and saved-task compatibility.
-- Simplify README and quickstart requests so users express their questions, purpose and constraints. Clarify that the host agent interprets intent while CLI/MCP stores requirements and reports missing fields. Synchronize English, Chinese, plugin copies and website method pages.
+- Simplify README and quickstart requests so users express their questions, purpose and constraints. Clarify that the agent interprets intent while CLI/MCP stores requirements and reports missing fields. Synchronize English, Chinese, plugin copies and website method pages.
 - Publish matching [release notes](docs/releases/v1.4.14.md) and plugin package. Reuse completed documentation checks; no new research runs or model comparisons. Improved research quality, intent recognition and user effort remain unmeasured.
 
 ## v1.4.13 — 2026-10-28
@@ -166,7 +172,7 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 ## v1.4.0 — 2026-10-21
 
 - Add optional partial `research_save.brief` updates and explicit `draft.main` / `draft.kind` selection. Preserve custom specification sections and historical receipts; a revised main artifact cannot reuse the wrong delivery.
-- Return runtime identity and current-work references at resume, without claiming that the host loaded the displayed Skill or that a file hash proves quality.
+- Return runtime identity and current-work references at resume, without claiming that the agent tool loaded the displayed Skill or that a file hash proves quality.
 - Validate active reading requirements when saving, preserve explicit legacy waivers, and distinguish imported reviews from actual model calls, self submissions, timing and usage.
 - Add bilingual continuity guidance, 14 targeted tests and 12 independently constructed semantic diagnostics. An independent code review found three defects, which were corrected and tested.
 - Synchronize the plugin and bilingual [release notes](docs/releases/v1.4.0.md). The three-mode short-task probe found no answer-quality advantage; managed execution took more time and tokens. Nine tools and existing task formats remain compatible; no mandatory new input or migration.

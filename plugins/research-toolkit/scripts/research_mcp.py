@@ -43,7 +43,7 @@ def research_start(task: str, brief: dict[str, str], language: str = "en",
     Returned clarification_questions guide the agent; do not forward them as a questionnaire. Explain consequential alternatives and resolve critical choices with the user.
     Use the complete shared research methods. Omit profile; it is retained only for older clients and saved tasks.
     Resume saved materials through research_status; historical receipts remain unchanged.
-    New work uses independent host review, audit and acceptance. review_readiness defaults to host_native.
+    New work uses independent agent review, audit and acceptance. review_readiness defaults to host_native.
     """
     return mutate(workflow.start, task, brief, language, profile)
 
@@ -72,8 +72,8 @@ def research_save(task: str, sources: list[dict[str, Any]] | None = None,
     Saving a prepared unit automatically retains its input versions, question and dependencies from status.work.
     Explicit based_on overrides that selection and copies work_context.inputs unchanged: file paths and record:sources:S1 / record:claims:C1 /
     record:requirements:effective or effective@unit IDs map to SHA256; copy the returned keys rather than constructing them.
-    handoff uses summary, optional pending/decisions text lists and to (the receiving host task/session).
-    The registered main writer transfers ownership through handoff.to; another host cannot silently replace the main draft.
+    handoff uses summary, optional pending/decisions text lists and to (the receiving agent task/session).
+    The registered main writer transfers ownership through handoff.to; another agent cannot silently replace the main draft.
     Saved unit originals and prior versions are retained in existing record-backups; summaries do not replace original analysis.
     current_work.research_outputs returns contributions, owners, current dependencies and changed inputs for research judgment.
     Chapter/reference drafts do not change the main selection. brief updates only supplied brief fields and task_spec together.
@@ -108,7 +108,7 @@ def research_status(task: str, language: str = "en", stage: str | None = None,
     changes reuses the latest successful record-save batch and locates related claims in the latest registered draft.
     Literal matches guide reading, not semantic verdicts; not_located requires inspection, not a new acceptance gate.
     current_work locates the main artifact, requirements and historical receipt separately. runtime identifies this implementation,
-    not the Skill actually read by the host. Status does not discover arbitrary unregistered files.
+    not the Skill actually read by the agent tool. Status does not discover arbitrary unregistered files.
     current_work includes effective_requirements (including satisfied), scope_decisions and research_outputs.
     Optional methods selects named methods from research_guide.available_methods instead of the stage defaults.
     Optional work prepares readable input for research, delegation or revision: question, unit_id, depends_on,
@@ -118,11 +118,11 @@ def research_status(task: str, language: str = "en", stage: str | None = None,
     changed inputs/versions and pending independent review. Fulfilled requirements remain effective unless superseded.
     work_context includes originals, effective requirements, references and inputs hashes (files plus selected record bindings).
     reading_ref opens a readable view of that same work input, with full text in linked files instead of escaped JSON strings.
-    Pass this entry and task_directory to the host worker; work_context and its input hashes remain unchanged.
+    Pass this entry and task_directory to the worker agent; work_context and its input hashes remain unchanged.
     Preparing a unit records its selection in existing activity history for the next save; ordinary status remains read-only.
     current_work.production_contexts retains recorded production identities for independent assignments. Choose scope yourself;
-    send the input through the host's existing agent tools, preserving its actual task handle for follow-up.
-    No host agent is launched by this read. Omit stage to prepare independent work without changing global progress.
+    send the input through the application’s existing subagent tools, preserving its actual task handle for follow-up.
+    No agent is launched by this read. Omit stage to prepare independent work without changing global progress.
     """
     return (mutate(workflow.status, task, language, stage, methods, work) if stage is not None or work is not None
             else call(workflow.status, WORKSPACE, task, language, stage, methods, work))
@@ -150,14 +150,14 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
                           host_result: dict[str, Any] | None = None,
                           scope: str = "full_report", perspectives: list[str] | None = None,
                           domains: list[str] | None = None, audit: bool | None = None) -> dict[str, Any]:
-    """Prepare independent assignments or receive the host's actual completed result; no API setup is needed.
-    The host dispatches distinct non-author agents: seven whole-report perspectives and domain review,
+    """Prepare independent assignments or receive the agent tool's actual completed result; no API setup is needed.
+    The agent tool dispatches distinct non-author agents: seven whole-report perspectives and domain review,
     then an independent audit with independently selected samples, then independent final acceptance.
     host_result uses slot_id, host_task (actual session handle), response_path and execution_path (task-relative
-    original UTF-8 response and completed host capture). Original responses quote input_version and assignment_version.
+    original UTF-8 response and completed execution capture). Original responses quote input_version and assignment_version.
     execution_path records host_task, status=completed and assignment_version. Do not fabricate responses or identities.
     evidence_paths may be empty when registered original evidence suffices; required sources are included automatically.
-    Each pending assignment includes reading_ref: open its readable input and full-text links when dispatching the host agent.
+    Each pending assignment includes reading_ref: open its readable input and full-text links when dispatching the agent.
     On revision, resume_host_task identifies the earlier independent context to continue when available;
     revision_context compares the current input with that role's actual reviewed version and retains its original work.
     Omitted perspectives/domains continue the saved unit selection; explicit values change the selection.
@@ -169,7 +169,7 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
     Revision assignments reference earlier reviews, frozen inputs and changed locations; these are reading aids, not current PASS.
     A completed negative review is retained. Correct the draft, then use revision=True; do not reroll for a pass.
     reviewer=self and self_review remain recognizable legacy parameters but cannot complete current independent review.
-    Explicitly configured external backends execute the same assignments; ordinary use stays in the host.
+    Explicitly configured external backends execute the same assignments; ordinary use stays in the agent tool.
     """
     return await asyncio.to_thread(mutate, workflow.review, task, evidence_paths,
                                    artifact, purpose, revision, reviewer, self_review, include_assignment,

@@ -24,7 +24,7 @@ Scope and length: [Coverage, information cutoff and expected depth.]
 Existing material: [Sources, files or an existing report.]
 Load the complete methods as needed and develop the evidence, comparisons,
 mechanisms and synthesis. Deliver the complete report with usable citations;
-preserve sources and full analysis for handoff; organize independent review, audit and acceptance through the host.
+preserve sources and full analysis for handoff; organize independent review, audit and acceptance through GitHub Copilot.
 ```
 
 The [shared research guide](../docs/quickstart.md) provides a complete request and setup details.
@@ -37,4 +37,4 @@ Run this from the same project directory:
 git -C .github/skills/research-toolkit status --short
 ```
 
-No output means the checkout is clean; a path error means the command is running from the wrong directory or the clone failed. Changes may indicate missing or edited files—preserve your edits before updating. If files exist but the skill is absent, reopen the project/session and check the host’s skill settings. You can also ask the agent to read the installed `SKILL.md` by its exact path. [All input methods and limits](README.md).
+No output means the checkout is clean; a path error means the command is running from the wrong directory or the clone failed. Changes may indicate missing or edited files—preserve your edits before updating. If files exist but the skill is absent, reopen the project/session and check GitHub Copilot’s skill settings. You can also ask the agent to read the installed `SKILL.md` by its exact path. [All input methods and limits](README.md).

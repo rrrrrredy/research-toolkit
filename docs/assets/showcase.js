@@ -144,14 +144,7 @@
     document.getElementById("research-prompt").textContent = data.prompts[lang];
     document.getElementById("hero-quote").replaceChildren(highlighted(caseData().hero[lang].quote,caseData().hero[lang].highlights));
     document.getElementById("copy-status").textContent = "";
-    var caseLinks = lang === "en" && data.englishCase ? data.englishCase.links : {
-      report:"case-study/report."+(lang === "zh" ? "zh-CN" : "en")+".html",
-      archive:"case-study/office-agents/index.html",
-      brief:"case-study/office-agents/brief.html",
-      sources:"case-study/office-agents/sources.html",
-      claims:"case-study/office-agents/claims.html",
-      reviews:"case-study/office-agents/reviews.html"
-    };
+    var caseLinks = caseData().links;
     document.querySelectorAll("[data-report-link]").forEach(function (e) { e.href = caseLinks.report; });
     document.querySelectorAll("[data-case-link]").forEach(function (e) { e.href = caseLinks[e.dataset.caseLink]; });
     document.querySelector("time[data-i18n='heroDate']").dateTime = caseData().information_cutoff;

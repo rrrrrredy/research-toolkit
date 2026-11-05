@@ -4,7 +4,7 @@
 
 [Project overview](../README.md) · [Start research](quickstart.md) · [Installation and tools](usage-modes.md)
 
-Research Toolkit is used by host agents to produce substantial, source-grounded research for an identified reader. The brief determines what must be explained and how deeply; the working methods and collaboration support that result.
+Research Toolkit is used by agents to produce substantial, source-grounded research for an identified reader. The brief determines what must be explained and how deeply; the working methods and collaboration support that result.
 
 ## Example tasks
 
@@ -60,9 +60,9 @@ The author may self-edit or explain a disagreement, but cannot replace independe
 
 ## Task records and continuation
 
-Skill-only work retains useful original requirements, sources, analysis, drafts and review results in the host's available files or context. It need not reproduce fixed CLI/MCP registries. The substantive review responsibilities still apply.
+Skill-only work retains useful original requirements, sources, analysis, drafts and review results in the agent tool's available files or context. It need not reproduce fixed CLI/MCP registries. The substantive review responsibilities still apply.
 
-Tool-managed work uses the existing source/claim records, task specification, requirement log, saved artifacts and review log. `status` supplies shared work inputs; `save` retains results and dependencies; `review` connects the host's independent assignments; `finish` writes the delivery receipt after current acceptance. The [usage guide](usage-modes.md) owns the concrete fields and calls.
+Tool-managed work uses the existing source/claim records, task specification, requirement log, saved artifacts and review log. `status` supplies shared work inputs; `save` retains results and dependencies; `review` connects the agent tool's independent assignments; `finish` writes the delivery receipt after current acceptance. The [usage guide](usage-modes.md) owns the concrete fields and calls.
 
 Satisfied requirements remain visible when they still apply to later edits. A new instruction changes affected requirements and work, not unrelated original objectives. Old artifacts and receipts retain their original versions; continuation develops a new current result.
 
@@ -83,6 +83,6 @@ The original reports, failed attempts and revisions remain available. Method reo
 
 ## Repository and maintenance
 
-`SKILL.md` is the shared entry; `references/` owns methods; `scripts/` provides shared CLI/MCP logic; `agents/` documents host integration; `docs/` provides usage and the website. `plugins/research-toolkit/` is generated from shared sources. `examples/` demonstrates interfaces, and `evals/` preserves research and relevant checks.
+`SKILL.md` is the shared entry; `references/` owns methods; `scripts/` provides shared CLI/MCP logic; `agents/` documents agent tool integration; `docs/` provides usage and the website. `plugins/research-toolkit/` is generated from shared sources. `examples/` demonstrates interfaces, and `evals/` preserves research and relevant checks.
 
 Maintenance and experimental execution instructions are in [Contributing](../CONTRIBUTING.md), [evaluation documentation](../evals/README.md) and [site maintenance](site-maintenance.md). They are not extra steps for every research task. [MIT license](../LICENSE).

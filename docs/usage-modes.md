@@ -4,16 +4,16 @@
 
 The [compatibility policy](compatibility.md) explains the current completion contract and continuation of older tasks. Preserve original records and reuse the existing materials.
 
-**Use the research methods through a repository link, files, attachments, or pasted text.** Choose the input method your agent supports. Native Skill, plugin, and MCP support are separate capabilities of the host.
+**Use the research methods through a repository link, files, attachments, or pasted text.** Choose the input method your agent supports. Native Skill, plugin, and MCP support are separate capabilities of the agent tool.
 
 ## Use the research methods
 
-Basic usage recording is on by default, excludes conversations, reports and paths, and can be disabled. During Skill installation or first use, the agent connects the bundled script to Codex, Claude Code or OpenCode; users do not separately install a collector or upload files. See [usage recording and automatic setup](usage-data.md).
+The methods can be read directly, without first installing a Skill or MCP. In Codex, Claude Code and OpenCode, the agent also downloads or reuses a complete local copy and uses Python 3.10+ to configure basic usage recording for the current project. Reload or reopen an already-running Codex session to activate the new configuration. Continue research if Python or command access is unavailable, or the configuration is not yet active. Basic events are sent by default without conversations, reports or local paths; recording can be disabled, and an existing off setting is preserved. [Setup and controls](usage-data.md).
 
 - **Repository link:** send the [research request](https://github.com/rrrrrredy/research-toolkit/blob/main/README.md#usage) to an agent that can read GitHub.
 - **Files or attachments:** download the repository, provide `SKILL.md`, and make the required reference files available.
 - **Text-only input:** paste the complete entry instructions and relevant method sections. See [chat-only use](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md#chat-only-use).
-- **Native Skill:** install the complete toolkit through the host's supported mechanism. See [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md).
+- **Native Skill:** install the complete toolkit through the agent tool's supported mechanism. See [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md).
 
 No Python or vendor CLI installation is required merely to read and apply the methods. Retrieval and file access come from the author agent. A separate reviewer is needed for independent review; supplying the instructions does not run one automatically.
 
@@ -29,11 +29,11 @@ The table applies when you choose the managed local workflow, through MCP **or t
 | `research_save` | Save/update sources, claims, requirements and drafts; correct located format errors. | No record or draft changes. |
 | `research_status` | Resume a managed task, inspect saved progress, or change its recorded stage. | You do not need to read or update progress; a methods-only session can use its own notes. |
 | `research_guide` | Retrieve the method for a stage when it is not already available in context. | Read the relevant `SKILL.md` and `references/` files directly. |
-| `research_review` | Prepare native-host review, audit and acceptance assignments; retain real responses and bound inputs. | Reuse valid complete results for unchanged inputs; continue unfinished work. |
+| `research_review` | Prepare native-agent review, audit and acceptance assignments; retain real responses and bound inputs. | Reuse valid complete results for unchanged inputs; continue unfinished work. |
 | `research_check_updates` | Read a registered public release log and locate affected claims/report passages. | No new-source question or no registered release log. |
 | `research_check_draft` | Check current draft records and explicit length bounds without model calls or a delivery receipt. | Optional before review/finish; inspect sources and meaning separately. |
 | `research_finish` | Complete a managed task by checking the current report and its delivery requirements. | For Skill-only use, complete independent review, audit and acceptance and deliver the requested report and citations; no tool receipt is required. |
-| `research_check_reviewer` | Diagnose configuration and dependencies for an explicitly selected external backend. | Host-native subagents need no external service configuration check. |
+| `research_check_reviewer` | Diagnose configuration and dependencies for an explicitly selected external backend. | Native subagents need no external service configuration check. |
 
 ## Save research records and drafts
 
@@ -141,23 +141,23 @@ The formal checks establish version and record consistency within the declared s
 
 ## Optional workflow tools
 
-Use local MCP when the host can start a local process, or the bundled plugin when it supports the plugin format. The tools use the same research methods.
+Use local MCP when the agent tool can start a local process, or the bundled plugin when it supports the plugin format. The tools use the same research methods.
 
-| Form | What it supplies | Host requirement |
+| Form | What it supplies | Agent tool requirement |
 | --- | --- | --- |
 | Skill | Entry instructions and detailed research methods | Native Skill discovery or explicit file reading |
 | Plugin | Skill, references, and the local MCP server in one package | Support for the package format and local stdio MCP |
 | MCP | Nine callable tools for task setup, progress, guidance, reviews, and delivery checks | A client that can start and call a local stdio MCP server |
 
-The shared CLI needs Python 3.10+ and only its standard library. Prefer `python3` on Linux; any installed Python 3.10+ interpreter is enough. MCP also needs the dependency in `requirements-mcp.txt`. Research and independent review use host-native agents by default. Separate backend configuration is optional and does not determine whether the host can delegate.
+The shared CLI needs Python 3.10+ and only its standard library. Prefer `python3` on Linux; any installed Python 3.10+ interpreter is enough. MCP also needs the dependency in `requirements-mcp.txt`. Research and independent review use native agents by default. Separate backend configuration is optional and does not determine whether the agent tool can delegate.
 
 CI exercises the CLI and packaged MCP workflow on Python 3.10/Linux, plus the broader checks on Python 3.12/Linux and Windows. Use the same interpreter for dependency installation and your client's server command. These are server/protocol checks, not tests of every client GUI.
 
 ## Install the plugin
 
-The [plugin directory](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/) bundles the Skill, methods and local MCP server. Use your host's supported plugin installation mechanism; [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md) has host-specific instructions. Install `requirements-mcp.txt` in the Python environment that starts MCP, then confirm the nine `research_*` tools are available.
+The [plugin directory](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/) bundles the Skill, methods and local MCP server. Use your agent tool's supported plugin installation mechanism; [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md) has tool-specific instructions. Install `requirements-mcp.txt` in the Python environment that starts MCP, then confirm the nine `research_*` tools are available.
 
-Describe the topic, reader and expected result; the agent assembles the brief and asks only about critical missing choices. The package follows the [portable plugin specification](https://developers.openai.com/plugins/build/plugins). Research runs locally; the separate usage receiver handles basic events. Format support depends on the host. Plugin hooks, where supported and trusted, observe Toolkit sessions using the [same collector](usage-data.md).
+Describe the topic, reader and expected result; the agent assembles the brief and asks only about critical missing choices. The package follows the [portable plugin specification](https://developers.openai.com/plugins/build/plugins). Research runs locally; the separate usage receiver handles basic events. Format support depends on the agent tool. Plugin hooks, where supported and trusted, observe Toolkit sessions using the [same collector](usage-data.md).
 
 ## Connect MCP separately
 
@@ -237,12 +237,12 @@ If no tools appear, run `python -c "import sys, mcp; print(sys.executable)"` wit
 | `research_start` | Create the unified task and brief, returning shared context and consequential missing fields |
 | `research_status` | Returns saved progress and current methods; changing to analysis/drafting requires prerequisite source/claim records |
 | `research_guide` | Loads the applicable methods without starting a task; supports English and Chinese |
-| `research_review` | Connect content review, independent audit and final acceptance, retaining native-host originals and version bindings |
+| `research_review` | Connect content review, independent audit and final acceptance, retaining native-agent originals and version bindings |
 | `research_check_draft` | Return current counts, declared range checks and record errors without changing task state; `ok` does not certify content or delivery |
 | `research_finish` | Checks the reviewed artifact, evidence, unresolved requirements and delivery text before writing completion state and a receipt |
-| `research_check_reviewer` | Diagnose an optional external backend, without gating native-host collaboration |
+| `research_check_reviewer` | Diagnose an optional external backend, without gating native-agent collaboration |
 
-Research and assembling agents search, read, analyze and write using their host tools and shared task inputs. It must save required source texts and source/claim records in the task directory. Stage guidance reduces repeated context loading; it does not establish that a model has obeyed every instruction.
+Research and assembling agents search, read, analyze and write using their agent tool tools and shared task inputs. It must save required source texts and source/claim records in the task directory. Stage guidance reduces repeated context loading; it does not establish that a model has obeyed every instruction.
 
 Before analysis, source records need an ID, title, locator and source type, with at least one full-text or relevant-section reading record and a reading-evidence reference. Before drafting, claims need substantive text and a type; source references must resolve to registered, read sources. Explicit hypotheses may remain unsupported with recorded uncertainty, but at least one grounded claim is required. Local file references in reading evidence must stay inside the task directory and identify an existing, nonempty file; anchors and page/section suffixes are allowed. URLs and section/page locators remain valid references without an automatic content check. These checks detect incomplete records, not whether a source was truly understood.
 
@@ -250,21 +250,23 @@ When `status` also receives `work`, analysis/drafting checks use that selection'
 
 Reviews automatically include nonempty `state/requirements.jsonl` alongside the brief, report and source files. Both reviewer and auditor receive the full ledger, including later clarifications and changes. Editing or deleting that ledger after review prevents delivery until the changed assignment is addressed. An empty ledger adds no requirements.
 
-Reviews retain the full task, report and relevant source files, not just URLs. Native-host assignments return readable file references by default. If the material exceeds one model context, the reviewer reads the retained originals in parts and completes the assigned assessment; a summary must not silently replace required material.
+Reviews retain the full task, report and relevant source files, not just URLs. Native-agent assignments return readable file references by default. If the material exceeds one model context, the reviewer reads the retained originals in parts and completes the assigned assessment; a summary must not silently replace required material.
 
 ## Reviewer backends
 
-### Native host review
+<a id="native-host-review"></a>
 
-Use the subagent capability already present in Codex, Claude Code or the chosen host. `research_review` prepares assignments and binds the complete task, report and original evidence. The host starts a different independent agent for each base perspective and the relevant domain review; it then runs independent audit and final acceptance. The author and assembling agents do not fill these assignments. No API configuration is needed for this route.
+### Review with native agents
+
+Use the subagent capability already present in Codex, Claude Code or the chosen agent tool. `research_review` prepares assignments and binds the complete task, report and original evidence. The agent tool starts a different independent agent for each base perspective and the relevant domain review; it then runs independent audit and final acceptance. The author and assembling agents do not fill these assignments. No API configuration is needed for this route.
 
 The seven base perspectives are requirements, evidence, adversarial reasoning, structure and depth, reader usefulness, process language and natural expression. They are separate review contexts. Models may be the same; context and production responsibility must be distinct. The [review contract](review-completion.md) specifies the assignments, original results and current-version completion.
 
-The host preserves each actual response and its execution record, then submits their paths through the existing `review` operation. Once the required content results exist, the next assignment is independent audit; final acceptance follows the resolved report and audit. If a task needs an early review of a research unit, identify that unit. Its result supports dependent work and does not replace full-report review.
+The agent tool preserves each actual response and its execution record, then submits their paths through the existing `review` operation. Once the required content results exist, the next assignment is independent audit; final acceptance follows the resolved report and audit. If a task needs an early review of a research unit, identify that unit. Its result supports dependent work and does not replace full-report review.
 
 ### Optional configured execution
 
-Use this only when choosing a separate command or endpoint to execute review. It is not the setup for native host subagents.
+Use this only when choosing a separate command or endpoint to execute review. It is not the setup for native subagents.
 
 | Backend | Configuration |
 | --- | --- |
@@ -273,9 +275,9 @@ Use this only when choosing a separate command or endpoint to execute review. It
 | `generic` | Backend `generic`, `RESEARCH_TOOLKIT_REVIEW_BASE_URL` and `RESEARCH_TOOLKIT_REVIEW_MODEL`; an authentication environment variable only if the selected endpoint requires one. |
 | Trusted command | `RESEARCH_TOOLKIT_REVIEW_CONFIG` points to a JSON configuration with an argv list and `format: "json"`. |
 
-External review JSON configuration should name `backend` explicitly. Existing `command`, `format: "json"` and host-specific formats remain recognized. A model-only entry now reports the required `reviewer.backend` field instead of selecting Codex implicitly. Native-host execution needs no such configuration.
+External review JSON configuration should name `backend` explicitly. Existing `command`, `format: "json"` and tool-specific formats remain recognized. A model-only entry now reports the required `reviewer.backend` field instead of selecting Codex implicitly. Native-agent execution needs no such configuration.
 
-Native-host and configured execution fulfill the same current review responsibilities. A legacy self-review result remains historical evidence; it cannot replace a required independent review, audit or acceptance.
+Native-agent and configured execution fulfill the same current review responsibilities. A legacy self-review result remains historical evidence; it cannot replace a required independent review, audit or acceptance.
 
 For a chosen generic backend:
 
@@ -300,7 +302,7 @@ Keep each task in a separate context and retain original output. Command configu
 
 CLI, MCP and Python operations share the existing OS task lock. Serialize writes to the same task; branch work can proceed independently. Do not remove the lock file to bypass ownership. The designated main-draft owner integrates branch artifacts instead of multiple writers editing the same report.
 
-Preserve failed calls and original bytes. Invalid UTF-8 in a response is retained as a failure; stderr can be displayed with replacement characters while its bytes remain available. A host cancellation or execution failure leaves that assignment unfinished. Resume the missing work after resolving its actual cause; do not cancel substantive work because it has run for an arbitrary duration.
+Preserve failed calls and original bytes. Invalid UTF-8 in a response is retained as a failure; stderr can be displayed with replacement characters while its bytes remain available. An agent tool cancellation or execution failure leaves that assignment unfinished. Resume the missing work after resolving its actual cause; do not cancel substantive work because it has run for an arbitrary duration.
 
 A valid negative review is retained. Correct the affected report and evidence, then use `revision: true` for the current version. Authors can respond to a disputed finding, but an independent reviewer/auditor adjudicates consequential no-change decisions. Do not rerun unchanged negative results looking for a pass.
 
@@ -337,15 +339,15 @@ For an existing managed task:
 python3 scripts/research_workflow.py review --workspace ../research-work --request review.json
 ```
 
-With native-host execution, each pending assignment includes `reading_ref` (`path`, `sha256`), a readable entry into the same input, and `assignment_ref`, its original frozen JSON. Pass `task_directory` and the reading entry to the worker. The entry groups the actual instructions, task, full draft, evidence, analysis and retained opinions by their existing fields. Long strings open as full UTF-8 text without JSON escaping; structured records keep every field and list order. Text files are shared by content across roles, and changed content gets a separate view under `logs/reading/`. Original file references and hashes remain available. These are derived reading files, not another evidence ledger or an approval record; assignment versions, completion conditions and `include_assignment` remain unchanged.
+With native-agent execution, each pending assignment includes `reading_ref` (`path`, `sha256`), a readable entry into the same input, and `assignment_ref`, its original frozen JSON. Pass `task_directory` and the reading entry to the worker. The entry groups the actual instructions, task, full draft, evidence, analysis and retained opinions by their existing fields. Long strings open as full UTF-8 text without JSON escaping; structured records keep every field and list order. Text files are shared by content across roles, and changed content gets a separate view under `logs/reading/`. Original file references and hashes remain available. These are derived reading files, not another evidence ledger or an approval record; assignment versions, completion conditions and `include_assignment` remain unchanged.
 
-Each worker must be able to open the full assignment and referenced originals; across environments, transfer the reading files and required originals rather than inaccessible local paths. Preserve the real host task ID and the complete original reply and execution record. Submit those records through the same operation using `host_result`; the [review contract](review-completion.md) describes its fields.
+Each worker must be able to open the full assignment and referenced originals; across environments, transfer the reading files and required originals rather than inaccessible local paths. Preserve the real agent task ID and the complete original reply and execution record. Submit those records through the same operation using `host_result`; the [review contract](review-completion.md) describes its fields.
 
-The host continues the returned assignment, audit or acceptance work. A summary locates an existing result; it does not replace the result or source text. If the report or required inputs change, retain the earlier packet and use `revision: true` for the new version.
+The agent tool continues the returned assignment, audit or acceptance work. A summary locates an existing result; it does not replace the result or source text. If the report or required inputs change, retain the earlier packet and use `revision: true` for the new version.
 
 ## Verification and limits
 
-Existing software checks exercise record consistency, original-input binding, packaging and MCP transport with labelled synthetic data. Real host executions retain their separate source material, responses and outcomes. The [evaluation status](evaluation-status.md) describes the work actually observed; installation and mechanical checks are not content-review results.
+Existing software checks exercise record consistency, original-input binding, packaging and MCP transport with labelled synthetic data. Real agent tool executions retain their separate source material, responses and outcomes. The [evaluation status](evaluation-status.md) describes the work actually observed; installation and mechanical checks are not content-review results.
 
 Current delivery requires independent content review, audit and acceptance. The tools enforce their saved contract; the agents perform the substantive reading and judgment. Preserve historical receipts and report their actual contract rather than presenting them as current acceptance. For actual failures, follow the [repair guidance](failure-handling.md) and continue the affected work.
 
@@ -359,7 +361,7 @@ Optional `research_save.brief` updates only supplied question/audience/scope/out
 
 `draft.main=true` explicitly selects the current work file; optional kind is report/comparison/review/analysis. Other chapter/reference saves do not change this selection. `complete` still records draft completeness only. `save/status.current_work` returns the current file, effective requirements, unfinished work and resume paths; status separately references the last delivery. A new main or changed brief cannot inherit a terminal state; old receipts remain intact. Review/finish must pass the registered main as artifact. Legacy tasks need no migration and retain previous behavior without an explicit main. The saved file observation is not approval.
 
-`start/status.runtime` identifies the implementation path, version, code hash and available entry hash; host_loaded_entry=not_observed. It does not infer which Skill the host read. Tools identify registered files, not arbitrary new directories.
+`start/status.runtime` identifies the implementation path, version, code hash and available entry hash; host_loaded_entry=not_observed. It does not infer which Skill the agent tool read. Tools identify registered files, not arbitrary new directories.
 
 Reading requirements are validated at save: full_text/relevant_sections paired with a nonempty distinct required_source_ids list. Partial updates to a valid existing pair remain supported. Invalid batches cannot partially overwrite reports or state. See [task continuity](../references/task-continuity.md) for the workflow.
 
@@ -381,9 +383,9 @@ Use `status` to prepare the next worker's input. This illustrative request assum
 
 All `work` fields are optional. A new `unit_id` can name the assignment before its first save. Selected claims bring supporting and registered counter-evidence sources, and reading requirements bring their sources. For a saved unit, its full artifact and inherited original inputs are returned; dependencies bring upstream full outputs and originals. `work_context` includes the task, effective requirements, selected records, readable `files`, binary-original references, dependencies and their readiness, `inputs` and `input_version`. The same response supplies `reading_ref` for reading and handing off this input by file, using the reading view described above; `work_context` and its bindings remain intact. Ordinary status without `work` does not generate reading files.
 
-Satisfied requirements stay in `effective_requirements` when still applicable. `scope_decisions` retains explicit waivers, exclusions and accepted limits. Requirements are not automatically inferred from host conversations; save the actual user wording and affected requirement through the existing fields. `applicable_requirements` includes global requirements plus those explicitly assigned to the current unit or its real upstream units (`requirement_unit_ids`); all effective requirements remain visible. Input bindings follow that scope, so unrelated local requirement or source/claim changes do not invalidate the unit. Without a `unit_id`, requirements are bound task-wide. Historical `record:requirements:effective` bindings keep their task-wide meaning; copy new `inputs` unchanged when continuing work.
+Satisfied requirements stay in `effective_requirements` when still applicable. `scope_decisions` retains explicit waivers, exclusions and accepted limits. Requirements are not automatically inferred from agent tool conversations; save the actual user wording and affected requirement through the existing fields. `applicable_requirements` includes global requirements plus those explicitly assigned to the current unit or its real upstream units (`requirement_unit_ids`); all effective requirements remain visible. Input bindings follow that scope, so unrelated local requirement or source/claim changes do not invalidate the unit. Without a `unit_id`, requirements are bound task-wide. Historical `record:requirements:effective` bindings keep their task-wide meaning; copy new `inputs` unchanged when continuing work.
 
-Send the returned question, requirements and accessible originals through the host's subagent tools. Keep the actual host task/session reference. The host owns startup, messages, waiting and cancellation. Toolkit does not create a second agent runtime.
+Send the returned question, requirements and accessible originals through the agent tool's subagent tools. Keep the actual agent task/session reference. The agent tool owns startup, messages, waiting and cancellation. Toolkit does not create a second agent runtime.
 
 A worker saves a result through `save`:
 
@@ -393,11 +395,11 @@ A worker saves a result through `save`:
 
 Omit `content` to register an existing nonempty file or supply it to save text. After `status.work` prepares a `unit_id`, saving that unit automatically retains its prepared input versions, question and dependencies unless explicitly supplied. Preparations are recorded per unit in the existing activity history, so preparing another branch does not overwrite them; repeated preparation also recovers that unit's pending selection. Save uses the prepared hashes, not the latest file versions. Explicit `draft.based_on` remains supported: copy `work_context.inputs` rather than inventing hashes. Without a preparation, an existing unit retains its saved inputs; no old reading history is reconstructed. A changed input selection clears only that unit's cached approval, retaining its original review for revision. `complete` describes the saved unit or draft, not whole-task delivery. A dependent unit cannot be completed while its upstream registered work is incomplete, changed or awaiting required independent review; save the in-progress work with `complete: false` and resolve the dependency.
 
-`current_work.work_units` and `research_outputs` recover registered units, their original snapshots, host references, handoffs and changed inputs. They share the existing activity log, not a second task board. The handoff summary, `pending` and `decisions` are navigation; the next researcher, assembling agent or reviewer can read the full artifact and original sources. The same agent can resume its next phase through these records.
+`current_work.work_units` and `research_outputs` recover registered units, their original snapshots, agent references, handoffs and changed inputs. They share the existing activity log, not a second task board. The handoff summary, `pending` and `decisions` are navigation; the next researcher, assembling agent or reviewer can read the full artifact and original sources. The same agent can resume its next phase through these records.
 
 The review packet's `production_history` retains saved production records, handoffs and original draft locations for the selected artifacts. Existing snapshots are bound to the review input; appending review activity does not itself change that version. Missing historical stages are not reconstructed. When the task requires progressive research or writing, structure-and-depth review and audit use these originals to inspect the actual development, rather than treating save counts as completion evidence.
 
-Use `draft.main: true` only for the designated main draft. Its saved `host_task` is the writer; other branches remain separate artifacts. To transfer writing responsibility, the current owner saves `handoff.to` with the receiving host task/session. Merely changing `host_task` cannot seize the main report or an owned unit.
+Use `draft.main: true` only for the designated main draft. Its saved `host_task` is the writer; other branches remain separate artifacts. To transfer writing responsibility, the current owner saves `handoff.to` with the receiving agent task/session. Merely changing `host_task` cannot seize the main report or an owned unit.
 
 Preserve each saved unit version. New requirements or evidence return to affected analyses and the outline before relying on the revised result. `changed_inputs` identifies changed bindings, not automatic invalidity of the research conclusion. Unit review uses its `unit_id` as `review.scope`; final review, audit and acceptance still cover the complete current report.
 
@@ -409,9 +411,9 @@ Full-report review retains the original requirement rows and binds their meaning
 <a id="agent-host-execution"></a>
 ### Agent execution adapter
 
-An Agent can execute selected analysis/writing units and independent assignments with `scripts/research_host.py`. Shared research logic uses a host-neutral session interface; Claude Code, OpenCode and Codex connect through their installed CLI/session protocols, using the host's existing login and model configuration. Source collection and research planning use the existing host tools. No separate API setup is needed.
+An Agent can execute selected analysis/writing units and independent assignments with `scripts/research_host.py`. Shared research logic uses a tool-independent session interface; Claude Code, OpenCode and Codex connect through their installed CLI/session protocols, using the agent tool's existing login and model configuration. Source collection and research planning use the existing agent tool tools. No separate API setup is needed.
 
-Native subagent tools can already run the same assignments and return results through CLI/MCP. Use that path when the host is managing the workers directly. The execution adapter handles launch, continuation and original-result import when those operations are delegated to a local script. Use one execution path for a work unit, so the native dispatcher and the script do not start duplicate workers. Other hosts use the shared native assignment and result contract; adding a CLI driver does not change the research workflow.
+Native subagent tools can already run the same assignments and return results through CLI/MCP. Use that path when the agent tool is managing the workers directly. The execution adapter handles launch, continuation and original-result import when those operations are delegated to a local script. Use one execution path for a work unit, so the native dispatcher and the script do not start duplicate workers. Other agent tools use the shared native assignment and result contract; adding a CLI driver does not change the research workflow.
 
 For an existing task with source `S1` already registered, a request file can reuse the current arguments:
 
@@ -426,12 +428,12 @@ For an existing task with source `S1` already registered, a request file can reu
 python scripts/research_host.py --host claude --workspace <task-store> --task study --request work.json --language en
 ```
 
-Use `--host opencode` or `--host codex` for those hosts. Without the flag, selection uses `RESEARCH_TOOLKIT_HOST`, a recognized current-host context, or a sole installed CLI. An ambiguous selection asks for `--host`; it never falls back to Codex. `--executable` accepts a native executable path when PATH only exposes a wrapper. No permission-bypass flag or model override is added.
+Use `--host opencode` or `--host codex` for those agent tools. Without the flag, selection uses `RESEARCH_TOOLKIT_HOST`, a recognized current-tool context, or a sole installed CLI. An ambiguous selection asks for `--host`; it never falls back to Codex. `--executable` accepts a native executable path when PATH only exposes a wrapper. No permission-bypass flag or model override is added.
 
-The script runs prepared contributions: it supplies the existing stage guidance and retained full input texts. Claude Code/OpenCode CLI workers receive read-only file tools for those pages and return the complete contribution; the coordinator saves it. Successful access outside those pages is reported as an execution failure instead of importing an incorrectly bound result. These per-process settings do not edit the user's host configuration. Source discovery or work requiring additional execution tools can use native subagents with the same Toolkit contracts.
+The script runs prepared contributions: it supplies the existing stage guidance and retained full input texts. Claude Code/OpenCode CLI workers receive read-only file tools for those pages and return the complete contribution; the coordinator saves it. Successful access outside those pages is reported as an execution failure instead of importing an incorrectly bound result. These per-process settings do not edit the user's agent tool configuration. Source discovery or work requiring additional execution tools can use native subagents with the same Toolkit contracts.
 
-Select work, dependencies and domain review for the actual question. `review` uses the existing arguments and responsibilities; full-report review still includes all required independent perspectives, audit and acceptance. The adapter submits a dependent writer only after its upstream is ready. It stores original responses, native session IDs, turn identifiers and raw execution events under `logs/host/`, then uses existing `save` and review-result validation. CLI turn identifiers identify one captured invocation; the native session ID comes from the host. Saved input bindings come from the actual delivered packet.
+Select work, dependencies and domain review for the actual question. `review` uses the existing arguments and responsibilities; full-report review still includes all required independent perspectives, audit and acceptance. The adapter submits a dependent writer only after its upstream is ready. It stores original responses, native session IDs, turn identifiers and raw execution events under `logs/host/`, then uses existing `save` and review-result validation. CLI turn identifiers identify one captured invocation; the native session ID comes from the agent tool. Saved input bindings come from the actual delivered packet.
 
-While the adapter is running, changed inputs return to the same producer. The Codex driver can steer an active turn. Claude Code and OpenCode CLI drivers resume the recorded session after the active invocation finishes: the first output retains its old inputs, then a continuation receives the current packet. A review revision uses `resume_host_task` from the existing assignment. New Claude Code/OpenCode IDs include their host name, and old unqualified Codex IDs remain resumable. An ID from another host is not silently reused or replaced. Re-running a request after interruption reuses saved outputs and owners. A native failure or unaccepted result retains its originals and is reported for handling. Negative review is not automatically rewritten or rerolled.
+While the adapter is running, changed inputs return to the same producer. The Codex driver can steer an active turn. Claude Code and OpenCode CLI drivers resume the recorded session after the active invocation finishes: the first output retains its old inputs, then a continuation receives the current packet. A review revision uses `resume_host_task` from the existing assignment. New Claude Code/OpenCode IDs include their agent tool name, and old unqualified Codex IDs remain resumable. An ID from another agent tool is not silently reused or replaced. Re-running a request after interruption reuses saved outputs and owners. A native failure or unaccepted result retains its originals and is reported for handling. Negative review is not automatically rewritten or rerolled.
 
-The request finishing means this batch of work has settled. Use the existing requirement records and `finish` for final delivery. The process closes its own host connection when it exits; it adds no permanent service or second task database.
+The request finishing means this batch of work has settled. Use the existing requirement records and `finish` for final delivery. The process closes its own agent tool connection when it exits; it adds no permanent service or second task database.

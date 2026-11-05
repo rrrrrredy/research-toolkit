@@ -2,7 +2,7 @@
 
 [English](mcp-demo.md) · [简体中文](mcp-demo.zh-CN.md)
 
-当前没有发布录屏。[MCP 示例](../../examples/mcp/README.zh-CN.md)可保留真实调用、独立宿主任务引用和结果。
+当前没有发布录屏。[MCP 示例](../../examples/mcp/README.zh-CN.md)可保留真实调用、独立 Agent 工具任务引用和结果。
 
 演示当前路径时，展示材料与共同上下文、实际子 Agent 返回、独立审阅、审计及验收，最后由 `finish` 生成回执。保留尚未完成、负面结果和修订，不拼接虚构成功。隐藏凭据及私人账户信息；原始证据在本地保留。
 

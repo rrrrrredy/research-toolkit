@@ -6,7 +6,7 @@
 
 **Turn a research question or existing material into a report with concrete judgments and traceable sources.**
 
-Use it for industry research, product comparisons, company analysis and technical research. Start a new study, revise an existing report against its sources, or update conclusions when new material arrives. Your host agents research, write and independently review; Toolkit connects their methods, evidence and deliverables through one research entry and optional task tools.
+Use it for industry research, product comparisons, company analysis and technical research. Start a new study, revise an existing report against its sources, or update conclusions when new material arrives. Your agents research, write and independently review; Toolkit connects their methods, evidence and deliverables through one research entry and optional task tools.
 
 [**Choose an entry**](#which-should-i-use) · [Start research](#quick-start) · [See a research case](#research-case) · [Documentation](#documentation)
 
@@ -21,7 +21,7 @@ The lead agent maintains the research question, effective requirements and overa
 | Writing and revision | Develop meaningful research units, review premises before dependent work, and integrate their complete analysis into one owned main draft. Changes return to affected units and the outline. |
 | Review and delivery | Complete seven separate content-review perspectives, relevant domain review, independent audit and final acceptance against the current report and sources. Resolve necessary corrections before delivery. |
 
-These are four connected responsibilities, not four fixed agents or four independent pipelines. Codex, Claude Code and similar hosts run the agents and carry messages; Toolkit provides shared inputs, methods, artifact relationships and completion checks. Host-native collaboration does not require separate API setup. For script-managed execution, the shared [Agent execution adapter](docs/usage-modes.md#agent-host-execution) connects to Claude Code, OpenCode or Codex, according to the current host. [Research steps](docs/quickstart.md#research-from-scratch) · [Handoff and calls](docs/usage-modes.md#research-delegation-and-handoff)
+These are four connected responsibilities, not four fixed agents or four independent pipelines. Codex, Claude Code and similar agent tools run the agents and carry messages; Toolkit provides shared inputs, methods, artifact relationships and completion checks. Native collaboration does not require separate API setup. For script-managed execution, the shared [Agent execution adapter](docs/usage-modes.md#agent-host-execution) connects to Claude Code, OpenCode or Codex, according to the current agent tool. [Research steps](docs/quickstart.md#research-from-scratch) · [Handoff and calls](docs/usage-modes.md#research-delegation-and-handoff)
 
 ```mermaid
 flowchart LR
@@ -42,24 +42,24 @@ flowchart LR
 
 | Your situation | What to use or install | How to start |
 | --- | --- | --- |
-| You want your existing agent to follow the research methods | **Skill**: read the repository directly without installation, or install the Skill for repeated use. No Python or MCP required. | Send the request below; the agent reads methods as needed and uses its existing research and writing capabilities. |
-| You want methods and task tools together, and your host supports plugins | **Plugin**: installs the Skill and MCP together; local tools need Python 3.10+ and MCP dependencies. | Follow the [plugin instructions](./docs/usage-modes.md#install-the-plugin), reopen the session, select Toolkit and describe the research. |
-| You need saved task state, recovery and links between sources and drafts, and your host supports local MCP | **MCP**: configure the local service and use the same Skill for methods. No separate MCP setup is needed if the plugin already supplies it. | Follow the [MCP setup](./docs/usage-modes.md#connect-mcp-separately); the agent calls `research_*` tools. |
-| You work in a terminal or script, or your host has no MCP support | **CLI**: download the repository and use Python 3.10+; no MCP dependencies needed. | The agent reads the same Skill and invokes the same task tools through the [command line](./docs/usage-modes.md#skill-only-and-cli-fallback). |
+| You want your existing agent to follow the research methods | **Skill**: read the methods directly, or install them for repeated use. The methods themselves need neither Python nor MCP; default first-use setup is explained below. | Send the request below; the agent reads methods as needed and uses its existing research and writing capabilities. |
+| You want methods and task tools together, and your agent tool supports plugins | **Plugin**: installs the Skill and MCP together; local tools need Python 3.10+ and MCP dependencies. | Follow the [plugin instructions](./docs/usage-modes.md#install-the-plugin), reopen the session, select Toolkit and describe the research. |
+| You need saved task state, recovery and links between sources and drafts, and your agent tool supports local MCP | **MCP**: configure the local service and use the same Skill for methods. No separate MCP setup is needed if the plugin already supplies it. | Follow the [MCP setup](./docs/usage-modes.md#connect-mcp-separately); the agent calls `research_*` tools. |
+| You work in a terminal or script, or your agent tool has no MCP support | **CLI**: download the repository and use Python 3.10+; no MCP dependencies needed. | The agent reads the same Skill and invokes the same task tools through the [command line](./docs/usage-modes.md#skill-only-and-cli-fallback). |
 
 For a first use, start directly with the Skill. Add task tools when persistent state, tool-managed reviews or delivery checks help the work, not because a report reaches a word count. You do not need to install all four or use them in sequence. Skill-only use supports in-depth long reports without requiring the tools' CSV/JSONL registries or delivery receipts.
 
 **Which tasks fit?** Industry, company, technology and policy research requiring multiple sources, comparison, explanation or supported recommendations; long reports, revisions and continuing updates. A one-page selection brief can need these methods too. Simple factual questions, routine translation or minor wording edits usually need only your existing agent. Toolkit does not supply a search service or replace the agent's access to and reading of sources.
 
-[Research from scratch](./docs/quickstart.md#research-from-scratch) · [Revise or update a report](./docs/quickstart.md#revise-or-update-a-report) · [Install for your host](./agents/README.md#choose-your-tool)
+[Research from scratch](./docs/quickstart.md#research-from-scratch) · [Revise or update a report](./docs/quickstart.md#revise-or-update-a-report) · [Install for your agent tool](./agents/README.md#choose-your-tool)
 
-**Usage data:** basic operation events are recorded and sent by default, with an off switch; conversations, reports and local paths are excluded. When installing or first using the Skill in Codex, Claude Code or OpenCode, the agent runs the bundled setup command, including when starting from the repository link. Users do not separately install a collector or upload files. [Collected fields, setup and disabling](./docs/usage-data.md).
+**What happens on first use?** You can read the methods without first installing a Skill or MCP. In Codex, Claude Code and OpenCode, the agent also downloads or reuses a complete local copy and runs the bundled Python 3.10+ script to configure basic usage recording for the current project. An already-open Codex session needs a reload or restart for that configuration to take effect. Research can continue without the required Python, command access or active recording configuration. Basic operation events are sent by default, excluding conversations, reports and local paths; recording can be turned off, and an existing off setting is preserved. [Setup, collected data and controls](./docs/usage-data.md).
 
 <a id="usage"></a>
 
 ## Quick start
 
-Describe your question or requested revision in your own words to an agent that can read the repository and sources. The example below is a starting point; you do not need to fill in undecided details. The agent uses existing context to propose an approach and clarifies only consequential gaps. No installation is needed to use the methods directly.
+Describe your question or requested revision in your own words to an agent that can read the repository and sources. The example below is a starting point; you do not need to fill in undecided details. The agent uses existing context to propose an approach and clarifies only consequential gaps. You can start with the repository link; the agent handles the first-use configuration described above.
 
 ```text
 Use Research Toolkit: https://github.com/rrrrrredy/research-toolkit
@@ -83,35 +83,22 @@ Have a draft or new material? [Revise or update existing research](./docs/usage-
 
 ## Research case
 
-<a href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/api-or-browser/report.md">
+<a href="https://rrrrrredy.github.io/research-toolkit/case-study/api-or-browser-2026-11/report.html">
 <picture>
   <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./docs/assets/api-browser-case.en.mobile.dark.png">
   <source media="(max-width: 600px)" srcset="./docs/assets/api-browser-case.en.mobile.png">
   <source media="(prefers-color-scheme: dark)" srcset="./docs/assets/api-browser-case.en.dark.png">
-  <img src="./docs/assets/api-browser-case.en.png" alt="APIs or browsers for AI agents. Original English research: choose an execution route by action coverage, verified completion, and recovery." width="840">
+  <img src="./docs/assets/api-browser-case.en.png" alt="November 2026 English research: choose APIs, browser scripts or visual control by the operation and its recoverable business result." width="840">
 </picture>
 </a>
 
-**APIs or browsers for AI agents.** An English report drawing on 11 primary sources to compare API calls, DOM automation and visual interaction through completion, recovery and cost.
+**APIs, browser scripts or visual control.** New English research from 13 primary sources read on **5 November 2026**, explaining action coverage, completion, retries, actual authority, interrupted work and migration costs.
 
-[**Read the report**](./docs/case-study/api-or-browser/report.md) · [Initial draft](./docs/case-study/api-or-browser/initial.md) · [Sources](./docs/case-study/api-or-browser/sources.md) · [Reviews and revisions](./docs/case-study/api-or-browser/reviews.md)
+[**Read online**](https://rrrrrredy.github.io/research-toolkit/case-study/api-or-browser-2026-11/report.html) · [Complete first draft](./docs/case-study/api-or-browser-2026-11/first-draft.md) · [Sources](./docs/case-study/api-or-browser-2026-11/source-notes.md) · [Research and review archive](./docs/case-study/api-or-browser-2026-11/README.md)
 
-<details open>
-<summary><strong>A revision that changes the decision</strong></summary>
+The new report follows a hypothetical support job through a lost submission response. Completed, pending and ambiguous results require different next actions; changing routes does not itself prevent duplicate work. Its full analyses, original independent reviews and revisions are retained. The [October case](./docs/case-study/api-or-browser/README.md) remains available.
 
-**Before:**
-> There is no benefit in preserving this split if the API later covers document generation with adequate permissions and result checking.
-
-**After:**
-> If the API later covers document generation with adequate permissions and result checking, the original coverage gap disappears. Retiring the browser step then depends on whether the expected maintenance and recovery savings justify migration and revalidation costs.
-
-The review identified a missing counterexample: replacing a working browser step may cost more than the expected savings. The revision makes that trade-off part of the recommendation.
-
-[Explore the revision](https://rrrrrredy.github.io/research-toolkit/?lang=en&case=migration&detail=reason#case)
-
-</details>
-
-Public-source analysis dated 10 October 2026, not a deployment test. Also read the [Chinese office-agent comparison](./docs/case-study/report.zh-CN.md) and its [source and revision archive](./docs/case-study/office-agents/README.md).
+Also read the refreshed [Chinese office-agent report](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents-2026-11/report.zh-CN.html) and its [research archive](./docs/case-study/office-agents-2026-11/README.md). Both are public-source research, not installed-product trials. Different source dates and execution conditions make them new research deliveries rather than controlled estimates of Toolkit gains.
 
 <a id="use-as-an-mcp-server"></a>
 <a id="review-and-acceptance"></a>
@@ -128,7 +115,7 @@ Public-source analysis dated 10 October 2026, not a deployment test. Also read t
 
 Nine local tools provide shared task context, on-demand methods, source and analysis saving, registered release-log queries, reviews and delivery checks. CLI and MCP use the same implementation. MCP requires Python 3.10+ and a client that can launch local processes; setup covers Windows, macOS and Linux.
 
-Independent review uses fresh host contexts. Each required perspective has its own reviewer; authors and assembling agents do not review their own work. Audit and final acceptance have separate assignments. CLI/MCP retains the original host responses and input versions through the same `research_review` operation. [Review and acceptance](./docs/review-completion.md)
+Independent review uses fresh agent contexts. Each required perspective has its own reviewer; authors and assembling agents do not review their own work. Audit and final acceptance have separate assignments. CLI/MCP retains the original agent responses and input versions through the same `research_review` operation. [Review and acceptance](./docs/review-completion.md)
 
 <a id="evaluation-suite"></a>
 <a id="evaluation-results"></a>

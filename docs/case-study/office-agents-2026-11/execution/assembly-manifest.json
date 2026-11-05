@@ -1,0 +1,87 @@
+{
+  "author": "/root/case_cn_assembly",
+  "prior_researcher": "/root/case_cn_author",
+  "status": "ready_for_independent_full_report_review",
+  "first_explicit_clock_utc": "2026-11-05T06:54:17Z",
+  "drafts_confirmed_clock_utc": "2026-11-05T07:03:11Z",
+  "writing_and_author_check_finished_clock_utc": "2026-11-05T07:04:27Z",
+  "manifest_saved_utc": "2026-11-05T07:05:12.8277660Z",
+  "inputs": [
+    {
+      "path": "../requirements.md",
+      "sha256": "16b09fc2bbfdeec3d9835b4cf16d853779349f69ad41cd4d8ee6a4a8b99957a8"
+    },
+    {
+      "path": "../requirements-clarifications.md",
+      "sha256": "98446bf425cbf627ac3bea86c201358600abd03efedf6d078cd1fe0ec62a58d4"
+    },
+    {
+      "path": "outline.md",
+      "sha256": "cda394577e8f7484dd46ed375d2ee4daad4f4c8b42e58019dce76ac3d3bc3ee4"
+    },
+    {
+      "path": "analysis/01-products-and-access.md",
+      "sha256": "d15bf595b0587ee529512fc077650b7d5cfb882940098052e61d9186d84571f8"
+    },
+    {
+      "path": "analysis/02-objects-and-execution.md",
+      "sha256": "ec9769e9d7b3f489a5ceb019995c7857c1ba981d10937709e5b9a30a310eed96"
+    },
+    {
+      "path": "analysis/03-context-permission-models.md",
+      "sha256": "d30818e74f51de618750cacdf3d330fe890e53632d5bb2dfa4ad23ce7a90983f"
+    },
+    {
+      "path": "analysis/04-rework-and-use.md",
+      "sha256": "eac43f15858761072b090c53d3fb90cf5cd1215925b1b6ab061bd67f9167f173"
+    },
+    {
+      "path": "analysis/05-synthesis.md",
+      "sha256": "a471735f3b93b710bdc5a6a43f5e3ead6b0f843f44d52dd2efab5958a2553042"
+    },
+    {
+      "path": "sources.md",
+      "sha256": "e7915d3a85094976d5568dd2b16e667510755e16230e915d40d30e07bc01f8bb"
+    },
+    {
+      "path": "sources/reading-notes.md",
+      "sha256": "94f701d2d0533c82d5cc1b45c056b81366a4684a3bd0c972e53876083329b927"
+    },
+    {
+      "path": "reviews/requirements-outline.md",
+      "sha256": "598ce0a0cd35d18eba2fa6729d8f452effc35b9c794bd9f25f9c7eda7ebe6227"
+    },
+    {
+      "path": "reviews/structure-outline.md",
+      "sha256": "6c12cf56295d46dd033acdb0485aae4ab9e074a59105f6ac4aea92a01df273d5"
+    },
+    {
+      "path": "reviews/evidence-premises.md",
+      "sha256": "e8d241f10c93cdf005fe6088f3dd6a5d1e35f8a42f925260aca156fcd2602a4f"
+    },
+    {
+      "path": "reviews/domain-premises.md",
+      "sha256": "7302ad9baef9e2ee36b0dad1096ab0d0777867a29c18e5650bddbc3a8d235d4a"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "first-draft.md",
+      "sha256": "bfe267e9de849dafe3670d66c0a4264f0e8af30f3ceecb18e1bcdd61dc1f59d8"
+    },
+    {
+      "path": "report.md",
+      "sha256": "bfe267e9de849dafe3670d66c0a4264f0e8af30f3ceecb18e1bcdd61dc1f59d8"
+    },
+    {
+      "path": "author-self-check.md",
+      "sha256": "eeb811613023bff1b89054dd0c3856e5e4e29547b987209a3a14bd4412cfb34c"
+    },
+    {
+      "path": "execution/assembly-continuation.md",
+      "sha256": "5808719bf17b98e3445f9879c6e212c269c07795b3f9df99ae8cbbfaedc60c61"
+    }
+  ],
+  "first_draft_read_only": true,
+  "first_draft_equals_report": true
+}

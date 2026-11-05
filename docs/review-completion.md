@@ -6,7 +6,7 @@ This page describes how the existing `research_review` and completion checker re
 
 ## Conduct the independent work
 
-The host runs the agents. Toolkit prepares their inputs, preserves outputs and reports which work remains. Codex/Claude Code subagents use the host's existing access; no separate API setup is required.
+The agent tool runs the agents. Toolkit prepares their inputs, preserves outputs and reports which work remains. Codex/Claude Code subagents use the agent tool's existing access; no separate API setup is required.
 
 | Assignment | Independent responsibility |
 | --- | --- |
@@ -15,7 +15,7 @@ The host runs the agents. Toolkit prepares their inputs, preserves outputs and r
 | Audit | A different agent examines review validity, consequential findings and decisions, decisive report claims and samples of passed content. It can return necessary corrections. |
 | Final acceptance | Another independent agent reads the complete current report, effective requirements, audit and actual corrections before accepting delivery. |
 
-Authors, research contributors and the assembling agent are production participants. They may explain or correct their work but cannot fill independent assignments about it. Use actual host task/session identities; changing a label within the author's context is not another agent. Models may be the same.
+Authors, research contributors and the assembling agent are production participants. They may explain or correct their work but cannot fill independent assignments about it. Use actual agent task/session identities; changing a label within the author's context is not another agent. Models may be the same.
 
 Register the main manuscript's actual producing context through the existing `research_save` draft `host_task` (with `main: true` when selecting the main manuscript). Compatible older save inputs still work, but an unregistered main author must be identified before independent assignments are prepared. Earlier producer identities stay in the activity history and remain excluded from independent roles.
 
@@ -23,7 +23,7 @@ Early review of an outline, assumption, calculation or argument unit checks the 
 
 ## Native requests and original results
 
-Call `research_review` with the current task, artifact and evidence paths. With no configured external executor, it returns pending native-host assignments and retained complete inputs. The host launches each required independent agent with the assignment and access to original files.
+Call `research_review` with the current task, artifact and evidence paths. With no configured external executor, it returns pending native-agent assignments and retained complete inputs. The agent tool launches each required independent agent with the assignment and access to original files.
 
 An illustrative submission shape is:
 
@@ -41,9 +41,9 @@ An illustrative submission shape is:
 }
 ```
 
-These are placeholders, not a completed review. Preserve the actual original response and execution record as nonempty UTF-8 files inside the task. The returned assignment specifies the response content. Do not construct a favorable reply from the author's interpretation, replace a negative response, or invent a host identifier. Record failed and incomplete attempts too.
+These are placeholders, not a completed review. Preserve the actual original response and execution record as nonempty UTF-8 files inside the task. The returned assignment specifies the response content. Do not construct a favorable reply from the author's interpretation, replace a negative response, or invent an agent tool identifier. Record failed and incomplete attempts too.
 
-Each returned `assignments` entry provides `slot_id`, `role`, `assignment_ref` and `assignment_version`; the operation also returns `input_version`. The original JSON response must quote both versions. The original execution record identifies `host_task`, `status: "completed"`, `assignment_version` and the actual observed host events. These must come from the execution that produced the response.
+Each returned `assignments` entry provides `slot_id`, `role`, `assignment_ref` and `assignment_version`; the operation also returns `input_version`. The original JSON response must quote both versions. The original execution record identifies `host_task`, `status: "completed"`, `assignment_version` and the actual observed agent tool events. These must come from the execution that produced the response.
 
 `scope` defaults to `full_report`. `domains` names required specialist areas; a new full-report plan defaults to `["domain"]` and includes all seven base perspectives. For an early unit review, use its registered `unit_id` as `scope` and select relevant `perspectives`. A new unit defaults to `domains: []`. Subsequent calls that omit `perspectives` or `domains` retain the respective saved selection; neither needs copying into every result call. Explicit values still change the selection. Unit review does not remove final whole-report duties.
 
@@ -63,7 +63,7 @@ Current tasks use `progress.review_contract: 2` and `review_plan.contract_versio
 
 After a substantive edit, save the new report or source version and use `revision: true` for the affected review. Preserve earlier assignments and responses. Current whole-report acceptance must cover the final text. Historical results are evidence of what was checked then, not automatic approval of later prose.
 
-Revision assignments keep each role's last actually completed original response and frozen input in `revision_context`. Work survives intervening revisions with no new response or only some roles responding. `resume_host_task` identifies the original independent agent for the same responsibility, so the host can continue that task directly. If it is unavailable, pass these originals to a new independent context. Audit and acceptance also retain access to the original replies from all review roles.
+Revision assignments keep each role's last actually completed original response and frozen input in `revision_context`. Work survives intervening revisions with no new response or only some roles responding. `resume_host_task` identifies the original independent agent for the same responsibility, so the agent tool can continue that task directly. If it is unavailable, pass these originals to a new independent context. Audit and acceptance also retain access to the original replies from all review roles.
 
 In these continuation assignments, `report_changes` includes before/after text and line locations relative to the draft that role actually reviewed. `changed_materials` and `changed_context` locate material and task-content changes relative to its reviewed input. Each retained entry in `reviews` records that work's `input_version`, perspectives and domain. Plan-level `changed_inputs`/`unchanged_inputs` still compare adjacent input versions; roles may have read different versions, so continue from their own originals and the above differences. Full texts remain available; differences help locate work.
 
@@ -99,10 +99,10 @@ python3 scripts/check_review_completion.py <task-directory> --artifact reports/c
 
 This reads records and bindings; it does not run another reviewer. Actual substantive review is in the original responses and evidence. Preserve the full responses, not just parsed fields.
 
-If the host cancels, a dependency is unavailable, or a response is malformed, retain the original failure and continue that assignment after the cause is addressed. No fixed execution-duration or model-call threshold changes the research obligations. Same-task writes use the existing task lock; no new coordination service is required.
+If the agent tool cancels, a dependency is unavailable, or a response is malformed, retain the original failure and continue that assignment after the cause is addressed. No fixed execution-duration or model-call threshold changes the research obligations. Same-task writes use the existing task lock; no new coordination service is required.
 
 ## Historical records
 
 Keep earlier `model_review`, `review_audit`, `sampling_audit`, dispositions and receipts under the conditions they actually used. Existing 1.x self-review, merged-perspective and optional-audit records do not become v2 acceptance. A continued delivery reuses the original materials and completes the current independent work, without erasing earlier failures or claiming it happened previously. See [compatibility](compatibility.md).
 
-Frozen evaluation fixtures and research comparisons retain their recorded protocols. They describe those studies; they are not default instructions for new research. Software control fixtures are labelled synthetic and do not stand in for actual host execution.
+Frozen evaluation fixtures and research comparisons retain their recorded protocols. They describe those studies; they are not default instructions for new research. Software control fixtures are labelled synthetic and do not stand in for actual agent tool execution.

@@ -1,4 +1,4 @@
-"""Native host hook: record metadata only for Toolkit-activated sessions."""
+"""Agent tool hook: record metadata only for Toolkit-activated sessions."""
 from __future__ import annotations
 
 import argparse
@@ -84,7 +84,7 @@ def handle(payload, host):
             usage.set_setting(db, "seen", "1")
         identity = payload.get("tool_use_id") or payload.get("turn_id") or payload.get("prompt_id") or payload.get("event_id")
         if not identity:
-            # Hosts without event IDs can legitimately repeat the same prompt.
+            # Agent tools without event IDs can legitimately repeat the same prompt.
             # The queued event ID stays stable for upload retries, not new hooks.
             identity = uuid.uuid4().hex
         event_id = usage.opaque(config, "native-event", scoped+":"+event+":"+str(identity)+":"+str(payload.get("agent_id", "")))

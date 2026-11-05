@@ -121,7 +121,7 @@ def local_checks():
     if errors: raise ValueError('\n'.join(errors))
     print(f'PASS: {len(pages)} initial HTML pages, {links} local link/asset targets, reciprocal language links, {len(locations)} sitemap URLs and llms.txt.')
 
-KEY_PAGES=['index.html','index.zh-CN.html','framework.html','framework.zh-CN.html','case-study/index.html','case-study/index.zh-CN.html','case-study/api-or-browser/report.html','case-study/report.en.html','case-study/report.zh-CN.html','case-study/coding-benchmark-update/index.html','case-study/coding-benchmark-update/index.zh-CN.html']
+KEY_PAGES=['case-study/office-agents-2026-11/report.zh-CN.html','case-study/office-agents-2026-11/index.zh-CN.html','case-study/api-or-browser-2026-11/report.html','case-study/api-or-browser-2026-11/index.html','index.html','index.zh-CN.html','framework.html','framework.zh-CN.html','case-study/index.html','case-study/index.zh-CN.html','case-study/api-or-browser/report.html','case-study/report.en.html','case-study/report.zh-CN.html','case-study/coding-benchmark-update/index.html','case-study/coding-benchmark-update/index.zh-CN.html']
 
 def fetch(address, github_token=None):
     headers={'User-Agent':'ResearchToolkit-SiteCheck/1.0'}

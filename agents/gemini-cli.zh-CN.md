@@ -10,7 +10,7 @@ Git 和客户端已就绪时，从项目根目录执行。目标目录已存在�
 git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .gemini/skills/research-toolkit
 ```
 
-从此项目启动 Gemini CLI，要求启用 `research-toolkit`，出现宿主授权提示时按提示确认。[官方技能要求](https://geminicli.com/docs/cli/using-agent-skills/)。
+从此项目启动 Gemini CLI，要求启用 `research-toolkit`，出现 Gemini CLI 授权提示时按提示确认。[官方技能要求](https://geminicli.com/docs/cli/using-agent-skills/)。
 
 `core.longpaths` 只对这个 Git 副本生效，避免 Windows 深层目录的路径过长错误。
 
@@ -23,7 +23,7 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 范围与篇幅：[填写研究范围、信息截止日和预期深度。]
 已有材料：[提供来源、文件或已有报告。]
 按当前工作读取完整方法，充分展开证据、比较、机制解释和综合判断。
-交付完整报告与可用引用，保留来源和完整分析用于交接，由宿主完成独立审阅、审计和验收。
+交付完整报告与可用引用，保留来源和完整分析用于交接，由 Gemini CLI 完成独立审阅、审计和验收。
 ```
 
 [统一研究指南](../docs/quickstart.zh-CN.md)提供完整请求和接入说明。

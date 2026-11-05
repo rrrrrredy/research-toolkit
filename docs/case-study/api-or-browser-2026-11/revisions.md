@@ -1,0 +1,11 @@
+# Revision explanations
+
+## 5 November 2026, source-capture and batch-failure correction
+
+Independent evidence scrutiny identified that `originals/S09.original.txt` and `S09.original.md` contain a regional-unavailability page despite successful HTTP status codes. They have been retained unchanged. Their original retrieval records are also retained. The earlier analysis and handoff wording incorrectly described them as documentation originals; pre-correction copies of A, B, source notes and the handoff are in `history/`.
+
+At 2026-11-05 04:18:18 UTC, the author retrieved the actual [Anthropic computer-use documentation](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool) through the web tool in six overlapping views and saved each complete tool return as `originals/S09.web-original-180.txt`, `-330.txt`, `-480.txt`, `-630.txt`, `-780.txt` and `-930.txt`. Together they contain every numbered line 0–1073. `S09.web-numbered-text.txt` is explicitly labeled as a deduplicated extraction, not raw HTTP HTML. Its SHA-256 is `0079E2BBF6F4EF69F8D7B691D7CDFDF2D265BB80D256A881AB5A7324530FE01E`. The actual URL, access method, times and per-return ranges are in `S09.web-capture-metadata.json`. The attempted `.md` web fetch returned unsupported content-type; its failed output is also retained.
+
+Analysis B now points to those readable original tool captures and states the relevant reading ranges. Analysis A and the author handoff no longer imply every saved HTTP response is a documentation original. Public source notes distinguish the failed direct HTTP route from the readable official-page text used for the claims.
+
+Independent domain scrutiny also identified that B's phrase “dependent batched actions” understated the documented failure rule. [Batch actions and Handle errors](https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool) require skipping all remaining calls in the affected computer-use batch after the first failed action and returning error results for them (numbered lines 267–282 and 598–617). B now preserves that full batch scope without extending the rule to unrelated tasks or other tools. This is an author repair awaiting the originating reviewers' confirmation, not an author-issued independent PASS.

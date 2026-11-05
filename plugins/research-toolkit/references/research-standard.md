@@ -10,7 +10,7 @@ Long research can lose its purpose despite extensive material and activity: a ca
 
 ## 2. Scope Contract
 
-Toolkit supports substantial research, long reports, revision and continuation. Research requirements govern the real work and result. Skill-only use relies on accessible host conversations and files; CLI/MCP adds managed records and completion checks. Neither path changes the required research responsibilities.
+Toolkit supports substantial research, long reports, revision and continuation. Research requirements govern the real work and result. Skill-only use relies on accessible agent tool conversations and files; CLI/MCP adds managed records and completion checks. Neither path changes the required research responsibilities.
 
 The task is the requested research deliverable. Additional databases, taxonomies, dashboards or product designs belong only when the user asks for them. Reuse existing materials and methods rather than turning an individual report into a new management system.
 
@@ -18,7 +18,7 @@ The task is the requested research deliverable. Additional databases, taxonomies
 
 1. Preserve the user's question, reader, intended use, required coverage and explicit instructions. A satisfied requirement remains applicable to later revisions unless the user changes it.
 2. Maintain an evolving outline and meaningful research units. Develop evidence and analysis into prose progressively; do not assume that existing notes justify producing an unexamined full report in one pass.
-3. Assign real research work through host-native agents. The lead retains overall direction and judgment; one named writer owns the main artifact. Research, writing and assembly may be delegated.
+3. Assign real research work through native agents. The lead retains overall direction and judgment; one named writer owns the main artifact. Research, writing and assembly may be delegated.
 4. Before consequential results become premises for dependent work, obtain relevant independent scrutiny. Update affected work when those premises or user instructions change; independent branches can proceed.
 5. Keep facts, source claims, interpretations, judgments and uncertainty distinct. Read required originals, preserve their conditions and carry consequential counterevidence into the argument.
 6. Choose analytical methods for the question, rather than copying a previous topic's structure. Develop the comparisons and mechanisms the reader needs; fulfill explicit depth and length requirements.
@@ -30,7 +30,7 @@ Required work that has not been done stays open. Reading a required source, answ
 
 ### Review Completion
 
-Follow the independent assignments, original-input reading, progressive checks and final whole-report coverage in [the review method](subagents-and-review-loop.md#assign-work-by-perspective). Use host-native agents without making API setup a prerequisite. Keep the seven base contexts, domain specialists, auditor and final acceptor separate from production; audit and acceptance also remain separate from content review and each other.
+Follow the independent assignments, original-input reading, progressive checks and final whole-report coverage in [the review method](subagents-and-review-loop.md#assign-work-by-perspective). Use native agents without making API setup a prerequisite. Keep the seven base contexts, domain specialists, auditor and final acceptor separate from production; audit and acceptance also remain separate from content review and each other.
 
 Every required assignment must produce a complete substantive result on the correct version. Preserve valid negative findings and the first valid response; recover incomplete work rather than replacing it with author self-review. Audit every important requirement and decisive assertion, and sample other passed content from the complete report as specified in [audit and sampling](subagents-and-review-loop.md#check-reviewers-and-sample-passed-work).
 
@@ -61,11 +61,11 @@ Tool-managed `finish` binds the current main artifact, inputs, review results an
 | Writing and revision | Progressive units, one main writer, coherent whole-report argument | Review receives actual current text and supporting contributions |
 | Review and delivery | Independent content perspectives, audit, sampling and final acceptance | Necessary fixes return to their owner; accepted current artifacts become the delivery |
 
-These responsibilities are shared capabilities, not four permanent agents. The host runs agents and preserves execution identities; Toolkit connects the research inputs, artifacts and checks. The lead organizes work and remains substantively engaged without personally writing every paragraph.
+These responsibilities are shared capabilities, not four permanent agents. The agent tool runs agents and preserves execution identities; Toolkit connects the research inputs, artifacts and checks. The lead organizes work and remains substantively engaged without personally writing every paragraph.
 
 ## 5. State Files
 
-Skill-only work preserves the necessary originals, requirements, conclusions and unfinished work in existing files and host conversations. Managed tasks use the [existing state reference](research-workflow.md#3-state-system) and tools. Handoff summaries help locate full material; they never replace it. Preserve history without reconstructing unobserved reading, execution or approval.
+Skill-only work preserves the necessary originals, requirements, conclusions and unfinished work in existing files and agent tool conversations. Managed tasks use the [existing state reference](research-workflow.md#3-state-system) and tools. Handoff summaries help locate full material; they never replace it. Preserve history without reconstructing unobserved reading, execution or approval.
 
 ## 6. Research Brief Gate
 

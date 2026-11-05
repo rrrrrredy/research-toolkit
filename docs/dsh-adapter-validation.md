@@ -2,7 +2,7 @@
 
 [English](dsh-adapter-validation.md) | [简体中文](dsh-adapter-validation.zh-CN.md)
 
-These are existing adapter-maintenance commands, moved from the host installation card. They are not required steps for a research task. [Installation and native collaboration](../agents/deepseek-harness.md).
+These are existing adapter-maintenance commands, moved from the agent tool installation card. They are not required steps for a research task. [Installation and native collaboration](../agents/deepseek-harness.md).
 
 ## Verify The Adapter
 

@@ -21,13 +21,13 @@ class ReviewFailure(RuntimeError):
         self.capture = capture
 
 
-BACKEND_HELP = ("Use the host's native agents; no API configuration is required. "
+BACKEND_HELP = ("Use the agent tool's native agents; no API configuration is required. "
                 "For an explicitly configured external bridge, choose RESEARCH_TOOLKIT_REVIEW_BACKEND=codex (installed CLI/account), "
                 "claude (installed CLI/account), or generic (RESEARCH_TOOLKIT_REVIEW_BASE_URL, "
                 "RESEARCH_TOOLKIT_REVIEW_MODEL and optional RESEARCH_TOOLKIT_REVIEW_API_KEY). "
-                "Native host assignments are the default.")
+                "Native-agent assignments are the default.")
 MISSING_BACKEND = ("reviewer.backend: specify codex, claude, generic or command in external review configuration; "
-                   "the model name does not select a host. For native agents, omit external review configuration.")
+                   "the model name does not select an agent tool. For native agents, omit external review configuration.")
 
 
 def backend_kind(config):
@@ -35,7 +35,7 @@ def backend_kind(config):
         return config["backend"]
     if config.get("command") or config.get("format") == "json":
         return "command"
-    # Preserve legacy entries that explicitly name a host's response format.
+    # Preserve legacy entries that explicitly name an agent tool's response format.
     legacy = {"codex-jsonl": "codex", "claude-json": "claude", "self": "self"}
     if config.get("format") in legacy:
         return legacy[config["format"]]
@@ -126,7 +126,7 @@ def review_readiness() -> dict:
     """Inspect configuration and local login without sending report data or model calls."""
     if not backend_configured():
         return {"status": "host_native", "checks": [], "review_strength": "independent",
-                "guidance": "Dispatch the returned assignments with the host's independent agent tools; no API configuration is needed."}
+                "guidance": "Dispatch the returned assignments using the application's native subagents; no API configuration is needed."}
     try:
         config = load_review_config()
     except (ValueError, OSError, UnicodeError) as exc:
