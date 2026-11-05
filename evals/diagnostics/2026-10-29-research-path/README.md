@@ -6,11 +6,11 @@ This archive preserves the existing local validation of the v1.5.0 working-tree 
 
 ## Observed interface behavior
 
-One synthetic cooling-retrofit task exercised **12 CLI operations**, totaling **9.625 seconds** of subprocess wall time. Analyst prose, self-review and the synthetic agent reference were supplied by the driver. There were **zero research model calls and zero agent tool subagent executions**; software check methods are not additional research tasks.
+One synthetic cooling-retrofit task exercised **12 CLI operations**, totaling **9.625 seconds** of subprocess wall time. Analyst prose, self-review and the synthetic host reference were supplied by the driver. There were **zero research model calls and zero host subagent executions**; software check methods are not additional research tasks.
 
 - Satisfied but still applicable requirements remain in work inputs.
 - Selected claims bring supporting and counter-evidence originals; missing input files are rejected.
-- Requested methods are returned, and a saved analysis can be recovered with its input versions and agent reference without replacing the main report.
+- Requested methods are returned, and a saved analysis can be recovered with its input versions and host reference without replacing the main report.
 - Updating requirements exposes changed input files; assembly can read the saved analysis.
 - The supplied complete report reaches the existing review and delivery path.
 
@@ -24,12 +24,10 @@ Affected compilation, workflow, draft, records, continuity, release-log, lock an
 
 [manifest.json](manifest.json) lists SHA-256 hashes and sizes of 71 byte-identical copied files. Original paths, timestamps and the pre-commit delivery note in `raw/README.md` describe the original execution, not the current publication state. Implementation-edit helpers and abandoned temporary directories are not part of this archive. Original reports and previous evaluation records elsewhere are unchanged.
 
-<a id="reproduction-and-unrun-host-behavior"></a>
-
-## Reproduction and unrun agent tool behavior
+## Reproduction and unrun host behavior
 
 The original [driver](raw/verify_path.py) expects `<parent>/research-toolkit` and `<parent>/output/<new-run>/verify_path.py`. Copy the driver to a fresh directory in that layout and run it with the project Python environment. It refuses to overwrite an existing task. Historical absolute paths in archived outputs remain unchanged. This instruction is provided for later reproduction; no run was added while preparing the PR.
 
-Actual agent tool startup, messaging, continuation and cancellation were not exercised. The minimal agent tool check is to dispatch the returned work inputs through a native subagent tool, save its analysis with the real agent reference and `based_on`, then update a relevant requirement and pass the refreshed input to that task. The lead should read the analysis and integrate it into the main report. Expected behavior: readable originals, visible current requirements, recoverable output, and no substitution of branch completion for whole-task delivery. Use the agent tool's existing lifecycle operations; no new scheduler is introduced.
+Actual host startup, messaging, continuation and cancellation were not exercised. The minimal host check is to dispatch the returned work inputs through a native subagent tool, save its analysis with the real host reference and `based_on`, then update a relevant requirement and pass the refreshed input to that task. The lead should read the analysis and integrate it into the main report. Expected behavior: readable originals, visible current requirements, recoverable output, and no substitution of branch completion for whole-task delivery. Use the host's existing lifecycle operations; no new scheduler is introduced.
 
 Research quality, user effort and research elapsed time were not measured. The 9.625 seconds is interface execution time only.

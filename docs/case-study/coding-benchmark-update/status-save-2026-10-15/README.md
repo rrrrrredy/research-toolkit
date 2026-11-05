@@ -30,6 +30,6 @@ The first and final reports have identical bytes and **3,930 nonwhitespace chara
 
 The [nine CLI calls](calls.jsonl) span **109.80 seconds** from first capture to observing the complete draft and **280.34 seconds** to local delivery-check completion. CLI subprocesses totaled **8.484 seconds**, with zero nonzero exits. Code/source inspection preceded capture; later Astra review, fixes, CI and merging are excluded. These are not total request-to-delivery or first-usable-result measurements. The [execution summary](execution-summary.json) retains calculations.
 
-Public CLI responses did not provide agent tool author/Astra tokens or billing; these remain unknown. No external backend call for self-review does not mean zero model cost. The S6 commit lookup was empty and file-SHA retrieval failed; the successful web read and retained original text support the check, without a zero-retry claim.
+Public CLI responses did not provide host author/Astra tokens or billing; these remain unknown. No external backend call for self-review does not mean zero model cost. The S6 commit lookup was empty and file-SHA retrieval failed; the successful web read and retained original text support the check, without a zero-retry claim.
 
 The local copy retains Full/self and its actual author review/delivery checks. The requested clean-context Astra review is archived separately, not presented as a CLI independent-backend receipt. Published files are complete reports and an evidence subset; full frozen assignments and receipts remain in the local task.
