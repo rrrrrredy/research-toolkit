@@ -4,16 +4,16 @@
 
 [版本与兼容性](compatibility.zh-CN.md)说明当前完成契约和旧任务接续。保留历史原件，继续研究时复用已有材料。
 
-**通过仓库链接、文件、附件或粘贴文本使用研究方法。** 按 Agent 支持的输入方式使用；原生 Skill、插件和 MCP 是宿主的独立能力。
+**通过仓库链接、文件、附件或粘贴文本使用研究方法。** 按 Agent 支持的输入方式使用；原生 Skill、插件和 MCP 是 Agent 工具的独立能力。
 
 ## 使用研究方法
 
-基础使用记录默认开启，不包含聊天、报告和路径，可随时关闭。安装或首次使用 Skill 时，由 Agent 将包内脚本接入 Codex、Claude Code 或 OpenCode；用户无需另装组件或手动上传。见[使用记录与自动接入](usage-data.zh-CN.md)。
+研究方法可直接读取，不必先安装 Skill 或 MCP。在 Codex、Claude Code、OpenCode 中，Agent 默认下载或复用完整本地副本，用 Python 3.10+ 配置当前项目的基础使用记录。已打开的 Codex 会话需重载或重开才能启用新配置。缺少 Python、无法执行命令或配置尚未生效时，继续研究。默认发送的基础事件不含聊天、报告和本地路径，可随时关闭；已关闭的设置会保留。 [接入与关闭说明](usage-data.zh-CN.md).
 
 - **仓库链接：**将[研究请求](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md#使用)交给能读取 GitHub 的 Agent。
 - **文件或附件：**下载仓库，提供 `SKILL.md`，并按任务需要提供参考文件。
 - **粘贴文本：**粘贴完整入口指令与所需方法章节。见[纯聊天使用边界](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md#只能在聊天中使用时)。
-- **原生 Skill：**通过宿主支持的技能机制安装完整工具箱。见[Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。
+- **原生 Skill：**通过 Agent 工具支持的技能机制安装完整工具箱。见[Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。
 
 读取和使用研究方法，无须安装 Python 或特定厂商 CLI。检索与文件访问由撰写 Agent 提供；独立审阅需要另一个评审者，仅提供指令不会自动执行审阅。
 
@@ -29,11 +29,11 @@
 | `research_save` | 保存／更新来源、主张、要求与稿件，由 Agent 处理定位到的格式错误。 | 记录与稿件均无变化。 |
 | `research_status` | 恢复本地任务、查看已保存进度或更新记录中的阶段。 | 无需查看或更新进度时；只使用方法的会话可用自己的笔记。 |
 | `research_guide` | 当前上下文尚未包含所需阶段的方法，需要读取时。 | 已直接阅读相应 `SKILL.md` 和 `references/` 文件。 |
-| `research_review` | 为宿主准备独立审阅、审计及验收任务，保存真实回复和输入版本。 | 未变输入已有完整有效结果时复用，继续未完成工作。 |
+| `research_review` | 为 Agent 工具准备独立审阅、审计及验收任务，保存真实回复和输入版本。 | 未变输入已有完整有效结果时复用，继续未完成工作。 |
 | `research_check_updates` | 按需读取已登记公开版本日志，关联受影响主张和正文。 | 当前无更新问题或没有已登记版本日志。 |
 | `research_check_draft` | 无模型调用地检查当前稿件记录与显式篇幅，不生成交付凭证。 | 评审／交付前可选；来源与含义仍需单独核对。 |
 | `research_finish` | 完成本地任务：核对当前报告与任务约定的交付要求。 | 纯 Skill 完成独立审阅、审计与验收后交付报告和引用，不要求工具回执。 |
-| `research_check_reviewer` | 已选择自配后端时，诊断配置与依赖问题。 | 宿主原生子 Agent 无需另查外部服务配置。 |
+| `research_check_reviewer` | 已选择自配后端时，诊断配置与依赖问题。 | Agent 工具的原生子 Agent 无需另查外部服务配置。 |
 
 ## 保存研究记录与稿件
 
@@ -138,23 +138,23 @@ python3 scripts/research_workflow.py check-updates --workspace ../research-work 
 
 ## 可选执行工具
 
-宿主能启动本地进程时，可接入 MCP；同时支持该插件格式时，也可安装包含方法与工具的插件。两种方式使用同一套研究规范。
+Agent 工具能启动本地进程时，可接入 MCP；同时支持该插件格式时，也可安装包含方法与工具的插件。两种方式使用同一套研究规范。
 
-| 形式 | 提供什么 | 宿主要求 |
+| 形式 | 提供什么 | Agent 工具要求 |
 | --- | --- | --- |
 | Skill | 入口指令与详细研究方法 | 原生技能发现或明确读取文件 |
 | 插件 | Skill、参考文件和本地 MCP 服务，一次安装 | 支持该软件包格式与本地 stdio MCP |
 | MCP | 初始化、保存进度、加载方法、审阅和检查交付的九个工具 | 能启动并调用本地 stdio MCP 服务 |
 
-共享 CLI 需要 Python 3.10+，只使用标准库。Linux 上优先使用 `python3`；本机已有的 Python 3.10+ 解释器即可。MCP 还需安装 `requirements-mcp.txt` 中的依赖。默认由宿主原生 Agent 完成研究和独立审阅；另配后端是可选方式，不决定宿主能否委派。
+共享 CLI 需要 Python 3.10+，只使用标准库。Linux 上优先使用 `python3`；本机已有的 Python 3.10+ 解释器即可。MCP 还需安装 `requirements-mcp.txt` 中的依赖。默认由 Agent 工具中的原生 Agent 完成研究和独立审阅；另配后端是可选方式，不决定 Agent 工具能否委派。
 
 CI 在 Python 3.10／Linux 上检查 CLI 和打包 MCP 流程，并在 Python 3.12／Linux、Windows 上执行更完整的检查。安装依赖与客户端启动服务须使用同一解释器。这些验证覆盖服务和协议，不代表所有客户端 GUI 均已实测。
 
 ## 安装插件
 
-[插件目录](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/)包含完整 Skill、方法与本地 MCP 服务；使用宿主支持的插件安装机制，具体步骤见 [Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。插件通过 Python 启动 MCP，安装 `requirements-mcp.txt` 中的依赖后，确认九个 `research_*` 工具可用。
+[插件目录](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/)包含完整 Skill、方法与本地 MCP 服务；使用 Agent 工具支持的插件安装机制，具体步骤见 [Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。插件通过 Python 启动 MCP，安装 `requirements-mcp.txt` 中的依赖后，确认九个 `research_*` 工具可用。
 
-直接提出题目、读者与预期成果；Agent 整理需求，只追问关键缺项。插件采用[通用插件规范](https://developers.openai.com/plugins/build/plugins)，研究在本地执行，基础使用事件由独立接收服务处理。格式支持取决于宿主；支持并信任插件 hooks 时，通过[同一个采集器](usage-data.zh-CN.md)观察 Toolkit 会话。
+直接提出题目、读者与预期成果；Agent 整理需求，只追问关键缺项。插件采用[通用插件规范](https://developers.openai.com/plugins/build/plugins)，研究在本地执行，基础使用事件由独立接收服务处理。格式支持取决于 Agent 工具；支持并信任插件 hooks 时，通过[同一个采集器](usage-data.zh-CN.md)观察 Toolkit 会话。
 
 ## 单独接入 MCP
 
@@ -234,12 +234,12 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 | `research_start` | 建立统一任务与需求，返回共同上下文及待补充的重要缺项 |
 | `research_status` | 返回进度和阶段规范；推进到分析、写作前检查来源与主张记录 |
 | `research_guide` | 不创建任务，直接读取某阶段的方法，支持中英文 |
-| `research_review` | 连接内容审阅、独立审计与最终验收，保存宿主原件和版本绑定 |
+| `research_review` | 连接内容审阅、独立审计与最终验收，保存 Agent 工具原件和版本绑定 |
 | `research_check_draft` | 返回当前计数、声明范围检查与记录错误，不改变任务状态；`ok` 不认证内容或交付 |
 | `research_finish` | 核对已评审正文、证据、未完成要求和交付文字，通过后才写入完成状态与回执 |
-| `research_check_reviewer` | 诊断可选自配后端，不作为宿主原生协作前置步骤 |
+| `research_check_reviewer` | 诊断可选自配后端，不作为 Agent 工具内的原生协作前置步骤 |
 
-研究和统稿 Agent 使用宿主工具与共同任务输入完成检索、阅读、分析和写作。Agent 需要把必要的来源全文、来源表和主张表写入任务目录。按阶段加载规范可以减少反复读取，但不证明模型已遵守每条要求。
+研究和统稿 Agent 使用 Agent 工具工具与共同任务输入完成检索、阅读、分析和写作。Agent 需要把必要的来源全文、来源表和主张表写入任务目录。按阶段加载规范可以减少反复读取，但不证明模型已遵守每条要求。
 
 进入分析前，来源须有编号、标题、定位信息和类型，至少一条来源还须记录全文或相关章节的阅读范围与阅读凭据。进入写作前，主张须有正文和类型，来源引用必须对应已登记、已记录阅读的来源。明确标为假设且说明不确定性的内容可以暂缺支持，但整体至少要有一条有来源支持的主张。阅读凭据若指向本地文件，文件须位于任务目录内、实际存在且内容非空，支持附带锚点和页码、章节说明。网址及章节、页码定位仍可使用，但不会因此自动完成内容核查。这些检查识别空记录与无效关联，不证明模型真正理解了材料。
 
@@ -247,23 +247,25 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 
 评审会自动纳入非空的 `state/requirements.jsonl`，评审者和审查者都能看到完整需求台账，包括后续澄清与变更。评审后更改或删除该台账会阻止交付，须先处理发生变化的任务。空台账不增加需求。
 
-评审保留完整任务、正文与相关来源文件，不能只给网址。宿主原生任务默认返回可读文件引用；必需材料超过一个模型上下文时，评审者分段读取保留的原件并完成所分配的审阅，不能静默用摘要替代必需材料。
+评审保留完整任务、正文与相关来源文件，不能只给网址。Agent 工具原生任务默认返回可读文件引用；必需材料超过一个模型上下文时，评审者分段读取保留的原件并完成所分配的审阅，不能静默用摘要替代必需材料。
 
 ## 评审后端
 
 <a id="reviewer-backends"></a>
 
-### 宿主原生审阅
+<a id="宿主原生审阅"></a>
 
-直接使用 Codex、Claude Code 等宿主已有的子 Agent 能力。`research_review` 准备任务，绑定完整需求、报告和原始证据；宿主为每项基础视角和所需领域专审启动不同的独立 Agent，再运行独立审计与最终验收。作者和统稿 Agent 不承担这些独立任务，这条路径无需另配 API。
+### 使用原生子 Agent 审阅
+
+直接使用 Codex、Claude Code 等 Agent 工具已有的子 Agent 能力。`research_review` 准备任务，绑定完整需求、报告和原始证据；Agent 工具为每项基础视角和所需领域专审启动不同的独立 Agent，再运行独立审计与最终验收。作者和统稿 Agent 不承担这些独立任务，这条路径无需另配 API。
 
 七项基础视角是需求、证据、对抗推理、结构与深度、读者用途、过程语言、自然表达，各自使用独立上下文。模型可以相同，执行上下文和生产职责必须分开。[审阅契约](review-completion.zh-CN.md)说明任务、原始结果和当前版本的完成条件。
 
-宿主保留每次真实回复与执行记录，通过同一个 `review` 提交路径。内容审阅具备完整结果后，下一项任务是独立审计；报告和审计中的必要问题解决后进入最终验收。前段研究单元需要审阅时，指明对应单元；该结果支撑后续依赖工作，不代替全稿审阅。
+Agent 工具保留每次真实回复与执行记录，通过同一个 `review` 提交路径。内容审阅具备完整结果后，下一项任务是独立审计；报告和审计中的必要问题解决后进入最终验收。前段研究单元需要审阅时，指明对应单元；该结果支撑后续依赖工作，不代替全稿审阅。
 
 ### 可选的自配执行方式
 
-只在主动选用独立命令或端点执行评审时配置这一节。宿主原生子 Agent 不需要这些配置。
+只在主动选用独立命令或端点执行评审时配置这一节。Agent 工具的原生子 Agent 不需要这些配置。
 
 | 后端 | 配置 |
 | --- | --- |
@@ -272,9 +274,9 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 | `generic` | 后端 `generic`、`RESEARCH_TOOLKIT_REVIEW_BASE_URL`、`RESEARCH_TOOLKIT_REVIEW_MODEL`；所选端点需要认证时才使用认证环境变量。 |
 | 可信命令 | `RESEARCH_TOOLKIT_REVIEW_CONFIG` 指向含 argv 列表及 `format: "json"` 的 JSON 配置。 |
 
-外部评审 JSON 配置应显式填写 `backend`。已有 `command`、`format: "json"` 或宿主专属格式仍按原方式识别；只有模型名称而未写后端的配置会指出 `reviewer.backend` 的正确写法，不再默认为 Codex。宿主原生路径无需此配置。
+外部评审 JSON 配置应显式填写 `backend`。已有 `command`、`format: "json"` 或 Agent 工具专属格式仍按原方式识别；只有模型名称而未写后端的配置会指出 `reviewer.backend` 的正确写法，不再默认为 Codex。Agent 工具原生路径无需此配置。
 
-宿主原生与自配执行方式履行相同的当前审阅职责。旧自评结果保留其历史含义，不能替代独立审阅、审计或验收。
+Agent 工具原生与自配执行方式履行相同的当前审阅职责。旧自评结果保留其历史含义，不能替代独立审阅、审计或验收。
 
 选择 generic 后端时：
 
@@ -299,7 +301,7 @@ python3 scripts/research_workflow.py check-reviewer
 
 CLI、MCP 和 Python 操作复用已有的操作系统任务锁。同一任务的写入依次执行，支线研究可独立进行；不要删除锁文件绕过占用。主稿负责人整合支线成果，避免多个写入者同时改同一份主稿。
 
-保留失败请求和原始字节。实际回复的无效 UTF-8 保留为失败；stderr 可用替代字符显示，并保留字节原件。宿主取消或执行失败使该任务保持未完成，处理实际原因后接续缺失工作；不因任意执行时长中断必要研究。
+保留失败请求和原始字节。实际回复的无效 UTF-8 保留为失败；stderr 可用替代字符显示，并保留字节原件。Agent 工具取消或执行失败使该任务保持未完成，处理实际原因后接续缺失工作；不因任意执行时长中断必要研究。
 
 保留有效负评。修正受影响正文和证据，再用 `revision: true` 评审当前版本。作者可以回应争议，但重要的不修改决定由独立审阅者／审计者裁定；不重跑未变版本的负评寻求通过。
 
@@ -336,15 +338,15 @@ CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知
 python3 scripts/research_workflow.py review --workspace ../research-work --request review.json
 ```
 
-宿主原生执行时，每项待完成任务返回 `reading_ref`（`path`、`sha256`）作为同一输入的阅读入口，`assignment_ref` 仍指向原始冻结 JSON。将 `task_directory` 和阅读入口交给执行者。入口按已有字段组织实际指令、任务、完整稿件、证据、分析和保留意见；长字符串以完整 UTF-8 文本打开，不再嵌在 JSON 转义字符串中，结构化记录保留每个字段和列表顺序。不同角色按内容共用文本，内容变化后在 `logs/reading/` 保留另一份视图。原文件引用及哈希继续可读。这些是派生阅读文件，不是另一套证据台账或通过记录；任务版本、完成条件和 `include_assignment` 均不改变。
+Agent 工具原生执行时，每项待完成任务返回 `reading_ref`（`path`、`sha256`）作为同一输入的阅读入口，`assignment_ref` 仍指向原始冻结 JSON。将 `task_directory` 和阅读入口交给执行者。入口按已有字段组织实际指令、任务、完整稿件、证据、分析和保留意见；长字符串以完整 UTF-8 文本打开，不再嵌在 JSON 转义字符串中，结构化记录保留每个字段和列表顺序。不同角色按内容共用文本，内容变化后在 `logs/reading/` 保留另一份视图。原文件引用及哈希继续可读。这些是派生阅读文件，不是另一套证据台账或通过记录；任务版本、完成条件和 `include_assignment` 均不改变。
 
-每位执行者都应能够打开完整任务与引用原件；跨环境传递阅读文件和所需原件，不只传无法访问的本地路径。保留真实宿主任务 ID、完整原始回复和执行记录，再通过同一操作的 `host_result` 提交，字段见[审阅契约](review-completion.zh-CN.md)。
+每位执行者都应能够打开完整任务与引用原件；跨环境传递阅读文件和所需原件，不只传无法访问的本地路径。保留真实 Agent 工具任务 ID、完整原始回复和执行记录，再通过同一操作的 `host_result` 提交，字段见[审阅契约](review-completion.zh-CN.md)。
 
-宿主继续返回的审阅、审计或验收任务。摘要用于定位结果，不替代完整结果或来源原文。正文或必需输入改变时保留前一材料包，用 `revision: true` 处理新版本。
+Agent 工具继续返回的审阅、审计或验收任务。摘要用于定位结果，不替代完整结果或来源原文。正文或必需输入改变时保留前一材料包，用 `revision: true` 处理新版本。
 
 ## 已验证的范围
 
-现有软件检查使用明确标注的合成材料，验证记录一致性、原始输入绑定、打包及 MCP 传输。真实宿主执行另有其来源、回复和结果；[评测现状](evaluation-status.zh-CN.md)列出实际观察。安装成功或机械检查通过，不是内容审阅结果。
+现有软件检查使用明确标注的合成材料，验证记录一致性、原始输入绑定、打包及 MCP 传输。真实 Agent 工具执行另有其来源、回复和结果；[评测现状](evaluation-status.zh-CN.md)列出实际观察。安装成功或机械检查通过，不是内容审阅结果。
 
 当前交付要求独立内容审阅、审计和验收。工具落实保存的完成契约，Agent 实际阅读并作出内容判断。旧回执按原契约保留，不写成当前验收。具体失败按[修复说明](failure-handling.zh-CN.md)接续受影响工作。
 
@@ -358,7 +360,7 @@ python3 scripts/research_workflow.py review --workspace ../research-work --reque
 
 `draft.main=true` 显式选定当前工作文件；`kind` 可选 report/comparison/review/analysis。保存其他章节或参考稿不改变该选择。`complete` 仍只记录完整草稿。`save/status.current_work` 返回当前文件、有效要求、未结工作和恢复路径；status 另列上次交付引用。新主稿或需求修订不会继承终态，旧凭证保留。审阅／交付传当前主稿的 artifact。旧任务不必迁移，未选主稿时保持原行为；当前文件观察摘要不是批准。
 
-`start/status.runtime` 返回执行实现的位置、版本、代码摘要和可用入口摘要；host_loaded_entry=not_observed，不推断宿主读了哪个 Skill。工具只识别登记的文件，不监控任意新目录。
+`start/status.runtime` 返回执行实现的位置、版本、代码摘要和可用入口摘要；host_loaded_entry=not_observed，不推断 Agent 工具读了哪个 Skill。工具只识别登记的文件，不监控任意新目录。
 
 阅读要求在保存时检查 full_text/relevant_sections 和非空、不重复的 required_source_ids；配对字段可在既有行上局部更新。无效批次不部分覆盖正文或状态。详细方法见[任务接续](../references/task-continuity.zh-CN.md)。
 
@@ -380,9 +382,9 @@ python3 scripts/research_workflow.py review --workspace ../research-work --reque
 
 `work` 各字段均可选，首次保存前可用新的 `unit_id` 标识本次分工。所选主张带入支持与已登记反证来源，阅读要求带入指定来源。已登记单元会带回完整成果及其原始输入，依赖带入上游全文与原件。`work_context` 返回任务、有效要求、选定记录、可读 `files`、二进制原件引用、依赖及其就绪情况、`inputs` 和 `input_version`。同一次返回另有 `reading_ref`，按上文说明的阅读视图分文件读取、交接这些输入；`work_context` 及绑定不变。不带 `work` 的普通状态查询不生成阅读文件。
 
-仍适用的 `satisfied` 要求继续出现在 `effective_requirements`，`scope_decisions` 保留明确的放弃、排除或接受未完成决定。工具不会从宿主对话自动猜出要求；使用已有字段保存真实原话和受影响要求。`applicable_requirements` 包含全局要求及明确适用于当前单元或实际上游的要求（`requirement_unit_ids`），全部有效要求仍可读。输入绑定采用相同范围，无关局部要求或来源／主张的变化不使该单元过期；未指定 `unit_id` 时仍绑定全任务要求。历史 `record:requirements:effective` 绑定继续采用全任务含义，接续时原样使用新返回的 `inputs`。
+仍适用的 `satisfied` 要求继续出现在 `effective_requirements`，`scope_decisions` 保留明确的放弃、排除或接受未完成决定。工具不会从 Agent 工具对话自动猜出要求；使用已有字段保存真实原话和受影响要求。`applicable_requirements` 包含全局要求及明确适用于当前单元或实际上游的要求（`requirement_unit_ids`），全部有效要求仍可读。输入绑定采用相同范围，无关局部要求或来源／主张的变化不使该单元过期；未指定 `unit_id` 时仍绑定全任务要求。历史 `record:requirements:effective` 绑定继续采用全任务含义，接续时原样使用新返回的 `inputs`。
 
-通过宿主子 Agent 工具传递返回的问题、要求与可访问原件，保留真实宿主任务／会话标识。宿主负责启动、消息、等待和取消，Toolkit 不另造一套运行时。
+通过 Agent 工具子 Agent 工具传递返回的问题、要求与可访问原件，保留真实 Agent 任务／会话标识。Agent 工具负责启动、消息、等待和取消，Toolkit 不另造一套运行时。
 
 执行者用 `save` 保存成果：
 
@@ -392,11 +394,11 @@ python3 scripts/research_workflow.py review --workspace ../research-work --reque
 
 省略 `content` 可登记已有非空文件，也可提供文本保存。`status.work` 准备了 `unit_id` 后，保存同一单元会自动承接准备时的输入版本、问题和依赖，除非显式提供这些字段。准备结果按单元记入已有活动日志，其他分支的准备不会覆盖它；再次准备也会带回该单元尚未保存的选择。保存使用准备时的哈希，不替换成文件最新版本。显式 `draft.based_on` 继续支持，原样使用 `work_context.inputs`，不编造哈希。没有准备记录时，已有单元沿用已保存输入，不补造旧阅读历史。输入选择改变时，只清除该单元的缓存通过状态，原始审阅保留用于修订。`complete` 描述已保存单元或稿件的完整性，不代表全任务交付。上游已登记工作未完成、已变化或尚缺必需独立审阅时，不能将依赖它的单元声明完成；先以 `complete: false` 保存进行中的工作并解决依赖。
 
-`current_work.work_units` 与 `research_outputs` 从已有活动日志恢复单元、原始快照、宿主引用、交接和输入变化，不另建任务看板。交接 `summary`、`pending`、`decisions` 用于导航，接收的研究者、统稿者或审阅者可以读取完整成果和原始来源；同一 Agent 接下一阶段也复用这些记录。
+`current_work.work_units` 与 `research_outputs` 从已有活动日志恢复单元、原始快照、Agent 任务／会话引用、交接和输入变化，不另建任务看板。交接 `summary`、`pending`、`decisions` 用于导航，接收的研究者、统稿者或审阅者可以读取完整成果和原始来源；同一 Agent 接下一阶段也复用这些记录。
 
 审阅材料包中的 `production_history` 保留所选成果的保存记录、交接和原始稿件位置；已有快照随审阅输入绑定，审阅活动追加日志不会自行改变该版本。旧记录未保存的阶段不补造。任务要求逐步研究或写作时，结构与深度审阅及审计据此查看实际展开，不能仅凭保存次数认定已完成。
 
-`draft.main: true` 只指定当前主稿，保存的 `host_task` 是写入负责人，其他支线保留独立文件。交接写入责任时，由当前负责人保存接收方宿主任务／会话的 `handoff.to`；仅换 `host_task` 不能接管主稿或已有负责人单元。
+`draft.main: true` 只指定当前主稿，保存的 `host_task` 是写入负责人，其他支线保留独立文件。交接写入责任时，由当前负责人保存接收方 Agent 任务／会话的 `handoff.to`；仅换 `host_task` 不能接管主稿或已有负责人单元。
 
 保留每次已保存单元的版本。新要求或证据先返回受影响分析和提纲，再依赖修订结果；`changed_inputs` 表示绑定变化，不自动认定研究结论失效。单元审阅以 `unit_id` 作为 `review.scope`，最终审阅、审计和验收仍覆盖完整当前报告。
 
@@ -408,9 +410,9 @@ python3 scripts/research_workflow.py review --workspace ../research-work --reque
 <a id="agent-host-execution"></a>
 ### Agent 执行适配器
 
-Agent 可以通过 `scripts/research_host.py` 执行选定的分析／写作单元与独立审阅任务。共享研究逻辑使用通用会话接口，Claude Code、OpenCode 和 Codex 分别通过自身已安装的 CLI／会话协议接入，沿用宿主已有的登录和模型配置。来源收集和研究规划使用已有宿主工具，无需另配 API。
+Agent 可以通过 `scripts/research_host.py` 执行选定的分析／写作单元与独立审阅任务。共享研究逻辑使用通用会话接口，Claude Code、OpenCode 和 Codex 分别通过自身已安装的 CLI／会话协议接入，沿用 Agent 工具已有的登录和模型配置。来源收集和研究规划使用已有 Agent 工具工具，无需另配 API。
 
-宿主原生子 Agent 已能执行同一份任务，并通过 CLI／MCP 回传结果；宿主直接管理工作者时，沿用这条路径。需要交由本地脚本执行时，Agent 执行适配器负责启动、续接和原始结果回存。同一研究单元采用一种执行路径，避免宿主调度和脚本重复派工。其他宿主也使用共同的原生任务与结果契约；新增 CLI 接入不改变研究流程。
+Agent 工具的原生子 Agent 已能执行同一份任务，并通过 CLI／MCP 回传结果；Agent 工具直接管理工作者时，沿用这条路径。需要交由本地脚本执行时，Agent 执行适配器负责启动、续接和原始结果回存。同一研究单元采用一种执行路径，避免 Agent 工具调度和脚本重复派工。其他 Agent 工具也使用共同的原生任务与结果契约；新增 CLI 接入不改变研究流程。
 
 已有任务已登记来源 `S1` 时，请求文件可直接复用当前参数：
 
@@ -425,12 +427,12 @@ Agent 可以通过 `scripts/research_host.py` 执行选定的分析／写作单�
 python scripts/research_host.py --host claude --workspace <task-store> --task study --request work.json --language zh
 ```
 
-使用 OpenCode 或 Codex 时，分别传 `--host opencode` 或 `--host codex`。省略该参数时，依次采用 `RESEARCH_TOOLKIT_HOST`、可识别的当前宿主环境，或唯一已安装的 CLI。无法唯一确定时返回 `--host` 的正确写法，不兜底选择 Codex。PATH 只有包装脚本时，可用 `--executable` 指定原生可执行文件。适配器不添加跳过权限的参数，也不覆盖模型选择。
+使用 OpenCode 或 Codex 时，分别传 `--host opencode` 或 `--host codex`。省略该参数时，依次采用 `RESEARCH_TOOLKIT_HOST`、可识别的当前 Agent 工具环境，或唯一已安装的 CLI。无法唯一确定时返回 `--host` 的正确写法，不兜底选择 Codex。PATH 只有包装脚本时，可用 `--executable` 指定原生可执行文件。适配器不添加跳过权限的参数，也不覆盖模型选择。
 
-脚本执行的是已准备输入的研究贡献，会提供现有阶段指导和保留的完整输入原文。Claude Code／OpenCode CLI 工作者使用只读文件工具读取这些页面，返回完整贡献，由协调者保存；成功读取范围外材料时返回执行问题，不导入材料绑定不符的结果。这些设置只作用于本次进程，不修改用户的宿主配置。来源发现或需要其他执行工具的工作，可以继续用原生子 Agent 履行同一套 Toolkit 契约。
+脚本执行的是已准备输入的研究贡献，会提供现有阶段指导和保留的完整输入原文。Claude Code／OpenCode CLI 工作者使用只读文件工具读取这些页面，返回完整贡献，由协调者保存；成功读取范围外材料时返回执行问题，不导入材料绑定不符的结果。这些设置只作用于本次进程，不修改用户的 Agent 工具配置。来源发现或需要其他执行工具的工作，可以继续用原生子 Agent 履行同一套 Toolkit 契约。
 
-工作、依赖和领域专审按实际问题选择。`review` 使用现有参数与职责，全稿仍包含所有必要的独立视角、审计和验收。适配器在上游真实就绪后才派发依赖它的写作者；在 `logs/host/` 保留原始回复、实际会话标识、轮次标识和原始执行事件，再调用已有 `save` 与评审结果校验。CLI 轮次标识对应一次被记录的调用，原生会话标识来自宿主返回。保存的材料绑定来自实际送达的输入包。
+工作、依赖和领域专审按实际问题选择。`review` 使用现有参数与职责，全稿仍包含所有必要的独立视角、审计和验收。适配器在上游真实就绪后才派发依赖它的写作者；在 `logs/host/` 保留原始回复、实际会话标识、轮次标识和原始执行事件，再调用已有 `save` 与评审结果校验。CLI 轮次标识对应一次被记录的调用，原生会话标识来自 Agent 工具返回。保存的材料绑定来自实际送达的输入包。
 
-适配器运行期间，工作输入变化会回到同一生产者。Codex 接入可向执行中的轮次追加消息；Claude Code 与 OpenCode CLI 接入则在当前调用结束后续接原会话：首份结果保留旧输入绑定，后续调用接收当前输入包。审阅修订使用已有任务返回的 `resume_host_task`。新保存的 Claude Code／OpenCode 标识带宿主名称，旧的无前缀 Codex 标识仍可续接；不同宿主的标识不会被悄悄混用或替换。中断后再次执行请求会复用已保存的成果与负责人。宿主执行失败或结果未被接受时，保留原件并返回待处理情况；负面审阅不会触发自动改写或返评。
+适配器运行期间，工作输入变化会回到同一生产者。Codex 接入可向执行中的轮次追加消息；Claude Code 与 OpenCode CLI 接入则在当前调用结束后续接原会话：首份结果保留旧输入绑定，后续调用接收当前输入包。审阅修订使用已有任务返回的 `resume_host_task`。新保存的 Claude Code／OpenCode 标识带 Agent 工具名称，旧的无前缀 Codex 标识仍可续接；不同 Agent 工具的标识不会被悄悄混用或替换。中断后再次执行请求会复用已保存的成果与负责人。Agent 工具执行失败或结果未被接受时，保留原件并返回待处理情况；负面审阅不会触发自动改写或返评。
 
-请求结束只表示本批工作已有结果，最终交付继续使用已有要求记录与 `finish`。进程退出时关闭自己启动的宿主连接，不增加常驻服务或另一份任务数据库。
+请求结束只表示本批工作已有结果，最终交付继续使用已有要求记录与 `finish`。进程退出时关闭自己启动的 Agent 工具连接，不增加常驻服务或另一份任务数据库。

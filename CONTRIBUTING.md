@@ -18,7 +18,7 @@ These are small contribution ideas, not a list of already-open Issues. Pick a co
 | Idea | A useful first contribution |
 | --- | --- |
 | Clarify a confusing instruction | Improve the English and Chinese wording together in README, `agents/` or the usage guide; check the linked example. |
-| Improve an agent setup card | Reproduce a loading problem, cite the host's official requirements and add one focused troubleshooting step to both language versions. |
+| Improve an agent setup card | Reproduce a loading problem, cite the agent tool's official requirements and add one focused troubleshooting step to both language versions. |
 | Add a regression fixture | Turn an accepted failure case into a small new fixture with a valid control; preserve existing labels and frozen study inputs. |
 | Improve an existing adapter's setup | Fix an installation example or configuration diagnostic for an existing adapter, with a reproducible command and bilingual guidance. |
 

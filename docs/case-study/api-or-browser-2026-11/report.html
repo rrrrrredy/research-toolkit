@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>APIs, browser scripts or visual control · Research Toolkit</title>
+<!-- discovery:start -->
+<meta name="description" content="5 November 2026 API/browser research: complete reports, sources, analyses and independent reviews."/>
+<link rel="canonical" href="https://rrrrrredy.github.io/research-toolkit/case-study/api-or-browser-2026-11/report.html"/>
+<!-- discovery:end -->
+<link rel="stylesheet" href="../../assets/showcase.css"><script src="../../assets/reading-preferences.js"></script></head><body><main class="report-shell"><nav class="report-nav"><a data-home-link href="../../index.html#case">Research Toolkit</a><a href="index.html">This research archive</a><a href="../api-or-browser/index.html">Historical case</a></nav><article class="report-article"><details class="report-toc"><summary>Contents</summary><ol><li><a href="#L11">1. Choose the operation and its completion evidence together</a></li><li><a href="#L30">2. Browser scripts and visual agents move different work into runtime</a></li><li><a href="#L42">3. A resumed run must recognize the same business operation</a></li><li><a href="#L56">4. Compare the authority actually granted</a></li><li><a href="#L68">5. Follow one hybrid job through an interrupted submission</a></li><li><a href="#L86">6. Let completion and maintenance costs decide the local choice</a></li></ol></details><h1 id="L1">APIs, browser scripts or visual control: choosing how an enterprise agent acts</h1>
+
+<div id="L3"><p><em>5 November 2026</em></p>
+</div>
+
+<div id="L5"><p>For recurring business work, start with a supported API when it exposes the required operation, suitable permissions and a usable result. Use a prepared browser script for a stable interface workflow that the available API does not adequately cover. Use model-directed visual interaction where interpreting the current screen adds necessary capability. Combine routes when different steps need different interfaces, with a clear way to recover each unfinished operation.</p>
+</div>
+
+<div id="L7"><p>The decision belongs to the individual operation. An agent may read a ticket through an API, generate a document through an administrative screen and attach the result through another API. Calling the whole system an “API agent” or a “browser agent” tells an operations lead little about whether a failed run can be resumed without repeating work.</p>
+</div>
+
+<div id="L9"><p>The useful comparison is the effort required to reach the same verified business result: executing the action, observing what happened, recovering uncertain outcomes and maintaining the route. The recommendations below are design judgments grounded in current documentation. They do not establish a measured reliability or cost ranking.</p>
+</div>
+
+<h2 id="L11">1. Choose the operation and its completion evidence together</h2>
+
+<div id="L13"><p>A service can have an extensive API and still lack the operation a team needs. “Prepare this customer record” might require changing a field, generating a document, attaching it and moving a ticket to the next state. Check coverage against those actual effects, including the account and permissions available to the integration.</p>
+</div>
+
+<div class="table-scroll" role="region" tabindex="0" aria-label="Data table" id="L15"><table>
+<thead>
+<tr>
+<th>Route</th>
+<th>When it fits recurring work</th>
+<th>What the team must be able to maintain and verify</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Supported API</td>
+<td>The documented endpoint covers the exact operation with appropriate authority and result semantics.</td>
+<td>Request parameters, endpoint versions, limits, replay rules and evidence of the intended effect.</td>
+</tr>
+<tr>
+<td>Deterministic DOM automation</td>
+<td>The necessary UI path has identifiable controls and sufficiently stable steps to encode in advance.</td>
+<td>Locator and workflow changes, the target record, submission behavior and saved state.</td>
+</tr>
+<tr>
+<td>Model-directed visual interaction</td>
+<td>The step needs interpretation of a screen or a variation that a prepared path does not cover economically.</td>
+<td>Model-selected actions, observations, execution limits and whether the resulting business state can be established.</td>
+</tr>
+<tr>
+<td>Hybrid</td>
+<td>A specific action or observation is better served by a different route.</td>
+<td>Shared record identity, partial completion and recovery at the handoff.</td>
+</tr>
+</tbody></table>
+</div>
+<div id="L22"><p>Here, a supported API means an interface documented and intended for integration. Browser automation means operating the application&#39;s UI. Within that UI, deterministic automation uses prepared control logic; visual interaction lets a model select actions from what it sees. These are execution mechanisms that can coexist in one product.</p>
+</div>
+
+<div id="L24"><p>Define completion at the same level as the assignment. An API response may establish that a field was saved, while the business job still needs a generated document. HTTP <code>202 Accepted</code> is particularly clear: processing has been accepted but is unfinished and might never occur. Other successful responses can establish that their specified operation completed. The endpoint contract determines whether the response itself is sufficient or a job status, event or later observation is needed. <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-successful-2xx">RFC 9110, successful responses</a></p>
+</div>
+
+<div id="L26"><p>The equivalent browser question is whether the application saved the intended result. Playwright&#39;s normal click checks include a unique match, visibility, stability, event reception and enabled state. Its assertions can wait for specified conditions. These help execute an interaction; the implementer still has to choose a condition that identifies the correct record and required result. A generic success banner may be insufficient, while a displayed document ID and final job status may provide useful evidence. <a href="https://playwright.dev/docs/actionability">Playwright auto-waiting</a></p>
+</div>
+
+<div id="L28"><p>Verification does not require a second request after every successful write. If a synchronous response already guarantees the relevant saved state and identifies the object, use it. Where another observation is needed, its route can differ from the action route: a UI-only creation step might still expose an API readback. The aim is enough evidence to resolve the actual job.</p>
+</div>
+
+<h2 id="L30">2. Browser scripts and visual agents move different work into runtime</h2>
+
+<div id="L32"><p>A prepared DOM script identifies page elements through names, labels, roles or explicit identifiers. Playwright recommends user-facing attributes and explicit locator contracts, and resolves a fresh element each time a locator acts. A named control can therefore remain usable after a layout change. Long CSS or XPath chains tied to page structure are more vulnerable to structural changes. Treating all DOM automation as coordinate replay misses this distinction. <a href="https://playwright.dev/docs/locators">Playwright locators</a></p>
+</div>
+
+<div id="L34"><p>For a stable recurring path, encoding the steps once can avoid asking a model to reinterpret the same controls on every run. The maintenance obligation remains: a renamed control, a new required field or a changed approval step can invalidate the prepared flow. The relevant stability is the path and its meaning, not whether the page looks identical.</p>
+</div>
+
+<div id="L36"><p>A visual agent interprets the current screen and proposes actions. That makes it a candidate for necessary visual judgments or infrequent interface variations that would be expensive to encode individually. It also adds interpretation during execution. Anthropic&#39;s documentation identifies possible coordinate and tool-selection mistakes, as well as latency limitations. Its computer-use integration leaves the application responsible for running actions and returning observations. These are reasons to examine the local task, not evidence that visual control always performs worse than a script. <a href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool">Anthropic computer use</a></p>
+</div>
+
+<div id="L38"><p>The boundary is not the programming library. OpenAI&#39;s current guide describes both model-generated code and structured computer actions; the application executes those requests and owns the environment and permissions. A model generating Playwright code at runtime still supplies the controlling decisions. A model calling a fixed “attach this document to this ticket” function can instead rely on prepared execution inside that function. The same guide notes that a computer call&#39;s <code>completed</code> status means generation of the call finished; the application must still execute it. <a href="https://developers.openai.com/api/docs/guides/tools-computer-use">OpenAI computer use</a></p>
+</div>
+
+<div id="L40"><p>This distinction changes how to handle a failure. If a locator no longer matches before any write, visual interpretation may help locate the permitted control or diagnose the changed page. If submission may already have happened, a more flexible model does not settle that uncertainty. Nor does it supply missing permission. Keep those cases separate so a fallback repairs the failure that actually occurred.</p>
+</div>
+
+<h2 id="L42">3. A resumed run must recognize the same business operation</h2>
+
+<div id="L44"><p>An idempotent operation can be repeated without adding the same effect again under its contract. The contract&#39;s scope matters. Stripe API v1 saves the first status and response body after endpoint execution begins, including <code>500</code> errors. A replay with the same key returns that saved response. Keys may be removed after they are at least 24 hours old; reuse after removal can start a new request. Changed parameters are rejected, and some failures before execution do not create a saved result. <a href="https://docs.stripe.com/api/idempotent_requests">Stripe idempotent requests</a></p>
+</div>
+
+<div id="L46"><p>Stripe API v2 behaves differently. A replay uses the same key for the same API, within the same account or sandbox and within 30 days. It skips successful work and can retry failed or partially failed work, returning an updated response or an explanatory error. This is why an integration needs the rules for its actual namespace and endpoint. A generic instruction to “retry idempotently” omits the information needed to decide what the retry will do. <a href="https://docs.stripe.com/api-v2-overview#idempotency">Stripe API v2 idempotency</a></p>
+</div>
+
+<div id="L48"><p>An uncertain outcome is the important operational case. A dropped connection does not reveal whether the server acted. Stripe&#39;s v1 guidance treats a <code>500</code> as potentially having side effects, limits unresolved same-key retries to the first 24 hours, and then calls for reconciliation through the relevant object, request records or events. It also explicitly recommends persisting an operation&#39;s key across separate SDK calls or process restarts. <a href="https://docs.stripe.com/error-low-level">Stripe advanced error handling</a></p>
+</div>
+
+<div id="L50"><p>For an enterprise workflow, retain the logical operation, its parameters, destination account and any returned identifiers outside the model&#39;s conversation. A restarted agent should recover that attempt rather than create a new identity because it received the same assignment again. A saved retry count alone cannot establish what already happened.</p>
+</div>
+
+<div id="L52"><p>Changing routes has the same problem. If an API submission times out, pressing Submit in the browser does not automatically inherit the API&#39;s duplicate protection. The browser may help inspect the existing result; a new write needs a reason to be safe. A shared business key enforced across both routes, or a documented state-setting operation that can safely be repeated, may provide that reason. Without such a mechanism, reconcile the original attempt first. This is an architectural inference from the scoped contracts, not a claim that every API/UI pair creates duplicates.</p>
+</div>
+
+<div id="L54"><p>Even readback needs its own interpretation. Stripe documents that v2 lists are eventually consistent by default, so an immediate empty list need not prove that an earlier creation failed. The observation used for recovery must distinguish absence from delayed visibility. When the available interface cannot settle the outcome, retain the unresolved state and hand it to someone who can investigate it. <a href="https://docs.stripe.com/api-v2-overview">Stripe API v2 overview</a></p>
+</div>
+
+<h2 id="L56">4. Compare the authority actually granted</h2>
+
+<div id="L58"><p>An API is useful when its authorization model fits the task. GitHub Apps illustrate the distinction: endpoint documentation specifies required permissions; a user access token is constrained by both the user&#39;s and the app&#39;s permissions, while an installation token depends on the app&#39;s permissions. The existence of a token does not establish access to every required operation. <a href="https://docs.github.com/en/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app">GitHub App permissions</a></p>
+</div>
+
+<div id="L60"><p>A browser session carries the authority of its signed-in account. Playwright warns that saved authentication state can contain cookies and headers usable to impersonate that account. Isolating browser contexts separates sessions; it does not reduce permissions in the application. Consequently, a broadly privileged API token can be a worse fit than a narrowly restricted browser account. Compare actual identities, allowed records and operations, rather than treating either transport as inherently safe. <a href="https://playwright.dev/docs/auth">Playwright authentication</a></p>
+</div>
+
+<div id="L62"><p>The origin of content matters separately. A customer&#39;s instruction embedded in a ticket remains customer content whether it arrives as JSON or rendered text. It cannot authorize changes to another account or redirect an attachment to a new destination. OWASP describes indirect injection through issue descriptions and other external material, and recommends enforcing permissions and validating tool parameters outside the model. Applying that guidance here means the execution component restricts the target and change to the authorized job. Prompt wording alone does not enforce that restriction. <a href="https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html">OWASP prompt-injection guidance</a></p>
+</div>
+
+<div id="L64"><p>Provider requirements also affect how much work can run unattended. OpenAI&#39;s computer-use integration guidance distinguishes actions requiring confirmation at execution time, specified actions for which explicit initial permission can suffice, and actions requiring human takeover. Its action-time examples include sending to a third party and confirming financial transactions; its prior-permission examples include specified uploads and data use. Those rules belong to that integration. They neither impose approval before every click on all systems nor disappear because a company calls a workflow internal. <a href="https://developers.openai.com/api/docs/guides/tools-computer-use-integration#handle-user-confirmation-and-consent">OpenAI confirmation and consent guidance</a></p>
+</div>
+
+<div id="L66"><p>Plan human handling around the particular interruption: an approval, an authentication challenge, missing authority or an unresolved write. Give the person the proposed action or the last known result so they can make the needed decision. A repeated generic confirmation prompt adds work without necessarily clarifying either permission or completion.</p>
+</div>
+
+<h2 id="L68">5. Follow one hybrid job through an interrupted submission</h2>
+
+<div id="L70"><p>Consider a hypothetical support ticket requesting a service-summary PDF in the customer&#39;s preferred language. The agreed job is to save the document-language preference, generate the PDF, attach it to that ticket and mark the ticket ready for a reply. Sending the customer that reply is a separate operation.</p>
+</div>
+
+<div id="L72"><p>Assume the supported API covers ticket and customer reads, the preference update, attachment and internal ticket status. A company-operated document generator exposes creation only through its UI. Assume it accepts a request reference and provides a history view that can identify pending and completed jobs by that reference. These are scenario assumptions to check in the chosen application. The history view does not, by itself, make creation idempotent.</p>
+</div>
+
+<div id="L74"><p>The workflow owner authorizes the specified preference change and the document&#39;s destination in the support system. Any confirmation required by the selected integration still occurs at the relevant action. An existing job record retains the ticket and customer IDs, the requested language, the request revision, the generation reference and the results already confirmed. Only one worker owns the current attempt, so two runs do not independently submit its unresolved generation step.</p>
+</div>
+
+<div id="L76"><p><strong>Read and update through the API.</strong> Retrieve the exact ticket and customer, then change the allowed preference field. Record evidence that the update succeeded, using the endpoint&#39;s actual result and replay semantics. If the request has changed since the job began, re-evaluate the remaining work; an earlier language choice is not automatically the customer&#39;s current instruction.</p>
+</div>
+
+<div id="L78"><p><strong>Generate through the browser.</strong> A prepared DOM path is a reasonable starting point for stable, named controls. It opens the correct customer, selects the language and template, and submits the retained reference. If the layout has changed before submission, a visual model may help interpret it, provided the exact target and permitted action remain checkable. If it is only a renamed known control, repairing the script may be the simpler ongoing solution.</p>
+</div>
+
+<div id="L80"><p>Now suppose the browser disconnects immediately after submission. The preference update is complete; generation is unresolved. Restarting the whole job would discard that distinction. On resumption, inspect history for the same reference. A matching completed job supplies the document ID. A pending job should be followed to its outcome. Another submission is justified only by authoritative evidence that the earlier attempt did not start, or by a documented mechanism that makes repetition safe. If history is ambiguous, the support operator receives the ticket ID, reference and last known state to investigate the existing attempt.</p>
+</div>
+
+<div id="L82"><p><strong>Attach and finish the internal job.</strong> Check that the resulting document belongs to the intended customer and uses the requested language and template. Attach that exact document to the original ticket. If the attachment result is lost, reconcile that operation before attaching again. Move the ticket to ready only once the required attachment is confirmed. A failure here leaves document generation complete and attachment or status unresolved; it does not require generating another PDF.</p>
+</div>
+
+<div id="L84"><p>This design uses a browser for one coverage gap. Visual control is an option where interpretation helps, rather than a required addition to every step. An entirely browser-based implementation could still be preferable for a small workload with stable paths, suitable permissions and inexpensive verification, if maintaining a separate API integration would cost more than it saves. Conversely, if the UI cannot expose enough state to recover generation, broadening the model&#39;s freedom does not repair the missing evidence.</p>
+</div>
+
+<h2 id="L86">6. Let completion and maintenance costs decide the local choice</h2>
+
+<div id="L88"><p>APIs have operating obligations too. GitHub recommends webhooks where possible, paced requests and explicit handling of rate-limit responses. UI paths need maintenance when controls or business steps change. Visual interaction adds model execution and observations; all routes can incur verification, retries and human handling. Documentation establishes these responsibilities without measuring their size in a particular team. <a href="https://docs.github.com/en/rest/using-the-rest-api/best-practices-for-using-the-rest-api">GitHub REST API best practices</a></p>
+</div>
+
+<div id="L90"><p>Compare routes over the same eligible workload and period using a proposed accounting model:</p>
+</div>
+
+<div id="L92"><p><strong>Cost per verified completed job = (attributed setup and migration cost + maintenance cost + all execution and verification cost + human handling cost) / verified completed jobs.</strong></p>
+</div>
+
+<div id="L94"><p>Include failed attempts in execution cost. Include required approvals, authentication interruptions, reconciliation and corrections in human cost. Assisted completions can count as completed jobs when their full labor is included, but show their share separately from automatic completions. Also report unresolved and incorrectly completed cases; dropping difficult work must not make a route appear cheap. If no job meets the completion definition, the ratio is undefined. This is an accounting proposal, not a measured result.</p>
+</div>
+
+<div id="L96"><p>Start a bounded pilot with one recurring workflow whose expected results the operations owner can inspect. The engineer maps its actual operations and permissions to the candidate routes. Alongside routine cases, include an interrupted submission and restart, and any interface change or permission problem that is material to this workflow. Record verified outcomes, elapsed time, human effort and maintenance work. Show initial integration effort separately from recurring effort, then compare both over a common planning period. Set acceptable completion and turnaround requirements from the team&#39;s service needs; these sources provide no universal target.</p>
+</div>
+
+<div id="L98"><p>Revisit the route when a specific condition changes. If the document generator gains a suitable supported endpoint, compare the avoided browser maintenance and recovery work with migration and revalidation effort. If a frequently used visual path becomes predictable, encoding its stable steps may reduce repeated interpretation. Preserve the identity and state of unfinished jobs during either change, or complete them through their existing route, so migration does not repeat an unresolved write.</p>
+</div>
+
+<div id="L100"><p>The practical default is an API for operations it adequately supports, prepared DOM automation for stable UI gaps, and visual interpretation where it supplies necessary capability. A hybrid earns its extra coordination when it closes a real gap and preserves a recoverable business result across the handoff.</p>
+</div>
+
+<div id="L102"><p><em>This analysis uses primary documentation read on 5 November 2026. The support workflow is hypothetical; no installed-product trial, production deployment or comparative performance measurement was conducted. <a href="sources.html">Source notes</a> identify the relevant passages and their limits.</em></p>
+</div></article></main></body></html>

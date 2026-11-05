@@ -16,7 +16,7 @@ Windows needed a writable short workspace temporary path, an extended path for d
 
 Three independently constructed short tasks covered a library pilot and unapproved proposal, a four-dimension bike-storage comparison, and a depot count with a stale total. Each run received the same source, old text, current text and request. First outputs and execution traces were retained outside the repository.
 
-The native run read task inputs only. The methods run also read the current Skill and continuity guide. The managed run additionally used the real CLI to save assessments, select the current artifact and update requirements. All used the same signed-in Codex default configuration, without a model override. Host instructions/environment were inherited; this was not a fully isolated experiment.
+The native run read task inputs only. The methods run also read the current Skill and continuity guide. The managed run additionally used the real CLI to save assessments, select the current artifact and update requirements. All used the same signed-in Codex default configuration, without a model override. Agent tool instructions/environment were inherited; this was not a fully isolated experiment.
 
 | Mode | Wall seconds | Returned input tokens | Cached input subset | Output tokens | Commands |
 | --- | ---: | ---: | ---: | ---: | ---: |

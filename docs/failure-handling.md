@@ -31,7 +31,7 @@ For an ordinary report:
 1. Preserve the original review and identify the defect, report version, passage, requirement/source, consequence and proposed correction in the existing conversation or files. Keep a separate draft copy before editing if an original report is not already retained.
 2. Correct the affected text and claims, checking unfinished requirements against the evidence; never change the agreed bounds merely to make the count pass. For CLI/MCP-managed tasks, update the relevant records and use `check-draft` when the correction affects its mechanical checks.
 3. Check the final decision against the same numbers and conditions as the comparison. Treat missing observations as unknown. Inspect required coverage after shortening.
-4. Return the revised report to the affected independent reviewers, resolve necessary findings, and complete current-version independent content review, audit and final acceptance. Skill-only work uses host collaboration and existing files; CLI/MCP-managed tasks call `research_review` with `revision: true`, then `finish` after acceptance. Already authorized repairs need no extra permission.
+4. Return the revised report to the affected independent reviewers, resolve necessary findings, and complete current-version independent content review, audit and final acceptance. Skill-only work uses agent tool collaboration and existing files; CLI/MCP-managed tasks call `research_review` with `revision: true`, then `finish` after acceptance. Already authorized repairs need no extra permission.
 
 ## Correct the cause and continue
 

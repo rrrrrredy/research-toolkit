@@ -2,7 +2,7 @@
 
 An original English research case on choosing an execution route for recurring business workflows.
 
-[Read the report](report.md) · [Interactive case](https://rrrrrredy.github.io/research-toolkit/?lang=en&case=migration#case)
+[Read the report](report.md) · [Current homepage case](https://rrrrrredy.github.io/research-toolkit/#case)
 
 Choose a route for the business operation it must complete, then specify what proves completion and how an uncertain result can be recovered. Supported APIs, deterministic DOM automation, and visual model interaction expose different contracts and operating work. New API coverage can remove a gap without making migration economical.
 

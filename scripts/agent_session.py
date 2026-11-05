@@ -1,4 +1,4 @@
-"""Host selection and the common event boundary for Agent execution."""
+"""Agent tool selection and the common event boundary for Agent execution."""
 from __future__ import annotations
 
 import os
@@ -22,15 +22,15 @@ def select_host(host=None):
         if len(detected) == 1:
             host = detected[0]
     if host not in HOSTS:
-        raise ValueError("host: specify the current host with --host claude, opencode or codex "
-                         "(or RESEARCH_TOOLKIT_HOST). No host is selected as a fallback.")
+        raise ValueError("host: specify the current agent tool with --host claude, opencode or codex "
+                         "(or RESEARCH_TOOLKIT_HOST). No agent tool is selected as a fallback.")
     return host
 
 
 def executable_for(host, executable=None):
     value = executable or shutil.which(host + ".exe") or shutil.which(host)
     if not value:
-        raise OSError(f"{host}: executable not found; use the installed host or --executable PATH.")
+        raise OSError(f"{host}: executable not found; use the installed agent tool or --executable PATH.")
     path = Path(value).expanduser().resolve()
     if not path.is_file():
         raise OSError(f"executable: file not found: {path}")
@@ -57,12 +57,12 @@ def native_id(host, previous):
     prefix, separator, identity = previous.partition(":")
     if separator:
         if prefix != host or not identity:
-            raise ValueError(f"host_task {previous!r} belongs to another host; resume its owner with --host {prefix}.")
+            raise ValueError(f"host_task {previous!r} belongs to another agent tool; resume its owner with --host {prefix}.")
         return identity
     # v2.2.0 saved unqualified Codex IDs. Keep those tasks resumable.
     if host == "codex":
         return previous
-    raise ValueError(f"host_task {previous!r} has no {host} identity; keep its original host or use native handoff.")
+    raise ValueError(f"host_task {previous!r} has no {host} identity; keep its original agent tool or use native handoff.")
 
 
 class CodexAgentSession:

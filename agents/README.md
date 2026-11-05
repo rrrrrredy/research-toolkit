@@ -8,9 +8,11 @@ The [entry instructions](../SKILL.md) and [Chinese reading version](../SKILL.zh-
 
 **Start research:** use the [complete research guide](../docs/quickstart.md) and shared methods. Develop the research to the requested depth; MCP is optional. [Continue, revise or update](../docs/usage-modes.md#continue-existing-research) existing work.
 
-In Codex, Claude Code or OpenCode, the agent follows the [Skill entry](../SKILL.md) to configure basic usage recording for both Skill installations and repository-link use. The scripts are bundled; users do not separately install or report anything. See [recorded fields and controls](../docs/usage-data.md).
+The methods can be read directly, without first installing a Skill or MCP. In Codex, Claude Code and OpenCode, the agent also downloads or reuses a complete local copy and uses Python 3.10+ to configure basic usage recording for the current project. Reload or reopen an already-running Codex session to activate the new configuration. Continue research if Python or command access is unavailable, or the configuration is not yet active. Basic events are sent by default without conversations, reports or local paths; recording can be disabled, and an existing off setting is preserved. [Setup and controls](../docs/usage-data.md).
 
-## Use without installation
+<a id="use-without-installation"></a>
+
+## Read the methods directly
 
 | Available input | Method |
 | --- | --- |
@@ -24,17 +26,17 @@ These methods apply instructions to the task. They do not register a native Skil
 
 <a id="chat-only-use"></a>
 
-The [Agent execution adapter](../docs/usage-modes.md#agent-host-execution) shares research inputs, saving, dependencies and review logic across native host sessions. Hosts with native subagents can execute the shared assignments directly, without an additional script dispatcher.
+The [Agent execution adapter](../docs/usage-modes.md#agent-host-execution) shares research inputs, saving, dependencies and review logic across agent sessions. Agent tools with native subagents can execute the shared assignments directly, without an additional script dispatcher.
 
 ## Native collaboration and chat-only use
 
-In hosts such as Codex and Claude Code, use the host's own subagent tools for research, assembly and independent assessment. No separate API setup is required. Follow the [shared handoff methods](../references/subagents-and-review-loop.md): give each worker current requirements, the bounded question and accessible originals; retain complete contributions and actual host identities.
+In agent tools such as Codex and Claude Code, use the agent tool's own subagent tools for research, assembly and independent assessment. No separate API setup is required. Follow the [shared handoff methods](../references/subagents-and-review-loop.md): give each worker current requirements, the bounded question and accessible originals; retain complete contributions and actual agent identities.
 
-Seven separate content-review perspectives, domain review, independent audit and final acceptance are part of a complete research task. Production contributors do not act as their own independent reviewers. The host runs these agents; CLI/MCP, when selected, prepares and records their work through `review`. The [review guide](../docs/review-completion.md) explains the connection.
+Seven separate content-review perspectives, domain review, independent audit and final acceptance are part of a complete research task. Production contributors do not act as their own independent reviewers. The agent tool runs these agents; CLI/MCP, when selected, prepares and records their work through `review`. The [review guide](../docs/review-completion.md) explains the connection.
 
 An interface without subagent or file capability can still help read, analyze and draft. Independent work then needs separate available sessions with the full assignment, report and evidence. Retain or export the effective requirements, originals, current draft and unfinished work for the next session. Until the independent responsibilities are completed, identify the result as work in progress rather than replacing them with author self-review.
 
-Skill-only work needs no fixed tool registry or receipt. It preserves the substantive research and review work using the host's available files or context.
+Skill-only work needs no fixed tool registry or receipt. It preserves the substantive research and review work using the agent tool's available files or context.
 
 ## Install for repeated use
 
@@ -44,7 +46,7 @@ Use a complete repository checkout for local installation so that references, he
 
 ## Choose your tool
 
-Choose the client you actually use; a model name alone does not determine Skill support. Native guides cite the host's official directory and invocation requirements. File/text guides apply instructions without registering a Skill.
+Choose the client you actually use; a model name alone does not determine Skill support. Native guides cite the agent tool's official directory and invocation requirements. File/text guides apply instructions without registering a Skill.
 
 | Client | First-task route | Guide |
 | --- | --- | --- |
@@ -68,7 +70,7 @@ Choose the client you actually use; a model name alone does not determine Skill 
 
 Confirm the actual loaded path and readable example files using the card's troubleshooting step. Availability depends on your client version, account and permissions; the [file/text route](#use-without-installation) remains available wherever the session can read the supplied material.
 
-For an unlisted agent, check its official `SKILL.md` support first. Use its documented Skill directory if supported; otherwise provide the files or text explicitly. Neither route adds web search, persistent storage or command execution to the host.
+For an unlisted agent, check its official `SKILL.md` support first. Use its documented Skill directory if supported; otherwise provide the files or text explicitly. Neither route adds web search, persistent storage or command execution to the agent tool.
 
 These are setup instructions. Installation and loading checks establish which files are available; research quality is assessed through the [evaluation materials](../evals/README.md) and content reviews.
 

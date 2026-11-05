@@ -68,13 +68,13 @@ Use stable requirement IDs. A `satisfied` requirement remains applicable to futu
 
 Mandatory reading uses `reading_requirement` (`full_text` or `relevant_sections`) with a nonempty distinct `required_source_ids` list. Source `read_scope` records the actual reading, while `read_evidence` and `locator` identify readable evidence and location; `evidence_path` supplies original UTF-8 content when needed. A saved URL or successful download is not evidence of reading. Registered IDs in `counter_evidence` include their originals in review input alongside supporting sources. See [save parameters](../docs/usage-modes.md#save-research-records-and-drafts) for current syntax.
 
-Register substantive contributions through the existing draft record, with their real host reference, input versions, unit/dependency information and handoff. Keep local outlines with their corresponding analysis; connect them through selected files or actual unit dependencies as described in [handoff](../docs/usage-modes.md#research-delegation-and-handoff). Keep full artifacts and previous versions. The task's named main writer registers the actual main report; the latest saved file does not become the main report automatically. A complete contribution or complete draft does not imply final delivery.
+Register substantive contributions through the existing draft record, with their real agent reference, input versions, unit/dependency information and handoff. Keep local outlines with their corresponding analysis; connect them through selected files or actual unit dependencies as described in [handoff](../docs/usage-modes.md#research-delegation-and-handoff). Keep full artifacts and previous versions. The task's named main writer registers the actual main report; the latest saved file does not become the main report automatically. A complete contribution or complete draft does not imply final delivery.
 
 `progress.json.stage` uses `brief`, `collect`, `analyze`, `draft`, `review`, `revise` or `final`; its status and advancement follow the [protocol contract](research-standard.md#protocol-contract). Existing optional histories and `stale_count` remain readable but are not new mandatory records.
 
 ### Context Recovery Protocol
 
-Use `status` to recover effective requirements, current artifacts, research outputs, input changes and unfinished work. Read the relevant task specification, original source material and complete contributions before continuing a dependent assignment. The [continuity method](task-continuity.md) covers host handoff and context compression. Do not ask answered questions again or reconstruct missing history.
+Use `status` to recover effective requirements, current artifacts, research outputs, input changes and unfinished work. Read the relevant task specification, original source material and complete contributions before continuing a dependent assignment. The [continuity method](task-continuity.md) covers agent handoff and context compression. Do not ask answered questions again or reconstruct missing history.
 
 ### Delivery records
 

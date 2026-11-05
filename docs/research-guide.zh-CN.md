@@ -4,7 +4,7 @@
 
 [项目介绍](../README.zh-CN.md) · [开始研究](quickstart.zh-CN.md) · [安装与工具](usage-modes.zh-CN.md)
 
-Research Toolkit 供宿主中的 Agent 使用，面向具体读者形成充分、有依据的研究。需求决定要解释什么、展开到什么深度，方法与协作围绕这一成果组织。
+Research Toolkit 供Codex、Claude Code 等工具中的 Agent 使用，面向具体读者形成充分、有依据的研究。需求决定要解释什么、展开到什么深度，方法与协作围绕这一成果组织。
 
 ## 研究请求示例
 
@@ -60,9 +60,9 @@ Research Toolkit 供宿主中的 Agent 使用，面向具体读者形成充分�
 
 ## 任务记录与接续
 
-纯 Skill 利用宿主已有文件或上下文保留原始要求、来源、分析、稿件和审阅结果，无需复刻固定 CLI／MCP 台账；实质独立职责仍然相同。
+纯 Skill 利用 Agent 工具已有文件或上下文保留原始要求、来源、分析、稿件和审阅结果，无需复刻固定 CLI／MCP 台账；实质独立职责仍然相同。
 
-工具管理任务复用来源／主张记录、任务规格、要求台账、成果与审阅日志。`status` 提供共同输入，`save` 保存成果与依赖，`review` 连接宿主独立任务，`finish` 在当前验收完成后生成回执。具体字段和调用以[使用指南](usage-modes.zh-CN.md)为准。
+工具管理任务复用来源／主张记录、任务规格、要求台账、成果与审阅日志。`status` 提供共同输入，`save` 保存成果与依赖，`review` 连接 Agent 工具独立任务，`finish` 在当前验收完成后生成回执。具体字段和调用以[使用指南](usage-modes.zh-CN.md)为准。
 
 已满足但仍适用的要求继续约束改稿。新指令更新受影响要求与工作，不抹去无冲突的原始目标。旧成果和回执保持原版本，接续研究形成新的当前成果。
 
@@ -83,6 +83,6 @@ Research Toolkit 供宿主中的 Agent 使用，面向具体读者形成充分�
 
 ## 仓库与维护
 
-`SKILL.md` 是统一入口，`references/` 保存方法原件，`scripts/` 提供 CLI／MCP 共同实现，`agents/` 说明宿主接入，`docs/` 承载使用与网站。`plugins/research-toolkit/` 从共同原件生成，`examples/` 展示接口，`evals/` 保留研究及相关检查。
+`SKILL.md` 是统一入口，`references/` 保存方法原件，`scripts/` 提供 CLI／MCP 共同实现，`agents/` 说明 Agent 工具接入，`docs/` 承载使用与网站。`plugins/research-toolkit/` 从共同原件生成，`examples/` 展示接口，`evals/` 保留研究及相关检查。
 
 维护和实验执行说明放在[贡献指南](../CONTRIBUTING.zh-CN.md)、[评测文档](../evals/README.zh-CN.md)与[网站维护](site-maintenance.md)，不是每次研究的额外步骤。[MIT 许可](../LICENSE)。

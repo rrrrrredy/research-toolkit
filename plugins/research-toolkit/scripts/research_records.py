@@ -218,7 +218,7 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                         item.get('unit_id') == unit_id and safe_path(root, item['path']) != path for item in outputs):
                     raise ValueError('draft.unit_id: retain the registered unit and its original artifact path; use a new ID for different work.')
                 if not isinstance(draft.get('host_task'), str) or not draft['host_task'].strip():
-                    raise ValueError('draft.host_task: identify the actual producing host task/session when saving a research unit.')
+                    raise ValueError('draft.host_task: identify the actual producing agent task/session when saving a research unit.')
                 event['unit_id'] = unit_id
                 event['unit_complete'] = draft.get('complete', False)
             if 'question' in draft:
@@ -262,19 +262,19 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                                          + '). Save the current draft with complete=false; finish or revise and independently review the affected upstream work.')
             if 'host_task' in draft:
                 if not isinstance(draft['host_task'], str) or not draft['host_task'].strip():
-                    raise ValueError('draft.host_task: retain the actual host task/session reference as text.')
+                    raise ValueError('draft.host_task: retain the actual agent task/session reference as text.')
                 event['host_task'] = draft['host_task']
             handoff = draft.get('handoff')
             if handoff is not None:
                 if (not isinstance(handoff, dict) or set(handoff) - {'summary', 'pending', 'decisions', 'to'}
                         or not isinstance(handoff.get('summary'), str) or not handoff['summary'].strip()):
-                    raise ValueError('draft.handoff: use summary, optional pending/decisions lists and to (the receiving host task/session).')
+                    raise ValueError('draft.handoff: use summary, optional pending/decisions lists and to (the receiving agent task/session).')
                 for field in ('pending', 'decisions'):
                     if field in handoff and (not isinstance(handoff[field], list) or any(
                             not isinstance(value, str) or not value.strip() for value in handoff[field])):
                         raise ValueError(f'draft.handoff.{field}: use a list of substantive points; retain full analysis in the artifact.')
                 if 'to' in handoff and (not isinstance(handoff['to'], str) or not handoff['to'].strip()):
-                    raise ValueError('draft.handoff.to: use the receiving host task/session reference.')
+                    raise ValueError('draft.handoff.to: use the receiving agent task/session reference.')
                 if not event.get('host_task'):
                     raise ValueError('draft.host_task: identify the sender of the handoff.')
                 event['handoff'] = handoff
@@ -283,7 +283,7 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
             main_owner = current.get('owner')
             owner = main_owner if (writes_current or draft.get('main')) and main_owner else previous.get('owner') if unit_id else None
             if owner and event.get('host_task') != owner:
-                raise ValueError(f'draft.host_task: {owner} owns this manuscript or research unit. Save an explicit handoff.to from that owner before another host writes it.')
+                raise ValueError(f'draft.host_task: {owner} owns this manuscript or research unit. Save an explicit handoff.to from that owner before another agent writes it.')
             if 'based_on' in draft or prepared or previous.get('based_on'):
                 for input_name, checksum in supplied_inputs.items():
                     if isinstance(input_name, str) and input_name.startswith('record:'):
@@ -321,7 +321,7 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                     backups.append((backup, original, None))
                     event['previous_version'] = {'path': backup, 'sha256': sha256_file(path)}
             if unit_id:
-                # Retain the saved version even if a host subsequently edits its
+                # Retain the saved version even if an agent tool subsequently edits its
                 # working file directly. Handoff summaries never replace it.
                 snapshot = f'logs/record-backups/{operation_id}/saved/{name}'
                 backups.append((snapshot, content.encode('utf-8') if 'content' in draft else original, None))

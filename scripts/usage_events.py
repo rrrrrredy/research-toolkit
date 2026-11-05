@@ -1,4 +1,4 @@
-"""Allowlisted usage events shared by CLI, MCP and native-host observers.
+"""Allowlisted usage events shared by CLI, MCP and usage recording for agent tools.
 
 Research records remain local. This module never uploads a record or exception
 verbatim, and never changes the research operation's result.

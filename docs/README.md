@@ -7,7 +7,7 @@
 - [Start research](quickstart.md): one complete entry for long-form research, in-depth analysis, revision and updates.
 
 - [Usage and integration](usage-modes.md): repository, file, and text inputs; optional Skill, plugin, and MCP; review configuration.
-- [Use with your agent](../agents/README.md): common input methods, chat-only limits, and host-specific setup.
+- [Use with your agent](../agents/README.md): common input methods, chat-only limits, and tool-specific setup.
 - [Updating an installation](installation-versioning.md): choose and replace the intended package copy.
 
 ## Find methods for the current work
@@ -26,6 +26,9 @@ These are on-demand entry points within one study, not a reading list to finish 
 Consult [recurring research problems](../references/gotchas.md) when a specific problem arises; no separate workflow is needed.
 
 ## Reports and cases
+
+- [November English report](case-study/api-or-browser-2026-11/report.md) and [complete archive](case-study/api-or-browser-2026-11/README.md): current API/browser research, original drafts, analyses and independent reviews.
+- [November Chinese report](case-study/office-agents-2026-11/report.md) and [complete archive](case-study/office-agents-2026-11/README.md): the six-product office-agent study, refreshed to 5 November.
 
 - [Updating an existing research report](https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/): Old report, new source checks, concrete revisions and retained limits.
 
@@ -52,8 +55,8 @@ Directories retain their content roles; shared implementations connect the resea
 | Location | What it maintains |
 | --- | --- |
 | `SKILL.md` and `references/` | One entry, research standards and on-demand methods. |
-| `scripts/` | Shared CLI/MCP logic: `task_context.py` assembles work inputs, `research_records.py` saves records and outputs, and `research_workflow.py` connects research, native-host review and delivery operations. |
-| `docs/` and `agents/` | Usage, website and host integration; hosts run agents and carry messages. |
+| `scripts/` | Shared CLI/MCP logic: `task_context.py` assembles work inputs, `research_records.py` saves records and outputs, and `research_workflow.py` connects research, native-agent review and delivery operations. |
+| `docs/` and `agents/` | Usage, website and agent tool integration; agent tools run agents and carry messages. |
 | `plugins/research-toolkit/` | Package contents generated from shared sources, without a separate method set. |
 | `examples/` and `evals/` | Request examples, research records and relevant checks; historical evidence stays intact. |
 

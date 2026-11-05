@@ -23,7 +23,7 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 范围与篇幅：[填写研究范围、信息截止日和预期深度。]
 已有材料：[提供来源、文件或已有报告。]
 按当前工作读取完整方法，充分展开证据、比较、机制解释和综合判断。
-交付完整报告与可用引用，保留来源和完整分析用于交接，由宿主完成独立审阅、审计和验收。
+交付完整报告与可用引用，保留来源和完整分析用于交接，由 Kimi Code CLI 完成独立审阅、审计和验收。
 ```
 
 [统一研究指南](../docs/quickstart.zh-CN.md)提供完整请求和接入说明。
@@ -36,4 +36,4 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 git -C .agents/skills/research-toolkit status --short
 ```
 
-无输出表示副本干净；路径错误通常表示执行目录不对或克隆失败。有变更时可能存在缺失或修改过的文件，更新前保留自己的改动。文件存在但技能未出现时，重新打开项目或会话，检查宿主的技能设置。也可给出已安装 `SKILL.md` 的准确路径，要求 Agent 直接读取。[其他输入方式与边界](README.zh-CN.md)。
+无输出表示副本干净；路径错误通常表示执行目录不对或克隆失败。有变更时可能存在缺失或修改过的文件，更新前保留自己的改动。文件存在但技能未出现时，重新打开项目或会话，检查 Kimi Code CLI 的技能设置。也可给出已安装 `SKILL.md` 的准确路径，要求 Agent 直接读取。[其他输入方式与边界](README.zh-CN.md)。

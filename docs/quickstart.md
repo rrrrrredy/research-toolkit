@@ -2,7 +2,7 @@
 
 [English](quickstart.md) · [简体中文](quickstart.zh-CN.md) · [Research Toolkit](../README.md)
 
-Use one research entry for long reports, substantial revisions and continuing updates. The host agents use the methods for their current work; Toolkit connects the requirements, source material, analysis, writing and independent assessment. CLI/MCP task management is optional.
+Use one research entry for long reports, substantial revisions and continuing updates. The agents use the methods for their current work; Toolkit connects the requirements, source material, analysis, writing and independent assessment. CLI/MCP task management is optional.
 
 ## 1. Copy the request and begin
 
@@ -31,14 +31,14 @@ The word range belongs to this example, not every research task. Use existing co
 
 ## 2. Use your existing agent
 
-Choose the [entry](../README.md#which-should-i-use) your host supports:
+Choose the [entry](../README.md#which-should-i-use) your agent tool supports:
 
-- **Skill:** supply the repository or install the Skill; use the host's research and subagent capabilities. No fixed CSV/JSONL records are required.
+- **Skill:** supply the repository or install the Skill; use the agent tool's research and subagent capabilities. No fixed CSV/JSONL records are required.
 - **Plugin:** install the [package](usage-modes.md#install-the-plugin), reopen the session and select Toolkit. The Skill and MCP are included.
 - **MCP:** connect the [local server](usage-modes.md#connect-mcp-separately) and make the same Skill available.
 - **CLI:** use Python 3.10+ and `scripts/research_workflow.py`; MCP dependencies are unnecessary.
 
-Codex, Claude Code and other capable hosts run their own research and review agents. No separate API setup is needed for these host-native tasks. The same model can serve different independent contexts. [Host setup](../agents/README.md) explains installation; [review completion](review-completion.md) explains native assignments and retained responses.
+Codex, Claude Code and other capable agent tools run their own research and review agents. No separate API setup is needed for these native tasks. The same model can serve different independent contexts. [Agent tool setup](../agents/README.md) explains installation; [review completion](review-completion.md) explains native assignments and retained responses.
 
 ### Research from scratch
 
@@ -46,13 +46,13 @@ Codex, Claude Code and other capable hosts run their own research and review age
 | --- | --- | --- |
 | Understand and outline | Retain the user's original questions and constraints; establish an outline and meaningful research units with real dependencies. Assign researchers, a main-draft owner and independent review responsibilities. | `start` creates a task; `status` recovers existing work, effective requirements and the current outline. |
 | Investigate and analyze | Research agents read originals, compare, calculate and explain their assigned questions. The lead continues synthesis and resolves cross-unit questions. | `status.work` supplies relevant records and original material; `save` retains sources, claims and substantial analysis. |
-| Develop and hand off | Complete an analysis or argument unit, including its support, conditions and unresolved questions. Independent review examines important premises before dependent work relies on them. | Save the result and its actual host reference, input bindings and handoff; read the original result when integrating it. |
+| Develop and hand off | Complete an analysis or argument unit, including its support, conditions and unresolved questions. Independent review examines important premises before dependent work relies on them. | Save the result and its actual agent reference, input bindings and handoff; read the original result when integrating it. |
 | Assemble progressively | The designated assembling agent reads branch arguments and originals, reconciles definitions and connections, and grows one main draft. New findings update affected units and the outline. | Keep branches separate; explicitly register the main artifact. `status` exposes dependencies and changed inputs for continuation. |
-| Review the whole report | Seven distinct independent agents cover the base perspectives, with relevant domain review. Each reads the complete current report and necessary originals. | `review` prepares the host assignments and retains each actual response and input version. |
+| Review the whole report | Seven distinct independent agents cover the base perspectives, with relevant domain review. Each reads the complete current report and necessary originals. | `review` prepares the agent tool assignments and retains each actual response and input version. |
 | Audit and revise | A separate auditor checks review validity, decisive claims and consequential decisions, and samples passed content from the full report. Authors repair necessary defects; affected work is re-examined. | Use the same `review` operation for the auditor's original result; preserve earlier negative results and revisions. |
 | Accept and deliver | A separate acceptance agent reads the current whole report, effective requirements, audit and corrections. Deliver after necessary work is complete. | `finish` checks the accepted current version and writes the receipt; it does not replace the independent acceptance. |
 
-MCP tools use the `research_` prefix; CLI uses the corresponding subcommand. Use one interface for an operation. Skill-only work follows the middle column using the host's files, conversation and source material; it has the same independent content responsibilities without reproducing the tools' record formats.
+MCP tools use the `research_` prefix; CLI uses the corresponding subcommand. Use one interface for an operation. Skill-only work follows the middle column using the agent tool's files, conversation and source material; it has the same independent content responsibilities without reproducing the tools' record formats.
 
 For the knowledge-assistant question, research can be split among document updates and permissions, route-quality comparisons, and the calculation of a stated workload. The outline preserves every requested dimension; a separate assembling agent connects these results into a decision. Early review examines the comparison's assumptions and calculation method before later conclusions depend on them. Final whole-report reviewers see the assembled argument, not just branch summaries.
 

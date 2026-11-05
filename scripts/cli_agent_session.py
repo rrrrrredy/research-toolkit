@@ -78,7 +78,7 @@ class CLIAgentSession:
                 env.pop(key, None)
             if self.name == "opencode":
                 # A per-process permission envelope, not another research role.
-                # Reuse the host's model/providers; do not write user settings.
+                # Reuse the agent tool's model/providers; do not write user settings.
                 config = json.loads(env.get("OPENCODE_CONFIG_CONTENT") or "{}")
                 # OpenCode checks read patterns relative to its project worktree,
                 # not the absolute filePath. Keep only the selected content-addressed

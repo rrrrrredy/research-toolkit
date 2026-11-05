@@ -441,16 +441,16 @@ def record_plan_change(root, previous, current):
 def review(workspace: Path, task: str, evidence_paths: list[str], artifact="final.md",
            purpose="report_delivery", revision=False, reviewer=None, self_review=None, include_assignment=False,
            host_result=None, scope="full_report", perspectives=None, domains=None, audit=None, *, config=None, runner=run_reviewer) -> dict:
-    """Prepare or receive independent host work using the existing review interface."""
+    """Prepare or receive independent agent tool work using the existing review interface."""
     import host_review
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
     if type(include_assignment) is not bool:
         raise ValueError("include_assignment must be true or false.")
     if reviewer == "self" or self_review is not None:
-        raise ValueError("Author self-review cannot complete independent review. Use the host's separate agents and submit host_result.")
+        raise ValueError("Author self-review cannot complete independent review. Use the agent tool's separate agents and submit host_result.")
     if reviewer not in {None, "independent", "external"}:
-        raise ValueError("reviewer must be independent or external; omit it for native host agents.")
+        raise ValueError("reviewer must be independent or external; omit it for native agents.")
     if config is not None or backend_configured() or reviewer == "external":
         trusted = validate_review_config(config) if config is not None else load_review_config()
         return host_review.run_configured(sys_module(), root, progress, evidence_paths, artifact, purpose,
@@ -493,7 +493,7 @@ def legacy_review(workspace: Path, task: str, evidence_paths: list[str], artifac
     if reviewer not in {"self", "external", "independent"}:
         raise ValueError("Reviewer must be self, external or independent.")
     if self_review is not None and reviewer != "self":
-        raise ValueError("A host-supplied response is accepted only for reviewer=self.")
+        raise ValueError("An agent tool-supplied response is accepted only for reviewer=self.")
     if reviewer == "self":
         if purpose == "evaluation":
             raise ValueError("Evaluations require a separate reviewer context; self is for report delivery.")
@@ -978,7 +978,7 @@ def finish(workspace: Path, task: str, message: str, artifact="final.md", checkl
     require_current_artifact(progress, artifact)
     if progress.get("review_plan", {}).get("contract_version") != 2:
         return {"completed": False, "action_required": "host_agents",
-                "error": "Continue with independent host review, audit and acceptance. Historical receipts remain readable and unchanged."}
+                "error": "Continue with independent agent review, audit and acceptance. Historical receipts remain readable and unchanged."}
     return finish_recorded(workspace, task, message, artifact, checklist)
 
 

@@ -55,7 +55,7 @@ def install(host, project, remove=False):
     path = project/(".codex/hooks.json" if host == "codex" else ".claude/settings.local.json")
     config = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     if not isinstance(config, dict) or not isinstance(config.get("hooks", {}), dict):
-        raise ValueError("Existing host hooks configuration is not an object; preserved")
+        raise ValueError("Existing agent tool hooks configuration is not an object; preserved")
     groups = config.setdefault("hooks", {})
     for event in EVENTS + (["PostToolUseFailure"] if host == "claude" else []):
         existing = groups.get(event, [])

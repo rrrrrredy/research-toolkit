@@ -1,4 +1,4 @@
-"""Execute existing research work and review assignments through the selected Agent host."""
+"""Execute existing research work and review assignments through the selected agent tool."""
 from __future__ import annotations
 
 import argparse
@@ -40,7 +40,7 @@ def reading_paths(root, ref):
 
 
 class ResearchHost:
-    """A running host connection, reusing Toolkit's task and review records."""
+    """A running agent tool connection, reusing Toolkit's task and review records."""
 
     def __init__(self, workspace, task, language="en", *, host=None, executable=None):
         self.workspace, self.task, self.language = Path(workspace).resolve(), task, language
@@ -74,7 +74,7 @@ class ResearchHost:
 
     def observe(self, event):
         # activity.host_task identifies a producer in existing task records.
-        # A host execution observation can also describe an independent reviewer.
+        # An agent tool execution observation can also describe an independent reviewer.
         if "host_task" in event:
             event = {**event, "execution_id": event["host_task"]}
             event.pop("host_task")
@@ -96,7 +96,7 @@ class ResearchHost:
     def submit(self, work, draft, review=None):
         """Use the existing work/draft/review arguments; no new task-state schema."""
         if not work.get("unit_id") or not draft.get("path"):
-            raise ValueError("Host work needs work.unit_id and draft.path to retain its producer and output.")
+            raise ValueError("Research work needs work.unit_id and draft.path to retain its producer and output.")
         if set(draft) - {"path", "kind", "main", "complete", "handoff"}:
             raise ValueError("draft: use path, kind, main, complete and handoff; inputs and host_task come from execution.")
         identity = work["unit_id"]
@@ -106,7 +106,7 @@ class ResearchHost:
         job = previous if previous is not None else {}
         job.update(work=work, draft=draft, review=review,
                    identity=identity, kind="work", failed=False)
-        self.context(job)  # Validate the selection before starting a host task.
+        self.context(job)  # Validate the selection before starting an agent task.
         self.work[identity] = job
         self.refresh()
 
@@ -331,7 +331,7 @@ class ResearchHost:
                         "depends_on": job["work"].get("depends_on", []), "based_on": job["context"]["inputs"]})
                 if not saved.get("ok"):
                     raise ValueError("Original output retained; save rejected: " + json.dumps(saved, ensure_ascii=False))
-                # A requested partial contribution is also a finished host turn.
+                # A requested partial contribution is also a finished agent tool turn.
                 # Only a completion deferred by dependencies needs continuation.
                 job["finished_version"] = job["version"] if complete or not job["draft"].get("complete", True) else None
                 if complete and self.version(job, current) == job["version"]:
@@ -378,8 +378,8 @@ def main():
     parser.add_argument("--request", type=Path, required=True, help="JSON list of existing work/draft/review arguments")
     parser.add_argument("--language", default="en")
     parser.add_argument("--host", choices=("claude", "opencode", "codex"),
-                        help="Current Agent host; otherwise use RESEARCH_TOOLKIT_HOST, host context or a sole installed CLI")
-    parser.add_argument("--executable", help="Native host executable when it is not available on PATH")
+                        help="Current agent tool; otherwise use RESEARCH_TOOLKIT_HOST, agent tool context or a sole installed CLI")
+    parser.add_argument("--executable", help="Agent tool executable when it is not available on PATH")
     args = parser.parse_args()
     with ResearchHost(args.workspace, args.task, args.language, host=args.host, executable=args.executable) as host:
         requests = json.loads(args.request.read_text(encoding="utf-8"))

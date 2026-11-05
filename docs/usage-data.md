@@ -39,7 +39,7 @@ First setup queues an installation event and schedules its upload when recording
 
 ## Recorded fields
 
-Basic events contain version, OS category, host, entry point, install channel/form, time, operation category, success/failure/pending outcome and tool-call duration. Tasks, sessions, child agents, calls and research units use keyed local identifiers; original names and paths are not uploaded. An installation identifier belongs to the local data directory, not a verified person.
+Basic events contain version, OS category, agent tool, entry point, install channel/form, time, operation category, success/failure/pending outcome and tool-call duration. Tasks, sessions, child agents, calls and research units use keyed local identifiers; original names and paths are not uploaded. An installation identifier belongs to the local data directory, not a verified person.
 
 CLI/MCP call counts come from the shared executable entry. Operation notifications from Codex, Claude Code and OpenCode separately cover user turns, known method-file reads, tool use, child-agent start/stop and session compaction; they are not added again as Toolkit calls. Method recording recognizes known method names without uploading arbitrary paths. The recording script activates only sessions explicitly invoking Toolkit and their children. Later actions in an activated session are recorded at session level, not assumed to belong to the same research task. Events without a confirmed task relationship remain unlinked session events.
 
@@ -54,7 +54,7 @@ python scripts/usage_events.py on
 python scripts/usage_events.py delete
 ```
 
-`off` disables recording/upload for this local user and clears pending queues; research continues. Alternatively set `RESEARCH_TOOLKIT_TELEMETRY=off` before starting the host, CLI or MCP to suppress recording/upload in those processes. An environment setting does not change other already-running processes. A request sent before disabling may still be in flight; deletion removes data already received.
+`off` disables recording/upload for this local user and clears pending queues; research continues. Alternatively set `RESEARCH_TOOLKIT_TELEMETRY=off` before starting the agent tool, CLI or MCP to suppress recording/upload in those processes. An environment setting does not change other already-running processes. A request sent before disabling may still be in flight; deletion removes data already received.
 
 `delete` removes this installation's uploaded data; add `--task-root /absolute/path/to/task` for one task. Old private report copies are cleared on the next report refresh. To stop future data as well, run `off` before `delete`.
 

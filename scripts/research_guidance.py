@@ -99,4 +99,4 @@ def guidance(stage: str, language: str = 'en', profile: str = 'full', methods: l
                 entry['content'] += section + '\n\n'
     return {'stage': stage, 'guidance': list(files.values()), 'profile': profile,
             'available_methods': list(METHODS),
-            'profile_policy': ['Use host-native independent perspectives, audit and final acceptance. Historical profile names do not select another research method.']}
+            'profile_policy': ['Use native independent perspectives, audit and final acceptance. Historical profile names do not select another research method.']}

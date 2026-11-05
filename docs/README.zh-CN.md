@@ -27,6 +27,9 @@
 
 ## 报告与案例
 
+- [11 月国内办公 Agent 报告](case-study/office-agents-2026-11/report.md)与[完整档案](case-study/office-agents-2026-11/README.md)：六组产品的当前研究、首稿、分析与独立意见。
+- [11 月原生英文报告](case-study/api-or-browser-2026-11/report.md)与[完整档案](case-study/api-or-browser-2026-11/README.md)：API、浏览器脚本和视觉操作的选择。
+
 - [已有研究报告的实际更新](https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/index.zh-CN.html): 从旧稿到来源核对、具体修订与原始证据，保留实验限制。
 
 - [国内办公 Agent 调研档案](case-study/office-agents/README.md)：初稿、定稿、来源与主张记录，以及修改取舍。
@@ -53,7 +56,7 @@
 | --- | --- |
 | `SKILL.md` 与 `references/` | 统一入口、研究规范及按需方法。 |
 | `scripts/` | CLI／MCP 共用逻辑；`task_context.py` 组织工作输入，`research_records.py` 保存记录与成果，`research_workflow.py` 连接研究、评审与交付操作。 |
-| `docs/` 与 `agents/` | 使用说明、网站与宿主接入；宿主负责 Agent 的运行和消息。 |
+| `docs/` 与 `agents/` | 使用说明、网站与 Agent 工具接入；Agent 工具负责 Agent 的运行和消息。 |
 | `plugins/research-toolkit/` | 从共享源文件生成的安装包内容，不单独维护另一套方法。 |
 | `examples/` 与 `evals/` | 调用示例、实际研究记录及相应检查；历史证据保持原样。 |
 

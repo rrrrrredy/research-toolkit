@@ -292,7 +292,7 @@ def prepare_work(root, progress, work, *, resume_prepared=False):
 
 
 def runtime_identity(toolkit):
-    """Identify this implementation; do not claim the host loaded its Skill."""
+    """Identify this implementation; do not claim the agent tool loaded its Skill."""
     result = {"version": (toolkit / "VERSION").read_text(encoding="utf-8").strip(),
               "implementation_path": str(toolkit / "scripts/research_workflow.py"),
               "implementation_sha256": sha256_file(toolkit / "scripts/research_workflow.py"),

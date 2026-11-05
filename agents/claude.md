@@ -27,16 +27,16 @@ Scope and length: [Coverage, information cutoff and expected depth.]
 Existing material: [Sources, files or an existing report.]
 Load the complete methods as needed and develop the evidence, comparisons,
 mechanisms and synthesis. Deliver the complete report with usable citations;
-preserve sources and full analysis for handoff; organize independent review, audit and acceptance through the host.
+preserve sources and full analysis for handoff; organize independent review, audit and acceptance through Claude Code.
 ```
 
-Use the host’s native subagents for production, assembly, independent content review, audit and acceptance. They use the host’s existing model access, without separate API configuration. Share current requirements and original materials, and retain full handoffs.
+Use Claude Code’s native subagents for production, assembly, independent content review, audit and acceptance. They use Claude Code’s existing model access, without separate API configuration. Share current requirements and original materials, and retain full handoffs.
 
 The [shared research guide](../docs/quickstart.md) provides a complete request and setup details.
 
 ## Agent execution adapter
 
-For script-managed work, use the shared [Agent execution adapter](../docs/usage-modes.md#agent-host-execution) with `--host claude`. Native subagent tools also use the same work/save/review contracts. Both paths use the current host's login and model configuration.
+For script-managed work, use the shared [Agent execution adapter](../docs/usage-modes.md#agent-host-execution) with `--host claude`. Native subagent tools also use the same work/save/review contracts. Both paths use Claude Code's login and model configuration.
 
 The shared example describes dependencies, input updates, original records and independent review. Use one dispatcher for a work unit; do not launch it through native tools and the adapter at the same time.
 
@@ -48,4 +48,4 @@ Run this from the same project directory:
 git -C .claude/skills/research-toolkit status --short
 ```
 
-No output means the checkout is clean; a path error means the command is running from the wrong directory or the clone failed. Changes may indicate missing or edited files—preserve your edits before updating. If files exist but the skill is absent, reopen the project/session and check the host’s skill settings. You can also ask the agent to read the installed `SKILL.md` by its exact path. [All input methods and limits](README.md).
+No output means the checkout is clean; a path error means the command is running from the wrong directory or the clone failed. Changes may indicate missing or edited files—preserve your edits before updating. If files exist but the skill is absent, reopen the project/session and check Claude Code’s skill settings. You can also ask the agent to read the installed `SKILL.md` by its exact path. [All input methods and limits](README.md).

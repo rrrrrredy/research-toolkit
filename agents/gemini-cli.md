@@ -10,7 +10,7 @@ With Git and the client ready, run from your project root. If the destination al
 git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .gemini/skills/research-toolkit
 ```
 
-Start Gemini CLI in this project and ask it to activate `research-toolkit`. Review the host’s activation consent when prompted. [Official skill requirements](https://geminicli.com/docs/cli/using-agent-skills/).
+Start Gemini CLI in this project and ask it to activate `research-toolkit`. Review Gemini CLI’s activation consent when prompted. [Official skill requirements](https://geminicli.com/docs/cli/using-agent-skills/).
 
 `core.longpaths` applies to this Git checkout and prevents long-path checkout failures on Windows.
 
@@ -24,7 +24,7 @@ Scope and length: [Coverage, information cutoff and expected depth.]
 Existing material: [Sources, files or an existing report.]
 Load the complete methods as needed and develop the evidence, comparisons,
 mechanisms and synthesis. Deliver the complete report with usable citations;
-preserve sources and full analysis for handoff; organize independent review, audit and acceptance through the host.
+preserve sources and full analysis for handoff; organize independent review, audit and acceptance through Gemini CLI.
 ```
 
 The [shared research guide](../docs/quickstart.md) provides a complete request and setup details.

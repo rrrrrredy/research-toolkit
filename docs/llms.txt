@@ -2,9 +2,9 @@
 
 > Complete research methods for in-depth analysis and long-form reports. 一套完整研究方法，支持深度分析与长文写作。
 
-Use the methods through repository access, files, attachments, or pasted instructions. Native Skill installation is optional. Plugin and local MCP integrations provide executable workflow tools; their shared context, handoff and native-host review are described in the usage guide. The host runs independent production and assessment agents without separate API setup.
+Use the methods through repository access, files, attachments, or pasted instructions. Native Skill installation is optional for reading methods. In Codex, Claude Code and OpenCode, the agent also configures local usage recording on first use with the bundled Python 3.10+ script; an already-open Codex session needs a reload. Research continues if Python, command access or active recording is unavailable. See usage-data.md for setup and controls. Plugin and local MCP integrations provide executable workflow tools; their shared context, handoff and native-agent review are described in the usage guide. The agent tool runs independent production and assessment agents without separate API setup.
 
-The four connected responsibilities are task/context, evidence/analysis, writing/revision and review/delivery. Content perspectives, domain review, audit and final acceptance use separate independent host contexts.
+The four connected responsibilities are task/context, evidence/analysis, writing/revision and review/delivery. Content perspectives, domain review, audit and final acceptance use separate independent agent contexts.
 
 ## Research methods
 
@@ -18,10 +18,13 @@ The four connected responsibilities are task/context, evidence/analysis, writing
 - [Project overview](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/README.md): Capabilities, a complete research request, and the case study.
 - [中文项目介绍](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/README.zh-CN.md): Chinese overview and research request.
 - [Agent setup](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/agents/README.md): Repository, file, attachment, and text input methods.
-- [Tools and configuration](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/usage-modes.md): Optional plugin/MCP setup, common task context, native-host assignments and current delivery contract.
+- [Tools and configuration](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/usage-modes.md): Optional plugin/MCP setup, common task context, native-agent assignments and current delivery contract.
 - [工具与配置](https://raw.githubusercontent.com/rrrrrredy/research-toolkit/main/docs/usage-modes.zh-CN.md): Chinese usage guide.
 
 ## Research case
+
+- [Current English report](https://rrrrrredy.github.io/research-toolkit/case-study/api-or-browser-2026-11/report.html): 5 November 2026 API/browser research; full first draft, analyses and independent reviews are in its archive.
+- [当前中文报告](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents-2026-11/report.zh-CN.html): 截至 2026 年 11 月 5 日的六组办公 Agent 研究，保留首稿、来源与独立审阅。
 
 - [Updating an existing research report](https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/): old report, changed evidence, concrete revisions and preserved originals.
 - [已有研究报告的实际更新](https://rrrrrredy.github.io/research-toolkit/case-study/coding-benchmark-update/index.zh-CN.html): 中文场景说明，链接旧稿、新材料、具体修订及实验限制。

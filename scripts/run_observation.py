@@ -138,7 +138,7 @@ def _activity_summary(root):
             "imported_reviews": imports,
             "review_invocations_without_usage": sum(a["usage"] is None for a in attempts),
             "author_usage": None, "warnings": warnings,
-            "scope": "Tool-observed draft saves and invocation captures; no host author usage, billing or quality inference."}
+            "scope": "Tool-observed draft saves and invocation captures; no agent tool author usage, billing or quality inference."}
 
 
 def activity_summary(root):

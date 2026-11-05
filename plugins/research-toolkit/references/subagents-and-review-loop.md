@@ -2,12 +2,12 @@
 
 [English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)
 
-This reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The host provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.
+This reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.
 
 <!-- method:delegate -->
 ## Research production and handoff
 
-Use the host's native subagents when the question has work that can be owned and advanced separately. Start those assignments as soon as their boundaries and initial inputs are clear, while the lead continues research and coordination. No separately configured API is required for native delegation.
+Use the agent tool's native subagents when the question has work that can be owned and advanced separately. Start those assignments as soon as their boundaries and initial inputs are clear, while the lead continues research and coordination. No separately configured API is required for native delegation.
 
 The lead owns the original question, effective requirements, overall outline and cross-part decisions. Workers can investigate sources, calculate, compare, challenge explanations, develop local arguments and write sections. Assign whole-report assembly to a named writer, who may be the lead or a separate production agent. Only that writer edits the main report; other workers save distinct contributions. The lead remains responsible for the final research judgment even when assembly is delegated.
 
@@ -23,15 +23,15 @@ Handoff applies from researcher to researcher, researcher to assembler, author t
 
 When a context is compressed or replaced, preserve the effective requirements, outline, completed conclusions and their conditions, pending decisions, current artifacts and original-material locations. The short handoff is a navigation aid. The receiver reads the full relevant output and sources before relying on them; original texts and raw review replies remain accessible. Do not reconstruct missing history or overwrite originals with their summaries.
 
-With CLI/MCP, use existing `status.work` to select requirements, claims, sources and files and retrieve `work_context`; use `methods` for the relevant guidance. `save` with `draft.kind="analysis"` registers a contribution and automatically retains that unit's prepared inputs; explicit `based_on` remains available and `host_task` records its real executor. Unit/dependency and handoff information belongs with that contribution, not in a parallel task-management system. See [the request interface](../docs/usage-modes.md#research-delegation-and-handoff). Skill-only work preserves the same substance in existing host conversations and files.
+With CLI/MCP, use existing `status.work` to select requirements, claims, sources and files and retrieve `work_context`; use `methods` for the relevant guidance. `save` with `draft.kind="analysis"` registers a contribution and automatically retains that unit's prepared inputs; explicit `based_on` remains available and `host_task` records its real executor. Unit/dependency and handoff information belongs with that contribution, not in a parallel task-management system. See [the request interface](../docs/usage-modes.md#research-delegation-and-handoff). Skill-only work preserves the same substance in existing agent tool conversations and files.
 
-The host manages launching, waiting, messages, cancellation and recovery. Retain actual task/session references. Continue unaffected work while branches run; await results before dependent work consumes them. A saved contribution marks local progress, not its integration, independent review or whole-task completion. A production context cannot review its own work as an independent reviewer.
+The agent tool manages launching, waiting, messages, cancellation and recovery. Retain actual task/session references. Continue unaffected work while branches run; await results before dependent work consumes them. A saved contribution marks local progress, not its integration, independent review or whole-task completion. A production context cannot review its own work as an independent reviewer.
 <!-- /method:delegate -->
 
 <!-- method:review -->
 ## Assign Work by Perspective
 
-Every complete research delivery requires the following seven base perspectives, each in a different context separate from every production agent. Add domain review for the specialized claims the task makes. Use native host subagents; author self-checks do not replace these assignments. Independence concerns the context and production role, not a different vendor or outside person.
+Every complete research delivery requires the following seven base perspectives, each in a different context separate from every production agent. Add domain review for the specialized claims the task makes. Use native subagents; author self-checks do not replace these assignments. Independence concerns the context and production role, not a different vendor or outside person.
 
 | Perspective | Method and required output |
 | --- | --- |
@@ -50,7 +50,7 @@ Start each perspective in a fresh independent context that reads the complete cu
 
 Provide the question, reader, effective requirements, actual artifact and input versions, original-material access, assigned perspective and required output. The reviewer reports what was examined, locatable observations and their basis. Each finding identifies its location, applicable requirement, evidence, impact and severity, separating required corrections from optional preferences. When no defect is found, explain the supporting checks instead of returning a generic PASS.
 
-Reviewers remain read-only. Keep original replies and observable execution identities separate from any structured extraction or author response. Skill-only work can retain them in the host conversation or existing files; managed work uses the [review record interface](../docs/review-completion.md). Do not fabricate a missing session identity or source access.
+Reviewers remain read-only. Keep original replies and observable execution identities separate from any structured extraction or author response. Skill-only work can retain them in the agent tool conversation or existing files; managed work uses the [review record interface](../docs/review-completion.md). Do not fabricate a missing session identity or source access.
 
 ## Complete Every Required Review
 

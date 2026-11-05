@@ -6,7 +6,7 @@
 
 v2 keeps one research entry and the existing Skill, CLI, MCP and plugin forms. The material change is the completion contract: separate independent content perspectives, independent audit and final acceptance are required. Author self-review or a merged-perspective result cannot satisfy it. That changes earlier completion behavior and warrants a major version.
 
-The public operation names and saved source, claim, requirement and artifact formats are reused. Native-host assignments and handoffs extend those operations. Python 3.10+, the `research-toolkit` Skill name and package entry points remain supported.
+The public operation names and saved source, claim, requirement and artifact formats are reused. Native-agent assignments and handoffs extend those operations. Python 3.10+, the `research-toolkit` Skill name and package entry points remain supported.
 
 ## Continue saved work
 
