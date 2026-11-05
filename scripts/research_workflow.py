@@ -1131,6 +1131,8 @@ def main():
     print(json.dumps(result, ensure_ascii=False, indent=2))
     if result.get("ok") is False or (args.action == "check-reviewer" and result.get("status") == "blocked"):
         return 1
+    if args.action == "finish":
+        return 0 if result.get("completed") is True else 1
     if result.get("action_required"):
         return 0
     return 0 if not (result.get("completed") is False or result.get("reviews_complete") is False) else 1

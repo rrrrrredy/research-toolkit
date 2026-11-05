@@ -184,6 +184,9 @@ async def research_finish(task: str, message: str, artifact: str = "final.md",
     Historical checklist receipts remain readable; checklist cannot replace current independent work.
     Explicit length_constraint rows in state/requirements.jsonl are measured; no limit is inferred from prose.
     message is the intended user-visible delivery text. This does not send messages or publish externally.
+    completed=false means unfinished, even with action_required; address the returned gaps before delivery.
+    completed=true includes the delivery_check already performed; do not immediately repeat it.
+    To recheck retained completion later, use check_delivery.py <task-directory> --require-complete.
     Independent audit adjudicates no-change decisions; an author's appended disposition cannot clear required findings.
     Evaluation tasks end with evaluation_complete from research_review, without repairing samples.
     """

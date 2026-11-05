@@ -52,3 +52,5 @@
 具体执行[最终验收方法](subagents-and-review-loop.zh-CN.md#阶段安排与验收)。验收 PASS 不能代替缺失的必需工作，也不能以作者声称修好代替阅读改文。
 
 工具管理任务由 `finish` 执行[交付契约](../docs/delivery-verification.zh-CN.md#完成研究交付)并生成绑定版本的回执。纯 Skill 保留同样的独立工作，不强制 JSON 台账或回执。阶段成果明确其范围及未完事项，不能标为整项完成。历史评测原件和结果保持原样。
+
+使用工具时，`finish.completed=false` 表示仍有工作，即使带有 `action_required` 也应处理其具体缺口。首次交付复用成功 `finish` 的 `delivery_check`；以后复核已保存交付是否仍然完成，按交付契约使用 `check_delivery.py --require-complete`，不能把默认一致性检查通过当成完成。

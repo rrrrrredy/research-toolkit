@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.3.3 — 2026-11-05
+
+- Fix CLI `finish` returning success for `completed: false` with `action_required`. It now exits 0 only for completed delivery; `review` still succeeds when it prepares independent assignments.
+- Add read-only `check_delivery.py --require-complete`, reusing current delivery, requirement, independent review and version checks. Default consistency checking retains its in-progress and historical diagnostic uses.
+- Synchronize English/Chinese guidance and the plugin. Reuse `finish.delivery_check` for first delivery; pure Skill use gains no required CLI/MCP records. Include the already-merged correction to obsolete no-review wording in research examples. See [release notes](docs/releases/v2.3.3.md).
+
 ## v2.3.2 — 2026-11-05
 
 - Align direct method use with default first-use configuration: the agent reuses or downloads a complete copy, configures basic recording with Python, and explains Codex session reload. Research continues when configuration cannot run or is not yet active.

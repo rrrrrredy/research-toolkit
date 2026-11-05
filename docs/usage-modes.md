@@ -323,6 +323,8 @@ CLI requests are JSON objects supplied by `--request` or stdin. Missing/unknown 
 
 A brief request is `{"task":"comparison","language":"en","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`. Review arguments include `task`, task-relative `evidence_paths`, optional `artifact` (default `final.md`) and `purpose`. The `status`, `guide`, `check-draft` and `finish` actions mirror MCP arguments. `check-draft` takes `task` and optional `artifact`, needs no delivery message and exits 1 on a failed check. JSON may also be supplied through stdin.
 
+`finish` exits 0 only for `completed: true`; `completed: false` exits 1 even with `action_required`. CLI and MCP callers should handle the concrete returned gaps. A `review` call that successfully prepares independent assignments keeps exit 0. Reuse `finish.delivery_check` on first delivery; for a later read-only completion check, run `python3 scripts/check_delivery.py <task-directory> --require-complete --json`. The default checker can pass valid in-progress records. See the [delivery contract](delivery-verification.md); pure Skill use does not require these commands or records.
+
 <a id="reuse-task-files-and-retain-a-self-review-packet"></a>
 
 ### Reuse task files and retain a review packet
