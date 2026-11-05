@@ -8,7 +8,7 @@ The [compatibility policy](compatibility.md) explains the current completion con
 
 ## Use the research methods
 
-Executable installs send basic usage events by default. Prompts, reports and paths are excluded; collection can be disabled. For Skill-only automatic observation, install the native host observer once. See [usage data and host setup](usage-data.md).
+Basic usage recording is on by default, excludes conversations, reports and paths, and can be disabled. During Skill installation or first use, the agent connects the bundled script to Codex, Claude Code or OpenCode; users do not separately install a collector or upload files. See [usage recording and automatic setup](usage-data.md).
 
 - **Repository link:** send the [research request](https://github.com/rrrrrredy/research-toolkit/blob/main/README.md#usage) to an agent that can read GitHub.
 - **Files or attachments:** download the repository, provide `SKILL.md`, and make the required reference files available.

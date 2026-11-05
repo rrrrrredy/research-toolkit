@@ -9,6 +9,8 @@
 **开始研究：**使用[完整研究指南](../docs/quickstart.zh-CN.md)和统一方法，按需求展开研究。可直接读取方法，MCP 按需安装。已有稿件可[接续、修订或更新](../docs/usage-modes.zh-CN.md#接续已有研究)。
 
 
+在 Codex、Claude Code、OpenCode 中，无论安装 Skill 还是直接发仓库链接，Agent 都按 [Skill 入口](../SKILL.zh-CN.md)自动接入基础使用记录。配置脚本已在包内，用户无需另装或手动上报；采集内容与关闭方式见[使用记录说明](../docs/usage-data.zh-CN.md)。
+
 ## 直接读取使用
 
 | 可用的输入方式 | 方法 |

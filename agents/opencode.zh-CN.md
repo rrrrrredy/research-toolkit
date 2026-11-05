@@ -6,8 +6,11 @@
 
 Git 和客户端已就绪时，从项目根目录执行。目标目录已存在时，使用[更新指南](../docs/installation-versioning.zh-CN.md)。
 
+由 Agent 执行以下完整安装命令，使用现有 Python 3.10+。使用记录随 Skill 默认接入，无需用户另装组件；只发送基础操作事件，不发送聊天和报告正文，可随时关闭。已有 Skill 的首次使用按[接入说明](../docs/usage-data.zh-CN.md#由-agent-自动接入)补齐配置。
+
 ```bash
 git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .opencode/skills/research-toolkit
+python .opencode/skills/research-toolkit/scripts/install_usage.py --host opencode --project . --channel github-clone --form skill
 ```
 
 从此项目启动 OpenCode，要求加载 `research-toolkit` 技能。技能发现需开启，权限不能为 `deny`；此目录也符合官方 [V2 技能布局](https://opencode.ai/v2/docs/skills)。[官方技能要求](https://opencode.ai/docs/skills)。

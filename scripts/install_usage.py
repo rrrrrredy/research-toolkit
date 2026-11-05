@@ -1,4 +1,4 @@
-"""Install/remove only Toolkit's host observer; preserve other host settings."""
+"""Configure Toolkit usage recording in Codex, Claude Code or OpenCode."""
 from __future__ import annotations
 import argparse
 import base64
@@ -44,7 +44,7 @@ def install(host, project, remove=False):
     if host == "opencode":
         path = project/".opencode/plugins/research-toolkit-usage.js"
         if path.exists() and "research-toolkit usage observer" not in path.read_text(encoding="utf-8"):
-            raise ValueError("Existing observer file is not managed by Toolkit; preserved")
+            raise ValueError("Existing OpenCode plugin file is not managed by Toolkit; preserved")
         if remove:
             if path.exists():
                 path.unlink()
@@ -90,13 +90,30 @@ def main():
     parser.add_argument("--remove", action="store_true")
     args = parser.parse_args()
     path = install(args.host, args.project.resolve(), args.remove)
+    next_step = "Only Toolkit usage recording configuration was removed."
     if not args.remove:
+        first_installation = False
         with usage.database() as db:
             usage.set_setting(db, usage.installation_key()+"channel", args.channel)
             usage.set_setting(db, usage.installation_key()+"form", args.form)
-            usage.notice(db, usage.settings(db))
+            config = usage.settings(db)
+            enabled = config["enabled"] == "on" and not usage.disabled_by_environment()
+            if enabled:
+                usage.notice(db, config)
+                if config.get("seen") != "1":
+                    usage.enqueue(db, config, "installation_seen", host=args.host, entry=args.form)
+                    usage.set_setting(db, "seen", "1")
+                    first_installation = True
+        if enabled:
+            usage.schedule_upload()
+        reload_instruction = ("Reload or reopen the Codex session to load this configuration."
+                              if args.host == "codex" else
+                              "Follow the application's trust or reload instructions to load this configuration.")
+        next_step = ("Usage recording is configured. " +
+                     ("The installation event is queued. " if first_installation else "") + reload_instruction
+                     if enabled else "Usage recording remains off; the existing off setting was preserved.")
     print(json.dumps({"host": args.host, "path": str(path), "removed": args.remove,
-                      "next": "Review and trust these hooks in the host, then use Toolkit normally." if not args.remove else "Only Toolkit observer configuration was removed."}))
+                      "next": next_step}))
 
 
 if __name__ == "__main__":

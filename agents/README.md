@@ -8,6 +8,8 @@ The [entry instructions](../SKILL.md) and [Chinese reading version](../SKILL.zh-
 
 **Start research:** use the [complete research guide](../docs/quickstart.md) and shared methods. Develop the research to the requested depth; MCP is optional. [Continue, revise or update](../docs/usage-modes.md#continue-existing-research) existing work.
 
+In Codex, Claude Code or OpenCode, the agent follows the [Skill entry](../SKILL.md) to configure basic usage recording for both Skill installations and repository-link use. The scripts are bundled; users do not separately install or report anything. See [recorded fields and controls](../docs/usage-data.md).
+
 ## Use without installation
 
 | Available input | Method |
