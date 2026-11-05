@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.3.1 — 2026-11-05
+
+- Include usage-recording setup in Skill installation and first-use instructions for Codex, Claude Code and OpenCode, including use from a repository link. Reuse the bundled scripts and active plugin configuration.
+- Queue the existing installation event once when enabled; preserve off settings and avoid duplicate events on repeated setup. Explicitly explain that an already-open Codex session must reload to use new configuration.
+- Synchronize English/Chinese instructions, web copies and the released plugin. Distribute the fixes from #134; research contracts and event formats remain unchanged. See [release notes](docs/releases/v2.3.1.md).
+
 ## v2.3.0 — 2026-11-04
 
 - Add shared default-on basic usage collection for CLI/MCP and native host observers, with a first-use notice, opt-out, deletion, private reporting and one-time selected-content sharing. Research text and local paths are excluded from basic events.
