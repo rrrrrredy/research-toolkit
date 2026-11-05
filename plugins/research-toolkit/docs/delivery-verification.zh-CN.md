@@ -14,6 +14,14 @@
 python3 <skill-directory>/scripts/check_delivery.py <task-directory>
 ~~~
 
+默认模式检查记录的一致性，合法的进行中任务也可以通过。要明确核对**当前研究交付是否已经完成**，使用：
+
+```bash
+python3 <skill-directory>/scripts/check_delivery.py <task-directory> --require-complete --json
+```
+
+该模式只读：只有 `stage: final`、`status: complete` 且已有交付、要求、独立审阅、审计、验收及版本检查全部通过，才退出 0；否则退出 1，由 `flags` 和 `findings` 列出具体缺口，非终态任务包含 `incomplete_task`。它不调用 `finish`、不启动评审、不修改任务文件或生成回执。完成检查使用当前交付契约；不加此标记时，仍可用 `--contract-version 1/2` 诊断历史记录。
+
 凭证绑定当前成果、简报、进度、来源与主张记录、审查日志及拟发送的交付说明；适用的需求和不确定性文件也需绑定。凭证中已记录的每个路径都必须核查文件存在性、任务目录边界和哈希，即使绑定时属于可选文件；从未绑定的可选文件仍可缺省。文本哈希将 CRLF、CR 规范为 LF。相关修改完成后再封存，后续修改会使旧凭证过期；不为重建凭证重做无关研究。
 
 用 `--delivery-message note.md` 指定其他交付说明文件，凭证须绑定选定文件。成果、凭证和拟交付说明的路径均须位于任务目录内。
@@ -28,6 +36,8 @@ python3 <skill-directory>/scripts/check_delivery.py <task-directory>
 对照有效要求和证据核对实际回答，完成当前版本独立内容审阅、审计和最终验收，必要修正落实到正文。有效负评表示该审阅完成，交付仍需等待必要问题解决。
 
 用当前稿件和交付说明调用 `research_finish`，由工具绑定输入及审阅结果，写入 `state/final_delivery.json`；必需工作完成后才进入 `stage: final` 与 `status: complete`。不手写重复回执，也不由作者写一条全局 PASS 替代独立验收。独立检查器用于查看已保留记录，不额外调用内容评审。
+
+CLI `finish` 和 MCP `research_finish` 的 `completed: false` 均表示仍有工作，即使同时返回 `action_required` 也一样，应处理返回的具体缺口。此时 CLI `finish` 退出 1，只有 `completed: true` 才退出 0；MCP 在 JSON 中保留相同业务结果，通信成功本身不代表研究完成。CLI `review` 成功准备待执行的独立任务时仍退出 0。首次交付可复用成功 `finish` 已返回的 `delivery_check`，无需立即重复检查；以后复核保存的完成状态时，再使用 `--require-complete`。
 
 ## 需求关闭与阅读记录
 

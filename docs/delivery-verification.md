@@ -14,6 +14,14 @@ The shared CLI needs Python 3.10+ and only the standard library. Prefer `python3
 python3 <skill-directory>/scripts/check_delivery.py <task-directory>
 ```
 
+The default checks record consistency and can pass for a valid in-progress task. To ask whether the **current delivery is complete**, use:
+
+```bash
+python3 <skill-directory>/scripts/check_delivery.py <task-directory> --require-complete --json
+```
+
+This read-only mode exits 0 only for `stage: final` and `status: complete` with the existing delivery, requirement, independent review, audit, acceptance and version checks passing. Otherwise it exits 1 with the specific `flags` and `findings`, including `incomplete_task` for nonterminal work. It does not call `finish`, launch reviews, change task files or create a receipt. It uses the current delivery contract; `--contract-version 1/2` remains available without this flag for historical diagnostics.
+
 The receipt binds the current artifact, brief, progress, source and claim records, review log, and intended delivery message. Applicable requirement and uncertainty files are also bound. Every path recorded in the receipt remains subject to existence, task-directory boundary and hash checks, even if it was optional when the receipt was created. An optional file that was never bound may remain absent. Text hashes normalize CRLF and CR to LF. Finish the relevant edits before sealing; a later edit makes the old receipt stale. Do not rerun unrelated research just to create a new receipt.
 
 Use `--delivery-message note.md` for a non-default intended message. The receipt must bind that selected filename. Artifact, receipt and intended-message paths must resolve inside the task directory.
@@ -28,6 +36,8 @@ New and continued deliveries require separate independent content perspectives, 
 Reconcile the actual answer with effective requirements and evidence. Complete current-version independent content reviews, audit and final acceptance, resolving necessary corrections in the report. A valid negative review completes that review but leaves delivery pending.
 
 Call `research_finish` with the current artifact and delivery message. The operation binds inputs and review results, writes `state/final_delivery.json`, and enters `stage: final` with `status: complete` only when the required work is complete. Do not hand-write a duplicate receipt or author a global PASS to replace independent acceptance. Use the standalone checker when inspecting retained records; it is not another content-review invocation.
+
+For both CLI `finish` and MCP `research_finish`, `completed: false` means work remains, including when `action_required` is present. Address the returned gaps; CLI `finish` exits 1 in this case and exits 0 only for `completed: true`. MCP keeps the same business result in its JSON: successful transport alone does not mean completion. CLI `review` still exits 0 when it successfully prepares independent assignments requiring execution. On first delivery, reuse the successful `finish.delivery_check`; an immediate duplicate check is unnecessary. Use `--require-complete` when later checking retained completion.
 
 ## Requirement closure and reading records
 

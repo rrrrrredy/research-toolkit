@@ -52,3 +52,5 @@ A separate final acceptance context reads the current complete report and confir
 Use the [final acceptance method](subagents-and-review-loop.md#stage-scheduling-and-acceptance). An acceptor's PASS cannot replace a missing assignment or an author's unsupported claim that a fix was applied.
 
 For CLI/MCP-managed delivery, `finish` executes the [delivery contract](../docs/delivery-verification.md#research-delivery-completion) and writes the version-bound receipt. Skill-only delivery preserves the same independent work without a required JSON ledger or receipt. A stage artifact is identified as such, with its actual remaining work; it is not marked as whole-task completion. Historical evaluation artifacts and outcomes remain unchanged.
+
+When using the tools, `finish.completed=false` means work remains even with `action_required`; address its specific gaps. Reuse a successful `finish.delivery_check` for first delivery. For a later check that retained delivery is still complete, use `check_delivery.py --require-complete` as described in the delivery contract, rather than treating a default consistency-check pass as completion.

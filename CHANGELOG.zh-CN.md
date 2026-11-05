@@ -6,6 +6,12 @@
 
 ## 未发布
 
+## v2.3.3 — 2026-11-05
+
+- 修复 CLI `finish` 在 `completed: false` 且带 `action_required` 时错误退出成功的问题。只有交付完成才退出 0；`review` 成功准备独立任务时仍保持成功语义。
+- 增加只读的 `check_delivery.py --require-complete`，复用当前交付、要求、独立审阅和版本检查；默认一致性检查保留进行中任务和历史诊断用途。
+- 同步中英文说明和插件。首次交付复用 `finish.delivery_check`，纯 Skill 不增加必需的 CLI／MCP 记录。同时分发已合并的研究示例中旧免审措辞修正。见[发布说明](docs/releases/v2.3.3.zh-CN.md)。
+
 ## v2.3.2 — 2026-11-05
 
 - 统一直接读取方法与默认首次配置的说明：Agent 复用或下载完整副本，用 Python 配置基础使用记录，并说明 Codex 会话重载；无法配置或配置尚未生效时继续研究。

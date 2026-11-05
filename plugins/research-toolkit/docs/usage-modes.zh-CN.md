@@ -322,6 +322,8 @@ CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知
 
 需求请求的格式为 `{"task":"comparison","language":"zh","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`。评审参数包括 `task`、任务内相对路径 `evidence_paths`，以及可选的 `artifact`（默认 `final.md`）和 `purpose`。`status`、`guide`、`finish` 对应同名 MCP 工具的参数。也可通过标准输入提供 JSON。
 
+`finish` 只有返回 `completed: true` 才退出 0；`completed: false` 即使带有 `action_required` 也退出 1。CLI 和 MCP 调用方均应处理返回的具体缺口。`review` 成功准备待执行的独立任务时仍退出 0。首次交付复用 `finish.delivery_check`；以后只读复核是否完成时，运行 `python3 scripts/check_delivery.py <task-directory> --require-complete --json`。默认检查模式允许合法的进行中记录通过。详见[交付契约](delivery-verification.zh-CN.md)，纯 Skill 不要求这些命令或记录。
+
 <a id="复用任务文件并保存自评材料"></a>
 
 ### 复用任务文件并保存审阅材料

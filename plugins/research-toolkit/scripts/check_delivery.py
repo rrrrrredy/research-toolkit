@@ -679,6 +679,7 @@ def evaluate_delivery(
     receipt: str = "state/final_delivery.json",
     actual_message: Path | None = None,
     contract_version: int = DELIVERY_CONTRACT_VERSION,
+    require_complete: bool = False,
 ) -> dict[str, Any]:
     root = project_root.resolve()
     flags: list[str] = []
@@ -695,11 +696,18 @@ def evaluate_delivery(
 
     if type(contract_version) is not int or contract_version not in {1, 2, 3}:
         add("invalid_delivery_contract_version", "Delivery contract version must be 1, 2 or 3.")
+    if require_complete and contract_version != DELIVERY_CONTRACT_VERSION:
+        add("invalid_delivery_contract_version", "Completion checking requires the current delivery contract; omit --contract-version or use 3.")
 
     progress_path = root / "state" / "progress.json"
     progress = read_json_or_none(progress_path)
     if not isinstance(progress, dict):
         progress = {}
+
+    stage = str(progress.get("stage", "")).strip().lower()
+    status = str(progress.get("status", "")).strip().lower()
+    if require_complete and (stage != "final" or status != "complete"):
+        add("incomplete_task", f"Task is not final/complete (stage={stage or '<missing>'}, status={status or '<missing>'}). Complete the outstanding work and call finish.")
 
     if progress.get("profile") == "lite" and progress.get("review_contract", 1) < 2:
         from profile_policy import inspect_lite_delivery
@@ -727,8 +735,6 @@ def evaluate_delivery(
             result["status"] = "incomplete"
         return result
 
-    stage = str(progress.get("stage", "")).strip().lower()
-    status = str(progress.get("status", "")).strip().lower()
     if stage not in CANONICAL_STAGES:
         add("invalid_progress_stage", f"Progress stage is not canonical: {stage or '<missing>'}.")
     if status not in PROGRESS_STATUSES:
@@ -752,7 +758,7 @@ def evaluate_delivery(
         add("invalid_delivery_message", "The intended delivery message is unreadable or is not valid UTF-8.")
     completion_claim = claims_completion(message, artifact=artifact)
     terminal_state = stage == "final" and status == "complete"
-    terminal_intent = completion_claim or terminal_state
+    terminal_intent = completion_claim or terminal_state or require_complete
 
     if terminal_intent and not message_exists:
         add("missing_delivery_message", "Terminal delivery has no user-visible delivery message to validate.")
@@ -959,6 +965,10 @@ def main() -> int:
     )
     parser.add_argument("--json", action="store_true")
     parser.add_argument(
+        "--require-complete", action="store_true",
+        help="Read-only completion check: require final/complete and all current delivery checks; do not finish or review the task.",
+    )
+    parser.add_argument(
         "--contract-version", type=int, choices=(1, 2, 3), default=DELIVERY_CONTRACT_VERSION,
         help="Default 3 checks current records. Use 1 or 2 only for labelled historical diagnostics.",
     )
@@ -971,6 +981,7 @@ def main() -> int:
         receipt=args.receipt,
         actual_message=args.actual_message,
         contract_version=args.contract_version,
+        require_complete=args.require_complete,
     )
     if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
@@ -981,10 +992,11 @@ def main() -> int:
         for finding in result["findings"]:
             print(f"- {finding}")
     elif result["ok"]:
-        label = f"legacy v{args.contract_version} record checks, not current-contract acceptance" if args.contract_version < 3 else "mechanical delivery checks"
+        label = "current task is final/complete and delivery checks pass" if args.require_complete else (
+            f"legacy v{args.contract_version} record checks, not current-contract acceptance" if args.contract_version < 3 else "mechanical delivery checks")
         print(f"PASS: {label}; not a semantic quality verdict.")
     else:
-        print("FAIL: delivery claim is not safe.")
+        print("FAIL: current task completion is not confirmed." if args.require_complete else "FAIL: delivery claim is not safe.")
         for finding in result["findings"]:
             print(f"- {finding}")
     if not args.json:

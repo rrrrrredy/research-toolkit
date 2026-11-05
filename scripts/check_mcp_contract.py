@@ -5,6 +5,7 @@ import asyncio
 import json
 import os
 from pathlib import Path
+import subprocess
 import sys
 import tempfile
 from mcp.client import Client
@@ -23,6 +24,24 @@ def unpack(result):
 
 
 async def verify(base):
+    # Exercise completion semantics on the same task through the public CLI and
+    # packaged MCP, retaining requests/results alongside the existing E2E record.
+    def cli(script, *arguments, request=None, expected_exit=0):
+        command = [sys.executable, "-B", "-X", "utf8", str(ROOT/"scripts"/script), *map(str, arguments)]
+        process = subprocess.run(command, input=json.dumps(request) if request is not None else None,
+                                 text=True, encoding="utf-8", capture_output=True)
+        with (base/"cli.jsonl").open("a", encoding="utf-8") as log:
+            log.write(json.dumps({"command": command, "request": request, "returncode": process.returncode,
+                                  "stdout": process.stdout, "stderr": process.stderr}, ensure_ascii=False)+"\n")
+        assert process.returncode == expected_exit, process.stdout+process.stderr
+        return json.loads(process.stdout)
+
+    def check_completion(root, expected_exit=0):
+        before = {p.relative_to(root): p.read_bytes() for p in root.rglob("*") if p.is_file()}
+        result = cli("check_delivery.py", root, "--require-complete", "--json", expected_exit=expected_exit)
+        assert before == {p.relative_to(root): p.read_bytes() for p in root.rglob("*") if p.is_file()}
+        return result
+
     worker = base/"synthetic-worker.py"
     worker.write_text(
         "import json,sys\n"
@@ -71,6 +90,16 @@ async def verify(base):
         assert ready["ready_for_collection"] and ready["review_readiness"]["status"] == "host_native"
         root = Path(ready["task_directory"])
         assert json.loads((root/"state/progress.json").read_text(encoding="utf-8"))["review_contract"] == 2
+        # A valid in-progress task passes consistency checking, not completion.
+        ordinary = cli("check_delivery.py", root, "--json")
+        assert ordinary["ok"] and not ordinary["terminal_state"]
+        incomplete = check_completion(root, expected_exit=1)
+        assert not incomplete["ok"] and "incomplete_task" in incomplete["flags"], incomplete
+        unfinished_args = {"task": "case", "message": "Complete."}
+        unfinished = await call("research_finish", unfinished_args)
+        assert unfinished["completed"] is False and unfinished["action_required"] == "host_agents"
+        assert cli("research_workflow.py", "finish", "--workspace", workspace,
+                   request=unfinished_args, expected_exit=1) == unfinished
         (root/"source.md").write_text("Company A reports twelve shipments in 2026. No revenue figure is supplied.\n", encoding="utf-8")
         (root/"counter.md").write_text("The product catalog lists delivery options, not booked or recognized revenue.\n", encoding="utf-8")
         (root/"final.md").write_text("The source reports twelve shipments.\n\nRevenue is twelve.\n\nA revenue estimate requires prices and revenue recognition evidence.\n", encoding="utf-8")
@@ -125,6 +154,10 @@ async def verify(base):
         await call("research_review", {**args, "reviewer": "self"}, error=True)
         pending = await call("research_review", args)
         assert len(pending["assignments"]) == 8 and pending["action_required"] == "host_agents"
+        prepared = cli("research_workflow.py", "review", "--workspace", workspace, request=args)
+        assert prepared["action_required"] == "host_agents" and not prepared["reviews_complete"]
+        assert [item["assignment_ref"] for item in prepared["assignments"]] == [
+            item["assignment_ref"] for item in pending["assignments"]]
         assert "counter.md" in pending["assignments"][0]["assignment"]["assignment"]["sources"]
         sequence = 0
         async def submit(item, *, malformed=False, producer=False):
@@ -224,9 +257,23 @@ async def verify(base):
         assert current["progress"]["status"] == "complete" and current["delivery_check"]["ok"]
         assert (root/"first-draft.md").read_bytes() == first_report
         assert (root/"first-review-log.jsonl").read_bytes() == first_log
+        accepted = check_completion(root)
+        assert accepted["ok"] and accepted["terminal_state"] and accepted["review_completion"]["ok"], accepted
+        historical = cli("check_delivery.py", root, "--require-complete", "--contract-version", "2", "--json", expected_exit=1)
+        assert "invalid_delivery_contract_version" in historical["flags"], historical
+        # Both prose changes and source-only changes invalidate the retained delivery.
+        report_bytes = (root/"final.md").read_bytes()
+        (root/"final.md").write_text(corrected+"\nRevenue is twelve.\n", encoding="utf-8")
+        changed_report = check_completion(root, expected_exit=1)
+        assert "stale_delivery_receipt" in changed_report["flags"], changed_report
+        assert any("final.md" in finding for finding in changed_report["findings"]), changed_report
+        (root/"final.md").write_bytes(report_bytes)
         receipt = (root/"state/final_delivery.json").read_bytes()
         progress_bytes = (root/"state/progress.json").read_bytes()
         (root/"counter.md").write_text("Changed after delivery.\n", encoding="utf-8")
+        changed_input = check_completion(root, expected_exit=1)
+        assert "stale_delivery_receipt" in changed_input["flags"], changed_input
+        assert any("counter.md" in finding for finding in changed_input["findings"]), changed_input
         stale = await call("research_status", {"task": "case"})
         assert stale["progress"]["status"] == "stale" and not stale["delivery_check"]["ok"]
         assert (root/"state/final_delivery.json").read_bytes() == receipt
@@ -251,6 +298,10 @@ async def verify(base):
         assert [x['slot_id'] for x in changed['assignments']] == ['evidence', 'domain-1']
     (base/"RESULT.json").write_text(json.dumps({"result": "pass", "kind": "synthetic_stdio_contract_control",
         "research_quality_assessed": False, "completed_current_slots": 10, "retained_initial_negative_slots": 8,
+        "completion_semantics": {"in_progress_default_passes": True, "in_progress_completion_fails": True,
+            "unfinished_finish_cli_exit": 1, "pending_review_cli_exit": 0,
+            "accepted_completion_passes": True, "changed_report_rejected": True,
+            "changed_input_rejected": True, "completion_checks_leave_task_bytes_unchanged": True},
         "command": "python scripts/check_mcp_contract.py", "artifacts": str(base)}, indent=2), encoding="utf-8")
     print("PASS: v2 packaged MCP stdio, independent perspectives/audit/acceptance, preserved failure and negative results, rejected author clearance, source binding and stale delivery.")
     print("Retained control artifacts: " + str(base))
