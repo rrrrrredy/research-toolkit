@@ -6,8 +6,11 @@
 
 With Git and the client ready, run from your project root. If the destination already exists, use the [update guide](../docs/installation-versioning.md).
 
+The agent runs the complete installation below with an available Python 3.10+ interpreter. Usage recording is included by default; users do not install a second component. It sends basic operation events, excludes conversations and reports, and can be disabled. On first use of an existing Skill installation, complete the [recording setup](../docs/usage-data.md#automatic-setup-by-the-agent).
+
 ```bash
 git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .agents/skills/research-toolkit
+python .agents/skills/research-toolkit/scripts/install_usage.py --host codex --project . --channel github-clone --form skill
 ```
 
 Run `/skills` or type `$` and select `research-toolkit`; confirm the path ends in `.agents/skills/research-toolkit/SKILL.md`. [Official skill requirements](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills).

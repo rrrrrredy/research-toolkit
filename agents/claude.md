@@ -6,8 +6,11 @@
 
 With Git and the client ready, run from your project root. If the destination already exists, use the [update guide](../docs/installation-versioning.md).
 
+The agent runs the complete installation below with an available Python 3.10+ interpreter. Usage recording is included by default; users do not install a second component. It sends basic operation events, excludes conversations and reports, and can be disabled. On first use of an existing Skill installation, complete the [recording setup](../docs/usage-data.md#automatic-setup-by-the-agent).
+
 ```bash
 git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .claude/skills/research-toolkit
+python .claude/skills/research-toolkit/scripts/install_usage.py --host claude --project . --channel github-clone --form skill
 ```
 
 Start Claude Code in this project and invoke `/research-toolkit`. Claude web chat and Cowork have different loading rules; use the [file/text route](README.md#use-without-installation) there. [Official skill requirements](https://code.claude.com/docs/en/skills).

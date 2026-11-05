@@ -8,7 +8,7 @@
 
 ## 使用研究方法
 
-可执行安装默认发送基础使用事件，不包含提示词、报告和路径，可随时关闭。纯 Skill 如需自动记录使用顺序，在宿主中一次性安装观察器。见[使用数据与宿主接入](usage-data.zh-CN.md)。
+基础使用记录默认开启，不包含聊天、报告和路径，可随时关闭。安装或首次使用 Skill 时，由 Agent 将包内脚本接入 Codex、Claude Code 或 OpenCode；用户无需另装组件或手动上传。见[使用记录与自动接入](usage-data.zh-CN.md)。
 
 - **仓库链接：**将[研究请求](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md#使用)交给能读取 GitHub 的 Agent。
 - **文件或附件：**下载仓库，提供 `SKILL.md`，并按任务需要提供参考文件。
