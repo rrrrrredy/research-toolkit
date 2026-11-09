@@ -1,0 +1,89 @@
+{
+  "role": "independent_final_acceptance",
+  "host_task": "/root/office_final_acceptance",
+  "verdict": "pass",
+  "artifact_sha256": "5b66475262baa14930218e4bcbaf2ac79c877cee211f6e26bdf2a6dc595b6631",
+  "scope": "仅验收旧国内办公 Agent 报告的局部文风修订及其配套来源索引；信息截止保持 2026-11-05，不重新研究，不验证产品运行或网站发布。",
+  "requirements": [
+    {
+      "id": "scope",
+      "requirement": "保留原题、六组产品、两类读者、截止日与已有来源；另存新稿并保留历史。",
+      "status": "pass",
+      "basis": "当前稿题首、第一节六组入口表、第三节六个分节和第七节两个读者分节均对应原要求。原案例 report.md 仍为 38e2fd1092e32b0bcad0ca3a164482aca0f3173fd7e768cf32893c2e1faed5e5；修订首稿与 v2 分别另存。已读原审计及独立续审，历史原件保存缺口已通过已有文件补件闭合，未以重跑好评覆盖负评。"
+    },
+    {
+      "id": "shared_evidence_scope",
+      "requirement": "共同材料边界集中说明，删去反复解释功能不代表实测、恢复不代表收益、模型分不代表完成率的重复限定。",
+      "status": "pass",
+      "basis": "第 9-13 行集中交代官方说明、公开操作叙述、无产品实测和同条件对照、外部文件未复算、历史材料日期及恢复测量缺口。全文 diff 显示多处重复提醒被合并；后文不再靠这些提醒反复收束，转而解释对象、动作与采用含义。各案例的日期、材料和作者身份仍在对应判断旁。"
+    },
+    {
+      "id": "depth",
+      "requirement": "突出已成立判断、具体机制、公司差异和采用选择，不将全篇压缩成摘要或删去实际分析。",
+      "status": "pass",
+      "basis": "全文仍包含七节完整论证。第二节用销售月报连接新文件、既有对象和业务状态；第三节逐一解释六组机制；第四、五节展开上下文生效、权限范围、人工责任和恢复对象；第六节保留具体操作顺序及反例；第七节把具名路径与改变选择的观察相连。新增解释有具体对象和动作，未用表格取代全部分析。"
+    },
+    {
+      "id": "access_and_commercial_conditions",
+      "requirement": "保留发布、账号、入口、购买、部署与地区条件，未知保持未知。",
+      "status": "pass",
+      "basis": "第一节保留 Beta、灰度、专用安装与内测、待上线插件、管理员开放、套餐及部署差别；第 28 行区分大陆公开入口与逐地区、逐账号未确认的资格。模型资源、云设备和协作权益没有被合并为统一任务成本。"
+    },
+    {
+      "id": "objects_and_mechanisms",
+      "requirement": "保留文件与业务对象的完成依据，以及模型、执行环境、上下文、权限和人工工作的不同作用。",
+      "status": "pass",
+      "basis": "第二节明确原对象与副本、公式与静态值、可编辑图表与图片、提交与批准。第四节的报价例子、项目配置只对新任务生效、终端与平台会话不同步、资料库需加入任务，以及权限生效范围仍清楚。正常批准与错误返工分开，没有以减少必要审批制造收益。"
+    },
+    {
+      "id": "recovery_and_evidence",
+      "requirement": "保留恢复对象及条件，不把公开操作记录和厂商人数升级为跨产品效果结论。",
+      "status": "pass",
+      "basis": "第五节区分连接、配置、任务重跑、文件版本与业务状态；WorkBuddy 备份开关、每轮首次修改、共享 3000 MB 和空间清理仍在。第六节保留花叔 B2 保存重读与 H4 另存操作、光子星球的 7 月版本和 50 行模拟素材、WPS 教程由人改变权限及根因未知、12,000 人的厂商归属。没有成功率、稳定性或净人效排名。"
+    },
+    {
+      "id": "required_revisions",
+      "requirement": "全部必要修正进入实际全文，并由受影响的独立视角确认。",
+      "status": "pass",
+      "basis": "八份原始 API 审阅已全部读取；对抗、领域、读者用途的三条必要意见指向同一灵犀 Beta 调度期限缺口。report.md 至 report-v2.md 的唯一改动位于第 190 行，补齐默认一周、最长 15 天、到期人工重设、Beta 适用范围及来源。三份原角色复核均核对实际改文和跨节影响。直接回读 S16:245-252，含义与现稿一致，不是触发间隔或单次运行时长。"
+    },
+    {
+      "id": "historical_dispositions",
+      "requirement": "原有必要发现和处置保留，修订不得恢复旧问题。",
+      "status": "pass",
+      "basis": "直接阅读 CN-E1 原必要意见及撤回、CN-D1 原评及复核、NE-CN-01/02 原负评及续查、RQ-CN-O1 原提纲意见和后继要求核查的相应范围。当前第 44 行比较关系清楚，第 170-172 行不确定化 WPS 技术根因，第 199-203 行逐项说明改进对象，第 28 行继续保留地区未知。独立续审对更广历史保存的已完成核查可复用，无须重做。"
+    },
+    {
+      "id": "adoption_usefulness",
+      "requirement": "结论支持两类读者缩小采用范围，并保留可改变判断的条件。",
+      "status": "pass",
+      "basis": "第七节按资料位置、既有本地工具链、办公套件、持续修订、周期任务和确定性流程给出候选路径及理由；保留维护负担抵消便利、独立工作台可能更省人工、对象结构不能保留时缩小范围和现有自动化无需迁移等反证。建议从已有例行任务开始，未增加虚构实测或任意节时指标。"
+    },
+    {
+      "id": "references",
+      "requirement": "保留原引用与可用的配套来源索引。",
+      "status": "pass",
+      "basis": "正文链接沿用原来源，补入的 Kimi 企业启用条件和悟空历史恢复机制与直接读取的 S04、S28 对应。最初发现本目录缺 sources.md，协调者已将原索引原样并置；本验收完整读取并核对新旧索引 SHA-256 均为 e7915d3a85094976d5568dd2b16e667510755e16230e915d40d30e07bc01f8bb，末尾相对链接现有真实目标。未将本地引用核对宣称为外链 HTTP 或网页渲染验证。"
+    }
+  ],
+  "basis": [
+    "验收者为独立上下文 /root/office_final_acceptance，未参与正文生产、八视角内容审阅或独立审计。判断来自完整当前稿、有效要求、全量修订差异、原始审阅文本和实际审计文件，不以通过数量代替判断。",
+    "当前稿 SHA-256 已实际计算，与三份复核和审计绑定版本一致。原报告至当前稿的全部 diff 已读，修订首稿至 v2 只有一处 Beta 条件补充；不存在用大改后版本承接无关旧结论的问题。",
+    "原审计 response.json 的 report_verdict 已为 pass，但 result 因历史原件未提供为 invalid。独立 native-continuation 明确仅接续该缺口，补件后 result=valid、report_verdict=pass、open_issues 为空；原审计未覆盖，未将历史缺口伪称正文缺陷。",
+    "按整合问题定向回源：S04:48-56 确认 K3.1 Pro 的 Work 3.1.0+ 与企业管理员启用；S28:186-203、291-305 确认 4 月历史重试及产物版本机制；S16:237-253 确认定时周期和到期动作。它们在现稿中的含义与引用一致，未由机制推导已测得收益。",
+    "共同证据范围与局部条件各有作用。第六节对模拟素材、历史版本、生态身份、真实多人协作尚未覆盖的限定会改变案例解释，应当保留，不属于需要继续删减的重复免责。",
+    "本次实际发现的引用配套缺件已由协调者补齐并经本验收核对。正文无需再改；没有剩余必要内容或引用修订。本 verdict 不代表网页已经发布，也不认证产品实际运行效果。"
+  ],
+  "open_issues": [],
+  "originals": {
+    "current_report": "office-revision/artifacts/report-v2.md，全文 1-205 行",
+    "sources": "office-revision/artifacts/sources.md，全文；与原案例 sources.md 相同",
+    "effective_requirements": "office-revision/work/input.txt:1-4、66-206、301-314；原案例 execution/requirements.md 与 requirements-clarifications.md 全文；本次委派范围",
+    "diffs": "原案例 report.md 至当前 report-v2.md 的完整 git diff；office-revision/artifacts/report.md 至 report-v2.md 的完整单点 diff",
+    "content_review_originals": "office-reviews 下 requirements、evidence、adversarial_reasoning、structure_and_depth、reader_usefulness、process_language、natural_expression、domain 各自原始 API response.json 的全部 message.output_text；确切路径、响应 ID 与范围见 execution.json",
+    "recheck_originals": "office-rechecks 下 reader_usefulness、adversarial_reasoning、domain 各自原始 API response.json 的全部 message.output_text；确切路径与 ID 见 execution.json",
+    "audit_originals": "office-audit/work/api-runs/2026-11-09T10-46-39-979Z-46956/response.json 的全部最终审计文本；office-audit/native-continuation/response.json 与 execution.json 全文；history-supplement/manifest.json 全文",
+    "direct_source_ranges": "原取得 S04.txt:48-61，S16.txt:237-253，S28.txt:186-203、291-305；未重新联网取得资料",
+    "historical_review_ranges": "原案例 reviews/acceptance.md 全文；evidence-premises.md:80-86、139-155；domain-premises.md:1-46；expression-full.md:17-33；expression-recheck.md 全文；requirements-outline.md:1-22；requirements-full.md:1-19、46-50。没有把独立审计读取的全部历史文件冒充本验收全文已读。"
+  }
+}

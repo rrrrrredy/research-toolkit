@@ -1,0 +1,17 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "f3a8a771e665647c0dafa07c493418c1871787d170af5d39942a14ab990bd93c",
+  "assignment_version": "78e712416164f1f8e8721d8e38a15191bb1c83ef0b28b3a0b5430292ceba54d5",
+  "completed_at": "2026-11-09T13:46:22.245200+00:00",
+  "reading_scope": {
+    "task": "complete assignment task",
+    "report": "complete reports/current.md lines 1-293",
+    "originals": [
+      "sources/actual/ODM01.txt lines 448-474",
+      "sources/actual/ODM-S12.txt lines 55-78",
+      "sources/actual/ODM-S18.txt lines 351-380,795-831,864-877"
+    ],
+    "scope": "Independent adversarial reasoning; no experiments, report edits or other-review opinions used."
+  }
+}

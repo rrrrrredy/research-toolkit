@@ -2,9 +2,7 @@
 
 [English](eval-protocol.md) · [简体中文](eval-protocol.zh-CN.md)
 
-This page is a retained historical fixed-source study protocol, explaining original records and their conditions. It is not a runbook for new research or maintenance. Its study profiles, task/call counts, token/time ceilings and single-judge arrangements describe that historical design; current research uses the [unified entry](../SKILL.md) and independent collaboration without inheriting those quotas. Frozen inputs and outputs remain unchanged.
-
-Historical fixed-source pilot protocol and runner documentation. Lite/Full below name the original study conditions, not current research options. New research uses the [shared entry](../SKILL.md); preserve frozen inputs and results.
+This page retains the historical fixed-source pilot protocol and runner documentation. Its Lite/Full conditions, task/call counts, token/time ceilings and single-judge arrangements describe the original study design. Current research uses the [unified entry](../SKILL.md) and independent collaboration; this historical design is not a runbook for new research or maintenance. Frozen inputs, outputs and results remain unchanged.
 
 **Status: a [four-model, five-family development pilot](../evals/studies/2026-10-10-lite-four-models/README.md) now has judgments for all 20 model–task pairs.** It uses a declared native-CLI judge adapter, a post-hoc format supplement and a separate completion supplement; original failures and valid judgments remain unchanged. The historical n=2 comparisons remain unblinded for efficacy and toolkit-first in both tasks; their public records do not fully establish matched model and brief. A general Toolkit quality advantage remains unproven.
 

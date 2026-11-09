@@ -295,7 +295,7 @@ class ReviewCompletionTests(unittest.TestCase):
         self.assertTrue(current["ok"], current)
         self.assertTrue(current["current_contract_checked"])
         import run_evals
-        case = copy.deepcopy(next(c for c in run_evals.load_cases(Path(__file__).resolve().parents[1] / "evals/cases")
+        case = copy.deepcopy(next(c for c in run_evals.load_cases(Path(__file__).resolve().parents[1] / "evals/diagnostics/2026-11-09-retired-cases/cases")
                                   if c["case_id"] == "model_company_pipeline_long_horizon_zh"))
         case["delivery_check"] = False
         sources = run_evals.load_sources(Path(__file__).resolve().parents[1] / "evals")

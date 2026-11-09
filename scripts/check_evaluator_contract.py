@@ -23,7 +23,7 @@ import run_evals as evaluator
 class EvaluatorContractTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.case = next(c for c in evaluator.load_cases(REPO / "evals/cases")
+        cls.case = next(c for c in evaluator.load_cases(REPO / "evals/diagnostics/2026-11-09-retired-cases/cases")
                         if c["case_id"] == "model_company_pipeline_long_horizon_zh")
         cls.sources = evaluator.load_sources(REPO / "evals")
 
@@ -129,10 +129,13 @@ class EvaluatorContractTests(unittest.TestCase):
             with self.subTest(case=case["case_id"]):
                 prompt = (output / case["case_id"] / "prompt.md").read_text(encoding="utf-8")
                 self.assertIn(case["prompt"], prompt)
-                self.assertIn("references/subagents-and-review-loop.zh-CN.md", prompt)
-                self.assertIn("不删除判断所需证据", prompt)
-                self.assertIn("审计与最终验收", prompt)
-                self.assertIn("完整来源", prompt)
+                expected = (
+                    ("references/subagents-and-review-loop.zh-CN.md", "不删除判断所需证据", "审计与最终验收", "完整来源")
+                    if case["language"] in {"zh", "zh-CN"} else
+                    ("references/subagents-and-review-loop.md", "not evidence needed for judgment", "audit and final acceptance", "complete sources and necessary provenance")
+                )
+                for instruction in expected:
+                    self.assertIn(instruction, prompt)
         english = evaluator.make_prompt({**cases[0], "language": "en"}, self.sources)
         self.assertIn("references/subagents-and-review-loop.md", english)
         self.assertIn("complete sources and necessary provenance", english)

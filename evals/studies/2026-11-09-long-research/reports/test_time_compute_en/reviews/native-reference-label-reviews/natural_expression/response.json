@@ -1,0 +1,12 @@
+{
+  "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "assignment_version": "118b0de64e93be903c52ec21c9e088ed894ff802d557c5d0d4958c211fcd874f",
+  "report_verdict": "pass",
+  "coverage": {
+    "natural_expression": {
+      "location": "当前稿第32—154、172—180、192—200、215—221、314—358行的引用标签及局部句式；reference-labels-v2.diff第1—300行全部变更；未变全文复用本人既有阅读。",
+      "basis": "复用本人对首稿354行的完整阅读及acead416版本358行稿的实际修订确认；本次从该本人已审job重建当前diff，与reference-labels-v2.diff除文件头外完全一致，并连续读完全部300行diff及其中必要上下文。方法矩阵、论证段、扩展比较表和文献表中的TTC/SUP编号改为可识别论文短名，正文主体和来源指代对应一致；已去除比较表和文献项中编号与名称的重复，When More Thinking Hurts及Selector theory两处句式调整后仍明确指向原研究。全部54个引用URL及其顺序、文献表版本与实验条件未变；EMNLP2023仅补空格，计量数值和论证未改。长标题进入句子后仍可理解，没有新增需要修正的句法、空泛指代或无推进重复。本次判断仅确认所改标签及表达的影响，不重做研究或将此前验收状态当作通过依据。"
+    }
+  },
+  "findings": []
+}

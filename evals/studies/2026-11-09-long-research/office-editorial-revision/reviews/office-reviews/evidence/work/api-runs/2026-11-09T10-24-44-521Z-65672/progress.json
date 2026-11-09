@@ -1,0 +1,35 @@
+{
+  "run_id": "2026-11-09T10-24-44-521Z-65672",
+  "started_at": "2026-11-09T10:24:44.542Z",
+  "model": "gpt-6-astra",
+  "effort": "xhigh",
+  "status": "completed",
+  "next_executor": "api",
+  "updated_at": "2026-11-09T10:29:00.704Z",
+  "http_status": 200,
+  "request_id": "req_24e38590351d4b4aafd735df3d050fa9",
+  "retry_after": null,
+  "last_event": "response.completed",
+  "response_id": "resp_005acc40ae2a6bc5016af19f6f084c87d1a7fe6e8523f7a552",
+  "output_chars": 6371,
+  "returned_model": "gpt-6-astra",
+  "returned_reasoning": {
+    "context": "all_turns",
+    "effort": "xhigh",
+    "mode": "standard",
+    "summary": null
+  },
+  "usage": {
+    "input_tokens": 255960,
+    "input_tokens_details": {
+      "cache_write_tokens": 255957,
+      "cached_tokens": 0
+    },
+    "output_tokens": 11155,
+    "output_tokens_details": {
+      "reasoning_tokens": 7488
+    },
+    "total_tokens": 267115
+  },
+  "incomplete_details": null
+}

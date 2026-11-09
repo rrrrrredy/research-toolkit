@@ -1,0 +1,268 @@
+{
+  "producer": "Codex /root/ttc_research; author, not independent reviewer",
+  "kind": "deterministic arithmetic with explicitly assumed deployment reservations, workload and prices",
+  "memory": {
+    "architecture": "Qwen2.5-3B-Instruct official config; BF16 KV; batch 1",
+    "raw_weight_GiB": {
+      "16": 5.755573511123657,
+      "8": 2.8777867555618286,
+      "4": 1.4388933777809143,
+      "2": 0.7194466888904572
+    },
+    "kv_bytes_per_token": 36864,
+    "index_bytes": 11520000.0,
+    "index_MiB": 10.986328125,
+    "scenario_fixed_GiB": 3.5107288360595703,
+    "phone_budget_GiB": 4,
+    "PC_budget_GiB": 10,
+    "phone_Q4": {
+      "4096": {
+        "kv_MiB": 144.0,
+        "total_GiB": 3.6513538360595703,
+        "margin_GiB": 0.3486461639404297
+      },
+      "8192": {
+        "kv_MiB": 288.0,
+        "total_GiB": 3.7919788360595703,
+        "margin_GiB": 0.2080211639404297
+      },
+      "32768": {
+        "kv_MiB": 1152.0,
+        "total_GiB": 4.63572883605957,
+        "margin_GiB": -0.6357288360595703
+      }
+    },
+    "PC_Q8": {
+      "4096": {
+        "total_GiB": 5.45135383605957,
+        "margin_GiB": 4.54864616394043
+      },
+      "8192": {
+        "total_GiB": 5.59197883605957,
+        "margin_GiB": 4.40802116394043
+      },
+      "32768": {
+        "total_GiB": 6.43572883605957,
+        "margin_GiB": 3.56427116394043
+      }
+    }
+  },
+  "latency": {
+    "S24_Gemma3n_E2B_CPU": {
+      "prefill_1024_s": 9.266968325791856,
+      "token_interval_ms": 62.11180124223602,
+      "warm_phase_sum_128_s": 17.217278884798066,
+      "warm_phase_sum_256_s": 25.167589443804275,
+      "extrapolated_phase_sum_512_s": 41.0682105618167
+    },
+    "S24_Gemma3n_E2B_GPU": {
+      "prefill_1024_s": 1.2542871141597256,
+      "token_interval_ms": 64.1025641025641,
+      "warm_phase_sum_128_s": 9.459415319287931,
+      "warm_phase_sum_256_s": 17.66454352441614,
+      "extrapolated_phase_sum_512_s": 34.07479993467255
+    },
+    "S24_Gemma3_1B_GPU": {
+      "prefill_1024_s": 0.5456967759126032,
+      "token_interval_ms": 22.43661655822302,
+      "warm_phase_sum_128_s": 3.41758369536515,
+      "warm_phase_sum_256_s": 6.289470614817696,
+      "extrapolated_phase_sum_512_s": 12.033244453722789
+    },
+    "M4Pro_Llama3_2_3B_Q4": {
+      "prefill_2048_s": 2.452694610778443,
+      "decode_128_s": 1.091219096334186,
+      "separate_phase_sum_128_s": 3.5439137071126288,
+      "extrapolated_phase_sum_512_s": 6.817570996115187
+    }
+  },
+  "speech": {
+    "TRT_base_clip_RTF": 0.043,
+    "TRT_tiny_clip_RTF": 0.032,
+    "PyTorch_base_clip_RTF": 0.1275,
+    "TRT_base_speedup": 2.9651162790697674,
+    "TRT_base_memory_fraction": 0.6591591591591591,
+    "memory_MiB_semantics": "process RSS delta sampled after call; code shifts >>20; not peak",
+    "whole_device_scenario": [
+      {
+        "compute_duty": 0.1,
+        "active_W": 10,
+        "idle_W": 4,
+        "average_W": 4.6,
+        "daily_kWh": 0.1104,
+        "annual_USD_at_0_20_kWh": 8.0592
+      },
+      {
+        "compute_duty": 0.1,
+        "active_W": 15,
+        "idle_W": 4,
+        "average_W": 5.1,
+        "daily_kWh": 0.1224,
+        "annual_USD_at_0_20_kWh": 8.9352
+      },
+      {
+        "compute_duty": 0.1,
+        "active_W": 25,
+        "idle_W": 4,
+        "average_W": 6.1,
+        "daily_kWh": 0.14639999999999997,
+        "annual_USD_at_0_20_kWh": 10.6872
+      },
+      {
+        "compute_duty": 0.5,
+        "active_W": 10,
+        "idle_W": 4,
+        "average_W": 7.0,
+        "daily_kWh": 0.168,
+        "annual_USD_at_0_20_kWh": 12.264000000000001
+      },
+      {
+        "compute_duty": 0.5,
+        "active_W": 15,
+        "idle_W": 4,
+        "average_W": 9.5,
+        "daily_kWh": 0.228,
+        "annual_USD_at_0_20_kWh": 16.644000000000002
+      },
+      {
+        "compute_duty": 0.5,
+        "active_W": 25,
+        "idle_W": 4,
+        "average_W": 14.5,
+        "daily_kWh": 0.348,
+        "annual_USD_at_0_20_kWh": 25.404
+      },
+      {
+        "compute_duty": 1,
+        "active_W": 10,
+        "idle_W": 4,
+        "average_W": 10,
+        "daily_kWh": 0.24,
+        "annual_USD_at_0_20_kWh": 17.52
+      },
+      {
+        "compute_duty": 1,
+        "active_W": 15,
+        "idle_W": 4,
+        "average_W": 15,
+        "daily_kWh": 0.36,
+        "annual_USD_at_0_20_kWh": 26.28
+      },
+      {
+        "compute_duty": 1,
+        "active_W": 25,
+        "idle_W": 4,
+        "average_W": 25,
+        "daily_kWh": 0.6,
+        "annual_USD_at_0_20_kWh": 43.800000000000004
+      }
+    ],
+    "linear_clip_projection": {
+      "hour_audio_compute_s": 154.8,
+      "ASR_duty_if_no_overlap": 0.043,
+      "ASR_duty_if_2x_overlap": 0.086
+    },
+    "ASR_paper_base_fp16_int8": {
+      "time_ratio": 1.0269230769230768,
+      "energy_ratio": 1.0903225806451613,
+      "memory_ratio": 0.9699677339290147,
+      "clean_WER_delta_pp": 0.4299999999999997,
+      "noisy_WER_delta_pp": 1.8500000000000014
+    }
+  },
+  "network": {
+    "PCM16k_mono_16bit_hour_MB": 115.2,
+    "Opus_assumed_24kbps_hour_MB": 10.8,
+    "one_20s_PCM_MB": 0.64,
+    "20MB_document_upload_s_at_Mbps": {
+      "1": 160.0,
+      "10": 16.0,
+      "100": 1.6
+    },
+    "40kB_excerpt_upload_s_at_10Mbps": 0.032,
+    "3GB_model_download_s_at_Mbps": {
+      "10": 2400.0,
+      "100": 240.0
+    },
+    "raw_RGB_1080p30_MB_per_s": 186.624
+  },
+  "economics": {
+    "10000": {
+      "0.05": {
+        "local_hybrid_USD_per_incoming": 6.400505555555555,
+        "cloud_USD_per_incoming": 1.11,
+        "local_hybrid_per_accepted_at_0_92": 6.957071256038646,
+        "cloud_per_accepted_at_0_96": 1.1562500000000002
+      },
+      "0.2": {
+        "local_hybrid_USD_per_incoming": 6.402005555555555,
+        "cloud_USD_per_incoming": 1.11,
+        "local_hybrid_per_accepted_at_0_92": 6.958701690821256,
+        "cloud_per_accepted_at_0_96": 1.1562500000000002
+      },
+      "0.5": {
+        "local_hybrid_USD_per_incoming": 6.405005555555555,
+        "cloud_USD_per_incoming": 1.11,
+        "local_hybrid_per_accepted_at_0_92": 6.961962560386473,
+        "cloud_per_accepted_at_0_96": 1.1562500000000002
+      }
+    },
+    "100000": {
+      "0.05": {
+        "local_hybrid_USD_per_incoming": 0.6405055555555556,
+        "cloud_USD_per_incoming": 0.12,
+        "local_hybrid_per_accepted_at_0_92": 0.696201690821256,
+        "cloud_per_accepted_at_0_96": 0.125
+      },
+      "0.2": {
+        "local_hybrid_USD_per_incoming": 0.6420055555555556,
+        "cloud_USD_per_incoming": 0.12,
+        "local_hybrid_per_accepted_at_0_92": 0.6978321256038648,
+        "cloud_per_accepted_at_0_96": 0.125
+      },
+      "0.5": {
+        "local_hybrid_USD_per_incoming": 0.6450055555555556,
+        "cloud_USD_per_incoming": 0.12,
+        "local_hybrid_per_accepted_at_0_92": 0.7010929951690822,
+        "cloud_per_accepted_at_0_96": 0.125
+      }
+    },
+    "1000000": {
+      "0.05": {
+        "local_hybrid_USD_per_incoming": 0.06450555555555555,
+        "cloud_USD_per_incoming": 0.020999999999999998,
+        "local_hybrid_per_accepted_at_0_92": 0.0701147342995169,
+        "cloud_per_accepted_at_0_96": 0.021875
+      },
+      "0.2": {
+        "local_hybrid_USD_per_incoming": 0.06600555555555555,
+        "cloud_USD_per_incoming": 0.020999999999999998,
+        "local_hybrid_per_accepted_at_0_92": 0.0717451690821256,
+        "cloud_per_accepted_at_0_96": 0.021875
+      },
+      "0.5": {
+        "local_hybrid_USD_per_incoming": 0.06900555555555556,
+        "cloud_USD_per_incoming": 0.020999999999999998,
+        "local_hybrid_per_accepted_at_0_92": 0.075006038647343,
+        "cloud_per_accepted_at_0_96": 0.021875
+      }
+    },
+    "break_even_incoming_equal_quality_f20": 6629603.891591383,
+    "correction_2pp_5min_at_30_hour_per_task": 0.05,
+    "dedicated_box_scenario": {
+      "hardware_USD": 400,
+      "life_years": 3,
+      "support_USD_year": 60,
+      "electricity_10W_24h_year_USD": 17.52,
+      "annual_total_USD": 210.85333333333335,
+      "per_audio_hour_at_8h_day": 0.07221004566210046,
+      "per_audio_hour_at_24h_day": 0.024070015220700153
+    }
+  },
+  "Minions_published_rounded_values": {
+    "accuracy_retained": 0.9792817679558011,
+    "cost_fraction": 0.18025751072961374,
+    "cost_reduction_factor": 5.5476190476190474,
+    "absolute_accuracy_gap_pp": 1.5000000000000013
+  }
+}

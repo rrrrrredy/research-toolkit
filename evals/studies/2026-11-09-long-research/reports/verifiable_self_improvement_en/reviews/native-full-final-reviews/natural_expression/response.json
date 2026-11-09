@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "natural_expression": {
+      "location": "第96、202、252、264—269行；复用首评277行全文阅读",
+      "basis": "完整检查51行统一diff。Rethinking分割、o1 diagnostic、SCoRe 15.6/4.4 points及held-out +0.6 points均恢复空格，首评具体分词障碍已解决。Promptbreeder两处把实际阅读动作改成表格内容及位置说明，保留half-split脚注、模型、对照、表图及消融功能。没有改变数字含义、迁移边界或方法解释，原minor已解决。"
+    }
+  },
+  "findings": [],
+  "input_version": "e2bf5ec236f3fbd7264dd12a2f8a018f9fb206af2f12c460b4608bfeb4086845",
+  "assignment_version": "3a590db2dc1e9d080669651a478e5a82efbb2f75cec34c406b2c2f708eff4595"
+}

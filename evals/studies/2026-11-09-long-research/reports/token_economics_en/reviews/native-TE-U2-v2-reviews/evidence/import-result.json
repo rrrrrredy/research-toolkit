@@ -1,0 +1,26 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\token_economics_en",
+  "input_version": "442cffc05d4a7b9a293c932b2af5c8abfe7391049baacd2c5f30d0205cc3e8fe",
+  "scope": "TE-U2",
+  "assignments": [],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": true,
+  "completion_check": {
+    "ok": true,
+    "flags": [],
+    "findings": [],
+    "required_slots": 2,
+    "completed_slots": 2,
+    "selected_attempts": {
+      "domain-1": "aed701123e0147c2892b3c4bc7b41c88",
+      "evidence": "e6d1ddb25af043afa81241b907ca5304"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": null,
+  "open_issues": []
+}

@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "process_language": {
+      "location": "reports/current.md 全文第1–219行；第127–157行可复现性、第173–211行两类部署选择",
+      "basis": "已连续读完冻结全文、覆盖矩阵、结果重建表与部署建议，并读取原始任务/有效要求和job提供的历史必要发现。框架、运行配置、run identity、保存输出、重新评分及工具权限属于本题评价机制，直接解释分数为何可比或不可比；实际未调用旧端点/未安装历史环境的说明明确约束可复现性判断。未见作者路径、协调身份、评审待办或产稿日志。当前新增的具体结果条件表保留来源身份与缺失条件，属于必要方法，不应删除。未执行新基准或另行核验外部代码。"
+    }
+  },
+  "findings": [],
+  "input_version": "97ee1ab82f0edcae5c827dbdc224f44e663985fe5e22cf1f34b110fe8c980fb9",
+  "assignment_version": "d94977ccebdf858a31c80fb5d83be8f57bf697a84940c9471715e444b436eeee"
+}

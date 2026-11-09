@@ -1,0 +1,12 @@
+{
+  "input_version": "d4d35456df2a9b286ae74452251419d51dac7c018c6648fba79b489eff7614fe",
+  "assignment_version": "c905f5b6043643af866a6626f9a98108bbdc3dfaf3d8d3a51ff97223ad552767",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "当前完整报告及 complete 保存前后实际 assignment，元数据等价确认",
+      "basis": "逐字段比对当前 complete=true packet 与此前已实际完成的 domain packet：任务、原始/有效要求、scope decisions、正文完整字符串、来源记录、source_files、analyses、scope、必要历史发现及 instructions 全部相同，正文 SHA-256 为 3afb14812baddbd92f0b79ff3db2fd4a77a3f50deba85c04f6e0077724f9f96b。research_outputs 的唯一差异是 report.complete 从 false 到 true 及保存快照路径；production_history 原有三条逐项保持，仅新增同一正文哈希的 complete 保存事件，依赖版本不变。实际读取此前本角色 response/execution 并承接其完整领域核查，不因元数据自动批准，也未重跑。此前实质判断仍适用。 ODM-FULL-DOM-B-01 的 Android performance lock 披露及推算条件修订保持，首次 negative 与后续 v2 结果均保留；硬件、ASR 能源、WhisperTRT 阶段与分母等已核查结论未受影响。"
+    }
+  },
+  "findings": []
+}

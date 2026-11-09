@@ -1,0 +1,240 @@
+{
+  "host_task": "/root/benchmark_audit_complete",
+  "status": "completed",
+  "scope": "full_report",
+  "input_version": "8504bfecbac8c53a810f3db16fc39e86f6d8eb4f64607306c712f89554b0d059",
+  "assignment_version": "ba86714f7abe330e838f959d4268d54ca4bc362c9e9873334a5b6284885b4d03",
+  "artifact_sha256": "259846b7cc7271e0ca20b3a25a5d1fb992c1d7aac6722232f6ea35e704661ef4",
+  "started_at": "2026-11-09 16:26:10 UTC",
+  "completed_at": "2026-11-09 16:32:35 UTC",
+  "actual_reading": {
+    "report": {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_zh/reports/current.md",
+      "ranges": [
+        "1–90",
+        "91–180",
+        "181–259"
+      ],
+      "unread_ranges": []
+    },
+    "assignment": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_zh/reviews/host/8504bfecbac8c53a810f/jobs/audit-ba86714f7abe330e.json",
+    "assignment_fields": [
+      "task",
+      "effective_requirements",
+      "instructions",
+      "report",
+      "prior_required_findings",
+      "production_history",
+      "reviews"
+    ],
+    "raw_reviews": "All eight original replies and full execution.json files, with normalized hash and per-slot assignment/input/report comparison.",
+    "history": "Both original negative replies; retained requirements full review, structure v2 and domain full review; production history all5 entries; full handoff48+6lines, outline14lines; unit02:11,13,15,25,29,32 and unit04:21,23,25,27,29,48,52.",
+    "new_original_reading": [
+      "TTC002:457,1096–1148 (relevant training ablation1113–1132)",
+      "TTC003:572–597",
+      "TTC004:362–380,400–453,605–666",
+      "TTC010:262–271,601–626 selected relevant matches",
+      "SUP-LIMITS:53,68,262–295,770,775",
+      "SUP-AC:474–497",
+      "SUP-CM:161–174 (truncation recovered165–174),242,247 (recovered fully)"
+    ],
+    "calculation": "Full budget_example.py1–86 and all7lines budget_stdout.txt; read only.",
+    "reused_original_reading": {
+      "record": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/native-current-audit-reviews/audit/execution.json",
+      "basis": "All20 Chinese frozen text originals compared against their retained shared originals and found identical after newline normalization. Reuse only exact original ranges actually read in that record; TTC003/TTC004 additional passages read anew above. English report is not a source for Chinese audit.",
+      "files": [
+        {
+          "file": "SUP-AC.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/SUP-AC.txt"
+        },
+        {
+          "file": "SUP-CM.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/SUP-CM.txt"
+        },
+        {
+          "file": "SUP-LIMITS.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/SUP-LIMITS.txt"
+        },
+        {
+          "file": "SUP-SELF.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/SUP-SELF.txt"
+        },
+        {
+          "file": "SUP-TAU.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/SUP-TAU.txt"
+        },
+        {
+          "file": "SUP-TREE.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/SUP-TREE.txt"
+        },
+        {
+          "file": "TTC001.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/TTC001/original.txt"
+        },
+        {
+          "file": "TTC002.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/TTC002/original.txt"
+        },
+        {
+          "file": "TTC003.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/TTC003/original.txt"
+        },
+        {
+          "file": "TTC003v2.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/TTC003v2.txt"
+        },
+        {
+          "file": "TTC004.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/TTC004/original.txt"
+        },
+        {
+          "file": "TTC005.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/TTC005/original.txt"
+        },
+        {
+          "file": "TTC006.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/TTC006/original.txt"
+        },
+        {
+          "file": "TTC007.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/TTC007/original.txt"
+        },
+        {
+          "file": "TTC008.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/TTC008/original.txt"
+        },
+        {
+          "file": "TTC009.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/TTC009.txt"
+        },
+        {
+          "file": "TTC010.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/TTC010.txt"
+        },
+        {
+          "file": "TTC011.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/TTC011.txt"
+        },
+        {
+          "file": "TTC012.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/TTC012.txt"
+        },
+        {
+          "file": "TTC013.txt",
+          "identical": true,
+          "enpath": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/TTC013.txt"
+        }
+      ]
+    },
+    "reading_time_note": "Real clock observation window for this case; no per-file durations invented. Includes the continuation after context compression; failed report.md and unbased relative job path reads were corrected to assignment/report current path."
+  },
+  "version_checks": [
+    {
+      "slot": "requirements",
+      "executor": "/root/complete_requirements_b",
+      "status": "completed",
+      "inputMatch": true,
+      "assignmentMatch": true,
+      "responseMatch": true,
+      "executionMatch": true,
+      "reportMatch": true
+    },
+    {
+      "slot": "evidence",
+      "executor": "/root/evidence_remaining_b",
+      "status": "completed",
+      "inputMatch": true,
+      "assignmentMatch": true,
+      "responseMatch": true,
+      "executionMatch": true,
+      "reportMatch": true
+    },
+    {
+      "slot": "adversarial_reasoning",
+      "executor": "/root/benchmark_adversarial",
+      "status": "completed",
+      "inputMatch": true,
+      "assignmentMatch": true,
+      "responseMatch": true,
+      "executionMatch": true,
+      "reportMatch": true
+    },
+    {
+      "slot": "structure_and_depth",
+      "executor": "/root/independent_reviews_a",
+      "status": "completed",
+      "inputMatch": true,
+      "assignmentMatch": true,
+      "responseMatch": true,
+      "executionMatch": true,
+      "reportMatch": true
+    },
+    {
+      "slot": "reader_usefulness",
+      "executor": "/root/benchmark_reader_a",
+      "status": "completed",
+      "inputMatch": true,
+      "assignmentMatch": true,
+      "responseMatch": true,
+      "executionMatch": true,
+      "reportMatch": true
+    },
+    {
+      "slot": "process_language",
+      "executor": "/root/process_remaining_b",
+      "status": "completed",
+      "inputMatch": true,
+      "assignmentMatch": true,
+      "responseMatch": true,
+      "executionMatch": true,
+      "reportMatch": true
+    },
+    {
+      "slot": "natural_expression",
+      "executor": "/root/benchmark_natural_expression",
+      "status": "completed",
+      "inputMatch": true,
+      "assignmentMatch": true,
+      "responseMatch": true,
+      "executionMatch": true,
+      "reportMatch": true
+    },
+    {
+      "slot": "domain-1",
+      "executor": "/root/independent_domain_b",
+      "status": "completed",
+      "inputMatch": true,
+      "assignmentMatch": true,
+      "responseMatch": true,
+      "executionMatch": true,
+      "reportMatch": true
+    }
+  ],
+  "report_hash_matches": true,
+  "result": "valid",
+  "report_verdict": "pass",
+  "limitations": [
+    "No model/API research, experiment, calculation rerun or tests.",
+    "No report/code/state change or import.",
+    "Earlier model_benchmarks_en and TTCEN work separate; no other newly reassigned audit cases begun."
+  ]
+}

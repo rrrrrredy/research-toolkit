@@ -1,0 +1,206 @@
+{
+  "host_task": "/root/evidence_remaining_b",
+  "status": "completed",
+  "perspective": "evidence",
+  "mode": "same_context_revision_followup",
+  "input_version": "9bd699373d7f5394b498f57ae2f4eacd3618c40e2bd4900720b6480bb93632f9",
+  "assignment_version": "8dfe47d7cfd9d7bbef39db27ffea913bcc18ff259333c0cae20546f7c00d6c69",
+  "artifact_sha256": "309ad92d1534d78eb04d01e8aff19e3b221af71d7691d3cc78b92972c904f550",
+  "completed_at_utc": "2026-11-09T15:44:33.9361847Z",
+  "time_note": "真实写出完成时间；未编造首读起点",
+  "previous_execution": {
+    "artifact_sha256": "ffd5bcd5ce176d57e961f3b9b32fe18973c65b7702d3175cb396cc47b23b16f1",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\model_benchmarks_en\\native-full-current-reviews\\evidence\\execution.json",
+    "sha256": "3f5e086a1aff8d31f2bf2c792c8592629950b7d040b26439d4413536e87a1118",
+    "input_version": "97ee1ab82f0edcae5c827dbdc224f44e663985fe5e22cf1f34b110fe8c980fb9"
+  },
+  "report_read": {
+    "complete": true,
+    "prior_complete_reading": {
+      "sha256": "ffd5bcd5ce176d57e961f3b9b32fe18973c65b7702d3175cb396cc47b23b16f1",
+      "actual_read_ranges": "1–100,101–219 continuous full report",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\reports\\current.md"
+    },
+    "new_changed_nonblank_lines": [
+      55,
+      105,
+      148,
+      149,
+      181,
+      188
+    ],
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\reports\\current.md",
+    "exact_same_report": false,
+    "old_changed_nonblank_lines": [
+      55,
+      105,
+      148,
+      149,
+      181,
+      188
+    ],
+    "sha256": "309ad92d1534d78eb04d01e8aff19e3b221af71d7691d3cc78b92972c904f550",
+    "actual_current_reading": "对比旧冻结job与权威prepared指向的当前job的完整report字符串，实际阅读所有新增和删除段落；未改变部分复用原完整阅读"
+  },
+  "assignment_read": {
+    "fields": [
+      "input_version",
+      "assignment_version",
+      "artifact_sha256",
+      "assignment.report",
+      "task equality",
+      "requirements equality"
+    ],
+    "task_unchanged": true,
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\reviews\\host\\9bd699373d7f5394b498\\jobs\\evidence-8dfe47d7cfd9d7bb.json",
+    "sha256": "c4610d9646b2523d34b04f1d6103d1bec073a88c970708c51e9c956fdb4d44b3",
+    "requirements_unchanged": true
+  },
+  "reused_originals_read": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB01.txt",
+      "sha256": "04586627d74cbabdae386a48d1f8fc00919af0c2debd024adfb6db1487fa09ab",
+      "actual_read_ranges": "1–65;476"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB02.txt",
+      "sha256": "f7e31705ae6b582f0454f2d01fc7456a53ca3f29ad8cf9ad098ad73a65b91284",
+      "actual_read_ranges": "40–98"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB03.txt",
+      "sha256": "8cba0cf5cf665377407ad39b70b29bea4241e322896be2605ca8bf839b00b7ac",
+      "actual_read_ranges": "59–145"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB04.txt",
+      "sha256": "1fa18150398335ef900c4da449ed03e33096992199f6702a33f592b03ffd0464",
+      "actual_read_ranges": "35–80"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB05.txt",
+      "sha256": "c64919bf53078a7ab56e7dc351724a671595ce7aeca69282a826e9a6ba17d6fd",
+      "actual_read_ranges": "1–93"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB06.txt",
+      "sha256": "718da4a21b43645eeca4fdd2315609a0e11379a9cfa615975424903ababeb9dd",
+      "actual_read_ranges": "28,37,46,57;155–177"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB08-arxiv.txt",
+      "sha256": "e37a478abb4c51a3266fb79105af75ed306bbb44c6ce3259bab0d4122b632b48",
+      "actual_read_ranges": "137,240;245–278;440–473"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB08-code.txt",
+      "sha256": "f40fea7ebc3c2f6970801be94189dd2e17a50b8b4b43d3cef6d0e1ad71b30afc",
+      "actual_read_ranges": "25,32,34"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB10.txt",
+      "sha256": "959746b4e7a222c0ee1db7e21b5cb79f6be97aad1e9ef190de5fc842a5b2cf40",
+      "actual_read_ranges": "318–392"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB17.txt",
+      "sha256": "7df27e2686e01be1b1648fcf191882cb8789e6e2d1dfbd69a80c01db45e58ad7",
+      "actual_read_ranges": "1–44,53–100 (output gap 45–52 not claimed read)"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB18.txt",
+      "sha256": "437ceb1d5f392f3acce8a1deee683c8355949425ebfd492ae5d3a5d853d98cfe",
+      "actual_read_ranges": "63,83;145–184"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB19.txt",
+      "sha256": "cfab6a2404c24f2154cef1ce4caca5e14385153406b66699cf5d754b18cbc7d4",
+      "actual_read_ranges": "99,103,109,111–112,114,117,120,211,213,222,240,259,270,272"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB20.txt",
+      "sha256": "271b7e418cda802180e9e884797be10e00cd4ef3958de68618dabcea95ee06d0",
+      "actual_read_ranges": "1–110"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB21.txt",
+      "sha256": "e527462de0c73ebae415a7796c1c554b18e6ed542d4c43441ac09bb2c70ba12a",
+      "actual_read_ranges": "93–94,111,121,142,144,206–207,212,216;230–253;389,400–402,408"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB23.txt",
+      "sha256": "1cd7e5d02647f86faec83570001420e6f46c91d43b381db1cb60aa21896629d7",
+      "actual_read_ranges": "70,74,101,104;195–285;287–329"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB25.txt",
+      "sha256": "dd8e6a1ee33aa9b6b5b2356e47bf9f60551992cc6bbeedde1739f463c15936ac",
+      "actual_read_ranges": "100–101,115,130,136,144,155,157–158,167,182,233"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB27.txt",
+      "sha256": "2288202e68da19ced1ec42f626c6cc83f43821953d4f5f29b18cd1701e21f7d6",
+      "actual_read_ranges": "50–107;317,319"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB28.txt",
+      "sha256": "cfd063f91a88a1247d2861b71d298afc1027d4d4dd3f6e5ec75131735d3367e5",
+      "actual_read_ranges": "41–42"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB30.txt",
+      "sha256": "3321b0994d64f57cef58ee71dba6be214fc69a62f96a5b3439dc23c4add96887",
+      "actual_read_ranges": "80–116"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB31.txt",
+      "sha256": "a71b291e18e500373da7711901023ffe7a50dc294117cb8ebbe49f9d5c4ea9e5",
+      "actual_read_ranges": "105–137"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB32.txt",
+      "sha256": "4a43be783d6fce810caac66f2c82bb19d396487a2b1711d5278bd2e6b22addd6",
+      "actual_read_ranges": "39;50–79"
+    }
+  ],
+  "reused_web_originals_read": [
+    {
+      "sha256": null,
+      "url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+      "actual_read_ranges": "web rendered lines 13–75"
+    },
+    {
+      "sha256": null,
+      "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations/",
+      "actual_read_ranges": "web rendered lines 13–71"
+    },
+    {
+      "sha256": null,
+      "url": "https://arena.ai/blog/our-response",
+      "actual_read_ranges": "web rendered lines 0–74"
+    },
+    {
+      "sha256": null,
+      "url": "https://www.swebench.com/SWE-bench/guides/evaluation/",
+      "actual_read_ranges": "web rendered lines 77–214"
+    }
+  ],
+  "current_originals_reread": [
+    {
+      "actual_read_ranges": "818–861（EvalPlus附录A全部相关条件）",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB10.txt",
+      "sha256": "959746b4e7a222c0ee1db7e21b5cb79f6be97aad1e9ef190de5fc842a5b2cf40"
+    },
+    {
+      "actual_read_ranges": "118–132、230–237、583–593；另外定位读取113、233、545、588等必要原文，长base64链接未作为证据解读",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\sources\\actual\\MB18.txt",
+      "sha256": "437ceb1d5f392f3acce8a1deee683c8355949425ebfd492ae5d3a5d853d98cfe"
+    }
+  ],
+  "resolved_findings": null,
+  "limitations": [
+    "不声称本次重新通读未变正文或所有原件；其原阅读范围及哈希保留在同一上下文首评记录。",
+    "未打开其他当前评审回复；未重跑研究、模型、计算、实验、检查或测试；未修改报告或导入评审。"
+  ],
+  "review_result": "pass; no remaining required findings"
+}

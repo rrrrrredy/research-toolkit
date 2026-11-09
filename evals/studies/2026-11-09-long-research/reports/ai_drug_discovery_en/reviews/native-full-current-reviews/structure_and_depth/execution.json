@@ -1,0 +1,45 @@
+{
+  "status": "completed",
+  "host_task": "/root/structure_remaining_b",
+  "executor": "native Codex subagent",
+  "input_version": "d49c3ce9104cc63e7832524cae63752853080491d4da8a045072f0dfff369a97",
+  "assignment_version": "6ea5f569ad69819d4c0504a9dd735cdefa41fce19614f53859c4a1f5ebb73447",
+  "job_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en\\reviews\\host\\d49c3ce9104cc63e7832\\jobs\\structure_and_depth-6ea5f569ad69819d.json",
+  "job_sha256": "42ec49a9f94ca435783f4f1efa358258b00a33db34080e203b6f3a8679eccebe",
+  "artifact_sha256": "4645728a2c1f4b18f13c8c42839d3610b4ec0ebdad5596efa38adc2983417f3c",
+  "frozen_report_sha256": "4645728a2c1f4b18f13c8c42839d3610b4ec0ebdad5596efa38adc2983417f3c",
+  "started_at": "2026-11-09T14:53:45.653369Z",
+  "completed_at": "2026-11-09T14:59:41.9050996Z",
+  "report_reading": {
+    "trailing_newline": true,
+    "last_line": 287,
+    "path": "frozen-report.md",
+    "ranges": [
+      [
+        1,
+        100
+      ],
+      [
+        101,
+        195
+      ],
+      [
+        196,
+        287
+      ]
+    ],
+    "complete": true
+  },
+  "originals_examined": [
+    {
+      "range": "213-216,221-229",
+      "path": "sources/actual/AIDD-S14.txt"
+    },
+    {
+      "range": "188-194,199-202",
+      "path": "sources/actual/AIDD-S20.txt"
+    }
+  ],
+  "other_perspective_results_read": false,
+  "report_edited": false
+}

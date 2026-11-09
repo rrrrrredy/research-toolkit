@@ -1,0 +1,149 @@
+{
+  "request": {
+    "task": "microdrama_market_zh",
+    "artifact": "reports/current.md",
+    "scope": "full_report",
+    "purpose": "report_delivery",
+    "domains": [
+      "Chinese microdrama industry, audience measurement and commercial economics"
+    ],
+    "evidence_paths": [
+      "notes/author-reading-ledger.json",
+      "analysis/author-production/production-handoff.md"
+    ]
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh",
+    "input_version": "8a720aa98e7b4e3a7ace082044be790b988ecce158080582fc7e5fb5825cd5e3",
+    "scope": "full_report",
+    "assignments": [
+      {
+        "slot_id": "requirements",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/826c16239b07f8d9bbbe.md",
+          "sha256": "826c16239b07f8d9bbbe7b0d739fccb2b65123c5b5c10d41ff77d44701b1fc9e"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/8a720aa98e7b4e3a7ace/jobs/requirements-be9ee62ac51bfd01.json",
+          "sha256": "d897800616d5cea83ec189fade22fc4fdcf69a4da78db6ca0e8f92764e969a3a"
+        },
+        "assignment_version": "be9ee62ac51bfd017f99d92692240743c1edf24e2066d55718048cc2364cbcc8"
+      },
+      {
+        "slot_id": "evidence",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/04cb49a1f87952232bf3.md",
+          "sha256": "04cb49a1f87952232bf376279bf087410d1c2f4d050b8a05fc61003f8468c48f"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/8a720aa98e7b4e3a7ace/jobs/evidence-525c5a6150c6c558.json",
+          "sha256": "c8b2b8b8d5a8631767d797fdae70ea8678fc19ad9e9b9af669ddaf53e87cfa43"
+        },
+        "assignment_version": "525c5a6150c6c5584d184284e2f36dc99f44cb0f5bb6ebe04045c8e2c7d2ae55"
+      },
+      {
+        "slot_id": "adversarial_reasoning",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/a1ca6a856572cdc9c01a.md",
+          "sha256": "a1ca6a856572cdc9c01a5f4892eeb299d4a76b4bf729e941ddcb4d4557affd68"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/8a720aa98e7b4e3a7ace/jobs/adversarial_reasoning-7733ccc5fd0370b5.json",
+          "sha256": "7877ec6b026f18e27ac7d9f743c41b3d961ade12d72699e6d9c5ed950df2ec42"
+        },
+        "assignment_version": "7733ccc5fd0370b5e0f558371d891357ba6f25620976166e9ffa0895b61e76ab"
+      },
+      {
+        "slot_id": "structure_and_depth",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/57c433a356e6ff70b4a2.md",
+          "sha256": "57c433a356e6ff70b4a2a0d4eb3bb10669d76370614d4723072f444147d60ab1"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/8a720aa98e7b4e3a7ace/jobs/structure_and_depth-9d0a470f58b284b8.json",
+          "sha256": "750a13cd5ff3b47e9e9864590f39f7067f0b293079af43f8d596b46ebc8e5fc7"
+        },
+        "assignment_version": "9d0a470f58b284b8a4ee38a3c2e64278e7412b10aadc6cdd9d3747cbcff6df5c"
+      },
+      {
+        "slot_id": "reader_usefulness",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/25db0c6f3669f7d8c553.md",
+          "sha256": "25db0c6f3669f7d8c5532f689d936b0d7b5735f23d7e26748cd798deda5d3f44"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/8a720aa98e7b4e3a7ace/jobs/reader_usefulness-1e7d439fcf27d3e3.json",
+          "sha256": "10523b32079ae678824834c21c3f223440cbe55ee57ac0f80434ae3662293822"
+        },
+        "assignment_version": "1e7d439fcf27d3e3824c9f381ae8f068f2284066f7c26149b8711f490f8b5764"
+      },
+      {
+        "slot_id": "process_language",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/823df8b48fc239820250.md",
+          "sha256": "823df8b48fc2398202508761b41b039f53b278db961767af3c5da90da9d42a4f"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/8a720aa98e7b4e3a7ace/jobs/process_language-64202b9ae6d42248.json",
+          "sha256": "ce9f56deb88fa4656f006d478bbe24ccd9b7ada7735c90146596bd61b7d573f5"
+        },
+        "assignment_version": "64202b9ae6d422487de041b576482120261aebe37ed9979411b98dbfc3f20396"
+      },
+      {
+        "slot_id": "natural_expression",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/464c9afe2512eb56bdae.md",
+          "sha256": "464c9afe2512eb56bdaea61d127599cc0a983c84afa404bc33eeae6b1754c79b"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/8a720aa98e7b4e3a7ace/jobs/natural_expression-301ddfe579d24005.json",
+          "sha256": "2136d52e05692e513d7b136110599913827763d5d4ff2a092d89e21866de5446"
+        },
+        "assignment_version": "301ddfe579d24005112d7490490ec0ccb28ae64dcd4f8e671988ea7841c68690"
+      },
+      {
+        "slot_id": "domain-1",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/69a47c61b5c8aa298948.md",
+          "sha256": "69a47c61b5c8aa2989485d18444533546019a782064d95034818d76a4a1058a4"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/8a720aa98e7b4e3a7ace/jobs/domain-1-4b1ae6d6e6ce341e.json",
+          "sha256": "1745b781735851a590cb819632ea889f6990682e025aecc5908827c13aee7211"
+        },
+        "assignment_version": "4b1ae6d6e6ce341ee5f5c22e87afb43b394574f9f512f31802e17dd495fbb8c1"
+      }
+    ],
+    "reviews_complete": false,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Research dependencies are not ready: inputs_changed"
+      ],
+      "required_slots": 10,
+      "completed_slots": 0,
+      "selected_attempts": {},
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Research dependencies are not ready: inputs_changed"
+    ]
+  }
+}

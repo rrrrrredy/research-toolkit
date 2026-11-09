@@ -1,0 +1,74 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "assignment_version": "aa1ff321d957a1ca1b0e9949a298eb8da6218533ce830c9520089e085391c9b3",
+  "completed_at": "2026-11-09T17:23:34.339039+00:00",
+  "reading_scope": {
+    "mode": "原 adversarial_reasoning 独立上下文接续；仅引用标签修订确认，复用未变整稿与原件审阅。",
+    "baseline_input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+    "baseline_packet": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\before-reference-labels-native-full-prepared.json",
+    "retained_own_reviews": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-full-reviews\\adversarial_reasoning\\response.json",
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-full-reviews\\adversarial_reasoning\\execution.json",
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-full-final-reviews\\adversarial_reasoning\\response.json",
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-full-final-reviews\\adversarial_reasoning\\execution.json"
+    ],
+    "current_job_scope": "full_report",
+    "report_path": "reports/current.md",
+    "report_lines_total": 358,
+    "diff_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\reference-labels-v2.diff",
+    "diff_lines_read": [
+      [
+        1,
+        300
+      ]
+    ],
+    "report_diff_current_line_ranges": [
+      [
+        32,
+        66
+      ],
+      [
+        68,
+        82
+      ],
+      [
+        84,
+        154
+      ],
+      [
+        172,
+        180
+      ],
+      [
+        192,
+        200
+      ],
+      [
+        215,
+        221
+      ],
+      [
+        314,
+        332
+      ],
+      [
+        336,
+        358
+      ]
+    ],
+    "read_recovery": "第一次将要求与 diff 1–75 合并输出时中段截断，随后完整补读 diff 1–40；其余分块读取 76–135、136–200、201–255、256–300，已覆盖全部 diff。",
+    "current_requirements": "读取当前任务和有效要求摘要；随 job 附带的其它评审状态引用不作为判断依据，未打开其它评审内容。",
+    "verification": {
+      "provided_diff_body_matches_actual_jobs": true,
+      "link_target_count": 54,
+      "ordered_link_targets_unchanged": true,
+      "source_objects_unchanged": true,
+      "task_unchanged": true,
+      "effective_requirement_summaries_unchanged": true
+    },
+    "limits": "没有重读未变原件、没有重跑研究或计算、没有修改正文、没有导入评审，原意见与记录均保留。"
+  },
+  "report_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e"
+}

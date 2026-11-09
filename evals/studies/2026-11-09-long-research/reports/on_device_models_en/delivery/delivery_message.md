@@ -1,0 +1,1 @@
+The complete research report, source index, calculations, first manuscript and original independent findings are retained. The change notes identify the substantive revisions.

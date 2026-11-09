@@ -1,0 +1,116 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en",
+  "input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "requirements",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/f8afb39befd91cb49ed9.md",
+        "sha256": "f8afb39befd91cb49ed95f7e8ff9f8e984cdee1a882a1f43a7ad6ee0e14e8611"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/b14ddf2357207d82f698/jobs/requirements-3f5990c974858e4f.json",
+        "sha256": "1fbc64d7aa8935f5026129cac025a75ab6fad148c175701eb38e1146da70c44e"
+      },
+      "assignment_version": "3f5990c974858e4fc230aa22a567cc0f31c0feaff681dae46f1a872ff87c6ee2",
+      "resume_host_task": "/root/complete_requirements_b"
+    },
+    {
+      "slot_id": "evidence",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/bbb3d8373005faca0dc0.md",
+        "sha256": "bbb3d8373005faca0dc0cb4cfe15cfa32f7e1625821292cf00508add621bb0c9"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/b14ddf2357207d82f698/jobs/evidence-50387e837a350f89.json",
+        "sha256": "1687d9e859875bb5ebf422ca386ef1ccc07e0cb68a78eaf4dee02f191e77e235"
+      },
+      "assignment_version": "50387e837a350f897bba9647b49f3d4b934532968172936cd372393175dffd86",
+      "resume_host_task": "/root/independent_reviews_a"
+    },
+    {
+      "slot_id": "adversarial_reasoning",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/0f1fc79df73bc750addb.md",
+        "sha256": "0f1fc79df73bc750addba187f1976e95c01707b4d044b6c2a9a32b578ad0ad1f"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/b14ddf2357207d82f698/jobs/adversarial_reasoning-2ebab72730e2987e.json",
+        "sha256": "41cec88259c84ad0e3186881385b9a5da628f0ab826c37e1f3356b57cb980c72"
+      },
+      "assignment_version": "2ebab72730e2987eb4fa64429efd27cafce98eea868e4d1e0fbc762f5c88b7e8",
+      "resume_host_task": "/root/benchmark_adversarial"
+    },
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/eb289ade7e19da1a3dae.md",
+        "sha256": "eb289ade7e19da1a3dae4212acf24a0daf4b20732d74f69450246fd7af9bc6ff"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/b14ddf2357207d82f698/jobs/structure_and_depth-a1ed4d4e49b395cc.json",
+        "sha256": "1e8e4ee87927ae2f6effcfa578090dd58f048bd6b6870567ec63287ef46f97d6"
+      },
+      "assignment_version": "a1ed4d4e49b395ccc05ec0ebf8d6b17aa2fd2469bba069b38ebe31f84268c671"
+    },
+    {
+      "slot_id": "reader_usefulness",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/2beb6a4b3d3a382f3303.md",
+        "sha256": "2beb6a4b3d3a382f33033c339ac5826007012b8c900ac1a1433d356dde636b03"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/b14ddf2357207d82f698/jobs/reader_usefulness-e0f5b98897cc3cda.json",
+        "sha256": "b7d2ce18c287c998e2388ffed60b3577d64d47ae99fa11904978e7c471f424ce"
+      },
+      "assignment_version": "e0f5b98897cc3cdaf0fd0d9a27a8dc34c23b58dd466d683703e79b5c2278052c",
+      "resume_host_task": "/root/full_reader_b"
+    },
+    {
+      "slot_id": "process_language",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/22f0e6906dd7c00758e6.md",
+        "sha256": "22f0e6906dd7c00758e67c68fab4e28e592b5868631736919a37c1da3b162209"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/b14ddf2357207d82f698/jobs/process_language-97f3accc889380df.json",
+        "sha256": "6ba689a2f413c81e0e1309084998583698e71a6965b215e4a03bb4a9127f5476"
+      },
+      "assignment_version": "97f3accc889380dfff14024b83099d3ff4fa65f130e5aae1fc70cb41958cb93c",
+      "resume_host_task": "/root/process_remaining_b"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Research dependencies are not ready: dependency_pending"
+    ],
+    "required_slots": 10,
+    "completed_slots": 2,
+    "selected_attempts": {
+      "natural_expression": "89a685980e124dc5b531569b52c83acc",
+      "domain-1": "15a2122cad074734b9bc4f13ae9670f3"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Research dependencies are not ready: dependency_pending"
+  ]
+}

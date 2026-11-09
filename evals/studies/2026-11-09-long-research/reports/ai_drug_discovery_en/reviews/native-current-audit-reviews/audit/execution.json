@@ -1,0 +1,177 @@
+{
+  "host_task": "/root/benchmark_audit_complete",
+  "status": "completed",
+  "role": "independent_audit",
+  "scope": "full_report",
+  "input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+  "assignment_version": "25cac285112050a56db858b59a4a9110bcd6a495ed2511f3c4a8dd1a7c691099",
+  "artifact_sha256": "65d880c1a784b0575d853d837db979ff73e28fec8c1bd024252c4b546f1a6558",
+  "started_at": "2026-11-09 16:32:43 UTC",
+  "completed_at": "2026-11-09 16:43:54 UTC",
+  "assignment_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/ai_drug_discovery_en/reviews/host/b14ddf2357207d82f698/jobs/audit-25cac285112050a5.json",
+  "reading_method": "Native independent agent, bounded local PowerShell reads and direct primary-source web reading; time is audit-session wall-clock, not invented per-file timing.",
+  "actual_reading": [
+    {
+      "path": "reports/current.md",
+      "ranges": [
+        [
+          1,
+          100
+        ],
+        [
+          101,
+          200
+        ],
+        [
+          201,
+          288
+        ]
+      ],
+      "complete": true
+    },
+    {
+      "path": "current audit job",
+      "sections": [
+        "instructions",
+        "task",
+        "effective_requirements",
+        "scope",
+        "production_history",
+        "prior_required_findings",
+        "all eight reviews.original and record references"
+      ]
+    },
+    {
+      "path": "current eight review response.txt and execution.json",
+      "detail": "Full raw current replies; current execution fields including actual prior full-reading reuse and diff ranges; input/response/execution normalized-text hashes all matched recorded references. Structure and reader execution records additionally read in full; evidence/domain retained original-reading and access-limit records examined."
+    },
+    {
+      "path": "state/progress.json",
+      "ranges": "producer/author identities located by bounded rg; no state mutation"
+    },
+    {
+      "path": "all three prior_required_findings raw responses",
+      "detail": [
+        "reviews/host/d49c3ce9104cc63e7832/results/10fabb38ecf946ba/response.txt",
+        "reviews/host/d49c3ce9104cc63e7832/results/74b56976bf2c42cb/response.txt",
+        "reviews/host/6e151bea72d6d3e15666/results/ee8947c35a7d4c88/response.txt"
+      ]
+    },
+    {
+      "path": "old/current report snapshot comparison",
+      "detail": "Original4645728a... and current65d880c... differ only at105 and287; actual old/new sentence text read, affected contexts checked."
+    },
+    {
+      "path": "sources/AIDD-U1/AIDD-S01.txt",
+      "ranges": "114–158,174–184 (159–173 not claimed)"
+    },
+    {
+      "path": "sources/AIDD-U1/AIDD-S02.txt",
+      "ranges": "119–150,170–184"
+    },
+    {
+      "path": "sources/AIDD-U1/AIDD-S23.txt",
+      "ranges": "33–96"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/ai_drug_discovery_en/codex-production/supplemental-sources/AIDD-S02/figure-2.png",
+      "detail": "Actually viewed image, both panels, group n/means/CIs"
+    },
+    {
+      "path": "R01W/R02W JSON; sources/actual/AIDD-R03W.txt through AIDD-R06.txt",
+      "detail": "Protocol identification/status/design/outcomes selected modules; R01 absolute-FVC denoms/classes/analyses; R03 participant flow, CCM-HI outcome and AE population/timeframes"
+    },
+    {
+      "path": "sources/actual/AIDD06.txt; AIDD08.txt",
+      "ranges": "AIDD06:184–202,270–305; AIDD08:232–249"
+    },
+    {
+      "path": "sources/actual/AIDD-S11.txt; AIDD-S12.txt; AIDD-S13.txt; AIDD-S14.txt; AIDD-S15.txt; AIDD-S20.txt; AIDD-S25.txt",
+      "ranges": "S11:333–356; S12:188–195,506–515; S13:92–105; S14:192–230 and241; S15:305–322; S20:185–193; S25:1–29"
+    },
+    {
+      "path": "sources/actual/AIDD04.txt",
+      "ranges": "340–437,726–760,783–820,1318–1384,2140–2190; additional exact-location search context"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/ai_drug_discovery_en/codex-production/U1-rentosertib-revision-01.md",
+      "ranges": "29–64"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/ai_drug_discovery_en/codex-production/U4-comparison-partnerships-decisions.md",
+      "ranges": "49–75 plus other visible bounded output; not claiming truncated portions read"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/ai_drug_discovery_en/codex-production/revise_U1_analysis_population.py; calculations.py; calculation results revision01",
+      "detail": "Code and saved descriptive results read only; not executed"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/ai_drug_discovery_en/codex-production/web-reading/W03.txt; W04-roche.txt",
+      "ranges": "W03:270–491 and header/method visible extracts; W04:98–121 with107–112 separately recovered,185–203"
+    },
+    {
+      "url": "https://www.researchgate.net/publication/380223979_How_successful_are_AI-discovered_drugs_in_clinical_trials_A_first_analysis_and_emerging_lessons",
+      "ranges": "Actual author-posted article402–659 and figure2 caption803–806"
+    },
+    {
+      "url": "https://ir.recursion.com/static-files/e3eb390d-76f3-4899-bb92-922eaaaf3c30",
+      "ranges": "Initial17-pagePDF text0–46; exact-domain indexed page6 and9 text. Later direct-page access403 and screenshot unsuccessful; no visual-PDF claim"
+    },
+    {
+      "url": "https://ir.recursion.com/news-releases/news-release-details/new-phase-2-rec-4881-data-presented-cga-igc-show-deep-durable",
+      "detail": "Original issuer clinical/safety/readout and development-planning paragraphs"
+    },
+    {
+      "url": "https://ir.recursion.com/static-files/644d572d-a9f8-430a-9412-559e361c3dd5",
+      "detail": "Indexed original page21 denominator/baseline correction footnote"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1601830/000160183026000039/rxrx-20251231.htm",
+      "ranges": "613–625 and1450–1466"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1865408/000186540822000005/exscientia-sanoficollabora.htm",
+      "ranges": "1306–1354 and1426; not claiming entire contract"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1865408/000110465922002006/tm222148d1_6k.htm",
+      "ranges": "71–98"
+    },
+    {
+      "url": "https://ir.recursion.com/news-releases/news-release-details/recursion-announces-sanofi-options-potential-first-class",
+      "ranges": "17–42"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1601830/000160183022000012/R26.htm",
+      "ranges": "0–8"
+    },
+    {
+      "url": "https://www.evotec.com/sciencepool/translational-biomarkers-in-oncology",
+      "ranges": "91–115"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/1865408/000186540824000018/exai-20231231.htm",
+      "ranges": "Aptuit original4053; other bounded navigation matches do not imply fullannualreport"
+    },
+    {
+      "url": "https://s28.q4cdn.com/460399462/files/doc_financials/2023/ar/fy23-exs-plc-uk-ar_final.pdf",
+      "ranges": "Joint Operations6029 exact primary text; original40% year-end/10%floor"
+    },
+    {
+      "url": "https://d18rn0p25nwr6d.cloudfront.net/CIK-0001865408/2107e6d3-671e-4154-ba91-4e0c84f7bb7a.pdf",
+      "ranges": "Exact indexed primary163-compounds/nine-month passage; directfetch failed due content length"
+    }
+  ],
+  "sampling_population": "Entire current288-line report, all requirements and consequential claims first; additional purposeful samples selected by auditor across trial statistics, prospective assays, negative programs, original-contract evidence and unit-to-report transformations. Not random or fixedpercentage.",
+  "independence": "Auditor did not produce or edit this report or any of its eight content reviews. Earlier outline-independence audit was not repeated; current8 reviewers exclude recordedproducers /root,/root/ttc_research,author:ai_drug_discovery_en.",
+  "limitations": [
+    "No claim to read unaccessed full protocol/SAP, all redacted contract provisions or every original page.",
+    "Current peer evidence review's REC-4881 access limitation remains unmodified; this audit independently obtained the exact indexed issuer footnote.",
+    "Some tool outputs truncated; recovery reads above delimit actual coverage; unshown text is not counted as read."
+  ],
+  "report_edited": false,
+  "tool_state_modified": false,
+  "imported": false,
+  "research_or_calculations_rerun": false,
+  "tests_run": false
+}

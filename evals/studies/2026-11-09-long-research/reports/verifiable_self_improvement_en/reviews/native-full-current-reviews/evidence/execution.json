@@ -1,0 +1,129 @@
+{
+  "host_task": "/root/evidence_remaining_b",
+  "status": "completed",
+  "perspective": "evidence",
+  "input_version": "9907449b6a8e39785378a2be32913f20b44923005ebe5fdf7efa5e5148db9738",
+  "assignment_version": "2eb41b392eb56ef03c193c321be1b9a3c804bef33736a39f3af25bc7af75619d",
+  "artifact_sha256": "6738773ca0c6fd185906c967db5f26d77c20acf0e2f55892757ae11855383905",
+  "completed_at_utc": "2026-11-09T15:09:00.4253910+00:00",
+  "start_marker_utc": "2026-11-09T15:05:56.3039453+00:00",
+  "time_note": "Marker is completion of preceding review, not an invented request timestamp",
+  "report_read": {
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\verifiable_self_improvement_en\\reports\\current.md",
+    "sha256": "6738773ca0c6fd185906c967db5f26d77c20acf0e2f55892757ae11855383905",
+    "actual_read_ranges": "1–85,86–175,176–277 continuous full report"
+  },
+  "assignment_read": {
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\verifiable_self_improvement_en\\reviews\\host\\9907449b6a8e39785378\\jobs\\evidence-2eb41b392eb56ef0.json",
+    "sha256": "f923bc866d1e655d9d8bd49493b9d89ced9ea97a841ab075ebeede57bf3ba4d4",
+    "fields": [
+      "assignment.task",
+      "assignment.requirements",
+      "assignment.report_path",
+      "sources keys",
+      "input_version",
+      "assignment_version",
+      "artifact_sha256"
+    ]
+  },
+  "originals_read": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\verifiable_self_improvement_en\\sources\\actual\\VSI001.txt",
+      "sha256": "23204f96077595282fb057b77492bd758024de0bf0f17f5249abd9999853d0f2",
+      "actual_read_ranges": "61,82;103–127;1036,1038,1104",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\verifiable_self_improvement_en\\sources\\actual\\VSI002.txt",
+      "sha256": "ef69fc77c6ec7e5eac1d9bcf52e64bce864d48980d8fe67387efc73b7aa6e94f",
+      "actual_read_ranges": "73;245–305;565–587",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\verifiable_self_improvement_en\\sources\\actual\\VSI003.txt",
+      "sha256": "8885aa79236ea3ea2d5fa1729ec6dfce8fcf3c29e6fbd9d74f836a0f40c4a20c",
+      "actual_read_ranges": "59;103–178;180–256",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\verifiable_self_improvement_en\\sources\\actual\\VSI004.txt",
+      "sha256": "07b1750b073598c7a3c1b82e532ddd0a82e05a581c91154be69a16916ecdaae2",
+      "actual_read_ranges": "76;255;278–380;385–448;540–660;871",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\verifiable_self_improvement_en\\sources\\actual\\TTC013.txt",
+      "sha256": "58c37eb46271d2ade4e09201b5891757ba4ccc49c1c1363bf8a8f7da2a57845d",
+      "actual_read_ranges": "44,75,83;181–249;251–275",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\verifiable_self_improvement_en\\sources\\actual\\VSI010-official.txt",
+      "sha256": "a886df11fd0a832de42d456f3a823d7c666c09d7ef44459cdca47777b0d82c66",
+      "actual_read_ranges": "350–379;708–731;808–823;1496–1507",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI010-official\\table1.png",
+      "sha256": "f861d5d1630b282267cd66e002c9ad3c4c5e0a344e658f8b7c170ccafaca0d1d",
+      "actual_read_ranges": "rendered full page 8, Table 1 and footnotes",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI010-official\\ablation.png",
+      "sha256": "017dd11b71e3ad7c92b59a45ff143802f4636fb3f7637cf75778f5fee179f89a",
+      "actual_read_ranges": "rendered page 17, Figure 4 heatmap and caption",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI-CODE-DGM\\DGM_outer.py",
+      "sha256": "8dc75d7cc3938fe9188fd8fa2bc5c9a38e9972529b81f18f150098fba34efd74",
+      "actual_read_ranges": "35–104;130–200;217–246",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI-CODE-DGM\\self_improve_step.py",
+      "sha256": "c41c528b63f343e93090ae869e5e28e9040f7f21919ee7013903637b3870f317",
+      "actual_read_ranges": "28,31,89;302,318,364–365,367,369–375,377,381,387–390,392,395,397,409–410,430",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI-CODE-HarnessPro\\README.md",
+      "sha256": "6dbb8fd8de436b0d221c7bccca14c202ec6b03aa1f1786c7bf74859da71f8e51",
+      "actual_read_ranges": "1–70",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI-CODE-HarnessPro\\terminal-medium-hook.py",
+      "sha256": "4d6546d92c2771215603cdc122fae88be13be9551e5a1ca0f3372c33e3d72750",
+      "actual_read_ranges": "1–100",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI007\\original.txt",
+      "sha256": "680c6f8ed6b9861c74242b35cc6a33264af5b22dcf7cde3da3fd01f22f671ed2",
+      "actual_read_ranges": "252–260;260–293",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI009\\original.txt",
+      "sha256": "50af2ea64769cd074e3bc7bac29a9478a7267895dacab64eba9e2de26ae1ca38",
+      "actual_read_ranges": "240–290;339",
+      "role": "original material"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\verifiable_self_improvement_en\\codex-production\\calculations.py",
+      "sha256": "7251c63a3f2501c2bc165f3e26e4e4fc5ce2a2b78a346b8c3b6b43a2c190cfd7",
+      "actual_read_ranges": "full file",
+      "role": "existing arithmetic artifact, not original experimental evidence"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\verifiable_self_improvement_en\\codex-production\\calculation-results.json",
+      "sha256": "09b3029bd7c3874776f422c54e1e7c27fa663518216e017622257659aad26f94",
+      "actual_read_ranges": "full file",
+      "role": "existing arithmetic artifact, not original experimental evidence"
+    }
+  ],
+  "limitations": "Source passages and images actually read are itemized. Whole bibliographies were not read in full; author ledgers and analyses were not treated as originals. An incidental search returned VSI008 original lines 13,25,26; it was not used for any conclusion. No current peer review was read.",
+  "actions": "Wrote only evidence response/execution. No report edits, import, benchmark/model/system run, calculation rerun or new evaluation workflow."
+}

@@ -1,0 +1,61 @@
+{
+  "producer": "/root/ttc_research",
+  "kind": "actual arithmetic over reported or explicitly hypothetical inputs, not reproduction",
+  "ttc003v2": {
+    "study_inventory": 1948821,
+    "declared_public_release": 1403520,
+    "difference": 545301,
+    "broad_block": 500661,
+    "extra_repeats": 44640
+  },
+  "ttc005_nominal_schedule": {
+    "steps": 50,
+    "proposer_slots": 800,
+    "solver_slots": 19200,
+    "total_slots": 20000,
+    "excluded": "test reconstruction, execution, evaluation, gradients, sequence lengths and invalid proposal handling"
+  },
+  "ttc006": {
+    "one_question_percentage_points": 1.6666666666666667,
+    "interval_mu_pp_per_500": [
+      3.200000000000001,
+      2.1750000000000007,
+      0.9249999999999994,
+      0.9000000000000008,
+      0.2500000000000002,
+      -0.1125000000000001
+    ],
+    "utilities_lambda_0_5": {
+      "500": 0.266375,
+      "2000": 0.3155,
+      "4000": 0.34,
+      "6000": 0.3145,
+      "8000": 0.28800000000000003,
+      "12000": 0.18300000000000005,
+      "16000": 0.049000000000000044
+    },
+    "flip_endpoint_differences": [
+      111,
+      -72
+    ]
+  },
+  "ttc007": {
+    "trajectories": 92448,
+    "micro_mean_stored_thinking_tokens": 6237.972946953963,
+    "single_probe_binomial_sd_p_0_5_n_16": 0.125
+  },
+  "ttc008_hypothetical": {
+    "p": 0.2,
+    "tpr": 0.9,
+    "fpr": 0.1,
+    "acceptance_rate": 0.26,
+    "ceiling": 0.6923076923076924,
+    "selected_success": {
+      "1": 0.18000000000000002,
+      "4": 0.4847083200000001,
+      "8": 0.6300557487551233,
+      "16": 0.6867100302866992
+    },
+    "oracle_coverage_16": 0.9718525023289344
+  }
+}

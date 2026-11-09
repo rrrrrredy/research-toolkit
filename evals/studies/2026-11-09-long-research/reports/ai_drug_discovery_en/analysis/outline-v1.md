@@ -1,0 +1,35 @@
+# AI Drug Discovery: From Research Workflows to Clinical Progress and Partnerships
+
+Author: Codex `/root/ttc_research`, substantive producer only. Evidence cutoff: 2026-11-09. English report for pharmaceutical R&D, business-development and investment teams. This continues the completed Astra plan and retained source pack; it is not a new company census.
+
+## Research question and selection
+
+Which specific computational contributions have survived experimental and clinical testing, and which partnership arrangements put the next decisive experiment under competent, appropriately incentivized control? Keep the seven documentation-led cases from the original plan: rentosertib, DSP-1181, EXS21546, REC-994, REC-4881, baricitinib and halicin. They cover target/design work, prospective screening, phenotypic repositioning and rapid repurposing, with progress, stops and inconclusive outcomes visible. Small molecules are the main comparison domain; another modality is unnecessary unless a distinct mechanism cannot be explained by these cases.
+
+The counting unit is candidate–indication–formulation. Resolve aliases and original molecule histories before describing an AI contribution. Distinguish event date from publication/registry-update date and use only evidence available by the cutoff. A phase label, completed enrollment, first dose, readout and regulatory action are different events. Sponsor-reported progress is identified when independent corroboration is unavailable. The purposive sample cannot establish an industry-wide AI success rate.
+
+## Report structure
+
+1. **Evidence-led assessment and decision map.** State what has been demonstrated at the computational, experimental, candidate and clinical levels, then explain which decisions those findings support. Write after the dossiers.
+2. **How computation changes discovery work.** Target prioritization versus causal validation; molecular proposal versus synthesis; biochemical versus functional activity; multiparameter optimization; phenotypic rescue; prospective selected-set confirmation versus retrospective scores. Trace laboratory feedback and human decisions without assuming every cycle retrains a model.
+3. **New molecules, different outcomes.** Rentosertib's TNIK/discovery chain, early human work, randomized Phase2a and reported PhaseIII start; DSP-1181's design–synthesis–assay loop and PhaseI stop; EXS21546's A2A hypothesis, healthy-volunteer/oncology programs and termination. Preserve clocks, sponsors, partners, indication and formulation distinctions.
+4. **Phenotypic repositioning.** REC-994/tempol in CCM and REC-4881/TAK-733 in FAP, with earlier molecule/oncology histories separated. Reconcile changing clinical analysis populations, endpoint hierarchy, follow-up and discontinuation rationale. Evaluate MRI or polyp signals on their own terms.
+5. **Boundary cases that clarify attribution.** Baricitinib's contemporaneous hypothesis, subsequent mechanism work, ACTT-2/COV-BARRIER/RECOVERY and regulatory decisions; halicin's model, prospective testing, mechanism and animal evidence. Separate treatment efficacy from AI's causal contribution and a research lead from a clinical candidate.
+6. **Stage-aware comparison and conventional benchmarks.** Compare outcomes at like stages. Analyze historical comparators, prior human exposure, selection, censoring, disclosure and discovery-clock definitions. Use aggregate AI clinical-success estimates only if the original denominator and exclusions can be reconstructed; otherwise explain the specific limitation without a substitute invented estimate.
+7. **Partnership models and economics.** Sumitomo–Exscientia joint discovery; Exscientia–Evotec co-development/opt-out; Takeda–Recursion in-licensing; Sanofi option/handoff; Roche/Genentech data/program collaboration; baricitinib's public/private execution. Extract disclosed IP/candidate rights, experimental responsibility, decisions, territorial/indication scope, feedback access and termination consequences. Separate upfront, research funding, options, contingent milestones, royalties, cash received and accounting revenue.
+8. **Decision implications and integrated exhibits.** An alias/status register, dated evidence chains, clinical design/results table, AI/experimental-feedback matrix, stage-aware comparison and rights/payment matrix. Recommend bounded assay engagements, co-discovery, asset licensing or deferral tied to the next falsifiable milestone. Concentrate consequential source conflicts and unresolved terms in an appendix.
+
+## Author production units
+
+- **AIDD-U1: rentosertib and computational/experimental mechanisms.** Read original discovery and clinical methods, relevant supplements, original registry JSON/history and cutoff updates. Produce the clinical premise table early for independent review.
+- **AIDD-U2: other clinical discovery/repositioning dossiers.** DSP-1181, EXS21546, REC-994, REC-4881, preserving termination and analysis-population changes and linking the scientific division of labor to partnerships.
+- **AIDD-U3: repurposing and prospective screening.** Baricitinib and halicin, including original trial/paper data and regulation where relevant.
+- **AIDD-U4: partnerships, comparison and final synthesis.** Filed contracts/disclosures where available, money categories and responsibilities, stage comparisons, calculated contrasts and conditional recommendations.
+
+These units organize authorship, not new process gates. Primary-source reading proceeds during independent outline review. The main coordinator arranges independent evidence/domain review; this author never supplies an independent pass on this work. No new model experiment, product change or software test is part of the research.
+
+## Necessary source work and concrete limits
+
+The retained packet contains27source records but only8successfully downloaded originals; downloaded bytes and prior notes are not full reading. Priority gaps are the Nature rentosertib papers and supplements; registry histories; REC-4881's November2,2026release and underlying presentation; REC-994's later disposition; the filed partnership terms; and original baricitinib trials. Recover failed originals through officialHTML,PDF,registryAPI,PMC or issuer filing mirrors. Preserve original failures and add new acquisitions under this output directory. Distinguish missing access from missing public evidence. If a detail remains undisclosed, constrain only that inference and develop the positive conclusion the accessible evidence supports.
+
+Clinical calculations will retain group sizes, comparator, endpoint, time horizon, missing data and analysis population. Difference-of-means or raw event-rate calculations will be labelled as such, never substituted for reported model-adjusted estimates. Prospective assay yields use the actual selected/tested denominator. Deal sums do not become recognized revenue or cash. First complete manuscript, calculations, reading scope and source versions remain preserved for later review.

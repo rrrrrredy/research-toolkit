@@ -1,0 +1,15 @@
+{
+  "input_version": "e6dab9c522bd95cbb6466eccef92143c33d291b91806655c81158321704d7807",
+  "assignment_version": "ab2ec6e6233ff34637137b52a6e2054939dbdb2198df07b48ef795319b5cc888",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "location": "reports/current.md:3,380-386; entire 26-line diff",
+      "basis": "Read the entire 4407-character diff against my frozen full-report evidence input. The only changes remove internal producer/review status and retrieval-operation narration, and repair spacing. All model prices, dates, cache renewal and storage conditions, route/step counts, acceptance denominators, hosting assumptions, arithmetic results and sensitivities are unchanged. The appendix still preserves exact strings/encoding hashes and calculation artifacts, the R1 historical-price non-evidence, commercial SKU versus underlying weights, cutoff constraints and unmeasured serving-capacity boundary. No factual limitation has been converted into verification. All source bodies are identical. I reuse my actual original complete 387-line reading, primary-source checks and prior 65-item arithmetic work, without rerunning them; the current edit adds no new evidentiary claim requiring new research. No necessary evidence correction."
+    }
+  },
+  "findings": [],
+  "resolved_prior_findings": [
+    "Original full-report evidence remains applicable after purely local appendix/header edits"
+  ]
+}

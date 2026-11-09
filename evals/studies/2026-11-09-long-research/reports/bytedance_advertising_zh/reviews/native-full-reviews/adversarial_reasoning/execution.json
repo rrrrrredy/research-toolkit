@@ -1,0 +1,16 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "db8213c012af78accb3a9719133d8719cea1032b0ba50b3b1862df3cc6dc3831",
+  "assignment_version": "0d846923576bce4dfb384cfd5739486c911a97a728e125a93d13689ccc2be191",
+  "completed_at": "2026-11-09T13:52:56.056782+00:00",
+  "reading_scope": {
+    "task": "完整任务",
+    "report": "完整1-210行",
+    "originals": [
+      "sources/actual/BDA-R03.json and BDA-R08.json captured official GMV Max L4-28, deduplication L3-24, Shop Ads L3-53",
+      "sources/actual/BDA03.txt lines 38-45,48-53,58-64"
+    ],
+    "scope": "独立adversarial_reasoning；无其他评审输入，无新实验。"
+  }
+}

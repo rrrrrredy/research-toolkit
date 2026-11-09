@@ -1,0 +1,17 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "d4aa7b428be4775d08f8987590a3df6f36a2073d3514f9fbd916cbe1f980b462",
+  "assignment_version": "62cf45d8de3f17b52ed2bcf79f8c2e6631d599ce4b5c4f1655c55f20df610530",
+  "completed_at": "2026-11-09T13:52:04.486779+00:00",
+  "reading_scope": {
+    "task": "完整任务",
+    "report": "完整1-189行",
+    "originals": [
+      "sources/actual/PA08.txt lines 47-53,59-66,237-243,247-254,262-269,277-283",
+      "sources/actual/PA09.txt lines 140-150,164-170",
+      "sources/actual/PA21.txt lines 20-37,84-90,106-120"
+    ],
+    "scope": "独立adversarial_reasoning；无其他评审输入，无新实验。"
+  }
+}

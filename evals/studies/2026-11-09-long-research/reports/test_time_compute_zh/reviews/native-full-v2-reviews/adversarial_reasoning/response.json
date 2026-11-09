@@ -1,0 +1,12 @@
+{
+  "input_version": "3e6278f250299b9aa3fd80f794a5ed5b1ca5d05ccfd17c28d96a73f482afacb1",
+  "assignment_version": "368b962064d70d399ccdb19b18c564991717a1984814c5f8bf9e8f3f41e69503",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "当前报告59、71、216、227-228行及其上下文；data/claims_registry.csv ZH-C15",
+      "basis": "复用本人首次对完整258行报告、任务与原文的实际阅读，本次检查当前修订五处及相关停止/预算建议上下文。AR-TTCZH-01已处理：14.2%明确限定为每位置16次答案探针的有限测量空间经验oracle前沿；承认跨位置择优的噪声乐观性及16降4探针敏感性；可学习性明确降为待独立题目/探针验证的假设；bootstrap未覆盖答案探针噪声也已列明。没有把诊断价值删成无用，而是收窄其能支持的结论。其他中心建议未依赖已被撤回的可学习性断言，当前未发现新增问题。首次负面保留，本次仅是对当前版本的复核通过。"
+    }
+  },
+  "findings": []
+}

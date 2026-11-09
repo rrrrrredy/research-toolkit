@@ -1,0 +1,37 @@
+{
+  "host_task": "/root/complete_requirements_b",
+  "status": "completed",
+  "perspective": "requirements",
+  "scope": "outline",
+  "execution_mode": "native_codex",
+  "started_at": "2026-11-09T23:42:51.8039968+08:00",
+  "completed_at": "2026-11-09T15:44:18.0316113+00:00",
+  "input_version": "08ee4e8cf6e9b2733119c8c87965023b83648c1f084afbabbd87f1a702fd3e7a",
+  "assignment_version": "f8ae786196b896d0ab5cae0905d5095de2c8f4b1f446c8bda982ee34c77b3985",
+  "assignment_path": "reviews/host/08ee4e8cf6e9b2733119/jobs/requirements-f8ae786196b896d0.json",
+  "assignment_sha256": "c875d061bd3858adcfef271ab82fcf5b69842f92a056e1a5b5b4cfa84ec8464f",
+  "report_path": "analysis/outline.md",
+  "report_sha256": "8bfe2c957e7fc1dfb21faae1bdb37a859e53eb837915b974d18b0d97e13e57b7",
+  "expected_report_sha256": "8bfe2c957e7fc1dfb21faae1bdb37a859e53eb837915b974d18b0d97e13e57b7",
+  "reading_intervals": [
+    {
+      "completed_at": "2026-11-09T15:44:18.0316113+00:00",
+      "unread_report_ranges": [],
+      "started_at": "2026-11-09T23:42:51.8039968+08:00",
+      "report_ranges": [
+        "1-36"
+      ],
+      "coverage": "complete actual outline reading and requirement mapping; no historical verdict reused",
+      "artifact": "actualjob.json:assignment.task, effective_requirements and complete outline report"
+    }
+  ],
+  "originals_opened": [],
+  "independence": {
+    "producer_role_for_artifact": false,
+    "artifact_edits": false,
+    "reviewer": "/root/complete_requirements_b",
+    "historical_issue": "The prior /root requirements context subsequently became a producer and was invalidated for independence. This assignment is substantively reassessed by the independent requirements reviewer; it does not relabel or delete the prior record.",
+    "peer_reviews_read": false
+  },
+  "notes": "Only the audit import response assignment metadata was accessed to locate the reissued requirements job. No peer substantive review, prior finding text, sources mapping or production-history judgments were read. No outline/report edits, new research, experiments or tests."
+}

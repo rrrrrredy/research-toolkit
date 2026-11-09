@@ -1,0 +1,70 @@
+{
+  "result": "pass",
+  "basis": "Independently read all 340 lines of the current English report against its complete brief, all eight current raw reviews, the full audit, both original required negative findings, production handoff and actual revision diffs. Read the complete English calculation code and retained output, the economics source unit, and selected frozen originals. The report delivers the complete domestic market, distribution, monetization and value/risk analysis for English-speaking readers. Both required repairs are present and preserve evidence conditions. No remaining necessary correction was found; existing review and audit verdicts were assessed against the actual text rather than inherited.",
+  "input_version": "4916bbf7954376e17453bc78c09a2511b4dcceae7270c4ed378ef2d93eb80e89",
+  "assignment_version": "b4c00cfae3bac9f85f037d0c39b3b652fc7bf531157e8899ad9e9c3030a3a026",
+  "artifact_sha256": "ffceaf740b8acdfd38ca4b74d0de96327b7c80f0a26ffe563dee1f09b732ccc2",
+  "coverage": {
+    "requirements": {
+      "location": "reports/current.md:1–340; assignment.task/effective_requirements",
+      "basis": "Full English long-form report covers domestic formats and accounting perimeter, incompatible estimates, audience and intensity denominators, paid/free/hybrid mechanisms, differentiated platforms, rights, acquisition, cash recovery, sensitivity and operating regulation. Separate platform/producer/distributor/investor decisions and contrary conditions are developed. The 2026-11-09 frozen-evidence boundary and overseas exclusion are retained."
+    },
+    "evidence": {
+      "location": "reports/current.md:17–76,137–172,176–273,298–340",
+      "basis": "Claim-level citations retain source periods, page locations and source status. Actual CP24 original chart supports the application-channel union and separate related-content reach; primary minors and platform texts support the distinction between statutory capacity and contractual refunds. Own complete code/output reading supports every scenario and quoted derived arithmetic. Unselected unchanged source claims reuse the audited, located original checks without claiming every source was reread."
+    },
+    "adversarial_reasoning": {
+      "location": "reports/current.md:44–76,91–123,158–172,204–239,277–294",
+      "basis": "Aggregate intensity does not become individual behavior; affiliation/co-use does not prove free acquisition; changing samples and denominators remain explicit. Declining apps, conditional guarantees, asymmetric recovery, advertisement displacement, refunds and cash timing counter a simple reach/profit or inevitable-free-winner claim. Conditions for stronger profit or slowdown judgments are explicit."
+    },
+    "structure_and_depth": {
+      "location": "reports/current.md:9–294; original units/04-executed-economics.md",
+      "basis": "The report links market perimeter to return viewing, platform access, rights and recovery terms, disclosed company accounts, modeled participant economics, regulation and choices. Reading the original economics unit against prose confirms the mechanisms and negative branches survived assembly; the current contribution is not a platform catalogue or condensed summary."
+    },
+    "reader_usefulness": {
+      "location": "reports/current.md:11–13,95,127,174–294",
+      "basis": "Mini-program, IP, touliu, fenzhang, baodi and beian are explained where used. Inputs, recipients, deductions, recovery order and scenario costs are visible. Action choices specify what to measure and when to change course; source gaps constrain those choices rather than inviting unsupported estimates."
+    },
+    "process_language": {
+      "location": "reports/current.md:1–340, especially290,298–304",
+      "basis": "The two reading-history descriptions have been replaced with objective chart/citation descriptions. Retained material-access, duplicate-source and hypothetical-model notes affect evidential interpretation and are appropriate reader-facing content. No pending-review or coordination instruction remains."
+    },
+    "natural_expression": {
+      "location": "reports/current.md:1–340, especially290",
+      "basis": "The duplicate/duplicating defect is repaired. Prose explains actors and economic mechanisms in natural English, with locally relevant qualifications and sufficient developed detail. No additional necessary language repair was found."
+    }
+  },
+  "sample_checks": [
+    {
+      "result": "clear",
+      "selection_reason": "Both required historical negatives must be checked against their originals and actual changes.",
+      "evidence": "Read original natural_expression-01 and process_language-01, both change notes and their complete diffs. Current duplicating preserves the multi-outlet cost condition; chart populations/units/footnotes and citation locations replace author reading actions while CP10/20/23 and duplicate-source boundaries remain.",
+      "location": "reports/current.md:290,300,302"
+    },
+    {
+      "result": "clear",
+      "selection_reason": "Choose passed denominator reasoning that directly supports the main growth and competition argument.",
+      "evidence": "Actually viewed frozen CP24/users.jpg including grouping bracket, values, dates and footnotes. 851m includes apps/WeChat/Douyin mini-programs; 472m is separately defined related-content browsing. 402+508+14 minus851 gives excess memberships, correctly not unique overlap. The independent English calculation output and full text keep these distinctions.",
+      "location": "reports/current.md:48–56,111–113"
+    },
+    {
+      "result": "clear",
+      "selection_reason": "Check complete model-to-prose transformation, including losses and changes in allocation.",
+      "evidence": "Read all source code and retained output without execution. Paid RMB3m allocation reconciles to refunds150000, channel285000, rights256500, media1200000, producer854250, distributor254250; 3.12% break-even and producer loss357187.50 follow the waterfall. Free platform225024 and producer-48064 sum176960; 35-to-45% shifts allocation without new value. Reward-removal threshold0.81949 active days and hybrid increments220402/141554 are supported by stated assumptions.",
+      "location": "reports/current.md:180–237; calculations.py and calculation-output.json"
+    },
+    {
+      "result": "clear",
+      "selection_reason": "A translation or scope error in minors/refunds would change real operating decisions.",
+      "evidence": "Read frozen CP22:161–180,409–421 and CP18:146–178. Civil Code capacity differs below8/above8 and for qualifying16-plus minors; the platform contract requires full refund upon minor request regardless of fulfillment. Customer support10h×7d,15-minute response and48-hour complaint handling correspond to the retained text.",
+      "location": "reports/current.md:263–267"
+    },
+    {
+      "result": "clear",
+      "selection_reason": "Inspect a passed financial observation and a claimed source gap independently of review labels.",
+      "evidence": "MD005:156–190 shows the disclosed attributable-parent loss and operating cash126801681.39; financial table identifies attributable-parent basis and calculated Q3 cash is separate from domestic title recovery. CP23 original is only a failed fetch record, correctly unused for substantive facts. The author handoff and current source notes preserve this limitation.",
+      "location": "reports/current.md:164,298–304"
+    }
+  ],
+  "open_issues": []
+}

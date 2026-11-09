@@ -1,0 +1,86 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh",
+  "input_version": "f6bb51c4fdab26cede56b083db7acbe727f8d84add9ff64682cf380aa9ff37cb",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "evidence",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/3581ad99980184fdedf7.md",
+        "sha256": "3581ad99980184fdedf72e16a87eb48221076b38d529e6619c19e33965242118"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f6bb51c4fdab26cede56/jobs/evidence-d4857108f2298939.json",
+        "sha256": "b789a4343a2de2932af4909da8428c23ed958092a9447e6a3d931278888ab960"
+      },
+      "assignment_version": "d4857108f22989393432c53598358c6a9ed9be5ce3515cf87b1fe3684089962e",
+      "resume_host_task": "/root/benchmark_evidence_a"
+    },
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/067a12525ba902dc3c42.md",
+        "sha256": "067a12525ba902dc3c42c7e152775a92cb1494a1f3cb8f80dee210e19fb256ba"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f6bb51c4fdab26cede56/jobs/structure_and_depth-866f99fb24b0dbff.json",
+        "sha256": "295537a02b9c264b1551f1c28aeed74a16f92f362d59a6f8e6a865cd05a5ea7b"
+      },
+      "assignment_version": "866f99fb24b0dbff55e92d79412dd71503a1082439a81e3f4c43ac0eec269ef8",
+      "resume_host_task": "/root/benchmark_structure"
+    },
+    {
+      "slot_id": "process_language",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/a7033738f399a50e4791.md",
+        "sha256": "a7033738f399a50e4791c37d6077e86b4f8e8551a73aa306d17b537a1e63d509"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f6bb51c4fdab26cede56/jobs/process_language-bc7e3b6696f18593.json",
+        "sha256": "0eb4757401c022d72368027bcb7d1bd3de42f92b95c0353d0df5d915bac1d0a2"
+      },
+      "assignment_version": "bc7e3b6696f18593b57d7a720258d33c63e34c19956205fd1030b33129bc9d94",
+      "resume_host_task": "/root/benchmark_process_a"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: evidence",
+      "Incomplete independent assignment: structure_and_depth",
+      "Incomplete independent assignment: process_language",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 5,
+    "selected_attempts": {
+      "requirements": "c651009fb1f441b5b7ed1804025c62f6",
+      "natural_expression": "b19c372c2d1b499bb74a27b7c19e9844",
+      "domain-1": "3b758001dcba4cfd9915b60ee572f3e2",
+      "adversarial_reasoning": "b0aafefd74af4eb791096fc02620b3d5",
+      "reader_usefulness": "4d168e20b9804e7691ea56f44e7328b3"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: evidence",
+    "Incomplete independent assignment: structure_and_depth",
+    "Incomplete independent assignment: process_language",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

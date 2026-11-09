@@ -1,0 +1,56 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh",
+  "input_version": "c3d1f51e296588d9af855032d9fa9c042cf77bec0c21a4aaeb726528f66d8c71",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "reader_usefulness",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/b22a2a0c4d9645d19927.md",
+        "sha256": "b22a2a0c4d9645d1992702769521e1c43ee417a5aa9141d27d7b54950a79ce21"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/c3d1f51e296588d9af85/jobs/reader_usefulness-6004e56fa1256c2d.json",
+        "sha256": "a7ec897cefafcdee598b5bd8deec2e7e9935b5a1d502cc9137a822b5f81f05f8"
+      },
+      "assignment_version": "6004e56fa1256c2d2a2be4097760a1878d15e37d555a6dcdd237fafd17642a58",
+      "resume_host_task": "/root/full_reader_b"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: reader_usefulness",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 7,
+    "selected_attempts": {
+      "natural_expression": "2cbea430cc1941f88427d7278ff7594d",
+      "domain-1": "77421b91542a4b0ca48c39afc64dafd4",
+      "evidence": "63a432b955ee49a1a0e03645c3c6518b",
+      "process_language": "496668f41d7b4f6785747030ca3f11d1",
+      "requirements": "78daba6091cc4c8e94ae4233ba9f3a5c",
+      "structure_and_depth": "992dbc70cabb42ee8e17e960c8abfc21",
+      "adversarial_reasoning": "4e498e55445a46e680a87ce71bf9c643"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: reader_usefulness",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

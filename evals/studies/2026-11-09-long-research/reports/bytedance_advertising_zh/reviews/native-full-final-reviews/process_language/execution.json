@@ -1,0 +1,69 @@
+{
+  "host_task": "/root/process_remaining_b",
+  "status": "completed",
+  "execution_mode": "native_codex",
+  "review_mode": "revision_confirmation_in_original_reviewer_context",
+  "started_at": "2026-11-09T23:33:14.6868146+08:00",
+  "completed_at": "2026-11-09T23:35:50.7081423+08:00",
+  "input_version": "e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "assignment_version": "3a1e81057c07bd44ff7613a875918a59ebf3dffcd99812a6c5cf01030f82ad15",
+  "report_sha256": "68ae85a7f3ead87c98127e2730a033e83275b5ed5c85c3f6d027fabbf2bb5a1e",
+  "job_sha256": "45f5797a7c51c9ea89c33a88c86c6c8e015ae953a8021c7906551e39d14a9df9",
+  "report_path": "reports/current.md",
+  "frozen_report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/bytedance_advertising_zh/native-full-final-reviews/process_language/frozen-report.md",
+  "previous_input_version": "db8213c012af78accb3a9719133d8719cea1032b0ba50b3b1862df3cc6dc3831",
+  "previous_assignment_version": "a5606e6bef975b947da8c8a7674a883b90803ac0c32ddf83a9b78fc7d83f9b2a",
+  "previous_report_sha256": "2b6fcb4578a6fbb99f3f1fee6a444bde059fda9a1cbb64e58173029f52d27416",
+  "report_unchanged": false,
+  "reused_full_report_reading": {
+    "host_task": "/root/process_remaining_b",
+    "response_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/bytedance_advertising_zh/native-full-current-reviews/process_language/response.json",
+    "execution_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/bytedance_advertising_zh/native-full-current-reviews/process_language/execution.json",
+    "frozen_report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/bytedance_advertising_zh/native-full-current-reviews/process_language/frozen-report.md",
+    "report_sha256": "2b6fcb4578a6fbb99f3f1fee6a444bde059fda9a1cbb64e58173029f52d27416",
+    "actual_reading_ranges": [
+      [
+        1,
+        110
+      ],
+      [
+        111,
+        210
+      ]
+    ]
+  },
+  "actual_diff_reading": {
+    "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/bytedance_advertising_zh/native-full-final-reviews/process_language/report.diff",
+    "sha256": "4095164fdaeb2b49283a7b83afb5cc4347f80c2cb5c3fd2d4df05c146c3c3ea1",
+    "read_all_diff": true,
+    "diff_line_count": 13,
+    "actual_reading_ranges": [
+      [
+        1,
+        13
+      ]
+    ],
+    "current_report_context_ranges": [
+      [
+        90,
+        96
+      ]
+    ]
+  },
+  "actual_reading_ranges": [
+    [
+      90,
+      96
+    ]
+  ],
+  "changed_context_fields": [],
+  "resolved_prior_findings": [
+    {
+      "finding_id": "process_language-01",
+      "prior_severity": "minor",
+      "status": "resolved",
+      "basis": "第93行改为采用2026年10月Smart+正文版本、功能按账户分批开放；搜索缓存及打开页面的操作顺序已移除，版本和可用性条件保留。首评 process_language-01 已解决。"
+    }
+  ],
+  "reading_notes": "在原独立审阅上下文中复用本人已完成的原任务、有效要求与冻结全文阅读；当前任务、有效要求及scope_decisions未变化。第93行改为采用2026年10月Smart+正文版本、功能按账户分批开放；搜索缓存及打开页面的操作顺序已移除，版本和可用性条件保留。首评 process_language-01 已解决。 本轮仅确认修订及其对process_language全篇判断的影响，未重复全文阅读、计算、测试或研究。"
+}

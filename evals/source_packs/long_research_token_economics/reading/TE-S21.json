@@ -1,0 +1,10 @@
+{
+  "id": "TE-S21",
+  "url": "https://prices.azure.com/api/retail/prices?%24filter=serviceName+eq+%27Virtual+Machines%27+and+armRegionName+eq+%27eastus%27+and+armSkuName+eq+%27Standard_NC80adis_H100_v5%27+and+priceType+eq+%27Consumption%27&currencyCode=USD",
+  "final_url": "https://prices.azure.com/api/retail/prices?%24filter=serviceName+eq+%27Virtual+Machines%27+and+armRegionName+eq+%27eastus%27+and+armSkuName+eq+%27Standard_NC80adis_H100_v5%27+and+priceType+eq+%27Consumption%27&currencyCode=USD",
+  "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\supplemental-sources\\TE-S21\\original.txt",
+  "scope": "FullAzureRetailPricesJSON;Consumption USD EastUS NC80adis; selectednonWindowsnonSpotnonLowPriority row13.96/1Hour,2024-03-01effective; allrowsretained.",
+  "reader": "/root/ttc_research",
+  "sha256": "787311af62e352212ec14b6edf28d705f443e9170ee8dff68bd0dc63b3bcc07a",
+  "retrieval_status": "retrieved"
+}

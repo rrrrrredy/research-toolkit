@@ -1,0 +1,22 @@
+{
+  "provider": "codex_native",
+  "host_task": "/root/domain_and_audit",
+  "status": "completed",
+  "case_id": "on_device_models_en",
+  "scope": "outline",
+  "perspective": "structure_and_depth",
+  "started_at": "2026-11-09T11:27:54.4996205Z",
+  "completed_at": "2026-11-09T11:29:04.0965523Z",
+  "input_version": "1bd234094a46c49f5de4118cb1351178cd27d3a361696333b8cb2b1b5ea16241",
+  "assignment_version": "eacbab26628710edb1542330ff649ac6832381de95c7ec7648d63cd144068f40",
+  "artifact_sha256": "b6a32a773346d9a2d3e970948f72027608ad26c10eab9f68ddebfad63c16c9c2",
+  "assignment_path": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\reviews\\host\\1bd234094a46c49f5de4\\jobs\\structure_and_depth-eacbab26628710ed.json",
+  "assignment_sha256": "048dbab6278eee976728387f4a0cc770ab6408a208787453c99347e912544fee",
+  "snapshot_path": "logs/record-backups/f3800ddbd63f4777b7330f9918216384/saved/analysis/outline.md",
+  "snapshot_content_matches_current": true,
+  "response_sha256": "f6e6d92eb91865835468f67c9cef9a3a12f098213f3b97bcde163f776543408c",
+  "producer_role": false,
+  "other_initial_reviews_read": false,
+  "api_called": false,
+  "imported": false
+}

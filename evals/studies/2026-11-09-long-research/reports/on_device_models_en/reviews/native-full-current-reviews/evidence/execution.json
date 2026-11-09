@@ -1,0 +1,164 @@
+{
+  "host_task": "/root/evidence_remaining_b",
+  "status": "completed",
+  "perspective": "evidence",
+  "input_version": "d4d35456df2a9b286ae74452251419d51dac7c018c6648fba79b489eff7614fe",
+  "assignment_version": "9d9a0c91df93edc998438c1dcd14c23cbc928658ae2e8536b3c2c6a9d5e58cad",
+  "artifact_sha256": "3afb14812baddbd92f0b79ff3db2fd4a77a3f50deba85c04f6e0077724f9f96b",
+  "completed_at_utc": "2026-11-09T14:57:21.7783668+00:00",
+  "start_timestamp": "Not instrumented before first read; no retrospective start time fabricated",
+  "report_read": {
+    "actual_read_ranges": "1-120,121-293, continuous complete report",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\reports\\current.md",
+    "sha256": "3afb14812baddbd92f0b79ff3db2fd4a77a3f50deba85c04f6e0077724f9f96b"
+  },
+  "assignment_read": {
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\reviews\\host\\d4d35456df2a9b286ae7\\jobs\\evidence-9d9a0c91df93edc9.json",
+    "fields": [
+      "input_version",
+      "artifact_sha256",
+      "assignment_version",
+      "instructions",
+      "dimensions",
+      "assignment.task",
+      "assignment.requirements",
+      "assignment.report_path",
+      "assignment.sources keys only",
+      "assignment.source_files keys only"
+    ],
+    "sha256": "a99ef675fe3e3fca36e9b37e2a78efcd9fb1932386946d1d363740f2dd5c3a8e"
+  },
+  "originals_read": [
+    {
+      "actual_read_ranges": "1-27",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S01.txt",
+      "sha256": "eed00b17e22553979d090fa492e587e92885e328914c8e0b0b78f0a0d3576b3b"
+    },
+    {
+      "actual_read_ranges": "190-220; additional targeted matches for VAD/ASR",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S20.txt",
+      "sha256": "b0431149915eec9656233431901015418bc6eea207c3045ad766662652f6943f"
+    },
+    {
+      "actual_read_ranges": "435-469,599-642,782-839",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S18.txt",
+      "sha256": "ce0ed9020c009666e0fe231ffd680693c269444627453896363201ba62725f60"
+    },
+    {
+      "actual_read_ranges": "103-283",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM07.txt",
+      "sha256": "2862c0049ef49b2a8b4c3b92fe9a9bb3ab3750da712e5a6d4b3b5785934b3719"
+    },
+    {
+      "actual_read_ranges": "836-842 targeted source matches",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM13.txt",
+      "sha256": "972840dadf0b8b08b46b00507f920e6a63f779dc4a3ce3a2d9a0ff3e579ad5a9"
+    },
+    {
+      "actual_read_ranges": "55-82,558-624,751-810",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S17.txt",
+      "sha256": "efbe73f81123b5f7d20b99dfbdb0bb10005080f0044fea8e387b7163e3c73943"
+    },
+    {
+      "actual_read_ranges": "447-460",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM01.txt",
+      "sha256": "53d727ed918ea700243a97df08de84c69b7f45eabbd56004ab1a205a6ff4d6af"
+    },
+    {
+      "actual_read_ranges": "1-77",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S28.txt",
+      "sha256": "e7d88b614cebf1983c57cc0597caa8101bdfc40062a8620369ab6ff1ec782d57"
+    },
+    {
+      "actual_read_ranges": "11-21 targeted source matches (older version; current independently checked online)",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S23.txt",
+      "sha256": "8743a2ca460bb4abf1d513a528cd791bc8fecd3e5130d43d327d8d7b8a3ad177"
+    },
+    {
+      "actual_read_ranges": "55-90",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S12.txt",
+      "sha256": "064f5cc90c65c26e6ef5f45e12de6aa60c1ca2ec15a5e4f9fa56f3d39a7eff1a"
+    },
+    {
+      "actual_read_ranges": "260-363",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM12.txt",
+      "sha256": "a10040a890cc686442f325b240773c769612b94f3536a8e4898b7e44bda43c2b"
+    },
+    {
+      "actual_read_ranges": "155-181",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S21.txt",
+      "sha256": "eb99743bcb8f5359d828ea3bb5f624072df9384c98507fb9cf37e52469bcd73c"
+    },
+    {
+      "actual_read_ranges": "15-27 targeted source matches",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM11.txt",
+      "sha256": "36aa2ed7a8bf16375df447981d8decfa504b03d533733b3002b0a84368476a8b"
+    },
+    {
+      "actual_read_ranges": "1-90",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S10.txt",
+      "sha256": "89bb308462c090a2b5e17cd0e74796b159454cf15d953bb3a8fd725827fe193d"
+    },
+    {
+      "actual_read_ranges": "45-135",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S06.txt",
+      "sha256": "cdc06052012c47654cfa49dc41a766cdb8801c4dfd469bee6d42774b058beb78"
+    },
+    {
+      "actual_read_ranges": "379-382,468-469 targeted source matches",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM14.txt",
+      "sha256": "b6a7e579b8dd07f3b1b26be711df8a8ab0cd2c6e635be484f942eef1c0498ed4"
+    },
+    {
+      "actual_read_ranges": "15-55",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S02.txt",
+      "sha256": "2c74693e6ae36ba878124d465195b4dad0f71035b54ece1c9fd1553cc497ef8c"
+    },
+    {
+      "actual_read_ranges": "13-22,65-67 targeted source matches",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S27.txt",
+      "sha256": "36ed287b2de3eaf40207cd2a44a8d45d57ea5c212a39df07401d4fcb4d5a5a1a"
+    },
+    {
+      "actual_read_ranges": "95-201,300-350",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM17.txt",
+      "sha256": "bdef3bc9a8f6281a2c3e29c381f6a3dfffe5133341049eac3a708fffabcb2a49"
+    },
+    {
+      "actual_read_ranges": "149-150 targeted source matches",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM21.txt",
+      "sha256": "776ec3ed2139ecbb1c84b36e122c6898c775d22b5ae6c6829e825a326d02338f"
+    },
+    {
+      "actual_read_ranges": "30-88",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S19.txt",
+      "sha256": "d938bb20d61d88b0afb0dc0aaedfc57e8907b6b6fd04bb83a3407700e32e2a35"
+    },
+    {
+      "actual_read_ranges": "33,50,69-78 targeted source matches",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM04.txt",
+      "sha256": "23c3319680b8a731dab126882d95aec9be71bac60467707f1a77b21b8328f078"
+    }
+  ],
+  "web_originals_read": [
+    {
+      "actual_read_ranges": "Microsoft Learn rendered lines 27-248; particularly 34-75",
+      "reason": "Web tool text, no local byte artifact",
+      "retrieved_during_current_review": true,
+      "url": "https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica",
+      "sha256": null
+    },
+    {
+      "actual_read_ranges": "Microsoft Learn rendered lines 24-240; particularly 32-46",
+      "reason": "Web tool text, no local byte artifact",
+      "retrieved_during_current_review": true,
+      "url": "https://learn.microsoft.com/en-us/surface/tech-specs/surface-laptop-snapdragon-tech-specs",
+      "sha256": null
+    }
+  ],
+  "limitations": [
+    "Originals read at consequential claim locations, not every page of every source",
+    "No model inference, hardware experiment, new tests, calculation rerun, report editing, or review import performed",
+    "Other current-review verdicts were not read"
+  ]
+}

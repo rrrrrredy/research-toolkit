@@ -1,0 +1,12 @@
+{
+  "input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+  "assignment_version": "2ebab72730e2987eb4fa64429efd27cafce98eea868e4d1e0fbc762f5c88b7e8",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "复用本人先前完整正文审阅（初始记录 native-full-reviews/adversarial_reasoning）；当前稿共 287 行，完整 diff 及上下文当前行号 [[102, 108], [284, 287]]。",
+      "basis": "全部差异已读。DSP-1181 现在准确写成数百个化合物经历反复两周反馈周期，而非数百次设计—制造—测试迭代；不到 12 个月只到候选确定并排除安全评价的时间边界仍保留。资料说明清理获取过程后仍指出缺少具体方案、统计分析和合同细节，没有提高临床疗效、平台因果贡献或里程碑兑现的确定性。此前临床人群、缺失数据、探索性 FVC 与后续停项的整体判断继续适用。"
+    }
+  },
+  "findings": []
+}

@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-09T13:43:39.121463+00:00",
+  "type": "author_revision",
+  "first_draft_sha256": "84bd1d4f042d303c35be76f3bfa52ce9e326d4f6013f99100a0c67d3a98a58e5",
+  "current_draft_sha256": "067f3167d6e9df6f6d7b1e115fbd014ea8467b32939f690391e4f693a2913704",
+  "changes": [
+    {
+      "id": "A01",
+      "severity": "minor",
+      "location": "2, supply expansion",
+      "issue": "The translation more than fivefold is less explicit than the source 增长超5倍.",
+      "action": "Use reported an increase of more than 500% without asserting an exact final supply multiple."
+    },
+    {
+      "id": "A02",
+      "severity": "minor",
+      "location": "2, audience methods;3 table",
+      "issue": "Two instances of micro-program use terminology inconsistent with the defined mini-program.",
+      "action": "Normalize to mini-program."
+    },
+    {
+      "id": "A03",
+      "severity": "minor",
+      "location": "6, minors",
+      "issue": "Those aged eight and above could be read as including adults.",
+      "action": "Specify minors aged eight and above."
+    },
+    {
+      "id": "A04",
+      "severity": "minor",
+      "location": "5, hybrid",
+      "issue": "The incremental amount is publisher receipts before extra costs and sharing, not platform profit.",
+      "action": "Make the publisher-level base explicit."
+    },
+    {
+      "id": "A05",
+      "severity": "minor",
+      "location": "6, copyright",
+      "issue": "One shortcut citation shows only CP03.",
+      "action": "Use a descriptive November campaign label."
+    }
+  ],
+  "independent_review_status": "pending_root",
+  "normalized_lf_content_sha256": "8cf6095d649d0543a7c444e13e5296abab2b5ffecfa4615775de91b4faca48a6",
+  "hash_note": "sha256 hashes exact saved bytes; normalized_lf_content_sha256 preserves the originally computed LF text fingerprint. Windows text-file newline translation caused the distinction; manuscript contents were not rewritten."
+}

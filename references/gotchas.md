@@ -2,7 +2,7 @@
 
 [English](gotchas.md) | [简体中文](gotchas.zh-CN.md)
 
-Use this reference when the agent repeatedly drifts, when eval output passes mechanically but reads poorly, or when adapting the framework to a new agent runtime.
+Use this reference when the agent repeatedly drifts, when eval output passes mechanically but reads poorly, or when adapting the framework to a new Agent tool.
 
 ## Registry Theater
 
@@ -14,7 +14,7 @@ Repair:
 2. Convert source rows into mechanisms, tradeoffs, counter-cases, and implications.
 3. Rewrite the section around the argument, not around source order.
 
-Eval signal: high artifact score, high bullet density, repeated source-listing phrases, weak synthesis in content review.
+Eval signal: facts are listed without explaining how they support the section's conclusion or comparison.
 
 ## Source-Listing Prose
 
@@ -38,7 +38,7 @@ Repair:
 2. Check what the actual source can establish: an official statement can establish its stated position, but not automatically the outcome it promotes.
 3. Correct the claim's strength and retain relevant counter-evidence and uncertainty.
 
-Eval signal: thin or empty `claims_registry.csv`, absolute language without uncertainty, weak claim discipline terms.
+Eval signal: the report presents a source assertion as verified, omits conflicting evidence, or exceeds the source's observation scope.
 
 ## False Completion
 
@@ -75,7 +75,7 @@ Repair:
 2. Identify thin units by section, company, period, mechanism, or case.
 3. Expand the units with mechanisms, examples, counter-evidence, and implications before reader cleanup.
 
-Eval signal: low non-space character count, missing expected sections, high list ratio, or content review finding insufficient depth.
+Eval signal: content review locates a required comparison, mechanism or case left as an unsupported label or compressed summary.
 
 ## Lens Overreach
 
@@ -87,7 +87,7 @@ Repair:
 2. Keep the lens as an analytical tool, not as the section structure unless it truly fits.
 3. Delete methodology exposition from the final prose.
 
-Eval signal: final prose explains the method more than the industry question.
+Eval signal: method exposition displaces the explanation or comparison the research question requires.
 
 ## Subagent Sprawl
 

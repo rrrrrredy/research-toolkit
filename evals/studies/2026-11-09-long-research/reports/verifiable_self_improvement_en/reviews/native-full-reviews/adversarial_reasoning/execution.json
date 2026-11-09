@@ -1,0 +1,17 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "04dc84ae829e3bc00d83ac2b41a9583db0430cb64b051790b4667aa091fa486d",
+  "assignment_version": "478a0adeedb37b5b59f8d4d58bb1ae59bd520a131a2af8fcadd856081d322019",
+  "completed_at": "2026-11-09T13:43:47.185177+00:00",
+  "reading_scope": {
+    "task": "complete assignment task",
+    "report": "complete reports/current.md lines 1-275",
+    "originals": [
+      "sources/actual/VSI001.txt lines 108-129 and 1028-1038",
+      "sources/actual/VSI004.txt lines 278-320",
+      "sources/actual/VSI003.txt lines 225-250"
+    ],
+    "scope": "Independent adversarial reasoning; no experiments, source changes or other review opinions used."
+  }
+}

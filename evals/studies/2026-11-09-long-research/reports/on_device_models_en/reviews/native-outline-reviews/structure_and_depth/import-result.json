@@ -1,0 +1,26 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en",
+  "input_version": "1bd234094a46c49f5de4118cb1351178cd27d3a361696333b8cb2b1b5ea16241",
+  "scope": "outline",
+  "assignments": [],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": true,
+  "completion_check": {
+    "ok": true,
+    "flags": [],
+    "findings": [],
+    "required_slots": 2,
+    "completed_slots": 2,
+    "selected_attempts": {
+      "requirements": "fe41b8f2773d425d95a06ebe32fec6e5",
+      "structure_and_depth": "12c21b6b61b843fdb90469734ac27541"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": null,
+  "open_issues": []
+}

@@ -1,0 +1,45 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_en",
+  "input_version": "8005824d34a17e3023e0f2332760f582193e892fd93af10232da7b8af569bec3",
+  "scope": "U1",
+  "assignments": [
+    {
+      "slot_id": "domain-1",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/14ab399c0c0c52fcefd7.md",
+        "sha256": "14ab399c0c0c52fcefd75679fce26ce57059dd0e50e0f354dc897c984909ad4a"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/8005824d34a17e3023e0/jobs/domain-1-419a4f23231ea4a1.json",
+        "sha256": "d3533612c579d5591d6c8b8b7e8a44355b382af27335c597e76c30412142c529"
+      },
+      "assignment_version": "419a4f23231ea4a1660704098ab618b527a7da91b80b8f88ee15016d63ed8485"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: domain-1"
+    ],
+    "required_slots": 2,
+    "completed_slots": 1,
+    "selected_attempts": {
+      "evidence": "8747f6c5229947bc86f88704efb57329"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: domain-1"
+  ]
+}

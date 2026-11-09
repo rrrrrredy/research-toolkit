@@ -1,0 +1,28 @@
+{
+  "host_task": "/root/process_remaining_b",
+  "status": "completed",
+  "execution_mode": "native_codex",
+  "started_at": "2026-11-09T22:59:12.8944175+08:00",
+  "completed_at": "2026-11-09T15:02:17.5213783+00:00",
+  "input_version": "acc6504ab98dac4ec6273807ededc74b05552815bcc6455b766d539f3496fec9",
+  "assignment_version": "d1855ddc059f2399a2c2500b28d62e28551a80e9222d29a431cdfd647f21f8a7",
+  "report_sha256": "818d119dff2f67c6747331df2d1c6b17dcb4151304af2de2307c723d6b586832",
+  "job_sha256": "97dd648b4d190f7b5d3d946a2515dbfd7ce71010561126376c0f2e212542722f",
+  "report_path": "reports/current.md",
+  "frozen_report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/token_economics_en/native-full-current-reviews/process_language/frozen-report.md",
+  "actual_reading_ranges": [
+    [
+      1,
+      120
+    ],
+    [
+      121,
+      255
+    ],
+    [
+      256,
+      386
+    ]
+  ],
+  "reading_notes": "全文1–386行连续三段通读；仅process_language评审，实际未独立复核报价或执行算例。"
+}

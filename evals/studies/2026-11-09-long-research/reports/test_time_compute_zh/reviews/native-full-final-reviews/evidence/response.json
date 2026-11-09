@@ -1,0 +1,12 @@
+{
+  "input_version": "8504bfecbac8c53a810f3db16fc39e86f6d8eb4f64607306c712f89554b0d059",
+  "assignment_version": "826f337573fd9df59c791dbe7d1e3ec2659e2097886ea1d337753babadb715c2",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "basis": "复用同一独立evidence上下文已经完成的全文连续阅读及18份原始论文/补充材料阅读，原记录保留于native-full-current-reviews/evidence/execution.json；当前逐行比较两版完整正文确认实际只改141、143、157、166四行。新稿明确单题0.10美元为期望费用预算，表头区分期望工具和总费用，7个强生成候选合计2次重试0.10020美元的算术与既有输入相符，硬上限需实际余额和在途调用预留且不能沿用固定候选成功率的说明准确。166行补齐脚本原有第二轮2.7秒前置处理，21.5+2.2+22.7+2.2+3.5=52.1秒/链，两波104.2秒，原EV-TTCZH-01已解决。重读budget_example.py1–70和budget_stdout.txt1–5，未执行；其余方法条件、论文版本、测量分母和算例结果未改，原件检查继续成立。未阅读同题英文报告，无新增必改问题。",
+      "location": "reports/current.md，1–258行完整报告；当前修订141、143、157、166行及119–175行上下文"
+    }
+  },
+  "findings": []
+}

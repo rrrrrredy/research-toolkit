@@ -1,0 +1,25 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "natural_expression": {
+      "location": "reports/current.md 第1—386行全文，定价表、三个工作负载、缓存时序、代理成本和自托管比较、价值链及附录。",
+      "basis": "完整阅读任务及全文。各模型先给验收定义与参数，再说明成本、条件和决策；技术词如prefill/decode、request/attempt/trajectory被区分，成本限定对应实际计费及质量差异。没有把长篇公式说明或敏感性假设判成冗余。正文主体清晰；开头保留内部稿件状态，末尾出现集中缺失空格，构成必要的读者稿清理。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "natural_expression-01",
+      "severity": "minor",
+      "location": "reports/current.md 第382—386行，附录最后三段。",
+      "basis": "多处英语词及型号被粘连：local403responses、historical R1price、GPT-6.1model、short/longpriceboundary、datedClaude ratecard、commercialSKUprices、underlyingweight、fullpublicJSON、exactSKUrows、mismatchedGPUcapacity、measuredthroughput、deploymentdecision、measuredlatency、delayedreopening、procurementthresholds、postedtokenprice等。读者需自行分词才能理解来源和适用条件。恢复这些普通词、型号及数字之间的空格并通读这三段；保留实际来源限制与成本条件，无需新增内容。"
+    },
+    {
+      "finding_id": "natural_expression-02",
+      "severity": "minor",
+      "location": "reports/current.md 第3行，标题下元信息。",
+      "basis": "Author: Codex research producer `/root/ttc_research`及First complete author manuscript; independent whole-report review remains pending属于内部生成身份和评审状态，在开头打断面向采购者的报告定位，且读者无法据该路径使用报告。保留截止日和适用读者，移除该内部身份/过程状态；其审计留存应继续在执行记录中保留。"
+    }
+  ],
+  "input_version": "e971ccb9869b9b5333e060010f47e805e42b57a4ba02adedbc0203d5af57509e",
+  "assignment_version": "72572e85cbd0e3ddd73016d67b8f312f337a8fb5d02dbde00d672d8572954da4"
+}

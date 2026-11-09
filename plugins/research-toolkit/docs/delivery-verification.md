@@ -4,9 +4,9 @@
 
 Use this contract when CLI/MCP manages delivery or the task explicitly requires its receipt. Skill-only reports complete their agreed research and checks without creating these state files or receipts.
 
-The checker is an optional offline consistency check. It is not a runtime permission hook and cannot prove that an agent invoked it. The research and writing requirements remain in [SKILL.md](../SKILL.md); this page documents the checker interface, not additional writing rules.
+The checker is an optional offline record-consistency check, not a runtime permission hook. Use actual execution records to verify an invocation. Research and writing requirements remain in [SKILL.md](../SKILL.md); this page documents the checker interface.
 
-The default is **delivery contract 3**. The receipt container remains `schema_version: 1`; contract versions identify which checks were performed. Results include `delivery_contract_version`, `current_contract_checked`, and `semantic_verification: false`. None authenticates user consent, proves actual reading, or certifies editorial quality.
+The default is **delivery contract 3**; receipt `schema_version: 1` is unchanged. `delivery_contract_version` and `current_contract_checked` identify the checks performed. With `semantic_verification: false`, verify consent against user decisions, reading against source notes and originals, and editorial quality through independent review.
 
 The shared CLI needs Python 3.10+ and only the standard library. Prefer `python3` on Linux; any installed Python 3.10+ interpreter is enough.
 
@@ -59,7 +59,7 @@ The linked `data/source_registry.csv` row must occur exactly once and have `read
 
 Clear local file references in `read_evidence` must resolve to an existing, nonempty file inside the task directory. Missing files, directories, empty/whitespace-only files and paths escaping that directory fail. A file may include an anchor or page/section suffix. URLs and section/page locators remain accepted without fetching or verifying their content.
 
-The checker compares these declared fields. It cannot detect an omitted requirement, infer reading duties from free-form prose, verify a fabricated quote, or establish comprehension from a note. The author still reconciles the records with the actual request and sources. Both the standalone checker and eval runner check requirement closure, including when the runner's optional receipt check is disabled.
+The checker compares declared fields. Reconcile the ledger with the full request, verify quoted decisions against their source turns, and check reading notes against original sections. The standalone checker and eval runner both check requirement closure, including when the runner's optional receipt check is disabled.
 
 ## Explicit length requirements
 
@@ -93,7 +93,7 @@ Use `whitespace_words` for Python whitespace-delimited segments, or `nonwhitespa
 
 `research_finish` recomputes counts and refuses out-of-range `satisfied` claims before writing a receipt or replacing the delivery message. The receipt stores `length_checks`; the offline checker recomputes them. The historical checklist preview returns the counts and any errors. Existing requirement-closure rules apply to these rows for current and historical tasks: an unresolved status still needs resolution, and an existing user decision can waive/change scope or accept a limitation. A waived range retains its actual count and `bounds_met: false` when outside the range; it is not rewritten as a satisfied measurement. Current reviews already freeze the ledger, so changing the agreed range requires the normal current-version review. Previous receipts without structured length requirements keep their original checks.
 
-The eval runner also checks declared length requirements at terminal delivery when its optional receipt check is disabled. These checks validate counts against declared bounds. They cannot discover an omitted requirement, prove the bounds accurately reflect the user's request, or establish sufficient depth or research quality. Neither author self-claims nor extra words repair missing reasoning.
+The eval runner also checks declared length requirements at terminal delivery when its optional receipt check is disabled. Compare the ledger's bounds with the actual request, and review whether the report develops the required reasoning; word/character counts assess the declared range only.
 
 ## Comparing a captured reply
 
@@ -107,7 +107,7 @@ The `delivery_observation` result is `not_provided`, `matched`, `mismatch`, or `
 
 Saved checklist-only task captures remain historical evidence under their original contract. A new continuation preserves those originals and completes the current independent requirements; it does not obtain a current acceptance by repeating the old checklist.
 
-A caller-supplied file is not authenticated delivery attestation. An agent writing another copy of its intended message does not create independent capture evidence. This interface alone does not intercept or enforce the live final reply.
+Use the runtime's retained output as capture evidence, rather than an agent-authored copy of the intended message. The checker compares it with the bound intended message; it does not authenticate the capture or control the live final reply.
 
 ## Required model-review completion
 
@@ -129,7 +129,7 @@ The standalone checker and eval runner share review and open-issue semantics. A 
 
 `limitation_disclosure.status` distinguishes `not_applicable`, `absent`, `contradiction`, `text_covered`, and `needs_review`. An absent disclosure signal or a recognized blanket denial of existing limitations fails the mechanical check. The denial detector is bounded and heuristic; it does not recognize every possible wording.
 
-`text_covered` means the recorded limitation text was found after punctuation/whitespace normalization, not that it is factually correct or asserted honestly. `needs_review` reports `unmatched_limitations` and a visible warning when only some limitations match, the wording is paraphrased, or the message is generic. These uncertain cases do not fail solely for using a valid paraphrase, but a mechanical PASS must not be reported as verified disclosure. `semantic_verification` is always false: a content reviewer must check meaning, coverage and material contradictions. There is no compulsory wording, extra declaration file or model/API dependency.
+`text_covered` means the recorded limitation text was found after punctuation/whitespace normalization. `needs_review` reports `unmatched_limitations` and a visible warning for partial matches, paraphrases or generic wording. A valid paraphrase does not fail solely because its wording differs. `semantic_verification` is always false; content reviewers check factual accuracy, meaning, coverage and material contradictions. No fixed wording, extra declaration file or model/API dependency is required.
 
 ## Draft checks before delivery
 
@@ -145,7 +145,7 @@ Retain original historical outcomes without backfilling reviews. On continuation
 
 ## Regression coverage
 
-`python3 scripts/check_delivery_contract.py` reseals unrelated hashes so a stale receipt cannot mask the target defect. It includes known-good controls, custom message binding, captured-message differences, declared review scopes, bounded review-event permutations and the terminal-state truth table. These checks do not establish universal natural-language completion detection or research quality.
+`python3 scripts/check_delivery_contract.py` reseals unrelated hashes so a stale receipt cannot mask the target defect. It includes known-good controls, custom message binding, captured-message differences, declared review scopes, bounded review-event permutations and the terminal-state truth table.
 
 `python3 scripts/check_evaluator_contract.py` adds cross-entry review recovery, later local blockers, malformed/invalid-UTF-8 history, routed-only issues, limitation-denial and partial-coverage controls, and distinct versus repeated English/Chinese text. All diagnostic fixture changes are isolated and resealed; frozen research inputs and historical reports are not rewritten.
 

@@ -1,0 +1,71 @@
+{
+  "author": "Current Codex agent /root/microdrama_english_independent_author",
+  "independent_english_context": true,
+  "api_used": false,
+  "chinese_answer_or_reviews_read": false,
+  "units": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\codex-production\\units\\01-market-and-demand.md",
+      "sha256": "3993c2f3bb2ed20fe3ad3ee326f5875313a3df59166b63ad2a7e4c792111d498"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\codex-production\\units\\02-platform-competition.md",
+      "sha256": "9ce89177c49df7832c194e3e69e2c6d9fd73743a70a3cd217f4c43ad2a9199dd"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\codex-production\\units\\03-value-and-companies.md",
+      "sha256": "98dace910243f0675db87a71909982905455386362e788dd2bcd6b4e9bbccfe2"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\codex-production\\units\\04-executed-economics.md",
+      "sha256": "62afe82e28a56d40275a1ed7bf772a061149893afa47f09c87fa271e0e3bcc88"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\codex-production\\units\\05-rules-decisions-and-boundaries.md",
+      "sha256": "88e9fe5be4f37d2f03320bcdbdfccd0c9e2807e4dd648db43f01d55c6ce1b83f"
+    }
+  ],
+  "first_manuscript_sha256": "84bd1d4f042d303c35be76f3bfa52ce9e326d4f6013f99100a0c67d3a98a58e5",
+  "body_words_whitespace": 10097,
+  "used_source_ids": [
+    "CP01",
+    "CP02",
+    "CP03",
+    "CP04",
+    "CP05",
+    "CP07",
+    "CP08",
+    "CP09",
+    "CP10",
+    "CP11",
+    "CP12",
+    "CP13",
+    "CP14",
+    "CP16",
+    "CP17",
+    "CP18",
+    "CP19",
+    "CP20",
+    "CP21",
+    "CP22",
+    "CP24",
+    "CP25",
+    "CP26",
+    "CP27",
+    "MD003",
+    "MD004",
+    "MD005",
+    "MD006",
+    "MD008",
+    "MD009",
+    "MD010",
+    "MD011",
+    "MD012",
+    "MD013",
+    "MD014"
+  ],
+  "status": "First complete author draft; independent review and acceptance pending",
+  "original_response_note": "The complete authored report is preserved verbatim; it was written through local unit-file tool calls, not obtained from an API response.",
+  "normalized_lf_content_sha256": "cf1900eb5a5636de3443240397a0d07a17b7a637e0c79bf2d55de4a5753e22f5",
+  "hash_note": "sha256 hashes exact saved bytes; normalized_lf_content_sha256 preserves the originally computed LF text fingerprint. Windows text-file newline translation caused the distinction; manuscript contents were not rewritten."
+}

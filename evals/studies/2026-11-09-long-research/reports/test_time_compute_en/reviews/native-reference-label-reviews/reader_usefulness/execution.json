@@ -1,0 +1,68 @@
+{
+  "host_task": "/root/benchmark_reader_a",
+  "status": "completed",
+  "perspective": "reader_usefulness",
+  "review_mode": "same-reviewer reference-label revision continuation",
+  "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "assignment_version": "6d457f6b60cd9b85bc8917296bd0d16903bfaf77f8f20d4fa5dc4fb8f598b67b",
+  "artifact_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+  "assignment_ref": "reviews/host/f09f3163d0ce7117bf0d/jobs/reader_usefulness-6d457f6b60cd9b85.json",
+  "review_reading_window_utc": {
+    "started_at": "2026-11-09 17:23:50 UTC",
+    "finished_at": "2026-11-09 17:26:37 UTC",
+    "basis": "Actual clock observations enclosing this continuation's reading and comparison work; not a claimed per-document active-reading duration."
+  },
+  "prior_review_reused": {
+    "full_read_input_version": "35856ace8b32421ec17a16702661ae8452b72df5cc41c988a9beb1d43605ab7c",
+    "full_review_response": "research/test_time_compute_en/native-full-reviews/reader_usefulness/response.json",
+    "accepted_revision_input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+    "accepted_revision_response": "research/test_time_compute_en/native-full-final-reviews/reader_usefulness/response.json",
+    "accepted_revision_assignment_ref": "reviews/host/acead416ff0bcb116622/jobs/reader_usefulness-704f9e5f064076e2.json",
+    "scope": "Own earlier full-report reading, its retained original-source/calculation reading, and the completed full-diff revision review. Both own response records were read in this continuation. Original negative findings and all previous artifacts remain preserved."
+  },
+  "actual_reading": [
+    {
+      "path": "research/test_time_compute_en/native-full-prepared.json",
+      "scope": "Current reader_usefulness assignment metadata and path."
+    },
+    {
+      "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/reader_usefulness-6d457f6b60cd9b85.json",
+      "scope": "Structured extraction of current task, effective requirements, input/assignment versions, artifact hash and report; no wholesale job dump and no reading of other reviewers' responses."
+    },
+    {
+      "path": "research/test_time_compute_en/codex-production/reference-labels-v2.diff",
+      "scope": "Entire 300-line diff read consecutively in ranges 1–100, 101–170, 171–240 and 241–300; all 8 hunks.",
+      "sha256": "294911586b32f5564511367bcc23574c6ced5813103adec187629a4f7a59e9cd"
+    },
+    {
+      "path": "reports/current.md",
+      "scope": "Changed passages and their supplied diff context, plus current lines 249–292 read for the decision tree and surrounding strategy advice. Unchanged full text was reused from the prior complete reading, not reread."
+    }
+  ],
+  "artifact_comparisons": {
+    "diff_old_lines_match_prior_accepted_report": true,
+    "diff_reconstructs_current_report": true,
+    "current_assignment_matches_managed_report": true,
+    "managed_report_sha256_matches_assignment": true,
+    "saved_draft_matches_after_line_ending_normalization": true,
+    "old_url_occurrences": 54,
+    "current_url_occurrences": 54,
+    "url_sequence_and_destinations_identical": true,
+    "remaining_internal_ttc_sup_identifiers": 0,
+    "task_unchanged": true,
+    "requirement_ids_and_summaries_unchanged": true,
+    "requirement_metadata_note": "Effective-requirement status/evidence metadata differs; its substantive IDs and summaries do not. Referenced acceptance response contents were not opened.",
+    "current_decision_tree_and_context_lines_249_292_unchanged": true
+  },
+  "independence_and_limits": {
+    "other_perspectives_read": false,
+    "author_self_evaluation_read": false,
+    "coordinator_context_reading_read": false,
+    "new_research_or_source_fetches": false,
+    "calculations_or_experiments_rerun": false,
+    "software_tests_run": false,
+    "report_modified": false,
+    "review_imported": false
+  },
+  "result": "pass; no new findings; prior required reader_usefulness findings remain resolved"
+}

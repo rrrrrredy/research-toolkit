@@ -4,9 +4,9 @@
 
 [English](./README.md) · [简体中文](./README.zh-CN.md)
 
-**从研究问题或已有材料出发，交付判断具体、来源可查的报告。**
+**从研究问题或已有材料出发，完成中英文长研究与写作，交付判断具体、来源可查的报告。**
 
-适用于行业研究、产品比较、公司分析和技术调研。可以从零开展研究，对照来源修订已有报告，也可以在新资料到来后更新判断。Codex、Claude Code 等工具中的 Agent 负责研究、写作和独立审阅，Toolkit 用统一入口、研究方法与可选任务工具连接材料、协作和成果。
+面向行业、公司、技术、政策、科学等多领域的长研究与长文写作。可以从零开展研究，对照来源修订已有报告，也可以在新资料到来后更新判断。Codex、Claude Code 等工具中的 Agent 直接操作 Toolkit，负责研究、写作和独立审阅；报告服务于任务指定的实际读者与用途。Toolkit 用统一入口、研究方法与可选任务工具连接材料、协作和成果。
 
 [**选用与安装**](#选哪一种) · [开始研究](#快速开始) · [看研究案例](#研究案例) · [文档](#文档)
 
@@ -38,7 +38,7 @@ flowchart LR
 
 ## 选哪一种？
 
-**Skill 提供研究方法，CLI 和 MCP 调用同一套本地工具，插件把 Skill 与 MCP 打包安装。** 它们不是四套研究方法，也不分别对应简报、长文或不同研究深度。
+**Skill 提供研究方法，CLI 和 MCP 调用同一套本地工具，插件把 Skill 与 MCP 打包安装。** 根据 Agent 环境和任务状态保存需要选择入口，各入口使用相同的研究与写作方法。
 
 | 你的情况 | 用什么、装什么 | 怎样开始 |
 | --- | --- | --- |
@@ -49,13 +49,13 @@ flowchart LR
 
 第一次使用可直接从 Skill 开始。是否启用任务工具，取决于是否需要持久状态、工具化评审和交付检查，不取决于报告字数；无需把四种方式全部安装或依次使用。只用 Skill 也能完成深度长文，不默认维护工具所需的 CSV、JSONL 或交付回执。
 
-**适合什么任务？** 需要多来源分析、比较、解释或有依据建议的行业、公司、技术、政策研究，以及长报告、已有稿修订和持续更新。一页选型建议也可能需要这些方法。单一事实查询、普通翻译或简单润色通常直接使用已有 Agent 即可。Toolkit 不自带搜索服务，也不能代替 Agent 获取和阅读材料。
+**适合什么任务？** 需要多来源分析、比较、解释或有依据建议的中英文多领域长研究，包括长文内的摘要与局部论证、已有稿修订，以及新证据到来后的接续。单一事实查询、普通翻译或简单润色通常直接使用已有 Agent 即可。材料由 Agent 使用已有检索与访问能力获取并阅读。
 
 [从零做一项研究](./docs/quickstart.zh-CN.md#从零研究的步骤) · [修订或更新已有报告](./docs/quickstart.zh-CN.md#修订或更新已有报告) · [按所用工具安装](./agents/README.zh-CN.md#选择工具)
 
 <a id="使用"></a>
 
-**首次使用会做什么？** 研究方法可直接读取，不必先安装 Skill 或 MCP。在 Codex、Claude Code、OpenCode 中，Agent 默认还会下载或复用完整本地副本，用 Python 3.10+ 运行包内脚本，将基础使用记录写入当前项目配置。Codex 已打开的会话需重新加载或重开，新配置才生效。没有所需 Python、不能运行命令或配置尚未生效时，仍可继续研究。基础操作事件默认发送，不含聊天、报告和本地路径，可随时关闭；已关闭的设置会保留。[接入、采集范围与关闭](./docs/usage-data.zh-CN.md)。
+**首次使用会做什么？** 研究方法可直接读取，不必先安装 Skill 或 MCP。在 Codex、Claude Code、OpenCode 中，Agent 默认自动复用或下载完整本地副本，按需用 Python 3.10+ 运行包内脚本，为当前项目配置基础使用记录。未变配置直接复用，包括插件已启用的 hooks 和已有关闭设置。仅新增或变更配置需要由 Agent 工具加载；Codex 已打开的会话需重载或重开以加载这些变更。Agent 根据工具可提供的实际状态判断是否生效，不凭配置文件存在作判断。缺少 Python、无法运行命令、配置或加载不可用或失败时，说明实际状态并继续研究。基础操作事件默认发送，不含聊天、报告和本地路径，可随时关闭。Agent 首次说明一次并自行处理配置，不给用户另设安装步骤。[接入、采集范围与关闭](./docs/usage-data.zh-CN.md)。
 
 ## 快速开始
 
@@ -82,22 +82,15 @@ flowchart LR
 
 ## 研究案例
 
-<a href="https://rrrrrredy.github.io/research-toolkit/case-study/office-agents-2026-11/report.zh-CN.html">
-<picture>
-  <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./docs/assets/repository-case.zh-CN.mobile.dark.png">
-  <source media="(max-width: 600px)" srcset="./docs/assets/repository-case.zh-CN.mobile.png">
-  <source media="(prefers-color-scheme: dark)" srcset="./docs/assets/repository-case.zh-CN.dark.png">
-  <img src="./docs/assets/repository-case.zh-CN.png" alt="2026 年 11 月国内办公 Agent 研究：生成新文件、修改既有对象和改变业务状态，需要不同的完成依据。" width="840">
-</picture>
-</a>
+**中国微短剧市场：增长结构、平台竞争与产业链价值分配。** 从观看人口、应用活跃和广告变现的不同口径出发，解释平台为什么形成不同经营模式，以及流量、版权、合同和现金承担如何影响各方收益。正文包含平台比较、价值流向和可复算的经营情景。资料截至 **2026 年 11 月 9 日**。
 
-**国内办公 Agent：从生成文件到接续工作。** 重新核对 Kimi Work、扣子、飞书／豆包工作、悟空、WPS 和 WorkBuddy 的当前资料，解释工作对象、运行环境、模型、权限、失败恢复与采用条件。信息截至 **2026 年 11 月 5 日**。
+[**在线阅读全文**](https://rrrrrredy.github.io/research-toolkit/case-study/long-research-2026-11/microdrama.zh-CN.html) · [同题英文研究](https://rrrrrredy.github.io/research-toolkit/case-study/long-research-2026-11/microdrama.en.html) · [首稿、来源与独立审阅](./evals/studies/2026-11-09-long-research/reports/microdrama_market_zh/README.md)
 
-[**在线阅读全文**](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents-2026-11/report.zh-CN.html) · [完整首稿](./docs/case-study/office-agents-2026-11/first-draft.md) · [来源](./docs/case-study/office-agents-2026-11/sources.md) · [研究与审阅档案](./docs/case-study/office-agents-2026-11/README.md)
+另一篇新案例是 **Test-Time Compute**：比较采样、搜索、修订、验证及工具反馈，解释增加计算何时改善结果、何时该改变计算用途。包含方法与证据矩阵、预算分配算例和设计决策树。
 
-旧案例未取得明确更名依据，本次官方计费文档明确记载 aily 更名“豆包工作伙伴”。新稿更新这项关系，同时保留不同入口、身份和权益的区分。它还展开了独立端双写、组织数据权限与失败恢复等变化。旧报告继续保存在[9 月案例档案](./docs/case-study/office-agents/README.md)。
+[**英文全文**](https://rrrrrredy.github.io/research-toolkit/case-study/long-research-2026-11/test-time-compute.en.html) · [同题中文研究](https://rrrrrredy.github.io/research-toolkit/case-study/long-research-2026-11/test-time-compute.zh-CN.html)
 
-另有同日重新完成的原生英文研究 [APIs, browser scripts or visual control](https://rrrrrredy.github.io/research-toolkit/case-study/api-or-browser-2026-11/report.html)，及其[来源、完整分析和独立意见](./docs/case-study/api-or-browser-2026-11/README.md)。两篇均基于公开资料，未安装产品实测；新旧案例的资料与执行条件不同，不作为 Toolkit 效果对照。
+两组中英文报告分别基于各题的冻结材料独立撰写，同题另一语言稿不作为作者输入。[本次 benchmark](./evals/studies/2026-11-09-long-research/README.zh-CN.md) 包含 13 个独立问题、15 份报告，保留首次输出、具体缺陷及修订。此前的办公 Agent、API／浏览器及报告更新案例仍在[历史档案](https://rrrrrredy.github.io/research-toolkit/case-study/index.zh-CN.html)。
 
 <a id="作为-mcp-服务使用"></a>
 <a id="评审与验收"></a>
@@ -121,7 +114,7 @@ flowchart LR
 
 ## 证据与评测
 
-公开记录保留完整报告、原始失败、评审和修订结果，展示具体正文修正与已验证的流程行为，尚不能证明相对原生 Agent 的普遍质量或效率优势。案例、模型对照和软件检查分别回答不同问题。
+公开记录保留完整报告、原始失败、评审和修订结果。案例展示具体正文修正，模型对照对应记录中的任务与条件，软件检查覆盖实际测试的流程行为。向更广范围比较 Toolkit 与原生 Agent 的质量或效率，需要研究任务、输入、模型和执行条件可比。
 
 [当前证据与边界](./docs/evaluation-status.zh-CN.md) · [完整报告版本比较](./evals/studies/2026-10-13-before-after/README.zh-CN.md) · [数据集与检查](./evals/README.zh-CN.md) · [历史数据归档](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md)
 

@@ -1,0 +1,33 @@
+diff --git a/C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/token_economics_en/native-full-current-reviews/requirements/frozen-report.md b/C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/token_economics_en/native-full-final-reviews/requirements/frozen-report.md
+index df5e1b8..fddbfbb 100644
+--- a/C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/token_economics_en/native-full-current-reviews/requirements/frozen-report.md
++++ b/C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/token_economics_en/native-full-final-reviews/requirements/frozen-report.md
+@@ -1,9 +1,9 @@
+ # Token Economics: From Model Costs and Pricing to Workload Value
+ 
+-Evidence cutoff: November 9, 2026. English research report for enterprise buyers, AI product operators and investors. Author: Codex research producer `/root/ttc_research`. First complete author manuscript; independent whole-report review remains pending.
++Evidence cutoff: November 9, 2026. English research report for enterprise buyers, AI product operators and investors.
+ 
+ ## 1. The economic unit is a task that meets its acceptance criteria
+ 
+ A token tariff is one input to an operating model. A buyer needs to know how much work reaches the required standard, how quickly it arrives, and what remains for people or another system to do. A cheap request can be an expensive task if it produces a plausible error, adds another round of investigation, or passes a problem to a person with a longer history to reconstruct. Conversely, a small model that reliably performs a narrow classification or extraction can be the right choice even when a larger model has better general benchmarks.
+ 
+ This report uses public evidence available by **November 9, 2026**. Historical offers retain their historical dates; observations of changing documentation are dated November 9. Prices are US dollars unless stated otherwise. The three worked workloads combine public list prices with explicit assumptions about traffic, quality, review time and workflow. Their arithmetic was executed locally. They are economic scenarios, not new model performance measurements or forecasts of a named provider's success rate.
+@@ -374,13 +374,13 @@ The central commercial opportunity is to convert improving models and serving sy
+ 
+ 
+ ## Appendix: evidence and calculation boundaries
+ 
+ The report combines three evidence types. Public prices and technical/financial disclosures retain their version or observation date. Published studies retain their experimental setting. Workload acceptance rates, human time, tool allowances, demand and hosting capacity are explicit economic scenarios. Local tokenizer counts and deterministic arithmetic were actually executed; no model inference experiment was performed.
+ 
+-`workload_calculations.py` and `calculation-results.json` contain all route counts, price inputs, cache request rows, agent step rows and sensitivity cases. `tokenizer_count.py` and `tokenizer-results.json` retain the exact paired strings, package version and encoding-file hashes. `reading-ledger.json` records the original paths and actual reading scope; `web-reading-notes.md` separates successfully read web originals from failed local downloads.
++`workload_calculations.py` and `calculation-results.json` contain all route counts, price inputs, cache request rows, agent step rows and sensitivity cases. `tokenizer_count.py` and `tokenizer-results.json` retain the exact paired strings, package version and encoding-file hashes.
+ 
+-Historical OpenAI launch pages were read through the web tool after local403responses. The DeepSeek R1 news URL redirected to the current quickstart, so it does not establish a historical R1price here. Gemini's acquired documentation included authoritative Markdown inside server-delivered HTML; that text was extracted separately while preserving originals. The current GPT-6.1model page resolves the short/longpriceboundary. The datedClaude ratecard is used for commercialSKUprices, without inventing an underlyingweight revision absent from that source.
++Historical OpenAI launch pages supply the dated model and price announcements. The DeepSeek R1 news URL redirected to the current quickstart, so it does not establish a historical R1 price here. Gemini rates use the official documentation version listed in the source record. The current GPT-6.1 model page resolves the short/long price boundary. The dated Claude rate card is used for commercial SKU prices, without inventing an underlying weight revision absent from that source.
+ 
+-The Azure quote retains the fullpublicJSON and exactSKUrows. The report does not use post-cutoffLambda rates. It also does not use the concurrency preprint's inaccessible rawcommit or mismatchedGPUcapacity claim to assign a measuredthroughput to its independent hosting scenario. No confidentialmargin, negotiateddiscount, realizedlabor saving or language-wide tokenratio is inferred.
++The Azure quote retains the full public JSON and exact SKU rows. The report does not use post-cutoff Lambda rates. It also does not use the concurrency preprint's inaccessible raw commit or mismatched GPU capacity claim to assign a measured throughput to its independent hosting scenario. No confidential margin, negotiated discount, realized labor saving or language-wide token ratio is inferred.
+ 
+-For a deploymentdecision, replace the scenario quality/time/traffic inputs with a representative matched task evaluation and measuredlatency/availability. Keep failure and delayedreopening in the record. These inputs determine the procurementthresholds; further precision in a postedtokenprice cannot compensate for an unknown accepted-task denominator.
++For a deployment decision, replace the scenario quality/time/traffic inputs with a representative matched task evaluation and measured latency/availability. Keep failure and delayed reopening in the record. These inputs determine the procurement thresholds; further precision in a posted token price cannot compensate for an unknown accepted-task denominator.

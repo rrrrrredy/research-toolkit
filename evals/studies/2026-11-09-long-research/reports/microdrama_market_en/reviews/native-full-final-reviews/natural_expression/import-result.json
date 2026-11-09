@@ -1,0 +1,145 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_en",
+  "input_version": "4916bbf7954376e17453bc78c09a2511b4dcceae7270c4ed378ef2d93eb80e89",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "requirements",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/d70747396ad1fba38cf7.md",
+        "sha256": "d70747396ad1fba38cf78cb5a71daeb7b21b3532e89e9c0c71996620b4019784"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/4916bbf7954376e17453/jobs/requirements-d65cbe1ffabe70a3.json",
+        "sha256": "ffd5a7d270d84d2d56e423471d1c71111980cc97147abffd167b6a074cb7326a"
+      },
+      "assignment_version": "d65cbe1ffabe70a3bec86c496dbc5e08d31b746c6dfecb7af93ba802e563f5d2",
+      "resume_host_task": "/root"
+    },
+    {
+      "slot_id": "evidence",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/9dc893805a1be303a049.md",
+        "sha256": "9dc893805a1be303a0492e00fc3a40f5d36b0c85187aba3a80b0bf8f5817b24c"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/4916bbf7954376e17453/jobs/evidence-3ef495c18dea8b9f.json",
+        "sha256": "ebc8023ae21ea389c732d80459779f8cb13a52250a6929e280bdc5eaeed80269"
+      },
+      "assignment_version": "3ef495c18dea8b9fb88aa873d2d3c61a11a19f9fc3a13cfb8885d8e322dd6f7d",
+      "resume_host_task": "/root/evidence_micro_en"
+    },
+    {
+      "slot_id": "adversarial_reasoning",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/620033bf86223c3533a9.md",
+        "sha256": "620033bf86223c3533a98aef6c908aa2cff8a4df4db6da9b4ea986bafc6433d2"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/4916bbf7954376e17453/jobs/adversarial_reasoning-28c0a2c7d2161d46.json",
+        "sha256": "07eec87fd69940ba72122e0bd543ab9a98f484a0abfe8c4fb3f4221896e11b60"
+      },
+      "assignment_version": "28c0a2c7d2161d46cfb6eee3172435631455e4fc7c58a24ebc457c66725f49c2",
+      "resume_host_task": "/root/benchmark_adversarial"
+    },
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/50d27e31573e72e61041.md",
+        "sha256": "50d27e31573e72e610415692d6f9f0af26889aabb2acb0bd66d9ad546ccb6039"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/4916bbf7954376e17453/jobs/structure_and_depth-44101d16c31a3863.json",
+        "sha256": "af17d787789eda642e6f25b40c7207cc8410eeef659741fecec12058d94e57c3"
+      },
+      "assignment_version": "44101d16c31a38631ea8c1f0d2f226eef41c0d9a35b1d84384f48563d0f3a1f4"
+    },
+    {
+      "slot_id": "reader_usefulness",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/60394dcde4022c6fe117.md",
+        "sha256": "60394dcde4022c6fe117f6805bb37a1a7eb31bc2c3a7220a9365a950b3e7e424"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/4916bbf7954376e17453/jobs/reader_usefulness-7169b4b617b30cdc.json",
+        "sha256": "8626761fc85edeb207b6ac89d4ada0b2be6e98258a05016ab1e243d1d9d21acf"
+      },
+      "assignment_version": "7169b4b617b30cdcccdd19f9e6e29acc1fcbb62957e33d3de77a992ce8f0036e",
+      "resume_host_task": "/root/benchmark_reader_a"
+    },
+    {
+      "slot_id": "process_language",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/f5f434e7bf46bc8df42d.md",
+        "sha256": "f5f434e7bf46bc8df42debb528dc92b793028ea6055f63ef090e84b35ea5e3dc"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/4916bbf7954376e17453/jobs/process_language-421c302f8366b4b6.json",
+        "sha256": "f3f35e3a5fe651f6693652b96865399d2081f450916e72391c663bb9a1483083"
+      },
+      "assignment_version": "421c302f8366b4b6b4d635893ef7608bf566aa47a7d2d94e5dc7cf70da66f5a2",
+      "resume_host_task": "/root/process_remaining_b"
+    },
+    {
+      "slot_id": "domain-1",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/fca247590cd974d57d69.md",
+        "sha256": "fca247590cd974d57d6935e255ee219e301a48878667bb2c0794cea173caedc6"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/4916bbf7954376e17453/jobs/domain-1-19edb82d6e90c408.json",
+        "sha256": "25ed2ef26b364b8af3a6c811dbaa6eb4b8571739dd6f5af9c8ef29312ae528fc"
+      },
+      "assignment_version": "19edb82d6e90c408a31a5dafef1eeec10dd77d1ed5a4dc21c299fa16e1245fd0",
+      "resume_host_task": "/root/independent_domain_b"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: requirements",
+      "Incomplete independent assignment: evidence",
+      "Incomplete independent assignment: adversarial_reasoning",
+      "Incomplete independent assignment: structure_and_depth",
+      "Incomplete independent assignment: reader_usefulness",
+      "Incomplete independent assignment: process_language",
+      "Incomplete independent assignment: domain-1",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 1,
+    "selected_attempts": {
+      "natural_expression": "53bae97c0d2148f6977b2ca389538047"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: requirements",
+    "Incomplete independent assignment: evidence",
+    "Incomplete independent assignment: adversarial_reasoning",
+    "Incomplete independent assignment: structure_and_depth",
+    "Incomplete independent assignment: reader_usefulness",
+    "Incomplete independent assignment: process_language",
+    "Incomplete independent assignment: domain-1",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

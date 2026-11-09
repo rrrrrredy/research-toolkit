@@ -1,0 +1,12 @@
+{
+  "input_version": "73874a0b0f8e6b44ea485d93e262dfdfb1f427856d0e0d7ea8c4bd105693bfd3",
+  "assignment_version": "3c305b59125e61244c0969077d988f297207aead17a76ee754b72c80ef92af78",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "location": "Complete TE-U2, sections6–8: support route table and wage threshold; document TTL ledger and acceptance cohorts; eight-step agent, retry/fallback, tool/labor and sensitivity tables.",
+      "basis": "Read the complete unit and workload_calculations.py; read the supporting TE-U1 pricing/accounting discussion. Actually rendered and viewed TE05 original PDF page1 and read extracted pages1–2: effective2026-10-22, global standard Haiku/Sonnet/Opus5.5 base/write/read/output categories agree. Independently opened Claude caching documentation, especially lifecycle126–141, price152–185 and incremental behavior217–287: reads refresh TTL from request start and prefix writes/read are distinct. Checked Google original server Markdown exact Gemini2.5Pro/Flash sections3019–3099 and3236–3309, not the newer replacement-model tables; caching guide710–750 confirms storage/read accounting. The twelve arrival times produce4writes8reads at5m and1write11reads at1h, with1.416/.732USD; the56-minute gap atminute90 remains within1h. Two source prices and the200000/200001 whole-request band arithmetic agree. Support accepted700+120+108+66=994 and900+50+46=996, all escalations charged; the break-even wage equation gives about0.0492USD/min. Document failed queries and failed repairs remain in the cost numerator; .86 quality produces1183.2 expected accepted, explicitly not an observed integer. Agent paths sum60+16+12+8=96; model65.20,tools32,labor692 give789.20USD. Stronger-first765.84/97 is also internally consistent and explicitly conditional. Checked TE18 abstract original5172/15% assisted-work denominator, Intercom dated outcome/reversal/handoff passages, METR original16/246/19% and2026 update selection/concurrency passages; none is used as measured scenario success. Actual Azure originalJSON and SKU table were additionally checked for the adjoining hosting anchor:13.96USD/whole2×94GBnode-hour, not per GPU. All scenario quality and time inputs remain assumptions; no arithmetic run is claimed as a model trial. This is the economic-premise unit review, not final full-report acceptance."
+    }
+  },
+  "findings": []
+}

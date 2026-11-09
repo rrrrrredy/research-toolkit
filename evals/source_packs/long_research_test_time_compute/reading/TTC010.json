@@ -1,0 +1,14 @@
+{
+  "source_id": "TTC010",
+  "url": "https://arxiv.org/html/2407.21787v2",
+  "title": "Large Language Monkeys",
+  "reading_location": "§§2–4; Table1 cost and Figure7 selection discussion",
+  "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+  "version_model_evaluation": "v2 2024-09-16; Llama3 8B/70B; DeepSeek-Coder-V2 +Moatless; SWE-bench Lite",
+  "observation": "Coverage vs selection; cost-efficiency varies by task; 10k sample bank and250agent attempts",
+  "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC010\\original.txt",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC010\\original.html",
+  "text_sha256": "8e58b06e94b44a4c9661a25f7f4265a2b9a37ec8726b78157d78e213bde9482e",
+  "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC010\\retrieval.json",
+  "reader": "/root/ttc_research"
+}

@@ -1,0 +1,45 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh",
+  "input_version": "45966d4d9233870ca9578227f9ad6eed66142e4c7eb1c5086d1d2daec8d59663",
+  "scope": "U01",
+  "assignments": [
+    {
+      "slot_id": "domain-1",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/1bd9d4bb286b2547b7fa.md",
+        "sha256": "1bd9d4bb286b2547b7fa79f38aa9f04ee5abea2a1a0a2942b06d30e27f60e159"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/45966d4d9233870ca957/jobs/domain-1-d3935b31529b710e.json",
+        "sha256": "c95a6924eea37cec722b3b816388071ed63fb2b4cb6faae0b7a7bb64c95226ba"
+      },
+      "assignment_version": "d3935b31529b710e3ba7013f1d58531c47cf717db12d1f39c3777375b7aa625d"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: domain-1"
+    ],
+    "required_slots": 2,
+    "completed_slots": 1,
+    "selected_attempts": {
+      "evidence": "862101fa089447fbb53e09a7317db356"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: domain-1"
+  ]
+}

@@ -4,9 +4,9 @@
 
 [English](./README.md) · [简体中文](./README.zh-CN.md)
 
-**Turn a research question or existing material into a report with concrete judgments and traceable sources.**
+**Develop long-form research in English or Chinese from a question or existing material, with concrete judgments and traceable sources.**
 
-Use it for industry research, product comparisons, company analysis and technical research. Start a new study, revise an existing report against its sources, or update conclusions when new material arrives. Your agents research, write and independently review; Toolkit connects their methods, evidence and deliverables through one research entry and optional task tools.
+Use it for long-form research and writing across fields, including industry, companies, technology, policy and science. Start a new study, revise an existing report against its sources, or update conclusions when new material arrives. Agents operate Toolkit to research, write and independently review; the report serves its specified readers and purpose. Toolkit connects methods, evidence and deliverables through one research entry and optional task tools.
 
 [**Choose an entry**](#which-should-i-use) · [Start research](#quick-start) · [See a research case](#research-case) · [Documentation](#documentation)
 
@@ -38,7 +38,7 @@ flowchart LR
 
 ## Which should I use?
 
-**The Skill provides research methods, CLI and MCP expose the same local tools, and the plugin bundles the Skill with MCP.** These are not four research methods or separate choices for briefs, long reports or research depth.
+**The Skill provides research methods, CLI and MCP expose the same local tools, and the plugin bundles the Skill with MCP.** Choose an entry by your agent environment and need for saved task state; all use the same research and writing methods.
 
 | Your situation | What to use or install | How to start |
 | --- | --- | --- |
@@ -49,11 +49,11 @@ flowchart LR
 
 For a first use, start directly with the Skill. Add task tools when persistent state, tool-managed reviews or delivery checks help the work, not because a report reaches a word count. You do not need to install all four or use them in sequence. Skill-only use supports in-depth long reports without requiring the tools' CSV/JSONL registries or delivery receipts.
 
-**Which tasks fit?** Industry, company, technology and policy research requiring multiple sources, comparison, explanation or supported recommendations; long reports, revisions and continuing updates. A one-page selection brief can need these methods too. Simple factual questions, routine translation or minor wording edits usually need only your existing agent. Toolkit does not supply a search service or replace the agent's access to and reading of sources.
+**Which tasks fit?** Long-form research in English or Chinese across fields, requiring multiple sources, comparison, explanation or supported recommendations. This includes developing summaries and local arguments within a long report, revising existing work and continuing it with new evidence. Simple factual questions, routine translation or minor wording edits usually need only your existing agent. The agent uses its available search and source-access capabilities to obtain and read the material.
 
 [Research from scratch](./docs/quickstart.md#research-from-scratch) · [Revise or update a report](./docs/quickstart.md#revise-or-update-a-report) · [Install for your agent tool](./agents/README.md#choose-your-tool)
 
-**What happens on first use?** You can read the methods without first installing a Skill or MCP. In Codex, Claude Code and OpenCode, the agent also downloads or reuses a complete local copy and runs the bundled Python 3.10+ script to configure basic usage recording for the current project. An already-open Codex session needs a reload or restart for that configuration to take effect. Research can continue without the required Python, command access or active recording configuration. Basic operation events are sent by default, excluding conversations, reports and local paths; recording can be turned off, and an existing off setting is preserved. [Setup, collected data and controls](./docs/usage-data.md).
+**What happens on first use?** You can read the methods directly without installing a Skill or MCP. In Codex, Claude Code and OpenCode, the agent automatically reuses or downloads a complete local copy and uses the bundled Python 3.10+ script as needed to configure basic usage recording for the current project. It reuses unchanged configuration, including active plugin hooks and an existing off setting. Only added or changed configuration needs loading through the agent tool; an already-open Codex session needs a reload or reopening for those changes. The agent uses the tool's available status to check activation rather than inferring it from a saved configuration file. If Python, command access, setup or loading is unavailable or fails, it states the actual status and continues research. Basic operation events are sent by default, excluding conversations, reports and local paths; recording can be turned off. The agent explains this once on first use and handles setup rather than assigning the user a separate installation step. [Setup, collected data and controls](./docs/usage-data.md).
 
 <a id="usage"></a>
 
@@ -83,22 +83,15 @@ Have a draft or new material? [Revise or update existing research](./docs/usage-
 
 ## Research case
 
-<a href="https://rrrrrredy.github.io/research-toolkit/case-study/api-or-browser-2026-11/report.html">
-<picture>
-  <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./docs/assets/api-browser-case.en.mobile.dark.png">
-  <source media="(max-width: 600px)" srcset="./docs/assets/api-browser-case.en.mobile.png">
-  <source media="(prefers-color-scheme: dark)" srcset="./docs/assets/api-browser-case.en.dark.png">
-  <img src="./docs/assets/api-browser-case.en.png" alt="November 2026 English research: choose APIs, browser scripts or visual control by the operation and its recoverable business result." width="840">
-</picture>
-</a>
+**Test-Time Compute for Reasoning Models and Agents.** Compare sampling, search, revision, verification and tool feedback, then identify which operation should receive additional work. The report connects empirical scaling behavior to a method-and-evidence matrix, a worked allocation example and a design decision tree. Evidence cutoff: **9 November 2026**.
 
-**APIs, browser scripts or visual control.** New English research from 13 primary sources read on **5 November 2026**, explaining action coverage, completion, retries, actual authority, interrupted work and migration costs.
+[**Read the full report**](https://rrrrrredy.github.io/research-toolkit/case-study/long-research-2026-11/test-time-compute.en.html) · [Independent Chinese report](https://rrrrrredy.github.io/research-toolkit/case-study/long-research-2026-11/test-time-compute.zh-CN.html) · [First draft, sources and independent reviews](./evals/studies/2026-11-09-long-research/reports/test_time_compute_en/README.md)
 
-[**Read online**](https://rrrrrredy.github.io/research-toolkit/case-study/api-or-browser-2026-11/report.html) · [Complete first draft](./docs/case-study/api-or-browser-2026-11/first-draft.md) · [Sources](./docs/case-study/api-or-browser-2026-11/source-notes.md) · [Research and review archive](./docs/case-study/api-or-browser-2026-11/README.md)
+The other new case examines **China’s microdrama market**: growth definitions, distribution models, platform competition and value-chain cash flows. It develops platform comparisons and reproducible operating scenarios, showing how traffic, rights, contracts and cash exposure shape participants’ returns.
 
-The new report follows a hypothetical support job through a lost submission response. Completed, pending and ambiguous results require different next actions; changing routes does not itself prevent duplicate work. Its full analyses, original independent reviews and revisions are retained. The [October case](./docs/case-study/api-or-browser/README.md) remains available.
+[**Chinese report**](https://rrrrrredy.github.io/research-toolkit/case-study/long-research-2026-11/microdrama.zh-CN.html) · [English report](https://rrrrrredy.github.io/research-toolkit/case-study/long-research-2026-11/microdrama.en.html)
 
-Also read the refreshed [Chinese office-agent report](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents-2026-11/report.zh-CN.html) and its [research archive](./docs/case-study/office-agents-2026-11/README.md). Both are public-source research, not installed-product trials. Different source dates and execution conditions make them new research deliveries rather than controlled estimates of Toolkit gains.
+The two language versions independently use each question’s frozen materials; neither author receives the other-language report. The [current benchmark](./evals/studies/2026-11-09-long-research/README.md) contains 13 independent questions and 15 report assignments, retaining first outputs, located defects and revisions. Earlier office-agent, API/browser and report-update cases remain in the [archive](https://rrrrrredy.github.io/research-toolkit/case-study/index.html).
 
 <a id="use-as-an-mcp-server"></a>
 <a id="review-and-acceptance"></a>
@@ -122,7 +115,7 @@ Independent review uses fresh agent contexts. Each required perspective has its 
 
 ## Evidence and evaluations
 
-Public records include complete reports, original failures, reviews and repairs. They show concrete report corrections and tested workflow behavior; they do not yet establish a general quality or efficiency advantage over a native agent. Case studies, model comparisons and software checks answer different questions.
+Public records include complete reports, original failures, reviews and repairs. Case studies document report corrections, model comparisons cover their recorded tasks and conditions, and software checks cover tested workflow behavior. Broader quality or efficiency comparisons with native agents require comparable research tasks, inputs, models and execution conditions.
 
 [Current evidence and limits](./docs/evaluation-status.md) · [Complete-report version comparison](./evals/studies/2026-10-13-before-after/README.zh-CN.md) (Chinese) · [Datasets and checks](./evals/README.md) · [Historical data archive](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.md)
 

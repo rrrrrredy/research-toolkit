@@ -1,0 +1,12 @@
+{
+  "mandatory_step": "Check blinded pilot and historical reproduction without model calls",
+  "command": [
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+    "scripts/check_judge_calibration.py",
+    "--self-test"
+  ],
+  "cwd": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109",
+  "exit_code": 0,
+  "started_at_epoch": 1794235899.7427764,
+  "elapsed_seconds": 0.9250640869140625
+}

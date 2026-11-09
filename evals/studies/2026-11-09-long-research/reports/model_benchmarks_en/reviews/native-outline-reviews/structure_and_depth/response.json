@@ -1,0 +1,12 @@
+{
+  "input_version": "5ca381e1da4a4d525324ad5fc7c50c774505293f8be18466e1650b03a98946db",
+  "assignment_version": "4a5ac7af993545d56a35078fb4ba63ff2825c681ed977594485fecde423fe16c",
+  "report_verdict": "pass",
+  "coverage": {
+    "structure_and_depth": {
+      "location": "analysis/outline.md: opening argument; numbered sections 1–9; Contributions and dependencies MB-U1–MB-U4; final source/version note.",
+      "basis": "Read the full original case, effective requirements, frozen outline, common assignment instructions and the outline production-history entry. The plan forms a coherent chain from identifying the evaluation object, through actual measurement and result conditions, to deployment-specific decisions. Sections 1–3 distinguish dataset, framework, harness and leaderboard and examine shared datasets, construction, language/domain coverage, sample, scorer and aggregation. This avoids mistaking multiple suites for independent coverage.\nSections 4–6 supply concrete analytic work rather than a catalogue of sources: prompt sensitivity, changed test populations, a planned coding rank reversal, pass@k versus pass^k, preference-judge effects and different aggregation rules. The reproducibility comparison retains prompts, generation settings, tools, context, judges, outputs and endpoint availability; it separates reconstructing a procedure, rescoring and new inference. The validity section distinguishes selected audits from random samples and demonstrated exposure from suspicion, so contradictory evidence can change interpretation without invented significance.\nSections 7–9 carry those comparisons into the two requested workloads. Customer support separates information answers from authorized actions and names grounding, recovery, multilingual and severe-action gaps; repository work distinguishes function tests, issue repair and assisted developer productivity. The proposed coverage matrix, versioned comparison, numeric interpretations and conditional recommendations serve that argument. U1/U2 feed U3 rather than independently repeating benchmark descriptions. No necessary structural correction was found at outline scope. This pass concerns the completeness and coherence of the research plan, not verification of the named historical results, completed source reading or acceptance of a full manuscript."
+    }
+  },
+  "findings": []
+}

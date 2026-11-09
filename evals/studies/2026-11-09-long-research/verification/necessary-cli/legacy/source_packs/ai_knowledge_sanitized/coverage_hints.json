@@ -1,0 +1,35 @@
+{
+  "source_pack_id": "ai_knowledge_sanitized",
+  "case_source_map": {
+    "ai_agent_market_landscape_zh": [
+      "S001",
+      "S002",
+      "S007",
+      "S008"
+    ],
+    "reasoning_model_competition_zh": [
+      "S003",
+      "S007",
+      "S009"
+    ],
+    "ai_video_generation_investment_memo_zh": [
+      "S004",
+      "S005",
+      "S009",
+      "S008"
+    ],
+    "model_price_war_competitive_analysis_zh": [
+      "S007",
+      "S008",
+      "S009",
+      "S011"
+    ],
+    "monthly_observation_synthesis_zh": [
+      "S007",
+      "S008",
+      "S002",
+      "S009"
+    ]
+  },
+  "note": "Reference mapping for inspection. The offline runner reads source_ids from each case JSON, not this file. These hints are not reference answers or proof of evidence coverage."
+}

@@ -1,0 +1,12 @@
+{
+  "input_version": "e971ccb9869b9b5333e060010f47e805e42b57a4ba02adedbc0203d5af57509e",
+  "assignment_version": "d0128d40c377c254a98e07f61b4e5a84a1c15bc060e15b4c0a22ebb9d2e511d9",
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "location": "Entire frozen report lines 1–387: sections 1–12, pricing and workload tables, all formulas/sensitivities, value-chain map and evidence/calculation appendix.",
+      "basis": "Continuous full reading mapped the original requirements to actual content. Sections 1–3 separate model production, sunk investment/amortization, infrastructure, list prices and application/value ledgers, with architecture, hardware, prefill/decode, batching, reliability and utilization mechanisms. Sections 4–5 date the offers and observations, retain USD/channel/region uncertainty/tier/SKU boundaries, distinguish current and historical cache terms, writes/reads/TTL, reasoning/tool meters and non-equivalent tokenizers. Sections 6–8 each define task acceptance, bounded conditional failure paths, context/retry/fallback work, tools/data and human review, then show request/cohort/accepted-task arithmetic; cache timing, document churn, retrieval quality, output charges, retry success and review sensitivities retain explicit assumptions. Section 9 supplies a public whole-node quote with region, hours and hardware, assumed SLO capacity, operations/underutilization, quality and continuity crossover conditions. Sections 10–12 discuss latency/demand/effort constraints and map value across infrastructure, model service, applications and customers; prices and costs are never used to infer undisclosed margins, and productivity, realized savings, willingness to pay and earned revenue remain separate. English complete report, locatable source links and transparent hypothetical inputs satisfy the requested substantive deliverables; no new study or universal measured savings is claimed."
+    }
+  },
+  "findings": []
+}

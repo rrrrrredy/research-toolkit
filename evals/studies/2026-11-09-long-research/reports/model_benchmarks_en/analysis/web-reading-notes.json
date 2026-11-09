@@ -1,0 +1,37 @@
+[
+  {
+    "id": "MB13",
+    "url": "https://openai.com/index/introducing-swe-bench-verified/",
+    "scope": "Original release, definitions of failure-to-pass and pass-to-pass, construction and selected500-task set.",
+    "reader": "/root",
+    "access": "Actual web-tool rendered page reading; direct-download failures retained. Notes are not original HTML bytes."
+  },
+  {
+    "id": "MB14",
+    "url": "https://www.swebench.com/SWE-bench/guides/evaluation/",
+    "scope": "Docker evaluation, prediction format, result caching by run/instance and retained outputs.",
+    "reader": "/root",
+    "access": "Actual web-tool rendered page reading; direct-download failures retained. Notes are not original HTML bytes."
+  },
+  {
+    "id": "MB15",
+    "url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+    "scope": "February2026 original article through selected138-task audit and evidence of exposure; selected denominator retained.",
+    "reader": "/root",
+    "access": "Actual web-tool rendered page reading; direct-download failures retained. Notes are not original HTML bytes."
+  },
+  {
+    "id": "MB16",
+    "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations/",
+    "scope": "July2026 article introduction and methods,731-task split,286flaggedsubset,200/249 audit results and differing labels.",
+    "reader": "/root",
+    "access": "Actual web-tool rendered page reading; direct-download failures retained. Notes are not original HTML bytes."
+  },
+  {
+    "id": "MB26",
+    "url": "https://arena.ai/blog/our-response",
+    "scope": "May2025 response updatedJune13: testing policy, fresh votes, simulated effects dispute, Arena-Hard versus liveArena, confidence-interval argument. Main lines30\u201379 read through web tool.",
+    "reader": "/root",
+    "access": "Actual web-tool rendered page reading; direct-download failures retained. Notes are not original HTML bytes."
+  }
+]

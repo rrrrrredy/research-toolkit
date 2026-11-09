@@ -1,0 +1,14 @@
+{
+  "source_id": "TTC002",
+  "url": "https://arxiv.org/html/2501.19393v2",
+  "title": "s1: Simple test-time scaling",
+  "reading_location": "§§2–4, budget-forcing definitions and Figure 4 discussion; title/version header",
+  "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+  "version_model_evaluation": "s1-32B from Qwen2.5-32B-Instruct; Gemini Thinking teacher; AIME24/MATH500/GPQA Diamond; v2 2025-02-03",
+  "observation": "Separate post-training from within-checkpoint forcing; 50 to 57 AIME24 and saturation",
+  "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC002\\original.txt",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC002\\original.html",
+  "text_sha256": "9af07d3d703f38454fc630719769f9a99bb2fa25cdf51c0ffc1055fd0833a4e2",
+  "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC002\\retrieval.json",
+  "reader": "/root/ttc_research"
+}

@@ -1,0 +1,34 @@
+{
+ "input_version":"bfaf0a302d2abff490f9591d9eb58c381fabd2f85474084af07315f1233e9297",
+ "assignment_version":"0f4a48a3df895b778b01366d57e0cfd1e9d3cd7ffb40af1a57bbb358de67f030",
+ "result":"valid",
+ "basis":"全文282行实际连续阅读；任务、3条有效要求、8份当前原始回复和执行、24项规范LF哈希、3项生产历史、首个negative和全部修订差异均核对。作者与8个独立视角的上下文不同。当前或旧完整阅读的复用有实际版本依据，未将negative视为无效。审计自行抽取模型指标、真实部署、硬件反证、安全恢复及完整成本代码和现存输出核读，未发现残留必要缺陷。",
+ "review_checks":{
+  "requirements":{"result":"valid","basis":"独立完整基线任务审阅和552字符全diff确认；三类任务、专用对照、路线数据及商业阶段要求仍全保留。"},
+  "evidence":{"result":"valid","basis":"首评已针对当前3c1900a8稿全文阅读和26份原件，后续同稿复用诚实；所列Figure/GXO/论文分母与本次原件抽查相符。"},
+  "adversarial_reasoning":{"result":"valid","basis":"完整初稿审阅后确认唯一末句删除；需求、合格量和未披露干预边界均在当前全文，未虚构新检查。"},
+  "structure_and_depth":{"result":"valid","basis":"已读全文基线、全diff和248–283行上下文，实质机制未因删除内部作者句而压缩。"},
+  "reader_usefulness":{"result":"valid","basis":"原已读稿与当前稿相同，四连续范围明确，任务选择、恢复和需求封顶算例提供实际用途。"},
+  "process_language":{"result":"valid","basis":"当前1–282连续三段完整阅读；区分研究对象的工程闭环与内部审阅状态，保留可复算说明有理由。"},
+  "natural_expression":{"result":"valid","basis":"独立首评负面原件和执行有效，当前全部差异解决具体内部身份句，不以简单措辞清单替代阅读。"},
+  "domain-1":{"result":"valid","basis":"原完整领域检查并全diff确认；累计工作量、进度评分、安全与高层模型、场景TCO分别处理，领域通过有可定位依据。"}
+ },
+ "dispositions":{},
+ "prior_findings":{
+  "151ae1cd09df4b938ff728804f0b5c20/natural_expression-01":{"decision":"resolved","reason":"删除报告末段内部作者ID及协调审查状态，保留来源用途和情景限制。","evidence":"旧原始response/execution与冻结job到当前完整diff仅第282行删句；当前279–282行已实际阅读。"}
+ },
+ "finding_adjudications":[{"finding_key":"151ae1cd09df4b938ff728804f0b5c20/natural_expression-01","decision":"resolved","reason":"原发现有效且已实际处理。","evidence":"报告282行与全部修订diff。"}],
+ "critical_checks":[
+  {"requirement_id":"R_TASK","location":"全文，任务15–34、路线40–81、执行85–119、部署127–178、成本186–244","evidence":"工业、物流、家庭任务均定义对象和失败代价并给专用对照；Figure原件列99%和零干预为目标，稿件未当成绩；GXO未来站点与已搬10万箱分开；RECAP、DreamGen和RTC保留测试分母；成本含安装、寿命、维护、恢复、现场支持和需求约束，未把售价当回报。","result":"clear"},
+  {"requirement_id":"R_LANGUAGE","location":"中文完整长稿1–282及路线表、闭环图、阶段表、经济性表","evidence":"连续阅读全文，所有图表有前后解释及采用含义，末尾来源定位存在，非提纲或作者交接摘要。","result":"clear"},
+  {"requirement_id":"R_DATE","location":"3、127–138、160–176、280行","evidence":"客户/厂商观察时段、2026研究版本及2027计划分开；GXO原公告2026-10-26仍预期2027初扩点，DHL2025MOU为未来1000余台，1X制造/预订不计付费持续运行。","result":"clear"}
+ ],
+ "sample_checks":[
+  {"location":"63–81及170–172模型/数据证据","selection_reason":"已通过段中最容易把数据量、部分评分和研究泛化包装成商业可靠性的部分。","evidence":"ED17原文76k/350h/564场景/86任务/50人/12月及36k校准更新；ED16图7三家庭每任务环境10次、百分比任务进度，图10–11说明不同数据混合；ED19训练排除泛化评测且新任务有逐步教练；ED18严格衣物200/500秒、咖啡200秒；ED31-p8实际图像和任务标准含抓瓶0.5分，稿件没有将平均得分等同整任务成功率。","result":"clear"},
+  {"location":"28、87、117及部署127–164","selection_reason":"独立抽查运行数字与物理系统条件，包括已通过的反面证据。","evidence":"实际看Stretch手册p6–7限定箱体23kg/15–91cm/5–45℃及600–800规格；DHL原公告最高700与MOU分开。ED22 480episode/28h是汇总；UR手册自动恢复须排除人员进入后关门；Figure forearm PCB/线缆/热问题是硬件反馈。Ocado中期1037/684和432/81百万英镑不同收入口径、Kroger8-K约26亿美元网络未达预期均与报告一致。","result":"clear"},
+  {"location":"129–136及174–176部署等级","selection_reason":"比较客户原件、厂商自报和消费预订，检验未披露是否被填成零。","evidence":"ED01全文、ED02客户105–141、ED03新物流任务、ED06原公告L7–31：累计1250小时/9万件、GXO10万箱和全项目6.5万小时互不替代。NEO原价格/Expert段及工厂1–31仅支持基本自主、远程服务、制造与未来发货，当前稿保留普通客户持续运行未核。","result":"clear"},
+  {"location":"186–244经济模型及268覆盖率","selection_reason":"检查分析代码到最终表格的变换和需求封顶反例。","evidence":"完整读现存economics.py，逐项读全部现存场景的合格量、协助、成本与差额输出，未运行。工业169866.7/173.3/202637.4、专用170000/28.48/97488.8、物流583200/281101.3、家庭1246.77/7320.91均吻合；高U工业仍17万封顶，50%可实现劳动价值亏109982.8；70%覆盖×99%条件成功为69.3%，未当全体99%。","result":"clear"}
+ ],
+ "report_verdict":"pass",
+ "open_issues":[]
+}

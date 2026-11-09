@@ -1,0 +1,12 @@
+{
+  "input_version": "8208b408fba85ea9f85a7f8cce08ea0777a4dc51b47cd27819c1a1036a2be6e0",
+  "assignment_version": "4e7c589855e1c9894f2a38e5b9a1a0a6492e977877d1626b003f3c6804bb5938",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "Current 223-line report; Gemini eligibility row and added travel/expense comparison passages",
+      "basis": "本次为原真实领域上下文对当前完整稿的修订确认；先前完整阅读保留，实际变更按直接全文diff判断，未以历史通过自动替代当前判断。实际读旧190行到当前223行的完整60行diff，包括两条任务链新增表和相邻论述，并回查PA08、09、10、11、13、19决定性原段。PA08明确个人账户、Pro/Ultra、Keep Activity、Personal Intelligence opt-in以及EEA/Nigeria/Switzerland/UK排除，当前资格行及两表重复适用范围准确。旅行表区分千问飞猪预订与当时仅即时零售的支付宝聊天支付；邀测电话儿童座椅/完整转写、最多100份文档均由PA13支持。Manus项目指令下一消息/文件只对新任务、Operator每会话授权/本地在线/专用页/日志/关页停止与自动化暂停分开，符合PA09–11。Gemini已连接Workspace、共享文件修改确认、取消订阅后在途任务完成而日程暂停、停止Chrome不等于停任务，均按PA08保留。Apple PA19屏幕日历、iCloud会话接续及Tripsy soon与实际机酒交易、报销提交明确分开。新增费用表以官方发票邮件逐行追加示例解释持续取数，未把该示例冒充同笔退款去重或企业授权；候选用法与已有展示标记清晰，商家票号/受理号/到账凭证仍是完成分母。两链新增比较未改变既有状态、撤权、恢复、记忆和净任务价值算例的含义。来源及有效要求相同，复用原完整阅读，其余正文未变；未发现需要修订的领域缺陷。"
+    }
+  },
+  "findings": []
+}

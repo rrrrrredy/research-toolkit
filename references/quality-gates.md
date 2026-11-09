@@ -18,7 +18,7 @@ The advancing unit has completed its necessary source reading and has analysis c
 
 ## Keeping Evidence Records Current
 
-Citations, original passages and analysis preserve the source-to-judgment relationship. Keep managed source/claim records aligned when used. A changed source or requirement prompts inspection of the actual dependent judgment; it neither automatically invalidates a conclusion nor disappears behind a status label.
+Citations, original passages and analysis preserve the source-to-judgment relationship. Keep managed source/claim records aligned when used. When a source or requirement changes, inspect the judgments that depend on it, revise affected reasoning and records, and retain conclusions whose support remains valid.
 
 ## Before Completing A Section
 
@@ -26,7 +26,7 @@ The unit fulfills its role in the outline with sufficient evidence, explanation 
 
 ## Before Final Assembly
 
-The designated main writer reads the complete contributions and relevant originals, reconciles definitions and conflicting claims, and preserves named-object and geographic coverage. The draft connects evidence, explanation and conclusions across parts. Thin units are developed; repeated background is merged without deleting useful mechanisms, qualifications or citations. Counts and file size are not evidence of depth.
+The designated main writer reads the complete contributions and relevant originals, reconciles definitions and conflicting claims, and preserves named-object and geographic coverage. The draft connects evidence, explanation and conclusions across parts. Thin units are developed; repeated background is merged without deleting useful mechanisms, qualifications or citations. Judge depth by the explanations and comparisons developed in the actual text.
 
 <a id="reader-review-gate"></a>
 

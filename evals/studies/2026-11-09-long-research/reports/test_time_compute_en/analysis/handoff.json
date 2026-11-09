@@ -1,0 +1,59 @@
+{
+  "producer": "/root/ttc_research",
+  "date": "2026-11-09",
+  "task": "test_time_compute_en",
+  "phase": "author production complete; independent whole-report review pending",
+  "u1_evidence_review": "Parent reports pass in managed task execution/U1/evidence-native/response.json; scope U1 only",
+  "outputs": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\draft-final.md",
+      "bytes": 73266,
+      "sha256": "e66b96c0043d7228b85a73a11253d35cb0d4e06e83b8114e2983cf05d7b33fa5"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\U1-evidence-protocol.md",
+      "bytes": 24992,
+      "sha256": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\U2-U6-mechanisms-and-evidence.md",
+      "bytes": 36912,
+      "sha256": "8e65154557e9272e5e269833b22def91ec23d25712edec24cc48d6aa79e95c57"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\U7-U8-budget-and-design.md",
+      "bytes": 21657,
+      "sha256": "ce7d907a5e533edb0199b8a4fa00e13f2a57d878bf3c289f146a0cb11a1e13aa"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\calculation-record.json",
+      "bytes": 1687,
+      "sha256": "aa1f70c08a937a47906625ff4bd745fe306fe1ee3a8cb9ee9fb0fabe6a77e916"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\allocation-results.json",
+      "bytes": 12580,
+      "sha256": "dc9d00303f2fad6506ded55ddee05fa153bb131ed23e282c7f156e7850bab612"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\reading-ledger.json",
+      "bytes": 24399,
+      "sha256": "273e437e48c92a3d6e84d4c22a8fcd03173cc74464231caabc59ecc3f18c8676"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\claims.jsonl",
+      "bytes": 12021,
+      "sha256": "1bd72f745a0f876d5aefa796a4854ffd33ceff923f05edf5a3e8cc7ba6064c4d"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\U1-response.json",
+      "bytes": 37194,
+      "sha256": "6d462d9aaa5bc5c217aac49934bb1610e1276573826884915b8c1d2b0832855f"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\full-response.json",
+      "bytes": 113189,
+      "sha256": "173e96583e7be116090e8b5c542bedd5210a11a1db804242debf0c4a44c6b0d2"
+    }
+  ]
+}

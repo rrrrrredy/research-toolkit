@@ -1,0 +1,34 @@
+{
+  "host_task": "/root/office_final_acceptance",
+  "status": "completed",
+  "input_version": "c3d1f51e296588d9af855032d9fa9c042cf77bec0c21a4aaeb726528f66d8c71",
+  "assignment_version": "c6a8101a9881188c070b01a9d76ea1cc0ceecb10565242e32d663a956f1f7815",
+  "artifact_sha256": "92e371fec456887b99eee9bcf18e6b2e13006e3884908d5bb423e6eb12b7ea8c",
+  "observed_file_sha256": "24aaae40bb7e3f192264223dec8c19bf20d620c85be75d6676337f1ffd6c3c48",
+  "text_comparison": "Current disk text equals frozen assignment.report after CRLF/LF normalization; supplied artifact_sha256 retained for job version. No substantive text difference.",
+  "started_at": "2026-11-09T17:12:08.0826689Z",
+  "completed_at": "2026-11-09T17:13:41.9439929Z",
+  "assignment": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\reviews\\host\\c3d1f51e296588d9af85\\jobs\\acceptance-c6a8101a9881188c.json",
+  "independence": "No production, content-review or audit role for this report.",
+  "actual_reading": {
+    "reuse": "Existing raw evidence review/audit used for untouched source checks beyond independent samples. No fresh research or private-background collection.",
+    "targeted": [
+      "PTT02.txt:605-621",
+      "PTT09.txt:1-46",
+      "PTT-A04.txt:21-53",
+      "PTT24.txt:10-20",
+      "PTT27.txt:63-76",
+      "PTT31.txt:123-139",
+      "PTT-A05.txt:4-17",
+      "PTT-A12.txt:32-40"
+    ],
+    "full": [
+      "Actual task, effective requirements and production history; all173 current report lines in contiguous bounded chunks",
+      "Eight raw current content replies; complete raw audit and execution",
+      "Both historical negatives 9965b0b1635e4d3c and 401a3f9b25ee4bc8",
+      "Complete author handoff.md and earliest complete snapshot23c58fdd62404486abf1a63d30bdcb19 to current diff",
+      "PTT-A03 retained two-page professional CV, used only research-career evidence"
+    ]
+  },
+  "actions": "Only own response/execution written. No report/source/task edits, imports, model/benchmark/calculation executions or tests."
+}

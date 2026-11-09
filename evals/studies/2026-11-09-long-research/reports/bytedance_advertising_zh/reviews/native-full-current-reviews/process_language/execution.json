@@ -1,0 +1,24 @@
+{
+  "host_task": "/root/process_remaining_b",
+  "status": "completed",
+  "execution_mode": "native_codex",
+  "started_at": "2026-11-09T22:59:13.0800631+08:00",
+  "completed_at": "2026-11-09T15:06:33.0943863+00:00",
+  "input_version": "db8213c012af78accb3a9719133d8719cea1032b0ba50b3b1862df3cc6dc3831",
+  "assignment_version": "a5606e6bef975b947da8c8a7674a883b90803ac0c32ddf83a9b78fc7d83f9b2a",
+  "report_sha256": "2b6fcb4578a6fbb99f3f1fee6a444bde059fda9a1cbb64e58173029f52d27416",
+  "job_sha256": "9e24978435f667512fd3d737804e3aa4ba9467c88c12794d515f4d3f33c98556",
+  "report_path": "reports/current.md",
+  "frozen_report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/bytedance_advertising_zh/native-full-current-reviews/process_language/frozen-report.md",
+  "actual_reading_ranges": [
+    [
+      1,
+      110
+    ],
+    [
+      111,
+      210
+    ]
+  ],
+  "reading_notes": "全文1–210行连续两段通读；仅process_language，未访问广告账户或重算研究。"
+}

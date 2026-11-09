@@ -2,6 +2,8 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
+[November 9 long-research baseline, Research Toolkit v2.4.0](studies/2026-11-09-long-research): 13 independent questions and 15 completed report assignments, with first manuscripts, independent findings, revisions and actual delivery results. Concrete findings are tied to the reports; this is a development baseline rather than a fixed-model version comparison.
+
 [October 27 research-writing choices](studies/2026-10-27-research-writing-choices/README.md): two new constructed tasks, four fixed-condition first outputs and two blinded reviews. Added examples accompanied some useful cost reasoning and mechanism explanation, alongside omissions; no consistent whole-report improvement or reduced substantive rework was observed. Original prose, review inputs/outputs and actual timings are retained, without an aggregate score.
 
 [October 22 compressed-air save-guidance comparison](studies/2026-10-22-compressed-air-save/README.md): one research question, two Lite runs on v1.4.1 and v1.4.2 with the same model, configuration and materials. Both first saves succeeded; this case showed no v1.4.2 reduction in field-entry errors or save rework. The newer run took 606.187 s versus 540.125 s. Its language-parameter correction is recorded separately. First save requests/responses, corrections, method reads, first drafts, first self-checks, final outputs and actual timings are retained.
@@ -18,7 +20,7 @@
 
 [October 21 external batches](studies/2026-10-21-external-batches/README.md): 12 Song-authorized Lite runs from confirmed batches 2026-10-18-v1 (Toolkit `fedf7cde832139c86cad585883cb5ec2f666427f`, v1.3.0) and 2026-10-19-v1 (Toolkit `e245b90a324933f53fddf0deea039a7715708005`, v1.3.1). The 12 question texts in that folder are distinct. Four retests repeat a question already ingested. Synthetic sources are disclosed. Lite runs record author self-check. All 12 outer Grok notes are not Toolkit independent reviews. [Two report/source errors and missed reviews are corrected separately](repairs/2026-10-21-source-polarity/README.md); original passes are historical.
 
-Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Model execution and evaluation also provide a user perspective: judge usefulness from actual context use, extra reading, time, rework and research results. Human participation is not a prerequisite; describe the observed benefit and its task scope. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
+Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Model execution and evaluation also provide a user perspective: judge usefulness from requirement adherence, actual context use, substantive corrections and research results. Human participation is not a prerequisite; describe the observed benefit and its task scope. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
 
 Research Toolkit helps execute research; the research evaluation dataset uses tasks, material and criteria to identify weaknesses in outputs. This directory also contains Toolkit software checks. Passing those checks is not a research-quality score.
 
@@ -38,58 +40,49 @@ Changes to Toolkit defaults do not rewrite existing samples, first reviews or la
 
 [Full collection-to-method coverage](../docs/correction-audit-2026-10-13.md)
 
-The dedicated Toolkit task set is [`cases/`](cases/). It is separate from the later four-model task sets. This inventory covers the current tasks, controls, examples and dated results; categories overlap where the same material is reused, so their counts must not be added as if each were a new independent task.
+The active long-research task set is [`cases/`](cases/). The original seven cases and the historical four-model tasks are retained separately. This inventory covers the current tasks, controls, examples and dated results; categories overlap where the same material is reused, so their counts must not be added as if each were a new independent task.
 
 | Material | Size | Use and current status |
 |---|---|---|
-| [Toolkit research cases](cases/) | 7 tasks | [Original seven-report rerun](diagnostics/2026-10-13-dedicated-seven/README.md): 15 calls retained; six supplied-source reports accepted. The pipeline task now has a [complete named-company report with R01–R13 passing Astra review](repairs/2026-10-13-pipeline-complete/README.md). |
+| [Active long-research cases](cases/) | 13 independent questions, 15 report assignments | [v2.4.0 baseline study](studies/2026-11-09-long-research): 15 complete reports with retained original findings and delivery results. |
+| [Retired original seven cases](diagnostics/2026-11-09-retired-cases/README.md) | 7 historical Chinese questions | Task files moved unchanged. [Original seven-report rerun](diagnostics/2026-10-13-dedicated-seven/README.md): 15 calls retained; six supplied-source reports accepted. The historical pipeline task has a [complete named-company report with R01–R13 passing Astra review](repairs/2026-10-13-pipeline-complete/README.md). These are not results for the current cohort. |
 | [External batches, 2026-10-14 and 2026-10-15-v1](studies/2026-10-16-external-batches/README.md) | 12 runs, 10 questions | Song-authorized external tasks on frozen Toolkit 1.0.0 (`45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3`, Lite) and 1.1.0 (`f31345c5a994a8f1574d946388ee58fe1177ede2`, Lite×4 and Full×2). Synthetic sources are disclosed. The two Full reviews are same-session degraded reviews. |
 | [External batches, 2026-10-16-v1 and 2026-10-17-v2](studies/2026-10-19-external-batches/README.md) | 12 Lite runs, 12 question texts | Song-authorized external tasks on frozen Toolkit 1.1.0 (`f31345c5a994a8f1574d946388ee58fe1177ede2`) and 1.3.0 (`fedf7cde832139c86cad585883cb5ec2f666427f`). Two retests repeat a question already ingested on October 16. Synthetic sources are disclosed. The six outer Grok notes are not Toolkit independent reviews. |
 | [External batches, 2026-10-18-v1 and 2026-10-19-v1](studies/2026-10-21-external-batches/README.md) | 12 Lite runs, 12 question texts | Song-authorized external tasks on frozen Toolkit 1.3.0 (`fedf7cde832139c86cad585883cb5ec2f666427f`) and 1.3.1 (`e245b90a324933f53fddf0deea039a7715708005`). Four retests repeat a question already ingested. Synthetic sources are disclosed. The 12 outer Grok notes are not Toolkit independent reviews.  [Two report/source errors and missed reviews are corrected separately](repairs/2026-10-21-source-polarity/README.md); original passes are historical. |
 | [Negative fixtures](regression_fixtures/manifest.json) / [positive fixtures](conformance_fixtures/manifest.json) | 22 / 4 | Real software checks on expected failures and valid controls; not 26 additional research questions. |
 | [Semantic diagnostics](semantic_diagnostics/README.md) | 23 paired examples | Current catalog applies documented corrections; original inputs and judgments remain available. |
-| [Four-model tasks](tasksets/development-v2-synthetic/README.md) | 5 task families | [October 12 run](studies/2026-10-12-lite-four-models/README.md): 72 requests, 16 valid pairs, four missing pairs and six swap preference changes retained. |
+| [Frozen four-model task inputs](studies/2026-10-12-lite-four-models/longcat/coordinator/frozen.json) | 5 historical short-task families | Removed from the active task directory; complete frozen inputs remain. [October 12 run](studies/2026-10-12-lite-four-models/README.md): 72 requests, 16 valid pairs, four missing pairs and six swap preference changes retained. |
 | [Judge calibration v3](tasksets/judge-calibration-v3/README.md) | 4 families, 12 packets | [12 actual Astra judgments](diagnostics/2026-10-12-astra-calibration/README.md); v2 arithmetic inputs are already included. |
 | [Old/new-task repair recheck](diagnostics/2026-10-13-targeted-recheck/README.md) | 4 tasks: 2 existing, 2 new | 31 requests; 16 final versions accepted, including ten maintainer corrections; originals retained. |
 | [Writing examples](taste_anchors/README.md) | 4 groups | Reusable examples for concrete criteria; prior exposure and fictional or undated source facts remain explicit. |
-| [Source packs](source_packs/) | 3 packs | Supplied evidence for tasks; source facts and provenance are preserved. |
+| [Source packs](source_packs/) | Historical seed packs and current research materials | Preserve provenance and declared purpose. Public factual evidence requires complete local originals and matching hashes; historical workflow seeds are not public factual authorities. |
 | [Public research cases](../docs/case-study/README.md) | 2 cases | Chinese office-agent research and original English API/browser research, with drafts, reviews and revisions. Translations are not additional tasks. |
 | [Templates](templates/) and [helpdesk comparison example](../examples/lite/) | Workflow aids | Reusable configuration and onboarding examples. |
 
-The seven dedicated cases are:
+The 13 primary reports comprise seven Chinese-language and six English-language live-web research tasks. Two additional reports—the English microdrama report and Chinese TTC report—are independently written from their respective question's frozen materials, without access to the other language's answer. They are not two additional independent questions. Revisions, reviews and failed-call retries also do not increase the independent-question count.
 
-| Original task file | Research question |
-|---|---|
-| [ai_agent_market_landscape_zh.json](cases/ai_agent_market_landscape_zh.json) | AI Agent market landscape |
-| [ai_video_generation_investment_memo_zh.json](cases/ai_video_generation_investment_memo_zh.json) | AI video-generation investment memo |
-| [reasoning_model_competition_zh.json](cases/reasoning_model_competition_zh.json) | Reasoning-model competition |
-| [model_price_war_competitive_analysis_zh.json](cases/model_price_war_competitive_analysis_zh.json) | Model price-war competitive analysis |
-| [monthly_observation_synthesis_zh.json](cases/monthly_observation_synthesis_zh.json) | Monthly AI observation synthesis |
-| [source_instruction_boundary_zh.json](cases/source_instruction_boundary_zh.json) | Research with source-embedded instruction attempts |
-| [model_company_pipeline_long_horizon_zh.json](cases/model_company_pipeline_long_horizon_zh.json) | Eight-company model pipeline with 13 turns of requirements |
+Every one of the 15 reports requires seven separate non-author content perspectives, applicable domain review, independent audit and final acceptance of the complete report. Use separate research and review contexts through the available agent tool or API; the same model may be used. Preserve actual execution identities, first outputs, source originals and hashes. The baseline began with Astra API calls and continued through native Codex agents after an explicit exhausted-credit response; its execution records distinguish those paths. The [retirement index](diagnostics/2026-11-09-retired-cases/README.md) locates the original seven Chinese task files; the historical results below remain unchanged.
 
-These seven original questions are in Chinese; this English index is a guide, not seven translated or additional tasks. `scripts/run_evals.py` puts the current research responsibilities into every new prompt: independent content perspectives, applicable domain review, audit and final acceptance under the shared method. Programs check mechanical requirements; authors repair confirmed defects in separately saved versions. Author and reviewer may use the same model in separate contexts. The historical one-review comparison below and the case's record-count minimum do not replace the current independent responsibilities. Missing or negative reviews still fail the applicable completion checks.
+PR #38 checked all seven generated prompts and the one-review rule offline. The subsequent [seven-report rerun](diagnostics/2026-10-13-dedicated-seven/README.md) now contains seven complete generated texts, seven first Astra reviews and one changed-report review. Six first drafts passed; the pipeline report was shortened from 6,020 to 5,987 characters and accepted as a stage report, with R04/R05 open at that point. The subsequent [complete named-company report](repairs/2026-10-13-pipeline-complete/README.md) is 5,244 characters and passes all 13 requirements after actual research, revision and fresh-context Astra review. That is the retained historical completion of the retired pipeline task, not a completion result for the current cohort. All 13 historical requirements were supplied together; this does not claim live 13-turn agent execution. The earlier 31-request recheck used four other tasks. Preserve original folders and results, and record repairs as new versions.
 
-PR #38 checked all seven generated prompts and the one-review rule offline. The subsequent [seven-report rerun](diagnostics/2026-10-13-dedicated-seven/README.md) now contains seven complete generated texts, seven first Astra reviews and one changed-report review. Six first drafts passed; the pipeline report was shortened from 6,020 to 5,987 characters and accepted as a stage report, with R04/R05 open at that point. The subsequent [complete named-company report](repairs/2026-10-13-pipeline-complete/README.md) is 5,244 characters and passes all 13 requirements after actual research, revision and fresh-context Astra review. That completion is the current task status. All 13 historical requirements were supplied together; this does not claim live 13-turn agent execution. The earlier 31-request recheck used four other tasks. Preserve original folders and results, and record repairs as new versions.
-
-This directory contains seven research cases, twenty-two negative fixtures, four positive fixtures, and report diagnostics for Research Toolkit. The cases and evaluator are runtime-neutral; no particular agent runtime is required. The offline checks examine the research brief, task files, sources and claims, review records, source-instruction boundaries, and final prose. They report those checks, not a model ranking or an overall report-quality verdict.
+The active cases define 13 independent questions and 15 report assignments. This directory also retains twenty-two negative fixtures, four positive fixtures, historical cases and report diagnostics for Research Toolkit. The cases and evaluator are runtime-neutral; no particular agent runtime is required. The offline checks examine the research brief, task files, sources and claims, review records, source-instruction boundaries, and final prose. They report those checks, not a model ranking or an overall report-quality verdict.
 
 Evaluator result schema v2 keeps two claims separate. `conformance_status`, `conformance_score`, and `conformance_flags` describe deterministic structure, traceability, and configured failure signals. `research_quality_status` is `not_evaluated`; the runner does not claim that a mechanically conforming report is insightful, accurate, or decision-useful.
 
 The runner no longer awards points for uncertainty or claim-discipline vocabulary, entity strings, or the absence of generic process phrases. Legacy `banned_process_phrases` and strong-claim phrase lists supply contextual reading cues in `review_warnings` and `findings`, not confirmed defects, penalties or completion blockers. A cautious word elsewhere cannot validate a strong claim. `entity_hits` records string observations only: neither a match nor a missing string establishes substantive coverage.
 
-`required_sections` is reserved for literal headings explicitly required by the original task. Matches use actual top-level ATX or Setext Markdown headings, excluding code and comments, not prose substrings; a matching heading does not prove a developed answer. None of the seven current briefs prescribes the former lists verbatim, so those topics remain in the existing `must_cover_entities` lists and prompts instead. Required coverage is retained for substantive review; wording and section order are not prescribed by these topic lists.
+`required_sections` is reserved for literal headings explicitly required by the original task. Matches use actual top-level ATX or Setext Markdown headings, excluding code and comments, not prose substrings; a matching heading does not prove a developed answer. Use each current task's explicit format requirements; `must_cover_entities` lists and prompt topics do not prescribe literal headings. Required coverage is retained for substantive review; wording and section order are not prescribed by these topic lists.
 
 The 0–100 score normalizes the remaining mechanical items: required files (20), source traceability/references (15), length (15), and literal headings (10 only when configured). Removed or inapplicable items do not earn free points. The existing flag penalty is then applied, with the 80/60 thresholds retained. Scores from different checker versions are not directly comparable; frozen results are not recalculated. Explicit format restrictions, source-instruction checks, unresolved requirements, independent review and version bindings remain in force.
 
-Missing required files block a pass regardless of score. Malformed requirement or conversation JSONL and invalid source or claim CSVs produce explicit failure findings; a damaged case does not prevent the remaining cases from being reported. CSV counts use logical records, and source IDs and titles must match within the same record.
+Missing required files block a pass regardless of score. Malformed requirement or conversation JSONL and invalid source or claim CSVs produce explicit failure findings; a damaged case does not prevent the remaining cases from being reported. CSV counts use logical records. Canonical source IDs and titles match within the same record; a source pack's explicit `task_source_id` alias also requires the exact source URL. A report can cite the source's title or public URL.
 
 Actual outputs are available in the [2026-09-07 development package](./diagnostics/2026-09-07/): four original calibration reader reports, two repairs, three-model text replies and an explicitly retained incomplete response. These are real executed tests on distinct tasks, with their original reports and results retained.
 
 See [evaluation status and version boundaries](../docs/evaluation-status.md) for completed historical first-review counts and their interpretation. The public files below are a subset of the retained evaluation material.
 
 
-The historical [protocol v2](../docs/eval-protocol-v2.md) includes [five independent test tasks](tasksets/development-v2-synthetic/README.md) and [separate judge controls](tasksets/judge-calibration-v3/README.md). The [dated Astra calibration](diagnostics/2026-10-12-astra-calibration/README.md) adds 12 first judgments and source adjudication; the [four-model development run](studies/2026-10-12-lite-four-models/README.md) is complete, retaining four missing pairs and six swap preference changes. These input packs are separate from the seven workflow cases above.
+The historical [protocol v2](../docs/eval-protocol-v2.md) used five independent short tasks, whose complete inputs remain in [frozen.json](studies/2026-10-12-lite-four-models/longcat/coordinator/frozen.json), and [separate judge controls](tasksets/judge-calibration-v3/README.md). The [dated Astra calibration](diagnostics/2026-10-12-astra-calibration/README.md) adds 12 first judgments and source adjudication; the [four-model development run](studies/2026-10-12-lite-four-models/README.md) is complete, retaining four missing pairs and six swap preference changes. These historical inputs are separate from both the retired seven cases and the active long-research cohort.
 
 The [October 13 feedback probes](diagnostics/2026-10-13-feedback-probes/README.md) retain eight new first attempts after prompt/method corrections: all parse, but only three meet length and semantic errors remain. Five real length failures and two post-result editorial controls exercise the existing delivery gate; no quality-benefit claim.
 
@@ -105,7 +98,7 @@ The historical [blinded pairwise protocol](../docs/eval-protocol.md) describes t
 
 ## Contribute a failure case
 
-1. [Submit a failure case](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml) with the question, expected result, sources, observed problem and profile/reviewer tier; paste a report excerpt if useful.
+1. [Submit a failure case](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml) with the question, expected result, sources, observed problem and actual review configuration; retain historical parameters when reproducing an older task. Paste a report excerpt if useful.
 2. A maintainer reproduces and reviews it against the originals, distinguishing a tool defect, execution error and evidence gap; any missing details are requested in the issue.
 3. An accepted minimal case enters the appropriate regression-fixture or semantic-diagnostic directory, linking the issue and retaining the original failure and its scope.
 
@@ -130,7 +123,7 @@ evals/
   regression_fixtures/           # known-bad outputs that the runner must flag
   rubrics/                       # retained earlier study rubrics; current standard linked above
   semantic_diagnostics/          # non-scoring, synthetic editorial diagnostic pairs
-  source_policy.json             # workflow-only use and audited exact claim exclusions
+  source_policy.json             # pack purposes, original-file/hash requirements and exact claim exclusions
   source_packs/
     ai_knowledge_sanitized/      # sanitized seed sources generated from local knowledge repos
     prompt_injection_synthetic/  # synthetic source-instruction boundary case
@@ -140,7 +133,7 @@ evals/
 
 ## Rebuild The Sanitized Source Pack
 
-The committed cases can be used directly. Optional regeneration requires local copies of `aiknowledge-cli` and `ai-knowledge-graph`. Generate into a separate directory so existing study inputs are preserved:
+This builder regenerates historical sanitized workflow seeds, not the active long-research evidence or tasks. Optional regeneration requires local copies of `aiknowledge-cli` and `ai-knowledge-graph`. Generate into a separate directory so existing study inputs are preserved:
 
 ```bash
 python scripts/build_sanitized_eval_set.py \
@@ -160,7 +153,7 @@ python scripts/build_sanitized_eval_set.py `
 
 The builder applies configured substitutions for internal URL patterns, document IDs, email addresses, Chinese mobile numbers, and knowledge-system labels. These substitutions are not a comprehensive privacy or publication-rights review. It quarantines records whose summaries say that usable content is unavailable while their key points still assert facts. The generated pack is still a workflow eval seed, not a public factual authority.
 
-The builder also applies the reviewed exclusions in source_policy.json, preserving the original excluded wording and reasons there. The integrity checker rejects recurrence of those exact claims. It checks the declared workflow purpose; `--purpose factual` must fail for the current packs. Missing source dates, unavailable original provenance and unverified reuse rights remain explicit, not inferred from a pack generation timestamp.
+The builder also applies the reviewed exclusions in source_policy.json, preserving the original excluded wording and reasons there. The integrity checker rejects recurrence of those exact claims. A `workflow` check validates metadata, not factual support. Historical workflow-only seeds remain ineligible for `--purpose factual`; current `public_sources` can qualify for factual use only with complete local originals and matching hashes. A URL, excerpt or summary is not a substitute for the complete original. Missing source dates, unavailable provenance and unverified reuse rights remain explicit, not inferred from a pack generation timestamp.
 
 Validate active/quarantined separation and case references after rebuilding:
 
@@ -170,13 +163,21 @@ python scripts/check_eval_source_integrity.py --evals-dir /path/to/new-eval-seed
 
 ## Run An Eval
 
-Create run folders and prompts in a new run directory. Skeleton creation rewrites `prompt.md`; use a distinct directory for a new input version:
+Select actual `case_id` values with `--case`; repeat the option to select several cases. Omitting it selects all loaded cases, not a mandatory maintenance check. `material_mode: research` requires actual source discovery and verification; `frozen` keeps the designated evidence scope. Neither mode executes research through the evaluator.
+
+Generate prompts separately from managed task records. Skeleton creation rewrites `prompt.md` and creates empty placeholders that must not be passed off as workflow execution:
 
 ```bash
-python scripts/run_evals.py --create-skeletons --allow-missing-output --runs-dir evals/runs
+python scripts/run_evals.py --case microdrama_market_zh --create-skeletons --allow-missing-output --runs-dir evals/runs/2026-11-09-long-research-prompts --report evals/runs/2026-11-09-long-research-prompts/report.md --json-report evals/runs/2026-11-09-long-research-prompts/report.json
 ```
 
-For each case, give `evals/runs/<case_id>/prompt.md` to the agent under test. The agent should fill:
+Use the generated prompt as research input. For the current managed-artifact cases, create real tasks through the existing [CLI/MCP workflow](../docs/usage-modes.md#skill-only-and-cli-fallback), with workspace `evals/runs/2026-11-09-long-research/tasks` and task equal to `case_id`. Use `start`, `save`, `review` with `purpose: report_delivery`, and `finish`; do not run skeleton creation into that workspace. These cases register `reports/current.md` as the main manuscript and use the existing `delivery_check.artifact` option to check that file. Export the same final text as `final.md` for the evaluator, preserving first outputs and revisions separately. The workflow records actual work and produces a receipt only after its checks pass.
+
+A nonempty `artifact_requirements` configures file-presence requirements; it does not disable other evaluator checks. `delivery_check: false` skips the delivery-check call, not progress, source, claim or review checks, nor current-contract review completion for terminal intent. The evaluator still reads `final.md` even when `delivery_check.artifact` names another file. With empty `source_ids`, its source-title coverage is not an assessment of newly collected evidence. Default length and record-count thresholds do not establish a complete research report.
+
+Pure Skill use remains valid research delivery with the same independent responsibilities, but requires no invented CLI state or receipt. If that route is actually used, retain its real trajectory and report the managed-artifact conformance check as inapplicable to that route, not passed. Prefer the existing managed path for cases that already require these artifacts; no product mechanism or task-file relaxation is needed.
+
+The managed task's actual records include the files required by its case:
 
 ```text
 state/task_spec.md
@@ -191,18 +192,13 @@ delivery_message.md              # intended user-visible status
 state/final_delivery.json        # only for terminal delivery cases
 ```
 
-Then check mechanical conformance:
+After actual research, independent review and delivery, check the selected task's mechanical conformance:
 
 ```bash
-python scripts/run_evals.py --runs-dir evals/runs --report evals/runs/report.md --json-report evals/runs/report.json
+python scripts/run_evals.py --case microdrama_market_zh --runs-dir evals/runs/2026-11-09-long-research/tasks --report evals/studies/2026-11-09-long-research/microdrama_market_zh-conformance.md --json-report evals/studies/2026-11-09-long-research/microdrama_market_zh-conformance.json
 ```
 
-The runner writes:
-
-```text
-evals/runs/report.md
-evals/runs/report.json
-```
+The two report paths are mechanical-check outputs, separate from the complete research report and its original independent assessments. Use distinct output paths when checking other cases or versions.
 
 `report.json` uses `result_schema_version: 2`. A `pass` means mechanical conformance only. `review` and `fail` return a non-zero exit code by default; use `--allow-review` only for exploratory collection. Set both report paths when using another output directory. Record semantic reviews, reviewer disagreements and evidence limits separately from the conformance score. Separately maintained historical evaluation studies are available through the [public management repository](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.md).
 
@@ -317,12 +313,12 @@ The [current report/review plan](../docs/evaluation-roadmap.md#current-report-an
 
 新的报告评测使用[现行评测标准](../docs/report-evaluation-standard.md#报告评测现行标准)：五维0–4分，保留首次交稿及其有效评审、原始缺陷和失败记录。原定缺失评审按原版本补齐；已授权改进中的真实缺陷直接修正，修订稿另存并复查，原结果保留。不对未改稿件重复评分；可选的使用效果比较另行记录。历史量表仅适用于原研究，不构成当前人工评审前提。
 
-通用案例和检查器不依赖特定运行时。目录包含7个任务、22个反例夹具、4个正例夹具，以及23组成对语义诊断。9月10日新增三组已经过内部四模型诊断，并保留收费口径更正；相关历史评审与材料的当前公开入口见[数据管理仓库](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md)；旧八次调用没有评过这三组。历史目录中的“未评审”等字段描述当时冻结的输入状态，当前诊断状态以目录说明和保留修订为准。历史材料的文件路径、数量和实际用途见公开集合索引。
+通用案例和检查器不依赖特定运行时。当前题集为13个独立研究问题、15份已交付报告任务，完整正文和原始意见见本轮研究目录；目录另保留22个反例夹具、4个正例夹具、23组成对语义诊断及退役历史题。9月10日新增三组已经过内部四模型诊断，并保留收费口径更正；相关历史评审与材料的当前公开入口见[数据管理仓库](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md)；旧八次调用没有评过这三组。历史目录中的“未评审”等字段描述当时冻结的输入状态，当前诊断状态以目录说明和保留修订为准。历史材料的文件路径、数量和实际用途见公开集合索引。
 
 使用方法：
 
 1. 直接使用仓库已有案例。只有需要更新种子材料时才运行生成器，并写入新的输出目录。
-2. 运行 `python scripts/run_evals.py --create-skeletons --allow-missing-output --runs-dir evals/runs`，在新的运行目录生成 prompt 和必要文件。
+2. 按上文用可重复的 `--case` 选择实际题目，在独立提示目录生成 prompt；需要 managed 记录的研究通过现有 CLI/MCP 在新的任务目录启动，不能把骨架占位文件当作真实执行记录。
 3. 把 `prompt.md` 交给待测 agent，保存实际输出与失败；运行 evaluator 生成机械符合性结果。
 4. 阅读真实报告和来源，对照 LLM 评审核实问题，形成可复用的工具箱改进建议。
 5. 修改工具箱后只做与改动有关的检查。上方 CI 清单列出仓库现有自动检查；它不调用模型，也不要求安装任何可选运行时。
@@ -330,6 +326,6 @@ The [current report/review plan](../docs/evaluation-roadmap.md#current-report-an
 
 语义评测由 LLM 承担，不要求人工评测或人工校准。模型判断、分歧、来源核实与机械检查分开记录；模型一致不等于事实正确。两模型八次公开调用保留共同漏检、严重性分歧、顺序和上下文敏感，以及两项修订的独立复审。修订不增加独立题目数，也不覆盖旧结果。
 
-来源边界夹具核对配置中的 canary、禁用结论、供应商数字及限制词是否出现；它们不证明语义层面的指令拒绝，更不证明通用提示注入防御。长周期案例使用13轮需求和8家虚构公司材料，机械检查实体、关键词、纠错记录与完成状态；是否真正解释清楚公司差异仍须通过内容和证据审阅判断。
+来源边界夹具核对配置中的 canary、禁用结论、供应商数字及限制词是否出现；它们不证明语义层面的指令拒绝，更不证明通用提示注入防御。已退役的历史长周期案例使用13轮需求和8家虚构公司材料，机械检查实体、关键词、纠错记录与完成状态；是否真正解释清楚公司差异仍须通过内容和证据审阅判断。
 
 `python scripts/check_delivery.py <任务目录>` 默认核对保存的 `delivery_message.md` 与状态、评审、需求和文件哈希；提供 `--actual-message <回复文件>` 才会额外比对捕获的真实回复。它不直接读取聊天，也不证明文件中的用户授权、阅读记录或评审结论真实有效。

@@ -1,0 +1,12 @@
+{
+  "input_version": "d4d35456df2a9b286ae74452251419d51dac7c018c6648fba79b489eff7614fe",
+  "assignment_version": "e9b8d4d7a9dccef2af955e97d9c1bca7b5a32b0aea21200f4a821691484484d0",
+  "report_verdict": "pass",
+  "coverage": {
+    "structure_and_depth": {
+      "basis": "Continuous full reading in ranges 1-105,106-215,216-293 against task and effective requirements. The report organizes deployment around acceptable tasks rather than accelerator claims. It connects installed versus usable memory, weights and growing KV state to explicit phone/PC admission envelopes (17-41), then links quantization and runtime placement to phase performance and measurable quality losses (45-75). Three task paths explain why retrieval failures matter for documents, usable-result latency matters for interaction, and capture/segmentation/VAD/queueing matter for sustained speech. Phase sums, warm single-clip timing, historical thermal evidence and unmeasured continuous operation remain distinct. The hybrid discussion identifies exactly what local processing saves and what excerpts/transcripts still reveal; documented foreground/entitlement restrictions materially constrain the recommendation. Economic scenarios include engineering, ownership, fallback, correction and utilization. The final matrix and conditional rules synthesize these task-specific limits instead of ranking unlike vendor measurements. Relevant originals checked: complete Qwen architecture JSON ODM-S01, complete WhisperTRT profiling source ODM-S19 and ML Kit quota/background passage ODM12:331-342. They substantiate the cache-growth, warm-call/RSS and OS-execution distinctions used in the causal answer. Missing sustained measurements are bounded explicitly, without removing the usefulness of the worked envelopes. No structural or analytical-depth correction required; no independent performance benchmark or exhaustive fact check is claimed.",
+      "location": "reports/current.md:1-293, entire report, memory/latency/power/economic envelopes and fit matrix"
+    }
+  },
+  "findings": []
+}

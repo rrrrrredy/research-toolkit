@@ -1,0 +1,35 @@
+{
+  "host_task": "/root/office_final_acceptance",
+  "status": "completed",
+  "assignment_version": "75ec5465fd0de184a501c9ee8b3e7d8b8e77900db81f0eb259b90cdf092fa393",
+  "input_version": "f6bb51c4fdab26cede56b083db7acbe727f8d84add9ff64682cf380aa9ff37cb",
+  "started_at": "2026-11-09T16:39:04.4502797Z",
+  "completed_at": "2026-11-09T16:44:58.3399882Z",
+  "artifact_sha256": "76e52a756e003edbec67aca4cc06b19aa6545aec9c5584f1ca57c74f28c222b4",
+  "assignment": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/microdrama_market_zh/reviews/host/f6bb51c4fdab26cede56/jobs/acceptance-75ec5465fd0de184.json",
+  "independence": "本上下文未参与该中文报告生产、八个内容视角或独立审计；独立最终验收。此前同组其他题验收不代替本题全文阅读。",
+  "actual_reading": {
+    "reuse": "未抽中的未变事实复用已阅读审计的具体原文/原图核对记录；本验收未亲自查看其原图、未重读所有44份来源、未逐行重读6份每日现金CSV。",
+    "targeted_primary": [
+      "sources/MD006/original.txt:36–62",
+      "sources/actual/CP08.txt:1370–1380",
+      "sources/actual/CP17.txt:260–278",
+      "sources/MD005/original.txt:7399–7420",
+      "sources/MD008/original.txt:9535–9585",
+      "sources/actual/CP27.txt:141–156,179–188",
+      "sources/actual/CP18.txt:166–175"
+    ],
+    "retained_calculation_results": "scenario-results.json的基准输入、全部23组结果、合同、现金、混合和组合结果；重复参数对象由完整脚本定义核对；没有执行脚本。",
+    "full": [
+      "reports/current.md:1–512及结尾空行",
+      "job: assignment.task、effective_requirements、acceptance instructions",
+      "job: 八份 reviews.*.original 与完整 audit.original",
+      "历史98b93c531b8061c68cfa原始EVD-MDZH-001、AR-MDZH-01",
+      "production-handoff.md、change-note-full-01.md及完整两处正文diff",
+      "job: production_history六条记录",
+      "analysis/author-production/U01-market-boundary.md、U08-economics-and-sensitivity.md全文",
+      "analysis/calculations三个.py脚本全文、financial-results.json、completion-results.json"
+    ]
+  },
+  "actions": "仅读取材料并写本验收response/execution；未改稿、导入任务、改变工具状态、重新研究、执行模型、重跑计算或测试。"
+}

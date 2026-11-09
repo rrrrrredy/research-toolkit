@@ -1,0 +1,47 @@
+{
+  "missfresh_2021_million": {
+    "revenue": 6951.535,
+    "cost": 6131.038,
+    "gross": 820.4970000000003,
+    "fulfillment": 2121.37,
+    "gross_less_fulfillment": -1300.8729999999996
+  },
+  "dingdong_2026q2_million": {
+    "reported_net": 271.7,
+    "ceased_depreciation_effect": 199.1,
+    "mechanical_ex_effect": 72.6,
+    "prior_net": 107.2
+  },
+  "demand": {
+    "mature_social": 405.0,
+    "new_neighborhood": 140.0,
+    "fresh_share_at_697": 0.52275
+  },
+  "store_incremental": {
+    "daily": 200,
+    "contribution_without_incentive": 5.5,
+    "incremental_fixed": 20000,
+    "incremental_result": 13000.0,
+    "full_allocated_fixed": 60000,
+    "full_allocated_result": -27000.0
+  },
+  "inventory_opportunity_cost_monthly_8pct": {
+    "fresh": 830.6999999999999,
+    "social": 1988.0
+  },
+  "social_baseline_cash_simplification": {
+    "monthly_profit": 12000,
+    "monthly_depreciation": 4000,
+    "monthly_operating_cash_before_stockchanges": 16000,
+    "assumed_equipment": 120000,
+    "assumed_deposit": 30000,
+    "opening_stock": 298200,
+    "total_initial": 448200,
+    "simple_months": 28.0125
+  },
+  "peak_capacity": {
+    "fresh_6pickers_perhour": 122.39999999999999,
+    "social_2pickers_perhour": 81.0,
+    "social_3pickers_perhour": 121.5
+  }
+}

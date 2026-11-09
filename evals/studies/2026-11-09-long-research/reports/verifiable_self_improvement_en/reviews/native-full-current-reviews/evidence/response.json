@@ -1,0 +1,12 @@
+{
+  "input_version": "9907449b6a8e39785378a2be32913f20b44923005ebe5fdf7efa5e5148db9738",
+  "assignment_version": "2eb41b392eb56ef03c193c321be1b9a3c804bef33736a39f3af25bc7af75619d",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "location": "Full report lines 1–277; DGM 39–66 and 185–206; AlphaEvolve 68–88; Promptbreeder 90–102; SCoRe 104–114; harness studies 116–169; evidence appendix and calculations",
+      "basis": "Read all 277 lines continuously (1–85,86–175,176–277). Checked DGM v2 experimental setup, progressive task pools, transfer values, multi-attempt workflow, external o1 diagnosis/private-test disclosure and cost; checked outer-loop code defaults, inverse-child weighting, archive admission and self-improvement code passages. Checked AlphaEvolve v1 sampler/evaluator/database sections, Borg feasible-host interface, held-out tiling shapes, 23% kernel versus 1% training denominator and RTL downstream-synthesis caveat, plus original 2026 product/impact snapshots. Read Promptbreeder official Table 1 and Figure 4 as rendered images, tournament rule, run tokens and ablation settings; values 83.9/66.5/65.5 and population-fitness qualification match. Checked SCoRe v1 reward shaping, named checkpoints, train/test protocol and Table 3: trained +4.4 points and delta-change +15.6 points are distinguished. Checked HarnessPro v2 train/validation/test split, generated-test recall, official score semantics, main table/ablations and actual tool-denial hook; execution cost is not misrepresented as total optimization cost. Checked Rethinking v1 common AHE scaffold, five-attempt budget, explorer disabled, no-test and test tables, and 45/10/34 transfer result. Arithmetic script and saved results were read without execution; hypothetical Amdahl and amortization assumptions remain explicit. Mechanisms, baselines, claims and relevant limitations agree with original passages; no necessary evidence correction found."
+    }
+  },
+  "findings": []
+}

@@ -1,0 +1,12 @@
+{
+  "input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+  "assignment_version": "c422be391e86a232e4b7f1a9b81900aa2ca7dd63fc52978ffc462f4d6025fb6c",
+  "report_verdict": "pass",
+  "coverage": {
+    "process_language": {
+      "location": "当前完整报告；复用本人首评全文阅读，并逐段读取report.diff全部差异及其上下文。当前差异上下文行：140—143",
+      "basis": "在原独立审阅上下文中复用本人已完成的原任务、有效要求与冻结全文阅读；当前任务、有效要求及scope_decisions未变化。末段已改为本报告采用的材料类型及QuantumScape官方生产线公告的阶段范围，移除作者阅读自证和链接失败后的取材顺序；标准全文、企业成本和车队原始数据、钠电全文及二级信号等具体边界仍保留。首评 process_language-01 已解决。 本轮仅确认修订及其对process_language全篇判断的影响，未重复全文阅读、计算、测试或研究。"
+    }
+  },
+  "findings": []
+}

@@ -1,0 +1,392 @@
+{
+  "outline": "一、任务理解与本阶段边界\n研究对象不是机器人外形或企业估值，而是边界明确的现实任务，以及完成这些任务所需的模型、数据、硬件、控制、安全和运营系统。面向技术路线评估、采购部署和规模化经营决策，最终报告回答：什么任务值得自动化；学习模型增加了什么能力；哪些能力来自环境工程和人工；部署反馈如何改进系统；什么证据足以支持持续运营及经济性判断。本轮仅交付已联网阅读的材料分析、完整提纲和可独立执行的研究任务，不生成最终报告。以下分工尚未声称已由子研究者执行，独立审查也尚未完成。\n\n时间范围为2022年至2026-11-09，必要时追溯控制和安全基础。每个事件分别记录公告日期、实际发生时间和计划兑现时间。地域不预设市场排名：当前主样本覆盖美国工业与仓储现场、德国工业现场、英国及欧洲物流部署；北美仓储收缩涉及美国和加拿大。家庭研究样本与美国消费者产品要分别处理，不把数据采集地域当作商业部署地域。最终篇幅暂按约1.5万—2.2万中文字规划，这是主研究者的工作默认值，不是用户新增硬性要求。\n\n二、完整报告提纲\n第1章：从任务开始，而不是从机器人开始。建立任务规格表，记录物体材质、重量和变化范围、来料姿态、环境结构、末端执行器、必要动作自由度、节拍、质量验收、安全要求和失败后果。工业主任务为钣金件取放至焊接工装，辅以CNC上下料的成熟专用方案；物流拆成料箱交接、纸箱卸车和商品单件拣选，不把三者吞吐量直接排名；家庭主任务为餐具取放、衣物归拢及折叠，其中取放与后续洗涤等专用家电功能不混为同一任务。\n第2章：模型究竟负责哪一段。比较模块化感知—规划—控制、任务级端到端策略、VLA及世界模型辅助路线。按观测输入、任务分解、动作表示、执行频率、反馈方式和外部约束说明职责；将地图、工装、夹具、触觉、视觉标定、规则、低层控制器和人工逐项放回系统。明确这些路线可混合，世界模型也可能用于数据生成、评估或子目标生成，而不是直接控制机器人。\n第3章：数据闭环的真实成本。分别分析遥操作、动作示教、语言示教、离线日志、自主执行轨迹、人工纠错、合成视频和物理仿真。解释覆盖率、动作标签、相机标定、失败样本、任务重置、数据授权及版本管理；区分采集小时、有效交互小时、独立场景和有效训练样本。建立失败发现—归因—补采或工程修改—离线训练—回归测试—受控发布—现场观察的闭环，并说明哪些变化不应归功于基础模型。\n第4章：从推理到动作的时间与安全边界。拆分高层推理、动作块生成、实时伺服、保护停止和急停；分析异步执行、陈旧观测、网络延迟与断连、关节和末端磨损。分别讨论异常物体、遮挡、拥堵、抓取失败、跌落风险、重新定位和恢复。安全审查覆盖生产、示教、清障、维护和恢复全过程，不用演示成功替代安全论证。\n第5章：部署证据如何比较。采用部署阶段与自主性/人工依赖两条独立维度：实验室评测、公开视频、现场试验、生产试点、有商业合同的运行、已发生的多点运行；采购、预订、MOU和未来扩点单独列示。指标表保留分母、任务定义、环境、观察时段、机器人及站点数量、人工接管、停机与质量条件。不能由累计运行小时推断最长无干预时长，也不能由累计搬运次数推断成功率。\n第6章：工业操作的采用条件。以BMW/Figure钣金上料为学习系统案例，以METEC/ABB CNC上下料为成熟专用系统参照；比较对象是任务条件、集成工作和柔性收益，不是把不同工序的产量当成同一性能榜。追踪美国Spartanburg的试验、运行及硬件更换，以及德国Leipzig和Figure 03后续项目的实际阶段。\n第7章：物流不是一种任务。以GXO/Digit料箱交接、DHL/Stretch纸箱卸车、Ocado商品拣选与履约系统分别解释：接口标准化如何降低任务难度；不同执行器和搬运方式如何改变可服务物体；仓储软件、输送线、人工异常处理和需求密度如何影响价值。区分单机、工位、整仓和配送网络层面的指标。\n第8章：家庭服务的泛化与运营缺口。以π0.5、π*0.6及π0.7论文研究新环境、长任务、纠错和跨本体能力；以1X NEO产品资料检验预订、内部家庭测试、远程专家模式与实际客户运行之间的距离。明确家务完成率、子任务进度、演示视频和长期消费者体验不是同一证据。\n第9章：经济性与失败案例。建立每个合格完成任务的全成本与增量现金流模型，纳入安装调试、场地改造、集成、算力与联网、维护备件、耗材、远程协助、重置和复核、停机损失、合规、培训及组织成本。用Ocado/Kroger/Sobeys的扩张与收缩检验利用率和需求假设；把厂商收入、补偿款、客户回报和单任务生产率分开。公开参数不足时仅给明确标注的情景区间和盈亏平衡条件。\n第10章：采用与规模化决策。分别提出工业、物流和家庭任务的适用条件、采购前必须验证的事项、试点退出条件及规模化约束。允许得出专用系统更优、混合路线可行、限定场景部署或暂不部署等结论；瓶颈归因按数据、模型、硬件、集成、安全组织和需求分别论证，不强求单因果。\n\n三、计划图表\nA.任务—约束—失败后果表；B.路线—数据—任务匹配图；C.模型、硬件、环境工程和人工的职责表；D.带时间及部署阶段的证据比较表；E.异常恢复与部署反馈闭环图；F.全成本、利用率和人工接管敏感性表；G.三类任务的采用条件及采购核验清单。\n\n四、已有候选解释，均待独立证据或领域核查后进入下游结论\nH1：可运营系统可能首先受益于清晰的任务接口与现有自动化基础，而不是单纯增加模型通用性。BMW说明其选择高自动化车身车间并通过标准接口集成；ABB案例同时依赖双夹爪、清屑和物料缓存。两者支持研究系统分工，但尚不能证明通用方案或专用方案在同一工序上经济性更优。见ED02、ED04。([press.bmwgroup.com](https://www.press.bmwgroup.com/global/article/attachment/T0455864EN/644966))\nH2：现有论文支持一定的新环境和跨本体迁移，但不支持无条件的长期家庭自主运行。π0.5真实家庭评测包含按步骤计分的任务进度；π0.7的部分开箱性能实验使用训练中见过的任务，跨本体实验又有单独的留出条件。后续必须逐实验界定泛化对象。见ED16、ED19。([arxiv.org](https://arxiv.org/html/2504.16054v1))\nH3：部署后学习的价值在于补足策略真实失败分布，但闭环不等于无人化。RECAP明确仍依赖人工奖励标注、干预和场景重置，且不同家务变体的定量测试范围并不相同。见ED18。([pi.website](https://www.pi.website/download/pistar06.pdf))\nH4：持续可靠性改善可能来自硬件与集成，而不只是模型。Figure披露前臂是BMW现场主要硬件故障点，并据此改变下一代腕部电子结构；其文中的大于99%和零接管是目标，不能直接作为已达成实绩。见ED01。([figure.ai](https://www.figure.ai/news/production-at-bmw))\nH5：商业合同和扩点公告是不同证据。GXO已确认料箱搬运商业合作，但2026-10-26公告中的两个新增站点预计2027年初部署；DHL的千台级扩展是MOU，不是已安装数量。见ED05—ED07。([gxo.com](https://gxo.com/news_article/gxo-signs-industry-first-multi-year-agreement-with-agility-robotics/))\nH6：成熟自动化也可能受需求密度、网络设计和利用率约束。Ocado披露机器人拣选扩点，同时披露北美站点关闭；其2026年中期含关闭影响与剔除关闭影响的财务指标差异显著。因此不能由设备能力或厂商利润单独推出客户回报，也不能把关闭全部解释为机器人技术失败。见ED08—ED11。([rns-pdf.londonstockexchange.com](https://www.rns-pdf.londonstockexchange.com/rns/5025U_1-2026-2-26.pdf))\nH7：推理部署方式本身可能改变有效吞吐和稳定性。RTC论文在相同基础策略上比较执行方式，并报告部分基线在注入延迟后触发保护停止；2026年Pi API材料也承认部分应用遇到网络连接问题。具体安全结论仍需本地控制及保护机制资料。见ED22、ED26。([arxiv.org](https://arxiv.org/html/2506.07339v1))\n\n五、尚不可直接进行的比较\n不能直接比较工业循环准确率、仓储累计料箱数、纸箱峰值卸载率、家庭任务进度和跨任务平均成功率。不能将不同论文的数据小时、不同站点的产能、不同公司的设备报价或不同地区的工资直接拼成回报排名。优先补齐同一任务边界、时间分母、失败处理、人员投入和改造范围，再决定哪些比较可计算、哪些只能作机制解释。\n\n六、推进与统稿\n主研究者负责最终统稿。先由Q-REQ和Q-STRUCT分别审查需求保持与提纲深度；各研究单元可并行补读，但决定性前提须经Q-EVID或Q-DOMAIN核查后供成本和总论使用，经济模型再经Q-FIN核算。完整报告形成后，还须在分别独立于生产的上下文完成需求、证据、对抗推理、结构深度、读者效用、过程语言清理和自然表达七个视角，以及机器人安全和经济性领域审查；随后另设独立审计与最终验收。本轮没有这些环节的完成声明。",
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "最终成果为面向产业与技术决策者的中文完整长研究，以现实任务连接模型、数据、控制、可靠性与运营经济性，而非企业名单或外形分类。",
+      "scope": "global"
+    },
+    {
+      "id": "R2",
+      "text": "重点使用2022年至2026-11-09公开资料；区分原始发布日期、修订日期、事件发生日期和未来计划日期，不引入截止日后的结果。",
+      "scope": "global"
+    },
+    {
+      "id": "R3",
+      "text": "工业任务必须明确物体、环境、动作自由度、节拍、安全、质量验收和失败后果，并比较适用的成熟专用自动化。",
+      "scope": "U-IND"
+    },
+    {
+      "id": "R4",
+      "text": "物流任务分别处理料箱交接、纸箱卸车和单件拣选，解释物体集合、设备接口、环境工程、人工异常处理及工位和整仓指标差异。",
+      "scope": "U-LOG"
+    },
+    {
+      "id": "R5",
+      "text": "家庭任务至少覆盖整理或取放，区分研究评测、产品演示、内部测试、消费者预订、实际交付和持续服务；不能用不执行同一任务的家电作虚假替代比较。",
+      "scope": "U-HOME"
+    },
+    {
+      "id": "R6",
+      "text": "比较模块化系统、端到端策略、VLA及相关世界模型的职责，说明模型输出与低层控制、安全、夹具、末端执行器、传感器、地图、规则和人工的关系。",
+      "scope": "U-ARCH"
+    },
+    {
+      "id": "R7",
+      "text": "分析遥操作、动作及语言示教、离线日志、自主执行和人工纠错的数据覆盖、质量、获取成本、版本及部署后分布变化。",
+      "scope": "U-DATA"
+    },
+    {
+      "id": "R8",
+      "text": "区分合成图像或视频、伪动作标签、物理仿真、仿真迁移和模拟评估；解释接触动力学与视觉分布差异，并核查其真实机器人效果。",
+      "scope": "U-SIM"
+    },
+    {
+      "id": "R9",
+      "text": "解释高层推理、实时控制和本地安全机制的边界，覆盖遮挡、异常物体、拥堵、断网、磨损、人工接管和异常恢复。",
+      "scope": "U-CONTROL"
+    },
+    {
+      "id": "R10",
+      "text": "成功率、节拍、持续运行时间、机器人数量、人工接管和事故必须保留任务定义、样本分母、环境和观察时段；未披露不得写成零。",
+      "scope": "U-REL"
+    },
+    {
+      "id": "R11",
+      "text": "部署阶段、商业关系和自主性分别编码；视频成功片段、采购意向、预订、MOU、产能和未来扩点不能充当已发生的持续商业运行。",
+      "scope": "global"
+    },
+    {
+      "id": "R12",
+      "text": "经济性包括安装调试、场地改造、集成、算力联网、维护、远程协助、耗材、停机损失、安全合规和人员组织；售价、补贴、订单或厂商收入不等于客户回报。",
+      "scope": "U-ECON"
+    },
+    {
+      "id": "R13",
+      "text": "纳入公开失败、延期、任务收缩和路线调整，分别检验数据、模型、硬件、集成、需求及组织解释，不强制单一原因。",
+      "scope": "U-COUNTER"
+    },
+    {
+      "id": "R14",
+      "text": "区分增加数据、改善硬件、限制环境、增加人工与提升模型泛化造成的效果；缺少对照或消融时仅给限定性推断。",
+      "scope": "global"
+    },
+    {
+      "id": "R15",
+      "text": "跨物体、跨场景、跨任务和跨本体泛化分别核验训练覆盖、留出条件、测试协议和适配成本，不能互相替代。",
+      "scope": "U-ARCH"
+    },
+    {
+      "id": "R16",
+      "text": "最终交付路线—数据—任务匹配图、带部署阶段的证据比较、反馈闭环解释，以及工业、物流和家庭采用条件与规模化约束。",
+      "scope": "U-LEAD"
+    },
+    {
+      "id": "R17",
+      "text": "关键论断必须实际读取官方论文、原始披露、官方文档或可靠可追溯报道；登记实际阅读范围、原文位置和限制，不以检索片段、转载链或记忆替代原文。",
+      "scope": "global"
+    },
+    {
+      "id": "R18",
+      "text": "已选案例保留其地域与时期：美国、德国工业现场；美国、英国及欧洲物流；美国和加拿大仓储收缩；家庭研究样本和美国产品提供范围分别注明。不据此推断全球市场份额或国家优劣。",
+      "scope": "global"
+    },
+    {
+      "id": "R19",
+      "text": "决定性技术前提、部署数字和经济计算经独立证据或领域审查后才供下游作为结论使用；完整报告另行完成各独立审查、审计和最终验收。",
+      "scope": "global"
+    },
+    {
+      "id": "R20",
+      "text": "本轮只输出需求、初读分析、提纲、分工和具体缺口，不直接生成最终报告，不写评分或预设验收结果，不虚构子研究者执行、文件保存或审查完成。",
+      "scope": "global"
+    },
+    {
+      "id": "R21",
+      "text": "正式研究阶段由主研究者维护state/task_spec.md、state/progress.json、state/requirements.jsonl、data/source_registry.csv、data/claims_registry.csv和logs/review.jsonl；最终统稿为final.md，实际完成独立验收后才形成state/final_delivery.json和delivery_message.md。本轮JSON不冒充这些文件已存在。",
+      "scope": "U-LEAD"
+    }
+  ],
+  "units": [
+    {
+      "id": "Q-REQ",
+      "assignment": "由未参与生产的独立研究者读取原始题面、本JSON全部要求和提纲，检查工业、物流、家庭三类任务及全部指定机制是否有明确责任单元；检查时间截止、原文阅读、证据层级、人工与环境工程、专用基线、经济性和反例是否在任务书中保持。不得因已有样本偏向某地区而新增全球市场普查要求，也不得取消必要覆盖。此为早期需求审查，不代替完整报告需求审查。",
+      "inputs": [],
+      "dependencies": [],
+      "deliverables": "逐项需求—章节—研究单元映射；可定位的遗漏、范围漂移或依赖冲突及修订建议；明确实际审查范围。"
+    },
+    {
+      "id": "Q-STRUCT",
+      "assignment": "在独立于生产及Q-REQ的上下文审查提纲是否围绕真实问题展开，而非把模型介绍、公司案例和财务资料机械并列。重点检查不同物流任务是否被错误横比、家庭证据是否被压缩为营销评价、专用自动化是否得到公平比较，以及成本和规模化判断是否有上游依据。只审查当前结构与深度规划。",
+      "inputs": ["ED01", "ED04", "ED06", "ED08", "ED16", "ED18"],
+      "dependencies": [],
+      "deliverables": "问题—论证—所需证据的结构诊断，必要的章节和单元调整，以及哪些比较应保持不对称的理由。"
+    },
+    {
+      "id": "U-IND",
+      "assignment": "负责R3、R11、R14及工业部分R18。重建2022—2026-11-09工业案例时间线，以美国BMW/Figure钣金上料为主，德国METEC/ABB CNC上下料为专用基线，德国Leipzig试验和Figure 03项目作为后续阶段核查。分解来料、取件、移动、工装定位、焊接或机床联锁、质量检验及恢复，逐项标注模型、工装、控制和人工职责。核查84秒循环、37秒装载、大于99%和零接管分别属于要求、目标还是实测；解释10个月、11个月、六个月日常运行和1250小时的观察口径，不能自行补出机器人数量。追查2026年后续项目是否已有实际运行材料。ABB案例必须补客户或集成商视角，不能由产能翻倍单独推出投资回收。两种工序只比较适用条件与工程工作量，若要量化优劣须取得同一工序方案。",
+      "inputs": ["ED01", "ED02", "ED03", "ED04", "ED23"],
+      "dependencies": [],
+      "deliverables": "工业任务规格、职责分解、部署时间线、指标口径表和约2500—3500字局部论证；同工序比较所缺资料；硬件故障及集成反馈的完整解释。"
+    },
+    {
+      "id": "U-LOG",
+      "assignment": "负责R4、R11及物流部分R18。独立研究三种不同任务：GXO/Digit在美国的料箱交接；DHL/Stretch在北美、英国及欧洲的纸箱卸车；Ocado在英国和国际CFC的商品拣选。逐任务定义物体集合、抓取方式、来料接口、移动需要、输送线和仓储软件协同、安全隔离、异常箱或商品处理。核对2024商业协议、2026累计搬运量、2027扩点计划，以及DHL已部署与MOU新增数量；不把65000小时全客户口径归给一个GXO站点。Ocado须区分搬运网格机器人、拣选机械臂、人工拣选及整个履约系统，核查10至14个OGRP站点的期间变化。选取任务相同的输送线、固定机械臂、AMR或人工流程作条件性基线，不按不同任务的件/小时排名。",
+      "inputs": ["ED05", "ED06", "ED07", "ED08", "ED09"],
+      "dependencies": [],
+      "deliverables": "三种物流任务的独立流程与系统边界图、站点和阶段表、可比与不可比指标表，以及约3000—4000字机制分析；给经济单元提供人员、接口和停机边界。"
+    },
+    {
+      "id": "U-HOME",
+      "assignment": "负责R5、家庭部分R10—R11和R18。以餐具从台面放入水槽、衣物归拢及折叠为边界明确的任务，比较研究系统与消费者产品证据，不把二者拼成同一产品能力。逐项核查π0.5的家庭留出、任务进度、试验次数及重置；RECAP各衣物变体和咖啡等辅助实验只在解释机制时使用；π0.7逐项区分见过的任务、跨本体留出和人类语言指导。对1X核验截至截止日的订单条款、实际交付、内部测试、远程专家权限和服务范围；若找不到可追溯客户长期运行记录，应给有检索边界的未知结论，而非断言全球零交付。家庭对照为同任务人工与适用专用设备，洗碗机不能冒充餐具搬运机器人，扫地机不能冒充整理机器人。补查儿童、宠物、易碎物、隐私和失败恢复条件。",
+      "inputs": ["ED12", "ED13", "ED16", "ED18", "ED19"],
+      "dependencies": [],
+      "deliverables": "家庭任务规格、实验协议与商业阶段分离表、人工参与和隐私边界分析，以及约2500—3500字局部正文；具体说明已证明与尚未证明的能力。"
+    },
+    {
+      "id": "U-ARCH",
+      "assignment": "负责R6、R14、R15。建立模型职责的可操作分类，不按厂商标签判定端到端程度。以MoveIt、Diffusion Policy、π系列和API部署为起点，按需要补读2022年的任务规划/机器人策略基础、2023年的VLA工作及2024—2026其他研究团队的公开VLA论文和代码，避免以一家公司的实验代表全部路线。对每条路线追踪观测、语义状态、任务分解、动作块、动作坐标、控制器、碰撞处理和人工接口；区分同一个模型分层推断与单次网络直接输出全部控制。建立跨对象、环境、任务和本体泛化的证据表，标清预训练见过任务、后训练、提示指导和测试留出。不得把厂商商业案例反向推断为已采用某篇论文模型。",
+      "inputs": ["ED14", "ED15", "ED16", "ED19", "ED22", "ED26"],
+      "dependencies": [],
+      "deliverables": "路线—职责矩阵、泛化定义与证据表、模型到执行器的架构图，以及约2500—3500字比较论证；向领域核查提交关键技术判断。"
+    },
+    {
+      "id": "U-DATA",
+      "assignment": "负责R7和数据归因部分R14。追踪DROID、π0.5环境多样性消融、RECAP和Pi API反馈流程，说明遥操作、动作示教、语言示教、成功与失败日志、自主执行和纠错分别提供什么监督。补读数据集原论文、数据格式和修订记录，核对场景、任务、轨迹、时长及标定版本。将采集成本拆为设备、操作者、搬迁标定、任务重置、质检标注、存储算力与安全监督，缺价格时输出成本结构和可测参数而非捏造单价。解释成功样本偏差、人工接管选择偏差、训练与评测污染、硬件变化后的动作语义漂移。提出可追溯的现场事件记录格式及补采优先级方法，并明确它们是工程建议还是已披露做法。",
+      "inputs": ["ED16", "ED17", "ED18", "ED26"],
+      "dependencies": [],
+      "deliverables": "数据来源—覆盖—质量—成本—分布变化矩阵；反馈闭环及数据版本流程；环境多样性与数量效应的消融解释；约2500—3500字局部论证。"
+    },
+    {
+      "id": "U-SIM",
+      "assignment": "负责R8以及世界模型相关R6、R14。精读DreamGen的方法、真实机器人实验及附录，区分合成视频的视觉合理性、伪动作可执行性与真实任务成功。精读SIMPLER控制与视觉匹配方法、真实—模拟成对比较及限制；不能把模拟评估论文当成仿真训练迁移已成功的证据。另补至少一个与本报告操作任务相关的真实sim-to-real训练案例，来源充分性由其能否回答接触、物体和执行器差异决定，不按论文数量凑齐。分析域随机化、系统辨识、合成初始场景、真实数据混合和分布外失败；比较世界模型用于训练数据、子目标与评估的不同职责。",
+      "inputs": ["ED19", "ED20", "ED21"],
+      "dependencies": [],
+      "deliverables": "合成与仿真路线机制图、真实验证及失败边界表、可归因的消融比较，以及约1800—2500字论证；不可外推到软物体或安全验证的明确边界。"
+    },
+    {
+      "id": "U-CONTROL",
+      "assignment": "负责R9。根据RTC实验和实际设备文档建立时间预算：传感、网络传输、推理、动作块执行、状态反馈、伺服和安全响应分别计时，区分平均值与尾部延迟。对断网、陈旧指令、遮挡、拥堵、抓取失败、工装偏差、磨损和人工恢复制作状态转移与故障处置表。补读具体机器人控制器的保护停止、急停、速度或力限制、联锁和远程操作文档，不能把MoveIt碰撞检查当作安全认证功能。核对美国工业应用、欧洲相关标准和家庭服务的适用范围；ISO预览不足以支持完整合规结论，须取得所用条款原文。说明人工接管是否需要到场、是否要重新标定、何时可恢复生产。",
+      "inputs": ["ED01", "ED14", "ED16", "ED22", "ED23", "ED24", "ED25", "ED26"],
+      "dependencies": [],
+      "deliverables": "多时间尺度控制架构、异常与恢复矩阵、安全责任及适用范围表、采购验证项目，以及约2500—3500字工程论证；提交Q-DOMAIN核查。"
+    },
+    {
+      "id": "U-REL",
+      "assignment": "负责R10和跨案例部署证据比较。接收三个任务单元的完整材料后，统一的是指标定义而非强行统一数值。将首次成功、重试后成功、子任务进度、合格整任务、质量复核、人工干预、计划停机、非计划停机和任务重置分开；区分单机器人小时、机群累计小时、站点日历期和最长连续无干预时段。逐条复核Figure目标值、GXO累计量、DHL峰值、π论文进度和成功率。仅在样本数和独立性条件可说明时计算区间；按站点、机器人或班次聚类，不默认所有循环独立。可设计有明确假设的长任务可靠性情景，但不能用每步成功率简单乘积冒充实测。",
+      "inputs": ["ED01", "ED02", "ED06", "ED07", "ED16", "ED18", "ED19", "ED22"],
+      "dependencies": ["U-IND", "U-LOG", "U-HOME"],
+      "deliverables": "逐指标可追溯证据账、部署阶段与自主性双维度表、可复算的可靠性分析及不能计算的理由；约1800—2500字解释。"
+    },
+    {
+      "id": "U-COUNTER",
+      "assignment": "负责R13。先独立重建Ocado/Kroger/Sobeys扩张、站点关闭和商业调整，补买方公告、财报和电话会原文，将实际关闭、尚未建设和未来规划分开。结合Figure前臂故障及代际更换、家庭产品测试和交付进度，区分正常迭代、技术失败、商业收缩和有证据的延期；没有最初承诺和后续事实就不能标记延期。检验需求密度、配送时效、利用率、集成成本、硬件可靠性和模型能力的替代解释。主动寻找能反驳当前候选解释的同任务案例，不以融资、裁员或单个视频直接判定技术成败。",
+      "inputs": ["ED01", "ED03", "ED08", "ED09", "ED10", "ED11", "ED13"],
+      "dependencies": [],
+      "deliverables": "失败或调整事件时间线、支持与反对各因果解释的证据表、仍不可识别的因素，以及约1800—2500字反证分析。"
+    },
+    {
+      "id": "Q-EVID",
+      "assignment": "由独立于各生产单元的证据研究者核查即将供经济性和总论使用的决定性前提。实际打开原文，检查日期、版本、目标与实绩、计分规则、分母、累计范围、站点阶段及计划兑现。重点核查Figure准确率和接管目标、GXO扩点时间和65000小时范围、Ocado live模块定义、π0.5任务进度、π0.7泛化留出及RECAP实验子集。每项结论注明支持、需限定或尚不能成立及其原因；不对未读部分作整体完成声明。",
+      "inputs": ["ED01", "ED02", "ED06", "ED08", "ED09", "ED16", "ED18", "ED19", "ED20", "ED21"],
+      "dependencies": ["U-ARCH", "U-DATA", "U-SIM", "U-REL", "U-COUNTER"],
+      "deliverables": "可定位的原文核查记录、口径与推断修正、仍阻塞下游的前提列表，以及下游可使用的限定性事实表。"
+    },
+    {
+      "id": "Q-DOMAIN",
+      "assignment": "由未参与架构或控制写作的机器人控制与功能安全领域研究者，检查U-ARCH、U-SIM、U-CONTROL的机制和边界。重点核验动作频率与推理频率、端到端与低层伺服、算法避碰与安全相关控制、网络故障处置、接触和跌倒风险、移动平台与工业工作站标准适用差异。核查仿真相关性是否被过度解释为真实可靠性或安全保证。凡需标准全文或设备手册而尚未取得的结论，明确阻塞范围。",
+      "inputs": ["ED14", "ED15", "ED16", "ED20", "ED21", "ED22", "ED23", "ED24", "ED25", "ED26"],
+      "dependencies": ["U-ARCH", "U-SIM", "U-CONTROL"],
+      "deliverables": "技术与安全前提审查、必要修正及合规表述边界；可供经济性采用的安全、恢复和维护条件。"
+    },
+    {
+      "id": "U-ECON",
+      "assignment": "负责R12。在Q-EVID与Q-DOMAIN确认关键前提后，对工业、物流、家庭分别建立同任务的全成本比较。年度成本包括资本年化或RaaS、安装改造、集成、软件算力联网、维护耗材、远程与现场人工、安全培训和停机损失；分母优先使用实际合格完成任务数。若用计划工时×可用率×节拍×合格率估算，逐项避免重复计入失败与停机。比较实际减少的人员工时，而非自动等同于取消岗位；远程支持估计平均负荷和集中故障时排队风险。分别标注地区、币种、价格年份、寿命和折现假设；不把不同任务峰值拼成回报。公开合同和成本缺失时计算情景、敏感性及盈亏平衡条件，不声称客户真实ROI。Ocado财务只用于检验经营约束，剔除关闭补偿等影响后再解释。",
+      "inputs": ["ED04", "ED08", "ED09", "ED10", "ED11", "ED12", "ED26"],
+      "dependencies": ["U-IND", "U-LOG", "U-HOME", "U-COUNTER", "Q-EVID", "Q-DOMAIN"],
+      "deliverables": "可复算的参数与公式表、三类任务的明确标注情景、利用率/人工接管/维护/寿命敏感性、经济性不可识别项，以及约2500—3500字局部论证。"
+    },
+    {
+      "id": "Q-FIN",
+      "assignment": "由独立于U-ECON的运营经济性研究者复算全部决定性计算。核查资本与租赁是否重复计费、设备和整仓边界是否混杂、失败重试和停机是否重复扣减、节省工时能否兑现、价格地区和税费是否一致。检查Ocado关闭补偿、集团财务、客户经营收益和单机经济性之间的层级关系；检验乐观利用率、寿命及远程协助比例变化是否推翻采用建议。",
+      "inputs": ["ED08", "ED09", "ED10", "ED12"],
+      "dependencies": ["U-ECON"],
+      "deliverables": "独立复算、假设敏感性与必要修正；明确哪些仅为情景结果，哪些有实际客户证据。"
+    },
+    {
+      "id": "U-LEAD",
+      "assignment": "由主研究者负责最终统稿，不交给各单元拼接。先吸收Q-REQ和Q-STRUCT对提纲的修正，再阅读所有完整贡献与关键原文，解决任务定义、时间口径和因果解释冲突。按真实任务重组模型、数据、控制、可靠性和经济性材料，形成R16要求的图表与三类采用条件；保留专用系统可能更优、混合方案及暂不部署的结论空间。维护来源和论断记录，追踪被修订前提的下游影响。完整稿形成后组织七个独立基础视角、适用领域审查、另设独立审计与最终验收，保留原始意见及修订处置。本轮仅建立该责任与交接结构。",
+      "inputs": ["ED01", "ED02", "ED03", "ED04", "ED05", "ED06", "ED07", "ED08", "ED09", "ED10", "ED11", "ED12", "ED13", "ED14", "ED15", "ED16", "ED17", "ED18", "ED19", "ED20", "ED21", "ED22", "ED23", "ED24", "ED25", "ED26"],
+      "dependencies": ["Q-REQ", "Q-STRUCT", "U-IND", "U-LOG", "U-HOME", "U-ARCH", "U-DATA", "U-SIM", "U-CONTROL", "U-REL", "U-COUNTER", "Q-EVID", "Q-DOMAIN", "U-ECON", "Q-FIN"],
+      "deliverables": "后续完整中文报告、路线—数据—任务匹配图、阶段证据表、反馈闭环、经济模型与采用条件；真实维护所要求的研究记录和最终交付文件，不在当前阶段提前生成最终报告或验收回执。"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "ED01",
+      "title": "F.02 Contributed to the Production of 30,000 Cars at BMW",
+      "url": "https://www.figure.ai/news/production-at-bmw",
+      "date": "2025-11-19",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Deployment Highlights；Deployment Overview；Hardware Reliability and Learnings",
+      "key_findings": "厂商披露超过90000件上料、1250小时运行及支持超过30000辆车生产。84秒总循环和37秒装载是要求；每班大于99%的三件正确装载率与零人工暂停/重置是目标，不是本文给出的达成统计。前臂被列为现场主要硬件故障点，下一代改变腕部通信板和动态线缆结构。文中11个月部署、六个月日常运行需与买方口径对齐；未给机器人数量、完整故障分母或接管日志。([figure.ai](https://www.figure.ai/news/production-at-bmw))",
+      "access_scope": "读取新闻正文全部实质章节；未观看嵌入视频，未取得现场原始日志。"
+    },
+    {
+      "source_id": "ED02",
+      "title": "BMW Group to deploy humanoid robots in production in Germany for the first time",
+      "url": "https://www.press.bmwgroup.com/global/article/attachment/T0455864EN/644966",
+      "date": "2026-02-27",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "PDF第2—5页：统一数据模型、试点流程、Leipzig时间线及Spartanburg经验",
+      "key_findings": "买方将Spartanburg工作称为试点，描述约十个月、超过30000辆车、90000件零件和约1250运行小时。强调生产IT、职业安全、流程管理和物流早期介入，并经标准接口接入既有生态；选择车身车间与其已有高自动化程度有关。Leipzig于2025年12月初测，2026年4月进一步测试和夏季试点在发布时仍是计划。支持系统集成解释，不足以证明投资回报或无人连续运行。([press.bmwgroup.com](https://www.press.bmwgroup.com/global/article/attachment/T0455864EN/644966))",
+      "access_scope": "读取PDF正文相关页及时间信息；未读取为本研究无关的人员引语和公司财务背景全部段落。"
+    },
+    {
+      "source_id": "ED03",
+      "title": "BMW Group advances the use of Physical AI in production with Figure 03 project in Spartanburg",
+      "url": "https://newsroom.bmwgroup.com/global/bmw-group-advances-the-use-of-physical-ai-in-production-with-figure-03-project-in-spartanburg",
+      "date": "2026-06-25",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "正文开头；Next step with the next-generation Figure 03 robot",
+      "key_findings": "买方介绍Figure 03新项目：从较大容器取出未排序部件，放入顺序供料小车，再由牵引车或Smart Transport Robot运输。说明新任务仍与专用物流设备协同。页面采用将开始和将执行等措辞，没有给该新任务累计运行、数量、接管或付费数据，不能仅凭发布会照片升级为已验证的持续运行。([newsroom.bmwgroup.com](https://newsroom.bmwgroup.com/global/bmw-group-advances-the-use-of-physical-ai-in-production-with-figure-03-project-in-spartanburg))",
+      "access_scope": "直接打开迁移后的BMW官方原页面并读取实质正文；未观看视频或将图片当作运行指标。"
+    },
+    {
+      "source_id": "ED04",
+      "title": "Cobot colleague tirelessly lends a hand",
+      "url": "https://new.abb.com/news/detail/112633/cstmr-cobot-colleague-tirelessly-lends-a-hand",
+      "date": "2024-02-19",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "案例需求；Pick & Place in a continuous loop；Easy programming with ABB RobotStudio；产能结果",
+      "key_findings": "德国METEC的GoFa上下料系统由集成商设计双三点夹爪、吹屑喷嘴、可固定料车和机床I/O接口，需求包括76种零件及无人值守时的切屑管理。动作位置大量依据用户输入计算，采用RobotStudio及SafeMove。厂商案例称产能翻倍，但没有提供同口径工时、设备总成本、故障率或回收期。适合作为环境与工装工程的专用基线，而非与BMW不同工序直接比产量。([new.abb.com](https://new.abb.com/news/detail/112633/cstmr-cobot-colleague-tirelessly-lends-a-hand))",
+      "access_scope": "读取案例完整实质正文和客户引语；未取得客户原始生产或财务数据。"
+    },
+    {
+      "source_id": "ED05",
+      "title": "GXO signs industry-first multi-year agreement with Agility Robotics",
+      "url": "https://gxo.com/news_article/gxo-signs-industry-first-multi-year-agreement-with-agility-robotics/",
+      "date": "2024-06-27",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "协议说明；Agility Arc；SPANX任务描述",
+      "key_findings": "GXO确认从2023年底概念验证进入多年RaaS协议。在SPANX设施，Digit与既有AMR协作，将料箱从协作设备搬至输送线，由Agility Arc进行流程编排。支持商业合同与限定任务运行的判断，不等于任意仓储任务泛化。未披露收费、机器人数量、干预频率或客户ROI；行业首次是当事方表述，不能未经独立核验作全球排名。([gxo.com](https://gxo.com/news_article/gxo-signs-industry-first-multi-year-agreement-with-agility-robotics/))",
+      "access_scope": "读取协议新闻实质正文；未观看链接视频。"
+    },
+    {
+      "source_id": "ED06",
+      "title": "GXO and Agility Robotics Expand Partnership to Accelerate Deployment of Humanoids in U.S. Operations",
+      "url": "https://investors.gxo.com/news-releases/news-release-details/gxo-and-agility-robotics-expand-partnership-accelerate",
+      "date": "2026-10-26",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "From Industry-First to Multi-Site Expansion；Building the Infrastructure for Commercial Scale",
+      "key_findings": "客户公告称Flowery Branch累计搬运超过100000个料箱；Statesville和Lebanon两个站点预计2027年初开始部署Digit 4，之后再迁移Digit 5。65000小时是商业运营和客户项目整体口径，不是该单一站点时长。支持已有商业任务和未来扩点的分离，不能由累计量算成功率、单机节拍或无干预时长；也不能将设计年产能当作已交付数量。([investors.gxo.com](https://investors.gxo.com/news-releases/news-release-details/gxo-and-agility-robotics-expand-partnership-accelerate))",
+      "access_scope": "读取公告全部实质章节及未来事项表述；未读取底层设备日志或商业合同。"
+    },
+    {
+      "source_id": "ED07",
+      "title": "DHL Group signs MOU with Boston Dynamics for additional 1,000-robot deployment and accelerates cross-business automation strategy",
+      "url": "https://group.dhl.com/en/media-relations/press-releases/2025/dhl-group-signs-mou-with-boston-dynamics-and-accelerates-cross-business-automation-strategy.html",
+      "date": "2025-05-13",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "合作及部署时间线；Case unloading rates of up to 700 cases per hour",
+      "key_findings": "DHL说明Stretch于2023年在北美商业使用，之后扩展至英国和欧洲。披露卸车速度最高700箱/小时，并提到与输送线、码垛设备共同构成端到端方案。新增超过1000台来自MOU，不能写成已部署数量；最高速也不是整班净吞吐。尚缺箱体范围、异常箱处理、人工投入、停机和站点清单。([group.dhl.com](https://group.dhl.com/en/media-relations/press-releases/2025/dhl-group-signs-mou-with-boston-dynamics-and-accelerates-cross-business-automation-strategy.html))",
+      "access_scope": "读取客户官方新闻实质正文；未观看未加载的视频。"
+    },
+    {
+      "source_id": "ED08",
+      "title": "Ocado Group plc — Full year results for the 52 weeks ended 30 November 2025",
+      "url": "https://www.rns-pdf.londonstockexchange.com/rns/5025U_1-2026-2-26.pdf",
+      "date": "2026-02-26",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "第1—4页业绩、脚注和运营回顾；第18页KPI定义；第73—74页期后事项",
+      "key_findings": "OGRP已进入10个CFC；live模块定义包括可供客户使用或仍收取费用，且包含14个期末未实际营业但继续收费的模块，不能等同活跃产能。Kroger三站关闭及取消Charlotte建设产生3.5亿美元补偿，2026年1月30日收款；Sobeys因评估需求关闭Calgary并支付补偿。文件同时披露运营增长，提供技术改进与商业收缩并存的反例；集团和解收入不能当作客户机器人ROI。([rns-pdf.londonstockexchange.com](https://www.rns-pdf.londonstockexchange.com/rns/5025U_1-2026-2-26.pdf))",
+      "access_scope": "读取82页原始结果公告中上述相关章节、指标定义和期后事项；未通读全部财务附注。"
+    },
+    {
+      "source_id": "ED09",
+      "title": "Ocado Group — Half Year Results 2026",
+      "url": "https://www.ocadogroup.com/investors/results-and-presentations/half-year-results-2026",
+      "date": "2026年中期业绩；网页正文未显示准确首次发布日期，待原始PDF核对",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Financial progress；Operational and strategic progress；财务表及脚注",
+      "key_findings": "官方网页披露OGRP已进入14个CFC。集团调整后EBITDA含Kroger和Sobeys关闭影响为4.32亿英镑，剔除相关影响为8100万英镑；剔除关闭影响的基础现金流为负1.47亿英镑。说明扩点指标与会计收益必须分层解释。该页不足以确认单站点客户回报，且网页摘要的全部口径仍需中期公告原表复核。([ocadogroup.com](https://www.ocadogroup.com/investors/results-and-presentations/half-year-results-2026))",
+      "access_scope": "读取官方业绩网页相关正文、表和脚注；点击原始PDF链接失败，未将PDF登记为已读。"
+    },
+    {
+      "source_id": "ED10",
+      "title": "The Kroger Co. — Form 8-K/A, Item 2.06 Material Impairments",
+      "url": "https://www.sec.gov/Archives/edgar/data/56873/000110465925118905/tm2532855d1_8ka.htm",
+      "date": "2025-12-05；相关金额确定日期为2025-12-04",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Explanatory Note；Item 2.06；签署日期",
+      "key_findings": "买方SEC文件修订2025年11月18日披露，确认关闭部分美国履约中心的减值及相关费用中包含向Ocado支付约3.5亿美元现金。可与供应商披露交叉核验补偿事件，但该简短修订不解释全部关闭原因，也不提供机器人任务层面成本。([sec.gov](https://www.sec.gov/Archives/edgar/data/56873/000110465925118905/tm2532855d1_8ka.htm))",
+      "access_scope": "读取整份简短申报中全部实质披露及签署时间。"
+    },
+    {
+      "source_id": "ED11",
+      "title": "Kroger closing automated fulfillment centers as it tries to make delivery faster and cheaper",
+      "url": "https://apnews.com/article/kroger-delivery-robots-ocado-6e9d3034a707f2a7bb20a1e29c223ba5",
+      "date": "正文抽取未显示原始时间戳；报道对应2025年11月关闭公告，准确发布日期待页面元信息复核",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "报道正文：关闭安排、门店履约解释及高密度市场反例",
+      "key_findings": "报道追溯买方解释：部分市场门店更接近客户，履约更快、更便宜；高密度且配送需求强的地区，自动化履约中心表现较好。支持将网络和需求作为替代解释，不支持把站点关闭全部归咎于机器人能力。新闻中的预期财务改善仍须追踪实际结果。([apnews.com](https://apnews.com/article/kroger-delivery-robots-ocado-6e9d3034a707f2a7bb20a1e29c223ba5))",
+      "access_scope": "直接打开AP规范链接并读取报道正文；未使用站点导航或相关推荐作证据。"
+    },
+    {
+      "source_id": "ED12",
+      "title": "Order NEO",
+      "url": "https://www.1x.tech/order",
+      "date": "动态产品页；首次发布时间及最近修订时间未显示",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "订购方案；Autonomy；Scheduled Expert Mode；Remote Control",
+      "key_findings": "读取时页面列出499美元/月订阅、20000美元Early Access所有权方案和200美元可退订金，并仍写美国交付于2026年开始。页面明确基础自主能力与预约远程专家辅助并存，也支持用户远程操控。这是公开产品提供与计划的证据，不是已交付数量、实际自主率或家庭经济性的证据；远程服务频次和费用边界尚待条款。([1x.tech](https://www.1x.tech/order))",
+      "access_scope": "读取订购、能力和远程操作相关正文；未把营销影像视为完整任务测试。"
+    },
+    {
+      "source_id": "ED13",
+      "title": "NEO Factory | Building Your NEO",
+      "url": "https://www.1x.tech/discover/neo-factory",
+      "date": "2026-04-30",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "预订及交付说明；NEO Factory；末尾生产与内部测试安排",
+      "key_findings": "厂商表示当时下线机器人优先供内部团队研发和家庭测试，首批客户交付仍计划从2026年开始。生产能力、预订需求和未来扩产分别披露，均不能当作客户已持续使用。该材料证明截至发布日内部测试的重要地位，但不能单独证明截至11月9日没有后续交付。([1x.tech](https://www.1x.tech/discover/neo-factory))",
+      "access_scope": "读取交付、生产及内部测试相关正文；未观看工厂视频，未核查订单账册。"
+    },
+    {
+      "source_id": "ED14",
+      "title": "MoveIt 2 Documentation — Planning Scene",
+      "url": "https://moveit.picknik.ai/main/api/html/planning_scene_overview.html",
+      "date": "滚动官方文档；页面未显示发布日期或对应提交时间",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Planning Scene说明全文",
+      "key_findings": "规划场景显式包含机器人状态、几何/运动学/动力学描述和世界表示，可用于约束判断、运动学和碰撞检查；监视器通过参数和消息更新场景。这提供模块化职责的具体定义，但不证明任一商业部署采用MoveIt，也不证明算法碰撞检查具有安全认证。正式复现还需固定软件版本。([moveit.picknik.ai](https://moveit.picknik.ai/main/api/html/planning_scene_overview.html))",
+      "access_scope": "读取该短篇官方文档全文；未运行代码或检查实现。"
+    },
+    {
+      "source_id": "ED15",
+      "title": "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion",
+      "url": "https://www.roboticsproceedings.org/rss19/p026.pdf",
+      "date": "RSS 2023论文版本；会议日期2023-07-10至2023-07-14，PDF未显示独立上网日",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "方法中的闭环动作序列；关键设计；延迟分析；局限与结论",
+      "key_findings": "策略根据观测生成动作序列，只执行其中一段后重新规划，体现端到端策略仍有执行窗口与反馈设计。论文把视觉作为条件而非未来状态生成对象，因此动作扩散不等于世界模型。作者指出相较简单策略计算成本和推理延迟更高，动作块未必满足高频任务；本研究不直接搬用跨基准平均提升来预测工厂收益。([roboticsproceedings.org](https://www.roboticsproceedings.org/rss19/p026.pdf))",
+      "access_scope": "读取官方会议PDF相关方法、延迟和限制段落；未复现全部实验或逐表重算。"
+    },
+    {
+      "source_id": "ED16",
+      "title": "π0.5: a Vision-Language-Action Model with Open-World Generalization",
+      "url": "https://arxiv.org/html/2504.16054v1",
+      "date": "2025-04-22，v1",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "IV-A至IV-E；V-A与V-B；图5、图7说明",
+      "key_findings": "使用约400小时、约100个家庭环境的移动操作数据，并混合其他本体和语义数据。两类平台有18或19维状态/动作，50Hz目标由PD控制器跟踪，作者说明未另加轨迹规划或碰撞检测。真实测试为三个未见家庭的厨房和卧室，图示每任务/环境10次；计分为任务步骤进度，不能直接当整任务成功率。场景数量消融控制训练步数及所见样本量，适合研究覆盖而非单纯数量效应。([arxiv.org](https://arxiv.org/html/2504.16054v1))",
+      "access_scope": "读取架构、训练配方、机器人系统及家庭和场景多样性实验相关段落；尚未逐项复核附录评分表和全部图值。"
+    },
+    {
+      "source_id": "ED17",
+      "title": "DROID: A Large-Scale In-the-Wild Robot Manipulation Dataset — official project page",
+      "url": "https://droid-dataset.github.io/",
+      "date": "项目对应2024年论文；页面列有2024-12及2025-04更新，独立建页日期未知",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Abstract；Updates；Robot Platform；Dataset Analysis；Experiments",
+      "key_findings": "项目页披露76000条示教、350小时交互、564个场景、86项任务，50名采集者跨北美、亚洲和欧洲采集12个月；这些量不等于付费人时。13家机构使用统一Franka与相机

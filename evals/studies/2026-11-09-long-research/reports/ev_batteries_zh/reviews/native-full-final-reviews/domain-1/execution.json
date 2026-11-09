@@ -1,0 +1,110 @@
+{
+  "status": "completed",
+  "host_task": "/root/independent_domain_b",
+  "role": "reviewer",
+  "slot_id": "domain-1",
+  "scope": "Current whole-report domain revision confirmation in original non-author context",
+  "input_version": "4cff15db175e29647e450e061f3030d1bbe0d27b5e4dcfea015a7bd2d966c0c3",
+  "assignment_version": "ca0f449a3437f4068ada654fe38d3bec081be5d92e63fd77d9101f28b94219b8",
+  "artifact_sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+  "completed_at": "2026-11-09T16:24:45.8152957Z",
+  "actual_reading": "Own prior response/execution and exact old/current assignment text; all direct report diff and neighboring §六/八 passages. Actual image views: EVB25 poster; EVB26 PDF23/28/29; EVB27 PDF187/194/268. Original official-date text EVB25. Full new volume code and saved result. Author reading notes used only to locate originals, not as substitute proof. No claim to reading entire 291-page annual report or prospectus.",
+  "checks": "接续本人已实际通读和核过原件的完整报告，比较旧c4cd311b冻结稿与当前4cff15db，读完全部正文diff及成本/名义可用能量、选择建议的相邻语境；未将旧pass直接复制。原任务、有效要求和scope不变，既有来源二进制/脚本hash未变，新增3份成熟交付原件和独立体积脚本/结果已核。直接视觉读取EVB25交付海报全部文字并核官网2023-04-17日期；只支持极氪009 ME版正式交付，海报不提供化学、批量或最高性能，正文对此有限定。直接视觉读取比亚迪EVB26原PDF第23、28、29页（印刷22、27、28）：LFP刀片定义、从2020年7月起多品牌纯电/插混应用、2024近200GWh装机和海豹CTB跨页行相符；未采用原宣传零风险主张，也没有把装机换成外售、良率或2026第二代规模。直接视觉读取CATL EVB27原PDF第187、194、268页（印刷177、184、258）：麒麟NCM产品、CTP3.0兼容高镍三元/其他化学、多种版本及回顾2022–2024规模商业应用支持现在的系列成熟性定位。稿件没有借2025文档把5C最高指标倒赋给2023交付车，也没有把全部麒麟视为同一配方或当前供应合同。三个bound原件hash与当前assignment一致，图像所用PDF副本也与绑定原件一致。\\n完整读calculate_volume_full_03.py与保存的volume-scenario-full-03.json，未执行。75kWh可用/90%=83.33kWh名义，与前段75kWh名义质量例明确分开；300L车辆空间减20L包外预留给280L完整包。240/320Wh/L为假设，已包括包壳、包内冷却/保护/BMS，未再次扣内部体积或冒充刀片/麒麟实测。347.22/260.42L包体积、367.22/280.42L安装体积、60.48/80.64kWh最多可用能量、297.62Wh/L门槛及60kWh时A安装297.78L均与公式/保存结果一致。20%减少是需求能量降幅，不是由此测得的效率改进幅度；正文把降低续航或提高整车效率作为条件，没有声称某辆车已实现。参考温度/新包/同可用窗口、冬季与老化未折减、几何/厚度/碰撞/质量/功率仍须另验，保证体积只是必要条件。选择表正确承接条件反转，没有把商业成熟性证据用于证明假设密度。其余化学体系、试验条件、成本敏感性及钠电/固态阶段结论未改，复用原完整实质核查；当前无必要领域修订。",
+  "old_input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+  "old_assignment_version": "1309c91e35579cbe7cfbb25727ae8431b976ba5920d08cf9ad253b3c03fd7541",
+  "prior_response": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\native-full-final-reviews-preserved-c4cd311b8b1f6b11\\domain-1\\response.json",
+  "prior_execution": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\native-full-final-reviews-preserved-c4cd311b8b1f6b11\\domain-1\\execution.json",
+  "actual_diff": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\native-full-final-reviews\\domain-1\\actual-diff.txt",
+  "diff_lines": 63,
+  "current_report_sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+  "unchanged_inputs": {
+    "task": true,
+    "effective_requirements": true,
+    "scope_decisions": true,
+    "sources": false,
+    "source_files": false
+  },
+  "file_versions": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\codex-production\\calculate_volume_full_03.py",
+      "sha256": "a2d017b32a4aa0a542363a4be845f52f053c712d2419a16d3abf16604191fc3e"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\codex-production\\volume-scenario-full-03.json",
+      "sha256": "a21818112dbbdb48958214f964cc44de4265512c64d23bdb69f0bab8893f6933"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\native-full-final-reviews-preserved-c4cd311b8b1f6b11\\domain-1\\execution.json",
+      "sha256": "e351e7d72140cea39a852a3b1668be815fd879d7721cb662dfe29b1bbdcae8a9"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\native-full-final-reviews-preserved-c4cd311b8b1f6b11\\domain-1\\response.json",
+      "sha256": "6045c10070250f718586202d913a832ce25536eabd4214c069d2b0320b4fee0b"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\native-full-final-reviews\\domain-1\\actual-diff.txt",
+      "sha256": "45a79890b90367aa4c24fcded9ff5e6a3186f02ecd3a1f49585c75db43a6dbe8"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\native-full-final-reviews\\domain-1\\reviewed-current.txt",
+      "sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\native-full-final-reviews\\domain-1\\reviewed-old.txt",
+      "sha256": "9b623e2af39fe1b43ef37885baf5b83af9ab9c395bada0905c479116e6ce8aa7"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\EVB26\\rendered-pages\\page-023.png",
+      "sha256": "5152b94bd94358ee589cdef2576ff5872fd069fc2730e4bb814932354c3630be"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\EVB26\\rendered-pages\\page-028.png",
+      "sha256": "3072e5b8ad7fd9bc707e479b4cea2d391fb1def1d6d1017a4b99243daf003aa1"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\EVB26\\rendered-pages\\page-029.png",
+      "sha256": "887b6c969a7dfb443c4a8d1ca566fb58f8b2f597d2525992c16c83d51a37a8fc"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\EVB27\\rendered-pages\\page-187.png",
+      "sha256": "ca0222fbf42b3318583fec7663adde27b5e6e9ed2d5fb04b68ac7d5ef1c013af"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\EVB27\\rendered-pages\\page-194.png",
+      "sha256": "24f5df092e934d34735a5e0ce62353f1c958fe57c8dddb325af002579da39ecb"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\EVB27\\rendered-pages\\page-268.png",
+      "sha256": "3abaf8991736a46cf35ba37d21e562ef49c51eb0777279b0e48b0be1dd4cecc9"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ev_batteries_zh\\reviews\\host\\4cff15db175e29647e45\\jobs\\domain-1-ca0f449a3437f406.json",
+      "sha256": "16aba98f56b4780029c8858f0a9fe96927385f43336c6abf7c892d064cfa3c54"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ev_batteries_zh\\reviews\\host\\c4cd311b8b1f6b11a07d\\jobs\\domain-1-1309c91e35579cbe.json",
+      "sha256": "d828d07d75527b6d4acc4bd2f2c0b2da3a2b08fd11dfba5fded59f299dca389c"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ev_batteries_zh\\sources\\actual\\EVB25\\delivery-poster.jpg",
+      "sha256": "83566a0fe4116a26cad7c1c468c6f9433b8caa2a4720ed2832911ca4cf242a77"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ev_batteries_zh\\sources\\actual\\EVB25\\original.txt",
+      "sha256": "efdf64ff5993ee1d5e463f15f24e437389021de5ab7804d3ea964f7bac28b128"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ev_batteries_zh\\sources\\actual\\EVB26\\original.pdf",
+      "sha256": "07bfe8d532f8912fea32c8241cafd25c0bb28948e7903d5dfe23161177073e4e"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ev_batteries_zh\\sources\\actual\\EVB27\\original.pdf",
+      "sha256": "f602c7c4fe53dcd6ed99facbe00e0d751038a130bc86644ce9a5b20b2d348ab5"
+    }
+  ],
+  "api_calls": 0,
+  "research_rerun": false,
+  "calculation_rerun": false,
+  "report_edited": false,
+  "imported": false
+}

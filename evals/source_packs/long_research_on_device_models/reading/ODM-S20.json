@@ -1,0 +1,12 @@
+{
+  "source_id": "ODM-S20",
+  "url": "https://raw.githubusercontent.com/NVIDIA-AI-IOT/whisper_trt/268eff10a1e38118a2734745b9db14f7419a08a5/examples/live_transcription.py",
+  "version_or_access": "2026-11-09T11:49:47.878294+00:00",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\supplemental-sources\\ODM-S20\\original.txt",
+  "reading_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\supplemental-sources\\ODM-S20\\original.txt",
+  "sha256": "b0431149915eec9656233431901015418bc6eea207c3045ad766662652f6943f",
+  "reading_location": "VAD and transcriptionprocess bodies;initialization/queues",
+  "findings_used": "End-of-utteranceoutput;unbounded VADsegment needslongstream handling.",
+  "reader": "Codex /root/ttc_research; substantive author, not independent reviewer",
+  "read_scope": "selected original passages actually read, not a claim to have read every page"
+}

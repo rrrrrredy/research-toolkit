@@ -1,0 +1,12 @@
+{
+  "input_version": "49663da264f89d0b722d9e35b3c5a41ffc85a279b375eacc1937f57616b31df6",
+  "assignment_version": "7447e0015ff6985ef272269bd9d6f798f96807eaaacf0fb7e22a019861d9d16c",
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "location": "Complete original task and six-section outline, including analysis-unit order and exhibits.",
+      "basis": "The outline answers the requested choice among stronger models, sampling, verification, search and simpler execution rather than treating extra thinking as intrinsically useful. It separates fixed-model inference from training/model/verifier changes; covers independent sampling, voting, candidate selection, sequential correction, state search, process/outcome feedback and tool loops. Math, executable code and multi-step interactive tasks have distinct analysis sections. The budget plan includes rejected branches, verifier and tool/retry costs and separates total work, critical path and concurrency. Versioned frozen sources, assumptions, saturation/correlated errors, uncertain feedback and a task-dependent decision tree are explicit. The alternate-language author has only the twenty-source frozen folder and its task, without the English answer. No requirement is missing at outline stage; substantive comparisons and factual reading are ongoing."
+    }
+  },
+  "findings": []
+}

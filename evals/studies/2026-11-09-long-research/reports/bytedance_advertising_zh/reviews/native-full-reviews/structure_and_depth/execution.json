@@ -1,0 +1,21 @@
+{
+  "host_task": "/root/benchmark_structure",
+  "status": "completed",
+  "completed_at": "2026-11-09T14:19:10.1166648+00:00",
+  "input_version": "db8213c012af78accb3a9719133d8719cea1032b0ba50b3b1862df3cc6dc3831",
+  "assignment_version": "b07e0a56bb5896a98f7ba23dae30e7c7cb64fc673ca796d191ff9b989c4f39e9",
+  "assignment_ref": "reviews/host/db8213c012af78accb3a/jobs/structure_and_depth-b07e0a56bb5896a9.json",
+  "reading_scope": {
+    "report": "assignment.report 第1—110行及111—211行连续全文，共14271字符",
+    "not_read": "未读作者自评、production history或其他首次评审；未把源清单当原件阅读；未全读其他来源",
+    "effective_requirements": "assignment.effective_requirements R_TASK、R_LANGUAGE、R_DATE 全文",
+    "task": "assignment.task 全文",
+    "original_sources": [
+      "sources/actual/BDA03.txt 2024-06-14千川全域推广协议全文",
+      "sources/actual/BDA06.txt 抖音算法及模型备案公示说明全文",
+      "sources/actual/BDA-R03.json captures首项实际网页文本：GMV Max归因、Event Deduplication及普通Shop Ads归因三页全文",
+      "sources/actual/BDA-R19.txt 倍轻松2024年报监管问询回复PDF第2—3页"
+    ]
+  },
+  "work_performed": "只读评审；未改稿、未导入、未运行软件测试"
+}

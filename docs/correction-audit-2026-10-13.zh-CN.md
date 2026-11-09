@@ -27,12 +27,12 @@ Research Toolkit 为现有 Agent 提供研究方法与可执行工具，帮助�
 
 | 集合与入口 | 内容及其在项目中的用途 | 本次整改影响 |
 |---|---|---|
-| [专用题集](../evals/cases/) | 七个研究任务：Agent 格局、视频投资、推理竞争、价格战、月度综合、来源指令边界、八公司管线 | 检查当前生成 prompt 与方法相容性；[七篇实际运行](../evals/diagnostics/2026-10-13-dedicated-seven/)和[管线修订](../evals/repairs/2026-10-13-pipeline-complete/)保留各自范围 |
+| [专用题集（历史 fixture）](../evals/diagnostics/2026-11-09-retired-cases/cases/) | 七个研究任务：Agent 格局、视频投资、推理竞争、价格战、月度综合、来源指令边界、八公司管线 | 检查当前生成 prompt 与方法相容性；[七篇实际运行](../evals/diagnostics/2026-10-13-dedicated-seven/)和[管线修订](../evals/repairs/2026-10-13-pipeline-complete/)保留各自范围 |
 | [反例](../evals/regression_fixtures/manifest.json)／[正例](../evals/conformance_fixtures/manifest.json) | 22个反例、4个正例，检查交付、覆盖、来源和面向读者的输出 | Lite 改动后执行相关评估器／交付控制，预期失败仍保留 |
 | [当前语义目录](../evals/semantic_diagnostics/README.zh-CN.md) | 23组成对推理／读者任务，加载器对6＋14＋3条原题应用保留修订 | 当前 Full 方法复验分母、预测、时期／单位、因果相关样本；此前[四题输入复验](../evals/repairs/2026-10-13-wording-recheck/)单独保留 |
 | [写作参照](../evals/taste_anchors/) | 格局、管线、来源边界、意象负荷四组 | 检查当前说明，保留示例原来的来源与质量范围 |
 | [来源包](../evals/source_packs/) | 清理后知识材料、管线情境、来源指令边界三包 | 来源用途与完整性检查；原始事实和隔离规则保留 |
-| [五个开发题族](../evals/tasksets/development-v2-synthetic/) | 备份预算、档案扫描、轮渡时间线、提醒与用水测量 | 共享方法和证据输入控制；未变稿件按原记录保留 |
+| [五个开发题族（历史冻结）](../evals/studies/2026-10-12-lite-four-models/longcat/coordinator/frozen.json) | 备份预算、档案扫描、轮渡时间线、提醒与用水测量 | 共享方法和证据输入控制；未变稿件按原记录保留 |
 | [校准 v2](../evals/tasksets/judge-calibration-v2/)／[v3](../evals/tasksets/judge-calibration-v3/) | v2算术控制复用于v3四题族／12份输入 | 保留实际首评与互换结果，验证来源相同及分开上下文 |
 | [9月7日诊断](../evals/diagnostics/2026-09-07/) | 两个完整研究题族、四份初稿、两份修订和保留的模型诊断 | 用于历史错误与当前方法覆盖检查；原始记录保留 |
 | [10月10日](../evals/studies/2026-10-10-lite-four-models/)／[10月12日研究](../evals/studies/2026-10-12-lite-four-models/) | 冻结研究历史；10月12日有72次请求、20对报告，其中16对有判断、4对格式缺失，6次互换偏好变化 | 新输入使用来源定位修复；旧结果保留实际输入与失败 |

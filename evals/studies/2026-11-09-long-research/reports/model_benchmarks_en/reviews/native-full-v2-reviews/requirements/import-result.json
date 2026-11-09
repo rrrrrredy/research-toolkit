@@ -1,0 +1,123 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en",
+  "input_version": "d47378130c4da5c2a85d74e96580c76c4de2f5b12a1671a9f5feb13dc09807ce",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "evidence",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/94b661006b9af9c49681.md",
+        "sha256": "94b661006b9af9c49681b634eb9e0dc9f17521bd3ae48b8dc609bf7532cd6ca2"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/d47378130c4da5c2a85d/jobs/evidence-24c452918ffa7e9f.json",
+        "sha256": "81bf691b93ab5e419ef0974262e8fae5bd68e6acfc106eeff4c7b5802cc65572"
+      },
+      "assignment_version": "24c452918ffa7e9fcd2119a71bb0937a8b86385ef1216d90a3eb4c455e09fa61"
+    },
+    {
+      "slot_id": "adversarial_reasoning",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/68bda8c9cb11bb9e922c.md",
+        "sha256": "68bda8c9cb11bb9e922cbf0a07349c6ff662190d6bf7991d05ec57149a5b6bd5"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/d47378130c4da5c2a85d/jobs/adversarial_reasoning-1fed78714ba3cb62.json",
+        "sha256": "b26a22a9924fca469cb776225d347101950d1f4c59a3554873451ed477e5eb10"
+      },
+      "assignment_version": "1fed78714ba3cb62548570d17fb53519827b05e714ca4496222e6b8913604f91"
+    },
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/bb6d65ef9e6fd73a94bb.md",
+        "sha256": "bb6d65ef9e6fd73a94bb63161bef37f7039898e9bfabda3690eddd0495de0efc"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/d47378130c4da5c2a85d/jobs/structure_and_depth-7eb8df30be532311.json",
+        "sha256": "1741b26c916c0f4e46f59d3e36f6ba49d1fd123a7fc92cea355182491f0ff7e7"
+      },
+      "assignment_version": "7eb8df30be532311cf36cd2e8aabd3ff1f0a911a4d95101a465c859492ecfc15"
+    },
+    {
+      "slot_id": "reader_usefulness",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/14bf185a700d3040a578.md",
+        "sha256": "14bf185a700d3040a57802150c5dcd2138f2f9626572768be8651fa2236c673c"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/d47378130c4da5c2a85d/jobs/reader_usefulness-2e79173921b0aff7.json",
+        "sha256": "f04d93b0be60e9fe1d228694fbcfc3464b0caabfb85b435ce4c86b891883ea34"
+      },
+      "assignment_version": "2e79173921b0aff753eee93a85c9c25a6d090d39024a3f123549376fb4ff88c0"
+    },
+    {
+      "slot_id": "process_language",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/6e699228e7a6d53f2138.md",
+        "sha256": "6e699228e7a6d53f2138d06884d9708c2b5f29f2dd0b2833fe7df4be635965e6"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/d47378130c4da5c2a85d/jobs/process_language-2c4ba6afca7c3ed2.json",
+        "sha256": "91fa211ab876ee92614345205df1a3e710657653f894817b3fdb1618d24948a6"
+      },
+      "assignment_version": "2c4ba6afca7c3ed2051b1a6b06c2995a7eb544be9b57438578cddf6abef2542a"
+    },
+    {
+      "slot_id": "natural_expression",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/279cb12e6fffc44211bb.md",
+        "sha256": "279cb12e6fffc44211bb96f7347543f172e2ca6b50f674dead27217f03740201"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/d47378130c4da5c2a85d/jobs/natural_expression-4701c6bb8eae66b1.json",
+        "sha256": "82af7fa465c687ad928764c69307732e1817c757463123f0642002f101023a4c"
+      },
+      "assignment_version": "4701c6bb8eae66b16e41f1e26a9eeb90370980dd25cb5d8ce9bd9f5ce7ab122b"
+    },
+    {
+      "slot_id": "domain-1",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/318534f6c59abeb7096e.md",
+        "sha256": "318534f6c59abeb7096e8fff2f397afcc2ec9b107e2cff580e1329a6059014c2"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/d47378130c4da5c2a85d/jobs/domain-1-bfc5cfe588e52e3a.json",
+        "sha256": "f6b70d634f9d3e3da321095b0fc095259dd09bbdb740260e2886f0ee7a60131f"
+      },
+      "assignment_version": "bfc5cfe588e52e3aea645cb0dc4b3a17246e87f9c808e42ee57e414215514490"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "The registered research unit is still incomplete: report"
+    ],
+    "required_slots": 10,
+    "completed_slots": 1,
+    "selected_attempts": {
+      "requirements": "5999922b11ab4aad89b89ad420df103f"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "The registered research unit is still incomplete: report"
+  ]
+}

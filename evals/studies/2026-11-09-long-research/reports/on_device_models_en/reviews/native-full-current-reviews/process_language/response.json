@@ -1,0 +1,19 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "process_language": {
+      "location": "reports/current.md 全文第1–291行；第77–210行应用运行机制、第271–291行来源与算例附录",
+      "basis": "已完整读完冻结正文、硬件/模型/任务矩阵、代码测量边界、所有算例和附录，并读任务与有效要求。旧作者路径、交接纠错叙述和评审文件指代已移除。模型加载、后端回退、版本更新、隐私边界、持续运行和部署待测项直接服务端侧决策；计算文件和固定commit应保留。附录末尾仍指向内部阅读台账的原始路径/实际阅读履历，需要局部调整。无其他协调或待审语言；此次未重做设备测试或原件事实核验。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "process_language-01",
+      "severity": "minor",
+      "location": "reports/current.md 第289行末句；对应附录表第275行列名及第280–284行的阅读动作词",
+      "basis": "“reading-ledger.json records the original paths and selected locations actually read”将本次作者的文件路径/阅读履历作为报告内容；表中“actual reading”“visually inspected”“code read”也在可用的版本与页段信息之外叙述阅读动作。将阅读执行记录保留在内部台账，正文表改为来源版本与采用页段/表/代码位置即可，保留所有commit、表号、页码、不可得代码和测量条件。第289行前半计算脚本、计算输出及无设备实测的限制是可复算方法，不需删除。"
+    }
+  ],
+  "input_version": "8f1bf6e2d8d6ec2c9aa338a01f5115610b8771450eb4ba092b83d9f0a9fbede1",
+  "assignment_version": "88d9f5144f610b89ae93075ca427749daf0d1c4c9f7a4e6109c0677bb5f0c15f"
+}

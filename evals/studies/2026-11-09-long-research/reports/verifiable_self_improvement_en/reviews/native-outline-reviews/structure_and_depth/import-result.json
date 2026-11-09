@@ -1,0 +1,45 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\verifiable_self_improvement_en",
+  "input_version": "d545f819ef89374bf114a1d7fd924c1feef553992f6e567ac4f6c06ea71363c0",
+  "scope": "outline",
+  "assignments": [
+    {
+      "slot_id": "requirements",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/f1a83e6d6ad43d4fcf7d.md",
+        "sha256": "f1a83e6d6ad43d4fcf7da20048bd68f0b682cf0b20f436c366789dcf4c3bfe29"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/d545f819ef89374bf114/jobs/requirements-c2e9e1131b31d1b0.json",
+        "sha256": "3fa1c43d7171828c7045db77a498e3d4f583fac1e481b1806e2a3f1103de82b6"
+      },
+      "assignment_version": "c2e9e1131b31d1b0b89f19e509b521a178355a9e88c8047de5a20af2b4a5204e"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: requirements"
+    ],
+    "required_slots": 2,
+    "completed_slots": 1,
+    "selected_attempts": {
+      "structure_and_depth": "4159f6bcb9a1436c9f53c66f8e25b7dd"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: requirements"
+  ]
+}

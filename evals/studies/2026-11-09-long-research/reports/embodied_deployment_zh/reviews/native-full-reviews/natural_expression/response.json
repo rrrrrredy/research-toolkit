@@ -1,0 +1,19 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "natural_expression": {
+      "location": "全文第1—282行，尤其第15—22、40—61、127—140、186—246、252—276行",
+      "basis": "已连续通读任务和全部报告。任务对照、路线分工、部署阶段与成本算例逐步承接；人工恢复、受需求限制的产量和可实现劳动价值均有具体解释。关于演示、训练数据、现场试点和商业服务的限定分别针对不同推断，未发现需要为缩短文字而删去的实质边界。唯一必要表达修改是末尾混入作者身份与未完成的内部审查安排。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "natural_expression-01",
+      "severity": "minor",
+      "location": "第282行，来源与计算说明末句“生产作者为`/root/microdrama_research`……”",
+      "basis": "该句转向生产作者的内部任务标识及协调任务将另行执行的审查安排，脱离面向产业与技术决策者的报告内容，并把文稿交付状态混入来源说明。删除这句内部身份和流程状态即可；保留同段reading-ledger.json、claims.jsonl及其证据定位用途，不需要重写正文。"
+    }
+  ],
+  "input_version": "03204dc35f0518ade7374a892be2885116d8d964240de93761c7881f4f6d81a5",
+  "assignment_version": "7eb4702d55e6b507825e99ea4367991a007851dc69234d9a8f79b419c370feff"
+}

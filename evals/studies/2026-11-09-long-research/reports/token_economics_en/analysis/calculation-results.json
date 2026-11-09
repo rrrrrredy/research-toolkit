@@ -1,0 +1,3600 @@
+{
+  "author": "/root/ttc_research",
+  "generated_at": "2026-11-09T11:43:41.009199+00:00",
+  "status": "executed deterministic scenario arithmetic; no measured model success or latency",
+  "rates": {
+    "haiku55": {
+      "input": 0.1,
+      "output": 0.5,
+      "write5": 0.125,
+      "write60": 0.2,
+      "read": 0.01
+    },
+    "sonnet55": {
+      "input": 2,
+      "output": 10,
+      "write5": 2.5,
+      "write60": 4,
+      "read": 0.1
+    },
+    "opus55": {
+      "input": 4,
+      "output": 20,
+      "write5": 5,
+      "write60": 8,
+      "read": 0.2
+    }
+  },
+  "rate_source": "TE05 dated 2026-10-22 Claude API global standard USD/MTok; tool prices separate",
+  "training": {
+    "gpu_hours": 2788000,
+    "usd_at_2_per_gpu_hour": 5576000
+  },
+  "allocation": [
+    {
+      "investment_usd": 10000000.0,
+      "allocated_share": 0.25,
+      "lifetime_output_tokens": 1000000000000.0,
+      "allocation_usd_per_million": 2.5
+    },
+    {
+      "investment_usd": 10000000.0,
+      "allocated_share": 0.25,
+      "lifetime_output_tokens": 10000000000000.0,
+      "allocation_usd_per_million": 0.25
+    },
+    {
+      "investment_usd": 10000000.0,
+      "allocated_share": 1,
+      "lifetime_output_tokens": 1000000000000.0,
+      "allocation_usd_per_million": 10.0
+    },
+    {
+      "investment_usd": 10000000.0,
+      "allocated_share": 1,
+      "lifetime_output_tokens": 10000000000000.0,
+      "allocation_usd_per_million": 1.0
+    },
+    {
+      "investment_usd": 100000000.0,
+      "allocated_share": 0.25,
+      "lifetime_output_tokens": 1000000000000.0,
+      "allocation_usd_per_million": 25.0
+    },
+    {
+      "investment_usd": 100000000.0,
+      "allocated_share": 0.25,
+      "lifetime_output_tokens": 10000000000000.0,
+      "allocation_usd_per_million": 2.5
+    },
+    {
+      "investment_usd": 100000000.0,
+      "allocated_share": 1,
+      "lifetime_output_tokens": 1000000000000.0,
+      "allocation_usd_per_million": 100.0
+    },
+    {
+      "investment_usd": 100000000.0,
+      "allocated_share": 1,
+      "lifetime_output_tokens": 10000000000000.0,
+      "allocation_usd_per_million": 10.0
+    },
+    {
+      "investment_usd": 1000000000.0,
+      "allocated_share": 0.25,
+      "lifetime_output_tokens": 1000000000000.0,
+      "allocation_usd_per_million": 250.0
+    },
+    {
+      "investment_usd": 1000000000.0,
+      "allocated_share": 0.25,
+      "lifetime_output_tokens": 10000000000000.0,
+      "allocation_usd_per_million": 25.0
+    },
+    {
+      "investment_usd": 1000000000.0,
+      "allocated_share": 1,
+      "lifetime_output_tokens": 1000000000000.0,
+      "allocation_usd_per_million": 1000.0
+    },
+    {
+      "investment_usd": 1000000000.0,
+      "allocated_share": 1,
+      "lifetime_output_tokens": 10000000000000.0,
+      "allocation_usd_per_million": 100.0
+    }
+  ],
+  "support": [
+    {
+      "strategy": "cheap_first",
+      "incoming": 1000,
+      "first_accepted": 700,
+      "retry_attempts": 300,
+      "retry_accepted": 120.0,
+      "fallback_attempts": 180.0,
+      "fallback_accepted": 108.0,
+      "human_attempts": 72.0,
+      "human_accepted": 66.0,
+      "accepted": 994.0,
+      "unresolved": 6.0,
+      "api_usd": 2.71,
+      "human_minutes": 478.4,
+      "human_usd": 239.2,
+      "other_usd": 1.2,
+      "total_usd": 243.10999999999999,
+      "cost_per_incoming": 0.24311,
+      "cost_per_accepted": 0.24457746478873238
+    },
+    {
+      "strategy": "strong_first",
+      "incoming": 1000,
+      "first_accepted": 900,
+      "retry_attempts": 100,
+      "retry_accepted": 50,
+      "fallback_attempts": 0,
+      "fallback_accepted": 0,
+      "human_attempts": 50,
+      "human_accepted": 46,
+      "accepted": 996,
+      "unresolved": 4,
+      "api_usd": 9.2,
+      "human_minutes": 347.5,
+      "human_usd": 173.75,
+      "other_usd": 1.2,
+      "total_usd": 184.14999999999998,
+      "cost_per_incoming": 0.18414999999999998,
+      "cost_per_accepted": 0.1848895582329317
+    }
+  ],
+  "support_wage": [
+    {
+      "wage_usd_min": 0,
+      "rows": [
+        {
+          "strategy": "cheap_first",
+          "incoming": 1000,
+          "first_accepted": 700,
+          "retry_attempts": 300,
+          "retry_accepted": 120.0,
+          "fallback_attempts": 180.0,
+          "fallback_accepted": 108.0,
+          "human_attempts": 72.0,
+          "human_accepted": 66.0,
+          "accepted": 994.0,
+          "unresolved": 6.0,
+          "api_usd": 2.71,
+          "human_minutes": 478.4,
+          "human_usd": 0.0,
+          "other_usd": 1.2,
+          "total_usd": 3.91,
+          "cost_per_incoming": 0.00391,
+          "cost_per_accepted": 0.0039336016096579475
+        },
+        {
+          "strategy": "strong_first",
+          "incoming": 1000,
+          "first_accepted": 900,
+          "retry_attempts": 100,
+          "retry_accepted": 50,
+          "fallback_attempts": 0,
+          "fallback_accepted": 0,
+          "human_attempts": 50,
+          "human_accepted": 46,
+          "accepted": 996,
+          "unresolved": 4,
+          "api_usd": 9.2,
+          "human_minutes": 347.5,
+          "human_usd": 0.0,
+          "other_usd": 1.2,
+          "total_usd": 10.399999999999999,
+          "cost_per_incoming": 0.010399999999999998,
+          "cost_per_accepted": 0.010441767068273091
+        }
+      ]
+    },
+    {
+      "wage_usd_min": 0.1,
+      "rows": [
+        {
+          "strategy": "cheap_first",
+          "incoming": 1000,
+          "first_accepted": 700,
+          "retry_attempts": 300,
+          "retry_accepted": 120.0,
+          "fallback_attempts": 180.0,
+          "fallback_accepted": 108.0,
+          "human_attempts": 72.0,
+          "human_accepted": 66.0,
+          "accepted": 994.0,
+          "unresolved": 6.0,
+          "api_usd": 2.71,
+          "human_minutes": 478.4,
+          "human_usd": 47.84,
+          "other_usd": 1.2,
+          "total_usd": 51.75000000000001,
+          "cost_per_incoming": 0.051750000000000004,
+          "cost_per_accepted": 0.052062374245472845
+        },
+        {
+          "strategy": "strong_first",
+          "incoming": 1000,
+          "first_accepted": 900,
+          "retry_attempts": 100,
+          "retry_accepted": 50,
+          "fallback_attempts": 0,
+          "fallback_accepted": 0,
+          "human_attempts": 50,
+          "human_accepted": 46,
+          "accepted": 996,
+          "unresolved": 4,
+          "api_usd": 9.2,
+          "human_minutes": 347.5,
+          "human_usd": 34.75,
+          "other_usd": 1.2,
+          "total_usd": 45.150000000000006,
+          "cost_per_incoming": 0.04515,
+          "cost_per_accepted": 0.045331325301204824
+        }
+      ]
+    },
+    {
+      "wage_usd_min": 0.5,
+      "rows": [
+        {
+          "strategy": "cheap_first",
+          "incoming": 1000,
+          "first_accepted": 700,
+          "retry_attempts": 300,
+          "retry_accepted": 120.0,
+          "fallback_attempts": 180.0,
+          "fallback_accepted": 108.0,
+          "human_attempts": 72.0,
+          "human_accepted": 66.0,
+          "accepted": 994.0,
+          "unresolved": 6.0,
+          "api_usd": 2.71,
+          "human_minutes": 478.4,
+          "human_usd": 239.2,
+          "other_usd": 1.2,
+          "total_usd": 243.10999999999999,
+          "cost_per_incoming": 0.24311,
+          "cost_per_accepted": 0.24457746478873238
+        },
+        {
+          "strategy": "strong_first",
+          "incoming": 1000,
+          "first_accepted": 900,
+          "retry_attempts": 100,
+          "retry_accepted": 50,
+          "fallback_attempts": 0,
+          "fallback_accepted": 0,
+          "human_attempts": 50,
+          "human_accepted": 46,
+          "accepted": 996,
+          "unresolved": 4,
+          "api_usd": 9.2,
+          "human_minutes": 347.5,
+          "human_usd": 173.75,
+          "other_usd": 1.2,
+          "total_usd": 184.14999999999998,
+          "cost_per_incoming": 0.18414999999999998,
+          "cost_per_accepted": 0.1848895582329317
+        }
+      ]
+    },
+    {
+      "wage_usd_min": 1,
+      "rows": [
+        {
+          "strategy": "cheap_first",
+          "incoming": 1000,
+          "first_accepted": 700,
+          "retry_attempts": 300,
+          "retry_accepted": 120.0,
+          "fallback_attempts": 180.0,
+          "fallback_accepted": 108.0,
+          "human_attempts": 72.0,
+          "human_accepted": 66.0,
+          "accepted": 994.0,
+          "unresolved": 6.0,
+          "api_usd": 2.71,
+          "human_minutes": 478.4,
+          "human_usd": 478.4,
+          "other_usd": 1.2,
+          "total_usd": 482.30999999999995,
+          "cost_per_incoming": 0.48230999999999996,
+          "cost_per_accepted": 0.48522132796780676
+        },
+        {
+          "strategy": "strong_first",
+          "incoming": 1000,
+          "first_accepted": 900,
+          "retry_attempts": 100,
+          "retry_accepted": 50,
+          "fallback_attempts": 0,
+          "fallback_accepted": 0,
+          "human_attempts": 50,
+          "human_accepted": 46,
+          "accepted": 996,
+          "unresolved": 4,
+          "api_usd": 9.2,
+          "human_minutes": 347.5,
+          "human_usd": 347.5,
+          "other_usd": 1.2,
+          "total_usd": 357.9,
+          "cost_per_incoming": 0.3579,
+          "cost_per_accepted": 0.3593373493975903
+        }
+      ]
+    }
+  ],
+  "support_retry": [
+    {
+      "conditional_retry_success": 0.1,
+      "row": {
+        "strategy": "cheap_first",
+        "incoming": 1000,
+        "first_accepted": 700,
+        "retry_attempts": 300,
+        "retry_accepted": 30.0,
+        "fallback_attempts": 270.0,
+        "fallback_accepted": 162.0,
+        "human_attempts": 108.0,
+        "human_accepted": 99.0,
+        "accepted": 991.0,
+        "unresolved": 9.0,
+        "api_usd": 3.79,
+        "human_minutes": 692.6,
+        "human_usd": 346.3,
+        "other_usd": 1.2,
+        "total_usd": 351.29,
+        "cost_per_incoming": 0.35129000000000005,
+        "cost_per_accepted": 0.35448032290615544
+      }
+    },
+    {
+      "conditional_retry_success": 0.4,
+      "row": {
+        "strategy": "cheap_first",
+        "incoming": 1000,
+        "first_accepted": 700,
+        "retry_attempts": 300,
+        "retry_accepted": 120.0,
+        "fallback_attempts": 180.0,
+        "fallback_accepted": 108.0,
+        "human_attempts": 72.0,
+        "human_accepted": 66.0,
+        "accepted": 994.0,
+        "unresolved": 6.0,
+        "api_usd": 2.71,
+        "human_minutes": 478.4,
+        "human_usd": 239.2,
+        "other_usd": 1.2,
+        "total_usd": 243.10999999999999,
+        "cost_per_incoming": 0.24311,
+        "cost_per_accepted": 0.24457746478873238
+      }
+    },
+    {
+      "conditional_retry_success": 0.7,
+      "row": {
+        "strategy": "cheap_first",
+        "incoming": 1000,
+        "first_accepted": 700,
+        "retry_attempts": 300,
+        "retry_accepted": 210.0,
+        "fallback_attempts": 90.0,
+        "fallback_accepted": 54.0,
+        "human_attempts": 36.0,
+        "human_accepted": 33.0,
+        "accepted": 997.0,
+        "unresolved": 3.0,
+        "api_usd": 1.6300000000000001,
+        "human_minutes": 264.2,
+        "human_usd": 132.1,
+        "other_usd": 1.2,
+        "total_usd": 134.92999999999998,
+        "cost_per_incoming": 0.13492999999999997,
+        "cost_per_accepted": 0.1353360080240722
+      }
+    }
+  ],
+  "support_output": [
+    {
+      "output_scale": 0.5,
+      "rows": [
+        {
+          "strategy": "cheap_first",
+          "incoming": 1000,
+          "first_accepted": 700,
+          "retry_attempts": 300,
+          "retry_accepted": 120.0,
+          "fallback_attempts": 180.0,
+          "fallback_accepted": 108.0,
+          "human_attempts": 72.0,
+          "human_accepted": 66.0,
+          "accepted": 994.0,
+          "unresolved": 6.0,
+          "api_usd": 2.0975,
+          "human_minutes": 478.4,
+          "human_usd": 239.2,
+          "other_usd": 1.2,
+          "total_usd": 242.49749999999997,
+          "cost_per_incoming": 0.24249749999999998,
+          "cost_per_accepted": 0.24396126760563377
+        },
+        {
+          "strategy": "strong_first",
+          "incoming": 1000,
+          "first_accepted": 900,
+          "retry_attempts": 100,
+          "retry_accepted": 50,
+          "fallback_attempts": 0,
+          "fallback_accepted": 0,
+          "human_attempts": 50,
+          "human_accepted": 46,
+          "accepted": 996,
+          "unresolved": 4,
+          "api_usd": 6.45,
+          "human_minutes": 347.5,
+          "human_usd": 173.75,
+          "other_usd": 1.2,
+          "total_usd": 181.39999999999998,
+          "cost_per_incoming": 0.18139999999999998,
+          "cost_per_accepted": 0.18212851405622488
+        }
+      ]
+    },
+    {
+      "output_scale": 1,
+      "rows": [
+        {
+          "strategy": "cheap_first",
+          "incoming": 1000,
+          "first_accepted": 700,
+          "retry_attempts": 300,
+          "retry_accepted": 120.0,
+          "fallback_attempts": 180.0,
+          "fallback_accepted": 108.0,
+          "human_attempts": 72.0,
+          "human_accepted": 66.0,
+          "accepted": 994.0,
+          "unresolved": 6.0,
+          "api_usd": 2.71,
+          "human_minutes": 478.4,
+          "human_usd": 239.2,
+          "other_usd": 1.2,
+          "total_usd": 243.10999999999999,
+          "cost_per_incoming": 0.24311,
+          "cost_per_accepted": 0.24457746478873238
+        },
+        {
+          "strategy": "strong_first",
+          "incoming": 1000,
+          "first_accepted": 900,
+          "retry_attempts": 100,
+          "retry_accepted": 50,
+          "fallback_attempts": 0,
+          "fallback_accepted": 0,
+          "human_attempts": 50,
+          "human_accepted": 46,
+          "accepted": 996,
+          "unresolved": 4,
+          "api_usd": 9.2,
+          "human_minutes": 347.5,
+          "human_usd": 173.75,
+          "other_usd": 1.2,
+          "total_usd": 184.14999999999998,
+          "cost_per_incoming": 0.18414999999999998,
+          "cost_per_accepted": 0.1848895582329317
+        }
+      ]
+    },
+    {
+      "output_scale": 2,
+      "rows": [
+        {
+          "strategy": "cheap_first",
+          "incoming": 1000,
+          "first_accepted": 700,
+          "retry_attempts": 300,
+          "retry_accepted": 120.0,
+          "fallback_attempts": 180.0,
+          "fallback_accepted": 108.0,
+          "human_attempts": 72.0,
+          "human_accepted": 66.0,
+          "accepted": 994.0,
+          "unresolved": 6.0,
+          "api_usd": 3.935,
+          "human_minutes": 478.4,
+          "human_usd": 239.2,
+          "other_usd": 1.2,
+          "total_usd": 244.33499999999998,
+          "cost_per_incoming": 0.24433499999999997,
+          "cost_per_accepted": 0.24580985915492956
+        },
+        {
+          "strategy": "strong_first",
+          "incoming": 1000,
+          "first_accepted": 900,
+          "retry_attempts": 100,
+          "retry_accepted": 50,
+          "fallback_attempts": 0,
+          "fallback_accepted": 0,
+          "human_attempts": 50,
+          "human_accepted": 46,
+          "accepted": 996,
+          "unresolved": 4,
+          "api_usd": 14.7,
+          "human_minutes": 347.5,
+          "human_usd": 173.75,
+          "other_usd": 1.2,
+          "total_usd": 189.64999999999998,
+          "cost_per_incoming": 0.18964999999999999,
+          "cost_per_accepted": 0.19041164658634535
+        }
+      ]
+    },
+    {
+      "output_scale": 4,
+      "rows": [
+        {
+          "strategy": "cheap_first",
+          "incoming": 1000,
+          "first_accepted": 700,
+          "retry_attempts": 300,
+          "retry_accepted": 120.0,
+          "fallback_attempts": 180.0,
+          "fallback_accepted": 108.0,
+          "human_attempts": 72.0,
+          "human_accepted": 66.0,
+          "accepted": 994.0,
+          "unresolved": 6.0,
+          "api_usd": 6.385,
+          "human_minutes": 478.4,
+          "human_usd": 239.2,
+          "other_usd": 1.2,
+          "total_usd": 246.78499999999997,
+          "cost_per_incoming": 0.24678499999999998,
+          "cost_per_accepted": 0.24827464788732392
+        },
+        {
+          "strategy": "strong_first",
+          "incoming": 1000,
+          "first_accepted": 900,
+          "retry_attempts": 100,
+          "retry_accepted": 50,
+          "fallback_attempts": 0,
+          "fallback_accepted": 0,
+          "human_attempts": 50,
+          "human_accepted": 46,
+          "accepted": 996,
+          "unresolved": 4,
+          "api_usd": 25.7,
+          "human_minutes": 347.5,
+          "human_usd": 173.75,
+          "other_usd": 1.2,
+          "total_usd": 200.64999999999998,
+          "cost_per_incoming": 0.20064999999999997,
+          "cost_per_accepted": 0.20145582329317266
+        }
+      ]
+    }
+  ],
+  "cache_ledgers": [
+    {
+      "ttl_min": 0,
+      "changed_at": [],
+      "rows": [
+        {
+          "minute": 0,
+          "prefix_tokens": 120000,
+          "status": "uncached",
+          "expires_at": null,
+          "prefix_usd": 0.24,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.25
+        },
+        {
+          "minute": 2,
+          "prefix_tokens": 120000,
+          "status": "uncached",
+          "expires_at": null,
+          "prefix_usd": 0.24,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.25
+        },
+        {
+          "minute": 4,
+          "prefix_tokens": 120000,
+          "status": "uncached",
+          "expires_at": null,
+          "prefix_usd": 0.24,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.25
+        },
+        {
+          "minute": 10,
+          "prefix_tokens": 120000,
+          "status": "uncached",
+          "expires_at": null,
+          "prefix_usd": 0.24,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.25
+        },
+        {
+          "minute": 12,
+          "prefix_tokens": 120000,
+          "status": "uncached",
+          "expires_at": null,
+          "prefix_usd": 0.24,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.25
+        },
+        {
+          "minute": 14,
+          "prefix_tokens": 120000,
+          "status": "uncached",
+          "expires_at": null,
+          "prefix_usd": 0.24,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.25
+        },
+        {
+          "minute": 30,
+          "prefix_tokens": 120000,
+          "status": "uncached",
+          "expires_at": null,
+          "prefix_usd": 0.24,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.25
+        },
+        {
+          "minute": 32,
+          "prefix_tokens": 120000,
+          "status": "uncached",
+          "expires_at": null,
+          "prefix_usd": 0.24,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.25
+        },
+        {
+          "minute": 34,
+          "prefix_tokens": 120000,
+          "status": "uncached",
+          "expires_at": null,
+          "prefix_usd": 0.24,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.25
+        },
+        {
+          "minute": 90,
+          "prefix_tokens": 120000,
+          "status": "uncached",
+          "expires_at": null,
+          "prefix_usd": 0.24,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.25
+        },
+        {
+          "minute": 92,
+          "prefix_tokens": 120000,
+          "status": "uncached",
+          "expires_at": null,
+          "prefix_usd": 0.24,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.25
+        },
+        {
+          "minute": 94,
+          "prefix_tokens": 120000,
+          "status": "uncached",
+          "expires_at": null,
+          "prefix_usd": 0.24,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.25
+        }
+      ],
+      "api_usd_per_set": 3.0,
+      "writes": 0,
+      "reads": 0
+    },
+    {
+      "ttl_min": 5,
+      "changed_at": [],
+      "rows": [
+        {
+          "minute": 0,
+          "prefix_tokens": 120000,
+          "status": "write",
+          "expires_at": 5,
+          "prefix_usd": 0.3,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.31
+        },
+        {
+          "minute": 2,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 7,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 4,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 9,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 10,
+          "prefix_tokens": 120000,
+          "status": "write",
+          "expires_at": 15,
+          "prefix_usd": 0.3,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.31
+        },
+        {
+          "minute": 12,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 17,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 14,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 19,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 30,
+          "prefix_tokens": 120000,
+          "status": "write",
+          "expires_at": 35,
+          "prefix_usd": 0.3,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.31
+        },
+        {
+          "minute": 32,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 37,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 34,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 39,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 90,
+          "prefix_tokens": 120000,
+          "status": "write",
+          "expires_at": 95,
+          "prefix_usd": 0.3,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.31
+        },
+        {
+          "minute": 92,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 97,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 94,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 99,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        }
+      ],
+      "api_usd_per_set": 1.416,
+      "writes": 4,
+      "reads": 8
+    },
+    {
+      "ttl_min": 60,
+      "changed_at": [],
+      "rows": [
+        {
+          "minute": 0,
+          "prefix_tokens": 120000,
+          "status": "write",
+          "expires_at": 60,
+          "prefix_usd": 0.48,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.49
+        },
+        {
+          "minute": 2,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 62,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 4,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 64,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 10,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 70,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 12,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 72,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 14,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 74,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 30,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 90,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 32,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 92,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 34,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 94,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 90,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 150,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 92,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 152,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 94,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 154,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        }
+      ],
+      "api_usd_per_set": 0.732,
+      "writes": 1,
+      "reads": 11
+    },
+    {
+      "ttl_min": 60,
+      "changed_at": [
+        30,
+        90
+      ],
+      "rows": [
+        {
+          "minute": 0,
+          "prefix_tokens": 120000,
+          "status": "write",
+          "expires_at": 60,
+          "prefix_usd": 0.48,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.49
+        },
+        {
+          "minute": 2,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 62,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 4,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 64,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 10,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 70,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 12,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 72,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 14,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 74,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 30,
+          "prefix_tokens": 120000,
+          "status": "write",
+          "expires_at": 90,
+          "prefix_usd": 0.48,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.49
+        },
+        {
+          "minute": 32,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 92,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 34,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 94,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 90,
+          "prefix_tokens": 120000,
+          "status": "write",
+          "expires_at": 150,
+          "prefix_usd": 0.48,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.49
+        },
+        {
+          "minute": 92,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 152,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        },
+        {
+          "minute": 94,
+          "prefix_tokens": 120000,
+          "status": "read",
+          "expires_at": 154,
+          "prefix_usd": 0.012,
+          "new_input_output_usd": 0.01,
+          "total_usd": 0.022
+        }
+      ],
+      "api_usd_per_set": 1.668,
+      "writes": 3,
+      "reads": 9
+    }
+  ],
+  "documents": [
+    {
+      "strategy": "uncached",
+      "first_quality": 0.9,
+      "incoming": 1200,
+      "first_accepted": 1080.0,
+      "repair_attempts": 119.99999999999997,
+      "repair_accepted": 107.99999999999997,
+      "accepted": 1188.0,
+      "unresolved": 12.0,
+      "api_usd": 300.0,
+      "preparation_usd": 200,
+      "retrieval_usd": 0,
+      "human_minutes": 1319.9999999999998,
+      "total_usd": 1819.9999999999998,
+      "cost_per_incoming": 1.5166666666666664,
+      "cost_per_accepted": 1.5319865319865318
+    },
+    {
+      "strategy": "cache5",
+      "first_quality": 0.9,
+      "incoming": 1200,
+      "first_accepted": 1080.0,
+      "repair_attempts": 119.99999999999997,
+      "repair_accepted": 107.99999999999997,
+      "accepted": 1188.0,
+      "unresolved": 12.0,
+      "api_usd": 141.6,
+      "preparation_usd": 200,
+      "retrieval_usd": 0,
+      "human_minutes": 1319.9999999999998,
+      "total_usd": 1661.6,
+      "cost_per_incoming": 1.3846666666666665,
+      "cost_per_accepted": 1.3986531986531985
+    },
+    {
+      "strategy": "cache60",
+      "first_quality": 0.9,
+      "incoming": 1200,
+      "first_accepted": 1080.0,
+      "repair_attempts": 119.99999999999997,
+      "repair_accepted": 107.99999999999997,
+      "accepted": 1188.0,
+      "unresolved": 12.0,
+      "api_usd": 73.2,
+      "preparation_usd": 200,
+      "retrieval_usd": 0,
+      "human_minutes": 1319.9999999999998,
+      "total_usd": 1593.1999999999998,
+      "cost_per_incoming": 1.3276666666666666,
+      "cost_per_accepted": 1.3410774410774409
+    },
+    {
+      "strategy": "rag",
+      "first_quality": 0.86,
+      "incoming": 1200,
+      "first_accepted": 1032.0,
+      "repair_attempts": 168.00000000000003,
+      "repair_accepted": 151.20000000000002,
+      "accepted": 1183.2,
+      "unresolved": 16.799999999999955,
+      "api_usd": 36.0,
+      "preparation_usd": 300,
+      "retrieval_usd": 2.4,
+      "human_minutes": 1608.0000000000002,
+      "total_usd": 1946.4,
+      "cost_per_incoming": 1.622,
+      "cost_per_accepted": 1.645030425963489
+    }
+  ],
+  "document_quality": [
+    {
+      "strategy": "cache60",
+      "first_quality": 0.86,
+      "incoming": 1200,
+      "first_accepted": 1032.0,
+      "repair_attempts": 168.00000000000003,
+      "repair_accepted": 151.20000000000002,
+      "accepted": 1183.2,
+      "unresolved": 16.799999999999955,
+      "api_usd": 73.2,
+      "preparation_usd": 200,
+      "retrieval_usd": 0,
+      "human_minutes": 1608.0000000000002,
+      "total_usd": 1881.2000000000003,
+      "cost_per_incoming": 1.567666666666667,
+      "cost_per_accepted": 1.589925625422583
+    },
+    {
+      "strategy": "cache60",
+      "first_quality": 0.9,
+      "incoming": 1200,
+      "first_accepted": 1080.0,
+      "repair_attempts": 119.99999999999997,
+      "repair_accepted": 107.99999999999997,
+      "accepted": 1188.0,
+      "unresolved": 12.0,
+      "api_usd": 73.2,
+      "preparation_usd": 200,
+      "retrieval_usd": 0,
+      "human_minutes": 1319.9999999999998,
+      "total_usd": 1593.1999999999998,
+      "cost_per_incoming": 1.3276666666666666,
+      "cost_per_accepted": 1.3410774410774409
+    },
+    {
+      "strategy": "cache60",
+      "first_quality": 0.94,
+      "incoming": 1200,
+      "first_accepted": 1128.0,
+      "repair_attempts": 72.00000000000006,
+      "repair_accepted": 64.80000000000005,
+      "accepted": 1192.8,
+      "unresolved": 7.2000000000000455,
+      "api_usd": 73.2,
+      "preparation_usd": 200,
+      "retrieval_usd": 0,
+      "human_minutes": 1032.0000000000005,
+      "total_usd": 1305.2000000000005,
+      "cost_per_incoming": 1.087666666666667,
+      "cost_per_accepted": 1.094232059020792
+    },
+    {
+      "strategy": "rag",
+      "first_quality": 0.86,
+      "incoming": 1200,
+      "first_accepted": 1032.0,
+      "repair_attempts": 168.00000000000003,
+      "repair_accepted": 151.20000000000002,
+      "accepted": 1183.2,
+      "unresolved": 16.799999999999955,
+      "api_usd": 36.0,
+      "preparation_usd": 300,
+      "retrieval_usd": 2.4,
+      "human_minutes": 1608.0000000000002,
+      "total_usd": 1946.4,
+      "cost_per_incoming": 1.622,
+      "cost_per_accepted": 1.645030425963489
+    },
+    {
+      "strategy": "rag",
+      "first_quality": 0.9,
+      "incoming": 1200,
+      "first_accepted": 1080.0,
+      "repair_attempts": 119.99999999999997,
+      "repair_accepted": 107.99999999999997,
+      "accepted": 1188.0,
+      "unresolved": 12.0,
+      "api_usd": 36.0,
+      "preparation_usd": 300,
+      "retrieval_usd": 2.4,
+      "human_minutes": 1319.9999999999998,
+      "total_usd": 1658.3999999999996,
+      "cost_per_incoming": 1.3819999999999997,
+      "cost_per_accepted": 1.3959595959595956
+    },
+    {
+      "strategy": "rag",
+      "first_quality": 0.94,
+      "incoming": 1200,
+      "first_accepted": 1128.0,
+      "repair_attempts": 72.00000000000006,
+      "repair_accepted": 64.80000000000005,
+      "accepted": 1192.8,
+      "unresolved": 7.2000000000000455,
+      "api_usd": 36.0,
+      "preparation_usd": 300,
+      "retrieval_usd": 2.4,
+      "human_minutes": 1032.0000000000005,
+      "total_usd": 1370.4000000000005,
+      "cost_per_incoming": 1.1420000000000003,
+      "cost_per_accepted": 1.1488933601609663
+    }
+  ],
+  "document_output": [
+    {
+      "output": 400,
+      "row": {
+        "strategy": "cache60",
+        "first_quality": 0.9,
+        "incoming": 1200,
+        "first_accepted": 1080.0,
+        "repair_attempts": 119.99999999999997,
+        "repair_accepted": 107.99999999999997,
+        "accepted": 1188.0,
+        "unresolved": 12.0,
+        "api_usd": 68.4,
+        "preparation_usd": 200,
+        "retrieval_usd": 0,
+        "human_minutes": 1319.9999999999998,
+        "total_usd": 1588.3999999999996,
+        "cost_per_incoming": 1.3236666666666663,
+        "cost_per_accepted": 1.3370370370370368
+      }
+    },
+    {
+      "output": 800,
+      "row": {
+        "strategy": "cache60",
+        "first_quality": 0.9,
+        "incoming": 1200,
+        "first_accepted": 1080.0,
+        "repair_attempts": 119.99999999999997,
+        "repair_accepted": 107.99999999999997,
+        "accepted": 1188.0,
+        "unresolved": 12.0,
+        "api_usd": 73.2,
+        "preparation_usd": 200,
+        "retrieval_usd": 0,
+        "human_minutes": 1319.9999999999998,
+        "total_usd": 1593.1999999999998,
+        "cost_per_incoming": 1.3276666666666666,
+        "cost_per_accepted": 1.3410774410774409
+      }
+    },
+    {
+      "output": 1600,
+      "row": {
+        "strategy": "cache60",
+        "first_quality": 0.9,
+        "incoming": 1200,
+        "first_accepted": 1080.0,
+        "repair_attempts": 119.99999999999997,
+        "repair_accepted": 107.99999999999997,
+        "accepted": 1188.0,
+        "unresolved": 12.0,
+        "api_usd": 82.8,
+        "preparation_usd": 200,
+        "retrieval_usd": 0,
+        "human_minutes": 1319.9999999999998,
+        "total_usd": 1602.7999999999997,
+        "cost_per_incoming": 1.3356666666666663,
+        "cost_per_accepted": 1.349158249158249
+      }
+    }
+  ],
+  "agents": [
+    {
+      "strategy": "standard_first",
+      "incoming": 100,
+      "first_accepted": 60,
+      "retry_attempts": 40,
+      "retry_accepted": 16.0,
+      "fallback_attempts": 24.0,
+      "fallback_accepted": 12.0,
+      "human_attempts": 12.0,
+      "human_accepted": 8.0,
+      "accepted": 96.0,
+      "unresolved": 4.0,
+      "base": {
+        "model": "sonnet55",
+        "rows": [
+          {
+            "step": 1,
+            "input_total": 4000,
+            "cache_read": 0,
+            "cache_write": 4000,
+            "output_total": 2000,
+            "cost_usd": 0.03
+          },
+          {
+            "step": 2,
+            "input_total": 8000,
+            "cache_read": 4000,
+            "cache_write": 4000,
+            "output_total": 2000,
+            "cost_usd": 0.0304
+          },
+          {
+            "step": 3,
+            "input_total": 14000,
+            "cache_read": 8000,
+            "cache_write": 6000,
+            "output_total": 2000,
+            "cost_usd": 0.0358
+          },
+          {
+            "step": 4,
+            "input_total": 22000,
+            "cache_read": 14000,
+            "cache_write": 8000,
+            "output_total": 2000,
+            "cost_usd": 0.0414
+          },
+          {
+            "step": 5,
+            "input_total": 32000,
+            "cache_read": 22000,
+            "cache_write": 10000,
+            "output_total": 2000,
+            "cost_usd": 0.0472
+          },
+          {
+            "step": 6,
+            "input_total": 44000,
+            "cache_read": 32000,
+            "cache_write": 12000,
+            "output_total": 2000,
+            "cost_usd": 0.0532
+          },
+          {
+            "step": 7,
+            "input_total": 58000,
+            "cache_read": 44000,
+            "cache_write": 14000,
+            "output_total": 2000,
+            "cost_usd": 0.0594
+          },
+          {
+            "step": 8,
+            "input_total": 74000,
+            "cache_read": 58000,
+            "cache_write": 16000,
+            "output_total": 2000,
+            "cost_usd": 0.0658
+          }
+        ],
+        "total_usd": 0.36319999999999997,
+        "sum_input": 256000,
+        "sum_output": 16000
+      },
+      "retry": {
+        "model": "sonnet55",
+        "rows": [
+          {
+            "step": 1,
+            "input_total": 24000,
+            "cache_read": 0,
+            "cache_write": 24000,
+            "output_total": 3000,
+            "cost_usd": 0.09
+          },
+          {
+            "step": 2,
+            "input_total": 36000,
+            "cache_read": 24000,
+            "cache_write": 12000,
+            "output_total": 3000,
+            "cost_usd": 0.0624
+          },
+          {
+            "step": 3,
+            "input_total": 50000,
+            "cache_read": 36000,
+            "cache_write": 14000,
+            "output_total": 3000,
+            "cost_usd": 0.0686
+          }
+        ],
+        "total_usd": 0.22099999999999997,
+        "sum_input": 110000,
+        "sum_output": 9000
+      },
+      "compaction_usd_each": 0.168,
+      "fallback": {
+        "model": "opus55",
+        "rows": [
+          {
+            "step": 1,
+            "input_total": 30000,
+            "cache_read": 0,
+            "cache_write": 30000,
+            "output_total": 4000,
+            "cost_usd": 0.23
+          },
+          {
+            "step": 2,
+            "input_total": 45000,
+            "cache_read": 30000,
+            "cache_write": 15000,
+            "output_total": 4000,
+            "cost_usd": 0.161
+          },
+          {
+            "step": 3,
+            "input_total": 60000,
+            "cache_read": 45000,
+            "cache_write": 15000,
+            "output_total": 4000,
+            "cost_usd": 0.164
+          }
+        ],
+        "total_usd": 0.555,
+        "sum_input": 135000,
+        "sum_output": 12000
+      },
+      "api_usd": 65.19999999999999,
+      "tools_usd": 32.0,
+      "human_minutes": 692.0,
+      "total_usd": 789.2,
+      "cost_per_incoming": 7.892,
+      "cost_per_accepted": 8.220833333333333
+    },
+    {
+      "strategy": "strong_first",
+      "incoming": 100,
+      "first_accepted": 75,
+      "retry_attempts": 25,
+      "retry_accepted": 10.0,
+      "fallback_attempts": 0,
+      "fallback_accepted": 0.0,
+      "human_attempts": 15.0,
+      "human_accepted": 12.0,
+      "accepted": 97.0,
+      "unresolved": 3.0,
+      "base": {
+        "model": "opus55",
+        "rows": [
+          {
+            "step": 1,
+            "input_total": 4000,
+            "cache_read": 0,
+            "cache_write": 4000,
+            "output_total": 2000,
+            "cost_usd": 0.06
+          },
+          {
+            "step": 2,
+            "input_total": 8000,
+            "cache_read": 4000,
+            "cache_write": 4000,
+            "output_total": 2000,
+            "cost_usd": 0.0608
+          },
+          {
+            "step": 3,
+            "input_total": 14000,
+            "cache_read": 8000,
+            "cache_write": 6000,
+            "output_total": 2000,
+            "cost_usd": 0.0716
+          },
+          {
+            "step": 4,
+            "input_total": 22000,
+            "cache_read": 14000,
+            "cache_write": 8000,
+            "output_total": 2000,
+            "cost_usd": 0.0828
+          },
+          {
+            "step": 5,
+            "input_total": 32000,
+            "cache_read": 22000,
+            "cache_write": 10000,
+            "output_total": 2000,
+            "cost_usd": 0.0944
+          },
+          {
+            "step": 6,
+            "input_total": 44000,
+            "cache_read": 32000,
+            "cache_write": 12000,
+            "output_total": 2000,
+            "cost_usd": 0.1064
+          },
+          {
+            "step": 7,
+            "input_total": 58000,
+            "cache_read": 44000,
+            "cache_write": 14000,
+            "output_total": 2000,
+            "cost_usd": 0.1188
+          },
+          {
+            "step": 8,
+            "input_total": 74000,
+            "cache_read": 58000,
+            "cache_write": 16000,
+            "output_total": 2000,
+            "cost_usd": 0.1316
+          }
+        ],
+        "total_usd": 0.7263999999999999,
+        "sum_input": 256000,
+        "sum_output": 16000
+      },
+      "retry": {
+        "model": "opus55",
+        "rows": [
+          {
+            "step": 1,
+            "input_total": 24000,
+            "cache_read": 0,
+            "cache_write": 24000,
+            "output_total": 3000,
+            "cost_usd": 0.18
+          },
+          {
+            "step": 2,
+            "input_total": 36000,
+            "cache_read": 24000,
+            "cache_write": 12000,
+            "output_total": 3000,
+            "cost_usd": 0.1248
+          },
+          {
+            "step": 3,
+            "input_total": 50000,
+            "cache_read": 36000,
+            "cache_write": 14000,
+            "output_total": 3000,
+            "cost_usd": 0.1372
+          }
+        ],
+        "total_usd": 0.44199999999999995,
+        "sum_input": 110000,
+        "sum_output": 9000
+      },
+      "compaction_usd_each": 0.336,
+      "fallback": {
+        "model": "opus55",
+        "rows": [
+          {
+            "step": 1,
+            "input_total": 30000,
+            "cache_read": 0,
+            "cache_write": 30000,
+            "output_total": 4000,
+            "cost_usd": 0.23
+          },
+          {
+            "step": 2,
+            "input_total": 45000,
+            "cache_read": 30000,
+            "cache_write": 15000,
+            "output_total": 4000,
+            "cost_usd": 0.161
+          },
+          {
+            "step": 3,
+            "input_total": 60000,
+            "cache_read": 45000,
+            "cache_write": 15000,
+            "output_total": 4000,
+            "cost_usd": 0.164
+          }
+        ],
+        "total_usd": 0.555,
+        "sum_input": 135000,
+        "sum_output": 12000
+      },
+      "api_usd": 92.08999999999999,
+      "tools_usd": 23.75,
+      "human_minutes": 650.0,
+      "total_usd": 765.84,
+      "cost_per_incoming": 7.6584,
+      "cost_per_accepted": 7.895257731958763
+    }
+  ],
+  "agent_output": [
+    {
+      "output_scale": 0.5,
+      "row": {
+        "strategy": "standard_first",
+        "incoming": 100,
+        "first_accepted": 60,
+        "retry_attempts": 40,
+        "retry_accepted": 16.0,
+        "fallback_attempts": 24.0,
+        "fallback_accepted": 12.0,
+        "human_attempts": 12.0,
+        "human_accepted": 8.0,
+        "accepted": 96.0,
+        "unresolved": 4.0,
+        "base": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 4000,
+              "cache_read": 0,
+              "cache_write": 4000,
+              "output_total": 1000.0,
+              "cost_usd": 0.02
+            },
+            {
+              "step": 2,
+              "input_total": 8000,
+              "cache_read": 4000,
+              "cache_write": 4000,
+              "output_total": 1000.0,
+              "cost_usd": 0.0204
+            },
+            {
+              "step": 3,
+              "input_total": 14000,
+              "cache_read": 8000,
+              "cache_write": 6000,
+              "output_total": 1000.0,
+              "cost_usd": 0.0258
+            },
+            {
+              "step": 4,
+              "input_total": 22000,
+              "cache_read": 14000,
+              "cache_write": 8000,
+              "output_total": 1000.0,
+              "cost_usd": 0.0314
+            },
+            {
+              "step": 5,
+              "input_total": 32000,
+              "cache_read": 22000,
+              "cache_write": 10000,
+              "output_total": 1000.0,
+              "cost_usd": 0.0372
+            },
+            {
+              "step": 6,
+              "input_total": 44000,
+              "cache_read": 32000,
+              "cache_write": 12000,
+              "output_total": 1000.0,
+              "cost_usd": 0.0432
+            },
+            {
+              "step": 7,
+              "input_total": 58000,
+              "cache_read": 44000,
+              "cache_write": 14000,
+              "output_total": 1000.0,
+              "cost_usd": 0.0494
+            },
+            {
+              "step": 8,
+              "input_total": 74000,
+              "cache_read": 58000,
+              "cache_write": 16000,
+              "output_total": 1000.0,
+              "cost_usd": 0.0558
+            }
+          ],
+          "total_usd": 0.2832,
+          "sum_input": 256000,
+          "sum_output": 8000.0
+        },
+        "retry": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 24000,
+              "cache_read": 0,
+              "cache_write": 24000,
+              "output_total": 1500.0,
+              "cost_usd": 0.075
+            },
+            {
+              "step": 2,
+              "input_total": 36000,
+              "cache_read": 24000,
+              "cache_write": 12000,
+              "output_total": 1500.0,
+              "cost_usd": 0.0474
+            },
+            {
+              "step": 3,
+              "input_total": 50000,
+              "cache_read": 36000,
+              "cache_write": 14000,
+              "output_total": 1500.0,
+              "cost_usd": 0.0536
+            }
+          ],
+          "total_usd": 0.176,
+          "sum_input": 110000,
+          "sum_output": 4500.0
+        },
+        "compaction_usd_each": 0.158,
+        "fallback": {
+          "model": "opus55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 30000,
+              "cache_read": 0,
+              "cache_write": 30000,
+              "output_total": 2000.0,
+              "cost_usd": 0.19
+            },
+            {
+              "step": 2,
+              "input_total": 45000,
+              "cache_read": 30000,
+              "cache_write": 15000,
+              "output_total": 2000.0,
+              "cost_usd": 0.121
+            },
+            {
+              "step": 3,
+              "input_total": 60000,
+              "cache_read": 45000,
+              "cache_write": 15000,
+              "output_total": 2000.0,
+              "cost_usd": 0.124
+            }
+          ],
+          "total_usd": 0.435,
+          "sum_input": 135000,
+          "sum_output": 6000.0
+        },
+        "api_usd": 52.12,
+        "tools_usd": 32.0,
+        "human_minutes": 692.0,
+        "total_usd": 776.12,
+        "cost_per_incoming": 7.7612,
+        "cost_per_accepted": 8.084583333333333
+      }
+    },
+    {
+      "output_scale": 1,
+      "row": {
+        "strategy": "standard_first",
+        "incoming": 100,
+        "first_accepted": 60,
+        "retry_attempts": 40,
+        "retry_accepted": 16.0,
+        "fallback_attempts": 24.0,
+        "fallback_accepted": 12.0,
+        "human_attempts": 12.0,
+        "human_accepted": 8.0,
+        "accepted": 96.0,
+        "unresolved": 4.0,
+        "base": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 4000,
+              "cache_read": 0,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.03
+            },
+            {
+              "step": 2,
+              "input_total": 8000,
+              "cache_read": 4000,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.0304
+            },
+            {
+              "step": 3,
+              "input_total": 14000,
+              "cache_read": 8000,
+              "cache_write": 6000,
+              "output_total": 2000,
+              "cost_usd": 0.0358
+            },
+            {
+              "step": 4,
+              "input_total": 22000,
+              "cache_read": 14000,
+              "cache_write": 8000,
+              "output_total": 2000,
+              "cost_usd": 0.0414
+            },
+            {
+              "step": 5,
+              "input_total": 32000,
+              "cache_read": 22000,
+              "cache_write": 10000,
+              "output_total": 2000,
+              "cost_usd": 0.0472
+            },
+            {
+              "step": 6,
+              "input_total": 44000,
+              "cache_read": 32000,
+              "cache_write": 12000,
+              "output_total": 2000,
+              "cost_usd": 0.0532
+            },
+            {
+              "step": 7,
+              "input_total": 58000,
+              "cache_read": 44000,
+              "cache_write": 14000,
+              "output_total": 2000,
+              "cost_usd": 0.0594
+            },
+            {
+              "step": 8,
+              "input_total": 74000,
+              "cache_read": 58000,
+              "cache_write": 16000,
+              "output_total": 2000,
+              "cost_usd": 0.0658
+            }
+          ],
+          "total_usd": 0.36319999999999997,
+          "sum_input": 256000,
+          "sum_output": 16000
+        },
+        "retry": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 24000,
+              "cache_read": 0,
+              "cache_write": 24000,
+              "output_total": 3000,
+              "cost_usd": 0.09
+            },
+            {
+              "step": 2,
+              "input_total": 36000,
+              "cache_read": 24000,
+              "cache_write": 12000,
+              "output_total": 3000,
+              "cost_usd": 0.0624
+            },
+            {
+              "step": 3,
+              "input_total": 50000,
+              "cache_read": 36000,
+              "cache_write": 14000,
+              "output_total": 3000,
+              "cost_usd": 0.0686
+            }
+          ],
+          "total_usd": 0.22099999999999997,
+          "sum_input": 110000,
+          "sum_output": 9000
+        },
+        "compaction_usd_each": 0.168,
+        "fallback": {
+          "model": "opus55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 30000,
+              "cache_read": 0,
+              "cache_write": 30000,
+              "output_total": 4000,
+              "cost_usd": 0.23
+            },
+            {
+              "step": 2,
+              "input_total": 45000,
+              "cache_read": 30000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.161
+            },
+            {
+              "step": 3,
+              "input_total": 60000,
+              "cache_read": 45000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.164
+            }
+          ],
+          "total_usd": 0.555,
+          "sum_input": 135000,
+          "sum_output": 12000
+        },
+        "api_usd": 65.19999999999999,
+        "tools_usd": 32.0,
+        "human_minutes": 692.0,
+        "total_usd": 789.2,
+        "cost_per_incoming": 7.892,
+        "cost_per_accepted": 8.220833333333333
+      }
+    },
+    {
+      "output_scale": 2,
+      "row": {
+        "strategy": "standard_first",
+        "incoming": 100,
+        "first_accepted": 60,
+        "retry_attempts": 40,
+        "retry_accepted": 16.0,
+        "fallback_attempts": 24.0,
+        "fallback_accepted": 12.0,
+        "human_attempts": 12.0,
+        "human_accepted": 8.0,
+        "accepted": 96.0,
+        "unresolved": 4.0,
+        "base": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 4000,
+              "cache_read": 0,
+              "cache_write": 4000,
+              "output_total": 4000,
+              "cost_usd": 0.05
+            },
+            {
+              "step": 2,
+              "input_total": 8000,
+              "cache_read": 4000,
+              "cache_write": 4000,
+              "output_total": 4000,
+              "cost_usd": 0.0504
+            },
+            {
+              "step": 3,
+              "input_total": 14000,
+              "cache_read": 8000,
+              "cache_write": 6000,
+              "output_total": 4000,
+              "cost_usd": 0.0558
+            },
+            {
+              "step": 4,
+              "input_total": 22000,
+              "cache_read": 14000,
+              "cache_write": 8000,
+              "output_total": 4000,
+              "cost_usd": 0.0614
+            },
+            {
+              "step": 5,
+              "input_total": 32000,
+              "cache_read": 22000,
+              "cache_write": 10000,
+              "output_total": 4000,
+              "cost_usd": 0.0672
+            },
+            {
+              "step": 6,
+              "input_total": 44000,
+              "cache_read": 32000,
+              "cache_write": 12000,
+              "output_total": 4000,
+              "cost_usd": 0.0732
+            },
+            {
+              "step": 7,
+              "input_total": 58000,
+              "cache_read": 44000,
+              "cache_write": 14000,
+              "output_total": 4000,
+              "cost_usd": 0.0794
+            },
+            {
+              "step": 8,
+              "input_total": 74000,
+              "cache_read": 58000,
+              "cache_write": 16000,
+              "output_total": 4000,
+              "cost_usd": 0.0858
+            }
+          ],
+          "total_usd": 0.5232,
+          "sum_input": 256000,
+          "sum_output": 32000
+        },
+        "retry": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 24000,
+              "cache_read": 0,
+              "cache_write": 24000,
+              "output_total": 6000,
+              "cost_usd": 0.12
+            },
+            {
+              "step": 2,
+              "input_total": 36000,
+              "cache_read": 24000,
+              "cache_write": 12000,
+              "output_total": 6000,
+              "cost_usd": 0.0924
+            },
+            {
+              "step": 3,
+              "input_total": 50000,
+              "cache_read": 36000,
+              "cache_write": 14000,
+              "output_total": 6000,
+              "cost_usd": 0.0986
+            }
+          ],
+          "total_usd": 0.311,
+          "sum_input": 110000,
+          "sum_output": 18000
+        },
+        "compaction_usd_each": 0.188,
+        "fallback": {
+          "model": "opus55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 30000,
+              "cache_read": 0,
+              "cache_write": 30000,
+              "output_total": 8000,
+              "cost_usd": 0.31
+            },
+            {
+              "step": 2,
+              "input_total": 45000,
+              "cache_read": 30000,
+              "cache_write": 15000,
+              "output_total": 8000,
+              "cost_usd": 0.241
+            },
+            {
+              "step": 3,
+              "input_total": 60000,
+              "cache_read": 45000,
+              "cache_write": 15000,
+              "output_total": 8000,
+              "cost_usd": 0.244
+            }
+          ],
+          "total_usd": 0.7949999999999999,
+          "sum_input": 135000,
+          "sum_output": 24000
+        },
+        "api_usd": 91.36,
+        "tools_usd": 32.0,
+        "human_minutes": 692.0,
+        "total_usd": 815.36,
+        "cost_per_incoming": 8.1536,
+        "cost_per_accepted": 8.493333333333334
+      }
+    },
+    {
+      "output_scale": 4,
+      "row": {
+        "strategy": "standard_first",
+        "incoming": 100,
+        "first_accepted": 60,
+        "retry_attempts": 40,
+        "retry_accepted": 16.0,
+        "fallback_attempts": 24.0,
+        "fallback_accepted": 12.0,
+        "human_attempts": 12.0,
+        "human_accepted": 8.0,
+        "accepted": 96.0,
+        "unresolved": 4.0,
+        "base": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 4000,
+              "cache_read": 0,
+              "cache_write": 4000,
+              "output_total": 8000,
+              "cost_usd": 0.09
+            },
+            {
+              "step": 2,
+              "input_total": 8000,
+              "cache_read": 4000,
+              "cache_write": 4000,
+              "output_total": 8000,
+              "cost_usd": 0.0904
+            },
+            {
+              "step": 3,
+              "input_total": 14000,
+              "cache_read": 8000,
+              "cache_write": 6000,
+              "output_total": 8000,
+              "cost_usd": 0.0958
+            },
+            {
+              "step": 4,
+              "input_total": 22000,
+              "cache_read": 14000,
+              "cache_write": 8000,
+              "output_total": 8000,
+              "cost_usd": 0.1014
+            },
+            {
+              "step": 5,
+              "input_total": 32000,
+              "cache_read": 22000,
+              "cache_write": 10000,
+              "output_total": 8000,
+              "cost_usd": 0.1072
+            },
+            {
+              "step": 6,
+              "input_total": 44000,
+              "cache_read": 32000,
+              "cache_write": 12000,
+              "output_total": 8000,
+              "cost_usd": 0.1132
+            },
+            {
+              "step": 7,
+              "input_total": 58000,
+              "cache_read": 44000,
+              "cache_write": 14000,
+              "output_total": 8000,
+              "cost_usd": 0.1194
+            },
+            {
+              "step": 8,
+              "input_total": 74000,
+              "cache_read": 58000,
+              "cache_write": 16000,
+              "output_total": 8000,
+              "cost_usd": 0.1258
+            }
+          ],
+          "total_usd": 0.8432,
+          "sum_input": 256000,
+          "sum_output": 64000
+        },
+        "retry": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 24000,
+              "cache_read": 0,
+              "cache_write": 24000,
+              "output_total": 12000,
+              "cost_usd": 0.18
+            },
+            {
+              "step": 2,
+              "input_total": 36000,
+              "cache_read": 24000,
+              "cache_write": 12000,
+              "output_total": 12000,
+              "cost_usd": 0.1524
+            },
+            {
+              "step": 3,
+              "input_total": 50000,
+              "cache_read": 36000,
+              "cache_write": 14000,
+              "output_total": 12000,
+              "cost_usd": 0.1586
+            }
+          ],
+          "total_usd": 0.491,
+          "sum_input": 110000,
+          "sum_output": 36000
+        },
+        "compaction_usd_each": 0.228,
+        "fallback": {
+          "model": "opus55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 30000,
+              "cache_read": 0,
+              "cache_write": 30000,
+              "output_total": 16000,
+              "cost_usd": 0.47
+            },
+            {
+              "step": 2,
+              "input_total": 45000,
+              "cache_read": 30000,
+              "cache_write": 15000,
+              "output_total": 16000,
+              "cost_usd": 0.401
+            },
+            {
+              "step": 3,
+              "input_total": 60000,
+              "cache_read": 45000,
+              "cache_write": 15000,
+              "output_total": 16000,
+              "cost_usd": 0.404
+            }
+          ],
+          "total_usd": 1.275,
+          "sum_input": 135000,
+          "sum_output": 48000
+        },
+        "api_usd": 143.67999999999998,
+        "tools_usd": 32.0,
+        "human_minutes": 692.0,
+        "total_usd": 867.68,
+        "cost_per_incoming": 8.6768,
+        "cost_per_accepted": 9.038333333333332
+      }
+    }
+  ],
+  "agent_retry": [
+    {
+      "conditional_retry_success": 0.1,
+      "row": {
+        "strategy": "standard_first",
+        "incoming": 100,
+        "first_accepted": 60,
+        "retry_attempts": 40,
+        "retry_accepted": 4.0,
+        "fallback_attempts": 36.0,
+        "fallback_accepted": 18.0,
+        "human_attempts": 18.0,
+        "human_accepted": 12.0,
+        "accepted": 94.0,
+        "unresolved": 6.0,
+        "base": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 4000,
+              "cache_read": 0,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.03
+            },
+            {
+              "step": 2,
+              "input_total": 8000,
+              "cache_read": 4000,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.0304
+            },
+            {
+              "step": 3,
+              "input_total": 14000,
+              "cache_read": 8000,
+              "cache_write": 6000,
+              "output_total": 2000,
+              "cost_usd": 0.0358
+            },
+            {
+              "step": 4,
+              "input_total": 22000,
+              "cache_read": 14000,
+              "cache_write": 8000,
+              "output_total": 2000,
+              "cost_usd": 0.0414
+            },
+            {
+              "step": 5,
+              "input_total": 32000,
+              "cache_read": 22000,
+              "cache_write": 10000,
+              "output_total": 2000,
+              "cost_usd": 0.0472
+            },
+            {
+              "step": 6,
+              "input_total": 44000,
+              "cache_read": 32000,
+              "cache_write": 12000,
+              "output_total": 2000,
+              "cost_usd": 0.0532
+            },
+            {
+              "step": 7,
+              "input_total": 58000,
+              "cache_read": 44000,
+              "cache_write": 14000,
+              "output_total": 2000,
+              "cost_usd": 0.0594
+            },
+            {
+              "step": 8,
+              "input_total": 74000,
+              "cache_read": 58000,
+              "cache_write": 16000,
+              "output_total": 2000,
+              "cost_usd": 0.0658
+            }
+          ],
+          "total_usd": 0.36319999999999997,
+          "sum_input": 256000,
+          "sum_output": 16000
+        },
+        "retry": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 24000,
+              "cache_read": 0,
+              "cache_write": 24000,
+              "output_total": 3000,
+              "cost_usd": 0.09
+            },
+            {
+              "step": 2,
+              "input_total": 36000,
+              "cache_read": 24000,
+              "cache_write": 12000,
+              "output_total": 3000,
+              "cost_usd": 0.0624
+            },
+            {
+              "step": 3,
+              "input_total": 50000,
+              "cache_read": 36000,
+              "cache_write": 14000,
+              "output_total": 3000,
+              "cost_usd": 0.0686
+            }
+          ],
+          "total_usd": 0.22099999999999997,
+          "sum_input": 110000,
+          "sum_output": 9000
+        },
+        "compaction_usd_each": 0.168,
+        "fallback": {
+          "model": "opus55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 30000,
+              "cache_read": 0,
+              "cache_write": 30000,
+              "output_total": 4000,
+              "cost_usd": 0.23
+            },
+            {
+              "step": 2,
+              "input_total": 45000,
+              "cache_read": 30000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.161
+            },
+            {
+              "step": 3,
+              "input_total": 60000,
+              "cache_read": 45000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.164
+            }
+          ],
+          "total_usd": 0.555,
+          "sum_input": 135000,
+          "sum_output": 12000
+        },
+        "api_usd": 71.86,
+        "tools_usd": 35.0,
+        "human_minutes": 848.0,
+        "total_usd": 954.86,
+        "cost_per_incoming": 9.5486,
+        "cost_per_accepted": 10.158085106382979
+      }
+    },
+    {
+      "conditional_retry_success": 0.4,
+      "row": {
+        "strategy": "standard_first",
+        "incoming": 100,
+        "first_accepted": 60,
+        "retry_attempts": 40,
+        "retry_accepted": 16.0,
+        "fallback_attempts": 24.0,
+        "fallback_accepted": 12.0,
+        "human_attempts": 12.0,
+        "human_accepted": 8.0,
+        "accepted": 96.0,
+        "unresolved": 4.0,
+        "base": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 4000,
+              "cache_read": 0,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.03
+            },
+            {
+              "step": 2,
+              "input_total": 8000,
+              "cache_read": 4000,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.0304
+            },
+            {
+              "step": 3,
+              "input_total": 14000,
+              "cache_read": 8000,
+              "cache_write": 6000,
+              "output_total": 2000,
+              "cost_usd": 0.0358
+            },
+            {
+              "step": 4,
+              "input_total": 22000,
+              "cache_read": 14000,
+              "cache_write": 8000,
+              "output_total": 2000,
+              "cost_usd": 0.0414
+            },
+            {
+              "step": 5,
+              "input_total": 32000,
+              "cache_read": 22000,
+              "cache_write": 10000,
+              "output_total": 2000,
+              "cost_usd": 0.0472
+            },
+            {
+              "step": 6,
+              "input_total": 44000,
+              "cache_read": 32000,
+              "cache_write": 12000,
+              "output_total": 2000,
+              "cost_usd": 0.0532
+            },
+            {
+              "step": 7,
+              "input_total": 58000,
+              "cache_read": 44000,
+              "cache_write": 14000,
+              "output_total": 2000,
+              "cost_usd": 0.0594
+            },
+            {
+              "step": 8,
+              "input_total": 74000,
+              "cache_read": 58000,
+              "cache_write": 16000,
+              "output_total": 2000,
+              "cost_usd": 0.0658
+            }
+          ],
+          "total_usd": 0.36319999999999997,
+          "sum_input": 256000,
+          "sum_output": 16000
+        },
+        "retry": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 24000,
+              "cache_read": 0,
+              "cache_write": 24000,
+              "output_total": 3000,
+              "cost_usd": 0.09
+            },
+            {
+              "step": 2,
+              "input_total": 36000,
+              "cache_read": 24000,
+              "cache_write": 12000,
+              "output_total": 3000,
+              "cost_usd": 0.0624
+            },
+            {
+              "step": 3,
+              "input_total": 50000,
+              "cache_read": 36000,
+              "cache_write": 14000,
+              "output_total": 3000,
+              "cost_usd": 0.0686
+            }
+          ],
+          "total_usd": 0.22099999999999997,
+          "sum_input": 110000,
+          "sum_output": 9000
+        },
+        "compaction_usd_each": 0.168,
+        "fallback": {
+          "model": "opus55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 30000,
+              "cache_read": 0,
+              "cache_write": 30000,
+              "output_total": 4000,
+              "cost_usd": 0.23
+            },
+            {
+              "step": 2,
+              "input_total": 45000,
+              "cache_read": 30000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.161
+            },
+            {
+              "step": 3,
+              "input_total": 60000,
+              "cache_read": 45000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.164
+            }
+          ],
+          "total_usd": 0.555,
+          "sum_input": 135000,
+          "sum_output": 12000
+        },
+        "api_usd": 65.19999999999999,
+        "tools_usd": 32.0,
+        "human_minutes": 692.0,
+        "total_usd": 789.2,
+        "cost_per_incoming": 7.892,
+        "cost_per_accepted": 8.220833333333333
+      }
+    },
+    {
+      "conditional_retry_success": 0.7,
+      "row": {
+        "strategy": "standard_first",
+        "incoming": 100,
+        "first_accepted": 60,
+        "retry_attempts": 40,
+        "retry_accepted": 28.0,
+        "fallback_attempts": 12.0,
+        "fallback_accepted": 6.0,
+        "human_attempts": 6.0,
+        "human_accepted": 4.0,
+        "accepted": 98.0,
+        "unresolved": 2.0,
+        "base": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 4000,
+              "cache_read": 0,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.03
+            },
+            {
+              "step": 2,
+              "input_total": 8000,
+              "cache_read": 4000,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.0304
+            },
+            {
+              "step": 3,
+              "input_total": 14000,
+              "cache_read": 8000,
+              "cache_write": 6000,
+              "output_total": 2000,
+              "cost_usd": 0.0358
+            },
+            {
+              "step": 4,
+              "input_total": 22000,
+              "cache_read": 14000,
+              "cache_write": 8000,
+              "output_total": 2000,
+              "cost_usd": 0.0414
+            },
+            {
+              "step": 5,
+              "input_total": 32000,
+              "cache_read": 22000,
+              "cache_write": 10000,
+              "output_total": 2000,
+              "cost_usd": 0.0472
+            },
+            {
+              "step": 6,
+              "input_total": 44000,
+              "cache_read": 32000,
+              "cache_write": 12000,
+              "output_total": 2000,
+              "cost_usd": 0.0532
+            },
+            {
+              "step": 7,
+              "input_total": 58000,
+              "cache_read": 44000,
+              "cache_write": 14000,
+              "output_total": 2000,
+              "cost_usd": 0.0594
+            },
+            {
+              "step": 8,
+              "input_total": 74000,
+              "cache_read": 58000,
+              "cache_write": 16000,
+              "output_total": 2000,
+              "cost_usd": 0.0658
+            }
+          ],
+          "total_usd": 0.36319999999999997,
+          "sum_input": 256000,
+          "sum_output": 16000
+        },
+        "retry": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 24000,
+              "cache_read": 0,
+              "cache_write": 24000,
+              "output_total": 3000,
+              "cost_usd": 0.09
+            },
+            {
+              "step": 2,
+              "input_total": 36000,
+              "cache_read": 24000,
+              "cache_write": 12000,
+              "output_total": 3000,
+              "cost_usd": 0.0624
+            },
+            {
+              "step": 3,
+              "input_total": 50000,
+              "cache_read": 36000,
+              "cache_write": 14000,
+              "output_total": 3000,
+              "cost_usd": 0.0686
+            }
+          ],
+          "total_usd": 0.22099999999999997,
+          "sum_input": 110000,
+          "sum_output": 9000
+        },
+        "compaction_usd_each": 0.168,
+        "fallback": {
+          "model": "opus55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 30000,
+              "cache_read": 0,
+              "cache_write": 30000,
+              "output_total": 4000,
+              "cost_usd": 0.23
+            },
+            {
+              "step": 2,
+              "input_total": 45000,
+              "cache_read": 30000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.161
+            },
+            {
+              "step": 3,
+              "input_total": 60000,
+              "cache_read": 45000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.164
+            }
+          ],
+          "total_usd": 0.555,
+          "sum_input": 135000,
+          "sum_output": 12000
+        },
+        "api_usd": 58.53999999999999,
+        "tools_usd": 29.0,
+        "human_minutes": 536.0,
+        "total_usd": 623.54,
+        "cost_per_incoming": 6.235399999999999,
+        "cost_per_accepted": 6.362653061224489
+      }
+    }
+  ],
+  "agent_review": [
+    {
+      "review_min": 1,
+      "row": {
+        "strategy": "standard_first",
+        "incoming": 100,
+        "first_accepted": 60,
+        "retry_attempts": 40,
+        "retry_accepted": 16.0,
+        "fallback_attempts": 24.0,
+        "fallback_accepted": 12.0,
+        "human_attempts": 12.0,
+        "human_accepted": 8.0,
+        "accepted": 96.0,
+        "unresolved": 4.0,
+        "base": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 4000,
+              "cache_read": 0,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.03
+            },
+            {
+              "step": 2,
+              "input_total": 8000,
+              "cache_read": 4000,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.0304
+            },
+            {
+              "step": 3,
+              "input_total": 14000,
+              "cache_read": 8000,
+              "cache_write": 6000,
+              "output_total": 2000,
+              "cost_usd": 0.0358
+            },
+            {
+              "step": 4,
+              "input_total": 22000,
+              "cache_read": 14000,
+              "cache_write": 8000,
+              "output_total": 2000,
+              "cost_usd": 0.0414
+            },
+            {
+              "step": 5,
+              "input_total": 32000,
+              "cache_read": 22000,
+              "cache_write": 10000,
+              "output_total": 2000,
+              "cost_usd": 0.0472
+            },
+            {
+              "step": 6,
+              "input_total": 44000,
+              "cache_read": 32000,
+              "cache_write": 12000,
+              "output_total": 2000,
+              "cost_usd": 0.0532
+            },
+            {
+              "step": 7,
+              "input_total": 58000,
+              "cache_read": 44000,
+              "cache_write": 14000,
+              "output_total": 2000,
+              "cost_usd": 0.0594
+            },
+            {
+              "step": 8,
+              "input_total": 74000,
+              "cache_read": 58000,
+              "cache_write": 16000,
+              "output_total": 2000,
+              "cost_usd": 0.0658
+            }
+          ],
+          "total_usd": 0.36319999999999997,
+          "sum_input": 256000,
+          "sum_output": 16000
+        },
+        "retry": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 24000,
+              "cache_read": 0,
+              "cache_write": 24000,
+              "output_total": 3000,
+              "cost_usd": 0.09
+            },
+            {
+              "step": 2,
+              "input_total": 36000,
+              "cache_read": 24000,
+              "cache_write": 12000,
+              "output_total": 3000,
+              "cost_usd": 0.0624
+            },
+            {
+              "step": 3,
+              "input_total": 50000,
+              "cache_read": 36000,
+              "cache_write": 14000,
+              "output_total": 3000,
+              "cost_usd": 0.0686
+            }
+          ],
+          "total_usd": 0.22099999999999997,
+          "sum_input": 110000,
+          "sum_output": 9000
+        },
+        "compaction_usd_each": 0.168,
+        "fallback": {
+          "model": "opus55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 30000,
+              "cache_read": 0,
+              "cache_write": 30000,
+              "output_total": 4000,
+              "cost_usd": 0.23
+            },
+            {
+              "step": 2,
+              "input_total": 45000,
+              "cache_read": 30000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.161
+            },
+            {
+              "step": 3,
+              "input_total": 60000,
+              "cache_read": 45000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.164
+            }
+          ],
+          "total_usd": 0.555,
+          "sum_input": 135000,
+          "sum_output": 12000
+        },
+        "api_usd": 65.19999999999999,
+        "tools_usd": 32.0,
+        "human_minutes": 492.0,
+        "total_usd": 589.2,
+        "cost_per_incoming": 5.892,
+        "cost_per_accepted": 6.1375
+      }
+    },
+    {
+      "review_min": 3,
+      "row": {
+        "strategy": "standard_first",
+        "incoming": 100,
+        "first_accepted": 60,
+        "retry_attempts": 40,
+        "retry_accepted": 16.0,
+        "fallback_attempts": 24.0,
+        "fallback_accepted": 12.0,
+        "human_attempts": 12.0,
+        "human_accepted": 8.0,
+        "accepted": 96.0,
+        "unresolved": 4.0,
+        "base": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 4000,
+              "cache_read": 0,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.03
+            },
+            {
+              "step": 2,
+              "input_total": 8000,
+              "cache_read": 4000,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.0304
+            },
+            {
+              "step": 3,
+              "input_total": 14000,
+              "cache_read": 8000,
+              "cache_write": 6000,
+              "output_total": 2000,
+              "cost_usd": 0.0358
+            },
+            {
+              "step": 4,
+              "input_total": 22000,
+              "cache_read": 14000,
+              "cache_write": 8000,
+              "output_total": 2000,
+              "cost_usd": 0.0414
+            },
+            {
+              "step": 5,
+              "input_total": 32000,
+              "cache_read": 22000,
+              "cache_write": 10000,
+              "output_total": 2000,
+              "cost_usd": 0.0472
+            },
+            {
+              "step": 6,
+              "input_total": 44000,
+              "cache_read": 32000,
+              "cache_write": 12000,
+              "output_total": 2000,
+              "cost_usd": 0.0532
+            },
+            {
+              "step": 7,
+              "input_total": 58000,
+              "cache_read": 44000,
+              "cache_write": 14000,
+              "output_total": 2000,
+              "cost_usd": 0.0594
+            },
+            {
+              "step": 8,
+              "input_total": 74000,
+              "cache_read": 58000,
+              "cache_write": 16000,
+              "output_total": 2000,
+              "cost_usd": 0.0658
+            }
+          ],
+          "total_usd": 0.36319999999999997,
+          "sum_input": 256000,
+          "sum_output": 16000
+        },
+        "retry": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 24000,
+              "cache_read": 0,
+              "cache_write": 24000,
+              "output_total": 3000,
+              "cost_usd": 0.09
+            },
+            {
+              "step": 2,
+              "input_total": 36000,
+              "cache_read": 24000,
+              "cache_write": 12000,
+              "output_total": 3000,
+              "cost_usd": 0.0624
+            },
+            {
+              "step": 3,
+              "input_total": 50000,
+              "cache_read": 36000,
+              "cache_write": 14000,
+              "output_total": 3000,
+              "cost_usd": 0.0686
+            }
+          ],
+          "total_usd": 0.22099999999999997,
+          "sum_input": 110000,
+          "sum_output": 9000
+        },
+        "compaction_usd_each": 0.168,
+        "fallback": {
+          "model": "opus55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 30000,
+              "cache_read": 0,
+              "cache_write": 30000,
+              "output_total": 4000,
+              "cost_usd": 0.23
+            },
+            {
+              "step": 2,
+              "input_total": 45000,
+              "cache_read": 30000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.161
+            },
+            {
+              "step": 3,
+              "input_total": 60000,
+              "cache_read": 45000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.164
+            }
+          ],
+          "total_usd": 0.555,
+          "sum_input": 135000,
+          "sum_output": 12000
+        },
+        "api_usd": 65.19999999999999,
+        "tools_usd": 32.0,
+        "human_minutes": 692.0,
+        "total_usd": 789.2,
+        "cost_per_incoming": 7.892,
+        "cost_per_accepted": 8.220833333333333
+      }
+    },
+    {
+      "review_min": 6,
+      "row": {
+        "strategy": "standard_first",
+        "incoming": 100,
+        "first_accepted": 60,
+        "retry_attempts": 40,
+        "retry_accepted": 16.0,
+        "fallback_attempts": 24.0,
+        "fallback_accepted": 12.0,
+        "human_attempts": 12.0,
+        "human_accepted": 8.0,
+        "accepted": 96.0,
+        "unresolved": 4.0,
+        "base": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 4000,
+              "cache_read": 0,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.03
+            },
+            {
+              "step": 2,
+              "input_total": 8000,
+              "cache_read": 4000,
+              "cache_write": 4000,
+              "output_total": 2000,
+              "cost_usd": 0.0304
+            },
+            {
+              "step": 3,
+              "input_total": 14000,
+              "cache_read": 8000,
+              "cache_write": 6000,
+              "output_total": 2000,
+              "cost_usd": 0.0358
+            },
+            {
+              "step": 4,
+              "input_total": 22000,
+              "cache_read": 14000,
+              "cache_write": 8000,
+              "output_total": 2000,
+              "cost_usd": 0.0414
+            },
+            {
+              "step": 5,
+              "input_total": 32000,
+              "cache_read": 22000,
+              "cache_write": 10000,
+              "output_total": 2000,
+              "cost_usd": 0.0472
+            },
+            {
+              "step": 6,
+              "input_total": 44000,
+              "cache_read": 32000,
+              "cache_write": 12000,
+              "output_total": 2000,
+              "cost_usd": 0.0532
+            },
+            {
+              "step": 7,
+              "input_total": 58000,
+              "cache_read": 44000,
+              "cache_write": 14000,
+              "output_total": 2000,
+              "cost_usd": 0.0594
+            },
+            {
+              "step": 8,
+              "input_total": 74000,
+              "cache_read": 58000,
+              "cache_write": 16000,
+              "output_total": 2000,
+              "cost_usd": 0.0658
+            }
+          ],
+          "total_usd": 0.36319999999999997,
+          "sum_input": 256000,
+          "sum_output": 16000
+        },
+        "retry": {
+          "model": "sonnet55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 24000,
+              "cache_read": 0,
+              "cache_write": 24000,
+              "output_total": 3000,
+              "cost_usd": 0.09
+            },
+            {
+              "step": 2,
+              "input_total": 36000,
+              "cache_read": 24000,
+              "cache_write": 12000,
+              "output_total": 3000,
+              "cost_usd": 0.0624
+            },
+            {
+              "step": 3,
+              "input_total": 50000,
+              "cache_read": 36000,
+              "cache_write": 14000,
+              "output_total": 3000,
+              "cost_usd": 0.0686
+            }
+          ],
+          "total_usd": 0.22099999999999997,
+          "sum_input": 110000,
+          "sum_output": 9000
+        },
+        "compaction_usd_each": 0.168,
+        "fallback": {
+          "model": "opus55",
+          "rows": [
+            {
+              "step": 1,
+              "input_total": 30000,
+              "cache_read": 0,
+              "cache_write": 30000,
+              "output_total": 4000,
+              "cost_usd": 0.23
+            },
+            {
+              "step": 2,
+              "input_total": 45000,
+              "cache_read": 30000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.161
+            },
+            {
+              "step": 3,
+              "input_total": 60000,
+              "cache_read": 45000,
+              "cache_write": 15000,
+              "output_total": 4000,
+              "cost_usd": 0.164
+            }
+          ],
+          "total_usd": 0.555,
+          "sum_input": 135000,
+          "sum_output": 12000
+        },
+        "api_usd": 65.19999999999999,
+        "tools_usd": 32.0,
+        "human_minutes": 992.0,
+        "total_usd": 1089.2,
+        "cost_per_incoming": 10.892000000000001,
+        "cost_per_accepted": 11.345833333333333
+      }
+    }
+  ],
+  "hosting": [
+    {
+      "nodes": 1,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 13490.800000000001,
+      "api_unit_usd": 0.0001792,
+      "monthly_tasks": 100000.0,
+      "capacity_tasks": 26280000,
+      "load_fraction": 0.00380517503805175,
+      "local_quality": 0.8,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.168635,
+      "api_cost_per_accepted": 0.0001991111111111111,
+      "break_even_requests": 84693917.41071428,
+      "break_even_capacity_fraction": 3.2227518040606653
+    },
+    {
+      "nodes": 1,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 13490.800000000001,
+      "api_unit_usd": 0.003584,
+      "monthly_tasks": 100000.0,
+      "capacity_tasks": 26280000,
+      "load_fraction": 0.00380517503805175,
+      "local_quality": 0.8,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.168635,
+      "api_cost_per_accepted": 0.003982222222222222,
+      "break_even_requests": 4234695.870535715,
+      "break_even_capacity_fraction": 0.16113759020303328
+    },
+    {
+      "nodes": 1,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 13490.800000000001,
+      "api_unit_usd": 0.0001792,
+      "monthly_tasks": 100000.0,
+      "capacity_tasks": 26280000,
+      "load_fraction": 0.00380517503805175,
+      "local_quality": 0.9,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.1498977777777778,
+      "api_cost_per_accepted": 0.0001991111111111111,
+      "break_even_requests": 75283482.14285715,
+      "break_even_capacity_fraction": 2.8646682702761472
+    },
+    {
+      "nodes": 1,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 13490.800000000001,
+      "api_unit_usd": 0.003584,
+      "monthly_tasks": 100000.0,
+      "capacity_tasks": 26280000,
+      "load_fraction": 0.00380517503805175,
+      "local_quality": 0.9,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.1498977777777778,
+      "api_cost_per_accepted": 0.003982222222222222,
+      "break_even_requests": 3764174.1071428577,
+      "break_even_capacity_fraction": 0.14323341351380736
+    },
+    {
+      "nodes": 1,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 13490.800000000001,
+      "api_unit_usd": 0.0001792,
+      "monthly_tasks": 1000000.0,
+      "capacity_tasks": 26280000,
+      "load_fraction": 0.0380517503805175,
+      "local_quality": 0.8,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.0168635,
+      "api_cost_per_accepted": 0.0001991111111111111,
+      "break_even_requests": 84693917.41071428,
+      "break_even_capacity_fraction": 3.2227518040606653
+    },
+    {
+      "nodes": 1,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 13490.800000000001,
+      "api_unit_usd": 0.003584,
+      "monthly_tasks": 1000000.0,
+      "capacity_tasks": 26280000,
+      "load_fraction": 0.0380517503805175,
+      "local_quality": 0.8,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.0168635,
+      "api_cost_per_accepted": 0.003982222222222222,
+      "break_even_requests": 4234695.870535715,
+      "break_even_capacity_fraction": 0.16113759020303328
+    },
+    {
+      "nodes": 1,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 13490.800000000001,
+      "api_unit_usd": 0.0001792,
+      "monthly_tasks": 1000000.0,
+      "capacity_tasks": 26280000,
+      "load_fraction": 0.0380517503805175,
+      "local_quality": 0.9,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.014989777777777779,
+      "api_cost_per_accepted": 0.0001991111111111111,
+      "break_even_requests": 75283482.14285715,
+      "break_even_capacity_fraction": 2.8646682702761472
+    },
+    {
+      "nodes": 1,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 13490.800000000001,
+      "api_unit_usd": 0.003584,
+      "monthly_tasks": 1000000.0,
+      "capacity_tasks": 26280000,
+      "load_fraction": 0.0380517503805175,
+      "local_quality": 0.9,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.014989777777777779,
+      "api_cost_per_accepted": 0.003982222222222222,
+      "break_even_requests": 3764174.1071428577,
+      "break_even_capacity_fraction": 0.14323341351380736
+    },
+    {
+      "nodes": 1,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 13490.800000000001,
+      "api_unit_usd": 0.0001792,
+      "monthly_tasks": 10000000.0,
+      "capacity_tasks": 26280000,
+      "load_fraction": 0.380517503805175,
+      "local_quality": 0.8,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.00168635,
+      "api_cost_per_accepted": 0.0001991111111111111,
+      "break_even_requests": 84693917.41071428,
+      "break_even_capacity_fraction": 3.2227518040606653
+    },
+    {
+      "nodes": 1,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 13490.800000000001,
+      "api_unit_usd": 0.003584,
+      "monthly_tasks": 10000000.0,
+      "capacity_tasks": 26280000,
+      "load_fraction": 0.380517503805175,
+      "local_quality": 0.8,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.00168635,
+      "api_cost_per_accepted": 0.003982222222222222,
+      "break_even_requests": 4234695.870535715,
+      "break_even_capacity_fraction": 0.16113759020303328
+    },
+    {
+      "nodes": 1,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 13490.800000000001,
+      "api_unit_usd": 0.0001792,
+      "monthly_tasks": 10000000.0,
+      "capacity_tasks": 26280000,
+      "load_fraction": 0.380517503805175,
+      "local_quality": 0.9,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.0014989777777777778,
+      "api_cost_per_accepted": 0.0001991111111111111,
+      "break_even_requests": 75283482.14285715,
+      "break_even_capacity_fraction": 2.8646682702761472
+    },
+    {
+      "nodes": 1,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 13490.800000000001,
+      "api_unit_usd": 0.003584,
+      "monthly_tasks": 10000000.0,
+      "capacity_tasks": 26280000,
+      "load_fraction": 0.380517503805175,
+      "local_quality": 0.9,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.0014989777777777778,
+      "api_cost_per_accepted": 0.003982222222222222,
+      "break_even_requests": 3764174.1071428577,
+      "break_even_capacity_fraction": 0.14323341351380736
+    },
+    {
+      "nodes": 2,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 23681.600000000002,
+      "api_unit_usd": 0.0001792,
+      "monthly_tasks": 100000.0,
+      "capacity_tasks": 52560000,
+      "load_fraction": 0.001902587519025875,
+      "local_quality": 0.8,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.29602,
+      "api_cost_per_accepted": 0.0001991111111111111,
+      "break_even_requests": 148670758.92857143,
+      "break_even_capacity_fraction": 2.828591303816047
+    },
+    {
+      "nodes": 2,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 23681.600000000002,
+      "api_unit_usd": 0.003584,
+      "monthly_tasks": 100000.0,
+      "capacity_tasks": 52560000,
+      "load_fraction": 0.001902587519025875,
+      "local_quality": 0.8,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.29602,
+      "api_cost_per_accepted": 0.003982222222222222,
+      "break_even_requests": 7433537.946428572,
+      "break_even_capacity_fraction": 0.14142956519080235
+    },
+    {
+      "nodes": 2,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 23681.600000000002,
+      "api_unit_usd": 0.0001792,
+      "monthly_tasks": 100000.0,
+      "capacity_tasks": 52560000,
+      "load_fraction": 0.001902587519025875,
+      "local_quality": 0.9,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.2631288888888889,
+      "api_cost_per_accepted": 0.0001991111111111111,
+      "break_even_requests": 132151785.71428573,
+      "break_even_capacity_fraction": 2.5143033811698197
+    },
+    {
+      "nodes": 2,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 23681.600000000002,
+      "api_unit_usd": 0.003584,
+      "monthly_tasks": 100000.0,
+      "capacity_tasks": 52560000,
+      "load_fraction": 0.001902587519025875,
+      "local_quality": 0.9,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.2631288888888889,
+      "api_cost_per_accepted": 0.003982222222222222,
+      "break_even_requests": 6607589.285714286,
+      "break_even_capacity_fraction": 0.12571516905849098
+    },
+    {
+      "nodes": 2,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 23681.600000000002,
+      "api_unit_usd": 0.0001792,
+      "monthly_tasks": 1000000.0,
+      "capacity_tasks": 52560000,
+      "load_fraction": 0.01902587519025875,
+      "local_quality": 0.8,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.029602000000000003,
+      "api_cost_per_accepted": 0.0001991111111111111,
+      "break_even_requests": 148670758.92857143,
+      "break_even_capacity_fraction": 2.828591303816047
+    },
+    {
+      "nodes": 2,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 23681.600000000002,
+      "api_unit_usd": 0.003584,
+      "monthly_tasks": 1000000.0,
+      "capacity_tasks": 52560000,
+      "load_fraction": 0.01902587519025875,
+      "local_quality": 0.8,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.029602000000000003,
+      "api_cost_per_accepted": 0.003982222222222222,
+      "break_even_requests": 7433537.946428572,
+      "break_even_capacity_fraction": 0.14142956519080235
+    },
+    {
+      "nodes": 2,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 23681.600000000002,
+      "api_unit_usd": 0.0001792,
+      "monthly_tasks": 1000000.0,
+      "capacity_tasks": 52560000,
+      "load_fraction": 0.01902587519025875,
+      "local_quality": 0.9,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.026312888888888893,
+      "api_cost_per_accepted": 0.0001991111111111111,
+      "break_even_requests": 132151785.71428573,
+      "break_even_capacity_fraction": 2.5143033811698197
+    },
+    {
+      "nodes": 2,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 23681.600000000002,
+      "api_unit_usd": 0.003584,
+      "monthly_tasks": 1000000.0,
+      "capacity_tasks": 52560000,
+      "load_fraction": 0.01902587519025875,
+      "local_quality": 0.9,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.026312888888888893,
+      "api_cost_per_accepted": 0.003982222222222222,
+      "break_even_requests": 6607589.285714286,
+      "break_even_capacity_fraction": 0.12571516905849098
+    },
+    {
+      "nodes": 2,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 23681.600000000002,
+      "api_unit_usd": 0.0001792,
+      "monthly_tasks": 10000000.0,
+      "capacity_tasks": 52560000,
+      "load_fraction": 0.1902587519025875,
+      "local_quality": 0.8,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.0029602,
+      "api_cost_per_accepted": 0.0001991111111111111,
+      "break_even_requests": 148670758.92857143,
+      "break_even_capacity_fraction": 2.828591303816047
+    },
+    {
+      "nodes": 2,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 23681.600000000002,
+      "api_unit_usd": 0.003584,
+      "monthly_tasks": 10000000.0,
+      "capacity_tasks": 52560000,
+      "load_fraction": 0.1902587519025875,
+      "local_quality": 0.8,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.0029602,
+      "api_cost_per_accepted": 0.003982222222222222,
+      "break_even_requests": 7433537.946428572,
+      "break_even_capacity_fraction": 0.14142956519080235
+    },
+    {
+      "nodes": 2,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 23681.600000000002,
+      "api_unit_usd": 0.0001792,
+      "monthly_tasks": 10000000.0,
+      "capacity_tasks": 52560000,
+      "load_fraction": 0.1902587519025875,
+      "local_quality": 0.9,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.002631288888888889,
+      "api_cost_per_accepted": 0.0001991111111111111,
+      "break_even_requests": 132151785.71428573,
+      "break_even_capacity_fraction": 2.5143033811698197
+    },
+    {
+      "nodes": 2,
+      "node_rate_usd_hour": 13.96,
+      "host_usd_month": 23681.600000000002,
+      "api_unit_usd": 0.003584,
+      "monthly_tasks": 10000000.0,
+      "capacity_tasks": 52560000,
+      "load_fraction": 0.1902587519025875,
+      "local_quality": 0.9,
+      "api_quality": 0.9,
+      "local_cost_per_accepted": 0.002631288888888889,
+      "api_cost_per_accepted": 0.003982222222222222,
+      "break_even_requests": 6607589.285714286,
+      "break_even_capacity_fraction": 0.12571516905849098
+    }
+  ],
+  "google_cache": {
+    "prefix_tokens": 120000,
+    "hours": 1,
+    "queries": 12,
+    "input_rate": 0.3,
+    "read_rate": 0.03,
+    "storage_rate_per_million_hour": 1,
+    "storage_usd": 0.12,
+    "prefix_reads_usd": 0.043199999999999995,
+    "uncached_prefix_usd": 0.432,
+    "break_even_queries_storage_only": 3.7037037037037033
+  },
+  "threshold": {
+    "gemini25pro_200000in_800out": 0.258,
+    "gemini25pro_200001in_800out": 0.5120025
+  },
+  "historical_calibration": {
+    "gpt4omini_1500in_500out": 0.000525,
+    "gpt41_1500in_500out": 0.007
+  },
+  "research_variant": {
+    "search_success": 20,
+    "fetch_success": 40,
+    "deepseek_total_usd": 0.045,
+    "openai_search_call_fees_usd": 0.2,
+    "openai_search_content_tokens_excluded": true
+  },
+  "derived_checks": {
+    "support_equal_accepted_cost_wage_usd_min": 0.049158245048118825,
+    "support_false_accepted_unseen_at_1pct_error": 8.815999999999999,
+    "document_repair_cost_per_1pp_quality": 72.0,
+    "claude_cache5_uncached_reuse_threshold": 1.263157894736842,
+    "claude_cache60_uncached_reuse_threshold": 2.0526315789473686,
+    "google24h_prefix_storage": 2.88
+  }
+}

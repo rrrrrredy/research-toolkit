@@ -1,0 +1,34 @@
+{
+  "host_task": "/root/benchmark_process_a",
+  "status": "completed",
+  "case_id": "microdrama_market_zh",
+  "perspective": "process_language",
+  "input_version": "98b93c531b8061c68cfa3c93abb7469a9e3b577b6ad2775430396fc04ba37c51",
+  "assignment_version": "fdd851a2c6646ee611ba38a29e6934177e819083057067fc4e5b2d9abd9adc0b",
+  "artifact_sha256": "dd39a222cc69892efe6c830f9609bc42ff66d534825f0725364b38f1b3a07a0a",
+  "completed_at": "2026-11-09T22:36:00.0048739+08:00",
+  "reading": {
+    "task": "Complete assignment.task and assignment.requirements read",
+    "effective_requirements": "Complete R_TASK, R_LANGUAGE, R_DATE; scope_decisions empty",
+    "report_path": "reports/current.md",
+    "report_characters": 36405,
+    "report_line_count": 513,
+    "report_ranges": [
+      "1-125",
+      "126-250",
+      "251-385",
+      "386-513"
+    ],
+    "report_read_complete": true,
+    "relevant_materials": [
+      "references/subagents-and-review-loop.md: perspective, independence and output instructions",
+      "sources/MD003/original.txt: all 215 lines, retained CSM source text",
+      "analysis/calculations/completion-results.json: complete retained result",
+      "analysis/calculations/scenario-results.json: assumption_status, paid_inputs, free_inputs only",
+      "data/source_registry.csv: MD003 entry only"
+    ],
+    "limits": "Original evidence reading was targeted to process-language distinctions; no claim to reread all source documents, recheck all numbers, run calculations, or render the report."
+  },
+  "independence_disclosure": "The first attempt to inspect assignment.sources expanded a large text map and exposed the retained analysis/author-production/production-handoff.md before truncation. It contained author production status, substantive handoff judgments and editing boundaries, including completed-first-draft/waiting-for-review statements. This exposure was accidental and was reported to the parent; no other perspective review, prior finding or revision_context was intentionally read. This completed substantive assessment must not be represented as a context with zero author-handoff exposure; any strict independence eligibility decision belongs to the parent/auditor.",
+  "actions": "Read-only review; wrote only response.json and execution.json. Did not edit report, import result, initiate research, call API or run software tests."
+}

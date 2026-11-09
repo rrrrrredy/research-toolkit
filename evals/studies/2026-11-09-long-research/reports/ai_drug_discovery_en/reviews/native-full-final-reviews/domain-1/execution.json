@@ -1,0 +1,69 @@
+{
+  "status": "completed",
+  "host_task": "/root/independent_domain_b",
+  "role": "reviewer",
+  "slot_id": "domain-1",
+  "scope": "Current whole-report domain revision confirmation in original reviewer context",
+  "input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+  "assignment_version": "f0369f88cf49e7fa4c60a688c38ce917ac6e6d26ea3a0ef88aadd00339d04e80",
+  "artifact_sha256": "65d880c1a784b0575d853d837db979ff73e28fec8c1bd024252c4b546f1a6558",
+  "completed_at": "2026-11-09T15:34:23.0698022Z",
+  "actual_reading": "Read own prior response and compared its exact frozen assignment report to the current domain assignment report; read all 19 unified-diff lines and affected surrounding context. Reused my prior complete substantive reading. Task, effective requirements, scope decisions and source_files compare identical. Instruction additions were read: retained original-context review and changes are not approval. Relevant historical required findings in the current job were treated as revision inputs; no other current-perspective conclusions were read.",
+  "checks": "本次为原真实领域上下文对当前完整稿的修订确认；先前完整阅读保留，实际变更按直接全文diff判断，未以历史通过自动替代当前判断。实际比较本人首次全文negative d49c3ce9与当前稿并读完19行diff。AIDD-FULL-DOM-B-01已经解决：现为合成/测试数百化合物，通过反复两周反馈循环提名候选；复查AIDD06 p4 274–292行，350th compound、约两周批次和人工类似物并行的原文支持该句。不到12个月、排除安全评价、既有平台/测定建设与候选提名终点、其后临床终止均保留，没有改成数百次模型更新。末段仅客观说明支持材料和明确缺失protocol/SAP/合同细节，未升级source access。其余全部U1–U4、临床人群/缺失处理、REC-4881原脚注、转化与许可权利和已读算例逐字未改；有效要求及来源文件相同。复用本人全文及原件审阅，当前领域通过；首次negative及U1历史意见保留。",
+  "old_input_version": "d49c3ce9104cc63e7832524cae63752853080491d4da8a045072f0dfff369a97",
+  "old_assignment_version": "a0ea9786257c2228a3619acc0eee068c3c7243e484d9aa3ca3a8b1382ac628fe",
+  "prior_response": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-full-reviews\\domain-1\\response.json",
+  "prior_execution": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-full-reviews\\domain-1\\execution.json",
+  "old_report_sha256": "4645728a2c1f4b18f13c8c42839d3610b4ec0ebdad5596efa38adc2983417f3c",
+  "current_report_sha256": "65d880c1a784b0575d853d837db979ff73e28fec8c1bd024252c4b546f1a6558",
+  "actual_diff": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-full-final-reviews\\domain-1\\actual-diff.txt",
+  "unchanged_inputs": {
+    "task": true,
+    "effective_requirements": true,
+    "scope_decisions": true,
+    "source_files": true,
+    "sources": true
+  },
+  "additional_original_reading": [
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\AIDD06\\original.txt"
+  ],
+  "file_versions": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-full-final-reviews\\domain-1\\actual-diff.txt",
+      "sha256": "51275b0015884287353af979a5449e1c2c64e9b76146c02128905451be4165cd"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-full-final-reviews\\domain-1\\reviewed-current.txt",
+      "sha256": "65d880c1a784b0575d853d837db979ff73e28fec8c1bd024252c4b546f1a6558"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-full-final-reviews\\domain-1\\reviewed-old.txt",
+      "sha256": "4645728a2c1f4b18f13c8c42839d3610b4ec0ebdad5596efa38adc2983417f3c"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-full-reviews\\domain-1\\execution.json",
+      "sha256": "ed434d445a47bcaf56ccc8916287dfa503daac5cf668c4f744174b2044917b9f"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-full-reviews\\domain-1\\response.json",
+      "sha256": "460c9cceb140b284b4068359923d3453ee1a3fcd99fe5ff35ae792a2db8cf55c"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\AIDD06\\original.txt",
+      "sha256": "3985f4866d96d0ad5d0f0ee82551934080779d815cef5444ebb9c64f1ff8782d"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en\\reviews\\host\\b14ddf2357207d82f698\\jobs\\domain-1-f0369f88cf49e7fa.json",
+      "sha256": "995e8179dff0c3ec35c010a015c941668d9a15157019c61f990c8f1504f2bca9"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en\\reviews\\host\\d49c3ce9104cc63e7832\\jobs\\domain-1-a0ea9786257c2228.json",
+      "sha256": "32c0091e59588e1c891ba6847b8b95db3865473c908e2ef6185fc595571fa591"
+    }
+  ],
+  "api_calls": 0,
+  "research_rerun": false,
+  "calculation_rerun": false,
+  "report_edited": false,
+  "imported": false
+}

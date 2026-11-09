@@ -1,0 +1,19 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "natural_expression": {
+      "location": "全文第1—372行，重点第24—59、71—103、119—135、139—301及335—370行",
+      "basis": "已逐段通读完整任务和全文。资金流例子把消费者付款、商品券、平台及商家贡献落到同一单，随后单仓账、阶梯成本、高峰运力、现金爬坡和网络分流均推进不同问题。各处假设、访谈与公司报表口径说明有明确对应对象，没有因限定语多而要求删去。采用建议可由算例直接理解。必要修改仅为末尾内部生产身份及协调审查状态。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "natural_expression-01",
+      "severity": "minor",
+      "location": "第372行，来源、模型与阅读范围最后两句，从“生产作者为`/root/microdrama_research`”开始",
+      "basis": "内部任务身份、完整作者稿状态以及协调任务将处理独立审查的说明，是制作过程信息，读者无法据此理解前置仓经营条件，且与该段的证据定位用途混在一起。删去这两句生产和审查状态说明；保留reading-ledger.json与claims.jsonl的定位作用及前文计算原件，不扩展为全文风格改写。"
+    }
+  ],
+  "input_version": "26bd4a51cfdb507fa0301ad9f73091ea57ff663bf6752ef98302c4cddf0ba63d",
+  "assignment_version": "6df69afd7405414fb677e8f9a9037b53514266067c6a068b348ff8b82fa6d8f6"
+}

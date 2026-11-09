@@ -1,0 +1,17 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "e971ccb9869b9b5333e060010f47e805e42b57a4ba02adedbc0203d5af57509e",
+  "assignment_version": "f2a7a9718c962a52a38e9ba12cd5cf78574c065516b96252a543884f1bc66bb4",
+  "completed_at": "2026-11-09T13:45:16.862080+00:00",
+  "reading_scope": {
+    "task": "complete assignment task",
+    "report": "complete reports/current.md lines 1-386",
+    "originals": [
+      "sources/TE13.txt lines 364-379 and 565-570",
+      "sources/TE12.txt lines 307-319 and 265-267",
+      "analysis/calculation-results.json hosting and derived_checks objects"
+    ],
+    "scope": "Independent adversarial reasoning only; no new experiments, calculations rerun, report edits or other-review inputs."
+  }
+}

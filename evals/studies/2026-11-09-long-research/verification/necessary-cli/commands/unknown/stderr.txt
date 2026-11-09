@@ -1,0 +1,6 @@
+usage: run_evals.py [-h] [--evals-dir EVALS_DIR] [--case TASK_ID]
+                    [--runs-dir RUNS_DIR] [--report REPORT]
+                    [--json-report JSON_REPORT] [--create-skeletons]
+                    [--delivery-contract-version {1,2,3}]
+                    [--allow-missing-output] [--allow-review]
+run_evals.py: error: Unknown case_id(s): 'absent'. Available case_id(s): a-frozen, b-research, c-control

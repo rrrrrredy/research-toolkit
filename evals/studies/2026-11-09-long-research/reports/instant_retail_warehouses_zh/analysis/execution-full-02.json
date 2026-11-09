@@ -1,0 +1,716 @@
+{
+  "host_task": "/root/microdrama_research",
+  "kind": "author_revision_not_independent_review",
+  "status": "completed",
+  "started_at": "2026-11-09T15:42:41.838088+00:00",
+  "finding_id": "EV-IRWZH-01",
+  "previous_input_version": "4b4f8ba9746a6950486f2e5d0516255a453b204564392efa1a90e4f71b49d238",
+  "previous_report_sha256": "7e21c43cfa6c37e1d0cb285f59a614502cd37db399d69a3dba0bbf1b55ae2184",
+  "revision_report_sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed",
+  "revision_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\instant_retail_warehouses_zh\\codex-production\\draft-revision-full-02.md",
+  "change_note": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\instant_retail_warehouses_zh\\codex-production\\change-note-full-02.md",
+  "model_executed": false,
+  "owner_before": "/root/microdrama_research",
+  "preserved_hashes": {
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\instant_retail_warehouses_zh\\codex-production\\draft-final.md": "9a290feda290752a1e23375a840699f163566c1c7b42819ecf4f9a5563dcc42c",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\instant_retail_warehouses_zh\\codex-production\\draft-final.first-complete.md": "9a290feda290752a1e23375a840699f163566c1c7b42819ecf4f9a5563dcc42c",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\instant_retail_warehouses_zh\\codex-production\\draft-revision-full-01.md": "7e21c43cfa6c37e1d0cb285f59a614502cd37db399d69a3dba0bbf1b55ae2184",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\instant_retail_warehouses_zh\\codex-production\\change-note-full-01.md": "9e256c73b8dbc5f2f02deaae23b633662a95de5e1bf0b1817f7124a2648a2408",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\instant_retail_warehouses_zh\\codex-production\\warehouse-model.py": "4c951579dc3134e5b090c60fd5e617c9b83f419cf05eed56747441a4724b5a97",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\instant_retail_warehouses_zh\\codex-production\\warehouse-results.json": "14f492fa573a40227baa150ab96c9192b03342a1a601cfea541ebb16051e0eea",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\instant_retail_warehouses_zh\\codex-production\\warehouse-results.csv": "86af663932b853775eb8c37e1d6b00a4ca4d5df55dc2d5a4d7cf6d4b4e98895e",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\instant_retail_warehouses_zh\\codex-production\\financial-bridges.py": "f0262cc1cb88e4ff9956d1b9c913ab80f4b3c69b4b91322b4938a97bc9fc333d",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\instant_retail_warehouses_zh\\codex-production\\financial-bridges.json": "30f9e18d0fb8f367ce442b2fe53078f1b8aec5877efe7bc88476416de97dcb06"
+  },
+  "diff": "--- reports/current.md before EV-IRWZH-01\n+++ draft-revision-full-02.md\n@@ -204,5 +204,5 @@\n |---|---:|---|---:|---:|---:|---:|\n | 自营新区域 | 550 / 62元 | 损耗2.5%，配送7元，投流1.5元，上游2.4元/单 | 7.046 | −38741 | −78341 | 73145 |\n-| 自营弱商圈 | 400 / 60元 | 毛利30%，损耗3.5%，拣选2.2元，配送7.5元 | 4.58 | −100040 | −121640 | 52920 |\n+| 自营弱商圈 | 400 / 60元 | 毛利30%，损耗3.5%，拣选2.2元，配送7.5元，投流1.5元/单 | 4.58 | −100040 | −121640 | 52920 |\n | 社会化加2%加盟费 | 400 / 50元 | 其他同基准 | 5.00 | 0 | 0 | 298200 |\n | 社会化较强选品情景 | 500 / 55元 | 毛利32%，其他同基准；固定增至6.9万 | 8.30 | 55500 | 55500 | 398475 |\n@@ -274,5 +274,5 @@\n 如果激励取消、日单下降、存货积压或补货扩大，28个月会延长，甚至不再存在可实现回收期。以8%年化资金机会成本估算，仅存货平均占用每月约1988元；生鲜基准约831元。该项未在前述经营利润中重复扣除，可在投资比较时另计。供应商账期能缓解流动性，却无法把滞销商品变成可盈利需求，供应款到期仍需要现金。\n \n-生鲜新区域还需承受爬坡。以下假设设备及开仓资本60万元、保证金7.5万元，存货按现款采购；初始不提前计同一批存货，随各月存货增加扣现金。月利润已含1.8万元折旧，现金桥加回折旧，再减库存增量；上游分摊在此假定为需要支付的持续费用。未计税费、融资、供应商账期及未来退出回收。\n+生鲜新区域还需承受爬坡。其中，第1—3个月损耗率为2.5%、投流为1.5元/单；第4个月起，损耗率降至2%、投流降至1元/单。以下假设设备及开仓资本60万元、保证金7.5万元，存货按现款采购；初始不提前计同一批存货，随各月存货增加扣现金。月利润已含1.8万元折旧，现金桥加回折旧，再减库存增量；上游分摊在此假定为需要支付的持续费用。未计税费、融资、供应商账期及未来退出回收。\n \n | 开仓月 | 日单 | 当月分摊后经营结果 | 月末存货资金 | 累计现金净流出 |\n",
+  "completed_at": "2026-11-09T15:42:45.443662+00:00",
+  "save_result": {
+    "ok": true,
+    "saved_ids": {},
+    "updated_files": [
+      "reports/current.md",
+      "state/progress.json"
+    ],
+    "backups": [
+      "logs/record-backups/75a0f36ed03f4aec8cb2b753991e3e0d/reports/current.md",
+      "logs/record-backups/75a0f36ed03f4aec8cb2b753991e3e0d/saved/reports/current.md"
+    ],
+    "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+    "changes": {
+      "available": true,
+      "operation_id": "a2d5cfbb8a3d492c8a3e547ee70a5a47",
+      "saved_at": "2026-11-09T12:52:52.962981+00:00",
+      "records": {
+        "sources": {
+          "added": [
+            "financial-bridges.json"
+          ],
+          "updated": [],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        },
+        "claims": {
+          "added": [],
+          "updated": [
+            "IRWC-002",
+            "IRWC-013",
+            "IRWC-014",
+            "IRWC-015",
+            "IRWC-016",
+            "IRWC-017",
+            "IRWC-018",
+            "IRWC-020"
+          ],
+          "unchanged": [
+            "IRWC-001",
+            "IRWC-003",
+            "IRWC-004",
+            "IRWC-005",
+            "IRWC-006",
+            "IRWC-007",
+            "IRWC-008",
+            "IRWC-009",
+            "IRWC-010",
+            "IRWC-011",
+            "IRWC-012",
+            "IRWC-019",
+            "IRWC-021",
+            "IRWC-022",
+            "IRWC-023"
+          ],
+          "removed": [],
+          "recovered": []
+        }
+      },
+      "source_files": {
+        "financial-bridges.json": {
+          "status": "first_observation",
+          "paths": [
+            "analysis/calculations/financial-bridges.json",
+            "analysis/calculations/financial-bridges.py"
+          ],
+          "previous_paths": []
+        }
+      },
+      "artifact": "reports/current.md",
+      "affected_claims": [
+        {
+          "claim_id": "IRWC-002",
+          "claim": "同一假设50元商品订单，仓固定成本前贡献6元、平台贡献0；内部补贴和费用不得重复算市场规模。",
+          "changed_source_ids": [],
+          "locations": [],
+          "location_status": "not_located"
+        },
+        {
+          "claim_id": "IRWC-013",
+          "claim": "成熟自营900日单的仓级月利润73940元，分摊后25340元；社会化400日单利润12000元但库存298200元，均为假设。",
+          "changed_source_ids": [],
+          "locations": [],
+          "location_status": "not_located"
+        },
+        {
+          "claim_id": "IRWC-014",
+          "claim": "社会化加入2%加盟费在400日单恰好盈亏平衡；基准单仓最小整数平衡334日单，自营分摊后697日单，均需通过产能需求条件。",
+          "changed_source_ids": [],
+          "locations": [],
+          "location_status": "not_located"
+        },
+        {
+          "claim_id": "IRWC-015",
+          "claim": "订单增长会触发固定费用阶梯；降价促销联合情景使生鲜日单增长20%而分摊后亏7.73万元。",
+          "changed_source_ids": [],
+          "locations": [],
+          "location_status": "not_located"
+        },
+        {
+          "claim_id": "IRWC-016",
+          "claim": "峰时900日单生鲜需至少6名同时拣货和约32名并发运力，社会化2名拣货仅81单/小时，均非全天编制标准。",
+          "changed_source_ids": [
+            "financial-bridges.json"
+          ],
+          "locations": [],
+          "location_status": "not_located"
+        },
+        {
+          "claim_id": "IRWC-017",
+          "claim": "新增500日单仓中300单为原仓分流时，网络净增200日单而月利润较原网络下降90480元。",
+          "changed_source_ids": [],
+          "locations": [],
+          "location_status": "not_located"
+        },
+        {
+          "claim_id": "IRWC-018",
+          "claim": "新区域六个月爬坡到950日单仍亏，累计现金缺口约104.9万元，非全生命周期峰值或回本期。",
+          "changed_source_ids": [],
+          "locations": [],
+          "location_status": "not_located"
+        },
+        {
+          "claim_id": "IRWC-020",
+          "claim": "门店线上增量结果与全额分摊结果可相反；例子200日单增量利润1.3万而完整分摊-2.7万。",
+          "changed_source_ids": [
+            "financial-bridges.json"
+          ],
+          "locations": [],
+          "location_status": "not_located"
+        }
+      ],
+      "unlinked_source_ids": [],
+      "affected_outputs": [],
+      "scope": "Latest successful record-save batch; report locations are literal source-link or claim-text matches, and research-output links use saved input and unit dependencies in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+    },
+    "current_work": {
+      "task_spec": "state/task_spec.md",
+      "requirements": "state/requirements.jsonl",
+      "artifact": {
+        "path": "reports/current.md",
+        "sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed",
+        "kind": "report",
+        "owner": "/root/microdrama_research",
+        "unit_id": "report",
+        "current_sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed",
+        "changed_since_save": false
+      },
+      "open_requirements": [
+        {
+          "requirement_id": "R_TASK",
+          "summary": "面向经营、战略与投资团队，研究中国本地生活前置仓在什么区域和经营条件下能够形成可持续的单仓经济，以及生鲜自营前置仓与即时零售社会化仓为何不能用同一组表面指标直接比较。重点考察2021年至2026-11-09的经营变化，资料截止日为2026-11-09。企业调整、关仓和扩张应按当时公开证据还原，不把未来开仓计划或合作意向写成已运营网络。\n\n定义研究对象，区分自营持货的生鲜前置仓、面向即时零售平台的社会化仓、加盟或合作仓，以及门店拣货配送。门店模式可作为对照，但不能与纯仓模式不加区分地合并。说明平台、仓经营者、商品供应商和配送方分别承担库存、定价、补贴、流量、损耗与履约责任。选择公开资料足以追踪的代表经营者与地区，不固定公司名单，并注意关停或退出样本带来的反证，避免只观察存活者。\n\n按人口与消费密度、订单频次、竞争强度和网络成熟度选择有差异的城市或区域进行比较。研究履约半径、仓间重叠、配送时效、峰谷订单、客单价、品类结构、SKU与库存周转、缺货率和损耗之间的关系。优先比较口径可对齐的同城或相近区域案例；无法对齐时解释季节、城市、仓龄和促销条件差异，不从全国平均值直接推导某个城市的可行仓密度。\n\n分别构造自营生鲜仓与社会化仓经营者的单仓、单单经济模型，并说明平台端经济性与仓经营者利润的区别。将商品销售额或交易额、净收入、采购成本、毛利、损耗、包装拣选、配送、平台费用、流量投放、租金、人工、能源、折旧、库存资金及总部费用分清；补贴需说明出资方、是否持续及是否已含在其他指标中。展示公式、单位、期间和输入依据，区分贡献利润、仓级盈亏与公司净利润。公开资料不足时用有边界的情景假设，不虚构企业内部单仓账目。\n\n分析订单密度、客单价、毛利、损耗、履约成本和补贴退坡的敏感性，计算或解释盈亏平衡所需订单与实际服务半径、产能和需求是否相容。不能只假设订单增加而成本无限线性下降；考虑高峰运力、增员、仓容和新增仓分流。解释扩张、加密、缩仓、换品类或改用门店履约分别在哪些条件下合理，并纳入食品安全、用工与服务质量等实质性经营约束。\n\n交付完整研究报告，包含区域与模式比较、责任和资金流关系、可复核的单仓经济模型及盈亏敏感性分析，为成熟城区经营和新区域进入分别提供条件化判断。表格可以放在正文或附录，不要求固定章节名称。重点核验收入与交易额是否混淆、补贴和履约成本是否重复计算或遗漏、单仓盈利是否被误当作全公司盈利，以及扩张结论是否受到真实需求和网络容量约束。任何模式均不预设必然盈利或不可持续。",
+          "status": "in_progress"
+        },
+        {
+          "requirement_id": "R_LANGUAGE",
+          "summary": "zh complete long research report with task-required exhibits.",
+          "status": "pending"
+        },
+        {
+          "requirement_id": "R_DATE",
+          "summary": "Only evidence public by2026-11-09; preserve dates, regions and versions.",
+          "status": "in_progress"
+        }
+      ],
+      "effective_requirements": [
+        {
+          "requirement_id": "R_TASK",
+          "summary": "面向经营、战略与投资团队，研究中国本地生活前置仓在什么区域和经营条件下能够形成可持续的单仓经济，以及生鲜自营前置仓与即时零售社会化仓为何不能用同一组表面指标直接比较。重点考察2021年至2026-11-09的经营变化，资料截止日为2026-11-09。企业调整、关仓和扩张应按当时公开证据还原，不把未来开仓计划或合作意向写成已运营网络。\n\n定义研究对象，区分自营持货的生鲜前置仓、面向即时零售平台的社会化仓、加盟或合作仓，以及门店拣货配送。门店模式可作为对照，但不能与纯仓模式不加区分地合并。说明平台、仓经营者、商品供应商和配送方分别承担库存、定价、补贴、流量、损耗与履约责任。选择公开资料足以追踪的代表经营者与地区，不固定公司名单，并注意关停或退出样本带来的反证，避免只观察存活者。\n\n按人口与消费密度、订单频次、竞争强度和网络成熟度选择有差异的城市或区域进行比较。研究履约半径、仓间重叠、配送时效、峰谷订单、客单价、品类结构、SKU与库存周转、缺货率和损耗之间的关系。优先比较口径可对齐的同城或相近区域案例；无法对齐时解释季节、城市、仓龄和促销条件差异，不从全国平均值直接推导某个城市的可行仓密度。\n\n分别构造自营生鲜仓与社会化仓经营者的单仓、单单经济模型，并说明平台端经济性与仓经营者利润的区别。将商品销售额或交易额、净收入、采购成本、毛利、损耗、包装拣选、配送、平台费用、流量投放、租金、人工、能源、折旧、库存资金及总部费用分清；补贴需说明出资方、是否持续及是否已含在其他指标中。展示公式、单位、期间和输入依据，区分贡献利润、仓级盈亏与公司净利润。公开资料不足时用有边界的情景假设，不虚构企业内部单仓账目。\n\n分析订单密度、客单价、毛利、损耗、履约成本和补贴退坡的敏感性，计算或解释盈亏平衡所需订单与实际服务半径、产能和需求是否相容。不能只假设订单增加而成本无限线性下降；考虑高峰运力、增员、仓容和新增仓分流。解释扩张、加密、缩仓、换品类或改用门店履约分别在哪些条件下合理，并纳入食品安全、用工与服务质量等实质性经营约束。\n\n交付完整研究报告，包含区域与模式比较、责任和资金流关系、可复核的单仓经济模型及盈亏敏感性分析，为成熟城区经营和新区域进入分别提供条件化判断。表格可以放在正文或附录，不要求固定章节名称。重点核验收入与交易额是否混淆、补贴和履约成本是否重复计算或遗漏、单仓盈利是否被误当作全公司盈利，以及扩张结论是否受到真实需求和网络容量约束。任何模式均不预设必然盈利或不可持续。",
+          "status": "in_progress"
+        },
+        {
+          "requirement_id": "R_LANGUAGE",
+          "summary": "zh complete long research report with task-required exhibits.",
+          "status": "pending"
+        },
+        {
+          "requirement_id": "R_DATE",
+          "summary": "Only evidence public by2026-11-09; preserve dates, regions and versions.",
+          "status": "in_progress"
+        }
+      ],
+      "scope_decisions": [],
+      "warnings": [],
+      "brief": {
+        "question": "面向经营、战略与投资团队，研究中国本地生活前置仓在什么区域和经营条件下能够形成可持续的单仓经济，以及生鲜自营前置仓与即时零售社会化仓为何不能用同一组表面指标直接比较。重点考察2021年至2026-11-09的经营变化，资料截止日为2026-11-09。企业调整、关仓和扩张应按当时公开证据还原，不把未来开仓计划或合作意向写成已运营网络。\n\n定义研究对象，区分自营持货的生鲜前置仓、面向即时零售平台的社会化仓、加盟或合作仓，以及门店拣货配送。门店模式可作为对照，但不能与纯仓模式不加区分地合并。说明平台、仓经营者、商品供应商和配送方分别承担库存、定价、补贴、流量、损耗与履约责任。选择公开资料足以追踪的代表经营者与地区，不固定公司名单，并注意关停或退出样本带来的反证，避免只观察存活者。\n\n按人口与消费密度、订单频次、竞争强度和网络成熟度选择有差异的城市或区域进行比较。研究履约半径、仓间重叠、配送时效、峰谷订单、客单价、品类结构、SKU与库存周转、缺货率和损耗之间的关系。优先比较口径可对齐的同城或相近区域案例；无法对齐时解释季节、城市、仓龄和促销条件差异，不从全国平均值直接推导某个城市的可行仓密度。\n\n分别构造自营生鲜仓与社会化仓经营者的单仓、单单经济模型，并说明平台端经济性与仓经营者利润的区别。将商品销售额或交易额、净收入、采购成本、毛利、损耗、包装拣选、配送、平台费用、流量投放、租金、人工、能源、折旧、库存资金及总部费用分清；补贴需说明出资方、是否持续及是否已含在其他指标中。展示公式、单位、期间和输入依据，区分贡献利润、仓级盈亏与公司净利润。公开资料不足时用有边界的情景假设，不虚构企业内部单仓账目。\n\n分析订单密度、客单价、毛利、损耗、履约成本和补贴退坡的敏感性，计算或解释盈亏平衡所需订单与实际服务半径、产能和需求是否相容。不能只假设订单增加而成本无限线性下降；考虑高峰运力、增员、仓容和新增仓分流。解释扩张、加密、缩仓、换品类或改用门店履约分别在哪些条件下合理，并纳入食品安全、用工与服务质量等实质性经营约束。\n\n交付完整研究报告，包含区域与模式比较、责任和资金流关系、可复核的单仓经济模型及盈亏敏感性分析，为成熟城区经营和新区域进入分别提供条件化判断。表格可以放在正文或附录，不要求固定章节名称。重点核验收入与交易额是否混淆、补贴和履约成本是否重复计算或遗漏、单仓盈利是否被误当作全公司盈利，以及扩张结论是否受到真实需求和网络容量约束。任何模式均不预设必然盈利或不可持续。",
+        "audience": "制定前置仓经营、即时零售网络扩张与投资策略的团队",
+        "scope": "Follow the task geography, comparison scope and evidence cutoff of 2026-11-09. Each other-language version uses its frozen sources without seeing the first-language report.",
+        "output": "Complete long-form research report final.md with the task-specific comparisons, explanations, tables and locatable citations. Preserve the first draft and actual independent results.",
+        "depth": "完整长研究报告，将区域需求、仓网布局、品类经营和履约成本联结为可检查的单仓与单单经济模型，并解释模式差异及盈亏条件。",
+        "evidence_standard": "Use original public sources with actual dates, reading evidence and retained originals. Conduct seven separate independent content perspectives, relevant domain review, independent audit and final acceptance. Live primary research"
+      },
+      "research_outputs": [
+        {
+          "path": "analysis/outline.md",
+          "sha256": "524f731b0efa19c2f3296bd79ce6c39f627f9e1d1748c0e4c0ddbe66f2778722",
+          "kind": "analysis",
+          "complete": true,
+          "contributors": [
+            "/root/microdrama_research"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "analysis/outline.md"
+          },
+          "host_task": "/root/microdrama_research",
+          "based_on": {
+            "state/task_spec.md": "186358737299c07c2c4e038a9b0bb5614a1fa995cd427818068eb347f9f84883",
+            "record:requirements:effective@outline": "ce1e7fc1cedb57f70dd2d8c0e59c473187b09c869845442a01dfcad344beaade"
+          },
+          "unit_id": "outline",
+          "depends_on": [],
+          "dependency_versions": {},
+          "question": "国内本地生活前置仓研究：区域密度、履约网络与单仓经济",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/db07c3bd691d48eaa5264ea0c15578fd/saved/analysis/outline.md",
+            "sha256": "524f731b0efa19c2f3296bd79ce6c39f627f9e1d1748c0e4c0ddbe66f2778722"
+          },
+          "owner": "/root/microdrama_research",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [],
+          "readiness_issues": [],
+          "review": {
+            "artifact_sha256": "524f731b0efa19c2f3296bd79ce6c39f627f9e1d1748c0e4c0ddbe66f2778722",
+            "input_version": "c431e1bb532fbc1960709bbe66fd62f10ed2f56c2c11b81117798e93963ced9a",
+            "ok": true,
+            "reviewers": [
+              "/root",
+              "/root/independent_structure_b"
+            ],
+            "record_path": "reviews/host/c431e1bb532fbc196070/input.json"
+          }
+        },
+        {
+          "path": "reports/current.md",
+          "sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed",
+          "kind": "report",
+          "complete": true,
+          "contributors": [
+            "/root/microdrama_research"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "reports/current.md"
+          },
+          "host_task": "/root/microdrama_research",
+          "based_on": {
+            "state/task_spec.md": "186358737299c07c2c4e038a9b0bb5614a1fa995cd427818068eb347f9f84883",
+            "notes/actual-reading/IRW02.json": "93ec35d4917dffd187efc6a769c5741792ae045fc9363cf45ee97ab522e3c74d",
+            "sources/actual/IRW02.txt": "978923c496856bf51bc11444fe03d71e44fff274d6432b2d495cc23b0d92f1e9",
+            "notes/actual-reading/IRW03.json": "99e494c32ac9321c9543f9770bdf6effbf3c508d9780af30fa34da901c68a151",
+            "sources/actual/IRW03.txt": "14ba0f07376ae685e017c531277e2be3ce90947dd82f3b154337ef80046ff356",
+            "notes/actual-reading/IRW07.json": "74c876216a2fdc2e8ff0b1a89b8456a8c62cf0c422e573470e58fe3f67bc239c",
+            "sources/actual/IRW07.txt": "caa7fb453b617ad596c83b9360a17be1af0d80a685840cca2e9c6f5797a01d63",
+            "notes/actual-reading/IRW09.json": "5eeafc9dd06589bdf6348546049fcf377fb8499f2fc7204eeb6ed11d6c9f7f0b",
+            "sources/actual/IRW09.txt": "4b26975bab41a16b1c706bd5fc65016ef50a908e7367db91e26fe8340767a281",
+            "notes/actual-reading/IRW10.json": "b3908acbbe667c5d003455477de92f452af8bd2e6df1183568e08be07be43adc",
+            "sources/actual/IRW10.txt": "6d6547da4da6c242466897712232890d958e239aa17c5c07ea1ac1efe4698ef1",
+            "notes/actual-reading/IRW11.json": "74b9d32fdbcc0abc3e18ee9cbb077a12f908ed8b715d86faa06092db460cdb18",
+            "sources/actual/IRW11.txt": "a319c6291d71478c13e0eda1beac0bec53457e5073b020004af74eb6e5b2868a",
+            "notes/actual-reading/IRW13.json": "d40c018f991446bc6dc45ab8b2a5bd03bc0e784a9192661f1cff39a5443077af",
+            "sources/actual/IRW13.txt": "8eb57cd594d32dfbdeaa888cd49e4e29982833bc48aa730f05b6b53c45d6ee45",
+            "notes/actual-reading/IRW14.json": "058c4a043f71f5bb2256ee44dd9cfef127c2c2687bf1c00bb5bad18c97901fae",
+            "sources/actual/IRW14.txt": "8adc61b848b2a9a132f713f3df3c97291a67379ce9616fda3717bcc4a8114c71",
+            "notes/actual-reading/IRW15.json": "7decd32f0de08d1b433eaebdcddbff82116cac51af0a12534bf1054c53647547",
+            "sources/actual/IRW15.txt": "232c9ac3a56d63c5a40d6b053b7c2e35a8e12fd833cafdf105217d9adb54da20",
+            "notes/actual-reading/IRW17.json": "0dc4ded7e52127b69641463c7e70c3bac7f46c1a4f1eb9e92808215ef304a583",
+            "sources/actual/IRW17.txt": "0a6fefcafce3adc8960bbb5b7efec06cf6dfd107befd5e685378cf9ac0bc01f3",
+            "notes/actual-reading/IRW18.json": "7417f35783feb21cebda5123708d2cb535490dc98611e1171de4189889116aa5",
+            "sources/actual/IRW18.txt": "0a6fefcafce3adc8960bbb5b7efec06cf6dfd107befd5e685378cf9ac0bc01f3",
+            "notes/actual-reading/IRW22.json": "c81b49ec0a3e01e18d58b9f73f2e64917b32da0f84327f6e42f36c7c32b570af",
+            "sources/actual/IRW22.txt": "d2a3e07edb5695a33aaa49aa2d9ffa645bb168cc29c46c7dca32e58dd2ff8598",
+            "notes/actual-reading/IRW23.json": "7923ba962c5a0e7934e3f2a7bb3a422c7e3c44d360c1903aab4b67ef1aba5983",
+            "sources/actual/IRW23.txt": "4b26975bab41a16b1c706bd5fc65016ef50a908e7367db91e26fe8340767a281",
+            "notes/actual-reading/IRW25.json": "71505e836e4d9f9f1b6509f632463cc638ddbcf70157134f533b1ae8bfe59f9b",
+            "sources/actual/IRW25.txt": "83a91944da78152f3ab2066c8460a729eba78a7fcf6cc294d1cc6919ae9f74a0",
+            "notes/actual-reading/IRW28.json": "edc95e44cd0dadd0026b64e70e9fe7316859637bc6550eaee64edd7fcef24ba9",
+            "sources/actual/IRW28.txt": "30c323d8cc1fac48345af9bfc26cbb420777f2d260738ba3b181ac4bc018e797",
+            "analysis/calculations/warehouse-results.json": "cb78c8b8fd544bb75e5e83aa050f3a84da5eaf12d859cb40d66ddaaba4f06732",
+            "analysis/calculations/financial-bridges.json": "69f4478de0b697b4c2d16121ce3a86e3314506885eb6d57d8c1de0f56877b6a3",
+            "analysis/outline.md": "524f731b0efa19c2f3296bd79ce6c39f627f9e1d1748c0e4c0ddbe66f2778722",
+            "analysis/calculations/warehouse-model.py": "4c951579dc3134e5b090c60fd5e617c9b83f419cf05eed56747441a4724b5a97",
+            "analysis/calculations/financial-bridges.py": "f0262cc1cb88e4ff9956d1b9c913ab80f4b3c69b4b91322b4938a97bc9fc333d",
+            "record:requirements:effective@outline,report": "ce1e7fc1cedb57f70dd2d8c0e59c473187b09c869845442a01dfcad344beaade",
+            "record:sources:IRW02": "3035c0ad0bcdb75652bf63e884a95b626df04647b51c40180241fe1b439512e0",
+            "record:sources:IRW03": "aefee0533af9a76d3008c2fe216418c40d6b6f2b6c5e92ef1cdd1cdad7208ac3",
+            "record:sources:IRW07": "782bb9722cab936e0c47a3aac84a07bfe6232f26267eba164a170066fd712f50",
+            "record:sources:IRW09": "6b2948f82970179441816705f356be525049cecad874d257f17585b6e7fb3b3e",
+            "record:sources:IRW10": "fc25e392359800a1301ff928f46b6d7c383bd9a879c2f3a396c7e47b172fc8fc",
+            "record:sources:IRW11": "9d857e2c113b765eadab7667e739c7a319a366f7bcb3da89f64be44579108773",
+            "record:sources:IRW13": "64f72ff05417c2d6485eb11aa84e4f15c246602df1adcc908c965e1806e79c74",
+            "record:sources:IRW14": "4a3902b2f2fa14baf0d6e362a593de10d638d2c53523fffa8b71eb6f7d1c7d0f",
+            "record:sources:IRW15": "fc6cc64bd5738033a73d48a3c1dc7861099e88fb470aa274919b757d180c5c57",
+            "record:sources:IRW17": "53dda57b28f8be6080fc831977f80542f22cadbd96bf35615d73e557f6729c88",
+            "record:sources:IRW18": "0903fc1b66b888bb3f02296fa3f553f811dbc41a3ea782a51095b5fe59785ed0",
+            "record:sources:IRW22": "929fe0c6270f944ddbd3890b297460f865689afd1eebaefd74ab9fffbb562288",
+            "record:sources:IRW23": "a4759a54ade128f66006ed578cb484ce2f52814c1a86a4b982a0da58f523ab66",
+            "record:sources:IRW25": "5dd4423be11fd30da056c998496471fc53b68ddddd58fde8a21c9db238f0acab",
+            "record:sources:IRW28": "6e1de363ba5410811f8244be77c4b4065feea63a4c04e9a62a1a16cebe2eb9e2",
+            "record:sources:warehouse-results.json": "b644be3527d664838e316038566fb5d65e44b8bd87bb231854de33c5a22614d0",
+            "record:sources:financial-bridges.json": "48f1f7f664fc6a493820072aa21b556ff982b824d19d0995c6fac92075d6149b",
+            "record:claims:IRWC-001": "6488aa2288b1e79528a644709b350a26f5b64591e6bb55b1841afdc5c041cc4b",
+            "record:claims:IRWC-002": "38248395fd8b6d0d995edab1b2ab03ec11b2b020740ea89b555ffeee148bda2a",
+            "record:claims:IRWC-003": "ce9c359cc66a41dd32f45ae90539ee9a3b5592776ccab255dbd0b6045155bc1d",
+            "record:claims:IRWC-004": "7def472524fa92ad04827c490b90ebf2912e93267c0e5612178e4267e97f790c",
+            "record:claims:IRWC-005": "e52824b15e64fea8a603b76b8f974fee9e3308047a8733776ce3111e6b7942e3",
+            "record:claims:IRWC-006": "322d4cf616039c931a4a95c653cdde7e76f85c615311f4acb56a3377651a261a",
+            "record:claims:IRWC-007": "52bd8e0d0fc9e4c5739c96618cc1503930ae1a7dd80654d657b342e6fa5ea0ed",
+            "record:claims:IRWC-008": "8fb49eab7e07b6db0e0b01dced190f61ff0bd62835e4062115af98903aaaa000",
+            "record:claims:IRWC-009": "e325a45a2e1216a00f895b9e397a428e5912a1a2a35c24e1d2143c728de97cac",
+            "record:claims:IRWC-010": "cd2265bb033c070bf93d3f840831ea69ad5f65d5f084b0309b84ac4d576ca4bd",
+            "record:claims:IRWC-011": "a56807398d5586521793287571e2e8f3d53742258a5ec6ff7049a314a8bb1d5f",
+            "record:claims:IRWC-012": "83d73ea998238ba7df5ce1c657e697ea3633752fa63df22bf31a655c450cda45",
+            "record:claims:IRWC-013": "6b55b8e4535be59771b2213cdcffa50e4e70b335b4b4ab94b29f0e0f42b5d2ed",
+            "record:claims:IRWC-014": "8fc607f1f8051435e8958eaa3d817ee0e2f7340e613f738384a0d9746ddaca4c",
+            "record:claims:IRWC-015": "608fb840cd65a7ad96645bc817abf24b9c5811d7bc4234234718458d0394472d",
+            "record:claims:IRWC-016": "2bf331cfbb3b25c818ac9084f56e5d1c16928343ddc49e4de740f289ed1b6a6e",
+            "record:claims:IRWC-017": "b2a936cbf8d209d369269dd437076cb15926ee19fea1187805c92eb1ff0ee196",
+            "record:claims:IRWC-018": "15a1e7e79377bc9c528a4c1714b2e06d09cf73a4ea7e9e6ef3bbfc50b70c4dae",
+            "record:claims:IRWC-019": "4a12aeb9877f6a97b0d5c0b0dbbfdb716e5fc79e660691801997d6ee3542f263",
+            "record:claims:IRWC-020": "bb6dfce5c2ee4cb16c3d700b5a287828738070b1080f9739887f7927c18fbc02",
+            "record:claims:IRWC-021": "eca60e48920df57f35c26d991cdab7e9fd7db0cc0a9b3e215a268b4dabec5c10",
+            "record:claims:IRWC-022": "9c3a2727c47406952d62d2a104f74341611b6d546edbecbdba1c2f628f17c8a1",
+            "record:claims:IRWC-023": "114b9ac5a63bcb975378b100c2b1686c1417305683e01b9564e985c694992b09"
+          },
+          "unit_id": "report",
+          "depends_on": [
+            "outline"
+          ],
+          "dependency_versions": {
+            "outline": "524f731b0efa19c2f3296bd79ce6c39f627f9e1d1748c0e4c0ddbe66f2778722"
+          },
+          "handoff": {
+            "summary": "EV-IRWZH-01: disclose existing weak-market ad cost and month-four loss/ad changes; all model inputs and outputs retained without re-execution.",
+            "pending": [
+              "Independent recheck of this condition-disclosure revision and existing full-report review responsibilities."
+            ]
+          },
+          "question": "Integrate the complete answer to the effective research task and its comparisons.",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/75a0f36ed03f4aec8cb2b753991e3e0d/saved/reports/current.md",
+            "sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed"
+          },
+          "previous_version": {
+            "path": "logs/record-backups/75a0f36ed03f4aec8cb2b753991e3e0d/reports/current.md",
+            "sha256": "7e21c43cfa6c37e1d0cb285f59a614502cd37db399d69a3dba0bbf1b55ae2184"
+          },
+          "owner": "/root/microdrama_research",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [
+            {
+              "unit_id": "outline",
+              "path": "analysis/outline.md",
+              "issues": []
+            }
+          ],
+          "readiness_issues": [
+            "independent_review_pending"
+          ],
+          "review": null
+        }
+      ],
+      "work_units": [
+        {
+          "path": "analysis/outline.md",
+          "sha256": "524f731b0efa19c2f3296bd79ce6c39f627f9e1d1748c0e4c0ddbe66f2778722",
+          "kind": "analysis",
+          "complete": true,
+          "contributors": [
+            "/root/microdrama_research"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "analysis/outline.md"
+          },
+          "host_task": "/root/microdrama_research",
+          "based_on": {
+            "state/task_spec.md": "186358737299c07c2c4e038a9b0bb5614a1fa995cd427818068eb347f9f84883",
+            "record:requirements:effective@outline": "ce1e7fc1cedb57f70dd2d8c0e59c473187b09c869845442a01dfcad344beaade"
+          },
+          "unit_id": "outline",
+          "depends_on": [],
+          "dependency_versions": {},
+          "question": "国内本地生活前置仓研究：区域密度、履约网络与单仓经济",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/db07c3bd691d48eaa5264ea0c15578fd/saved/analysis/outline.md",
+            "sha256": "524f731b0efa19c2f3296bd79ce6c39f627f9e1d1748c0e4c0ddbe66f2778722"
+          },
+          "owner": "/root/microdrama_research",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [],
+          "readiness_issues": [],
+          "review": {
+            "artifact_sha256": "524f731b0efa19c2f3296bd79ce6c39f627f9e1d1748c0e4c0ddbe66f2778722",
+            "input_version": "c431e1bb532fbc1960709bbe66fd62f10ed2f56c2c11b81117798e93963ced9a",
+            "ok": true,
+            "reviewers": [
+              "/root",
+              "/root/independent_structure_b"
+            ],
+            "record_path": "reviews/host/c431e1bb532fbc196070/input.json"
+          }
+        },
+        {
+          "path": "reports/current.md",
+          "sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed",
+          "kind": "report",
+          "complete": true,
+          "contributors": [
+            "/root/microdrama_research"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "reports/current.md"
+          },
+          "host_task": "/root/microdrama_research",
+          "based_on": {
+            "state/task_spec.md": "186358737299c07c2c4e038a9b0bb5614a1fa995cd427818068eb347f9f84883",
+            "notes/actual-reading/IRW02.json": "93ec35d4917dffd187efc6a769c5741792ae045fc9363cf45ee97ab522e3c74d",
+            "sources/actual/IRW02.txt": "978923c496856bf51bc11444fe03d71e44fff274d6432b2d495cc23b0d92f1e9",
+            "notes/actual-reading/IRW03.json": "99e494c32ac9321c9543f9770bdf6effbf3c508d9780af30fa34da901c68a151",
+            "sources/actual/IRW03.txt": "14ba0f07376ae685e017c531277e2be3ce90947dd82f3b154337ef80046ff356",
+            "notes/actual-reading/IRW07.json": "74c876216a2fdc2e8ff0b1a89b8456a8c62cf0c422e573470e58fe3f67bc239c",
+            "sources/actual/IRW07.txt": "caa7fb453b617ad596c83b9360a17be1af0d80a685840cca2e9c6f5797a01d63",
+            "notes/actual-reading/IRW09.json": "5eeafc9dd06589bdf6348546049fcf377fb8499f2fc7204eeb6ed11d6c9f7f0b",
+            "sources/actual/IRW09.txt": "4b26975bab41a16b1c706bd5fc65016ef50a908e7367db91e26fe8340767a281",
+            "notes/actual-reading/IRW10.json": "b3908acbbe667c5d003455477de92f452af8bd2e6df1183568e08be07be43adc",
+            "sources/actual/IRW10.txt": "6d6547da4da6c242466897712232890d958e239aa17c5c07ea1ac1efe4698ef1",
+            "notes/actual-reading/IRW11.json": "74b9d32fdbcc0abc3e18ee9cbb077a12f908ed8b715d86faa06092db460cdb18",
+            "sources/actual/IRW11.txt": "a319c6291d71478c13e0eda1beac0bec53457e5073b020004af74eb6e5b2868a",
+            "notes/actual-reading/IRW13.json": "d40c018f991446bc6dc45ab8b2a5bd03bc0e784a9192661f1cff39a5443077af",
+            "sources/actual/IRW13.txt": "8eb57cd594d32dfbdeaa888cd49e4e29982833bc48aa730f05b6b53c45d6ee45",
+            "notes/actual-reading/IRW14.json": "058c4a043f71f5bb2256ee44dd9cfef127c2c2687bf1c00bb5bad18c97901fae",
+            "sources/actual/IRW14.txt": "8adc61b848b2a9a132f713f3df3c97291a67379ce9616fda3717bcc4a8114c71",
+            "notes/actual-reading/IRW15.json": "7decd32f0de08d1b433eaebdcddbff82116cac51af0a12534bf1054c53647547",
+            "sources/actual/IRW15.txt": "232c9ac3a56d63c5a40d6b053b7c2e35a8e12fd833cafdf105217d9adb54da20",
+            "notes/actual-reading/IRW17.json": "0dc4ded7e52127b69641463c7e70c3bac7f46c1a4f1eb9e92808215ef304a583",
+            "sources/actual/IRW17.txt": "0a6fefcafce3adc8960bbb5b7efec06cf6dfd107befd5e685378cf9ac0bc01f3",
+            "notes/actual-reading/IRW18.json": "7417f35783feb21cebda5123708d2cb535490dc98611e1171de4189889116aa5",
+            "sources/actual/IRW18.txt": "0a6fefcafce3adc8960bbb5b7efec06cf6dfd107befd5e685378cf9ac0bc01f3",
+            "notes/actual-reading/IRW22.json": "c81b49ec0a3e01e18d58b9f73f2e64917b32da0f84327f6e42f36c7c32b570af",
+            "sources/actual/IRW22.txt": "d2a3e07edb5695a33aaa49aa2d9ffa645bb168cc29c46c7dca32e58dd2ff8598",
+            "notes/actual-reading/IRW23.json": "7923ba962c5a0e7934e3f2a7bb3a422c7e3c44d360c1903aab4b67ef1aba5983",
+            "sources/actual/IRW23.txt": "4b26975bab41a16b1c706bd5fc65016ef50a908e7367db91e26fe8340767a281",
+            "notes/actual-reading/IRW25.json": "71505e836e4d9f9f1b6509f632463cc638ddbcf70157134f533b1ae8bfe59f9b",
+            "sources/actual/IRW25.txt": "83a91944da78152f3ab2066c8460a729eba78a7fcf6cc294d1cc6919ae9f74a0",
+            "notes/actual-reading/IRW28.json": "edc95e44cd0dadd0026b64e70e9fe7316859637bc6550eaee64edd7fcef24ba9",
+            "sources/actual/IRW28.txt": "30c323d8cc1fac48345af9bfc26cbb420777f2d260738ba3b181ac4bc018e797",
+            "analysis/calculations/warehouse-results.json": "cb78c8b8fd544bb75e5e83aa050f3a84da5eaf12d859cb40d66ddaaba4f06732",
+            "analysis/calculations/financial-bridges.json": "69f4478de0b697b4c2d16121ce3a86e3314506885eb6d57d8c1de0f56877b6a3",
+            "analysis/outline.md": "524f731b0efa19c2f3296bd79ce6c39f627f9e1d1748c0e4c0ddbe66f2778722",
+            "analysis/calculations/warehouse-model.py": "4c951579dc3134e5b090c60fd5e617c9b83f419cf05eed56747441a4724b5a97",
+            "analysis/calculations/financial-bridges.py": "f0262cc1cb88e4ff9956d1b9c913ab80f4b3c69b4b91322b4938a97bc9fc333d",
+            "record:requirements:effective@outline,report": "ce1e7fc1cedb57f70dd2d8c0e59c473187b09c869845442a01dfcad344beaade",
+            "record:sources:IRW02": "3035c0ad0bcdb75652bf63e884a95b626df04647b51c40180241fe1b439512e0",
+            "record:sources:IRW03": "aefee0533af9a76d3008c2fe216418c40d6b6f2b6c5e92ef1cdd1cdad7208ac3",
+            "record:sources:IRW07": "782bb9722cab936e0c47a3aac84a07bfe6232f26267eba164a170066fd712f50",
+            "record:sources:IRW09": "6b2948f82970179441816705f356be525049cecad874d257f17585b6e7fb3b3e",
+            "record:sources:IRW10": "fc25e392359800a1301ff928f46b6d7c383bd9a879c2f3a396c7e47b172fc8fc",
+            "record:sources:IRW11": "9d857e2c113b765eadab7667e739c7a319a366f7bcb3da89f64be44579108773",
+            "record:sources:IRW13": "64f72ff05417c2d6485eb11aa84e4f15c246602df1adcc908c965e1806e79c74",
+            "record:sources:IRW14": "4a3902b2f2fa14baf0d6e362a593de10d638d2c53523fffa8b71eb6f7d1c7d0f",
+            "record:sources:IRW15": "fc6cc64bd5738033a73d48a3c1dc7861099e88fb470aa274919b757d180c5c57",
+            "record:sources:IRW17": "53dda57b28f8be6080fc831977f80542f22cadbd96bf35615d73e557f6729c88",
+            "record:sources:IRW18": "0903fc1b66b888bb3f02296fa3f553f811dbc41a3ea782a51095b5fe59785ed0",
+            "record:sources:IRW22": "929fe0c6270f944ddbd3890b297460f865689afd1eebaefd74ab9fffbb562288",
+            "record:sources:IRW23": "a4759a54ade128f66006ed578cb484ce2f52814c1a86a4b982a0da58f523ab66",
+            "record:sources:IRW25": "5dd4423be11fd30da056c998496471fc53b68ddddd58fde8a21c9db238f0acab",
+            "record:sources:IRW28": "6e1de363ba5410811f8244be77c4b4065feea63a4c04e9a62a1a16cebe2eb9e2",
+            "record:sources:warehouse-results.json": "b644be3527d664838e316038566fb5d65e44b8bd87bb231854de33c5a22614d0",
+            "record:sources:financial-bridges.json": "48f1f7f664fc6a493820072aa21b556ff982b824d19d0995c6fac92075d6149b",
+            "record:claims:IRWC-001": "6488aa2288b1e79528a644709b350a26f5b64591e6bb55b1841afdc5c041cc4b",
+            "record:claims:IRWC-002": "38248395fd8b6d0d995edab1b2ab03ec11b2b020740ea89b555ffeee148bda2a",
+            "record:claims:IRWC-003": "ce9c359cc66a41dd32f45ae90539ee9a3b5592776ccab255dbd0b6045155bc1d",
+            "record:claims:IRWC-004": "7def472524fa92ad04827c490b90ebf2912e93267c0e5612178e4267e97f790c",
+            "record:claims:IRWC-005": "e52824b15e64fea8a603b76b8f974fee9e3308047a8733776ce3111e6b7942e3",
+            "record:claims:IRWC-006": "322d4cf616039c931a4a95c653cdde7e76f85c615311f4acb56a3377651a261a",
+            "record:claims:IRWC-007": "52bd8e0d0fc9e4c5739c96618cc1503930ae1a7dd80654d657b342e6fa5ea0ed",
+            "record:claims:IRWC-008": "8fb49eab7e07b6db0e0b01dced190f61ff0bd62835e4062115af98903aaaa000",
+            "record:claims:IRWC-009": "e325a45a2e1216a00f895b9e397a428e5912a1a2a35c24e1d2143c728de97cac",
+            "record:claims:IRWC-010": "cd2265bb033c070bf93d3f840831ea69ad5f65d5f084b0309b84ac4d576ca4bd",
+            "record:claims:IRWC-011": "a56807398d5586521793287571e2e8f3d53742258a5ec6ff7049a314a8bb1d5f",
+            "record:claims:IRWC-012": "83d73ea998238ba7df5ce1c657e697ea3633752fa63df22bf31a655c450cda45",
+            "record:claims:IRWC-013": "6b55b8e4535be59771b2213cdcffa50e4e70b335b4b4ab94b29f0e0f42b5d2ed",
+            "record:claims:IRWC-014": "8fc607f1f8051435e8958eaa3d817ee0e2f7340e613f738384a0d9746ddaca4c",
+            "record:claims:IRWC-015": "608fb840cd65a7ad96645bc817abf24b9c5811d7bc4234234718458d0394472d",
+            "record:claims:IRWC-016": "2bf331cfbb3b25c818ac9084f56e5d1c16928343ddc49e4de740f289ed1b6a6e",
+            "record:claims:IRWC-017": "b2a936cbf8d209d369269dd437076cb15926ee19fea1187805c92eb1ff0ee196",
+            "record:claims:IRWC-018": "15a1e7e79377bc9c528a4c1714b2e06d09cf73a4ea7e9e6ef3bbfc50b70c4dae",
+            "record:claims:IRWC-019": "4a12aeb9877f6a97b0d5c0b0dbbfdb716e5fc79e660691801997d6ee3542f263",
+            "record:claims:IRWC-020": "bb6dfce5c2ee4cb16c3d700b5a287828738070b1080f9739887f7927c18fbc02",
+            "record:claims:IRWC-021": "eca60e48920df57f35c26d991cdab7e9fd7db0cc0a9b3e215a268b4dabec5c10",
+            "record:claims:IRWC-022": "9c3a2727c47406952d62d2a104f74341611b6d546edbecbdba1c2f628f17c8a1",
+            "record:claims:IRWC-023": "114b9ac5a63bcb975378b100c2b1686c1417305683e01b9564e985c694992b09"
+          },
+          "unit_id": "report",
+          "depends_on": [
+            "outline"
+          ],
+          "dependency_versions": {
+            "outline": "524f731b0efa19c2f3296bd79ce6c39f627f9e1d1748c0e4c0ddbe66f2778722"
+          },
+          "handoff": {
+            "summary": "EV-IRWZH-01: disclose existing weak-market ad cost and month-four loss/ad changes; all model inputs and outputs retained without re-execution.",
+            "pending": [
+              "Independent recheck of this condition-disclosure revision and existing full-report review responsibilities."
+            ]
+          },
+          "question": "Integrate the complete answer to the effective research task and its comparisons.",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/75a0f36ed03f4aec8cb2b753991e3e0d/saved/reports/current.md",
+            "sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed"
+          },
+          "previous_version": {
+            "path": "logs/record-backups/75a0f36ed03f4aec8cb2b753991e3e0d/reports/current.md",
+            "sha256": "7e21c43cfa6c37e1d0cb285f59a614502cd37db399d69a3dba0bbf1b55ae2184"
+          },
+          "owner": "/root/microdrama_research",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [
+            {
+              "unit_id": "outline",
+              "path": "analysis/outline.md",
+              "issues": []
+            }
+          ],
+          "readiness_issues": [
+            "independent_review_pending"
+          ],
+          "review": null
+        }
+      ],
+      "production_contexts": [
+        "/root/microdrama_research",
+        "author:instant_retail_warehouses_zh"
+      ],
+      "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+    },
+    "observation": {
+      "operation": "save",
+      "operation_id": "75a0f36ed03f4aec8cb2b753991e3e0d",
+      "started_at": "2026-11-09T15:42:42.426801+00:00",
+      "unit_id": "report",
+      "unit_complete": true,
+      "question": "Integrate the complete answer to the effective research task and its comparisons.",
+      "depends_on": [
+        "outline"
+      ],
+      "dependency_versions": {
+        "outline": "524f731b0efa19c2f3296bd79ce6c39f627f9e1d1748c0e4c0ddbe66f2778722"
+      },
+      "host_task": "/root/microdrama_research",
+      "handoff": {
+        "summary": "EV-IRWZH-01: disclose existing weak-market ad cost and month-four loss/ad changes; all model inputs and outputs retained without re-execution.",
+        "pending": [
+          "Independent recheck of this condition-disclosure revision and existing full-report review responsibilities."
+        ]
+      },
+      "based_on": {
+        "state/task_spec.md": "186358737299c07c2c4e038a9b0bb5614a1fa995cd427818068eb347f9f84883",
+        "notes/actual-reading/IRW02.json": "93ec35d4917dffd187efc6a769c5741792ae045fc9363cf45ee97ab522e3c74d",
+        "sources/actual/IRW02.txt": "978923c496856bf51bc11444fe03d71e44fff274d6432b2d495cc23b0d92f1e9",
+        "notes/actual-reading/IRW03.json": "99e494c32ac9321c9543f9770bdf6effbf3c508d9780af30fa34da901c68a151",
+        "sources/actual/IRW03.txt": "14ba0f07376ae685e017c531277e2be3ce90947dd82f3b154337ef80046ff356",
+        "notes/actual-reading/IRW07.json": "74c876216a2fdc2e8ff0b1a89b8456a8c62cf0c422e573470e58fe3f67bc239c",
+        "sources/actual/IRW07.txt": "caa7fb453b617ad596c83b9360a17be1af0d80a685840cca2e9c6f5797a01d63",
+        "notes/actual-reading/IRW09.json": "5eeafc9dd06589bdf6348546049fcf377fb8499f2fc7204eeb6ed11d6c9f7f0b",
+        "sources/actual/IRW09.txt": "4b26975bab41a16b1c706bd5fc65016ef50a908e7367db91e26fe8340767a281",
+        "notes/actual-reading/IRW10.json": "b3908acbbe667c5d003455477de92f452af8bd2e6df1183568e08be07be43adc",
+        "sources/actual/IRW10.txt": "6d6547da4da6c242466897712232890d958e239aa17c5c07ea1ac1efe4698ef1",
+        "notes/actual-reading/IRW11.json": "74b9d32fdbcc0abc3e18ee9cbb077a12f908ed8b715d86faa06092db460cdb18",
+        "sources/actual/IRW11.txt": "a319c6291d71478c13e0eda1beac0bec53457e5073b020004af74eb6e5b2868a",
+        "notes/actual-reading/IRW13.json": "d40c018f991446bc6dc45ab8b2a5bd03bc0e784a9192661f1cff39a5443077af",
+        "sources/actual/IRW13.txt": "8eb57cd594d32dfbdeaa888cd49e4e29982833bc48aa730f05b6b53c45d6ee45",
+        "notes/actual-reading/IRW14.json": "058c4a043f71f5bb2256ee44dd9cfef127c2c2687bf1c00bb5bad18c97901fae",
+        "sources/actual/IRW14.txt": "8adc61b848b2a9a132f713f3df3c97291a67379ce9616fda3717bcc4a8114c71",
+        "notes/actual-reading/IRW15.json": "7decd32f0de08d1b433eaebdcddbff82116cac51af0a12534bf1054c53647547",
+        "sources/actual/IRW15.txt": "232c9ac3a56d63c5a40d6b053b7c2e35a8e12fd833cafdf105217d9adb54da20",
+        "notes/actual-reading/IRW17.json": "0dc4ded7e52127b69641463c7e70c3bac7f46c1a4f1eb9e92808215ef304a583",
+        "sources/actual/IRW17.txt": "0a6fefcafce3adc8960bbb5b7efec06cf6dfd107befd5e685378cf9ac0bc01f3",
+        "notes/actual-reading/IRW18.json": "7417f35783feb21cebda5123708d2cb535490dc98611e1171de4189889116aa5",
+        "sources/actual/IRW18.txt": "0a6fefcafce3adc8960bbb5b7efec06cf6dfd107befd5e685378cf9ac0bc01f3",
+        "notes/actual-reading/IRW22.json": "c81b49ec0a3e01e18d58b9f73f2e64917b32da0f84327f6e42f36c7c32b570af",
+        "sources/actual/IRW22.txt": "d2a3e07edb5695a33aaa49aa2d9ffa645bb168cc29c46c7dca32e58dd2ff8598",
+        "notes/actual-reading/IRW23.json": "7923ba962c5a0e7934e3f2a7bb3a422c7e3c44d360c1903aab4b67ef1aba5983",
+        "sources/actual/IRW23.txt": "4b26975bab41a16b1c706bd5fc65016ef50a908e7367db91e26fe8340767a281",
+        "notes/actual-reading/IRW25.json": "71505e836e4d9f9f1b6509f632463cc638ddbcf70157134f533b1ae8bfe59f9b",
+        "sources/actual/IRW25.txt": "83a91944da78152f3ab2066c8460a729eba78a7fcf6cc294d1cc6919ae9f74a0",
+        "notes/actual-reading/IRW28.json": "edc95e44cd0dadd0026b64e70e9fe7316859637bc6550eaee64edd7fcef24ba9",
+        "sources/actual/IRW28.txt": "30c323d8cc1fac48345af9bfc26cbb420777f2d260738ba3b181ac4bc018e797",
+        "analysis/calculations/warehouse-results.json": "cb78c8b8fd544bb75e5e83aa050f3a84da5eaf12d859cb40d66ddaaba4f06732",
+        "analysis/calculations/financial-bridges.json": "69f4478de0b697b4c2d16121ce3a86e3314506885eb6d57d8c1de0f56877b6a3",
+        "analysis/outline.md": "524f731b0efa19c2f3296bd79ce6c39f627f9e1d1748c0e4c0ddbe66f2778722",
+        "analysis/calculations/warehouse-model.py": "4c951579dc3134e5b090c60fd5e617c9b83f419cf05eed56747441a4724b5a97",
+        "analysis/calculations/financial-bridges.py": "f0262cc1cb88e4ff9956d1b9c913ab80f4b3c69b4b91322b4938a97bc9fc333d",
+        "record:requirements:effective@outline,report": "ce1e7fc1cedb57f70dd2d8c0e59c473187b09c869845442a01dfcad344beaade",
+        "record:sources:IRW02": "3035c0ad0bcdb75652bf63e884a95b626df04647b51c40180241fe1b439512e0",
+        "record:sources:IRW03": "aefee0533af9a76d3008c2fe216418c40d6b6f2b6c5e92ef1cdd1cdad7208ac3",
+        "record:sources:IRW07": "782bb9722cab936e0c47a3aac84a07bfe6232f26267eba164a170066fd712f50",
+        "record:sources:IRW09": "6b2948f82970179441816705f356be525049cecad874d257f17585b6e7fb3b3e",
+        "record:sources:IRW10": "fc25e392359800a1301ff928f46b6d7c383bd9a879c2f3a396c7e47b172fc8fc",
+        "record:sources:IRW11": "9d857e2c113b765eadab7667e739c7a319a366f7bcb3da89f64be44579108773",
+        "record:sources:IRW13": "64f72ff05417c2d6485eb11aa84e4f15c246602df1adcc908c965e1806e79c74",
+        "record:sources:IRW14": "4a3902b2f2fa14baf0d6e362a593de10d638d2c53523fffa8b71eb6f7d1c7d0f",
+        "record:sources:IRW15": "fc6cc64bd5738033a73d48a3c1dc7861099e88fb470aa274919b757d180c5c57",
+        "record:sources:IRW17": "53dda57b28f8be6080fc831977f80542f22cadbd96bf35615d73e557f6729c88",
+        "record:sources:IRW18": "0903fc1b66b888bb3f02296fa3f553f811dbc41a3ea782a51095b5fe59785ed0",
+        "record:sources:IRW22": "929fe0c6270f944ddbd3890b297460f865689afd1eebaefd74ab9fffbb562288",
+        "record:sources:IRW23": "a4759a54ade128f66006ed578cb484ce2f52814c1a86a4b982a0da58f523ab66",
+        "record:sources:IRW25": "5dd4423be11fd30da056c998496471fc53b68ddddd58fde8a21c9db238f0acab",
+        "record:sources:IRW28": "6e1de363ba5410811f8244be77c4b4065feea63a4c04e9a62a1a16cebe2eb9e2",
+        "record:sources:warehouse-results.json": "b644be3527d664838e316038566fb5d65e44b8bd87bb231854de33c5a22614d0",
+        "record:sources:financial-bridges.json": "48f1f7f664fc6a493820072aa21b556ff982b824d19d0995c6fac92075d6149b",
+        "record:claims:IRWC-001": "6488aa2288b1e79528a644709b350a26f5b64591e6bb55b1841afdc5c041cc4b",
+        "record:claims:IRWC-002": "38248395fd8b6d0d995edab1b2ab03ec11b2b020740ea89b555ffeee148bda2a",
+        "record:claims:IRWC-003": "ce9c359cc66a41dd32f45ae90539ee9a3b5592776ccab255dbd0b6045155bc1d",
+        "record:claims:IRWC-004": "7def472524fa92ad04827c490b90ebf2912e93267c0e5612178e4267e97f790c",
+        "record:claims:IRWC-005": "e52824b15e64fea8a603b76b8f974fee9e3308047a8733776ce3111e6b7942e3",
+        "record:claims:IRWC-006": "322d4cf616039c931a4a95c653cdde7e76f85c615311f4acb56a3377651a261a",
+        "record:claims:IRWC-007": "52bd8e0d0fc9e4c5739c96618cc1503930ae1a7dd80654d657b342e6fa5ea0ed",
+        "record:claims:IRWC-008": "8fb49eab7e07b6db0e0b01dced190f61ff0bd62835e4062115af98903aaaa000",
+        "record:claims:IRWC-009": "e325a45a2e1216a00f895b9e397a428e5912a1a2a35c24e1d2143c728de97cac",
+        "record:claims:IRWC-010": "cd2265bb033c070bf93d3f840831ea69ad5f65d5f084b0309b84ac4d576ca4bd",
+        "record:claims:IRWC-011": "a56807398d5586521793287571e2e8f3d53742258a5ec6ff7049a314a8bb1d5f",
+        "record:claims:IRWC-012": "83d73ea998238ba7df5ce1c657e697ea3633752fa63df22bf31a655c450cda45",
+        "record:claims:IRWC-013": "6b55b8e4535be59771b2213cdcffa50e4e70b335b4b4ab94b29f0e0f42b5d2ed",
+        "record:claims:IRWC-014": "8fc607f1f8051435e8958eaa3d817ee0e2f7340e613f738384a0d9746ddaca4c",
+        "record:claims:IRWC-015": "608fb840cd65a7ad96645bc817abf24b9c5811d7bc4234234718458d0394472d",
+        "record:claims:IRWC-016": "2bf331cfbb3b25c818ac9084f56e5d1c16928343ddc49e4de740f289ed1b6a6e",
+        "record:claims:IRWC-017": "b2a936cbf8d209d369269dd437076cb15926ee19fea1187805c92eb1ff0ee196",
+        "record:claims:IRWC-018": "15a1e7e79377bc9c528a4c1714b2e06d09cf73a4ea7e9e6ef3bbfc50b70c4dae",
+        "record:claims:IRWC-019": "4a12aeb9877f6a97b0d5c0b0dbbfdb716e5fc79e660691801997d6ee3542f263",
+        "record:claims:IRWC-020": "bb6dfce5c2ee4cb16c3d700b5a287828738070b1080f9739887f7927c18fbc02",
+        "record:claims:IRWC-021": "eca60e48920df57f35c26d991cdab7e9fd7db0cc0a9b3e215a268b4dabec5c10",
+        "record:claims:IRWC-022": "9c3a2727c47406952d62d2a104f74341611b6d546edbecbdba1c2f628f17c8a1",
+        "record:claims:IRWC-023": "114b9ac5a63bcb975378b100c2b1686c1417305683e01b9564e985c694992b09"
+      },
+      "previous_version": {
+        "path": "logs/record-backups/75a0f36ed03f4aec8cb2b753991e3e0d/reports/current.md",
+        "sha256": "7e21c43cfa6c37e1d0cb285f59a614502cd37db399d69a3dba0bbf1b55ae2184"
+      },
+      "artifact_snapshot": {
+        "path": "logs/record-backups/75a0f36ed03f4aec8cb2b753991e3e0d/saved/reports/current.md",
+        "sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed"
+      },
+      "artifact": "reports/current.md",
+      "artifact_kind": "report",
+      "complete_draft": true,
+      "artifact_sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed",
+      "outcome": "saved",
+      "finished_at": "2026-11-09T15:42:42.644873+00:00"
+    }
+  },
+  "prepare_request": {
+    "task": "instant_retail_warehouses_zh",
+    "artifact": "reports/current.md",
+    "scope": "full_report",
+    "purpose": "report_delivery",
+    "domains": [
+      "Instant retail fulfillment, financial accounting and warehouse unit economics"
+    ],
+    "evidence_paths": [
+      "notes/author-reading-ledger.json",
+      "analysis/author-production/production-handoff.md"
+    ],
+    "revision": true
+  },
+  "new_input_version": "e80623165cafab4fb0438ddbd29c7f8abed83b8eeda1d1577c6baaa48c0d1b21",
+  "prepared_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\instant_retail_warehouses_zh\\native-full-evidence-conditions-prepared.json",
+  "default_pointer": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\instant_retail_warehouses_zh\\native-full-prepared.json",
+  "default_pointer_sha256": "66c49b0418745dca4296c695ed050d81f66b2156ac2ef723e3bd33b8ea6ece84",
+  "current_report_sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed",
+  "owner_after": "/root/microdrama_research",
+  "originals_and_calculations_unchanged": true,
+  "assignments_prepared": [
+    "requirements",
+    "evidence",
+    "adversarial_reasoning",
+    "structure_and_depth",
+    "reader_usefulness",
+    "process_language",
+    "natural_expression",
+    "domain-1"
+  ],
+  "independent_reviews_run_by_author": false
+}

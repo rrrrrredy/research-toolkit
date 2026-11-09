@@ -1,0 +1,16 @@
+test_answer_and_source_locations (__main__.CalibrationControlsTests.test_answer_and_source_locations) ... ok
+test_bad_swap_with_resealed_hash (__main__.CalibrationControlsTests.test_bad_swap_with_resealed_hash) ... ok
+test_chinese_counts_and_unit (__main__.CalibrationControlsTests.test_chinese_counts_and_unit) ... ok
+test_coordinator_metadata_is_not_packet_content (__main__.CalibrationControlsTests.test_coordinator_metadata_is_not_packet_content) ... ok
+test_counts_and_duplicate_family (__main__.CalibrationControlsTests.test_counts_and_duplicate_family) ... ok
+test_duplicate_json_fields (__main__.CalibrationControlsTests.test_duplicate_json_fields) ... ok
+test_false_tie_with_resealed_hash (__main__.CalibrationControlsTests.test_false_tie_with_resealed_hash) ... ok
+test_hash_and_checkout_line_endings (__main__.CalibrationControlsTests.test_hash_and_checkout_line_endings) ... ok
+test_path_escape (__main__.CalibrationControlsTests.test_path_escape) ... ok
+test_read_only_valid_pack (__main__.CalibrationControlsTests.test_read_only_valid_pack) ... ok
+test_shared_inputs_cannot_drift (__main__.CalibrationControlsTests.test_shared_inputs_cannot_drift) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.651s
+
+OK

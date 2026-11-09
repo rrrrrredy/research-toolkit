@@ -1,0 +1,32 @@
+{
+  "host_task": "/root/benchmark_process_a",
+  "status": "completed",
+  "case_id": "personal_agents_zh",
+  "perspective": "process_language",
+  "input_version": "d4aa7b428be4775d08f8987590a3df6f36a2073d3514f9fbd916cbe1f980b462",
+  "assignment_version": "bf0088f894c5aee4a652154c107d02174c4f19ef1742afdf8494c8a89c3db128",
+  "artifact_sha256": "d9823847fcd20b5f9e2d22b7f5ef853ba2112e0b1e9c8e942705dda061a7072e",
+  "completed_at": "2026-11-09T22:37:44.3363543+08:00",
+  "reading": {
+    "task": "Complete assignment.task and assignment.requirements read",
+    "effective_requirements": "Complete R_TASK, R_LANGUAGE, R_DATE; scope_decisions empty",
+    "instructions": "Complete assigned instructions read",
+    "report_path": "reports/current.md",
+    "report_characters": 12413,
+    "report_line_count": 190,
+    "report_ranges": [
+      "1-90",
+      "91-190"
+    ],
+    "report_read_complete": true,
+    "relevant_materials": [
+      "references/subagents-and-review-loop.md: perspective, independence and output instructions",
+      "sources/actual/PA09.txt: all 187 lines of retained Manus Projects source text",
+      "analysis/calculations/calculations.json: complete formula, four assumption/result scenarios and break-even value",
+      "data/source_registry.csv: source titles, paths and locators only"
+    ],
+    "limits": "Original evidence reading was targeted to process-language distinctions; no claim to reread all source documents, execute consumer product tasks, rerun calculations, or render the report."
+  },
+  "independence": "Separate from production and other review perspectives. No personal_agents_zh author self-assessment, production handoff, other review, prior finding or revision_context read. The same reviewer context previously assessed a different research topic in process_language only.",
+  "actions": "Read-only review; wrote only response.json and execution.json. Did not edit report, import result, initiate research, call API or run software tests."
+}

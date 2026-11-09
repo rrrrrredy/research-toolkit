@@ -37,4 +37,4 @@ mechanically_passed = result["conformance_status"] == "pass"
 
 默认情况下，`review`、`fail` 或必需输出缺失都会返回非零退出码。`--allow-review` 允许探索性运行在 `review` 状态下成功退出，但不会将结果改成 `pass`。
 
-历史输出保持原样，导入时标识它的 schema。改字段名不会追溯性地证明研究质量。独立交付检查器使用另一套 `ok`/`flags` 契约，不能按评测结果格式解析。
+历史输出保持原样，导入时标识它的 schema。独立交付检查器使用另一套 `ok`/`flags` 契约，不能按评测结果格式解析。

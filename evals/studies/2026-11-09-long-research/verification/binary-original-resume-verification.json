@@ -1,0 +1,9 @@
+{
+  "implementation": "scripts/task_context.py",
+  "change": "Reuse source_inputs binary original classification when recovering prepared/saved inputs; do not decode the original as UTF-8.",
+  "compile": "passed",
+  "scenario": "Existing AIDD-U1 actual research unit: preservedPDF ReportingSummary plus readable extracted text.",
+  "observed_before": "review and resumed status raised UnicodeDecodeError for the PDF through work.paths. Original requests/errors retained under managed-operations/ai_drug_discovery_en.",
+  "observed_after": "status returned one binary source file and retained its hash in inputs; same unit save and evidence/domain assignment preparation succeeded.",
+  "research_quality_claim": "None; document transport and version binding only."
+}

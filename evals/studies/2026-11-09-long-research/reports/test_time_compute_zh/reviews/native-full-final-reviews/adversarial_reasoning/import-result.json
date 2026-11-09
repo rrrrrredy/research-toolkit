@@ -1,0 +1,55 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh",
+  "input_version": "8504bfecbac8c53a810f3db16fc39e86f6d8eb4f64607306c712f89554b0d059",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "reader_usefulness",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/286cc743e33b253d0c3b.md",
+        "sha256": "286cc743e33b253d0c3b288820a96eb4a8db83511698592c8c62405b9a6862da"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/8504bfecbac8c53a810f/jobs/reader_usefulness-a4b1a02b41dfcb9f.json",
+        "sha256": "2fa467c73af0deb75f446c5c042e9b09b76962d98121a32eca65839a02a5fd13"
+      },
+      "assignment_version": "a4b1a02b41dfcb9fbb3e423dd47966c6a788be0db0910a27288505d9bf0b3223"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: reader_usefulness",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 7,
+    "selected_attempts": {
+      "natural_expression": "d04c9620916b44cc9378d30c855a1c2a",
+      "domain-1": "4552d096b52e4f4183c0fb548e567025",
+      "evidence": "7cd80db2803c47149dd437d12fc2be76",
+      "process_language": "c8acfc57af1845d4a8a61c950f5da291",
+      "requirements": "634761e91463406c81ed23802a5592be",
+      "structure_and_depth": "b4ff2319b0ac4e7195b02efcf2d8808f",
+      "adversarial_reasoning": "7501cfeb0a4640798cf9cb75c6f8b2c8"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: reader_usefulness",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

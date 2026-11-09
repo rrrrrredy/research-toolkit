@@ -1,0 +1,11 @@
+{
+  "original_run": "22-check_blinded_protocol_v2.json",
+  "failure": "Replacement local protocol fixture selected markdown_notes_v1 but inherited allow_json_fence=true from the JSON fixture.",
+  "change": "Set the existing Markdown fixture's allow_json_fence=false in accordance with the existing parser contract.",
+  "command": ["C:/Users/luosong03/Documents/ChatGPT/Others/.research-toolkit-venv/Scripts/python.exe", "-B", "-X", "utf8", "-m", "unittest", "check_blinded_protocol_v2.ProtocolV2Tests.test_controlled_development_inputs_and_calibration_isolation"],
+  "cwd": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/scripts",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.171s\n\nOK\n",
+  "retained": "The other 18 methods passed in the original mandatory suite and were not rerun."
+}

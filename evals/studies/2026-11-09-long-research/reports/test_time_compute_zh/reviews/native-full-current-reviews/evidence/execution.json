@@ -1,0 +1,140 @@
+{
+  "host_task": "/root/evidence_remaining_b",
+  "status": "completed",
+  "perspective": "evidence",
+  "input_version": "3e6278f250299b9aa3fd80f794a5ed5b1ca5d05ccfd17c28d96a73f482afacb1",
+  "assignment_version": "57a7f93034680334759f7d98162980ed2faee95ed4df918ec40c2db5bed4dfa0",
+  "artifact_sha256": "eef296bd90c6ef8a34e04a7ce533e84034adc24c77417030b9fef057ab6b1eac",
+  "completed_at_utc": "2026-11-09T15:00:56.3367064+00:00",
+  "resumption_marker_utc": "2026-11-09T14:57:21.8247374+00:00",
+  "time_note": "Initial assignment exploration occurred earlier; no unobserved retrospective start time is asserted",
+  "report_read": {
+    "actual_read_ranges": "1-85,86-175,176-258 continuous complete report",
+    "sha256": "eef296bd90c6ef8a34e04a7ce533e84034adc24c77417030b9fef057ab6b1eac",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\reports\\current.md"
+  },
+  "assignment_read": {
+    "fields": [
+      "task",
+      "requirements",
+      "report_path",
+      "input_version",
+      "artifact_sha256",
+      "assignment_version",
+      "dimensions",
+      "sources keys"
+    ],
+    "sha256": "f3b1327a9740efb9c028f2b9359b07cbdb728e27e725302598c168b8af396efd",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\reviews\\host\\3e6278f250299b9aa3fd\\jobs\\evidence-57a7f93034680334.json",
+    "disclosure": "Initial mistaken serialization of assignment produced a truncated output and exposed historical prior_required_findings AR-TTCZH-01. Parent clarified this is revision baseline, not current peer review. Current original evidence was independently read; no other current reviewer assessment or English report was read."
+  },
+  "originals_read": [
+    {
+      "actual_read_ranges": "103,123,144,453-457;1096-1148",
+      "sha256": "9af07d3d703f38454fc630719769f9a99bb2fa25cdf51c0ffc1055fd0833a4e2",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC002.txt"
+    },
+    {
+      "actual_read_ranges": "1-10,356-381,844-870",
+      "sha256": "c8903b481b539cc387d0f7b9fda999814c90799b98046c478140712b023996d4",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC006.txt"
+    },
+    {
+      "actual_read_ranges": "304-332,474-494",
+      "sha256": "cc3f172909d43feb0434248c86ff172cb5e66f47963a7a2d4648e21b8df3b5e3",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\SUP-AC.txt"
+    },
+    {
+      "actual_read_ranges": "108,116-145,178,186",
+      "sha256": "3f60f278a76ba396101a3eb9e8e72d84b9958bdbde14f90683b660c960c3b366",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC012.txt"
+    },
+    {
+      "actual_read_ranges": "194,197;240-269;295,301;736-745;791,796 targeted passages",
+      "sha256": "93be169f42a5e6f6c676b2026d3ab2dfc3ea1c652db9dac70dc6b5bff45a916b",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC005.txt"
+    },
+    {
+      "actual_read_ranges": "247-293;106,135,339,389,992 targeted passages",
+      "sha256": "6342c2cea6c0688d3767bdabfd4e29408ff76c436d84c320f2d13bf4230b963c",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC008.txt"
+    },
+    {
+      "actual_read_ranges": "61-141 selected cost/table matches;166-195,224-247",
+      "sha256": "9df0d0acba699e7ca15adf49ddcbbf8f2618a439cbe40dfa253c3cafd595c281",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\SUP-CM.txt"
+    },
+    {
+      "actual_read_ranges": "53-68;262-264,292,770-775",
+      "sha256": "7a0104ec86807a16dda2ec1714ea4ec30f7ba6350b6e1cb144decfef2bad691c",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\SUP-LIMITS.txt"
+    },
+    {
+      "actual_read_ranges": "52-60",
+      "sha256": "1931506b6c2eee9d9304229c8222868b5203adf1b52111a7e25d95adf2b5bd21",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\SUP-SELF.txt"
+    },
+    {
+      "actual_read_ranges": "139-159,345-367,406;858-870,1045-1054",
+      "sha256": "708e50f5dfbe69b53de523d40da5abdbd33bd54eb7f22a80a50e61e11d0eab1d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC007.txt"
+    },
+    {
+      "actual_read_ranges": "63-80,113,130;161-184;231",
+      "sha256": "71bb537ab3bd64682e0a537dd71998c1ede09bd26233d6bc00e08e8d344b1dd6",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\SUP-TAU.txt"
+    },
+    {
+      "actual_read_ranges": "191-269,394-403",
+      "sha256": "c48d9f0a8a841ef0e9f4fb4feb5f02d6d0dfa0e9b8958bf142c30defb3d089ac",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\SUP-TREE.txt"
+    },
+    {
+      "actual_read_ranges": "103-107,110-172,190,197-206,406-419",
+      "sha256": "13126da4ded998b96e366b44a00c74bb97ad5e8cfb4754931491cc1f2b3156e3",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC001.txt"
+    },
+    {
+      "actual_read_ranges": "137-194",
+      "sha256": "6be1d75baff52305ac9196bf4ee8283cd713f32379a757c9fe8f912bcf95a21a",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC011.txt"
+    },
+    {
+      "actual_read_ranges": "94,219-230 targeted passages",
+      "sha256": "619d8a6893dd5ec139942aaede087c5f7725becfbcacdf059cfe1ce520333542",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC009.txt"
+    },
+    {
+      "actual_read_ranges": "71-101,211,219,262-271,601-626 targeted passages",
+      "sha256": "8e58b06e94b44a4c9661a25f7f4265a2b9a37ec8726b78157d78e213bde9482e",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC010.txt"
+    },
+    {
+      "actual_read_ranges": "251-302",
+      "sha256": "58c37eb46271d2ade4e09201b5891757ba4ccc49c1c1363bf8a8f7da2a57845d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC013.txt"
+    },
+    {
+      "actual_read_ranges": "147,175;640-735",
+      "sha256": "176013600f0767f6be9700414e2c6de57702be73986eab26d04c7015a80f396d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC003v2.txt"
+    }
+  ],
+  "auxiliary_calculation_files_read": [
+    {
+      "actual_read_ranges": "full file",
+      "sha256": "a87db18587866c83b5482831f4ff02a81279f3ada570aba05580ced6f3b345a7",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_zh\\codex-production\\budget_example.py"
+    },
+    {
+      "actual_read_ranges": "lines 1-5",
+      "sha256": "82ce8432de04a1cd4c7c0d4d143099e03b32e95517292b2f96e8524b0df1ceb0",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_zh\\codex-production\\budget_stdout.txt"
+    }
+  ],
+  "limitations": [
+    "Relevant claim passages of originals were read, not all pages of all twenty sources",
+    "Survey TTC004 only short locator matches; no consequential quantitative claim relies on it",
+    "No external source expansion, model experiment, calculation rerun, new check workflow, report edit, or review import"
+  ]
+}

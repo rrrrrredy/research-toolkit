@@ -1,0 +1,12 @@
+{
+  "input_version": "9907449b6a8e39785378a2be32913f20b44923005ebe5fdf7efa5e5148db9738",
+  "assignment_version": "546a8a1a1ee95ace5c752cf3e0ad68f5f7ee433fb46b6b3a7c08439191ac8110",
+  "report_verdict": "pass",
+  "coverage": {
+    "structure_and_depth": {
+      "basis": "Continuous full reading 1-95,96-190,191-277. The question of what the next task inherits gives the report a coherent comparison axis. It separates persistent weights, source code, prompts and harnesses from temporary answers and identifies externally supplied models, objectives and search procedures. DGM and AlphaEvolve receive detailed generator/edit/evaluator/archive/deployment reconstruction, with complementary prompt and learned-correction examples rather than an undifferentiated catalogue. DGM tool improvements remain bundled with additional inference and external diagnosis; AlphaEvolve distinguishes protected interfaces, held-out shapes, component speedups and realized whole-system benefits. HarnessPro and Rethinking are compared through their different feedback, budget, split and score definitions, so favorable and negative evidence inform the same adoption question without an invalid numerical subtraction. Adaptive reuse, leakage, wrong oracles, proxy exploitation and hardware dependence have concrete consequences for what constitutes generalization. The economics distinguish optimization from execution and explain amortization and bottleneck share. Originals checked: VSI001:121-129 and 1037-1040; VSI002:583-589; VSI003:238-246. They substantiate the compound DGM workflow, disclosed private-test access, AlphaEvolve held-out-shape/counterfactual-synthesis limits and small transfer result. Adoption guidance is conditional on the retained object and intended future workload, with preservation/rollback where evidence does not support a change. No necessary structure/depth defect found; no new optimization run or exhaustive evidence audit is claimed.",
+      "location": "reports/current.md:1-277, complete mechanisms, loop/matrix comparisons, failure analysis, economics, guidance and appendix"
+    }
+  },
+  "findings": []
+}

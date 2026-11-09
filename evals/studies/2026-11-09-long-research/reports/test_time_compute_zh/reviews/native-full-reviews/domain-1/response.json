@@ -1,0 +1,12 @@
+{
+  "input_version": "3e6278f250299b9aa3fd80f794a5ed5b1ca5d05ccfd17c28d96a73f482afacb1",
+  "assignment_version": "d924d903310a91536dd529400702f1afe168648033143585f9e53f68e4f6b2d9",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "完整报告第1–259行，重点§一–六、预算表及决策树",
+      "basis": "实际通读当前完整259行中文稿（方法矩阵、数学/代码/工具机制、四方案预算、决策树和版本表），按推理算法、验证器及统计评价核查。18份同源原件哈希与我此前英文题实际读取原件一致，复用原实验条件核查而非用英文结论替代中文阅读；新查TTC004 §4.1判别/生成反馈分类、TTC003 v1图6候选横轴明确排除verifier compute。当前文本区分固定权重采样与Snell/s1/SCoRe的训练前提、TTSP目标时LoRA更新和合成执行奖励；区分oracle pass@N、实际选择成功、tau pass^k与过程政策满足，未把互相独立抽样等同于错误答案必然分散。Snell 2048样本难度估计成本、PRM/ORM大规模监督数据不等同、CodeMonkeys 10×8状态机/69.8% coverage与57.4%选择及131.95美元selection、网页reset/replay和20次价值采样的比较边界合理。额外核对SCoRe表4 HumanEval 52.4→64.6与base 3.0pp、s1附录C.1的74%训练截断及长输出低准确率、Adaptive-Consistency表1 73.2→73.1和40→13.8。Termination原方法§4/Appendix A.5/B.2确认14.2%是归一化允许预算在有限测量动作空间内达到STP端点的经验前沿，bootstrap固定16探针曲线，16→4 thinning提高OR/AD；正文59、71、227–228已保留选择噪声并将低成本在线可学习性作为待验证假设。完整读budget_example.py与budget_output.json、stdout；不重跑。均匀通过者选择式正确，a/s=0.76、correct/wrong/abstain守恒；0.0028生成、0.0026验证、0.00044期望工具费得到17/11/7/10候选和四行成本/概率/效用，修订第二轮2000输入与两次工具均计入。81.6/61.4/37.2/104.2秒是8槽波次与平均重试量的假设值，正文明确不代表尾延迟；p已是工具处理后正确率，重试不重复增加成功。相关候选、稳定验证盲点、有限测试与扩展测试、筛题及reference-assisted信息边界均进入推论，设计树没有宣称普遍扩展律或新增复现。未发现当前领域范围内需要修订的缺陷。"
+    }
+  },
+  "findings": []
+}

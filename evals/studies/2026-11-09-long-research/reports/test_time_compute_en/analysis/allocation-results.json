@@ -1,0 +1,378 @@
+{
+  "producer": "/root/ttc_research",
+  "kind": "hypothetical arithmetic; no new model experiments",
+  "assumptions": {
+    "selector": "uniform among accepted; no accepted candidate means abstain and no correctness credit",
+    "candidate_dependence": "conditionally independent given this single task",
+    "rates": "known hypothetical p/TPR/FPR; not pilot estimates or published measured rates",
+    "currency": "abstract cost credits, not FLOPs, tokens or current provider prices",
+    "time": "deterministic generated durations; each worker processes generation then verification; equal waves, no early stop, setup or queueing",
+    "workers": 4,
+    "deadline_seconds": 100
+  },
+  "generators": {
+    "small": {
+      "cost": 1.0,
+      "seconds": 30,
+      "p": 0.2
+    },
+    "strong": {
+      "cost": 4.0,
+      "seconds": 45,
+      "p": 0.5
+    }
+  },
+  "verifiers": {
+    "weak": {
+      "cost": 0.25,
+      "seconds": 5,
+      "tpr": 0.9,
+      "fpr": 0.1
+    },
+    "better": {
+      "cost": 1.0,
+      "seconds": 10,
+      "tpr": 0.9,
+      "fpr": 0.02
+    }
+  },
+  "rows": [
+    {
+      "budget_credits": 8,
+      "generator": "small",
+      "verifier": "weak",
+      "candidates": 6,
+      "generation_credits": 6.0,
+      "verification_credits": 1.5,
+      "unused_credits": 0.5,
+      "probability_correct_submission": 0.5786262760320001,
+      "probability_wrong_submission": 0.25716723379199996,
+      "probability_abstain": 0.16420649017599998,
+      "unlimited_parallel_seconds": 35,
+      "four_worker_wave_seconds": 70,
+      "single_worker_seconds": 210
+    },
+    {
+      "budget_credits": 8,
+      "generator": "small",
+      "verifier": "better",
+      "candidates": 4,
+      "generation_credits": 4.0,
+      "verification_credits": 4.0,
+      "unused_credits": 0.0,
+      "probability_correct_submission": 0.53462420352,
+      "probability_wrong_submission": 0.04752215142399995,
+      "probability_abstain": 0.4178536450560001,
+      "unlimited_parallel_seconds": 40,
+      "four_worker_wave_seconds": 40,
+      "single_worker_seconds": 160
+    },
+    {
+      "budget_credits": 8,
+      "generator": "strong",
+      "verifier": "weak",
+      "candidates": 1,
+      "generation_credits": 4.0,
+      "verification_credits": 0.25,
+      "unused_credits": 3.75,
+      "probability_correct_submission": 0.45,
+      "probability_wrong_submission": 0.04999999999999999,
+      "probability_abstain": 0.5,
+      "unlimited_parallel_seconds": 50,
+      "four_worker_wave_seconds": 50,
+      "single_worker_seconds": 50
+    },
+    {
+      "budget_credits": 8,
+      "generator": "strong",
+      "verifier": "better",
+      "candidates": 1,
+      "generation_credits": 4.0,
+      "verification_credits": 1.0,
+      "unused_credits": 3.0,
+      "probability_correct_submission": 0.44999999999999996,
+      "probability_wrong_submission": 0.010000000000000007,
+      "probability_abstain": 0.54,
+      "unlimited_parallel_seconds": 55,
+      "four_worker_wave_seconds": 55,
+      "single_worker_seconds": 55
+    },
+    {
+      "budget_credits": 16,
+      "generator": "small",
+      "verifier": "weak",
+      "candidates": 12,
+      "generation_credits": 12.0,
+      "verification_credits": 3.0,
+      "unused_credits": 1.0,
+      "probability_correct_submission": 0.6736404659428242,
+      "probability_wrong_submission": 0.2993957626412551,
+      "probability_abstain": 0.02696377141592078,
+      "unlimited_parallel_seconds": 35,
+      "four_worker_wave_seconds": 105,
+      "single_worker_seconds": 420
+    },
+    {
+      "budget_credits": 16,
+      "generator": "small",
+      "verifier": "better",
+      "candidates": 8,
+      "generation_credits": 8.0,
+      "verification_credits": 8.0,
+      "unused_credits": 0.0,
+      "probability_correct_submission": 0.7580188756959928,
+      "probability_wrong_submission": 0.06737945561742152,
+      "probability_abstain": 0.17460166868658572,
+      "unlimited_parallel_seconds": 40,
+      "four_worker_wave_seconds": 80,
+      "single_worker_seconds": 320
+    },
+    {
+      "budget_credits": 16,
+      "generator": "strong",
+      "verifier": "weak",
+      "candidates": 3,
+      "generation_credits": 12.0,
+      "verification_credits": 0.75,
+      "unused_credits": 3.25,
+      "probability_correct_submission": 0.7875,
+      "probability_wrong_submission": 0.08749999999999998,
+      "probability_abstain": 0.125,
+      "unlimited_parallel_seconds": 50,
+      "four_worker_wave_seconds": 50,
+      "single_worker_seconds": 150
+    },
+    {
+      "budget_credits": 16,
+      "generator": "strong",
+      "verifier": "better",
+      "candidates": 3,
+      "generation_credits": 12.0,
+      "verification_credits": 3.0,
+      "unused_credits": 1.0,
+      "probability_correct_submission": 0.82422,
+      "probability_wrong_submission": 0.018316000000000013,
+      "probability_abstain": 0.15746400000000002,
+      "unlimited_parallel_seconds": 55,
+      "four_worker_wave_seconds": 55,
+      "single_worker_seconds": 165
+    },
+    {
+      "budget_credits": 32,
+      "generator": "small",
+      "verifier": "weak",
+      "candidates": 25,
+      "generation_credits": 25.0,
+      "verification_credits": 6.25,
+      "unused_credits": 0.75,
+      "probability_correct_submission": 0.6919352215774355,
+      "probability_wrong_submission": 0.3075267651455268,
+      "probability_abstain": 0.0005380132770378196,
+      "unlimited_parallel_seconds": 35,
+      "four_worker_wave_seconds": 245,
+      "single_worker_seconds": 875
+    },
+    {
+      "budget_credits": 32,
+      "generator": "small",
+      "verifier": "better",
+      "candidates": 16,
+      "generation_credits": 16.0,
+      "verification_credits": 16.0,
+      "unused_credits": 0.0,
+      "probability_correct_submission": 0.8903702362884427,
+      "probability_wrong_submission": 0.07914402100341705,
+      "probability_abstain": 0.030485742708140248,
+      "unlimited_parallel_seconds": 40,
+      "four_worker_wave_seconds": 160,
+      "single_worker_seconds": 640
+    },
+    {
+      "budget_credits": 32,
+      "generator": "strong",
+      "verifier": "weak",
+      "candidates": 7,
+      "generation_credits": 28.0,
+      "verification_credits": 1.75,
+      "unused_credits": 2.25,
+      "probability_correct_submission": 0.89296875,
+      "probability_wrong_submission": 0.09921874999999998,
+      "probability_abstain": 0.0078125,
+      "unlimited_parallel_seconds": 50,
+      "four_worker_wave_seconds": 100,
+      "single_worker_seconds": 350
+    },
+    {
+      "budget_credits": 32,
+      "generator": "strong",
+      "verifier": "better",
+      "candidates": 6,
+      "generation_credits": 24.0,
+      "verification_credits": 6.0,
+      "unused_credits": 2.0,
+      "probability_correct_submission": 0.9540049780800001,
+      "probability_wrong_submission": 0.021200110624000016,
+      "probability_abstain": 0.02479491129600001,
+      "unlimited_parallel_seconds": 55,
+      "four_worker_wave_seconds": 110,
+      "single_worker_seconds": 330
+    }
+  ],
+  "deadline_feasible_rows": [
+    {
+      "budget_credits": 8,
+      "generator": "small",
+      "verifier": "weak",
+      "candidates": 6,
+      "spent_credits": 7.5,
+      "probability_correct_submission": 0.5786262760320001,
+      "probability_wrong_submission": 0.25716723379199996,
+      "utility_correct_1_wrong_minus_4": -0.4500426591359997,
+      "four_worker_wave_seconds": 70
+    },
+    {
+      "budget_credits": 8,
+      "generator": "small",
+      "verifier": "better",
+      "candidates": 4,
+      "spent_credits": 8.0,
+      "probability_correct_submission": 0.53462420352,
+      "probability_wrong_submission": 0.04752215142399995,
+      "utility_correct_1_wrong_minus_4": 0.3445355978240001,
+      "four_worker_wave_seconds": 40
+    },
+    {
+      "budget_credits": 8,
+      "generator": "strong",
+      "verifier": "weak",
+      "candidates": 1,
+      "spent_credits": 4.25,
+      "probability_correct_submission": 0.45,
+      "probability_wrong_submission": 0.04999999999999999,
+      "utility_correct_1_wrong_minus_4": 0.25000000000000006,
+      "four_worker_wave_seconds": 50
+    },
+    {
+      "budget_credits": 8,
+      "generator": "strong",
+      "verifier": "better",
+      "candidates": 1,
+      "spent_credits": 5.0,
+      "probability_correct_submission": 0.44999999999999996,
+      "probability_wrong_submission": 0.010000000000000007,
+      "utility_correct_1_wrong_minus_4": 0.4099999999999999,
+      "four_worker_wave_seconds": 55
+    },
+    {
+      "budget_credits": 16,
+      "generator": "small",
+      "verifier": "weak",
+      "candidates": 8,
+      "spent_credits": 10.0,
+      "probability_correct_submission": 0.6300557487551233,
+      "probability_wrong_submission": 0.28002477722449914,
+      "utility_correct_1_wrong_minus_4": -0.4900433601428733,
+      "four_worker_wave_seconds": 70
+    },
+    {
+      "budget_credits": 16,
+      "generator": "small",
+      "verifier": "better",
+      "candidates": 8,
+      "spent_credits": 16.0,
+      "probability_correct_submission": 0.7580188756959928,
+      "probability_wrong_submission": 0.06737945561742152,
+      "utility_correct_1_wrong_minus_4": 0.4885010532263067,
+      "four_worker_wave_seconds": 80
+    },
+    {
+      "budget_credits": 16,
+      "generator": "strong",
+      "verifier": "weak",
+      "candidates": 3,
+      "spent_credits": 12.75,
+      "probability_correct_submission": 0.7875,
+      "probability_wrong_submission": 0.08749999999999998,
+      "utility_correct_1_wrong_minus_4": 0.43750000000000006,
+      "four_worker_wave_seconds": 50
+    },
+    {
+      "budget_credits": 16,
+      "generator": "strong",
+      "verifier": "better",
+      "candidates": 3,
+      "spent_credits": 15.0,
+      "probability_correct_submission": 0.82422,
+      "probability_wrong_submission": 0.018316000000000013,
+      "utility_correct_1_wrong_minus_4": 0.750956,
+      "four_worker_wave_seconds": 55
+    },
+    {
+      "budget_credits": 32,
+      "generator": "small",
+      "verifier": "weak",
+      "candidates": 8,
+      "spent_credits": 10.0,
+      "probability_correct_submission": 0.6300557487551233,
+      "probability_wrong_submission": 0.28002477722449914,
+      "utility_correct_1_wrong_minus_4": -0.4900433601428733,
+      "four_worker_wave_seconds": 70
+    },
+    {
+      "budget_credits": 32,
+      "generator": "small",
+      "verifier": "better",
+      "candidates": 8,
+      "spent_credits": 16.0,
+      "probability_correct_submission": 0.7580188756959928,
+      "probability_wrong_submission": 0.06737945561742152,
+      "utility_correct_1_wrong_minus_4": 0.4885010532263067,
+      "four_worker_wave_seconds": 80
+    },
+    {
+      "budget_credits": 32,
+      "generator": "strong",
+      "verifier": "weak",
+      "candidates": 7,
+      "spent_credits": 29.75,
+      "probability_correct_submission": 0.89296875,
+      "probability_wrong_submission": 0.09921874999999998,
+      "utility_correct_1_wrong_minus_4": 0.49609375000000006,
+      "four_worker_wave_seconds": 100
+    },
+    {
+      "budget_credits": 32,
+      "generator": "strong",
+      "verifier": "better",
+      "candidates": 4,
+      "spent_credits": 20.0,
+      "probability_correct_submission": 0.8950788000000001,
+      "probability_wrong_submission": 0.019890640000000015,
+      "utility_correct_1_wrong_minus_4": 0.81551624,
+      "four_worker_wave_seconds": 55
+    }
+  ],
+  "reported_code_monkeys_arithmetic": {
+    "total_llm_cost_usd": 2291.9,
+    "issues": 500,
+    "mean_cost_per_issue": 4.5838,
+    "selection_usd": 131.95,
+    "selection_fraction": 0.0575723199092456,
+    "selection_per_issue": 0.26389999999999997,
+    "coverage_selection_gap_percentage_points": 12.399999999999999,
+    "fraction_of_random_to_oracle_gap_recovered": 0.4833333333333334,
+    "scope": "published historic LLM inference cost, not complete present-day service cost"
+  },
+  "score_correction_delta": {
+    "base_delta": -11.200000000000003,
+    "trained_delta": 4.400000000000006,
+    "difference_of_deltas": 15.600000000000009
+  },
+  "illustrative_risk_threshold": {
+    "value_correct": 1,
+    "loss_wrong": 4,
+    "cost_abstain": 0,
+    "required_p_correct_to_submit": 0.8
+  },
+  "illustrative_ten_step_success": 0.8170728068875467
+}

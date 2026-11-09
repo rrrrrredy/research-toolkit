@@ -1,0 +1,20 @@
+{
+  "host_task": "/root/benchmark_structure",
+  "status": "completed",
+  "completed_at": "2026-11-09T14:17:51.2247656+00:00",
+  "input_version": "d4aa7b428be4775d08f8987590a3df6f36a2073d3514f9fbd916cbe1f980b462",
+  "assignment_version": "844e39ad7bdbb6056d61dc07905b13edc86078e9ab6cdcb18f7aaea5a3caa059",
+  "assignment_ref": "reviews/host/d4aa7b428be4775d08f8/jobs/structure_and_depth-844e39ad7bdbb605.json",
+  "reading_scope": {
+    "not_read": "未读作者自评、production history、其他首次评审；其他来源未作全读声明",
+    "task": "assignment.task 全文",
+    "original_sources": [
+      "sources/actual/PA13.txt 千问2026-01-15发布原文全文",
+      "sources/actual/PA09.txt Manus Projects文档全文",
+      "sources/actual/PA08.txt Gemini Tasks原文：Chrome停止浏览、完全取消任务、拒绝动作、订阅取消及日程取消相关段落"
+    ],
+    "effective_requirements": "assignment.effective_requirements R_TASK、R_LANGUAGE、R_DATE 全文",
+    "report": "assignment.report 第1—100行及101—190行连续全文，共12413字符"
+  },
+  "work_performed": "只读评审；未改稿、未导入、未运行软件测试"
+}

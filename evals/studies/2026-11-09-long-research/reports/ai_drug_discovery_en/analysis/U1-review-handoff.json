@@ -1,0 +1,19 @@
+{
+  "author": "Codex /root/ttc_research",
+  "independent_review_status": "not claimed; parent arranging separate contexts",
+  "base": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/ai_drug_discovery_en/codex-production",
+  "unit": "U1-rentosertib.md",
+  "sources": [
+    {"id":"AIDD-S01","path":"supplemental-sources/AIDD-S01/original.html","text":"supplemental-sources/AIDD-S01/reading-lines.txt","read":"114–146: target/design/selectivity;147–175:cellular/animal;175–184:phase I","url":"https://www.nature.com/articles/s41587-024-02143-0"},
+    {"id":"AIDD-S02","path":"supplemental-sources/AIDD-S02/original.html","text":"supplemental-sources/AIDD-S02/reading-lines.txt","read":"119–182:patient flow,safety,FVC,discussion,methods,missingness;188–191:data access","url":"https://www.nature.com/articles/s41591-025-03743-2"},
+    {"id":"AIDD-S23","path":"supplemental-sources/AIDD-S23/download.bin","text":"supplemental-sources/AIDD-S23/reading-lines.txt","read":"33–96 complete relevant safety table and footnotes","url":"https://www.nature.com/articles/s41591-025-03743-2/tables/2"},
+    {"id":"AIDD-S21","path":"supplemental-sources/AIDD-S21/download.bin","images":["supplemental-sources/AIDD-S21/page-1.png","supplemental-sources/AIDD-S21/page-2.png","supplemental-sources/AIDD-S21/page-3.png"],"read":"Reporting Summary actual rendered pages1–3;NOT full protocol/SAP","url":"https://static-content.springer.com/esm/art%3A10.1038%2Fs41591-025-03743-2/MediaObjects/41591_2025_3743_MOESM1_ESM.pdf"},
+    {"id":"AIDD-R01W","path":"supplemental-sources/AIDD-R01W/download.bin","read":"protocolSection identification,status,design,arms,outcomes; not claim all results read","url":"https://clinicaltrials.gov/api/v2/studies/NCT05938920"},
+    {"id":"AIDD-R02W","path":"supplemental-sources/AIDD-R02W/download.bin","read":"protocolSection identification,status,design,arms,outcomes","url":"https://clinicaltrials.gov/api/v2/studies/NCT07687459"},
+    {"id":"AIDD03","path":"../../../sources/AIDD03/original.txt","read":"First-dose dated announcement; also official Insilico page read through web","url":"https://insilico.com/news/isn1009261-insilico-medicine-doses-first-patient-genesis-ipf-3"},
+    {"id":"AIDD-A13","path":"../../../sources/AIDD-A13/original.txt","read":"462–481:date,IND clearance,planned inhalation design","url":"https://www.prnewswire.com/news-releases/insilicos-rentosertib-inhalation-solution-receives-ind-clearance-for-the-worlds-first-ai-driven-candidate-to-enter-direct-to-lung-clinical-study-302755747.html"}
+  ],
+  "calculations":["calculations.py","calculations-results.json"],
+  "critical_checks":["22/71 week12 missing;8/18 highQD vs3/17 placebo;ANCOVA+multiple imputation MAR","118.7mL only reported-group-change subtraction,not contrastCI","12AE discontinuations vs16overall withdrawals","phaseIII firstpostJuly7 actualstartSeptember9 announcementSeptember10","oralvsinhaled separate"],
+  "remaining_limits":["full protocol and SAP not acquired;report says provided on request","phaseIIa registry start/completion dates differ from publication trial-conduct dates; preserved without invented reconciliation","S22 discovery supplement retrieval ended prematurely; no complete supplement reading claimed"]
+}

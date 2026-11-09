@@ -1,0 +1,12 @@
+{
+  "input_version": "b05a22e12456963e8dcdd2cf1fa1d888fc1552f79329ce94c60a9f2fe349b9bf",
+  "assignment_version": "9bb636d086ec46e2599ad2b8cefc380e4557b75a131af693ed55ec83aaecaf70",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "Current full report; opening and appendix lines 275–291",
+      "basis": "本次为原真实领域上下文对当前完整稿的修订确认；先前完整阅读保留，实际变更按直接全文diff判断，未以历史通过自动替代当前判断。直接比较本人complete版本d4d35456与当前稿，全部41行diff已读。改动仅去生产身份、交接纠错叙事和阅读动作词，附录仍列具体commit、论文版本、表/页、测量条件及不可得代码。ODM-FULL-DOM-B-01已解决的Android performance lock在S24测量、时间推算和附录保持，未退回为默认或持续手机实测。WhisperTRT RSS差值/MiB、温启动单片段、ASR增量能源及无总音频时长限制均不变。所有部署算例和领域章节未改，来源文件/任务要求相同，复用原全文原件核查，无新领域问题。"
+    }
+  },
+  "findings": []
+}

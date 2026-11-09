@@ -1,0 +1,14 @@
+{
+  "source_id": "SUP-SELF",
+  "url": "https://arxiv.org/html/2310.01798v2",
+  "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+  "reading_location": "§3.1–3.2 Tables2–3; original arxiv v2 after conference PDF transport failure",
+  "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+  "version_model_evaluation": "v2 2024-03-14; GPT3.5-0613, GPT4 accessed2023-08-29; 200question subset forGPT4",
+  "observation": "Intrinsic correction differs from oracle-stopped evaluation; reported regression",
+  "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-SELF\\original.txt",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-SELF\\original.html",
+  "text_sha256": "1931506b6c2eee9d9304229c8222868b5203adf1b52111a7e25d95adf2b5bd21",
+  "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-SELF\\retrieval.json",
+  "reader": "/root/ttc_research"
+}

@@ -1,0 +1,17 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "35856ace8b32421ec17a16702661ae8452b72df5cc41c988a9beb1d43605ab7c",
+  "assignment_version": "1c661efced6dc5416de9598d96a32701bc06f1582e3e7cfee26ef5b972a832c3",
+  "completed_at": "2026-11-09T13:39:51.626783+00:00",
+  "reading_scope": {
+    "task": "complete assignment task",
+    "report": "complete reports/current.md lines 1-354",
+    "originals": [
+      "sources/TTC001/original.txt lines 100-107 and 150-174",
+      "sources/TTC008/original.txt lines 252-295",
+      "sources/actual/TTC010.txt lines 210-224"
+    ],
+    "scope": "Independent adversarial reasoning only; no new experiments or report edits; other reviewers not consulted."
+  }
+}

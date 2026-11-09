@@ -1,0 +1,28 @@
+claim_id,claim,claim_type,supporting_sources,counter_evidence,uncertainty,evidence_detail,author,recorded_at,review_status
+ev_batteries_zh-01,分类交叉，CTP不是正极材料路线,analysis,EVB06;EVB15,,结构与材料维度分开,一、分类,,,
+ev_batteries_zh-02,QS正极侧含有机液体，不能仅凭solid-state营销名当成全固态,analysis,EVB15,,所读FAQ版本；非完整成分分析,一、结构,,,
+ev_batteries_zh-03,麒麟255/160为2022厂商包级主张,analysis,EVB06,,非独立测量与持续交付证据,二、矩阵,,,
+ev_batteries_zh-04,L600240Wh/kg、525Wh/L、系统190及循环主张缺完整协议,analysis,EVB07,,禁止与其他最好值合并,二、矩阵,,,
+ev_batteries_zh-05,Naxtra175Wh/kg分母层级未明，低温为厂商声明,analysis,EVB10,,不能计算实车冬季保持率,二、矩阵,,,
+ev_batteries_zh-06,江淮钠电有2024-01-05交付报道,analysis,EVB11,,新华社转载，不等于持续供货统计,二、七,,,
+ev_batteries_zh-07,BYD功率为设备单枪峰值，SOC时间分开,analysis,EVB08,,无完整整车协议,二、三,,,
+ev_batteries_zh-08,商业21700老化研究表明同化学标签不足排序全部产品,analysis,EVB12-R,,样本制造商、设计与协议不同,二、三,,,
+ev_batteries_zh-09,21实验室ASSB离散与43%失败不是工业良率,analysis,EVB14,,该特定实验体系,二,,,
+ev_batteries_zh-10,ADAC与NAF冬季充电协议不同,analysis,EVB21;EVB22,,温度、预热、充电上限、DC损耗不同,三,,,
+ev_batteries_zh-11,350C是所引滥用试验停止边界,analysis,EVB13,,单项结果不能推出零风险,四,,,
+ev_batteries_zh-12,GB38031-2025于2026-07-01实施,analysis,EVB23,,仅官方目录；未读全文条文,四,,,
+ev_batteries_zh-13,$108/kWh来自2025价格调查，不是2026,analysis,EVB02,,跨用途均价，不当具体OEM合同,五,,,
+ev_batteries_zh-14,成本拆分与利用率处理参考BatPaC结构,analysis,EVB03-R,,未运行BatPaC，未沿用其2022默认报价,五、六,,,
+ev_batteries_zh-15,良率/利用率可以抵消20%材料节约,assumption,calculations.json,,假设单位非货币；计算文件可复算,六,,,
+ev_batteries_zh-16,锂/镍价格冲击按正极化学计量计算,assumption,calculations.json,,假设容量/电压；不含损耗/税；不代入现货价,六,,,
+ev_batteries_zh-17,寿命吞吐与运营时间价值为合成情景,assumption,calculations.json,,指定可用窗口完整循环，不是EFC计数,三、六,,,
+ev_batteries_zh-18,CATL2月/4月公告中的上市和规模生产仍为目标,analysis,EVB10;EVB09,,不能证明11月均已实现,七,,,
+ev_batteries_zh-19,NIO交易所文件确认5月试运营,analysis,EVB19-R,,6月计划不自动当已实现,七,,,
+ev_batteries_zh-20,NIO数百套后停止增加为需回原访谈确认的媒体信号,analysis,EVB20,,原访谈未读；非精确产量结论,七,,,
+ev_batteries_zh-21,BMW是ASSB试验车，Idemitsu设施与2027–28是后续目标,analysis,EVB17;EVB18,,不当零售交付/SOP,七,,,
+ev_batteries_zh-22,QS100MWh线为2028开产目标,analysis,EVB16-R,,面向多市场的新计划，非汽车既有交付,七,,,
+ev_batteries_zh-23,四类车型采用条件化选型,analysis,EVB02;EVB06;EVB12-R;EVB21;EVB22,,车型级证据和报价仍需具体供应商提供,八,,,
+EV-F03-01,刀片年报确认为LFP，2020年7月起车型应用，2024年公司刀片装机近200GWh，并列海豹CTB应用。,fact,EVB26,,"Issuer disclosure, not per-model production, external sales, nameplate capacity or 2026 second-generation volume.","Annual report printed pp22,27–28 / PDF23,28–29",/root/remaining_research_inputs,2026-11-09T16:01:58.805579+00:00,author_revision_pending_independent_review
+EV-F03-02,CATL官方2023-04-17海报确认极氪009 ME版正式交付。,fact,EVB25,,"The poster does not identify cell chemistry, volume or subsequent supply statistics.",Official dated page and entire delivery poster,/root/remaining_research_inputs,2026-11-09T16:01:58.805579+00:00,author_revision_pending_independent_review
+EV-F03-03,2025招股书把麒麟列为NCM产品并说明CTP可集成高镍三元或其他体系、多版本已推出，经营回顾描述麒麟规模化商业应用。,fact,EVB27,,Series-level classification and commercialization; no retroactive assignment of 2025 maximum specifications to 2023 ME delivery.,"Printed pp177,184,258 / PDF187,194,268",/root/remaining_research_inputs,2026-11-09T16:01:58.805579+00:00,author_revision_pending_independent_review
+EV-F03-04,明确假设下，75kWh可用目标及300L安装空间要求至少297.62Wh/L包级密度；A/B需367.22/280.42L，A在60kWh目标时需297.78L。,assumption,volume-scenario-full-03.json,,"Hypothetical densities, not Blade/Qilin measurements or chemistry-wide typical ranges. Volume is a necessary, not sufficient, vehicle condition.","New executed scenario inputs, formulas and results",/root/remaining_research_inputs,2026-11-09T16:01:58.805579+00:00,author_revision_pending_independent_review

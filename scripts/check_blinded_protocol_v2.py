@@ -199,9 +199,13 @@ class ProtocolV2Tests(PilotTests):
             self.assertIsNone(h.request(settings, [], self.base / "timeout"))
             self.assertEqual(h.read(self.base / "timeout/execution.json")["failure_kind"], "timeout")
 
-    def test_supplied_development_pack_and_calibration_isolation(self):
-        pack = h.ROOT / "evals/tasksets/development-v2-synthetic"
-        frozen = h.prepare(pack / "study.json", self.base / "supplied-pack", 7)
+    def test_controlled_development_inputs_and_calibration_isolation(self):
+        self.config.update(position_swap=True, max_requests=20)
+        self.config["author"].update(output_protocol="markdown_notes_v1", allow_json_fence=False)
+        for index, task in enumerate(self.config["tasks"]):
+            task["language"] = "en" if index < 3 else "zh-CN"
+        self.store()
+        _, frozen = self.plan()
         self.assertEqual(len(frozen["task_designs"]), 5)
         self.assertEqual(frozen["request_plan"]["total_max"], 20)
         self.assertEqual({t["language"] for t in frozen["assignments"]}, {"en", "zh-CN"})

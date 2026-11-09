@@ -1,0 +1,154 @@
+{
+  "host_task": "/root/office_final_acceptance",
+  "status": "completed",
+  "role": "acceptance",
+  "scope": "full_report; continuation after reference-label revision",
+  "started_at": "2026-11-09T17:28:27.9205218Z",
+  "formal_assignment_supplement_started_at": "2026-11-09T17:36:42.8835077Z",
+  "independence": "Same independent final-acceptance context, separate from /root/ttc_research, all8 content reviewers and /root/benchmark_audit_complete. No production, content-review or audit role performed for this report.",
+  "actual_reading": {
+    "preread_full": [
+      "native-current-acceptance-reviews-before-reference-labels/acceptance/{response,execution,source-label-disposition}.json",
+      "codex-production/reference-labels-v2.diff all300lines:1–100,101–200 with101–132 truncation recovery,200–250,250–300",
+      "codex-production/reference-label-map.json and change-note-reference-labels.md; mapping is superseded preparatory material, not current author artifact",
+      "native-reference-label-reviews/{requirements,evidence,adversarial_reasoning,structure_and_depth,reader_usefulness,process_language,natural_expression,domain-1}/response.json:all8 complete originals",
+      "native-reference-label-reviews/{evidence,domain-1}/execution.json",
+      "native-U1-independent-replacement-reviews/evidence/{response,execution}.json and domain-1/response.json"
+    ],
+    "preread_targeted": [
+      "Remaining6 content executions:identity/version and actual-reading fields, not claimed full reread",
+      "Current report249–292 whole controller context",
+      "All changed ranges via full diff:32–66,68–82,84–154,172–180,192–200,215–221,314–332,336–358"
+    ],
+    "formal_supplement": [
+      "Formal acceptance job complete instructions, actual task/effective requirements/scope,3 prior required findings,current production event/version binding; report and source payload compared to preread current frozen input",
+      "native-current-audit-reviews/audit/response.json:all191lines in1–100,101–191",
+      "native-current-audit-reviews/audit/execution.json:all559lines in1–80,81–330,331–559"
+    ],
+    "production": "Latest actual author save a0eafffaa1bf4c1aa2bf8af442a84105 by /root/ttc_research:bf7a5d… to0b44a5d…; U1 dependency95724f9d… unchanged. Earlier actual production handoffs retained from original complete acceptance.",
+    "base_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en"
+  },
+  "already_performed_revision_checks": {
+    "patch_matches_every_old_context_line": true,
+    "full_patch_reconstructs_current_frozen_report": true,
+    "ordered_citation_url_count_before": 54,
+    "ordered_citation_url_count_current": 54,
+    "ordered_citation_urls_identical": true,
+    "task_and_substantive_requirement_summaries_unchanged": true,
+    "sources_and_source_files_unchanged": true,
+    "remaining_TTC_SUP_reader_labels": 0,
+    "normalized_current_disk_text_matches_frozen": true,
+    "disk_report_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+    "note": "Actually completed in preread and reused, not rerun as new content verification."
+  },
+  "formal_binding_checks": {
+    "report_equals_preread_current_evidence_job": true,
+    "sources_equal_preread_current_evidence_job": true,
+    "source_files_equal_preread_current_evidence_job": true,
+    "audit_original_matches_complete_local_response_lf": true,
+    "eight_raw_opinion_bindings": [
+      {
+        "slot": "requirements",
+        "formal_original_matches_preread_raw_lf": true
+      },
+      {
+        "slot": "evidence",
+        "formal_original_matches_preread_raw_lf": true
+      },
+      {
+        "slot": "adversarial_reasoning",
+        "formal_original_matches_preread_raw_lf": true
+      },
+      {
+        "slot": "structure_and_depth",
+        "formal_original_matches_preread_raw_lf": true
+      },
+      {
+        "slot": "reader_usefulness",
+        "formal_original_matches_preread_raw_lf": true
+      },
+      {
+        "slot": "process_language",
+        "formal_original_matches_preread_raw_lf": true
+      },
+      {
+        "slot": "natural_expression",
+        "formal_original_matches_preread_raw_lf": true
+      },
+      {
+        "slot": "domain-1",
+        "formal_original_matches_preread_raw_lf": true
+      }
+    ]
+  },
+  "optional_observation": "TTCEN-U1-EV-01 remains unresolved optional; not included among resolved necessary findings and no changed unit/report is claimed.",
+  "limitations": [
+    "No new research, paper retrieval, experiment, calculation rerun, tests, report/product edits, imports or task-state changes.",
+    "Prior complete reading is explicitly reused; a fresh358-line reread is not claimed.",
+    "Initial formal-job path lookup failed on relative path and escaped directory representation; exact known task path succeeded. Overlarge supplemental output was not credited as complete; audit originals subsequently recovered in bounded ranges.",
+    "Direct U1 preread covered original domain response, not its entire standalone execution; its identity/reading evidence was additionally inspected through the new complete audit execution.",
+    "First output-construction command failed PowerShell parsing on a typographic apostrophe before execution; no output was written. Literal JSON here-strings used for the successful write."
+  ],
+  "actions": [
+    "Read-only acceptance and current-input binding",
+    "Write only current response.json and execution.json",
+    "Preserve historical originals"
+  ],
+  "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "assignment_version": "67411f330f48d2d602d9bd70a87d739f83f057cf8d6148f84acdee17bc51857a",
+  "artifact_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+  "assignment": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/reviews/host/f09f3163d0ce7117bf0d/jobs/acceptance-67411f330f48d2d6.json",
+  "artifact_directory": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en",
+  "retained_acceptance": {
+    "response_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/native-current-acceptance-reviews-before-reference-labels/acceptance/response.json",
+    "execution_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/native-current-acceptance-reviews-before-reference-labels/acceptance/execution.json",
+    "source_label_disposition": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/native-current-acceptance-reviews-before-reference-labels/acceptance/source-label-disposition.json",
+    "actual_previous_execution": {
+      "host_task": "/root/office_final_acceptance",
+      "status": "completed",
+      "assignment_version": "c8fcc81d49ac44c6372053760505b0f8270d2a8424bcb37a748e1c758ffcea86",
+      "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+      "task_id": "test_time_compute_en",
+      "role": "independent_final_acceptance",
+      "started_at": "2026-11-09T16:32:24.6672954Z",
+      "artifact_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/reports/current.md",
+      "artifact_sha256": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea",
+      "independence": "This context did not produce, perform content review or audit of this English report. It did not read the Chinese same-topic report. Earlier office and model_benchmarks_en acceptances are separate assignments.",
+      "actual_reading_scope": {
+        "full": [
+          "Prepared acceptance identity and instructions",
+          "Original task brief and effective requirements; empty scope decisions",
+          "Current report all substantive lines 1–358, in three consecutive untruncated ranges",
+          "All eight current raw review originals",
+          "Current audit original logs/reading/c7bb484bebe4c23722ac.txt, all 178 lines",
+          "Original negative natural-expression response reviews/host/35856ace8b32421ec17a/results/a1c1a586e9c5493c/response.txt",
+          "Original negative reader-usefulness response reviews/host/35856ace8b32421ec17a/results/0e1eb4f31fff4f5b/response.txt",
+          "analysis/author-production/handoff.json",
+          "All four production_history records from current job",
+          "analysis/author-production/change-note-full-01.md, including complete actual diff",
+          "analysis/author-production/allocation_example.py, allocation-results.json (all 12 budget and 12 deadline rows), calculation-record.json"
+        ],
+        "targeted": [
+          "sources/TTC007/original.txt:139–159,816–825,1045–1058",
+          "sources/TTC008/original.txt:257–280",
+          "sources/TTC005/original.txt:789–854",
+          "sources/actual/SUP-CM.txt:97–121,180–196,224–233",
+          "sources/actual/TTC013.txt:186–293",
+          "sources/actual/TTC012.txt:113–141",
+          "sources/actual/SUP-TAU.txt:129–133",
+          "sources/actual/TTC003v2.txt:648–674,704–723",
+          "sources/TTC001/original.txt:115–125,140–174",
+          "analysis/author-production/U1-evidence-protocol.md:85–99",
+          "analysis/author-production/U2-U6-mechanisms-and-evidence.md:1–45",
+          "analysis/author-production/U7-U8-budget-and-design.md:1–41"
+        ],
+        "reuse": "Read and relied on the current substantive evidence/audit originals for unchanged source claims outside the above direct samples, including their original visual inspection of TTC006. Did not claim a new full reading of every source, a fresh visual PDF inspection or an independent re-audit of every execution trace. Any truncated combined output used for stated ranges was reread in bounded ranges."
+      },
+      "actions": "Read-only inspection and current report SHA256 verification; wrote only this acceptance response/execution. No manuscript edits, imports, task-state mutation, API/model experiment, calculation-script rerun or tests.",
+      "verdict": "pass",
+      "completed_at": "2026-11-09T16:35:55.5874218Z"
+    },
+    "reuse": "Unchanged complete358-line report reading, requirements, production handoffs, raw opinions/audit, historical necessary negatives, primary evidence and complete saved allocation scripts/results reused from the actual original execution. They are not newly reread or rerun. Current complete artifact coverage combines that full reading with every actual revision hunk and affected context."
+  },
+  "completed_at": "2026-11-09T17:42:32.8848357Z"
+}

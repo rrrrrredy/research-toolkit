@@ -1,0 +1,208 @@
+{
+  "host_task": "/root/independent_domain_b",
+  "status": "completed",
+  "slot_id": "domain-1",
+  "role": "reviewer",
+  "scope": "full_report",
+  "execution_mode": "native_codex_independent_subagent",
+  "input_version": "db8213c012af78accb3a9719133d8719cea1032b0ba50b3b1862df3cc6dc3831",
+  "assignment_version": "2ff5799e1a2af67ac6d40c606e4d47ea09d331577b8913a640558a51b6802c58",
+  "artifact_sha256": "2b6fcb4578a6fbb99f3f1fee6a444bde059fda9a1cbb64e58173029f52d27416",
+  "recorded_at_utc": "2026-11-09T13:22:56.3227867Z",
+  "response_sha256": "ec4a98fcea4709273e2529856a0488ec7905d01ef1b8195a76339a5734d5680a",
+  "actual_observed_agent_tool_events": [
+    "Read complete211line manuscript in four bounded chunks with task/effective requirements",
+    "Read original Chinese platform terms/recommendation disclosure, official TikTok captured product bodies and release passages, original GoTo announcement/footnote, law articles and regulator-response pp1–4",
+    "view_image displayed original financial-page renders2,3,4,26,40,41; read actual numbers and notes",
+    "Read complete retained scenario Python and existing output; no execution",
+    "web.run opened current official GMV Max and Smart+ pages and original Indonesia regulation PDF"
+  ],
+  "read_materials": [
+    {
+      "sha256": "75f34fe6630f67f9ebfb6851a1d51b74c8eeb1f09f477be122b4b07a5f885103",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\reviews\\host\\db8213c012af78accb3a\\jobs\\domain-1-2ff5799e1a2af67a.json",
+      "scope": "Complete frozen report/task/effective requirements; same contract plus exact additional history instruction compared"
+    },
+    {
+      "sha256": "2b6fcb4578a6fbb99f3f1fee6a444bde059fda9a1cbb64e58173029f52d27416",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\reports\\current.md",
+      "scope": "Full report211 lines"
+    },
+    {
+      "sha256": "6fc43b111efec44d45c5fd7251ff77acec2547398b3b13b8a1040fa4dcff824b",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\data\\source_registry.csv",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "22c44f028f013e541da0d9438f6058eae405e793773fa1341569e3db6c74b2c7",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\codex-production\\calculate_scenarios.py",
+      "scope": "Full existing code and executed results; no rerun"
+    },
+    {
+      "sha256": "69ea6d9e891887b854103e632b1b2b8a4f257fe726a7a8be85aea28051853134",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\codex-production\\calculations.json",
+      "scope": "Full existing code and executed results; no rerun"
+    },
+    {
+      "sha256": "5c326a02a95e766e6002a8f68c43808ccc58b1744464231d314661d71e633c9b",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA03.txt",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "60468d2de3773011e5c33cd4cf7c197aa82dcd277f04ed5fc31925a7fd2b0d09",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA06.txt",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "f6110874b4fd7a7f29358949ab009d4ee4819e7a55a3c0e7dab094fe56eb2e42",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-A01.txt",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "019a2e3117535b628c2a6af139038cf7509d268658de50333759b4340fd0bf1d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-A02.pdf",
+      "scope": "Source PDF for stored original page renders; no claim of entire58page visual reading"
+    },
+    {
+      "sha256": "4f785ade80a0255a5c339f971198bfd4acd9e5a744fec8d7f5a776610a9a1df7",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-A03.txt",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "a246641f0c12fbbc626454c6db29c333a11a2cb766beef80ee01399d6fa2954d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-A04.txt",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "cdb749637b8616787117e6622746febd3b961695dbac0b64eaf1673dbed3caad",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-A05.txt",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "2f11a73d2f742df3be42296f5cbe8ff7023f0c71d8a3e52411375f487d13d938",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R01.json",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "e6b5c87f52dcd058742b91fb9e40906acddc9c7d18053297d82322ea205c5efe",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R03.json",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "5da61ad5f866b4498e98644657511ff204bbba536c19e139c25910b36b988ad2",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R04.json",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "1769c84e906cb9e551b5a2f25426cd55d94d787590943ac2b03491f38b23bd2c",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R05.json",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "4cc89a25118c3cb24894ebdb868bf5720efa957260e78768682afd6ca3e52046",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R06.json",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "931ff8be9c154b9c15de54be6bd8b5a93462b0543b3983a8096206f65ac11296",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R07.json",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "32985ffc6299429f45b6b49ccf02853fba3b639d1670e9fa15b40b0e8c773df0",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R08.json",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "93a4fe40720be70bb19c34c413e200f9559a8b32b6c351dde7ff6d7e094a9baf",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R09.json",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "256ee9a433d4e31e938b0e5bbea0365edce8a2629bf1a68e1b989d75b785b93d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R10.txt",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "14465b52252bf085c38ef2719155ae91423f67d13ea548f5b058a40f3fcf4e39",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R12.json",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "2247742575f9b44c6c8b931ec452467783a799c84960f36e30944fddc071cefa",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R13.txt",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "fc1fb2ee8822a969c86d9fc2ebb6a459062d116f268726aa70327a327b9fdf23",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R15.json",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "fa868bce2369d98601208ff484ee890004cfd6e87c0b8bbe52b7593cfc0958bb",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R16.json",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "3897f6e230b8d3c7e1f3f3f300af11d1ad07a4c14f7b01d48e80ace97fedc930",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R17.json",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "98a6559bacab697934d4fcf4a5840364d641c91d01c0fb0302441465bff516ed",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R19.txt",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "88c894dbc80b171721d98c1427ac950e338321e35b1e5f0e2d3007faceb4d555",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R20.txt",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "20c5413fce50293db78a27ff25c1e159d1781237e41138d28956e57c28ce6f26",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-W01.json",
+      "scope": "Pertinent original sections named in coverage; product JSON captures separated to avoid unrelated batch pages"
+    },
+    {
+      "sha256": "b325b8e2ea593f88c29b4cb0037204b7a67e69db0857d92d2c025e6938d4df49",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\codex-production\\account-pages\\page2.png",
+      "scope": "Actual visual inspection of complete stored original financial page"
+    },
+    {
+      "sha256": "81299ae6b9662a3dfe766936d5da985d056df288178db59a05c9ae1f174953ba",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\codex-production\\account-pages\\page3.png",
+      "scope": "Actual visual inspection of complete stored original financial page"
+    },
+    {
+      "sha256": "acd07402f4c6192bcbe3d9d30ba190ad3613e0d66d48dd43738bc735e1c1c8a9",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\codex-production\\account-pages\\page4.png",
+      "scope": "Actual visual inspection of complete stored original financial page"
+    },
+    {
+      "sha256": "a6714a9a1173a737056d6bb2fd4a0fae7353b38de665657bad1caac586d01b32",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\codex-production\\account-pages\\page26.png",
+      "scope": "Actual visual inspection of complete stored original financial page"
+    },
+    {
+      "sha256": "4e02dcab2e20f4fe2290eff8ab45da1dcbfba567910bcb25e4288b749d8dbef6",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\codex-production\\account-pages\\page40.png",
+      "scope": "Actual visual inspection of complete stored original financial page"
+    },
+    {
+      "sha256": "d7772dd63e46e265fa7a22091f6207e8f2ede2e6dea0eeb4bf38b9d5a9095182",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\codex-production\\account-pages\\page41.png",
+      "scope": "Actual visual inspection of complete stored original financial page"
+    }
+  ],
+  "web_originals": [
+    "https://ads.tiktok.com/resources/help/article/about-attribution-for-gmv-max?lang=en",
+    "https://ads.tiktok.com/resources/help/article/about-updates-to-smart-plus?lang=en-GB",
+    "https://peraturan.bpk.go.id/Download/322371/Permendag%2031%20Tahun%202023.pdf"
+  ],
+  "limits": [
+    "No ads account access, real campaign operation, model/API experiments or recalculation rerun.",
+    "Review uses only relevant original passages; does not claim reading all181pages regulator reply, all58pages accounts or every Monolith experiment.",
+    "Some broad text outputs truncated; decisive source bodies and claim passages were read in bounded excerpts.",
+    "No other initial reviewer opinions, author self-pass or imported conclusions used; no report changes or import."
+  ]
+}

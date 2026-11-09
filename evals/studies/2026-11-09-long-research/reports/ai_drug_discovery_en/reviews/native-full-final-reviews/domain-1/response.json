@@ -1,0 +1,12 @@
+{
+  "input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+  "assignment_version": "f0369f88cf49e7fa4c60a688c38ce917ac6e6d26ea3a0ef88aadd00339d04e80",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "Current full report line 105 DSP-1181 sentence and final sources/calculations paragraph",
+      "basis": "本次为原真实领域上下文对当前完整稿的修订确认；先前完整阅读保留，实际变更按直接全文diff判断，未以历史通过自动替代当前判断。实际比较本人首次全文negative d49c3ce9与当前稿并读完19行diff。AIDD-FULL-DOM-B-01已经解决：现为合成/测试数百化合物，通过反复两周反馈循环提名候选；复查AIDD06 p4 274–292行，350th compound、约两周批次和人工类似物并行的原文支持该句。不到12个月、排除安全评价、既有平台/测定建设与候选提名终点、其后临床终止均保留，没有改成数百次模型更新。末段仅客观说明支持材料和明确缺失protocol/SAP/合同细节，未升级source access。其余全部U1–U4、临床人群/缺失处理、REC-4881原脚注、转化与许可权利和已读算例逐字未改；有效要求及来源文件相同。复用本人全文及原件审阅，当前领域通过；首次negative及U1历史意见保留。"
+    }
+  },
+  "findings": []
+}

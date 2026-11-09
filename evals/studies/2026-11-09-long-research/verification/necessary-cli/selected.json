@@ -1,0 +1,58 @@
+[
+  {
+    "result_schema_version": 2,
+    "delivery_contract_version": 3,
+    "case_id": "a-frozen",
+    "conformance_score": 34,
+    "max_conformance_score": 100,
+    "conformance_status": "missing_output",
+    "research_quality_status": "not_evaluated",
+    "findings": [
+      "Missing artifacts: final.md",
+      "Missing final.md, so content checks could not run."
+    ],
+    "artifacts": {
+      "state/task_spec.md": true,
+      "state/progress.json": true,
+      "data/source_registry.csv": true,
+      "data/claims_registry.csv": true,
+      "logs/review.jsonl": true,
+      "final.md": false
+    },
+    "conformance_flags": [
+      "missing_required_artifacts"
+    ],
+    "coverage_flags": [
+      "missing_output"
+    ],
+    "assessment_scope": "deterministic_structure_traceability_and_known_failure_signals"
+  },
+  {
+    "result_schema_version": 2,
+    "delivery_contract_version": 3,
+    "case_id": "b-research",
+    "conformance_score": 34,
+    "max_conformance_score": 100,
+    "conformance_status": "missing_output",
+    "research_quality_status": "not_evaluated",
+    "findings": [
+      "Missing artifacts: final.md",
+      "Missing final.md, so content checks could not run."
+    ],
+    "artifacts": {
+      "state/task_spec.md": true,
+      "state/progress.json": true,
+      "data/source_registry.csv": true,
+      "data/claims_registry.csv": true,
+      "logs/review.jsonl": true,
+      "final.md": false
+    },
+    "conformance_flags": [
+      "missing_required_artifacts"
+    ],
+    "coverage_flags": [
+      "missing_output"
+    ],
+    "assessment_scope": "deterministic_structure_traceability_and_known_failure_signals"
+  }
+]

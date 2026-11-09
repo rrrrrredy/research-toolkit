@@ -1,0 +1,12 @@
+{
+  "input_version": "b05a22e12456963e8dcdd2cf1fa1d888fc1552f79329ce94c60a9f2fe349b9bf",
+  "assignment_version": "d52fe01cd6cba59561226cc6e3bb0490a77db405cc025183a5aa084d61d725e1",
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "basis": "Actually read the original task, effective requirements and every report line, independently of coordinator and peer assessments. The selected S24, M4 Pro, Surface and Orin configurations cover smartphones, PCs and a constrained edge class. Sections 2–3 explain available versus installed memory, weights/workspaces/KV, architecture, bandwidth, scheduling, supported operations, prefill/decode, precision-quality tradeoffs, cold/first/complete output and sustained thermal limits. Sections 4–6 develop private-document, interactive-generation and frequent-speech pipelines including non-model work, information loss and quality criteria, with explicit-unit memory/context/timing/power/transfer envelopes and separated vendor, independent and scenario evidence. Sections 7–8 compare local/cloud/hybrid routing, network, privacy/retention/logging, fallback, updates, OS/region/channel restrictions and heterogeneous integration, then include fixed, energy, correction and remote costs per incoming/accepted task. Final fit matrix and decision rules directly cover offline, sensitive, bursty difficult and continuous workloads. The appendix pins measurement versions and keeps undocumented configuration and sustained measurements unresolved rather than manufacturing a ranking. No required comparison or deliverable is missing.",
+      "location": "Complete current report lines 1–292, all eight sections, pipeline diagrams, memory/performance/power/cost tables, hardware–model–task matrix, conditional rules and provenance appendix."
+    }
+  },
+  "findings": []
+}

@@ -2,9 +2,13 @@
 
 [English](evaluation-status.md) | [简体中文](evaluation-status.zh-CN.md)
 
-**Current evidence supports specific corrections and engineering benefits, not a general quality or efficiency advantage over a native agent.** Version comparisons, fixed-source Lite trials and runtime checks answer different questions; they cannot be combined into one efficacy score.
+**Use the actual reports, located review findings and retained revisions to assess what Toolkit helps an agent accomplish.** This page separates research deliveries, version comparisons and software behavior checks, with each result tied to its task and version.
 
 ## Current evidence
+
+The [current long-research benchmark](../evals/README.md) defines 13 questions across fields, with seven Chinese and six English primary reports. Independent English microdrama and Chinese test-time-compute assignments use the same questions' frozen materials, for 15 report assignments in total. The [November 9 study](../evals/studies/2026-11-09-long-research/README.md) retains task definitions, source records, first outputs, revisions and the actual assessment results. Research quality is judged against the question and manuscript; execution measurements describe the run rather than decide its quality.
+
+## Earlier reports and comparisons
 
 The [Chinese office-agent case](case-study/office-agents-2026-11/README.md) and [English API/browser case](case-study/api-or-browser-2026-11/README.md) were redone on 5 November, retaining first drafts, full analyses, source notes, independent content reviews, audit and acceptance. These are two research deliveries, not additional version comparisons or held-out evaluations. Historical experiment counts and results remain unchanged.
 
@@ -48,13 +52,13 @@ The [four-task recheck](../evals/diagnostics/2026-10-13-targeted-recheck/README.
 
 ## Historical scope and task identity
 
-**Scheduled first reviews are complete. Their findings inform product improvements; they do not establish general superiority or validate the current plugin/MCP workflow.** This summary uses the retained inventory as of September 21, 2026. Original reports, author failures, original reviews and later interventions remain separate.
+**The scheduled first reviews in the September 21, 2026 inventory are complete.** Their located findings support diagnosis and product development. Original reports, author failures, original reviews and later interventions remain separate.
 
-The public collection supports workflow diagnostics and product development. It does not yet support a general decision-quality advantage, a representative cross-language benchmark or an efficacy confidence interval. The original English showcase is a research example, not a matched efficacy pair. [Next study design](evaluation-roadmap.md#next-study-freeze-the-design-then-collect-new-evidence) · [Stable defect labels](necessary-defects.md).
+Use this dated collection for its recorded tasks and failures; the current bilingual long-research benchmark is linked above. The original English showcase is a separate research example. Version-effect comparisons retain their own fixed tasks and comparison conditions. [Next study design](evaluation-roadmap.md#next-study-freeze-the-design-then-collect-new-evidence) · [Stable defect labels](necessary-defects.md).
 
 The separate [October 10 fixed-source Lite pilot](../evals/studies/2026-10-10-lite-four-models/README.md) publishes judgments for all 20 model–task pairs across five shared families and four models, with original failures retained. Its local freeze, instruction-only scope, post-hoc format analysis and separately regenerated completion pairs are disclosed; it does not change the historical counts below.
 
-Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Model execution and evaluation also provide a user perspective: judge usefulness from actual context use, extra reading, time, rework and research results. Human participation is not a prerequisite; describe the observed benefit and its task scope. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
+Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Model execution and evaluation also provide a user perspective: judge usefulness from requirement adherence, actual context use, substantive corrections and research results. Human participation is not a prerequisite; describe the observed benefit and its task scope. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
 
 ## Retained data
 

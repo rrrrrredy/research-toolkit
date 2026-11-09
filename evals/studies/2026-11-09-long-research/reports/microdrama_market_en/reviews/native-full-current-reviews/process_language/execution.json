@@ -1,0 +1,32 @@
+{
+  "host_task": "/root/process_remaining_b",
+  "status": "completed",
+  "execution_mode": "native_codex",
+  "started_at": "2026-11-09T22:59:12.7651587+08:00",
+  "completed_at": "2026-11-09T15:00:27.0334595+00:00",
+  "input_version": "93c45054c0a195dc5422e98588a3621cd4051e18cc3c17120e50b81d053f70b7",
+  "assignment_version": "01877297dfa78969e48e80c4d11258d6b971464892f2635f17359ed4ad4ddbd3",
+  "report_sha256": "187d695bca113393aa446a35232f5ed50ccfddbaece355796e6c2a2cc7647ac5",
+  "job_sha256": "e21ed420e74987f461199462b55196080fc33f2648886ddb656660f3a4925867",
+  "report_path": "reports/current.md",
+  "frozen_report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_en/native-full-current-reviews/process_language/frozen-report.md",
+  "actual_reading_ranges": [
+    [
+      1,
+      110
+    ],
+    [
+      28,
+      38
+    ],
+    [
+      111,
+      220
+    ],
+    [
+      221,
+      340
+    ]
+  ],
+  "reading_notes": "完整分段阅读1–340行，28–38行因首次输出截断再次完整读取。引用清单一并阅读；仅进行process_language判断，未重新核查外部原件。"
+}

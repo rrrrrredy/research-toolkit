@@ -24,7 +24,7 @@ Choose the approaches that help answer the current question and combine them whe
 
 Choose dimensions around the options or phenomena the reader needs to distinguish, and explain each object against that same question. Shared capabilities may show that a feature no longer differentiates the options. Differences need consequences: conditions for adoption, sources of cost or divisions of responsibility. Retain concrete designs and facts that affect the judgment instead of converting each table cell into a sentence.
 
-Where evidence is uneven, compare what it supports and identify which differences remain unresolved. Explain the comparable scope of results with different populations, dates, units or measurement conditions. Another sample's accuracy cannot complete a throughput comparison, and separately achieved metrics do not establish that one option meets all requirements together.
+Where evidence is uneven, compare what it supports and identify which differences remain unresolved. Explain the comparable scope of results with different populations, dates, units or measurement conditions. For a throughput comparison, use throughput evidence from comparable workloads and keep accuracy from other samples separate. Check whether the required metrics hold together for the same option under the applicable conditions.
 <!-- /method:compare -->
 
 <!-- method:explain -->
@@ -40,7 +40,7 @@ Treat an explanation as revisable and change it when the material does not suppo
 
 Bring facts addressing the same question together. Determine whether they support each other, expose a trade-off, or appear to conflict because their objects, periods or definitions differ. Identify which cases support a cross-case pattern; unexplained differences may narrow its scope or become an important finding. Multiple articles repeating one original claim do not add independent support.
 
-A synthesis passage should advance the reader's understanding: what the preceding sections jointly support, which conditions explain divergence, and how this answers the original question. Retain the sources and conditions used in that reasoning. Neither source volume nor a forceful conclusion establishes depth.
+A synthesis passage should advance the reader's understanding: what the preceding sections jointly support, which conditions explain divergence, and how this answers the original question. Retain the sources and conditions used in that reasoning.
 <!-- /method:synthesize -->
 
 <!-- method:recommend -->

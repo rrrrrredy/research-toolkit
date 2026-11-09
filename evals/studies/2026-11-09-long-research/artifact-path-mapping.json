@@ -1,0 +1,155 @@
+{
+  "reason": "Map existing delivery-check option to the actual registered main report. final.md remains a byte-identical evaluator/readable export. Research questions, sources and substantive criteria are unchanged; initial definitions are retained.",
+  "changes": [
+    {
+      "case_id": "ai_drug_discovery_en",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "997c3648cf3fd47ef393f4aa06c07ad8f36c001585332c3a002b96e370e595a0",
+      "after_sha256": "0b5826921f4a9a4df7d8c7f4da3483bacf4d8e418f413d2e517c1e47d150bcd2"
+    },
+    {
+      "case_id": "bytedance_advertising_zh",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "2052ddb0658caec294cc31059e16fd9fe433d1fe2dd3d0341c2dfe4f29c98eb5",
+      "after_sha256": "f1fc48a2850dc8ee453273bf0a9813c5183b370b1d542db74900621e65b1e671"
+    },
+    {
+      "case_id": "embodied_deployment_zh",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "7d9372fb255736d69a1c7ac545f3a43cbb8de79d8c33a1ba04378c60e5f0b82e",
+      "after_sha256": "f60e7e1f17349e1bf954e4f07ab0240012efb7e05e598a4919f7705b7b97573d"
+    },
+    {
+      "case_id": "ev_batteries_zh",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "ab49b9f10999ffcde3c27f366471ee7d277a0b126876f62b3d251d88c1f506e0",
+      "after_sha256": "ad338b0f66044a49dc1e0a20faa4d24316278cc7d0c80d1c7f9ada051af6d3a0"
+    },
+    {
+      "case_id": "instant_retail_warehouses_zh",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "8ddf2fd062341209cd73f12f0e4facbc44b42cfe1b863722097cb2b6c7f3cbbd",
+      "after_sha256": "768ebd2b9fcb1ddda5a2413f3c5a4408448ec03728a2db2872f2dc2f304cbf39"
+    },
+    {
+      "case_id": "microdrama_market_en",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "e4ace31f34206617d86d743bdde422a84fb087164d04843a23e27a9c6f57785d",
+      "after_sha256": "2a008041c50fc8ea332b5a264dce28152584b5731acb0d486296dea87fdd062d"
+    },
+    {
+      "case_id": "microdrama_market_zh",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "1a0f39f77650f415f2c089f7c993e70a6441e1cf865e308b6466e19cfede2a06",
+      "after_sha256": "ae33854021812e6648a5d9942e1b2d8f9fd2837379f9770e85633f22132f063d"
+    },
+    {
+      "case_id": "model_benchmarks_en",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "eab3d77c4f5cf12a0776a974de4bba2b8ee8570ad0a8e8d0258efa2182e076e4",
+      "after_sha256": "2983a4f5e1dda2e9249e39fa0554de5d66e1b9bd479fe7032903e17b541b2e7e"
+    },
+    {
+      "case_id": "on_device_models_en",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "2eab4e925f15746996e8f8016b24aaa560e00f2e78bad3ab0cbd257a1ec3c877",
+      "after_sha256": "d9a48441cae39e4f4f2f2c1309a84e07068f3cf2d47a2894df0d633096c33e67"
+    },
+    {
+      "case_id": "personal_agents_zh",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "6c201a4a0800e7b0ad4844a8a686bdbf82f05918af022b09fbd5c154f8245ead",
+      "after_sha256": "b8427bb4debef5511e4e43c077fa7e52fe8ee80fbd1abed5d4157913a02271e4"
+    },
+    {
+      "case_id": "post_training_talent_zh",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "d3f4bd2e64d9c0df8beafed545d3fd10fe0d1239d80277e4c9daa426d5008a90",
+      "after_sha256": "fe83ff93d4f7de781870a94d6c2304012371380af0331e9d3dd3a9a00315968e"
+    },
+    {
+      "case_id": "test_time_compute_en",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "a64786731edf2860ae375daa0c2787dcadc4c4ec87cbeed8ed1f6e5c25361892",
+      "after_sha256": "f479209952757ead75cc90893ec8140c7aea94131f49c20fa7317a4101559f22"
+    },
+    {
+      "case_id": "test_time_compute_zh",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "736fb5e42705a8a27673d5d2feeb27bc6c12ca31a5341f3ebad06e1679feb20c",
+      "after_sha256": "85e0f2896f2a5a7527c2fd64a25bc64cadd08aeeb7203e8889aa7a29d59a6941"
+    },
+    {
+      "case_id": "token_economics_en",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "8852545662ab7eb46b70ddb071807343784b90be546c0370058052dfafc4edba",
+      "after_sha256": "45545ac42409a9646840cca5ef8a6c2d4c9efc0e2bd00ac1011d2f1e32975b21"
+    },
+    {
+      "case_id": "verifiable_self_improvement_en",
+      "old": true,
+      "new": {
+        "artifact": "reports/current.md",
+        "delivery_message": "delivery_message.md"
+      },
+      "before_sha256": "62a6d3a50e39f3729244b6f797a6858e6b23d35c12b589e52841d5ea152fb9e1",
+      "after_sha256": "b60bf0eadb30efb687eb2de5b84aee5091cab4af1be17ea7d4ae3c9156221067"
+    }
+  ]
+}

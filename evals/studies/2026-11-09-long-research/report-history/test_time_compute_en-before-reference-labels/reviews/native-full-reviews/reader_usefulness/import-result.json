@@ -1,0 +1,83 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_en",
+  "input_version": "35856ace8b32421ec17a16702661ae8452b72df5cc41c988a9beb1d43605ab7c",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "requirements",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/9a20dcd887ad77ef4876.md",
+        "sha256": "9a20dcd887ad77ef4876617ec43b4f72d4119d057693d155cf73e9fe29410cbd"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/35856ace8b32421ec17a/jobs/requirements-b257d7ba21655c04.json",
+        "sha256": "2fc028dad62ec2e8ecaefa2e0721818a78e198bf7bc6257ff9d7feac574c510c"
+      },
+      "assignment_version": "b257d7ba21655c04bdcad85011fae777c5491e1eccb09315d387f3f6402aca69"
+    },
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/ada089f0cb5cfc8cde98.md",
+        "sha256": "ada089f0cb5cfc8cde98b7f2e3cf516a45980543a2d3d4b17356864526ffd037"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/35856ace8b32421ec17a/jobs/structure_and_depth-0d4c78267327927b.json",
+        "sha256": "202683939aa7810fd1f9eea72084c10300dcdd2d520d1d7fdeee4b3159bd727c"
+      },
+      "assignment_version": "0d4c78267327927bcf6fd0a59a6f43c00781df8ebe96959d1b7e68cf9ac2b556"
+    },
+    {
+      "slot_id": "process_language",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/ff41d1261fad21e808f9.md",
+        "sha256": "ff41d1261fad21e808f945ea85b8ef981acb9b269fd33fc40d354cfb4cbf11d4"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/35856ace8b32421ec17a/jobs/process_language-9c96e3f5126b4579.json",
+        "sha256": "1e82c741dee72e888eefc76fa263d073b5fc4435825e3f3c1293238d0d56314a"
+      },
+      "assignment_version": "9c96e3f5126b4579d25cb6df2fbbe54f9173446f03d156fc92f4fd6f45db364f"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: requirements",
+      "Incomplete independent assignment: structure_and_depth",
+      "Incomplete independent assignment: process_language",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 5,
+    "selected_attempts": {
+      "evidence": "4f2afeb85bdb4290b4a36e44a5ae3994",
+      "domain-1": "0f95f2e362174c779a76308e61652932",
+      "adversarial_reasoning": "5f0d59a91f2445358b713c3a7a829cdd",
+      "natural_expression": "a1c1a586e9c5493c906b54a092954742",
+      "reader_usefulness": "0e1eb4f31fff4f5bab7fb64d00806ca8"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: requirements",
+    "Incomplete independent assignment: structure_and_depth",
+    "Incomplete independent assignment: process_language",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

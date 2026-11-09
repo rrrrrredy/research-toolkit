@@ -1,0 +1,71 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ev_batteries_zh",
+  "input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "adversarial_reasoning",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/536ca7e7e6c2a01e41d9.md",
+        "sha256": "536ca7e7e6c2a01e41d92aaf9a34bdd403df8551ef1e5793f9a0fdd58ba94dde"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/c4cd311b8b1f6b11a07d/jobs/adversarial_reasoning-f4cb05c4641e0b6a.json",
+        "sha256": "0dae49a5b47311e4aea1d8654c7ef16da2f94aa327d19927b961f7a6ded9f798"
+      },
+      "assignment_version": "f4cb05c4641e0b6aa136db58c01fe3e0d59f71eff4e3a47923d48ce88b74f727",
+      "resume_host_task": "/root/benchmark_adversarial"
+    },
+    {
+      "slot_id": "reader_usefulness",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/c44bb962a4424c14ca60.md",
+        "sha256": "c44bb962a4424c14ca60dc8032f3532aa814b0375eeb7df136f9f82e705f79c0"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/c4cd311b8b1f6b11a07d/jobs/reader_usefulness-f7efe58b0c64d063.json",
+        "sha256": "126a3cf1b8b9c1c5d959b214a4a59d3a2ba0a5c99eeffcafe5dc59fa72bf60d1"
+      },
+      "assignment_version": "f7efe58b0c64d063272588cd314c4f03f7c2e63ef3c1c725554ed36ddc58fc1b",
+      "resume_host_task": "/root/full_reader_b"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: adversarial_reasoning",
+      "Incomplete independent assignment: reader_usefulness",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 6,
+    "selected_attempts": {
+      "natural_expression": "912e0dfbcc884077a5811ff682b2ab4f",
+      "domain-1": "56e1e474f0384c53af7a7cc39e423987",
+      "evidence": "332d4a6677df4feba951ec3cae4f3faf",
+      "process_language": "6d07f67262f641028160955cc5c0107e",
+      "requirements": "adbae71c00ac42dda02b7266093ce3d4",
+      "structure_and_depth": "a49b87bc05c444cbae7236ec62feea7c"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: adversarial_reasoning",
+    "Incomplete independent assignment: reader_usefulness",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

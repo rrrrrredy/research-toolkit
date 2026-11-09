@@ -1,0 +1,12 @@
+{
+  "input_version": "f3a8a771e665647c0dafa07c493418c1871787d170af5d39942a14ab990bd93c",
+  "assignment_version": "f882ca6dcfd5f0ac182013b8cd1f748fa5b3db36e42085ab0cdceb1ddd54cf4c",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "当前完整报告；修订§3第59行、§5第115行和附录第278行及必要上下文",
+      "basis": "在同一独立领域上下文复用首次完整294行审读及原始证据核查。本次逐行比较新旧完整报告，实际只有§3介绍、§5时延解释、附录S24证据行三段改动；任务、要求、有效要求、scope decisions、sources和source_files实质对象逐项相等。重读三段及相邻模型压缩、时延表、热稳定性和响应设计上下文，并再次读取固定LiteRT README ODM-S12.txt第62–64行。当前正文准确披露Android性能锁，9.46/34.07秒推算继承条件，不声称默认调度或持续运行能达到同样速度，也未臆造锁实现、瓦数或减速比例。原数值、历史S24版本及超过256输出长度的外推提示保持。已将首次execution中20项本地原始来源及2项计算代码/结果逐个复算文件哈希，全部未变；未重跑任何计算/实验。原先完成的模型特定KV/权重预算、量化质量、BaseRT阶段差异、Minions质量成本分母、WhisperTRT warm单剪辑/RSS差、ASR噪声与增量CPU+GPU能耗、设备适用性等领域结论仍适用。ODM-FULL-DOM-B-01已解决，在当前版本撤回该批评；首次needs_revision原件不改。未发现由修订引入的新领域缺陷。"
+    }
+  },
+  "findings": []
+}

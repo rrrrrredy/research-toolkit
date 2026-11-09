@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo third-party-config-kept"
+          }
+        ]
+      }
+    ]
+  },
+  "other": "preserve"
+}

@@ -1,0 +1,21 @@
+{
+  "run_id": "2026-11-09T10-48-43-490Z-30996",
+  "started_at": "2026-11-09T10:48:43.496Z",
+  "model": "gpt-6-astra",
+  "effort": "xhigh",
+  "status": "quota_exhausted",
+  "next_executor": "codex",
+  "updated_at": "2026-11-09T10:58:32.121Z",
+  "http_status": 200,
+  "request_id": "req_66651559f61f4f7989d0f4c2daafaf85",
+  "retry_after": null,
+  "last_event": "response.failed",
+  "response_id": "resp_04e32e3c5bd63abe016af1a50c812887d1a57bbf31847c3dc9",
+  "output_chars": 70374,
+  "error": {
+    "type": "insufficient_quota",
+    "code": "credit_balance_exhausted",
+    "message": "You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.",
+    "param": null
+  }
+}

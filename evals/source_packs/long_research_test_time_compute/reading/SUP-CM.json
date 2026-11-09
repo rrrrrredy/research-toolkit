@@ -1,0 +1,14 @@
+{
+  "source_id": "SUP-CM",
+  "url": "https://arxiv.org/html/2501.14723v1",
+  "title": "CodeMonkeys: Scaling Test-Time Compute for Software Engineering",
+  "reading_location": "§§1–2.3; Tables1–2; state machine/serial budget definitions",
+  "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+  "version_model_evaluation": "v1 2025-01-24; claude-3-5-sonnet-20241022 +Qwen2.5-Coder-32B-Instruct; SWE-bench Verified; repo not commit-pinned",
+  "observation": "Full loop and selection costs, coverage69.8 vs submitted57.4",
+  "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-CM\\original.txt",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-CM\\original.html",
+  "text_sha256": "9df0d0acba699e7ca15adf49ddcbbf8f2618a439cbe40dfa253c3cafd595c281",
+  "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-CM\\retrieval.json",
+  "reader": "/root/ttc_research"
+}

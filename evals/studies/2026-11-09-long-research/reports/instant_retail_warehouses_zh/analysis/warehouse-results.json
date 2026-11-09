@@ -1,0 +1,1362 @@
+{
+  "scenarios": {
+    "fresh_mature": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 900,
+        "aov": 65,
+        "purchase_margin": 0.31,
+        "loss": 0.02,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 6.5,
+        "ads": 1,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 27000,
+      "revenue": 1755000,
+      "unit_contribution": 9.22,
+      "warehouse_fixed": 175000,
+      "warehouse_profit": 73940.00000000003,
+      "allocated_full_profit": 25340.00000000003,
+      "inventory": 124605.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 697,
+      "peak_orders_hour": 108.0,
+      "pickers_required": 6,
+      "concurrent_riders_required": 32
+    },
+    "fresh_new": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 550,
+        "aov": 62,
+        "purchase_margin": 0.31,
+        "loss": 0.025,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 7,
+        "ads": 1.5,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 2.4,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 16500,
+      "revenue": 1023000,
+      "unit_contribution": 7.046,
+      "warehouse_fixed": 155000,
+      "warehouse_profit": -38741.0,
+      "allocated_full_profit": -78341.0,
+      "inventory": 73144.5,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": null,
+      "peak_orders_hour": 66.0,
+      "pickers_required": 4,
+      "concurrent_riders_required": 20
+    },
+    "fresh_weak": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 400,
+        "aov": 60,
+        "purchase_margin": 0.3,
+        "loss": 0.035,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2.2,
+        "delivery": 7.5,
+        "ads": 1.5,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 12000,
+      "revenue": 720000,
+      "unit_contribution": 4.58,
+      "warehouse_fixed": 155000,
+      "warehouse_profit": -100040.0,
+      "allocated_full_profit": -121640.0,
+      "inventory": 52920.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": null,
+      "peak_orders_hour": 48.0,
+      "pickers_required": 3,
+      "concurrent_riders_required": 15
+    },
+    "social_base": {
+      "inputs": {
+        "mode": "independent social warehouse",
+        "daily": 400,
+        "aov": 50,
+        "purchase_margin": 0.3,
+        "loss": 0.01,
+        "platform_rate": 0.05,
+        "franchise_rate": 0,
+        "pick_pack": 0.8,
+        "delivery": 4.5,
+        "ads": 1.2,
+        "subsidy": 0.5,
+        "fixed_base": 60000,
+        "steps": [
+          [
+            450,
+            9000
+          ]
+        ],
+        "capacity": 600,
+        "upstream_per_order": 0,
+        "hq_fixed": 0,
+        "stock_days": 21,
+        "peak_fraction": 0.2,
+        "picker_rate": 45,
+        "picker_use": 0.9,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 4000
+      },
+      "orders": 12000,
+      "revenue": 600000,
+      "unit_contribution": 6.0,
+      "warehouse_fixed": 60000,
+      "warehouse_profit": 12000.0,
+      "allocated_full_profit": 12000.0,
+      "inventory": 298200.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 334,
+      "peak_orders_hour": 80.0,
+      "pickers_required": 2,
+      "concurrent_riders_required": 24
+    },
+    "social_franchise": {
+      "inputs": {
+        "mode": "independent social warehouse",
+        "daily": 400,
+        "aov": 50,
+        "purchase_margin": 0.3,
+        "loss": 0.01,
+        "platform_rate": 0.05,
+        "franchise_rate": 0.02,
+        "pick_pack": 0.8,
+        "delivery": 4.5,
+        "ads": 1.2,
+        "subsidy": 0.5,
+        "fixed_base": 60000,
+        "steps": [
+          [
+            450,
+            9000
+          ]
+        ],
+        "capacity": 600,
+        "upstream_per_order": 0,
+        "hq_fixed": 0,
+        "stock_days": 21,
+        "peak_fraction": 0.2,
+        "picker_rate": 45,
+        "picker_use": 0.9,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 4000
+      },
+      "orders": 12000,
+      "revenue": 600000,
+      "unit_contribution": 5.0,
+      "warehouse_fixed": 60000,
+      "warehouse_profit": 0.0,
+      "allocated_full_profit": 0.0,
+      "inventory": 298200.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 400,
+      "peak_orders_hour": 80.0,
+      "pickers_required": 2,
+      "concurrent_riders_required": 24
+    },
+    "social_strong": {
+      "inputs": {
+        "mode": "independent social warehouse",
+        "daily": 500,
+        "aov": 55,
+        "purchase_margin": 0.32,
+        "loss": 0.01,
+        "platform_rate": 0.05,
+        "franchise_rate": 0,
+        "pick_pack": 0.8,
+        "delivery": 4.5,
+        "ads": 1.2,
+        "subsidy": 0.5,
+        "fixed_base": 60000,
+        "steps": [
+          [
+            450,
+            9000
+          ]
+        ],
+        "capacity": 600,
+        "upstream_per_order": 0,
+        "hq_fixed": 0,
+        "stock_days": 21,
+        "peak_fraction": 0.2,
+        "picker_rate": 45,
+        "picker_use": 0.9,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 4000
+      },
+      "orders": 15000,
+      "revenue": 825000,
+      "unit_contribution": 8.3,
+      "warehouse_fixed": 69000,
+      "warehouse_profit": 55500.000000000015,
+      "allocated_full_profit": 55500.000000000015,
+      "inventory": 398474.99999999994,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 241,
+      "peak_orders_hour": 100.0,
+      "pickers_required": 3,
+      "concurrent_riders_required": 30
+    },
+    "fresh_orders_minus20": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 720.0,
+        "aov": 65,
+        "purchase_margin": 0.31,
+        "loss": 0.02,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 6.5,
+        "ads": 1,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 21600.0,
+      "revenue": 1404000.0,
+      "unit_contribution": 9.22,
+      "warehouse_fixed": 155000,
+      "warehouse_profit": 44152.0,
+      "allocated_full_profit": 5272.0,
+      "inventory": 99684.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 697,
+      "peak_orders_hour": 86.39999999999999,
+      "pickers_required": 5,
+      "concurrent_riders_required": 26
+    },
+    "fresh_orders_plus20": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 1080.0,
+        "aov": 65,
+        "purchase_margin": 0.31,
+        "loss": 0.02,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 6.5,
+        "ads": 1,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 32400.0,
+      "revenue": 2106000.0,
+      "unit_contribution": 9.22,
+      "warehouse_fixed": 215000,
+      "warehouse_profit": 83728.0,
+      "allocated_full_profit": 25408.0,
+      "inventory": 149526.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 697,
+      "peak_orders_hour": 129.6,
+      "pickers_required": 7,
+      "concurrent_riders_required": 39
+    },
+    "fresh_aov_minus10": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 900,
+        "aov": 58.5,
+        "purchase_margin": 0.31,
+        "loss": 0.02,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 6.5,
+        "ads": 1,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 27000,
+      "revenue": 1579500.0,
+      "unit_contribution": 7.348,
+      "warehouse_fixed": 175000,
+      "warehouse_profit": 23396.0,
+      "allocated_full_profit": -25204.0,
+      "inventory": 112144.5,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": null,
+      "peak_orders_hour": 108.0,
+      "pickers_required": 6,
+      "concurrent_riders_required": 32
+    },
+    "fresh_margin_minus2pp": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 900,
+        "aov": 65,
+        "purchase_margin": 0.29,
+        "loss": 0.02,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 6.5,
+        "ads": 1,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 27000,
+      "revenue": 1755000,
+      "unit_contribution": 7.92,
+      "warehouse_fixed": 175000,
+      "warehouse_profit": 38840.0,
+      "allocated_full_profit": -9760.0,
+      "inventory": 128114.99999999997,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 954,
+      "peak_orders_hour": 108.0,
+      "pickers_required": 6,
+      "concurrent_riders_required": 32
+    },
+    "fresh_loss_plus1pp": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 900,
+        "aov": 65,
+        "purchase_margin": 0.31,
+        "loss": 0.03,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 6.5,
+        "ads": 1,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 27000,
+      "revenue": 1755000,
+      "unit_contribution": 8.57,
+      "warehouse_fixed": 175000,
+      "warehouse_profit": 56390.0,
+      "allocated_full_profit": 7790.0,
+      "inventory": 126360.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 764,
+      "peak_orders_hour": 108.0,
+      "pickers_required": 6,
+      "concurrent_riders_required": 32
+    },
+    "fresh_delivery_plus1": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 900,
+        "aov": 65,
+        "purchase_margin": 0.31,
+        "loss": 0.02,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 7.5,
+        "ads": 1,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 27000,
+      "revenue": 1755000,
+      "unit_contribution": 8.22,
+      "warehouse_fixed": 175000,
+      "warehouse_profit": 46940.00000000003,
+      "allocated_full_profit": -1659.999999999971,
+      "inventory": 124605.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 909,
+      "peak_orders_hour": 108.0,
+      "pickers_required": 6,
+      "concurrent_riders_required": 32
+    },
+    "fresh_ads_plus08": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 900,
+        "aov": 65,
+        "purchase_margin": 0.31,
+        "loss": 0.02,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 6.5,
+        "ads": 1.8,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 27000,
+      "revenue": 1755000,
+      "unit_contribution": 8.42,
+      "warehouse_fixed": 175000,
+      "warehouse_profit": 52340.0,
+      "allocated_full_profit": 3740.0,
+      "inventory": 124605.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 781,
+      "peak_orders_hour": 108.0,
+      "pickers_required": 6,
+      "concurrent_riders_required": 32
+    },
+    "fresh_no_incentive": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 900,
+        "aov": 65,
+        "purchase_margin": 0.31,
+        "loss": 0.02,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 6.5,
+        "ads": 1,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 27000,
+      "revenue": 1755000,
+      "unit_contribution": 9.22,
+      "warehouse_fixed": 175000,
+      "warehouse_profit": 73940.00000000003,
+      "allocated_full_profit": 25340.00000000003,
+      "inventory": 124605.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 697,
+      "peak_orders_hour": 108.0,
+      "pickers_required": 6,
+      "concurrent_riders_required": 32
+    },
+    "social_orders_minus20": {
+      "inputs": {
+        "mode": "independent social warehouse",
+        "daily": 320.0,
+        "aov": 50,
+        "purchase_margin": 0.3,
+        "loss": 0.01,
+        "platform_rate": 0.05,
+        "franchise_rate": 0,
+        "pick_pack": 0.8,
+        "delivery": 4.5,
+        "ads": 1.2,
+        "subsidy": 0.5,
+        "fixed_base": 60000,
+        "steps": [
+          [
+            450,
+            9000
+          ]
+        ],
+        "capacity": 600,
+        "upstream_per_order": 0,
+        "hq_fixed": 0,
+        "stock_days": 21,
+        "peak_fraction": 0.2,
+        "picker_rate": 45,
+        "picker_use": 0.9,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 4000
+      },
+      "orders": 9600.0,
+      "revenue": 480000.0,
+      "unit_contribution": 6.0,
+      "warehouse_fixed": 60000,
+      "warehouse_profit": -2400.0,
+      "allocated_full_profit": -2400.0,
+      "inventory": 238560.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 334,
+      "peak_orders_hour": 64.0,
+      "pickers_required": 2,
+      "concurrent_riders_required": 19
+    },
+    "social_orders_plus20": {
+      "inputs": {
+        "mode": "independent social warehouse",
+        "daily": 480.0,
+        "aov": 50,
+        "purchase_margin": 0.3,
+        "loss": 0.01,
+        "platform_rate": 0.05,
+        "franchise_rate": 0,
+        "pick_pack": 0.8,
+        "delivery": 4.5,
+        "ads": 1.2,
+        "subsidy": 0.5,
+        "fixed_base": 60000,
+        "steps": [
+          [
+            450,
+            9000
+          ]
+        ],
+        "capacity": 600,
+        "upstream_per_order": 0,
+        "hq_fixed": 0,
+        "stock_days": 21,
+        "peak_fraction": 0.2,
+        "picker_rate": 45,
+        "picker_use": 0.9,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 4000
+      },
+      "orders": 14400.0,
+      "revenue": 720000.0,
+      "unit_contribution": 6.0,
+      "warehouse_fixed": 69000,
+      "warehouse_profit": 17400.0,
+      "allocated_full_profit": 17400.0,
+      "inventory": 357840.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 334,
+      "peak_orders_hour": 96.0,
+      "pickers_required": 3,
+      "concurrent_riders_required": 29
+    },
+    "social_aov_minus10": {
+      "inputs": {
+        "mode": "independent social warehouse",
+        "daily": 400,
+        "aov": 45.0,
+        "purchase_margin": 0.3,
+        "loss": 0.01,
+        "platform_rate": 0.05,
+        "franchise_rate": 0,
+        "pick_pack": 0.8,
+        "delivery": 4.5,
+        "ads": 1.2,
+        "subsidy": 0.5,
+        "fixed_base": 60000,
+        "steps": [
+          [
+            450,
+            9000
+          ]
+        ],
+        "capacity": 600,
+        "upstream_per_order": 0,
+        "hq_fixed": 0,
+        "stock_days": 21,
+        "peak_fraction": 0.2,
+        "picker_rate": 45,
+        "picker_use": 0.9,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 4000
+      },
+      "orders": 12000,
+      "revenue": 540000.0,
+      "unit_contribution": 4.8,
+      "warehouse_fixed": 60000,
+      "warehouse_profit": -2400.0,
+      "allocated_full_profit": -2400.0,
+      "inventory": 268380.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 417,
+      "peak_orders_hour": 80.0,
+      "pickers_required": 2,
+      "concurrent_riders_required": 24
+    },
+    "social_margin_minus2pp": {
+      "inputs": {
+        "mode": "independent social warehouse",
+        "daily": 400,
+        "aov": 50,
+        "purchase_margin": 0.27999999999999997,
+        "loss": 0.01,
+        "platform_rate": 0.05,
+        "franchise_rate": 0,
+        "pick_pack": 0.8,
+        "delivery": 4.5,
+        "ads": 1.2,
+        "subsidy": 0.5,
+        "fixed_base": 60000,
+        "steps": [
+          [
+            450,
+            9000
+          ]
+        ],
+        "capacity": 600,
+        "upstream_per_order": 0,
+        "hq_fixed": 0,
+        "stock_days": 21,
+        "peak_fraction": 0.2,
+        "picker_rate": 45,
+        "picker_use": 0.9,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 4000
+      },
+      "orders": 12000,
+      "revenue": 600000,
+      "unit_contribution": 5.0,
+      "warehouse_fixed": 60000,
+      "warehouse_profit": 0.0,
+      "allocated_full_profit": 0.0,
+      "inventory": 306600.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 400,
+      "peak_orders_hour": 80.0,
+      "pickers_required": 2,
+      "concurrent_riders_required": 24
+    },
+    "social_loss_plus1pp": {
+      "inputs": {
+        "mode": "independent social warehouse",
+        "daily": 400,
+        "aov": 50,
+        "purchase_margin": 0.3,
+        "loss": 0.02,
+        "platform_rate": 0.05,
+        "franchise_rate": 0,
+        "pick_pack": 0.8,
+        "delivery": 4.5,
+        "ads": 1.2,
+        "subsidy": 0.5,
+        "fixed_base": 60000,
+        "steps": [
+          [
+            450,
+            9000
+          ]
+        ],
+        "capacity": 600,
+        "upstream_per_order": 0,
+        "hq_fixed": 0,
+        "stock_days": 21,
+        "peak_fraction": 0.2,
+        "picker_rate": 45,
+        "picker_use": 0.9,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 4000
+      },
+      "orders": 12000,
+      "revenue": 600000,
+      "unit_contribution": 5.5,
+      "warehouse_fixed": 60000,
+      "warehouse_profit": 6000.0,
+      "allocated_full_profit": 6000.0,
+      "inventory": 302400.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 364,
+      "peak_orders_hour": 80.0,
+      "pickers_required": 2,
+      "concurrent_riders_required": 24
+    },
+    "social_delivery_plus1": {
+      "inputs": {
+        "mode": "independent social warehouse",
+        "daily": 400,
+        "aov": 50,
+        "purchase_margin": 0.3,
+        "loss": 0.01,
+        "platform_rate": 0.05,
+        "franchise_rate": 0,
+        "pick_pack": 0.8,
+        "delivery": 5.5,
+        "ads": 1.2,
+        "subsidy": 0.5,
+        "fixed_base": 60000,
+        "steps": [
+          [
+            450,
+            9000
+          ]
+        ],
+        "capacity": 600,
+        "upstream_per_order": 0,
+        "hq_fixed": 0,
+        "stock_days": 21,
+        "peak_fraction": 0.2,
+        "picker_rate": 45,
+        "picker_use": 0.9,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 4000
+      },
+      "orders": 12000,
+      "revenue": 600000,
+      "unit_contribution": 5.0,
+      "warehouse_fixed": 60000,
+      "warehouse_profit": 0.0,
+      "allocated_full_profit": 0.0,
+      "inventory": 298200.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 400,
+      "peak_orders_hour": 80.0,
+      "pickers_required": 2,
+      "concurrent_riders_required": 24
+    },
+    "social_ads_plus08": {
+      "inputs": {
+        "mode": "independent social warehouse",
+        "daily": 400,
+        "aov": 50,
+        "purchase_margin": 0.3,
+        "loss": 0.01,
+        "platform_rate": 0.05,
+        "franchise_rate": 0,
+        "pick_pack": 0.8,
+        "delivery": 4.5,
+        "ads": 2.0,
+        "subsidy": 0.5,
+        "fixed_base": 60000,
+        "steps": [
+          [
+            450,
+            9000
+          ]
+        ],
+        "capacity": 600,
+        "upstream_per_order": 0,
+        "hq_fixed": 0,
+        "stock_days": 21,
+        "peak_fraction": 0.2,
+        "picker_rate": 45,
+        "picker_use": 0.9,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 4000
+      },
+      "orders": 12000,
+      "revenue": 600000,
+      "unit_contribution": 5.2,
+      "warehouse_fixed": 60000,
+      "warehouse_profit": 2400.0,
+      "allocated_full_profit": 2400.0,
+      "inventory": 298200.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 385,
+      "peak_orders_hour": 80.0,
+      "pickers_required": 2,
+      "concurrent_riders_required": 24
+    },
+    "social_no_incentive": {
+      "inputs": {
+        "mode": "independent social warehouse",
+        "daily": 400,
+        "aov": 50,
+        "purchase_margin": 0.3,
+        "loss": 0.01,
+        "platform_rate": 0.05,
+        "franchise_rate": 0,
+        "pick_pack": 0.8,
+        "delivery": 4.5,
+        "ads": 1.2,
+        "subsidy": 0,
+        "fixed_base": 60000,
+        "steps": [
+          [
+            450,
+            9000
+          ]
+        ],
+        "capacity": 600,
+        "upstream_per_order": 0,
+        "hq_fixed": 0,
+        "stock_days": 21,
+        "peak_fraction": 0.2,
+        "picker_rate": 45,
+        "picker_use": 0.9,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 4000
+      },
+      "orders": 12000,
+      "revenue": 600000,
+      "unit_contribution": 5.5,
+      "warehouse_fixed": 60000,
+      "warehouse_profit": 6000.0,
+      "allocated_full_profit": 6000.0,
+      "inventory": 298200.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 364,
+      "peak_orders_hour": 80.0,
+      "pickers_required": 2,
+      "concurrent_riders_required": 24
+    },
+    "social_subsidy_withdraw_demand20": {
+      "inputs": {
+        "mode": "independent social warehouse",
+        "daily": 320,
+        "aov": 50,
+        "purchase_margin": 0.3,
+        "loss": 0.01,
+        "platform_rate": 0.05,
+        "franchise_rate": 0,
+        "pick_pack": 0.8,
+        "delivery": 4.5,
+        "ads": 1.2,
+        "subsidy": 0,
+        "fixed_base": 60000,
+        "steps": [
+          [
+            450,
+            9000
+          ]
+        ],
+        "capacity": 600,
+        "upstream_per_order": 0,
+        "hq_fixed": 0,
+        "stock_days": 21,
+        "peak_fraction": 0.2,
+        "picker_rate": 45,
+        "picker_use": 0.9,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 4000
+      },
+      "orders": 9600,
+      "revenue": 480000,
+      "unit_contribution": 5.5,
+      "warehouse_fixed": 60000,
+      "warehouse_profit": -7200.0,
+      "allocated_full_profit": -7200.0,
+      "inventory": 238560.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 364,
+      "peak_orders_hour": 64.0,
+      "pickers_required": 2,
+      "concurrent_riders_required": 19
+    },
+    "fresh_promote": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 1080,
+        "aov": 61.75,
+        "purchase_margin": 0.29,
+        "loss": 0.02,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 7,
+        "ads": 1.5,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 32400,
+      "revenue": 2000700.0,
+      "unit_contribution": 6.049,
+      "warehouse_fixed": 215000,
+      "warehouse_profit": -19012.399999999994,
+      "allocated_full_profit": -77332.4,
+      "inventory": 146051.09999999998,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": null,
+      "peak_orders_hour": 129.6,
+      "pickers_required": 7,
+      "concurrent_riders_required": 39
+    },
+    "fresh_radius_extend": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 1080,
+        "aov": 65,
+        "purchase_margin": 0.31,
+        "loss": 0.02,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 8,
+        "ads": 1,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 3,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 32400,
+      "revenue": 2106000,
+      "unit_contribution": 7.72,
+      "warehouse_fixed": 215000,
+      "warehouse_profit": 35128.0,
+      "allocated_full_profit": -23192.0,
+      "inventory": 149526.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 986,
+      "peak_orders_hour": 129.6,
+      "pickers_required": 7,
+      "concurrent_riders_required": 51
+    }
+  },
+  "platform_bridge": {
+    "consumer_goods": 48,
+    "platform_goods_coupon": 2,
+    "consumer_delivery_to_platform": 2,
+    "merchant_goods_revenue": 50,
+    "merchant_incentive": 0.5,
+    "commission_to_platform": 2.5,
+    "merchant_delivery_to_platform": 4.5,
+    "merchant_ads_to_platform": 1.2,
+    "rider_cost": 6.5,
+    "platform_service_cost": 1,
+    "platform_refund_service_cost": 0.2,
+    "platform_contribution": -8.881784197001252e-16
+  },
+  "network": {
+    "old_before": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 900,
+        "aov": 65,
+        "purchase_margin": 0.31,
+        "loss": 0.02,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 6.5,
+        "ads": 1,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 27000,
+      "revenue": 1755000,
+      "unit_contribution": 9.22,
+      "warehouse_fixed": 175000,
+      "warehouse_profit": 73940.00000000003,
+      "allocated_full_profit": 25340.00000000003,
+      "inventory": 124605.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 697,
+      "peak_orders_hour": 108.0,
+      "pickers_required": 6,
+      "concurrent_riders_required": 32
+    },
+    "old_after": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 600,
+        "aov": 65,
+        "purchase_margin": 0.31,
+        "loss": 0.02,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 6.5,
+        "ads": 1,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 18000,
+      "revenue": 1170000,
+      "unit_contribution": 9.22,
+      "warehouse_fixed": 155000,
+      "warehouse_profit": 10960.0,
+      "allocated_full_profit": -21440.0,
+      "inventory": 83070.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 697,
+      "peak_orders_hour": 72.0,
+      "pickers_required": 4,
+      "concurrent_riders_required": 22
+    },
+    "new": {
+      "inputs": {
+        "mode": "fresh self-operated",
+        "daily": 500,
+        "aov": 65,
+        "purchase_margin": 0.31,
+        "loss": 0.02,
+        "platform_rate": 0.002,
+        "franchise_rate": 0,
+        "pick_pack": 2,
+        "delivery": 6.5,
+        "ads": 1,
+        "subsidy": 0,
+        "fixed_base": 155000,
+        "steps": [
+          [
+            800,
+            20000
+          ],
+          [
+            1000,
+            40000
+          ]
+        ],
+        "capacity": 1200,
+        "upstream_per_order": 1.8,
+        "hq_fixed": 0,
+        "stock_days": 3,
+        "peak_fraction": 0.12,
+        "picker_rate": 24,
+        "picker_use": 0.85,
+        "rider_rate": 4,
+        "rider_use": 0.85,
+        "monthly_depreciation": 18000
+      },
+      "orders": 15000,
+      "revenue": 975000,
+      "unit_contribution": 9.22,
+      "warehouse_fixed": 155000,
+      "warehouse_profit": -16700.0,
+      "allocated_full_profit": -43700.0,
+      "inventory": 69225.0,
+      "capacity_feasible": true,
+      "minimum_full_breakeven_daily": 697,
+      "peak_orders_hour": 60.0,
+      "pickers_required": 3,
+      "concurrent_riders_required": 18
+    },
+    "profit_delta": -90480.00000000003
+  },
+  "ramp": [
+    {
+      "month": 1,
+      "daily": 300,
+      "profit": -113186.0,
+      "inventory": 39897.0,
+      "cumulative_cash": -810083.0
+    },
+    {
+      "month": 2,
+      "daily": 450,
+      "profit": -92279.0,
+      "inventory": 59845.5,
+      "cumulative_cash": -904310.5
+    },
+    {
+      "month": 3,
+      "daily": 600,
+      "profit": -71372.0,
+      "inventory": 79794.0,
+      "cumulative_cash": -977631.0
+    },
+    {
+      "month": 4,
+      "daily": 750,
+      "profit": -32240.0,
+      "inventory": 99045.0,
+      "cumulative_cash": -1011122.0
+    },
+    {
+      "month": 5,
+      "daily": 900,
+      "profit": -27688.0,
+      "inventory": 118854.0,
+      "cumulative_cash": -1040619.0
+    },
+    {
+      "month": 6,
+      "daily": 950,
+      "profit": -19504.0,
+      "inventory": 125456.99999999997,
+      "cumulative_cash": -1048726.0
+    }
+  ],
+  "assumptions": "No VAT or financing in these operating illustrations; loss is separately excluded from procurement margin; allocated costs are not company audited profit. Rider bill reflects merchant share; consumer shipping excluded from warehouse revenue."
+}

@@ -1,0 +1,48 @@
+{
+  "host_task": "/root/long_research_audit_b",
+  "status": "completed",
+  "role": "auditor",
+  "case_id": "microdrama_market_zh",
+  "input_version": "f6bb51c4fdab26cede56b083db7acbe727f8d84add9ff64682cf380aa9ff37cb",
+  "assignment_version": "fc8417da6be74d7340c5e072beb3687e76d3f4c9a8f24f7aa4681ab1221063be",
+  "assignment_ref": {
+    "path": "reviews/host/f6bb51c4fdab26cede56/jobs/audit-fc8417da6be74d73.json",
+    "sha256": "e0f0cff339f4229daa3f42d112b6a223c534a533de2e453bd513944b943aa558"
+  },
+  "reading_ref": {
+    "path": "logs/reading/d2a0ade6cf7ce7e59976.md",
+    "sha256": "d2a0ade6cf7ce7e59976abdb710f11d7e1dca0dd53a677aa3a983e333228ce15"
+  },
+  "artifact_sha256": "76e52a756e003edbec67aca4cc06b19aa6545aec9c5584f1ca57c74f28c222b4",
+  "completed_at": "2026-11-09T16:32:41.604614+00:00",
+  "actual_reading": {
+    "full": "原始任务、全部有效要求、当前report第1–512行及终止空行；8份当前response和execution；audit instructions；U01及U08原分析、scenario源码与保留的23组结果、合同/混合/现金/组合结果和completion结果；MD004完整规章。",
+    "history": "production_history全部记录、首稿冻结引用、旧至当前全部两处diff；evidence/adversarial负面原回复、当前复核；其他视角原审回复及执行读取范围，domain中间等价确认、process偶然交接材料曝光说明。",
+    "sampled_originals": [
+      "MD006物理p3原图",
+      "CNNIC CP08 p40,73,74与CP19 p45原页文字",
+      "QM CP17 p6原图",
+      "QM CP24 time原图",
+      "QM CP16四张原图（时长、行业MAU、排行榜、重合）",
+      "MD005 p10,11,148原页文字",
+      "MD008 p156,157文字及p187,p188原表图",
+      "CP01 p2及CP02 p1原页文字",
+      "CP18保证金/支付/未成年退款原文段",
+      "CP27复访/达人佣金/结算原文段",
+      "CP20营销服务章节"
+    ],
+    "limits": "以上列明实际范围；未声称通读全部长财报或所有来源，未独立复现第三方监测；截断输出未当作完整读取，关键缺口分段补读。"
+  },
+  "verification": "Portable LF hashes of current report and all 24 reviewer input/response/execution references match; frozen/current full-report diff contains only lines6 and40.",
+  "actions": {
+    "api_calls": 0,
+    "report_edited": false,
+    "research_rerun": false,
+    "calculation_rerun": false,
+    "tests_run": false,
+    "imported": false
+  },
+  "independence": "本身份仅审计，不是作者、任何内容初审或最终验收身份。",
+  "field_corrected_at": "2026-11-09T16:34:57.804468+00:00",
+  "field_correction": "Only the schema mapping changed: prior_findings now contains exactly assignment.prior_required_findings; the optional prior RU-MDZH-01 is retained separately and as the current no_change disposition. Original response and actual import failure remain preserved; no new substantive audit or manuscript change."
+}

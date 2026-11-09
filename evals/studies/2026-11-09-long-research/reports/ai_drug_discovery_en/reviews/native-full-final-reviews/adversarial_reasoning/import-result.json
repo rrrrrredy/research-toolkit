@@ -1,0 +1,52 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en",
+  "input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "reader_usefulness",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/2beb6a4b3d3a382f3303.md",
+        "sha256": "2beb6a4b3d3a382f33033c339ac5826007012b8c900ac1a1433d356dde636b03"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/b14ddf2357207d82f698/jobs/reader_usefulness-e0f5b98897cc3cda.json",
+        "sha256": "b7d2ce18c287c998e2388ffed60b3577d64d47ae99fa11904978e7c471f424ce"
+      },
+      "assignment_version": "e0f5b98897cc3cdaf0fd0d9a27a8dc34c23b58dd466d683703e79b5c2278052c",
+      "resume_host_task": "/root/full_reader_b"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Research dependencies are not ready: dependency_pending"
+    ],
+    "required_slots": 10,
+    "completed_slots": 7,
+    "selected_attempts": {
+      "natural_expression": "89a685980e124dc5b531569b52c83acc",
+      "domain-1": "15a2122cad074734b9bc4f13ae9670f3",
+      "evidence": "7ae64b0ddaf547c68700602ebaec4434",
+      "process_language": "c44f37dc27734b3bbf28f981c9c03b08",
+      "requirements": "65681f3a9f84422ab82b8f9410c3f28b",
+      "structure_and_depth": "69eed08cc3944d42a4f975d0390da8e1",
+      "adversarial_reasoning": "77c8d214fd814b17a5378d3dfcde64b3"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Research dependencies are not ready: dependency_pending"
+  ]
+}

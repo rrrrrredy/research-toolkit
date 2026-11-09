@@ -1,0 +1,34 @@
+{
+  "identity": "/root/microdrama_research",
+  "status": "illustrative assumptions, not estimates",
+  "mechanism": "ad opportunity occurs after completed episode; retention held fixed",
+  "rows": [
+    {
+      "completion": 0.45,
+      "episode_starts_per_active_day": 20,
+      "ad_opportunities_per_active_day": 9.0,
+      "external_demand": 2944256.0991481384,
+      "content_profit": 275916.1894965712,
+      "operator_profit": -473298.5052206535,
+      "combined_profit": -197382.3157240823
+    },
+    {
+      "completion": 0.6,
+      "episode_starts_per_active_day": 20,
+      "ad_opportunities_per_active_day": 12.0,
+      "external_demand": 3925674.7988641844,
+      "content_profit": 567888.2526620948,
+      "operator_profit": 68935.32637246186,
+      "combined_profit": 636823.5790345566
+    },
+    {
+      "completion": 0.75,
+      "episode_starts_per_active_day": 20,
+      "ad_opportunities_per_active_day": 15.0,
+      "external_demand": 4907093.49858023,
+      "content_profit": 859860.3158276184,
+      "operator_profit": 611169.1579655772,
+      "combined_profit": 1471029.4737931956
+    }
+  ]
+}

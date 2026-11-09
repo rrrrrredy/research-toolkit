@@ -1,0 +1,32 @@
+{
+  "host_task": "/root/complete_requirements_b",
+  "status": "completed",
+  "perspective": "requirements",
+  "execution_mode": "native_codex",
+  "started_at": "2026-11-09T22:49:36.8195485+08:00",
+  "completed_at": "2026-11-09T14:50:35.5675420+00:00",
+  "input_version": "35856ace8b32421ec17a16702661ae8452b72df5cc41c988a9beb1d43605ab7c",
+  "assignment_version": "b257d7ba21655c04bdcad85011fae777c5491e1eccb09315d387f3f6402aca69",
+  "assignment_path": "reviews/host/35856ace8b32421ec17a/jobs/requirements-b257d7ba21655c04.json",
+  "assignment_sha256": "2fc028dad62ec2e8ecaefa2e0721818a78e198bf7bc6257ff9d7feac574c510c",
+  "report_path": "reports/current.md",
+  "report_sha256": "e1b4fa3580310c7761668eb042def1b4e7bc72a51a2d7e8f614385cca6bcbb78",
+  "expected_report_sha256": "e1b4fa3580310c7761668eb042def1b4e7bc72a51a2d7e8f614385cca6bcbb78",
+  "reading_intervals": [
+    {
+      "unread_report_ranges": [],
+      "coverage": "complete continuous report reading, including tables, formulae, diagram and appendices",
+      "artifact": "actualjob.json:assignment.task, effective_requirements and report",
+      "report_ranges": [
+        "1-90",
+        "91-180",
+        "181-270",
+        "271-355"
+      ],
+      "completed_at": "2026-11-09T14:50:35.5675420+00:00",
+      "started_at": "2026-11-09T22:49:36.8195485+08:00"
+    }
+  ],
+  "originals_opened": [],
+  "notes": "Compared this complete English task and frozen report directly; did not use the Chinese report as evidence or require agreement with it. No other reviewers, source mappings, live research, tests or report edits."
+}

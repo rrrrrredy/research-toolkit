@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.4.0
+
+Long-form research in English and Chinese across fields; 13 questions / 15 report assignments in the existing benchmark. Add case selection and exact source matching, reuse unchanged first-use setup, and repair binary-source/CSV restoration. Correct repetition false flags from table separators and linked paper-title punctuation. Preserve historical inputs and original results; update bilingual methods, cases and plugin distribution.
+
+[English release notes](docs/releases/v2.4.0.md) · [中文发布说明](docs/releases/v2.4.0.zh-CN.md)
+
 ## v2.3.4 — 2026-11-09
 
 - Correct mechanical evaluation: remove vocabulary/entity rewards and the reward for absence of generic process phrases. Process and strong-claim matches become contextual reading warnings rather than automatic defects or blockers.

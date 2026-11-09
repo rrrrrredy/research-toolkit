@@ -1,0 +1,12 @@
+{
+  "input_version": "9bd699373d7f5394b498f57ae2f4eacd3618c40e2bd4900720b6480bb93632f9",
+  "assignment_version": "8dfe47d7cfd9d7bbef39db27ffea913bcc18ff259333c0cae20546f7c00d6c69",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "basis": "当前六处修改明确tau-bench奖励为动作终态与必要回复信息两项检查的乘积，并说明reward=1不能保证用户确认；与MB18第118–130、583–590行原文一致。零售实验agent 0.38美元和simulator 0.23美元/任务对应MB18第233行，报告正确区分尝试任务、成功任务、历史费用和当前报价。EvalPlus v3附录A的512新token、ChatGPT长描述1024、代码块提取及逐用例max(200ms,4×参考程序时间)与MB10第830–855行一致。新增的交易授权轨迹判断没有改变原分数或任务范围。复用首评完整219行及原21份本地原件/4处官方网页阅读，当前无必要修订。",
+      "location": "完整当前报告（复用首评全文）；当前变更行：55, 105, 148, 149, 181, 188"
+    }
+  },
+  "findings": []
+}

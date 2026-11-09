@@ -1,0 +1,30 @@
+{
+  "host_task": "/root/benchmark_structure",
+  "status": "completed",
+  "completed_at": "2026-11-09T16:11:15.6076512+00:00",
+  "input_version": "e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "assignment_version": "ff48bc05e53e9e75e95aeef406766198b6a41ff7e8ad602faa2fc1fdd3fad729",
+  "assignment_ref": "reviews/host/e4cabf49ef9396bd0f19/jobs/structure_and_depth-ff48bc05e53e9e75.json",
+  "assessment_mode": "原独立上下文接续；完整冻结稿实际阅读加全部变更及受影响上下文，复用未变阅读",
+  "prior_review": {
+    "full_report_lines": "1—211",
+    "assignment_version": "b07e0a56bb5896a98f7ba23dae30e7c7cb64fc673ca796d191ff9b989c4f39e9",
+    "input_version": "db8213c012af78accb3a9719133d8719cea1032b0ba50b3b1862df3cc6dc3831",
+    "execution_path": "native-full-reviews/structure_and_depth/execution.json",
+    "response_path": "native-full-reviews/structure_and_depth/response.json"
+  },
+  "reading_scope": {
+    "current_report_chars": 14256,
+    "not_read": "未读取其他角色评审、作者自评或其结论；来源目录和台账不算原文阅读",
+    "requirements": "任务与effective_requirements已与本人原完整阅读版本逐字比较一致，未增加要求",
+    "source_change_check": "assignment.sources中sources/原件条目与原阅读输入内容逐项比较，无变更",
+    "affected_context": "当前第79—99行与第195—211行",
+    "original_sources": [
+      "本轮相关原件文本与冻结输入相同，未新增原件阅读；复用首次千川协议、抖音算法说明、TikTok归因/去重原文及倍轻松问询回复的实际阅读"
+    ],
+    "current_report_lines": 211,
+    "report_changes": "全部1处变更：第93行Smart+版本说明；完整diff及周边表格、论证"
+  },
+  "resolved_findings": [],
+  "work_performed": "只读核对；仅保存本视角结果。未改稿，未重跑研究、计算或软件测试，未导入。"
+}

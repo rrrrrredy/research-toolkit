@@ -1,0 +1,14 @@
+{
+  "source_id": "TTC005",
+  "url": "https://arxiv.org/html/2611.07367v1",
+  "title": "Test-Time Self-Play: Scaling without a Verifier",
+  "reading_location": "§§4–6; Appendix A.1–A.6, B tables6–7, C.1–C.3; D diagnostics passages",
+  "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+  "version_model_evaluation": "v1; Qwen3-8B; HardLCBv6 28 selected from131 February–May2025; no implementation commit pinned",
+  "observation": "Filtered mean, carry-forward, FMV definition, no hidden-test checkpoint best selection, 20000 nominal slots",
+  "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC005\\original.txt",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC005\\original.html",
+  "text_sha256": "93be169f42a5e6f6c676b2026d3ab2dfc3ea1c652db9dac70dc6b5bff45a916b",
+  "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC005\\retrieval.json",
+  "reader": "/root/ttc_research"
+}

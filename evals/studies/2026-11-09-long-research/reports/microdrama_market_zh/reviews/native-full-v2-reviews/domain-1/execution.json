@@ -1,0 +1,48 @@
+{
+  "status": "completed",
+  "host_task": "/root/independent_domain_b",
+  "role": "reviewer",
+  "slot_id": "domain-1",
+  "input_version": "98b93c531b8061c68cfa3c93abb7469a9e3b577b6ad2775430396fc04ba37c51",
+  "assignment_version": "457fd848abf79427681e5aaa65ea15f65bcbce93f9ed82ab6561e01977f94763",
+  "artifact_sha256": "dd39a222cc69892efe6c830f9609bc42ff66d534825f0725364b38f1b3a07a0a",
+  "completed_at": "2026-11-09T13:46:01.6599675Z",
+  "scope": "Same domain identity, actual current-packet equivalence confirmation; carry forward prior completed substantive full review",
+  "actual_comparison": "Compared every assignment field and source value with original frozen input, inspected changed report output bindings, production-history save and instruction additions; reread prior own response and actual MDC-015/016/017 CSV rows",
+  "unchanged": [
+    "task",
+    "requirements",
+    "effective_requirements",
+    "scope_decisions",
+    "report_path",
+    "report",
+    "sources",
+    "source_files",
+    "analyses",
+    "scope",
+    "prior_required_findings"
+  ],
+  "changed": [
+    "instructions: continuation context only",
+    "research_outputs: saved report claim bindings, self-reference and snapshot path",
+    "production_history: same-content save"
+  ],
+  "file_versions": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\reviews\\host\\8a720aa98e7b4e3a7ace\\jobs\\domain-1-4b1ae6d6e6ce341e.json",
+      "sha256": "fb689029788d28746bf473be492919c904e975eb570cc653bb577ff6c3c37e67"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\reviews\\host\\98b93c531b8061c68cfa\\jobs\\domain-1-457fd848abf79427.json",
+      "sha256": "3e9df08cb21c9c4052231fad9518660cc934f1cc3f8df4403803eac89915a6c1"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\native-full-reviews\\domain-1\\response.json",
+      "sha256": "1446551028a3243a1e47b5d4c4c8b2c4c0a37fd7f45a1509488600c46f8574e3"
+    }
+  ],
+  "api_calls": 0,
+  "research_rerun": false,
+  "report_edited": false,
+  "imported": false
+}

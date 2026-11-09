@@ -1,0 +1,13 @@
+claim_id,claim,claim_type,supporting_sources,counter_evidence,uncertainty,evidence_detail
+TE-C001,"DeepSeekreportedofficialtraininghours2.788M timesassumed$2=$5.576M,notwholedevelopment.",analysis,TE01,,,TE01
+TE-C002,CurrentClaude5.5globalstandardtariffs supplyscenario rates; quality assumptions notmeasurements.,analysis,TE05,,,TE05
+TE-C003,Supporttwofinitepaths yield994/996accepted and$243.11/$184.15cohortcost.,analysis,TE-CALC,,,calculation-results.json
+TE-C004,"Documenttimeindexed5mcache4writes8reads;1h1write11reads, costs1.416/.732perset.",analysis,TE-CALC;TE-W03,,,calculation-results.json; TE-W03
+TE-C005,"Documentacceptedtaskcostincludesprep,validation,repair andunresolvedwork.",analysis,TE-CALC,,,calculation-results.json
+TE-C006,"Agent8-stepbasecost.3632;finitepaths96accepted,$789.20cohort.",analysis,TE-CALC,,,calculation-results.json
+TE-C007,"AzureofficialConsumptionLinuxEastUSfullnode13.96/h;2GPU188GB,80vCPU640GiB.",analysis,TE-S21;TE-W05,,,TE-S21; TE-W05
+TE-C008,Hostingcrossover3.764Mrequestsconditionalonqualityparity and10rpsscenario capacity.,analysis,TE-CALC,,,calculation-results.json
+TE-C009,"Tokenizeractualsixstringsdemonstrateencoding/contentdifferences,notlanguagewidecostratios.",analysis,TE-TOKENIZER,,,tokenizer-results.json
+TE-C010,METR2025slowdowniscontextspecific;2026selectionproblemsblockuniversalnewmultiplier.,analysis,TE-S18;TE20,,,TE-S18; TE20
+TE-C011,Financialsuppliercompany/segmentresults do notestablishindividualmodelmargins.,analysis,TE-S15;TE-W06;TE-W07,,,TE-S15; TE-W06; TE-W07
+TE-C012,"Gemini200Kthresholdrepriceswholeinput/output understatedtier,one-tokenboundarycalculation.",analysis,TE-S03;TE-CALC,,,TE-S03; calculation-results.json

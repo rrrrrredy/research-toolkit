@@ -1,0 +1,12 @@
+{
+  "input_version": "e80623165cafab4fb0438ddbd29c7f8abed83b8eeda1d1577c6baaa48c0d1b21",
+  "assignment_version": "08e7bb55bb9f7b685c98035abd0a8db8282cef9fb11d18e4f984eae2f0b22b30",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "Current complete 373-line report: weak-catchment scenario row line206 and six-month ramp assumptions line276/table280–285",
+      "basis": "接续本人原373行完整领域审阅，直接比较旧4b4f8ba9与当前e806231；完整diff仅两处补齐既有假设，任务、要求、scope、来源文本和source_files完全相同。重读受影响模型公式/配置及保存结果，不执行脚本。warehouse-model.py第18行fresh_weak原有ads=1.5，正文现在写明投流1.5元/单，与60*(30%−3.5%−0.2%)−2.2−7.5−1.5=4.58元贡献一致；月12000单、155000固定成本及1.8元上游分摊分别得到仓级−100040、分摊后−121640，保存JSON与表值一致。第34–36行ramp原本以month<4切换损耗0.025/0.02、投流1.5/1；新增文字准确披露第1–3月和第4月起的设定，不把改善冒充实际经营观测。实际读取fresh_weak完整输入/结果及全部六个月ramp结果、正文相邻现金桥与表；0初始库存、60万开仓资本+7.5万保证金、加回1.8万月折旧、扣存货增量及上游现金分摊未改变。末月−19504经营结果、125457存货、1048726累计缺口与保存输出吻合；依旧明确六个月缺口不等于生命周期峰值，也没有产生回本日期。补充使现有例子可按正文条件复核，没有新费用双计、利润/现金口径或来源事实变化。其余领域结论复用原完整阅读，当前通过。"
+    }
+  },
+  "findings": []
+}

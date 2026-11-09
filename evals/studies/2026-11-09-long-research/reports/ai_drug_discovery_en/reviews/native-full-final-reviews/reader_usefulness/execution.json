@@ -1,0 +1,60 @@
+{
+  "host_task": "/root/full_reader_b",
+  "agent_identity": "/root/full_reader_b",
+  "execution_mode": "native Codex, same-context current-version reassessment",
+  "status": "completed",
+  "slot_id": "reader_usefulness",
+  "input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+  "assignment_version": "e0f5b98897cc3cdaf0fd0d9a27a8dc34c23b58dd466d683703e79b5c2278052c",
+  "artifact_sha256": "65d880c1a784b0575d853d837db979ff73e28fec8c1bd024252c4b546f1a6558",
+  "started_at": "2026-11-09T16:05:26.458Z",
+  "completed_at": "2026-11-09T16:08:08.835Z",
+  "assignment_path": "reviews/host/b14ddf2357207d82f698/jobs/reader_usefulness-e0f5b98897cc3cda.json",
+  "prior_input_version": "d49c3ce9104cc63e7832524cae63752853080491d4da8a045072f0dfff369a97",
+  "prior_report_verdict": "pass",
+  "prior_response_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-full-reviews\\reader_usefulness\\response.json",
+  "prior_execution_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-full-reviews\\reader_usefulness\\execution.json",
+  "prior_full_reading_ranges": [
+    [
+      1,
+      62
+    ],
+    [
+      63,
+      132
+    ],
+    [
+      133,
+      200
+    ],
+    [
+      201,
+      260
+    ],
+    [
+      261,
+      288
+    ]
+  ],
+  "current_diff_context_ranges_read": [
+    [
+      102,
+      108
+    ],
+    [
+      284,
+      288
+    ]
+  ],
+  "total_current_report_lines": 288,
+  "comparison_scope": "Entire old/current assignment.report strings compared with a line LCS; all diff hunks and their context read. Current task, effective requirements and scope match the previously read versions.",
+  "report_identical": false,
+  "read_task": true,
+  "read_effective_requirements": true,
+  "read_scope_decisions": true,
+  "source_originals_read": [],
+  "other_review_results_read": false,
+  "report_modified": false,
+  "api_used": false,
+  "calculations_rerun": false
+}

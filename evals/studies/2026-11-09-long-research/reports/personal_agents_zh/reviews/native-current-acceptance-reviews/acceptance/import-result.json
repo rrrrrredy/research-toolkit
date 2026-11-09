@@ -1,0 +1,34 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\personal_agents_zh",
+  "input_version": "8208b408fba85ea9f85a7f8cce08ea0777a4dc51b47cd27819c1a1036a2be6e0",
+  "scope": "full_report",
+  "assignments": [],
+  "reviews_complete": true,
+  "delivery_ready": true,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": true,
+    "flags": [],
+    "findings": [],
+    "required_slots": 10,
+    "completed_slots": 10,
+    "selected_attempts": {
+      "natural_expression": "4124fdc94c7747db8cecefb90f7bb071",
+      "domain-1": "d278ccac69f249bb9b598c5a83c38805",
+      "evidence": "2e602e8ed8f34a09b138382bc31019fd",
+      "requirements": "e5f839b594a94009a01d7ffb71908b96",
+      "adversarial_reasoning": "f77c154e57794747a455d28df69ea55c",
+      "reader_usefulness": "fb50f7d8a7d044f7999c08226c4cc7a9",
+      "structure_and_depth": "c2621972cefc4881af8dc112929ca763",
+      "process_language": "f1fb57de666644729be6e81670be9408",
+      "audit": "c20322c7df904f6b840848f71b448f8f",
+      "acceptance": "63adb812151b41a6b30a00de04b4ef28"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": null,
+  "open_issues": []
+}

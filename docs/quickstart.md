@@ -2,7 +2,7 @@
 
 [English](quickstart.md) · [简体中文](quickstart.zh-CN.md) · [Research Toolkit](../README.md)
 
-Use one research entry for long reports, substantial revisions and continuing updates. The agents use the methods for their current work; Toolkit connects the requirements, source material, analysis, writing and independent assessment. CLI/MCP task management is optional.
+Use one entry for long-form research and writing in English or Chinese across domains, including substantial revisions and continuing updates. Agents load methods for the current work; Toolkit connects requirements, sources, analysis, writing and independent assessment. CLI/MCP task management is optional.
 
 ## 1. Copy the request and begin
 

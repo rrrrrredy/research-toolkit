@@ -1,0 +1,245 @@
+[
+  {
+    "id": "TE01",
+    "url": "https://arxiv.org/html/2412.19437v1",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE01\\original.txt",
+    "original": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE01\\original.html",
+    "scope": "Version1, Table1 officialtraininghours/exclusions; architecture total/active; deployment prefill/decode sections selectively read.",
+    "reader": "/root/ttc_research",
+    "sha256": "255a2ce445d5f9cd639afa2764b2404fa59cec5a7e9a76d59d652c540a76a56e"
+  },
+  {
+    "id": "TE05",
+    "url": "https://assets.claude.com/5633dc848caa431115468f31c7085d695bbfb9cc.pdf",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE05\\original.txt",
+    "original": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE05\\original.pdf",
+    "scope": "Dated2026-10-22 PDF extracted pages1–4, selected Claude API global/US/batch rows; primarycalculationratesHaiku/Sonnet/Opus5.5.",
+    "reader": "/root/ttc_research",
+    "sha256": "1432d5ab9eb11e1ce2760c1abd4968d792024587e1e30a082b81fb5767e57984"
+  },
+  {
+    "id": "TE07",
+    "url": "https://developers.openai.com/api/docs/pricing",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE07\\original.txt",
+    "original": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE07\\original.html",
+    "scope": "Observed2026-11-09 pricing:standard/flex/fast tables and regional footnotes;tools/audio table; noflatteninglongcontext.",
+    "reader": "/root/ttc_research",
+    "sha256": "b85d8a67073ce5e0d5fea28e5bf54fe26a2640f6110add0413edd00c346d6bf5"
+  },
+  {
+    "id": "TE08",
+    "url": "https://developers.openai.com/api/docs/guides/reasoning",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE08\\original.txt",
+    "original": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE08\\original.html",
+    "scope": "Reasoning billing/context and incomplete output passages; usage total versus reasoning subset.",
+    "reader": "/root/ttc_research",
+    "sha256": "900ec38b5c290ee6b3866b3be002456af829b2101ef2aee8867242ebe8afd9bf"
+  },
+  {
+    "id": "TE09",
+    "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE09\\original.txt",
+    "original": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE09\\original.html",
+    "scope": "Cache pricing, model-generation differences, explicit prefixes, lifetime/refresh/upgrades and billed-vs-physicalreuse.",
+    "reader": "/root/ttc_research",
+    "sha256": "0b93b9357b8c7f15571d594c9f745a1cbf1b52bf858998a8a084272738391730"
+  },
+  {
+    "id": "TE11",
+    "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE11\\original.txt",
+    "original": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE11\\original.html",
+    "scope": "Full substantive model/pricing/peak-offpeak/alias table and tool pricing.",
+    "reader": "/root/ttc_research",
+    "sha256": "ba15557a39cb567aad7b8bcf9e08bf5cedf8515e444100bee00e766469ae61dc"
+  },
+  {
+    "id": "TE12",
+    "url": "https://arxiv.org/html/2401.09670v3",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE12\\original.txt",
+    "original": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE12\\original.html",
+    "scope": "Version3 mechanisms,implementation/faulttolerance,section6.1 settings and SLO metrics; not a replication.",
+    "reader": "/root/ttc_research",
+    "sha256": "379416211d1b1f2451e30466e327b64603e75abe1030be5abd26f5cb9f5c15e4"
+  },
+  {
+    "id": "TE13",
+    "url": "https://arxiv.org/html/2606.11690v1",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE13\\original.txt",
+    "original": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE13\\original.html",
+    "scope": "Version1 sections3–4,5.5–5.6,7.1; co-tenant denominator,output-only comparator; rawcommit retrievalfailed.",
+    "reader": "/root/ttc_research",
+    "sha256": "3bb3c5f4ddce0d4ef5d1d16671ddecdca0dc1d8a193ae61db8584469759868cc"
+  },
+  {
+    "id": "TE18",
+    "url": "https://arxiv.org/pdf/2304.11771v2",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE18\\original.txt",
+    "original": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE18\\original.pdf",
+    "scope": "Version2 abstract, sample/context and issuesresolvedperhour passages; not full106page appendices.",
+    "reader": "/root/ttc_research",
+    "sha256": "07cce14f8bce15cf69e61405eef11766784b99268788b2c9ad55691302a1f0f3"
+  },
+  {
+    "id": "TE20",
+    "url": "https://metr.org/blog/2026-02-24-uplift-update/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE20\\original.txt",
+    "original": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE20\\original.html",
+    "scope": "Full main2026-02-24 methodologyupdate and conditional numerical estimates.",
+    "reader": "/root/ttc_research",
+    "sha256": "4a43be783d6fce810caac66f2c82bb19d396487a2b1711d5278bd2e6b22addd6"
+  },
+  {
+    "id": "TE23",
+    "url": "https://www.intercom.com/help/en/articles/8205718-fin-ai-agent-outcomes",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE23\\original.txt",
+    "original": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE23\\original.html",
+    "scope": "2026-09-23 outcomepricing,resolutiondefinition,reversal and configuredhandoffterms.",
+    "reader": "/root/ttc_research",
+    "sha256": "3a63e6d1c70c3ae24d2150ce6c5ae56d383b467f03f39c095b69da8ed1a0307d"
+  },
+  {
+    "id": "TE24",
+    "url": "https://arxiv.org/html/2405.21015v1",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE24\\original.txt",
+    "original": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE24\\original.html",
+    "scope": "Version1 methods2.1–2.5 and mainresults; rental/depreciatedhardware/energy/staff boundaries.",
+    "reader": "/root/ttc_research",
+    "sha256": "ae5cf2a50e9d3b977455ca7d3dc766cc347e995d940df5c9ffeee0fcfffdde11"
+  },
+  {
+    "id": "TE26",
+    "url": "https://api-docs.deepseek.com/updates/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE26\\original.txt",
+    "original": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TE26\\original.html",
+    "scope": "DatedV3/R1/2026V4aliases and peak-offpeak change entries; detectednews250120redirectnotoriginal.",
+    "reader": "/root/ttc_research",
+    "sha256": "23badfd579630b325b24b904660c5e5d9fdaf2991abf946bf36198472b369fac"
+  },
+  {
+    "id": "TE-S03",
+    "url": "https://ai.google.dev/gemini-api/docs/pricing.md",
+    "final_url": "https://aistudio.google.com/docs/pricing",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\supplemental-sources\\TE-S03\\readable-markdown.txt",
+    "scope": "GeminiDeveloperAPI pricing original server-rendered Markdown:2.5Pro/Flash standard,cache/storage,reasoning and datedfuturealias notices.",
+    "reader": "/root/ttc_research",
+    "sha256": "42bd460406cdf10ffa3618a1b0592c45b1a124c9dd79ab7eec92598393119268",
+    "retrieval_status": "retrieved"
+  },
+  {
+    "id": "TE-S05",
+    "url": "https://api-docs.deepseek.com/news/news1226",
+    "final_url": "https://api-docs.deepseek.com/news/news1226/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\supplemental-sources\\TE-S05\\original.txt",
+    "scope": "DatedDeepSeekV3announcement API pricechangeeffectiveFeb8; launchpromotionnotreconstructed.",
+    "reader": "/root/ttc_research",
+    "sha256": "3bb742c6f3a53668e4f8b3e3b5f504995d2c0b1772d87967efed2904ec568c0b",
+    "retrieval_status": "retrieved"
+  },
+  {
+    "id": "TE-S07",
+    "url": "https://api-docs.deepseek.com/guides/search",
+    "final_url": "https://api-docs.deepseek.com/guides/search/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\supplemental-sources\\TE-S07\\original.txt",
+    "scope": "Search/Fetch billing/result/failure criteria and rates.",
+    "reader": "/root/ttc_research",
+    "sha256": "cc8a17d781cf2306dd685b400fb0b8fac4f091d5ae44a1dee195ed5eca4553d2",
+    "retrieval_status": "retrieved"
+  },
+  {
+    "id": "TE-S08",
+    "url": "https://api-docs.deepseek.com/guides/kv_cache",
+    "final_url": "https://api-docs.deepseek.com/guides/kv_cache/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\supplemental-sources\\TE-S08\\original.txt",
+    "scope": "CurrentDeepSeekpersistedprefix matching/besteffortcache lifecycle, nohistoric64tokenassumption.",
+    "reader": "/root/ttc_research",
+    "sha256": "a85e844d6eb26328c4763ce000ef66acfde88ab549583692fc860b0d0d3f43e6",
+    "retrieval_status": "retrieved"
+  },
+  {
+    "id": "TE-S09",
+    "url": "https://api-docs.deepseek.com/guides/thinking_mode",
+    "final_url": "https://api-docs.deepseek.com/guides/thinking_mode/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\supplemental-sources\\TE-S09\\original.txt",
+    "scope": "Currentthinkingmodebilling andretainedreasoningguide selected passages; notneededfornumericworkloads.",
+    "reader": "/root/ttc_research",
+    "sha256": "9c3ff67166eada2d0c1596bdc19b2762ee941a79befaee535a60443394741605",
+    "retrieval_status": "retrieved"
+  },
+  {
+    "id": "TE-S11",
+    "url": "https://developers.googleblog.com/en/gemini-2-5-thinking-model-updates/",
+    "final_url": "https://developers.googleblog.com/en/gemini-2-5-thinking-model-updates/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\supplemental-sources\\TE-S11\\original.txt",
+    "scope": "2025stableGemini2.5announcement price/thinking passages.",
+    "reader": "/root/ttc_research",
+    "sha256": "1d1a513079a6744b3998db88cf8cd04d4786b8009356e3759cda648f6c4fcb20",
+    "retrieval_status": "retrieved"
+  },
+  {
+    "id": "TE-S12",
+    "url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+    "final_url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\supplemental-sources\\TE-S12\\original.txt",
+    "scope": "Claude3.5Sonnet originalannouncement dateddisplayJune21,2024;price/context passage and selectedcapability text.",
+    "reader": "/root/ttc_research",
+    "sha256": "1bcbd395d380e3cc36db8dced5a4fbf0b9d81427074e066a370d3c24f7b7e3fa",
+    "retrieval_status": "retrieved"
+  },
+  {
+    "id": "TE-S13",
+    "url": "https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3_1/MODEL_CARD.md",
+    "final_url": "https://raw.githubusercontent.com/meta-llama/llama-models/main/models/llama3_1/MODEL_CARD.md",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\supplemental-sources\\TE-S13\\original.txt",
+    "scope": "MetaLlama3.1 officialmodelcard:release/license/architecture and hardwaretraininghourstable; notprivatecost.",
+    "reader": "/root/ttc_research",
+    "sha256": "a37da4be5eb00d97ee0017cadf54c55e8aca84c715fa7d0981d3f2bc13b763ef",
+    "retrieval_status": "retrieved"
+  },
+  {
+    "id": "TE-S15",
+    "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027",
+    "final_url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-second-quarter-fiscal-2027",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\supplemental-sources\\TE-S15\\original.txt",
+    "scope": "NVIDIA2026-08-26 Q2FY27pressrelease actualfinancialtable/revenue/margin.",
+    "reader": "/root/ttc_research",
+    "sha256": "b57cdf7e52dd762520f63831c5a706814e250e69e90c43536d947ecb62c3713c",
+    "retrieval_status": "retrieved"
+  },
+  {
+    "id": "TE-S18",
+    "url": "https://arxiv.org/html/2507.09089v1",
+    "final_url": "https://arxiv.org/html/2507.09089v1",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\supplemental-sources\\TE-S18\\original.txt",
+    "scope": "METR2507.09089v1 abstract,sections2.1–2.3 experimentaldesign/timeoutcome and selectedresults; notfullappendices.",
+    "reader": "/root/ttc_research",
+    "sha256": "ddec521ab125b6d7f7a11332737e5a04b25915c88bd3b785fcd70739635b80c1",
+    "retrieval_status": "retrieved"
+  },
+  {
+    "id": "TE-S19",
+    "url": "https://ai.google.dev/gemini-api/docs/caching?generate-content=true",
+    "final_url": "https://aistudio.google.com/docs/caching?generate-content=true",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\supplemental-sources\\TE-S19\\readable-markdown.txt",
+    "scope": "Gemini explicitgenerateContentcache documentation;TTL/update/storagebilling and interactionssupportdistinction.",
+    "reader": "/root/ttc_research",
+    "sha256": "1b8a267a35f51272df341f3e5e74536e23e66336977959f9b7ac000ec06c6c8f",
+    "retrieval_status": "retrieved"
+  },
+  {
+    "id": "TE-S21",
+    "url": "https://prices.azure.com/api/retail/prices?%24filter=serviceName+eq+%27Virtual+Machines%27+and+armRegionName+eq+%27eastus%27+and+armSkuName+eq+%27Standard_NC80adis_H100_v5%27+and+priceType+eq+%27Consumption%27&currencyCode=USD",
+    "final_url": "https://prices.azure.com/api/retail/prices?%24filter=serviceName+eq+%27Virtual+Machines%27+and+armRegionName+eq+%27eastus%27+and+armSkuName+eq+%27Standard_NC80adis_H100_v5%27+and+priceType+eq+%27Consumption%27&currencyCode=USD",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\supplemental-sources\\TE-S21\\original.txt",
+    "scope": "FullAzureRetailPricesJSON;Consumption USD EastUS NC80adis; selectednonWindowsnonSpotnonLowPriority row13.96/1Hour,2024-03-01effective; allrowsretained.",
+    "reader": "/root/ttc_research",
+    "sha256": "787311af62e352212ec14b6edf28d705f443e9170ee8dff68bd0dc63b3bcc07a",
+    "retrieval_status": "retrieved"
+  },
+  {
+    "id": "TE-W01-W09",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\web-reading-notes.md",
+    "scope": "Nine explicitly recorded web-opened official originals; use each entry originalURL/location; notes are not rawcaptures",
+    "reader": "/root/ttc_research"
+  }
+]

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\work\toolkit-long-research-20261109\scripts\check_regression_fixtures.py", line 130, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\work\toolkit-long-research-20261109\scripts\check_regression_fixtures.py", line 40, in main
+    case = dict(cases_by_id[case_id])
+                ~~~~~~~~~~~^^^^^^^^^
+KeyError: 'ai_agent_market_landscape_zh'

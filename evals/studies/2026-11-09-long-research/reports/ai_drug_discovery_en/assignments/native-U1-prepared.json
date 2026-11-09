@@ -1,0 +1,76 @@
+{
+  "request": {
+    "task": "ai_drug_discovery_en",
+    "artifact": "analysis/U1-rentosertib.md",
+    "scope": "AIDD-U1",
+    "purpose": "report_delivery",
+    "perspectives": [
+      "evidence"
+    ],
+    "domains": [
+      "Drug discovery, clinical trial design and missing-data interpretation"
+    ],
+    "evidence_paths": [
+      "analysis/calculations.py",
+      "analysis/calculations-results.json"
+    ]
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en",
+    "input_version": "440eb63836fa6307c46f1a5721aded8b95d919142b38d81f896f68737ce53700",
+    "scope": "AIDD-U1",
+    "assignments": [
+      {
+        "slot_id": "evidence",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/eeb3dab5e66664d31a55.md",
+          "sha256": "eeb3dab5e66664d31a55b3704b1c0afd5878b3ee7e4712fa256efdd9ed3b43a4"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/440eb63836fa6307c46f/jobs/evidence-d631572ddcd89a97.json",
+          "sha256": "d429bfc0822a2024e108b1b688e9a14d34ab0ad25da70e49343b65ec9dc9b1a7"
+        },
+        "assignment_version": "d631572ddcd89a973818812895d8cc93a99013b0061c5af95ab0c73da529a6d8"
+      },
+      {
+        "slot_id": "domain-1",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/ff453af65b7ec47f725b.md",
+          "sha256": "ff453af65b7ec47f725bc765a09f9a25d0290b29141efa3e3589634f95d19730"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/440eb63836fa6307c46f/jobs/domain-1-12055cc7f44e67ab.json",
+          "sha256": "b910676d2966620591e3362fb69ad4d89972da3f67ebaaf401adbb11ec0c9c87"
+        },
+        "assignment_version": "12055cc7f44e67ab68120f5597efc8c7c3d56c6ef518171056604d39d4d13016"
+      }
+    ],
+    "reviews_complete": false,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Incomplete independent assignment: evidence",
+        "Incomplete independent assignment: domain-1"
+      ],
+      "required_slots": 2,
+      "completed_slots": 0,
+      "selected_attempts": {},
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Incomplete independent assignment: evidence",
+      "Incomplete independent assignment: domain-1"
+    ]
+  }
+}

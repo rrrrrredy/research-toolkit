@@ -1,0 +1,80 @@
+{
+  "host_task": "/root/long_research_audit_b",
+  "status": "completed",
+  "case_id": "microdrama_market_en",
+  "role": "auditor",
+  "input_version": "4916bbf7954376e17453bc78c09a2511b4dcceae7270c4ed378ef2d93eb80e89",
+  "assignment_version": "02f68ee631465400935ccc623466b6c01a7656f5a462ef7770e3ef47610be9d9",
+  "assignment_ref": {
+    "path": "reviews/host/4916bbf7954376e17453/jobs/audit-02f68ee631465400.json",
+    "sha256": "2f6ea4caf503d2cc73abc98672d0f9397d2ded1d3b14ae9abd6f958f426ac412"
+  },
+  "reading_ref": {
+    "path": "logs/reading/554740c0b69ba1e76b2a.md",
+    "sha256": "554740c0b69ba1e76b2a4e2873882a8757c104bdc631d143ee7fd053beee2a67"
+  },
+  "artifact_sha256": "ffceaf740b8acdfd38ca4b74d0de96327b7c80f0a26ffe563dee1f09b732ccc2",
+  "completed_at": "2026-11-09T16:36:29.658457+00:00",
+  "actual_reading": {
+    "full": "Original task/effective requirements; current report1–340 including all references; eight current raw replies/executions, production history, audit instructions; calculations.py and full saved calculation-output; two required negative original replies/executions and complete first/current diff. Truncated passages were recovered in smaller reads.",
+    "targeted_originals": [
+      "Frozen CP24 users.jpg and apps.jpg, CP17-page-18.png visually read",
+      "MD012p137–138 recognition text",
+      "Frozen CP18 quarter-limit/automatic-unlock/10h×7d/15min/refund passages",
+      "MD014 notice/denial and CP25 launch/interface/catalog paragraphs",
+      "Reuse of actually read common CNNIC, CP16/17 graphs, quarterly financial originals and MD004 whole regulation; equality of named frozen texts checked"
+    ],
+    "limits": "Targeted audit of original evidence, not a claim to read every page of39 documents. English and Chinese report comparison did not supply factual evidence. Third-party user measurement and commercial assumptions were not independently replicated."
+  },
+  "reference_checks": {
+    "requirements": {
+      "input": true,
+      "response": true,
+      "execution": true
+    },
+    "evidence": {
+      "input": true,
+      "response": true,
+      "execution": true
+    },
+    "adversarial_reasoning": {
+      "input": true,
+      "response": true,
+      "execution": true
+    },
+    "structure_and_depth": {
+      "input": true,
+      "response": true,
+      "execution": true
+    },
+    "reader_usefulness": {
+      "input": true,
+      "response": true,
+      "execution": true
+    },
+    "process_language": {
+      "input": true,
+      "response": true,
+      "execution": true
+    },
+    "natural_expression": {
+      "input": true,
+      "response": true,
+      "execution": true
+    },
+    "domain-1": {
+      "input": true,
+      "response": true,
+      "execution": true
+    }
+  },
+  "actions": {
+    "api_calls": 0,
+    "report_edited": false,
+    "research_rerun": false,
+    "calculation_rerun": false,
+    "tests_run": false,
+    "imported": false
+  },
+  "independence": "Audit-only identity, distinct from English production, all content perspectives and final acceptance."
+}

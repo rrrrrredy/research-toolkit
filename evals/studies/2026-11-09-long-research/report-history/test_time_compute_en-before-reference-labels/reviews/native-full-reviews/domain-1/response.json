@@ -1,0 +1,12 @@
+{
+  "input_version": "35856ace8b32421ec17a16702661ae8452b72df5cc41c988a9beb1d43605ab7c",
+  "assignment_version": "5da61d71899050d3e5770c6990ced74276dca4a379defb4999dfd385abdb928f",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "basis": "已实际通读当前完整355行、72677字符报告，包括方法矩阵、所有机制章节、完整预算例/决策树和两个附录，领域限推理算法、验证器与统计评价。核对原始Self-Consistency四十次采样/十轮/温度及56.5→74.4；Large Language Monkeys任务、10k与250整条agent轨迹、oracle coverage和实际selector饱和、dense FLOP近似及CodeContests反例。原SCoRe表3/4确认训练后60→64.4为4.4pp，15.6是对base −11.2的delta变化，训练/测试MATH分割、代码训练MBPP/评HumanEval和一轮修正范围准确。原PRM方法确认固定generator、单次forward的step概率乘积、1860候选/500题、PRM/ORM大规模数据不等同及小规模同数据控制；原Snell方法确认reward-to-go PRM、最终step和加权答案聚合、2048样本难度识别、2-fold策略选择及未计difficulty成本，lookahead N(k+1)只属generation proxy。s1原文确认checkpoint训练与Wait干预分离、50→57及六轮后重复、8gram去污染的范围。2026原文核对TTC003v2共享bank的75.56/91.67/78.33/65.83/89.17及reference-assisted oracle性质和release inventory；TTSP原文确认选取28个非零低覆盖目标、mean@8分母、空集合carry-forward差异、privileged filter calibration、50*(16+48*8)=20k rollout slots及不计梯度/测试，FMV逐输入pairwise规则与正文反例正确。TTC007原方法/appendix确认16probe最大值、固定probe标签bootstrap、16→4 thinning及retained tokens排除overhead，存储token与70.5B未充分对账所以正文不采用总成本；实际查看TTC006原PDF第3–5页图表，确认60题协议与一位小数、MU和累计flip的矛盾、图表峰值冲突，拒绝采纳精确阈值合理。核对CodeMonkeys状态机、10并行/各8completion含格式重试、实际57.4与coverage69.8以及含selection131.95的LLM总成本2291.90；web tree原文确认每state20次value、reset/replay和5行动限制；τ-bench pass^k全成功与pass@k至少一次、最终数据库奖励漏确认及用户温度边界正确；弱测试与扩展测试、自修正负面和Adaptive-Consistency Beta停止的原段支持正文。完整阅读现有allocation_example.py、allocation-results及calculation-record，不运行。选择概率式在条件独立和accepted均匀选择下成立，correct/wrong/abstain守恒；验证成本计入floor预算，4worker波次与100s期限计算一致，强模型+强验证4候选20credits/55s、89.50788%/1.989064%与其他有限配置比较成立，明确假设且不扩为实测或全搜索空间最优。Jensen异质题解释、条件转移链、风险阈值及不追加计算的决策边界均合理。未发现需要修订的领域缺陷。",
+      "location": "完整报告§1–16、研究综合、两个附录；方法/预算矩阵、统计与agent条件"
+    }
+  },
+  "findings": []
+}

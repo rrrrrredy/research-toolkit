@@ -1,0 +1,19 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "natural_expression": {
+      "location": "reports/current.md 第1—354行全文，方法矩阵、各机制与案例、预算公式、完整决策树及两个附录。",
+      "basis": "完整阅读任务和当前全文。候选生成与选择、训练与推理、总成本与延迟之间的术语区分均由例子和公式承接；负面限定对应具体可比性问题，没有要求删去这些功能性条件。附录隔离数值争议而保留正文正面机制，整体可连续理解。发现两处面向内部写作过程的句子打断了面向设计者的说明，其中一处还没有文内指代对象。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "natural_expression-01",
+      "severity": "minor",
+      "location": "reports/current.md 第193行“the earlier planning estimate of 19,200”；第291行“The request is to measure the real use path, not to add a broad governance framework.”",
+      "basis": "第193行突然引用没有在报告中介绍的earlier planning estimate，读者无法判断这是论文结果、前文数字还是作者工作记录；第291行转而解释本次写作请求与未被讨论的治理框架，既没有新增测量信息，也打断了试点设计论述。保留20,000＝19,200 solver＋800 proposer的完整算式，删除内部planning指代，或直接表述该分解；第291行保留具体测量项，删除这句对任务的回应。无需减少前后技术限定或新增研究。"
+    }
+  ],
+  "input_version": "35856ace8b32421ec17a16702661ae8452b72df5cc41c988a9beb1d43605ab7c",
+  "assignment_version": "4fe9c4d2357fdfc90d671325cde38f9ec21753b571bf8465615ff6cf1063b245"
+}

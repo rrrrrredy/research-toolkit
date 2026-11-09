@@ -1,0 +1,12 @@
+{
+  "input_version": "e2bf5ec236f3fbd7264dd12a2f8a018f9fb206af2f12c460b4608bfeb4086845",
+  "assignment_version": "8ef9bf8ee30e613957ca3b7541c00f0f8a0892d1d46202115092504803b41f05",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "复用本人先前完整正文审阅（初始记录 native-full-reviews/adversarial_reasoning）；当前稿共 277 行，完整 diff 及上下文当前行号 [[93, 99], [199, 205], [249, 255], [261, 272]]。",
+      "basis": "当前全部差异只涉及阅读过程措辞、参考表描述与数值空格。Promptbreeder Table 1 的半划分适用范围、比较和消融含义保持不变。本人此前 AR-VSI-01 已解决的核心边界保持原样：DGM 结果属于包含运行时多次尝试和选择的整套代理干预，不能在未配平下游 calls/tokens 时识别工具效率贡献；训练、搜索选择及迁移证据的区分没有因文字修改而丢失。"
+    }
+  },
+  "findings": []
+}

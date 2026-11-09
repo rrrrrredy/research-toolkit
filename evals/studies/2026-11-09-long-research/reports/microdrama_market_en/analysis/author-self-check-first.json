@@ -1,0 +1,57 @@
+{
+  "review_type": "author_self_check_not_independent_review",
+  "reviewed_artifact": "draft-first.md",
+  "reviewed_sha256": "84bd1d4f042d303c35be76f3bfa52ce9e326d4f6013f99100a0c67d3a98a58e5",
+  "reviewed_at": "2026-11-09T13:43:39.121463+00:00",
+  "scope": "Full assembled manuscript, cited numerical/accounting boundaries, calculations and directly rendered CP17 chart footnotes. This is the author’s first complete-draft check, not root acceptance.",
+  "findings": [
+    {
+      "id": "A01",
+      "severity": "minor",
+      "location": "2, supply expansion",
+      "issue": "The translation more than fivefold is less explicit than the source 增长超5倍.",
+      "action": "Use reported an increase of more than 500% without asserting an exact final supply multiple."
+    },
+    {
+      "id": "A02",
+      "severity": "minor",
+      "location": "2, audience methods;3 table",
+      "issue": "Two instances of micro-program use terminology inconsistent with the defined mini-program.",
+      "action": "Normalize to mini-program."
+    },
+    {
+      "id": "A03",
+      "severity": "minor",
+      "location": "6, minors",
+      "issue": "Those aged eight and above could be read as including adults.",
+      "action": "Specify minors aged eight and above."
+    },
+    {
+      "id": "A04",
+      "severity": "minor",
+      "location": "5, hybrid",
+      "issue": "The incremental amount is publisher receipts before extra costs and sharing, not platform profit.",
+      "action": "Make the publisher-level base explicit."
+    },
+    {
+      "id": "A05",
+      "severity": "minor",
+      "location": "6, copyright",
+      "issue": "One shortcut citation shows only CP03.",
+      "action": "Use a descriptive November campaign label."
+    }
+  ],
+  "confirmed_boundaries": [
+    "Frozen 39-record source set only; no Chinese report, Chinese calculations, claims or reviews used; current Codex authored, not an API/Astra response.",
+    "CNNIC 2024/2025 national survey, CSM adult survey, QuestMobile app/mini-program activity and related-content reach retain distinct denominators.",
+    "CP17 PDF p6 channel thresholds visually confirmed. On p9 26.2 monthly hours belongs to January 2026 and 22.1 to February; manuscript calculations use CP24 January2025–May2026 values instead.",
+    "CP16/24 seven original chart images were actually viewed; raw originals and image hashes are recorded.",
+    "Historical forecast63.43bn, retrospective~100bn, outputvalue100bn and2026forecast200bn are never averaged or treated as equivalent audited revenue.",
+    "COL reclassified segment comparison, CMS consolidation change, domestic/overseas allocation and YTD/quarter cashflow boundaries are explicit.",
+    "Paid/free/hybrid assumptions are disclosed and executed; cash allocations reconcile; examples do not estimate industry margins or rank actual platforms.",
+    "No actual industry-wide retention, paying conversion, eCPM, completion, hit rate or profit is invented.",
+    "November campaign and earlier2026 takedowns are distinguished; category thresholds use the actual local official explanation; CP23 is access failure only.",
+    "Decisions, counterevidence and reversal conditions are supplied for platforms, producers/distributors and investors."
+  ],
+  "outcome": "Five bounded clarity edits identified. Independent content review, audit and final acceptance pending."
+}

@@ -1,0 +1,83 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en",
+  "input_version": "d49c3ce9104cc63e7832524cae63752853080491d4da8a045072f0dfff369a97",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "requirements",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/aa24aa05bfa76f3c25e4.md",
+        "sha256": "aa24aa05bfa76f3c25e4b375888e0748a68116dbe1b7a5d4bb7fea7ba9b3a5c9"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/d49c3ce9104cc63e7832/jobs/requirements-8eb38db533607770.json",
+        "sha256": "009460f585b757fee65246ec98f9e57f0d9ddaf5f46f7fb4cfecd5ab75431452"
+      },
+      "assignment_version": "8eb38db5336077701d84f8e4400b3253f2664cfe78a45ce59bc4c710a422c6da"
+    },
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/6fa78f29e0c198671756.md",
+        "sha256": "6fa78f29e0c19867175612dea7409f5280773ec9ca7ec94e7cc112f3a8e2105d"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/d49c3ce9104cc63e7832/jobs/structure_and_depth-6ea5f569ad69819d.json",
+        "sha256": "93c80a5f395c7d96ecaecd249c9dd273ebc1624d86316550e5f607592d29eb2e"
+      },
+      "assignment_version": "6ea5f569ad69819d4c0504a9dd735cdefa41fce19614f53859c4a1f5ebb73447"
+    },
+    {
+      "slot_id": "process_language",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/a715765bd2885bbde455.md",
+        "sha256": "a715765bd2885bbde4556695b6792e108930f6704750bb270717300867556948"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/d49c3ce9104cc63e7832/jobs/process_language-f0098269a658a80c.json",
+        "sha256": "78c82a828f041f454fdd2dbc94d6a57141334892e023c4a7aae9b887920ffa92"
+      },
+      "assignment_version": "f0098269a658a80cc3868e783638f5943f61577927f5015777a7513436e83e13"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: requirements",
+      "Incomplete independent assignment: structure_and_depth",
+      "Incomplete independent assignment: process_language",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 5,
+    "selected_attempts": {
+      "adversarial_reasoning": "eaddc7dcff4b4b35963aba412cbedcd7",
+      "natural_expression": "15d42af632354eb799fdbf247ea906fe",
+      "domain-1": "10fabb38ecf946baa88fbf8161d64dab",
+      "evidence": "74b56976bf2c42cbb651e8638ba20c6b",
+      "reader_usefulness": "871398454ef3455b94f9bdb194974f7a"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: requirements",
+    "Incomplete independent assignment: structure_and_depth",
+    "Incomplete independent assignment: process_language",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

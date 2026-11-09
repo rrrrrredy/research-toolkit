@@ -1,0 +1,24 @@
+claim_id,claim,claim_type,supporting_sources,counter_evidence,uncertainty,evidence_detail
+IRWC-001,自营、社会化、加盟和门店履约须按库存、定价、费用和流量责任分别建账，不能用GMV或日单直接比较利润。,analysis,IRW02;IRW10;IRW11,,,一
+IRWC-002,同一假设50元商品订单，仓固定成本前贡献6元、平台贡献0；内部补贴和费用不得重复算市场规模。,assumption,warehouse-results.json,,Author-defined illustrative inputs; not observed user outcomes.,一
+IRWC-003,每日优鲜2021净收入69.515亿、成本61.310亿、毛利约8.205亿小于21.214亿履约费用；2022-07关闭DMW。,analysis,IRW09,,,二
+IRWC-004,2023年20-F/A修订境外检查披露及附件，明确未更新财务报表，不能误当上述数字被全面财务重述。,analysis,IRW23,,,二
+IRWC-005,成都重庆2023-05-23报道为5月29日18时停止服务公告，报道时仍可下单；2026Q2叮咚同时在华东加站和关闭其他城市低效站。,analysis,IRW15;IRW03,,,二/三
+IRWC-006,叮咚2025履约费率21.9%、销售成本率70.8%；营业和净利润低于2024，仓级盈利不能直接等于公司净利。,analysis,IRW02,,,二
+IRWC-007,叮咚2026Q2因国内停止折旧摊销增加净利润1.991亿；报告净利2.717亿机械扣除为0.726亿，非正式可比利润。,analysis,IRW03,,,二
+IRWC-008,2026-02收购协议、8月待审批与10月发行文件条件状态均不证明已交割；终止经营会计分类不等于现实业务停止。,analysis,IRW07;IRW03;IRW22,,,二
+IRWC-009,深圳2024受访经营者订单下降及转让仓；其20%表述不含人工房租，非净利率。,analysis,IRW10,,,二/三
+IRWC-010,广州佛山采访显示住宅密度仍需选品和供货适配；45万投入35万库存是招商方案，不是已实现回本。,analysis,IRW11,,,二/三
+IRWC-011,北京2026采访显示部分受访仓订单回落、缩员或转仓店一体，属于自述；部分日286单不能转为日均。,analysis,IRW28,,,二/三
+IRWC-012,沪深统计仅支持城市背景，仓密度应由实际家庭、频次、份额与路网决定，不能从全国/全市均值直接推导。,analysis,IRW14;IRW25,,,三
+IRWC-013,成熟自营900日单的仓级月利润73940元，分摊后25340元；社会化400日单利润12000元但库存298200元，均为假设。,assumption,warehouse-results.json,,Author-defined illustrative inputs; not observed user outcomes.,四
+IRWC-014,社会化加入2%加盟费在400日单恰好盈亏平衡；基准单仓最小整数平衡334日单，自营分摊后697日单，均需通过产能需求条件。,assumption,warehouse-results.json,,Author-defined illustrative inputs; not observed user outcomes.,四/五
+IRWC-015,订单增长会触发固定费用阶梯；降价促销联合情景使生鲜日单增长20%而分摊后亏7.73万元。,assumption,warehouse-results.json,,Author-defined illustrative inputs; not observed user outcomes.,五
+IRWC-016,峰时900日单生鲜需至少6名同时拣货和约32名并发运力，社会化2名拣货仅81单/小时，均非全天编制标准。,assumption,warehouse-results.json;financial-bridges.json,,Author-defined illustrative inputs; not observed user outcomes.,五
+IRWC-017,新增500日单仓中300单为原仓分流时，网络净增200日单而月利润较原网络下降90480元。,assumption,warehouse-results.json,,Author-defined illustrative inputs; not observed user outcomes.,六
+IRWC-018,新区域六个月爬坡到950日单仍亏，累计现金缺口约104.9万元，非全生命周期峰值或回本期。,assumption,warehouse-results.json,,Author-defined illustrative inputs; not observed user outcomes.,六
+IRWC-019,永辉2025线上100.9亿含自营及第三方、门店及全仓，不能都视为门店拣货或将集团亏损归为线上。,analysis,IRW13,,,六
+IRWC-020,门店线上增量结果与全额分摊结果可相反；例子200日单增量利润1.3万而完整分摊-2.7万。,assumption,financial-bridges.json,,Author-defined illustrative inputs; not observed user outcomes.,六
+IRWC-021,124号网络食品销售规定2026-05-20施行，地址许可、信息留存和温控委托监督责任进入实际成本。,analysis,IRW17,,,七
+IRWC-022,新就业指引区分关系与适用范围、工作和必要准备等待时间，不是统一允许12小时连续工作的规则。,analysis,IRW18,,,七
+IRWC-023,成熟城区扩张要看净增利润及服务容量，新区域要验证正常价格复购和爬坡资金；改品类、合仓、门店和退出是条件性选择。,analysis,IRW03;IRW10;IRW11;IRW15;IRW28,,,八

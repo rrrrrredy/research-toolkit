@@ -1,0 +1,21 @@
+claim_id,claim,claim_type,supporting_sources,counter_evidence,uncertainty,evidence_detail
+EDC-001,F02公开累计9万余件、约1250小时和支持3万辆；84秒/37秒是任务要求、99%是目标，不是实际连续无干预统计。,analysis,ED01;ED02,,,一/四
+EDC-002,BMW F03物流排序为2026-06新项目，不能继承F02钣金上料的累计成果当作同任务新一代成绩。,analysis,ED03,,,四
+EDC-003,METEC案例依赖夹爪、机床I/O和缓存流程，翻倍产能同时包含夜间周末运行，公开资料未给完整ROI。,analysis,ED04,,,四
+EDC-004,GXO已有RaaS商业服务并超过10万料箱；新增NC/TN部署预计2027，6.5万小时涵盖Agility各商业客户项目。,analysis,ED06,,,四
+EDC-005,DHL已商业使用Stretch并扩展地区，1000余台为MOU未来安排；纸箱边界和最高吞吐不等于整班净吞吐。,analysis,ED07;ED28;ED29,,,一/四
+EDC-006,OGRP应用中心数量扩大与部分Kroger/Sobeys履约中心关闭并存；客户财务不达预期不能单因归为抓取模型失败。,analysis,ED08;ED09;ECP05,,,四
+EDC-007,Figure前臂故障与下一代结构改变说明系统可靠性进步需要区分模型、数据和硬件贡献。,analysis,ED01,,,四
+EDC-008,DROID公开76k轨迹350小时564场景86任务等采集规模，并标明硬件和校准更新；数据量本身不代表全部任务覆盖。,analysis,ED17,,,二
+EDC-009,π0.5在三处未见住宅及每任务环境10次试验评价任务进度，训练数据类型与消融结果需分别解读。,analysis,ED16,,,二/五
+EDC-010,π0.7区分多步指令、跨本体及新任务指导；用过的评估数据与留出泛化评测应区分。,analysis,ED19,,,二/五
+EDC-011,RECAP的吞吐及成功评价含具体超时和关键错误标准，汇总实验不证明普通家庭长期运营。,analysis,ED18,,,二/五
+EDC-012,DreamGen部分任务评分含部分进度；SIMPLER为真实训练策略的模拟评估；DeXtreme为限定立方体任务的仿真到现实迁移。,analysis,ED31;ED21;ECP01,,,二
+EDC-013,RTC真实480episodes和28小时是汇总纯执行；异步动作块解决部分延迟，不能取代本地控制和安全机制。,analysis,ED22,,,三
+EDC-014,OSHA与UR具体手册要求从整套应用、安全I/O及恢复条件分析；低负载或规划避碰不等于应用安全已验证。,analysis,ED23;ECP02,,,三
+EDC-015,Pi API beta提供托管微调推理，官方也披露网络连接问题，本地执行与恢复仍需工程处理。,analysis,ED26,,,三
+EDC-016,NEO当前产品价格、基本自主和专家服务、预订与制造承诺分属不同阶段；本报告缺普通付费客户持续运行队列。,analysis,ED12;ED13;ED32,,,四/五
+EDC-017,受年需求17万次限制，工业柔性情景每次成本1.193元/年差额-1.73万；同边界专用情景0.573元/+8.80万，非品牌报价或真实ROI。,assumption,economics-results.json,,Author-defined illustrative inputs; not observed user outcomes.,六
+EDC-018,工业U从65%到85%因需求封顶几乎不再改善经济性；劳动节省兑现仅50%时差额约-11万元。,assumption,economics-results.json,,Author-defined illustrative inputs; not observed user outcomes.,六
+EDC-019,物流和家庭成本分别按不同任务计算，家庭499美元仅为已读订阅标价，其他参数全为假设。,assumption,ED12,,Author-defined illustrative inputs; not observed user outcomes.,六
+EDC-020,采用应先定义合格任务和需求，再比较专用及柔性方案，部署数据闭环需区分模型、硬件、集成和需求失败。,analysis,ED01;ED04;ED06;ED08;ED16;ED22,,,七

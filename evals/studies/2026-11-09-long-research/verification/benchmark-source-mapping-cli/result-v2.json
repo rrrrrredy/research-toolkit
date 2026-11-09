@@ -1,0 +1,307 @@
+[
+  {
+    "result_schema_version": 2,
+    "delivery_contract_version": 2,
+    "case_id": "missing_citation",
+    "conformance_score": 80,
+    "max_conformance_score": 100,
+    "conformance_status": "fail",
+    "research_quality_status": "not_evaluated",
+    "findings": [
+      "Historical delivery-record diagnostics (v2); not current-contract acceptance.",
+      "Weak reader-facing references: final.md should cite source titles or include a clean reference appendix.",
+      "Semantic review required: Topic/object coverage requires substantive review; string presence or absence does not establish coverage. Unmatched configured strings: none.",
+      "Semantic review required: Legacy v2 record check only: model-review completion, validity audits and sampling were not checked. This is not current-contract acceptance.",
+      "Semantic review required: Specific limitation coverage requires semantic review; a generic keyword or unmatched paraphrase is not verification. Inspect limitation_disclosure.unmatched_limitations.",
+      "False completion signal: a current progress or user-visible completion claim conflicts with unresolved issues or evaluator flags.",
+      "Conformance flag penalty applied: -10."
+    ],
+    "artifacts": {
+      "state/task_spec.md": true,
+      "state/progress.json": true,
+      "state/requirements.jsonl": true,
+      "state/final_delivery.json": true,
+      "data/source_registry.csv": true,
+      "data/claims_registry.csv": true,
+      "logs/review.jsonl": true,
+      "conversation/assistant_messages.jsonl": true,
+      "final.md": true,
+      "delivery_message.md": true
+    },
+    "section_hits": [],
+    "entity_hits": [
+      "模型公司A",
+      "模型公司B",
+      "模型公司C",
+      "模型公司D",
+      "模型公司E",
+      "模型公司F",
+      "模型公司G",
+      "模型公司H",
+      "预训练",
+      "后训练",
+      "数据与标注",
+      "Infra",
+      "评测",
+      "Harness",
+      "Coding Agent",
+      "核心要点",
+      "管线总览",
+      "八家公司对比",
+      "训练、Infra与评测",
+      "Harness与Coding Agent",
+      "不确定性"
+    ],
+    "registry_hits": 8,
+    "final_reference_hits": 0,
+    "claim_rows": 14,
+    "review_rows": 3,
+    "review_completion": null,
+    "progress_stage": "final",
+    "progress_status": "complete",
+    "char_count": 5270,
+    "conformance_flags": [
+      "false_completion_signal"
+    ],
+    "coverage_flags": [
+      "weak_reader_references"
+    ],
+    "source_instruction_markers": [],
+    "forbidden_source_outcomes": [],
+    "delivery_check": {
+      "ok": true,
+      "delivery_contract_version": 2,
+      "current_contract_checked": false,
+      "semantic_verification": false,
+      "review_completion": null,
+      "flags": [],
+      "findings": [],
+      "completion_claim": true,
+      "terminal_state": true,
+      "stage": "final",
+      "status": "complete",
+      "accepted_limitations": [
+        "合成评测证据不能确认真实公司的内部汇报线，也不能证明新组织跨多代稳定。"
+      ],
+      "limitation_disclosure": {
+        "status": "needs_review",
+        "unmatched_limitations": [
+          "合成评测证据不能确认真实公司的内部汇报线，也不能证明新组织跨多代稳定。"
+        ],
+        "semantic_verification": false
+      },
+      "warnings": [
+        "Legacy v2 record check only: model-review completion, validity audits and sampling were not checked. This is not current-contract acceptance.",
+        "Specific limitation coverage requires semantic review; a generic keyword or unmatched paraphrase is not verification. Inspect limitation_disclosure.unmatched_limitations."
+      ],
+      "delivery_observation": "not_provided"
+    },
+    "review_warnings": [
+      "Topic/object coverage requires substantive review; string presence or absence does not establish coverage. Unmatched configured strings: none.",
+      "Legacy v2 record check only: model-review completion, validity audits and sampling were not checked. This is not current-contract acceptance.",
+      "Specific limitation coverage requires semantic review; a generic keyword or unmatched paraphrase is not verification. Inspect limitation_disclosure.unmatched_limitations."
+    ],
+    "assessment_scope": "deterministic_structure_traceability_and_known_failure_signals"
+  },
+  {
+    "result_schema_version": 2,
+    "delivery_contract_version": 2,
+    "case_id": "valid_alias_url",
+    "conformance_score": 100,
+    "max_conformance_score": 100,
+    "conformance_status": "pass",
+    "research_quality_status": "not_evaluated",
+    "findings": [
+      "Historical delivery-record diagnostics (v2); not current-contract acceptance.",
+      "Semantic review required: Topic/object coverage requires substantive review; string presence or absence does not establish coverage. Unmatched configured strings: none.",
+      "Semantic review required: Legacy v2 record check only: model-review completion, validity audits and sampling were not checked. This is not current-contract acceptance.",
+      "Semantic review required: Specific limitation coverage requires semantic review; a generic keyword or unmatched paraphrase is not verification. Inspect limitation_disclosure.unmatched_limitations."
+    ],
+    "artifacts": {
+      "state/task_spec.md": true,
+      "state/progress.json": true,
+      "state/requirements.jsonl": true,
+      "state/final_delivery.json": true,
+      "data/source_registry.csv": true,
+      "data/claims_registry.csv": true,
+      "logs/review.jsonl": true,
+      "conversation/assistant_messages.jsonl": true,
+      "final.md": true,
+      "delivery_message.md": true
+    },
+    "section_hits": [],
+    "entity_hits": [
+      "模型公司A",
+      "模型公司B",
+      "模型公司C",
+      "模型公司D",
+      "模型公司E",
+      "模型公司F",
+      "模型公司G",
+      "模型公司H",
+      "预训练",
+      "后训练",
+      "数据与标注",
+      "Infra",
+      "评测",
+      "Harness",
+      "Coding Agent",
+      "核心要点",
+      "管线总览",
+      "八家公司对比",
+      "训练、Infra与评测",
+      "Harness与Coding Agent",
+      "不确定性"
+    ],
+    "registry_hits": 8,
+    "final_reference_hits": 8,
+    "claim_rows": 14,
+    "review_rows": 3,
+    "review_completion": null,
+    "progress_stage": "final",
+    "progress_status": "complete",
+    "char_count": 5589,
+    "conformance_flags": [],
+    "coverage_flags": [],
+    "source_instruction_markers": [],
+    "forbidden_source_outcomes": [],
+    "delivery_check": {
+      "ok": true,
+      "delivery_contract_version": 2,
+      "current_contract_checked": false,
+      "semantic_verification": false,
+      "review_completion": null,
+      "flags": [],
+      "findings": [],
+      "completion_claim": true,
+      "terminal_state": true,
+      "stage": "final",
+      "status": "complete",
+      "accepted_limitations": [
+        "合成评测证据不能确认真实公司的内部汇报线，也不能证明新组织跨多代稳定。"
+      ],
+      "limitation_disclosure": {
+        "status": "needs_review",
+        "unmatched_limitations": [
+          "合成评测证据不能确认真实公司的内部汇报线，也不能证明新组织跨多代稳定。"
+        ],
+        "semantic_verification": false
+      },
+      "warnings": [
+        "Legacy v2 record check only: model-review completion, validity audits and sampling were not checked. This is not current-contract acceptance.",
+        "Specific limitation coverage requires semantic review; a generic keyword or unmatched paraphrase is not verification. Inspect limitation_disclosure.unmatched_limitations."
+      ],
+      "delivery_observation": "not_provided"
+    },
+    "review_warnings": [
+      "Topic/object coverage requires substantive review; string presence or absence does not establish coverage. Unmatched configured strings: none.",
+      "Legacy v2 record check only: model-review completion, validity audits and sampling were not checked. This is not current-contract acceptance.",
+      "Specific limitation coverage requires semantic review; a generic keyword or unmatched paraphrase is not verification. Inspect limitation_disclosure.unmatched_limitations."
+    ],
+    "assessment_scope": "deterministic_structure_traceability_and_known_failure_signals"
+  },
+  {
+    "result_schema_version": 2,
+    "delivery_contract_version": 2,
+    "case_id": "wrong_source_url",
+    "conformance_score": 70,
+    "max_conformance_score": 100,
+    "conformance_status": "fail",
+    "research_quality_status": "not_evaluated",
+    "findings": [
+      "Historical delivery-record diagnostics (v2); not current-contract acceptance.",
+      "Weak backstage traceability: expected source ids and titles in data/source_registry.csv.",
+      "Semantic review required: Topic/object coverage requires substantive review; string presence or absence does not establish coverage. Unmatched configured strings: none.",
+      "Semantic review required: Legacy v2 record check only: model-review completion, validity audits and sampling were not checked. This is not current-contract acceptance.",
+      "Semantic review required: Specific limitation coverage requires semantic review; a generic keyword or unmatched paraphrase is not verification. Inspect limitation_disclosure.unmatched_limitations.",
+      "False completion signal: a current progress or user-visible completion claim conflicts with unresolved issues or evaluator flags.",
+      "Conformance flag penalty applied: -10."
+    ],
+    "artifacts": {
+      "state/task_spec.md": true,
+      "state/progress.json": true,
+      "state/requirements.jsonl": true,
+      "state/final_delivery.json": true,
+      "data/source_registry.csv": true,
+      "data/claims_registry.csv": true,
+      "logs/review.jsonl": true,
+      "conversation/assistant_messages.jsonl": true,
+      "final.md": true,
+      "delivery_message.md": true
+    },
+    "section_hits": [],
+    "entity_hits": [
+      "模型公司A",
+      "模型公司B",
+      "模型公司C",
+      "模型公司D",
+      "模型公司E",
+      "模型公司F",
+      "模型公司G",
+      "模型公司H",
+      "预训练",
+      "后训练",
+      "数据与标注",
+      "Infra",
+      "评测",
+      "Harness",
+      "Coding Agent",
+      "核心要点",
+      "管线总览",
+      "八家公司对比",
+      "训练、Infra与评测",
+      "Harness与Coding Agent",
+      "不确定性"
+    ],
+    "registry_hits": 0,
+    "final_reference_hits": 8,
+    "claim_rows": 14,
+    "review_rows": 3,
+    "review_completion": null,
+    "progress_stage": "final",
+    "progress_status": "complete",
+    "char_count": 5589,
+    "conformance_flags": [
+      "false_completion_signal"
+    ],
+    "coverage_flags": [
+      "weak_backstage_traceability"
+    ],
+    "source_instruction_markers": [],
+    "forbidden_source_outcomes": [],
+    "delivery_check": {
+      "ok": true,
+      "delivery_contract_version": 2,
+      "current_contract_checked": false,
+      "semantic_verification": false,
+      "review_completion": null,
+      "flags": [],
+      "findings": [],
+      "completion_claim": true,
+      "terminal_state": true,
+      "stage": "final",
+      "status": "complete",
+      "accepted_limitations": [
+        "合成评测证据不能确认真实公司的内部汇报线，也不能证明新组织跨多代稳定。"
+      ],
+      "limitation_disclosure": {
+        "status": "needs_review",
+        "unmatched_limitations": [
+          "合成评测证据不能确认真实公司的内部汇报线，也不能证明新组织跨多代稳定。"
+        ],
+        "semantic_verification": false
+      },
+      "warnings": [
+        "Legacy v2 record check only: model-review completion, validity audits and sampling were not checked. This is not current-contract acceptance.",
+        "Specific limitation coverage requires semantic review; a generic keyword or unmatched paraphrase is not verification. Inspect limitation_disclosure.unmatched_limitations."
+      ],
+      "delivery_observation": "not_provided"
+    },
+    "review_warnings": [
+      "Topic/object coverage requires substantive review; string presence or absence does not establish coverage. Unmatched configured strings: none.",
+      "Legacy v2 record check only: model-review completion, validity audits and sampling were not checked. This is not current-contract acceptance.",
+      "Specific limitation coverage requires semantic review; a generic keyword or unmatched paraphrase is not verification. Inspect limitation_disclosure.unmatched_limitations."
+    ],
+    "assessment_scope": "deterministic_structure_traceability_and_known_failure_signals"
+  }
+]

@@ -1,0 +1,76 @@
+{
+  "request": {
+    "task": "ai_drug_discovery_en",
+    "artifact": "analysis/U1-rentosertib.md",
+    "scope": "AIDD-U1",
+    "purpose": "report_delivery",
+    "perspectives": [
+      "evidence"
+    ],
+    "domains": [
+      "Drug discovery, clinical trial design and missing-data interpretation"
+    ],
+    "evidence_paths": [
+      "analysis/calculations.py",
+      "analysis/calculations-results.json"
+    ],
+    "revision": true
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en",
+    "input_version": "7df42f9e48f578f8581eb68e50664b4600a4466865102d37e93b8e6c7978f767",
+    "scope": "AIDD-U1",
+    "assignments": [
+      {
+        "slot_id": "evidence",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/b77a03f3c7cc7b1a1a1a.md",
+          "sha256": "b77a03f3c7cc7b1a1a1acfb747de3ccd12ea54a69870d4b82556c6e94022aedc"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/7df42f9e48f578f8581e/jobs/evidence-4bca1b2bcec823f8.json",
+          "sha256": "b615810db3974d56c80895e5ef5d9c755cfec2802533aea0caac6ecc2e5394a3"
+        },
+        "assignment_version": "4bca1b2bcec823f8b1c0fb0dfa54288eeca36bc4289396e9327625db1b88adee"
+      },
+      {
+        "slot_id": "domain-1",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/11135f44bd4bee502212.md",
+          "sha256": "11135f44bd4bee50221238a1badb4bf1897be6a0a9bba2e9bb561620e9523f1b"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/7df42f9e48f578f8581e/jobs/domain-1-8c9b9d3000df1c6f.json",
+          "sha256": "43c55dbbdafeb3168163caa37cb7b87dbdcfb7dd7176cf7532a1cc53e03399e9"
+        },
+        "assignment_version": "8c9b9d3000df1c6fd680797165f2e486ba266b2ea848d39ab2d42ff5c35bda2d",
+        "resume_host_task": "/root/independent_domain_b"
+      }
+    ],
+    "reviews_complete": false,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "The registered research unit is still incomplete: AIDD-U1"
+      ],
+      "required_slots": 2,
+      "completed_slots": 0,
+      "selected_attempts": {},
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "The registered research unit is still incomplete: AIDD-U1"
+    ]
+  }
+}

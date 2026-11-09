@@ -1,0 +1,12 @@
+{
+  "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "assignment_version": "6d457f6b60cd9b85bc8917296bd0d16903bfaf77f8f20d4fa5dc4fb8f598b67b",
+  "report_verdict": "pass",
+  "coverage": {
+    "reader_usefulness": {
+      "location": "Complete codex-production/reference-labels-v2.diff, lines 1–300 (all 8 hunks), against the previously reviewed accepted report; current report method matrix, mechanisms, scaling table, cost discussion, worked-example attribution and Appendices A–B; current reports/current.md lines 249–292 for retained decision-tree context.",
+      "basis": "This is a same-reviewer continuation of the completed full reading and subsequent revision review, restricted to the actual reference-label changes. Paper short names replace opaque TTC/SUP identifiers in the method/evidence matrix, causal explanations, numerical comparison and qualifications. Readers can now associate each claim with a recognizable study while Appendix B retains full titles and frozen versions. The complete diff contains label replacements and local grammatical/deduplication edits, with the mechanism comparisons, practical tradeoffs, numerical values and evidence qualifications retained. All 54 URL occurrences retain their exact order and destinations, and every old-side/context line in the supplied diff matches the previously accepted assignment; applying those hunks in memory reconstructs the current assignment report exactly after line-ending normalization. The current assignment report matches managed reports/current.md and its artifact hash. The task and substantive requirement summaries remain unchanged. The prior RU-TTCEN-01 repair still defines OR and AD with the correct percent/percentage-point distinction; only its citation label changes. The prior RU-TTCEN-02 repair, including refreshed completion, remaining-budget, deadline and resource checks, remains unchanged. No new ambiguity materially impairs source identification, strategy choice or allocation advice, and no additional finding is required. Unchanged portions inherit the same reviewer's earlier complete reading rather than a new full reread."
+    }
+  },
+  "findings": []
+}

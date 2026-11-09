@@ -1,0 +1,196 @@
+{
+  "input_version": "f6bb51c4fdab26cede56b083db7acbe727f8d84add9ff64682cf380aa9ff37cb",
+  "assignment_version": "fc8417da6be74d7340c5e072beb3687e76d3f4c9a8f24f7aa4681ab1221063be",
+  "result": "valid",
+  "basis": "本审计独立通读当前完整512行非空终止范围（含所有空行共513行），读取八份当前原始回复/执行记录、相关首轮与修订记录，并自主选择原件和已通过片段核查。八视角身份各异且与生产身份不同；按Toolkit既有LF规范核对assignment、response、execution及报告哈希全部一致。内容负面历史保留且两项必要问题实质解决。未发现剩余必要内容缺陷；报告通过是本次审计判断，不代替单独最终验收。",
+  "review_checks": {
+    "requirements": {
+      "result": "valid",
+      "basis": "独立身份/root/complete_requirements_b的当前全文阅读和原始回复对应全部有效要求；第1–8章逐项定位真实存在，未增加字数、固定公司名单或必得增长结论。",
+      "attempt_id": "c651009fb1f441b5b7ed1804025c62f6",
+      "execution_id": "/root/complete_requirements_b",
+      "evidence": [
+        "reviews/host/f6bb51c4fdab26cede56/results/c651009fb1f441b5/response.txt",
+        "reviews/host/f6bb51c4fdab26cede56/results/c651009fb1f441b5/execution.json"
+      ]
+    },
+    "evidence": {
+      "result": "valid",
+      "basis": "/root/benchmark_evidence_a的首轮needs_revision原件保留，当前回复明示复用44项未变阅读并核对两处diff；本人直接读北大原图、CNNIC原页、QM图和财报页，支持其出海边界修订及已通过部分，不以负面首评为无效。",
+      "attempt_id": "64b912da816e4171ab73a4973c32b7db",
+      "execution_id": "/root/benchmark_evidence_a",
+      "evidence": [
+        "reviews/host/f6bb51c4fdab26cede56/results/64b912da816e4171/response.txt",
+        "reviews/host/f6bb51c4fdab26cede56/results/64b912da816e4171/execution.json"
+      ]
+    },
+    "adversarial_reasoning": {
+      "result": "valid",
+      "basis": "/root/benchmark_adversarial首轮跨期人群归因批评成立；当前第6行保留新增、迁移及分类替代解释，第55–78行与之相容；其全部差异复核的记录和冻结输入对应。",
+      "attempt_id": "b0aafefd74af4eb791096fc02620b3d5",
+      "execution_id": "/root/benchmark_adversarial",
+      "evidence": [
+        "reviews/host/f6bb51c4fdab26cede56/results/b0aafefd74af4eb7/response.txt",
+        "reviews/host/f6bb51c4fdab26cede56/results/b0aafefd74af4eb7/execution.json"
+      ]
+    },
+    "structure_and_depth": {
+      "result": "valid",
+      "basis": "/root/benchmark_structure的全文首评和当前两处修订影响复核均可定位；口径、需求、竞争、合同、财务、敏感性与三方选择在全文形成论证链，未以章节齐全替代分析深度。",
+      "attempt_id": "22862cab98254223a1a98450fa5e1f33",
+      "execution_id": "/root/benchmark_structure",
+      "evidence": [
+        "reviews/host/f6bb51c4fdab26cede56/results/22862cab98254223/response.txt",
+        "reviews/host/f6bb51c4fdab26cede56/results/22862cab98254223/execution.json"
+      ]
+    },
+    "reader_usefulness": {
+      "result": "valid",
+      "basis": "/root/benchmark_reader_a具体核对分账双方、现金和混合收益；裸文件名建议保持optional有依据，正文已经给公式、输入与结果，未人为把便利性改进变为必修。",
+      "attempt_id": "4d168e20b9804e7691ea56f44e7328b3",
+      "execution_id": "/root/benchmark_reader_a",
+      "evidence": [
+        "reviews/host/f6bb51c4fdab26cede56/results/4d168e20b9804e76/response.txt",
+        "reviews/host/f6bb51c4fdab26cede56/results/4d168e20b9804e76/execution.json"
+      ]
+    },
+    "process_language": {
+      "result": "valid",
+      "basis": "/root/benchmark_process_a对完整稿及diff给出具体区分。首轮意外看到实质生产交接内容有披露；它不是作者身份或其他初审结果，当前审计不据此抹除有效独立检查。正文没有Agent指令或待审话术。",
+      "attempt_id": "43edf8741f5a4754a428835863dace0f",
+      "execution_id": "/root/benchmark_process_a",
+      "evidence": [
+        "reviews/host/f6bb51c4fdab26cede56/results/43edf8741f5a4754/response.txt",
+        "reviews/host/f6bb51c4fdab26cede56/results/43edf8741f5a4754/execution.json"
+      ]
+    },
+    "natural_expression": {
+      "result": "valid",
+      "basis": "/root/benchmark_natural_expression的全稿原审与两处当前替换有明确读取记录；限定分别解决人群、收入、现金问题，段后推进经营解释，未要求为简洁删除证据边界。",
+      "attempt_id": "b19c372c2d1b499bb74a27b7c19e9844",
+      "execution_id": "/root/benchmark_natural_expression",
+      "evidence": [
+        "reviews/host/f6bb51c4fdab26cede56/results/b19c372c2d1b499b/response.txt",
+        "reviews/host/f6bb51c4fdab26cede56/results/b19c372c2d1b499b/execution.json"
+      ]
+    },
+    "domain-1": {
+      "result": "valid",
+      "basis": "/root/independent_domain_b从8a720aa9到98b93c53实质输入等价、再到当前两处diff的接续路径可核对；原图/财报/算例的领域判断与本次独立抽查吻合，未把App MAU、意愿或分部毛利误作全国人数、付款率或净利。",
+      "attempt_id": "3b758001dcba4cfd9915b60ee572f3e2",
+      "execution_id": "/root/independent_domain_b",
+      "evidence": [
+        "reviews/host/f6bb51c4fdab26cede56/results/3b758001dcba4cfd/response.txt",
+        "reviews/host/f6bb51c4fdab26cede56/results/3b758001dcba4cfd/execution.json"
+      ]
+    }
+  },
+  "dispositions": {
+    "reader_usefulness/RU-MDZH-01": {
+      "decision": "no_change",
+      "reason": "附件裸文件名仍是可选便利性问题，正文模型充分可理解；不属于任务强制或阻断缺陷。",
+      "evidence": "reports/current.md:396,504,512；analysis/calculations及codex-production保留模型文件。"
+    }
+  },
+  "critical_checks": [
+    {
+      "requirement_id": "R_TASK",
+      "location": "reports/current.md:12–504，全篇八章、全部表/公式/资金流及选择条件",
+      "evidence": "逐行完整读1–512及终止空行。市场结构分终端需求/企业收入/中间交易；全国6.62/6.64亿与App4.87亿不同观察期；六类入口按发现复访和内容交易比较；财务与情景分别保留集团/境内及假设身份；监管映射净回收；第440–504行分别回应平台、制作发行、投资者及改变条件。该任务要求的完整研究而非摘要已实质提供。",
+      "result": "clear"
+    },
+    {
+      "requirement_id": "R_LANGUAGE",
+      "location": "reports/current.md:1–512",
+      "evidence": "完整报告为中文，局部行业缩写/模型变量有定义；章节按微短剧市场问题展开，未被通用审阅模板替代。",
+      "result": "clear"
+    },
+    {
+      "requirement_id": "R_DATE",
+      "location": "reports/current.md:3–6,37–45,125–129,196–249,404–424,508",
+      "evidence": "2026-11-09截止；CNNIC2025年末与QM2026年9月分别标注；634.3/1210/570/400为预测，220为半年估计；2026公司半年/前三季实际累计，金币新用户11月已执行、旧用户12月未完成及11月治理阶段区分；原件日期一致。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:6,40,55–78；两个历史必要发现",
+      "evidence": "北大MD006物理p3原图明确尚未计入出海业务收入；CNNIC57 p40、73–74及QM2月p6图脚显示不同总体/产品门槛；完整diff仅改第6和40行，当前修订没有据不同口径数据识别2026迁移份额。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:251–396；各方资金、敏感性、现金与混合",
+      "evidence": "读取scenario-model.py全篇、23组保留scenario结果及合同/现金/混合/组合结果、completion-results全篇；165.60万元净消费仅一次，付费合计20.32与片方-4.94并存；免费day0–90共91天、L=8.552668及CPM分母一致，额外补贴/可抵扣保底、广告蚕食和回款延迟分别建模；未重跑。",
+      "result": "clear"
+    }
+  ],
+  "sample_checks": [
+    {
+      "location": "reports/current.md:57–78,117–119",
+      "selection_reason": "独立从已通过需求和竞争段选择跨期样本、频次及重合的推断，检验主结论的证据分母。",
+      "evidence": "实际查看CP17 p6，CP24 time图，CP16全部四张保留原图；4.87亿、42969万、河马3080万、88.5%重合、133.29亿小时同比净增与图脚相符。26.9小时/125.6次和13小时/62次支持使用次数机制，不识别个体迁移或排他收入份额。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:235–247,483–487",
+      "selection_reason": "选择已通过财务段的营运资金及交易方向，容易在汇总或分析转成正文时失真。",
+      "evidence": "MD005 p148原文的应收+190687601.14、应付-57420760.71、存货-479405.69与现金解释一致；MD008 p156–157、CP01 p2、CP02 p1区分合并净利/归母和季度/累计。实际看MD008 p187–188表，广告营销处于出售商品/提供劳务，399832389.07及108255592.92为衍生业务销售；未倒置资金流。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:18–49,253–396；analysis/U01-market-boundary.md及codex-production/U08-economics-and-sensitivity.md",
+      "selection_reason": "从原始分析到正文选择市场口径和完整经济模型两个实质转换，检验是否把研究假设包装为事实或删掉负分支。",
+      "evidence": "全文阅读U01与U08，并与正文对应；1210/570预测及220半年性质保留，原分析的不同规模不能排名、片方亏损/平台薄利、广告密度伤留存、免广告高价值用户蚕食及爆款组合亏损均保留；补足资金流图中的片方亏损，不增加终端消费。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:133–145,404–438",
+      "selection_reason": "抽取平台合同与监管的已通过段，核验不同结算对象、时点及规则被转成经营建议时是否过度外推。",
+      "evidence": "实际读取MD004完整54条；CP18保证金、支付、退款上下文及CP27达人1%–29%/0–3天、T+7段；CP20营销章节原文。正文把达人佣金与版权分账、支付周期与版权到账分开；20日含专家10日、三类非独播编号/重播和AI标识与原条款一致。",
+      "result": "clear"
+    }
+  ],
+  "prior_findings": {
+    "dbe38fea553a43418b065fc90332b96f/EVD-MDZH-001": {
+      "decision": "resolved",
+      "reason": "原负面有效，现第40行明确是来源声称排除出海，并保留未消费余额和内部抵销尚不可复核。",
+      "evidence": "reports/current.md:40；MD006/pages/p-03.png右页开头；旧98b93c53首评与两处完整diff。"
+    },
+    "2a26b5fb6a8244acb88b0852996f1399/AR-MDZH-01": {
+      "decision": "resolved",
+      "reason": "原归因过强批评成立；当前第6行改为可能解释并列替代解释及所需证据；后文没有重建被撤回的因果断言。",
+      "evidence": "reports/current.md:6,55–78,493–502；CNNIC57 p40/73–74；QM2月p6原图。"
+    },
+    "1fbb84d1d5504d8da5d33f48e6b415fa/RU-MDZH-01": {
+      "decision": "no_change",
+      "reason": "附件裸文件名仍是可选便利性问题，正文模型充分可理解；不属于任务强制或阻断缺陷。",
+      "evidence": "reports/current.md:396,504,512；analysis/calculations及codex-production保留模型文件。"
+    }
+  },
+  "finding_adjudications": {
+    "current": {
+      "reader_usefulness/RU-MDZH-01": {
+        "decision": "no_change",
+        "reason": "附件裸文件名仍是可选便利性问题，正文模型充分可理解；不属于任务强制或阻断缺陷。",
+        "evidence": "reports/current.md:396,504,512；analysis/calculations及codex-production保留模型文件。"
+      }
+    },
+    "prior": {
+      "dbe38fea553a43418b065fc90332b96f/EVD-MDZH-001": {
+        "decision": "resolved",
+        "reason": "原负面有效，现第40行明确是来源声称排除出海，并保留未消费余额和内部抵销尚不可复核。",
+        "evidence": "reports/current.md:40；MD006/pages/p-03.png右页开头；旧98b93c53首评与两处完整diff。"
+      },
+      "2a26b5fb6a8244acb88b0852996f1399/AR-MDZH-01": {
+        "decision": "resolved",
+        "reason": "原归因过强批评成立；当前第6行改为可能解释并列替代解释及所需证据；后文没有重建被撤回的因果断言。",
+        "evidence": "reports/current.md:6,55–78,493–502；CNNIC57 p40/73–74；QM2月p6原图。"
+      },
+      "1fbb84d1d5504d8da5d33f48e6b415fa/RU-MDZH-01": {
+        "decision": "no_change",
+        "reason": "附件裸文件名仍是可选便利性问题，正文模型充分可理解；不属于任务强制或阻断缺陷。",
+        "evidence": "reports/current.md:396,504,512；analysis/calculations及codex-production保留模型文件。"
+      }
+    }
+  },
+  "report_verdict": "pass",
+  "open_issues": []
+}

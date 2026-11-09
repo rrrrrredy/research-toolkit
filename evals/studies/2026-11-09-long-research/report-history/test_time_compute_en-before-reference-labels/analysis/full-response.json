@@ -1,0 +1,602 @@
+{
+  "analysis": "# Test-Time Compute for Reasoning Models and Agents: Methods, Scaling Behavior, and Design Trade-offs\n\n**Evidence cutoff: 9 November 2026.** This report examines selected work published from 2022 through the cutoff, retaining the inspected paper and evaluation versions. Results are author-reported unless labelled as this report's arithmetic or proposed design policy. The original experiments were not independently rerun.\n\n## Research synthesis\n\nAdditional inference computation can improve reasoning and agent performance substantially, but the benefit depends on the operation that receives the work. Sampling discovers alternative solutions; revision and prefix search change which solutions are generated; verification determines which candidate reaches the user; tools supply observations unavailable from internal reasoning alone. Training can make these operations productive. A useful allocation policy therefore optimizes the complete inference system, including the cost of selection, feedback and failed work.\n\nThe strongest evidence supports conditional choices. Fixed-checkpoint self-consistency can improve mathematical answer accuracy without changing weights. Better process supervision can recover more correct solutions from a common candidate bank. Training specifically for correction can turn a harmful second attempt into a useful one. Coding agents can combine execution feedback with parallel trajectories and explicit selection to improve delivered success. Each result has a different resource and information boundary. A rising probability that a candidate bank contains a solution does not establish rising accuracy of the submitted answer.\n\nThree practical findings recur. First, candidate generation and selection often scale at different rates: oracle coverage can keep growing after practical selectors saturate, and optimizing a weak score can even lower accuracy. Second, the best allocation varies with task difficulty and available feedback; uniform depth or sample counts waste work on already-settled tasks and can underserve promising difficult ones. Third, total work and response latency can move differently. Wide sampling consumes parallel resources, while deep revision and tool dependencies create serial delay.\n\nThe design recommendation is to locate the current bottleneck before adding work. Generate more when useful candidates are missing but accessible. Improve verification when those candidates exist but are poorly selected. Use trained repair or partial-state search when intermediate feedback identifies productive changes. Choose a stronger base model when repeated weak attempts share the same blind spot. Stop when the current result meets the requirement or when another increment has less expected value than its resource, delay and error cost. The worked example makes these choices explicit, including a case where the optimal constrained policy leaves budget unspent.\n\n## Scope and comparison discipline\n\nThis is a selective technical synthesis rather than an exhaustive literature catalogue or a current-model leaderboard. It connects mathematical reasoning, executable coding and multistep tool interaction through common mechanisms, then preserves their different evaluation conditions. Older studies establish mechanisms; inspected 2026 work tests current questions about selection, termination, imperfect verification and target-specific adaptation. The report does not assume a universal inference scaling law.\n\nFour evidence levels are kept separate: a **shared-bank comparison** isolates reducers over the same candidates; a **fixed-checkpoint end-to-end comparison** changes inference while preserving weights; a **whole-system comparison** can change training, generator and verifier together; and an **oracle diagnostic** uses correctness information unavailable to an online controller. These distinctions follow the explicit evaluation framework in [Test-Time Scaling in Reasoning LLMs, v2](https://arxiv.org/html/2608.04001v2). They determine which findings can support an implementable design choice.\n\nCorrectness available to a benchmark author is not automatically available to the deployed system. Final-answer references, hidden tests and oracle prefix probes are identified where used. Sampling costs are not treated as total system costs, and token counts are not treated as a common compute unit across models. The detailed numerical consistency checks are collected in Appendix A so that the main discussion can focus on usable mechanisms and decisions.\n\n## 1. The engineering question: which operation should receive the next unit of work?\n\nAdditional inference work improves a system when it changes the distribution of candidate solutions, distinguishes good candidates from bad ones, or acquires information that was missing from the current state. These mechanisms create different scaling curves. Independent sampling explores alternative complete solutions. Revision reuses an existing attempt. Prefix search allocates work before a candidate is complete. Verification changes which generated outputs reach the user. A tool call can change what the system knows about the world. Training determines whether a model can exploit these opportunities, while the inference policy determines when and how often it uses them.\n\nThis distinction turns a vague request to “think harder” into an allocation problem. If a correct program already appears frequently but the selector prefers a superficially plausible wrong one, more samples may mainly increase the number of tempting mistakes. If no candidate satisfies an executable specification, improved ranking cannot create a missing solution. If the model's plan is sound but a tool fails, repeating internal reasoning does not repair the tool result. An effective design spends against the observed bottleneck, using a success criterion that matches the actual submitted answer or completed external action.\n\nThe useful starting quantity is the gap between **candidate availability** and **delivered success**. A large gap favors better selection or feedback; low availability favors a stronger generator, better information, or a different search policy. A small gap plus low marginal generation gains favors stopping. This is a proposed design interpretation of the evidence, not a universal learned allocation law.\n\n## 2. Method-and-evidence matrix\n\n| Method | Candidate generation and retained state | Selection or rejection; evaluator information | Extra resource and causal interpretation | Informative evidence |\n|---|---|---|---|---|\n| Independent sampling | Fresh complete trajectories from a fixed prompt/checkpoint; retain a candidate bank | None until a separate reducer is chosen | Multiple generations, repeated or shared prefill; can run concurrently | TTC010 v2 shows broad coverage gains, with task-dependent model-size efficiency |\n| Self-consistency | Diverse complete reasoning paths; retain canonical final answers and counts | Plurality of answer strings, without reference answers | Generation dominates; parsing/voting still belongs in accounting; checkpoint fixed | TTC009 v4: PaLM-540B GSM8K 56.5→74.4 using 40 samples |\n| Best-of-N / outcome verification | Complete candidates; retain outputs and scores | Learned outcome score, execution tests, or checker; access may range from public tests to an oracle | N generations plus N verifier evaluations and any judge reasoning | TTC012 v1: fixed generator, PRM/ORM/majority comparison; TTC008 distinguishes uniform filtering from argmax |\n| Sequential revision | Next candidate conditions on previous answer(s), critique and possibly feedback | Final-turn output or a separately specified best-over-turns selector | Serial dependency, growing context, revision and selection costs | TTC013 v1: trained SCoRe improves second-turn accuracy; generic prompting can regress |\n| Extended single-trajectory reasoning | Retain current token prefix; delay or force answer transition | Internal continuation plus stop controller; no external truth required | Serial reasoning tokens, delimiter/probe overhead; capacity depends on post-training | TTC002 v2: same s1-32B extends 50→57% on AIME24, then flattens |\n| Prefix/tree search | Partial answers, frontier, action history, optional environment snapshots | Process score or state value; prune and expand promising branches | Generated and discarded nodes, scoring, lookahead, resets/replay | TTC001 v1: benefits depend on difficulty and budget; TTC011 v2: explicit intermediate-state planning |\n| Adaptive sample stopping | Running candidate counts or calibrated confidence signals | Stop when further samples are unlikely to change the selected answer | Avoids unfinished future work; count controller overhead and waves of parallel work | SUP-AC: approximate Beta stopping; TTC007: distinguish achievable online policies from oracle prefix choices |\n| Test-time weight adaptation | Target-specific proposer/solver adapters and replayed synthetic tasks | Execution reward on generated subtasks, later target evaluation | Forward/backward passes, synthetic data, tests, evaluation; weights change during test time | TTC005 v1: TTSP on a filtered 28-target coding slice |\n| Tool/environment loop | Belief/history, repository or browser state; each action adds observations | Tool returns, compiler/tests, user information, policy or state evaluation | LLM calls plus tools, retries, state replay; often serial | SUP-CM, SUP-TREE, SUP-TAU expose selection, reset, and final-state reliability constraints |\n\nThe same system can use several rows. Code repair may begin with a shared context pass, run several serial edit/test loops in parallel, and then invoke a final selector. Labeling the whole system “parallel sampling” hides the serial and verification work that produces its result.\n\n## 3. Sampling discovers alternatives; the reducer determines how much discovery becomes useful\n\nSelf-consistency is a strong fixed-checkpoint example because it changes decoding and aggregation without retraining the model. In the inspected v4, the authors use the same few-shot prompts, sample 40 outputs per run, and average over ten runs. PaLM-540B uses temperature 0.7 and top-k 40. GSM8K accuracy rises from 56.5% for greedy chain-of-thought to 74.4% for unweighted voting, an absolute 17.9-point improvement. A task-dependent parser extracts a final answer from each path. The decision is a plurality, even though the paper uses “majority” terminology: an answer need not receive more than half the samples to win. [TTC009, §§2–3, Table 1](https://arxiv.org/html/2203.11171v4).\n\nWhy it works is more specific than independent thought being inherently reliable. Different sampled paths can make different local errors while still assigning a relatively large share of probability to the same correct final answer. Marginalizing the paths removes sensitivity to one unlucky path. Conversely, if a systematic misconception is the most frequent answer, more samples make the wrong plurality more certain. Sampling diversity is useful only when it changes relevant errors. Diverse wording around the same bad premise does not provide the same benefit as alternative decompositions or genuinely different evidence.\n\nThe primitive coverage formula, conditional on one task's success probability p, is `C_N=1-(1-p)^N`. Its marginal gain is `C_(N+1)-C_N=p(1-p)^N`: decreasing with N for a fixed p. Across tasks, `E[1-(1-p_task)^N]` is generally different from `1-(1-E[p_task])^N`. The latter substitutes a homogeneous task model and tends to overstate coverage when success rates vary, because `(1-p)^N` is convex for N≥2. A model that solves half the tasks almost always and the rest almost never can have the same average pass@1 as a model that has moderate success on every task, but much worse high-budget coverage. This is an analytical explanation, not a new empirical estimate.\n\nLarge Language Monkeys supplies the broader scale evidence. Its v2 generates 10,000 samples per problem for Llama-3 8B/70B across mathematical, coding and proof tasks, while SWE-bench Lite uses up to 250 independent full Moatless Tools trajectories with DeepSeek-Coder-V2-Instruct. Coverage on the latter rises from 15.9% to 56%. This demonstrates latent candidate availability; the automatic benchmark evaluator identifies successes after the fact. For mathematics, correct final-answer references provide an oracle coverage calculation, not a deployment-time checking mechanism. The paper itself separates coverage from practical precision. [TTC010, §§2 and 4](https://arxiv.org/html/2407.21787v2).\n\nThe selection gap is substantial in the same paper: majority voting and reward-based selection saturate before roughly 100 samples in the inspected math experiments while oracle coverage keeps growing. It is therefore possible for the statement “more sampling discovers more correct answers” to remain true while the actual user-facing accuracy has nearly stopped improving. A reported best-of-k result must identify whether “best” means a learned score, a publicly available checker, or knowledge of the correct answer. [TTC010, §4.1, Figure 7](https://arxiv.org/html/2407.21787v2).\n\nThe August 2026 revision of *Inference Regimes, Evaluation, and Reproducibility* supplies a recent fixed-bank example. For Qwen3-30B-A3B-Thinking-2507 on 120 competition-mathematics questions, single-response accuracy is 75.56%; at 80 candidates oracle coverage reaches 91.67%, while answer plurality reaches 78.33%. Selecting the highest mean token log probability instead falls to 65.83%. A reference-assisted verifier reaches 89.17%, but it sees the gold answer and is explicitly diagnostic. The same bank therefore supports rising availability, modest usable voting gains, and regression under a different selector. It also shows why a reference-assisted selector cannot be credited as a deployment method. [TTC003v2, §4.2, Figure 5](https://arxiv.org/html/2608.04001v2).\n\nModel strength is also task dependent after normalization. Under the paper's dense-model inference-FLOP approximation, Llama-3-8B-Instruct has higher coverage than 70B at a fixed FLOP budget on MiniF2F, GSM8K and MATH, whereas 70B is almost always more cost-effective on CodeContests. These are coverage comparisons under a stated approximation, rather than a universal preference for smaller models. A code generator may need enough learned syntax, algorithms and long-context competence before sampling gives it a useful probability of success. Pythia's CodeContests coverage remains zero at 10,000 samples in this experiment. That finite negative result supports changing the generator for this workload; it does not prove the true success probability is mathematically zero. [TTC010, §§2.2–2.3](https://arxiv.org/html/2407.21787v2).\n\nIndependent evidence on imperfect tests sharpens the distinction. The original November 2024 *Inference Scaling FLaws* compares acceptance under ordinary HumanEval/MBPP tests with correctness under their expanded “+” suites. Repeated sampling can find programs that satisfy weak tests while failing additional cases. Penalizing false positives can make a small sample budget, or abstention, preferable. The expanded suites are stronger checks, not a proof of program semantics. This supports keeping the selector's feedback separate from the final evaluator and pricing wrong submissions explicitly. [SUP-LIMITS, §§2–4 and Appendix A.2](https://arxiv.org/html/2411.17501v1).\n\nThe practical policy is to estimate both sides of the selection gap on representative tasks. If reliable checking is available and cheap, sampling is attractive because attempts parallelize and a first success can stop future work. If only a weak model judge is available, measure false acceptance on the errors generated by the actual candidate policy. Its accuracy on an unrelated balanced set is not enough: search preferentially exposes the judge to difficult high-scoring mistakes.\n\n## 4. Revision works when the model or its feedback supports repair\n\nRevision retains information from a previous attempt and can focus computation on a local error. It is attractive when the first attempt has a mostly correct decomposition, when a test failure identifies a location, or when training teaches the model to distinguish a repair from gratuitous changes. It is less attractive when earlier context anchors the model to a globally wrong approach or when no new signal distinguishes the revised answer from the old one.\n\nThe relevant negative result concerns generic intrinsic self-correction, rather than all possible revision systems. Huang et al.'s v2 compares oracle-stopped correction with intrinsic feedback prompts. GPT-3.5's GSM8K score changes from 75.9 to 75.1 and 74.7 after one and two correction rounds, requiring three and five calls respectively. GPT-4's corresponding score falls from 95.5 to 89.0 after two rounds on a 200-question sample. Ground-truth-based stopping is a materially different information condition. [SUP-SELF, §§3.1–3.2, Tables 2–3](https://arxiv.org/html/2310.01798v2).\n\nSCoRe provides the positive training counterexample. Its reward uses correct answers or code evaluation during training, but the test-time correction instruction does not reveal whether the first response was correct. The method trains on the policy's own multi-turn rollouts. An initial phase improves second-attempt behavior while constraining first-attempt drift; a later phase rewards useful changes and penalizes changes that turn a correct response into an incorrect one. The reason for this design is concrete: optimizing a two-turn objective can otherwise collapse into a strong first answer followed by a no-op edit, or learn a repair distribution mismatched to the model's own mistakes. [TTC013, §§3–5](https://arxiv.org/html/2409.12917v1).\n\nThe numerical distinction matters. In the MATH experiment, the base Gemini 1.5 Flash checkpoint goes from 52.6% on turn one to 41.4% on turn two, a −11.2-point correction delta. After SCoRe training, the same trained checkpoint goes from 60.0 to 64.4%, a **+4.4-point inference-time correction benefit**. The often-quoted 15.6 points is the improvement in correction delta, `4.4−(−11.2)`, across the training change. It is not the gain from adding one turn to an unchanged base model. The trained policy's wrong-to-right transition rate is 5.8% and correct-to-wrong rate 1.4%, explaining the net 4.4 points directly. [TTC013, Table 3](https://arxiv.org/html/2409.12917v1).\n\nThe code experiment likewise trains on MBPP and evaluates on HumanEval without exposing test cases during inference. SCoRe's HumanEval first and second attempts are 52.4% and 64.6%, a 12.2-point correction delta. Its 9.1-point headline comparison concerns improvement over the base model's correction delta. Inference scaling on MATH compares 2K parallel solutions with K solutions followed by one revision each: at a 32-solution budget the reported gains are 7.4 and 10.5 points respectively. Equal solution counts are a useful within-study control, but sequential revisions read the first output and may have different token and latency costs. The paper trains one correction round; it does not establish indefinite gains from repeatedly applying the instruction. [TTC013, Table 4 and §6.2–§7](https://arxiv.org/html/2409.12917v1).\n\ns1 shows a related but distinct mechanism: training a checkpoint to generate long reasoning, then intervening on its termination. The inspected v2 distills 1,000 selected question/trace pairs from Gemini Thinking into Qwen2.5-32B-Instruct. Budget forcing either inserts the end-of-thinking delimiter to obtain an answer or suppresses termination and adds “Wait.” Within the resulting s1-32B checkpoint, the reported AIME24 score extends from 50 to 57%; at repeated extension the curve flattens and can enter repetitive loops. The paper's comparison of base-model voting with s1 sequential reasoning changes the checkpoint as well as the inference algorithm, so it cannot isolate a universal serial-over-parallel advantage. [TTC002, §§2–4, Figure 4](https://arxiv.org/html/2501.19393v2).\n\nThese studies jointly support an implementable choice: use revision after diagnosing whether the policy can repair the relevant errors. If execution feedback points to a bad boundary condition, revise that candidate. If all candidates repeat the same faulty plan, a fresh trajectory, stronger model, or new information may be more valuable. If the task is already reliably solved and the model's correction behavior is uncalibrated, the simple single pass is an appropriate endpoint.\n\n## 5. Verification changes what search can safely optimize\n\nOutcome verification asks whether a complete result meets the target. Process verification scores intermediate reasoning. The difference is about the semantics and timing of feedback, not simply the number of scores. A process label can mean that a human judges a step reasonable, that a prefix has high predicted probability of eventual success, or that an external transition succeeded. These are different signals and have different failure modes.\n\n*Let's Verify Step by Step* uses human step labels to train a process reward model. At a given scale, the generator is held fixed; the investigation trains reward models rather than improving the generator with RL. Its large-scale process model selects a correct answer on 78.2% of a 500-problem MATH subset from 1,860 candidates, versus 72.4% for the outcome model and 69.6% for majority vote. A single forward scoring pass over a completed solution provides step predictions, whose product defines the full-solution score. This is a concrete demonstration that better verification can recover more of a fixed candidate bank. [TTC012, §§2–3, Figure 3](https://arxiv.org/html/2305.20050v1).\n\nThe causal qualification is equally precise. The large-scale ORM and PRM training sets differ, including an active-learning bias toward convincing wrong answers. The paper says that comparison is not an apples-to-apples isolation of supervision type. Its smaller-scale experiment improves control by using identical generated datasets with alternative labels, finding process supervision stronger there too. In both settings, the verification system has an offline training cost and an online scoring cost. The 78.2% is neither pass@1 of the raw generator nor a free benefit from relabeling existing tokens. The split deliberately adds 4,500 MATH test questions to training and evaluates only the remaining 500; reporting it as performance on the original full MATH test set would be incorrect. [TTC012, §§2, 4](https://arxiv.org/html/2305.20050v1).\n\nSnell et al. use a different process signal in TTC001. Their PaLM 2-S* verifier is trained from Monte Carlo continuation rewards, so a prefix score estimates reward-to-go under a sampling policy. It is not the same object as a human judgment of each logical step. The paper uses the final step's score for full-answer scoring and sums scores over candidates with the same final answer for weighted best-of-N selection. This aggregation differs from the product used by the human-supervised PRM above. These design choices determine how a verifier's local errors influence the final decision. [TTC001, §5.1](https://arxiv.org/html/2408.03314v1).\n\nThe positive role of prefix search is to avoid spending complete trajectories on already-unpromising branches. A beam preserves several partial hypotheses, uses a value signal to allocate expansion, and can focus the generator on intermediate states it would rarely reach through independent complete samples. Snell et al. find beam search stronger at low generation budgets, and particularly useful on medium-difficulty problems. As budgets increase, best-of-N catches up or overtakes it; lookahead often underperforms at the same accounted generation budget because it spends additional rollouts evaluating prefixes. Their cost convention charges N(k+1) generation-equivalents for k-step lookahead. It is more informative than counting retained beams alone, but it is not a complete hardware-time measurement. [TTC001, §§5.2–5.3](https://arxiv.org/html/2408.03314v1).\n\nSearch also changes the distribution presented to the verifier. A score that usually correlates with correctness under ordinary sampling can become unreliable when optimized repeatedly. TTC001 reports easy-problem degradation under stronger search, including repetitive low-information steps and artificially short solutions. The same source finds little progress on the hardest difficulty bin. The combination explains why a search method can help intermediate problems, waste effort on easy ones, and fail to create missing capabilities on the hardest ones. “Deeper” is not an unconditional improvement over “wider”; it is a bet on the value model's ability to distinguish promising partial states. [TTC001, §5.3 and Appendix M examples](https://arxiv.org/html/2408.03314v1).\n\nTree of Thoughts offers an interpretable small-domain demonstration. On 100 Game-of-24 instances selected from the harder portion of a puzzle list, GPT-4 breadth-first search with five retained thoughts reaches 74%, versus 4% for chain-of-thought and 9% for 100-sample self-consistency. Intermediate states contain remaining numbers; the model proposes operations and evaluates prospects using three sampled judgments. The task has a crisp arithmetic terminal check and a shallow three-step decomposition. The comparison establishes value in planning over intermediate states; visited-node counts do not equal tokens, model calls, or dollars, and the 74% should not be transplanted to unconstrained reasoning. [TTC011, §4.1, Table 2](https://arxiv.org/html/2305.10601v2).\n\nThe same paper's creative-writing experiment is a useful boundary case. Planning and selection improve average coherence ratings, and blinded author comparisons favor ToT over CoT in 41 of 100 pairs versus 21 in the other direction, with 38 ties. Yet the evaluator's target is a preference judgment rather than exact correctness, and the model participates in both generation and automatic scoring. This shows how search can improve a specified quality criterion without supplying a correctness guarantee. For ambiguous tasks, designers should define the desired criterion first and check that the selector's preferences align with it before expanding the search. [TTC011, §4.2](https://arxiv.org/html/2305.10601v2).\n\n## 6. Adaptation and stopping should follow observable returns\n\nAdaptive allocation can act at three points: route the task before thinking; adjust the number of independent attempts; or stop a trajectory as it unfolds. These use different information. A router sees the prompt and perhaps a cheap initial probe. A sample controller sees answer counts and check outcomes. A trajectory controller sees the evolving prefix or token statistics. An offline oracle sees eventual correctness at every candidate stopping point. Comparing these as if they had the same observation budget overstates what a practical controller can do.\n\nAdaptive-Consistency implements a lightweight sample controller. The inspected EMNLP 2023 paper uses a Beta approximation comparing the two most frequent answers, with threshold .95; the event being estimated is stability of the leading answer. It reports an average 3.3-fold reduction in samples across its settings, with less than 0.1 percentage point accuracy drop, and up to 7.9-fold on particular settings. Reasoning baselines cap at 40 samples; code budgets differ by benchmark. These are sample-count savings, not universal latency or dollar savings. A confidently wrong plurality can still stop early. [SUP-AC, §§3–5](https://aclanthology.org/2023.emnlp-main.761.pdf).\n\nThe benefit is clearest when a few observations settle the same decision that a large fixed sample bank would make. Easy consensus tasks free budget for cases with divided answers. In a latency-constrained service, however, launching all samples at once can finish sooner than several serial stopping rounds; small parallel batches offer a middle ground. That batching recommendation is a design inference from the controller's sequential dependencies, not a measured result from the paper.\n\nTTC001's difficulty-conditioned policy also finds meaningful allocation gains, up to roughly four times fewer generation-equivalents in its comparisons. Its oracle difficulty is estimated with 2,048 samples and ground-truth checking; a predicted version uses PRM outputs. Strategy choice is cross-validated, but the difficulty-estimation overhead is excluded from the main experiments. Thus this evidence demonstrates that heterogeneous tasks favor heterogeneous allocation, while a production controller must separately establish that its cost of identifying difficulty is lower than the work it saves. [TTC001, §3 and Figures 4, 8](https://arxiv.org/html/2408.03314v1).\n\nTTC007's prefix measurements identify another form of headroom. Along a fixed reasoning trajectory, an earlier prefix can yield more accurate answer probes than the final prefix, and different trajectories favor different stopping positions. Its nested oracle frontiers show the value of trajectory-specific decisions within the measurement space. They do not show that a controller can identify the same positions without the probes and labels used to find them. Appendix A documents finite-probe selection and excluded overhead; these findings motivate calibrated online control rather than a claim that an oracle budget cap is a realized saving. [TTC007, §§3–5](https://arxiv.org/html/2610.13570v1).\n\nTTSP addresses a different weak-feedback situation. Instead of repeatedly judging the target, it constructs related executable synthetic tasks and adapts the model on their outcomes. This can move probability toward useful target solutions when a fixed sampler's correct cluster is nonmodal. The mechanism is substantive: it changes the generator, whereas voting only selects among its outputs. Its scope is likewise substantive: synthetic-task reward can be exploited, a target-specific curriculum may not transfer, and the study's very low-coverage subset gains little. Appendix A states the metric and selection conditions for numerical interpretation. It is appropriate to compare TTSP with other adaptation methods as a whole system, and to separate it from inference policies that preserve weights. [TTC005, §§4–6](https://arxiv.org/html/2611.07367v1).\n\n## 7. Agents add observations and external state to the compute problem\n\nAn agent loop is useful when an action obtains information that internal continuation cannot manufacture. A compiler exposes a syntax error; a test separates two candidate patches; a database read reveals the actual reservation; a user reply disambiguates intent. Retained state should carry those observations forward. More internal tokens may help plan the next action, but only an external observation can settle an unknown fact about the environment.\n\nCodeMonkeys combines shared repository context, ten independent test/edit trajectories, and a final selection state machine. Up to eight completions per state machine include corrections of malformed responses; tests run before and after edits. Its SWE-bench Verified coverage is 69.8%, random candidate selection 45.8%, and actual selection 57.4%. Reported LLM inference cost is $2,291.90, including $131.95 for selection. This is a positive end-to-end example in which feedback and selection convert part of the coverage gain into delivery. The historic cost table is not a current quote and does not enumerate every tool-execution cost. [SUP-CM, §§2.1–2.3, Tables 1–2](https://arxiv.org/html/2501.14723v1).\n\nThe design lesson is to amortize reusable information while preserving diversity where it matters. Repository context can be read once and shared; independent edits can still try distinct fixes. Feedback improves a candidate locally, while fresh trajectories recover from premature acceptance or a bad initial plan. Generated tests themselves can be wrong, so their role is to provide evidence, not to redefine success. Selection consumes a real budget and has its own failure modes. This interpretation is consistent with the candidate-versus-selection separation in TTC003v2 and TTC010, rather than assuming that any multi-agent or multi-trajectory architecture must be better.\n\nWeb search illustrates the resource boundary of intermediate-state evaluation. The inspected tree-search agent uses deterministic WebArena/VisualWebArena environments, action-history replay for backtracking, and a GPT-4o value function sampled 20 times per state. With matched five-action limits, WebArena success rises from 15.0% to 19.2%; the VisualWebArena table gives 18.9% to 26.4%. Those results include evaluator work and simulated exploration beyond the committed action count. Real actions that cannot be undone do not offer the same search space. [SUP-TREE, §§3–4](https://arxiv.org/html/2407.01476v1).\n\nThe transfer principle is to distinguish **planning branches** from **committed external actions**. In a sandboxed repository, alternative patches can be executed and discarded. In a reservation system, attempting two inconsistent bookings may create two real outcomes. A reversible simulator permits exploration by resetting state; a live service may require read-only inspection, simulation, or authorization before commitment. The benefit of more search then depends on whether those facilities exist, and their setup and replay time belongs in the budget. This is a design implication, not a claim that the web benchmark demonstrates safe deployment of irreversible search.\n\nτ-bench makes the reliability issue measurable. It uses API/database interaction and an LLM-simulated user, scoring final database state plus required output information. Its pass^k is the probability that all k trials succeed, unlike pass@k coverage. GPT-4o function calling reports 61.2% retail and 35.2% airline success, averaging 48.2%; retail pass^8 is below 25%. The paper notes that its reward can miss a policy violation such as omitted user confirmation. Repeated trials expose inconsistency; they do not authorize repeatedly serving the same live user until one outcome happens to pass. [SUP-TAU, §§3 and 5](https://arxiv.org/html/2406.12045v1).\n\nFor a long interaction, task success is conditional on a chain of earlier decisions. A useful conceptual factorization is `P(success)=product_t P(required transition succeeds | prior required transitions succeeded)`. It does not assume independent actions; the conditioning matters. Even individually strong steps can yield a weak end-to-end outcome when many must all succeed. Additional tool calls can improve information but also add failure opportunities and latency. Therefore use calls whose expected information or repair value exceeds their execution and error costs, and stop when the task's actual completion condition is met.\n\n## 8. Scaling comparison: what is supported and what remains a different experiment\n\n| Study and frozen version | Comparison and statistical target | Reported scaling result | Useful conclusion and boundary |\n|---|---|---|---|\n| Self-Consistency, TTC009 v4 | Same checkpoint and prompts; 40 sampled paths vs greedy; ten runs | PaLM-540B GSM8K 56.5→74.4% | Voting can turn diversity into answer accuracy; no external checker, 40-generation cost |\n| Large Language Monkeys, TTC010 v2 | Fixed candidate banks up to 10k samples; 250 agent attempts on SWE-bench Lite | SWE coverage 15.9→56%; selection curves saturate much earlier on math | Strong sampling headroom can coexist with a selector bottleneck |\n| Inference Regimes, TTC003 v2 | 80-response shared banks; Qwen3-30B-A3B-Thinking-2507 over 120 math questions | 75.56% single response; at80: coverage91.67%, plurality78.33%, mean-logprob65.83% | Availability, usable selection and harmful scoring can diverge on the same candidates |\n| Let's Verify Step by Step, TTC012 v1 | Same generator, trained selectors over up to 1,860 solutions; 500 MATH tasks | PRM 78.2%, ORM 72.4%, majority 69.6% | Verification quality matters; large-scale training datasets differ and scoring costs must be counted |\n| Snell et al., TTC001 v1 | PaLM 2-S*, trained verifier/revision policy, budget/difficulty sweeps | Beam useful at low budget and medium difficulty; stronger search can regress; adaptive policy up to 4x generation reduction | Allocate method by task and budget; difficulty estimation and proxy cost limit deployment translation |\n| s1, TTC002 v2 | Post-trained s1-32B under budget forcing | AIME24 50→57%, eventual flattening/repetition | Inference control works within a trained model; base-vs-s1 comparison includes training |\n| SCoRe, TTC013 v1 | Trained model, one correction round; MATH 500-question split | 60→64.4%; base correction 52.6→41.4% | Repair behavior can be learned; 15.6-point headline is a change in deltas |\n| Adaptive-Consistency, SUP-AC EMNLP2023 | Fixed-weight stopping vs fixed sample budgets | 3.3x fewer samples average, <0.1-point average loss | Stop stable consensus; sample reduction is not a measured system latency reduction |\n| TTSP, TTC005 v1 | Target-specific GRPO adaptation on selected HardLCBv6 | Gains under weak target verification; near-zero on very low coverage subset | Change proposals through synthetic execution; cannot equate GRPO steps and sampling cost |\n| OTBench, TTC007 v1 | Frozen prefix/probe curves; nested oracle action sets | Mean OR64.3%, AD9.03 points; large oracle stopping headroom | Diagnostic upper bounds with finite-probe selection, not realized online savings |\n| CodeMonkeys, SUP-CM v1 | Full coding system with retained selection stage | 69.8% coverage, 57.4% submitted success | End-to-end improvement requires feedback and selection; historic cost ledger supports partial normalization |\n| Web tree search, SUP-TREE v1 | Fixed agent plus value-guided environment search | WA15.0→19.2% with five committed actions | Environment replay and value calls are essential parts of the method |\n| τ-bench, SUP-TAU v1 | Repeated task trials with user stochasticity | GPT-4o mean48.2%; retail pass^8<25% | Reliability cannot be inferred from best-run coverage |\n\nTTC006's numerical thresholds are intentionally absent from this comparison because source checks found unreconciled protocol and arithmetic conflicts (Appendix A). Its general question about harmful reconsideration is addressed by independent revision, search and termination evidence above. No common performance axis is manufactured across the studies: the table preserves the measured outcome, checkpoint, feedback access and budget definition that make each finding interpretable.\n\n## 9. Cross-domain implications\n\nMathematics benchmarks often permit exact final-answer grading to the researcher while withholding the reference from the deployed solver. That supports oracle coverage and evaluator training, but it does not make every mathematical response cheaply verifiable online. Formal proofs are different when a trusted proof checker can validate the complete object against the intended theorem. Coding occupies an intermediate position: execution supplies rich local feedback, but passing finite tests leaves untested behavior. A bug-fix benchmark's final suite also differs from generated tests available to the agent during its search.\n\nInteractive tasks shift the target again. Correctness may concern final state, compliance with a policy, user consent, and the quality of a conversation. A terminal judge can miss an earlier irreversible violation. The more ambiguous the objective and the later the feedback, the less justified it is to import sample-count gains from exact-answer tasks. Extra computation can still help by collecting evidence, checking a plan against explicit constraints, or generating alternatives for human choice. What changes is the basis of confidence: agreement and judge preference must not be described as a certificate of truth.\n\nThis leads to five positive choices, elaborated with the calculation and decision tree below. Use more independent samples when correct candidates exist and can be identified. Use deeper revision or search when intermediate feedback is informative and the state can be safely retained or revisited. Invest in verification when coverage outruns selection. Use a stronger base model when the current generator has little useful support or repeated attempts exploit weak tests. Use a simpler path when the marginal expected benefit is below cost, the existing solution already meets the requirement, or additional computation has no new signal to resolve the remaining uncertainty.\n\n## 10. Count the computation that produces the selected answer\n\nA complete inference ledger is attached to the delivered result, not merely the winning candidate. For policy π and one task, write\n\n`C_total(π) = C_generation + C_verification + C_control + C_tools + C_retries + C_test_time_updates`.\n\nGeneration includes every proposed completion and discarded branch. Verification includes prompts, scoring passes, generated critique, answer probes, and any repeated judging. Control includes routing and difficulty estimation if it is done for this request. Tool cost includes execution, retrieval, database calls, environment restoration and any required simulator. Retries include work that failed before it could contribute a candidate. Test-time updates include synthetic data, backward passes and optimizer work when the method adapts weights. A model trained in advance has a separate offline cost, which can be amortized over deployment requests under a stated volume assumption.\n\nWhen token billing is disclosed, a monetary ledger can be expressed as a sum over calls:\n\n`Cost = sum_j [r_in,j * T_in,j + r_cached,j * T_cached,j + r_reason,j * T_reason,j + r_out,j * T_out,j] + tool charges + infrastructure charges`.\n\nRates and token categories must not double-count one another: some interfaces include reasoning in output usage, while others expose separate categories. Hidden reasoning tokens belong in cost when billed or measured, even if the model does not reveal their content. If an API only returns a total charge or an opaque reasoning-effort control, report that observable quantity rather than invent a token breakdown. Shared prefill or prefix caching can reduce repeated work, but caching has its own write/read behavior and may not survive all branch layouts.\n\nFor a dense transformer, a rough matrix-multiplication estimate often begins with about `2P` FLOPs per token plus attention terms, where P is parameter count. That can support a carefully scoped within-family approximation. It does not turn one token from an 8B dense model, a sparse MoE model, and a different tokenizer into equivalent compute. Active versus total parameters, input context length, attention implementation, precision, batching, cache reuse and memory traffic all matter. FLOPs also do not determine elapsed time: inference can be limited by memory bandwidth or inefficient utilization. TTC010 explicitly uses an approximation including a context-dependent attention term and labels FLOPs a crude resource metric. [Large Language Monkeys, §2.3](https://arxiv.org/html/2407.21787v2).\n\nA cost comparison can therefore be valid at one level and invalid at another. Same-checkpoint generation counts can reveal an algorithmic trend. A complete token and rate ledger can estimate billed money. Measured wall time under a fixed accelerator and concurrency configuration can establish latency. None automatically establishes the other two. TTC008's parameter^γ times token costs are useful sensitivity models; its additive latency-like proxy is explicitly not a parallel service measurement. [Sample, Mix, or Verify?, §4 and limitations](https://arxiv.org/html/2610.23255v1).\n\n## 11. Total work, critical path, and peak resources answer different questions\n\nFor a computation graph of generation, checking and tool steps, ideal latency is at least the longest dependency path. Real wall time adds queuing, synchronization, rate limits, environment setup and imperfect scheduling. A sequential revision cannot begin before its preceding answer exists. Independent candidate generation can run concurrently if workers and memory are available. Selection may wait for every candidate, or it may begin as results arrive. Tool calls can be serial because one call supplies an argument for the next.\n\nIf N identical candidate-and-check jobs each take t seconds and each worker handles one job at a time, a simplified non-pipelined schedule takes `ceil(N/W)*t` seconds with W workers, versus `N*t` on one worker and t with at least N workers. This is a schedule model, not a universal service law. It makes the distinction concrete: doubling N doubles total work but need not double latency when spare workers exist; conversely, doubling the depth of each trajectory lengthens a dependency path even with unlimited workers.\n\nPeak memory and accelerator demand also matter. A wide search may retain many KV caches and environment snapshots. A deeper single chain can reuse one evolving cache but accumulates longer context. A candidate bank may be cheap to store as text after generation, while keeping many partial branches live is not. A useful report therefore gives at least total cost, maximum or average concurrency, latency distribution, and the hardware configuration when those measurements are available. Missing fields remain missing; they cannot be filled by dividing tokens by an assumed universal decoding rate.\n\nFor interactive service, a fixed total budget can be less restrictive than a deadline. A method that is most accurate after thirty seconds of parallel generation may beat one with lower compute usage that requires several sequential rounds. For a batch workload with an overnight deadline, the opposite tradeoff may be reasonable. The objective must reflect that actual use case before choosing a search algorithm.\n\n## 12. Defensible normalization from published records\n\nCodeMonkeys' cost table reports $2,291.90 of LLM inference expense for 500 SWE-bench Verified issues. The arithmetic gives **$4.5838 per issue**. Selection contributes $131.95, or **$0.2639 per issue and 5.76% of the reported total**. Its actual selector improves 45.8% random-selection accuracy to 57.4% against a 69.8% oracle ceiling, recovering `(57.4−45.8)/(69.8−45.8)=48.33%` of that gap. These are calculations from the authors' historic ledger and scores, not new runs. Tool CPU time and full service overhead are not itemized in that ledger. [CodeMonkeys, Tables 1–2](https://arxiv.org/html/2501.14723v1).\n\nThis normalization is useful because the selector's cost is included in the reported LLM total. It does not authorize comparison with a current product price or a different benchmark split. It also does not make a one-off benchmark expenditure equal to a production service's marginal cost. Deployment can reuse some fixed work, but may add queuing, cold starts, access control, logging and external API charges. Only components actually required by the task should enter the chosen ledger; the point is complete accounting of the system being compared, not speculative overhead inflation.\n\nTTC005's declared TTSP schedule provides a different kind of normalization. Fifty target-specific GRPO steps, with 16 proposer rollouts and 48×8 solver rollouts per step, imply **20,000 nominal rollout slots per target**. That quantity counts both proposer and solver generations. It does not include test construction, executions, target evaluations, sequence length variation or backward passes. It is therefore useful for checking the scale of the schedule but cannot be divided by another method's sample count to claim an efficiency ratio. The earlier planning estimate of 19,200 corresponds to solver slots only; the complete nominal sum adds 800 proposer slots. [TTSP, Appendix B](https://arxiv.org/html/2611.07367v1).\n\nSimilarly, SCoRe's equal-solution-budget comparison can inform how to allocate attempts within its trained policy, but it does not normalize growing revision context into FLOPs. TTC001's fourfold result is a generation-equivalent comparison with difficulty-estimation overhead omitted. TTC007's retained-token frontiers exclude predictor/feature overhead and use labelled probe curves. These findings remain valuable at their declared level; forcing them into a common dollar leaderboard would discard the information needed to interpret them.\n\n## 13. A worked example: generation, verification, consequence, and deadline\n\nEverything in this example is **hypothetical**. The rates are known inputs chosen to illustrate allocation; they are not estimated from a benchmark, current model prices, or a new experiment. A credit is an abstract monetary cost unit, not a FLOP or a token. Each candidate is generated independently conditional on the same task. A verifier accepts correct candidates with true-positive rate τ and incorrect candidates with false-positive rate f. After the budget is spent, the system selects uniformly among accepted candidates; if there are none it abstains, receiving no correctness credit.\n\n| Component | Cost per candidate/call | Duration | Relevant quality input |\n|---|---:|---:|---|\n| Small generator | 1 credit | 30 seconds | p(correct)=0.20 |\n| Strong generator | 4 credits | 45 seconds | p(correct)=0.50 |\n| Weak verifier | 0.25 credits | 5 seconds | τ=0.90, f=0.10 |\n| Better verifier | 1 credit | 10 seconds | τ=0.90, f=0.02 |\n\nEach candidate is checked once, so a configuration with generator cost g and verifier cost v can afford `N=floor(B/(g+v))` candidates. Let `a=τp` and `s=τp+f(1−p)`. Then\n\n`P(correct submission) = (a/s) * [1−(1−s)^N]`,\n\n`P(wrong submission) = [(s−a)/s] * [1−(1−s)^N]`,\n\n`P(abstain) = (1−s)^N`.\n\nThe probabilities sum to one. This is the selector-specific formula analyzed in TTC008 and derived from the acceptance event; it does not model score-maximizing best-of-N or correlated candidates. The table below was computed directly from these inputs; the accompanying calculation record retains the arithmetic.\n\n| Budget | Generator + verifier | Candidates | Correct submission | Wrong submission | Four-worker time |\n|---:|---|---:|---:|---:|---:|\n| 8 | Small + weak | 6 | 57.86% | 25.72% | 70 s |\n| 8 | Small + better | 4 | 53.46% | 4.75% | 40 s |\n| 8 | Strong + weak | 1 | 45.00% | 5.00% | 50 s |\n| 8 | Strong + better | 1 | 45.00% | 1.00% | 55 s |\n| 16 | Small + weak | 12 | 67.36% | 29.94% | 105 s |\n| 16 | Small + better | 8 | 75.80% | 6.74% | 80 s |\n| 16 | Strong + weak | 3 | 78.75% | 8.75% | 50 s |\n| 16 | Strong + better | 3 | 82.42% | 1.83% | 55 s |\n| 32 | Small + weak | 25 | 69.19% | 30.75% | 245 s |\n| 32 | Small + better | 16 | 89.04% | 7.91% | 160 s |\n| 32 | Strong + weak | 7 | 89.30% | 9.92% | 100 s |\n| 32 | Strong + better | 6 | 95.40% | 2.12% | 110 s |\n\nThe scheduler assumes each worker runs generation and verification sequentially for one candidate, then starts the next. There are four identical workers, no setup or queuing cost, and no early stopping or overlapping stages within a worker. These assumptions make the wall-time column auditable. They are not offered as a prediction of a real inference server.\n\nThree decisions follow from the arithmetic.\n\n**First, the best use of money changes with the budget.** At eight credits, cheap sampling with weak checking has the highest correctness probability among the four filtered configurations, despite the better verifier's higher acceptance precision. At sixteen credits, the better-verifier small-model configuration overtakes weak checking, and the stronger-model plus better-verifier configuration is best. Weak checking of small-model candidates has a ceiling of `.18/.26=69.23%`, so increasing the budget from 16 to 32 credits adds only 1.83 percentage points. The same false acceptance floor increasingly dominates the extra candidates.\n\n**Second, consequences can reverse the choice at the same budget.** Suppose a correct submission is worth +1, a wrong submission −4, and abstention 0, with budget enforced as a hard cap. At eight credits, small+weak has utility `0.578626−4*0.257167≈−0.4500`; small+better has about 0.3445; strong+better has `0.45−4*0.01=0.41`. The last configuration is preferable under this loss model, although its raw correctness probability is lower. If a single proposed answer has calibrated correctness probability q, submitting it rather than abstaining requires `q−4(1−q)>0`, or q>0.8. The chosen loss is illustrative, not a universal safety threshold.\n\nThere is also a simpler unfiltered baseline. One strong-model answer costs four credits and has 50% correctness, versus 45% after a verifier that rejects 10% of correct answers. With only one candidate, filtering cannot create another correct solution. The filter can still sharply improve risk-weighted utility by converting likely wrong submissions into abstentions. This is why an accuracy-only rule to omit one-candidate verification does not transfer unchanged to costly external actions.\n\n**Third, a deadline changes the feasible allocation before the budget is exhausted.** Impose a 100-second deadline. The full-budget small+weak configuration at 16 credits takes 105 seconds and is infeasible under this schedule; the strong+better configuration takes 55 seconds. At 32 credits, six strong+better candidates require two 55-second waves and miss the deadline. Restricting it to four candidates costs only 20 credits, finishes in 55 seconds, and yields **89.51% correct and 1.99% wrong submissions**. The seven-candidate strong+weak alternative uses 29.75 credits and 100 seconds for 89.30% correct and 9.92% wrong. Under these hypothetical inputs, leaving twelve credits unspent is the better constrained decision.\n\nThis last comparison is not an invitation to infer a meaningful empirical 0.21-point advantage from a noisy benchmark. Here the probabilities are exact assumptions. In a real pilot, uncertainty could easily exceed that difference; the lower error risk and shorter latency may still be material, but the ordering of nearly equal accuracies should not be overclaimed.\n\n## 14. An implementable decision tree\n\nThe decision tree below is a proposed policy derived from the evidence; its branch conditions must be measured or judged for the actual workload. It is not a learned controller from any cited paper.\n\n```mermaid\nflowchart TD\n    A[Define delivered success, wrong-action cost, deadline and budget] --> B{Does the simple path meet the requirement?}\n    B -->|Yes| Z[Use the simple path and stop]\n    B -->|No| C{What limits delivered success?}\n    C -->|Missing external information| D{Reliable tool or user feedback available?}\n    D -->|Yes| E[Acquire the information and retain the result]\n    D -->|No| F[Ask for the missing input, defer or abstain]\n    E --> G{Can outcomes be checked at acceptable cost?}\n    C -->|Candidate quality or selection| G\n    G -->|Reliable terminal checker| H{Correct candidates already occur often enough?}\n    H -->|Yes| I[Sample diverse candidates and check within total budget]\n    H -->|No| J[Use stronger model, better context or trained repair]\n    G -->|Useful intermediate feedback| K{Can branches be replayed or safely isolated?}\n    K -->|Yes| L[Use bounded revision or prefix search]\n    K -->|No| M[Evaluate plans before one committed action]\n    G -->|Weak or ambiguous feedback| N{Selector validated on these errors?}\n    N -->|Yes| O[Use limited sampling with calibrated selection]\n    N -->|No| P[Improve verification or use human judgment]\n    I --> Q[Count generation, checking, controls, tools and retries]\n    J --> Q\n    L --> Q\n    M --> Q\n    O --> Q\n    P --> Q\n    Q --> R{Fits deadline and parallel resource limit?}\n    R -->|No| S[Reduce depth or width, route stronger, or simplify]\n    R -->|Yes| T{Expected marginal value exceeds total marginal cost and error risk?}\n    S --> T\n    T -->|Yes| U[Allocate the next bounded increment]\n    T -->|No| V[Return current validated result, defer or abstain]\n    U --> T\n```\n\n“Meets the requirement” is more useful than “the model feels confident.” For an executable coding task it may mean passing relevant tests without breaking required behavior. For a final-state task it may mean achieving the intended database state while respecting the required action procedure. For an open-ended research answer it may mean that the claims needed for the user's decision have adequate source support. Extra computation should address a remaining gap rather than merely prolong the transcript.\n\nUse **more samples** when a pilot shows useful candidate diversity, the acceptance rule is reliable enough, and parallel resources can absorb the work. Use **deeper search** when partial progress has a measurable value signal and pruning saves more work than evaluation consumes. Use **better verification** when correct candidates frequently exist but are not selected, or when false acceptance rises with search. Use **a stronger model** when the weaker generator's useful support is very small, when its failures defeat the available verifier, or when a deadline favors one reliable trajectory over many attempts. Use **a simpler path** when a direct answer already satisfies the requirement, when extra search returns nearly identical candidates, or when the controller has no usable signal for selecting an improvement.\n\n## 15. Estimating the quantities that drive the policy\n\nA representative pilot should separate three observations: how often a useful candidate is generated; how often the deployed selector accepts or prefers a correct versus incorrect candidate; and how much total work the complete procedure requires. The final evaluator should have information not used to overfit the selector where possible, such as held-out tests or a blinded expert rubric. Record failed and discarded work. For agents, record tool errors and whether replay actually restores the relevant state. The request is to measure the real use path, not to add a broad governance framework.\n\nTask-specific estimates matter. A mean success rate from easy and hard tasks does not predict the benefit of another sample on a particular unresolved case. Failure after several attempts is itself evidence that the case is harder or that the generator and verifier share a blind spot. An allocation policy can use that information, but its update rule should be calibrated against representative held-out tasks rather than fitted to the same final outcomes it is credited with predicting.\n\nThe key marginal quantity is not merely improvement per generated token. In an accuracy-only objective it is expected additional delivered success per total incremental resource. With consequences, use expected utility: expected gain in correct completion minus the expected loss from wrong external actions, delay and resource consumption. If another unit of work produces no new information and no useful variation, its expected benefit can be near zero even before the nominal budget is exhausted.\n\nDistinguish three reasons a curve flattens. The generator can run out of accessible correct solutions; the selector can become the bottleneck; or the measurement can conceal changes through a weak evaluator or a coarse finite benchmark. These call for different responses. More samples may help only the first case while candidate probability is still nontrivial. Better verification addresses the second. Better measurement addresses the third before any stronger capability claim is made. A fourth reason is self-inflicted regression: optimization begins exploiting a proxy or revision abandons a correct answer. That is a reason to shorten or change the procedure, not to assume the next budget increment will restore the trend.\n\n## 16. Cases where additional inference computation is not the defensible choice\n\n* **The current result already meets the task's completion condition.** Return it. A speculative extra revision can spend latency and introduce mistakes without a concrete unresolved gap.\n* **The generator has shown no useful candidate support on the relevant problem class.** Change the model, representation, or information source. Finite zero-success evidence is not a theorem of impossibility, but it can make more of the same sampling a poor allocation.\n* **A weak selector cannot distinguish the existing candidates.** Improve the evaluator or ask for judgment. Expanding the pool can make proxy exploitation worse.\n* **One candidate is available and the objective is raw accuracy with failed abstention.** A pure rejecting filter cannot raise correctness probability; use it only when its information will enable repair, another candidate, or a different risk objective.\n* **The uncertainty is an unavailable fact or unresolved user preference.** Internal continuation cannot observe that fact. Obtain the missing input or state the unresolved choice.\n* **Real-world branching would execute costly, irreversible or conflicting actions.** Search in a simulator or evaluate plans before commitment. Without such a facility, broad environmental exploration is not equivalent to harmless candidate generation.\n* **The next serial step breaches the deadline.** Reallocate to a parallel or stronger one-pass route when feasible, or return the best supported result within scope.\n\nThese endpoints follow from the same objective as the cases favoring more compute. They do not amount to a presumption that shorter outputs are better. Difficult tasks can deserve substantial computation when it buys progress, stronger evidence or reliable completion. The central design task is to identify which operation supplies that value and to account for every operation needed to realize it.\n\n## Appendix A. Evidence qualifications that materially affect the conclusions\n\n**Versions and inventory.** The inspected v2 of *Test-Time Scaling in Reasoning LLMs* is dated 31 August 2026. Its 1,948,821 study responses and 1,403,520 declared public attempts reconcile: the difference is 500,661 one-response broad-evaluation records plus 44,640 additional signal-rich mathematics repeats. The earlier v1's conflicting billion/million claims are superseded. This is an internal accounting reconciliation, not an audit of every hosted dataset file. [TTC003v2, Table 1 and Appendix G Table 3](https://arxiv.org/html/2608.04001v2).\n\n**TTSP evaluation.** The study selects 28 HardLCBv6 targets with nonzero but imperfect Qwen3-8B mean@512 from a 131-problem slice. Under v0, mean@8 is ordinary unfiltered candidate correctness; under a nontrivial filter it divides by the accepted-set size. Iterative methods carry forward a previous nonempty score when the current accepted set is empty, whereas one-shot baselines receive zero. The appendix explicitly excludes choosing the best hidden-test checkpoint. Artificial filter calibration nevertheless uses privileged target correctness information, and the strongest filter is also the final evaluator. Consequently, the report uses the weak/no-target-feedback mechanism positively while avoiding an equal-cost, equal-history deployment claim from the complete verifier sweep. [TTC005, §5.2 and Appendices A–C](https://arxiv.org/html/2611.07367v1).\n\n**The TTSP consensus rule.** C.2's sum of pairwise agreements over individual inputs differs from selecting the largest complete-output-vector cluster. For outputs `(0,0),(0,0),(1,1),(1,1),(0,1)`, each size-two-cluster candidate scores 3, while the singleton `(0,1)` scores 4. This counterexample explains why the report names the actual additive rule when precision matters. It does not presume an uninspected software implementation.\n\n**The ACL overthinking paper.** The original rendered pages of *When More Thinking Hurts* confirm inconsistencies, so its numerical stopping thresholds and savings are excluded from the scaling table. A declared 60-question, one-answer-per-budget AIME protocol implies 1.6667-point accuracy increments, unlike several printed one-decimal values. Table 1's 2K→4K endpoint gain is 8.7 points, giving 2.175 points per 500 tokens, rather than the printed 1.8; 8K→12K gives .25 rather than .1. Table 2 labels counts as suffix-cumulative flips through 16K, yet negative counts rise as the suffix shrinks and remain nonzero at 16K. On a common binary cohort, positive minus negative flips equals the endpoint correct-count change, bounded by ±60; printed differences of 111 and −72 violate that identity. Multiple flips per question do not resolve it. [TTC006, Tables 1–2](https://aclanthology.org/2026.findings-acl.1199.pdf).\n\nUsing that paper's displayed accuracy and `U=Acc−.5*t/16000`, utility at 4K is .3400 and at 6K .3145, so the displayed points do not support a 6K optimum. Original Figure 3 visually peaks near 6–7K at approximately 52%, whereas Table 1 says 12K at 55.8%; these graphical readings are approximate, not digitized data. Appendix E also gives two p-values for the 7K crossover. Corrected data or a clarified averaging protocol would be needed to use the exact numerical claims. The broader possibility of harmful revision is supported independently elsewhere in this report.\n\n**Termination-oracle scope.** TTC007 selects the earliest empirical maximum among 16-answer-probe estimates at multiple prefixes. Its OR/AD statistics and nested frontiers depend on this finite measurement space. At p=.5, a single 16-probe proportion has binomial standard deviation .125; maximizing across positions adds selection optimism. The authors' own thinning analysis increases OR from64.34% to74.69% and AD from9.03 to11.07 points when reducing probes16→4. Their bootstrap holds probe labels fixed, covering question/trajectory resampling rather than new answer-probe uncertainty. Retained-token cost excludes controller overhead; 70.5B claimed total tokens and 576,688,123 stored thinking tokens are not sufficiently reconciled for this report to use them as a total-cost estimate. [TTC007, §§3–5 and Appendices A–D](https://arxiv.org/html/2610.13570v1).\n\n**Selector theory.** TTC008's uniform-among-accepted formula assumes candidate independence conditional on the task. Its task-level correlation and repeated-judge models do not cover arbitrary dependence between candidates within one task. Argmax selection has a separate high-score-tail formulation. Its cost model assigns tests zero expense and uses parameter/token proxies rather than observed provider billing; its regret is relative to a finite configuration grid. The report uses its formula and allocation logic within those assumptions. [TTC008, §§3–4 and limitations](https://arxiv.org/html/2610.23255v1).\n\n**Benchmark selection, contamination and uncertainty.** The PRM and SCoRe studies explicitly train on 4,500 questions from the original MATH test partition and evaluate the remaining 500; the full 5,000-question test-set interpretation is therefore inappropriate. s1 reports 8-gram decontamination of its additional data, which does not establish that base pretraining was contamination-free. A LiveCodeBench date slice can reduce one route of contamination without proving every teacher, model or prompt free of exposure. TTSP's base-coverage filtering conditions its result on a selected population. AIME24 has only 30 questions, so small absolute differences have limited precision. Cross-paper rankings must retain these splits and avoid treating missing uncertainty estimates as zero uncertainty.\n\nShared-bank bootstrap intervals, finite-prefix maxima and repeated prompt runs quantify different sources of variation. Most papers do not supply every component required for a matched production comparison: exact software commits, all hidden reasoning usage, tool CPU time, replay overhead, parallel peak resources and wall-time distributions are often absent. The report therefore presents within-study findings and the explicit hypothetical allocation separately. This is the practical limit of the evidence, not a reason to discard the mechanisms that the controlled comparisons do establish.\n\n## Appendix B. Inspected source and evaluation versions\n\nThe source list identifies the versions used, rather than implying that older model results describe present-day products. Software commits were not independently pinned when the source did not specify them; no code implementation is claimed to have been reproduced.\n\n| ID and original | Version, model and evaluation boundary |\n|---|---|\n| [TTC001: Scaling LLM Test-Time Compute Optimally Can Be More Effective than Scaling Model Parameters](https://arxiv.org/html/2408.03314v1) | v1; PaLM 2-S*; MATH 12,000/500 train/evaluation split; implementation commit not pinned |\n| [TTC002: s1: Simple Test-Time Scaling](https://arxiv.org/html/2501.19393v2) | v2, 3 February 2025; s1-32B distilled from Gemini Thinking into Qwen2.5-32B-Instruct; AIME24, MATH500, GPQA Diamond |\n| [TTC003v2: Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility](https://arxiv.org/html/2608.04001v2) | v2, 31 August 2026; repeated-math bank: 20 configurations × 120 questions × 80 responses; separate public-release inventory |\n| [TTC005: Test-Time Self-Play: Scaling without a Verifier](https://arxiv.org/html/2611.07367v1) | v1; Qwen3-8B; 28 HardLCBv6 targets selected from 131 February–May 2025 problems; implementation commit not pinned |\n| [TTC006: When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling](https://aclanthology.org/2026.findings-acl.1199.pdf) | ACL 2026 Findings, pp. 23967–23977; exact R1 checkpoint insufficiently specified; numerical thresholds withheld |\n| [TTC007: Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models](https://arxiv.org/html/2610.13570v1) | v1; six named checkpoints; 963 questions, 16 trajectories per question, 16 answer probes per retained position |\n| [TTC008: Sample, Mix, or Verify? Allocating Test-Time Compute under Imperfect Verifiers](https://arxiv.org/html/2610.23255v1) | v1; paper-described public sample releases; exact data/code commits unpinned; selector and cost assumptions retained |\n| [TTC009: Self-Consistency Improves Chain of Thought Reasoning in Language Models](https://arxiv.org/html/2203.11171v4) | v4, 7 March 2023; PaLM-540B temperature 0.7, top-k 40; 40 samples per run, ten runs |\n| [TTC010: Large Language Monkeys: Scaling Inference Compute with Repeated Sampling](https://arxiv.org/html/2407.21787v2) | v2, 16 September 2024; Llama-3 8B/70B; DeepSeek-Coder-V2 with Moatless Tools on SWE-bench Lite |\n| [TTC011: Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://arxiv.org/html/2305.10601v2) | v2, 3 December 2023; GPT-4 experiments 5–16 May 2023; 100 selected Game-of-24 tasks |\n| [TTC012: Let’s Verify Step by Step](https://arxiv.org/html/2305.20050v1) | v1, 31 May 2023; GPT-4-derived generator and reward models; 500-question MATH evaluation; 1,860 candidates |\n| [TTC013: Training Language Models to Self-Correct via Reinforcement Learning](https://arxiv.org/html/2409.12917v1) | v1, 19 September 2024; Gemini 1.5 Flash for MATH; Gemini 1.0 Pro trained on MBPP and evaluated on HumanEval |\n| [SUP-CM: CodeMonkeys: Scaling Test-Time Compute for Software Engineering](https://arxiv.org/html/2501.14723v1) | v1, 24 January 2025; claude-3-5-sonnet-20241022 and Qwen2.5-Coder-32B-Instruct; SWE-bench Verified |\n| [SUP-TAU: τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains](https://arxiv.org/html/2406.12045v1) | v1, 17 June 2024; 115 retail and 50 airline tasks; agent temperature 0, user temperature 1; historical models |\n| [SUP-LIMITS: Inference Scaling FLaws: The Limits of LLM Resampling with Imperfect Verifiers](https://arxiv.org/html/2411.17501v1) | v1, 26 November 2024; HumanEval/MBPP filters versus expanded “+” evaluators |\n| [SUP-SELF: Large Language Models Cannot Self-Correct Reasoning Yet](https://arxiv.org/html/2310.01798v2) | v2, 14 March 2024; GPT-3.5-0613 and GPT-4 accessed 29 August 2023; 200-question samples for GPT-4 |\n| [SUP-AC: Let’s Sample Step by Step: Adaptive-Consistency for Efficient Reasoning and Coding with LLMs](https://aclanthology.org/2023.emnlp-main.761.pdf) | EMNLP 2023, pp. 12375–12396; Vicuna-13B, code-davinci-002, GPT-3.5; 40-sample reasoning cap |\n| [SUP-TREE: Tree Search for Language Model Agents](https://arxiv.org/html/2407.01476v1) | v1, 1 July 2024; gpt-4o-2024-05-13 value model; WebArena/VisualWebArena; matched five-action comparisons |\n",
+  "claims": [
+    {
+      "claim_id": "TTC-CX001",
+      "claim": "TTC003v2 study inventory1948821 and declared public release1403520 reconcile via500661 broad responses and44640 extra repeats.",
+      "claim_type": "arithmetic",
+      "supporting_sources": [
+        "TTC003v2"
+      ],
+      "counter_evidence": "Supersedes conflicting v1 billion/million descriptions.",
+      "uncertainty": "Hosted release completeness not audited.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX002",
+      "claim": "TTSP filtered mean@8 conditions correctness on the admitted set and carries historical scores forward on iterative empty sets.",
+      "claim_type": "source_fact",
+      "supporting_sources": [
+        "TTC005"
+      ],
+      "counter_evidence": "Under v0 no filtering/empty set occurs.",
+      "uncertainty": "No equal-cost or equal-history deployment dominance inferred.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX003",
+      "claim": "TTSP nominal50-step schedule contains800 proposer and19200 solver rollout slots, total20000.",
+      "claim_type": "arithmetic",
+      "supporting_sources": [
+        "TTC005"
+      ],
+      "counter_evidence": "Earlier19200 planning figure counted solver only.",
+      "uncertainty": "Not actual tokens/FLOPs/dollars; gradients and synthetic tests excluded.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX004",
+      "claim": "TTC005 C.2 additive per-input agreement can select a singleton complete-output vector rather than the modal whole-vector cluster.",
+      "claim_type": "mathematical_counterexample",
+      "supporting_sources": [
+        "TTC005"
+      ],
+      "counter_evidence": "Vectors(0,0)x2,(1,1)x2,(0,1)x1 give scores3,3,4.",
+      "uncertainty": "Does not assert uninspected implementation behavior.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX005",
+      "claim": "TTC006 printed AIME percentages, interval MU, suffix-flip counts and Figure3/Table1 are incompatible with the stated common protocol.",
+      "claim_type": "source_check_and_arithmetic",
+      "supporting_sources": [
+        "TTC006"
+      ],
+      "counter_evidence": "Original PDF pages4–5 visually checked.",
+      "uncertainty": "Quantitative thresholds withheld pending clarification; generic mechanism not rejected.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX006",
+      "claim": "TTC007 OR/AD use a finite-probe earliest empirical maximum; frontiers are oracle opportunities, not observed online savings.",
+      "claim_type": "source_fact_and_inference",
+      "supporting_sources": [
+        "TTC007"
+      ],
+      "counter_evidence": "Authors probe thinning changes OR64.34→74.69 and AD9.03→11.07 with16→4 probes.",
+      "uncertainty": "Reported bootstrap conditions on fixed probe labels; excludes signal overhead.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX007",
+      "claim": "Under conditional independence and uniform accepted selection, success is tau*p/s times1-(1-s)^N, where s=tau*p+f*(1-p).",
+      "claim_type": "theory",
+      "supporting_sources": [
+        "TTC008"
+      ],
+      "counter_evidence": "Argmax has a different score-tail result.",
+      "uncertainty": "Does not model arbitrary within-task candidate dependence.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX008",
+      "claim": "Repeated verification improves large-N acceptance precision iff its false/true acceptance ratio falls.",
+      "claim_type": "theory",
+      "supporting_sources": [
+        "TTC008"
+      ],
+      "counter_evidence": "A higher FPR alone does not determine the direction if TPR also changes.",
+      "uncertainty": "Finite-budget generation sacrificed for extra judging must also be counted.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX009",
+      "claim": "Self-consistency raises PaLM540B GSM8K accuracy56.5→74.4 with40samples at a fixed checkpoint/prompt.",
+      "claim_type": "reported_empirical",
+      "supporting_sources": [
+        "TTC009"
+      ],
+      "counter_evidence": "Wrong modal answers can become more stable with sampling.",
+      "uncertainty": "10run protocol; cost is multiple generations, no universal latency benefit.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX010",
+      "claim": "Large Language Monkeys reports SWE-bench Lite coverage15.9→56 with repeated complete agent attempts.",
+      "claim_type": "reported_empirical",
+      "supporting_sources": [
+        "TTC010"
+      ],
+      "counter_evidence": "Practical math selectors saturate earlier than oracle coverage.",
+      "uncertainty": "Coverage requires outcome labels and is not deployed submission accuracy.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX011",
+      "claim": "Within TTC010 FLOP proxy, the preferred Llama3 model size differs between CodeContests and math/proof tasks.",
+      "claim_type": "reported_empirical",
+      "supporting_sources": [
+        "TTC010"
+      ],
+      "counter_evidence": "CodeContests often favors70B; other named tasks favor8B coverage at fixed budget.",
+      "uncertainty": "Approximate dense-model FLOPs; checking and service latency separate.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX012",
+      "claim": "TTC003v2 Qwen3-30B bank at80 samples reaches91.67coverage,78.33plurality and65.83mean-logprob selection versus75.56single-response.",
+      "claim_type": "reported_empirical",
+      "supporting_sources": [
+        "TTC003v2"
+      ],
+      "counter_evidence": "Reference-assisted verifier89.17 sees gold answer and is diagnostic.",
+      "uncertainty": "120question bank, protocol-conditional estimates.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX013",
+      "claim": "Generic intrinsic self-correction can reduce accuracy while adding calls; oracle stopping is a different feedback condition.",
+      "claim_type": "reported_empirical",
+      "supporting_sources": [
+        "SUP-SELF"
+      ],
+      "counter_evidence": "SCoRe provides a trained positive counterexample.",
+      "uncertainty": "Some GPT4 evaluations have200questions; use within-paper results.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX014",
+      "claim": "SCoRe MATH trained policy60.0→64.4 gives4.4point correction benefit;15.6points is improvement over base correction delta-11.2.",
+      "claim_type": "source_fact_and_arithmetic",
+      "supporting_sources": [
+        "TTC013"
+      ],
+      "counter_evidence": "Training changes both first and second attempt performance.",
+      "uncertainty": "MATH500 split and one correction round.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX015",
+      "claim": "s1 budget forcing extends same s1-32B AIME24 performance50→57, then flattens/repeats.",
+      "claim_type": "reported_empirical",
+      "supporting_sources": [
+        "TTC002"
+      ],
+      "counter_evidence": "Base-vs-s1 comparison also changes distillation training.",
+      "uncertainty": "v2 only; no universal sequential-over-parallel conclusion.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX016",
+      "claim": "Process reward selection scores78.2 vs ORM72.4 and majority69.6 on500MATH questions with1860candidates.",
+      "claim_type": "reported_empirical",
+      "supporting_sources": [
+        "TTC012"
+      ],
+      "counter_evidence": "Large-scale verifier training data differ; small-scale controlled experiments separately support process labels.",
+      "uncertainty": "Online scoring/offline training cost not free.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX017",
+      "claim": "TTC001 process labels estimate continuation reward; TTC012 process labels are human judgments of steps.",
+      "claim_type": "source_fact",
+      "supporting_sources": [
+        "TTC001",
+        "TTC012"
+      ],
+      "counter_evidence": "Full-solution aggregation differs: final-step value versus product of correctness probabilities.",
+      "uncertainty": "Do not collapse these into one PRM experimental condition.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX018",
+      "claim": "TTC001 beam search helps at lower budgets/medium difficulty but can overoptimize PRM at higher budgets; hardest bins gain little.",
+      "claim_type": "reported_empirical",
+      "supporting_sources": [
+        "TTC001"
+      ],
+      "counter_evidence": "Best-of-N can catch or surpass beam search; lookahead spends extra generation equivalents.",
+      "uncertainty": "Difficulty-estimation cost omitted from main adaptive comparisons.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX019",
+      "claim": "Tree of Thoughts reaches74%Game24 with breadth5 versus4%CoT and9%100sampleCoT-SC on100selected games.",
+      "claim_type": "reported_empirical",
+      "supporting_sources": [
+        "TTC011"
+      ],
+      "counter_evidence": "Creative-writing comparisons use preference evaluation instead of exact arithmetic checks.",
+      "uncertainty": "Node counts are not matched system compute.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX020",
+      "claim": "Adaptive-Consistency reports3.3x average fewer samples with<0.1point average accuracy loss using stability stopping.",
+      "claim_type": "reported_empirical",
+      "supporting_sources": [
+        "SUP-AC"
+      ],
+      "counter_evidence": "Consensus stability is not correctness calibration.",
+      "uncertainty": "Sample savings not actual latency; model/task caps differ.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX021",
+      "claim": "CodeMonkeys converts69.8coverage to57.4submitted success versus45.8random selection.",
+      "claim_type": "reported_empirical",
+      "supporting_sources": [
+        "SUP-CM"
+      ],
+      "counter_evidence": "Selection gap remains12.4points.",
+      "uncertainty": "Paper version and SWE-bench Verified; not current leaderboard.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX022",
+      "claim": "CodeMonkeys reported2291.90USD/500issues=4.5838USD per issue; selector131.95USD is5.76% of LLM total.",
+      "claim_type": "arithmetic",
+      "supporting_sources": [
+        "SUP-CM"
+      ],
+      "counter_evidence": "Full tool/infrastructure cost is not itemized.",
+      "uncertainty": "Historic rates, not current quote.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX023",
+      "claim": "Web tree search with replay and20value samples/state improves WA15.0→19.2 under five-action cap.",
+      "claim_type": "reported_empirical",
+      "supporting_sources": [
+        "SUP-TREE"
+      ],
+      "counter_evidence": "Llama agent also uses stronger GPT4o value model; no clean same-strength inference claim for that comparison.",
+      "uncertainty": "Replay assumption and evaluator calls restrict transfer to live irreversible environments.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX024",
+      "claim": "tau-bench pass^k is all-k success; GPT4o averaged48.2% across retail/airline and retailpass^8<25%.",
+      "claim_type": "reported_empirical",
+      "supporting_sources": [
+        "SUP-TAU"
+      ],
+      "counter_evidence": "Terminal reward can miss procedure violations; repeat-run coverage asks a different question.",
+      "uncertainty": "User simulator and simplified domains, not live service reliability.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX025",
+      "claim": "Under specified hypothetical rates and16credit cap,strong+better with3candidates gives82.422%correct in55seconds with4workers.",
+      "claim_type": "hypothetical_calculation",
+      "supporting_sources": [
+        "TTC008"
+      ],
+      "counter_evidence": "Small+weak12candidates reaches67.364% but takes105seconds.",
+      "uncertainty": "Exact assumed rates; no model experiment.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX026",
+      "claim": "With32credit cap and100second deadline,strong+better can use4candidates for20credits and89.50788%correct in55seconds.",
+      "claim_type": "hypothetical_calculation",
+      "supporting_sources": [
+        "TTC008"
+      ],
+      "counter_evidence": "Sixcandidates spend30credits but take110seconds and violate deadline.",
+      "uncertainty": "Static4worker wave schedule; no pipelining or early stop.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX027",
+      "claim": "A risk objective correct+1/wrong-4/abstain0 can favor fewer better-verified candidates over highest raw correct-submission probability.",
+      "claim_type": "hypothetical_calculation",
+      "supporting_sources": [
+        "TTC008"
+      ],
+      "counter_evidence": "One-candidate rejection lowers raw accuracy but can improve risk utility.",
+      "uncertainty": "Loss values are illustrative.",
+      "producer": "/root/ttc_research"
+    },
+    {
+      "claim_id": "TTC-CX028",
+      "claim": "Choose sampling, repair/search, verification,stronger model or stopping according to candidate availability,selection gap,feedback,latency and consequence.",
+      "claim_type": "proposed_policy",
+      "supporting_sources": [
+        "TTC001",
+        "TTC003v2",
+        "TTC008",
+        "TTC010",
+        "TTC012",
+        "TTC013",
+        "SUP-CM",
+        "SUP-TAU"
+      ],
+      "counter_evidence": "No single scaling method dominates across all conditions.",
+      "uncertainty": "Decision tree is synthesis, not a validated universal controller.",
+      "producer": "/root/ttc_research"
+    }
+  ],
+  "reading": [
+    {
+      "source_id": "TTC001",
+      "url": "https://arxiv.org/html/2408.03314v1",
+      "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+      "reading_location": "§§3–6; setup, difficulty and cost definitions, search/revision results; §5.3 descriptions of Appendix M examples",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "PaLM 2-S*; MATH 12k/500 split; v1; no software commit pinned",
+      "observation": "Difficulty-conditioned gains, PRM reward-to-go semantics, search overoptimization; difficulty inference omitted from cost",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC001\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC001\\original.html",
+      "text_sha256": "13126da4ded998b96e366b44a00c74bb97ad5e8cfb4754931491cc1f2b3156e3",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC001\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "TTC002",
+      "url": "https://arxiv.org/html/2501.19393v2",
+      "title": "s1: Simple test-time scaling",
+      "reading_location": "§§2–4, budget-forcing definitions and Figure 4 discussion; title/version header",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "s1-32B from Qwen2.5-32B-Instruct; Gemini Thinking teacher; AIME24/MATH500/GPQA Diamond; v2 2025-02-03",
+      "observation": "Separate post-training from within-checkpoint forcing; 50 to 57 AIME24 and saturation",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC002\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC002\\original.html",
+      "text_sha256": "9af07d3d703f38454fc630719769f9a99bb2fa25cdf51c0ffc1055fd0833a4e2",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC002\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "TTC003",
+      "url": "https://arxiv.org/html/2608.04001v1",
+      "title": "Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility",
+      "reading_location": "abstract and introduction quantity claims, lines 151/163/172",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v1 superseded for quantitative inventory",
+      "observation": "Contradictory v1 billion/million counts; do not propagate",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC003\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC003\\original.html",
+      "text_sha256": "7ad7fd3af301ef9437141aa6ed4a674888e2c93f2426016cf0c3c9f49c60bbd1",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC003\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "TTC003v2",
+      "url": "https://arxiv.org/html/2608.04001v2",
+      "title": "Inference regimes version 2",
+      "reading_location": "title/version; §§2–3 comparison principles; §4 Table1 and §4.2 Figure5 discussion; Appendix G Table3",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v2 2026-08-31; 20 configs x120 math x80 bank; public collection distinction",
+      "observation": "Inventory reconciled; shared-bank selector differences and gold-reference diagnostic",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC003v2\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC003v2\\original.html",
+      "text_sha256": "176013600f0767f6be9700414e2c6de57702be73986eab26d04c7015a80f396d",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC003v2\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "TTC005",
+      "url": "https://arxiv.org/html/2611.07367v1",
+      "title": "Test-Time Self-Play: Scaling without a Verifier",
+      "reading_location": "§§4–6; Appendix A.1–A.6, B tables6–7, C.1–C.3; D diagnostics passages",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v1; Qwen3-8B; HardLCBv6 28 selected from131 February–May2025; no implementation commit pinned",
+      "observation": "Filtered mean, carry-forward, FMV definition, no hidden-test checkpoint best selection, 20000 nominal slots",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC005\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC005\\original.html",
+      "text_sha256": "93be169f42a5e6f6c676b2026d3ab2dfc3ea1c652db9dac70dc6b5bff45a916b",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC005\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "TTC006",
+      "url": "https://aclanthology.org/2026.findings-acl.1199.pdf",
+      "title": "When More Thinking Hurts",
+      "reading_location": "extracted paper §§3–5 and appendices E–H; visual pages4–5 Tables1–3 and Figure3",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "ACL2026 Findings pp23967–23977; exact R1 checkpoint insufficiently specified",
+      "observation": "Numerical thresholds withheld because declared denominator, flip counts and figure/table values conflict",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC006\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC006\\original.pdf",
+      "text_sha256": "c8903b481b539cc387d0f7b9fda999814c90799b98046c478140712b023996d4",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC006\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "TTC007",
+      "url": "https://arxiv.org/html/2610.13570v1",
+      "title": "Termination and test-time compute Pareto frontier",
+      "reading_location": "§§3–5; A.1–A.5; B.2–B.3; D.1",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v1; six listed checkpoints; 963questions; 16trajectories and16answer probes/position",
+      "observation": "Finite-probe maximum and oracle information distinguished; cost excludes controller overhead",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC007\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC007\\original.html",
+      "text_sha256": "708e50f5dfbe69b53de523d40da5abdbd33bd54eb7f22a80a50e61e11d0eab1d",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC007\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "TTC008",
+      "url": "https://arxiv.org/html/2610.23255v1",
+      "title": "Sample, Mix, or Verify?",
+      "reading_location": "§3 propositions1–3; §4 planner/cost; §6 selected comparisons; §7 limitations; AppendixA proof setup",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v1; public data releases described by paper; exact release commits unpinned",
+      "observation": "Selector-aware ceiling; conditional independence scope; proxy costs and limited-grid allocation",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC008\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC008\\original.html",
+      "text_sha256": "6342c2cea6c0688d3767bdabfd4e29408ff76c436d84c320f2d13bf4230b963c",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC008\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "TTC009",
+      "url": "https://arxiv.org/html/2203.11171v4",
+      "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+      "reading_location": "§§2–3; Table1; sampling/model settings and 40sample/10run protocol",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v4 2023-03-07; PaLM540B T=.7 topk40; GSM8K and other specified benchmarks",
+      "observation": "Fixed-model plurality gains; 17.9 absolute GSM8K points",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC009\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC009\\original.html",
+      "text_sha256": "619d8a6893dd5ec139942aaede087c5f7725becfbcacdf059cfe1ce520333542",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC009\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "TTC010",
+      "url": "https://arxiv.org/html/2407.21787v2",
+      "title": "Large Language Monkeys",
+      "reading_location": "§§2–4; Table1 cost and Figure7 selection discussion",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v2 2024-09-16; Llama3 8B/70B; DeepSeek-Coder-V2 +Moatless; SWE-bench Lite",
+      "observation": "Coverage vs selection; cost-efficiency varies by task; 10k sample bank and250agent attempts",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC010\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC010\\original.html",
+      "text_sha256": "8e58b06e94b44a4c9661a25f7f4265a2b9a37ec8726b78157d78e213bde9482e",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC010\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "TTC011",
+      "url": "https://arxiv.org/html/2305.10601v2",
+      "title": "Tree of Thoughts",
+      "reading_location": "§4.1–4.2, Game24 Table2 and creative writing evaluator description",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v2 2023-12-03; GPT4 experiments May5–16 2023; 100harder Game24 tasks",
+      "observation": "Partial-state search mechanism; exact task scoring versus preference evaluation",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC011\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC011\\original.html",
+      "text_sha256": "6be1d75baff52305ac9196bf4ee8283cd713f32379a757c9fe8f912bcf95a21a",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC011\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "TTC012",
+      "url": "https://arxiv.org/html/2305.20050v1",
+      "title": "Lets Verify Step by Step",
+      "reading_location": "§§2–4; Figure3 numbers and scoring; training set and controlled small-model comparison",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v1 2023-05-31; GPT4-derived generator and reward models; MATH500 split; best-of1860",
+      "observation": "PRM selection benefit; training-data confounds; product-of-step probability scoring",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC012\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC012\\original.html",
+      "text_sha256": "3f60f278a76ba396101a3eb9e8e72d84b9958bdbde14f90683b660c960c3b366",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC012\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "TTC013",
+      "url": "https://arxiv.org/html/2409.12917v1",
+      "title": "Training Language Models to Self-Correct via Reinforcement Learning",
+      "reading_location": "§§3–7; Tables3–5; one-round correction and inference sample scaling",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v1 2024-09-19; Gemini1.5Flash MATH; Gemini1.0Pro MBPP->HumanEval",
+      "observation": "Training enables repair; separate4.4point inference delta from15.6point delta improvement",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC013\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC013\\original.html",
+      "text_sha256": "58c37eb46271d2ade4e09201b5891757ba4ccc49c1c1363bf8a8f7da2a57845d",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC013\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "SUP-CM",
+      "url": "https://arxiv.org/html/2501.14723v1",
+      "title": "CodeMonkeys: Scaling Test-Time Compute for Software Engineering",
+      "reading_location": "§§1–2.3; Tables1–2; state machine/serial budget definitions",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v1 2025-01-24; claude-3-5-sonnet-20241022 +Qwen2.5-Coder-32B-Instruct; SWE-bench Verified; repo not commit-pinned",
+      "observation": "Full loop and selection costs, coverage69.8 vs submitted57.4",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-CM\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-CM\\original.html",
+      "text_sha256": "9df0d0acba699e7ca15adf49ddcbbf8f2618a439cbe40dfa253c3cafd595c281",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-CM\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "SUP-TAU",
+      "url": "https://arxiv.org/html/2406.12045v1",
+      "title": "tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+      "reading_location": "§§3–5; state/reward/pass^k definitions; Tables1–2; setup30action cap",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v1 2024-06-17; 115retail+50airline; agentT0/userT1; paper versions, no current leaderboard",
+      "observation": "Repeat reliability distinct from coverage; final-state reward can miss procedure violations",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-TAU\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-TAU\\original.html",
+      "text_sha256": "71bb537ab3bd64682e0a537dd71998c1ede09bd26233d6bc00e08e8d344b1dd6",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-TAU\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "SUP-LIMITS",
+      "url": "https://arxiv.org/html/2411.17501v1",
+      "title": "Inference Scaling FLaws: The Limits of LLM Resampling with Imperfect Verifiers",
+      "reading_location": "§§1–4 and AppendixA.2 scope passages",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v1 2024-11-26; HumanEval/MBPP filters vs expanded plus evaluators",
+      "observation": "Weak-test false positives and consequence-sensitive sample limit",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-LIMITS\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-LIMITS\\original.html",
+      "text_sha256": "7a0104ec86807a16dda2ec1714ea4ec30f7ba6350b6e1cb144decfef2bad691c",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-LIMITS\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "SUP-SELF",
+      "url": "https://arxiv.org/html/2310.01798v2",
+      "title": "Large Language Models Cannot Self-Correct Reasoning Yet",
+      "reading_location": "§3.1–3.2 Tables2–3; original arxiv v2 after conference PDF transport failure",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v2 2024-03-14; GPT3.5-0613, GPT4 accessed2023-08-29; 200question subset forGPT4",
+      "observation": "Intrinsic correction differs from oracle-stopped evaluation; reported regression",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-SELF\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-SELF\\original.html",
+      "text_sha256": "1931506b6c2eee9d9304229c8222868b5203adf1b52111a7e25d95adf2b5bd21",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-SELF\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "SUP-AC",
+      "url": "https://aclanthology.org/2023.emnlp-main.761.pdf",
+      "title": "Lets Sample Step by Step: Adaptive-Consistency for Efficient Reasoning and Coding with LLMs",
+      "reading_location": "PDF pp1–5: §§1–4; main result summary; code aggregation and Beta threshold",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "EMNLP2023 pp12375–12396; Vicuna13B/code-davinci002/GPT3.5; reasoning40sample cap",
+      "observation": "Sample-count reductions from stability stopping; confidence is about plurality, not truth",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-AC\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-AC\\original.pdf",
+      "text_sha256": "cc3f172909d43feb0434248c86ff172cb5e66f47963a7a2d4648e21b8df3b5e3",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-AC\\retrieval.json",
+      "reader": "/root/ttc_research"
+    },
+    {
+      "source_id": "SUP-TREE",
+      "url": "https://arxiv.org/html/2407.01476v1",
+      "title": "Tree Search for Language Model Agents",
+      "reading_location": "§§3–4, Table2, value calls/action proposal/backtracking; §5 initial sweep description",
+      "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+      "version_model_evaluation": "v1 2024-07-01; gpt-4o-2024-05-13 value model; WA/VWA; five-action comparison",
+      "observation": "Environment search needs replay and evaluator work; table18.9 versus prose18.6 minor mismatch avoided by citing table",
+      "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-TREE\\original.txt",
+      "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-TREE\\original.html",
+      "text_sha256": "c48d9f0a8a841ef0e9f4fb4feb5f02d6d0dfa0e9b8958bf142c30defb3d089ac",
+      "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-TREE\\retrieval.json",
+      "reader": "/root/ttc_research"
+    }
+  ],
+  "handoff": {
+    "summary": "Complete English author manuscript and U1–U8 substantive contributions are ready for independent full-report review. Producer /root/ttc_research; no experiments rerun.",
+    "pending": [
+      "Parent-managed independent domain and full-manuscript reviews",
+      "Integrate any resulting concrete corrections and final delivery records"
+    ],
+    "decisions": [
+      "Use full selected-success cost boundaries",
+      "Retain source versions",
+      "Keep detailed numerical audit in AppendixA",
+      "Distinguish reported results, arithmetic and proposed policies"
+    ]
+  }
+}

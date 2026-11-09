@@ -1,0 +1,56 @@
+{
+  "host_task": "/root/long_research_audit_b",
+  "status": "completed",
+  "case_id": "on_device_models_en",
+  "role": "auditor",
+  "input_version": "b05a22e12456963e8dcdd2cf1fa1d888fc1552f79329ce94c60a9f2fe349b9bf",
+  "assignment_version": "9150bb8e8580153a56a74f7362151cf4da2f247a07ed35d9c694683176c07ca7",
+  "artifact_sha256": "59f8ac88843287debab4c0176d72575b648dbf581eece7888f22e050e69da8dd",
+  "recorded_at": "2026-11-09T16:43:46Z",
+  "recorded_by": "/root",
+  "record_basis": "Actual completion message from /root/long_research_audit_b and its saved original response.json. The auditor's long inline shell write was rejected by automatic approval review with 'blocked by policy' and no further reason. This record uses the file-edit interface, preserves the actual reviewer identity and does not infer a start time or elapsed duration.",
+  "actual_reading": {
+    "full": [
+      "Current report lines 1-291, with truncated output reread in smaller sections",
+      "Eight current raw responses/executions and 24 canonical input/response/execution hash matches",
+      "Three historical required negative findings and original execution records",
+      "Six production records and complete first-to-current diff",
+      "Complete deployment_calculations.py and saved calculation-results.json; no execution",
+      "Complete ODM-U3"
+    ],
+    "targeted_originals": [
+      "S01 full",
+      "S12 lines 50-90",
+      "S19 full",
+      "S21 lines 140-185",
+      "S20 lines 180-225",
+      "ODM07 lines 103-285",
+      "S06 lines 45-135",
+      "ODM17 lines 95-201",
+      "S18 lines 599-642 and 782-839",
+      "ODM01 lines 435-465",
+      "ODM12 lines 260-363",
+      "S28 lines 1-100",
+      "S23 lines 1-80"
+    ],
+    "images": [
+      "codex-production/reading-images/ODM17-p10.png",
+      "codex-production/reading-images/ODM-S17-p17.png",
+      "codex-production/reading-images/ODM-S18-p7.png"
+    ],
+    "live_source": {
+      "url": "https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica",
+      "lines": "34-116",
+      "purpose": "Check the existing citation: old S23 was dated; current official source supports the manuscript."
+    }
+  },
+  "actions": {
+    "api_calls": 0,
+    "report_edited": false,
+    "research_rerun": false,
+    "calculation_rerun": false,
+    "tests_run": false,
+    "imported": false
+  },
+  "independence": "Auditor context; separate from production, eight content perspectives and final acceptance."
+}

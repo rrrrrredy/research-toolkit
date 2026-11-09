@@ -1,0 +1,210 @@
+{
+  "reason": "Author registry transcription mistook DA for another model; actual manuscript and source comparison already correctly state direct answering.",
+  "first": "claims.first.jsonl",
+  "current": "claims.jsonl",
+  "result": {
+    "ok": true,
+    "saved_ids": {
+      "claims": [
+        "model_benchmarks_en-C03"
+      ]
+    },
+    "updated_files": [
+      "data/claims_registry.csv"
+    ],
+    "backups": [],
+    "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+    "changes": {
+      "available": true,
+      "operation_id": "7a0d516d4c624cde87cc9e1f8fca44d1",
+      "saved_at": "2026-11-09T12:27:47.622921+00:00",
+      "records": {
+        "claims": {
+          "added": [],
+          "updated": [
+            "model_benchmarks_en-C03"
+          ],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        }
+      },
+      "source_files": {},
+      "artifact": "analysis/outline.md",
+      "affected_claims": [
+        {
+          "claim_id": "model_benchmarks_en-C03",
+          "claim": "MMLU-Pro Table3 compares GPT-4o chain-of-thought72.6 versus direct-answer53.5 (19.1points); corresponding MMLU88.7versus87.2 differs by1.5points. This is a within-model prompting comparison.",
+          "changed_source_ids": [],
+          "locations": [],
+          "location_status": "not_located"
+        }
+      ],
+      "unlinked_source_ids": [],
+      "affected_outputs": [],
+      "scope": "Latest successful record-save batch; report locations are literal source-link or claim-text matches, and research-output links use saved input and unit dependencies in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+    },
+    "current_work": {
+      "task_spec": "state/task_spec.md",
+      "requirements": "state/requirements.jsonl",
+      "artifact": null,
+      "open_requirements": [
+        {
+          "requirement_id": "R_TASK",
+          "summary": "Write a research report on how model-selection teams should interpret and combine benchmark evidence rather than select a model from a single leaderboard. Use HELM, its official papers, documentation, and implementation as an entry point. Compare it with a manageable set of complementary evaluation frameworks and benchmarks covering static knowledge or reasoning tests, executable coding tasks, tool-using or agent tasks, and human or model-judged preferences. Focus on versions and results publicly available from 2022 through 2026-11-09, with earlier context where necessary. The evidence cutoff is 2026-11-09; distinguish a historical version from a subsequently revised dataset or leaderboard.\n\nExplain the difference between a benchmark dataset, an evaluation framework, an execution harness, and a leaderboard. For the selected examples, examine task construction, sampling, language and domain coverage, target capabilities, scoring rules, aggregation, and the unit of evaluation. Discuss which dimensions of quality, robustness, calibration, efficiency, or safety are actually measured and which are merely suggested by a benchmark's name or reputation. A small benchmark result must not be treated as a direct estimate of all user workloads.\n\nReconstruct the conditions needed to interpret representative reported results: model identity and release, prompt and few-shot format, decoding and reasoning settings, tool access, context limits, harness version, judge configuration, and available cost or latency information. Explain how these choices can change rankings or make comparisons invalid. Examine contamination and memorization, public-test adaptation, hidden-test access, benchmark refreshes, evaluator bias, and uncertainty from finite samples. Separate evidence of contamination from suspicion, and do not invent significance estimates when the underlying observations are unavailable.\n\nAssess reproducibility from the artifacts that are actually public. Identify whether a result has accessible data, executable evaluation code, stable dependencies, inspectable scoring, and a usable model or API version. Distinguish the ability to reconstruct a procedure from an independently reproduced score. Explain the consequences of private tests, mutable APIs, unavailable judge models, and changing web or software environments. Published independent replications may be analyzed, but this task does not require claiming or conducting a new benchmark run.\n\nConnect the comparison to two contrasting deployment decisions: selecting a model for a grounded customer-support assistant and selecting a model for a repository-level coding agent. Explain which benchmark evidence transfers plausibly to each workload, what it misses, and what task-specific evidence would change the selection. Discuss successful-task cost, failure severity, operational constraints, and distribution shift rather than treating the highest aggregate score as the universal best choice. Where studies relate benchmark scores to user outcomes, distinguish observed association from a demonstrated causal relationship.\n\nDeliver a complete report with an evaluation coverage matrix, a versioned reproducibility comparison, worked interpretations of representative score comparisons, and conditional model-selection recommendations for the two workloads. Organize the report freely and cite primary evaluation definitions and the exact result versions used. The key checks are whether unlike evaluation objects remain distinguishable, whether score claims retain their execution conditions and uncertainty, and whether the recommendations acknowledge meaningful rank reversals or contradictory evidence. There is no required preferred benchmark or model, and a finding that the available evidence cannot resolve a selection is acceptable when the missing decision-relevant evidence is specified.",
+          "status": "in_progress"
+        },
+        {
+          "requirement_id": "R_LANGUAGE",
+          "summary": "Complete English research report and required matrices/calculations/recommendations.",
+          "status": "pending"
+        },
+        {
+          "requirement_id": "R_DATE",
+          "summary": "Public evidence by2026-11-09; preserve dated versions.",
+          "status": "in_progress"
+        }
+      ],
+      "effective_requirements": [
+        {
+          "requirement_id": "R_TASK",
+          "summary": "Write a research report on how model-selection teams should interpret and combine benchmark evidence rather than select a model from a single leaderboard. Use HELM, its official papers, documentation, and implementation as an entry point. Compare it with a manageable set of complementary evaluation frameworks and benchmarks covering static knowledge or reasoning tests, executable coding tasks, tool-using or agent tasks, and human or model-judged preferences. Focus on versions and results publicly available from 2022 through 2026-11-09, with earlier context where necessary. The evidence cutoff is 2026-11-09; distinguish a historical version from a subsequently revised dataset or leaderboard.\n\nExplain the difference between a benchmark dataset, an evaluation framework, an execution harness, and a leaderboard. For the selected examples, examine task construction, sampling, language and domain coverage, target capabilities, scoring rules, aggregation, and the unit of evaluation. Discuss which dimensions of quality, robustness, calibration, efficiency, or safety are actually measured and which are merely suggested by a benchmark's name or reputation. A small benchmark result must not be treated as a direct estimate of all user workloads.\n\nReconstruct the conditions needed to interpret representative reported results: model identity and release, prompt and few-shot format, decoding and reasoning settings, tool access, context limits, harness version, judge configuration, and available cost or latency information. Explain how these choices can change rankings or make comparisons invalid. Examine contamination and memorization, public-test adaptation, hidden-test access, benchmark refreshes, evaluator bias, and uncertainty from finite samples. Separate evidence of contamination from suspicion, and do not invent significance estimates when the underlying observations are unavailable.\n\nAssess reproducibility from the artifacts that are actually public. Identify whether a result has accessible data, executable evaluation code, stable dependencies, inspectable scoring, and a usable model or API version. Distinguish the ability to reconstruct a procedure from an independently reproduced score. Explain the consequences of private tests, mutable APIs, unavailable judge models, and changing web or software environments. Published independent replications may be analyzed, but this task does not require claiming or conducting a new benchmark run.\n\nConnect the comparison to two contrasting deployment decisions: selecting a model for a grounded customer-support assistant and selecting a model for a repository-level coding agent. Explain which benchmark evidence transfers plausibly to each workload, what it misses, and what task-specific evidence would change the selection. Discuss successful-task cost, failure severity, operational constraints, and distribution shift rather than treating the highest aggregate score as the universal best choice. Where studies relate benchmark scores to user outcomes, distinguish observed association from a demonstrated causal relationship.\n\nDeliver a complete report with an evaluation coverage matrix, a versioned reproducibility comparison, worked interpretations of representative score comparisons, and conditional model-selection recommendations for the two workloads. Organize the report freely and cite primary evaluation definitions and the exact result versions used. The key checks are whether unlike evaluation objects remain distinguishable, whether score claims retain their execution conditions and uncertainty, and whether the recommendations acknowledge meaningful rank reversals or contradictory evidence. There is no required preferred benchmark or model, and a finding that the available evidence cannot resolve a selection is acceptable when the missing decision-relevant evidence is specified.",
+          "status": "in_progress"
+        },
+        {
+          "requirement_id": "R_LANGUAGE",
+          "summary": "Complete English research report and required matrices/calculations/recommendations.",
+          "status": "pending"
+        },
+        {
+          "requirement_id": "R_DATE",
+          "summary": "Public evidence by2026-11-09; preserve dated versions.",
+          "status": "in_progress"
+        }
+      ],
+      "scope_decisions": [],
+      "warnings": [],
+      "brief": {
+        "question": "Write a research report on how model-selection teams should interpret and combine benchmark evidence rather than select a model from a single leaderboard. Use HELM, its official papers, documentation, and implementation as an entry point. Compare it with a manageable set of complementary evaluation frameworks and benchmarks covering static knowledge or reasoning tests, executable coding tasks, tool-using or agent tasks, and human or model-judged preferences. Focus on versions and results publicly available from 2022 through 2026-11-09, with earlier context where necessary. The evidence cutoff is 2026-11-09; distinguish a historical version from a subsequently revised dataset or leaderboard.\n\nExplain the difference between a benchmark dataset, an evaluation framework, an execution harness, and a leaderboard. For the selected examples, examine task construction, sampling, language and domain coverage, target capabilities, scoring rules, aggregation, and the unit of evaluation. Discuss which dimensions of quality, robustness, calibration, efficiency, or safety are actually measured and which are merely suggested by a benchmark's name or reputation. A small benchmark result must not be treated as a direct estimate of all user workloads.\n\nReconstruct the conditions needed to interpret representative reported results: model identity and release, prompt and few-shot format, decoding and reasoning settings, tool access, context limits, harness version, judge configuration, and available cost or latency information. Explain how these choices can change rankings or make comparisons invalid. Examine contamination and memorization, public-test adaptation, hidden-test access, benchmark refreshes, evaluator bias, and uncertainty from finite samples. Separate evidence of contamination from suspicion, and do not invent significance estimates when the underlying observations are unavailable.\n\nAssess reproducibility from the artifacts that are actually public. Identify whether a result has accessible data, executable evaluation code, stable dependencies, inspectable scoring, and a usable model or API version. Distinguish the ability to reconstruct a procedure from an independently reproduced score. Explain the consequences of private tests, mutable APIs, unavailable judge models, and changing web or software environments. Published independent replications may be analyzed, but this task does not require claiming or conducting a new benchmark run.\n\nConnect the comparison to two contrasting deployment decisions: selecting a model for a grounded customer-support assistant and selecting a model for a repository-level coding agent. Explain which benchmark evidence transfers plausibly to each workload, what it misses, and what task-specific evidence would change the selection. Discuss successful-task cost, failure severity, operational constraints, and distribution shift rather than treating the highest aggregate score as the universal best choice. Where studies relate benchmark scores to user outcomes, distinguish observed association from a demonstrated causal relationship.\n\nDeliver a complete report with an evaluation coverage matrix, a versioned reproducibility comparison, worked interpretations of representative score comparisons, and conditional model-selection recommendations for the two workloads. Organize the report freely and cite primary evaluation definitions and the exact result versions used. The key checks are whether unlike evaluation objects remain distinguishable, whether score claims retain their execution conditions and uncertainty, and whether the recommendations acknowledge meaningful rank reversals or contradictory evidence. There is no required preferred benchmark or model, and a finding that the available evidence cannot resolve a selection is acceptable when the missing decision-relevant evidence is specified.",
+        "audience": "Model-selection, evaluation, and deployment teams deciding which benchmark evidence to trust",
+        "scope": "Follow the task geography, comparison scope and evidence cutoff of 2026-11-09. Each other-language version uses its frozen sources without seeing the first-language report.",
+        "output": "Complete long-form research report final.md with the task-specific comparisons, explanations, tables and locatable citations. Preserve the first draft and actual independent results.",
+        "depth": "A comparative research report that reconstructs evaluation conditions, explains what benchmark results measure, and connects their limitations to concrete model-selection decisions.",
+        "evidence_standard": "Use original public sources with actual dates, reading evidence and retained originals. Conduct seven separate independent content perspectives, relevant domain review, independent audit and final acceptance. Live primary research"
+      },
+      "research_outputs": [
+        {
+          "path": "analysis/outline.md",
+          "sha256": "d3985e5049d8b6bf6b60bb8a80e8b27694a60d95587c8496c71896897103baf5",
+          "kind": "analysis",
+          "complete": true,
+          "contributors": [
+            "/root"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "analysis/outline.md"
+          },
+          "host_task": "/root",
+          "based_on": {
+            "state/task_spec.md": "fb7f3e55deba030a90b67058750a682492041db3ac4cc6ed09f16a85620ac2b1",
+            "record:requirements:effective@outline": "756e3833c074acf5c884ca64d9503b6b7a6064d5cb246144248fdebd8c7a6751"
+          },
+          "unit_id": "outline",
+          "depends_on": [],
+          "dependency_versions": {},
+          "question": "Comparing Model Benchmarks: Coverage, Reproducibility, and Real-Task Relevance",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/165bcc3652614f4fa5954586f4cb2a8e/saved/analysis/outline.md",
+            "sha256": "d3985e5049d8b6bf6b60bb8a80e8b27694a60d95587c8496c71896897103baf5"
+          },
+          "owner": "/root",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [],
+          "readiness_issues": [],
+          "review": {
+            "artifact_sha256": "d3985e5049d8b6bf6b60bb8a80e8b27694a60d95587c8496c71896897103baf5",
+            "input_version": "5ca381e1da4a4d525324ad5fc7c50c774505293f8be18466e1650b03a98946db",
+            "ok": true,
+            "reviewers": [
+              "/root/independent_reviews_a",
+              "/root/independent_structure_b"
+            ],
+            "record_path": "reviews/host/5ca381e1da4a4d525324/input.json"
+          }
+        }
+      ],
+      "work_units": [
+        {
+          "path": "analysis/outline.md",
+          "sha256": "d3985e5049d8b6bf6b60bb8a80e8b27694a60d95587c8496c71896897103baf5",
+          "kind": "analysis",
+          "complete": true,
+          "contributors": [
+            "/root"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "analysis/outline.md"
+          },
+          "host_task": "/root",
+          "based_on": {
+            "state/task_spec.md": "fb7f3e55deba030a90b67058750a682492041db3ac4cc6ed09f16a85620ac2b1",
+            "record:requirements:effective@outline": "756e3833c074acf5c884ca64d9503b6b7a6064d5cb246144248fdebd8c7a6751"
+          },
+          "unit_id": "outline",
+          "depends_on": [],
+          "dependency_versions": {},
+          "question": "Comparing Model Benchmarks: Coverage, Reproducibility, and Real-Task Relevance",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/165bcc3652614f4fa5954586f4cb2a8e/saved/analysis/outline.md",
+            "sha256": "d3985e5049d8b6bf6b60bb8a80e8b27694a60d95587c8496c71896897103baf5"
+          },
+          "owner": "/root",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [],
+          "readiness_issues": [],
+          "review": {
+            "artifact_sha256": "d3985e5049d8b6bf6b60bb8a80e8b27694a60d95587c8496c71896897103baf5",
+            "input_version": "5ca381e1da4a4d525324ad5fc7c50c774505293f8be18466e1650b03a98946db",
+            "ok": true,
+            "reviewers": [
+              "/root/independent_reviews_a",
+              "/root/independent_structure_b"
+            ],
+            "record_path": "reviews/host/5ca381e1da4a4d525324/input.json"
+          }
+        }
+      ],
+      "production_contexts": [
+        "/root",
+        "author:model_benchmarks_en"
+      ],
+      "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+    },
+    "observation": {
+      "operation": "save",
+      "operation_id": "7a0d516d4c624cde87cc9e1f8fca44d1",
+      "started_at": "2026-11-09T12:27:47.603207+00:00",
+      "outcome": "saved",
+      "record_changes": {
+        "records": {
+          "claims": {
+            "added": [],
+            "updated": [
+              "model_benchmarks_en-C03"
+            ],
+            "unchanged": [],
+            "removed": [],
+            "recovered": []
+          }
+        },
+        "source_files": {},
+        "source_observations": {}
+      },
+      "finished_at": "2026-11-09T12:27:47.622921+00:00"
+    }
+  }
+}

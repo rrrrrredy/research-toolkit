@@ -34,7 +34,7 @@ An illustrative submission shape is:
   "evidence_paths": ["sources/primary.md"],
   "host_result": {
     "slot_id": "copy-the-returned-slot-id",
-    "host_task": "actual-independent-host-task-id",
+    "host_task": "actual-independent-agent-task-id",
     "response_path": "reviews/host/original-response.json",
     "execution_path": "reviews/host/original-execution.json"
   }

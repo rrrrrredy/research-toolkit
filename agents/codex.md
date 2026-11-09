@@ -6,7 +6,7 @@
 
 With Git and the client ready, run from your project root. If the destination already exists, use the [update guide](../docs/installation-versioning.md).
 
-The agent runs the complete installation below with an available Python 3.10+ interpreter. Usage recording is included by default; users do not install a second component. It sends basic operation events, excludes conversations and reports, and can be disabled. On first use of an existing Skill installation, complete the [recording setup](../docs/usage-data.md#automatic-setup-by-the-agent).
+For a new installation, the agent runs the commands below with Python 3.10+. For an existing copy, [configure recording only where missing or changed](../docs/usage-data.md#automatic-setup-by-the-agent); reuse effective settings and plugin hooks, preserving off. Basic events are sent by default without prompts, research titles, conversations, reports or paths. Recording can be disabled; setup failure does not block direct use of the research methods.
 
 ```bash
 git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .agents/skills/research-toolkit

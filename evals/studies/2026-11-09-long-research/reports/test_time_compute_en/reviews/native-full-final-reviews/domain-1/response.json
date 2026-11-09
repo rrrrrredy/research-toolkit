@@ -1,0 +1,12 @@
+{
+  "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+  "assignment_version": "afd612d7cf11f344fb7d79f3f97367b318665973c8e42ed478f4583a82f94c71",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "Current full report §§8,11,14–15, especially OR/AD definitions and full decision tree",
+      "basis": "本次为原真实领域上下文对当前完整稿的修订确认；先前完整阅读保留，实际变更按直接全文diff判断，未以历史通过自动替代当前判断。旧35856ace至当前全部71行diff已读，并重新读当前完整决策树及邻文。回查同源TTC007 §3.1原文：OR=1−L(k*)/L(n)，AD=P(k*)−P(n)，最早最高经验probe点、百分比/百分点、新答案probe的full-thinking端点定义与新增解释一致；有限前缀/有限probe和非在线节省的限制保留。TTSP仅把19,200 solver加800 proposer改成客观合计，未新增效率比。决策树现在每次执行后回到当前结果是否满足需求，更新剩余预算、已过时间和资源；不可行计划回到完整成本核算或退出，不再绕过预算/完成判定持续加算。它仍明确是建议策略、不是已训练控制器或论文实测。原方法/预算例数值和公式、工具回放及验证边界未变，来源与有效要求相同；复用先前全文/原件检查，当前领域通过。"
+    }
+  },
+  "findings": []
+}

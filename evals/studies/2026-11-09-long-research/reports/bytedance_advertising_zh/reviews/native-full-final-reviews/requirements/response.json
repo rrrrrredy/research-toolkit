@@ -1,0 +1,15 @@
+{
+  "input_version": "e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "assignment_version": "f2a3dee63add7b65de4f188c1dd5ff2b2b61b9093c7fd2c999d7a26d163e7eda",
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "location": "reports/current.md:93; complete 9-line diff",
+      "basis": "Read the complete 1021-character diff, my original full requirements basis and the supplied historical necessary finding. The sole reader-facing change replaces the search-cache/open-page narrative with the adopted October2026 Smart+ body version and account-by-account rollout condition. The source links, version and availability limits remain; no mechanism, market distinction, attribution/economics calculation or conditional recommendation changed. Original task, effective requirements and all frozen source bodies are unchanged. My earlier complete assessment of the domestic/international evidence, money-flow boundaries and incrementality reasoning therefore continues to support the current report. No required answer or qualifier was lost."
+    }
+  },
+  "findings": [],
+  "resolved_prior_findings": [
+    "Historical process-language removal preserves requirements"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "host_task": "/root/process_remaining_b",
+  "status": "completed",
+  "execution_mode": "native_codex",
+  "started_at": "2026-11-09T22:59:12.9398819+08:00",
+  "completed_at": "2026-11-09T15:03:44.2766574+00:00",
+  "input_version": "6e151bea72d6d3e15666253e2b5b2255bcf0dab97a183cd67bc9a5f4e2a835e9",
+  "assignment_version": "b8b69bad560b363e58df9cefce4ae5030c8ccc1ec1e26983a6140f54ae95de47",
+  "report_sha256": "30c18ece513b127e7c15ad1afe28a5da7a54ddb7932581785acfbd8d07420507",
+  "job_sha256": "8d8487ac404071297ccd826a195f1fee27f96e64fa891809a3e3cf270cc36ab7",
+  "report_path": "reports/current.md",
+  "frozen_report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/ai_drug_discovery_en/native-full-current-reviews/process_language/frozen-report.md",
+  "actual_reading_ranges": [
+    [
+      1,
+      85
+    ],
+    [
+      86,
+      180
+    ],
+    [
+      181,
+      287
+    ]
+  ],
+  "reading_notes": "全文1–287行连续三段阅读；原始任务与有效要求已读；未访问外部临床原件、未运行实验。"
+}

@@ -1,0 +1,24 @@
+{
+  "input_version": "3e6278f250299b9aa3fd80f794a5ed5b1ca5d05ccfd17c28d96a73f482afacb1",
+  "assignment_version": "87f529c176a3f9d7c636795d8ae7c1839776b807a1ef1931217c4792bef02b15",
+  "report_verdict": "pass",
+  "coverage": {
+    "structure_and_depth": {
+      "location": "reports/current.md lines 59, 71, 216, 227-228; complete difference from the previously reviewed frozen full report",
+      "basis": "The complete difference from the actual previously reviewed 6513c353 assignment consists of five local replacements: the stopping paragraph, scaling-table row, decision-matrix evidence wording and two uncertainty/measurement bullets. The revision explains 16 answer probes per position, empirical maximization over measured prefixes, random high estimates selected by that maximization, probe-count sensitivity and fixed-probe bootstrap limitations. The 14.2% result is now a frontier in the finite measurement space, while learning a cheap online stopping signal remains a hypothesis to validate on independent questions and answer probes. This removes the unsupported bridge from oracle gap to established learnability while preserving the useful research question. The changed summary/table/decision passages use the same boundary, so the older stronger claim is not left elsewhere in the synthesis. Original TTC007 sections 3.1-3.2 and appendices (lines 139-159, 858-868, 1045-1054) support these distinctions. The revision leaves the previously fully read causal structure, mechanisms, budget example and evidence-linked design choices intact. I reuse that full reading and do not rerun the existing calculation or expand sources."
+    }
+  },
+  "findings": [],
+  "resolved_prior_findings": [
+    {
+      "finding_id": "AR-TTCZH-01",
+      "status": "resolved_in_current_structure_and_depth_scope",
+      "attempt_id": "476fadc34fa44261ad581f2caf8a2580",
+      "basis": "The actual new text restricts the finite-probe empirical frontier and its uncertainty, and makes online learnability a testable hypothesis. The original adversarial finding was supplied by this revision assignment; I do not adopt or impersonate another reviewer result."
+    }
+  ],
+  "source_checks": [
+    "Compared current frozen report to the original 6513c353/6c265e5d assignment (not the refreshed native-full-prepared alias). Read all five changed passages and the three relevant TTC007 original ranges.",
+    "Reused my complete prior Chinese manuscript, five-unit, outline, budget and source reading; no English counterpart, other initial verdict, new source, API, edit, import or compute rerun."
+  ]
+}

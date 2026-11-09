@@ -1,0 +1,56 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh",
+  "input_version": "e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/0630c99df15b38b81d1c.md",
+        "sha256": "0630c99df15b38b81d1c97d8e425f578838d134d2c82e89626856e4b20926d66"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/e4cabf49ef9396bd0f19/jobs/structure_and_depth-ff48bc05e53e9e75.json",
+        "sha256": "7dbf488fd39cb0a8f4b3118d03b20610418cb6791fa4ff03d6b613bef99c36c0"
+      },
+      "assignment_version": "ff48bc05e53e9e75e95aeef406766198b6a41ff7e8ad602faa2fc1fdd3fad729",
+      "resume_host_task": "/root/benchmark_structure"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: structure_and_depth",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 7,
+    "selected_attempts": {
+      "natural_expression": "33990153cfd44b92b449c1acb705455f",
+      "domain-1": "7b888d1e0173436292d2cb201328a2d0",
+      "evidence": "8e9eee894dc348fb965ebdc8b2c5d956",
+      "process_language": "2b09307bc3a34ea2bd069a6c26e6169f",
+      "requirements": "26ee783da4454fcd99aa3dc69b5adfec",
+      "adversarial_reasoning": "9f447bc0d0b042c9a83427ac479ce75c",
+      "reader_usefulness": "adf6c3d9aaad48808b9b5135b68b483e"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: structure_and_depth",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

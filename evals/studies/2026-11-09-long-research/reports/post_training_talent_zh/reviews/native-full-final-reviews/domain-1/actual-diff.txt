@@ -1,0 +1,20 @@
+diff --git "a/C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\post_training_talent_zh\\native-full-final-reviews\\domain-1\\reviewed-old.txt" "b/C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\post_training_talent_zh\\native-full-final-reviews\\domain-1\\reviewed-current.txt"
+index 4e64881..d3ae8fb 100644
+--- "a/C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\post_training_talent_zh\\native-full-final-reviews\\domain-1\\reviewed-old.txt"
++++ "b/C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\post_training_talent_zh\\native-full-final-reviews\\domain-1\\reviewed-current.txt"
+@@ -1,6 +1,6 @@
+ # 全球模型后训练人才Mapping：能力组合、团队演化与公开协作网络
+ 
+-资料截止：2026年11月9日。面向模型研发组织与人才战略团队。首稿，待其他上下文独立审阅。本文依据公开论文、项目职责、机构页面与本人职业资料建立代表性图谱，没有开展模型实验，没有收集私人联系方式或推测个人招聘意愿。
++资料截止：2026年11月9日。面向模型研发组织与人才战略团队。本文依据公开论文、项目职责、机构页面与本人职业资料建立代表性图谱，没有开展模型实验，没有收集私人联系方式或推测个人招聘意愿。
+ 
+ 后训练组织的能力不能用一组算法作者名单概括。2022年以来，公开成果显示至少四种需要共同工作的能力：把用户目标转成可训练反馈，构造能揭露失败的数据与评价器，把优化过程稳定运行在计算资源上，以及让模型在实际环境中完成多步任务。人才布局应首先识别这些环节由谁承担、怎样相互校验，再决定补充哪些研究专长。
+ 
+@@ -168,6 +168,6 @@ Arctic-SWE则强调异步RL中训练与推理一致性、策略更新间状态
+ 
+ 几个具体限制会直接影响使用。Rafael的个人页明显陈旧，当前身份未知；Eric页头与正文冲突；Longguang只有团队参与和本人方向，缺内部模块职责；Zihan的未来实习措辞不能证明经历已完成；Shayekh的社区身份可确认，但KAIST时期未由独立职业资料确认。将这些条目用于当前编制或招聘前，应补充对应公开职业材料，不能把表内空缺转成确定事实。
+ 
+-本研究读取了所引论文的摘要、相关方法、限制、署名与可用贡献说明，以及职业页面的相应段落，并未声称读完全部论文或源代码。部分页面可以通过公开网页工具读取但直接下载失败，阅读记录标明了该区别。未运行新的模型训练、基准或招聘分析。截止日之后发生的变化不在本报告范围内，网页访问日期也不会被当作历史事件发生日期。
++贡献与经历的依据是所引论文的相关方法、限制、署名与公开贡献说明，以及注明观察日期的公开职业页面；各条目尚缺的具体材料列于上文。未运行新的模型训练、基准或招聘分析。截止日之后发生的变化不在本报告范围内，网页访问日期也不会被当作历史事件发生日期。
+ 
+ 研发与人才战略最有用的结论，是把研究方向落到可观察的工作对象和接口上：谁曾公开解决哪类问题、与什么产物和组织时期对应、还需要什么互补能力。这样的图谱允许不确定项继续存在，也能在任职或成果更新时修订具体条目，而不改变已经核实的历史。

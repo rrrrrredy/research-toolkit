@@ -1,0 +1,12 @@
+{
+  "input_version": "e971ccb9869b9b5333e060010f47e805e42b57a4ba02adedbc0203d5af57509e",
+  "assignment_version": "0378cbf5d30dcfab15ef37b20c929cddd3f0a953e8e2324def38a7a54e37226b",
+  "report_verdict": "pass",
+  "coverage": {
+    "reader_usefulness": {
+      "location": "Entire report lines 1–387: cost and acceptance definitions (5–60), dated tariffs and tokenizer example (62–114), support/document/agent models (117–267), hosting and sensitivities (270–327), value chain and procurement (329–387).",
+      "basis": "Read the full task and effective requirements, empty scope decisions, and all report lines consecutively in ranges 1–100, 101–200, 201–300 and 301–387. Enterprise buyers can trace the argument from five separate cost/value ledgers to the accepted-task denominator, then to three contrasting workflows. Support routing tables retain unresolved cases and conditional retry rates; document caching uses an explicit request timeline and keeps quality loss and preparation costs visible; the agent example separates visible output from total billed generation and explicitly limits fixed-history output sensitivities. The hosting case labels capacity and quality as assumptions, gives both feasible and infeasible crossover cases, and carries reserves and traffic timing into the decision. The final workload-priority table and conditional procurement rules provide usable actions without turning hypothetical quality rates into vendor rankings or price into private margin. No required reader-understanding or decision-use defect found. Assessment concerns the supplied report and its citation presentation; no separate price, source or arithmetic re-audit was performed."
+    }
+  },
+  "findings": []
+}

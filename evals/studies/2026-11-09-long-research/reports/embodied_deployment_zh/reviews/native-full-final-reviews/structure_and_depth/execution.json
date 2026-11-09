@@ -1,0 +1,30 @@
+{
+  "host_task": "/root/benchmark_structure",
+  "status": "completed",
+  "completed_at": "2026-11-09T16:11:15.6610400+00:00",
+  "input_version": "bfaf0a302d2abff490f9591d9eb58c381fabd2f85474084af07315f1233e9297",
+  "assignment_version": "ebb0a8130d62690e5a7b94979e5cac19bd173ff1437e5b72a236e98d4bd4a3e6",
+  "assignment_ref": "reviews/host/bfaf0a302d2abff490f9/jobs/structure_and_depth-ebb0a8130d62690e.json",
+  "assessment_mode": "原独立上下文接续；完整冻结稿实际阅读加全部变更及受影响上下文，复用未变阅读",
+  "prior_review": {
+    "full_report_lines": "1—283",
+    "assignment_version": "9d64b5a377c1ebf05a8919f176b0027588545a774abeaf18dd1df9bdd0ade0f3",
+    "input_version": "03204dc35f0518ade7374a892be2885116d8d964240de93761c7881f4f6d81a5",
+    "execution_path": "native-full-reviews/structure_and_depth/execution.json",
+    "response_path": "native-full-reviews/structure_and_depth/response.json"
+  },
+  "reading_scope": {
+    "current_report_chars": 20466,
+    "not_read": "未读取其他角色评审、作者自评或其结论；来源目录和台账不算原文阅读",
+    "requirements": "任务与effective_requirements已与本人原完整阅读版本逐字比较一致，未增加要求",
+    "source_change_check": "assignment.sources中sources/原件条目与原阅读输入内容逐项比较，无变更",
+    "affected_context": "当前第248—283行",
+    "original_sources": [
+      "本轮相关原件文本与冻结输入相同，未新增原件阅读；复用首次Figure部署全文、DROID项目全文和Stretch手册第6—8页实际阅读"
+    ],
+    "current_report_lines": 283,
+    "report_changes": "全部1处变更：第282行删除生产作者身份与审查安排；完整diff与上下文"
+  },
+  "resolved_findings": [],
+  "work_performed": "只读核对；仅保存本视角结果。未改稿，未重跑研究、计算或软件测试，未导入。"
+}

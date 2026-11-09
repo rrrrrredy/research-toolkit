@@ -1,0 +1,69 @@
+{
+  "request": {
+    "task": "ai_drug_discovery_en",
+    "artifact": "reports/current.md",
+    "scope": "full_report",
+    "purpose": "report_delivery",
+    "domains": [
+      "Drug discovery, clinical trial interpretation and collaboration economics"
+    ],
+    "evidence_paths": [
+      "notes/author-reading-ledger.json",
+      "analysis/author-production/handoff.md"
+    ],
+    "revision": true
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en",
+    "input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+    "scope": "full_report",
+    "assignments": [
+      {
+        "slot_id": "acceptance",
+        "role": "acceptance",
+        "reading_ref": {
+          "path": "logs/reading/1bdeb77d26a9a57bd71c.md",
+          "sha256": "1bdeb77d26a9a57bd71ce7d5f943c8ec110a4dd08c9a0c3a528081a5ae73075a"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/b14ddf2357207d82f698/jobs/acceptance-ed59b1f87b49aaba.json",
+          "sha256": "96d0b508e15131aec4d07badad5e032a23a8b41d5e93b337d96ca4c87bfc7eac"
+        },
+        "assignment_version": "ed59b1f87b49aaba49ed283e6a7e7534a93d6b03933d3396635ddfed69acf386"
+      }
+    ],
+    "reviews_complete": true,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Incomplete independent assignment: acceptance"
+      ],
+      "required_slots": 10,
+      "completed_slots": 9,
+      "selected_attempts": {
+        "natural_expression": "89a685980e124dc5b531569b52c83acc",
+        "domain-1": "15a2122cad074734b9bc4f13ae9670f3",
+        "evidence": "7ae64b0ddaf547c68700602ebaec4434",
+        "process_language": "c44f37dc27734b3bbf28f981c9c03b08",
+        "requirements": "65681f3a9f84422ab82b8f9410c3f28b",
+        "structure_and_depth": "69eed08cc3944d42a4f975d0390da8e1",
+        "adversarial_reasoning": "77c8d214fd814b17a5378d3dfcde64b3",
+        "reader_usefulness": "7c97eceaf1d843a89ee7eb5812697dc6",
+        "audit": "38654699993f42599a7ca0dd4ea6de1e"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Incomplete independent assignment: acceptance"
+    ]
+  }
+}

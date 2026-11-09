@@ -1,0 +1,44 @@
+{
+  "host_task": "/root/benchmark_reader_a",
+  "status": "completed",
+  "perspective": "reader_usefulness",
+  "review_mode": "same_reviewer_revision_followup",
+  "input_version": "f6bb51c4fdab26cede56b083db7acbe727f8d84add9ff64682cf380aa9ff37cb",
+  "assignment_version": "c120ec6c2e91451cf1f5bf6c7128941f7a043fbd769711ed2a956ed63783096a",
+  "artifact_sha256": "76e52a756e003edbec67aca4cc06b19aa6545aec9c5584f1ca57c74f28c222b4",
+  "prior_input_version": "98b93c531b8061c68cfa3c93abb7469a9e3b577b6ad2775430396fc04ba37c51",
+  "prior_assignment_version": "b3f7eaea3299912c7ba5df094a4f0ad57cd526e41a9b6adeae3f907ece2cb11a",
+  "prior_review_directory": "native-full-reviews/reader_usefulness",
+  "batch_observed_started_at_utc": "2026-11-09 16:04:18 UTC",
+  "batch_observed_completed_at_utc": "2026-11-09 16:06:07 UTC",
+  "timing_basis": "上述为本次四题修订复核的真实clock观察窗口，不声称每题独占整个时段；未估造单篇阅读耗时。",
+  "reading": {
+    "prior_full_reading": "复用本人首次完整稿阅读及原execution记载的相关原件/计算阅读。",
+    "current_reading": "原assignment.report→当前reports/current.md全文件git diff，无截断；所有变更及相邻上下文已读。",
+    "current_ranges": [
+      "1–11",
+      "35–45"
+    ],
+    "additional_context": "核读当前任务冻结 sources/MD006/original.txt 第3页尚未计入出海业务收入段；确认该原件与首次版本相同。",
+    "task_and_requirements": "结构化比对任务及effective_requirements与首次完全相同。",
+    "source_reuse_checks": [
+      {
+        "path": "sources/MD006/original.txt",
+        "unchanged": true
+      }
+    ]
+  },
+  "verification": {
+    "prepared_report_matches_managed_current": true,
+    "artifact_hash_matches_current_file": true,
+    "findings_dispositions": [
+      {
+        "finding_id": "RU-MDZH-01",
+        "disposition": "unchanged_optional_nonblocking",
+        "basis": "建议仍适用，未要求为该便利性改进重写正文或新增工作。"
+      }
+    ]
+  },
+  "independence": "仅本人原审阅延续；未读其他视角、作者自评或coordinator-context-reading。",
+  "actions": "仅保存新的最终复核response/execution。首次审阅、首次负面结论和原稿均保留；未修改正文、导入、重跑研究/计算/实验/软件测试，未重新阅读全文中无变化部分。"
+}

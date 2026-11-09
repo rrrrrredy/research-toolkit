@@ -1,0 +1,19 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "process_language": {
+      "location": "reports/current.md 全文第1–287行；第27–197行项目链、第199–271行阶段判断与合作机制、第273–287行附录",
+      "basis": "连续读完全部冻结报告、项目/临床表格、交易责任分配及证据附录，并阅读原始任务和有效要求。设计—合成—测试、临床流程、分阶段许可、资料缺失与作者计算都对药研/商务读者有直接意义；不应因含流程语言而删去。末段“Access and author calculations”把获取材料的失败及作者阅读记录混入面向读者正文，需局部改写。历史必要发现所指350化合物/两周周期已明确区分。未复核临床原件或开展新研究。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "process_language-01",
+      "severity": "minor",
+      "location": "reports/current.md 第287行，Access and author calculations前两句",
+      "basis": "“retrieval metadata and author reading ranges”“with the failure and actual reading method recorded”叙述本次作者的抓取/阅读留档；未具体说明哪个结论因哪份原件缺失受到限制，读者无法据此判断项目。移除这些执行日志说明，或改成具体可用材料及其缺口；保留第277行完整protocol/SAP未获得等已有明确限制，以及第287行后半未开展实验、算术依据和计算类型，后者属于必要研究方法。"
+    }
+  ],
+  "input_version": "6e151bea72d6d3e15666253e2b5b2255bcf0dab97a183cd67bc9a5f4e2a835e9",
+  "assignment_version": "b8b69bad560b363e58df9cefce4ae5030c8ccc1ec1e26983a6140f54ae95de47"
+}

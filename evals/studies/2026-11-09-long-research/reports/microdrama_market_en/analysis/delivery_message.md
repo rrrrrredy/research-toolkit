@@ -1,0 +1,5 @@
+The independent English report on China's domestic microdrama market is ready for review in `draft-current.md`. It covers market definitions and measurement conflicts, audience and engagement growth, platform mechanisms, company and value-chain economics, executed paid/free/hybrid examples, current regulation, and participant-specific decisions with reversal conditions.
+
+The first complete manuscript, original unit drafts, first author check, 39-source registry, actual-reading ledger, 64-claim registry, and executed calculations are preserved alongside it. All factual material comes from the designated frozen inputs. CP23 is an access-failure record and supplies no substantive evidence; CP10 and CP20 retain their web-output limitations. Current Codex authored the work independently of the Chinese report, with no new API calls.
+
+Author drafting and the bounded file-integrity check are complete. Independent content review, audit, benchmark acceptance, and final managed delivery remain with the lead agent.

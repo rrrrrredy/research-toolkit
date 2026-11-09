@@ -1,0 +1,12 @@
+{
+  "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+  "assignment_version": "ff177a5dc431e836fc09c131c463d156e23c80f61e20dc8c733c33363366678d",
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "basis": "Read every diff hunk against my earlier 1–355-line full reading. The current 359-line report defines OTBench OR/AD and units, removes process-history phrasing from TTSP arithmetic and pilot guidance, and repairs the decision tree to update remaining budget/time/resources, recheck feasibility after a changed plan, update the current result after execution, and stop on completion or no feasible plan. The revised tree continues to cover all specified task conditions and alternatives; the additions preserve the previously verified substantive coverage. Original substantive coverage retained: Read continuously in full against the original English task. Section 2 supplies the requested mechanism-and-evidence matrix including generation, retained state, selector access and resource/causal boundary. Sections 3–9 compare mathematical, executable-code and multistep-tool evidence; they explain diminishing returns, saturation, regressions, difficulty, correlated or shared errors, verifier exploitation, unavailable feedback, tool/state failures and limits of transfer to ambiguous outcomes. Fixed checkpoints, shared banks, training changes and oracle diagnostics remain explicit. Sections 10–12 count selection, discarded work, reasoning tokens, tools, retries, controls and adaptation, separate compute/money from serial latency/concurrency/wall time, and normalize only supported historical records. Section 13 provides transparent hypothetical allocation and loss/deadline calculations, without claiming an experiment. Sections 14–16 connect the requested five design alternatives and no-extra-compute outcomes to task conditions. Appendix A addresses contamination, selected tests, evaluator leakage, finite-probe uncertainty and source conflicts; Appendix B retains model/paper/evaluation versions and identifies unpinned implementation commits. English prose and locatable citations fulfill the report form. No universal word count, fixed chapter scheme or independent rerun was imposed.",
+      "location": "Complete current frozen report lines 1–359, using my prior complete reading and the entire current diff (identity reuse for unchanged text)."
+    }
+  },
+  "findings": []
+}

@@ -1,0 +1,49 @@
+{
+  "status": "completed",
+  "host_task": "/root/structure_remaining_b",
+  "executor": "native Codex subagent",
+  "input_version": "d4d35456df2a9b286ae74452251419d51dac7c018c6648fba79b489eff7614fe",
+  "assignment_version": "e9b8d4d7a9dccef2af955e97d9c1bca7b5a32b0aea21200f4a821691484484d0",
+  "job_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\reviews\\host\\d4d35456df2a9b286ae7\\jobs\\structure_and_depth-e9b8d4d7a9dccef2.json",
+  "job_sha256": "9ae932b4297bac5e095f68937b3bf1ceb90dc947395b4d7af295aac974616bcb",
+  "artifact_sha256": "3afb14812baddbd92f0b79ff3db2fd4a77a3f50deba85c04f6e0077724f9f96b",
+  "frozen_report_sha256": "3afb14812baddbd92f0b79ff3db2fd4a77a3f50deba85c04f6e0077724f9f96b",
+  "started_at": "2026-11-09T14:53:45.6154263Z",
+  "completed_at": "2026-11-09T14:58:41.1174648Z",
+  "report_reading": {
+    "ranges": [
+      [
+        1,
+        105
+      ],
+      [
+        106,
+        215
+      ],
+      [
+        216,
+        293
+      ]
+    ],
+    "complete": true,
+    "path": "frozen-report.md",
+    "last_line": 293,
+    "trailing_newline": true
+  },
+  "originals_examined": [
+    {
+      "range": "1-28",
+      "path": "sources/actual/ODM-S01.txt"
+    },
+    {
+      "range": "1-88",
+      "path": "sources/actual/ODM-S19.txt"
+    },
+    {
+      "range": "331-342",
+      "path": "sources/actual/ODM12.txt"
+    }
+  ],
+  "other_perspective_results_read": false,
+  "report_edited": false
+}

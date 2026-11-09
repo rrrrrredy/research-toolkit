@@ -1,0 +1,46 @@
+{
+  "host_task": "/root/full_reader_b",
+  "agent_identity": "/root/full_reader_b",
+  "execution_mode": "native Codex subagent",
+  "status": "completed",
+  "slot_id": "reader_usefulness",
+  "input_version": "d49c3ce9104cc63e7832524cae63752853080491d4da8a045072f0dfff369a97",
+  "assignment_version": "fa5d6761bd16313a11df40bb91879a5fc6b6d8e566ec73ebfa2b7cd43e5f19db",
+  "artifact_sha256": "4645728a2c1f4b18f13c8c42839d3610b4ec0ebdad5596efa38adc2983417f3c",
+  "started_at": null,
+  "first_recorded_reading_boundary_utc": "2026-11-09T14:40:56.9562583Z",
+  "completed_at": "2026-11-09T14:42:28.5726080Z",
+  "timestamp_note": "Exact execution start was not captured. First recorded UTC boundary followed full reading of report lines 1–62; task reading began before that boundary.",
+  "assignment_path": "reviews/host/d49c3ce9104cc63e7832/jobs/reader_usefulness-fa5d6761bd16313a.json",
+  "read_report_ranges": [
+    [
+      1,
+      62
+    ],
+    [
+      63,
+      132
+    ],
+    [
+      133,
+      200
+    ],
+    [
+      201,
+      260
+    ],
+    [
+      261,
+      288
+    ]
+  ],
+  "total_report_lines": 288,
+  "read_task": true,
+  "read_effective_requirements": true,
+  "read_scope_decisions": true,
+  "source_originals_read": [],
+  "originals_note": "No source-level factual or clinical re-audit was needed to assess report reader usefulness.",
+  "other_review_results_read": false,
+  "report_modified": false,
+  "api_used": false
+}

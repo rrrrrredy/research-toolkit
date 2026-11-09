@@ -1,0 +1,144 @@
+{
+  "input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+  "assignment_version": "25cac285112050a56db858b59a4a9110bcd6a495ed2511f3c4a8dd1a7c691099",
+  "result": "valid",
+  "basis": "独立审计当前完整 288 行整稿、8 个当前原始内容审阅及执行/版本记录、3 条原始必要负面和生产承接。当前 8 份审阅有效；报告在本次任务要求及所列原件核对范围内可通过。结论来自实际正文和原件，不来自票数、作者勾选或历史 pass。既有 AIDD outline 独立性修复不在本次全文审计中重做。",
+  "review_checks": {
+    "requirements": {
+      "result": "valid",
+      "basis": "/root/complete_requirements_b reused its own complete 1–288 reading, read the current 105/287 diff and task/effective requirements. Its seven-program, clinical-design, partnership and cutoff observations are locatable in the full current report I read. All current input, raw-response and execution references matched their recorded normalized-text hashes; host_task is distinct from producers /root, /root/ttc_research and author:ai_drug_discovery_en, and from this auditor."
+    },
+    "evidence": {
+      "result": "valid",
+      "basis": "/root/independent_reviews_a retained the original minor negative, checked the corrected compound/cycle unit against AIDD06, and preserved its specific REC-4881 access limitation. I independently checked that meeting-footnote detail from the issuer-hosted indexed PDF, along with FVC, registries, trial outcomes and contracts; no unsupported clearance identified. All current input, raw-response and execution references matched their recorded normalized-text hashes; host_task is distinct from producers /root, /root/ttc_research and author:ai_drug_discovery_en, and from this auditor."
+    },
+    "adversarial_reasoning": {
+      "result": "valid",
+      "basis": "/root/benchmark_adversarial's current reply treats observed FVC versus imputation, absent comparator, failed/terminated programs, screened subsets and contract ceilings separately. Its unchanged full reading plus actual diff is applicable; the challenged causal inferences remain limited in the report. All current input, raw-response and execution references matched their recorded normalized-text hashes; host_task is distinct from producers /root, /root/ttc_research and author:ai_drug_discovery_en, and from this auditor."
+    },
+    "structure_and_depth": {
+      "result": "valid",
+      "basis": "/root/structure_remaining_b retained its own original full reading at 1–100,101–195,196–287 and examined all actual diff/context at 101–109 and 283–287. The complete current artifact retains longitudinal programs, stage comparison, rights/economics and decision implications; no removed depth is concealed by the small revision. All current input, raw-response and execution references matched their recorded normalized-text hashes; host_task is distinct from producers /root, /root/ttc_research and author:ai_drug_discovery_en, and from this auditor."
+    },
+    "reader_usefulness": {
+      "result": "valid",
+      "basis": "/root/full_reader_b originally read 1–288 in five continuous ranges, then all current diff/context at 102–108 and 284–288. The current audience-specific actions tie to identifiable unresolved scientific or commercial questions rather than a generic checklist. All current input, raw-response and execution references matched their recorded normalized-text hashes; host_task is distinct from producers /root, /root/ttc_research and author:ai_drug_discovery_en, and from this auditor."
+    },
+    "process_language": {
+      "result": "valid",
+      "basis": "/root/process_remaining_b's original negative at line 287 is retained; current reassessment examines the actual rewritten paragraph and surrounding limitations. Current 277/287 explain evidence access/method limits without claiming reviewer or workflow completion as research evidence. All current input, raw-response and execution references matched their recorded normalized-text hashes; host_task is distinct from producers /root, /root/ttc_research and author:ai_drug_discovery_en, and from this auditor."
+    },
+    "natural_expression": {
+      "result": "valid",
+      "basis": "/root/benchmark_natural_expression's full prior reading and current changed-context reading support its paragraph-level findings. The two changes preserve the report's explanatory English and do not introduce formulaic repetition or remove necessary qualifications. All current input, raw-response and execution references matched their recorded normalized-text hashes; host_task is distinct from producers /root, /root/ttc_research and author:ai_drug_discovery_en, and from this auditor."
+    },
+    "domain-1": {
+      "result": "valid",
+      "basis": "/root/independent_domain_b preserved its original negative on the compound/feedback-cycle unit, rechecked the source and current 105, and retained detailed clinical and experimental reading. I independently checked the principal denominators, missingness, stage transitions, mechanistic evidence and rights claims; no contradiction with its current pass found. All current input, raw-response and execution references matched their recorded normalized-text hashes; host_task is distinct from producers /root, /root/ttc_research and author:ai_drug_discovery_en, and from this auditor."
+    }
+  },
+  "dispositions": {},
+  "critical_checks": [
+    {
+      "requirement_id": "R_TASK",
+      "location": "reports/current.md:1–288; especially 31–40,48–195,199–271",
+      "evidence": "Seven traceable small-molecule histories span target/design, optimization, phenotypic screening and repurposing, including DSP-1181, EXS21546 and REC-994 discontinuation. Candidate/indication/formulation is the unit of progress. Current trial-registry modules R01W–R06, original papers AIDD-S01/S02/S11–15/S20 and AIDD04/06/08 support the principal chains; partnership examples resolve deliverables, rights, experiments and downstream responsibility. No causal industry-wide uplift follows from this selected set.",
+      "result": "clear"
+    },
+    {
+      "requirement_id": "R_LANGUAGE",
+      "location": "reports/current.md:1–288",
+      "evidence": "Complete English longitudinal report with a seven-program register, arm-level safety and separate FVC estimators, clinical-trial comparison, stage-specific synthesis and partnership/decision analysis. Full continuous reading covered every substantive line; no outline-only or abbreviated substitute.",
+      "result": "clear"
+    },
+    {
+      "requirement_id": "R_DATE",
+      "location": "reports/current.md:31–40,93–95,115–117,131–151,177,251–257,275–277",
+      "evidence": "Registry JSON distinguishes oral phase III first posting 2026-07-07, actual start 2026-09-09 and 2026-09-10 dosing announcement; inhalation IND remains separate. REC-994 later registry results do not undo its 2025 stop. REC-4881 2026-11-02 release uses a 2026-09-10 data cutoff; planned 2027 activity is not completed development. Original 2026-10-15 Sanofi release establishes a candidate option and future phase I plan, not clinical benefit. Sources used to establish stage predate 2026-11-09.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:62–87",
+      "evidence": "AIDD-S02:119–150,170–184; S23 Table 2:33–96; actual Figure 2 PNG panels a/b; R01W absolute-FVC registered results. Randomization 18/18/18/17, missing week-12 measurements 5/6/8/3, observed high-dose/placebo n=10/14 and modeled randomized n=18/17 are distinct. 118.7 and 97.4 mL are explicitly descriptive group-mean subtractions, not estimated contrast CIs. AE-related discontinuations 1/5/4/2 and liver/background-therapy caution agree with originals.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:101–151",
+      "evidence": "AIDD06:184–202,270–305 supports nomination in under 12 months excluding safety, 350 compounds and repeated approximately two-week cycles. AIDD08:232–249 supports the disclosed stop criterion. R04/R05 separate healthy-volunteer and six-patient oncology studies; the registry therapeutic-index reason is not erased as merely financial. AIDD-S20:185–193 and R03 results retain REC-994's negative development decision and noncomparable safety exposure. Issuer REC-4881 meeting slides p6/p9 and 2026-11-02 release support 21 phase-II patients,16 evaluable,15 week-13 and13 week-25 measurements,26 safety patients and explicit open-label limitations.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:159–195,219–228",
+      "evidence": "AIDD-S11/S12/S13 retain ACTT-2, COV-BARRIER and RECOVERY designs, endpoints and denominators; failed primary COV-BARRIER progression is not replaced by nominal secondary mortality. AIDD04 separates old SU3327 structure, retrospective AUC, selected prospective 51/99 and2/63 samples,23 ZINC tests/8 active against any species and preclinical limitations. Jayatunga et al. original author-posted article at 504–595 and figure caption 803–806 supports 21/24 and4/10 in a broader AI-native cohort, excluding COVID-related molecules; descriptive Wilson intervals do not become causal comparative evidence.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:243–259",
+      "evidence": "Takeda license in Recursion 2025 10-K supports worldwide rights/nonclinical license-back and separated payment types. Sanofi 2022 filed 6-K:77–93 and contract clauses20–22 distinguish $100m upfront,~$343m/program,~$5.2bn ceiling, partner development costs, platform IP and restricted data use. The 2026-10-15 issuer release supports $10m option trigger and $144m cumulative receipts, not an asset's standalone value. Roche original8-K:98–115 and January2022 subsequent-event note distinguish map/raw-image/program options and $150m received. Current report draws bounded implications from these terms.",
+      "result": "clear"
+    }
+  ],
+  "sample_checks": [
+    {
+      "location": "Full report sampling population: reports/current.md:1–288; production U1→report:76–87",
+      "selection_reason": "Auditor-selected transformation with a previously corrected statistical estimator; a passed current result could conceal recurrence when merging units.",
+      "evidence": "Read revised U1:29–64 and the complete revise_U1_analysis_population.py without executing it; compared the transformed FVC table/context with actual Figure2 and R01W results. The report carries both observed and imputed analyses with separate denominators and missing-data implications. Original unit/calculation records remain retained.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:113–121",
+      "selection_reason": "Passed adjacent program tests whether discovery speed, target engagement and shared ownership are conflated with efficacy or a pure software service.",
+      "evidence": "Issuer 2022 annual-report indexed primary passage confirms nine months/163 tested compounds. Evotec original case:91–115 gives ex vivo whole-blood pCREB in CD8+ cells and PK/PD; Exscientia2023 20-F:4053 gives Aptuit work and shared costs; UK2023 accounts Joint Operations:6029 gives April2021 opt-out,40% year-end interest and10% commercialization floor. These intermediate outputs are not called therapeutic success.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:125–135",
+      "selection_reason": "Matched screen and later negative development decision provide a check against survivor selection and reclassifying completed trials as continuing assets.",
+      "evidence": "AIDD-S14:192–230,241 supports 2,100-compound screen,38/38 disjoint selected lists,7 versus1 functional rescues and mouse P=.052. AIDD-S20:185–193 reports nonsustained MRI/function signal and cessation. R03 participant-flow, CCM-HI outcome and adverse-event timeframe show why extension-active data cannot be compared directly with placebo part1.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:143–151",
+      "selection_reason": "Recent open-label high response figures with changing analysis denominators warranted targeted primary-footnote inspection, especially the evidence review's explicit access limit.",
+      "evidence": "Issuer-hosted CGA-IGC PDF p6 footnote independently recovered through exact-domain indexed text confirms 3 without post-baseline endoscopy and2 below75% exposure among21 phase-II patients. Page9 has15/16 week13,13 negative changes and median−47%; issuer release preserves week25 n=13, natural-history rather than randomized comparison,26 safety and future registrational plans. The auditor does not claim the unsuccessful PDF screenshot was viewed.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:185–195",
+      "selection_reason": "A well-known positive discovery example is a useful passed-content check on model attribution and selection of tested molecules.",
+      "evidence": "AIDD04:340–437,726–760,783–820,1318–1384,2140–2190 separates prediction from laboratory mechanism, preserves Pseudomonas nonresponse and bounded resistance experiments, and describes nonblinded wound treatment and three failed C.difficile colonizations. Report uses selected prospective-hit fractions as selected-set results, not global sensitivity or human benefit.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:219–228,253; calculations.py and revised calculation result",
+      "selection_reason": "Author-derived numbers and cross-program comparisons can remain superficially plausible after source evidence changes.",
+      "evidence": "Read arithmetic source/output without rerunning. Numerators and denominators map to cited original outcomes; Wilson intervals condition on labels; mortality raw risk differences do not replace adjusted ratios. 343×15=5145 million is rounded consistently with an announced5200-million ceiling, and upfront share is descriptive rather than success probability.",
+      "result": "clear"
+    },
+    {
+      "location": "U4-comparison-partnerships-decisions.md:49–75 → reports/current.md:243–271",
+      "selection_reason": "A synthesis-to-report transformation can turn a contract or partner option into clinical validation.",
+      "evidence": "Read unit passages and current prose, with original Sanofi2022/2026, Roche2021/2022 and Genentech2026 materials. The resulting text preserves undisclosed targets, preclinical hit-generation stage, redacted ownership and contingent payments; recommendations are tied to the next evidentiary uncertainty.",
+      "result": "clear"
+    }
+  ],
+  "prior_findings": {
+    "10fabb38ecf946baa88fbf8161d64dab/AIDD-FULL-DOM-B-01": {
+      "decision": "resolved",
+      "reason": "The original domain finding correctly identified a counting-unit error. Current wording changes compounds rather than inventing more feedback rounds.",
+      "evidence": "Current105 says hundreds of compounds through repeated two-week feedback cycles, with350th compound and excluded safety evaluation retained; AIDD06:184–202,270–305 independently checked."
+    },
+    "74b56976bf2c42cbb651e8638ba20c6b/AIDD-FULL-EV-01": {
+      "decision": "resolved",
+      "reason": "Same substantive error independently identified by evidence review; both original negatives remain legitimate and retained.",
+      "evidence": "Full old/current comparison shows105 is the actual changed sentence. Current101–109 is internally consistent with the original Sumitomo account, not hundreds of sequential cycles."
+    },
+    "ee8947c35a7d4c88b16d75f1fa74d4d5/process_language-01": {
+      "decision": "resolved",
+      "reason": "The actual replacement removes retrieval/reading-log narration while preserving material evidence limitations and calculation method.",
+      "evidence": "Current287 Sources and calculations describes source types and refers to specific missing protocol/SAP/contract details above;277 retains the real limitations. Only105 and287 differ from the original full-report snapshot."
+    }
+  },
+  "report_verdict": "pass",
+  "open_issues": []
+}

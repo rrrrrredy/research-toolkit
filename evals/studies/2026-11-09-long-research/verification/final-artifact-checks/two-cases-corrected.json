@@ -1,0 +1,216 @@
+[
+  {
+    "result_schema_version": 2,
+    "delivery_contract_version": 3,
+    "case_id": "microdrama_market_zh",
+    "conformance_score": 100,
+    "max_conformance_score": 100,
+    "conformance_status": "pass",
+    "research_quality_status": "not_evaluated",
+    "findings": [
+      "Semantic review required: Topic/object coverage requires substantive review; string presence or absence does not establish coverage. Unmatched configured strings: 中国境内微短剧市场, 内容制作、版权与发行, 内容监管与平台规则, 小程序分发, 平台分账与产业链现金流, 投流获客与自然流量, 独立应用分发, 用户付费与广告变现, 用户规模、观看时长与留存, 短视频平台内分发.",
+      "Semantic review required: Claim wording requires contextual review (not a confirmed defect): 必然"
+    ],
+    "artifacts": {
+      "state/task_spec.md": true,
+      "state/progress.json": true,
+      "state/requirements.jsonl": true,
+      "state/final_delivery.json": true,
+      "data/source_registry.csv": true,
+      "data/claims_registry.csv": true,
+      "logs/review.jsonl": true,
+      "final.md": true,
+      "delivery_message.md": true
+    },
+    "section_hits": [],
+    "entity_hits": [],
+    "registry_hits": 36,
+    "final_reference_hits": 33,
+    "claim_rows": 20,
+    "review_rows": 1,
+    "review_completion": {
+      "ok": true,
+      "flags": [],
+      "findings": [],
+      "required_slots": 10,
+      "completed_slots": 10,
+      "selected_attempts": {
+        "requirements": "c651009fb1f441b5b7ed1804025c62f6",
+        "natural_expression": "b19c372c2d1b499bb74a27b7c19e9844",
+        "domain-1": "3b758001dcba4cfd9915b60ee572f3e2",
+        "adversarial_reasoning": "b0aafefd74af4eb791096fc02620b3d5",
+        "reader_usefulness": "4d168e20b9804e7691ea56f44e7328b3",
+        "structure_and_depth": "22862cab98254223a1a98450fa5e1f33",
+        "evidence": "64b912da816e4171ab73a4973c32b7db",
+        "process_language": "43edf8741f5a4754a428835863dace0f",
+        "audit": "07c69eb18578405a9e21db96e5de07c2",
+        "acceptance": "2cd165fe63ed4b14828539c60739c662"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "progress_stage": "final",
+    "progress_status": "complete",
+    "char_count": 34896,
+    "conformance_flags": [],
+    "coverage_flags": [],
+    "source_instruction_markers": [],
+    "forbidden_source_outcomes": [],
+    "delivery_check": {
+      "ok": true,
+      "delivery_contract_version": 3,
+      "current_contract_checked": true,
+      "semantic_verification": false,
+      "review_completion": {
+        "ok": true,
+        "flags": [],
+        "findings": [],
+        "required_slots": 10,
+        "completed_slots": 10,
+        "selected_attempts": {
+          "requirements": "c651009fb1f441b5b7ed1804025c62f6",
+          "natural_expression": "b19c372c2d1b499bb74a27b7c19e9844",
+          "domain-1": "3b758001dcba4cfd9915b60ee572f3e2",
+          "adversarial_reasoning": "b0aafefd74af4eb791096fc02620b3d5",
+          "reader_usefulness": "4d168e20b9804e7691ea56f44e7328b3",
+          "structure_and_depth": "22862cab98254223a1a98450fa5e1f33",
+          "evidence": "64b912da816e4171ab73a4973c32b7db",
+          "process_language": "43edf8741f5a4754a428835863dace0f",
+          "audit": "07c69eb18578405a9e21db96e5de07c2",
+          "acceptance": "2cd165fe63ed4b14828539c60739c662"
+        },
+        "independent_review": true,
+        "record_consistency_checked": true,
+        "reviewer": "independent",
+        "review_strength": "independent"
+      },
+      "flags": [],
+      "findings": [],
+      "completion_claim": false,
+      "terminal_state": true,
+      "stage": "final",
+      "status": "complete",
+      "accepted_limitations": [],
+      "limitation_disclosure": {
+        "status": "not_applicable",
+        "unmatched_limitations": [],
+        "semantic_verification": false
+      },
+      "warnings": [],
+      "delivery_observation": "not_provided"
+    },
+    "review_warnings": [
+      "Topic/object coverage requires substantive review; string presence or absence does not establish coverage. Unmatched configured strings: 中国境内微短剧市场, 内容制作、版权与发行, 内容监管与平台规则, 小程序分发, 平台分账与产业链现金流, 投流获客与自然流量, 独立应用分发, 用户付费与广告变现, 用户规模、观看时长与留存, 短视频平台内分发.",
+      "Claim wording requires contextual review (not a confirmed defect): 必然"
+    ],
+    "assessment_scope": "deterministic_structure_traceability_and_known_failure_signals"
+  },
+  {
+    "result_schema_version": 2,
+    "delivery_contract_version": 3,
+    "case_id": "test_time_compute_en",
+    "conformance_score": 100,
+    "max_conformance_score": 100,
+    "conformance_status": "pass",
+    "research_quality_status": "not_evaluated",
+    "findings": [
+      "Semantic review required: Topic/object coverage requires substantive review; string presence or absence does not establish coverage. Unmatched configured strings: Adaptive inference-time budget allocation, Compute cost, latency, and parallelism, Independent sampling, self-consistency, and best-of-N selection, Mathematical reasoning, coding, and multi-step tool tasks, Outcome verifiers and process feedback, Scaling saturation and correlated failure modes, Sequential revision and search over intermediate states, Tool-using agent loops and environmental feedback, Training-time changes versus inference-time allocation."
+    ],
+    "artifacts": {
+      "state/task_spec.md": true,
+      "state/progress.json": true,
+      "state/requirements.jsonl": true,
+      "state/final_delivery.json": true,
+      "data/source_registry.csv": true,
+      "data/claims_registry.csv": true,
+      "logs/review.jsonl": true,
+      "final.md": true,
+      "delivery_message.md": true
+    },
+    "section_hits": [],
+    "entity_hits": [],
+    "registry_hits": 20,
+    "final_reference_hits": 19,
+    "claim_rows": 28,
+    "review_rows": 2,
+    "review_completion": {
+      "ok": true,
+      "flags": [],
+      "findings": [],
+      "required_slots": 10,
+      "completed_slots": 10,
+      "selected_attempts": {
+        "natural_expression": "765481b2a8964701a349366a7201631e",
+        "evidence": "034f0991a52b4930ab41b2847cf2c0d7",
+        "requirements": "8d2a6892b5e14572ab6b495427a88bc0",
+        "process_language": "9060f6f0441841a9ba57fa071acf7ab9",
+        "adversarial_reasoning": "d7e95e9f2bac4734b260c8781ba74e1b",
+        "domain-1": "c6f0f751aeb143c898a2c0dad8db6ea1",
+        "structure_and_depth": "9145e850a09d4b6fb67edec8ba313d81",
+        "reader_usefulness": "682aa1809105466a8bbccc78c18a443a",
+        "audit": "f07b8920f9a245ce91d722de6ec14f0a",
+        "acceptance": "1ce2d3f3e9fc409096f4a07e371ecb99"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "progress_stage": "final",
+    "progress_status": "complete",
+    "char_count": 63487,
+    "conformance_flags": [],
+    "coverage_flags": [],
+    "source_instruction_markers": [],
+    "forbidden_source_outcomes": [],
+    "delivery_check": {
+      "ok": true,
+      "delivery_contract_version": 3,
+      "current_contract_checked": true,
+      "semantic_verification": false,
+      "review_completion": {
+        "ok": true,
+        "flags": [],
+        "findings": [],
+        "required_slots": 10,
+        "completed_slots": 10,
+        "selected_attempts": {
+          "natural_expression": "765481b2a8964701a349366a7201631e",
+          "evidence": "034f0991a52b4930ab41b2847cf2c0d7",
+          "requirements": "8d2a6892b5e14572ab6b495427a88bc0",
+          "process_language": "9060f6f0441841a9ba57fa071acf7ab9",
+          "adversarial_reasoning": "d7e95e9f2bac4734b260c8781ba74e1b",
+          "domain-1": "c6f0f751aeb143c898a2c0dad8db6ea1",
+          "structure_and_depth": "9145e850a09d4b6fb67edec8ba313d81",
+          "reader_usefulness": "682aa1809105466a8bbccc78c18a443a",
+          "audit": "f07b8920f9a245ce91d722de6ec14f0a",
+          "acceptance": "1ce2d3f3e9fc409096f4a07e371ecb99"
+        },
+        "independent_review": true,
+        "record_consistency_checked": true,
+        "reviewer": "independent",
+        "review_strength": "independent"
+      },
+      "flags": [],
+      "findings": [],
+      "completion_claim": false,
+      "terminal_state": true,
+      "stage": "final",
+      "status": "complete",
+      "accepted_limitations": [],
+      "limitation_disclosure": {
+        "status": "not_applicable",
+        "unmatched_limitations": [],
+        "semantic_verification": false
+      },
+      "warnings": [],
+      "delivery_observation": "not_provided"
+    },
+    "review_warnings": [
+      "Topic/object coverage requires substantive review; string presence or absence does not establish coverage. Unmatched configured strings: Adaptive inference-time budget allocation, Compute cost, latency, and parallelism, Independent sampling, self-consistency, and best-of-N selection, Mathematical reasoning, coding, and multi-step tool tasks, Outcome verifiers and process feedback, Scaling saturation and correlated failure modes, Sequential revision and search over intermediate states, Tool-using agent loops and environmental feedback, Training-time changes versus inference-time allocation."
+    ],
+    "assessment_scope": "deterministic_structure_traceability_and_known_failure_signals"
+  }
+]

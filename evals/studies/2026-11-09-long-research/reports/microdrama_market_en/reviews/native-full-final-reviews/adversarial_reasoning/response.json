@@ -1,0 +1,12 @@
+{
+  "input_version": "4916bbf7954376e17453bc78c09a2511b4dcceae7270c4ed378ef2d93eb80e89",
+  "assignment_version": "28c0a2c7d2161d46cfb6eee3172435631455e4fc7c58a24ebc457c66725f49c2",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "复用本人先前完整正文审阅（初始记录 native-full-reviews/adversarial_reasoning）；当前稿共 340 行，完整 diff 及上下文当前行号 [[287, 293], [297, 305]]。",
+      "basis": "全部差异为语法修正和资料获取/阅读过程表述清理。渠道活动去重与增量回收不同、独立来源与重复记录不同、CP23 只有访问失败而不承载事实等边界仍在。原全文关于全国调查与应用活动不可直接同分母比较、汇总时长/次数不推出个人行为、合同回收顺序及平台与制作方盈利可分离的推理均未改变；无新增实证或模型结果需要重复研究。"
+    }
+  },
+  "findings": []
+}

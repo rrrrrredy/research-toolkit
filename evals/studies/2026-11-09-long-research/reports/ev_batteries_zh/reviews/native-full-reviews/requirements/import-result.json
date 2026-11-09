@@ -1,0 +1,123 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ev_batteries_zh",
+  "input_version": "36cd29d9c1e9d097b1acc9990dee6e4ee4941317b6a05368eb2711b6dd179453",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "evidence",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/73039f83496aeb4803ae.md",
+        "sha256": "73039f83496aeb4803ae2f851e623567b05c76b356ceb1bdaf4e9ed1c4298770"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/36cd29d9c1e9d097b1ac/jobs/evidence-b014d4a632e0fd8f.json",
+        "sha256": "2b99055d110408e6d399e45d43a2f52ac48736d0feeb684c8c78ad243986f23d"
+      },
+      "assignment_version": "b014d4a632e0fd8f68a0c9965e96df597c3986f785ba44baaa5c34a084701f5a"
+    },
+    {
+      "slot_id": "adversarial_reasoning",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/23e49da07b272ebb1c84.md",
+        "sha256": "23e49da07b272ebb1c8443698a84e71068869309dbeaa8efe7dbc2749be36979"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/36cd29d9c1e9d097b1ac/jobs/adversarial_reasoning-f63b7050c9d197b7.json",
+        "sha256": "c4cedb744369a583d4a486fbcd53052567ed7ff4ff231c3de0561b641c449478"
+      },
+      "assignment_version": "f63b7050c9d197b78690a89beac04e338b5b01f4244312f00cf1a13bd998f2a9"
+    },
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/28925630251adb1e6663.md",
+        "sha256": "28925630251adb1e6663d365804d08731b68bf3a2919751e2d1910da44d00a6d"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/36cd29d9c1e9d097b1ac/jobs/structure_and_depth-95296598def00aeb.json",
+        "sha256": "e90c19e2861a39cc4e68b458d959a6751f2579ee959207826247ea0b9c7ba827"
+      },
+      "assignment_version": "95296598def00aeb8cd44001c74d18977f3339bcfbc2c59e931dab287cd05035"
+    },
+    {
+      "slot_id": "reader_usefulness",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/cfebb9d8a32be6a4b097.md",
+        "sha256": "cfebb9d8a32be6a4b097cb5cc518073c401b39e7771e36a640b4b6f4b0361fc2"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/36cd29d9c1e9d097b1ac/jobs/reader_usefulness-4b1abf9d2a887ac3.json",
+        "sha256": "892a1b411c1c05086b1d94e8fdd1bf1506191615d1b1c8885cdccb27d575aec9"
+      },
+      "assignment_version": "4b1abf9d2a887ac37b3de035b8918892071bfee7df3d46e4df2df83fcfb56e2b"
+    },
+    {
+      "slot_id": "process_language",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/6a197f52c3010bc6bc93.md",
+        "sha256": "6a197f52c3010bc6bc93f8c7ec55d70876d890cdd2231f00731fa6ea6145db4e"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/36cd29d9c1e9d097b1ac/jobs/process_language-4daa17c9fe4be326.json",
+        "sha256": "dc05c2cd1f6ee509191e56953b5192dfa1ace34e60a87f46d06e55841c0b9b55"
+      },
+      "assignment_version": "4daa17c9fe4be3265d44e2614985cfc61ad63d01a81417860e865d29f759a97b"
+    },
+    {
+      "slot_id": "natural_expression",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/4291ffc8cb90b43def55.md",
+        "sha256": "4291ffc8cb90b43def55746f65bcf21dd943937c9fec7ab82337ae2a09f1dd8d"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/36cd29d9c1e9d097b1ac/jobs/natural_expression-f293c3592717c5c6.json",
+        "sha256": "dc51738ada956987dfd7cbfcde35d3b33918f4c90362e101c266ecf160be4f64"
+      },
+      "assignment_version": "f293c3592717c5c66df60ca2fdeb21165e153b4bfeacd7fcf52f3f5cc2dc04cb"
+    },
+    {
+      "slot_id": "domain-1",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/620573012ddf4933afce.md",
+        "sha256": "620573012ddf4933afce85f39b1e17f39bac3e610ea0c6e06a42e947911387db"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/36cd29d9c1e9d097b1ac/jobs/domain-1-ee39a056740c6057.json",
+        "sha256": "03c9c4f39072cb9dfe094bae739748d0e06e83cea3bbd55b59250f6280760cd4"
+      },
+      "assignment_version": "ee39a056740c605700fd54a6a784a29644505f55d477f216fca43a9ac7d6ae6a"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Research dependencies are not ready: inputs_changed"
+    ],
+    "required_slots": 10,
+    "completed_slots": 1,
+    "selected_attempts": {
+      "requirements": "ed5439cf12dc46c7bbde0fa20f4ce4fa"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Research dependencies are not ready: inputs_changed"
+  ]
+}

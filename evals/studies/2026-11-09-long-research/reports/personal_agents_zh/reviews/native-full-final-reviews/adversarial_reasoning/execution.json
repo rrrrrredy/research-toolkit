@@ -1,0 +1,155 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "8208b408fba85ea9f85a7f8cce08ea0777a4dc51b47cd27819c1a1036a2be6e0",
+  "assignment_version": "78a6b498d9e279586f16af293020c79813bc6610b7d7b4e08437fcbae5489035",
+  "completed_at": "2026-11-09T16:01:33.109722+00:00",
+  "reading_scope": {
+    "mode": "本人原始全文评审上下文接续；复用未变化的正文和原件阅读，阅读全部已审冻结稿到当前稿的差异及必要上下文。",
+    "baseline_input_version": "d4aa7b428be4775d08f8987590a3df6f36a2073d3514f9fbd916cbe1f980b462",
+    "baseline_packet": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\personal_agents_zh\\native-full-before-author-revision-prepared.json",
+    "retained_own_reviews": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\personal_agents_zh\\native-full-reviews\\adversarial_reasoning\\response.json",
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\personal_agents_zh\\native-full-reviews\\adversarial_reasoning\\execution.json"
+    ],
+    "report_path": "reports/current.md",
+    "report_lines_total": 222,
+    "report_diff_current_line_ranges": [
+      [
+        19,
+        25
+      ],
+      [
+        47,
+        68
+      ],
+      [
+        85,
+        107
+      ]
+    ],
+    "exact_equal_to_baseline_fields": [
+      "task",
+      "requirements",
+      "effective_requirements",
+      "scope_decisions",
+      "sources",
+      "source_files"
+    ],
+    "additional_reading": {
+      "report_context": [
+        [
+          86,
+          112
+        ]
+      ],
+      "originals": [
+        {
+          "path": "sources/actual/PA08.txt",
+          "lines": [
+            [
+              34,
+              43
+            ],
+            [
+              190,
+              195
+            ],
+            [
+              283,
+              295
+            ]
+          ],
+          "scope": "资格地区与 Workspace/搜索动作"
+        },
+        {
+          "path": "sources/actual/PA10.txt",
+          "lines": [
+            [
+              142,
+              146
+            ],
+            [
+              162,
+              168
+            ]
+          ],
+          "scope": "触发应用条件与发票行/附件示例"
+        },
+        {
+          "path": "sources/actual/PA13.txt",
+          "lines": [
+            [
+              18,
+              35
+            ]
+          ],
+          "scope": "飞猪/高德、即时零售支付和邀测文档/电话能力"
+        },
+        {
+          "path": "sources/actual/PA19.txt",
+          "lines": [
+            [
+              200,
+              205
+            ]
+          ],
+          "scope": "个人上下文、Tripsy 即将支持、日历与 iCloud 对话续接"
+        },
+        {
+          "path": "sources/actual/PA11.txt",
+          "lines": [
+            [
+              104,
+              104
+            ],
+            [
+              112,
+              112
+            ],
+            [
+              116,
+              116
+            ],
+            [
+              129,
+              129
+            ],
+            [
+              133,
+              133
+            ],
+            [
+              140,
+              140
+            ],
+            [
+              143,
+              144
+            ],
+            [
+              148,
+              148
+            ],
+            [
+              157,
+              157
+            ],
+            [
+              164,
+              164
+            ],
+            [
+              168,
+              168
+            ]
+          ],
+          "scope": "实际输出并读取的会话授权、日志、停止与在线条件段落"
+        }
+      ],
+      "recovery": "合并 diff 输出有一段被截断，已用当前稿第 86–112 行补读完整；来源合并输出也曾截断，仅记录确实显示的区间，并补读 PA08 第 34–43 行及 PA13 第 18–35 行。"
+    },
+    "limits": "未重新通读未变全文，未读取其他视角意见，未运行研究/计算/新实验，未修改正文；审阅是对当前整稿结论影响的接续确认，原始负面与实际阅读区间原样保留。"
+  },
+  "report_sha256": "364de9c89668dd490adeb400faeb4cdf2a82745f8ed784263ef961e9b956394a"
+}

@@ -1,0 +1,169 @@
+{
+  "host_task": "/root/evidence_remaining_b",
+  "status": "completed",
+  "perspective": "evidence",
+  "mode": "same_context_revision_followup",
+  "input_version": "e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "assignment_version": "5356446fffd45cb6aafedf08668e33c87d8a16575cdf8ea7ba89e3dc2f18672b",
+  "artifact_sha256": "68ae85a7f3ead87c98127e2730a033e83275b5ed5c85c3f6d027fabbf2bb5a1e",
+  "completed_at_utc": "2026-11-09T15:44:33.7975316Z",
+  "time_note": "真实写出完成时间；未编造首读起点",
+  "previous_execution": {
+    "artifact_sha256": "2b6fcb4578a6fbb99f3f1fee6a444bde059fda9a1cbb64e58173029f52d27416",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\native-full-current-reviews\\evidence\\execution.json",
+    "sha256": "7f3948a4f7cd119d8a7c4b3c2208282d22b5513dc2965ff6295c5d4a0c2a893b",
+    "input_version": "db8213c012af78accb3a9719133d8719cea1032b0ba50b3b1862df3cc6dc3831"
+  },
+  "report_read": {
+    "complete": true,
+    "prior_complete_reading": {
+      "sha256": "2b6fcb4578a6fbb99f3f1fee6a444bde059fda9a1cbb64e58173029f52d27416",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\reports\\current.md",
+      "actual_read_ranges": "Complete assignment text1–211 in continuous batches1–80,81–150,151–211"
+    },
+    "new_changed_nonblank_lines": [
+      93
+    ],
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\reports\\current.md",
+    "exact_same_report": false,
+    "old_changed_nonblank_lines": [
+      93
+    ],
+    "sha256": "68ae85a7f3ead87c98127e2730a033e83275b5ed5c85c3f6d027fabbf2bb5a1e",
+    "actual_current_reading": "对比旧冻结job与权威prepared指向的当前job的完整report字符串，实际阅读所有新增和删除段落；未改变部分复用原完整阅读"
+  },
+  "assignment_read": {
+    "fields": [
+      "input_version",
+      "assignment_version",
+      "artifact_sha256",
+      "assignment.report",
+      "task equality",
+      "requirements equality"
+    ],
+    "task_unchanged": true,
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\reviews\\host\\e4cabf49ef9396bd0f19\\jobs\\evidence-5356446fffd45cb6.json",
+    "sha256": "62365b22b235875c18f248ed510c65cc97fbdc74bb67be29a5d2bf096c50423f",
+    "requirements_unchanged": true
+  },
+  "reused_originals_read": [
+    {
+      "sha256": "93a4fe40720be70bb19c34c413e200f9559a8b32b6c351dde7ff6d7e094a9baf",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R09.json",
+      "actual_read_ranges": "Isolated original cookies captured L0–63"
+    },
+    {
+      "sha256": "4f785ade80a0255a5c339f971198bfd4acd9e5a744fec8d7f5a776610a9a1df7",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-A03.txt",
+      "actual_read_ranges": "22–23"
+    },
+    {
+      "sha256": "5da61ad5f866b4498e98644657511ff204bbba536c19e139c25910b36b988ad2",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R04.json",
+      "actual_read_ranges": "Isolated original Bidding Interface captured L0–42"
+    },
+    {
+      "sha256": "931ff8be9c154b9c15de54be6bd8b5a93462b0543b3983a8096206f65ac11296",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R07.json",
+      "actual_read_ranges": "Original Conversion Lift body: test/control, relative lift/iROAS, eligibility and study implementation through managed-service paragraph"
+    },
+    {
+      "sha256": "cdb749637b8616787117e6622746febd3b961695dbac0b64eaf1673dbed3caad",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-A05.txt",
+      "actual_read_ranges": "43;80"
+    },
+    {
+      "sha256": "e6b5c87f52dcd058742b91fb9e40906acddc9c7d18053297d82322ea205c5efe",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R03.json",
+      "actual_read_ranges": "Isolated original GMV Max captured L0–47"
+    },
+    {
+      "sha256": "fc1fb2ee8822a969c86d9fc2ebb6a459062d116f268726aa70327a327b9fdf23",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R15.json",
+      "actual_read_ranges": "Original publication header October26,2020; body June25,2020 and brand-launch paragraphs"
+    },
+    {
+      "sha256": "2247742575f9b44c6c8b931ec452467783a799c84960f36e30944fddc071cefa",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R13.txt",
+      "actual_read_ranges": "21–32;35–42"
+    },
+    {
+      "sha256": "4cc89a25118c3cb24894ebdb868bf5720efa957260e78768682afd6ca3e52046",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R06.json",
+      "actual_read_ranges": "Isolated original matching Events API captured L0–35"
+    },
+    {
+      "sha256": "a246641f0c12fbbc626454c6db29c333a11a2cb766beef80ee01399d6fa2954d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-A04.txt",
+      "actual_read_ranges": "38;45–46"
+    },
+    {
+      "sha256": "32985ffc6299429f45b6b49ccf02853fba3b639d1670e9fa15b40b0e8c773df0",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R08.json",
+      "actual_read_ranges": "Isolated original Shop Ads attribution captured L0–49"
+    },
+    {
+      "sha256": "1769c84e906cb9e551b5a2f25426cd55d94d787590943ac2b03491f38b23bd2c",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R05.json",
+      "actual_read_ranges": "Isolated original event deduplication captured L0–42"
+    },
+    {
+      "sha256": "98a6559bacab697934d4fcf4a5840364d641c91d01c0fb0302441465bff516ed",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R19.txt",
+      "actual_read_ranges": "1–25;47–86;other rg matches not used as full-source reading"
+    },
+    {
+      "sha256": "f6110874b4fd7a7f29358949ab009d4ee4819e7a55a3c0e7dab094fe56eb2e42",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-A01.txt",
+      "actual_read_ranges": "23–26 incidental page8;35–39 complete pages12–13"
+    },
+    {
+      "sha256": "3897f6e230b8d3c7e1f3f3f300af11d1ad07a4c14f7b01d48e80ace97fedc930",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R17.json",
+      "actual_read_ranges": "Original UK Shop retrospective March31,2025, by Jan Wilk, Since2021 opening; other mixed capture fragments not used"
+    },
+    {
+      "sha256": "fa868bce2369d98601208ff484ee890004cfd6e87c0b8bbe52b7593cfc0958bb",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R16.json",
+      "actual_read_ranges": "Original US Shop announcement captured L4–23"
+    },
+    {
+      "sha256": "14465b52252bf085c38ef2719155ae91423f67d13ea548f5b058a40f3fcf4e39",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R12.json",
+      "actual_read_ranges": "Original USDS captured L4–20"
+    },
+    {
+      "sha256": "2f11a73d2f742df3be42296f5cbe8ff7023f0c71d8a3e52411375f487d13d938",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R01.json",
+      "actual_read_ranges": "Isolated original About Auction Ads captured L0–42"
+    },
+    {
+      "sha256": "5c326a02a95e766e6002a8f68c43808ccc58b1744464231d314661d71e633c9b",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA03.txt",
+      "actual_read_ranges": "3;27–32;41;43–58;61–80;97"
+    },
+    {
+      "sha256": "256ee9a433d4e31e938b0e5bbea0365edce8a2629bf1a68e1b989d75b785b93d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-R10.txt",
+      "actual_read_ranges": "27–61"
+    },
+    {
+      "sha256": "20c5413fce50293db78a27ff25c1e159d1781237e41138d28956e57c28ce6f26",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA-W01.json",
+      "actual_read_ranges": "Isolated original Smart+ upgrade captured L0–42"
+    },
+    {
+      "sha256": "60468d2de3773011e5c33cd4cf7c197aa82dcd277f04ed5fc31925a7fd2b0d09",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\sources\\actual\\BDA06.txt",
+      "actual_read_ranges": "5–22"
+    }
+  ],
+  "reused_web_originals_read": null,
+  "current_originals_reread": [],
+  "resolved_findings": null,
+  "limitations": [
+    "不声称本次重新通读未变正文或所有原件；其原阅读范围及哈希保留在同一上下文首评记录。",
+    "未打开其他当前评审回复；未重跑研究、模型、计算、实验、检查或测试；未修改报告或导入评审。"
+  ],
+  "review_result": "pass; no remaining required findings"
+}

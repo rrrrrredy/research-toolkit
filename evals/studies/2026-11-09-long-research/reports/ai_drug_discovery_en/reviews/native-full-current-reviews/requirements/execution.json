@@ -1,0 +1,32 @@
+{
+  "host_task": "/root/complete_requirements_b",
+  "status": "completed",
+  "perspective": "requirements",
+  "execution_mode": "native_codex",
+  "started_at": "2026-11-09T22:52:12.4797296+08:00",
+  "completed_at": "2026-11-09T14:53:18.4257990+00:00",
+  "input_version": "d49c3ce9104cc63e7832524cae63752853080491d4da8a045072f0dfff369a97",
+  "assignment_version": "8eb38db5336077701d84f8e4400b3253f2664cfe78a45ce59bc4c710a422c6da",
+  "assignment_path": "reviews/host/d49c3ce9104cc63e7832/jobs/requirements-8eb38db533607770.json",
+  "assignment_sha256": "009460f585b757fee65246ec98f9e57f0d9ddaf5f46f7fb4cfecd5ab75431452",
+  "report_path": "reports/current.md",
+  "report_sha256": "4645728a2c1f4b18f13c8c42839d3610b4ec0ebdad5596efa38adc2983417f3c",
+  "expected_report_sha256": "4645728a2c1f4b18f13c8c42839d3610b4ec0ebdad5596efa38adc2983417f3c",
+  "reading_intervals": [
+    {
+      "artifact": "actualjob.json:assignment.task, effective_requirements and report",
+      "unread_report_ranges": [],
+      "coverage": "complete continuous report reading, including every program, clinical table, partnership section and appendix",
+      "started_at": "2026-11-09T22:52:12.4797296+08:00",
+      "report_ranges": [
+        "1-70",
+        "71-140",
+        "141-210",
+        "211-288"
+      ],
+      "completed_at": "2026-11-09T14:53:18.4257990+00:00"
+    }
+  ],
+  "originals_opened": [],
+  "notes": "Requirements assessment used the complete supplied original task and complete frozen report. No other reviewers, source mappings, new research, tests or report edits."
+}

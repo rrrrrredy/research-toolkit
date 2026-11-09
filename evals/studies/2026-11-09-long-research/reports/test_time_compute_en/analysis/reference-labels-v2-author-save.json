@@ -1,0 +1,896 @@
+{
+  "task": "test_time_compute_en",
+  "host_task": "/root/ttc_research",
+  "role": "registered substantive author",
+  "recorded_at_utc": "2026-11-09T17:04:34.817157+00:00",
+  "disposition": "Accepted actual v2 diff after checking all distinct edits. Only reader-facing source IDs, resulting repeated titles and local title grammar change. URLs, quantities, versions and arguments remain unchanged.",
+  "source_rule": "references/writing-style.md lines 110 and 141; inspected lines 105-114 and 135-145",
+  "old_current_sha256": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea",
+  "proposal_file": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\draft-reference-labels-v2.md",
+  "proposal_byte_sha256": "affb5e583ca9b4275633e4e599a244947abcd36022a0da909a6bcb8bd52695f9",
+  "current_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+  "line_endings": "Coordinator proposal uses CRLF; formal saved manuscript uses LF. Decoded text is identical.",
+  "old_input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+  "new_input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "reused_backup": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\before-reference-labels-native-full-prepared.json",
+  "save_result": {
+    "ok": true,
+    "saved_ids": {},
+    "updated_files": [
+      "reports/current.md",
+      "state/progress.json"
+    ],
+    "backups": [
+      "logs/record-backups/a0eafffaa1bf4c1aa2bf8af442a84105/reports/current.md",
+      "logs/record-backups/a0eafffaa1bf4c1aa2bf8af442a84105/saved/reports/current.md"
+    ],
+    "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+    "changes": {
+      "available": true,
+      "operation_id": "5c413a96bd66489d9a23ad9049d7065d",
+      "saved_at": "2026-11-09T16:36:22.880255+00:00",
+      "records": {
+        "requirements": {
+          "added": [],
+          "updated": [
+            "R_TASK",
+            "R_LANGUAGE",
+            "R_DATE"
+          ],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        }
+      },
+      "source_files": {},
+      "artifact": "reports/current.md",
+      "affected_claims": [],
+      "unlinked_source_ids": [],
+      "affected_outputs": [],
+      "scope": "Latest successful record-save batch; report locations are literal source-link or claim-text matches, and research-output links use saved input and unit dependencies in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+    },
+    "current_work": {
+      "task_spec": "state/task_spec.md",
+      "requirements": "state/requirements.jsonl",
+      "artifact": {
+        "path": "reports/current.md",
+        "sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+        "kind": "report",
+        "owner": "/root/ttc_research",
+        "unit_id": "report",
+        "current_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+        "changed_since_save": false
+      },
+      "open_requirements": [],
+      "effective_requirements": [
+        {
+          "requirement_id": "R_TASK",
+          "summary": "Investigate how additional computation at inference time changes the capabilities, reliability, and economics of reasoning models and agents. The reader needs to decide which strategies to use, how to allocate a finite budget, and when extra computation is unlikely to help. Focus on work published from 2022 through the evidence cutoff of 2026-11-09, using earlier work where needed to explain foundations. Use only evidence publicly available by the cutoff and identify the relevant paper, model, implementation, and evaluation versions. Do not turn later knowledge into evidence available at the cutoff.\n\nDevelop a mechanism-based comparison of independent sampling, self-consistency, best-of-N selection, sequential revision, search over intermediate states, outcome and process verification, adaptive budget allocation, and agent loops involving tools or environmental feedback. Explain what generates candidates, what selects or rejects them, what state is retained, and what information the evaluator can access. Distinguish inference-time allocation from training changes that enable it. Separate results for a fixed base model from comparisons in which model size, post-training, data, or the verifier also changes.\n\nExamine evidence from mathematical reasoning, executable coding tasks, and multi-step tool-using tasks. Select informative studies rather than attempting an exhaustive paper catalogue. Compare scaling behavior, marginal gains, saturation, regressions, and variation with task difficulty. Explain how correlated errors, weak or miscalibrated verifiers, reward exploitation, unreliable tools, compounding action errors, or unavailable feedback can change the apparent benefit of additional search. Assess whether results on tasks with cheap, reliable checking transfer to tasks with ambiguous outcomes or delayed feedback.\n\nBuild a budget-aware comparison framework. Account for candidate generation, discarded branches, verifier calls, hidden or explicit reasoning tokens when disclosed, tool execution, and retries. Distinguish total compute or monetary cost from serial latency, parallel resource demand, and end-to-end wall-clock time. Token counts alone are not a common compute unit across different models. Where published studies permit a defensible normalization, show it with units and assumptions; otherwise retain separate comparisons and explain the missing information. Include a worked allocation example using reported values or clearly labeled hypothetical inputs, without presenting an illustrative calculation as a new experiment.\n\nDeliver a complete research report with a method-and-evidence matrix, a comparison of reported scaling behavior, and a design decision tree covering task verifiability, error consequences, latency constraints, tool availability, and budget. Explain how a designer should choose among a stronger base model, more samples, deeper search, better verification, or a simpler execution path. Distinguish empirical findings from proposed policies, and include cases in which no additional inference-time computation is the defensible choice. Tables and diagrams may be integrated into any coherent report structure; a literature list or brief recommendation sheet is not sufficient.\n\nThe central checks are whether budget comparisons include the computation used to select answers, whether training and inference effects remain distinguishable, and whether the proposed design choices follow from task-specific evidence. Report benchmark contamination, test-selection effects, evaluator leakage, and missing uncertainty estimates when they materially affect a claim. Publicly reported results need not be rerun, but they must not be described as independently reproduced unless they actually were. No particular scaling law or conclusion about the superiority of test-time compute is assumed.",
+          "status": "satisfied",
+          "evidence": "Current complete manuscript reports/current.md; independent requirements, domain, audit and final acceptance: reviews/host/acead416ff0bcb116622/results/8d8a113d23b643ef/response.txt"
+        },
+        {
+          "requirement_id": "R_LANGUAGE",
+          "summary": "完整报告使用English；方法示范不决定本题章节和结论。",
+          "status": "satisfied",
+          "evidence": "Current complete manuscript reports/current.md; independent requirements, domain, audit and final acceptance: reviews/host/acead416ff0bcb116622/results/8d8a113d23b643ef/response.txt"
+        },
+        {
+          "requirement_id": "R_DATE",
+          "summary": "研究资料截止日2026-11-09，历史数据、预测和实际结果使用各自日期与定义。",
+          "status": "satisfied",
+          "evidence": "Current complete manuscript reports/current.md; independent requirements, domain, audit and final acceptance: reviews/host/acead416ff0bcb116622/results/8d8a113d23b643ef/response.txt"
+        }
+      ],
+      "scope_decisions": [],
+      "warnings": [],
+      "brief": {
+        "question": "Investigate how additional computation at inference time changes the capabilities, reliability, and economics of reasoning models and agents. The reader needs to decide which strategies to use, how to allocate a finite budget, and when extra computation is unlikely to help. Focus on work published from 2022 through the evidence cutoff of 2026-11-09, using earlier work where needed to explain foundations. Use only evidence publicly available by the cutoff and identify the relevant paper, model, implementation, and evaluation versions. Do not turn later knowledge into evidence available at the cutoff.\n\nDevelop a mechanism-based comparison of independent sampling, self-consistency, best-of-N selection, sequential revision, search over intermediate states, outcome and process verification, adaptive budget allocation, and agent loops involving tools or environmental feedback. Explain what generates candidates, what selects or rejects them, what state is retained, and what information the evaluator can access. Distinguish inference-time allocation from training changes that enable it. Separate results for a fixed base model from comparisons in which model size, post-training, data, or the verifier also changes.\n\nExamine evidence from mathematical reasoning, executable coding tasks, and multi-step tool-using tasks. Select informative studies rather than attempting an exhaustive paper catalogue. Compare scaling behavior, marginal gains, saturation, regressions, and variation with task difficulty. Explain how correlated errors, weak or miscalibrated verifiers, reward exploitation, unreliable tools, compounding action errors, or unavailable feedback can change the apparent benefit of additional search. Assess whether results on tasks with cheap, reliable checking transfer to tasks with ambiguous outcomes or delayed feedback.\n\nBuild a budget-aware comparison framework. Account for candidate generation, discarded branches, verifier calls, hidden or explicit reasoning tokens when disclosed, tool execution, and retries. Distinguish total compute or monetary cost from serial latency, parallel resource demand, and end-to-end wall-clock time. Token counts alone are not a common compute unit across different models. Where published studies permit a defensible normalization, show it with units and assumptions; otherwise retain separate comparisons and explain the missing information. Include a worked allocation example using reported values or clearly labeled hypothetical inputs, without presenting an illustrative calculation as a new experiment.\n\nDeliver a complete research report with a method-and-evidence matrix, a comparison of reported scaling behavior, and a design decision tree covering task verifiability, error consequences, latency constraints, tool availability, and budget. Explain how a designer should choose among a stronger base model, more samples, deeper search, better verification, or a simpler execution path. Distinguish empirical findings from proposed policies, and include cases in which no additional inference-time computation is the defensible choice. Tables and diagrams may be integrated into any coherent report structure; a literature list or brief recommendation sheet is not sufficient.\n\nThe central checks are whether budget comparisons include the computation used to select answers, whether training and inference effects remain distinguishable, and whether the proposed design choices follow from task-specific evidence. Report benchmark contamination, test-selection effects, evaluator leakage, and missing uncertainty estimates when they materially affect a claim. Publicly reported results need not be rerun, but they must not be described as independently reproduced unless they actually were. No particular scaling law or conclusion about the superiority of test-time compute is assumed.",
+        "audience": "Model researchers, inference engineers, and agent-system designers making compute-allocation decisions",
+        "scope": "Follow the task geography, comparison scope and evidence cutoff of 2026-11-09. Each other-language version uses its frozen sources without seeing the first-language report.",
+        "output": "Complete long-form research report final.md with the task-specific comparisons, explanations, tables and locatable citations. Preserve the first draft and actual independent results.",
+        "depth": "A full technical research report connecting mechanisms, budget-aware empirical comparisons, scaling limits, and implementable design choices across reasoning and agent workloads.",
+        "evidence_standard": "Use original public sources with actual dates, reading evidence and retained originals. Conduct seven separate independent content perspectives, relevant domain review, independent audit and final acceptance. Live primary research"
+      },
+      "research_outputs": [
+        {
+          "path": "analysis/outline.md",
+          "sha256": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+          "kind": "analysis",
+          "complete": true,
+          "contributors": [
+            "resp_0007cd018862640d016af1a1e16f1887d19b06d251df17e94f"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "analysis/outline.md"
+          },
+          "host_task": "resp_0007cd018862640d016af1a1e16f1887d19b06d251df17e94f",
+          "based_on": {
+            "state/task_spec.md": "a54726733ae1efaa64c661f9bb4f0a8c063f66b13ff7ebeaba244661746da803",
+            "sources/TTC001/original.txt": "9978c71de575a44d5ca1a10301bffe3e2ec7e7ee4d1dcbe34a21dc544006f390",
+            "sources/TTC001/plan-reading.json": "6df3b5898447a597b643a3766aedba4a86f67b2a98bbab4ceafd92f768d9f678",
+            "sources/TTC002/original.txt": "503b3c14c273b7ee25bf01889ea93488ef99dd94620ff65153884da2c3f410e0",
+            "sources/TTC002/plan-reading.json": "5634b77be9717ccac7b8292b31623deb02a0fc534bdb4234dd55169d350b61ff",
+            "sources/TTC003/original.txt": "fbbc667be5b14632035c50107e6297df229d49fc1970a56a74e135b15680415d",
+            "sources/TTC003/plan-reading.json": "4ea044af2943732a2c994ea47cf47232f90b9981bcd53755b35b59d89e9005ac",
+            "sources/TTC004/original.txt": "e7f171256750ccf7c05f09977f2ce3e23b89533a07f29dd723f990af985514b1",
+            "sources/TTC004/plan-reading.json": "edfabdf5b3e5775988dd22d5e0ce7704f864e6c577da01037c59c31f1e4843b5",
+            "sources/TTC005/original.txt": "457d77f0dea6486ae5f3232b2af9a6385fc0a5b99bc1df391cb2424e47803548",
+            "sources/TTC005/plan-reading.json": "010a4c13c4508135672135bb3ded808195220eda7714dcd1ca4c318ecba2ac8c",
+            "sources/TTC006/original.txt": "fa34e0b428cc0937e2682093ed5cc47df7c10081eff3a7694c53b9afea051604",
+            "sources/TTC006/plan-reading.json": "b3f196ca8d88fd0bde0265b4fdb9a71aa11115172f1a9f61ec2f69163eb41346",
+            "sources/TTC007/original.txt": "7e409775a37ae009d20409e9d70fc652f7f9885058fbc159a365ed6d58d7b70a",
+            "sources/TTC007/plan-reading.json": "2c2209b5263b9da7b842c5df792fef941431bc94258412738da0eddfc9fef058",
+            "sources/TTC008/original.txt": "e70f13d6fcc8d0662081605582ff54e1804fac65ce658842df872392036feed3",
+            "sources/TTC008/plan-reading.json": "3455e7e188e95898ff0bf32d74bde5c70c92a63648b490162c1abb4369feb1fc",
+            "record:requirements:effective@outline": "fd04a5d9aac14aa6ae92ba581479847f4946551de3a371c87a77228d68f2b906",
+            "record:sources:TTC001": "772a9b7eb1b13cd9d5bb0a85a6c862324a4f07d6b4ab6b9cb3dec67dcaab3179",
+            "record:sources:TTC002": "e4ac7c0b006e6e7bd9361bd69fea0fd2944729899af9bebd4dad96195f4708ff",
+            "record:sources:TTC003": "9d56135546be20d1bb0061e6e1a586a1ec1e059129d9c5480d75986cd612785d",
+            "record:sources:TTC004": "f13a8afd1eda0c23de4ecbc9c4543cd251462045add3911bf0c42a4a4d087f6d",
+            "record:sources:TTC005": "45519c5b9c3f64011973e07349614b2742600185c53b53ee17bc2e7a2391dc3d",
+            "record:sources:TTC006": "9a867dd55db0b53b17c9fac6ec6b4778c3c8850645bd052a6d8813aa4c6dce38",
+            "record:sources:TTC007": "37705be2d68b08ebb2f9411c600d640360274a4a4a46f96f6381856426f001f8",
+            "record:sources:TTC008": "ae3f6c063aa9375c77a44f0d2196d5274c36cb62c80cfca42a7a7a09e5dff286"
+          },
+          "unit_id": "outline",
+          "depends_on": [],
+          "dependency_versions": {},
+          "handoff": {
+            "summary": "交给独立要求与结构评审；完整原件、来源阅读和初始提纲均可读取。",
+            "pending": [
+              "提纲通过后执行实质研究，首稿尚未生成。"
+            ]
+          },
+          "question": "研究提纲与初始前提",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/d928fdb3c78f4fd69140bf48244c5533/saved/analysis/outline.md",
+            "sha256": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe"
+          },
+          "owner": "resp_0007cd018862640d016af1a1e16f1887d19b06d251df17e94f",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [],
+          "readiness_issues": [],
+          "review": {
+            "artifact_sha256": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+            "input_version": "f9326b7464e99932fa80001dcd2b0bf1d7d901852ae873e2ae6dbd9453ea7427",
+            "ok": true,
+            "reviewers": [
+              "resp_09b6762b8fa1fcda016af1a52eb6f887d192fc983d5c8242e6",
+              "resp_02147915a2b529f0016af1a52fda9087d189237a68e09b001b"
+            ],
+            "record_path": "reviews/host/f9326b7464e99932fa80/input.json"
+          }
+        },
+        {
+          "path": "analysis/U1-evidence-protocol.md",
+          "sha256": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+          "kind": "analysis",
+          "complete": true,
+          "contributors": [
+            "/root/ttc_research"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "analysis/U1-evidence-protocol.md"
+          },
+          "host_task": "/root/ttc_research",
+          "based_on": {
+            "state/task_spec.md": "a54726733ae1efaa64c661f9bb4f0a8c063f66b13ff7ebeaba244661746da803",
+            "sources/TTC001/original.txt": "9978c71de575a44d5ca1a10301bffe3e2ec7e7ee4d1dcbe34a21dc544006f390",
+            "sources/TTC001/plan-reading.json": "6df3b5898447a597b643a3766aedba4a86f67b2a98bbab4ceafd92f768d9f678",
+            "sources/TTC002/original.txt": "503b3c14c273b7ee25bf01889ea93488ef99dd94620ff65153884da2c3f410e0",
+            "sources/TTC002/plan-reading.json": "5634b77be9717ccac7b8292b31623deb02a0fc534bdb4234dd55169d350b61ff",
+            "sources/TTC003/original.txt": "fbbc667be5b14632035c50107e6297df229d49fc1970a56a74e135b15680415d",
+            "sources/TTC003/plan-reading.json": "4ea044af2943732a2c994ea47cf47232f90b9981bcd53755b35b59d89e9005ac",
+            "sources/TTC004/original.txt": "e7f171256750ccf7c05f09977f2ce3e23b89533a07f29dd723f990af985514b1",
+            "sources/TTC004/plan-reading.json": "edfabdf5b3e5775988dd22d5e0ce7704f864e6c577da01037c59c31f1e4843b5",
+            "sources/TTC005/original.txt": "457d77f0dea6486ae5f3232b2af9a6385fc0a5b99bc1df391cb2424e47803548",
+            "sources/TTC005/plan-reading.json": "010a4c13c4508135672135bb3ded808195220eda7714dcd1ca4c318ecba2ac8c",
+            "sources/TTC006/original.txt": "fa34e0b428cc0937e2682093ed5cc47df7c10081eff3a7694c53b9afea051604",
+            "sources/TTC006/plan-reading.json": "b3f196ca8d88fd0bde0265b4fdb9a71aa11115172f1a9f61ec2f69163eb41346",
+            "sources/TTC007/original.txt": "7e409775a37ae009d20409e9d70fc652f7f9885058fbc159a365ed6d58d7b70a",
+            "sources/TTC007/plan-reading.json": "2c2209b5263b9da7b842c5df792fef941431bc94258412738da0eddfc9fef058",
+            "sources/TTC008/original.txt": "e70f13d6fcc8d0662081605582ff54e1804fac65ce658842df872392036feed3",
+            "sources/TTC008/plan-reading.json": "3455e7e188e95898ff0bf32d74bde5c70c92a63648b490162c1abb4369feb1fc",
+            "sources/TTC003v2/original.txt": "b29093bdb0bcc6aa6a94564db09aad1a8991c9315de0c0092a7f1c77064c6333",
+            "sources/TTC009/original.txt": "ca2a1cef6f9498dea3f62d6ad3c19934cb93ae4d123724aabea61811892954f4",
+            "sources/TTC010/original.txt": "bbf8b9069a0928adfdad4541c0ea4be04af1b58517131c0e66c4863cf95b10b5",
+            "sources/TTC011/original.txt": "1f46c5ea76dd63cb2901146ce873700169e18ad97e3687fb7c28ea8eeb17819a",
+            "sources/TTC012/original.txt": "ddbc09a9f6c00ea87353c32039e3b4e4641d461aa0692307427e767f221eafa2",
+            "sources/TTC013/original.txt": "104adeeb4df6433b039dc5c8eda924c398eb68dc5a7eb84957543435d920e6a4",
+            "analysis/outline.md": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+            "record:requirements:effective@U1,outline": "fd04a5d9aac14aa6ae92ba581479847f4946551de3a371c87a77228d68f2b906",
+            "record:sources:TTC001": "772a9b7eb1b13cd9d5bb0a85a6c862324a4f07d6b4ab6b9cb3dec67dcaab3179",
+            "record:sources:TTC002": "e4ac7c0b006e6e7bd9361bd69fea0fd2944729899af9bebd4dad96195f4708ff",
+            "record:sources:TTC003": "9d56135546be20d1bb0061e6e1a586a1ec1e059129d9c5480d75986cd612785d",
+            "record:sources:TTC004": "f13a8afd1eda0c23de4ecbc9c4543cd251462045add3911bf0c42a4a4d087f6d",
+            "record:sources:TTC005": "45519c5b9c3f64011973e07349614b2742600185c53b53ee17bc2e7a2391dc3d",
+            "record:sources:TTC006": "9a867dd55db0b53b17c9fac6ec6b4778c3c8850645bd052a6d8813aa4c6dce38",
+            "record:sources:TTC007": "37705be2d68b08ebb2f9411c600d640360274a4a4a46f96f6381856426f001f8",
+            "record:sources:TTC008": "ae3f6c063aa9375c77a44f0d2196d5274c36cb62c80cfca42a7a7a09e5dff286"
+          },
+          "unit_id": "U1",
+          "depends_on": [
+            "outline"
+          ],
+          "dependency_versions": {
+            "outline": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe"
+          },
+          "handoff": {
+            "summary": "Establish inference-comparison protocols and verify consequential numerical and methodological premises.",
+            "pending": [
+              "Independent evidence and domain review of decisive premises."
+            ]
+          },
+          "question": "Establish inference-comparison protocols and verify consequential numerical and methodological premises.",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/93c8d404dafd486c8c606401a6170541/saved/analysis/U1-evidence-protocol.md",
+            "sha256": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f"
+          },
+          "owner": "/root/ttc_research",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [
+            {
+              "unit_id": "outline",
+              "path": "analysis/outline.md",
+              "issues": []
+            }
+          ],
+          "readiness_issues": [],
+          "review": {
+            "artifact_sha256": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+            "input_version": "8005824d34a17e3023e0f2332760f582193e892fd93af10232da7b8af569bec3",
+            "ok": true,
+            "reviewers": [
+              "/root",
+              "/root/domain_and_audit"
+            ],
+            "record_path": "reviews/host/8005824d34a17e3023e0/input.json"
+          }
+        },
+        {
+          "path": "reports/current.md",
+          "sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+          "kind": "report",
+          "complete": true,
+          "contributors": [
+            "/root/ttc_research"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "reports/current.md"
+          },
+          "host_task": "/root/ttc_research",
+          "based_on": {
+            "state/task_spec.md": "a54726733ae1efaa64c661f9bb4f0a8c063f66b13ff7ebeaba244661746da803",
+            "sources/TTC001/original.txt": "9978c71de575a44d5ca1a10301bffe3e2ec7e7ee4d1dcbe34a21dc544006f390",
+            "sources/TTC001/plan-reading.json": "6df3b5898447a597b643a3766aedba4a86f67b2a98bbab4ceafd92f768d9f678",
+            "sources/TTC002/original.txt": "503b3c14c273b7ee25bf01889ea93488ef99dd94620ff65153884da2c3f410e0",
+            "sources/TTC002/plan-reading.json": "5634b77be9717ccac7b8292b31623deb02a0fc534bdb4234dd55169d350b61ff",
+            "sources/TTC003/original.txt": "fbbc667be5b14632035c50107e6297df229d49fc1970a56a74e135b15680415d",
+            "sources/TTC003/plan-reading.json": "4ea044af2943732a2c994ea47cf47232f90b9981bcd53755b35b59d89e9005ac",
+            "sources/TTC004/original.txt": "e7f171256750ccf7c05f09977f2ce3e23b89533a07f29dd723f990af985514b1",
+            "sources/TTC004/plan-reading.json": "edfabdf5b3e5775988dd22d5e0ce7704f864e6c577da01037c59c31f1e4843b5",
+            "sources/TTC005/original.txt": "457d77f0dea6486ae5f3232b2af9a6385fc0a5b99bc1df391cb2424e47803548",
+            "sources/TTC005/plan-reading.json": "010a4c13c4508135672135bb3ded808195220eda7714dcd1ca4c318ecba2ac8c",
+            "sources/TTC006/original.txt": "fa34e0b428cc0937e2682093ed5cc47df7c10081eff3a7694c53b9afea051604",
+            "sources/TTC006/plan-reading.json": "b3f196ca8d88fd0bde0265b4fdb9a71aa11115172f1a9f61ec2f69163eb41346",
+            "sources/TTC007/original.txt": "7e409775a37ae009d20409e9d70fc652f7f9885058fbc159a365ed6d58d7b70a",
+            "sources/TTC007/plan-reading.json": "2c2209b5263b9da7b842c5df792fef941431bc94258412738da0eddfc9fef058",
+            "sources/TTC008/original.txt": "e70f13d6fcc8d0662081605582ff54e1804fac65ce658842df872392036feed3",
+            "sources/TTC008/plan-reading.json": "3455e7e188e95898ff0bf32d74bde5c70c92a63648b490162c1abb4369feb1fc",
+            "notes/actual-reading/TTC003v2.json": "c67a8bcbfd9605bc7e6101143f92511cf26229b4e16245524f572c429bbcbe35",
+            "sources/actual/TTC003v2.txt": "b29093bdb0bcc6aa6a94564db09aad1a8991c9315de0c0092a7f1c77064c6333",
+            "notes/actual-reading/TTC009.json": "483b08693917780a21ba4675b0e4a98af8a768a81975dffcb1848b785c89d5fc",
+            "sources/actual/TTC009.txt": "ca2a1cef6f9498dea3f62d6ad3c19934cb93ae4d123724aabea61811892954f4",
+            "notes/actual-reading/TTC010.json": "c890b18f7f140050affbd3d229c14f4a6f5aff0a4a95fb3f4cf99484e6de103a",
+            "sources/actual/TTC010.txt": "bbf8b9069a0928adfdad4541c0ea4be04af1b58517131c0e66c4863cf95b10b5",
+            "notes/actual-reading/TTC011.json": "e4d02c3d76acbae8941678049c1806f4018e66676b7506c73ba7bc74649dcd3b",
+            "sources/actual/TTC011.txt": "1f46c5ea76dd63cb2901146ce873700169e18ad97e3687fb7c28ea8eeb17819a",
+            "notes/actual-reading/TTC012.json": "5c1802545b61aca072e140d896716eb2749ceb6116eefc34d0d04ec9237a311a",
+            "sources/actual/TTC012.txt": "ddbc09a9f6c00ea87353c32039e3b4e4641d461aa0692307427e767f221eafa2",
+            "notes/actual-reading/TTC013.json": "5e41dc2098913cc7431793cdca029c09f4da56c31e74a7ddcb5fe49e99f4f985",
+            "sources/actual/TTC013.txt": "104adeeb4df6433b039dc5c8eda924c398eb68dc5a7eb84957543435d920e6a4",
+            "notes/actual-reading/SUP-CM.json": "43cb626bae9943b608ed69eee94a879dd9a9fe8a1225ac8fe9681be08d8a5d36",
+            "sources/actual/SUP-CM.txt": "0170a74cc73a3ce559ce26818a31523aaefa4acddc24c3ed1bc67bf34a185d04",
+            "notes/actual-reading/SUP-TAU.json": "e67cd741370ea08b30da55a5a6b794f6c48065cc89b9ff853186a344039e443c",
+            "sources/actual/SUP-TAU.txt": "1c38e77047e48759c73450b93ba68f25926566b9bacef05cdf783726e79586bc",
+            "notes/actual-reading/SUP-LIMITS.json": "0c115abd407ffa4b82fadd8554c35fef5b6ddd7e0320834685d390ed5352e62d",
+            "sources/actual/SUP-LIMITS.txt": "30611e7fd8c531c748e987aac08cae6d5778a65fb67c274bd5263bb5e4f8204c",
+            "notes/actual-reading/SUP-SELF.json": "ebb61ea26f2ffd6d43f74d75e4839057f32b4ed324ed9eeaeb4d64b0c63ac894",
+            "sources/actual/SUP-SELF.txt": "b3692efe76ffc4eed24e333ac37b60ee7f4d0ba66dc82da5d75c0aacdb0816db",
+            "notes/actual-reading/SUP-AC.json": "66cbcae710b70fb3c7f95fb36102475ca741bed25f63e7677b2bfb15bfea89fd",
+            "sources/actual/SUP-AC.txt": "bbe5da5a58537675a9cef1347e920eecf738f7c45871beb2ce4f8b53aae1204f",
+            "notes/actual-reading/SUP-TREE.json": "5b5b048877c24aee282cd44bbaa391427fd892e5ca6c89ec4849681cc0f87334",
+            "sources/actual/SUP-TREE.txt": "7ee0ebe1d36ab478eca15026d76a43347fbddb0a6acca73a2d79b8a97262de82",
+            "analysis/calculations/allocation-results.json": "7aded2c153183b6b682b4f6effda6861282d743c144fd257f8be42b93116d97c",
+            "analysis/outline.md": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+            "analysis/U1-evidence-protocol.md": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+            "sources/TTC003v2/original.txt": "b29093bdb0bcc6aa6a94564db09aad1a8991c9315de0c0092a7f1c77064c6333",
+            "sources/TTC009/original.txt": "ca2a1cef6f9498dea3f62d6ad3c19934cb93ae4d123724aabea61811892954f4",
+            "sources/TTC010/original.txt": "bbf8b9069a0928adfdad4541c0ea4be04af1b58517131c0e66c4863cf95b10b5",
+            "sources/TTC011/original.txt": "1f46c5ea76dd63cb2901146ce873700169e18ad97e3687fb7c28ea8eeb17819a",
+            "sources/TTC012/original.txt": "ddbc09a9f6c00ea87353c32039e3b4e4641d461aa0692307427e767f221eafa2",
+            "sources/TTC013/original.txt": "104adeeb4df6433b039dc5c8eda924c398eb68dc5a7eb84957543435d920e6a4",
+            "analysis/calculations/allocation_example.py": "d820966526060d0066a55f0c6b9d869e42e392e49e5d85b35324c84b2421c8a1",
+            "record:requirements:effective@U1,outline,report": "fd04a5d9aac14aa6ae92ba581479847f4946551de3a371c87a77228d68f2b906",
+            "record:sources:TTC001": "772a9b7eb1b13cd9d5bb0a85a6c862324a4f07d6b4ab6b9cb3dec67dcaab3179",
+            "record:sources:TTC002": "e4ac7c0b006e6e7bd9361bd69fea0fd2944729899af9bebd4dad96195f4708ff",
+            "record:sources:TTC003": "9d56135546be20d1bb0061e6e1a586a1ec1e059129d9c5480d75986cd612785d",
+            "record:sources:TTC004": "f13a8afd1eda0c23de4ecbc9c4543cd251462045add3911bf0c42a4a4d087f6d",
+            "record:sources:TTC005": "45519c5b9c3f64011973e07349614b2742600185c53b53ee17bc2e7a2391dc3d",
+            "record:sources:TTC006": "9a867dd55db0b53b17c9fac6ec6b4778c3c8850645bd052a6d8813aa4c6dce38",
+            "record:sources:TTC007": "37705be2d68b08ebb2f9411c600d640360274a4a4a46f96f6381856426f001f8",
+            "record:sources:TTC008": "ae3f6c063aa9375c77a44f0d2196d5274c36cb62c80cfca42a7a7a09e5dff286",
+            "record:sources:TTC003v2": "ae5ad31b3ca4042cd586d9cf1004a331ebb066c3ba59a3d6fe1e6441f904ebfe",
+            "record:sources:TTC009": "6067821cda3cfd40c54fba00dc171239dff9b6186b2efb732f0f453caa50fcf2",
+            "record:sources:TTC010": "9f684491e232c8c051fe55196b125513bea603579ff4e8ddc68253a6f900f33b",
+            "record:sources:TTC011": "bbd896c5c22f28368332790d151203a63cc122145357814094b5f07f388acbf2",
+            "record:sources:TTC012": "2c42262900a33b66b9adf402288ad568dbb3021033bd2f7caf732ef290112502",
+            "record:sources:TTC013": "c0c0cefeb984d1c029b8037ccd0887f74d33aa2e7cf98c1ae9c28c0f410578ff",
+            "record:sources:SUP-CM": "f55d3fa3f9fdf2fea682e6edcb88003ebf4e49d6f5b45f46a82cd79f6e986291",
+            "record:sources:SUP-TAU": "244b4dfff8529d348bad38a2afdbe0d6f6bf605eec6468617bad6b7fe31ab8b2",
+            "record:sources:SUP-LIMITS": "1c76a847c51f8504e18fe3830a8cf6323a34c147ba72c98ead81618362b013f4",
+            "record:sources:SUP-SELF": "44c836c9947d3a5e0e8b42961925301c515addfa6dbbc3df37776ae66bc3cfd0",
+            "record:sources:SUP-AC": "ec267cc8f2f0b2095013e416ea860fa97940184c7b17f4688922a7b830376828",
+            "record:sources:SUP-TREE": "f7b75409523d4a3c1a70832c8f18e4e1abb4b253c28857cc30292d0608eb4e51",
+            "record:sources:allocation-results.json": "9acdd2edb7d0b68e408ab8c7b6b2a87ccc4cc4ce2aa05782f8114ff13a32ab34",
+            "record:claims:TTC-CX001": "7f4416361404e5257faf2bf8699b03d3b47dfc8e65d75bb6d680e056376a4dcd",
+            "record:claims:TTC-CX002": "ad8074fb04f87e9524f0b1a458da6eaa5971d24272478b881af84933933829b7",
+            "record:claims:TTC-CX003": "188cf63316683367cfeac2e587217d0e6d0c70cc63bd5c37576ea084d7872043",
+            "record:claims:TTC-CX004": "71d17fd5392e0baa74ff428a8228ecdf1b5ea78c51325765803a8a04f04c1b0c",
+            "record:claims:TTC-CX005": "2d74f0558294e4f1ecfd47430bed817fcfc0fb9713ce9a83acafa027a4a96f9f",
+            "record:claims:TTC-CX006": "88323a61ac7c4e9a265b5c1df2556540c2e2da35aac51868fd70d99b30228b84",
+            "record:claims:TTC-CX007": "aceadf8e301648191d7be33b4b5c5ee38c0546a4ca082d2b8d948b436a796080",
+            "record:claims:TTC-CX008": "b997a4f56d9e80535f5c97cd27a3cd4cb33499c142407df6e0778fa4e4fdd0fb",
+            "record:claims:TTC-CX009": "8706b33653b53f4b49dc71252dfa17d6d125ad9b5146d98e8e63913873b85dd8",
+            "record:claims:TTC-CX010": "05e1645df49a676f4330f9d8bc5d564b169b2664d7cde3bbd91134001af916ba",
+            "record:claims:TTC-CX011": "f733743ff8c168f723d1d6372a1db8a4d1ba2e703db1c2a3622a55bd7045f702",
+            "record:claims:TTC-CX012": "955b7f087acd17168d9536d23c580b0425865dbed96268a7533c157b19377b60",
+            "record:claims:TTC-CX013": "3dc50793d6ca1873374626b7a5513577ce57ed371ddff47abaf04a91f2dacf57",
+            "record:claims:TTC-CX014": "7643777e3b98525e8de355b8d4d7869050c022470257960c7ffdad7105d38bda",
+            "record:claims:TTC-CX015": "e22a854337608537a92e608a63124a3b9b942579f3acf95bed08b03f3203eb26",
+            "record:claims:TTC-CX016": "a0ab7dd7800017fdba2f806a631c7a7ba0cc1fbab5da65a32a3bd853186ee15a",
+            "record:claims:TTC-CX017": "188b6797ee1a64ffa1ee7de4d65a6ea6a1d7880fd44711984b0bb1bf10efe4d9",
+            "record:claims:TTC-CX018": "23abc16fa6b62be8414373a6de602a758a84da3761f63a04178b94471922d8ab",
+            "record:claims:TTC-CX019": "acb1bff6bb3a6d99cd8ca74d0c9a166b6fdfafa4d3a3c8d811b7f5fd2d4fedf5",
+            "record:claims:TTC-CX020": "8a98088f08b57d6b62c5b43e535151128bb83b1d9358b575ecc823efc01a6277",
+            "record:claims:TTC-CX021": "a7f3f328a611abbdc1c34f7b591053794e2635dd8af8c28e955b59e5adcf01c2",
+            "record:claims:TTC-CX022": "e328f79947eaf9b0014912aa7f3960bdb4a77974d9fce116350830fc8c7c1d4a",
+            "record:claims:TTC-CX023": "755d7571e0d7c8b160ec18eeb759f1f79ddd63c325ae9538d1b421d5a84345ef",
+            "record:claims:TTC-CX024": "a8e2ad12d10d39d162123768a255849cb34668b9873d5ab1be0aaed88ed7936d",
+            "record:claims:TTC-CX025": "93d8240d614dde1755e3fc7de60e0bfc8315879bbab6f0e4b15bbd3e09e6ae0a",
+            "record:claims:TTC-CX026": "e0d7c678608b8ab5a7244b1d84bef92b8f215542389f9b4d7ba16694a7564447",
+            "record:claims:TTC-CX027": "0c3baf84aa0521c02b9277345e19f8ed5b17c3867ffb449a922bb7587d1efefe",
+            "record:claims:TTC-CX028": "2f59cf15e8649193ec64b36209e4e0f49eaefac8984f024e49a4b0a97da4302e"
+          },
+          "unit_id": "report",
+          "depends_on": [
+            "outline",
+            "U1"
+          ],
+          "dependency_versions": {
+            "outline": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+            "U1": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f"
+          },
+          "handoff": {
+            "summary": "Complete author manuscript and source-linked analyses; original first outputs retained.",
+            "pending": [
+              "Seven independent content perspectives, relevant domain review, independent audit and separate final acceptance."
+            ]
+          },
+          "question": "Integrate the complete answer to the effective research task and its comparisons.",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/a0eafffaa1bf4c1aa2bf8af442a84105/saved/reports/current.md",
+            "sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e"
+          },
+          "previous_version": {
+            "path": "logs/record-backups/a0eafffaa1bf4c1aa2bf8af442a84105/reports/current.md",
+            "sha256": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea"
+          },
+          "owner": "/root/ttc_research",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [
+            {
+              "unit_id": "outline",
+              "path": "analysis/outline.md",
+              "issues": []
+            },
+            {
+              "unit_id": "U1",
+              "path": "analysis/U1-evidence-protocol.md",
+              "issues": []
+            }
+          ],
+          "readiness_issues": [
+            "independent_review_pending"
+          ],
+          "review": null
+        }
+      ],
+      "work_units": [
+        {
+          "path": "analysis/outline.md",
+          "sha256": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+          "kind": "analysis",
+          "complete": true,
+          "contributors": [
+            "resp_0007cd018862640d016af1a1e16f1887d19b06d251df17e94f"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "analysis/outline.md"
+          },
+          "host_task": "resp_0007cd018862640d016af1a1e16f1887d19b06d251df17e94f",
+          "based_on": {
+            "state/task_spec.md": "a54726733ae1efaa64c661f9bb4f0a8c063f66b13ff7ebeaba244661746da803",
+            "sources/TTC001/original.txt": "9978c71de575a44d5ca1a10301bffe3e2ec7e7ee4d1dcbe34a21dc544006f390",
+            "sources/TTC001/plan-reading.json": "6df3b5898447a597b643a3766aedba4a86f67b2a98bbab4ceafd92f768d9f678",
+            "sources/TTC002/original.txt": "503b3c14c273b7ee25bf01889ea93488ef99dd94620ff65153884da2c3f410e0",
+            "sources/TTC002/plan-reading.json": "5634b77be9717ccac7b8292b31623deb02a0fc534bdb4234dd55169d350b61ff",
+            "sources/TTC003/original.txt": "fbbc667be5b14632035c50107e6297df229d49fc1970a56a74e135b15680415d",
+            "sources/TTC003/plan-reading.json": "4ea044af2943732a2c994ea47cf47232f90b9981bcd53755b35b59d89e9005ac",
+            "sources/TTC004/original.txt": "e7f171256750ccf7c05f09977f2ce3e23b89533a07f29dd723f990af985514b1",
+            "sources/TTC004/plan-reading.json": "edfabdf5b3e5775988dd22d5e0ce7704f864e6c577da01037c59c31f1e4843b5",
+            "sources/TTC005/original.txt": "457d77f0dea6486ae5f3232b2af9a6385fc0a5b99bc1df391cb2424e47803548",
+            "sources/TTC005/plan-reading.json": "010a4c13c4508135672135bb3ded808195220eda7714dcd1ca4c318ecba2ac8c",
+            "sources/TTC006/original.txt": "fa34e0b428cc0937e2682093ed5cc47df7c10081eff3a7694c53b9afea051604",
+            "sources/TTC006/plan-reading.json": "b3f196ca8d88fd0bde0265b4fdb9a71aa11115172f1a9f61ec2f69163eb41346",
+            "sources/TTC007/original.txt": "7e409775a37ae009d20409e9d70fc652f7f9885058fbc159a365ed6d58d7b70a",
+            "sources/TTC007/plan-reading.json": "2c2209b5263b9da7b842c5df792fef941431bc94258412738da0eddfc9fef058",
+            "sources/TTC008/original.txt": "e70f13d6fcc8d0662081605582ff54e1804fac65ce658842df872392036feed3",
+            "sources/TTC008/plan-reading.json": "3455e7e188e95898ff0bf32d74bde5c70c92a63648b490162c1abb4369feb1fc",
+            "record:requirements:effective@outline": "fd04a5d9aac14aa6ae92ba581479847f4946551de3a371c87a77228d68f2b906",
+            "record:sources:TTC001": "772a9b7eb1b13cd9d5bb0a85a6c862324a4f07d6b4ab6b9cb3dec67dcaab3179",
+            "record:sources:TTC002": "e4ac7c0b006e6e7bd9361bd69fea0fd2944729899af9bebd4dad96195f4708ff",
+            "record:sources:TTC003": "9d56135546be20d1bb0061e6e1a586a1ec1e059129d9c5480d75986cd612785d",
+            "record:sources:TTC004": "f13a8afd1eda0c23de4ecbc9c4543cd251462045add3911bf0c42a4a4d087f6d",
+            "record:sources:TTC005": "45519c5b9c3f64011973e07349614b2742600185c53b53ee17bc2e7a2391dc3d",
+            "record:sources:TTC006": "9a867dd55db0b53b17c9fac6ec6b4778c3c8850645bd052a6d8813aa4c6dce38",
+            "record:sources:TTC007": "37705be2d68b08ebb2f9411c600d640360274a4a4a46f96f6381856426f001f8",
+            "record:sources:TTC008": "ae3f6c063aa9375c77a44f0d2196d5274c36cb62c80cfca42a7a7a09e5dff286"
+          },
+          "unit_id": "outline",
+          "depends_on": [],
+          "dependency_versions": {},
+          "handoff": {
+            "summary": "交给独立要求与结构评审；完整原件、来源阅读和初始提纲均可读取。",
+            "pending": [
+              "提纲通过后执行实质研究，首稿尚未生成。"
+            ]
+          },
+          "question": "研究提纲与初始前提",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/d928fdb3c78f4fd69140bf48244c5533/saved/analysis/outline.md",
+            "sha256": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe"
+          },
+          "owner": "resp_0007cd018862640d016af1a1e16f1887d19b06d251df17e94f",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [],
+          "readiness_issues": [],
+          "review": {
+            "artifact_sha256": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+            "input_version": "f9326b7464e99932fa80001dcd2b0bf1d7d901852ae873e2ae6dbd9453ea7427",
+            "ok": true,
+            "reviewers": [
+              "resp_09b6762b8fa1fcda016af1a52eb6f887d192fc983d5c8242e6",
+              "resp_02147915a2b529f0016af1a52fda9087d189237a68e09b001b"
+            ],
+            "record_path": "reviews/host/f9326b7464e99932fa80/input.json"
+          }
+        },
+        {
+          "path": "analysis/U1-evidence-protocol.md",
+          "sha256": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+          "kind": "analysis",
+          "complete": true,
+          "contributors": [
+            "/root/ttc_research"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "analysis/U1-evidence-protocol.md"
+          },
+          "host_task": "/root/ttc_research",
+          "based_on": {
+            "state/task_spec.md": "a54726733ae1efaa64c661f9bb4f0a8c063f66b13ff7ebeaba244661746da803",
+            "sources/TTC001/original.txt": "9978c71de575a44d5ca1a10301bffe3e2ec7e7ee4d1dcbe34a21dc544006f390",
+            "sources/TTC001/plan-reading.json": "6df3b5898447a597b643a3766aedba4a86f67b2a98bbab4ceafd92f768d9f678",
+            "sources/TTC002/original.txt": "503b3c14c273b7ee25bf01889ea93488ef99dd94620ff65153884da2c3f410e0",
+            "sources/TTC002/plan-reading.json": "5634b77be9717ccac7b8292b31623deb02a0fc534bdb4234dd55169d350b61ff",
+            "sources/TTC003/original.txt": "fbbc667be5b14632035c50107e6297df229d49fc1970a56a74e135b15680415d",
+            "sources/TTC003/plan-reading.json": "4ea044af2943732a2c994ea47cf47232f90b9981bcd53755b35b59d89e9005ac",
+            "sources/TTC004/original.txt": "e7f171256750ccf7c05f09977f2ce3e23b89533a07f29dd723f990af985514b1",
+            "sources/TTC004/plan-reading.json": "edfabdf5b3e5775988dd22d5e0ce7704f864e6c577da01037c59c31f1e4843b5",
+            "sources/TTC005/original.txt": "457d77f0dea6486ae5f3232b2af9a6385fc0a5b99bc1df391cb2424e47803548",
+            "sources/TTC005/plan-reading.json": "010a4c13c4508135672135bb3ded808195220eda7714dcd1ca4c318ecba2ac8c",
+            "sources/TTC006/original.txt": "fa34e0b428cc0937e2682093ed5cc47df7c10081eff3a7694c53b9afea051604",
+            "sources/TTC006/plan-reading.json": "b3f196ca8d88fd0bde0265b4fdb9a71aa11115172f1a9f61ec2f69163eb41346",
+            "sources/TTC007/original.txt": "7e409775a37ae009d20409e9d70fc652f7f9885058fbc159a365ed6d58d7b70a",
+            "sources/TTC007/plan-reading.json": "2c2209b5263b9da7b842c5df792fef941431bc94258412738da0eddfc9fef058",
+            "sources/TTC008/original.txt": "e70f13d6fcc8d0662081605582ff54e1804fac65ce658842df872392036feed3",
+            "sources/TTC008/plan-reading.json": "3455e7e188e95898ff0bf32d74bde5c70c92a63648b490162c1abb4369feb1fc",
+            "sources/TTC003v2/original.txt": "b29093bdb0bcc6aa6a94564db09aad1a8991c9315de0c0092a7f1c77064c6333",
+            "sources/TTC009/original.txt": "ca2a1cef6f9498dea3f62d6ad3c19934cb93ae4d123724aabea61811892954f4",
+            "sources/TTC010/original.txt": "bbf8b9069a0928adfdad4541c0ea4be04af1b58517131c0e66c4863cf95b10b5",
+            "sources/TTC011/original.txt": "1f46c5ea76dd63cb2901146ce873700169e18ad97e3687fb7c28ea8eeb17819a",
+            "sources/TTC012/original.txt": "ddbc09a9f6c00ea87353c32039e3b4e4641d461aa0692307427e767f221eafa2",
+            "sources/TTC013/original.txt": "104adeeb4df6433b039dc5c8eda924c398eb68dc5a7eb84957543435d920e6a4",
+            "analysis/outline.md": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+            "record:requirements:effective@U1,outline": "fd04a5d9aac14aa6ae92ba581479847f4946551de3a371c87a77228d68f2b906",
+            "record:sources:TTC001": "772a9b7eb1b13cd9d5bb0a85a6c862324a4f07d6b4ab6b9cb3dec67dcaab3179",
+            "record:sources:TTC002": "e4ac7c0b006e6e7bd9361bd69fea0fd2944729899af9bebd4dad96195f4708ff",
+            "record:sources:TTC003": "9d56135546be20d1bb0061e6e1a586a1ec1e059129d9c5480d75986cd612785d",
+            "record:sources:TTC004": "f13a8afd1eda0c23de4ecbc9c4543cd251462045add3911bf0c42a4a4d087f6d",
+            "record:sources:TTC005": "45519c5b9c3f64011973e07349614b2742600185c53b53ee17bc2e7a2391dc3d",
+            "record:sources:TTC006": "9a867dd55db0b53b17c9fac6ec6b4778c3c8850645bd052a6d8813aa4c6dce38",
+            "record:sources:TTC007": "37705be2d68b08ebb2f9411c600d640360274a4a4a46f96f6381856426f001f8",
+            "record:sources:TTC008": "ae3f6c063aa9375c77a44f0d2196d5274c36cb62c80cfca42a7a7a09e5dff286"
+          },
+          "unit_id": "U1",
+          "depends_on": [
+            "outline"
+          ],
+          "dependency_versions": {
+            "outline": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe"
+          },
+          "handoff": {
+            "summary": "Establish inference-comparison protocols and verify consequential numerical and methodological premises.",
+            "pending": [
+              "Independent evidence and domain review of decisive premises."
+            ]
+          },
+          "question": "Establish inference-comparison protocols and verify consequential numerical and methodological premises.",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/93c8d404dafd486c8c606401a6170541/saved/analysis/U1-evidence-protocol.md",
+            "sha256": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f"
+          },
+          "owner": "/root/ttc_research",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [
+            {
+              "unit_id": "outline",
+              "path": "analysis/outline.md",
+              "issues": []
+            }
+          ],
+          "readiness_issues": [],
+          "review": {
+            "artifact_sha256": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+            "input_version": "8005824d34a17e3023e0f2332760f582193e892fd93af10232da7b8af569bec3",
+            "ok": true,
+            "reviewers": [
+              "/root",
+              "/root/domain_and_audit"
+            ],
+            "record_path": "reviews/host/8005824d34a17e3023e0/input.json"
+          }
+        },
+        {
+          "path": "reports/current.md",
+          "sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+          "kind": "report",
+          "complete": true,
+          "contributors": [
+            "/root/ttc_research"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "reports/current.md"
+          },
+          "host_task": "/root/ttc_research",
+          "based_on": {
+            "state/task_spec.md": "a54726733ae1efaa64c661f9bb4f0a8c063f66b13ff7ebeaba244661746da803",
+            "sources/TTC001/original.txt": "9978c71de575a44d5ca1a10301bffe3e2ec7e7ee4d1dcbe34a21dc544006f390",
+            "sources/TTC001/plan-reading.json": "6df3b5898447a597b643a3766aedba4a86f67b2a98bbab4ceafd92f768d9f678",
+            "sources/TTC002/original.txt": "503b3c14c273b7ee25bf01889ea93488ef99dd94620ff65153884da2c3f410e0",
+            "sources/TTC002/plan-reading.json": "5634b77be9717ccac7b8292b31623deb02a0fc534bdb4234dd55169d350b61ff",
+            "sources/TTC003/original.txt": "fbbc667be5b14632035c50107e6297df229d49fc1970a56a74e135b15680415d",
+            "sources/TTC003/plan-reading.json": "4ea044af2943732a2c994ea47cf47232f90b9981bcd53755b35b59d89e9005ac",
+            "sources/TTC004/original.txt": "e7f171256750ccf7c05f09977f2ce3e23b89533a07f29dd723f990af985514b1",
+            "sources/TTC004/plan-reading.json": "edfabdf5b3e5775988dd22d5e0ce7704f864e6c577da01037c59c31f1e4843b5",
+            "sources/TTC005/original.txt": "457d77f0dea6486ae5f3232b2af9a6385fc0a5b99bc1df391cb2424e47803548",
+            "sources/TTC005/plan-reading.json": "010a4c13c4508135672135bb3ded808195220eda7714dcd1ca4c318ecba2ac8c",
+            "sources/TTC006/original.txt": "fa34e0b428cc0937e2682093ed5cc47df7c10081eff3a7694c53b9afea051604",
+            "sources/TTC006/plan-reading.json": "b3f196ca8d88fd0bde0265b4fdb9a71aa11115172f1a9f61ec2f69163eb41346",
+            "sources/TTC007/original.txt": "7e409775a37ae009d20409e9d70fc652f7f9885058fbc159a365ed6d58d7b70a",
+            "sources/TTC007/plan-reading.json": "2c2209b5263b9da7b842c5df792fef941431bc94258412738da0eddfc9fef058",
+            "sources/TTC008/original.txt": "e70f13d6fcc8d0662081605582ff54e1804fac65ce658842df872392036feed3",
+            "sources/TTC008/plan-reading.json": "3455e7e188e95898ff0bf32d74bde5c70c92a63648b490162c1abb4369feb1fc",
+            "notes/actual-reading/TTC003v2.json": "c67a8bcbfd9605bc7e6101143f92511cf26229b4e16245524f572c429bbcbe35",
+            "sources/actual/TTC003v2.txt": "b29093bdb0bcc6aa6a94564db09aad1a8991c9315de0c0092a7f1c77064c6333",
+            "notes/actual-reading/TTC009.json": "483b08693917780a21ba4675b0e4a98af8a768a81975dffcb1848b785c89d5fc",
+            "sources/actual/TTC009.txt": "ca2a1cef6f9498dea3f62d6ad3c19934cb93ae4d123724aabea61811892954f4",
+            "notes/actual-reading/TTC010.json": "c890b18f7f140050affbd3d229c14f4a6f5aff0a4a95fb3f4cf99484e6de103a",
+            "sources/actual/TTC010.txt": "bbf8b9069a0928adfdad4541c0ea4be04af1b58517131c0e66c4863cf95b10b5",
+            "notes/actual-reading/TTC011.json": "e4d02c3d76acbae8941678049c1806f4018e66676b7506c73ba7bc74649dcd3b",
+            "sources/actual/TTC011.txt": "1f46c5ea76dd63cb2901146ce873700169e18ad97e3687fb7c28ea8eeb17819a",
+            "notes/actual-reading/TTC012.json": "5c1802545b61aca072e140d896716eb2749ceb6116eefc34d0d04ec9237a311a",
+            "sources/actual/TTC012.txt": "ddbc09a9f6c00ea87353c32039e3b4e4641d461aa0692307427e767f221eafa2",
+            "notes/actual-reading/TTC013.json": "5e41dc2098913cc7431793cdca029c09f4da56c31e74a7ddcb5fe49e99f4f985",
+            "sources/actual/TTC013.txt": "104adeeb4df6433b039dc5c8eda924c398eb68dc5a7eb84957543435d920e6a4",
+            "notes/actual-reading/SUP-CM.json": "43cb626bae9943b608ed69eee94a879dd9a9fe8a1225ac8fe9681be08d8a5d36",
+            "sources/actual/SUP-CM.txt": "0170a74cc73a3ce559ce26818a31523aaefa4acddc24c3ed1bc67bf34a185d04",
+            "notes/actual-reading/SUP-TAU.json": "e67cd741370ea08b30da55a5a6b794f6c48065cc89b9ff853186a344039e443c",
+            "sources/actual/SUP-TAU.txt": "1c38e77047e48759c73450b93ba68f25926566b9bacef05cdf783726e79586bc",
+            "notes/actual-reading/SUP-LIMITS.json": "0c115abd407ffa4b82fadd8554c35fef5b6ddd7e0320834685d390ed5352e62d",
+            "sources/actual/SUP-LIMITS.txt": "30611e7fd8c531c748e987aac08cae6d5778a65fb67c274bd5263bb5e4f8204c",
+            "notes/actual-reading/SUP-SELF.json": "ebb61ea26f2ffd6d43f74d75e4839057f32b4ed324ed9eeaeb4d64b0c63ac894",
+            "sources/actual/SUP-SELF.txt": "b3692efe76ffc4eed24e333ac37b60ee7f4d0ba66dc82da5d75c0aacdb0816db",
+            "notes/actual-reading/SUP-AC.json": "66cbcae710b70fb3c7f95fb36102475ca741bed25f63e7677b2bfb15bfea89fd",
+            "sources/actual/SUP-AC.txt": "bbe5da5a58537675a9cef1347e920eecf738f7c45871beb2ce4f8b53aae1204f",
+            "notes/actual-reading/SUP-TREE.json": "5b5b048877c24aee282cd44bbaa391427fd892e5ca6c89ec4849681cc0f87334",
+            "sources/actual/SUP-TREE.txt": "7ee0ebe1d36ab478eca15026d76a43347fbddb0a6acca73a2d79b8a97262de82",
+            "analysis/calculations/allocation-results.json": "7aded2c153183b6b682b4f6effda6861282d743c144fd257f8be42b93116d97c",
+            "analysis/outline.md": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+            "analysis/U1-evidence-protocol.md": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+            "sources/TTC003v2/original.txt": "b29093bdb0bcc6aa6a94564db09aad1a8991c9315de0c0092a7f1c77064c6333",
+            "sources/TTC009/original.txt": "ca2a1cef6f9498dea3f62d6ad3c19934cb93ae4d123724aabea61811892954f4",
+            "sources/TTC010/original.txt": "bbf8b9069a0928adfdad4541c0ea4be04af1b58517131c0e66c4863cf95b10b5",
+            "sources/TTC011/original.txt": "1f46c5ea76dd63cb2901146ce873700169e18ad97e3687fb7c28ea8eeb17819a",
+            "sources/TTC012/original.txt": "ddbc09a9f6c00ea87353c32039e3b4e4641d461aa0692307427e767f221eafa2",
+            "sources/TTC013/original.txt": "104adeeb4df6433b039dc5c8eda924c398eb68dc5a7eb84957543435d920e6a4",
+            "analysis/calculations/allocation_example.py": "d820966526060d0066a55f0c6b9d869e42e392e49e5d85b35324c84b2421c8a1",
+            "record:requirements:effective@U1,outline,report": "fd04a5d9aac14aa6ae92ba581479847f4946551de3a371c87a77228d68f2b906",
+            "record:sources:TTC001": "772a9b7eb1b13cd9d5bb0a85a6c862324a4f07d6b4ab6b9cb3dec67dcaab3179",
+            "record:sources:TTC002": "e4ac7c0b006e6e7bd9361bd69fea0fd2944729899af9bebd4dad96195f4708ff",
+            "record:sources:TTC003": "9d56135546be20d1bb0061e6e1a586a1ec1e059129d9c5480d75986cd612785d",
+            "record:sources:TTC004": "f13a8afd1eda0c23de4ecbc9c4543cd251462045add3911bf0c42a4a4d087f6d",
+            "record:sources:TTC005": "45519c5b9c3f64011973e07349614b2742600185c53b53ee17bc2e7a2391dc3d",
+            "record:sources:TTC006": "9a867dd55db0b53b17c9fac6ec6b4778c3c8850645bd052a6d8813aa4c6dce38",
+            "record:sources:TTC007": "37705be2d68b08ebb2f9411c600d640360274a4a4a46f96f6381856426f001f8",
+            "record:sources:TTC008": "ae3f6c063aa9375c77a44f0d2196d5274c36cb62c80cfca42a7a7a09e5dff286",
+            "record:sources:TTC003v2": "ae5ad31b3ca4042cd586d9cf1004a331ebb066c3ba59a3d6fe1e6441f904ebfe",
+            "record:sources:TTC009": "6067821cda3cfd40c54fba00dc171239dff9b6186b2efb732f0f453caa50fcf2",
+            "record:sources:TTC010": "9f684491e232c8c051fe55196b125513bea603579ff4e8ddc68253a6f900f33b",
+            "record:sources:TTC011": "bbd896c5c22f28368332790d151203a63cc122145357814094b5f07f388acbf2",
+            "record:sources:TTC012": "2c42262900a33b66b9adf402288ad568dbb3021033bd2f7caf732ef290112502",
+            "record:sources:TTC013": "c0c0cefeb984d1c029b8037ccd0887f74d33aa2e7cf98c1ae9c28c0f410578ff",
+            "record:sources:SUP-CM": "f55d3fa3f9fdf2fea682e6edcb88003ebf4e49d6f5b45f46a82cd79f6e986291",
+            "record:sources:SUP-TAU": "244b4dfff8529d348bad38a2afdbe0d6f6bf605eec6468617bad6b7fe31ab8b2",
+            "record:sources:SUP-LIMITS": "1c76a847c51f8504e18fe3830a8cf6323a34c147ba72c98ead81618362b013f4",
+            "record:sources:SUP-SELF": "44c836c9947d3a5e0e8b42961925301c515addfa6dbbc3df37776ae66bc3cfd0",
+            "record:sources:SUP-AC": "ec267cc8f2f0b2095013e416ea860fa97940184c7b17f4688922a7b830376828",
+            "record:sources:SUP-TREE": "f7b75409523d4a3c1a70832c8f18e4e1abb4b253c28857cc30292d0608eb4e51",
+            "record:sources:allocation-results.json": "9acdd2edb7d0b68e408ab8c7b6b2a87ccc4cc4ce2aa05782f8114ff13a32ab34",
+            "record:claims:TTC-CX001": "7f4416361404e5257faf2bf8699b03d3b47dfc8e65d75bb6d680e056376a4dcd",
+            "record:claims:TTC-CX002": "ad8074fb04f87e9524f0b1a458da6eaa5971d24272478b881af84933933829b7",
+            "record:claims:TTC-CX003": "188cf63316683367cfeac2e587217d0e6d0c70cc63bd5c37576ea084d7872043",
+            "record:claims:TTC-CX004": "71d17fd5392e0baa74ff428a8228ecdf1b5ea78c51325765803a8a04f04c1b0c",
+            "record:claims:TTC-CX005": "2d74f0558294e4f1ecfd47430bed817fcfc0fb9713ce9a83acafa027a4a96f9f",
+            "record:claims:TTC-CX006": "88323a61ac7c4e9a265b5c1df2556540c2e2da35aac51868fd70d99b30228b84",
+            "record:claims:TTC-CX007": "aceadf8e301648191d7be33b4b5c5ee38c0546a4ca082d2b8d948b436a796080",
+            "record:claims:TTC-CX008": "b997a4f56d9e80535f5c97cd27a3cd4cb33499c142407df6e0778fa4e4fdd0fb",
+            "record:claims:TTC-CX009": "8706b33653b53f4b49dc71252dfa17d6d125ad9b5146d98e8e63913873b85dd8",
+            "record:claims:TTC-CX010": "05e1645df49a676f4330f9d8bc5d564b169b2664d7cde3bbd91134001af916ba",
+            "record:claims:TTC-CX011": "f733743ff8c168f723d1d6372a1db8a4d1ba2e703db1c2a3622a55bd7045f702",
+            "record:claims:TTC-CX012": "955b7f087acd17168d9536d23c580b0425865dbed96268a7533c157b19377b60",
+            "record:claims:TTC-CX013": "3dc50793d6ca1873374626b7a5513577ce57ed371ddff47abaf04a91f2dacf57",
+            "record:claims:TTC-CX014": "7643777e3b98525e8de355b8d4d7869050c022470257960c7ffdad7105d38bda",
+            "record:claims:TTC-CX015": "e22a854337608537a92e608a63124a3b9b942579f3acf95bed08b03f3203eb26",
+            "record:claims:TTC-CX016": "a0ab7dd7800017fdba2f806a631c7a7ba0cc1fbab5da65a32a3bd853186ee15a",
+            "record:claims:TTC-CX017": "188b6797ee1a64ffa1ee7de4d65a6ea6a1d7880fd44711984b0bb1bf10efe4d9",
+            "record:claims:TTC-CX018": "23abc16fa6b62be8414373a6de602a758a84da3761f63a04178b94471922d8ab",
+            "record:claims:TTC-CX019": "acb1bff6bb3a6d99cd8ca74d0c9a166b6fdfafa4d3a3c8d811b7f5fd2d4fedf5",
+            "record:claims:TTC-CX020": "8a98088f08b57d6b62c5b43e535151128bb83b1d9358b575ecc823efc01a6277",
+            "record:claims:TTC-CX021": "a7f3f328a611abbdc1c34f7b591053794e2635dd8af8c28e955b59e5adcf01c2",
+            "record:claims:TTC-CX022": "e328f79947eaf9b0014912aa7f3960bdb4a77974d9fce116350830fc8c7c1d4a",
+            "record:claims:TTC-CX023": "755d7571e0d7c8b160ec18eeb759f1f79ddd63c325ae9538d1b421d5a84345ef",
+            "record:claims:TTC-CX024": "a8e2ad12d10d39d162123768a255849cb34668b9873d5ab1be0aaed88ed7936d",
+            "record:claims:TTC-CX025": "93d8240d614dde1755e3fc7de60e0bfc8315879bbab6f0e4b15bbd3e09e6ae0a",
+            "record:claims:TTC-CX026": "e0d7c678608b8ab5a7244b1d84bef92b8f215542389f9b4d7ba16694a7564447",
+            "record:claims:TTC-CX027": "0c3baf84aa0521c02b9277345e19f8ed5b17c3867ffb449a922bb7587d1efefe",
+            "record:claims:TTC-CX028": "2f59cf15e8649193ec64b36209e4e0f49eaefac8984f024e49a4b0a97da4302e"
+          },
+          "unit_id": "report",
+          "depends_on": [
+            "outline",
+            "U1"
+          ],
+          "dependency_versions": {
+            "outline": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+            "U1": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f"
+          },
+          "handoff": {
+            "summary": "Complete author manuscript and source-linked analyses; original first outputs retained.",
+            "pending": [
+              "Seven independent content perspectives, relevant domain review, independent audit and separate final acceptance."
+            ]
+          },
+          "question": "Integrate the complete answer to the effective research task and its comparisons.",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/a0eafffaa1bf4c1aa2bf8af442a84105/saved/reports/current.md",
+            "sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e"
+          },
+          "previous_version": {
+            "path": "logs/record-backups/a0eafffaa1bf4c1aa2bf8af442a84105/reports/current.md",
+            "sha256": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea"
+          },
+          "owner": "/root/ttc_research",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [
+            {
+              "unit_id": "outline",
+              "path": "analysis/outline.md",
+              "issues": []
+            },
+            {
+              "unit_id": "U1",
+              "path": "analysis/U1-evidence-protocol.md",
+              "issues": []
+            }
+          ],
+          "readiness_issues": [
+            "independent_review_pending"
+          ],
+          "review": null
+        }
+      ],
+      "production_contexts": [
+        "/root/ttc_research",
+        "author:test_time_compute_en",
+        "resp_0007cd018862640d016af1a1e16f1887d19b06d251df17e94f"
+      ],
+      "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+    },
+    "observation": {
+      "operation": "save",
+      "operation_id": "a0eafffaa1bf4c1aa2bf8af442a84105",
+      "started_at": "2026-11-09T17:04:22.688864+00:00",
+      "unit_id": "report",
+      "unit_complete": true,
+      "question": "Integrate the complete answer to the effective research task and its comparisons.",
+      "depends_on": [
+        "outline",
+        "U1"
+      ],
+      "dependency_versions": {
+        "outline": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+        "U1": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f"
+      },
+      "host_task": "/root/ttc_research",
+      "based_on": {
+        "state/task_spec.md": "a54726733ae1efaa64c661f9bb4f0a8c063f66b13ff7ebeaba244661746da803",
+        "sources/TTC001/original.txt": "9978c71de575a44d5ca1a10301bffe3e2ec7e7ee4d1dcbe34a21dc544006f390",
+        "sources/TTC001/plan-reading.json": "6df3b5898447a597b643a3766aedba4a86f67b2a98bbab4ceafd92f768d9f678",
+        "sources/TTC002/original.txt": "503b3c14c273b7ee25bf01889ea93488ef99dd94620ff65153884da2c3f410e0",
+        "sources/TTC002/plan-reading.json": "5634b77be9717ccac7b8292b31623deb02a0fc534bdb4234dd55169d350b61ff",
+        "sources/TTC003/original.txt": "fbbc667be5b14632035c50107e6297df229d49fc1970a56a74e135b15680415d",
+        "sources/TTC003/plan-reading.json": "4ea044af2943732a2c994ea47cf47232f90b9981bcd53755b35b59d89e9005ac",
+        "sources/TTC004/original.txt": "e7f171256750ccf7c05f09977f2ce3e23b89533a07f29dd723f990af985514b1",
+        "sources/TTC004/plan-reading.json": "edfabdf5b3e5775988dd22d5e0ce7704f864e6c577da01037c59c31f1e4843b5",
+        "sources/TTC005/original.txt": "457d77f0dea6486ae5f3232b2af9a6385fc0a5b99bc1df391cb2424e47803548",
+        "sources/TTC005/plan-reading.json": "010a4c13c4508135672135bb3ded808195220eda7714dcd1ca4c318ecba2ac8c",
+        "sources/TTC006/original.txt": "fa34e0b428cc0937e2682093ed5cc47df7c10081eff3a7694c53b9afea051604",
+        "sources/TTC006/plan-reading.json": "b3f196ca8d88fd0bde0265b4fdb9a71aa11115172f1a9f61ec2f69163eb41346",
+        "sources/TTC007/original.txt": "7e409775a37ae009d20409e9d70fc652f7f9885058fbc159a365ed6d58d7b70a",
+        "sources/TTC007/plan-reading.json": "2c2209b5263b9da7b842c5df792fef941431bc94258412738da0eddfc9fef058",
+        "sources/TTC008/original.txt": "e70f13d6fcc8d0662081605582ff54e1804fac65ce658842df872392036feed3",
+        "sources/TTC008/plan-reading.json": "3455e7e188e95898ff0bf32d74bde5c70c92a63648b490162c1abb4369feb1fc",
+        "notes/actual-reading/TTC003v2.json": "c67a8bcbfd9605bc7e6101143f92511cf26229b4e16245524f572c429bbcbe35",
+        "sources/actual/TTC003v2.txt": "b29093bdb0bcc6aa6a94564db09aad1a8991c9315de0c0092a7f1c77064c6333",
+        "notes/actual-reading/TTC009.json": "483b08693917780a21ba4675b0e4a98af8a768a81975dffcb1848b785c89d5fc",
+        "sources/actual/TTC009.txt": "ca2a1cef6f9498dea3f62d6ad3c19934cb93ae4d123724aabea61811892954f4",
+        "notes/actual-reading/TTC010.json": "c890b18f7f140050affbd3d229c14f4a6f5aff0a4a95fb3f4cf99484e6de103a",
+        "sources/actual/TTC010.txt": "bbf8b9069a0928adfdad4541c0ea4be04af1b58517131c0e66c4863cf95b10b5",
+        "notes/actual-reading/TTC011.json": "e4d02c3d76acbae8941678049c1806f4018e66676b7506c73ba7bc74649dcd3b",
+        "sources/actual/TTC011.txt": "1f46c5ea76dd63cb2901146ce873700169e18ad97e3687fb7c28ea8eeb17819a",
+        "notes/actual-reading/TTC012.json": "5c1802545b61aca072e140d896716eb2749ceb6116eefc34d0d04ec9237a311a",
+        "sources/actual/TTC012.txt": "ddbc09a9f6c00ea87353c32039e3b4e4641d461aa0692307427e767f221eafa2",
+        "notes/actual-reading/TTC013.json": "5e41dc2098913cc7431793cdca029c09f4da56c31e74a7ddcb5fe49e99f4f985",
+        "sources/actual/TTC013.txt": "104adeeb4df6433b039dc5c8eda924c398eb68dc5a7eb84957543435d920e6a4",
+        "notes/actual-reading/SUP-CM.json": "43cb626bae9943b608ed69eee94a879dd9a9fe8a1225ac8fe9681be08d8a5d36",
+        "sources/actual/SUP-CM.txt": "0170a74cc73a3ce559ce26818a31523aaefa4acddc24c3ed1bc67bf34a185d04",
+        "notes/actual-reading/SUP-TAU.json": "e67cd741370ea08b30da55a5a6b794f6c48065cc89b9ff853186a344039e443c",
+        "sources/actual/SUP-TAU.txt": "1c38e77047e48759c73450b93ba68f25926566b9bacef05cdf783726e79586bc",
+        "notes/actual-reading/SUP-LIMITS.json": "0c115abd407ffa4b82fadd8554c35fef5b6ddd7e0320834685d390ed5352e62d",
+        "sources/actual/SUP-LIMITS.txt": "30611e7fd8c531c748e987aac08cae6d5778a65fb67c274bd5263bb5e4f8204c",
+        "notes/actual-reading/SUP-SELF.json": "ebb61ea26f2ffd6d43f74d75e4839057f32b4ed324ed9eeaeb4d64b0c63ac894",
+        "sources/actual/SUP-SELF.txt": "b3692efe76ffc4eed24e333ac37b60ee7f4d0ba66dc82da5d75c0aacdb0816db",
+        "notes/actual-reading/SUP-AC.json": "66cbcae710b70fb3c7f95fb36102475ca741bed25f63e7677b2bfb15bfea89fd",
+        "sources/actual/SUP-AC.txt": "bbe5da5a58537675a9cef1347e920eecf738f7c45871beb2ce4f8b53aae1204f",
+        "notes/actual-reading/SUP-TREE.json": "5b5b048877c24aee282cd44bbaa391427fd892e5ca6c89ec4849681cc0f87334",
+        "sources/actual/SUP-TREE.txt": "7ee0ebe1d36ab478eca15026d76a43347fbddb0a6acca73a2d79b8a97262de82",
+        "analysis/calculations/allocation-results.json": "7aded2c153183b6b682b4f6effda6861282d743c144fd257f8be42b93116d97c",
+        "analysis/outline.md": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+        "analysis/U1-evidence-protocol.md": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+        "sources/TTC003v2/original.txt": "b29093bdb0bcc6aa6a94564db09aad1a8991c9315de0c0092a7f1c77064c6333",
+        "sources/TTC009/original.txt": "ca2a1cef6f9498dea3f62d6ad3c19934cb93ae4d123724aabea61811892954f4",
+        "sources/TTC010/original.txt": "bbf8b9069a0928adfdad4541c0ea4be04af1b58517131c0e66c4863cf95b10b5",
+        "sources/TTC011/original.txt": "1f46c5ea76dd63cb2901146ce873700169e18ad97e3687fb7c28ea8eeb17819a",
+        "sources/TTC012/original.txt": "ddbc09a9f6c00ea87353c32039e3b4e4641d461aa0692307427e767f221eafa2",
+        "sources/TTC013/original.txt": "104adeeb4df6433b039dc5c8eda924c398eb68dc5a7eb84957543435d920e6a4",
+        "analysis/calculations/allocation_example.py": "d820966526060d0066a55f0c6b9d869e42e392e49e5d85b35324c84b2421c8a1",
+        "record:requirements:effective@U1,outline,report": "fd04a5d9aac14aa6ae92ba581479847f4946551de3a371c87a77228d68f2b906",
+        "record:sources:TTC001": "772a9b7eb1b13cd9d5bb0a85a6c862324a4f07d6b4ab6b9cb3dec67dcaab3179",
+        "record:sources:TTC002": "e4ac7c0b006e6e7bd9361bd69fea0fd2944729899af9bebd4dad96195f4708ff",
+        "record:sources:TTC003": "9d56135546be20d1bb0061e6e1a586a1ec1e059129d9c5480d75986cd612785d",
+        "record:sources:TTC004": "f13a8afd1eda0c23de4ecbc9c4543cd251462045add3911bf0c42a4a4d087f6d",
+        "record:sources:TTC005": "45519c5b9c3f64011973e07349614b2742600185c53b53ee17bc2e7a2391dc3d",
+        "record:sources:TTC006": "9a867dd55db0b53b17c9fac6ec6b4778c3c8850645bd052a6d8813aa4c6dce38",
+        "record:sources:TTC007": "37705be2d68b08ebb2f9411c600d640360274a4a4a46f96f6381856426f001f8",
+        "record:sources:TTC008": "ae3f6c063aa9375c77a44f0d2196d5274c36cb62c80cfca42a7a7a09e5dff286",
+        "record:sources:TTC003v2": "ae5ad31b3ca4042cd586d9cf1004a331ebb066c3ba59a3d6fe1e6441f904ebfe",
+        "record:sources:TTC009": "6067821cda3cfd40c54fba00dc171239dff9b6186b2efb732f0f453caa50fcf2",
+        "record:sources:TTC010": "9f684491e232c8c051fe55196b125513bea603579ff4e8ddc68253a6f900f33b",
+        "record:sources:TTC011": "bbd896c5c22f28368332790d151203a63cc122145357814094b5f07f388acbf2",
+        "record:sources:TTC012": "2c42262900a33b66b9adf402288ad568dbb3021033bd2f7caf732ef290112502",
+        "record:sources:TTC013": "c0c0cefeb984d1c029b8037ccd0887f74d33aa2e7cf98c1ae9c28c0f410578ff",
+        "record:sources:SUP-CM": "f55d3fa3f9fdf2fea682e6edcb88003ebf4e49d6f5b45f46a82cd79f6e986291",
+        "record:sources:SUP-TAU": "244b4dfff8529d348bad38a2afdbe0d6f6bf605eec6468617bad6b7fe31ab8b2",
+        "record:sources:SUP-LIMITS": "1c76a847c51f8504e18fe3830a8cf6323a34c147ba72c98ead81618362b013f4",
+        "record:sources:SUP-SELF": "44c836c9947d3a5e0e8b42961925301c515addfa6dbbc3df37776ae66bc3cfd0",
+        "record:sources:SUP-AC": "ec267cc8f2f0b2095013e416ea860fa97940184c7b17f4688922a7b830376828",
+        "record:sources:SUP-TREE": "f7b75409523d4a3c1a70832c8f18e4e1abb4b253c28857cc30292d0608eb4e51",
+        "record:sources:allocation-results.json": "9acdd2edb7d0b68e408ab8c7b6b2a87ccc4cc4ce2aa05782f8114ff13a32ab34",
+        "record:claims:TTC-CX001": "7f4416361404e5257faf2bf8699b03d3b47dfc8e65d75bb6d680e056376a4dcd",
+        "record:claims:TTC-CX002": "ad8074fb04f87e9524f0b1a458da6eaa5971d24272478b881af84933933829b7",
+        "record:claims:TTC-CX003": "188cf63316683367cfeac2e587217d0e6d0c70cc63bd5c37576ea084d7872043",
+        "record:claims:TTC-CX004": "71d17fd5392e0baa74ff428a8228ecdf1b5ea78c51325765803a8a04f04c1b0c",
+        "record:claims:TTC-CX005": "2d74f0558294e4f1ecfd47430bed817fcfc0fb9713ce9a83acafa027a4a96f9f",
+        "record:claims:TTC-CX006": "88323a61ac7c4e9a265b5c1df2556540c2e2da35aac51868fd70d99b30228b84",
+        "record:claims:TTC-CX007": "aceadf8e301648191d7be33b4b5c5ee38c0546a4ca082d2b8d948b436a796080",
+        "record:claims:TTC-CX008": "b997a4f56d9e80535f5c97cd27a3cd4cb33499c142407df6e0778fa4e4fdd0fb",
+        "record:claims:TTC-CX009": "8706b33653b53f4b49dc71252dfa17d6d125ad9b5146d98e8e63913873b85dd8",
+        "record:claims:TTC-CX010": "05e1645df49a676f4330f9d8bc5d564b169b2664d7cde3bbd91134001af916ba",
+        "record:claims:TTC-CX011": "f733743ff8c168f723d1d6372a1db8a4d1ba2e703db1c2a3622a55bd7045f702",
+        "record:claims:TTC-CX012": "955b7f087acd17168d9536d23c580b0425865dbed96268a7533c157b19377b60",
+        "record:claims:TTC-CX013": "3dc50793d6ca1873374626b7a5513577ce57ed371ddff47abaf04a91f2dacf57",
+        "record:claims:TTC-CX014": "7643777e3b98525e8de355b8d4d7869050c022470257960c7ffdad7105d38bda",
+        "record:claims:TTC-CX015": "e22a854337608537a92e608a63124a3b9b942579f3acf95bed08b03f3203eb26",
+        "record:claims:TTC-CX016": "a0ab7dd7800017fdba2f806a631c7a7ba0cc1fbab5da65a32a3bd853186ee15a",
+        "record:claims:TTC-CX017": "188b6797ee1a64ffa1ee7de4d65a6ea6a1d7880fd44711984b0bb1bf10efe4d9",
+        "record:claims:TTC-CX018": "23abc16fa6b62be8414373a6de602a758a84da3761f63a04178b94471922d8ab",
+        "record:claims:TTC-CX019": "acb1bff6bb3a6d99cd8ca74d0c9a166b6fdfafa4d3a3c8d811b7f5fd2d4fedf5",
+        "record:claims:TTC-CX020": "8a98088f08b57d6b62c5b43e535151128bb83b1d9358b575ecc823efc01a6277",
+        "record:claims:TTC-CX021": "a7f3f328a611abbdc1c34f7b591053794e2635dd8af8c28e955b59e5adcf01c2",
+        "record:claims:TTC-CX022": "e328f79947eaf9b0014912aa7f3960bdb4a77974d9fce116350830fc8c7c1d4a",
+        "record:claims:TTC-CX023": "755d7571e0d7c8b160ec18eeb759f1f79ddd63c325ae9538d1b421d5a84345ef",
+        "record:claims:TTC-CX024": "a8e2ad12d10d39d162123768a255849cb34668b9873d5ab1be0aaed88ed7936d",
+        "record:claims:TTC-CX025": "93d8240d614dde1755e3fc7de60e0bfc8315879bbab6f0e4b15bbd3e09e6ae0a",
+        "record:claims:TTC-CX026": "e0d7c678608b8ab5a7244b1d84bef92b8f215542389f9b4d7ba16694a7564447",
+        "record:claims:TTC-CX027": "0c3baf84aa0521c02b9277345e19f8ed5b17c3867ffb449a922bb7587d1efefe",
+        "record:claims:TTC-CX028": "2f59cf15e8649193ec64b36209e4e0f49eaefac8984f024e49a4b0a97da4302e"
+      },
+      "previous_version": {
+        "path": "logs/record-backups/a0eafffaa1bf4c1aa2bf8af442a84105/reports/current.md",
+        "sha256": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea"
+      },
+      "artifact_snapshot": {
+        "path": "logs/record-backups/a0eafffaa1bf4c1aa2bf8af442a84105/saved/reports/current.md",
+        "sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e"
+      },
+      "artifact": "reports/current.md",
+      "artifact_kind": "report",
+      "complete_draft": true,
+      "artifact_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+      "outcome": "saved",
+      "finished_at": "2026-11-09T17:04:23.780166+00:00"
+    }
+  },
+  "prepared_result": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-reference-labels-prepared.json",
+  "review_summary": {
+    "assignments": [
+      "requirements",
+      "evidence",
+      "adversarial_reasoning",
+      "structure_and_depth",
+      "reader_usefulness",
+      "process_language",
+      "natural_expression",
+      "domain-1"
+    ],
+    "action_required": "host_agents",
+    "reviews_complete": false,
+    "delivery_ready": false
+  },
+  "limits": "No research, model call, calculation rerun or independent content review. No owner transfer. Prior finish, prepared files, original acceptance and previous exported report history retained."
+}

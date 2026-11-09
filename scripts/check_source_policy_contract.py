@@ -123,12 +123,15 @@ class SourcePolicyTests(unittest.TestCase):
     def test_current_workflow_inputs_pass(self):
         result = self.run_checker()
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        self.assertIn("workflow only", result.stdout)
+        self.assertIn("purpose=workflow", result.stdout)
 
     def test_current_inputs_cannot_be_called_factual_benchmark(self):
         result = self.run_checker("--purpose", "factual")
         self.assertNotEqual(result.returncode, 0, result.stdout)
-        self.assertEqual(result.stdout.count("not eligible for factual"), len(self.policies))
+        self.assertEqual(
+            result.stdout.count("not eligible for factual"),
+            sum("factual" not in policy["allowed_purposes"] for policy in self.policies.values()),
+        )
         self.assertNotIn("PASS:", result.stdout)
 
     def test_curation_is_exact_nonmutating_and_idempotent(self):

@@ -1,0 +1,48 @@
+{
+  "completed": true,
+  "artifact": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\verifiable_self_improvement_en\\reports\\current.md",
+  "delivery_check": {
+    "ok": true,
+    "delivery_contract_version": 3,
+    "current_contract_checked": true,
+    "semantic_verification": false,
+    "review_completion": {
+      "ok": true,
+      "flags": [],
+      "findings": [],
+      "required_slots": 10,
+      "completed_slots": 10,
+      "selected_attempts": {
+        "natural_expression": "effc4620b95b4110be441431717338a7",
+        "domain-1": "58b3bdb916af42859cce8caccad80ac2",
+        "evidence": "99adca019fab4622a9941c771566d17c",
+        "process_language": "0adfc1f3f10849b083ce8dc692cc261d",
+        "requirements": "8af5956eeb33441395a16574cddd6485",
+        "structure_and_depth": "cd7ed1a4fca84aeda1e7e901891e2569",
+        "adversarial_reasoning": "fe1aa964693c4f63b9c80316a6a8337a",
+        "reader_usefulness": "db5190f6bf814940afe7667dcfb53220",
+        "audit": "41bf519974334066b1cc28aaebd30dae",
+        "acceptance": "d9be07df9bc84c6eb4b148193d9cf8cd"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "flags": [],
+    "findings": [],
+    "completion_claim": false,
+    "terminal_state": true,
+    "stage": "final",
+    "status": "complete",
+    "accepted_limitations": [],
+    "limitation_disclosure": {
+      "status": "not_applicable",
+      "unmatched_limitations": [],
+      "semantic_verification": false
+    },
+    "warnings": [],
+    "delivery_observation": "not_provided"
+  },
+  "message": "The complete research report, source index, calculations, first manuscript and original independent findings are retained. The change notes identify the substantive revisions."
+}

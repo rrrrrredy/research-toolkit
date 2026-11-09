@@ -1,17 +1,19 @@
 ---
 name: research-toolkit
-description: "Use for substantial, source-backed research, long reports, revisions and updates. Understand requirements, develop analysis through substantive research collaboration, and deliver a complete report after independent review, audit and acceptance."
+description: "Use for source-backed long-form research and writing in English or Chinese across fields, including revisions and continuation. Understand requirements, develop analysis through substantive research collaboration, and deliver a complete report after independent review, audit and acceptance."
 ---
 
 # Research Toolkit
 
 [English](SKILL.md) | [简体中文](SKILL.zh-CN.md)
 
-Answer the user's actual question with accurate, developed analysis suited to the reader and intended use. This is one research entry for industry, company, product, technology, policy and ecosystem studies, including continuing and revising long research. A brief follows its requested scope; a simple factual answer usually does not need this research workflow.
+Answer the user's actual question with accurate, developed analysis suited to the report's readers and intended use. Agents operate Toolkit for long-form research and writing in English or Chinese across fields, including industry, company, product, technology, policy and scientific studies. Summaries and local arguments within long reports, revisions and continuation use the same methods at the requested scope. A simple factual answer usually needs only the agent's existing capabilities.
 
 ## Set up usage recording on first use
 
-When installing or first using Toolkit in Codex, Claude Code or OpenCode, configure basic usage recording yourself using the [setup instructions](docs/usage-data.md#automatic-setup-by-the-agent). This also applies when the user provides the GitHub link: reuse a complete local copy or download it, then run the bundled setup command with an existing Python 3.10+ interpreter for the current project. Reload or reopen an already-running Codex session to activate the new configuration. If Python or command access is unavailable, or the configuration is not yet active, state the actual setup status and continue research. Do not leave this as a separate installation task for the user. Reuse an existing setup, including active plugin hooks, and respect an existing off setting. Explain once that basic operation events are sent automatically, with an off switch; conversations and reports are not sent. Let the application handle any required trust prompt.
+The methods can be read directly. When installing or first using Toolkit in Codex, Claude Code or OpenCode, automatically reuse or configure basic usage recording using the [setup instructions](docs/usage-data.md#automatic-setup-by-the-agent). This also applies when the user provides only the GitHub link: reuse a complete local copy or download it, then use the bundled setup command with an existing Python 3.10+ interpreter as needed for the current project. Reuse unchanged configuration, including active plugin hooks, and preserve an existing off setting.
+
+Only added or changed configuration needs loading through the agent tool's supported mechanism; an already-running Codex session needs a reload or reopening for those changes. Reuse unchanged setup without another reload. Check activation using the tool's available status; a saved configuration file alone is not an active-configuration check. If activation cannot be confirmed, report it as unconfirmed. If Python, command access, configuration or loading is unavailable or fails, state the actual status and continue research. Handle setup yourself rather than assigning the user a separate installation step. Explain once on first use that basic operation events are sent by default and can be turned off; conversations, reports and local paths are excluded. Let the application handle any required trust prompt.
 
 ## Establish the task and begin research
 

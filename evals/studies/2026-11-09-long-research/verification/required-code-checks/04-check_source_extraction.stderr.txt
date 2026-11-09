@@ -1,0 +1,16 @@
+test_charset_is_read_only_from_actual_meta_declarations (__main__.SourceExtractionTests.test_charset_is_read_only_from_actual_meta_declarations) ... ok
+test_cli_json_binds_exact_source_without_local_path_leak (__main__.SourceExtractionTests.test_cli_json_binds_exact_source_without_local_path_leak) ... ok
+test_creation_and_access_do_not_become_publication (__main__.SourceExtractionTests.test_creation_and_access_do_not_become_publication) ... ok
+test_distinct_conflicting_fields_are_retained_not_resolved (__main__.SourceExtractionTests.test_distinct_conflicting_fields_are_retained_not_resolved) ... ok
+test_encoding_priority_and_conflicts_are_explicit (__main__.SourceExtractionTests.test_encoding_priority_and_conflicts_are_explicit) ... ok
+test_existing_output_and_original_source_are_not_overwritten (__main__.SourceExtractionTests.test_existing_output_and_original_source_are_not_overwritten) ... ok
+test_inline_unicode_and_link_are_preserved (__main__.SourceExtractionTests.test_inline_unicode_and_link_are_preserved) ... ok
+test_malformed_and_unclosed_jsonld_remain_visible_as_limits (__main__.SourceExtractionTests.test_malformed_and_unclosed_jsonld_remain_visible_as_limits) ... ok
+test_script_instructions_are_not_executed_or_added_as_article_text (__main__.SourceExtractionTests.test_script_instructions_are_not_executed_or_added_as_article_text) ... ok
+test_strict_decoding_and_explicit_override (__main__.SourceExtractionTests.test_strict_decoding_and_explicit_override) ... ok
+test_visible_text_alone_would_lose_publication_date (__main__.SourceExtractionTests.test_visible_text_alone_would_lose_publication_date) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.036s
+
+OK

@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "natural_expression": {
+      "location": "第90—96行Smart+来源说明；复用首评210行全文阅读",
+      "basis": "完整diff仅将搜索缓存与打开正文的取材过程改为采用2026年10月正文版本。按账户分批开放的使用条件、原始来源链接和后文素材质量机制均保留，读者获得同一有效版本边界而不需理解检索过程。原pass仍适用。"
+    }
+  },
+  "findings": [],
+  "input_version": "e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "assignment_version": "e6291714256a650a08c6dfc89931d6e107a862e6eb8a360a1fd5c8d2ee774e01"
+}

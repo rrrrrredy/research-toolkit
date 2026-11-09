@@ -1,0 +1,12 @@
+{
+  "input_version": "8208b408fba85ea9f85a7f8cce08ea0777a4dc51b47cd27819c1a1036a2be6e0",
+  "assignment_version": "78a6b498d9e279586f16af293020c79813bc6610b7d7b4e08437fcbae5489035",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "复用本人先前完整正文审阅（初始记录 native-full-reviews/adversarial_reasoning）；当前稿共 222 行，完整 diff 及上下文当前行号 [[19, 25], [47, 68], [85, 107]]。",
+      "basis": "读完全部新增旅行与费用链及其前后文，补核原始 Gemini Tasks 资格/动作、千问公测与邀测、Manus 发票自动化和 Browser Operator、Siri 日历/跨设备示例。现稿明确个人账户、订阅、Keep Activity、Personal Intelligence 与地区限制；公司角色不由个人 Workspace 连接自动获得。千问文档抽取未被写成持续报销系统，聊天内支付限定即时零售；Manus 追加行示例不等于同交易归并，文件更新与任务延续分开；Gemini 编辑不自动保证派生结果同步。两条链区分已有动作、候选用途、外部回执及取消结果，Siri 即将推出的 Tripsy 也未计作交付能力。新增选择建议有证据范围，未把构成能力拼成已验证的完整交易。"
+    }
+  },
+  "findings": []
+}

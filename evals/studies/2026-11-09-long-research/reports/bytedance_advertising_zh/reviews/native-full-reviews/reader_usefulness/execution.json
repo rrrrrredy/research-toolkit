@@ -1,0 +1,35 @@
+{
+  "host_task": "/root/full_reader_b",
+  "agent_identity": "/root/full_reader_b",
+  "execution_mode": "native Codex subagent",
+  "status": "completed",
+  "slot_id": "reader_usefulness",
+  "input_version": "db8213c012af78accb3a9719133d8719cea1032b0ba50b3b1862df3cc6dc3831",
+  "assignment_version": "2a4be62f587eb99e049a027b08f00d92ac04b62075093fd533eadf1f630193c6",
+  "artifact_sha256": "2b6fcb4578a6fbb99f3f1fee6a444bde059fda9a1cbb64e58173029f52d27416",
+  "started_at": "2026-11-09T14:47:52.2895285Z",
+  "completed_at": "2026-11-09T14:48:44.3440234Z",
+  "assignment_path": "reviews/host/db8213c012af78accb3a/jobs/reader_usefulness-2a4be62f587eb99e.json",
+  "read_report_ranges": [
+    [
+      1,
+      75
+    ],
+    [
+      76,
+      145
+    ],
+    [
+      146,
+      211
+    ]
+  ],
+  "total_report_lines": 211,
+  "read_task": true,
+  "read_effective_requirements": true,
+  "read_scope_decisions": true,
+  "source_originals_read": [],
+  "other_review_results_read": false,
+  "report_modified": false,
+  "api_used": false
+}

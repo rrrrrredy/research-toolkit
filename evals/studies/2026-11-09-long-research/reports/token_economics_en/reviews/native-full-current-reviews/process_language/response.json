@@ -1,0 +1,19 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "process_language": {
+      "location": "reports/current.md 全文第1–386行；第97–114行分词实验、117–310行工作负载与托管算例、376–386行附录",
+      "basis": "完整读完冻结全文、各工作负载输入/公式/敏感性、价值链和附录，并读原始任务与有效要求。原开头作者路径和待审身份已删除。算例实跑说明、分词实验版本/哈希及计算文件是可复算方法，缓存/重试/路由是研究对象，应保留。附录仍有下载失败后的工具路线与阅读台账等作者制作记录，具体列为必要的小范围修订；未重验API报价或外部论文。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "process_language-01",
+      "severity": "minor",
+      "location": "reports/current.md 第380行后半、第382行第一和第三句",
+      "basis": "“reading-ledger.json records the original paths and actual reading scope”“web-reading-notes.md separates successfully read web originals from failed local downloads”把读者引向内部阅读履历；“read through the web tool after local 403 responses”及“text was extracted separately while preserving originals”描述作者获取/抽取材料的操作过程，未说明它们给可用证据造成何种限制。按面向研究读者的要求，将这些操作记录留在执行附件，正文改成直接说明实际采用的历史发布页/官方文档版本及必要材料范围。保留前半计算脚本、分词数据与编码哈希，也保留R1重定向无法证明历史价格、Claude SKU与权重版本区别等影响结论的来源限制。"
+    }
+  ],
+  "input_version": "acc6504ab98dac4ec6273807ededc74b05552815bcc6455b766d539f3496fec9",
+  "assignment_version": "d1855ddc059f2399a2c2500b28d62e28551a80e9222d29a431cdfd647f21f8a7"
+}

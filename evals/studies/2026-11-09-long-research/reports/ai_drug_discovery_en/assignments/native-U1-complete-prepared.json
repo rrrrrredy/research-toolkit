@@ -1,0 +1,79 @@
+{
+  "request": {
+    "task": "ai_drug_discovery_en",
+    "artifact": "analysis/U1-rentosertib.md",
+    "scope": "AIDD-U1",
+    "purpose": "report_delivery",
+    "perspectives": [
+      "evidence"
+    ],
+    "domains": [
+      "Drug discovery, clinical trial design and missing-data interpretation"
+    ],
+    "evidence_paths": [
+      "analysis/calculations.py",
+      "analysis/calculations-results.json"
+    ],
+    "revision": true
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en",
+    "input_version": "15a9caf5d9f0ea26e5ba847533c013e44855dcde3f9ef9a186af7cea3ec7118c",
+    "scope": "AIDD-U1",
+    "assignments": [
+      {
+        "slot_id": "evidence",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/7c9f1f104a846f7add2a.md",
+          "sha256": "7c9f1f104a846f7add2a97c3ee49fb60262fd799c6cd09bf799209e0bbc65fb1"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/15a9caf5d9f0ea26e5ba/jobs/evidence-39364f8aeba68585.json",
+          "sha256": "67bb6882213392e19be0728129b9ed2cb61c977c442353c2596e31af10307556"
+        },
+        "assignment_version": "39364f8aeba68585505e60a05e6ff1c098555adb14f8dcf52c286a94dbfaf9a2",
+        "resume_host_task": "/root/independent_reviews_a"
+      },
+      {
+        "slot_id": "domain-1",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/8c810252d47db9f32bbe.md",
+          "sha256": "8c810252d47db9f32bbe1d06404e730bdf333033a19eb8c418b334bb65576944"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/15a9caf5d9f0ea26e5ba/jobs/domain-1-4e66bbb5d9f198de.json",
+          "sha256": "db03d1aa9a0a462a047f65afd457bd1272a3c2d0109ab7dc30bcceba8b614ee7"
+        },
+        "assignment_version": "4e66bbb5d9f198de539385f2037a35e9efa487bb68ca22f2b933d06e4903a05e",
+        "resume_host_task": "/root/independent_domain_b"
+      }
+    ],
+    "reviews_complete": false,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Incomplete independent assignment: evidence",
+        "Incomplete independent assignment: domain-1"
+      ],
+      "required_slots": 2,
+      "completed_slots": 0,
+      "selected_attempts": {},
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Incomplete independent assignment: evidence",
+      "Incomplete independent assignment: domain-1"
+    ]
+  }
+}

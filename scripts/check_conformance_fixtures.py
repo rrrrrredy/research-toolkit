@@ -52,7 +52,8 @@ def main() -> int:
     evals_dir = (repo_root / args.evals_dir).resolve()
     fixtures_dir = (repo_root / args.fixtures_dir).resolve()
     manifest = read_json(fixtures_dir / "manifest.json")
-    cases_by_id = {case["case_id"]: case for case in load_cases(evals_dir / "cases")}
+    cases_by_id = {case["case_id"]: case for case in load_cases(
+        evals_dir / "diagnostics/2026-11-09-retired-cases/cases")}
     sources_by_id = load_sources(evals_dir)
 
     failures: list[str] = []

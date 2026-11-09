@@ -1,0 +1,17 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "d49c3ce9104cc63e7832524cae63752853080491d4da8a045072f0dfff369a97",
+  "assignment_version": "799110299db166f35de448f3a7d4909f001524be90dc59749ed7074d9b789a64",
+  "completed_at": "2026-11-09T13:49:28.503396+00:00",
+  "reading_scope": {
+    "task": "complete assignment task and requirements",
+    "report": "complete report lines 1-287",
+    "originals": [
+      "sources/AIDD-U1/AIDD-S02.txt lines 119-153 and 170-183",
+      "sources/actual/AIDD-S14.txt lines 192-253",
+      "sources/actual/AIDD-S20.txt lines 184-194"
+    ],
+    "scope": "Independent adversarial_reasoning; retained originals only; no other reviewer opinions or new experiments."
+  }
+}

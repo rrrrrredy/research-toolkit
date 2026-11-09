@@ -1,0 +1,19 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "process_language": {
+      "location": "reports/current.md 全文第1–210行；机制图50–77、归因99–161、市场163–193、决策195–210",
+      "basis": "连续完整阅读冻结全文、两张机制图、产品/市场表及算例，读原始任务与有效要求。推荐、竞价、事件匹配、去重、归因、订单结算等操作流程属于研究核心；脚本算例、归因窗口矛盾、产品日期与未披露收入是必要材料边界。未见作者身份或待审状态；仅Smart+来源句保留了一次搜索/打开页面的取材经过，改为直接版本说明即可。未核验广告账户或新增外部研究。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "process_language-01",
+      "severity": "minor",
+      "location": "reports/current.md 第93行，Smart+来源说明末句",
+      "basis": "“Smart+搜索旧缓存曾显示8月，打开正文显示10月”按作者搜索和打开页面的操作经过叙述版本选择，打断产品机制说明。直接表述采用2026年10月正文版本、功能分批开放即可；如需解释日期冲突，可客观注明缓存摘要与正文日期不同，不必留下取材动作。保留Smart+适用版本和账户开放条件，不扩展事实核验。"
+    }
+  ],
+  "input_version": "db8213c012af78accb3a9719133d8719cea1032b0ba50b3b1862df3cc6dc3831",
+  "assignment_version": "a5606e6bef975b947da8c8a7674a883b90803ac0c32ddf83a9b78fc7d83f9b2a"
+}

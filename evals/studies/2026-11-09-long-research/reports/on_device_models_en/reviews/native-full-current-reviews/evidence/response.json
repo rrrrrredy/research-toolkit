@@ -1,0 +1,12 @@
+{
+  "input_version": "d4d35456df2a9b286ae74452251419d51dac7c018c6648fba79b489eff7614fe",
+  "assignment_version": "9d9a0c91df93edc998438c1dcd14c23cbc928658ae2e8536b3c2c6a9d5e58cad",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "basis": "阅读全文后，独立读取官方Qwen配置/模型卡、固定LiteRT表、Meta量化表、Apple 2025报告、BaseRT原论文、MELT连续实验、Minions最终论文、WhisperTRT README及实际profile/model/live代码、语音能耗论文，以及ML Kit/Apple/QNN/隐私原文；缺少本地当前微软文本处定向读取微软官方页面。Qwen的36层/2 KV heads/128 head维度、36 KiB每token、4K/8K/32K缓存和场景预留一致。S24 1024/256 tokens及Android performance lock明确保留；PC decode与prefill被正确视为分开测量。Meta与Apple质量下降数值准确且没有把优化前后变成通用定律。Minions 0.724/0.709、0.233/0.042美元、4090上31.81/11.00秒与原表一致，并保留本地免费及历史价格前提。WhisperTRT 0.86秒/20秒、439/666计量经代码确认是MiB RSS差；截断窗口与贪心解码均有原代码依据。语音INT8/FP16的时间、能耗、WER、合成噪声和基线扣除正确限定。平台可用性、前台限制及Phi/Aion未来零售日期未被夸大为所有设备已交付。报告中的内存、电费、传输和固定成本均明确为假设；逐式检查单位与算式，未重跑计算或模型实验。未发现需要修订的证据缺陷；这不等同于实际设备部署验证。",
+      "location": "reports/current.md:1-293（全文连续阅读）；重点核查21-39、53-75、101-105、145-178、194-210、224-244与附录"
+    }
+  },
+  "findings": []
+}

@@ -53,7 +53,7 @@ python scripts/check_docs_sync.py
 
 README 说明工具箱用户如何在线阅读、加载 Skill 或按环境安装；仓库拆分、同步命令、CI 和打包政策放在维护文档。对应中英文内容一同维护，两种语言的章节编号不必相同。
 
-评测资料用途见[数据审计](evaluation-data-audit.zh-CN.md)，语义审查材料见[诊断对照](../evals/semantic_diagnostics/README.zh-CN.md)。安装内容相同不证明报告质量或运行时实际加载。
+评测资料用途见[数据审计](evaluation-data-audit.zh-CN.md)，语义审查材料见[诊断对照](../evals/semantic_diagnostics/README.zh-CN.md)。
 
 ## 包版本与发布
 

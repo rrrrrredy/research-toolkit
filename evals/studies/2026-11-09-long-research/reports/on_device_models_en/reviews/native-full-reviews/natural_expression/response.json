@@ -1,0 +1,19 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "natural_expression": {
+      "location": "reports/current.md 全文第1—293行；内存公式及工作集、手机/PC阶段性能、文档与语音任务、隐私/API条件、经济情景和附录。",
+      "basis": "完整阅读任务和全文。内存、预填充/解码、单次/持续运行、RTF与端到端延迟逐步定义，数字后的解释说明为何改变产品选择。反例和条件都可定位到设备或测量设置，未发现需要为简洁删去的技术限定，正文主体也没有妨碍阅读的句法问题。交付稿仍夹带少量内部手稿/交接/评审叙述，与面向工程决策者的说明混在一起。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "natural_expression-01",
+      "severity": "minor",
+      "location": "reports/current.md 第3行；附录第289行及第291行末尾。",
+      "basis": "第3行公开了内部执行路径和独立评审分工；第289行叙述original handoff被检查、误取PMLR页面及旧笔记保留过程；第291行又指向key-premises-for-review.md的评审用途。这些句子需要读者理解内部产稿流程，未增加当前部署判断；历史S24版本及Minions正确出处已在正文和附录表充分说明。移除内部身份/评审状态及交接纠错过程句，保留实际采用的commit、文献版本、计算文件和影响结论的缺失测量。"
+    }
+  ],
+  "input_version": "d4d35456df2a9b286ae74452251419d51dac7c018c6648fba79b489eff7614fe",
+  "assignment_version": "0d9ab567af1195c8ef07b7a0b475ed0de463f4a559e72c59ee6d7365cadc820f"
+}

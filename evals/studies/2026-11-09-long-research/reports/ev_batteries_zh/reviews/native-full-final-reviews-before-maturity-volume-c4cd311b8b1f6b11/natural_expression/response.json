@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "natural_expression": {
+      "location": "第3、130、143行；复用首评143行全文阅读",
+      "basis": "完整diff确认作者稿/待审状态删除，受众、截止日、非实验和数据范围保留；LMFP改为提升续航的电池候选，消除增程式动力架构歧义，成本与空间前提不变。末段改写来源依据和QuantumScape生产阶段，保留标准全文、钠电成本及车队数据缺口和蔚来二级信号性质。两条原minor已解决，没有删去采用条件。"
+    }
+  },
+  "findings": [],
+  "input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+  "assignment_version": "f65a33072c060813442ffecaae05bbf7b2f4182d4e193ba0354d3a9ec49ad387"
+}

@@ -1,0 +1,12 @@
+{
+  "input_version": "30788053262e2a1e6a260f9af9f03ffdc69579f48a1d8d0daa44b2e21d0ea9e5",
+  "assignment_version": "11738993733ffb7173ce9029503c4987f010b4fa4ff716adb8d2d924881b906d",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "Complete current frozen AIDD-U1 (analysis/U1-rentosertib.md), with revised FVC analyses at lines 35–44; matching U1-rentosertib-revision-01.md.",
+      "basis": "Continuation in the original independent domain reviewer /root/independent_domain_b. Read the complete revised unit, current assignment and revision instructions, and the retained original finding; verified that the original question/effective requirements are unchanged and the revision file matches the frozen report. Reused the previously completed original-paper, actual Figure 2, raw NCT05938920 result and four-page Reporting Summary reading. The revised table now explicitly distinguishes observed cases (60 mg QD n=10, +98.4 mL, 95% CI 10.9–185.9; placebo n=14, −20.3 mL, −116.1–75.6) from baseline-adjusted ANCOVA with MAR multiple imputation in randomized groups (n=18, +89.2 mL, −8.7–187.2; n=17, −8.2 mL, −98.1–81.7). The two descriptive subtractions 118.7 and 97.4 mL are correctly assigned to their respective rows and explicitly carry no newly estimated between-group confidence interval. Text correctly states that the modeled high-dose within-group interval includes zero without treating that fact or interval overlap as a treatment-contrast test. Missingness remains 22/71 overall, 8/18 high-dose and 3/17 placebo, correctly expressed as 44.4% and 17.6%; observed-case selection and model-dependent imputation are now separately explained. The MAR assumption, need for MNAR sensitivity, safety/efficacy distinction, liver and exacerbation concerns, longer-trial limitations, and oral/inhaled development stages remain coherent in the complete revised unit. Therefore AIDD-U1-DOM-B-01 is resolved and withdrawn for this current version. Its original major negative response remains valid for the earlier frozen version and is preserved. No additional required domain defect introduced by this revision. This is local U1 domain approval, not whole-report review or final acceptance; no new analysis, calculation rerun or model experiment was performed."
+    }
+  },
+  "findings": []
+}

@@ -1,0 +1,72 @@
+{
+  "request": {
+    "task": "on_device_models_en",
+    "artifact": "reports/current.md",
+    "scope": "full_report",
+    "purpose": "report_delivery",
+    "domains": [
+      "On-device inference, hardware memory and edge-cloud system design"
+    ],
+    "evidence_paths": [
+      "notes/author-reading-ledger.json",
+      "analysis/author-production/calculation-results.json",
+      "analysis/author-production/handoff.json",
+      "analysis/author-production/key-premises-for-review.md"
+    ],
+    "revision": true
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en",
+    "input_version": "b05a22e12456963e8dcdd2cf1fa1d888fc1552f79329ce94c60a9f2fe349b9bf",
+    "scope": "full_report",
+    "assignments": [
+      {
+        "slot_id": "audit",
+        "role": "auditor",
+        "reading_ref": {
+          "path": "logs/reading/c5a9d4bf92caa8f04bf0.md",
+          "sha256": "c5a9d4bf92caa8f04bf0a6209c2d0d027e39acfd96747f7e417842c040d03520"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/b05a22e12456963e8dcd/jobs/audit-9150bb8e8580153a.json",
+          "sha256": "3c20f63298f7e657e65c768db48f31b74bef69813b3d13131df8c9f7a580e30b"
+        },
+        "assignment_version": "9150bb8e8580153a56a74f7362151cf4da2f247a07ed35d9c694683176c07ca7"
+      }
+    ],
+    "reviews_complete": true,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Incomplete independent assignment: audit",
+        "Incomplete independent assignment: acceptance"
+      ],
+      "required_slots": 10,
+      "completed_slots": 8,
+      "selected_attempts": {
+        "natural_expression": "2e327b1a72f543719d0caf98d6ff6bf7",
+        "domain-1": "dab54615edca4228abd2ebda54369955",
+        "evidence": "68e4fb4eccf248ea8aca38d54a949117",
+        "process_language": "e80e6d6384d1464a9f5d52a35b7b7ef6",
+        "requirements": "991e8f55b3ed4d568e236fea14e09966",
+        "structure_and_depth": "3ac9be440d214f77b88640dbea5e0a44",
+        "adversarial_reasoning": "79d1fdead2204c92a237370b307a4e0b",
+        "reader_usefulness": "9d22c36a27a14ac889e3398b8ced2c85"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ]
+  }
+}

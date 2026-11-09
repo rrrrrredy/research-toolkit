@@ -1,0 +1,12 @@
+{
+  "input_version": "e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "assignment_version": "8215b411ca004418610e9ddb5ff95d531b8b3ae2a1fec3b526bd2a5daf6961af",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "复用本人先前完整正文审阅（初始记录 native-full-reviews/adversarial_reasoning）；当前稿共 210 行，完整 diff 及上下文当前行号 [[90, 96]]。",
+      "basis": "唯一差异将 Smart+ 搜索缓存获取过程改成 2026 年 10 月正文版本与分账户开放说明。版本和可用性边界均保留，GMV Max 可纳入自然购买的归因、付费流量与自然流量增量不可直接识别、广告主利润不能由平台收入或归因 GMV 推得等核心判断完全未变。复用此前全文与官方归因原文核对，未发现新增推理缺陷。"
+    }
+  },
+  "findings": []
+}

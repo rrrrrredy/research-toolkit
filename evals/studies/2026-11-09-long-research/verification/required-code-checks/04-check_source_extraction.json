@@ -1,0 +1,11 @@
+{
+  "mandatory_step": "Check stored-source text and metadata extraction",
+  "command": [
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+    "scripts/check_source_extraction.py"
+  ],
+  "cwd": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109",
+  "exit_code": 0,
+  "started_at_epoch": 1794235436.482977,
+  "elapsed_seconds": 0.32763195037841797
+}

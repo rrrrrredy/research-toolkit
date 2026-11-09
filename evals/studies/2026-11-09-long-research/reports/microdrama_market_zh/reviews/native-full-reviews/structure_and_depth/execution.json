@@ -1,0 +1,22 @@
+{
+  "host_task": "/root/benchmark_structure",
+  "status": "completed",
+  "completed_at": "2026-11-09T14:16:11.2360099+00:00",
+  "input_version": "98b93c531b8061c68cfa3c93abb7469a9e3b577b6ad2775430396fc04ba37c51",
+  "assignment_version": "9be4368d927c59ec18c2e84bbd14c193a20a1f479ff4a84d6097ccfb794446a2",
+  "assignment_ref": "reviews/host/98b93c531b8061c68cfa/jobs/structure_and_depth-9be4368d927c59ec.json",
+  "reading_scope": {
+    "task": "assignment.task 全文",
+    "not_read": "未阅读作者自评、production-handoff正文、其他首次评审；未将来源清单或阅读台账视为原文阅读；其他来源不作全读声明",
+    "original_sources": [
+      "sources/MD006/original.txt PDF第6—7页",
+      "sources/MD003/original.txt 71.8%观看付费内容、84.2%未来付费意愿上下文及52.3%会员/免广告偏好段落",
+      "sources/actual/CP04.txt 南京文旅局2026-09-02分类管理说明全文",
+      "sources/actual/CP01.txt 第1页及第2页主要财务指标开篇",
+      "sources/actual/CP02.txt 第1页主要财务指标及第2页开篇"
+    ],
+    "effective_requirements": "assignment.effective_requirements R_TASK、R_LANGUAGE、R_DATE 全文",
+    "report": "assignment.report 连续全文，第1—513行，共36405字符；首次整体输出截断未作全读依据，之后分段1—170、171—350、351—513完整重读"
+  },
+  "work_performed": "只读评审；未改稿、未导入、未运行软件测试"
+}

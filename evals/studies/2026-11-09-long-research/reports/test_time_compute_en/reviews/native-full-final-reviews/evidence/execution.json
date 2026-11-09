@@ -1,0 +1,35 @@
+{
+  "host_task": "/root/independent_reviews_a",
+  "status": "completed",
+  "role": "evidence",
+  "scope": "full_report",
+  "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+  "assignment_version": "fe829e803963a4cb1da29b0cb7a93f05a75b5f9227bfae3213b601b3ced1aa28",
+  "completed_at": "2026-11-09T15:59:58.578778+00:00",
+  "assignment_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_en\\reviews\\host\\acead416ff0bcb116622\\jobs\\evidence-fe829e803963a4cb.json",
+  "artifact_sha256": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea",
+  "observed_agent_tool_events": [
+    "functions.exec / exec_command: complete current task/report reading in bounded ranges, frozen original source sections, retained allocation code and all output rows.",
+    "functions.exec / view_image: original TTC006 pages 3, 4 and 5.",
+    "functions.exec / web.run: original arXiv:2411.17501v1 accessed for SUP-LIMITS.",
+    "functions.exec / exec_command: serialized this response and execution into own review folder."
+  ],
+  "reading_scope": {
+    "report_characters": 73345,
+    "report_lines": 358,
+    "report_reading": "complete; ranges 1-60,61-122,123-190,191-266,267-323,324-end; truncated exploratory locator outputs were not counted as full source reads",
+    "originals": "Consequential original sections and visual pages explicitly enumerated in response.source_checks. Complete existing arithmetic output and source code read; no rerun.",
+    "prior_review_reuse": "None for TTCEN full evidence; this is the new independent full-report perspective requested by the parent."
+  },
+  "independence": {
+    "producer": false,
+    "host_task": "/root/independent_reviews_a",
+    "other_full_report_perspective_for_this_case": false,
+    "coordinator_prior_evidence_read": false,
+    "other_current_review_verdicts_read": false,
+    "production_edited": false,
+    "reviews_imported": false,
+    "model_api_called": false,
+    "new_tests_or_calculation_reruns": false
+  }
+}

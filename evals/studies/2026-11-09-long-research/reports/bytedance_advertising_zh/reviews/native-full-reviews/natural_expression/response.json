@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "natural_expression": {
+      "location": "reports/current.md 全文第1—210行；角色/资金口径、时间线、机制图、自动投放、归因与增量算例、四市场比较和经营建议。",
+      "basis": "完整阅读任务及当前全文。正文以同一资金和数据链反复推进，推荐、竞价、事件匹配、去重、归因、增量和利润各有具体用途；两个ROAS均为5的算例明确展示结果为何不同，未用空泛“闭环”替代机制。限定位置紧邻对应来源和地域，之后有可执行含义。末尾分别给品牌、站外效果、电商及平台的判断依据，未发现无推进重复、晦涩句法或需删除的内部对话。"
+    }
+  },
+  "findings": [],
+  "input_version": "db8213c012af78accb3a9719133d8719cea1032b0ba50b3b1862df3cc6dc3831",
+  "assignment_version": "f01f70e68dda29b1e9d4e025cc6a3f271fdbdd83e9c250eed8446f1ffd7bcc28"
+}

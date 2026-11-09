@@ -1,0 +1,16 @@
+{
+  "input_version": "e80623165cafab4fb0438ddbd29c7f8abed83b8eeda1d1577c6baaa48c0d1b21",
+  "assignment_version": "058c973d75774b6edd125b5d64e3c17e29432dbbb4466107dca7d4b0ed92cf4c",
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "location": "reports/current.md:97,207,277,372; complete 28-line diff",
+      "basis": "Read the complete 2366-character diff, my original complete requirements basis and supplied historical findings. The operator locator is corrected to Chen Jin (陈瑾), matching frozen IRW10 lines9-10; its interview and non-net-profit limitations remain. The weak-area row now declares advertising at RMB1.5/order, and the ramp introduction explicitly states months1-3 loss2.5%/advertising1.5 and month4 onward loss2%/advertising1. These match the unchanged warehouse-model.py scenario definitions at lines16-18 and ramp inputs at lines34-36, which I read without executing. The repair makes the already reported results reconstructable from the prose, rather than changing the calculated outcomes. Internal production-status sentences are removed while evidence/model pointers remain. No other report content, original requirement or frozen source changed. The two warehouse models, demand/peak capacity, working-capital and regional/operating comparisons from my prior complete assessment remain intact. No new necessary requirement defect found."
+    }
+  },
+  "findings": [],
+  "resolved_prior_findings": [
+    "AR-IRW-01 resolved",
+    "Weak-area advertising and ramp assumptions now explicit"
+  ]
+}

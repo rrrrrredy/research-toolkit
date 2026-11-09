@@ -1,0 +1,13 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "3e24c32827fa1b679ad94b1be8a59335458785206f8a80b88f9b3cea0c17a32a",
+  "assignment_version": "5998a5888877946e5a5fedea18fc17533b090b357c42505768234aad4f0b2a37",
+  "completed_at": "2026-11-09T13:54:02.010794+00:00",
+  "reading_scope": {
+    "prior_full_read": "Complete original task and 275-line report read by this reviewer; original execution retained in native-full-reviews",
+    "current_read": "All three report_changes; current lines 1-16,45-75,145-166,237-255",
+    "originals_reused": "DGM VSI001 lines108-129 and1028-1038; unchanged original not re-read",
+    "scope": "Targeted re-review of own finding and full-report implications; no other reviewer opinions or new experiments."
+  }
+}

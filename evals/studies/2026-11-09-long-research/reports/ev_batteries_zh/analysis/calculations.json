@@ -1,0 +1,137 @@
+{
+  "status": "author_scenarios_not_company_estimates",
+  "cost_unit": "normalized cost units per nominal kWh; not USD or RMB",
+  "formula": "C=(M+V-r*M*(1-y))/y + F/(u*y) + B",
+  "inputs": {
+    "M": 50,
+    "V": 10,
+    "F": 10,
+    "B": 15,
+    "scrap_material_recovery_fraction_r": 0.5
+  },
+  "definition": "y is energy-weighted final cell yield; u is line utilization before quality rejects; B is pack cost per saleable nominal kWh. No pack rejects modelled.",
+  "yield_utilization": [
+    {
+      "yield": 0.95,
+      "utilization": 0.85,
+      "cost": 89.226
+    },
+    {
+      "yield": 0.95,
+      "utilization": 0.6,
+      "cost": 94.386
+    },
+    {
+      "yield": 0.95,
+      "utilization": 0.4,
+      "cost": 103.158
+    },
+    {
+      "yield": 0.85,
+      "utilization": 0.85,
+      "cost": 95.017
+    },
+    {
+      "yield": 0.85,
+      "utilization": 0.6,
+      "cost": 100.784
+    },
+    {
+      "yield": 0.85,
+      "utilization": 0.4,
+      "cost": 110.588
+    },
+    {
+      "yield": 0.7,
+      "utilization": 0.85,
+      "cost": 106.807
+    },
+    {
+      "yield": 0.7,
+      "utilization": 0.6,
+      "cost": 113.81
+    },
+    {
+      "yield": 0.7,
+      "utilization": 0.4,
+      "cost": 125.714
+    }
+  ],
+  "maturity_comparison": {
+    "mature": 89.22600619195046,
+    "new_material_minus20percent_but_ramp": 113.57142857142858,
+    "new_at_same_yield_utilization": 78.96284829721363
+  },
+  "available_energy": [
+    {
+      "usable_fraction": 0.9,
+      "cost_per_usable_kwh": 99.14
+    },
+    {
+      "usable_fraction": 0.8,
+      "cost_per_usable_kwh": 111.533
+    }
+  ],
+  "charging": {
+    "nominal_kwh": 60,
+    "soc_window": [
+      0.1,
+      0.8
+    ],
+    "energy_kwh": 42,
+    "time_minutes": 15,
+    "average_cell_power_kw": 168,
+    "assumed_wall_to_battery_efficiency": 0.94,
+    "wall_average_kw": 178.72340425531917
+  },
+  "material_stoichiometry_scenario": {
+    "basis": "cathode stoichiometry only, lithium carbonate equivalent; excludes electrode manufacturing losses and excess lithium; capacities and voltages are chosen scenario inputs, not product measurements",
+    "LFP_assumed_Ah_per_kg": 160,
+    "LFP_assumed_V": 3.2,
+    "NMC811_assumed_Ah_per_kg": 190,
+    "NMC811_assumed_V": 3.65,
+    "LFP_kg_LCE_per_kwh": 0.45739226118788034,
+    "NMC811_kg_LCE_per_kwh": 0.5476279977611657,
+    "NMC811_kg_Ni_per_kwh": 0.6959596630364664,
+    "ten_USD_per_kg_LCE_shock_USD_per_kwh": {
+      "LFP": 4.573922611878803,
+      "NMC811": 5.476279977611656
+    },
+    "five_USD_per_kg_Ni_shock_USD_per_kwh": 3.479798315182332
+  },
+  "vehicle_constraints": {
+    "nominal_kwh": 75,
+    "at160Whkg_pack_kg": 468.75,
+    "at255Whkg_pack_kg": 294.11764705882354,
+    "qualification": "same hypothetical energy applied to distinct 2022 manufacturer pack density claims, not measured vehicle mass difference"
+  },
+  "utilization_value": {
+    "minutes_saved_per_day": 15,
+    "days_per_year": 300,
+    "years": 4,
+    "value_RMB_per_hour_assumed": 50,
+    "undiscounted_gross_RMB": 15000.0,
+    "scope": "excludes charging fees, queues, opportunity saturation, infrastructure capex and discounting"
+  },
+  "throughput_example": {
+    "A": {
+      "pack_cost_RMB": 60000,
+      "nominal_kwh": 60,
+      "usable_fraction": 0.9,
+      "full_usable_window_cycles": 2000,
+      "mean_capacity_factor": 0.9,
+      "throughput_kwh": 97200.0,
+      "capex_RMB_per_kwh": 0.6172839506172839
+    },
+    "B": {
+      "pack_cost_RMB": 70000,
+      "nominal_kwh": 75,
+      "usable_fraction": 0.9,
+      "full_usable_window_cycles": 1600,
+      "mean_capacity_factor": 0.9,
+      "throughput_kwh": 97200.0,
+      "capex_RMB_per_kwh": 0.720164609053498
+    },
+    "scope": "synthetic inputs; cyclic throughput only, no calendar limit or vehicle energy effects"
+  }
+}

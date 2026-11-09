@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "-m",
+    "unittest",
+    "check_evaluator_contract.EvaluatorContractTests.test_real_english_repetition_still_fails",
+    "check_evaluator_contract.EvaluatorContractTests.test_citation_variation_does_not_hide_chinese_repetition",
+    "check_evaluator_contract.EvaluatorContractTests.test_sentence_repetition_supports_english_and_preserves_tokens"
+  ],
+  "cwd": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\scripts",
+  "exit_code": 0,
+  "started_at_epoch": 1794246422.5383475,
+  "elapsed_seconds": 0.35284996032714844
+}

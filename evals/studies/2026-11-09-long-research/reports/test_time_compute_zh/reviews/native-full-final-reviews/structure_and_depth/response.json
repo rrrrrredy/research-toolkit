@@ -1,0 +1,16 @@
+{
+  "input_version": "8504bfecbac8c53a810f3db16fc39e86f6d8eb4f64607306c712f89554b0d059",
+  "assignment_version": "099ea14d838c10b267df52bb397949c2bc0aebcd05de9e88cd6b81755f897468",
+  "report_verdict": "pass",
+  "coverage": {
+    "structure_and_depth": {
+      "location": "reports/current.md:141-166; entire 27-line diff",
+      "basis": "Read the whole 3074-character diff against my actual v2 assignment, the retained v2 assessment and supplied historical findings. The budget is explicitly an expected-expense budget; table headers and narrative agree. The concrete two-retry example explains why expected spend below $0.10 does not guarantee a hard per-question cap, and the text connects a true cap to in-flight reservations, stopping and a possibly different candidate count/success distribution. This closes the compressed transition from expected retry cost to operational feasibility without pretending to implement a new scheduler. The latency paragraph now declares the second-round 2.7-second prefill and the 52.1-second chain/104.2-second two-wave total, matching the existing budget_example.py lines45-48. I read that unchanged code, not reran it. Average retry service time remains separate from tail latency. Prior finite-probe frontier/selection-noise and unproved online learnability qualifications remain unchanged. The full argument retains its mechanism, resource budget, verifier error and decision relationships; no new structural omission found."
+    }
+  },
+  "findings": [],
+  "resolved_prior_findings": [
+    "EV-TTCZH-01 disclosed second-round prefill is now connected to the budget example",
+    "AR-TTCZH-01 remains resolved"
+  ]
+}

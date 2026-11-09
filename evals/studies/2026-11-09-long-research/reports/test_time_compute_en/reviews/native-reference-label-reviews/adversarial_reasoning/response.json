@@ -1,0 +1,12 @@
+{
+  "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "assignment_version": "aa1ff321d957a1ca1b0e9949a298eb8da6218533ce830c9520089e085391c9b3",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "本人首评、最终稿确认与当前 job；codex-production/reference-labels-v2.diff 第 1–300 行完整差异及所含前后文，覆盖方法矩阵、采样/修订/验证/停止/代理、成本、算例和附录 A/B 引用标签。",
+      "basis": "接续本人完整报告评审，只确认本次实际引用显示标签修订；未变正文和原件阅读复用。逐段读取全部 300 行 diff 后，核对其正文与本人上次已审输入到当前 job 的实际差异完全一致。TTC/SUP 标签改成论文短名后，候选覆盖与实际提交、训练变化与单轮推理增益、有限探测 oracle 前沿与在线控制、不同成本口径与因果边界均未改变。SCoRe、Test-Time Self-Play、Optimal Reasoning Termination、Sample, Mix, or Verify? 等短名在方法表、正文及附录仍指向相同研究，原数值、版本、筛选条件和反例保留；少量语法去重未改变论证责任归属。实际提取核对的 54 个 URL 目标及顺序一致，来源对象完全相同，任务与有效要求的实质摘要亦未变化。原首评的无必要推理缺陷结论及后续预算/决策图修正判断继续适用，本次显示标签改动没有引入新的事实映射或中心推论缺陷。"
+    }
+  },
+  "findings": []
+}

@@ -34,7 +34,7 @@ Agent 工具运行 Agent，Toolkit 准备输入、保存产出并返回仍待完
   "evidence_paths": ["sources/primary.md"],
   "host_result": {
     "slot_id": "copy-the-returned-slot-id",
-    "host_task": "actual-independent-host-task-id",
+    "host_task": "actual-independent-agent-task-id",
     "response_path": "reviews/host/original-response.json",
     "execution_path": "reviews/host/original-execution.json"
   }

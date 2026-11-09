@@ -1,0 +1,12 @@
+{
+  "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+  "assignment_version": "704f9e5f064076e2f4f236b1f60d07546953f0a6e37720ae2657e1bf34c2214e",
+  "report_verdict": "pass",
+  "coverage": {
+    "reader_usefulness": {
+      "location": "reports/current.md 完整diff及上下文：新增第133行定义、修订第146行表格、第195行名义rollout说明、第255–286行决策树、第295行pilot段；另完整读当前第249–292行。复用首次第1–355行完整阅读与相关原件。",
+      "basis": "首次两个必要发现均已在当前文本中解决。RU-TTCEN-01：表前展开Overthinking Ratio与Accuracy Degradation，分别定义相对最早实测最优前缀的token比例及准确率差，并明确百分比/百分点、有限探针诊断和非在线节省；与本人已读且本轮内容未变的TTC007§3.1一致。RU-TTCEN-02：执行增量后U回到B判断当前结果是否满足要求；Q1更新剩余预算、耗时和资源，R检查剩余预算/时限/并行资源，缩减方案S回Q重计，无法形成可行计划则退出。因此反复执行和方案缩减均不再跳过所指出的约束。还读完其他全部差异：移除旧规划估计叙述、保留19200+800=20000含义，删除无助读者的治理框架句。报告的完整成本比较、条件、停止建议与原已读计算输出保持一致，未新增研究或实测主张，当前通过。"
+    }
+  },
+  "findings": []
+}

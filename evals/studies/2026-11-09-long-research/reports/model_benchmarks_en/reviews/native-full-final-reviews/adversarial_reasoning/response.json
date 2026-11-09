@@ -1,0 +1,12 @@
+{
+  "input_version": "9bd699373d7f5394b498f57ae2f4eacd3618c40e2bd4900720b6480bb93632f9",
+  "assignment_version": "dc2194348608281ff185a636d3125badf63306b9b351fb165c93a8f573aef61f",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "复用本人先前完整正文审阅（初始记录 native-full-reviews/adversarial_reasoning）；当前稿共 219 行，完整 diff 及上下文当前行号 [[52, 58], [102, 108], [145, 152], [178, 191]]。",
+      "basis": "全部差异已读并核对 MB18 原文奖励段、确认政策及成本段和 MB10 附录参数。τ-bench 奖励是数据库动作检查与必要回复内容检查的乘积，reward=1 仍可能绕过确认政策；当前稿在综表、方法表与账户交易选型建议中均反映该边界，未把得分当作完整授权合规。0.38/0.23 美元分别是历史零售 agent/user simulator 每次任务费用，未混成现价或成功任务成本。EvalPlus 的 token 上限、代码块提取及逐测试 timeout 均与原文一致，并继续区分 greedy 与抽样条件，未新增跨版本可复现性承诺。"
+    }
+  },
+  "findings": []
+}

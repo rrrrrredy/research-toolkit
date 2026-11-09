@@ -1,0 +1,7 @@
+Tool 'research_start' failed: 'Error executing tool research_start: Task ID must use letters, numbers, underscores or hyphens.'
+Tool 'research_status' failed: 'Error executing tool research_status: data/source_registry.csv row S1: fill title, url, source_type before analysis.'
+Tool 'research_review' failed: "Error executing tool research_review: Register the main draft's actual producer before independent review: save draft.path, draft.main=true and draft.host_task with the real producing agent task/session. Historical files and results remain readable."
+Tool 'research_status' failed: 'Error executing tool research_status: data/claims_registry.csv row C2, supporting_sources: S3 must identify registered sources with recorded reading evidence.'
+Tool 'research_review' failed: "Error executing tool research_review: Author self-review cannot complete independent review. Use the agent tool's separate agents and submit host_result."
+Tool 'research_review' failed: 'Error executing tool research_review: A production/assembly context cannot perform independent review, audit or acceptance.'
+Tool 'research_review' failed: 'Error executing tool research_review: Original agent result retained at reviews/host/239db10e3a68eb946a0d/results/24a8d76c4e0943be; Review omitted located coverage of required dimensions.'

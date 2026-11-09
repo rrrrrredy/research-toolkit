@@ -1,0 +1,14 @@
+{
+  "source_id": "SUP-TAU",
+  "url": "https://arxiv.org/html/2406.12045v1",
+  "title": "tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+  "reading_location": "§§3–5; state/reward/pass^k definitions; Tables1–2; setup30action cap",
+  "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+  "version_model_evaluation": "v1 2024-06-17; 115retail+50airline; agentT0/userT1; paper versions, no current leaderboard",
+  "observation": "Repeat reliability distinct from coverage; final-state reward can miss procedure violations",
+  "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-TAU\\original.txt",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-TAU\\original.html",
+  "text_sha256": "71bb537ab3bd64682e0a537dd71998c1ede09bd26233d6bc00e08e8d344b1dd6",
+  "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-TAU\\retrieval.json",
+  "reader": "/root/ttc_research"
+}

@@ -89,7 +89,12 @@ def main():
     parser.add_argument("--form", choices=["skill", "plugin", "cli", "mcp"], default="skill")
     parser.add_argument("--remove", action="store_true")
     args = parser.parse_args()
-    path = install(args.host, args.project.resolve(), args.remove)
+    project = args.project.resolve()
+    path = project / (".opencode/plugins/research-toolkit-usage.js" if args.host == "opencode" else
+                      ".codex/hooks.json" if args.host == "codex" else ".claude/settings.local.json")
+    before = path.read_bytes() if path.exists() else None
+    path = install(args.host, project, args.remove)
+    configuration_changed = before != (path.read_bytes() if path.exists() else None)
     next_step = "Only Toolkit usage recording configuration was removed."
     if not args.remove:
         first_installation = False
@@ -109,11 +114,15 @@ def main():
         reload_instruction = ("Reload or reopen the Codex session to load this configuration."
                               if args.host == "codex" else
                               "Follow the application's trust or reload instructions to load this configuration.")
-        next_step = ("Usage recording is configured. " +
-                     ("The installation event is queued. " if first_installation else "") + reload_instruction
-                     if enabled else "Usage recording remains off; the existing off setting was preserved.")
+        next_step = (
+            (("Usage recording configuration was written. " if configuration_changed else
+              "Existing usage recording configuration is unchanged and reused. ") +
+             ("The installation event is queued. " if first_installation else "") +
+             (reload_instruction if configuration_changed else "")).rstrip()
+            if enabled else "Usage recording remains off; the existing off setting was preserved."
+        )
     print(json.dumps({"host": args.host, "path": str(path), "removed": args.remove,
-                      "next": next_step}))
+                      "configuration_changed": configuration_changed, "next": next_step}))
 
 
 if __name__ == "__main__":

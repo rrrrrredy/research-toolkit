@@ -1,0 +1,75 @@
+{
+  "host_task": "/root/full_reader_b",
+  "agent_identity": "/root/full_reader_b",
+  "execution_mode": "native Codex; first complete current-report reading",
+  "status": "completed",
+  "slot_id": "reader_usefulness",
+  "input_version": "b05a22e12456963e8dcdd2cf1fa1d888fc1552f79329ce94c60a9f2fe349b9bf",
+  "assignment_version": "898f051279132f221db87241f9b5f7da60d1d7fd1da93aaa9ff55d42843ea404",
+  "artifact_sha256": "59f8ac88843287debab4c0176d72575b648dbf581eece7888f22e050e69da8dd",
+  "assignment_path": "reviews/host/b05a22e12456963e8dcd/jobs/reader_usefulness-898f051279132f22.json",
+  "started_at": "2026-11-09T16:06:26.478Z",
+  "full_report_reading_started_at": "2026-11-09T16:10:03.682Z",
+  "completed_at": "2026-11-09T16:11:46.280Z",
+  "read_task": true,
+  "read_effective_requirements": true,
+  "read_scope_decisions": true,
+  "read_report_ranges": [
+    [
+      1,
+      35
+    ],
+    [
+      36,
+      75
+    ],
+    [
+      76,
+      115
+    ],
+    [
+      116,
+      155
+    ],
+    [
+      156,
+      195
+    ],
+    [
+      196,
+      235
+    ],
+    [
+      236,
+      270
+    ],
+    [
+      271,
+      292
+    ]
+  ],
+  "report_range_output_timestamps": [
+    "2026-11-09T16:10:03.682Z",
+    "2026-11-09T16:10:11.965Z",
+    "2026-11-09T16:10:16.995Z",
+    "2026-11-09T16:10:21.234Z",
+    "2026-11-09T16:10:26.636Z",
+    "2026-11-09T16:10:31.274Z",
+    "2026-11-09T16:10:36.911Z",
+    "2026-11-09T16:10:42.366Z"
+  ],
+  "task_reread_at": "2026-11-09T16:10:53.298Z",
+  "total_report_lines": 292,
+  "report_characters": 60412,
+  "reading_method": "Sequential continuous numbered report ranges. The earlier oversized range 1–70 call returned only an output-truncation notice and is not counted as reading; the complete current report was subsequently read in the eight displayed ranges above.",
+  "previous_attempt": "The earlier complete-prepared assignment attempt was interrupted without a verdict or response after unintended exposure to an embedded historical domain-1 judgment concerning the Android performance-lock condition. Its own interruption record is retained; no prior full reading is claimed.",
+  "prior_interruption_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\native-full-complete-reviews\\reader_usefulness\\execution-interrupted.json",
+  "historical_review_context": "The parent explicitly authorized proceeding with historical necessary opinions as formal revision input. This first complete current-report conclusion was made from the actual task and report. The prior exposure is disclosed and this record does not claim a context free of historical review information.",
+  "other_review_results_read": true,
+  "other_review_results_read_in_this_final_reading": false,
+  "source_originals_read": [],
+  "source_reading_scope": "No primary-source re-audit was necessary for this reader-usefulness judgment; the report and task were sufficient to assess clarity, comparisons, recommendations and qualifications.",
+  "report_modified": false,
+  "api_used": false,
+  "calculations_rerun": false
+}

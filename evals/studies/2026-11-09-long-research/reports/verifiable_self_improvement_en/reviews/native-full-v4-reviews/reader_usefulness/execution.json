@@ -1,0 +1,48 @@
+{
+  "host_task": "/root/full_reader_b",
+  "agent_identity": "/root/full_reader_b",
+  "execution_mode": "native Codex subagent, same-context revision confirmation",
+  "status": "completed",
+  "slot_id": "reader_usefulness",
+  "input_version": "9907449b6a8e39785378a2be32913f20b44923005ebe5fdf7efa5e5148db9738",
+  "assignment_version": "79b4097c28755732df0b797981692b93bc99d4e144c5a178e11a9a33d82511d6",
+  "artifact_sha256": "6738773ca0c6fd185906c967db5f26d77c20acf0e2f55892757ae11855383905",
+  "started_at": "2026-11-09T14:51:19.1270163Z",
+  "completed_at": "2026-11-09T14:51:53.3937125Z",
+  "assignment_path": "reviews/host/9907449b6a8e39785378/jobs/reader_usefulness-79b4097c28755732.json",
+  "prior_input_version": "3e24c32827fa1b679ad94b1be8a59335458785206f8a80b88f9b3cea0c17a32a",
+  "prior_full_reading": "native-full-v3-reviews/reader_usefulness/execution.json",
+  "reused_report_ranges": [
+    [
+      1,
+      65
+    ],
+    [
+      66,
+      130
+    ],
+    [
+      131,
+      205
+    ],
+    [
+      206,
+      278
+    ]
+  ],
+  "newly_read_changed_lines": [
+    202,
+    264,
+    267,
+    269
+  ],
+  "comparison_scope": "All 278 lines of both frozen assignment.report strings compared; unchanged text reused from full reading in this same context.",
+  "total_report_lines": 278,
+  "read_task": true,
+  "read_effective_requirements": true,
+  "read_scope_decisions": true,
+  "source_originals_read": [],
+  "other_review_results_read": false,
+  "report_modified": false,
+  "api_used": false
+}

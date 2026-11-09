@@ -1,0 +1,31 @@
+{
+  "host_task": "/root/complete_requirements_b",
+  "status": "completed",
+  "perspective": "requirements",
+  "execution_mode": "native_codex",
+  "started_at": "2026-11-09T23:48:31.4475034+08:00",
+  "completed_at": "2026-11-09T15:49:24.7290092+00:00",
+  "input_version": "b05a22e12456963e8dcdd2cf1fa1d888fc1552f79329ce94c60a9f2fe349b9bf",
+  "assignment_version": "d52fe01cd6cba59561226cc6e3bb0490a77db405cc025183a5aa084d61d725e1",
+  "assignment_path": "reviews/host/b05a22e12456963e8dcd/jobs/requirements-d52fe01cd6cba595.json",
+  "assignment_sha256": "f6bcc5ca9ca45cb82d5fe3feffa675a119d67858881938126f3cf4969c751a9d",
+  "report_path": "reports/current.md",
+  "report_sha256": "59f8ac88843287debab4c0176d72575b648dbf581eece7888f22e050e69da8dd",
+  "expected_report_sha256": "59f8ac88843287debab4c0176d72575b648dbf581eece7888f22e050e69da8dd",
+  "reading_intervals": [
+    {
+      "report_ranges": [
+        "1-75",
+        "76-150",
+        "151-225",
+        "226-292"
+      ],
+      "unread_report_ranges": [],
+      "artifact": "actualjob.json task, effective_requirements and complete report",
+      "started_at": "2026-11-09T23:48:31.4475034+08:00",
+      "completed_at": "2026-11-09T15:49:24.7290092+00:00"
+    }
+  ],
+  "originals_opened": [],
+  "notes": "Independent actual full requirements assessment, no original coordinator remarks or peer current output read. No report edits, research, experiments or tests."
+}

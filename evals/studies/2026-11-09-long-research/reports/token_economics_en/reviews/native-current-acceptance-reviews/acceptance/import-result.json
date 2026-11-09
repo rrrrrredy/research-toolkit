@@ -1,0 +1,34 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\token_economics_en",
+  "input_version": "e6dab9c522bd95cbb6466eccef92143c33d291b91806655c81158321704d7807",
+  "scope": "full_report",
+  "assignments": [],
+  "reviews_complete": true,
+  "delivery_ready": true,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": true,
+    "flags": [],
+    "findings": [],
+    "required_slots": 10,
+    "completed_slots": 10,
+    "selected_attempts": {
+      "natural_expression": "93fa720129a44d1c940a666f0ffea3d2",
+      "domain-1": "7d4422e7f98d424d912f41436032c9f4",
+      "evidence": "2f93c333a6a241d9a1a5048ebcebf516",
+      "process_language": "fdd0e77babe64c57a24b6167befaf814",
+      "requirements": "9471738233d2443da04bf38b6e6b3cbe",
+      "structure_and_depth": "22a3d431f21143438da9fa40747c58e3",
+      "adversarial_reasoning": "089c47d7d2624280ac03be3dbf002bfc",
+      "reader_usefulness": "33475692c7f549ac82ea4de3611b8de0",
+      "audit": "7fe3c64ad9bf4b2e99fe6571b98bdcc7",
+      "acceptance": "7f8b7dbf711e456592ce6399e199db4e"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": null,
+  "open_issues": []
+}

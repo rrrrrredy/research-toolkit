@@ -1,0 +1,77 @@
+{
+  "host_task": "/root/process_remaining_b",
+  "status": "completed",
+  "execution_mode": "native_codex",
+  "review_mode": "revision_confirmation_in_original_reviewer_context",
+  "started_at": "2026-11-09T23:33:12.2935954+08:00",
+  "completed_at": "2026-11-09T23:35:50.4645558+08:00",
+  "input_version": "4916bbf7954376e17453bc78c09a2511b4dcceae7270c4ed378ef2d93eb80e89",
+  "assignment_version": "421c302f8366b4b6b4d635893ef7608bf566aa47a7d2d94e5dc7cf70da66f5a2",
+  "report_sha256": "ffceaf740b8acdfd38ca4b74d0de96327b7c80f0a26ffe563dee1f09b732ccc2",
+  "job_sha256": "02216c0e59319f446cd56cb3828530fb18aeca8f76038aa4e87bff4de83841e8",
+  "report_path": "reports/current.md",
+  "frozen_report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_en/native-full-final-reviews/process_language/frozen-report.md",
+  "previous_input_version": "93c45054c0a195dc5422e98588a3621cd4051e18cc3c17120e50b81d053f70b7",
+  "previous_assignment_version": "01877297dfa78969e48e80c4d11258d6b971464892f2635f17359ed4ad4ddbd3",
+  "previous_report_sha256": "187d695bca113393aa446a35232f5ed50ccfddbaece355796e6c2a2cc7647ac5",
+  "report_unchanged": false,
+  "reused_full_report_reading": {
+    "host_task": "/root/process_remaining_b",
+    "response_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_en/native-full-current-reviews/process_language/response.json",
+    "execution_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_en/native-full-current-reviews/process_language/execution.json",
+    "frozen_report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_en/native-full-current-reviews/process_language/frozen-report.md",
+    "report_sha256": "187d695bca113393aa446a35232f5ed50ccfddbaece355796e6c2a2cc7647ac5",
+    "actual_reading_ranges": [
+      [
+        1,
+        110
+      ],
+      [
+        28,
+        38
+      ],
+      [
+        111,
+        220
+      ],
+      [
+        221,
+        340
+      ]
+    ]
+  },
+  "actual_diff_reading": {
+    "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_en/native-full-final-reviews/process_language/report.diff",
+    "sha256": "38b69f67e7c7e07032b1542a1eee473ec02bcc11cb2232b201d9486057f95724",
+    "read_all_diff": true,
+    "diff_line_count": 16,
+    "actual_reading_ranges": [
+      [
+        1,
+        16
+      ]
+    ],
+    "current_report_context_ranges": [
+      [
+        297,
+        305
+      ]
+    ]
+  },
+  "actual_reading_ranges": [
+    [
+      297,
+      305
+    ]
+  ],
+  "changed_context_fields": [],
+  "resolved_prior_findings": [
+    {
+      "finding_id": "process_language-01",
+      "prior_severity": "minor",
+      "status": "resolved",
+      "basis": "第300、302行已将恢复图表、作者阅读动作及阅读台账自证改成图表总体、单位、脚注和引用页段的客观说明；原先指定的材料缺失、重复来源和计算边界保留。首评 process_language-01 已解决。"
+    }
+  ],
+  "reading_notes": "在原独立审阅上下文中复用本人已完成的原任务、有效要求与冻结全文阅读；当前任务、有效要求及scope_decisions未变化。第300、302行已将恢复图表、作者阅读动作及阅读台账自证改成图表总体、单位、脚注和引用页段的客观说明；原先指定的材料缺失、重复来源和计算边界保留。首评 process_language-01 已解决。 本轮仅确认修订及其对process_language全篇判断的影响，未重复全文阅读、计算、测试或研究。"
+}

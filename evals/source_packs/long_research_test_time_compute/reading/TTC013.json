@@ -1,0 +1,14 @@
+{
+  "source_id": "TTC013",
+  "url": "https://arxiv.org/html/2409.12917v1",
+  "title": "Training Language Models to Self-Correct via Reinforcement Learning",
+  "reading_location": "§§3–7; Tables3–5; one-round correction and inference sample scaling",
+  "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+  "version_model_evaluation": "v1 2024-09-19; Gemini1.5Flash MATH; Gemini1.0Pro MBPP->HumanEval",
+  "observation": "Training enables repair; separate4.4point inference delta from15.6point delta improvement",
+  "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC013\\original.txt",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC013\\original.html",
+  "text_sha256": "58c37eb46271d2ade4e09201b5891757ba4ccc49c1c1363bf8a8f7da2a57845d",
+  "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC013\\retrieval.json",
+  "reader": "/root/ttc_research"
+}

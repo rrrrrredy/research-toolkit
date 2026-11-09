@@ -1,0 +1,12 @@
+{
+  "input_version": "97ee1ab82f0edcae5c827dbdc224f44e663985fe5e22cf1f34b110fe8c980fb9",
+  "assignment_version": "b5737e98fa121157398fcd5d8877c8c7c6b7ff919d9d776315ec4b846ea66f0b",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "当前完整报告及 complete 保存前后实际 assignment，元数据等价确认",
+      "basis": "逐字段比对当前 complete=true packet 与此前已实际完成的 domain packet：任务、原始/有效要求、scope decisions、正文完整字符串、来源记录、source_files、analyses、scope、必要历史发现及 instructions 全部相同，正文 SHA-256 为 ffd5bcd5ce176d57e961f3b9b32fe18973c65b7702d3175cb396cc47b23b16f1。research_outputs 的唯一差异是 report.complete 从 false 到 true 及保存快照路径；production_history 原有三条逐项保持，仅新增同一正文哈希的 complete 保存事件，依赖版本不变。实际读取此前本角色 response/execution 并承接其完整领域核查，不因元数据自动批准，也未重跑。此前实质判断仍适用。 HELM/MMLU-Pro/EvalPlus、SWE/tau、偏好评测、污染和部署适用性及算例分母的既有核查结论未受影响，运行条件和缺失可复现材料的限制保持。"
+    }
+  },
+  "findings": []
+}

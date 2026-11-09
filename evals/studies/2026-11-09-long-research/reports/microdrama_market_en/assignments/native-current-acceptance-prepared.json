@@ -1,0 +1,69 @@
+{
+  "request": {
+    "task": "microdrama_market_en",
+    "artifact": "reports/current.md",
+    "scope": "full_report",
+    "purpose": "report_delivery",
+    "domains": [
+      "Chinese microdrama industry, audience measurement and commercial economics"
+    ],
+    "evidence_paths": [
+      "notes/author-reading-ledger.json",
+      "analysis/author-production/handoff.md"
+    ],
+    "revision": true
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_en",
+    "input_version": "4916bbf7954376e17453bc78c09a2511b4dcceae7270c4ed378ef2d93eb80e89",
+    "scope": "full_report",
+    "assignments": [
+      {
+        "slot_id": "acceptance",
+        "role": "acceptance",
+        "reading_ref": {
+          "path": "logs/reading/2b6a0c150a99d5aa169f.md",
+          "sha256": "2b6a0c150a99d5aa169fe57b91d4591ebce98d48266d09dd7373a86d7c9fb3d4"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/4916bbf7954376e17453/jobs/acceptance-b4c00cfae3bac9f8.json",
+          "sha256": "223647efe59d4ccf35fec295a7ea1d5629ba9cc62ca31001214296547bbba96d"
+        },
+        "assignment_version": "b4c00cfae3bac9f85f037d0c39b3b652fc7bf531157e8899ad9e9c3030a3a026"
+      }
+    ],
+    "reviews_complete": true,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Incomplete independent assignment: acceptance"
+      ],
+      "required_slots": 10,
+      "completed_slots": 9,
+      "selected_attempts": {
+        "natural_expression": "53bae97c0d2148f6977b2ca389538047",
+        "domain-1": "c800ace3aac64fd08848c723ad5e04e7",
+        "process_language": "45460453d67d4e5fb0624e4b8ac8e705",
+        "requirements": "a907dfead0fe4c17af0f155150ab5dac",
+        "structure_and_depth": "69c45df6e9214e58a7f526355aa07cd4",
+        "adversarial_reasoning": "15e14a456aed4bbab09f8f63ce0b0976",
+        "reader_usefulness": "1a1fa7a77d0940a1aa72d36dabd60dd8",
+        "evidence": "8ee800b22c0e4a0f88003bda6f7c25f0",
+        "audit": "39470ba76fd24712a2e1804c4f465317"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Incomplete independent assignment: acceptance"
+    ]
+  }
+}

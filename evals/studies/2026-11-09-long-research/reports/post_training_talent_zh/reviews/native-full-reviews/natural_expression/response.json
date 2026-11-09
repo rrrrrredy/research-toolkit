@@ -1,0 +1,19 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "natural_expression": {
+      "location": "reports/current.md 第1—173行全文；技术能力说明、完整人物表、专长矩阵、演化时间线、关系边和组织建议。",
+      "basis": "完整阅读任务和当前全文。人物密集表格中的主要限制分别对应任职时间、本人页冲突、共同作者贡献和社区身份，属于此任务必须保留的解释，不因出现多次而要求批量删除。方法段给出数据、评价器、算法和系统如何相互依赖，后文建议由这些接口展开，主体可辨识。未发现需要统一措辞、压缩专长或删除有效不确定性的依据。必要问题仅为开头对内部首稿和评审状态的叙述。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "natural_expression-01",
+      "severity": "minor",
+      "location": "reports/current.md 第3行“首稿，待其他上下文独立审阅”。",
+      "basis": "这句是产稿流程和内部上下文状态，读者无法据此理解能力网络，且打断截止日与用途说明。交付稿删除该句，保留截止日、受众及公开证据范围；人物表中的实际任职/贡献限制无需因此删除。"
+    }
+  ],
+  "input_version": "17ce6ad5fd882361a9816ed924c7a14d3345c8ee056b1c8cb8db4d39fbb3000d",
+  "assignment_version": "03fb333c5ebb85117985c25375788a6c8a673e5a9229a00cffa3d57ddee435bc"
+}

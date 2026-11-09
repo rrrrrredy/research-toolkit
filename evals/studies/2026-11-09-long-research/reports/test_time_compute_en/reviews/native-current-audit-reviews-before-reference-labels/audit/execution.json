@@ -1,0 +1,373 @@
+{
+  "host_task": "/root/benchmark_audit_complete",
+  "status": "completed",
+  "role": "auditor",
+  "slot_id": "audit",
+  "scope": "full_report",
+  "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+  "assignment_version": "9e8d7d0bcb498a4dfac10398242019584d42fced336ceef81524ac1992e0a7f0",
+  "artifact_sha256": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea",
+  "started_at_utc": "2026-11-09 16:17:54 UTC",
+  "completed_at_utc": "2026-11-09 16:25:48 UTC",
+  "job_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/reviews/host/acead416ff0bcb116622/jobs/audit-9e8d7d0bcb498a4d.json",
+  "actual_reading": {
+    "report": {
+      "path": "reports/current.md",
+      "ranges": [
+        [
+          1,
+          130
+        ],
+        [
+          131,
+          260
+        ],
+        [
+          261,
+          359
+        ]
+      ],
+      "complete": true,
+      "trailing_blank_line": 359
+    },
+    "assignment": "Full instructions/sampling,task/effective requirements,empty scope decisions,prior_required_findings,every current raw original reply and execution identity/reading/version fields,four production events.",
+    "reviews": [
+      {
+        "slot": "requirements",
+        "record": {
+          "attempt_id": "01ddf63195504e5191f313fab79dc25d",
+          "execution_id": "/root/complete_requirements_b",
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/requirements-ff177a5dc431e836.json",
+            "sha256": "14cd0f5390119cbf55d4842d226e2327997d2b3bf71cb9fb4fb98a11b1849a6d"
+          },
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/01ddf63195504e51/response.txt",
+            "sha256": "5e2fbc69b5a3bd1e2606d65d61377d63810c18cced1a8df588b9588ff84763ec"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/01ddf63195504e51/execution.json",
+            "sha256": "5f85948a515449130c014b840333dcab231d2f41a997b0a74aaa30c45d9067a5"
+          }
+        },
+        "response_match": true,
+        "execution_match": true,
+        "version_match": true,
+        "report_match": true
+      },
+      {
+        "slot": "evidence",
+        "record": {
+          "attempt_id": "58408723310642329e4516e098219e31",
+          "execution_id": "/root/independent_reviews_a",
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/evidence-fe829e803963a4cb.json",
+            "sha256": "a4e1b3e6e6bca882b8945b21d0b6dec5fe933a5f0f595d6b8b562adbad80240c"
+          },
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/5840872331064232/response.txt",
+            "sha256": "6a86421f5101e31c1dcedf5c21e3450d70f28482404b7e90657fbdecaf19b696"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/5840872331064232/execution.json",
+            "sha256": "c84b72d9f8d1530d4e6fbfb425363f4bf5c2176529c82e330f997586db3e6101"
+          }
+        },
+        "response_match": true,
+        "execution_match": true,
+        "version_match": true,
+        "report_match": true
+      },
+      {
+        "slot": "adversarial_reasoning",
+        "record": {
+          "attempt_id": "8f0ce8aee7f947d2a8f84c7e5cede1ab",
+          "execution_id": "/root/benchmark_adversarial",
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/adversarial_reasoning-c70ea6988b277888.json",
+            "sha256": "23e4045078118d72752f438d212e598969dbbd0536c8cf50575679dfefe8934c"
+          },
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/8f0ce8aee7f947d2/response.txt",
+            "sha256": "91034c711ad2ffa9939ad617c2efcc261d20c6c0c8a861e5bda2d6eaace07770"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/8f0ce8aee7f947d2/execution.json",
+            "sha256": "38fddff0e919df761f71a7476cc27cc16157532fac6e5e59490a8c259c425371"
+          }
+        },
+        "response_match": true,
+        "execution_match": true,
+        "version_match": true,
+        "report_match": true
+      },
+      {
+        "slot": "structure_and_depth",
+        "record": {
+          "attempt_id": "ef8a24f714554ef9a258a92d9031cebd",
+          "execution_id": "/root/structure_remaining_b",
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/structure_and_depth-5e13d948a1e6ee77.json",
+            "sha256": "dd6d50824ce1963df41b34d43d94005d5712720bfdce1907976ce9d7ee248418"
+          },
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/ef8a24f714554ef9/response.txt",
+            "sha256": "c28dcf312cebb1cd2d0d8c4065e1aa1860a8404e0ec4b252ada0a9b8c762f5ec"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/ef8a24f714554ef9/execution.json",
+            "sha256": "2fd10097f00a49c398cb4bd95c2d67b38772e799186ebff7280b9aa8f2cf65aa"
+          }
+        },
+        "response_match": true,
+        "execution_match": true,
+        "version_match": true,
+        "report_match": true
+      },
+      {
+        "slot": "reader_usefulness",
+        "record": {
+          "attempt_id": "2e0a91aa8e9f482e90dd5c6b57169bea",
+          "execution_id": "/root/benchmark_reader_a",
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/reader_usefulness-704f9e5f064076e2.json",
+            "sha256": "f5d29c7c3fcab34528768b8b5ada466959835cd4f6842a9747be4238fec94dd2"
+          },
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/2e0a91aa8e9f482e/response.txt",
+            "sha256": "2ea27abc4aa2a5e272308df18bd5d4dd354f93ec148bf0145b28046b24020fa4"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/2e0a91aa8e9f482e/execution.json",
+            "sha256": "919db024be8c7b0f36585e17eb473c03f4cb0a0a7e24a4d78774247a4dca0812"
+          }
+        },
+        "response_match": true,
+        "execution_match": true,
+        "version_match": true,
+        "report_match": true
+      },
+      {
+        "slot": "process_language",
+        "record": {
+          "attempt_id": "908158f6123c4db09225ebd919e0b4ae",
+          "execution_id": "/root/process_remaining_b",
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/process_language-e72148b24de6c25b.json",
+            "sha256": "9aac19acbc4affa374171f7287b0580200e6dbbcfb44260ce00717130d749cb3"
+          },
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/908158f6123c4db0/response.txt",
+            "sha256": "9ad7f7bbfbd730f972323013522d1e61a306d3a9b584888085ea1dc561f062bb"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/908158f6123c4db0/execution.json",
+            "sha256": "05c9475ff303b59576985e9d4b8427a77459fa634b5e5ef6d3fc454a7193f8f1"
+          }
+        },
+        "response_match": true,
+        "execution_match": true,
+        "version_match": true,
+        "report_match": true
+      },
+      {
+        "slot": "natural_expression",
+        "record": {
+          "attempt_id": "e375d6cc1084479480fba06d72cfe160",
+          "execution_id": "/root/benchmark_natural_expression",
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/natural_expression-5d16bc1daa272047.json",
+            "sha256": "57771f7ebf80ef47ac4b0ffac06b68583a03e06ff9d253e7417c2430bc5c08aa"
+          },
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/e375d6cc10844794/response.txt",
+            "sha256": "86c46d47365c9e4545f57a7766c20077e3ac8d06676ca87117d7ced3027c41c8"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/e375d6cc10844794/execution.json",
+            "sha256": "d22f70ee50d01ce74e2bae2cd5bc300360f9f5b7342bdc721244b0b7063dabf3"
+          }
+        },
+        "response_match": true,
+        "execution_match": true,
+        "version_match": true,
+        "report_match": true
+      },
+      {
+        "slot": "domain-1",
+        "record": {
+          "attempt_id": "60e0b99f737e499fa2200bc6c9333f25",
+          "execution_id": "/root/independent_domain_b",
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/domain-1-afd612d7cf11f344.json",
+            "sha256": "55cad88dd1d15a78681cf6a050c6915f99a3485f7e4595b5dae13b4c1453b35e"
+          },
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/60e0b99f737e499f/response.txt",
+            "sha256": "b5452b85dc4e65ac6eee5703a9f28b65bcd730f91461aee19fd1f5ef35e41827"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/60e0b99f737e499f/execution.json",
+            "sha256": "90963720aef815286d8432e6956b559da1e1d64879378657ed28f1f75c18ab48"
+          }
+        },
+        "response_match": true,
+        "execution_match": true,
+        "version_match": true,
+        "report_match": true
+      }
+    ],
+    "earlier_raw_reviews": [
+      "native-full-reviews/adversarial_reasoning/response.json",
+      "native-full-current-reviews/structure_and_depth/response.json",
+      "native-full-reviews/domain-1/response.json",
+      "original retained natural_expression and reader_usefulness negatives referenced by current prior_required_findings"
+    ],
+    "sources_and_ranges": [
+      {
+        "path": "sources/actual/TTC009.txt",
+        "range": "104–118;220–235;280–303"
+      },
+      {
+        "path": "sources/actual/TTC010.txt",
+        "range": "103–151;211–224; original.html15.9→56matches245/290/305/378"
+      },
+      {
+        "path": "sources/actual/TTC003v2.txt",
+        "range": "620–674;704–723;2750–2788"
+      },
+      {
+        "path": "sources/actual/TTC013.txt",
+        "range": "186–208;210–293"
+      },
+      {
+        "path": "sources/actual/TTC012.txt",
+        "range": "113–141;369–389;116–118 separately recovered after output truncation"
+      },
+      {
+        "path": "sources/TTC001/original.txt",
+        "range": "100–107;115–125;140–174"
+      },
+      {
+        "path": "sources/TTC002/original.txt",
+        "range": "matched full passages103,110,111,114,123,125,127,133,136,140,160,247"
+      },
+      {
+        "path": "sources/actual/TTC011.txt",
+        "range": "177–198"
+      },
+      {
+        "path": "sources/actual/SUP-SELF.txt",
+        "range": "94–98;120–170"
+      },
+      {
+        "path": "sources/actual/SUP-AC.txt",
+        "range": "90–124;304–325;430–446; savings/threshold matches29–30,77,155,191,222,370"
+      },
+      {
+        "path": "sources/actual/SUP-CM.txt",
+        "range": "97–121;180–196;224–233"
+      },
+      {
+        "path": "sources/actual/SUP-TREE.txt",
+        "range": "162–178;196–227;253–264"
+      },
+      {
+        "path": "sources/actual/SUP-TAU.txt",
+        "range": "129–133;164–184;229–233; directly read this copy after whole-copy hash differed from MB extraction"
+      },
+      {
+        "path": "sources/actual/SUP-LIMITS.txt",
+        "range": "matched53–73,127–128;continuous238–249"
+      },
+      {
+        "path": "sources/TTC005/original.txt",
+        "range": "248–264;728–740;789–854;875–893;28-target matches742/747"
+      },
+      {
+        "path": "sources/TTC005/retrieval.json",
+        "range": "complete"
+      },
+      {
+        "path": "sources/TTC007/original.txt",
+        "range": "134–159;400–406;858–870;1045–1054;1197–1206;70.5Bmatches72/429"
+      },
+      {
+        "path": "sources/TTC008/original.txt",
+        "range": "257–280;296–310;390–413"
+      },
+      {
+        "path": "sources/TTC006/original.txt",
+        "range": "284–360;390–470;846–872"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/TTC006/pages/p-03.png",
+        "range": "complete image"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/TTC006/pages/p-04.png",
+        "range": "complete image"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/TTC006/pages/p-05.png",
+        "range": "complete image"
+      },
+      {
+        "path": "analysis/author-production/allocation_example.py",
+        "range": "complete;read only"
+      },
+      {
+        "path": "analysis/author-production/allocation-results.json",
+        "range": "complete12budget/12deadline rows,assumptions,historical arithmetic"
+      },
+      {
+        "path": "analysis/author-production/calculation-record.json",
+        "range": "complete"
+      },
+      {
+        "path": "analysis/author-production/change-note-full-01.md",
+        "range": "complete diff;80–99 separately recovered"
+      },
+      {
+        "path": "analysis/U1-evidence-protocol.md",
+        "range": "85–99 continuous plus52/109/128matches"
+      },
+      {
+        "path": "analysis/author-production/U7-U8-budget-and-design.md",
+        "range": "31–41 continuous;85match"
+      },
+      {
+        "path": "analysis/author-production/U2-U6-mechanisms-and-evidence.md",
+        "range": "matched19–23,37,39,41,53"
+      }
+    ]
+  },
+  "integrity_checks": {
+    "current_report_hash": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea",
+    "current_raw_hashes_and_versions_all_match": true,
+    "producer_contexts": [
+      "/root/ttc_research",
+      "author:test_time_compute_en",
+      "resp_0007cd018862640d016af1a1e16f1887d19b06d251df17e94f"
+    ],
+    "eight_distinct_nonproducer_reviewers": true,
+    "viewed_pdf_same_hash_as_task_original": true
+  },
+  "limitations": [
+    "Combined source display truncated TTC012116–118; exact missing passage recovered.",
+    "Exploratory outline/change-note display exceeded cap; no complete outline reading claimed or relied upon. Current report was untruncated across three ranges; change-note tail recovered.",
+    "First response-serialization cell failed on undefined local variable before writing anything; subsequently stored explicit response object and wrote only assigned artifacts.",
+    "Read existing scripts/results without executing them. No model experiment,statistical resampling,calculation rerun,software test,manuscript/state edit or review import.",
+    "No independent download/audit of all hosted datasets or live endpoints claimed. Final acceptance remains a separate role."
+  ],
+  "outcome": {
+    "result": "valid",
+    "report_verdict": "pass",
+    "resolved_prior_findings": [
+      "a1c1a586e9c5493c906b54a092954742/natural_expression-01",
+      "0e1eb4f31fff4f5bab7fb64d00806ca8/RU-TTCEN-01",
+      "0e1eb4f31fff4f5bab7fb64d00806ca8/RU-TTCEN-02"
+    ],
+    "open_issues": 0
+  }
+}

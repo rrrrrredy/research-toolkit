@@ -1,0 +1,16 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "d4d35456df2a9b286ae74452251419d51dac7c018c6648fba79b489eff7614fe",
+  "assignment_version": "6e3225d21bda8624364f7bea6ae0b9d00f0fc97224409c3e0729f4288eb63e4a",
+  "completed_at": "2026-11-09T13:57:04.111776+00:00",
+  "reading_scope": {
+    "prior_review": "native-full-reviews/adversarial_reasoning; complete original reading retained",
+    "current_check": "Exact equality of task/report/sources/analyses/requirements/effective_requirements/scope_decisions against native-full-before-complete-prepared assignment; prior review input_version matched",
+    "changed_fields": [
+      "research_outputs",
+      "production_history"
+    ],
+    "scope": "Reuse only after actual packet equivalence check; no new experiment or other reviewer opinion."
+  }
+}

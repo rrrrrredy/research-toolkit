@@ -1,0 +1,70 @@
+{
+  "result": "pass",
+  "basis": "Independently read the complete287-line current report and effective task, all eight raw current reviews, full audit and all three preserved necessary negative findings. Read production handoff, both full revision diffs, calculation code/corrected results and selected primary originals, including the original FVC figure and registry fields. The seven-program longitudinal report answers the complete research request while retaining unsuccessful programs, specific computational contributions, clinical design and analysis denominators, dates/formulations, and rights/payment distinctions. Required repairs are substantive and present; no remaining necessary correction found. This is a content acceptance, not a new clinical experiment or a conclusion inherited from pass records.",
+  "input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+  "assignment_version": "ed59b1f87b49aaba49ed283e6a7e7534a93d6b03933d3396635ddfed69acf386",
+  "artifact_sha256": "65d880c1a784b0575d853d837db979ff73e28fec8c1bd024252c4b546f1a6558",
+  "coverage": {
+    "requirements": {
+      "basis": "Seven identifiable small-molecule programs cover target/design, iterative optimization, phenotypic screening and repurposing, including DSP-1181,EXS21546,REC-994 stops. Register and detailed histories resolve aliases,indications/formulations,organizations and dated stages. Evidence is stage-aware; comparisons distinguish experimental yield,candidate delivery,patient activity and benefit. Collaboration analysis covers rights,data,experiments,decision handoff and distinct cash categories, followed by R&D/BD/investment choices.",
+      "location": "reports/current.md:1–287"
+    },
+    "evidence": {
+      "basis": "Publication,registry and sponsor dates are labeled; oral phaseIII and inhalation IND are separate. Original Figure2 and R01W absolute-FVC results support observed/imputed means and distinct denominators; R02W supports pre-cutoff registration/start/enrollment fields. Own DSP and REC-994 original checks substantiate feedback units and retained attrition. Complete corrected arithmetic is descriptive. Full audit provides located independent checks for remaining unchanged claims, including REC-4881 source access that the evidence reviewer correctly did not claim.",
+      "location": "reports/current.md:31–195,224–257,275–287"
+    },
+    "adversarial_reasoning": {
+      "basis": "Missingness,uncontrolled/evaluable populations,therapeutic-index stop,failed primary endpoints,selected screening subsets and inherited drug history constrain interpretation. Clinical-stage entry is not benefit; compound count is not feedback count; small selected cohorts cannot establish causal AI uplift. Both useful narrow contributions and disappointing clinical outcomes remain visible.",
+      "location": "reports/current.md:74–89,105–109,117–151,173–197,214–228"
+    },
+    "structure_and_depth": {
+      "basis": "Dated register navigates into longitudinal mechanisms and experimental/clinical transitions, then stage comparison and contractual decisions. The corrected U1 analysis mapping and U4 partnership-to-report passages preserve the inference chain rather than flattening diverse endpoints into a success ranking.",
+      "location": "reports/current.md:27–271"
+    },
+    "reader_usefulness": {
+      "basis": "Tables put denominators and stages beside conclusions. R&D,BD and investment implications specify the evidence to buy and next uncertainty to resolve. Existing drug rights,platform IP,data use and candidate acceptance are usable distinctions; unresolved protocol/SAP,trial-criterion and contract details are localized.",
+      "location": "reports/current.md:31–40,64–85,143–153,205–271"
+    },
+    "process_language": {
+      "basis": "The source appendix now describes usable materials and specific missing details; retrieval metadata and author-reading log narration have been removed. Descriptive calculation scope and absence of new experimentation remain relevant methods.",
+      "location": "reports/current.md:273–287 and complete report"
+    },
+    "natural_expression": {
+      "basis": "English prose develops concrete programs and mechanisms; qualifications are attached to the affected inference. DSP wording now distinguishes synthesized/tested compounds from two-week feedback cycles without losing its positive operational result or later termination. No further necessary language repair found.",
+      "location": "reports/current.md:1–287"
+    }
+  },
+  "sample_checks": [
+    {
+      "location": "reports/current.md:101–109",
+      "result": "clear",
+      "selection_reason": "Two independent original negatives identify the same scientifically meaningful counting-unit defect.",
+      "evidence": "Read both negative originals and actual complete revision diff; AIDD06:181–202,274–305 states under12months to target-profile compound excluding safety,350th compound,and two-week synthesis/testing/data cycles including human-designed analogues. Current105 expresses hundreds of compounds through repeated cycles,not hundreds of sequential iterations."
+    },
+    {
+      "location": "reports/current.md:76–95,277",
+      "result": "clear",
+      "selection_reason": "Passed clinical synthesis could accidentally revive the earlier U1 estimator conflation or transfer oral stage to inhalation.",
+      "evidence": "Viewed original Figure2 panelsa/b and read R01W exact absolute-FVC outcome,groups,available denominators and LS analyses. Observed n10/14,+98.4/-20.3 differ from modeled randomized18/17,+89.2/-8.2. Corrected calculation and complete revision script preserve118.7/97.4 as group-point subtractions only. R02W status/design/primary-outcome fields show oral NCT07687459,recruiting,July7 posting,September9 actual start,October13 update,estimated320 and52week FVC endpoint; no phaseIII result."
+    },
+    {
+      "location": "reports/current.md:125–137",
+      "result": "clear",
+      "selection_reason": "A positive method comparison followed by discontinuation tests whether the whole report preserves both sides.",
+      "evidence": "AIDD-S14:221–245 documents2100-compound imaging screen,disjoint38/38 machine/human selected sets,7/1 orthogonal rescues and tempol mouse P approximately.052. AIDD-S20:185–194 datedMay5,2025 reports nonsustained extension MRI/functional trends and stopping. Current report retains useful screening evidence and negative development outcome without treating registry completion as continued development."
+    },
+    {
+      "location": "reports/current.md:226,243–271; U4:49–75",
+      "result": "clear",
+      "selection_reason": "Choose passed calculation and partnership synthesis to check that transaction ceilings and acceptance do not become clinical validation.",
+      "evidence": "Read complete calculations.py,corrected results and U4 partnership/decision passages. Wilson intervals69.0–95.7% and16.8–68.7% are conditional descriptive uncertainty;343×15=5145million and100/5300≈1.9% are ceiling arithmetic,not forecasts. U4-to-report retains platform/data/program rights,redactions,unnamed candidate,2027 future phaseI and stage-specific deliverables. Original contract checks are locatable in the full audit."
+    },
+    {
+      "location": "reports/current.md:277,287",
+      "result": "clear",
+      "selection_reason": "Required editorial repair must retain meaningful source limitations.",
+      "evidence": "Read original process_language-01 and complete two-line-context diff. Current appendix removes acquisition/reading-log narration while preserving missing full protocol/SAP,contract redactions,no new experiment and descriptive arithmetic type."
+    }
+  ],
+  "open_issues": []
+}

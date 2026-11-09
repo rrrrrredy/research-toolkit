@@ -2,6 +2,11 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Research Toolkit](../README.md)
 
+
+- [Current long-research cases](case-study/long-research-2026-11/index.html): microdrama markets and test-time compute, with independently authored English and Chinese reports.
+- [Long-research benchmark](../evals/README.md): 13 questions, 15 report assignments, execution instructions and located judgments.
+
+
 ## Use Research Toolkit
 
 - [Start research](quickstart.md): one complete entry for long-form research, in-depth analysis, revision and updates.

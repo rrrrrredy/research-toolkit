@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "natural_expression": {
+      "location": "第3行及第377—386行来源/计算说明；复用首评386行全文阅读",
+      "basis": "完整检查32行统一diff。开头内部作者ID和待审状态已移除；末尾粘连词、型号和数字的空格已恢复，读者不再需要自行分词。删除网页403、HTML提取过程和阅读台账口吻后，仍保留R1历史价格不可据跳转确认、GPT长短上下文价格、Claude型号、Azure SKU、截止日以及不可用容量/吞吐等具体条件。部署假设和接受任务分母也保持，两个原minor均解决。"
+    }
+  },
+  "findings": [],
+  "input_version": "e6dab9c522bd95cbb6466eccef92143c33d291b91806655c81158321704d7807",
+  "assignment_version": "c1de16f1bc312d27115271fa083bf399ad8894fe82ccf1f900290e959053d51c"
+}

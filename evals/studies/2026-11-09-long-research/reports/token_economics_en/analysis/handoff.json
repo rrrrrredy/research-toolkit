@@ -1,0 +1,67 @@
+{
+  "producer": "/root/ttc_research",
+  "case_id": "token_economics_en",
+  "stage": "complete first author manuscript; not independent review or acceptance",
+  "created_at": "2026-11-09T11:43:41.813885+00:00",
+  "word_count": 8629,
+  "reading_records": 26,
+  "claims": 12,
+  "draft": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\draft-first.md",
+  "outputs": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\TE-U1-cost-prices-and-measurement.md",
+      "bytes": 19216,
+      "sha256": "92419904f9dccd0fa7e2a8ecec77e6baca0e9825e8e0a730c59ed315f4065a67"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\TE-U2-three-workloads.md",
+      "bytes": 19650,
+      "sha256": "cce86b3191070f0ef0b49f5a04a0cbf70fb859875634ee5679298c1e8c1df058"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\TE-U3-hosting-value-and-decisions.md",
+      "bytes": 17241,
+      "sha256": "373545f4f0022558ee462f63a2c303e1ff298308e4a304354deddfeb75b0b073"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\draft-first.md",
+      "bytes": 59048,
+      "sha256": "9106af3b830d06fc2e17341967d7fd551c3f90151538784c3a742dbbcbce43ba"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\workload_calculations.py",
+      "bytes": 9242,
+      "sha256": "97bbe2b9d1d468623a1e735f2426b93c122fa27f31adf6b0e9212d18e7060509"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\calculation-results.json",
+      "bytes": 105432,
+      "sha256": "655886a85bf9c51f207ba95adc905ddfd6dde0902248ba54f29bfcf944e8cec9"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\tokenizer_count.py",
+      "bytes": 2285,
+      "sha256": "9db805a2fe8e2345d697fe41ea6ebd98f66564facb3ff512b28bfc9da666f292"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\tokenizer-results.json",
+      "bytes": 3068,
+      "sha256": "9fbbfcc9dd2be9fa197d58375ba1f22fa4bf936b36be2c869d1908725a3eddfa"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\reading-ledger.json",
+      "bytes": 17311,
+      "sha256": "725e682192852af98a67c5f539035c6fb439a32d4fddfc6020e68a296dbe01e3"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\claims.jsonl",
+      "bytes": 2968,
+      "sha256": "2684d7a303507801ae42db391d61edf23ac1bb6fb5b4dcaad4cc4f53353dc733"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\token_economics_en\\codex-production\\web-reading-notes.md",
+      "bytes": 3662,
+      "sha256": "8484535aa2b05008102f10be3ccc689333b01f4317bc841975033c7c9d432e21"
+    }
+  ]
+}

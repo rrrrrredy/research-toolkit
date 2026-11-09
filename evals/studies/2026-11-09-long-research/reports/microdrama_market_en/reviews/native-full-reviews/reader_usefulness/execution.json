@@ -1,0 +1,40 @@
+{
+  "host_task": "/root/benchmark_reader_a",
+  "status": "completed",
+  "perspective": "reader_usefulness",
+  "input_version": "101c23eadaeb064e98f55350f5f6a053b496692bb0445a1d172727bb0e0f2eca",
+  "assignment_version": "b9867073743b1fb79505e433531c4b890e61cfb557a87281ebc7b20a88bad3da",
+  "first_read_observed_at_utc": "2026-11-09 14:24:48 UTC",
+  "completed_at_utc": "2026-11-09 14:25:45 UTC",
+  "timing_basis": "Actual clock-tool observations following first report retrieval and completion of substantive reading; not an estimated reading-duration claim.",
+  "reading": {
+    "task_and_effective_requirements": "Read complete assignment.task and effective_requirements.",
+    "report": "Read lines 1–120 in initial structured retrieval; explicitly re-read 1–55 to recover tool truncation, then read consecutive 121–205, 206–285 and 286–341. Includes all tables and reference definitions.",
+    "originals": [
+      {
+        "path": "sources/actual/CP25.txt",
+        "scope": "Complete frozen webpage text, including observed interface/agreement, overlapping titles and chronology."
+      },
+      {
+        "path": "sources/actual/MD014.txt",
+        "scope": "Complete frozen webpage text, including coin notice, revenue denial, selected hit receipts and settlement-transparency interview."
+      },
+      {
+        "path": "sources/actual/MD006.txt",
+        "scope": "Original platform-production/cooperation passages including commissioned work, copyright partnerships, completed-title submission, guarantees and seven-day first window; surrounding matched passages."
+      }
+    ],
+    "calculations": [
+      {
+        "path": "analysis/calculations/calculations.py",
+        "scope": "Complete script (under 130 lines), read only."
+      },
+      {
+        "path": "analysis/calculations/calculation-output.json",
+        "scope": "Complete structured output: observed arithmetic, all paid/free sensitivities, break-even, reward and hybrid scenarios."
+      }
+    ],
+    "independence": "No other review, author self-rating, or coordinator-context-reading read. The English report was evaluated against its own task and frozen originals; the Chinese report was not used as factual evidence."
+  },
+  "actions": "Wrote only this perspective response/execution; no report edits, import, live evidence expansion, rerun of experiments, or software tests."
+}

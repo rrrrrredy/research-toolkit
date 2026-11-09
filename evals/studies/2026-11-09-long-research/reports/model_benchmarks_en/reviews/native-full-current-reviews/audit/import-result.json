@@ -1,0 +1,71 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en",
+  "input_version": "97ee1ab82f0edcae5c827dbdc224f44e663985fe5e22cf1f34b110fe8c980fb9",
+  "scope": "full_report",
+  "assignments": [],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      {
+        "finding_id": "MB-AUDIT-TAU-01",
+        "severity": "major",
+        "location": "reports/current.md:55,105,149 and customer-support discussion at 181-193",
+        "basis": "The description of tau-bench v1 scoring is incomplete and its relevant policy-compliance blind spot is missing. The original reward is r_action × r_output, not only final-state equality, and the paper explicitly warns a passing reward can still violate policy by skipping explicit user confirmation.",
+        "evidence": "sources/actual/MB18.txt:129-130; https://arxiv.org/html/2406.12045v1#S3",
+        "required_change": "State that applicable tasks check required response information as well as final state, and explain that these automated checks are not exhaustive trajectory/policy compliance. Keep the coverage row and run-condition row consistent and connect the limitation to confirmation/authorization checks in the support recommendation. Preserve the reported numerical results."
+      },
+      {
+        "finding_id": "MB-FULL-REQ-01",
+        "severity": "major",
+        "location": "reports/current.md:142-151 and available-cost discussion",
+        "basis": "The historical reconstruction finding is partly repaired but still open: the chosen primary papers disclose actual generation, extraction, execution-time limits and historical agent/simulator cost information that the current report omits.",
+        "evidence": "sources/actual/MB10.txt:830-855; sources/actual/MB18.txt:233; task R_TASK explicitly requests output/context and scoring conditions plus available cost or latency information.",
+        "required_change": "Add the compact EvalPlus generation/token/extraction/timeout conditions that affect interpretation of its representative results. Report the original tau-retail agent and simulated-user costs separately as historical experimental per-task amounts, with the boundary that they are neither current serving prices nor successful-resolution cost. Retain honest unknown states for unavailable historical runtime/model services; do not run a new benchmark."
+      },
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 9,
+    "selected_attempts": {
+      "adversarial_reasoning": "5a823a464c5045e6b7596986c924f99b",
+      "domain-1": "1508c592b59d4840a4fa8e41c04958ab",
+      "natural_expression": "2d34c05c117748cbad91f166c569d097",
+      "requirements": "4449b0612d1945038ae7a58c36d3a368",
+      "evidence": "f508f984cf7e4384a90ab84568a55c89",
+      "process_language": "aa3e96b90a2844f19851cd8d668a56ca",
+      "structure_and_depth": "f95945b527e74a1894f5bcf371008895",
+      "reader_usefulness": "1071096328d64915baa237ffad952144",
+      "audit": "931be89d67ae4d45be0d97c368d5d66d"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "revise",
+  "open_issues": [
+    {
+      "finding_id": "MB-AUDIT-TAU-01",
+      "severity": "major",
+      "location": "reports/current.md:55,105,149 and customer-support discussion at 181-193",
+      "basis": "The description of tau-bench v1 scoring is incomplete and its relevant policy-compliance blind spot is missing. The original reward is r_action × r_output, not only final-state equality, and the paper explicitly warns a passing reward can still violate policy by skipping explicit user confirmation.",
+      "evidence": "sources/actual/MB18.txt:129-130; https://arxiv.org/html/2406.12045v1#S3",
+      "required_change": "State that applicable tasks check required response information as well as final state, and explain that these automated checks are not exhaustive trajectory/policy compliance. Keep the coverage row and run-condition row consistent and connect the limitation to confirmation/authorization checks in the support recommendation. Preserve the reported numerical results."
+    },
+    {
+      "finding_id": "MB-FULL-REQ-01",
+      "severity": "major",
+      "location": "reports/current.md:142-151 and available-cost discussion",
+      "basis": "The historical reconstruction finding is partly repaired but still open: the chosen primary papers disclose actual generation, extraction, execution-time limits and historical agent/simulator cost information that the current report omits.",
+      "evidence": "sources/actual/MB10.txt:830-855; sources/actual/MB18.txt:233; task R_TASK explicitly requests output/context and scoring conditions plus available cost or latency information.",
+      "required_change": "Add the compact EvalPlus generation/token/extraction/timeout conditions that affect interpretation of its representative results. Report the original tau-retail agent and simulated-user costs separately as historical experimental per-task amounts, with the boundary that they are neither current serving prices nor successful-resolution cost. Retain honest unknown states for unavailable historical runtime/model services; do not run a new benchmark."
+    },
+    "Incomplete independent assignment: acceptance"
+  ]
+}

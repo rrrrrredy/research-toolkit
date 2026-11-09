@@ -1,0 +1,56 @@
+{
+  "status": "completed",
+  "host_task": "/root/independent_domain_b",
+  "role": "reviewer",
+  "slot_id": "domain-1",
+  "scope": "Current full-report packet equivalence and carry-forward of actual completed domain review",
+  "input_version": "97ee1ab82f0edcae5c827dbdc224f44e663985fe5e22cf1f34b110fe8c980fb9",
+  "assignment_version": "b5737e98fa121157398fcd5d8877c8c7c6b7ff919d9d776315ec4b846ea66f0b",
+  "artifact_sha256": "ffd5bcd5ce176d57e961f3b9b32fe18973c65b7702d3175cb396cc47b23b16f1",
+  "completed_at": "2026-11-09T14:00:08.4955881Z",
+  "prior_actual_input_version": "d47378130c4da5c2a85d74e96580c76c4de2f5b12a1671a9f5feb13dc09807ce",
+  "actual_reading": [
+    "Compared every assignment field and instructions; recursively inspected research_outputs differences and full appended production event",
+    "Read own prior response/execution; reused original full-report and decisive-source reading without rereading papers or running calculations"
+  ],
+  "substantive_field_equality": {
+    "task": true,
+    "requirements": true,
+    "effective_requirements": true,
+    "scope_decisions": true,
+    "report_path": true,
+    "report": true,
+    "sources": true,
+    "source_files": true,
+    "analyses": true,
+    "scope": true,
+    "prior_required_findings": true
+  },
+  "changes": [
+    "report.complete false -> true",
+    "artifact_snapshot.path refreshed, SHA unchanged",
+    "one same-artifact complete save appended to unchanged history"
+  ],
+  "file_versions": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\reviews\\host\\d47378130c4da5c2a85d\\jobs\\domain-1-bfc5cfe588e52e3a.json",
+      "sha256": "de8fe30a9dcdb01c862ce86af46128aced97ed1a0029d6140de6451046993672"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en\\reviews\\host\\97ee1ab82f0edcae5c82\\jobs\\domain-1-b5737e98fa121157.json",
+      "sha256": "7a7b3c8eec0a42421c3086963de3bd870a299cb94a58e49524dc451028f65cd2"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\model_benchmarks_en\\native-full-reviews\\domain-1\\response.json",
+      "sha256": "d5bd43b349d4fa44ebd281e33962f72c63764a1362b57ffd0c8ae0ad582fa0e2"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\model_benchmarks_en\\native-full-reviews\\domain-1\\execution.json",
+      "sha256": "41ba18fca723877acef225693e7248c34abe53ad57d6972cd6585adb4853c5d5"
+    }
+  ],
+  "api_calls": 0,
+  "research_rerun": false,
+  "report_edited": false,
+  "imported": false
+}

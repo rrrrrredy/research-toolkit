@@ -1,0 +1,12 @@
+{
+  "input_version": "17ce6ad5fd882361a9816ed924c7a14d3345c8ee056b1c8cb8db4d39fbb3000d",
+  "assignment_version": "8f7cb4899496127478a81ebd69f2e3f76e6eb5e0a1d0fcb1bd90795ff301e20e",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "全文1–174行，二节技术演化、人物表、专长矩阵、时间线及能力网络",
+      "basis": "已通读174行完整报告、研究问题和有效要求，核对当前审阅契约差异。领域为模型后训练研究与公开人才归属。技术主线与原件一致：InstructGPT的三阶段及特定标注群体限定；DPO的奖励—策略重参数化、离线偏好与省去显式RM/在线RL；IPO的假设和示例实验；Zephyr的dSFT/AIF/dDPO与未覆盖安全；RewardBench评测奖励而非最终策略；Tülu3的SFT/DPO/RLVR和长上下文、多语言、工具局限。R1-Zero与冷启动R1没有混淆；HybridFlow把分布式模型执行和RL数据流分开；SWE-RL使用补丁相似性而非真实测试奖励，首发版本历史为2025-02-25；RAGEN是受控环境机制研究，K2/K3为团队集成配方，Arctic-SWE为异步系统一致性，SEA-LION/Swallow/Falcon的技术方向保持产物级边界。实际检查了DPO Author Contributions：RR目标推导、EM初始实现/规模训练/评估/人类研究与AS实验组织均有原文；Tülu核心贡献标记、M-RewardBench共同贡献和机构脚注也相符。人物方面，Nathan本人回顾支持2022-05 HF、2023-10 Ai2、2026-06-01最后工作日，10月Trillium公告只表明创立与使命；Miranda本人CV支持2023–25 Ai2及2025起Cambridge，首页说明2026-08实习。Leandro本人当前研究负责人和2023联合公告工程师/BigCode角色分别有据；Lewis机构访谈约九个月与本人公开HF资料没有伪造精确日期。Askell本人职责、邵智宏本人DeepSeek研究/学历、Longguang本人Moonshot参与及K3名单、Zihan本人Northwestern与前瞻实习措辞均核对；Rafael旧主页与Eric新正文/旧页头冲突在受影响条目上保留。HKU机构页确证Guangming毕业2026与first job Tencent，并未推出具体模型团队；Chuan当前教授身份独立于论文；Swallow项目直接给出Rio训练、Sakae指令微调/评测职责，Rio官方履历并任与学校名称改变不被编码为跳槽。Shayekh的Community Researcher来自官方社区，ACL双署名没有被当作雇佣证明。加拿大登记名称历史支持2025-06-02更名，不能推出人员重组。共同成果、时期重叠、人员流动与方法采用的关系边有相应证据/时间；组织建议是能力接口的条件推论，未将作者顺序、知名度、公开数量或团队成果提升为个人全能、现职或管理关系。未发现本领域需要修订的具体缺陷；现职未知与未披露职责保持未知。"
+    }
+  },
+  "findings": []
+}

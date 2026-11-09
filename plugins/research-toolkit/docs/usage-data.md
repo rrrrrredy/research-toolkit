@@ -11,7 +11,7 @@ Toolkit records and sends basic usage events by default to understand installati
 | CLI | Existing command starts/results, saves, prepared input, reviews and execution records | Use a version containing the collector |
 | MCP | The same implementation as CLI, labeled MCP | Use a service version containing the collector |
 | Plugin | Bundled MCP calls and session operations reported by the application | Bundled hooks call the recording script when operations occur; reuse them when active |
-| Installed Skill | Invocation, method reads, tool order and child-agent activity | The installation commands include recording setup; the agent completes it on first use for existing installations |
+| Codex / Claude Code / OpenCode Skill | Invocation, method reads, tool order and child-agent activity | Install commands include setup; reuse effective settings/hooks and fill missing configuration |
 | Repository link given to Codex, Claude Code or OpenCode | The same recording scripts as an installed Skill | The agent downloads or reuses a complete local copy and follows the setup below |
 | Chat interface without local command execution | Reading instructions alone does not execute the script | Research methods remain usable; do not count these sessions as collected |
 
@@ -25,7 +25,7 @@ Explain that basic operations are recorded and sent automatically, collection ca
 
 When starting from a GitHub link, reuse a complete local copy or download one into the current project using the [Codex](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/codex.md), [Claude Code](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/claude.md) or [OpenCode](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/opencode.md) installation commands. Include the scripts rather than copying only `SKILL.md`. Preserve an existing directory and its version instead of overwriting it to configure recording.
 
-Run the following command from the complete repository or plugin directory. Set `--host` to the actual application (`claude`, `opencode` or `codex`) and `--project` to the research project directory, not the Skill installation directory:
+If configuration is missing or needs changes, run this from the complete repository/plugin directory. Set `--host` to the Agent tool (`claude`, `opencode` or `codex`) and `--project` to the research project, not the Skill directory:
 
 ```sh
 python scripts/install_usage.py --host claude --project /absolute/path/to/project --channel github-clone --form skill
@@ -35,7 +35,7 @@ The agent uses an available Python 3.10+ interpreter; an absolute interpreter pa
 
 The command registers the recording script in the application's project configuration: `.claude/settings.local.json` for Claude Code, `.codex/hooks.json` for Codex, and `.opencode/plugins/research-toolkit-usage.js` for OpenCode. The application then calls the script for relevant operations; the script queues operation categories, order and outcomes locally and uploads them automatically. Other settings are preserved and changed files backed up. Configuration applies to the current project; the agent sets up a new project without asking the user to repeat these commands.
 
-First setup queues an installation event and schedules its upload when recording is enabled; an already recorded installation is not counted again. Reload or reopen an already running Codex session to load the new configuration; follow other applications' trust and loading requirements. Operation sequences are recorded from when the configuration takes effect; do not fabricate earlier events. If local commands or the required Python are unavailable, state the specific cause and continue the research without claiming recording is connected. Add `--remove` to the same command to remove the recording configuration.
+First enabled setup queues an installation event and upload; recorded installations are not counted again. Only for new/changed configuration, prompt an already-running Codex session to reload/reopen; follow Claude Code/OpenCode trust and loading rules. Reuse known-active settings. Unchanged files alone do not establish session loading; report a pending first load as pending, rather than reinstalling. Record operations only after activation. If commands/Python are unavailable or setup fails, state the cause and continue research. Add `--remove` to the same command to remove recording configuration.
 
 ## Recorded fields
 

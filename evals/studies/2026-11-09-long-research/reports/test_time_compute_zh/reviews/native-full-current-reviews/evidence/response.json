@@ -1,0 +1,19 @@
+{
+  "input_version": "3e6278f250299b9aa3fd80f794a5ed5b1ca5d05ccfd17c28d96a73f482afacb1",
+  "assignment_version": "57a7f93034680334759f7d98162980ed2faee95ed4df918ec40c2db5bed4dfa0",
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "evidence": {
+      "location": "reports/current.md:1-258（连续全文）；重点30-73、80-110、133-172、226-229",
+      "basis": "独立连续阅读当前中文全文，未读取同题英文报告。核对冻结原件中Self-Consistency固定权重/40样本/10重复，Snell 2048样本难度分组、未计估计成本及PRM末步聚合，PRM800K 500题/1860候选与非同数据大规模比较，s1 1000样本训练、50至57%、74%截断，SCoRe HumanEval 52.4至64.6%。共享候选池75.56/91.67/78.33/77.50/65.83及CompassVerifier参考答案条件正确保留。原读Termination有限16探针、最早经验最大位置、14.2%前沿、固定probe bootstrap及4/16探针敏感性后，确认当前59/71/228已将可学习性限定为假设。TTSP的两LoRA、筛选28题、filtered mean@8与空集合历史承接均有原文。CodeMonkeys、网页搜索、tau-bench的覆盖/选择/终态口径和成本限制与原件相符；More Thinking Hurts的两项内部不一致确实存在。算例公式与Sample Mix or Verify的条件独立和均匀通过者选择相符，费用含全部候选与验证；只读取既有预算代码和stdout，没有重跑计算。唯一必要修订是两轮修订耗时所用的第二轮前置处理假设在正文遗漏。"
+    }
+  },
+  "findings": [
+    {
+      "location": "reports/current.md:155-166，尤其表格第162行104.2秒与第166行耗时假设",
+      "severity": "minor",
+      "finding_id": "EV-TTCZH-01",
+      "basis": "任务要求预算换算展示单位和假设。正文给便宜生成器前置处理1.5秒、每轮生成1200/60=20秒、每次工具期望2.2秒及最后验证3.5秒；照这些已披露参数，两轮修订每链50.9秒、两波101.8秒。实际预算代码codex-production/budget_example.py:48另将第二轮前置处理设为2.7秒，因此输出104.2秒。第二轮输入增至2000 token并不能自行推出2.7秒，正文又声称此波次模型可复算。请在第166行明确第二轮前置处理假设2.7秒（或统一正文与代码的时间设定）。这不改变方案排序、不需新增实验，但使算例条件完整。"
+    }
+  ]
+}

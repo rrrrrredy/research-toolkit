@@ -1,0 +1,16 @@
+{
+  "author": "Codex /root/ttc_research",
+  "reason": "Independent clinical domain major finding: observed-case FVC numbers had been conflated with ANCOVA+MI analysis",
+  "original_unit": "U1-rentosertib.md",
+  "original_unit_sha256": "25ae2b6b0f82f466bab083dfa5028ce1a3606fcf0be398dcd4d96a7389ad1aac",
+  "revised_unit": "U1-rentosertib-revision-01.md",
+  "original_calculation": "calculations-results.json",
+  "revised_calculation": "calculations-results-revision-01.json",
+  "new_actual_reading": [
+    "supplemental-sources/AIDD-S02/figure-2.png:actual visual inspection panels a and b",
+    "supplemental-sources/AIDD-R01W/download.bin:resultsSection.outcomeMeasuresModule Absolute Change From Baseline in FVC in L,denoms/classes/analyses"
+  ],
+  "figure_url": "https://media.springernature.com/lw1200/springer-static/image/art%3A10.1038%2Fs41591-025-03743-2/MediaObjects/41591_2025_3743_Fig2_HTML.png",
+  "review_status": "requires original reviewer confirmation; not self-passed",
+  "math_execution": "Only revised descriptive arithmetic; prior other calculations carried forward without rerun"
+}

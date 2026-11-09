@@ -1,0 +1,12 @@
+{
+  "input_version": "b05a22e12456963e8dcdd2cf1fa1d888fc1552f79329ce94c60a9f2fe349b9bf",
+  "assignment_version": "9b3c0ed94ccfb6e4f160a6003023e476078738c6bc49c9d7670ffab0ddfdb881",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "复用本人先前完整正文审阅（初始记录 native-full-reviews/adversarial_reasoning）；当前稿共 291 行，完整 diff 及上下文当前行号 [[1, 6], [272, 291]]。",
+      "basis": "完整差异仅清理作者身份、阅读过程和前期获取历史，保留源版本及引用位置。S24 performance lock 条件、历史 Minions 的本地免费核算、工作站延迟与缺乏正式隐私保证、WhisperTRT 内存和片段测量边界均未改变。设备任务包络、持续热行为、传输/能耗与场景经济性结论可复用此前全文审阅；当前稿没有用这些历史或不同设备结果填补实际部署测量。"
+    }
+  },
+  "findings": []
+}

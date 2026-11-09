@@ -1,0 +1,20 @@
+{
+  "producer": "Codex /root/remaining_research_inputs",
+  "provider": "codex_native",
+  "recorded_at": "2026-11-09T12:03:15.454755+00:00",
+  "task": "post_training_talent_zh",
+  "status": "complete_producer_draft_pending_independent_report_reviews",
+  "api_model_calls": 0,
+  "new_experiments": false,
+  "source_counts": {
+    "failed": 6,
+    "not_retrieved": 2,
+    "retrieved": 38
+  },
+  "reading_records": 41,
+  "key_claim_records": 27,
+  "report_characters": 17610,
+  "report_sha256": "2009008ffb3ddedf91be9742136dd4884d8d346112921d759d0da5b0de7fdbce",
+  "first_draft_sha256": "ae1cb9f7bb4abf34c33525ee4df88691dfd666c619fbeb13dff67d814c458429",
+  "review_scope_note": "Parent reports both outline requirements and structure_and_depth reviews passed and imported; unit_ready=true for outline. No report review pass is asserted by producer."
+}

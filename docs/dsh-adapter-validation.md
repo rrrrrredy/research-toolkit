@@ -6,6 +6,8 @@ These are existing adapter-maintenance commands, moved from the agent tool insta
 
 ## Verify The Adapter
 
+All three lanes default to `microdrama_market_zh` in the current `evals/cases/` catalog. The new case and its inputs are supplied separately; these commands require them to be present.
+
 The offline lane checks frontmatter compatibility, referenced resources, and the staged DSH directory contract:
 
 ```bash
@@ -23,7 +25,7 @@ The smoke child receives only allowlisted runtime discovery, home/cache, locale 
 The live lane uses the model and credentials already configured for DSH, stages one existing repository eval case, runs it through DSH headless, and scores the resulting artifacts with the same deterministic evaluator used by other agents:
 
 ```bash
-python scripts/run_dsh_evals.py live --case source_instruction_boundary_zh
+python scripts/run_dsh_evals.py live --case microdrama_market_zh
 ```
 
 Both runtime lanes accept `--dsh-command-json` or `DSH_EVAL_COMMAND_JSON` for an explicit argv. Otherwise the runner selects `dsh` from `PATH`, then falls back to the pinned `@deepseek-ai/dsh@0.1.2-rc.1` package through `npx`. This pin describes the runner fallback, not the latest upstream release. Check the selected package's Node.js requirements locally.

@@ -1,0 +1,54 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh",
+  "input_version": "bfaf0a302d2abff490f9591d9eb58c381fabd2f85474084af07315f1233e9297",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "audit",
+      "role": "auditor",
+      "reading_ref": {
+        "path": "logs/reading/73d4e939388edb920d72.md",
+        "sha256": "73d4e939388edb920d72bb88696c432a251a22da735f72ae4fc0fa54eecf46f4"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/bfaf0a302d2abff490f9/jobs/audit-0f4a48a3df895b77.json",
+        "sha256": "d6b0b4d72c2424ee5cc55b11f24ff34847573aa61e9c88e6bb6c167ba4f98614"
+      },
+      "assignment_version": "0f4a48a3df895b778b01366d57e0cfd1e9d3cd7ffb40af1a57bbb358de67f030"
+    }
+  ],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 8,
+    "selected_attempts": {
+      "process_language": "403817fe062e41cdaa8c18368975f7d4",
+      "natural_expression": "17a9494996aa4ec09ea8239110aa16eb",
+      "domain-1": "585ca00e410f407ea40ae395c16275b0",
+      "evidence": "752df181d10a47279915cab703367cb5",
+      "requirements": "906831a1e15d4b0aa4f609d0bb56dbbe",
+      "adversarial_reasoning": "f83e0e24b3334b6a8bfb6dc8a00320c8",
+      "reader_usefulness": "c501e00f066449faa3a108db36636e3f",
+      "structure_and_depth": "724c4f08898f4e4da3efaa3b167af671"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

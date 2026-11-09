@@ -1,0 +1,19 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "process_language": {
+      "location": "reports/current.md 全文第1–143行；性能30–40、算例80–106、量产108–124、材料边界141–143",
+      "basis": "已连续通读冻结全文与全部表格/算例，读取原始任务与有效要求。开头作者待审/首稿文件句已移除。电池制造、客户验证、认证、量产依赖和车型级验证均为研究对象；计算脚本和未开展电池实验的说明支持复算与事实边界，应保留。末段仍有作者自证阅读及更换下载途径的过程叙述，可在保留材料范围后局部改写。未重验电池原件或进行测试。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "process_language-01",
+      "severity": "minor",
+      "location": "reports/current.md 第143行，首句和“QuantumScape股东信原链接失败后使用新的官方生产线公告”",
+      "basis": "“实际读取的是……并未声称读完全部下载材料”以作者阅读履历和未作何种声称组织句子；“原链接失败后使用新的”叙述取材操作。面向选型读者应直接列出本报告采用的公告、实验方法/结果、BatPaC章节与测试协议，并说明QuantumScape结论依据该官方生产线公告及其覆盖阶段。保留全文标准、企业成本/长期车队数据缺失，钠电成本平价无法证明，蔚来二级报道等具体材料限制，不要求删去必要来源范围。"
+    }
+  ],
+  "input_version": "c1bfa36c0c91a99893a9421a313b4eab3b812d3b7d9bfdb6cfd3ab8a348299f6",
+  "assignment_version": "bf5c33b777383110ff50cc01bdc2c526d3152ff9900f5bf3288be9a6b9ff6c1c"
+}

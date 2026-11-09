@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "natural_expression": {
+      "location": "当前第132—148行指标定义及比较表、第195行名义rollout数、第252—289行决策树、第295行测量说明；复用首评354行全文阅读",
+      "basis": "已完整检查本人冻结稿到当前358行稿的全部77行统一diff。原planning estimate指代及回应写作请求的句子已删除，19,200+800的数量分解和具体测量要求保留。OR、AD新增定义分别说明分母、百分点与有限探针性质，避免读者误认成本节省；决策树现在在每轮更新预算/结果并重新判断成功，不再出现无状态变化的循环。新增解释与原机制和成本限定一致，未发现新的表达障碍，原minor已解决。"
+    }
+  },
+  "findings": [],
+  "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+  "assignment_version": "5d16bc1daa27204720bd19dde45dae778866cb23ce31ef3f4b93a8a9adac8624"
+}

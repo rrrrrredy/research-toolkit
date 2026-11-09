@@ -1,0 +1,92 @@
+{
+  "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+  "assignment_version": "fe829e803963a4cb1da29b0cb7a93f05a75b5f9227bfae3213b601b3ced1aa28",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "location": "Complete reports/current.md (358 lines), sections 1-9, mechanism/scaling tables, worked allocation and evidence appendix; frozen original task and effective requirements.",
+      "basis": "Performed a new complete evidence review in /root/independent_reviews_a, separate from the coordinator and all TTCEN producers/other full-report perspectives. Read the whole 73,345-character manuscript in bounded untruncated ranges, then checked consequential claims against the original sections listed below, visual original tables/figures and existing calculation inputs/code/output. Dates, versions, populations, denominator changes, oracle versus deployable information and training versus fixed-checkpoint inference are consistently qualified. Candidate coverage is not substituted for selected correctness, nor are generation counts substituted for total cost or wall time. Source inconsistencies and unresolved aggregate token scope are retained as limits instead of used as quantitative operating rules. The hypothetical allocation follows its stated independent-candidate, uniform-accepted and deterministic worker assumptions. No evidence defect requiring revision was found."
+    }
+  },
+  "findings": [],
+  "source_checks": [
+    {
+      "source": "TTC009 v4, sections 2 and 3.1-3.2/Table 2",
+      "checked": "Original lines 104-118, 220-235, 280-303: answer extraction and most-common answer; 40 independently sampled outputs/run, ten runs, PaLM-540B temperature .7/top-k 40, GSM8K 56.5 to 74.4. Report accurately separates voting from coverage and does not call plurality a strict majority."
+    },
+    {
+      "source": "TTC010 v2, sections 2.1-2.3, 4 and Appendix B",
+      "checked": "Original lines 126-127,139-151,211-219,595-600: 10,000 attempts per problem for both Llama sizes; 250 complete independent SWE-bench Lite trajectories with DeepSeek-Coder-V2/Moatless; 15.9 to 56 is coverage. Original verifier saturation and task-dependent FLOP comparisons support the stated limits."
+    },
+    {
+      "source": "TTC003 v2, section 4.2/Table 1 and Appendix G/Table 3",
+      "checked": "Original lines 648-674,704-723,2750-2788: 120-question bank, Qwen3-30B-A3B-Thinking-2507 75.56 single, 91.67 coverage, 78.33 plurality, 65.83 mean-logprob and 89.17 gold-assisted diagnostic. 1,948,821 study responses versus 1,403,520 released attempts are distinct; the two mathematics inventories and broad single-response inventory explain the stated difference. The report does not claim a downloaded dataset audit."
+    },
+    {
+      "source": "SUP-LIMITS, arXiv:2411.17501v1",
+      "checked": "Opened the original paper directly at https://arxiv.org/html/2411.17501v1; introduction and experimental setup explain original HumanEval/MBPP test filtering versus expanded tests, false positives and negative utility relative to abstention. This supports the report paragraph and is not a claim that any finite test suite proves semantic correctness."
+    },
+    {
+      "source": "SUP-SELF v2, section 3.1 and Table 3",
+      "checked": "Original line 96 and lines 120-170: GPT-4 uses 200-question samples, GPT-3.5 uses full sets; 75.9/75.1/74.7 and 95.5/89.0, with 1/3/5 calls and two correction rounds, match. Ground-truth stop labels are explicitly separated."
+    },
+    {
+      "source": "TTC013 v1, abstract, sections 5-6, Tables 3-4",
+      "checked": "Original 186-208,210-293 and abstract: two-stage on-policy training, reward shaping, MATH 4500 test items moved into training/500 evaluation, MBPP to HumanEval without inference tests; 60 to 64.4 is +4.4, compared with base 52.6 to 41.4 (-11.2), hence +15.6 across deltas. 5.8 and 1.4 are unconditional transition percentages. HumanEval 52.4/64.6 and the separately reported 9.1 headline are attributed accurately. 2K versus K-plus-revision and 7.4/10.5 at 32 solutions are not portrayed as token- or latency-matched."
+    },
+    {
+      "source": "TTC002 v2, sections 2-4 and limitations",
+      "checked": "Original 103,110,123-142,247,451-454: 1000 selected Gemini Thinking traces fine-tune Qwen2.5-32B; 8-gram filtering; forced end versus suppressed end/Wait; 50 to 57 AIME24 and repeated loops. The report separates checkpoint changes from within-checkpoint intervention and preserves the small evaluation and contamination limits."
+    },
+    {
+      "source": "TTC012 v1, sections 2.5-4.1 and Appendices C/F",
+      "checked": "Original 113-141,373,388-389: single PRM forward pass with step-score product; 1860 candidates and PRM/ORM/vote 78.2/72.4/69.6; non-comparable large-model training sets versus controlled small-model supervision; 500 held-out tasks after 4500 original-test tasks enter training. No unsupported causal claim for the large-model comparison."
+    },
+    {
+      "source": "TTC001 v1, sections 3.2 and 5",
+      "checked": "Original 100-107,115-125,140-145,161-173: 2048-sample oracle/predicted difficulty, excluded difficulty-estimation overhead, two-fold selection; reward-to-go Monte Carlo PRM, last-step score and answer-summed weighted selection; lookahead N(k+1), low-budget beam advantage and high-budget regressions/reward exploitation. The report uses generation equivalents as a limited accounting proxy."
+    },
+    {
+      "source": "TTC011 v2, Game of 24 and Creative Writing sections",
+      "checked": "Original 177-198: 100 harder games indexed 901-1000, beam five/three value samples, CoT 4, self-consistency over 100 samples 9, ToT 74; creative comparison is blinded author judgment on 100 pairs, 41/21/38. The report keeps these populations, feedback regimes and subjective versus executable outcomes distinct."
+    },
+    {
+      "source": "SUP-AC, EMNLP 2023 sections 3-5",
+      "checked": "Original 90-124,304-325,430-446,467-484: Beta(1,1) top-two approximation and .95 threshold concern mode stability; the reported 3.3x and less-than-.1-point aggregate summary are present, with dataset variation and larger code budgets. The report does not treat this posterior as truth confidence."
+    },
+    {
+      "source": "SUP-CM v1, Table 1, sections 2.2-2.3 and Appendix C",
+      "checked": "Original 97-121,180-196,224-233,572: ten testing/editing state-machine pairs, eight completion limit including initial/malformed corrections; 500 issues, 69.8 coverage/45.8 random/57.4 selected; historical LLM cost 2291.90 and selection 131.95. Existing derived per-issue/share/gap arithmetic agrees and is not presented as all-in current service cost."
+    },
+    {
+      "source": "SUP-TREE v1 and SUP-TAU v1",
+      "checked": "Tree original 162-178,196-227,253-264: deterministic backtracking and 20 GPT-4o value samples, five-action matched 18.9 to 26.4 and 15 to 19.2 (Table 2). Tau original 129-133,169-181,229-232: action reward times output reward can still miss confirmation; pass^k differs from pass@k; 61.2/35.2/48.2 and pass^8 below 25. The report preserves sandbox, reliability and real-action restrictions."
+    },
+    {
+      "source": "TTC005 v1, sections 5 and Appendices A-C",
+      "checked": "Original 248-264,728-740,789-854,875-893: selected HardLCBv6 population from 131 date-bounded tasks, 28 reported targets, nonzero imperfect mean@512; Qwen3-8B LoRA updates; 50 GRPO steps with 16 proposer and 48x8 solver slots; calibrated artificial verifiers, admitted-set mean@8 and carry-forward of empty iterative sets. The report correctly distinguishes pass@k, unfiltered mean, filtered mean and checkpoint selection. Its pairwise per-input FMV counterexample follows Appendix C.2 rather than equating that rule with whole-vector clustering."
+    },
+    {
+      "source": "TTC006 original PDF pages 3-5 and Appendix E",
+      "checked": "Visually read retained page PNGs p-03/p-04/p-05, plus text 846-872: 60 deterministic AIME questions; Table 1 rates and marginal utility arithmetic; Table 2 suffix-event definition versus non-monotone negative counts and nonzero 16K suffix; Figure 3 versus Table 1; U=Acc-lambda*t/tmax; conflicting 7K p-values. These are actual source inconsistencies, correctly excluded from deployment-threshold inference in the report."
+    },
+    {
+      "source": "TTC007 v1, sections 3-5 and Appendices A.5/B.2/D.1",
+      "checked": "Original 134-159,291-357,400-406,858-870,1045-1054,1197-1206: 16 probes/position, earliest measured maximum, OR/AD definitions; deterministic mean-budget oracle action sets and nesting, not per-question caps or implementable online foresight; controller overhead excluded. Probe thinning 74.69/69.09/66.22/64.34 OR and 11.07/9.87/9.34/9.03 AD, fixed-label bootstrap and 576,688,123 stored thinking tokens support the report qualifications. No 70.5B-to-cost conversion is made."
+    },
+    {
+      "source": "TTC008, section 3 assumptions/Propositions 1-2 and section 6/limitations",
+      "checked": "Original 257-280,296-310,390-413,656-674,995-1005: uniform accepted selection, abstention, conditional candidate independence; repeated-judge propensity is not arbitrary within-task candidate dependence; zero test-execution cost and price proxies are stated model assumptions. Finite-grid regret and its vacuous finite-sample bound are not converted into a service guarantee."
+    },
+    {
+      "source": "Existing allocation_example.py and frozen allocation-results.json",
+      "checked": "Read the complete source code without executing it and all retained outputs (12 budget rows and 12 deadline rows). Checked the declared p/TPR/FPR, floor budget allocation, accepted correct/wrong/abstention formula, four-worker wave schedule and 100-second feasibility against every report row. Read the existing historical CodeMonkeys/SCoRe arithmetic and risk threshold. The example is explicitly hypothetical with known rates and abstract credits; no model inference, calculation or software test was rerun."
+    }
+  ],
+  "reading_limits": [
+    "Did not rerun model inference, statistical resampling, arithmetic scripts or software checks; checked retained code/results and displayed source mathematics.",
+    "Did not download and audit the released TTC003 dataset files; the report likewise describes article-level inventories.",
+    "The reported TTC007 70.5B total versus stored-thinking-token scope is not fully reconciled in the report and is explicitly excluded from a cost estimate.",
+    "Author handoff metadata included a claim that a prior U1 review passed; that claim was not used as evidence. No coordinator full evidence response or another active perspective was read."
+  ]
+}

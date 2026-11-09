@@ -1,0 +1,275 @@
+{
+  "case": "microdrama_market_en",
+  "slot_id": "evidence",
+  "review_mode": "continued original evidence context; full diff plus necessary context",
+  "host_task": {
+    "provider": "native_codex",
+    "task_name": "/root/evidence_micro_en",
+    "parent_task": "/root",
+    "resume_host_task": "/root/evidence_micro_en",
+    "session_id": null,
+    "identity_note": "Same canonical native collaboration task as the original complete evidence review; no unavailable UUID invented."
+  },
+  "started_at": null,
+  "first_measured_at": "2026-11-09T16:16:47Z",
+  "start_time_note": "Exact resumed dispatch time was not exposed. This is the first clock reading, immediately after locating the current assignment.",
+  "completed_at": "2026-11-09T16:18:40.186238+00:00",
+  "input_version": "4916bbf7954376e17453bc78c09a2511b4dcceae7270c4ed378ef2d93eb80e89",
+  "assignment_version": "3ef495c18dea8b9fb88aa873d2d3c61a11a19f9fc3a13cfb8885d8e322dd6f7d",
+  "assignment": {
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_en\\reviews\\host\\4916bbf7954376e17453\\jobs\\evidence-3ef495c18dea8b9f.json",
+    "sha256": "5ed280b313baeb88890ce533c0451b5fb37296d9b818acc3671a38c5e1b85ebe"
+  },
+  "previous_review": {
+    "input_version": "101c23eadaeb064e98f55350f5f6a053b496692bb0445a1d172727bb0e0f2eca",
+    "assignment_version": "56b18c0e77d2d60f3e7d494eb344b1fa0d55845c134c2c886229a992d8a2eef7",
+    "artifact_sha256": "8cf6095d649d0543a7c444e13e5296abab2b5ffecfa4615775de91b4faca48a6",
+    "response": {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\native-full-reviews\\evidence\\response.json",
+      "sha256": "a5bcc1e29805176aa3a6822efaaf03aaca7cb96e7ba9ce589559e74a04574e1b"
+    },
+    "execution": {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\native-full-reviews\\evidence\\execution.json",
+      "sha256": "fca441945e69aeed97523a91edeeca2a3b4d62b70d45deb0f4ba1d883ca32183"
+    },
+    "report_verdict": "pass",
+    "findings": [],
+    "preserved_without_modification": true
+  },
+  "current_report": {
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_en\\reports\\current.md",
+    "sha256": "ffceaf740b8acdfd38ca4b74d0de96327b7c80f0a26ffe563dee1f09b732ccc2",
+    "total_lines": 340,
+    "matches_assignment": true
+  },
+  "current_actual_reading": {
+    "complete_old_to_current_diff_read": true,
+    "changed_line_ranges": [
+      [
+        290,
+        290
+      ],
+      [
+        300,
+        300
+      ],
+      [
+        302,
+        302
+      ]
+    ],
+    "current_context_line_ranges": [
+      [
+        284,
+        304
+      ]
+    ],
+    "unified_diff_context_range": [
+      284,
+      308
+    ],
+    "unchanged_full_report_reread": false,
+    "prior_complete_report_line_ranges_reused": [
+      [
+        1,
+        90
+      ],
+      [
+        91,
+        180
+      ],
+      [
+        181,
+        270
+      ],
+      [
+        271,
+        340
+      ]
+    ],
+    "changes": [
+      {
+        "kind": "replace",
+        "old_lines": [
+          290,
+          290
+        ],
+        "current_lines": [
+          290,
+          290
+        ],
+        "old_text": [
+          "For distributors, adding another outlet can diversify access while also duplicate acquisition spending on the same users. Channel activity should be deduplicated before presenting market reach, but allocation decisions require a further question: does the next campaign create additional profitable viewing or simply reacquire someone already reached elsewhere? Named-title search and repeat-series consumption may reduce that dependence. The evidence does not quantify the benefit, so investment should follow observed incremental recovery rather than presumed organic traffic."
+        ],
+        "current_text": [
+          "For distributors, adding another outlet can diversify access while also duplicating acquisition spending on the same users. Channel activity should be deduplicated before presenting market reach, but allocation decisions require a further question: does the next campaign create additional profitable viewing or simply reacquire someone already reached elsewhere? Named-title search and repeat-series consumption may reduce that dependence. The evidence does not quantify the benefit, so investment should follow observed incremental recovery rather than presumed organic traffic."
+        ]
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          300,
+          300
+        ],
+        "current_lines": [
+          300,
+          300
+        ],
+        "old_text": [
+          "The public CSM findings do not disclose enough survey design to reconcile their adult population estimate with CNNIC. QuestMobile supplies activity measures with channel-specific selection rules; the restored CP16 and CP24 charts were read directly, including the relevant units and footnotes. Active users, browsing reach, play counts, registrations, and paying users remain separate measures. Later reports sometimes repeat earlier survey values; a repetition does not provide an additional independent sample."
+        ],
+        "current_text": [
+          "The public CSM findings do not disclose enough survey design to reconcile their adult population estimate with CNNIC. QuestMobile supplies activity measures with channel-specific selection rules; the CP16 and CP24 charts specify the relevant channel populations, units and footnotes. Active users, browsing reach, play counts, registrations, and paying users remain separate measures. Later reports sometimes repeat earlier survey values; a repetition does not provide an additional independent sample."
+        ]
+      },
+      {
+        "kind": "replace",
+        "old_lines": [
+          302,
+          302
+        ],
+        "current_lines": [
+          302,
+          302
+        ],
+        "old_text": [
+          "CP10 and CP20 are retained outputs of prior web access to the official regulatory and investor-relations pages. Their relevant text is available, but they are not saved full original websites. CP23 contains only an access-failure record in the supplied material; no substantive claim in this report relies on it. Long reports were read at the pages and passages recorded in the reading ledger, not represented as fully read when only relevant sections were examined. News accounts, management statements, research estimates, and statutory provisions retain their different evidential status."
+        ],
+        "current_text": [
+          "CP10 and CP20 are retained outputs of prior web access to the official regulatory and investor-relations pages. Their relevant text is available, but they are not saved full original websites. CP23 contains only an access-failure record in the supplied material; no substantive claim in this report relies on it. Citations to long reports identify the relevant pages or passages. News accounts, management statements, research estimates, and statutory provisions retain their different evidential status."
+        ]
+      }
+    ]
+  },
+  "context_comparison": {
+    "task": true,
+    "requirements": true,
+    "effective_requirements": true,
+    "scope_decisions": true,
+    "sources": true,
+    "source_files": true
+  },
+  "instructions_delta_read": "Two added continuation paragraphs direct reuse of retained checks and examination of the actual changes in the original independent task; inspected in full.",
+  "source_reading": {
+    "new_source_body_or_image_reading": [],
+    "prior_source_text_ranges_and_hashes": {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\native-full-reviews\\evidence\\execution.json",
+      "sha256": "fca441945e69aeed97523a91edeeca2a3b4d62b70d45deb0f4ba1d883ca32183"
+    },
+    "prior_images_reused_with_current_hash_checks": [
+      {
+        "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP24\\users.jpg",
+        "sha256": "fff0bf73b5a0f221eb3a23f459f11019ec2a07265a964e4188fac349e4d73a96",
+        "prior_sha256": "fff0bf73b5a0f221eb3a23f459f11019ec2a07265a964e4188fac349e4d73a96",
+        "matches_prior": true,
+        "reading_status": "prior direct visual inspection reused; hash checked now; not reopened visually"
+      },
+      {
+        "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP24\\time.jpg",
+        "sha256": "2927878e6dd2823008fc1a91b8fb35ad18820ffd0af175311f98ca32411c5110",
+        "prior_sha256": "2927878e6dd2823008fc1a91b8fb35ad18820ffd0af175311f98ca32411c5110",
+        "matches_prior": true,
+        "reading_status": "prior direct visual inspection reused; hash checked now; not reopened visually"
+      },
+      {
+        "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP24\\apps.jpg",
+        "sha256": "b2a1b48e21e410bd4ab431e570568d6ceb290bd3519173a690b86db834377b88",
+        "prior_sha256": "b2a1b48e21e410bd4ab431e570568d6ceb290bd3519173a690b86db834377b88",
+        "matches_prior": true,
+        "reading_status": "prior direct visual inspection reused; hash checked now; not reopened visually"
+      },
+      {
+        "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP16\\ab089f4e9c4ca8a2c97e05e7be0112db.png",
+        "sha256": "bf5949de85fe7dfa61b7f8e1496edf40f5cb5dcf4cd9d43191edf8d7fd94ecdf",
+        "prior_sha256": "bf5949de85fe7dfa61b7f8e1496edf40f5cb5dcf4cd9d43191edf8d7fd94ecdf",
+        "matches_prior": true,
+        "reading_status": "prior direct visual inspection reused; hash checked now; not reopened visually"
+      },
+      {
+        "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP16\\e15d12b81e8ada19f3a096549d587df3.png",
+        "sha256": "cad1e334d1adc8e1ee9ced5dd35a7dbf7bdd2da2167ffbc9d2b8956457593470",
+        "prior_sha256": "cad1e334d1adc8e1ee9ced5dd35a7dbf7bdd2da2167ffbc9d2b8956457593470",
+        "matches_prior": true,
+        "reading_status": "prior direct visual inspection reused; hash checked now; not reopened visually"
+      },
+      {
+        "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP16\\2d52bc46d8803cd23525c580c9b09010.png",
+        "sha256": "60adeaa7ab2d7617487d60b67c5da21933f3095974e77a8eabd4c97f01d2246f",
+        "prior_sha256": "60adeaa7ab2d7617487d60b67c5da21933f3095974e77a8eabd4c97f01d2246f",
+        "matches_prior": true,
+        "reading_status": "prior direct visual inspection reused; hash checked now; not reopened visually"
+      },
+      {
+        "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\codex-production\\pdf-checks\\CP17-page-6.png",
+        "sha256": "168f672065214874a6b3d4819eb90cba19fdef1ee1485e8e711948d4a35e67d0",
+        "prior_sha256": "168f672065214874a6b3d4819eb90cba19fdef1ee1485e8e711948d4a35e67d0",
+        "matches_prior": true,
+        "reading_status": "prior direct visual inspection reused; hash checked now; not reopened visually"
+      },
+      {
+        "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\codex-production\\pdf-checks\\CP17-page-18.png",
+        "sha256": "dca8b28815324f4f81f37a1bf187a23843d43b6f10e1a2c08fd144eb223d51f8",
+        "prior_sha256": "dca8b28815324f4f81f37a1bf187a23843d43b6f10e1a2c08fd144eb223d51f8",
+        "matches_prior": true,
+        "reading_status": "prior direct visual inspection reused; hash checked now; not reopened visually"
+      }
+    ],
+    "calculation_code_and_output_reused_without_execution": [
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_en/codex-production/calculations.py",
+        "sha256": "8821074606ca75ffae3e022841c9c0e8f1a978dcbd3af270a52ba9c9880b4a63",
+        "line_ranges": [
+          1,
+          78
+        ],
+        "mode": "complete static reading; formulas traced against assumptions and displayed outputs; not executed"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_en/codex-production/calculation-output.json",
+        "sha256": "de5c4ea1a053eaf589300dba3fe5f22a77bf1b8f761fa5317bb8119e213ed524",
+        "line_ranges": [
+          1,
+          490
+        ],
+        "mode": "complete static reading; formulas traced against assumptions and displayed outputs; not executed"
+      }
+    ],
+    "unavailable_originals_unchanged": [
+      {
+        "source_id": "CP10",
+        "status": "Retained prior official-web output available and read at recorded passages; a complete saved original website was not supplied/obtained."
+      },
+      {
+        "source_id": "CP20",
+        "status": "Retained prior official-web output available and read at recorded passages; a complete saved original website was not supplied/obtained."
+      },
+      {
+        "source_id": "CP23",
+        "status": "Frozen record contains Internal Error / TimeoutError only; read lines 1-3. No substantive report claim relies on it."
+      }
+    ]
+  },
+  "retained_finding_exposure": {
+    "embedded_prior_required_findings_displayed": true,
+    "description": "The initial assignment metadata extraction accidentally displayed Toolkit-retained necessary findings from other perspectives. These were historical revision findings embedded in the supplied job; no other reviewer result file or current initial-review opinion was opened. The exposure was reported to the coordinator and is recorded here. Evidence judgment was based on this reviewer's original checks, the actual complete diff and the unchanged original materials.",
+    "other_reviewer_result_files_opened": false,
+    "used_as_evidence_verdict_basis": false
+  },
+  "required_modifications": [],
+  "result": "pass",
+  "actions": {
+    "other_language_report_read": false,
+    "report_edited": false,
+    "prior_review_edited": false,
+    "review_imported": false,
+    "research_rerun": false,
+    "calculations_executed": false,
+    "tests_run": false,
+    "api_called": false,
+    "new_role_or_review_round_created": false
+  },
+  "response": {
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\native-full-final-reviews\\evidence\\response.json",
+    "sha256": "a2b8460b8c101ab5d5552aad2e71839801c44eed2d5300e4310994e8ffeb7224"
+  }
+}

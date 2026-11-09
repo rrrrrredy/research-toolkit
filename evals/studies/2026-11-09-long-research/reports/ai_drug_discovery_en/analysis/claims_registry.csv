@@ -1,0 +1,22 @@
+claim_id,claim,claim_type,supporting_sources,counter_evidence,uncertainty,evidence_detail
+C01,AI contributes identifiable selection and optimization steps; whole-pipeline causality is not established,analysis,AIDD-S01;AIDD06;AIDD-S14;AIDD04,,,"U1,U2,U3"
+C02,"Rentosertib target ranking and design were constrained by existing biology,tractability and pharmacophore choices",analysis,AIDD-S01,,,U1
+C03,Rentosertib discovery clock ends at preclinical nomination,analysis,AIDD-S01,,,U1
+C04,Rentosertib observedFVC n10/14 +98.4/−20.3; modeledn18/17 +89.2/−8.2,analysis,AIDD-S02;AIDD-R01W,,,U1revision01
+C05,FVC descriptivedifferences118.7/97.4mL;22/71missing8/18vs3/17,analysis,AIDD-S02;AIDD-R01W;calculations-results-revision-01.json,,,U1revision01
+C06,Rentosertib oralphaseIII recruitingSep2026;inhaledbranchINDseparate,analysis,AIDD-R02W;AIDD03;AIDD-A13,,,U1
+C07,"DSP loop<12months excludes safety,350th compound;discontinuedJan2022",analysis,AIDD06;AIDD08,,,U2
+C08,EXS21546 healthyvolunteer64 vs patientstudy6terminatedfor therapeuticindexconcern,analysis,AIDD-R04;AIDD-R05;WEB-EXAI2023,,,U2
+C09,CCM MLscreen7/38 orthogonalhits versusmanual1/38,analysis,AIDD-S14,,,U2
+C10,REC994 initialMRItrend notsustained;developmentstoppedMay2025,analysis,AIDD-S20;AIDD-R03W;WEB-R994PR,,,U2
+C11,"REC994 registryresultspostOct22,2026;combinedsafety exposurewindowsnotmatched",analysis,AIDD-R03W,,,U2
+C12,REC4881 islicensedTAK733 withnewFAP phenotypichypothesis,analysis,WEB-RXRX2025;AIDD-R06,,,U2
+C13,REC4881 safety26=5+21;efficacy16;week13 n15;week25 n13,analysis,WEB-R4881CGA;WEB-R4881EARN;WEB-R4881PR,,,U2
+C14,Baricitinib AIassociatedrepurposing precedes strongrandomized COVIDevidenceandadultapproval,analysis,AIDD-S24;AIDD-S15;AIDD-S11;AIDD-S12;AIDD-S13;AIDD-S25,,,U3
+C15,HalicinHub51/99highvs2/63low;separateZINC8/23anyspecies,analysis,AIDD04,,,U3
+C16,Historicalcohort21/24and4/10 notcurrentcausalAIprobabilities,analysis,WEB-AICOHORT;calculations-results-revision-01.json,,,U4
+C17,Sanofi candidatehandoff leavesclinicalmanufacturingcommercializationwithSanofi,analysis,AIDD-S27;WEB-SANOFICONTRACT;WEB-SANOFIOPTION,,,U4
+C18,"Sanofi100Mupfront,~5.2Bcontingentceilings;Oct2026 10Mtrigger144Mtotal",analysis,AIDD-S27;WEB-SANOFIOPTION,,,U4
+C19,Takedaexclusiveworldwidelicense1.5Mupfront39.5Mmilestonesplusroyalties,analysis,WEB-RXRX2025,,,U4
+C20,Rochemaps/rawimage/programoptions aredifferentrights;firsttargetearlydiscovery2026,analysis,WEB-ROCHE2021;WEB-ROCHERECEIPT;WEB-GENENTECH,,,U4
+C21,Fundnextfalsifiableexperimentalorclinicaldeliverable ratherthanplatformlabel,analysis,AIDD-S01;AIDD06;AIDD-S14;AIDD04;AIDD-S02;AIDD-R01W;calculations-results-revision-01.json;AIDD-R02W;AIDD03;AIDD-A13;AIDD08;AIDD-R04;AIDD-R05;WEB-EXAI2023;AIDD-S20;AIDD-R03W;WEB-R994PR;WEB-RXRX2025;AIDD-R06;WEB-R4881CGA;WEB-R4881EARN;WEB-R4881PR;AIDD-S24;AIDD-S15;AIDD-S11;AIDD-S12;AIDD-S13;AIDD-S25;WEB-AICOHORT;AIDD-S27;WEB-SANOFICONTRACT;WEB-SANOFIOPTION;WEB-ROCHE2021;WEB-ROCHERECEIPT;WEB-GENENTECH,,,U4

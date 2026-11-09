@@ -1,0 +1,25 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "natural_expression": {
+      "location": "reports/current.md 全文第1—143行；四层分类、性能条件、快充/寿命、安全、成本模型、量产链与四种车型表。",
+      "basis": "完整阅读任务和当前全文。性能限定基本均有工程含义承接：材料/包级、充电峰值/平均、吞吐/日历、良率/利用率分别解释选择变化，未因句式或篇幅要求压缩这些条件。正文主体可顺序理解。发现开头内部稿件状态及车型表一处可能引起行业含义误读的简称，均可局部修复。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "natural_expression-01",
+      "severity": "minor",
+      "location": "reports/current.md 第3行“作者整理稿，待其他上下文独立审阅；原始首稿保留于report-v1.md”。",
+      "basis": "该句向读者叙述内部产稿/评审阶段和首稿文件，打断报告的截止日与用途说明，未增加选型判断依据。删除此内部过程句；保留截止日、受众及计算未等于电池实验的必要方法说明。"
+    },
+    {
+      "finding_id": "natural_expression-02",
+      "severity": "minor",
+      "location": "reports/current.md 第130行经济型通勤场景，“LMFP…作为增程候选”。",
+      "basis": "在汽车语境里“增程”通常也指增程式动力架构，此处实际比较的是同类电池空间下的续航提升，会使读者短暂误判为换用另一类动力方案。将其明确为“提升续航的电池候选”或同义的具体表达，保留成本与空间条件，不改变路线建议。"
+    }
+  ],
+  "input_version": "eeaff5ef331db6e411fdbcc2c5433c80a5a19c2cb4bf80161693edecafebce64",
+  "assignment_version": "99b19288636b7e5bf7027517946bef904f79ee0c503615d1ba56b5a522b17c98"
+}
