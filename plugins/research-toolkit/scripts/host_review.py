@@ -108,7 +108,7 @@ def report_changes(previous, current):
 
 
 def revision_context(root, previous_plan, packet, bindings):
-    """Point the next reader to retained work; never reuse its approval."""
+    """Point the next review agent to retained work; never reuse its approval."""
     previous = load(root, previous_plan["input"]["path"])
     selected = selected_results(root, previous_plan)
     audits = selected.get("audit", {}).get("result_data", {}).get("review_checks", {})

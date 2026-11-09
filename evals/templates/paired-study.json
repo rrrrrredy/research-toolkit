@@ -5,20 +5,13 @@
   "frozen_at_utc": null,
   "toolkit_commit": null,
   "target_population": null,
-  "primary_question": "Does the pinned workflow reduce confirmed necessary defects within the same total per-condition resource ceiling?",
+  "primary_question": "Does the pinned workflow improve research quality and reduce confirmed necessary defects for the same task and materials under comparable model configurations?",
   "profile": null,
   "author": {
     "provider": null,
     "model_snapshot": null,
     "reasoning": null,
     "runtime_version": null
-  },
-  "matched_budget": {
-    "total_tokens_including_internal_reviews": null,
-    "wall_seconds": null,
-    "tool_calls": null,
-    "retry_policy": null,
-    "unmetered_resource_policy": null
   },
   "source_access_policy": null,
   "fresh_context_and_memory_isolation": null,
@@ -40,7 +33,6 @@
     "taxonomy": "necessary-defects-v1",
     "reviewer_count": 1,
     "model_snapshots": [],
-    "budget_per_report": null,
     "condition_masking": null,
     "source_access": null,
     "independent_report_order_seed_commitment": null,
@@ -82,6 +74,6 @@
     "publish_all_pairs_and_failures": true,
     "unmask_after_reviews_locked": true
   },
-  "purpose": "Optional with/without Toolkit comparison; not a prerequisite for repair, acceptance or merging.",
+  "purpose": "Optional with/without Toolkit comparison; not a prerequisite for repair, acceptance or merging. Keep task, materials and model configuration comparable. Retain actual time, cost and call counts as execution context, not quality or stopping criteria. This draft template is not consumed by an executor and does not change runtime limits or frozen historical protocols.",
   "task_origin_policy": "Existing real user and development tasks are eligible; record reuse without requiring outside contributions."
 }

@@ -14,7 +14,7 @@ Before collecting sources, use the conversation and materials to propose what th
 Establish the following from context; this is an internal planning checklist, not a questionnaire to send to the user:
 
 - research object and scope boundaries
-- target reader and decision context
+- the report's target readers and their intended use or decision context
 - final output format, language, and publishing context
 - questions to answer, necessary explanations and comparisons, and any explicit length constraint
 - required coverage, exclusions, and priority units

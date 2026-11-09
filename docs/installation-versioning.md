@@ -40,13 +40,15 @@ Keep bilingual entry documents in this repository, `SKILL.md` as the agent entry
 
 Do not create a second maintained Skill repository merely for another language or installer. Reuse the versioned source and record the packaged commit. Keep installation and capability claims separate from demonstrated runtime conformance and research quality.
 
-## Maintain the online copy and reader entry points
+<a id="maintain-the-online-copy-and-reader-entry-points"></a>
+
+## Maintain the online copy and user entry points
 
 The Skill entry-point block in `docs/framework.html` is a copy of `SKILL.md`. CI checks exact text agreement after newline normalization. Run `python scripts/check_docs_sync.py --write` to refresh that block after an approved normative change, then run `python scripts/check_docs_sync.py` to verify it.
 
-README entry points should explain what readers can do: read online, load the Skill, or follow the setup notes for their environment. Keep repository-splitting decisions, copy synchronization, CI commands, and packaging policy in maintenance documentation. Update the corresponding English and Chinese passages together; their section numbers do not have to match.
+README entry points should explain what Toolkit users can do: read online, load the Skill, or follow the setup notes for their environment. Keep repository-splitting decisions, copy synchronization, CI commands, and packaging policy in maintenance documentation. Update the corresponding English and Chinese passages together; their section numbers do not have to match.
 
-中文维护要点：中英文入口共用一套研究规范，各环境按需提供接入和打包方式，不单独围绕某个 Agent 定义产品。网页 Skill 入口由 `SKILL.md` 同步生成，完整方法保留在参考文件中；修改规范后刷新并校验。README 解释读者如何阅读和使用，仓库拆分、同步检查与打包决策留在维护文档。评测资料的用途限制见[数据审计](./evaluation-data-audit.md)，语义审查的开发材料见[诊断正负例](../evals/semantic_diagnostics/)。
+中文维护要点：中英文入口共用一套研究规范，各环境按需提供接入和打包方式，不单独围绕某个 Agent 定义产品。网页 Skill 入口由 `SKILL.md` 同步生成，完整方法保留在参考文件中；修改规范后刷新并校验。README 解释工具箱用户如何阅读和使用，仓库拆分、同步检查与打包决策留在维护文档。评测资料的用途限制见[数据审计](./evaluation-data-audit.md)，语义审查的开发材料见[诊断正负例](../evals/semantic_diagnostics/)。
 
 中文：本机版本、公开发布版和实验所用版本必须分开记账。先比较真实内容，再决定更新；不要根据旧Git提交号或自写版本标签误判，也不要为了“同步”覆盖本机修改。这个工具只核对选定运行文件，不证明报告质量或运行时真实加载。
 

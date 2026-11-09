@@ -40,7 +40,9 @@ python scripts/check_installation.py /path/to/installed/research-toolkit --refer
 
 不要只因语言或安装器不同另建第二个维护中的 Skill 仓库。复用版本化来源，记录打包提交。安装或能力声明，与已观察的接入表现和研究质量分开表述。
 
-## 维护网页与阅读入口
+<a id="维护网页与阅读入口"></a>
+
+## 维护网页与使用入口
 
 `docs/framework.html` 的 Skill 入口区块是 `SKILL.md` 的副本。CI 在规范换行后检查全文一致性。规范修改后运行：
 
@@ -49,7 +51,7 @@ python scripts/check_docs_sync.py --write
 python scripts/check_docs_sync.py
 ~~~
 
-README 说明读者如何在线阅读、加载 Skill 或按环境安装；仓库拆分、同步命令、CI 和打包政策放在维护文档。对应中英文内容一同维护，两种语言的章节编号不必相同。
+README 说明工具箱用户如何在线阅读、加载 Skill 或按环境安装；仓库拆分、同步命令、CI 和打包政策放在维护文档。对应中英文内容一同维护，两种语言的章节编号不必相同。
 
 评测资料用途见[数据审计](evaluation-data-audit.zh-CN.md)，语义审查材料见[诊断对照](../evals/semantic_diagnostics/README.zh-CN.md)。安装内容相同不证明报告质量或运行时实际加载。
 
