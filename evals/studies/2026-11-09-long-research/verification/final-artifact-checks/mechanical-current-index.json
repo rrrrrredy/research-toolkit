@@ -1,0 +1,80 @@
+{
+  "basis": "13 unchanged passing results reused; only two failed cases rerun after parsing repair. Original files retained.",
+  "cases": [
+    {
+      "case_id": "ai_drug_discovery_en",
+      "conformance_status": "pass",
+      "result_file": "mechanical-results.json"
+    },
+    {
+      "case_id": "bytedance_advertising_zh",
+      "conformance_status": "pass",
+      "result_file": "mechanical-results.json"
+    },
+    {
+      "case_id": "embodied_deployment_zh",
+      "conformance_status": "pass",
+      "result_file": "mechanical-results.json"
+    },
+    {
+      "case_id": "ev_batteries_zh",
+      "conformance_status": "pass",
+      "result_file": "mechanical-results.json"
+    },
+    {
+      "case_id": "instant_retail_warehouses_zh",
+      "conformance_status": "pass",
+      "result_file": "mechanical-results.json"
+    },
+    {
+      "case_id": "microdrama_market_en",
+      "conformance_status": "pass",
+      "result_file": "mechanical-results.json"
+    },
+    {
+      "case_id": "microdrama_market_zh",
+      "conformance_status": "pass",
+      "result_file": "two-cases-corrected.json"
+    },
+    {
+      "case_id": "model_benchmarks_en",
+      "conformance_status": "pass",
+      "result_file": "mechanical-results.json"
+    },
+    {
+      "case_id": "on_device_models_en",
+      "conformance_status": "pass",
+      "result_file": "mechanical-results.json"
+    },
+    {
+      "case_id": "personal_agents_zh",
+      "conformance_status": "pass",
+      "result_file": "mechanical-results.json"
+    },
+    {
+      "case_id": "post_training_talent_zh",
+      "conformance_status": "pass",
+      "result_file": "mechanical-results.json"
+    },
+    {
+      "case_id": "test_time_compute_en",
+      "conformance_status": "pass",
+      "result_file": "two-cases-corrected.json"
+    },
+    {
+      "case_id": "test_time_compute_zh",
+      "conformance_status": "pass",
+      "result_file": "mechanical-results.json"
+    },
+    {
+      "case_id": "token_economics_en",
+      "conformance_status": "pass",
+      "result_file": "mechanical-results.json"
+    },
+    {
+      "case_id": "verifiable_self_improvement_en",
+      "conformance_status": "pass",
+      "result_file": "mechanical-results.json"
+    }
+  ]
+}

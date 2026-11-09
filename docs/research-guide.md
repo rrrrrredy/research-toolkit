@@ -4,14 +4,14 @@
 
 [Project overview](../README.md) · [Start research](quickstart.md) · [Installation and tools](usage-modes.md)
 
-Research Toolkit is used by agents to produce substantial, source-grounded research for an identified reader. The brief determines what must be explained and how deeply; the working methods and collaboration support that result.
+Agents use Research Toolkit for long-form research and writing in English or Chinese across domains. The task defines the reader, purpose and depth; shared methods connect evidence, analysis, writing and independent assessment.
 
 ## Example tasks
 
 These are possible requests, not claims that each has been executed:
 
-- **Industry report:** explain the 2026 agent market's important changes, competition and adoption barriers for strategy readers, with a requested scope and depth.
-- **Company comparison:** compare named domestic and overseas companies across product, model, organization and strategy, retaining the development timeline.
+- **Industry or policy research:** explain a sector's development or a policy's effects, comparing periods, regions and competing explanations.
+- **Scientific literature review:** synthesize studies on a defined question, comparing methods, findings, disagreements and research gaps.
 - **Technical route research:** compare RAG, long context and hybrid routes under stated document, permission and deployment conditions.
 - **Investment research:** explain category timing, defensibility, business model and counter-evidence, separating observed facts from investment assumptions.
 - **Report update:** apply new sources or requirements to a saved report, preserving still-valid reasoning and explaining changed conclusions.
@@ -79,7 +79,7 @@ A source count, a full outline or a passed record check cannot replace the missi
 - [Research update case](case-study/coding-benchmark-update/README.md), retaining the older report and actual changed evidence.
 - [Evaluation status](evaluation-status.md) separates actual studies, software checks and unmeasured effects. Earlier studies retain their own protocols, not the current default research contract.
 
-The original reports, failed attempts and revisions remain available. Method reorganization and software behavior changes alone are not evidence of improved research quality.
+For a quality-improvement claim, identify the compared report versions and source-checked findings; retain the originals, failed attempts and revisions.
 
 ## Repository and maintenance
 

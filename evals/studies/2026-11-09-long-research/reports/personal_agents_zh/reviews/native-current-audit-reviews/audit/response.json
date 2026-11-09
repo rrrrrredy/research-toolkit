@@ -1,0 +1,39 @@
+{
+  "input_version": "8208b408fba85ea9f85a7f8cce08ea0777a4dc51b47cd27819c1a1036a2be6e0",
+  "assignment_version": "ae1fd9d8ea626196e71a84121cd0352cdcaf3dadae108a8c93abdd7dd3e02a46",
+  "result": "valid",
+  "basis": "独立通读当前222行正文、任务、全部8份原始当前回复和执行记录，核对4项生产历史及首稿到当前完整差异。24个当前input/response/execution引用的规范化LF哈希均匹配。审阅者与作者分离，历史负面评审有效；当前结论有具体段落和原件支持，未以多数通过代替内容判断。",
+  "review_checks": {
+    "requirements": {"result":"valid","basis":"/root/independent_reviews_a保留原全文阅读并读完全部新增链条；同环节的国内外路线比较、记忆授权机制和商业分析满足真实任务，未要求额外亲测。"},
+    "evidence": {"result":"valid","basis":"/root/evidence_remaining_b原223行完整阅读与24原件记录可定位；本轮补读PA08资格。独立抽查证实地区、Personal Intelligence、付款范围和取消语义，当前新增三处限制正确。"},
+    "adversarial_reasoning": {"result":"valid","basis":"/root/benchmark_adversarial完整差异和原件回查记录明确；未把生态支付、文件编辑、加行或对话同步合成已经验证的完整交易/报销系统。"},
+    "structure_and_depth": {"result":"valid","basis":"/root/benchmark_structure原major为真实任务缺口；当前两条新增路线表逐环节比较输入、身份、回执、跨日变化和停止，表后解释选择差异，已实质修复。"},
+    "reader_usefulness": {"result":"valid","basis":"/root/full_reader_b复用自己的190行全文并读全部新增比较；候选用途与已有功能、个人权限与企业角色清楚分开，当前选择建议可据正文判断。"},
+    "process_language": {"result":"valid","basis":"/root/benchmark_process_a独立原全文和全部差异阅读，PA10/11具体原件核对。日志、Updates、停止为所研究产品机制，不是研究制作过程，不应机械删除。"},
+    "natural_expression": {"result":"valid","basis":"/root/benchmark_natural_expression完整63行diff与上下文，原全文阅读保留；新增比较沿同一任务展开，条件有具体对象，不是空泛免责。"},
+    "domain-1": {"result":"valid","basis":"/root/independent_domain_b与作者/root/remaining_research_inputs分离；原完整阅读与60行差异及PA08/09/10/11/13/19回查可定位。独立审计原件支持其状态、回执、取消及财务身份判断。"}
+  },
+  "dispositions": {},
+  "critical_checks": [
+    {"requirement_id":"R_TASK","location":"全文1-222，重点35-110、114-166、168-220","evidence":"两条任务链均具体比较千问、Manus、Gemini，另解释Siri/Work/豆包接续点；从跨日改意、后补票据、退款和私人支出到正式提交及撤权。六类记忆对象、权限与身份区分、在途恢复、端云/API/GUI取舍和商业模型相连，未以功能清单替代机制。","result":"clear"},
+    {"requirement_id":"R_LANGUAGE","location":"全文及两条路线表、数据流、撤权表、经济算例","evidence":"中文完整长研究，图表与正文围绕同一旅行/报销情境；未将分析情境写成亲测。","result":"clear"},
+    {"requirement_id":"R_DATE","location":"19-29、50-70、89-104、170、193","evidence":"千问2026-01-15公测与Task Assistant邀测、Apple9月英语beta和Tripsy未来计划、豆包9月16日单次体验及规则期、11月现行Gemini地区/账户限制均保留。旧Agent额度和旧Instant Checkout未当作现行条件。","result":"clear"},
+    {"location":"199-208与analysis/calculations/calculate_scenarios.py、calculations.json","evidence":"完整阅读现存代码及保存输出，未重算。235/40/108分钟、115/-80/-2/-42元及9.3023次分界与N*(人工-说明-核对-p失败*返工)公式一致；时间价值、固定费和外部损失明确是假设。","result":"clear"}
+  ],
+  "sample_checks": [
+    {"location":"50-64、89-104产品路线比较","selection_reason":"重要修订及其已通过部分：新增细节可能把不同证据级别拼成完整产品能力。","evidence":"全文读PA13与PA09，定向读PA08:30-110/175-220/230-300、PA10:100-190、PA11:100-180、PA19:174-211。原件分别支持飞猪预订与即时零售支付范围、100文档邀测、指令下一消息/文件新任务、发票加行、每会话浏览器授权和Gemini停止/订阅语义；正文标明候选与未知。","result":"clear"},
+    {"location":"139-164记忆、撤权和代码","selection_reason":"通过的机制解释应由实际实现支持，不能由功能名称推断完备性。","evidence":"PA22:399-433分离稳定用户、非个人长期事实和日常记录；PA23:382-393限定单信任边界；PA03内Memory原始捕获95-155区分删除、停用和传播。PA21:108-124/190-208/268-275证明Tap含message才确认且Note/Call_API占位。PA27:280-295与RFC PA28:168-202支持受众及撤权传播限制，不是业务回滚保证。","result":"clear"},
+    {"location":"70、170-174可靠性与演示","selection_reason":"已通过的数字与测试范围容易被扩大成长期产品成功率。","evidence":"PA17:5-40确为指定消费者版9月16日媒体操作，26秒只指一次抖音检索。LongMemEval原摘要500问题、tau-bench数据库终态/pass^k段核对；实际查看AgentDojo v3原PDF第一页，97任务/629用例及日期一致。正文不把这些混成当前消费产品排名。","result":"clear"},
+    {"location":"66、141、191-208商业与控制条件","selection_reason":"跨来源综合应保留当前产品政策、独立登录与净价值口径。","evidence":"PA03原始云浏览器捕获50-115区分网站许可和重大动作确认、独立登录、后台与接管；PA31:145-170明确商家站外结账、不收该成交费用、美国范围。经济算例包括核对/失败/损失，未把无API费等同零成本。","result":"clear"}
+  ],
+  "prior_findings": {
+    "049cbe5112d84514a89e7ffbdf8c9c60/SD-PA-01": {"decision":"resolved","reason":"原稿通用设计原则不足以完成同环节产品比较的major判断有效。当前旅行与报销均有国内外路线贯穿比较、跨会话变化及撤权后的外部状态，并有面向同一用户的选择综合。","evidence":"原始负面response/execution与首稿/current完整diff已读；当前50-64和89-104及PA08-13、PA19原段逐项核对。"}
+  },
+  "finding_adjudications": [
+    {"finding_key":"049cbe5112d84514a89e7ffbdf8c9c60/SD-PA-01","decision":"resolved","reason":"两条链已具体展开产品承接、变化与停止，原major未被抹除。","evidence":"当前50-64、89-104与相应原文。"}
+  ],
+  "supplementary_history": [{"finding_id":"EV-PAZH-01","decision":"resolved","reason":"该原始负面未列入本job prior_required_findings，故不混入精确键集合。实际读native-full-current-reviews/evidence/response.json并核对PA08:35-43；当前22/50/94已加入Personal Intelligence和EEA/Nigeria/Switzerland/UK排除。"}],
+  "sampling_population":"完整当前222行正文及8份无发现当前评审；目的性抽查覆盖新增比较、未变记忆/代码/授权、媒体体验、研究PDF和商业计算，不声称随机。",
+  "report_verdict":"pass",
+  "open_issues":[]
+}

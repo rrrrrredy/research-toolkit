@@ -1,0 +1,24 @@
+test_author_or_reviewer_cannot_invalidate_negative_and_select_positive (__main__.ReviewCompletionTests.test_author_or_reviewer_cannot_invalidate_negative_and_select_positive) ... ok
+test_author_self_review_and_self_validation_are_rejected (__main__.ReviewCompletionTests.test_author_self_review_and_self_validation_are_rejected) ... ok
+test_changed_input_or_artifact_invalidates_bindings (__main__.ReviewCompletionTests.test_changed_input_or_artifact_invalidates_bindings) ... ok
+test_complete_zero_finding_controls_do_not_certify_semantics (__main__.ReviewCompletionTests.test_complete_zero_finding_controls_do_not_certify_semantics) ... ok
+test_critical_disposition_requires_evidence_and_independence (__main__.ReviewCompletionTests.test_critical_disposition_requires_evidence_and_independence) ... ok
+test_current_version_can_complete_without_discarding_old_negative (__main__.ReviewCompletionTests.test_current_version_can_complete_without_discarding_old_negative) ... ok
+test_default_delivery_requires_new_contract_but_old_records_remain_inspectable (__main__.ReviewCompletionTests.test_default_delivery_requires_new_contract_but_old_records_remain_inspectable) ... ok
+test_failed_attempt_is_retained_before_a_successful_completion (__main__.ReviewCompletionTests.test_failed_attempt_is_retained_before_a_successful_completion) ... ok
+test_failures_and_truncation_do_not_complete_a_slot (__main__.ReviewCompletionTests.test_failures_and_truncation_do_not_complete_a_slot) ... ok
+test_invalidating_an_earlier_result_requires_evidence (__main__.ReviewCompletionTests.test_invalidating_an_earlier_result_requires_evidence) ... ok
+test_later_favorable_review_cannot_replace_first_valid_negative (__main__.ReviewCompletionTests.test_later_favorable_review_cannot_replace_first_valid_negative) ... ok
+test_malformed_fields_fail_closed_instead_of_crashing (__main__.ReviewCompletionTests.test_malformed_fields_fail_closed_instead_of_crashing) ... ok
+test_missing_coverage_and_unreviewed_boilerplate_are_not_valid (__main__.ReviewCompletionTests.test_missing_coverage_and_unreviewed_boilerplate_are_not_valid) ... ok
+test_missing_or_wrong_response_and_invocation_are_rejected (__main__.ReviewCompletionTests.test_missing_or_wrong_response_and_invocation_are_rejected) ... ok
+test_negative_evaluation_is_complete_but_report_delivery_is_not (__main__.ReviewCompletionTests.test_negative_evaluation_is_complete_but_report_delivery_is_not) ... ok
+test_one_execution_or_response_cannot_fill_two_slots (__main__.ReviewCompletionTests.test_one_execution_or_response_cannot_fill_two_slots) ... ok
+test_outside_evidence_and_stale_validity_audits_fail (__main__.ReviewCompletionTests.test_outside_evidence_and_stale_validity_audits_fail) ... ok
+test_sampling_defect_needs_a_recorded_follow_up (__main__.ReviewCompletionTests.test_sampling_defect_needs_a_recorded_follow_up) ... ok
+test_sampling_includes_mandatory_and_passed_items (__main__.ReviewCompletionTests.test_sampling_includes_mandatory_and_passed_items) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 1.909s
+
+OK

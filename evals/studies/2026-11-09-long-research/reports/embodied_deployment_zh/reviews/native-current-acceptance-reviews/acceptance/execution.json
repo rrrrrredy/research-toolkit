@@ -1,0 +1,28 @@
+{
+  "host_task": "/root/office_final_acceptance",
+  "status": "completed",
+  "input_version": "bfaf0a302d2abff490f9591d9eb58c381fabd2f85474084af07315f1233e9297",
+  "assignment_version": "f389554718cd11b88ded94041033f1f8178357244ee24c3164f64fa97125fb2a",
+  "artifact_sha256": "3c1900a851b26f0531301d1480c8b8f67657f8d1e6056580af52f9a3af2ed30f",
+  "started_at": "2026-11-09T17:03:29.2705458Z",
+  "completed_at": "2026-11-09T17:05:58.4677047Z",
+  "assignment": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/embodied_deployment_zh/reviews/host/bfaf0a302d2abff490f9/jobs/acceptance-f389554718cd11b8.json",
+  "independence": "本上下文未参与本题生产、内容审阅或审计。",
+  "actual_reading": {
+    "reuse": "未重新读取的论文/安全手册/客户原件复用独立证据与审计已定位实际核查，未声称重读所有26来源或逐帧视频。",
+    "full": [
+      "当前报告1-282，五段连续读取",
+      "真实任务、有效要求、原finding与3项生产历史概要",
+      "8份当前原始回复、audit.original及execution",
+      "历史natural_expression原始负面、change-note-full-01完整diff、production-handoff",
+      "economics.py及economics-results.csv所有18场景结果行",
+      "ED01.txt全文"
+    ],
+    "targeted": [
+      "ED06原capture L0-37",
+      "ED18:800-851、991-1006",
+      "ED22:265、276-277及上下文定位"
+    ]
+  },
+  "actions": "仅写本验收response/execution；无正文/来源/代码/任务状态修改、导入、新研究、模型API、重算或测试。"
+}

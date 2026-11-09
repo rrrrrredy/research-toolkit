@@ -1,0 +1,12 @@
+{
+  "input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+  "assignment_version": "1309c91e35579cbe7cfbb25727ae8431b976ba5920d08cf9ad253b3c03fd7541",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "Current full report lines 3,130,143 and unchanged performance/economics sections",
+      "basis": "本次为原真实领域上下文对当前完整稿的修订确认；先前完整阅读保留，实际变更按直接全文diff判断，未以历史通过自动替代当前判断。读完旧eeaff5ef至当前的27行diff。LMFP的“增程候选”改为“提升续航的电池候选”，准确表明同类电池空间/成本条件下的续航改善，没有改成增程式汽车架构。删除内部首稿与阅读过程说明后，仍保留GB标准全文、企业真实成本/长期车队、钠电成本论文的缺口，以及QuantumScape仅据生产阶段公告和蔚来二级信号的限制。化学体系、芯/包单位、测试条件、良率利用率与车型算例全部未改，原资料文件/有效要求相同。复用本人144行完整领域核查，当前通过。"
+    }
+  },
+  "findings": []
+}

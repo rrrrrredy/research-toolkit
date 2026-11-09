@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a small sanitized evaluation set from local AI knowledge repositories."""
+"""Build the historical sanitized evaluation pack from local AI knowledge repositories."""
 
 from __future__ import annotations
 
@@ -320,7 +320,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--aiknowledge-cli", default=os.environ.get("AIKNOWLEDGE_CLI_DIR"))
     parser.add_argument("--knowledge-graph", default=os.environ.get("AI_KNOWLEDGE_GRAPH_DIR"))
-    parser.add_argument("--out", default="evals")
+    parser.add_argument("--out", default="evals/diagnostics/generated-sanitized-eval-set")
     args = parser.parse_args()
 
     if not args.aiknowledge_cli:

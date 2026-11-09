@@ -2,7 +2,7 @@
 
 [English](independent-task-design.md) · [简体中文](independent-task-design.zh-CN.md)
 
-Existing and future user tasks, development tasks, reference tests and cases are real independent tasks; tests actually executed are real tests. Model execution and evaluation also provide a user perspective: judge usefulness from actual context use, extra reading, time, rework and research results. Human participation is not a prerequisite; describe the observed benefit and its task scope. Task identity follows the research question, so repeated runs of one task remain repeated runs. Source materials retain their stated provenance, including supplied or constructed data. Astra in a separate context can review independently; no outside person, different model vendor or additional external material is required. Changes to task assignment, reviewer inputs or acceptance criteria require targeted revalidation.
+Use existing or future user tasks, development tasks, reference tests and cases, identifying each by its research question; reruns remain repeats. Retain source provenance, including supplied or constructed data. Assess usefulness from the resulting research and its task context; record extra reading, time and rework as execution observations, not quality or stopping criteria. Actual model execution and evaluation can provide a user perspective without human participation. Astra can review in a separate context without another vendor or external material. Revalidate affected work when assignments, reviewer inputs or acceptance criteria change.
 
 ## Select and record tasks
 

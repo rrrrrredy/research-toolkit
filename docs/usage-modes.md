@@ -8,14 +8,14 @@ The [compatibility policy](compatibility.md) explains the current completion con
 
 ## Use the research methods
 
-The methods can be read directly, without first installing a Skill or MCP. In Codex, Claude Code and OpenCode, the agent also downloads or reuses a complete local copy and uses Python 3.10+ to configure basic usage recording for the current project. Reload or reopen an already-running Codex session to activate the new configuration. Continue research if Python or command access is unavailable, or the configuration is not yet active. Basic events are sent by default without conversations, reports or local paths; recording can be disabled, and an existing off setting is preserved. [Setup and controls](usage-data.md).
+Read the methods directly; Skill/MCP installation is optional. Separately, in Codex, Claude Code and OpenCode, the agent configures default basic-event recording from a complete local copy with Python 3.10+, reusing effective configuration or plugin hooks and preserving off settings. Apply loading steps only for new or changed configuration; unchanged files alone do not establish session activation. Report a pending first load as pending. Setup failure or pending loading does not block research. Recording can be disabled and excludes prompts, research titles, conversations, reports and local paths. [Setup and loading](usage-data.md).
 
 - **Repository link:** send the [research request](https://github.com/rrrrrredy/research-toolkit/blob/main/README.md#usage) to an agent that can read GitHub.
 - **Files or attachments:** download the repository, provide `SKILL.md`, and make the required reference files available.
 - **Text-only input:** paste the complete entry instructions and relevant method sections. See [chat-only use](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md#chat-only-use).
 - **Native Skill:** install the complete toolkit through the agent tool's supported mechanism. See [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md).
 
-No Python or vendor CLI installation is required merely to read and apply the methods. Retrieval and file access come from the author agent. A separate reviewer is needed for independent review; supplying the instructions does not run one automatically.
+Reading and applying the methods needs no Python or vendor CLI. Use the Agent tool for retrieval and file access, and organize the independent content reviews, audit and acceptance described below.
 
 ## When to use each tool
 
@@ -57,7 +57,7 @@ Example request for the agent, after saving the source text in the task director
 }
 ```
 
-Omit a collection when it does not change. `draft` may include `content` to write the report and create its parent directory; omit content to register an existing UTF-8 file without copying it through the conversation. `complete: true` records that the agent has saved a complete draft, not that its quality passed. A partial update such as `{"requirements":[{"requirement_id":"R1","status":"satisfied","evidence":"final.md, comparison section"}]}` preserves the other fields; it does not invent evidence or automatically close work.
+Omit a collection when it does not change. `draft` may include `content` to write the report and create its parent directory; omit content to register an existing UTF-8 file without copying it through the conversation. `complete: true` records that the agent has saved a complete draft, not that its quality passed. A partial update such as `{"requirements":[{"requirement_id":"R1","status":"satisfied","evidence":"final.md, comparison section"}]}` preserves the other fields; the agent supplies status and evidence after checking the requirement.
 
 ```bash
 python3 scripts/research_workflow.py save --workspace ../research-work --request save.json
@@ -65,7 +65,7 @@ python3 scripts/research_workflow.py save --workspace ../research-work --request
 
 Format errors identify the collection, row and field. The agent fixes those inputs and retries; the whole request is validated before records are replaced. To recover a malformed existing collection, send its complete recovered rows with, for example, `"replace":["sources"]`. The tool preserves the original bytes under `logs/record-backups/`. This is explicit replacement, not silent removal of unparsed rows. Saved input changes continue to invalidate earlier checks normally.
 
-Explicit `research_status(task, stage="analyze")` or `stage="draft"` calls return saved supplemental requirements as JSONL text in `requirements`, retaining their statuses and handling evidence. The agent can use them directly in analysis and drafting without copying them into the brief. The field is omitted when no requirements exist; ordinary status queries do not include the text. Returning a requirement does not establish that the research satisfies it.
+Explicit `research_status(task, stage="analyze")` or `stage="draft"` calls return saved supplemental requirements as JSONL text in `requirements`, retaining their statuses and handling evidence. The agent can use them directly in analysis and drafting without copying them into the brief. The field is omitted when no requirements exist; ordinary status queries do not include the text.
 
 `research_status` recovers work and artifact references from saved activity. Event times identify the sequence of saves and handoffs; they are not research deadlines or optimization targets. Original execution evidence is retained when review results are recorded.
 
@@ -137,7 +137,7 @@ The following calls apply to CLI/MCP-managed tasks.
 | Report, requirements, bound sources or claims change | Update affected analysis. Earlier checks do not approve the current version; use `revision=true` for required reviews and delivery checks of current inputs. Historical receipts remain unchanged; continued work uses the current completion contract. |
 | A source webpage changes but the saved text does not | Tools do not monitor remote pages. The agent reads and retains the new version, explains its date and effect, then handles it as changed input. |
 
-The formal checks establish version and record consistency within the declared scope, not source credibility. The private-chat-citation advisory in `research_check_draft` scans only the supplied report and ignores code examples; it changes neither `ok` nor historical receipt meanings. Repair citations from actual sources; reading and review still establish semantic support.
+The tools check version and record consistency within the declared scope. Researchers and independent reviewers assess source credibility and whether citations support the report's claims. The private-chat-citation advisory in `research_check_draft` scans only the supplied report and ignores code examples; it changes neither `ok` nor historical receipt meanings. Repair flagged citations using the actual sources.
 
 ## Optional workflow tools
 
@@ -228,7 +228,7 @@ Restart the client and confirm the nine `research_*` tools appear. The [executab
 
 Official configuration references: [Claude Desktop local servers](https://modelcontextprotocol.io/docs/develop/connect-local-servers), [Cursor MCP](https://cursor.com/docs/mcp), [Codex MCP](https://developers.openai.com/codex/mcp). Cursor supports project `.cursor/mcp.json` or global `~/.cursor/mcp.json`; Codex uses `~/.codex/config.toml`. In Claude Desktop, open Settings → Developer → Edit Config.
 
-If no tools appear, run `python -c "import sys, mcp; print(sys.executable)"` with the configured interpreter. An import error means the MCP dependency is missing from that environment. Use absolute script/workspace paths and restart the client. Server startup and protocol calls are exercised by `python3 scripts/check_mcp_contract.py`; that offline check uses synthetic reviewers and does not establish GUI compatibility or research quality.
+If no tools appear, run `python -c "import sys, mcp; print(sys.executable)"` with the configured interpreter. An import error means the MCP dependency is missing from that environment. Use absolute script/workspace paths and restart the client. Server startup and protocol calls are exercised by `python3 scripts/check_mcp_contract.py`; that offline check uses synthetic reviewers.
 
 ## What happens during a task
 
@@ -242,9 +242,9 @@ If no tools appear, run `python -c "import sys, mcp; print(sys.executable)"` wit
 | `research_finish` | Checks the reviewed artifact, evidence, unresolved requirements and delivery text before writing completion state and a receipt |
 | `research_check_reviewer` | Diagnose an optional external backend, without gating native-agent collaboration |
 
-Research and assembling agents search, read, analyze and write using their agent tool tools and shared task inputs. It must save required source texts and source/claim records in the task directory. Stage guidance reduces repeated context loading; it does not establish that a model has obeyed every instruction.
+Research and assembling agents use the Agent tool's search, file and execution capabilities to investigate and write. Save required source text and source/claim records in the task directory. Load stage guidance as needed and check its application in the actual analysis and report.
 
-Before analysis, source records need an ID, title, locator and source type, with at least one full-text or relevant-section reading record and a reading-evidence reference. Before drafting, claims need substantive text and a type; source references must resolve to registered, read sources. Explicit hypotheses may remain unsupported with recorded uncertainty, but at least one grounded claim is required. Local file references in reading evidence must stay inside the task directory and identify an existing, nonempty file; anchors and page/section suffixes are allowed. URLs and section/page locators remain valid references without an automatic content check. These checks detect incomplete records, not whether a source was truly understood.
+Before analysis, source records need an ID, title, locator and source type, with at least one full-text or relevant-section reading record and a reading-evidence reference. Before drafting, claims need substantive text and a type; source references must resolve to registered, read sources. Explicit hypotheses may remain unsupported with recorded uncertainty, but at least one grounded claim is required. Local file references in reading evidence must stay inside the task directory and identify an existing, nonempty file; anchors and page/section suffixes are allowed. URLs and section/page locators remain valid references without an automatic content check. These checks validate record completeness and source references; content reviewers assess source interpretation against the originals.
 
 When `status` also receives `work`, analysis/drafting checks use that selection's sources and claims, including its declared upstream inputs. Unrelated unfinished branches do not block it. A unit can develop its analysis from selected sources before registering new claims; whole-report review and delivery still check the complete task and its claim evidence.
 
@@ -349,7 +349,7 @@ The agent tool continues the returned assignment, audit or acceptance work. A su
 
 ## Verification and limits
 
-Existing software checks exercise record consistency, original-input binding, packaging and MCP transport with labelled synthetic data. Real agent tool executions retain their separate source material, responses and outcomes. The [evaluation status](evaluation-status.md) describes the work actually observed; installation and mechanical checks are not content-review results.
+Existing software checks exercise record consistency, original-input binding, packaging and MCP transport with labelled synthetic data. Real agent tool executions retain their separate source material, responses and outcomes. The [evaluation status](evaluation-status.md) describes the work actually observed.
 
 Current delivery requires independent content review, audit and acceptance. The tools enforce their saved contract; the agents perform the substantive reading and judgment. Preserve historical receipts and report their actual contract rather than presenting them as current acceptance. For actual failures, follow the [repair guidance](failure-handling.md) and continue the affected work.
 
@@ -358,10 +358,10 @@ Current delivery requires independent content review, audit and acceptance. The 
 Optional `research_save.brief` updates only supplied question/audience/scope/output/depth/evidence_standard fields and synchronizes the specification with progress.brief. Save affected requirements together where practical; no second scope ledger is needed.
 
 ```json
-{"task":"comparison","brief":{"output":"A revised comparison report"},"draft":{"path":"drafts/revised.md","main":true,"kind":"report","host_task":"actual-main-writer-host-task"}}
+{"task":"comparison","brief":{"output":"A revised comparison report"},"draft":{"path":"drafts/revised.md","main":true,"kind":"report","host_task":"actual-main-writer-agent-task"}}
 ```
 
-`draft.main=true` explicitly selects the current work file; optional kind is report/comparison/review/analysis. Other chapter/reference saves do not change this selection. `complete` still records draft completeness only. `save/status.current_work` returns the current file, effective requirements, unfinished work and resume paths; status separately references the last delivery. A new main or changed brief cannot inherit a terminal state; old receipts remain intact. Review/finish must pass the registered main as artifact. Legacy tasks need no migration and retain previous behavior without an explicit main. The saved file observation is not approval.
+`draft.main=true` explicitly selects the current work file; optional kind is report/comparison/review/analysis. Other chapter/reference saves do not change this selection. `complete` still records draft completeness only. `save/status.current_work` returns the current file, effective requirements, unfinished work and resume paths; status separately references the last delivery. A new main or changed brief cannot inherit a terminal state; old receipts remain intact. Review/finish must pass the registered main as artifact. Legacy tasks need no migration and retain previous behavior without an explicit main.
 
 `start/status.runtime` identifies the implementation path, version, code hash and available entry hash; host_loaded_entry=not_observed. It does not infer which Skill the agent tool read. Tools identify registered files, not arbitrary new directories.
 
@@ -392,7 +392,7 @@ Send the returned question, requirements and accessible originals through the ag
 A worker saves a result through `save`:
 
 ```json
-{"task":"study","draft":{"path":"analysis/routes.md","kind":"analysis","unit_id":"route-comparison","question":"Which technical differences change the choice?","depends_on":["route-evidence"],"host_task":"actual-producing-host-task-id","complete":false,"handoff":{"summary":"Comparison developed; the deployment assumption still needs resolution.","pending":["Resolve the deployment assumption against the original requirement."],"decisions":["Use the same workload and quality measure for both routes."]}}}
+{"task":"study","draft":{"path":"analysis/routes.md","kind":"analysis","unit_id":"route-comparison","question":"Which technical differences change the choice?","depends_on":["route-evidence"],"host_task":"actual-producing-agent-task-id","complete":false,"handoff":{"summary":"Comparison developed; the deployment assumption still needs resolution.","pending":["Resolve the deployment assumption against the original requirement."],"decisions":["Use the same workload and quality measure for both routes."]}}}
 ```
 
 Omit `content` to register an existing nonempty file or supply it to save text. After `status.work` prepares a `unit_id`, saving that unit automatically retains its prepared input versions, question and dependencies unless explicitly supplied. Preparations are recorded per unit in the existing activity history, so preparing another branch does not overwrite them; repeated preparation also recovers that unit's pending selection. Save uses the prepared hashes, not the latest file versions. Explicit `draft.based_on` remains supported: copy `work_context.inputs` rather than inventing hashes. Without a preparation, an existing unit retains its saved inputs; no old reading history is reconstructed. A changed input selection clears only that unit's cached approval, retaining its original review for revision. `complete` describes the saved unit or draft, not whole-task delivery. A dependent unit cannot be completed while its upstream registered work is incomplete, changed or awaiting required independent review; save the in-progress work with `complete: false` and resolve the dependency.

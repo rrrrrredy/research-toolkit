@@ -1,0 +1,51 @@
+{
+  "host_task": "/root/long_research_audit_b",
+  "status": "completed",
+  "role": "audit",
+  "input_version": "e80623165cafab4fb0438ddbd29c7f8abed83b8eeda1d1577c6baaa48c0d1b21",
+  "assignment_version": "329f5df2d700f450304b8a8c34a545a44341fcb2b417a61985684c32897fe860",
+  "artifact_sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed",
+  "completion_clock_observation_utc": "2026-11-09 17:00:08 UTC",
+  "assignment_path": "reviews/host/e80623165cafab4fb043/jobs/audit-329f5df2d700f450.json",
+  "reading_path": "logs/reading/7684f8b90ca0d1f4ccbb.md",
+  "full_reading": [
+    "任务、3条effective_requirements、审计instructions、sampling及reading引用",
+    "当前报告1–125、126–255、256–372连续全文20174字符",
+    "8个当前原始response/execution及24项引用规范LF哈希；4项production记录",
+    "初稿到当前全部diff：97姓名、206弱商圈投流、276爬坡参数、372内部状态句",
+    "当前job全部2项prior negative原始response/execution；额外首个证据negative EV-IRWZH-01原始response/execution",
+    "warehouse-model.py全部43行；financial-bridges.py全部15行；financial-bridges.json全部47行；warehouse-results.csv全部26行；warehouse-results.json网络和爬坡输出"
+  ],
+  "targeted_original_reading": [
+    "IRW10 1–27：陈瑾采访身份、订单和费用分母",
+    "IRW02 1–180相关财务正文，截断附近166–175另读；IRW03 1–40内嵌原文132–168季度结果及停止折旧",
+    "IRW09 639–647：20-F/A解释；IRW22 1691–1714：2026-10-27待完成交易条件",
+    "IRW15 1–18：成都重庆退出报道；IRW28 102–115与116–132：北京采访",
+    "IRW14 110–116：上海人口收入；IRW13 270–294：永辉线上销售和覆盖门店/仓口径",
+    "IRW17 15–33、55–68、101–143与199–237相关法条和工作安排；以实际返回的登记、订单、冷链和工时关键条款为核对范围"
+  ],
+  "actual_visual_reading": [
+    "从R/sources/IRW13/original.pdf渲染并实际view_image第8页：IRW13-p8.png，公司业务及线上总收入",
+    "从同一原PDF渲染并实际view_image第9页：IRW13-p9.png，56.6/44.3亿元及349门店、99/100仓覆盖口径"
+  ],
+  "web_original_reading": [
+    {"url": "https://www.sec.gov/Archives/edgar/data/1851682/000110465923087268/mf-20221231x20f.htm", "scope": "原20-F返回1826–1941，重点1860–1919的2021净收入、成本、履约及2022年7月退出信息"}
+  ],
+  "independence_contexts": {
+    "author": "/root/microdrama_research",
+    "requirements": "/root/independent_reviews_a",
+    "evidence": "/root/evidence_remaining_b",
+    "adversarial_reasoning": "/root/benchmark_adversarial",
+    "structure_and_depth": "/root/structure_remaining_b",
+    "reader_usefulness": "/root/full_reader_b",
+    "process_language": "/root/process_remaining_b",
+    "natural_expression": "/root/benchmark_natural_expression",
+    "domain-1": "/root/independent_domain_b"
+  },
+  "limits": "本次为完整稿件与独立评审执行审计、针对重要判断的原件抽样，未声称全文读取全部source corpus或warehouse-results.json全部1362行；模型完整代码与全部CSV已读，数值来自现存输出。个别原review把末尾空行计为373，当前splitlines为372，不据此判为版本不符。未重跑计算或研究。",
+  "api_calls": 0,
+  "research_rerun": false,
+  "calculation_rerun": false,
+  "report_modified": false,
+  "imported": false
+}

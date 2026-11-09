@@ -1,0 +1,76 @@
+{
+  "result": "pass",
+  "basis": "Read the complete current291-line report, effective task, eight raw current reviews, full audit, all three historical required negatives, production handoff/premises and actual revisions. Independently inspect selected originals and all preserved calculation code/results. The completed English report develops the requested memory/performance/quality constraints, three task pipelines, local/cloud/hybrid trade-offs, cost examples and hardware–model–task matrix. Necessary repairs preserve source conditions, and no remaining necessary content defect was found. Missing actual-device deployment measurements are clearly bounded recommendations, not an unfulfilled demand to run new experiments.",
+  "input_version": "b05a22e12456963e8dcdd2cf1fa1d888fc1552f79329ce94c60a9f2fe349b9bf",
+  "assignment_version": "7d0c5ff3d7f038f322d9cc9151540ced2c7e2714083524c693116aeae54c47f6",
+  "artifact_sha256": "59f8ac88843287debab4c0176d72575b648dbf581eece7888f22e050e69da8dd",
+  "coverage": {
+    "requirements": {
+      "location": "reports/current.md:1–291",
+      "basis": "Four representative phone/PC/edge configurations, private documents, interactive text and frequent speech are developed. Available memory, weights/KV/buffers, architecture, bandwidth/backend, prefill/decode/cold/usable result, sustained power and quality conditions feed worked envelopes and conditional decisions. Network, privacy/retention, fallback, updates, OS restrictions and incremental ownership/integration costs are covered."
+    },
+    "evidence": {
+      "location": "reports/current.md:21–75,101–105,145–178,202–244,273–291",
+      "basis": "Historical commits, paper versions, measured phases and missing setup details stay attached. Vendor and independent experiments are distinguished from calculations. Own source checks corroborate Qwen cache architecture, S24 performance lock, WhisperTRT warm timing/RSS semantics/truncation, and ML Kit foreground/quota constraints. Complete retained arithmetic supports the tables; other unchanged original checks are reused from the full audit with their explicit boundaries."
+    },
+    "adversarial_reasoning": {
+      "location": "reports/current.md:39–75,103–107,145–176,182–210,224–266",
+      "basis": "Fits-in-memory does not prove throughput; lower precision has adverse quality/energy examples; Minions saves historical cloud charge while adding workstation time and excluding local cost. Continuous speech requires segmentation and queue/thermal capacity. Excerpts/logs retain disclosure risk and a local failure cannot silently cross an offline boundary. Cost includes correction and fallback rather than token charge alone."
+    },
+    "structure_and_depth": {
+      "location": "reports/current.md:15–268",
+      "basis": "Mechanisms drive separate task pipelines, then architecture and cost choices. The full calculation-to-prose mapping preserves units, reservations, phase/extrapolation boundaries, compute duty, accepted-task denominators and ownership models. No isolated table or device catalogue substitutes for the causal explanation."
+    },
+    "reader_usefulness": {
+      "location": "reports/current.md:77–178,248–291",
+      "basis": "Readers receive concrete bounded inputs/outputs, source-span and transcript behaviors, admission/fallback choices, a hardware fit matrix and six decision rules. Remaining deployment measurements are specific to the proposed use rather than generic caveats."
+    },
+    "process_language": {
+      "location": "reports/current.md:3,275–291 and complete prose",
+      "basis": "Internal producer/review identities, acquisition history and reading-ledger narration are removed. Source versions, cited positions, calculation files and lack of device inference testing remain because they govern interpretation."
+    },
+    "natural_expression": {
+      "location": "reports/current.md:1–291",
+      "basis": "Terms are defined before quantitative use and numeric examples lead to engineering decisions. Editorial revisions preserve technical precision and remove internal process wording without reducing analytical depth. No necessary expression defect remains."
+    }
+  },
+  "sample_checks": [
+    {
+      "location": "reports/current.md:59,115,278",
+      "evidence": "Read original ODM-FULL-DOM-B-01, revision-01-notes and full original-to-revision diff, then actual pinned ODM-S12:56–80. Android performance lock is explicit at62–64; current report carries it beside measurements, derived interaction timing and appendix, without inventing lock implementation or sustained slowdown.",
+      "selection_reason": "Required historical domain defect changes transferability of phone timing.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:21–41",
+      "evidence": "Read complete ODM-S01 config:36 layers,2 KV heads,hidden2048/query16 and disabled sliding window. Complete calculation code/output yields36864bytes/token and144/288/1152MiB KV; phone3.651/3.792/4.636GiB under explicitly assumed4GiB budget. Model context limit and available app memory remain distinct; no borrowed Gemma throughput.",
+      "selection_reason": "Select passed architecture-to-memory envelope, central to deployability.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:145–151",
+      "evidence": "Complete ODM-S19 profiler confirms warmup,default one timed iteration,GPU synchronization,loading outside timing and after-minus-before RSS shifted20bits. ODM-S21:151–186 contains mel truncation and greedy decoding. The text labels MiB delta and clip RTF, then requires bounded segmentation/overlap for continuous captions rather than claiming peak memory or continuous latency.",
+      "selection_reason": "Select passed runtime-code interpretation where a short demonstration could be overpromoted into continuous service.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:204–208,248–265",
+      "evidence": "ODM12:318–345 separates current device/model versions,per-app busy/battery quota and top-foreground requirement, including blocked foreground service. The report does not equate custom S24 LiteRT support with system API eligibility or recommend foreground GenAI as an always-on speech engine.",
+      "selection_reason": "Operating-system permission can invalidate an otherwise feasible hardware recommendation.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:168–178,224–244",
+      "evidence": "Read complete deployment_calculations.py and calculation-results.json. Assumed4W idle/15W active gives5.1/9.5/15W at10/50/100% compute duty, distinct from audio occupancy. Costs include64000/11000 annual fixed differences,20% fallback,92/96% accepted denominator,6.63m equal-quality threshold and$0.05 correction increment. Dedicated box annual210.853 and utilization prices are scenario results, not vendor prices.",
+      "selection_reason": "Choose passed economic and energy calculations to check accepted-task and duty-cycle denominators.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:3,275–291",
+      "evidence": "Read natural_expression-01/process_language-01 originals and complete successive diffs. Removed only internal identity,acquisition/review narrative and reading-action labels; historical commits,table/page/code locations,source gaps and remaining real-device measurements remain.",
+      "selection_reason": "Both required editorial negatives could be repaired by deleting substantive evidence conditions.",
+      "result": "clear"
+    }
+  ],
+  "open_issues": []
+}

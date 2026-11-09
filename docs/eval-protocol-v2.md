@@ -8,7 +8,7 @@ This records the extension of the historical [fixed-source Lite pilot](eval-prot
 
 ## What is frozen
 
-Start from [the empty v2 template](../evals/templates/blinded-study.v2.json), or inspect the [five independent test tasks](../evals/tasksets/development-v2-synthetic/README.md). Set author/judge endpoints, requested models, accepted returned model IDs and snapshot limitations. Use separate author and judge request contexts. The same model is allowed without rejection for overlapping IDs; Astra can serve as the reviewer. Freeze a separate plan per author model, retaining shared family IDs across model strata.
+The former five-task development pack is no longer an active execution entry. Its original briefs, sources and task designs are retained in [the October 12 frozen inputs](../evals/studies/2026-10-12-lite-four-models/longcat/coordinator/frozen.json). Current evaluation tasks are in [`evals/cases/`](../evals/cases/). The [empty v2 template](../evals/templates/blinded-study.v2.json) retains the configuration structure: author/judge endpoints, requested models, accepted returned model IDs and snapshot limitations. Historical plans used separate author and judge request contexts; the same model was allowed without rejection for overlapping IDs, and Astra could serve as reviewer. A separate plan was frozen per author model, retaining shared family IDs across model strata.
 
 Each role declares `output_protocol` and `allow_json_fence`; HTTP roles also declare `response_format`. `response_format: text` omits the API format option; `json_object` sends that explicit option and requires provider support. Check current provider documentation before choosing it. There is no automatic provider detection, format fallback or retry. Both author conditions use the same protocol, model settings and limits.
 
@@ -22,15 +22,11 @@ Everything before that separator is the report, preserved without trimming or ed
 
 All API response bytes remain in `response.json`; successful message extraction additionally produces `content.txt`, `parse.json` (protocol, method on success, content hash and status), and `parsed.json` or `invalid.json`. Transport failures use `execution.json.failure_kind`: HTTP, transport, timeout, response envelope/size, model identity, missing usage, token budget, truncation, incomplete finish or empty content. These are execution/format outcomes, not research-quality defects. Oversized replies retain a bounded prefix and say so. Total tokens and wall time are checked after return; they are not guaranteed billing caps or remote cancellation.
 
-`max_retries` is zero. `max_requests` must equal three requests per family, or four with `position_swap: true`: two authors, one primary judge and optionally one swapped judge. Missing author output skips both judges for that pair; a missing primary judgment does not cancel its predeclared swap. `request_plan` freezes these ceilings and results record attempted calls. Running four models on five families with swaps allows **80** requests, not 20. The supplied pack is an offline configuration example; [the completed 2026-10-12 run](../evals/studies/2026-10-12-lite-four-models/README.md) used separately frozen live settings and retained 72 actual requests. Connectivity and Astra calibration are already complete; routine repairs follow the [current standard](report-evaluation-standard.md) without repeating those phases.
+`max_retries` is zero. `max_requests` must equal three requests per family, or four with `position_swap: true`: two authors, one primary judge and optionally one swapped judge. Missing author output skips both judges for that pair; a missing primary judgment does not cancel its predeclared swap. `request_plan` freezes these ceilings and results record attempted calls. Running four models on five families with swaps allows **80** requests, not 20. The retired pack was an offline configuration example; [the completed 2026-10-12 run](../evals/studies/2026-10-12-lite-four-models/README.md) used separately frozen live settings and retained 72 actual requests. Connectivity and Astra calibration are already complete; routine repairs follow the [current standard](report-evaluation-standard.md) without repeating those phases.
 
 `prepare` freezes source/brief text hashes, design records, instructions, rubric, code hash, assignments and limits. `execute` checks the commitment and, for schema 2, refuses a changed harness before making calls. Inputs are frozen as UTF-8 text after Python universal-newline reading; these are text hashes, not original source-file byte hashes. Git must be on PATH. A new harness requires a new study directory. A started run cannot be silently resumed or overwritten.
 
-```bash
-python scripts/run_blinded_evals.py prepare --study evals/tasksets/development-v2-synthetic/study.json --seed 20261012 --output evals/runs/v2-inspection
-```
-
-This inspection command makes zero model calls. The supplied model/endpoint values are placeholders; a real run needs verified settings and a separately frozen plan. Never put credentials in configs, source material, command arguments or public artifacts. Only environment-variable names belong in endpoint configuration.
+The five-task `prepare` example has been withdrawn. Historical inspection reads the [preserved frozen record](../evals/studies/2026-10-12-lite-four-models/longcat/coordinator/frozen.json) without rebuilding an active five-task pack. The former offline example's model/endpoint values were placeholders, not the completed study's separately frozen live settings. Never put credentials in configs, source material, command arguments or public artifacts. Only environment-variable names belong in endpoint configuration.
 
 ## 2026-10-13 prospective instruction correction
 
@@ -42,9 +38,9 @@ Each of the 5–10 distinct families requires a design JSON path containing `rol
 
 Use three distinct pools:
 
-| Pool | Purpose | Current material |
+| Pool | Purpose | Material / status |
 | --- | --- | --- |
-| Development | Diagnose defects and tune methods | Five exposed fictional families, 3 English and 2 Chinese |
+| Development | Diagnose defects and tune methods | Historical: five exposed fictional families, 3 English and 2 Chinese; [original inputs remain frozen](../evals/studies/2026-10-12-lite-four-models/longcat/coordinator/frozen.json), not an active task pack |
 | Judge calibration | Check specific known errors, valid controls and position sensitivity | Four separate English/Chinese families: arithmetic, causation, attribution and decision constraints; each has a swap and identical-valid tie |
 | Repair and recheck | Verify a specific change and related behavior | Use existing real user and development tasks; see [task selection](independent-task-design.md). No outside task collection is needed |
 

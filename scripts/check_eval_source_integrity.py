@@ -9,6 +9,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from check_delivery import resolve_inside, sha256_file
+
 
 INSUFFICIENT_SOURCE_MARKERS = [
     "无法提供",
@@ -25,13 +27,21 @@ def read_json(path: Path) -> Any:
         return json.load(f)
 
 
-def read_source_policy(path: Path) -> dict[str, dict[str, Any]]:
+def read_source_policy(path: Path, pack_ids: set[str] | None = None) -> dict[str, dict[str, Any]]:
     policy = read_json(path)
     if not isinstance(policy, dict) or policy.get("schema_version") != 1 or not isinstance(policy.get("packs"), dict):
         raise ValueError(f"{path}: expected source policy version 1 with a packs object")
-    for pack_id, entry in policy["packs"].items():
-        if not isinstance(entry, dict) or entry.get("allowed_purposes") != ["workflow"] or entry.get("factual_authority") is not False:
-            raise ValueError(f"{path}/{pack_id}: this suite permits workflow inputs only, not self-certified factual authority")
+    entries = policy["packs"]
+    if pack_ids is not None:
+        entries = {pack_id: entry for pack_id, entry in entries.items() if pack_id in pack_ids}
+    for pack_id, entry in entries.items():
+        if not isinstance(entry, dict):
+            raise ValueError(f"{path}/{pack_id}: expected a pack-policy object")
+        if entry.get("factual_authority") is not False:
+            raise ValueError(f"{path}/{pack_id}/factual_authority: must be false, including for public_sources")
+        expected_purposes = ["workflow", "factual"] if entry.get("kind") == "public_sources" else ["workflow"]
+        if entry.get("allowed_purposes") != expected_purposes:
+            raise ValueError(f"{path}/{pack_id}/allowed_purposes: use {json.dumps(expected_purposes)} for kind={entry.get('kind')!r}")
         for field in ("kind", "provenance_status", "rights_status"):
             if not isinstance(entry.get(field), str) or not entry[field].strip():
                 raise ValueError(f"{path}/{pack_id}: missing {field}")
@@ -43,7 +53,7 @@ def read_source_policy(path: Path) -> dict[str, dict[str, Any]]:
                 raise ValueError(f"{path}/{pack_id}: invalid claim exclusion")
             if any(not isinstance(item.get(key), str) or not item[key].strip() for key in ("source_id", "text", "reason", "evidence")):
                 raise ValueError(f"{path}/{pack_id}: claim exclusion lacks its original text or audit evidence")
-    return policy["packs"]
+    return entries
 
 
 def apply_source_exclusions(rows: list[dict[str, Any]], policy: dict[str, Any]) -> list[dict[str, Any]]:
@@ -102,6 +112,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--evals-dir", default="evals")
     parser.add_argument("--purpose", choices=("workflow", "factual"), default="workflow")
+    parser.add_argument("--case", help="Check one case by its filename stem in evals-dir/cases and only its referenced pack.")
     args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parents[1]
@@ -112,12 +123,9 @@ def main() -> int:
     source_owner: dict[str, str] = {}
     active_count = 0
     quarantined_count = 0
-
-    try:
-        policies = read_source_policy(evals_dir / "source_policy.json")
-    except (OSError, ValueError) as exc:
-        print(f"Eval source policy failure: {exc}")
-        return 1
+    public_count = 0
+    originals_checked = 0
+    unavailable_originals = 0
 
     try:
         packs_dir = evals_dir / "source_packs"
@@ -126,6 +134,28 @@ def main() -> int:
     except OSError as exc:
         print(f"Eval source integrity failure: cannot enumerate source packs or cases: {exc}")
         return 1
+
+    selected_packs = None
+    if args.case is not None:
+        case_paths = [path for path in case_paths if path.stem == args.case]
+        if not case_paths:
+            print(f"Eval source integrity failure: unknown --case {args.case!r}; use a filename stem from {evals_dir / 'cases'}.")
+            return 1
+        try:
+            selected_case = read_json(case_paths[0])
+            if not isinstance(selected_case, dict):
+                raise ValueError(f"{case_paths[0].name}: case must be an object")
+            selected_packs = {str(selected_case.get("source_pack", "")).strip()}
+        except (OSError, ValueError) as exc:
+            print(f"Eval source integrity failure: {exc}")
+            return 1
+
+    try:
+        policies = read_source_policy(evals_dir / "source_policy.json", selected_packs)
+    except (OSError, ValueError) as exc:
+        print(f"Eval source policy failure: {exc}")
+        return 1
+
     if not pack_dirs:
         failures.append("no source pack directories; an empty or missing collection cannot pass integrity checks")
     if not case_paths:
@@ -134,6 +164,13 @@ def main() -> int:
     for pack_dir in pack_dirs:
         manifest_path = pack_dir / "manifest.json"
         sources_path = pack_dir / "sources.jsonl"
+        if selected_packs is not None:
+            try:
+                candidate = read_json(manifest_path)
+            except (OSError, ValueError):
+                continue
+            if not isinstance(candidate, dict) or str(candidate.get("source_pack_id", "")).strip() not in selected_packs:
+                continue
         if not manifest_path.exists() or not sources_path.exists():
             failures.append(f"{pack_dir}: source pack requires manifest.json and sources.jsonl")
             continue
@@ -162,7 +199,10 @@ def main() -> int:
             failures.append(f"{pack_id}: no explicit source-use policy")
         else:
             if args.purpose not in policy["allowed_purposes"]:
-                failures.append(f"{pack_id}: not eligible for {args.purpose} evaluation; factual authority is not established")
+                failures.append(
+                    f"{pack_id}: not eligible for {args.purpose}; allowed_purposes={json.dumps(policy['allowed_purposes'])}. "
+                    "Use --purpose workflow for legacy/synthetic packs; use a separate public_sources pack for factual."
+                )
             failures.extend(f"{pack_id}/{finding}" for finding in excluded_claim_findings(sources, policy))
 
         source_ids = [str(row.get("source_id", "")).strip() for row in sources]
@@ -190,6 +230,45 @@ def main() -> int:
 
         for row in sources:
             source_id = str(row.get("source_id", ""))
+            if policy is not None and policy["kind"] == "public_sources":
+                public_count += 1
+                for field in ("url", "date", "summary", "retrieved_at", "read_evidence"):
+                    if not isinstance(row.get(field), str) or not row[field].strip():
+                        failures.append(f"{pack_id}/{source_id}/{field}: use a non-empty string from the source or research record")
+                digest = row.get("sha256")
+                if not isinstance(digest, str) or len(digest) != 64 or any(char not in "0123456789abcdef" for char in digest):
+                    failures.append(
+                        f"{pack_id}/{source_id}/sha256: use the 64 lowercase hex digits returned by "
+                        "check_delivery.sha256_file for the complete retrieved original at evidence_path"
+                    )
+                original = resolve_inside(repo_root, row.get("evidence_path"))
+                if original is None:
+                    failures.append(
+                        f"{pack_id}/{source_id}/evidence_path: use a repository-relative path "
+                        "to the complete retrieved original inside the repository"
+                    )
+                else:
+                    try:
+                        if not original.is_file():
+                            if args.purpose == "factual":
+                                failures.append(
+                                    f"{pack_id}/{source_id}/evidence_path: complete retrieved original is missing or not a file: "
+                                    f"{row['evidence_path']!r}; restore that original for --purpose factual"
+                                )
+                            else:
+                                unavailable_originals += 1
+                        elif args.purpose == "factual":
+                            actual = sha256_file(original)
+                            if actual != digest:
+                                failures.append(
+                                    f"{pack_id}/{source_id}/sha256: mismatch for evidence_path={row['evidence_path']!r}: "
+                                    f"recorded {digest!r}, computed {actual}; restore the reviewed original or independently "
+                                    "review the replacement and recompute sha256 with check_delivery.sha256_file"
+                                )
+                            else:
+                                originals_checked += 1
+                    except OSError as exc:
+                        failures.append(f"{pack_id}/{source_id}/evidence_path: cannot read {row['evidence_path']!r}: {exc}")
             if contradictory_content(row):
                 failures.append(
                     f"{pack_id}/{source_id}: summary denies usable content while key_points assert facts"
@@ -247,9 +326,11 @@ def main() -> int:
             )
 
     if warnings:
+        print(f"WARN: {len(warnings)} active source records lack dates.")
+    if unavailable_originals:
         print(
-            f"WARN: {len(warnings)} active source records lack dates; affected packs are "
-            "workflow or synthetic evaluation inputs, not factual authority."
+            f"INFO: {unavailable_originals} declared local original files are absent; "
+            "permitted for workflow, required for factual."
         )
     if failures:
         print("Eval source integrity failures:")
@@ -258,10 +339,12 @@ def main() -> int:
         return 1
 
     print(
-        f"PASS: {len(pack_sources)} source packs, {active_count} active sources, "
-        f"{quarantined_count} quarantined sources, and {len(case_paths)} cases have consistent references."
+        f"PASS: purpose={args.purpose}; {len(pack_sources)} source packs, {active_count} active sources, "
+        f"{quarantined_count} quarantined sources, {len(case_paths)} cases: references checked; "
+        f"{public_count} public records: metadata checked; {originals_checked} local originals: hashes checked."
     )
-    print("Use: workflow only. Factual benchmark readiness and original-document reuse rights are not certified.")
+    if public_count:
+        print("Content and read_evidence accuracy were not reviewed here; independent research review is required.")
     return 0
 
 

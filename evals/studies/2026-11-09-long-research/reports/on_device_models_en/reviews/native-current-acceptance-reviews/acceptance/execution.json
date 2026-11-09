@@ -1,0 +1,33 @@
+{
+  "host_task": "/root/office_final_acceptance",
+  "status": "completed",
+  "assignment_version": "7d0c5ff3d7f038f322d9cc9151540ced2c7e2714083524c693116aeae54c47f6",
+  "input_version": "b05a22e12456963e8dcdd2cf1fa1d888fc1552f79329ce94c60a9f2fe349b9bf",
+  "artifact_sha256": "59f8ac88843287debab4c0176d72575b648dbf581eece7888f22e050e69da8dd",
+  "started_at": "2026-11-09T16:47:45.6282694Z",
+  "completed_at": "2026-11-09T16:50:02.4963556Z",
+  "assignment": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/reviews/host/b05a22e12456963e8dcd/jobs/acceptance-7d0c5ff3d7f038f3.json",
+  "independence": "Separate from producer /root/ttc_research, all eight content-review contexts and audit; did not produce, edit or review this manuscript in a prior role.",
+  "actual_reading": {
+    "reuse": "Audited located checks on remaining unchanged papers, original PDF tables and current API pages; no claim to have reread all full sources or personally viewed those images in this acceptance. Audit execution metadata was reported recorded by coordinator after shell rejection; content judgment assessed from raw audit and own reading, not that metadata.",
+    "full": [
+      "reports/current.md:1–291",
+      "job: task,effective_requirements,instructions,prior_required_findings",
+      "All eight current reviews.*.original and full audit.original",
+      "All three historical negative response.txt originals",
+      "analysis/author-production/handoff.json and key-premises-for-review.md",
+      "Both change-note-full files including complete diffs",
+      "R/research/on_device_models_en/codex-production/revision-01-notes.json and complete draft-first versus draft-revision-01 git diff",
+      "deployment_calculations.py and calculation-results.json",
+      "sources/actual/ODM-S01.txt complete config",
+      "sources/actual/ODM-S19.txt complete profiler"
+    ],
+    "targeted": [
+      "Production history six records unit/author/artifact/hash fields",
+      "sources/actual/ODM-S12.txt:56–80",
+      "sources/actual/ODM-S21.txt:151–186",
+      "sources/actual/ODM12.txt:318–345"
+    ]
+  },
+  "actions": "Only own acceptance artifacts written; no report/source edits, task import/state mutation, live research, model/device experiment, calculation rerun or tests."
+}

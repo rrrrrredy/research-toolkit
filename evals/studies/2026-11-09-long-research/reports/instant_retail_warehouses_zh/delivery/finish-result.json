@@ -1,0 +1,48 @@
+{
+  "completed": true,
+  "artifact": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\instant_retail_warehouses_zh\\reports\\current.md",
+  "delivery_check": {
+    "ok": true,
+    "delivery_contract_version": 3,
+    "current_contract_checked": true,
+    "semantic_verification": false,
+    "review_completion": {
+      "ok": true,
+      "flags": [],
+      "findings": [],
+      "required_slots": 10,
+      "completed_slots": 10,
+      "selected_attempts": {
+        "evidence": "e1c5d432b6694a2d967bc9b5724ebc91",
+        "requirements": "b4e31535db01469cbe79a2d57af8bea8",
+        "structure_and_depth": "ce4e51dec33048699c7755b37708dd4b",
+        "adversarial_reasoning": "4d1ca332becf4e4f8b83bb4c3a6ce9ef",
+        "reader_usefulness": "4b53b80d33be4d18916abf34686bd920",
+        "process_language": "cd6ca993e6be43d79a701d3bf9c837b0",
+        "natural_expression": "4481cb46fe044579be3f5d6ee0842319",
+        "domain-1": "4035a3d84c294166ab6800457f11c686",
+        "audit": "688a60fb34bf49d28dc1c1e1ccef3a48",
+        "acceptance": "0919eb0993a445aa8751f34627c24773"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "flags": [],
+    "findings": [],
+    "completion_claim": false,
+    "terminal_state": true,
+    "stage": "final",
+    "status": "complete",
+    "accepted_limitations": [],
+    "limitation_disclosure": {
+      "status": "not_applicable",
+      "unmatched_limitations": [],
+      "semantic_verification": false
+    },
+    "warnings": [],
+    "delivery_observation": "not_provided"
+  },
+  "message": "完整研究报告、来源索引、计算、首次稿与独立意见已保留。具体修订见各篇变更说明。"
+}

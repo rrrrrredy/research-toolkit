@@ -1,0 +1,173 @@
+{
+  "host_task": "/root/independent_domain_b",
+  "status": "completed",
+  "slot_id": "domain-1",
+  "role": "reviewer",
+  "scope": "full_report_revision_confirmation",
+  "execution_mode": "native_codex_independent_subagent",
+  "input_version": "f3a8a771e665647c0dafa07c493418c1871787d170af5d39942a14ab990bd93c",
+  "assignment_version": "f882ca6dcfd5f0ac182013b8cd1f748fa5b3db36e42085ab0cdceb1ddd54cf4c",
+  "artifact_sha256": "3afb14812baddbd92f0b79ff3db2fd4a77a3f50deba85c04f6e0077724f9f96b",
+  "recorded_at_utc": "2026-11-09T13:18:15.3435414Z",
+  "response_sha256": "1ab6cf58e205fac26d4204f9137cbd18eb8fdea0d1da61ffe293bb6db5ba71de",
+  "actual_observed_agent_tool_events": [
+    "Complete old/new report line comparison; exactly three replaced paragraphs",
+    "Read changed paragraphs and adjacent sections; reread source condition at original README lines62–64",
+    "Compared six assignment context fields; all equal",
+    "Hash check 20 previously read local source files and 2 calculation files; all unchanged"
+  ],
+  "read_materials": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\reviews\\host\\f3a8a771e665647c0daf\\jobs\\domain-1-f882ca6dcfd5f0ac.json",
+      "sha256": "2294b44c4a67b21ad061b91bddfb3cce98e23eb0271fe10d816a6398c9b2ed55",
+      "scope": "New assignment identity/context and entire report comparison"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\reviews\\host\\deb1004facf57b118c32\\jobs\\domain-1-efd7f4e8bfc1eeb0.json",
+      "sha256": "28c7c539a53dbd820b32808fe03815dda978491da7e52e63163251134f9f0771",
+      "scope": "Previously reviewed complete artifact reused for comparison"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\native-full-reviews\\domain-1\\execution.json",
+      "sha256": "ddbc9962c2ec63207a228cc49eaf166b7f050439f6c059c4a245773c3e6b8464",
+      "scope": "My own prior actual reading record; preserved"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S01.txt",
+      "prior_sha256": "eed00b17e22553979d090fa492e587e92885e328914c8e0b0b78f0a0d3576b3b",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "eed00b17e22553979d090fa492e587e92885e328914c8e0b0b78f0a0d3576b3b"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S02.txt",
+      "prior_sha256": "2c74693e6ae36ba878124d465195b4dad0f71035b54ece1c9fd1553cc497ef8c",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "2c74693e6ae36ba878124d465195b4dad0f71035b54ece1c9fd1553cc497ef8c"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S06.txt",
+      "prior_sha256": "cdc06052012c47654cfa49dc41a766cdb8801c4dfd469bee6d42774b058beb78",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "cdc06052012c47654cfa49dc41a766cdb8801c4dfd469bee6d42774b058beb78"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S10.txt",
+      "prior_sha256": "89bb308462c090a2b5e17cd0e74796b159454cf15d953bb3a8fd725827fe193d",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "89bb308462c090a2b5e17cd0e74796b159454cf15d953bb3a8fd725827fe193d"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S12.txt",
+      "prior_sha256": "064f5cc90c65c26e6ef5f45e12de6aa60c1ca2ec15a5e4f9fa56f3d39a7eff1a",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "064f5cc90c65c26e6ef5f45e12de6aa60c1ca2ec15a5e4f9fa56f3d39a7eff1a"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S17.txt",
+      "prior_sha256": "efbe73f81123b5f7d20b99dfbdb0bb10005080f0044fea8e387b7163e3c73943",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "efbe73f81123b5f7d20b99dfbdb0bb10005080f0044fea8e387b7163e3c73943"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S18.txt",
+      "prior_sha256": "ce0ed9020c009666e0fe231ffd680693c269444627453896363201ba62725f60",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "ce0ed9020c009666e0fe231ffd680693c269444627453896363201ba62725f60"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S19.txt",
+      "prior_sha256": "d938bb20d61d88b0afb0dc0aaedfc57e8907b6b6fd04bb83a3407700e32e2a35",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "d938bb20d61d88b0afb0dc0aaedfc57e8907b6b6fd04bb83a3407700e32e2a35"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S20.txt",
+      "prior_sha256": "b0431149915eec9656233431901015418bc6eea207c3045ad766662652f6943f",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "b0431149915eec9656233431901015418bc6eea207c3045ad766662652f6943f"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S21.txt",
+      "prior_sha256": "eb99743bcb8f5359d828ea3bb5f624072df9384c98507fb9cf37e52469bcd73c",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "eb99743bcb8f5359d828ea3bb5f624072df9384c98507fb9cf37e52469bcd73c"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S28.txt",
+      "prior_sha256": "e7d88b614cebf1983c57cc0597caa8101bdfc40062a8620369ab6ff1ec782d57",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "e7d88b614cebf1983c57cc0597caa8101bdfc40062a8620369ab6ff1ec782d57"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM01.txt",
+      "prior_sha256": "53d727ed918ea700243a97df08de84c69b7f45eabbd56004ab1a205a6ff4d6af",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "53d727ed918ea700243a97df08de84c69b7f45eabbd56004ab1a205a6ff4d6af"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM03.txt",
+      "prior_sha256": "35da70223eec476b0f230cc930dd8b1193f01979363611d92ebd35f5af568aca",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "35da70223eec476b0f230cc930dd8b1193f01979363611d92ebd35f5af568aca"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM07.txt",
+      "prior_sha256": "2862c0049ef49b2a8b4c3b92fe9a9bb3ab3750da712e5a6d4b3b5785934b3719",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "2862c0049ef49b2a8b4c3b92fe9a9bb3ab3750da712e5a6d4b3b5785934b3719"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM11.txt",
+      "prior_sha256": "36aa2ed7a8bf16375df447981d8decfa504b03d533733b3002b0a84368476a8b",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "36aa2ed7a8bf16375df447981d8decfa504b03d533733b3002b0a84368476a8b"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM12.txt",
+      "prior_sha256": "a10040a890cc686442f325b240773c769612b94f3536a8e4898b7e44bda43c2b",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "a10040a890cc686442f325b240773c769612b94f3536a8e4898b7e44bda43c2b"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM13.txt",
+      "prior_sha256": "972840dadf0b8b08b46b00507f920e6a63f779dc4a3ce3a2d9a0ff3e579ad5a9",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "972840dadf0b8b08b46b00507f920e6a63f779dc4a3ce3a2d9a0ff3e579ad5a9"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM14.txt",
+      "prior_sha256": "b6a7e579b8dd07f3b1b26be711df8a8ab0cd2c6e635be484f942eef1c0498ed4",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "b6a7e579b8dd07f3b1b26be711df8a8ab0cd2c6e635be484f942eef1c0498ed4"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM15.txt",
+      "prior_sha256": "4c5e65c71d3afc02aee4265b8299dd8bfc3951b70d45d60062956a5b6aa671ae",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "4c5e65c71d3afc02aee4265b8299dd8bfc3951b70d45d60062956a5b6aa671ae"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM17.txt",
+      "prior_sha256": "bdef3bc9a8f6281a2c3e29c381f6a3dfffe5133341049eac3a708fffabcb2a49",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "bdef3bc9a8f6281a2c3e29c381f6a3dfffe5133341049eac3a708fffabcb2a49"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\deployment_calculations.py",
+      "prior_sha256": "6cc945a2b228f26621cce4bc5a6abed9172ce1d7f6401fcd4601df1f2ada2005",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "6cc945a2b228f26621cce4bc5a6abed9172ce1d7f6401fcd4601df1f2ada2005"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\calculation-results.json",
+      "prior_sha256": "83adc6ea57f83c1089300e99dd6e12fabc1bb47f2f66bd8e0a40df0a4085dd1e",
+      "scope": "Prior actual reading reused; current binary identity checked",
+      "current_sha256": "83adc6ea57f83c1089300e99dd6e12fabc1bb47f2f66bd8e0a40df0a4085dd1e"
+    }
+  ],
+  "limits": [
+    "No recomputation, model/API calls, report edits or imports.",
+    "Full substantive reading carried forward only after equality/hash checks; changed paragraphs examined in context.",
+    "Original negative result remains intact."
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_en",
+  "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "requirements",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/a872af7d6de3d9a3ef38.md",
+        "sha256": "a872af7d6de3d9a3ef38ecf3591b4a394df2ec89c6b804a016028d5511129ae7"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/requirements-6af7c967315285b5.json",
+        "sha256": "2b3861e8944f1557e934e84fcd3276b89a86f5d31348e5932c28cef2f144cc4d"
+      },
+      "assignment_version": "6af7c967315285b5faf3512d0ed85f4e36c6ce5801f199dba379a5c0e0abf541",
+      "resume_host_task": "/root/complete_requirements_b"
+    },
+    {
+      "slot_id": "adversarial_reasoning",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/08e09fc81034125d31e1.md",
+        "sha256": "08e09fc81034125d31e1bf053088bb9e07a5034b6de498a565c68603a49929ec"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/adversarial_reasoning-aa1ff321d957a1ca.json",
+        "sha256": "91559e9bbf87514bed05b2c89342a29e1fd74e82b0d8588e23f825f26096dc32"
+      },
+      "assignment_version": "aa1ff321d957a1ca1b0e9949a298eb8da6218533ce830c9520089e085391c9b3",
+      "resume_host_task": "/root/benchmark_adversarial"
+    },
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/e7be52814b67fe7ddb46.md",
+        "sha256": "e7be52814b67fe7ddb467b7abf0557304a21eb7be6cca4b40b3135f74d88581d"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/structure_and_depth-35dc2e62c162868a.json",
+        "sha256": "e93b399f0514726dbb15622efdb4878b631f1da96bef72a30ae00607150d53b0"
+      },
+      "assignment_version": "35dc2e62c162868ab76cd736f0ebfe98d027455c12f6225f8671e0cd0518c754",
+      "resume_host_task": "/root/structure_remaining_b"
+    },
+    {
+      "slot_id": "reader_usefulness",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/30a80cba609590ca961d.md",
+        "sha256": "30a80cba609590ca961d9cd4a3ca88c685b1c31a77ecd62baaeb5e942f5bf1bb"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/reader_usefulness-6d457f6b60cd9b85.json",
+        "sha256": "0ed18bafc5e115b4c5edd5406302f6eae819c4dc1f2c4432235a4074a26c4a4e"
+      },
+      "assignment_version": "6d457f6b60cd9b85bc8917296bd0d16903bfaf77f8f20d4fa5dc4fb8f598b67b",
+      "resume_host_task": "/root/benchmark_reader_a"
+    },
+    {
+      "slot_id": "process_language",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/7dbd6381909325a1393f.md",
+        "sha256": "7dbd6381909325a1393fe894131e075f23d78924cf886b2db41d808381c57c01"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/process_language-28e37a728472ba80.json",
+        "sha256": "7b0d18ff603149abe66c562606b4a6d89cf13be6489fc82344e6d7507777fff3"
+      },
+      "assignment_version": "28e37a728472ba805f64e1cefcac289b9f1737128f8892d8aef524ddc5b2dec1",
+      "resume_host_task": "/root/process_remaining_b"
+    },
+    {
+      "slot_id": "domain-1",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/6be51f352344e6d02896.md",
+        "sha256": "6be51f352344e6d02896c01f8b67d80814aa5c8d048a2d443d75994daa520dfb"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/domain-1-b41a325df0ad9712.json",
+        "sha256": "0851608328d24f3161892605846edc6f31af98602d5456235e8ae29490b2b240"
+      },
+      "assignment_version": "b41a325df0ad97129c62c667a667b69bdc58665dc2b8ba5b9fe46e70ce8b7afa",
+      "resume_host_task": "/root/independent_domain_b"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Research dependencies are not ready: dependency_pending"
+    ],
+    "required_slots": 10,
+    "completed_slots": 2,
+    "selected_attempts": {
+      "natural_expression": "765481b2a8964701a349366a7201631e",
+      "evidence": "034f0991a52b4930ab41b2847cf2c0d7"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Research dependencies are not ready: dependency_pending"
+  ]
+}

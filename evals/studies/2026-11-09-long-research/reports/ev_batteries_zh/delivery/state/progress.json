@@ -1,0 +1,704 @@
+{
+  "stage": "final",
+  "status": "complete",
+  "author_id": "author:ev_batteries_zh",
+  "review_contract": 2,
+  "open_issues": [],
+  "brief": {
+    "question": "面向车企、供应链与投资决策者，比较新能源汽车动力电池的性能、体系成本和量产路径，回答不同车型与使用环境应如何选择，而不是评出脱离场景的单一赢家。重点考察2021年至2026-11-09的公开证据，必要时追溯材料与制造路线基础。资料截止日为2026-11-09，厂商目标、未来产能和预计装车时间必须与截至该日已实现的状态分开。\n\n覆盖磷酸铁锂及其改进路线、三元体系、钠离子与固态方案。先厘清分类维度：正极与负极材料、电解质状态、电芯形态和电池包结构不是同一层级，固态方案可能与其他材料体系交叉，结构集成改善也不等于化学体系更换。区分半固态或其他过渡方案与全固态，解释名称背后的实际结构和公开证据，不将营销名称直接当作统一技术标准。\n\n对比质量与体积能量密度、可用容量、快充、低温表现、循环和日历寿命、安全约束及使用维护要求。严格区分电芯与电池包、实验样品与量产产品，并保留温度、SOC窗口、充放电倍率、容量保持率和测试标准等条件。峰值充电功率、平均充电功率、补能时间与整车续航不是可直接互换的指标；冬季续航还受热管理、预热、整车效率和使用方式影响。不能把不同协议下的最好成绩拼成一款不存在的综合产品，也不能从单项安全测试推导零风险。\n\n构造性能—成本比较，解释原材料、制造良率、工艺设备、能耗、产能利用率、包级结构、热管理及质量保障对成本的影响。保留币种、日期、每千瓦时口径、含税与否及产量假设，区分材料清单成本、制造成本、报价和整车厂采购价格。公开资料不足时使用有依据的区间或情景，不假装掌握企业内部成本。分析锂、镍等材料价格变化和量产爬坡如何改变路线之间的相对经济性，避免用单一时点现货价格替代长期成本判断。\n\n沿实验室成果、样品、试验线、客户验证、定点、量产与实际装车或交付核查代表路线。企业公告、车型文件、可核实交付和独立测试应分别标明证据性质，宣布建设产能不等于有效产出，少量装车也不自动证明成熟大规模供货。解释良率、寿命验证、供应链、设备与认证中的关键依赖，以及哪些量产时间判断只能是有条件的推演。\n\n交付完整报告，包含口径清楚的性能—成本矩阵、成本敏感性分析、代表路线量产证据链，以及面向经济型通勤、寒冷地区、高频运营和长续航或高性能车型的适配判断。通过公开车型或电池案例说明系统选择，但不要求覆盖所有厂商。重点核验比较是否跨越了不兼容的测试口径、化学与系统结构是否混淆、量产判断是否有阶段证据，以及推荐能否随价格和使用条件变化。允许多路线长期共存、优势转移或某路线暂不适用等结论，章节名称不作限定。",
+    "audience": "进行车型电池选型、供应链布局和产业投资判断的车企与相关团队",
+    "scope": "Follow the task geography, comparison scope and evidence cutoff of 2026-11-09. Each other-language version uses its frozen sources without seeing the first-language report.",
+    "output": "Complete long-form research report final.md with the task-specific comparisons, explanations, tables and locatable citations. Preserve the first draft and actual independent results.",
+    "depth": "完整长研究报告，在统一测试与成本口径下比较电池路线，将电芯性能、系统工程、使用场景和量产成熟度连接为条件化选型判断。",
+    "evidence_standard": "Use original public sources with actual dates, reading evidence and retained originals. Conduct seven separate independent content perspectives, relevant domain review, independent audit and final acceptance. Live primary research"
+  },
+  "profile": "full",
+  "next_action": "Delivered.",
+  "unit_reviews": {
+    "outline": {
+      "artifact_sha256": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00",
+      "input_version": "aebe98be90775cd619617f06407fdd4a2add07909c3dd3af22a5f6ce976e23e4",
+      "ok": true,
+      "reviewers": [
+        "/root",
+        "/root/independent_reviews_a"
+      ],
+      "record_path": "reviews/host/aebe98be90775cd61961/input.json"
+    }
+  },
+  "unit_review_plans": {
+    "outline": {
+      "contract_version": 2,
+      "purpose": "report_delivery",
+      "reviewer": "independent",
+      "audit_required": false,
+      "author_id": "author:ev_batteries_zh",
+      "producer_contexts": [
+        "/root/remaining_research_inputs",
+        "author:ev_batteries_zh"
+      ],
+      "scope": "outline",
+      "artifact": "analysis/outline.md",
+      "artifact_sha256": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00",
+      "input_version": "aebe98be90775cd619617f06407fdd4a2add07909c3dd3af22a5f6ce976e23e4",
+      "input": {
+        "path": "reviews/host/aebe98be90775cd61961/input.json",
+        "sha256": "5e899d8c61beb63c6a1b644758404251c615e6067b0ad5f47e452954313e5b89"
+      },
+      "bindings": {
+        "state/task_spec.md": "04f0b96b65520bebff361f09ca7166dd8d20f8253ab8c5da6483f3a990107dcc",
+        "analysis/outline.md": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00",
+        "record:requirements:effective@outline": "40ad7819f5296ee0c6ad144010a48809a08390b939369e17bd127c33268ef322",
+        "logs/record-backups/ea8fc3ac26954e53ba4d414fb32155c2/saved/analysis/outline.md": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00"
+      },
+      "domains": [],
+      "slots": [
+        {
+          "slot_id": "requirements",
+          "role": "reviewer",
+          "dimensions": [
+            "requirements"
+          ]
+        },
+        {
+          "slot_id": "structure_and_depth",
+          "role": "reviewer",
+          "dimensions": [
+            "structure_and_depth"
+          ]
+        }
+      ],
+      "instructions": {
+        "reviewer": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Assign Work by Perspective\n\nEvery complete research delivery requires the following seven base perspectives, each in a different context separate from every production agent. Add domain review for the specialized claims the task makes. Use native subagents; author self-checks do not replace these assignments. Independence concerns the context and production role, not a different vendor or outside person.\n\n| Perspective | Method and required output |\n| --- | --- |\n| Intent and requirements (`requirements`) | Read the original request and effective corrections. Match important questions, required objects and constraints to actual passages or tables; identify missing answers, scope drift and instructions lost in revision. Do not invent requirements or protect the intended thesis from contrary evidence. |\n| Evidence and data (`evidence`) | Check consequential claims against original sources, dates, versions, populations, units, denominators and calculations. Distinguish facts, source claims and inference. State actual reading coverage, identifying the original sections or passages checked. |\n| Adversarial reasoning (`adversarial_reasoning`) | Challenge central conclusions with relevant counterexamples, alternative explanations, selection effects and missing assumptions. Explain the consequence for the argument; do not manufacture objections or require a finding quota. |\n| Structure and depth (`structure_and_depth`) | Check how questions, outline, sections, evidence and synthesis form the answer. Locate missing mechanisms, incomparable measures, compressed reasoning and source repetition. Apply the task's expected depth, not a universal structure or length. |\n| Reader usefulness (`reader_usefulness`) | Read the assembled text for its intended use: title and opening, argument continuity, introduced terms, tables, timelines and useful implications. Identify concrete understanding or decision problems. |\n| Process-language removal (`process_language`) | Locate production logs, internal paths/IDs, review status and assistant dialogue in reader-facing prose. Retain methods, source attribution, uncertainty and operational details that the reader's question needs. |\n| Natural expression (`natural_expression`) | Locate empty abstractions, repetitive caveats, vague actors, obstructive syntax and needless repetition. Explain the reading problem and a suitable remedy. Preserve facts, qualifiers, analytical depth and the user's style preferences; do not impose phrase bans or AI-detection targets. |\n| Domain specialist | Apply the actual field's criteria: technical baselines and experimental conditions, financial assumptions, policy applicability, clinical populations or other specialized reasoning. State the domain and claims examined. Use a separate non-author context for the domain assignment. |\n\nStart each perspective in a fresh independent context that reads the complete current report, original request and effective changes, and the original evidence relevant to the assignment. Do not seed it with the author's self-rating, other initial reviewers' judgments, expected scores or a preferred review result. Relevant substantive research analyses remain available. Return revisions to that perspective's original context: reuse completed reading and analysis, then examine changes and their effect on the current whole report. If that context cannot continue, hand its original assessment and actually reviewed input to a new independent context. A local premise review names its limited scope and cannot substitute for the final whole-report perspective. Review the artifact in its delivery format, including portable citations and table/figure meaning.\n\n## Shared Assignment\n\nProvide the question, reader, effective requirements, actual artifact and input versions, original-material access, assigned perspective and required output. The reviewer reports what was examined, locatable observations and their basis. Each finding identifies its location, applicable requirement, evidence, impact and severity, separating required corrections from optional preferences. When no defect is found, explain the supporting checks instead of returning a generic PASS.\n\nReviewers remain read-only. Keep original replies and observable execution identities separate from any structured extraction or author response. Skill-only work can retain them in the agent tool conversation or existing files; managed work uses the [review record interface](../docs/review-completion.md). Do not fabricate a missing session identity or source access.\n\n## Complete Every Required Review\n\nA complete review addresses its actual scope and version with substantive observations. Empty, truncated, wrong-version or generic replies leave the assignment open. Preserve failed attempts, correct the missing input or execution problem and resume that assignment. When required material exceeds one context, retain it in accessible originals and arrange complete scoped reading and synthesis, rather than silently replacing it with a summary.\n\nKeep the first valid result for a given input and artifact version. A negative finding is a completed review, not a reason to rerun for a better verdict. An isolated mistaken finding is adjudicated; it does not invalidate the entire review. The auditor determines consequential invalidity and contested no-change decisions from the evidence. A reviewer who never received required material has incomplete work; an examined source that leaves an answer uncertain may support a complete, qualified assessment.\n\nAuthors apply necessary fixes and can explain why they disagree with a finding. They cannot approve their own work, dismiss a necessary correction or relabel an incomplete review as complete. Preserve findings and responses for the independent audit. Revisions go back to the affected reviewer with the current complete artifact and relevant changes; unchanged evidence remains available and prior results stay bound to their actual version.\n\n",
+        "auditor": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Check Reviewers and Sample Passed Work\n\nEvery complete research task has an explicitly assigned audit context separate from production and content reviewers. The auditor receives the complete report, effective requirements, original sources, contributions, raw reviews and revision/disposition evidence. Review validity and report readiness are separate judgments: a valid negative review can describe a report that still needs correction.\n\nCheck each required review for its actual execution and input version, assigned coverage, locatable observations, supported claims and absence of invented requirements. Inspect all consequential findings and disagreements, including decisions to leave text unchanged. Resolve them against original evidence and actual prose, not majority votes or average scores. Preserve each original finding with one evidenced disposition: confirmed defect, no change, unresolved or resolved. A claimed repair is resolved only after examining the changed text and affected context.\n\nAudit all important requirements, decisive claims, key figures and citations, consequential counterevidence, major findings and necessary fixes. Also examine material marked passed or carrying no finding, including transformations from a worker's analysis into the report. The auditor chooses these samples from the complete artifact, not from an author's selected highlights.\n\nFor this additional sampling, retain the relevant population or report scope, selected locations, selection reasons, source checks and results in the existing audit output. Choose passages across relevant sections, evidence types and transformations; do not use a fixed percentage or first/last/hash-selected paragraphs as the default. A targeted sample is described as targeted, not random. When a discrepancy appears, check the same source, measure, branch or reasoning pattern wherever it affects the result; record that expansion and its outcome.\n\nThe auditor can request missing work from the existing researcher or reviewer and continue the same audit after repair. Necessary defects and unsupported important no-change decisions remain open. Evidence that genuinely cannot settle a research question is reported at the affected conclusion; it does not erase a missing mandatory reading or review assignment. Sampling is part of this audit and final acceptance, not a separate agent, score or approval process.\n\n",
+        "acceptance": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Stage Scheduling and Acceptance\n\n1. **Outline and first premises:** the lead plans questions, coverage and dependencies; the requirements and structure reviewers examine the outline before extensive dependent writing. Evidence/domain reviewers examine consequential premises and calculations as they become usable. Early local checks are retained as local checks.\n2. **Developing research units:** researchers produce evidence-backed arguments progressively. Resolve a premise that could change dependent work before treating it as settled; other independent units continue. The assembler updates the whole-report argument as contributions arrive and the outline changes.\n3. **Complete report:** all seven base perspectives and applicable domain review read the complete report. Findings from the independent reader-usefulness and natural-expression reviews are applied without losing facts or depth. The independent audit examines the reviews, important findings, necessary repairs and selected passed content.\n4. **Final acceptance:** a further context, separate from production, content review and audit, reads the complete current report against the effective requirements. It examines the audit, dispositions and the actual current text, checks all important requirements and necessary fixes, and selects additional passed content where needed to judge integration. It reports acceptance or the exact remaining work. Its PASS cannot replace a missing required review or audit.\n\nThe final acceptance agent verifies the delivered version, source/condition preservation, complete required coverage, developed analysis and reader usability. Cross-part contradictions or lost qualifications return to the responsible production/review assignment, with the affected scope and inputs. Keep the original findings and prior artifacts. Do not let a coordinator's summary stand in for this reading.\n\nReader-ready delivery requires resolved necessary corrections, complete independent assignments and acceptance of the current whole report. A stage artifact may be delivered with its actual unfinished scope. Historical and evaluation artifacts retain their original defects and labels; their completion status remains tied to the criteria and work recorded at the time. Once the agreed result and required work are complete, optional preferences do not restart unchanged reviews.\n\n"
+      }
+    }
+  },
+  "current_artifact": {
+    "path": "reports/current.md",
+    "sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+    "kind": "report",
+    "owner": "/root/remaining_research_inputs",
+    "unit_id": "report"
+  },
+  "review_plan": {
+    "contract_version": 2,
+    "purpose": "report_delivery",
+    "reviewer": "independent",
+    "audit_required": true,
+    "author_id": "author:ev_batteries_zh",
+    "producer_contexts": [
+      "/root/remaining_research_inputs",
+      "author:ev_batteries_zh"
+    ],
+    "scope": "full_report",
+    "artifact": "reports/current.md",
+    "artifact_sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+    "input_version": "4cff15db175e29647e450e061f3030d1bbe0d27b5e4dcfea015a7bd2d966c0c3",
+    "input": {
+      "path": "reviews/host/4cff15db175e29647e45/input.json",
+      "sha256": "2bd88f6943f4c6ac6906d9fecd6655a6bec8c60ff0d872ff7924026561a1250a"
+    },
+    "bindings": {
+      "reports/current.md": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+      "state/task_spec.md": "04f0b96b65520bebff361f09ca7166dd8d20f8253ab8c5da6483f3a990107dcc",
+      "analysis/author-production/analysis-maturity-volume-full-03.md": "0cdf18d21eb78c1c50d4c5193d380c4e0160509c11206c900726a5f718693845",
+      "analysis/author-production/calculations.json": "6f1b62c66fb55a4d0fb0b833bdc0544e8600d96140a37c223364a70a99b9b46d",
+      "analysis/author-production/handoff.md": "5c28169967b1c07ebf52873540f9d9bdfd0c5ba0a292413e51a074188c837f24",
+      "analysis/calculations/calculations.json": "6f1b62c66fb55a4d0fb0b833bdc0544e8600d96140a37c223364a70a99b9b46d",
+      "analysis/calculations/volume-scenario-full-03.json": "a21818112dbbdb48958214f964cc44de4265512c64d23bdb69f0bab8893f6933",
+      "data/claims_registry.csv": "e58009e8419bab41794b1e9ea8c5433b3f3fcf850121707ec5e0c68d650e2231",
+      "data/source_registry.csv": "b5024b220744e6bf0c45be9928fe958751f80b6cde5432c5635f1de3ae80ae9a",
+      "notes/actual-reading/EVB02.json": "a5c1a5f44563e77e30382ca2f66f297ab924ceb2a168b8ab717d1d6202ad0052",
+      "notes/actual-reading/EVB03-R.json": "e1d7b04643ec55f65df6ec13eeae8cdb3cc137e70191f5147e9091efab3275ac",
+      "notes/actual-reading/EVB06.json": "f426d705d86c92ca612a37e5b00c4763a8390b498d043185428a50794fb8fe1f",
+      "notes/actual-reading/EVB07.json": "9a682fd2dc20bcf12604a72936a4cfaa03f79e06b20be753cbf8a1011072872c",
+      "notes/actual-reading/EVB08.json": "fa1a02a3fef2f7cfc8f196e6842d7c80beda281c85098699e83c6bbd1da56337",
+      "notes/actual-reading/EVB09.json": "6dc551bcb3911dbf7a00e02ecad9ae24c47e20678d042a05ebbec7c7ded6fbb5",
+      "notes/actual-reading/EVB10.json": "fcecffe8188791ac16fa97fcb4fee1190c23cb990ffb9a8744128b93f2a3821e",
+      "notes/actual-reading/EVB11.json": "fc365325bade772acf608fb4d48e18ef5b868524ecc6de6078a373c1b9e26dec",
+      "notes/actual-reading/EVB12-R.json": "8055b6f7d3434ed6b997acb6a034254f31294267ed0c9a88fa6abf7b85113407",
+      "notes/actual-reading/EVB13.json": "f9b8d09571b7f44578a71d8905f534f03135de1e671823b74c4ff14aa1b31637",
+      "notes/actual-reading/EVB14.json": "fd062e9174136b3869137e2799cf0e86e94c4e199e1f3c3cf09ca3244e347701",
+      "notes/actual-reading/EVB15.json": "f197e615beb726533be296575bdd3f55a9b5c32ddbcf21a0c5d75ae078d168ef",
+      "notes/actual-reading/EVB16-R.json": "d4dd41838db432a6d9cdf92f91ea1efd20df0f10006a5b070dec6e78e7f2594f",
+      "notes/actual-reading/EVB17.json": "c3abf51f6c62f375a61032dcfa9a2c0b128a436ee6ef1f811ce128768f172284",
+      "notes/actual-reading/EVB18.json": "53c88dc7701d4d45338b03188af786e1a847908fa6c5eaa936fb97372ba8b2f1",
+      "notes/actual-reading/EVB19-R.json": "4d7391cf191b0f1878c0419a7a65ef8b7e40bae2022f0ecd2495a7675940c3c6",
+      "notes/actual-reading/EVB20.json": "11ee2f04e08b4aaa8bf8b8dd48ad3e07ebc31123deaab4919a174c2f2c5e645a",
+      "notes/actual-reading/EVB21.json": "e4df96abfdf15affde74ce6c97bf6c742165481faf2c7d7f5ec0b922270f5428",
+      "notes/actual-reading/EVB22.json": "853a9ba8fb7162f1808cbf2f65d2e246b026e8e5c189a19f085c6b10ff684f90",
+      "notes/actual-reading/EVB23.json": "aeeac7a91772a327a9d54637e276e8211cd6d48fb8b39e5a8ef91a90fa843f67",
+      "notes/actual-reading/EVB25.json": "3d8822c261e0f91c21714b8eed62ab64fbaf942f4ffefbfedced09b11adc84e8",
+      "notes/actual-reading/EVB26.json": "47f1c5ab9a3e58465af5d19fa13ca242f6dc453b58cf7ddad3cbaaf35fc396c2",
+      "notes/actual-reading/EVB27.json": "b8c626bb73400761fce057f151d0e772256fa62e8018890205e31a2c3ec2e94d",
+      "notes/author-reading-ledger-full-03.jsonl": "2834ae1d77a39ad9563c1ac20ec0b5212b5413020009ebf66a8a289c0b44f361",
+      "notes/author-reading-ledger.jsonl": "6b01a3256a6fd4f8e0f5463bf020d83d14667e09386297b3cd2e3607c9e9c60f",
+      "sources/actual/EVB02.txt": "037b979d8160422f9f1d8d73509f4ededfabfa32ff7e15fe0db439e0fe16c3b6",
+      "sources/actual/EVB03-R.txt": "259169d5aaddbb24e7012473da7c4f8d06b45875ea42d00da3eafc7f0f516d56",
+      "sources/actual/EVB06.txt": "d8aa434d5718e13ef0d34b204c0d00796639d1409d40b970112c7f5c862fb347",
+      "sources/actual/EVB07.txt": "f03bbd37ec1ede3b001cb248b3a0be4390dd2508343a771ee13521d7cd9d3dbe",
+      "sources/actual/EVB08.txt": "c309d0135c9cdb9d6e5c177f88a5cbda07f9595136865fef0c25d15708321038",
+      "sources/actual/EVB09.txt": "45a462656a299894b7dcd3f2b22dee4bd8ee5a0a195f82ec4421b7f5f920fad6",
+      "sources/actual/EVB10.txt": "da4f69e11d1642bb3211e1f873619561e16407c708124a4915eb06bec7fb2636",
+      "sources/actual/EVB11.txt": "cc3d08b39f9eeb8124179625f869a7bfc3fbb84748b206060a91e28e77017103",
+      "sources/actual/EVB12-R.txt": "92677af9308fee454551711885dfa79c9d35f949de13a1859e3e5bb78fd266aa",
+      "sources/actual/EVB13.txt": "d2d3b117106e7dd1e4dc257f8be3d7e319fd90258bdfd6b9708b4d5d662f2968",
+      "sources/actual/EVB14.txt": "d7640b6643b9a97d8f6d1c5be0206cc0a07765f41cf3f8950b17b625ddd14add",
+      "sources/actual/EVB15.txt": "5beb203df752018ab96c0e0ae5f8b0c535e082877c94885c97dde27f93fe9ade",
+      "sources/actual/EVB16-R.txt": "393ecfa0d95c4f36d92c6ae94ea40fda3991153d377165bb1ff341a074f0c8ef",
+      "sources/actual/EVB17.txt": "72b2d45c9dc2a07d7241dc069b6c8e87236e6dceeecfaa22568b5b0c5c28493c",
+      "sources/actual/EVB18.txt": "88dd364752f50a577386109d66a6f483a98c8d998d4734ca747639bd5205a26d",
+      "sources/actual/EVB19-R.txt": "5754dc5e44633d1a8c29672f3e811e2f8af17d5221a2715b7fd115712c615006",
+      "sources/actual/EVB20.txt": "5624d7c4c2ec1e688f7f2f4175788180e9c8e2ec4f2df6aa1329e42a57de2ff5",
+      "sources/actual/EVB21.txt": "1bb10d8ac55f2cfa112067cd6a916cf57d1a9bd43f5a21b04e03e46e8baf824f",
+      "sources/actual/EVB22.txt": "3886e4a30ed8abdbe7247588e4c2dd0ca46ffbcdd6d5fbf7cf4863efbefc55e3",
+      "sources/actual/EVB23.txt": "b13362bafb81c5813a810faf4505a643eb824cacf273690c10c3bb56a827593e",
+      "record:requirements:effective": "40ad7819f5296ee0c6ad144010a48809a08390b939369e17bd127c33268ef322",
+      "logs/record-backups/ea8fc3ac26954e53ba4d414fb32155c2/saved/analysis/outline.md": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00",
+      "logs/record-backups/c9cfa36e5ce144398f15f0f7a57ca5b8/saved/reports/current.md": "c9c457ab787d4cf0aa1f50cdb8c591e807139deba1b8bc66fca64e39d552ebe2",
+      "logs/record-backups/7726794d5458433bbdc425d68bf6fec9/saved/reports/current.md": "c9c457ab787d4cf0aa1f50cdb8c591e807139deba1b8bc66fca64e39d552ebe2",
+      "logs/record-backups/b5a66a329e414c8fb2b7497ba45e15a1/saved/reports/current.md": "9c705aec84e07d63127ec80b28b62aac187f35eee4d67d4c41f6c4fd26895aaa",
+      "logs/record-backups/b5a66a329e414c8fb2b7497ba45e15a1/reports/current.md": "c9c457ab787d4cf0aa1f50cdb8c591e807139deba1b8bc66fca64e39d552ebe2",
+      "logs/record-backups/485ebafc49a9419386dad25a0e8ea0d4/saved/reports/current.md": "9b623e2af39fe1b43ef37885baf5b83af9ab9c395bada0905c479116e6ce8aa7",
+      "logs/record-backups/485ebafc49a9419386dad25a0e8ea0d4/reports/current.md": "9c705aec84e07d63127ec80b28b62aac187f35eee4d67d4c41f6c4fd26895aaa",
+      "logs/record-backups/74765936983e4bcf93598c1187fce022/saved/reports/current.md": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+      "logs/record-backups/74765936983e4bcf93598c1187fce022/reports/current.md": "9b623e2af39fe1b43ef37885baf5b83af9ab9c395bada0905c479116e6ce8aa7",
+      "reviews/host/eeaff5ef331db6e411fd/jobs/natural_expression-99b19288636b7e5b.json": "7b8d7ecf788923d0edbc87eaa7b415f518ab911d6b2b711c5ad93edb7a2fa540",
+      "reviews/host/eeaff5ef331db6e411fd/results/8b1511a225744a7f/response.txt": "cd0ab39bb0194d1ac7269872b45706cf66af0fe4fa72338a8bc2b35bf6468705",
+      "reviews/host/eeaff5ef331db6e411fd/results/8b1511a225744a7f/execution.json": "130e622ea7b1ad967765773382ba4e62d13c9d4ced1e2981341b672f776f646f",
+      "reviews/host/c1bfa36c0c91a99893a9/jobs/process_language-bf5c33b777383110.json": "8ea91f780eddc66c2555a1f1bd2d08db8b2809b6ea47bb9fadbc5d720adbc9b3",
+      "reviews/host/c1bfa36c0c91a99893a9/results/0b8ac3b87677445d/response.txt": "73e0d6c570bd3f405a02b325a32da60aa13ba88a6bcf5a5ad83d44ea21d62922",
+      "reviews/host/c1bfa36c0c91a99893a9/results/0b8ac3b87677445d/execution.json": "12a3a6881d7fbd321470fc837f0c27ef9ecea673399f95be12b0228095903793",
+      "reviews/host/c4cd311b8b1f6b11a07d/jobs/requirements-f14a3f05a13fa579.json": "67e18abfd168d47febf79340e65b80d00831b0c322eb7f3d18698854f2802954",
+      "reviews/host/c4cd311b8b1f6b11a07d/results/adbae71c00ac42dd/response.txt": "c59d75ee14d1abcf123f8c9b34c6ccae0eb5b6c88eb5d50e5b0086def53c4bd0",
+      "reviews/host/c4cd311b8b1f6b11a07d/results/adbae71c00ac42dd/execution.json": "a6d91e5d7d1aa5ace2a292c9894026476558a4d6ac17355e5b29e9bbe72c6a83",
+      "analysis/outline.md": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00",
+      "analysis/calculations/calculate_scenarios.py": "be50923c0b4a87a7b710e10da913ca05fc1eb0ed76d927ac2c9cc0299bb2b1b7",
+      "sources/actual/EVB25/delivery-poster.jpg": "83566a0fe4116a26cad7c1c468c6f9433b8caa2a4720ed2832911ca4cf242a77",
+      "sources/actual/EVB26/original.pdf": "07bfe8d532f8912fea32c8241cafd25c0bb28948e7903d5dfe23161177073e4e",
+      "sources/actual/EVB27/original.pdf": "f602c7c4fe53dcd6ed99facbe00e0d751038a130bc86644ce9a5b20b2d348ab5",
+      "analysis/calculations/calculate_volume_full_03.py": "a2d017b32a4aa0a542363a4be845f52f053c712d2419a16d3abf16604191fc3e"
+    },
+    "domains": [
+      "EV battery chemistry, pack engineering and deployment economics"
+    ],
+    "slots": [
+      {
+        "slot_id": "requirements",
+        "role": "reviewer",
+        "dimensions": [
+          "requirements"
+        ]
+      },
+      {
+        "slot_id": "evidence",
+        "role": "reviewer",
+        "dimensions": [
+          "evidence"
+        ]
+      },
+      {
+        "slot_id": "adversarial_reasoning",
+        "role": "reviewer",
+        "dimensions": [
+          "adversarial_reasoning"
+        ]
+      },
+      {
+        "slot_id": "structure_and_depth",
+        "role": "reviewer",
+        "dimensions": [
+          "structure_and_depth"
+        ]
+      },
+      {
+        "slot_id": "reader_usefulness",
+        "role": "reviewer",
+        "dimensions": [
+          "reader_usefulness"
+        ]
+      },
+      {
+        "slot_id": "process_language",
+        "role": "reviewer",
+        "dimensions": [
+          "process_language"
+        ]
+      },
+      {
+        "slot_id": "natural_expression",
+        "role": "reviewer",
+        "dimensions": [
+          "natural_expression"
+        ]
+      },
+      {
+        "slot_id": "domain-1",
+        "role": "reviewer",
+        "dimensions": [
+          "domain"
+        ],
+        "domain": "EV battery chemistry, pack engineering and deployment economics"
+      },
+      {
+        "slot_id": "audit",
+        "role": "auditor"
+      },
+      {
+        "slot_id": "acceptance",
+        "role": "acceptance"
+      }
+    ],
+    "instructions": {
+      "reviewer": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Assign Work by Perspective\n\nEvery complete research delivery requires the following seven base perspectives, each in a different context separate from every production agent. Add domain review for the specialized claims the task makes. Use native subagents; author self-checks do not replace these assignments. Independence concerns the context and production role, not a different vendor or outside person.\n\n| Perspective | Method and required output |\n| --- | --- |\n| Intent and requirements (`requirements`) | Read the original request and effective corrections. Match important questions, required objects and constraints to actual passages or tables; identify missing answers, scope drift and instructions lost in revision. Do not invent requirements or protect the intended thesis from contrary evidence. |\n| Evidence and data (`evidence`) | Check consequential claims against original sources, dates, versions, populations, units, denominators and calculations. Distinguish facts, source claims and inference. State actual reading coverage, identifying the original sections or passages checked. |\n| Adversarial reasoning (`adversarial_reasoning`) | Challenge central conclusions with relevant counterexamples, alternative explanations, selection effects and missing assumptions. Explain the consequence for the argument; do not manufacture objections or require a finding quota. |\n| Structure and depth (`structure_and_depth`) | Check how questions, outline, sections, evidence and synthesis form the answer. Locate missing mechanisms, incomparable measures, compressed reasoning and source repetition. Apply the task's expected depth, not a universal structure or length. |\n| Reader usefulness (`reader_usefulness`) | Read the assembled text for its intended use: title and opening, argument continuity, introduced terms, tables, timelines and useful implications. Identify concrete understanding or decision problems. |\n| Process-language removal (`process_language`) | Locate production logs, internal paths/IDs, review status and assistant dialogue in reader-facing prose. Retain methods, source attribution, uncertainty and operational details that the reader's question needs. |\n| Natural expression (`natural_expression`) | Locate empty abstractions, repetitive caveats, vague actors, obstructive syntax and needless repetition. Explain the reading problem and a suitable remedy. Preserve facts, qualifiers, analytical depth and the user's style preferences; do not impose phrase bans or AI-detection targets. |\n| Domain specialist | Apply the actual field's criteria: technical baselines and experimental conditions, financial assumptions, policy applicability, clinical populations or other specialized reasoning. State the domain and claims examined. Use a separate non-author context for the domain assignment. |\n\nStart each perspective in a fresh independent context that reads the complete current report, original request and effective changes, and the original evidence relevant to the assignment. Do not seed it with the author's self-rating, other initial reviewers' judgments, expected scores or a preferred review result. Relevant substantive research analyses remain available. Return revisions to that perspective's original context: reuse completed reading and analysis, then examine changes and their effect on the current whole report. If that context cannot continue, hand its original assessment and actually reviewed input to a new independent context. A local premise review names its limited scope and cannot substitute for the final whole-report perspective. Review the artifact in its delivery format, including portable citations and table/figure meaning.\n\n## Shared Assignment\n\nProvide the question, reader, effective requirements, actual artifact and input versions, original-material access, assigned perspective and required output. The reviewer reports what was examined, locatable observations and their basis. Each finding identifies its location, applicable requirement, evidence, impact and severity, separating required corrections from optional preferences. When no defect is found, explain the supporting checks instead of returning a generic PASS.\n\nReviewers remain read-only. Keep original replies and observable execution identities separate from any structured extraction or author response. Skill-only work can retain them in the agent tool conversation or existing files; managed work uses the [review record interface](../docs/review-completion.md). Do not fabricate a missing session identity or source access.\n\n## Complete Every Required Review\n\nA complete review addresses its actual scope and version with substantive observations. Empty, truncated, wrong-version or generic replies leave the assignment open. Preserve failed attempts, correct the missing input or execution problem and resume that assignment. When required material exceeds one context, retain it in accessible originals and arrange complete scoped reading and synthesis, rather than silently replacing it with a summary.\n\nKeep the first valid result for a given input and artifact version. A negative finding is a completed review, not a reason to rerun for a better verdict. An isolated mistaken finding is adjudicated; it does not invalidate the entire review. The auditor determines consequential invalidity and contested no-change decisions from the evidence. A reviewer who never received required material has incomplete work; an examined source that leaves an answer uncertain may support a complete, qualified assessment.\n\nAuthors apply necessary fixes and can explain why they disagree with a finding. They cannot approve their own work, dismiss a necessary correction or relabel an incomplete review as complete. Preserve findings and responses for the independent audit. Revisions go back to the affected reviewer with the current complete artifact and relevant changes; unchanged evidence remains available and prior results stay bound to their actual version.\n\n",
+      "auditor": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Check Reviewers and Sample Passed Work\n\nEvery complete research task has an explicitly assigned audit context separate from production and content reviewers. The auditor receives the complete report, effective requirements, original sources, contributions, raw reviews and revision/disposition evidence. Review validity and report readiness are separate judgments: a valid negative review can describe a report that still needs correction.\n\nCheck each required review for its actual execution and input version, assigned coverage, locatable observations, supported claims and absence of invented requirements. Inspect all consequential findings and disagreements, including decisions to leave text unchanged. Resolve them against original evidence and actual prose, not majority votes or average scores. Preserve each original finding with one evidenced disposition: confirmed defect, no change, unresolved or resolved. A claimed repair is resolved only after examining the changed text and affected context.\n\nAudit all important requirements, decisive claims, key figures and citations, consequential counterevidence, major findings and necessary fixes. Also examine material marked passed or carrying no finding, including transformations from a worker's analysis into the report. The auditor chooses these samples from the complete artifact, not from an author's selected highlights.\n\nFor this additional sampling, retain the relevant population or report scope, selected locations, selection reasons, source checks and results in the existing audit output. Choose passages across relevant sections, evidence types and transformations; do not use a fixed percentage or first/last/hash-selected paragraphs as the default. A targeted sample is described as targeted, not random. When a discrepancy appears, check the same source, measure, branch or reasoning pattern wherever it affects the result; record that expansion and its outcome.\n\nThe auditor can request missing work from the existing researcher or reviewer and continue the same audit after repair. Necessary defects and unsupported important no-change decisions remain open. Evidence that genuinely cannot settle a research question is reported at the affected conclusion; it does not erase a missing mandatory reading or review assignment. Sampling is part of this audit and final acceptance, not a separate agent, score or approval process.\n\n",
+      "acceptance": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Stage Scheduling and Acceptance\n\n1. **Outline and first premises:** the lead plans questions, coverage and dependencies; the requirements and structure reviewers examine the outline before extensive dependent writing. Evidence/domain reviewers examine consequential premises and calculations as they become usable. Early local checks are retained as local checks.\n2. **Developing research units:** researchers produce evidence-backed arguments progressively. Resolve a premise that could change dependent work before treating it as settled; other independent units continue. The assembler updates the whole-report argument as contributions arrive and the outline changes.\n3. **Complete report:** all seven base perspectives and applicable domain review read the complete report. Findings from the independent reader-usefulness and natural-expression reviews are applied without losing facts or depth. The independent audit examines the reviews, important findings, necessary repairs and selected passed content.\n4. **Final acceptance:** a further context, separate from production, content review and audit, reads the complete current report against the effective requirements. It examines the audit, dispositions and the actual current text, checks all important requirements and necessary fixes, and selects additional passed content where needed to judge integration. It reports acceptance or the exact remaining work. Its PASS cannot replace a missing required review or audit.\n\nThe final acceptance agent verifies the delivered version, source/condition preservation, complete required coverage, developed analysis and reader usability. Cross-part contradictions or lost qualifications return to the responsible production/review assignment, with the affected scope and inputs. Keep the original findings and prior artifacts. Do not let a coordinator's summary stand in for this reading.\n\nReader-ready delivery requires resolved necessary corrections, complete independent assignments and acceptance of the current whole report. A stage artifact may be delivered with its actual unfinished scope. Historical and evaluation artifacts retain their original defects and labels; their completion status remains tied to the criteria and work recorded at the time. Once the agreed result and required work are complete, optional preferences do not restart unchanged reviews.\n\n"
+    },
+    "revision_context": {
+      "historical_only": true,
+      "input": {
+        "path": "reviews/host/c4cd311b8b1f6b11a07d/input.json",
+        "sha256": "d06c5ec00b0705b6db35c3e3d0d3984e188f2526959ed074f46466b8112388cd"
+      },
+      "input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+      "reviews": {
+        "requirements": {
+          "attempt_id": "adbae71c00ac42dda02b7266093ce3d4",
+          "response": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/results/adbae71c00ac42dd/response.txt",
+            "sha256": "c59d75ee14d1abcf123f8c9b34c6ccae0eb5b6c88eb5d50e5b0086def53c4bd0"
+          },
+          "input": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/jobs/requirements-f14a3f05a13fa579.json",
+            "sha256": "67e18abfd168d47febf79340e65b80d00831b0c322eb7f3d18698854f2802954"
+          },
+          "execution": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/results/adbae71c00ac42dd/execution.json",
+            "sha256": "a6d91e5d7d1aa5ace2a292c9894026476558a4d6ac17355e5b29e9bbe72c6a83"
+          },
+          "execution_id": "/root/complete_requirements_b",
+          "role": "reviewer",
+          "report_verdict": "needs_revision",
+          "review_validity": "not_separately_audited",
+          "input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+          "dimensions": [
+            "requirements"
+          ],
+          "domain": null
+        },
+        "evidence": {
+          "attempt_id": "332d4a6677df4feba951ec3cae4f3faf",
+          "response": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/results/332d4a6677df4feb/response.txt",
+            "sha256": "6abbaf4a9c3ea9dea32b76d6038c1798c5ede710062b3ec06b7a82450e065626"
+          },
+          "input": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/jobs/evidence-736fe24c0069f7e3.json",
+            "sha256": "8056e87f7e81a5f24c4340640903d65a101a07ad82b80f667a0b1d9b13ad3d8f"
+          },
+          "execution": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/results/332d4a6677df4feb/execution.json",
+            "sha256": "62c88129f57621e73986d94d3cbad156849b80d23fb3bc19916ce9a64cd9f8d6"
+          },
+          "execution_id": "/root/evidence_remaining_b",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+          "dimensions": [
+            "evidence"
+          ],
+          "domain": null
+        },
+        "adversarial_reasoning": {
+          "attempt_id": "d2a394402fd14e8989439583f43f1101",
+          "response": {
+            "path": "reviews/host/eeaff5ef331db6e411fd/results/d2a394402fd14e89/response.txt",
+            "sha256": "61b6f1a24b27e5b2ec1446d1c9bddd96d9d40991ae0eccf25b8dabbb1162bc4c"
+          },
+          "input": {
+            "path": "reviews/host/eeaff5ef331db6e411fd/jobs/adversarial_reasoning-18c0b383a9a6d1c8.json",
+            "sha256": "7e6bd7b34b4250871cfe3c9622b3c5d02b106b8af0191580340d474c38c2d52a"
+          },
+          "execution": {
+            "path": "reviews/host/eeaff5ef331db6e411fd/results/d2a394402fd14e89/execution.json",
+            "sha256": "856fa89b0e037e901e7a6c176bb1d5e927d798eb8caa147d38b6dc3d879102eb"
+          },
+          "execution_id": "/root/benchmark_adversarial",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "eeaff5ef331db6e411fdbcc2c5433c80a5a19c2cb4bf80161693edecafebce64",
+          "dimensions": [
+            "adversarial_reasoning"
+          ],
+          "domain": null
+        },
+        "structure_and_depth": {
+          "attempt_id": "a49b87bc05c444cbae7236ec62feea7c",
+          "response": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/results/a49b87bc05c444cb/response.txt",
+            "sha256": "f5c4b8355d249c25b426c0ec2b7697de2cb2ce2d00a7889c1e2d3fd5f22e1f7e"
+          },
+          "input": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/jobs/structure_and_depth-438991c34207d35f.json",
+            "sha256": "73ccc2a397d3f3dd017fc557fdbf28356b75a01f03821e26f126ebbdd89b5e10"
+          },
+          "execution": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/results/a49b87bc05c444cb/execution.json",
+            "sha256": "287038d384ee5026ac782013dff8bbfff17a46da3c25267dde468d61c53ca346"
+          },
+          "execution_id": "/root/independent_reviews_a",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+          "dimensions": [
+            "structure_and_depth"
+          ],
+          "domain": null
+        },
+        "reader_usefulness": {
+          "attempt_id": "177b6a071e8244839bd44c1206dc0e68",
+          "response": {
+            "path": "reviews/host/eeaff5ef331db6e411fd/results/177b6a071e824483/response.txt",
+            "sha256": "03a454580f7f40be5bd8c9041d94e2b285c80bfd30aad330f49ff0f3f320b7e3"
+          },
+          "input": {
+            "path": "reviews/host/eeaff5ef331db6e411fd/jobs/reader_usefulness-e6a298b0585a3d62.json",
+            "sha256": "b6a98ae9a8fdafacc69c48e8d37b8b5371f9ac76b3ea2623faffbee9bf604d8a"
+          },
+          "execution": {
+            "path": "reviews/host/eeaff5ef331db6e411fd/results/177b6a071e824483/execution.json",
+            "sha256": "6c7e58f1a8e6d81b4949172e57eaad59394fae71f13473c6373484f30c3b1479"
+          },
+          "execution_id": "/root/full_reader_b",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "eeaff5ef331db6e411fdbcc2c5433c80a5a19c2cb4bf80161693edecafebce64",
+          "dimensions": [
+            "reader_usefulness"
+          ],
+          "domain": null
+        },
+        "process_language": {
+          "attempt_id": "6d07f67262f641028160955cc5c0107e",
+          "response": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/results/6d07f67262f64102/response.txt",
+            "sha256": "7d2ec300309bf3c2dcc5aec76df088ca2aa530750f6a6b228abe16d60dd869f4"
+          },
+          "input": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/jobs/process_language-c422be391e86a232.json",
+            "sha256": "711513db4c0ac1235db982ba81deba3202720732029ba512cd76d5751f15f9d0"
+          },
+          "execution": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/results/6d07f67262f64102/execution.json",
+            "sha256": "54721d73b5710d96ee9be50d9958d2e56ecc1a0c891c42928679ef569e8a9613"
+          },
+          "execution_id": "/root/process_remaining_b",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+          "dimensions": [
+            "process_language"
+          ],
+          "domain": null
+        },
+        "natural_expression": {
+          "attempt_id": "912e0dfbcc884077a5811ff682b2ab4f",
+          "response": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/results/912e0dfbcc884077/response.txt",
+            "sha256": "0c1e40c2a67643c68ec6a429bab0132bbc63a9bc54a4c80b7f4bb6141aa17be8"
+          },
+          "input": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/jobs/natural_expression-f65a33072c060813.json",
+            "sha256": "21fb7d68b5539403348f5ab92c02c1d8152ffc6410a0e11eb480d4d7d0d8364a"
+          },
+          "execution": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/results/912e0dfbcc884077/execution.json",
+            "sha256": "9ba3e009647159e4d6acd5f0ecb39907bd00eac6c40b242b1954c43aa272355a"
+          },
+          "execution_id": "/root/benchmark_natural_expression",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+          "dimensions": [
+            "natural_expression"
+          ],
+          "domain": null
+        },
+        "domain-1": {
+          "attempt_id": "56e1e474f0384c53af7a7cc39e423987",
+          "response": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/results/56e1e474f0384c53/response.txt",
+            "sha256": "ba50ae131ea0993f2a9106ae65a18c8d9b4d5c4354e026b565aa560c71d62140"
+          },
+          "input": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/jobs/domain-1-1309c91e35579cbe.json",
+            "sha256": "4d335d64e0919fb2d8076ae3656bef8fe246d2622befcfb89d148c2227a2f1be"
+          },
+          "execution": {
+            "path": "reviews/host/c4cd311b8b1f6b11a07d/results/56e1e474f0384c53/execution.json",
+            "sha256": "d89d9c161557df00e22c19653e6f8a40d894c604ecf642da37d0bfa3379ad3cd"
+          },
+          "execution_id": "/root/independent_domain_b",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+          "dimensions": [
+            "domain"
+          ],
+          "domain": "EV battery chemistry, pack engineering and deployment economics"
+        }
+      },
+      "changed_inputs": [
+        {
+          "path": "analysis/author-production/analysis-maturity-volume-full-03.md",
+          "previous_sha256": null,
+          "current_sha256": "0cdf18d21eb78c1c50d4c5193d380c4e0160509c11206c900726a5f718693845"
+        },
+        {
+          "path": "analysis/calculations/calculate_volume_full_03.py",
+          "previous_sha256": null,
+          "current_sha256": "a2d017b32a4aa0a542363a4be845f52f053c712d2419a16d3abf16604191fc3e"
+        },
+        {
+          "path": "analysis/calculations/volume-scenario-full-03.json",
+          "previous_sha256": null,
+          "current_sha256": "a21818112dbbdb48958214f964cc44de4265512c64d23bdb69f0bab8893f6933"
+        },
+        {
+          "path": "data/claims_registry.csv",
+          "previous_sha256": "d8649c1f9bbb3e5a4a273220411f4ee2bf18b64506a8d51380c5486d5e044ae6",
+          "current_sha256": "e58009e8419bab41794b1e9ea8c5433b3f3fcf850121707ec5e0c68d650e2231"
+        },
+        {
+          "path": "data/source_registry.csv",
+          "previous_sha256": "ced1f8334d5a3c4d7e2362da429db99262c45062bc94242446d0569808fdc850",
+          "current_sha256": "b5024b220744e6bf0c45be9928fe958751f80b6cde5432c5635f1de3ae80ae9a"
+        },
+        {
+          "path": "logs/record-backups/74765936983e4bcf93598c1187fce022/reports/current.md",
+          "previous_sha256": null,
+          "current_sha256": "9b623e2af39fe1b43ef37885baf5b83af9ab9c395bada0905c479116e6ce8aa7"
+        },
+        {
+          "path": "logs/record-backups/74765936983e4bcf93598c1187fce022/saved/reports/current.md",
+          "previous_sha256": null,
+          "current_sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5"
+        },
+        {
+          "path": "notes/actual-reading/EVB25.json",
+          "previous_sha256": null,
+          "current_sha256": "3d8822c261e0f91c21714b8eed62ab64fbaf942f4ffefbfedced09b11adc84e8"
+        },
+        {
+          "path": "notes/actual-reading/EVB26.json",
+          "previous_sha256": null,
+          "current_sha256": "47f1c5ab9a3e58465af5d19fa13ca242f6dc453b58cf7ddad3cbaaf35fc396c2"
+        },
+        {
+          "path": "notes/actual-reading/EVB27.json",
+          "previous_sha256": null,
+          "current_sha256": "b8c626bb73400761fce057f151d0e772256fa62e8018890205e31a2c3ec2e94d"
+        },
+        {
+          "path": "notes/author-reading-ledger-full-03.jsonl",
+          "previous_sha256": null,
+          "current_sha256": "2834ae1d77a39ad9563c1ac20ec0b5212b5413020009ebf66a8a289c0b44f361"
+        },
+        {
+          "path": "reports/current.md",
+          "previous_sha256": "9b623e2af39fe1b43ef37885baf5b83af9ab9c395bada0905c479116e6ce8aa7",
+          "current_sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5"
+        },
+        {
+          "path": "reviews/host/c4cd311b8b1f6b11a07d/jobs/requirements-f14a3f05a13fa579.json",
+          "previous_sha256": null,
+          "current_sha256": "67e18abfd168d47febf79340e65b80d00831b0c322eb7f3d18698854f2802954"
+        },
+        {
+          "path": "reviews/host/c4cd311b8b1f6b11a07d/results/adbae71c00ac42dd/execution.json",
+          "previous_sha256": null,
+          "current_sha256": "a6d91e5d7d1aa5ace2a292c9894026476558a4d6ac17355e5b29e9bbe72c6a83"
+        },
+        {
+          "path": "reviews/host/c4cd311b8b1f6b11a07d/results/adbae71c00ac42dd/response.txt",
+          "previous_sha256": null,
+          "current_sha256": "c59d75ee14d1abcf123f8c9b34c6ccae0eb5b6c88eb5d50e5b0086def53c4bd0"
+        },
+        {
+          "path": "sources/actual/EVB25/delivery-poster.jpg",
+          "previous_sha256": null,
+          "current_sha256": "83566a0fe4116a26cad7c1c468c6f9433b8caa2a4720ed2832911ca4cf242a77"
+        },
+        {
+          "path": "sources/actual/EVB26/original.pdf",
+          "previous_sha256": null,
+          "current_sha256": "07bfe8d532f8912fea32c8241cafd25c0bb28948e7903d5dfe23161177073e4e"
+        },
+        {
+          "path": "sources/actual/EVB27/original.pdf",
+          "previous_sha256": null,
+          "current_sha256": "f602c7c4fe53dcd6ed99facbe00e0d751038a130bc86644ce9a5b20b2d348ab5"
+        }
+      ],
+      "unchanged_inputs": [
+        "analysis/author-production/calculations.json",
+        "analysis/author-production/handoff.md",
+        "analysis/calculations/calculate_scenarios.py",
+        "analysis/calculations/calculations.json",
+        "analysis/outline.md",
+        "logs/record-backups/485ebafc49a9419386dad25a0e8ea0d4/reports/current.md",
+        "logs/record-backups/485ebafc49a9419386dad25a0e8ea0d4/saved/reports/current.md",
+        "logs/record-backups/7726794d5458433bbdc425d68bf6fec9/saved/reports/current.md",
+        "logs/record-backups/b5a66a329e414c8fb2b7497ba45e15a1/reports/current.md",
+        "logs/record-backups/b5a66a329e414c8fb2b7497ba45e15a1/saved/reports/current.md",
+        "logs/record-backups/c9cfa36e5ce144398f15f0f7a57ca5b8/saved/reports/current.md",
+        "logs/record-backups/ea8fc3ac26954e53ba4d414fb32155c2/saved/analysis/outline.md",
+        "notes/actual-reading/EVB02.json",
+        "notes/actual-reading/EVB03-R.json",
+        "notes/actual-reading/EVB06.json",
+        "notes/actual-reading/EVB07.json",
+        "notes/actual-reading/EVB08.json",
+        "notes/actual-reading/EVB09.json",
+        "notes/actual-reading/EVB10.json",
+        "notes/actual-reading/EVB11.json",
+        "notes/actual-reading/EVB12-R.json",
+        "notes/actual-reading/EVB13.json",
+        "notes/actual-reading/EVB14.json",
+        "notes/actual-reading/EVB15.json",
+        "notes/actual-reading/EVB16-R.json",
+        "notes/actual-reading/EVB17.json",
+        "notes/actual-reading/EVB18.json",
+        "notes/actual-reading/EVB19-R.json",
+        "notes/actual-reading/EVB20.json",
+        "notes/actual-reading/EVB21.json",
+        "notes/actual-reading/EVB22.json",
+        "notes/actual-reading/EVB23.json",
+        "notes/author-reading-ledger.jsonl",
+        "record:requirements:effective",
+        "reviews/host/c1bfa36c0c91a99893a9/jobs/process_language-bf5c33b777383110.json",
+        "reviews/host/c1bfa36c0c91a99893a9/results/0b8ac3b87677445d/execution.json",
+        "reviews/host/c1bfa36c0c91a99893a9/results/0b8ac3b87677445d/response.txt",
+        "reviews/host/eeaff5ef331db6e411fd/jobs/natural_expression-99b19288636b7e5b.json",
+        "reviews/host/eeaff5ef331db6e411fd/results/8b1511a225744a7f/execution.json",
+        "reviews/host/eeaff5ef331db6e411fd/results/8b1511a225744a7f/response.txt",
+        "sources/actual/EVB02.txt",
+        "sources/actual/EVB03-R.txt",
+        "sources/actual/EVB06.txt",
+        "sources/actual/EVB07.txt",
+        "sources/actual/EVB08.txt",
+        "sources/actual/EVB09.txt",
+        "sources/actual/EVB10.txt",
+        "sources/actual/EVB11.txt",
+        "sources/actual/EVB12-R.txt",
+        "sources/actual/EVB13.txt",
+        "sources/actual/EVB14.txt",
+        "sources/actual/EVB15.txt",
+        "sources/actual/EVB16-R.txt",
+        "sources/actual/EVB17.txt",
+        "sources/actual/EVB18.txt",
+        "sources/actual/EVB19-R.txt",
+        "sources/actual/EVB20.txt",
+        "sources/actual/EVB21.txt",
+        "sources/actual/EVB22.txt",
+        "sources/actual/EVB23.txt",
+        "state/task_spec.md"
+      ],
+      "report_changes": [
+        {
+          "change": "replace",
+          "previous_lines": [
+            32,
+            32
+          ],
+          "current_lines": [
+            32,
+            32
+          ],
+          "previous_text": "| CATL麒麟，2022-06-23，厂商发布 | 三元包最高255 Wh/kg；LFP包160 Wh/kg；未取得同口径Wh/L | 公告有热启动与快充主张，未给完整SOC、环境和寿命协议 | 同一结构品牌的两种体系；数值为发布主张，公告当时把2023量产写为未来目标；无单品采购价 |",
+          "current_text": "| CATL麒麟，2022-06-23，厂商发布 | 三元包最高255 Wh/kg；LFP包160 Wh/kg；未取得同口径Wh/L | 公告有热启动与快充主张，未给完整SOC、环境和寿命协议 | 同一结构品牌的两种体系；数值为发布主张，公告当时把2023量产写为未来目标；后续具名交付见第七节，不能据交付确认全部最高指标；无单品采购价 |"
+        },
+        {
+          "change": "insert",
+          "previous_lines": null,
+          "current_lines": [
+            104,
+            116
+          ],
+          "previous_text": "",
+          "current_text": "再把体积约束单独算清。前一段以75 kWh名义电量换算质量；这里另设75 kWh可用电量、90%可用比例，因此需要83.33 kWh名义电量。假设车辆给电池及安装接口留下300 L布置空间，其中20 L用于包外管路接头、电气接口和装配避让，完整电池包只能占280 L。候选A拟采用成熟LFP，候选B拟采用高能三元，完整包级体积能量密度分别假设为240和320 Wh/L。这是用于检查选择边界的分析输入，不是刀片或麒麟实测参数，也不代表两种化学路线的通用区间；密度分母已包含包壳、包内冷却、保护与BMS，不能再重复扣除这些体积。\n\n所需安装体积 = 可用电量 × 1000 ÷（可用比例 × 包级Wh/L）＋包外安装预留。\n\n| 相同车辆空间下的候选 | 假设完整包级体积能量密度 | 提供75 kWh可用电量所需包体积 | 加20 L预留后的安装体积 | 300 L空间内最多可用电量 | 体积判断 |\n|---|---:|---:|---:|---:|---|\n| A：拟用成熟LFP | 240 Wh/L | 347.22 L | 367.22 L | 60.48 kWh | 超出67.22 L，原目标不可行 |\n| B：拟用高能三元 | 320 Wh/L | 260.42 L | 280.42 L | 80.64 kWh | 余19.58 L，满足体积必要条件 |\n\n在这组条件下，满足75 kWh可用目标要求包级体积能量密度至少297.62 Wh/L。候选B即使每kWh更贵，也可能因A装不下而进入下一轮车型验证；但这并不构成三元路线的普遍优胜。若通过降低续航目标或提高整车效率，把可用电量需求降到60 kWh，即减少20%，A的安装体积降至297.78 L，也能进入报价比较。真正改变选型的是同一车辆下的能量需求、完整包密度和可用窗口，不能把LMFP的525 Wh/L电芯值直接代入这张包级表。\n\n该算例采用同一参考温度、新包状态和可用窗口，不含冬季或老化折减；寿命末期的可用能量要求会提高密度或空间需求。总升数合格还不是几何装配合格，仍需核对包的形状、厚度、碰撞结构、质量、功率和热管理。新增输入、公式和结果单独保存在calculate_volume_full_03.py与volume-scenario-full-03.json。\n"
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            106,
+            106
+          ],
+          "current_lines": [
+            119,
+            119
+          ],
+          "previous_text": "全部输入、公式与输出保存在同目录`calculate_scenarios.py`和`calculations.json`，可以复算。它们是敏感性分析，不是市场报价、制造实验或企业盈利预测。",
+          "current_text": "既有成本、质量及运营算例的输入、公式与输出保存在同目录`calculate_scenarios.py`和`calculations.json`；新增体积算例使用前述独立文件，均可复算。它们是敏感性分析，不是市场报价、制造实验或企业盈利预测。"
+        },
+        {
+          "change": "insert",
+          "previous_lines": null,
+          "current_lines": [
+            123,
+            126
+          ],
+          "previous_text": "",
+          "current_text": "成熟路线已有可定位的实际应用链。比亚迪2024年年报第22页将刀片电池定义为磷酸铁锂电池，第27—28页记录其自2020年7月起逐步应用于比亚迪、腾势、方程豹和仰望的纯电及插混车型，并披露2024年刀片电池装机量近200 GWh；同页还列出海豹的CTB装车应用。这是公司对已经发生的年度装机和车型应用的披露，证据强于计划产能，不能换算成某一款包的产量、外售量、良率或采购价，也不能拿2024年数量证明2026年第二代刀片已经同规模供货。[比亚迪2024年年报，第22、27—28页（PDF第23、28—29页）](https://static.cninfo.com.cn/finalpage/2025-03-24/1222882857.PDF)\n\n成熟三元的具名参照采用麒麟的NCM商业版本。CATL的2023年4月17日官方公告及海报明确“极氪009 ME版正式交付”，使麒麟从2022年的发布计划推进到具名车型交付；海报本身没有说明电芯化学。2025年5月招股书第177页将乘用车麒麟作为NCM产品介绍，第184页进一步说明CTP 3.0可集成高镍三元或其他化学体系，已有长续航、高功率、快充等版本；第258页在回顾2022—2024年经营时明确提到麒麟、神行的规模化商业应用。因此可以把麒麟的NCM版本作为已商业化系列比较，并把极氪009 ME交付作为该系列的具名整车事件；不能把所有麒麟车型归为同一化学配方，也不能将2025年的最高快充指标倒赋给2023年交付车。现有材料尚未拆出各版本的年度装机量和当前供应合同。[CATL正式交付公告及海报](https://www.catl.com/news/7136.html)、[CATL 2025年招股书，第177、184、258页（PDF第187、194、268页）](https://www.catl.com/en/uploads/1/file/public/202505/20250512071033_9of2dqw816.pdf)\n"
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            112,
+            112
+          ],
+          "current_lines": [
+            129,
+            131
+          ],
+          "previous_text": "| 麒麟2022发布；Astroinno 2023发布 | 产品与工艺主张，并给出未来生产计划 | 对这两个具体版本的连续合格产出、车型覆盖和实际采购价；不据早年计划自动补成已实现 |",
+          "current_text": "| 成熟LFP：比亚迪刀片系列，2020年起应用，2024年度装机披露 | 年报将其确认为LFP，列多品牌纯电/插混应用、海豹CTB应用与2024年近200 GWh装机 | 公司装机披露不等于单车型产量、对外销量或良率；不外推2026第二代产品规模，采购价仍需询价 |\n| 成熟三元代表：麒麟NCM商业系列；2023-04-17极氪009 ME交付，2025招股书回顾 | 官方海报确认具名整车正式交付；招股书确认NCM产品、多个版本与2022—2024年间规模化商业应用 | 系列内可含其他化学体系，后发性能不倒置到2023版本；未披露分版本年度装机和当前合同 |\n| Astroinno L600，2023发布 | 产品与工艺主张，并给出2024生产计划 | 本文材料仍未证明该具体版本的连续合格产出、车型覆盖和实际采购价；不据早年计划补成已实现 |"
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            130,
+            130
+          ],
+          "current_lines": [
+            149,
+            149
+          ],
+          "previous_text": "| 经济型通勤，有稳定慢充 | 成熟LFP作为基准；LMFP在不显著提高成本且满足空间时作为提升续航的电池候选；小容量钠电在供货与报价成立时进入比较 | 日常可用电量、冬季短途能耗、保养与质保、实际采购成本 | 锂价持续高位、钠电良率和供应成熟可增强钠电；若低成本电池迫使车重或包体积超限，应提高能量密度要求 |",
+          "current_text": "| 经济型通勤，有稳定慢充 | 以刀片等已有装机证据的成熟LFP系列作为基准；LMFP在不显著提高成本且满足空间时作为提升续航的电池候选；小容量钠电在供货与报价成立时进入比较 | 日常可用电量、冬季短途能耗、保养与质保、实际采购成本 | 锂价持续高位、钠电良率和供应成熟可增强钠电；若低成本电池迫使车重或包体积超限，应提高能量密度要求 |"
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            133,
+            133
+          ],
+          "current_lines": [
+            152,
+            152
+          ],
+          "previous_text": "| 长续航、质量体积受限或高性能 | 高能量三元、硅碳改进与已验证的固液混合方案；全固态可进入并行验证 | 持续功率、低SOC输出、热管理、碰撞、充电衰减及售后可维护性 | 整车效率提升会降低所需容量；更密补能网降低超大容量价值；固态只有在产品级验证与供货同时成立后才替换成熟方案 |",
+          "current_text": "| 长续航、质量体积受限或高性能 | 已商业化的高能三元（如麒麟NCM版本）、硅碳改进与已验证的固液混合方案；全固态可进入并行验证 | 完整包级Wh/L、安装空间与可用窗口，并验证持续功率、低SOC输出、热管理、碰撞、充电衰减及售后可维护性 | 第六节假设下75 kWh可用目标需至少297.62 Wh/L；需求降至60 kWh时假设LFP候选也可装入。整车效率提升会降低所需容量；更密补能网降低超大容量价值；固态只有在产品级验证与供货同时成立后才替换成熟方案 |"
+        }
+      ]
+    }
+  }
+}

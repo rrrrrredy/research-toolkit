@@ -1,0 +1,12 @@
+{
+  "mandatory_step": "Check DeepSeek Harness adapter",
+  "command": [
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+    "scripts/run_dsh_evals.py",
+    "validate"
+  ],
+  "cwd": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109",
+  "exit_code": 0,
+  "started_at_epoch": 1794235406.4262288,
+  "elapsed_seconds": 0.601252555847168
+}

@@ -10,7 +10,7 @@ Long research can lose its purpose despite extensive material and activity: a ca
 
 ## 2. Scope Contract
 
-Toolkit supports substantial research, long reports, revision and continuation. Research requirements govern the real work and result. Skill-only use relies on accessible agent tool conversations and files; CLI/MCP adds managed records and completion checks. Neither path changes the required research responsibilities.
+Toolkit supports long-form research and writing in English or Chinese across fields, including revision and continuation. Research requirements govern the real work and result. Skill-only use relies on accessible agent tool conversations and files; CLI/MCP adds managed records and completion checks. Both paths carry the same research responsibilities.
 
 The task is the requested research deliverable. Additional databases, taxonomies, dashboards or product designs belong only when the user asks for them. Reuse existing materials and methods rather than turning an individual report into a new management system.
 
@@ -80,19 +80,19 @@ Use [comparison, explanation, synthesis and recommendation methods](optional-ana
 
 If a route adds no useful evidence or analysis, identify the unresolved question and change the source, method or explanation. Preserve any mandatory unfinished work. Do not use a search count, elapsed time or invocation budget to terminate necessary research. Historical `stale_count` values remain readable but do not decide completion.
 
-The final full report must develop the requested analysis and complete the independent [review, audit and acceptance](subagents-and-review-loop.md). Source counts, file size and completed records do not stand in for the answer. Use [assembly](research-workflow.md#9-assembly) to connect the parts and address missing reasoning.
+The final full report must develop the requested analysis and complete the independent [review, audit and acceptance](subagents-and-review-loop.md). Use [assembly](research-workflow.md#9-assembly) to connect the parts and develop missing reasoning.
 <!-- /method:research-loop -->
 
 <!-- method:evidence -->
 ## 8. Source And Claim Discipline
 
-Classify sources by what they can prove:
+Use sources according to their provenance, methods and scope:
 
 - official materials show stated position, intent, product surface, or formal policy
 - primary data supports measurable claims when definitions and collection methods are clear
 - expert materials explain reasoning, context, and interpretation
-- media materials show public framing but need corroboration for hard facts
-- user/community evidence shows reception but is not automatically representative
+- media materials show public framing; corroborate consequential factual claims with the underlying evidence
+- user/community evidence describes participating users' experience; broader prevalence requires a defined population and suitable sample
 - counter-evidence limits, weakens, or falsifies the main claim
 
 Classify claims separately:
@@ -103,9 +103,9 @@ Classify claims separately:
 - author judgment
 - speculation
 
-Every important hard claim should have a confidence boundary. Do not turn company PR, investor hopes, or media amplification into fact.
+For important factual claims, state the relevant scope and uncertainty, including dates, definitions and measurement conditions where they affect the judgment. Attribute promotional statements, investor expectations and media interpretations to their sources.
 
-Check consequential paraphrases against the source for actor, date, population, relationship direction and certainty. A complaint illustrates a failure mechanism; it does not establish a failure rate without a denominator and a suitable sample. A feared or expected consequence is not an observed outcome. Preserve distinctions such as "external dependencies often include open source" versus "dependencies found inside open source". A missing linked report limits claims about that report; it does not by itself prevent a reader from assessing their own situation with internal evidence. Name the particular decision that needs the missing evidence, while continuing supported analysis.
+Check consequential paraphrases against the source for actor, date, population, relationship direction and certainty. Use a complaint to explain a failure mechanism; estimate frequency only with a suitable sample and denominator. Describe feared or expected consequences as expectations. Preserve relationship direction: "external dependencies often include open source" concerns the composition of external dependencies, while "dependencies found inside open source" concerns the contents of open-source software. When a linked report is missing, identify which claims about it remain unchecked and which decisions need its evidence. Continue supported analysis, including a reader's assessment of their own situation using internal evidence.
 
 For required reading, distinguish obtaining a source from reading it. Record the required scope and actual scope: full text, relevant sections, abstract, partial, or unread. Keep mandatory materials connected to the requirement they serve; use requirement IDs in managed records; optional background does not automatically require full reading. When access fails, try reasonable available alternatives such as another browser or a legitimate public author copy. Keep original texts, reproductions, and indirect accounts distinct. If access still needs credentials or a user-supplied copy, keep that requirement open and continue unaffected work; do not bypass access controls or repeat a failed route indefinitely.
 <!-- /method:evidence -->

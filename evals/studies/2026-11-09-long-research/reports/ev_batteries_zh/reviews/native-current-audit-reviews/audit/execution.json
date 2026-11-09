@@ -1,0 +1,54 @@
+{
+  "host_task": "/root/long_research_audit_b",
+  "status": "completed",
+  "role": "audit",
+  "input_version": "4cff15db175e29647e450e061f3030d1bbe0d27b5e4dcfea015a7bd2d966c0c3",
+  "assignment_version": "f1f2cc7a1741171a4114daa13f93e3114b942b48bb640f62cced297c7d4e4486",
+  "artifact_sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+  "completion_clock_observation_utc": "2026-11-09 17:07:27 UTC",
+  "assignment_path": "reviews/host/4cff15db175e29647e45/jobs/audit-f1f2cc7a1741171a.json",
+  "reading_path": "logs/reading/4f804893e7f51fc7579c.md",
+  "full_reading": [
+    "任务、全部3条effective_requirements、空scope_decisions、instructions、sampling及reading引用",
+    "当前全文1–85、86–162连续阅读14103字符；真实current.md哈希与job一致",
+    "8个当前原始response/execution完整阅读；全部24个input/response/execution规范LF引用哈希一致",
+    "6项production_history记录，初稿到当前全部diff；3组原始negative response/execution对应全部5项prior_required_findings",
+    "calculate_scenarios.py全文及calculations.json全部输入与结果；calculate_volume_full_03.py全部47行及volume-scenario-full-03.json全文，均只读未执行",
+    "analysis-maturity-volume-full-03.md全文与原生产handoff全文；新增3条author-reading-ledger的日期、作者、范围和限制字段，选文未替代原件"
+  ],
+  "targeted_original_reading": [
+    "EVB25 original.txt标题和99–105日期/公告段；实际海报全图",
+    "EVB02 228–253；EVB03-R 584–613、4572–4583、4807–4864、4917–4941",
+    "EVB06 94–103；EVB07 505–518（截断遗漏已单独补读）；EVB08 60–81；EVB09 94–105、111–138",
+    "EVB10 94–105；EVB11 1–33；EVB16-R 37–52；EVB17 17–51；EVB18 1–61",
+    "EVB12-R 228–266、369–391、1447–1469；EVB13 1033–1044、1270–1285、2387–2390",
+    "EVB14 157–169、210–211及中间部分返回段；输出较长有截断，另补170、179–183和230方法段，关键21组/68尝试/39运行/43%/0.05C到0.1C已核；未声称该网页全文已读",
+    "EVB15 65–70、86；EVB19-R 442–458；EVB20 79、88–108",
+    "EVB21 142、147、159、173、273、291–311；EVB22 137、148、169–180；EVB23 116–150"
+  ],
+  "actual_visual_reading": [
+    "实际view_image：EVB25/delivery-poster.jpg完整500×880海报",
+    "实际view_image现存原件渲染：EVB26/rendered-pages/page-023.png、page-028.png、page-029.png，印刷22/27/28页，含跨页研发进展表",
+    "实际view_image现存原件渲染：EVB27/rendered-pages/page-187.png、page-194.png、page-268.png，印刷177/184/258页",
+    "由本地原PDF以pypdfium2渲染并实际view_image：EVB12-R-p3.png、EVB12-R-p4.png、EVB12-R-p17.png，完整方法/表格/寿命讨论页",
+    "由本地原PDF渲染并实际view_image：EVB13-p15.png滥用测试Figure9及正文；EVB03-R-p138.png利用率Figure9.3及单位成本9.6"
+  ],
+  "source_binding_checks": "EVB25海报、EVB26/27 PDF的绑定二进制哈希均匹配；本次查看的R原件副本与B绑定原件二进制一致。",
+  "independence_contexts": {
+    "author": "/root/remaining_research_inputs",
+    "requirements": "/root/complete_requirements_b",
+    "evidence": "/root/evidence_remaining_b",
+    "adversarial_reasoning": "/root/benchmark_adversarial",
+    "structure_and_depth": "/root/independent_reviews_a",
+    "reader_usefulness": "/root/full_reader_b",
+    "process_language": "/root/process_remaining_b",
+    "natural_expression": "/root/benchmark_natural_expression",
+    "domain-1": "/root/independent_domain_b"
+  },
+  "limits": "本次完整阅读稿件与当前8份原始评审，原始来源为有目的抽查；不声称通读全部年报、招股书、BatPaC、所有论文或整个source corpus。部分评审把末尾空拆分项计为163，当前splitlines为162而artifact一致。没有重跑电池实验、模型、算例或已通过测试；没有重开评审或改文。",
+  "api_calls": 0,
+  "research_rerun": false,
+  "calculation_rerun": false,
+  "report_modified": false,
+  "imported": false
+}

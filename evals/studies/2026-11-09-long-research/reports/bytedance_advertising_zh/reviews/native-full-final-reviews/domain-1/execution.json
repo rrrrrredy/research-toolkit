@@ -1,0 +1,63 @@
+{
+  "status": "completed",
+  "host_task": "/root/independent_domain_b",
+  "role": "reviewer",
+  "slot_id": "domain-1",
+  "scope": "Current whole-report domain revision confirmation in original reviewer context",
+  "input_version": "e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "assignment_version": "6d6da1836f2356256079300ff739308da89821dc9e57e994ba8a10a715ce3c92",
+  "artifact_sha256": "68ae85a7f3ead87c98127e2730a033e83275b5ed5c85c3f6d027fabbf2bb5a1e",
+  "completed_at": "2026-11-09T15:34:22.1446429Z",
+  "actual_reading": "Read own prior response and compared its exact frozen assignment report to the current domain assignment report; read all 13 unified-diff lines and affected surrounding context. Reused my prior complete substantive reading. Task, effective requirements, scope decisions and source_files compare identical. Instruction additions were read: retained original-context review and changes are not approval. Relevant historical required findings in the current job were treated as revision inputs; no other current-perspective conclusions were read.",
+  "checks": "本次为原真实领域上下文对当前完整稿的修订确认；先前完整阅读保留，实际变更按直接全文diff判断，未以历史通过自动替代当前判断。旧db8213c0到当前只有13行diff中的一处句子替换：缓存/打开过程改成采用2026年10月正文版本、按账户分批开放。已读完整diff及表格邻文，分批可用条件未删除，Smart+预算/自动化范围未扩大。本人先前已查原October2026文档；价格、归因与增量边界、GMV Max自然订单分母、财报和算例均逐字不变，来源文件与有效要求相同。复用原211行完整领域审阅，当前通过。",
+  "old_input_version": "db8213c012af78accb3a9719133d8719cea1032b0ba50b3b1862df3cc6dc3831",
+  "old_assignment_version": "2ff5799e1a2af67ac6d40c606e4d47ea09d331577b8913a640558a51b6802c58",
+  "prior_response": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\native-full-reviews\\domain-1\\response.json",
+  "prior_execution": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\native-full-reviews\\domain-1\\execution.json",
+  "old_report_sha256": "2b6fcb4578a6fbb99f3f1fee6a444bde059fda9a1cbb64e58173029f52d27416",
+  "current_report_sha256": "68ae85a7f3ead87c98127e2730a033e83275b5ed5c85c3f6d027fabbf2bb5a1e",
+  "actual_diff": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\native-full-final-reviews\\domain-1\\actual-diff.txt",
+  "unchanged_inputs": {
+    "task": true,
+    "effective_requirements": true,
+    "scope_decisions": true,
+    "source_files": true,
+    "sources": true
+  },
+  "additional_original_reading": [],
+  "file_versions": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\native-full-final-reviews\\domain-1\\actual-diff.txt",
+      "sha256": "cbeab8a76f1acfce87e1abe514bfd10583a83688f39bbc016849f0d822308bf5"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\native-full-final-reviews\\domain-1\\reviewed-current.txt",
+      "sha256": "68ae85a7f3ead87c98127e2730a033e83275b5ed5c85c3f6d027fabbf2bb5a1e"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\native-full-final-reviews\\domain-1\\reviewed-old.txt",
+      "sha256": "2b6fcb4578a6fbb99f3f1fee6a444bde059fda9a1cbb64e58173029f52d27416"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\native-full-reviews\\domain-1\\execution.json",
+      "sha256": "38c4a188a1e212a6c36a4fe8fdbeed818781abbcea8539860ab36eda09c1695d"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\bytedance_advertising_zh\\native-full-reviews\\domain-1\\response.json",
+      "sha256": "ec4a98fcea4709273e2529856a0488ec7905d01ef1b8195a76339a5734d5680a"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\reviews\\host\\db8213c012af78accb3a\\jobs\\domain-1-2ff5799e1a2af67a.json",
+      "sha256": "75f34fe6630f67f9ebfb6851a1d51b74c8eeb1f09f477be122b4b07a5f885103"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh\\reviews\\host\\e4cabf49ef9396bd0f19\\jobs\\domain-1-6d6da1836f235625.json",
+      "sha256": "b7a75995b35ad2457bfea33601b5a9db10021a66afa5526b0f34247e6bd74157"
+    }
+  ],
+  "api_calls": 0,
+  "research_rerun": false,
+  "calculation_rerun": false,
+  "report_edited": false,
+  "imported": false
+}

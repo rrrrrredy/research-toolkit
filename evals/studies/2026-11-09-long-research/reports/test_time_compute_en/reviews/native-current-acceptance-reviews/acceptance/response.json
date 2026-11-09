@@ -1,0 +1,94 @@
+{
+  "result": "pass",
+  "basis": "Independent final acceptance continued in the same /root/office_final_acceptance context. My actual earlier complete358-line report, requirements, production handoffs, raw opinions/audit, source and saved-calculation reading is retained. I read all300lines of the current label diff, all8 current raw content opinions, the independent U1 replacement opinions and affected decision-tree context; then read the formal current job and complete new audit response/execution. Every old diff context line matches and the patch reconstructs the current frozen report. All54 ordered citation URLs, source bodies, empirical quantities, arguments and qualifications remain. The formal job binds exactly the preread current report and sources. Descriptive citations now satisfy the existing reader-facing writing rule, and all3 necessary historical content corrections remain. This whole-report judgment uses my own unchanged supported reading, not an inherited verdict. No necessary correction remains.",
+  "coverage": {
+    "requirements": {
+      "location": "reports/current.md:1–358;31–43,135–149,161–247,249–313,336–358",
+      "basis": "The English technical report covers all requested inference-time method families, mathematics/coding/tool workloads, scaling gains and limits, budget economics, labelled worked allocation example and conditional decision tree. The cutoff2026-11-09 and paper/model/evaluation versions remain explicit. Task and substantive requirements are unchanged; satisfied status metadata is not used as proof."
+    },
+    "evidence": {
+      "location": "reports/current.md:45–159,181–247,315–358; retained original-source and saved-calculation checks",
+      "basis": "Exact primary versions, locators and all54 ordered URLs survive the complete diff. Candidate availability, selection, training confounding, finite-probe oracle limits, selected-test effects and source numerical conflicts retain their boundaries. Prior actual primary reading and complete saved allocation inspection remain applicable; no experiment or illustrative calculation is described as newly reproduced."
+    },
+    "adversarial_reasoning": {
+      "location": "reports/current.md:45–159,201–247,315–333",
+      "basis": "The argument distinguishes availability from delivered success, training changes from fixed-model inference allocation, oracle knowledge from deployable feedback, and total compute from serial latency/parallel demand. Regressions, correlated errors, weak selectors, ambiguous feedback and unsupported source thresholds remain developed counterevidence. No title edit weakens those conditions."
+    },
+    "structure_and_depth": {
+      "location": "reports/current.md:25–313 and315–358",
+      "basis": "The retained complete reading establishes an integrated mechanism comparison, evidence/scaling matrices, cost ledger, worked example and design policy. All8 diff hunks change labels and local grammar only; exact patch reconstruction establishes the current complete artifact. Tables remain connected to developed analysis."
+    },
+    "reader_usefulness": {
+      "location": "reports/current.md:31–43,133–149,249–292,336–358",
+      "basis": "Reader-visible TTC/SUP keys are replaced by recognizable paper or method names with original targets/locators. OR/AD definitions precede values. The full controller context was revisited: execution returns to completion, updated budget/deadline/resource checks constrain increments, and reduced plans re-enter feasibility. The task does not request presentation of internal source IDs."
+    },
+    "process_language": {
+      "location": "reports/current.md:195,295 and all changed passages",
+      "basis": "Prior removal of internal planning/request narration remains intact. TTSP accounting and pilot measurements retain substantive detail. Current edits add no author-process narration or claim of independent experimental reproduction."
+    },
+    "natural_expression": {
+      "location": "reports/current.md:32–154,172–180,192–200,215–221,314–358",
+      "basis": "Every changed passage was read in the complete diff. Short paper names, possessives, local de-duplication and reference header remain grammatical. Scientific qualifications, versions and numerical criticism are preserved."
+    }
+  },
+  "sample_checks": [
+    {
+      "location": "reference-labels-v2.diff:1–300; current85–99,336–358",
+      "selection_reason": "Labels could retain links but imply a different version or verification mechanism.",
+      "evidence": "All18 label mappings were inspected. Inference Regimes remains v2; Let's Verify Step by Step retains step-product/training comparability; Scaling Test-Time Compute Optimally retains reward-to-go, selector and routing limits. Exact54-URL order and full patch reconstruction independently match.",
+      "result": "clear"
+    },
+    {
+      "location": "current133,146,195,249–292,295,327",
+      "selection_reason": "Check preservation of necessary repairs and controller constraints.",
+      "evidence": "OR/AD definitions and percent/percentage-point units precede values; finite-probe oracle limits remain. The graph returns execution to completion and revised plans to updated feasibility. The20,000-slot decomposition and pilot detail remain without internal-writing phrases. Current whole249–292 context plus full diff and prior originals support this.",
+      "result": "clear"
+    },
+    {
+      "location": "current191–247,317–333",
+      "selection_reason": "Check economic and counterevidence conditions in changed attribution passages.",
+      "evidence": "CodeMonkeys historical cost scope, TTSP proposer/solver accounting and excluded update/tool costs, hypothetical allocation assumptions, source-threshold criticism and OTBench probe/overhead limits remain. My actual prior original/source and complete saved-calculation checks are reused; no calculation rerun.",
+      "result": "clear"
+    },
+    {
+      "location": "native-U1-independent-replacement-reviews/evidence/{response,execution}.json;domain-1/response.json;new audit U1 checks",
+      "selection_reason": "Confirm independent unit authority and preserve optional observations accurately.",
+      "evidence": "Read the independent evidence reply/execution and original domain reply, retaining separate real identities and unchanged U1 artifact. The new audit originals verify imported binding. TTCEN-U1-EV-01 remains optional and unresolved: .6300 versus saved .6300557487551233, whose four-place rounding is .6301. This unit-display discrepancy does not change the report formula, ceiling, comparison or current allocation table.",
+      "result": "clear"
+    }
+  ],
+  "resolved_prior_findings": [
+    {
+      "finding_id": "natural_expression-01",
+      "status": "resolved",
+      "basis": "Current195/295 retain substantive accounting/pilot content without internal-writing references."
+    },
+    {
+      "finding_id": "RU-TTCEN-01",
+      "status": "resolved",
+      "basis": "Current133/146/327 preserve definitions, denominators, units and oracle/finite-probe boundaries."
+    },
+    {
+      "finding_id": "RU-TTCEN-02",
+      "status": "resolved",
+      "basis": "Current249–292 preserves completion and updated feasibility loops."
+    },
+    {
+      "finding_id": "TTC-ACCEPTANCE-LABEL-01",
+      "status": "resolved",
+      "basis": "All current reader-visible TTC/SUP keys replaced with descriptive titles/method names, preserving URLs, versions, locators, quantities and argument conditions. Old acceptance and subsequent disposition remain historical originals."
+    }
+  ],
+  "optional_observations": [
+    {
+      "finding_id": "TTCEN-U1-EV-01",
+      "status": "unresolved_optional",
+      "scope": "Unchanged U1 illustration, not the current report allocation table",
+      "basis": "U1 displays .6300 for N=8 while saved .6300557487551233 rounds to .6301 at four places or .630 at three. This optional precision note does not change the formula or substantive conclusion. No repair is claimed."
+    }
+  ],
+  "open_issues": [],
+  "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "assignment_version": "67411f330f48d2d602d9bd70a87d739f83f057cf8d6148f84acdee17bc51857a",
+  "artifact_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e"
+}

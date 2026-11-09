@@ -1,0 +1,721 @@
+[
+  {
+    "source_id": "TTC001",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC001.txt",
+    "sha256": "13126da4ded998b96e366b44a00c74bb97ad5e8cfb4754931491cc1f2b3156e3",
+    "range_type": "line",
+    "start": 90,
+    "end": 173,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:56:27.987633+00:00"
+  },
+  {
+    "source_id": "TTC001",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC001.txt",
+    "sha256": "13126da4ded998b96e366b44a00c74bb97ad5e8cfb4754931491cc1f2b3156e3",
+    "range_type": "line",
+    "start": 174,
+    "end": 211,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:56:35.557569+00:00",
+    "note": "Only substantive lines through 211 retained; acknowledgement tail was truncated."
+  },
+  {
+    "source_id": "TTC002",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC002.txt",
+    "sha256": "9af07d3d703f38454fc630719769f9a99bb2fa25cdf51c0ffc1055fd0833a4e2",
+    "range_type": "line",
+    "start": 110,
+    "end": 173,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:56:36.203805+00:00",
+    "note": "Initial 102-109 were truncated in batched output and separately re-read in a later ledger entry."
+  },
+  {
+    "source_id": "TTC002",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC002.txt",
+    "sha256": "9af07d3d703f38454fc630719769f9a99bb2fa25cdf51c0ffc1055fd0833a4e2",
+    "range_type": "line",
+    "start": 367,
+    "end": 460,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:56:45.637575+00:00"
+  },
+  {
+    "source_id": "TTC003",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC003.txt",
+    "sha256": "7ad7fd3af301ef9437141aa6ed4a674888e2c93f2426016cf0c3c9f49c60bbd1",
+    "range_type": "line",
+    "start": 554,
+    "end": 650,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:57:06.973942+00:00"
+  },
+  {
+    "source_id": "TTC003v2",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC003v2.txt",
+    "sha256": "176013600f0767f6be9700414e2c6de57702be73986eab26d04c7015a80f396d",
+    "range_type": "line",
+    "start": 624,
+    "end": 717,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:57:12.607414+00:00"
+  },
+  {
+    "source_id": "TTC003v2",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC003v2.txt",
+    "sha256": "176013600f0767f6be9700414e2c6de57702be73986eab26d04c7015a80f396d",
+    "range_type": "line",
+    "start": 124,
+    "end": 159,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:57:19.835440+00:00"
+  },
+  {
+    "source_id": "TTC003v2",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC003v2.txt",
+    "sha256": "176013600f0767f6be9700414e2c6de57702be73986eab26d04c7015a80f396d",
+    "range_type": "line",
+    "start": 2745,
+    "end": 2788,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:57:19.985258+00:00"
+  },
+  {
+    "source_id": "TTC005",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC005.txt",
+    "sha256": "93be169f42a5e6f6c676b2026d3ab2dfc3ea1c652db9dac70dc6b5bff45a916b",
+    "range_type": "line",
+    "start": 191,
+    "end": 303,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:57:36.876358+00:00"
+  },
+  {
+    "source_id": "TTC006",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC006.txt",
+    "sha256": "c8903b481b539cc387d0f7b9fda999814c90799b98046c478140712b023996d4",
+    "range_type": "line",
+    "start": 181,
+    "end": 450,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:57:43.980724+00:00"
+  },
+  {
+    "source_id": "TTC006",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC006.txt",
+    "sha256": "c8903b481b539cc387d0f7b9fda999814c90799b98046c478140712b023996d4",
+    "range_type": "line",
+    "start": 848,
+    "end": 879,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:57:58.952378+00:00"
+  },
+  {
+    "source_id": "TTC007",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC007.txt",
+    "sha256": "708e50f5dfbe69b53de523d40da5abdbd33bd54eb7f22a80a50e61e11d0eab1d",
+    "range_type": "line",
+    "start": 290,
+    "end": 424,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:57:59.087544+00:00"
+  },
+  {
+    "source_id": "TTC008",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC008.txt",
+    "sha256": "6342c2cea6c0688d3767bdabfd4e29408ff76c436d84c320f2d13bf4230b963c",
+    "range_type": "line",
+    "start": 252,
+    "end": 415,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:06.860740+00:00"
+  },
+  {
+    "source_id": "TTC008",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC008.txt",
+    "sha256": "6342c2cea6c0688d3767bdabfd4e29408ff76c436d84c320f2d13bf4230b963c",
+    "range_type": "line",
+    "start": 509,
+    "end": 550,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:15.971069+00:00"
+  },
+  {
+    "source_id": "TTC008",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC008.txt",
+    "sha256": "6342c2cea6c0688d3767bdabfd4e29408ff76c436d84c320f2d13bf4230b963c",
+    "range_type": "line",
+    "start": 970,
+    "end": 993,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:16.141749+00:00"
+  },
+  {
+    "source_id": "TTC009",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC009.txt",
+    "sha256": "619d8a6893dd5ec139942aaede087c5f7725becfbcacdf059cfe1ce520333542",
+    "range_type": "line",
+    "start": 101,
+    "end": 120,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:16.351434+00:00"
+  },
+  {
+    "source_id": "TTC009",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC009.txt",
+    "sha256": "619d8a6893dd5ec139942aaede087c5f7725becfbcacdf059cfe1ce520333542",
+    "range_type": "line",
+    "start": 186,
+    "end": 231,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:16.514034+00:00"
+  },
+  {
+    "source_id": "TTC009",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC009.txt",
+    "sha256": "619d8a6893dd5ec139942aaede087c5f7725becfbcacdf059cfe1ce520333542",
+    "range_type": "line",
+    "start": 229,
+    "end": 242,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:25.274588+00:00"
+  },
+  {
+    "source_id": "TTC010",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC010.txt",
+    "sha256": "8e58b06e94b44a4c9661a25f7f4265a2b9a37ec8726b78157d78e213bde9482e",
+    "range_type": "line",
+    "start": 102,
+    "end": 146,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:25.503144+00:00"
+  },
+  {
+    "source_id": "TTC010",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC010.txt",
+    "sha256": "8e58b06e94b44a4c9661a25f7f4265a2b9a37ec8726b78157d78e213bde9482e",
+    "range_type": "line",
+    "start": 208,
+    "end": 286,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:25.801478+00:00"
+  },
+  {
+    "source_id": "TTC011",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC011.txt",
+    "sha256": "6be1d75baff52305ac9196bf4ee8283cd713f32379a757c9fe8f912bcf95a21a",
+    "range_type": "line",
+    "start": 84,
+    "end": 229,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:34.113176+00:00"
+  },
+  {
+    "source_id": "TTC012",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC012.txt",
+    "sha256": "3f60f278a76ba396101a3eb9e8e72d84b9958bdbde14f90683b660c960c3b366",
+    "range_type": "line",
+    "start": 95,
+    "end": 188,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:45.917984+00:00",
+    "note": "Lines 134-145 were truncated in this call and separately re-read in a later entry; union is the actual scope.",
+    "excluded_ranges_this_call": [
+      [
+        134,
+        145
+      ]
+    ]
+  },
+  {
+    "source_id": "SUP-SELF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-SELF.txt",
+    "sha256": "1931506b6c2eee9d9304229c8222868b5203adf1b52111a7e25d95adf2b5bd21",
+    "range_type": "line",
+    "start": 84,
+    "end": 99,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:46.157846+00:00"
+  },
+  {
+    "source_id": "SUP-SELF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-SELF.txt",
+    "sha256": "1931506b6c2eee9d9304229c8222868b5203adf1b52111a7e25d95adf2b5bd21",
+    "range_type": "line",
+    "start": 159,
+    "end": 181,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:46.468303+00:00"
+  },
+  {
+    "source_id": "TTC012",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC012.txt",
+    "sha256": "3f60f278a76ba396101a3eb9e8e72d84b9958bdbde14f90683b660c960c3b366",
+    "range_type": "line",
+    "start": 134,
+    "end": 145,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:54.795208+00:00"
+  },
+  {
+    "source_id": "TTC013",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC013.txt",
+    "sha256": "58c37eb46271d2ade4e09201b5891757ba4ccc49c1c1363bf8a8f7da2a57845d",
+    "range_type": "line",
+    "start": 175,
+    "end": 203,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:55.008159+00:00"
+  },
+  {
+    "source_id": "TTC013",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC013.txt",
+    "sha256": "58c37eb46271d2ade4e09201b5891757ba4ccc49c1c1363bf8a8f7da2a57845d",
+    "range_type": "line",
+    "start": 249,
+    "end": 291,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:58:55.196854+00:00"
+  },
+  {
+    "source_id": "SUP-CM",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-CM.txt",
+    "sha256": "9df0d0acba699e7ca15adf49ddcbbf8f2618a439cbe40dfa253c3cafd595c281",
+    "range_type": "line",
+    "start": 144,
+    "end": 249,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:03.131525+00:00"
+  },
+  {
+    "source_id": "SUP-CM",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-CM.txt",
+    "sha256": "9df0d0acba699e7ca15adf49ddcbbf8f2618a439cbe40dfa253c3cafd595c281",
+    "range_type": "line",
+    "start": 85,
+    "end": 143,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:11.473779+00:00"
+  },
+  {
+    "source_id": "SUP-TAU",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-TAU.txt",
+    "sha256": "71bb537ab3bd64682e0a537dd71998c1ede09bd26233d6bc00e08e8d344b1dd6",
+    "range_type": "line",
+    "start": 79,
+    "end": 133,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:11.693955+00:00"
+  },
+  {
+    "source_id": "SUP-TAU",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-TAU.txt",
+    "sha256": "71bb537ab3bd64682e0a537dd71998c1ede09bd26233d6bc00e08e8d344b1dd6",
+    "range_type": "line",
+    "start": 164,
+    "end": 261,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:18.717047+00:00"
+  },
+  {
+    "source_id": "SUP-TREE",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-TREE.txt",
+    "sha256": "c48d9f0a8a841ef0e9f4fb4feb5f02d6d0dfa0e9b8958bf142c30defb3d089ac",
+    "range_type": "line",
+    "start": 140,
+    "end": 265,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:25.476624+00:00"
+  },
+  {
+    "source_id": "SUP-TREE",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-TREE.txt",
+    "sha256": "c48d9f0a8a841ef0e9f4fb4feb5f02d6d0dfa0e9b8958bf142c30defb3d089ac",
+    "range_type": "line",
+    "start": 391,
+    "end": 402,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:34.990768+00:00"
+  },
+  {
+    "source_id": "SUP-LIMITS",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-LIMITS.txt",
+    "sha256": "7a0104ec86807a16dda2ec1714ea4ec30f7ba6350b6e1cb144decfef2bad691c",
+    "range_type": "line",
+    "start": 52,
+    "end": 109,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:35.217161+00:00"
+  },
+  {
+    "source_id": "SUP-LIMITS",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-LIMITS.txt",
+    "sha256": "7a0104ec86807a16dda2ec1714ea4ec30f7ba6350b6e1cb144decfef2bad691c",
+    "range_type": "line",
+    "start": 237,
+    "end": 276,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:35.466134+00:00"
+  },
+  {
+    "source_id": "SUP-AC",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-AC.txt",
+    "sha256": "cc3f172909d43feb0434248c86ff172cb5e66f47963a7a2d4648e21b8df3b5e3",
+    "range_type": "line",
+    "start": 176,
+    "end": 260,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:48.896213+00:00"
+  },
+  {
+    "source_id": "SUP-AC",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-AC.txt",
+    "sha256": "cc3f172909d43feb0434248c86ff172cb5e66f47963a7a2d4648e21b8df3b5e3",
+    "range_type": "line",
+    "start": 371,
+    "end": 410,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:49.073611+00:00"
+  },
+  {
+    "source_id": "SUP-AC",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-AC.txt",
+    "sha256": "cc3f172909d43feb0434248c86ff172cb5e66f47963a7a2d4648e21b8df3b5e3",
+    "range_type": "line",
+    "start": 464,
+    "end": 515,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:49.242894+00:00"
+  },
+  {
+    "source_id": "SUP-AC",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-AC.txt",
+    "sha256": "cc3f172909d43feb0434248c86ff172cb5e66f47963a7a2d4648e21b8df3b5e3",
+    "range_type": "line",
+    "start": 302,
+    "end": 370,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:58.084061+00:00"
+  },
+  {
+    "source_id": "TTC004",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC004.txt",
+    "sha256": "20ebd75613509970d3aa7a693ce03782bd24846c4c85b24b4af06cf59e5d97c0",
+    "range_type": "line",
+    "start": 362,
+    "end": 479,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:58.267060+00:00"
+  },
+  {
+    "source_id": "TTC007",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC007.txt",
+    "sha256": "708e50f5dfbe69b53de523d40da5abdbd33bd54eb7f22a80a50e61e11d0eab1d",
+    "range_type": "line",
+    "start": 134,
+    "end": 172,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T12:59:58.444255+00:00"
+  },
+  {
+    "source_id": "TTC002",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC002.txt",
+    "sha256": "9af07d3d703f38454fc630719769f9a99bb2fa25cdf51c0ffc1055fd0833a4e2",
+    "range_type": "line",
+    "start": 1108,
+    "end": 1132,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T13:00:47.791160+00:00"
+  },
+  {
+    "source_id": "TTC005",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC005.txt",
+    "sha256": "93be169f42a5e6f6c676b2026d3ab2dfc3ea1c652db9dac70dc6b5bff45a916b",
+    "range_type": "line",
+    "start": 735,
+    "end": 751,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T13:00:47.979609+00:00"
+  },
+  {
+    "source_id": "TTC002",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC002.txt",
+    "sha256": "9af07d3d703f38454fc630719769f9a99bb2fa25cdf51c0ffc1055fd0833a4e2",
+    "range_type": "line",
+    "start": 102,
+    "end": 109,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T13:13:18.011728+00:00"
+  },
+  {
+    "source_id": "TTC005",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC005.txt",
+    "sha256": "93be169f42a5e6f6c676b2026d3ab2dfc3ea1c652db9dac70dc6b5bff45a916b",
+    "range_type": "line",
+    "start": 625,
+    "end": 637,
+    "actual_read_scope": "displayed original lines",
+    "at": "2026-11-09T13:13:18.150103+00:00"
+  },
+  {
+    "source_id": "TTC001",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC001.txt",
+    "sha256": "13126da4ded998b96e366b44a00c74bb97ad5e8cfb4754931491cc1f2b3156e3",
+    "range_type": "line",
+    "start": 54,
+    "end": 54,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.817811+00:00"
+  },
+  {
+    "source_id": "TTC002",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC002.txt",
+    "sha256": "9af07d3d703f38454fc630719769f9a99bb2fa25cdf51c0ffc1055fd0833a4e2",
+    "range_type": "line",
+    "start": 77,
+    "end": 77,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.819057+00:00"
+  },
+  {
+    "source_id": "TTC003",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC003.txt",
+    "sha256": "7ad7fd3af301ef9437141aa6ed4a674888e2c93f2426016cf0c3c9f49c60bbd1",
+    "range_type": "line",
+    "start": 129,
+    "end": 129,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.821261+00:00"
+  },
+  {
+    "source_id": "TTC004",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC004.txt",
+    "sha256": "20ebd75613509970d3aa7a693ce03782bd24846c4c85b24b4af06cf59e5d97c0",
+    "range_type": "line",
+    "start": 1244,
+    "end": 1244,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.823814+00:00"
+  },
+  {
+    "source_id": "TTC005",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC005.txt",
+    "sha256": "93be169f42a5e6f6c676b2026d3ab2dfc3ea1c652db9dac70dc6b5bff45a916b",
+    "range_type": "line",
+    "start": 89,
+    "end": 89,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.824774+00:00"
+  },
+  {
+    "source_id": "TTC006",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC006.txt",
+    "sha256": "c8903b481b539cc387d0f7b9fda999814c90799b98046c478140712b023996d4",
+    "range_type": "line",
+    "start": 548,
+    "end": 548,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.825812+00:00"
+  },
+  {
+    "source_id": "TTC007",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC007.txt",
+    "sha256": "708e50f5dfbe69b53de523d40da5abdbd33bd54eb7f22a80a50e61e11d0eab1d",
+    "range_type": "line",
+    "start": 54,
+    "end": 54,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.826774+00:00"
+  },
+  {
+    "source_id": "TTC008",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC008.txt",
+    "sha256": "6342c2cea6c0688d3767bdabfd4e29408ff76c436d84c320f2d13bf4230b963c",
+    "range_type": "line",
+    "start": 92,
+    "end": 92,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.826774+00:00"
+  },
+  {
+    "source_id": "TTC003v2",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC003v2.txt",
+    "sha256": "176013600f0767f6be9700414e2c6de57702be73986eab26d04c7015a80f396d",
+    "range_type": "line",
+    "start": 126,
+    "end": 126,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.828777+00:00"
+  },
+  {
+    "source_id": "TTC009",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC009.txt",
+    "sha256": "619d8a6893dd5ec139942aaede087c5f7725becfbcacdf059cfe1ce520333542",
+    "range_type": "line",
+    "start": 59,
+    "end": 59,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.829777+00:00"
+  },
+  {
+    "source_id": "TTC010",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC010.txt",
+    "sha256": "8e58b06e94b44a4c9661a25f7f4265a2b9a37ec8726b78157d78e213bde9482e",
+    "range_type": "line",
+    "start": 55,
+    "end": 55,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.829777+00:00"
+  },
+  {
+    "source_id": "TTC011",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC011.txt",
+    "sha256": "6be1d75baff52305ac9196bf4ee8283cd713f32379a757c9fe8f912bcf95a21a",
+    "range_type": "line",
+    "start": 40,
+    "end": 40,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.830778+00:00"
+  },
+  {
+    "source_id": "TTC012",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC012.txt",
+    "sha256": "3f60f278a76ba396101a3eb9e8e72d84b9958bdbde14f90683b660c960c3b366",
+    "range_type": "line",
+    "start": 62,
+    "end": 62,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.830778+00:00"
+  },
+  {
+    "source_id": "TTC013",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC013.txt",
+    "sha256": "58c37eb46271d2ade4e09201b5891757ba4ccc49c1c1363bf8a8f7da2a57845d",
+    "range_type": "line",
+    "start": 44,
+    "end": 44,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.831777+00:00"
+  },
+  {
+    "source_id": "SUP-CM",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-CM.txt",
+    "sha256": "9df0d0acba699e7ca15adf49ddcbbf8f2618a439cbe40dfa253c3cafd595c281",
+    "range_type": "line",
+    "start": 40,
+    "end": 40,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.831777+00:00"
+  },
+  {
+    "source_id": "SUP-TAU",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-TAU.txt",
+    "sha256": "71bb537ab3bd64682e0a537dd71998c1ede09bd26233d6bc00e08e8d344b1dd6",
+    "range_type": "line",
+    "start": 53,
+    "end": 53,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.833818+00:00"
+  },
+  {
+    "source_id": "SUP-LIMITS",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-LIMITS.txt",
+    "sha256": "7a0104ec86807a16dda2ec1714ea4ec30f7ba6350b6e1cb144decfef2bad691c",
+    "range_type": "line",
+    "start": 46,
+    "end": 46,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.834401+00:00"
+  },
+  {
+    "source_id": "SUP-SELF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-SELF.txt",
+    "sha256": "1931506b6c2eee9d9304229c8222868b5203adf1b52111a7e25d95adf2b5bd21",
+    "range_type": "line",
+    "start": 37,
+    "end": 37,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.834955+00:00"
+  },
+  {
+    "source_id": "SUP-AC",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-AC.txt",
+    "sha256": "cc3f172909d43feb0434248c86ff172cb5e66f47963a7a2d4648e21b8df3b5e3",
+    "range_type": "line",
+    "start": 1095,
+    "end": 1095,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.835508+00:00"
+  },
+  {
+    "source_id": "SUP-TREE",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\SUP-TREE.txt",
+    "sha256": "c48d9f0a8a841ef0e9f4fb4feb5f02d6d0dfa0e9b8958bf142c30defb3d089ac",
+    "range_type": "line",
+    "start": 65,
+    "end": 65,
+    "actual_read_scope": "metadata line displayed in rg output",
+    "at": "2026-11-09T13:15:26.836118+00:00"
+  },
+  {
+    "source_id": "TTC006",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\original-attachments\\TTC006\\original.pdf",
+    "sha256": "d4b280e89e76dfea413de460a9d7e28c5f59018f8e48378fab0ba31a6faa46da",
+    "range_type": "pdf_page",
+    "start": 4,
+    "end": 4,
+    "actual_read_scope": "Visual inspection of complete page; Table 2 and its cumulative definition.",
+    "at": "2026-11-09T13:19:56.719843+00:00"
+  },
+  {
+    "source_id": "TTC006",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\original-attachments\\TTC006\\original.pdf",
+    "sha256": "d4b280e89e76dfea413de460a9d7e28c5f59018f8e48378fab0ba31a6faa46da",
+    "range_type": "pdf_page",
+    "start": 9,
+    "end": 9,
+    "actual_read_scope": "Visual inspection of complete page; Appendix E text p=0.038.",
+    "at": "2026-11-09T13:19:56.719843+00:00"
+  },
+  {
+    "source_id": "TTC006",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\original-attachments\\TTC006\\original.pdf",
+    "sha256": "d4b280e89e76dfea413de460a9d7e28c5f59018f8e48378fab0ba31a6faa46da",
+    "range_type": "pdf_page",
+    "start": 10,
+    "end": 10,
+    "actual_read_scope": "Visual inspection of complete page; Table 5 p=0.014 and footnotes.",
+    "at": "2026-11-09T13:19:56.719843+00:00"
+  },
+  {
+    "source_id": "SUP-AC",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\original-attachments\\SUP-AC\\original.pdf",
+    "sha256": "71a061c49cac082eb92bd8d86f23cb05bcaf56e21048abd5b293a8251cfd7ba3",
+    "range_type": "pdf_page",
+    "start": 6,
+    "end": 6,
+    "actual_read_scope": "Visual inspection of complete page; Table 1 73.2/73.1 and 40/13.8.",
+    "at": "2026-11-09T13:19:56.719843+00:00"
+  },
+  {
+    "source_id": "TTC008",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\original-attachments\\TTC008\\original.html",
+    "sha256": "d8dc72a966c510f4fff23d1b5ea589f6f06a29c1618362b455dbaeba86fafb64",
+    "range_type": "html_character_zero_based",
+    "start": 73183,
+    "end": 74697,
+    "actual_read_scope": "Read original HTML paragraph with MathML/TeX single-generator success formula.",
+    "at": "2026-11-09T13:19:56.719843+00:00"
+  },
+  {
+    "source_id": "TTC012",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\original-attachments\\TTC012\\original.html",
+    "sha256": "a1838b7cf38ebf2bc2ae7828c256bd8557c682bc6eb860caca61cfc2c9e81989",
+    "range_type": "html_character_zero_based",
+    "start": 51243,
+    "end": 53267,
+    "actual_read_scope": "Read original HTML Figure 3 table 72.4/78.2/69.6 and Best-of-1860 label.",
+    "at": "2026-11-09T13:19:56.719843+00:00"
+  }
+]

@@ -1,0 +1,62 @@
+{
+  "request": {
+    "task": "ai_drug_discovery_en",
+    "artifact": "analysis/outline.md",
+    "scope": "outline",
+    "perspectives": [
+      "requirements",
+      "structure_and_depth"
+    ],
+    "domains": [],
+    "purpose": "report_delivery",
+    "evidence_paths": [],
+    "revision": true,
+    "audit": true
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en",
+    "input_version": "08ee4e8cf6e9b2733119c8c87965023b83648c1f084afbabbd87f1a702fd3e7a",
+    "scope": "outline",
+    "assignments": [
+      {
+        "slot_id": "audit",
+        "role": "auditor",
+        "reading_ref": {
+          "path": "logs/reading/3624f64167f0b6a288b1.md",
+          "sha256": "3624f64167f0b6a288b10a14f9c902cd1a91961ba621f6ce8ed205199286eff9"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/08ee4e8cf6e9b2733119/jobs/audit-46f63a3abaa680ba.json",
+          "sha256": "f74babb00063836a220d8d1e693ff3c52e9c064401bb3cad2ceb763b28ca5962"
+        },
+        "assignment_version": "46f63a3abaa680ba4b304c7f7adc628a8b8cc5b835eec567d43de79c1960b0e8"
+      }
+    ],
+    "reviews_complete": true,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "An author/producer performed independent review."
+      ],
+      "required_slots": 3,
+      "completed_slots": 2,
+      "selected_attempts": {
+        "requirements": "a61766dab8ed4edea2e0a7b34c944ce0",
+        "structure_and_depth": "1b6c134084664c068a64661050ecc084"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "An author/producer performed independent review."
+    ]
+  }
+}

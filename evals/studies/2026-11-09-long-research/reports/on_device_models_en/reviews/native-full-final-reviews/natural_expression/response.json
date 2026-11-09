@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "natural_expression": {
+      "location": "第3行与第272—291行证据、计算及部署范围说明；复用首评293行全文阅读",
+      "basis": "完整检查43行统一diff。作者任务ID、独立审查分工、错误取材交接过程和评审文件说明已移除；表格改为来源版本与位置表述。S24历史commit、性能锁、上下文和设备边界、M4及Minions条件、语音RSS/实时率范围、计算原件与所缺设备实测仍在。压缩只去制作信息，未删支撑部署判断的条件，原minor已解决。"
+    }
+  },
+  "findings": [],
+  "input_version": "b05a22e12456963e8dcdd2cf1fa1d888fc1552f79329ce94c60a9f2fe349b9bf",
+  "assignment_version": "433313d7bdb2fb90f891551296384f86204db2822ce8256ab4df029b940eb77d"
+}

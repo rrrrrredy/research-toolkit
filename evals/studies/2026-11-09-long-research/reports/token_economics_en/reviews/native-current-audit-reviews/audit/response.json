@@ -1,0 +1,143 @@
+{
+  "input_version": "e6dab9c522bd95cbb6466eccef92143c33d291b91806655c81158321704d7807",
+  "assignment_version": "fb5d4a1e65794c4adc95cd4a898f7445fc94e1c153a6fcc8d78d59a58421042f",
+  "result": "valid",
+  "basis": "Read the complete current387-line English report, task/effective requirements, all8 current raw reviews and execution/version records, original necessary negative replies and selected original production materials. All8 reviews are valid. The report meets its economic task with scenario rather than measured-performance claims, and independent critical/source/code checks found no necessary remaining defect. Current report equals frozen assignment; only3,380,382,384,386 differ from the retained first complete report.",
+  "review_checks": {
+    "requirements": {
+      "result": "valid",
+      "basis": "/root/complete_requirements_b: Own prior complete1–387 reading plus all current changes preserves five ledgers, dated offers, three workloads, sensitivities, hosting and value-chain requirements. Current input, response and execution reference hashes match; current input_version is exact, status completed, and reviewer is independent of recorded producers /root/ttc_research and author:token_economics_en."
+    },
+    "evidence": {
+      "result": "valid",
+      "basis": "/root/independent_reviews_a: Actual original complete reading/source and arithmetic work retained; current26-line diff and unchanged sources checked. Independent audit read source code/results and decisive primary rates/conditions, finding no unsupported clearance. Current input, response and execution reference hashes match; current input_version is exact, status completed, and reviewer is independent of recorded producers /root/ttc_research and author:token_economics_en."
+    },
+    "adversarial_reasoning": {
+      "result": "valid",
+      "basis": "/root/benchmark_adversarial: Original full-reading reuse and current1–6/377–386 context cover preserved acceptance denominators, finite conditional failure paths, fixed-history sensitivity and unmeasured capacity limits. Current input, response and execution reference hashes match; current input_version is exact, status completed, and reviewer is independent of recorded producers /root/ttc_research and author:token_economics_en."
+    },
+    "structure_and_depth": {
+      "result": "valid",
+      "basis": "/root/structure_remaining_b: Own original1–115,116–260,261–386 reading and full29-line diff are recorded; entire current report still develops a coherent cost-to-accepted-work argument rather than a price table alone. Current input, response and execution reference hashes match; current input_version is exact, status completed, and reviewer is independent of recorded producers /root/ttc_research and author:token_economics_en."
+    },
+    "reader_usefulness": {
+      "result": "valid",
+      "basis": "/root/full_reader_b: Own four continuous full-reading ranges1–387 and current1–6/377–387 context documented. Scenarios retain actionable thresholds and assumptions; no unsupported factual re-audit claimed. Current input, response and execution reference hashes match; current input_version is exact, status completed, and reviewer is independent of recorded producers /root/ttc_research and author:token_economics_en."
+    },
+    "process_language": {
+      "result": "valid",
+      "basis": "/root/process_remaining_b: Original negative and complete1–386 reading retained;16-line diff removes internal reading/retrieval narration at380/382 while preserving substantive source and method boundaries. Current input, response and execution reference hashes match; current input_version is exact, status completed, and reviewer is independent of recorded producers /root/ttc_research and author:token_economics_en."
+    },
+    "natural_expression": {
+      "result": "valid",
+      "basis": "/root/benchmark_natural_expression: Original full386-line reading and32-line current diff cover both original minor findings; word joins and internal draft metadata are actually absent in current3/382–386. Current input, response and execution reference hashes match; current input_version is exact, status completed, and reviewer is independent of recorded producers /root/ttc_research and author:token_economics_en."
+    },
+    "domain-1": {
+      "result": "valid",
+      "basis": "/root/independent_domain_b: Recorded original full387-line review, source passages, workload/code/quote reading and current27-line diff support its economic-scope assessment; no new costs, capabilities or private margins introduced. Current input, response and execution reference hashes match; current input_version is exact, status completed, and reviewer is independent of recorded producers /root/ttc_research and author:token_economics_en."
+    }
+  },
+  "dispositions": {},
+  "critical_checks": [
+    {
+      "requirement_id": "R_TASK",
+      "location": "reports/current.md:13–60,117–310,329–373",
+      "evidence": "Five ledgers separate sunk development/allocation, marginal serving, price and application value. Three finite-path workloads include unresolved work, conditional retry/fallback, growing input, tools and labor. Full workload_calculations.py:1–100 plus saved support/document/agent/sensitivity/hosting results agree with report formulas and selected thresholds. Self-hosting uses the whole exact node quote and explicitly assumed SLO/quality rather than benchmark parity; value capture remains conditional.",
+      "result": "clear"
+    },
+    {
+      "requirement_id": "R_LANGUAGE",
+      "location": "reports/current.md:1–387",
+      "evidence": "Entire English long-form report read continuously, including all equations/tables, timing ledger, value-chain diagram and appendix. Substantive content and exhibits are complete; current appendix is legible and reader-oriented.",
+      "result": "clear"
+    },
+    {
+      "requirement_id": "R_DATE",
+      "location": "reports/current.md:64–95,274–278,348–350,378–386",
+      "evidence": "Dated historical launch offers are distinct from November9 observations. TE05 specifies2026-10-22; DeepSeekV3 announcement:52–56 explicitly distinguishes temporary price and Feb8 effective rates; Gemini retained documentation:3025–3031/3242–3249 puts alias changes onDec1 after cutoff. Azure exact retained JSON identifiesUSD,EastUS,Consumption,wholeNC80 node,effective2024-03-01. Financials retain reporting periods and are not endpoint margins.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:33–48,54–60",
+      "evidence": "TE01:203–237 includes2664K+119K+5K H800 hours,$5.576m and excluded priorR&D. Meta official card:100–166 gives39.3mH100hours across models, not dollar cost. TE24:73–75,174–175 distinguishes capital/energy,rental and development estimates. DistServe:265–267,309–310 retains actualOPT/FP16/32A100/Poisson setting and incomplete fault-tolerance implementation, not a frontier cost result.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:66–95,173–200",
+      "evidence": "TE05:1–95 supports all three principal scenario tariffs and TTL write/read categories. Actual Claude docs126–141,310–345 confirm request-start TTL refresh, cache availability after response begins and512-token eligibility. TE-S03:3019–3087,3236–3302 supports Gemini rates, storage and whole-request200K bands. Official GPT4.1 launch159–168 and4omini21–24/53 confirm historical rates; GPT6.1Sol992–1025 andTE07:802–815/TE09:906–913 confirm current rates/boundary/categories. TE11:35–75 supports currentDeepSeek alias/peak/tool conditions.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:121–161,173–215,221–263",
+      "evidence": "Code and saved outcomes separately preserve994/996 support acceptances,1188/1183.2 document expectations,96/97 agent acceptances. Human cost includes unresolved escalation; cached creation is not ordinary-input double billing; total generated output includes reasoning once. Cache time series yields4writes/8reads versus1write/11reads. Agent output sensitivity fixes input history and cannot describe a full retained conversation; current263 expressly says so.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:274–310",
+      "evidence": "Retained full Azure6-row JSON selects Linux/nonSpot/nonLowPriority13.96USD/hour, not17.64Windows or half node. Actual Microsoft SKU tables show80vCPU,640GiB,2×94GB H100 and7152GiBtemporary disk. Code69–74 and saved hosting rows support13,490.8monthly,26.28m assumed capacity,3.764mSonnet and75.283mHaiku crossover; the latter exceeds one-node capacity. Acceptance ratioqA/qL has the correct direction.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:163–165,267,348–360",
+      "evidence": "TE23:25–68 distinguishes $0.99 outcome, assumed/confirmed resolution,reversal and configuredhandoff. TE18:1–18 is5172humanagents/15%issues-per-hour, not autonomous success. METR original104–130 andupdate47–75 retain246tasks/16developers,19%slowdown and later selection/time-accounting limits. NVIDIAoriginal68–102 and MicrosoftFY27Q1metrics7–14 confirm aggregate revenue/margins; report avoids mapping those to model-serving private margins.",
+      "result": "clear"
+    }
+  ],
+  "sample_checks": [
+    {
+      "location": "analysis/TE-U2-three-workloads.md:130–151 → report:243–267",
+      "selection_reason": "Passed unit-to-report sensitivity transformation with prior known ambiguity about output growth.",
+      "evidence": "Actual revised unit and report both state fixed-input/path/quality direct billing perturbation and the4Kinput/8Koutput counterexample. Code47–68 changes only output charges, not contextarrays; saved sensitivity8.0846/8.2208/8.4933/9.0383 matches that narrower interpretation. No recurrence of broader full-history claim.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:183–198",
+      "selection_reason": "Expiry and refresh are nonobvious passed calculations capable of reversing cache choice.",
+      "evidence": "Original TTL start/refresh rule checked; request90 is56min after34 so one-hour cache stillhits, while5minute schedulecreatesfourwrites. Changes at30/90 resetexpiry. Gemini storage comparison is separately specified withinonehour rather than silently applying the94minuteClaude schedule.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:101–112",
+      "selection_reason": "Empirical-looking token ratios could overstate small authored-string measurement.",
+      "evidence": "Read complete tokenizer_count.py andtokenizer-results.json, exactsixtexts,0.12.0version,encodingfilehashes and allcounts. Output table matches retainedresults; report limits inference to these strings and excludes API framing/billedusage. No tokenizer rerun.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:155–161,213–215,250–263",
+      "selection_reason": "Accepted-task denominators and human repair are decisive despite very small API bills.",
+      "evidence": "Read finite cohort source branches, savedroute andsensitivityfields and checked arithmetic relationships. Supportbreak-evenwage preserves different994/996denominators; document1pp=12repairs×6minutes=$72; agentstrong-first usesdifferentrepairsuccess and97accepted explicitly. Hypothetical rates remain labeled.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:278",
+      "selection_reason": "Negative treatment of an outside quantitative source must itself be evidenced, not accepted because reviewers passed it.",
+      "evidence": "TE13:179–181 says96GB/GPU against official94GB;253 uses6.98dollars withco-tenant assumption;371 labelsAPIoutput-only and incorrectlysaysinputbilling shiftsdown. At512:256, addinginput increases comparator by2×inputrate. Report rejects that numeric procurement crossover while retaining general mechanism; no inaccessiblecommit treated as read.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:352–360",
+      "selection_reason": "Value-chain synthesis could silently turn hypothetical laborcapacity into realizedprofit.",
+      "evidence": "Scenario contribution examples are clearly hypothetical and arithmeticconsistent; $1−$0.2446 leavesbeforefixedexpenses, not99.7%margin. Distinction between payroll reduction, redeployedcapacity, willingness-to-pay and revenue remains in323/360; publicfinancial results used at disclosed aggregate scope.",
+      "result": "clear"
+    }
+  ],
+  "prior_findings": {
+    "5b65d9354d7347caaa94966dcfa9a325/natural_expression-01": {
+      "decision": "resolved",
+      "reason": "The actual current appendix repairs joined English words/modelnames and preserves evidence boundaries.",
+      "evidence": "Read current382,384,386 in full against original necessary finding; historicalR1 non-evidence,currentmodel boundary,SKUversusweights andunmeasuredcapacity limits remain."
+    },
+    "5b65d9354d7347caaa94966dcfa9a325/natural_expression-02": {
+      "decision": "resolved",
+      "reason": "Internal producer identity and pending-reviewstatus are removed from reader-facing opening.",
+      "evidence": "Current3 givescutoff,Englishreport andaudience only; originalrawnegative andproductionrecord retained."
+    },
+    "8b029338a07d4473800c5e2e74f7a08e/process_language-01": {
+      "decision": "resolved",
+      "reason": "Current380/382 remove reading-ledger,403route andextraction narration rather than deleting substantive limitations.",
+      "evidence": "Current380 retains reproducible code/results andtokenizerstrings/version/hashes;382–386 retain actualhistorical/source limits andscenarioreplacement conditions."
+    }
+  },
+  "report_verdict": "pass",
+  "open_issues": []
+}

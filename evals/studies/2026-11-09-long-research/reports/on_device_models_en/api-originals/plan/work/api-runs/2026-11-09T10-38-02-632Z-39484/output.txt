@@ -1,0 +1,460 @@
+{
+  "outline": "RESEARCH BRIEF AND CURRENT STAGE\nThis is the initial research handoff, not the final report. Actual online searches, original-page reading, paper-section reading, and inspection of two PDF tables have been completed. The assignments below are ready for independent execution; no worker execution, independent review, file creation, or final acceptance is claimed. The lead assistant is the principal investigator and will remain the sole final-report assembler.\n\nObjective: determine when a complete user task—not merely a model forward pass—belongs on a device, in the cloud, or in a hybrid system. The intended readers are device-product leaders and deployment engineers. The eventual deliverable will be an English deployment-oriented report, provisionally 7,000–10,000 words plus evidence tables; this length is a planning default, not a user-imposed limit. Public evidence must date from 2023 through November 9, 2026, with earlier foundations only where necessary. Use US-dollar cost scenarios and US configurations as defaults; preserve regional service restrictions without expanding into an international legal survey.\n\nREPRESENTATIVE COVERAGE\nPrimary numerical cases will be: Samsung Galaxy S24 Ultra, Snapdragon 8 Gen 3, 12 GB installed RAM; an Apple M4 Pro configuration with 16 GPU cores and 24 GB unified memory; and the actively cooled Jetson Orin Nano 8 GB class, keeping original and Super operating modes separate. These selections have relevant hardware or measurement evidence, but do not establish available application memory. The M4 Pro paper does not identify its chassis sufficiently to transfer its thermal results to a particular Mac product. Supplementary cases are the iPhone 14 Pro from the historical sustained-inference study and a Surface Laptop 7 X Elite configuration for Windows NPU integration. These are explanatory cases, not a hardware catalogue or a claim to identify the newest products. Sources ODM07, ODM21, and ODM22 establish the selected PC and Android configurations. ([arxiv.org](https://arxiv.org/html/2607.00501v1))\n\nThe three task families are private-document assistance, interactive text generation, and frequent or continuous speech transcription. Vision will be a bounded contrast covering image encoders and preprocessing, not an additional full benchmark programme. Historical measurements will retain their dates and versions; 2026 model and platform developments will be examined for changes to applicability rather than silently substituted into older benchmarks.\n\nPROPOSED REPORT STRUCTURE\n1. Decision framing: define acceptable task quality, offline obligations, response deadlines, operating duration, supported device population, and permitted data movement. Distinguish a user-device deployment from a nearby shared edge server. Introduce the hardware–model–task fit matrix and evidence labels: independent measurement, vendor/author measurement, documented capability, announcement/preview, and calculated scenario.\n2. What must fit: separate model download size, resident weights, quantization metadata, activations, temporary buffers, KV cache, retrieval index, application memory, and operating-system headroom. Explain shared versus discrete memory, accelerator allocation limits, memory mapping, paging, and why installed RAM is not an application budget.\n3. What determines responsiveness: separate loading and compilation, preprocessing, prefill, first output, decoding, rendering, and complete-task time. Relate bandwidth, supported operations, dispatch overhead, CPU/GPU/NPU partitioning, and data movement to batch size and context. Treat sustained power, cooling, throttling, and foreground responsiveness as deployment constraints rather than footnotes.\n4. How models and runtimes change the envelope: compare small dense models, grouped-query attention, sliding/local attention, KV sharing, effective-parameter architectures, and a bounded MoE contrast. Explain PTQ versus QAT, weight versus activation/KV quantization, distillation, structured compression, fused kernels, packing, prefix reuse, speculative decoding, and context reduction. Pair each optimization with its hardware dependency and quality risk.\n5. Private-document assistance: trace import/OCR, chunking, embeddings, indexing, retrieval, optional reranking, grounded generation, and citation validation. Compare short-answer extraction with cross-document synthesis. Develop phone and PC envelopes, including index memory and update costs. Compare all-local RAG, cloud-only processing, and local retrieval/extraction followed by permitted cloud synthesis.\n6. Interactive generation: distinguish constrained rewriting or short dialogue from open-ended factual assistance and difficult reasoning. Compare cold and warm requests, short and growing conversations, and 128- versus 512-token outputs under explicitly stated settings. Develop routing, timeout, cancellation, and offline-degradation behaviour without equating local availability with adequate answer quality.\n7. Frequent/continuous speech: trace capture, resampling, VAD, buffering, feature extraction, recognition, endpointing, text stabilization, and optional downstream generation. Develop an Orin Nano envelope and phone/PC portability constraints. Separate real-time factor from first partial result and final-transcript delay; include silence, noise, accents, missed speech, and duty cycle. Explain why a short prerecorded-clip result does not establish an always-listening product.\n8. Architecture and privacy boundaries: draw local-only, cloud-only, and hybrid data flows. Identify exposure through prompts, retrieved passages, embeddings, telemetry, crash reports, synchronization, backups, and fallback. Cover device eligibility, model downloads, permissions, background restrictions, runtime conversion, driver/compiler versions, model updates, rollback, and heterogeneous-device QA.\n9. Total task economics and experience: calculate cloud input/output and audio charges, network transfer and delay, incremental hardware and energy, integration/support effort, distribution/update costs, retries, and correction effort. Distinguish existing-device marginal cost from dedicated-device ownership cost. Compare architectures at a common quality target, not merely a common token count.\n10. Conditional recommendations and verification checklist: provide explicit rules for offline operation, sensitive content, bursty difficult requests, and sustained background workloads. The final matrix will show supported task scope, context and memory limits, latency evidence, power scope, quality caveats, integration constraints, fallback, and unresolved measurements. Conclusions will be written only after the evidence and domain checks described below.\n\nINITIAL CANDIDATE EXPLANATIONS—NOT FINAL CONCLUSIONS\nA. Deployment limits appear to depend on phase and duration, not a single accelerator rating. The historical phone study documents degraded repeated-use performance; its conditions cannot be generalized to newer phones. This motivates separate burst and sustained envelopes. ([arxiv.org](https://arxiv.org/html/2403.12844v4))\nB. Lower precision and GPU use are conditional optimizations. The read evidence contains cases where a smaller numerical format or a different backend does not improve the relevant phase. A likely explanation is the interaction of memory traffic, packing, dequantization, and dispatch, but device-specific causal claims require profiling. ([arxiv.org](https://arxiv.org/html/2403.12844v4))\nC. Model architecture can change the memory relationship more than the advertised parameter label suggests. Gemma's effective-parameter mechanisms and Apple's separately compressed weights/KV cache support architecture-specific accounting, not a universal bytes-per-parameter shortcut. ([ai.google.dev](https://ai.google.dev/gemma/docs/gemma-3n))\nD. Narrow local document operations are a plausible fit, whereas difficult synthesis may justify cloud assistance. Minions supplies task-level evidence for collaboration, but its cost accounting assumes local execution is free and does not establish privacy or smartphone latency. Those limitations must change the economic interpretation. ([arxiv.org](https://arxiv.org/html/2502.15964v1))\nE. Speech can have a substantially different resource/quality envelope from text generation. The available clip benchmark supports a feasible candidate implementation, while the separate ASR study shows that precision and acoustic conditions can change the preferred configuration. Neither proves sustained streaming performance. ([github.com](https://github.com/NVIDIA-AI-IOT/whisper_trt/blob/main/README.md))\nF. Platform access can be a binding constraint independently of silicon. ML Kit's documented foreground restriction is directly relevant to background products; Windows documentation distinguishes available NPU execution from experimental GPU prerequisites and a future model transition. ([developers.google.com](https://developers.google.com/ml-kit/genai))\nG. Local execution changes the data boundary but does not complete the privacy analysis. Cloud-retention controls and PCC's documented architecture demonstrate materially different remote boundaries; application logging and fallback still need separate investigation. ([security.apple.com](https://security.apple.com/blog/private-cloud-compute/))\n\nINITIAL CALCULATION TEMPLATES\nAn explicitly hypothetical full-attention decoder with 32 layers, 8 KV heads, head dimension 128, FP16 KV, one sequence, and no sharing requires 2 × 32 × 8 × 128 × 2 = 131,072 KV bytes per cached token: 0.5 GiB at 4,096 tokens, 1 GiB at 8,192, and 4 GiB at 32,768. These are arithmetic scenarios, not measurements or claims about a selected model. Named-model calculations must replace every assumption with its configuration and runtime allocation behaviour.\nFor speech transfer, assumed mono 16 kHz, 16-bit uncompressed PCM is 32,000 bytes/s, or 115.2 decimal MB/hour before transport overhead. Compression and VAD require separate scenarios. Neither calculation establishes a quality or latency result.\n\nEVIDENCE SUFFICIENCY AT THIS STAGE\nThe material is sufficient to define the mechanisms, select substantive cases, identify counterexamples, and assign executable work. It is not sufficient to publish common-quality architecture rankings, phone application-memory limits, sustained NPU performance, or a fully costed deployment recommendation. These are specific downstream research obligations, not generic reservations.",
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Produce an English deployment-oriented report for product leaders and engineers; the present output is only the researched brief, outline, initial analysis, and assignments.",
+      "scope": "global"
+    },
+    {
+      "id": "R2",
+      "text": "Use public evidence from 2023 through 2026-11-09, with earlier technical foundations where necessary. Identify original publication and revision dates; exclude later evidence and distinguish historical from cutoff-date claims.",
+      "scope": "global"
+    },
+    {
+      "id": "R3",
+      "text": "Retain smartphones, personal computers, and the constrained Jetson Orin Nano 8 GB edge class. Preserve Android/iOS and macOS/Windows integration differences without attempting a hardware catalogue.",
+      "scope": "global"
+    },
+    {
+      "id": "R4",
+      "text": "For every consequential measurement, preserve hardware configuration, OS, model/checkpoint, runtime/build, backend, precision, context, input/output length, batching, decoding, warmup, repetition, and measurement boundary where disclosed; mark absent fields explicitly.",
+      "scope": "global"
+    },
+    {
+      "id": "R5",
+      "text": "Explain available versus installed memory, stored versus resident weights, quantization metadata, working buffers, KV growth, bandwidth, shared memory, paging, and application/OS reservations.",
+      "scope": "U-MECHANISMS"
+    },
+    {
+      "id": "R6",
+      "text": "Explain CPU, GPU, and NPU execution, operator and shape support, partitioning/fallback, scheduling and transfer overhead, and why peak TOPS or storage fit does not establish end-to-end suitability.",
+      "scope": "global"
+    },
+    {
+      "id": "R7",
+      "text": "Separate prefill, first output, decoding throughput, complete-task latency, cold start, repeated-use latency, thermal throttling, power, and energy. Never substitute configured power limits for measured consumption.",
+      "scope": "global"
+    },
+    {
+      "id": "R8",
+      "text": "Compare model size and architecture, PTQ/QAT, weight/activation/KV precision, distillation/compression, context management, and runtime optimizations together with task-quality losses and implementation dependencies.",
+      "scope": "U-QUALITY"
+    },
+    {
+      "id": "R9",
+      "text": "Do not assume lower numerical precision or accelerator execution is always faster. Preserve contrary results and distinguish algorithmic savings from implemented kernel performance.",
+      "scope": "global"
+    },
+    {
+      "id": "R10",
+      "text": "Develop private-document assistance from ingestion and retrieval through grounded answers, including difficult cross-document reasoning, citation quality, refusal/abstention, index overhead, and local/cloud/hybrid alternatives.",
+      "scope": "U-DOCUMENTS"
+    },
+    {
+      "id": "R11",
+      "text": "Develop interactive text-generation comparisons with explicit task difficulty, response length, context, quality targets, streaming behaviour, and degraded/offline experiences.",
+      "scope": "U-INTERACTIVE"
+    },
+    {
+      "id": "R12",
+      "text": "Develop a frequent or continuous speech workload with preprocessing, VAD, buffering, recognition, endpointing, quality and energy. Keep speech and bounded vision evidence separate from text-generation evidence.",
+      "scope": "U-EDGE-SPEECH"
+    },
+    {
+      "id": "R13",
+      "text": "Produce worked deployment envelopes with explicit units, assumptions, memory/context limits, latency, and power where supported. Use bounded scenarios or unresolved constraints instead of invented benchmarks.",
+      "scope": "global"
+    },
+    {
+      "id": "R14",
+      "text": "Compare local-only, cloud-only, and hybrid execution for all three tasks, including network availability, latency, transfer size, retries, fallback and quality-qualified task completion.",
+      "scope": "U-ECONOMICS"
+    },
+    {
+      "id": "R15",
+      "text": "Analyze privacy boundaries, retention, logging, synchronization, backups, permissions and cloud fallback; do not equate no model training with no retention or local inference with whole-application confidentiality.",
+      "scope": "U-BOUNDARIES"
+    },
+    {
+      "id": "R16",
+      "text": "Distinguish shipping, limited-access, experimental, preview and announced support. Include OS restrictions, model availability/downloads, updates, driver/compiler compatibility, rollback and heterogeneous-device integration.",
+      "scope": "global"
+    },
+    {
+      "id": "R17",
+      "text": "Evaluate total task cost, including incremental hardware, energy, engineering/support, distribution and updates, network/cloud charges, retries and correction effort. No per-token API charge does not mean zero cost.",
+      "scope": "U-ECONOMICS"
+    },
+    {
+      "id": "R18",
+      "text": "Deliver a hardware–model–task fit matrix, worked envelopes, data-flow diagrams and conditional rules for offline, sensitive-data, bursty-complexity and sustained-background workloads.",
+      "scope": "U-ASSEMBLY"
+    },
+    {
+      "id": "R19",
+      "text": "Use original papers, official documentation and reproducible primary measurements for technical claims. Distinguish vendor/author demonstrations, independent tests and estimates; do not merge unlike measurements into a leaderboard.",
+      "scope": "global"
+    },
+    {
+      "id": "R20",
+      "text": "Obtain independent requirements and structure scrutiny before extensive dependent drafting, and independent evidence/domain checks before downstream use of decisive premises. Final delivery requires all seven specified review perspectives, domain review, separate audit and separate acceptance; none is represented as already completed.",
+      "scope": "global"
+    },
+    {
+      "id": "R21",
+      "text": "The principal investigator owns final synthesis. In subsequent managed execution preserve the requested task, progress, requirements, source/claim registry, review, final-report and delivery artifacts; do not claim files or delivery receipts exist merely because this JSON describes them.",
+      "scope": "U-ASSEMBLY"
+    }
+  ],
+  "units": [
+    {
+      "id": "U-MECHANISMS",
+      "assignment": "Own the deployability mechanisms and calculation conventions for R5–R7 and R13. Derive a complete memory budget separating storage, resident parameters, metadata, activations, temporary buffers, KV state, retrieval assets and application/OS headroom. Derive architecture-specific KV expressions, including GQA, sliding/global layers and cache sharing; distinguish logical occupancy from preallocated capacity. Explain bandwidth-bound versus compute-bound regimes without claiming every decode is bandwidth-bound. Build phase-resolved latency, energy and duty-cycle equations, including model loading, compilation, preprocessing, prefill and output. Read the selected models' original configurations and runtime allocation documentation before attaching numbers to them. Use the hypothetical calculation in the outline only as a unit-test example. Specify measurement boundaries, decimal/binary units, temperature/ambient conditions, foreground activity, warmup and sustained-run requirements. Source collection can begin immediately; numerical premises must go through V-DOMAIN before use in task recommendations.",
+      "inputs": ["ODM01", "ODM02", "ODM03", "ODM08", "ODM14", "ODM15"],
+      "dependencies": [],
+      "deliverables": "A substantive mechanisms section; formula sheet with definitions and worked arithmetic; architecture-specific memory worksheets; measurement-condition schema; and a list of uncertainties that block a numeric envelope."
+    },
+    {
+      "id": "U-QUALITY",
+      "assignment": "Own R8–R9 and the quality component of all recommendations. Compare approximately sub-1B, 1–4B and 7–8B dense models, a bounded active-versus-total-parameter MoE contrast, and task-specific speech models. Select no more model families than the workload explanations require. Separate PTQ from QAT, weight precision from activation/KV precision, distillation from quantization, and pruning from hardware-exploitable sparsity. Explain which changes affect bytes, bandwidth, arithmetic, launch overhead or training cost. Read matched pre/post-compression evaluations and original model cards; examine calibration data, language, reasoning, extraction, citation, safety and acoustic robustness. Add context truncation, retrieval, summarization, sliding windows, prefix reuse and speculative decoding, recording quality or acceptance-rate dependencies. Do not treat perplexity, MMLU or vendor preference scores as a substitute for document or interactive-task quality. Identify at least the strongest available counterexample to each proposed optimization rather than assuming uniform degradation or improvement.",
+      "inputs": ["ODM01", "ODM02", "ODM03", "ODM07", "ODM08", "ODM15", "ODM17"],
+      "dependencies": [],
+      "deliverables": "An optimization-to-resource-to-quality comparison table; evidence-backed local prose; named candidate models and excluded alternatives; task-quality evaluation specifications; and matched-comparison gaps for V-EVIDENCE and V-DOMAIN."
+    },
+    {
+      "id": "U-PHONES",
+      "assignment": "Own smartphone hardware/runtime suitability for R3–R7 and R16. Anchor the prospective Android envelope on Galaxy S24 Ultra, 12 GB RAM, with Gemma 3n E2B/E4B through the documented LiteRT-LM paths. Recover checkpoint, conversion, precision, runtime release, OS, prompt/output sizes, threading and memory-accounting details behind the published table. Do not infer total RAM use from peak CPU-memory fields. Use MELT's iPhone 14 Pro and Galaxy S23 results as dated thermal/runtime counterexamples, not predictions for S24 Ultra. For iOS, distinguish open-weight app runtimes from Apple's system-model API and verify cutoff-date eligibility, API context limits and release status. Explain CPU/GPU/NPU routing and user-interface contention. Seek independent repeated-use tests and application memory limits; where absent, provide explicit reserved-memory and thermal scenarios rather than a guaranteed token rate. Keep the Android public-model experiment separate from Gemini Nano/AICore support.",
+      "inputs": ["ODM01", "ODM05", "ODM12", "ODM18", "ODM21", "ODM23"],
+      "dependencies": [],
+      "deliverables": "Smartphone hardware/runtime rows; a source-conditioned performance table; cold/burst/sustained distinctions; memory-headroom scenarios; an iOS/Android integration comparison; and a deployment-focused local section."
+    },
+    {
+      "id": "U-PCS",
+      "assignment": "Own the PC comparison for R3–R7 and R16. Use the measured M4 Pro 16-GPU-core/24-GB configuration as the numerical anchor, with M3 16 GB only as a sensitivity case if it changes the explanation. Verify the chassis, OS, power conditions and benchmark commands before making laptop or desktop thermal claims. Reconstruct prefill and decode comparisons from BaseRT, llama.cpp and MLX without adopting the paper's headline ranking. Read matching checkpoint and quantization details and investigate whether quality is comparable. For Windows, use a Surface Laptop 7 X Elite X1E80100, 32 GB LPDDR5x configuration as the NPU integration case, not an invented performance equivalent. Verify a shipping Phi Silica path, required Windows/App SDK builds, access restrictions and the announced transition; distinguish experimental GPU support. Explain shared memory versus a discrete-GPU alternative in a bounded sidebar, including usable VRAM and transfer costs, without adding a broad PC catalogue.",
+      "inputs": ["ODM06", "ODM07", "ODM14", "ODM22"],
+      "dependencies": [],
+      "deliverables": "A PC suitability section; phase-specific benchmark reconstruction; Apple/Windows runtime compatibility table; memory/context scenarios; and explicit separation between measured performance and documented NPU capability."
+    },
+    {
+      "id": "U-EDGE-SPEECH",
+      "assignment": "Own the constrained-edge case and R12. Define the edge device as a user-controlled, actively cooled Jetson Orin Nano 8 GB endpoint at the point of capture; do not imply a microcontroller-class power budget. Keep original 7/15 W and Super configurations/version histories distinct. Reconstruct the WhisperTRT 20-second benchmark from its actual profiling code, engine precision, warmup, package versions and power mode. Compare it with the independent ASR paper only at the level justified by their different pipelines, datasets and memory/energy boundaries. Trace microphone capture, resampling, VAD, chunk overlap, feature extraction, decoding and endpointing. Develop bounded 10%, 50% and continuous-speech duty scenarios and specify the sustained tests needed to validate them. Include WER, noisy/accented speech, missed-speech and hallucination risks, and optional concurrent LLM contention. Add a bounded vision contrast explaining why VLM tokens/s cannot be read as camera frames/s; obtain a versioned original pipeline source if numeric vision claims are used.",
+      "inputs": ["ODM04", "ODM09", "ODM16", "ODM17", "ODM20"],
+      "dependencies": [],
+      "deliverables": "A full speech-pipeline analysis and local section; reconstructed benchmark conditions; an edge memory/latency/energy envelope; quality-versus-duty-cycle comparison; and a clearly delimited vision contrast."
+    },
+    {
+      "id": "U-BOUNDARIES",
+      "assignment": "Own R15–R16 and the operational constraints supporting R14. Draw trust and data-flow boundaries for local-only, cloud-only and hybrid document, chat and speech applications. Inventory raw inputs, retrieved excerpts, embeddings, intermediate summaries, transcripts, logs, crash reports, backups, synchronization and fallback payloads. Distinguish provider training policy, abuse logs, endpoint application state, exceptional retention and configurable controls. Treat PCC as its documented architecture, not a generic property of cloud inference or third-party application logging. Verify OS background restrictions and permissions separately for system-model APIs and custom runtimes. Cover model downloads, offline provisioning, eviction, availability checks, regional restrictions, fleet version skew, tokenizer/index compatibility, signed updates, rollback and adapter retraining. Define explicit consent and fail-closed behaviour for sensitive tasks; do not assume that automatic upload after reconnection is acceptable. Limit legal claims to sourced operational facts unless a jurisdiction-specific legal question becomes necessary.",
+      "inputs": ["ODM06", "ODM09", "ODM11", "ODM12", "ODM13", "ODM18", "ODM23"],
+      "dependencies": [],
+      "deliverables": "Three architecture diagrams with task-specific payloads; a privacy/retention table; a fallback state machine; an OS/runtime integration section; and operational requirements that downstream routing and cost analyses must obey."
+    },
+    {
+      "id": "V-REQUIREMENTS",
+      "assignment": "In a fresh non-production context, inspect this outline against the original task and R1–R21 before extensive dependent drafting. Check actual coverage of all three device classes, CPU/GPU/NPU, all three task families, the 2023–2026 cutoff, quality, sustained performance and all three execution architectures. Test whether choosing speech as the continuous workload and a bounded vision contrast preserves the original request. Identify missing explanations or scope drift with exact locations and consequences. Do not score the outline or infer readiness from its length. This is an early requirements review only; the same perspective must later examine the complete report.",
+      "inputs": ["ODM01", "ODM05", "ODM06", "ODM10", "ODM12", "ODM17"],
+      "dependencies": [],
+      "deliverables": "A locatable requirements-to-outline assessment, necessary changes, unresolved scope questions if any, and a record of actual inputs examined."
+    },
+    {
+      "id": "V-STRUCTURE",
+      "assignment": "In a fresh context separate from production and V-REQUIREMENTS, test whether the proposed structure produces a decision argument rather than a catalogue. Check that hardware mechanisms feed model choices, model choices feed workload envelopes, and those envelopes feed architecture and cost recommendations. Examine whether duplicated background can be consolidated without dropping iOS/Android or Windows/macOS distinctions. Require development of task quality and sustained-use reasoning where the available sources tempt headline-only comparisons. This review is confined to the initial structure and must not substitute for later whole-report structure/depth review.",
+      "inputs": ["ODM01", "ODM07", "ODM10", "ODM16"],
+      "dependencies": [],
+      "deliverables": "A structural critique with specific missing causal links, proposed repairs, depth allocation and dependency corrections."
+    },
+    {
+      "id": "V-EVIDENCE",
+      "assignment": "Independently examine the complete outputs and decisive originals from U-QUALITY, U-PHONES, U-PCS and U-EDGE-SPEECH. Verify dates, versions, configurations, units, benchmark boundaries and shipping/preview distinctions. Specifically investigate MELT's revision-dependent numbers and hardware-table inconsistencies, the missing conditions behind LiteRT-LM and NVIDIA tables, BaseRT's quantization/quality comparability, and the ASR paper's malformed WER notation and energy baseline. Check that current documentation is not used to backdate older measurements. Return supported claims, required corrections and bounded unknowns without replacing missing data with estimates presented as measurements. Only checked premise packets may be consumed by the task-comparison units.",
+      "inputs": ["ODM01", "ODM04", "ODM05", "ODM06", "ODM07", "ODM16", "ODM17"],
+      "dependencies": ["U-QUALITY", "U-PHONES", "U-PCS", "U-EDGE-SPEECH"],
+      "deliverables": "A claim-level evidence check with original locations, corrected condition tables, excluded claims, unresolved questions and explicit downstream-use boundaries."
+    },
+    {
+      "id": "V-DOMAIN",
+      "assignment": "Use a fresh non-author systems/ML-deployment context to examine U-MECHANISMS and the technical premises from the device and quality units. Recalculate weight and KV memory; check GQA, sliding/global layers, shared caches, effective versus total parameters, quantization overhead and preallocation. Validate phase-latency equations, RTF interpretation, throughput-to-latency conversions, power/energy boundaries, thermal extrapolation, and CPU/GPU/NPU partition claims. Challenge roofline estimates that omit activation/KV traffic or assume peak bandwidth. Determine whether a reported precision is storage precision, execution precision or both. This is a technical premise examination, not final-report acceptance.",
+      "inputs": ["ODM01", "ODM02", "ODM03", "ODM07", "ODM08", "ODM14", "ODM15", "ODM16", "ODM17"],
+      "dependencies": ["U-MECHANISMS", "U-QUALITY", "U-PHONES", "U-PCS", "U-EDGE-SPEECH"],
+      "deliverables": "Independently recomputed worksheets, technical corrections, permissible inference boundaries, and a checked premise handoff for workload analysis."
+    },
+    {
+      "id": "U-DOCUMENTS",
+      "assignment": "Answer R10 using the checked hardware and quality premises. Compare local retrieval plus local generation, cloud ingestion/generation, and local extraction or retrieval followed by permitted cloud synthesis. Build separate workloads for short grounded answers, multi-document numerical reasoning, and broad synthesis; do not equate them. Account for parsing/OCR, embedding-model memory, index size, retrieval recall, reranking, prompt assembly, citations and abstention. Read Minions' final proceedings version and dataset construction, then distinguish its demonstrated cost/quality trade-off from a phone deployment or privacy guarantee. Construct phone and PC worked envelopes at explicitly selected context/output sizes, with upper/lower resource scenarios where measurements are absent. Preserve batch-one interactive use versus parallel document jobs. Recommend where a smaller task-specific model or non-generative retrieval result may be preferable.",
+      "inputs": ["ODM02", "ODM03", "ODM08", "ODM10", "ODM18", "ODM23"],
+      "dependencies": ["V-REQUIREMENTS", "V-STRUCTURE", "V-EVIDENCE", "V-DOMAIN", "U-BOUNDARIES"],
+      "deliverables": "A complete document-assistance section, pipeline diagram, two or more worked envelopes, a common-quality comparison plan, and conditional architecture choices with unresolved constraints."
+    },
+    {
+      "id": "U-INTERACTIVE",
+      "assignment": "Answer R11 using checked device evidence. Separate constrained rewriting/short dialogue, factual assistance and difficult reasoning. Compare cold versus warm requests, 512- versus 2,048-token starting prompts, 128- versus 512-token outputs, and growing histories; these are proposed scenarios, not assumed benchmark settings. Calculate first-output and completion time only from compatible phase measurements or labelled bounds. Include cancellation, token streaming, response-length control, concurrent UI work, thermal-state adaptation and context exhaustion. Develop a router based on evaluated task suitability, allowed data transfer, device eligibility and resource state rather than an uncalibrated model self-confidence score. Specify offline fallback, refusal, queued work and explicit cloud consent. Do not transfer the M4 Pro runtime ranking or historical iPhone thermal observations to other devices.",
+      "inputs": ["ODM01", "ODM05", "ODM06", "ODM07", "ODM12", "ODM18"],
+      "dependencies": ["V-REQUIREMENTS", "V-STRUCTURE", "V-EVIDENCE", "V-DOMAIN", "U-BOUNDARIES"],
+      "deliverables": "A complete interactive-generation section; phase-resolved scenario calculations; a routing/fallback decision table; and quality- and duration-qualified smartphone/PC fit judgments."
+    },
+    {
+      "id": "U-ECONOMICS",
+      "assignment": "Answer R14 and R17 across documents, interactive generation and speech. Compare local-only, cloud-only and hybrid architectures at explicit quality targets. Build an expected cost per successful task that includes incremental hardware amortization, electricity, model distribution/updates, device-porting and QA effort, support, network/API charges, retries and correction work. Separate sunk user hardware from a purchased dedicated edge box, and provider charges from user battery/comfort costs. Preserve historical prices used by published studies; verify cutoff-date prices and model availability for prospective scenarios. Include input, output, cached input, reasoning where billed, storage/tool charges and audio billing units. Model network RTT, throughput, outages and upload payloads separately; do not assume reduced token charges imply reduced latency. Calculate break-even ranges over usage, fallback rate, useful lifetime and engineering allocation, leaving unsupported battery-wear or productivity valuations as parameters.",
+      "inputs": ["ODM10", "ODM11", "ODM13", "ODM19", "ODM20"],
+      "dependencies": ["U-DOCUMENTS", "U-INTERACTIVE", "U-EDGE-SPEECH", "U-BOUNDARIES", "V-EVIDENCE", "V-DOMAIN"],
+      "deliverables": "Reproducible cost and network worksheets; sensitivity tables; task-specific three-architecture comparisons; a full economics section; and decision rules whose conditions are traceable to the checked envelopes."
+    },
+    {
+      "id": "U-ASSEMBLY",
+      "assignment": "The principal investigator alone assembles the report from the full contributions, originals and review corrections. Resolve cross-unit contradictions before writing the opening judgment. Produce the fit matrix, worked envelopes and conditional rules required by R18 without flattening evidence types or measurement conditions. In later managed execution maintain state/task_spec.md, state/progress.json, state/requirements.jsonl, data/source_registry.csv, data/claims_registry.csv and logs/review.jsonl; create final.md, state/final_delivery.json and delivery_message.md only at their actual stages. Before delivery, arrange fresh non-production whole-report contexts for requirements, evidence, adversarial reasoning, structure/depth, reader usefulness, process-language removal, natural expression and domain review. The early review owners may continue their own perspectives but must read the complete current artifact. Arrange a separate audit context and a further separate acceptance context, preserve original findings, and return revisions to the affected reviewers. No review outcome is predetermined.",
+      "inputs": ["ODM01", "ODM02", "ODM03", "ODM04", "ODM05", "ODM06", "ODM07", "ODM08", "ODM09", "ODM10", "ODM11", "ODM12", "ODM13", "ODM14", "ODM15", "ODM16", "ODM17", "ODM18", "ODM19", "ODM20", "ODM21", "ODM22", "ODM23"],
+      "dependencies": ["U-DOCUMENTS", "U-INTERACTIVE", "U-EDGE-SPEECH", "U-BOUNDARIES", "U-ECONOMICS", "V-REQUIREMENTS", "V-STRUCTURE", "V-EVIDENCE", "V-DOMAIN"],
+      "deliverables": "The eventual integrated English report and supporting tables/calculations, followed by version-bound independent review, revision, audit and acceptance records; this unit has not yet been executed."
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "ODM01",
+      "title": "MELTing point: Mobile Evaluation of Language Transformers",
+      "url": "https://arxiv.org/html/2403.12844v4",
+      "date": "First submitted 2024-03-19; version read dated 2024-07-25.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Sections 3–6; Tables 1–3; discussion of Figures 4–12.",
+      "key_findings": "Primary measurement study with device, OS and runtime identifiers. Macro experiments use multi-turn conversations; controlled micro experiments use 256 input/output tokens. Most runs are repeated three times. Version 4 reports 4-bit variants averaging 24.77% higher throughput than 3-bit variants, unlike the earlier version's number. Continuous Zephyr-3B testing uses 50 prompts on iPhone 14 Pro and shows degradation. The 47.9°C observation belongs to a particular conversation/runtime, not all phones. Energy monitoring and baseline treatment are described. Hardware metadata needs OEM reconciliation: its Orin Nano CPU entry conflicts with NVIDIA's six-core specification. The study supports duration- and runtime-sensitive analysis, not a current-device ranking. ([arxiv.org](https://arxiv.org/html/2403.12844v4))",
+      "access_scope": "Read relevant full-text methodology, performance, thermal, memory, quantization and limitations sections. Earlier v2 was also inspected and superseded for reported findings; figure plots were not numerically digitized."
+    },
+    {
+      "source_id": "ODM02",
+      "title": "Updates to Apple’s On-Device and Server Foundation Language Models",
+      "url": "https://machinelearning.apple.com/research/apple-foundation-models-2025-updates",
+      "date": "Published 2025-06-09; figures/evaluations updated 2025-07-17.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Model Architectures; Pre-Training; Optimizations; Foundation Models Framework; Table 1.",
+      "key_findings": "Apple describes an approximately 3B on-device model using cross-layer KV sharing, with a stated 37.5% cache reduction. Decoder weights use 2-bit QAT, embeddings 4-bit QAT and KV cache 8-bit quantization, followed by adapter recovery. Reported quality changes include approximately 4.6% MGSM regression and 1.5% MMLU improvement; these should not be silently relabelled percentage-point differences. Distillation participates in training. Apple positions the API model for summarization, extraction and short dialogue, not general world-knowledge chat. These are vendor results for the 2025 generation, not evidence that arbitrary models tolerate equivalent compression. ([machinelearning.apple.com](https://machinelearning.apple.com/research/apple-foundation-models-2025-updates))",
+      "access_scope": "Read the architecture, relevant training, optimization and API-positioning sections; the linked full technical report and all evaluation figures remain follow-up reading."
+    },
+    {
+      "source_id": "ODM03",
+      "title": "Gemma 3n model overview",
+      "url": "https://ai.google.dev/gemma/docs/gemma-3n",
+      "date": "Page last updated 2025-11-01 UTC; original page publication date not stated.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Model parameters and effective parameters; PLE caching; MatFormer architecture; Conditional parameter loading.",
+      "key_findings": "The documentation separates effective from total parameters. Standard E2B execution loads over 5B parameters, while parameter skipping and PLE caching can reduce effective memory load to 1.91B parameters. This is not a total application-RAM guarantee. PLE data can be generated outside the model's operating memory and cached to local storage. E4B contains the E2B submodel; selective activation permits intermediate trade-offs. Audio/vision parameters may be omitted when unused. The documented context is 32K tokens, which does not establish that every device can practically use it. ([ai.google.dev](https://ai.google.dev/gemma/docs/gemma-3n))",
+      "access_scope": "Read the substantive overview and all four memory/architecture subsections, including the update date; model-card evaluations and runtime-specific implementations not yet read."
+    },
+    {
+      "source_id": "ODM04",
+      "title": "NVIDIA Jetson Orin Nano Developer Kit Gets a “Super” Boost",
+      "url": "https://developer.nvidia.com/blog/nvidia-jetson-orin-nano-developer-kit-gets-a-super-boost/",
+      "date": "2024-12-17.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Hardware configuration Table 1; LLM Table 2 and footnote; VLM Table 3 and footnote.",
+      "key_findings": "The configuration table lists 8 GB LPDDR5, six Cortex-A78AE CPU cores, 102 GB/s Super memory bandwidth and 7/15/25 W module modes. Sparse TOPS, dense TOPS and FP16 throughput are separately identified. Vendor LLM results use INT4 through MLC: Llama 3.2 3B is reported at 43.07 tokens/s on Super versus 27.7 on original hardware settings. The table does not disclose sufficient prompt, output, repetition or sustained-temperature conditions for a comparable ranking. A power mode is not measured wall power. VLM token throughput uses different runtime/precision paths and cannot be converted to video FPS. ([developer.nvidia.com](https://developer.nvidia.com/blog/nvidia-jetson-orin-nano-developer-kit-gets-a-super-boost/))",
+      "access_scope": "Read article body, hardware and language/multimodal benchmark tables and their footnotes; did not use the generated summary as evidence."
+    },
+    {
+      "source_id": "ODM05",
+      "title": "LiteRT-LM Overview",
+      "url": "https://developers.google.com/edge/litert-lm/overview",
+      "date": "Last updated 2026-10-06 UTC; individual benchmark dates not stated.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Featured-model table; Start Building status table; supported-model benchmark table.",
+      "key_findings": "The vendor table reports Gemma 3n E2B on S24 Ultra at CPU/GPU prefill rates of 111/816 tokens/s but decoding of 16/16 tokens/s; E4B decoding is 9/9. These phase differences are useful counterexamples to a universal GPU speedup. The 2026 page also includes Gemma 4 and other devices, but lacks enough benchmark settings for cross-source normalization. A featured table labels memory specifically as peak CPU memory, not total device or accelerator residency. Language bindings have different maturity labels, including Swift early preview. Model file size and CPU-memory fields must not be combined into a fabricated complete working set. ([developers.google.com](https://developers.google.com/edge/litert-lm/overview))",
+      "access_scope": "Read feature descriptions, all visible performance/status tables and update date; linked releases, model files and benchmark harness remain unread."
+    },
+    {
+      "source_id": "ODM06",
+      "title": "Get started with Phi Silica",
+      "url": "https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica",
+      "date": "Last updated 2026-10-19.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Opening access/transition notices; Supported hardware; GPU prerequisites; GPU feature differences.",
+      "key_findings": "The page describes Phi Silica as NPU-optimized on Copilot+ PCs and a Limited Access Feature. Although the hardware table labels GPU support available, its prerequisites require an Insider Experimental build and experimental Windows App SDK; this is not ordinary retail availability. Prompt compression and speculative decoding differ between NPU and GPU paths. The page announces Aion Instruct Insider rollout during November 2026 and retail replacement in January 2027. It does not prove rollout to a particular device by November 9. China is excluded. This is operational-capability evidence, not a measured NPU throughput or power benchmark. ([learn.microsoft.com](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica))",
+      "access_scope": "Read access notices, hardware/platform prerequisites, feature differences and update date; no application was installed or exercised."
+    },
+    {
+      "source_id": "ODM07",
+      "title": "BaseRT: Best-in-Class LLM Inference on Apple Silicon via Native Metal",
+      "url": "https://arxiv.org/html/2607.00501v1",
+      "date": "2026-07-01, version 1.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Sections 3–5; experimental setup; Tables 1–6; limitations.",
+      "key_findings": "Runtime-author measurements use M4 Pro with 16 GPU cores, 24 GB memory and stated 273 GB/s bandwidth; M3 base has 16 GB. Baselines are labelled llama.cpp b9630 and MLX 0.31.2. Prefill lengths span 128–2,048 tokens and decode uses tg128. For Llama 3.2 3B Q4, reported decode is 117.3/102.4/112.1 tokens/s for BaseRT/llama.cpp/MLX. At pp2048, BaseRT and llama.cpp report 835/864 tokens/s. Thus the headline does not establish uniform phase leadership. The read evaluation supplies neither sustained thermal evidence nor task-quality equivalence; chassis and several generation conditions need clarification. ([arxiv.org](https://arxiv.org/html/2607.00501v1))",
+      "access_scope": "Read runtime-design explanation, experimental setup, numerical comparison tables and limitations; repository implementation and raw benchmark logs not inspected."
+    },
+    {
+      "source_id": "ODM08",
+      "title": "Gemma 4 model card",
+      "url": "https://ai.google.dev/gemma/docs/core/model_card_4",
+      "date": "Last updated 2026-07-30 UTC; individual model release dates require separate verification.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Model description; Models Overview; Dense Models architecture table.",
+      "key_findings": "The card includes dense and MoE variants and explicitly distinguishes effective from embedding-inclusive parameters: E2B is listed as 2.3B effective and 5.1B with embeddings; E4B as 4.5B and 8B. Small variants have 128K advertised context and 512-token sliding windows. The architecture interleaves local and global attention and describes unified keys/values in global layers. This invalidates applying one full-attention KV formula indiscriminately. Advertised context is a model capability, not a demonstrated phone-memory or latency envelope. The card is useful for 2026 architecture coverage; quality and deployment claims need further matched evaluation. ([ai.google.dev](https://ai.google.dev/gemma/docs/core/model_card_4))",
+      "access_scope": "Read model overview, licensing statement and architecture tables; full technical report and complete evaluation/safety sections not yet read."
+    },
+    {
+      "source_id": "ODM09",
+      "title": "whisper.cpp project README",
+      "url": "https://github.com/ggml-org/whisper.cpp",
+      "date": "Live repository documentation; original publication and inspected commit dates not exposed in the retrieved page.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Input conversion; Memory usage; Quantization; Core ML support; Voice Activity Detection.",
+      "key_findings": "The memory table distinguishes disk from approximate runtime memory: base is 142 MiB on disk and approximately 388 MB memory; small is 466 MiB and approximately 852 MB. These are documentation estimates, not measurements on the selected devices. Core ML support concerns the encoder on Apple's Neural Engine, not proof that the complete transcription pipeline runs there. The CLI example requires 16-bit WAV conversion. VAD uses a separate model and extracts detected speech before recognition. Quantization efficiency is explicitly hardware-dependent. A commit, build flags and model revision must be pinned before using this as reproducible runtime evidence. ([github.com](https://github.com/ggml-org/whisper.cpp))",
+      "access_scope": "Read the named README sections and examples; no benchmark execution, code audit or complete repository inspection."
+    },
+    {
+      "source_id": "ODM10",
+      "title": "Minions: Cost-efficient Collaboration Between On-device and Cloud Language Models",
+      "url": "https://arxiv.org/html/2502.15964v1",
+      "date": "2025-02-21, version 1.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Sections 3–6; Table 1; Appendix A privacy discussion; Appendix B dataset construction; Appendix C latency assumptions.",
+      "key_findings": "Primary task-level study combines local Llama/Qwen models with GPT-4o over FinanceBench, LongHealth and QASPER variants. It reports a 5.7-fold remote-cost reduction and 97.9% recovered performance for MinionS, but explicitly assumes local execution is free. Prices are January 2025 GPT-4o rates, not cutoff-date prices. Dataset modifications add substantial distractor context; this is not ordinary short-document RAG. The paper states that it does not study privacy. Its illustrative RTX 4090/server latency bound is analytical, not a smartphone result. Final proceedings and raw evaluation settings must be reconciled before adopting headline ratios or historical release tables. ([arxiv.org](https://arxiv.org/html/2502.15964v1))",
+      "access_scope": "Read protocol/cost definitions, main result table, model-size ablations, dataset details and relevant latency/privacy passages; not every appendix derivation or prompt template."
+    },
+    {
+      "source_id": "ODM11",
+      "title": "Private Cloud Compute: A new frontier for AI privacy in the cloud",
+      "url": "https://security.apple.com/blog/private-cloud-compute/",
+      "date": "2024-06-10.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Core requirements; Stateless computation and enforceable guarantees; trust-boundary description.",
+      "key_findings": "Apple documents a design in which personal request data is used for inference and not retained after the response, including through ordinary logging/debugging. Requests are encrypted to validated compute nodes; surrounding routing services are outside that decryption boundary. The compute node necessarily processes plaintext inside its protected boundary, so this is not equivalent to never exporting data from the device. This is the vendor's architectural account, not an independent security audit. It does not establish the retention behaviour of third-party applications, their telemetry, or unrelated cloud fallbacks. ([security.apple.com](https://security.apple.com/blog/private-cloud-compute/))",
+      "access_scope": "Read core architecture and statelessness/trust-boundary sections; linked security implementation materials and independent verification reports remain follow-up work."
+    },
+    {
+      "source_id": "ODM12",
+      "title": "Overview of the ML Kit GenAI APIs",
+      "url": "https://developers.google.com/ml-kit/genai",
+      "date": "Last updated 2026-11-06 UTC.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Benefits; supported-device/version discussion; Retrieve Gemini Nano version; Quota per application; Background usage.",
+      "key_findings": "Google documents shared AICore-managed models and local input/inference/output processing. Model versions can differ across devices and produce different results for the same prompt; getBaseModelName() identifies the base model. Per-app quotas include short-term busy responses and longer battery-use limits. Inference is permitted only for the top foreground app; even a foreground service does not satisfy that restriction. These constraints directly affect continuous/background designs, but apply to these APIs rather than every Android ML runtime. The page also separates beta/alpha API categories, requiring feature-specific maturity checks. ([developers.google.com](https://developers.google.com/ml-kit/genai))",
+      "access_scope": "Read capability categories, benefits, device/version discussion, quota/background sections and update date; individual API guides and privacy implementation link not yet read."
+    },
+    {
+      "source_id": "ODM13",
+      "title": "Data controls in the OpenAI platform",
+      "url": "https://developers.openai.com/api/docs/guides/your-data",
+      "date": "Live documentation; original publication and current revision dates not stated in the inspected text.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Types of data stored; abuse-monitoring controls; endpoint retention table; Responses API retention details.",
+      "key_findings": "The documentation distinguishes no training by default from retention. Abuse-monitoring logs may contain prompts, outputs and derived metadata and are normally retained up to 30 days, with stated exceptions. Endpoint application state is a separate category; the Responses API discussion describes default storage and Zero Data Retention treatment of the store parameter. Eligibility and feature-specific limitations matter, so a generic claim that the API retains nothing would be wrong. A dated snapshot and the exact endpoint/account configuration are necessary before a deployment-specific retention statement. ([developers.openai.com](https://developers.openai.com/api/docs/guides/your-data))",
+      "access_scope": "Read the identified retention definitions, controls and endpoint passages; not the entire regional/compliance matrix or every specialized endpoint."
+    },
+    {
+      "source_id": "ODM14",
+      "title": "Qualcomm QNN Execution Provider — ONNX Runtime",
+      "url": "https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html",
+      "date": "Live documentation; publication/revision date not stated. Relevant example specifies onnxruntime-qnn version 1.18.0 or later.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Supported ONNX operators; HTP model requirements; Windows ARM64 execution example; GPU backend; context binary cache.",
+      "key_findings": "The inspected HTP path requires quantized models, fixed shapes and a supported operator subset. The example can disable CPU fallback and raise an exception if the whole model cannot execute on HTP, providing a concrete verification mechanism. Supported data types vary by operation/backend. Compiled QNN context caching can reduce session-creation cost, while the GPU path has different precision support. These are constraints of the documented software path, not timeless limitations of all Qualcomm hardware. Actual runtime/SDK releases and graph partitioning must be pinned before recommending an NPU deployment. ([onnxruntime.ai](https://onnxruntime.ai/docs/execution-providers/QNN-ExecutionProvider.html))",
+      "access_scope": "Read operator table, model requirements, execution/fallback example and cache explanation; did not inspect Qualcomm SDK internals or run a converted graph."
+    },
+    {
+      "source_id": "ODM15",
+      "title": "AWQ: Activation-aware Weight Quantization for On-Device LLM Compression and Acceleration",
+      "url": "https://arxiv.org/html/2306.00978v5",
+      "date": "First submitted 2023-06-01; inspected version 5 dated 2024-07-18; MLSys 2024 paper.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Sections 3–5; activation-aware scaling; TinyChat implementation; evaluation settings and Tables 5/10.",
+      "key_findings": "AWQ uses activation-aware channel scaling to protect salient weights without requiring an inefficient mixed-precision layout. W4A16 storage savings require implemented dequantization, packing and fusion to become speedups; the paper explains avoiding expanded-weight writes to DRAM. Its LLM speed tests use batch one, four prompt tokens and 200 generated tokens, with median latency. That is not a long-document prefill benchmark. Quality evaluation includes perplexity and selected downstream tasks; it does not certify every quantized model/application. The Orin performance discussion includes a 64 GB platform, which must not be confused with Orin Nano 8 GB. ([arxiv.org](https://arxiv.org/html/2306.00978v5))",
+      "access_scope": "Read algorithm and implementation mechanisms, selected quality tables and speed-test conditions; also checked corresponding proceedings text, but did not inspect all source code or reproduce results."
+    },
+    {
+      "source_id": "ODM16",
+      "title": "WhisperTRT README",
+      "url": "https://github.com/NVIDIA-AI-IOT/whisper_trt/blob/main/README.md",
+      "date": "Live repository document; original publication and current commit date not exposed in the retrieved page.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Performance; Execution Time; Memory Consumption; profiling and live-transcription usage.",
+      "key_findings": "NVIDIA's project reports transcription of a 20-second clip on Orin Nano. For base.en, WhisperTRT takes 0.86 seconds and reports 439 MB process memory, versus 2.55 seconds and 666 MB for its Whisper baseline. The arithmetic RTF is 0.043 for that clip, not streaming first-output latency. Documentation says profiling includes warmup and the first load builds a cached TensorRT engine. A microphone/VAD demonstration exists, but the README gives no sustained thermal, noisy-speech quality or complete-device power result. Power mode, precision, package versions and profiling boundaries require code inspection. ([github.com](https://github.com/NVIDIA-AI-IOT/whisper_trt/blob/main/README.md))",
+      "access_scope": "Read the complete substantive README, including both benchmark tables; linked profiling and live-transcription scripts not yet opened."
+    },
+    {
+      "source_id": "ODM17",
+      "title": "Deep Learning Models in Speech Recognition: Measuring GPU Energy Consumption, Impact of Noise and Model Quantization for Edge Deployment",
+      "url": "https://arxiv.org/pdf/2405.01004",
+      "date": "2024-05-02; revision date not displayed in the inspected PDF.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Pages 3–10: data, experimental setup, Tables 1–4 and quantization/noise discussion.",
+      "key_findings": "Independent preprint uses 70 LibriSpeech clips totalling 328 seconds, synthetic noise, Orin Nano 8 GB and JetPack 5.1. It subtracts an idle CPU/GPU power and RAM baseline, so reported energy is not wall energy. Table 4 reports WhisperX-small FP16/INT8 times of 151.7/155.3 seconds, energy of 515/530 J and clean WER of 5.01/5.22, illustrating non-monotonic precision benefits. The sample is small and not continuous live speech. The printed WER equation reuses N inconsistently; code and normalization must be checked before relying on quality calculations. Runtime versions and exact memory accounting need clarification. ([arxiv.org](https://arxiv.org/pdf/2405.01004))",
+      "access_scope": "Read data/setup and results through quantization discussion; visually inspected PDF pages 7 and 10 containing Tables 3 and 4. Reproduction repository not yet inspected."
+    },
+    {
+      "source_id": "ODM18",
+      "title": "Machine Learning & AI Group Lab — WWDC26",
+      "url": "https://developer.apple.com/videos/play/wwdc2026/8016/",
+      "date": "WWDC 2026, June 2026; exact session publication day not stated on the inspected page.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Transcript around the 00:04:44 question on on-device versus Private Cloud Compute, including context and latency discussion.",
+      "key_findings": "Apple's speakers distinguish a 4K on-device system-model context from a 32K PCC model and describe server reasoning controls. They recommend feature-specific comparative evaluations and warn that network round-trip time need not dominate total response time. Offline availability is a local advantage, but fallback quality still requires testing. This is a 2026 API/design discussion, not a controlled hardware benchmark. WWDC access descriptions do not alone establish shipping entitlement, limits or regional availability on November 9; those need release documentation. ([developer.apple.com](https://developer.apple.com/videos/play/wwdc2026/8016/))",
+      "access_scope": "Read the relevant original transcript passage and surrounding discussion, not the entire session or video playback."
+    },
+    {
+      "source_id": "ODM19",
+      "title": "Gemini 2.5: Updates to our family of thinking models",
+      "url": "https://developers.googleblog.com/en/gemini-2-5-thinking-model-updates/",
+      "date": "2025-06-17.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Release-status bullets; thinking-budget discussion; Updates to Gemini 2.5 Flash and pricing.",
+      "key_findings": "The announcement distinguishes stable Pro/Flash from preview Flash-Lite. Historical Flash pricing is $0.30 per million input tokens and $2.50 per million output tokens, with the thinking/non-thinking price distinction removed. Under an explicitly assumed 2,000-input/300-output-token request, those historical rates yield $0.00135 before other charges. This is a useful reproducible historical scenario, not evidence of current pricing, model availability or common-quality equivalence with a local model. The changing preview/stable terms also illustrate why release and billing versions must be retained. ([developers.googleblog.com](https://developers.googleblog.com/en/gemini-2-5-thinking-model-updates/))",
+      "access_scope": "Read release, thinking-budget and pricing sections; current Gemini pricing pages could not be opened successfully and remain a gap."
+    },
+    {
+      "source_id": "ODM20",
+      "title": "Pricing — OpenAI API",
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "date": "Live pricing documentation; current revision date not stated in the inspected page.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Transcription models; tool/storage charges and explanatory billing notes.",
+      "key_findings": "The inspected table lists estimated transcription costs of $0.006/minute for gpt-4o-transcribe and $0.003/minute for gpt-4o-mini-transcribe, alongside token rates. These are billing references, not latency or quality measurements. File-search storage and tool calls have separate charges; the page explicitly defines its billed GB as binary gigabytes. Prospective calculations must pin the endpoint, availability and applicable pricing snapshot and distinguish estimated per-minute charges from exact invoice calculation. The page provides no basis for valuing local engineering or battery costs at zero. ([developers.openai.com](https://developers.openai.com/api/docs/pricing))",
+      "access_scope": "Read transcription and tools/storage tables and billing notes; did not inspect every model price or claim a current best-value model."
+    },
+    {
+      "source_id": "ODM21",
+      "title": "Enter the New Era of Mobile AI with Samsung Galaxy S24 Series",
+      "url": "https://news.samsung.com/us/enter-new-era-of-mobile-ai-samsung-galaxy-s24-series/",
+      "date": "Published 2024-01-17; availability update 2024-01-31.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Availability update; hardware discussion; Galaxy S24 Ultra specifications; privacy controls.",
+      "key_findings": "The US launch page identifies Snapdragon 8 Gen 3 for Galaxy in S24 Ultra and 12 GB memory with 256/512 GB or 1 TB storage configurations. Its January 31 update establishes availability rather than merely announcement. The 5,000 mAh typical battery rating is not directly an energy-in-Wh measurement. Samsung describes local interpreter functionality and controls to disable online AI processing, but this does not prove all Galaxy AI features are local. The specification supplies installed memory, not app-available RAM or a sustained inference result. ([news.samsung.com](https://news.samsung.com/us/enter-new-era-of-mobile-ai-samsung-galaxy-s24-series/))",
+      "access_scope": "Read release/availability text, relevant hardware/privacy discussion and the S24 Ultra specification table; unrelated camera and promotional claims were not used."
+    },
+    {
+      "source_id": "ODM22",
+      "title": "Tech specs: Surface Laptop for Business, Copilot+ PC, Snapdragon X Series processor, 7th Edition",
+      "url": "https://learn.microsoft.com/en-us/surface/tech-specs/surface-laptop-snapdragon-tech-specs",
+      "date": "Last updated 2025-03-25.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Processor, NPU, graphics, memory and storage rows; battery capacity; battery-test footnotes.",
+      "key_findings": "The specification identifies X Elite X1E80100, Adreno GPU, Hexagon NPU advertised at 45 TOPS, and 16/32 GB commercial memory options. The 13.8-inch nominal battery capacity is 54 Wh. These facts support a concrete Windows NPU integration case, not an inference performance prediction. Battery-life claims are based on video/web tests with disclosed preproduction configurations and cannot be reused for local LLM runtime. A 32 GB selected configuration remains installed capacity, with OS and application reservations unresolved. ([learn.microsoft.com](https://learn.microsoft.com/en-us/surface/tech-specs/surface-laptop-snapdragon-tech-specs))",
+      "access_scope": "Read relevant hardware/software rows, battery capacities and test footnotes; no independent performance test of this selected configuration has yet been read."
+    },
+    {
+      "source_id": "ODM23",
+      "title": "Meet the Foundation Models framework — WWDC25",
+      "url": "https://developer.apple.com/videos/play/wwdc2025/286/",
+      "date": "WWDC 2025, June 2025; exact publication day not stated on the inspected page.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Transcript: model fit, tool calling, stateful sessions, availability, profiling and custom adapters.",
+      "key_findings": "The original session describes a task-oriented on-device model and application availability checks for supported devices/regions. Session transcripts retain prior interactions, making accumulated context relevant. Tools can retrieve external information, so an on-device model does not imply every action remains local. Apple describes profiling request latency and warns that custom adapters require retraining as the system model changes. These are 2025 framework behaviours and integration concerns; changed 2026 APIs must be checked separately rather than assumed identical. ([developer.apple.com](https://developer.apple.com/videos/play/wwdc2025/286/))",
+      "access_scope": "Read relevant original transcript passages and code examples; did not execute examples or inspect the entire current SDK."
+    }
+  ],
+  "material_gaps": [
+    "U-MECHANISMS: obtain original configuration files for each chosen checkpoint, including layer counts, KV heads, head dimensions, attention windows, cache sharing and cache dtype. Attempts to open Meta's Llama 3.2 3B configuration were unsuccessful; no named-model KV calculation may rely on remembered values.",
+    "U-PHONES: recover the exact LiteRT-LM benchmark harness, release/commit, model conversion/quantization, OS build, prompt/output lengths, threading and memory accounting behind the S24 Ultra rows. Determine whether public repeated-use measurements exist for the same configuration.",
+    "U-PHONES and U-PCS: obtain documented or measured application-memory budgets, accelerator allocation limits and realistic foreground-app reservations. Installed RAM alone cannot close these envelopes; absent measurements require explicitly labelled reservation scenarios.",
+    "U-PCS: identify the M4 Pro benchmark chassis, OS, thermal/power state and raw commands; examine whether BaseRT, MLX and llama.cpp used quality-equivalent quantized checkpoints. Apple hardware-spec pages returned access/rate-limit errors, so their search snippets were not entered as read sources.",
+    "U-PCS and U-BOUNDARIES: pin a retail-supported Windows NPU model/API combination and exact builds. Verify whether Aion Instruct had actually reached any selected device by November 9, 2026; a month-level rollout announcement is insufficient.",
+    "U-QUALITY: read complete model-card evaluations and the full Apple/Gemma technical reports, then obtain matched task-quality results for chosen precision/runtime variants. Current evidence does not establish a universal minimum useful parameter count or equivalent quality across backends.",
+    "U-DOCUMENTS: read the final Minions proceedings version, prompts, code and dataset construction; reconcile headline recovery metrics, local-cost assumptions, suspicious release chronology entries and any revision changes. Add direct evidence for retrieval/citation failures on small local models and measure or bound embedding/index/OCR costs.",
+    "U-EDGE-SPEECH: open WhisperTRT profiling/live-transcription code and pin TensorRT, JetPack, engine precision, power mode and memory scope. Its 20-second result lacks sustained streaming latency, quality and power measurements.",
+    "U-EDGE-SPEECH and V-EVIDENCE: inspect the ASR study's reproduction repository, WER implementation and tegrastats rails/integration. Clarify whether table memory is total or baseline-subtracted and whether the small synthetic-noise sample supports the intended acoustic setting.",
+    "U-EDGE-SPEECH: obtain long-duration traces including warmup, endpoint delay, chunk overlap, VAD duty cycle, dropped audio, concurrent workload, fan/ambient settings and whole-device power. If unavailable, retain bounded scenarios rather than inventing continuous-operation benchmarks.",
+    "Vision contrast: the versioned DeepStream 7.1 performance page redirected to an inaccessible archive. The accessible current page did not supply the selected Orin Nano case. No search-snippet FPS figure has been accepted; acquire an original versioned pipeline source before using numerical vision comparisons.",
+    "U-BOUNDARIES: verify current iOS/macOS Foundation Models release status, PCC access/quotas, regional eligibility, background behaviour and model-update rules. JavaScript-only technotes and their Markdown links could not be read; the WWDC transcript is an initial source, not a substitute for all shipping documentation.",
+    "U-BOUNDARIES: read platform-specific logging, crash reporting, synchronization and backup policies for the proposed application designs, plus exact cloud endpoint/account retention controls. Provider architectural statements do not establish third-party application behaviour.",
+    "U-ECONOMICS: obtain dated cutoff-valid text-model pricing and availability, actual network latency distributions or explicit network scenarios, transfer encoding, engineering/support allocations and incremental hardware costs. Current Gemini pricing pages were inaccessible; the 2025 announcement remains historical only.",
+    "V-EVIDENCE and V-DOMAIN: independently reconcile all decisive figures and equations before U-DOCUMENTS, U-INTERACTIVE or U-ECONOMICS consumes them. Particular checks are peak CPU memory versus total memory, configured watts versus measured power, prefill versus decode, clip RTF versus streaming delay, and author/vendor measurements versus independent evidence.",
+    "Execution continuity: independent assignments, outline reviews, file-backed registries, whole-report reviews, audit and acceptance have not yet been performed. Subsequent work must preserve the actual original readings and contributions rather than treating this plan or source collection as research completion."
+  ]
+}

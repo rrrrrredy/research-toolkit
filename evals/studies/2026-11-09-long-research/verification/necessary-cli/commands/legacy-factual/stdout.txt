@@ -1,0 +1,3 @@
+WARN: 9 active source records lack dates.
+Eval source integrity failures:
+- ai_knowledge_sanitized: not eligible for factual; allowed_purposes=["workflow"]. Use --purpose workflow for legacy/synthetic packs; use a separate public_sources pack for factual.

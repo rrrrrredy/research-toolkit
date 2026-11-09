@@ -1,0 +1,52 @@
+{
+  "host_task": "/root/complete_requirements_b",
+  "status": "completed",
+  "perspective": "requirements",
+  "execution_mode": "native_codex",
+  "started_at": "2026-11-09T23:41:51.0890382+08:00",
+  "completed_at": "2026-11-09T15:43:43.8271323+00:00",
+  "input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+  "assignment_version": "3f5990c974858e4fc230aa22a567cc0f31c0feaff681dae46f1a872ff87c6ee2",
+  "assignment_path": "reviews/host/b14ddf2357207d82f698/jobs/requirements-3f5990c974858e4f.json",
+  "assignment_sha256": "1fbc64d7aa8935f5026129cac025a75ab6fad148c175701eb38e1146da70c44e",
+  "report_path": "reports/current.md",
+  "report_sha256": "65d880c1a784b0575d853d837db979ff73e28fec8c1bd024252c4b546f1a6558",
+  "expected_report_sha256": "65d880c1a784b0575d853d837db979ff73e28fec8c1bd024252c4b546f1a6558",
+  "prepared_input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+  "prepared_current_matches_frozen": true,
+  "report_unchanged": false,
+  "task_unchanged": true,
+  "effective_requirements_unchanged": true,
+  "reused_full_reading": {
+    "execution_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/ai_drug_discovery_en/native-full-current-reviews/requirements/execution.json",
+    "report_sha256": "4645728a2c1f4b18f13c8c42839d3610b4ec0ebdad5596efa38adc2983417f3c",
+    "reading_intervals": [
+      {
+        "artifact": "actualjob.json:assignment.task, effective_requirements and report",
+        "unread_report_ranges": [],
+        "coverage": "complete continuous report reading, including every program, clinical table, partnership section and appendix",
+        "started_at": "2026-11-09T22:52:12.4797296+08:00",
+        "report_ranges": [
+          "1-70",
+          "71-140",
+          "141-210",
+          "211-288"
+        ],
+        "completed_at": "2026-11-09T22:53:18.425799+08:00"
+      }
+    ],
+    "input_version": "d49c3ce9104cc63e7832524cae63752853080491d4da8a045072f0dfff369a97",
+    "assignment_version": "8eb38db5336077701d84f8e4400b3253f2664cfe78a45ce59bc4c710a422c6da"
+  },
+  "reading_intervals": [
+    {
+      "artifact": "actualjob.json allowed task/requirements/report fields; full report.diff against my prior frozen report",
+      "started_at": "2026-11-09T23:41:51.0890382+08:00",
+      "unread_report_ranges": [],
+      "completed_at": "2026-11-09T15:43:43.8271323+00:00",
+      "coverage": "Read the complete diff against my earlier 1–288-line full reading: DSP-1181 now distinguishes hundreds of synthesized/tested compounds from repeated two-week feedback cycles, avoiding an inflated cycle count; the final paragraph states source and calculation boundaries without production-process narration. The dated project chains, clinical interpretations, seven-program selection and partnership analysis remain intact."
+    }
+  ],
+  "originals_opened": [],
+  "notes": "No new full reread is claimed. Actual prior full reading is reused, with every change read in full. No peer current review output was read; no report edits, research, experiments or tests were performed."
+}

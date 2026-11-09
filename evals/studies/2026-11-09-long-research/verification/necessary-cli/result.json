@@ -1,0 +1,106 @@
+{
+  "completed": true,
+  "commands": [
+    {
+      "label": "codex-first",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "codex-same",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "codex-off",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "codex-install-off",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "codex-remove",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "claude-first",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "claude-same",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "claude-remove",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "opencode-first",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "opencode-same",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "opencode-remove",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "selected",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "unknown",
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "label": "all",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "public-valid",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "public-changed",
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "label": "public-missing-workflow",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "public-missing-factual",
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "label": "legacy-factual",
+      "expected": 1,
+      "actual": 1
+    }
+  ],
+  "scope": [
+    "config return/reuse/off/remove",
+    "selected/default/unknown cases",
+    "public original binding/missing/changed and legacy exclusion"
+  ],
+  "real_agent_loading_tested": false
+}

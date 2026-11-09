@@ -9,7 +9,7 @@ For concrete choices about developing, cutting or revising an argument, consult 
 <!-- method:writing -->
 ## Voice
 
-Write for the audience, genre and style specified in the brief. Explain judgments, mechanisms, comparisons and implications directly, with source attribution and uncertainty where they affect the judgment. If the user asks for methodology, source scope or operating instructions, those belong in the answer too. See [Process-Language Cleanup](#process-language-cleanup) for deciding whether to remove process narration.
+Write for the audience, genre and style specified in the brief. State known facts and explain judgments, mechanisms, comparisons and implications directly. Preserve source attribution and place specific conditions or unresolved evidence beside the judgment they affect, replacing repeated general cautions. If the user asks for methodology, source scope or operating instructions, those belong in the answer too. See [Process-Language Cleanup](#process-language-cleanup) for deciding whether to remove process narration.
 
 ## Structure
 
@@ -17,13 +17,13 @@ Organize the text around the reader's questions, retaining the required coverage
 
 ## Length And Decision Usefulness
 
-Allocate space to the required questions before drafting. When the task has a length constraint or delivery requires a length count, count the actual report before delivery using the requested convention (English words or Chinese characters, with headings and references handled as agreed), and state the count and convention in the delivery note or an existing record; no separate checklist is required. If a count is needed but no convention is given, state a reasonable one. Cut repeated background and caveats before cutting required analysis; a short-report limit still applies when the analysis is good.
+Allocate space to the required questions before drafting. When the task has a length constraint or delivery requires a length count, count the actual report before delivery using the requested convention (English words or Chinese characters, with headings and references handled as agreed), and state the count and convention in the delivery note or an existing record; no separate checklist is required. If a count is needed but no convention is given, state a reasonable one. Cut repeated background and caveats before cutting required analysis, while keeping the developed answer within the agreed length.
 
-For a decision memo, state the recommendation, rationale, next action and conditions that would change the decision. Distinguish measured results from proposed pilot criteria. Explain any proposed numerical target using the decision's risks, a baseline or an agreed service requirement; without such a basis, describe the trigger and how to calibrate it. Check that a target does not reward hiding failures or blocking necessary escalation. For example, capping human handoffs can conflict with giving customers timely access to a person.
+When the research supports a decision, state the recommendation, rationale, next action and conditions that would change the decision. Distinguish measured results from proposed pilot criteria. Explain any proposed numerical target using the decision's risks, a baseline or an agreed service requirement; without such a basis, describe the trigger and how to calibrate it. Check that a target does not reward hiding failures or blocking necessary escalation. For example, capping human handoffs can conflict with giving customers timely access to a person.
 
 When the brief asks for an executable plan, make its first step usable: identify an initial scope, responsible role, practical time or resource assumptions, and observations that would expand, change or stop the work. Label proposed starting values as proposals. Use the details relevant to this decision; do not turn them into a universal checklist or require new external participants.
 
-For a short brief, combine related answers instead of reproducing a long-report structure. A table, background section, references appendix and repeated summary are not mandatory. Check the recommendation against every current hard constraint; do not silently trade a budget limit for performance or turn a growth forecast into an existing requirement. Preserve a source's time, sample and measurement conditions through the conclusion. A missing measurement means unknown, not a measured difference or a proven absence. Keep production disclosures in the separate delivery note when the agreed format provides one; retain substantive evidence limits in the report.
+For a summary or local argument within a long report, combine related answers in the space assigned to that section. Use tables, background and appendices where they serve the agreed report, rather than reproducing them in every unit. Check the recommendation against every current hard constraint; do not silently trade a budget limit for performance or turn a growth forecast into an existing requirement. Preserve a source's time, sample and measurement conditions through the conclusion. Treat missing measurements as unknown; base claims of differences or absence on appropriate observations. Keep production disclosures in the separate delivery note when the agreed format provides one; retain substantive evidence limits in the report.
 
 ## Cut Redundancy, Preserve Relationships
 
@@ -35,7 +35,7 @@ Before:
 
 After:
 
-> First identify which facts changed, then ask whether those facts affect the original conclusion. A page update alone does not overturn it; if the change concerns a fact the conclusion depends on, reassess the reasoning.
+> Identify which facts changed and which conclusions rely on them. Reassess those conclusions against the updated evidence; retain conclusions whose supporting facts and reasoning still hold.
 
 The rewrite makes the order of actions and the judgment conditions explicit while preserving the original evidence boundary.
 
@@ -53,7 +53,7 @@ Meaning-preserving alternatives, depending on where the fact appears:
 | --- | --- |
 | Body text | In this pilot, 62% of human edits lacked reason codes. |
 | Table | Human edits missing reason codes: 62% (this pilot). |
-| Conclusion | This pilot has gaps in its records of why humans made edits. This proportion alone does not establish the share of all tasks requiring human edits or a rate of workforce replacement. |
+| Conclusion | In this pilot, 62% of human edits lacked a recorded reason. A task-level editing rate needs all tasks as its denominator; estimating workforce replacement also requires evidence about workload and staffing changes. |
 
 <!-- /method:writing -->
 
@@ -69,7 +69,7 @@ Read the relevant example when deciding what to develop, remove or revise. These
 
 **Rewritten passage:**
 
-> Downtime fell by 330 minutes, about 17.9% of the comparison-period total, which warrants investigating the product's contribution. But production load and spare-parts policy changed too. Neither assigning all 330 minutes to the model nor subtracting 6% from 17.9% establishes net benefit: load and downtime are different measures. Deciding whether benefits cover the subscription requires linking particular faults, loss per minute and human handling costs. A non-bottleneck workshop's acceptance of weaker terms suggests that a limited trial may still make sense; it does not replace loss estimates, missed-alert liability or prepaid-fee refund terms for a bottleneck line. The evidence supports further assessment of specific uses, but not approval of multiyear prepayment for the critical line.
+> Downtime fell by 330 minutes, about 17.9% of the comparison-period total, which warrants investigating the product's contribution. Production load fell by 6% and spare-parts policy also changed. The two percentages measure different quantities; assess the model's contribution using evidence about particular faults, workload and spare-parts changes rather than subtracting the rates or assigning the whole reduction to the model. Procurement value then depends on avoided losses per minute and human handling costs relative to the subscription. A non-bottleneck workshop's acceptance of weaker terms supports considering a limited trial there. For the bottleneck line, continue that assessment and defer multiyear prepayment until the loss estimate, missed-alert liability and prepaid-fee refund terms justify the commitment.
 
 **Why this choice helps.** Keep the observed improvement and counterexample, then supply the missing connections among observed change, attribution, economic value and contract choice. This needs more explanation. Adding only “limited sample” or making the conclusion more cautious would still leave the procurement question unanswered.
 
@@ -81,9 +81,9 @@ Read the relevant example when deciding what to develop, remove or revise. These
 
 **Rewritten passage:**
 
-> Whether this answer can be submitted depends on what the buyer asks. Preliminary screening may use an average estimate whose purpose is clear and accepted by the buyer; comparison of a particular supplier's product requires explaining why that average fits the product. Premium ranges for 30% of SKUs do not establish coverage of this product, nor turn an average into a measurement or an assured conclusion. If the customer requires independent assurance, the current material is insufficient. If the purpose is only screening, that limit need not prohibit every use of the library.
+> Match the RFQ answer to the buyer's purpose. For preliminary screening, use the library's industry-average or spend-based estimate if the buyer accepts that use, and label it accordingly. Comparing a particular supplier's product requires explaining why the selected factor fits that product. Premium ranges cover 30% of SKUs, so check whether the current product is included and retain the estimate's method and scope. The library provides no third-party assurance; an RFQ requiring an assured answer needs that assurance before submission. A buyer accepting a labelled screening estimate can use it for that narrower purpose.
 
-**Why this choice helps.** Catalogue size and “no challenges” can describe the product, but do not establish this answer's suitability, so they are not piled into the decision paragraph. Repeated writing advice is removed. Keep the premium coverage limit and the screening counterexample because they change the recommendation. Cutting makes space for necessary analysis; minimum length is not the goal.
+**Why this choice helps.** Catalogue size and “no challenges” describe the claimed range and prior use. This decision turns on the current product, the buyer's purpose and the required assurance, so the paragraph develops those points instead of repeating product background or writing advice. The premium coverage limit and screening counterexample remain because they change the recommendation. Cutting makes space for necessary analysis; minimum length is not the goal.
 
 ### Revise Locally: Which Judgments Change with the Requirements?
 
@@ -93,7 +93,7 @@ Read the relevant example when deciding what to develop, remove or revise. These
 
 **Rewritten passage:**
 
-> Under the revised 11-unit budget and current 16 TB capacity requirement, A qualifies with 11 units in total cost, 2-hour recovery and 24 TB capacity. B still exceeds the recovery limit at 5 hours. C's 14 TB is now insufficient; an expansion with unknown price and performance cannot count as meeting the requirement. All three remain on premises, and the evidence still cannot compare reliability or operating labor. The switch to A follows from changed budget and capacity requirements, not new measurements of prices or reliability.
+> Under the revised 11-unit budget and current 16 TB capacity requirement, A qualifies with 11 units in total cost, 2-hour recovery and 24 TB capacity. B still exceeds the recovery limit at 5 hours. C's 14 TB falls short; reassessing it requires an expansion to at least 16 TB with a confirmed price and recovery time. All three remain on premises. Reliability and operating labor remain unresolved in the supplied evidence. The revised budget and capacity requirements change the recommendation to A; the supplied cost, recovery and capacity figures are unchanged.
 
 **Why this choice helps.** Change the recommendation and its budget/capacity reasoning while retaining B's recovery limit, the location finding and the unknowns. Revise a judgment when new input changes its premises, not merely because a new file or a large update exists. Follow-up requirements and evidence in an actual task must come from its actual inputs, not be invented to imitate this example.
 

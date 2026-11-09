@@ -1,0 +1,19 @@
+{
+  "input_version": "f6bb51c4fdab26cede56b083db7acbe727f8d84add9ff64682cf380aa9ff37cb",
+  "assignment_version": "c120ec6c2e91451cf1f5bf6c7128941f7a043fbd769711ed2a956ed63783096a",
+  "report_verdict": "pass",
+  "coverage": {
+    "reader_usefulness": {
+      "location": "reports/current.md 完整差异：第6、40行；读取相邻第1–11、35–45行。复用首次全文第1–513行阅读。",
+      "basis": "本人上一轮已完整阅读513行报告并核对关键原件和计算，本轮任务与有效要求未变；对原冻结报告与当前完整报告做全文件diff，只有两处修改。开篇现在明确全国人数与App监测的期间、口径不同，把迁移和强化降为可能解释，说明分解新增/迁移贡献所需数据；这提高了增长判断的可用性，保留了后续频次、平台、收益和现金选择的机制。市场估计表现在准确区分北大报告声称不含出海与仍未披露的余额/内部抵销；核读未变化的MD006原文第3页确认。未变化主体继续适用首次reader_usefulness通过结论。原RU-MDZH-01仍是非阻断的可选附件链接改进，不升级为必要修正。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "RU-MDZH-01",
+      "severity": "optional",
+      "location": "reports/current.md 第396、504、512行，配套复算文件说明（本轮无变化）。",
+      "basis": "首次审阅的可选便利性建议仍适用：主要复算文件以裸文件名列出，读者需自行寻找analysis/calculations内文件；补可携带相对链接可降低复用成本。该处未改，不影响正文机制、参数、结果与经营建议的可理解性，不阻断通过。"
+    }
+  ]
+}

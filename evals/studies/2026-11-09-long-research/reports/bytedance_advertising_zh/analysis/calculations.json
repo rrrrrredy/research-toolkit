@@ -1,0 +1,83 @@
+{
+  "kind": "author_assumed_sensitivity_not_empirical",
+  "currency": "RMB",
+  "merchant_scenarios": [
+    {
+      "name": "A低退货低佣金",
+      "assumptions": {
+        "orders": 1000,
+        "price": 100,
+        "ad_spend": 20000,
+        "refund_fraction": 0.1,
+        "cogs_fraction_retained_sales": 0.4,
+        "fee_fraction_retained_sales": 0.05,
+        "affiliate_fraction_retained_sales": 0.05,
+        "fulfil_per_original_order": 5,
+        "extra_return_cost": 5,
+        "creative_cost": 2000,
+        "counterfactual_orders": 300
+      },
+      "gross_roas": 5.0,
+      "retained_revenue": 90000.0,
+      "pre_ad_contribution": 39499.99999999999,
+      "accounting_contribution": 17499.999999999993,
+      "counterfactual_contribution": 11849.999999999998,
+      "incremental_contribution": 5649.999999999993,
+      "incremental_retained_revenue_roas": 3.15,
+      "breakeven_incremental_pre_ad_margin": 22000
+    },
+    {
+      "name": "B高退货高佣金",
+      "assumptions": {
+        "orders": 1000,
+        "price": 100,
+        "ad_spend": 20000,
+        "refund_fraction": 0.3,
+        "cogs_fraction_retained_sales": 0.4,
+        "fee_fraction_retained_sales": 0.05,
+        "affiliate_fraction_retained_sales": 0.15,
+        "fulfil_per_original_order": 5,
+        "extra_return_cost": 5,
+        "creative_cost": 2000,
+        "counterfactual_orders": 600
+      },
+      "gross_roas": 5.0,
+      "retained_revenue": 70000.0,
+      "pre_ad_contribution": 21499.999999999993,
+      "accounting_contribution": -500.0000000000073,
+      "counterfactual_contribution": 12899.999999999996,
+      "incremental_contribution": -13400.000000000004,
+      "incremental_retained_revenue_roas": 1.4,
+      "breakeven_incremental_pre_ad_margin": 22000
+    }
+  ],
+  "holdout": {
+    "randomized_equal_groups_assumed": true,
+    "users_each": 10000,
+    "treatment_conversions": 500,
+    "control_conversions": 400,
+    "absolute_lift_pp": 1.0,
+    "relative_lift": 0.25,
+    "incremental_conversions": 100,
+    "approx_95pct_CI_pp": [
+      0.4255,
+      1.5745
+    ],
+    "assumed_spend": 10000,
+    "cpic": 99.99999999999999
+  },
+  "marginal_reinvestment": {
+    "additional_spend": 5000,
+    "additional_retained_sales": 12000,
+    "pre_ad_margin": 0.4,
+    "incremental_profit": -200.0
+  },
+  "repeat_sensitivity": {
+    "incremental_new_customers": 100,
+    "repeat_probability": 0.3,
+    "repeat_pre_marketing_contribution": 40,
+    "retention_cost": 200,
+    "discount_factor": 0.95,
+    "expected_future_contribution": 940.0
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "host_task": "/root/independent_domain_b",
+  "status": "completed",
+  "slot_id": "domain-1",
+  "role": "reviewer",
+  "scope": "full_report",
+  "execution_mode": "native_codex_independent_subagent",
+  "input_version": "deb1004facf57b118c324221ab7fac14262b822bda3a61e2f587d8b6c6eba368",
+  "assignment_version": "efd7f4e8bfc1eeb0e2c2b3603ed15519b1e611f18626dce695d9eba7ece42507",
+  "artifact_sha256": "20eb17eb713a42c7dc95d038db95561d543871d36293d5ddb97875d3836d66d3",
+  "recorded_at_utc": "2026-11-09T13:04:26.0119398Z",
+  "response_sha256": "e8b95c874cc91ea1826339bfc53ab3e68df831b8a0b532d1ffc3680f2c842299",
+  "actual_observed_agent_tool_events": [
+    "Parent assigned complete on-device full-report domain review; reviewer is not its author.",
+    "Selected actual assignment via native-full-prepared.json and read complete frozen report, task and instructions in bounded CLI outputs.",
+    "CLI read relevant original source passages and full existing calculation code/results; view_image inspected three original PDF table pages.",
+    "web__run opened official current Phi Silica, Surface hardware and NVIDIA Super documentation and read relevant condition/specification passages.",
+    "Saved substantive negative first full-domain response; no author draft edit or import."
+  ],
+  "read_materials": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\reviews\\host\\deb1004facf57b118c32\\jobs\\domain-1-efd7f4e8bfc1eeb0.json",
+      "sha256": "28c7c539a53dbd820b32808fe03815dda978491da7e52e63163251134f9f0771",
+      "scope": "Complete current report lines1-294, task question/effective requirements and instructions. Read in bounded sections; no other initial review read."
+    },
+    {
+      "sha256": "eed00b17e22553979d090fa492e587e92885e328914c8e0b0b78f0a0d3576b3b",
+      "scope": "Complete official Qwen config",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S01.txt"
+    },
+    {
+      "sha256": "2c74693e6ae36ba878124d465195b4dad0f71035b54ece1c9fd1553cc497ef8c",
+      "scope": "3B model identity, parameter/context rows",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S02.txt"
+    },
+    {
+      "sha256": "cdc06052012c47654cfa49dc41a766cdb8801c4dfd469bee6d42774b058beb78",
+      "scope": "Quantization method and instruction quality rows",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S06.txt"
+    },
+    {
+      "sha256": "89bb308462c090a2b5e17cd0e74796b159454cf15d953bb3a8fd725827fe193d",
+      "scope": "Complete pinned README",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S10.txt"
+    },
+    {
+      "sha256": "064f5cc90c65c26e6ef5f45e12de6aa60c1ca2ec15a5e4f9fa56f3d39a7eff1a",
+      "scope": "Pinned README lines1-101, especially55-77",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S12.txt"
+    },
+    {
+      "sha256": "efbe73f81123b5f7d20b99dfbdb0bb10005080f0044fea8e387b7163e3c73943",
+      "scope": "Architecture §2, compression §6 and adapter §7; visual Table3 p17",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S17.txt"
+    },
+    {
+      "sha256": "ce0ed9020c009666e0fe231ffd680693c269444627453896363201ba62725f60",
+      "scope": "Final Minions methods, cost accounting, Table1 p7 image, Table2 and §6.5 latency, privacy discussion",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S18.txt"
+    },
+    {
+      "sha256": "d938bb20d61d88b0afb0dc0aaedfc57e8907b6b6fd04bb83a3407700e32e2a35",
+      "scope": "Complete profiling code",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S19.txt"
+    },
+    {
+      "sha256": "b0431149915eec9656233431901015418bc6eea207c3045ad766662652f6943f",
+      "scope": "VAD run and ASR process, queues and initialization",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S20.txt"
+    },
+    {
+      "sha256": "eb99743bcb8f5359d828ea3bb5f624072df9384c98507fb9cf37e52469bcd73c",
+      "scope": "transcribe greedy loop, mel clipping and builder precision",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S21.txt"
+    },
+    {
+      "sha256": "e7d88b614cebf1983c57cc0597caa8101bdfc40062a8620369ab6ff1ec782d57",
+      "scope": "PCC overview, context table, platform requirements, entitlement and daily quota",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM-S28.txt"
+    },
+    {
+      "sha256": "53d727ed918ea700243a97df08de84c69b7f45eabbd56004ab1a205a6ff4d6af",
+      "scope": "MELT §5.2.3 sustained and responsiveness experiments",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM01.txt"
+    },
+    {
+      "sha256": "35da70223eec476b0f230cc930dd8b1193f01979363611d92ebd35f5af568aca",
+      "scope": "Effective versus total parameters, PLE and conditional loading",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM03.txt"
+    },
+    {
+      "sha256": "2862c0049ef49b2a8b4c3b92fe9a9bb3ab3750da712e5a6d4b3b5785934b3719",
+      "scope": "BaseRT §4.1 setup and Tables1-3 relevant rows",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM07.txt"
+    },
+    {
+      "sha256": "36aa2ed7a8bf16375df447981d8decfa504b03d533733b3002b0a84368476a8b",
+      "scope": "PCC stateless processing, privileged access, logs and transparency",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM11.txt"
+    },
+    {
+      "sha256": "a10040a890cc686442f325b240773c769612b94f3536a8e4898b7e44bda43c2b",
+      "scope": "Device/version support, foreground and quota sections",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM12.txt"
+    },
+    {
+      "sha256": "972840dadf0b8b08b46b00507f920e6a63f779dc4a3ce3a2d9a0ff3e579ad5a9",
+      "scope": "Training default and abuse-log retention paragraphs",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM13.txt"
+    },
+    {
+      "sha256": "b6a7e579b8dd07f3b1b26be711df8a8ab0cd2c6e635be484f942eef1c0498ed4",
+      "scope": "QNN HTP quantization, static shapes and fallback option",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM14.txt"
+    },
+    {
+      "sha256": "4c5e65c71d3afc02aee4265b8299dd8bfc3951b70d45d60062956a5b6aa671ae",
+      "scope": "AWQ abstract/method and kernel/dequantization mechanism",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM15.txt"
+    },
+    {
+      "sha256": "bdef3bc9a8f6281a2c3e29c381f6a3dfffe5133341049eac3a708fffabcb2a49",
+      "scope": "Original pp4-7 setup and p10 Table4 visually; precision discussion",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en\\sources\\actual\\ODM17.txt"
+    },
+    {
+      "sha256": "6cc945a2b228f26621cce4bc5a6abed9172ce1d7f6401fcd4601df1f2ada2005",
+      "scope": "Complete code/results or entire named original-table page image, actually read; not executed",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\deployment_calculations.py"
+    },
+    {
+      "sha256": "83adc6ea57f83c1089300e99dd6e12fabc1bb47f2f66bd8e0a40df0a4085dd1e",
+      "scope": "Complete code/results or entire named original-table page image, actually read; not executed",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\calculation-results.json"
+    },
+    {
+      "sha256": "5ca00df83112d2738329abb9eb1c8c13f2a7284eca477612119432fd95681abf",
+      "scope": "Complete code/results or entire named original-table page image, actually read; not executed",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\reading-images\\ODM17-p10.png"
+    },
+    {
+      "sha256": "4b24cd476883ab3d3cdca555f8b210e2f2a7abfcb293d204b246cd0f975225f6",
+      "scope": "Complete code/results or entire named original-table page image, actually read; not executed",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\reading-images\\ODM-S17-p17.png"
+    },
+    {
+      "sha256": "949162286f967138099f38fbe7988c0137adb13785d23e053c7fb327152be96d",
+      "scope": "Complete code/results or entire named original-table page image, actually read; not executed",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\reading-images\\ODM-S18-p7.png"
+    }
+  ],
+  "web_originals": [
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica",
+      "scope": "Current lines34-116, feature/channel/readiness requirements"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/surface/tech-specs/surface-laptop-snapdragon-tech-specs",
+      "scope": "Hardware processor,45TOPS and RAM table"
+    },
+    {
+      "url": "https://developer.nvidia.com/blog/nvidia-jetson-orin-nano-developer-kit-gets-a-super-boost/",
+      "scope": "Dated article,software upgrade and Table1 original/Super hardware/module power"
+    }
+  ],
+  "limits": [
+    "No inference experiment, benchmark, model API or calculation rerun.",
+    "Relevant original passages and named images were read; unexamined appendices are not represented as fully read.",
+    "First review is bound to this frozen input; proposed author fixes have not been reviewed here."
+  ]
+}

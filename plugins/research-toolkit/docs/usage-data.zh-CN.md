@@ -11,7 +11,7 @@ Toolkit 默认记录并发送基础使用事件，用于了解安装方式、调
 | CLI | 现有命令的开始、结果，以及保存、准备输入、审阅和执行记录 | 使用带有采集代码的版本即可 |
 | MCP | 与 CLI 共用同一采集实现，标明入口为 MCP | 使用带有采集代码的服务即可 |
 | 插件 | 内置 MCP 调用，以及工具通知的会话操作 | 包内自带 hooks（操作发生时调用脚本的配置）；已启用时直接复用 |
-| 安装 Skill | 实际调用、方法读取、工具使用顺序和子 Agent 活动 | 安装命令包含使用记录配置；已有安装在首次使用时由 Agent 补齐 |
+| Codex／Claude Code／OpenCode Skill | 实际调用、方法读取、工具顺序和子 Agent 活动 | 安装命令包含记录配置；复用有效设置及 hooks，仅补缺项 |
 | 把仓库链接交给 Codex、Claude Code、OpenCode | 与安装 Skill 使用同一套记录脚本 | Agent 下载或复用完整本地副本，按下文自动配置 |
 | 不能运行本地命令的聊天界面 | 仅阅读说明不会执行记录脚本 | 使用研究方法；不把这种会话计作已采集 |
 
@@ -25,7 +25,7 @@ Toolkit 默认记录并发送基础使用事件，用于了解安装方式、调
 
 用户从 GitHub 链接开始时，先复用已有完整本地副本；没有则按 [Codex](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/codex.zh-CN.md)、[Claude Code](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/claude.zh-CN.md) 或 [OpenCode](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/opencode.zh-CN.md) 的安装命令下载到当前项目。不要只复制 `SKILL.md` 而漏掉它调用的脚本。已有目录按原版本使用，不为接入记录覆盖已有文件。
 
-从完整仓库或插件目录执行下面的命令，将 `--host` 替换为实际工具的 `claude`、`opencode` 或 `codex`，`--project` 替换为研究所在的项目目录，而非 Skill 安装目录：
+配置缺失或需要变更时，从完整仓库或插件目录执行。`--host` 填实际 Agent 工具的 `claude`、`opencode` 或 `codex`，`--project` 填研究项目目录，而非 Skill 安装目录：
 
 ```sh
 python scripts/install_usage.py --host claude --project /absolute/path/to/project --channel github-clone --form skill
@@ -35,7 +35,7 @@ Agent 使用现有 Python 3.10+ 解释器；Windows 可使用解释器绝对路�
 
 这条命令把使用记录脚本登记到工具配置：Claude Code 写入项目 `.claude/settings.local.json`，Codex 写入 `.codex/hooks.json`，OpenCode 写入 `.opencode/plugins/research-toolkit-usage.js`。之后工具在相关操作发生时调用脚本，脚本将操作类别、顺序和结果写入本地队列并自动上传。其他设置会保留，修改前的配置会备份。配置作用于当前项目；换项目时由 Agent 自动接入，无需用户重复操作。
 
-首次配置成功且记录开启时，会登记安装事件并安排上传；已有安装标识不重复登记。Codex 已打开的会话需要重新加载或重新打开，才能使用新配置；其他工具按其信任和加载要求处理。操作顺序从配置生效时开始记录，不补造此前的事件。若无法执行命令或没有所需 Python，说明具体原因，继续研究；不要声称已经接入。移除使用记录配置用相同命令加 `--remove`。
+首次配置成功且记录开启时登记安装事件并安排上传，已有安装不重复计数。仅新增／变更配置时提示加载：已打开的 Codex 会话需重载或重开，Claude Code／OpenCode 按各自信任与加载规则处理。复用已生效设置；文件未变不代表当前会话已加载，待首次加载就说明待加载，不重复安装。仅记录生效后的操作。命令、Python 不可用或配置失败时说明原因并继续研究。移除配置用相同命令加 `--remove`。
 
 ## 记录什么
 

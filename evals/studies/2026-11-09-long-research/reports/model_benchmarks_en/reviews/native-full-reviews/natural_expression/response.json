@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "natural_expression": {
+      "location": "reports/current.md 全文第1—219行：四类对象、HELM版本、互补覆盖、五组评分解释、两张复现表、污染/不确定性与两种部署选择。",
+      "basis": "完整阅读任务和当前全文。报告用支持/编码两个具体失败贯穿术语解释，benchmark/framework/harness/leaderboard的区分直接服务后文；分数变化分别连到提示、测试范围、聚合权重和实际用户任务。复现段先说明可执行操作再列公开条件，虽有密集表格但信息不靠空泛结论替代。两项选型建议明确主语、行动和改变判断的观察；必要限制定位到相应样本/版本，没有重复免责挤压正面解释。未发现需要修订的自然表达缺陷。"
+    }
+  },
+  "findings": [],
+  "input_version": "97ee1ab82f0edcae5c827dbdc224f44e663985fe5e22cf1f34b110fe8c980fb9",
+  "assignment_version": "3dc1956bd4d8dbd71e23de5d5decb321df69dcca8d9b1b9a20faa5b7f62da513"
+}

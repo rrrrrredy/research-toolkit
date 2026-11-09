@@ -1,0 +1,71 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\personal_agents_zh",
+  "input_version": "8208b408fba85ea9f85a7f8cce08ea0777a4dc51b47cd27819c1a1036a2be6e0",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/5636b374bd9109e750de.md",
+        "sha256": "5636b374bd9109e750de05853b3f6e80e36d2750413bc99611b1ec2519a4072d"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/8208b408fba85ea9f85a/jobs/structure_and_depth-92eee932a1b1c2a3.json",
+        "sha256": "6aced06c41a9f9e86c4305cedb55cda95f061806e4f65c304d5d5dfa344e6093"
+      },
+      "assignment_version": "92eee932a1b1c2a3e50253dc2288e4cffc814828e6328c3035178e3ad65dcc07",
+      "resume_host_task": "/root/benchmark_structure"
+    },
+    {
+      "slot_id": "process_language",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/9f7bde8dbad6ee1b3d1b.md",
+        "sha256": "9f7bde8dbad6ee1b3d1b4248ce7a68e5f328eebc229316026dad34902757052e"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/8208b408fba85ea9f85a/jobs/process_language-9a45663183ba525c.json",
+        "sha256": "47118b4ee8a5c5407859391be0af2645ad012c85423e268ad347d5fc750875a9"
+      },
+      "assignment_version": "9a45663183ba525c9c36ceb615e1f3ebc1684891e10ab6494a027bf2b7ab7cda",
+      "resume_host_task": "/root/benchmark_process_a"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: structure_and_depth",
+      "Incomplete independent assignment: process_language",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 6,
+    "selected_attempts": {
+      "natural_expression": "4124fdc94c7747db8cecefb90f7bb071",
+      "domain-1": "d278ccac69f249bb9b598c5a83c38805",
+      "evidence": "2e602e8ed8f34a09b138382bc31019fd",
+      "requirements": "e5f839b594a94009a01d7ffb71908b96",
+      "adversarial_reasoning": "f77c154e57794747a455d28df69ea55c",
+      "reader_usefulness": "fb50f7d8a7d044f7999c08226c4cc7a9"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: structure_and_depth",
+    "Incomplete independent assignment: process_language",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

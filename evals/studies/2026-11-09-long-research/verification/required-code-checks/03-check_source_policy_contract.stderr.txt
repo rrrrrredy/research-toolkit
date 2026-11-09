@@ -1,0 +1,20 @@
+test_case_source_ids_require_nonempty_distinct_strings (__main__.SourcePolicyTests.test_case_source_ids_require_nonempty_distinct_strings) ... ok
+test_copied_complete_suite_is_valid_control (__main__.SourcePolicyTests.test_copied_complete_suite_is_valid_control) ... ok
+test_curation_is_exact_nonmutating_and_idempotent (__main__.SourcePolicyTests.test_curation_is_exact_nonmutating_and_idempotent) ... ok
+test_current_inputs_cannot_be_called_factual_benchmark (__main__.SourcePolicyTests.test_current_inputs_cannot_be_called_factual_benchmark) ... ok
+test_current_workflow_inputs_pass (__main__.SourcePolicyTests.test_current_workflow_inputs_pass) ... ok
+test_duplicate_quarantine_ids_fail_even_with_matching_manifest (__main__.SourcePolicyTests.test_duplicate_quarantine_ids_fail_even_with_matching_manifest) ... ok
+test_generator_cannot_resurrect_reviewed_claims (__main__.SourcePolicyTests.test_generator_cannot_resurrect_reviewed_claims) ... ok
+test_invalid_manifest_shape_is_reported_without_traceback (__main__.SourcePolicyTests.test_invalid_manifest_shape_is_reported_without_traceback) ... ok
+test_missing_case_source_ids_cannot_silently_check_nothing (__main__.SourcePolicyTests.test_missing_case_source_ids_cannot_silently_check_nothing) ... ok
+test_missing_or_empty_case_directory_cannot_pass (__main__.SourcePolicyTests.test_missing_or_empty_case_directory_cannot_pass) ... ok
+test_missing_or_empty_pack_directory_fails_without_traceback (__main__.SourcePolicyTests.test_missing_or_empty_pack_directory_fails_without_traceback) ... ok
+test_missing_policy_is_not_assumed_safe (__main__.SourcePolicyTests.test_missing_policy_is_not_assumed_safe) ... ok
+test_policy_cannot_self_certify_factual_quality (__main__.SourcePolicyTests.test_policy_cannot_self_certify_factual_quality) ... ok
+test_policy_entry_cannot_hide_a_missing_pack (__main__.SourcePolicyTests.test_policy_entry_cannot_hide_a_missing_pack) ... ok
+test_reintroduced_claim_is_rejected_in_cli (__main__.SourcePolicyTests.test_reintroduced_claim_is_rejected_in_cli) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 28.574s
+
+OK

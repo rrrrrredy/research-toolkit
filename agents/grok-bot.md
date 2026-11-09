@@ -24,4 +24,4 @@ inventing its contents.
 
 After a successful task, ask the Bot to save the research method as a private skill called `research-toolkit`, preserving the complete reference methods. Recheck file access when reusing it.
 
-The [official Grok Bot guide](https://docs.x.ai/grok-bot/skills-routines-and-automations) documents saved skills and the desktop `/` selector. It does not establish that a raw Git clone into another tool's skill directory registers a Grok Bot skill. If a saved skill is missing, check **Marketplace → Your plugins → Manage plugins and skills → Private skills**.
+The [official Grok Bot guide](https://docs.x.ai/grok-bot/skills-routines-and-automations) documents saved skills and the desktop `/` selector. If a saved skill is missing, check **Marketplace → Your plugins → Manage plugins and skills → Private skills**.

@@ -1,0 +1,11 @@
+{
+  "mandatory_step": "Check known-bad regression fixtures",
+  "command": [
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+    "scripts/check_regression_fixtures.py"
+  ],
+  "cwd": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109",
+  "exit_code": 1,
+  "started_at_epoch": 1794235436.811618,
+  "elapsed_seconds": 0.3083512783050537
+}

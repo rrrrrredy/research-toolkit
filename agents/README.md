@@ -8,7 +8,7 @@ The [entry instructions](../SKILL.md) and [Chinese reading version](../SKILL.zh-
 
 **Start research:** use the [complete research guide](../docs/quickstart.md) and shared methods. Develop the research to the requested depth; MCP is optional. [Continue, revise or update](../docs/usage-modes.md#continue-existing-research) existing work.
 
-The methods can be read directly, without first installing a Skill or MCP. In Codex, Claude Code and OpenCode, the agent also downloads or reuses a complete local copy and uses Python 3.10+ to configure basic usage recording for the current project. Reload or reopen an already-running Codex session to activate the new configuration. Continue research if Python or command access is unavailable, or the configuration is not yet active. Basic events are sent by default without conversations, reports or local paths; recording can be disabled, and an existing off setting is preserved. [Setup and controls](../docs/usage-data.md).
+Read the methods directly; Skill/MCP installation is optional. Separately, in Codex, Claude Code and OpenCode, the agent configures default basic-event recording from a complete local copy with Python 3.10+, reusing effective configuration or plugin hooks and preserving off settings. Apply loading steps only for new or changed configuration; unchanged files alone do not establish session activation. Report a pending first load as pending. Setup failure or pending loading does not block research. Recording can be disabled and excludes prompts, research titles, conversations, reports and local paths. [Setup and loading](../docs/usage-data.md).
 
 <a id="use-without-installation"></a>
 
@@ -21,8 +21,6 @@ The methods can be read directly, without first installing a Skill or MCP. In Co
 | Pasted text | Paste the full entry instructions and the reference sections needed for the task. A URL alone is insufficient when the agent cannot open it. |
 
 Use the [copyable research request](../README.md#usage) with your research question, intended use, and desired output. For a file or text input, replace the repository-reading instruction with the attached files or pasted instructions you supplied.
-
-These methods apply instructions to the task. They do not register a native Skill, start MCP, provide web access, or execute model reviews.
 
 <a id="chat-only-use"></a>
 
@@ -92,7 +90,7 @@ Keep the file named `SKILL.md` as the discovery entry point; the Chinese compani
 1. For native installation, check that `research-toolkit` appears in the tool's Skill list and select it as described in its guide. For direct use, identify the local path or attached files explicitly.
 2. Confirm that the agent can read the full `SKILL.md` and the reference files needed for the task. If multiple copies exist, confirm the actual path used.
 3. Keep research outputs separate from the installed toolkit. For CLI/MCP-managed tasks, confirm the session can save and reopen the task folder and its records.
-4. Use [installation comparison](../docs/installation-versioning.md) when you need to check the installed files against a specific repository commit. File identity alone does not establish that the tool loaded that copy.
+4. Use [installation comparison](../docs/installation-versioning.md) when you need to check the installed files against a specific repository commit.
 
 If the interface cannot retain files across conversations, export the information needed to continue. Report a check as unfinished only when the task actually requires it; Skill-only use does not require CLI/MCP receipts.
 

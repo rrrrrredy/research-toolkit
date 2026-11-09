@@ -1,0 +1,11 @@
+{
+  "original_run": "09-check_evaluator_contract.json",
+  "failure": "Existing all-case prompt check assumed every active case was Chinese; seven English subcases failed the same language assertion.",
+  "change": "Check the existing review/evidence instructions in each case's declared language.",
+  "command": ["C:/Users/luosong03/Documents/ChatGPT/Others/.research-toolkit-venv/Scripts/python.exe", "-B", "-X", "utf8", "-m", "unittest", "check_evaluator_contract.EvaluatorContractTests.test_all_case_prompts_include_current_review_assignment"],
+  "cwd": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/scripts",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ".\n----------------------------------------------------------------------\nRan 1 test in 0.230s\n\nOK\n",
+  "retained": "The other 40 methods passed in the original mandatory suite and were not rerun."
+}

@@ -1,0 +1,19 @@
+{
+  "input_version": "9b671d1e800e9196d44088d7ce0ee850515f21ae19c945574429ee43ab41bdbe",
+  "assignment_version": "3da2c8eeeb922b2f1b6a90c43665996936efe2b161b7beeeb17999222ee60c31",
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "evidence": {
+      "basis": "全文按 1–85、86–160、161–223 连续阅读；独立读取保存的官方产品文档、公开动作代码、研究论文、版本明确的媒体体验及既有算例文件。核心取消语义、Manus 配置传播、千问公测/邀测和支付范围、Siri 发布限制、Open-AutoGLM 占位动作、记忆传播及任务经济性均与原文一致。发现 Gemini 现行使用资格表遗漏直接影响国内外方案可选范围的地区与启用条件。",
+      "location": "全文 1–223 行，包含两条产品任务链、记忆/撤权、可靠性、商业与算例。"
+    }
+  },
+  "findings": [
+    {
+      "severity": "minor",
+      "location": "第 22 行 Gemini 路线使用条件；第 54–62、93–102 行基于 Gemini Tasks 的两条任务链。",
+      "basis": "保存的原始 Gemini Tasks 文档 sources/actual/PA08.txt 第 35–43 行除个人账户、AI Pro/Ultra、Keep Activity 外，还明确要求 opt in to Personal Intelligence，并说明目前不在 European Economic Area、Nigeria、Switzerland、United Kingdom 提供。报告第 22 行只列前三项，再以 1 月美国 Personal Intelligence 首发不能推出后续地区扩展作为提醒，没有交代同一份 11 月现行 Tasks 原件已经明确给出的地区排除范围。这会使这些地区的 Google 个人账户用户被放进文中的可选路线，而任务要求明确注明影响比较的地区与账户条件。请在当前 Gemini 条目补上现行排除地区与 Personal Intelligence 启用条件，并使相关任务链的适用前提指向该条目；不需要新增体验或扩大调研。",
+      "finding_id": "EV-PAZH-01"
+    }
+  ]
+}

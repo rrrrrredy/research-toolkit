@@ -1,0 +1,58 @@
+{
+  "case_id": "b-research",
+  "title": "AI Agent 市场格局行业报告",
+  "task_type": "industry_report",
+  "language": "zh",
+  "prompt": "面向战略读者，写一份 AI Agent 市场格局报告。需要覆盖平台型玩家、工作流产品、协议与生态、商业化路径、采用阻力、失败模式和反证。",
+  "target_reader": "strategy and product leaders",
+  "expected_depth": "standard report, 3000-5000 Chinese characters for eval runs",
+  "min_final_nonspace_chars": 2400,
+  "thin_final_nonspace_chars": 1200,
+  "must_cover_entities": [
+    "AI Agent",
+    "OpenAI",
+    "Anthropic",
+    "DeepSeek",
+    "MCP",
+    "多模态",
+    "核心判断",
+    "范围与证据",
+    "竞争格局",
+    "采用阻力",
+    "反证与不确定性"
+  ],
+  "required_sections": [],
+  "source_pack": "ai_knowledge_sanitized",
+  "source_ids": [
+    "S001",
+    "S002",
+    "S007",
+    "S008"
+  ],
+  "artifact_requirements": [
+    "state/task_spec.md",
+    "state/progress.json",
+    "data/source_registry.csv",
+    "data/claims_registry.csv",
+    "logs/review.jsonl",
+    "final.md"
+  ],
+  "quality_focus": [
+    "brief_gate",
+    "state_recovery",
+    "claim_discipline",
+    "counter_evidence",
+    "depth_budget",
+    "reader_cleanup"
+  ],
+  "banned_process_phrases": [
+    "用户提供的资料",
+    "材料显示",
+    "该来源补充",
+    "this source supplements",
+    "the user provided",
+    "the material shows",
+    "section passed audit"
+  ],
+  "material_mode": "research"
+}

@@ -1,0 +1,555 @@
+{
+  "outline": "一、研究定位与本阶段交付\n本研究面向规划个人Agent产品、系统架构与商业路线的产品负责人和技术决策者，回答：个人目标如何跨会话延续；记忆怎样进入计划而不自动升级为授权；任务执行、结果核对、变化处理与撤权怎样构成真正的持续服务；这些边界如何影响用户价值、成本和商业模式。重点覆盖2024年至2026-11-09，必要时追溯授权协议等早期基础。本阶段已实际联网检索并打开官方产品文档、论文正文、公开代码、原始财报及可追溯报道；以下是研究提纲、初始解释和待执行委派书，不是最终报告，也不宣称已亲测产品、启动独立研究者、完成独立审查或生成交付文件。\n\n二、边界、样本与比较方法\n1. 建议工作定义：Personal Agent是持续服务个人目标，能够保留或恢复跨会话任务状态，在可界定授权内组织外部行动，并根据结果与变化继续处理或交接给人的系统。无人值守不是必要条件；拥有聊天记忆、能点击界面或能运行定时脚本，都不足以单独证明这一能力。\n2. 将一次性聊天助手、固定规则自动化和纯企业流程平台作为边界对照；个人报销可以接入企业审批系统，但不把企业审批平台整体算作Personal Agent。\n3. 当前候选按可解释的路线选择，而非按厂商规模排队：云端通用任务系统以ChatGPT产品演进及Gemini任务系统为起点；持续项目与自动化以Manus为起点；中国大陆服务生态以千问App为起点；操作系统与设备入口以豆包手机助手、Apple Siri AI为对照；可检查实现以OpenClaw和Open-AutoGLM为起点。后两者分别作为自托管系统和手机执行框架研究，不默认等同于成熟消费产品。新增或剔除对象须说明它是否提供了不同机制或关键反例。\n4. 每个能力声明绑定产品版本、材料日期、地区、账户类型、订阅等级、设备与在线条件，并分别标记公开可用、受限测试、研究/开源实现、发布演示。材料证据另标官方宣称、可定位演示、第三方执行观察、公开实验或代码观察，不能把两套分类混成一个成熟度标签。\n5. 保留中国大陆与海外两个应用环境；海外至少区分美国与影响可用性的欧洲地区限制。用结构相同但本地服务不同的任务链比较，不要求中国产品使用美国连接器，也不把海外功能可用推定为中国大陆可用。\n\n三、任务链一：跨会话旅行与日程安排\n设置同结构的中国境内差旅、美国境内差旅，并增加跨时区变体。全部是研究情境，不冒充已经执行的测试。\nT0建立出行目标、预算、同行者、时间与现有偏好；T1下一会话补充证件、会议地址及缺失约束；T2修改日期或同行者，并提出与长期偏好冲突的本次要求；T3比较方案、暂存选择、申请授权、预订并写入日历；T4以订单、票号、支付结果和日历对象核对完成状态；T5处理航变、会议改期、退改签与通知；T6在排队、执行中、提交后分别撤回权限，追踪剩余任务、凭证、缓存与外部订单。\n输出按环节排列的比较表：谁提出计划、谁补信息、谁提供当前事实、谁持有凭证、谁决定行动、谁实际提交、谁核验结果、谁承担后续变化。明确区分生成行程、打开预订页、完成预订、确认出票及持续处理航变。\n\n四、任务链二：持续个人事务与报销管理\n以个人差旅票据和月度事务账本为主情境：E0建立票据来源、归档规则与报销制度版本；E1持续接收邮件、照片和电子票据；E2识别重复、缺失、退款及不同币种；E3跨会话纠正项目归属、金额或私人/工作分类；E4生成报销草稿，确认后才提交；E5核对提交编号、退回意见、补件和到账记录；E6撤销邮箱、文件夹或报销系统权限，取消排队任务并处理已经提交的记录；E7选择性遗忘个人信息，检查源文件、摘要、索引、历史对话和外部记录是否分别处理。\n同时设置较低风险的订阅费用监测与提醒变体，比较整理、提醒、代提交和代付款的价值差异。不得把提取出一张表等同于报销闭环，也不得把个人授权当作企业审批权限。\n\n五、记忆如何成为可行动的上下文\n分别研究原始证据、短期工作状态、长期偏好、关系与身份事实、任务承诺、历史执行记录及凭证引用。追踪来源、时间、有效期、置信度、适用任务、用户纠正、冲突处理与传播范围。比较长上下文、摘要、检索记忆、项目知识库、端侧索引及外部系统即时读取。重点解释删除聊天、关闭个性化、删除记忆、断开连接器和删除源数据为何是不同操作。\n已有候选解释H1：长期价值不只取决于记住多少，还取决于纠正和失效信息能否传到下一次行动。Manus项目文档区分指令更新与文件更新的生效时机；ChatGPT文档区分记忆、历史对话及源数据删除。这支持研究版本传播与数据血缘，但尚不能证明各产品在在途任务中的实际一致性。([manus.im](https://manus.im/docs/features/projects))\n已有候选解释H2：记忆可以保存偏好和审批背景，却不能代替独立的授权检查。OpenClaw文档明确把记忆与策略执行分开；Open-AutoGLM代码提供了特定动作的确认回调，但仍需检查哪些动作被标记及是否存在遗漏路径。([docs.openclaw.ai](https://docs.openclaw.ai/concepts/memory))\n\n六、授权、身份与执行边界\n绘制分析用数据流，而非声称所有产品采用同一架构：用户陈述/外部材料→带来源和时间的证据→任务状态与记忆→计划→授权检查与凭证代理→API/MCP或本地/云端GUI→第三方真实状态→结果核对→必要的记忆写回。\n在图中单列授权对象、允许动作、账户、金额或次数上限、有效期、确认记录和授权版本。把身份认证、数据读取许可、网站访问许可、具体行动批准及第三方平台许可分别处理。撤权另画控制流，覆盖停止新任务、阻断排队动作、处理执行中请求、清除或失效凭证、核查第三方是否已提交以及必要的补偿操作。\n已有候选解释H3：停止某个工具、取消任务、暂停计划和撤销身份凭证不是同一件事。Gemini当前帮助页区分浏览器侧停止与整个任务取消；RFC 7009允许现实中的撤销传播延迟，也没有规定业务队列或已完成交易的回滚。这提示必须逐状态核查，不能用一个停止按钮推断完全撤权。([support.google.com](https://support.google.com/gemini/answer/17094507?co=GENIE.Platform%3DAndroid&hl=en))\n\n七、主动执行、可靠性与人工协作\n区分时间触发、外部事件触发、轮询发现变化和模型自行建议。解释哪些事件只能生成建议，哪些可执行可逆写入，哪些必须重新确认。追踪设备离线、凭证过期、验证码、平台拒绝、网络超时、部分提交、重试与重复扣款风险。用任务账本、检查点、幂等、执行回执和人工接管分析恢复机制；这些是待验证的产品机制或明确标注的架构建议。\n指标包括完整任务链成功、安全合规完成、活跃执行时间与等待时间、人工介入次数和分钟数、错误事实进入动作的比例、重复提交、撤权后的动作及恢复结果。分母同时保留全部委托和符合公开支持条件的委托，不把受阻样本悄悄剔除。安全停止、业务拒绝与错误执行分别报告。\n已有候选解释H4：单次任务正确、重复运行稳定、跨会话变化正确及授权合规是不同问题。τ-bench原文甚至指出，终态正确也可能漏掉必要确认；LongMemEval的记忆问答不测真实订单执行。因此不能把记忆分数或一次演示直接换算成长任务可靠性。([arxiv.org](https://arxiv.org/html/2406.12045v1))\n\n八、端云、工具和生态架构取舍\n比较端侧状态与云端推理、云端持续运行与本地设备依赖、专用API与通用GUI、单生态深集成与跨平台覆盖、自托管控制与运维负担。分析同一用户目标在哪一层受阻，而不是只比较模型能力。\n已有候选解释H5：可操作范围是模型、身份授权、平台许可和商业合作共同决定的。豆包手机的第三方观察提供了同一设备上不同应用结果不同的实例；ChatGPT云浏览器文档也承认网站可以拒绝自动化访问。但不能仅凭这些材料将所有阻碍归因于商业封锁。([m.nbd.com.cn](https://m.nbd.com.cn/articles/2026-09-17/4584694.html))\n\n九、商业模式如何对应可实现的任务价值\n分别分析订阅/用量计费、交易佣金、广告、设备生态及平台入口；对每条路线连接到任务频次、连接器维护、推理与运行成本、人工支持、错误损失、数据控制、推荐中立性及迁移成本。构建情境计算：净节省时间=人工基线时间−指令与确认时间−核验与返工时间；用户净价值=时间及结果收益−服务费−预期错误损失−隐私与迁移负担。无数据的参数保留区间或未知，不填造数字。\n已有候选解释H6：交易闭环越深不必然越有商业价值。OpenAI的2025年Instant Checkout发布材料描述成交收费，而本次读取的商家页转向商家自有结账并说明相应购买不收费；这构成路线变化的证据，但变化原因和效果仍待核验。广告与回答隔离的官方架构说明也只能支持其设计主张，不能替代推荐中立性的独立测试。([openai.com](https://openai.com/index/buy-it-in-chatgpt/))\n\n十、面向决策者的综合输出\n最终报告给出两类任务链矩阵、记忆与授权数据流、撤权状态图、版本/地区可用性表、架构取舍表及商业情境计算。按用户的权限交付意愿、可承受错误后果、任务频率和预算，区分适合直接使用、需要受限授权、需要人工协作及暂不宜委托的任务，不做脱离情境的总榜单。\n重要版本警报：已读的ChatGPT旧agent帮助页顶部说明该模式已不可用，却保留旧额度和操作说明；当前Work及cloud browser文档应单独核查，不能把2025年发布时能力直接写成截止日现状。Gemini也必须区分2026年5月Spark发布计划与当前任务帮助页。([help.openai.com](https://help.openai.com/en/articles/11752874-chatgpt-agent))\n\n十一、推进顺序与统稿责任\n先完成共同任务规范和提纲的独立需求/结构检查；地域及产品路线研究可并行补读。重要版本、记忆传播、撤权语义和指标计算经证据与领域独立核查后，才能作为任务链、架构与商业分析的确定前提。主研究者负责最终统稿，保留冲突和有限未知，不拼接厂商简介。完整报告形成后，另外安排需求、证据、对抗推理、结构深度、读者实用性、过程语言清理、自然表达七个独立视角及领域审查，再进行独立审计和最终验收；本阶段不预写任何审查结果。用户列出的状态、来源、主张、审查、报告和交付文件，均须在后续具备文件工具的实际执行中生成，不能以本JSON冒充已经保存或最终交付。",
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "研究服务产品负责人和技术决策者，解释跨会话任务价值、系统架构与商业路线之间的因果关系；当前只交需求理解、已读材料分析、完整提纲和实质分工，不生成最终报告。",
+      "scope": "global"
+    },
+    {
+      "id": "R2",
+      "text": "重点覆盖2024年至2026-11-09；所有现状、价格、功能与开放范围绑定材料日期和版本，早期技术仅用于解释路线，不引用截止日之后的材料。",
+      "scope": "global"
+    },
+    {
+      "id": "R3",
+      "text": "建立Personal Agent边界，按能力路线与证据可核实程度选样，不预设固定厂商数量；显式保留中国大陆与海外、历史阶段与截止日状态，并说明边界对照对象。",
+      "scope": "U-SPEC"
+    },
+    {
+      "id": "R4",
+      "text": "以跨会话旅行与日程任务链比较目标建立、补充信息、调整、外部执行、结果核对和后续变化，包含撤权发生在不同执行阶段的分支。",
+      "scope": "U-TRAVEL"
+    },
+    {
+      "id": "R5",
+      "text": "以持续个人事务或报销任务链比较长期处理、纠错、重复与退款、提交及后续核对；不得把企业流程平台整体或单次表格提取代替个人任务闭环。",
+      "scope": "U-EXPENSE"
+    },
+    {
+      "id": "R6",
+      "text": "分析记忆对象、来源、短期状态与长期偏好、冲突、过期、更新、用户纠正和选择性遗忘，解释变化传播至旧任务和新任务的差异。",
+      "scope": "U-MEMORY"
+    },
+    {
+      "id": "R7",
+      "text": "解释记忆转为动作的过程；区分历史偏好、模型摘要、外部内容与当前授权，核查提示注入和持久化污染的边界，不把规范建议当成已实现防护。",
+      "scope": "U-AUTH"
+    },
+    {
+      "id": "R8",
+      "text": "覆盖身份凭证、最小权限、逐项确认和范围授权、授权撤回、排队任务取消、执行中动作、不可逆操作、失败恢复及人工接管；明确停止工具不必然等于取消目标。",
+      "scope": "U-AUTH"
+    },
+    {
+      "id": "R9",
+      "text": "主动执行必须说明触发来源、设备及后台运行条件、等待用户的时点、异常路径和结果核验；在旅行和个人事务两类链条中分别落实。",
+      "scope": "global"
+    },
+    {
+      "id": "R10",
+      "text": "区分公开可用、受限测试、研究原型/开源实现和发布演示；注明地区、账户等级、语言、设备和连接器条件，功能名称不得直接作为能力等价依据。",
+      "scope": "global"
+    },
+    {
+      "id": "R11",
+      "text": "实际阅读官方文档、原始论文、代码和可追溯报道的关键原文；来源充分性由待解释问题决定，记录读取范围、定位、日期、限制及反证，不用搜索片段代替关键阅读。",
+      "scope": "global"
+    },
+    {
+      "id": "R12",
+      "text": "区分官方宣称、演示观察、第三方执行、公开实验和作者亲测；本研究当前没有产品亲测，不要求购买服务或获取私人账户数据。",
+      "scope": "global"
+    },
+    {
+      "id": "R13",
+      "text": "任务成功、耗时、错误、人工介入和安全指标保留环境、版本、样本与分母；不从成功演示推断长期可靠性，不混淆pass@k与pass^k。",
+      "scope": "U-MEASUREMENT"
+    },
+    {
+      "id": "R14",
+      "text": "比较端侧/云端记忆、专用工具/通用GUI、封闭生态/跨平台、自托管/托管的实际取舍；不预设自主程度或连接器数量越高越好。",
+      "scope": "U-ARCH"
+    },
+    {
+      "id": "R15",
+      "text": "覆盖订阅、交易佣金、广告、设备生态和平台入口；分析连接器覆盖、数据控制、中立性、迁移与持续成本，并将权限意愿、错误后果和价格纳入商业判断。",
+      "scope": "U-BUSINESS"
+    },
+    {
+      "id": "R16",
+      "text": "关键版本判断、授权语义、核心计算和机制解释须先独立核查再供下游确定使用；提纲先做独立需求与结构检查，未核查内容保持候选或未知。",
+      "scope": "global"
+    },
+    {
+      "id": "R17",
+      "text": "主研究者负责最终统稿，交付两类任务链、记忆与授权数据流、架构取舍、商业路线及适用/受限/不宜使用的用户和任务判断。",
+      "scope": "U-LEAD"
+    },
+    {
+      "id": "R18",
+      "text": "后续实际执行须保留state/task_spec.md、state/progress.json、state/requirements.jsonl、data/source_registry.csv、data/claims_registry.csv、logs/review.jsonl，并在完整审查与验收后生成final.md、state/final_delivery.json和delivery_message.md；不得声称本阶段已创建文件或完成独立审查。",
+      "scope": "U-LEAD"
+    }
+  ],
+  "units": [
+    {
+      "id": "U-SPEC",
+      "assignment": "制定共同研究边界和任务链规范，对应R2—R5、R10、R13。将当前候选按云端通用任务、持续项目自动化、中国服务生态、设备/操作系统、自托管与执行框架分层，明确中国大陆、美国及受限制欧洲地区的覆盖。形成旅行T0—T6、个人事务E0—E7的输入、外部状态、成功条件、合法停止条件和变化分支；加入本次偏好覆盖长期偏好、事件重复、信息矛盾、权限撤回及提交超时。建立证据标签与版本记录格式。提出候选增删理由，但不因某产品资料较少就删除必要地域或机制。",
+      "inputs": ["PA24", "PA25", "PA26"],
+      "dependencies": [],
+      "deliverables": "可直接供各研究者使用的任务规范、选样与排除理由、地区/时期覆盖表、两条任务链状态表及研究方法局部正文；明确哪些是分析情境而非实测结果。"
+    },
+    {
+      "id": "V-REQUIREMENTS",
+      "assignment": "由未参与生产的独立研究者检查原始题面、本提纲和U-SPEC完整输出。逐项检查国内外覆盖、两类任务链、长期记忆、撤权、主动执行、商业模式和证据限制是否有明确承接者；指出范围漂移、被功能清单替代的问题及被遗漏的地域或时期。只检查当前提纲与任务规范，不将此结果称为最终报告验收。",
+      "inputs": ["PA24", "PA25"],
+      "dependencies": ["U-SPEC"],
+      "deliverables": "可定位的需求检查意见：对应要求、提纲或规范位置、问题影响、必要修正与可保留部分；保留原始意见，不评分或预写通过。"
+    },
+    {
+      "id": "V-STRUCTURE",
+      "assignment": "在与生产及V-REQUIREMENTS不同的独立上下文检查提纲和U-SPEC。判断章节是否围绕跨会话变化形成解释链；产品研究能否给记忆、授权、执行和商业分析提供足够实质输入；检查是否存在重复厂商简介、缺少比较口径或下游依赖未经验证前提的问题。提出章节合并、展开和依赖调整理由。",
+      "inputs": ["PA09", "PA25", "PA28"],
+      "dependencies": ["U-SPEC"],
+      "deliverables": "结构与深度检查意见及建议修订的论证顺序；明确本次仅审提纲和规范。"
+    },
+    {
+      "id": "U-CLOUD",
+      "assignment": "负责海外云端通用个人任务路线，以ChatGPT历史agent、当前Work/cloud browser及Gemini Personal Intelligence/Spark/当前任务文档为起点，覆盖2024—2026-11-09。先核对退役、改名、迁移和功能开放时间，不沿用旧页面额度；补查美国、欧洲限制、个人/工作账户、付费等级、连接器读写范围及当前记忆适用范围。对两条任务链逐环节重建实际承担部分，重点检查任务跨会话恢复、日程调整、邮箱与票据读取、触发执行、确认、停止、删除远程数据和断连后的行为。遇到同页矛盾必须保留原文位置并寻找更新记录。可筛查其他海外产品，但只有提供不同机制或反例才增加深描对象。",
+      "inputs": ["PA01", "PA02", "PA03", "PA04", "PA05", "PA06", "PA07", "PA08"],
+      "dependencies": [],
+      "deliverables": "带日期和使用条件的产品演进表、两类任务链能力边界表、每个系统的状态/凭证/确认/停止流程、关键文档矛盾清单及可直接统稿的比较论证。"
+    },
+    {
+      "id": "U-MANUS",
+      "assignment": "研究项目上下文、自动化与浏览器执行怎样组合成持续个人服务，对应R4—R10及R15。以Manus为案例，区分项目指令、项目文件、单任务历史、跨次运行上下文和个人长期记忆；补读Automations沿革、同线程续跑、事件触发及轮询语义。核查文件和指令更新对既有任务、定时任务及下一次执行的生效时点。分别研究本地Browser Operator和云浏览器的登录态、授权、在线条件、人工接管与任务取消。核实可服务地区、当前经营/数据控制条款和实际计费，不按团队国籍推定市场归属。",
+      "inputs": ["PA09", "PA10", "PA11", "PA12"],
+      "dependencies": [],
+      "deliverables": "以持续票据整理及旅行监测为核心的局部分析，包含配置传播图、本地/云端执行比较、自动化生命周期、额度不足和失败重跑的成本边界；补齐原文和未决问题。"
+    },
+    {
+      "id": "U-CN-SERVICE",
+      "assignment": "负责中国大陆服务生态型个人Agent，以千问App及其任务助手为起点。区分消费端App、邀请测试功能、开放模型与企业产品，不用模型工具调用能力替代App能力。补核2026-01-15之后至截止日的旅行预订、支付、电话代办、个人记忆、账户授权和取消规则；逐环节区分建议、导流、订单创建、付款、出票、退改与售后。重点调查飞猪、高德、支付宝等服务间身份和责任边界，验证是否支持跨会话变更而非一次发布演示。财报仅用于经营动机与成本背景，不把分部收入或用户触达量当成个人任务成功率。",
+      "inputs": ["PA13", "PA14"],
+      "dependencies": [],
+      "deliverables": "中国大陆旅行与持续个人事务链条的证据重建、公开测试/邀请测试/演示区分表、授权与订单责任图、生态覆盖与持续服务成本的局部论证。"
+    },
+    {
+      "id": "U-OS",
+      "assignment": "负责国内外操作系统和设备入口对照，必须同时保留豆包手机助手与Apple Siri路线。豆包追踪2025年技术预览、2026年消费者版及后续应用许可变化；补取SAEP原始协议、开发者接入文档、拒绝操作清单、用户权限与本地记忆删除说明。Apple追踪2024年承诺到2026年发布的可用功能，补核截止日系统版本、设备、语言、中国与欧洲地区限制，读取个人上下文索引、App Intents/App Toolbox及Private Cloud Compute文档。两侧均区分端侧存储、端侧执行和云端推理，不将设备入口等同于持续后台任务。用日程、票据信息和跨应用动作定位能力边界；第三方观察须注明测试日期和设备，不把媒体转述当协议原文。",
+      "inputs": ["PA15", "PA16", "PA17", "PA18", "PA19"],
+      "dependencies": [],
+      "deliverables": "国内外设备路线的阶段时间线、条件化功能表、端云数据流、应用许可与用户许可的区别、公开体验的反例分析及可统稿局部正文。"
+    },
+    {
+      "id": "U-OPEN",
+      "assignment": "负责可检查实现：OpenClaw作为持续个人代理系统，Open-AutoGLM作为手机执行框架。先固定不晚于截止日的版本/tag/commit，不能仅以动态main支持可复现结论。OpenClaw追踪用户模型、长期记忆、日记、来源追踪、遗忘、heartbeat/cron、审批和沙箱代码；Open-AutoGLM从动作解析到设备操作追踪确认标记、回调、人工接管、最大步数、异常处理及Note占位实现的上下游。不要因某文件未实现记忆就断言整个项目没有记忆，也不要因存在确认回调就断言覆盖所有敏感动作。评估自托管是否真正减少数据外流，区分本地状态与远端模型/API。无需连接真实私人设备或执行交易。",
+      "inputs": ["PA20", "PA21", "PA22", "PA23"],
+      "dependencies": [],
+      "deliverables": "固定版本的调用链与关键代码定位、持久化和授权边界分析、两条任务链还需补齐的系统组件、配置相关风险及实现层局部正文；清楚标注未运行代码。"
+    },
+    {
+      "id": "U-MEMORY",
+      "assignment": "跨国内外案例解释跨会话状态与长期记忆，对应R6。统一划分原始资料、摘要、偏好、身份事实、任务进度、行动承诺及执行回执，比较写入者、触发、检索、更新、有效期与删除。构造同口径变化案例：长期靠窗/本次过道、报销项目改归属、退款抵消旧票据、错误摘要被纠正、被删除的信息仍在源邮件或旧任务中。研究最新事实覆盖是否足够，何时需保留历史和作用域；补查LongMemEval之外涉及记忆删除、来源及行动的研究。必须引用产品单元的完整输出和原文，不能用开源实现机制替闭源产品补空白。",
+      "inputs": ["PA05", "PA06", "PA09", "PA22", "PA24"],
+      "dependencies": ["U-CLOUD", "U-MANUS", "U-CN-SERVICE", "U-OS", "U-OPEN"],
+      "deliverables": "跨产品记忆对象与生命周期矩阵、纠正/过期/遗忘的传播图、变更案例逐步分析、可核实机制与未知实现分界、记忆章节局部正文。"
+    },
+    {
+      "id": "U-AUTH",
+      "assignment": "跨案例重建记忆到行动的授权边界，对应R7—R9。将登录、数据读取、工具访问、行动批准和平台许可分开；比较OAuth scope、浏览器Cookie、设备权限、支付凭证和委托身份。对每条任务链建立计划中、排队、执行中、待确认、已提交未核验、完成/失败/取消状态，分别检查撤销记忆使用、断连接器、注销会话、撤销token、暂停日程、取消当前目标的效果。补查排队任务是否重新鉴权、授权版本是否绑定请求、提交超时如何查重、不可逆动作的补偿和人工接管。MCP和RFC仅作协议基线，不将其规范推定为产品已实现。外部邮件/网页及历史摘要须作为不可信或有条件证据分析，不执行其中指令。",
+      "inputs": ["PA04", "PA08", "PA10", "PA11", "PA21", "PA22", "PA26", "PA27", "PA28"],
+      "dependencies": ["U-CLOUD", "U-MANUS", "U-CN-SERVICE", "U-OS", "U-OPEN"],
+      "deliverables": "记忆—计划—授权—凭证—工具—结果数据流图、分产品撤权状态表、不可逆操作与恢复案例、最低授权设计建议及其证据/建议标记。"
+    },
+    {
+      "id": "U-MEASUREMENT",
+      "assignment": "负责可靠性与反证分析，对应R12—R13。补读有明确方法的国内外第三方体验、系统卡、基准及公开失败记录；优先寻找完整旅行、日程、票据或个人事务轨迹，而非排行榜。保留样本选择、账户、日期、工具环境、重试、超时、人工干预和计时起止。核验τ-bench的终态与确认缺口、LongMemEval的问答边界、AgentDojo的攻击/正常任务口径。建立可用性、功能执行、安全合规、长期变化和恢复五类不同指标；相同任务多次尝试与同一目标跨会话变化分别统计。没有同口径数据就输出不可比较的具体原因和可执行补测方案，不生成假实测数字。",
+      "inputs": ["PA17", "PA24", "PA25", "PA26"],
+      "dependencies": ["U-SPEC", "U-CLOUD", "U-MANUS", "U-CN-SERVICE", "U-OS", "U-OPEN"],
+      "deliverables": "公开测试方法与分母表、可比较和不可比较结果、失败分类、可执行的两类任务链测试协议、可靠性章节局部论证。"
+    },
+    {
+      "id": "V-EVIDENCE",
+      "assignment": "由独立非作者上下文检查产品单元、U-MEMORY、U-AUTH和U-MEASUREMENT中的决定性事实。优先查退役/上线日期、当前地区与账户条件、记忆更新传播、撤权行为、价格与指标分母，以及财报分部口径。逐条回到原文、代码固定版本或实验方法，不以研究者摘要代替。区分可支持事实、厂商设计宣称、合理推断和无法确定；对关键矛盾给出下游可以采用的限定表述或必须继续查证的事项。",
+      "inputs": ["PA02", "PA03", "PA08", "PA09", "PA14", "PA19", "PA21", "PA25", "PA28", "PA31"],
+      "dependencies": ["U-MEMORY", "U-AUTH", "U-MEASUREMENT"],
+      "deliverables": "带原文定位和实际读取范围的关键主张核查记录、版本冲突处置、计算复核及供下游使用的限定条件；不是最终全报告审计。"
+    },
+    {
+      "id": "V-DOMAIN",
+      "assignment": "在与所有生产及V-EVIDENCE不同的独立上下文，由熟悉分布式任务系统、OAuth和Agent安全的审查者核查关键机制。检查是否混淆认证、授权与意图；是否把token撤销当作取消业务交易；是否忽略执行中竞态、重复提交、缓存与记忆派生物；是否把提示词约束当作硬权限控制；是否把本地运行等同于隐私安全。以两条任务链检验建议是否可落地，指出不能由公开证据重建的系统环节。",
+      "inputs": ["PA04", "PA08", "PA21", "PA22", "PA23", "PA26", "PA27", "PA28"],
+      "dependencies": ["U-MEMORY", "U-AUTH", "U-MEASUREMENT"],
+      "deliverables": "机制前提核查、撤权状态图修正、关键反例与风险后果、规范建议和已实现能力的分界；未经核查的核心判断不得直接进入商业结论。"
+    },
+    {
+      "id": "U-TRAVEL",
+      "assignment": "在共同规范及关键前提核查后，完整生产旅行与日程比较章节，对应R4、R8—R10。分别保留中国大陆和美国本地服务链，并分析跨时区及跨地区不可用变体。逐环节说明各路线实际接手的工作与用户保留的工作；重点追踪偏好冲突、证件信息补充、日期变化、预算变化、下单/出票差别、航变通知及退改。把撤权放在排队前、浏览器/API请求执行中及订单已提交后三个时点，不能用抽象安全段落替代。没有证据的格子标为未公开验证，而非否定能力或补写理想流程。",
+      "inputs": ["PA04", "PA06", "PA08", "PA11", "PA13", "PA17", "PA19", "PA25"],
+      "dependencies": ["U-SPEC", "V-REQUIREMENTS", "V-STRUCTURE", "V-EVIDENCE", "V-DOMAIN"],
+      "deliverables": "完整旅行任务链比较表、至少两种变化/撤权分支的过程论证、结果核对清单、适用用户与人工协作边界的局部正文。"
+    },
+    {
+      "id": "U-EXPENSE",
+      "assignment": "完整生产持续个人事务和报销比较章节，对应R5—R10。以多会话、多批票据和制度/分类变化为单位，比较资料收集、证据归档、字段提取、查重、退款匹配、人工纠正、草稿生成、授权提交及状态跟踪。保留中国大陆电子票据/本地服务与海外邮箱/云盘环境差异，不凭票据形式推断法律或税务结论。分析断开邮箱但任务已有副本、修改规则但旧任务未刷新、暂停定时任务但已提交报销仍有效等分支。用订阅费监测作为低风险对照，解释更少权限是否已能提供足够价值。",
+      "inputs": ["PA04", "PA05", "PA08", "PA09", "PA10", "PA13", "PA22"],
+      "dependencies": ["U-SPEC", "V-REQUIREMENTS", "V-STRUCTURE", "V-EVIDENCE", "V-DOMAIN"],
+      "deliverables": "持续个人事务/报销任务链矩阵、变化与撤权案例、记忆派生数据处理图、人工核验和企业审批边界、可统稿的完整局部论证。"
+    },
+    {
+      "id": "U-ARCH",
+      "assignment": "将已核查机制与两条任务链综合为架构取舍分析，对应R14。比较端侧/云端状态与推理、本地/远程浏览器、专用接口/GUI、封闭生态/跨平台、自托管/托管，逐项说明收益、失败方式、用户权限成本及维护责任。区分已观察产品架构与建议参考架构。提出围绕任务账本、来源化记忆、独立授权、凭证代理、调度器、执行回执、幂等及人工接管的最小可行设计，但不声称每个产品已有这些部件。",
+      "inputs": ["PA04", "PA08", "PA11", "PA19", "PA21", "PA22", "PA23", "PA27", "PA28"],
+      "dependencies": ["U-TRAVEL", "U-EXPENSE", "V-DOMAIN"],
+      "deliverables": "参考数据流与撤权控制流、架构取舍表、按任务风险分层的设计路线、公开实现与设计建议明确分开的架构章节。"
+    },
+    {
+      "id": "U-BUSINESS",
+      "assignment": "生产商业路线分析，对应R15。可先独立补查截止日各地区订阅、额度、超额计费、交易收费、广告规则、硬件门槛和数据迁移条款，但最终判断须依赖任务链与架构结果。把免费导流、订阅持续成本、交易后续责任、广告个性化及设备入口分开分析；核对历史Instant Checkout与当前商家页，禁止把历史佣金率或免费策略当截止日统一事实。用原始财报解释生态投入和推理成本，禁止从分部亏损直接算单用户成本。按低/中/高频任务计算单位有效完成成本和净时间价值；无真实测量则提供变量、阈值和敏感性分析，不虚构付费意愿或市场规模。",
+      "inputs": ["PA03", "PA12", "PA13", "PA14", "PA19", "PA29", "PA30", "PA31"],
+      "dependencies": ["U-TRAVEL", "U-EXPENSE", "U-ARCH", "V-EVIDENCE"],
+      "deliverables": "日期和地区绑定的收费表、任务级成本模型与计算说明、五类商业模式的激励/控制/迁移比较、条件化产品路线建议及反例。"
+    },
+    {
+      "id": "U-LEAD",
+      "assignment": "由本主研究者承担最终统稿，对应R1、R17—R18。阅读全部分支完整输出及决定性原文，解决冲突后围绕任务链而非公司目录组织正文；开篇结论只能来自正文已发展的论证。维护有效需求、来源、主张与反证关系及实际进度；有文件工具后再实际生成用户要求的文件。完整报告形成后，在独立上下文分别安排七个基础审查视角及领域审查，保留原始意见和修订；另安排独立审计与最终验收。当前仅提交阶段JSON，不预设通过，不用保存材料或分支完成代替最终研究完成。",
+      "inputs": ["PA01", "PA02", "PA03", "PA04", "PA05", "PA06", "PA07", "PA08", "PA09", "PA10", "PA11", "PA12", "PA13", "PA14", "PA15", "PA16", "PA17", "PA18", "PA19", "PA20", "PA21", "PA22", "PA23", "PA24", "PA25", "PA26", "PA27", "PA28", "PA29", "PA30", "PA31"],
+      "dependencies": ["U-TRAVEL", "U-EXPENSE", "U-ARCH", "U-BUSINESS"],
+      "deliverables": "后续完整中文长报告、图表与来源定位、适用性判断、真实生成的研究状态和交付文件；最终交付以实际独立审查、审计和验收结果为前提。"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "PA01",
+      "title": "Introducing ChatGPT agent: bridging research and action",
+      "url": "https://openai.com/index/introducing-chatgpt-agent/",
+      "date": "2025-07-17；页面现含已过时提示，提示添加日期未知",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "发布日期；过时提示；An agent that works for you, with you；Broadening real-world utility",
+      "key_findings": "官方历史发布材料描述视觉浏览器、文本浏览器、终端、API及连接器组合，允许用户中途改变指令、暂停、接管或结束任务。它说明当时的交互与执行设计，但页面现已明确标为过时，不能据其首发账户范围或旅行预订举例推断截止日功能。相关举例也不是可重复的任务成功率证据。([openai.com](https://openai.com/index/introducing-chatgpt-agent/))",
+      "access_scope": "读取上述正文相关节；未观看发布直播，未完整读取附录基准。"
+    },
+    {
+      "source_id": "PA02",
+      "title": "ChatGPT agent — OpenAI Help Center",
+      "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent",
+      "date": "绝对发布时间未知；本次页面显示Updated: 13 days ago",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Overview；Availability；Task scheduling；Sensitive data and logins；Data handling",
+      "key_findings": "页面顶部称ChatGPT agent已不可用并转介Work及cloud browser，但下方仍保留旧agent账户范围、额度、定时和操作说明，存在版本混杂。旧说明涉及跨会话Cookie、接管登录、暂停或删除计划及截图保留，适合作为历史设计线索，不能直接与当前Work行为合并。特别是额度与保留期限必须另核版本。([help.openai.com](https://help.openai.com/en/articles/11752874-chatgpt-agent))",
+      "access_scope": "读取顶部至隐私、截图和网站限制相关正文；未把文内所有链接作为已读材料。"
+    },
+    {
+      "source_id": "PA03",
+      "title": "ChatGPT Work and Codex",
+      "url": "https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex",
+      "date": "绝对发布时间未知；本次页面显示Updated: 3 days ago",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Overview；Where Work and Codex are available；Permissions and usage",
+      "key_findings": "当前帮助页将Chat定位为对话，将Work定位为较长、多步骤工作和成品交付。云端Work可跨网页、移动端和桌面继续；桌面本地工作可在许可下使用文件和应用，但本地执行并不表示消息和任务上下文不进入云端。使用量与Codex结构关联，实际消耗随任务而变，不能用历史agent按次额度替代。([help.openai.com](https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex))",
+      "access_scope": "读取产品区分、运行位置、跨端同步、语音授权及使用量相关节；未据此核定完整价格表。"
+    },
+    {
+      "source_id": "PA04",
+      "title": "Using cloud browser in ChatGPT",
+      "url": "https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt",
+      "date": "绝对发布时间未知；本次页面显示Updated: 12 days ago",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Availability至FAQ，正文第11—119行",
+      "key_findings": "官方说明云浏览器可离线于用户设备继续工作，遇输入、登录或确认则暂停。远程浏览器有独立Cookie和会话，安全登录表单中的用户名和密码不向模型显示；会话可供后续任务使用。网站访问许可与重要行动确认分开，预订或付款等承诺应再确认。用户可接管、清除站点数据；网站本身仍可阻止自动化。文档没有完整规定撤权与在途请求的竞态处理。([help.openai.com](https://help.openai.com/en/articles/20001280-using-cloud-browser-in-chatgpt))",
+      "access_scope": "读取全部相关正文与FAQ；没有登录产品或执行浏览任务。"
+    },
+    {
+      "source_id": "PA05",
+      "title": "Memory in ChatGPT",
+      "url": "https://help.openai.com/en/articles/8590148-memory-in-chatgpt",
+      "date": "绝对发布时间未知；本次页面显示Updated: 8 days ago",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Overview；Memory summary；Sources；Correct or remove；Reference chat history；Saved memories；Temporary chat",
+      "key_findings": "记忆来源可能包括历史聊天、单独保存的记忆、指令、文件和已连接应用，依账户与地区变化。摘要及Sources不保证展示全部影响因素；不再提及不等于删除源数据。关闭记忆不删除历史，之后重新开启可能再次从剩余聊天形成记忆；删除聊天也不自动删除独立记忆。页面区分更新传播、删除记忆日志最多保留30天等语义。适合建立遗忘矩阵，但不能据此证明所有派生数据立即清除。([help.openai.com](https://help.openai.com/en/articles/8590148-memory-in-chatgpt))",
+      "access_scope": "读取正文至FAQ开头，重点为纠正、来源、删除和不同记忆体验；未亲测设置。"
+    },
+    {
+      "source_id": "PA06",
+      "title": "Gemini introduces Personal Intelligence",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence/",
+      "date": "2026-01-14",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "How people are using it；How it works；How you can help us improve；How to get",
+      "key_findings": "发布时为美国个人Google账户的Pro/Ultra受限beta，关联Gmail、Photos等来源，默认关闭，可选择连接应用并纠正结果。官方明确承认过度个性化、时间和关系变化理解错误，并给出从照片错误推断兴趣的例子。其不直接用邮箱和照片库训练的说法，不等于所有对话都不用于改进。旅行案例是官方作者叙述，不是独立执行评估；截至11月的开放范围需用当前文档更新。([blog.google](https://blog.google/innovation-and-ai/products/gemini-app/personal-intelligence/))",
+      "access_scope": "读取正文核心节、限制及发布时资格；未把AI生成摘要作为主要依据。"
+    },
+    {
+      "source_id": "PA07",
+      "title": "The Gemini app becomes more agentic, delivering proactive, 24/7 help",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/",
+      "date": "2026-05-19",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Daily Brief；Gemini Spark；macOS roadmap",
+      "key_findings": "官方发布材料区分Daily Brief与Spark：前者整理邮箱和日历，后者被描述为云端持续执行、支持周期或事件任务。例子包括信用卡账单中的新订阅费用、学校邮件截止日及文档草稿。发布当时先给可信测试者，随后计划美国Ultra beta；部分MCP、桌面和其他能力属于后续计划。因此此页用于阶段时间线，不足以证明所有路线图功能已按期可用。([blog.google](https://blog.google/innovation-and-ai/products/gemini-app/next-evolution-gemini-app/))",
+      "access_scope": "读取Daily Brief、Spark、桌面计划和资格脚注；未观看页面图片对应演示。"
+    },
+    {
+      "source_id": "PA08",
+      "title": "Manage your tasks & workflows in Gemini Apps",
+      "url": "https://support.google.com/gemini/answer/17094507?co=GENIE.Platform%3DAndroid&hl=en",
+      "date": "页面未显示可核实的绝对发布日期或修订日",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "What you need；浏览器运行；停止与接管；Turn off task mode；安全与FAQ",
+      "key_findings": "本次帮助页要求18岁以上个人账户、Pro/Ultra、Keep Activity及Personal Intelligence，并列出欧洲经济区、英国、瑞士、尼日利亚等例外。关键区别是：浏览器侧Stop后任务可能换用远程浏览器或其他工具；整个任务须在任务界面停止，拒绝某项动作则不再另找路径执行。关闭任务模式暂停任务/计划但保留线程和已创建文件。文中远程继续运行与设备关闭时计划不运行的表述需按运行模式进一步核对，不能概括成统一离线保证。([support.google.com](https://support.google.com/gemini/answer/17094507?co=GENIE.Platform%3DAndroid&hl=en))",
+      "access_scope": "读取资格、浏览器模式、计划管理、接管、数据删除、关闭模式及安全相关节；未实际操作账户。"
+    },
+    {
+      "source_id": "PA09",
+      "title": "Projects — Manus Documentation",
+      "url": "https://manus.im/docs/features/projects",
+      "date": "页面未标明绝对发布时间或修订日",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "What it is；Creating a Project；Configuration Updates；Availability",
+      "key_findings": "项目以主指令和文件知识库为新任务提供持续配置。更新表注明：指令更新在当前任务下一条消息时生效；文件更新只影响之后新建的任务。紧接的旧任务不受影响概括句需要结合这一区别解释，不能直接说所有配置都热更新。项目共享配置不自动共享所有个人任务。它证明的是项目配置复用，不自动证明全账户长期偏好记忆或既有计划的实时同步。([manus.im](https://manus.im/docs/features/projects))",
+      "access_scope": "读取项目机制、创建、共享、配置传播、资格及相关FAQ。"
+    },
+    {
+      "source_id": "PA10",
+      "title": "Automations — Manus Documentation",
+      "url": "https://manus.im/docs/automations",
+      "date": "页面未标明绝对发布时间或修订日",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "类型表；Log invoice emails；Managing；Differences；Tips",
+      "key_findings": "文档区分定时、事件触发和Advanced automation beta。票据例子要求提取商户、票号、日期、币种、税额和总额，写表并标记缺失字段。部分事件即时送达，其他连接器通过轮询发现，不能一概视为实时。管理界面支持查看运行状态、暂停、测试、编辑和删除；官方建议修改条件、账户后重新测试。页面未充分说明删除自动化如何影响已经排队或执行中的一次运行。([manus.im](https://manus.im/docs/automations))",
+      "access_scope": "读取类型、创建示例、运行管理和可靠性建议；未运行自动化。"
+    },
+    {
+      "source_id": "PA11",
+      "title": "Browser Operator — Manus Documentation",
+      "url": "https://manus.im/docs/features/browser-operator",
+      "date": "页面未标明绝对发布时间或修订日",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "What it is；Grant Access；Local vs. Cloud Browser；Security；FAQ",
+      "key_findings": "本地扩展使用用户既有登录态，在专用标签页执行，每个会话需要授权。文档称点击标签可接管、关闭标签可停止，动作有日志；移动端可发起或监控，但桌面浏览器必须在线。云浏览器则使用隔离环境和单独登录。文档同时承认复杂交互与反自动化措施可能要求人工介入，故不能把使用已有登录态解释为消除所有验证码或平台阻拦。([manus.im](https://manus.im/docs/features/browser-operator))",
+      "access_scope": "读取机制、授权、本地/云端比较、安全与FAQ。"
+    },
+    {
+      "source_id": "PA12",
+      "title": "Plans and Pricing — Manus Documentation",
+      "url": "https://manus.im/docs/introduction/plans",
+      "date": "页面未标明绝对发布时间或修订日",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "How Credits Work；Available Plans；Monitoring Your Usage",
+      "key_findings": "官方说明按任务复杂度和资源消耗使用credits，提供免费、Pro与团队等方案，并可查看任务消耗与余额。已读页面没有足以核定地区、币种、月费及每档额度的完整数字，不能据此计算固定每任务成本；这正是商业单元必须补读实际价格页和计费规则的缺口。([manus.im](https://manus.im/docs/introduction/plans))",
+      "access_scope": "读取计费原则、方案类型与用量管理；未读取登录后的个性化报价。"
+    },
+    {
+      "source_id": "PA13",
+      "title": "Alibaba’s Qwen App Advances Agentic AI Strategy by Turning Core Ecosystem Services into Executable AI Capabilities",
+      "url": "https://www.alibabagroup.com/en-US/document-1948497434959151104",
+      "date": "2026-01-15",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "正文第13—40行，公测范围、旅行、付款及Task Assistant段",
+      "key_findings": "官方宣布消费端能力在中国公开测试，接入淘宝、即时零售、支付宝、飞猪与高德。旅行段描述规划和预订，但原生AI支付当时明确只支持淘宝即时零售，并要求用户确认，不能把这一支付范围扩大到所有旅行。任务助手另属邀请beta，电话与复杂旅行属于展示能力。发布会40杯饮料案例是公司演示，不是长期任务可靠性样本；当前跨会话记忆和撤权尚未由此文说明。([alibabagroup.com](https://www.alibabagroup.com/en-US/document-1948497434959151104))",
+      "access_scope": "读取整篇新闻正文；未将链接或嵌入演示视为独立测试。"
+    },
+    {
+      "source_id": "PA14",
+      "title": "Alibaba Group Announces June Quarter 2026 Results",
+      "url": "https://data.alibabagroup.com/ecms-files/1532295521/fa5d65fc-9b3e-4e82-a8fc-4ce1c3e2c407/Alibaba%20Group%20Announces%20June%20Quarter%202026%20Results.pdf",
+      "date": "2026-08-20；报告期截至2026-06-30",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "第4页AI Labs and Applications/Qwen App；第9页分部收入与调整后EBITA",
+      "key_findings": "原始财报将千问App与电商客户触达和生态协同相连。AI Labs and Applications分部季度收入为人民币3,338百万元，调整后EBITA亏损13,861百万元；公司将亏损变化部分归于AI投入及千问推理成本。该分部不等于千问App单产品，更不是Personal Agent业务，不能据此推算单用户、单任务成本或订阅盈利。财报中的购物触达人数亦不是任务成功分母。([data.alibabagroup.com](https://data.alibabagroup.com/ecms-files/1532295521/fa5d65fc-9b3e-4e82-a8fc-4ce1c3e2c407/Alibaba%20Group%20Announces%20June%20Quarter%202026%20Results.pdf))",
+      "access_scope": "读取首页报告期、AI应用经营叙述、相关分部财务及口径说明；未全读财报所有附表。"
+    },
+    {
+      "source_id": "PA15",
+      "title": "AI原生手机、AI宠物齐亮相，中兴终端定义AI生活新范式",
+      "url": "https://www.zte.com.cn/china/about/news/20260303C3.html",
+      "date": "2026-03-03；报道活动日期2026-03-02",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "努比亚M153技术预览版及系统集成段，第327—346行",
+      "key_findings": "中兴官方明确当时展示的是M153豆包手机助手技术预览版，描述系统级整合、自然语言跨应用任务、餐厅预订和比价等用途。此来源可核实产品阶段及OEM合作关系，但没有给出完整执行轨迹、失败率、记忆更新或撤权实现；官方用途描述不能当作所有目标应用均允许操作的证据。([zte.com.cn](https://www.zte.com.cn/china/about/news/20260303C3.html))",
+      "access_scope": "读取发布日期、产品阶段、系统集成和相关硬件段；未研究无关AI宠物内容。"
+    },
+    {
+      "source_id": "PA16",
+      "title": "豆包手机助手陷“使用软件受阻”争议",
+      "url": "https://www.jjckb.cn/20251206/92c7d316d9e04cff86bf355643a2e034/c.html",
+      "date": "2025-12-06",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "全文新闻正文，第9—33行",
+      "key_findings": "报道明确工程样机面向体验者，并记录用户反馈的应用访问受阻；转述12月2日官方对系统权限与主动授权的回应，以及12月5日对金融、游戏和刷激励场景的调整。用户截图和专家意见属于不同证据层，不能当作统一实测或代码证明。文章所述团体标准也不能直接写成法律禁止，若进入合规论证须另读标准原文和适用范围。([jjckb.cn](https://www.jjckb.cn/20251206/92c7d316d9e04cff86bf355643a2e034/c.html))",
+      "access_scope": "读取整篇报道正文；未访问被转述的官方微信原文或团体标准。"
+    },
+    {
+      "source_id": "PA17",
+      "title": "实测“豆包手机二代”：部分应用内操作仍受限",
+      "url": "https://m.nbd.com.cn/articles/2026-09-17/4584694.html",
+      "date": "2026-09-17；记者执行日期2026-09-16",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "部分应用内自动化操作；任务详情；购物观察；本地记忆介绍",
+      "key_findings": "记者明确设备为NaviX Ultra消费者版，记录微信发朋友圈及多个第三方应用内操作未完成，抖音账号检索一次用时26秒。后者没有重复次数，不能转成平均耗时或成功率。购物例子返回链接并保留用户确认，不能称自主购买完成。本地屏幕保存与检索部分使用据介绍表述，证据等级低于记者亲自执行的操作。全部是第三方观察，不是本研究亲测。([m.nbd.com.cn](https://m.nbd.com.cn/articles/2026-09-17/4584694.html))",
+      "access_scope": "读取设备、具体指令、观察结果及记忆段；未声称观看或复现全部图片场景。"
+    },
+    {
+      "source_id": "PA18",
+      "title": "豆包手机冷场",
+      "url": "https://finance.sina.cn/2026-10-14/detail-inivffth4532510.d.html",
+      "date": "2026-10-14；页面另有2026-10-16时间戳，原报道署名北京商报记者",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "SAEP公示结束、拒绝操作清单及适用设备段",
+      "key_findings": "这篇北京商报的新浪转载称10月14日公示期结束，并转述拒绝GUI操作的应用名单，涉及M153与NaviX Ultra。它提示不能把9月公示期测试直接当作11月状态，也为生态许可边界提供追踪线索。但本次未取得官方原始名单，不能把文章的广泛概括扩成所有接口、导流或手动操作都不可用；商业原因属于报道中的解释，不是已证因果。([finance.sina.cn](https://finance.sina.cn/2026-10-14/detail-inivffth4532510.d.html))",
+      "access_scope": "读取转载全文；未访问原始清单及北京商报首发页面。"
+    },
+    {
+      "source_id": "PA19",
+      "title": "Siri AI, a profoundly more capable and personal assistant powered by the next generation of Apple Intelligence, is here",
+      "url": "https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/",
+      "date": "2026-09-14",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "An Entirely New Siri；A Bold Architecture；Pricing and Availability",
+      "key_findings": "官方发布页描述个人上下文、屏幕感知和系统应用动作，举例从消息找到活动、从邮件取食谱并写提醒。发布时Siri AI为英语beta，部分第三方动作仍标soon；设备、语言和地区另有限制，中国及部分欧洲平台不在初始开放范围。架构称采用端侧与Private Cloud Compute，Spotlight及App Toolbox在端侧。不能把9月资格直接当作11月完整清单，也不能从端侧部件推定全部推理在端侧。([apple.com](https://www.apple.com/newsroom/2026/09/siri-ai-a-profoundly-more-capable-and-personal-assistant-is-here/))",
+      "access_scope": "读取Siri功能、架构和资格节；未全读无关照片、健康等功能或亲测系统。"
+    },
+    {
+      "source_id": "PA20",
+      "title": "zai-org/Open-AutoGLM — README",
+      "url": "https://github.com/zai-org/Open-AutoGLM",
+      "date": "仓库当前页面未提供已固定版本的发布日期；commit待补核",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "项目介绍；设备准备；模型服务配置；人工接管说明",
+      "key_findings": "官方仓库将其描述为通过屏幕感知、规划和设备自动化完成手机任务的框架，说明敏感操作确认、登录/验证码接管，以及不同设备控制和自托管/第三方模型服务选项。手机端执行不等于模型推理端侧运行。README不能证明长期任务账本、全局记忆或生产级撤权；当前读取未固定commit，后续代码论证必须补版本。([github.com](https://github.com/zai-org/Open-AutoGLM))",
+      "access_scope": "读取README相关机制与部署节；未安装、运行或审计整个仓库。"
+    },
+    {
+      "source_id": "PA21",
+      "title": "Open-AutoGLM phone_agent/actions/handler.py",
+      "url": "https://raw.githubusercontent.com/zai-org/Open-AutoGLM/refs/heads/main/phone_agent/actions/handler.py",
+      "date": "文件绝对修订日未知；本次读取main，尚未固定commit",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "ActionHandler初始化与execute；_handle_tap；_handle_takeover；_handle_note",
+      "key_findings": "代码中Tap动作在存在message字段时调用确认回调；用户拒绝返回失败且结束。Take_over调用人工接管回调；Note和Call_API在此文件是占位实现。execute把部分异常转为ActionResult。由此只能确认这些代码路径存在，尚不能证明所有高风险动作都会被标记，或整个系统没有其他记忆实现；需继续追踪动作生成、解析与调度层。([raw.githubusercontent.com](https://raw.githubusercontent.com/zai-org/Open-AutoGLM/refs/heads/main/phone_agent/actions/handler.py))",
+      "access_scope": "读取上述函数和动作分发表；未执行代码，未完成上游/下游调用审计。"
+    },
+    {
+      "source_id": "PA22",
+      "title": "Memory overview — OpenClaw",
+      "url": "https://docs.openclaw.ai/concepts/memory",
+      "date": "页面未标明绝对发布时间或修订日；实现版本待固定",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "How it works；What goes where；Action-sensitive memories；Automatic memory flush",
+      "key_findings": "文档区分USER.md稳定用户模型、MEMORY.md长期事实、按日期记录的工作上下文及可选Dream Diary；偏好变化建议原地标为被替代，避免矛盾的活跃指令并存。行动相关记忆应保留适用时机、期限及来源权限，但文档明确记忆不执行策略，硬控制应依赖审批、沙箱和调度。还描述不可信来源文件排除。其实际保证需对照固定版本代码，不能用当前文档覆盖历史攻击版本。([docs.openclaw.ai](https://docs.openclaw.ai/concepts/memory))",
+      "access_scope": "读取记忆正文指定节；未读取所有链接页面和插件实现。"
+    },
+    {
+      "source_id": "PA23",
+      "title": "Security — OpenClaw",
+      "url": "https://docs.openclaw.ai/gateway/security",
+      "date": "页面未标明绝对发布时间或修订日；实现版本待固定",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Security正文开头及One trust boundary per gateway说明",
+      "key_findings": "官方将网关安全指导建立在单一可信边界上：单个操作者或彼此信任的团队，不将共享网关视为对抗性多租户隔离。常规主机、容器和不同消息渠道的默认暴露条件不同；有消息工具权限时跨会话/渠道发送还需额外限制。它支持把自托管控制与部署责任同时讨论，而不支持自托管天然安全的结论。([docs.openclaw.ai](https://docs.openclaw.ai/gateway/security))",
+      "access_scope": "读取安全总览和边界说明；未完整审阅链接中的全部加固指南。"
+    },
+    {
+      "source_id": "PA24",
+      "title": "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory",
+      "url": "https://arxiv.org/html/2410.10813v2",
+      "date": "所读v2为2025-03-04",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "摘要；第3.1—3.2节；表1；附录B；错误分析定位",
+      "key_findings": "基准以带时间戳的多会话历史和500个问题测信息提取、多会话推理、时间推理、知识更新及拒答；包含30个改造的错误前提问题。商业系统附录只抽取97题、构造3—6会话，并排除部分时间及助手侧信息问题，不能套用为完整500题产品成绩。该研究有助于设计变化测试，但不直接评估撤权、删除彻底性或外部动作。([arxiv.org](https://arxiv.org/html/2410.10813v2))",
+      "access_scope": "读取上述正文、表与附录相关段落；未全读全部实验和附录，不使用未核对性能排名。"
+    },
+    {
+      "source_id": "PA25",
+      "title": "τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+      "url": "https://arxiv.org/html/2406.12045v1",
+      "date": "2024-06-17，v1",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "第3—5节；表1、表2；Pass^k；奖励函数限制",
+      "key_findings": "原始版本含零售115题、航空50题，以语言模型模拟用户，主要结果每题至少3次、最多30个Agent动作。GPT-4o表中零售61.2、航空35.2，48.2为按领域而非题数平均；这是2024实验，不是2026产品比较。pass^k要求k次全成功，不同于至少一次成功的pass@k。作者明确终态奖励可能漏掉未经确认就执行的违规，支持将任务结果与授权合规分开。([arxiv.org](https://arxiv.org/html/2406.12045v1))",
+      "access_scope": "读取问题定义、模拟用户、奖励、任务数量、主实验条件和结果；未全读长篇轨迹附录。"
+    },
+    {
+      "source_id": "PA26",
+      "title": "AgentDojo: A Dynamic Environment to Evaluate Prompt Injection Attacks and Defenses for LLM Agents",
+      "url": "https://papers.neurips.cc/paper_files/paper/2024/file/97091a5177d8dc64b1da8bf3e1f6fb54-Paper-Datasets_and_Benchmarks_Track.pdf",
+      "date": "NeurIPS 2024会议版本；该PDF未据已读位置核定精确发布日",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "摘要；第1节；第3节任务套件及环境/工具定义",
+      "key_findings": "论文以97个正常任务、629个安全测试案例研究外部工具返回内容中的注入，覆盖Workspace、Slack、旅行及电子银行的模拟状态。正常效用和攻击成功需要分开评估；环境数据经人工或模型生成后检查，并非用户真实账户。适合构造邮件、网页影响后续动作的对抗情境，但不能将论文结果直接归于当前商业产品或当作长期记忆污染发生率。([papers.neurips.cc](https://papers.neurips.cc/paper_files/paper/2024/file/97091a5177d8dc64b1da8bf3e1f6fb54-Paper-Datasets_and_Benchmarks_Track.pdf))",
+      "access_scope": "读取摘要、引言及环境/工具方法相关部分；未提取未完整核查的模型攻击成功率。"
+    },
+    {
+      "source_id": "PA27",
+      "title": "Authorization — Model Context Protocol",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization",
+      "date": "规范版本2026-07-28",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Purpose and Scope；Protocol Requirements；Scope Selection；Access Token Usage；Token Handling",
+      "key_findings": "所读版本规定HTTP传输授权流程，授权能力本身可选，STDIO另用环境凭证路线。scope策略强调最小权限；HTTP请求携带授权，服务器验证token受众及有效性，不接受或传递面向其他资源的token；无效/过期返回401。它规范访问控制基础，不自动提供用户意图证明、每笔交易审批或业务任务撤销，也不证明各产品完全实现该版本。([modelcontextprotocol.io](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization))",
+      "access_scope": "读取授权范围、角色、scope、token及错误处理节；未全读外链OAuth规范。"
+    },
+    {
+      "source_id": "PA28",
+      "title": "RFC 7009: OAuth 2.0 Token Revocation",
+      "url": "https://www.rfc-editor.org/info/rfc7009/",
+      "date": "2013-08",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "摘要；第2.1节撤销请求；第2.2节前相关token失效说明",
+      "key_findings": "标准提供撤销access/refresh token的端点。规范称失效应立即发生，但承认多服务器传播窗口；收到成功回应后客户端不得继续用该token。相关access token、refresh token和授权grant是否一并失效有不同要求与策略条件。该机制没有定义Agent排队任务删除或第三方订单回滚，故须把凭证撤销、调度停止和业务补偿分开验证。([rfc-editor.org](https://www.rfc-editor.org/info/rfc7009/))",
+      "access_scope": "读取摘要和撤销请求/失效核心段；未据此提供具体司法辖区合规判断。"
+    },
+    {
+      "source_id": "PA29",
+      "title": "How we built ChatGPT’s novel ad stack for user trust and relevance",
+      "url": "https://openai.com/index/building-chatgpt-ad-stack/",
+      "date": "2026-10-21",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "设计原则；Conversation memory；An LLM interprets conversations",
+      "key_findings": "官方工程文称广告系统可维护跨轮次及多会话状态，通过独立模型、代码和服务选择广告，与自然回答生成并行；选择个性化广告时可使用过去对话的非敏感信息。该材料提供商业数据流与设计隔离的可核查主张，但不是独立证明推荐中立，也不表示所有Agent付费套餐展示广告。需另核套餐、地区、关闭和删除控制。([openai.com](https://openai.com/index/building-chatgpt-ad-stack/))",
+      "access_scope": "读取设计、状态记忆、服务隔离和个性化相关节；未全读全部广告竞价细节。"
+    },
+    {
+      "source_id": "PA30",
+      "title": "Buy it in ChatGPT: Instant Checkout and the Agentic Commerce Protocol",
+      "url": "https://openai.com/index/buy-it-in-chatgpt/",
+      "date": "2025-09-29",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "发布范围；How Instant Checkout works；The Agentic Commerce Protocol",
+      "key_findings": "发布时面向美国用户和美国Etsy商家、单件购买；商家处理订单、支付、履约与支持。材料说完成购买向商家收取小额费用，但未公开统一比例。用户须确认订单、配送和支付信息。该商业与支付设计是历史阶段，不应覆盖当前商家页面；商品结果与同商品多商家排序也有不同因素，不能笼统称收费绝不影响任何排序环节。([openai.com](https://openai.com/index/buy-it-in-chatgpt/))",
+      "access_scope": "读取发布条件、用户确认、收费、商家责任和协议段；未全读支付token外链。"
+    },
+    {
+      "source_id": "PA31",
+      "title": "Power product discovery in ChatGPT",
+      "url": "https://chatgpt.com/merchants/",
+      "date": "页面未显示绝对发布时间或修订日",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Control checkout；How shopping works；FAQ中的Instant Checkout及fees",
+      "key_findings": "本次官方商家页强调产品发现、比较和产品数据feed，购买默认在商家自有网站或App完成；FAQ说明正离开独立Instant Checkout体验，并称从ChatGPT开始的购买没有相应费用。页面将购物开放描述为美国。它与2025发布材料共同证明路线变化，但未给出完整切换日期或变化原因；亦不能外推到所有插件、支付处理商和合作合同均零收费。([chatgpt.com](https://chatgpt.com/merchants/))",
+      "access_scope": "读取产品机制、商家控制、美国范围和全部关键FAQ；未提交商家申请。"
+    }
+  ],
+  "material_gaps": [
+    "U-CLOUD须补ChatGPT agent退役及Work迁移的正式日期、功能对应表、当前定时执行与记忆适用范围；PA02顶部与旧正文混杂，历史额度、截图保留规则不得直接带入当前比较。",
+    "U-CLOUD须补Gemini当前任务权限与计划文档的修订记录，区分本地设备关闭、远程任务继续运行和新计划触发；核对拒绝动作、停止浏览器、停止任务及关闭任务模式在执行中请求上的具体效果。",
+    "U-MANUS须补项目文件更新对既有定时任务、同线程续跑和事件触发实例的影响；确认配置快照还是每次读取，并查清暂停/删除自动化对排队和执行中实例的语义。",
+    "U-CN-SERVICE须补2026-01-15之后千问App及邀请任务助手的官方更新与帮助材料，尤其是旅行订单、支付、出票、退改、跨会话记忆、授权撤回与后续监控；不能以发布演示填补这些环节。",
+    "U-OS须实际取得豆包SAEP协议、开发者接入文档、截止日拒绝操作清单、消费者版权限与隐私说明、本地记忆纠正和删除说明。本次豆包官网打开后无可读正文，未将其登记为已读来源；媒体转述只作为定位线索。",
+    "U-OS须补Apple截至2026-11-09的正式系统/地区/语言资格及个人上下文、App Intents或App Toolbox实现文档；PA19的9月首发限制不能未经复核写成11月完整现状。",
+    "U-OPEN须冻结OpenClaw与Open-AutoGLM不晚于截止日的tag/commit，追踪确认标记生成位置、所有执行路径、取消信号传播、heartbeat/cron与内存/磁盘状态；目前只有相关文档和部分代码阅读，没有运行证据。",
+    "U-MEMORY须补中国消费产品对长期偏好、任务状态、摘要、端侧索引和外部来源的具体区分；如官方未披露，须给出已查页面及无法回答的机制，不用海外或开源项目的实现代填。",
+    "U-MEMORY须补可检验的选择性遗忘材料：删除后是否仍可从旧聊天、源文件、连接器缓存、索引、备份或旧任务配置恢复；记忆QA基准不足以回答这一问题。",
+    "U-AUTH须查找各产品对撤权后已排队、正在发送、第三方已接受但尚未回执三类动作的公开保证；特别核实重鉴权、授权版本、重复请求、幂等键、订单查询和补偿路径，未公开不能推定可靠处理。",
+    "U-MEASUREMENT须补具有任务指令、环境、计时和人工介入记录的国内外完整旅行/个人事务体验。当前每日经济新闻案例只支持若干单次设备观察，不能形成长期成功率；仍缺跨产品同口径分母。",
+    "U-MEASUREMENT须补2025—2026与持久记忆注入、后台触发和多会话执行相关的原始研究，记录攻击条件、版本及修复状态；不能把2024基准结果当作2026产品安全表现。",
+    "U-BUSINESS须读取截止日各产品公开价格页、地区币种、税费、额度、超额收费、失败/重试收费和订阅取消后的任务行为；PA12只有计费原则，不足以核算真实使用预算。",
+    "U-BUSINESS须核验交易佣金历史变化、商家结账与插件/支付处理费用的区别，以及广告适用套餐、个性化开关、记忆删除与广告状态的关系；不得凭PA29的设计宣称判定实际推荐中立。",
+    "U-BUSINESS须补用户愿意交付权限、可接受后果及付费意愿的有方法调查或可追溯案例。若缺乏同口径证据，商业结论采用明确假设的阈值分析，不虚构人群比例或需求规模。",
+    "U-ARCH须补连接器与个人数据迁移的实际导出格式、能否迁移偏好/任务/授权、换账户或换设备后的恢复规则，以及平台停止服务或订阅降级时的任务与数据处理。",
+    "V-EVIDENCE与V-DOMAIN尚未执行；两条任务链的最终比较、架构优先级和商业路线不得把当前候选解释当成已通过核查的结论。",
+    "当前未实际生成用户列出的文件、未执行产品亲测、未启动独立上下文审查。本JSON保留了可继续执行的实质输入；后续需在真实工具环境中完成研究、文件记录和独立审查，而不是补写完成声明。"
+  ]
+}

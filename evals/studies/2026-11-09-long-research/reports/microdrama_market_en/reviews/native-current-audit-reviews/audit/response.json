@@ -1,0 +1,168 @@
+{
+  "input_version": "4916bbf7954376e17453bc78c09a2511b4dcceae7270c4ed378ef2d93eb80e89",
+  "assignment_version": "02f68ee631465400935ccc623466b6c01a7656f5a462ef7770e3ef47610be9d9",
+  "result": "valid",
+  "basis": "Independently read the full current English report, original task, every current raw review and execution, production/version history and both preserved required negative findings. All24 portable-LF reviewer reference hashes match; the report matches its frozen assignment. Current readiness follows substantive full reading and targeted source/model checks, not the eight pass labels. Both required repairs are present; no remaining necessary defect found. Separate final acceptance is still required.",
+  "review_checks": {
+    "requirements": {
+      "result": "valid",
+      "basis": "Current complete 1–340 line reading maps all seven substantive sections to the original English brief, including China-specific terminology, frozen-source restriction, competing channels, cash waterfall, sensitivity and separate decisions. The claimed coverage exists in the actual prose; no invented word count or fixed platform roster.",
+      "attempt_id": "a907dfead0fe4c17af0f155150ab5dac",
+      "execution_id": "/root/complete_requirements_b",
+      "evidence": [
+        "reviews/host/4916bbf7954376e17453/results/a907dfead0fe4c17/response.txt",
+        "reviews/host/4916bbf7954376e17453/results/a907dfead0fe4c17/execution.json"
+      ]
+    },
+    "evidence": {
+      "result": "valid",
+      "basis": "The original independent evidence response and current continuation are retained. Current changes are grammar and objective evidence notes; the complete original/current diff supports reuse. Direct audit of frozen CP24/CP17 images, MD012 recognition pages and model code/results corroborates the cited denominators, accounting bases and calculations. Unavailable CP23 is explicitly unused.",
+      "attempt_id": "8ee800b22c0e4a0f88003bda6f7c25f0",
+      "execution_id": "/root/evidence_micro_en",
+      "evidence": [
+        "reviews/host/4916bbf7954376e17453/results/8ee800b22c0e4a0f/response.txt",
+        "reviews/host/4916bbf7954376e17453/results/8ee800b22c0e4a0f/execution.json"
+      ]
+    },
+    "adversarial_reasoning": {
+      "result": "valid",
+      "basis": "The raw response preserves alternative causes of aggregate usage, the three-channel overlap distinction, noncausal co-use, and separate platform/producer losses. Current diff does not remove these limits. The review uses the English task, not a requirement to reproduce Chinese conclusions.",
+      "attempt_id": "15e14a456aed4bbab09f8f63ce0b0976",
+      "execution_id": "/root/benchmark_adversarial",
+      "evidence": [
+        "reviews/host/4916bbf7954376e17453/results/15e14a456aed4bba/response.txt",
+        "reviews/host/4916bbf7954376e17453/results/15e14a456aed4bba/execution.json"
+      ]
+    },
+    "structure_and_depth": {
+      "result": "valid",
+      "basis": "The distinct /root/structure_remaining_b context documents complete initial reading and complete three-change diff. The market perimeter leads into frequency, return access, contracts and unequal recovery; final decisions retain those mechanisms. Its substantive pass is supported by the full current report.",
+      "attempt_id": "69c45df6e9214e58a7f526355aa07cd4",
+      "execution_id": "/root/structure_remaining_b",
+      "evidence": [
+        "reviews/host/4916bbf7954376e17453/results/69c45df6e9214e58/response.txt",
+        "reviews/host/4916bbf7954376e17453/results/69c45df6e9214e58/execution.json"
+      ]
+    },
+    "reader_usefulness": {
+      "result": "valid",
+      "basis": "The reviewer identifies practical denominators, explains touliu/fenzhang/baodi/beian and evaluates the paid/free/hybrid examples. Source notes now describe evidence instead of the author reading process, without removing source-access limits. No remaining decision barrier was identified in my full reading.",
+      "attempt_id": "1a1fa7a77d0940a1aa72d36dabd60dd8",
+      "execution_id": "/root/benchmark_reader_a",
+      "evidence": [
+        "reviews/host/4916bbf7954376e17453/results/1a1fa7a77d0940a1/response.txt",
+        "reviews/host/4916bbf7954376e17453/results/1a1fa7a77d0940a1/execution.json"
+      ]
+    },
+    "process_language": {
+      "result": "valid",
+      "basis": "The original negative process_language-01 at lines300/302 was valid; current prose replaces restored/read-directly and reading-ledger self-description with chart populations/units/footnotes and citation-location statements. Source limitations and hypothetical economics remain. Distinct original context continued its own assessment.",
+      "attempt_id": "45460453d67d4e5fb0624e4b8ac8e705",
+      "execution_id": "/root/process_remaining_b",
+      "evidence": [
+        "reviews/host/4916bbf7954376e17453/results/45460453d67d4e5f/response.txt",
+        "reviews/host/4916bbf7954376e17453/results/45460453d67d4e5f/execution.json"
+      ]
+    },
+    "natural_expression": {
+      "result": "valid",
+      "basis": "The original negative natural_expression-01 correctly identified while also duplicate. Current line290 reads while also duplicating; the clause preserves the possibility of repeated acquisition costs. Current response does not invent a broader rewriting obligation.",
+      "attempt_id": "53bae97c0d2148f6977b2ca389538047",
+      "execution_id": "/root/benchmark_natural_expression",
+      "evidence": [
+        "reviews/host/4916bbf7954376e17453/results/53bae97c0d2148f6/response.txt",
+        "reviews/host/4916bbf7954376e17453/results/53bae97c0d2148f6/execution.json"
+      ]
+    },
+    "domain-1": {
+      "result": "valid",
+      "basis": "The reviewer links national/channel denominators, contracts, statutory steps and assumed economics to original sources, then reuses unchanged substantive reading after the three text changes. My independent full report/code/image checks agree with those bounded interpretations; no historical pass is treated as automatic approval.",
+      "attempt_id": "c800ace3aac64fd08848c723ad5e04e7",
+      "execution_id": "/root/independent_domain_b",
+      "evidence": [
+        "reviews/host/4916bbf7954376e17453/results/c800ace3aac64fd0/response.txt",
+        "reviews/host/4916bbf7954376e17453/results/c800ace3aac64fd0/execution.json"
+      ]
+    }
+  },
+  "dispositions": {},
+  "critical_checks": [
+    {
+      "requirement_id": "R_TASK",
+      "location": "reports/current.md:1–340, sections1–7 and all tables/equations/source definitions",
+      "evidence": "Read the complete English brief and report. The consistent domestic expenditure perimeter avoids adding media purchases and intermediary receipts. Growth separates national reach, channel activity, frequency, conversion and ad yield. The competitor table is developed into mechanisms and counterexamples; disclosed financial cases and paid/free/hybrid examples connect costs, recovery order, retention and completion to separate platform/producer/distributor/investor choices. Content regulation, copyright, minors and refunds have operating consequences.",
+      "result": "clear"
+    },
+    {
+      "requirement_id": "R_LANGUAGE",
+      "location": "reports/current.md:11–13,95,127,243 and complete prose",
+      "evidence": "Complete English report; mini-program, IP, touliu, fenzhang, baodi and beian are explained in context for English-speaking readers. Chinese terms are not used as unexplained conclusions. Line290 grammatical repair is present.",
+      "result": "clear"
+    },
+    {
+      "requirement_id": "R_DATE",
+      "location": "reports/current.md:3,28–38,44–76,103,145–166,245–257,298–302",
+      "evidence": "Only designated frozen factual records are cited; annual estimates, historical forecasts, 2026 nine-month data and October/November planned reward changes are separated. No overseas receipts enter domestic totals. Review/production identities show a separate English author; this audit did not treat the Chinese report as a factual source.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:176–239 and calculations.py / calculation-output.json",
+      "evidence": "Complete static code and retained-output reading, no execution: RMB3m paid receipts reconcile to refunds150k/channel285k/rights256.5k/media1.2m/producer854.25k/distributor254.25k; 3.1189% break-even and producer-first loss follow the explicit recovery order. Free base1971200 gross ad spend,225024 platform contribution,-48064 producer result and176960 joint result reconcile. Completion is later-block reach, active days separate; hybrid subtracts forgone ads.",
+      "result": "clear"
+    }
+  ],
+  "sample_checks": [
+    {
+      "location": "reports/current.md:48–56,74,111–113",
+      "selection_reason": "Targeted passed passages on inclusion/exclusion of channel audiences and contradictory app trajectories; these are central to growth and competition.",
+      "evidence": "Actually viewed frozen CP24 users/apps originals and CP17 p18. CP24 brackets851m app/WeChat/Douyin mini-program union separately from472m content reach; 924-851=73m excess memberships is not unique overlapping people. May Xifan11.018m vs September8.34m is compatible with positive September year-on-year growth; September Lüpao Pao ranking and October interface report are kept as different observations. CP16/CP17 earlier read original images remain the same supplied evidence.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:26,137,158–166",
+      "selection_reason": "Passed recognition and settlement passages were chosen to test money-flow direction and whether company results were overgeneralized.",
+      "evidence": "MD012 original p137–138 supports delivery/acceptance and settlement conditions; frozen CP18/CP27 retain creator1–29%, automatic initiation0–3 days versus paymentT+7. Original CP01 p2/CP02 p1 and MD005p148/MD008p156–157, already actually read in this audit context, support distinct quarterly/cumulative cash and net-income bases; source files CP01/02/08/18/19/27 and MD004 compared identical to the supplied originals. Neither group deficit becomes a domestic title margin.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:119–123,249–265",
+      "selection_reason": "Select rule tables and explanations for English readers: mistranslating sharing bases or minors law could change decisions.",
+      "evidence": "Viewed frozen CP17p18 policy compilation showing iQIYI platform-revenue basis and Youku member/effective-play mechanism. Read retained CP18 duration/automatic-purchase/service/refund provisions and MD004 complete regulation (same frozen text); quarterly membership maximum and10h×7d/15min obligations are preserved. Platform full minor refund is distinguished from Civil Code capacity rather than represented as universal legal voidness.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:180–237; source arithmetic and scenario transformation",
+      "selection_reason": "Independently choose the complete model-to-prose transformation because no reviewer finding was raised there.",
+      "evidence": "Read all78 source-code lines and all retained calculation output. Explicit costs and royalty/payment bases map to the paid table; 4+8×0.6 late-block opportunities map to free outcomes. Share35→45% redistributes unchanged176960 joint surplus; 60000 reward savings offset by0.81949 active days, and ad-free increment220402/141554 depends on selected buyers’ displaced ad value. Negative and asymmetric branches remain in prose.",
+      "result": "clear"
+    }
+  ],
+  "prior_findings": {
+    "6e36bc1c4e0a4bf5977655a8e03d4708/natural_expression-01": {
+      "decision": "resolved",
+      "reason": "The grammatical defect is repaired without changing the multi-channel acquisition meaning.",
+      "evidence": "reports/current.md:290 and complete first-draft/current diff."
+    },
+    "77b02b22a94946a28b2f9784f261309f/process_language-01": {
+      "decision": "resolved",
+      "reason": "The two author reading-process descriptions have been replaced with objective chart and citation descriptions; material source-access limitations remain.",
+      "evidence": "reports/current.md:300,302; preserved negative original response at reviews/host/93c45054c0a195dc5422/results/77b02b22a94946a2/response.txt"
+    }
+  },
+  "finding_adjudications": [
+    {
+      "finding_key": "6e36bc1c4e0a4bf5977655a8e03d4708/natural_expression-01",
+      "decision": "resolved",
+      "reason": "The grammatical defect is repaired without changing the multi-channel acquisition meaning.",
+      "evidence": "reports/current.md:290 and complete first-draft/current diff."
+    },
+    {
+      "finding_key": "77b02b22a94946a28b2f9784f261309f/process_language-01",
+      "decision": "resolved",
+      "reason": "The two author reading-process descriptions have been replaced with objective chart and citation descriptions; material source-access limitations remain.",
+      "evidence": "reports/current.md:300,302; preserved negative original response at reviews/host/93c45054c0a195dc5422/results/77b02b22a94946a2/response.txt"
+    }
+  ],
+  "report_verdict": "pass",
+  "open_issues": []
+}

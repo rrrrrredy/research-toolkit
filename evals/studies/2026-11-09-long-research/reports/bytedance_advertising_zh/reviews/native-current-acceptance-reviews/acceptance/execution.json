@@ -1,0 +1,33 @@
+{
+  "host_task": "/root/office_final_acceptance",
+  "status": "completed",
+  "input_version": "e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "assignment_version": "4fc24b69688d2612268b8965e99289ccec7e8839aac4ab8279d1368488da8ab4",
+  "artifact_sha256": "2ceafdcf61f2b80e0900078f67b95bbc6887d8a1780be302b217c398f9505d97",
+  "normalized_lf_sha256_from_job": "68ae85a7f3ead87c98127e2730a033e83275b5ed5c85c3f6d027fabbf2bb5a1e",
+  "started_at": "2026-11-09T17:01:02.3488907Z",
+  "completed_at": "2026-11-09T17:03:15.9485155Z",
+  "assignment": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/bytedance_advertising_zh/reviews/host/e4cabf49ef9396bd0f19/jobs/acceptance-4fc24b69688d2612.json",
+  "independence": "本题未参与作者生产、内容视角或审计；独立最终验收。",
+  "actual_reading": {
+    "targeted": [
+      "BDA03:31-76",
+      "BDA-W01原文L0-42",
+      "BDA-R19:21-83"
+    ],
+    "full": [
+      "当前报告1-210，四段连续读取；规范换行后与job冻结正文完全相同",
+      "真实任务、有效要求、必要finding、4项生产历史概要",
+      "8份当前原始回复及audit.original/execution",
+      "原process_language-01原件和change-note-full-02完整diff；handoff.md",
+      "calculate_scenarios.py与calculations.json",
+      "BDA-R03.json保存批次的GMV Max、event deduplication及Shop Ads三页完整原始返回"
+    ],
+    "reuse": "其余版本、法律、推荐和区域原件的已定位核查复用独立证据及审计结果；不声称读完整财报或181页问询。",
+    "visual": [
+      "codex-production/account-pages/page3.png",
+      "codex-production/account-pages/page41.png"
+    ]
+  },
+  "actions": "仅写本验收文件；未改正文/来源/代码/任务状态、导入、联网研究、重算或测试。"
+}

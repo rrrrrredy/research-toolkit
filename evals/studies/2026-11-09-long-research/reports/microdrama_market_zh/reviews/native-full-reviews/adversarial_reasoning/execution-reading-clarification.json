@@ -1,0 +1,83 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "recorded_at": "2026-11-09T13:59:33.908080+00:00",
+  "correction": "The original execution reading_scope used broad ranges to summarize keyword-context results. These exact non-contiguous intervals supersede that originals range list; no assertion that gaps were read. Full report1-512 remains completely read.",
+  "actual_original_intervals": {
+    "sources/actual/CP17.txt": [
+      [
+        13,
+        25
+      ],
+      [
+        37,
+        45
+      ],
+      [
+        52,
+        60
+      ],
+      [
+        258,
+        293
+      ],
+      [
+        301,
+        311
+      ],
+      [
+        454,
+        462
+      ],
+      [
+        477,
+        485
+      ],
+      [
+        758,
+        766
+      ],
+      [
+        777,
+        786
+      ],
+      [
+        1034,
+        1042
+      ],
+      [
+        1077,
+        1085
+      ],
+      [
+        1124,
+        1132
+      ],
+      [
+        1177,
+        1185
+      ]
+    ],
+    "sources/actual/CP08.txt": [
+      [
+        165,
+        173
+      ],
+      [
+        1032,
+        1040
+      ],
+      [
+        1373,
+        1381
+      ],
+      [
+        2586,
+        2604
+      ],
+      [
+        2613,
+        2629
+      ]
+    ]
+  }
+}

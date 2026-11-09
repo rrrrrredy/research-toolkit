@@ -1,0 +1,16 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "26bd4a51cfdb507fa0301ad9f73091ea57ff663bf6752ef98302c4cddf0ba63d",
+  "assignment_version": "118cdeac5da6ec0c9835571e19f9b46885f8d7fd4151f5ae42bb518c6ad6923b",
+  "completed_at": "2026-11-09T13:56:25.349187+00:00",
+  "reading_scope": {
+    "task": "完整任务",
+    "report": "完整1-372行",
+    "originals": [
+      "sources/actual/IRW03.txt retained original L132-168 relevant paragraphs (file lines1-7,22-42,48-53)",
+      "sources/actual/IRW10.txt lines1-35"
+    ],
+    "scope": "独立adversarial_reasoning；无其他评审输入，无新实验。"
+  }
+}

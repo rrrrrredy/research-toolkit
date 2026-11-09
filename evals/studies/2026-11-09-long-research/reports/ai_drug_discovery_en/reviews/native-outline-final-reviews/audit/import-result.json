@@ -1,0 +1,27 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en",
+  "input_version": "08ee4e8cf6e9b2733119c8c87965023b83648c1f084afbabbd87f1a702fd3e7a",
+  "scope": "outline",
+  "assignments": [],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": true,
+  "completion_check": {
+    "ok": true,
+    "flags": [],
+    "findings": [],
+    "required_slots": 3,
+    "completed_slots": 3,
+    "selected_attempts": {
+      "requirements": "a5cca22863544d339d09544886cd5348",
+      "structure_and_depth": "1b6c134084664c068a64661050ecc084",
+      "audit": "10ca694aa6e745b39b5e311188daf854"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": null,
+  "open_issues": []
+}

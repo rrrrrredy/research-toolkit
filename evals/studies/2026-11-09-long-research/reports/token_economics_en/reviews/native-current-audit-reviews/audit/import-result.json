@@ -1,0 +1,53 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\token_economics_en",
+  "input_version": "e6dab9c522bd95cbb6466eccef92143c33d291b91806655c81158321704d7807",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "acceptance",
+      "role": "acceptance",
+      "reading_ref": {
+        "path": "logs/reading/bd0c75c47131f1a584e6.md",
+        "sha256": "bd0c75c47131f1a584e68043fda0a8462ed9ce0b3d66d04b8a6ce37417d6800e"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/e6dab9c522bd95cbb646/jobs/acceptance-58b6711191c68cee.json",
+        "sha256": "3e511ce89d6f9f93f90d4433844ee285dbef63a60405c9d845fd3b80cfede132"
+      },
+      "assignment_version": "58b6711191c68ceeeaf5dcf6849a3db55c480f2308dc001a8b593d18149d3f7e"
+    }
+  ],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 9,
+    "selected_attempts": {
+      "natural_expression": "93fa720129a44d1c940a666f0ffea3d2",
+      "domain-1": "7d4422e7f98d424d912f41436032c9f4",
+      "evidence": "2f93c333a6a241d9a1a5048ebcebf516",
+      "process_language": "fdd0e77babe64c57a24b6167befaf814",
+      "requirements": "9471738233d2443da04bf38b6e6b3cbe",
+      "structure_and_depth": "22a3d431f21143438da9fa40747c58e3",
+      "adversarial_reasoning": "089c47d7d2624280ac03be3dbf002bfc",
+      "reader_usefulness": "33475692c7f549ac82ea4de3611b8de0",
+      "audit": "7fe3c64ad9bf4b2e99fe6571b98bdcc7"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: acceptance"
+  ]
+}

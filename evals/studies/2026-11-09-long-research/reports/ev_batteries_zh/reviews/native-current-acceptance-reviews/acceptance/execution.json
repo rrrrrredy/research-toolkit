@@ -1,0 +1,36 @@
+{
+  "host_task": "/root/office_final_acceptance",
+  "status": "completed",
+  "input_version": "4cff15db175e29647e450e061f3030d1bbe0d27b5e4dcfea015a7bd2d966c0c3",
+  "assignment_version": "55aaf04731b707dc1fa1d0541eea5eb9a3d35cfb41db2ded3442fa61a14d6d26",
+  "artifact_sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+  "started_at": "2026-11-09T17:14:21.4992128Z",
+  "completed_at": "2026-11-09T17:16:35.1164019Z",
+  "assignment": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ev_batteries_zh\\reviews\\host\\4cff15db175e29647e45\\jobs\\acceptance-55aaf04731b707dc.json",
+  "independence": "No production, content-review or audit role for this report.",
+  "actual_reading": {
+    "visual": [
+      "EVB25/delivery-poster.jpg entire image",
+      "EVB26 rendered original PDF pages023,028,029, printed22,27,28, including cross-page application/installed-energy table",
+      "EVB27 rendered original PDF pages187,194,268, printed177,184,258"
+    ],
+    "full": [
+      "Actual brief, all effective requirements and production history; full03 report all162 substantive lines in contiguous bounded chunks; current/frozen text equality and byte hash checked",
+      "Eight raw current content replies and entire audit response/execution",
+      "All three historical negative original responses, covering five required findings; complete earliest full snapshot c9cfa36e5ce144398f15f0f7a57ca5b8 to current diff",
+      "Complete handoff.md and analysis-maturity-volume-full-03.md",
+      "calculate_scenarios.py and calculations.json complete; calculate_volume_full_03.py and volume-scenario-full-03.json complete, read only"
+    ],
+    "reuse": "Supplied raw independent reviews/audit support unchanged original checks outside selected samples; no new research or calculation executed.",
+    "targeted": [
+      "EVB25/original.txt:99-106",
+      "EVB02.txt:228-253",
+      "EVB03-R.txt:4572-4583",
+      "EVB15.txt:65-71",
+      "EVB16-R.txt:37-52",
+      "EVB21.txt:291-311",
+      "EVB22.txt:169-180"
+    ]
+  },
+  "actions": "Only own response/execution written. No report/source/task edits, imports, model/experiment/calculation reruns or tests."
+}

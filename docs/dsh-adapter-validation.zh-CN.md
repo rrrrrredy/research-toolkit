@@ -6,6 +6,8 @@
 
 ## 专用接入检查
 
+三个入口的当前默认题目均为 `evals/cases/` 题库中的 `microdrama_market_zh`。新题及输入另行提供；以下命令要求它们已经就位。
+
 离线检查元数据、引用资源和暂存目录：
 
 ```bash
@@ -25,7 +27,7 @@ smoke 子进程只继承白名单中的运行路径、用户与缓存目录、�
 真实模型案例：
 
 ```bash
-python scripts/run_dsh_evals.py live --case source_instruction_boundary_zh
+python scripts/run_dsh_evals.py live --case microdrama_market_zh
 ```
 
 使用 DSH 已配置的模型与凭据，暂存一个已有案例，再用确定性检查器评分。内容质量仍需另外评审。

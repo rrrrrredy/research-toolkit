@@ -1,0 +1,18 @@
+{
+  "scope": "Arithmetic on cited rounded tables and explicitly hypothetical illustrations; no model runs.",
+  "mmlu_pro_gpt4o_cot_minus_direct_pp": "19.1",
+  "humaneval_phind_minus_chatgpt_pp": "-1.9",
+  "humaneval_plus_phind_minus_chatgpt_pp": "3.7",
+  "tau_equal_domain_mean_percent": "48.2",
+  "tau_task_weighted_from_rounded_rates_percent": "53.32121212121212121212121212",
+  "hypothetical_homogeneous_independent_success": {
+    "p": "0.60",
+    "k": 4,
+    "at_least_one_percent": "97.4400",
+    "all_four_percent": "12.9600",
+    "not_an_estimate_from_tau_trajectories": true
+  },
+  "hypothetical_binomial_standard_error_pp": 1.788854381999832,
+  "alpaca_verbosity_raw_range_pp": "41.4",
+  "alpaca_verbosity_length_adjusted_range_pp": "9.7"
+}

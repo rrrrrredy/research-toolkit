@@ -22,3 +22,8 @@ evals/diagnostics/2026-10-29-research-path/raw/** -text
 # Preserve the refreshed homepage reports and original review bytes.
 docs/case-study/office-agents-2026-11/** -text
 docs/case-study/api-or-browser-2026-11/** -text
+
+# Preserve frozen questions, original outputs and recorded hashes for this run.
+evals/studies/2026-11-09-long-research/** -text
+evals/diagnostics/2026-11-09-retired-cases/** -text
+evals/source_packs/long_research_*/** -text

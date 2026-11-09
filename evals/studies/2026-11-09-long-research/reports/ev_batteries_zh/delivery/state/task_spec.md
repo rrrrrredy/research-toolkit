@@ -1,0 +1,35 @@
+# Research brief
+
+## question
+
+面向车企、供应链与投资决策者，比较新能源汽车动力电池的性能、体系成本和量产路径，回答不同车型与使用环境应如何选择，而不是评出脱离场景的单一赢家。重点考察2021年至2026-11-09的公开证据，必要时追溯材料与制造路线基础。资料截止日为2026-11-09，厂商目标、未来产能和预计装车时间必须与截至该日已实现的状态分开。
+
+覆盖磷酸铁锂及其改进路线、三元体系、钠离子与固态方案。先厘清分类维度：正极与负极材料、电解质状态、电芯形态和电池包结构不是同一层级，固态方案可能与其他材料体系交叉，结构集成改善也不等于化学体系更换。区分半固态或其他过渡方案与全固态，解释名称背后的实际结构和公开证据，不将营销名称直接当作统一技术标准。
+
+对比质量与体积能量密度、可用容量、快充、低温表现、循环和日历寿命、安全约束及使用维护要求。严格区分电芯与电池包、实验样品与量产产品，并保留温度、SOC窗口、充放电倍率、容量保持率和测试标准等条件。峰值充电功率、平均充电功率、补能时间与整车续航不是可直接互换的指标；冬季续航还受热管理、预热、整车效率和使用方式影响。不能把不同协议下的最好成绩拼成一款不存在的综合产品，也不能从单项安全测试推导零风险。
+
+构造性能—成本比较，解释原材料、制造良率、工艺设备、能耗、产能利用率、包级结构、热管理及质量保障对成本的影响。保留币种、日期、每千瓦时口径、含税与否及产量假设，区分材料清单成本、制造成本、报价和整车厂采购价格。公开资料不足时使用有依据的区间或情景，不假装掌握企业内部成本。分析锂、镍等材料价格变化和量产爬坡如何改变路线之间的相对经济性，避免用单一时点现货价格替代长期成本判断。
+
+沿实验室成果、样品、试验线、客户验证、定点、量产与实际装车或交付核查代表路线。企业公告、车型文件、可核实交付和独立测试应分别标明证据性质，宣布建设产能不等于有效产出，少量装车也不自动证明成熟大规模供货。解释良率、寿命验证、供应链、设备与认证中的关键依赖，以及哪些量产时间判断只能是有条件的推演。
+
+交付完整报告，包含口径清楚的性能—成本矩阵、成本敏感性分析、代表路线量产证据链，以及面向经济型通勤、寒冷地区、高频运营和长续航或高性能车型的适配判断。通过公开车型或电池案例说明系统选择，但不要求覆盖所有厂商。重点核验比较是否跨越了不兼容的测试口径、化学与系统结构是否混淆、量产判断是否有阶段证据，以及推荐能否随价格和使用条件变化。允许多路线长期共存、优势转移或某路线暂不适用等结论，章节名称不作限定。
+
+## audience
+
+进行车型电池选型、供应链布局和产业投资判断的车企与相关团队
+
+## scope
+
+Follow the task geography, comparison scope and evidence cutoff of 2026-11-09. Each other-language version uses its frozen sources without seeing the first-language report.
+
+## output
+
+Complete long-form research report final.md with the task-specific comparisons, explanations, tables and locatable citations. Preserve the first draft and actual independent results.
+
+## depth
+
+完整长研究报告，在统一测试与成本口径下比较电池路线，将电芯性能、系统工程、使用场景和量产成熟度连接为条件化选型判断。
+
+## evidence_standard
+
+Use original public sources with actual dates, reading evidence and retained originals. Conduct seven separate independent content perspectives, relevant domain review, independent audit and final acceptance. Live primary research

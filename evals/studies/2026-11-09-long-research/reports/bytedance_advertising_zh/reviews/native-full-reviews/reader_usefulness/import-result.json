@@ -1,0 +1,69 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh",
+  "input_version": "db8213c012af78accb3a9719133d8719cea1032b0ba50b3b1862df3cc6dc3831",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "evidence",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/411573c0be8d8578da11.md",
+        "sha256": "411573c0be8d8578da1153a8e7563e53910404ca1e22f6e397594f1683b3892d"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/db8213c012af78accb3a/jobs/evidence-9e0daa4ee71e36af.json",
+        "sha256": "3b7635332600c2f81dab771ad727f172586b253d1da2f23d851b0d688ea73e6a"
+      },
+      "assignment_version": "9e0daa4ee71e36afc1c45a85e2afc4735e2263cacdc619258aa17458d56eff62"
+    },
+    {
+      "slot_id": "process_language",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/bb9315c6c5bfefff23ca.md",
+        "sha256": "bb9315c6c5bfefff23ca6014e91c8ae45034ba6b732ca71bebe9d01678b5534c"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/db8213c012af78accb3a/jobs/process_language-a5606e6bef975b94.json",
+        "sha256": "3b7dfe09efea1908b317f1615d4a707ef2bb41e5c89a3497fa14ed29988351da"
+      },
+      "assignment_version": "a5606e6bef975b947da8c8a7674a883b90803ac0c32ddf83a9b78fc7d83f9b2a"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: evidence",
+      "Incomplete independent assignment: process_language",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 6,
+    "selected_attempts": {
+      "domain-1": "4447be9bf6c847b08edea4c72ae409e7",
+      "requirements": "25e880caf3464efa8696930bc7cd9163",
+      "adversarial_reasoning": "8b5287b331f141f494be177259499836",
+      "natural_expression": "b2aa13d802234af2becf1106999d8efa",
+      "structure_and_depth": "41eb7bc017eb4707ac2035396cadb6e8",
+      "reader_usefulness": "0eeb500180584293a35d2a6aff427259"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: evidence",
+    "Incomplete independent assignment: process_language",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

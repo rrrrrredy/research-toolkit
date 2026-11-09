@@ -1,0 +1,497 @@
+{
+  "outline": "RESEARCH BRIEF AND CURRENT STAGE\nThis is the research specification, initial evidence analysis, complete report outline, and executable division of work—not the final report. The intended readers are enterprise buyers, AI product operators, and investors deciding what to procure, how to operate workloads, and where economic value may accrue. The central question is: under what quality, traffic, and workflow conditions do lower model-production costs or lower token prices translate into lower cost per accepted task and greater customer value?\n\nScope: public evidence published by November 9, 2026, concentrating on 2024–2026 and using earlier research only where needed for mechanisms or historical comparison. Proposed coverage includes OpenAI, Anthropic, Google, and DeepSeek API offers; representative open-weight deployments; hardware/cloud infrastructure; and an application-level outcome-pricing example. This is a mechanism-driven sample, not an exhaustive vendor ranking. USD is the reporting baseline. Preserve original currencies, endpoint regions, global versus regional routing, service tiers, model identifiers, effective dates, and promotional periods. US procurement is the default decision context, with US/EU residency and China-linked provider availability addressed where material and documented. Do not infer serving location from a provider's nationality.\n\nPlanned final deliverable: an English economic report of approximately 8,000–11,000 words, expandable where calculations or comparability require it, with a dated price table, three auditable workload ledgers, sensitivity and break-even exhibits, a value-chain map, and conditional procurement/product decisions. Appendices will hold formulas, assumptions, source locations, historical terms, and reproducibility details. The lead researcher owns cross-unit judgments and final assembly.\n\nCOMPLETE REPORT OUTLINE\n1. Executive decision framework: distinguish cheaper tokens, cheaper requests, cheaper accepted tasks, and greater customer surplus. Summarize conditional decisions only after the calculations are checked.\n2. Five economic layers: training and development expenditure; hypothetical recovery of that investment; inference infrastructure cost; provider selling price; and application operating cost. Separate marginal cash expenditure, avoidable capacity cost, fully loaded cost, accounting depreciation, and sunk investment. Explain why training-run estimates do not establish company-wide development spending or private API margins.\n3. How serving turns compute into usable service: dense versus mixture-of-experts architectures; active versus resident parameters; quantization; hardware and interconnect; prefill versus decode; KV-cache memory; batching; context length; generated output and reasoning; traffic variability; utilization; latency targets; reliability headroom and failover. Explain throughput versus latency-compliant goodput.\n4. What the buyer actually pays, 2024–2026: representative dated price observations and documented changes. Compare uncached input, cache writes and reads, cache lifetime, reasoning billing, context thresholds, batch/flex/priority tiers, tools, multimodal charges, and regional processing. Keep list, introductory, negotiated, and committed-use terms separate. Include an explicit publication-date/effective-date distinction.\n5. Measurement contract: tokens are billing units, not standardized work. Compare identical content and equivalent tasks across tokenizers and languages. Define accepted outputs, escalation, abandonment, failure, latency, and human intervention before estimating economics. Establish a finite-path accounting model rather than assuming independent retries.\n6. Workload A—short interactive support: a bounded customer question answered against current policy. Acceptance requires all requested issues addressed correctly, no unsupported commitment or unauthorized action, and a verified resolution or explicitly classified escalation. Compare inexpensive-model-first routing, a stronger-model-first route, and human-assisted completion. Show request cost, cohort cost, accepted-task cost, latency, and unresolved share.\n7. Workload B—long-document extraction or grounded analysis: repeated questions or structured extraction against a reusable document set. Acceptance requires required critical fields to be correct after normalization and material analytical claims to have valid source references. Compare repeated full-context submission, provider caching, retrieval, and context reduction. Include preparation, cache expiry, storage, retrieval, OCR where needed, validation, and rework.\n8. Workload C—multi-step coding/research agent: use a coding change as the principal worked example, with a research-agent tool-cost variant. Acceptance requires the requested change, relevant tests, absence of identified regressions, and human approval; a research variant additionally requires verifiable citations and coverage. Model context growth, reasoning, tool execution, tests, capped retries, fallback models, compaction, human intervention, and terminal failure.\n9. Sensitivity and procurement: identify the dominant variables for each workload; examine output length, reasoning effort, cache reuse, conditional retry rates, model choice, latency, utilization, and human review. Compare API procurement with a capacity- and quality-constrained self-hosting scenario. Report break-even surfaces rather than one universal token-volume threshold.\n10. Value capture and decisions: map hardware/infrastructure providers, model developers, applications, and customers. Analyze how efficiency, price changes, substitution, integration, distribution, switching costs, and demand expansion can redistribute value. Separate potential productivity, realized labor/cash savings, willingness to pay, invoiced revenue, and profit. End with conditional procurement and product rules tied to the workload calculations.\nAppendices: historical price evidence; tokenization protocol; assumption and formula dictionary; complete workload ledgers; sensitivity tables; source and claim registry; unresolved evidence boundaries.\n\nINITIAL CANDIDATE EXPLANATIONS—NOT FINAL CONCLUSIONS\nA. Headline training figures can describe a narrow production boundary rather than total development spending. DeepSeek's reported training estimate and the broader cost-model literature support making that boundary explicit; they do not establish a universal recovery charge per token. This premise is assigned to independent domain checking before downstream margin analysis. [TE01, TE24] ([arxiv.org](https://arxiv.org/html/2412.19437v1))\nB. Output and human intervention may dominate short-task economics even when input tokens are cheap. A mechanical calibration using GPT-4.1 mini's April 14, 2025 launch prices gives (1,000×0.40 + 200×1.60)/1,000,000 = USD 0.00072 for one assumed request. Separately, an assumed 10% review rate, two minutes per review, and USD 30/hour adds USD 0.10 per incoming task. These are arithmetic illustrations, not measured support costs or current-price claims. [TE03] ([openai.com](https://openai.com/index/gpt-4-1/))\nC. Cache economics depend on reuse and billing boundaries, not the advertised read discount alone. Under the October 22, 2026 Sonnet 4.6 global standard rates, an assumed 100,000-token prefix used ten times within a valid five-minute cache period costs USD 0.645 for one write and nine reads, versus USD 3.00 without caching: 78.5% savings on that prefix only. Output, changing input, tools, and review remain outside this calculation. [TE05] ([assets.claude.com](https://assets.claude.com/5633dc848caa431115468f31c7085d695bbfb9cc.pdf))\nD. Self-hosting may be attractive at one traffic/latency point and unattractive at another. DistServe supports the goodput mechanism. A 2026 concurrency paper supplies candidate measurements, but its API comparison is not ready for adoption: an output-token denominator must not be mixed with blended-token prices, and its shared-GPU allocation must not be treated as a dedicated-node bill. [TE12, TE13] ([arxiv.org](https://arxiv.org/html/2401.09670v3))\nE. Successful-task economics require a stricter denominator than model calls or vendor-billable outcomes. τ-bench itself notes that its reward can miss policy violations; Intercom's documented outcome categories include configured handoffs. Neither is automatically equivalent to our accepted-task definition. [TE17, TE23] ([arxiv.org](https://arxiv.org/html/2406.12045v1))\nF. Productivity value is context-dependent. The support field study, the early-2025 developer experiment, and METR's subsequent selection-bias warning should be used together rather than selecting one universal productivity multiplier. [TE18–TE20] ([arxiv.org](https://arxiv.org/pdf/2304.11771v2))\nG. Falling API prices need not imply either falling or rising provider profits. The proposed interpretation will condition on unit cost, utilization, demand, product mix, and fixed investment; public corporate results cannot reveal an undisclosed model-specific margin. [TE21, TE22] ([nvidianews.nvidia.com](https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026))\n\nCOMMON CALCULATION CONTRACT\nFor each request, use mutually exclusive billed token buckets: C_API = (p_u×T_u + p_w×T_w + p_h×T_h + p_o×T_o,billed)/1,000,000 + tool charges. Split cache writes by lifetime where applicable. If the provider's output count already includes reasoning, do not add reasoning again. Application cost adds execution, retrieval/storage, orchestration, monitoring, review, and allocated operating overhead. For a finite cohort, cost per accepted task equals total cohort cost—including failed and abandoned paths—divided by accepted tasks. An expectation model may use E[C]/P(accepted), with conditional path probabilities and explicit stopping rules; it must not substitute E[C | accepted]. A training-recovery scenario may allocate αF/Q, but α, F, Q, economic lifetime, and denominator must be declared, and the allocation is not a disclosed provider policy.\n\nEXECUTION AND REVIEW ORDER\nThe outline first goes to separate requirements and structure contexts. Cost, price, serving, measurement, and value-chain evidence can proceed independently. Verified price terms and domain-checked denominators are prerequisites for final workload calculations. Workload results then feed sensitivity analysis and an independent arithmetic reconstruction. The lead assembles the report from complete contributions, not summaries. The complete report will subsequently require separate contexts for all seven specified review perspectives, an LLM-systems/economic-accounting domain review, independent audit, and final acceptance. None of those reviews is represented as completed here. The units below are executable handoffs, not claims that subagents have already run. No filesystem artifacts, benchmark executions, or final-delivery receipts are claimed.",
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Deliver only the present research-understanding, actual-source-reading, initial-analysis, outline, and work-allocation stage; do not generate the final report or claim completed delegation, reviews, experiments, or file creation.",
+      "scope": "global"
+    },
+    {
+      "id": "R2",
+      "text": "Produce the eventual report in English for enterprise buyers, AI product operators, and investors, with developed economic explanation, auditable calculations, counterevidence, and conditional decisions.",
+      "scope": "global"
+    },
+    {
+      "id": "R3",
+      "text": "Use only material publicly available by 2026-11-09; emphasize 2024–2026, preserve necessary earlier observations, and distinguish publication, revision, observation, and price-effective dates.",
+      "scope": "global"
+    },
+    {
+      "id": "R4",
+      "text": "Separate training/development expenditure, possible investment recovery, inference infrastructure cost, provider price, and application operating cost; distinguish marginal, fully loaded, and sunk costs.",
+      "scope": "U_COST"
+    },
+    {
+      "id": "R5",
+      "text": "Explain serving economics through architecture, hardware, memory, utilization, batching, context, output generation, reasoning, latency, and reliability, without treating peak throughput as deployable capacity.",
+      "scope": "U_SERVE"
+    },
+    {
+      "id": "R6",
+      "text": "Build dated pricing comparisons with currency, provider/channel, region or routing scope, tier, model identifier/version, context thresholds, and effective period; never substitute future or current terms for historical terms.",
+      "scope": "U_PRICE"
+    },
+    {
+      "id": "R7",
+      "text": "Cover input/output, cache writes/reads, cache lifetime and hit rates, reasoning billing, batch/flex/priority, tools, and relevant multimodal charges; distinguish list, promotional, negotiated, and committed-use prices.",
+      "scope": "U_PRICE"
+    },
+    {
+      "id": "R8",
+      "text": "Explain tokenizer and language differences using identical content and task-level comparisons; do not equate tokens, words, bytes, or benchmark scores across models.",
+      "scope": "U_MEASURE"
+    },
+    {
+      "id": "R9",
+      "text": "Construct the short interactive support model with explicit acceptance, escalation, latency, fallback, failure, and human-review treatment.",
+      "scope": "U_SUPPORT"
+    },
+    {
+      "id": "R10",
+      "text": "Construct the long-document/reusable-context model with extraction or grounding acceptance, cache writes and expiry, retrieval/storage, changing context, validation, and rework.",
+      "scope": "U_DOCUMENT"
+    },
+    {
+      "id": "R11",
+      "text": "Construct the multi-step agent model with tools, context growth, reasoning, tests or citation validation, capped retries, fallbacks, human intervention, and terminal failure.",
+      "scope": "U_AGENT"
+    },
+    {
+      "id": "R12",
+      "text": "For all workloads, distinguish request, attempt, incoming task, vendor-billable outcome, and accepted task; include failed-path expenditure and use conditional rather than assumed-independent retry probabilities.",
+      "scope": "global"
+    },
+    {
+      "id": "R13",
+      "text": "Provide formulas, units, source-linked public inputs or explicitly labeled assumptions, worked examples, and sensitivity results; do not fabricate measurements or imply that saved tokens preserve quality.",
+      "scope": "global"
+    },
+    {
+      "id": "R14",
+      "text": "Compare API procurement with a defensible self-hosting scenario including low utilization, whole-instance billing, capacity limits, operational labor, reliability, and matched quality.",
+      "scope": "U_SERVE"
+    },
+    {
+      "id": "R15",
+      "text": "Analyze output length, reasoning effort, cache reuse, utilization, retry frequency, model choice, latency, and human intervention jointly where they interact; report break-even conditions and infeasible regions.",
+      "scope": "U_SENS"
+    },
+    {
+      "id": "R16",
+      "text": "Map value capture across hardware/infrastructure, model developers, application vendors, and customers; distinguish realized savings, potential productivity, willingness to pay, revenue, contribution margin, and profit.",
+      "scope": "U_VALUE"
+    },
+    {
+      "id": "R17",
+      "text": "Do not invent private costs, contractual discounts, margins, current personnel, or productivity gains. Preserve source limitations and provide transparent scenarios for undisclosed quantities.",
+      "scope": "global"
+    },
+    {
+      "id": "R18",
+      "text": "Check consequential pricing, cost denominators, architecture claims, and arithmetic independently before downstream reliance; retain all required final review, audit, and acceptance perspectives in separate non-production contexts.",
+      "scope": "global"
+    },
+    {
+      "id": "R19",
+      "text": "Keep source and claim provenance, actual reading locations, assumptions, calculations, disagreements, and versioned handoffs accessible. When managed tooling is available, populate the specified state, data, logs, final.md, and delivery_message.md artifacts; do not treat saving them as completion.",
+      "scope": "global"
+    }
+  ],
+  "units": [
+    {
+      "id": "G_REQUIREMENTS",
+      "assignment": "In a fresh non-production context, compare the original task and this outline against R1–R19 before extensive drafting. Check all ten must-cover subjects, all three workloads, 2024–2026 coverage, necessary historical evidence, regional/version metadata, cost-price-value separation, and final artifact obligations. Identify missing answers or unjustified scope expansion. Do not review source counts as a substitute for question coverage.",
+      "inputs": [],
+      "dependencies": [],
+      "deliverables": "A requirement-to-section/unit map, specific omissions or conflicts, and their consequences. Preserve this as an outline-stage review, not a whole-report verdict."
+    },
+    {
+      "id": "G_STRUCTURE",
+      "assignment": "Independently review whether the outline can explain the causal chain from model production through serving, prices, accepted tasks, and value capture. Examine whether the three workload units are sufficiently contrasting, whether the common measurement contract prevents duplication, and whether historical pricing and current procurement are separated. Flag compressed mechanisms and comparisons that lack a common denominator.",
+      "inputs": ["TE01", "TE12", "TE17", "TE18", "TE20"],
+      "dependencies": [],
+      "deliverables": "A revised argument/dependency proposal with locatable structural concerns and required analytical expansions; no preferred conclusion or generic approval."
+    },
+    {
+      "id": "U_COST",
+      "assignment": "Own the model-production cost boundary and investment-recovery analysis for R4 and R17. Reconstruct DeepSeek-V3's reported GPU-hour estimate, explicitly retaining context-extension/post-training components and exclusions. Compare this with the training-cost paper's hardware-depreciation, rental-price, and broader-development methods. Add public model cards or training disclosures where needed for a second architecture/scale case, without equating different hardware hours. Distinguish purchased hardware, depreciation during a run, power, engineering, experiments, data, evaluation, post-training, and corporate R&D. Develop low/base/high economic recovery scenarios using declared investment F, allocation share α, useful life, model retirement, and lifetime output or accepted-task volume Q. Do not interpret an economic allocation as GAAP treatment or provider policy. Use Microsoft only for disclosed accounting boundaries, not as a model-cost proxy.",
+      "inputs": ["TE01", "TE22", "TE24"],
+      "dependencies": [],
+      "deliverables": "A cost-boundary table, reconstructed public estimate, transparent recovery scenario table with units and arithmetic, and a developed section explaining what can and cannot be inferred about model economics."
+    },
+    {
+      "id": "U_PRICE",
+      "assignment": "Own the historical and cutoff-date price ledger for R3, R6, and R7. Cover representative OpenAI, Anthropic, Google, and DeepSeek models in 2024, 2025, and 2026 through November 9, prioritizing changes relevant to the three workloads rather than listing every SKU. Start with dated launch/changelog anchors and the October 22 Anthropic rate card; use live documents only as explicitly dated observations. Record model/version or alias target, direct API versus cloud channel, currency, geography, routing, context band, tier, price basis, effective period, and promotion end date. Reconcile cache write/read/lifetime mechanics, reasoning-inclusive output, tool calls and retrieved-content billing, storage-time charges, image/audio units, batch compatibility, priority premiums, and minimum commitments. Resolve the redirected Anthropic article's inconsistent dating. Exclude Lambda's November 16 rates from November 9 operating scenarios. Do not invent negotiated discounts: use disclosed public commitments or labeled hypothetical discount variables.",
+      "inputs": ["TE02", "TE03", "TE04", "TE05", "TE06", "TE07", "TE08", "TE09", "TE10", "TE11", "TE14", "TE15", "TE25", "TE26", "TE27"],
+      "dependencies": [],
+      "deliverables": "A source-linked price ledger and compact report table; a historical-change narrative; a billing-mechanics matrix; and an explicit list of unresolved date, tier, region, or model-version cells that cannot yet enter calculations."
+    },
+    {
+      "id": "U_SERVE",
+      "assignment": "Own inference mechanisms and the self-hosting baseline for R5 and R14. Explain prefill/decode, dense/MoE compute and memory, quantization, KV cache, batching, parallelism, interconnect, speculative generation where evidenced, bursty demand, and latency/reliability headroom. Read DistServe's full relevant experimental and limitation sections. Audit the 2026 concurrency paper's harness, hardware SKU, whole-node versus shared-GPU denominator, arrival process, token lengths, quantization, and output-only API comparator before using its numbers. Choose a publicly documented open-weight deployment—initial candidates are Llama 3.1 8B and Qwen3-30B-A3B—with exact weights/license, engine, precision, hardware, and workload shape. Obtain a dated official US-region rental quote or a clearly bounded historical scenario. Include CPU/RAM, storage, networking, monitoring, on-call labor, failover capacity, startup time, security maintenance, and unused committed capacity. Compare rented self-managed hosting first; add owned-hardware TCO only if purchase/lifetime assumptions can be bounded. Do not match H100 NVL throughput to a different GPU variant merely because both are called H100.",
+      "inputs": ["TE01", "TE12", "TE13", "TE14", "TE15", "TE22"],
+      "dependencies": [],
+      "deliverables": "A serving-mechanism section; a reproducible configuration/throughput evidence sheet; a monthly self-hosting cost model with utilization and SLO constraints; and a list of quality/traffic conditions required for a fair API comparison."
+    },
+    {
+      "id": "U_MEASURE",
+      "assignment": "Own R8 and the shared denominator/acceptance contract behind R12–R13. Define request, attempt, complete trajectory, incoming task, accepted task, escalation, unresolved task, and vendor-billable outcome. Design paired content tests in English, Mandarin Chinese, Spanish, and Arabic plus code/JSON, using pinned tokenizer versions or official token-count endpoints. Preserve semantic equivalence and separately report bytes, characters, model tokens, and billed tokens; do not present unexecuted counts as measurements. Specify the three workload rubrics before observing model performance. Build a finite-state/path ledger with conditional probabilities for retry, fallback, review, acceptance, and abandonment. Allow failure persistence by task difficulty and provider/tool outages. Distinguish pass@k from pass^k and neither from adaptive retry success. Include false acceptance, evaluator cost, and errors that automated tests miss.",
+      "inputs": ["TE02", "TE08", "TE09", "TE16", "TE17", "TE23"],
+      "dependencies": [],
+      "deliverables": "The measurement and tokenizer section; acceptance rubrics; a proposed paired-evaluation protocol; and reusable formulas/data columns for request, cohort, and accepted-task economics, with an assumptions-versus-observations legend."
+    },
+    {
+      "id": "G_PRICE",
+      "assignment": "In a fresh evidence-review context, verify every consequential price row proposed for the worked examples against the original dated source. Reopen full tables and footnotes. Check USD per million versus per thousand, context thresholds, tier tabs, regional multipliers, write/read exclusivity, reasoning inclusion, promotions, and tool/storage units. Inspect the November 16 Lambda boundary and the Anthropic migrated-date problem explicitly. Separate publication by the cutoff from an effective date after the cutoff. Return corrected inputs and identify unresolved rows; downstream calculations may use only checked rows or clearly labeled assumptions.",
+      "inputs": ["TE03", "TE05", "TE06", "TE07", "TE08", "TE09", "TE10", "TE11", "TE14", "TE25", "TE26", "TE27"],
+      "dependencies": ["U_PRICE"],
+      "deliverables": "An independently reconstructed pricing-input sheet, source locations actually checked, and a correction/uncertainty log tied to each affected workload input."
+    },
+    {
+      "id": "G_DOMAIN",
+      "assignment": "Use a separate non-author LLM-systems/economic-accounting context to inspect U_COST, U_SERVE, and U_MEASURE before workload modeling consumes their premises. Check training versus hardware amortization, rental price versus underlying infrastructure cost, active versus resident parameters, SLO-compatible capacity, utilization definitions, no double-counting of infrastructure costs, and all finite-path formulas. Independently reconstruct the concurrency paper's API comparison: at a fixed output-token denominator, adding API input charges is not the same operation as switching to a cheaper blended-token denominator. Check whether quality equivalence is established or merely assumed. Identify which model and throughput claims require further original documentation.",
+      "inputs": ["TE01", "TE12", "TE13", "TE16", "TE17", "TE22", "TE24"],
+      "dependencies": ["U_COST", "U_SERVE", "U_MEASURE"],
+      "deliverables": "A domain-checked economic/technical premise set, corrected formulas, explicit comparison boundaries, and unresolved issues blocking particular downstream claims."
+    },
+    {
+      "id": "U_SUPPORT",
+      "assignment": "Construct the interactive-support case under R9 and the checked common contract. Use a short text exchange with system/policy text, user input, and a bounded answer; define a low-latency target as an assumption, not a vendor guarantee. Build inexpensive-first, stronger-first, and escalation routes. Include additional conversation turns, retrieval if needed, conditional retries, fallback tokens, human review and correction, logging, and unresolved cases. Use both a dated historical price anchor and a separately checked cutoff-period scenario. Reproduce the outline's request-cost calibration, then replace it with a complete cohort ledger. Use the support productivity paper only to explain a documented assisted-work setting, not to set an autonomous bot success rate or a universal labor saving. Contrast the report's acceptance rule with a vendor's billable resolution/handoff definition.",
+      "inputs": ["TE02", "TE03", "TE05", "TE18", "TE23", "TE27"],
+      "dependencies": ["G_PRICE", "G_DOMAIN"],
+      "deliverables": "A complete worked support model with formulas, per-path costs, accepted/unresolved counts, review-time sensitivity, latency/quality trade-offs, and a report-ready local argument."
+    },
+    {
+      "id": "U_DOCUMENT",
+      "assignment": "Construct the long-document/reusable-context case under R10. Specify document size, document changes, number and timing of queries, per-query changing text, output length, acceptance rules, and human validation. Compare uncached full context, cache reuse, retrieval, and shorter-context extraction on the same task. Include first writes, repeated writes after expiry or prefix changes, partial hits, cache thresholds, storage duration, embedding/index construction, retrieval, OCR or image interpretation where relevant, and document refresh. Do not call all requested cache tokens hits or assume that caching reduces semantic attention quality costs to zero. Reproduce the prefix-only calibration and then calculate complete task costs. Test whether long-context thresholds cause discontinuous pricing and whether cache/storage spend is justified by actual reuse.",
+      "inputs": ["TE03", "TE05", "TE06", "TE09", "TE10", "TE25", "TE27"],
+      "dependencies": ["G_PRICE", "G_DOMAIN"],
+      "deliverables": "A time-indexed cache and query ledger; complete worked costs per request and accepted extraction/analysis; cache-versus-retrieval break-even calculations; and sensitivity to reuse, lifetime, document churn, output, and review."
+    },
+    {
+      "id": "U_AGENT",
+      "assignment": "Construct the multi-step coding-agent case and research-tool variant under R11. Define a realistic bounded change, tests, review requirements, maximum steps/retries, and a terminal unresolved state. Record each model call's cumulative context, cached prefix, newly added tool output, reasoning-inclusive billed output, and any compaction. Add sandbox/runtime, shell/test execution, search/fetch, retrieval/storage, failed tool calls, model fallback, human approvals, and final review. Treat parallel branches and verification calls as billable work even when their outputs are discarded. Use conditional failure persistence rather than geometric eventual success. Separate benchmark completion from production acceptance. Read the METR original paper and its later update before using either to discuss human-time value; do not transfer its observed effect into assumed agent success probabilities.",
+      "inputs": ["TE05", "TE07", "TE08", "TE09", "TE17", "TE19", "TE20", "TE26", "TE27"],
+      "dependencies": ["G_PRICE", "G_DOMAIN"],
+      "deliverables": "A step-by-step trajectory ledger; capped retry/fallback tree; accepted-task and unresolved-task costs; tool/reasoning/context/review decomposition; and a local section explaining when shorter workflows or stronger models change total economics."
+    },
+    {
+      "id": "U_SENS",
+      "assignment": "Integrate the three checked workload models for R15 without flattening their differences. Produce one-way sensitivity tables and joint scenario surfaces for output/reasoning length, cache reuse and expiry, conditional retries, fallback quality, human minutes, model choice, latency, and utilization. Vary physically linked parameters together where appropriate: traffic, batching, throughput, and latency cannot all be held independently favorable. Report quality-preserving and quality-changing token reductions separately. Compare API and self-hosting on the same incoming workload and accepted-task definition, including operational overhead and capacity feasibility. Derive break-even volume/quality/review thresholds and identify cases with no feasible crossover. Treat distributions as assumptions unless observed; avoid false-precision simulation.",
+      "inputs": ["TE12", "TE13", "TE17", "TE18", "TE19", "TE20"],
+      "dependencies": ["U_SUPPORT", "U_DOCUMENT", "U_AGENT", "U_SERVE"],
+      "deliverables": "Cross-workload sensitivity exhibits, break-even equations and worked thresholds, scenario assumptions, and conditional procurement/product recommendations suitable for independent reconstruction."
+    },
+    {
+      "id": "G_ARITHMETIC",
+      "assignment": "Independently rebuild all decisive workload and sensitivity calculations from the checked price ledger and original assumptions, not from the authors' totals. Verify units, rounding, cache bucket exclusivity, reasoning-token inclusion, cohort denominators, failed and abandoned paths, finite retry probabilities, shared storage allocation, human-time costing, full-node rental charges, and capacity limits. Check consistency between every table and its prose. Expand the check wherever an error pattern appears. This is a calculation audit, not final whole-report acceptance.",
+      "inputs": ["TE03", "TE05", "TE07", "TE08", "TE10", "TE13", "TE25", "TE27"],
+      "dependencies": ["U_SENS", "G_PRICE", "G_DOMAIN"],
+      "deliverables": "Independent recalculation tables, exact discrepancies and consequences, corrected break-even results where needed, and a list of unresolved quantitative claims."
+    },
+    {
+      "id": "U_VALUE",
+      "assignment": "Own R16 using public corporate evidence and documented business-model terms. Map the flows of money, capacity, model access, application services, and customer benefits across NVIDIA/hardware, cloud infrastructure, model developers, applications, and users. Read the relevant financial statements and accounting notes, then extend through the latest relevant filings available by the cutoff where needed. Keep consolidated and segment margins distinct from model-specific economics; distinguish capex, depreciation, operating cost, revenue-sharing, investment gains, ARR/run-rate claims, and recognized revenue. Use Intercom to analyze outcome-pricing definitions and workflow integration, not to infer its undisclosed unit margin or realized revenue. Evaluate competing explanations for value capture: efficiency pass-through, utilization, demand expansion, substitution, proprietary workflows, distribution, switching costs, and implementation costs. Preserve both favorable and unfavorable productivity evidence.",
+      "inputs": ["TE15", "TE18", "TE19", "TE20", "TE21", "TE22", "TE23", "TE24"],
+      "dependencies": [],
+      "deliverables": "A developed value-chain section and map; a public-financial-evidence boundary table; competing conditional explanations; and a handoff specifying how validated workload results should modify the value-capture argument."
+    },
+    {
+      "id": "U_ASSEMBLY",
+      "assignment": "The lead researcher alone assembles the eventual report after reading full unit contributions, checked calculations, original evidence, and unresolved issues. Reconcile historical versus cutoff snapshots, duplicated costs, inconsistent acceptance rules, and incompatible price/throughput denominators. Integrate the workload results into the value-chain argument and write the executive decisions last. Preserve scope differences and uncertainty beside the claims they limit. Maintain the specified research artifacts when tools are available. Submit the complete current report to seven separate base review contexts and a separate domain reviewer, then independent audit and final acceptance; preserve raw findings and revisions. Do not issue the final report or completion receipt at this stage.",
+      "inputs": ["TE01", "TE03", "TE05", "TE12", "TE13", "TE17", "TE18", "TE20", "TE21", "TE22", "TE23", "TE24", "TE25", "TE27"],
+      "dependencies": ["G_REQUIREMENTS", "G_STRUCTURE", "U_COST", "U_PRICE", "U_SERVE", "U_MEASURE", "U_SUPPORT", "U_DOCUMENT", "U_AGENT", "U_SENS", "G_ARITHMETIC", "U_VALUE"],
+      "deliverables": "At a later stage: the integrated English report, calculation appendices, traceable source/claim records, and revised delivery artifacts after the required independent work—not a concatenation of unit summaries."
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "TE01",
+      "title": "DeepSeek-V3 Technical Report, version 1",
+      "url": "https://arxiv.org/html/2412.19437v1",
+      "date": "2024-12-27",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Abstract; Section 1 and Table 1; Section 3.4, especially prefill/decode deployment.",
+      "key_findings": "The report attributes 2.664 million H800 GPU-hours to pretraining, 119,000 to context extension, and 5,000 to post-training. Its USD 5.576 million estimate applies an assumed USD 2/GPU-hour to the total; prior research and ablation experiments are excluded. Thus it is neither just pretraining nor total company development expenditure. The model has 671B total and 37B activated parameters. The serving description separates prefill and decode, supporting an architecture/serving explanation rather than a price-to-margin inference. ([arxiv.org](https://arxiv.org/html/2412.19437v1))",
+      "access_scope": "Relevant original HTML sections and table read; evaluation appendices and full report not read."
+    },
+    {
+      "source_id": "TE02",
+      "title": "GPT-4o mini: advancing cost-efficient intelligence",
+      "url": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
+      "date": "2024-07-18",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Release date and introductory pricing/model-description paragraphs.",
+      "key_findings": "The dated release states USD 0.15 per million input tokens and USD 0.60 per million output tokens, with a 128K context window and up to 16K output tokens. It also describes a tokenizer shared with GPT-4o and improved non-English efficiency. These are useful historical offer and tokenizer claims, not measured multilingual task costs. The read passage does not establish a serving region, enterprise discount, or current availability. ([openai.com](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/))",
+      "access_scope": "Original release introduction, pricing, and model limits read; linked evaluations not audited."
+    },
+    {
+      "source_id": "TE03",
+      "title": "Introducing GPT-4.1 in the API",
+      "url": "https://openai.com/index/gpt-4-1/",
+      "date": "2025-04-14",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Pricing section, table and footnotes; coding evaluation methodology paragraphs.",
+      "key_findings": "Launch rates in USD per million input/cached-input/output tokens are 2/0.50/8 for GPT-4.1, 0.40/0.10/1.60 for mini, and 0.10/0.025/0.40 for nano. The announcement specifies an additional 50% Batch API discount and no separate long-context surcharge. Its blended-price column depends on an undisclosed typical mix and should not replace workload arithmetic. Coding scores are explicitly harness-dependent, with excluded tasks discussed; they are not direct production acceptance rates. ([openai.com](https://openai.com/index/gpt-4-1/))",
+      "access_scope": "Original pricing section and relevant methodology text read; linked benchmark implementation not read."
+    },
+    {
+      "source_id": "TE04",
+      "title": "Prompt caching with Claude",
+      "url": "https://claude.com/resources/articles/prompt-caching",
+      "date": "Displayed date 2025-08-14; embedded update dated 2024-12-17. Original publication date remains unresolved.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Displayed date; general-availability update; cache pricing explanation and model table.",
+      "key_findings": "The original Anthropic news URL redirects here. The page contains older-model terms: Claude 3.5 Sonnet input/output rates of USD 3/15 per million tokens, cache write 3.75 and read 0.30. It describes writes at 1.25 times base input and reads at 0.1 times base. The displayed publication date conflicts with the chronology implied by its embedded update, so this page cannot independently date the 2024 launch terms. Customer/latency examples are vendor-presented, not audited workload measurements. ([claude.com](https://claude.com/resources/articles/prompt-caching))",
+      "access_scope": "Redirected original-company article's substantive caching and pricing sections read; historical archived version not obtained."
+    },
+    {
+      "source_id": "TE05",
+      "title": "Claude Model Pricing — List Prices by Platform",
+      "url": "https://assets.claude.com/5633dc848caa431115468f31c7085d695bbfb9cc.pdf",
+      "date": "Prices effective 2026-10-22; separate publication timestamp not stated.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "PDF pages 1 and 4 visually checked; introductory terms and selected platform rows in extracted text.",
+      "key_findings": "This USD-per-million-token rate card distinguishes list prices from promotions. Global standard Sonnet 5.5 is 2 input/10 output; Sonnet 4.6 is 3/15, with 3.75 five-minute writes, 6 one-hour writes, and 0.30 reads. Corresponding US-only and batch rows are explicit. Page 4 also lists a managed-agent runtime fee separately from model tokens. These are dated commercial terms, not evidence of equivalent model quality or private serving costs. ([assets.claude.com](https://assets.claude.com/5633dc848caa431115468f31c7085d695bbfb9cc.pdf))",
+      "access_scope": "Pages 1 and 4 read as screenshots; selected extracted rows from other pages inspected. The full 14-page rate card was not audited."
+    },
+    {
+      "source_id": "TE06",
+      "title": "Pricing — Claude Platform Docs",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+      "date": "Publication/revision date not stated; live documentation observed at cutoff.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Model pricing; prompt-caching multipliers; data-residency pricing.",
+      "key_findings": "The documentation distinguishes five-minute and one-hour writes and model-specific read multipliers. It identifies exceptions to the familiar 10%-of-input read rule, so a universal cache multiplier would be wrong. It also states that applicable cache modifiers stack with batch and data-residency modifiers, and describes US-only inference pricing for relevant model generations. Exact model and lifetime combinations must be retained in the workload ledger. ([platform.claude.com](https://platform.claude.com/docs/en/about-claude/pricing))",
+      "access_scope": "Relevant pricing and caching sections read; all tool and platform-specific subsections remain for unit follow-up."
+    },
+    {
+      "source_id": "TE07",
+      "title": "Pricing — OpenAI API",
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "date": "Publication/revision date not stated; live documentation observed at cutoff.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Flagship tier tables; regional-processing notes; multimodal sections; Tools table.",
+      "key_findings": "The page exposes standard, flex/batch, fast, and ultrafast tables, with context controls that must not be flattened. Tool examples include web search at USD 10/1,000 calls plus search-content tokens, file-search calls at USD 2.50/1,000, and file storage at USD 0.10/GB-day with a free allowance. Container billing has a session basis. A special fixed search-content token block applies to named mini models. These extra meters can matter independently of the model's token rate; historical applicability requires dated corroboration. ([developers.openai.com](https://developers.openai.com/api/docs/pricing))",
+      "access_scope": "Selected current tier tables, modifiers, multimodal rows, and full Tools table read; not every model/tier permutation verified."
+    },
+    {
+      "source_id": "TE08",
+      "title": "Reasoning models — OpenAI API",
+      "url": "https://developers.openai.com/api/docs/guides/reasoning",
+      "date": "Publication/revision date not stated; live documentation observed at cutoff.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Pro reasoning mode; How reasoning works; Controlling costs; usage-object example.",
+      "key_findings": "Reasoning tokens are billed as output and consume context even when not visible as answer text. The example usage object includes reasoning within total output tokens, demonstrating the double-counting risk. Output limits cover more than visible prose. The current documentation also differentiates model-generation behavior for carrying earlier reasoning into subsequent steps, making context-growth assumptions version-specific. Mode and effort are distinct controls. ([developers.openai.com](https://developers.openai.com/api/docs/guides/reasoning))",
+      "access_scope": "Relevant billing, context, effort, and usage-accounting passages read; full guide and all API examples not read."
+    },
+    {
+      "source_id": "TE09",
+      "title": "Prompt caching — OpenAI API",
+      "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+      "date": "Publication/revision date not stated; live documentation observed at cutoff.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Overlapping writes and lifetime changes; cache lifetime; earlier-model retention behavior.",
+      "key_findings": "Current examples distinguish write lifetimes, overlapping prefix coverage, read refresh, and the cost of upgrading a lifetime. Tokens are not meant to be billed repeatedly within one request merely because cache breakpoints overlap. The documentation explicitly separates eligibility for cache-read pricing from a guarantee of physical KV reuse or lower latency. Earlier models use different retention controls. Consequently, neither cache TTL nor cache semantics should be copied unchanged across model generations. ([developers.openai.com](https://developers.openai.com/api/docs/guides/prompt-caching))",
+      "access_scope": "Relevant cache-accounting and lifetime sections read; minimum lengths, all eligibility conditions, and regional behavior require further reading."
+    },
+    {
+      "source_id": "TE10",
+      "title": "Agent Platform Pricing — Google Cloud",
+      "url": "https://cloud.google.com/model-garden/pricing",
+      "date": "Publication/revision date not stated; live pricing page observed at cutoff.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Gemini 2.5 model tables; priority and flex/batch tables; grounding footnotes; explicit cache-storage table.",
+      "key_findings": "The accessed Google Cloud table lists Gemini 2.5 Pro input/output rates of USD 1.25/10 per million below the stated context threshold and 2.50/15 above it, with output including reasoning. The footnote applies long-context rates to all input and output tokens once the input threshold is exceeded. Explicit cache storage is separately priced; the Pro row shows USD 0.0000045 per token-hour, equivalent to USD 4.50 per million token-hours. Grounding uses separate request-based meters. These Cloud terms must not be silently substituted for Gemini Developer API terms or historical launch prices. ([cloud.google.com](https://cloud.google.com/model-garden/pricing))",
+      "access_scope": "Selected model/tier/grounding/storage sections read. Gemini Developer API pricing fetches failed with unsupported markdown content type; that failure is not treated as reading."
+    },
+    {
+      "source_id": "TE11",
+      "title": "Models & Pricing — DeepSeek API Docs",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+      "date": "Publication/revision date not stated; live documentation observed at cutoff.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Model-details table, pricing rows, and all three table footnotes.",
+      "key_findings": "The page maps deepseek-flash to DeepSeek-V4.1-Flash-1017 and deepseek-v4-pro to DeepSeek-V4-Pro-0813. Flash peak USD rates per million cache-hit input/cache-miss input/output are 0.006/0.30/1.20, with off-peak rates half as large. The page defines weekday UTC peak windows and Chinese-public-holiday exceptions. Legacy aliases may route to replacement models, so alias-only historical comparisons are unsafe. The page does not establish a serving region or a private margin. ([api-docs.deepseek.com](https://api-docs.deepseek.com/quick_start/pricing/))",
+      "access_scope": "Full substantive model/pricing table and footnotes read; linked thinking, vision, and rate-limit guides not yet read."
+    },
+    {
+      "source_id": "TE12",
+      "title": "DistServe: Disaggregating Prefill and Decoding for Goodput-optimized Large Language Model Serving",
+      "url": "https://arxiv.org/html/2401.09670v3",
+      "date": "Version 3 dated 2024-06-06.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Introduction; Section 2; Section 6.1; workload/SLO table.",
+      "key_findings": "The paper optimizes requests meeting both time-to-first-token and time-per-output-token objectives, not raw tokens/second alone. Its experiments use 32 A100-80GB GPUs, OPT models, FP16, selected chatbot/code/summarization datasets, and generated Poisson arrivals. Reported gains therefore depend on architecture, workload, and latency assumptions. This is strong mechanism evidence for separating prefill/decode and examining batching interference, but not a direct estimate of 2026 frontier-model serving cost. ([arxiv.org](https://arxiv.org/html/2401.09670v3))",
+      "access_scope": "Relevant mechanism and experimental-setup sections read; full results, appendices, and implementation repository remain for follow-up."
+    },
+    {
+      "source_id": "TE13",
+      "title": "Beyond Per-Token Pricing: A Concurrency-Aware Methodology for LLM Infrastructure Cost Estimation",
+      "url": "https://arxiv.org/html/2606.11690v1",
+      "date": "2026-06-10",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Sections 3.2–4.3; model/hardware tables; Sections 5.5–5.7 and API-comparison caveat.",
+      "key_findings": "This independent preprint reports load-sensitive serving measurements on a two-H100-NVL Azure node. Its USD 13.96/hour node cost is split to USD 6.98/GPU-hour only under an explicit co-tenant assumption. It separates economic throughput utilization from GPU occupancy. Important audit concern: the API reference lines use output-only list prices, while the discussion also invokes blended pricing. Our inference is that these denominators must be rebuilt consistently; adding input charges at a fixed output denominator increases, rather than reduces, total API cost. Model-quality equivalence is also unestablished. Candidate measurements may inform scenarios only after domain verification. ([arxiv.org](https://arxiv.org/html/2606.11690v1))",
+      "access_scope": "Relevant framework, setup, SLO, and comparison sections read; raw benchmark artifacts and independent replication not performed."
+    },
+    {
+      "source_id": "TE14",
+      "title": "Rent NVIDIA GPUs on demand — Lambda",
+      "url": "https://lambda.com/instances",
+      "date": "Publication date unknown; displayed instance prices explicitly become effective 2026-11-16 at 00:00 UTC.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Instance pricing tables and repeated effective-date/tax footnotes.",
+      "key_findings": "The displayed instance table is a temporal trap for this study: it explicitly says its rates take effect November 16, 2026, after the November 9 cutoff, and directs users to their accounts for then-current pricing. Those rates cannot populate a cutoff-date or historical operating-cost baseline. The page also distinguishes GPU variants and instance sizes and adds applicable taxes, reinforcing the need to preserve SKU and billing scope. ([lambda.com](https://lambda.com/instances))",
+      "access_scope": "Public instance tables and footnotes read. No authenticated current-price quote obtained."
+    },
+    {
+      "source_id": "TE15",
+      "title": "Announcing up to 45% price reduction for Amazon EC2 NVIDIA GPU-accelerated instances",
+      "url": "https://aws.amazon.com/blogs/aws/announcing-up-to-45-price-reduction-for-amazon-ec2-nvidia-gpu-accelerated-instances/",
+      "date": "2025-06-05; on-demand changes effective 2025-06-01, Savings Plan purchase changes after 2025-06-04.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Announcement, reduction table, commitment definitions, and regional-availability paragraphs.",
+      "key_findings": "AWS gives different reductions by instance family and commitment plan rather than one universal GPU discount. The table uses May 31, 2025 as its baseline; for example, P5 on-demand falls 44%. Savings Plans exchange a dollar-per-hour commitment for specified flexibility over one or three years. This establishes an infrastructure-price change and contract distinction, but does not supply a complete region-specific hourly quote or prove an identical underlying cost reduction. ([aws.amazon.com](https://aws.amazon.com/blogs/aws/announcing-up-to-45-price-reduction-for-amazon-ec2-nvidia-gpu-accelerated-instances/))",
+      "access_scope": "Full substantive announcement and table read; linked EC2 price catalogs not yet retrieved."
+    },
+    {
+      "source_id": "TE16",
+      "title": "Language Model Tokenizers Introduce Unfairness Between Languages",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/74bb24dca8334adce292883b4b651eda-Paper-Conference.pdf",
+      "date": "NeurIPS 2023 proceedings; exact proceedings publication day not established.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Abstract/introduction; Section 4.4; Section 5.1.",
+      "key_findings": "The paper compares tokenization lengths for translated content and finds disparities even for multilingual, byte-level, and character-level representations. Its economic implication is that per-token tariffs can yield different bills for comparable semantic content and different effective context capacity. Historical tokenizer-specific ratios must not be applied to newer tokenizers without recounting. This supports the paired-content protocol, not a claim that every language has a fixed premium across vendors. ([proceedings.neurips.cc](https://proceedings.neurips.cc/paper_files/paper/2023/file/74bb24dca8334adce292883b4b651eda-Paper-Conference.pdf))",
+      "access_scope": "Relevant original-paper sections read; full datasets, all tables, and code not examined."
+    },
+    {
+      "source_id": "TE17",
+      "title": "τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+      "url": "https://arxiv.org/html/2406.12045v1",
+      "date": "2024-06-17",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Task/reward definition; pass^k/pass@k definitions; main-results consistency discussion.",
+      "key_findings": "Tasks combine simulated users, tools, domain policies, and target database outcomes. The reward requires the expected final state and required output information, but the authors acknowledge it can miss a policy violation such as acting without confirmation. pass@k concerns at least one success; pass^k concerns all repeated trials succeeding under the benchmark's assumptions. These metrics motivate reliability analysis but do not justify treating adaptive production retries as independent. ([arxiv.org](https://arxiv.org/html/2406.12045v1))",
+      "access_scope": "Original benchmark definitions and selected results read; full task corpus and newer benchmark versions not evaluated."
+    },
+    {
+      "source_id": "TE18",
+      "title": "Generative AI at Work, version 2",
+      "url": "https://arxiv.org/pdf/2304.11771v2",
+      "date": "PDF dated 2024-11-07; arXiv version header dated 2024-11-06; first draft 2023-04-23.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "PDF cover/abstract; setting and system-design passages; Section 4.1; conclusion limitations.",
+      "key_findings": "The study reports 5,172 support agents and approximately 15% higher issues resolved per hour, with heterogeneous effects. The setting is assisted human support, not autonomous resolution: agents largely worked in the Philippines, with smaller US/other-country groups, supporting US small businesses. The paper cautions against generalizing one tool, firm, and occupation to aggregate employment or all AI systems. The version-pinned PDF supplies the date anchor; conflicting rendered-HTML date displays should not be substituted for it. ([arxiv.org](https://arxiv.org/pdf/2304.11771v2))",
+      "access_scope": "Selected original PDF passages and corresponding HTML sections read; 106-page paper and appendices not read in full."
+    },
+    {
+      "source_id": "TE19",
+      "title": "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity",
+      "url": "https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/",
+      "date": "2025-07-10; page includes a later link to the February 2026 update.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Study summary, methodology, scope qualifications, and update notice.",
+      "key_findings": "METR's original study summary describes 16 experienced developers and 246 real repository tasks, randomized to allow or disallow AI. In that setting, early-2025 tools increased completion time by 19%; developers mainly used Cursor with contemporaneous Claude models. The authors frame this as a specific snapshot and explain why benchmark performance and human productivity can diverge. This is counterevidence to automatic time-saving assumptions, not a universal result about coding agents. ([metr.org](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/))",
+      "access_scope": "Original research organization's substantive summary and methodology read; linked full paper and raw recordings remain to be examined."
+    },
+    {
+      "source_id": "TE20",
+      "title": "We are Changing our Developer Productivity Experiment Design",
+      "url": "https://metr.org/blog/2026-02-24-uplift-update/",
+      "date": "2026-02-24",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Main update, raw-estimate paragraph, and selection/measurement limitations.",
+      "key_findings": "METR says later data give an unreliable estimate of the current productivity effect because participation and task selection changed, compensation changed, and concurrent agents complicated time measurement. It reports an estimated 18% time reduction for returning developers with a confidence interval spanning a 38% reduction to a 9% increase; the new-developer estimate also spans zero. These results prevent freezing the 2025 slowdown as a current universal effect, but do not establish a precise new productivity multiplier. ([metr.org](https://metr.org/blog/2026-02-24-uplift-update/))",
+      "access_scope": "Main methodological update and numerical estimates read; linked late-2025 dataset not analyzed."
+    },
+    {
+      "source_id": "TE21",
+      "title": "NVIDIA Announces Financial Results for Fourth Quarter and Fiscal 2026",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026",
+      "date": "2026-02-25; quarter and fiscal year ended 2026-01-25.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Release date; quarterly and full-year GAAP/non-GAAP tables; Data Center revenue discussion.",
+      "key_findings": "NVIDIA reports quarterly revenue of USD 68.127 billion and a 75.0% GAAP gross margin; fiscal-year revenue is approximately USD 215.9 billion and GAAP gross margin 71.1%. These are company-level financial outcomes, not GPU-cloud operating margins or model-developer margins. The release provides a hardware-side value-capture anchor, while its performance assertions require separate technical evidence. Later available filings are still needed before presenting a cutoff-period financial trend. ([nvidianews.nvidia.com](https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-fourth-quarter-and-fiscal-2026))",
+      "access_scope": "Original earnings tables and relevant segment discussion read; full annual filing and subsequent quarters not yet audited."
+    },
+    {
+      "source_id": "TE22",
+      "title": "Microsoft 2026 Annual Report",
+      "url": "https://www.microsoft.com/investor/reports/ar26/index.html",
+      "date": "Shareholder letter dated 2026-10-14; financial year ended 2026-06-30. Original filing date not verified here.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Gross-margin discussion; R&D expense definition; property-and-equipment accounting policy.",
+      "key_findings": "The report attributes Microsoft Cloud's 66% gross margin to a mix including AI infrastructure investment and usage, partly offset by efficiency gains. R&D expense is USD 35.562 billion and includes personnel, development, AI training/infrastructure, and depreciation/amortization used in research. Servers/network equipment have stated useful lives of two to six years. None of these disclosures isolates a particular model's inference margin or training-recovery policy. They support the accounting taxonomy and the distinction between investment, depreciation, and current operating expense. ([microsoft.com](https://www.microsoft.com/investor/reports/ar26/index.html))",
+      "access_scope": "Selected original annual-report financial and accounting sections read; full report and subsequent quarterly filing not read."
+    },
+    {
+      "source_id": "TE23",
+      "title": "Fin AI Agent outcomes",
+      "url": "https://www.intercom.com/help/en/articles/8205718-fin-ai-agent-outcomes",
+      "date": "2026-09-23 as displayed.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Outcome-pricing table; applicability note; confirmed/assumed resolution definitions.",
+      "key_findings": "The document charges once per conversation and distinguishes resolutions, configured procedure handoffs, disqualifications, qualifications, and routing. Several categories are USD 0.99, while qualification is USD 9.99. A resolution can be assumed when a customer leaves without requesting further help; a configured handoff can also be billable. The stated table applies to chat/email on Intercom, with other needs directed to sales. This is evidence of a selling metric and its definition, not proof of verified customer resolution, willingness to pay, revenue earned, or application margin. ([intercom.com](https://www.intercom.com/help/en/articles/8205718-fin-ai-agent-outcomes))",
+      "access_scope": "Original outcome table and relevant definitions read; contractual exceptions, invoices, and customer outcomes not examined."
+    },
+    {
+      "source_id": "TE24",
+      "title": "The rising costs of training frontier AI models, version 1",
+      "url": "https://arxiv.org/html/2405.21015v1",
+      "date": "2024-05-31",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Sections 2.1–2.5; Section 4.3; hardware-amortization formula.",
+      "key_findings": "The paper distinguishes depreciated hardware plus energy, cloud-rental estimates, and broader development costs. Its broader-development method includes experiments, failures, evaluation, fine-tuning, and research staff, with uncertain parameters; the 1.2–4 times compute factor is a study assumption/range, not a universal industry recovery rule. It excludes potentially important data acquisition and non-cluster facility costs and warns about public-data limitations. Its hardware amortization must not be confused with amortizing a completed model's development spending over future API sales. ([arxiv.org](https://arxiv.org/html/2405.21015v1))",
+      "access_scope": "Relevant methodology and limitation sections read; underlying price dataset and all appendix sensitivity analyses not audited."
+    },
+    {
+      "source_id": "TE25",
+      "title": "Gemini 4 Argon available on Google Cloud",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud",
+      "date": "2026-10-13",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Release date, availability introduction, and final pricing paragraph.",
+      "key_findings": "The announcement specifies introductory USD rates of 2 per million input and 10 per million output tokens through November 30, 2026, with cached input 95% lower. It separately announces subsequent standard rates of 4/20. For a November 9 scenario, the introductory period must be labeled and the later rates must not replace it. Exact endpoint regions, context limits, and cache-storage mechanics still require the linked model documentation; the announcement's customer examples do not establish matched workload quality. ([cloud.google.com](https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud))",
+      "access_scope": "Dated availability and pricing passages read; linked model card and developer guide not yet read."
+    },
+    {
+      "source_id": "TE26",
+      "title": "Change Log — DeepSeek API Docs",
+      "url": "https://api-docs.deepseek.com/updates/",
+      "date": "Relevant entry dated 2026-10-17; page contains multiple dated entries.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "October 17, 2026 model update and search-API announcement.",
+      "key_findings": "The dated entry establishes the DeepSeek-V4.1-Flash-1017 upgrade and says the API calling method and pricing remained unchanged at that update. It also announces search/fetch availability. This corroborates the model alias target before the cutoff but does not itself establish the effective date of every peak/off-peak price or tool charge. Benchmark improvement statements are provider claims, not a matched-quality cost comparison. ([api-docs.deepseek.com](https://api-docs.deepseek.com/updates/))",
+      "access_scope": "Relevant October entry read; earlier pricing changes and linked search/fetch billing documentation remain open."
+    },
+    {
+      "source_id": "TE27",
+      "title": "Changelog — OpenAI API",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "date": "Relevant entries span 2026-09-22 through 2026-11-05.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "September 22/29 pricing entries; October 9, 20, 26, and 30 changes; November entries.",
+      "key_findings": "The September 29 entry provides a dated GPT-6.1 Sol anchor: standard USD rates per million tokens for prompts up to 272K input are 2 input, 0.10 cached input, 2.50 cache write, and 10 output. October entries document additional cache lifetime, sandbox-billing, and agent-compaction changes, illustrating why workflow costs need versioned terms rather than a single timeless tariff. The changelog also confirms model availability before the cutoff. Snapshot identifiers and all tier/region combinations still need reconciliation with model references. ([developers.openai.com](https://developers.openai.com/api/docs/changelog))",
+      "access_scope": "Selected dated 2026 pricing and workflow-billing entries read; full historical changelog not read."
+    }
+  ],
+  "material_gaps": [
+    "U_PRICE/G_PRICE: reconstruct representative 2024 and 2025 Anthropic, Google, and DeepSeek terms from dated originals or archived captures. The redirected Claude caching article has inconsistent displayed chronology and is not sufficient to date its older rates.",
+    "U_PRICE: obtain the Gemini Developer API pricing document through an accessible original format, and keep it separate from the Google Cloud page already read. Verify endpoint geography, model snapshot, free-tier conditions, and explicit-cache billing for the selected workload models.",
+    "U_PRICE/G_PRICE: reconcile current OpenAI tier/context controls with dated changelog rows, exact model snapshots, cache minimums, regional premiums, and tool-billing changes. Do not flatten interactive pricing tabs into one table.",
+    "U_PRICE: read DeepSeek's dated pricing-change and Search/Fetch billing documentation, including peak-window applicability, holiday rules, thinking-token accounting, and billing of failed versus successful tool calls.",
+    "U_DOCUMENT: read complete cache lifecycle documentation for all selected providers: minimum eligible prefix, exact matching, partial hits, refresh, expiry, invalidation, batch compatibility, storage-time charges, and whether a billed cache hit implies physical reuse.",
+    "U_SERVE: obtain a public official US-region GPU/instance quote effective on or before November 9, 2026, with exact SKU, currency, whole-node billing, commitment, and included resources. Lambda's displayed November 16 rates are not usable as cutoff-date rates.",
+    "U_SERVE/G_DOMAIN: inspect the concurrency preprint's raw harness and results, verify cloud region/rental basis, and rebuild its API comparison with consistent input/output denominators. The claimed crossover cannot be used as a procurement conclusion without this work.",
+    "U_SERVE: obtain pinned model cards, weight/license details, memory requirements, and throughput measurements for the chosen self-hosted configurations. Establish how quantization changes acceptance quality, not just tokens/second.",
+    "U_MEASURE: execute or obtain reproducible tokenizer counts on paired English, Mandarin, Spanish, Arabic, and code/JSON content. No new token-count measurements have been performed in this stage.",
+    "U_SUPPORT/U_DOCUMENT/U_AGENT: obtain applicable public task traces or benchmarks with per-attempt token usage, accepted outcomes, retries, fallback routes, tool execution, and review effort. Where unavailable, retain explicit scenario inputs rather than inventing empirical success rates.",
+    "U_MEASURE/G_DOMAIN: specify and test finite retry/fallback paths with persistent hard cases, abandonment, evaluator errors, and correlated outages. Benchmark pass@k or pass^k values cannot substitute for these conditional probabilities.",
+    "U_AGENT: read the full METR paper and later dataset/methodology, plus relevant coding-agent harness documentation. Separate assisted developer productivity from autonomous task acceptance and check for further eligible updates through the cutoff.",
+    "U_VALUE: read subsequent NVIDIA and Microsoft filings available by November 9 and relevant public application/customer evidence. Distinguish fiscal periods, GAAP/non-GAAP, recognized revenue, run rates, investment effects, and product-specific disclosures; do not infer private model margins.",
+    "U_COST: add an independently documented training/development case and examine omitted data, labor, failed-experiment, post-training, and facility boundaries. Lifetime monetization volume and allocation policy remain undisclosed scenario variables, not facts to be filled with a universal rate.",
+    "U_SENS/G_ARITHMETIC: complete all three full workload ledgers and sensitivity surfaces. Only the two limited calibration calculations in the outline have been computed; no complete successful-task or API/self-hosting result exists yet.",
+    "G_REQUIREMENTS/G_STRUCTURE/G_PRICE/G_DOMAIN/G_ARITHMETIC and final review stages: independent contexts have not yet executed. Required managed files and delivery receipts have not been created; their absence must not be relabeled as completed research."
+  ]
+}

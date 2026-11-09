@@ -1,0 +1,43 @@
+{
+  "kind": "author_hypothetical_scenario",
+  "author": "/root/remaining_research_inputs",
+  "inputs": {
+    "usable_energy_kwh": 75,
+    "usable_fraction_of_nominal": 0.9,
+    "vehicle_envelope_l": 300,
+    "outside_pack_installation_reserve_l": 20,
+    "pack_density_wh_per_l": {
+      "A_candidate_LFP": 240,
+      "B_candidate_NCM": 320
+    },
+    "lower_usable_energy_sensitivity_kwh": 60,
+    "scope": "Explicit assumptions, not measured Blade/Qilin specifications or chemistry-wide ranges. Pack density includes enclosure, internal cooling/protection/BMS; the separate 20 L is external connections and installation clearance. Same reference temperature, new-pack state and usable window; no winter or aging derating."
+  },
+  "formulas": {
+    "nominal_energy_kwh": "usable_energy_kwh / usable_fraction",
+    "installed_volume_l": "usable_energy_kwh * 1000 / (usable_fraction * pack_density_wh_per_l) + external_reserve_l",
+    "minimum_pack_density_wh_per_l": "usable_energy_kwh * 1000 / (usable_fraction * (envelope_l - external_reserve_l))"
+  },
+  "results": {
+    "A_candidate_LFP": {
+      "nominal_energy_required_kwh": 83.33333333333333,
+      "required_pack_volume_l": 347.22222222222223,
+      "required_installed_volume_l": 367.22222222222223,
+      "envelope_margin_l": -67.22222222222223,
+      "max_usable_energy_in_envelope_kwh": 60.480000000000004,
+      "fits_volume_necessary_condition": false
+    },
+    "B_candidate_NCM": {
+      "nominal_energy_required_kwh": 83.33333333333333,
+      "required_pack_volume_l": 260.41666666666663,
+      "required_installed_volume_l": 280.41666666666663,
+      "envelope_margin_l": 19.58333333333337,
+      "max_usable_energy_in_envelope_kwh": 80.64,
+      "fits_volume_necessary_condition": true
+    }
+  },
+  "minimum_pack_density_wh_per_l": 297.6190476190476,
+  "A_at_60_usable_kwh_installed_volume_l": 297.77777777777777,
+  "lower_energy_target_reduction_fraction": 0.19999999999999996,
+  "limits": "Volume is a necessary condition only. Shape, height, crash structure, mass, power, thermal management and lifetime remain separate constraints. No vehicle/model experiment, cost estimate or earlier calculation was rerun."
+}

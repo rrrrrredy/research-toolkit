@@ -1,0 +1,56 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh",
+  "input_version": "f6bb51c4fdab26cede56b083db7acbe727f8d84add9ff64682cf380aa9ff37cb",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "process_language",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/a7033738f399a50e4791.md",
+        "sha256": "a7033738f399a50e4791c37d6077e86b4f8e8551a73aa306d17b537a1e63d509"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f6bb51c4fdab26cede56/jobs/process_language-bc7e3b6696f18593.json",
+        "sha256": "0eb4757401c022d72368027bcb7d1bd3de42f92b95c0353d0df5d915bac1d0a2"
+      },
+      "assignment_version": "bc7e3b6696f18593b57d7a720258d33c63e34c19956205fd1030b33129bc9d94",
+      "resume_host_task": "/root/benchmark_process_a"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: process_language",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 7,
+    "selected_attempts": {
+      "requirements": "c651009fb1f441b5b7ed1804025c62f6",
+      "natural_expression": "b19c372c2d1b499bb74a27b7c19e9844",
+      "domain-1": "3b758001dcba4cfd9915b60ee572f3e2",
+      "adversarial_reasoning": "b0aafefd74af4eb791096fc02620b3d5",
+      "reader_usefulness": "4d168e20b9804e7691ea56f44e7328b3",
+      "structure_and_depth": "22862cab98254223a1a98450fa5e1f33",
+      "evidence": "64b912da816e4171ab73a4973c32b7db"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: process_language",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

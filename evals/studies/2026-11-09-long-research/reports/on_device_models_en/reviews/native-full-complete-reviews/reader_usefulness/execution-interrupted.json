@@ -1,0 +1,20 @@
+{
+  "host_task": "/root/full_reader_b",
+  "agent_identity": "/root/full_reader_b",
+  "execution_mode": "native Codex subagent",
+  "status": "not_assessed",
+  "slot_id": "reader_usefulness",
+  "input_version": "d4d35456df2a9b286ae74452251419d51dac7c018c6648fba79b489eff7614fe",
+  "assignment_version": "b16fd999b8357e68d4562cd6bc5fd95c3892ef60445a011608dcac414622d9a1",
+  "artifact_sha256": "3afb14812baddbd92f0b79ff3db2fd4a77a3f50deba85c04f6e0077724f9f96b",
+  "started_at": null,
+  "completed_at": null,
+  "recorded_at": "2026-11-09T14:50:57.2789730Z",
+  "assignment_path": "reviews/host/d4d35456df2a9b286ae7/jobs/reader_usefulness-b16fd999b8357e68.json",
+  "read_report_ranges": [],
+  "full_report_read": false,
+  "other_review_results_read": true,
+  "reason": "Initial metadata exploration mistakenly printed the nested assignment with excessive output and exposed a historical domain-1 finding inside prior_required_findings. The output was truncated and was not a continuous full-report reading. Assessment stopped immediately and the parent was informed. No independent reader verdict or response.json produced. A fresh context is needed for this case.",
+  "report_modified": false,
+  "api_used": false
+}

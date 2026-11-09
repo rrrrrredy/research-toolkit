@@ -1,0 +1,79 @@
+{
+  "kind": "author_assumed_sensitivity_not_empirical",
+  "formula": "N*(manual-brief-verify-p_failure*rework)/60*hourly-fixed-N*variable-expected_external_loss",
+  "scenarios": [
+    {
+      "name": "高频票据草稿",
+      "assumptions": {
+        "tasks_per_month": 20,
+        "manual_minutes": 20,
+        "brief_minutes": 2,
+        "verify_minutes": 4,
+        "failure_probability": 0.15,
+        "rework_minutes": 15,
+        "monthly_fixed_cost": 100,
+        "per_task_cost": 1,
+        "time_value_per_hour": 60,
+        "monthly_expected_external_loss": 0
+      },
+      "net_minutes": 235.0,
+      "cash_cost": 120,
+      "net_value": 115.0
+    },
+    {
+      "name": "同任务但核对负担高",
+      "assumptions": {
+        "tasks_per_month": 20,
+        "manual_minutes": 20,
+        "brief_minutes": 2,
+        "verify_minutes": 10,
+        "failure_probability": 0.3,
+        "rework_minutes": 20,
+        "monthly_fixed_cost": 100,
+        "per_task_cost": 1,
+        "time_value_per_hour": 60,
+        "monthly_expected_external_loss": 0
+      },
+      "net_minutes": 40.0,
+      "cash_cost": 120,
+      "net_value": -80.0
+    },
+    {
+      "name": "低频旅行整理",
+      "assumptions": {
+        "tasks_per_month": 2,
+        "manual_minutes": 90,
+        "brief_minutes": 10,
+        "verify_minutes": 20,
+        "failure_probability": 0.2,
+        "rework_minutes": 30,
+        "monthly_fixed_cost": 100,
+        "per_task_cost": 5,
+        "time_value_per_hour": 60,
+        "monthly_expected_external_loss": 0
+      },
+      "net_minutes": 108.0,
+      "cash_cost": 110,
+      "net_value": -2.0
+    },
+    {
+      "name": "旅行整理附带外部损失敏感性",
+      "assumptions": {
+        "tasks_per_month": 2,
+        "manual_minutes": 90,
+        "brief_minutes": 10,
+        "verify_minutes": 20,
+        "failure_probability": 0.2,
+        "rework_minutes": 30,
+        "monthly_fixed_cost": 100,
+        "per_task_cost": 5,
+        "time_value_per_hour": 60,
+        "monthly_expected_external_loss": 40
+      },
+      "net_minutes": 108.0,
+      "cash_cost": 110,
+      "net_value": -42.0
+    }
+  ],
+  "break_even_tasks_first_scenario": 9.30232558139535
+}

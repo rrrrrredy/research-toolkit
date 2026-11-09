@@ -283,8 +283,10 @@ def load_review_rows(review_text: str) -> list[dict[str, Any]]:
 def count_reader_references(final_text: str, source_ids: list[str], sources_by_id: dict[str, dict[str, Any]]) -> int:
     count = 0
     for source_id in source_ids:
-        title = str(sources_by_id.get(source_id, {}).get("title", ""))
-        if title and title in final_text:
+        source = sources_by_id.get(source_id, {})
+        title = str(source.get("title", ""))
+        url = str(source.get("url", ""))
+        if (title and title in final_text) or (url.startswith(("https://", "http://")) and url in final_text):
             count += 1
     return count
 
@@ -301,9 +303,17 @@ def count_registry_sources(
             return 0
     count = 0
     for source_id in source_ids:
-        title = str(sources_by_id.get(source_id, {}).get("title", "")).strip()
-        matches = [row for row in registry_rows if row.get("source_id", "").strip() == source_id]
-        if len(matches) == 1 and (not title or matches[0].get("title", "").strip() == title):
+        source = sources_by_id.get(source_id, {})
+        title = str(source.get("title", "")).strip()
+        task_id = str(source.get("task_source_id", "")).strip()
+        matches = [row for row in registry_rows if row.get("source_id", "").strip() in {source_id, task_id} - {""}]
+        if len(matches) != 1:
+            continue
+        row = matches[0]
+        canonical = row.get("source_id", "").strip() == source_id
+        linked_task_source = (task_id and str(source.get("url", "")).strip()
+                              and row.get("url", "").strip() == str(source["url"]).strip())
+        if (canonical and (not title or row.get("title", "").strip() == title)) or linked_task_source:
             count += 1
     return count
 
@@ -312,6 +322,10 @@ def repeated_line_flags(final_text: str) -> list[str]:
     normalized_lines = []
     for line in final_text.splitlines():
         line = re.sub(r"\s+", " ", line.strip()).casefold()
+        # Markdown column separators are formatting, not repeated report text.
+        if "|" in line and all(re.fullmatch(r":?-{3,}:?", cell.strip())
+                               for cell in line.strip("|").split("|")):
+            continue
         if len(re.sub(r"\s+", "", line)) < 24:
             continue
         # Normalize citation noise without erasing English words and their meaning.
@@ -335,9 +349,9 @@ def repeated_phrase_flags(final_text: str, phrases: list[str], threshold: int = 
 
 
 def sentence_units(text: str) -> list[str]:
-    """Split sentence punctuation without cutting decimals, abbreviations or URLs."""
+    """Split prose without cutting citation labels, decimals, abbreviations or URLs."""
     protected = re.compile(
-        r"https?://[^\s<>]+|\bwww\.[^\s<>]+|\b[\w.+-]+@[\w.-]+\.\w+"
+        r"\[[^\]\n]+\]\([^)\n]+\)|https?://[^\s<>]+|\bwww\.[^\s<>]+|\b[\w.+-]+@[\w.-]+\.\w+"
         r"|\b\d+(?:\.\d+)+\b|\b(?:[A-Za-z]\.){2,}"
         r"|\b(?:Mr|Mrs|Ms|Dr|Prof|Sr|Jr|vs|etc|Fig|No)\.", re.IGNORECASE
     )
@@ -835,8 +849,11 @@ def make_prompt(case: dict[str, Any], sources_by_id: dict[str, dict[str, Any]]) 
         source = sources_by_id.get(source_id, {})
         source_lines.append(f"- {source_id}: {source.get('title', '')}")
 
-    source_pack = case.get("source_pack", "ai_knowledge_sanitized")
-    source_pack_path = f"evals/source_packs/{source_pack}/sources.jsonl"
+    source_pack = case.get("source_pack")
+    material_mode = case.get("material_mode") or ("research" if source_pack == "research" else "frozen")
+    if not source_pack and material_mode != "research":
+        source_pack = "ai_knowledge_sanitized"
+    source_pack_path = f"evals/source_packs/{source_pack}/sources.jsonl" if source_pack else None
     conversation_pack = case.get("conversation_pack")
     conversation_lines = []
     if conversation_pack:
@@ -847,6 +864,26 @@ def make_prompt(case: dict[str, Any], sources_by_id: dict[str, dict[str, Any]]) 
         ]
 
     if case.get("language") == "zh":
+        task_instruction = (
+            "使用 Research Toolkit，围绕题目的研究问题、目标读者和事实需求展开研究。"
+            "涉及现状或变化的论断，核对相应时间范围的证据。"
+        )
+        source_heading = "## 来源与证据"
+        source_instructions = []
+        if source_pack_path:
+            source_instructions.append(f"读取 {source_pack_path}；本题已登记来源继续可用。")
+        if material_mode == "research":
+            source_instructions.append(
+                "按研究问题检索、核验并使用所需的公开材料，将新增证据与已登记来源结合分析。"
+                "在 data/source_registry.csv 登记实际采用的新材料的出处、发布或更新日期（未标注时如实记录）、"
+                "访问日期及页码、章节或原文段落定位，并在相关论断处引用。"
+            )
+        else:
+            source_instructions.append(
+                "本题按冻结资料复现：以资料包中本题指定的证据为事实依据，不引入联网材料改变证据范围。"
+                "在 data/source_registry.csv 记录这些来源；资料未覆盖的事实，说明具体缺口及其对结论的影响。"
+            )
+        source_instructions.append("final.md 使用读者可识别的来源标题和引用，不展示内部来源 ID。")
         review_lines = [
             "## 评审与修复",
             "实际执行的研究与模型评测都提供真实任务和用户视角。新研究交付按 references/subagents-and-review-loop.zh-CN.md 完成各项独立内容视角、适用的领域专审、审计与最终验收；历史评测的单一评分结果不能替代当前研究交付职责。",
@@ -855,6 +892,28 @@ def make_prompt(case: dict[str, Any], sources_by_id: dict[str, dict[str, Any]]) 
             "",
         ]
     else:
+        task_instruction = (
+            "Use the Research Toolkit to investigate the task's research questions and establish the facts its target reader needs. "
+            "For claims about current conditions or change, check evidence for the relevant period."
+        )
+        source_heading = "## Sources and evidence"
+        source_instructions = []
+        if source_pack_path:
+            source_instructions.append(f"Read {source_pack_path}; the case's registered sources remain available.")
+        if material_mode == "research":
+            source_instructions.append(
+                "Find, verify and use public materials as needed for the research questions, analyzing new evidence alongside the registered sources. "
+                "Record each new material used in data/source_registry.csv with its provenance, publication or update date "
+                "(note when not supplied), access date, and a page, section or passage locator; cite it at the relevant claims."
+            )
+        else:
+            source_instructions.append(
+                "This case uses frozen evidence for reproducible comparison: base factual claims on the case-designated evidence "
+                "in the source pack, without changing its scope through live web research. "
+                "Record these sources in data/source_registry.csv. Where the materials do not cover a needed fact, "
+                "identify the specific gap and its effect on the conclusions."
+            )
+        source_instructions.append("Use reader-facing source titles and citations in final.md; do not expose internal source ids.")
         review_lines = [
             "## Review and repair",
             "Executed research and model evaluations provide real tasks and a user perspective. For new research delivery, follow references/subagents-and-review-loop.md for each independent content perspective, applicable domain review, audit and final acceptance. A historical evaluation's single scoring result does not replace current research-delivery responsibilities.",
@@ -867,7 +926,7 @@ def make_prompt(case: dict[str, Any], sources_by_id: dict[str, dict[str, Any]]) 
         [
             f"# Eval Case: {case['title']}",
             "",
-            "Use the Research Toolkit for this task.",
+            task_instruction,
             "",
             "## Task",
             case["prompt"],
@@ -877,10 +936,10 @@ def make_prompt(case: dict[str, Any], sources_by_id: dict[str, dict[str, Any]]) 
             "",
             *conversation_lines,
             *review_lines,
-            "## Required Sources",
+            source_heading,
             *source_lines,
             "",
-            f"Read {source_pack_path} and use only the listed source ids in backstage registries unless you explicitly record a limitation. Do not expose internal source ids in final.md; use reader-facing source titles instead.",
+            *source_instructions,
             "",
             "## Required Artifacts",
             *[f"- {artifact}" for artifact in case.get("artifact_requirements", DEFAULT_REQUIRED_ARTIFACTS)],
@@ -951,6 +1010,8 @@ def render_markdown(results: list[dict[str, Any]]) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--evals-dir", default="evals")
+    parser.add_argument("--case", dest="case_ids", action="append", metavar="TASK_ID",
+                        help="Select a loaded case_id; repeat to select multiple cases. Omit to run all cases.")
     parser.add_argument("--runs-dir", default="evals/runs")
     parser.add_argument("--report", default="evals/runs/report.md")
     parser.add_argument("--json-report", default="evals/runs/report.json")
@@ -969,6 +1030,14 @@ def main() -> int:
     evals_dir = Path(args.evals_dir).resolve()
     runs_dir = Path(args.runs_dir).resolve()
     cases = load_cases(evals_dir / "cases")
+    if args.case_ids:
+        requested_ids = set(args.case_ids)
+        known_ids = {case["case_id"] for case in cases}
+        unknown_ids = sorted(requested_ids - known_ids)
+        if unknown_ids:
+            parser.error("Unknown case_id(s): " + ", ".join(repr(case_id) for case_id in unknown_ids)
+                         + ". Available case_id(s): " + ", ".join(sorted(known_ids)))
+        cases = [case for case in cases if case["case_id"] in requested_ids]
     sources_by_id = load_sources(evals_dir)
 
     if args.create_skeletons:

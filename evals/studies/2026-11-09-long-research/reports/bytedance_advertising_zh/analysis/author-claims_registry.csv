@@ -1,0 +1,29 @@
+﻿claim_id,claim,source_ids,evidence_type,location,author,review_status,cutoff
+BDA-C01,2019-01-17巨量引擎品牌发布；原官网页面发布日期2019-06-26,BDA-A03,dated_official_release,opening release/event paragraph,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C02,TikTok for Business事件日2020-06-25与页面日期2020-10-26不同,BDA-R15,dated_official_release,web-search-6 official extract,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C03,美国TikTok Shop于2023-09-12宣布全量上线并列购物/联盟/广告/履约,BDA-R16,dated_official_release,web-read-4 L4–35,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C04,英国官方2025-03-31回顾自2021开始，增长为平台自报而非独立因果实验,BDA-R17,dated_official_release,web-search-3 official extract,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C05,内容推荐、广告分配和经营成交可以共享信号但不能混为同一优化目标,BDA06;BDA-R01;AUTHOR-ANALYSIS,synthesis,parts/01,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C06,Monolith论文披露在线训练与BytePlus Recommend部署，不能推断全部当前广告栈,BDA-R10,paper_and_boundary,2022 PDF p1,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C07,全域推广2024-06-14协议按展示计费并优化整体成交；目标不等于计费事件,BDA03,dated_contract,definitions/4.1–4.3,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C08,全域互斥计划与特例使其他推广成交可能计入而消耗不计入该ROI,BDA03,dated_contract,4.4,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C09,2026-08出价界面区分Maximum Results与Target Cost per Result,BDA-R04,official_document,web-read-4 L3–26,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C10,2026-10 Smart+升级支持全自动/部分/手动，分账户推出,BDA-W01,official_document,web-read-7 L3–53；以打开正文更新月为准,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C11,普通Shop Ads采用Shop ID、7日点击1日浏览与点击优先，不等于GMV Max归因,BDA-R08,official_document,2025-08 web-read-2 L3–53,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C12,GMV Max2026-06页面可归入无广告互动的自然订单，且正文概括与3天示例边界未清楚说明,BDA-R03,official_document_and_gap,web-read-2 L8–28,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C13,Pixel/API同事件event_id去重仅解决平台内重传，不解决跨平台归属或增量,BDA-R05;AUTHOR-ANALYSIS,document_and_analysis,2025-05 web-read-2 L3–22,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C14,事件匹配使用点击ID/哈希email phone externalID/IP UA，匹配不等于新授权,BDA-R06,official_document,2025-02 web-read-7 L3–16,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C15,Pixel cookies辅助匹配而不改变转化窗口；控制设置不等于删除所有既有cookies,BDA-R09,official_document,2025-07 web-read-7 L13–33,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C16,官方Conversion Lift以处理/控制组比较，属于资格/预算/时长约束的托管服务,BDA-R07,official_document,2025-04 web-search-3 official body,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C17,印尼2023年第31号法规21(3)约束social-commerce促成支付，非一概禁止内容推广,BDA-A01,historical_legal_source,PDF p12–13 article19–21/23–26,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C18,2024-01-31两印尼业务并入PT Tokopedia；125%活动增幅以参与商家2023-09为比较,BDA-R13,dated_company_release,body/footnote1；page2024-02-01,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C19,2026美国USDS公告区分数据/内容治理与全球美国实体商业职责，不能推全部广告系统变更,BDA-R12,dated_company_release,web-read-7 L11–20,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C20,英国登记集团2025收入91.923亿美元、营业利润4.519亿美元，含多地区多业务,BDA-A02,filed_financial_statements,visualPDF p3/p26,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C21,该集团注5未披露业务和地域收入，无法可靠拆分英国或全球广告收入,BDA-A02,filed_financial_statements,visualPDF p41 printedp39 note5,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C22,倍轻松收缩抖音推广2024费用降9318.67万元收入降13258.52万元，不能从公司扭亏推出渠道因果,BDA-R19,regulatory_response_and_analysis,PDF p2–3,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C23,假设相同ROAS5，A/B会计贡献17500/-500元，增量贡献5650/-13400元,AUTHOR-CALC,illustrative_calculation,calculate_scenarios.py/calculations.json,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C24,假设等组各10000人500/400购买，绝对增量1pp，相对25%，CPIC100元,AUTHOR-CALC,illustrative_calculation,calculations.json holdout;independent-binomial approximateCI,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C25,追加5000元的假设边际利润负200元；复购期望贡献940元需实际队列证据才能替代假设,AUTHOR-CALC,illustrative_calculation,calculations.json marginal_reinvestment/repeat_sensitivity,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C26,平台经营改善、商家盈利和广告增量可以分化，成长必须考虑补贴/宏观/广告迁移,BDA-A02;BDA-R19;BDA-R13;AUTHOR-ANALYSIS,synthesis,parts/01–02,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C27,2020年6月抖音电商品牌与2021年4月兴趣电商定位有官方回顾支持,BDA-A04,dated_official_release,2021生态报告发布正文,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+BDA-C28,2021年5月官方正文将抖店/百应/罗盘/千川列为不同职责的经营工具,BDA-A05,dated_official_release,2021-05-13发布正文工具段,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09

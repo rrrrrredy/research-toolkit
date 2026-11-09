@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "natural_expression": {
+      "location": "第279—282行；复用首评第1—282行完整阅读",
+      "basis": "全部11行统一diff仅删除末句内部作者ID、作者稿状态与协调审查安排。前段的时间、版本、分母、视频审计、任务范围和情景ROI限制均未变；同段原始链接、页码和台账定位也保留。具体自然表达缺陷已解决，没有改变正文机制或采用条件。"
+    }
+  },
+  "findings": [],
+  "input_version": "bfaf0a302d2abff490f9591d9eb58c381fabd2f85474084af07315f1233e9297",
+  "assignment_version": "81b3fba3c755aae4a57301280b9e0c7a0cf1ee5b32c41b8107f93547b6f4f678"
+}

@@ -1,0 +1,56 @@
+{
+  "case_id": "monthly_observation_synthesis_zh",
+  "title": "AI 行业月度观察综合",
+  "task_type": "monthly_observation",
+  "language": "zh",
+  "prompt": "为管理层写一份 AI 行业月度观察。综合模型发布、Agent 基础设施、产品竞争、开源动态、中美差异和下一步影响。",
+  "target_reader": "executive readers",
+  "expected_depth": "monthly observation, 2500-4500 Chinese characters for eval runs",
+  "min_final_nonspace_chars": 2000,
+  "thin_final_nonspace_chars": 1000,
+  "must_cover_entities": [
+    "AI行业趋势",
+    "AI Agent",
+    "大语言模型",
+    "中美AI竞争",
+    "开源模型",
+    "本月主线",
+    "关键变化",
+    "中美差异",
+    "影响判断",
+    "下月观察点"
+  ],
+  "required_sections": [],
+  "source_pack": "ai_knowledge_sanitized",
+  "source_ids": [
+    "S007",
+    "S008",
+    "S002",
+    "S009"
+  ],
+  "artifact_requirements": [
+    "state/task_spec.md",
+    "state/progress.json",
+    "data/source_registry.csv",
+    "data/claims_registry.csv",
+    "logs/review.jsonl",
+    "final.md"
+  ],
+  "quality_focus": [
+    "brief_gate",
+    "state_recovery",
+    "claim_discipline",
+    "counter_evidence",
+    "depth_budget",
+    "reader_cleanup"
+  ],
+  "banned_process_phrases": [
+    "用户提供的资料",
+    "材料显示",
+    "该来源补充",
+    "this source supplements",
+    "the user provided",
+    "the material shows",
+    "section passed audit"
+  ]
+}

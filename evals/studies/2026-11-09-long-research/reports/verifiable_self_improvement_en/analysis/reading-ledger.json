@@ -1,0 +1,98 @@
+[
+  {
+    "id": "VSI001",
+    "url": "https://arxiv.org/html/2505.22954v2",
+    "reader": "/root",
+    "scope": "Original v2 mechanism, experimental setup/results, transfer, expense and relevant appendices; Appendix C.3 private test-patch exposure reread after actual requirements finding.",
+    "reading_status": "relevant_sections_read",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI001\\original.txt",
+    "original_sha256": "c05ebb86c6cb092cd8d666ebc5001b34cc860a3c5a65c2879aedfb14362e65d9",
+    "retrieved_at": "2026-11-09T10:57:20.824518+00:00",
+    "captured_as": "text/html; charset=utf-8",
+    "note": "Actual original/text read; scope is not an assertion of full-document reading."
+  },
+  {
+    "id": "VSI002",
+    "url": "https://arxiv.org/html/2506.13131v1",
+    "reader": "/root",
+    "scope": "Original v1 evaluator/search description, §3.3 engineering cases and §4 ablations; kernel/whole-training denominators and RTL downstream synthesis retained.",
+    "reading_status": "relevant_sections_read",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI002\\original.txt",
+    "original_sha256": "0a5a44d90b13ed1e6aeb1b4b4f1f1e7dcfc819ad2a2812ff5d1fb9ed539f5489",
+    "retrieved_at": "2026-11-09T10:57:20.825596+00:00",
+    "captured_as": "text/html; charset=utf-8",
+    "note": "Actual original/text read; scope is not an assertion of full-document reading."
+  },
+  {
+    "id": "VSI003",
+    "url": "https://arxiv.org/html/2607.12227v1",
+    "reader": "/root",
+    "scope": "Original v1 §§3–5 and Tables1–3, five-attempt controls,45/10/34split and held-out results.",
+    "reading_status": "relevant_sections_read",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI003\\original.txt",
+    "original_sha256": "adbd6a30a6c49c3602346e98140e47ee3ce56185c4dd7b8a442553509cb1d66c",
+    "retrieved_at": "2026-11-09T10:57:20.826125+00:00",
+    "captured_as": "text/html; charset=utf-8",
+    "note": "Actual original/text read; scope is not an assertion of full-document reading."
+  },
+  {
+    "id": "VSI004",
+    "url": "https://arxiv.org/html/2610.26770v2",
+    "reader": "/root",
+    "scope": "Original v2 train/validation/test design, generated-test study, final metrics and ablations, relevant appendix artifact descriptions.",
+    "reading_status": "relevant_sections_read",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI004\\original.txt",
+    "original_sha256": "d453dcd913b1c2e09c4667df4da263022960d471ece928820a595220d20bd275",
+    "retrieved_at": "2026-11-09T10:57:20.826651+00:00",
+    "captured_as": "text/html; charset=utf-8",
+    "note": "Actual original/text read; scope is not an assertion of full-document reading."
+  },
+  {
+    "id": "VSI007",
+    "url": "https://deepmind.google/blog/alphaevolve-impact/",
+    "reader": "/root",
+    "scope": "Official May7,2026 impact page substantive deployment/application paragraphs; company-reported outcomes remain attributed.",
+    "reading_status": "relevant_sections_read",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI007\\original.txt",
+    "original_sha256": "b9c55cc4825dbede066e4a6a5f52ccf01afa453bd6a460b60ec54088106af539",
+    "retrieved_at": "2026-11-09T11:10:07.243176+00:00",
+    "captured_as": "text/html",
+    "note": "Actual original/text read; scope is not an assertion of full-document reading."
+  },
+  {
+    "id": "VSI009",
+    "url": "https://docs.cloud.google.com/gemini/enterprise/docs/alphaevolve/developer-guide/overview",
+    "reader": "/root",
+    "scope": "Official product overview requirements, seed/objective and update date.",
+    "reading_status": "relevant_sections_read",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI009\\original.txt",
+    "original_sha256": "ef21f8d94f2dd2cee4cbe2d36b7cdd609bd696b1e9802d1bee34f73f27c1a1cf",
+    "retrieved_at": "2026-11-09T11:10:07.245680+00:00",
+    "captured_as": "text/html; charset=utf-8",
+    "note": "Actual original/text read; scope is not an assertion of full-document reading."
+  },
+  {
+    "id": "VSI010-official",
+    "url": "https://raw.githubusercontent.com/mlresearch/v235/main/assets/fernando24a/fernando24a.pdf",
+    "reader": "/root",
+    "scope": "Official64-page ICML PDF main pp1–9; Appendix B pp16–17 and K.2p27. Table1 and ablation Figure4 visually viewed. Not all64pages read.",
+    "reading_status": "relevant_sections_read",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\VSI010-official\\original.txt",
+    "original_sha256": "48e3401eb16d5ade80a6e5b8f482308746a51225a6c1417b38f59573eb90b9e1",
+    "retrieved_at": "2026-11-09T11:19:40.900910+00:00",
+    "captured_as": "application/octet-stream",
+    "note": "Actual original/text read; scope is not an assertion of full-document reading."
+  },
+  {
+    "id": "TTC013",
+    "url": "https://arxiv.org/html/2409.12917v1",
+    "reader": "/root",
+    "scope": "Original SCoRe v1 §§3–7 and Tables3–5: checkpoints, on-policy/training-oracle design, correction deltas and coding transfer.",
+    "reading_status": "relevant_sections_read",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC013\\original.txt",
+    "original_sha256": "a9fb2a0b29ddcc2c0e14f5dafb008e298b11c8124fbdbcb148c18752e0c381e1",
+    "retrieved_at": "2026-11-09T10:50:52.878056+00:00",
+    "captured_as": "text/html; charset=utf-8",
+    "note": "Actual original/text read; scope is not an assertion of full-document reading."
+  }
+]

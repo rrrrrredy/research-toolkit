@@ -1,0 +1,26 @@
+diff --git a/C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/instant_retail_warehouses_zh/native-full-final-reviews/process_language/previous-4b4f8ba9746a695048/frozen-report.md b/C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/instant_retail_warehouses_zh/native-full-final-reviews/process_language/frozen-report.md
+index be84eef..d497399 100644
+--- a/C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/instant_retail_warehouses_zh/native-full-final-reviews/process_language/previous-4b4f8ba9746a695048/frozen-report.md
++++ b/C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/instant_retail_warehouses_zh/native-full-final-reviews/process_language/frozen-report.md
+@@ -202,9 +202,9 @@ flowchart LR
+ 
+ | 其他有边界的情景 | 日单/客单价 | 主要变化 | 每单贡献 | 仓级月利润 | 分摊后月结果 | 库存资金 |
+ |---|---:|---|---:|---:|---:|---:|
+ | 自营新区域 | 550 / 62元 | 损耗2.5%，配送7元，投流1.5元，上游2.4元/单 | 7.046 | −38741 | −78341 | 73145 |
+-| 自营弱商圈 | 400 / 60元 | 毛利30%，损耗3.5%，拣选2.2元，配送7.5元 | 4.58 | −100040 | −121640 | 52920 |
++| 自营弱商圈 | 400 / 60元 | 毛利30%，损耗3.5%，拣选2.2元，配送7.5元，投流1.5元/单 | 4.58 | −100040 | −121640 | 52920 |
+ | 社会化加2%加盟费 | 400 / 50元 | 其他同基准 | 5.00 | 0 | 0 | 298200 |
+ | 社会化较强选品情景 | 500 / 55元 | 毛利32%，其他同基准；固定增至6.9万 | 8.30 | 55500 | 55500 | 398475 |
+ 
+ 较强社会化情景也伴随更高库存需求，而不是只有收益改善。自营新区域亏损则来自需求、毛利损耗、配送和上游摊销共同作用。单独复制成熟仓的成本率，会同时遗漏这些早期负担。
+@@ -272,9 +272,9 @@ flowchart LR
+ 基准社会化仓有约29.82万元存货资金。若设备装修12万元、保证金3万元，再加开仓存货，初始资金约44.82万元。月利润1.2万元中已扣0.4万元折旧，简化为每月1.6万元经营现金且库存不再增加、不缴税、不追加设备、没有账期变化时，静态收回全部初始现金约28个月。这个算式比单纯“投入÷利润”更接近现金，但仍只是一种理想稳定情景。保证金和部分库存可在退出时收回，回收价格、时间及损耗应单列，不应一方面用它们提高投入口径，一方面默认为立即全额退回。
+ 
+ 如果激励取消、日单下降、存货积压或补货扩大，28个月会延长，甚至不再存在可实现回收期。以8%年化资金机会成本估算，仅存货平均占用每月约1988元；生鲜基准约831元。该项未在前述经营利润中重复扣除，可在投资比较时另计。供应商账期能缓解流动性，却无法把滞销商品变成可盈利需求，供应款到期仍需要现金。
+ 
+-生鲜新区域还需承受爬坡。以下假设设备及开仓资本60万元、保证金7.5万元，存货按现款采购；初始不提前计同一批存货，随各月存货增加扣现金。月利润已含1.8万元折旧，现金桥加回折旧，再减库存增量；上游分摊在此假定为需要支付的持续费用。未计税费、融资、供应商账期及未来退出回收。
++生鲜新区域还需承受爬坡。其中，第1—3个月损耗率为2.5%、投流为1.5元/单；第4个月起，损耗率降至2%、投流降至1元/单。以下假设设备及开仓资本60万元、保证金7.5万元，存货按现款采购；初始不提前计同一批存货，随各月存货增加扣现金。月利润已含1.8万元折旧，现金桥加回折旧，再减库存增量；上游分摊在此假定为需要支付的持续费用。未计税费、融资、供应商账期及未来退出回收。
+ 
+ | 开仓月 | 日单 | 当月分摊后经营结果 | 月末存货资金 | 累计现金净流出 |
+ |---|---:|---:|---:|---:|
+ | 1 | 300 | −113186 | 39897 | 810083 |

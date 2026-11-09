@@ -1,0 +1,12 @@
+{
+  "input_version": "e2bf5ec236f3fbd7264dd12a2f8a018f9fb206af2f12c460b4608bfeb4086845",
+  "assignment_version": "da53a7369b7b5b2dc4978e8dabed4c8993dfcfe5fde6458928248a5115ef16f7",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "basis": "修改仅将Promptbreeder作者阅读过程改为表1及图4自身所支持的内容说明；83.9%、66.5%、65.5%及四个无现成划分数据集采用半划分的脚注保留。原官方表格/消融图的实际图像阅读与其余DGM、AlphaEvolve、SCoRe、HarnessPro及相关原件检查继续成立。复用完整277行阅读，没有新增数值或扩大自改进结论。",
+      "location": "完整当前报告（复用首评全文）；当前变更行：96, 252"
+    }
+  },
+  "findings": []
+}

@@ -1,0 +1,138 @@
+{
+  "input_version": "8504bfecbac8c53a810f3db16fc39e86f6d8eb4f64607306c712f89554b0d059",
+  "assignment_version": "ba86714f7abe330e838f959d4268d54ca4bc362c9e9873334a5b6284885b4d03",
+  "artifact_sha256": "259846b7cc7271e0ca20b3a25a5d1fb992c1d7aac6722232f6ea35e704661ef4",
+  "result": "valid",
+  "basis": "独立审计当前完整中文稿 1–259 行（末行为终止空行），逐份读取 8 个当前原始审阅及执行，核实版本、独立身份和全文修订承接；两条历史必要发现均回到原始负面与现稿核实。审计人未参与本稿生产或内容审阅。以本题冻结原件为依据；共享的 20 个原始文本逐一与本人刚实际核读的同源原件做规范化哈希确认相同，复用相同原文的已读范围而非英文报告结论；中文独有材料和数字另行读取。审阅有效性与正文就绪分别判断，未以全票通过或作者勾选为证据。",
+  "review_checks": {
+    "requirements": {
+      "result": "valid",
+      "basis": "原始 response 与 execution 已完整读取。实际执行者 /root/complete_requirements_b，status completed；输入、该槽 assignment、完整报告与 response/execution 的规范化 SHA256 均匹配当前冻结输入，身份不在作者 /root/ttc_chinese_independent_author 或 author:test_time_compute_zh 中。当前结论明确承接自己的完整初审并读取全部修订。独立比对 3e6278f2 到当前全文，确仅 141/143/157/166 四行变化；任务、有效要求及全部来源不变。观测位置、修订影响和职责对应，未发现虚构要求或以历史通过代替当前核查。"
+    },
+    "evidence": {
+      "result": "valid",
+      "basis": "原始 response 与 execution 已完整读取。实际执行者 /root/evidence_remaining_b，status completed；输入、该槽 assignment、完整报告与 response/execution 的规范化 SHA256 均匹配当前冻结输入，身份不在作者 /root/ttc_chinese_independent_author 或 author:test_time_compute_zh 中。当前结论明确承接自己的完整初审并读取全部修订。独立比对 3e6278f2 到当前全文，确仅 141/143/157/166 四行变化；任务、有效要求及全部来源不变。观测位置、修订影响和职责对应，未发现虚构要求或以历史通过代替当前核查。"
+    },
+    "adversarial_reasoning": {
+      "result": "valid",
+      "basis": "原始 response 与 execution 已完整读取。实际执行者 /root/benchmark_adversarial，status completed；输入、该槽 assignment、完整报告与 response/execution 的规范化 SHA256 均匹配当前冻结输入，身份不在作者 /root/ttc_chinese_independent_author 或 author:test_time_compute_zh 中。当前结论明确承接自己的完整初审并读取全部修订。独立比对 3e6278f2 到当前全文，确仅 141/143/157/166 四行变化；任务、有效要求及全部来源不变。观测位置、修订影响和职责对应，未发现虚构要求或以历史通过代替当前核查。"
+    },
+    "structure_and_depth": {
+      "result": "valid",
+      "basis": "原始 response 与 execution 已完整读取。实际执行者 /root/independent_reviews_a，status completed；输入、该槽 assignment、完整报告与 response/execution 的规范化 SHA256 均匹配当前冻结输入，身份不在作者 /root/ttc_chinese_independent_author 或 author:test_time_compute_zh 中。当前结论明确承接自己的完整初审并读取全部修订。独立比对 3e6278f2 到当前全文，确仅 141/143/157/166 四行变化；任务、有效要求及全部来源不变。观测位置、修订影响和职责对应，未发现虚构要求或以历史通过代替当前核查。"
+    },
+    "reader_usefulness": {
+      "result": "valid",
+      "basis": "原始 response 与 execution 已完整读取。实际执行者 /root/benchmark_reader_a，status completed；输入、该槽 assignment、完整报告与 response/execution 的规范化 SHA256 均匹配当前冻结输入，身份不在作者 /root/ttc_chinese_independent_author 或 author:test_time_compute_zh 中。当前结论明确承接自己的完整初审并读取全部修订。独立比对 3e6278f2 到当前全文，确仅 141/143/157/166 四行变化；任务、有效要求及全部来源不变。观测位置、修订影响和职责对应，未发现虚构要求或以历史通过代替当前核查。"
+    },
+    "process_language": {
+      "result": "valid",
+      "basis": "原始 response 与 execution 已完整读取。实际执行者 /root/process_remaining_b，status completed；输入、该槽 assignment、完整报告与 response/execution 的规范化 SHA256 均匹配当前冻结输入，身份不在作者 /root/ttc_chinese_independent_author 或 author:test_time_compute_zh 中。当前结论明确承接自己的完整初审并读取全部修订。独立比对 3e6278f2 到当前全文，确仅 141/143/157/166 四行变化；任务、有效要求及全部来源不变。观测位置、修订影响和职责对应，未发现虚构要求或以历史通过代替当前核查。"
+    },
+    "natural_expression": {
+      "result": "valid",
+      "basis": "原始 response 与 execution 已完整读取。实际执行者 /root/benchmark_natural_expression，status completed；输入、该槽 assignment、完整报告与 response/execution 的规范化 SHA256 均匹配当前冻结输入，身份不在作者 /root/ttc_chinese_independent_author 或 author:test_time_compute_zh 中。当前结论明确承接自己的完整初审并读取全部修订。独立比对 3e6278f2 到当前全文，确仅 141/143/157/166 四行变化；任务、有效要求及全部来源不变。观测位置、修订影响和职责对应，未发现虚构要求或以历史通过代替当前核查。"
+    },
+    "domain-1": {
+      "result": "valid",
+      "basis": "原始 response 与 execution 已完整读取。实际执行者 /root/independent_domain_b，status completed；输入、该槽 assignment、完整报告与 response/execution 的规范化 SHA256 均匹配当前冻结输入，身份不在作者 /root/ttc_chinese_independent_author 或 author:test_time_compute_zh 中。当前结论明确承接自己的完整初审并读取全部修订。独立比对 3e6278f2 到当前全文，确仅 141/143/157/166 四行变化；任务、有效要求及全部来源不变。观测位置、修订影响和职责对应，未发现虚构要求或以历史通过代替当前核查。"
+    }
+  },
+  "dispositions": {},
+  "critical_checks": [
+    {
+      "location": "reports/current.md:1–231；任务原文及 effective_requirements",
+      "evidence": "全文给出八种机制、生成/状态/筛选/评价信息矩阵，数学、代码与多步骤工具任务的扩展、退化和难度差异，§四全成本账本及四方案假设算例，§五完整条件树与任务证据矩阵。推理预算与 Snell/s1/SCoRe 训练、TTSP 参数适应分开；覆盖、提交、重复可靠性及过程约束分开；含糊反馈迁移缺口、污染、筛题、oracle、固定探针不确定性均在影响结论处说明。必需内容实际存在并有论证，非文献清单。",
+      "result": "clear",
+      "requirement_id": "R_TASK"
+    },
+    {
+      "location": "reports/current.md:1–259",
+      "evidence": "完整中文解释机制、计算、表格、图与判断；术语定义和概率/成本单位在使用位置交代。标题、方法矩阵、扩展行为表、预算算例、决策树及版本目录均连成论证；没有将方法日志或待办当交付正文。",
+      "result": "clear",
+      "requirement_id": "R_LANGUAGE"
+    },
+    {
+      "location": "reports/current.md:233–258；20 份 sources/actual 原件",
+      "evidence": "20 个冻结原文逐一确认与已保留版本相同，书目明确 arXiv 版本和版本日期，最晚 TTSP v1 2026-11-05 早于截止 2026-11-09；两个 Inference Regimes 版本分别列示；未新增在线事实，未以英文稿作为来源。",
+      "result": "clear",
+      "requirement_id": "R_DATE"
+    },
+    {
+      "location": "reports/current.md:37–73",
+      "evidence": "直接原文已核：SC 40 样本/10 重复，Snell 2048 样本难度估计和遗漏估计成本、MC PRM 与末步聚合，PRM1860候选/500题且大规模监督集不等，TTC003 v1:572–591 与同源 v2 的共享池75.56/91.67/78.33/77.50/65.83/89.17及金答案评价器一致。s1:457、1113–1132 确认512步12/30溢出、4096训练截断74%、32768不截断及更短输出/更高分，正文未偷换为纯推理收益。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:59,71,216,227–229",
+      "evidence": "TTC007 原文139–159、858–870、1045–1054的每位置16次探针、经验最大值、固定标签bootstrap与16降4探针敏感性均支持现稿限制。14.2%只保留有限测量空间内的归一化预算前沿，在线可学习性为待验假设。TTC006 原件表2累计后缀计数与附录E的p值冲突确实存在；现稿降权且不采用7K普遍阈值。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:73–112",
+      "evidence": "TTC005原件支持两LoRA/GRPO、28个筛选任务及filtered mean@8承接历史的分母；不冒称免评价执行或无参数变化。CodeMonkeys 原件支持69.8覆盖/45.8随机/57.4提交及131.95/2291.90模型费，SUP-TREE支持20价值调用、确定环境reset/replay、5动作内WebArena15→19.2及VWA表2 18.9→26.4，异构评价器和原文差异均保留。tau原文终态/必要回复与过程违规盲点支持其迁移限制。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:119–172；codex-production/budget_example.py:1–86、budget_stdout.txt 全部7行",
+      "evidence": "未执行代码，只完整读取既有脚本和原stdout。均匀通过者式 a/s[1−(1−s)^N] 与TTC008条件独立模型相符；0.0028生成+0.0026验证+0.00044工具期望成本，以及17/11/7/10候选、全部四行概率/成本/耗时/效用均与保存输出一致。p已含工具处理，未把重试重复算准确率。第二轮2000输入、两次工具及2.7秒前置处理完整；期望费用不等于硬上限和平均服务量不等于P95明确。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:175–231",
+      "evidence": "决策树先判断信息/工具条件，再按可验证性、覆盖与选择故障、延迟、状态恢复、错误风险分流；方案节点作为建议终点，并非宣称已验证的闭环系统。正文200–218对分支附任务证据和停止条件。允许简单路径、补信息、弃答；没有跨模型token统一或从oracle直接上线的错误推论。",
+      "result": "clear"
+    }
+  ],
+  "sample_checks": [
+    {
+      "location": "reports/current.md:32、53–55；TTC004:362–369,400–453；TTC002:457,1113–1132",
+      "selection_reason": "从已通过的机制分类与训练/推理边界选择中文独有细节，检验关键限定是否实际受原件支持。",
+      "evidence": "综述§4.1区分标量判别反馈与可给建议的生成反馈；s1长训练序列/低截断与短思考的对照为训练变化，正文正确解释并计入长度拒绝采样丢弃成本。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:80–94；TTC010:262–271,601,625–626；SUP-LIMITS:262–268；SUP-CM:161,165–174,242,247",
+      "selection_reason": "从代码的正面结果中选容易被遗漏的测试有效性与共享上下文限制，覆盖相反方向证据。",
+      "evidence": "11.3% SWE-bench Lite测试不稳定及122题中35题提供正确Python解失败均属原论文报告；200样本同池随机重排1000次并非1000次新模型运行。4:1错误损失下K≤5具有该实验范围。CodeMonkeys共享上下文7.4%缺原解所用全部文件，非所有合法修法必缺；未用既有回归测试的主设置和共同错误风险符合原文。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:141–170；04-budget.md:27,29,48,52→现稿；budget_example.py:11–79",
+      "selection_reason": "审计人选择从作者单元到报告的量化转换，尤其此前通过的预算合法性、丢弃分支和尾延迟。",
+      "evidence": "原单元保存未修订的笼统预算/遗漏2.7秒文本，当前报告真实改为期望预算，提供0.10020硬上限反例，并逐项写出52.1秒/链、两波104.2秒。保留旧单元是历史证据，不表示现稿仍存在该缺陷。四行费用包括未选候选与验证，修订输入28000和输出24000等与脚本定义相符。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:59,71,216,227–228；02-math-and-scaling.md:25→现稿",
+      "selection_reason": "从作者解释到结论与决策矩阵的语义转换，检查历史夸大是否残留。",
+      "evidence": "原单元仍有已揭示可学习空间的旧说法；现稿所有关联段均限制为有限探针经验前沿，固定标签bootstrap未覆盖选择噪声，并要求新题/独立探针验证学习假设。无需抹去旧稿才能判修复。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:98–112,170–172",
+      "selection_reason": "跨网页、业务与自适应停止挑选无发现段，检查采样次数与独立性、可靠性指标的转换。",
+      "evidence": "原SUP-TREE与SUP-TAU支持模拟环境和过程违规边界；动作链0.98^20/0.995^20仅说明性独立假设且stdout保留相同值；SUP-AC:474–497表1支持73.2→73.1、40→13.8，正文把众数稳定与正确性分开，未将平均节省直接转为所有任务保证。",
+      "result": "clear"
+    }
+  ],
+  "prior_findings": {
+    "476fadc34fa44261ad581f2caf8a2580/AR-TTCZH-01": {
+      "decision": "resolved",
+      "reason": "原负面有效且保留；当前论断与所有跨段总结已收窄，未仅添加泛泛免责声明。",
+      "evidence": "现稿59明确16次探针与多位置择优噪声，14.2%为有限测量空间内经验前沿；71、216、227同步限制；228明确bootstrap固定探针标签未覆盖探针噪声。与TTC007:139–159,858–870,1045–1054一致。"
+    },
+    "1b06ff93633f48b0b51d20b1b0195c20/EV-TTCZH-01": {
+      "decision": "resolved",
+      "reason": "遗漏的独立耗时假设已经实写入当前正文且与原脚本相符，未为修复重跑计算。",
+      "evidence": "现稿166明确首轮1.5秒、第二轮2.7秒，1200/60生成、2.2秒工具两次、最后3.5秒验证；52.1秒/链、10链8槽两波104.2秒与预算代码48及原stdout相符，表162无需改数。"
+    }
+  },
+  "report_verdict": "pass",
+  "open_issues": [],
+  "sampling_scope": {
+    "population": "当前完整中文稿258实质行，全部8当前原始审阅、2条历史必要发现、作者单元和20份本题冻结原件。",
+    "method": "有目的抽查而非随机抽样：机制/训练差异、验证器分母与测试缺陷、原始单元转正文、预算计算及含糊任务迁移。",
+    "limitations": "未独立复现模型实验，未重跑公式计算；复用的是本人已读且已确认逐一相同的原始材料范围，不把同题英文报告当作新证据。"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "source_id": "SUP-TREE",
+  "url": "https://arxiv.org/html/2407.01476v1",
+  "title": "Tree Search for Language Model Agents",
+  "reading_location": "§§3–4, Table2, value calls/action proposal/backtracking; §5 initial sweep description",
+  "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+  "version_model_evaluation": "v1 2024-07-01; gpt-4o-2024-05-13 value model; WA/VWA; five-action comparison",
+  "observation": "Environment search needs replay and evaluator work; table18.9 versus prose18.6 minor mismatch avoided by citing table",
+  "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-TREE\\original.txt",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-TREE\\original.html",
+  "text_sha256": "c48d9f0a8a841ef0e9f4fb4feb5f02d6d0dfa0e9b8958bf142c30defb3d089ac",
+  "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-TREE\\retrieval.json",
+  "reader": "/root/ttc_research"
+}

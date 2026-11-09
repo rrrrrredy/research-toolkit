@@ -1,0 +1,31 @@
+{
+  "host_task": "/root/complete_requirements_b",
+  "status": "completed",
+  "perspective": "requirements",
+  "execution_mode": "native_codex",
+  "started_at": "2026-11-09T22:48:33.1040965+08:00",
+  "completed_at": "2026-11-09T14:49:20.1876047+00:00",
+  "input_version": "3e6278f250299b9aa3fd80f794a5ed5b1ca5d05ccfd17c28d96a73f482afacb1",
+  "assignment_version": "113e64dc632f00d843a47543c0542b2a397bd87afc29d8416e2b4309823b87f3",
+  "assignment_path": "reviews/host/3e6278f250299b9aa3fd/jobs/requirements-113e64dc632f00d8.json",
+  "assignment_sha256": "974cbe2446b31a9778ddb98f55d9ce13c7a02715291e7f56cc29e653ece0f906",
+  "report_path": "reports/current.md",
+  "report_sha256": "eef296bd90c6ef8a34e04a7ce533e84034adc24c77417030b9fef057ab6b1eac",
+  "expected_report_sha256": "eef296bd90c6ef8a34e04a7ce533e84034adc24c77417030b9fef057ab6b1eac",
+  "reading_intervals": [
+    {
+      "report_ranges": [
+        "1-90",
+        "91-180",
+        "181-259"
+      ],
+      "coverage": "complete continuous report reading, including tables, formulae, diagram and references",
+      "started_at": "2026-11-09T22:48:33.1040965+08:00",
+      "artifact": "actualjob.json:assignment.task, effective_requirements and report",
+      "unread_report_ranges": [],
+      "completed_at": "2026-11-09T14:49:20.1876047+00:00"
+    }
+  ],
+  "originals_opened": [],
+  "notes": "Assessed the complete supplied original task and report without other reviewers, source mappings, live research, tests or report edits."
+}

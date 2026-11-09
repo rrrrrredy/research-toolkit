@@ -1,0 +1,35 @@
+# Research brief
+
+## question
+
+面向产品负责人和系统设计者，研究国内外Personal Agent怎样从单次对话走向可持续完成个人任务的系统，以及记忆、授权和执行边界如何决定真实产品价值。重点考察2024年至2026-11-09公开可核实的产品与实现，必要时追溯更早的技术路线。资料截止日为2026-11-09，区分已公开可用功能、受限测试、研究原型和发布演示，并注明影响比较的版本、地区、账户等级与设备条件。
+
+建立Personal Agent的研究边界，将持续服务个人目标的系统与一次性聊天助手、固定自动化脚本和纯企业流程平台区分。按能力路线和可核实程度选择国内外代表产品或项目，不预设固定厂商名单。用跨会话旅行与日程安排、持续性的个人事务或报销管理两类任务链展开比较，追踪目标建立、补充信息、计划调整、外部执行、结果核对及后续变化。比较产品在相同任务环节承担了什么，而不是把功能页上的不同名称直接当作同等能力。
+
+分析记忆保存的对象与来源、短期状态和长期偏好的区分、冲突信息处理、过期更新、选择性遗忘及用户纠正。解释Agent如何把记忆转化为动作，又如何避免将旧偏好、错误摘要或外部内容中的指令当作当前授权。研究工具调用与身份凭证、最小权限、逐项确认或范围授权、授权撤回、排队任务取消、不可逆操作、失败恢复和人工接管。主动执行需要什么触发条件，何时应等待用户，撤销授权后尚未完成的动作如何处理，都应落实到具体任务链。
+
+将官方实现文档、开发者接口、公开代码、可定位的产品演示和有方法说明的第三方体验相互核对。区分产品宣称、演示观察、公开测试与作者实际执行过的体验；没有亲自测试不能写成亲测，公开资料不足也不要求购买服务或获取私人账户数据。对任务成功、执行耗时、错误率和人工介入等指标，保留测试环境和分母，不能从一段成功演示推断长期可靠性。
+
+比较订阅、交易佣金、广告、设备生态和平台入口等商业模式怎样影响连接器覆盖、数据控制、推荐中立性、用户迁移与持续服务成本。分析端侧与云端记忆、专用工具与通用界面操作、封闭生态与跨平台接入的取舍；不要预设最自主或接入最多的路线最好。把用户愿意交付的权限、可接受的出错后果和服务价格纳入商业路线判断。
+
+交付包含任务链比较、记忆与授权数据流、架构取舍及商业路线分析的完整报告，说明哪些用户和任务适合当前方案，哪些需要受限授权、人工协作或暂不使用Agent。图表可以采用文本表达，章节自行安排。关键验收关注点是能否从公开证据重建能力边界，能否解释跨会话变化和撤权后的行为，以及商业判断是否与可实现的任务价值相连。不同产品可以各有优势，也可以得出尚不足以稳定承担某类任务的结论；不以产品数量或功能清单代替论证。
+
+## audience
+
+规划个人Agent产品、系统架构与商业路线的产品负责人和技术决策者
+
+## scope
+
+Follow the task geography, comparison scope and evidence cutoff of 2026-11-09. Each other-language version uses its frozen sources without seeing the first-language report.
+
+## output
+
+Complete long-form research report final.md with the task-specific comparisons, explanations, tables and locatable citations. Preserve the first draft and actual independent results.
+
+## depth
+
+完整长研究报告，以跨会话任务链为比较单位，解释产品能力、记忆机制、授权模型、执行可靠性与商业模式之间的关系。
+
+## evidence_standard
+
+Use original public sources with actual dates, reading evidence and retained originals. Conduct seven separate independent content perspectives, relevant domain review, independent audit and final acceptance. Live primary research

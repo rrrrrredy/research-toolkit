@@ -1,0 +1,90 @@
+{
+  "input_version": "08ee4e8cf6e9b2733119c8c87965023b83648c1f084afbabbd87f1a702fd3e7a",
+  "assignment_version": "46f63a3abaa680ba4b304c7f7adc628a8b8cc5b835eec567d43de79c1960b0e8",
+  "result": "invalid",
+  "basis": "This is an audit of research unit outline only, not a whole-report review or clinical evidence audit. I read the complete frozen 35-line substantive outline, task and all applicable requirements, both raw submitted reviews and executions, the original outline save/snapshot, current producer record and the relevant later production events. The outline and both reviews retain the same input and artifact identities. The requirements review was actually executed by /root and remains a genuine historical record, but /root subsequently participated in manuscript production and is now a recorded producer. It therefore cannot continue to satisfy the independent requirements slot for this research. The separate /root/independent_structure_b review remains valid. No necessary textual outline defect was found; the unit cannot be treated as independently reviewed until the existing requirements slot has a valid nonproducer replacement.",
+  "review_checks": {
+    "requirements": {
+      "result": "invalid",
+      "basis": "Raw attempt a61766dab8ed4edea2e0a7b34c944ce0 and execution.json identify /root as the requirements reviewer, completed at 2026-11-09T12:14:16.429090+00:00. Its content is a real, located outline assessment and its version/hash binding is intact. However, current state/progress.json review_plan.producer_contexts includes /root alongside /root/ttc_research and author:ai_drug_discovery_en. logs/activity.jsonl:21 preserves operation d8d4e7d1a2ce44bf8b7f495cd1cf5cd2, a /root manuscript save at 23:12:07+08:00 rejected by the existing owner rule. The coordinator-prepared textual revision is identified in codex-production/change-note-full-02.md and was subsequently accepted and saved by /root/ttc_research (activity:22; author execution record). The failed /root save is not represented as successful, but later production participation prevents continued independence. Preserve this original review and replace its role through the existing slot; do not relabel its execution identity."
+    },
+    "structure_and_depth": {
+      "result": "valid",
+      "basis": "Raw attempt 1b6c134084664c068a64661050ecc084 and execution identify the separately assigned /root/independent_structure_b context, completed 2026-11-09 12:19:22 UTC. It read the full task, frozen outline, effective requirements and original outline history; its observations locate the candidate-indication-formulation unit, computational-to-experimental progression, stage comparisons, partnership responsibilities and exhibits. Those observations are supported by outline:7-20,24-35. It explicitly limits itself to outline structure and does not claim clinical or full-report validation. The current producer set does not include this reviewer, and the relevant production history records /root/ttc_research and /root, not /root/independent_structure_b. Version, raw-response and normalized-text hashes match."
+    }
+  },
+  "dispositions": {},
+  "critical_checks": [
+    {
+      "requirement_id": "R_TASK",
+      "location": "analysis/outline.md:7-20,24-35; requirements review attempt a61766dab8ed4edea2e0a7b34c944ce0; current producer record",
+      "evidence": "The plan covers the requested program histories, specific AI contributions, experimental feedback, clinical design/denominators, discontinued or inconclusive outcomes, partnership rights/payment categories and conditional decisions. Those are planned research obligations, not established clinical results. The actual missing requirement at this unit is independent requirements review: its original executor /root is now a producer. This process defect prevents the reviewed unit from supporting dependants as independently cleared.",
+      "result": "defect"
+    },
+    {
+      "requirement_id": "R_LANGUAGE",
+      "location": "analysis/outline.md:1-35",
+      "evidence": "The complete outline is in English for the specified R&D/business-development/investment audience and plans the requested evidence chains, clinical/stage comparison and partnership exhibits. This finding applies to outline scope only; it does not certify the later complete English report.",
+      "result": "clear"
+    },
+    {
+      "requirement_id": "R_DATE",
+      "location": "analysis/outline.md:3,9,15-18,33-35",
+      "evidence": "The plan explicitly uses the 2026-11-09 cutoff, distinguishes event date from publication/registry update, keeps candidate-indication-formulation histories and requires recovery of relevant historical originals. It does not permit later updates to establish progress retroactively. Named clinical stages in the outline are investigation targets subject to that source work, not factual clinical conclusions validated by this audit.",
+      "result": "clear"
+    },
+    {
+      "location": "analysis/outline.md and logs/record-backups/9d5255afa59348e292c4714699412fb5/saved/analysis/outline.md",
+      "evidence": "Both on-disk texts equal job.assignment.report after newline normalization and both SHA256 values equal 8bfe2c957e7fc1dfb21faae1bdb37a859e53eb837915b974d18b0d97e13e57b7. The original save identifies /root/ttc_research as the outline producer. The later independence problem is not an unreviewed change to the outline text.",
+      "result": "clear"
+    },
+    {
+      "location": "logs/activity.jsonl:21-22; codex-production/change-note-full-02.md; native-full-note-revision-author-execution.json",
+      "evidence": "The /root save attempt was rejected because /root/ttc_research owned the manuscript. The retained author record subsequently accepts the coordinator-prepared process-language proposal and saves the revision under the registered substantive author. These are distinct events; no failed attempt or historical review is erased, and the rejected save alone is not asserted to have changed the managed manuscript.",
+      "result": "clear"
+    }
+  ],
+  "sample_checks": [
+    {
+      "location": "requirements raw response/execution; state/progress.json review_plan.producer_contexts; logs/activity.jsonl:4,19-22",
+      "selection_reason": "Independently verify the reported role conflict against identities and real production history instead of treating either a prior pass or a rejection message as sufficient.",
+      "evidence": "The original requirements executor is exactly /root. The current producer set contains that identity. The outline originally belonged to /root/ttc_research; later records preserve a /root proposed manuscript revision/save and the author's acceptance. The existing rule requires the independent reviewer to be separate from production contexts, so the carried requirements review is invalid for current independent clearance.",
+      "result": "defect",
+      "expansion": {
+        "examined_locations": [
+          "Both current raw review records and executions",
+          "Original outline production event 9d5255afa59348e292c4714699412fb5 and saved snapshot",
+          "Relevant manuscript events b1d917b09e40414eb11e883c07bd58bd,0283b969b2b04601b0b9f387e0b605ec,d8d4e7d1a2ce44bf8b7f495cd1cf5cd2,460f7ecf8ed84b9aa9a0224521d48a36",
+          "Current review_plan.producer_contexts",
+          "Coordinator-proposal change note and registered-author acceptance/execution"
+        ],
+        "outcome": "Conflict is confined to the existing requirements slot among these two outline reviews. /root/independent_structure_b remains outside the producer set. The manuscript-owner rejection is preserved as failure; no rule, identity, original review or log needs changing."
+      }
+    },
+    {
+      "location": "analysis/outline.md:7-9,15-18",
+      "selection_reason": "Sample passed selection and comparison design, because survivor selection and mixed candidate/indication stages can undermine an outline before source work.",
+      "evidence": "The outline names a purposive seven-case selection with new molecules, repositioning, repurposing and prospective screening; explicitly retains stopped/inconclusive paths, earlier molecule histories, candidate-indication-formulation identity and stage-aware comparisons. It disclaims a census or industry-wide success-rate estimate. This supports the structure review at planning scope.",
+      "result": "clear"
+    },
+    {
+      "location": "analysis/outline.md:14,19-20,24-35",
+      "selection_reason": "Sample the bridge from computational contribution to experimental responsibility and commercial decision, rather than checking section names alone.",
+      "evidence": "The plan distinguishes proposal, synthesis, functional activity and experimental feedback; assigns rights, experimental duties, decisions, handoffs, data feedback and termination consequences; separates upfront, milestones, royalties, cash and revenue. The planned exhibits and falsifiable next milestones correspond to those questions. Source gaps are explicit work to complete, not silently promoted into established evidence.",
+      "result": "clear"
+    }
+  ],
+  "prior_findings": {},
+  "report_verdict": "needs_revision",
+  "open_issues": [
+    {
+      "finding_id": "AIDD-OUTLINE-INDEPENDENCE-01",
+      "severity": "major",
+      "location": "outline requirements slot; attempt a61766dab8ed4edea2e0a7b34c944ce0",
+      "basis": "The retained requirements review's actual executor /root is now a producer on this research and cannot continue to count as an independent reviewer. The separate structure_and_depth review remains valid.",
+      "evidence": "Raw requirements execution host_task=/root; current state/progress.json producer_contexts; logs/activity.jsonl:21-22; codex-production/change-note-full-02.md and registered-author acceptance record.",
+      "required_change": "Retain the original review and failed save log. Assign the existing outline requirements slot to a genuinely separate nonproducer context, preserving the same complete outline/task inputs. Continue this same audit to verify that replacement result. No outline prose change, product-rule change, architecture addition or full-report rerun is requested."
+    }
+  ],
+  "scope_note": "report_verdict describes readiness of the outline unit's reviewed work only. This output makes no whole-report, clinical-efficacy, partnership-term or final-delivery determination."
+}

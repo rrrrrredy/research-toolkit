@@ -1,0 +1,73 @@
+{
+  "case_id": "model_benchmarks_en",
+  "title": "Comparing Model Benchmarks: Coverage, Reproducibility, and Real-Task Relevance",
+  "task_type": "longform",
+  "language": "en",
+  "target_reader": "Model-selection, evaluation, and deployment teams deciding which benchmark evidence to trust",
+  "expected_depth": "A comparative research report that reconstructs evaluation conditions, explains what benchmark results measure, and connects their limitations to concrete model-selection decisions.",
+  "prompt": "Write a research report on how model-selection teams should interpret and combine benchmark evidence rather than select a model from a single leaderboard. Use HELM, its official papers, documentation, and implementation as an entry point. Compare it with a manageable set of complementary evaluation frameworks and benchmarks covering static knowledge or reasoning tests, executable coding tasks, tool-using or agent tasks, and human or model-judged preferences. Focus on versions and results publicly available from 2022 through 2026-11-09, with earlier context where necessary. The evidence cutoff is 2026-11-09; distinguish a historical version from a subsequently revised dataset or leaderboard.\n\nExplain the difference between a benchmark dataset, an evaluation framework, an execution harness, and a leaderboard. For the selected examples, examine task construction, sampling, language and domain coverage, target capabilities, scoring rules, aggregation, and the unit of evaluation. Discuss which dimensions of quality, robustness, calibration, efficiency, or safety are actually measured and which are merely suggested by a benchmark's name or reputation. A small benchmark result must not be treated as a direct estimate of all user workloads.\n\nReconstruct the conditions needed to interpret representative reported results: model identity and release, prompt and few-shot format, decoding and reasoning settings, tool access, context limits, harness version, judge configuration, and available cost or latency information. Explain how these choices can change rankings or make comparisons invalid. Examine contamination and memorization, public-test adaptation, hidden-test access, benchmark refreshes, evaluator bias, and uncertainty from finite samples. Separate evidence of contamination from suspicion, and do not invent significance estimates when the underlying observations are unavailable.\n\nAssess reproducibility from the artifacts that are actually public. Identify whether a result has accessible data, executable evaluation code, stable dependencies, inspectable scoring, and a usable model or API version. Distinguish the ability to reconstruct a procedure from an independently reproduced score. Explain the consequences of private tests, mutable APIs, unavailable judge models, and changing web or software environments. Published independent replications may be analyzed, but this task does not require claiming or conducting a new benchmark run.\n\nConnect the comparison to two contrasting deployment decisions: selecting a model for a grounded customer-support assistant and selecting a model for a repository-level coding agent. Explain which benchmark evidence transfers plausibly to each workload, what it misses, and what task-specific evidence would change the selection. Discuss successful-task cost, failure severity, operational constraints, and distribution shift rather than treating the highest aggregate score as the universal best choice. Where studies relate benchmark scores to user outcomes, distinguish observed association from a demonstrated causal relationship.\n\nDeliver a complete report with an evaluation coverage matrix, a versioned reproducibility comparison, worked interpretations of representative score comparisons, and conditional model-selection recommendations for the two workloads. Organize the report freely and cite primary evaluation definitions and the exact result versions used. The key checks are whether unlike evaluation objects remain distinguishable, whether score claims retain their execution conditions and uncertainty, and whether the recommendations acknowledge meaningful rank reversals or contradictory evidence. There is no required preferred benchmark or model, and a finding that the available evidence cannot resolve a selection is acceptable when the missing decision-relevant evidence is specified.",
+  "must_cover_entities": [
+    "HELM",
+    "Static knowledge and reasoning benchmarks",
+    "Executable coding benchmarks",
+    "Tool-using and agent benchmarks",
+    "Human preference and model-judged evaluations",
+    "Datasets, frameworks, harnesses, and leaderboards",
+    "Contamination and evaluator bias",
+    "Versioned reproducibility conditions",
+    "Grounded customer-support workloads",
+    "Repository-level coding-agent workloads"
+  ],
+  "required_sections": [],
+  "source_pack": "long_research_model_benchmarks",
+  "source_ids": [
+    "model_benchmarks--MB01",
+    "model_benchmarks--MB02",
+    "model_benchmarks--MB03",
+    "model_benchmarks--MB04",
+    "model_benchmarks--MB05",
+    "model_benchmarks--MB06",
+    "model_benchmarks--MB08-code",
+    "model_benchmarks--MB08-arxiv",
+    "model_benchmarks--MB10",
+    "model_benchmarks--MB17",
+    "model_benchmarks--MB18",
+    "model_benchmarks--MB19",
+    "model_benchmarks--MB20",
+    "model_benchmarks--MB21",
+    "model_benchmarks--MB23",
+    "model_benchmarks--MB24",
+    "model_benchmarks--MB25",
+    "model_benchmarks--MB27",
+    "model_benchmarks--MB28",
+    "model_benchmarks--MB30",
+    "model_benchmarks--MB31",
+    "model_benchmarks--MB32",
+    "model_benchmarks--MB33"
+  ],
+  "material_mode": "research",
+  "family_id": "model_benchmarks",
+  "evidence_cutoff": "2026-11-09",
+  "artifact_requirements": [
+    "state/task_spec.md",
+    "state/progress.json",
+    "state/requirements.jsonl",
+    "state/final_delivery.json",
+    "data/source_registry.csv",
+    "data/claims_registry.csv",
+    "logs/review.jsonl",
+    "final.md",
+    "delivery_message.md"
+  ],
+  "delivery_check": {
+    "artifact": "reports/current.md",
+    "delivery_message": "delivery_message.md"
+  },
+  "quality_focus": [
+    "task_fidelity",
+    "facts_and_evidence",
+    "explanation_and_synthesis",
+    "counterevidence_and_boundaries",
+    "reader_usefulness"
+  ]
+}

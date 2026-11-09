@@ -1,0 +1,12 @@
+{
+  "input_version": "8208b408fba85ea9f85a7f8cce08ea0777a4dc51b47cd27819c1a1036a2be6e0",
+  "assignment_version": "d883c72e0b9be2e7c16f710dfb54f28766fc9eaaf4562058b4bedcd5a030e7c4",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "basis": "当前第22行明确个人账户、AI Pro/Ultra、Keep Activity和选择启用Personal Intelligence，并列出EEA、尼日利亚、瑞士、英国尚不开放；第50、94行把旅行路线和财务任务链回指这些条件。重读PA08第1–60行，特别35–43行，新增范围与原官方当前文档一致，原EV-PAZH-01已解决。原完整223行及24份原始材料、既有算例阅读复用，Manus文件更新、Gmail/Drive连接、付款和订阅停止等证据边界未改变。",
+      "location": "完整当前报告（复用首评全文）；当前变更行：22, 50, 94"
+    }
+  },
+  "findings": []
+}

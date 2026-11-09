@@ -1,0 +1,26 @@
+--- e971ccb9869b9b5333e060010f47e805e42b57a4ba02adedbc0203d5af57509e
++++ e6dab9c522bd95cbb6466eccef92143c33d291b91806655c81158321704d7807
+@@ -1,5 +1,5 @@
+ # Token Economics: From Model Costs and Pricing to Workload Value
+ 
+-Evidence cutoff: November 9, 2026. English research report for enterprise buyers, AI product operators and investors. Author: Codex research producer `/root/ttc_research`. First complete author manuscript; independent whole-report review remains pending.
++Evidence cutoff: November 9, 2026. English research report for enterprise buyers, AI product operators and investors.
+ 
+ ## 1. The economic unit is a task that meets its acceptance criteria
+@@ -378,9 +378,9 @@
+ The report combines three evidence types. Public prices and technical/financial disclosures retain their version or observation date. Published studies retain their experimental setting. Workload acceptance rates, human time, tool allowances, demand and hosting capacity are explicit economic scenarios. Local tokenizer counts and deterministic arithmetic were actually executed; no model inference experiment was performed.
+ 
+-`workload_calculations.py` and `calculation-results.json` contain all route counts, price inputs, cache request rows, agent step rows and sensitivity cases. `tokenizer_count.py` and `tokenizer-results.json` retain the exact paired strings, package version and encoding-file hashes. `reading-ledger.json` records the original paths and actual reading scope; `web-reading-notes.md` separates successfully read web originals from failed local downloads.
+-
+-Historical OpenAI launch pages were read through the web tool after local403responses. The DeepSeek R1 news URL redirected to the current quickstart, so it does not establish a historical R1price here. Gemini's acquired documentation included authoritative Markdown inside server-delivered HTML; that text was extracted separately while preserving originals. The current GPT-6.1model page resolves the short/longpriceboundary. The datedClaude ratecard is used for commercialSKUprices, without inventing an underlyingweight revision absent from that source.
+-
+-The Azure quote retains the fullpublicJSON and exactSKUrows. The report does not use post-cutoffLambda rates. It also does not use the concurrency preprint's inaccessible rawcommit or mismatchedGPUcapacity claim to assign a measuredthroughput to its independent hosting scenario. No confidentialmargin, negotiateddiscount, realizedlabor saving or language-wide tokenratio is inferred.
+-
+-For a deploymentdecision, replace the scenario quality/time/traffic inputs with a representative matched task evaluation and measuredlatency/availability. Keep failure and delayedreopening in the record. These inputs determine the procurementthresholds; further precision in a postedtokenprice cannot compensate for an unknown accepted-task denominator.
++`workload_calculations.py` and `calculation-results.json` contain all route counts, price inputs, cache request rows, agent step rows and sensitivity cases. `tokenizer_count.py` and `tokenizer-results.json` retain the exact paired strings, package version and encoding-file hashes.
++
++Historical OpenAI launch pages supply the dated model and price announcements. The DeepSeek R1 news URL redirected to the current quickstart, so it does not establish a historical R1 price here. Gemini rates use the official documentation version listed in the source record. The current GPT-6.1 model page resolves the short/long price boundary. The dated Claude rate card is used for commercial SKU prices, without inventing an underlying weight revision absent from that source.
++
++The Azure quote retains the full public JSON and exact SKU rows. The report does not use post-cutoff Lambda rates. It also does not use the concurrency preprint's inaccessible raw commit or mismatched GPU capacity claim to assign a measured throughput to its independent hosting scenario. No confidential margin, negotiated discount, realized labor saving or language-wide token ratio is inferred.
++
++For a deployment decision, replace the scenario quality/time/traffic inputs with a representative matched task evaluation and measured latency/availability. Keep failure and delayed reopening in the record. These inputs determine the procurement thresholds; further precision in a posted token price cannot compensate for an unknown accepted-task denominator.

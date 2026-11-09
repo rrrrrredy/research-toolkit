@@ -188,7 +188,7 @@ def retain_prepared_work(root, packet):
 
 def prepare_work(root, progress, work, *, resume_prepared=False):
     """Assemble the Agent's explicit selection; do not infer scope or choose a plan."""
-    from record_changes import claim_source_ids, input_digest, requirements_for_units
+    from record_changes import claim_source_ids, input_digest, requirements_for_units, rows_from
     allowed = {'question', 'unit_id', 'depends_on', 'requirement_ids', 'claim_ids', 'source_ids', 'paths'}
     if not isinstance(work, dict) or set(work) - allowed:
         raise ValueError('work: use optional question, unit_id, depends_on, requirement_ids, claim_ids, source_ids and paths.')
@@ -244,15 +244,13 @@ def prepare_work(root, progress, work, *, resume_prepared=False):
         if missing:
             raise ValueError(f"work.{label}: unknown IDs {', '.join(sorted(missing))}.")
         return [r for r in rows if r.get(field, r.get('id')) in ids]
-    def registry(name, identity):
-        path = safe_path(root, name)
-        rows, errors = inspect_csv_text(path.read_text(encoding='utf-8'), name, (identity,), identity)
-        if errors:
-            raise ValueError('; '.join(errors))
-        return rows
+    def registry(name, kind):
+        # Match the record binding: an unrelated row can add CSV columns whose
+        # empty cells do not change this unit's selected evidence.
+        return list(rows_from(safe_path(root, name).read_bytes(), kind).values())
     requirements = select(supplied['rows'], 'requirement_id', record_ids['requirement_ids'], 'requirement_ids')
-    claims = select(registry('data/claims_registry.csv', 'claim_id'), 'claim_id', record_ids['claim_ids'], 'claim_ids')
-    sources = registry('data/source_registry.csv', 'source_id')
+    claims = select(registry('data/claims_registry.csv', 'claims'), 'claim_id', record_ids['claim_ids'], 'claim_ids')
+    sources = registry('data/source_registry.csv', 'sources')
     source_ids = set(record_ids['source_ids'])
     registered = {s['source_id'] for s in sources}
     for claim in claims:
@@ -262,6 +260,8 @@ def prepare_work(root, progress, work, *, resume_prepared=False):
     selected_sources = select(sources, 'source_id', source_ids, 'source_ids')
     files, originals = source_inputs(root, selected_sources)
     for name in dict.fromkeys(paths):
+        if name in originals:
+            continue
         try:
             files[name] = safe_path(root, name).read_text(encoding='utf-8')
         except (OSError, ValueError) as exc:

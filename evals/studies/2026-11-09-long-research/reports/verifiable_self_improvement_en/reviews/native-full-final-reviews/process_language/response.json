@@ -1,0 +1,12 @@
+{
+  "input_version": "e2bf5ec236f3fbd7264dd12a2f8a018f9fb206af2f12c460b4608bfeb4086845",
+  "assignment_version": "0ada65c7aac5f2cc62ba1274de5dbaaeec27f930b88e9f712cc644922c119703",
+  "report_verdict": "pass",
+  "coverage": {
+    "process_language": {
+      "location": "当前完整报告；复用本人首评全文阅读，并逐段读取report.diff全部差异及其上下文。当前差异上下文行：93—99 249—255",
+      "basis": "在原独立审阅上下文中复用本人已完成的原任务、有效要求与冻结全文阅读；当前任务、有效要求及scope_decisions未变化。第96行已直接陈述Table 1的half-split条件，第252行改为表图所提供的比较与消融结果，移除了本次作者阅读和渲染检查动作；版本、章节、定位及计算说明保留。首评 process_language-01 已解决。 本轮仅确认修订及其对process_language全篇判断的影响，未重复全文阅读、计算、测试或研究。"
+    }
+  },
+  "findings": []
+}

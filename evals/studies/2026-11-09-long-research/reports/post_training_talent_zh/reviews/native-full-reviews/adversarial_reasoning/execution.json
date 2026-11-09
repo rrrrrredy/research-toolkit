@@ -1,0 +1,18 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "17ce6ad5fd882361a9816ed924c7a14d3345c8ee056b1c8cb8db4d39fbb3000d",
+  "assignment_version": "9f98ebb4cc795c751ffafc1c0107f86e3d9cf94b411f0c9d6d2413c06281a96d",
+  "completed_at": "2026-11-09T13:51:17.178041+00:00",
+  "reading_scope": {
+    "task": "完整任务",
+    "report": "完整1-173行",
+    "originals": [
+      "sources/actual/PTT02.txt lines 131-164 and 605-612",
+      "sources/actual/PTT09.txt lines 1-45",
+      "sources/actual/PTT-A03.txt lines 1-55",
+      "sources/actual/PTT-A04.txt lines 30-46"
+    ],
+    "scope": "独立adversarial_reasoning；未阅读其他评审；未运行新实验。"
+  }
+}

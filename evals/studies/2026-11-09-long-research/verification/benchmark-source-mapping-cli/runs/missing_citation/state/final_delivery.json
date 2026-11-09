@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "pass",
+  "scope": "global_final_delivery",
+  "artifact": "final.md",
+  "artifacts": {
+    "final.md": "58752733e8cb75056f77ddbb86cc92ef98cb4a659a5a8d9ac8235a1088c9af9f",
+    "state/task_spec.md": "d5fcc5b5a085954a95d949e6b12edb9cb6bc910fad528429cc896362a83dffcc",
+    "state/progress.json": "19b1b4889fc335f4756f802069e923acee747bfac3b0bb5c31a5fd97ad4693a8",
+    "data/source_registry.csv": "1cf636ff20ffdba0db8c5ceb49f222c5bfba01c38a07189ec2d7039603abe544",
+    "data/claims_registry.csv": "0756c86bcf45773b05aba0e82d3bb366dd4a6caf88333d1681cdc0c811c2b2d4",
+    "logs/review.jsonl": "6010a0f8c3170bf8e1256634ac3b5d185e8346ea6f6baf8997502c980954708b",
+    "delivery_message.md": "5b3e9c551051d6f9ab7bb2d6f8730131cf7a600140307292a66f74c176ec710e",
+    "state/requirements.jsonl": "ccbaabf02df435ae299a959e094715730689aad5848ac1c174881b85fdf7e6a7"
+  },
+  "open_issues": [],
+  "accepted_limitations": [
+    "合成评测证据不能确认真实公司的内部汇报线，也不能证明新组织跨多代稳定。"
+  ]
+}

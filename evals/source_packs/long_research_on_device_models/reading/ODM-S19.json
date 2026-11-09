@@ -1,0 +1,12 @@
+{
+  "source_id": "ODM-S19",
+  "url": "https://raw.githubusercontent.com/NVIDIA-AI-IOT/whisper_trt/268eff10a1e38118a2734745b9db14f7419a08a5/examples/profile_backend.py",
+  "version_or_access": "2026-11-09T11:49:47.877299+00:00",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\supplemental-sources\\ODM-S19\\original.txt",
+  "reading_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\supplemental-sources\\ODM-S19\\original.txt",
+  "sha256": "d938bb20d61d88b0afb0dc0aaedfc57e8907b6b6fd04bb83a3407700e32e2a35",
+  "reading_location": "Complete profilingcode",
+  "findings_used": "Warmup+singledefaultiteration;GPU synchronization;RSSdeltaMiBnotpeak.",
+  "reader": "Codex /root/ttc_research; substantive author, not independent reviewer",
+  "read_scope": "selected original passages actually read, not a claim to have read every page"
+}

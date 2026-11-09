@@ -1,0 +1,157 @@
+{
+  "host_task": "/root/benchmark_audit_complete",
+  "status": "completed",
+  "scope": "full_report",
+  "input_version": "e6dab9c522bd95cbb6466eccef92143c33d291b91806655c81158321704d7807",
+  "assignment_version": "fb5d4a1e65794c4adc95cd4a898f7445fc94e1c153a6fcc8d78d59a58421042f",
+  "artifact_sha256": "5988ea792c50ec4c20b1124b0d5764fe350f849631d4770528c7cb2a1f38b57f",
+  "started_at": "2026-11-09 16:44:16 UTC",
+  "completed_at": "2026-11-09 16:49:20 UTC",
+  "assignment_path": "reviews/host/e6dab9c522bd95cbb646/jobs/audit-fb5d4a1e65794c4a.json",
+  "actual_reading": [
+    {
+      "path": "reports/current.md",
+      "ranges": [
+        [
+          1,
+          130
+        ],
+        [
+          131,
+          260
+        ],
+        [
+          261,
+          328
+        ],
+        [
+          329,
+          387
+        ]
+      ],
+      "complete": true
+    },
+    {
+      "path": "audit assignment",
+      "sections": [
+        "task",
+        "effective_requirements",
+        "production_history",
+        "allprior_required_findings",
+        "all8rawreviews"
+      ],
+      "instruction_note": "Exactinstructionstring equality verified against previously fully readAIDD current audit."
+    },
+    {
+      "path": "all8currentreviewinput/response/execution",
+      "detail": "Read rawreplies,executioncurrent/priorreadingfields; normalizedinput,response,executionhashesallmatch. Reader/process truncatedfields recovered separately. Baselineevidenceexecution fullyread; baseline domainread_materials/fullreadinglog checked; not claiming truncatedremainder."
+    },
+    {
+      "path": "originalnegative responses",
+      "detail": "5b65d9354d7347ca and8b029338a07d4473 responses fullyread; all3necessaryfindings adjudicated againstcurrentprose."
+    },
+    {
+      "path": "wholeold/currentreportcomparison",
+      "detail": "Only3,380,382,384,386changed; currentequalsfrozenassignment. Existingproduction history includingU2revision retained."
+    },
+    {
+      "path": "analysis/workload_calculations.py",
+      "ranges": "1–100 complete, read only"
+    },
+    {
+      "path": "analysis/calculation-results.json",
+      "sections": [
+        "rates",
+        "support",
+        "documents",
+        "agents selectedtotals",
+        "agentoutput/retry/review",
+        "derived_checks",
+        "google_cache",
+        "threshold",
+        "one-node1mhosting rows atbothqualities/tariffs"
+      ],
+      "detail": "No computation rerun; formula/units/cohort accounting assessed directly."
+    },
+    {
+      "path": "analysis/tokenizer_count.py;analysis/tokenizer-results.json",
+      "detail": "Both complete, no rerun"
+    },
+    {
+      "path": "analysis/TE-U2-three-workloads.md",
+      "ranges": "130–151"
+    },
+    {
+      "path": "sources/TE05.txt",
+      "ranges": "1–105 includingallscenario standard/globalandbatchrows"
+    },
+    {
+      "path": "sources/TE-S21.txt",
+      "ranges": "completeone-line6rowAzureJSON"
+    },
+    {
+      "path": "sources/TE01.txt",
+      "ranges": "203–241"
+    },
+    {
+      "path": "sources/TE-S13.txt",
+      "ranges": "100–170"
+    },
+    {
+      "path": "sources/TE-S03.txt",
+      "ranges": "3019–3087,3236–3302"
+    },
+    {
+      "path": "sources/TE11.txt;TE-S05.txt;TE-S11.txt;TE-S12.txt",
+      "ranges": "TE11:35–80;S05:40–64;S11:48–64;S12:33–37"
+    },
+    {
+      "path": "sources/TE07.txt;TE08.txt;TE09.txt",
+      "ranges": "TE07:802–815;TE08:1130–1141,1160;TE09:900–913"
+    },
+    {
+      "path": "sources/TE18.txt;TE23.txt;TE-S18.txt;TE20.txt",
+      "ranges": "TE18:1–18;TE23:25–68 plus90–105 visiblepassages;S18:104–130;TE20:47–75 recoveredboundedranges"
+    },
+    {
+      "path": "sources/TE12.txt;TE13.txt;TE24.txt",
+      "ranges": "TE12:265–267,309–310;TE13:179–181,232,253,371;TE24:73–75,174–175; othertruncatedoromittedlines notcounted"
+    },
+    {
+      "path": "sources/TE-S15.txt",
+      "ranges": "68–102"
+    },
+    {
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+      "ranges": "126–141,310–345"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/gpu-accelerated/ncadsh100v5-series",
+      "ranges": "30–79"
+    },
+    {
+      "url": "https://openai.com/index/gpt-4-1/",
+      "ranges": "159–168"
+    },
+    {
+      "url": "https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/",
+      "ranges": "21–24,51–53"
+    },
+    {
+      "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol",
+      "ranges": "992–1025"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/Investor/earnings/FY-2027-Q1/metrics",
+      "ranges": "4–18"
+    }
+  ],
+  "sampling_population": "Complete387-line report; targetedpassed/no-finding samples chosenby auditor acrossworkertransformation,cachetimeline,tokenizerdata,conditionaldenominators,negativecitation andvaluecapture. Criticalcheckscovereveryeffective requirement.",
+  "reading_limits": "Primary-source sections andsavedresults specified, not every pageorallcalculationJSONarrays. Tool outputtruncations were bounded/recovered forconsequentialchecks; unshowncontentnotclaimed. No newmodelperformancemeasurementorquotereplacedhistoricalterms.",
+  "independence": "Different actualcontextfromproducersandall8contentreviewers; noauthoring. EarlierAIDD/MBaudits do not substitute for thisfullreportreading.",
+  "report_edited": false,
+  "state_modified": false,
+  "imported": false,
+  "research_or_calculations_rerun": false,
+  "tests_run": false
+}

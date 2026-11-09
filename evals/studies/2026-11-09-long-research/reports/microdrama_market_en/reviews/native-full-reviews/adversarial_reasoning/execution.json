@@ -1,0 +1,96 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "101c23eadaeb064e98f55350f5f6a053b496692bb0445a1d172727bb0e0f2eca",
+  "assignment_version": "d6d1349eb3cbd3ba7a67e719f90db4dabbc724b2ccfe62cdf428f49df707c03d",
+  "completed_at": "2026-11-09T14:03:41.969886+00:00",
+  "reading_scope": {
+    "task": "完整任务和当前审阅要求。",
+    "report": {
+      "path": "reports/current.md",
+      "lines": [
+        [
+          1,
+          340
+        ]
+      ],
+      "mode": "连续分块完整读取，包含参考文献与表格；第 191–250 行一次命令未执行，随后成功重读，未把空输出计为阅读。"
+    },
+    "originals": [
+      {
+        "path": "sources/actual/CP20.txt",
+        "lines": [
+          [
+            13,
+            37
+          ],
+          [
+            50,
+            86
+          ],
+          [
+            88,
+            96
+          ],
+          [
+            98,
+            106
+          ]
+        ],
+        "scope": "已输出的相关原文段落，核对官方业绩中的短剧供给和营销投放机制。"
+      },
+      {
+        "path": "sources/actual/MD006.txt",
+        "lines": [
+          [
+            219,
+            227
+          ],
+          [
+            230,
+            238
+          ],
+          [
+            242,
+            252
+          ],
+          [
+            254,
+            273
+          ],
+          [
+            404,
+            412
+          ]
+        ],
+        "scope": "已输出的商业模式、版权合作、预付回收和窗口规则原文。"
+      },
+      {
+        "path": "sources/actual/CP17.txt",
+        "lines": [
+          [
+            258,
+            293
+          ]
+        ],
+        "scope": "APP/小程序统计门槛和覆盖去重原文。"
+      },
+      {
+        "path": "sources/actual/CP08.txt",
+        "lines": [
+          [
+            2586,
+            2629
+          ]
+        ],
+        "scope": "CNNIC 双抽样框、加权、误差与 CATI 调查方法。"
+      },
+      {
+        "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP24\\time.jpg",
+        "mode": "使用 view_image 实际查看整张图",
+        "scope": "独立应用和两类视频的月人均时长及次数，2025 年 1 月与 2026 年 5 月。"
+      }
+    ],
+    "scope": "仅 adversarial_reasoning；没有用中文稿或其他视角意见作为英文稿证据；未运行新实验，未编辑正文。"
+  }
+}

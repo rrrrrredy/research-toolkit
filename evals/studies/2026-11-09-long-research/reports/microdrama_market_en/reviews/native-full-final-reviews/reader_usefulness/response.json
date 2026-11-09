@@ -1,0 +1,12 @@
+{
+  "input_version": "4916bbf7954376e17453bc78c09a2511b4dcceae7270c4ed378ef2d93eb80e89",
+  "assignment_version": "7169b4b617b30cdcccdd19f9e6e29acc1fcbb62957e33d3de77a992ce8f0036e",
+  "report_verdict": "pass",
+  "coverage": {
+    "reader_usefulness": {
+      "location": "reports/current.md 完整差异：第290、300、302行；相邻上下文第285–307行。复用首次第1–341行完整阅读。",
+      "basis": "本人上一轮已完整阅读341行英文报告；任务和有效要求均未变化。全文件diff只有语法修正duplicate→duplicating，以及把图表已读取、阅读台账等过程陈述改为图表含义和引用定位说明。口径、事实、公式、机制、各参与者选择与条件均未变化；现有完整计算输出也未变化。调整更直接服务读者，保持原先对mini-program、投流、分账、保底和备案的解释及收益风险比较。没有产生新的理解或决策障碍，继续通过。"
+    }
+  },
+  "findings": []
+}

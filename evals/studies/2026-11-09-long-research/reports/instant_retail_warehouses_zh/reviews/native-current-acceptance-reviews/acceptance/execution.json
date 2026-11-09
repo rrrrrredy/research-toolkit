@@ -1,0 +1,29 @@
+{
+  "host_task": "/root/office_final_acceptance",
+  "status": "completed",
+  "input_version": "e80623165cafab4fb0438ddbd29c7f8abed83b8eeda1d1577c6baaa48c0d1b21",
+  "assignment_version": "c8013379c8f91cef6c817d779c333efac038dd0aff9ccf74d0322aac9c357cb5",
+  "artifact_sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed",
+  "started_at": "2026-11-09T17:10:14.3843678Z",
+  "completed_at": "2026-11-09T17:11:53.5203515Z",
+  "assignment": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\instant_retail_warehouses_zh\\reviews\\host\\e80623165cafab4fb043\\jobs\\acceptance-c8013379c8f91cef.json",
+  "independence": "No production, content-review or audit role for this report.",
+  "actual_reading": {
+    "full": [
+      "Actual task, all effective requirements and production history; current report all 372 lines in contiguous bounded chunks",
+      "All eight raw current content replies; complete raw audit and execution",
+      "Original negative adversarial 23f52652ad5d4514, natural 24adae1512884552 and evidence EV-IRWZH-01 replies",
+      "production-handoff.md; earliest full snapshot 94f9c17add1749e8b0aedcad1e247427 to current full diff",
+      "warehouse-model.py all43 lines; financial-bridges.py all15 lines and entire financial-bridges.json; warehouse-results.csv header and all25 scenario rows",
+      "warehouse-results.json complete platform_bridge, network and all6 ramp entries",
+      "IRW15 complete retained original"
+    ],
+    "reuse": "Raw original reviews/audit support unchanged checks outside independent samples; no research/model execution repeated.",
+    "targeted": [
+      "IRW10.txt:1-27",
+      "IRW03.txt:1-40 inclusive preserved original L132-168",
+      "IRW22.txt:1691-1714"
+    ]
+  },
+  "actions": "Only own response/execution written. No report/source/task edits, imports, research reruns, calculations or tests."
+}

@@ -1,0 +1,12 @@
+{
+  "input_version": "35856ace8b32421ec17a16702661ae8452b72df5cc41c988a9beb1d43605ab7c",
+  "assignment_version": "0d4c78267327927bcf6fd0a59a6f43c00781df8ebe96959d1b7e68cf9ac2b556",
+  "report_verdict": "pass",
+  "coverage": {
+    "structure_and_depth": {
+      "basis": "Complete continuous reading in ranges 1-100,101-210,211-354. The brief asks for mechanisms, cross-domain scaling and finite-budget engineering choices. The report connects them through candidate availability versus delivered selection, distinguishing common candidate banks, fixed checkpoints, whole systems and oracle diagnostics (19-29). The method matrix identifies retained state, evaluator access and marginal work; sections 3-7 explain why sampling, repair, process scoring, stopping and environmental feedback succeed or fail, rather than retelling papers without synthesis. Shared misconceptions, selector saturation, reward exploitation, changed checkpoints and unavailable external facts receive causal treatment. The scaling table preserves incompatible metrics instead of inventing a universal axis; coding, math and agent reliability boundaries are integrated in sections 8-9. Cost accounting includes discarded generation, verifier and control work, tools, retries and updates; published normalization remains separate from hypothetical resource/deadline calculations. The worked example connects accuracy, false acceptance, abstention and scheduling to a concrete policy that can leave money unspent. The decision tree and stop cases follow those mechanisms. Relevant originals inspected: TTC013 evaluation/table 3 and correction mechanism; SUP-CM cost table and selection mechanism; TTC008 conditional-independence and uniform-accepted selection premises. These support the distinctions the synthesis relies on. No required structural or depth defect found; this does not certify all source numbers or reproduce any experiment.",
+      "location": "reports/current.md:1-354, all narrative, matrices, worked allocation, decision-tree code and appendices"
+    }
+  },
+  "findings": []
+}

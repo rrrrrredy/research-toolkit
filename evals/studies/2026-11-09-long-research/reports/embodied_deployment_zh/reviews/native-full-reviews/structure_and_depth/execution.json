@@ -1,0 +1,20 @@
+{
+  "host_task": "/root/benchmark_structure",
+  "status": "completed",
+  "completed_at": "2026-11-09T14:20:23.2950301+00:00",
+  "input_version": "03204dc35f0518ade7374a892be2885116d8d964240de93761c7881f4f6d81a5",
+  "assignment_version": "9d64b5a377c1ebf05a8919f176b0027588545a774abeaf18dd1df9bdd0ade0f3",
+  "assignment_ref": "reviews/host/03204dc35f0518ade737/jobs/structure_and_depth-9d64b5a377c1ebf0.json",
+  "reading_scope": {
+    "report": "assignment.report 第1—100、101—200、201—283行连续全文，共20535字符",
+    "not_read": "未读作者自评、production history或其他首次评审；未将来源清单与阅读台账当原文；其他来源未作全读声明",
+    "original_sources": [
+      "sources/actual/ED01.txt Figure 02 BMW生产部署2025-11-19原文全文",
+      "sources/actual/ED17.txt DROID项目页全文，包括Abstract、Updates、平台、实验与量化比较",
+      "sources/actual/ED28.txt Stretch 2025手册PDF第6—8页"
+    ],
+    "task": "assignment.task 全文",
+    "effective_requirements": "assignment.effective_requirements R_TASK、R_LANGUAGE、R_DATE 全文"
+  },
+  "work_performed": "只读评审；未改稿、未导入、未运行软件测试"
+}

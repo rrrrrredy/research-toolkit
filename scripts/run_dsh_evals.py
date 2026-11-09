@@ -22,7 +22,7 @@ from run_evals import create_skeletons, evaluate_case, load_cases, load_sources
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 SKILL_NAME = "research-toolkit"
-DEFAULT_CASE_ID = "source_instruction_boundary_zh"
+DEFAULT_CASE_ID = "microdrama_market_zh"
 DEFAULT_DSH_PACKAGE = "@deepseek-ai/dsh@0.1.2-rc.1"
 SMOKE_MARKER = "DSH_SKILL_SMOKE_OK"
 SKILL_BODY_MARKERS = (

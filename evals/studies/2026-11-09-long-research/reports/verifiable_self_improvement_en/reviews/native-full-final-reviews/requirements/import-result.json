@@ -1,0 +1,86 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\verifiable_self_improvement_en",
+  "input_version": "e2bf5ec236f3fbd7264dd12a2f8a018f9fb206af2f12c460b4608bfeb4086845",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "adversarial_reasoning",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/30a824423d0a7fed47e8.md",
+        "sha256": "30a824423d0a7fed47e816398c1c4ea7c1f75efb6bc8b95464f1d5cb34e38f4d"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/e2bf5ec236f3fbd7264d/jobs/adversarial_reasoning-8ef9bf8ee30e6139.json",
+        "sha256": "1b14a30c30dcf07e299a9fdfd649ece13e3063f5bd301978090bc4ea4884c869"
+      },
+      "assignment_version": "8ef9bf8ee30e613957ca3b7541c00f0f8a0892d1d46202115092504803b41f05",
+      "resume_host_task": "/root/benchmark_adversarial"
+    },
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/ac80a2406e577d281bd3.md",
+        "sha256": "ac80a2406e577d281bd34733c15e9eb5caae2bd13335aad792caab77b5615b09"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/e2bf5ec236f3fbd7264d/jobs/structure_and_depth-1d3a62c77e695cfd.json",
+        "sha256": "8bd1cdd4497ad763d8e2b1fdf1fe04289328b42bd03bf1c05788435a4cfc997f"
+      },
+      "assignment_version": "1d3a62c77e695cfd97454f6777862fe110147ad44318778f7de0104c84955d4e",
+      "resume_host_task": "/root/structure_remaining_b"
+    },
+    {
+      "slot_id": "reader_usefulness",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/1b2105943bec735da9b1.md",
+        "sha256": "1b2105943bec735da9b18a66617ea8d873a5cf22fd8280701850454bb824a7e6"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/e2bf5ec236f3fbd7264d/jobs/reader_usefulness-47892fdc7b342e59.json",
+        "sha256": "4dd95221a84659ca3cd649c672ecbd5032a943df59465550f099d066ba185684"
+      },
+      "assignment_version": "47892fdc7b342e59e2d39ebeeb3fcf3df9da57b39deaedd47ac86863293a0199",
+      "resume_host_task": "/root/full_reader_b"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: adversarial_reasoning",
+      "Incomplete independent assignment: structure_and_depth",
+      "Incomplete independent assignment: reader_usefulness",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 5,
+    "selected_attempts": {
+      "natural_expression": "effc4620b95b4110be441431717338a7",
+      "domain-1": "58b3bdb916af42859cce8caccad80ac2",
+      "evidence": "99adca019fab4622a9941c771566d17c",
+      "process_language": "0adfc1f3f10849b083ce8dc692cc261d",
+      "requirements": "8af5956eeb33441395a16574cddd6485"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: adversarial_reasoning",
+    "Incomplete independent assignment: structure_and_depth",
+    "Incomplete independent assignment: reader_usefulness",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

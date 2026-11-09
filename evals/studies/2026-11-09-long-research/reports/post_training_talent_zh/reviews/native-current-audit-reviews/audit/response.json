@@ -1,0 +1,118 @@
+{
+  "input_version": "c3d1f51e296588d9af855032d9fa9c042cf77bec0c21a4aaeb726528f66d8c71",
+  "assignment_version": "67a7fe36503a703a757708847569283a4578357709ac5eb905058eba03ece99c",
+  "result": "valid",
+  "basis": "独立审计通读当前全部 173 行实质正文、原始任务及有效要求、8 份当前原始回复与执行/版本、2 份历史必要负面原件。当前与冻结正文 SHA256 一致，8 组 input/response/execution 引用哈希全部一致。逐项核对 15 人物职业证据与相关成果，并自行选择贡献归因、关系类型、组织沿革和方法到组织建议的通过段落抽查。当前报告可在其明确的公开证据和时期精度内通过；不是用多数意见或作者勾选代替判断。",
+  "review_checks": {
+    "requirements": {
+      "result": "valid",
+      "basis": "/root/complete_requirements_b 独立连续阅读 1–85、86–174 和当前任务，有逐项覆盖说明。全文确有公开人物表、专长矩阵、时间线、带类型和时间的关系表，覆盖所需技术方向与不同地区/组织形式，并保留不可确认的任职与贡献。"
+    },
+    "evidence": {
+      "result": "valid",
+      "basis": "/root/evidence_remaining_b 的当前执行保留本人完整 1–173 阅读、35 处本地原件和 5 处官方/本人网页定位，实际确认仅第 171 行改变。审计独立核对职业页、DPO 贡献、团队署名、日期和技术限定，支持其当前结论。Lewis LinkedIn 正文抓取仍不可用，但搜索返回本人页面职业信息支持有限的“仍列 HF”；正文没有据此声称已核实精确当前职级。"
+    },
+    "adversarial_reasoning": {
+      "result": "valid",
+      "basis": "/root/benchmark_adversarial 原执行完整 1–173，并核对 DPO、Nathan、Miranda、Guangming 原件；当前读完整差异及 1–6、168–173 上下文。身份、贡献、组织时期、排名和招聘推论边界未因修订扩大。"
+    },
+    "structure_and_depth": {
+      "result": "valid",
+      "basis": "/root/independent_reviews_a 原完整结构审阅和当前 16 行差异实际记录连贯。能力接口、方法演化、人物、矩阵、时间线、关系与组织应用形成完整论证；两处文字删除未移走证据或分析。"
+    },
+    "reader_usefulness": {
+      "result": "valid",
+      "basis": "/root/full_reader_b 的原 1–60、61–115、116–174 完整阅读和当前差异检查可追溯。人物条目就近标明材料缺口，四类图谱产物各有用途，建议对应数据、评价、系统和环境依赖，无需读者把旧署名误当现职。"
+    },
+    "process_language": {
+      "result": "valid",
+      "basis": "/root/process_remaining_b 保留原完整阅读及真实 process_language-01，当前实际读取 12 行差异及 168–173。第 171 行已改为客观证据类型与具体缺口，没有保留下载/阅读动作自证。"
+    },
+    "natural_expression": {
+      "result": "valid",
+      "basis": "/root/benchmark_natural_expression 保留首次完整 173 行及 minor 原件，当前实际差异覆盖第 3、171 行。制作状态已删除，人物表必要限制保留；没有为统一措辞删除重要不确定性。"
+    },
+    "domain-1": {
+      "result": "valid",
+      "basis": "/root/independent_domain_b 原完整领域阅读与当前 20 行差异确认可追溯，任务与来源未变。技术机制、个人贡献和团队成果、社区身份和雇佣、计划和既有经历的区别符合本篇原件。"
+    }
+  },
+  "dispositions": {},
+  "critical_checks": [
+    {
+      "requirement_id": "R_TASK",
+      "location": "current.md:9–58,60–139,141–173",
+      "result": "clear",
+      "evidence": "全文覆盖 RL/偏好优化、奖励与评价、数据、推理、Agent、基础设施和环境，纳入产业、大学、开放社区及美欧、东亚、东南亚、中东产物。15 人物条目均有姓名消歧、成果、职业证据、观察日期、时期与具体缺口。DPO 原件 605–611 支持明确个人贡献；Tülu 核心贡献标记、M-RewardBench 等额外共同作者证据没有被升级成全部模块负责人。职业资料与论文单位分开，无法核实现职/起止日的条目明确未知。关系表 125–135 保留共同成果、项目、任职交集、流动的不同证据和时间。组织建议基于能力互补与产物，没有个人动机、薪酬、私人关系、排名或招聘接受率推测。"
+    },
+    {
+      "requirement_id": "R_LANGUAGE",
+      "location": "current.md:1–173",
+      "result": "clear",
+      "evidence": "完整中文长报告，所需人物表、专长—成果矩阵、团队演化时间线和有类型/时间的能力网络均在正文，且解释研发组织的实际用途。本题无需额外计算或系统。"
+    },
+    {
+      "requirement_id": "R_DATE",
+      "location": "current.md:3,54,62,66–80,107–117,132–135,169–171",
+      "result": "clear",
+      "evidence": "截止日 2026-11-09 与页面观察日明确区分。Nathan 本人 2026-06-02 回顾中的 yesterday/last day 支持所述 06-01，HF 2022-05/Ai2 2023-10 为原文；Trillium 10-01 公告未作为合同日期。Miranda CV 为年级区间，Guangming HKU 页为 2026 毕业/首次腾讯且页面 2026-09 更新。SWE-RL 提交历史 PTT-A12:33–38 支持 v1 2025-02-25，未用 HTML 模板日期覆盖。加拿大登记 123–136 是 2025-06-02 法人名称变更；Rio 官方履历是 2024-10 学校沿革背景。后续未公开日期没有填造。"
+    },
+    {
+      "location": "current.md:28–58,88–99,145–163",
+      "result": "clear",
+      "evidence": "原件方法与限定支持能力推论：InstructGPT 人群偏好；DPO 隐式奖励与免在线采样；IPO 成对偏好假设及示例范围；Zephyr helpfulness 而非完整安全；RewardBench 直接评价奖励与 M-RewardBench 23 语言；Tülu 多阶段配方和未覆盖能力；R1-Zero 与 R1 冷启动的区别；HybridFlow 训练/生成重分片；SWE-RL 相似性奖励不等于真实通过；RAGEN 受控环境；K2/K3 集成；Arctic-SWE 模型与系统一致性；SEA-LION、Swallow、Falcon 的地域/效率入口。正文没有从这些团队论文填造个人组件职责或普遍采用收益。"
+    }
+  ],
+  "sample_checks": [
+    {
+      "location": "current.md:30,71–72,88,125,135",
+      "selection_reason": "自行选择已通过的直接个人贡献到专长矩阵/关系边转换，检验是否以作者顺序代替职责或用 2023 署名推定现职。",
+      "result": "clear",
+      "evidence": "PTT02:605–611 明确 RR 推导/理论及基线、EM 首实现/大规模训练评估/人类研究、AS 方法与实验组织。Rafael 旧本人页 4–16 最新新闻至 2022，只用于历史；Eric 本人页正文公开 OpenAI Post-training Frontiers 与已获博士，页头仍写 PhD Candidate。当前表保留冲突、未知加入日和历史 Stanford，关系边只写有证据的职业转换。"
+    },
+    {
+      "location": "current.md:66–67,91,107–114,127,132–133,155,161",
+      "selection_reason": "自行选择人员流动、任职重叠及新机构能力推断，横跨职业回顾、CV、共同成果和组织宣言。",
+      "result": "clear",
+      "evidence": "PTT09:8,18–20,40,43；PTT-A03:5–28；PTT-A02:14–20,41–42；PTT10:3；PTT11:8,23–24,47；PTT05:163–174 交叉支持人物时期与共同核心贡献。约 2023-10 至 2025 某时点的交集保持年/月精度，没有推直属关系。Trillium 的未来开放配方使命没有写成已交付成果，也未断言 Ai2 资源或整队迁移。"
+    },
+    {
+      "location": "current.md:74–80,95–98,111,117,128–139",
+      "selection_reason": "自行选择看似容易补全的关系：未来实习、作者名单、社区身份、首次去向、机构改名以及项目职责。",
+      "result": "clear",
+      "evidence": "Zihan 本人页 PTT24:10–20 为将来 NVIDIA 表述；K2 PTT19:1627 明说字母顺序和已离队标记，K3:2997 有 Longguang；HKU PTT-A04:33 仅首次腾讯去向；Swallow PTT27:63–74 明确 Rio 训练/Sakae 微调与评价；Rio 官方履历 50–58 保留并任和 2024-10 身份变化；Cohere 官方社区页列 Shayekh，ACL PTT32:5–9 区分机构和社区。加拿大登记 PTT31:123–136 是名称沿革。所有这些限制在正文对应条目和关系边仍有效。"
+    },
+    {
+      "location": "current.md:40,50,93,98–99,149",
+      "selection_reason": "自行选择跨地域/语言样本和产物依赖到合作建议的转换，检验全球代表性是否由名单数量替代。",
+      "result": "clear",
+      "evidence": "PTT32:1–52 与 PTT-A11:1–17,45–50 支持 23 语言、翻译质量、多机构/社区共同成果；PTT26:49–59 为区域数据与在线 on-policy 蒸馏；PTT28:21–35 区分持续预训练、SFT、RL；PTT29:101–115 支持混合架构和效率工程。正文只归纳互补入口，不把团队署名转成当前员工或完整人才供给。"
+    },
+    {
+      "location": "current.md:48,54–58,95–97,147,151,157",
+      "selection_reason": "自行选择算法到组织需求的因果推论，涵盖系统论文、受控环境和产业模型，避免借名义 RL 抹平证据等级。",
+      "result": "clear",
+      "evidence": "PTT18:95–103,137–138 说明分布式数据流与重分片；PTT22:66–75 支持参考补丁相似性奖励；PTT23:63–83 说明受控多轮 RL；PTT19:126–144 与 PTT20:180–196 说明集成和持久 rollout/sandbox；PTT25:179–210,231–242 说明奖励、重要性权重、训练推理一致性和跨策略状态共同修正。正文相应建议指向可观察工作接口，没有将环境实验普遍化或给个体分配未披露模块。"
+    },
+    {
+      "location": "current.md:3,169–173；完整首稿到当前差异",
+      "selection_reason": "实际生产修订承接，检查删除过程叙述是否同时丢失重要证据边界。",
+      "result": "clear",
+      "evidence": "独立比较原冻结 17ce6ad5 与当前全部 report 字符串，只有第 3 和 171 行改变；读取完整 16 行结构审阅差异。当前 169 保留五个具体人物材料缺口，171 保留观察日/事件日和无新实验范围。作者交接记录只作导航，不能替代上述原件核对。"
+    }
+  ],
+  "prior_findings": {
+    "9965b0b1635e4d3c9834cb583069f8e0/natural_expression-01": {
+      "decision": "resolved",
+      "reason": "开头的内部首稿/待审状态已删除，研究用途与截止日仍在。",
+      "evidence": "原始 negative response 已完整读；当前第 3 行及首稿→当前全量差异显示“首稿，待其他上下文独立审阅”消失，公开证据、范围及人物限制未删。"
+    },
+    "401a3f9b25ee4bc8bf72d05e680c4082/process_language-01": {
+      "decision": "resolved",
+      "reason": "作者阅读动作、下载路径和内部阅读台账叙述已改成客观来源依据与条目缺口。",
+      "evidence": "原始 negative response 已完整读；当前 171 写论文方法/限制/署名/公开贡献和注明观察日期的职业页面，指向上文具体缺口；169 保留未核实材料，171 后半保留截止日与访问日不等于事件日。"
+    }
+  },
+  "report_verdict": "pass",
+  "open_issues": []
+}

@@ -1,0 +1,11 @@
+{
+  "mandatory_step": "Check evaluator and delivery consistency",
+  "command": [
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+    "scripts/check_evaluator_contract.py"
+  ],
+  "cwd": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109",
+  "exit_code": 1,
+  "started_at_epoch": 1794235577.8211305,
+  "elapsed_seconds": 7.232189416885376
+}

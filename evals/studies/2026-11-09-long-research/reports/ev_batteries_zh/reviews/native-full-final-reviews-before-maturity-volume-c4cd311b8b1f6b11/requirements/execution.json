@@ -1,0 +1,29 @@
+{
+  "host_task": "/root/complete_requirements_b",
+  "status": "completed",
+  "perspective": "requirements",
+  "execution_mode": "native_codex",
+  "started_at": "2026-11-09T23:45:25.6166097+08:00",
+  "completed_at": "2026-11-09T15:46:55.7130116+00:00",
+  "input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+  "assignment_version": "f14a3f05a13fa5799da495f76447747b0278579640af7d71aa2af2e0db63e6d3",
+  "assignment_path": "reviews/host/c4cd311b8b1f6b11a07d/jobs/requirements-f14a3f05a13fa579.json",
+  "assignment_sha256": "67e18abfd168d47febf79340e65b80d00831b0c322eb7f3d18698854f2802954",
+  "report_path": "reports/current.md",
+  "report_sha256": "9b623e2af39fe1b43ef37885baf5b83af9ab9c395bada0905c479116e6ce8aa7",
+  "expected_report_sha256": "9b623e2af39fe1b43ef37885baf5b83af9ab9c395bada0905c479116e6ce8aa7",
+  "reading_intervals": [
+    {
+      "artifact": "actualjob.json task, effective_requirements and complete report",
+      "report_ranges": [
+        "1-72",
+        "73-144"
+      ],
+      "completed_at": "2026-11-09T15:46:55.7130116+00:00",
+      "started_at": "2026-11-09T23:45:25.6166097+08:00",
+      "unread_report_ranges": []
+    }
+  ],
+  "originals_opened": [],
+  "notes": "Independent substantive requirements assessment; did not read original coordinator remarks or current peer output. No report edits, new research, experiments or tests. A completed negative review does not imply the report was repaired."
+}

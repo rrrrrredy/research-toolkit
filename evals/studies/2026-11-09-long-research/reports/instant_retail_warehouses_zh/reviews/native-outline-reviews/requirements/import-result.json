@@ -1,0 +1,45 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\instant_retail_warehouses_zh",
+  "input_version": "c431e1bb532fbc1960709bbe66fd62f10ed2f56c2c11b81117798e93963ced9a",
+  "scope": "outline",
+  "assignments": [
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/712ccc89f262645355ad.md",
+        "sha256": "712ccc89f262645355ad88c40154c5f87fa4f53fa08bc0b0b646e516fc6a9a7f"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/c431e1bb532fbc196070/jobs/structure_and_depth-4bc6dd32730a393f.json",
+        "sha256": "cc6f7c748c7172589fb127748be94454f1a1bd2ba48f56eedee7ca3cfd3feb89"
+      },
+      "assignment_version": "4bc6dd32730a393f1bb0508f29e10967f2feb671d266c0855f2b6cf082deb2cc"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: structure_and_depth"
+    ],
+    "required_slots": 2,
+    "completed_slots": 1,
+    "selected_attempts": {
+      "requirements": "063afb65c1494d17a05362e478c18669"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: structure_and_depth"
+  ]
+}

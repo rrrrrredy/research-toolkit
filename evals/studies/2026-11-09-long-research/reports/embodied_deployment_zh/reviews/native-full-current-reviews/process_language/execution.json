@@ -1,0 +1,28 @@
+{
+  "host_task": "/root/process_remaining_b",
+  "status": "completed",
+  "execution_mode": "native_codex",
+  "started_at": "2026-11-09T22:59:13.1073713+08:00",
+  "completed_at": "2026-11-09T15:07:16.8554046+00:00",
+  "input_version": "bfaf0a302d2abff490f9591d9eb58c381fabd2f85474084af07315f1233e9297",
+  "assignment_version": "e8fab263ff157875064667b3c113975558ca694878717e0ee1f132588d49d9a0",
+  "report_sha256": "3c1900a851b26f0531301d1480c8b8f67657f8d1e6056580af52f9a3af2ed30f",
+  "job_sha256": "ef6b9867d5d848c49da417fbc27efcc2950e09b2f52e6678c8fc28bbc2bd6483",
+  "report_path": "reports/current.md",
+  "frozen_report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/embodied_deployment_zh/native-full-current-reviews/process_language/frozen-report.md",
+  "actual_reading_ranges": [
+    [
+      1,
+      100
+    ],
+    [
+      101,
+      200
+    ],
+    [
+      201,
+      282
+    ]
+  ],
+  "reading_notes": "连续三段通读1–282行与原始任务；仅process_language判断，无新实验或源数据复核。"
+}

@@ -1,0 +1,69 @@
+{
+  "request": {
+    "task": "embodied_deployment_zh",
+    "artifact": "reports/current.md",
+    "scope": "full_report",
+    "purpose": "report_delivery",
+    "domains": [
+      "Robotics deployment, safety, operational metrics and unit economics"
+    ],
+    "evidence_paths": [
+      "notes/author-reading-ledger.json",
+      "analysis/author-production/production-handoff.md"
+    ],
+    "revision": true
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh",
+    "input_version": "bfaf0a302d2abff490f9591d9eb58c381fabd2f85474084af07315f1233e9297",
+    "scope": "full_report",
+    "assignments": [
+      {
+        "slot_id": "acceptance",
+        "role": "acceptance",
+        "reading_ref": {
+          "path": "logs/reading/9cbfc7255b2db7395d7d.md",
+          "sha256": "9cbfc7255b2db7395d7de75e61624f78052e6ee8016f9cf7e61e1b47181ab4d1"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/bfaf0a302d2abff490f9/jobs/acceptance-f389554718cd11b8.json",
+          "sha256": "018caed777b39274c660ee4ab4a2ee19ce6b1ad70311d4d0ee1a72f054fc473c"
+        },
+        "assignment_version": "f389554718cd11b88ded94041033f1f8178357244ee24c3164f64fa97125fb2a"
+      }
+    ],
+    "reviews_complete": true,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Incomplete independent assignment: acceptance"
+      ],
+      "required_slots": 10,
+      "completed_slots": 9,
+      "selected_attempts": {
+        "process_language": "403817fe062e41cdaa8c18368975f7d4",
+        "natural_expression": "17a9494996aa4ec09ea8239110aa16eb",
+        "domain-1": "585ca00e410f407ea40ae395c16275b0",
+        "evidence": "752df181d10a47279915cab703367cb5",
+        "requirements": "906831a1e15d4b0aa4f609d0bb56dbbe",
+        "adversarial_reasoning": "f83e0e24b3334b6a8bfb6dc8a00320c8",
+        "reader_usefulness": "c501e00f066449faa3a108db36636e3f",
+        "structure_and_depth": "724c4f08898f4e4da3efaa3b167af671",
+        "audit": "1d37dda1a009407caeb624b857f08679"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Incomplete independent assignment: acceptance"
+    ]
+  }
+}

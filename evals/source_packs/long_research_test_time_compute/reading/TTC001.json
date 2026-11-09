@@ -1,0 +1,14 @@
+{
+  "source_id": "TTC001",
+  "url": "https://arxiv.org/html/2408.03314v1",
+  "title": "Scaling LLM Test-Time Compute Optimally can be More Effective than Scaling Model Parameters",
+  "reading_location": "§§3–6; setup, difficulty and cost definitions, search/revision results; §5.3 descriptions of Appendix M examples",
+  "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+  "version_model_evaluation": "PaLM 2-S*; MATH 12k/500 split; v1; no software commit pinned",
+  "observation": "Difficulty-conditioned gains, PRM reward-to-go semantics, search overoptimization; difficulty inference omitted from cost",
+  "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC001\\original.txt",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC001\\original.html",
+  "text_sha256": "13126da4ded998b96e366b44a00c74bb97ad5e8cfb4754931491cc1f2b3156e3",
+  "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC001\\retrieval.json",
+  "reader": "/root/ttc_research"
+}

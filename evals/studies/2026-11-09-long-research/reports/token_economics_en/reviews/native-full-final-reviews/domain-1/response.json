@@ -1,0 +1,12 @@
+{
+  "input_version": "e6dab9c522bd95cbb6466eccef92143c33d291b91806655c81158321704d7807",
+  "assignment_version": "ba8a33a607a9f3a1a7f2fd434aa87c8428ba34348ff740a4c6746d29711cc64b",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "Current full report; changed opening and appendix lines 378–386",
+      "basis": "本次为原真实领域上下文对当前完整稿的修订确认；先前完整阅读保留，实际变更按直接全文diff判断，未以历史通过自动替代当前判断。已直接比较本人已审e971ccb9冻结全文与当前稿，读完全部27行diff及相邻语境。变化仅移除开头生产身份/待审状态、附录阅读操作记录并修复空格；历史价格来源、R1重定向不能证明历史价、Claude商业SKU与权重版本区别、Azure整节点报价、独立容量假设及accepted-task分母均保留。三工作负载、缓存/重试路径、托管阈值、数表和公式正文逐字未改，task/effective requirements/scope/source_files相同。复用本人完整387行与原价目/计算的既有实质核查；未出现新经济口径或条件遗漏，当前领域通过。"
+    }
+  },
+  "findings": []
+}

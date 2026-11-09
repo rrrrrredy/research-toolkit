@@ -1,0 +1,2 @@
+Eval source integrity failures:
+- public/MD003/sha256: mismatch for evidence_path='evals/runs/2026-11-09-necessary-cli/original.html': recorded '7fc19533e15e82885bd2de31da77b96bc93695cc35f605f1a97aca470f95b625', computed 2102252e728fcecbbd3dbdd0cf3a8d16a76049f01a65f9ab9cfa12821192a7f6; restore the reviewed original or independently review the replacement and recompute sha256 with check_delivery.sha256_file

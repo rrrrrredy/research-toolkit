@@ -6,9 +6,9 @@ Use the existing task when new material, changed instructions, a comparison or a
 
 ## Project entry
 
-Resume from the original request and currently effective requirements, current outline and report, relevant sources, complete research contributions and unfinished work. Recover this material from existing agent tool conversations and files in Skill-only use, or through the managed task's `status` output. Do not rely on a completion summary as evidence that the report meets the request.
+Resume from the original request and currently effective requirements, current outline and report, relevant sources, complete research contributions and unfinished work. Recover this material from existing agent tool conversations and files in Skill-only use, or through the managed task's `status` output. Use the completion summary to locate the current passages, then check the actual content against effective requirements.
 
-New instructions replace conflicting old instructions; uncancelled goals remain effective. A requirement marked satisfied still constrains subsequent analysis and editing. An approved scope change preserves the actual user decision. Accepting feedback does not prove that the report has been corrected.
+New instructions replace conflicting old instructions; uncancelled goals remain effective. A requirement marked satisfied still constrains subsequent analysis and editing. An approved scope change preserves the actual user decision. For accepted corrections, inspect the changed passages and complete the applicable independent recheck.
 
 When a requirement explicitly applies only to named research units, retain that assignment in its optional `unit_ids`; omitted or empty means global. All effective requirements stay readable. A unit's input binding includes global requirements and those assigned to it or its actual upstream units, so a local change does not invalidate unrelated branches. Do not infer applicability from wording, the assigned agent, or which requirements happen to be selected for reading.
 

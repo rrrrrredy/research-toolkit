@@ -1,0 +1,30 @@
+{
+  "host_task": "/root/benchmark_structure",
+  "status": "completed",
+  "completed_at": "2026-11-09T16:11:15.4552358+00:00",
+  "input_version": "f6bb51c4fdab26cede56b083db7acbe727f8d84add9ff64682cf380aa9ff37cb",
+  "assignment_version": "866f99fb24b0dbff55e92d79412dd71503a1082439a81e3f4c43ac0eec269ef8",
+  "assignment_ref": "reviews/host/f6bb51c4fdab26cede56/jobs/structure_and_depth-866f99fb24b0dbff.json",
+  "assessment_mode": "原独立上下文接续；完整冻结稿实际阅读加全部变更及受影响上下文，复用未变阅读",
+  "prior_review": {
+    "full_report_lines": "1—513",
+    "assignment_version": "9be4368d927c59ec18c2e84bbd14c193a20a1f479ff4a84d6097ccfb794446a2",
+    "input_version": "98b93c531b8061c68cfa3c93abb7469a9e3b577b6ad2775430396fc04ba37c51",
+    "execution_path": "native-full-reviews/structure_and_depth/execution.json",
+    "response_path": "native-full-reviews/structure_and_depth/response.json"
+  },
+  "reading_scope": {
+    "current_report_chars": 36478,
+    "not_read": "未读取其他角色评审、作者自评或其结论；来源目录和台账不算原文阅读",
+    "requirements": "任务与effective_requirements已与本人原完整阅读版本逐字比较一致，未增加要求",
+    "source_change_check": "assignment.sources中sources/原件条目与原阅读输入内容逐项比较，无变更",
+    "affected_context": "当前第1—49行的diff上下文，第51—94行需求机制及第491—504行最终选择条件",
+    "original_sources": [
+      "新增核对 sources/MD006/original.txt 北大报告PDF第3页全文；复用此前实际阅读的相关原件"
+    ],
+    "current_report_lines": 513,
+    "report_changes": "全部2处文本变更：开篇第6行、市场估计表第40行；连同每处上下文完整阅读"
+  },
+  "resolved_findings": [],
+  "work_performed": "只读核对；仅保存本视角结果。未改稿，未重跑研究、计算或软件测试，未导入。"
+}

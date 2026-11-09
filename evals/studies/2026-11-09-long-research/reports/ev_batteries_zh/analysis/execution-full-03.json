@@ -1,0 +1,936 @@
+{
+  "status": "completed",
+  "kind": "author_revision_not_independent_review",
+  "host_task": "/root/remaining_research_inputs",
+  "completed_at": "2026-11-09T16:02:13.265309+00:00",
+  "findings": [
+    "REQ-EV-01",
+    "REQ-EV-02"
+  ],
+  "previous_input_version": "c4cd311b8b1f6b11a07d085523c171684734be402e7c2f68215c0de4b319d20c",
+  "new_input_version": "4cff15db175e29647e450e061f3030d1bbe0d27b5e4dcfea015a7bd2d966c0c3",
+  "revision_sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+  "current_file_sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+  "new_calculation_sha256": "a21818112dbbdb48958214f964cc44de4265512c64d23bdb69f0bab8893f6933",
+  "source_original_sha256": {
+    "EVB25": "fcad5dab704862b0cfde16a10dfd8a8f783c5bb766b5894966f14fa82ed1c0cb",
+    "EVB26": "07bfe8d532f8912fea32c8241cafd25c0bb28948e7903d5dfe23161177073e4e",
+    "EVB27": "f602c7c4fe53dcd6ed99facbe00e0d751038a130bc86644ce9a5b20b2d348ab5"
+  },
+  "new_sources": [
+    "EVB25",
+    "EVB26",
+    "EVB27"
+  ],
+  "new_calculation": "volume-scenario-full-03.json",
+  "new_claim_ids": [
+    "EV-F03-01",
+    "EV-F03-02",
+    "EV-F03-03",
+    "EV-F03-04"
+  ],
+  "selected_inputs": {
+    "state/task_spec.md": "04f0b96b65520bebff361f09ca7166dd8d20f8253ab8c5da6483f3a990107dcc",
+    "notes/actual-reading/EVB02.json": "a5c1a5f44563e77e30382ca2f66f297ab924ceb2a168b8ab717d1d6202ad0052",
+    "sources/actual/EVB02.txt": "037b979d8160422f9f1d8d73509f4ededfabfa32ff7e15fe0db439e0fe16c3b6",
+    "notes/actual-reading/EVB03-R.json": "e1d7b04643ec55f65df6ec13eeae8cdb3cc137e70191f5147e9091efab3275ac",
+    "sources/actual/EVB03-R.txt": "259169d5aaddbb24e7012473da7c4f8d06b45875ea42d00da3eafc7f0f516d56",
+    "notes/actual-reading/EVB06.json": "f426d705d86c92ca612a37e5b00c4763a8390b498d043185428a50794fb8fe1f",
+    "sources/actual/EVB06.txt": "d8aa434d5718e13ef0d34b204c0d00796639d1409d40b970112c7f5c862fb347",
+    "notes/actual-reading/EVB07.json": "9a682fd2dc20bcf12604a72936a4cfaa03f79e06b20be753cbf8a1011072872c",
+    "sources/actual/EVB07.txt": "f03bbd37ec1ede3b001cb248b3a0be4390dd2508343a771ee13521d7cd9d3dbe",
+    "notes/actual-reading/EVB08.json": "fa1a02a3fef2f7cfc8f196e6842d7c80beda281c85098699e83c6bbd1da56337",
+    "sources/actual/EVB08.txt": "c309d0135c9cdb9d6e5c177f88a5cbda07f9595136865fef0c25d15708321038",
+    "notes/actual-reading/EVB09.json": "6dc551bcb3911dbf7a00e02ecad9ae24c47e20678d042a05ebbec7c7ded6fbb5",
+    "sources/actual/EVB09.txt": "45a462656a299894b7dcd3f2b22dee4bd8ee5a0a195f82ec4421b7f5f920fad6",
+    "notes/actual-reading/EVB10.json": "fcecffe8188791ac16fa97fcb4fee1190c23cb990ffb9a8744128b93f2a3821e",
+    "sources/actual/EVB10.txt": "da4f69e11d1642bb3211e1f873619561e16407c708124a4915eb06bec7fb2636",
+    "notes/actual-reading/EVB11.json": "fc365325bade772acf608fb4d48e18ef5b868524ecc6de6078a373c1b9e26dec",
+    "sources/actual/EVB11.txt": "cc3d08b39f9eeb8124179625f869a7bfc3fbb84748b206060a91e28e77017103",
+    "notes/actual-reading/EVB12-R.json": "8055b6f7d3434ed6b997acb6a034254f31294267ed0c9a88fa6abf7b85113407",
+    "sources/actual/EVB12-R.txt": "92677af9308fee454551711885dfa79c9d35f949de13a1859e3e5bb78fd266aa",
+    "notes/actual-reading/EVB13.json": "f9b8d09571b7f44578a71d8905f534f03135de1e671823b74c4ff14aa1b31637",
+    "sources/actual/EVB13.txt": "d2d3b117106e7dd1e4dc257f8be3d7e319fd90258bdfd6b9708b4d5d662f2968",
+    "notes/actual-reading/EVB14.json": "fd062e9174136b3869137e2799cf0e86e94c4e199e1f3c3cf09ca3244e347701",
+    "sources/actual/EVB14.txt": "d7640b6643b9a97d8f6d1c5be0206cc0a07765f41cf3f8950b17b625ddd14add",
+    "notes/actual-reading/EVB15.json": "f197e615beb726533be296575bdd3f55a9b5c32ddbcf21a0c5d75ae078d168ef",
+    "sources/actual/EVB15.txt": "5beb203df752018ab96c0e0ae5f8b0c535e082877c94885c97dde27f93fe9ade",
+    "notes/actual-reading/EVB16-R.json": "d4dd41838db432a6d9cdf92f91ea1efd20df0f10006a5b070dec6e78e7f2594f",
+    "sources/actual/EVB16-R.txt": "393ecfa0d95c4f36d92c6ae94ea40fda3991153d377165bb1ff341a074f0c8ef",
+    "notes/actual-reading/EVB17.json": "c3abf51f6c62f375a61032dcfa9a2c0b128a436ee6ef1f811ce128768f172284",
+    "sources/actual/EVB17.txt": "72b2d45c9dc2a07d7241dc069b6c8e87236e6dceeecfaa22568b5b0c5c28493c",
+    "notes/actual-reading/EVB18.json": "53c88dc7701d4d45338b03188af786e1a847908fa6c5eaa936fb97372ba8b2f1",
+    "sources/actual/EVB18.txt": "88dd364752f50a577386109d66a6f483a98c8d998d4734ca747639bd5205a26d",
+    "notes/actual-reading/EVB19-R.json": "4d7391cf191b0f1878c0419a7a65ef8b7e40bae2022f0ecd2495a7675940c3c6",
+    "sources/actual/EVB19-R.txt": "5754dc5e44633d1a8c29672f3e811e2f8af17d5221a2715b7fd115712c615006",
+    "notes/actual-reading/EVB20.json": "11ee2f04e08b4aaa8bf8b8dd48ad3e07ebc31123deaab4919a174c2f2c5e645a",
+    "sources/actual/EVB20.txt": "5624d7c4c2ec1e688f7f2f4175788180e9c8e2ec4f2df6aa1329e42a57de2ff5",
+    "notes/actual-reading/EVB21.json": "e4df96abfdf15affde74ce6c97bf6c742165481faf2c7d7f5ec0b922270f5428",
+    "sources/actual/EVB21.txt": "1bb10d8ac55f2cfa112067cd6a916cf57d1a9bd43f5a21b04e03e46e8baf824f",
+    "notes/actual-reading/EVB22.json": "853a9ba8fb7162f1808cbf2f65d2e246b026e8e5c189a19f085c6b10ff684f90",
+    "sources/actual/EVB22.txt": "3886e4a30ed8abdbe7247588e4c2dd0ca46ffbcdd6d5fbf7cf4863efbefc55e3",
+    "notes/actual-reading/EVB23.json": "aeeac7a91772a327a9d54637e276e8211cd6d48fb8b39e5a8ef91a90fa843f67",
+    "sources/actual/EVB23.txt": "b13362bafb81c5813a810faf4505a643eb824cacf273690c10c3bb56a827593e",
+    "analysis/calculations/calculations.json": "6f1b62c66fb55a4d0fb0b833bdc0544e8600d96140a37c223364a70a99b9b46d",
+    "notes/actual-reading/EVB25.json": "3d8822c261e0f91c21714b8eed62ab64fbaf942f4ffefbfedced09b11adc84e8",
+    "notes/actual-reading/EVB26.json": "47f1c5ab9a3e58465af5d19fa13ca242f6dc453b58cf7ddad3cbaaf35fc396c2",
+    "notes/actual-reading/EVB27.json": "b8c626bb73400761fce057f151d0e772256fa62e8018890205e31a2c3ec2e94d",
+    "analysis/calculations/volume-scenario-full-03.json": "a21818112dbbdb48958214f964cc44de4265512c64d23bdb69f0bab8893f6933",
+    "analysis/outline.md": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00",
+    "analysis/calculations/calculate_scenarios.py": "be50923c0b4a87a7b710e10da913ca05fc1eb0ed76d927ac2c9cc0299bb2b1b7",
+    "sources/actual/EVB25/delivery-poster.jpg": "83566a0fe4116a26cad7c1c468c6f9433b8caa2a4720ed2832911ca4cf242a77",
+    "sources/actual/EVB26/original.pdf": "07bfe8d532f8912fea32c8241cafd25c0bb28948e7903d5dfe23161177073e4e",
+    "sources/actual/EVB27/original.pdf": "f602c7c4fe53dcd6ed99facbe00e0d751038a130bc86644ce9a5b20b2d348ab5",
+    "analysis/calculations/calculate_volume_full_03.py": "a2d017b32a4aa0a542363a4be845f52f053c712d2419a16d3abf16604191fc3e",
+    "record:requirements:effective@outline,report": "40ad7819f5296ee0c6ad144010a48809a08390b939369e17bd127c33268ef322",
+    "record:sources:EVB02": "2cc28a6a276d4c00961fa535a01dc860f84669c341362e1215ec95d7066572ef",
+    "record:sources:EVB03-R": "180844c6daa6c295a253bf9ddc27b56c9e31c345bff0fd56aa39b4b286fa5b49",
+    "record:sources:EVB06": "e502170355432fabe4c17f8baf182283a46bd57d77278eb751dba8dced97a288",
+    "record:sources:EVB07": "2dc0167a6e7093b6dabbd681e812ffe7e62be70696da80c99b63dbdb39f2a974",
+    "record:sources:EVB08": "5a858cf9da07bb2b2fa3fa571f4ebb43f7df994ae1149e4d979f67baedef380c",
+    "record:sources:EVB09": "7f98cd794d960826f7780cbf7811abab646be84785fa61ce462ea4ff1b2af878",
+    "record:sources:EVB10": "6b43fbdba480da7aaf266b06a448cd8c49ddf108ed1748b721a2ab2297f42c7b",
+    "record:sources:EVB11": "a9042ddae785586e90045757f12335daac9b60c066c26707575eae3752ac7716",
+    "record:sources:EVB12-R": "49c7d357d50ff10fc6843ed32ecaf30f62648eb109a3c878382f1c68149cdc6b",
+    "record:sources:EVB13": "8269b07c1866144080cd8401bc474a3dc585d534c4b73c7024c2e472aee93942",
+    "record:sources:EVB14": "065a66b7f0a09ddea83df505bf3c63bc5ad7eb56a89ef745b8d4bdae710531a0",
+    "record:sources:EVB15": "95e3d52de23fd10a4abe119d8ef4e49ea251f729c0a619ebfdcf02d9e9199203",
+    "record:sources:EVB16-R": "7dc420c0355b1664d426179150de99375edb8f78f6100a942a78c50ed05e86d3",
+    "record:sources:EVB17": "0cc3bf6c6467ed3de83c08cd3ef12832db5be8fefc38d8830f9b60b0dba91abf",
+    "record:sources:EVB18": "fc238f08bd258cb2ac292b9d32f35cc4177bf162de3d35e7a02f91dac1ab9ae4",
+    "record:sources:EVB19-R": "ff56aaf7bcf1b7f19f8644f44dcb7f12c8d9aca274bd9880c39feeea1eb5b64b",
+    "record:sources:EVB20": "5d6c47f48bfb5acc3a2834dab22f301c67fd408301fcf9e834f4501e158dc437",
+    "record:sources:EVB21": "7725c5ed93bf620282e97902d2b89fef0925b4ee46c103bbfdd90b4620dfce4d",
+    "record:sources:EVB22": "95899c0e16675984ae13f0eba15bcdd8b37b199b9bbe2b544c50de7065da1a12",
+    "record:sources:EVB23": "6477e540b558e244184b6f00898aeee2acb2a55a0007e69382dba1859321e4c0",
+    "record:sources:calculations.json": "20b0e3133e695b91039d6f5c1efce8afaeffecea65175b7ee6587ab437397363",
+    "record:sources:EVB25": "8a16dd344035b3171356d85b8ba4d312cb1ae47811a3e0e546a8f9586a613b8e",
+    "record:sources:EVB26": "57357fa57b315d082cb9dc77386aa5d7da8cbb588bee99b6d0becb9ad9b9d3d8",
+    "record:sources:EVB27": "493a752ac3808f6c820087b6112e4b10c371aec67454ea014bfc8e82ae89ea9b",
+    "record:sources:volume-scenario-full-03.json": "df14eefaade812647a99248bc7bb4bdb3b3d869cea2f5cae091db7d831f03f71",
+    "record:claims:ev_batteries_zh-01": "75c1053bf8e3c112549a831a58b751c6221f60a701acdd83a6add1219cf8dbdc",
+    "record:claims:ev_batteries_zh-02": "08f6328bbb66d4137c2696b19c6c5524a53ef12fbf82fb9ee84a2924d85ae1ec",
+    "record:claims:ev_batteries_zh-03": "fae4aca0f2664b97e7c5a7366b2590b5122feb2294a665cf3a9682190f36eb73",
+    "record:claims:ev_batteries_zh-04": "15b80e5e65f2f6defd13efb68ecbdd900df6d678f2cd8a7581e222160ed69fff",
+    "record:claims:ev_batteries_zh-05": "c287620b1fc36f903e5cc29346846b11cf2014baf2215226bc55aae137d8df26",
+    "record:claims:ev_batteries_zh-06": "41194c60733d2c1ebb361a7eddeae541f08723bdc1494ebed246c9392b3f1e9d",
+    "record:claims:ev_batteries_zh-07": "b522230029047bbf7b23b980b14251337ff5f6fb205fcf588fc12ff6a8346420",
+    "record:claims:ev_batteries_zh-08": "fdc1c031011a02cb89a601f494ad4969e7b2b3d7c2c6d917f483709d4bff7fdc",
+    "record:claims:ev_batteries_zh-09": "b3a8da1d83aa4c264c8d3dbdc1ae1c2b06574254757a21010dd5db137a92f032",
+    "record:claims:ev_batteries_zh-10": "c5402943ba6c9d204767545f5226590232943b73d21eca81382fdba561d13eb7",
+    "record:claims:ev_batteries_zh-11": "5af9f189f6f52929132af8654a7e5c2f2cf7f79ea81365ee546fff95332b7244",
+    "record:claims:ev_batteries_zh-12": "82e8ddb3e6eb88a921eb98cb7f81090c71c258a1120b8e72fbf7a949e4d948c0",
+    "record:claims:ev_batteries_zh-13": "6bec5d56736999ebbe5c0e83fe26edaffdf857bed3d15b7dd4c44d151b69a4e4",
+    "record:claims:ev_batteries_zh-14": "a16c103e5cec1359e8429e150bddd6541f11bcb7f48224643211384eddff88e9",
+    "record:claims:ev_batteries_zh-15": "aa2389610b9905f07dd6e8ab1126bdfa46ac909f55f5f06532723094f0a96fd2",
+    "record:claims:ev_batteries_zh-16": "7bb59a293d30903cb68e4655dc49fc34f2798931732ec76d531836885c435b13",
+    "record:claims:ev_batteries_zh-17": "91008f2c904d2a16ef5602357115220aa821c1d8b1c9fead504282a839e5b86a",
+    "record:claims:ev_batteries_zh-18": "05a2230ba415e7de16bd53124ca0173286ef9dc8fb6739100e561c4cf95fd144",
+    "record:claims:ev_batteries_zh-19": "0f7d79516f612893c26fca10ec40093d55a40f88452f444012d73a3c68bd863d",
+    "record:claims:ev_batteries_zh-20": "77e4a1ed0f51ba331daadad99511c7a3b0e3d5e4bbe795166b2886e1c5e35e01",
+    "record:claims:ev_batteries_zh-21": "de5d739d413347732fdc72eecc1f93fe08702f1a8c4fdeee5c8cc66c442b2168",
+    "record:claims:ev_batteries_zh-22": "b55236b66e32316834d11804d21edc60d6dc639f87488d9735325467f61c05a1",
+    "record:claims:ev_batteries_zh-23": "312ab4f45e70f013a243d9505f42928da18714b4406141433e475e4379824cb4",
+    "record:claims:EV-F03-01": "1402e228d6262cc14fafc392f52a27a36270be3ac6106e86cd6fb12a4d8ef24c",
+    "record:claims:EV-F03-02": "2f7b1e57f9436838f5c77efe5b3d61f4519fdae72437ead84b546634a87f87ee",
+    "record:claims:EV-F03-03": "7faad2700ac346ec82ddc87ab970603e16d824525bf2282aedd77d8c91c7fbef",
+    "record:claims:EV-F03-04": "992f79045426ac9be5b5bdd4e8cc772f1e39f3126b8aeb31df4e6591aa213229"
+  },
+  "originals_preserved": {
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\codex-production\\calculate_scenarios.py": "be50923c0b4a87a7b710e10da913ca05fc1eb0ed76d927ac2c9cc0299bb2b1b7",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\codex-production\\calculations.json": "8397cbc11d7d7b54ce0a5e2eafe63a7e4e44a605011ef63b1af1812c21f90680",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\codex-production\\report.md": "c9c457ab787d4cf0aa1f50cdb8c591e807139deba1b8bc66fca64e39d552ebe2",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\codex-production\\report-v1.md": "c60aa22ebce5280addf6a477f2098c9ba63c21bd14665e9fad07a5943d32b094",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\codex-production\\draft-revision-full-01.md": "9c705aec84e07d63127ec80b28b62aac187f35eee4d67d4c41f6c4fd26895aaa",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\codex-production\\draft-revision-full-02.md": "ec3eb84d18d7cecaaba6ff925e15493c733432bd6768cce605396bd9b17c529c"
+  },
+  "history_directory": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ev_batteries_zh\\native-full-final-reviews-before-maturity-volume-c4cd311b8b1f6b11",
+  "save_result": {
+    "ok": true,
+    "saved_ids": {},
+    "updated_files": [
+      "reports/current.md",
+      "state/progress.json"
+    ],
+    "backups": [
+      "logs/record-backups/74765936983e4bcf93598c1187fce022/reports/current.md",
+      "logs/record-backups/74765936983e4bcf93598c1187fce022/saved/reports/current.md"
+    ],
+    "next_action": "Continue the research; existing draft, review and delivery checks still apply.",
+    "changes": {
+      "available": true,
+      "operation_id": "028d92d20dc24fb798b58a6f516942a6",
+      "saved_at": "2026-11-09T16:01:59.293533+00:00",
+      "records": {
+        "sources": {
+          "added": [
+            "EVB25",
+            "EVB26",
+            "EVB27",
+            "volume-scenario-full-03.json"
+          ],
+          "updated": [],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        },
+        "claims": {
+          "added": [
+            "EV-F03-01",
+            "EV-F03-02",
+            "EV-F03-03",
+            "EV-F03-04"
+          ],
+          "updated": [],
+          "unchanged": [],
+          "removed": [],
+          "recovered": []
+        }
+      },
+      "source_files": {
+        "EVB25": {
+          "status": "first_observation",
+          "paths": [
+            "notes/actual-reading/EVB25.json",
+            "sources/actual/EVB25/delivery-poster.jpg"
+          ],
+          "previous_paths": []
+        },
+        "EVB26": {
+          "status": "first_observation",
+          "paths": [
+            "notes/actual-reading/EVB26.json",
+            "sources/actual/EVB26/original.pdf"
+          ],
+          "previous_paths": []
+        },
+        "EVB27": {
+          "status": "first_observation",
+          "paths": [
+            "notes/actual-reading/EVB27.json",
+            "sources/actual/EVB27/original.pdf"
+          ],
+          "previous_paths": []
+        },
+        "volume-scenario-full-03.json": {
+          "status": "first_observation",
+          "paths": [
+            "analysis/calculations/calculate_volume_full_03.py",
+            "analysis/calculations/volume-scenario-full-03.json"
+          ],
+          "previous_paths": []
+        }
+      },
+      "artifact": "reports/current.md",
+      "affected_claims": [
+        {
+          "claim_id": "EV-F03-01",
+          "claim": "刀片年报确认为LFP，2020年7月起车型应用，2024年公司刀片装机近200GWh，并列海豹CTB应用。",
+          "changed_source_ids": [
+            "EVB26"
+          ],
+          "locations": [
+            {
+              "line": 123,
+              "heading": "七、量产证据链：公告中已经发生了哪一步",
+              "matched_by": [
+                "source_link:EVB26"
+              ],
+              "text": "成熟路线已有可定位的实际应用链。比亚迪2024年年报第22页将刀片电池定义为磷酸铁锂电池，第27—28页记录其自2020年7月起逐步应用于比亚迪、腾势、方程豹和仰望的纯电及插混车型，并披露2024年刀片电池装机量近200 GWh；同页还列出海豹的CTB装车应用。这是公司对已经发生的年度装机和车型应用的披露，证据强于计划产能，不能换算成某一款包的产量、外售量、良率或采购价，也不能拿2024年数量证明2026年第二代刀片已经同规模供货。[比亚迪2024年年报，第22、27—28页（PDF第23、28—29页）](https://static.cninfo.com.cn/finalpage/2025-03-24/1222882857.PDF)",
+              "context": {
+                "start_line": 123,
+                "end_line": 125,
+                "text": "成熟路线已有可定位的实际应用链。比亚迪2024年年报第22页将刀片电池定义为磷酸铁锂电池，第27—28页记录其自2020年7月起逐步应用于比亚迪、腾势、方程豹和仰望的纯电及插混车型，并披露2024年刀片电池装机量近200 GWh；同页还列出海豹的CTB装车应用。这是公司对已经发生的年度装机和车型应用的披露，证据强于计划产能，不能换算成某一款包的产量、外售量、良率或采购价，也不能拿2024年数量证明2026年第二代刀片已经同规模供货。[比亚迪2024年年报，第22、27—28页（PDF第23、28—29页）](https://static.cninfo.com.cn/finalpage/2025-03-24/1222882857.PDF)\n\n成熟三元的具名参照采用麒麟的NCM商业版本。CATL的2023年4月17日官方公告及海报明确“极氪009 ME版正式交付”，使麒麟从2022年的发布计划推进到具名车型交付；海报本身没有说明电芯化学。2025年5月招股书第177页将乘用车麒麟作为NCM产品介绍，第184页进一步说明CTP 3.0可集成高镍三元或其他化学体系，已有长续航、高功率、快充等版本；第258页在回顾2022—2024年经营时明确提到麒麟、神行的规模化商业应用。因此可以把麒麟的NCM版本作为已商业化系列比较，并把极氪009 ME交付作为该系列的具名整车事件；不能把所有麒麟车型归为同一化学配方，也不能将2025年的最高快充指标倒赋给2023年交付车。现有材料尚未拆出各版本的年度装机量和当前供应合同。[CATL正式交付公告及海报](https://www.catl.com/news/7136.html)、[CATL 2025年招股书，第177、184、258页（PDF第187、194、268页）](https://www.catl.com/en/uploads/1/file/public/202505/20250512071033_9of2dqw816.pdf)"
+              }
+            }
+          ],
+          "location_status": "matched"
+        },
+        {
+          "claim_id": "EV-F03-02",
+          "claim": "CATL官方2023-04-17海报确认极氪009 ME版正式交付。",
+          "changed_source_ids": [
+            "EVB25"
+          ],
+          "locations": [
+            {
+              "line": 125,
+              "heading": "七、量产证据链：公告中已经发生了哪一步",
+              "matched_by": [
+                "source_link:EVB25"
+              ],
+              "text": "成熟三元的具名参照采用麒麟的NCM商业版本。CATL的2023年4月17日官方公告及海报明确“极氪009 ME版正式交付”，使麒麟从2022年的发布计划推进到具名车型交付；海报本身没有说明电芯化学。2025年5月招股书第177页将乘用车麒麟作为NCM产品介绍，第184页进一步说明CTP 3.0可集成高镍三元或其他化学体系，已有长续航、高功率、快充等版本；第258页在回顾2022—2024年经营时明确提到麒麟、神行的规模化商业应用。因此可以把麒麟的NCM版本作为已商业化系列比较，并把极氪009 ME交付作为该系列的具名整车事件；不能把所有麒麟车型归为同一化学配方，也不能将2025年的最高快充指标倒赋给2023年交付车。现有材料尚未拆出各版本的年度装机量和当前供应合同。[CATL正式交付公告及海报](https://www.catl.com/news/7136.html)、[CATL 2025年招股书，第177、184、258页（PDF第187、194、268页）](https://www.catl.com/en/uploads/1/file/public/202505/20250512071033_9of2dqw816.pdf)",
+              "context": {
+                "start_line": 123,
+                "end_line": 137,
+                "text": "成熟路线已有可定位的实际应用链。比亚迪2024年年报第22页将刀片电池定义为磷酸铁锂电池，第27—28页记录其自2020年7月起逐步应用于比亚迪、腾势、方程豹和仰望的纯电及插混车型，并披露2024年刀片电池装机量近200 GWh；同页还列出海豹的CTB装车应用。这是公司对已经发生的年度装机和车型应用的披露，证据强于计划产能，不能换算成某一款包的产量、外售量、良率或采购价，也不能拿2024年数量证明2026年第二代刀片已经同规模供货。[比亚迪2024年年报，第22、27—28页（PDF第23、28—29页）](https://static.cninfo.com.cn/finalpage/2025-03-24/1222882857.PDF)\n\n成熟三元的具名参照采用麒麟的NCM商业版本。CATL的2023年4月17日官方公告及海报明确“极氪009 ME版正式交付”，使麒麟从2022年的发布计划推进到具名车型交付；海报本身没有说明电芯化学。2025年5月招股书第177页将乘用车麒麟作为NCM产品介绍，第184页进一步说明CTP 3.0可集成高镍三元或其他化学体系，已有长续航、高功率、快充等版本；第258页在回顾2022—2024年经营时明确提到麒麟、神行的规模化商业应用。因此可以把麒麟的NCM版本作为已商业化系列比较，并把极氪009 ME交付作为该系列的具名整车事件；不能把所有麒麟车型归为同一化学配方，也不能将2025年的最高快充指标倒赋给2023年交付车。现有材料尚未拆出各版本的年度装机量和当前供应合同。[CATL正式交付公告及海报](https://www.catl.com/news/7136.html)、[CATL 2025年招股书，第177、184、258页（PDF第187、194、268页）](https://www.catl.com/en/uploads/1/file/public/202505/20250512071033_9of2dqw816.pdf)\n\n| 路线与事件 | 原件证明的阶段 | 截止日仍未被本文材料证明的部分 |\n|---|---|---|\n| 成熟LFP：比亚迪刀片系列，2020年起应用，2024年度装机披露 | 年报将其确认为LFP，列多品牌纯电/插混应用、海豹CTB应用与2024年近200 GWh装机 | 公司装机披露不等于单车型产量、对外销量或良率；不外推2026第二代产品规模，采购价仍需询价 |\n| 成熟三元代表：麒麟NCM商业系列；2023-04-17极氪009 ME交付，2025招股书回顾 | 官方海报确认具名整车正式交付；招股书确认NCM产品、多个版本与2022—2024年间规模化商业应用 | 系列内可含其他化学体系，后发性能不倒置到2023版本；未披露分版本年度装机和当前合同 |\n| Astroinno L600，2023发布 | 产品与工艺主张，并给出2024生产计划 | 本文材料仍未证明该具体版本的连续合格产出、车型覆盖和实际采购价；不据早年计划补成已实现 |\n| 江淮钇为/中科海钠，2024-01-05 | 公开报道明确有用户交付，具有车型、电芯和包容量信息 | 交付批量、长期在用寿命、月度持续供应；“首款”宣传口径不用于排他性全球排序 |\n| CATL—长安，2026-02-05；CATL 2026-04-21 | 车型发布、供货合作与产业化主张 | 2月正文仍预计年中上市；4月仍预计年底全面规模生产。两者不能证明截至11月已完成全部目标；缺累计交付与稳定产出 |\n| 蔚来150 kWh，2024-05-22交易所文件 | 文件确认5月1日已开始免费试运营，并预告6月按日租用升级 | 原件没有证明持续大批量采购；液相比例和详细结构未在该文件披露 |\n| BMW—Solid Power，2025-05-20 | 公告确认全固态大尺寸电芯装入i7试验车并在慕尼黑运行，研究膨胀、压力和温度控制 | 试验车不是零售交付或商业SOP；没有量产成本和持续良率 |\n| Toyota—Idemitsu，2026-05-20 | 固体电解质大型试验设施基础工程完成并进入建设 | 设施预计2027完成；2027–2028商业化为目标，材料试验设施不等于车规电芯量产 |\n| QuantumScape，2026-10-21 | 公司称Eagle Line在示范生产，正在与设备伙伴设计更高吞吐工艺 | 新100 MWh线为计划，目标2028开始生产，面向数据中心、航空和防务等需求；不能折算为已向汽车客户交付100 MWh |"
+              }
+            }
+          ],
+          "location_status": "matched"
+        },
+        {
+          "claim_id": "EV-F03-03",
+          "claim": "2025招股书把麒麟列为NCM产品并说明CTP可集成高镍三元或其他体系、多版本已推出，经营回顾描述麒麟规模化商业应用。",
+          "changed_source_ids": [
+            "EVB27"
+          ],
+          "locations": [
+            {
+              "line": 125,
+              "heading": "七、量产证据链：公告中已经发生了哪一步",
+              "matched_by": [
+                "source_link:EVB27"
+              ],
+              "text": "成熟三元的具名参照采用麒麟的NCM商业版本。CATL的2023年4月17日官方公告及海报明确“极氪009 ME版正式交付”，使麒麟从2022年的发布计划推进到具名车型交付；海报本身没有说明电芯化学。2025年5月招股书第177页将乘用车麒麟作为NCM产品介绍，第184页进一步说明CTP 3.0可集成高镍三元或其他化学体系，已有长续航、高功率、快充等版本；第258页在回顾2022—2024年经营时明确提到麒麟、神行的规模化商业应用。因此可以把麒麟的NCM版本作为已商业化系列比较，并把极氪009 ME交付作为该系列的具名整车事件；不能把所有麒麟车型归为同一化学配方，也不能将2025年的最高快充指标倒赋给2023年交付车。现有材料尚未拆出各版本的年度装机量和当前供应合同。[CATL正式交付公告及海报](https://www.catl.com/news/7136.html)、[CATL 2025年招股书，第177、184、258页（PDF第187、194、268页）](https://www.catl.com/en/uploads/1/file/public/202505/20250512071033_9of2dqw816.pdf)",
+              "context_ref": {
+                "claim_id": "EV-F03-02",
+                "line": 125
+              }
+            }
+          ],
+          "location_status": "matched"
+        },
+        {
+          "claim_id": "EV-F03-04",
+          "claim": "明确假设下，75kWh可用目标及300L安装空间要求至少297.62Wh/L包级密度；A/B需367.22/280.42L，A在60kWh目标时需297.78L。",
+          "changed_source_ids": [
+            "volume-scenario-full-03.json"
+          ],
+          "locations": [],
+          "location_status": "not_located"
+        }
+      ],
+      "unlinked_source_ids": [],
+      "affected_outputs": [],
+      "scope": "Latest successful record-save batch; report locations are literal source-link or claim-text matches, and research-output links use saved input and unit dependencies in the explicit main draft (latest registered draft for legacy tasks), not proof of semantic impact or complete coverage. Source files are compared only when their records are saved; no remote monitoring. No changes to review or delivery checks."
+    },
+    "current_work": {
+      "task_spec": "state/task_spec.md",
+      "requirements": "state/requirements.jsonl",
+      "artifact": {
+        "path": "reports/current.md",
+        "sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+        "kind": "report",
+        "owner": "/root/remaining_research_inputs",
+        "unit_id": "report",
+        "current_sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+        "changed_since_save": false
+      },
+      "open_requirements": [
+        {
+          "requirement_id": "R_TASK",
+          "summary": "面向车企、供应链与投资决策者，比较新能源汽车动力电池的性能、体系成本和量产路径，回答不同车型与使用环境应如何选择，而不是评出脱离场景的单一赢家。重点考察2021年至2026-11-09的公开证据，必要时追溯材料与制造路线基础。资料截止日为2026-11-09，厂商目标、未来产能和预计装车时间必须与截至该日已实现的状态分开。\n\n覆盖磷酸铁锂及其改进路线、三元体系、钠离子与固态方案。先厘清分类维度：正极与负极材料、电解质状态、电芯形态和电池包结构不是同一层级，固态方案可能与其他材料体系交叉，结构集成改善也不等于化学体系更换。区分半固态或其他过渡方案与全固态，解释名称背后的实际结构和公开证据，不将营销名称直接当作统一技术标准。\n\n对比质量与体积能量密度、可用容量、快充、低温表现、循环和日历寿命、安全约束及使用维护要求。严格区分电芯与电池包、实验样品与量产产品，并保留温度、SOC窗口、充放电倍率、容量保持率和测试标准等条件。峰值充电功率、平均充电功率、补能时间与整车续航不是可直接互换的指标；冬季续航还受热管理、预热、整车效率和使用方式影响。不能把不同协议下的最好成绩拼成一款不存在的综合产品，也不能从单项安全测试推导零风险。\n\n构造性能—成本比较，解释原材料、制造良率、工艺设备、能耗、产能利用率、包级结构、热管理及质量保障对成本的影响。保留币种、日期、每千瓦时口径、含税与否及产量假设，区分材料清单成本、制造成本、报价和整车厂采购价格。公开资料不足时使用有依据的区间或情景，不假装掌握企业内部成本。分析锂、镍等材料价格变化和量产爬坡如何改变路线之间的相对经济性，避免用单一时点现货价格替代长期成本判断。\n\n沿实验室成果、样品、试验线、客户验证、定点、量产与实际装车或交付核查代表路线。企业公告、车型文件、可核实交付和独立测试应分别标明证据性质，宣布建设产能不等于有效产出，少量装车也不自动证明成熟大规模供货。解释良率、寿命验证、供应链、设备与认证中的关键依赖，以及哪些量产时间判断只能是有条件的推演。\n\n交付完整报告，包含口径清楚的性能—成本矩阵、成本敏感性分析、代表路线量产证据链，以及面向经济型通勤、寒冷地区、高频运营和长续航或高性能车型的适配判断。通过公开车型或电池案例说明系统选择，但不要求覆盖所有厂商。重点核验比较是否跨越了不兼容的测试口径、化学与系统结构是否混淆、量产判断是否有阶段证据，以及推荐能否随价格和使用条件变化。允许多路线长期共存、优势转移或某路线暂不适用等结论，章节名称不作限定。",
+          "status": "in_progress"
+        },
+        {
+          "requirement_id": "R_LANGUAGE",
+          "summary": "完整中文长研究报告及题目要求的表格/计算/关系产物。",
+          "status": "pending"
+        },
+        {
+          "requirement_id": "R_DATE",
+          "summary": "Evidence public by 2026-11-09; retain dates and versions.",
+          "status": "in_progress"
+        }
+      ],
+      "effective_requirements": [
+        {
+          "requirement_id": "R_TASK",
+          "summary": "面向车企、供应链与投资决策者，比较新能源汽车动力电池的性能、体系成本和量产路径，回答不同车型与使用环境应如何选择，而不是评出脱离场景的单一赢家。重点考察2021年至2026-11-09的公开证据，必要时追溯材料与制造路线基础。资料截止日为2026-11-09，厂商目标、未来产能和预计装车时间必须与截至该日已实现的状态分开。\n\n覆盖磷酸铁锂及其改进路线、三元体系、钠离子与固态方案。先厘清分类维度：正极与负极材料、电解质状态、电芯形态和电池包结构不是同一层级，固态方案可能与其他材料体系交叉，结构集成改善也不等于化学体系更换。区分半固态或其他过渡方案与全固态，解释名称背后的实际结构和公开证据，不将营销名称直接当作统一技术标准。\n\n对比质量与体积能量密度、可用容量、快充、低温表现、循环和日历寿命、安全约束及使用维护要求。严格区分电芯与电池包、实验样品与量产产品，并保留温度、SOC窗口、充放电倍率、容量保持率和测试标准等条件。峰值充电功率、平均充电功率、补能时间与整车续航不是可直接互换的指标；冬季续航还受热管理、预热、整车效率和使用方式影响。不能把不同协议下的最好成绩拼成一款不存在的综合产品，也不能从单项安全测试推导零风险。\n\n构造性能—成本比较，解释原材料、制造良率、工艺设备、能耗、产能利用率、包级结构、热管理及质量保障对成本的影响。保留币种、日期、每千瓦时口径、含税与否及产量假设，区分材料清单成本、制造成本、报价和整车厂采购价格。公开资料不足时使用有依据的区间或情景，不假装掌握企业内部成本。分析锂、镍等材料价格变化和量产爬坡如何改变路线之间的相对经济性，避免用单一时点现货价格替代长期成本判断。\n\n沿实验室成果、样品、试验线、客户验证、定点、量产与实际装车或交付核查代表路线。企业公告、车型文件、可核实交付和独立测试应分别标明证据性质，宣布建设产能不等于有效产出，少量装车也不自动证明成熟大规模供货。解释良率、寿命验证、供应链、设备与认证中的关键依赖，以及哪些量产时间判断只能是有条件的推演。\n\n交付完整报告，包含口径清楚的性能—成本矩阵、成本敏感性分析、代表路线量产证据链，以及面向经济型通勤、寒冷地区、高频运营和长续航或高性能车型的适配判断。通过公开车型或电池案例说明系统选择，但不要求覆盖所有厂商。重点核验比较是否跨越了不兼容的测试口径、化学与系统结构是否混淆、量产判断是否有阶段证据，以及推荐能否随价格和使用条件变化。允许多路线长期共存、优势转移或某路线暂不适用等结论，章节名称不作限定。",
+          "status": "in_progress"
+        },
+        {
+          "requirement_id": "R_LANGUAGE",
+          "summary": "完整中文长研究报告及题目要求的表格/计算/关系产物。",
+          "status": "pending"
+        },
+        {
+          "requirement_id": "R_DATE",
+          "summary": "Evidence public by 2026-11-09; retain dates and versions.",
+          "status": "in_progress"
+        }
+      ],
+      "scope_decisions": [],
+      "warnings": [],
+      "brief": {
+        "question": "面向车企、供应链与投资决策者，比较新能源汽车动力电池的性能、体系成本和量产路径，回答不同车型与使用环境应如何选择，而不是评出脱离场景的单一赢家。重点考察2021年至2026-11-09的公开证据，必要时追溯材料与制造路线基础。资料截止日为2026-11-09，厂商目标、未来产能和预计装车时间必须与截至该日已实现的状态分开。\n\n覆盖磷酸铁锂及其改进路线、三元体系、钠离子与固态方案。先厘清分类维度：正极与负极材料、电解质状态、电芯形态和电池包结构不是同一层级，固态方案可能与其他材料体系交叉，结构集成改善也不等于化学体系更换。区分半固态或其他过渡方案与全固态，解释名称背后的实际结构和公开证据，不将营销名称直接当作统一技术标准。\n\n对比质量与体积能量密度、可用容量、快充、低温表现、循环和日历寿命、安全约束及使用维护要求。严格区分电芯与电池包、实验样品与量产产品，并保留温度、SOC窗口、充放电倍率、容量保持率和测试标准等条件。峰值充电功率、平均充电功率、补能时间与整车续航不是可直接互换的指标；冬季续航还受热管理、预热、整车效率和使用方式影响。不能把不同协议下的最好成绩拼成一款不存在的综合产品，也不能从单项安全测试推导零风险。\n\n构造性能—成本比较，解释原材料、制造良率、工艺设备、能耗、产能利用率、包级结构、热管理及质量保障对成本的影响。保留币种、日期、每千瓦时口径、含税与否及产量假设，区分材料清单成本、制造成本、报价和整车厂采购价格。公开资料不足时使用有依据的区间或情景，不假装掌握企业内部成本。分析锂、镍等材料价格变化和量产爬坡如何改变路线之间的相对经济性，避免用单一时点现货价格替代长期成本判断。\n\n沿实验室成果、样品、试验线、客户验证、定点、量产与实际装车或交付核查代表路线。企业公告、车型文件、可核实交付和独立测试应分别标明证据性质，宣布建设产能不等于有效产出，少量装车也不自动证明成熟大规模供货。解释良率、寿命验证、供应链、设备与认证中的关键依赖，以及哪些量产时间判断只能是有条件的推演。\n\n交付完整报告，包含口径清楚的性能—成本矩阵、成本敏感性分析、代表路线量产证据链，以及面向经济型通勤、寒冷地区、高频运营和长续航或高性能车型的适配判断。通过公开车型或电池案例说明系统选择，但不要求覆盖所有厂商。重点核验比较是否跨越了不兼容的测试口径、化学与系统结构是否混淆、量产判断是否有阶段证据，以及推荐能否随价格和使用条件变化。允许多路线长期共存、优势转移或某路线暂不适用等结论，章节名称不作限定。",
+        "audience": "进行车型电池选型、供应链布局和产业投资判断的车企与相关团队",
+        "scope": "Follow the task geography, comparison scope and evidence cutoff of 2026-11-09. Each other-language version uses its frozen sources without seeing the first-language report.",
+        "output": "Complete long-form research report final.md with the task-specific comparisons, explanations, tables and locatable citations. Preserve the first draft and actual independent results.",
+        "depth": "完整长研究报告，在统一测试与成本口径下比较电池路线，将电芯性能、系统工程、使用场景和量产成熟度连接为条件化选型判断。",
+        "evidence_standard": "Use original public sources with actual dates, reading evidence and retained originals. Conduct seven separate independent content perspectives, relevant domain review, independent audit and final acceptance. Live primary research"
+      },
+      "research_outputs": [
+        {
+          "path": "analysis/outline.md",
+          "sha256": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00",
+          "kind": "analysis",
+          "complete": true,
+          "contributors": [
+            "/root/remaining_research_inputs"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "analysis/outline.md"
+          },
+          "host_task": "/root/remaining_research_inputs",
+          "based_on": {
+            "state/task_spec.md": "04f0b96b65520bebff361f09ca7166dd8d20f8253ab8c5da6483f3a990107dcc",
+            "record:requirements:effective@outline": "40ad7819f5296ee0c6ad144010a48809a08390b939369e17bd127c33268ef322"
+          },
+          "unit_id": "outline",
+          "depends_on": [],
+          "dependency_versions": {},
+          "handoff": {
+            "summary": "Proposed complete research argument and required exhibits.",
+            "pending": [
+              "Independent requirements and structure review."
+            ]
+          },
+          "question": "新能源汽车电池研究：体系成本、使用性能与量产路径的比较",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/ea8fc3ac26954e53ba4d414fb32155c2/saved/analysis/outline.md",
+            "sha256": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00"
+          },
+          "owner": "/root/remaining_research_inputs",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [],
+          "readiness_issues": [],
+          "review": {
+            "artifact_sha256": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00",
+            "input_version": "aebe98be90775cd619617f06407fdd4a2add07909c3dd3af22a5f6ce976e23e4",
+            "ok": true,
+            "reviewers": [
+              "/root",
+              "/root/independent_reviews_a"
+            ],
+            "record_path": "reviews/host/aebe98be90775cd61961/input.json"
+          }
+        },
+        {
+          "path": "reports/current.md",
+          "sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+          "kind": "report",
+          "complete": true,
+          "contributors": [
+            "/root/remaining_research_inputs"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "reports/current.md"
+          },
+          "host_task": "/root/remaining_research_inputs",
+          "based_on": {
+            "state/task_spec.md": "04f0b96b65520bebff361f09ca7166dd8d20f8253ab8c5da6483f3a990107dcc",
+            "notes/actual-reading/EVB02.json": "a5c1a5f44563e77e30382ca2f66f297ab924ceb2a168b8ab717d1d6202ad0052",
+            "sources/actual/EVB02.txt": "037b979d8160422f9f1d8d73509f4ededfabfa32ff7e15fe0db439e0fe16c3b6",
+            "notes/actual-reading/EVB03-R.json": "e1d7b04643ec55f65df6ec13eeae8cdb3cc137e70191f5147e9091efab3275ac",
+            "sources/actual/EVB03-R.txt": "259169d5aaddbb24e7012473da7c4f8d06b45875ea42d00da3eafc7f0f516d56",
+            "notes/actual-reading/EVB06.json": "f426d705d86c92ca612a37e5b00c4763a8390b498d043185428a50794fb8fe1f",
+            "sources/actual/EVB06.txt": "d8aa434d5718e13ef0d34b204c0d00796639d1409d40b970112c7f5c862fb347",
+            "notes/actual-reading/EVB07.json": "9a682fd2dc20bcf12604a72936a4cfaa03f79e06b20be753cbf8a1011072872c",
+            "sources/actual/EVB07.txt": "f03bbd37ec1ede3b001cb248b3a0be4390dd2508343a771ee13521d7cd9d3dbe",
+            "notes/actual-reading/EVB08.json": "fa1a02a3fef2f7cfc8f196e6842d7c80beda281c85098699e83c6bbd1da56337",
+            "sources/actual/EVB08.txt": "c309d0135c9cdb9d6e5c177f88a5cbda07f9595136865fef0c25d15708321038",
+            "notes/actual-reading/EVB09.json": "6dc551bcb3911dbf7a00e02ecad9ae24c47e20678d042a05ebbec7c7ded6fbb5",
+            "sources/actual/EVB09.txt": "45a462656a299894b7dcd3f2b22dee4bd8ee5a0a195f82ec4421b7f5f920fad6",
+            "notes/actual-reading/EVB10.json": "fcecffe8188791ac16fa97fcb4fee1190c23cb990ffb9a8744128b93f2a3821e",
+            "sources/actual/EVB10.txt": "da4f69e11d1642bb3211e1f873619561e16407c708124a4915eb06bec7fb2636",
+            "notes/actual-reading/EVB11.json": "fc365325bade772acf608fb4d48e18ef5b868524ecc6de6078a373c1b9e26dec",
+            "sources/actual/EVB11.txt": "cc3d08b39f9eeb8124179625f869a7bfc3fbb84748b206060a91e28e77017103",
+            "notes/actual-reading/EVB12-R.json": "8055b6f7d3434ed6b997acb6a034254f31294267ed0c9a88fa6abf7b85113407",
+            "sources/actual/EVB12-R.txt": "92677af9308fee454551711885dfa79c9d35f949de13a1859e3e5bb78fd266aa",
+            "notes/actual-reading/EVB13.json": "f9b8d09571b7f44578a71d8905f534f03135de1e671823b74c4ff14aa1b31637",
+            "sources/actual/EVB13.txt": "d2d3b117106e7dd1e4dc257f8be3d7e319fd90258bdfd6b9708b4d5d662f2968",
+            "notes/actual-reading/EVB14.json": "fd062e9174136b3869137e2799cf0e86e94c4e199e1f3c3cf09ca3244e347701",
+            "sources/actual/EVB14.txt": "d7640b6643b9a97d8f6d1c5be0206cc0a07765f41cf3f8950b17b625ddd14add",
+            "notes/actual-reading/EVB15.json": "f197e615beb726533be296575bdd3f55a9b5c32ddbcf21a0c5d75ae078d168ef",
+            "sources/actual/EVB15.txt": "5beb203df752018ab96c0e0ae5f8b0c535e082877c94885c97dde27f93fe9ade",
+            "notes/actual-reading/EVB16-R.json": "d4dd41838db432a6d9cdf92f91ea1efd20df0f10006a5b070dec6e78e7f2594f",
+            "sources/actual/EVB16-R.txt": "393ecfa0d95c4f36d92c6ae94ea40fda3991153d377165bb1ff341a074f0c8ef",
+            "notes/actual-reading/EVB17.json": "c3abf51f6c62f375a61032dcfa9a2c0b128a436ee6ef1f811ce128768f172284",
+            "sources/actual/EVB17.txt": "72b2d45c9dc2a07d7241dc069b6c8e87236e6dceeecfaa22568b5b0c5c28493c",
+            "notes/actual-reading/EVB18.json": "53c88dc7701d4d45338b03188af786e1a847908fa6c5eaa936fb97372ba8b2f1",
+            "sources/actual/EVB18.txt": "88dd364752f50a577386109d66a6f483a98c8d998d4734ca747639bd5205a26d",
+            "notes/actual-reading/EVB19-R.json": "4d7391cf191b0f1878c0419a7a65ef8b7e40bae2022f0ecd2495a7675940c3c6",
+            "sources/actual/EVB19-R.txt": "5754dc5e44633d1a8c29672f3e811e2f8af17d5221a2715b7fd115712c615006",
+            "notes/actual-reading/EVB20.json": "11ee2f04e08b4aaa8bf8b8dd48ad3e07ebc31123deaab4919a174c2f2c5e645a",
+            "sources/actual/EVB20.txt": "5624d7c4c2ec1e688f7f2f4175788180e9c8e2ec4f2df6aa1329e42a57de2ff5",
+            "notes/actual-reading/EVB21.json": "e4df96abfdf15affde74ce6c97bf6c742165481faf2c7d7f5ec0b922270f5428",
+            "sources/actual/EVB21.txt": "1bb10d8ac55f2cfa112067cd6a916cf57d1a9bd43f5a21b04e03e46e8baf824f",
+            "notes/actual-reading/EVB22.json": "853a9ba8fb7162f1808cbf2f65d2e246b026e8e5c189a19f085c6b10ff684f90",
+            "sources/actual/EVB22.txt": "3886e4a30ed8abdbe7247588e4c2dd0ca46ffbcdd6d5fbf7cf4863efbefc55e3",
+            "notes/actual-reading/EVB23.json": "aeeac7a91772a327a9d54637e276e8211cd6d48fb8b39e5a8ef91a90fa843f67",
+            "sources/actual/EVB23.txt": "b13362bafb81c5813a810faf4505a643eb824cacf273690c10c3bb56a827593e",
+            "analysis/calculations/calculations.json": "6f1b62c66fb55a4d0fb0b833bdc0544e8600d96140a37c223364a70a99b9b46d",
+            "notes/actual-reading/EVB25.json": "3d8822c261e0f91c21714b8eed62ab64fbaf942f4ffefbfedced09b11adc84e8",
+            "notes/actual-reading/EVB26.json": "47f1c5ab9a3e58465af5d19fa13ca242f6dc453b58cf7ddad3cbaaf35fc396c2",
+            "notes/actual-reading/EVB27.json": "b8c626bb73400761fce057f151d0e772256fa62e8018890205e31a2c3ec2e94d",
+            "analysis/calculations/volume-scenario-full-03.json": "a21818112dbbdb48958214f964cc44de4265512c64d23bdb69f0bab8893f6933",
+            "analysis/outline.md": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00",
+            "analysis/calculations/calculate_scenarios.py": "be50923c0b4a87a7b710e10da913ca05fc1eb0ed76d927ac2c9cc0299bb2b1b7",
+            "sources/actual/EVB25/delivery-poster.jpg": "83566a0fe4116a26cad7c1c468c6f9433b8caa2a4720ed2832911ca4cf242a77",
+            "sources/actual/EVB26/original.pdf": "07bfe8d532f8912fea32c8241cafd25c0bb28948e7903d5dfe23161177073e4e",
+            "sources/actual/EVB27/original.pdf": "f602c7c4fe53dcd6ed99facbe00e0d751038a130bc86644ce9a5b20b2d348ab5",
+            "analysis/calculations/calculate_volume_full_03.py": "a2d017b32a4aa0a542363a4be845f52f053c712d2419a16d3abf16604191fc3e",
+            "record:requirements:effective@outline,report": "40ad7819f5296ee0c6ad144010a48809a08390b939369e17bd127c33268ef322",
+            "record:sources:EVB02": "2cc28a6a276d4c00961fa535a01dc860f84669c341362e1215ec95d7066572ef",
+            "record:sources:EVB03-R": "180844c6daa6c295a253bf9ddc27b56c9e31c345bff0fd56aa39b4b286fa5b49",
+            "record:sources:EVB06": "e502170355432fabe4c17f8baf182283a46bd57d77278eb751dba8dced97a288",
+            "record:sources:EVB07": "2dc0167a6e7093b6dabbd681e812ffe7e62be70696da80c99b63dbdb39f2a974",
+            "record:sources:EVB08": "5a858cf9da07bb2b2fa3fa571f4ebb43f7df994ae1149e4d979f67baedef380c",
+            "record:sources:EVB09": "7f98cd794d960826f7780cbf7811abab646be84785fa61ce462ea4ff1b2af878",
+            "record:sources:EVB10": "6b43fbdba480da7aaf266b06a448cd8c49ddf108ed1748b721a2ab2297f42c7b",
+            "record:sources:EVB11": "a9042ddae785586e90045757f12335daac9b60c066c26707575eae3752ac7716",
+            "record:sources:EVB12-R": "49c7d357d50ff10fc6843ed32ecaf30f62648eb109a3c878382f1c68149cdc6b",
+            "record:sources:EVB13": "8269b07c1866144080cd8401bc474a3dc585d534c4b73c7024c2e472aee93942",
+            "record:sources:EVB14": "065a66b7f0a09ddea83df505bf3c63bc5ad7eb56a89ef745b8d4bdae710531a0",
+            "record:sources:EVB15": "95e3d52de23fd10a4abe119d8ef4e49ea251f729c0a619ebfdcf02d9e9199203",
+            "record:sources:EVB16-R": "7dc420c0355b1664d426179150de99375edb8f78f6100a942a78c50ed05e86d3",
+            "record:sources:EVB17": "0cc3bf6c6467ed3de83c08cd3ef12832db5be8fefc38d8830f9b60b0dba91abf",
+            "record:sources:EVB18": "fc238f08bd258cb2ac292b9d32f35cc4177bf162de3d35e7a02f91dac1ab9ae4",
+            "record:sources:EVB19-R": "ff56aaf7bcf1b7f19f8644f44dcb7f12c8d9aca274bd9880c39feeea1eb5b64b",
+            "record:sources:EVB20": "5d6c47f48bfb5acc3a2834dab22f301c67fd408301fcf9e834f4501e158dc437",
+            "record:sources:EVB21": "7725c5ed93bf620282e97902d2b89fef0925b4ee46c103bbfdd90b4620dfce4d",
+            "record:sources:EVB22": "95899c0e16675984ae13f0eba15bcdd8b37b199b9bbe2b544c50de7065da1a12",
+            "record:sources:EVB23": "6477e540b558e244184b6f00898aeee2acb2a55a0007e69382dba1859321e4c0",
+            "record:sources:calculations.json": "20b0e3133e695b91039d6f5c1efce8afaeffecea65175b7ee6587ab437397363",
+            "record:sources:EVB25": "8a16dd344035b3171356d85b8ba4d312cb1ae47811a3e0e546a8f9586a613b8e",
+            "record:sources:EVB26": "57357fa57b315d082cb9dc77386aa5d7da8cbb588bee99b6d0becb9ad9b9d3d8",
+            "record:sources:EVB27": "493a752ac3808f6c820087b6112e4b10c371aec67454ea014bfc8e82ae89ea9b",
+            "record:sources:volume-scenario-full-03.json": "df14eefaade812647a99248bc7bb4bdb3b3d869cea2f5cae091db7d831f03f71",
+            "record:claims:ev_batteries_zh-01": "75c1053bf8e3c112549a831a58b751c6221f60a701acdd83a6add1219cf8dbdc",
+            "record:claims:ev_batteries_zh-02": "08f6328bbb66d4137c2696b19c6c5524a53ef12fbf82fb9ee84a2924d85ae1ec",
+            "record:claims:ev_batteries_zh-03": "fae4aca0f2664b97e7c5a7366b2590b5122feb2294a665cf3a9682190f36eb73",
+            "record:claims:ev_batteries_zh-04": "15b80e5e65f2f6defd13efb68ecbdd900df6d678f2cd8a7581e222160ed69fff",
+            "record:claims:ev_batteries_zh-05": "c287620b1fc36f903e5cc29346846b11cf2014baf2215226bc55aae137d8df26",
+            "record:claims:ev_batteries_zh-06": "41194c60733d2c1ebb361a7eddeae541f08723bdc1494ebed246c9392b3f1e9d",
+            "record:claims:ev_batteries_zh-07": "b522230029047bbf7b23b980b14251337ff5f6fb205fcf588fc12ff6a8346420",
+            "record:claims:ev_batteries_zh-08": "fdc1c031011a02cb89a601f494ad4969e7b2b3d7c2c6d917f483709d4bff7fdc",
+            "record:claims:ev_batteries_zh-09": "b3a8da1d83aa4c264c8d3dbdc1ae1c2b06574254757a21010dd5db137a92f032",
+            "record:claims:ev_batteries_zh-10": "c5402943ba6c9d204767545f5226590232943b73d21eca81382fdba561d13eb7",
+            "record:claims:ev_batteries_zh-11": "5af9f189f6f52929132af8654a7e5c2f2cf7f79ea81365ee546fff95332b7244",
+            "record:claims:ev_batteries_zh-12": "82e8ddb3e6eb88a921eb98cb7f81090c71c258a1120b8e72fbf7a949e4d948c0",
+            "record:claims:ev_batteries_zh-13": "6bec5d56736999ebbe5c0e83fe26edaffdf857bed3d15b7dd4c44d151b69a4e4",
+            "record:claims:ev_batteries_zh-14": "a16c103e5cec1359e8429e150bddd6541f11bcb7f48224643211384eddff88e9",
+            "record:claims:ev_batteries_zh-15": "aa2389610b9905f07dd6e8ab1126bdfa46ac909f55f5f06532723094f0a96fd2",
+            "record:claims:ev_batteries_zh-16": "7bb59a293d30903cb68e4655dc49fc34f2798931732ec76d531836885c435b13",
+            "record:claims:ev_batteries_zh-17": "91008f2c904d2a16ef5602357115220aa821c1d8b1c9fead504282a839e5b86a",
+            "record:claims:ev_batteries_zh-18": "05a2230ba415e7de16bd53124ca0173286ef9dc8fb6739100e561c4cf95fd144",
+            "record:claims:ev_batteries_zh-19": "0f7d79516f612893c26fca10ec40093d55a40f88452f444012d73a3c68bd863d",
+            "record:claims:ev_batteries_zh-20": "77e4a1ed0f51ba331daadad99511c7a3b0e3d5e4bbe795166b2886e1c5e35e01",
+            "record:claims:ev_batteries_zh-21": "de5d739d413347732fdc72eecc1f93fe08702f1a8c4fdeee5c8cc66c442b2168",
+            "record:claims:ev_batteries_zh-22": "b55236b66e32316834d11804d21edc60d6dc639f87488d9735325467f61c05a1",
+            "record:claims:ev_batteries_zh-23": "312ab4f45e70f013a243d9505f42928da18714b4406141433e475e4379824cb4",
+            "record:claims:EV-F03-01": "1402e228d6262cc14fafc392f52a27a36270be3ac6106e86cd6fb12a4d8ef24c",
+            "record:claims:EV-F03-02": "2f7b1e57f9436838f5c77efe5b3d61f4519fdae72437ead84b546634a87f87ee",
+            "record:claims:EV-F03-03": "7faad2700ac346ec82ddc87ab970603e16d824525bf2282aedd77d8c91c7fbef",
+            "record:claims:EV-F03-04": "992f79045426ac9be5b5bdd4e8cc772f1e39f3126b8aeb31df4e6591aa213229"
+          },
+          "unit_id": "report",
+          "depends_on": [
+            "outline"
+          ],
+          "dependency_versions": {
+            "outline": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00"
+          },
+          "handoff": {
+            "summary": "REQ-EV-01/02 author repair: issuer originals establish mature-route commercialization; one new explicit pack-volume scenario. Earlier computations retained.",
+            "pending": [
+              "Independent requirements recheck and the remaining full-report responsibilities on this exact revised version."
+            ]
+          },
+          "question": "Integrate the complete battery report, including actual mature LFP/NCM commercialization and pack-volume constraints.",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/74765936983e4bcf93598c1187fce022/saved/reports/current.md",
+            "sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5"
+          },
+          "previous_version": {
+            "path": "logs/record-backups/74765936983e4bcf93598c1187fce022/reports/current.md",
+            "sha256": "9b623e2af39fe1b43ef37885baf5b83af9ab9c395bada0905c479116e6ce8aa7"
+          },
+          "owner": "/root/remaining_research_inputs",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [
+            {
+              "unit_id": "outline",
+              "path": "analysis/outline.md",
+              "issues": []
+            }
+          ],
+          "readiness_issues": [
+            "independent_review_pending"
+          ],
+          "review": null
+        }
+      ],
+      "work_units": [
+        {
+          "path": "analysis/outline.md",
+          "sha256": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00",
+          "kind": "analysis",
+          "complete": true,
+          "contributors": [
+            "/root/remaining_research_inputs"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "analysis/outline.md"
+          },
+          "host_task": "/root/remaining_research_inputs",
+          "based_on": {
+            "state/task_spec.md": "04f0b96b65520bebff361f09ca7166dd8d20f8253ab8c5da6483f3a990107dcc",
+            "record:requirements:effective@outline": "40ad7819f5296ee0c6ad144010a48809a08390b939369e17bd127c33268ef322"
+          },
+          "unit_id": "outline",
+          "depends_on": [],
+          "dependency_versions": {},
+          "handoff": {
+            "summary": "Proposed complete research argument and required exhibits.",
+            "pending": [
+              "Independent requirements and structure review."
+            ]
+          },
+          "question": "新能源汽车电池研究：体系成本、使用性能与量产路径的比较",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/ea8fc3ac26954e53ba4d414fb32155c2/saved/analysis/outline.md",
+            "sha256": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00"
+          },
+          "owner": "/root/remaining_research_inputs",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [],
+          "readiness_issues": [],
+          "review": {
+            "artifact_sha256": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00",
+            "input_version": "aebe98be90775cd619617f06407fdd4a2add07909c3dd3af22a5f6ce976e23e4",
+            "ok": true,
+            "reviewers": [
+              "/root",
+              "/root/independent_reviews_a"
+            ],
+            "record_path": "reviews/host/aebe98be90775cd61961/input.json"
+          }
+        },
+        {
+          "path": "reports/current.md",
+          "sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+          "kind": "report",
+          "complete": true,
+          "contributors": [
+            "/root/remaining_research_inputs"
+          ],
+          "history": {
+            "path": "logs/activity.jsonl",
+            "artifact": "reports/current.md"
+          },
+          "host_task": "/root/remaining_research_inputs",
+          "based_on": {
+            "state/task_spec.md": "04f0b96b65520bebff361f09ca7166dd8d20f8253ab8c5da6483f3a990107dcc",
+            "notes/actual-reading/EVB02.json": "a5c1a5f44563e77e30382ca2f66f297ab924ceb2a168b8ab717d1d6202ad0052",
+            "sources/actual/EVB02.txt": "037b979d8160422f9f1d8d73509f4ededfabfa32ff7e15fe0db439e0fe16c3b6",
+            "notes/actual-reading/EVB03-R.json": "e1d7b04643ec55f65df6ec13eeae8cdb3cc137e70191f5147e9091efab3275ac",
+            "sources/actual/EVB03-R.txt": "259169d5aaddbb24e7012473da7c4f8d06b45875ea42d00da3eafc7f0f516d56",
+            "notes/actual-reading/EVB06.json": "f426d705d86c92ca612a37e5b00c4763a8390b498d043185428a50794fb8fe1f",
+            "sources/actual/EVB06.txt": "d8aa434d5718e13ef0d34b204c0d00796639d1409d40b970112c7f5c862fb347",
+            "notes/actual-reading/EVB07.json": "9a682fd2dc20bcf12604a72936a4cfaa03f79e06b20be753cbf8a1011072872c",
+            "sources/actual/EVB07.txt": "f03bbd37ec1ede3b001cb248b3a0be4390dd2508343a771ee13521d7cd9d3dbe",
+            "notes/actual-reading/EVB08.json": "fa1a02a3fef2f7cfc8f196e6842d7c80beda281c85098699e83c6bbd1da56337",
+            "sources/actual/EVB08.txt": "c309d0135c9cdb9d6e5c177f88a5cbda07f9595136865fef0c25d15708321038",
+            "notes/actual-reading/EVB09.json": "6dc551bcb3911dbf7a00e02ecad9ae24c47e20678d042a05ebbec7c7ded6fbb5",
+            "sources/actual/EVB09.txt": "45a462656a299894b7dcd3f2b22dee4bd8ee5a0a195f82ec4421b7f5f920fad6",
+            "notes/actual-reading/EVB10.json": "fcecffe8188791ac16fa97fcb4fee1190c23cb990ffb9a8744128b93f2a3821e",
+            "sources/actual/EVB10.txt": "da4f69e11d1642bb3211e1f873619561e16407c708124a4915eb06bec7fb2636",
+            "notes/actual-reading/EVB11.json": "fc365325bade772acf608fb4d48e18ef5b868524ecc6de6078a373c1b9e26dec",
+            "sources/actual/EVB11.txt": "cc3d08b39f9eeb8124179625f869a7bfc3fbb84748b206060a91e28e77017103",
+            "notes/actual-reading/EVB12-R.json": "8055b6f7d3434ed6b997acb6a034254f31294267ed0c9a88fa6abf7b85113407",
+            "sources/actual/EVB12-R.txt": "92677af9308fee454551711885dfa79c9d35f949de13a1859e3e5bb78fd266aa",
+            "notes/actual-reading/EVB13.json": "f9b8d09571b7f44578a71d8905f534f03135de1e671823b74c4ff14aa1b31637",
+            "sources/actual/EVB13.txt": "d2d3b117106e7dd1e4dc257f8be3d7e319fd90258bdfd6b9708b4d5d662f2968",
+            "notes/actual-reading/EVB14.json": "fd062e9174136b3869137e2799cf0e86e94c4e199e1f3c3cf09ca3244e347701",
+            "sources/actual/EVB14.txt": "d7640b6643b9a97d8f6d1c5be0206cc0a07765f41cf3f8950b17b625ddd14add",
+            "notes/actual-reading/EVB15.json": "f197e615beb726533be296575bdd3f55a9b5c32ddbcf21a0c5d75ae078d168ef",
+            "sources/actual/EVB15.txt": "5beb203df752018ab96c0e0ae5f8b0c535e082877c94885c97dde27f93fe9ade",
+            "notes/actual-reading/EVB16-R.json": "d4dd41838db432a6d9cdf92f91ea1efd20df0f10006a5b070dec6e78e7f2594f",
+            "sources/actual/EVB16-R.txt": "393ecfa0d95c4f36d92c6ae94ea40fda3991153d377165bb1ff341a074f0c8ef",
+            "notes/actual-reading/EVB17.json": "c3abf51f6c62f375a61032dcfa9a2c0b128a436ee6ef1f811ce128768f172284",
+            "sources/actual/EVB17.txt": "72b2d45c9dc2a07d7241dc069b6c8e87236e6dceeecfaa22568b5b0c5c28493c",
+            "notes/actual-reading/EVB18.json": "53c88dc7701d4d45338b03188af786e1a847908fa6c5eaa936fb97372ba8b2f1",
+            "sources/actual/EVB18.txt": "88dd364752f50a577386109d66a6f483a98c8d998d4734ca747639bd5205a26d",
+            "notes/actual-reading/EVB19-R.json": "4d7391cf191b0f1878c0419a7a65ef8b7e40bae2022f0ecd2495a7675940c3c6",
+            "sources/actual/EVB19-R.txt": "5754dc5e44633d1a8c29672f3e811e2f8af17d5221a2715b7fd115712c615006",
+            "notes/actual-reading/EVB20.json": "11ee2f04e08b4aaa8bf8b8dd48ad3e07ebc31123deaab4919a174c2f2c5e645a",
+            "sources/actual/EVB20.txt": "5624d7c4c2ec1e688f7f2f4175788180e9c8e2ec4f2df6aa1329e42a57de2ff5",
+            "notes/actual-reading/EVB21.json": "e4df96abfdf15affde74ce6c97bf6c742165481faf2c7d7f5ec0b922270f5428",
+            "sources/actual/EVB21.txt": "1bb10d8ac55f2cfa112067cd6a916cf57d1a9bd43f5a21b04e03e46e8baf824f",
+            "notes/actual-reading/EVB22.json": "853a9ba8fb7162f1808cbf2f65d2e246b026e8e5c189a19f085c6b10ff684f90",
+            "sources/actual/EVB22.txt": "3886e4a30ed8abdbe7247588e4c2dd0ca46ffbcdd6d5fbf7cf4863efbefc55e3",
+            "notes/actual-reading/EVB23.json": "aeeac7a91772a327a9d54637e276e8211cd6d48fb8b39e5a8ef91a90fa843f67",
+            "sources/actual/EVB23.txt": "b13362bafb81c5813a810faf4505a643eb824cacf273690c10c3bb56a827593e",
+            "analysis/calculations/calculations.json": "6f1b62c66fb55a4d0fb0b833bdc0544e8600d96140a37c223364a70a99b9b46d",
+            "notes/actual-reading/EVB25.json": "3d8822c261e0f91c21714b8eed62ab64fbaf942f4ffefbfedced09b11adc84e8",
+            "notes/actual-reading/EVB26.json": "47f1c5ab9a3e58465af5d19fa13ca242f6dc453b58cf7ddad3cbaaf35fc396c2",
+            "notes/actual-reading/EVB27.json": "b8c626bb73400761fce057f151d0e772256fa62e8018890205e31a2c3ec2e94d",
+            "analysis/calculations/volume-scenario-full-03.json": "a21818112dbbdb48958214f964cc44de4265512c64d23bdb69f0bab8893f6933",
+            "analysis/outline.md": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00",
+            "analysis/calculations/calculate_scenarios.py": "be50923c0b4a87a7b710e10da913ca05fc1eb0ed76d927ac2c9cc0299bb2b1b7",
+            "sources/actual/EVB25/delivery-poster.jpg": "83566a0fe4116a26cad7c1c468c6f9433b8caa2a4720ed2832911ca4cf242a77",
+            "sources/actual/EVB26/original.pdf": "07bfe8d532f8912fea32c8241cafd25c0bb28948e7903d5dfe23161177073e4e",
+            "sources/actual/EVB27/original.pdf": "f602c7c4fe53dcd6ed99facbe00e0d751038a130bc86644ce9a5b20b2d348ab5",
+            "analysis/calculations/calculate_volume_full_03.py": "a2d017b32a4aa0a542363a4be845f52f053c712d2419a16d3abf16604191fc3e",
+            "record:requirements:effective@outline,report": "40ad7819f5296ee0c6ad144010a48809a08390b939369e17bd127c33268ef322",
+            "record:sources:EVB02": "2cc28a6a276d4c00961fa535a01dc860f84669c341362e1215ec95d7066572ef",
+            "record:sources:EVB03-R": "180844c6daa6c295a253bf9ddc27b56c9e31c345bff0fd56aa39b4b286fa5b49",
+            "record:sources:EVB06": "e502170355432fabe4c17f8baf182283a46bd57d77278eb751dba8dced97a288",
+            "record:sources:EVB07": "2dc0167a6e7093b6dabbd681e812ffe7e62be70696da80c99b63dbdb39f2a974",
+            "record:sources:EVB08": "5a858cf9da07bb2b2fa3fa571f4ebb43f7df994ae1149e4d979f67baedef380c",
+            "record:sources:EVB09": "7f98cd794d960826f7780cbf7811abab646be84785fa61ce462ea4ff1b2af878",
+            "record:sources:EVB10": "6b43fbdba480da7aaf266b06a448cd8c49ddf108ed1748b721a2ab2297f42c7b",
+            "record:sources:EVB11": "a9042ddae785586e90045757f12335daac9b60c066c26707575eae3752ac7716",
+            "record:sources:EVB12-R": "49c7d357d50ff10fc6843ed32ecaf30f62648eb109a3c878382f1c68149cdc6b",
+            "record:sources:EVB13": "8269b07c1866144080cd8401bc474a3dc585d534c4b73c7024c2e472aee93942",
+            "record:sources:EVB14": "065a66b7f0a09ddea83df505bf3c63bc5ad7eb56a89ef745b8d4bdae710531a0",
+            "record:sources:EVB15": "95e3d52de23fd10a4abe119d8ef4e49ea251f729c0a619ebfdcf02d9e9199203",
+            "record:sources:EVB16-R": "7dc420c0355b1664d426179150de99375edb8f78f6100a942a78c50ed05e86d3",
+            "record:sources:EVB17": "0cc3bf6c6467ed3de83c08cd3ef12832db5be8fefc38d8830f9b60b0dba91abf",
+            "record:sources:EVB18": "fc238f08bd258cb2ac292b9d32f35cc4177bf162de3d35e7a02f91dac1ab9ae4",
+            "record:sources:EVB19-R": "ff56aaf7bcf1b7f19f8644f44dcb7f12c8d9aca274bd9880c39feeea1eb5b64b",
+            "record:sources:EVB20": "5d6c47f48bfb5acc3a2834dab22f301c67fd408301fcf9e834f4501e158dc437",
+            "record:sources:EVB21": "7725c5ed93bf620282e97902d2b89fef0925b4ee46c103bbfdd90b4620dfce4d",
+            "record:sources:EVB22": "95899c0e16675984ae13f0eba15bcdd8b37b199b9bbe2b544c50de7065da1a12",
+            "record:sources:EVB23": "6477e540b558e244184b6f00898aeee2acb2a55a0007e69382dba1859321e4c0",
+            "record:sources:calculations.json": "20b0e3133e695b91039d6f5c1efce8afaeffecea65175b7ee6587ab437397363",
+            "record:sources:EVB25": "8a16dd344035b3171356d85b8ba4d312cb1ae47811a3e0e546a8f9586a613b8e",
+            "record:sources:EVB26": "57357fa57b315d082cb9dc77386aa5d7da8cbb588bee99b6d0becb9ad9b9d3d8",
+            "record:sources:EVB27": "493a752ac3808f6c820087b6112e4b10c371aec67454ea014bfc8e82ae89ea9b",
+            "record:sources:volume-scenario-full-03.json": "df14eefaade812647a99248bc7bb4bdb3b3d869cea2f5cae091db7d831f03f71",
+            "record:claims:ev_batteries_zh-01": "75c1053bf8e3c112549a831a58b751c6221f60a701acdd83a6add1219cf8dbdc",
+            "record:claims:ev_batteries_zh-02": "08f6328bbb66d4137c2696b19c6c5524a53ef12fbf82fb9ee84a2924d85ae1ec",
+            "record:claims:ev_batteries_zh-03": "fae4aca0f2664b97e7c5a7366b2590b5122feb2294a665cf3a9682190f36eb73",
+            "record:claims:ev_batteries_zh-04": "15b80e5e65f2f6defd13efb68ecbdd900df6d678f2cd8a7581e222160ed69fff",
+            "record:claims:ev_batteries_zh-05": "c287620b1fc36f903e5cc29346846b11cf2014baf2215226bc55aae137d8df26",
+            "record:claims:ev_batteries_zh-06": "41194c60733d2c1ebb361a7eddeae541f08723bdc1494ebed246c9392b3f1e9d",
+            "record:claims:ev_batteries_zh-07": "b522230029047bbf7b23b980b14251337ff5f6fb205fcf588fc12ff6a8346420",
+            "record:claims:ev_batteries_zh-08": "fdc1c031011a02cb89a601f494ad4969e7b2b3d7c2c6d917f483709d4bff7fdc",
+            "record:claims:ev_batteries_zh-09": "b3a8da1d83aa4c264c8d3dbdc1ae1c2b06574254757a21010dd5db137a92f032",
+            "record:claims:ev_batteries_zh-10": "c5402943ba6c9d204767545f5226590232943b73d21eca81382fdba561d13eb7",
+            "record:claims:ev_batteries_zh-11": "5af9f189f6f52929132af8654a7e5c2f2cf7f79ea81365ee546fff95332b7244",
+            "record:claims:ev_batteries_zh-12": "82e8ddb3e6eb88a921eb98cb7f81090c71c258a1120b8e72fbf7a949e4d948c0",
+            "record:claims:ev_batteries_zh-13": "6bec5d56736999ebbe5c0e83fe26edaffdf857bed3d15b7dd4c44d151b69a4e4",
+            "record:claims:ev_batteries_zh-14": "a16c103e5cec1359e8429e150bddd6541f11bcb7f48224643211384eddff88e9",
+            "record:claims:ev_batteries_zh-15": "aa2389610b9905f07dd6e8ab1126bdfa46ac909f55f5f06532723094f0a96fd2",
+            "record:claims:ev_batteries_zh-16": "7bb59a293d30903cb68e4655dc49fc34f2798931732ec76d531836885c435b13",
+            "record:claims:ev_batteries_zh-17": "91008f2c904d2a16ef5602357115220aa821c1d8b1c9fead504282a839e5b86a",
+            "record:claims:ev_batteries_zh-18": "05a2230ba415e7de16bd53124ca0173286ef9dc8fb6739100e561c4cf95fd144",
+            "record:claims:ev_batteries_zh-19": "0f7d79516f612893c26fca10ec40093d55a40f88452f444012d73a3c68bd863d",
+            "record:claims:ev_batteries_zh-20": "77e4a1ed0f51ba331daadad99511c7a3b0e3d5e4bbe795166b2886e1c5e35e01",
+            "record:claims:ev_batteries_zh-21": "de5d739d413347732fdc72eecc1f93fe08702f1a8c4fdeee5c8cc66c442b2168",
+            "record:claims:ev_batteries_zh-22": "b55236b66e32316834d11804d21edc60d6dc639f87488d9735325467f61c05a1",
+            "record:claims:ev_batteries_zh-23": "312ab4f45e70f013a243d9505f42928da18714b4406141433e475e4379824cb4",
+            "record:claims:EV-F03-01": "1402e228d6262cc14fafc392f52a27a36270be3ac6106e86cd6fb12a4d8ef24c",
+            "record:claims:EV-F03-02": "2f7b1e57f9436838f5c77efe5b3d61f4519fdae72437ead84b546634a87f87ee",
+            "record:claims:EV-F03-03": "7faad2700ac346ec82ddc87ab970603e16d824525bf2282aedd77d8c91c7fbef",
+            "record:claims:EV-F03-04": "992f79045426ac9be5b5bdd4e8cc772f1e39f3126b8aeb31df4e6591aa213229"
+          },
+          "unit_id": "report",
+          "depends_on": [
+            "outline"
+          ],
+          "dependency_versions": {
+            "outline": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00"
+          },
+          "handoff": {
+            "summary": "REQ-EV-01/02 author repair: issuer originals establish mature-route commercialization; one new explicit pack-volume scenario. Earlier computations retained.",
+            "pending": [
+              "Independent requirements recheck and the remaining full-report responsibilities on this exact revised version."
+            ]
+          },
+          "question": "Integrate the complete battery report, including actual mature LFP/NCM commercialization and pack-volume constraints.",
+          "artifact_snapshot": {
+            "path": "logs/record-backups/74765936983e4bcf93598c1187fce022/saved/reports/current.md",
+            "sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5"
+          },
+          "previous_version": {
+            "path": "logs/record-backups/74765936983e4bcf93598c1187fce022/reports/current.md",
+            "sha256": "9b623e2af39fe1b43ef37885baf5b83af9ab9c395bada0905c479116e6ce8aa7"
+          },
+          "owner": "/root/remaining_research_inputs",
+          "changed_inputs": [],
+          "changed_since_save": false,
+          "dependencies": [
+            {
+              "unit_id": "outline",
+              "path": "analysis/outline.md",
+              "issues": []
+            }
+          ],
+          "readiness_issues": [
+            "independent_review_pending"
+          ],
+          "review": null
+        }
+      ],
+      "production_contexts": [
+        "/root/remaining_research_inputs",
+        "author:ev_batteries_zh"
+      ],
+      "scope": "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+    },
+    "observation": {
+      "operation": "save",
+      "operation_id": "74765936983e4bcf93598c1187fce022",
+      "started_at": "2026-11-09T16:02:04.193522+00:00",
+      "unit_id": "report",
+      "unit_complete": true,
+      "question": "Integrate the complete battery report, including actual mature LFP/NCM commercialization and pack-volume constraints.",
+      "depends_on": [
+        "outline"
+      ],
+      "dependency_versions": {
+        "outline": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00"
+      },
+      "host_task": "/root/remaining_research_inputs",
+      "handoff": {
+        "summary": "REQ-EV-01/02 author repair: issuer originals establish mature-route commercialization; one new explicit pack-volume scenario. Earlier computations retained.",
+        "pending": [
+          "Independent requirements recheck and the remaining full-report responsibilities on this exact revised version."
+        ]
+      },
+      "based_on": {
+        "state/task_spec.md": "04f0b96b65520bebff361f09ca7166dd8d20f8253ab8c5da6483f3a990107dcc",
+        "notes/actual-reading/EVB02.json": "a5c1a5f44563e77e30382ca2f66f297ab924ceb2a168b8ab717d1d6202ad0052",
+        "sources/actual/EVB02.txt": "037b979d8160422f9f1d8d73509f4ededfabfa32ff7e15fe0db439e0fe16c3b6",
+        "notes/actual-reading/EVB03-R.json": "e1d7b04643ec55f65df6ec13eeae8cdb3cc137e70191f5147e9091efab3275ac",
+        "sources/actual/EVB03-R.txt": "259169d5aaddbb24e7012473da7c4f8d06b45875ea42d00da3eafc7f0f516d56",
+        "notes/actual-reading/EVB06.json": "f426d705d86c92ca612a37e5b00c4763a8390b498d043185428a50794fb8fe1f",
+        "sources/actual/EVB06.txt": "d8aa434d5718e13ef0d34b204c0d00796639d1409d40b970112c7f5c862fb347",
+        "notes/actual-reading/EVB07.json": "9a682fd2dc20bcf12604a72936a4cfaa03f79e06b20be753cbf8a1011072872c",
+        "sources/actual/EVB07.txt": "f03bbd37ec1ede3b001cb248b3a0be4390dd2508343a771ee13521d7cd9d3dbe",
+        "notes/actual-reading/EVB08.json": "fa1a02a3fef2f7cfc8f196e6842d7c80beda281c85098699e83c6bbd1da56337",
+        "sources/actual/EVB08.txt": "c309d0135c9cdb9d6e5c177f88a5cbda07f9595136865fef0c25d15708321038",
+        "notes/actual-reading/EVB09.json": "6dc551bcb3911dbf7a00e02ecad9ae24c47e20678d042a05ebbec7c7ded6fbb5",
+        "sources/actual/EVB09.txt": "45a462656a299894b7dcd3f2b22dee4bd8ee5a0a195f82ec4421b7f5f920fad6",
+        "notes/actual-reading/EVB10.json": "fcecffe8188791ac16fa97fcb4fee1190c23cb990ffb9a8744128b93f2a3821e",
+        "sources/actual/EVB10.txt": "da4f69e11d1642bb3211e1f873619561e16407c708124a4915eb06bec7fb2636",
+        "notes/actual-reading/EVB11.json": "fc365325bade772acf608fb4d48e18ef5b868524ecc6de6078a373c1b9e26dec",
+        "sources/actual/EVB11.txt": "cc3d08b39f9eeb8124179625f869a7bfc3fbb84748b206060a91e28e77017103",
+        "notes/actual-reading/EVB12-R.json": "8055b6f7d3434ed6b997acb6a034254f31294267ed0c9a88fa6abf7b85113407",
+        "sources/actual/EVB12-R.txt": "92677af9308fee454551711885dfa79c9d35f949de13a1859e3e5bb78fd266aa",
+        "notes/actual-reading/EVB13.json": "f9b8d09571b7f44578a71d8905f534f03135de1e671823b74c4ff14aa1b31637",
+        "sources/actual/EVB13.txt": "d2d3b117106e7dd1e4dc257f8be3d7e319fd90258bdfd6b9708b4d5d662f2968",
+        "notes/actual-reading/EVB14.json": "fd062e9174136b3869137e2799cf0e86e94c4e199e1f3c3cf09ca3244e347701",
+        "sources/actual/EVB14.txt": "d7640b6643b9a97d8f6d1c5be0206cc0a07765f41cf3f8950b17b625ddd14add",
+        "notes/actual-reading/EVB15.json": "f197e615beb726533be296575bdd3f55a9b5c32ddbcf21a0c5d75ae078d168ef",
+        "sources/actual/EVB15.txt": "5beb203df752018ab96c0e0ae5f8b0c535e082877c94885c97dde27f93fe9ade",
+        "notes/actual-reading/EVB16-R.json": "d4dd41838db432a6d9cdf92f91ea1efd20df0f10006a5b070dec6e78e7f2594f",
+        "sources/actual/EVB16-R.txt": "393ecfa0d95c4f36d92c6ae94ea40fda3991153d377165bb1ff341a074f0c8ef",
+        "notes/actual-reading/EVB17.json": "c3abf51f6c62f375a61032dcfa9a2c0b128a436ee6ef1f811ce128768f172284",
+        "sources/actual/EVB17.txt": "72b2d45c9dc2a07d7241dc069b6c8e87236e6dceeecfaa22568b5b0c5c28493c",
+        "notes/actual-reading/EVB18.json": "53c88dc7701d4d45338b03188af786e1a847908fa6c5eaa936fb97372ba8b2f1",
+        "sources/actual/EVB18.txt": "88dd364752f50a577386109d66a6f483a98c8d998d4734ca747639bd5205a26d",
+        "notes/actual-reading/EVB19-R.json": "4d7391cf191b0f1878c0419a7a65ef8b7e40bae2022f0ecd2495a7675940c3c6",
+        "sources/actual/EVB19-R.txt": "5754dc5e44633d1a8c29672f3e811e2f8af17d5221a2715b7fd115712c615006",
+        "notes/actual-reading/EVB20.json": "11ee2f04e08b4aaa8bf8b8dd48ad3e07ebc31123deaab4919a174c2f2c5e645a",
+        "sources/actual/EVB20.txt": "5624d7c4c2ec1e688f7f2f4175788180e9c8e2ec4f2df6aa1329e42a57de2ff5",
+        "notes/actual-reading/EVB21.json": "e4df96abfdf15affde74ce6c97bf6c742165481faf2c7d7f5ec0b922270f5428",
+        "sources/actual/EVB21.txt": "1bb10d8ac55f2cfa112067cd6a916cf57d1a9bd43f5a21b04e03e46e8baf824f",
+        "notes/actual-reading/EVB22.json": "853a9ba8fb7162f1808cbf2f65d2e246b026e8e5c189a19f085c6b10ff684f90",
+        "sources/actual/EVB22.txt": "3886e4a30ed8abdbe7247588e4c2dd0ca46ffbcdd6d5fbf7cf4863efbefc55e3",
+        "notes/actual-reading/EVB23.json": "aeeac7a91772a327a9d54637e276e8211cd6d48fb8b39e5a8ef91a90fa843f67",
+        "sources/actual/EVB23.txt": "b13362bafb81c5813a810faf4505a643eb824cacf273690c10c3bb56a827593e",
+        "analysis/calculations/calculations.json": "6f1b62c66fb55a4d0fb0b833bdc0544e8600d96140a37c223364a70a99b9b46d",
+        "notes/actual-reading/EVB25.json": "3d8822c261e0f91c21714b8eed62ab64fbaf942f4ffefbfedced09b11adc84e8",
+        "notes/actual-reading/EVB26.json": "47f1c5ab9a3e58465af5d19fa13ca242f6dc453b58cf7ddad3cbaaf35fc396c2",
+        "notes/actual-reading/EVB27.json": "b8c626bb73400761fce057f151d0e772256fa62e8018890205e31a2c3ec2e94d",
+        "analysis/calculations/volume-scenario-full-03.json": "a21818112dbbdb48958214f964cc44de4265512c64d23bdb69f0bab8893f6933",
+        "analysis/outline.md": "a746502b82592e6343ee00ff2ccaff0ae97403ea7b80945ce1f31f88a8300f00",
+        "analysis/calculations/calculate_scenarios.py": "be50923c0b4a87a7b710e10da913ca05fc1eb0ed76d927ac2c9cc0299bb2b1b7",
+        "sources/actual/EVB25/delivery-poster.jpg": "83566a0fe4116a26cad7c1c468c6f9433b8caa2a4720ed2832911ca4cf242a77",
+        "sources/actual/EVB26/original.pdf": "07bfe8d532f8912fea32c8241cafd25c0bb28948e7903d5dfe23161177073e4e",
+        "sources/actual/EVB27/original.pdf": "f602c7c4fe53dcd6ed99facbe00e0d751038a130bc86644ce9a5b20b2d348ab5",
+        "analysis/calculations/calculate_volume_full_03.py": "a2d017b32a4aa0a542363a4be845f52f053c712d2419a16d3abf16604191fc3e",
+        "record:requirements:effective@outline,report": "40ad7819f5296ee0c6ad144010a48809a08390b939369e17bd127c33268ef322",
+        "record:sources:EVB02": "2cc28a6a276d4c00961fa535a01dc860f84669c341362e1215ec95d7066572ef",
+        "record:sources:EVB03-R": "180844c6daa6c295a253bf9ddc27b56c9e31c345bff0fd56aa39b4b286fa5b49",
+        "record:sources:EVB06": "e502170355432fabe4c17f8baf182283a46bd57d77278eb751dba8dced97a288",
+        "record:sources:EVB07": "2dc0167a6e7093b6dabbd681e812ffe7e62be70696da80c99b63dbdb39f2a974",
+        "record:sources:EVB08": "5a858cf9da07bb2b2fa3fa571f4ebb43f7df994ae1149e4d979f67baedef380c",
+        "record:sources:EVB09": "7f98cd794d960826f7780cbf7811abab646be84785fa61ce462ea4ff1b2af878",
+        "record:sources:EVB10": "6b43fbdba480da7aaf266b06a448cd8c49ddf108ed1748b721a2ab2297f42c7b",
+        "record:sources:EVB11": "a9042ddae785586e90045757f12335daac9b60c066c26707575eae3752ac7716",
+        "record:sources:EVB12-R": "49c7d357d50ff10fc6843ed32ecaf30f62648eb109a3c878382f1c68149cdc6b",
+        "record:sources:EVB13": "8269b07c1866144080cd8401bc474a3dc585d534c4b73c7024c2e472aee93942",
+        "record:sources:EVB14": "065a66b7f0a09ddea83df505bf3c63bc5ad7eb56a89ef745b8d4bdae710531a0",
+        "record:sources:EVB15": "95e3d52de23fd10a4abe119d8ef4e49ea251f729c0a619ebfdcf02d9e9199203",
+        "record:sources:EVB16-R": "7dc420c0355b1664d426179150de99375edb8f78f6100a942a78c50ed05e86d3",
+        "record:sources:EVB17": "0cc3bf6c6467ed3de83c08cd3ef12832db5be8fefc38d8830f9b60b0dba91abf",
+        "record:sources:EVB18": "fc238f08bd258cb2ac292b9d32f35cc4177bf162de3d35e7a02f91dac1ab9ae4",
+        "record:sources:EVB19-R": "ff56aaf7bcf1b7f19f8644f44dcb7f12c8d9aca274bd9880c39feeea1eb5b64b",
+        "record:sources:EVB20": "5d6c47f48bfb5acc3a2834dab22f301c67fd408301fcf9e834f4501e158dc437",
+        "record:sources:EVB21": "7725c5ed93bf620282e97902d2b89fef0925b4ee46c103bbfdd90b4620dfce4d",
+        "record:sources:EVB22": "95899c0e16675984ae13f0eba15bcdd8b37b199b9bbe2b544c50de7065da1a12",
+        "record:sources:EVB23": "6477e540b558e244184b6f00898aeee2acb2a55a0007e69382dba1859321e4c0",
+        "record:sources:calculations.json": "20b0e3133e695b91039d6f5c1efce8afaeffecea65175b7ee6587ab437397363",
+        "record:sources:EVB25": "8a16dd344035b3171356d85b8ba4d312cb1ae47811a3e0e546a8f9586a613b8e",
+        "record:sources:EVB26": "57357fa57b315d082cb9dc77386aa5d7da8cbb588bee99b6d0becb9ad9b9d3d8",
+        "record:sources:EVB27": "493a752ac3808f6c820087b6112e4b10c371aec67454ea014bfc8e82ae89ea9b",
+        "record:sources:volume-scenario-full-03.json": "df14eefaade812647a99248bc7bb4bdb3b3d869cea2f5cae091db7d831f03f71",
+        "record:claims:ev_batteries_zh-01": "75c1053bf8e3c112549a831a58b751c6221f60a701acdd83a6add1219cf8dbdc",
+        "record:claims:ev_batteries_zh-02": "08f6328bbb66d4137c2696b19c6c5524a53ef12fbf82fb9ee84a2924d85ae1ec",
+        "record:claims:ev_batteries_zh-03": "fae4aca0f2664b97e7c5a7366b2590b5122feb2294a665cf3a9682190f36eb73",
+        "record:claims:ev_batteries_zh-04": "15b80e5e65f2f6defd13efb68ecbdd900df6d678f2cd8a7581e222160ed69fff",
+        "record:claims:ev_batteries_zh-05": "c287620b1fc36f903e5cc29346846b11cf2014baf2215226bc55aae137d8df26",
+        "record:claims:ev_batteries_zh-06": "41194c60733d2c1ebb361a7eddeae541f08723bdc1494ebed246c9392b3f1e9d",
+        "record:claims:ev_batteries_zh-07": "b522230029047bbf7b23b980b14251337ff5f6fb205fcf588fc12ff6a8346420",
+        "record:claims:ev_batteries_zh-08": "fdc1c031011a02cb89a601f494ad4969e7b2b3d7c2c6d917f483709d4bff7fdc",
+        "record:claims:ev_batteries_zh-09": "b3a8da1d83aa4c264c8d3dbdc1ae1c2b06574254757a21010dd5db137a92f032",
+        "record:claims:ev_batteries_zh-10": "c5402943ba6c9d204767545f5226590232943b73d21eca81382fdba561d13eb7",
+        "record:claims:ev_batteries_zh-11": "5af9f189f6f52929132af8654a7e5c2f2cf7f79ea81365ee546fff95332b7244",
+        "record:claims:ev_batteries_zh-12": "82e8ddb3e6eb88a921eb98cb7f81090c71c258a1120b8e72fbf7a949e4d948c0",
+        "record:claims:ev_batteries_zh-13": "6bec5d56736999ebbe5c0e83fe26edaffdf857bed3d15b7dd4c44d151b69a4e4",
+        "record:claims:ev_batteries_zh-14": "a16c103e5cec1359e8429e150bddd6541f11bcb7f48224643211384eddff88e9",
+        "record:claims:ev_batteries_zh-15": "aa2389610b9905f07dd6e8ab1126bdfa46ac909f55f5f06532723094f0a96fd2",
+        "record:claims:ev_batteries_zh-16": "7bb59a293d30903cb68e4655dc49fc34f2798931732ec76d531836885c435b13",
+        "record:claims:ev_batteries_zh-17": "91008f2c904d2a16ef5602357115220aa821c1d8b1c9fead504282a839e5b86a",
+        "record:claims:ev_batteries_zh-18": "05a2230ba415e7de16bd53124ca0173286ef9dc8fb6739100e561c4cf95fd144",
+        "record:claims:ev_batteries_zh-19": "0f7d79516f612893c26fca10ec40093d55a40f88452f444012d73a3c68bd863d",
+        "record:claims:ev_batteries_zh-20": "77e4a1ed0f51ba331daadad99511c7a3b0e3d5e4bbe795166b2886e1c5e35e01",
+        "record:claims:ev_batteries_zh-21": "de5d739d413347732fdc72eecc1f93fe08702f1a8c4fdeee5c8cc66c442b2168",
+        "record:claims:ev_batteries_zh-22": "b55236b66e32316834d11804d21edc60d6dc639f87488d9735325467f61c05a1",
+        "record:claims:ev_batteries_zh-23": "312ab4f45e70f013a243d9505f42928da18714b4406141433e475e4379824cb4",
+        "record:claims:EV-F03-01": "1402e228d6262cc14fafc392f52a27a36270be3ac6106e86cd6fb12a4d8ef24c",
+        "record:claims:EV-F03-02": "2f7b1e57f9436838f5c77efe5b3d61f4519fdae72437ead84b546634a87f87ee",
+        "record:claims:EV-F03-03": "7faad2700ac346ec82ddc87ab970603e16d824525bf2282aedd77d8c91c7fbef",
+        "record:claims:EV-F03-04": "992f79045426ac9be5b5bdd4e8cc772f1e39f3126b8aeb31df4e6591aa213229"
+      },
+      "previous_version": {
+        "path": "logs/record-backups/74765936983e4bcf93598c1187fce022/reports/current.md",
+        "sha256": "9b623e2af39fe1b43ef37885baf5b83af9ab9c395bada0905c479116e6ce8aa7"
+      },
+      "artifact_snapshot": {
+        "path": "logs/record-backups/74765936983e4bcf93598c1187fce022/saved/reports/current.md",
+        "sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5"
+      },
+      "artifact": "reports/current.md",
+      "artifact_kind": "report",
+      "complete_draft": true,
+      "artifact_sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+      "outcome": "saved",
+      "finished_at": "2026-11-09T16:02:05.085975+00:00"
+    }
+  },
+  "prepared_assignments": [
+    "requirements",
+    "evidence",
+    "adversarial_reasoning",
+    "structure_and_depth",
+    "reader_usefulness",
+    "process_language",
+    "natural_expression",
+    "domain-1"
+  ],
+  "delivery_ready": false
+}

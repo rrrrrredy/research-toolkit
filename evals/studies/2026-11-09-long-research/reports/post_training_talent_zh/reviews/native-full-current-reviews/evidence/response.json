@@ -1,0 +1,12 @@
+{
+  "input_version": "3193d198b5c55628c1f95c882485575fee648b2b4c0fc9a5174c08c363e71662",
+  "assignment_version": "73df7cd7f181be801493d5d7e22ec99cb6956703e2582081e3577e200c425f2e",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "location": "全文第 1–173 行；专长成果矩阵、人物表、团队时间线、关系类型表和组织建议。",
+      "basis": "连续通读全文并独立核读原始论文、贡献声明、本人/机构职业资料及官方公告。核对 InstructGPT、DPO、IPO、Zephyr、Tülu 3、RewardBench/M-RewardBench、R1、HybridFlow、Kimi K2/K3、SWE-RL、RAGEN、Arctic-SWE、SEA-LION、Swallow 与 Falcon-H1R 的研究范围和限制；人物归属与时间未由署名顺序或论文单位外推。Nathan 的离职日推导有原文日期支持；Eric 旧页头和更新正文冲突、Rafael 旧页、NVIDIA 未来实习与校名/品牌变化均在对应处保留。未发现需要修改的证据性缺陷。Lewis 当前 LinkedIn 本轮访问返回 999，当前精确职称本就未获报告确认；历史 HF 采访及 Zephyr 原件已核对，该访问限制没有被当作已核验当前职称。"
+    }
+  },
+  "findings": []
+}

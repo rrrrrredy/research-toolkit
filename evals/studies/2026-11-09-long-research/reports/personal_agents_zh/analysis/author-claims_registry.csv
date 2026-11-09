@@ -1,0 +1,22 @@
+﻿claim_id,claim,source_ids,evidence_type,location,author,review_status,cutoff
+PA-C01,当前ChatGPT agent帮助页顶部声明已不可用，改用Work；下方旧额度不能当现状,PA02,official_document,web-openai-1.json L14–34,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C02,Work支持云端跨设备与定时/事件任务；账户及工作区控制影响可用性,PA03,official_document,"web-openai-1/2.json 59–65,142–158",Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C03,云浏览器为独立远程会话；站点访问许可与重要动作确认分开,PA04,official_document,"web-openai-2.json 48–67,89–119",Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C04,Memory中的不再提及、删除记忆、聊天/文件删除和断开来源不是同一操作,PA05,official_document,web-openai-1.json 85–139,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C05,Google Personal Intelligence发布时由用户选择连接源，承认过度个性化和关系变化理解问题,PA06,dated_official_release,How it works/privacy/limitations,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C06,Gemini Tasks当前要求个人账号Pro/Ultra和Keep Activity；停止Chrome操作可不等于完整任务取消,PA08,official_document,What you need/stop task,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C07,Manus Projects表列指令更新在当前任务下一消息生效，文件更新只进入新任务,PA09,official_document,Configuration Updates；其后广义旧任务不受影响句需按表限定，不外推,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C08,Manus自动化提供定时/事件条件、更新和错误检查入口，未证实所有排队任务即时取消语义,PA10,document_and_gap,Automations management/error recovery,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C09,Manus本地Operator每会话授权、桌面须在线；关闭专用页停止，云浏览器为另一环境,PA11,official_document,Security/FAQ/Local vs Cloud,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C10,Manus计划页显示积分消耗与任务复杂度有关，不足以给统一任务单价,PA12,official_document,How credits work/FAQ,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C11,千问2026-01-15生态动作公测与Task Assistant邀请测试是不同开放状态,PA13,dated_official_release,release body,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C12,豆包M153技术预览展示与9月消费者版媒体观察属于不同版本、证据类型,PA15;PA17,dated_release_and_third_party_observation,2026-03-03 release;2026-09-17 reporter experience,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C13,Siri2026-09-14英语beta首发、受设备/地区约束；后续语言计划不当已验证现状,PA19,dated_official_release,Pricing and Availability,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C14,Open-AutoGLM Tap确认依赖action中message字段；此文件不能证明敏感操作识别完备,PA21,code_and_inference,_handle_tap/default_confirmation; downloaded main snapshot,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C15,OpenClaw区分用户模型、持久事实和日记；网关默认信任边界不覆盖互不信任租户,PA22;PA23,official_implementation_docs,What goes where/One trust boundary,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C16,MCP接口令牌边界和OAuth撤销均不自动表达已提交订单的业务回滚,PA27;PA28,standard_and_analysis,authorization token rules;RFC7009 section2,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C17,LongMemEval/tau-bench/AgentDojo测量不同对象，不能合成当前消费产品成功率,PA24;PA25;PA-A01,paper_based_analysis,versions v2 2025-03-04/v1 2024-06-17/v3 2024-11-24,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C18,当前ChatGPT商家页转向发现与商家自有结账；该页称当前美国与站外成交无费用,PA31,current_official_page,main/FAQ;observed2026-11-09,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C19,假设票据场景净时间235分钟，核对/失败加重后40分钟；净价值115元至负80元,AUTHOR-CALC,illustrative_calculation,calculate_scenarios.py/calculations.json,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C20,长期任务应分别管理意图、授权、执行状态及回执；产品选择取决于具体交接成本,PA08;PA09;PA21;PA28;AUTHOR-ANALYSIS,synthesis,"parts/01,02,03；无亲测",Codex /root/remaining_research_inputs,not_self_approved,2026-11-09
+PA-C21,低频旅行假设净价值负2元，加入40元期望外部损失后负42元,AUTHOR-CALC,illustrative_calculation,calculate_scenarios.py/calculations.json,Codex /root/remaining_research_inputs,not_self_approved,2026-11-09

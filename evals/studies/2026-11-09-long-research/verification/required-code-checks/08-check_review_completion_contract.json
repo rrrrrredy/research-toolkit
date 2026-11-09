@@ -1,0 +1,11 @@
+{
+  "mandatory_step": "Check isolated delivery contract",
+  "command": [
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+    "scripts/check_review_completion_contract.py"
+  ],
+  "cwd": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109",
+  "exit_code": 0,
+  "started_at_epoch": 1794235575.6653569,
+  "elapsed_seconds": 2.1537766456604004
+}

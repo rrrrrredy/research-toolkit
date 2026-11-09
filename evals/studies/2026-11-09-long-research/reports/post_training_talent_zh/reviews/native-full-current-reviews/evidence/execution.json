@@ -1,0 +1,223 @@
+{
+  "host_task": "/root/evidence_remaining_b",
+  "status": "completed",
+  "perspective": "evidence",
+  "input_version": "3193d198b5c55628c1f95c882485575fee648b2b4c0fc9a5174c08c363e71662",
+  "assignment_version": "73df7cd7f181be801493d5d7e22ec99cb6956703e2582081e3577e200c425f2e",
+  "artifact_sha256": "ebd5a23106c034b04c1ed4f349bce5954b88e7ec02129825bb406259211082db",
+  "completed_at_utc": "2026-11-09T15:17:58.6681840Z",
+  "start_marker_utc": "2026-11-09T15:12:07.5084836Z",
+  "time_note": "Start marker is preceding completed review time; actual reading occurred after it. Completion timestamp is written at completion.",
+  "report_read": {
+    "actual_read_ranges": "Full 1–173, continuous 1–90 and 91–173; focused reread 72–78",
+    "sha256": "ebd5a23106c034b04c1ed4f349bce5954b88e7ec02129825bb406259211082db",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\reports\\current.md"
+  },
+  "assignment_read": "Selected task, requirements, report, source keys and necessary source metadata; no current other-perspective judgments",
+  "originals_read": [
+    {
+      "actual_read_ranges": "156;158–159;163",
+      "sha256": "4c19b9921c73e09024603e5a70d1a15391b82ddeb5350192d068bca3b2397bfd",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT01.txt"
+    },
+    {
+      "actual_read_ranges": "1–54",
+      "sha256": "6f5214343ccfa383d3143820dbb2ae2c85d67bf44c19e917bd7b4dc91d95be80",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT-A11.txt"
+    },
+    {
+      "actual_read_ranges": "5–28",
+      "sha256": "f0f60758b546ef22ed520867a5c72b95542f77d237cd7af796ea0e9f7774bdb6",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT-A03.txt"
+    },
+    {
+      "actual_read_ranges": "46;123–139",
+      "sha256": "74354ef565105ae121d29965266e3a2881ee5cc3b330fc76cc5f5cc15eb7c269",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT31.txt"
+    },
+    {
+      "actual_read_ranges": "49–61",
+      "sha256": "e52ec9f6d1e5888895640410ba03f987cd71c1c048718171773770ecce12867c",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT26.txt"
+    },
+    {
+      "actual_read_ranges": "49;52;54;58;61–84;375–383",
+      "sha256": "2d1a9b1c1baafc28648de76c1d1f188e5be3024faaa4c9bbf8aded441a9d4424",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT04.txt"
+    },
+    {
+      "actual_read_ranges": "8;16;18;23–24;47",
+      "sha256": "0a578a08d387a9cd9a5dcf417c23960c2df9a4b13aba9e61cba530f1fdc20d86",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT11.txt"
+    },
+    {
+      "actual_read_ranges": "39;88;103;135;261;265",
+      "sha256": "bc25e6f0fbbc8ebdece94b6baf107dde784de631aeeaf4d20533261dd7b8d119",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT-A06.txt"
+    },
+    {
+      "actual_read_ranges": "21–35",
+      "sha256": "a47cfa2a716fbc282ad98bbc33547ac7fd9746f4c70211cf9593331cf698d0f7",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT28.txt"
+    },
+    {
+      "actual_read_ranges": "156–175;179–210;231–242;311–321",
+      "sha256": "61d74a5483b3eb94ee27e2a723f17005409541b55b669524180f66fa79dbd2cf",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT25.txt"
+    },
+    {
+      "actual_read_ranges": "13–23",
+      "sha256": "50f35d4217db5d5529db0810277bde2ab4b08801a3a9e5c840c344cb10eb7a41",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT21.txt"
+    },
+    {
+      "actual_read_ranges": "53;63–76",
+      "sha256": "bc422147d7b1354426dda1d5c001d358dd2968e37f3a1da135b913d36d458ba7",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT27.txt"
+    },
+    {
+      "actual_read_ranges": "63–83",
+      "sha256": "13f2293e9502e6d441d89cd945b9f20acb8277d9f81d69c085dbba4464cd6240",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT23.txt"
+    },
+    {
+      "actual_read_ranges": "163–164;172–194;2901–2915",
+      "sha256": "0507b5d9467ddf8ab66847fcd81fd234d26b656575d01cc8714e8dd3ae8b0a55",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT05.txt"
+    },
+    {
+      "actual_read_ranges": "8–20;37–45",
+      "sha256": "7a91d4bedfac174a99222dcafaf08723f182e14779c0520a91b6297a2bb40dbc",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT24.txt"
+    },
+    {
+      "actual_read_ranges": "15–22",
+      "sha256": "9f068600fd4e401b55a5ceec29a8f3e8cb12cf86537e4ba40367b638fbf38481",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT17.txt"
+    },
+    {
+      "actual_read_ranges": "101–115",
+      "sha256": "89f792dc3c2ed3645189bc6e1b032afa2796488c8890f273c45df8a562be964a",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT29.txt"
+    },
+    {
+      "actual_read_ranges": "1–30",
+      "sha256": "b692e3532f644399a1d9cdda2035c75fecf4aff760d0cf7b314b959a1e65137f",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT06.txt"
+    },
+    {
+      "actual_read_ranges": "22–51;last four lines update stamp",
+      "sha256": "1f1c8e7a9f5019bb27e953bab3fb1a2de2b45abde08dd9748f572d34fece5553",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT-A04.txt"
+    },
+    {
+      "actual_read_ranges": "85–95;109;253;605–621",
+      "sha256": "e4c1c03677ba99ab14afb5e00f87b22688c17349ae732a29e7dd7d911ca1fa52",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT02.txt"
+    },
+    {
+      "actual_read_ranges": "3;17;20–28",
+      "sha256": "7496549c4caa7ccf4ead6daec700041b26a777e48972f7c66c890b1d2829c9f6",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT10.txt"
+    },
+    {
+      "actual_read_ranges": "6;14–24;28–47",
+      "sha256": "9815a2a986c8c41128514cb0890edfc0e9fcf43c0bd6ce1d4b03e3e38e0b11de",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT-A02.txt"
+    },
+    {
+      "actual_read_ranges": "46;66–75",
+      "sha256": "defb43588b422253bc6aab96001736cebb5e0d9b044197c2563c5dc2e34b305a",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT22.txt"
+    },
+    {
+      "actual_read_ranges": "16;20",
+      "sha256": "8d73023947a584b57e08ce5c5dfefb2d8252b65589e900327d20c8a931dd0dd0",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT13.txt"
+    },
+    {
+      "actual_read_ranges": "1–64",
+      "sha256": "bb5b907da3f82c35407a17517cde09b2336a28647d320c7f513eda94e7d7486c",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT03.txt"
+    },
+    {
+      "actual_read_ranges": "4–5;10;15–16;28",
+      "sha256": "ac91a795d709c0c7630ae4bf29e444ef290c1507f5b4612eaae5329faf7a6f26",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT-A05.txt"
+    },
+    {
+      "actual_read_ranges": "15;21;23;32–40",
+      "sha256": "c625b633b6fcefcadd187c78aeabfcd4d084f575ad45c506e7e4a19f6627bfd6",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT-A12.txt"
+    },
+    {
+      "actual_read_ranges": "35–49",
+      "sha256": "1bf4fac8d6b00bba8c0f5f1ee61515e01ceca3ff33ccba2339b5ad647e9947b6",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT15.txt"
+    },
+    {
+      "actual_read_ranges": "110–134 navigation only;180–196;2993–2999",
+      "sha256": "4dde84f4a1972bf08b303363630bae22ebde8a3bc6b915835adba099130ca5b6",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT20.txt"
+    },
+    {
+      "actual_read_ranges": "70–78;117;240;271",
+      "sha256": "d727be096aab7081f7c5dac31b8d03eba31a470e70e0841185029e27679a85db",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT16.txt"
+    },
+    {
+      "actual_read_ranges": "1–52",
+      "sha256": "1161316fb542fced2a0aed5b69bbc38758732c7d491fb28f597b640142373ba9",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT32.txt"
+    },
+    {
+      "actual_read_ranges": "1–25;33–40",
+      "sha256": "f9db25b9cab3a30ae9b0fede6c73768e92cf49176284f44c473a88d31daf6cd5",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT-A10.txt"
+    },
+    {
+      "actual_read_ranges": "126–144;476;1619–1635;1780–1804",
+      "sha256": "dac870cce10a9336deddce7437d84cb9c98017d918f4a35d823d2ab6fc2fcf47",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT19.txt"
+    },
+    {
+      "actual_read_ranges": "46–101;108;123;131;137–138",
+      "sha256": "c5d263e0b82cca5b086e909de8d8ced7accf54df85ef7b21ad2a8650c5590755",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT18.txt"
+    },
+    {
+      "actual_read_ranges": "8;17–24;38;40–43",
+      "sha256": "feb1541c6629761c1134dbed9aaccf0d4393c5269d43124d2ec35da3cd51988d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh\\sources\\actual\\PTT09.txt"
+    }
+  ],
+  "web_originals_read": [
+    {
+      "actual_read_ranges": "web lines 0–85, career 0–14",
+      "url": "https://www.lvwerra.com/",
+      "sha256": null
+    },
+    {
+      "actual_read_ranges": "web lines 0–89",
+      "url": "https://ericmitchell.ai/",
+      "sha256": null
+    },
+    {
+      "actual_read_ranges": "web lines 0–95, career 41–58",
+      "url": "https://www.rio.gsic.titech.ac.jp/en/member/yokota.html",
+      "sha256": null
+    },
+    {
+      "actual_read_ranges": "web lines 0–151;147–358;707–790; Shayekh entry 156–181",
+      "url": "https://labscommunity.cohere.com/get-started/community-research",
+      "sha256": null
+    },
+    {
+      "actual_read_ranges": "web PDF parsed lines 0–46",
+      "url": "https://s205.q4cdn.com/537566246/files/doc_news/ServiceNow-and-Hugging-Face-release-StarCoder-an-open-access-large-language-model-for-code-generation-05-04-2023-traffic-2023.pdf",
+      "sha256": null
+    }
+  ],
+  "limitations": "Primary originals read at listed passages, not entire bibliography. LinkedIn Lewis page returned 999; no successful read or current formal title verification claimed. Incidental public contact details in source pages were not collected into review records. The large first source batch truncated DPO/Zephyr passages; these were then read again in bounded output.",
+  "actions": "Only evidence response and execution written. No report edits, imports, experiments, calculations or checks run."
+}

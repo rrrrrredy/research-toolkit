@@ -1,0 +1,100 @@
+{
+  "status": "completed",
+  "host_task": "/root/structure_remaining_b",
+  "executor": "native Codex subagent, independent structure_and_depth review",
+  "input_version": "4916bbf7954376e17453bc78c09a2511b4dcceae7270c4ed378ef2d93eb80e89",
+  "assignment_version": "44101d16c31a38631ea8c1f0d2f226eef41c0d9a35b1d84384f48563d0f3a1f4",
+  "job_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_en\\reviews\\host\\4916bbf7954376e17453\\jobs\\structure_and_depth-44101d16c31a3863.json",
+  "job_sha256": "94ae1b107956feca8405b98e40ad4c6aedfbd6ee86a15707b6807c0d2b7ef4a0",
+  "artifact_sha256": "ffceaf740b8acdfd38ca4b74d0de96327b7c80f0a26ffe563dee1f09b732ccc2",
+  "frozen_report_sha256": "ffceaf740b8acdfd38ca4b74d0de96327b7c80f0a26ffe563dee1f09b732ccc2",
+  "assessment_mode": "revision_review_reusing_own_complete_reading",
+  "started_at": "2026-11-09T15:46:44.4719355Z",
+  "completed_at": "2026-11-09T23:54:32.7135017+08:00",
+  "task_unchanged": true,
+  "effective_requirements_unchanged": true,
+  "scope_decisions_unchanged": true,
+  "identical_report_reuse": false,
+  "previous_review": {
+    "input_version": "101c23eadaeb064e98f55350f5f6a053b496692bb0445a1d172727bb0e0f2eca",
+    "complete_report_reading": {
+      "complete": true,
+      "last_line": 340,
+      "ranges": [
+        [
+          1,
+          90
+        ],
+        [
+          91,
+          185
+        ],
+        [
+          186,
+          340
+        ]
+      ],
+      "path": "frozen-report.md",
+      "trailing_newline": true
+    },
+    "reuse": "Unchanged report content reuses this agent own complete prior reading; historical verdict alone was not used as evidence.",
+    "artifact_sha256": "8cf6095d649d0543a7c444e13e5296abab2b5ffecfa4615775de91b4faca48a6",
+    "frozen_report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_en/native-full-current-reviews/structure_and_depth/frozen-report.md",
+    "assignment_version": "af49d37817b639c55dac6e700dfe9e2b0a512cb145adb814d4c55a3d68566da1",
+    "response_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_en/native-full-current-reviews/structure_and_depth/response.json",
+    "execution_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_en/native-full-current-reviews/structure_and_depth/execution.json"
+  },
+  "current_reading": {
+    "diff_read_ranges": [
+      1,
+      29
+    ],
+    "complete_diff_read": true,
+    "diff_sha256": "e8a089b460c45fe9e2e9cba0bd89f9847cfded7052ddcc1dd2723dfe10c643af",
+    "diff_hunks": [
+      {
+        "previous_start": 286,
+        "previous_end": 294,
+        "current_end": 294,
+        "current_start": 286
+      },
+      {
+        "previous_start": 296,
+        "previous_end": 306,
+        "current_end": 306,
+        "current_start": 296
+      }
+    ],
+    "current_report_last_line": 340,
+    "full_current_report_reread": false,
+    "frozen_report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_en/native-full-final-reviews/structure_and_depth/frozen-report.md",
+    "scope": "Complete actual diff and its supplied context; unchanged portions rely on own prior full report reading",
+    "additional_current_report_context_ranges": [],
+    "diff_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_en/native-full-final-reviews/structure_and_depth/reviewed-report.diff"
+  },
+  "originals_reused": [
+    {
+      "unchanged": true,
+      "path": "sources/actual/CP24.txt",
+      "previous_reading_range": "1-138",
+      "sha256": "b2a963c5533832eb0580a77fe79f229feab9402bb4c91027cdee6cf3111dcbf2"
+    },
+    {
+      "unchanged": true,
+      "path": "sources/actual/MD014.txt",
+      "previous_reading_range": "1-77",
+      "sha256": "d07461627bc6d94b2acdfa4a55aad398ccfde77c1827542f55ea6881fc38a289"
+    },
+    {
+      "unchanged": true,
+      "path": "sources/actual/CP27.txt",
+      "previous_reading_range": "selected relevant passages: creator sharing, transaction settlement, attributed ad-yield/LTV tools",
+      "sha256": "080a8ab424f98feccd85e06a1bb08ab90d5dac3cb73f9a1c913cef815f9182d9"
+    }
+  ],
+  "originals_newly_examined": [],
+  "other_perspective_results_read": false,
+  "report_edited": false,
+  "research_or_calculations_rerun": false,
+  "original_review_records_preserved": true
+}

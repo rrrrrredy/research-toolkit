@@ -1,0 +1,128 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en",
+  "input_version": "b05a22e12456963e8dcdd2cf1fa1d888fc1552f79329ce94c60a9f2fe349b9bf",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "requirements",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/ccbef49f961ea6209b88.md",
+        "sha256": "ccbef49f961ea6209b8896843ba248626c4c2aa3fc11b2296314de413fd52fbc"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/b05a22e12456963e8dcd/jobs/requirements-d52fe01cd6cba595.json",
+        "sha256": "f6bcc5ca9ca45cb82d5fe3feffa675a119d67858881938126f3cf4969c751a9d"
+      },
+      "assignment_version": "d52fe01cd6cba59561226cc6e3bb0490a77db405cc025183a5aa084d61d725e1",
+      "resume_host_task": "/root"
+    },
+    {
+      "slot_id": "evidence",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/f1b0fd267f2e5f1851a3.md",
+        "sha256": "f1b0fd267f2e5f1851a367279c94d2a19ac0f568248e8d1d80e766b226246d93"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/b05a22e12456963e8dcd/jobs/evidence-395f1d5271ab34d0.json",
+        "sha256": "0080bc268c00a2aac0859fd277a6a7794e69446e978cd9df0e5a72b001f9edab"
+      },
+      "assignment_version": "395f1d5271ab34d0bc4fb13c2ef88b8e6f34fe5ae22b286419de77f4ff5d55cc"
+    },
+    {
+      "slot_id": "adversarial_reasoning",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/0a19ea9feae1c11ac2f7.md",
+        "sha256": "0a19ea9feae1c11ac2f7d7cb8e0f156b92b49e9416d3dd6ff1bdc9b986d262d7"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/b05a22e12456963e8dcd/jobs/adversarial_reasoning-9b3c0ed94ccfb6e4.json",
+        "sha256": "a7842bf3d7eb1d3aeeede9ecb76e280e9aabae30c53972cf9e068001fe2e692c"
+      },
+      "assignment_version": "9b3c0ed94ccfb6e4f160a6003023e476078738c6bc49c9d7670ffab0ddfdb881",
+      "resume_host_task": "/root/benchmark_adversarial"
+    },
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/3efc797a22d02116cad5.md",
+        "sha256": "3efc797a22d02116cad577a8ca9cda7b1c1402111d78d496dcf1e9573b8034ff"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/b05a22e12456963e8dcd/jobs/structure_and_depth-bfc22beffee03a55.json",
+        "sha256": "a1ec9af027269b000c5f0847667f5be7ad207edad10aaafb72cfdb331f41275d"
+      },
+      "assignment_version": "bfc22beffee03a552a763f0d3505ac870515938fb07fceb05ab9a8c699375f96"
+    },
+    {
+      "slot_id": "reader_usefulness",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/b0a00242526613fe29e6.md",
+        "sha256": "b0a00242526613fe29e6beaeced116a57f39e9ed3c35bddaefecf72227ffb7e3"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/b05a22e12456963e8dcd/jobs/reader_usefulness-898f051279132f22.json",
+        "sha256": "e7bc1ec80404cd2315155f59d59d674e02db3a233383c8ce511bba61d930de8c"
+      },
+      "assignment_version": "898f051279132f221db87241f9b5f7da60d1d7fd1da93aaa9ff55d42843ea404"
+    },
+    {
+      "slot_id": "process_language",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/98f5c5c21b8776d83db0.md",
+        "sha256": "98f5c5c21b8776d83db045a133e2b35db07fb50a53baa06f0cc9f8f7108036f0"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/b05a22e12456963e8dcd/jobs/process_language-8a78e0360b540b46.json",
+        "sha256": "3f591fcef486c98c423877da157ff01e274b268b035d63c86b46d0889c04ab21"
+      },
+      "assignment_version": "8a78e0360b540b46eb78df34bfc9ad267726f8ec374ea5caa031aa2217d355cf",
+      "resume_host_task": "/root/process_remaining_b"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: requirements",
+      "Incomplete independent assignment: evidence",
+      "Incomplete independent assignment: adversarial_reasoning",
+      "Incomplete independent assignment: structure_and_depth",
+      "Incomplete independent assignment: reader_usefulness",
+      "Incomplete independent assignment: process_language",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 2,
+    "selected_attempts": {
+      "natural_expression": "2e327b1a72f543719d0caf98d6ff6bf7",
+      "domain-1": "dab54615edca4228abd2ebda54369955"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: requirements",
+    "Incomplete independent assignment: evidence",
+    "Incomplete independent assignment: adversarial_reasoning",
+    "Incomplete independent assignment: structure_and_depth",
+    "Incomplete independent assignment: reader_usefulness",
+    "Incomplete independent assignment: process_language",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

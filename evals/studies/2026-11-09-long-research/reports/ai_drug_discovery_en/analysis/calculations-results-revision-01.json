@@ -1,0 +1,89 @@
+{
+  "author": "Codex /root/ttc_research; not independent reviewer",
+  "executed_utc": "2026-11-09T12:32:26.234647+00:00",
+  "rentosertib": {
+    "observed_cases": {
+      "active_n": 10,
+      "placebo_n": 14,
+      "active_change_ml": 98.4,
+      "placebo_change_ml": -20.3,
+      "difference_ml": 118.7,
+      "equation": "98.4 - (-20.3)"
+    },
+    "ANCOVA_multiple_imputation_MAR": {
+      "active_randomized_n": 18,
+      "placebo_randomized_n": 17,
+      "active_LS_change_ml": 89.2,
+      "placebo_LS_change_ml": -8.2,
+      "difference_ml": 97.4,
+      "equation": "89.2 - (-8.2)"
+    },
+    "meaning": "Two distinct analyses; differences are subtraction of reported group point estimates, not a new contrast CI or hypothesis test",
+    "missing_total_pct": 30.985915492957748,
+    "missing_60qd_pct": 44.44444444444444,
+    "missing_placebo_pct": 17.647058823529413,
+    "withdrawal_pct": 22.535211267605632
+  },
+  "CCM_screen": {
+    "machine_orthogonal_validation_fraction": 0.18421052631578946,
+    "manual_fraction": 0.02631578947368421,
+    "selected_set_yield_ratio": 7.0,
+    "meaning": "Same screen, matched selected-set sizes; no clinical success inference"
+  },
+  "halicin_screen": {
+    "hub_top_fraction": 0.5151515151515151,
+    "hub_bottom_fraction": 0.031746031746031744,
+    "top_bottom_yield_ratio": 16.227272727272727,
+    "zinc_selected_any_species_fraction": 0.34782608695652173,
+    "meaning": "Selected compounds and different endpoints; not global library sensitivity or clinical probability"
+  },
+  "REC4881": {
+    "week13_response_fraction": 0.8666666666666667,
+    "week25_below_baseline_fraction": 0.8461538461538461,
+    "phase2_efficacy_evaluable_fraction": 0.7619047619047619,
+    "phase2_week13_measured_fraction": 0.7142857142857143,
+    "meaning": "Denominators kept distinct; no imputation of absent outcomes as failures or successes"
+  },
+  "baricitinib": {
+    "COV_BARRIER_raw_absolute_mortality_reduction": 0.05025421221732221,
+    "COV_BARRIER_raw_risk_ratio": 0.617565445026178,
+    "RECOVERY_raw_absolute_mortality_reduction": 0.012312405083757264,
+    "RECOVERY_raw_risk_ratio": 0.9096188286159357,
+    "meaning": "Raw proportions; not adjusted HR/rate ratio, not causal AI attribution, not cross-trial ranking"
+  },
+  "historical_AI_cohort": {
+    "phase1": {
+      "k": 21,
+      "n": 24,
+      "fraction": 0.875,
+      "wilson_95": [
+        0.6899611872949993,
+        0.9565566591987655
+      ]
+    },
+    "phase2": {
+      "k": 4,
+      "n": 10,
+      "fraction": 0.4,
+      "wilson_95": [
+        0.16818032970623614,
+        0.6873262302663417
+      ]
+    },
+    "meaning": "Descriptive binomial uncertainty conditional on published classifications; neither selection bias nor causal contrast addressed"
+  },
+  "Sanofi_initial_2022_terms": {
+    "per_program_milestone_ceiling_million": 343,
+    "fifteen_program_product_million": 5145,
+    "announced_rounded_ceiling_million": 5200,
+    "upfront_fraction_of_upfront_plus_announced_ceiling": 0.018867924528301886,
+    "meaning": "Arithmetic on ceilings, not forecast, fair value, revenue, or received cash"
+  },
+  "Sanofi_Oct2026_inflows": {
+    "announced_total_million": 144,
+    "initial_upfront_million": 100,
+    "difference_million": 44,
+    "meaning": "Aggregate additional announced upfront/milestone inflows; not all from latest candidate"
+  },
+  "revision_01_executed_utc": "2026-11-09T12:45:19.437489+00:00"
+}

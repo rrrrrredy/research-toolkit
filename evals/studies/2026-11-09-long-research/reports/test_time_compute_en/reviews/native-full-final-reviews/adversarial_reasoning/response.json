@@ -1,0 +1,12 @@
+{
+  "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+  "assignment_version": "c70ea6988b277888067c338161306097653c0ce3964ed7a4851be8bceb597914",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "复用本人先前完整正文审阅（初始记录 native-full-reviews/adversarial_reasoning）；当前稿共 358 行，完整 diff 及上下文当前行号 [[130, 137], [143, 149], [192, 198], [252, 259], [275, 289], [292, 298]]。",
+      "basis": "当前全部差异已读：OR/AD 定义以有限前缀/探测观测值为准，仍保留选择噪声及 oracle 限制；20,000 个 rollout 槽的正文分解为 19,200 solver 加 800 proposer，未升级为成本效率结论。决策图在每次增量执行后回到当前结果、预算与资源判断，修订方案重新核算，无可行方案可停止，原先对计算、验证和反馈成本的整体结论继续成立。其余修改清理作者过程语言，未改变实证证据。"
+    }
+  },
+  "findings": []
+}

@@ -1,0 +1,53 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh",
+  "input_version": "e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "acceptance",
+      "role": "acceptance",
+      "reading_ref": {
+        "path": "logs/reading/17ed87146315b05f1794.md",
+        "sha256": "17ed87146315b05f17946c9811167144e3e5620425ce29c227bd7f369ce9431a"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/e4cabf49ef9396bd0f19/jobs/acceptance-4fc24b69688d2612.json",
+        "sha256": "2a726405329eda1ced702574c8502f562b9d541f2979cbce9156aed1e6e97e10"
+      },
+      "assignment_version": "4fc24b69688d2612268b8965e99289ccec7e8839aac4ab8279d1368488da8ab4"
+    }
+  ],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 9,
+    "selected_attempts": {
+      "natural_expression": "33990153cfd44b92b449c1acb705455f",
+      "domain-1": "7b888d1e0173436292d2cb201328a2d0",
+      "evidence": "8e9eee894dc348fb965ebdc8b2c5d956",
+      "process_language": "2b09307bc3a34ea2bd069a6c26e6169f",
+      "requirements": "26ee783da4454fcd99aa3dc69b5adfec",
+      "adversarial_reasoning": "9f447bc0d0b042c9a83427ac479ce75c",
+      "reader_usefulness": "adf6c3d9aaad48808b9b5135b68b483e",
+      "structure_and_depth": "44761939feb5476aa68a8ac7934b0f6b",
+      "audit": "add12bbd4ddf43c38000d6ec2c978cee"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: acceptance"
+  ]
+}

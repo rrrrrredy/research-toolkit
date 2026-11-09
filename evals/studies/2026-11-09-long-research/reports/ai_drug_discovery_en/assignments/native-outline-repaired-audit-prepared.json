@@ -1,0 +1,62 @@
+{
+  "request": {
+    "task": "ai_drug_discovery_en",
+    "artifact": "analysis/outline.md",
+    "scope": "outline",
+    "perspectives": [
+      "requirements",
+      "structure_and_depth"
+    ],
+    "domains": [],
+    "purpose": "report_delivery",
+    "evidence_paths": [],
+    "revision": true,
+    "audit": true
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en",
+    "input_version": "08ee4e8cf6e9b2733119c8c87965023b83648c1f084afbabbd87f1a702fd3e7a",
+    "scope": "outline",
+    "assignments": [
+      {
+        "slot_id": "audit",
+        "role": "auditor",
+        "reading_ref": {
+          "path": "logs/reading/5ffe25f05bdc709c6da9.md",
+          "sha256": "5ffe25f05bdc709c6da92fd6c6f323b9df6979c93c676ca717258eb0cffadc8f"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/08ee4e8cf6e9b2733119/jobs/audit-02cd0861ed4435e7.json",
+          "sha256": "c7749cdc2c2fb6eeea92d82dff3541999ec67922c0fbc10420826c9d0597a10e"
+        },
+        "assignment_version": "02cd0861ed4435e72a083658ea0c037a51732623aa42323b91f6ccd3bd957653"
+      }
+    ],
+    "reviews_complete": true,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Incomplete independent assignment: audit"
+      ],
+      "required_slots": 3,
+      "completed_slots": 2,
+      "selected_attempts": {
+        "requirements": "a5cca22863544d339d09544886cd5348",
+        "structure_and_depth": "1b6c134084664c068a64661050ecc084"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Incomplete independent assignment: audit"
+    ]
+  }
+}

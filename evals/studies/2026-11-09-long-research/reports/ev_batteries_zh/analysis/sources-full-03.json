@@ -1,0 +1,46 @@
+[
+  {
+    "source_id": "EVB25",
+    "title": "麒麟电池全球量产首发极氪009车型正式交付",
+    "url": "https://www.catl.com/news/7136.html",
+    "source_type": "public_primary",
+    "read_scope": "relevant_sections",
+    "read_evidence": "notes/actual-reading/EVB25.json",
+    "evidence_path": "sources/actual/EVB25/delivery-poster.jpg",
+    "locator": "公告标题、2023-04-17日期及海报完整可见文字：宁德时代麒麟电池全球量产首发车型，ZEEKR 009 ME版正式交付。",
+    "reader": "/root/remaining_research_inputs"
+  },
+  {
+    "source_id": "EVB26",
+    "title": "比亚迪股份有限公司2024年年度报告",
+    "url": "https://static.cninfo.com.cn/finalpage/2025-03-24/1222882857.PDF",
+    "source_type": "public_primary",
+    "read_scope": "relevant_sections",
+    "read_evidence": "notes/actual-reading/EVB26.json",
+    "evidence_path": "sources/actual/EVB26/original.pdf",
+    "locator": "PDF第23、28、29页（正文第22、27、28页）实际视觉核读；另读PDF第1—3页身份/报告期文字。核对LFP定义、跨页刀片研发进展列、2020年7月起应用、2024年近200GWh及海豹CTB应用。",
+    "reader": "/root/remaining_research_inputs"
+  },
+  {
+    "source_id": "EVB27",
+    "title": "CATL Global Offering prospectus, 12 May 2025",
+    "url": "https://www.catl.com/en/uploads/1/file/public/202505/20250512071033_9of2dqw816.pdf",
+    "source_type": "public_primary",
+    "read_scope": "relevant_sections",
+    "read_evidence": "notes/actual-reading/EVB27.json",
+    "evidence_path": "sources/actual/EVB27/original.pdf",
+    "locator": "PDF第187、194、268页（正文第177、184、258页）实际视觉核读；另读PDF第2、19页相关文字。核对NCM产品分类、高镍三元或其他化学、多版本与规模化商业应用回顾；第2页确认2025-05-12。",
+    "reader": "/root/remaining_research_inputs"
+  },
+  {
+    "source_id": "volume-scenario-full-03.json",
+    "title": "New explicit pack-volume and usable-energy scenario",
+    "url": "analysis/calculations/volume-scenario-full-03.json",
+    "source_type": "author_calculation",
+    "read_scope": "full_text",
+    "read_evidence": "analysis/calculations/calculate_volume_full_03.py",
+    "evidence_path": "analysis/calculations/volume-scenario-full-03.json",
+    "locator": "75 usable kWh, 90% window, 300 L envelope, 20 L outside reserve; assumed 240/320 Wh/L; 60 kWh sensitivity. New calculation only.",
+    "reader": "/root/remaining_research_inputs"
+  }
+]

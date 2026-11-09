@@ -1,0 +1,15 @@
+{
+ "host_task":"/root/long_research_audit_b","status":"completed","role":"audit",
+ "input_version":"bfaf0a302d2abff490f9591d9eb58c381fabd2f85474084af07315f1233e9297",
+ "assignment_version":"0f4a48a3df895b778b01366d57e0cfd1e9d3cd7ffb40af1a57bbb358de67f030",
+ "artifact_sha256":"3c1900a851b26f0531301d1480c8b8f67657f8d1e6056580af52f9a3af2ed30f",
+ "completion_clock_observation_utc":"2026-11-09 16:54:53 UTC",
+ "assignment_path":"reviews/host/bfaf0a302d2abff490f9/jobs/audit-0f4a48a3df895b77.json",
+ "reading_path":"logs/reading/73d4e939388edb920d72.md",
+ "full_reading":["task、effective_requirements、instructions、sampling及reading引用","report1–95、96–282连续全文20466字符","全部8个当前原始response/execution及24引用哈希；3项生产记录","唯一prior negative原始response/execution，旧冻结job到当前全部diff","economics.py完整；现存economics-results.json全部场景的结果字段（输入由完整代码核对）；source_registry映射"],
+ "targeted_original_reading":["ED01全部正文；ED02 105–141；ED03 1–31；ED04 37–66","ED06原capture L7–31；ED09 446–466；ECP05 75–93","ED12 31–65；ED13 1–31；ED17 36–49","ED16 145–161、179–202；ED19 226–241及163评测排除段","ED18 805–850、955–974及600秒匹配上下文；ED22 252–278含480episode/28h；ED21 63–71","ED31 308–321、925–945；ECP01 676–728；ED26 7–31；ED23 365–372；ECP02 2105–2126","ED08关闭地点关键词及邻文，仅定位抽查，未声称全文"],
+ "actual_visual_reading":["由本地原PDF渲染并view_image：ED31-p8.png含Table1及部分评分说明","ED28-p6.png七轴、输送机和夹爪；ED28-p7.png完整规格表"],
+ "web_original_reading":[{"url":"https://group.dhl.com/en/media-relations/press-releases/2025/dhl-group-signs-mou-with-boston-dynamics-and-accelerates-cross-business-automation-strategy.html","scope":"官方历史公告完整返回，关键6–28行商业部署、地区、最高700及未来MOU"}],
+ "limits":"本审计为有目的抽样，非全source corpus或逐帧视频审计；输出截断后关键遗漏已分段补读。原review中的283行包含尾空行，当前splitlines为282，artifact一致。",
+ "api_calls":0,"research_rerun":false,"calculation_rerun":false,"report_modified":false,"imported":false
+}

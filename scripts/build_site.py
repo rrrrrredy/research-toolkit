@@ -24,16 +24,17 @@ PAIRS = [
     ('framework.html', 'framework.zh-CN.html'),
     ('case-study/report.en.html', 'case-study/report.zh-CN.html'),
     ('case-study/coding-benchmark-update/index.html', 'case-study/coding-benchmark-update/index.zh-CN.html'),
+    ('case-study/long-research-2026-11/index.html', 'case-study/long-research-2026-11/index.zh-CN.html'),
 ]
 # These indexes contain different historical material, not translated equivalents.
 # Do not manufacture hreflang pairs for unrelated research cases.
 DESCRIPTIONS = {
-    'index.html': 'Research methods and optional workflow tools for AI agents: investigate questions, revise existing reports, and trace conclusions to sources using the complete research methods.',
-    'index.zh-CN.html': '面向 AI Agent 的研究方法与可选工作流工具：调研问题、修订已有报告，并通过完整研究方法形成有依据的分析与判断。',
+    'index.html': 'Research methods and optional workflow tools for AI agents completing long-form research and writing in English and Chinese, with developed analysis and traceable sources.',
+    'index.zh-CN.html': '面向 AI Agent 的中英文长研究与长文写作工具：完整展开材料、比较、解释与判断，连接独立审阅和最终成果。',
     'framework.html': 'Research Toolkit methods for scoping a question, reading sources, developing analysis, reviewing revisions and delivering a traceable research report.',
     'framework.zh-CN.html': 'Research Toolkit 研究方法：界定问题、阅读来源、展开分析、评审修订，并交付判断明确、来源可追溯的研究报告。',
-    'case-study/index.html': 'Research Toolkit case archive: API versus browser research, Chinese office agents, and source-linked updates to an existing coding-agent procurement report.',
-    'case-study/index.zh-CN.html': 'Research Toolkit 案例档案：API 与浏览器、国内办公 Agent，以及已有编程智能体采购报告的来源核对与修订；保留原稿、评审及限制。',
+    'case-study/index.html': 'Research Toolkit case archive: microdrama markets and test-time compute, a 13-question bilingual long-research benchmark, and preserved earlier reports.',
+    'case-study/index.zh-CN.html': 'Research Toolkit 案例档案：微短剧市场、推理时计算、13个跨领域长研究问题，以及保留原稿和审阅的历史报告。',
     'case-study/report.en.html': 'English translation of the Chinese office-agent report, with information through September 9, 2026: file generation, existing work, permissions and handoffs.',
     'case-study/report.zh-CN.html': '国内办公 Agent 产品研究：比较文件生成、既有工作修改、权限与交接。信息截至 2026 年 9 月 9 日，基于公开资料，未安装实测。',
     'case-study/api-or-browser/index.html': 'An English research case comparing APIs, DOM automation and visual interaction, with an initial draft, primary sources, reviews and a migration-cost correction.',
@@ -58,6 +59,12 @@ DESCRIPTIONS = {
     'case-study/coding-benchmark-update/index.zh-CN.html': '一篇已有编程智能体采购报告如何更新：旧稿、新材料核对、具体正文修订与评审证据；保留真实摩擦和实验限制。',
 }
 DESCRIPTIONS.update({
+    'case-study/long-research-2026-11/index.html': 'Thirteen independent research questions and fifteen English/Chinese reports, with original manuscripts, evidence, revisions and independent review records.',
+    'case-study/long-research-2026-11/index.zh-CN.html': '13个独立研究问题、15份中英文报告，保留首稿、依据、修订及独立审阅记录。',
+    'case-study/long-research-2026-11/microdrama.zh-CN.html': '中国微短剧市场长研究：增长口径、用户与渠道、平台竞争、产业链资金流及经营取舍，资料截至2026年11月9日。',
+    'case-study/long-research-2026-11/microdrama.en.html': 'Long-form research on China’s microdrama market: growth, distribution, platform competition, cash flows and commercial choices, through 9 November 2026.',
+    'case-study/long-research-2026-11/test-time-compute.en.html': 'Long-form research on test-time compute for reasoning models and agents: generation, selection, verification, scaling evidence and design choices.',
+    'case-study/long-research-2026-11/test-time-compute.zh-CN.html': '推理时计算长研究：生成、选择、验证、工具反馈、扩展行为与系统设计取舍，保留论文条件和可复算情景。',
     'case-study/office-agents-2026-11/index.zh-CN.html': '2026 年 11 月 5 日国内办公 Agent 研究：完整稿、来源、分析与独立审阅。',
     'case-study/office-agents-2026-11/report.zh-CN.html': '2026 年 11 月 5 日国内办公 Agent 研究：完整稿、来源、分析与独立审阅。',
     'case-study/office-agents-2026-11/initial.zh-CN.html': '2026 年 11 月 5 日国内办公 Agent 研究：完整稿、来源、分析与独立审阅。',
@@ -202,7 +209,7 @@ def outputs():
         result[path]=metadata(path,(DOCS/path).read_text(encoding='utf-8'))
     result['index.zh-CN.html']=chinese_home(result['index.html'])
     # Curated useful entry points; raw evidence and intermediate drafts stay accessible.
-    entries=[p for p in DESCRIPTIONS if p.startswith(('index.','framework.')) or p.endswith(('index.html','index.zh-CN.html')) or p.endswith(('/report.html','/report.zh-CN.html')) or p in ('case-study/report.en.html','case-study/report.zh-CN.html','case-study/api-or-browser/report.html')]
+    entries=[p for p in DESCRIPTIONS if p.startswith(('index.','framework.','case-study/long-research-2026-11/')) or p.endswith(('index.html','index.zh-CN.html')) or p.endswith(('/report.html','/report.zh-CN.html')) or p in ('case-study/report.en.html','case-study/report.zh-CN.html','case-study/api-or-browser/report.html')]
     root=ET.Element('urlset',xmlns='http://www.sitemaps.org/schemas/sitemap/0.9')
     for p in sorted(entries): ET.SubElement(ET.SubElement(root,'url'),'loc').text=url(p)
     ET.indent(root)

@@ -1,0 +1,70 @@
+{
+  "request": {
+    "task": "test_time_compute_zh",
+    "artifact": "reports/current.md",
+    "scope": "full_report",
+    "purpose": "report_delivery",
+    "domains": [
+      "Inference algorithms, verifiers and statistical evaluation"
+    ],
+    "evidence_paths": [
+      "notes/author-reading-ledger.json",
+      "analysis/author-production/handoff.md"
+    ],
+    "revision": true
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh",
+    "input_version": "8504bfecbac8c53a810f3db16fc39e86f6d8eb4f64607306c712f89554b0d059",
+    "scope": "full_report",
+    "assignments": [
+      {
+        "slot_id": "audit",
+        "role": "auditor",
+        "reading_ref": {
+          "path": "logs/reading/fad81b2f2713e61f5290.md",
+          "sha256": "fad81b2f2713e61f5290d3ab648c9155faa05cdd6e72e0c11cdd7fe740bdb9e7"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/8504bfecbac8c53a810f/jobs/audit-ba86714f7abe330e.json",
+          "sha256": "56c5934ee87ed675c0e504f68634ef9d58e3c6a4f1cd4ad5ddd0ad12dc0f871b"
+        },
+        "assignment_version": "ba86714f7abe330e838f959d4268d54ca4bc362c9e9873334a5b6284885b4d03"
+      }
+    ],
+    "reviews_complete": true,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Incomplete independent assignment: audit",
+        "Incomplete independent assignment: acceptance"
+      ],
+      "required_slots": 10,
+      "completed_slots": 8,
+      "selected_attempts": {
+        "natural_expression": "d04c9620916b44cc9378d30c855a1c2a",
+        "domain-1": "4552d096b52e4f4183c0fb548e567025",
+        "evidence": "7cd80db2803c47149dd437d12fc2be76",
+        "process_language": "c8acfc57af1845d4a8a61c950f5da291",
+        "requirements": "634761e91463406c81ed23802a5592be",
+        "structure_and_depth": "b4ff2319b0ac4e7195b02efcf2d8808f",
+        "adversarial_reasoning": "7501cfeb0a4640798cf9cb75c6f8b2c8",
+        "reader_usefulness": "726b49ea2aa443fa88ce803b9bb8fdef"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ]
+  }
+}

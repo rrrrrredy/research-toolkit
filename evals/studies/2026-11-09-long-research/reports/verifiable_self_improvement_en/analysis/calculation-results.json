@@ -1,0 +1,32 @@
+{
+  "reported_value_arithmetic": {
+    "harnesspro_tb_gain_percentage_points": 4.5,
+    "harnesspro_tb_mean_execution_cost_reduction_percent": 33.945,
+    "score_math_base_second_minus_first_pp": -11.2,
+    "score_math_trained_second_minus_first_pp": 4.4,
+    "score_math_change_in_correction_delta_pp": 15.6,
+    "dgm_full_polyglot_gain_pp": 16.5,
+    "rethinking_heldout_mean_gain_pp": 0.6
+  },
+  "hypothetical_amdahl_examples": [
+    {
+      "original_runtime_fraction": 0.05,
+      "component_speed_multiplier": 1.23,
+      "new_normalized_runtime": 0.99065,
+      "total_runtime_reduction_percent": 0.935
+    },
+    {
+      "original_runtime_fraction": 0.2,
+      "component_speed_multiplier": 1.23,
+      "new_normalized_runtime": 0.962602,
+      "total_runtime_reduction_percent": 3.7398
+    },
+    {
+      "original_runtime_fraction": 0.8,
+      "component_speed_multiplier": 1.23,
+      "new_normalized_runtime": 0.850407,
+      "total_runtime_reduction_percent": 14.9593
+    }
+  ],
+  "scope": "Arithmetic on published values; fractions 0.05/0.2/0.8 are invented illustrations, not inferred Google profiles."
+}

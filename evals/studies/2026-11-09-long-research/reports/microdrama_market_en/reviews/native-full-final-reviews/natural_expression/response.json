@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "natural_expression": {
+      "location": "当前第290行及第297—305行来源说明；复用首次第1—340行完整阅读",
+      "basis": "原第290行while also duplicate已改为while also duplicating，并列语法修复，多渠道扩张同时重复获客的含义保留。来源说明仅去掉恢复图表、实际阅读台账等制作口吻，仍说明图表单位、渠道总体、不同证据地位、原网站保存限制及模型成本边界。完整diff未删去事实条件或增加其他阅读障碍，原minor已解决。"
+    }
+  },
+  "findings": [],
+  "input_version": "4916bbf7954376e17453bc78c09a2511b4dcceae7270c4ed378ef2d93eb80e89",
+  "assignment_version": "53bded590e7b19fb228f69e959027aee3e086d2869af7a1cbd0293633d9ab20f"
+}

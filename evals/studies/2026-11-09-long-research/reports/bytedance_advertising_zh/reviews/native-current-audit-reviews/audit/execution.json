@@ -1,0 +1,20 @@
+{
+  "host_task":"/root/long_research_audit_b",
+  "status":"completed",
+  "role":"audit",
+  "input_version":"e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "assignment_version":"bb9d04b21971a07f55f3f997db2af44e60cbb8d27ff21a52a72336df15b51a6c",
+  "artifact_sha256":"68ae85a7f3ead87c98127e2730a033e83275b5ed5c85c3f6d027fabbf2bb5a1e",
+  "completion_clock_observation_utc":"2026-11-09 16:51:44 UTC",
+  "assignment_path":"reviews/host/e4cabf49ef9396bd0f19/jobs/audit-bb9d04b21971a07f.json",
+  "reading_path":"logs/reading/6a762c2cc9b36a9e662a.md",
+  "full_reading":["任务、全部有效要求、audit指令和reading记录","当前report完整1–105及106–210行，14256字符","当前8份原始response和execution，24项引用的规范LF哈希匹配","4项生产记录；历史唯一必改原始response、execution及旧job/current完整diff","analysis/calculations/calculate_scenarios.py和calculations.json；source_registry.csv"],
+  "targeted_original_reading":["BDA03全域协议1–100行，关键43–59因输出截断另读完整；不是117行全文","R03 GMV Max L4–28；R05去重L3–24；R08 Shop Ads L3–53，三篇在同一保存批次原工具返回中","R06匹配L3–16；W01 Smart+完整83行产品页","BDA06推荐1–23；R10 Monolith摘要27–64；R13 GoTo1–45含脚注","A01印尼原PDF抽取p12–13；R19国投原回复1–105行含p2–3","R12原USDS正文L5–33，已从混合capture定位正确页面","原领域初评execution身份、阅读事件与限制抽查，不把文件列表等同本审计阅读"],
+  "actual_visual_reading":["codex-production/account-pages/page3.png：业务地域、收入和营业结果","codex-production/account-pages/page26.png：合并损益","codex-production/account-pages/page41.png：递延税及note5未披露分部"],
+  "limitations":"未声称读完整财报、181页问询回复或全部source corpus。截断输出未冒充全文，关键缺失段已定向补读。此为独立审计结果，非最终验收。",
+  "api_calls":0,
+  "research_rerun":false,
+  "calculation_rerun":false,
+  "report_modified":false,
+  "imported":false
+}

@@ -1,0 +1,26 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh",
+  "input_version": "95a53f6aef2a2d0c030cc59bec16d14cecb1df68c1a0c1cb3de862ade72ff7ee",
+  "scope": "outline",
+  "assignments": [],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": true,
+  "completion_check": {
+    "ok": true,
+    "flags": [],
+    "findings": [],
+    "required_slots": 2,
+    "completed_slots": 2,
+    "selected_attempts": {
+      "requirements": "80398ed6f4604d5b9fc21d6763329fc5",
+      "structure_and_depth": "48807a127ede44daa8f6ae94afcf320c"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": null,
+  "open_issues": []
+}

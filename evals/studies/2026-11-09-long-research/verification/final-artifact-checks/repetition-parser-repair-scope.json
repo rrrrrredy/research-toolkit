@@ -1,0 +1,12 @@
+{
+  "observed_failures": {
+    "microdrama_market_zh": "Repeated Markdown separator |---|---:|---:|---:|---:| falsely treated as prose.",
+    "test_time_compute_en": "Question mark in repeatedly cited linked paper title split into Sample, Mix, or Verify fragment."
+  },
+  "expected": {
+    "same_two_reports": "No repetition or false_completion_signal from these formatting constructs; current delivery remains valid.",
+    "existing_negative_controls": "Actual repeated English/Chinese prose and sentence stuffing remain detected.",
+    "ordinary_table_content": "Only separator syntax is excluded, not repeated substantive rows."
+  },
+  "verification": "Compile affected evaluator, reuse existing repetition contract methods, rerun only the two failed CLI report cases; preserve initial 15-case output."
+}

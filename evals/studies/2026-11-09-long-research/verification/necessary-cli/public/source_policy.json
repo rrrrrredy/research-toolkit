@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "packs": {
+    "public": {
+      "kind": "public_sources",
+      "factual_authority": false,
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "provenance_status": "actual downloaded full HTML",
+      "rights_status": "local original; metadata-only fixture"
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "host_task": "/root/benchmark_audit_complete",
+  "status": "completed",
+  "input_version": "e2bf5ec236f3fbd7264dd12a2f8a018f9fb206af2f12c460b4608bfeb4086845",
+  "assignment_version": "ae20203c72dcc20aaed6fbf22866b549ba0ebf39c428faef8c2dbd64ecd739a8",
+  "artifact_sha256": "c339d6244bdf03eb4d0935e4428c2106b59f7dd556774a083165b29bf6f3fc19",
+  "started_at": "2026-11-09 16:49:28 UTC",
+  "finished_at": "2026-11-09 16:57:26 UTC",
+  "scope": "full_report independent audit",
+  "reading": [
+    {
+      "path": "current.md and frozen assignment.report",
+      "ranges": "All 277 substantive lines; initially bounded 1–95,96–190,191–278, with truncation recovery at 138–144 and 228–249."
+    },
+    {
+      "path": "audit job / reviews / historical required findings",
+      "ranges": "Instructions, effective task/requirements, full eight raw current reviews, execution identities/version references, all four original negative replies and current repair context. All 24 reference hashes and current/frozen report hash checked."
+    },
+    {
+      "path": "VSI001.txt",
+      "ranges": "108–129;1028–1038. DGM outcomes, transfer, runtime selection, diagnostic-model and test-exposure appendix."
+    },
+    {
+      "path": "VSI002.txt",
+      "ranges": "85–141;245–290;293–299; targeted 570,576–587,594–595. Evolution and engineering evidence."
+    },
+    {
+      "path": "VSI010-official.txt and retained table1.png/ablation.png",
+      "ranges": "354–375,695–735,809–822,1490–1512; personally viewed both page images."
+    },
+    {
+      "path": "TTC013.txt",
+      "ranges": "Reused my prior TTCEN/TTCZH original SCoRe reading; verified byte-identical SHA256 58c37eb46271d2ade4e09201b5891757ba4ccc49c1c1363bf8a8f7da2a57845d; targeted present 206–208 and score rows."
+    },
+    {
+      "path": "VSI004.txt",
+      "ranges": "278–293,310–335,383–451,547–645; targeted original metrics and held-out protocol."
+    },
+    {
+      "path": "VSI003.txt",
+      "ranges": "100–127,134–141,231–251 plus targeted exact Table 1/2 score lines; comparison and transfer."
+    },
+    {
+      "path": "VSI007.txt/VSI009.txt",
+      "ranges": "Targeted dated official Google Spanner update and functional-seed/objective requirements; last updated 2026-10-28."
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/VSI-CODE-DGM; VSI-CODE-HarnessPro",
+      "ranges": "DGM outer 78–101,174–210,223–238, self-improve diagnostic model matches; HarnessPro README 1–65; hook 1–100 with 35–66 recovered after display truncation. Read-only GitHub exact-blob comparison: outer, self-improve and README saved extra terminal newline; hook exactly first 100 original lines."
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/verifiable_self_improvement_en/codex-production/calculations.py and calculation-results.json",
+      "ranges": "Both complete, read only; no calculation/model execution."
+    }
+  ],
+  "sampling": "Auditor-selected targeted samples across loop reconstruction, visual measurement, code enforcement, negative comparator, source-to-report revisions and cost arithmetic; not random sampling.",
+  "independence": "This auditor did not author or content-review this report. All production-history report authors are /root; the eight current reviewers have distinct recorded hosts. Historical negatives remain preserved.",
+  "limitations": [
+    "Official PDF web endpoint was not accessible; retained original rendered page images and full local official text were available and inspected.",
+    "Source/code inspection is bounded as stated, including hook first 100 lines; no new model experiment or full optimizer reproduction was performed."
+  ],
+  "actions": "Only these response/execution audit artifacts written. No report/code/state edits, imports, research reruns or tests."
+}

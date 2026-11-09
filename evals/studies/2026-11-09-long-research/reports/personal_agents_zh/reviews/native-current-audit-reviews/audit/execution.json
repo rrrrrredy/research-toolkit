@@ -1,0 +1,16 @@
+{
+  "host_task":"/root/long_research_audit_b",
+  "status":"completed",
+  "role":"auditor",
+  "input_version":"8208b408fba85ea9f85a7f8cce08ea0777a4dc51b47cd27819c1a1036a2be6e0",
+  "assignment_version":"ae1fd9d8ea626196e71a84121cd0352cdcaf3dadae108a8c93abdd7dd3e02a46",
+  "artifact_sha256":"364de9c89668dd490adeb400faeb4cdf2a82745f8ed784263ef961e9b956394a",
+  "completion_clock_observation_utc":"2026-11-09 16:46:05 UTC",
+  "time_note":"实际工具时钟观测；其后补做原PDF第一页本地渲染与view_image，然后保存。未编造起始时间。",
+  "assignment_ref":"reviews/host/8208b408fba85ea9f85a/jobs/audit-ae1fd9d8ea626196.json",
+  "reading_ref":"logs/reading/900741c54886470d4a36.md",
+  "full_reading":["任务、有效要求、当前全文1-222；截断的第43行已补读","8份当前原始回复和execution；24个input/response/execution规范化LF哈希匹配","SD-PA-01原始负面回复和执行、4项生产历史、首稿/current完整diff","EV-PAZH-01原始负面回复","PA13千问公告全文、PA09 Projects全文","calculate_scenarios.py与保存calculations.json全文，仅阅读"],
+  "targeted_original_reading":["PA08:30-110,175-220,230-300；末段截断后补读264-300","PA10:100-190；截断后完整补读","PA11:100-180；前段截断后补读100-150","PA19:174-211","PA21:100-130,185-208,260-280","PA22:399-433","PA23:382-393","PA17:5-40","PA03原始捕获Memory95-155、cloud-browser50-115、Work61-68","PA24摘要105、PA25:63-73及71-82方法段","PA27:280-295、PA28:168-202","PA31:145-170","PA-A01:1-42和原PDF第一页"],
+  "visual_reading":"实际view_image查看本地原PDF渲染native-current-audit-reviews/audit/PA-A01-p1.png；网络PDF原件也打开，但截图工具未返回可见图片，不将其算作视觉阅读。",
+  "limits":["未调用模型API、重跑研究/计算/测试、改稿/代码或导入。","实际原件抽查范围如上，不声称全部来源全文阅读。","独立审计身份与全部作者/内容审阅者分离。"]
+}

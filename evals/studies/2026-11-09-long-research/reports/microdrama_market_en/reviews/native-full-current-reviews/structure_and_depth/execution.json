@@ -1,0 +1,50 @@
+{
+  "status": "completed",
+  "host_task": "/root/structure_remaining_b",
+  "executor": "native Codex subagent",
+  "role": "independent structure_and_depth reviewer",
+  "input_version": "101c23eadaeb064e98f55350f5f6a053b496692bb0445a1d172727bb0e0f2eca",
+  "assignment_version": "af49d37817b639c55dac6e700dfe9e2b0a512cb145adb814d4c55a3d68566da1",
+  "job_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_en\\reviews\\host\\101c23eadaeb064e98f5\\jobs\\structure_and_depth-af49d37817b639c5.json",
+  "job_sha256": "0fe320121ee556e801a7b2c76edd361ab428b32fa4ab22d3dcc7a0aa4a209f7b",
+  "artifact_sha256": "8cf6095d649d0543a7c444e13e5296abab2b5ffecfa4615775de91b4faca48a6",
+  "frozen_report_sha256": "8cf6095d649d0543a7c444e13e5296abab2b5ffecfa4615775de91b4faca48a6",
+  "started_at": "2026-11-09T14:53:45.4348115Z",
+  "completed_at": "2026-11-09T14:55:12.6625303Z",
+  "report_reading": {
+    "complete": true,
+    "last_line": 340,
+    "ranges": [
+      [
+        1,
+        90
+      ],
+      [
+        91,
+        185
+      ],
+      [
+        186,
+        340
+      ]
+    ],
+    "path": "frozen-report.md",
+    "trailing_newline": true
+  },
+  "originals_examined": [
+    {
+      "range": "1-138",
+      "path": "sources/actual/CP24.txt"
+    },
+    {
+      "range": "1-77",
+      "path": "sources/actual/MD014.txt"
+    },
+    {
+      "range": "selected relevant passages: creator sharing, transaction settlement, attributed ad-yield/LTV tools",
+      "path": "sources/actual/CP27.txt"
+    }
+  ],
+  "other_perspective_results_read": false,
+  "report_edited": false
+}

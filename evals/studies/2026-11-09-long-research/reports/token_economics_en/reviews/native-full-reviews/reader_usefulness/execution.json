@@ -1,0 +1,40 @@
+{
+  "host_task": "/root/full_reader_b",
+  "agent_identity": "/root/full_reader_b",
+  "execution_mode": "native Codex subagent",
+  "status": "completed",
+  "slot_id": "reader_usefulness",
+  "input_version": "e971ccb9869b9b5333e060010f47e805e42b57a4ba02adedbc0203d5af57509e",
+  "assignment_version": "0378cbf5d30dcfab15ef37b20c929cddd3f0a953e8e2324def38a7a54e37226b",
+  "artifact_sha256": "b759587b7865410247f87ac5342125ece0a4bd41c2969c115e38e35ce98cf4b6",
+  "started_at": "2026-11-09T14:42:28.5800935Z",
+  "completed_at": "2026-11-09T14:43:27.4395904Z",
+  "timestamp_note": "Start is the recorded boundary before the first full-report segment; task and effective requirements were already read immediately before that boundary.",
+  "assignment_path": "reviews/host/e971ccb9869b9b5333e0/jobs/reader_usefulness-0378cbf5d30dcfab.json",
+  "read_report_ranges": [
+    [
+      1,
+      100
+    ],
+    [
+      101,
+      200
+    ],
+    [
+      201,
+      300
+    ],
+    [
+      301,
+      387
+    ]
+  ],
+  "total_report_lines": 387,
+  "read_task": true,
+  "read_effective_requirements": true,
+  "read_scope_decisions": true,
+  "source_originals_read": [],
+  "other_review_results_read": false,
+  "report_modified": false,
+  "api_used": false
+}

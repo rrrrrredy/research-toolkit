@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "Workflow and synthetic reasoning inputs only; not a factual benchmark or rights certification.",
+  "scope": "Legacy and synthetic packs remain workflow-only. public_sources packs allow workflow and factual use with factual_authority=false. Published records may contain independent summaries and short quotations within their stated rights_status; complete retrieved originals remain at local repository-relative evidence_path and need not be published. retrieved_at records the actual collection time; read_evidence reuses the research record's reading evidence and locators. sha256 covers the complete retrieved original at evidence_path, not an excerpt, using check_delivery.sha256_file: binary files byte-for-byte and text files with canonical LF newlines. workflow checks public record metadata and allows unavailable local originals; factual also requires original files and matching hashes. Content and read_evidence accuracy require independent research review.",
   "audited_at": "2026-09-07",
   "original_snapshot": "b541a667b89a4ea9da8fffd8d58851e5f03b795e",
   "packs": {
@@ -54,6 +54,149 @@
       "factual_authority": false,
       "provenance_status": "Fictional vendor facts and configured malicious instructions.",
       "rights_status": "Repository-authored synthetic fixture under the repository license.",
+      "excluded_claims": []
+    },
+    "long_research_ai_drug_discovery": {
+      "kind": "public_sources",
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "factual_authority": false,
+      "provenance_status": "Source URLs, actual reading scopes and hashes of retained local document captures. Additional web-only reading remains separately recorded.",
+      "rights_status": "Public package contains source metadata and original research reading notes. Third-party complete documents are retained locally and are not republished with this package.",
+      "excluded_claims": []
+    },
+    "long_research_bytedance_advertising": {
+      "kind": "public_sources",
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "factual_authority": false,
+      "provenance_status": "Source URLs, actual reading scopes and hashes of retained local document captures. Additional web-only reading remains separately recorded.",
+      "rights_status": "Public package contains source metadata and original research reading notes. Third-party complete documents are retained locally and are not republished with this package.",
+      "excluded_claims": []
+    },
+    "long_research_embodied_deployment": {
+      "kind": "public_sources",
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "factual_authority": false,
+      "provenance_status": "Source URLs, actual reading scopes and hashes of retained local document captures. Additional web-only reading remains separately recorded.",
+      "rights_status": "Public package contains source metadata and original research reading notes. Third-party complete documents are retained locally and are not republished with this package.",
+      "excluded_claims": []
+    },
+    "long_research_ev_batteries": {
+      "kind": "public_sources",
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "factual_authority": false,
+      "provenance_status": "Source URLs, actual reading scopes and hashes of retained local document captures. Additional web-only reading remains separately recorded.",
+      "rights_status": "Public package contains source metadata and original research reading notes. Third-party complete documents are retained locally and are not republished with this package.",
+      "excluded_claims": []
+    },
+    "long_research_instant_retail_warehouses": {
+      "kind": "public_sources",
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "factual_authority": false,
+      "provenance_status": "Source URLs, actual reading scopes and hashes of retained local document captures. Additional web-only reading remains separately recorded.",
+      "rights_status": "Public package contains source metadata and original research reading notes. Third-party complete documents are retained locally and are not republished with this package.",
+      "excluded_claims": []
+    },
+    "long_research_microdrama_market": {
+      "kind": "public_sources",
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "factual_authority": false,
+      "provenance_status": "Source URLs, actual reading scopes and hashes of retained local document captures. Additional web-only reading remains separately recorded.",
+      "rights_status": "Public package contains source metadata and original research reading notes. Third-party complete documents are retained locally and are not republished with this package.",
+      "excluded_claims": []
+    },
+    "long_research_model_benchmarks": {
+      "kind": "public_sources",
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "factual_authority": false,
+      "provenance_status": "Source URLs, actual reading scopes and hashes of retained local document captures. Additional web-only reading remains separately recorded.",
+      "rights_status": "Public package contains source metadata and original research reading notes. Third-party complete documents are retained locally and are not republished with this package.",
+      "excluded_claims": []
+    },
+    "long_research_on_device_models": {
+      "kind": "public_sources",
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "factual_authority": false,
+      "provenance_status": "Source URLs, actual reading scopes and hashes of retained local document captures. Additional web-only reading remains separately recorded.",
+      "rights_status": "Public package contains source metadata and original research reading notes. Third-party complete documents are retained locally and are not republished with this package.",
+      "excluded_claims": []
+    },
+    "long_research_personal_agents": {
+      "kind": "public_sources",
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "factual_authority": false,
+      "provenance_status": "Source URLs, actual reading scopes and hashes of retained local document captures. Additional web-only reading remains separately recorded.",
+      "rights_status": "Public package contains source metadata and original research reading notes. Third-party complete documents are retained locally and are not republished with this package.",
+      "excluded_claims": []
+    },
+    "long_research_post_training_talent": {
+      "kind": "public_sources",
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "factual_authority": false,
+      "provenance_status": "Source URLs, actual reading scopes and hashes of retained local document captures. Additional web-only reading remains separately recorded.",
+      "rights_status": "Public package contains source metadata and original research reading notes. Third-party complete documents are retained locally and are not republished with this package.",
+      "excluded_claims": []
+    },
+    "long_research_test_time_compute": {
+      "kind": "public_sources",
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "factual_authority": false,
+      "provenance_status": "Source URLs, actual reading scopes and hashes of retained local document captures. Additional web-only reading remains separately recorded.",
+      "rights_status": "Public package contains source metadata and original research reading notes. Third-party complete documents are retained locally and are not republished with this package.",
+      "excluded_claims": []
+    },
+    "long_research_token_economics": {
+      "kind": "public_sources",
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "factual_authority": false,
+      "provenance_status": "Source URLs, actual reading scopes and hashes of retained local document captures. Additional web-only reading remains separately recorded.",
+      "rights_status": "Public package contains source metadata and original research reading notes. Third-party complete documents are retained locally and are not republished with this package.",
+      "excluded_claims": []
+    },
+    "long_research_verifiable_self_improvement": {
+      "kind": "public_sources",
+      "allowed_purposes": [
+        "workflow",
+        "factual"
+      ],
+      "factual_authority": false,
+      "provenance_status": "Source URLs, actual reading scopes and hashes of retained local document captures. Additional web-only reading remains separately recorded.",
+      "rights_status": "Public package contains source metadata and original research reading notes. Third-party complete documents are retained locally and are not republished with this package.",
       "excluded_claims": []
     }
   }

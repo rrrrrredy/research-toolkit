@@ -1,0 +1,21 @@
+{
+  "argv": [
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\.research-toolkit-venv\\Scripts\\python.exe",
+    "-B",
+    "-X",
+    "utf8",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\scripts\\run_evals.py",
+    "--evals-dir",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\benchmark-source-mapping-cli\\evals",
+    "--runs-dir",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\benchmark-source-mapping-cli\\runs",
+    "--report",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\benchmark-source-mapping-cli\\result-v2.md",
+    "--json-report",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\benchmark-source-mapping-cli\\result-v2.json",
+    "--delivery-contract-version",
+    "2"
+  ],
+  "returncode": 1,
+  "reason": "Corrected test inputs: citation requirement is enabled; citations form a normal paragraph, not repeated template lines."
+}

@@ -1,0 +1,49 @@
+{
+  "status": "completed",
+  "host_task": "/root/structure_remaining_b",
+  "executor": "native Codex subagent",
+  "input_version": "4b4f8ba9746a6950486f2e5d0516255a453b204564392efa1a90e4f71b49d238",
+  "assignment_version": "10aff877178c8b2e20dfd4b49faf8fc3ad76935be8fbef593261d9f0f7cec33d",
+  "job_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\instant_retail_warehouses_zh\\reviews\\host\\4b4f8ba9746a6950486f\\jobs\\structure_and_depth-10aff877178c8b2e.json",
+  "job_sha256": "96e052e8ee235003e6d439beef183b0034b854a040b212219708e468afe00217",
+  "artifact_sha256": "7e21c43cfa6c37e1d0cb285f59a614502cd37db399d69a3dba0bbf1b55ae2184",
+  "frozen_report_sha256": "7e21c43cfa6c37e1d0cb285f59a614502cd37db399d69a3dba0bbf1b55ae2184",
+  "started_at": "2026-11-09T14:53:45.7668799Z",
+  "completed_at": "2026-11-09T15:02:55.6035133Z",
+  "report_reading": {
+    "last_line": 372,
+    "complete": true,
+    "trailing_newline": true,
+    "ranges": [
+      [
+        1,
+        135
+      ],
+      [
+        136,
+        270
+      ],
+      [
+        271,
+        372
+      ]
+    ],
+    "path": "frozen-report.md"
+  },
+  "originals_examined": [
+    {
+      "range": "1-55",
+      "path": "sources/actual/IRW10.txt"
+    },
+    {
+      "range": "1-18",
+      "path": "sources/actual/IRW15.txt"
+    },
+    {
+      "range": "102-114",
+      "path": "sources/actual/IRW28.txt"
+    }
+  ],
+  "other_perspective_results_read": false,
+  "report_edited": false
+}

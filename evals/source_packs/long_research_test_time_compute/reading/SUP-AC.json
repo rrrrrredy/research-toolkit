@@ -1,0 +1,14 @@
+{
+  "source_id": "SUP-AC",
+  "url": "https://aclanthology.org/2023.emnlp-main.761.pdf",
+  "title": "Lets Sample Step by Step: Adaptive-Consistency for Efficient Reasoning and Coding with LLMs",
+  "reading_location": "PDF pp1–5: §§1–4; main result summary; code aggregation and Beta threshold",
+  "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+  "version_model_evaluation": "EMNLP2023 pp12375–12396; Vicuna13B/code-davinci002/GPT3.5; reasoning40sample cap",
+  "observation": "Sample-count reductions from stability stopping; confidence is about plurality, not truth",
+  "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-AC\\original.txt",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-AC\\original.pdf",
+  "text_sha256": "cc3f172909d43feb0434248c86ff172cb5e66f47963a7a2d4648e21b8df3b5e3",
+  "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-AC\\retrieval.json",
+  "reader": "/root/ttc_research"
+}

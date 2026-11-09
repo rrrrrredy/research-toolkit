@@ -1,0 +1,37 @@
+{"claim_id":"ZH-C01","claim":"候选覆盖、实际选择成功与环境执行可靠性是不同评价目标，不能互相代替。","source_ids":["TTC010","SUP-CM","SUP-TAU"],"report_section":"开篇；三","uncertainty":"属于跨来源综合；环境终态奖励仍可能漏掉过程违规。"}
+{"claim_id":"ZH-C02","claim":"条件独立重复采样时，单题至少一次成功为1-(1-p)^k，全部成功为p^k；跨题必须分别取平均。","source_ids":["TTC010","SUP-TAU"],"report_section":"开篇","uncertainty":"要求给定任务后的独立采样；不是从总体平均p推出每题表现。"}
+{"claim_id":"ZH-C03","claim":"Self-Consistency的冻结v4实验使用固定模型和少样本提示，不微调；每轮40输出、重复10轮。","source_ids":["TTC009"],"report_section":"一；二","uncertainty":"模型和采样协议为论文历史设置，不代表2026年所有模型。"}
+{"claim_id":"ZH-C04","claim":"Snell的推理预算实验建立在专门训练的修订或验证能力之上；难度估计使用每题2048样本且主成本分析未计入这一前置成本。","source_ids":["TTC001"],"report_section":"一；二；四","uncertainty":"其生成预算效率不是部署全成本效率；模型预测难度也有估计成本。"}
+{"claim_id":"ZH-C05","claim":"ToT在选定100道24点题上，CoT为4.0%，宽度5搜索为74%，CoT百样本oracle覆盖为49%。","source_ids":["TTC011"],"report_section":"一","uncertainty":"任务特定状态分解；节点数不等于token或完整费用。"}
+{"claim_id":"ZH-C06","claim":"同一来源的PRM可以预测逐步正确性，也可以预测在当前续写策略下的未来成功；聚合方法不同。","source_ids":["TTC001","TTC012","TTC004"],"report_section":"一；二","uncertainty":"不能只凭PRM名称把分数解释成通用正确概率。"}
+{"claim_id":"ZH-C07","claim":"Large Language Monkeys在数学子集上覆盖继续提高，而三类常见选择方法在约100样本附近饱和。","source_ids":["TTC010"],"report_section":"二","uncertainty":"针对指定模型、数学子集、ArmoRM和聚合方法；不是所有验证器的统一饱和点。"}
+{"claim_id":"ZH-C08","claim":"Inference Regimes共享候选池中，Qwen3-30B-A3B-Thinking-2507单响应75.56%，Pass@80 91.67%，众数78.33%，平均token logprob选择65.83%。","source_ids":["TTC003","TTC003v2"],"report_section":"二","uncertainty":"120题、80候选、固定模型配置的finite-bank结果；并非端到端成本匹配比较。"}
+{"claim_id":"ZH-C09","claim":"同一研究CompassVerifier的89.17%使用标准答案，是诊断而非可部署推理成绩。","source_ids":["TTC003","TTC003v2"],"report_section":"二；六","uncertainty":"离线参考答案可见性限制适用范围。"}
+{"claim_id":"ZH-C10","claim":"PRM800K研究在500题、1860候选设置中，PRM78.2%、ORM72.4%、投票69.6%；大规模训练集不完全可比，小模型实验控制了数据。","source_ids":["TTC012"],"report_section":"二","uncertainty":"大规模5.8个百分点差异不能全归于标签形式；预训练污染不能完全排除。"}
+{"claim_id":"ZH-C11","claim":"Snell研究中beam搜索小预算有效，容易题高预算可能退化，最难组改善有限；顺序与并行最佳比例随模型特定难度改变。","source_ids":["TTC001"],"report_section":"二","uncertainty":"限于经训练的PaLM2-S*、评价器和MATH分组，不能直接迁移阈值。"}
+{"claim_id":"ZH-C12","claim":"s1在Qwen2.5-32B-Instruct基础上用1000样本SFT后，budget forcing可将AIME24约50%提高到57%，进一步扩展趋平并受窗口限制。","source_ids":["TTC002"],"report_section":"一；二","uncertainty":"30题小基准；新增1000样本不等于总训练成本。"}
+{"claim_id":"ZH-C13","claim":"s1的4096训练长度截断74%训练样本，32768不截断；较短训练长度对应更长、较差的测试输出。","source_ids":["TTC002"],"report_section":"二","uncertainty":"论文训练长度消融，不能以输出更长推断能力更强。"}
+{"claim_id":"ZH-C14","claim":"指定历史模型在移除oracle停止标签后，内在自纠错可使准确率下降；SCoRe训练后HumanEval第一轮52.4%、第二轮64.6%。","source_ids":["SUP-SELF","TTC013"],"report_section":"二","uncertainty":"反证限于前者设置；后者改变了训练，不是增加提示次数的纯效果。"}
+{"claim_id":"ZH-C15","claim":"Termination的动态提前终止14.2%预算达到全思考端点基准是离线oracle前沿，成本排除信号提取，不是上线省费结果。","source_ids":["TTC007"],"report_section":"二；四","uncertainty":"动作空间为已测轨迹截断点；预算上限与实耗不同。"}
+{"claim_id":"ZH-C16","claim":"When More Thinking Hurts表2的累计翻转口径与数值方向不符，附录E同一7K p值有0.038与0.014两种写法。","source_ids":["TTC006"],"report_section":"二；六","uncertainty":"冻结原件可见内部不一致，缺少原始数据不能断定其成因；不用其精确阈值。"}
+{"claim_id":"ZH-C17","claim":"TTSP测试时更新两个LoRA adapter，使用合成题执行奖励；不使用目标题验证器并不等于无反馈。","source_ids":["TTC005"],"report_section":"二","uncertainty":"不是固定权重推理；每题适应成本不能跨题默认摊销。"}
+{"claim_id":"ZH-C18","claim":"TTSP的HardLCBv6是按基础mean@512筛选的28题，filtered mean@8评价通过集合且空集合有历史承接规则。","source_ids":["TTC005"],"report_section":"二；六","uncertainty":"不等于完整LiveCodeBench表现或普通单次提交成功率。"}
+{"claim_id":"ZH-C19","claim":"Large Language Monkeys的SWE-bench Lite覆盖由15.9%到56%，最多250完整工具轨迹；同时报告11.3%题测试不稳定。","source_ids":["TTC010"],"report_section":"三","uncertainty":"覆盖不是实选成功率；历史Lite测试情况不能直接套到其他版本。"}
+{"claim_id":"ZH-C20","claim":"Inference Scaling Flaws用扩展测试测量有限测试筛选后的假阳性，显示弱模型固定重采样可能达不到强模型单次正确率。","source_ids":["SUP-LIMITS"],"report_section":"三","uncertainty":"限定固定生成分布与验证器；扩展测试也非形式化完备证明。"}
+{"claim_id":"ZH-C21","claim":"错误通过有负效用时，有限样本预算可以优于无限扩大；论文错误收益比4的图示模型最优K不超过5。","source_ids":["SUP-LIMITS"],"report_section":"三；五","uncertainty":"具体K依赖任务和损失比，不作为通用上限。"}
+{"claim_id":"ZH-C22","claim":"CodeMonkeys使用10对测试/编辑状态机，每个最多8次完成；覆盖69.8%、随机选择45.8%、实选57.4%。","source_ids":["SUP-CM"],"report_section":"三","uncertainty":"Claude3.5Sonnet20241022主系统与SWE-bench Verified设置；并非无成本oracle部署。"}
+{"claim_id":"ZH-C23","claim":"CodeMonkeys交叉执行10测试与10补丁，先筛前3，再生成区分测试选择；选择费131.95美元，占模型费用约5.8%。","source_ids":["SUP-CM"],"report_section":"三；四","uncertainty":"论文模型费用不含所有环境与墙钟成本；历史价格。"}
+{"claim_id":"ZH-C24","claim":"网页树搜索每次提案20输出、价值函数20采样，默认d5/b5/c20并有重置重放开销；WebArena固定GPT-4o组15.0%到19.2%。","source_ids":["SUP-TREE"],"report_section":"三","uncertainty":"仿真可恢复环境；不可逆真实动作不能无条件搜索。"}
+{"claim_id":"ZH-C25","claim":"Llama网页搜索增益包含GPT-4o价值函数；VWA GPT4o表2基线18.9%而正文18.6%。","source_ids":["SUP-TREE"],"report_section":"三；六","uncertainty":"异构模型比较及局部报告差异，采用表2、不宣称同模型纯计算因果。"}
+{"claim_id":"ZH-C26","claim":"tau-bench v1 GPT4o FC零售61.2%、航空35.2%，领域等权48.2%；零售pass^8低于25%，think函数无提升。","source_ids":["SUP-TAU"],"report_section":"三","uncertainty":"模拟用户、历史模型、有限轨迹；不是2026年当前产品排名。"}
+{"claim_id":"ZH-C27","claim":"tau-bench终态奖励可能漏掉未确认等过程违规，复合请求和不可逆一次性动作造成具体失败。","source_ids":["SUP-TAU"],"report_section":"三；五","uncertainty":"终态成功是必要但可能不充分；真实生产长周期证据不足。"}
+{"claim_id":"ZH-C28","claim":"独立20步链在每步98%时成功约66.8%，99.5%时约90.5%。","source_ids":[],"report_section":"三","uncertainty":"纯假设算术，budget_example.py实际运行；非Agent数据拟合，真实错误可能依赖或恢复。"}
+{"claim_id":"ZH-C29","claim":"全预算需计生成、丢弃分支、验证、控制、工具、重试与恢复；token跨模型不能直接统一。","source_ids":["TTC001","TTC002","TTC003","TTC007","TTC008","SUP-CM","SUP-TREE"],"report_section":"四","uncertainty":"本文部署核算建议；原研究披露程度不同，缺失隐藏token保持未知。"}
+{"claim_id":"ZH-C30","claim":"均匀选择通过候选的成功公式在条件独立假设下收敛于pt/(pt+(1-p)f)，argmax规则不同。","source_ids":["TTC008"],"report_section":"四","uncertainty":"针对指定选择规则和条件分布；不可推广到所有best-of-N。"}
+{"claim_id":"ZH-C31","claim":"假设0.10美元/8槽的算例中，弱验17候选成功75.87%、强验11候选92.53%、强生成7候选91.81%、修订10候选86.10%。","source_ids":["TTC008"],"report_section":"四","uncertainty":"所有数字参数为明确假设，公式计算已运行，不是新模型实验；成本含全部候选和验证。"}
+{"claim_id":"ZH-C32","claim":"同算例墙钟81.6/61.4/37.2/104.2秒来自理想波次调度，不能当作尾延迟保证。","source_ids":[],"report_section":"四","uncertainty":"独立槽、无排队、无跨波重叠、平均一次重试服务量；实际硬件未知。"}
+{"claim_id":"ZH-C33","claim":"重复验证的误判可相关，增加调用不保证改善；应看误放/真通过比和候选级盲点。","source_ids":["TTC008"],"report_section":"四；五","uncertainty":"有限N还受弃答概率影响；文献规划依赖有代表性的带标签pilot。"}
+{"claim_id":"ZH-C34","claim":"Adaptive-Consistency数学汇总73.2%到73.1%，平均采样40到13.8；Beta规则测众数稳定而非正确性。","source_ids":["SUP-AC"],"report_section":"四","uncertainty":"表中倍率为另一汇总量，本文不直接沿用3.3倍以免与平均生成数混淆。"}
+{"claim_id":"ZH-C35","claim":"固定生成器组内比较、共享候选池和可恢复环境有直接证据；长期含糊反馈生产Agent的同等扩展收益在材料中未建立。","source_ids":["TTC011","SUP-CM","SUP-TREE","SUP-TAU"],"report_section":"三；五；六","uncertainty":"对冻结证据范围的判断，不宣称整个研究领域没有其他证据。"}
+{"claim_id":"ZH-C36","claim":"Inference Regimes v2表1的1948821响应与摘要/附录G的1403520公开重复采样attempts覆盖不同集合。","source_ids":["TTC003v2"],"report_section":"六","uncertainty":"按冻结文件口径分列，不访问外部仓库验证发布完整性。"}
+{"claim_id":"ZH-C37","claim":"设计决策树允许强模型、更多采样、更深搜索、更好验证器、简单路径和停止，分流依据是实际失败位置、可验证性、后果与延迟。","source_ids":["TTC001","TTC008","SUP-CM","SUP-LIMITS","SUP-TREE","SUP-TAU"],"report_section":"五","uncertainty":"属于本文策略综合，整棵树未作为新系统实测；不指定通用样本或token阈值。"}

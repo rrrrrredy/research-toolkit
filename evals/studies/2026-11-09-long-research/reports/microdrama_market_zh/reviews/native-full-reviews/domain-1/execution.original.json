@@ -1,0 +1,212 @@
+{
+  "host_task": "/root/independent_domain_b",
+  "role": "reviewer",
+  "slot_id": "domain-1",
+  "input_version": "8a720aa98e7b4e3a7ace082044be790b988ecce158080582fc7e5fb5825cd5e3",
+  "assignment_version": "4b1ae6d6e6ce341ee5f5c22e87afb43b394574f9f512f31802e17dd495fbb8c1",
+  "artifact_sha256": "dd39a222cc69892efe6c830f9609bc42ff66d534825f0725364b38f1b3a07a0a",
+  "completed_at": "2026-11-09T13:32:59.1357653Z",
+  "scope": "full-report domain only",
+  "actual_reading": "Full assignment report 513 lines including appendix; source reading was targeted to decisive facts and methods, not every page of every annual report.",
+  "checks": "通读当前完整513行正文及附录、任务与有效要求；按微短剧行业机制、测量分母和商业经济领域审阅。实际看QM September四张原图、May去重/时长图、February样本及App时长原图：7.18/8.51亿是不同渠道与时点的去重结果，内容触达4.72亿不在May合并括号内，App样本门槛及微信各期门槛不同；4.87亿App MAU、红果4.2969亿、与抖音88.5%重合均未被写成排他市场份额或获客因果。原CNNIC55/57核心数和电话双抽样框方法确认6.62到6.64亿、6岁以上范围、加权与误差；原CSM确认18岁以上、未来84.2%付费意愿及71.8%看过付费剧，正文没有转为真实个人支付率。读北大原PDF市场/合同页、白皮书原页、北京主管部门及两家财报市场段，确认行业流水/产值/预测、66.3%预测、重剪14万与独立4万预测、真人/AI及国内海外不混加。原财报核实两集团2023–2026Q3收入/归母/CFO、半年营业成本销售费、营运资金调节和2023 CMS失控转权益法；掌阅相关方广告营销在出售/提供劳务表，未误作采购。正文保留短剧分部毛利与集团销售费用不可直接净额分摊、Q3与累计差额、2024重分类及CMS季度时段边界。读现有financial/scenario/completion全部代码及执行输出，没有重跑；逐式检查实际消费扣退款、渠道扣除、分账资金守恒、day0至90的91日对数留存、已填充广告展示及CPM分母、纯分账/可抵扣保底max/额外补贴、完播和跨日留存分离、混合免广告蚕食、7/30/60日资金缺口和爆款组合分布，正文数值与代码结果吻合，参数明确是假设不冒充行业估计。原抖音规则确认1–29%达人推广佣金与0–3日自动发起分账有明确用途，支付T+7及1万元保证金未变成通用版权分账；腾讯横屏补贴、快手营销消耗增幅、红果金币阶段计划和资金扶持未扩张为已实现利润。原NRTA办法全文及分类实施材料、消费者条例相关条款、民法典未成年人条款和抖音退款规则核对通过，9月新制与1月/7月阈值区分，20日含专家10日，第三类重播及非独播编号、AI每集标识均准确；11月6日前累计下架量未误作本轮两个月治理结果。现有反证和敏感性足以支持正文按参与方、合同与现金回收作条件判断，未发现须修订的领域缺陷。",
+  "source_page_scope": {
+    "CP01": "2",
+    "MD005": "8,10–11,21–22,25–26,130–131,148",
+    "CP02": "1,10,13",
+    "CP14": "6–7,16–17,78–79,210",
+    "MD009": "6–7,14,17,21",
+    "CP19": "7,45,61–62",
+    "MD008": "6,12–13,149,156–157,186–188",
+    "CP13": "92",
+    "CP12": "14,32,35",
+    "CP08": "9,40–41,73–75",
+    "MD012": "19,30",
+    "MD006": "2–3,6–7"
+  },
+  "file_versions": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\reviews\\host\\8a720aa98e7b4e3a7ace\\jobs\\domain-1-4b1ae6d6e6ce341e.json",
+      "sha256": "fb689029788d28746bf473be492919c904e975eb570cc653bb577ff6c3c37e67"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\MD003\\original.txt",
+      "sha256": "9f1840f02c97b3293965fd6d0947362cddce8d6ae6db15f4c71db365ffdb0c23"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\MD004\\original.txt",
+      "sha256": "f7debdffdfb90695d3c06c8b51244a03583606c4ee3268ca9a95981a4b98948d"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\MD005\\original.txt",
+      "sha256": "c2abf73b52f3dc21ff592a206635bdd3dc568bc22619eca74470fbdb22434449"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\MD006\\original.txt",
+      "sha256": "4c5a31de0d998cef7d5e9fc444995fe728cdcec8ea7ec0da4f802f0fb4676e35"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\MD008\\original.txt",
+      "sha256": "bb497b95a67ea2c67777bf027f110118561ebe0f7a92ea1f6a8cd4f7eea9f057"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\MD009\\original.txt",
+      "sha256": "853dea43649e251e9404cf871956b94cf2f304ef841c39ab212c18c41de36446"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\MD010\\original.txt",
+      "sha256": "9a434c6c1c5f95393e0d75e1b6e61b4b7b1d55b45d2c288d0f8c68393836c6ee"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\MD012\\original.txt",
+      "sha256": "802d2cb4088b3067613a7751cf04e3e74439111c3b3b8987e0f590e27331b2b8"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP01.txt",
+      "sha256": "d088516fe3138d606a6b1bddf4bea332a0cc17b96bb7d2ec4c89cd5ce9d4d93b"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP02.txt",
+      "sha256": "922847e29ef81f47e21b6fae6f0b78f6128ce4efcb1f8dda0ab03550da40891f"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP03.txt",
+      "sha256": "9b1843b5646c27f6abef1130556bd50931a787a94f8a62b65bd4da8c6d377809"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP04.txt",
+      "sha256": "c78e1de0d13c41959dd3f284c317576ca1e22dc9a1f30b40020edf10b2e856db"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP08.txt",
+      "sha256": "156d91b972fd6c75afbe6a32934d78e134682b71ec9ede2b89a67dfe23baa195"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP09.txt",
+      "sha256": "cac58f06da8339818a959a6f12dd3ae54f4d23fcc08ada50dccccbca0d73a07d"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP10.txt",
+      "sha256": "ebfe715c97224af71f002599508dbae72a75f1529aa005ff03e6bfa613fe6201"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP12.txt",
+      "sha256": "ea4380ff7db786410b889dd344b86492d184eb944ad3cf2f0ae787bf34ba386d"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP13.txt",
+      "sha256": "08789d82bff360c9d07cd72cda2c7af0e4c67b42a6d469a6502f03663cf38637"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP14.txt",
+      "sha256": "6f254ffcb11a38ecb2661dc1e43468c4351c8cd54ca77778096674ea86cf55cf"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP18.txt",
+      "sha256": "0c12adce2d451ec1e27e0fcafe0015a5ebd078e328585eb98cb017fbe71251a7"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP19.txt",
+      "sha256": "9a90e13820b46f478d82f638fccb888f51b5dd6c329970fcec55492850629db5"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP20.txt",
+      "sha256": "513f3bc8123a35e312c34a2948466155fb58102e773a99b0abdd1accfcf60fe5"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP21.txt",
+      "sha256": "87ed08b711a7da00970add3e4285985cfdeb6b1ae4435cd0742ba29a18de4941"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP22.txt",
+      "sha256": "3db529e3865ed78bac308a7c863cc825e090c009f9128360c250733890db858f"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP25.txt",
+      "sha256": "f4e83eb4bf3567d88a509e791b3088b4604f8264f2a0d6c2a781df80432b22c0"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP26.txt",
+      "sha256": "4b4f72a193359066ea03701b3dc3507b11e5191a1092af07ddf012e66a65cec8"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\CP27.txt",
+      "sha256": "f7858db73d55266de10bf80b084107141fa480d9693c5accbc61867de0eecdb4"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\MD013.txt",
+      "sha256": "eae4fa77594aba4ceb0cf41341e2e2787e2761f6e2ff7972ee0d22520328b6f5"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\actual\\MD014.txt",
+      "sha256": "40b5ecb0047c0fef9dbc9475c20e353b2c450a8a7b542af218261fbaa9b828ae"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\financial-calculations.py",
+      "sha256": "5bbdbe40e7693d3e2f5f9f870bfa03fb9c5b7e7ce3df64d17d74b6703b4841c0"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\financial-results.json",
+      "sha256": "1c80a5d9e67e2dabb0a7cd6f27931ff30f1d68d43f8fe3548a12234aa010a72b"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\scenario-model.py",
+      "sha256": "431af2704c8d06fbb38a2bd17edf5ecbdad6365a8ef66c0ba2ced60f5dcc776f"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\scenario-results.json",
+      "sha256": "0176706ce25dfc485c53459b74e9d4f5d8a1d06322e3d3d6d6df1f57dc7b2678"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\scenario-results.csv",
+      "sha256": "317778c60616061df34e13ebf6151c63239a2e20ebfaa7ce58d4889a2a04c886"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\completion-sensitivity.py",
+      "sha256": "5da97528b2822cc509fb10b9f98b5bb16d4fc053c3e0e9a8a58ee81d58ae80fc"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\completion-results.json",
+      "sha256": "70f7779c9d5456d400f61b45e508fe3e8fb22cb2cad47563ca432537e0667b10"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\sources\\CP16\\charts\\5abf475a35249f4ce88a9e5176c8217d.png",
+      "sha256": "2c5e34616eb664be387ab2170f2c0bde9b2a185c03815023bb1d46e0e02d8155"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\sources\\CP16\\charts\\e15d12b81e8ada19f3a096549d587df3.png",
+      "sha256": "cad1e334d1adc8e1ee9ced5dd35a7dbf7bdd2da2167ffbc9d2b8956457593470"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\sources\\CP16\\charts\\ab089f4e9c4ca8a2c97e05e7be0112db.png",
+      "sha256": "bf5949de85fe7dfa61b7f8e1496edf40f5cb5dcf4cd9d43191edf8d7fd94ecdf"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\sources\\CP16\\charts\\2d52bc46d8803cd23525c580c9b09010.png",
+      "sha256": "60adeaa7ab2d7617487d60b67c5da21933f3095974e77a8eabd4c97f01d2246f"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\sources\\CP24\\charts\\users.jpg",
+      "sha256": "fff0bf73b5a0f221eb3a23f459f11019ec2a07265a964e4188fac349e4d73a96"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\sources\\CP24\\charts\\time.jpg",
+      "sha256": "2927878e6dd2823008fc1a91b8fb35ad18820ffd0af175311f98ca32411c5110"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\sources\\CP17\\pages\\p-6.png",
+      "sha256": "9794f766f5c54cabcd44cf9f01c9b6cc7b0532850cefad7edeb832be4282be38"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\codex-production\\sources\\CP17\\pages\\p-9.png",
+      "sha256": "cb10905f6115ddab6f711a3f1423b231e417de2f4e03bb0a900f0983faf9a479"
+    }
+  ],
+  "web_verification": [
+    "https://www.nrta.gov.cn/art/2026/7/31/art_113_73785.html",
+    "https://www.nrta.gov.cn/art/2026/11/6/art_114_74410.html"
+  ],
+  "api_calls": 0,
+  "research_rerun": false,
+  "report_edited": false,
+  "imported": false
+}

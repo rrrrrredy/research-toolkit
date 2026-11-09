@@ -1,0 +1,20 @@
+{
+  "run_id": "2026-11-09T10-29-08-780Z-55016",
+  "started_at": "2026-11-09T10:29:08.790Z",
+  "model": "gpt-6-astra",
+  "effort": "xhigh",
+  "status": "local_or_transport_error",
+  "next_executor": "api",
+  "updated_at": "2026-11-09T10:34:24.109Z",
+  "http_status": 200,
+  "request_id": "req_1c61a190bf5a474c98131a470625aa1c",
+  "retry_after": null,
+  "last_event": "response.output_item.added",
+  "response_id": "resp_0edf43dcf10306cb016af1a07610c087d18b945191e0c3374f",
+  "output_chars": 0,
+  "error": {
+    "name": "TypeError",
+    "message": "terminated",
+    "cause_code": "UND_ERR_SOCKET"
+  }
+}

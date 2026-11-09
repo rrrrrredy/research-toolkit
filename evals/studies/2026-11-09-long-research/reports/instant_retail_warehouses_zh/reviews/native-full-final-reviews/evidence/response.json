@@ -1,0 +1,12 @@
+{
+  "input_version": "e80623165cafab4fb0438ddbd29c7f8abed83b8eeda1d1577c6baaa48c0d1b21",
+  "assignment_version": "24e5259db15d18b27045c378ec69eb9c2f69cafd1ef07bd7db8eab1ed48e5081",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "basis": "对照首评冻结job和当前权威prepared指向job，完整正文实际只有两处变化。第206行补入弱商圈投流1.5元/单，与原warehouse-model.py第18行fresh_weak一致；第276行补明第1–3个月损耗2.5%、投流1.5元/单，第4月起分别降至2%、1元/单，与脚本第35行条件一致。对应的每单贡献4.58元、月结果−121640元、各月利润库存及1048726元累计资金缺口未改，原EV-IRWZH-01已解决。复用原373行连续全文阅读、财报/采访/法规原件及既有脚本输出检查；公司/仓级利润、补贴、折旧、库存现金和峰时产能口径未变，没有新增必要问题。",
+      "location": "reports/current.md，1–373行完整报告（复用首评）；本次实际修改第206、276行"
+    }
+  },
+  "findings": []
+}

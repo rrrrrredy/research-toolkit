@@ -1,0 +1,71 @@
+{
+  "request": {
+    "task": "on_device_models_en",
+    "artifact": "reports/current.md",
+    "scope": "full_report",
+    "purpose": "report_delivery",
+    "domains": [
+      "On-device inference, hardware memory and edge-cloud system design"
+    ],
+    "evidence_paths": [
+      "notes/author-reading-ledger.json",
+      "analysis/author-production/calculation-results.json",
+      "analysis/author-production/handoff.json",
+      "analysis/author-production/key-premises-for-review.md"
+    ],
+    "revision": true
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en",
+    "input_version": "b05a22e12456963e8dcdd2cf1fa1d888fc1552f79329ce94c60a9f2fe349b9bf",
+    "scope": "full_report",
+    "assignments": [
+      {
+        "slot_id": "acceptance",
+        "role": "acceptance",
+        "reading_ref": {
+          "path": "logs/reading/0b3fe5219c2656af5e40.md",
+          "sha256": "0b3fe5219c2656af5e40d3c8bee30d6abecab901699976eb574986b8563058ff"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/b05a22e12456963e8dcd/jobs/acceptance-7d0c5ff3d7f038f3.json",
+          "sha256": "01a0fb7bb43a2723fa2454e6c891d70f89ac167abebe2a073d9e1ff78f8b74df"
+        },
+        "assignment_version": "7d0c5ff3d7f038f322d9cc9151540ced2c7e2714083524c693116aeae54c47f6"
+      }
+    ],
+    "reviews_complete": true,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Incomplete independent assignment: acceptance"
+      ],
+      "required_slots": 10,
+      "completed_slots": 9,
+      "selected_attempts": {
+        "natural_expression": "2e327b1a72f543719d0caf98d6ff6bf7",
+        "domain-1": "dab54615edca4228abd2ebda54369955",
+        "evidence": "68e4fb4eccf248ea8aca38d54a949117",
+        "process_language": "e80e6d6384d1464a9f5d52a35b7b7ef6",
+        "requirements": "991e8f55b3ed4d568e236fea14e09966",
+        "structure_and_depth": "3ac9be440d214f77b88640dbea5e0a44",
+        "adversarial_reasoning": "79d1fdead2204c92a237370b307a4e0b",
+        "reader_usefulness": "9d22c36a27a14ac889e3398b8ced2c85",
+        "audit": "cdc57d9ddb354ad89146860407813619"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Incomplete independent assignment: acceptance"
+    ]
+  }
+}

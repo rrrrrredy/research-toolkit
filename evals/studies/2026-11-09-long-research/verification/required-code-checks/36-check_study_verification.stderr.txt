@@ -1,0 +1,12 @@
+test_default_verifier_covers_completion_supplement (__main__.StudyVerificationTests.test_default_verifier_covers_completion_supplement) ... ok
+test_derived_mismatch_fails_without_repairing_history (__main__.StudyVerificationTests.test_derived_mismatch_fails_without_repairing_history) ... ok
+test_explicit_write_preserves_newline_style (__main__.StudyVerificationTests.test_explicit_write_preserves_newline_style) ... ok
+test_optimized_completion_audit_rejects_changed_plan (__main__.StudyVerificationTests.test_optimized_completion_audit_rejects_changed_plan) ... ok
+test_optimized_verifier_rejects_changed_plan (__main__.StudyVerificationTests.test_optimized_verifier_rejects_changed_plan) ... ok
+test_outcomes_are_bound_to_frozen_labels_and_preferences (__main__.StudyVerificationTests.test_outcomes_are_bound_to_frozen_labels_and_preferences) ... ok
+test_valid_default_commands_do_not_write_study_files (__main__.StudyVerificationTests.test_valid_default_commands_do_not_write_study_files) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 56.912s
+
+OK

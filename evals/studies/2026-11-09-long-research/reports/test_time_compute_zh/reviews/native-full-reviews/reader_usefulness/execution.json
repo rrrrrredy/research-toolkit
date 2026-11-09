@@ -1,0 +1,40 @@
+{
+  "host_task": "/root/benchmark_reader_a",
+  "status": "completed",
+  "perspective": "reader_usefulness",
+  "input_version": "3e6278f250299b9aa3fd80f794a5ed5b1ca5d05ccfd17c28d96a73f482afacb1",
+  "assignment_version": "0b89dbf52cd1edd941ea743efe8fc2de57d22bccdf23364f0b636d09776720d5",
+  "started_at_utc": "2026-11-09 14:28:42 UTC",
+  "completed_at_utc": "2026-11-09 14:30:09 UTC",
+  "timing_basis": "实际clock工具返回的材料读取前与最终核对后时间；未编造耗时。",
+  "reading": {
+    "task_and_effective_requirements": "完整assignment.task与effective_requirements",
+    "report": "当前冻结assignment.report第1–85、86–175、176–259行连续完整读取，含所有图表、公式及文献版本。",
+    "originals": [
+      {
+        "path": "sources/actual/TTC008.txt",
+        "scope": "第256–266行通过者均匀选择与条件独立；第326–336行argmax尾部区别；第999–1006行依赖和规划限制；第1197–1208行公式证明。"
+      },
+      {
+        "path": "sources/actual/SUP-TREE.txt",
+        "scope": "确定性环境与方法相关段，第391–402行完整§5.4限制：调用增长、重置重放与不可逆动作。"
+      },
+      {
+        "path": "sources/actual/SUP-AC.txt",
+        "scope": "第304–320行Beta停止规则，第486–496行表1数学/常识/符号/代码聚合结果及部分附录匹配表格。"
+      }
+    ],
+    "calculations": [
+      {
+        "path": "analysis/calculations/budget_example.py",
+        "scope": "完整脚本只读。"
+      },
+      {
+        "path": "analysis/calculations/budget_output.json",
+        "scope": "完整输出，包括四方案费用/token/工具/时延与准确率、宽度扫描、相关性边界和动作链说明。"
+      }
+    ],
+    "independence": "未读其他审阅、作者自评或coordinator-context-reading；没有将英文稿作为本题事实来源。"
+  },
+  "actions": "仅写本视角response/execution；未改稿、导入、联网扩展冻结证据、重跑实验或软件测试。"
+}

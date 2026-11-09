@@ -1,0 +1,18 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "d47378130c4da5c2a85d74e96580c76c4de2f5b12a1671a9f5feb13dc09807ce",
+  "assignment_version": "1fed78714ba3cb62548570d17fb53519827b05e714ca4496222e6b8913604f91",
+  "completed_at": "2026-11-09T13:42:20.857222+00:00",
+  "reading_scope": {
+    "task": "complete assignment task",
+    "report": "complete reports/current.md lines 1-219",
+    "originals": [
+      "sources/actual/MB10.txt lines 295-337",
+      "sources/actual/MB23.txt lines 195-229",
+      "sources/actual/MB31.txt lines 178-216 and 244-255",
+      "sources/actual/MB32.txt lines 54-79"
+    ],
+    "scope": "Independent adversarial reasoning only; no new experiments or report edits; no other reviewers consulted."
+  }
+}

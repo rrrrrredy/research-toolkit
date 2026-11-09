@@ -1,0 +1,12 @@
+{
+  "source_id": "ODM-S01",
+  "url": "https://huggingface.co/Qwen/Qwen2.5-3B-Instruct/raw/main/config.json",
+  "version_or_access": "2026-11-09T11:44:25.749961+00:00",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\supplemental-sources\\ODM-S01\\original.txt",
+  "reading_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\supplemental-sources\\ODM-S01\\original.txt",
+  "sha256": "eed00b17e22553979d090fa492e587e92885e328914c8e0b0b78f0a0d3576b3b",
+  "reading_location": "Complete configuration JSON",
+  "findings_used": "36layers,16query/2KVheads,hidden2048,slidingwindowdisabled,max32768.",
+  "reader": "Codex /root/ttc_research; substantive author, not independent reviewer",
+  "read_scope": "selected original passages actually read, not a claim to have read every page"
+}

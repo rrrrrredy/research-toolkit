@@ -1,0 +1,69 @@
+{
+  "status": "completed",
+  "host_task": "/root/independent_domain_b",
+  "role": "reviewer",
+  "slot_id": "domain-1",
+  "scope": "Current whole-report domain revision confirmation in original reviewer context",
+  "input_version": "f6bb51c4fdab26cede56b083db7acbe727f8d84add9ff64682cf380aa9ff37cb",
+  "assignment_version": "d46b00ef117da856f52a4ef74b933e2c35041e89dad42d9fd52f40cd0c4ddc02",
+  "artifact_sha256": "76e52a756e003edbec67aca4cc06b19aa6545aec9c5584f1ca57c74f28c222b4",
+  "completed_at": "2026-11-09T15:34:22.3011317Z",
+  "actual_reading": "Read own prior response and compared its exact frozen assignment report to the current domain assignment report; read all 22 unified-diff lines and affected surrounding context. Reused my prior complete substantive reading. Task, effective requirements, scope decisions and source_files compare identical. Instruction additions were read: retained original-context review and changes are not approval. Relevant historical required findings in the current job were treated as revision inputs; no other current-perspective conclusions were read.",
+  "checks": "本次为原真实领域上下文对当前完整稿的修订确认；先前完整阅读保留，实际变更按直接全文diff判断，未以历史通过自动替代当前判断。旧98b93c53到当前的全部22行diff已读。开头现在明确2024/2025全国调查与2026应用监测不是同期间同口径，渠道迁移/强化仅为可能解释，无法分解新增用户、迁移、分类和样本贡献；与我此前核过的QM/CNNIC测量框一致，未再由汇总相关推断个体迁移份额。回查北大MD006原文第3页，确说尚未计入出海业务收入，现市场表如实记录，同时保留未消费余额/内部交易明细缺口；这没有把该来源估计变成可独立审计的国内净消费。其余用户/财务/政策、付费免费分账/现金例和附录逐字未改，来源文件及任务要求相同。承接本人完整513行与原图/财报/算例核查，当前领域通过。",
+  "old_input_version": "98b93c531b8061c68cfa3c93abb7469a9e3b577b6ad2775430396fc04ba37c51",
+  "old_assignment_version": "457fd848abf79427681e5aaa65ea15f65bcbce93f9ed82ab6561e01977f94763",
+  "prior_response": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\native-full-v2-reviews\\domain-1\\response.json",
+  "prior_execution": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\native-full-v2-reviews\\domain-1\\execution.json",
+  "old_report_sha256": "dd39a222cc69892efe6c830f9609bc42ff66d534825f0725364b38f1b3a07a0a",
+  "current_report_sha256": "76e52a756e003edbec67aca4cc06b19aa6545aec9c5584f1ca57c74f28c222b4",
+  "actual_diff": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\native-full-final-reviews\\domain-1\\actual-diff.txt",
+  "unchanged_inputs": {
+    "task": true,
+    "effective_requirements": true,
+    "scope_decisions": true,
+    "source_files": true,
+    "sources": true
+  },
+  "additional_original_reading": [
+    "microdrama_market_zh\\sources\\MD006\\original.txt"
+  ],
+  "file_versions": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\native-full-final-reviews\\domain-1\\actual-diff.txt",
+      "sha256": "5bbefc66d006b11c68055547bc736677c2653b4db65dc6fa82c4d3cbc730170d"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\native-full-final-reviews\\domain-1\\reviewed-current.txt",
+      "sha256": "76e52a756e003edbec67aca4cc06b19aa6545aec9c5584f1ca57c74f28c222b4"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\native-full-final-reviews\\domain-1\\reviewed-old.txt",
+      "sha256": "dd39a222cc69892efe6c830f9609bc42ff66d534825f0725364b38f1b3a07a0a"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\native-full-v2-reviews\\domain-1\\execution.json",
+      "sha256": "614bfe50264915116c69f97efbb0fa417bc3ac828ab9900567b670cf45bf0727"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_zh\\native-full-v2-reviews\\domain-1\\response.json",
+      "sha256": "b05eaefc7702eef0de0ddb0fa8ab08953b70249011536fd0d1fe59ea6e8ec033"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\reviews\\host\\98b93c531b8061c68cfa\\jobs\\domain-1-457fd848abf79427.json",
+      "sha256": "3e9df08cb21c9c4052231fad9518660cc934f1cc3f8df4403803eac89915a6c1"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\reviews\\host\\f6bb51c4fdab26cede56\\jobs\\domain-1-d46b00ef117da856.json",
+      "sha256": "3f83fcfea23b3b93fd14b564682f592b6b39e4e8d540c3599f8d1d266648f903"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_zh\\sources\\MD006\\original.txt",
+      "sha256": "4c5a31de0d998cef7d5e9fc444995fe728cdcec8ea7ec0da4f802f0fb4676e35"
+    }
+  ],
+  "api_calls": 0,
+  "research_rerun": false,
+  "calculation_rerun": false,
+  "report_edited": false,
+  "imported": false
+}

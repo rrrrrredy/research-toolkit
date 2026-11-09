@@ -1,0 +1,49 @@
+{
+  "status": "completed",
+  "host_task": "/root/structure_remaining_b",
+  "executor": "native Codex subagent",
+  "input_version": "e971ccb9869b9b5333e060010f47e805e42b57a4ba02adedbc0203d5af57509e",
+  "assignment_version": "1b4cc71e5a46cc94f63a9067baa383cc070a53b2f31f0b05e01f36aef81522fa",
+  "job_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\token_economics_en\\reviews\\host\\e971ccb9869b9b5333e0\\jobs\\structure_and_depth-1b4cc71e5a46cc94.json",
+  "job_sha256": "3bad42c6b80ba6ae5376d9e8912d2df4dc785d463def5e8654ad356ef296e268",
+  "artifact_sha256": "b759587b7865410247f87ac5342125ece0a4bd41c2969c115e38e35ce98cf4b6",
+  "frozen_report_sha256": "b759587b7865410247f87ac5342125ece0a4bd41c2969c115e38e35ce98cf4b6",
+  "started_at": "2026-11-09T14:53:45.5864947Z",
+  "completed_at": "2026-11-09T14:57:36.8569149Z",
+  "report_reading": {
+    "path": "frozen-report.md",
+    "ranges": [
+      [
+        1,
+        115
+      ],
+      [
+        116,
+        260
+      ],
+      [
+        261,
+        386
+      ]
+    ],
+    "complete": true,
+    "trailing_newline": true,
+    "last_line": 386
+  },
+  "originals_examined": [
+    {
+      "range": "1-80",
+      "path": "sources/TE05.txt"
+    },
+    {
+      "range": "complete one-line JSON",
+      "path": "sources/TE-S21.txt"
+    },
+    {
+      "range": "55-61",
+      "path": "sources/TE20.txt"
+    }
+  ],
+  "other_perspective_results_read": false,
+  "report_edited": false
+}

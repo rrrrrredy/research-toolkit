@@ -1,0 +1,71 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\token_economics_en",
+  "input_version": "e6dab9c522bd95cbb6466eccef92143c33d291b91806655c81158321704d7807",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "adversarial_reasoning",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/dd547c4a0b794f26c22f.md",
+        "sha256": "dd547c4a0b794f26c22f20abb6776df3137e5111e73192d5f5b0190d79cfa151"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/e6dab9c522bd95cbb646/jobs/adversarial_reasoning-8f7a8334b16fe9a5.json",
+        "sha256": "604494b3ebaa137d7b0f8f29a53d21f84d9d6a494932787c9d4f54abc8e640f5"
+      },
+      "assignment_version": "8f7a8334b16fe9a5d612b88c0c370242cbb9224f3be293ea0cbd078c8d852c29",
+      "resume_host_task": "/root/benchmark_adversarial"
+    },
+    {
+      "slot_id": "reader_usefulness",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/69d57bdae2b7fec2a2fe.md",
+        "sha256": "69d57bdae2b7fec2a2fef32ffcd2ca9964a565150d81592827c68fefd899f93e"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/e6dab9c522bd95cbb646/jobs/reader_usefulness-28bf9e430f89a877.json",
+        "sha256": "b01cf8ac21a1dc93c0fcc27e7e5b003316a6b0d4cacf6a776f7d8e718ecf963f"
+      },
+      "assignment_version": "28bf9e430f89a877e1fdfcc23253467349db3fba7586cee12c7e6db2c2a7144e",
+      "resume_host_task": "/root/full_reader_b"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: adversarial_reasoning",
+      "Incomplete independent assignment: reader_usefulness",
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 6,
+    "selected_attempts": {
+      "natural_expression": "93fa720129a44d1c940a666f0ffea3d2",
+      "domain-1": "7d4422e7f98d424d912f41436032c9f4",
+      "evidence": "2f93c333a6a241d9a1a5048ebcebf516",
+      "process_language": "fdd0e77babe64c57a24b6167befaf814",
+      "requirements": "9471738233d2443da04bf38b6e6b3cbe",
+      "structure_and_depth": "22a3d431f21143438da9fa40747c58e3"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: adversarial_reasoning",
+    "Incomplete independent assignment: reader_usefulness",
+    "Incomplete independent assignment: audit",
+    "Incomplete independent assignment: acceptance"
+  ]
+}

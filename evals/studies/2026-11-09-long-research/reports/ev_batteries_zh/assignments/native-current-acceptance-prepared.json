@@ -1,0 +1,73 @@
+{
+  "request": {
+    "task": "ev_batteries_zh",
+    "artifact": "reports/current.md",
+    "scope": "full_report",
+    "purpose": "report_delivery",
+    "domains": [
+      "EV battery chemistry, pack engineering and deployment economics"
+    ],
+    "evidence_paths": [
+      "notes/author-reading-ledger.jsonl",
+      "analysis/author-production/calculations.json",
+      "analysis/author-production/handoff.md",
+      "notes/author-reading-ledger-full-03.jsonl",
+      "analysis/calculations/volume-scenario-full-03.json",
+      "analysis/author-production/analysis-maturity-volume-full-03.md"
+    ],
+    "revision": true
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ev_batteries_zh",
+    "input_version": "4cff15db175e29647e450e061f3030d1bbe0d27b5e4dcfea015a7bd2d966c0c3",
+    "scope": "full_report",
+    "assignments": [
+      {
+        "slot_id": "acceptance",
+        "role": "acceptance",
+        "reading_ref": {
+          "path": "logs/reading/92c45336cf0a5c60c5c7.md",
+          "sha256": "92c45336cf0a5c60c5c78e3cfeb7e5fdfacba1bd046483a3c9a30d6549a85aae"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/4cff15db175e29647e45/jobs/acceptance-55aaf04731b707dc.json",
+          "sha256": "cc5054761a9b7c9e0d4ea5077e157b4e3b6ce836e5b4d60a04424134054636fb"
+        },
+        "assignment_version": "55aaf04731b707dc1fa1d0541eea5eb9a3d35cfb41db2ded3442fa61a14d6d26"
+      }
+    ],
+    "reviews_complete": true,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Incomplete independent assignment: acceptance"
+      ],
+      "required_slots": 10,
+      "completed_slots": 9,
+      "selected_attempts": {
+        "reader_usefulness": "7b6585b82faf4f0884b563e6a065c85c",
+        "evidence": "799f7b31c82647b58ab4c9db08d390d6",
+        "natural_expression": "306aa8583ca64ee086e01b54307362bd",
+        "process_language": "68b53b5855b843ba99a5a0e762053d69",
+        "requirements": "5a3d1f309e124f8da2f3c602ef94989e",
+        "domain-1": "8778cc948f0b449dade21d8c1f9ee8bf",
+        "structure_and_depth": "fd269f9cfbe643abb8b291e1b8dcfa5e",
+        "adversarial_reasoning": "6d09051e3f00497cb8ea5886acd763f1",
+        "audit": "f4eb829f336549d8a10756f78fba08cf"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Incomplete independent assignment: acceptance"
+    ]
+  }
+}

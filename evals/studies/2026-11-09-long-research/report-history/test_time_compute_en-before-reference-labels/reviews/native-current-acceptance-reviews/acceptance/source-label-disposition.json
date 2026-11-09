@@ -1,0 +1,14 @@
+{
+  "host_task": "/root/office_final_acceptance",
+  "status": "completed",
+  "recorded_at": "2026-11-09T16:53:55.7124095Z",
+  "scope": "Located follow-up on reader-facing internal source labels only; no new complete content review",
+  "finding_id": "TTC-ACCEPTANCE-LABEL-01",
+  "severity": "minor",
+  "decision": "necessary_local_presentation_correction",
+  "location": "reports/current.md method/evidence tables, prose citations and reference table, including35–42,49,55,323–329,341–352",
+  "basis": "Existing P/references/writing-style.md References section133–143,especially141, permits internal source IDs only when the task asks to present or explain them. Read the full current TTC English brief: it asks identifiable versions and locatable citations, not internal IDs. Current TTC001/TTC012/TTC003v2/SUP-AC labels are internal task keys; an appendix mapping does not make exposing those keys necessary. This specific display issue was missed in my earlier acceptance. Do not claim the author received scripts/run_evals.py generation prompt; that was not established.",
+  "required_change": "Replace reader-visible source-key labels throughout tables,prose citations and reference labels with recognizable paper short titles plus retained version/section/table locators. Keep actual source URLs,numerical claims,argument,conditions and internal source records/IDs unchanged. Retain prior delivered artifact and original acceptance records as historical originals.",
+  "verification": "Read only the resulting full label-change diff and necessary local context; confirm citation destinations and measurement/version locators remain. No fresh research,arithmetic rerun or repeated full content-review cycle needed.",
+  "original_acceptance": "Prior response.json and execution.json retained unmodified; substantive full reading remains applicable to unchanged content."
+}

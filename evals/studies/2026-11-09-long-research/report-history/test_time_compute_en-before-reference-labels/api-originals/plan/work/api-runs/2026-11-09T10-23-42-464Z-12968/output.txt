@@ -1,0 +1,387 @@
+{
+  "outline": "# Research design: Test-Time Compute for Reasoning Models and Agents\n\n## 1. 本轮范围、实际读者与研究对象\n- 本轮只交付研究设计、初始证据判断、可执行分工和缺口清单，不撰写最终报告。\n- 最终报告使用英文，服务于需要决定模型、推理策略、验证方式和资源预算的模型研究者、推理工程师、agent 系统设计者。研究重点是可实施的计算分配决策，不是论文目录或模型排行榜。\n- 时间范围以首次公开于 2022 年至 2026-11-09 的工作为主；较早研究仅用于必要基础。每项结果绑定论文版本、模型 checkpoint、数据切片、评估器、实现及采样协议。截止日之后的修订不得回填为此前证据。\n- 核心比较对象是完整推理系统：生成器、候选生成协议、保留状态、选择器或验证器、预算控制器、工具环境、停止规则及最终评估器。\n- 题面没有地域或公司排名要求，不按地区机械拆分，也不把工作流示例中的公司名单引入本任务。保留具体证据涉及的 PaLM 2/Codey、Qwen、s1、DeepSeek 及其蒸馏模型、OpenAI、Google、Anthropic 和相关 agent 实现；不要求穷举综述参考文献中的全部模型。\n- 建议最终英文正文约 10,000–14,000 words，另配证据矩阵、计算附录和来源说明；这是研究者的篇幅规划，不是用户新增要求。\n\n## 2. 必须回答的问题与候选解释\n### Q1. 更多计算究竟改变了什么？\n区分扩大正确候选覆盖率、提高选择准确率、修正已有轨迹、获取外部信息、改变环境状态和更新模型参数。候选解释 H1：部分看似相互矛盾的 scaling 结果来自不同被测对象和不同反馈权限，而非同一种方法在相同条件下发生冲突。需要逐项控制比较，不能先当作结论。\n\n### Q2. 何时应增加样本，何时应增加深度或验证？\n候选解释 H2：收益取决于基础模型对该任务的可达解概率、错误答案的集中程度和验证器在候选池上端的辨别能力，而不只取决于题目被标成容易或困难。最难任务未必值得最多预算；但有限次采样没有成功也不能证明真实成功概率为零。\n\n### Q3. 顺序推理的提升来自推理分配还是训练？\n候选解释 H3：训练可以改变模型使用额外 token、修订历史和反馈的能力；因此 s1 与其未微调基座之间的差异，不能归因于 sequential scaling 本身。TTC001 的修订模型也经过专项训练。应分别报告同 checkpoint 的预算曲线和跨 checkpoint 的系统比较。参见 TTC001 §§4–6、TTC002 §§2–5。([arxiv.org](https://arxiv.org/html/2408.03314v1))\n\n### Q4. 为什么更多计算可能饱和或倒退？\n并列检验正确解覆盖不足、共同错误、验证器尾部误判、奖励投机、错误剪枝、正确答案被覆盖、上下文上限、强制续写干预、工具故障和环境动作累积错误。不得把所有下降统称为 overthinking，也不得把自然长回答与低准确率的相关性直接解释为长度的因果作用。\n\n### Q5. 自适应是否真的节约预算？\n候选解释 H4：难度识别、预热、验证和停止信号可能耗掉标称节约；离线删除已生成轨迹不等于在线节约生成。TTC001 明确未计入每题 2,048 次采样的难度估计成本；TTC007 的 frontier 使用完整测量曲线，且主要成本只计保留的 thinking tokens。([arxiv.org](https://arxiv.org/html/2408.03314v1))\n\n### Q6. 可检查任务上的收益能否转移到交互式任务？\n候选解释 H5：代码执行、网页观察或检索可能带来新信息，而不是单纯增加内部计算；可重置的沙箱搜索与不可逆真实行动也不是同一决策问题。评估标准能离线判分，并不意味着部署时有可用验证器。工具任务必须覆盖完整执行链，而不能只用数学终局答案选择代替。\n\n### Q7. 所谓 verifier-free 是否意味着没有验证或训练？\nTTC005 不使用目标题验证器训练，但使用合成题执行奖励，并在测试时更新 LoRA 参数。候选解释 H6：其收益来自目标条件化适配，而非固定权重模型在完全无反馈条件下的搜索突破；需要单列预算与指标，而不是并入固定基座推理曲线。([arxiv.org](https://arxiv.org/html/2611.07367v1))\n\n### Q8. 什么情况下不增加推理计算？\n拟比较直接回答、确定性程序、一次执行、升级基础模型、请求澄清、人工接管和弃答。是否停止应由可测的增量效用、错误后果、预算及延迟约束决定；不是默认用满预算，也不是以一次置信度分数替代风险判断。\n\n## 3. 最终英文报告的论证结构\n### 1. Decision context and evidence contract\n解释读者的实际决策、证据截止日、研究选择原则和比较层级。定义五种不同结果：单次正确率、候选覆盖率 pass@N、实际提交答案正确率、重复可靠性 pass^k、包含成本与错误损失的效用。说明 benchmark grading 与 inference-time verification 的权限差异。\n\n### 2. Where additional computation enters the system\n建立机制图：生成 → 状态保留 → 评估 → 选择/剪枝/修订 → 停止 → 提交；工具反馈与权重更新作为独立分支。\n- 独立采样本身不规定最终答案如何产生。\n- Self-consistency 对答案分组投票；best-of-N 按分数选择，weighted best-of-N 另列。\n- 顺序修订、单条长推理、前缀树搜索、环境树搜索不混为一类。\n- Outcome labels、过程正确性标签、continuation value、自然语言批评和程序执行结果分别说明语义。\n- 对每种机制回答：谁产生候选，谁拒绝候选，保留什么状态，评估器看到哪些信息，是否修改权重。\n\n**产物 A：Method-and-evidence matrix。** 每行包括算法、基座与验证器版本、训练前提、候选单位、状态、反馈权限、停止规则、任务与数据版本、比较对象、成本边界、局限和证据等级。\n\n### 3. Sampling and selection: finding an answer is not submitting it\n以 self-consistency、Large Language Monkeys、验证器研究和 SPLIT 为核心，解释覆盖曲线与部署曲线为何分离。推导独立条件下的覆盖公式、任务异质性的影响、有限候选池估计与实际选择的区别。分别处理题间难度相关、模型间共同盲点、题内候选依赖及同一候选的重复判断相关。\n\n### 4. Sequential reasoning, revision, and the training that enables them\n拆分 s1 的 SFT 效果与同一 s1 checkpoint 的 budget forcing 效果；比较训练过的修订、未经训练的自我批评和带外部反馈的修订。分析保留旧答案、重新选择与直接返回最后一稿的差异。将测试时参数更新作为边界案例，与离线后训练和固定权重推理分配区分。\n\n### 5. Search over intermediate states and investment in verification\n比较 best-of-N、beam/best-first、lookahead、MCTS 类方法与过程反馈。解释步骤价值、最终正确性和局部推导正确性为何不可互换。检查搜索改变候选分布、验证器失配与错误剪枝；不把更强优化器或更大搜索树预设为更有效。\n\n### 6. Executable coding and feedback-driven agents\n- 代码生成：公开样例、生成测试、私有测试、扩展测试和形式检查分别列出权限与不完备性。\n- 软件工程：CodeMonkeys 的测试、编辑和选择循环；将并行轨迹数与轨迹内迭代分开。\n- 网页与多步工具任务：环境搜索、状态回退、重置成本和部分可观察性。\n- 用户交互：τ-bench 的重复可靠性与终局判分边界。\n- 检索和深研究：DeepVerifier 作为较弱、间接反馈的转移案例，核查最终评分独立性和全部验证成本。\n- 最新补充：2026-11-06 的 parallel agent teams 工作作为有评分器的长时任务案例，不将其 expected-best continuous score 直接等同于普通任务成功率。([arxiv.org](https://arxiv.org/html/2611.09798v1))\n\n### 7. What reported scaling curves do—and do not—establish\n按可比较的实验族分面展示，而不拼接一条跨模型 token scaling law。\n**产物 B：Reported scaling comparison。** 标记预算轴、基座是否固定、选择成本是否完整、反馈权限、边际增益、饱和/倒退区间、难度分层、样本量与不确定性。\n- 分开预算干预、自然长度分组、固定前缀 probing、oracle 终止和实际在线终止。\n- 不预设幂律、对数律或普遍单调性。\n- 对 TTC006 的数值一致性问题先核对再纳入；不能以其定量阈值制定部署规则。\n\n### 8. A complete budget ledger and a worked allocation example\n**产物 C：成本与调度账本。** 计入生成、废弃分支、prompt/prefill、显式及已披露隐藏推理、验证器输入与生成、工具、重试、环境设置/恢复及控制器。训练、pilot 和部署成本分账，说明摊销范围。\n分别报告 FLOPs 或其有条件代理、货币费用、GPU/CPU 时间、峰值并行资源、串行关键路径和端到端 wall-clock。不能把不同模型的 token 当作公共计算单位。\n**产物 D：Worked allocation example。** 使用明确标为假设的生成成功率、验证器 TPR/FPR、单次费用和并发约束，比较更多样本、较好验证器、较强模型及不追加计算；给出敏感性分析，不称为新实验。\n\n### 9. Adaptive allocation and a task-specific design decision tree\n比较问题级预分配、样本间停止、轨迹内退出和跨任务共享预算。Oracle 只作诊断参考，不作可部署算法。\n**产物 E：Decision tree 与实施检查表。** 分支必须覆盖可验证性、错误后果、延迟、工具可用性、状态能否重置以及预算；每个叶节点给出建议、证据来源、必要校准、停止/升级条件和不适用情形。保留不增加推理计算的叶节点。\n\n### 10. Synthesis and unresolved boundaries\n由正文证据回答何时选择更强基座、更多样本、更深搜索、更好验证或更简单路径。分开实证发现、条件性推论与研究者提出的部署政策。列出尚不能由公开证据支持的跨域转移和经济比较，不以泛泛免责声明代替答案。\n\n## 4. 证据筛选与决定性前提\n- TTC001–TTC008 的用户提供文本均已通读，包括附录、表格和图注；文本中仅有图像占位符的部分，不声称看过曲线原图或完成了数据数字化。\n- 新补充原件只登记实际打开并阅读的章节。TTC006 的 PDF 第 4、10 页还进行了截图核对。\n- 优先采用同 checkpoint、同任务、明确反馈权限和成本边界的对照；跨模型结果保留，但降低因果归因强度。综述 TTC004 用于检索导航与术语辨析，不代替原始实验证据。\n- 必须先解决的门槛：TTC006 的分母、flip 计数和 utility 算术；TTC005 的 filtered mean@8 与 carry-forward；TTC007 的 oracle 信息与 probe 成本；TTC008 的条件独立假设和成本代理；TTC003 的版本及研究库存/公开发布数量。\n- TTC003 已补读 2026-08-31 的 v2 相关章节。其研究库存与公开发布数量分列，不能继续沿用 v1 摘要中的巨大 trace 数量。([arxiv.org](https://arxiv.org/html/2608.04001v2))\n\n## 5. 分工、依赖和审查安排\n- U1 先给出共享协议、来源版本和争议台账；U2–U6 随后可并行开展完整局部分析。未解决的争议只冻结受影响主张，不阻塞其他分支。\n- U7 消费各机制和任务单元的调用账本；U8 消费实证曲线及 U7 的成本模型；U9 由主研究者统一整合论证、矩阵和决策树。\n- 在大篇幅写作前，分别安排独立 requirements 与 structure_and_depth 会话检查本提纲。决定性统计、成本和环境反馈前提交由非作者的 evidence 与领域审查者核验。\n- 完整报告阶段仍须完成七个独立基础视角：requirements、evidence、adversarial_reasoning、structure_and_depth、reader_usefulness、process_language、natural_expression；另设推理系统/统计评估及 agent 环境领域审查。独立 audit 与最终 acceptance 再分别进行。局部检查不替代整篇审查。\n- 本轮没有启动子代理、完成独立审稿或重跑模型评测；角色与依赖均为执行计划，不是已经完成的会话记录。\n\n## 6. 状态与最终产物安排\n保留 task.json 要求的 state/task_spec.md、state/progress.json、state/requirements.jsonl、data/source_registry.csv、data/claims_registry.csv、logs/review.jsonl、state/final_delivery.json、final.md、delivery_message.md。当前 JSON 是阶段设计记录，未创建这些磁盘文件，未生成 finish 收据，也不将最终交付标为完成。最终验收须将每项要求映射到实际正文或表格、核查关键来源与计算、解决必要修订，并绑定同一最终版本。",
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "现在只完成研究设计、初始材料阅读和分工提纲，不写最终全文。本轮输出纯JSON。",
+      "scope": "global"
+    },
+    {
+      "id": "R2",
+      "text": "language: en; target_reader: Model researchers, inference engineers, and agent-system designers making compute-allocation decisions.",
+      "scope": "global"
+    },
+    {
+      "id": "R3",
+      "text": "Investigate how additional computation at inference time changes the capabilities, reliability, and economics of reasoning models and agents.",
+      "scope": "global"
+    },
+    {
+      "id": "R4",
+      "text": "Focus on work published from 2022 through the evidence cutoff of 2026-11-09, using earlier work where needed to explain foundations. Use only evidence publicly available by the cutoff and identify the relevant paper, model, implementation, and evaluation versions. Do not turn later knowledge into evidence available at the cutoff.",
+      "scope": "U1"
+    },
+    {
+      "id": "R5",
+      "text": "Develop a mechanism-based comparison of independent sampling, self-consistency, best-of-N selection, sequential revision, search over intermediate states, outcome and process verification, adaptive budget allocation, and agent loops involving tools or environmental feedback.",
+      "scope": "global"
+    },
+    {
+      "id": "R6",
+      "text": "Explain what generates candidates, what selects or rejects them, what state is retained, and what information the evaluator can access.",
+      "scope": "global"
+    },
+    {
+      "id": "R7",
+      "text": "Distinguish inference-time allocation from training changes that enable it. Separate results for a fixed base model from comparisons in which model size, post-training, data, or the verifier also changes.",
+      "scope": "global"
+    },
+    {
+      "id": "R8",
+      "text": "Examine evidence from mathematical reasoning, executable coding tasks, and multi-step tool-using tasks. Select informative studies rather than attempting an exhaustive paper catalogue.",
+      "scope": "global"
+    },
+    {
+      "id": "R9",
+      "text": "Compare scaling behavior, marginal gains, saturation, regressions, and variation with task difficulty.",
+      "scope": "global"
+    },
+    {
+      "id": "R10",
+      "text": "Explain how correlated errors, weak or miscalibrated verifiers, reward exploitation, unreliable tools, compounding action errors, or unavailable feedback can change the apparent benefit of additional search.",
+      "scope": "global"
+    },
+    {
+      "id": "R11",
+      "text": "Assess whether results on tasks with cheap, reliable checking transfer to tasks with ambiguous outcomes or delayed feedback.",
+      "scope": "U6"
+    },
+    {
+      "id": "R12",
+      "text": "Account for candidate generation, discarded branches, verifier calls, hidden or explicit reasoning tokens when disclosed, tool execution, and retries.",
+      "scope": "U7"
+    },
+    {
+      "id": "R13",
+      "text": "Distinguish total compute or monetary cost from serial latency, parallel resource demand, and end-to-end wall-clock time.",
+      "scope": "U7"
+    },
+    {
+      "id": "R14",
+      "text": "Token counts alone are not a common compute unit across different models.",
+      "scope": "U7"
+    },
+    {
+      "id": "R15",
+      "text": "Where published studies permit a defensible normalization, show it with units and assumptions; otherwise retain separate comparisons and explain the missing information.",
+      "scope": "U7"
+    },
+    {
+      "id": "R16",
+      "text": "Include a worked allocation example using reported values or clearly labeled hypothetical inputs, without presenting an illustrative calculation as a new experiment.",
+      "scope": "U7"
+    },
+    {
+      "id": "R17",
+      "text": "Deliver a complete research report with a method-and-evidence matrix, a comparison of reported scaling behavior, and a design decision tree covering task verifiability, error consequences, latency constraints, tool availability, and budget.",
+      "scope": "U9"
+    },
+    {
+      "id": "R18",
+      "text": "Explain how a designer should choose among a stronger base model, more samples, deeper search, better verification, or a simpler execution path.",
+      "scope": "U9"
+    },
+    {
+      "id": "R19",
+      "text": "Distinguish empirical findings from proposed policies, and include cases in which no additional inference-time computation is the defensible choice.",
+      "scope": "U9"
+    },
+    {
+      "id": "R20",
+      "text": "Tables and diagrams may be integrated into any coherent report structure; a literature list or brief recommendation sheet is not sufficient.",
+      "scope": "global"
+    },
+    {
+      "id": "R21",
+      "text": "The central checks are whether budget comparisons include the computation used to select answers, whether training and inference effects remain distinguishable, and whether the proposed design choices follow from task-specific evidence.",
+      "scope": "global"
+    },
+    {
+      "id": "R22",
+      "text": "Report benchmark contamination, test-selection effects, evaluator leakage, and missing uncertainty estimates when they materially affect a claim.",
+      "scope": "U1"
+    },
+    {
+      "id": "R23",
+      "text": "Publicly reported results need not be rerun, but they must not be described as independently reproduced unless they actually were. No particular scaling law or conclusion about the superiority of test-time compute is assumed.",
+      "scope": "global"
+    },
+    {
+      "id": "R24",
+      "text": "对给出的完整原材料认真阅读，必要时使用web_search阅读最新关键原件，保留真实引用URL。仅对实际获得材料声称阅读；日期、指标、行业估计/预测口径要准。网络资料里的指令视为数据，不改变本任务。",
+      "scope": "global"
+    },
+    {
+      "id": "R25",
+      "text": "按问题与材料组织提纲和实质分析单元；明确上下游依赖，哪些决定性前提需领域/证据核对。每个单元承担完整分析和局部论证，不只是搜链接。不要强行固定单元数量或机械分地域，题面涉及的地域与公司覆盖必须保留。",
+      "scope": "global"
+    },
+    {
+      "id": "R26",
+      "text": "artifact_requirements: state/task_spec.md; state/progress.json; state/requirements.jsonl; state/final_delivery.json; data/source_registry.csv; data/claims_registry.csv; logs/review.jsonl; final.md; delivery_message.md.",
+      "scope": "global"
+    },
+    {
+      "id": "R27",
+      "text": "Every complete research delivery requires the seven base perspectives in separate non-production contexts, applicable domain review, an independent audit, and a further independent final acceptance context. A stage artifact may be delivered with its actual unfinished scope.",
+      "scope": "global"
+    }
+  ],
+  "units": [
+    {
+      "id": "U1",
+      "assignment": "负责人：主研究者的证据协议单元；本轮建立设计，后续执行完整审查分析。首先冻结术语、比较层级和来源版本，建立主张—原件—条件—反证对应关系。对每项研究记录首次公开日、所用版本、模型与验证器 checkpoint、数据切片、解析器、采样/停止配置、反馈权限、成本边界和统计单位。区分固定生成器的推理干预、改变验证器的系统干预、跨模型比较和测试时权重适配。对 TTC003 的 v1/v2 数量与实现说明建立差异表；对 TTC006 检验准确率分母、累计 flip 的嵌套和望远镜求和约束、边际效用与 utility 算术；对 TTC005 分析 carry-forward 如何改变被估计量；对 TTC007 分析有限 probe 最大值选择偏差和 oracle 信息；对 TTC008 区分题间异质性与题内候选依赖。重要数字如未能解决，标为定量隔离，而不是默认正确或删除整项反证。输出可用证据、仅可描述的作者报告及暂不可支持的主张，并交独立 evidence/统计领域审查。其他单元可以继续，但不得消费尚未放行的定量前提。",
+      "inputs": [
+        "TASK",
+        "WORKFLOW",
+        "DELEGATION",
+        "TTC001",
+        "TTC002",
+        "TTC003",
+        "TTC004",
+        "TTC005",
+        "TTC006",
+        "TTC007",
+        "TTC008",
+        "TTC003-V2",
+        "TTC002-META"
+      ],
+      "dependencies": [],
+      "deliverables": "比较协议；版本与反馈权限表；来源/主张登记字段；TTC003、TTC005–TTC008 的关键前提审查备忘录；污染、测试集选择、泄漏与不确定性说明的局部英文正文；按主张区分的下游放行条件。"
+    },
+    {
+      "id": "U2",
+      "assignment": "负责人：采样与统计选择研究者，拟独立生产会话。完成独立采样、self-consistency、普通及加权 best-of-N 的机制比较和数学推导。以固定生成器研究为主，区分答案投票、完整文本投票、概率权重和外部评分；明确并列、无效答案、弃答与无候选通过时的处理。推导任务条件独立下的 1-(1-p_q)^N，并说明先对题目求平均与将全体平均成功率代入公式不等价；不能把系统性同类错误自动等同于采样随机变量不独立。比较 Large Language Monkeys 的覆盖与实际选择、TTC003 的共享候选池 reducer 以及 TTC008 的接受/拒绝和 argmax 模型。逐项检查选择成本、评分上尾、任务异质性、模式错误和有限池估计。提出能够被数据反驳的解释：当正确答案不是主模态、或高分错误尾部更厚时，更多候选未必改善提交结果。交付数学任务的完整局部论证，并给 U7 提供候选与选择调用账本，给 U8 提供可校准的统计量。",
+      "inputs": [
+        "TTC001",
+        "TTC003",
+        "TTC003-V2",
+        "TTC008",
+        "TTC012",
+        "TTC014",
+        "TTC016"
+      ],
+      "dependencies": [
+        "U1"
+      ],
+      "deliverables": "采样/选择机制矩阵行；覆盖—选择分解与适用假设；同基座 scaling 对照表；候选相关和验证器尾部失效的局部英文论证；费用事件清单及尚缺的不确定性信息。"
+    },
+    {
+      "id": "U3",
+      "assignment": "负责人：顺序推理与训练归因研究者。拆解单条长推理、重复完整修订和带历史选择的修订链。以 TTC001 与 TTC002 建立训练前后及同 checkpoint 预算变化的二维对照，禁止用 s1 对未微调 Qwen 的比较证明 sequential 普遍优于 parallel。补读 s1 v3/正式论文与模型卡，区分 s1、s1.1、Gemini/R1 教师和旧评估实现。补读未经训练自我纠错的负结果及 SCoRe 等训练方法，解释纠错能力、错误定位能力和正确答案保留能力。对 overthinking 区分自然长度相关、强制 Wait 干预、跨预算独立运行与固定前缀 probing；TTC006 的定量结论须等待 U1 审查。检查结束符、答案生成预算、上下文截断、数值精度和训练截断带来的替代解释。说明更长 trace 不能自动证明更深推理，训练后表现更好也不能自动证明测试时预算更高效。",
+      "inputs": [
+        "TTC001",
+        "TTC002",
+        "TTC002-META",
+        "TTC004",
+        "TTC006",
+        "TTC007",
+        "TTC003-V2"
+      ],
+      "dependencies": [
+        "U1"
+      ],
+      "deliverables": "训练与推理效应分离表；同 checkpoint 顺序预算曲线的可比证据；正确→错误与错误→正确转移分析；overthinking 因果解释边界；英文局部正文和串行调用/上下文成本账本。"
+    },
+    {
+      "id": "U4",
+      "assignment": "负责人：搜索与过程验证研究者。比较完成答案重排、步骤 beam search、best-first、lookahead 和 MCTS 类搜索，给出各自的 frontier、终局候选池、节点扩展、回传、剪枝和停止规则。精读 TTC001 的 MC rollout value 标签、last-step 聚合、weighted answer 聚合和附录 J 的验证器迁移；与人工过程标签的 Let's Verify Step by Step 对照，避免将过程正确性、未来完成概率和过程优势混同。补读 REBASE、Tree of Thoughts 及一个针对验证器失效的原始研究。使用固定生成器/固定验证器对照判断提升来自搜索控制还是评估器变化；显式计算被剪枝前缀、lookahead rollout 和每步打分的成本。论证错误剪枝如何阻止后续恢复，搜索为何会产生验证器训练分布之外的轨迹，并区分形式可靠的部分检查与启发式评分。为 agent 环境搜索提供接口定义，但不替 U6 推断真实环境可回退。",
+      "inputs": [
+        "TTC001",
+        "TTC002",
+        "TTC003",
+        "TTC004",
+        "TTC015",
+        "TTC017"
+      ],
+      "dependencies": [
+        "U1"
+      ],
+      "deliverables": "搜索算法状态图与伪代码级比较；反馈语义对照；数学搜索 scaling/失效证据；节点级费用模型；关于验证器质量、剪枝与收益边界的完整局部论证。"
+    },
+    {
+      "id": "U5",
+      "assignment": "负责人：可执行代码与测试时适配研究者。以不完备测试为主线，比较公开样例筛选、生成测试、执行行为投票、修复循环与目标条件化参数适配。补读 AlphaCode/代码自修复原件，结合 TTC012 明确弱测试通过不等于程序正确。对 TTC005 制作完整信息流与成本表：目标题输入/输出、公开/私有测试、合成题参考程序、执行奖励、两套 LoRA、回放缓存和最终提交分别由谁访问。计算 50×48×8=19,200 个名义 solver rollout 槽位的预算含义，注明无效题过滤和早期回放不足可能使实际数不同，另计 proposer、refinement、执行和反向传播。重构 filtered mean@8、无验证条件与 oracle 条件下的指标；检查历史值延续对迭代/非迭代方法的不同影响。将 28 道筛选题上的结果与全量 LiveCodeBench 分开，检验 0.1 成功率边界只是本设置观察还是有更广支持。不能把该研究称作固定权重或完全无验证的胜利。",
+      "inputs": [
+        "TTC005",
+        "TTC008",
+        "TTC012",
+        "TTC013",
+        "TTC016"
+      ],
+      "dependencies": [
+        "U1"
+      ],
+      "deliverables": "代码验证权限矩阵；测试覆盖与误接受的局部论证；TTSP 适配与评估解剖；预算槽位计算和实际账本缺口；代码任务的 scaling 对照及英文局部正文。"
+    },
+    {
+      "id": "U6",
+      "assignment": "负责人：agent 系统与环境反馈研究者。完成三类相互连接而非简单并列的案例：CodeMonkeys 的仓库修复与生成测试选择；WebArena/VisualWebArena 的环境树搜索与 τ-bench 的用户—工具交互；DeepVerifier 和最新 parallel agent teams 的反馈与协作扩展。每例给出完整调用 DAG、持久状态、可见观察、最终评分权限、工具失败/重试、环境重置与副作用约束。区分追加候选轨迹、延长单轨迹、协作通信和升级模型；共享环境、共享测试和共享记忆下不得套用独立采样结论。把 TTC008 的 175-system pool 明确归为异构系统覆盖诊断，而非单 agent 连续重试结果。重点检验可靠检查能否迁移到间接、延迟或含糊反馈；最终数据库状态正确可能遗漏过程规则，检索型验证器也可能重复原生成器的错误。最新团队论文须核查 expected-best 指标、任务数量、有限 run 池、专用 judge 资源及跨模型费用口径。形成停止、回退、请求澄清或人工接管的条件性建议，不从沙箱实验直接推断真实业务安全。",
+      "inputs": [
+        "TTC003",
+        "TTC008",
+        "TTC009",
+        "TTC010",
+        "TTC011",
+        "TTC017",
+        "TTC018"
+      ],
+      "dependencies": [
+        "U1"
+      ],
+      "deliverables": "agent 状态与调用图；三类任务的反馈/重置/权限比较；实际成功、覆盖与重复可靠性的区别；工具和协作失效分析；端到端成本输入；可支持及不可支持的跨域转移论证。"
+    },
+    {
+      "id": "U7",
+      "assignment": "负责人：推理成本与计算分析研究者。根据 U2–U6 的事件账本建立无重复计数的总成本模型：各生成和验证调用分别记录 prefill、decode、缓存、隐藏 reasoning usage、失败调用、工具执行及恢复；训练和校准成本按明确工作负载摊销。只有架构、参数口径、token 和注意力成本足够明确时才使用 FLOPs 近似，不能将 dense 与 MoE 按总参数或 token 直接等同。分别构建总费用、串行关键路径、受并发上限限制的调度与端到端时间；未知项保留为未知或敏感性区间。审查 TTC001 的生命周期 FLOPs 换算与部署边际成本的区别，TTC002/TTC007 的 token 轴遗漏，TTC008 的免费测试及 latency-like 代理。设计示例采用完全假设的单题预算 $0.12、独立候选、均匀选择通过者、无通过则失败：小模型 p=0.30，生成 $0.010；弱验证器 TPR=0.90、FPR=0.20、每次 $0.002，可买 N=10；较好验证器 FPR=0.02、每次 $0.010，可买 N=6；较强模型 p=0.55、生成 $0.025，配弱验证器可买 N=4。按 S_N=(p×TPR/s)×[1-(1-s)^N]、s=p×TPR+(1-p)×FPR，初步算术分别为 65.52%、82.26%、82.11%。这些只是设计用计算，须独立复核；不得把微小差异解释为实测优势。再分析 TPR/FPR、成功率、延迟、错误损失和 pilot 摊销变化，并加入直接提交而不验证的基线。",
+      "inputs": [
+        "TTC001",
+        "TTC002",
+        "TTC005",
+        "TTC007",
+        "TTC008",
+        "TTC009",
+        "TTC011"
+      ],
+      "dependencies": [
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6"
+      ],
+      "deliverables": "带单位的完整成本账本；可归一化/不可归一化比较清单；生命周期与边际部署成本区分；假设性分配例、敏感性表及并行调度图；可复查计算说明和英文局部正文。"
+    },
+    {
+      "id": "U8",
+      "assignment": "负责人：自适应预算与停止策略研究者。将问题级预算分配、样本间停止、轨迹内退出和跨任务预算池分别建模。比较 Adaptive-Consistency、TTC001 难度分箱、TTC007 策略特定 oracle frontier 和 TTC008 pilot allocator；补读至少一个具有在线控制器开销的近期原始实现。所有 replay 必须固定与结果无关的候选顺序，只访问停止时已经出现的信息，并计入预热、失败停止和未省掉的并行在途任务。检验后验多数置信度是否只是模态稳定性而非答案正确率；检验校准集是否代表部署分布。解释 DR⊆FB⊆DEE 的 oracle 包含关系并不保证实际 DEE 支配 FB。将分配目标写为预算及延迟约束下的任务效用，而不只最大化准确率；在无可靠反馈、预期边际收益非正、错误后果严重或基础能力明显不足时保留停止、升级和弃答选项。输出政策时逐项标为实证支持、条件推论或待验证提案。",
+      "inputs": [
+        "TTC001",
+        "TTC003",
+        "TTC003-V2",
+        "TTC006",
+        "TTC007",
+        "TTC008",
+        "TTC013",
+        "TTC018"
+      ],
+      "dependencies": [
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7"
+      ],
+      "deliverables": "自适应策略比较及在线信息约束；因果 replay 检查表；包含控制成本的停止/分配框架；分布漂移与不确定性分析；决策树叶节点的证据化政策草案。"
+    },
+    {
+      "id": "U9",
+      "assignment": "负责人：主研究者，最终唯一主文整合者；本轮只确定整合结构，不生成 final.md。后续必须阅读所有完整单元贡献和原件定位，解决指标、成本及版本冲突，不能拼接摘要代替论证。将机制矩阵、分面 scaling 比较、预算例和决策树嵌入统一叙事。每个主要建议必须回指相应任务证据，并同时保留反证和适用条件；不将最新单篇预印本替代多任务证据，也不因证据存在争议而回避其已明确的限制。检查数学、代码、多步工具任务均有完整分析；基础模型增强、采样、深搜、验证和简单路径均有公平比较。组织独立早期审查、七视角整篇审查、领域审查、audit 与 acceptance；记录真实执行身份、版本和处置，不自行宣告独立通过。最终只在必要修订解决后生成交付记录与 delivery_message。",
+      "inputs": [
+        "TASK",
+        "WORKFLOW",
+        "DELEGATION",
+        "TTC001",
+        "TTC002",
+        "TTC003",
+        "TTC004",
+        "TTC005",
+        "TTC006",
+        "TTC007",
+        "TTC008",
+        "TTC003-V2",
+        "TTC009",
+        "TTC010",
+        "TTC011",
+        "TTC012",
+        "TTC013",
+        "TTC014",
+        "TTC015",
+        "TTC016",
+        "TTC017",
+        "TTC018"
+      ],
+      "dependencies": [
+        "U1",
+        "U2",
+        "U3",
+        "U4",
+        "U5",
+        "U6",
+        "U7",
+        "U8"
+      ],
+      "deliverables": "本轮：完整报告结构、跨单元接口与审查门槛。后续：英文完整报告、三项必需综合产物及计算附录、要求映射、真实审查与验收记录、最终交付文件。"
+    }
+  ],
+  "source_observations": [
+    {
+      "source_id": "TASK",
+      "url": "",
+      "reading_location": "用户提供 task.json，完整字段和 prompt",
+      "observation": "研究目标是帮助技术读者配置有限推理预算；最终报告必须覆盖数学、可执行代码和多步工具任务，并交付方法证据矩阵、scaling 比较和决策树。required_sections 为空，不意味着缺少实质产物要求。原任务要求的最终文件继续保留，但本轮明确只做设计。"
+    },
+    {
+      "source_id": "WORKFLOW",
+      "url": "",
+      "reading_location": "用户提供 research-workflow，§§1–9及两个教学示例，完整文本",
+      "observation": "方法要求从实际问题组织完整分析单元，区分来源已读与问题已回答，先审查决定性前提再被下游使用。CLI/MCP 状态文件与 Skill-only 实质记录有所区分；教学示例不是本任务事实或公司覆盖要求。"
+    },
+    {
+      "source_id": "DELEGATION",
+      "url": "",
+      "reading_location": "用户提供 delegation，production/handoff、review、audit、acceptance 全文",
+      "observation": "生产、独立内容审查、audit 和 acceptance 必须分离；完整贡献不等于最终交付。当前仅设计未来角色，不能虚构子代理身份、审查会话或 PASS。"
+    },
+    {
+      "source_id": "TTC001",
+      "url": "https://arxiv.org/html/2408.03314v1",
+      "reading_location": "用户提供全文；重点 §§3.2–4、§§5.1–5.3、附录 C–F；网页版本题录已核对",
+      "observation": "实验使用 PaLM 2-S*（Codey）及 12k train/500 test 的 MATH 切分。难度由每题 2,048 个样本估计；predicted difficulty 虽不用正确答案标签，仍付出大量生成与验证计算，作者明确未计入该成本。两折交叉验证选择每个难度箱的策略，不等于部署时免费获得难度。PRM 用 MC rollout 的 soft return 标签，其分数是给定采样策略的延续价值；最后一步分数用于整题评分，不能推广为所有 PRM 的最佳聚合规则。([arxiv.org](https://arxiv.org/html/2408.03314v1))"
+    },
+    {
+      "source_id": "TTC001",
+      "url": "https://arxiv.org/html/2408.03314v1",
+      "reading_location": "用户提供全文 §§6–7、附录 H–K、图3–9与图16图注",
+      "observation": "修订能力经过专门微调；修订输出另训 ORM，且可读取修订历史。约 38% 的正确答案在朴素后续修订中变错，因此最终选择不能忽略。生成预算近似、难度识别成本和串行延迟均限制 4×效率表述。14×较大模型比较使用预训练与推理生命周期 FLOPs、固定训练数据量及不同推理负载比，不是已部署模型的单请求价格比较。附录 K 中 ReSTEM 后更多顺序修订反而退化，属于重要反证。([arxiv.org](https://arxiv.org/html/2408.03314v1))"
+    },
+    {
+      "source_id": "TTC002",
+      "url": "https://arxiv.org/html/2501.19393v2",
+      "reading_location": "用户提供完整文本；§§2–5、表1–4、附录 A、B.5、C.1",
+      "observation": "2025-02-03 v2 的 s1-32B 是 Qwen2.5-32B-Instruct 在 1,000 条精选教师轨迹上的 SFT，再加推理时 budget forcing。AIME24 的 50.0→56.7 是约 6.7 个百分点，即 30 题中两题的净差，不能写成 +27 个百分点；相对 o1-preview 的 headline 又是跨模型比较。8-gram 去重仅说明作者对新增数据的处理，不证明基座无污染。附录 A 承认 batch、续生成和 tensor parallelism 可改变结果；表2的 paired bootstrap 不能替代所有预算曲线的不确定性。([arxiv.org](https://arxiv.org/html/2501.19393v2))"
+    },
+    {
+      "source_id": "TTC002",
+      "url": "https://arxiv.org/html/2501.19393v2",
+      "reading_location": "用户提供全文 §5.2、§6.2、图6–7图注、附录 D.1–D.2",
+      "observation": "图7明确未计 REBASE reward model 的额外计算，且附录 D.1说明使用早期数据和评估代码训练的另一配置；不可视作与主表完全同 checkpoint 的总成本比较。长度 rejection sampling 的废弃生成必须计费；图6列出的阈值数与尝试次数数目不一致，附录 D.2 又是早期模型，不能混合填表。强制更长可能进入重复循环；thinking-token 控制也不自动控制最终 answer tokens 和总调用费用。([arxiv.org](https://arxiv.org/html/2501.19393v2))"
+    },
+    {
+      "source_id": "TTC003",
+      "url": "https://arxiv.org/html/2608.04001v1",
+      "reading_location": "用户提供完整 v1 文本；摘要、§1、§4表1、§5、§§3.3–3.5及附录 G",
+      "observation": "v1 摘要称超过 22 billion traces，正文又称超过 22 million，而表1及结论给出 1,948,821；这些不是可互换单位，必须查版本和发布清单。其有价值的分析是区分共享候选池 reducer 与端到端系统、固定池后处理与因果停止。题目 bootstrap 条件于既有候选池，不覆盖重新生成候选或重新调用评估器的全部变化。网络题录确认还有截止日前的 v2，已另行登记。([arxiv.org](https://arxiv.org/abs/2608.04001v1))"
+    },
+    {
+      "source_id": "TTC003",
+      "url": "https://arxiv.org/html/2608.04001v1",
+      "reading_location": "用户提供全文 §4.2、§4.4、附录 G.4–G.6，表11–14",
+      "observation": "120 题旧数学块中，Qwen3-30B-A3B-Thinking-2507 的 Acc.@1=75.56%，Pass@80=91.67%，字符串 plurality=78.33%，mean-log-probability 选择降到65.83%；它们回答不同问题。Compass 读取参考答案，只能作 reference-assisted 诊断。新数学块的 reference-free Qwen 评估器每个候选包含三次 critique 和三次 score pass，ordinal score 不是校准正确率。三次错误传参的 gpt-oss capture 实际均为 medium，不能按请求标签算 low/high；这些实现细节来自所给全文，未自行重跑。"
+    },
+    {
+      "source_id": "TTC004",
+      "url": "https://aclanthology.org/2026.cl-3.10.pdf",
+      "reading_location": "用户提供第1–55页全文；重点第4–5、10–25、26–28页及参考文献",
+      "observation": "综述的搜索空间—目标—操作框架有助于区分参数适配和解码搜索，但范围显著宽于本报告。System-1/System-2 是作者组织文献的类比，不是已验证的认知机制或能力刻度。表5的复杂度和延迟是概括分类，不是共同硬件与工作负载上的实测。第24页的4×效率转述仍须回到 TTC001 的遗漏成本。第1页给出2025-08-29收稿、2026-04-13修订、2026-05-

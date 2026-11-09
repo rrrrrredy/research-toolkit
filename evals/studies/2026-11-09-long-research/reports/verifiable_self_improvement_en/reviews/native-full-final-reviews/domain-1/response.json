@@ -1,0 +1,12 @@
+{
+  "input_version": "e2bf5ec236f3fbd7264dd12a2f8a018f9fb206af2f12c460b4608bfeb4086845",
+  "assignment_version": "2ac5eb484fcaf6308ecb37cda6109afe58a136c435def464483bc90e07022d4e",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "Current full report Promptbreeder paragraph, §adaptive evaluation and measurement appendix",
+      "basis": "本次为原真实领域上下文对当前完整稿的修订确认；先前完整阅读保留，实际变更按直接全文diff判断，未以历史通过自动替代当前判断。旧3e24c328 draft-v5到当前全部47行diff已读。仅去“已读/看过渲染图”的过程描述并补空格；Promptbreeder表1的PaLM2-L基线、半分数据脚注、图4消融意义均完整保留。DGM的多次下游尝试、另一FM选择、后次以先次为条件以及整套方案归因是本人原已确认版本，未被此次编辑移除；Rethinking45/10/34、+0.6非等价、SCoRe15.6与4.4的分母也未变。原代码/选择机制、外推限制和算例无改动，任务/来源相同，复用先前278行全稿与原件核查，当前领域通过。"
+    }
+  },
+  "findings": []
+}

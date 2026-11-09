@@ -1,0 +1,45 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh",
+  "input_version": "1abd9fd625bb35296e7974154f62aef98101d8a340df9f290763a000007aea89",
+  "scope": "outline",
+  "assignments": [
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/6983959f853f5170fbed.md",
+        "sha256": "6983959f853f5170fbedfe1c7ef36f4737b4b5d645dc6810442572ba9d3f4040"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/1abd9fd625bb35296e79/jobs/structure_and_depth-308598b97c1f44ae.json",
+        "sha256": "9fc54dddcf741581b7cb8281322f029eb2d064bfd8303b7881b2d0a4e326514d"
+      },
+      "assignment_version": "308598b97c1f44aed47cb0796791dc363644936449f93b7b0dd73fd241567f72"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: structure_and_depth"
+    ],
+    "required_slots": 2,
+    "completed_slots": 1,
+    "selected_attempts": {
+      "requirements": "ce36bdbbd0c24e9e9318c5da09ff2c51"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: structure_and_depth"
+  ]
+}

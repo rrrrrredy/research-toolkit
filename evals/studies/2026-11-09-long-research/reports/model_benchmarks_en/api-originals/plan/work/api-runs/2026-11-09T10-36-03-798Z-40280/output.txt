@@ -1,0 +1,551 @@
+{
+  "outline": "RESEARCH BRIEF AND CURRENT STAGE\nObjective: prepare an English comparative report for model-selection, evaluation, and deployment teams explaining how to combine benchmark evidence without treating a leaderboard as a universal model-selection rule. The present deliverable is the research architecture, initial evidence analysis, and executable division of work—not the final report. Actual web searches and primary-source reading have been completed. No new benchmark run, independent reproduction, delegated execution, or independent review is claimed.\n\nScope: publicly available definitions, artifacts, and representative results from 2022 through November 9, 2026, with earlier MMLU and HumanEval material used only to establish definitions. Six comparison families keep the study manageable: (1) HELM Classic, Lite, and Capabilities; (2) MMLU/MMLU-Pro, including their implementation through lm-evaluation-harness; (3) HumanEval/HumanEval+ through EvalPlus; (4) repository-level evaluation through SWE-bench, Verified, and separately identified SWE-Bench Pro revisions; (5) τ-bench and τ²-bench, with the 2026 repository revisions treated as distinct evaluation contracts; and (6) human preference through Chatbot Arena, contrasted with MT-Bench and AlpacaEval. LiveCodeBench supplies a focused refresh case, and HELMET supplies grounding/long-context evidence rather than another full leaderboard comparison. Voice and multimodal performance are outside the principal comparison, but version changes involving them must not be silently attributed to text evaluations. There is no geographic restriction: language, cultural, domain, and repository coverage will be recorded explicitly rather than assuming English or public Python repositories represent global workloads.\n\nPROPOSED REPORT STRUCTURE\n1. What decision is being made, and what exactly has been evaluated?\n   Define a benchmark dataset, evaluation framework, execution harness, and leaderboard as different objects that can coexist within one project. Introduce a result identity comprising dataset revision and sample, model endpoint/checkpoint, adaptation, inference settings, tools/scaffold, environment, scorer/judge, aggregation, and evaluation date. Distinguish a model from an agent system and a question from a generation, conversation, trajectory, repository issue, or human vote.\n\n2. HELM as the entry point: a framework is not one immutable benchmark.\n   Reconstruct the original multi-metric design, sampling, adaptation, and transparency provisions. Explain the later scope changes in Lite and Capabilities, including omitted measurements and changed aggregation. Connect official definitions to actual adapter code. Address maintenance and external-service dependencies without equating available source code with continuing executability.\n\n3. Evaluation coverage matrix: complementary measurements, not interchangeable scores.\n   Provide version-specific rows for the six families. Columns will identify construction and sampling; language/domain population; capability target; unit of evaluation; scoring oracle; aggregation; measured quality, robustness, calibration, efficiency, and safety dimensions; and important unmeasured properties. Separate functional-test success, state-based task success, factual correctness, instruction compliance, preference, and production utility. Show why a capability-branded suite need not measure operational reliability or safety.\n\n4. Versioned reproducibility comparison.\n   For representative historical and later results, reconstruct model identity/release, exact prompts and demonstrations, decoding and reasoning budgets, context handling, tool permissions, harness commit, dependency/container versions, judge configuration, retained outputs, costs, and latency. Compare public artifact availability with procedure reconstruction, rescoring saved outputs, rerunning inference, and a genuinely independent reproduction. Record unknowns rather than awarding a synthetic reproducibility score. Explain private-test access, mutable APIs, retired judges, downloaded dependencies, changing websites, and result-cache behavior.\n\n5. Worked interpretations of representative score comparisons.\n   A. MMLU-Pro: distinguish a prompting intervention from a change in model identity; contrast the original evaluation recipe with HELM's recipe only after reconciling sample and model versions.\n   B. HumanEval versus HumanEval+: reconstruct a published rank reversal caused by stronger tests, retaining greedy versus sampled decoding distinctions.\n   C. SWE-bench versus Verified: explain why scores on differently filtered task sets are not a model-improvement time series; separate model, scaffold, retrieval, and denominator effects.\n   D. τ evaluations: explain pass@k versus pass^k, domain versus task weighting, simulator dependence, and score changes from regrading existing trajectories.\n   E. Preferences: distinguish reference-dependent win rate, length-controlled estimates, and Arena ratings; include counterevidence where judge changes did not change model ordering.\n   F. HELM aggregation: interpret an aggregate alongside its component profile, without translating mean win rate or a rescaled mean into a probability of user-task success.\n   Each box will state what the comparison supports, what it cannot identify, the available uncertainty, and the missing evidence needed for a stronger conclusion.\n\n6. Validity threats and uncertainty.\n   Separate documented training exposure, memorized reproduction, suggestive temporal discontinuities, public-test adaptation, runtime access to solutions, and unsupported suspicion. Examine flawed reference answers, insufficient or over-restrictive tests, benchmark refreshes, hidden tests, evaluator position/verbosity/self-preference effects, population selection, finite samples, task clustering, repeated attempts, and multiple comparisons. Do not infer statistical significance from rounded aggregate scores or treat overlapping confidence intervals as a complete pairwise test.\n\n7. Deployment decision I: grounded customer support.\n   Map the evidence to retrieval, evidence use, citation support, policy compliance, clarification, escalation, abstention, and authorized tool actions. Keep informational support distinct from transaction-taking support. Specify what representative, held-out support cases must add: missing/outdated/conflicting documents, unanswerable requests, adversarial retrieved text, customer language and accessibility needs, sensitive data, multi-turn recovery, and severe action failures. Evaluate cost per verified resolution, repeated contacts, escalation burden, and latency under a declared service-level objective. Recommendations remain conditional on the organization's workload and risk limits.\n\n8. Deployment decision II: repository-level coding agents.\n   Map function synthesis, issue resolution, and human-assistance evidence to the proposed deployment. Specify private/fresh repository tasks, language and build-system strata, acceptance tests, regression checks, maintainability/security review, tool/network restrictions, review effort, and rollback requirements. Compare successful-task cost and elapsed time including setup, retries, tests, and human rework. Do not equate passing benchmark tests with merge readiness or developer productivity.\n\n9. Combining evidence into a defensible selection.\n   Use eligibility constraints and workload-specific evidence before comparing cost-quality trade-offs. Explain how a rank reversal, contradictory result, or unresolved condition changes a shortlist. Avoid double-counting the same dataset inside several suites. Distinguish observed benchmark/user-outcome association from causal evidence. Where evidence cannot resolve the choice, identify the exact local comparison that would change it.\n\n10. Appendices supporting the argument.\n   Include the coverage matrix, versioned reproducibility matrix, result-condition records, worked calculations, source/version chronology, and an evidence-to-decision map. The main researcher owns final integration and recommendations.\n\nINITIAL CANDIDATE EXPLANATIONS—NOT FINAL CONCLUSIONS\nC1. Some apparent disagreements arise because a shared project name conceals a changed measurement contract. HELM Lite removed measurements present in Classic, while Capabilities changed tasks, prompting, and aggregation. This supports version-specific comparisons, not the claim that one HELM release supersedes every purpose of another. [MB02–MB03] ([crfm.stanford.edu](https://crfm.stanford.edu/2023/12/19/helm-lite.html))\nC2. Prompting and extraction can explain substantial score differences without a new model. MMLU-Pro's reported GPT-4o CoT/direct-answer contrast is a candidate worked case; translating it into a general reasoning advantage requires preserving its task and execution conditions. [MB08] ([papers.neurips.cc](https://papers.neurips.cc/paper_files/paper/2024/file/ad236edc564f3e3156e1b2feafb99a24-Paper-Datasets_and_Benchmarks_Track.pdf))\nC3. A stronger correctness oracle can reverse an ordering. EvalPlus reports a Phind-CodeLlama/ChatGPT reversal when additional tests are applied. This is evidence about test sensitivity, not a repository-agent ranking. [MB10] ([arxiv.org](https://arxiv.org/pdf/2305.01210))\nC4. Agent results measure a configured interaction system. The original τ reward explicitly admits policy violations can escape its checks; later tagged changes alter task inputs and grading. Version or grader changes therefore cannot automatically be read as model progress. [MB18, MB20] ([arxiv.org](https://arxiv.org/html/2406.12045v1))\nC5. Benchmark repair does not permanently settle validity. OpenAI's February 2026 Verified audit, its July Pro audit, and Scale's September Pro V2 changes form a substantive correction sequence. Their populations, review methods, and task identifiers must be reconciled; the Verified audit's selected difficult subset cannot estimate the defect rate of the entire dataset. [MB15–MB17] ([openai.com](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/))\nC6. Preference evaluation is useful but conditional on population and judge. Length control improved Arena correlation in the AlpacaEval study, yet the same study also found stable ordering across several judges despite self-bias. The final argument must retain both observations. [MB23] ([arxiv.org](https://arxiv.org/html/2404.04475v2))\nC7. Better benchmark evidence need not identify better operational outcomes. HELMET offers task-specific grounding diagnostics; METR's productivity trial and later selection-bias update warn against universalizing either benchmark success or a historical field result. Neither establishes a causal mapping from leaderboard rank to deployment benefit. [MB30–MB32] ([arxiv.org](https://arxiv.org/html/2410.02694v3))\n\nEXECUTION ORDER\nU01–U06 can advance independently using the provisional definitions above. U07 and U08 begin their methodological and artifact investigations immediately, then consume complete family analyses. G01 independently checks consequential premises before U09/U10 use them for recommendations; checks can be released by branch rather than waiting for every branch. The lead commissions independent requirements and structure scrutiny of this outline before extensive dependent writing. U11 integrates full contributions, resolves conflicts, and arranges the separate final review, audit, and acceptance contexts. These are planned assignments, not reviews represented as already performed.",
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "Produce an English comparative research report for model-selection, evaluation, and deployment teams; explain how to interpret and combine evidence rather than identify a universal leaderboard winner.",
+      "scope": "global"
+    },
+    {
+      "id": "R2",
+      "text": "The current delivery is limited to requirements understanding, actual primary-source reading, initial analysis, outline, substantive assignments, and specific remaining gaps. Do not deliver the final report or imply that planned assignments have executed.",
+      "scope": "global"
+    },
+    {
+      "id": "R3",
+      "text": "Use an evidence cutoff of 2026-11-09. Cover public versions/results from 2022 onward, allowing earlier definitional context. Preserve publication, revision, evaluation, release, and retrieval dates as distinct fields where relevant.",
+      "scope": "global"
+    },
+    {
+      "id": "R4",
+      "text": "Retain HELM, static knowledge/reasoning, executable coding, tool-using agents, human preferences, and model-judged evaluation. Explicitly record natural-language, cultural, domain, programming-language, and repository coverage; do not assume worldwide representativeness.",
+      "scope": "global"
+    },
+    {
+      "id": "R5",
+      "text": "Distinguish datasets, evaluation frameworks, execution harnesses, and leaderboards, including projects that perform several roles. Distinguish evaluated model, scaffolded agent, and deployed system.",
+      "scope": "U01"
+    },
+    {
+      "id": "R6",
+      "text": "For selected examples, explain task construction, sampling, target capability, language/domain coverage, scoring, aggregation, and the unit of evaluation.",
+      "scope": "global"
+    },
+    {
+      "id": "R7",
+      "text": "Identify quality, robustness, calibration, efficiency, and safety dimensions actually measured; identify dimensions merely suggested by labels or reputation. Small benchmark samples must not be presented as estimates of all user workloads.",
+      "scope": "global"
+    },
+    {
+      "id": "R8",
+      "text": "Attach representative results to model/checkpoint/API identity and release, prompts/few-shot format, decoding/reasoning settings, tools/scaffold, context limits, harness revision, judge configuration, and available cost/latency information. Mark undisclosed conditions explicitly.",
+      "scope": "global"
+    },
+    {
+      "id": "R9",
+      "text": "Explain ranking sensitivity and invalid comparisons caused by execution conditions, sample changes, aggregation, baselines, judges, and benchmark revisions; include meaningful rank reversals or contradictory evidence.",
+      "scope": "global"
+    },
+    {
+      "id": "R10",
+      "text": "Separate contamination evidence from suspicion, and distinguish training exposure, memorization, public-test adaptation, hidden-test access, runtime solution leakage, and benchmark refreshes.",
+      "scope": "U07"
+    },
+    {
+      "id": "R11",
+      "text": "Examine human-population selection and model-judge biases, including position, verbosity, self-preference, rubric/reference dependence, and limits of mitigation.",
+      "scope": "U06"
+    },
+    {
+      "id": "R12",
+      "text": "Preserve denominators, finite-sample uncertainty, pairing, clustering, stochastic repetitions, and multiple-comparison concerns. Do not invent confidence intervals or significance estimates without observations and an appropriate method.",
+      "scope": "U07"
+    },
+    {
+      "id": "R13",
+      "text": "Assess public data, executable code, stable dependencies, inspectable scoring, and usable model/API versions. Distinguish reconstructing a procedure, rescoring outputs, rerunning inference, and independently reproducing a score.",
+      "scope": "U08"
+    },
+    {
+      "id": "R14",
+      "text": "Develop conditional selection recommendations for a grounded customer-support assistant, identifying transferable evidence, missing capabilities, failure severity, operational constraints, distribution shift, and decision-changing local evidence.",
+      "scope": "U09"
+    },
+    {
+      "id": "R15",
+      "text": "Develop conditional selection recommendations for a repository-level coding agent with the same decision dimensions, preserving the distinction between function synthesis, issue resolution, merge acceptance, and human productivity.",
+      "scope": "U10"
+    },
+    {
+      "id": "R16",
+      "text": "Analyze successful-task cost, retries, tool/infrastructure expense, latency, human escalation/review, and failure consequences. Do not substitute token prices for total deployment economics.",
+      "scope": "global"
+    },
+    {
+      "id": "R17",
+      "text": "Where benchmark scores are related to user outcomes, distinguish correlation, predictive association, causal intervention evidence, and unsupported transfer. Do not claim a new benchmark execution or independent replication.",
+      "scope": "global"
+    },
+    {
+      "id": "R18",
+      "text": "The eventual report must contain an evaluation coverage matrix, a versioned reproducibility comparison, worked interpretations of representative score comparisons, and conditional recommendations for both workloads.",
+      "scope": "U11"
+    },
+    {
+      "id": "R19",
+      "text": "Use actual original-source reading for consequential claims, with precise locations, access scope, version, and limitations. Search snippets and repository availability are not substitutes for reading or execution.",
+      "scope": "global"
+    },
+    {
+      "id": "R20",
+      "text": "Independently check decisive evidence, domain assumptions, and calculations before downstream recommendations rely on them. Plan separate requirements and structure review of the outline; final delivery requires the seven specified review perspectives, domain review, an independent audit, and separate final acceptance. Do not fabricate execution identities or review outcomes.",
+      "scope": "global"
+    },
+    {
+      "id": "R21",
+      "text": "The main researcher owns final synthesis. Preserve complete branch analyses, calculations, source references, counterevidence, unresolved issues, and revision handoffs rather than returning status summaries.",
+      "scope": "U11"
+    },
+    {
+      "id": "R22",
+      "text": "Retain the requested eventual artifacts: state/task_spec.md, state/progress.json, state/requirements.jsonl, state/final_delivery.json, data/source_registry.csv, data/claims_registry.csv, logs/review.jsonl, final.md, and delivery_message.md. This stage does not claim those files, final reviews, or a delivery receipt have been created.",
+      "scope": "U11"
+    }
+  ],
+  "units": [
+    {
+      "id": "U01",
+      "assignment": "Own the question: what does HELM standardize, and what changes across its benchmark releases? Address R3–R9. Reconstruct Classic, Lite v1.0.0, and Capabilities v1.0.0 separately, extending the chronology to the documented 2026 maintenance policy. Trace an instance through scenario, adapter, request, postprocessing, metric, and leaderboard aggregation using paper definitions and implementation. Explain joint-choice versus likelihood-based adaptation, context-driven truncation/few-shot reduction, and which metrics disappear in later suites. Obtain version-pinned run specifications and result files rather than treating the current main branch as the historical implementation. Resolve the Capabilities announcement's inconsistent model dates between setup prose and result rows before using those rows. Produce the shared object taxonomy and HELM coverage rows; coordinate terminology with U02 without delaying its source collection. Do not claim that the project authors' reproducibility statements demonstrate an independent reproduction.",
+      "inputs": ["MB01", "MB02", "MB03", "MB04", "MB05", "MB06", "MB33"],
+      "dependencies": [],
+      "deliverables": "A substantive HELM analysis with a version timeline, object/instance-lifecycle diagram specification, metric-coverage changes, inspectable implementation examples, result-condition records, proposed coverage-matrix rows, and a list of unresolved historical pins. Include usable local prose and source locations."
+    },
+    {
+      "id": "U02",
+      "assignment": "Own the question: what can static knowledge/reasoning tests tell a selection team, and how much of a comparison depends on the recipe? Compare original MMLU and the NeurIPS 2024 MMLU-Pro artifact, keeping 57-subject MMLU distinct from selected HELM subjects and from MMLU-Pro's construction. Read dataset cards, data revisions, official evaluation scripts, and the correct historical lm-evaluation-harness task configuration. Inspect generated-answer extraction, failed-extraction handling, demonstrations, answer-order effects, scoring, and macro/micro aggregation. Reconstruct the paper's CoT/direct-answer comparison and then determine whether a HELM comparison uses the same model snapshot and item population. Obtain reasoning-token, output-limit, and tool-access conditions where published; otherwise label them unknown. Separate better performance under a prompt from proof of a general reasoning mechanism. Cover English and subject-selection limitations, not only average accuracy.",
+      "inputs": ["MB01", "MB02", "MB03", "MB06", "MB07", "MB08", "MB33"],
+      "dependencies": [],
+      "deliverables": "A static-evaluation chapter contribution, version/sample crosswalk, execution-condition table, checked arithmetic for the prompting example, and a clear decision on which cross-source comparisons are comparable, incomparable, or unresolved. Supply matrix rows and original implementation references."
+    },
+    {
+      "id": "U03",
+      "assignment": "Own the question: how does executable evaluation change what a coding score means? Compare HumanEval with HumanEval+ in the exact EvalPlus paper revision read, then examine later implementation differences without merging their results. Reconstruct the published greedy-decoding rank reversal using the same generated samples and both test suites if archived artifacts permit. Identify exact model snapshots, prompt style, generation limits, sample counts, temperatures, sanitization, timeout policy, dependencies, and contracts. Explain pass@k as an estimate involving multiple candidate programs, not an operational success probability without a selection mechanism. Use LiveCodeBench only as a focused temporal-refresh contrast: identify release window, full versus lite tests, and model cutoff assumptions. Assess what additional tests catch and what remains unmeasured—repository navigation, integration, security, maintenance, and user intent. No new code generation or benchmark execution is required.",
+      "inputs": ["MB09", "MB10", "MB11", "MB28", "MB29"],
+      "dependencies": [],
+      "deliverables": "A complete executable-coding comparison, a traceable rank-reversal worked example, pass@k interpretation, test-oracle limitations, artifact inventory, and a bounded refresh case. Return the evidence needed by U07, U08, and the coding deployment unit."
+    },
+    {
+      "id": "U04",
+      "assignment": "Own the question: which repository-agent claims survive changes in dataset, scaffold, and grading? Reconstruct original SWE-bench v1, Verified's 2024 release, and the separately authored SWE-Bench Pro public/private design and September 2026 V2 revision. Obtain the original Pro paper and versioned dataset/scaffold manifests. Read actual instance definitions, test-selection logic, container/build recipes, and representative submission artifacts. Distinguish a frozen patch evaluation from the model-plus-agent process generating it. Reconstruct the original/Verified score comparison without treating different task populations as a capability gain. Analyze the February and July 2026 audits, preserving their selection rules, denominators, reviewer procedures, examples, and author interests. Crosswalk disputed tasks to Pro V2 removals/repairs; seek independent analyses rather than assuming the latest repair resolves all issues. Separate training memorization from runtime access to fixing commits and from verifier manipulation. Record public versus inaccessible private evidence and repository/language coverage.",
+      "inputs": ["MB12", "MB13", "MB14", "MB15", "MB16", "MB17"],
+      "dependencies": [],
+      "deliverables": "A repository-evaluation analysis with a version/task-set genealogy, scaffold-conditioned score records, original-versus-Verified interpretation, audit/revision comparison, and public/private reproducibility boundaries. Provide code/test examples and an explicit list of claims requiring specialist adjudication."
+    },
+    {
+      "id": "U05",
+      "assignment": "Own the question: what do conversational tool-agent benchmarks measure about reliable support work? Compare the 2024 τ-bench paper, the June 2025 τ²-bench paper, and the tagged 2026 changes in the tau2-bench repository. Do not confuse the τ² research name with software version 2.0.0 or treat τ³ additions as unchanged τ² tasks. Reconstruct retail, airline, and telecom task construction, simulator access, user/agent control, policies, state checks, communication checks, and aggregation. Identify failures that a successful final-state check can miss. Explain pass^k and pass@k with their task-level estimators and distinguish trial variability from task-sampling uncertainty. Examine saved-trajectory regrading and the affected domain in the July changes. For October, retain all six listed languages in the coverage account and separate text from voice. Resolve changelog/release-date discrepancies and verify whether simulator/judge defaults apply to text, voice, or both. Extract costs with agent and simulator expense separated.",
+      "inputs": ["MB18", "MB19", "MB20"],
+      "dependencies": [],
+      "deliverables": "A substantive agent-evaluation contribution, paper/software-version crosswalk, domain/language coverage rows, scoring formulas with assumptions, worked regrading interpretation, simulator/judge manifest, and support-workload transfer limits."
+    },
+    {
+      "id": "U06",
+      "assignment": "Own the question: when is preference evidence useful, and when can the evaluator or population determine the result? Compare historical Chatbot Arena human battles with MT-Bench and AlpacaEval 1/2/length-controlled evaluation. Keep live human votes, a fixed multi-turn question set, and reference-model comparisons distinct. Reconstruct the relevant question/voter samples, languages, tie handling, rating estimation, confidence treatment, judge prompts/models, reference outputs, and length adjustment. Obtain version-pinned judge configs and saved annotations. Develop a worked interpretation that preserves both evidence of length/position effects and evidence of stable ordering across judges. Analyze The Leaderboard Illusion alongside Arena's response, separating simulations, actual submitted-model experiments, provider data estimates, and disputed classifications. Verify the submission/retirement policy applicable to any later snapshot used. Do not infer customer satisfaction, factual grounding, or causal productivity from a preference ranking.",
+      "inputs": ["MB21", "MB22", "MB23", "MB24", "MB25", "MB26"],
+      "dependencies": [],
+      "deliverables": "A preference-evaluation chapter contribution, versioned judge/reference table, interpretation of length control and rating uncertainty, a balanced disputed-evidence analysis, and matrix rows distinguishing preference from correctness and production utility."
+    },
+    {
+      "id": "U07",
+      "assignment": "Own cross-family inferential validity and the worked-comparison calculations. Address R9–R12 and R17. Build a claim-level contamination taxonomy distinguishing disclosed training overlap, extraction/memorization evidence, statistical detection under assumptions, temporal suspicion, tuning to public tests, and runtime leakage. Read the contamination test's assumptions and limitations; do not turn nondetection into proof of cleanliness. Using complete family outputs, check denominators, sample overlap, task/domain weighting, greedy versus sampled outputs, paired observations, repository/conversation clustering, and selection among multiple submissions. Derive only calculations supported by public observations; otherwise state the exact missing data. Explain why task-average pass^k is not generally the kth power of average success. Analyze whether the proposed score differences are descriptive, inferentially supported, or unidentified. Define a deployment-cost accounting template, clearly separating reported historical cost from analyst-defined scenarios and including failed attempts.",
+      "inputs": ["MB08", "MB10", "MB15", "MB16", "MB18", "MB21", "MB23", "MB25", "MB26", "MB27", "MB28", "MB29"],
+      "dependencies": ["U01", "U02", "U03", "U04", "U05", "U06"],
+      "deliverables": "A complete validity/uncertainty analysis, contamination-evidence ledger, checked comparison calculations, aggregation and cost formulas with assumptions, and uncertainty statements that can accompany each worked example. Include counterevidence and unresolved identification problems."
+    },
+    {
+      "id": "U08",
+      "assignment": "Own the artifact-based reproducibility comparison, not a numerical quality rating. For each retained representative result, inspect actual public data and code, historical commits/tags, run manifests, dependency locks/container digests, prompt/output logs, scorer implementations, and model/judge availability. Distinguish documentation from executable artifacts and owner-reported results from independent reproduction. Locate primary deprecation/model-version documentation for historical APIs and judges. Verify which saved outputs can be rescored without access to the original model, and which procedures still require private tests or services. Examine mutable main/latest references, result caches, environment rebuilds, network permissions, and source-code versus hosted-endpoint identity. Search for published independent replications where they answer an identified gap, recording precisely what was reproduced. Do not execute a benchmark or claim that successful artifact retrieval verifies it runs.",
+      "inputs": ["MB04", "MB05", "MB06", "MB11", "MB14", "MB17", "MB20", "MB24", "MB28", "MB33"],
+      "dependencies": ["U01", "U02", "U03", "U04", "U05", "U06"],
+      "deliverables": "The versioned reproducibility matrix, one result-condition record per worked example, verified artifact links and locations, an API/dependency availability account, and an explanation of reconstruction versus reproduction. Return exact missing artifacts rather than generic reproducibility caveats."
+    },
+    {
+      "id": "G01",
+      "assignment": "Independent pre-synthesis evidence/domain check in a non-author context. Read the original task, outline, complete U01–U08 contributions, and consequential original materials. Check the HELM version distinctions, MMLU prompting comparison, EvalPlus reversal, SWE audit denominators and task genealogy, τ estimators/regrading boundaries, preference statistics, and reproducibility classifications. Examine whether proposed explanations have plausible alternatives and whether any score is being transferred to an unlike population. Obtain an additional independent software-evaluation specialist for disputed test-oracle or verifier-security claims rather than accepting unsupported author assurances. Release scoped checks as branches become ready; this is not a requirement to halt unrelated research. Report locatable supported corrections, unresolved premises, and which bounded inferences downstream units can use. This local check does not replace final whole-report reviews.",
+      "inputs": ["MB01", "MB03", "MB08", "MB10", "MB13", "MB15", "MB16", "MB17", "MB18", "MB20", "MB21", "MB23", "MB26", "MB27"],
+      "dependencies": ["U01", "U02", "U03", "U04", "U05", "U06", "U07", "U08"],
+      "deliverables": "An independent, source-located premise review with examined scope, substantive findings, required corrections, unresolved issues, and bounded handoff permissions; no generic approval label or invented execution record."
+    },
+    {
+      "id": "U09",
+      "assignment": "Own the grounded customer-support selection argument. Begin workload decomposition and HELMET reading immediately, but use cross-benchmark conclusions only after the relevant G01 checks. Define informational and action-taking support variants without inventing the reader's traffic mix or risk tolerance. Map the vetted evidence to retrieval, answer grounding, citation support, policy understanding, state-changing actions, clarification, escalation, and consistency. Specify a private held-out evaluation using representative tickets, document snapshots, locales, rare/high-severity cases, unanswerable questions, conflicting evidence, and adversarial retrieved content. Explain which local observations would overturn a benchmark-led shortlist. Design separate measures of verified resolution, unsupported claims, unauthorized actions, repeat contact, escalation, and latency. Account for retrieval/tool costs, retries, monitoring, and human handling in cost per verified resolution. If outcome studies are added, read their methods and distinguish assistance effects from autonomous deployment and benchmark association.",
+      "inputs": ["MB01", "MB03", "MB18", "MB19", "MB20", "MB21", "MB23", "MB30"],
+      "dependencies": ["U01", "U05", "U06", "U07", "U08", "G01"],
+      "deliverables": "A complete decision-case narrative, benchmark-to-workload transfer table, task-specific evaluation protocol, failure-severity and cost model, and conditional recommendations including a justified unresolved-selection outcome where appropriate."
+    },
+    {
+      "id": "U10",
+      "assignment": "Own the repository-level coding-agent selection argument. Begin reading the productivity evidence and defining deployment variants immediately; gate score-based recommendations on G01. Contrast autonomous issue-to-patch operation with developer-assisted coding, since their outcomes and costs differ. Map vetted executable and repository benchmarks to private/fresh issues across the organization's programming languages, repository sizes, dependency systems, and task types. Specify fixed model/scaffold budgets, tool/network permissions, independent acceptance tests, security/maintainability review, and treatment of flaky infrastructure. Compare accepted-task cost and wall-clock time including environment preparation, failed attempts, test execution, and human review/rework. Analyze the METR trial and its 2026 update with their populations and causal limits; do not use them to rank models they did not compare. Identify conditions favoring a cheaper model, stronger model, different scaffold, or no autonomous deployment, and the evidence that would reverse each recommendation.",
+      "inputs": ["MB09", "MB10", "MB12", "MB13", "MB14", "MB15", "MB16", "MB17", "MB28", "MB31", "MB32"],
+      "dependencies": ["U03", "U04", "U07", "U08", "G01"],
+      "deliverables": "A complete coding-agent decision case, fresh-task acceptance protocol, cost/time and failure-severity comparison, interpretation of field evidence, and conditional selection recommendations tied to exact missing or observed decision-relevant evidence."
+    },
+    {
+      "id": "U11",
+      "assignment": "Main researcher: own coordination, cross-unit judgment, and final writing. At the outline stage, commission separate independent requirements and structure scrutiny before extensive dependent prose. Read full branch analyses and checked originals before integrating them. Assemble the report around the decision questions rather than concatenating benchmark summaries. Resolve duplicate dataset coverage, conflicting result identities, changed premises, and unsupported transfer. Integrate the coverage matrix, reproducibility comparison, worked examples, and both deployment cases while preserving qualifications next to claims. Arrange the seven specified whole-report review perspectives and domain review in separate non-production contexts, followed by an independent audit and a further final-acceptance context. Retain actual raw reviews and revisions; do not self-certify their completion. Maintain the requested artifacts from real work and create final-delivery records only when the current report and required independent work are actually complete.",
+      "inputs": ["MB01", "MB03", "MB04", "MB10", "MB15", "MB17", "MB20", "MB23", "MB30", "MB31", "MB32"],
+      "dependencies": ["U01", "U02", "U03", "U04", "U05", "U06", "U07", "U08", "G01", "U09", "U10"],
+      "deliverables": "The integrated English report and required tables, source/claim records, actual review and revision records, final.md, and—only after completed independent audit and acceptance—the specified final-delivery artifacts. This assignment is planned, not completed in the current stage."
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "MB01",
+      "title": "Holistic Evaluation of Language Models",
+      "url": "https://arxiv.org/pdf/2211.09110",
+      "date": "First submitted 2022-11-16; the PDF read identifies publication in TMLR in 2023-08. Exact arXiv revision date was not established.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Abstract; general-metric taxonomy around pp. 25–28; contamination/evaluation fairness and adaptation, pp. 45–46; Appendix J, pp. 160–161.",
+      "key_findings": "The paper evaluates 30 models across 42 scenarios, with 16 core scenarios and seven metric families. Its standardized adaptation is generally five-shot, but examples can be reduced to fit context. Joint-choice and separately scored alternatives are distinct procedures. Table 7 exposes scenario-specific generation settings, evaluation-instance caps, and repeated runs. The paper flags disclosed contamination without claiming access to all training data. Its metric taxonomy distinguishes scalable proxies from broader desiderata. These details make HELM useful for reconstructing conditions, but do not establish representativeness of a deployment workload. ([arxiv.org](https://arxiv.org/pdf/2211.09110))",
+      "access_scope": "Selected substantive PDF sections and appendix passages; not the entire 162-page paper."
+    },
+    {
+      "source_id": "MB02",
+      "title": "HELM Lite: Lightweight and Broad Capabilities Evaluation",
+      "url": "https://crfm.stanford.edu/2023/12/19/helm-lite.html",
+      "date": "2023-12-19; later revision date not stated.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "HELM Lite v1.0.0; structural changes; scenario list; prompting assistant models.",
+      "key_findings": "Lite uses one in-context seed rather than Classic's three and removes perturbation-based robustness/fairness, calibration, perplexity, and the expensive retrieval scenario. It also adds domains, so it is not simply a smaller Classic. Its MMLU evaluation selects five of 57 subjects; WMT14 uses five source languages translated into English. Scenarios have at most 1,000 instances and generally five demonstrations or fewer if context is insufficient. The authors describe generic prompting adjustments for assistant APIs. A Lite aggregate therefore cannot inherit Classic's full measurement coverage. ([crfm.stanford.edu](https://crfm.stanford.edu/2023/12/19/helm-lite.html))",
+      "access_scope": "Main announcement text, including its versioned design and implementation explanation."
+    },
+    {
+      "source_id": "MB03",
+      "title": "HELM Capabilities: Evaluating LMs Capability by Capability",
+      "url": "https://crfm.stanford.edu/2025/03/20/helm-capabilities.html",
+      "date": "2025-03-20; later revision date not stated.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "v1.0.0 basic setup; scenario table; implementation details; aggregation; results and external-comparison discussion.",
+      "key_findings": "The release combines MMLU-Pro, GPQA, IFEval, WildBench, and Omni-MATH. Its table distinguishes full smaller sets from larger sets capped at 1,000. Multiple-choice evaluation uses zero-shot CoT; MMLU-Pro borrows GPQA's template. Some hosted open models use Together's quantized Turbo variants. Model judging and answer-extraction changes are explicit. Aggregation changes from mean win rate to a rescaled mean score. The page contains unresolved identity inconsistencies: setup and result passages name different GPT-4o and Claude 3.5 snapshots. Historical run files are needed before treating those rows as exact comparisons. ([crfm.stanford.edu](https://crfm.stanford.edu/2025/03/20/helm-capabilities.html))",
+      "access_scope": "Main methodological and result passages; underlying leaderboard run JSON and historical commits not yet inspected."
+    },
+    {
+      "source_id": "MB04",
+      "title": "HELM Maintenance Mode Policy",
+      "url": "https://crfm-helm.readthedocs.io/en/latest/maintenance_mode/",
+      "date": "Publication/revision date unknown; policy states maintenance mode began 2026-06-01.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Opening policy; contributions; release cadence; alternatives.",
+      "key_findings": "The policy says code and leaderboards remain available, but no new leaderboard evaluations or new framework features are planned. Volunteer maintenance is best effort, with some model/scenario and compatibility contributions still welcome. It explicitly warns that API changes and model deprecations can break scenarios or clients. Availability of the framework is therefore not evidence that a historical evaluation remains executable against an unchanged service. ([crfm-helm.readthedocs.io](https://crfm-helm.readthedocs.io/en/latest/maintenance_mode/))",
+      "access_scope": "Complete short policy page."
+    },
+    {
+      "source_id": "MB05",
+      "title": "HELM MultipleChoiceJointAdapter implementation",
+      "url": "https://raw.githubusercontent.com/stanford-crfm/helm/main/src/helm/benchmark/adaptation/adapters/multiple_choice_joint_adapter.py",
+      "date": "File publication/revision date unknown; mutable main-branch file observed at retrieval.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Class documentation; generate_requests; construct_example_prompt, lines 8–106.",
+      "key_findings": "The implementation constructs a prompt containing labeled alternatives, maps generated labels to reference text, and creates one completion request. Temperature and maximum tokens come from the adapter specification; comments describe usual values rather than enforcing universal defaults. Request state records the actual number of training examples and whether truncation occurred. This supplies a concrete distinction between dataset content and harness adaptation. A historical commit is still required to attribute this exact implementation to a published result. ([raw.githubusercontent.com](https://raw.githubusercontent.com/stanford-crfm/helm/main/src/helm/benchmark/adaptation/adapters/multiple_choice_joint_adapter.py))",
+      "access_scope": "Entire 107-line source file; inspected, not executed."
+    },
+    {
+      "source_id": "MB06",
+      "title": "Language Model Evaluation Harness: Task Configuration",
+      "url": "https://raw.githubusercontent.com/EleutherAI/lm-evaluation-harness/main/docs/task_guide.md",
+      "date": "Publication/revision date unknown; mutable main-branch documentation.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Opening configuration contract; task fields; output types, generation arguments, repeats, filters, and aggregation examples.",
+      "key_findings": "The documentation identifies YAML task configuration plus the codebase commit as necessary to share a setup. It distinguishes generated-text, likelihood, rolling-likelihood, and multiple-choice output modes, and exposes generation arguments, repetitions, postprocessing filters, metrics, and aggregators. Naming a dataset or saying 'lm-eval' does not identify these choices. The exact historical MMLU-Pro task file remains to be located; an attempted direct path did not resolve and is not treated as inspected code. ([raw.githubusercontent.com](https://raw.githubusercontent.com/EleutherAI/lm-evaluation-harness/main/docs/task_guide.md))",
+      "access_scope": "Relevant configuration documentation and examples; no harness execution."
+    },
+    {
+      "source_id": "MB07",
+      "title": "Measuring Massive Multitask Language Understanding",
+      "url": "https://arxiv.org/pdf/2009.03300",
+      "date": "2020 preprint; read PDF identifies ICLR 2021 publication. Exact revision date not established.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Abstract and introduction; few-shot illustration; beginning of Section 3.",
+      "key_findings": "MMLU covers 57 subject tasks through multiple-choice questions, including academic and professional subject matter. The paper separately discusses uneven subject performance and confidence versus correctness, rather than treating one aggregate as a complete capability description. It supplies the historical baseline for distinguishing full MMLU from HELM's selected subjects and from the reconstructed MMLU-Pro dataset. Exact split counts and aggregation implementation require further reading before inclusion in a result table. ([arxiv.org](https://arxiv.org/pdf/2009.03300))",
+      "access_scope": "Selected early paper sections; dataset files and full scoring implementation not yet inspected."
+    },
+    {
+      "source_id": "MB08",
+      "title": "MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark",
+      "url": "https://papers.neurips.cc/paper_files/paper/2024/file/ad236edc564f3e3156e1b2feafb99a24-Paper-Datasets_and_Benchmarks_Track.pdf",
+      "date": "NeurIPS 2024 proceedings version; first preprint submitted 2024-06-03. Exact proceedings posting date unknown.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Sections 3–4; Tables 1–3; Sections 5–6.",
+      "key_findings": "The paper describes 12,032 questions in 14 disciplines, combining existing questions with additional sources and review. Not every item has ten choices: 83% do, with a mean of 9.47. The usual recipe is five-shot CoT, but Table 2 labels Gemini evaluations zero-shot. Failed regex extraction can fall back to a random option. Table 3 reports GPT-4o at 72.6% with CoT versus 53.5% with direct answering on MMLU-Pro, a 19.1-point difference. These are recipe-conditioned results; sample-level observations and exact model/configuration records are needed for inferential or cross-harness claims. ([papers.neurips.cc](https://papers.neurips.cc/paper_files/paper/2024/file/ad236edc564f3e3156e1b2feafb99a24-Paper-Datasets_and_Benchmarks_Track.pdf))",
+      "access_scope": "Construction, experimental setup, and relevant result tables; not every appendix or current dataset revision."
+    },
+    {
+      "source_id": "MB09",
+      "title": "Evaluating Large Language Models Trained on Code",
+      "url": "https://arxiv.org/pdf/2107.03374",
+      "date": "2021; exact revision date of the retrieved PDF not established.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Introduction and Section 2, especially functional correctness and pass@k.",
+      "key_findings": "HumanEval consists of 164 hand-written Python function-completion problems with tests. The paper distinguishes functional testing from textual similarity and derives the pass@k estimator from n generated samples and c passing samples, with n at least k. A success among many candidates is not the same as successfully selecting one without the benchmark oracle. The paper also distinguishes test-based selection from heuristic selection, making it useful for explaining inference-budget and deployment gaps. ([arxiv.org](https://arxiv.org/pdf/2107.03374))",
+      "access_scope": "Definitional and metric sections; no execution or complete security analysis."
+    },
+    {
+      "source_id": "MB10",
+      "title": "Is Your Code Generated by ChatGPT Really Correct? Rigorous Evaluation of Large Language Models for Code Generation",
+      "url": "https://arxiv.org/pdf/2305.01210v3",
+      "date": "v1: 2023-05-02; v3 read: 2023-10-30.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Approach and evaluation setup; Table 3 on PDF page 7, also visually checked; test-suite-reduction discussion.",
+      "key_findings": "EvalPlus augments tests using LLM-generated seeds, mutation, contracts, and differential checking. The experiment distinguishes greedy pass@1 from sampled pass@k and does not give all commercial models the full temperature sweep. Table 3's greedy values place ChatGPT above Phind-CodeLlama on base HumanEval, 73.2 versus 71.3, but below it with added tests, 63.4 versus 67.1. The test intervention changes the ordering; the table alone does not establish statistical significance or a deployment-wide advantage. Exact historical model identity and archived completions remain important. ([arxiv.org](https://arxiv.org/pdf/2305.01210))",
+      "access_scope": "Relevant methodological/result sections and visual inspection of Table 3; not a rerun."
+    },
+    {
+      "source_id": "MB11",
+      "title": "EvalPlus official implementation README",
+      "url": "https://raw.githubusercontent.com/evalplus/evalplus/master/README.md",
+      "date": "Publication/revision date unknown; mutable master-branch documentation.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Release pointers; correctness quick start; Docker execution; backend and prompt notes.",
+      "key_findings": "The repository separates generation from evaluation of saved samples and offers Docker-based execution. Its examples use mutable package/image references that would need pinning for historical reconstruction. Prompt mode can be inferred from tokenizer.chat_template, and a force-base-prompt option exists because automatic detection can otherwise change how a base model is evaluated. Later EvalPerf functionality is distinct from the original functional-correctness result and should not be retroactively attributed to HumanEval+. ([raw.githubusercontent.com](https://raw.githubusercontent.com/evalplus/evalplus/master/README.md))",
+      "access_scope": "Relevant README sections; referenced releases, images, and dependencies not executed."
+    },
+    {
+      "source_id": "MB12",
+      "title": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues? — v1",
+      "url": "https://arxiv.org/pdf/2310.06770v1",
+      "date": "2023-10-10; this historical v1 is distinct from the later 2024 revision.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Section 2 construction; Section 4 retrieval/input/model setup; Tables 2–5 and associated results.",
+      "key_findings": "This version describes 2,294 tasks from 12 popular Python repositories, selected from issue-resolving pull requests with tests and execution filters. Evaluation depends on retrieved repository context; BM25 and oracle-file access are separate conditions. GPT-4 is evaluated on a 25% random subset because of budget constraints. Context windows and tokenizers differ across models. Original retrieval-conditioned patch-generation results must not be silently equated with later interactive coding-agent submissions or with the Verified subset. ([arxiv.org](https://arxiv.org/pdf/2310.06770v1))",
+      "access_scope": "Construction and representative experimental/result sections of v1; not all appendices."
+    },
+    {
+      "source_id": "MB13",
+      "title": "Introducing SWE-bench Verified",
+      "url": "https://openai.com/index/introducing-swe-bench-verified/",
+      "date": "2024-08-13.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Verified definition; annotation criteria and construction; performance; difficulty discussion.",
+      "key_findings": "Verified contains 500 human-screened samples. The campaign annotated 1,699 randomly selected original samples using experienced Python developers and filtered problematic descriptions/tests. The release reports GPT-4o with Agentless at 33.2% on Verified versus 16% on original SWE-bench. The article itself acknowledges that easier task distribution may explain part of the increase. This is therefore a dataset/scaffold-conditioned comparison, not evidence that the model's capability doubled. Containerized evaluation is a separate implementation improvement. ([openai.com](https://openai.com/index/introducing-swe-bench-verified/))",
+      "access_scope": "Main construction, performance, and limitations passages; underlying annotation files not yet read."
+    },
+    {
+      "source_id": "MB14",
+      "title": "SWE-bench Evaluation Guide",
+      "url": "https://www.swebench.com/SWE-bench/guides/evaluation/",
+      "date": "Publication/revision date unknown; current documentation observed at cutoff.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Overview; result caching; understanding evaluation results; failure categories.",
+      "key_findings": "The harness applies submitted patches and executes repository tests in Docker. It distinguishes submitted, completed, resolved, unresolved, empty-patch, and error counts; these are not interchangeable denominators. The guide warns that cached results are keyed by run_id and instance_id, so changing a patch without changing the run identifier can reuse an earlier result. Logs include the applied patch, test output, evaluation script, and per-instance report. These artifacts help investigate a score but do not demonstrate independent reproduction. ([swebench.com](https://www.swebench.com/SWE-bench/guides/evaluation/))",
+      "access_scope": "Relevant guide sections; container images and harness execution not tested."
+    },
+    {
+      "source_id": "MB15",
+      "title": "Why SWE-bench Verified no longer measures frontier coding capabilities",
+      "url": "https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/",
+      "date": "2026-02-23.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Background; too narrow/too wide tests; contamination summary.",
+      "key_findings": "The audit examines 138 tasks selected because o3 did not consistently solve them across 64 runs, not a random sample of all 500 Verified tasks. It reports material task/test problems in 59.4% of that audited subset. It also reports reproductions of gold patches or distinctive problem details as evidence of exposure for tested frontier models. The selection rule prevents treating 59.4% as a whole-dataset defect prevalence. Individual extraction examples, prompts, and the size of any score inflation still require closer examination. ([openai.com](https://openai.com/index/why-we-no-longer-evaluate-swe-bench-verified/))",
+      "access_scope": "Audit design and headline evidence passages; lengthy model-specific extraction transcripts not fully read."
+    },
+    {
+      "source_id": "MB16",
+      "title": "Separating signal from noise in coding evaluations",
+      "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations/",
+      "date": "2026-07-08.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Methodology; human-supervised agent review; human annotation campaign; issue taxonomy.",
+      "key_findings": "On the 731-task Pro public split, the article reports 200 tasks flagged as broken by its analysis pipeline and 249 by the human campaign. Deeper review targets flagged tasks, and five engineers review each assessed task. The categories include over-restrictive tests, underspecified requirements, low-coverage tests, and misleading prompts. These are source-reported audit findings rather than an independent verification by this research. Their relationship to later removals and instruction repairs must be checked task by task. ([openai.com](https://openai.com/index/separating-signal-from-noise-coding-evaluations/))",
+      "access_scope": "Main audit methodology, reported counts, categories, and discussion; underlying task-level review records not inspected."
+    },
+    {
+      "source_id": "MB17",
+      "title": "SWE-Bench Pro V2",
+      "url": "https://labs.scale.com/leaderboard/swe_bench_pro_public_v2",
+      "date": "Update explicitly dated 2026-09-22.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "September update; benchmark scope; methodology; resolve-rate definition.",
+      "key_findings": "V2 reports 642 tasks across 11 repositories after removing 89 from 731, correcting contradictory instructions on 69 tasks, restricting agent networking, and regrading patches in pristine images. It reports dependency and environment repairs and identifies residual verifier/endpoint trust risks. The page distinguishes public/held-out open-source material from private proprietary repositories. Its reused overview includes older performance language, so a dated release note cannot make every displayed statement a synchronized result snapshot. The exact V2 artifacts and rows need pinning. ([labs.scale.com](https://labs.scale.com/leaderboard/swe_bench_pro_public_v2))",
+      "access_scope": "Release and methodological text; linked dataset, trajectories, and current leaderboard records not yet independently inspected."
+    },
+    {
+      "source_id": "MB18",
+      "title": "τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains — v1",
+      "url": "https://arxiv.org/html/2406.12045v1",
+      "date": "2024-06-17.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Section 3 task/reward/metric definitions; Section 4 construction; Section 5 and Table 2.",
+      "key_findings": "Agents interact with simulated users, domain policies, and database tools. The user simulator is gpt-4-0613. Reward combines final-state agreement and required output information, but the paper explicitly notes that passing can miss a policy violation such as absent confirmation. pass^k estimates success on all k trials, unlike pass@k's at-least-one success. Table 2 averages domains rather than weighting all tasks equally, and one model uses a different text-agent method. Evaluation costs include simulator expense, which is not ordinary customer-serving cost. ([arxiv.org](https://arxiv.org/html/2406.12045v1))",
+      "access_scope": "Core definitions, construction, main comparisons, and cost discussion; not all example trajectories."
+    },
+    {
+      "source_id": "MB19",
+      "title": "τ²-Bench: Evaluating Conversational Agents in a Dual-Control Environment — v1",
+      "url": "https://arxiv.org/html/2506.07982v1",
+      "date": "2025-06-09.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Sections 3.2–3.3; Table 1; Sections 4.1–4.2.",
+      "key_findings": "The telecom environment gives users tools as well as agents, unlike passive-user setups. Reported evaluation counts are 115 retail, 50 airline, and 114 sampled telecom tasks from 2,285 constructed combinations. Telecom success uses state assertions. The paper names dated model APIs, uses gpt-4.1-2025-04-14 as simulator, and runs each task four times at temperature zero. For the specified GPT-4.1 pairing, agent and user-simulation costs average $0.086 and $0.059 per task. These historical conditions are not defaults for every later repository release. ([arxiv.org](https://arxiv.org/html/2506.07982v1))",
+      "access_scope": "Task construction, scoring, named experimental configuration, and cost passages."
+    },
+    {
+      "source_id": "MB20",
+      "title": "tau2-bench tagged v2.0.0 changelog",
+      "url": "https://raw.githubusercontent.com/sierra-research/tau2-bench/v2.0.0/CHANGELOG.md",
+      "date": "v2.0.0 changelog date: 2026-10-19. The v1.0.1 section says 2026-07-15; the separate GitHub release listing displays July 22, requiring reconciliation.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "2.0.0 upgrading notes; 1.0.1 scoring changes; earlier release entries; cross-checked against repository release notes.",
+      "key_findings": "The tagged document explicitly rejects direct 1.x/2.0 comparisons: tasks, prompts, communication grading, judge identity, and lookups change. Some English replacements retain the same task IDs, so IDs alone do not freeze inputs. The release account lists six language packs: English, Spanish, Portuguese, Hindi, Chinese, and Korean. July banking changes can raise scores by roughly nine points when old trajectories are regraded; a separate task-data correction can move outcomes differently. The changelog identifies a pre-fix tag and notes fixes reached main before a version bump. ([raw.githubusercontent.com](https://raw.githubusercontent.com/sierra-research/tau2-bench/v2.0.0/CHANGELOG.md))",
+      "access_scope": "Relevant tagged changelog sections and public release-note cross-check; task files and trajectory regrading not executed."
+    },
+    {
+      "source_id": "MB21",
+      "title": "Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference — v1",
+      "url": "https://arxiv.org/html/2403.04132v1",
+      "date": "2024-03-07.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Platform introduction; Sections 4–5 scoring, confidence intervals, and sampling.",
+      "key_findings": "Arena collects anonymous pairwise human preferences on user-supplied prompts rather than answers to one fixed test. The paper reports over 240,000 votes from about 90,000 users and over 100 languages as of January 2024. Its statistical treatment includes Bradley–Terry estimation, sampling probabilities, uncertainty intervals, and approximate ranks. Those language counts do not establish balanced geographic or workload representation. The paper's methodology must not be assumed identical to every later live leaderboard policy or dataset release. ([arxiv.org](https://arxiv.org/html/2403.04132v1))",
+      "access_scope": "Platform, estimand, sampling, and uncertainty passages; no reconstruction from raw votes."
+    },
+    {
+      "source_id": "MB22",
+      "title": "Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena — v4",
+      "url": "https://arxiv.org/pdf/2306.05685v4",
+      "date": "First submitted 2023-06-09; v4 revised 2023-12-24.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Section 2 MT-Bench definition; Section 3 limitations/mitigations; Tables 2–4; Appendix D agreement and position-bias discussion.",
+      "key_findings": "MT-Bench contains 80 multi-turn questions in eight categories. The paper studies position, verbosity, self-enhancement, and reasoning limitations of judges. Swapping answer order and using reference answers are interventions, not guarantees of validity. Its difficult similar-answer position test differs from easier model-pair comparisons; bias is less prominent when answer quality differs greatly. The reported human agreement is population- and calculation-specific, and the appendix distinguishes agreement with individual humans from agreement with a majority. ([arxiv.org](https://arxiv.org/pdf/2306.05685v4))",
+      "access_scope": "Benchmark definition, relevant bias experiments, and agreement-method passages; not all appendix examples."
+    },
+    {
+      "source_id": "MB23",
+      "title": "Length-Controlled AlpacaEval: A Simple Way to Debias Automatic Evaluators — v2",
+      "url": "https://arxiv.org/html/2404.04475v2",
+      "date": "First submitted 2024-04-06; v2 dated 2025-03-10.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Sections 2–3; Tables 1–2; discussion of alternative length adjustments and other biases.",
+      "key_findings": "The study uses 805 instructions and compares responses with a reference model using a model evaluator. Its length-controlled estimate fits a regression and predicts at zero length difference; it is not an observed same-length experiment. Table 1 reports Arena rank correlation rising from 0.94 to 0.98 and lower verbosity gameability, with remaining adversarial vulnerability. Table 2 finds self-bias but stable ordering across the tested judges. Correlation with Arena does not establish causal improvement in customer or developer outcomes. ([arxiv.org](https://arxiv.org/html/2404.04475v2))",
+      "access_scope": "Method, comparison tables, and limitations discussion of v2."
+    },
+    {
+      "source_id": "MB24",
+      "title": "AlpacaEval official implementation README",
+      "url": "https://raw.githubusercontent.com/tatsu-lab/alpaca_eval/main/README.md",
+      "date": "Publication/revision date unknown; mutable main-branch documentation.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Evaluator arguments; leaderboard interpretation; AlpacaEval 2.0 changes; data release.",
+      "key_findings": "The documentation distinguishes AlpacaEval's text-davinci-003 reference and GPT-4 annotator from AlpacaEval 2.0's GPT-4 Turbo reference and weighted annotator. The latter uses token probabilities for continuous preferences. Saved outputs, annotations, and metric-only recomputation are separate from generating or judging new responses. Thus a win rate needs its baseline and annotator identity, and saved-data rescoring can remain possible even when the original service does not. Exact config files and model availability still need checking. ([raw.githubusercontent.com](https://raw.githubusercontent.com/tatsu-lab/alpaca_eval/main/README.md))",
+      "access_scope": "Relevant README configuration, scoring, version, and artifact sections."
+    },
+    {
+      "source_id": "MB25",
+      "title": "The Leaderboard Illusion — v2",
+      "url": "https://arxiv.org/html/2504.20879v2",
+      "date": "First submitted 2025-04-29; v2 dated 2025-05-12.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Research questions and methodology map; private-testing claims; overfitting discussion; Section 7 limitations; provider-identification appendix.",
+      "key_findings": "The paper investigates selective disclosure after private model testing, data-access asymmetries, and changing model participation. Its evidence mixes scraped observations, simulations, submitted-model experiments, and training experiments; these must not be reported as one empirical effect. Provider assignment partly uses model self-identification, and the authors acknowledge lacking complete raw Arena data. It motivates scrutiny of selection and adaptation, but contested quantitative conclusions require comparison with Arena's response and the actual experiment records. ([arxiv.org](https://arxiv.org/html/2504.20879v2))",
+      "access_scope": "Relevant claims, methodological distinctions, and limitations; full experiment-level reconciliation remains outstanding."
+    },
+    {
+      "source_id": "MB26",
+      "title": "Our Response to 'The Leaderboard Illusion' Writeup",
+      "url": "https://arena.ai/blog/our-response",
+      "date": "Published 2025-05-09; last updated 2025-06-13.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Proposed policy changes; disagreements over model categories, simulations, fresh votes, and confidence intervals.",
+      "key_findings": "Arena disputes the critique's category definitions and simulated effect magnitudes, argues fresh post-release votes reduce selection effects, and proposes provisional labeling after extensive parallel pre-release testing. It also challenges interpretations of score differences whose reported intervals overlap. These are the operator's methodological responses, not independently established resolutions. Interval overlap alone should not be used as a formal proof of equality; U07 must inspect the appropriate paired/rating comparison. ([arena.ai](https://arena.ai/blog/our-response))",
+      "access_scope": "Main policy and factual-disagreement passages; linked technical analysis not yet read."
+    },
+    {
+      "source_id": "MB27",
+      "title": "Proving Test Set Contamination in Black Box Language Models — v2",
+      "url": "https://arxiv.org/html/2310.17623v2",
+      "date": "v2 dated 2023-11-24; exact first-submission day not verified in this reading.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Problem/method overview; controlled contamination experiments; Section 4.3; Section 6 limitations.",
+      "key_findings": "The method compares likelihoods of canonical versus shuffled benchmark ordering under exchangeability assumptions. It offers false-positive control under its assumptions, not an assumption-free detector for every API. Controlled experiments show limited detection power at low duplication. The audit finds little evidence of pervasive verbatim contamination in the tested model/benchmark combinations, which is not proof of absence. The authors note uncertainty about real datasets' exchangeability and that their p-values lack multiple-test correction. ([arxiv.org](https://arxiv.org/html/2310.17623v2))",
+      "access_scope": "Core assumptions, validation results, and limitations; mathematical proofs not fully checked."
+    },
+    {
+      "source_id": "MB28",
+      "title": "LiveCodeBench official repository README",
+      "url": "https://raw.githubusercontent.com/LiveCodeBench/LiveCodeBench/main/README.md",
+      "date": "Publication/revision date unknown; mutable main-branch documentation.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Dataset versions; code-generation defaults; scoring windows; full/lite test note.",
+      "key_findings": "The README exposes release_v1 through release_v6 and a release_latest default, with different problem windows and counts. It describes n=10 and temperature 0.2 generation, time-window filtering, pass@1/pass@5, and timeout-related variation. It also says the default code_generation_lite prunes tests and provides a flag for the original test set. A 'LiveCodeBench score' therefore needs both release/window and test-suite identity. The rolling label alone does not prove contamination freedom or comparability. ([raw.githubusercontent.com](https://raw.githubusercontent.com/LiveCodeBench/LiveCodeBench/main/README.md))",
+      "access_scope": "Versioning and execution documentation; underlying datasets and checker revisions not inspected."
+    },
+    {
+      "source_id": "MB29",
+      "title": "LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code — v1",
+      "url": "https://arxiv.org/html/2403.07974v1",
+      "date": "2024-03-12; later v2 is a distinct revision.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Scenario setup; Section 5.1 avoiding contamination; associated time-window interpretation.",
+      "key_findings": "The benchmark uses time-indexed competition problems and distinct generation, repair, execution, and output-prediction scenarios. Its DeepSeek discussion observes a performance discontinuity around the model's release period and describes earlier problems as potentially contaminated. This is useful suggestive evidence, not direct inspection of training records. Filtering after a cutoff reduces a particular exposure risk but leaves assumptions about the cutoff, later updates, problem difficulty, and runtime access to verify. ([arxiv.org](https://arxiv.org/html/2403.07974v1))",
+      "access_scope": "Relevant scenario and contamination-analysis passages; complete date-stratified raw observations not inspected."
+    },
+    {
+      "source_id": "MB30",
+      "title": "HELMET: How to Evaluate Long-Context Language Models Effectively and Thoroughly — v3",
+      "url": "https://arxiv.org/html/2410.02694v3",
+      "date": "First preprint 2024-10-03; v3 dated 2025-03-06.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Study scope; Section 2.1 RAG; Appendix B.1–B.2; prompting comparison table.",
+      "key_findings": "HELMET is a separate project from HELM. Its RAG construction inserts answer-bearing passages among retrieved distractors and varies passage position; its citation-generation evaluation is another task category. The v3 study examines 59 models and reports that synthetic needle retrieval is not a reliable substitute for downstream task performance. Because gold evidence is deliberately supplied, this construction does not by itself evaluate a production retriever's recall or handling of absent evidence. It is a useful grounding diagnostic, not a customer-support success estimate. ([arxiv.org](https://arxiv.org/html/2410.02694v3))",
+      "access_scope": "Scope, grounding construction, and selected evaluation passages; not all model results."
+    },
+    {
+      "source_id": "MB31",
+      "title": "Measuring the Impact of Early-2025 AI on Experienced Open-Source Developer Productivity — v2",
+      "url": "https://arxiv.org/html/2507.09089v2",
+      "date": "v2 dated 2025-07-25; study concerns February–June 2025 tools.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Abstract; recruitment and task randomization; effect estimand; discussion and key caveats.",
+      "key_findings": "Sixteen experienced developers complete 246 tasks in familiar repositories, with tasks specified before assignment to AI-allowed or disallowed conditions. Participants mainly use Cursor Pro and Claude 3.5/3.7 Sonnet. The reported treatment increases completion time by 19%. This is causal evidence for the studied assistance condition and population, not a benchmark-to-productivity causal coefficient or a ranking of autonomous agents. The authors caution that familiarity, repository maturity, reliability, latency, and elicitation limit transfer. ([arxiv.org](https://arxiv.org/html/2507.09089v2))",
+      "access_scope": "Design, estimand, headline outcome, and transfer caveats; full statistical appendix and recordings not reanalyzed."
+    },
+    {
+      "source_id": "MB32",
+      "title": "We are Changing our Developer Productivity Experiment Design",
+      "url": "https://metr.org/blog/2026-02-24-uplift-update/",
+      "date": "2026-02-24.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Opening results update; recruitment/task-selection effects; design discussion.",
+      "key_findings": "METR says its later experiment offers an unreliable estimate of current productivity effects because participation and submitted tasks increasingly exclude work people do not want to perform without AI. Pay changes and concurrent-agent time measurement add complications. The reported later estimates have intervals spanning no effect; the authors describe only weak evidence about the size of improvement. This prevents carrying the 2025 slowdown forward as a settled 2026 result or declaring a clean reversal from the later point estimates. ([metr.org](https://metr.org/blog/2026-02-24-uplift-update/))",
+      "access_scope": "Main update and methodological caveats; later underlying data not reanalyzed."
+    },
+    {
+      "source_id": "MB33",
+      "title": "Language Model Evaluation Harness official README",
+      "url": "https://raw.githubusercontent.com/EleutherAI/lm-evaluation-harness/main/README.md",
+      "date": "Mutable document; dated entries read include 2025-07, 2025-12, and 2026-09. Exact file revision date unknown.",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Latest news; framework overview; installation and backend configuration.",
+      "key_findings": "The project supports many task variants and execution backends rather than defining one benchmark. Dated notes document reasoning-trace stripping support, CLI/configuration changes, optional backend installation, and later plugin registration. This is concrete evidence that a harness name or an unpinned installation command is insufficient to reconstruct a historical procedure. The current README also retains older announcement language, so chronology should come from tags and commits rather than whichever paragraph looks newest. ([raw.githubusercontent.com](https://raw.githubusercontent.com/EleutherAI/lm-evaluation-harness/main/README.md))",
+      "access_scope": "Relevant overview, dated changes, and installation sections; no installed environment or benchmark run."
+    }
+  ],
+  "material_gaps": [
+    "U01/U08: Retrieve HELM's version-pinned run specifications, sampled instance identifiers, raw requests/responses, and summary JSON for retained Classic/Lite/Capabilities examples. The opened Capabilities v1.14.0 web page yielded no readable table; search snippets are not an acceptable substitute.",
+    "U01: Resolve the Capabilities announcement's model-date inconsistencies and distinguish its v1.0.0 release content from any subsequently updated table. Verify the exact later release chronology before calling a version the cutoff-era endpoint.",
+    "U02: Locate original MMLU split/aggregation code, the precise MMLU-Pro dataset revision and official run scripts, and the correct historical lm-evaluation-harness YAML. Determine extraction fallback seeds, invalid-answer counts, demonstrations, output budgets, and model snapshot identities.",
+    "U03: Obtain EvalPlus's archived completions, model/configuration metadata, test-suite revision, and contracts for Table 3. Establish whether the published reversal can be traced to identical saved outputs and recover paired outcomes before considering uncertainty calculations.",
+    "U04: Read the original SWE-Bench Pro paper, public/private dataset cards, release manifests, and matched model/scaffold submissions. Crosswalk February/July audit examples and September V2 repairs by task ID and content hash rather than benchmark name.",
+    "U04/G01: Read the model-specific contamination demonstrations and audit annotations behind the 2026 SWE claims. Determine which observations demonstrate memorized exposure, which reflect available repository context, and whether any measured score inflation is actually identified.",
+    "U05: Inspect tagged τ task files, simulator prompts, judge/scorer code, and saved trajectory bundles. Reconcile the July changelog date with the GitHub release timestamp and establish exact text-versus-voice defaults in software v2.0.0.",
+    "U05/U09: Read the 2026 τ knowledge-retrieval definitions if that component is used for grounded-support transfer. Do not infer retrieval-grounding coverage merely from a repository's new domain name.",
+    "U06/U07: Read Arena's linked technical response, the critique's submitted-model and training experiments, and the exact vote/filtering policies for any selected later snapshot. Obtain matched observations before adjudicating statistical rank changes.",
+    "U06/U08: Pin AlpacaEval and MT-Bench judge configurations, baseline outputs, annotation files, and relevant package versions; verify current availability or retirement of the exact historical judge/API models through primary provider documentation.",
+    "U07: Obtain item-level paired correctness, per-task repeated trajectories, and appropriate repository/conversation clustering identifiers for worked comparisons. If unavailable, retain descriptive differences and explicitly decline unsupported significance estimates.",
+    "U08: Inspect actual dependency locks, image digests, scoring code, and result caches for the retained examples. Search for targeted published independent replications; repository openness alone must not be labeled score reproduction.",
+    "U09/U10: Establish deployment-specific workload strata, risk tolerances, latency limits, and success definitions as explicit conditional inputs. Obtain task-level cost traces and date-matched pricing only for configurations actually compared; separate simulator/evaluation expense from serving expense.",
+    "U09: Supplement the benchmark mapping with primary evidence on absent/conflicting documents, citation faithfulness, retrieval failure, escalation, and authorized actions. HELMET's supplied-gold-passage design cannot close those production gaps.",
+    "U10: Complete methodological reading of the METR trial and later data/design updates before drawing outcome implications. Seek additional primary field evidence only where it can distinguish the proposed autonomous-agent and human-assistance decisions.",
+    "U11: Complete the planned independent outline scrutiny, scoped premise checks, final review perspectives, audit, and final acceptance in actual separate contexts. Preserve actual execution records and do not treat this research plan as their completion."
+  ]
+}

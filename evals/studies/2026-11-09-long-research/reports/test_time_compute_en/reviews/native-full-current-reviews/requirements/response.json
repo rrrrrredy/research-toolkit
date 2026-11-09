@@ -1,0 +1,12 @@
+{
+  "input_version": "35856ace8b32421ec17a16702661ae8452b72df5cc41c988a9beb1d43605ab7c",
+  "assignment_version": "b257d7ba21655c04bdcad85011fae777c5491e1eccb09315d387f3f6402aca69",
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "basis": "Read continuously in full against the original English task. Section 2 supplies the requested mechanism-and-evidence matrix including generation, retained state, selector access and resource/causal boundary. Sections 3–9 compare mathematical, executable-code and multistep-tool evidence; they explain diminishing returns, saturation, regressions, difficulty, correlated or shared errors, verifier exploitation, unavailable feedback, tool/state failures and limits of transfer to ambiguous outcomes. Fixed checkpoints, shared banks, training changes and oracle diagnostics remain explicit. Sections 10–12 count selection, discarded work, reasoning tokens, tools, retries, controls and adaptation, separate compute/money from serial latency/concurrency/wall time, and normalize only supported historical records. Section 13 provides transparent hypothetical allocation and loss/deadline calculations, without claiming an experiment. Sections 14–16 connect the requested five design alternatives and no-extra-compute outcomes to task conditions. Appendix A addresses contamination, selected tests, evaluator leakage, finite-probe uncertainty and source conflicts; Appendix B retains model/paper/evaluation versions and identifies unpinned implementation commits. English prose and locatable citations fulfill the report form. No universal word count, fixed chapter scheme or independent rerun was imposed.",
+      "location": "Entire frozen report lines 1–355: synthesis, sections 1–16, all mechanism/scaling/allocation tables, decision tree, and both appendices."
+    }
+  },
+  "findings": []
+}

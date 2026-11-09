@@ -1,0 +1,53 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_en",
+  "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "acceptance",
+      "role": "acceptance",
+      "reading_ref": {
+        "path": "logs/reading/b7313570aef499f63820.md",
+        "sha256": "b7313570aef499f63820d02fcd1c56592a726d1ea50ce70e97fc31daed57145c"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/acead416ff0bcb116622/jobs/acceptance-c8fcc81d49ac44c6.json",
+        "sha256": "06dbe1e11a294a78263809b110f3911aacb2ad95f257c368a54a13391a6373e3"
+      },
+      "assignment_version": "c8fcc81d49ac44c6372053760505b0f8270d2a8424bcb37a748e1c758ffcea86"
+    }
+  ],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 9,
+    "selected_attempts": {
+      "process_language": "908158f6123c4db09225ebd919e0b4ae",
+      "natural_expression": "e375d6cc1084479480fba06d72cfe160",
+      "domain-1": "60e0b99f737e499fa2200bc6c9333f25",
+      "requirements": "01ddf63195504e5191f313fab79dc25d",
+      "structure_and_depth": "ef8a24f714554ef9a258a92d9031cebd",
+      "adversarial_reasoning": "8f0ce8aee7f947d2a8f84c7e5cede1ab",
+      "evidence": "58408723310642329e4516e098219e31",
+      "reader_usefulness": "2e0a91aa8e9f482e90dd5c6b57169bea",
+      "audit": "2d5e06be8e7e4006adc6ddcfc5d0bd4b"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: acceptance"
+  ]
+}

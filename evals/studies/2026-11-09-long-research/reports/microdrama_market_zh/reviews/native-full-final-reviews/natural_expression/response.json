@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "natural_expression": {
+      "location": "当前第6行导语及第40行市场估计表；复用首次第1—512行完整阅读",
+      "basis": "实际diff只有导语渠道迁移解释及北大估计范围两处。导语把跨期统计降为可能机制，并明确新增观众、迁移与样本变化尚不能分解，保留数据和经营解释；表格明确未计出海收入，并保留未消费余额和内部交易缺口。两处新增条件对应具体推断，没有形成无推进免责或妨碍后文分析。原自然表达pass仍适用。"
+    }
+  },
+  "findings": [],
+  "input_version": "f6bb51c4fdab26cede56b083db7acbe727f8d84add9ff64682cf380aa9ff37cb",
+  "assignment_version": "2a90c4ad54727c48e48f4e0b52620e106382037931550be2fc36046bf65b90d4"
+}

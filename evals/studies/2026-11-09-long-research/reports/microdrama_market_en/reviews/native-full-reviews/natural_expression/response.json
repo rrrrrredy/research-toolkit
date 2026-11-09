@@ -1,0 +1,19 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "natural_expression": {
+      "location": "reports/current.md 第1—340行全文；第1—3节概念和平台术语、第4—5节现金与情景、第6—7节监管和经营选择、文末说明及引用。",
+      "basis": "完整阅读英文任务和当前稿。mini-program、IP、touliu、fenzhang、baodi、beian均就地解释，平台与资金主体明确，付费、免费、混合三个例子分别推动经营判断。大部分限定紧跟不同统计口径、合同或来源性质，具有实际作用，未构成需整体压缩的重复免责。发现结论段一处真实的动词并列句法错误；除此之外未发现妨碍理解的抽象概括或无推进重复。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "natural_expression-01",
+      "severity": "minor",
+      "location": "reports/current.md 第290行，For distributors 段首句：\"adding another outlet can diversify access while also duplicate acquisition spending on the same users\"。",
+      "basis": "while also 后的 duplicate 未形成可承接的谓语结构，读者需要自行把句子还原为两个并列可能结果。按自然表达要求，改成 \"can diversify access while also duplicating acquisition spending...\"，或 \"can both diversify access and duplicate acquisition spending...\"；保留多渠道扩张同时可能重复获客的原意即可，无需扩展分析。"
+    }
+  ],
+  "input_version": "101c23eadaeb064e98f55350f5f6a053b496692bb0445a1d172727bb0e0f2eca",
+  "assignment_version": "3d3d7f23738971eae23382437a9257ab29981eaebece628a6b913d364e672e37"
+}

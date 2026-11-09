@@ -1,0 +1,75 @@
+{
+  "result": "pass",
+  "basis": "独立完整阅读当前中文报告 1–512 行，逐项对照有效任务，阅读八份当前独立评审原文、完整审计及两个历史必要负面发现，并核对实际两处修订、模型脚本和保留结果、关键来源上下文。报告已完成国内市场边界、需求和平台机制、财务与各方价值分配、敏感性和现金压力、监管及三类读者选择的完整交付。两项必要修正均成立且已进入正文；未发现仍阻断交付的内容缺陷。未以审计通过或工具成功替代全文验收。",
+  "input_version": "f6bb51c4fdab26cede56b083db7acbe727f8d84add9ff64682cf380aa9ff37cb",
+  "assignment_version": "75ec5465fd0de184a501c9ee8b3e7d8b8e77900db81f0eb259b90cdf092fa393",
+  "artifact_sha256": "76e52a756e003edbec67aca4cc06b19aa6545aec9c5584f1ca57c74f28c222b4",
+  "coverage": {
+    "requirements": {
+      "location": "reports/current.md:1–512；assignment.task/effective_requirements",
+      "basis": "全文中文；2023 至 2026-11-09，实绩、预测和年内数据分列。结构表、平台比较、资金流、敏感性和投资者/平台/制作发行方选择全部有实质分析，境外只用于企业资源和财务边界。"
+    },
+    "evidence": {
+      "location": "reports/current.md:18–94,117–145,196–249,253–438",
+      "basis": "来源定位与数字性质保留；CNNIC、QM、产值、流水及企业合并收入没有求和。实际抽查北大排除出海、CNNIC期末数据与QM产品门槛，财报营运资金和关联交易方向，以及抖音达人分账、T+7和未成年退款原文；模型公式、脚本和已保存结果与正文一致。其余未变事实复用审计中有来源和位置的核对，不声称本验收重读全部44份来源。"
+    },
+    "adversarial_reasoning": {
+      "location": "reports/current.md:6,40,55–94,313–396,493–502",
+      "basis": "跨期全国用户与App增长不再被用来识别存量迁移份额。广告负载伤留存、广告价格与获客联动、免广告收入替代、版权方和运营者盈亏错位、资金缺口及爆款分布的反例都保留，末章给出改变判断的条件。"
+    },
+    "structure_and_depth": {
+      "location": "reports/current.md:12–504；analysis/author-production/U01-market-boundary.md、U08-economics-and-sensitivity.md",
+      "basis": "从规模口径、用户和入口机制推进到合同、财务、经营模型和行动选择；实际核对两个分析单元转成正文时保留模型假设、负面分支及资金边界，完整报告并非摘要拼接。"
+    },
+    "reader_usefulness": {
+      "location": "reports/current.md:253–396,440–512",
+      "basis": "给定公式、参数、盈亏阈值与现金时点后再分主体行动，读者可以替换自身输入。附件裸文件名的可选便利性建议不影响正文可用性，不提升为必修。"
+    },
+    "process_language": {
+      "location": "reports/current.md:1–512",
+      "basis": "全文面向市场研究读者；正文未残留执行身份、待评审指令、工具运行汇报或通过记录。资料边界和计算说明服务经济判断。"
+    },
+    "natural_expression": {
+      "location": "reports/current.md:1–512",
+      "basis": "语言以对象、因果和金额解释展开，关键限制放在影响判断的位置；虽篇幅较长，段落围绕不同经营问题推进，没有机械反复免责取代结论。"
+    }
+  },
+  "sample_checks": [
+    {
+      "selection_reason": "两项历史必要缺陷直接关系开篇判断和全国市场口径，需读原负面和修订而非只认resolved。",
+      "result": "clear",
+      "evidence": "读取旧 EVD-MDZH-001、AR-MDZH-01 原文及完整两处diff；MD006/original.txt:36–62明确排除出海，CP08:1370–1380保留6.64亿/59.0%的期末口径，CP17:260–278注明App及小程序产品门槛。当前正文不再声称由错期总体证明迁移。",
+      "location": "reports/current.md:6,40,55–78"
+    },
+    {
+      "selection_reason": "选择已通过的财务段，检查现金流归因和销售/采购方向是否在整合时倒置。",
+      "result": "clear",
+      "evidence": "MD005/original.txt:7399–7420应收+190687601.14、应付-57420760.71、存货-479405.69及经营现金126801681.39；MD008:9535–9585明确是出售商品/提供劳务，本期399832389.07和108255592.92为衍生业务销售。正文及financial-results相符。",
+      "location": "reports/current.md:235–247"
+    },
+    {
+      "selection_reason": "经营建议依赖计算，需覆盖基准、负分支、合同和现金而非只看一个正确总额。",
+      "result": "clear",
+      "evidence": "阅读scenario-model.py、completion-sensitivity.py、financial-calculations.py全文及保留输出；23组情景、3组完播、合同、混合、6组现金和组合结果与正文相符。付费片方-4.94万元/发行25.26万元，免费经营者6.89万元，联动-105.05万元及免费30日峰值249.89万元均有明确假设，不是行业均值。未重跑。",
+      "location": "reports/current.md:253–396"
+    },
+    {
+      "selection_reason": "平台条款易被误写为全行业统一分成或版权到账保证。",
+      "result": "clear",
+      "evidence": "CP27:141–156明确达人推广1%–29%与0–3天自动发起分账，179–188另列支付T+7；CP18:166–175未成年退款不受履约状态影响。正文分别说明对象、时点与适用范围，没有扩大成版权方普遍合同。",
+      "location": "reports/current.md:133–145,430–438"
+    },
+    {
+      "selection_reason": "检查原分析转换为完整文章是否丢失推理和逆向情景。",
+      "result": "clear",
+      "evidence": "全文阅读两单元，报告保留终端支出只计一次、预测不同口径不平均、两个基准不能直接比较模式优劣，以及分账转移/新增价值、保底/额外补贴、广告蚕食和盈利/最大垫资的区别。",
+      "location": "reports/current.md:18–49,253–396；U01、U08分析单元"
+    }
+  ],
+  "open_issues": [],
+  "optional_disposition": {
+    "decision": "no_change",
+    "basis": "保留为附件链接便利性的optional建议，正文具备输入、公式和结果，非必要缺陷。",
+    "finding": "RU-MDZH-01"
+  }
+}

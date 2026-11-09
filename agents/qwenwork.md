@@ -38,13 +38,10 @@ The [shared research guide](../docs/quickstart.md) provides a complete request a
 In QwenWork, send this diagnostic request:
 
 ```text
-Read the supplied research-toolkit/SKILL.md and load complete methods as needed.
-Research question: [Question, audience and purpose.]
-Scope and depth: [Coverage, information cutoff and length requirements.]
-Existing material: [Sources or an existing report.]
-Develop evidence, comparisons, explanations and synthesis. Deliver the complete
-report with usable citations. Identify inaccessible required material without
-inventing its contents.
+Check whether research-toolkit appears in QwenWork's skill list.
+Report its loaded path and read SKILL.md plus a reference file from that copy.
+Identify missing or unreadable files; preserve existing files when correcting
+the installation.
 ```
 
-If the directory is unavailable in this client, use the [file/text input route](README.md#use-without-installation). A model’s claim that it installed a skill is insufficient; confirm the entry in the skill list and readable files.
+If QwenWork cannot access the directory, use the [file/text input route](README.md#use-without-installation).

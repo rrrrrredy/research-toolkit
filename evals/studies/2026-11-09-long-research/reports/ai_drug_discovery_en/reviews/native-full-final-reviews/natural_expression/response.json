@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "natural_expression": {
+      "location": "第105行DSP-1181及第287行来源计算说明；复用首评287行全文阅读",
+      "basis": "完整检查21行统一diff。DSP-1181的数百个合成测试化合物现在与两周反馈周期分别表述，避免把化合物计数说成完整迭代次数；不到12个月的探索期、不含安全评价及已有平台基础均保留。末尾改为来源类型、文本补充与缺失协议/统计/合同细节，仍明确没有新临床实验及计算性质。修订使现有机制更易理解，原pass仍适用。"
+    }
+  },
+  "findings": [],
+  "input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+  "assignment_version": "9e806f624797c16d98eea0e5bf2935d7d93eaa2025509b24b4e60796a185e51d"
+}

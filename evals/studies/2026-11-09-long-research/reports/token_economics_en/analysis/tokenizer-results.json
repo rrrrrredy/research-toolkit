@@ -1,0 +1,66 @@
+{
+  "author": "/root/ttc_research",
+  "measured_at": "2026-11-09T11:32:33.858652+00:00",
+  "tiktoken_version": "0.12.0",
+  "scope": "raw text only; translations are author-composed approximate semantic counterparts, code/JSON distinct representations; no chat/tool framing or billed-token claim",
+  "rows": [
+    {
+      "sample": "English",
+      "text": "The customer returned two unopened items within 30 days. Refund 48 dollars to the original payment method and keep the order number in the record.",
+      "unicode_codepoints": 146,
+      "utf8_bytes": 146,
+      "sha256": "f904f934f690ca13bbb3de97e80c4a451f7b567fff9984e1c219319ee0ed51b4",
+      "cl100k_base": 31,
+      "o200k_base": 29
+    },
+    {
+      "sample": "Mandarin",
+      "text": "客户在30天内退回了两件未拆封的商品。请将48美元退回原支付方式，并在记录中保留订单号。",
+      "unicode_codepoints": 44,
+      "utf8_bytes": 124,
+      "sha256": "b329d7159247b14956477464a328724120f2002742176fbaf2a3841ba819e30a",
+      "cl100k_base": 39,
+      "o200k_base": 34
+    },
+    {
+      "sample": "Spanish",
+      "text": "El cliente devolvió dos artículos sin abrir dentro de los 30 días. Reembolsa 48 dólares al método de pago original y conserva el número de pedido en el registro.",
+      "unicode_codepoints": 161,
+      "utf8_bytes": 167,
+      "sha256": "85206501e4e02a9ab8f15ca95e0cfaf907e11ee255f4a777f3f480aeee1d87f8",
+      "cl100k_base": 43,
+      "o200k_base": 36
+    },
+    {
+      "sample": "Arabic",
+      "text": "أعاد العميل سلعتين غير مفتوحتين خلال 30 يومًا. أعد 48 دولارًا إلى وسيلة الدفع الأصلية واحتفظ برقم الطلب في السجل.",
+      "unicode_codepoints": 113,
+      "utf8_bytes": 201,
+      "sha256": "0552ded2aae8b96d29b5a4bf04c2b8615d4f982d8aaccc77e8fc939c90f3607d",
+      "cl100k_base": 82,
+      "o200k_base": 39
+    },
+    {
+      "sample": "JSON",
+      "text": "{\"returned_items\":2,\"unopened\":true,\"within_days\":30,\"refund_usd\":48,\"payment_method\":\"original\",\"retain_order_number\":true}",
+      "unicode_codepoints": 124,
+      "utf8_bytes": 124,
+      "sha256": "2b04b5305123ea77e4b595a117fc7c93dd1a5734aa31cd05a1f7827c288b0fad",
+      "cl100k_base": 33,
+      "o200k_base": 33
+    },
+    {
+      "sample": "Python",
+      "text": "def refund(order):\n    if order.days <= 30 and order.unopened_items == 2:\n        return {\"refund_usd\": 48, \"payment_method\": \"original\", \"order_id\": order.id}\n",
+      "unicode_codepoints": 160,
+      "utf8_bytes": 160,
+      "sha256": "4feb7aac69505d97042231bfe82a3ef027e4c6145379c9ba97523ee03010ec98",
+      "cl100k_base": 44,
+      "o200k_base": 44
+    }
+  ],
+  "rank_file_hashes": {
+    "9b5ad71b2ce5302211f9c61530b329a4922fc6a4": "223921b76ee99bde995b7ff738513eef100fb51d18c93597a113bcffe865b2a7",
+    "fb374d419588a4632f3f557e76b4b70aebbca790": "446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d"
+  }
+}

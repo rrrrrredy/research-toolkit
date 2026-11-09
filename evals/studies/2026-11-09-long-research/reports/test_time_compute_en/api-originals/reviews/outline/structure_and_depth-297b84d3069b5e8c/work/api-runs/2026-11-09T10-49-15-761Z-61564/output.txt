@@ -1,0 +1,19 @@
+{
+  "input_version": "f9326b7464e99932fa80001dcd2b0bf1d7d901852ae873e2ae6dbd9453ea7427",
+  "assignment_version": "297b84d3069b5e8c78d71bb16c4f8abd8f469932ce12ff42c07f590b7ab640f1",
+  "report_verdict": "pass",
+  "coverage": {
+    "structure_and_depth": {
+      "location": "analysis/outline.md: §§1–6, Q1–Q8, proposed report chapters 1–10, research units U1–U9, and Initial material observations and gaps; production_history entry for outline.",
+      "basis": "The complete outline provides a substantive, mechanism-based research design rather than a literature catalogue. Its progression connects system components and information access to sampling, revision, search, domain-specific feedback, scaling comparisons, complete costs, and deployment decisions. All requested strategy families have analytical homes, and the planned matrix, scaling comparison, allocation example, and decision tree have specified contents and responsible units. Checks against the supplied originals support the proposed distinctions: TTC001 §§3.2, 6.1 and Appendices C/J require separating difficulty-estimation costs, revision training, and verifier changes; TTC002 §4.2, Figure 7 and Appendix D.1 require separating training effects and experimental versions; TTC003 §§3.3–3.4 and Appendix G.6 distinguish candidate coverage, submitted accuracy, evaluator permissions, and selection costs. The outline preserves these distinctions rather than combining incomparable results. TTC005 §§4–5 and Appendix A.5 are appropriately assigned as a parameter-adaptation and evaluation-boundary case, not fixed-weight inference evidence. TTC006 Tables 1–2 and Appendix E receive claim-specific withholding rules, while TTC007 §§4–5 and TTC008 §§3–7 are used with explicit oracle, independence, and cost-proxy limitations. Mathematical reasoning, executable coding, and multi-step tool use each have substantive planned analyses; U6 specifies persistent state, feedback, reset constraints, action errors, and end-to-end costs instead of substituting terminal answer selection for agent behavior. Unread agent and foundational sources remain explicit research gaps with owners, not claimed findings. U7–U9 provide a credible route from evidence to budget-sensitive recommendations, including stopping, simpler execution, and no additional computation. The single production-history entry is a completed outline marked complete_draft=false, consistent with this stage and not evidence of completed research or a final report. No required structural correction is identified at outline scope."
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "SD-01",
+      "severity": "optional",
+      "location": "analysis/outline.md: §4, proposed chapters 1–2 and 7–8; U1 and U7.",
+      "basis": "R_TASK makes selection-inclusive budget comparison central. The outline assigns this correctly, but the full cost framework appears after the mechanism chapters and reported scaling comparison. Consider introducing a compact comparison contract in chapter 1 or 2: distinguish candidate-count diagnostics, total generation-plus-selection cost, serial latency, and parallel resources, while retaining the detailed ledger and worked example in chapter 8. TTC001 Appendix C and TTC002 Figure 7 illustrate why this helps: apparently favorable scaling results omit consequential computation. An early contract would let readers interpret the intervening evidence consistently without anticipating later qualifications. This is an organizational improvement, not missing substantive coverage."
+    }
+  ]
+}

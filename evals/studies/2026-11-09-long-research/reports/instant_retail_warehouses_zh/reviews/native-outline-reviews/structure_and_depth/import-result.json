@@ -1,0 +1,26 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\instant_retail_warehouses_zh",
+  "input_version": "c431e1bb532fbc1960709bbe66fd62f10ed2f56c2c11b81117798e93963ced9a",
+  "scope": "outline",
+  "assignments": [],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": true,
+  "completion_check": {
+    "ok": true,
+    "flags": [],
+    "findings": [],
+    "required_slots": 2,
+    "completed_slots": 2,
+    "selected_attempts": {
+      "requirements": "063afb65c1494d17a05362e478c18669",
+      "structure_and_depth": "671c709fc93d4efbb5d86975481a6cd2"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": null,
+  "open_issues": []
+}

@@ -1,0 +1,12 @@
+{
+  "input_version": "97ee1ab82f0edcae5c827dbdc224f44e663985fe5e22cf1f34b110fe8c980fb9",
+  "assignment_version": "c6f0e76ef26210cd0550c00524da1ead1682d929767ba68e6ccc9b98333b2491",
+  "report_verdict": "pass",
+  "coverage": {
+    "reader_usefulness": {
+      "location": "Full report lines 1–220: evaluation objects and HELM (1–44), coverage and worked comparisons (46–125), reproducibility and exposure/uncertainty (127–171), customer support and repository selection (173–220).",
+      "basis": "Read the entire original task, effective requirements, empty scope decisions, and current complete report in consecutive line ranges 1–55, 56–110, 111–165 and 166–220. The report supplies a usable decision method rather than a universal leaderboard winner. Dataset, framework, harness and leaderboard are introduced before comparison; the coverage matrix makes population and unit differences visible. Worked examples explain a genuine ranking reversal under broader coding tests, changed tau aggregation, pass@k versus pass^k, and preference sensitivity without equating unlike percentages. The reproducibility tables distinguish inspection, rescoring, new inference and actual replication and explicitly expose unavailable historical identities. Support recommendations distinguish explanation, retrieval, transactions and user-guided actions; repository recommendations use the deployed model–agent–tool configuration and include correction work. Meaningful contrary evidence and cost/operational qualifications appear next to the decisions they affect. No concrete reader-usefulness correction is required. This is a complete textual reader-usefulness assessment, not a fresh source audit or benchmark run."
+    }
+  },
+  "findings": []
+}

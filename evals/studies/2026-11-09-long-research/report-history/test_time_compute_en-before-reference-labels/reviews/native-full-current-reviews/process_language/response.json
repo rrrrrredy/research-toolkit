@@ -1,0 +1,12 @@
+{
+  "report_verdict": "pass",
+  "coverage": {
+    "process_language": {
+      "location": "reports/current.md 全文第1–358行；第161–247行预算与计算、第249–313行设计策略、第315–358行证据限定",
+      "basis": "已连续通读冻结正文、表格、Mermaid决策树、附录及完整任务要求。采样、控制器、预算账、状态回放、停止条件和调用成本均为研究对象的执行机制；假设计算、未复现实验说明、模型/评估版本及原始论文不一致性直接界定结论可用范围。未发现协调指令、作者对话、待审状态或本次生产日志。历史必要发现涉及的earlier planning estimate和对The request的回应已不在当前相应段落，保留20,000 slots分解与实用测量内容恰当。来源ID承担引用定位而非内部任务状态。此次未重验论文原件或实施代码。"
+    }
+  },
+  "findings": [],
+  "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+  "assignment_version": "e72148b24de6c25b25e8268387b85a029c4fb8580958a0dc96a2d927e68d1d96"
+}

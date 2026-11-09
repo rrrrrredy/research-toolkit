@@ -1,0 +1,1323 @@
+{
+  "stage": "final",
+  "status": "complete",
+  "author_id": "author:test_time_compute_en",
+  "review_contract": 2,
+  "open_issues": [],
+  "brief": {
+    "question": "Investigate how additional computation at inference time changes the capabilities, reliability, and economics of reasoning models and agents. The reader needs to decide which strategies to use, how to allocate a finite budget, and when extra computation is unlikely to help. Focus on work published from 2022 through the evidence cutoff of 2026-11-09, using earlier work where needed to explain foundations. Use only evidence publicly available by the cutoff and identify the relevant paper, model, implementation, and evaluation versions. Do not turn later knowledge into evidence available at the cutoff.\n\nDevelop a mechanism-based comparison of independent sampling, self-consistency, best-of-N selection, sequential revision, search over intermediate states, outcome and process verification, adaptive budget allocation, and agent loops involving tools or environmental feedback. Explain what generates candidates, what selects or rejects them, what state is retained, and what information the evaluator can access. Distinguish inference-time allocation from training changes that enable it. Separate results for a fixed base model from comparisons in which model size, post-training, data, or the verifier also changes.\n\nExamine evidence from mathematical reasoning, executable coding tasks, and multi-step tool-using tasks. Select informative studies rather than attempting an exhaustive paper catalogue. Compare scaling behavior, marginal gains, saturation, regressions, and variation with task difficulty. Explain how correlated errors, weak or miscalibrated verifiers, reward exploitation, unreliable tools, compounding action errors, or unavailable feedback can change the apparent benefit of additional search. Assess whether results on tasks with cheap, reliable checking transfer to tasks with ambiguous outcomes or delayed feedback.\n\nBuild a budget-aware comparison framework. Account for candidate generation, discarded branches, verifier calls, hidden or explicit reasoning tokens when disclosed, tool execution, and retries. Distinguish total compute or monetary cost from serial latency, parallel resource demand, and end-to-end wall-clock time. Token counts alone are not a common compute unit across different models. Where published studies permit a defensible normalization, show it with units and assumptions; otherwise retain separate comparisons and explain the missing information. Include a worked allocation example using reported values or clearly labeled hypothetical inputs, without presenting an illustrative calculation as a new experiment.\n\nDeliver a complete research report with a method-and-evidence matrix, a comparison of reported scaling behavior, and a design decision tree covering task verifiability, error consequences, latency constraints, tool availability, and budget. Explain how a designer should choose among a stronger base model, more samples, deeper search, better verification, or a simpler execution path. Distinguish empirical findings from proposed policies, and include cases in which no additional inference-time computation is the defensible choice. Tables and diagrams may be integrated into any coherent report structure; a literature list or brief recommendation sheet is not sufficient.\n\nThe central checks are whether budget comparisons include the computation used to select answers, whether training and inference effects remain distinguishable, and whether the proposed design choices follow from task-specific evidence. Report benchmark contamination, test-selection effects, evaluator leakage, and missing uncertainty estimates when they materially affect a claim. Publicly reported results need not be rerun, but they must not be described as independently reproduced unless they actually were. No particular scaling law or conclusion about the superiority of test-time compute is assumed.",
+    "audience": "Model researchers, inference engineers, and agent-system designers making compute-allocation decisions",
+    "scope": "Follow the task geography, comparison scope and evidence cutoff of 2026-11-09. Each other-language version uses its frozen sources without seeing the first-language report.",
+    "output": "Complete long-form research report final.md with the task-specific comparisons, explanations, tables and locatable citations. Preserve the first draft and actual independent results.",
+    "depth": "A full technical research report connecting mechanisms, budget-aware empirical comparisons, scaling limits, and implementable design choices across reasoning and agent workloads.",
+    "evidence_standard": "Use original public sources with actual dates, reading evidence and retained originals. Conduct seven separate independent content perspectives, relevant domain review, independent audit and final acceptance. Live primary research"
+  },
+  "profile": "full",
+  "next_action": "Delivered.",
+  "unit_reviews": {
+    "outline": {
+      "artifact_sha256": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+      "input_version": "f9326b7464e99932fa80001dcd2b0bf1d7d901852ae873e2ae6dbd9453ea7427",
+      "ok": true,
+      "reviewers": [
+        "resp_09b6762b8fa1fcda016af1a52eb6f887d192fc983d5c8242e6",
+        "resp_02147915a2b529f0016af1a52fda9087d189237a68e09b001b"
+      ],
+      "record_path": "reviews/host/f9326b7464e99932fa80/input.json"
+    },
+    "U1": {
+      "artifact_sha256": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+      "input_version": "677e8b6adda927740866f0126d0f8b7eb1a99359b146ce0e496a67e18d283f3e",
+      "ok": true,
+      "reviewers": [
+        "/root/independent_reviews_a",
+        "/root/domain_and_audit"
+      ],
+      "record_path": "reviews/host/677e8b6adda927740866/input.json"
+    }
+  },
+  "unit_review_plans": {
+    "outline": {
+      "contract_version": 2,
+      "purpose": "report_delivery",
+      "reviewer": "independent",
+      "audit_required": false,
+      "author_id": "author:test_time_compute_en",
+      "producer_contexts": [
+        "author:test_time_compute_en",
+        "resp_0007cd018862640d016af1a1e16f1887d19b06d251df17e94f"
+      ],
+      "scope": "outline",
+      "artifact": "analysis/outline.md",
+      "artifact_sha256": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+      "input_version": "f9326b7464e99932fa80001dcd2b0bf1d7d901852ae873e2ae6dbd9453ea7427",
+      "input": {
+        "path": "reviews/host/f9326b7464e99932fa80/input.json",
+        "sha256": "87ff18c6103d32965e86b0bcf838e4b43ee2ad7a1ee0d95480b2f9561cbbe102"
+      },
+      "bindings": {
+        "state/task_spec.md": "a54726733ae1efaa64c661f9bb4f0a8c063f66b13ff7ebeaba244661746da803",
+        "sources/TTC001/original.txt": "9978c71de575a44d5ca1a10301bffe3e2ec7e7ee4d1dcbe34a21dc544006f390",
+        "sources/TTC001/plan-reading.json": "6df3b5898447a597b643a3766aedba4a86f67b2a98bbab4ceafd92f768d9f678",
+        "sources/TTC002/original.txt": "503b3c14c273b7ee25bf01889ea93488ef99dd94620ff65153884da2c3f410e0",
+        "sources/TTC002/plan-reading.json": "5634b77be9717ccac7b8292b31623deb02a0fc534bdb4234dd55169d350b61ff",
+        "sources/TTC003/original.txt": "fbbc667be5b14632035c50107e6297df229d49fc1970a56a74e135b15680415d",
+        "sources/TTC003/plan-reading.json": "4ea044af2943732a2c994ea47cf47232f90b9981bcd53755b35b59d89e9005ac",
+        "sources/TTC004/original.txt": "e7f171256750ccf7c05f09977f2ce3e23b89533a07f29dd723f990af985514b1",
+        "sources/TTC004/plan-reading.json": "edfabdf5b3e5775988dd22d5e0ce7704f864e6c577da01037c59c31f1e4843b5",
+        "sources/TTC005/original.txt": "457d77f0dea6486ae5f3232b2af9a6385fc0a5b99bc1df391cb2424e47803548",
+        "sources/TTC005/plan-reading.json": "010a4c13c4508135672135bb3ded808195220eda7714dcd1ca4c318ecba2ac8c",
+        "sources/TTC006/original.txt": "fa34e0b428cc0937e2682093ed5cc47df7c10081eff3a7694c53b9afea051604",
+        "sources/TTC006/plan-reading.json": "b3f196ca8d88fd0bde0265b4fdb9a71aa11115172f1a9f61ec2f69163eb41346",
+        "sources/TTC007/original.txt": "7e409775a37ae009d20409e9d70fc652f7f9885058fbc159a365ed6d58d7b70a",
+        "sources/TTC007/plan-reading.json": "2c2209b5263b9da7b842c5df792fef941431bc94258412738da0eddfc9fef058",
+        "sources/TTC008/original.txt": "e70f13d6fcc8d0662081605582ff54e1804fac65ce658842df872392036feed3",
+        "sources/TTC008/plan-reading.json": "3455e7e188e95898ff0bf32d74bde5c70c92a63648b490162c1abb4369feb1fc",
+        "analysis/outline.md": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+        "record:requirements:effective@outline": "fd04a5d9aac14aa6ae92ba581479847f4946551de3a371c87a77228d68f2b906",
+        "record:sources:TTC001": "772a9b7eb1b13cd9d5bb0a85a6c862324a4f07d6b4ab6b9cb3dec67dcaab3179",
+        "record:sources:TTC002": "e4ac7c0b006e6e7bd9361bd69fea0fd2944729899af9bebd4dad96195f4708ff",
+        "record:sources:TTC003": "9d56135546be20d1bb0061e6e1a586a1ec1e059129d9c5480d75986cd612785d",
+        "record:sources:TTC004": "f13a8afd1eda0c23de4ecbc9c4543cd251462045add3911bf0c42a4a4d087f6d",
+        "record:sources:TTC005": "45519c5b9c3f64011973e07349614b2742600185c53b53ee17bc2e7a2391dc3d",
+        "record:sources:TTC006": "9a867dd55db0b53b17c9fac6ec6b4778c3c8850645bd052a6d8813aa4c6dce38",
+        "record:sources:TTC007": "37705be2d68b08ebb2f9411c600d640360274a4a4a46f96f6381856426f001f8",
+        "record:sources:TTC008": "ae3f6c063aa9375c77a44f0d2196d5274c36cb62c80cfca42a7a7a09e5dff286",
+        "logs/record-backups/d928fdb3c78f4fd69140bf48244c5533/saved/analysis/outline.md": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe"
+      },
+      "domains": [],
+      "slots": [
+        {
+          "slot_id": "requirements",
+          "role": "reviewer",
+          "dimensions": [
+            "requirements"
+          ]
+        },
+        {
+          "slot_id": "structure_and_depth",
+          "role": "reviewer",
+          "dimensions": [
+            "structure_and_depth"
+          ]
+        }
+      ],
+      "instructions": {
+        "reviewer": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Assign Work by Perspective\n\nEvery complete research delivery requires the following seven base perspectives, each in a different context separate from every production agent. Add domain review for the specialized claims the task makes. Use native subagents; author self-checks do not replace these assignments. Independence concerns the context and production role, not a different vendor or outside person.\n\n| Perspective | Method and required output |\n| --- | --- |\n| Intent and requirements (`requirements`) | Read the original request and effective corrections. Match important questions, required objects and constraints to actual passages or tables; identify missing answers, scope drift and instructions lost in revision. Do not invent requirements or protect the intended thesis from contrary evidence. |\n| Evidence and data (`evidence`) | Check consequential claims against original sources, dates, versions, populations, units, denominators and calculations. Distinguish facts, source claims and inference. State actual reading coverage, identifying the original sections or passages checked. |\n| Adversarial reasoning (`adversarial_reasoning`) | Challenge central conclusions with relevant counterexamples, alternative explanations, selection effects and missing assumptions. Explain the consequence for the argument; do not manufacture objections or require a finding quota. |\n| Structure and depth (`structure_and_depth`) | Check how questions, outline, sections, evidence and synthesis form the answer. Locate missing mechanisms, incomparable measures, compressed reasoning and source repetition. Apply the task's expected depth, not a universal structure or length. |\n| Reader usefulness (`reader_usefulness`) | Read the assembled text for its intended use: title and opening, argument continuity, introduced terms, tables, timelines and useful implications. Identify concrete understanding or decision problems. |\n| Process-language removal (`process_language`) | Locate production logs, internal paths/IDs, review status and assistant dialogue in reader-facing prose. Retain methods, source attribution, uncertainty and operational details that the reader's question needs. |\n| Natural expression (`natural_expression`) | Locate empty abstractions, repetitive caveats, vague actors, obstructive syntax and needless repetition. Explain the reading problem and a suitable remedy. Preserve facts, qualifiers, analytical depth and the user's style preferences; do not impose phrase bans or AI-detection targets. |\n| Domain specialist | Apply the actual field's criteria: technical baselines and experimental conditions, financial assumptions, policy applicability, clinical populations or other specialized reasoning. State the domain and claims examined. Use a separate non-author context for the domain assignment. |\n\nStart each perspective in a fresh independent context that reads the complete current report, original request and effective changes, and the original evidence relevant to the assignment. Do not seed it with the author's self-rating, other initial reviewers' judgments, expected scores or a preferred review result. Relevant substantive research analyses remain available. Return revisions to that perspective's original context: reuse completed reading and analysis, then examine changes and their effect on the current whole report. If that context cannot continue, hand its original assessment and actually reviewed input to a new independent context. A local premise review names its limited scope and cannot substitute for the final whole-report perspective. Review the artifact in its delivery format, including portable citations and table/figure meaning.\n\n## Shared Assignment\n\nProvide the question, reader, effective requirements, actual artifact and input versions, original-material access, assigned perspective and required output. The reviewer reports what was examined, locatable observations and their basis. Each finding identifies its location, applicable requirement, evidence, impact and severity, separating required corrections from optional preferences. When no defect is found, explain the supporting checks instead of returning a generic PASS.\n\nReviewers remain read-only. Keep original replies and observable execution identities separate from any structured extraction or author response. Skill-only work can retain them in the agent tool conversation or existing files; managed work uses the [review record interface](../docs/review-completion.md). Do not fabricate a missing session identity or source access.\n\n## Complete Every Required Review\n\nA complete review addresses its actual scope and version with substantive observations. Empty, truncated, wrong-version or generic replies leave the assignment open. Preserve failed attempts, correct the missing input or execution problem and resume that assignment. When required material exceeds one context, retain it in accessible originals and arrange complete scoped reading and synthesis, rather than silently replacing it with a summary.\n\nKeep the first valid result for a given input and artifact version. A negative finding is a completed review, not a reason to rerun for a better verdict. An isolated mistaken finding is adjudicated; it does not invalidate the entire review. The auditor determines consequential invalidity and contested no-change decisions from the evidence. A reviewer who never received required material has incomplete work; an examined source that leaves an answer uncertain may support a complete, qualified assessment.\n\nAuthors apply necessary fixes and can explain why they disagree with a finding. They cannot approve their own work, dismiss a necessary correction or relabel an incomplete review as complete. Preserve findings and responses for the independent audit. Revisions go back to the affected reviewer with the current complete artifact and relevant changes; unchanged evidence remains available and prior results stay bound to their actual version.\n\n",
+        "auditor": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Check Reviewers and Sample Passed Work\n\nEvery complete research task has an explicitly assigned audit context separate from production and content reviewers. The auditor receives the complete report, effective requirements, original sources, contributions, raw reviews and revision/disposition evidence. Review validity and report readiness are separate judgments: a valid negative review can describe a report that still needs correction.\n\nCheck each required review for its actual execution and input version, assigned coverage, locatable observations, supported claims and absence of invented requirements. Inspect all consequential findings and disagreements, including decisions to leave text unchanged. Resolve them against original evidence and actual prose, not majority votes or average scores. Preserve each original finding with one evidenced disposition: confirmed defect, no change, unresolved or resolved. A claimed repair is resolved only after examining the changed text and affected context.\n\nAudit all important requirements, decisive claims, key figures and citations, consequential counterevidence, major findings and necessary fixes. Also examine material marked passed or carrying no finding, including transformations from a worker's analysis into the report. The auditor chooses these samples from the complete artifact, not from an author's selected highlights.\n\nFor this additional sampling, retain the relevant population or report scope, selected locations, selection reasons, source checks and results in the existing audit output. Choose passages across relevant sections, evidence types and transformations; do not use a fixed percentage or first/last/hash-selected paragraphs as the default. A targeted sample is described as targeted, not random. When a discrepancy appears, check the same source, measure, branch or reasoning pattern wherever it affects the result; record that expansion and its outcome.\n\nThe auditor can request missing work from the existing researcher or reviewer and continue the same audit after repair. Necessary defects and unsupported important no-change decisions remain open. Evidence that genuinely cannot settle a research question is reported at the affected conclusion; it does not erase a missing mandatory reading or review assignment. Sampling is part of this audit and final acceptance, not a separate agent, score or approval process.\n\n",
+        "acceptance": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Stage Scheduling and Acceptance\n\n1. **Outline and first premises:** the lead plans questions, coverage and dependencies; the requirements and structure reviewers examine the outline before extensive dependent writing. Evidence/domain reviewers examine consequential premises and calculations as they become usable. Early local checks are retained as local checks.\n2. **Developing research units:** researchers produce evidence-backed arguments progressively. Resolve a premise that could change dependent work before treating it as settled; other independent units continue. The assembler updates the whole-report argument as contributions arrive and the outline changes.\n3. **Complete report:** all seven base perspectives and applicable domain review read the complete report. Findings from the independent reader-usefulness and natural-expression reviews are applied without losing facts or depth. The independent audit examines the reviews, important findings, necessary repairs and selected passed content.\n4. **Final acceptance:** a further context, separate from production, content review and audit, reads the complete current report against the effective requirements. It examines the audit, dispositions and the actual current text, checks all important requirements and necessary fixes, and selects additional passed content where needed to judge integration. It reports acceptance or the exact remaining work. Its PASS cannot replace a missing required review or audit.\n\nThe final acceptance agent verifies the delivered version, source/condition preservation, complete required coverage, developed analysis and reader usability. Cross-part contradictions or lost qualifications return to the responsible production/review assignment, with the affected scope and inputs. Keep the original findings and prior artifacts. Do not let a coordinator's summary stand in for this reading.\n\nReader-ready delivery requires resolved necessary corrections, complete independent assignments and acceptance of the current whole report. A stage artifact may be delivered with its actual unfinished scope. Historical and evaluation artifacts retain their original defects and labels; their completion status remains tied to the criteria and work recorded at the time. Once the agreed result and required work are complete, optional preferences do not restart unchanged reviews.\n\n"
+      }
+    },
+    "U1": {
+      "contract_version": 2,
+      "purpose": "report_delivery",
+      "reviewer": "independent",
+      "audit_required": false,
+      "author_id": "author:test_time_compute_en",
+      "producer_contexts": [
+        "/root",
+        "/root/ttc_research",
+        "author:test_time_compute_en",
+        "resp_0007cd018862640d016af1a1e16f1887d19b06d251df17e94f"
+      ],
+      "scope": "U1",
+      "artifact": "analysis/U1-evidence-protocol.md",
+      "artifact_sha256": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+      "input_version": "677e8b6adda927740866f0126d0f8b7eb1a99359b146ce0e496a67e18d283f3e",
+      "input": {
+        "path": "reviews/host/677e8b6adda927740866/input.json",
+        "sha256": "8a181582004e200d43f4b30b7881027c4c36d2790b949f9115628f9f138e61bb"
+      },
+      "bindings": {
+        "state/task_spec.md": "a54726733ae1efaa64c661f9bb4f0a8c063f66b13ff7ebeaba244661746da803",
+        "sources/TTC001/original.txt": "9978c71de575a44d5ca1a10301bffe3e2ec7e7ee4d1dcbe34a21dc544006f390",
+        "sources/TTC001/plan-reading.json": "6df3b5898447a597b643a3766aedba4a86f67b2a98bbab4ceafd92f768d9f678",
+        "sources/TTC002/original.txt": "503b3c14c273b7ee25bf01889ea93488ef99dd94620ff65153884da2c3f410e0",
+        "sources/TTC002/plan-reading.json": "5634b77be9717ccac7b8292b31623deb02a0fc534bdb4234dd55169d350b61ff",
+        "sources/TTC003/original.txt": "fbbc667be5b14632035c50107e6297df229d49fc1970a56a74e135b15680415d",
+        "sources/TTC003/plan-reading.json": "4ea044af2943732a2c994ea47cf47232f90b9981bcd53755b35b59d89e9005ac",
+        "sources/TTC004/original.txt": "e7f171256750ccf7c05f09977f2ce3e23b89533a07f29dd723f990af985514b1",
+        "sources/TTC004/plan-reading.json": "edfabdf5b3e5775988dd22d5e0ce7704f864e6c577da01037c59c31f1e4843b5",
+        "sources/TTC005/original.txt": "457d77f0dea6486ae5f3232b2af9a6385fc0a5b99bc1df391cb2424e47803548",
+        "sources/TTC005/plan-reading.json": "010a4c13c4508135672135bb3ded808195220eda7714dcd1ca4c318ecba2ac8c",
+        "sources/TTC006/original.txt": "fa34e0b428cc0937e2682093ed5cc47df7c10081eff3a7694c53b9afea051604",
+        "sources/TTC006/plan-reading.json": "b3f196ca8d88fd0bde0265b4fdb9a71aa11115172f1a9f61ec2f69163eb41346",
+        "sources/TTC007/original.txt": "7e409775a37ae009d20409e9d70fc652f7f9885058fbc159a365ed6d58d7b70a",
+        "sources/TTC007/plan-reading.json": "2c2209b5263b9da7b842c5df792fef941431bc94258412738da0eddfc9fef058",
+        "sources/TTC008/original.txt": "e70f13d6fcc8d0662081605582ff54e1804fac65ce658842df872392036feed3",
+        "sources/TTC008/plan-reading.json": "3455e7e188e95898ff0bf32d74bde5c70c92a63648b490162c1abb4369feb1fc",
+        "analysis/U1-evidence-protocol.md": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+        "sources/TTC003v2/original.txt": "b29093bdb0bcc6aa6a94564db09aad1a8991c9315de0c0092a7f1c77064c6333",
+        "sources/TTC009/original.txt": "ca2a1cef6f9498dea3f62d6ad3c19934cb93ae4d123724aabea61811892954f4",
+        "sources/TTC010/original.txt": "bbf8b9069a0928adfdad4541c0ea4be04af1b58517131c0e66c4863cf95b10b5",
+        "sources/TTC011/original.txt": "1f46c5ea76dd63cb2901146ce873700169e18ad97e3687fb7c28ea8eeb17819a",
+        "sources/TTC012/original.txt": "ddbc09a9f6c00ea87353c32039e3b4e4641d461aa0692307427e767f221eafa2",
+        "sources/TTC013/original.txt": "104adeeb4df6433b039dc5c8eda924c398eb68dc5a7eb84957543435d920e6a4",
+        "analysis/outline.md": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+        "record:requirements:effective@U1,outline": "fd04a5d9aac14aa6ae92ba581479847f4946551de3a371c87a77228d68f2b906",
+        "record:sources:TTC001": "772a9b7eb1b13cd9d5bb0a85a6c862324a4f07d6b4ab6b9cb3dec67dcaab3179",
+        "record:sources:TTC002": "e4ac7c0b006e6e7bd9361bd69fea0fd2944729899af9bebd4dad96195f4708ff",
+        "record:sources:TTC003": "9d56135546be20d1bb0061e6e1a586a1ec1e059129d9c5480d75986cd612785d",
+        "record:sources:TTC004": "f13a8afd1eda0c23de4ecbc9c4543cd251462045add3911bf0c42a4a4d087f6d",
+        "record:sources:TTC005": "45519c5b9c3f64011973e07349614b2742600185c53b53ee17bc2e7a2391dc3d",
+        "record:sources:TTC006": "9a867dd55db0b53b17c9fac6ec6b4778c3c8850645bd052a6d8813aa4c6dce38",
+        "record:sources:TTC007": "37705be2d68b08ebb2f9411c600d640360274a4a4a46f96f6381856426f001f8",
+        "record:sources:TTC008": "ae3f6c063aa9375c77a44f0d2196d5274c36cb62c80cfca42a7a7a09e5dff286",
+        "logs/record-backups/d928fdb3c78f4fd69140bf48244c5533/saved/analysis/outline.md": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+        "logs/record-backups/93c8d404dafd486c8c606401a6170541/saved/analysis/U1-evidence-protocol.md": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f"
+      },
+      "domains": [
+        "Statistical evaluation and inference algorithm design"
+      ],
+      "slots": [
+        {
+          "slot_id": "evidence",
+          "role": "reviewer",
+          "dimensions": [
+            "evidence"
+          ]
+        },
+        {
+          "slot_id": "domain-1",
+          "role": "reviewer",
+          "dimensions": [
+            "domain"
+          ],
+          "domain": "Statistical evaluation and inference algorithm design"
+        }
+      ],
+      "instructions": {
+        "reviewer": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Assign Work by Perspective\n\nEvery complete research delivery requires the following seven base perspectives, each in a different context separate from every production agent. Add domain review for the specialized claims the task makes. Use native subagents; author self-checks do not replace these assignments. Independence concerns the context and production role, not a different vendor or outside person.\n\n| Perspective | Method and required output |\n| --- | --- |\n| Intent and requirements (`requirements`) | Read the original request and effective corrections. Match important questions, required objects and constraints to actual passages or tables; identify missing answers, scope drift and instructions lost in revision. Do not invent requirements or protect the intended thesis from contrary evidence. |\n| Evidence and data (`evidence`) | Check consequential claims against original sources, dates, versions, populations, units, denominators and calculations. Distinguish facts, source claims and inference. State actual reading coverage, identifying the original sections or passages checked. |\n| Adversarial reasoning (`adversarial_reasoning`) | Challenge central conclusions with relevant counterexamples, alternative explanations, selection effects and missing assumptions. Explain the consequence for the argument; do not manufacture objections or require a finding quota. |\n| Structure and depth (`structure_and_depth`) | Check how questions, outline, sections, evidence and synthesis form the answer. Locate missing mechanisms, incomparable measures, compressed reasoning and source repetition. Apply the task's expected depth, not a universal structure or length. |\n| Reader usefulness (`reader_usefulness`) | Read the assembled text for its intended use: title and opening, argument continuity, introduced terms, tables, timelines and useful implications. Identify concrete understanding or decision problems. |\n| Process-language removal (`process_language`) | Locate production logs, internal paths/IDs, review status and assistant dialogue in reader-facing prose. Retain methods, source attribution, uncertainty and operational details that the reader's question needs. |\n| Natural expression (`natural_expression`) | Locate empty abstractions, repetitive caveats, vague actors, obstructive syntax and needless repetition. Explain the reading problem and a suitable remedy. Preserve facts, qualifiers, analytical depth and the user's style preferences; do not impose phrase bans or AI-detection targets. |\n| Domain specialist | Apply the actual field's criteria: technical baselines and experimental conditions, financial assumptions, policy applicability, clinical populations or other specialized reasoning. State the domain and claims examined. Use a separate non-author context for the domain assignment. |\n\nStart each perspective in a fresh independent context that reads the complete current report, original request and effective changes, and the original evidence relevant to the assignment. Do not seed it with the author's self-rating, other initial reviewers' judgments, expected scores or a preferred review result. Relevant substantive research analyses remain available. Return revisions to that perspective's original context: reuse completed reading and analysis, then examine changes and their effect on the current whole report. If that context cannot continue, hand its original assessment and actually reviewed input to a new independent context. A local premise review names its limited scope and cannot substitute for the final whole-report perspective. Review the artifact in its delivery format, including portable citations and table/figure meaning.\n\n## Shared Assignment\n\nProvide the question, reader, effective requirements, actual artifact and input versions, original-material access, assigned perspective and required output. The reviewer reports what was examined, locatable observations and their basis. Each finding identifies its location, applicable requirement, evidence, impact and severity, separating required corrections from optional preferences. When no defect is found, explain the supporting checks instead of returning a generic PASS.\n\nReviewers remain read-only. Keep original replies and observable execution identities separate from any structured extraction or author response. Skill-only work can retain them in the agent tool conversation or existing files; managed work uses the [review record interface](../docs/review-completion.md). Do not fabricate a missing session identity or source access.\n\n## Complete Every Required Review\n\nA complete review addresses its actual scope and version with substantive observations. Empty, truncated, wrong-version or generic replies leave the assignment open. Preserve failed attempts, correct the missing input or execution problem and resume that assignment. When required material exceeds one context, retain it in accessible originals and arrange complete scoped reading and synthesis, rather than silently replacing it with a summary.\n\nKeep the first valid result for a given input and artifact version. A negative finding is a completed review, not a reason to rerun for a better verdict. An isolated mistaken finding is adjudicated; it does not invalidate the entire review. The auditor determines consequential invalidity and contested no-change decisions from the evidence. A reviewer who never received required material has incomplete work; an examined source that leaves an answer uncertain may support a complete, qualified assessment.\n\nAuthors apply necessary fixes and can explain why they disagree with a finding. They cannot approve their own work, dismiss a necessary correction or relabel an incomplete review as complete. Preserve findings and responses for the independent audit. Revisions go back to the affected reviewer with the current complete artifact and relevant changes; unchanged evidence remains available and prior results stay bound to their actual version.\n\n",
+        "auditor": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Check Reviewers and Sample Passed Work\n\nEvery complete research task has an explicitly assigned audit context separate from production and content reviewers. The auditor receives the complete report, effective requirements, original sources, contributions, raw reviews and revision/disposition evidence. Review validity and report readiness are separate judgments: a valid negative review can describe a report that still needs correction.\n\nCheck each required review for its actual execution and input version, assigned coverage, locatable observations, supported claims and absence of invented requirements. Inspect all consequential findings and disagreements, including decisions to leave text unchanged. Resolve them against original evidence and actual prose, not majority votes or average scores. Preserve each original finding with one evidenced disposition: confirmed defect, no change, unresolved or resolved. A claimed repair is resolved only after examining the changed text and affected context.\n\nAudit all important requirements, decisive claims, key figures and citations, consequential counterevidence, major findings and necessary fixes. Also examine material marked passed or carrying no finding, including transformations from a worker's analysis into the report. The auditor chooses these samples from the complete artifact, not from an author's selected highlights.\n\nFor this additional sampling, retain the relevant population or report scope, selected locations, selection reasons, source checks and results in the existing audit output. Choose passages across relevant sections, evidence types and transformations; do not use a fixed percentage or first/last/hash-selected paragraphs as the default. A targeted sample is described as targeted, not random. When a discrepancy appears, check the same source, measure, branch or reasoning pattern wherever it affects the result; record that expansion and its outcome.\n\nThe auditor can request missing work from the existing researcher or reviewer and continue the same audit after repair. Necessary defects and unsupported important no-change decisions remain open. Evidence that genuinely cannot settle a research question is reported at the affected conclusion; it does not erase a missing mandatory reading or review assignment. Sampling is part of this audit and final acceptance, not a separate agent, score or approval process.\n\n",
+        "acceptance": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Stage Scheduling and Acceptance\n\n1. **Outline and first premises:** the lead plans questions, coverage and dependencies; the requirements and structure reviewers examine the outline before extensive dependent writing. Evidence/domain reviewers examine consequential premises and calculations as they become usable. Early local checks are retained as local checks.\n2. **Developing research units:** researchers produce evidence-backed arguments progressively. Resolve a premise that could change dependent work before treating it as settled; other independent units continue. The assembler updates the whole-report argument as contributions arrive and the outline changes.\n3. **Complete report:** all seven base perspectives and applicable domain review read the complete report. Findings from the independent reader-usefulness and natural-expression reviews are applied without losing facts or depth. The independent audit examines the reviews, important findings, necessary repairs and selected passed content.\n4. **Final acceptance:** a further context, separate from production, content review and audit, reads the complete current report against the effective requirements. It examines the audit, dispositions and the actual current text, checks all important requirements and necessary fixes, and selects additional passed content where needed to judge integration. It reports acceptance or the exact remaining work. Its PASS cannot replace a missing required review or audit.\n\nThe final acceptance agent verifies the delivered version, source/condition preservation, complete required coverage, developed analysis and reader usability. Cross-part contradictions or lost qualifications return to the responsible production/review assignment, with the affected scope and inputs. Keep the original findings and prior artifacts. Do not let a coordinator's summary stand in for this reading.\n\nReader-ready delivery requires resolved necessary corrections, complete independent assignments and acceptance of the current whole report. A stage artifact may be delivered with its actual unfinished scope. Historical and evaluation artifacts retain their original defects and labels; their completion status remains tied to the criteria and work recorded at the time. Once the agreed result and required work are complete, optional preferences do not restart unchanged reviews.\n\n"
+      },
+      "revision_context": {
+        "historical_only": true,
+        "input": {
+          "path": "reviews/host/8005824d34a17e3023e0/input.json",
+          "sha256": "d2196070d4cddec7a4820e11734adffdf289ce9f73dc3d783fa2937557627f85"
+        },
+        "input_version": "8005824d34a17e3023e0f2332760f582193e892fd93af10232da7b8af569bec3",
+        "reviews": {
+          "evidence": {
+            "attempt_id": "8747f6c5229947bc86f88704efb57329",
+            "response": {
+              "path": "reviews/host/8005824d34a17e3023e0/results/8747f6c5229947bc/response.txt",
+              "sha256": "22a1612a788c2709131d6b093d5f52a9fe8dc48d99e67cf1b0ff146a7850296b"
+            },
+            "input": {
+              "path": "reviews/host/8005824d34a17e3023e0/jobs/evidence-65bf7f0b59a4c19e.json",
+              "sha256": "8cfab307a2436b0dc7caf1bce3aaf86465a240c6d7a0a407c9d11b133ce375d3"
+            },
+            "execution": {
+              "path": "reviews/host/8005824d34a17e3023e0/results/8747f6c5229947bc/execution.json",
+              "sha256": "2b46eb62aa50ce7fc7900cfdad3e74b2eea21fc01e03e4d80a8269fff6415e3e"
+            },
+            "execution_id": "/root",
+            "role": "reviewer",
+            "report_verdict": "pass",
+            "review_validity": "not_separately_audited",
+            "input_version": "8005824d34a17e3023e0f2332760f582193e892fd93af10232da7b8af569bec3",
+            "dimensions": [
+              "evidence"
+            ],
+            "domain": null
+          },
+          "domain-1": {
+            "attempt_id": "de9e0cca3314427fa1e9b832aae90f6d",
+            "response": {
+              "path": "reviews/host/8005824d34a17e3023e0/results/de9e0cca3314427f/response.txt",
+              "sha256": "c93f319f9c35a20278292801dc8b211ba05b04225b25c0458eefe2f3ed2eec70"
+            },
+            "input": {
+              "path": "reviews/host/8005824d34a17e3023e0/jobs/domain-1-419a4f23231ea4a1.json",
+              "sha256": "d3533612c579d5591d6c8b8b7e8a44355b382af27335c597e76c30412142c529"
+            },
+            "execution": {
+              "path": "reviews/host/8005824d34a17e3023e0/results/de9e0cca3314427f/execution.json",
+              "sha256": "9f6761945dd4227672b937bd52eb6112ed3055335b24c0b11aa3700bb0c38c47"
+            },
+            "execution_id": "/root/domain_and_audit",
+            "role": "reviewer",
+            "report_verdict": "pass",
+            "review_validity": "not_separately_audited",
+            "input_version": "8005824d34a17e3023e0f2332760f582193e892fd93af10232da7b8af569bec3",
+            "dimensions": [
+              "domain"
+            ],
+            "domain": "Statistical evaluation and inference algorithm design"
+          }
+        },
+        "changed_inputs": [],
+        "unchanged_inputs": [
+          "analysis/U1-evidence-protocol.md",
+          "analysis/outline.md",
+          "logs/record-backups/93c8d404dafd486c8c606401a6170541/saved/analysis/U1-evidence-protocol.md",
+          "logs/record-backups/d928fdb3c78f4fd69140bf48244c5533/saved/analysis/outline.md",
+          "record:requirements:effective@U1,outline",
+          "record:sources:TTC001",
+          "record:sources:TTC002",
+          "record:sources:TTC003",
+          "record:sources:TTC004",
+          "record:sources:TTC005",
+          "record:sources:TTC006",
+          "record:sources:TTC007",
+          "record:sources:TTC008",
+          "sources/TTC001/original.txt",
+          "sources/TTC001/plan-reading.json",
+          "sources/TTC002/original.txt",
+          "sources/TTC002/plan-reading.json",
+          "sources/TTC003/original.txt",
+          "sources/TTC003/plan-reading.json",
+          "sources/TTC003v2/original.txt",
+          "sources/TTC004/original.txt",
+          "sources/TTC004/plan-reading.json",
+          "sources/TTC005/original.txt",
+          "sources/TTC005/plan-reading.json",
+          "sources/TTC006/original.txt",
+          "sources/TTC006/plan-reading.json",
+          "sources/TTC007/original.txt",
+          "sources/TTC007/plan-reading.json",
+          "sources/TTC008/original.txt",
+          "sources/TTC008/plan-reading.json",
+          "sources/TTC009/original.txt",
+          "sources/TTC010/original.txt",
+          "sources/TTC011/original.txt",
+          "sources/TTC012/original.txt",
+          "sources/TTC013/original.txt",
+          "state/task_spec.md"
+        ],
+        "report_changes": []
+      }
+    }
+  },
+  "current_artifact": {
+    "path": "reports/current.md",
+    "sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+    "kind": "report",
+    "owner": "/root/ttc_research",
+    "unit_id": "report"
+  },
+  "review_plan": {
+    "contract_version": 2,
+    "purpose": "report_delivery",
+    "reviewer": "independent",
+    "audit_required": true,
+    "author_id": "author:test_time_compute_en",
+    "producer_contexts": [
+      "/root",
+      "/root/ttc_research",
+      "author:test_time_compute_en",
+      "resp_0007cd018862640d016af1a1e16f1887d19b06d251df17e94f"
+    ],
+    "scope": "full_report",
+    "artifact": "reports/current.md",
+    "artifact_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+    "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+    "input": {
+      "path": "reviews/host/f09f3163d0ce7117bf0d/input.json",
+      "sha256": "abe7ee53e3dd849f7ed6d9271c9fb9b438304be369c9b15334d3dbaf5ad6c559"
+    },
+    "bindings": {
+      "reports/current.md": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+      "state/task_spec.md": "a54726733ae1efaa64c661f9bb4f0a8c063f66b13ff7ebeaba244661746da803",
+      "analysis/author-production/allocation-results.json": "7aded2c153183b6b682b4f6effda6861282d743c144fd257f8be42b93116d97c",
+      "analysis/author-production/handoff.json": "d1a6f3b14c4966c7ae2809e7dadd9f27bde71d047d727b4bff399b850c286b11",
+      "data/claims_registry.csv": "425d58d6f5742f6e3cba5a98ba86982fa6d3ac04bdba15b66113c53ca1d01a9c",
+      "data/source_registry.csv": "e81d707411ed09eb0d9303f8fd7b6dd68c58758d325625255d4e48323113769b",
+      "notes/actual-reading/SUP-AC.json": "66cbcae710b70fb3c7f95fb36102475ca741bed25f63e7677b2bfb15bfea89fd",
+      "notes/actual-reading/SUP-CM.json": "43cb626bae9943b608ed69eee94a879dd9a9fe8a1225ac8fe9681be08d8a5d36",
+      "notes/actual-reading/SUP-SELF.json": "ebb61ea26f2ffd6d43f74d75e4839057f32b4ed324ed9eeaeb4d64b0c63ac894",
+      "notes/actual-reading/SUP-TAU.json": "e67cd741370ea08b30da55a5a6b794f6c48065cc89b9ff853186a344039e443c",
+      "notes/actual-reading/SUP-TREE.json": "5b5b048877c24aee282cd44bbaa391427fd892e5ca6c89ec4849681cc0f87334",
+      "notes/actual-reading/TTC003v2.json": "c67a8bcbfd9605bc7e6101143f92511cf26229b4e16245524f572c429bbcbe35",
+      "notes/actual-reading/TTC009.json": "483b08693917780a21ba4675b0e4a98af8a768a81975dffcb1848b785c89d5fc",
+      "notes/actual-reading/TTC010.json": "c890b18f7f140050affbd3d229c14f4a6f5aff0a4a95fb3f4cf99484e6de103a",
+      "notes/actual-reading/TTC011.json": "e4d02c3d76acbae8941678049c1806f4018e66676b7506c73ba7bc74649dcd3b",
+      "notes/actual-reading/TTC012.json": "5c1802545b61aca072e140d896716eb2749ceb6116eefc34d0d04ec9237a311a",
+      "notes/actual-reading/TTC013.json": "5e41dc2098913cc7431793cdca029c09f4da56c31e74a7ddcb5fe49e99f4f985",
+      "notes/author-reading-ledger.json": "26c9fe22cf42911bf1d979df290b71d2a7fe408eaa0895c0c916567a15343028",
+      "sources/TTC001/original.txt": "9978c71de575a44d5ca1a10301bffe3e2ec7e7ee4d1dcbe34a21dc544006f390",
+      "sources/TTC001/plan-reading.json": "6df3b5898447a597b643a3766aedba4a86f67b2a98bbab4ceafd92f768d9f678",
+      "sources/TTC002/original.txt": "503b3c14c273b7ee25bf01889ea93488ef99dd94620ff65153884da2c3f410e0",
+      "sources/TTC002/plan-reading.json": "5634b77be9717ccac7b8292b31623deb02a0fc534bdb4234dd55169d350b61ff",
+      "sources/TTC005/original.txt": "457d77f0dea6486ae5f3232b2af9a6385fc0a5b99bc1df391cb2424e47803548",
+      "sources/TTC005/plan-reading.json": "010a4c13c4508135672135bb3ded808195220eda7714dcd1ca4c318ecba2ac8c",
+      "sources/TTC006/original.txt": "fa34e0b428cc0937e2682093ed5cc47df7c10081eff3a7694c53b9afea051604",
+      "sources/TTC006/plan-reading.json": "b3f196ca8d88fd0bde0265b4fdb9a71aa11115172f1a9f61ec2f69163eb41346",
+      "sources/TTC007/original.txt": "7e409775a37ae009d20409e9d70fc652f7f9885058fbc159a365ed6d58d7b70a",
+      "sources/TTC007/plan-reading.json": "2c2209b5263b9da7b842c5df792fef941431bc94258412738da0eddfc9fef058",
+      "sources/TTC008/original.txt": "e70f13d6fcc8d0662081605582ff54e1804fac65ce658842df872392036feed3",
+      "sources/TTC008/plan-reading.json": "3455e7e188e95898ff0bf32d74bde5c70c92a63648b490162c1abb4369feb1fc",
+      "sources/actual/SUP-AC.txt": "bbe5da5a58537675a9cef1347e920eecf738f7c45871beb2ce4f8b53aae1204f",
+      "sources/actual/SUP-CM.txt": "0170a74cc73a3ce559ce26818a31523aaefa4acddc24c3ed1bc67bf34a185d04",
+      "sources/actual/SUP-SELF.txt": "b3692efe76ffc4eed24e333ac37b60ee7f4d0ba66dc82da5d75c0aacdb0816db",
+      "sources/actual/SUP-TAU.txt": "1c38e77047e48759c73450b93ba68f25926566b9bacef05cdf783726e79586bc",
+      "sources/actual/SUP-TREE.txt": "7ee0ebe1d36ab478eca15026d76a43347fbddb0a6acca73a2d79b8a97262de82",
+      "sources/actual/TTC003v2.txt": "b29093bdb0bcc6aa6a94564db09aad1a8991c9315de0c0092a7f1c77064c6333",
+      "sources/actual/TTC009.txt": "ca2a1cef6f9498dea3f62d6ad3c19934cb93ae4d123724aabea61811892954f4",
+      "sources/actual/TTC010.txt": "bbf8b9069a0928adfdad4541c0ea4be04af1b58517131c0e66c4863cf95b10b5",
+      "sources/actual/TTC011.txt": "1f46c5ea76dd63cb2901146ce873700169e18ad97e3687fb7c28ea8eeb17819a",
+      "sources/actual/TTC012.txt": "ddbc09a9f6c00ea87353c32039e3b4e4641d461aa0692307427e767f221eafa2",
+      "sources/actual/TTC013.txt": "104adeeb4df6433b039dc5c8eda924c398eb68dc5a7eb84957543435d920e6a4",
+      "record:requirements:effective": "fd04a5d9aac14aa6ae92ba581479847f4946551de3a371c87a77228d68f2b906",
+      "logs/record-backups/d928fdb3c78f4fd69140bf48244c5533/saved/analysis/outline.md": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+      "logs/record-backups/93c8d404dafd486c8c606401a6170541/saved/analysis/U1-evidence-protocol.md": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+      "logs/record-backups/45f2fdd3a2584048b655ffed76dd03b6/saved/reports/current.md": "e1b4fa3580310c7761668eb042def1b4e7bc72a51a2d7e8f614385cca6bcbb78",
+      "logs/record-backups/f7eec6d75471410f935226323d7d3d56/saved/reports/current.md": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea",
+      "logs/record-backups/f7eec6d75471410f935226323d7d3d56/reports/current.md": "e1b4fa3580310c7761668eb042def1b4e7bc72a51a2d7e8f614385cca6bcbb78",
+      "logs/record-backups/a0eafffaa1bf4c1aa2bf8af442a84105/saved/reports/current.md": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+      "logs/record-backups/a0eafffaa1bf4c1aa2bf8af442a84105/reports/current.md": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea",
+      "reviews/host/35856ace8b32421ec17a/jobs/natural_expression-4fe9c4d2357fdfc9.json": "1e1b5f0dc4ac77d5cfeaa306b2f0e0b24e7d54c98f2cc5daa8916907100604b0",
+      "reviews/host/35856ace8b32421ec17a/results/a1c1a586e9c5493c/response.txt": "b70ac5515d2f041a0e388cf677adcbb0e2e3b6644d74e166f1e9338adde75304",
+      "reviews/host/35856ace8b32421ec17a/results/a1c1a586e9c5493c/execution.json": "4e558e17e73c4b03490ddc7fd9ae8810c0814b7db93443fc38b300372dba30c7",
+      "reviews/host/35856ace8b32421ec17a/jobs/reader_usefulness-6dba9e43678e74b9.json": "a547c5ca3b5e18531a53698aa5a466466d6126fe305c9e4a0a7dc33a19c4e382",
+      "reviews/host/35856ace8b32421ec17a/results/0e1eb4f31fff4f5b/response.txt": "31da238a944b8b152c60b4082b1a6728db178d4a0b986cb2fb8f7df2d79e9117",
+      "reviews/host/35856ace8b32421ec17a/results/0e1eb4f31fff4f5b/execution.json": "9bd704f2226e99f53600ef4c7f2aa1038b448e6400588fb70ebcad26521e85d3",
+      "analysis/outline.md": "401929dcc167d5bc6fad61a6ea835838261c9994cc1574c8e6c1ee1fd3a63efe",
+      "analysis/U1-evidence-protocol.md": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f"
+    },
+    "domains": [
+      "Inference algorithms, verifiers and statistical evaluation"
+    ],
+    "slots": [
+      {
+        "slot_id": "requirements",
+        "role": "reviewer",
+        "dimensions": [
+          "requirements"
+        ]
+      },
+      {
+        "slot_id": "evidence",
+        "role": "reviewer",
+        "dimensions": [
+          "evidence"
+        ]
+      },
+      {
+        "slot_id": "adversarial_reasoning",
+        "role": "reviewer",
+        "dimensions": [
+          "adversarial_reasoning"
+        ]
+      },
+      {
+        "slot_id": "structure_and_depth",
+        "role": "reviewer",
+        "dimensions": [
+          "structure_and_depth"
+        ]
+      },
+      {
+        "slot_id": "reader_usefulness",
+        "role": "reviewer",
+        "dimensions": [
+          "reader_usefulness"
+        ]
+      },
+      {
+        "slot_id": "process_language",
+        "role": "reviewer",
+        "dimensions": [
+          "process_language"
+        ]
+      },
+      {
+        "slot_id": "natural_expression",
+        "role": "reviewer",
+        "dimensions": [
+          "natural_expression"
+        ]
+      },
+      {
+        "slot_id": "domain-1",
+        "role": "reviewer",
+        "dimensions": [
+          "domain"
+        ],
+        "domain": "Inference algorithms, verifiers and statistical evaluation"
+      },
+      {
+        "slot_id": "audit",
+        "role": "auditor"
+      },
+      {
+        "slot_id": "acceptance",
+        "role": "acceptance"
+      }
+    ],
+    "instructions": {
+      "reviewer": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Assign Work by Perspective\n\nEvery complete research delivery requires the following seven base perspectives, each in a different context separate from every production agent. Add domain review for the specialized claims the task makes. Use native subagents; author self-checks do not replace these assignments. Independence concerns the context and production role, not a different vendor or outside person.\n\n| Perspective | Method and required output |\n| --- | --- |\n| Intent and requirements (`requirements`) | Read the original request and effective corrections. Match important questions, required objects and constraints to actual passages or tables; identify missing answers, scope drift and instructions lost in revision. Do not invent requirements or protect the intended thesis from contrary evidence. |\n| Evidence and data (`evidence`) | Check consequential claims against original sources, dates, versions, populations, units, denominators and calculations. Distinguish facts, source claims and inference. State actual reading coverage, identifying the original sections or passages checked. |\n| Adversarial reasoning (`adversarial_reasoning`) | Challenge central conclusions with relevant counterexamples, alternative explanations, selection effects and missing assumptions. Explain the consequence for the argument; do not manufacture objections or require a finding quota. |\n| Structure and depth (`structure_and_depth`) | Check how questions, outline, sections, evidence and synthesis form the answer. Locate missing mechanisms, incomparable measures, compressed reasoning and source repetition. Apply the task's expected depth, not a universal structure or length. |\n| Reader usefulness (`reader_usefulness`) | Read the assembled text for its intended use: title and opening, argument continuity, introduced terms, tables, timelines and useful implications. Identify concrete understanding or decision problems. |\n| Process-language removal (`process_language`) | Locate production logs, internal paths/IDs, review status and assistant dialogue in reader-facing prose. Retain methods, source attribution, uncertainty and operational details that the reader's question needs. |\n| Natural expression (`natural_expression`) | Locate empty abstractions, repetitive caveats, vague actors, obstructive syntax and needless repetition. Explain the reading problem and a suitable remedy. Preserve facts, qualifiers, analytical depth and the user's style preferences; do not impose phrase bans or AI-detection targets. |\n| Domain specialist | Apply the actual field's criteria: technical baselines and experimental conditions, financial assumptions, policy applicability, clinical populations or other specialized reasoning. State the domain and claims examined. Use a separate non-author context for the domain assignment. |\n\nStart each perspective in a fresh independent context that reads the complete current report, original request and effective changes, and the original evidence relevant to the assignment. Do not seed it with the author's self-rating, other initial reviewers' judgments, expected scores or a preferred review result. Relevant substantive research analyses remain available. Return revisions to that perspective's original context: reuse completed reading and analysis, then examine changes and their effect on the current whole report. If that context cannot continue, hand its original assessment and actually reviewed input to a new independent context. A local premise review names its limited scope and cannot substitute for the final whole-report perspective. Review the artifact in its delivery format, including portable citations and table/figure meaning.\n\n## Shared Assignment\n\nProvide the question, reader, effective requirements, actual artifact and input versions, original-material access, assigned perspective and required output. The reviewer reports what was examined, locatable observations and their basis. Each finding identifies its location, applicable requirement, evidence, impact and severity, separating required corrections from optional preferences. When no defect is found, explain the supporting checks instead of returning a generic PASS.\n\nReviewers remain read-only. Keep original replies and observable execution identities separate from any structured extraction or author response. Skill-only work can retain them in the agent tool conversation or existing files; managed work uses the [review record interface](../docs/review-completion.md). Do not fabricate a missing session identity or source access.\n\n## Complete Every Required Review\n\nA complete review addresses its actual scope and version with substantive observations. Empty, truncated, wrong-version or generic replies leave the assignment open. Preserve failed attempts, correct the missing input or execution problem and resume that assignment. When required material exceeds one context, retain it in accessible originals and arrange complete scoped reading and synthesis, rather than silently replacing it with a summary.\n\nKeep the first valid result for a given input and artifact version. A negative finding is a completed review, not a reason to rerun for a better verdict. An isolated mistaken finding is adjudicated; it does not invalidate the entire review. The auditor determines consequential invalidity and contested no-change decisions from the evidence. A reviewer who never received required material has incomplete work; an examined source that leaves an answer uncertain may support a complete, qualified assessment.\n\nAuthors apply necessary fixes and can explain why they disagree with a finding. They cannot approve their own work, dismiss a necessary correction or relabel an incomplete review as complete. Preserve findings and responses for the independent audit. Revisions go back to the affected reviewer with the current complete artifact and relevant changes; unchanged evidence remains available and prior results stay bound to their actual version.\n\n",
+      "auditor": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Check Reviewers and Sample Passed Work\n\nEvery complete research task has an explicitly assigned audit context separate from production and content reviewers. The auditor receives the complete report, effective requirements, original sources, contributions, raw reviews and revision/disposition evidence. Review validity and report readiness are separate judgments: a valid negative review can describe a report that still needs correction.\n\nCheck each required review for its actual execution and input version, assigned coverage, locatable observations, supported claims and absence of invented requirements. Inspect all consequential findings and disagreements, including decisions to leave text unchanged. Resolve them against original evidence and actual prose, not majority votes or average scores. Preserve each original finding with one evidenced disposition: confirmed defect, no change, unresolved or resolved. A claimed repair is resolved only after examining the changed text and affected context.\n\nAudit all important requirements, decisive claims, key figures and citations, consequential counterevidence, major findings and necessary fixes. Also examine material marked passed or carrying no finding, including transformations from a worker's analysis into the report. The auditor chooses these samples from the complete artifact, not from an author's selected highlights.\n\nFor this additional sampling, retain the relevant population or report scope, selected locations, selection reasons, source checks and results in the existing audit output. Choose passages across relevant sections, evidence types and transformations; do not use a fixed percentage or first/last/hash-selected paragraphs as the default. A targeted sample is described as targeted, not random. When a discrepancy appears, check the same source, measure, branch or reasoning pattern wherever it affects the result; record that expansion and its outcome.\n\nThe auditor can request missing work from the existing researcher or reviewer and continue the same audit after repair. Necessary defects and unsupported important no-change decisions remain open. Evidence that genuinely cannot settle a research question is reported at the affected conclusion; it does not erase a missing mandatory reading or review assignment. Sampling is part of this audit and final acceptance, not a separate agent, score or approval process.\n\n",
+      "acceptance": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Stage Scheduling and Acceptance\n\n1. **Outline and first premises:** the lead plans questions, coverage and dependencies; the requirements and structure reviewers examine the outline before extensive dependent writing. Evidence/domain reviewers examine consequential premises and calculations as they become usable. Early local checks are retained as local checks.\n2. **Developing research units:** researchers produce evidence-backed arguments progressively. Resolve a premise that could change dependent work before treating it as settled; other independent units continue. The assembler updates the whole-report argument as contributions arrive and the outline changes.\n3. **Complete report:** all seven base perspectives and applicable domain review read the complete report. Findings from the independent reader-usefulness and natural-expression reviews are applied without losing facts or depth. The independent audit examines the reviews, important findings, necessary repairs and selected passed content.\n4. **Final acceptance:** a further context, separate from production, content review and audit, reads the complete current report against the effective requirements. It examines the audit, dispositions and the actual current text, checks all important requirements and necessary fixes, and selects additional passed content where needed to judge integration. It reports acceptance or the exact remaining work. Its PASS cannot replace a missing required review or audit.\n\nThe final acceptance agent verifies the delivered version, source/condition preservation, complete required coverage, developed analysis and reader usability. Cross-part contradictions or lost qualifications return to the responsible production/review assignment, with the affected scope and inputs. Keep the original findings and prior artifacts. Do not let a coordinator's summary stand in for this reading.\n\nReader-ready delivery requires resolved necessary corrections, complete independent assignments and acceptance of the current whole report. A stage artifact may be delivered with its actual unfinished scope. Historical and evaluation artifacts retain their original defects and labels; their completion status remains tied to the criteria and work recorded at the time. Once the agreed result and required work are complete, optional preferences do not restart unchanged reviews.\n\n"
+    },
+    "revision_context": {
+      "historical_only": true,
+      "input": {
+        "path": "reviews/host/acead416ff0bcb116622/input.json",
+        "sha256": "d4f952b401f2393c38c10b78753b216fa675f0603429fa9df0a268b48335c3e8"
+      },
+      "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+      "reviews": {
+        "requirements": {
+          "attempt_id": "01ddf63195504e5191f313fab79dc25d",
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/01ddf63195504e51/response.txt",
+            "sha256": "5e2fbc69b5a3bd1e2606d65d61377d63810c18cced1a8df588b9588ff84763ec"
+          },
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/requirements-ff177a5dc431e836.json",
+            "sha256": "14cd0f5390119cbf55d4842d226e2327997d2b3bf71cb9fb4fb98a11b1849a6d"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/01ddf63195504e51/execution.json",
+            "sha256": "5f85948a515449130c014b840333dcab231d2f41a997b0a74aaa30c45d9067a5"
+          },
+          "execution_id": "/root/complete_requirements_b",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "valid",
+          "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+          "dimensions": [
+            "requirements"
+          ],
+          "domain": null
+        },
+        "evidence": {
+          "attempt_id": "58408723310642329e4516e098219e31",
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/5840872331064232/response.txt",
+            "sha256": "6a86421f5101e31c1dcedf5c21e3450d70f28482404b7e90657fbdecaf19b696"
+          },
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/evidence-fe829e803963a4cb.json",
+            "sha256": "a4e1b3e6e6bca882b8945b21d0b6dec5fe933a5f0f595d6b8b562adbad80240c"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/5840872331064232/execution.json",
+            "sha256": "c84b72d9f8d1530d4e6fbfb425363f4bf5c2176529c82e330f997586db3e6101"
+          },
+          "execution_id": "/root/independent_reviews_a",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "valid",
+          "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+          "dimensions": [
+            "evidence"
+          ],
+          "domain": null
+        },
+        "adversarial_reasoning": {
+          "attempt_id": "8f0ce8aee7f947d2a8f84c7e5cede1ab",
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/8f0ce8aee7f947d2/response.txt",
+            "sha256": "91034c711ad2ffa9939ad617c2efcc261d20c6c0c8a861e5bda2d6eaace07770"
+          },
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/adversarial_reasoning-c70ea6988b277888.json",
+            "sha256": "23e4045078118d72752f438d212e598969dbbd0536c8cf50575679dfefe8934c"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/8f0ce8aee7f947d2/execution.json",
+            "sha256": "38fddff0e919df761f71a7476cc27cc16157532fac6e5e59490a8c259c425371"
+          },
+          "execution_id": "/root/benchmark_adversarial",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "valid",
+          "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+          "dimensions": [
+            "adversarial_reasoning"
+          ],
+          "domain": null
+        },
+        "structure_and_depth": {
+          "attempt_id": "ef8a24f714554ef9a258a92d9031cebd",
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/ef8a24f714554ef9/response.txt",
+            "sha256": "c28dcf312cebb1cd2d0d8c4065e1aa1860a8404e0ec4b252ada0a9b8c762f5ec"
+          },
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/structure_and_depth-5e13d948a1e6ee77.json",
+            "sha256": "dd6d50824ce1963df41b34d43d94005d5712720bfdce1907976ce9d7ee248418"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/ef8a24f714554ef9/execution.json",
+            "sha256": "2fd10097f00a49c398cb4bd95c2d67b38772e799186ebff7280b9aa8f2cf65aa"
+          },
+          "execution_id": "/root/structure_remaining_b",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "valid",
+          "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+          "dimensions": [
+            "structure_and_depth"
+          ],
+          "domain": null
+        },
+        "reader_usefulness": {
+          "attempt_id": "2e0a91aa8e9f482e90dd5c6b57169bea",
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/2e0a91aa8e9f482e/response.txt",
+            "sha256": "2ea27abc4aa2a5e272308df18bd5d4dd354f93ec148bf0145b28046b24020fa4"
+          },
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/reader_usefulness-704f9e5f064076e2.json",
+            "sha256": "f5d29c7c3fcab34528768b8b5ada466959835cd4f6842a9747be4238fec94dd2"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/2e0a91aa8e9f482e/execution.json",
+            "sha256": "919db024be8c7b0f36585e17eb473c03f4cb0a0a7e24a4d78774247a4dca0812"
+          },
+          "execution_id": "/root/benchmark_reader_a",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "valid",
+          "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+          "dimensions": [
+            "reader_usefulness"
+          ],
+          "domain": null
+        },
+        "process_language": {
+          "attempt_id": "908158f6123c4db09225ebd919e0b4ae",
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/908158f6123c4db0/response.txt",
+            "sha256": "9ad7f7bbfbd730f972323013522d1e61a306d3a9b584888085ea1dc561f062bb"
+          },
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/process_language-e72148b24de6c25b.json",
+            "sha256": "9aac19acbc4affa374171f7287b0580200e6dbbcfb44260ce00717130d749cb3"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/908158f6123c4db0/execution.json",
+            "sha256": "05c9475ff303b59576985e9d4b8427a77459fa634b5e5ef6d3fc454a7193f8f1"
+          },
+          "execution_id": "/root/process_remaining_b",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "valid",
+          "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+          "dimensions": [
+            "process_language"
+          ],
+          "domain": null
+        },
+        "natural_expression": {
+          "attempt_id": "e375d6cc1084479480fba06d72cfe160",
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/e375d6cc10844794/response.txt",
+            "sha256": "86c46d47365c9e4545f57a7766c20077e3ac8d06676ca87117d7ced3027c41c8"
+          },
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/natural_expression-5d16bc1daa272047.json",
+            "sha256": "57771f7ebf80ef47ac4b0ffac06b68583a03e06ff9d253e7417c2430bc5c08aa"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/e375d6cc10844794/execution.json",
+            "sha256": "d22f70ee50d01ce74e2bae2cd5bc300360f9f5b7342bdc721244b0b7063dabf3"
+          },
+          "execution_id": "/root/benchmark_natural_expression",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "valid",
+          "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+          "dimensions": [
+            "natural_expression"
+          ],
+          "domain": null
+        },
+        "domain-1": {
+          "attempt_id": "60e0b99f737e499fa2200bc6c9333f25",
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/60e0b99f737e499f/response.txt",
+            "sha256": "b5452b85dc4e65ac6eee5703a9f28b65bcd730f91461aee19fd1f5ef35e41827"
+          },
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/domain-1-afd612d7cf11f344.json",
+            "sha256": "55cad88dd1d15a78681cf6a050c6915f99a3485f7e4595b5dae13b4c1453b35e"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/60e0b99f737e499f/execution.json",
+            "sha256": "90963720aef815286d8432e6956b559da1e1d64879378657ed28f1f75c18ab48"
+          },
+          "execution_id": "/root/independent_domain_b",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "valid",
+          "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+          "dimensions": [
+            "domain"
+          ],
+          "domain": "Inference algorithms, verifiers and statistical evaluation"
+        },
+        "audit": {
+          "attempt_id": "2d5e06be8e7e4006adc6ddcfc5d0bd4b",
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/2d5e06be8e7e4006/response.txt",
+            "sha256": "c7bb484bebe4c23722ace70d82438f4b554212d467766aa09309a780a077f1e5"
+          },
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/audit-9e8d7d0bcb498a4d.json",
+            "sha256": "4402e27d657c014595536d58a64b242196df06bf407333139580cf479a95174e"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/2d5e06be8e7e4006/execution.json",
+            "sha256": "bc1f8891dff59b8d1c3b6162df1dd712514fecb8bc13b4f65597a7b19a9cc19e"
+          },
+          "execution_id": "/root/benchmark_audit_complete",
+          "role": "auditor",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+          "dimensions": [],
+          "domain": null
+        },
+        "acceptance": {
+          "attempt_id": "8d8a113d23b643efafd71486c0015e0b",
+          "response": {
+            "path": "reviews/host/acead416ff0bcb116622/results/8d8a113d23b643ef/response.txt",
+            "sha256": "f8e7b83cbb0fd58057357eecd992b9b946727486c7bd873bf0f7d23e1f1558ba"
+          },
+          "input": {
+            "path": "reviews/host/acead416ff0bcb116622/jobs/acceptance-c8fcc81d49ac44c6.json",
+            "sha256": "06dbe1e11a294a78263809b110f3911aacb2ad95f257c368a54a13391a6373e3"
+          },
+          "execution": {
+            "path": "reviews/host/acead416ff0bcb116622/results/8d8a113d23b643ef/execution.json",
+            "sha256": "d43f2489cdde3002a101e59f05866041f3b1b5c199fad7855394a7034235b95e"
+          },
+          "execution_id": "/root/office_final_acceptance",
+          "role": "acceptance",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+          "dimensions": [],
+          "domain": null
+        }
+      },
+      "changed_inputs": [
+        {
+          "path": "logs/record-backups/a0eafffaa1bf4c1aa2bf8af442a84105/reports/current.md",
+          "previous_sha256": null,
+          "current_sha256": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea"
+        },
+        {
+          "path": "logs/record-backups/a0eafffaa1bf4c1aa2bf8af442a84105/saved/reports/current.md",
+          "previous_sha256": null,
+          "current_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e"
+        },
+        {
+          "path": "reports/current.md",
+          "previous_sha256": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea",
+          "current_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e"
+        }
+      ],
+      "unchanged_inputs": [
+        "analysis/U1-evidence-protocol.md",
+        "analysis/author-production/allocation-results.json",
+        "analysis/author-production/handoff.json",
+        "analysis/outline.md",
+        "data/claims_registry.csv",
+        "data/source_registry.csv",
+        "logs/record-backups/45f2fdd3a2584048b655ffed76dd03b6/saved/reports/current.md",
+        "logs/record-backups/93c8d404dafd486c8c606401a6170541/saved/analysis/U1-evidence-protocol.md",
+        "logs/record-backups/d928fdb3c78f4fd69140bf48244c5533/saved/analysis/outline.md",
+        "logs/record-backups/f7eec6d75471410f935226323d7d3d56/reports/current.md",
+        "logs/record-backups/f7eec6d75471410f935226323d7d3d56/saved/reports/current.md",
+        "notes/actual-reading/SUP-AC.json",
+        "notes/actual-reading/SUP-CM.json",
+        "notes/actual-reading/SUP-SELF.json",
+        "notes/actual-reading/SUP-TAU.json",
+        "notes/actual-reading/SUP-TREE.json",
+        "notes/actual-reading/TTC003v2.json",
+        "notes/actual-reading/TTC009.json",
+        "notes/actual-reading/TTC010.json",
+        "notes/actual-reading/TTC011.json",
+        "notes/actual-reading/TTC012.json",
+        "notes/actual-reading/TTC013.json",
+        "notes/author-reading-ledger.json",
+        "record:requirements:effective",
+        "reviews/host/35856ace8b32421ec17a/jobs/natural_expression-4fe9c4d2357fdfc9.json",
+        "reviews/host/35856ace8b32421ec17a/jobs/reader_usefulness-6dba9e43678e74b9.json",
+        "reviews/host/35856ace8b32421ec17a/results/0e1eb4f31fff4f5b/execution.json",
+        "reviews/host/35856ace8b32421ec17a/results/0e1eb4f31fff4f5b/response.txt",
+        "reviews/host/35856ace8b32421ec17a/results/a1c1a586e9c5493c/execution.json",
+        "reviews/host/35856ace8b32421ec17a/results/a1c1a586e9c5493c/response.txt",
+        "sources/TTC001/original.txt",
+        "sources/TTC001/plan-reading.json",
+        "sources/TTC002/original.txt",
+        "sources/TTC002/plan-reading.json",
+        "sources/TTC005/original.txt",
+        "sources/TTC005/plan-reading.json",
+        "sources/TTC006/original.txt",
+        "sources/TTC006/plan-reading.json",
+        "sources/TTC007/original.txt",
+        "sources/TTC007/plan-reading.json",
+        "sources/TTC008/original.txt",
+        "sources/TTC008/plan-reading.json",
+        "sources/actual/SUP-AC.txt",
+        "sources/actual/SUP-CM.txt",
+        "sources/actual/SUP-SELF.txt",
+        "sources/actual/SUP-TAU.txt",
+        "sources/actual/SUP-TREE.txt",
+        "sources/actual/TTC003v2.txt",
+        "sources/actual/TTC009.txt",
+        "sources/actual/TTC010.txt",
+        "sources/actual/TTC011.txt",
+        "sources/actual/TTC012.txt",
+        "sources/actual/TTC013.txt",
+        "state/task_spec.md"
+      ],
+      "report_changes": [
+        {
+          "change": "replace",
+          "previous_lines": [
+            35,
+            43
+          ],
+          "current_lines": [
+            35,
+            43
+          ],
+          "previous_text": "| Independent sampling | Fresh complete trajectories from a fixed prompt/checkpoint; retain a candidate bank | None until a separate reducer is chosen | Multiple generations, repeated or shared prefill; can run concurrently | TTC010 v2 shows broad coverage gains, with task-dependent model-size efficiency |\n| Self-consistency | Diverse complete reasoning paths; retain canonical final answers and counts | Plurality of answer strings, without reference answers | Generation dominates; parsing/voting still belongs in accounting; checkpoint fixed | TTC009 v4: PaLM-540B GSM8K 56.5→74.4 using 40 samples |\n| Best-of-N / outcome verification | Complete candidates; retain outputs and scores | Learned outcome score, execution tests, or checker; access may range from public tests to an oracle | N generations plus N verifier evaluations and any judge reasoning | TTC012 v1: fixed generator, PRM/ORM/majority comparison; TTC008 distinguishes uniform filtering from argmax |\n| Sequential revision | Next candidate conditions on previous answer(s), critique and possibly feedback | Final-turn output or a separately specified best-over-turns selector | Serial dependency, growing context, revision and selection costs | TTC013 v1: trained SCoRe improves second-turn accuracy; generic prompting can regress |\n| Extended single-trajectory reasoning | Retain current token prefix; delay or force answer transition | Internal continuation plus stop controller; no external truth required | Serial reasoning tokens, delimiter/probe overhead; capacity depends on post-training | TTC002 v2: same s1-32B extends 50→57% on AIME24, then flattens |\n| Prefix/tree search | Partial answers, frontier, action history, optional environment snapshots | Process score or state value; prune and expand promising branches | Generated and discarded nodes, scoring, lookahead, resets/replay | TTC001 v1: benefits depend on difficulty and budget; TTC011 v2: explicit intermediate-state planning |\n| Adaptive sample stopping | Running candidate counts or calibrated confidence signals | Stop when further samples are unlikely to change the selected answer | Avoids unfinished future work; count controller overhead and waves of parallel work | SUP-AC: approximate Beta stopping; TTC007: distinguish achievable online policies from oracle prefix choices |\n| Test-time weight adaptation | Target-specific proposer/solver adapters and replayed synthetic tasks | Execution reward on generated subtasks, later target evaluation | Forward/backward passes, synthetic data, tests, evaluation; weights change during test time | TTC005 v1: TTSP on a filtered 28-target coding slice |\n| Tool/environment loop | Belief/history, repository or browser state; each action adds observations | Tool returns, compiler/tests, user information, policy or state evaluation | LLM calls plus tools, retries, state replay; often serial | SUP-CM, SUP-TREE, SUP-TAU expose selection, reset, and final-state reliability constraints |",
+          "current_text": "| Independent sampling | Fresh complete trajectories from a fixed prompt/checkpoint; retain a candidate bank | None until a separate reducer is chosen | Multiple generations, repeated or shared prefill; can run concurrently | Large Language Monkeys v2 shows broad coverage gains, with task-dependent model-size efficiency |\n| Self-consistency | Diverse complete reasoning paths; retain canonical final answers and counts | Plurality of answer strings, without reference answers | Generation dominates; parsing/voting still belongs in accounting; checkpoint fixed | Self-Consistency v4: PaLM-540B GSM8K 56.5→74.4 using 40 samples |\n| Best-of-N / outcome verification | Complete candidates; retain outputs and scores | Learned outcome score, execution tests, or checker; access may range from public tests to an oracle | N generations plus N verifier evaluations and any judge reasoning | Let’s Verify Step by Step v1: fixed generator, PRM/ORM/majority comparison; Sample, Mix, or Verify? distinguishes uniform filtering from argmax |\n| Sequential revision | Next candidate conditions on previous answer(s), critique and possibly feedback | Final-turn output or a separately specified best-over-turns selector | Serial dependency, growing context, revision and selection costs | SCoRe v1: trained SCoRe improves second-turn accuracy; generic prompting can regress |\n| Extended single-trajectory reasoning | Retain current token prefix; delay or force answer transition | Internal continuation plus stop controller; no external truth required | Serial reasoning tokens, delimiter/probe overhead; capacity depends on post-training | s1 v2: same s1-32B extends 50→57% on AIME24, then flattens |\n| Prefix/tree search | Partial answers, frontier, action history, optional environment snapshots | Process score or state value; prune and expand promising branches | Generated and discarded nodes, scoring, lookahead, resets/replay | Scaling Test-Time Compute Optimally v1: benefits depend on difficulty and budget; Tree of Thoughts v2: explicit intermediate-state planning |\n| Adaptive sample stopping | Running candidate counts or calibrated confidence signals | Stop when further samples are unlikely to change the selected answer | Avoids unfinished future work; count controller overhead and waves of parallel work | Adaptive-Consistency: approximate Beta stopping; Optimal Reasoning Termination: distinguish achievable online policies from oracle prefix choices |\n| Test-time weight adaptation | Target-specific proposer/solver adapters and replayed synthetic tasks | Execution reward on generated subtasks, later target evaluation | Forward/backward passes, synthetic data, tests, evaluation; weights change during test time | Test-Time Self-Play v1: TTSP on a filtered 28-target coding slice |\n| Tool/environment loop | Belief/history, repository or browser state; each action adds observations | Tool returns, compiler/tests, user information, policy or state evaluation | LLM calls plus tools, retries, state replay; often serial | CodeMonkeys, Tree Search for Language Model Agents, τ-bench expose selection, reset, and final-state reliability constraints |"
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            49,
+            49
+          ],
+          "current_lines": [
+            49,
+            49
+          ],
+          "previous_text": "Self-consistency is a strong fixed-checkpoint example because it changes decoding and aggregation without retraining the model. In the inspected v4, the authors use the same few-shot prompts, sample 40 outputs per run, and average over ten runs. PaLM-540B uses temperature 0.7 and top-k 40. GSM8K accuracy rises from 56.5% for greedy chain-of-thought to 74.4% for unweighted voting, an absolute 17.9-point improvement. A task-dependent parser extracts a final answer from each path. The decision is a plurality, even though the paper uses “majority” terminology: an answer need not receive more than half the samples to win. [TTC009, §§2–3, Table 1](https://arxiv.org/html/2203.11171v4).",
+          "current_text": "Self-consistency is a strong fixed-checkpoint example because it changes decoding and aggregation without retraining the model. In the inspected v4, the authors use the same few-shot prompts, sample 40 outputs per run, and average over ten runs. PaLM-540B uses temperature 0.7 and top-k 40. GSM8K accuracy rises from 56.5% for greedy chain-of-thought to 74.4% for unweighted voting, an absolute 17.9-point improvement. A task-dependent parser extracts a final answer from each path. The decision is a plurality, even though the paper uses “majority” terminology: an answer need not receive more than half the samples to win. [Self-Consistency, §§2–3, Table 1](https://arxiv.org/html/2203.11171v4)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            55,
+            55
+          ],
+          "current_lines": [
+            55,
+            55
+          ],
+          "previous_text": "Large Language Monkeys supplies the broader scale evidence. Its v2 generates 10,000 samples per problem for Llama-3 8B/70B across mathematical, coding and proof tasks, while SWE-bench Lite uses up to 250 independent full Moatless Tools trajectories with DeepSeek-Coder-V2-Instruct. Coverage on the latter rises from 15.9% to 56%. This demonstrates latent candidate availability; the automatic benchmark evaluator identifies successes after the fact. For mathematics, correct final-answer references provide an oracle coverage calculation, not a deployment-time checking mechanism. The paper itself separates coverage from practical precision. [TTC010, §§2 and 4](https://arxiv.org/html/2407.21787v2).",
+          "current_text": "Large Language Monkeys supplies the broader scale evidence. Its v2 generates 10,000 samples per problem for Llama-3 8B/70B across mathematical, coding and proof tasks, while SWE-bench Lite uses up to 250 independent full Moatless Tools trajectories with DeepSeek-Coder-V2-Instruct. Coverage on the latter rises from 15.9% to 56%. This demonstrates latent candidate availability; the automatic benchmark evaluator identifies successes after the fact. For mathematics, correct final-answer references provide an oracle coverage calculation, not a deployment-time checking mechanism. The paper itself separates coverage from practical precision. [Large Language Monkeys, §§2 and 4](https://arxiv.org/html/2407.21787v2)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            57,
+            57
+          ],
+          "current_lines": [
+            57,
+            57
+          ],
+          "previous_text": "The selection gap is substantial in the same paper: majority voting and reward-based selection saturate before roughly 100 samples in the inspected math experiments while oracle coverage keeps growing. It is therefore possible for the statement “more sampling discovers more correct answers” to remain true while the actual user-facing accuracy has nearly stopped improving. A reported best-of-k result must identify whether “best” means a learned score, a publicly available checker, or knowledge of the correct answer. [TTC010, §4.1, Figure 7](https://arxiv.org/html/2407.21787v2).",
+          "current_text": "The selection gap is substantial in the same paper: majority voting and reward-based selection saturate before roughly 100 samples in the inspected math experiments while oracle coverage keeps growing. It is therefore possible for the statement “more sampling discovers more correct answers” to remain true while the actual user-facing accuracy has nearly stopped improving. A reported best-of-k result must identify whether “best” means a learned score, a publicly available checker, or knowledge of the correct answer. [Large Language Monkeys, §4.1, Figure 7](https://arxiv.org/html/2407.21787v2)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            59,
+            59
+          ],
+          "current_lines": [
+            59,
+            59
+          ],
+          "previous_text": "The August 2026 revision of *Inference Regimes, Evaluation, and Reproducibility* supplies a recent fixed-bank example. For Qwen3-30B-A3B-Thinking-2507 on 120 competition-mathematics questions, single-response accuracy is 75.56%; at 80 candidates oracle coverage reaches 91.67%, while answer plurality reaches 78.33%. Selecting the highest mean token log probability instead falls to 65.83%. A reference-assisted verifier reaches 89.17%, but it sees the gold answer and is explicitly diagnostic. The same bank therefore supports rising availability, modest usable voting gains, and regression under a different selector. It also shows why a reference-assisted selector cannot be credited as a deployment method. [TTC003v2, §4.2, Figure 5](https://arxiv.org/html/2608.04001v2).",
+          "current_text": "The August 2026 revision of *Inference Regimes, Evaluation, and Reproducibility* supplies a recent fixed-bank example. For Qwen3-30B-A3B-Thinking-2507 on 120 competition-mathematics questions, single-response accuracy is 75.56%; at 80 candidates oracle coverage reaches 91.67%, while answer plurality reaches 78.33%. Selecting the highest mean token log probability instead falls to 65.83%. A reference-assisted verifier reaches 89.17%, but it sees the gold answer and is explicitly diagnostic. The same bank therefore supports rising availability, modest usable voting gains, and regression under a different selector. It also shows why a reference-assisted selector cannot be credited as a deployment method. [Inference Regimes (v2), §4.2, Figure 5](https://arxiv.org/html/2608.04001v2)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            61,
+            61
+          ],
+          "current_lines": [
+            61,
+            61
+          ],
+          "previous_text": "Model strength is also task dependent after normalization. Under the paper's dense-model inference-FLOP approximation, Llama-3-8B-Instruct has higher coverage than 70B at a fixed FLOP budget on MiniF2F, GSM8K and MATH, whereas 70B is almost always more cost-effective on CodeContests. These are coverage comparisons under a stated approximation, rather than a universal preference for smaller models. A code generator may need enough learned syntax, algorithms and long-context competence before sampling gives it a useful probability of success. Pythia's CodeContests coverage remains zero at 10,000 samples in this experiment. That finite negative result supports changing the generator for this workload; it does not prove the true success probability is mathematically zero. [TTC010, §§2.2–2.3](https://arxiv.org/html/2407.21787v2).",
+          "current_text": "Model strength is also task dependent after normalization. Under the paper's dense-model inference-FLOP approximation, Llama-3-8B-Instruct has higher coverage than 70B at a fixed FLOP budget on MiniF2F, GSM8K and MATH, whereas 70B is almost always more cost-effective on CodeContests. These are coverage comparisons under a stated approximation, rather than a universal preference for smaller models. A code generator may need enough learned syntax, algorithms and long-context competence before sampling gives it a useful probability of success. Pythia's CodeContests coverage remains zero at 10,000 samples in this experiment. That finite negative result supports changing the generator for this workload; it does not prove the true success probability is mathematically zero. [Large Language Monkeys, §§2.2–2.3](https://arxiv.org/html/2407.21787v2)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            63,
+            63
+          ],
+          "current_lines": [
+            63,
+            63
+          ],
+          "previous_text": "Independent evidence on imperfect tests sharpens the distinction. The original November 2024 *Inference Scaling FLaws* compares acceptance under ordinary HumanEval/MBPP tests with correctness under their expanded “+” suites. Repeated sampling can find programs that satisfy weak tests while failing additional cases. Penalizing false positives can make a small sample budget, or abstention, preferable. The expanded suites are stronger checks, not a proof of program semantics. This supports keeping the selector's feedback separate from the final evaluator and pricing wrong submissions explicitly. [SUP-LIMITS, §§2–4 and Appendix A.2](https://arxiv.org/html/2411.17501v1).",
+          "current_text": "Independent evidence on imperfect tests sharpens the distinction. The original November 2024 *Inference Scaling FLaws* compares acceptance under ordinary HumanEval/MBPP tests with correctness under their expanded “+” suites. Repeated sampling can find programs that satisfy weak tests while failing additional cases. Penalizing false positives can make a small sample budget, or abstention, preferable. The expanded suites are stronger checks, not a proof of program semantics. This supports keeping the selector's feedback separate from the final evaluator and pricing wrong submissions explicitly. [Inference Scaling Flaws, §§2–4 and Appendix A.2](https://arxiv.org/html/2411.17501v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            71,
+            71
+          ],
+          "current_lines": [
+            71,
+            71
+          ],
+          "previous_text": "The relevant negative result concerns generic intrinsic self-correction, rather than all possible revision systems. Huang et al.'s v2 compares oracle-stopped correction with intrinsic feedback prompts. GPT-3.5's GSM8K score changes from 75.9 to 75.1 and 74.7 after one and two correction rounds, requiring three and five calls respectively. GPT-4's corresponding score falls from 95.5 to 89.0 after two rounds on a 200-question sample. Ground-truth-based stopping is a materially different information condition. [SUP-SELF, §§3.1–3.2, Tables 2–3](https://arxiv.org/html/2310.01798v2).",
+          "current_text": "The relevant negative result concerns generic intrinsic self-correction, rather than all possible revision systems. Huang et al.'s v2 compares oracle-stopped correction with intrinsic feedback prompts. GPT-3.5's GSM8K score changes from 75.9 to 75.1 and 74.7 after one and two correction rounds, requiring three and five calls respectively. GPT-4's corresponding score falls from 95.5 to 89.0 after two rounds on a 200-question sample. Ground-truth-based stopping is a materially different information condition. [Large Language Models Cannot Self-Correct Reasoning Yet, §§3.1–3.2, Tables 2–3](https://arxiv.org/html/2310.01798v2)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            73,
+            73
+          ],
+          "current_lines": [
+            73,
+            73
+          ],
+          "previous_text": "SCoRe provides the positive training counterexample. Its reward uses correct answers or code evaluation during training, but the test-time correction instruction does not reveal whether the first response was correct. The method trains on the policy's own multi-turn rollouts. An initial phase improves second-attempt behavior while constraining first-attempt drift; a later phase rewards useful changes and penalizes changes that turn a correct response into an incorrect one. The reason for this design is concrete: optimizing a two-turn objective can otherwise collapse into a strong first answer followed by a no-op edit, or learn a repair distribution mismatched to the model's own mistakes. [TTC013, §§3–5](https://arxiv.org/html/2409.12917v1).",
+          "current_text": "SCoRe provides the positive training counterexample. Its reward uses correct answers or code evaluation during training, but the test-time correction instruction does not reveal whether the first response was correct. The method trains on the policy's own multi-turn rollouts. An initial phase improves second-attempt behavior while constraining first-attempt drift; a later phase rewards useful changes and penalizes changes that turn a correct response into an incorrect one. The reason for this design is concrete: optimizing a two-turn objective can otherwise collapse into a strong first answer followed by a no-op edit, or learn a repair distribution mismatched to the model's own mistakes. [SCoRe, §§3–5](https://arxiv.org/html/2409.12917v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            75,
+            75
+          ],
+          "current_lines": [
+            75,
+            75
+          ],
+          "previous_text": "The numerical distinction matters. In the MATH experiment, the base Gemini 1.5 Flash checkpoint goes from 52.6% on turn one to 41.4% on turn two, a −11.2-point correction delta. After SCoRe training, the same trained checkpoint goes from 60.0 to 64.4%, a **+4.4-point inference-time correction benefit**. The often-quoted 15.6 points is the improvement in correction delta, `4.4−(−11.2)`, across the training change. It is not the gain from adding one turn to an unchanged base model. The trained policy's wrong-to-right transition rate is 5.8% and correct-to-wrong rate 1.4%, explaining the net 4.4 points directly. [TTC013, Table 3](https://arxiv.org/html/2409.12917v1).",
+          "current_text": "The numerical distinction matters. In the MATH experiment, the base Gemini 1.5 Flash checkpoint goes from 52.6% on turn one to 41.4% on turn two, a −11.2-point correction delta. After SCoRe training, the same trained checkpoint goes from 60.0 to 64.4%, a **+4.4-point inference-time correction benefit**. The often-quoted 15.6 points is the improvement in correction delta, `4.4−(−11.2)`, across the training change. It is not the gain from adding one turn to an unchanged base model. The trained policy's wrong-to-right transition rate is 5.8% and correct-to-wrong rate 1.4%, explaining the net 4.4 points directly. [SCoRe, Table 3](https://arxiv.org/html/2409.12917v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            77,
+            77
+          ],
+          "current_lines": [
+            77,
+            77
+          ],
+          "previous_text": "The code experiment likewise trains on MBPP and evaluates on HumanEval without exposing test cases during inference. SCoRe's HumanEval first and second attempts are 52.4% and 64.6%, a 12.2-point correction delta. Its 9.1-point headline comparison concerns improvement over the base model's correction delta. Inference scaling on MATH compares 2K parallel solutions with K solutions followed by one revision each: at a 32-solution budget the reported gains are 7.4 and 10.5 points respectively. Equal solution counts are a useful within-study control, but sequential revisions read the first output and may have different token and latency costs. The paper trains one correction round; it does not establish indefinite gains from repeatedly applying the instruction. [TTC013, Table 4 and §6.2–§7](https://arxiv.org/html/2409.12917v1).",
+          "current_text": "The code experiment likewise trains on MBPP and evaluates on HumanEval without exposing test cases during inference. SCoRe's HumanEval first and second attempts are 52.4% and 64.6%, a 12.2-point correction delta. Its 9.1-point headline comparison concerns improvement over the base model's correction delta. Inference scaling on MATH compares 2K parallel solutions with K solutions followed by one revision each: at a 32-solution budget the reported gains are 7.4 and 10.5 points respectively. Equal solution counts are a useful within-study control, but sequential revisions read the first output and may have different token and latency costs. The paper trains one correction round; it does not establish indefinite gains from repeatedly applying the instruction. [SCoRe, Table 4 and §6.2–§7](https://arxiv.org/html/2409.12917v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            79,
+            79
+          ],
+          "current_lines": [
+            79,
+            79
+          ],
+          "previous_text": "s1 shows a related but distinct mechanism: training a checkpoint to generate long reasoning, then intervening on its termination. The inspected v2 distills 1,000 selected question/trace pairs from Gemini Thinking into Qwen2.5-32B-Instruct. Budget forcing either inserts the end-of-thinking delimiter to obtain an answer or suppresses termination and adds “Wait.” Within the resulting s1-32B checkpoint, the reported AIME24 score extends from 50 to 57%; at repeated extension the curve flattens and can enter repetitive loops. The paper's comparison of base-model voting with s1 sequential reasoning changes the checkpoint as well as the inference algorithm, so it cannot isolate a universal serial-over-parallel advantage. [TTC002, §§2–4, Figure 4](https://arxiv.org/html/2501.19393v2).",
+          "current_text": "s1 shows a related but distinct mechanism: training a checkpoint to generate long reasoning, then intervening on its termination. The inspected v2 distills 1,000 selected question/trace pairs from Gemini Thinking into Qwen2.5-32B-Instruct. Budget forcing either inserts the end-of-thinking delimiter to obtain an answer or suppresses termination and adds “Wait.” Within the resulting s1-32B checkpoint, the reported AIME24 score extends from 50 to 57%; at repeated extension the curve flattens and can enter repetitive loops. The paper's comparison of base-model voting with s1 sequential reasoning changes the checkpoint as well as the inference algorithm, so it cannot isolate a universal serial-over-parallel advantage. [s1, §§2–4, Figure 4](https://arxiv.org/html/2501.19393v2)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            87,
+            87
+          ],
+          "current_lines": [
+            87,
+            87
+          ],
+          "previous_text": "*Let's Verify Step by Step* uses human step labels to train a process reward model. At a given scale, the generator is held fixed; the investigation trains reward models rather than improving the generator with RL. Its large-scale process model selects a correct answer on 78.2% of a 500-problem MATH subset from 1,860 candidates, versus 72.4% for the outcome model and 69.6% for majority vote. A single forward scoring pass over a completed solution provides step predictions, whose product defines the full-solution score. This is a concrete demonstration that better verification can recover more of a fixed candidate bank. [TTC012, §§2–3, Figure 3](https://arxiv.org/html/2305.20050v1).",
+          "current_text": "*Let's Verify Step by Step* uses human step labels to train a process reward model. At a given scale, the generator is held fixed; the investigation trains reward models rather than improving the generator with RL. Its large-scale process model selects a correct answer on 78.2% of a 500-problem MATH subset from 1,860 candidates, versus 72.4% for the outcome model and 69.6% for majority vote. A single forward scoring pass over a completed solution provides step predictions, whose product defines the full-solution score. This is a concrete demonstration that better verification can recover more of a fixed candidate bank. [Let’s Verify Step by Step, §§2–3, Figure 3](https://arxiv.org/html/2305.20050v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            89,
+            89
+          ],
+          "current_lines": [
+            89,
+            89
+          ],
+          "previous_text": "The causal qualification is equally precise. The large-scale ORM and PRM training sets differ, including an active-learning bias toward convincing wrong answers. The paper says that comparison is not an apples-to-apples isolation of supervision type. Its smaller-scale experiment improves control by using identical generated datasets with alternative labels, finding process supervision stronger there too. In both settings, the verification system has an offline training cost and an online scoring cost. The 78.2% is neither pass@1 of the raw generator nor a free benefit from relabeling existing tokens. The split deliberately adds 4,500 MATH test questions to training and evaluates only the remaining 500; reporting it as performance on the original full MATH test set would be incorrect. [TTC012, §§2, 4](https://arxiv.org/html/2305.20050v1).",
+          "current_text": "The causal qualification is equally precise. The large-scale ORM and PRM training sets differ, including an active-learning bias toward convincing wrong answers. The paper says that comparison is not an apples-to-apples isolation of supervision type. Its smaller-scale experiment improves control by using identical generated datasets with alternative labels, finding process supervision stronger there too. In both settings, the verification system has an offline training cost and an online scoring cost. The 78.2% is neither pass@1 of the raw generator nor a free benefit from relabeling existing tokens. The split deliberately adds 4,500 MATH test questions to training and evaluates only the remaining 500; reporting it as performance on the original full MATH test set would be incorrect. [Let’s Verify Step by Step, §§2, 4](https://arxiv.org/html/2305.20050v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            91,
+            91
+          ],
+          "current_lines": [
+            91,
+            91
+          ],
+          "previous_text": "Snell et al. use a different process signal in TTC001. Their PaLM 2-S* verifier is trained from Monte Carlo continuation rewards, so a prefix score estimates reward-to-go under a sampling policy. It is not the same object as a human judgment of each logical step. The paper uses the final step's score for full-answer scoring and sums scores over candidates with the same final answer for weighted best-of-N selection. This aggregation differs from the product used by the human-supervised PRM above. These design choices determine how a verifier's local errors influence the final decision. [TTC001, §5.1](https://arxiv.org/html/2408.03314v1).",
+          "current_text": "Snell et al. use a different process signal in Scaling Test-Time Compute Optimally. Their PaLM 2-S* verifier is trained from Monte Carlo continuation rewards, so a prefix score estimates reward-to-go under a sampling policy. It is not the same object as a human judgment of each logical step. The paper uses the final step's score for full-answer scoring and sums scores over candidates with the same final answer for weighted best-of-N selection. This aggregation differs from the product used by the human-supervised PRM above. These design choices determine how a verifier's local errors influence the final decision. [Scaling Test-Time Compute Optimally, §5.1](https://arxiv.org/html/2408.03314v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            93,
+            93
+          ],
+          "current_lines": [
+            93,
+            93
+          ],
+          "previous_text": "The positive role of prefix search is to avoid spending complete trajectories on already-unpromising branches. A beam preserves several partial hypotheses, uses a value signal to allocate expansion, and can focus the generator on intermediate states it would rarely reach through independent complete samples. Snell et al. find beam search stronger at low generation budgets, and particularly useful on medium-difficulty problems. As budgets increase, best-of-N catches up or overtakes it; lookahead often underperforms at the same accounted generation budget because it spends additional rollouts evaluating prefixes. Their cost convention charges N(k+1) generation-equivalents for k-step lookahead. It is more informative than counting retained beams alone, but it is not a complete hardware-time measurement. [TTC001, §§5.2–5.3](https://arxiv.org/html/2408.03314v1).",
+          "current_text": "The positive role of prefix search is to avoid spending complete trajectories on already-unpromising branches. A beam preserves several partial hypotheses, uses a value signal to allocate expansion, and can focus the generator on intermediate states it would rarely reach through independent complete samples. Snell et al. find beam search stronger at low generation budgets, and particularly useful on medium-difficulty problems. As budgets increase, best-of-N catches up or overtakes it; lookahead often underperforms at the same accounted generation budget because it spends additional rollouts evaluating prefixes. Their cost convention charges N(k+1) generation-equivalents for k-step lookahead. It is more informative than counting retained beams alone, but it is not a complete hardware-time measurement. [Scaling Test-Time Compute Optimally, §§5.2–5.3](https://arxiv.org/html/2408.03314v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            95,
+            95
+          ],
+          "current_lines": [
+            95,
+            95
+          ],
+          "previous_text": "Search also changes the distribution presented to the verifier. A score that usually correlates with correctness under ordinary sampling can become unreliable when optimized repeatedly. TTC001 reports easy-problem degradation under stronger search, including repetitive low-information steps and artificially short solutions. The same source finds little progress on the hardest difficulty bin. The combination explains why a search method can help intermediate problems, waste effort on easy ones, and fail to create missing capabilities on the hardest ones. “Deeper” is not an unconditional improvement over “wider”; it is a bet on the value model's ability to distinguish promising partial states. [TTC001, §5.3 and Appendix M examples](https://arxiv.org/html/2408.03314v1).",
+          "current_text": "Search also changes the distribution presented to the verifier. A score that usually correlates with correctness under ordinary sampling can become unreliable when optimized repeatedly. Scaling Test-Time Compute Optimally reports easy-problem degradation under stronger search, including repetitive low-information steps and artificially short solutions. The same source finds little progress on the hardest difficulty bin. The combination explains why a search method can help intermediate problems, waste effort on easy ones, and fail to create missing capabilities on the hardest ones. “Deeper” is not an unconditional improvement over “wider”; it is a bet on the value model's ability to distinguish promising partial states. [Scaling Test-Time Compute Optimally, §5.3 and Appendix M examples](https://arxiv.org/html/2408.03314v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            97,
+            97
+          ],
+          "current_lines": [
+            97,
+            97
+          ],
+          "previous_text": "Tree of Thoughts offers an interpretable small-domain demonstration. On 100 Game-of-24 instances selected from the harder portion of a puzzle list, GPT-4 breadth-first search with five retained thoughts reaches 74%, versus 4% for chain-of-thought and 9% for 100-sample self-consistency. Intermediate states contain remaining numbers; the model proposes operations and evaluates prospects using three sampled judgments. The task has a crisp arithmetic terminal check and a shallow three-step decomposition. The comparison establishes value in planning over intermediate states; visited-node counts do not equal tokens, model calls, or dollars, and the 74% should not be transplanted to unconstrained reasoning. [TTC011, §4.1, Table 2](https://arxiv.org/html/2305.10601v2).",
+          "current_text": "Tree of Thoughts offers an interpretable small-domain demonstration. On 100 Game-of-24 instances selected from the harder portion of a puzzle list, GPT-4 breadth-first search with five retained thoughts reaches 74%, versus 4% for chain-of-thought and 9% for 100-sample self-consistency. Intermediate states contain remaining numbers; the model proposes operations and evaluates prospects using three sampled judgments. The task has a crisp arithmetic terminal check and a shallow three-step decomposition. The comparison establishes value in planning over intermediate states; visited-node counts do not equal tokens, model calls, or dollars, and the 74% should not be transplanted to unconstrained reasoning. [Tree of Thoughts, §4.1, Table 2](https://arxiv.org/html/2305.10601v2)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            99,
+            99
+          ],
+          "current_lines": [
+            99,
+            99
+          ],
+          "previous_text": "The same paper's creative-writing experiment is a useful boundary case. Planning and selection improve average coherence ratings, and blinded author comparisons favor ToT over CoT in 41 of 100 pairs versus 21 in the other direction, with 38 ties. Yet the evaluator's target is a preference judgment rather than exact correctness, and the model participates in both generation and automatic scoring. This shows how search can improve a specified quality criterion without supplying a correctness guarantee. For ambiguous tasks, designers should define the desired criterion first and check that the selector's preferences align with it before expanding the search. [TTC011, §4.2](https://arxiv.org/html/2305.10601v2).",
+          "current_text": "The same paper's creative-writing experiment is a useful boundary case. Planning and selection improve average coherence ratings, and blinded author comparisons favor ToT over CoT in 41 of 100 pairs versus 21 in the other direction, with 38 ties. Yet the evaluator's target is a preference judgment rather than exact correctness, and the model participates in both generation and automatic scoring. This shows how search can improve a specified quality criterion without supplying a correctness guarantee. For ambiguous tasks, designers should define the desired criterion first and check that the selector's preferences align with it before expanding the search. [Tree of Thoughts, §4.2](https://arxiv.org/html/2305.10601v2)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            105,
+            105
+          ],
+          "current_lines": [
+            105,
+            105
+          ],
+          "previous_text": "Adaptive-Consistency implements a lightweight sample controller. The inspected EMNLP 2023 paper uses a Beta approximation comparing the two most frequent answers, with threshold .95; the event being estimated is stability of the leading answer. It reports an average 3.3-fold reduction in samples across its settings, with less than 0.1 percentage point accuracy drop, and up to 7.9-fold on particular settings. Reasoning baselines cap at 40 samples; code budgets differ by benchmark. These are sample-count savings, not universal latency or dollar savings. A confidently wrong plurality can still stop early. [SUP-AC, §§3–5](https://aclanthology.org/2023.emnlp-main.761.pdf).",
+          "current_text": "Adaptive-Consistency implements a lightweight sample controller. The inspected EMNLP 2023 paper uses a Beta approximation comparing the two most frequent answers, with threshold .95; the event being estimated is stability of the leading answer. It reports an average 3.3-fold reduction in samples across its settings, with less than 0.1 percentage point accuracy drop, and up to 7.9-fold on particular settings. Reasoning baselines cap at 40 samples; code budgets differ by benchmark. These are sample-count savings, not universal latency or dollar savings. A confidently wrong plurality can still stop early. [Adaptive-Consistency, §§3–5](https://aclanthology.org/2023.emnlp-main.761.pdf)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            109,
+            109
+          ],
+          "current_lines": [
+            109,
+            109
+          ],
+          "previous_text": "TTC001's difficulty-conditioned policy also finds meaningful allocation gains, up to roughly four times fewer generation-equivalents in its comparisons. Its oracle difficulty is estimated with 2,048 samples and ground-truth checking; a predicted version uses PRM outputs. Strategy choice is cross-validated, but the difficulty-estimation overhead is excluded from the main experiments. Thus this evidence demonstrates that heterogeneous tasks favor heterogeneous allocation, while a production controller must separately establish that its cost of identifying difficulty is lower than the work it saves. [TTC001, §3 and Figures 4, 8](https://arxiv.org/html/2408.03314v1).",
+          "current_text": "Scaling Test-Time Compute Optimally's difficulty-conditioned policy also finds meaningful allocation gains, up to roughly four times fewer generation-equivalents in its comparisons. Its oracle difficulty is estimated with 2,048 samples and ground-truth checking; a predicted version uses PRM outputs. Strategy choice is cross-validated, but the difficulty-estimation overhead is excluded from the main experiments. Thus this evidence demonstrates that heterogeneous tasks favor heterogeneous allocation, while a production controller must separately establish that its cost of identifying difficulty is lower than the work it saves. [Scaling Test-Time Compute Optimally, §3 and Figures 4, 8](https://arxiv.org/html/2408.03314v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            111,
+            111
+          ],
+          "current_lines": [
+            111,
+            111
+          ],
+          "previous_text": "TTC007's prefix measurements identify another form of headroom. Along a fixed reasoning trajectory, an earlier prefix can yield more accurate answer probes than the final prefix, and different trajectories favor different stopping positions. Its nested oracle frontiers show the value of trajectory-specific decisions within the measurement space. They do not show that a controller can identify the same positions without the probes and labels used to find them. Appendix A documents finite-probe selection and excluded overhead; these findings motivate calibrated online control rather than a claim that an oracle budget cap is a realized saving. [TTC007, §§3–5](https://arxiv.org/html/2610.13570v1).",
+          "current_text": "Optimal Reasoning Termination's prefix measurements identify another form of headroom. Along a fixed reasoning trajectory, an earlier prefix can yield more accurate answer probes than the final prefix, and different trajectories favor different stopping positions. Its nested oracle frontiers show the value of trajectory-specific decisions within the measurement space. They do not show that a controller can identify the same positions without the probes and labels used to find them. Appendix A documents finite-probe selection and excluded overhead; these findings motivate calibrated online control rather than a claim that an oracle budget cap is a realized saving. [Optimal Reasoning Termination, §§3–5](https://arxiv.org/html/2610.13570v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            113,
+            113
+          ],
+          "current_lines": [
+            113,
+            113
+          ],
+          "previous_text": "TTSP addresses a different weak-feedback situation. Instead of repeatedly judging the target, it constructs related executable synthetic tasks and adapts the model on their outcomes. This can move probability toward useful target solutions when a fixed sampler's correct cluster is nonmodal. The mechanism is substantive: it changes the generator, whereas voting only selects among its outputs. Its scope is likewise substantive: synthetic-task reward can be exploited, a target-specific curriculum may not transfer, and the study's very low-coverage subset gains little. Appendix A states the metric and selection conditions for numerical interpretation. It is appropriate to compare TTSP with other adaptation methods as a whole system, and to separate it from inference policies that preserve weights. [TTC005, §§4–6](https://arxiv.org/html/2611.07367v1).",
+          "current_text": "TTSP addresses a different weak-feedback situation. Instead of repeatedly judging the target, it constructs related executable synthetic tasks and adapts the model on their outcomes. This can move probability toward useful target solutions when a fixed sampler's correct cluster is nonmodal. The mechanism is substantive: it changes the generator, whereas voting only selects among its outputs. Its scope is likewise substantive: synthetic-task reward can be exploited, a target-specific curriculum may not transfer, and the study's very low-coverage subset gains little. Appendix A states the metric and selection conditions for numerical interpretation. It is appropriate to compare TTSP with other adaptation methods as a whole system, and to separate it from inference policies that preserve weights. [Test-Time Self-Play, §§4–6](https://arxiv.org/html/2611.07367v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            119,
+            119
+          ],
+          "current_lines": [
+            119,
+            119
+          ],
+          "previous_text": "CodeMonkeys combines shared repository context, ten independent test/edit trajectories, and a final selection state machine. Up to eight completions per state machine include corrections of malformed responses; tests run before and after edits. Its SWE-bench Verified coverage is 69.8%, random candidate selection 45.8%, and actual selection 57.4%. Reported LLM inference cost is $2,291.90, including $131.95 for selection. This is a positive end-to-end example in which feedback and selection convert part of the coverage gain into delivery. The historic cost table is not a current quote and does not enumerate every tool-execution cost. [SUP-CM, §§2.1–2.3, Tables 1–2](https://arxiv.org/html/2501.14723v1).",
+          "current_text": "CodeMonkeys combines shared repository context, ten independent test/edit trajectories, and a final selection state machine. Up to eight completions per state machine include corrections of malformed responses; tests run before and after edits. Its SWE-bench Verified coverage is 69.8%, random candidate selection 45.8%, and actual selection 57.4%. Reported LLM inference cost is $2,291.90, including $131.95 for selection. This is a positive end-to-end example in which feedback and selection convert part of the coverage gain into delivery. The historic cost table is not a current quote and does not enumerate every tool-execution cost. [CodeMonkeys, §§2.1–2.3, Tables 1–2](https://arxiv.org/html/2501.14723v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            121,
+            121
+          ],
+          "current_lines": [
+            121,
+            121
+          ],
+          "previous_text": "The design lesson is to amortize reusable information while preserving diversity where it matters. Repository context can be read once and shared; independent edits can still try distinct fixes. Feedback improves a candidate locally, while fresh trajectories recover from premature acceptance or a bad initial plan. Generated tests themselves can be wrong, so their role is to provide evidence, not to redefine success. Selection consumes a real budget and has its own failure modes. This interpretation is consistent with the candidate-versus-selection separation in TTC003v2 and TTC010, rather than assuming that any multi-agent or multi-trajectory architecture must be better.",
+          "current_text": "The design lesson is to amortize reusable information while preserving diversity where it matters. Repository context can be read once and shared; independent edits can still try distinct fixes. Feedback improves a candidate locally, while fresh trajectories recover from premature acceptance or a bad initial plan. Generated tests themselves can be wrong, so their role is to provide evidence, not to redefine success. Selection consumes a real budget and has its own failure modes. This interpretation is consistent with the candidate-versus-selection separation in Inference Regimes (v2) and Large Language Monkeys, rather than assuming that any multi-agent or multi-trajectory architecture must be better."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            123,
+            123
+          ],
+          "current_lines": [
+            123,
+            123
+          ],
+          "previous_text": "Web search illustrates the resource boundary of intermediate-state evaluation. The inspected tree-search agent uses deterministic WebArena/VisualWebArena environments, action-history replay for backtracking, and a GPT-4o value function sampled 20 times per state. With matched five-action limits, WebArena success rises from 15.0% to 19.2%; the VisualWebArena table gives 18.9% to 26.4%. Those results include evaluator work and simulated exploration beyond the committed action count. Real actions that cannot be undone do not offer the same search space. [SUP-TREE, §§3–4](https://arxiv.org/html/2407.01476v1).",
+          "current_text": "Web search illustrates the resource boundary of intermediate-state evaluation. The inspected tree-search agent uses deterministic WebArena/VisualWebArena environments, action-history replay for backtracking, and a GPT-4o value function sampled 20 times per state. With matched five-action limits, WebArena success rises from 15.0% to 19.2%; the VisualWebArena table gives 18.9% to 26.4%. Those results include evaluator work and simulated exploration beyond the committed action count. Real actions that cannot be undone do not offer the same search space. [Tree Search for Language Model Agents, §§3–4](https://arxiv.org/html/2407.01476v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            127,
+            127
+          ],
+          "current_lines": [
+            127,
+            127
+          ],
+          "previous_text": "τ-bench makes the reliability issue measurable. It uses API/database interaction and an LLM-simulated user, scoring final database state plus required output information. Its pass^k is the probability that all k trials succeed, unlike pass@k coverage. GPT-4o function calling reports 61.2% retail and 35.2% airline success, averaging 48.2%; retail pass^8 is below 25%. The paper notes that its reward can miss a policy violation such as omitted user confirmation. Repeated trials expose inconsistency; they do not authorize repeatedly serving the same live user until one outcome happens to pass. [SUP-TAU, §§3 and 5](https://arxiv.org/html/2406.12045v1).",
+          "current_text": "τ-bench makes the reliability issue measurable. It uses API/database interaction and an LLM-simulated user, scoring final database state plus required output information. Its pass^k is the probability that all k trials succeed, unlike pass@k coverage. GPT-4o function calling reports 61.2% retail and 35.2% airline success, averaging 48.2%; retail pass^8 is below 25%. The paper notes that its reward can miss a policy violation such as omitted user confirmation. Repeated trials expose inconsistency; they do not authorize repeatedly serving the same live user until one outcome happens to pass. [τ-bench, §§3 and 5](https://arxiv.org/html/2406.12045v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            133,
+            133
+          ],
+          "current_lines": [
+            133,
+            133
+          ],
+          "previous_text": "For OTBench, **Overthinking Ratio (OR)** is the fraction of a trajectory's thinking tokens generated after its earliest measured prefix attaining the highest observed answer-probe accuracy, reported as a percentage. **Accuracy Degradation (AD)** is that maximum observed accuracy minus the accuracy at the full-thinking endpoint, reported in percentage points. These are diagnostics of the finite prefix/probe measurements, not a proportion of failed tasks or realized online cost savings; the oracle and finite-probe limits remain material. [TTC007, §3.1](https://arxiv.org/html/2610.13570v1).",
+          "current_text": "For OTBench, **Overthinking Ratio (OR)** is the fraction of a trajectory's thinking tokens generated after its earliest measured prefix attaining the highest observed answer-probe accuracy, reported as a percentage. **Accuracy Degradation (AD)** is that maximum observed accuracy minus the accuracy at the full-thinking endpoint, reported in percentage points. These are diagnostics of the finite prefix/probe measurements, not a proportion of failed tasks or realized online cost savings; the oracle and finite-probe limits remain material. [Optimal Reasoning Termination, §3.1](https://arxiv.org/html/2610.13570v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            137,
+            149
+          ],
+          "current_lines": [
+            137,
+            149
+          ],
+          "previous_text": "| Self-Consistency, TTC009 v4 | Same checkpoint and prompts; 40 sampled paths vs greedy; ten runs | PaLM-540B GSM8K 56.5→74.4% | Voting can turn diversity into answer accuracy; no external checker, 40-generation cost |\n| Large Language Monkeys, TTC010 v2 | Fixed candidate banks up to 10k samples; 250 agent attempts on SWE-bench Lite | SWE coverage 15.9→56%; selection curves saturate much earlier on math | Strong sampling headroom can coexist with a selector bottleneck |\n| Inference Regimes, TTC003 v2 | 80-response shared banks; Qwen3-30B-A3B-Thinking-2507 over 120 math questions | 75.56% single response; at80: coverage91.67%, plurality78.33%, mean-logprob65.83% | Availability, usable selection and harmful scoring can diverge on the same candidates |\n| Let's Verify Step by Step, TTC012 v1 | Same generator, trained selectors over up to 1,860 solutions; 500 MATH tasks | PRM 78.2%, ORM 72.4%, majority 69.6% | Verification quality matters; large-scale training datasets differ and scoring costs must be counted |\n| Snell et al., TTC001 v1 | PaLM 2-S*, trained verifier/revision policy, budget/difficulty sweeps | Beam useful at low budget and medium difficulty; stronger search can regress; adaptive policy up to 4x generation reduction | Allocate method by task and budget; difficulty estimation and proxy cost limit deployment translation |\n| s1, TTC002 v2 | Post-trained s1-32B under budget forcing | AIME24 50→57%, eventual flattening/repetition | Inference control works within a trained model; base-vs-s1 comparison includes training |\n| SCoRe, TTC013 v1 | Trained model, one correction round; MATH 500-question split | 60→64.4%; base correction 52.6→41.4% | Repair behavior can be learned; 15.6-point headline is a change in deltas |\n| Adaptive-Consistency, SUP-AC EMNLP2023 | Fixed-weight stopping vs fixed sample budgets | 3.3x fewer samples average, <0.1-point average loss | Stop stable consensus; sample reduction is not a measured system latency reduction |\n| TTSP, TTC005 v1 | Target-specific GRPO adaptation on selected HardLCBv6 | Gains under weak target verification; near-zero on very low coverage subset | Change proposals through synthetic execution; cannot equate GRPO steps and sampling cost |\n| OTBench, TTC007 v1 | Frozen prefix/probe curves; nested oracle action sets | Mean OR 64.3%, AD 9.03 percentage points; large oracle stopping headroom | Diagnostic upper bounds with finite-probe selection, not realized online savings |\n| CodeMonkeys, SUP-CM v1 | Full coding system with retained selection stage | 69.8% coverage, 57.4% submitted success | End-to-end improvement requires feedback and selection; historic cost ledger supports partial normalization |\n| Web tree search, SUP-TREE v1 | Fixed agent plus value-guided environment search | WA15.0→19.2% with five committed actions | Environment replay and value calls are essential parts of the method |\n| τ-bench, SUP-TAU v1 | Repeated task trials with user stochasticity | GPT-4o mean48.2%; retail pass^8<25% | Reliability cannot be inferred from best-run coverage |",
+          "current_text": "| Self-Consistency v4 | Same checkpoint and prompts; 40 sampled paths vs greedy; ten runs | PaLM-540B GSM8K 56.5→74.4% | Voting can turn diversity into answer accuracy; no external checker, 40-generation cost |\n| Large Language Monkeys v2 | Fixed candidate banks up to 10k samples; 250 agent attempts on SWE-bench Lite | SWE coverage 15.9→56%; selection curves saturate much earlier on math | Strong sampling headroom can coexist with a selector bottleneck |\n| Inference Regimes v2 | 80-response shared banks; Qwen3-30B-A3B-Thinking-2507 over 120 math questions | 75.56% single response; at80: coverage91.67%, plurality78.33%, mean-logprob65.83% | Availability, usable selection and harmful scoring can diverge on the same candidates |\n| Let’s Verify Step by Step v1 | Same generator, trained selectors over up to 1,860 solutions; 500 MATH tasks | PRM 78.2%, ORM 72.4%, majority 69.6% | Verification quality matters; large-scale training datasets differ and scoring costs must be counted |\n| Snell et al., Scaling Test-Time Compute Optimally v1 | PaLM 2-S*, trained verifier/revision policy, budget/difficulty sweeps | Beam useful at low budget and medium difficulty; stronger search can regress; adaptive policy up to 4x generation reduction | Allocate method by task and budget; difficulty estimation and proxy cost limit deployment translation |\n| s1 v2 | Post-trained s1-32B under budget forcing | AIME24 50→57%, eventual flattening/repetition | Inference control works within a trained model; base-vs-s1 comparison includes training |\n| SCoRe v1 | Trained model, one correction round; MATH 500-question split | 60→64.4%; base correction 52.6→41.4% | Repair behavior can be learned; 15.6-point headline is a change in deltas |\n| Adaptive-Consistency, EMNLP 2023 | Fixed-weight stopping vs fixed sample budgets | 3.3x fewer samples average, <0.1-point average loss | Stop stable consensus; sample reduction is not a measured system latency reduction |\n| TTSP, Test-Time Self-Play v1 | Target-specific GRPO adaptation on selected HardLCBv6 | Gains under weak target verification; near-zero on very low coverage subset | Change proposals through synthetic execution; cannot equate GRPO steps and sampling cost |\n| OTBench, Optimal Reasoning Termination v1 | Frozen prefix/probe curves; nested oracle action sets | Mean OR 64.3%, AD 9.03 percentage points; large oracle stopping headroom | Diagnostic upper bounds with finite-probe selection, not realized online savings |\n| CodeMonkeys v1 | Full coding system with retained selection stage | 69.8% coverage, 57.4% submitted success | End-to-end improvement requires feedback and selection; historic cost ledger supports partial normalization |\n| Web tree search, Tree Search for Language Model Agents v1 | Fixed agent plus value-guided environment search | WA15.0→19.2% with five committed actions | Environment replay and value calls are essential parts of the method |\n| τ-bench v1 | Repeated task trials with user stochasticity | GPT-4o mean48.2%; retail pass^8<25% | Reliability cannot be inferred from best-run coverage |"
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            151,
+            151
+          ],
+          "current_lines": [
+            151,
+            151
+          ],
+          "previous_text": "TTC006's numerical thresholds are intentionally absent from this comparison because source checks found unreconciled protocol and arithmetic conflicts (Appendix A). Its general question about harmful reconsideration is addressed by independent revision, search and termination evidence above. No common performance axis is manufactured across the studies: the table preserves the measured outcome, checkpoint, feedback access and budget definition that make each finding interpretable.",
+          "current_text": "The numerical thresholds in *When More Thinking Hurts* are intentionally absent from this comparison because source checks found unreconciled protocol and arithmetic conflicts (Appendix A). Its general question about harmful reconsideration is addressed by independent revision, search and termination evidence above. No common performance axis is manufactured across the studies: the table preserves the measured outcome, checkpoint, feedback access and budget definition that make each finding interpretable."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            175,
+            175
+          ],
+          "current_lines": [
+            175,
+            175
+          ],
+          "previous_text": "For a dense transformer, a rough matrix-multiplication estimate often begins with about `2P` FLOPs per token plus attention terms, where P is parameter count. That can support a carefully scoped within-family approximation. It does not turn one token from an 8B dense model, a sparse MoE model, and a different tokenizer into equivalent compute. Active versus total parameters, input context length, attention implementation, precision, batching, cache reuse and memory traffic all matter. FLOPs also do not determine elapsed time: inference can be limited by memory bandwidth or inefficient utilization. TTC010 explicitly uses an approximation including a context-dependent attention term and labels FLOPs a crude resource metric. [Large Language Monkeys, §2.3](https://arxiv.org/html/2407.21787v2).",
+          "current_text": "For a dense transformer, a rough matrix-multiplication estimate often begins with about `2P` FLOPs per token plus attention terms, where P is parameter count. That can support a carefully scoped within-family approximation. It does not turn one token from an 8B dense model, a sparse MoE model, and a different tokenizer into equivalent compute. Active versus total parameters, input context length, attention implementation, precision, batching, cache reuse and memory traffic all matter. FLOPs also do not determine elapsed time: inference can be limited by memory bandwidth or inefficient utilization. Large Language Monkeys explicitly uses an approximation including a context-dependent attention term and labels FLOPs a crude resource metric. [Large Language Monkeys, §2.3](https://arxiv.org/html/2407.21787v2)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            177,
+            177
+          ],
+          "current_lines": [
+            177,
+            177
+          ],
+          "previous_text": "A cost comparison can therefore be valid at one level and invalid at another. Same-checkpoint generation counts can reveal an algorithmic trend. A complete token and rate ledger can estimate billed money. Measured wall time under a fixed accelerator and concurrency configuration can establish latency. None automatically establishes the other two. TTC008's parameter^γ times token costs are useful sensitivity models; its additive latency-like proxy is explicitly not a parallel service measurement. [Sample, Mix, or Verify?, §4 and limitations](https://arxiv.org/html/2610.23255v1).",
+          "current_text": "A cost comparison can therefore be valid at one level and invalid at another. Same-checkpoint generation counts can reveal an algorithmic trend. A complete token and rate ledger can estimate billed money. Measured wall time under a fixed accelerator and concurrency configuration can establish latency. None automatically establishes the other two. Sample, Mix, or Verify?'s parameter^γ times token costs are useful sensitivity models; its additive latency-like proxy is explicitly not a parallel service measurement. [Sample, Mix, or Verify?, §4 and limitations](https://arxiv.org/html/2610.23255v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            195,
+            195
+          ],
+          "current_lines": [
+            195,
+            195
+          ],
+          "previous_text": "TTC005's declared TTSP schedule provides a different kind of normalization. Fifty target-specific GRPO steps, with 16 proposer rollouts and 48×8 solver rollouts per step, imply **20,000 nominal rollout slots per target**. That quantity counts both proposer and solver generations. It does not include test construction, executions, target evaluations, sequence length variation or backward passes. It is therefore useful for checking the scale of the schedule but cannot be divided by another method's sample count to claim an efficiency ratio. The complete nominal sum is 19,200 solver slots plus 800 proposer slots. [TTSP, Appendix B](https://arxiv.org/html/2611.07367v1).",
+          "current_text": "Test-Time Self-Play's declared TTSP schedule provides a different kind of normalization. Fifty target-specific GRPO steps, with 16 proposer rollouts and 48×8 solver rollouts per step, imply **20,000 nominal rollout slots per target**. That quantity counts both proposer and solver generations. It does not include test construction, executions, target evaluations, sequence length variation or backward passes. It is therefore useful for checking the scale of the schedule but cannot be divided by another method's sample count to claim an efficiency ratio. The complete nominal sum is 19,200 solver slots plus 800 proposer slots. [TTSP, Appendix B](https://arxiv.org/html/2611.07367v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            197,
+            197
+          ],
+          "current_lines": [
+            197,
+            197
+          ],
+          "previous_text": "Similarly, SCoRe's equal-solution-budget comparison can inform how to allocate attempts within its trained policy, but it does not normalize growing revision context into FLOPs. TTC001's fourfold result is a generation-equivalent comparison with difficulty-estimation overhead omitted. TTC007's retained-token frontiers exclude predictor/feature overhead and use labelled probe curves. These findings remain valuable at their declared level; forcing them into a common dollar leaderboard would discard the information needed to interpret them.",
+          "current_text": "Similarly, SCoRe's equal-solution-budget comparison can inform how to allocate attempts within its trained policy, but it does not normalize growing revision context into FLOPs. Scaling Test-Time Compute Optimally's fourfold result is a generation-equivalent comparison with difficulty-estimation overhead omitted. Optimal Reasoning Termination's retained-token frontiers exclude predictor/feature overhead and use labelled probe curves. These findings remain valuable at their declared level; forcing them into a common dollar leaderboard would discard the information needed to interpret them."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            218,
+            218
+          ],
+          "current_lines": [
+            218,
+            218
+          ],
+          "previous_text": "The probabilities sum to one. This is the selector-specific formula analyzed in TTC008 and derived from the acceptance event; it does not model score-maximizing best-of-N or correlated candidates. The table below was computed directly from these inputs; the accompanying calculation record retains the arithmetic.",
+          "current_text": "The probabilities sum to one. This is the selector-specific formula analyzed in Sample, Mix, or Verify? and derived from the acceptance event; it does not model score-maximizing best-of-N or correlated candidates. The table below was computed directly from these inputs; the accompanying calculation record retains the arithmetic."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            317,
+            317
+          ],
+          "current_lines": [
+            317,
+            317
+          ],
+          "previous_text": "**Versions and inventory.** The inspected v2 of *Test-Time Scaling in Reasoning LLMs* is dated 31 August 2026. Its 1,948,821 study responses and 1,403,520 declared public attempts reconcile: the difference is 500,661 one-response broad-evaluation records plus 44,640 additional signal-rich mathematics repeats. The earlier v1's conflicting billion/million claims are superseded. This is an internal accounting reconciliation, not an audit of every hosted dataset file. [TTC003v2, Table 1 and Appendix G Table 3](https://arxiv.org/html/2608.04001v2).",
+          "current_text": "**Versions and inventory.** The inspected v2 of *Test-Time Scaling in Reasoning LLMs* is dated 31 August 2026. Its 1,948,821 study responses and 1,403,520 declared public attempts reconcile: the difference is 500,661 one-response broad-evaluation records plus 44,640 additional signal-rich mathematics repeats. The earlier v1's conflicting billion/million claims are superseded. This is an internal accounting reconciliation, not an audit of every hosted dataset file. [Inference Regimes (v2), Table 1 and Appendix G Table 3](https://arxiv.org/html/2608.04001v2)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            319,
+            319
+          ],
+          "current_lines": [
+            319,
+            319
+          ],
+          "previous_text": "**TTSP evaluation.** The study selects 28 HardLCBv6 targets with nonzero but imperfect Qwen3-8B mean@512 from a 131-problem slice. Under v0, mean@8 is ordinary unfiltered candidate correctness; under a nontrivial filter it divides by the accepted-set size. Iterative methods carry forward a previous nonempty score when the current accepted set is empty, whereas one-shot baselines receive zero. The appendix explicitly excludes choosing the best hidden-test checkpoint. Artificial filter calibration nevertheless uses privileged target correctness information, and the strongest filter is also the final evaluator. Consequently, the report uses the weak/no-target-feedback mechanism positively while avoiding an equal-cost, equal-history deployment claim from the complete verifier sweep. [TTC005, §5.2 and Appendices A–C](https://arxiv.org/html/2611.07367v1).",
+          "current_text": "**TTSP evaluation.** The study selects 28 HardLCBv6 targets with nonzero but imperfect Qwen3-8B mean@512 from a 131-problem slice. Under v0, mean@8 is ordinary unfiltered candidate correctness; under a nontrivial filter it divides by the accepted-set size. Iterative methods carry forward a previous nonempty score when the current accepted set is empty, whereas one-shot baselines receive zero. The appendix explicitly excludes choosing the best hidden-test checkpoint. Artificial filter calibration nevertheless uses privileged target correctness information, and the strongest filter is also the final evaluator. Consequently, the report uses the weak/no-target-feedback mechanism positively while avoiding an equal-cost, equal-history deployment claim from the complete verifier sweep. [Test-Time Self-Play, §5.2 and Appendices A–C](https://arxiv.org/html/2611.07367v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            323,
+            323
+          ],
+          "current_lines": [
+            323,
+            323
+          ],
+          "previous_text": "**The ACL overthinking paper.** The original rendered pages of *When More Thinking Hurts* confirm inconsistencies, so its numerical stopping thresholds and savings are excluded from the scaling table. A declared 60-question, one-answer-per-budget AIME protocol implies 1.6667-point accuracy increments, unlike several printed one-decimal values. Table 1's 2K→4K endpoint gain is 8.7 points, giving 2.175 points per 500 tokens, rather than the printed 1.8; 8K→12K gives .25 rather than .1. Table 2 labels counts as suffix-cumulative flips through 16K, yet negative counts rise as the suffix shrinks and remain nonzero at 16K. On a common binary cohort, positive minus negative flips equals the endpoint correct-count change, bounded by ±60; printed differences of 111 and −72 violate that identity. Multiple flips per question do not resolve it. [TTC006, Tables 1–2](https://aclanthology.org/2026.findings-acl.1199.pdf).",
+          "current_text": "**The ACL overthinking paper.** The original rendered pages of *When More Thinking Hurts* confirm inconsistencies, so its numerical stopping thresholds and savings are excluded from the scaling table. A declared 60-question, one-answer-per-budget AIME protocol implies 1.6667-point accuracy increments, unlike several printed one-decimal values. Table 1's 2K→4K endpoint gain is 8.7 points, giving 2.175 points per 500 tokens, rather than the printed 1.8; 8K→12K gives .25 rather than .1. Table 2 labels counts as suffix-cumulative flips through 16K, yet negative counts rise as the suffix shrinks and remain nonzero at 16K. On a common binary cohort, positive minus negative flips equals the endpoint correct-count change, bounded by ±60; printed differences of 111 and −72 violate that identity. Multiple flips per question do not resolve it. [When More Thinking Hurts, Tables 1–2](https://aclanthology.org/2026.findings-acl.1199.pdf)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            327,
+            327
+          ],
+          "current_lines": [
+            327,
+            327
+          ],
+          "previous_text": "**Termination-oracle scope.** TTC007 selects the earliest empirical maximum among 16-answer-probe estimates at multiple prefixes. Its OR/AD statistics and nested frontiers depend on this finite measurement space. At p=.5, a single 16-probe proportion has binomial standard deviation .125; maximizing across positions adds selection optimism. The authors' own thinning analysis increases OR from64.34% to74.69% and AD from9.03 to11.07 points when reducing probes16→4. Their bootstrap holds probe labels fixed, covering question/trajectory resampling rather than new answer-probe uncertainty. Retained-token cost excludes controller overhead; 70.5B claimed total tokens and 576,688,123 stored thinking tokens are not sufficiently reconciled for this report to use them as a total-cost estimate. [TTC007, §§3–5 and Appendices A–D](https://arxiv.org/html/2610.13570v1).",
+          "current_text": "**Termination-oracle scope.** Optimal Reasoning Termination selects the earliest empirical maximum among 16-answer-probe estimates at multiple prefixes. Its OR/AD statistics and nested frontiers depend on this finite measurement space. At p=.5, a single 16-probe proportion has binomial standard deviation .125; maximizing across positions adds selection optimism. The authors' own thinning analysis increases OR from64.34% to74.69% and AD from9.03 to11.07 points when reducing probes16→4. Their bootstrap holds probe labels fixed, covering question/trajectory resampling rather than new answer-probe uncertainty. Retained-token cost excludes controller overhead; 70.5B claimed total tokens and 576,688,123 stored thinking tokens are not sufficiently reconciled for this report to use them as a total-cost estimate. [Optimal Reasoning Termination, §§3–5 and Appendices A–D](https://arxiv.org/html/2610.13570v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            329,
+            329
+          ],
+          "current_lines": [
+            329,
+            329
+          ],
+          "previous_text": "**Selector theory.** TTC008's uniform-among-accepted formula assumes candidate independence conditional on the task. Its task-level correlation and repeated-judge models do not cover arbitrary dependence between candidates within one task. Argmax selection has a separate high-score-tail formulation. Its cost model assigns tests zero expense and uses parameter/token proxies rather than observed provider billing; its regret is relative to a finite configuration grid. The report uses its formula and allocation logic within those assumptions. [TTC008, §§3–4 and limitations](https://arxiv.org/html/2610.23255v1).",
+          "current_text": "**Selector theory.** The uniform-among-accepted formula in *Sample, Mix, or Verify?* assumes candidate independence conditional on the task. Its task-level correlation and repeated-judge models do not cover arbitrary dependence between candidates within one task. Argmax selection has a separate high-score-tail formulation. Its cost model assigns tests zero expense and uses parameter/token proxies rather than observed provider billing; its regret is relative to a finite configuration grid. The report uses its formula and allocation logic within those assumptions. [Sample, Mix, or Verify?, §§3–4 and limitations](https://arxiv.org/html/2610.23255v1)."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            339,
+            339
+          ],
+          "current_lines": [
+            339,
+            339
+          ],
+          "previous_text": "| ID and original | Version, model and evaluation boundary |",
+          "current_text": "| Original paper | Version, model and evaluation boundary |"
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            341,
+            358
+          ],
+          "current_lines": [
+            341,
+            358
+          ],
+          "previous_text": "| [TTC001: Scaling LLM Test-Time Compute Optimally Can Be More Effective than Scaling Model Parameters](https://arxiv.org/html/2408.03314v1) | v1; PaLM 2-S*; MATH 12,000/500 train/evaluation split; implementation commit not pinned |\n| [TTC002: s1: Simple Test-Time Scaling](https://arxiv.org/html/2501.19393v2) | v2, 3 February 2025; s1-32B distilled from Gemini Thinking into Qwen2.5-32B-Instruct; AIME24, MATH500, GPQA Diamond |\n| [TTC003v2: Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility](https://arxiv.org/html/2608.04001v2) | v2, 31 August 2026; repeated-math bank: 20 configurations × 120 questions × 80 responses; separate public-release inventory |\n| [TTC005: Test-Time Self-Play: Scaling without a Verifier](https://arxiv.org/html/2611.07367v1) | v1; Qwen3-8B; 28 HardLCBv6 targets selected from 131 February–May 2025 problems; implementation commit not pinned |\n| [TTC006: When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling](https://aclanthology.org/2026.findings-acl.1199.pdf) | ACL 2026 Findings, pp. 23967–23977; exact R1 checkpoint insufficiently specified; numerical thresholds withheld |\n| [TTC007: Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models](https://arxiv.org/html/2610.13570v1) | v1; six named checkpoints; 963 questions, 16 trajectories per question, 16 answer probes per retained position |\n| [TTC008: Sample, Mix, or Verify? Allocating Test-Time Compute under Imperfect Verifiers](https://arxiv.org/html/2610.23255v1) | v1; paper-described public sample releases; exact data/code commits unpinned; selector and cost assumptions retained |\n| [TTC009: Self-Consistency Improves Chain of Thought Reasoning in Language Models](https://arxiv.org/html/2203.11171v4) | v4, 7 March 2023; PaLM-540B temperature 0.7, top-k 40; 40 samples per run, ten runs |\n| [TTC010: Large Language Monkeys: Scaling Inference Compute with Repeated Sampling](https://arxiv.org/html/2407.21787v2) | v2, 16 September 2024; Llama-3 8B/70B; DeepSeek-Coder-V2 with Moatless Tools on SWE-bench Lite |\n| [TTC011: Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://arxiv.org/html/2305.10601v2) | v2, 3 December 2023; GPT-4 experiments 5–16 May 2023; 100 selected Game-of-24 tasks |\n| [TTC012: Let’s Verify Step by Step](https://arxiv.org/html/2305.20050v1) | v1, 31 May 2023; GPT-4-derived generator and reward models; 500-question MATH evaluation; 1,860 candidates |\n| [TTC013: Training Language Models to Self-Correct via Reinforcement Learning](https://arxiv.org/html/2409.12917v1) | v1, 19 September 2024; Gemini 1.5 Flash for MATH; Gemini 1.0 Pro trained on MBPP and evaluated on HumanEval |\n| [SUP-CM: CodeMonkeys: Scaling Test-Time Compute for Software Engineering](https://arxiv.org/html/2501.14723v1) | v1, 24 January 2025; claude-3-5-sonnet-20241022 and Qwen2.5-Coder-32B-Instruct; SWE-bench Verified |\n| [SUP-TAU: τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains](https://arxiv.org/html/2406.12045v1) | v1, 17 June 2024; 115 retail and 50 airline tasks; agent temperature 0, user temperature 1; historical models |\n| [SUP-LIMITS: Inference Scaling FLaws: The Limits of LLM Resampling with Imperfect Verifiers](https://arxiv.org/html/2411.17501v1) | v1, 26 November 2024; HumanEval/MBPP filters versus expanded “+” evaluators |\n| [SUP-SELF: Large Language Models Cannot Self-Correct Reasoning Yet](https://arxiv.org/html/2310.01798v2) | v2, 14 March 2024; GPT-3.5-0613 and GPT-4 accessed 29 August 2023; 200-question samples for GPT-4 |\n| [SUP-AC: Let’s Sample Step by Step: Adaptive-Consistency for Efficient Reasoning and Coding with LLMs](https://aclanthology.org/2023.emnlp-main.761.pdf) | EMNLP 2023, pp. 12375–12396; Vicuna-13B, code-davinci-002, GPT-3.5; 40-sample reasoning cap |\n| [SUP-TREE: Tree Search for Language Model Agents](https://arxiv.org/html/2407.01476v1) | v1, 1 July 2024; gpt-4o-2024-05-13 value model; WebArena/VisualWebArena; matched five-action comparisons |",
+          "current_text": "| [Scaling LLM Test-Time Compute Optimally Can Be More Effective than Scaling Model Parameters](https://arxiv.org/html/2408.03314v1) | v1; PaLM 2-S*; MATH 12,000/500 train/evaluation split; implementation commit not pinned |\n| [s1: Simple Test-Time Scaling](https://arxiv.org/html/2501.19393v2) | v2, 3 February 2025; s1-32B distilled from Gemini Thinking into Qwen2.5-32B-Instruct; AIME24, MATH500, GPQA Diamond |\n| [Test-Time Scaling in Reasoning LLMs: Inference Regimes, Evaluation, and Reproducibility](https://arxiv.org/html/2608.04001v2) | v2, 31 August 2026; repeated-math bank: 20 configurations × 120 questions × 80 responses; separate public-release inventory |\n| [Test-Time Self-Play: Scaling without a Verifier](https://arxiv.org/html/2611.07367v1) | v1; Qwen3-8B; 28 HardLCBv6 targets selected from 131 February–May 2025 problems; implementation commit not pinned |\n| [When More Thinking Hurts: Overthinking in LLM Test-Time Compute Scaling](https://aclanthology.org/2026.findings-acl.1199.pdf) | ACL 2026 Findings, pp. 23967–23977; exact R1 checkpoint insufficiently specified; numerical thresholds withheld |\n| [Constructing Pareto Frontiers of Optimal Reasoning Termination Methods for Overthinking in Reasoning Models](https://arxiv.org/html/2610.13570v1) | v1; six named checkpoints; 963 questions, 16 trajectories per question, 16 answer probes per retained position |\n| [Sample, Mix, or Verify? Allocating Test-Time Compute under Imperfect Verifiers](https://arxiv.org/html/2610.23255v1) | v1; paper-described public sample releases; exact data/code commits unpinned; selector and cost assumptions retained |\n| [Self-Consistency Improves Chain of Thought Reasoning in Language Models](https://arxiv.org/html/2203.11171v4) | v4, 7 March 2023; PaLM-540B temperature 0.7, top-k 40; 40 samples per run, ten runs |\n| [Large Language Monkeys: Scaling Inference Compute with Repeated Sampling](https://arxiv.org/html/2407.21787v2) | v2, 16 September 2024; Llama-3 8B/70B; DeepSeek-Coder-V2 with Moatless Tools on SWE-bench Lite |\n| [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://arxiv.org/html/2305.10601v2) | v2, 3 December 2023; GPT-4 experiments 5–16 May 2023; 100 selected Game-of-24 tasks |\n| [Let’s Verify Step by Step](https://arxiv.org/html/2305.20050v1) | v1, 31 May 2023; GPT-4-derived generator and reward models; 500-question MATH evaluation; 1,860 candidates |\n| [Training Language Models to Self-Correct via Reinforcement Learning](https://arxiv.org/html/2409.12917v1) | v1, 19 September 2024; Gemini 1.5 Flash for MATH; Gemini 1.0 Pro trained on MBPP and evaluated on HumanEval |\n| [CodeMonkeys: Scaling Test-Time Compute for Software Engineering](https://arxiv.org/html/2501.14723v1) | v1, 24 January 2025; claude-3-5-sonnet-20241022 and Qwen2.5-Coder-32B-Instruct; SWE-bench Verified |\n| [τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains](https://arxiv.org/html/2406.12045v1) | v1, 17 June 2024; 115 retail and 50 airline tasks; agent temperature 0, user temperature 1; historical models |\n| [Inference Scaling FLaws: The Limits of LLM Resampling with Imperfect Verifiers](https://arxiv.org/html/2411.17501v1) | v1, 26 November 2024; HumanEval/MBPP filters versus expanded “+” evaluators |\n| [Large Language Models Cannot Self-Correct Reasoning Yet](https://arxiv.org/html/2310.01798v2) | v2, 14 March 2024; GPT-3.5-0613 and GPT-4 accessed 29 August 2023; 200-question samples for GPT-4 |\n| [Let’s Sample Step by Step: Adaptive-Consistency for Efficient Reasoning and Coding with LLMs](https://aclanthology.org/2023.emnlp-main.761.pdf) | EMNLP 2023, pp. 12375–12396; Vicuna-13B, code-davinci-002, GPT-3.5; 40-sample reasoning cap |\n| [Tree Search for Language Model Agents](https://arxiv.org/html/2407.01476v1) | v1, 1 July 2024; gpt-4o-2024-05-13 value model; WebArena/VisualWebArena; matched five-action comparisons |"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "host_task": "/root/benchmark_reader_a",
+  "status": "completed",
+  "perspective": "reader_usefulness",
+  "input_version": "35856ace8b32421ec17a16702661ae8452b72df5cc41c988a9beb1d43605ab7c",
+  "assignment_version": "6dba9e43678e74b9c3e124bafbeb3f08bb96085e26f8b1a92a33fe1394bb641b",
+  "started_at_utc": "2026-11-09 14:26:21 UTC",
+  "completed_at_utc": "2026-11-09 14:28:04 UTC",
+  "timing_basis": "Actual clock-tool readings immediately before task-material retrieval and after final substantive checks; no estimated timing.",
+  "reading": {
+    "task_and_effective_requirements": "Complete assignment.task and effective_requirements.",
+    "report": "Complete 355-line frozen assignment.report in consecutive ranges 1–90, 91–175, 176–265, 266–355; all diagrams, tables and appendices included.",
+    "originals": [
+      {
+        "path": "sources/actual/SUP-CM.txt",
+        "scope": "Original cost Table 1 lines 71–121 and selection/generation passages around lines 131–146 and 192–238; coverage, random selection, delivered score and actual selection expense."
+      },
+      {
+        "path": "sources/TTC007/original.txt",
+        "scope": "Original abstract/introduction and §3.1 definitions of OR/AD, earliest empirical maximum, equations (2)–(3) and units; targeted extracted passages, not full-paper reading."
+      }
+    ],
+    "calculations": [
+      {
+        "path": "analysis/author-production/allocation_example.py",
+        "scope": "Complete existing hypothetical arithmetic script, read only."
+      },
+      {
+        "path": "analysis/author-production/allocation-results.json",
+        "scope": "Complete existing assumptions, rows, deadline_feasible_rows, published-cost arithmetic, correction delta and risk threshold."
+      }
+    ],
+    "independence": "No author self-rating, other review or coordinator-context-reading material read; handoff and production response files were not opened."
+  },
+  "actions": "Read sources and retained calculations, wrote only this review pair. Did not modify report, import review, run models, rerun experiments or run software tests."
+}

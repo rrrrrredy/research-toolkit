@@ -1,0 +1,1292 @@
+[
+  {
+    "source_id": "MD003",
+    "url": "https://www.csm.com.cn/Content/2026/08-11/20260811-01.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD003.txt",
+    "sha256": "9f1840f02c97b3293965fd6d0947362cddce8d6ae6db15f4c71db365ffdb0c23",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        215
+      ]
+    ],
+    "source_pack_scope": "所附original.txt完整网页文本；重点为开头调查时间说明及“微短剧文艺形式广受欢迎”段。；所附网页“多屏多元”“黄金时长”“产业价值升维”“大屏客厅竞争力”及AI段。；所附网页“品质转型路口”末尾与“微短剧产业价值升维”之间。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-001",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "MD009",
+    "url": "https://pdf.dfcfw.com/pdf/H3_AP202511131780698038_1.pdf",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD009.txt",
+    "sha256": "853dea43649e251e9404cf871956b94cf2f304ef841c39ab212c18c41de36446",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        344
+      ]
+    ],
+    "source_pack_scope": "所附27页主要发现版完整提取文本；第1—4、14—16及26—27页。；所附第6—9、17及20—21页。；所附第10—13页应用使用时长及用户/从业者调研；仅文本，未取得原图截图。；所附第16及22—25页。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-002",
+    "read_status": "tool_display_truncated; relied_on_followup_for_claims",
+    "attempted_line_ranges": [
+      [
+        1,
+        458
+      ]
+    ],
+    "truncation_note": "Saved extracted output may contain more text than was visible in the tool response. Only ranges below count as confirmed reading in this event."
+  },
+  {
+    "source_id": "MD010",
+    "url": "https://gdj.beijing.gov.cn/zwxx/gzbg1/202606/t20260625_4720326.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD010.txt",
+    "sha256": "9a434c6c1c5f95393e0d75e1b6e61b4b7b1d55b45d2c288d0f8c68393836c6ee",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [],
+    "source_pack_scope": "所附original.txt完整发布消息，五项发现及编写单位说明。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-003",
+    "read_status": "tool_display_truncated; relied_on_followup_for_claims",
+    "attempted_line_ranges": [
+      [
+        1,
+        24
+      ]
+    ],
+    "truncation_note": "Saved extracted output may contain more text than was visible in the tool response. Only ranges below count as confirmed reading in this event."
+  },
+  {
+    "source_id": "MD006",
+    "url": "https://www.nsd.pku.edu.cn/docs/2026-02/48accc85b74f4939b8f4c4b612e610ec.pdf",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD006.txt",
+    "sha256": "4c5a31de0d998cef7d5e9fc444995fe728cdcec8ea7ec0da4f802f0fb4676e35",
+    "reading_mode": "search",
+    "requested_scope": "市场规模|亿元|2023|2024|2025|投流|充值|付费|免费|成本|利润|%|％",
+    "actual_line_ranges": [],
+    "source_pack_scope": "所附13页完整提取文本；第2—5页摘要、市场规模图文字及用户机制段。；所附第6—10页商业合作、地方实践与岗位结构。；所附第11—13页就业测算和政策建议。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-004",
+    "read_status": "tool_display_truncated; relied_on_followup_for_claims",
+    "attempted_line_ranges": [
+      [
+        1,
+        9
+      ],
+      [
+        13,
+        29
+      ],
+      [
+        33,
+        43
+      ],
+      [
+        47,
+        63
+      ],
+      [
+        65,
+        100
+      ],
+      [
+        144,
+        154
+      ],
+      [
+        166,
+        217
+      ],
+      [
+        220,
+        276
+      ],
+      [
+        279,
+        337
+      ],
+      [
+        341,
+        351
+      ],
+      [
+        363,
+        380
+      ],
+      [
+        386,
+        395
+      ],
+      [
+        412,
+        439
+      ],
+      [
+        445,
+        454
+      ],
+      [
+        480,
+        506
+      ],
+      [
+        508,
+        525
+      ],
+      [
+        530,
+        539
+      ],
+      [
+        543,
+        570
+      ],
+      [
+        576,
+        591
+      ],
+      [
+        598,
+        619
+      ]
+    ],
+    "truncation_note": "Saved extracted output may contain more text than was visible in the tool response. Only ranges below count as confirmed reading in this event."
+  },
+  {
+    "source_id": "MD006",
+    "url": "https://www.nsd.pku.edu.cn/docs/2026-02/48accc85b74f4939b8f4c4b612e610ec.pdf",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD006.txt",
+    "sha256": "4c5a31de0d998cef7d5e9fc444995fe728cdcec8ea7ec0da4f802f0fb4676e35",
+    "reading_mode": "lines",
+    "requested_scope": "1-205",
+    "actual_line_ranges": [
+      [
+        1,
+        205
+      ]
+    ],
+    "source_pack_scope": "所附13页完整提取文本；第2—5页摘要、市场规模图文字及用户机制段。；所附第6—10页商业合作、地方实践与岗位结构。；所附第11—13页就业测算和政策建议。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-005",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "MD006",
+    "url": "https://www.nsd.pku.edu.cn/docs/2026-02/48accc85b74f4939b8f4c4b612e610ec.pdf",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD006.txt",
+    "sha256": "4c5a31de0d998cef7d5e9fc444995fe728cdcec8ea7ec0da4f802f0fb4676e35",
+    "reading_mode": "lines",
+    "requested_scope": "206-340",
+    "actual_line_ranges": [
+      [
+        206,
+        340
+      ]
+    ],
+    "source_pack_scope": "所附13页完整提取文本；第2—5页摘要、市场规模图文字及用户机制段。；所附第6—10页商业合作、地方实践与岗位结构。；所附第11—13页就业测算和政策建议。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-006",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "MD010",
+    "url": "https://gdj.beijing.gov.cn/zwxx/gzbg1/202606/t20260625_4720326.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD010.txt",
+    "sha256": "9a434c6c1c5f95393e0d75e1b6e61b4b7b1d55b45d2c288d0f8c68393836c6ee",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        24
+      ]
+    ],
+    "source_pack_scope": "所附original.txt完整发布消息，五项发现及编写单位说明。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-007",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP19",
+    "url": "https://www.cnnic.net.cn/NMediaFile/2025/0428/MAIN17458061595875K4FP1NEUO.pdf",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP19.txt",
+    "sha256": "9a90e13820b46f478d82f638fccb888f51b5dd6c329970fcec55492850629db5",
+    "reading_mode": "pages",
+    "requested_scope": "7,45,61,62",
+    "actual_line_ranges": [
+      [
+        109,
+        144
+      ],
+      [
+        1744,
+        1784
+      ],
+      [
+        2415,
+        2480
+      ]
+    ],
+    "source_pack_scope": "CNNIC第55次PDF第7、45、61—62页及相关术语；2024末6.62亿59.7%、样本总体与方法；第45页即正文39页",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-008",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP08",
+    "url": "https://www.cnnic.net.cn/NMediaFile/2026/0304/MAIN1772588317069TUXN3827X8.pdf",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP08.txt",
+    "sha256": "156d91b972fd6c75afbe6a32934d78e134682b71ec9ede2b89a67dfe23baa195",
+    "reading_mode": "pages",
+    "requested_scope": "9,40,41,73,74,75",
+    "actual_line_ranges": [
+      [
+        143,
+        175
+      ],
+      [
+        1368,
+        1445
+      ],
+      [
+        2568,
+        2660
+      ]
+    ],
+    "source_pack_scope": "CNNIC第57次PDF第9、40—41、73—75页；2025末6.64亿59%，6岁及以上、双抽样框、加权、总体比例误差0.64个百分点；该误差未擅自套到短剧差值",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-009",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP17",
+    "url": "https://pdf.dfcfw.com/pdf/H3_AP202605271822903507_1.pdf",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP17.txt",
+    "sha256": "13294e14941ccffc7b93e2dc46a23adbde8315698d2fc017508b9aaf7ac5436a",
+    "reading_mode": "pages",
+    "requested_scope": "4,5,6,7,8,9",
+    "actual_line_ranges": [
+      [
+        140,
+        527
+      ]
+    ],
+    "source_pack_scope": "QM2月短剧报告PDF第4—9、18—19页文本；第6、9、11、18、19页另渲染留档；公开镜像文件日期标5月，报告内容属4月8日原站同版2月数据；第6页明示App10万/微信小程序100万门槛；第18页规则为机构整理，不作为统一实际合同",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-010",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP16",
+    "url": "https://www.questmobile.com.cn/research/report/2117514373593399298/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP16.txt",
+    "sha256": "b905fc93fd80f44c5cbe4dff862dfa157a2a3b04e8ab0c2b3ef17321377729a9",
+    "reading_mode": "search",
+    "requested_scope": "短剧|4.87|红果|重合|时长|5abf|e15d|2d52|ab089",
+    "actual_line_ranges": [
+      [
+        1,
+        7
+      ],
+      [
+        145,
+        174
+      ],
+      [
+        177,
+        187
+      ],
+      [
+        230,
+        239
+      ],
+      [
+        247,
+        260
+      ],
+      [
+        271,
+        290
+      ]
+    ],
+    "source_pack_scope": "QM2026-11-03秋季报告正文1.4及娱乐休闲2.5—2.7，四张原站图实际视觉读取；下载原图`5abf...png`、`e15d...png`、`2d52...png`、`ab089...png`；详见charts/chart-map.json。9月4.87亿、榜单、用户重合和同比时长均由图确认",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-011",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP24",
+    "url": "https://m.adquan.com/detail/2-362212",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP24.txt",
+    "sha256": "988fe759d2d9849984f5a8756940a5dfcc3c77811234ef86670f9bbc356a235a",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        138
+      ]
+    ],
+    "source_pack_scope": "QM授权企业账号在广告门发布2026-07-28报告，正文市场/内容/品牌部分及三张图实际视觉读取；`charts/users.jpg`：8.51亿括号范围仅三类应用端；`time.jpg`：26.9小时125.6次为App；`apps.jpg`：5月榜单。原页面末尾说明企业用户授权发布",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-012",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP15",
+    "url": "https://www.questmobile.cn/research/report/2041710682848727041/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP15.txt",
+    "sha256": "1335bf03c57ec606a498db71bb0155a8d22759991c07e06251270d32a8c5a65e",
+    "reading_mode": "lines",
+    "requested_scope": "150-250",
+    "actual_line_ranges": [
+      [
+        150,
+        231
+      ]
+    ],
+    "source_pack_scope": "QM2026-04-08原站正文短剧相关章节；2月数据与机制；原站图脚由CP17对应原报告PDF补充，不从新闻摘要猜门槛",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-013",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP17",
+    "url": "https://pdf.dfcfw.com/pdf/H3_AP202605271822903507_1.pdf",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP17.txt",
+    "sha256": "13294e14941ccffc7b93e2dc46a23adbde8315698d2fc017508b9aaf7ac5436a",
+    "reading_mode": "pages",
+    "requested_scope": "10,11,18,19",
+    "actual_line_ranges": [
+      [
+        528,
+        641
+      ],
+      [
+        1033,
+        1215
+      ]
+    ],
+    "source_pack_scope": "QM2月短剧报告PDF第4—9、18—19页文本；第6、9、11、18、19页另渲染留档；公开镜像文件日期标5月，报告内容属4月8日原站同版2月数据；第6页明示App10万/微信小程序100万门槛；第18页规则为机构整理，不作为统一实际合同",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-014",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP27",
+    "url": "https://partner.open-douyin.com/docs/resource/zh-CN/mini-app/open-capacity/solutions/vertical/micro-drama",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP27.txt",
+    "sha256": "f7858db73d55266de10bf80b084107141fa480d9693c5accbc61867de0eecdb4",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        228
+      ]
+    ],
+    "source_pack_scope": "抖音微短剧解决方案正文流量、推广与交易广告段全文；支付分佣1%—29%/自动发起0—3日，支付T+7，各有不同适用对象；隐藏updateTime=1756114282，对应2025-08-25。与MDX002重复来源不算独立佐证",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-015",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP18",
+    "url": "https://partner.open-douyin.com/docs/resource/zh-CN/mini-app/operation/industry-norm/1/short-drama-app-operation",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP18.txt",
+    "sha256": "0c12adce2d451ec1e27e0fcafe0015a5ebd078e328585eb98cb017fbe71251a7",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        183
+      ]
+    ],
+    "source_pack_scope": "抖音短剧小程序运营规范全文；准入、保证金、T+7、价格、自动支付、客服、退款和处罚；HTML隐藏updateTime=1768224027，对应2026-01-12 13:20:27 UTC",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-016",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "MD013",
+    "url": "https://finance.eastmoney.com/a/202604153706407286.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD013.txt",
+    "sha256": "eae4fa77594aba4ceb0cf41341e2e2787e2761f6e2ff7972ee0d22520328b6f5",
+    "reading_mode": "search",
+    "requested_scope": "5亿|真人|分账|基金|2026|2025|红果|保底",
+    "actual_line_ranges": [
+      [
+        1,
+        7
+      ],
+      [
+        13,
+        27
+      ],
+      [
+        30,
+        46
+      ],
+      [
+        58,
+        68
+      ],
+      [
+        73,
+        92
+      ],
+      [
+        104,
+        116
+      ],
+      [
+        121,
+        135
+      ],
+      [
+        144,
+        164
+      ]
+    ],
+    "source_pack_scope": "中国经营报转载文正文全部读取；4月15日发布内容基金；页面显示4月16日。只说宣布5亿元真人扶持与透明化安排，不称全部已发放",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-017",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "MD014",
+    "url": "https://finance.sina.cn/2026-10-29/detail-iniwwpnu6061010.d.html?vt=4",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD014.txt",
+    "sha256": "40b5ecb0047c0fef9dbc9475c20e353b2c450a8a7b542af218261fbaa9b828ae",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        77
+      ]
+    ],
+    "source_pack_scope": "2026-10-29搜狐科技稿新浪转载正文全部读取；10月21日公告分阶段取消金币、10月27日否认年化收入传闻。用于可核实调整及界定未见实际收入；不采纳其所有评论性归因",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-018",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP20",
+    "url": "https://kuaishou.gcs-web.com/zh-hans/news-releases/news-release-details/kuaishoukejifabu2026niandierjidujizhongqiweijingshenhecaiwuyeji",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP20.txt",
+    "sha256": "513f3bc8123a35e312c34a2948466155fb58102e773a99b0abdd1accfcf60fe5",
+    "reading_mode": "lines",
+    "requested_scope": "1-100",
+    "actual_line_ranges": [
+      [
+        1,
+        100
+      ]
+    ],
+    "source_pack_scope": "快手2026Q2官方业绩稿web全文可访问部分，重点lines68—72“线上营销服务”；直接IR及备用域下载403；保存`web-access.txt`为工具返回原文而非伪造HTML。8月19日发布，供给较1月超5倍、Q2投放消耗同比超100%",
+    "access_note": "Frozen retained web output or access record; not original full website",
+    "read_event_id": "READ-019",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP25",
+    "url": "https://www.xinhuanet.com/ent/20261015/8928500abcd44e8a9e5d69f115fcb2ed/c.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP25.txt",
+    "sha256": "f4e83eb4bf3567d88a509e791b3088b4604f8264f2a0d6c2a781df80432b22c0",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        58
+      ]
+    ],
+    "source_pack_scope": "新华网转载北京日报10月15日《微信下场》正文全文；只采记者界面/协议观察与受访者明确观点；数据优先以CP16/17/24更新和核实；不采“一九定律”预测为事实",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-020",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP26",
+    "url": "https://finance.sina.cn/2026-03-17/detail-inhrhxzn2098963.d.html?wm=3049_0015",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP26.txt",
+    "sha256": "4b4f72a193359066ea03701b3dc3507b11e5191a1092af07ddf012e66a65cec8",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        99
+      ]
+    ],
+    "source_pack_scope": "3月17日平台产业大会发言实录转载，重点腾讯及红果部分；芒果部分识别为长/中剧；长中短横屏政策拉通及条件，预算和透明化启动计划；没有把芒果单集20—35分钟中剧采购政策套成微短剧报价",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-021",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP23",
+    "url": "https://www.cnsa.cn/art/2025/4/7/art_1957_46716.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP23.txt",
+    "sha256": "43dd956be0ecb7505bf83c5896d9da4c3875d31011debd6fc836116c9f33acbe",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        3
+      ]
+    ],
+    "source_pack_scope": "协会转载微信2025年4月处置公告，经web搜索返回读取该公告正文；直接下载证书主机名不匹配；末次web open亦失败并保留返回。原搜索返回已显示公告正文；仅作为平台治理背景，未用于现行收费比率，主分析有其他正式规则支撑",
+    "access_note": "Three-line TimeoutError record; no original announcement body obtained in this independent input. Inherited locator text claiming earlier search access is not treated as available evidence.",
+    "read_event_id": "READ-022",
+    "read_status": "access_failure_record_only_no_substantive_evidence"
+  },
+  {
+    "source_id": "MD004",
+    "url": "https://www.nrta.gov.cn/art/2026/7/31/art_113_73785.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD004.txt",
+    "sha256": "f7debdffdfb90695d3c06c8b51244a03583606c4ee3268ca9a95981a4b98948d",
+    "reading_mode": "search",
+    "requested_scope": "第二条|第三条|第四条|第[一二三四五六七八九十]+条|征求|发布|2026|20分钟",
+    "actual_line_ranges": [
+      [
+        5,
+        78
+      ],
+      [
+        81,
+        132
+      ]
+    ],
+    "source_pack_scope": "所附original.txt第一至五十四条完整文本；第二、第五、十二至二十四及第五十四条。前次另有该URL的open_page记录。；所附original.txt第十、二十五至二十九、三十二至四十及第五十二条。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-023",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP05",
+    "url": "https://www.nrta.gov.cn/art/2025/2/5/art_113_70148.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP05.txt",
+    "sha256": "a1f205e7f0aa1ebae167f6052bc64955b0f7b051ccb0476aa65f725f8c113b31",
+    "reading_mode": "lines",
+    "requested_scope": "1-100",
+    "actual_line_ranges": [
+      [
+        1,
+        45
+      ]
+    ],
+    "source_pack_scope": "广电总局2025-02-05公开通知第三、四部分及日期/文号；原文含2024管理安排和2024年6月1日节点；发布时间与实施节点分开",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-024",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP09",
+    "url": "https://www.baoji.gov.cn/bmpd/bjswhhlyj/ztzl/whly/202601/t20260115_1240723.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP09.txt",
+    "sha256": "cac58f06da8339818a959a6f12dd3ae54f4d23fcc08ada50dccccbca0d73a07d",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        96
+      ]
+    ],
+    "source_pack_scope": "宝鸡官方转载2026分类调整正文全文；页面显示2月2日，路径含1月15日；实施为1月1日；不以路径字符串当发布日期",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-025",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP21",
+    "url": "https://www1.xinhuanet.com/politics/20260625/7264a728b3a54314a5e1aff934c6f585/c.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP21.txt",
+    "sha256": "87ed08b711a7da00970add3e4285985cfdeb6b1ae4435cd0742ba29a18de4941",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        34
+      ]
+    ],
+    "source_pack_scope": "新华社6月25日转载广电总局AI分类标准全文；7月1日起80/30万元等标准，作为规则时间线依据",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-026",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP04",
+    "url": "https://wlj.nanjing.gov.cn/whyw/202609/t20260902_5904082.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP04.txt",
+    "sha256": "c78e1de0d13c41959dd3f284c317576ca1e22dc9a1f30b40020edf10b2e856db",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        38
+      ]
+    ],
+    "source_pack_scope": "南京文旅局9月2日微短剧分类说明全文；300/100万元真人，80/30万元AI；属于地方官方执行解释，不伪装为8月17日签发原件",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-027",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP03",
+    "url": "https://www.nrta.gov.cn/art/2026/11/6/art_114_74410.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP03.txt",
+    "sha256": "9b1843b5646c27f6abef1130556bd50931a787a94f8a62b65bd4da8c6d377809",
+    "reading_mode": "full",
+    "requested_scope": "",
+    "actual_line_ranges": [
+      [
+        1,
+        20
+      ]
+    ],
+    "source_pack_scope": "广电总局11月6日专项治理稿全文；11月1日至12月31日部署；文中此前已下架数量不能算作新行动完成效果",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-028",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP10",
+    "url": "https://www.samr.gov.cn/zw/zfxxgk/fdzdgknr/bgt/art/2024/art_0aea188276a44f0baf940ab95ee00e0a.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP10.txt",
+    "sha256": "ebfe715c97224af71f002599508dbae72a75f1529aa005ff03e6bfa613fe6201",
+    "reading_mode": "search",
+    "requested_scope": "第十条|第十七条|第二十二条|自动|七日|未成年人|预付|2024年7",
+    "actual_line_ranges": [
+      [
+        59,
+        69
+      ],
+      [
+        78,
+        89
+      ],
+      [
+        98,
+        114
+      ],
+      [
+        197,
+        208
+      ],
+      [
+        212,
+        216
+      ]
+    ],
+    "source_pack_scope": "市场监管总局《消费者权益保护法实施条例》web访问正文第10、17、22等相关条款；直接下载SSL失败；已用web核对条文。没有编造统一提前5日提醒条款",
+    "access_note": "Frozen retained web output or access record; not original full website",
+    "read_event_id": "READ-029",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP22",
+    "url": "https://fjca.miit.gov.cn/zwgk/zcwj/wjfb/art/2020/art_9f0ef44677164c5eb3a5585bf82a07cb.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP22.txt",
+    "sha256": "3db529e3865ed78bac308a7c863cc825e090c009f9128360c250733890db858f",
+    "reading_mode": "search",
+    "requested_scope": "第十九条|第二十条|第一百四十四条|第一百四十五条",
+    "actual_line_ranges": [
+      [
+        167,
+        177
+      ],
+      [
+        409,
+        419
+      ]
+    ],
+    "source_pack_scope": "工信部官方民法典全文中第19—20、144—145条；只读未成年人行为能力与效力相关条款，不声称全文读完",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-030",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP11",
+    "url": "https://www.sdcourt.gov.cn/wfzy/442541/442474/34153945/index.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP11.txt",
+    "sha256": "6a54106893501eb714b2a8a17d9eecd84261eb57413025ec2050b728735ad071",
+    "reading_mode": "search",
+    "requested_scope": "短剧|4.6|46000|改名|赔偿|付费|侵权",
+    "actual_line_ranges": [
+      [
+        1,
+        41
+      ]
+    ],
+    "source_pack_scope": "法院官方短剧盗版案例介绍正文全部；改名、导流、分集付费、4.6万元判赔；是法院案例介绍，未取得判决书全文/案号",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-031",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP12",
+    "url": "https://static.cninfo.com.cn/finalpage/2026-04-23/1225157276.PDF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP12.txt",
+    "sha256": "ea4380ff7db786410b889dd344b86492d184eb944ad3cf2f0ae787bf34ba386d",
+    "reading_mode": "pages",
+    "requested_scope": "14,29,30,31,32",
+    "actual_line_ranges": [
+      [
+        369,
+        406
+      ],
+      [
+        814,
+        961
+      ]
+    ],
+    "source_pack_scope": "中文在线2025完整年报第14、29—35、42、44页；三年财务对照、集团毛利费用、境外业务、分部重列；第32页注明按新分类重列上一期",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-032",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP12",
+    "url": "https://static.cninfo.com.cn/finalpage/2026-04-23/1225157276.PDF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP12.txt",
+    "sha256": "ea4380ff7db786410b889dd344b86492d184eb944ad3cf2f0ae787bf34ba386d",
+    "reading_mode": "pages",
+    "requested_scope": "33,34,35,42,44",
+    "actual_line_ranges": [
+      [
+        962,
+        1140
+      ],
+      [
+        1566,
+        1619
+      ],
+      [
+        1709,
+        1719
+      ]
+    ],
+    "source_pack_scope": "中文在线2025完整年报第14、29—35、42、44页；三年财务对照、集团毛利费用、境外业务、分部重列；第32页注明按新分类重列上一期",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-033",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP13",
+    "url": "https://static.cninfo.com.cn/finalpage/2024-04-22/1219703471.PDF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP13.txt",
+    "sha256": "08789d82bff360c9d07cd72cda2c7af0e4c67b42a6d469a6502f03663cf38637",
+    "reading_mode": "pages",
+    "requested_scope": "23,92",
+    "actual_line_ranges": [
+      [
+        699,
+        729
+      ],
+      [
+        4767,
+        4795
+      ]
+    ],
+    "source_pack_scope": "中文在线2023完整年报第23、92页及CMS控制范围相关段；董事会3/7、表决权47.81%、持股49.16%、5592.37万元损益、2023年5月起退出合并",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-034",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP01",
+    "url": "https://static.cninfo.com.cn/finalpage/2026-10-26/1225620142.PDF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP01.txt",
+    "sha256": "d088516fe3138d606a6b1bddf4bea332a0cc17b96bb7d2ec4c89cd5ce9d4d93b",
+    "reading_mode": "pages",
+    "requested_scope": "1,2,8,11",
+    "actual_line_ranges": [
+      [
+        1,
+        67
+      ],
+      [
+        291,
+        350
+      ],
+      [
+        462,
+        514
+      ]
+    ],
+    "source_pack_scope": "中文在线2026Q3报告第1—2、8—11页；最新季度与累计财务；第11页现金流。未把前三季当全年",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-035",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP02",
+    "url": "https://dataclouds.cninfo.com.cn/shgonggao/hsomarket/2026/20261030/12ea37e82c304776aa3c019cebbaae96.PDF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP02.txt",
+    "sha256": "922847e29ef81f47e21b6fae6f0b78f6128ce4efcb1f8dda0ab03550da40891f",
+    "reading_mode": "pages",
+    "requested_scope": "1,10,13",
+    "actual_line_ranges": [
+      [
+        1,
+        38
+      ],
+      [
+        352,
+        389
+      ],
+      [
+        478,
+        514
+      ]
+    ],
+    "source_pack_scope": "掌阅2026Q3报告第1、10、13页；第1页收入/归母/现金累计；第10页合并利润；第13页经营现金。原始PDF与表格本轮再次逐段确认",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-036",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "MD005",
+    "url": "https://static.cninfo.com.cn/finalpage/2026-08-26/1225504423.PDF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD005.txt",
+    "sha256": "c2abf73b52f3dc21ff592a206635bdd3dc568bc22619eca74470fbdb22434449",
+    "reading_mode": "pages",
+    "requested_scope": "6,21,22,26,27,28",
+    "actual_line_ranges": [
+      [
+        91,
+        120
+      ],
+      [
+        548,
+        641
+      ],
+      [
+        864,
+        1150
+      ]
+    ],
+    "source_pack_scope": "所附187页完整提取文本；财务观察重点为第6、8、21—22、35、48、53—56页。；所附第93—95、130—131、138—142、146及148页。；所附第25—26、118—119、138—139及157—159页。；所附第10—11、14—20及26—28页。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-037",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "MD011",
+    "url": "https://www.nrta.gov.cn/art/2026/5/26/art_113_73378.html?xxgkhide=1",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD011.txt",
+    "sha256": "2aec4265dc6b415387c7d25c6c3cf521992911c0fc1ec898c7b665ca26de4ee2",
+    "reading_mode": "search",
+    "requested_scope": "2026|资金|优先|制作|计划|三、|五、|六、",
+    "actual_line_ranges": [
+      [
+        1,
+        95
+      ]
+    ],
+    "source_pack_scope": "所附original.txt完整通知及实施方案正文；第三、五、六部分，未读取附件docx/xlsx。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-038",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "MD005",
+    "url": "https://static.cninfo.com.cn/finalpage/2026-08-26/1225504423.PDF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD005.txt",
+    "sha256": "c2abf73b52f3dc21ff592a206635bdd3dc568bc22619eca74470fbdb22434449",
+    "reading_mode": "pages",
+    "requested_scope": "8,138,139",
+    "actual_line_ranges": [
+      [
+        156,
+        189
+      ],
+      [
+        6872,
+        7042
+      ]
+    ],
+    "source_pack_scope": "所附187页完整提取文本；财务观察重点为第6、8、21—22、35、48、53—56页。；所附第93—95、130—131、138—142、146及148页。；所附第25—26、118—119、138—139及157—159页。；所附第10—11、14—20及26—28页。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-039",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP14",
+    "url": "https://file.finance.sina.com.cn/211.154.219.97:9494/MRGG/CNSESH_STOCK/2026/2026-4/2026-04-25/12187821.PDF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP14.txt",
+    "sha256": "6f254ffcb11a38ecb2661dc1e43468c4351c8cd54ca77778096674ea86cf55cf",
+    "reading_mode": "pages",
+    "requested_scope": "6,7,13,16,17,18,19",
+    "actual_line_ranges": [
+      [
+        132,
+        217
+      ],
+      [
+        404,
+        436
+      ],
+      [
+        499,
+        694
+      ]
+    ],
+    "source_pack_scope": "掌阅2025完整年报第6—7、13、16—19、78—79、210—212页；三年财务、成本与销售费用、审计重点、推广费；PDF镜像保存完整原件",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-040",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP14",
+    "url": "https://file.finance.sina.com.cn/211.154.219.97:9494/MRGG/CNSESH_STOCK/2026/2026-4/2026-04-25/12187821.PDF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP14.txt",
+    "sha256": "6f254ffcb11a38ecb2661dc1e43468c4351c8cd54ca77778096674ea86cf55cf",
+    "reading_mode": "pages",
+    "requested_scope": "78,79,210,211,212",
+    "actual_line_ranges": [
+      [
+        3137,
+        3198
+      ],
+      [
+        8545,
+        8649
+      ]
+    ],
+    "source_pack_scope": "掌阅2025完整年报第6—7、13、16—19、78—79、210—212页；三年财务、成本与销售费用、审计重点、推广费；PDF镜像保存完整原件",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-041",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "MD008",
+    "url": "https://static.cninfo.com.cn/finalpage/2026-08-27/1225510832.PDF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD008.txt",
+    "sha256": "bb497b95a67ea2c67777bf027f110118561ebe0f7a92ea1f6a8cd4f7eea9f057",
+    "reading_mode": "pages",
+    "requested_scope": "6,8,9,10",
+    "actual_line_ranges": [
+      [
+        130,
+        175
+      ],
+      [
+        218,
+        324
+      ]
+    ],
+    "source_pack_scope": "所附209页完整提取文本；第2、4、6—17、44—50页。；所附第94—98、114—121、138—139、149及154—158页。；所附第25—26、185—191页关联方、采购及销售表。；所附第8—10及162—163页。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-042",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "MD012",
+    "url": "https://static.cninfo.com.cn/finalpage/2025-04-29/1223385316.PDF",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD012.txt",
+    "sha256": "802d2cb4088b3067613a7751cf04e3e74439111c3b3b8987e0f590e27331b2b8",
+    "reading_mode": "pages",
+    "requested_scope": "14,19,29,30,33,137,138",
+    "actual_line_ranges": [
+      [
+        346,
+        379
+      ],
+      [
+        505,
+        537
+      ],
+      [
+        806,
+        892
+      ],
+      [
+        980,
+        1084
+      ],
+      [
+        7631,
+        7692
+      ]
+    ],
+    "source_pack_scope": "所附234页完整提取文本；第14、29—35、87—89、194及205—207页。；所附第19、27、33、137—138、177及187页。；所附第2—8、27、30、32及189—195页。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-043",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP07",
+    "url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12154756",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP07.txt",
+    "sha256": "d8f58c1aadecaeee33bdf922bbeee8a2bbda5a1e6ab635ab1da06ccf91665a31",
+    "reading_mode": "search",
+    "requested_scope": "1,656|670,952|短剧及|FlareFlow",
+    "actual_line_ranges": [
+      [
+        69,
+        97
+      ],
+      [
+        108,
+        114
+      ],
+      [
+        124,
+        129
+      ]
+    ],
+    "source_pack_scope": "中文在线2025年报摘要镜像的财务与业务部分；后以CP12全文为准，不重复视为独立来源",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-044",
+    "read_status": "tool_display_truncated; relied_on_followup_for_claims",
+    "attempted_line_ranges": [
+      [
+        69,
+        97
+      ],
+      [
+        108,
+        117
+      ],
+      [
+        119,
+        129
+      ]
+    ],
+    "truncation_note": "Saved extracted output may contain more text than was visible in the tool response. Only ranges below count as confirmed reading in this event."
+  },
+  {
+    "source_id": "MDX001",
+    "url": "https://www.cnnic.net.cn/n4/2025/0117/c208-11228.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MDX001.txt",
+    "sha256": "29b6604e3c57f87c0f8aab54254d416009c241308621df9ecb311762df59a8cf",
+    "reading_mode": "search",
+    "requested_scope": "6.62|59.7|2025|2024|调查",
+    "actual_line_ranges": [
+      [
+        1,
+        27
+      ]
+    ],
+    "source_pack_scope": "CNNIC第55次发布页正文；6.62亿与59.7%；后以CP19全文确认方法和PDF定位",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-045",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "MDX002",
+    "url": "https://partner.open-douyin.com/docs/resource/zh-CN/mini-app/open-capacity/solutions/vertical/micro-drama",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MDX002.txt",
+    "sha256": "f7858db73d55266de10bf80b084107141fa480d9693c5accbc61867de0eecdb4",
+    "reading_mode": "lines",
+    "requested_scope": "40-108",
+    "actual_line_ranges": [
+      [
+        40,
+        108
+      ]
+    ],
+    "source_pack_scope": "抖音微短剧方案当前文本的流量、推广、交易及广告回传段；同URL已另存CP27，后续引用和字段定位以CP27为准",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-046",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "MD009",
+    "url": "https://pdf.dfcfw.com/pdf/H3_AP202511131780698038_1.pdf",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD009.txt",
+    "sha256": "853dea43649e251e9404cf871956b94cf2f304ef841c39ab212c18c41de36446",
+    "reading_mode": "lines",
+    "requested_scope": "345-458",
+    "actual_line_ranges": [
+      [
+        345,
+        458
+      ]
+    ],
+    "source_pack_scope": "所附27页主要发现版完整提取文本；第1—4、14—16及26—27页。；所附第6—9、17及20—21页。；所附第10—13页应用使用时长及用户/从业者调研；仅文本，未取得原图截图。；所附第16及22—25页。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-047",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "MD004",
+    "url": "https://www.nrta.gov.cn/art/2026/7/31/art_113_73785.html",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\MD004.txt",
+    "sha256": "f7debdffdfb90695d3c06c8b51244a03583606c4ee3268ca9a95981a4b98948d",
+    "reading_mode": "lines",
+    "requested_scope": "45-132",
+    "actual_line_ranges": [
+      [
+        45,
+        132
+      ]
+    ],
+    "source_pack_scope": "所附original.txt第一至五十四条完整文本；第二、第五、十二至二十四及第五十四条。前次另有该URL的open_page记录。；所附original.txt第十、二十五至二十九、三十二至四十及第五十二条。",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-048",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "source_id": "CP07",
+    "url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12154756",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP07.txt",
+    "sha256": "d8f58c1aadecaeee33bdf922bbeee8a2bbda5a1e6ab635ab1da06ccf91665a31",
+    "reading_mode": "lines",
+    "requested_scope": "69-129",
+    "actual_line_ranges": [
+      [
+        69,
+        86
+      ],
+      [
+        100,
+        129
+      ]
+    ],
+    "source_pack_scope": "中文在线2025年报摘要镜像的财务与业务部分；后以CP12全文为准，不重复视为独立来源",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-049",
+    "read_status": "tool_display_truncated; relied_on_followup_for_claims",
+    "attempted_line_ranges": [
+      [
+        69,
+        129
+      ]
+    ],
+    "truncation_note": "Saved extracted output may contain more text than was visible in the tool response. Only ranges below count as confirmed reading in this event."
+  },
+  {
+    "source_id": "CP07",
+    "url": "https://vip.stock.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12154756",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\sources\\CP07.txt",
+    "sha256": "d8f58c1aadecaeee33bdf922bbeee8a2bbda5a1e6ab635ab1da06ccf91665a31",
+    "reading_mode": "lines",
+    "requested_scope": "85-90",
+    "actual_line_ranges": [
+      [
+        85,
+        90
+      ]
+    ],
+    "source_pack_scope": "中文在线2025年报摘要镜像的财务与业务部分；后以CP12全文为准，不重复视为独立来源",
+    "access_note": "Frozen original text; reading restricted to recorded lines/pages",
+    "read_event_id": "READ-050",
+    "read_status": "read_recorded_scope"
+  },
+  {
+    "read_event_id": "READ-051",
+    "source_id": "CP16",
+    "url": "https://www.questmobile.com.cn/research/report/2117514373593399298/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP16\\2d52bc46d8803cd23525c580c9b09010.png",
+    "sha256": "60adeaa7ab2d7617487d60b67c5da21933f3095974e77a8eabd4c97f01d2246f",
+    "reading_mode": "direct_image_visual",
+    "actual_read_position": "Full image including chart labels, units, dates and footnotes",
+    "reading_note": "Full chart: microdrama-video app MAU 487m September 2026; threshold-crossing dates and units read. CAGR from small base is not used as industry revenue growth.",
+    "read_status": "visually_read",
+    "access_note": "Same frozen original attachment restored after initial input-copy omission; no live factual expansion."
+  },
+  {
+    "read_event_id": "READ-052",
+    "source_id": "CP16",
+    "url": "https://www.questmobile.com.cn/research/report/2117514373593399298/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP16\\5abf475a35249f4ce88a9e5176c8217d.png",
+    "sha256": "2c5e34616eb664be387ab2170f2c0bde9b2a185c03815023bb1d46e0e02d8155",
+    "reading_mode": "direct_image_visual",
+    "actual_read_position": "Full image including chart labels, units, dates and footnotes",
+    "reading_note": "Full chart and footnote: year-on-year change in total monthly time, not absolute time share; microdrama 133.29 hundred-million hours, short video 57.17; contribution to net growth may exceed 100%. Not used as revenue share.",
+    "read_status": "visually_read",
+    "access_note": "Same frozen original attachment restored after initial input-copy omission; no live factual expansion."
+  },
+  {
+    "read_event_id": "READ-053",
+    "source_id": "CP16",
+    "url": "https://www.questmobile.com.cn/research/report/2117514373593399298/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP16\\ab089f4e9c4ca8a2c97e05e7be0112db.png",
+    "sha256": "bf5949de85fe7dfa61b7f8e1496edf40f5cb5dcf4cd9d43191edf8d7fd94ecdf",
+    "reading_mode": "direct_image_visual",
+    "actual_read_position": "Full image including chart labels, units, dates and footnotes",
+    "reading_note": "Full September 2026 app and WeChat-mini-program ranking: unit 10,000 MAU; Hongguo 42,969, animation 7,883, Hema 3,080, Xifan 834, Lüpao Pao 15,635; year-on-year labels and dash footnote read.",
+    "read_status": "visually_read",
+    "access_note": "Same frozen original attachment restored after initial input-copy omission; no live factual expansion."
+  },
+  {
+    "read_event_id": "READ-054",
+    "source_id": "CP16",
+    "url": "https://www.questmobile.com.cn/research/report/2117514373593399298/",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP16\\e15d12b81e8ada19f3a096549d587df3.png",
+    "sha256": "cad1e334d1adc8e1ee9ced5dd35a7dbf7bdd2da2167ffbc9d2b8956457593470",
+    "reading_mode": "direct_image_visual",
+    "actual_read_position": "Full image including chart labels, units, dates and footnotes",
+    "reading_note": "Full September overlap chart: main Douyin/Hongguo 380m and 88.5% of Hongguo; Kuaishou/Xifan 6.32m and 75.8%; overlap is not attributed acquisition.",
+    "read_status": "visually_read",
+    "access_note": "Same frozen original attachment restored after initial input-copy omission; no live factual expansion."
+  },
+  {
+    "read_event_id": "READ-055",
+    "source_id": "CP24",
+    "url": "https://m.adquan.com/detail/2-362212",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP24\\apps.jpg",
+    "sha256": "b2a1b48e21e410bd4ab431e570568d6ceb290bd3519173a690b86db834377b88",
+    "reading_mode": "direct_image_visual",
+    "actual_read_position": "Full image including chart labels, units, dates and footnotes",
+    "reading_note": "Full May 2026 ranking: Hongguo 356.781m, Hema 38.535m, Xifan 11.018m; units and growth labels read.",
+    "read_status": "visually_read",
+    "access_note": "Same frozen original attachment restored after initial input-copy omission; no live factual expansion."
+  },
+  {
+    "read_event_id": "READ-056",
+    "source_id": "CP24",
+    "url": "https://m.adquan.com/detail/2-362212",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP24\\time.jpg",
+    "sha256": "2927878e6dd2823008fc1a91b8fb35ad18820ffd0af175311f98ca32411c5110",
+    "reading_mode": "direct_image_visual",
+    "actual_read_position": "Full image including chart labels, units, dates and footnotes",
+    "reading_note": "Full January 2025–May 2026 app-use chart: 13.0 to 26.9 monthly hours and 62.0 to 125.6 usage occasions; time window and app scope read.",
+    "read_status": "visually_read",
+    "access_note": "Same frozen original attachment restored after initial input-copy omission; no live factual expansion."
+  },
+  {
+    "read_event_id": "READ-057",
+    "source_id": "CP24",
+    "url": "https://m.adquan.com/detail/2-362212",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP24\\users.jpg",
+    "sha256": "fff0bf73b5a0f221eb3a23f459f11019ec2a07265a964e4188fac349e4d73a96",
+    "reading_mode": "direct_image_visual",
+    "actual_read_position": "Full image including chart labels, units, dates and footnotes",
+    "reading_note": "Full May 2026 channel chart: 851m union of apps, WeChat mini-programs, Douyin mini-programs only; individual counts 402/508/14m; 472m short-video related-content reach separate. Unit, grouping brackets, dates and footnote read.",
+    "read_status": "visually_read",
+    "access_note": "Same frozen original attachment restored after initial input-copy omission; no live factual expansion."
+  },
+  {
+    "read_event_id": "READ-058",
+    "source_id": "CP17",
+    "url": "https://pdf.dfcfw.com/pdf/H3_AP202605271822903507_1.pdf",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\microdrama_market_en\\original-attachments\\CP17\\original.pdf",
+    "sha256": "8e17ce3b9a6cf911fa53197228dc198568d69bbe62b549a30672b4c7d50d4572",
+    "reading_mode": "rendered_pdf_visual",
+    "actual_read_position": "PDF pages 6, 9, 11, 18; complete rendered pages including footnotes",
+    "reading_note": "p6 current-app selection >100,000 MAU and separate-year WeChat selection >1m; p9 January 2026 26.2h vs February 22.1h; p11 February ranking/daily-use distinction; p18 secondary compilation of platform-sharing policies. All four rendered images opened and inspected.",
+    "rendered_paths": [
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\codex-production\\pdf-checks\\CP17-page-6.png",
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\codex-production\\pdf-checks\\CP17-page-9.png",
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\codex-production\\pdf-checks\\CP17-page-11.png",
+      "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\microdrama_market_en\\codex-production\\pdf-checks\\CP17-page-18.png"
+    ],
+    "read_status": "visually_read"
+  }
+]

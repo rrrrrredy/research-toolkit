@@ -1,0 +1,25 @@
+{
+  "input_version": "35856ace8b32421ec17a16702661ae8452b72df5cc41c988a9beb1d43605ab7c",
+  "assignment_version": "6dba9e43678e74b9c3e124bafbeb3f08bb96085e26f8b1a92a33fe1394bb641b",
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "reader_usefulness": {
+      "location": "reports/current.md complete lines 1–355; especially method matrix (31–45), scaling matrix (131–149), cost/latency and worked allocation (159–245), decision tree (247–287), and appendices.",
+      "basis": "Read the original request, effective requirements and every report section, table, equation, diagram and appendix consecutively. The report supplies a useful bottleneck model: availability versus delivered success, generator versus selector improvements, repair versus new sampling, and new environmental information versus more internal tokens. It preserves fixed-checkpoint, changed-training and oracle boundaries and explains their consequences instead of using caveats as a substitute for recommendations. CodeMonkeys gives a concrete normalization including selection, and the worked example covers false acceptance, abstention, parallel waves and an unspent-budget choice; checked the retained CodeMonkeys cost/selection passages and the complete existing allocation script/output, without rerunning. The main mechanism-to-decision narrative is usable for researchers and engineers. Two local presentation defects remain in the specifically requested reusable outputs: unexplained OTBench metrics in the scaling table, and the decision-tree loop bypassing refreshed feasibility/completion checks. These can be corrected without restructuring or shortening the analysis."
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "RU-TTCEN-01",
+      "severity": "minor",
+      "location": "reports/current.md lines 144 and 323 (OTBench scaling row and termination-oracle appendix).",
+      "basis": "The comparison gives 'Mean OR64.3%, AD9.03 points' and later discusses OR/AD sensitivity, but never expands or defines either metric. The frozen TTC007 original, introduction and §3.1 equations (2)–(3), defines Overthinking Ratio as the fraction of thinking tokens after the earliest measured maximum-accuracy prefix and Accuracy Degradation as that maximum's accuracy minus full-thinking accuracy. Readers cannot tell from the report whether 64.3% is a proportion of tasks, tokens or wasted cost, which directly affects interpretation of potential stopping savings. Define both metrics and their percent/percentage-point units at the first numerical use, retaining the existing oracle and finite-probe qualifications."
+    },
+    {
+      "finding_id": "RU-TTCEN-02",
+      "severity": "minor",
+      "location": "reports/current.md lines 276–282, decision-tree edges R→S→T and U→T.",
+      "basis": "The requested implementable policy must respect finite budget, deadline and completion. In the diagram, after 'Allocate the next bounded increment', U loops directly to the marginal-value test T, bypassing remaining-budget/deadline/resource feasibility and the initial completion check. Likewise an initially infeasible plan is reduced at S and then reaches T without confirming the reduction fits. Positive marginal value alone does not make another increment feasible, as the report's own 100-second worked example demonstrates. Return the loop through updated completion and remaining-resource checks, and recheck feasibility after a reduction; keep the marginal-value rule inside those hard constraints. This is a local diagram repair, not a request for a new controller or workflow."
+    }
+  ]
+}

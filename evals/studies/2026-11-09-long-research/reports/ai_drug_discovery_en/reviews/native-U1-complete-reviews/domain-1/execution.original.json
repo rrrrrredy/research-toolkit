@@ -1,0 +1,32 @@
+{
+  "host_task": "/root/independent_domain_b",
+  "role": "reviewer",
+  "slot_id": "domain-1",
+  "scope": "AIDD-U1",
+  "input_version": "15a9caf5d9f0ea26e5ba847533c013e44855dcde3f9ef9a186af7cea3ec7118c",
+  "assignment_version": "4e66bbb5d9f198de539385f2037a35e9efa487bb68ca22f2b933d06e4903a05e",
+  "artifact_sha256": "3c94c59b3852a79c7822e1ce7f318814565b07b146e7238f75e2e97755734a8f",
+  "completed_at": "2026-11-09T13:30:34.2631449Z",
+  "method": "Native Codex independent domain review; metadata-only current-input confirmation",
+  "read_files": [
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en\\reviews\\host\\7df42f9e48f578f8581e\\jobs\\domain-1-8c9b9d3000df1c6f.json",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en\\reviews\\host\\15a9caf5d9f0ea26e5ba\\jobs\\domain-1-4e66bbb5d9f198de.json",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-U1-v3-reviews\\domain-1\\response.json",
+    "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-U1-v3-reviews\\domain-1\\execution.json"
+  ],
+  "file_versions": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en\\reviews\\host\\7df42f9e48f578f8581e\\jobs\\domain-1-8c9b9d3000df1c6f.json",
+      "sha256": "a76ca9e2c8be940f6d4f9f33269413d6622f1f667ba1da76e0fc12bcc16c6392"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en\\reviews\\host\\15a9caf5d9f0ea26e5ba\\jobs\\domain-1-4e66bbb5d9f198de.json",
+      "sha256": "848f07be590e90dd6fb30d91f3ff744352d711fbb746b1faf6ee2485e61a765e"
+    }
+  ],
+  "actual_checks": "实际逐字段比较v3与当前complete assignment，正文及artifact hash、task、requirements、effective_requirements、scope decisions、sources全部文本、source_files、analyses、scope、applicable_requirements、requirement_unit_ids、prior_required_findings及instructions相等。变化限research_outputs的kind report到analysis、complete false到true、已保存U1依赖版本和快照路径更新，以及production_history新增一次保存记录；新快照hash等于此前实质核查通过的修订正文3c94c59b...，不是新研究文本。重读当前FVC两分析段与表、缺失段和首次问题修订说明，确认观察病例n10/14与全随机组n18/17、118.7/97.4mL描述差、各组CI与组间差CI之别、8/18及3/17缺失和MAR插补保持正确。复用本角色此前原始Figure2、registry及Reporting Summary全部4页的实质核查，不重复研究。AIDD-U1-DOM-B-01已解决，首次negative及v2/v3记录保留。当前通过仅限U1，不能替代全文领域审阅。",
+  "reused_evidence": "Previously completed native original-source review documented in v2/v3 executions; no new source reading claimed",
+  "api_calls": 0,
+  "research_rerun": false,
+  "imported": false
+}

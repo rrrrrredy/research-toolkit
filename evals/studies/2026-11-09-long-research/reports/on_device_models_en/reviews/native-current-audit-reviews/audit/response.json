@@ -1,0 +1,132 @@
+{
+  "input_version": "b05a22e12456963e8dcdd2cf1fa1d888fc1552f79329ce94c60a9f2fe349b9bf",
+  "assignment_version": "9150bb8e8580153a56a74f7362151cf4da2f247a07ed35d9c694683176c07ca7",
+  "result": "valid",
+  "basis": "Independent complete report audit; all8 current raw replies/executions, necessary historical negatives, production history and original targeted sources read. All24 current input/response/execution canonical hashes match. Distinct role execution is evidenced; valid historical negatives resolved by actual changes. No required defect remains in complete reading and original samples.",
+  "review_checks": {
+    "requirements": {
+      "result": "valid",
+      "basis": "Current complete reading independently maps four hardware configurations, three workload pipelines, memory/runtime/quality conditions and architecture/cost deliverables to task. Full audit reading confirms coverage."
+    },
+    "evidence": {
+      "result": "valid",
+      "basis": "Own complete baseline plus current changes, locatable original checks. Independently confirmed Qwen config, pinned LiteRT rows, BaseRT setup and rates, speech profiler and PDF tables; scenarios are distinct from measurements."
+    },
+    "adversarial_reasoning": {
+      "result": "valid",
+      "basis": "Own complete baseline and current diff. Local-free Minions costing, quality loss, separate phase times and missing sustained tests remain constrained; no invented mandatory experiment."
+    },
+    "structure_and_depth": {
+      "result": "valid",
+      "basis": "Complete prior ranges and actual43-line diff recorded. Memory/precision constraints feed task pipelines, privacy/platform selection and accepted-task economics. Current complete argument retains these links."
+    },
+    "reader_usefulness": {
+      "result": "valid",
+      "basis": "First complete current read in eight recorded ranges. Prior interrupted historical-domain exposure disclosed and authorized as revision input, not represented as a pristine context. Full task/prose supports current reader judgment."
+    },
+    "process_language": {
+      "result": "valid",
+      "basis": "Original complete negative review and current31-line diff. Version/table/code locations replace internal reading-ledger narration without removing methodological limits."
+    },
+    "natural_expression": {
+      "result": "valid",
+      "basis": "Original full negative on internal production identity remains valid; current diff removes identity/handoff/review-file wording while preserving conditions."
+    },
+    "domain-1": {
+      "result": "valid",
+      "basis": "Independent from author /root/ttc_research. Original complete negative and actual source checks retained. Performance-lock repair remains at59,115,278; auditor confirmed pinned original and3 PDF pages."
+    }
+  },
+  "dispositions": {},
+  "critical_checks": [
+    {
+      "requirement_id": "R_TASK",
+      "location": "Current1-291; particularly15-75,77-178,180-268",
+      "evidence": "Entire task/report read. Four configurations cover phone,PC,edge; memory/KV/precision/backend/thermal constraints drive document,interactive,speech pipelines. Matrix and offline/sensitive/bursty/sustained rules include quality,transfer,privacy,fallback,integration,cost. Missing actual-device measurements bounded rather than fabricated.",
+      "result": "clear"
+    },
+    {
+      "requirement_id": "R_LANGUAGE",
+      "location": "Complete report and appendix",
+      "evidence": "Complete English long-form report with units, diagrams,fit matrix and conditional recommendations; internal production/review narration removed.",
+      "result": "clear"
+    },
+    {
+      "requirement_id": "R_DATE",
+      "location": "59-75,101-105,145-166,202-210,273-285",
+      "evidence": "Pinned2025 LiteRT and2024 WhisperTRT; BaseRT v1 runtime baselines retained. Original ML Kit snapshot dated2026-11-06, official Microsoft current page confirms November Insider versus January2027 planned retail distinction; historical measurements are not presented as current sustained performance.",
+      "result": "clear"
+    },
+    {
+      "location": "21-39,61-69,145-174,224-244; full deployment_calculations.py and results",
+      "evidence": "Read complete existing code/output without executing.36KiB/token produces144/288/1152MiB KV;4GiB scenario gives3.651/3.792/4.636GiB working sets. S24 GPU phase sums9.459/34.075s;RTF.043 and compute-duty/transfer units agree. Economics separates incoming vs92/96% accepted, equal-quality6.63m break-even, utilization and correction cost.",
+      "result": "clear"
+    }
+  ],
+  "sample_checks": [
+    {
+      "location": "53-55,155-164,287",
+      "selection_reason": "Passed quantization claims include contrary text/speech quality and energy effects.",
+      "evidence": "Meta ODM-S06:62-116 supports MMLU63.4/60.5/62/62.4, rewrite40.1/40.7 and mixed precision. Viewed Apple Table3 p17:67.8→64.4 MMLU,85.1→82.3 IFEval. Viewed ASR Table4 p10:FP16 base78s/155J vs INT8 80.1s/169J and noisy WER28.84→30.69. ODM17 setup146-201 identifies70 clips,noise attenuation and baseline subtraction; report does not generalize automatic gains.",
+      "result": "clear"
+    },
+    {
+      "location": "99-107",
+      "selection_reason": "Hybrid success could hide local costs, latency or unsupported phone/privacy transfer.",
+      "evidence": "Viewed Minions final Table1 p7 and read ODM-S18:599-642,782-839. .724/.709 and $.233/$.042 use local-free January2025 accounting; Table2 has31.81 vs11s on10 LongHealth samples/RTX4090. Report preserves all relevant boundaries.",
+      "result": "clear"
+    },
+    {
+      "location": "145-151",
+      "selection_reason": "README-to-pipeline transformation could confuse RSS, warm timing and continuous service.",
+      "evidence": "Complete ODM-S19 profiler shows warmup,one iteration,load outside timer,RSS difference>>20. ODM-S21:155-181 truncates mel and greedy decodes; ODM-S20:180-225 emits after speech end. Current report correctly labels delta MiB and warm clip RTF rather than peak memory/continuous latency.",
+      "result": "clear"
+    },
+    {
+      "location": "69-75,202-210; ODM-U3 transformation",
+      "selection_reason": "Passed cross-device and system-API claims constrain actual recommendation beyond historical fixes.",
+      "evidence": "ODM07:103-285 supports configuration,phase rates and contrary Gemma runtime result. ODM01:435-465 supports historical sustained instability. Entire ODM-U3 read; ML Kit260-363 and PCC ODM-S28:1-100 preserve foreground/quota/entitlement/context/platform limits. Official https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica lines34-116 corroborates LAF,China,Insider/experimental GPU and planned replacement.",
+      "result": "clear"
+    }
+  ],
+  "prior_findings": {
+    "95a4280022704f508e2315e950a94ab4/ODM-FULL-DOM-B-01": {
+      "decision": "resolved",
+      "reason": "Android performance lock now accompanies initial measurement, derived times and appendix, without inventing sustained slowdown.",
+      "evidence": "Current59,115,278; ODM-S12 original62-77 confirms lock and exact S24 rows."
+    },
+    "00ce65c68add482eb2d7bee800872f7a/natural_expression-01": {
+      "decision": "resolved",
+      "reason": "Author identity, review status, mistaken acquisition/handoff history and review-file direction removed; technical versions and limits remain.",
+      "evidence": "Current3,275-291; complete first/current diff and retained original negative read."
+    },
+    "610f088324a446838507126cce385c43/process_language-01": {
+      "decision": "resolved",
+      "reason": "Appendix source-version/position labels replace reading-action labels; internal reading-ledger sentence removed; calculations and missing measurements remain.",
+      "evidence": "Current275-291 versus original prior11093fb5 report and negative response."
+    }
+  },
+  "finding_adjudications": [
+    {
+      "finding_key": "95a4280022704f508e2315e950a94ab4/ODM-FULL-DOM-B-01",
+      "decision": "resolved",
+      "reason": "Android performance lock now accompanies initial measurement, derived times and appendix, without inventing sustained slowdown.",
+      "evidence": "Current59,115,278; ODM-S12 original62-77 confirms lock and exact S24 rows."
+    },
+    {
+      "finding_key": "00ce65c68add482eb2d7bee800872f7a/natural_expression-01",
+      "decision": "resolved",
+      "reason": "Author identity, review status, mistaken acquisition/handoff history and review-file direction removed; technical versions and limits remain.",
+      "evidence": "Current3,275-291; complete first/current diff and retained original negative read."
+    },
+    {
+      "finding_key": "610f088324a446838507126cce385c43/process_language-01",
+      "decision": "resolved",
+      "reason": "Appendix source-version/position labels replace reading-action labels; internal reading-ledger sentence removed; calculations and missing measurements remain.",
+      "evidence": "Current275-291 versus original prior11093fb5 report and negative response."
+    }
+  ],
+  "report_verdict": "pass",
+  "open_issues": [],
+  "sampling_population": "Complete291-line current report and all8 no-finding reviews. Purposive selections span model config, runtime code, PDF measurements, sustained behavior, platform limits and source-to-report transformation; not random."
+}

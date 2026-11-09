@@ -1,0 +1,79 @@
+{
+  "input_version": "08ee4e8cf6e9b2733119c8c87965023b83648c1f084afbabbd87f1a702fd3e7a",
+  "assignment_version": "02cd0861ed4435e72a083658ea0c037a51732623aa42323b91f6ccd3bd957653",
+  "result": "valid",
+  "basis": "Continuation of the same independent outline audit after replacement of the requirements reviewer. I read the new raw requirements response/execution and its complete-reading record, compared every old/current assignment field, confirmed that the structure review is unchanged, checked current production identities and retained prior audit/failure records, and verified the replacement's input/response/execution bindings. All task, requirement, outline, source metadata, research-output and production-history fields are unchanged; the previous actual complete outline reading and substantive planning checks therefore remain applicable. The replacement /root/complete_requirements_b supplied a new located full-outline assessment and is outside the producer set. AIDD-OUTLINE-INDEPENDENCE-01 is resolved by replacement of the invalid role, not by rehabilitating /root's old review. Both required outline reviews are now valid and no necessary outline issue remains. This verdict concerns only the outline research unit.",
+  "review_checks": {
+    "requirements": {
+      "result": "valid",
+      "basis": "Current selected attempt a5cca22863544d339d09544886cd5348 is executed by /root/complete_requirements_b, not /root. Its execution records actual complete task/effective-requirements and outline:1-36 reading from 2026-11-09T23:42:51.8039968+08:00 to 2026-11-09T15:44:18.0316113+00:00, no unread report ranges, no prior verdict reuse, no artifact edits and no producer role. The original raw response concretely maps selection/attrition, candidate-indication-formulation, cutoff dates, computation/laboratory/clinical evidence, like-stage comparisons, partnership rights/payment categories and planned exhibits to the outline. I checked its frozen-report equality and normalized UTF-8 hashes for input, response and execution; all match the current job. Neither current producer_contexts nor activity host identities includes this reviewer. Its pass is properly limited to outline scope."
+    },
+    "structure_and_depth": {
+      "result": "valid",
+      "basis": "Retained attempt 1b6c134084664c068a64661050ecc084 by /root/independent_structure_b is exactly unchanged, including its raw response and execution metadata. My preceding audit actually read these and the complete outline, checked the supporting passages and verified its identity and bindings. Current comparison confirms that the entire outline assignment and original structure result are unchanged; current producer records still exclude this reviewer. The located structural observations and explicit no-clinical/no-full-report-validation boundary remain valid."
+    }
+  },
+  "dispositions": {},
+  "critical_checks": [
+    {
+      "requirement_id": "R_TASK",
+      "location": "analysis/outline.md:7-20,24-35; current requirements attempt a5cca22863544d339d09544886cd5348",
+      "evidence": "Reused the previously completed full-outline reading after exact assignment equality. The plan covers identifiable program histories, specific computational contributions and feedback, stopped/inconclusive cases, clinical design/denominators, stage comparisons, partnership decision rights and payment categories, and conditional decisions. The missing independent requirements role is now supplied by a separate nonproducer context with a new substantive complete-outline assessment. These observations concern planned research coverage and unit readiness, not completed clinical evidence.",
+      "result": "clear"
+    },
+    {
+      "requirement_id": "R_LANGUAGE",
+      "location": "analysis/outline.md:1-35",
+      "evidence": "The unchanged complete outline is English for the specified R&D/business-development/investment audience and plans the requested evidence chains and clinical/stage/partnership exhibits. The replacement reviewer independently confirms that coverage. No whole-report language certification is inferred.",
+      "result": "clear"
+    },
+    {
+      "requirement_id": "R_DATE",
+      "location": "analysis/outline.md:3,9,15-18,33-35",
+      "evidence": "The unchanged plan specifies the 2026-11-09 cutoff, separates event/publication/registry dates, and requires candidate-indication-formulation histories and relevant original records. Prior substantive checks remain applicable and the replacement independently maps these requirements. This is a check of the plan's dating rules, not a new clinical-status determination.",
+      "result": "clear"
+    },
+    {
+      "location": "Current audit assignment versus audit-46f63a3abaa680ba.json; analysis/outline.md; replacement frozen-report.md",
+      "evidence": "Every assignment field is equal: task, requirements, effective/applicable requirements, scope decisions, report/path, sources/source_files, research outputs, production history, analyses, scope, requirement unit IDs and prior required findings. Instructions and sampling are also unchanged. The outline SHA256 is still 8bfe2c957e7fc1dfb21faae1bdb37a859e53eb837915b974d18b0d97e13e57b7; the replacement's frozen report equals the same assignment. The changed material is the requirements review selection.",
+      "result": "clear"
+    },
+    {
+      "location": "state/progress.json producer_contexts; logs/activity.jsonl host identities; original and replacement review records",
+      "evidence": "Current producer identities remain /root, /root/ttc_research and author:ai_drug_discovery_en. Neither /root/complete_requirements_b nor /root/independent_structure_b appears. The original /root requirements response, previous invalid audit and owner-rejected save d8d4e7d1a2ce44bf8b7f495cd1cf5cd2 remain retained. The current assignment selects the new requirements attempt; no old identity or failure has been rewritten.",
+      "result": "clear"
+    }
+  ],
+  "sample_checks": [
+    {
+      "location": "Replacement requirements response/execution; reading-state.json; reviewer frozen-report.md; current producer records",
+      "selection_reason": "The only repaired issue is reviewer/producer overlap; verify actual new reading and role separation instead of accepting a changed name or a pass field.",
+      "evidence": "New execution is /root/complete_requirements_b, with a bounded full-outline reading interval and a substantive mapping across all eight outline sections. Frozen text and normalized input/response/execution hashes match. Producer metadata and all current activity host identities exclude this reviewer. The invalid old record remains present. The observed replacement resolves the exact earlier defect.",
+      "result": "clear"
+    },
+    {
+      "location": "analysis/outline.md:7-9,15-20",
+      "selection_reason": "Carry forward the independently chosen passed sample on selection and cross-stage comparison only after confirming the artifact has not changed.",
+      "evidence": "The whole assignment is byte-content-equivalent at the text-field level to the previous audit. The previously read plan preserves purposive selection with stops/inconclusive paths, candidate-indication-formulation identity, distinct evidence stages, disclosed partnership responsibilities and contingent versus received money. The replacement's own coverage describes the same actual passages without inventing requirements.",
+      "result": "clear"
+    },
+    {
+      "location": "Structure review 1b6c134084664c068a64661050ecc084; original outline production history",
+      "selection_reason": "Ensure replacing one invalid role does not silently displace the valid independent role or turn outline observations into whole-report approval.",
+      "evidence": "The entire structure review record and original outline production history compare unchanged. Its executor is still independent of production and its response explicitly withholds clinical and complete-manuscript validation. The current result preserves that bounded assessment.",
+      "result": "clear"
+    }
+  ],
+  "prior_findings": {},
+  "resolved_audit_findings": {
+    "d3eb8f62ee5a4a89a63a527a0f707b33/AIDD-OUTLINE-INDEPENDENCE-01": {
+      "decision": "resolved",
+      "reason": "The existing requirements slot received a genuine new full-outline assessment from /root/complete_requirements_b, who is separate from the recorded producers. The historical /root review remains invalid for independence and remains preserved; the valid structure slot is unchanged.",
+      "evidence": "Current audit job selects requirements attempt a5cca22863544d339d09544886cd5348. New raw response and execution at reviews/host/08ee4e8cf6e9b2733119/results/a5cca22863544d33/; actual reading interval and frozen artifact in R/research/ai_drug_discovery_en/native-outline-repair-reviews/requirements/; current producer/activity identities; previous audit import selected audit attempt d3eb8f62ee5a4a89a63a527a0f707b33 and original negative response remain retained.",
+      "schema_note": "The current assignment.prior_required_findings array is empty, so prior_findings remains empty as required by the existing schema. This separate explicit disposition preserves and resolves the previous audit's named independence issue."
+    }
+  },
+  "report_verdict": "pass",
+  "open_issues": [],
+  "scope_note": "Pass means the reviewed outline unit can support its dependants. It does not declare the complete AIDD report, its clinical evidence, the remaining content reviews or final acceptance complete."
+}

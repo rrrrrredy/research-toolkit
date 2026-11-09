@@ -1,0 +1,124 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\on_device_models_en",
+  "input_version": "f3a8a771e665647c0dafa07c493418c1871787d170af5d39942a14ab990bd93c",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "requirements",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/d36ac85da53d79640d36.md",
+        "sha256": "d36ac85da53d79640d3628e0d29ea342557b3fac3e1ed98a91dcf6ebc5732c70"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f3a8a771e665647c0daf/jobs/requirements-cd12a5ad43eb0f52.json",
+        "sha256": "9e5e4a4c4a1ba387b5c2a12395c11896a9f8f2cb6ee7f80480f7a01bacd00641"
+      },
+      "assignment_version": "cd12a5ad43eb0f5201d8907dea120d4d356a26cf1cc6c0b5db26f616b2b5d703",
+      "resume_host_task": "/root"
+    },
+    {
+      "slot_id": "evidence",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/8d26c09a99bdbf972039.md",
+        "sha256": "8d26c09a99bdbf9720395373c7e76f2721d9794f284a6b9c8e599745127ee5fa"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f3a8a771e665647c0daf/jobs/evidence-d1487f5ced691a13.json",
+        "sha256": "529dd017bea8709a1adc38305f7419d3fa09121b3ead6f10a31672ad2dc1eadc"
+      },
+      "assignment_version": "d1487f5ced691a135bddaebb18a969abbc693dee93cd191181d1246ed3b79a4d"
+    },
+    {
+      "slot_id": "adversarial_reasoning",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/927911e15e36eabe60de.md",
+        "sha256": "927911e15e36eabe60de318aa3a7212baa88c290cbf23c78e0b93ae0c0459359"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f3a8a771e665647c0daf/jobs/adversarial_reasoning-78e712416164f1f8.json",
+        "sha256": "05ce96af083d463f3a803270c5806196fcc659e1a2431baafa232755247f6edc"
+      },
+      "assignment_version": "78e712416164f1f8e8721d8e38a15191bb1c83ef0b28b3a0b5430292ceba54d5"
+    },
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/2540b85969fda99196cd.md",
+        "sha256": "2540b85969fda99196cd9d8ad7609d11a2387e1e16c87d9fc66c7abe4568330c"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f3a8a771e665647c0daf/jobs/structure_and_depth-3cc52c750aeaafa2.json",
+        "sha256": "c2ab568103a9a1371f6bde8fcd213f5e5be0a8e02f589070a30139c1a82a64e0"
+      },
+      "assignment_version": "3cc52c750aeaafa25f4eaf4f28ec2609e40efa6f777b6e036224cdde61e8426a"
+    },
+    {
+      "slot_id": "reader_usefulness",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/69d0aca178fd0ceaff43.md",
+        "sha256": "69d0aca178fd0ceaff43aaa13a14da167bca36462adc726d5a714bc6f79d3528"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f3a8a771e665647c0daf/jobs/reader_usefulness-8f446b9cfa25fecc.json",
+        "sha256": "13d80496380e07aa42f3d91059163c5b0bb47a87023b3ca5d41603818f7c3427"
+      },
+      "assignment_version": "8f446b9cfa25feccc16775edea1da09f2cbf9c42c8169aa720c6f4157727aba0"
+    },
+    {
+      "slot_id": "process_language",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/f15c430b10e7343568ff.md",
+        "sha256": "f15c430b10e7343568ff630bf65f396db422c52f62dc0bd889e87bbede4995c8"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f3a8a771e665647c0daf/jobs/process_language-1ab77a8cb7c3c4fd.json",
+        "sha256": "ba5892716665728425f5cf1c9e83886fb541d8d2a95d968c38b7623acc3e2ce0"
+      },
+      "assignment_version": "1ab77a8cb7c3c4fd529d80cc85dd0565e70cb05b6faa4ce4aec2e12c75a71bf6"
+    },
+    {
+      "slot_id": "natural_expression",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/4dfd8d73d17016de0148.md",
+        "sha256": "4dfd8d73d17016de0148cae7f36bf60a6ca0aef4319cd0558ff22e98db1dcc1c"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f3a8a771e665647c0daf/jobs/natural_expression-c34f1073135f9f59.json",
+        "sha256": "2b8a9c8c33a57e7a57643b377dcd2d18e3b188f7092f971a47ccd718febb404a"
+      },
+      "assignment_version": "c34f1073135f9f599271bad81566caa3bd0e0a67b93d27bf8e5c23d76680168a"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "The registered research unit is still incomplete: report"
+    ],
+    "required_slots": 10,
+    "completed_slots": 1,
+    "selected_attempts": {
+      "domain-1": "6b26e4def39e47d6944c9888e76a80f8"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "The registered research unit is still incomplete: report"
+  ]
+}

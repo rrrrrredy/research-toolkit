@@ -1,0 +1,634 @@
+{
+  "stage": "final",
+  "status": "complete",
+  "author_id": "author:verifiable_self_improvement_en",
+  "review_contract": 2,
+  "open_issues": [],
+  "brief": {
+    "question": "Investigate when an automated feedback loop produces a verifiable improvement in a model or software system, and what evidence is needed before calling the result self-improvement. Use DGM and AlphaEvolve as entry points for comparing different mechanisms, not as proof that they belong to one category or achieve unrestricted recursive improvement. Focus on public work from 2023 through the evidence cutoff of 2026-11-09, with earlier foundations where useful. Identify the versions of papers, code, tasks, and reported results used, and exclude information first made public after the cutoff.\n\nDefine the object being changed: model weights, source code, prompts, tool policies, or a larger workflow. Distinguish an external optimizer improving a target program from an agent modifying components of its own operating system, and distinguish temporary inference-time adaptation from a retained system change. Select complementary examples where they clarify these boundaries, rather than constructing an exhaustive list of systems advertised as self-improving.\n\nReconstruct each principal improvement loop in enough detail to identify the candidate generator, editable state, evaluator, selection rule, retained history, and deployment or rollback decision. Explain where human-designed objectives, test suites, search spaces, constraints, manual repairs, or candidate filtering enter the loop. Compare the cost and role of generating candidates with the cost of evaluating them. Separate gains attributable to additional search or stronger external models from evidence that the modified system itself has become better.\n\nExamine evaluator validity and failure modes. Address adaptive overfitting to reused tests, multiple candidate selection, data leakage, reward exploitation, incorrect reference answers, and changes that improve one metric while breaking another required property. For program optimization, investigate functional equivalence, correctness coverage, and hardware or workload dependence. For agents or learned systems, distinguish optimization tasks from genuinely held-out tasks, environments, or task families. Explain whether an apparent gain persists outside the evaluator used to select the candidate, and whether the public evidence can support that conclusion at all.\n\nBuild an evidence comparison that retains baseline identity, modification type, optimization budget when disclosed, evaluation conditions, human intervention, and the scope of measured generalization. Analyze representative improvement claims and negative or limiting evidence in depth. Missing compute or intervention information should narrow a comparison rather than be replaced with guessed values. Public documentation and existing replications can support the report; running a new self-modifying system is not required, and an implementation description must not be presented as an independent reproduction.\n\nDeliver a complete report with reconstructed loop diagrams or equivalent tables, a comparative evidence matrix, and conditional adoption guidance. Explain which objectives are sufficiently checkable for bounded automated improvement, when a separate evaluator or protected holdout is essential, and when preserving the original system or requiring human review is the better choice. These are design conclusions for the reader, not a requirement to introduce a new evaluation process for this research task.\n\nThe key checks are whether the claimed improvement has a defined target and baseline, whether selection feedback is separated from independent evidence of generalization, and whether human and external-model contributions remain visible. A system may demonstrate useful program optimization without demonstrating general self-improvement. Equally, limited or negative evidence should not erase well-supported gains within a narrow domain. Allow the conclusions to follow the evidence rather than a predetermined claim about recursive progress.",
+    "audience": "Research and engineering leaders evaluating automated improvement systems and their deployment boundaries",
+    "scope": "Follow the task geography, comparison scope and evidence cutoff of 2026-11-09. Each other-language version uses its frozen sources without seeing the first-language report.",
+    "output": "Complete long-form research report final.md with the task-specific comparisons, explanations, tables and locatable citations. Preserve the first draft and actual independent results.",
+    "depth": "A mechanism-level research report that reconstructs improvement loops, examines evaluator validity and generalization, and separates measured gains from broader autonomy claims.",
+    "evidence_standard": "Use original public sources with actual dates, reading evidence and retained originals. Conduct seven separate independent content perspectives, relevant domain review, independent audit and final acceptance. Live primary research"
+  },
+  "profile": "full",
+  "next_action": "Delivered.",
+  "unit_reviews": {
+    "outline": {
+      "artifact_sha256": "25d60750e617552a65d8de92643b4fa094af6b8b6d3a1f55fd4a1093a279acd0",
+      "input_version": "962c354ba22b13c31d0cc7872fdfb7f41164b1178afdd9d49044386f405693e0",
+      "ok": true,
+      "reviewers": [
+        "/root/independent_reviews_a"
+      ],
+      "record_path": "reviews/host/962c354ba22b13c31d0c/input.json"
+    }
+  },
+  "unit_review_plans": {
+    "outline": {
+      "contract_version": 2,
+      "purpose": "report_delivery",
+      "reviewer": "independent",
+      "audit_required": false,
+      "author_id": "author:verifiable_self_improvement_en",
+      "producer_contexts": [
+        "/root",
+        "author:verifiable_self_improvement_en"
+      ],
+      "scope": "outline",
+      "artifact": "analysis/outline.md",
+      "artifact_sha256": "25d60750e617552a65d8de92643b4fa094af6b8b6d3a1f55fd4a1093a279acd0",
+      "input_version": "962c354ba22b13c31d0cc7872fdfb7f41164b1178afdd9d49044386f405693e0",
+      "input": {
+        "path": "reviews/host/962c354ba22b13c31d0c/input.json",
+        "sha256": "5ba50d2d3e3940c1fde376bd91b73999e8c2df0d535de5169b092aa2338c3278"
+      },
+      "bindings": {
+        "state/task_spec.md": "f74284be57ce1cdc59e0337a907a2e0b507cdd39a22325dfab99d483bdef535f",
+        "analysis/outline.md": "25d60750e617552a65d8de92643b4fa094af6b8b6d3a1f55fd4a1093a279acd0",
+        "record:requirements:effective@outline": "23f7107e33d855cf762642b744cd48871a3350a2fa5cef592183a02d40949dc5",
+        "logs/record-backups/ea7c674c1f71407391bcae16dd2239fd/saved/analysis/outline.md": "7ae0c9eeff16ffc9541e044723c15ae1d8fce5648029a7b4b39d51e35c385029",
+        "logs/record-backups/e8046a2fd46c4f9b9c1e4a78a2653d56/saved/analysis/outline.md": "25d60750e617552a65d8de92643b4fa094af6b8b6d3a1f55fd4a1093a279acd0",
+        "logs/record-backups/e8046a2fd46c4f9b9c1e4a78a2653d56/analysis/outline.md": "7ae0c9eeff16ffc9541e044723c15ae1d8fce5648029a7b4b39d51e35c385029",
+        "reviews/host/d545f819ef89374bf114/jobs/requirements-c2e9e1131b31d1b0.json": "3fa1c43d7171828c7045db77a498e3d4f583fac1e481b1806e2a3f1103de82b6",
+        "reviews/host/d545f819ef89374bf114/results/17bf97cdc12c4d6b/response.txt": "fae5f1a267becf16afad896ea5a19482707c78c1be5d4b249df1af1820609485",
+        "reviews/host/d545f819ef89374bf114/results/17bf97cdc12c4d6b/execution.json": "3ca86917e2d95c9af1253beb9f0ec79138ab30c233a18cdf5b465f3bc6d46a61"
+      },
+      "domains": [],
+      "slots": [
+        {
+          "slot_id": "requirements",
+          "role": "reviewer",
+          "dimensions": [
+            "requirements"
+          ]
+        }
+      ],
+      "instructions": {
+        "reviewer": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Assign Work by Perspective\n\nEvery complete research delivery requires the following seven base perspectives, each in a different context separate from every production agent. Add domain review for the specialized claims the task makes. Use native subagents; author self-checks do not replace these assignments. Independence concerns the context and production role, not a different vendor or outside person.\n\n| Perspective | Method and required output |\n| --- | --- |\n| Intent and requirements (`requirements`) | Read the original request and effective corrections. Match important questions, required objects and constraints to actual passages or tables; identify missing answers, scope drift and instructions lost in revision. Do not invent requirements or protect the intended thesis from contrary evidence. |\n| Evidence and data (`evidence`) | Check consequential claims against original sources, dates, versions, populations, units, denominators and calculations. Distinguish facts, source claims and inference. State actual reading coverage, identifying the original sections or passages checked. |\n| Adversarial reasoning (`adversarial_reasoning`) | Challenge central conclusions with relevant counterexamples, alternative explanations, selection effects and missing assumptions. Explain the consequence for the argument; do not manufacture objections or require a finding quota. |\n| Structure and depth (`structure_and_depth`) | Check how questions, outline, sections, evidence and synthesis form the answer. Locate missing mechanisms, incomparable measures, compressed reasoning and source repetition. Apply the task's expected depth, not a universal structure or length. |\n| Reader usefulness (`reader_usefulness`) | Read the assembled text for its intended use: title and opening, argument continuity, introduced terms, tables, timelines and useful implications. Identify concrete understanding or decision problems. |\n| Process-language removal (`process_language`) | Locate production logs, internal paths/IDs, review status and assistant dialogue in reader-facing prose. Retain methods, source attribution, uncertainty and operational details that the reader's question needs. |\n| Natural expression (`natural_expression`) | Locate empty abstractions, repetitive caveats, vague actors, obstructive syntax and needless repetition. Explain the reading problem and a suitable remedy. Preserve facts, qualifiers, analytical depth and the user's style preferences; do not impose phrase bans or AI-detection targets. |\n| Domain specialist | Apply the actual field's criteria: technical baselines and experimental conditions, financial assumptions, policy applicability, clinical populations or other specialized reasoning. State the domain and claims examined. Use a separate non-author context for the domain assignment. |\n\nStart each perspective in a fresh independent context that reads the complete current report, original request and effective changes, and the original evidence relevant to the assignment. Do not seed it with the author's self-rating, other initial reviewers' judgments, expected scores or a preferred review result. Relevant substantive research analyses remain available. Return revisions to that perspective's original context: reuse completed reading and analysis, then examine changes and their effect on the current whole report. If that context cannot continue, hand its original assessment and actually reviewed input to a new independent context. A local premise review names its limited scope and cannot substitute for the final whole-report perspective. Review the artifact in its delivery format, including portable citations and table/figure meaning.\n\n## Shared Assignment\n\nProvide the question, reader, effective requirements, actual artifact and input versions, original-material access, assigned perspective and required output. The reviewer reports what was examined, locatable observations and their basis. Each finding identifies its location, applicable requirement, evidence, impact and severity, separating required corrections from optional preferences. When no defect is found, explain the supporting checks instead of returning a generic PASS.\n\nReviewers remain read-only. Keep original replies and observable execution identities separate from any structured extraction or author response. Skill-only work can retain them in the agent tool conversation or existing files; managed work uses the [review record interface](../docs/review-completion.md). Do not fabricate a missing session identity or source access.\n\n## Complete Every Required Review\n\nA complete review addresses its actual scope and version with substantive observations. Empty, truncated, wrong-version or generic replies leave the assignment open. Preserve failed attempts, correct the missing input or execution problem and resume that assignment. When required material exceeds one context, retain it in accessible originals and arrange complete scoped reading and synthesis, rather than silently replacing it with a summary.\n\nKeep the first valid result for a given input and artifact version. A negative finding is a completed review, not a reason to rerun for a better verdict. An isolated mistaken finding is adjudicated; it does not invalidate the entire review. The auditor determines consequential invalidity and contested no-change decisions from the evidence. A reviewer who never received required material has incomplete work; an examined source that leaves an answer uncertain may support a complete, qualified assessment.\n\nAuthors apply necessary fixes and can explain why they disagree with a finding. They cannot approve their own work, dismiss a necessary correction or relabel an incomplete review as complete. Preserve findings and responses for the independent audit. Revisions go back to the affected reviewer with the current complete artifact and relevant changes; unchanged evidence remains available and prior results stay bound to their actual version.\n\n",
+        "auditor": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Check Reviewers and Sample Passed Work\n\nEvery complete research task has an explicitly assigned audit context separate from production and content reviewers. The auditor receives the complete report, effective requirements, original sources, contributions, raw reviews and revision/disposition evidence. Review validity and report readiness are separate judgments: a valid negative review can describe a report that still needs correction.\n\nCheck each required review for its actual execution and input version, assigned coverage, locatable observations, supported claims and absence of invented requirements. Inspect all consequential findings and disagreements, including decisions to leave text unchanged. Resolve them against original evidence and actual prose, not majority votes or average scores. Preserve each original finding with one evidenced disposition: confirmed defect, no change, unresolved or resolved. A claimed repair is resolved only after examining the changed text and affected context.\n\nAudit all important requirements, decisive claims, key figures and citations, consequential counterevidence, major findings and necessary fixes. Also examine material marked passed or carrying no finding, including transformations from a worker's analysis into the report. The auditor chooses these samples from the complete artifact, not from an author's selected highlights.\n\nFor this additional sampling, retain the relevant population or report scope, selected locations, selection reasons, source checks and results in the existing audit output. Choose passages across relevant sections, evidence types and transformations; do not use a fixed percentage or first/last/hash-selected paragraphs as the default. A targeted sample is described as targeted, not random. When a discrepancy appears, check the same source, measure, branch or reasoning pattern wherever it affects the result; record that expansion and its outcome.\n\nThe auditor can request missing work from the existing researcher or reviewer and continue the same audit after repair. Necessary defects and unsupported important no-change decisions remain open. Evidence that genuinely cannot settle a research question is reported at the affected conclusion; it does not erase a missing mandatory reading or review assignment. Sampling is part of this audit and final acceptance, not a separate agent, score or approval process.\n\n",
+        "acceptance": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Stage Scheduling and Acceptance\n\n1. **Outline and first premises:** the lead plans questions, coverage and dependencies; the requirements and structure reviewers examine the outline before extensive dependent writing. Evidence/domain reviewers examine consequential premises and calculations as they become usable. Early local checks are retained as local checks.\n2. **Developing research units:** researchers produce evidence-backed arguments progressively. Resolve a premise that could change dependent work before treating it as settled; other independent units continue. The assembler updates the whole-report argument as contributions arrive and the outline changes.\n3. **Complete report:** all seven base perspectives and applicable domain review read the complete report. Findings from the independent reader-usefulness and natural-expression reviews are applied without losing facts or depth. The independent audit examines the reviews, important findings, necessary repairs and selected passed content.\n4. **Final acceptance:** a further context, separate from production, content review and audit, reads the complete current report against the effective requirements. It examines the audit, dispositions and the actual current text, checks all important requirements and necessary fixes, and selects additional passed content where needed to judge integration. It reports acceptance or the exact remaining work. Its PASS cannot replace a missing required review or audit.\n\nThe final acceptance agent verifies the delivered version, source/condition preservation, complete required coverage, developed analysis and reader usability. Cross-part contradictions or lost qualifications return to the responsible production/review assignment, with the affected scope and inputs. Keep the original findings and prior artifacts. Do not let a coordinator's summary stand in for this reading.\n\nReader-ready delivery requires resolved necessary corrections, complete independent assignments and acceptance of the current whole report. A stage artifact may be delivered with its actual unfinished scope. Historical and evaluation artifacts retain their original defects and labels; their completion status remains tied to the criteria and work recorded at the time. Once the agreed result and required work are complete, optional preferences do not restart unchanged reviews.\n\n"
+      },
+      "revision_context": {
+        "historical_only": true,
+        "input": {
+          "path": "reviews/host/d545f819ef89374bf114/input.json",
+          "sha256": "b2781008207284a8541ab0a60a11076e644a450c2b735aaad31490b0858cda88"
+        },
+        "input_version": "d545f819ef89374bf114a1d7fd924c1feef553992f6e567ac4f6c06ea71363c0",
+        "reviews": {
+          "requirements": {
+            "attempt_id": "17bf97cdc12c4d6ba5e17771fb1f6748",
+            "response": {
+              "path": "reviews/host/d545f819ef89374bf114/results/17bf97cdc12c4d6b/response.txt",
+              "sha256": "fae5f1a267becf16afad896ea5a19482707c78c1be5d4b249df1af1820609485"
+            },
+            "input": {
+              "path": "reviews/host/d545f819ef89374bf114/jobs/requirements-c2e9e1131b31d1b0.json",
+              "sha256": "3fa1c43d7171828c7045db77a498e3d4f583fac1e481b1806e2a3f1103de82b6"
+            },
+            "execution": {
+              "path": "reviews/host/d545f819ef89374bf114/results/17bf97cdc12c4d6b/execution.json",
+              "sha256": "3ca86917e2d95c9af1253beb9f0ec79138ab30c233a18cdf5b465f3bc6d46a61"
+            },
+            "execution_id": "/root/independent_reviews_a",
+            "role": "reviewer",
+            "report_verdict": "needs_revision",
+            "review_validity": "not_separately_audited",
+            "input_version": "d545f819ef89374bf114a1d7fd924c1feef553992f6e567ac4f6c06ea71363c0",
+            "dimensions": [
+              "requirements"
+            ],
+            "domain": null
+          },
+          "structure_and_depth": {
+            "attempt_id": "4159f6bcb9a1436c9f53c66f8e25b7dd",
+            "response": {
+              "path": "reviews/host/d545f819ef89374bf114/results/4159f6bcb9a1436c/response.txt",
+              "sha256": "2528932f8466a8f850d0b762ba587d56b3eedfb2b4aded4a22a9620614a962e0"
+            },
+            "input": {
+              "path": "reviews/host/d545f819ef89374bf114/jobs/structure_and_depth-578a1c4bdce77f44.json",
+              "sha256": "079e8ab0833005a9c68ace6a96e54c4dca1ad0e5e6cd5b1571fa1788ba10f97d"
+            },
+            "execution": {
+              "path": "reviews/host/d545f819ef89374bf114/results/4159f6bcb9a1436c/execution.json",
+              "sha256": "6ea5644c6f4b91406fadc39e3143d4f69cbe4149865fd733d9e2a80cbf9a8278"
+            },
+            "execution_id": "/root/domain_and_audit",
+            "role": "reviewer",
+            "report_verdict": "pass",
+            "review_validity": "not_separately_audited",
+            "input_version": "d545f819ef89374bf114a1d7fd924c1feef553992f6e567ac4f6c06ea71363c0",
+            "dimensions": [
+              "structure_and_depth"
+            ],
+            "domain": null
+          }
+        },
+        "changed_inputs": [
+          {
+            "path": "analysis/outline.md",
+            "previous_sha256": "7ae0c9eeff16ffc9541e044723c15ae1d8fce5648029a7b4b39d51e35c385029",
+            "current_sha256": "25d60750e617552a65d8de92643b4fa094af6b8b6d3a1f55fd4a1093a279acd0"
+          },
+          {
+            "path": "logs/record-backups/e8046a2fd46c4f9b9c1e4a78a2653d56/analysis/outline.md",
+            "previous_sha256": null,
+            "current_sha256": "7ae0c9eeff16ffc9541e044723c15ae1d8fce5648029a7b4b39d51e35c385029"
+          },
+          {
+            "path": "logs/record-backups/e8046a2fd46c4f9b9c1e4a78a2653d56/saved/analysis/outline.md",
+            "previous_sha256": null,
+            "current_sha256": "25d60750e617552a65d8de92643b4fa094af6b8b6d3a1f55fd4a1093a279acd0"
+          },
+          {
+            "path": "reviews/host/d545f819ef89374bf114/jobs/requirements-c2e9e1131b31d1b0.json",
+            "previous_sha256": null,
+            "current_sha256": "3fa1c43d7171828c7045db77a498e3d4f583fac1e481b1806e2a3f1103de82b6"
+          },
+          {
+            "path": "reviews/host/d545f819ef89374bf114/results/17bf97cdc12c4d6b/execution.json",
+            "previous_sha256": null,
+            "current_sha256": "3ca86917e2d95c9af1253beb9f0ec79138ab30c233a18cdf5b465f3bc6d46a61"
+          },
+          {
+            "path": "reviews/host/d545f819ef89374bf114/results/17bf97cdc12c4d6b/response.txt",
+            "previous_sha256": null,
+            "current_sha256": "fae5f1a267becf16afad896ea5a19482707c78c1be5d4b249df1af1820609485"
+          }
+        ],
+        "unchanged_inputs": [
+          "logs/record-backups/ea7c674c1f71407391bcae16dd2239fd/saved/analysis/outline.md",
+          "record:requirements:effective@outline",
+          "state/task_spec.md"
+        ],
+        "report_changes": [
+          {
+            "change": "replace",
+            "previous_lines": [
+              18,
+              18
+            ],
+            "current_lines": [
+              18,
+              18
+            ],
+            "previous_text": "6. **The evaluator determines the useful search direction.** Develop adaptive test overfitting, reference errors, reward exploitation and metric conflicts through the preceding concrete examples. Distinguish correctness by construction, randomized testing, complete verification for a defined function, held-out workload performance and field deployment. Explain selection noise and the effects of changing hardware, model or workload.",
+            "current_text": "6. **The evaluator determines the useful search direction.** Develop information exposure and data leakage separately from adaptive test overfitting, reference errors, reward exploitation and metric conflicts. Compare what reaches the candidate generator or diagnoser, what is held back, and which results use new tasks. DGM Appendix C.3 explicitly supplies the private test patch to diagnosis; retain that access fact together with the authors' inspection and transfer evidence. Contrast it with HarnessPro's training/validation/test separation and SCoRe's training-only correctness oracle. Do not infer contamination solely from high performance. Distinguish correctness by construction, randomized testing, complete verification for a defined function, held-out workload performance and field deployment. Explain selection noise and the effects of changing hardware, model or workload."
+          }
+        ]
+      }
+    }
+  },
+  "current_artifact": {
+    "path": "reports/current.md",
+    "sha256": "c339d6244bdf03eb4d0935e4428c2106b59f7dd556774a083165b29bf6f3fc19",
+    "kind": "report",
+    "owner": "/root",
+    "unit_id": "report"
+  },
+  "review_plan": {
+    "contract_version": 2,
+    "purpose": "report_delivery",
+    "reviewer": "independent",
+    "audit_required": true,
+    "author_id": "author:verifiable_self_improvement_en",
+    "producer_contexts": [
+      "/root",
+      "author:verifiable_self_improvement_en"
+    ],
+    "scope": "full_report",
+    "artifact": "reports/current.md",
+    "artifact_sha256": "c339d6244bdf03eb4d0935e4428c2106b59f7dd556774a083165b29bf6f3fc19",
+    "input_version": "e2bf5ec236f3fbd7264dd12a2f8a018f9fb206af2f12c460b4608bfeb4086845",
+    "input": {
+      "path": "reviews/host/e2bf5ec236f3fbd7264d/input.json",
+      "sha256": "6c7ba91906696f575536bc045b2625413bffd9e2122879fdb032eafef7209a44"
+    },
+    "bindings": {
+      "reports/current.md": "c339d6244bdf03eb4d0935e4428c2106b59f7dd556774a083165b29bf6f3fc19",
+      "state/task_spec.md": "f74284be57ce1cdc59e0337a907a2e0b507cdd39a22325dfab99d483bdef535f",
+      "analysis/author-production/calculation-results.json": "63ef9cb6bd155a586bfff0fe0e9238db04d0264ecefc750e50b1a183721909df",
+      "data/claims_registry.csv": "7047b55b836412fab417c661a26c91a851a713e51cc3f164c935d5b250ac9ca5",
+      "data/source_registry.csv": "f733e4b7377ef028262fb1770dd4d4f5f2eab5e2a6f31575664d718965622c52",
+      "notes/actual-reading/TTC013.json": "d8a382677b5dfc027b29f03fb555401585993a65f7ea8742dfc8ee97843085a2",
+      "notes/actual-reading/VSI001.json": "9f93f0c50edd24d0174a01b4d1e296243cb551ea128fd76d54765f05642659fc",
+      "notes/actual-reading/VSI002.json": "7290409439e284c97eb7edf35b7da67192ebad2e7c2fac4339a28c5d97c92ccb",
+      "notes/actual-reading/VSI003.json": "2995ba1d82cdaf3bed03eb1328b0594bf5e623c25bcf1cad0c85b9560336100d",
+      "notes/actual-reading/VSI004.json": "74882b2ae2095592213c28efee6d827006f02735feecdc27e7060e3fd3dde034",
+      "notes/actual-reading/VSI010-official.json": "13c9b71f430f42f7ea99a43f20f13a7ccd864ecbcb179cb9286e02df4f6d10d2",
+      "notes/author-reading-ledger.json": "835f2217c4a9cbc01ffae8c35e72a340530dda2c3d63b000eee457539c2d5e58",
+      "sources/actual/TTC013.txt": "104adeeb4df6433b039dc5c8eda924c398eb68dc5a7eb84957543435d920e6a4",
+      "sources/actual/VSI001.txt": "382b2724d6b1ee6a3926e3e2c3bee0ff1d254177ba1ce0f650b387f5a3556a4e",
+      "sources/actual/VSI002.txt": "f20b707e6eda0150c40650856890517d998c761f55b336d9eac38ce4a31d5a2e",
+      "sources/actual/VSI003.txt": "3ac325224bfd2fdf5d7c15250ef9f6b17591ff8c244e094c4cf1c726a0f27786",
+      "sources/actual/VSI004.txt": "d2c15bc48548ecc5d3909e8e32569f994ac41e09232941b1015568106e45baad",
+      "sources/actual/VSI010-official.txt": "a5951e707c38e08f1fefcf2d1900a94fd4cab35b27cc326e7b96d8a4a93d11a6",
+      "record:requirements:effective": "23f7107e33d855cf762642b744cd48871a3350a2fa5cef592183a02d40949dc5",
+      "logs/record-backups/ea7c674c1f71407391bcae16dd2239fd/saved/analysis/outline.md": "7ae0c9eeff16ffc9541e044723c15ae1d8fce5648029a7b4b39d51e35c385029",
+      "logs/record-backups/e8046a2fd46c4f9b9c1e4a78a2653d56/saved/analysis/outline.md": "25d60750e617552a65d8de92643b4fa094af6b8b6d3a1f55fd4a1093a279acd0",
+      "logs/record-backups/e8046a2fd46c4f9b9c1e4a78a2653d56/analysis/outline.md": "7ae0c9eeff16ffc9541e044723c15ae1d8fce5648029a7b4b39d51e35c385029",
+      "logs/record-backups/66e9724b5e694605a1ede2e8836baac5/saved/reports/current.md": "d78a1287ad8411c9d6bc5cb1877a6df2c6bab2144e7e61fdd2481b52b271dc71",
+      "logs/record-backups/85cd0d8b5d264e1a989b22650c24788d/saved/reports/current.md": "9e947669b9ede19079b4b3f2618e8198287f19300e2da60f8f65417087ca3696",
+      "logs/record-backups/85cd0d8b5d264e1a989b22650c24788d/reports/current.md": "d78a1287ad8411c9d6bc5cb1877a6df2c6bab2144e7e61fdd2481b52b271dc71",
+      "logs/record-backups/30e9cb111cae4e74bb73898c7f43f543/saved/reports/current.md": "af48640562d3a8b5bf40cd5649003cabff26220edd52d4953f23459b3eb94406",
+      "logs/record-backups/30e9cb111cae4e74bb73898c7f43f543/reports/current.md": "9e947669b9ede19079b4b3f2618e8198287f19300e2da60f8f65417087ca3696",
+      "logs/record-backups/fce7a0d1d0e2403f8cbc4f1f9cecc829/saved/reports/current.md": "6738773ca0c6fd185906c967db5f26d77c20acf0e2f55892757ae11855383905",
+      "logs/record-backups/fce7a0d1d0e2403f8cbc4f1f9cecc829/reports/current.md": "af48640562d3a8b5bf40cd5649003cabff26220edd52d4953f23459b3eb94406",
+      "logs/record-backups/7ed7d787c5f74978b1bb3f5efeae92e0/saved/reports/current.md": "c339d6244bdf03eb4d0935e4428c2106b59f7dd556774a083165b29bf6f3fc19",
+      "logs/record-backups/7ed7d787c5f74978b1bb3f5efeae92e0/reports/current.md": "6738773ca0c6fd185906c967db5f26d77c20acf0e2f55892757ae11855383905",
+      "reviews/host/4f0b7113f0f985cace50/jobs/requirements-a0cdb4eb57aa8016.json": "449c65fd92736ca665f17583ba11f9130e794a9962b142ee104087980900664f",
+      "reviews/host/4f0b7113f0f985cace50/results/fabc5b5854e143dc/response.txt": "f1ed18c09ea074009d38263ba634d9e465bb0fad4366f26f95b88e782eba055d",
+      "reviews/host/4f0b7113f0f985cace50/results/fabc5b5854e143dc/execution.json": "e133829355e8088592d27eb3a94292bf3ab75dadac3bb53b5581b7ba29d3e4b9",
+      "reviews/host/04dc84ae829e3bc00d83/jobs/adversarial_reasoning-478a0adeedb37b5b.json": "cc0bdea0ff20165cfbda273fdc8d6b640246fa1a6a56af143d739c6af594c018",
+      "reviews/host/04dc84ae829e3bc00d83/results/22e841fabdd3454e/response.txt": "8d48a8d52f4d017ec52bc2967eb73a66ab22f0722bdfde40ffcf59e97126fbf4",
+      "reviews/host/04dc84ae829e3bc00d83/results/22e841fabdd3454e/execution.json": "4245423161985a6cad0b7f025c64f56e7684363da92e76b47aaefee579feb63f",
+      "reviews/host/3e24c32827fa1b679ad9/jobs/natural_expression-018d3ec9ea5f8eec.json": "38cf708a4bb9a07ddf5c4bd00bccd509ed4552dd4d62dc3d0751a4e94d217a44",
+      "reviews/host/3e24c32827fa1b679ad9/results/7236806912154bef/response.txt": "e6571cbfa5c21ef3dea68e969b38726d4cc91ceddd09cc45e1485de759763ec7",
+      "reviews/host/3e24c32827fa1b679ad9/results/7236806912154bef/execution.json": "b1699ea6bbc151291e1922773a1bdff1ea243f0131d752e608ef86843be7de5d",
+      "reviews/host/9907449b6a8e39785378/jobs/process_language-47ce9c253bad2ae1.json": "962811f6d0527baebb3322344ad43b76f3e7a2637ff3f021350aa277b6a5d969",
+      "reviews/host/9907449b6a8e39785378/results/6b6d9b587e15458c/response.txt": "97eca7a5fd66b0de039a3f8255740512deb8731c8f11ad49b3afb7186c1c7b6d",
+      "reviews/host/9907449b6a8e39785378/results/6b6d9b587e15458c/execution.json": "006b59e12e24f7014a225cd5710fef3a0190cd8c3050b1a3d588f08f91654d0e",
+      "analysis/outline.md": "25d60750e617552a65d8de92643b4fa094af6b8b6d3a1f55fd4a1093a279acd0"
+    },
+    "domains": [
+      "Automated optimization, program evaluation and generalization"
+    ],
+    "slots": [
+      {
+        "slot_id": "requirements",
+        "role": "reviewer",
+        "dimensions": [
+          "requirements"
+        ]
+      },
+      {
+        "slot_id": "evidence",
+        "role": "reviewer",
+        "dimensions": [
+          "evidence"
+        ]
+      },
+      {
+        "slot_id": "adversarial_reasoning",
+        "role": "reviewer",
+        "dimensions": [
+          "adversarial_reasoning"
+        ]
+      },
+      {
+        "slot_id": "structure_and_depth",
+        "role": "reviewer",
+        "dimensions": [
+          "structure_and_depth"
+        ]
+      },
+      {
+        "slot_id": "reader_usefulness",
+        "role": "reviewer",
+        "dimensions": [
+          "reader_usefulness"
+        ]
+      },
+      {
+        "slot_id": "process_language",
+        "role": "reviewer",
+        "dimensions": [
+          "process_language"
+        ]
+      },
+      {
+        "slot_id": "natural_expression",
+        "role": "reviewer",
+        "dimensions": [
+          "natural_expression"
+        ]
+      },
+      {
+        "slot_id": "domain-1",
+        "role": "reviewer",
+        "dimensions": [
+          "domain"
+        ],
+        "domain": "Automated optimization, program evaluation and generalization"
+      },
+      {
+        "slot_id": "audit",
+        "role": "auditor"
+      },
+      {
+        "slot_id": "acceptance",
+        "role": "acceptance"
+      }
+    ],
+    "instructions": {
+      "reviewer": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Assign Work by Perspective\n\nEvery complete research delivery requires the following seven base perspectives, each in a different context separate from every production agent. Add domain review for the specialized claims the task makes. Use native subagents; author self-checks do not replace these assignments. Independence concerns the context and production role, not a different vendor or outside person.\n\n| Perspective | Method and required output |\n| --- | --- |\n| Intent and requirements (`requirements`) | Read the original request and effective corrections. Match important questions, required objects and constraints to actual passages or tables; identify missing answers, scope drift and instructions lost in revision. Do not invent requirements or protect the intended thesis from contrary evidence. |\n| Evidence and data (`evidence`) | Check consequential claims against original sources, dates, versions, populations, units, denominators and calculations. Distinguish facts, source claims and inference. State actual reading coverage, identifying the original sections or passages checked. |\n| Adversarial reasoning (`adversarial_reasoning`) | Challenge central conclusions with relevant counterexamples, alternative explanations, selection effects and missing assumptions. Explain the consequence for the argument; do not manufacture objections or require a finding quota. |\n| Structure and depth (`structure_and_depth`) | Check how questions, outline, sections, evidence and synthesis form the answer. Locate missing mechanisms, incomparable measures, compressed reasoning and source repetition. Apply the task's expected depth, not a universal structure or length. |\n| Reader usefulness (`reader_usefulness`) | Read the assembled text for its intended use: title and opening, argument continuity, introduced terms, tables, timelines and useful implications. Identify concrete understanding or decision problems. |\n| Process-language removal (`process_language`) | Locate production logs, internal paths/IDs, review status and assistant dialogue in reader-facing prose. Retain methods, source attribution, uncertainty and operational details that the reader's question needs. |\n| Natural expression (`natural_expression`) | Locate empty abstractions, repetitive caveats, vague actors, obstructive syntax and needless repetition. Explain the reading problem and a suitable remedy. Preserve facts, qualifiers, analytical depth and the user's style preferences; do not impose phrase bans or AI-detection targets. |\n| Domain specialist | Apply the actual field's criteria: technical baselines and experimental conditions, financial assumptions, policy applicability, clinical populations or other specialized reasoning. State the domain and claims examined. Use a separate non-author context for the domain assignment. |\n\nStart each perspective in a fresh independent context that reads the complete current report, original request and effective changes, and the original evidence relevant to the assignment. Do not seed it with the author's self-rating, other initial reviewers' judgments, expected scores or a preferred review result. Relevant substantive research analyses remain available. Return revisions to that perspective's original context: reuse completed reading and analysis, then examine changes and their effect on the current whole report. If that context cannot continue, hand its original assessment and actually reviewed input to a new independent context. A local premise review names its limited scope and cannot substitute for the final whole-report perspective. Review the artifact in its delivery format, including portable citations and table/figure meaning.\n\n## Shared Assignment\n\nProvide the question, reader, effective requirements, actual artifact and input versions, original-material access, assigned perspective and required output. The reviewer reports what was examined, locatable observations and their basis. Each finding identifies its location, applicable requirement, evidence, impact and severity, separating required corrections from optional preferences. When no defect is found, explain the supporting checks instead of returning a generic PASS.\n\nReviewers remain read-only. Keep original replies and observable execution identities separate from any structured extraction or author response. Skill-only work can retain them in the agent tool conversation or existing files; managed work uses the [review record interface](../docs/review-completion.md). Do not fabricate a missing session identity or source access.\n\n## Complete Every Required Review\n\nA complete review addresses its actual scope and version with substantive observations. Empty, truncated, wrong-version or generic replies leave the assignment open. Preserve failed attempts, correct the missing input or execution problem and resume that assignment. When required material exceeds one context, retain it in accessible originals and arrange complete scoped reading and synthesis, rather than silently replacing it with a summary.\n\nKeep the first valid result for a given input and artifact version. A negative finding is a completed review, not a reason to rerun for a better verdict. An isolated mistaken finding is adjudicated; it does not invalidate the entire review. The auditor determines consequential invalidity and contested no-change decisions from the evidence. A reviewer who never received required material has incomplete work; an examined source that leaves an answer uncertain may support a complete, qualified assessment.\n\nAuthors apply necessary fixes and can explain why they disagree with a finding. They cannot approve their own work, dismiss a necessary correction or relabel an incomplete review as complete. Preserve findings and responses for the independent audit. Revisions go back to the affected reviewer with the current complete artifact and relevant changes; unchanged evidence remains available and prior results stay bound to their actual version.\n\n",
+      "auditor": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Check Reviewers and Sample Passed Work\n\nEvery complete research task has an explicitly assigned audit context separate from production and content reviewers. The auditor receives the complete report, effective requirements, original sources, contributions, raw reviews and revision/disposition evidence. Review validity and report readiness are separate judgments: a valid negative review can describe a report that still needs correction.\n\nCheck each required review for its actual execution and input version, assigned coverage, locatable observations, supported claims and absence of invented requirements. Inspect all consequential findings and disagreements, including decisions to leave text unchanged. Resolve them against original evidence and actual prose, not majority votes or average scores. Preserve each original finding with one evidenced disposition: confirmed defect, no change, unresolved or resolved. A claimed repair is resolved only after examining the changed text and affected context.\n\nAudit all important requirements, decisive claims, key figures and citations, consequential counterevidence, major findings and necessary fixes. Also examine material marked passed or carrying no finding, including transformations from a worker's analysis into the report. The auditor chooses these samples from the complete artifact, not from an author's selected highlights.\n\nFor this additional sampling, retain the relevant population or report scope, selected locations, selection reasons, source checks and results in the existing audit output. Choose passages across relevant sections, evidence types and transformations; do not use a fixed percentage or first/last/hash-selected paragraphs as the default. A targeted sample is described as targeted, not random. When a discrepancy appears, check the same source, measure, branch or reasoning pattern wherever it affects the result; record that expansion and its outcome.\n\nThe auditor can request missing work from the existing researcher or reviewer and continue the same audit after repair. Necessary defects and unsupported important no-change decisions remain open. Evidence that genuinely cannot settle a research question is reported at the affected conclusion; it does not erase a missing mandatory reading or review assignment. Sampling is part of this audit and final acceptance, not a separate agent, score or approval process.\n\n",
+      "acceptance": "# Subagents and Review\n\n[English](subagents-and-review-loop.md) | [简体中文](subagents-and-review-loop.zh-CN.md)\n\nThis reference owns production handoff, independent content review, audit and final acceptance. Read the part needed for the current assignment. The agent tool provides subagent execution; Toolkit supplies the research inputs, methods and versioned artifacts.\n\n## Stage Scheduling and Acceptance\n\n1. **Outline and first premises:** the lead plans questions, coverage and dependencies; the requirements and structure reviewers examine the outline before extensive dependent writing. Evidence/domain reviewers examine consequential premises and calculations as they become usable. Early local checks are retained as local checks.\n2. **Developing research units:** researchers produce evidence-backed arguments progressively. Resolve a premise that could change dependent work before treating it as settled; other independent units continue. The assembler updates the whole-report argument as contributions arrive and the outline changes.\n3. **Complete report:** all seven base perspectives and applicable domain review read the complete report. Findings from the independent reader-usefulness and natural-expression reviews are applied without losing facts or depth. The independent audit examines the reviews, important findings, necessary repairs and selected passed content.\n4. **Final acceptance:** a further context, separate from production, content review and audit, reads the complete current report against the effective requirements. It examines the audit, dispositions and the actual current text, checks all important requirements and necessary fixes, and selects additional passed content where needed to judge integration. It reports acceptance or the exact remaining work. Its PASS cannot replace a missing required review or audit.\n\nThe final acceptance agent verifies the delivered version, source/condition preservation, complete required coverage, developed analysis and reader usability. Cross-part contradictions or lost qualifications return to the responsible production/review assignment, with the affected scope and inputs. Keep the original findings and prior artifacts. Do not let a coordinator's summary stand in for this reading.\n\nReader-ready delivery requires resolved necessary corrections, complete independent assignments and acceptance of the current whole report. A stage artifact may be delivered with its actual unfinished scope. Historical and evaluation artifacts retain their original defects and labels; their completion status remains tied to the criteria and work recorded at the time. Once the agreed result and required work are complete, optional preferences do not restart unchanged reviews.\n\n"
+    },
+    "revision_context": {
+      "historical_only": true,
+      "input": {
+        "path": "reviews/host/9907449b6a8e39785378/input.json",
+        "sha256": "d06fae0f856a9c42f2bd64ddd83fa52587d46b49df5bb98301fd186ee141d438"
+      },
+      "input_version": "9907449b6a8e39785378a2be32913f20b44923005ebe5fdf7efa5e5148db9738",
+      "reviews": {
+        "requirements": {
+          "attempt_id": "8989c981e3df43b0ba7541657147c8ef",
+          "response": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/results/8989c981e3df43b0/response.txt",
+            "sha256": "75fc384e3dbbcd6321993f5099bfa2ea0d0a4af73a5025edbf68d9d3bbb4d0ec"
+          },
+          "input": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/jobs/requirements-f4edc6354b8b81c5.json",
+            "sha256": "553794fdf263bc93a56e8249e1a96509e223ccaad372551269d58c0e84e44ae0"
+          },
+          "execution": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/results/8989c981e3df43b0/execution.json",
+            "sha256": "0964019e476905894eeb7372760323c1f84fe422a5f317b5abb1a778492136d1"
+          },
+          "execution_id": "/root/independent_reviews_a",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "3e24c32827fa1b679ad94b1be8a59335458785206f8a80b88f9b3cea0c17a32a",
+          "dimensions": [
+            "requirements"
+          ],
+          "domain": null
+        },
+        "evidence": {
+          "attempt_id": "0247ed010bd34257bef1a6bafbd131dc",
+          "response": {
+            "path": "reviews/host/9907449b6a8e39785378/results/0247ed010bd34257/response.txt",
+            "sha256": "a04560daaae18cf6f57756ff594d58d8419bdd288de253c4e192250841a8a958"
+          },
+          "input": {
+            "path": "reviews/host/9907449b6a8e39785378/jobs/evidence-2eb41b392eb56ef0.json",
+            "sha256": "ade4f801a9d91fff61753b5985ec4400b4ef8b7b1b1c848659c6d05d80ab1a56"
+          },
+          "execution": {
+            "path": "reviews/host/9907449b6a8e39785378/results/0247ed010bd34257/execution.json",
+            "sha256": "84ffd8b2a1c79daa3808b5c37cf20775c1faa50ed15f11663ef44de08dc2eb31"
+          },
+          "execution_id": "/root/evidence_remaining_b",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "9907449b6a8e39785378a2be32913f20b44923005ebe5fdf7efa5e5148db9738",
+          "dimensions": [
+            "evidence"
+          ],
+          "domain": null
+        },
+        "adversarial_reasoning": {
+          "attempt_id": "d7dd5a8f628c44ffaf4899327af56a32",
+          "response": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/results/d7dd5a8f628c44ff/response.txt",
+            "sha256": "f5e9636f4157951cbc41dbf50feb0708833075123e9386e1a3a0c3a17355f7b8"
+          },
+          "input": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/jobs/adversarial_reasoning-5998a5888877946e.json",
+            "sha256": "796b43725dcdedd6ee662469caa4d79495f18dc6677ffb74b7172f4a11ba6314"
+          },
+          "execution": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/results/d7dd5a8f628c44ff/execution.json",
+            "sha256": "e7c0bb4965db9d6453f5cb0ee60f537f24481b912253b038d040fa2a474ee0c5"
+          },
+          "execution_id": "/root/benchmark_adversarial",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "3e24c32827fa1b679ad94b1be8a59335458785206f8a80b88f9b3cea0c17a32a",
+          "dimensions": [
+            "adversarial_reasoning"
+          ],
+          "domain": null
+        },
+        "structure_and_depth": {
+          "attempt_id": "a6bd4ff71d3149ef93d32b68ed1887d8",
+          "response": {
+            "path": "reviews/host/9907449b6a8e39785378/results/a6bd4ff71d3149ef/response.txt",
+            "sha256": "360c5b4e00822e2b3af29c54e3d8664087b03122911c081fd1faf7fe52894866"
+          },
+          "input": {
+            "path": "reviews/host/9907449b6a8e39785378/jobs/structure_and_depth-546a8a1a1ee95ace.json",
+            "sha256": "0f913fe519a01c45b59bdf9532fd71c416cf7f66e3884a35703765e8386029b1"
+          },
+          "execution": {
+            "path": "reviews/host/9907449b6a8e39785378/results/a6bd4ff71d3149ef/execution.json",
+            "sha256": "41d100af56c4777de3fae39d9791fcb48e3fd3177ef1c69f2ba77b75131a534c"
+          },
+          "execution_id": "/root/structure_remaining_b",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "9907449b6a8e39785378a2be32913f20b44923005ebe5fdf7efa5e5148db9738",
+          "dimensions": [
+            "structure_and_depth"
+          ],
+          "domain": null
+        },
+        "reader_usefulness": {
+          "attempt_id": "de9e9a40f9354a49b89026042e56d482",
+          "response": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/results/de9e9a40f9354a49/response.txt",
+            "sha256": "78122113c48ca5b9eae82c22f3c26dd5f01e19d6be43b3409368b1fdbb28e429"
+          },
+          "input": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/jobs/reader_usefulness-3f160dcb4edcbe37.json",
+            "sha256": "290a07600114b88841cedf7981dae220c53bec0745f1cdfb0423255621d27a65"
+          },
+          "execution": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/results/de9e9a40f9354a49/execution.json",
+            "sha256": "58a575d996461cbaf462fdc4a49335f758f23b6b236197ab7d146dcd3eb3671f"
+          },
+          "execution_id": "/root/full_reader_b",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "3e24c32827fa1b679ad94b1be8a59335458785206f8a80b88f9b3cea0c17a32a",
+          "dimensions": [
+            "reader_usefulness"
+          ],
+          "domain": null
+        },
+        "process_language": {
+          "attempt_id": "6b6d9b587e15458cbaea196f72451783",
+          "response": {
+            "path": "reviews/host/9907449b6a8e39785378/results/6b6d9b587e15458c/response.txt",
+            "sha256": "97eca7a5fd66b0de039a3f8255740512deb8731c8f11ad49b3afb7186c1c7b6d"
+          },
+          "input": {
+            "path": "reviews/host/9907449b6a8e39785378/jobs/process_language-47ce9c253bad2ae1.json",
+            "sha256": "962811f6d0527baebb3322344ad43b76f3e7a2637ff3f021350aa277b6a5d969"
+          },
+          "execution": {
+            "path": "reviews/host/9907449b6a8e39785378/results/6b6d9b587e15458c/execution.json",
+            "sha256": "006b59e12e24f7014a225cd5710fef3a0190cd8c3050b1a3d588f08f91654d0e"
+          },
+          "execution_id": "/root/process_remaining_b",
+          "role": "reviewer",
+          "report_verdict": "needs_revision",
+          "review_validity": "not_separately_audited",
+          "input_version": "9907449b6a8e39785378a2be32913f20b44923005ebe5fdf7efa5e5148db9738",
+          "dimensions": [
+            "process_language"
+          ],
+          "domain": null
+        },
+        "natural_expression": {
+          "attempt_id": "7236806912154befb9941d10ac5e79f1",
+          "response": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/results/7236806912154bef/response.txt",
+            "sha256": "e6571cbfa5c21ef3dea68e969b38726d4cc91ceddd09cc45e1485de759763ec7"
+          },
+          "input": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/jobs/natural_expression-018d3ec9ea5f8eec.json",
+            "sha256": "38cf708a4bb9a07ddf5c4bd00bccd509ed4552dd4d62dc3d0751a4e94d217a44"
+          },
+          "execution": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/results/7236806912154bef/execution.json",
+            "sha256": "b1699ea6bbc151291e1922773a1bdff1ea243f0131d752e608ef86843be7de5d"
+          },
+          "execution_id": "/root/benchmark_natural_expression",
+          "role": "reviewer",
+          "report_verdict": "needs_revision",
+          "review_validity": "not_separately_audited",
+          "input_version": "3e24c32827fa1b679ad94b1be8a59335458785206f8a80b88f9b3cea0c17a32a",
+          "dimensions": [
+            "natural_expression"
+          ],
+          "domain": null
+        },
+        "domain-1": {
+          "attempt_id": "b78ed293b90c4e509b8c8c0e34396ded",
+          "response": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/results/b78ed293b90c4e50/response.txt",
+            "sha256": "419355f181ef38293883e88524f19968b9d0bef4a8e9db01f27f0f325020dad1"
+          },
+          "input": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/jobs/domain-1-a6dc50599dbe83c6.json",
+            "sha256": "77fb9c0017e130606702d271ab300bfd34a435622ce82cbea559605c35023e40"
+          },
+          "execution": {
+            "path": "reviews/host/3e24c32827fa1b679ad9/results/b78ed293b90c4e50/execution.json",
+            "sha256": "152c0dadf6ed7b2df7693c2e707ddd7b024dca98e5c679acaf591c6548898fe1"
+          },
+          "execution_id": "/root/independent_domain_b",
+          "role": "reviewer",
+          "report_verdict": "pass",
+          "review_validity": "not_separately_audited",
+          "input_version": "3e24c32827fa1b679ad94b1be8a59335458785206f8a80b88f9b3cea0c17a32a",
+          "dimensions": [
+            "domain"
+          ],
+          "domain": "Automated optimization, program evaluation and generalization"
+        }
+      },
+      "changed_inputs": [
+        {
+          "path": "logs/record-backups/7ed7d787c5f74978b1bb3f5efeae92e0/reports/current.md",
+          "previous_sha256": null,
+          "current_sha256": "6738773ca0c6fd185906c967db5f26d77c20acf0e2f55892757ae11855383905"
+        },
+        {
+          "path": "logs/record-backups/7ed7d787c5f74978b1bb3f5efeae92e0/saved/reports/current.md",
+          "previous_sha256": null,
+          "current_sha256": "c339d6244bdf03eb4d0935e4428c2106b59f7dd556774a083165b29bf6f3fc19"
+        },
+        {
+          "path": "reports/current.md",
+          "previous_sha256": "6738773ca0c6fd185906c967db5f26d77c20acf0e2f55892757ae11855383905",
+          "current_sha256": "c339d6244bdf03eb4d0935e4428c2106b59f7dd556774a083165b29bf6f3fc19"
+        },
+        {
+          "path": "reviews/host/9907449b6a8e39785378/jobs/process_language-47ce9c253bad2ae1.json",
+          "previous_sha256": null,
+          "current_sha256": "962811f6d0527baebb3322344ad43b76f3e7a2637ff3f021350aa277b6a5d969"
+        },
+        {
+          "path": "reviews/host/9907449b6a8e39785378/results/6b6d9b587e15458c/execution.json",
+          "previous_sha256": null,
+          "current_sha256": "006b59e12e24f7014a225cd5710fef3a0190cd8c3050b1a3d588f08f91654d0e"
+        },
+        {
+          "path": "reviews/host/9907449b6a8e39785378/results/6b6d9b587e15458c/response.txt",
+          "previous_sha256": null,
+          "current_sha256": "97eca7a5fd66b0de039a3f8255740512deb8731c8f11ad49b3afb7186c1c7b6d"
+        }
+      ],
+      "unchanged_inputs": [
+        "analysis/author-production/calculation-results.json",
+        "analysis/outline.md",
+        "data/claims_registry.csv",
+        "data/source_registry.csv",
+        "logs/record-backups/30e9cb111cae4e74bb73898c7f43f543/reports/current.md",
+        "logs/record-backups/30e9cb111cae4e74bb73898c7f43f543/saved/reports/current.md",
+        "logs/record-backups/66e9724b5e694605a1ede2e8836baac5/saved/reports/current.md",
+        "logs/record-backups/85cd0d8b5d264e1a989b22650c24788d/reports/current.md",
+        "logs/record-backups/85cd0d8b5d264e1a989b22650c24788d/saved/reports/current.md",
+        "logs/record-backups/e8046a2fd46c4f9b9c1e4a78a2653d56/analysis/outline.md",
+        "logs/record-backups/e8046a2fd46c4f9b9c1e4a78a2653d56/saved/analysis/outline.md",
+        "logs/record-backups/ea7c674c1f71407391bcae16dd2239fd/saved/analysis/outline.md",
+        "logs/record-backups/fce7a0d1d0e2403f8cbc4f1f9cecc829/reports/current.md",
+        "logs/record-backups/fce7a0d1d0e2403f8cbc4f1f9cecc829/saved/reports/current.md",
+        "notes/actual-reading/TTC013.json",
+        "notes/actual-reading/VSI001.json",
+        "notes/actual-reading/VSI002.json",
+        "notes/actual-reading/VSI003.json",
+        "notes/actual-reading/VSI004.json",
+        "notes/actual-reading/VSI010-official.json",
+        "notes/author-reading-ledger.json",
+        "record:requirements:effective",
+        "reviews/host/04dc84ae829e3bc00d83/jobs/adversarial_reasoning-478a0adeedb37b5b.json",
+        "reviews/host/04dc84ae829e3bc00d83/results/22e841fabdd3454e/execution.json",
+        "reviews/host/04dc84ae829e3bc00d83/results/22e841fabdd3454e/response.txt",
+        "reviews/host/3e24c32827fa1b679ad9/jobs/natural_expression-018d3ec9ea5f8eec.json",
+        "reviews/host/3e24c32827fa1b679ad9/results/7236806912154bef/execution.json",
+        "reviews/host/3e24c32827fa1b679ad9/results/7236806912154bef/response.txt",
+        "reviews/host/4f0b7113f0f985cace50/jobs/requirements-a0cdb4eb57aa8016.json",
+        "reviews/host/4f0b7113f0f985cace50/results/fabc5b5854e143dc/execution.json",
+        "reviews/host/4f0b7113f0f985cace50/results/fabc5b5854e143dc/response.txt",
+        "sources/actual/TTC013.txt",
+        "sources/actual/VSI001.txt",
+        "sources/actual/VSI002.txt",
+        "sources/actual/VSI003.txt",
+        "sources/actual/VSI004.txt",
+        "sources/actual/VSI010-official.txt",
+        "state/task_spec.md"
+      ],
+      "report_changes": [
+        {
+          "change": "replace",
+          "previous_lines": [
+            96,
+            96
+          ],
+          "current_lines": [
+            96,
+            96
+          ],
+          "previous_text": "The useful mechanism is adaptation to a recurring domain. A prompt found for one problem is a one-off artifact; a prompt that improves performance on unseen problems from that domain is reusable. Promptbreeder's official Table 1 reports PaLM 2-L zero-shot GSM8K accuracy of 83.9%, versus 66.5% for its CoT baseline and 65.5% for a 2,000-prompt combinatorial-initialization baseline. The held-out evaluation and baseline identity are essential to interpreting that comparison. The official paper and Table 1 were read, including the footnote assigning half-splits to four datasets without supplied training/test partitions.",
+          "current_text": "The useful mechanism is adaptation to a recurring domain. A prompt found for one problem is a one-off artifact; a prompt that improves performance on unseen problems from that domain is reusable. Promptbreeder's official Table 1 reports PaLM 2-L zero-shot GSM8K accuracy of 83.9%, versus 66.5% for its CoT baseline and 65.5% for a 2,000-prompt combinatorial-initialization baseline. The held-out evaluation and baseline identity are essential to interpreting that comparison. The Table 1 footnote assigns half-splits to four datasets without supplied training/test partitions."
+        },
+        {
+          "change": "replace",
+          "previous_lines": [
+            252,
+            252
+          ],
+          "current_lines": [
+            252,
+            252
+          ],
+          "previous_text": "| [Promptbreeder official ICML paper](https://proceedings.mlr.press/v235/fernando24a.html) | PMLR 235, 2024; official 64-page PDF | Main §§3–5; Table 1; Appendix B Figure 4; Appendix K.2. Table 1 and Figure 4 were also inspected as rendered pages |",
+          "current_text": "| [Promptbreeder official ICML paper](https://proceedings.mlr.press/v235/fernando24a.html) | PMLR 235, 2024; official 64-page PDF | Main §§3–5; Table 1; Appendix B Figure 4; Appendix K.2. Table 1 and Figure 4 provide the reported comparison and ablation results |"
+        }
+      ]
+    }
+  }
+}

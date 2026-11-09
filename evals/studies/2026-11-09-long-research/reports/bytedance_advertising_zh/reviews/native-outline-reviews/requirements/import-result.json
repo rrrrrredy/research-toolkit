@@ -1,0 +1,45 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\bytedance_advertising_zh",
+  "input_version": "544857fa4696fd178ec0e87adab94b0b6e36a2795bb8eb422f57f7c93daa41af",
+  "scope": "outline",
+  "assignments": [
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/24ff383c526c912c9116.md",
+        "sha256": "24ff383c526c912c9116374fa077feadd7ff5559eff51af8f4b83a9f5b444f7e"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/544857fa4696fd178ec0/jobs/structure_and_depth-f91b2014c909f255.json",
+        "sha256": "c6be93da60618aeb40878109029417c79b8469cac31282daa3f406337120b73d"
+      },
+      "assignment_version": "f91b2014c909f255780990a18da7f1c59d84856d6e68f1a10b94d6db1fdd2f2a"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: structure_and_depth"
+    ],
+    "required_slots": 2,
+    "completed_slots": 1,
+    "selected_attempts": {
+      "requirements": "00d207068c7b4c2785b51b06eadc88ef"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: structure_and_depth"
+  ]
+}

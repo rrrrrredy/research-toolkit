@@ -1,0 +1,16 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "03204dc35f0518ade7374a892be2885116d8d964240de93761c7881f4f6d81a5",
+  "assignment_version": "236ba734b8ba1f9e95e0aa6ef17550be36bc04e06c8b80312a6118ac7a6436a4",
+  "completed_at": "2026-11-09T13:54:55.695763+00:00",
+  "reading_scope": {
+    "task": "完整任务",
+    "report": "完整1-282行",
+    "originals": [
+      "sources/actual/ED16.txt lines 142-169",
+      "sources/actual/ED01.txt lines 1-49 (complete retained text)"
+    ],
+    "scope": "独立adversarial_reasoning；无其他评审输入，无新实验。"
+  }
+}

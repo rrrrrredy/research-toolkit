@@ -1,0 +1,17 @@
+{
+  "host_task": "/root",
+  "status": "completed",
+  "role": "evidence",
+  "scope": "full_report",
+  "input_version": "35856ace8b32421ec17a16702661ae8452b72df5cc41c988a9beb1d43605ab7c",
+  "assignment_version": "669734533a19a5605fcd32a8450f1f7de122dff709f4b4a8ffc7f988158fd1ec",
+  "completed_at": "2026-11-09T13:33:57.913022+00:00",
+  "observed_agent_tool_events": [
+    "Read complete frozen manuscript in four contiguous ranges",
+    "Read original sections and tables, including preserved prior U1/source reading",
+    "Read actual executed calculation code/output; no research or arithmetic rerun",
+    "Write own evidence assessment"
+  ],
+  "independence": "Root was not a producer or another content perspective for this TTC English task. Earlier U1 evidence reading is reused for this same perspective.",
+  "timing": "Completion time recorded; no invented separate review-duration measurement."
+}

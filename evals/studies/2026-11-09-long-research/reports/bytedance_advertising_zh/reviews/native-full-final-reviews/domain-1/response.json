@@ -1,0 +1,12 @@
+{
+  "input_version": "e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "assignment_version": "6d6da1836f2356256079300ff739308da89821dc9e57e994ba8a10a715ce3c92",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "Current full report line 93, Smart+ version statement",
+      "basis": "本次为原真实领域上下文对当前完整稿的修订确认；先前完整阅读保留，实际变更按直接全文diff判断，未以历史通过自动替代当前判断。旧db8213c0到当前只有13行diff中的一处句子替换：缓存/打开过程改成采用2026年10月正文版本、按账户分批开放。已读完整diff及表格邻文，分批可用条件未删除，Smart+预算/自动化范围未扩大。本人先前已查原October2026文档；价格、归因与增量边界、GMV Max自然订单分母、财报和算例均逐字不变，来源文件与有效要求相同。复用原211行完整领域审阅，当前通过。"
+    }
+  },
+  "findings": []
+}

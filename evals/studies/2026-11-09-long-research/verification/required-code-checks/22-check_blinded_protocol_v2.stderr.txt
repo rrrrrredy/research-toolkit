@@ -1,0 +1,40 @@
+test_admission_ceiling_and_exposure_controls (__main__.ProtocolV2Tests.test_admission_ceiling_and_exposure_controls) ... ok
+test_changed_harness_stops_before_any_call (__main__.ProtocolV2Tests.test_changed_harness_stops_before_any_call) ... ok
+test_citation_identity_and_provenance_reach_both_roles (__main__.ProtocolV2Tests.test_citation_identity_and_provenance_reach_both_roles) ... ok
+test_controlled_development_inputs_and_calibration_isolation (__main__.ProtocolV2Tests.test_controlled_development_inputs_and_calibration_isolation) ... ERROR
+test_explicit_fence_acceptance_and_ambiguous_rejection (__main__.ProtocolV2Tests.test_explicit_fence_acceptance_and_ambiguous_rejection) ... ok
+test_failure_is_not_a_win_and_no_retry (__main__.ProtocolV2Tests.test_failure_is_not_a_win_and_no_retry) ... ok
+test_http_transport_budget_and_truncation (__main__.ProtocolV2Tests.test_http_transport_budget_and_truncation) ... ok
+test_invalid_output_is_retained_without_judge_or_retry (__main__.ProtocolV2Tests.test_invalid_output_is_retained_without_judge_or_retry) ... ok
+test_markdown_report_is_verbatim_and_separator_is_unambiguous (__main__.ProtocolV2Tests.test_markdown_report_is_verbatim_and_separator_is_unambiguous) ... ok
+test_masking_lock_and_all_raw_outputs (__main__.ProtocolV2Tests.test_masking_lock_and_all_raw_outputs) ... ok
+test_mutated_freeze_and_invalid_judgment (__main__.ProtocolV2Tests.test_mutated_freeze_and_invalid_judgment) ... ok
+test_public_inventory_and_no_overwrite (__main__.ProtocolV2Tests.test_public_inventory_and_no_overwrite) ... ok
+test_rejects_invalid_cohort_and_escaping_sources (__main__.ProtocolV2Tests.test_rejects_invalid_cohort_and_escaping_sources) ... ok
+test_same_model_can_review_in_separate_requests_without_author_context (__main__.ProtocolV2Tests.test_same_model_can_review_in_separate_requests_without_author_context) ... ok
+test_seed_balance_and_pending_results (__main__.ProtocolV2Tests.test_seed_balance_and_pending_results) ... ok
+test_swap_disagreement_or_failure_never_replaces_primary (__main__.ProtocolV2Tests.test_swap_disagreement_or_failure_never_replaces_primary) ... ok
+test_swaps_are_secondary_observations_and_metadata_stays_hidden (__main__.ProtocolV2Tests.test_swaps_are_secondary_observations_and_metadata_stays_hidden) ... ok
+test_template_requires_real_admission (__main__.ProtocolV2Tests.test_template_requires_real_admission) ... ok
+test_transport_alias_json_mode_and_failure_categories (__main__.ProtocolV2Tests.test_transport_alias_json_mode_and_failure_categories) ... ok
+
+======================================================================
+ERROR: test_controlled_development_inputs_and_calibration_isolation (__main__.ProtocolV2Tests.test_controlled_development_inputs_and_calibration_isolation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\work\toolkit-long-research-20261109\scripts\check_blinded_protocol_v2.py", line 208, in test_controlled_development_inputs_and_calibration_isolation
+    _, frozen = self.plan()
+                ^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\work\toolkit-long-research-20261109\scripts\check_blinded_evals.py", line 40, in plan
+    return output, h.prepare(self.study, output, seed)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\work\toolkit-long-research-20261109\scripts\run_blinded_evals.py", line 138, in prepare
+    require(settings["response_format"] == "text" and not settings["allow_json_fence"], "Markdown notes require text mode without JSON fences")
+  File "C:\Users\luosong03\Documents\ChatGPT\Others\work\toolkit-long-research-20261109\scripts\run_blinded_evals.py", line 32, in require
+    raise ValueError(message)
+ValueError: Markdown notes require text mode without JSON fences
+
+----------------------------------------------------------------------
+Ran 19 tests in 5.002s
+
+FAILED (errors=1)

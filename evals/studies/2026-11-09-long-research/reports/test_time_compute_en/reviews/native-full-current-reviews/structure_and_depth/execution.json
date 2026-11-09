@@ -1,0 +1,49 @@
+{
+  "status": "completed",
+  "host_task": "/root/structure_remaining_b",
+  "executor": "native Codex subagent",
+  "input_version": "35856ace8b32421ec17a16702661ae8452b72df5cc41c988a9beb1d43605ab7c",
+  "assignment_version": "0d4c78267327927bcf6fd0a59a6f43c00781df8ebe96959d1b7e68cf9ac2b556",
+  "job_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_en\\reviews\\host\\35856ace8b32421ec17a\\jobs\\structure_and_depth-0d4c78267327927b.json",
+  "job_sha256": "64d84ebf3898c3d7e7fea062d71e231f41b84dec0a4b920513ff3636885e69ec",
+  "artifact_sha256": "e1b4fa3580310c7761668eb042def1b4e7bc72a51a2d7e8f614385cca6bcbb78",
+  "frozen_report_sha256": "e1b4fa3580310c7761668eb042def1b4e7bc72a51a2d7e8f614385cca6bcbb78",
+  "started_at": "2026-11-09T14:53:45.554147Z",
+  "completed_at": "2026-11-09T14:56:21.9995345Z",
+  "report_reading": {
+    "ranges": [
+      [
+        1,
+        100
+      ],
+      [
+        101,
+        210
+      ],
+      [
+        211,
+        354
+      ]
+    ],
+    "path": "frozen-report.md",
+    "last_line": 354,
+    "trailing_newline": true,
+    "complete": true
+  },
+  "originals_examined": [
+    {
+      "range": "73-88 and 207-270; selected additional table excerpts",
+      "path": "sources/actual/TTC013.txt"
+    },
+    {
+      "range": "100-147 and 195-238",
+      "path": "sources/actual/SUP-CM.txt"
+    },
+    {
+      "range": "254-264; selected passages 183-190,215-224,327-334,830-848,1198-1206",
+      "path": "sources/TTC008/original.txt"
+    }
+  ],
+  "other_perspective_results_read": false,
+  "report_edited": false
+}

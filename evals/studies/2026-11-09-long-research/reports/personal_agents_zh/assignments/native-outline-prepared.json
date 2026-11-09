@@ -1,0 +1,72 @@
+{
+  "request": {
+    "task": "personal_agents_zh",
+    "artifact": "analysis/outline.md",
+    "scope": "outline",
+    "perspectives": [
+      "requirements",
+      "structure_and_depth"
+    ],
+    "domains": [],
+    "purpose": "report_delivery",
+    "evidence_paths": []
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\personal_agents_zh",
+    "input_version": "2f8f31f0f2bb728097d6640bfa2688cbcf0b36cc504090307ccf6056f78285a3",
+    "scope": "outline",
+    "assignments": [
+      {
+        "slot_id": "requirements",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/9279cc78fb4042a5a7f0.md",
+          "sha256": "9279cc78fb4042a5a7f0b67ff2c63456ea2b3abe1f864234ea786727a8ce359f"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/2f8f31f0f2bb728097d6/jobs/requirements-e6f3a65240c11f57.json",
+          "sha256": "905905f15e238cca4e65438ebe4b09ee78b1c3af48fb67cc1cfc1d1ed5fc9716"
+        },
+        "assignment_version": "e6f3a65240c11f5730ccad610b046a787a9a7decbae33bb3028fe2334595c3bf"
+      },
+      {
+        "slot_id": "structure_and_depth",
+        "role": "reviewer",
+        "reading_ref": {
+          "path": "logs/reading/90d009d548687088561e.md",
+          "sha256": "90d009d548687088561eb03f8274f475b44598c768e11ef0e3720a3dc2774bf6"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/2f8f31f0f2bb728097d6/jobs/structure_and_depth-c5be498c65554437.json",
+          "sha256": "f0b099930b1bb0ea0cc6a7008c4ec86662b5694df3f279134ff1ba692909d2cd"
+        },
+        "assignment_version": "c5be498c6555443772aad34e0574f98d4eb43d1074d30da818403ddc56dad517"
+      }
+    ],
+    "reviews_complete": false,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Incomplete independent assignment: requirements",
+        "Incomplete independent assignment: structure_and_depth"
+      ],
+      "required_slots": 2,
+      "completed_slots": 0,
+      "selected_attempts": {},
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Incomplete independent assignment: requirements",
+      "Incomplete independent assignment: structure_and_depth"
+    ]
+  }
+}

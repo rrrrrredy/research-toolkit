@@ -1,0 +1,12 @@
+{
+  "input_version": "7df42f9e48f578f8581eb68e50664b4600a4466865102d37e93b8e6c7978f767",
+  "assignment_version": "8c9b9d3000df1c6fd680797165f2e486ba266b2ea848d39ab2d42ff5c35bda2d",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "basis": "本次为同一原独立domain身份的AIDD-U1当前输入确认，范围仍限U1，并未替代将来的全文审阅。实际比较v2与v3完整assignment：正文、artifact SHA、原任务、要求、有效要求、scope decisions、source_files、research_outputs、production_history、analyses、适用要求及历史发现均相等。sources共22个条目，仅selected_source_records字符串不同：v2的8个原来源中7个original_path为空被移除，S21非空PDF路径保留；逐行排序非空字段后8行完全相等。另读实际中间3801bb...input，确认它的8行各多reader空串，规范化后与v3的有效非空字段也完全相等，而非据作者口头说明直接通过。读取csv-empty-field-before及已有CLI验证记录作为背景，不运行或评价额外产品测试。复核先前实际阅读的12项来源/二进制哈希，包括Nature原文、Table2、两项CTgov原始JSON、Figure2原图、Reporting Summary PDF和全部4页图，全部未变。重读当前FVC和缺失段：Figure2a n10/n14，+98.4/-20.3和描述差118.7mL；Figure2b随机组n18/n17、ANCOVA+MAR多重插补+89.2/-8.2和描述差97.4mL，各组区间与零的关系正确，未杜撰组间差CI；8/18和3/17缺失及44.4%/17.6%与停药人数区分不变。复用此前完整U1的设计、主要安全/次要FVC、入组分母、缺失机制、阶段状态及4页Reporting Summary实质核查，有依据认定为同一研究正文和依据的无语义空字段清理，当前局部审阅通过。首次AIDD-U1-DOM-B-01负面与v2修订确认均保留。",
+      "location": "AIDD-U1完整单元；v2/v3 assignment及8来源非空记录；当前FVC表与缺失段"
+    }
+  },
+  "findings": []
+}

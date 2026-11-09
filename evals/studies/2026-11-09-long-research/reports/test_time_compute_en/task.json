@@ -1,0 +1,69 @@
+{
+  "case_id": "test_time_compute_en",
+  "title": "Test-Time Compute for Reasoning Models and Agents: Methods, Scaling Behavior, and Design Trade-offs",
+  "task_type": "longform",
+  "language": "en",
+  "target_reader": "Model researchers, inference engineers, and agent-system designers making compute-allocation decisions",
+  "expected_depth": "A full technical research report connecting mechanisms, budget-aware empirical comparisons, scaling limits, and implementable design choices across reasoning and agent workloads.",
+  "prompt": "Investigate how additional computation at inference time changes the capabilities, reliability, and economics of reasoning models and agents. The reader needs to decide which strategies to use, how to allocate a finite budget, and when extra computation is unlikely to help. Focus on work published from 2022 through the evidence cutoff of 2026-11-09, using earlier work where needed to explain foundations. Use only evidence publicly available by the cutoff and identify the relevant paper, model, implementation, and evaluation versions. Do not turn later knowledge into evidence available at the cutoff.\n\nDevelop a mechanism-based comparison of independent sampling, self-consistency, best-of-N selection, sequential revision, search over intermediate states, outcome and process verification, adaptive budget allocation, and agent loops involving tools or environmental feedback. Explain what generates candidates, what selects or rejects them, what state is retained, and what information the evaluator can access. Distinguish inference-time allocation from training changes that enable it. Separate results for a fixed base model from comparisons in which model size, post-training, data, or the verifier also changes.\n\nExamine evidence from mathematical reasoning, executable coding tasks, and multi-step tool-using tasks. Select informative studies rather than attempting an exhaustive paper catalogue. Compare scaling behavior, marginal gains, saturation, regressions, and variation with task difficulty. Explain how correlated errors, weak or miscalibrated verifiers, reward exploitation, unreliable tools, compounding action errors, or unavailable feedback can change the apparent benefit of additional search. Assess whether results on tasks with cheap, reliable checking transfer to tasks with ambiguous outcomes or delayed feedback.\n\nBuild a budget-aware comparison framework. Account for candidate generation, discarded branches, verifier calls, hidden or explicit reasoning tokens when disclosed, tool execution, and retries. Distinguish total compute or monetary cost from serial latency, parallel resource demand, and end-to-end wall-clock time. Token counts alone are not a common compute unit across different models. Where published studies permit a defensible normalization, show it with units and assumptions; otherwise retain separate comparisons and explain the missing information. Include a worked allocation example using reported values or clearly labeled hypothetical inputs, without presenting an illustrative calculation as a new experiment.\n\nDeliver a complete research report with a method-and-evidence matrix, a comparison of reported scaling behavior, and a design decision tree covering task verifiability, error consequences, latency constraints, tool availability, and budget. Explain how a designer should choose among a stronger base model, more samples, deeper search, better verification, or a simpler execution path. Distinguish empirical findings from proposed policies, and include cases in which no additional inference-time computation is the defensible choice. Tables and diagrams may be integrated into any coherent report structure; a literature list or brief recommendation sheet is not sufficient.\n\nThe central checks are whether budget comparisons include the computation used to select answers, whether training and inference effects remain distinguishable, and whether the proposed design choices follow from task-specific evidence. Report benchmark contamination, test-selection effects, evaluator leakage, and missing uncertainty estimates when they materially affect a claim. Publicly reported results need not be rerun, but they must not be described as independently reproduced unless they actually were. No particular scaling law or conclusion about the superiority of test-time compute is assumed.",
+  "must_cover_entities": [
+    "Independent sampling, self-consistency, and best-of-N selection",
+    "Sequential revision and search over intermediate states",
+    "Outcome verifiers and process feedback",
+    "Adaptive inference-time budget allocation",
+    "Tool-using agent loops and environmental feedback",
+    "Mathematical reasoning, coding, and multi-step tool tasks",
+    "Training-time changes versus inference-time allocation",
+    "Compute cost, latency, and parallelism",
+    "Scaling saturation and correlated failure modes"
+  ],
+  "required_sections": [],
+  "source_pack": "long_research_test_time_compute",
+  "source_ids": [
+    "test_time_compute--TTC001",
+    "test_time_compute--TTC002",
+    "test_time_compute--TTC003",
+    "test_time_compute--TTC004",
+    "test_time_compute--TTC005",
+    "test_time_compute--TTC006",
+    "test_time_compute--TTC007",
+    "test_time_compute--TTC008",
+    "test_time_compute--TTC003v2",
+    "test_time_compute--TTC009",
+    "test_time_compute--TTC010",
+    "test_time_compute--TTC011",
+    "test_time_compute--TTC012",
+    "test_time_compute--TTC013",
+    "test_time_compute--SUP-CM",
+    "test_time_compute--SUP-TAU",
+    "test_time_compute--SUP-LIMITS",
+    "test_time_compute--SUP-SELF",
+    "test_time_compute--SUP-AC",
+    "test_time_compute--SUP-TREE"
+  ],
+  "material_mode": "research",
+  "family_id": "test_time_compute",
+  "evidence_cutoff": "2026-11-09",
+  "artifact_requirements": [
+    "state/task_spec.md",
+    "state/progress.json",
+    "state/requirements.jsonl",
+    "state/final_delivery.json",
+    "data/source_registry.csv",
+    "data/claims_registry.csv",
+    "logs/review.jsonl",
+    "final.md",
+    "delivery_message.md"
+  ],
+  "delivery_check": {
+    "artifact": "reports/current.md",
+    "delivery_message": "delivery_message.md"
+  },
+  "quality_focus": [
+    "task_fidelity",
+    "facts_and_evidence",
+    "explanation_and_synthesis",
+    "counterevidence_and_boundaries",
+    "reader_usefulness"
+  ]
+}

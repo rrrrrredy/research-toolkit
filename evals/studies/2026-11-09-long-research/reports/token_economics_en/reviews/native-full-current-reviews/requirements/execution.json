@@ -1,0 +1,32 @@
+{
+  "host_task": "/root/complete_requirements_b",
+  "status": "completed",
+  "perspective": "requirements",
+  "execution_mode": "native_codex",
+  "started_at": "2026-11-09T22:50:51.805939+08:00",
+  "completed_at": "2026-11-09T14:51:53.0116880+00:00",
+  "input_version": "e971ccb9869b9b5333e060010f47e805e42b57a4ba02adedbc0203d5af57509e",
+  "assignment_version": "d0128d40c377c254a98e07f61b4e5a84a1c15bc060e15b4c0a22ebb9d2e511d9",
+  "assignment_path": "reviews/host/e971ccb9869b9b5333e0/jobs/requirements-d0128d40c377c254.json",
+  "assignment_sha256": "24a9f2a1b12c7041a67f7fe533f72b9274f701b3ba015559aa3cdfe3f5692a24",
+  "report_path": "reports/current.md",
+  "report_sha256": "b759587b7865410247f87ac5342125ece0a4bd41c2969c115e38e35ce98cf4b6",
+  "expected_report_sha256": "b759587b7865410247f87ac5342125ece0a4bd41c2969c115e38e35ce98cf4b6",
+  "reading_intervals": [
+    {
+      "started_at": "2026-11-09T22:50:51.805939+08:00",
+      "completed_at": "2026-11-09T14:51:53.0116880+00:00",
+      "artifact": "actualjob.json:assignment.task, effective_requirements and report",
+      "coverage": "complete continuous report reading, including tables, formulae, value-chain map and appendix",
+      "unread_report_ranges": [],
+      "report_ranges": [
+        "1-100",
+        "101-200",
+        "201-300",
+        "301-387"
+      ]
+    }
+  ],
+  "originals_opened": [],
+  "notes": "Requirements assessment used the complete supplied original task and complete frozen report. No other reviewers, source mappings, new research, tests or report edits."
+}

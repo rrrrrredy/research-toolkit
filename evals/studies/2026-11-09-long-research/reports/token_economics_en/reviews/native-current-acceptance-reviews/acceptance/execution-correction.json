@@ -1,0 +1,11 @@
+{
+  "host_task": "/root/office_final_acceptance",
+  "recorded_at": "2026-11-09T17:04:24.8595514Z",
+  "kind": "reading_metadata_correction_not_new_acceptance",
+  "target": "execution.json actual_reading.targeted hosting saved fields",
+  "old": "across all36 rows",
+  "corrected": "across all24 rows",
+  "basis": "Actual output read comprised 2 node counts x 3 task volumes x 2 quality conditions x 2 API price anchors,24 saved hosting rows. No recomputation or new acceptance; pass verdict and other reading evidence unchanged.",
+  "original_execution_restored": true,
+  "restored_sha256": "2d790429a3b5440cde5f4e7cde5ed35865d755c27ff0edab0c362011c32ff42b"
+}

@@ -1,0 +1,71 @@
+{
+  "host_task": "/root/benchmark_audit_complete",
+  "status": "completed",
+  "input_version": "c3d1f51e296588d9af855032d9fa9c042cf77bec0c21a4aaeb726528f66d8c71",
+  "assignment_version": "67a7fe36503a703a757708847569283a4578357709ac5eb905058eba03ece99c",
+  "artifact_sha256": "92e371fec456887b99eee9bcf18e6b2e13006e3884908d5bb423e6eb12b7ea8c",
+  "started_at": "2026-11-09 16:57:44 UTC",
+  "finished_at": "2026-11-09 17:02:46 UTC",
+  "scope": "full_report independent audit",
+  "reading": [
+    {
+      "path": "current.md / frozen assignment.report",
+      "ranges": "完整连续 1–60、61–107、108–174；173 行实质正文。当前与冻结 SHA256 一致。"
+    },
+    {
+      "path": "current audit assignment and review references",
+      "ranges": "完整任务/全部 3 有效要求；8 份原始当前回复；执行身份、版本与实际覆盖记录；24 个 input/response/execution 引用哈希全部一致；2 份历史 negative 原件完整阅读。原全文审阅执行和当前差异确认衔接已读，未用作者清单替代。"
+    },
+    {
+      "path": "production history / author-production/handoff.md / complete-report.diff",
+      "ranges": "生产者 /root/remaining_research_inputs，与审计及八当前视角均不同；交接全文；首稿至当前完整字符串比较仅 3/171 两行变化；16 行差异全文。"
+    },
+    {
+      "path": "sources/actual/PTT09,10,11,A02,A03,A04,A05,A06,A10",
+      "ranges": "09:8,18–20,38,40,43；10:3；11:8,23–24,47；A02:14–24,41–47；A03:5–28；A04:22–51及末尾更新日期；A05:1–28；A06:39,88,103,135；A10:17,19,33–40。职业事实与任职时间、陈旧信息。无私密信息收集。"
+    },
+    {
+      "path": "sources/actual/PTT13,17,21,24,27,31,32,A11",
+      "ranges": "13:15–17；17:15–25；21:13–25；24:10–20；27:63–76；31:123–139；32:1–52；A11:1–18,45–50。人物角色、公开参与、项目分工、社区/机构区别和品牌沿革。"
+    },
+    {
+      "path": "sources/actual/PTT01,02,03,04,05,06",
+      "ranges": "01:156,158–159,163；02:85–95,605–621；03:1–64；04:49,52,54,58–66,79–84,375–383；05:163–174,176–194,2901–2915；06:1–30。方法、署名、明确贡献及限制。"
+    },
+    {
+      "path": "sources/actual/PTT16,18,19,20,22,23,25,26,28,29,A12",
+      "ranges": "16:70–78；18:58–108,137–138；19:126–144,1619–1628；20:180–196,2993–2999；22:66–75；23:63–83及环境标题；25:156–175,179–210,231–242；26:49–61；28:21–35；29:101–115；A12:32–40。技术机制、贡献/机构和日期。"
+    },
+    {
+      "path": "https://www.lvwerra.com/",
+      "ranges": "本人页 0–12，Head of Research、TRL 2020 起点。"
+    },
+    {
+      "path": "https://ericmitchell.ai/",
+      "ranges": "本人页 0–12，姓名消歧、页头冲突、OpenAI 职责、博士与 2022 实习。"
+    },
+    {
+      "path": "https://labscommunity.cohere.com/get-started/community-research",
+      "ranges": "官方社区定义 11–15，Shayekh/M-RewardBench 156–181。"
+    },
+    {
+      "path": "https://www.rio.gsic.titech.ac.jp/en/member/yokota.html",
+      "ranges": "机构简介与职业履历 41–58。仅研究职业相关材料用于判断。"
+    },
+    {
+      "path": "https://s205.q4cdn.com/537566246/files/doc_news/ServiceNow-and-Hugging-Face-release-StarCoder-an-open-access-large-language-model-for-code-generation-05-04-2023-traffic-2023.pdf",
+      "ranges": "官方 2023-05-04 PDF 解析行 0–46，核对 Leandro 机器学习工程师和 BigCode 共同负责人。"
+    },
+    {
+      "path": "https://ch.linkedin.com/in/lewis-tunstall",
+      "ranges": "直接打开 999 失败；仅通过搜索返回的本人职业页面文本核对列有 Hugging Face，未称正文已完整打开或当前职级已核实。"
+    }
+  ],
+  "sampling": "审计自行选择已通过段落，覆盖个人贡献→矩阵/边、职业日期→交集/流动、社区/机构沿革、地域语言、系统/环境→组织建议、生产修订。属于有目的抽查，不宣称随机或固定比例。",
+  "limitations": [
+    "Lewis LinkedIn 只能取得搜索返回本人页面文本；当前稿已将正式当前职级及后续变更列为未进一步核实，此限制不被本次审计抹去。",
+    "部分初次宽输出截断；核心身份/日期/方法段通过后续有界读恢复。没有把被截断的整文件记为全文阅读。",
+    "研究只依据公开职业与研究产物；未知精确入离职日和内部职责仍为未知，不新增私人背景或雇佣推测。"
+  ],
+  "actions": "仅保存本次原始审计 response/execution。未改正文、代码、产品状态，未导入，未重跑计算、研究实验或测试。"
+}

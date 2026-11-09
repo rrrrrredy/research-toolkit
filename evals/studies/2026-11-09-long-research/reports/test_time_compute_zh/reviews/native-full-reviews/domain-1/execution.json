@@ -1,0 +1,116 @@
+{
+  "status": "completed",
+  "host_task": "/root/independent_domain_b",
+  "role": "reviewer",
+  "slot_id": "domain-1",
+  "scope": "full-report domain only",
+  "input_version": "3e6278f250299b9aa3fd80f794a5ed5b1ca5d05ccfd17c28d96a73f482afacb1",
+  "assignment_version": "d924d903310a91536dd529400702f1afe168648033143585f9e53f68e4f6b2d9",
+  "artifact_sha256": "eef296bd90c6ef8a34e04a7ce533e84034adc24c77417030b9fef057ab6b1eac",
+  "completed_at": "2026-11-09T14:15:59.6884954Z",
+  "actual_reading": "Current assignment task/effective requirements and all report lines1–259 in three contiguous chunks; new original passages TTC004 358–373/430–448,TTC003 596–615,TTC013 table4,TTC002 Appendix C.1,SUP-AC table1,TTC007 §4/A.5/B.2. Other substantive original checks reused from this same reviewer after confirming 18 identical source hashes. Did not read the English report for this review.",
+  "checks": "实际通读当前完整259行中文稿（方法矩阵、数学/代码/工具机制、四方案预算、决策树和版本表），按推理算法、验证器及统计评价核查。18份同源原件哈希与我此前英文题实际读取原件一致，复用原实验条件核查而非用英文结论替代中文阅读；新查TTC004 §4.1判别/生成反馈分类、TTC003 v1图6候选横轴明确排除verifier compute。当前文本区分固定权重采样与Snell/s1/SCoRe的训练前提、TTSP目标时LoRA更新和合成执行奖励；区分oracle pass@N、实际选择成功、tau pass^k与过程政策满足，未把互相独立抽样等同于错误答案必然分散。Snell 2048样本难度估计成本、PRM/ORM大规模监督数据不等同、CodeMonkeys 10×8状态机/69.8% coverage与57.4%选择及131.95美元selection、网页reset/replay和20次价值采样的比较边界合理。额外核对SCoRe表4 HumanEval 52.4→64.6与base 3.0pp、s1附录C.1的74%训练截断及长输出低准确率、Adaptive-Consistency表1 73.2→73.1和40→13.8。Termination原方法§4/Appendix A.5/B.2确认14.2%是归一化允许预算在有限测量动作空间内达到STP端点的经验前沿，bootstrap固定16探针曲线，16→4 thinning提高OR/AD；正文59、71、227–228已保留选择噪声并将低成本在线可学习性作为待验证假设。完整读budget_example.py与budget_output.json、stdout；不重跑。均匀通过者选择式正确，a/s=0.76、correct/wrong/abstain守恒；0.0028生成、0.0026验证、0.00044期望工具费得到17/11/7/10候选和四行成本/概率/效用，修订第二轮2000输入与两次工具均计入。81.6/61.4/37.2/104.2秒是8槽波次与平均重试量的假设值，正文明确不代表尾延迟；p已是工具处理后正确率，重试不重复增加成功。相关候选、稳定验证盲点、有限测试与扩展测试、筛题及reference-assisted信息边界均进入推论，设计树没有宣称普遍扩展律或新增复现。未发现当前领域范围内需要修订的缺陷。",
+  "reused_execution": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-full-reviews\\domain-1\\execution.json",
+  "file_versions": [
+    {
+      "sha256": "5d269063ad4a54530b3d8985c421c16674af2224ebc5f104029207ffd4622a1f",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\reviews\\host\\3e6278f250299b9aa3fd\\jobs\\domain-1-d924d903310a9153.json"
+    },
+    {
+      "sha256": "a87db18587866c83b5482831f4ff02a81279f3ada570aba05580ced6f3b345a7",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_zh\\codex-production\\budget_example.py"
+    },
+    {
+      "sha256": "9372cdae1715759c7a4893fabfff52c2205dbf1cb8ef62d805ca51cb97dd758e",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_zh\\codex-production\\budget_output.json"
+    },
+    {
+      "sha256": "82ce8432de04a1cd4c7c0d4d143099e03b32e95517292b2f96e8524b0df1ceb0",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_zh\\codex-production\\budget_stdout.txt"
+    },
+    {
+      "sha256": "cc3f172909d43feb0434248c86ff172cb5e66f47963a7a2d4648e21b8df3b5e3",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\SUP-AC.txt"
+    },
+    {
+      "sha256": "9df0d0acba699e7ca15adf49ddcbbf8f2618a439cbe40dfa253c3cafd595c281",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\SUP-CM.txt"
+    },
+    {
+      "sha256": "7a0104ec86807a16dda2ec1714ea4ec30f7ba6350b6e1cb144decfef2bad691c",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\SUP-LIMITS.txt"
+    },
+    {
+      "sha256": "1931506b6c2eee9d9304229c8222868b5203adf1b52111a7e25d95adf2b5bd21",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\SUP-SELF.txt"
+    },
+    {
+      "sha256": "71bb537ab3bd64682e0a537dd71998c1ede09bd26233d6bc00e08e8d344b1dd6",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\SUP-TAU.txt"
+    },
+    {
+      "sha256": "c48d9f0a8a841ef0e9f4fb4feb5f02d6d0dfa0e9b8958bf142c30defb3d089ac",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\SUP-TREE.txt"
+    },
+    {
+      "sha256": "13126da4ded998b96e366b44a00c74bb97ad5e8cfb4754931491cc1f2b3156e3",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC001.txt"
+    },
+    {
+      "sha256": "9af07d3d703f38454fc630719769f9a99bb2fa25cdf51c0ffc1055fd0833a4e2",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC002.txt"
+    },
+    {
+      "sha256": "7ad7fd3af301ef9437141aa6ed4a674888e2c93f2426016cf0c3c9f49c60bbd1",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC003.txt"
+    },
+    {
+      "sha256": "176013600f0767f6be9700414e2c6de57702be73986eab26d04c7015a80f396d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC003v2.txt"
+    },
+    {
+      "sha256": "20ebd75613509970d3aa7a693ce03782bd24846c4c85b24b4af06cf59e5d97c0",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC004.txt"
+    },
+    {
+      "sha256": "93be169f42a5e6f6c676b2026d3ab2dfc3ea1c652db9dac70dc6b5bff45a916b",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC005.txt"
+    },
+    {
+      "sha256": "c8903b481b539cc387d0f7b9fda999814c90799b98046c478140712b023996d4",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC006.txt"
+    },
+    {
+      "sha256": "708e50f5dfbe69b53de523d40da5abdbd33bd54eb7f22a80a50e61e11d0eab1d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC007.txt"
+    },
+    {
+      "sha256": "6342c2cea6c0688d3767bdabfd4e29408ff76c436d84c320f2d13bf4230b963c",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC008.txt"
+    },
+    {
+      "sha256": "619d8a6893dd5ec139942aaede087c5f7725becfbcacdf059cfe1ce520333542",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC009.txt"
+    },
+    {
+      "sha256": "8e58b06e94b44a4c9661a25f7f4265a2b9a37ec8726b78157d78e213bde9482e",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC010.txt"
+    },
+    {
+      "sha256": "6be1d75baff52305ac9196bf4ee8283cd713f32379a757c9fe8f912bcf95a21a",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC011.txt"
+    },
+    {
+      "sha256": "3f60f278a76ba396101a3eb9e8e72d84b9958bdbde14f90683b660c960c3b366",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC012.txt"
+    },
+    {
+      "sha256": "58c37eb46271d2ade4e09201b5891757ba4ccc49c1c1363bf8a8f7da2a57845d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_zh\\sources\\actual\\TTC013.txt"
+    }
+  ],
+  "api_calls": 0,
+  "research_rerun": false,
+  "report_edited": false,
+  "imported": false
+}

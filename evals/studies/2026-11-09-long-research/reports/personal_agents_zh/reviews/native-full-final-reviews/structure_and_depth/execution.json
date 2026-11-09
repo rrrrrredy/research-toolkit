@@ -1,0 +1,40 @@
+{
+  "host_task": "/root/benchmark_structure",
+  "status": "completed",
+  "completed_at": "2026-11-09T16:11:15.5606386+00:00",
+  "input_version": "8208b408fba85ea9f85a7f8cce08ea0777a4dc51b47cd27819c1a1036a2be6e0",
+  "assignment_version": "92eee932a1b1c2a3e50253dc2288e4cffc814828e6328c3035178e3ad65dcc07",
+  "assignment_ref": "reviews/host/8208b408fba85ea9f85a/jobs/structure_and_depth-92eee932a1b1c2a3.json",
+  "assessment_mode": "原独立上下文接续；完整冻结稿实际阅读加全部变更及受影响上下文，复用未变阅读",
+  "prior_review": {
+    "full_report_lines": "1—190",
+    "assignment_version": "844e39ad7bdbb6056d61dc07905b13edc86078e9ab6cdcb18f7aaea5a3caa059",
+    "input_version": "d4aa7b428be4775d08f8987590a3df6f36a2073d3514f9fbd916cbe1f980b462",
+    "execution_path": "native-full-reviews/structure_and_depth/execution.json",
+    "response_path": "native-full-reviews/structure_and_depth/response.json"
+  },
+  "reading_scope": {
+    "current_report_chars": 17983,
+    "not_read": "未读取其他角色评审、作者自评或其结论；来源目录和台账不算原文阅读",
+    "requirements": "任务与effective_requirements已与本人原完整阅读版本逐字比较一致，未增加要求",
+    "source_change_check": "assignment.sources中sources/原件条目与原阅读输入内容逐项比较，无变更",
+    "affected_context": "旅行新增第50—64行及前后任务链/Work/Manus/设备段，费用新增第89—104行及前后通用流程；重新读取第189—223行商业分析与最终选择，复用未改第112—188行记忆/撤权/架构的原全文阅读",
+    "original_sources": [
+      "sources/actual/PA08.txt Gemini Tasks原文全文，分连续字符1—16000及16001—32094阅读",
+      "sources/actual/PA10.txt Manus Automations原文全文",
+      "sources/actual/PA11.txt Manus Browser Operator原文全文",
+      "sources/actual/PA19.txt Siri发布中Tripsy未来动作/屏幕日历、iCloud续接、Visual Intelligence创建日历、个人上下文的相关完整段落",
+      "复用此前全文阅读且内容未变的sources/actual/PA13.txt千问公告与PA09.txt Manus Projects"
+    ],
+    "current_report_lines": 223,
+    "report_changes": "全文diff全部3组变化：Gemini资格/地区行、旅行链新增比较与综合、费用链新增比较与综合；所有新增和删除正文均完整读取"
+  },
+  "resolved_findings": [
+    {
+      "finding_id": "SD-PA-01",
+      "disposition": "resolved",
+      "basis": "当前第三、四节已完成选定国内外路线在同一旅行与费用任务链上的逐环节比较及主体选择综合，核对相关原件后撤回原major批评。"
+    }
+  ],
+  "work_performed": "只读核对；仅保存本视角结果。未改稿，未重跑研究、计算或软件测试，未导入。"
+}

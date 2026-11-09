@@ -1,0 +1,13 @@
+claim_id,claim,claim_type,supporting_sources,counter_evidence,uncertainty,evidence_detail
+model_benchmarks_en-C01,"HELM original, Lite and Capabilities differ in scenarios, metrics and prompting; later labels are not the same seven-metric experiment.",analysis,MB01;MB02;MB03,,,HELM versions
+model_benchmarks_en-C02,HELM Capabilities setup prose and result rows name differing dated model versions; the result recipe must resolve the identity before exact reproduction.,analysis,MB03,,,Reproducibility
+model_benchmarks_en-C03,MMLU-Pro Table3 compares GPT-4o chain-of-thought72.6 versus direct-answer53.5 (19.1points); corresponding MMLU88.7versus87.2 differs by1.5points. This is a within-model prompting comparison.,analysis,MB08-arxiv,,,Static benchmark worked comparison
+model_benchmarks_en-C04,EvalPlus greedy ChatGPT73.2/63.4 and Phind34B71.3/67.1 reverse their order as tests expand.,analysis,MB10,,,Executable evaluation
+model_benchmarks_en-C05,The138-task SWE Verified audit is selected from a model failure group;59.4% is not a prevalence estimate over all500tasks.,analysis,MB15,,,Contamination and denominators
+model_benchmarks_en-C06,SWE-ProV2 has642tasks after89removals and a changed environment/web policy; old731-task scores do not becomeV2scores.,analysis,MB17,,,Version drift
+model_benchmarks_en-C07,tau-bench GPT4o61.2retail/35.2airline macro48.2 differs from task-count-weighted53.32; tau pass^all is distinct from pass@any.,analysis,MB18,,,Agent scoring
+model_benchmarks_en-C08,"tau2 andv2.0.0 change control, scenario/policy/judge conditions; the older and newer benchmark names do not establish one longitudinal scale.",analysis,MB19;MB20,,,Agent versioning
+model_benchmarks_en-C09,Length-controlled AlpacaEval reduces verbosity-related score movement in its reported study while retaining other judge/task dependencies.,analysis,MB23;MB24,,,Preference evaluation
+model_benchmarks_en-C10,Arena private-variant selection paper and platform response disagree on inference from simulations; observed live preferences and modeled selection are different evidence.,analysis,MB25;MB26,,,Preference selection
+model_benchmarks_en-C11,METR original randomized16-developer246-task result and later selected observations have different inferential strength.,analysis,MB31;MB32,,,User outcomes
+model_benchmarks_en-C12,"Support selection needs grounded context, policy and action-state evidence; repository coding selection needs real patch execution, regression and workflow evidence.",analysis,MB18;MB19;MB30;MB10;MB15;MB31,,,Two deployment decisions

@@ -1,0 +1,59 @@
+{
+  "status": "completed",
+  "host_task": "/root/independent_domain_b",
+  "role": "reviewer",
+  "slot_id": "domain-1",
+  "scope": "Current full-report domain confirmation limited to actual citation-display revision; unchanged original research and previous full reading reused",
+  "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "assignment_version": "b41a325df0ad97129c62c667a667b69bdc58665dc2b8ba5b9fe46e70ce8b7afa",
+  "artifact_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+  "completed_at": "2026-11-09T17:23:39.1807193Z",
+  "old_input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+  "old_assignment_version": "afd612d7cf11f344fb7d79f3f97367b318665973c8e42ed478f4583a82f94c71",
+  "old_report_sha256": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea",
+  "current_report_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+  "actual_reading": "Read my own immediately preceding response and execution; current job instructions, task, effective requirements and supplied historical required findings; all 300 lines of the author-retained unified diff (oversized initial output was subsequently re-read in bounded slices); current report lines 1–31 and 247–292 plus complete changed paragraphs, tables and appendix context shown by the diff. Read first six title lines of the 17 original-text entries embedded in the unchanged current job to confirm short-name attribution. Reused earlier full report/original-paper and saved-calculation review. Did not re-read whole source papers or claim a new full-paper pass. No other current reviewer response was opened.",
+  "checks": "本次在本人先前全文及原件领域阅读基础上，核对 acead416… 至当前 f09f3163… 的实际引用标签修订。完整读完300行 reference-labels-v2.diff；逐项与两个冻结 job 正文匹配，按差异重建所得正文与当前正文完全相同，未漏掉额外修改。54个引用URL及顺序保持一致；原始来源正文与source_files全部相同。核对原文标题行及正文、比较表和参考文献表中的短名对应：Inference Regimes (v2)、Optimal Reasoning Termination、Scaling Test-Time Compute Optimally、SCoRe、Test-Time Self-Play、Adaptive-Consistency、Tree Search for Language Model Agents 等均对应原来同一论文，未把论文或版本换成不同方法。全文变化保留模型、实验版本、数值、单位、分母、训练与推理收益区分、oracle/有限probe限定、验证器信息权限、计算口径和算例假设；局部语法调整没有改写因果归属。重新读开头的证据层次及当前决策树上下文；OR/AD定义、预算与完成状态回路继续保持前次修订。有效要求的三项summary均相同，仅登记状态和完成证据字段更新，未据此推定通过。当前领域结论通过，无新增必要发现；复用已核对的原始研究与保存算例，不重跑。",
+  "comparison": {
+    "author_diff_reconstructs_current_report": true,
+    "ordered_citation_urls_old": 54,
+    "ordered_citation_urls_current": 54,
+    "ordered_citation_urls_identical": true,
+    "task_identical": true,
+    "scope_decisions_identical": true,
+    "sources_identical": true,
+    "source_files_identical": true,
+    "effective_requirement_summaries_identical": true,
+    "requirement_metadata_change": "R_TASK and R_DATE: in_progress→satisfied; R_LANGUAGE: pending→satisfied; completion-evidence text added. No requirement-summary change.",
+    "new_domain_defects_found": 0
+  },
+  "prior_response": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-full-final-reviews\\domain-1\\response.json",
+  "prior_execution": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-full-final-reviews\\domain-1\\execution.json",
+  "file_versions": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_en\\reviews\\host\\f09f3163d0ce7117bf0d\\jobs\\domain-1-b41a325df0ad9712.json",
+      "sha256": "ffca60c9403f67ec6c2fd48b160f8e23fa1be882e3af0333e90dfeafa8dff342"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_en\\reviews\\host\\acead416ff0bcb116622\\jobs\\domain-1-afd612d7cf11f344.json",
+      "sha256": "67a444bac37de1c6c03509fd5a2e7dd4b98908883fa976258319b4c68515c015"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\reference-labels-v2.diff",
+      "sha256": "294911586b32f5564511367bcc23574c6ced5813103adec187629a4f7a59e9cd"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-full-final-reviews\\domain-1\\response.json",
+      "sha256": "8e89b5595392a8eb064cb53e22cc87b1f06c26824bfe36137abbaa113f63367c"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-full-final-reviews\\domain-1\\execution.json",
+      "sha256": "f9429e84413f58bd9ea0a493fe6df29a8a67ea04f3f897da12862eb793abb764"
+    }
+  ],
+  "api_calls": 0,
+  "research_rerun": false,
+  "calculation_rerun": false,
+  "report_edited": false,
+  "imported": false
+}

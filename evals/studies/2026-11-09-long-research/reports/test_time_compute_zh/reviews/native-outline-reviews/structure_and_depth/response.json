@@ -1,0 +1,12 @@
+{
+  "input_version": "49663da264f89d0b722d9e35b3c5a41ffc85a279b375eacc1937f57616b31df6",
+  "assignment_version": "38ec264e8bebb764ff81237ecc66ef11b1c86958db04d49bacf9521c2709c40c",
+  "report_verdict": "pass",
+  "coverage": {
+    "structure_and_depth": {
+      "location": "analysis/outline.md, complete six-part outline and final production paragraph; original task in assigned outline input",
+      "basis": "The outline provides an analytical route from candidate coverage, correct selection and successful execution to method mechanisms, domain-specific scaling behavior, comparable budgets and conditional design decisions. These distinctions directly address the user's request for explaining when more inference compute helps, saturates or fails. The planned mechanism matrix includes generator, retained state, rejection/selection, evaluator information, training prerequisites and costs, so the method catalogue has a defined explanatory purpose. Mathematics is paired with code and multi-step tool tasks to test rather than assume transfer across verification conditions. CodeMonkeys selection/testing costs, WebArena rollback and tau-bench repeated reliability are assigned specific roles. The budget section includes discarded work, evaluator calls, reasoning tokens, tools and retries and separates total cost from serial latency and concurrency; its proposed arithmetic example is explicitly hypothetical rather than a reproduction. The final decision tree is conditioned on verification, consequence of error, latency, rollback and budget and permits stronger models, better verifiers, simpler execution and stopping. Source/version and fixed-model versus jointly changed-system distinctions are carried through the planned comparisons. The current artifact is an adequate outline for the requested long report; this is not approval of an unwritten report or validation that the listed papers establish the planned claims."
+    }
+  },
+  "findings": []
+}

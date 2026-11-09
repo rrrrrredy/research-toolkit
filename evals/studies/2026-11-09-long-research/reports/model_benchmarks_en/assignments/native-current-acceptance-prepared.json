@@ -1,0 +1,69 @@
+{
+  "request": {
+    "task": "model_benchmarks_en",
+    "artifact": "reports/current.md",
+    "scope": "full_report",
+    "purpose": "report_delivery",
+    "domains": [
+      "Benchmark design, statistical interpretation and deployment evaluation"
+    ],
+    "evidence_paths": [
+      "notes/author-reading-ledger.json",
+      "analysis/author-production/worked-calculations.json"
+    ],
+    "revision": true
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\model_benchmarks_en",
+    "input_version": "9bd699373d7f5394b498f57ae2f4eacd3618c40e2bd4900720b6480bb93632f9",
+    "scope": "full_report",
+    "assignments": [
+      {
+        "slot_id": "acceptance",
+        "role": "acceptance",
+        "reading_ref": {
+          "path": "logs/reading/91105c119bec5b42fbf8.md",
+          "sha256": "91105c119bec5b42fbf8c9f34ee49f6a0e1e85aa4ab466119eee56339f16fd6b"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/9bd699373d7f5394b498/jobs/acceptance-549d3c05b832e348.json",
+          "sha256": "bbcc861dc2aeb82ce2ef521e8060fd1b7b9f3472b97b3a0e1015b4d87352680a"
+        },
+        "assignment_version": "549d3c05b832e3483364c5c225520ca9ced3b3e77fbb6ea7e24e4cc852b65d44"
+      }
+    ],
+    "reviews_complete": true,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Incomplete independent assignment: acceptance"
+      ],
+      "required_slots": 10,
+      "completed_slots": 9,
+      "selected_attempts": {
+        "natural_expression": "443f19053bd84f56851c63c15a996ba8",
+        "domain-1": "13daf52c6e1b4880b7aa726645cefef4",
+        "evidence": "e704e074c14d4510b2df45255db06f37",
+        "process_language": "68e75c2e126142a5b9b7ec08f5a07af4",
+        "requirements": "51fdddf55835479d86d338e6a3bc1947",
+        "structure_and_depth": "480815df5bf140b8bc77d76c206e8320",
+        "adversarial_reasoning": "ede0f15bda8e4a0592eab752f9650024",
+        "reader_usefulness": "67c64fd708d743919af08b70a9a64da3",
+        "audit": "391b58525c714c81a0b49657cb312a1f"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Incomplete independent assignment: acceptance"
+    ]
+  }
+}

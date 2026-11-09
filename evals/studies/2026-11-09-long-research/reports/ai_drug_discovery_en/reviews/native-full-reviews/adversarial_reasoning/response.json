@@ -1,0 +1,12 @@
+{
+  "input_version": "d49c3ce9104cc63e7832524cae63752853080491d4da8a045072f0dfff369a97",
+  "assignment_version": "799110299db166f35de448f3a7d4909f001524be90dc59749ed7074d9b789a64",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "report lines 1-287; especially rentosertib missing-data analysis, REC994 trajectory, REC4881 denominators, baricitinib randomized evidence, cohort and partnership conclusions",
+      "basis": "Read the complete task and 287-line report. Challenged whether early discovery yield, uncontrolled tumor/polyp or imaging signals, trial stage changes, and partnership ceilings could be mistaken for clinical efficacy, AI causal contribution, or realized revenue. The report preserves these distinctions: rentosertib safety primary and exploratory efficacy, observed versus imputed denominators and MAR dependence; REC994 seven-versus-one orthogonal-screen yield versus later failed sustained clinical signal; REC4881 selected efficacy denominators and historical-control mismatch; baricitinib randomized clinical effect versus AI nomination contribution; and historical cohort selection versus causal productivity. Checked phase IIa original methods/results and the original CCM primary/orthogonal/animal screening stages against the relevant claims, as well as the sponsor discontinuation disclosure. No actionable adversarial reasoning defect identified within this review scope."
+    }
+  },
+  "findings": []
+}

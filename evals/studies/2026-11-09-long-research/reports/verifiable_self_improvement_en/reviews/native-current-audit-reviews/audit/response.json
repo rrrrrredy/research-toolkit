@@ -1,0 +1,122 @@
+{
+  "input_version": "e2bf5ec236f3fbd7264dd12a2f8a018f9fb206af2f12c460b4608bfeb4086845",
+  "assignment_version": "ae20203c72dcc20aaed6fbf22866b549ba0ebf39c428faef8c2dbd64ecd739a8",
+  "result": "valid",
+  "basis": "Independent full-report audit by /root/benchmark_audit_complete. Read the complete current 277 substantive lines, all eight raw current reviews and their actual execution/version references, all four historical necessary findings, and auditor-selected original-source passages, figures and code. The frozen and current report hashes agree; all eight input, response and execution reference hashes agree. Review validity is assessed separately from readiness. The repaired report supports a pass within its explicitly stated evidence and implementation-inspection limits.",
+  "review_checks": {
+    "requirements": {
+      "result": "valid",
+      "basis": "/root/independent_reviews_a completed the current input; its full prior reading and actual revision follow-through cover object definitions, six loop reconstructions, selection/history, budgets and guidance. I independently confirmed the AlphaEvolve and Promptbreeder selection repair against originals and the full current report."
+    },
+    "evidence": {
+      "result": "valid",
+      "basis": "/root/evidence_remaining_b completed the current input, preserving prior full reading and rendered Promptbreeder inspection. Current changes at 96/252 remove reading-action narration without deleting the split or table evidence. Independent checks of DGM, AlphaEvolve, Promptbreeder figures, SCoRe, HarnessPro and the negative comparator support the raw reply."
+    },
+    "adversarial_reasoning": {
+      "result": "valid",
+      "basis": "/root/benchmark_adversarial preserved its actual AR-VSI-01 negative and checked the repair in the introduction, DGM discussion and matrix. The current prose explicitly admits extra downstream attempts, model judging/selection and absent matched inference budgets."
+    },
+    "structure_and_depth": {
+      "result": "valid",
+      "basis": "/root/structure_remaining_b reused its complete prior reading and examined actual revisions. The present report has causal loop reconstruction, comparative matrix, evaluator failure analysis and conditional adoption decisions rather than a catalogue."
+    },
+    "reader_usefulness": {
+      "result": "valid",
+      "basis": "/root/full_reader_b's recorded full reading and current changes cover the intended engineering audience. Retained artifact, protected holdout, cost accounting, verification coverage and rollback decisions are concrete and supported by the present text."
+    },
+    "process_language": {
+      "result": "valid",
+      "basis": "/root/process_remaining_b preserved process_language-01 and checked current 96/252. Both author-reading self-certifications are removed, while the useful first-100-line implementation limitation and calculation scope remain."
+    },
+    "natural_expression": {
+      "result": "valid",
+      "basis": "/root/benchmark_natural_expression's complete reading and actual diff cover the current report. The four historically identified joined phrases at 202/264/267/269 now have ordinary English spacing; technical qualifications remain intelligible."
+    },
+    "domain-1": {
+      "result": "valid",
+      "basis": "/root/independent_domain_b completed the current input and reused its full earlier reading with actual diff inspection. Its distinctions among weights, external program optimization, retained prompts and harness/runtime changes agree with the originals checked independently here."
+    }
+  },
+  "dispositions": {},
+  "critical_checks": [
+    {
+      "requirement_id": "R_TASK",
+      "location": "current.md:11–23, 39–146, 153–224",
+      "result": "clear",
+      "evidence": "The complete report defines six distinct changed objects and reconstructs generators, evaluators, selection and retained state. VSI001:108–127 and 1033–1038 substantiate DGM staged reused tasks, cross-benchmark transfer, diagnosis and exposed test patch; current 60 narrows transfer to the combined tool/inference package. VSI002:245–298 and VSI010-official:354–368 substantiate repaired history/selection. HarnessPro original 278–330 separates generated optimization tests from official final grading, with 59/100/100 held-out tasks and up to three retained candidates. Rethinking 134–141,231–248 provides the five-attempt control and 45/10/34 held-out counterevidence. Full current evaluator discussion covers adaptive reuse, multiple selection, leakage, wrong references, functional correctness and workload dependence, without erasing bounded positive results or imposing a new research execution."
+    },
+    {
+      "requirement_id": "R_LANGUAGE",
+      "location": "current.md:1–277",
+      "result": "clear",
+      "evidence": "Complete English report, loop-equivalent tables, comparison matrix and conditional adoption guidance are present. Full reading includes all body sections and appendix; four historical spacing locations and the two reading-action lines are repaired."
+    },
+    {
+      "requirement_id": "R_DATE",
+      "location": "current.md:246–257 and source-specific citations",
+      "result": "clear",
+      "evidence": "The report identifies DGM v2, AlphaEvolve v1, SCoRe v1, HarnessPro v2, Rethinking v1 and the 2024 official PMLR Promptbreeder paper. Frozen Google updates are May 7 2026 and October 28 2026. Exact Git blob API reads confirm the cited DGM outer/self-improve files and HarnessPro README (saved copies add one terminal newline), and the hook snapshot exactly matches the cited blob's first 100 lines. None of these checks introduces post-cutoff information into the report."
+    },
+    {
+      "location": "current.md:58–66, 78–86, 96–108, 120–144, 160–166, 275–277",
+      "result": "clear",
+      "evidence": "Verified denominators and baselines: DGM full Polyglot 14.2→30.7 and cross-benchmark 28.9/24.5; AlphaEvolve 23% local kernel speedup versus 1% training-time reduction and existing downstream RTL synthesis; Promptbreeder same-model zero-shot 83.9/66.5/65.5, four-dataset half-split footnote and population-mean ablation; SCoRe 52.6/41.4 to 60/64.4 with distinct task checkpoints; HarnessPro 80.8 vs 76.3 and $0.72 vs $1.09 as mean execution, ProgramBench fraction-of-tests metric, failure recall distinct from success, generated-test ablation 74.6/72.0; Rethinking selected-answer and pass@5 results kept distinct. No common all-in optimization bill is invented."
+    }
+  ],
+  "sample_checks": [
+    {
+      "location": "current.md:72,94 and production-history revisions",
+      "selection_reason": "Targeted source-to-report transformation of the newly supplied candidate/history mechanisms, central to the task and capable of hiding an incomplete repair.",
+      "result": "clear",
+      "evidence": "Original AlphaEvolve 245–298 specifies multiple sampled previous solutions, program outputs/scores, Flash/Pro and MAP-Elites/island inspiration. Promptbreeder 354–368 specifies binary tournament, mutation of fitter member, loser replacement and task/mutator/correct-example state. The report includes these actual mechanisms without inventing an exact unpublished AlphaEvolve formula."
+    },
+    {
+      "location": "current.md:100,252",
+      "selection_reason": "Passed visual quantitative evidence: heatmap sign, population measure and Table 1 model block could survive a text-only review incorrectly.",
+      "result": "clear",
+      "evidence": "Personally viewed retained original Table 1 page 8 and Figure 4 page 17 PNGs. Table 1 is the PaLM 2-L zero-shot block and its footnote names four half-split datasets. Figure 4 contains red positive exceptions as well as predominantly harmful ablations; original Appendix B 1491–1508 uses population 10 and 200 evaluations. Current wording preserves mean-fitness rather than final held-out accuracy."
+    },
+    {
+      "location": "current.md:49–53,66,136,214,247–256",
+      "selection_reason": "Passed implementation claims and their conversion into adoption guidance: defaults can be mistaken for empirical run units, and a prompt reminder can be mistaken for executable enforcement.",
+      "result": "clear",
+      "evidence": "DGM_outer.py 78–100 uses sigmoid score times inverse child count; 174–190 admits all returned candidates under keep_all; CLI 223–238 defaults to 80 outer generations and 2 candidate attempts. Paper run units remain separately described. Hook first 100 lines contains explicit PreToolUse permissionDecision deny beyond finalize threshold; its first 100 lines match the claimed Git blob. README describes selected artifacts. No complete optimizer reproduction or full hook inspection is claimed."
+    },
+    {
+      "location": "current.md:132–144,202,206",
+      "selection_reason": "Passed negative and limiting evidence, selected to check whether baseline tradeoffs or a small held-out change were overgeneralized.",
+      "result": "clear",
+      "evidence": "HarnessPro Table 3 original 547–645 supports isolated routing/budget/reasoning tradeoffs and test-synthesizer removal. Rethinking original 134–141,231–248 supports a specific AHE-disabled-explorer five-attempt comparison and only +0.6 mean held-out points. The report does not claim statistical equivalence or universal impossibility, and distinguishes reruns of a selected artifact from independent optimization runs."
+    },
+    {
+      "location": "current.md:222–224,275 and calculations.py/calculation-results.json",
+      "selection_reason": "Passed analytic transformation from source numbers to operational cost advice and illustrative Amdahl arithmetic.",
+      "result": "clear",
+      "evidence": "Read the complete saved arithmetic code and results without executing them. The source-value differences, (1.09−0.72)/1.09=33.945%, and (1−f)+f/1.23 expressions match the printed values. Fractions .05/.2/.8 are explicitly hypothetical; 0.935%,3.7398%,14.9593% round to the prose. Symbolic amortization does not fabricate unpublished optimization expenditure."
+    }
+  ],
+  "prior_findings": {
+    "fabc5b5854e143dc8bb1b266e96ca9cc/VSI-FULL-REQ-01": {
+      "decision": "resolved",
+      "reason": "The incomplete principal-loop selection/history descriptions have been supplied, with public-detail limits intact.",
+      "evidence": "Current 72 and 94, supported by VSI002:245–298 and VSI010-official:354–368, now identify database contents, reuse into next proposals, diversity mechanism, model mixture and binary tournament replacement."
+    },
+    "22e841fabdd3454eb98805a529b9705f/AR-VSI-01": {
+      "decision": "resolved",
+      "reason": "DGM transfer no longer implies a fixed-inference-budget improvement attributable solely to better reusable tools.",
+      "evidence": "Current 60 explicitly names repeated attempts, another model judging/selecting, conditioning on previous attempts and lack of matched calls/tokens; 11,62,160 carry the narrowed combined-package interpretation. VSI001:122 directly confirms these runtime changes; 127 retains the actual held-out benchmark gains."
+    },
+    "7236806912154befb9941d10ac5e79f1/natural_expression-01": {
+      "decision": "resolved",
+      "reason": "The cited joined words and numeric phrases are separated without changing their meaning.",
+      "evidence": "Current 202,264,267,269 read Rethinking's 45/10/34, o1 diagnostic, 15.6 points, adds 4.4 points and held-out +0.6 points with normal spaces."
+    },
+    "6b6d9b587e15458cbaea196f72451783/process_language-01": {
+      "decision": "resolved",
+      "reason": "Author-reading action narration was removed while source locators and material limitations remain.",
+      "evidence": "Current 96 states the actual four-dataset split condition and 252 locates Table 1/Figure 4. Current 256 still limits code inspection to the first 100 lines, and 275 still labels source-value arithmetic rather than a model rerun."
+    }
+  },
+  "report_verdict": "pass",
+  "open_issues": []
+}

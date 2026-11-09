@@ -1,0 +1,170 @@
+[
+  {
+    "claim_id": "C01",
+    "claim": "AI contributes identifiable selection and optimization steps; whole-pipeline causality is not established",
+    "type": "synthesis",
+    "sources": "AIDD-S01;AIDD06;AIDD-S14;AIDD04",
+    "unit": "U1,U2,U3",
+    "qualification": "Interpretation based on distinct demonstrated mechanisms"
+  },
+  {
+    "claim_id": "C02",
+    "claim": "Rentosertib target ranking and design were constrained by existing biology,tractability and pharmacophore choices",
+    "type": "sourcefact",
+    "sources": "AIDD-S01",
+    "unit": "U1",
+    "qualification": "No claim that TNIK biology was whollyunknown"
+  },
+  {
+    "claim_id": "C03",
+    "claim": "Rentosertib discovery clock ends at preclinical nomination",
+    "type": "sourcefact",
+    "sources": "AIDD-S01",
+    "unit": "U1",
+    "qualification": "18months notapproval"
+  },
+  {
+    "claim_id": "C04",
+    "claim": "Rentosertib observedFVC n10/14 +98.4/−20.3; modeledn18/17 +89.2/−8.2",
+    "type": "correctedsourcefact",
+    "sources": "AIDD-S02 Figure2;AIDD-R01W results",
+    "unit": "U1revision01",
+    "qualification": "Independentclinicalmajor identified prior conflation;correction awaiting confirmation"
+  },
+  {
+    "claim_id": "C05",
+    "claim": "FVC descriptivedifferences118.7/97.4mL;22/71missing8/18vs3/17",
+    "type": "authorarithmetic",
+    "sources": "AIDD-S02;AIDD-R01W;calculations-results-revision-01.json",
+    "unit": "U1revision01",
+    "qualification": "Neither subtraction is contrastCI;MAR assumption retained"
+  },
+  {
+    "claim_id": "C06",
+    "claim": "Rentosertib oralphaseIII recruitingSep2026;inhaledbranchINDseparate",
+    "type": "sourcefact",
+    "sources": "AIDD-R02W;AIDD03;AIDD-A13",
+    "unit": "U1",
+    "qualification": "Registration/start/doseannouncementseparated"
+  },
+  {
+    "claim_id": "C07",
+    "claim": "DSP loop<12months excludes safety,350th compound;discontinuedJan2022",
+    "type": "sourcefact",
+    "sources": "AIDD06;AIDD08",
+    "unit": "U2",
+    "qualification": "Exact clinicalcriterion notpubliclyresolved"
+  },
+  {
+    "claim_id": "C08",
+    "claim": "EXS21546 healthyvolunteer64 vs patientstudy6terminatedfor therapeuticindexconcern",
+    "type": "sourcefact",
+    "sources": "AIDD-R04;AIDD-R05;WEB-EXAI2023",
+    "unit": "U2",
+    "qualification": "No inventedtoxicityorresponserate"
+  },
+  {
+    "claim_id": "C09",
+    "claim": "CCM MLscreen7/38 orthogonalhits versusmanual1/38",
+    "type": "sourcefactandarithmetic",
+    "sources": "AIDD-S14",
+    "unit": "U2",
+    "qualification": "Matchedselectedsets only;mouse temposevidenceP≈.052 separately"
+  },
+  {
+    "claim_id": "C10",
+    "claim": "REC994 initialMRItrend notsustained;developmentstoppedMay2025",
+    "type": "sourcefact",
+    "sources": "AIDD-S20;AIDD-R03W;WEB-R994PR",
+    "unit": "U2",
+    "qualification": "Registrycompleted doesnotmeancontinueddevelopment"
+  },
+  {
+    "claim_id": "C11",
+    "claim": "REC994 registryresultspostOct22,2026;combinedsafety exposurewindowsnotmatched",
+    "type": "sourcefact",
+    "sources": "AIDD-R03W",
+    "unit": "U2",
+    "qualification": "Do notcomparecountsas12monthrandomizedsafety"
+  },
+  {
+    "claim_id": "C12",
+    "claim": "REC4881 islicensedTAK733 withnewFAP phenotypichypothesis",
+    "type": "sourcefact",
+    "sources": "WEB-RXRX2025;AIDD-R06",
+    "unit": "U2",
+    "qualification": "Notdenovogeneratedstructure"
+  },
+  {
+    "claim_id": "C13",
+    "claim": "REC4881 safety26=5+21;efficacy16;week13 n15;week25 n13",
+    "type": "sourcefact",
+    "sources": "WEB-R4881CGA;WEB-R4881EARN;WEB-R4881PR",
+    "unit": "U2",
+    "qualification": "Selectedexposure/adherencepopulation;naturalhistorynotcontrol"
+  },
+  {
+    "claim_id": "C14",
+    "claim": "Baricitinib AIassociatedrepurposing precedes strongrandomized COVIDevidenceandadultapproval",
+    "type": "sourcefactandsynthesis",
+    "sources": "AIDD-S24;AIDD-S15;AIDD-S11;AIDD-S12;AIDD-S13;AIDD-S25",
+    "unit": "U3",
+    "qualification": "Existingdrug;COVBARRIERprimarynegative,mortalitynominal;noAIcausalefficacyestimate"
+  },
+  {
+    "claim_id": "C15",
+    "claim": "HalicinHub51/99highvs2/63low;separateZINC8/23anyspecies",
+    "type": "sourcefactandarithmetic",
+    "sources": "AIDD04",
+    "unit": "U3",
+    "qualification": "Halicinnotfrom107Mbranch;nohumanclinicalclaim"
+  },
+  {
+    "claim_id": "C16",
+    "claim": "Historicalcohort21/24and4/10 notcurrentcausalAIprobabilities",
+    "type": "sourcefactandarithmetic",
+    "sources": "WEB-AICOHORT;calculations-results-revision-01.json",
+    "unit": "U4",
+    "qualification": "AuthorWilsonconditionalonly;notfullcohortreaudit"
+  },
+  {
+    "claim_id": "C17",
+    "claim": "Sanofi candidatehandoff leavesclinicalmanufacturingcommercializationwithSanofi",
+    "type": "sourcefact",
+    "sources": "AIDD-S27;WEB-SANOFICONTRACT;WEB-SANOFIOPTION",
+    "unit": "U4",
+    "qualification": "PlatformIP/dataprogramrightsseparate;redactedallocationsunresolved"
+  },
+  {
+    "claim_id": "C18",
+    "claim": "Sanofi100Mupfront,~5.2Bcontingentceilings;Oct2026 10Mtrigger144Mtotal",
+    "type": "sourcefactandarithmetic",
+    "sources": "AIDD-S27;WEB-SANOFIOPTION",
+    "unit": "U4",
+    "qualification": "No ceilingascash/revenue;candidateplanned2027phaseI"
+  },
+  {
+    "claim_id": "C19",
+    "claim": "Takedaexclusiveworldwidelicense1.5Mupfront39.5Mmilestonesplusroyalties",
+    "type": "sourcefact",
+    "sources": "WEB-RXRX2025",
+    "unit": "U4",
+    "qualification": "Existingassetlicense,currentFAPprogram"
+  },
+  {
+    "claim_id": "C20",
+    "claim": "Rochemaps/rawimage/programoptions aredifferentrights;firsttargetearlydiscovery2026",
+    "type": "sourcefact",
+    "sources": "WEB-ROCHE2021;WEB-ROCHERECEIPT;WEB-GENENTECH",
+    "unit": "U4",
+    "qualification": "NounnamedtargetmappedontoREC4881orclinicalsuccess"
+  },
+  {
+    "claim_id": "C21",
+    "claim": "Fundnextfalsifiableexperimentalorclinicaldeliverable ratherthanplatformlabel",
+    "type": "authorrecommendation",
+    "sources": "C01-C20",
+    "unit": "U4",
+    "qualification": "Conditionaldecisions;noindustrycensus"
+  }
+]

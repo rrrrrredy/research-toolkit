@@ -1,0 +1,47 @@
+﻿id,url,title,status,used_in_current_report_or_reading,reading_record,sha256
+PTT01,https://arxiv.org/html/2203.02155v1,Training language models to follow instructions with human feedback,retrieved,True,行137–169摘要、引言和三阶段方法,cce2b49378be06cc6088d8e57e68542ddbe04b0217bf6d88ff77f928e4e4e129
+PTT02,https://arxiv.org/html/2305.18290v2,Direct Preference Optimization: Your Language Model is Secretly a Reward Model,retrieved,True,DPO方法第4–5节行131–163；Author Contributions行605–612；限制行253,36f3c29aa12a17f5d4ef6ac7880b0677cde37248d4a8ee26dade4af63f9b118c
+PTT03,https://arxiv.org/pdf/2310.12036.pdf,A General Theoretical Paradigm to Understand Learning from Human Preferences,retrieved,True,第1–2页摘要、理论动机、偏好假设、IPO与示例实验边界,4a2f9e715c9031dfe4623df0f82df5dafedc94ede51568122cdf495a10d0630b
+PTT04,https://arxiv.org/html/2310.16944v1,Zephyr: Direct Distillation of LM Alignment,retrieved,True,行49–60署名，60–90摘要/方法概述与安全限制,532c1217a6276cd1d33cf8a49e5d106abfe913713da9671f76164bb6042608ee
+PTT05,https://arxiv.org/html/2411.15124v1,Tülu 3: Pushing Frontiers in Open Language Model Post-Training,retrieved,True,行159–181日期/署名/核心贡献；行2901–2943局限、相关方法和结论,e93f4033f8758fe5a34ae3914989819361e75ae4e10070acc153962ef083fc24
+PTT06,https://arxiv.org/pdf/2403.13787v1,RewardBench: Evaluating Reward Models for Language Modeling,retrieved,True,第2–3页评测动机、数据结构、分类奖励/DPO与最终策略评价的区分,dda6e5b3fcef2cceff1a32fffd944d633f67bfa029b705fd35a5708df3ba2ce2
+PTT07,https://arxiv.org/html/2410.15522v1,M-RewardBench: Evaluating Reward Models in Multilingual Settings，预印本v1,retrieved,False,,aa7bb1430431afdacd5a672168447d8a4f140f101fb55014cfe50bdbd05d3ba4
+PTT08,https://www.lvwerra.com/,Leandro von Werra个人研究主页,failed,False,,
+PTT09,https://www.interconnects.ai/p/farewell-ai2,Farewell Ai2,retrieved,True,行1–45本人离职回顾，2022-05/2023-10与前一日最后工作日,522a37fe86e7fa660d11e897e49f3376489f09ab1b829568026754efd0e3c2c8
+PTT10,https://natolambert.com/,Nathan Lambert个人主页,retrieved,True,本人简介及最新机构段，行1–17,e5d1a4aabf62a4304406cd533bb17745f2015631acc4a201f7ba07ec173bfd80
+PTT11,https://blog.trilliumlabs.org/p/introducing-trillium-labs,Introducing Trillium Labs,retrieved,True,发布日期2026-10-01、创立使命、开放配方计划与署名,227b01298afb4c4d6485fda20d2c62d9b8b3a53f19b2f386a7cdff1cb78b372a
+PTT12,https://natolambert.com/documents/cv.pdf,Nathan Lambert CV,failed,False,,
+PTT13,https://askell.io/,Amanda Askell：About Me,retrieved,True,About Me相关职业与研究段,5022b82ecc3f1126a99bb90c5cbeaf8f100f8eec57c49f468f04378152531cb9
+PTT14,https://www.anthropic.com/constitution,Claude’s Constitution,retrieved,False,,7b9ca9b1e3852392bf7d544d12d6136f646d34b057fa6d8b0e6ffb3df901221e
+PTT15,https://www.anthropic.com/news/claude-new-constitution,Claude’s new constitution,retrieved,True,发布日期与结尾目标/模型行为差距、后续评价研究段,196430f18128979a98841286960c2c0afd200d80c59954c3e3d336f5f8222316
+PTT16,https://arxiv.org/html/2501.12948v1,DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning,retrieved,True,行71–85 R1-Zero/R1区别与概述,691e5e91d30d4dcfa720cc67f6dcb59927558e4e2d70431d371da90549002de3
+PTT17,https://zhihongshao.github.io/,Zhihong Shao 邵智宏个人主页,retrieved,True,行1–45简介、研究方向与成果,e6a3f44210085f455cc9df2480cdf24f7cb6a8e04c8cb0d215a02f8a1e0131dc
+PTT18,https://arxiv.org/html/2409.19256v1,HybridFlow: A Flexible and Efficient RLHF Framework,retrieved,True,作者单位与行96–111摘要/系统设计概述,0747ce80715050d7b3eeb66610d63018c98c071d100ce66c975dda6631e0ea0e
+PTT19,https://arxiv.org/html/2507.20534v1,Kimi K2: Open Agentic Intelligence,retrieved,True,行129–143摘要；Appendix A行1626起名单排序说明,a71edc8ff1bc3ba76a2d098dde745340a932d957e5404640653b3ef62ad03ce6
+PTT20,https://arxiv.org/html/2607.24653v1,Kimi K3: Open Frontier Intelligence,retrieved,True,行183–196摘要；贡献名单行2966–3013含Longguang Zhong,a904ad0fecc6f0280d675d0a43fc52a672555e083f7e1dbb8bed0060c3863758
+PTT21,https://mrggls.github.io/,Longguang Zhong个人主页,retrieved,True,行1–45本人角色、研究兴趣、2025/2026成果新闻,48d50e2a29aff60f6327cba1f91100b6611d2391b71e2166d82c942969de712f
+PTT22,https://arxiv.org/html/2502.18449v1,SWE-RL: Advancing LLM Reasoning via Reinforcement Learning on Open Software Evolution,retrieved,True,行66–84摘要和奖励定义；另核对PTT-A12提交历史,def5f83f888e264ae5f82a9cd6a2e9b2cd0f0da857e085c259ce608c4268d9f7
+PTT23,https://arxiv.org/html/2504.20073v1,RAGEN: Understanding Self-Evolution in LLM Agents via Multi-Turn Reinforcement Learning,retrieved,True,行62–95署名/环境与研究；行347–357结论和限制,ea22761398f0cf45ee8e5396610de2a21b92fa7f5d249efffab655f6bcb8a6ce
+PTT24,https://zihanwang314.github.io/,Zihan Wang’s Homepage 王子涵,retrieved,True,行1–45本人身份、实习措辞、研究更新,9d8425cedfbc156d052c54e994319146d2a61bc1efbad7d3b336b6bc58d83a64
+PTT25,https://arxiv.org/html/2610.24914v1,Arctic-SWE: Revisiting the Long Horizon Agent Training by Modeling-System Co-Design,retrieved,True,行176–191摘要及系统组件,408cb576f067c59bea9137428547511dc234c04e6e2140448a42968171713232
+PTT26,https://arxiv.org/html/2609.18310v1,SEA-LION-v4.8: A Technical Report,retrieved,True,行49–65日期、团队身份和技术摘要,ccb3e9364630694b33ba9d244efb542d2c711f4501700b1721935873207251e8
+PTT27,https://swallow-llm.github.io/index.en.html,Swallow LLM：项目与成员主页,retrieved,True,项目介绍与Members段，Rio/Sakae职责,5dc91951c8dde386a797e66a7dd857effdfa504628013e69287970d8f8584925
+PTT28,https://swallow-llm.github.io/gptoss-swallow.en.html,GPT-OSS Swallow,retrieved,True,2026-02-20日期与三阶段训练介绍,e16591bfee8793e2460ab8fdd99464315d773f128ad5a787f834fa84a4c90321
+PTT29,https://arxiv.org/html/2601.02346v1,Falcon-H1R: Pushing the Reasoning Frontiers with a Hybrid Model for Efficient Test-Time Scaling,retrieved,True,行101–120摘要、贡献和训练/推理扩展,43e3607b4b01e302591aff3d6f6361b134bf26da83ebf6c97cf4db45471214dc
+PTT30,https://falcon-lm.github.io/blog/falcon-h1r-7b/,Falcon-H1R官方发布与技术说明,retrieved,False,,c59a0c28e3194c9b9e7b3bf3d2b927edb8c2d7d2b78f897dd49ce48e3cd4dd5a
+PTT31,https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?cStatus=1&corpId=13975631&crpNm=labs&p=2,Corporations Canada：Cohere Labs法人名称历史,retrieved,True,法人名称历史和2025-06-02变更记录,f7e8c0b013db6c5ade404f556b5d175d78421c95f523931c2cd9d32bd5266b62
+PTT32,https://aclanthology.org/2025.acl-long.3.pdf,M-RewardBench: Evaluating Reward Models in Multilingual Settings，ACL会议版,retrieved,True,第1页作者单位、equal contribution、前单位脚注与摘要,2da13cb132c7933424941b495ac9b7a94e9659d04030a79eb78310266be7418e
+PTT-A09,https://ericmitchell.ai/,Eric Anthony Mitchell personal research profile,failed,True,本人页行2–12与49–54,
+PTT-A10,https://i.cs.hku.hk/~cwu/,Chuan Wu HKU research profile,retrieved,True,机构简介与2024 HybridFlow/2026新闻,4116f7f11f2ef9742a2f4e0b2ce3a9b24cd2254f0c56a8a44a0944c8b3de8c49
+PTT-A11,https://raw.githubusercontent.com/Cohere-Labs-Community/m-rewardbench/main/README.md,M RewardBench project README,retrieved,True,README项目起源、时间、Team Members与Citation,845e9fa33c6ee8c17b47ea6cd33be168ce8f3932beb02b7b3c5ec54b63e378c6
+PTT-A12,https://arxiv.org/abs/2502.18449,SWE-RL version history,retrieved,True,arXiv submission history,72672be524d182a5e91c26552dde4a8a17a75d44843ca4907440244e4bb7fc4a
+PTT-A01,https://www.lvwerra.com/,Leandro von Werra personal profile,failed,True,本人页行1–14、21及85–102,
+PTT-A02,https://ljvmiranda921.github.io/,Lester James V Miranda current profile,retrieved,True,首页行4–11与31–41本人更新,1662fc1484ec34f11f4d07719445ffac4a4ef6e055efee57f9eb976e9ccaad72
+PTT-A03,https://storage.googleapis.com/ljvmiranda/cv.pdf,Lester James V Miranda CV,retrieved,True,2页CV的教育、职业、相关论文与公开项目段,0cfcc5d7ab84d890acb64dc5c873ce204cfcc6597d75e8e09eae3f0e843d1f30
+PTT-A04,https://i.cs.hku.hk/~cwu/team.html,Chuan Wu lab team September 2026,retrieved,True,Current/Alumni；行37与页末2026-09更新时间,8159f75dbc65b5a344d9a407783a13f34197c4fa32389f4642908f0a2414a4ea
+PTT-A05,https://rmrafailov.github.io/,Rafael Rafailov older personal profile,retrieved,True,简介与最近新闻，行0–9；DPO身份交叉,270148be6221497a897a971970001a2e8f23a5a408326e5f4dcd3efde07fe7b2
+PTT-A06,https://huggingface.co/blog/lewis-tunstall-interview,Lewis Tunstall Hugging Face interview April 2022,retrieved,True,2022-04-13机构访谈开头和加入约九个月表述,d58120208cf7ca1971a808428b96fb3ddc4cb9087cd11f4ebb8c0f3bdbca7b75
+PTT-A07,https://labscommunity.cohere.com/get-started/community-research,Cohere Labs community research membership,failed,True,社区身份说明及M-RewardBench成员部分,
+PTT-A08,https://www.rio.gsic.titech.ac.jp/en/member/yokota.html,Rio Yokota official professional profile,failed,True,官方履历行53–58,
+PTT-A13,https://s205.q4cdn.com/537566246/files/doc_news/ServiceNow-and-Hugging-Face-release-StarCoder-an-open-access-large-language-model-for-code-generation-05-04-2023-traffic-2023.pdf,ServiceNow Hugging Face 2023 joint announcement; search excerpt only,not_retrieved,True,2023-05-04 ServiceNow/Hugging Face联合公告中Leandro角色陈述,
+PTT-A14,https://ch.linkedin.com/in/lewis-tunstall,Lewis Tunstall public self-profile; search returned text only,not_retrieved,True,Lewis Tunstall本人LinkedIn公开页的HF职业名称,

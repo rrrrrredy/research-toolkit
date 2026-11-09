@@ -1,0 +1,16 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "98b93c531b8061c68cfa3c93abb7469a9e3b577b6ad2775430396fc04ba37c51",
+  "assignment_version": "9b18d211dd3c044603194d19aaf69d422c5881d10a5a1c0ab4e82e3468332336",
+  "completed_at": "2026-11-09T13:59:07.742490+00:00",
+  "reading_scope": {
+    "task": "完整任务",
+    "report": "完整1-512行",
+    "originals": [
+      "sources/actual/CP17.txt lines13-25,37-65,258-311,454-466,477-490,758-786,1034-1045,1077-1088,1124-1136,1177-1185 (keyword locations with context; core methodological focus260-307)",
+      "sources/actual/CP08.txt lines165-173,1032-1040,1373-1381,2586-2601,2613-2629"
+    ],
+    "scope": "独立adversarial_reasoning；无其他评审输入，无新实验；不声称源PDF全文阅读。"
+  }
+}

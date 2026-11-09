@@ -1,0 +1,284 @@
+{
+  "host_task": "/root/benchmark_evidence_a",
+  "status": "completed",
+  "perspective": "evidence",
+  "case_id": "microdrama_market_zh",
+  "input_version": "98b93c531b8061c68cfa3c93abb7469a9e3b577b6ad2775430396fc04ba37c51",
+  "assignment_version": "15904cd45137acbdae1cc295f36f83e895f7e48ca1e984613ca8008c17ad76d1",
+  "artifact_sha256": "dd39a222cc69892efe6c830f9609bc42ff66d534825f0725364b38f1b3a07a0a",
+  "task_reading": "Read full original brief and all 3 effective requirements; no scope decisions were supplied.",
+  "report_reading": {
+    "complete": true,
+    "artifact": "input-report.md",
+    "consecutive_line_ranges": [
+      [
+        1,
+        130
+      ],
+      [
+        131,
+        260
+      ],
+      [
+        261,
+        390
+      ],
+      [
+        391,
+        513
+      ]
+    ],
+    "verified_exact_artifact_hash": true
+  },
+  "reading_records": [
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/MD003/original.txt",
+      "scope": "Article body/core findings, survey date and 18+ population; preference, past-year viewing and payment-intent sections",
+      "sha256": "9f1840f02c97b3293965fd6d0947362cddce8d6ae6db15f4c71db365ffdb0c23"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/MD004/original.txt",
+      "scope": "Complete 54-article regulation and enactment statement",
+      "sha256": "f7debdffdfb90695d3c06c8b51244a03583606c4ee3268ca9a95981a4b98948d"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/MD005/original.pdf",
+      "scope": "Physical pages 8,10,11,14,21,22,25,26,131,148,159 via retained page text; pages 158–159 additionally rendered and visually read for CMS columns and 1–3 month footnote",
+      "sha256": "102951ac82bd59602a7653fd834463d62ad9ca7eba04bbf6716a7a06cb42f223"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/MD006/original.pdf",
+      "scope": "Physical pages 2,3,6,7 via retained page text; market chart numeric labels and data-source statement on p3; source explicitly excludes export revenue",
+      "sha256": "9a2c4b720e7c5d6565d652e63ab9ed576133c8ca474d8a6709fa5113ca0d7db1"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/MD008/original.pdf",
+      "scope": "Physical pages 6,8,9,12,13,149,156,157,186,187,188 via retained page text; p187–188 also rendered and visually read for purchase/sale heading, current/prior columns",
+      "sha256": "1a6243b169370b439d86f57a7a89659c004a40d373f35127dd46181c879dcb74"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/MD009/original.pdf",
+      "scope": "Physical pages 6,7,14,17,21 via retained page text; estimates, uploads versus independently made works, production costs, brand counts and AI cost scope",
+      "sha256": "f8711bf8df83a1d5878d60a280d500251baf7c4f97e54e0db86afd0f11cd48b4"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/MD010/original.txt",
+      "scope": "Research-release body, including national/Beijing output, growth, scope and overseas discussion",
+      "sha256": "9a434c6c1c5f95393e0d75e1b6e61b4b7b1d55b45d2c288d0f8c68393836c6ee"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/MD011/original.txt",
+      "scope": "Complete retained implementation-plan article, especially sections V–VI funding, homepage recommendation and application conditions",
+      "sha256": "2aec4265dc6b415387c7d25c6c3cf521992911c0fc1ec898c7b665ca26de4ee2"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/MD012/original.pdf",
+      "scope": "Physical pages 19,27,30,187 via retained page text; forecasts, blockbuster company claims, old segment table, revenue-recognition policy",
+      "sha256": "c7c2b6a2cef322521aebc952621dc6b66612f3457643f4bafb1b104a3ed996f8"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/MD013/original.txt",
+      "scope": "Article reporting April 15 support announcement, funding, disbursement/plan wording",
+      "sha256": "eae4fa77594aba4ceb0cf41341e2e2787e2761f6e2ff7972ee0d22520328b6f5"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/MD014/original.txt",
+      "scope": "Gold-coin announcement/report paragraphs, preserved balance rights, denied revenue rumor and company financial discussion",
+      "sha256": "40b5ecb0047c0fef9dbc9475c20e353b2c450a8a7b542af218261fbaa9b828ae"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP01/original.pdf",
+      "scope": "Physical pages 2 and 11 via retained page text; quarterly/YTD metrics and CFO",
+      "sha256": "53b4977e8b3770d15133b0066c4a6638a1849de47882e57f16121c89503a183f"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP02/original.pdf",
+      "scope": "Physical pages 1 and 13 via retained page text; quarterly/YTD metrics and CFO",
+      "sha256": "dbc638d77e45217eaca44cb1e804ac26966f0a01a8ea9091243b777d0e8b7938"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP03/original.txt",
+      "scope": "Complete article body: Nov 1–Dec end action and earlier 75,000 removals/1,500+ accounts",
+      "sha256": "9b1843b5646c27f6abef1130556bd50931a787a94f8a62b65bd4da8c6d377809"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP04/original.txt",
+      "scope": "Complete article body: September classification thresholds and content-review routes",
+      "sha256": "c78e1de0d13c41959dd3f284c317576ca1e22dc9a1f30b40020edf10b2e856db"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP05/original.txt",
+      "scope": "Section III.1–3 classification, June 2024 effective requirement, multi-platform numbering and review",
+      "sha256": "a1f205e7f0aa1ebae167f6052bc64955b0f7b051ccb0476aa65f725f8c113b31"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP08/original.pdf",
+      "scope": "Physical pages 40,73,74 via retained page text; 2025 year-end population and full relevant survey methodology pages",
+      "sha256": "4006a6785ba3958d1d9b6ddf0b79bca8e77104002281aa68279811d8ec78bad8"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP09/original.txt",
+      "scope": "Complete article body and Jan 1 2026 effective-date parenthesis",
+      "sha256": "cac58f06da8339818a959a6f12dd3ae54f4d23fcc08ada50dccccbca0d73a07d"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP10/web-access.txt",
+      "scope": "Preserved original web access: publication metadata, Article 10 and context; Articles 17 and 22 with adjacent paragraphs",
+      "sha256": "ebfe715c97224af71f002599508dbae72a75f1529aa005ff03e6bfa613fe6201"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP11/original.txt",
+      "scope": "Complete article body: case facts, findings, compensation, source limitations",
+      "sha256": "6a54106893501eb714b2a8a17d9eecd84261eb57413025ec2050b728735ad071"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP12/original.pdf",
+      "scope": "Physical pages 14,31,32,35 via retained page text: three-year metrics, revised segments/geography, cost and expenses",
+      "sha256": "4799e3e56800a6128a14fcca64468e1ab6dd0612736f084d006412befc941f0e"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP13/original.pdf",
+      "scope": "Physical pages 23 and 92 via retained page text: CMS deconsolidation, votes/shareholding, nonrecurring gain",
+      "sha256": "618abf0ee47b06c019de615486b320f7f082f4eebad278bac07750ab558ccf67"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP14/original.pdf",
+      "scope": "Physical pages 6,7,16,17,18,78,79,212 via retained page text: all report-used annual metrics, segment costs, promotion audit and expense table",
+      "sha256": "dc8981c2b8e7052b9068dd512c5ed5f030002793b27cdd18a65a0b675614a646"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP16/charts/5abf475a35249f4ce88a9e5176c8217d.png",
+      "scope": "Actual full image view: September total-time increments, units and year-on-year footnote",
+      "sha256": "2c5e34616eb664be387ab2170f2c0bde9b2a185c03815023bb1d46e0e02d8155"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP16/charts/2d52bc46d8803cd23525c580c9b09010.png",
+      "scope": "Actual full image view: 2022–2026 App category MAU",
+      "sha256": "60adeaa7ab2d7617487d60b67c5da21933f3095974e77a8eabd4c97f01d2246f"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP16/charts/ab089f4e9c4ca8a2c97e05e7be0112db.png",
+      "scope": "Actual full image view: September App/WeChat/Douyin miniapp rankings, levels, changes and footnote",
+      "sha256": "bf5949de85fe7dfa61b7f8e1496edf40f5cb5dcf4cd9d43191edf8d7fd94ecdf"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP16/charts/e15d12b81e8ada19f3a096549d587df3.png",
+      "scope": "Actual full image view: overlapping users and ratio denominators",
+      "sha256": "cad1e334d1adc8e1ee9ced5dd35a7dbf7bdd2da2167ffbc9d2b8956457593470"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP17/original.pdf",
+      "scope": "Physical p6 actual retained page image including complete threshold/deduplication footnotes; p7 complete retained text including profile/TGI definitions",
+      "sha256": "8e17ce3b9a6cf911fa53197228dc198568d69bbe62b549a30672b4c7d50d4572"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP18/original.txt",
+      "scope": "Complete retained platform operation document: applicability, T+7, 10,000 deposit, pricing, refunds, minors, support and sanctions",
+      "sha256": "0c12adce2d451ec1e27e0fcafe0015a5ebd078e328585eb98cb017fbe71251a7"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP19/original.pdf",
+      "scope": "Physical pages 45,61,62 via retained page text: 2024 year-end population and complete relevant survey methodology pages",
+      "sha256": "d20a33e7eb892f38245c5773919cbec4c86e0671f601b9c9acb15e7b66278c5e"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP20/web-access.txt",
+      "scope": "Preserved official release dated Aug 19; online-marketing section lines 68–76 and adjacent material; short-drama supply and ad spending",
+      "sha256": "513f3bc8123a35e312c34a2948466155fb58102e773a99b0abdd1accfcf60fe5"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP21/original.txt",
+      "scope": "Complete article body: AI thresholds and July 1 effective date",
+      "sha256": "87ed08b711a7da00970add3e4285985cfdeb6b1ae4435cd0742ba29a18de4941"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP22/original.txt",
+      "scope": "Articles 18–21 and 143–146 with neighboring text; no claim to read complete Civil Code",
+      "sha256": "3db529e3865ed78bac308a7c863cc825e090c009f9128360c250733890db858f"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP24/charts/users.jpg",
+      "scope": "Actual full image: May app/miniapp deduplication bracket and separately shown content reach",
+      "sha256": "fff0bf73b5a0f221eb3a23f459f11019ec2a07265a964e4188fac349e4d73a96"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP24/charts/time.jpg",
+      "scope": "Actual full image: January 2025–May 2026 monthly per-user duration and sessions",
+      "sha256": "2927878e6dd2823008fc1a91b8fb35ad18820ffd0af175311f98ca32411c5110"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP25/original.txt",
+      "scope": "Complete article body: interface, third-party content, agreement identity, social/popup features and overlap",
+      "sha256": "f4e83eb4bf3567d88a509e791b3088b4604f8264f2a0d6c2a781df80432b22c0"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP26/original.txt",
+      "scope": "Tencent and Hongguo speaker passages; adjacent iQIYI/Mango contract passages distinguish forms and content scope",
+      "sha256": "4b4f72a193359066ea03701b3dc3507b11e5191a1092af07ddf012e66a65cec8"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/sources/CP27/original.txt",
+      "scope": "Complete retained solution document; distribution/revisit, creator commission, payment cycle and eCPM attribution requirements",
+      "sha256": "f7858db73d55266de10bf80b084107141fa480d9693c5accbc61867de0eecdb4"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/financial-calculations.py",
+      "scope": "Complete source read only",
+      "sha256": "5bbdbe40e7693d3e2f5f9f870bfa03fb9c5b7e7ce3df64d17d74b6703b4841c0"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/financial-results.json",
+      "scope": "Complete retained financial inputs/results and derived results",
+      "sha256": "1c80a5d9e67e2dabb0a7cd6f27931ff30f1d68d43f8fe3548a12234aa010a72b"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/scenario-model.py",
+      "scope": "Complete source read only; also read task-side identical raw-byte copy; CRLF-normalized SHA256 equals assignment source_files value",
+      "sha256": "431af2704c8d06fbb38a2bd17edf5ecbdad6365a8ef66c0ba2ced60f5dcc776f"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/scenario-results.json",
+      "scope": "All 23 scenario result objects; input baselines, contracts, cashflow summaries, hybrid and portfolio objects. Did not read six full daily CSVs or rerun calculations",
+      "sha256": "0176706ce25dfc485c53459b74e9d4f5d8a1d06322e3d3d6d6df1f57dc7b2678"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/completion-sensitivity.py",
+      "scope": "Complete source read only; raw SHA256 equals assignment source_files value",
+      "sha256": "5da97528b2822cc509fb10b9f98b5bb16d4fc053c3e0e9a8a58ee81d58ae80fc"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/microdrama_market_zh/codex-production/completion-results.json",
+      "scope": "Complete three retained completion results",
+      "sha256": "70f7779c9d5456d400f61b45e508fe3e8fb22cb2cad47563ca432537e0667b10"
+    }
+  ],
+  "independence": {
+    "producer": false,
+    "other_review_judgments_read": false,
+    "author_self_rating_read": false,
+    "excluded_coordinator_contexts_read": false
+  },
+  "method": "Native Codex evidence assessment. Preserved original text and relevant original pages/charts checked against complete current report. No API calls, report edits, review import, software tests, calculation reruns or new experiments.",
+  "limitations": [
+    "Full report read; cited and consequential original sections checked, not unrelated portions of every long financial statement.",
+    "An initial broad object-print operation was truncated; it is not counted as complete reading of report or original documents. Coverage is based on subsequent explicit consecutive report reads and source reads listed here.",
+    "All calculations were inspected as source plus preserved results. Six daily CSVs were not independently recomputed or fully read; cashflow logic and retained summaries were inspected.",
+    "For sources CP10 and CP20, read retained original web-access text rather than unavailable downloaded HTML."
+  ],
+  "source_file_identity": {
+    "scenario_model": {
+      "raw_sha256": "431af2704c8d06fbb38a2bd17edf5ecbdad6365a8ef66c0ba2ced60f5dcc776f",
+      "lf_normalized_sha256": "1c035080a0dbd791a7871e7070a05cb1963e8737716d4e34dc8d571a3e75a640",
+      "assignment_matches_lf_normalized": true
+    },
+    "completion_sensitivity": {
+      "sha256": "5da97528b2822cc509fb10b9f98b5bb16d4fc053c3e0e9a8a58ee81d58ae80fc",
+      "assignment_matches": true
+    }
+  },
+  "timing": {
+    "elapsed_seconds": null,
+    "elapsed_measured": false
+  },
+  "completed_at": "2026-11-09T14:35:05.6446788Z"
+}

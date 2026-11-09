@@ -1,0 +1,39 @@
+{
+  "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "assignment_version": "1047cea73b78135b2746d14756af17fcaa95e0765db2baf9cdba7b2b527f3dc9",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "location": "Current reports/current.md: method matrix and cited paragraphs in sections 2-8; cost/normalization references in sections 10,12,13; Appendix A and original-paper reference table. Entire codex-production/reference-labels-v2.diff (300 lines, 85,589 characters).",
+      "basis": "Continued my completed independent TTC English full-report evidence review, using its actual frozen acead416 input and retained original-source/calculation assessment. Read the entire supplied diff in four contiguous untruncated ranges and checked that every added/deleted line matches the actual current-versus-my-reviewed report diff. Checked all 18 source-label mappings in the method matrix, prose, scaling table, material qualifications and bibliography. The new short names identify the same papers or clearly established method names: in particular Inference Regimes remains the v2 bank study, Optimal Reasoning Termination remains the finite-probe/oracle-frontier paper, When More Thinking Hurts remains the paper whose numerical thresholds were withheld, and SCoRe remains the training/self-correction study. Reference-table full titles, all 54 URL occurrences in their original order, frozen source bodies and source-file records are unchanged. Versions, dates, populations, statistical targets, units, calculations, locator sections/tables and material caveats are retained. Duplicate-label removal and the local grammar changes do not alter attribution or causal meaning. The revised selector-theory sentence explicitly places the uniform-among-accepted formula in Sample, Mix, or Verify? while preserving conditional independence and cost-model limits. No evidence defect or lost source traceability was introduced. Original task and requirement summaries are unchanged; requirement status/evidence metadata was not treated as proof of this revision."
+    }
+  },
+  "findings": [],
+  "label_mappings_checked": {
+    "TTC001": "Scaling Test-Time Compute Optimally",
+    "TTC002": "s1",
+    "TTC003 / TTC003v2": "Inference Regimes / Inference Regimes (v2)",
+    "TTC005": "Test-Time Self-Play / TTSP",
+    "TTC006": "When More Thinking Hurts",
+    "TTC007": "Optimal Reasoning Termination / OTBench",
+    "TTC008": "Sample, Mix, or Verify?",
+    "TTC009": "Self-Consistency",
+    "TTC010": "Large Language Monkeys",
+    "TTC011": "Tree of Thoughts",
+    "TTC012": "Let’s Verify Step by Step",
+    "TTC013": "SCoRe",
+    "SUP-AC": "Adaptive-Consistency",
+    "SUP-CM": "CodeMonkeys",
+    "SUP-LIMITS": "Inference Scaling Flaws",
+    "SUP-SELF": "Large Language Models Cannot Self-Correct Reasoning Yet",
+    "SUP-TAU": "τ-bench",
+    "SUP-TREE": "Tree Search for Language Model Agents"
+  },
+  "retained_prior_review": {
+    "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+    "assignment_version": "fe829e803963a4cb1da29b0cb7a93f05a75b5f9227bfae3213b601b3ced1aa28",
+    "response": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-full-final-reviews\\evidence\\response.json",
+    "execution": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-full-final-reviews\\evidence\\execution.json",
+    "reuse_scope": "Original complete report reading, consequential source passages and original TTC006 visual pages, and complete retained calculation inputs/code/output. No unrelated whole-content re-review, new research, network access or calculations performed."
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "input_version": "97ee1ab82f0edcae5c827dbdc224f44e663985fe5e22cf1f34b110fe8c980fb9",
+  "assignment_version": "9ea5d18c30158d2630df44eb72d6a07fcf91d0aab839e855f68a0940f8fe2ade",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "location": "Complete current report, lines 1–219, especially sections 2–8, protocol table, worked comparisons and decision recommendations",
+      "basis": "Read the report continuously in two complete ranges (1–100 and 101–219). Checked original HELM paper and Lite/Capabilities announcements, multiple-choice adapter and lm-eval metrics; MMLU-Pro v6 protocol and results; EvalPlus v3 greedy table and sampling exceptions; SWE-bench Verified selected-subset audit, July Pro audit and September Pro V2 changes; tau-bench task counts, averaging and trials, tau2 dual-control and v2 changelog; AlpacaEval-LC verbosity, judge table and correlation significance; original Arena uncertainty methods, Leaderboard Illusion claims and Arena official reply; canonical-order contamination assumptions; LiveCodeBench release scope; HELMET and METR primary evidence. Report correctly limits 59.4% to 138 selected unsolved tasks, distinguishes 731-task historical Pro from 642-task V2, treats independent-Bernoulli pass@k/pass^k examples as illustrative, distinguishes fixed released results from mutable current commands, and does not equate judge/preference scores or repository resolution with production productivity. Numerical comparisons and consequential qualifications match the checked originals. The HELM Capabilities model-ID discrepancy and limitations of the 2026 METR follow-up are disclosed. No necessary evidence correction found. No benchmark, calculation or experiment was rerun."
+    }
+  },
+  "findings": []
+}

@@ -1,0 +1,12 @@
+{
+  "input_version": "e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "assignment_version": "3a1e81057c07bd44ff7613a875918a59ebf3dffcd99812a6c5cf01030f82ad15",
+  "report_verdict": "pass",
+  "coverage": {
+    "process_language": {
+      "location": "当前完整报告；复用本人首评全文阅读，并逐段读取report.diff全部差异及其上下文。当前差异上下文行：90—96",
+      "basis": "在原独立审阅上下文中复用本人已完成的原任务、有效要求与冻结全文阅读；当前任务、有效要求及scope_decisions未变化。第93行改为采用2026年10月Smart+正文版本、功能按账户分批开放；搜索缓存及打开页面的操作顺序已移除，版本和可用性条件保留。首评 process_language-01 已解决。 本轮仅确认修订及其对process_language全篇判断的影响，未重复全文阅读、计算、测试或研究。"
+    }
+  },
+  "findings": []
+}

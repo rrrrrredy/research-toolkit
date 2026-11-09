@@ -8,7 +8,7 @@
 
 ## 冻结什么
 
-从[空白 v2 模板](../evals/templates/blinded-study.v2.json)开始，或检查[五个独立测试任务](../evals/tasksets/development-v2-synthetic/README.zh-CN.md)。填写作者／评审端点、请求模型、允许的返回模型名称和快照局限。作者与评审使用分开的请求上下文；可以是相同模型，不因模型名称重叠而拒绝。Astra 可承担评审。每个作者模型单独冻结计划，各模型层保留共用的任务族编号。
+原五题开发包已退出活跃执行入口。完整题面、来源和设计记录保留在[10 月 12 日冻结输入](../evals/studies/2026-10-12-lite-four-models/longcat/coordinator/frozen.json)中；当前评测题目见 [`evals/cases/`](../evals/cases/)。[空白 v2 模板](../evals/templates/blinded-study.v2.json)保留当时的配置结构：作者／评审端点、请求模型、允许的返回模型名称和快照局限。当时的作者与评审使用分开的请求上下文；可使用相同模型，不因名称重叠而拒绝，Astra 可承担评审。每个作者模型单独冻结计划，各模型层保留共用的任务族编号。
 
 每个角色声明 `output_protocol`、`allow_json_fence`；HTTP 角色另声明 `response_format`。`response_format: text` 不向 API 发送格式选项；`json_object` 显式发送该选项，须由提供商支持。选择前核对当时的官方文档；不自动探测提供商、不回退格式、不重试。两组作者使用相同的协议、模型设置及上限。
 
@@ -22,15 +22,11 @@
 
 API 返回字节保存在 `response.json`；成功提取消息后另存 `content.txt`、`parse.json`（协议、成功时的解析方法、内容哈希及状态），以及 `parsed.json` 或 `invalid.json`。执行失败记录在 `execution.json.failure_kind`：HTTP、传输、超时、返回结构／大小、模型身份、缺少用量、token 超额、截断、未正常结束或空内容。这些是执行／格式结果，不是研究质量缺陷。过大返回只保留有界前缀，并明确说明。总 token 和墙钟时间在返回后检查，不能保证费用上限或取消远端请求。
 
-`max_retries` 固定为零。`max_requests` 必须等于每任务族三次请求，或在 `position_swap: true` 时为四次：两个作者、一个主评审及可选的互换评审。缺少作者输出时跳过该对的两次评审；主评审失败不取消预先声明的互换评审。`request_plan` 冻结上限，结果记录实际尝试次数。四个作者模型、五任务族并互换顺序允许 **80 次**请求，而非 20 次。所附材料是离线配置示例；[2026-10-12 已完成的实际运行](../evals/studies/2026-10-12-lite-four-models/README.zh-CN.md)另行冻结了真实配置，并保留 72 次实际请求。接入与 Astra 校准已经完成，日常修复遵循[当前标准](report-evaluation-standard.zh-CN.md)，无需重复这些阶段。
+`max_retries` 固定为零。`max_requests` 必须等于每任务族三次请求，或在 `position_swap: true` 时为四次：两个作者、一个主评审及可选的互换评审。缺少作者输出时跳过该对的两次评审；主评审失败不取消预先声明的互换评审。`request_plan` 冻结上限，结果记录实际尝试次数。四个作者模型、五任务族并互换顺序允许 **80 次**请求，而非 20 次。已退役题包当时是离线配置示例；[2026-10-12 已完成的实际运行](../evals/studies/2026-10-12-lite-four-models/README.zh-CN.md)另行冻结了真实配置，并保留 72 次实际请求。接入与 Astra 校准已经完成，日常修复遵循[当前标准](report-evaluation-standard.zh-CN.md)，无需重复这些阶段。
 
 `prepare` 冻结来源／题面文本哈希、设计记录、指令、量表、代码哈希、分配和上限。`execute` 核对承诺，schema 2 在调用前拒绝变更过的执行脚本。输入经 Python 通用换行读取后按 UTF-8 文本冻结；这是文本哈希，不是原始来源文件字节哈希。Git 须在 PATH 中。执行器更新后须另建研究目录；已启动运行不能静默续跑或覆盖。
 
-```bash
-python scripts/run_blinded_evals.py prepare --study evals/tasksets/development-v2-synthetic/study.json --seed 20261012 --output evals/runs/v2-inspection
-```
-
-上述检查命令调用模型零次。随附模型和端点是占位值；真实运行须使用核实后的设置，另行冻结计划。密钥不进入配置、来源、命令参数或公开材料；端点配置只保存环境变量名。
+原五题 `prepare` 示例已撤出。历史检查直接读取[保留的冻结记录](../evals/studies/2026-10-12-lite-four-models/longcat/coordinator/frozen.json)，不重建活跃五题包。原离线示例中的模型与端点是占位值，不代表已完成研究另行冻结的真实设置。密钥不进入配置、来源、命令参数或公开材料；端点配置只保存环境变量名。
 
 ## 2026-10-13 后续指令修正
 
@@ -42,9 +38,9 @@ python scripts/run_blinded_evals.py prepare --study evals/tasksets/development-v
 
 分为三个不同材料池：
 
-| 材料池 | 用途 | 当前材料 |
+| 材料池 | 用途 | 材料与状态 |
 | --- | --- | --- |
-| 开发 | 诊断缺陷、调整方法 | 五个独立任务族，3 英文、2 中文 |
+| 开发 | 诊断缺陷、调整方法 | 历史：五个独立任务族，3 英文、2 中文；[原输入已冻结](../evals/studies/2026-10-12-lite-four-models/longcat/coordinator/frozen.json)，不再是活跃题包 |
 | 评审校准 | 检查已知错误、有效对照及位置敏感性 | 单列四个中英文题族：算术、因果、来源归属和决策约束；各有互换及相同有效稿平局 |
 | 修复与复查 | 验证具体修改并检查相关行为 | 使用已有真实用户与开发任务，见[任务选择](independent-task-design.zh-CN.md)；无需外部供题 |
 

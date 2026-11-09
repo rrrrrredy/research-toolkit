@@ -1,0 +1,47 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en",
+  "input_version": "08ee4e8cf6e9b2733119c8c87965023b83648c1f084afbabbd87f1a702fd3e7a",
+  "scope": "outline",
+  "assignments": [
+    {
+      "slot_id": "requirements",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/f9a2a700fbe5cee79584.md",
+        "sha256": "f9a2a700fbe5cee795847a941301f7a97626f6f4cec0b8b3b0bf3318151d2476"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/08ee4e8cf6e9b2733119/jobs/requirements-f8ae786196b896d0.json",
+        "sha256": "c875d061bd3858adcfef271ab82fcf5b69842f92a056e1a5b5b4cfa84ec8464f"
+      },
+      "assignment_version": "f8ae786196b896d0ab5cae0905d5095de2c8f4b1f446c8bda982ee34c77b3985"
+    }
+  ],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "An author/producer performed independent review."
+    ],
+    "required_slots": 3,
+    "completed_slots": 3,
+    "selected_attempts": {
+      "requirements": "a61766dab8ed4edea2e0a7b34c944ce0",
+      "structure_and_depth": "1b6c134084664c068a64661050ecc084",
+      "audit": "d3eb8f62ee5a4a89a63a527a0f707b33"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "An author/producer performed independent review."
+  ]
+}

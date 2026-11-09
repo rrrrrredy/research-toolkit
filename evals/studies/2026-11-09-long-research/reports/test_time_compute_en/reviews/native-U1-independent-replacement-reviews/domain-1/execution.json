@@ -1,0 +1,155 @@
+{
+  "provider": "codex_native",
+  "host_task": "/root/domain_and_audit",
+  "status": "completed",
+  "case_id": "test_time_compute_en",
+  "slot_id": "domain-1",
+  "scope": "U1",
+  "started_at": "2026-11-09T17:18:57Z",
+  "completed_at": "2026-11-09T17:20:41.9093490Z",
+  "input_version": "677e8b6adda927740866f0126d0f8b7eb1a99359b146ce0e496a67e18d283f3e",
+  "assignment_version": "7593f27b250b5ed85d2b880392510275ae29e449f56b6fcf7fb74e12bb5db33c",
+  "artifact_sha256": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+  "continuation_of": {
+    "input_version": "8005824d34a17e3023e0f2332760f582193e892fd93af10232da7b8af569bec3",
+    "assignment_version": "419a4f23231ea4a1660704098ab618b527a7da91b80b8f88ee15016d63ed8485",
+    "response_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/native-domain-results/test_time_compute_en/response.json",
+    "execution_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/native-domain-results/test_time_compute_en/execution.json"
+  },
+  "read_inputs": [
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/reviews/host/8005824d34a17e3023e0/jobs/domain-1-419a4f23231ea4a1.json",
+      "sha256": "cf6bf990a1e671faf6475e443f69f95f8b1015f677eeb050f1de9d4f137200cb"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/reviews/host/677e8b6adda927740866/jobs/domain-1-7593f27b250b5ed8.json",
+      "sha256": "c2bc342f76a77b08ba532c32ef695bd094a92691ecec0ec54de83793fa51149b"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/reviews/host/8005824d34a17e3023e0/input.json",
+      "sha256": "078e5573be0064e900175434a187cb52eb2e2992cb8b83fa1b923f791156034e"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/reviews/host/677e8b6adda927740866/input.json",
+      "sha256": "8cbbf4fe3f0d96bc698cd898177d9a24ece86e942f6646c2db8ba0e078d42089"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/native-domain-results/test_time_compute_en/response.json",
+      "sha256": "2475ca6c02d05f24ce0d1bff2bd34eaf142373cf6bf51413eb78f82bf2f3ae03"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/native-domain-results/test_time_compute_en/execution.json",
+      "sha256": "45f47408543b4c1fa176353a8d7bbc3584ae629a0ec94b463bd0d0fd7be394df"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/reviews/host/8005824d34a17e3023e0/results/de9e0cca3314427f/response.txt",
+      "sha256": "2475ca6c02d05f24ce0d1bff2bd34eaf142373cf6bf51413eb78f82bf2f3ae03"
+    },
+    {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/analysis/U1-evidence-protocol.md",
+      "sha256": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f"
+    }
+  ],
+  "input_field_comparison": [
+    {
+      "field": "task",
+      "equal": true
+    },
+    {
+      "field": "requirements",
+      "equal": false
+    },
+    {
+      "field": "effective_requirements",
+      "equal": false
+    },
+    {
+      "field": "scope_decisions",
+      "equal": true
+    },
+    {
+      "field": "report_path",
+      "equal": true
+    },
+    {
+      "field": "report",
+      "equal": true
+    },
+    {
+      "field": "sources",
+      "equal": true
+    },
+    {
+      "field": "source_files",
+      "equal": true
+    },
+    {
+      "field": "research_outputs",
+      "equal": true
+    },
+    {
+      "field": "production_history",
+      "equal": true
+    },
+    {
+      "field": "analyses",
+      "equal": true
+    },
+    {
+      "field": "scope",
+      "equal": true
+    },
+    {
+      "field": "applicable_requirements",
+      "equal": false
+    },
+    {
+      "field": "requirement_unit_ids",
+      "equal": true
+    },
+    {
+      "field": "prior_required_findings",
+      "equal": true
+    }
+  ],
+  "requirement_metadata_changes": [
+    {
+      "requirement_id": "R_TASK",
+      "summary_unchanged": true,
+      "old_status": "in_progress",
+      "new_status": "satisfied",
+      "old_evidence": null,
+      "new_evidence": "Current complete manuscript reports/current.md; independent requirements, domain, audit and final acceptance: reviews/host/acead416ff0bcb116622/results/8d8a113d23b643ef/response.txt"
+    },
+    {
+      "requirement_id": "R_LANGUAGE",
+      "summary_unchanged": true,
+      "old_status": "pending",
+      "new_status": "satisfied",
+      "old_evidence": null,
+      "new_evidence": "Current complete manuscript reports/current.md; independent requirements, domain, audit and final acceptance: reviews/host/acead416ff0bcb116622/results/8d8a113d23b643ef/response.txt"
+    },
+    {
+      "requirement_id": "R_DATE",
+      "summary_unchanged": true,
+      "old_status": "in_progress",
+      "new_status": "satisfied",
+      "old_evidence": null,
+      "new_evidence": "Current complete manuscript reports/current.md; independent requirements, domain, audit and final acceptance: reviews/host/acead416ff0bcb116622/results/8d8a113d23b643ef/response.txt"
+    }
+  ],
+  "current_file_matches_assignment": true,
+  "frozen_inputs_match_their_jobs": true,
+  "substantive_requirements_unchanged": true,
+  "prior_original_reading_reused": true,
+  "unchanged_source_reading_repeated": false,
+  "instructions_change": "Added guidance to continue original independent context and compare changed materials/context against actually reviewed input.",
+  "original_review_preserved": true,
+  "response_sha256": "c4c3e671cc9e99b40a741250d955a987a42bc026f6d7387fd9992f8788e834da",
+  "api_called": false,
+  "producer_role": false,
+  "other_initial_reviews_read": false,
+  "model_experiments_rerun": false,
+  "report_edited": false,
+  "imported": false
+}

@@ -1,0 +1,82 @@
+{
+  "result": "pass",
+  "basis": "Independently read the complete current English report (lines 1–219), the effective brief, all eight current raw review responses, the complete current audit original, the original required finding and the previous audit's negative findings, all three prose production units, outline, handoff, worked-calculation artifact and actual six-location revision diff. The report fulfills the requested comparison, worked interpretations, reproducibility distinctions and two deployment decisions. Direct checks against preserved primary sources confirm the main numeric transformations and the two necessary repairs; no substantive defect or unresolved requirement was found. Prior audit coverage is reused for unchanged claims outside the direct samples below, rather than represented as new source inspection.",
+  "coverage": {
+    "requirements": {
+      "location": "reports/current.md:1–219; acceptance job assignment.task/effective_requirements; analysis/outline.md",
+      "basis": "English report retains the 2026-11-09 cutoff and uses HELM as a framework case alongside a manageable complementary set. It distinguishes dataset/framework/harness/leaderboard, supplies the coverage and versioned reproducibility tables, explains construction, populations, units and aggregation, interprets actual result conditions and rank reversals, and gives conditional support and repository-agent decisions with missing evidence, cost and workflow limits. No universal winner or new benchmark execution is required or claimed."
+    },
+    "evidence": {
+      "location": "reports/current.md:28–44, 48–60, 68–151, 161–171, 173–211; sources/actual/MB03, MB08-arxiv, MB10, MB17, MB18, MB23, MB30–32",
+      "basis": "Citations preserve the named historical paper/release conditions. Direct source samples confirm HELM model-date ambiguity and judging/aggregation, MMLU-Pro prompt arithmetic, EvalPlus ranking and execution limits, tau reward/aggregation/cost, SWE Pro V2 lineage, preference counterevidence and the deployment-transfer studies. The original audit supplies substantive checks of other unchanged important claims; its pass is not substituted for my complete manuscript reading."
+    },
+    "adversarial_reasoning": {
+      "location": "reports/current.md:68–125, 153–171, 173–211",
+      "basis": "The report confronts prompt-induced reversals, changed executable tests, incompatible task versions, the confirmation blind spot in reward 1, stable ordering despite judge bias, selective publication, contamination-test limits, paired/clustered uncertainty and the gap between autonomous benchmark success and assisted-work productivity. It keeps selected audit subsets and author illustrations distinct from population estimates."
+    },
+    "structure_and_depth": {
+      "location": "reports/current.md:1–219; analysis/author-production/MB-U1-definitions-and-helm.md, MB-U2-worked-comparisons.md, MB-U3-reproducibility-and-decisions.md",
+      "basis": "The complete argument connects measurement objects to concrete examples, reconstruction conditions, validity limits and decisions. Reading the three source units against the integrated manuscript shows retained denominators, versions and causal limits. The final revision corrects the relevant synthesis passages without rewriting the preserved historical units."
+    },
+    "reader_usefulness": {
+      "location": "reports/current.md:129–157, 173–219",
+      "basis": "Readers can identify which public evidence supports each responsibility, what must be recovered for reconstruction/rescoring/new inference, and which workload observation changes a choice. Successful-resolution cost includes retries/tools/human work; support transactions require authorization and response information, and repository choices follow deployed configuration and maintained behavior."
+    },
+    "process_language": {
+      "location": "reports/current.md:1–219, especially 129–151",
+      "basis": "The body presents research and decision reasoning. Its limited statements about inspected artifacts, unavailable historical services and no new inference are material reproducibility boundaries, not a review diary or unsupported completion claim. It contains no reviewer instructions, acceptance bookkeeping or production handoff text."
+    },
+    "natural_expression": {
+      "location": "reports/current.md:1–219",
+      "basis": "The English is coherent and specific. Tables carry parallel comparison information while prose explains mechanisms and consequences. Conditions are placed where they affect interpretation, and the conclusion follows the established evidence rather than expanding into unsupported claims."
+    }
+  },
+  "sample_checks": [
+    {
+      "location": "reports/current.md:55,105–115,149,181,188",
+      "selection_reason": "Necessary correction with a cross-section dependency: reward semantics affect the coverage matrix, worked example, reproducibility row and support recommendation.",
+      "evidence": "Directly read MB18.txt:125–133,145–184,229–235 and the complete six-location audit diff. The original reward combines action and required response information and can still miss skipped confirmation. Current text carries both conditions and the trajectory check throughout. The 61.2/35.2 equal-domain average is 48.2%; 115/50 weighting gives about 53.32%. Historical $0.38/$0.23 are separate per-attempt agent/simulator costs, not current or successful-task prices.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:76–89,148",
+      "selection_reason": "Known necessary omission plus headline rank reversal, where sampling and greedy protocols must not be merged.",
+      "evidence": "MB10.txt:323–350,371–386,830–855 supports ChatGPT 73.2→63.4 and Phind 71.3→67.1, a -1.9 to +3.7 percentage-point change in their difference. Current text separates greedy from 200 samples at each of four temperatures and includes 512/1024-token limits, code-block extraction and per-test max(200 ms, 4×reference) timeout.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:28–44,68–72,146–147",
+      "selection_reason": "Framework adaptation and prompt choices can create apparent model advantages; also check an explicitly unresolved source discrepancy.",
+      "evidence": "MB03.txt:90–145 supports named judges, zero-shot CoT, score rescaling and setup-versus-row model-date mismatch. MB08-arxiv.txt:245–278,440–473 supports five-shot CoT and Gemini exceptions, GPT-4o 72.6−53.5=19.1 points versus original-MMLU 88.7−87.2=1.5, and the Llama contrast. The report does not silently repair an unresolved historical identity.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:93–101",
+      "selection_reason": "A later release is easy to merge incorrectly with the original benchmark's results.",
+      "evidence": "MB17.txt:18–27,40–60,68–79 states V2 has 642 tasks/11 repositories after 89 removals, 69 instruction corrections and changed network/clean-image grading. The report separates these from earlier 731-task results and preserves the selected-subset qualification of audits.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:119–125,161–171",
+      "selection_reason": "A passed section selected for counterevidence and uncertainty rather than only confirming headline weaknesses.",
+      "evidence": "MB23.txt:207–221,287–326 confirms raw 22.9–64.3 versus length-controlled 41.9–51.6, stable five-model ordering across three judges and correlation 0.98 versus 0.94 with p=0.07. The manuscript does not call the latter significant at 0.05. The 1.79-point binomial SE and repeated-trial illustration are explicitly author scenarios, consistent with the preserved calculations.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:173–211",
+      "selection_reason": "Integration check: benchmark claims must survive transfer into both deployment recommendations.",
+      "evidence": "MB30.txt:85–101 supports the 59-model HELMET study and weak NIAH transfer. MB31.txt:111–123,178–216,244–255 supports the 16-developer/246-task randomized study and adjusted 19% time increase. MB32.txt:56–75 supports later participation/task-selection/concurrency limits. The report keeps support retrieval, policy authorization, autonomous patching and assisted productivity as distinct decision evidence.",
+      "result": "clear"
+    },
+    {
+      "location": "analysis/author-production/change-note-audit-01.md; reports/current.md:55,105,148–149,181,188; prior raw review/audit originals",
+      "selection_reason": "Ensure necessary negative findings were addressed in the report and that earlier failures were preserved.",
+      "evidence": "Read original MB-FULL-REQ-01 and previous audit negative findings MB-AUDIT-TAU-01/MB-FULL-REQ-01, current eight raw review responses and complete current audit original. Actual diff and present text contain the known execution settings/costs and complete tau correction. Historical negative originals remain as records; no unresolved content issue remains.",
+      "result": "clear"
+    }
+  ],
+  "open_issues": [],
+  "input_version": "9bd699373d7f5394b498f57ae2f4eacd3618c40e2bd4900720b6480bb93632f9",
+  "assignment_version": "549d3c05b832e3483364c5c225520ca9ced3b3e77fbb6ea7e24e4cc852b65d44",
+  "artifact_sha256": "309ad92d1534d78eb04d01e8aff19e3b221af71d7691d3cc78b92972c904f550"
+}

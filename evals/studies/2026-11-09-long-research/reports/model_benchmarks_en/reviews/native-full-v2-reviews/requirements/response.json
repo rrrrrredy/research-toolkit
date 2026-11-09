@@ -1,0 +1,23 @@
+{
+  "input_version": "d47378130c4da5c2a85d74e96580c76c4de2f5b12a1671a9f5feb13dc09807ce",
+  "assignment_version": "8f4a0e56e38e1ce1b87fb9aa7223ef2d2fe8747d5f3c880716fe8444c69a9d41",
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "location": "reports/current.md, reproducibility section lines 127-157, especially new worked-result table 144-149 and limitations at 151",
+      "basis": "The actual frozen old/current difference replaces the generic model-date discrepancy paragraph with four worked-result records. HELM now names the dated WildBench judges, endpoint channels, Turbo variants and changed Omni-MATH judging prompt, and itemizes the two unresolved setup/result model-date discrepancies. MMLU-Pro, EvalPlus and tau-bench records state their actual prompting, decoding/sample or interaction conditions. Each record separates inspectable artifacts and possible rescoring from missing historical output/runtime/model identity. The text explicitly says historical endpoint usability and runnable historical dependencies were not verified; it no longer implies that a repository link or a current install establishes reproduction. These concrete known/unknown states satisfy the original request without requiring new model inference. The additions match the checked relevant original setup passages in MB03, MB08-arxiv section 4, MB10 section 3 and MB18 section 5. The unchanged complete manuscript and original task reading from my first full review are reused; the actual diff is localized and does not invalidate those checks. The original required finding is resolved."
+    }
+  },
+  "findings": [],
+  "resolved_prior_findings": [
+    {
+      "finding_id": "MB-FULL-REQ-01",
+      "status": "resolved",
+      "attempt_id": "d2316d287d6e4ef3bfa4635fe9246953",
+      "basis": "The actual frozen old/current difference replaces the generic model-date discrepancy paragraph with four worked-result records. HELM now names the dated WildBench judges, endpoint channels, Turbo variants and changed Omni-MATH judging prompt, and itemizes the two unresolved setup/result model-date discrepancies. MMLU-Pro, EvalPlus and tau-bench records state their actual prompting, decoding/sample or interaction conditions. Each record separates inspectable artifacts and possible rescoring from missing historical output/runtime/model identity. The text explicitly says historical endpoint usability and runnable historical dependencies were not verified; it no longer implies that a repository link or a current install establishes reproduction. These concrete known/unknown states satisfy the original request without requiring new model inference. The additions match the checked relevant original setup passages in MB03, MB08-arxiv section 4, MB10 section 3 and MB18 section 5. The unchanged complete manuscript and original task reading from my first full review are reused; the actual diff is localized and does not invalidate those checks. The original required finding is resolved."
+    }
+  ],
+  "source_checks": [
+    "Frozen old/new full-text comparison; new section with surrounding argument; original MB03 configuration, MMLU-Pro answer extraction/five-shot setup, EvalPlus sampling/greedy setup, tau-bench agent/user temperature, model and action/trial limits; task current report equality. No inference, benchmark setup, calculations or prior complete reading rerun."
+  ]
+}

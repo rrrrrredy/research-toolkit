@@ -1,0 +1,35 @@
+{
+  "author": "Codex /root/ttc_research; original substantive author, not independent reviewer",
+  "recorded_at_utc": "2026-11-09T13:09:47.507673+00:00",
+  "finding_id": "ODM-FULL-DOM-B-01",
+  "review_response": "../native-full-reviews/domain-1/response.json",
+  "review_execution": "../native-full-reviews/domain-1/execution.json",
+  "original": "draft-first.md",
+  "original_sha256": "06d9e0efc45130acf324da5ace3f20bc2c98142c45a4bf4dbe11b57ff2ab6120",
+  "revision": "draft-revision-01.md",
+  "revision_sha256": "ac186df774cb99a2ec808c68c377c87ccdc86723f502dbc24ece1661910a1fcd",
+  "source": {
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\on_device_models_en\\codex-production\\supplemental-sources\\ODM-S12\\original.txt",
+    "sha256": "064f5cc90c65c26e6ef5f45e12de6aa60c1ca2ec15a5e4f9fa56f3d39a7eff1a",
+    "commit": "eaa380eee74b677f9f305eb2a92ae0fcc14ffc39",
+    "actual_reading": "README lines 55-80; Android performance lock explicitly stated in lines 62-64",
+    "url": "https://raw.githubusercontent.com/google-ai-edge/LiteRT-LM/eaa380eee74b677f9f305eb2a92ae0fcc14ffc39/README.md"
+  },
+  "changes": [
+    {
+      "location": "Section 3, Phase evidence from a phone and a PC, introductory paragraph",
+      "change": "Added known Android performance-lock measurement setting beside the historical S24 table and distinguished default/sustained phone operation."
+    },
+    {
+      "location": "Section 5, S24 interactive-generation latency paragraph",
+      "change": "Carried the same setting into interpretation of the 9.46-second and 34.07-second projections."
+    },
+    {
+      "location": "Appendix, S24 phase measurements row",
+      "change": "Preserved performance lock as part of the recorded experimental conditions."
+    }
+  ],
+  "verification": "Exact three replacement targets inspected; all numeric tokens unchanged; first manuscript and pinned source hashes preserved.",
+  "execution_limits": "No benchmark, model call, calculation rerun, review import or product-code change. No inference of lock implementation, power draw or slowdown.",
+  "status": "Author revision complete; independent reviewer confirmation not claimed"
+}

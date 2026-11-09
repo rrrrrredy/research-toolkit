@@ -1,0 +1,12 @@
+{
+  "input_version": "e80623165cafab4fb0438ddbd29c7f8abed83b8eeda1d1577c6baaa48c0d1b21",
+  "assignment_version": "2ddd95f87edc1647fa134c12b7959b1b5937dbfa4ba95f580864ed6ec7da33aa",
+  "report_verdict": "pass",
+  "coverage": {
+    "reader_usefulness": {
+      "location": "当前全文1–373行，复用原全文阅读；本轮核对206行弱商圈投流和276行爬坡时序假设及相邻表格。",
+      "basis": "已读取完整任务、有效要求与空scope_decisions，并按1–95、96–190、191–285、286–373连续通读全文。报告从库存、流量、补贴和履约责任区分四种模式，一笔订单资金流算例直观说明平台和商家利润不能互代。公司报表、退出样本、不同城市采访均保留范围，区域选择再由家庭数、频次、份额和真实道路/峰时约束落到商圈。模型定义商品净收入、单单贡献、仓利润及分摊后结果，采购、损耗、工资、配送和补贴的重复计算风险有具体说明。阶梯固定成本、需求与产能检查、六个月现金爬坡和新仓分流使读者能看出订单增长何时不值得。成熟城区和新区域建议分别对应单位贡献、网络增量、服务质量和现金条件，没有把统一日单或回本月数当招商结论。未发现需要修订的具体理解或决策使用障碍。本审阅不独立重做财报、法规与情景运算核验。\n\nCurrent-version reassessment: 弱商圈行补上投流1.5元/单，爬坡段明确1–3月损耗2.5%/投流1.5元，4月起2%/1元；未改变原表的结果。这些限定使读者能按月追踪参数变化，不再需要猜测前后期为何使用不同单位经济。新增假设与后续现金缺口、950日单仍亏损和不可仅靠冲量的采用结论相容。未发现新的reader_usefulness问题，也未重新运行计算。 All differences between the frozen reports were compared, and every changed passage plus the displayed surrounding context was actually read. Unchanged complete reading is reused from this same context; this is not a new factual audit or experiment."
+    }
+  },
+  "findings": []
+}

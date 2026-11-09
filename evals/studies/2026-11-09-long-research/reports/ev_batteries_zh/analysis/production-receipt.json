@@ -1,0 +1,19 @@
+{
+  "producer": "Codex /root/remaining_research_inputs",
+  "provider": "codex_native",
+  "recorded_at": "2026-11-09T12:03:15.454755+00:00",
+  "task": "ev_batteries_zh",
+  "status": "complete_producer_draft_pending_independent_report_reviews",
+  "api_model_calls": 0,
+  "new_experiments": false,
+  "source_counts": {
+    "failed": 7,
+    "retrieved": 22
+  },
+  "reading_records": 20,
+  "key_claim_records": 23,
+  "report_characters": 11894,
+  "report_sha256": "c9c457ab787d4cf0aa1f50cdb8c591e807139deba1b8bc66fca64e39d552ebe2",
+  "first_draft_sha256": "c60aa22ebce5280addf6a477f2098c9ba63c21bd14665e9fad07a5943d32b094",
+  "review_scope_note": "Parent reports both outline requirements and structure_and_depth reviews passed and imported; unit_ready=true for outline. No report review pass is asserted by producer."
+}

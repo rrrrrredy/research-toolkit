@@ -1,0 +1,45 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en",
+  "input_version": "08ee4e8cf6e9b2733119c8c87965023b83648c1f084afbabbd87f1a702fd3e7a",
+  "scope": "outline",
+  "assignments": [
+    {
+      "slot_id": "structure_and_depth",
+      "role": "reviewer",
+      "reading_ref": {
+        "path": "logs/reading/f6697285b895a1158904.md",
+        "sha256": "f6697285b895a11589048f74afd7e57ca36ccd94cbbb29e9831e0d173f4212ac"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/08ee4e8cf6e9b2733119/jobs/structure_and_depth-f2ad30c772725d0c.json",
+        "sha256": "f34bf00e6f00b378300f445f0a3fc0f8700f69c5f7ab5638bf2058ec44b4c3b8"
+      },
+      "assignment_version": "f2ad30c772725d0ca0d57988388eeaacedbdf6df661beccacb3e13732624511f"
+    }
+  ],
+  "reviews_complete": false,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: structure_and_depth"
+    ],
+    "required_slots": 2,
+    "completed_slots": 1,
+    "selected_attempts": {
+      "requirements": "a61766dab8ed4edea2e0a7b34c944ce0"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: structure_and_depth"
+  ]
+}

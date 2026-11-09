@@ -1,0 +1,82 @@
+{
+  "result": "pass",
+  "basis": "Independently read every substantive line of the current English report (1–358), the original brief/effective requirements, all eight current raw review originals, the complete current audit original, the original negative natural-expression and reader-usefulness responses, the actual complete revision diff and production handoff/history. Checked the complete retained allocation code/results without executing them, and directly sampled consequential primary sources and unit-to-report integrations. The report answers the whole request, preserves source/condition boundaries and implements all three necessary repairs. No necessary correction remains. Existing substantive evidence-review/audit checks are reused for unchanged source claims outside my direct samples; their verdict is not substituted for my complete report reading.",
+  "coverage": {
+    "requirements": {
+      "location": "reports/current.md:1–358; frozen brief and effective R_TASK/R_LANGUAGE/R_DATE",
+      "basis": "The complete English technical report covers independent sampling, voting, selection, revision, prefix search, process/outcome verification, adaptive allocation and tool loops, with training versus inference and fixed-checkpoint versus whole-system boundaries. It develops math, coding and multistep-agent evidence, positive/negative scaling and difficulty effects, full cost and latency/concurrency distinctions, defensible published normalization, a labelled hypothetical allocation and a decision tree including all five requested alternatives and no-extra-compute cases. The 2026-11-09 cutoff, versioned primary citations and preserved first-draft/review history satisfy the delivery scope."
+    },
+    "evidence": {
+      "location": "reports/current.md:35–149,163–247,315–358",
+      "basis": "Important numerical claims retain their population, selector access, version and budget unit. Direct source checks substantiate the fixed-bank selection gap, SCoRe correction deltas, PRM conditions, lookahead accounting, CodeMonkeys selection cost, TTSP nominal rollout decomposition, tau reward semantics and OR/AD definitions. Complete retained allocation formulas and all displayed output rows agree with the stated assumptions. Other consequential unchanged claims are covered by the detailed source-level current evidence and audit originals, including visual verification of the excluded TTC006 thresholds."
+    },
+    "adversarial_reasoning": {
+      "location": "reports/current.md:49–113,119–159,241–247,303–333",
+      "basis": "The analysis addresses correlated/shared errors, selection saturation, proxy exploitation, harmful revision, absent or privileged feedback, irreversible branching, compounding conditional transitions and finite-probe selection optimism. It does not credit oracle coverage as delivered success, a training-change delta as fixed-checkpoint inference gain, or an oracle stopping frontier as deployed cost savings. Conflicting source numbers are withheld instead of used to design thresholds."
+    },
+    "structure_and_depth": {
+      "location": "reports/current.md:1–358; actual production handoff/history; sampled U1/U2–U6/U7–U8 passages",
+      "basis": "The report develops a coherent mechanism-to-bottleneck-to-allocation argument rather than a paper catalogue. Method and scaling matrices, detailed examples, resource formulas, decision tree and evidence appendix support that argument. Sampled production-unit passages retain their candidate/selection, finite-probe and cost qualifications in the complete manuscript; the local revision preserves this depth."
+    },
+    "reader_usefulness": {
+      "location": "reports/current.md:133–149,163–313",
+      "basis": "A designer can distinguish a generator, selector, feedback or resource bottleneck and choose more samples, deeper search, better verification, a stronger base model or a simpler path. The example counts checking, abstention, error consequences, four-worker waves and the binding deadline. OR/AD definitions now precede their values. The entire decision tree was read: executed increments update the result and return to completion; revised plans return to accounting; remaining-budget/time/resource checks precede the next bounded increment, and an infeasible plan can exit."
+    },
+    "process_language": {
+      "location": "reports/current.md:1–358, especially 195,295,315–358",
+      "basis": "The prior internal planning reference and sentence responding to the writing request are removed. Costs, control loops, stopping and source qualifications describe the research subject and evidence limits, not the author's coordination workflow. Statements about no independent rerun and unpinned implementations are relevant reproducibility boundaries. No pending-review or producer checklist material is presented as research."
+    },
+    "natural_expression": {
+      "location": "reports/current.md:1–358",
+      "basis": "The English explains technical distinctions with concrete examples and linked consequences. Tables compare genuinely parallel dimensions, formulas have stated assumptions and units, and the repaired metric definitions remove ambiguity. Necessary qualifications remain close to the claims they limit; no remaining expression defect prevents the intended technical reader from using the report."
+    }
+  },
+  "sample_checks": [
+    {
+      "location": "reports/current.md:133,146,327; sources/TTC007/original.txt:139–159,816–825,1045–1058",
+      "selection_reason": "Necessary metric-definition repair, sampled through its scaling-table and appendix dependencies.",
+      "evidence": "OR is 1−L(k*)/L(n), a thinking-token fraction in percent; AD is P(k*)−P(n) in percentage points. k* is the earliest measured maximum, and the full endpoint uses answer probes rather than the original single answer. The current text preserves finite-probe/oracle limits and the 16→4 thinning sensitivity (64.34→74.69; 9.03→11.07).",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:253–286,201–247; complete change-note-full-01.md and original RU-TTCEN-02",
+      "selection_reason": "Necessary diagram repair must survive the complete loop and agree with the worked budget example.",
+      "evidence": "U executes and updates then returns B for completion; Q1 refreshes remaining budget/time/resource use, R checks feasibility, S returns a revised plan to Q or exits V. Marginal value alone does not bypass those constraints. The hypothetical four-worker example gives the stated infeasible 105/110-second configurations and feasible four-candidate 20-credit/55-second option.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:195,295; sources/TTC005/original.txt:789–854; historical natural_expression-01",
+      "selection_reason": "Removal of process wording must preserve the known calculation and its interpretation.",
+      "evidence": "50×(16+48×8)=20,000 nominal rollout slots, split 800 proposer and 19,200 solver, agrees with the original per-target schedule. The manuscript retains exclusions for execution, evaluation, length variation and backward passes, and does not claim a cross-method efficiency ratio. Both internal-writing phrases are removed while the substantive measurements remain.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:59,75–77,87–95; sources/actual/TTC003v2.txt:648–674,704–723; TTC013.txt:186–293; TTC012.txt:113–141; sources/TTC001/original.txt:115–125,140–174",
+      "selection_reason": "Additional passed content selected to test the central causal distinctions across source studies.",
+      "evidence": "The same-bank 75.56/91.67/78.33/65.83 and gold-assisted 89.17 outcomes preserve available versus deployable selection. SCoRe's 60→64.4 is +4.4 within the trained model, while +15.6 is a change from the base −11.2 delta. PRM's 78.2/72.4/69.6 over 1,860 candidates retains nonidentical large-scale training sets, product aggregation and scoring cost; Snell's reward-to-go/last-step/answer-sum signal and N(k+1) generation accounting remain different.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:119–129,191–197; sources/actual/SUP-CM.txt:97–121,180–196,224–233; SUP-TAU.txt:129–133",
+      "selection_reason": "Agent integration and cost normalization are vulnerable to winning-branch accounting and state-only success definitions.",
+      "evidence": "CodeMonkeys includes $131.95 selection in its $2,291.90 historical LLM total, with 69.8 coverage, 45.8 random and 57.4 selected success. The arithmetic $4.5838/issue, $0.2639 selection, 5.76% share and 48.33% gap recovery is correctly scoped. Tau requires database and output information and can miss skipped confirmation; the report keeps this limitation and repeated consistency separate from best-run coverage.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/current.md:201–247; allocation_example.py, allocation-results.json, calculation-record.json; sources/TTC008/original.txt:257–280",
+      "selection_reason": "The requested worked example must include selection and retain selector-specific assumptions through the policy conclusions.",
+      "evidence": "Read complete existing code and all 12 budget plus 12 deadline output rows without running them. Conditional independence, uniform accepted selection, abstention, a/s[1−(1−s)^N], total per-candidate g+v and ceil(N/4) waves match the text and tables. Risk utilities, q>0.8, the weak-verifier ceiling and four strong+better outcomes 89.50788%/1.989064% are correctly labelled hypothetical; no statistical significance or model experiment is asserted.",
+      "result": "clear"
+    },
+    {
+      "location": "analysis/author-production/handoff.json; production_history; U1:85–99, U2–U6:1–45, U7–U8:1–41; reports/current.md",
+      "selection_reason": "Additional integration sample across independent research contributions and preserved history.",
+      "evidence": "The actual producer is /root/ttc_research and the saved first/current versions are retained. Unit passages on finite-probe diagnostics, coverage versus selection and resource normalization survive in the complete report with their conditions. Historical units keep original wording while the final manuscript applies the necessary repairs; no historical approval is treated as present acceptance.",
+      "result": "clear"
+    }
+  ],
+  "open_issues": [],
+  "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+  "assignment_version": "c8fcc81d49ac44c6372053760505b0f8270d2a8424bcb37a748e1c758ffcea86",
+  "artifact_sha256": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea"
+}

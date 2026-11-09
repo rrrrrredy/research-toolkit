@@ -6,7 +6,7 @@
 
 Git 和客户端已就绪时，从项目根目录执行。目标目录已存在时，使用[更新指南](../docs/installation-versioning.zh-CN.md)。
 
-由 Agent 执行以下完整安装命令，使用现有 Python 3.10+。使用记录随 Skill 默认接入，无需用户另装组件；只发送基础操作事件，不发送聊天和报告正文，可随时关闭。已有 Skill 的首次使用按[接入说明](../docs/usage-data.zh-CN.md#由-agent-自动接入)补齐配置。
+新安装由 Agent 用现有 Python 3.10+ 执行以下命令。已有副本按[接入说明](../docs/usage-data.zh-CN.md#由-agent-自动接入)仅补缺失或变更配置，复用有效设置及插件 hooks，保留 off。基础事件默认发送，可关闭，不含题目、提示词、聊天、报告或路径；配置失败时仍直接使用方法研究。
 
 ```bash
 git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .claude/skills/research-toolkit

@@ -1,0 +1,36 @@
+{
+  "task": "bytedance_advertising_zh",
+  "producer": "Codex /root/remaining_research_inputs",
+  "completed_at": "2026-11-09T12:39:27.187423+00:00",
+  "production_state": "full_first_draft_and_current_report_ready_for_independent_full_review",
+  "full_report_review_status": "not_claimed; producer does not self-approve",
+  "outline_review_status": "parent reports requirements and structure_and_depth passed; not full-report approval",
+  "source_count": 35,
+  "retrieval_status_counts": {
+    "original_bytes_acquired_not_fully_read": 11,
+    "failed": 17,
+    "interrupted": 1,
+    "retrieved": 5,
+    "web_extract_only": 1
+  },
+  "actual_selected_reading_records": 25,
+  "key_claims": 28,
+  "calculation": "executed assumed scenarios; no model or advertising experiment",
+  "files": {
+    "report-v1.md": {
+      "characters": 14271,
+      "sha256": "2b6fcb4578a6fbb99f3f1fee6a444bde059fda9a1cbb64e58173029f52d27416"
+    },
+    "report.md": {
+      "characters": 14271,
+      "sha256": "2b6fcb4578a6fbb99f3f1fee6a444bde059fda9a1cbb64e58173029f52d27416"
+    }
+  },
+  "first_draft_preserved": true,
+  "current_equal_to_first_draft": true,
+  "parts": [
+    "parts\\01-allocation-attribution-and-profit.md",
+    "parts\\02-markets-finance-and-computation.md"
+  ],
+  "verification": "JSON/JSONL parsed; calculations outputs read; required production artifacts present; full prose exists. This is artifact integrity, not independent acceptance."
+}

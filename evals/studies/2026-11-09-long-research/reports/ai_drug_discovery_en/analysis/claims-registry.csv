@@ -1,0 +1,22 @@
+﻿claim_id,claim,type,sources,unit,qualification
+C01,AI contributes identifiable selection and optimization steps; whole-pipeline causality is not established,synthesis,AIDD-S01;AIDD06;AIDD-S14;AIDD04,"U1,U2,U3",Interpretation based on distinct demonstrated mechanisms
+C02,"Rentosertib target ranking and design were constrained by existing biology,tractability and pharmacophore choices",sourcefact,AIDD-S01,U1,No claim that TNIK biology was whollyunknown
+C03,Rentosertib discovery clock ends at preclinical nomination,sourcefact,AIDD-S01,U1,18months notapproval
+C04,Rentosertib observedFVC n10/14 +98.4/−20.3; modeledn18/17 +89.2/−8.2,correctedsourcefact,AIDD-S02 Figure2;AIDD-R01W results,U1revision01,Independentclinicalmajor identified prior conflation;correction awaiting confirmation
+C05,FVC descriptivedifferences118.7/97.4mL;22/71missing8/18vs3/17,authorarithmetic,AIDD-S02;AIDD-R01W;calculations-results-revision-01.json,U1revision01,Neither subtraction is contrastCI;MAR assumption retained
+C06,Rentosertib oralphaseIII recruitingSep2026;inhaledbranchINDseparate,sourcefact,AIDD-R02W;AIDD03;AIDD-A13,U1,Registration/start/doseannouncementseparated
+C07,"DSP loop<12months excludes safety,350th compound;discontinuedJan2022",sourcefact,AIDD06;AIDD08,U2,Exact clinicalcriterion notpubliclyresolved
+C08,EXS21546 healthyvolunteer64 vs patientstudy6terminatedfor therapeuticindexconcern,sourcefact,AIDD-R04;AIDD-R05;WEB-EXAI2023,U2,No inventedtoxicityorresponserate
+C09,CCM MLscreen7/38 orthogonalhits versusmanual1/38,sourcefactandarithmetic,AIDD-S14,U2,Matchedselectedsets only;mouse temposevidenceP≈.052 separately
+C10,REC994 initialMRItrend notsustained;developmentstoppedMay2025,sourcefact,AIDD-S20;AIDD-R03W;WEB-R994PR,U2,Registrycompleted doesnotmeancontinueddevelopment
+C11,"REC994 registryresultspostOct22,2026;combinedsafety exposurewindowsnotmatched",sourcefact,AIDD-R03W,U2,Do notcomparecountsas12monthrandomizedsafety
+C12,REC4881 islicensedTAK733 withnewFAP phenotypichypothesis,sourcefact,WEB-RXRX2025;AIDD-R06,U2,Notdenovogeneratedstructure
+C13,REC4881 safety26=5+21;efficacy16;week13 n15;week25 n13,sourcefact,WEB-R4881CGA;WEB-R4881EARN;WEB-R4881PR,U2,Selectedexposure/adherencepopulation;naturalhistorynotcontrol
+C14,Baricitinib AIassociatedrepurposing precedes strongrandomized COVIDevidenceandadultapproval,sourcefactandsynthesis,AIDD-S24;AIDD-S15;AIDD-S11;AIDD-S12;AIDD-S13;AIDD-S25,U3,"Existingdrug;COVBARRIERprimarynegative,mortalitynominal;noAIcausalefficacyestimate"
+C15,HalicinHub51/99highvs2/63low;separateZINC8/23anyspecies,sourcefactandarithmetic,AIDD04,U3,Halicinnotfrom107Mbranch;nohumanclinicalclaim
+C16,Historicalcohort21/24and4/10 notcurrentcausalAIprobabilities,sourcefactandarithmetic,WEB-AICOHORT;calculations-results-revision-01.json,U4,AuthorWilsonconditionalonly;notfullcohortreaudit
+C17,Sanofi candidatehandoff leavesclinicalmanufacturingcommercializationwithSanofi,sourcefact,AIDD-S27;WEB-SANOFICONTRACT;WEB-SANOFIOPTION,U4,PlatformIP/dataprogramrightsseparate;redactedallocationsunresolved
+C18,"Sanofi100Mupfront,~5.2Bcontingentceilings;Oct2026 10Mtrigger144Mtotal",sourcefactandarithmetic,AIDD-S27;WEB-SANOFIOPTION,U4,No ceilingascash/revenue;candidateplanned2027phaseI
+C19,Takedaexclusiveworldwidelicense1.5Mupfront39.5Mmilestonesplusroyalties,sourcefact,WEB-RXRX2025,U4,"Existingassetlicense,currentFAPprogram"
+C20,Rochemaps/rawimage/programoptions aredifferentrights;firsttargetearlydiscovery2026,sourcefact,WEB-ROCHE2021;WEB-ROCHERECEIPT;WEB-GENENTECH,U4,NounnamedtargetmappedontoREC4881orclinicalsuccess
+C21,Fundnextfalsifiableexperimentalorclinicaldeliverable ratherthanplatformlabel,authorrecommendation,C01-C20,U4,Conditionaldecisions;noindustrycensus

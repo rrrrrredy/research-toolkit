@@ -1,0 +1,12 @@
+{
+  "input_version": "5ca381e1da4a4d525324ad5fc7c50c774505293f8be18466e1650b03a98946db",
+  "assignment_version": "4b35db54fd299844ecf97a9b2853ea0ded00fbec059539743f457000a314e9ea",
+  "report_verdict": "pass",
+  "coverage": {
+    "requirements": {
+      "location": "Complete analysis/outline.md (local outline-v1.md), items 1-9 and MB-U1-MB-U4; model_benchmarks_en.json; assigned effective R_TASK/R_LANGUAGE/R_DATE requirements.",
+      "basis": "The original request is covered at a suitable planning depth. Item 1 preserves datasets, frameworks, harnesses and leaderboards as different evaluated objects. Items 2-3 make HELM official history, definitions and implementation the entry point and add manageable static/reasoning, executable-code, tool-agent and human/model-preference comparisons. They plan construction, sample/language/domain scope, scoring and aggregation rather than equating all suites with broad real-world quality. Items 4-6 assign concrete rank/prompt/scorer/version changes, finite-sample uncertainty, exposure versus contamination suspicion, accessible artifacts and endpoint/environment limitations; they explicitly distinguish reconstruction, rescoring and new inference. Items 7-8 address both required deployment choices, including grounding, policy/tool errors, language and severe wrong actions for support, and repository checks/tool policies/maintainability for coding. Cost/deadlines are decision constraints, and autonomous patch success is separated from assisted-developer productivity, so benchmark association is not silently promoted to causal productivity. Item 9 names every required exhibit and conditional recommendation, without requiring a universal winner or new benchmark run. Original-source checks support the planned distinctions: MB02 HELM Lite documents its one-seed subset, removed calibration/perturbation measurements, prompt-format treatment and comparison-set-dependent mean win rate; MB03 Capabilities v1.0.0 documents five scenarios, zero-shot adapters, judges and rescaled mean; MB04 confirms the June 1, 2026 maintenance boundary; MB05's actual joint adapter binds model/deployment, examples, temperature, max tokens and output mapping. I read these original passages/code, the complete task and the complete outline and verified the local outline equals the frozen assignment. No material requested question, constraint or deliverable is absent from the plan. This pass does not validate every future numerical comparison or constitute acceptance of the final report."
+    }
+  },
+  "findings": []
+}

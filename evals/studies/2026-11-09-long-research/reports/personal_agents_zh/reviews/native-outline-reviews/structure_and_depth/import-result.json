@@ -1,0 +1,26 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\personal_agents_zh",
+  "input_version": "2f8f31f0f2bb728097d6640bfa2688cbcf0b36cc504090307ccf6056f78285a3",
+  "scope": "outline",
+  "assignments": [],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": true,
+  "completion_check": {
+    "ok": true,
+    "flags": [],
+    "findings": [],
+    "required_slots": 2,
+    "completed_slots": 2,
+    "selected_attempts": {
+      "requirements": "4940a612b8cf4ba5ab8a12dddb4e3518",
+      "structure_and_depth": "64d105adf44a4ce9b13a9c1be4084ec3"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": null,
+  "open_issues": []
+}

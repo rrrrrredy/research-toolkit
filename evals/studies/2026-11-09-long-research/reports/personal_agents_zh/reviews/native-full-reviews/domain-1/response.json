@@ -1,0 +1,12 @@
+{
+  "input_version": "d4aa7b428be4775d08f8987590a3df6f36a2073d3514f9fbd916cbe1f980b462",
+  "assignment_version": "39aa2c46c627a551866e56c0d4366a6354944dcba4e6bfc709aece5acfacf170",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "basis": "已通读冻结全文190行、原任务、有效要求和本domain分配，覆盖旅行/日历与消费票据/报销两条链。领域判断为通过：正文将用户目标、偏好、当前授权、技术凭证、外部承诺与执行回执分开；分别分析触发、排队、执行中、请求已发结果未知和已生效动作，未知提交先查回执、不盲目重试，补偿不冒充回滚。RFC7009原文第2/3/5节确有传播窗口及refresh/access token关联的条件；MCP 2026-07-28规范的受众验证与禁止传递其他token不等于业务动作授权。Gemini Tasks原文明确Chrome Stop后可能换远程浏览器/工具继续，完整取消须任务输入框Stop；报告据此区分取消层次成立。Open-AutoGLM原handler的Tap仅在message存在时请求确认，默认console仅Y通过，拒绝should_finish=True；Note/Call_API为占位，正文未把机制存在升级为完备敏感行为识别。OpenClaw原memory正文明确USER.md偏好及superseded更新、MEMORY.md非profile长期事实、daily notes；gateway原文仅单可信边界而非敌对多租户，均正确。记忆删改、当前状态与权限需共同失效的分析合理；ChatGPT原memory文档明确不再提及不删除来源，删除聊天不必删除saved memory，删除有传播时间。\n产品版本方面，当前Work与cloud browser文档支持项目、云续接和条件化定时/事件；独立浏览器登录、网站访问与重大动作确认分开，旧Agent页顶部确已不可用。Gemini个人账号/付费/Activity要求、Google一月PI首发与过度个性化限制、Manus项目指令下一消息/文件仅新任务、自动化源条件与桌面Operator在线条件皆据原文；Qwen一月公测和Task Assistant邀请测试分开。ZTE三月M153技术预览与九月NBD真机消费者版、SAEP公示期及26秒单次观察没有被拼成十一月全面可用。Apple九月英语beta、硬件和EU/China限定及未来计划亦分开处理。\n基准核对LongMemEval v2方法（500问题、五能力、标准长历史）、tau-bench v1模拟用户/政策/API/数据库终态及所有k次成功的pass^k、AgentDojo v3的97/629与utility/security双目标，报告没有将三者或单次demo当作当前消费产品端到端长期成功率。商家官方当前页确为发现与商家结账、相关成交不收费、美国覆盖；商业利益冲突为分析而非虚构厂商收入。完整阅读既有calculate_scenarios.py和结果，未重跑：四情景235/40/108/108分钟和115/-80/-2/-42元、9.3023次盈亏临界均与假设、固定/变量成本及外部损失的分母一致，且明确并非产品测量和已订阅时边际成本需重算。未发现需要修改的领域缺陷。",
+      "location": "全文1–190行；重点§1产品版本、§2–3两任务链、§4记忆、§5–6授权与恢复、§7可靠性、§8净任务价值"
+    }
+  },
+  "findings": []
+}

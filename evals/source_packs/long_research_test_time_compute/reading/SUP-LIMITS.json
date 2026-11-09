@@ -1,0 +1,14 @@
+{
+  "source_id": "SUP-LIMITS",
+  "url": "https://arxiv.org/html/2411.17501v1",
+  "title": "Inference Scaling FLaws: The Limits of LLM Resampling with Imperfect Verifiers",
+  "reading_location": "§§1–4 and AppendixA.2 scope passages",
+  "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+  "version_model_evaluation": "v1 2024-11-26; HumanEval/MBPP filters vs expanded plus evaluators",
+  "observation": "Weak-test false positives and consequence-sensitive sample limit",
+  "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-LIMITS\\original.txt",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-LIMITS\\original.html",
+  "text_sha256": "7a0104ec86807a16dda2ec1714ea4ec30f7ba6350b6e1cb144decfef2bad691c",
+  "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\codex-production\\supplemental-sources\\SUP-LIMITS\\retrieval.json",
+  "reader": "/root/ttc_research"
+}

@@ -1,0 +1,63 @@
+{
+  "input_version": "677e8b6adda927740866f0126d0f8b7eb1a99359b146ce0e496a67e18d283f3e",
+  "assignment_version": "7997e8d2c0aa0244ab532ab204964b85fd667c4dca5a75b38ecfe7b45a5a0b64",
+  "report_verdict": "pass",
+  "coverage": {
+    "evidence": {
+      "location": "Complete analysis/U1-evidence-protocol.md, all 132 lines: operational protocol and TTC003/TTC005/TTC006/TTC007/TTC008 premise sections plus handoff decisions.",
+      "basis": "Read the entire current U1 independently (24,884 characters), the new U1 assignment and applicable original requirements. Reused my own actual full-report evidence reading rather than the coordinator's prior U1 response. Confirmed that the common originals are unchanged; the renamed TTC003v2 and TTC009-013 source bodies also exactly match those I previously read. The unit correctly separates fixed-bank aggregation, fixed-checkpoint systems, training changes and oracle diagnostics; its source-use decisions follow the inspected information conditions and resource boundaries. The five decisive premises are supported by the reused and additional original passages enumerated below. The publication inventory is internally reconciled without asserting a dataset-file audit; TTSP's adaptation, filtered denominator, carry-forward history and calibration privilege are explicit; the ACL paper's numerical conflicts remain quarantined rather than used as operational thresholds; STP empirical maxima and their finite-probe sensitivity remain distinct from online efficiency; the selector formula and F/T criterion retain conditional independence and their actual resource model. Existing arithmetic inputs/code/output were read, not executed. No substantive evidence defect requiring revision was found. One optional last-decimal display correction is recorded separately."
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "TTCEN-U1-EV-01",
+      "severity": "optional",
+      "location": "analysis/U1-evidence-protocol.md, TTC008 paragraph listing success for N=1,4,8,16",
+      "basis": "The retained calculation-record.json gives N=8 selected_success as 0.6300557487551233, while the prose displays .6300. If the displayed values are intended to be rounded to four decimal places, use .6301 (or .630 at three places). This is a last-decimal precision note, not a change to the formula, the acceptance-precision ceiling, the coverage comparison or the resulting decision; it does not block this evidence assessment."
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "TTC003 v1/v2",
+      "actual_reading": "Reused my prior v2 inventory and public-collection table reading. Additionally read v1 original lines 145-175, rereading untruncated lines 163 and 172; v2 date line126 and methodological passages421-433,452-460,488-507.",
+      "result": "The v1 billion/million conflict exists and is correctly superseded. v2 inventory versus release uses distinct banks and supports the 500,661 + 44,640 reconciliation. Fixed-bank reducers cannot save already-generated tokens; total-work and latency accounts differ, matching U1."
+    },
+    {
+      "source": "TTC005 v1",
+      "actual_reading": "Reused original sections5 and AppendicesA/B read for my full evidence review (population, filtered mean, empty-set history, calibration, LoRA/GRPO schedule). Additionally read complete C.2 and C.3 lines881-904.",
+      "result": "The per-input pairwise FMV score and tied-maximizer set are explicitly stated. The five-vector counterexample correctly distinguishes this score from largest whole-vector clustering; the text does not specify the full eight-submission handling for arbitrary tie-set sizes, so U1 does not invent an implementation. 800+19,200 are nominal schedule slots, not complete runtime work."
+    },
+    {
+      "source": "TTC006 original PDF and Appendix E",
+      "actual_reading": "Reused my actual visual inspection of original pages3-5, including Table1, Table2, Figure3 and utility definition, plus AppendixE original text846-872. Read complete U1 MU/utility table and current retained arithmetic source/output.",
+      "result": "60-question deterministic accuracy granularity, interval telescoping, suffix-count monotonicity and binary endpoint identity substantiate the withheld numerical claims. Approximate graphical readings are identified as such. The displayed utility comparison is limited to displayed points and does not assert the optimum of missing data."
+    },
+    {
+      "source": "TTC007 v1",
+      "actual_reading": "Reused original sections3-5, A.5, B.2 and D.1 (finite probes, bootstrap, retained-token scope). Additionally read163-167,358-372,682-696,794-806 and808-856.",
+      "result": "963 questions/92,448 trajectories, 16 answer probes rather than new reasoning trajectories, 71.78 original-answer versus72.33 STP endpoint, caps71.4/35.0/14.2 and macro-averaging are directly supported. Actual method interfaces and excluded predictor training/feature/signal costs are explicit. Stored-token microaverage need not equal the benchmark/model macroaverage, and the unresolved70.5B scope is not priced."
+    },
+    {
+      "source": "TTC008 v1",
+      "actual_reading": "Reused original assumptions and Propositions1-2, cost definition, finite-grid regret/limitations. Additionally read450-477,621-629,748-765,941-965 and976-984.",
+      "result": "The175-system pool is coverage-only and heterogeneous; the longest held-out same-agent selection horizon is16. Replanning simulates samples from measured task rates. The32.5 to25.1 example is one-rollout filtering at threshold.5, consistent with the objective-dependent rejection argument. Uniform accepted selection and argmax are not conflated."
+    },
+    {
+      "source": "codex-production/compute_checks.py and calculation-record.json",
+      "actual_reading": "Read both complete retained files without execution, comparing their input values, formulas and output to the complete U1 text.",
+      "result": "Inventory, nominal rollout slots, all MU/utility entries, flip differences, microaverage, single-probe standard deviation and selector example are supported. The optional N=8 last-decimal display note above is the only discrepancy observed."
+    }
+  ],
+  "prior_work_reused": {
+    "host_task": "/root/independent_reviews_a",
+    "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+    "response": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-full-final-reviews\\evidence\\response.json",
+    "execution": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_en\\native-full-final-reviews\\evidence\\execution.json",
+    "boundary": "Reuse actual source reading and arithmetic inspection only; the full-report verdict was not used as a substitute for reading this U1 artifact."
+  },
+  "reading_limits": [
+    "No released dataset-file audit or model/analysis reproduction was performed.",
+    "The source-level limitations already stated in U1 remain, including unreconciled aggregate token scope and insufficiently specified original protocols.",
+    "The coordinator's original U1 evidence response was not opened or copied."
+  ]
+}

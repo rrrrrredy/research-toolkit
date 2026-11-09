@@ -1,0 +1,70 @@
+{
+  "request": {
+    "task": "post_training_talent_zh",
+    "artifact": "reports/current.md",
+    "scope": "full_report",
+    "purpose": "report_delivery",
+    "domains": [
+      "Model post-training research and public talent attribution"
+    ],
+    "evidence_paths": [
+      "notes/author-reading-ledger.jsonl",
+      "analysis/author-production/handoff.md"
+    ],
+    "revision": true
+  },
+  "result": {
+    "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\post_training_talent_zh",
+    "input_version": "c3d1f51e296588d9af855032d9fa9c042cf77bec0c21a4aaeb726528f66d8c71",
+    "scope": "full_report",
+    "assignments": [
+      {
+        "slot_id": "audit",
+        "role": "auditor",
+        "reading_ref": {
+          "path": "logs/reading/0c91813e990f6a7ef08f.md",
+          "sha256": "0c91813e990f6a7ef08fe889cd45b3a2802ff875f6ee7432776475903f871d43"
+        },
+        "assignment_ref": {
+          "path": "reviews/host/c3d1f51e296588d9af85/jobs/audit-67a7fe36503a703a.json",
+          "sha256": "92a9c5245e784089efe968be420279241fe87d38ef29717f31cef0277109aea5"
+        },
+        "assignment_version": "67a7fe36503a703a757708847569283a4578357709ac5eb905058eba03ece99c"
+      }
+    ],
+    "reviews_complete": true,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "completion_check": {
+      "ok": false,
+      "flags": [
+        "incomplete_independent_review"
+      ],
+      "findings": [
+        "Incomplete independent assignment: audit",
+        "Incomplete independent assignment: acceptance"
+      ],
+      "required_slots": 10,
+      "completed_slots": 8,
+      "selected_attempts": {
+        "natural_expression": "2cbea430cc1941f88427d7278ff7594d",
+        "domain-1": "77421b91542a4b0ca48c39afc64dafd4",
+        "evidence": "63a432b955ee49a1a0e03645c3c6518b",
+        "process_language": "496668f41d7b4f6785747030ca3f11d1",
+        "requirements": "78daba6091cc4c8e94ae4233ba9f3a5c",
+        "structure_and_depth": "992dbc70cabb42ee8e17e960c8abfc21",
+        "adversarial_reasoning": "4e498e55445a46e680a87ce71bf9c643",
+        "reader_usefulness": "db23623584654471bd52482d3480b486"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "action_required": "host_agents",
+    "open_issues": [
+      "Incomplete independent assignment: audit",
+      "Incomplete independent assignment: acceptance"
+    ]
+  }
+}

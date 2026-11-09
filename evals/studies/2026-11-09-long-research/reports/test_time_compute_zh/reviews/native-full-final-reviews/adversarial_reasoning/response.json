@@ -1,0 +1,12 @@
+{
+  "input_version": "8504bfecbac8c53a810f3db16fc39e86f6d8eb4f64607306c712f89554b0d059",
+  "assignment_version": "aa67c52e822b6ca8b4c0d9e930ec961e713e943b90ad56f593ccea3f8fb7272f",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "复用本人先前完整正文审阅（初始记录 native-full-reviews/adversarial_reasoning）；当前稿共 258 行，完整 diff 及上下文当前行号 [[138, 146], [154, 160], [163, 169]]。",
+      "basis": "当前全部差异已读：算例现明确按期望费用分配候选，给出 2 次重试即可超过 0.10 美元的反例，逐题硬预算须预留在途费用且可能降低候选数，因而没有把期望预算当作逐题保证。修订第二轮 2.7 秒前置处理、每链 52.1 秒及两波 104.2 秒已写出；仍是简化调度假设而非尾延迟实测。本人此前 AR-TTCZH-01 所涉有限探测前沿、选择噪声及在线可学习性边界未回退。"
+    }
+  },
+  "findings": []
+}

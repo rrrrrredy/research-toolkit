@@ -1,0 +1,12 @@
+{
+  "input_version": "f6bb51c4fdab26cede56b083db7acbe727f8d84add9ff64682cf380aa9ff37cb",
+  "assignment_version": "e3a5fa26bb9e98aded0bb8cf334a0bf0ade0557018c12c667686f93ccf31afbb",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "复用本人先前完整正文审阅（初始记录 native-full-reviews/adversarial_reasoning）；当前稿共 512 行，完整 diff 及上下文当前行号 [[3, 9], [37, 43]]。",
+      "basis": "全部差异已读。本人 AR-MDZH-01 对开篇的批评已解决：当前稿明确较早全国观察期、跨期不同统计口径，并把渠道迁移与使用强化降为可能解释；同时保留新增观众、存量迁移及样本/分类变化等替代解释，提出分解所需的同期间数据，没有继续断言既有观众已经发生特定行为改变。北大报告的出海边界改为来源称未计入出海收入，与 MD006 原文第 50–51 行一致；未消费余额和内部交易仍未知，没有扩大市场规模可比性。首轮负面及其阅读区间澄清保留。"
+    }
+  },
+  "findings": []
+}

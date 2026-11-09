@@ -1,0 +1,134 @@
+{
+  "status": "completed",
+  "host_task": "/root/independent_domain_b",
+  "role": "reviewer",
+  "slot_id": "domain-1",
+  "scope": "Full report; robotics deployment, safety, operational metrics and unit economics",
+  "input_version": "03204dc35f0518ade7374a892be2885116d8d964240de93761c7881f4f6d81a5",
+  "assignment_version": "b88e664b188c19d530f80fbc753840a8969eb098ce718015314c01c7171fb348",
+  "artifact_sha256": "34f0d4213e10f7893baca9768a0ccd87d94a8396b440b51357e400e4cbe4d414",
+  "completed_at": "2026-11-09T13:52:44.3002101Z",
+  "actual_reading": [
+    "Full draft in contiguous 1–100,101–200,201–283 chunks; full task/effective requirements; instructions compared to already-read contract with only continuation paragraph absent",
+    "Original source scopes and concrete checks detailed in response; PDF text pages read, no videos audited; no claim to have read entire long manuals/papers",
+    "Full existing calculation source and all results, including JSON input/scenario fields and CSV numerical outputs; no rerun"
+  ],
+  "file_versions": [
+    {
+      "sha256": "12d2b1c0461b69fccd01e24e19ce4b284521ee6231e62d5e36e0dc6f898cf674",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\reviews\\host\\03204dc35f0518ade737\\jobs\\domain-1-b88e664b188c19d5.json"
+    },
+    {
+      "sha256": "baa4f266e84ef88e633c21a9c816dbfacad53ea80701b19d8b3e4bceb73bcd44",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED01.txt"
+    },
+    {
+      "sha256": "98b57cfb6407fb48cd20dff818e2ad80e56b05a878b27e72f0d35cd47f9386e7",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED02.txt"
+    },
+    {
+      "sha256": "cafadcf81b6ca67a8096370d4e02e7303660a99b758383973c107d56e0c08979",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED03.txt"
+    },
+    {
+      "sha256": "f2b862528b37f5f3b2e18e6e2ebddf6e1049455f4d67848a69435e9d27e5977a",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED04.txt"
+    },
+    {
+      "sha256": "892e6cbd7a61022047344ba53881e7e6a0a076641bfa8a0f7f27ba97008c97d4",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED08.txt"
+    },
+    {
+      "sha256": "4f52ce0858fa828c249b5b9f7062886bda023cee13586eeb4fcb3c2ca02dd811",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED09.txt"
+    },
+    {
+      "sha256": "5527ba3ae63264eb6a5d4276e4a939ba96d467ba79ce737fe8e6e80df63d3180",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED12.txt"
+    },
+    {
+      "sha256": "d1bba3c5ab4079ca9b771d3d913232a4f4d2b7ebe18a3a7895b32e37f3a8f927",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED13.txt"
+    },
+    {
+      "sha256": "13879b70e606bb66ca9bc12f8fa7f3f0e06642a4c2e934f0b5aaaf7f31d515e1",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED16.txt"
+    },
+    {
+      "sha256": "32abe95955e6666b800d045b7aaee128f4e25ef09f7a4be00b227315bd9c6d42",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED17.txt"
+    },
+    {
+      "sha256": "65263a5f8a178d94d667be90215664720e5e2aafb54131de772aedce9401d050",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED18.txt"
+    },
+    {
+      "sha256": "0440ccb336a2d0fb08453e63acb776b613e1ff1e32a9e2c60f083b2b40c1e27b",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED19.txt"
+    },
+    {
+      "sha256": "ae1960a777c598b06dede93241606afd4dcceb3216c0a53734787bcc2c665ac3",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED21.txt"
+    },
+    {
+      "sha256": "5baf313cd1642a7ad098d9ecb9fdb6f2e2b72868431e6487ffb4e7d37c6b811f",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED22.txt"
+    },
+    {
+      "sha256": "a8811388fad52f05b709eaddd35055d3ad614e4946164d8ee4bebff41272dbae",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED23.txt"
+    },
+    {
+      "sha256": "65bb77a782b2ed2c884cd03d7f66bb00438acfbba9cabfafb745f00c737e038d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED26.txt"
+    },
+    {
+      "sha256": "7587db52ab3ce021c495a87badf76c762002184d4beafc0d3997ddc180468dd2",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED28.txt"
+    },
+    {
+      "sha256": "3f412ecebc64e6eb20adf937075f84446da3f46f9423499bd1080e7a2f7546a1",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED29.txt"
+    },
+    {
+      "sha256": "354286d7b4ff22abd8cfd4b52ddb52bea82f007114bc55ba51c1ecbf6bc45b57",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED31.txt"
+    },
+    {
+      "sha256": "909affc17fbfaf4996e128cbda3801854754c0cc7622c7b76afda2daccdbdf5d",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ED32.txt"
+    },
+    {
+      "sha256": "3b560e9dedf58775c20a1476ef18b5fd7d1992dc1a18cfe37bca20d6c87924a4",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ECP01.txt"
+    },
+    {
+      "sha256": "7470528bc9e58ed5f355d7b18ec22615dec5d1667324c06cd4036cec404d47e8",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\embodied_deployment_zh\\sources\\actual\\ECP02.txt"
+    },
+    {
+      "sha256": "2caf65d233b32d41b383fc5a33a755e68b9164ea1f1de02420ab40fdc03802d1",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\embodied_deployment_zh\\codex-production\\economics.py"
+    },
+    {
+      "sha256": "d91ebfcc2c467243e1572176f8f7bfa63cf68d176b1f92d89fede5bbe6497448",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\embodied_deployment_zh\\codex-production\\economics-results.csv"
+    },
+    {
+      "sha256": "22a05afb78f23d5c79d213ac8f60fbff99c50f9ee68985f18d2f5fef1c92266a",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\embodied_deployment_zh\\codex-production\\economics-results.json"
+    }
+  ],
+  "web_sources": [
+    "https://investors.gxo.com/news-releases/news-release-details/gxo-and-agility-robotics-expand-partnership-accelerate",
+    "https://group.dhl.com/en/media-relations/press-releases/2025/dhl-group-signs-mou-with-boston-dynamics-and-accelerates-cross-business-automation-strategy.html",
+    "https://www.sec.gov/Archives/edgar/data/56873/000110465925113746/tm2531591d1_8k.htm",
+    "https://www.osha.gov/otm/section-4-safety-hazards/chapter-4",
+    "https://moveit.picknik.ai/main/api/html/planning_scene_overview.html",
+    "https://www.1x.tech/order"
+  ],
+  "api_calls": 0,
+  "research_rerun": false,
+  "report_edited": false,
+  "imported": false
+}

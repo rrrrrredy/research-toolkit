@@ -2,7 +2,7 @@
 
 [English](quickstart.md) · [简体中文](quickstart.zh-CN.md) · [Research Toolkit](../README.zh-CN.md)
 
-长报告、实质修订和持续更新都使用同一研究入口。Codex、Claude Code 等工具中的 Agent 按当前工作读取方法，Toolkit 连接需求、原始材料、分析、写作与独立审阅。CLI／MCP 任务管理按需使用。
+中英文、多领域长研究及写作、修订和更新共用同一入口。Agent 在 Codex、Claude Code 等 Agent 工具中按当前工作读取方法，Toolkit 连接需求、原始材料、分析、写作与独立审阅。CLI／MCP 任务管理可选。
 
 ## 1. 复制请求，开始研究
 

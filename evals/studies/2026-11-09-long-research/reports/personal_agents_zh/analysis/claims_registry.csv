@@ -1,0 +1,22 @@
+claim_id,claim,claim_type,supporting_sources,counter_evidence,uncertainty,evidence_detail
+PA-C01,当前ChatGPT agent帮助页顶部声明已不可用，改用Work；下方旧额度不能当现状,analysis,PA02,,,web-openai-1.json L14–34
+PA-C02,Work支持云端跨设备与定时/事件任务；账户及工作区控制影响可用性,analysis,PA03,,,"web-openai-1/2.json 59–65,142–158"
+PA-C03,云浏览器为独立远程会话；站点访问许可与重要动作确认分开,analysis,PA04,,,"web-openai-2.json 48–67,89–119"
+PA-C04,Memory中的不再提及、删除记忆、聊天/文件删除和断开来源不是同一操作,analysis,PA05,,,web-openai-1.json 85–139
+PA-C05,Google Personal Intelligence发布时由用户选择连接源，承认过度个性化和关系变化理解问题,analysis,PA06,,,How it works/privacy/limitations
+PA-C06,Gemini Tasks当前要求个人账号Pro/Ultra和Keep Activity；停止Chrome操作可不等于完整任务取消,analysis,PA08,,,What you need/stop task
+PA-C07,Manus Projects表列指令更新在当前任务下一消息生效，文件更新只进入新任务,analysis,PA09,,,Configuration Updates；其后广义旧任务不受影响句需按表限定，不外推
+PA-C08,Manus自动化提供定时/事件条件、更新和错误检查入口，未证实所有排队任务即时取消语义,analysis,PA10,,,Automations management/error recovery
+PA-C09,Manus本地Operator每会话授权、桌面须在线；关闭专用页停止，云浏览器为另一环境,analysis,PA11,,,Security/FAQ/Local vs Cloud
+PA-C10,Manus计划页显示积分消耗与任务复杂度有关，不足以给统一任务单价,analysis,PA12,,,How credits work/FAQ
+PA-C11,千问2026-01-15生态动作公测与Task Assistant邀请测试是不同开放状态,analysis,PA13,,,release body
+PA-C12,豆包M153技术预览展示与9月消费者版媒体观察属于不同版本、证据类型,analysis,PA15;PA17,,,2026-03-03 release;2026-09-17 reporter experience
+PA-C13,Siri2026-09-14英语beta首发、受设备/地区约束；后续语言计划不当已验证现状,analysis,PA19,,,Pricing and Availability
+PA-C14,Open-AutoGLM Tap确认依赖action中message字段；此文件不能证明敏感操作识别完备,analysis,PA21,,,_handle_tap/default_confirmation; downloaded main snapshot
+PA-C15,OpenClaw区分用户模型、持久事实和日记；网关默认信任边界不覆盖互不信任租户,analysis,PA22;PA23,,,What goes where/One trust boundary
+PA-C16,MCP接口令牌边界和OAuth撤销均不自动表达已提交订单的业务回滚,analysis,PA27;PA28,,,authorization token rules;RFC7009 section2
+PA-C17,LongMemEval/tau-bench/AgentDojo测量不同对象，不能合成当前消费产品成功率,analysis,PA24;PA25;PA-A01,,,versions v2 2025-03-04/v1 2024-06-17/v3 2024-11-24
+PA-C18,当前ChatGPT商家页转向发现与商家自有结账；该页称当前美国与站外成交无费用,analysis,PA31,,,main/FAQ;observed2026-11-09
+PA-C19,假设票据场景净时间235分钟，核对/失败加重后40分钟；净价值115元至负80元,assumption,calculations.json,,Author-defined illustrative inputs; not observed user outcomes.,calculate_scenarios.py/calculations.json
+PA-C20,长期任务应分别管理意图、授权、执行状态及回执；产品选择取决于具体交接成本,analysis,PA08;PA09;PA21;PA28,,,"parts/01,02,03；无亲测"
+PA-C21,低频旅行假设净价值负2元，加入40元期望外部损失后负42元,assumption,calculations.json,,Author-defined illustrative inputs; not observed user outcomes.,calculate_scenarios.py/calculations.json

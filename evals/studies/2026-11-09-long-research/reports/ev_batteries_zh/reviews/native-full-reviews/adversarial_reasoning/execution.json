@@ -1,0 +1,16 @@
+{
+  "host_task": "/root/benchmark_adversarial",
+  "status": "completed",
+  "input_version": "eeaff5ef331db6e411fdbcc2c5433c80a5a19c2cb4bf80161693edecafebce64",
+  "assignment_version": "18c0b383a9a6d1c895a51754a3ee7a3b52c2ba49c6fb8009b46f939212eb2f7f",
+  "completed_at": "2026-11-09T13:50:17.159371+00:00",
+  "reading_scope": {
+    "task": "完整task与requirements",
+    "report": "完整1-143行",
+    "originals": [
+      "sources/actual/EVB14.txt lines 209-245",
+      "sources/actual/EVB03-R.txt lines 4807-4862"
+    ],
+    "scope": "独立adversarial_reasoning；未阅读其他评审，未运行实验。"
+  }
+}

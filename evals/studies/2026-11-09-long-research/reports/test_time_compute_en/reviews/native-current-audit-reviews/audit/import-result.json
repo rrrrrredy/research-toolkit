@@ -1,0 +1,54 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_en",
+  "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "scope": "full_report",
+  "assignments": [
+    {
+      "slot_id": "acceptance",
+      "role": "acceptance",
+      "reading_ref": {
+        "path": "logs/reading/6481e59ae7fd6e67bd06.md",
+        "sha256": "6481e59ae7fd6e67bd06ae21a189db552a115adabd934133913b2875b7f38c56"
+      },
+      "assignment_ref": {
+        "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/acceptance-67411f330f48d2d6.json",
+        "sha256": "12ee2b52f678893f75b5eb50f428532fb2754cdf9dab66af5c642bbac8454406"
+      },
+      "assignment_version": "67411f330f48d2d602d9bd70a87d739f83f057cf8d6148f84acdee17bc51857a",
+      "resume_host_task": "/root/office_final_acceptance"
+    }
+  ],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "Incomplete independent assignment: acceptance"
+    ],
+    "required_slots": 10,
+    "completed_slots": 9,
+    "selected_attempts": {
+      "natural_expression": "765481b2a8964701a349366a7201631e",
+      "evidence": "034f0991a52b4930ab41b2847cf2c0d7",
+      "requirements": "8d2a6892b5e14572ab6b495427a88bc0",
+      "process_language": "9060f6f0441841a9ba57fa071acf7ab9",
+      "adversarial_reasoning": "d7e95e9f2bac4734b260c8781ba74e1b",
+      "domain-1": "c6f0f751aeb143c898a2c0dad8db6ea1",
+      "structure_and_depth": "9145e850a09d4b6fb67edec8ba313d81",
+      "reader_usefulness": "682aa1809105466a8bbccc78c18a443a",
+      "audit": "f07b8920f9a245ce91d722de6ec14f0a"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "host_agents",
+  "open_issues": [
+    "Incomplete independent assignment: acceptance"
+  ]
+}

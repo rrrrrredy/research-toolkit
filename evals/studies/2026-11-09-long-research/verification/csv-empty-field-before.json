@@ -1,0 +1,84 @@
+{
+  "actual_old_packet": "reviews/host/30788053262e2a1e6a26/input.json",
+  "actual_new_packet": "reviews/host/3801bb60ac528a5d1de7/input.json",
+  "report_unchanged": true,
+  "changed_packet_keys": [
+    "sources"
+  ],
+  "changed_source_entries": [
+    "selected_source_records"
+  ],
+  "changes": [
+    {
+      "source_id": "AIDD-S01",
+      "old_empty_keys": [
+        "original_path"
+      ],
+      "new_keys": {
+        "reader": ""
+      }
+    },
+    {
+      "source_id": "AIDD-S02",
+      "old_empty_keys": [
+        "original_path"
+      ],
+      "new_keys": {
+        "reader": ""
+      }
+    },
+    {
+      "source_id": "AIDD-S23",
+      "old_empty_keys": [
+        "original_path"
+      ],
+      "new_keys": {
+        "reader": ""
+      }
+    },
+    {
+      "source_id": "AIDD-S21",
+      "old_empty_keys": [],
+      "new_keys": {
+        "reader": ""
+      }
+    },
+    {
+      "source_id": "AIDD-R01W",
+      "old_empty_keys": [
+        "original_path"
+      ],
+      "new_keys": {
+        "reader": ""
+      }
+    },
+    {
+      "source_id": "AIDD-R02W",
+      "old_empty_keys": [
+        "original_path"
+      ],
+      "new_keys": {
+        "reader": ""
+      }
+    },
+    {
+      "source_id": "AIDD03",
+      "old_empty_keys": [
+        "original_path"
+      ],
+      "new_keys": {
+        "reader": ""
+      }
+    },
+    {
+      "source_id": "AIDD-A13",
+      "old_empty_keys": [
+        "original_path"
+      ],
+      "new_keys": {
+        "reader": ""
+      }
+    }
+  ],
+  "expected": "Adding an optional CSV column used only by unrelated rows must not change selected semantic records; changing a selected nonempty value must change the bound input."
+}

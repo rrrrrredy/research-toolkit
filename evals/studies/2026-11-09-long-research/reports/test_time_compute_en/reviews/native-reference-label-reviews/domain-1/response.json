@@ -1,0 +1,12 @@
+{
+  "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "assignment_version": "b41a325df0ad97129c62c667a667b69bdc58665dc2b8ba5b9fe46e70ce8b7afa",
+  "report_verdict": "pass",
+  "coverage": {
+    "domain": {
+      "location": "Current whole report; citation-label changes in §§2–8,10,12–13 and Appendices A–B; opening and §14 decision-tree context",
+      "basis": "本次在本人先前全文及原件领域阅读基础上，核对 acead416… 至当前 f09f3163… 的实际引用标签修订。完整读完300行 reference-labels-v2.diff；逐项与两个冻结 job 正文匹配，按差异重建所得正文与当前正文完全相同，未漏掉额外修改。54个引用URL及顺序保持一致；原始来源正文与source_files全部相同。核对原文标题行及正文、比较表和参考文献表中的短名对应：Inference Regimes (v2)、Optimal Reasoning Termination、Scaling Test-Time Compute Optimally、SCoRe、Test-Time Self-Play、Adaptive-Consistency、Tree Search for Language Model Agents 等均对应原来同一论文，未把论文或版本换成不同方法。全文变化保留模型、实验版本、数值、单位、分母、训练与推理收益区分、oracle/有限probe限定、验证器信息权限、计算口径和算例假设；局部语法调整没有改写因果归属。重新读开头的证据层次及当前决策树上下文；OR/AD定义、预算与完成状态回路继续保持前次修订。有效要求的三项summary均相同，仅登记状态和完成证据字段更新，未据此推定通过。当前领域结论通过，无新增必要发现；复用已核对的原始研究与保存算例，不重跑。"
+    }
+  },
+  "findings": []
+}

@@ -1,0 +1,142 @@
+{
+  "status": "completed",
+  "host_task": "/root/independent_domain_b",
+  "role": "reviewer",
+  "slot_id": "domain-1",
+  "scope": "full-report domain only",
+  "input_version": "d49c3ce9104cc63e7832524cae63752853080491d4da8a045072f0dfff369a97",
+  "assignment_version": "a0ea9786257c2228a3619acc0eee068c3c7243e484d9aa3ca3a8b1382ac628fe",
+  "artifact_sha256": "4645728a2c1f4b18f13c8c42839d3610b4ec0ebdad5596efa38adc2983417f3c",
+  "completed_at": "2026-11-09T14:25:20.7259140Z",
+  "actual_reading": "Complete current 288-line report/task/effective requirements and instructions; all U1–U4, not a U1-only assessment. Local original relevant sections and raw registries, plus directly retrieved web originals as itemized. Reused my completed U1 Figure2/registry/all-four-page Reporting Summary checks with unchanged substantive material. AIDD06 pp3–4, AIDD08 printedp12, AIDD04 training/prospective screen/mechanism/animal methods, S11–13 clinical designs and denominators, S14 screen/barrier/mouse result, S20 stop result,S24 repurposing proposal,S25 FDA stage; R03W/R04/R05/R06 design/status/participant details. Full current calculations.py and calculations-results-revision-01.json read without execution. Web text was checked as original text, not attributed to an author summary or a successful local PDF visual review.",
+  "checks": "已通读当前完整288行稿、任务与有效要求，从药物研发、临床试验、转化和研发合作经济机制核查全部U1–U4；此前U1局部通过没有用来替代全文评估。复用本人已实际看过的rentosertib原始Figure2、注册结果和完整4页Reporting Summary：观察病例10/14的98.4/−20.3及组内区间，与随机18/17经ANCOVA/MAR插补89.2/−8.2及组内区间分开；118.7与97.4均仅为两点估计相减，未冒充已报告组间CI。8/18和3/17是缺失终点而非简单停药率；12周探索性小样本不推出死亡/急性加重或确证长期疗效。口服III期在招募与吸入IND独立开发阶段保持区分。\n新增全文核查显示halicin的2335去重训练样本、120抑制命中、99高评分/63低评分实验、ZINC107m筛选与23实测/8对至少一菌有效均保留各自分母，未将发现既有SU3327写成从零生成；无Pseudomonas活性、体外耐药观察窗口、感染小鼠局部用药及C.difficile未成功定植3只排除均限制转化推论。baricitinib知识图谱提名与人工药理/安全筛选分开，ACTT-2的1033随机、COV-BARRIER的1525随机和RECOVERY开放标签设计及不同背景治疗没有混成同一试验；批准证明适应证疗效，不证明AI发现过程的反事实收益。\nDSP技术原文pp3–4确有约两周一次的批次反馈、功能活性与亲和力不一致后的策略调整、人工类似物加入、候选提名时钟排除安全评价及临床后终止；但正文105行把350个化合物变成数百次迭代，见唯一必要发现。EXS21546的A2A/血液pCREB/CD8靶点结合读出未被用作临床有效证据；163个设计候选/九个月不含后续整个开发期，2023终止因治疗指数及实际六例注册记录保留。Evotec原合作权益、共享部分临床前工作和退出后的权益缩减未偷换成完整候选自有或临床成功。\nREC-994原始细胞screen2100、人工对照不同、屏障与小鼠p=.052的边界，以及随机研究后开放延长期无MRI/临床功能改善而终止，未因安全终点或细胞表型修复而判为疾病治疗有效。REC-4881的TAK733既有人体开发与Takeda许可来源保留；2026 TUPELO的26安全集=5Ib+21II、16疗效可评估、13周15例和25周13例不混。实际从原域CGA PDF页6检索到完整脚注：21例中3例缺基线后内镜、2例暴露不足75%；另核原域earnings页21–22的基线校正与切除息肉负荷加回条件。无对照/选择分析、两名尚无25周数据与一名13周后退出、治疗相关不良事件的26分母、自然史年龄/观察时间差异均在解释中，未推成降低癌症或手术风险的临床证实。\n合作条款按已收到款项、选择权/里程碑上限、研究工作、平台知识产权、候选开发控制权分开核查：Sanofi SEC合同的选定后开发/费用责任和平台保留权，2026两项选择与144m累计款不能当作候选已进入I期或产品销售；Roche 2021签约后2022实收150m、地图/项目选择权及后续Genentech验证靶点到hit的阶段不充当临床收入。AI临床队列21/24与4/10及Wilson区间来自已披露、已达到阶段判断的选择样本，正文保留广义AI标签、非互斥类别、删失及无匹配反事实，不用作平台确定性胜率。完整阅读当前计算代码与修订后保存结果，未重新运行。除DSP迭代次数表述外，未发现领域范围内其它必要修订。",
+  "reused_execution": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-U1-complete-reviews\\domain-1\\execution.json",
+  "file_versions": [
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\calculations-results-revision-01.json",
+      "sha256": "1a65c6c472697985ea78a119bdf5c8aecda2fce9eafe0cc9a27d3c19554569b6"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\calculations.py",
+      "sha256": "2a0085cbd6c390c0e61d4e55914d0c9c9ce10f98c74e1f4f6c19fd3784f8c6d2"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-R03W\\original.txt",
+      "sha256": "fe6405ddd6185dba4713a09014245fe9dc6fd617b412197f0f49181323b6cf5b"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-R04\\original.txt",
+      "sha256": "dab047cd470e92fac0b9a6f4492514df1ff7b693a90986e5b0ae33460e626dfb"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-R05\\original.txt",
+      "sha256": "c23e5de655ae8d70cdcd6af2257b2f3686ca5012a8e1375cc0dc9a3e64a40658"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-R06\\original.txt",
+      "sha256": "b2ad4270350775f8436193c704a2358a91d3ef2cdcf59203582167b8169e2d05"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S11\\reading-lines.txt",
+      "sha256": "cdbfea8b704cbd992278b3bd3eaf664f5ea2ed340e335ef477ad3d226cf45202"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S12\\reading-lines.txt",
+      "sha256": "c8233ca286b842e2ba23adb739c1559ff33f33deeeec38b22165f264574f0326"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S13\\reading-lines.txt",
+      "sha256": "97e09110612d1c09063f91bb05165afbee171e353ebef0a0ff7bfb6ad4dffd2e"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S14\\reading-lines.txt",
+      "sha256": "36b62817daa8663a1decc66e9af191cfb21b21f5d6040cc1ea5ada72676878d6"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S20\\reading-lines.txt",
+      "sha256": "aff6c0b83f624d99f1d121763e56dd55a7279e8c236cb31de87f462eea6685d3"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S24\\reading-lines.txt",
+      "sha256": "36049decc09c337d02acc86b200c133257381b917a61ff632df773fa75cf9e70"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S25\\reading-lines.txt",
+      "sha256": "a0224552ed361d1f94b9d76b40d33c1ba92f0812a69760a4111c9047e35b5aa5"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\AIDD03\\original.txt",
+      "sha256": "9a0f2122095c201a49d388125abccdada910c5fef9ace9f64e58c30d20a48fa5"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\AIDD04\\original.txt",
+      "sha256": "8e9db2ebc000abd7c65dd8e14db1e1a9ab40b79298d8d19b44d27334d7193108"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\AIDD05\\original.txt",
+      "sha256": "0656eec0d3c2315fbf240d39cc9b6c3bbb8e315b6ab2b8455cc4fa378cbd0c35"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\AIDD06\\original.txt",
+      "sha256": "3985f4866d96d0ad5d0f0ee82551934080779d815cef5444ebb9c64f1ff8782d"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\AIDD08\\original.txt",
+      "sha256": "6b10e86af82ca27f035054f4b07124b2bee3133d55a293a98cd821141406ac86"
+    },
+    {
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en\\reviews\\host\\d49c3ce9104cc63e7832\\jobs\\domain-1-a0ea9786257c2228.json",
+      "sha256": "32c0091e59588e1c891ba6847b8b95db3865473c908e2ef6185fc595571fa591"
+    }
+  ],
+  "web_originals": [
+    {
+      "source": "WEB-R4881CGA",
+      "actual_scope": "Original-domain indexed PDF text: mechanism/design/demographic relevant pages; p6 complete design and footnote1 personally retrieved through site:ir.recursion.com REC-4881 75% three two query. This is actual original-page parsed text, not local visual inspection. Direct PDF open/download failed.",
+      "url": "https://ir.recursion.com/static-files/e3eb390d-76f3-4899-bb92-922eaaaf3c30"
+    },
+    {
+      "source": "WEB-R4881EARN",
+      "actual_scope": "Original-domain indexed PDF text pp21–22 baseline correction, n15/n13, excised burden added back; additional p16 complete footnotes personally retrieved. No claim to local full-PDF visual review.",
+      "url": "https://ir.recursion.com/static-files/644d572d-a9f8-430a-9412-559e361c3dd5"
+    },
+    {
+      "actual_scope": "SEC original annual reports: 9 months/163 compounds; Aptuit preclinical cost scope; Evotec opt-out/equity economics; October2023 EXS21546 therapeutic-index termination.",
+      "source": "WEB-EXAI2022/2023"
+    },
+    {
+      "actual_scope": "SEC original annual-report Takeda in-license paragraphs: 1.5m upfront, conditional39.5m, low single digit royalties and retained nonclinical rights; prior TAK733 origin.",
+      "source": "WEB-RXRX2025"
+    },
+    {
+      "source": "WEB-EVOTEC",
+      "actual_scope": "Original biomarker page relevant pCREB/CD8 whole-blood target-engagement explanation.",
+      "url": "https://www.evotec.com/sciencepool/translational-biomarkers-in-oncology"
+    },
+    {
+      "actual_scope": "November2026 original issuer release:13/15,47%,11/13,26 safety denominator,4 grade3/no grade4–5,4 discontinuations and planned2027H2 update.",
+      "source": "WEB-R4881PR"
+    },
+    {
+      "actual_scope": "Author-uploaded Jayatunga2024 paper original methods/results passages:75/67 cohort,21/24 PhaseI and4/10 PhaseII, excluded COVID and broad/nonexclusive AI labels.",
+      "source": "WEB-AICOHORT"
+    },
+    {
+      "source": "WEB-SANOFICONTRACT",
+      "actual_scope": "Original agreement candidate selection/handoff §5; development/cost/mfg obligations §6; licenses/platform ownership and restricted research data §8; JSC unanimity/bounded final decision.",
+      "url": "https://www.sec.gov/Archives/edgar/data/1865408/000186540822000005/exscientia-sanoficollabora.htm"
+    },
+    {
+      "actual_scope": "October15,2026 original release:two undisclosed oral programs,10m payment,total144m cash receipts,Sanofi funded/led PhaseI planned2027.",
+      "source": "WEB-SANOFIOPTION"
+    },
+    {
+      "actual_scope": "Original SEC2021 partnership/subsequent-events clauses:150m signing payment receivedJanuary2022,16 maps/up to12 outside-program options/up to40 small-molecule programs with contingent milestones; original Genentech update validation-to-hit stage.",
+      "source": "WEB-ROCHE2021/WEB-ROCHERECEIPT/WEB-GENENTECH"
+    }
+  ],
+  "api_calls": 0,
+  "research_rerun": false,
+  "report_edited": false,
+  "imported": false
+}

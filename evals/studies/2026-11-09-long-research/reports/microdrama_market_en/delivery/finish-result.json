@@ -1,0 +1,48 @@
+{
+  "completed": true,
+  "artifact": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\microdrama_market_en\\reports\\current.md",
+  "delivery_check": {
+    "ok": true,
+    "delivery_contract_version": 3,
+    "current_contract_checked": true,
+    "semantic_verification": false,
+    "review_completion": {
+      "ok": true,
+      "flags": [],
+      "findings": [],
+      "required_slots": 10,
+      "completed_slots": 10,
+      "selected_attempts": {
+        "natural_expression": "53bae97c0d2148f6977b2ca389538047",
+        "domain-1": "c800ace3aac64fd08848c723ad5e04e7",
+        "process_language": "45460453d67d4e5fb0624e4b8ac8e705",
+        "requirements": "a907dfead0fe4c17af0f155150ab5dac",
+        "structure_and_depth": "69c45df6e9214e58a7f526355aa07cd4",
+        "adversarial_reasoning": "15e14a456aed4bbab09f8f63ce0b0976",
+        "reader_usefulness": "1a1fa7a77d0940a1aa72d36dabd60dd8",
+        "evidence": "8ee800b22c0e4a0f88003bda6f7c25f0",
+        "audit": "39470ba76fd24712a2e1804c4f465317",
+        "acceptance": "d1144977ba9c4fd7a4365244dbb970c4"
+      },
+      "independent_review": true,
+      "record_consistency_checked": true,
+      "reviewer": "independent",
+      "review_strength": "independent"
+    },
+    "flags": [],
+    "findings": [],
+    "completion_claim": false,
+    "terminal_state": true,
+    "stage": "final",
+    "status": "complete",
+    "accepted_limitations": [],
+    "limitation_disclosure": {
+      "status": "not_applicable",
+      "unmatched_limitations": [],
+      "semantic_verification": false
+    },
+    "warnings": [],
+    "delivery_observation": "not_provided"
+  },
+  "message": "The complete research report, source index, calculations, first manuscript and original independent findings are retained. The change notes identify the substantive revisions."
+}

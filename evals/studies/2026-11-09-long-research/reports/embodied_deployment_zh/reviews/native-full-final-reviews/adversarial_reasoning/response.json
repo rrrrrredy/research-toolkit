@@ -1,0 +1,12 @@
+{
+  "input_version": "bfaf0a302d2abff490f9591d9eb58c381fabd2f85474084af07315f1233e9297",
+  "assignment_version": "28ad4f377023629ba560a6974dcd3bdf7b923d21cf4d3ec3ea76a151e182984b",
+  "report_verdict": "pass",
+  "coverage": {
+    "adversarial_reasoning": {
+      "location": "复用本人先前完整正文审阅（初始记录 native-full-reviews/adversarial_reasoning）；当前稿共 282 行，完整 diff 及上下文当前行号 [[279, 282]]。",
+      "basis": "唯一差异删除末尾生产作者和独立审查状态。论文能力、任务成功、厂商部署口径、累计工时与利用率分母、整套系统和 AI 单项归因、情景 ROI 的全部实质内容与本人已审稿相同。原有缺失分母不补造、需求及产能约束先于单位成本推论的边界未变，无需重读原件或复跑计算。"
+    }
+  },
+  "findings": []
+}

@@ -1,0 +1,36 @@
+{
+  "input_version": "e4cabf49ef9396bd0f19ec26299d841c5af09f93a3777363feca6c542191615f",
+  "assignment_version": "bb9d04b21971a07f55f3f997db2af44e60cbb8d27ff21a52a72336df15b51a6c",
+  "result": "valid",
+  "basis": "独立阅读全文210行、任务和当前8份原始回复与执行，核对24项引用哈希、4项生产记录和唯一修订全文diff。8个审阅上下文与作者不同；各原上下文复用已完成全文阅读并核对唯一Smart+版本措辞变更具有实质依据。审计另查归因、全域协议、匹配、财报扫描页、区域原件和假设算例，未以评审票数代替内容判断。",
+  "review_checks": {
+    "requirements": {"result":"valid","basis":"独立任务覆盖审阅保留完整初稿阅读并检查唯一修订；报告含机制图、反馈图、阶段和国内外比较，全文范围吻合。"},
+    "evidence": {"result":"valid","basis":"原执行记录明确全文范围、22项原件及财报图像；本审计自行核对重要归因和财报数字支持其通过判断。"},
+    "adversarial_reasoning": {"result":"valid","basis":"独立全文基线及修订确认；自然订单、退款和反事实基线没有被广告归因替代。"},
+    "structure_and_depth": {"result":"valid","basis":"完整基线阅读与版本差异检查；资金口径到数据再到经营及区域条件的论证连续。"},
+    "reader_usefulness": {"result":"valid","basis":"本人全文1–211范围含末尾空行，修订90–96；具体广告主选择条件完整，未冒充额外事实审计。"},
+    "process_language": {"result":"valid","basis":"原negative及执行已读；同一process_remaining_b上下文真实指出第93行取材过程，后续确认实质删除，未抹除首个negative。"},
+    "natural_expression": {"result":"valid","basis":"独立全文表达阅读及全diff确认，未改变专业条件，职责范围清楚。"},
+    "domain-1": {"result":"valid","basis":"独立领域上下文有全文、产品原件、法律页、财报图和已有算例阅读；唯一版本变更确认未扩张Smart+可用性，当前引用匹配。"}
+  },
+  "dispositions": {},
+  "prior_findings": {
+    "273fe69a6ca94d4aad0c242ab36fbe34/process_language-01": {"decision":"resolved","reason":"原取材操作叙述改为产品版本与按账户开放的直接说明。","evidence":"历史原始response/execution及旧job与当前报告全diff；当前第93行采用2026年10月正文版本，BDA-W01原文L5–8相符。"}
+  },
+  "finding_adjudications": [
+    {"finding_key":"273fe69a6ca94d4aad0c242ab36fbe34/process_language-01","decision":"resolved","reason":"唯一修订解决原必改发现；首评有效且保留。","evidence":"reports/current.md:93；原始Smart+ October 2026及按账户可用条件。"}
+  ],
+  "critical_checks": [
+    {"requirement_id":"R_TASK","location":"全文1–210，机制50–77、归因99–161、市场163–193、决策195–210","evidence":"推荐披露BDA06与Monolith摘要并不能推出全栈内部公式，稿件明确分开；BDA03 4.2/4.3/4.4/6.1和R03/R08明确不同归因口径；已有算例保留退款、佣金和自然基线。UK法人及印尼条件没有全球化。","result":"clear"},
+    {"requirement_id":"R_LANGUAGE","location":"中文全文及两图、时间线、产品和市场表","evidence":"实读全文，解释连贯；同ROAS场景给出现金贡献差异，广告主选择具有明确目标和扩停依据；无未替换提纲或审阅状态。","result":"clear"},
+    {"requirement_id":"R_DATE","location":"时间线、Smart+第93行、GMV Max第128行、区域和财报段","evidence":"原产品资料分别为2024-06-14、2025归因及2026-06/10版本；2024-01-31交易与02-01页面日期分开；2025法人财报没有等同于2026全球经营。截止日边界未见被突破。","result":"clear"}
+  ],
+  "sample_checks": [
+    {"location":"归因和反馈99–128","selection_reason":"独立抽查全部通过后最容易夸大广告效果的跨产品分母。","evidence":"R03 L8–28纳入自然成交且3天示例有不一致，报告明确不自行补规则；R08 L7–53 Shop ID、7天点击/1天浏览、点击优先；R05 L6–22去重与R06 L9–16匹配键不同，报告未混用。BDA03 6.1其他投放成交计入而费用不计入亦已交代。","result":"clear"},
+    {"location":"经营算例136–159","selection_reason":"验证数值而非仅信任算例存在。","evidence":"完整阅读既有calculate_scenarios.py及calculations.json，未执行。保留收入9万/7万，贡献17500/-500，自然基线11850/12900，增量5650/-13400；边际-200及复购940相符。随机两组1pp/25%区别及近似区间0.4255–1.5745保留假设。","result":"clear"},
+    {"location":"区域、增长和收入163–193","selection_reason":"抽查已通过的原始财报及非因果增长案例。","evidence":"实际view_image读取BDA-A02 page3/page26/page41：9192.3/6310.3百万美元、营业451.9/-484.6、4.9%，note5不披露业务/地理分项，递延税影响单列。R19原件p2–3营销收缩9318.67万元和收入13258.52万元并有其他收益；R13 footnote125%仅参与者对2023-09。稿件口径一致。","result":"clear"},
+    {"location":"印尼及美国职责边界","selection_reason":"防止国内闭环直接外推海外。","evidence":"A01原PDF抽取p12–13第19、21(3)分别是特定跨境货物最低价和social-commerce自有系统支付；R13交易完成仍有迁移期；R12 L12–20区分USDS内容/数据及global US entities商业活动，稿件未宣称广告全栈完成迁移。","result":"clear"}
+  ],
+  "report_verdict": "pass",
+  "open_issues": []
+}

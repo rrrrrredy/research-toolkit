@@ -1,0 +1,559 @@
+{
+  "host_task": "/root/benchmark_audit_complete",
+  "status": "completed",
+  "role": "audit",
+  "slot_id": "audit",
+  "scope": "full_report",
+  "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+  "assignment_version": "7cd2a8a691916c1ffb6bad023b5e57f633babeb67833532d95828fce0de904de",
+  "artifact_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+  "started_at_utc": "2026-11-09 17:24:37 UTC",
+  "formal_current_assignment_reading_started_at_utc": "2026-11-09 17:28:11 UTC",
+  "completed_at_utc": "2026-11-09 17:35:00 UTC",
+  "job_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/reviews/host/f09f3163d0ce7117bf0d/jobs/audit-7cd2a8a691916c1f.json",
+  "assessment_mode": "Continue the same independent audit after the authorized reference-label revision; reuse actual unchanged full-report and primary-source reading.",
+  "retained_audit": {
+    "response_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/native-current-audit-reviews-before-reference-labels/audit/response.json",
+    "execution_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/native-current-audit-reviews-before-reference-labels/audit/execution.json",
+    "input_version": "acead416ff0bcb116622c8b85f8ad1efb6c90157ecedc89e3fefeff9eb3a8044",
+    "assignment_version": "9e8d7d0bcb498a4dfac10398242019584d42fced336ceef81524ac1992e0a7f0",
+    "artifact_sha256": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea",
+    "started_at_utc": "2026-11-09 16:17:54 UTC",
+    "completed_at_utc": "2026-11-09 16:25:48 UTC",
+    "report_reading": {
+      "path": "reports/current.md",
+      "ranges": [
+        [
+          1,
+          130
+        ],
+        [
+          131,
+          260
+        ],
+        [
+          261,
+          359
+        ]
+      ],
+      "complete": true,
+      "trailing_blank_line": 359
+    },
+    "sources_and_ranges": [
+      {
+        "path": "sources/actual/TTC009.txt",
+        "range": "104–118;220–235;280–303"
+      },
+      {
+        "path": "sources/actual/TTC010.txt",
+        "range": "103–151;211–224; original.html15.9→56matches245/290/305/378"
+      },
+      {
+        "path": "sources/actual/TTC003v2.txt",
+        "range": "620–674;704–723;2750–2788"
+      },
+      {
+        "path": "sources/actual/TTC013.txt",
+        "range": "186–208;210–293"
+      },
+      {
+        "path": "sources/actual/TTC012.txt",
+        "range": "113–141;369–389;116–118 separately recovered after output truncation"
+      },
+      {
+        "path": "sources/TTC001/original.txt",
+        "range": "100–107;115–125;140–174"
+      },
+      {
+        "path": "sources/TTC002/original.txt",
+        "range": "matched full passages103,110,111,114,123,125,127,133,136,140,160,247"
+      },
+      {
+        "path": "sources/actual/TTC011.txt",
+        "range": "177–198"
+      },
+      {
+        "path": "sources/actual/SUP-SELF.txt",
+        "range": "94–98;120–170"
+      },
+      {
+        "path": "sources/actual/SUP-AC.txt",
+        "range": "90–124;304–325;430–446; savings/threshold matches29–30,77,155,191,222,370"
+      },
+      {
+        "path": "sources/actual/SUP-CM.txt",
+        "range": "97–121;180–196;224–233"
+      },
+      {
+        "path": "sources/actual/SUP-TREE.txt",
+        "range": "162–178;196–227;253–264"
+      },
+      {
+        "path": "sources/actual/SUP-TAU.txt",
+        "range": "129–133;164–184;229–233; directly read this copy after whole-copy hash differed from MB extraction"
+      },
+      {
+        "path": "sources/actual/SUP-LIMITS.txt",
+        "range": "matched53–73,127–128;continuous238–249"
+      },
+      {
+        "path": "sources/TTC005/original.txt",
+        "range": "248–264;728–740;789–854;875–893;28-target matches742/747"
+      },
+      {
+        "path": "sources/TTC005/retrieval.json",
+        "range": "complete"
+      },
+      {
+        "path": "sources/TTC007/original.txt",
+        "range": "134–159;400–406;858–870;1045–1054;1197–1206;70.5Bmatches72/429"
+      },
+      {
+        "path": "sources/TTC008/original.txt",
+        "range": "257–280;296–310;390–413"
+      },
+      {
+        "path": "sources/TTC006/original.txt",
+        "range": "284–360;390–470;846–872"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/TTC006/pages/p-03.png",
+        "range": "complete image"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/TTC006/pages/p-04.png",
+        "range": "complete image"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/sources/TTC006/pages/p-05.png",
+        "range": "complete image"
+      },
+      {
+        "path": "analysis/author-production/allocation_example.py",
+        "range": "complete;read only"
+      },
+      {
+        "path": "analysis/author-production/allocation-results.json",
+        "range": "complete12budget/12deadline rows,assumptions,historical arithmetic"
+      },
+      {
+        "path": "analysis/author-production/calculation-record.json",
+        "range": "complete"
+      },
+      {
+        "path": "analysis/author-production/change-note-full-01.md",
+        "range": "complete diff;80–99 separately recovered"
+      },
+      {
+        "path": "analysis/U1-evidence-protocol.md",
+        "range": "85–99 continuous plus52/109/128matches"
+      },
+      {
+        "path": "analysis/author-production/U7-U8-budget-and-design.md",
+        "range": "31–41 continuous;85match"
+      },
+      {
+        "path": "analysis/author-production/U2-U6-mechanisms-and-evidence.md",
+        "range": "matched19–23,37,39,41,53"
+      }
+    ],
+    "earlier_raw_reviews": [
+      "native-full-reviews/adversarial_reasoning/response.json",
+      "native-full-current-reviews/structure_and_depth/response.json",
+      "native-full-reviews/domain-1/response.json",
+      "original retained natural_expression and reader_usefulness negatives referenced by current prior_required_findings"
+    ],
+    "original_files_preserved": true,
+    "attribution": "These are this auditor's actual earlier reading and checks, reused after comparison. They were not newly reread or rerun during this continuation."
+  },
+  "actual_reading": {
+    "assignment": "Current instructions in full, sampling, task/effective requirement summaries, scope decisions, three prior necessary findings, revision context, production history/current fifth save, research-output identity and report/version bindings. Requirement status/evidence metadata was not treated as substantive proof.",
+    "prior_audit": "Retained response basis, critical/sample checks and prior dispositions; retained execution identity, whole-report ranges, original source/calculation/visual ranges, original negative-review references and limitations.",
+    "revision": {
+      "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/codex-production/reference-labels-v2.diff",
+      "sha256": "294911586b32f5564511367bcc23574c6ced5813103adec187629a4f7a59e9cd",
+      "line_count": 300,
+      "hunks": 8,
+      "complete": true,
+      "read_ranges": [
+        [
+          1,
+          25
+        ],
+        [
+          26,
+          50
+        ],
+        [
+          51,
+          75
+        ],
+        [
+          76,
+          100
+        ],
+        [
+          101,
+          125
+        ],
+        [
+          126,
+          150
+        ],
+        [
+          151,
+          175
+        ],
+        [
+          176,
+          200
+        ],
+        [
+          201,
+          225
+        ],
+        [
+          226,
+          250
+        ],
+        [
+          251,
+          275
+        ],
+        [
+          276,
+          300
+        ]
+      ],
+      "notes": "All300 actual diff lines read, including full context. Initial larger output truncation was recovered with bounded ranges. Current complete report coverage combines prior full reading with all actual changes; no new full reread claimed.",
+      "current_context_reread": [
+        "250–295 continuous",
+        "133",
+        "146",
+        "195",
+        "295",
+        "327"
+      ]
+    },
+    "reviews": {
+      "original_raw_responses": "All eight complete raw originals in the current audit job read. Each matches its imported response after LF normalization.",
+      "execution_fields": "Inspected actual executor, completion, input/assignment/report versions and actual prior/current reading records; recovered process_language execution separately after combined display truncation.",
+      "records": [
+        {
+          "slot": "requirements",
+          "record": {
+            "attempt_id": "8d2a6892b5e14572ab6b495427a88bc0",
+            "execution_id": "/root/complete_requirements_b",
+            "input": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/requirements-6af7c967315285b5.json",
+              "sha256": "2b3861e8944f1557e934e84fcd3276b89a86f5d31348e5932c28cef2f144cc4d"
+            },
+            "response": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/8d2a6892b5e14572/response.txt",
+              "sha256": "d2f481c7ec88ce7048c217bf2c6aef6074ba96951d1be2565dca2584cc771cd3"
+            },
+            "execution": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/8d2a6892b5e14572/execution.json",
+              "sha256": "a7015c35fd714906e422ee1c318162e3da243b4b0fcfd428888980ab6fe4c8e4"
+            }
+          },
+          "host_task": "/root/complete_requirements_b",
+          "status": "completed",
+          "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+          "assignment_version": "6af7c967315285b5faf3512d0ed85f4e36c6ce5801f199dba379a5c0e0abf541",
+          "input_hash_match": true,
+          "response_hash_match": true,
+          "execution_hash_match": true,
+          "version_match": true,
+          "report_match": true,
+          "original_matches_response": false,
+          "original_matches_response_lf": true
+        },
+        {
+          "slot": "evidence",
+          "record": {
+            "attempt_id": "034f0991a52b4930ab41b2847cf2c0d7",
+            "execution_id": "/root/independent_reviews_a",
+            "input": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/evidence-1047cea73b78135b.json",
+              "sha256": "2576684461d26b1850e273506e0c6ca81ec883c8b1fb044cca11b2d1990676a8"
+            },
+            "response": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/034f0991a52b4930/response.txt",
+              "sha256": "0e9345e358319f70be1a83f48b544db6514a62b5c3e13ad77238944d96fd2e78"
+            },
+            "execution": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/034f0991a52b4930/execution.json",
+              "sha256": "b70b24642c75b5947e791fe5f6a9e7ab6b6f9e24213417829c348ad8a8eaedfa"
+            }
+          },
+          "host_task": "/root/independent_reviews_a",
+          "status": "completed",
+          "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+          "assignment_version": "1047cea73b78135b2746d14756af17fcaa95e0765db2baf9cdba7b2b527f3dc9",
+          "input_hash_match": true,
+          "response_hash_match": true,
+          "execution_hash_match": true,
+          "version_match": true,
+          "report_match": true,
+          "original_matches_response": false,
+          "original_matches_response_lf": true
+        },
+        {
+          "slot": "adversarial_reasoning",
+          "record": {
+            "attempt_id": "d7e95e9f2bac4734b260c8781ba74e1b",
+            "execution_id": "/root/benchmark_adversarial",
+            "input": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/adversarial_reasoning-aa1ff321d957a1ca.json",
+              "sha256": "91559e9bbf87514bed05b2c89342a29e1fd74e82b0d8588e23f825f26096dc32"
+            },
+            "response": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/d7e95e9f2bac4734/response.txt",
+              "sha256": "86cefab4c185ba59051779fa3f8139d02f643ac161585b22f29331bbf98c7095"
+            },
+            "execution": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/d7e95e9f2bac4734/execution.json",
+              "sha256": "97805d117fcaf9b92c8e2f6968ae21e06513c4e6f41bf7ccdbfb5e103bc9dc90"
+            }
+          },
+          "host_task": "/root/benchmark_adversarial",
+          "status": "completed",
+          "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+          "assignment_version": "aa1ff321d957a1ca1b0e9949a298eb8da6218533ce830c9520089e085391c9b3",
+          "input_hash_match": true,
+          "response_hash_match": true,
+          "execution_hash_match": true,
+          "version_match": true,
+          "report_match": true,
+          "original_matches_response": false,
+          "original_matches_response_lf": true
+        },
+        {
+          "slot": "structure_and_depth",
+          "record": {
+            "attempt_id": "9145e850a09d4b6fb67edec8ba313d81",
+            "execution_id": "/root/structure_remaining_b",
+            "input": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/structure_and_depth-35dc2e62c162868a.json",
+              "sha256": "e93b399f0514726dbb15622efdb4878b631f1da96bef72a30ae00607150d53b0"
+            },
+            "response": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/9145e850a09d4b6f/response.txt",
+              "sha256": "f11540a4e25d7e39266835e815f9148a0775670072cc9c84a6b8ed8f22531aff"
+            },
+            "execution": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/9145e850a09d4b6f/execution.json",
+              "sha256": "537879ad2a5e94fb565e1c0a4b396411a338638a12e93bf840bb9494b60b102c"
+            }
+          },
+          "host_task": "/root/structure_remaining_b",
+          "status": "completed",
+          "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+          "assignment_version": "35dc2e62c162868ab76cd736f0ebfe98d027455c12f6225f8671e0cd0518c754",
+          "input_hash_match": true,
+          "response_hash_match": true,
+          "execution_hash_match": true,
+          "version_match": true,
+          "report_match": true,
+          "original_matches_response": false,
+          "original_matches_response_lf": true
+        },
+        {
+          "slot": "reader_usefulness",
+          "record": {
+            "attempt_id": "682aa1809105466a8bbccc78c18a443a",
+            "execution_id": "/root/benchmark_reader_a",
+            "input": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/reader_usefulness-6d457f6b60cd9b85.json",
+              "sha256": "0ed18bafc5e115b4c5edd5406302f6eae819c4dc1f2c4432235a4074a26c4a4e"
+            },
+            "response": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/682aa1809105466a/response.txt",
+              "sha256": "c129849fa1b7d35fcb23f81c85fd9a74d1d1a6a885ef3e2df192ab75cad684f9"
+            },
+            "execution": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/682aa1809105466a/execution.json",
+              "sha256": "fe0e8e31afb902da2e3b1ca47787a2e570db3c2d9e45a2657156d7605785984d"
+            }
+          },
+          "host_task": "/root/benchmark_reader_a",
+          "status": "completed",
+          "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+          "assignment_version": "6d457f6b60cd9b85bc8917296bd0d16903bfaf77f8f20d4fa5dc4fb8f598b67b",
+          "input_hash_match": true,
+          "response_hash_match": true,
+          "execution_hash_match": true,
+          "version_match": true,
+          "report_match": true,
+          "original_matches_response": true,
+          "original_matches_response_lf": true
+        },
+        {
+          "slot": "process_language",
+          "record": {
+            "attempt_id": "9060f6f0441841a9ba57fa071acf7ab9",
+            "execution_id": "/root/process_remaining_b",
+            "input": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/process_language-28e37a728472ba80.json",
+              "sha256": "7b0d18ff603149abe66c562606b4a6d89cf13be6489fc82344e6d7507777fff3"
+            },
+            "response": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/9060f6f0441841a9/response.txt",
+              "sha256": "9e8fd6a2acfba177abd910ada67e3a3f331a32093bf9f32b04ece303787368d5"
+            },
+            "execution": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/9060f6f0441841a9/execution.json",
+              "sha256": "a1447481285fc34b62b2f1189d54bf85cc57066b6a2296c8bb5a5c6d89f1ffbd"
+            }
+          },
+          "host_task": "/root/process_remaining_b",
+          "status": "completed",
+          "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+          "assignment_version": "28e37a728472ba805f64e1cefcac289b9f1737128f8892d8aef524ddc5b2dec1",
+          "input_hash_match": true,
+          "response_hash_match": true,
+          "execution_hash_match": true,
+          "version_match": true,
+          "report_match": true,
+          "original_matches_response": false,
+          "original_matches_response_lf": true
+        },
+        {
+          "slot": "natural_expression",
+          "record": {
+            "attempt_id": "765481b2a8964701a349366a7201631e",
+            "execution_id": "/root/benchmark_natural_expression",
+            "input": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/natural_expression-118b0de64e93be90.json",
+              "sha256": "720039a25b4214217b9b242bc6a94e5aab43dd0a3397cff6d86debc40ffaf670"
+            },
+            "response": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/765481b2a8964701/response.txt",
+              "sha256": "aeb10c2b4ae3b8ca2e98d7a5d67763ee155061bb0c5675feae4029b9bb95f061"
+            },
+            "execution": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/765481b2a8964701/execution.json",
+              "sha256": "40e7b7112e95ca777cf4dc391340a6ae1ac186414d5d5941304b94329006e5c8"
+            }
+          },
+          "host_task": "/root/benchmark_natural_expression",
+          "status": "completed",
+          "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+          "assignment_version": "118b0de64e93be903c52ec21c9e088ed894ff802d557c5d0d4958c211fcd874f",
+          "input_hash_match": true,
+          "response_hash_match": true,
+          "execution_hash_match": true,
+          "version_match": true,
+          "report_match": true,
+          "original_matches_response": false,
+          "original_matches_response_lf": true
+        },
+        {
+          "slot": "domain-1",
+          "record": {
+            "attempt_id": "c6f0f751aeb143c898a2c0dad8db6ea1",
+            "execution_id": "/root/independent_domain_b",
+            "input": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/jobs/domain-1-b41a325df0ad9712.json",
+              "sha256": "0851608328d24f3161892605846edc6f31af98602d5456235e8ae29490b2b240"
+            },
+            "response": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/c6f0f751aeb143c8/response.txt",
+              "sha256": "be2ad438acc270947ee0c82d9f48feb6a85090cffb92b298a2e08a2aeb36d6be"
+            },
+            "execution": {
+              "path": "reviews/host/f09f3163d0ce7117bf0d/results/c6f0f751aeb143c8/execution.json",
+              "sha256": "15497ca500a978a560e217a5e2bd0220542fe2497ae3516a8ed4d43990a9a851"
+            }
+          },
+          "host_task": "/root/independent_domain_b",
+          "status": "completed",
+          "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+          "assignment_version": "b41a325df0ad97129c62c667a667b69bdc58665dc2b8ba5b9fe46e70ce8b7afa",
+          "input_hash_match": true,
+          "response_hash_match": true,
+          "execution_hash_match": true,
+          "version_match": true,
+          "report_match": true,
+          "original_matches_response": false,
+          "original_matches_response_lf": true
+        }
+      ]
+    },
+    "u1_replacement": {
+      "prepared_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/native-U1-independent-replacement-prepared.json",
+      "response_execution_paths": [
+        "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/native-U1-independent-replacement-reviews/evidence/response.json",
+        "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/native-U1-independent-replacement-reviews/evidence/execution.json",
+        "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/native-U1-independent-replacement-reviews/domain-1/response.json",
+        "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/native-U1-independent-replacement-reviews/domain-1/execution.json"
+      ],
+      "imported_records": [
+        {
+          "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_en\\reviews\\host\\677e8b6adda927740866\\results\\3ec4f74905b04622",
+          "host_task": "/root/domain_and_audit",
+          "status": "completed",
+          "input_version": "677e8b6adda927740866f0126d0f8b7eb1a99359b146ce0e496a67e18d283f3e",
+          "assignment_version": "7593f27b250b5ed85d2b880392510275ae29e449f56b6fcf7fb74e12bb5db33c",
+          "artifact_sha256": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+          "report_verdict": "pass",
+          "findings": []
+        },
+        {
+          "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\test_time_compute_en\\reviews\\host\\677e8b6adda927740866\\results\\8e4c135d4dda4814",
+          "host_task": "/root/independent_reviews_a",
+          "status": "completed",
+          "input_version": "677e8b6adda927740866f0126d0f8b7eb1a99359b146ce0e496a67e18d283f3e",
+          "assignment_version": "7997e8d2c0aa0244ab532ab204964b85fd667c4dca5a75b38ecfe7b45a5a0b64",
+          "artifact_sha256": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f",
+          "report_verdict": "pass",
+          "findings": [
+            {
+              "finding_id": "TTCEN-U1-EV-01",
+              "severity": "optional",
+              "location": "analysis/U1-evidence-protocol.md, TTC008 paragraph listing success for N=1,4,8,16",
+              "basis": "The retained calculation-record.json gives N=8 selected_success as 0.6300557487551233, while the prose displays .6300. If the displayed values are intended to be rounded to four decimal places, use .6301 (or .630 at three places). This is a last-decimal precision note, not a change to the formula, the acceptance-precision ceiling, the coverage comparison or the resulting decision; it does not block this evidence assessment."
+            }
+          ]
+        }
+      ],
+      "reading": "Read both original replacement replies and actual execution/version/reading evidence; inspected imported record identities. The evidence context reports complete132-line U1 reading plus its own prior primary-source reading and targeted original checks. I do not claim its new reading as my own. Domain reuse is scoped to unchanged U1, not full-report approval.",
+      "optional_observation": "TTCEN-U1-EV-01 remains a nonblocking optional precision observation, not resolved: independently inspected codex-production/U1-evidence-protocol.md:109 and calculation-record.json:53–59, specifically .6300 versus saved .6300557487551233. No computation rerun."
+    }
+  },
+  "integrity_checks": {
+    "input_version_exact": true,
+    "assignment_version_exact": true,
+    "frozen_report_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+    "managed_report_matches_frozen": true,
+    "patch_matches_all_old_context_lines": true,
+    "patch_reconstructs_current_frozen_report": true,
+    "citation_urls_before": 54,
+    "citation_urls_current": 54,
+    "ordered_citation_urls_unchanged": true,
+    "frozen_source_count_before": 39,
+    "frozen_source_count_current": 39,
+    "frozen_source_bodies_unchanged": true,
+    "task_and_substantive_requirement_summaries_unchanged": true,
+    "all_eight_input_response_execution_hashes_match_lf": true,
+    "all_eight_input_assignment_report_bindings_match": true,
+    "all_eight_raw_originals_match_imported_response_lf": true,
+    "historical_three_required_findings_reconfirmed": true,
+    "u1_replacement_artifact_unchanged": "95724f9d5988cf92bfdfd94795e62ee14b8fa7e451371a6dca04fc29e519fc4f"
+  },
+  "limitations": [
+    "No research, experiment, statistical resampling, calculation rerun, test, manuscript/code/state edit or review import.",
+    "Unchanged primary originals and visual pages are reused from actual retained audit, not falsely described as reread.",
+    "A naive number-token sequence comparison was not treated as proof because descriptive labels themselves contain digits (s1/version labels); substantive number preservation was assessed in all actual diff hunks.",
+    "Raw job-original/response byte comparisons initially differed due CRLF/LF; exact LF-normalized comparisons match all eight, consistent with recorded text hashes.",
+    "An output-object construction call failed on unavailable structuredClone before writing; rebuilt with JSON serialization. No partial output was written.",
+    "Final acceptance remains a separate context."
+  ],
+  "outcome": {
+    "result": "valid",
+    "report_verdict": "pass",
+    "required_open_issues": [],
+    "optional_u1_precision_note_preserved": true
+  }
+}

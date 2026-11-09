@@ -1,0 +1,711 @@
+{
+  "outline": "一、任务理解与本阶段边界\n研究对象是模型后训练的公开可观察能力及其承载者，而不是招聘名单、私人背景档案或个人排名。面向研发与人才战略团队，回答四组问题：哪些研究、数据、评价与工程能力必须组合；这些能力在不同组织和地区如何形成；公开人员流动、项目协作和组织更名分别意味着什么；据此可以识别哪些组织建设与公开合作方向。重点时期为2022年至2026-11-09，早期经历仅在解释研究方向形成时追溯。本阶段已实际检索并打开下列原文，完成问题拆解、候选解释和研究分工；尚未完成全部人物核验、独立审查或最终报告，也未宣称创建研究文件或执行子研究者会话。\n\n二、最终报告的完整提纲\n1. 决策摘要：在正文证据完成后撰写，回答能力组合、组织依赖、合作接口和不能判断的事项，不按个人知名度排序。\n2. 研究边界与证据方法：定义后训练及其与预训练、持续预训练、推理时计算、Agent应用工程的边界；解释代表性抽样、地域归属、公开披露差异和资料截止规则。区分产业实验室、大学、非营利研究机构、开源项目和跨机构社区。人物数量由问题覆盖和证据质量决定，不设填表配额。\n3. 后训练能力地图：分别说明强化学习、离线及在线偏好优化、奖励模型与过程评价器、可验证奖励、后训练数据、推理能力训练、多轮Agent训练；把训练系统、采样服务、评测、执行环境和数据质量控制作为横贯这些方向的支撑能力。明确同一人物可以对应多个有证据的能力标签，但不能把团队全部能力分配给每个作者。\n4. 人物与成果如何对应：建立人物—成果—贡献类型—任职时期的可追溯记录。展示姓名消歧、论文单位与实际任职分离、学生及实习身份、社区贡献者与雇员区分、日期精度和冲突处理实例。\n5. 代表团队的形成与演化：\n5.1 北美前沿实验室：从2022年RLHF流程中的数据、奖励和策略训练分工，追踪行为规范、AI反馈、过程监督及后续推理训练；OpenAI与Anthropic作为已有原文支持的起点，其他团队按补读结果纳入。\n5.2 美国学术与欧洲理论网络：以Stanford的DPO和Google DeepMind的偏好学习理论为起点，解释算法简化解决了什么、未消除什么依赖；核实作者后续角色，而非将旧论文单位延伸到截止日。\n5.3 欧洲—美国开放后训练网络：Hugging Face/H4、TRL、Ai2的RewardBench与Tülu，以及2026年新形成的Trillium；分别追踪公共实现、完整训练配方、评价资源与机构建设，不将开放项目自动当作固定组织团队。\n5.4 中国内地与香港：DeepSeek的数学、验证与推理训练，以及ByteDance—HKU的HybridFlow/verl系统协作；补入截至截止日确有相关成果的Qwen等团队，比较算法、数据、验证和工程的组合。\n5.5 跨机构Agent训练：Kimi、RAGEN网络、Meta—大学的软件工程训练、Snowflake—大学的系统协同案例。区分静态补丁奖励、执行反馈、多轮轨迹训练、长期环境状态和训练—推理一致性。\n5.6 加拿大及分布式多语言网络、新加坡与东南亚：M-RewardBench、Cohere研究社区与SEA-LION，分析语言数据、偏好有效性、区域评测和在线训练系统的互补。\n5.7 日本、韩国与中东：以Swallow及TII/Falcon已有原文为起点，补核韩国相关团队，解释区域语言适配、推理后训练和资源受限研究组织的能力组合。非洲、拉丁美洲、南亚及大洋洲另设明确检索责任，不以语言覆盖或作者姓名代替实际地域覆盖；没有充分材料时说明检索边界，不宣称不存在人才。\n6. 跨团队同口径比较：按任务目标、基座模型、反馈来源、数据、评价器、环境、系统、评测条件和开放程度比较；不拼接不同基准或不同推理预算的分数。解释哪些差异可能来自基础模型、评测协议或披露方式，而非人才能力。\n7. 带时间的能力网络：分别呈现共同成果、公开项目协作、同期任职和经核实的人员流动；大型论文优先采用人物—成果二部关系，避免共同署名产生虚假的两两密切关系。资源复用单独作为项目关系，潜在能力互补单独作为研究建议。\n8. 研发组织与公开合作含义：围绕通用行为后训练、可验证推理、多语言适配、长期Agent四类研发目标，提出必要能力接口、证据交付物、失败诊断和合作方向；不推测个人动机、薪酬、离职意愿、接受招聘概率或内部汇报线。\n9. 附录及可追溯产物：公开人物表、专长—成果矩阵、团队演化时间线、关系类型明确的边表；附来源位置、日期精度、贡献归属、冲突与未核实事项。正文按关键问题展开，不平均分配各机构篇幅。\n\n三、已有候选解释，均待对应核验后才能成为下游结论\nH1：后训练能力更适合按协同流程识别，而不是按算法名称寻找单一专家。InstructGPT原文披露示范数据、偏好标注、奖励模型和PPO；Tülu 3把数据去污染、偏好配方、RLVR与评测并置；Kimi K2进一步披露数据团队编写任务条件与rubric。这支持研究跨职能组合，但尚不能据此推算各机构人员配置或个人贡献占比。对应PTT01、PTT05、PTT19。([arxiv.org](https://arxiv.org/html/2203.02155v1))\nH2：省去独立奖励模型不等于省去反馈设计和评价能力。DPO的重参数化、IPO对偏好学习假设的分析，以及R1-Zero采用规则奖励，提供了不同的实现路径；这些材料不足以支持某一路径在所有任务上优越，也不能据此认定奖励模型人才需求消失。对应PTT02、PTT03、PTT16。([arxiv.org](https://arxiv.org/html/2305.18290v2))\nH3：推理后训练与Agent后训练有关联，但不能直接等同。RAGEN v1在小模型和三个受控环境中研究多轮训练不稳定；SWE-RL使用补丁序列相似度奖励；Kimi K3披露Agent评价器与长期训练相关设计。这要求把环境、轨迹、奖励和系统能力分别建模，不能把数学推理成绩直接当作Agent团队能力。对应PTT20、PTT22、PTT23。([arxiv.org](https://arxiv.org/html/2504.20073v1))\nH4：公开能力网络可以跨机构延续，但共同成果不等于同期同机构。RewardBench原始PDF将Nathan Lambert署名于Ai2、Tom Zick署名于Harvard相关机构；两人于2026-10-01共同署名Trillium创办公告。Lambert本人另于2026-06-02公开离开Ai2，并回顾2022年5月加入Hugging Face、2023年10月加入Ai2。可建立共同成果和后续共同创办关系，不能反向补出未披露的任职关系或机构成功因果。对应PTT06、PTT09—PTT11。([arxiv.org](https://arxiv.org/pdf/2403.13787v1))\nH5：成果署名与任职时间错位不是边缘问题。InstructGPT脚注明确Amanda Askell的工作完成机构与当时现属机构不同；M-RewardBench会议版将Sebastian Ruder列于Meta，同时注明工作在Cohere完成；Kimi K2还用星号标出已不在团队的作者。这些原文支持把署名单位、工作发生时期、公开时间和职业状态拆成不同字段。对应PTT01、PTT19、PTT32。([arxiv.org](https://arxiv.org/html/2203.02155v1))\nH6：全球Mapping需要纳入语言数据与本地评价能力，而不能仅围绕英语榜单。M-RewardBench讨论英语与非英语表现差异，同时明确未证明奖励模型分数能预测下游策略效果；SEA-LION与Swallow披露不同的区域适配流程。现有证据支持增加能力维度，不支持估算各地区完整人才供给。对应PTT07、PTT26—PTT28、PTT32。([arxiv.org](https://arxiv.org/html/2410.15522v1))\nH7：部分看似算法进步的结果可能依赖系统一致性和训练任务有效性。HybridFlow的吞吐比较有明确硬件、版本及序列长度条件；Arctic-SWE将系统修正与任务测试审计分开分析。后续需要审查控制实验及评测子集，不能把论文数字直接转成团队实力排名。对应PTT18、PTT25。([arxiv.org](https://arxiv.org/html/2409.19256v1))\nH8：组织名称变化应与人员流动分开。加拿大官方登记显示Cohere For AI Institute在2025-06-02更名为Cohere Labs；这一记录能够证明法人名称历史，不能单独证明团队人员、研究方向或雇佣关系发生变化。对应PTT31。([ised-isde.canada.ca](https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?cStatus=1&corpId=13975631&crpNm=labs&p=2))\n\n四、执行与核验顺序\n先由非生产上下文分别审视需求覆盖和提纲结构，再展开大规模局部正文。区域及案例单元可以并行补读；重要任职、贡献和技术前提分别交V_EVIDENCE与V_DOMAIN核验。依赖表表示最终交付依赖，局部核验按主张批次进行，不要求所有分支一起结束。U10只汇入已核验条目；U11只使用条件和反证均被保留的解释；最终统稿由U12主研究者承担。以下均为可交付的待执行任务，不是已完成的独立研究或审查。",
+  "requirements": [
+    {
+      "id": "R1",
+      "text": "服务模型后训练研发组织、公开学术合作与人才能力布局，解释能力组合和组织依赖，不交付单纯姓名或公司名单。",
+      "scope": "global"
+    },
+    {
+      "id": "R2",
+      "text": "当前阶段只交付需求理解、实际原文阅读笔记、候选解释、完整提纲与实质研究分工，不直接生成最终报告。",
+      "scope": "global"
+    },
+    {
+      "id": "R3",
+      "text": "重点覆盖2022年至2026-11-09，仅使用截至截止日已公开的信息；早期经历仅为解释方向形成而追溯。记录初次公开、修订、事件发生和检索日期，禁止用后来资料回填当时状态。",
+      "scope": "global"
+    },
+    {
+      "id": "R4",
+      "text": "覆盖强化学习、偏好优化、奖励模型与评价器、后训练数据、推理能力和Agent后训练，并解释训练基础设施、评测和环境构建的支撑作用及方向交叉。",
+      "scope": "global"
+    },
+    {
+      "id": "R5",
+      "text": "根据可核实成果、公开角色、地域和组织类型选择代表样本。显式保持北美、欧洲、中国内地及香港、东亚其他地区、东南亚、中东和其他地区检索责任；不把样本视为全球人才普查，不沿用固定公司名单。",
+      "scope": "U01"
+    },
+    {
+      "id": "R6",
+      "text": "人物条目包含可消歧姓名、相关产物、公开角色、时期性任职与团队、证据日期和来源；地域依据公开工作或机构信息，不依据姓名、语言或国籍推断。",
+      "scope": "global"
+    },
+    {
+      "id": "R7",
+      "text": "分别记录论文署名单位、成果公开时间、研究工作所属时期和职业任职时期；任职及变更须用机构、本人职业资料或可追溯公告核实，不能仅据论文单位判定现职。",
+      "scope": "global"
+    },
+    {
+      "id": "R8",
+      "text": "精确日期无法核实时记录可确认区间、日期精度和最近公开确认日；区分已发生任职、宣布将加入、访问、实习、兼职、学生和社区协作者，不把计划自动变成履历。",
+      "scope": "global"
+    },
+    {
+      "id": "R9",
+      "text": "专长必须对应论文、实现、数据、系统职责或其他公开产物；区分明确个人贡献、共同成果、团队成果和有限证据下的方向归纳，不以作者顺序推断管理职级。",
+      "scope": "global"
+    },
+    {
+      "id": "R10",
+      "text": "网络边区分共同成果、公开项目协作、同期任职和有证据的人员流动，并附时间及来源；资源复用与潜在互补另列，不将共同署名当作私人关系或汇报线。",
+      "scope": "U10"
+    },
+    {
+      "id": "R11",
+      "text": "沿团队形成、人员变动和研究重心变化解释能力组合；区分真实职业变动、论文署名变化、组织更名和品牌调整，不推测流动动机。",
+      "scope": "global"
+    },
+    {
+      "id": "R12",
+      "text": "不采集私人联系方式、住址、家庭、健康等无关信息；不推测薪酬、离职意愿、招聘接受概率或内部汇报关系，不进行无证据的个人评价或排名。",
+      "scope": "global"
+    },
+    {
+      "id": "R13",
+      "text": "关键论证必须实际打开并阅读原文相关章节，不能以搜索片段、聚合履历或记忆代替。来源充分性按所解释的问题判断，不设机械来源数量门槛。",
+      "scope": "global"
+    },
+    {
+      "id": "R14",
+      "text": "技术比较保留模型、训练阶段、数据、奖励、推理预算、硬件、环境和评测版本条件；无法同口径比较时只比较机制，不生成跨团队性能或人才排名。",
+      "scope": "V_DOMAIN"
+    },
+    {
+      "id": "R15",
+      "text": "最终形成带时间与来源的公开人物表、专长—成果矩阵、团队演化时间线和类型清楚的能力网络，并说明实际用途。",
+      "scope": "U10"
+    },
+    {
+      "id": "R16",
+      "text": "组织及合作建议基于已证实的能力互补和可观察研究需求；区分建议与已发生合作，不把机构成果归因于单一人员。",
+      "scope": "U11"
+    },
+    {
+      "id": "R17",
+      "text": "冲突、过期页面、版本差异和未核实事项必须标在受影响条目及判断上；允许明确结论为公开资料不足，不以填满表格替代核验。",
+      "scope": "V_EVIDENCE"
+    },
+    {
+      "id": "R18",
+      "text": "关键身份、时间、贡献和技术前提须经非生产上下文独立核验后进入图谱及建议；本阶段不虚构独立审查结果、执行身份或完成状态。",
+      "scope": "global"
+    },
+    {
+      "id": "R19",
+      "text": "每个生产单元交付完整分析、局部论证、可追溯条目及原文位置，而非仅链接或状态摘要；主研究者负责跨单元冲突裁决、解释整合和最终统稿。",
+      "scope": "U12"
+    },
+    {
+      "id": "R20",
+      "text": "后续完整交付保留state/task_spec.md、state/progress.json、state/requirements.jsonl、state/final_delivery.json、data/source_registry.csv、data/claims_registry.csv、logs/review.jsonl、final.md及delivery_message.md要求。本阶段以本JSON保留研究实质，不宣称已生成上述文件或完成最终验收。",
+      "scope": "U12"
+    }
+  ],
+  "units": [
+    {
+      "id": "U01",
+      "assignment": "建立本研究的对象边界、代表性选择逻辑和证据数据模型。先将六类核心能力与工程、评测、环境支撑能力分层，处理持续预训练、推理时搜索、纯Agent应用开发与后训练的边界。建立人物、成果版本、时期性任职、贡献声明、组织别名和关系边的字段规范。任职字段至少包含角色类型、机构、公开团队、开始及结束日期或区间、日期精度、最近确认日和证据；成果字段单列作者署名单位、工作发生时期和公开日期。贡献标签采用明确个人职责、共同成果、团队成果、研究者归纳四种性质，不把标签当质量评分。完成地区—组织类型—能力覆盖表：美国与加拿大、英国及欧洲大陆、中国内地与香港、日本与韩国、新加坡及东南亚、中东；对南亚、非洲、拉丁美洲和大洋洲进行定向原始资料检索，找到合格案例后交相关机制单元，不因缺材料填入无关人物。以论文、项目和数据产物为入口，不从知名公司清单反推样本。对截止日前后不明的动态页面建立隔离规则。",
+      "inputs": [
+        "PTT01",
+        "PTT05",
+        "PTT07",
+        "PTT19",
+        "PTT23",
+        "PTT26",
+        "PTT27",
+        "PTT31",
+        "PTT32"
+      ],
+      "dependencies": [],
+      "deliverables": "可直接使用的数据字典、纳入与排除解释、覆盖责任表、候选样本及待核验状态、地域与披露偏差的方法章节。不得把检索未命中写成该地区不存在相关能力。"
+    },
+    {
+      "id": "U02",
+      "assignment": "解释北美前沿实验室从RLHF到AI反馈、行为规范和推理评价的能力演化。以InstructGPT原文明确的联合项目及团队负责人说明为起点，补读2022年Constitutional AI、过程监督与推理训练相关原始论文、模型卡和贡献声明，区分偏好数据、奖励模型、策略优化、行为规范和发布评测职责。优先核验Long Ouyang、John Schulman、Jan Leike、Ryan Lowe、Amanda Askell及新材料中有明确职责者；这些是候选对象，不预设其截止日机构。Askell的规范文本贡献须与算法和训练系统贡献分开。对OpenAI、Anthropic及Thinking Machines之间的职业变化，仅采用机构或本人公告及可追溯报道，补核2026-11-09前最近状态。不能从项目领导、作者顺序或联合署名补出内部汇报线。解释闭源披露限制如何影响可观察人才图谱。",
+      "inputs": [
+        "PTT01",
+        "PTT13",
+        "PTT14",
+        "PTT15"
+      ],
+      "dependencies": [
+        "U01"
+      ],
+      "deliverables": "连贯的团队演化局部正文、人物—职责—产物证据表、2022—2026事件时间线，以及哪些个人能力不能从团队材料识别的具体说明。"
+    },
+    {
+      "id": "U03",
+      "assignment": "研究偏好优化理论与实现能力如何从学术网络进入后训练实践。以DPO的Rafael Rafailov、Archit Sharma、Eric Mitchell等共同作者，以及Google DeepMind偏好学习理论作者为候选，核验职业及学术身份、研究工作时期和后续变化。阅读全文中的目标函数、假设、实验和限制，比较显式奖励模型加RL、DPO、Identity Preference Optimization及后续在线方法；特别防止把不同论文中同名IPO混为一种算法。DPO的等贡献说明和作者排列说明只能用于原文允许的归属，不用于推断管理关系。将H4/Zephyr作为方法采用实例，与U04交接项目事实但不重复归属人物主档。补查英国、法国、瑞士及其他欧洲研究节点，地点必须由公开职业材料确认。输出算法简化对应哪些工程负担变化，以及哪些数据和评价依赖仍然存在。",
+      "inputs": [
+        "PTT02",
+        "PTT03",
+        "PTT04",
+        "PTT08"
+      ],
+      "dependencies": [
+        "U01"
+      ],
+      "deliverables": "偏好优化机制比较、理论与实证边界、已核验人物条目、学术—产业共同成果关系和局部正文。未取得统一实验条件时不宣布算法或团队优劣。"
+    },
+    {
+      "id": "U04",
+      "assignment": "解释欧洲—美国开放后训练网络的能力积累，覆盖Hugging Face/H4、TRL、Ai2的RewardBench与Tülu，以及Trillium的形成。重点候选为Leandro von Werra、Lewis Tunstall、Nathan Lambert、Valentina Pyatkin、Jacob Morrison、Shengyi Huang、Hamish Ivison、Lester James V. Miranda和Tom Zick，按实际证据选择，不要求全部纳入。逐人寻找公开职业资料和任职公告；补读Tülu 2、Tülu 3完整贡献信息、2025—2026相关开放配方及仓库版本。用Lambert本人公告核定Hugging Face与Ai2任职月度信息及离任公告时间，Trillium创办日与新角色确认日分开记录。处理PTT12的PDF视觉与文本版本冲突，不让旧简历覆盖新的本人公告。RewardBench中Zick的Harvard署名不能被写成Ai2任职。分析数据策划、评价器、训练实现、发布复现和开放协作的组合；Trillium的公开目标不等于已完成成果。",
+      "inputs": [
+        "PTT04",
+        "PTT05",
+        "PTT06",
+        "PTT08",
+        "PTT09",
+        "PTT10",
+        "PTT11",
+        "PTT12"
+      ],
+      "dependencies": [
+        "U01"
+      ],
+      "deliverables": "完整开放网络案例正文、可复核的人员时期表、项目与职业事件分离的时间线、能力延续与机构依赖的条件性解释。"
+    },
+    {
+      "id": "U05",
+      "assignment": "研究中国内地与香港的推理强化学习、验证器和训练系统能力组合。以DeepSeekMath—R1—形式化或非形式化证明相关成果，以及HKU—ByteDance的HybridFlow/verl为两条实质问题线；补查Qwen的偏好优化、奖励与推理后训练成果及截至2026-11-09的变化，不预设旧团队名单仍适用。候选人物包括Zhihong Shao、Junxiao Song、Peiyi Wang、Guangming Sheng、Chi Zhang、Haibin Lin及新原文中职责明确者。核实中文姓名与英文署名是否同一人，区分学生、实习、合作与雇佣关系。Shao主页只提供公开角色和方向，不能据博士毕业时间推定入职日。补读DeepSeekMath及R1后续正式版本的贡献声明，不能从大规模作者名单推出各人负责GRPO或奖励模型。对HybridFlow查论文、项目维护职责及具体实现，保留实验硬件、版本和吞吐定义。Kimi专案由U06负责，避免重计。",
+      "inputs": [
+        "PTT16",
+        "PTT17",
+        "PTT18",
+        "PTT28"
+      ],
+      "dependencies": [
+        "U01"
+      ],
+      "deliverables": "两条能力形成路径的局部论证、已核验人物与任职记录、算法—验证—数据—系统对照表，以及当前无法归属到个人的团队成果清单。"
+    },
+    {
+      "id": "U06",
+      "assignment": "回答Agent后训练相对于单轮推理新增了什么能力，并建立跨机构案例。覆盖Kimi K2至K2.5/K3、RAGEN的美国—英国—新加坡学术产业协作、SWE-RL的Meta—大学网络，以及2026年Arctic-SWE的系统协同研究。补读Kimi后续版本、RAGEN v2与2026延续成果、SWE-RL后续自博弈研究及Arctic-SWE实验附录。候选人物包括Longguang Zhong、Zihan Wang及各项目有明确公开贡献者；核验Zihan Wang的别名与同名消歧，主页中的未来实习计划不能记为已经完成的任职。分别比较静态补丁相似度、执行测试、轨迹级回报、过程评价和生成式Agent评价器。研究环境状态、上下文管理、异步采样、策略陈旧性和训练—推理一致性。保留RAGEN小模型受控环境与真实软件任务的外推边界。Kimi字母序名单和离队星号只支持其明确表达的信息，不分配未披露职责。",
+      "inputs": [
+        "PTT19",
+        "PTT20",
+        "PTT21",
+        "PTT22",
+        "PTT23",
+        "PTT24",
+        "PTT25"
+      ],
+      "dependencies": [
+        "U01"
+      ],
+      "deliverables": "Agent能力分解和案例比较正文、项目及人物时间线、具版本的实验条件表、环境与工程职责映射，以及能够反驳单一算法解释的材料。"
+    },
+    {
+      "id": "U07",
+      "assignment": "研究多语言奖励、数据与区域后训练网络，覆盖加拿大的Cohere研究网络及分布式社区、新加坡AI Singapore/SEA-LION、相关东南亚与南亚协作。对M-RewardBench的2024预印本和2025会议版逐项比较作者单位、社区身份、工作完成脚注、数据规模及任务口径；以官方法人名称历史区分Cohere For AI与Cohere Labs更名，不将更名画成人员流动。候选包括Srishti Gureja、Marzieh Fadaee、Sara Hooker、Sebastian Ruder、Lester James V. Miranda及SEA-LION中有具体职责的人员，必须另取职业证据，不以论文单位认定现职。对非洲、拉丁美洲及南亚开放语言网络开展定向补读，按实际所在地和贡献记录，不把语言覆盖数当作地域人才覆盖。补读SEA-LION各阶段的模型卡、数据文档与团队公开资料，区分持续预训练收益与后训练收益。分析母语评价、翻译质量、文化偏好和在线轨迹系统的互补关系。",
+      "inputs": [
+        "PTT07",
+        "PTT26",
+        "PTT31",
+        "PTT32"
+      ],
+      "dependencies": [
+        "U01"
+      ],
+      "deliverables": "多语言能力与组织形式的比较正文、版本及机构别名对照、人员身份与社区角色表、区域覆盖说明和不能由当前评测推导的结论。"
+    },
+    {
+      "id": "U08",
+      "assignment": "研究日本和韩国区域后训练中的数据、评价、推理与工程组合。日本以Swallow为起点，核验Sakae Mizuki、Kazuki Fujii、Youmi Ma等公开角色与对应成果，补读2025指令数据论文、2026推理长度及数据工作原文和模型卡。项目成员页明确列出的职责可作为直接项目角色证据，但不能自动归属某个具体算法实现。区分TokyoTech与Science Tokyo名称变化、毕业及岗位变化，不能把机构更名当作人才迁移。韩国从KAIST的相关研究及有后训练技术报告的产业团队中选择代表，补查2026成果与职业资料，选择由能力证据决定，不预先固定公司。比较本地语言流畅性、通用推理保持、评价器适配与训练效率；说明在已后训练基座上继续训练与从纯预训练基座开始的差异。",
+      "inputs": [
+        "PTT27",
+        "PTT28",
+        "PTT32"
+      ],
+      "dependencies": [
+        "U01"
+      ],
+      "deliverables": "日本与韩国的机制型案例正文、公开角色及成果对照、区域工程和评价能力表、机构名称与人员事件分离的时间线。韩国证据不足时须提交实际检索范围与缺口，而非补造条目。"
+    },
+    {
+      "id": "U09",
+      "assignment": "研究中东代表团队的小模型推理后训练和资源协作能力，以TII/Falcon-H1R为起点，补核Iheb Chaabane、Puneesh Khanna、Mohamed El Amine Seddik、Hakim Hacid等候选的职业角色、时期和具体产物；不把团队署名等同于个人负责全部配方。补查当地其他产业、大学或开放研究机构是否提供不可替代的奖励、数据或环境能力，再决定是否纳入。阅读Falcon论文的SFT、GRPO、奖励编排、沙箱与推理时计算章节，并对照发布说明中未专门优化Agent工作的限制。将引用Hugging Face验证工具、ByteDance沙箱等事实记录为资源复用，只有另有公开协作声明才能建立人员合作边。不得根据姓名或国家背景推定地域任职。",
+      "inputs": [
+        "PTT29",
+        "PTT30"
+      ],
+      "dependencies": [
+        "U01"
+      ],
+      "deliverables": "中东案例局部正文、实际贡献与公开任职条目、资源依赖关系、参数效率与推理预算的比较边界，以及不能判定的团队能力。"
+    },
+    {
+      "id": "V_EVIDENCE",
+      "assignment": "由独立于生产单元的上下文核验身份、职业时间、成果版本和关系边。逐批检查拟纳入人物的消歧标识、职业资料、论文署名单位、工作完成脚注、贡献声明、最近确认日和截止日期。重点处理Lambert离任公告与旧CV、M-RewardBench作者单位变化、Cohere法人更名、Kimi已离队作者、Zihan Wang未来实习表述，以及同名作者和组织别名。对关键职业变化回到本人或机构原文；媒体报道若只引述匿名信息，保留其证据性质，不升级为精确入职日。核验贡献是否超出原文，关系是否有独立时间证据。按受影响条目提交修订，不以全局免责声明代替。各分支完成一个关键主张即可开始检查，未核验条目不得进入确认关系图。",
+      "inputs": [
+        "PTT01",
+        "PTT06",
+        "PTT09",
+        "PTT10",
+        "PTT11",
+        "PTT12",
+        "PTT14",
+        "PTT19",
+        "PTT24",
+        "PTT27",
+        "PTT31",
+        "PTT32"
+      ],
+      "dependencies": [
+        "U02",
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "U07",
+        "U08",
+        "U09"
+      ],
+      "deliverables": "逐条证据核验意见、实际查阅位置、冲突处理记录、可进入下游的事实及其限定条件、仍须补读的原文。只读审查，不修改主报告，不预设审查结果。"
+    },
+    {
+      "id": "V_DOMAIN",
+      "assignment": "由独立技术领域上下文审查后训练机制、实验比较和能力推断。核验DPO与Identity Preference Optimization的假设、GRPO与RLVR的不同含义、奖励模型与评价器的用途、过程监督与结果监督、后训练与推理时计算、静态软件补丁训练与交互式Agent训练的边界。审查RAGEN小模型实验的外推、HybridFlow硬件和软件版本、Arctic-SWE评测子集及harness差异、SEA-LION中持续预训练与后训练的归因，以及Falcon的token预算。检查M-RewardBench基础样本、语言扩展样本和翻译任务分母，禁止把奖励模型分数当作下游能力或人才质量。逐批审查H1—H8中的重要前提，必要时要求同基座、同数据或同评测的补充原文；没有条件的比较降级为机制比较。",
+      "inputs": [
+        "PTT02",
+        "PTT03",
+        "PTT05",
+        "PTT07",
+        "PTT16",
+        "PTT18",
+        "PTT20",
+        "PTT22",
+        "PTT23",
+        "PTT25",
+        "PTT26",
+        "PTT28",
+        "PTT29",
+        "PTT32"
+      ],
+      "dependencies": [
+        "U02",
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "U07",
+        "U08",
+        "U09"
+      ],
+      "deliverables": "技术前提核验、可比性判定、计算复核、外推限制、反例及替代解释。明确哪些判断可供组织建议使用，哪些只能作为待验证假设。"
+    },
+    {
+      "id": "U10",
+      "assignment": "将各案例完整分析和独立核验后的事实整合为公开人才图谱。建立四项正式产物：人物时期表、专长—成果矩阵、团队演化时间线、带类型和时间的关系边表。合并跨项目重复人物，但不合并未消歧同名者。大型共同署名使用人物—项目二部结构，避免作者人数造成虚假网络中心性。同期任职必须有重叠区间，人员流动必须有前后职业证据；共同成果、资源复用、项目协作和潜在互补分别表示。提供2022—2023、2024、2025和2026截至截止日的时间视图，保留精确日期记录。可计算样本中各能力的证据覆盖及未知比例，但分母只能是纳入样本，不能外推全球存量或招聘供给。每条冲突保留于对应条目。",
+      "inputs": [
+        "PTT01",
+        "PTT06",
+        "PTT09",
+        "PTT11",
+        "PTT19",
+        "PTT23",
+        "PTT27",
+        "PTT31",
+        "PTT32"
+      ],
+      "dependencies": [
+        "U01",
+        "V_EVIDENCE",
+        "V_DOMAIN"
+      ],
+      "deliverables": "四项完整可追溯表格、文本化分层网络、去重及区间处理说明、覆盖统计与其分母、图谱能回答及不能回答的问题说明。"
+    },
+    {
+      "id": "U11",
+      "assignment": "基于已核验图谱解释研发组织和公开合作的实际用途。分别为通用行为后训练、可验证推理、多语言适配、长期Agent任务提出功能组合：谁定义任务与反馈、谁构建数据和评价器、谁负责采样与训练系统、谁验证环境与发布质量。这里的谁指功能责任，不在缺证据时指定某公司的内部部门或个人。比较自建能力、采用公共实现、共同建设数据/评测/环境等合作方向，说明哪些公开团队或项目的产物互补、合作尚需什么验证。检验人才流动、共享工具、组织更名、基础模型变化和披露差异等替代解释，避免单人英雄叙事。不给出未经证实的人员绩效排名、招聘意愿或薪酬建议。",
+      "inputs": [
+        "PTT01",
+        "PTT05",
+        "PTT18",
+        "PTT19",
+        "PTT20",
+        "PTT25",
+        "PTT26",
+        "PTT28",
+        "PTT29"
+      ],
+      "dependencies": [
+        "U10",
+        "V_DOMAIN",
+        "V_EVIDENCE"
+      ],
+      "deliverables": "跨案例综合论证、四类组织能力接口图、公开合作方向及适用条件、替代解释与决策限制，形成可直接进入报告的实质正文。"
+    },
+    {
+      "id": "U12",
+      "assignment": "由主研究者承担最终统稿。阅读所有分支的完整分析、原文位置和核验意见，从原始问题组织论证，不拼接名单或研究摘要。解决跨单元人物归属、版本、地域和时间冲突，保留局部证据条件；最后才写决策摘要。完整报告形成后，分别安排七个独立非生产上下文审查需求、证据、对抗性推理、结构深度、读者用途、过程语言和自然表达，并另设领域审查；再安排独立审计和进一步的最终验收上下文，均不得由作者自审替代。按实际工具能力维护用户要求的研究状态、来源与主张记录、审查原始意见和最终文件，未执行的工作保持未完成。当前交付止于本阶段JSON，不生成最终报告或最终完成收据。",
+      "inputs": [
+        "PTT01",
+        "PTT02",
+        "PTT05",
+        "PTT06",
+        "PTT09",
+        "PTT11",
+        "PTT19",
+        "PTT20",
+        "PTT25",
+        "PTT26",
+        "PTT27",
+        "PTT31",
+        "PTT32"
+      ],
+      "dependencies": [
+        "U10",
+        "U11",
+        "V_EVIDENCE",
+        "V_DOMAIN"
+      ],
+      "deliverables": "后续阶段的完整中文报告及四项图谱产物、来源和主张可追溯记录、实际完成的独立审查与修订记录，以及与最终版本绑定的交付文件。"
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "PTT01",
+      "title": "Training language models to follow instructions with human feedback",
+      "url": "https://arxiv.org/html/2203.02155v1",
+      "date": "2022-03-04，arXiv v1",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "首页作者脚注；§1；§3.1；§3.4",
+      "key_findings": "原文把项目列为OpenAI Alignment团队联合工作，并明确Ryan Lowe与Jan Leike为团队负责人，不需从作者顺序猜测。脚注说明Amanda Askell的工作在OpenAI完成、当时现属Anthropic。方法包含示范数据、比较数据、奖励模型及PPO；人工数据部分披露约40名承包标注者及培训协作流程。它支持功能协同和任职时间分离，不证明任何作者2026年的角色。([arxiv.org](https://arxiv.org/html/2203.02155v1))",
+      "access_scope": "读取作者及角色脚注、方法与人工数据相关正文；未逐项核查全部实验、附录和人员后续职业信息。"
+    },
+    {
+      "source_id": "PTT02",
+      "title": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+      "url": "https://arxiv.org/html/2305.18290v2",
+      "date": "初稿2023-05-29；本次正文为2023-12-13的v2",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "首页作者与等贡献脚注；§1；§3—4，尤其式3—7",
+      "key_findings": "作者包括Rafael Rafailov、Archit Sharma、Eric Mitchell等，原文存在等贡献及较初级作者列前的说明，不能把排列当管理层级。DPO在特定偏好模型与KL约束框架下重参数化奖励，避免单独拟合显式奖励模型和RL训练循环；仍依赖偏好数据及相应假设。原文实验范围不能证明在所有推理或Agent任务上优于在线RL。([arxiv.org](https://arxiv.org/html/2305.18290v2))",
+      "access_scope": "阅读作者说明、目标函数和方法推导相关正文；另打开摘要页核对初稿时间；未完成附录证明及全部实验复核。"
+    },
+    {
+      "source_id": "PTT03",
+      "title": "A General Theoretical Paradigm to Understand Learning from Human Preferences",
+      "url": "https://arxiv.org/pdf/2310.12036.pdf",
+      "date": "初稿2023-10-18；修订2023-11-22，v2",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "PDF第1页作者与机构；§4.2、§5，PDF第4—5页",
+      "key_findings": "作者署名Google DeepMind。论文分析把成对偏好转为点奖励及奖励模型分布外泛化的假设，提出广义偏好目标与Identity Preference Optimization。§4.2以确定性偏好和有限样本讨论正则化及过拟合问题，§5给出替代目标。属于理论和受控实例证据，不能外推为产业全面性能比较；作者职业时间仍须另核。([arxiv.org](https://arxiv.org/pdf/2310.12036.pdf))",
+      "access_scope": "阅读首页及过拟合、IPO方法相关页；打开arXiv版本页确认日期；未独立重做完整证明。"
+    },
+    {
+      "source_id": "PTT04",
+      "title": "Zephyr: Direct Distillation of LM Alignment",
+      "url": "https://arxiv.org/html/2310.16944v1",
+      "date": "2023-10-25，arXiv v1",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "首页作者及H4署名；§1；§3",
+      "key_findings": "论文将Lewis Tunstall、Edward Beeching、Nathan Lambert等列入H4共同成果，采用UltraChat的蒸馏SFT、UltraFeedback偏好数据和蒸馏DPO，并关联alignment-handbook实现。作者明确主要关注helpfulness，未覆盖全面安全训练。可用来连接算法、合成数据和开放实现，不能由H4署名推定每人发表时的雇主或具体模块职责。([arxiv.org](https://arxiv.org/html/2310.16944v1))",
+      "access_scope": "阅读作者区、介绍、三阶段方法和范围限定；未核查全部训练日志与个人代码贡献。"
+    },
+    {
+      "source_id": "PTT05",
+      "title": "Tülu 3: Pushing Frontiers in Open Language Model Post-Training",
+      "url": "https://arxiv.org/html/2411.15124v1",
+      "date": "2024-11-22，arXiv v1",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "作者区；训练流程及数据说明；§8.1—8.2",
+      "key_findings": "原文把数据来源与去污染、SFT、DPO、RLVR及开发/未见评测作为整体配方。§8披露部分在线DPO与拒绝采样尝试收益有限，且把长上下文、多轮、多语言和工具使用列为待扩展方向。适合分析开放配方团队的协同和能力边界，不能把这版Tülu 3直接标成完整Agent后训练成果。([arxiv.org](https://arxiv.org/html/2411.15124v1))",
+      "access_scope": "读取作者信息、流程说明、部分数据设计及失败尝试和未来工作；尚未完整核查全部贡献、数据表和消融。"
+    },
+    {
+      "source_id": "PTT06",
+      "title": "RewardBench: Evaluating Reward Models for Language Modeling",
+      "url": "https://arxiv.org/pdf/2403.13787v1",
+      "date": "2024-03-20，arXiv v1",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "PDF第1页作者、机构标识、摘要；已视觉核对首页",
+      "key_findings": "PDF清楚区分Ai2、University of Washington与Harvard Berkman Klein Center署名，Tom Zick的标识对应Harvard相关机构而不是Ai2。研究对象是奖励模型，数据采用提示与优劣回答组合，覆盖聊天、推理和安全。可建立共同成果边，但不能据此建立所有作者的同机构关系。首页视觉核验还避免了HTML转换中机构标识混排的问题。([arxiv.org](https://arxiv.org/pdf/2403.13787v1))",
+      "access_scope": "读取PDF首页并截图核对；此前还阅读同文HTML的奖励建模与基准定义段，未完成整篇实验审查。"
+    },
+    {
+      "source_id": "PTT07",
+      "title": "M-RewardBench: Evaluating Reward Models in Multilingual Settings，预印本v1",
+      "url": "https://arxiv.org/html/2410.15522v1",
+      "date": "2024-10-20，arXiv v1",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "作者机构区；§1；§8；Limitations及Acknowledgements",
+      "key_findings": "该版涉及Cohere For AI社区、Ai2及其他机构，提供约2.87k基础偏好实例的23语言扩展研究。论文观察英语与非英语差异，并讨论翻译质量和资源可用性；明确未证明该基准表现能预测下游多语言策略效果，也未直接测量文化偏好全貌。版本中的署名机构与后续会议版不同，需要分版本保留。([arxiv.org](https://arxiv.org/html/2410.15522v1))",
+      "access_scope": "阅读作者信息、研究设计概述、结论和限制；未逐语言复核所有结果表。"
+    },
+    {
+      "source_id": "PTT08",
+      "title": "Leandro von Werra个人研究主页",
+      "url": "https://www.lvwerra.com/",
+      "date": "页面未标明发布日期或修订日",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "首页角色介绍；Research中的TRL、模型、数据和Agent项目段",
+      "key_findings": "本人主页自述为Hugging Face Head of Research，并说明研究覆盖预训练、后训练、高质量数据和训练配方。TRL段将其起源描述为本人2020年的复现项目，并关联Zephyr及Open-R1。可作为公开角色和工程方向的自述证据；没有提供加入或晋升的准确日期，不应补造。([lvwerra.com](https://www.lvwerra.com/))",
+      "access_scope": "读取职业介绍和相关研究项目段；不采集联系方式，不以下载量或仓库热度评价个人能力。"
+    },
+    {
+      "source_id": "PTT09",
+      "title": "Farewell Ai2",
+      "url": "https://www.interconnects.ai/p/farewell-ai2",
+      "date": "2026-06-02",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "开篇及转录离任通知；From zero to hero；What’s next",
+      "key_findings": "Lambert本人公开离开Ai2，并明确写到2022年5月加入Hugging Face、2023年10月加入Ai2。文章称前一天向机构发送最后工作日通知，因此可将2026-06-01记为由本人日期表述换算的最后工作日，保留其推算依据而非假称人事确认。文中也回顾RewardBench、Tülu及OLMo相关工作，可与论文交叉核对；不采用其主观评价推断他人贡献或离职动机。([interconnects.ai](https://www.interconnects.ai/p/farewell-ai2))",
+      "access_scope": "实际打开最终原文地址并阅读职业时间及项目回顾段；未将个人情绪、健康或薪酬相关叙述纳入记录。"
+    },
+    {
+      "source_id": "PTT10",
+      "title": "Nathan Lambert个人主页",
+      "url": "https://natolambert.com/",
+      "date": "页面未标明整体修订日；含2026年10月条目",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "首页简介与Recent",
+      "key_findings": "主页自述角色为Trillium Labs联合创办人和执行负责人，并链接创办公告。该信息应与有日期的公告及离任文章共同使用，不能继续沿用旧材料中的Ai2现职标签。页面本身未给出新角色的精确生效日。([natolambert.com](https://natolambert.com/))",
+      "access_scope": "读取首页职业介绍、近期项目及创办公告入口；未采集联系方式或私人信息。"
+    },
+    {
+      "source_id": "PTT11",
+      "title": "Introducing Trillium Labs",
+      "url": "https://blog.trilliumlabs.org/p/introducing-trillium-labs",
+      "date": "2026-10-01",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "日期；创办与研究目标段；文末署名",
+      "key_findings": "公告由Nathan Lambert与Tom Zick署名，宣布创办以开放科学为目标的非营利实验室，首先聚焦后训练配方、数据、代码、评测和中间检查点。可确认截至公告日的共同创办关系和机构计划；不能将计划写成已完成训练成果，亦不能据此判定每人的全部技术职责。([blog.trilliumlabs.org](https://blog.trilliumlabs.org/p/introducing-trillium-labs))",
+      "access_scope": "阅读正文及署名，未采用融资规模或其他公司市场叙述作为人才证据。"
+    },
+    {
+      "source_id": "PTT12",
+      "title": "Nathan Lambert CV",
+      "url": "https://natolambert.com/documents/cv.pdf",
+      "date": "版本存在读取冲突：文本层显示2026-11-01，首页截图显示2026-06-07",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "PDF第1页职业经历及更新时间；文本解析与页面截图对照",
+      "key_findings": "此次工具文本层与截图返回不一致版本：文本层列Trillium角色，截图仍列Ai2自2023年持续任职及Hugging Face 2022—2023经历，更新时间也不同。因此这份动态PDF暂不能承担截止日现职或精确离任日期的决定性证明；职业判断优先使用PTT09—PTT11的有日期原文，CV冲突须保留。([natolambert.com](https://natolambert.com/documents/cv.pdf))",
+      "access_scope": "仅核查首页文本与截图；未将其余简历内容或个人联系方式入库。"
+    },
+    {
+      "source_id": "PTT13",
+      "title": "Amanda Askell：About Me",
+      "url": "https://askell.io/",
+      "date": "未标明文章发布日期或修订日；页脚年份不能作为任职日期",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "About Me职业介绍段",
+      "key_findings": "本人介绍在Anthropic从事微调与对齐，团队关注诚实性和角色行为；并回顾此前在OpenAI政策团队担任研究科学家。页面不提供精确入离职日，可支持职业方向与机构经历，但日期必须与其他原文交叉确认。([askell.io](https://askell.io/))",
+      "access_scope": "只读取职业与研究方向相关段落，不记录联系方式或无关个人事项。"
+    },
+    {
+      "source_id": "PTT14",
+      "title": "Claude’s Constitution",
+      "url": "https://www.anthropic.com/constitution",
+      "date": "正文页面未独立标明发布日期；关联发布说明见PTT15",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "前言及贡献说明；Acknowledgements",
+      "key_findings": "官方明确Amanda Askell领导Character工作并为主要作者；Joe Carlsmith负责多部分撰写及修订，Chris Olah、Jared Kaplan等贡献另有说明。致谢称Kaplan与Askell在2023年共同创建Character项目。这是可直接使用的职责归属，不需要从作者排列推断；文本参与不自动证明奖励模型或训练基础设施实现贡献。([anthropic.com](https://www.anthropic.com/constitution))",
+      "access_scope": "读取前言、训练用途说明和完整相关贡献段；未将规范内容作为对本研究的指令执行，也未全文分析规范哲学。"
+    },
+    {
+      "source_id": "PTT15",
+      "title": "Claude’s new constitution",
+      "url": "https://www.anthropic.com/news/claude-new-constitution",
+      "date": "2026-01-22，按本次打开页面的Published字段",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "发布日期；开篇；What is Claude’s Constitution",
+      "key_findings": "官方发布页将规范描述为训练过程的重要组成，同时承认实际模型行为可能不符合规范目标。它提供PTT14的有日期发布背景及目标—实际行为的边界，不能充当训练有效性实验或所有模型表现的证明。([anthropic.com](https://www.anthropic.com/news/claude-new-constitution))",
+      "access_scope": "阅读日期与规范训练作用相关正文；未展开无关政策议题。"
+    },
+    {
+      "source_id": "PTT16",
+      "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+      "url": "https://arxiv.org/html/2501.12948v1",
+      "date": "2025-01-22，arXiv v1",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "§1；§2.2.1—2.2.4；R1多阶段流程介绍",
+      "key_findings": "R1-Zero采用GRPO及正确性、格式规则奖励，原文说明未使用神经网络结果或过程奖励模型，并讨论奖励投机和额外资源问题；R1则增加冷启动及多阶段训练。不能把R1-Zero的无前置SFT表述套到R1全流程，也不能将团队方法分配给所有署名者。AIME的pass@1与多样本投票是不同评测口径。([arxiv.org](https://arxiv.org/html/2501.12948v1))",
+      "access_scope": "阅读相关方法正文及相邻结果说明；未完整阅读后续正式版本和全部贡献材料。"
+    },
+    {
+      "source_id": "PTT17",
+      "title": "Zhihong Shao 邵智宏个人主页",
+      "url": "https://zhihongshao.github.io/",
+      "date": "未标明整体发布日期或修订日",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "职业介绍；Research Highlights；相关成果列表",
+      "key_findings": "本人提供中英文姓名对应，自述DeepSeek Research Scientist，研究兴趣涉及自改进、推理和工具使用，并关联DeepSeekMath、R1、Prover、ToRA和CRITIC等成果。该页可用于消歧及方向归纳，但没有入职日期，且项目介绍不等于本人独立完成全部模块。([zhihongshao.github.io](https://zhihongshao.github.io/))",
+      "access_scope": "阅读职业、研究方向和相关成果段；不记录联系方式，不从教育时间推定任职起点。"
+    },
+    {
+      "source_id": "PTT18",
+      "title": "HybridFlow: A Flexible and Efficient RLHF Framework",
+      "url": "https://arxiv.org/html/2409.19256v1",
+      "date": "2024-09-28，arXiv v1；文中标注EuroSys 2025",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "作者机构；§1；实现段；§8.1—8.2",
+      "key_findings": "作者机构包括HKU和ByteDance，系统结合单控制器与多控制器调度并处理训练—生成权重重分片。评测使用最多128张A100-80GB，指定软件版本、输入输出长度及吞吐定义，比较PPO、ReMax、Safe-RLHF。可支持分布式后训练工程作为独立能力维度；吞吐倍数不能跨硬件和工作负载泛化，署名单位不能替代职业核验。([arxiv.org](https://arxiv.org/html/2409.19256v1))",
+      "access_scope": "读取作者、架构概述、实现和实验设置；未检查全部代码、性能图或当前维护者历史。"
+    },
+    {
+      "source_id": "PTT19",
+      "title": "Kimi K2: Open Agentic Intelligence",
+      "url": "https://arxiv.org/html/2507.20534v1",
+      "date": "2025-07-28，arXiv v1",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "§3.2.1—3.2.2；Appendix A Contributions",
+      "key_findings": "原文披露数据团队编写复杂条件提示和rubric，结合规则验证、LLM评价器、事实性判断及可执行软件环境。非可验证任务采用自评rubric反馈。贡献附录明确按姓氏字母序排列，星号代表已不在团队；这支持离队状态的论文时点观察，但没有给出离队日或逐人职责。不能把附录当现职名单。([arxiv.org](https://arxiv.org/html/2507.20534v1))",
+      "access_scope": "阅读奖励、数据团队与软件环境段及贡献附录说明；未全文审查预训练、所有评测和作者职业变化。"
+    },
+    {
+      "source_id": "PTT20",
+      "title": "Kimi K3: Open Frontier Intelligence",
+      "url": "https://arxiv.org/html/2607.24653v1",
+      "date": "2026-07-27，arXiv v1",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "摘要；§4.1.2—4.1.3；后训练与基础设施目录",
+      "key_findings": "报告将通用、Agent和编码领域的强化学习及多种推理努力水平纳入后训练；读取段落描述按问题控制token预算、Agent生成式评价器的rubric协议，以及多教师在策略蒸馏。支持研究评价器、预算控制和长期交互的交叉，尚不能归属具体个人，也不能据其自报总体表现进行人才排序。([arxiv.org](https://arxiv.org/html/2607.24653v1))",
+      "access_scope": "实读摘要和上述方法段；环境构建、长期RL系统及贡献细节目前只定位，交U06补读。"
+    },
+    {
+      "source_id": "PTT21",
+      "title": "Longguang Zhong个人主页",
+      "url": "https://mrggls.github.io/",
+      "date": "整体修订日未知；包含2025—2026有月份的项目条目",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "About Me；Research Interests；News；Kimi成果列表",
+      "key_findings": "本人自述为Moonshot AI Member of Technical Staff，关注Agent和强化学习，列出Kimi K2、K2.5、K3及其他成果。可与报告作者信息交叉核对其研究关联；页面没有入职日，也没有把Kimi各训练模块逐项归属给本人，因此只能形成有限粒度的专长记录。([mrggls.github.io](https://mrggls.github.io/))",
+      "access_scope": "读取公开职业、研究兴趣和项目时间条目；未采集联系方式，未将项目宣传性评价视为独立测量。"
+    },
+    {
+      "source_id": "PTT22",
+      "title": "SWE-RL: Advancing LLM Reasoning via Reinforcement Learning on Open Software Evolution",
+      "url": "https://arxiv.org/html/2502.18449v1",
+      "date": "2025-02-25，arXiv v1",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "作者机构区；§2.1—2.2",
+      "key_findings": "报告关联Meta及大学研究者，利用PR、问题描述、代码上下文与参考补丁构造训练样本。奖励实现采用Python difflib.SequenceMatcher计算预测与参考补丁的序列相似度，再进行GRPO。它是软件工程推理后训练实例，但其训练奖励不是直接执行测试通过率，不能与可执行环境训练混为同一机制。HTML作者格式部分损坏，完整作者对应单位须回到PDF核查。([arxiv.org](https://arxiv.org/html/2502.18449v1))",
+      "access_scope": "阅读作者显示区及数据、奖励方法；未核查完整PDF作者排版、后续版本或全部实验。"
+    },
+    {
+      "source_id": "PTT23",
+      "title": "RAGEN: Understanding Self-Evolution in LLM Agents via Multi-Turn Reinforcement Learning",
+      "url": "https://arxiv.org/html/2504.20073v1",
+      "date": "2025-04-24，arXiv v1；版本页显示v2为2025-05-26",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "作者机构；§2.2—2.3；§3；§4.1",
+      "key_findings": "v1列出Northwestern、UW、Stanford、Microsoft、NYU、SMU和Imperial相关署名，研究轨迹级StarPO及模块化系统。实际实验使用Qwen-2.5 0.5B、三个受控环境和有限轮次，观察多轮训练崩溃及稳定化问题。版本页最新摘要写四个环境，与v1范围不同，需按版本记录；不能将这些结果直接推广到大型商业Agent。([arxiv.org](https://arxiv.org/html/2504.20073v1))",
+      "access_scope": "阅读v1方法、环境、训练设置和首组结果；另查看版本历史；未完成v2及2026延续论文阅读。"
+    },
+    {
+      "source_id": "PTT24",
+      "title": "Zihan Wang’s Homepage 王子涵",
+      "url": "https://zihanwang314.github.io/",
+      "date": "整体更新时间未知；含2026年项目与活动条目",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "首页姓名与职业介绍；RAGEN、MINT等成果条目；Updates",
+      "key_findings": "本人提供Zihan、Zenus及中文姓名对应，自述Northwestern博士研究者，与Manling Li研究Agentic RL，并回顾Microsoft、Yutori和DeepSeek实习。页面对NVIDIA仍使用未来夏季计划措辞，不能据当前日期把它改写成已发生经历。可作为消歧和研究方向入口，具体实习区间与当前状态仍需有日期材料。([zihanwang314.github.io](https://zihanwang314.github.io/))",
+      "access_scope": "读取职业介绍、相关成果及有日期更新；不采集私人联系方式，不将奖项数量用作能力排名。"
+    },
+    {
+      "source_id": "PTT25",
+      "title": "Arctic-SWE: Revisiting the Long Horizon Agent Training by Modeling-System Co-Design",
+      "url": "https://arxiv.org/html/2610.24914v1",
+      "date": "2026-10-17，arXiv v1",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "作者与摘要；§3.4；§4.1；表1及图5说明",
+      "key_findings": "署名涉及Snowflake及多所大学，研究异步RL中的反馈、重要性权重、训练—推理一致性和状态保持。数据审计将issue、测试及gold patch是否一致分开检查；表1从21,099候选经执行检查到17,861，再筛得7,500。图5注明483个问题及多次rollout，说明比较必须核对评测子集和harness。这里只支持系统与数据共同影响的候选解释，不支持跨团队排名。([arxiv.org](https://arxiv.org/html/2610.24914v1))",
+      "access_scope": "阅读上述正文和表图说明；关键消融、483题筛选依据及附录环境隔离仍待独立核验。"
+    },
+    {
+      "source_id": "PTT26",
+      "title": "SEA-LION-v4.8: A Technical Report",
+      "url": "https://arxiv.org/html/2609.18310v1",
+      "date": "2026-09-16，arXiv v1",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "模型与训练结构；§3.4；§4.1—4.2",
+      "key_findings": "报告区分持续预训练和后训练，指出保留基座tokenizer对区域语言适配造成限制。后训练结合离线SFT与当前模型动态产生的交互轨迹，采用解耦的环境编排、Conductor及数据库、推理、奖励和训练服务，并强调token精确记录。说明区域后训练包含系统和轨迹能力，不仅是翻译数据；尚不能把整个管线归属到作者名单中的每个人。([arxiv.org](https://arxiv.org/html/2609.18310v1))",
+      "access_scope": "阅读持续预训练限制与后训练数据、系统方法；未核验全部作者职业资料和各阶段收益归因。"
+    },
+    {
+      "source_id": "PTT27",
+      "title": "Swallow LLM：项目与成员主页",
+      "url": "https://swallow-llm.github.io/index.en.html",
+      "date": "整体发布日期和成员更新日未标明；页面含2026年11月统计标签",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "项目介绍；Members；Past Members",
+      "key_findings": "项目说明以Science Tokyo相关实验室与AIST为核心。成员页明确Sakae Mizuki负责指令微调及LLM评价，Kazuki Fujii参与LLM训练与后训练，并列其他成员职责及过去成员。这比单纯论文作者名单提供更直接的公开项目角色，但不提供各角色开始结束日期，统计月份也不能替代成员任职日期。([swallow-llm.github.io](https://swallow-llm.github.io/index.en.html))",
+      "access_scope": "阅读项目和成员职责区，定位过去成员名单；未使用下载量或项目总数衡量人才供给。"
+    },
+    {
+      "source_id": "PTT28",
+      "title": "GPT-OSS Swallow",
+      "url": "https://swallow-llm.github.io/gptoss-swallow.en.html",
+      "date": "2026-02-20首次发布；History列2026-05-28量化版本更新",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "History；Method；CPT、SFT、RL；Publications",
+      "key_findings": "项目在已经后训练的GPT-OSS基座上进行CPT、SFT和RL，明确没有纯预训练检查点。RL采用带若干训练修正的GRPO，以数学答案正确性为奖励；数据工作涉及日英推理与指令样本。它支持区域语言、通用推理和工程协同的案例，但不能把全部提升单独归因于后训练或某个人。页面提供后续需读的具名数据、系统和指令构建论文。([swallow-llm.github.io](https://swallow-llm.github.io/gptoss-swallow.en.html))",
+      "access_scope": "阅读发布历史、完整方法相关段及论文入口；未核对所有图示分数或链接论文全文。"
+    },
+    {
+      "source_id": "PTT29",
+      "title": "Falcon-H1R: Pushing the Reasoning Frontiers with a Hybrid Model for Efficient Test-Time Scaling",
+      "url": "https://arxiv.org/html/2601.02346v1",
+      "date": "2026-01-05，按arXiv v1标识；正文渲染另有日期，不作为初发日",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "作者区；§3.2 Reward Functions Design；相邻训练设置",
+      "key_findings": "论文提供Falcon团队作者名单，但未在已读部分逐人分工。奖励系统按领域组合数学答案验证、代码沙箱执行、科学问题LLM判断及格式惩罚，并披露Ray/AsyncIO编排及Sandbox-Fusion等工具。这是数据、评价和工程交叉的直接方法证据；工具采用不等于与工具作者建立人员合作关系。([arxiv.org](https://arxiv.org/html/2601.02346v1))",
+      "access_scope": "阅读作者与奖励编排相关正文；未完成SFT、所有消融及推理时预算的全文复核。"
+    },
+    {
+      "source_id": "PTT30",
+      "title": "Falcon-H1R官方发布与技术说明",
+      "url": "https://falcon-lm.github.io/blog/falcon-h1r-7b/",
+      "date": "2026-01-05；后续增补部分未单列修订日",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Introducing；Training recipe；Artificial Analysis evaluation；Test time scaling",
+      "key_findings": "发布说明明确开发机构为阿布扎比TII，描述冷启动SFT、GRPO及DeepConf推理时过滤。文章也承认模型未专门优化Agent工作流，外部评测强调的任务分布不同。适合确定机构及能力边界；所谓参数效率和表现比较仍须核对预算，不能将推理时过滤当后训练贡献或认定全球最优。([falcon-lm.github.io](https://falcon-lm.github.io/blog/falcon-h1r-7b/))",
+      "access_scope": "阅读训练配方、测试时计算及局限段；未独立复现或核验外部榜单。"
+    },
+    {
+      "source_id": "PTT31",
+      "title": "Corporations Canada：Cohere Labs法人名称历史",
+      "url": "https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?cStatus=1&corpId=13975631&crpNm=labs&p=2",
+      "date": "页面标示修改于2026-10-01；名称变更记录为2025-06-02",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "Corporate history；Corporate name history；Certificates and filings",
+      "key_findings": "官方登记列Cohere For AI Institute名称使用期为2022-05-13至2025-06-02，随后名称为Cohere Labs，并列对应更名证书日期。可建立组织别名及更名事件，不证明员工集体迁移、研究方向改变或每名社区贡献者的雇佣关系。([ised-isde.canada.ca](https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?cStatus=1&corpId=13975631&crpNm=labs&p=2))",
+      "access_scope": "只采用法人名称历史及更名记录；不采集董事个人地址，也不展开与本研究无关的法律状态分析。"
+    },
+    {
+      "source_id": "PTT32",
+      "title": "M-RewardBench: Evaluating Reward Models in Multilingual Settings，ACL会议版",
+      "url": "https://aclanthology.org/2025.acl-long.3.pdf",
+      "date": "2025年ACL论文集；首页标示会议期2025-07-27至2025-08-01，精确上线日未由PDF确认",
+      "retrieved_at": "2026-11-09",
+      "reading_location": "第43页作者及脚注；第44页表1；结果与Limitations",
+      "key_findings": "会议版署名包含Cohere Labs、社区、Ai2、KAIST、ServiceNow和Meta；Sebastian Ruder的星号注明工作在Cohere完成，不能据Meta署名倒推迁移日期。表1的四类基础实例合计2,869，扩展23种语言，另有400个翻译实例覆盖两种语言，合计66,787；已复算，不能把2.87k写成全部语言实例总量。该版再次限制了奖励模型分数向下游效果的外推。([aclanthology.org](https://aclanthology.org/2025.acl-long.3.pdf))",
+      "access_scope": "阅读作者脚注、数据规模表、部分结果及限制，并复算表内总数；未完成所有语言模型结果和职业变动核验。"
+    }
+  ],
+  "material_gaps": [
+    "U01：完成其他地区的定向原始资料检索，尤其南亚、非洲、拉丁美洲及大洋洲；记录检索对象、找到的后训练产物和未纳入理由。语言数据覆盖不能代替研究人员所在地覆盖。",
+    "U02：补读2022年Constitutional AI、过程监督与推理训练的原始论文及贡献说明；为Long Ouyang、John Schulman、Jan Leike、Ryan Lowe等候选补齐机构或本人职业公告，特别核查2026-11-09前最近状态。",
+    "U03：DPO与Google DeepMind偏好学习作者的当前职业资料尚不齐全；需要有日期的本人或机构材料，不能将2023年论文单位延伸到2026年。另须补读同基座、同偏好数据的在线与离线方法比较。",
+    "U04：补查H4、TRL、Tülu及2025—2026开放配方的具名模块职责、仓库历史和维护范围；共同署名不足以确定某个人负责数据、RL还是系统。",
+    "V_EVIDENCE与U04：PTT12同一CV地址的文本和截图版本不一致，须取得可固定版本的原始PDF或存档；现职和离任事实暂以PTT09—PTT11为依据。不能删除冲突记录后继续使用旧CV现职字段。",
+    "U05：补读DeepSeekMath、R1后续正式版本、证明与验证相关论文的完整贡献说明；Shao主页未给入职日期，其他候选的任职和实习区间也需独立核验。",
+    "U05：补读Qwen截至截止日的相关后训练报告及人员公告，核实GSPO等方法与实际团队角色；不得用传闻或旧负责人名单补全2026组织结构。",
+    "U05：HybridFlow作者的HKU学生、ByteDance雇员或实习身份与时期需要职业材料确认；verl当前维护者、论文作者和项目代码贡献者不可直接等同。",
+    "U06：Kimi K3的环境、长期RL基础设施与贡献部分尚未充分阅读；K2.5需补读原文。Longguang Zhong的入职日及具体模块贡献尚无充分证据。",
+    "U06：RAGEN v1与v2的作者、标题、环境数和实验设置需建立版本差异表；2026延续成果须阅读全文。Zihan Wang主页的未来NVIDIA实习表述需要有日期材料确认是否实际发生。",
+    "U06与V_DOMAIN：SWE-RL需回PDF修复HTML作者单位混排，并与后续自博弈版本区分；补丁相似度奖励、测试执行奖励和真实多轮Agent训练不能混用一个能力标签。",
+    "V_DOMAIN：Arctic-SWE的483题评测子集、harness、隔离措施和对比基线尚需附录核验；在此之前，不与其他论文的500题SWE-bench Verified数字直接排序。",
+    "U07：Srishti Gureja、Marzieh Fadaee、Sara Hooker、Sebastian Ruder及SEA-LION具名人员需要职业资料交叉核对；Cohere社区成员、研究资助接受者和雇员必须分开。",
+    "U07与V_DOMAIN：SEA-LION的CPT、SFT和在线蒸馏收益需要分阶段材料，当前总模型成绩不能归因到某一训练阶段；其语言命名和评测覆盖也须统一口径。",
+    "U08：Swallow成员角色的有效时期、过去成员离开区间及学校名称变化需补机构材料；韩国分支目前只有候选发现基础，需要实读后训练原始报告和职业资料后确定代表对象。",
+    "U09：Falcon-H1R作者的公开任职、项目职责和时期尚未逐人核验；需补论文的SFT、训练消融和推理预算，确认哪些能力是训练所得、哪些来自推理时计算。",
+    "U10：共同成果、同期任职、流动与资源复用边尚未完成逐条核验；尤其大规模作者名单不得直接转成无时间的全连接人物图。",
+    "U11：组织建议需要各案例已核验的完整分析和替代解释。当前不能估算团队人数、个人贡献占比、全球人才存量或因某人流动造成的机构能力增减。",
+    "U12：需求与结构的初始独立审视、各类最终独立审查、审计和验收均尚未执行；后续须使用真实独立上下文并保留实际意见，不能以本阶段规划或来源登记替代完成。"
+  ]
+}

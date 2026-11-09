@@ -1,0 +1,74 @@
+{
+  "revision": "draft-revision-01.md",
+  "at": "2026-11-09T13:50:48.246489+00:00",
+  "author": "current native Codex; no external API call",
+  "report_read": {
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_zh\\codex-production\\draft-current.md",
+    "sha256": "2e47ab19a31e5c44314dfaeada7bdab6bb7247e083503d86f02ad897c236882b",
+    "range_type": "line",
+    "ranges": [
+      [
+        1,
+        75
+      ],
+      [
+        76,
+        135
+      ],
+      [
+        136,
+        219
+      ],
+      [
+        220,
+        258
+      ]
+    ],
+    "actual_read_scope": "complete current report displayed in four untruncated calls"
+  },
+  "review_read": {
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\test_time_compute_zh\\native-full-reviews\\adversarial_reasoning\\response.json",
+    "sha256": "60c7f87bb11846d949e3d83d266d04d43df174822b33a9f658a7d337d31ffe2f",
+    "actual_read_scope": "full response.json, finding AR-TTCZH-01"
+  },
+  "source_read": {
+    "source_id": "TTC007",
+    "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\frozen-alternate-inputs\\test_time_compute_zh\\sources\\TTC007.txt",
+    "sha256": "708e50f5dfbe69b53de523d40da5abdbd33bd54eb7f22a80a50e61e11d0eab1d",
+    "range_type": "line",
+    "ranges": [
+      [
+        119,
+        182
+      ],
+      [
+        291,
+        396
+      ],
+      [
+        397,
+        468
+      ],
+      [
+        830,
+        882
+      ],
+      [
+        1030,
+        1065
+      ]
+    ],
+    "actual_read_scope": "displayed frozen extracted original lines, all listed ranges read without truncation"
+  },
+  "preserved_files": {
+    "draft-first.md": "2e47ab19a31e5c44314dfaeada7bdab6bb7247e083503d86f02ad897c236882b",
+    "draft-current.md": "2e47ab19a31e5c44314dfaeada7bdab6bb7247e083503d86f02ad897c236882b",
+    "budget_example.py": "a87db18587866c83b5482831f4ff02a81279f3ada570aba05580ced6f3b345a7",
+    "budget_output.json": "9372cdae1715759c7a4893fabfff52c2205dbf1cb8ef62d805ca51cb97dd758e",
+    "budget_stdout.txt": "82ce8432de04a1cd4c7c0d4d143099e03b32e95517292b2f96e8524b0df1ceb0"
+  },
+  "revision_sha256": "eef296bd90c6ef8a34e04a7ce533e84034adc24c77417030b9fef057ab6b1eac",
+  "status": "author revision complete; independent review finding not self-closed",
+  "calculation_rerun": false,
+  "other_reviews_run": false
+}

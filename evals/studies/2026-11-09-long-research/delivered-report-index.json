@@ -1,0 +1,107 @@
+[
+  {
+    "case_id": "ai_drug_discovery_en",
+    "family_id": "ai_drug_discovery",
+    "language": "en",
+    "report_sha256": "65d880c1a784b0575d853d837db979ff73e28fec8c1bd024252c4b546f1a6558",
+    "report": "reports/ai_drug_discovery_en/final.md"
+  },
+  {
+    "case_id": "bytedance_advertising_zh",
+    "family_id": "bytedance_advertising",
+    "language": "zh",
+    "report_sha256": "2ceafdcf61f2b80e0900078f67b95bbc6887d8a1780be302b217c398f9505d97",
+    "report": "reports/bytedance_advertising_zh/final.md"
+  },
+  {
+    "case_id": "embodied_deployment_zh",
+    "family_id": "embodied_deployment",
+    "language": "zh",
+    "report_sha256": "3c1900a851b26f0531301d1480c8b8f67657f8d1e6056580af52f9a3af2ed30f",
+    "report": "reports/embodied_deployment_zh/final.md"
+  },
+  {
+    "case_id": "ev_batteries_zh",
+    "family_id": "ev_batteries",
+    "language": "zh",
+    "report_sha256": "92471943ece53edddd7062bed438562c76cbdd177f5075eecdcd15ad7b31cfa5",
+    "report": "reports/ev_batteries_zh/final.md"
+  },
+  {
+    "case_id": "instant_retail_warehouses_zh",
+    "family_id": "instant_retail_warehouses",
+    "language": "zh",
+    "report_sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed",
+    "report": "reports/instant_retail_warehouses_zh/final.md"
+  },
+  {
+    "case_id": "microdrama_market_en",
+    "family_id": "microdrama_market",
+    "language": "en",
+    "report_sha256": "ffceaf740b8acdfd38ca4b74d0de96327b7c80f0a26ffe563dee1f09b732ccc2",
+    "report": "reports/microdrama_market_en/final.md"
+  },
+  {
+    "case_id": "microdrama_market_zh",
+    "family_id": "microdrama_market",
+    "language": "zh",
+    "report_sha256": "76e52a756e003edbec67aca4cc06b19aa6545aec9c5584f1ca57c74f28c222b4",
+    "report": "reports/microdrama_market_zh/final.md"
+  },
+  {
+    "case_id": "model_benchmarks_en",
+    "family_id": "model_benchmarks",
+    "language": "en",
+    "report_sha256": "309ad92d1534d78eb04d01e8aff19e3b221af71d7691d3cc78b92972c904f550",
+    "report": "reports/model_benchmarks_en/final.md"
+  },
+  {
+    "case_id": "on_device_models_en",
+    "family_id": "on_device_models",
+    "language": "en",
+    "report_sha256": "59f8ac88843287debab4c0176d72575b648dbf581eece7888f22e050e69da8dd",
+    "report": "reports/on_device_models_en/final.md"
+  },
+  {
+    "case_id": "personal_agents_zh",
+    "family_id": "personal_agents",
+    "language": "zh",
+    "report_sha256": "364de9c89668dd490adeb400faeb4cdf2a82745f8ed784263ef961e9b956394a",
+    "report": "reports/personal_agents_zh/final.md"
+  },
+  {
+    "case_id": "post_training_talent_zh",
+    "family_id": "post_training_talent",
+    "language": "zh",
+    "report_sha256": "24aaae40bb7e3f192264223dec8c19bf20d620c85be75d6676337f1ffd6c3c48",
+    "report": "reports/post_training_talent_zh/final.md"
+  },
+  {
+    "case_id": "test_time_compute_en",
+    "family_id": "test_time_compute",
+    "language": "en",
+    "report_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+    "report": "reports/test_time_compute_en/final.md"
+  },
+  {
+    "case_id": "test_time_compute_zh",
+    "family_id": "test_time_compute",
+    "language": "zh",
+    "report_sha256": "259846b7cc7271e0ca20b3a25a5d1fb992c1d7aac6722232f6ea35e704661ef4",
+    "report": "reports/test_time_compute_zh/final.md"
+  },
+  {
+    "case_id": "token_economics_en",
+    "family_id": "token_economics",
+    "language": "en",
+    "report_sha256": "5988ea792c50ec4c20b1124b0d5764fe350f849631d4770528c7cb2a1f38b57f",
+    "report": "reports/token_economics_en/final.md"
+  },
+  {
+    "case_id": "verifiable_self_improvement_en",
+    "family_id": "verifiable_self_improvement",
+    "language": "en",
+    "report_sha256": "c339d6244bdf03eb4d0935e4428c2106b59f7dd556774a083165b29bf6f3fc19",
+    "report": "reports/verifiable_self_improvement_en/final.md"
+  }
+]

@@ -1,0 +1,14 @@
+{
+  "source_id": "TTC009",
+  "url": "https://arxiv.org/html/2203.11171v4",
+  "title": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+  "reading_location": "§§2–3; Table1; sampling/model settings and 40sample/10run protocol",
+  "read_scope": "selected complete sections and passages named, not blanket full-paper read",
+  "version_model_evaluation": "v4 2023-03-07; PaLM540B T=.7 topk40; GSM8K and other specified benchmarks",
+  "observation": "Fixed-model plurality gains; 17.9 absolute GSM8K points",
+  "original_text_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC009\\original.txt",
+  "original_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC009\\original.html",
+  "text_sha256": "619d8a6893dd5ec139942aaede087c5f7725becfbcacdf059cfe1ce520333542",
+  "retrieval_record": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\sources\\TTC009\\retrieval.json",
+  "reader": "/root/ttc_research"
+}

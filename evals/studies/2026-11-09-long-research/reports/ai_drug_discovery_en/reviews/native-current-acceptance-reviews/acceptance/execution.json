@@ -1,0 +1,34 @@
+{
+  "host_task": "/root/office_final_acceptance",
+  "status": "completed",
+  "assignment_version": "ed59b1f87b49aaba49ed283e6a7e7534a93d6b03933d3396635ddfed69acf386",
+  "input_version": "b14ddf2357207d82f698bffeee8a264fa848d75c91b40c0d05e2c4a6474b0534",
+  "artifact_sha256": "65d880c1a784b0575d853d837db979ff73e28fec8c1bd024252c4b546f1a6558",
+  "started_at": "2026-11-09T16:50:16.7204441Z",
+  "completed_at": "2026-11-09T16:53:10.3254462Z",
+  "assignment": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/ai_drug_discovery_en/reviews/host/b14ddf2357207d82f698/jobs/acceptance-ed59b1f87b49aaba.json",
+  "independence": "Independent of this manuscript producers,content reviewers and auditor; no earlier production,content-review or clinical-domain role on this report.",
+  "actual_reading": {
+    "targeted": [
+      "Production history eight unit/author/artifact/hash records",
+      "sources/actual/AIDD06.txt:181–202,274–305",
+      "sources/actual/AIDD-S14.txt:221–245",
+      "sources/actual/AIDD-S20.txt:185–194",
+      "R supplemental-sources/AIDD-S02/figure-2.png full original image",
+      "R supplemental-sources/AIDD-R01W/download.bin exact Absolute Change From Baseline in FVC in L outcome with groups,denoms,classes,analyses; neighboring percent-predicted outcome only partially displayed and not claimed full",
+      "R supplemental-sources/AIDD-R02W/download.bin identification,status,design and primary-outcome modules",
+      "analysis/author-production/U4-comparison-partnerships-decisions.md:49–75"
+    ],
+    "reuse": "Remaining unchanged primary-source checking reused from full audit with explicit source locations. Did not reopen all source documents,trial protocols or review execution files; REC-4881 exact3/2 exclusion split accepted on the audit actual issuer-footnote reading,not falsely claimed as own new access.",
+    "full": [
+      "reports/current.md:1–287",
+      "job task/effective_requirements/prior_required_findings",
+      "Eight reviews.*.original and full audit.original",
+      "Three required historical negative response.txt originals",
+      "analysis/author-production/handoff.md",
+      "Both change-note-full files and complete diffs",
+      "calculations.py,calculations-results-revision-01.json,revise_U1_analysis_population.py"
+    ]
+  },
+  "actions": "Read-only evaluation plus own response/execution writes. No manuscript edit,task import/state mutation,live research,model or clinical experiment,calculation rerun or tests."
+}

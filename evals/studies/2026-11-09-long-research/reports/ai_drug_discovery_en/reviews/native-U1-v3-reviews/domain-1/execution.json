@@ -1,0 +1,145 @@
+{
+  "host_task": "/root/independent_domain_b",
+  "status": "completed",
+  "role": "reviewer",
+  "slot_id": "domain-1",
+  "scope": "AIDD-U1",
+  "execution_mode": "native_codex_independent_subagent",
+  "input_version": "7df42f9e48f578f8581eb68e50664b4600a4466865102d37e93b8e6c7978f767",
+  "assignment_version": "8c9b9d3000df1c6fd680797165f2e486ba266b2ea848d39ab2d42ff5c35bda2d",
+  "artifact_sha256": "3c94c59b3852a79c7822e1ce7f318814565b07b146e7238f75e2e97755734a8f",
+  "recorded_at_utc": "2026-11-09T13:19:46.5605342Z",
+  "response_sha256": "91e8661a38af8d6dd25813f5756e693228c04b0cdc66874b45e1253866cce89b",
+  "original_negative_response": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-premise-domain-b\\response.json",
+  "actual_observed_agent_tool_events": [
+    "Compared complete old and new assignment fields, all substantive fields equal",
+    "Compared all22 source entries; only selected_source_records differed",
+    "Compared8 selected rows by sorted nonempty fields in v2, actual interim packet, and v3; all equal",
+    "Checked12 reused original text, registry JSON, PDF and rendered-image hashes; all unchanged",
+    "Reread current FVC estimates/denominators/CI and missing-data paragraphs"
+  ],
+  "read_materials": [
+    {
+      "scope": "Version/context equivalence and prior actual review record; not new research",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en\\reviews\\host\\7df42f9e48f578f8581e\\jobs\\domain-1-8c9b9d3000df1c6f.json",
+      "sha256": "a76ca9e2c8be940f6d4f9f33269413d6622f1f667ba1da76e0fc12bcc16c6392"
+    },
+    {
+      "scope": "Version/context equivalence and prior actual review record; not new research",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en\\reviews\\host\\30788053262e2a1e6a26\\jobs\\domain-1-11738993733ffb71.json",
+      "sha256": "07c21a6de815a6cee1e078dfbe5649d6d1143cb60bd7f49e66f8b5686255e7b3"
+    },
+    {
+      "scope": "Version/context equivalence and prior actual review record; not new research",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-U1-v2-reviews\\domain-1\\execution.json",
+      "sha256": "0aff596af3b53506e93674983ca2348de3019e524ca1f8fc74d350c3c95abf01"
+    },
+    {
+      "scope": "Version/context equivalence and prior actual review record; not new research",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\ai_drug_discovery_en\\reviews\\host\\3801bb60ac528a5d1de7\\input.json",
+      "sha256": "e5b4bc25cc77fbf427568831442bb9eba62e4584ef78f84d54315e2c473375b9"
+    },
+    {
+      "scope": "Version/context equivalence and prior actual review record; not new research",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\csv-empty-field-before.json",
+      "sha256": "3e477db597baa58a57c6aa69155962a5506070fbbac90ebb64b0582f9e57457a"
+    },
+    {
+      "scope": "Version/context equivalence and prior actual review record; not new research",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\csv-empty-field-cli-validation\\result.json",
+      "sha256": "c4661b3bee0b435bfd238fc08c6503ce31c5794070ef9c62a21724f1a4109052"
+    }
+  ],
+  "reused_original_reading": [
+    {
+      "unchanged": true,
+      "scope": "Relevant original passages 114-149, 157-164, 174-184; figure captions outside the reported claims not comprehensively audited.",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S01\\reading-lines.txt",
+      "sha256": "13254d7743e30c027b9c8bcb847a428eb32563a90bdfec50f184becff219c35b",
+      "prior_sha256": "13254d7743e30c027b9c8bcb847a428eb32563a90bdfec50f184becff219c35b"
+    },
+    {
+      "unchanged": true,
+      "scope": "Original main article lines 119-191, including disposition, primary safety, secondary outcomes, discussion, eligibility, statistical analysis and data availability.",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S02\\reading-lines.txt",
+      "sha256": "c65f588c6cd55d3dea22e586072a0c6a8631506e3367000e9517a0eb72bc1cd7",
+      "prior_sha256": "c65f588c6cd55d3dea22e586072a0c6a8631506e3367000e9517a0eb72bc1cd7"
+    },
+    {
+      "unchanged": true,
+      "scope": "Original retained HTML inspected to locate the actual Figure 2 asset.",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S02\\original.html",
+      "sha256": "ace5d22992aa820ab0e90ddf5a2a6eeb09fa6414ad5c2473eb81a3e70f1c7fc7",
+      "prior_sha256": "ace5d22992aa820ab0e90ddf5a2a6eeb09fa6414ad5c2473eb81a3e70f1c7fc7"
+    },
+    {
+      "unchanged": true,
+      "scope": "Original Table 2 complete safety table and footnotes, lines 33-96.",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S23\\reading-lines.txt",
+      "sha256": "914ab713304d89fa52433f52d9934ee07026ea2124549470ffe95d4a23964b02",
+      "prior_sha256": "914ab713304d89fa52433f52d9934ee07026ea2124549470ffe95d4a23964b02"
+    },
+    {
+      "unchanged": true,
+      "scope": "All four rendered pages visually read; machine text extraction returns no body text.",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S21\\original.pdf",
+      "sha256": "afec594546d0cf13f447bd59491529ba0ea7ed597e7ae0d8e16598b707e2c9c6",
+      "prior_sha256": "afec594546d0cf13f447bd59491529ba0ea7ed597e7ae0d8e16598b707e2c9c6"
+    },
+    {
+      "unchanged": true,
+      "scope": "Raw JSON protocol identification/status/design/arms/outcomes and results Absolute Change From Baseline in FVC in L, including all denominators, observed means and LS mean analysis fields.",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-R01W\\download.bin",
+      "sha256": "a93140d5060257ba3df24e84800db4b9ca70d0f9c920470d51ae163ef916833d",
+      "prior_sha256": "a93140d5060257ba3df24e84800db4b9ca70d0f9c920470d51ae163ef916833d"
+    },
+    {
+      "unchanged": true,
+      "scope": "Raw JSON identification/status/design/arms/outcomes.",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-R02W\\download.bin",
+      "sha256": "241a92d3e9de013bf655119f9993d34d91559681a1ff83481ec329d35ec4ccb3",
+      "prior_sha256": "241a92d3e9de013bf655119f9993d34d91559681a1ff83481ec329d35ec4ccb3"
+    },
+    {
+      "unchanged": true,
+      "scope": "Actual original Figure 2 panels a and b visually inspected, both numerical values, confidence intervals and n labels.",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\native-premise-domain-b\\phase2a-figure2.png",
+      "sha256": "073eca01d3e1632548623488db8faf0619b33803cc9b7837fa5ef02b8d36b20b",
+      "prior_sha256": "073eca01d3e1632548623488db8faf0619b33803cc9b7837fa5ef02b8d36b20b"
+    },
+    {
+      "unchanged": true,
+      "scope": "Complete rendered Reporting Summary page 1",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S21\\page-1.png",
+      "sha256": "fb70ef89d22a86afa0eea9a8b1bd71f8e47becb61c7f67c8b6caec476e24215a",
+      "prior_sha256": "fb70ef89d22a86afa0eea9a8b1bd71f8e47becb61c7f67c8b6caec476e24215a"
+    },
+    {
+      "unchanged": true,
+      "scope": "Complete rendered Reporting Summary page 2",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S21\\page-2.png",
+      "sha256": "f15fce60ad2407096f314655f80c2eff40907adb770325b8a0c3e89afdeee7f4",
+      "prior_sha256": "f15fce60ad2407096f314655f80c2eff40907adb770325b8a0c3e89afdeee7f4"
+    },
+    {
+      "unchanged": true,
+      "scope": "Complete rendered Reporting Summary page 3",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S21\\page-3.png",
+      "sha256": "0788848baacde4061ca1248978c009033da23a328019f55539086e5ab0763eea",
+      "prior_sha256": "0788848baacde4061ca1248978c009033da23a328019f55539086e5ab0763eea"
+    },
+    {
+      "unchanged": true,
+      "scope": "Complete rendered Reporting Summary page 4",
+      "path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\astra-api-current-chat-20261109\\work\\implementation\\research\\ai_drug_discovery_en\\codex-production\\supplemental-sources\\AIDD-S21\\page-4.png",
+      "sha256": "981d86200e710a96e32862b5b591aa97d492d436bdf4a7bb74141faf08384652",
+      "prior_sha256": "981d86200e710a96e32862b5b591aa97d492d436bdf4a7bb74141faf08384652"
+    }
+  ],
+  "limits": [
+    "No research/model experiment/calculation rerun; no report changes or imports.",
+    "Current approval bound to new actual version and only AIDD-U1.",
+    "No full protocol/SAP claimed; Reporting Summary all4 pages previously visually read.",
+    "No retrospective change to initial negative or v2 response."
+  ]
+}

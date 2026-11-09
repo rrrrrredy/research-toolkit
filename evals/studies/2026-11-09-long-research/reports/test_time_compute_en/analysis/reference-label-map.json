@@ -1,0 +1,28 @@
+{
+  "mapping": {
+    "TTC001": "Scaling Test-Time Compute Optimally",
+    "TTC002": "s1",
+    "TTC003v2": "Inference Regimes (v2)",
+    "TTC003": "Inference Regimes",
+    "TTC005": "Test-Time Self-Play",
+    "TTC006": "When More Thinking Hurts",
+    "TTC007": "Optimal Reasoning Termination",
+    "TTC008": "Sample, Mix, or Verify?",
+    "TTC009": "Self-Consistency",
+    "TTC010": "Large Language Monkeys",
+    "TTC011": "Tree of Thoughts",
+    "TTC012": "Let’s Verify Step by Step",
+    "TTC013": "SCoRe",
+    "SUP-CM": "CodeMonkeys",
+    "SUP-TAU": "τ-bench",
+    "SUP-LIMITS": "Inference Scaling Flaws",
+    "SUP-SELF": "Large Language Models Cannot Self-Correct Reasoning Yet",
+    "SUP-AC": "Adaptive-Consistency",
+    "SUP-TREE": "Tree Search for Language Model Agents"
+  },
+  "before_sha256": "bf7a5db85e34a783b79040afd9eded0594ce7da69ee970f5b82f3c51f9f74cea",
+  "after_sha256": "7a62aab74b55c1289c7a84aec608782d334aeef235e92085571600f7174e023c",
+  "unchanged": "URLs, numerical claims, arguments, internal source registry IDs and source versions; only reader-facing labels and appendix header changed.",
+  "producer": "/root",
+  "reason": "Actual website inspection and final-acceptance source-label-disposition.json identified internal citation labels inconsistent with writing-style.md."
+}

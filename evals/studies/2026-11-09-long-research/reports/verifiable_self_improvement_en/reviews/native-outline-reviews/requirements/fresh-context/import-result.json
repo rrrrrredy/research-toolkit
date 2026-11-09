@@ -1,0 +1,34 @@
+{
+  "task_directory": "\\\\?\\C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-long-research-20261109\\evals\\runs\\2026-11-09-long-research\\tasks\\verifiable_self_improvement_en",
+  "input_version": "d545f819ef89374bf114a1d7fd924c1feef553992f6e567ac4f6c06ea71363c0",
+  "scope": "outline",
+  "assignments": [],
+  "reviews_complete": true,
+  "delivery_ready": false,
+  "unit_ready": false,
+  "completion_check": {
+    "ok": false,
+    "flags": [
+      "incomplete_independent_review"
+    ],
+    "findings": [
+      "needs_revision",
+      "VSI-REQ-01: R_TASK expressly requires data leakage as well as adaptive overfitting. Item 6 names adaptive reuse, reference errors, reward exploitation and metric conflicts but leaves leakage unassigned. This is not merely another name for repeated selection: VSI001 original.txt, Appendix C.3 (around lines 1035-1038), says the private test patch is included in the diagnosis prompt and reports manual inspection as reassurance; its Polyglot discussion (line 111) separately discusses possible foundation-model benchmark exposure. These are relevant information-access and contamination boundaries that a transfer label alone does not settle. Add a compact planned comparison of what test/task information reaches the generator/diagnoser, what is protected, and what public evidence can establish about leakage, without demanding a new experiment or treating possible leakage as proven invalidity."
+    ],
+    "required_slots": 2,
+    "completed_slots": 2,
+    "selected_attempts": {
+      "structure_and_depth": "4159f6bcb9a1436c9f53c66f8e25b7dd",
+      "requirements": "17bf97cdc12c4d6ba5e17771fb1f6748"
+    },
+    "independent_review": true,
+    "record_consistency_checked": true,
+    "reviewer": "independent",
+    "review_strength": "independent"
+  },
+  "action_required": "revise",
+  "open_issues": [
+    "needs_revision",
+    "VSI-REQ-01: R_TASK expressly requires data leakage as well as adaptive overfitting. Item 6 names adaptive reuse, reference errors, reward exploitation and metric conflicts but leaves leakage unassigned. This is not merely another name for repeated selection: VSI001 original.txt, Appendix C.3 (around lines 1035-1038), says the private test patch is included in the diagnosis prompt and reports manual inspection as reassurance; its Polyglot discussion (line 111) separately discusses possible foundation-model benchmark exposure. These are relevant information-access and contamination boundaries that a transfer label alone does not settle. Add a compact planned comparison of what test/task information reaches the generator/diagnoser, what is protected, and what public evidence can establish about leakage, without demanding a new experiment or treating possible leakage as proven invalidity."
+  ]
+}

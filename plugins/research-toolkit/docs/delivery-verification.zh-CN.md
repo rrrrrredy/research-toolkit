@@ -4,9 +4,9 @@
 
 本契约用于 CLI／MCP 管理交付或任务明确要求其回执的情况。纯 Skill 报告完成约定研究与检查即可，不要求创建这些状态文件或回执。
 
-这是可选的离线一致性检查，不是运行时权限钩子，也不能证明 Agent 实际调用过它。研究和写作要求以 [SKILL.md](../SKILL.md) 为准；本页说明接口，不另加写作规则。
+这是可选的离线记录一致性检查，不是运行时权限钩子；是否调用应核对实际执行记录。研究和写作要求以 [SKILL.md](../SKILL.md) 为准，本页说明检查器接口。
 
-默认采用 **delivery contract 3**。交付凭证外层仍为 `schema_version: 1`，契约版本表示执行了哪些检查。结果包含 `delivery_contract_version`、`current_contract_checked` 和 `semantic_verification: false`，均不认证用户授权、实际阅读或编辑质量。
+默认采用 **delivery contract 3**，凭证外层仍为 `schema_version: 1`。`delivery_contract_version` 与 `current_contract_checked` 标明检查版本；`semantic_verification: false` 表示授权仍须核对用户决定，阅读须核对笔记及原文，编辑质量由独立内容审阅判断。
 
 共享 CLI 需要 Python 3.10+，只使用标准库。Linux 上优先使用 `python3`；本机已有的 Python 3.10+ 解释器即可。
 
@@ -22,7 +22,7 @@ python3 <skill-directory>/scripts/check_delivery.py <task-directory> --require-c
 
 该模式只读：只有 `stage: final`、`status: complete` 且已有交付、要求、独立审阅、审计、验收及版本检查全部通过，才退出 0；否则退出 1，由 `flags` 和 `findings` 列出具体缺口，非终态任务包含 `incomplete_task`。它不调用 `finish`、不启动评审、不修改任务文件或生成回执。完成检查使用当前交付契约；不加此标记时，仍可用 `--contract-version 1/2` 诊断历史记录。
 
-凭证绑定当前成果、简报、进度、来源与主张记录、审查日志及拟发送的交付说明；适用的需求和不确定性文件也需绑定。凭证中已记录的每个路径都必须核查文件存在性、任务目录边界和哈希，即使绑定时属于可选文件；从未绑定的可选文件仍可缺省。文本哈希将 CRLF、CR 规范为 LF。相关修改完成后再封存，后续修改会使旧凭证过期；不为重建凭证重做无关研究。
+凭证绑定当前成果、任务规格、进度、来源与主张记录、审查日志及拟发送的交付说明；适用的需求和不确定性文件也需绑定。凭证中已记录的每个路径都必须核查文件存在性、任务目录边界和哈希，即使绑定时属于可选文件；从未绑定的可选文件仍可缺省。文本哈希将 CRLF、CR 规范为 LF。相关修改完成后再封存，后续修改会使旧凭证过期；不为重建凭证重做无关研究。
 
 用 `--delivery-message note.md` 指定其他交付说明文件，凭证须绑定选定文件。成果、凭证和拟交付说明的路径均须位于任务目录内。
 
@@ -59,7 +59,7 @@ CLI `finish` 和 MCP `research_finish` 的 `completed: false` 均表示仍有工
 
 当 `read_evidence` 明确指向本地文件时，文件必须在任务目录内、实际存在且内容非空。缺失文件、目录、空白文件或越界路径都会失败；文件引用可附带锚点、页码或章节说明。网址和章节、页码定位仍可使用，检查器不会抓取或认证其内容。
 
-脚本核对声明字段和上述文件条件，无法发现未记录的需求、从自由文本推导阅读义务、认证引文真实性或从笔记证明理解。作者仍须对照真实请求与来源核查。独立检查器和评测器均检查需求关闭，即使关闭评测器可选的凭证检查也如此。
+脚本核对声明字段和上述文件条件。应对照完整请求补齐要求，按原始轮次核实决定引文，并对照来源章节检查阅读笔记。独立检查器和评测器均检查需求关闭，即使关闭评测器可选的凭证检查也如此。
 
 ## 显式篇幅要求
 
@@ -91,9 +91,9 @@ Windows 可将 `python3` 替换为 `py -3` 或已有解释器路径；MCP 可直
 
 `whitespace_words` 按 Python 空白分词；`nonwhitespace_characters` 统计除空白外的 Unicode 码点。两者均计算整个 UTF-8 文件，包含 Markdown 标记、标题、引用及参考文献；不是模型 token 或编辑器渲染后的字数。目前仅支持 `whole_artifact`。若约定只统计正文或按页限制，应使用相应测量，不能改称全文计数。`min`／`max` 至少提供一个非负整数，范围包含端点；使用独立要求编号，并在 summary 中说明实际约定。
 
-`research_finish` 重算实际篇幅，超出范围的 `satisfied` 自述会在写入凭证或替换交付消息之前被拒绝。凭证保存 `length_checks`，离线检查会重新测量；历史结果按当时契约保留，不倒填审阅。接续时复用原稿和来源，完成当前独立工作；旧 checklist 不升级为当前验收。
+`research_finish` 重算实际篇幅，超出范围的 `satisfied` 自述会在写入凭证或替换交付消息之前被拒绝。凭证保存 `length_checks`，离线检查会重新测量；历史 checklist 预览返回计数及错误。新旧任务的这些记录均沿用需求关闭规则：未决状态仍需处理，已有用户决定可用于豁免、改变范围或接受限制。豁免的范围仍保留实际计数，超界时保留 `bounds_met: false`，不改记为篇幅达标。当前审阅已冻结台账，改变约定范围须完成正常的当前版本审阅。未含结构化篇幅要求的旧凭证保留原检查。
 
-评测 runner 在终态交付时也检查显式篇幅要求，即使关闭了可选凭证检查。这些检查只验证实际计数与声明的范围，不能发现漏记要求、证明范围忠实于用户指示，也不能认证研究深度或质量。作者自述或增加篇幅都不能补足缺失的论证。
+评测 runner 在终态交付时也检查显式篇幅要求，即使关闭了可选凭证检查。应对照真实请求核查台账范围，并在内容审阅中检查必要论证是否充分展开；字词计数仅核对已声明的篇幅。
 
 ## 比较实际回复记录
 
@@ -107,7 +107,7 @@ python3 <skill-directory>/scripts/check_delivery.py <task-directory> --actual-me
 
 历史 checklist 任务的 `checklist_valid` 表示保留的 checklist 是否仍匹配输入及已记录要求；`terminal_state` 表示任务当前是否为 `final/complete`。通过 `research_status(stage="revise")` 接续后，checklist 保留，但交付检查返回 `ok: false` 和 `incomplete_lite_task`，直到 `research_finish` 完成当前工作。检查不改写任务记录，也不要求未提供的实际回复记录。
 
-调用方提供的文件不是真实交付的认证。Agent 再写一份预期说明不构成独立捕获证据。本接口本身不拦截或强制约束实际最终回复。
+使用运行环境保留的实际输出作为回复记录，而不是由 Agent 另写一份拟交付说明。检查器将该记录与已绑定的拟交付说明比较，不认证记录来源，也不控制实际最终回复。
 
 ## 必需模型评审的完成
 
@@ -129,7 +129,7 @@ python3 <skill-directory>/scripts/check_delivery.py <task-directory> --actual-me
 
 `limitation_disclosure.status` 区分 `not_applicable`、`absent`、`contradiction`、`text_covered` 和 `needs_review`。没有披露信号，或检测到全面否认已有的限制，会使机械检查失败；否认检测是有限启发式规则，不能识别所有措辞。
 
-`text_covered` 表示规范化标点和空白后找到了已记录的限制文本，不代表其真实或诚实。仅部分匹配、改写表达或泛泛说明时，`needs_review` 给出 `unmatched_limitations` 和可见提示。正常同义表达不会只因无法精确匹配就失败，但机械 PASS 不能称为披露已核验。`semantic_verification` 始终为 false，含义、覆盖和重大矛盾仍需内容审阅。不要求固定措辞、额外声明文件或某家模型/API。
+`text_covered` 表示规范化标点和空白后找到了已记录的限制文本。仅部分匹配、改写表达或泛泛说明时，`needs_review` 给出 `unmatched_limitations` 和可见提示。正常同义表达不会只因措辞不同而失败。`semantic_verification` 始终为 false；内容审阅者核对事实准确性、含义、覆盖和重大矛盾。不要求固定措辞、额外声明文件或特定模型/API。
 
 ## 交付前的稿件检查
 
@@ -145,7 +145,7 @@ python3 <skill-directory>/scripts/check_delivery.py <task-directory> --actual-me
 
 ## 回归覆盖
 
-`python3 scripts/check_delivery_contract.py` 在隔离控制中重新封存无关哈希，避免旧凭证掩盖目标缺陷。覆盖正常控制、自定义消息、回复差异、声明范围、有限审查顺序及终态真值组合，不证明能识别所有自然语言完成声明或研究质量。
+`python3 scripts/check_delivery_contract.py` 在隔离控制中重新封存无关哈希，避免旧凭证掩盖目标缺陷。覆盖正常控制、自定义消息、回复差异、声明范围、有限审查顺序及终态真值组合。
 
 `python3 scripts/check_evaluator_contract.py` 覆盖跨入口恢复、后续局部阻断、错误或非 UTF-8 历史、仅分派的问题、否认或部分披露限制，以及中英文不同文本和重复文本。控制在隔离副本内运行，冻结报告和研究输入不改写。
 

@@ -1,0 +1,19 @@
+{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "process_language": {
+      "location": "reports/current.md 全文第1–340行；重点第174–239、241–273、296–304行",
+      "basis": "连续读完冻结版本正文、各表、情景计算、监管机制及参考文献定义，并阅读原始任务及有效要求。监管审查、合同回收、分配公式和来源重复/缺失说明服务研究读者，应保留；未见作者对话、协调指令或待审状态。末尾两处转为叙述本次材料恢复和阅读履历，应改回材料本身的覆盖范围。未另行重验市场事实或源文件。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "process_language-01",
+      "severity": "minor",
+      "location": "reports/current.md 第300、302行，Evidence and calculation notes",
+      "basis": "第300行“the restored CP16 and CP24 charts were read directly”描述恢复图表及作者阅读动作；第302行“Long reports were read at the pages and passages recorded in the reading ledger, not represented as fully read...”描述生产台账与自证阅读范围。按面向研究读者的过程语言要求，改为客观列出相关图表的指标/脚注及引用长报告的页段范围，或把阅读执行记录移至内部材料。保留CP10/CP20留存文本性质、CP23无实质材料、重复来源及确定性情景假设等确有助于判断证据边界的信息。"
+    }
+  ],
+  "input_version": "93c45054c0a195dc5422e98588a3621cd4051e18cc3c17120e50b81d053f70b7",
+  "assignment_version": "01877297dfa78969e48e80c4d11258d6b971464892f2635f17359ed4ad4ddbd3"
+}
