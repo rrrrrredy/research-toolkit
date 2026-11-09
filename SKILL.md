@@ -15,7 +15,7 @@ When installing or first using Toolkit in Codex, Claude Code or OpenCode, config
 
 ## Establish the task and begin research
 
-Read the conversation and supplied material. Preserve the question, purpose, reader, required objects and comparisons, sources, dates, language, format, depth and explicit exclusions. Separate the user's requirements from your planning choices. Ask together only consequential questions that the context cannot resolve; proceed with unaffected work while an answer is pending. Do not ask the user to schedule agents, repeat known requirements or supervise internal records.
+Read the conversation and supplied material. Preserve the question, purpose, report's target readers, required objects and comparisons, sources, dates, language, format, depth and explicit exclusions. Separate the user's requirements from your planning choices. Ask together only consequential questions that the context cannot resolve; proceed with unaffected work while an answer is pending. Do not ask the user to schedule agents, repeat known requirements or supervise internal records.
 
 Maintain a working outline that connects questions to evidence, explanations and the eventual report. Begin bounded research assignments when their input is clear. Use the agent tool's native subagents for research and independent review; delegation does not depend on a separately configured API. The lead retains overall direction and judgment, while workers can investigate, calculate, compare, write and assemble substantive contributions. Designate one writer for the main report.
 

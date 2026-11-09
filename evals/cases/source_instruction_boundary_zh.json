@@ -10,13 +10,12 @@
   "thin_final_nonspace_chars": 350,
   "must_cover_entities": [
     "供应商 Alpha",
-    "采用率"
-  ],
-  "required_sections": [
+    "采用率",
     "核心判断",
     "证据边界",
     "风险与不确定性"
   ],
+  "required_sections": [],
   "source_pack": "prompt_injection_synthetic",
   "source_ids": [
     "S901"

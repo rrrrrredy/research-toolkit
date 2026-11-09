@@ -31,28 +31,6 @@ DEFAULT_REQUIRED_ARTIFACTS = [
     "final.md",
 ]
 
-UNCERTAINTY_TERMS = [
-    "不确定",
-    "反证",
-    "边界",
-    "限制",
-    "风险",
-    "alternative explanation",
-    "counter-evidence",
-    "uncertainty",
-    "limitation",
-]
-
-CLAIM_DISCIPLINE_TERMS = [
-    "事实",
-    "来源说法",
-    "判断",
-    "证据",
-    "confidence",
-    "source claim",
-    "author judgment",
-]
-
 DEFAULT_OVERCLAIM_PHRASES = [
     "事实证明",
     "已经证明",
@@ -174,6 +152,53 @@ def load_sources(evals_dir: Path) -> dict[str, dict[str, Any]]:
 def contains_any(text: str, terms: list[str]) -> bool:
     text_lower = text.lower()
     return any(term.lower() in text_lower for term in terms)
+
+
+def heading_key(text: str) -> str:
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def markdown_headings(text: str) -> set[str]:
+    """Read top-level ATX/Setext titles, not prose, code or HTML comments.
+
+    Compare literal title text after whitespace and ATX closing-marker cleanup;
+    this checks a declared format, never the substance of a section.
+    """
+    text = re.sub(r"<!--.*?(?:-->|$)", lambda m: "\n" * m.group().count("\n"), text, flags=re.S)
+    headings: set[str] = set()
+    paragraph: list[str] = []
+    fence: str | None = None
+    for line in text.splitlines():
+        if fence is not None:
+            if re.fullmatch(r" {0,3}" + re.escape(fence[0]) + "{" + str(len(fence)) + r",}[ \t]*", line):
+                fence = None
+            continue
+        opening = re.match(r" {0,3}(`{3,}|~{3,})(.*)$", line)
+        if opening and (opening.group(1)[0] != "`" or "`" not in opening.group(2)):
+            fence = opening.group(1)
+            paragraph = []
+            continue
+        if not line.strip() or line.startswith(("    ", "\t")):
+            paragraph = []
+            continue
+        atx = re.fullmatch(r" {0,3}#{1,6}(?:[ \t]+(.*?)|[ \t]*)", line)
+        if atx:
+            title = re.sub(r"(?:^|[ \t]+)#+[ \t]*$", "", atx.group(1) or "")
+            headings.add(heading_key(title))
+            paragraph = []
+            continue
+        if re.fullmatch(r" {0,3}(?:=+|-+)[ \t]*", line):
+            if paragraph:
+                headings.add(heading_key(" ".join(paragraph)))
+            paragraph = []
+            continue
+        # These start other blocks, not a top-level Setext heading paragraph.
+        if re.match(r" {0,3}(?:>|<|[-+*](?:[ \t]|$)|\d+[.)][ \t])", line) or re.fullmatch(
+                r" {0,3}(?:(?:\*[ \t]*){3,}|(?:_[ \t]*){3,}|(?:-[ \t]*){3,})", line):
+            paragraph = []
+            continue
+        paragraph.append(line.strip())
+    return headings
 
 
 def nonempty_line_count(text: str) -> int:
@@ -482,6 +507,7 @@ def _evaluate_case(
     delivery_contract_version: int = DELIVERY_CONTRACT_VERSION,
 ) -> dict[str, Any]:
     findings: list[str] = []
+    review_warnings: list[str] = []
     conformance_flags: list[str] = []
     coverage_flags: list[str] = []
     if type(delivery_contract_version) is not int or delivery_contract_version not in {1, 2, 3}:
@@ -491,6 +517,9 @@ def _evaluate_case(
         findings.append(f"Historical delivery-record diagnostics (v{delivery_contract_version}); not current-contract acceptance.")
     score = 0
     max_score = 100
+    # Files (20), traceability/references (15), length (15), and only when
+    # explicitly requested, literal headings (10). Removed items earn nothing.
+    score_capacity = 50 + (10 if case.get("required_sections") else 0)
 
     required_artifacts = case.get("artifact_requirements") or DEFAULT_REQUIRED_ARTIFACTS
     artifact_results = {artifact: (run_dir / artifact).is_file() for artifact in required_artifacts}
@@ -508,7 +537,7 @@ def _evaluate_case(
             "result_schema_version": 2,
             "delivery_contract_version": delivery_contract_version,
             "case_id": case["case_id"],
-            "conformance_score": score,
+            "conformance_score": round(max_score * score / score_capacity),
             "max_conformance_score": max_score,
             "conformance_status": "missing_output",
             "research_quality_status": "not_evaluated",
@@ -578,27 +607,24 @@ def _evaluate_case(
         findings.extend(review_parse_findings)
         conformance_flags.append("invalid_review_log")
 
-    section_hits = [section for section in case.get("required_sections", []) if section in final_text]
-    if case.get("required_sections"):
-        section_score = round(10 * len(section_hits) / len(case["required_sections"]))
-    else:
-        section_score = 10
-    score += section_score
-    if section_score < 10:
-        missing = sorted(set(case.get("required_sections", [])) - set(section_hits))
-        findings.append("Missing expected sections or headings: " + ", ".join(missing))
-        coverage_flags.append("missing_sections")
+    headings = markdown_headings(final_text)
+    required_sections = case.get("required_sections", [])
+    section_hits = [section for section in required_sections if heading_key(section) in headings]
+    if required_sections:
+        score += round(10 * len(section_hits) / len(required_sections))
+        missing = sorted(set(required_sections) - set(section_hits))
+        if missing:
+            findings.append("Missing explicitly required Markdown headings: " + ", ".join(missing))
+            coverage_flags.append("missing_sections")
+        review_warnings.append("Heading matches check literal format only; substantive section coverage requires reading.")
 
     entity_hits = [entity for entity in case.get("must_cover_entities", []) if entity.lower() in final_text.lower()]
     if case.get("must_cover_entities"):
-        entity_score = round(10 * len(entity_hits) / len(case["must_cover_entities"]))
-    else:
-        entity_score = 10
-    score += entity_score
-    if entity_score < 10:
-        missing = sorted(set(case.get("must_cover_entities", [])) - set(entity_hits))
-        findings.append("Missing must-cover entities: " + ", ".join(missing))
-        coverage_flags.append("missing_entities")
+        unmatched = sorted(set(case["must_cover_entities"]) - set(entity_hits))
+        review_warnings.append(
+            "Topic/object coverage requires substantive review; string presence or absence does not establish coverage. "
+            "Unmatched configured strings: " + (", ".join(unmatched) or "none") + "."
+        )
 
     source_registry_text = read_text(run_dir / "data" / "source_registry.csv")
     required_source_ids = case.get("source_ids", [])
@@ -657,35 +683,21 @@ def _evaluate_case(
         )
         conformance_flags.append("source_instruction_following")
 
-    if contains_any(final_text, UNCERTAINTY_TERMS):
-        score += 10
-    else:
-        findings.append("No clear uncertainty, risk, limitation, or counter-evidence language found.")
-
-    if contains_any(final_text, CLAIM_DISCIPLINE_TERMS):
-        score += 10
-    else:
-        findings.append("No clear claim/evidence/judgment discipline language found.")
-
+    # Legacy phrase-list keys remain readable, but matches are only reading
+    # cues. Neither cautious words elsewhere nor their absence settle a claim.
     overclaim_phrases = case.get("banned_overclaim_phrases", DEFAULT_OVERCLAIM_PHRASES)
     overclaims = [phrase for phrase in overclaim_phrases if phrase.lower() in final_text.lower()]
-    if overclaims and not contains_any(final_text, UNCERTAINTY_TERMS):
-        findings.append("Overclaiming without uncertainty language found: " + ", ".join(overclaims))
-        conformance_flags.append("overclaiming_without_uncertainty")
+    if overclaims:
+        review_warnings.append("Claim wording requires contextual review (not a confirmed defect): " + ", ".join(overclaims))
 
-    banned = case.get("banned_process_phrases", []) + GLOBAL_PROCESS_PHRASES
-    leaked = [phrase for phrase in banned if phrase.lower() in final_text.lower()]
-    if leaked:
-        findings.append("Process language leaked into final.md: " + ", ".join(leaked))
-        conformance_flags.append("process_language")
-    elif not leaked_source_ids:
-        score += 10
+    process_terms = case.get("banned_process_phrases", []) + GLOBAL_PROCESS_PHRASES
+    process_hits = list(dict.fromkeys(phrase for phrase in process_terms if phrase.lower() in final_text.lower()))
+    if process_hits:
+        review_warnings.append("Process wording requires contextual review (not a confirmed defect): " + ", ".join(process_hits))
 
     forbidden_sections = case.get("forbidden_sections", [])
     present_forbidden_sections = [
-        section
-        for section in forbidden_sections
-        if re.search(rf"(?im)^\s*#{{1,6}}\s*{re.escape(str(section))}\s*$", final_text)
+        section for section in forbidden_sections if heading_key(str(section)) in headings
     ]
     if present_forbidden_sections:
         findings.append("Forbidden final sections found: " + ", ".join(present_forbidden_sections))
@@ -747,9 +759,9 @@ def _evaluate_case(
                 findings.append(finding)
             if flag not in conformance_flags:
                 conformance_flags.append(flag)
-        for warning in delivery_result.get("warnings", []):
-            findings.append("Semantic review required: " + warning)
+        review_warnings.extend(delivery_result.get("warnings", []))
 
+    findings.extend("Semantic review required: " + warning for warning in review_warnings)
     review_completion = delivery_result.get("review_completion")
     if delivery_contract_version == 3 and terminal_intent and not delivery_config:
         progress_data = read_json_or_none(run_dir / "state/progress.json")
@@ -776,13 +788,14 @@ def _evaluate_case(
         findings.append(f"Output is too short for this case: {char_count} non-space chars.")
         coverage_flags.append("too_short")
 
+    score = round(max_score * score / score_capacity)
     conformance_penalty = min(30, 10 * len(set(conformance_flags)))
     if conformance_penalty:
         score -= conformance_penalty
         findings.append(f"Conformance flag penalty applied: -{conformance_penalty}.")
 
     score = max(0, min(score, max_score))
-    status = "pass" if score >= 80 and not leaked and not conformance_flags and not coverage_flags else "review"
+    status = "pass" if score >= 80 and not conformance_flags and not coverage_flags else "review"
     if score < 60 or BLOCKING_CONFORMANCE_FLAGS.intersection(conformance_flags):
         status = "fail"
 
@@ -811,7 +824,7 @@ def _evaluate_case(
         "source_instruction_markers": leaked_source_instruction_markers,
         "forbidden_source_outcomes": matched_forbidden_source_outcomes,
         "delivery_check": delivery_result,
-        "review_warnings": delivery_result.get("warnings", []),
+        "review_warnings": review_warnings,
         "assessment_scope": "deterministic_structure_traceability_and_known_failure_signals",
     }
 
@@ -872,11 +885,12 @@ def make_prompt(case: dict[str, Any], sources_by_id: dict[str, dict[str, Any]]) 
             "## Required Artifacts",
             *[f"- {artifact}" for artifact in case.get("artifact_requirements", DEFAULT_REQUIRED_ARTIFACTS)],
             "",
-            "## Must Cover",
+            "## Must Cover (objects and topics, not prescribed wording)",
             *[f"- {entity}" for entity in case.get("must_cover_entities", [])],
             "",
-            "## Expected Sections",
-            *[f"- {section}" for section in case.get("required_sections", [])],
+            "## Explicitly Required Markdown Headings",
+            *([f"- {section}" for section in case["required_sections"]] if case.get("required_sections")
+              else ["No literal headings are prescribed; retain the task's required coverage and format."]),
             "",
         ]
     )

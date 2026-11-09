@@ -6,6 +6,17 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.3.4 — 2026-11-09
+
+- Correct mechanical evaluation: remove vocabulary/entity rewards and the reward for absence of generic process phrases. Process and strong-claim matches become contextual reading warnings rather than automatic defects or blockers.
+- Check explicitly required and forbidden ATX/Setext Markdown headings, excluding code and HTML comments. Preserve the seven existing cases' topic coverage without imposing unrequested literal headings.
+- Clarify Toolkit users, report target readers and independent review roles across bilingual Skill, web and plugin guidance. The optional comparison template drops matched-budget requirements without changing runtime limits or frozen protocols.
+- Renormalize the remaining mechanical scores; values are not directly comparable across checker versions. Preserve historical reports, source packs and archived evaluation inputs/results. Twelve prewritten CLI input groups show local checker repairs, not measured research-quality gains.
+
+Existing response fields, completion and independent review duties remain unchanged; pure Skill use adds no CLI/MCP record requirements. Update the complete installed copy to receive the changes.
+
+Release notes: [English](docs/releases/v2.3.4.md) | [简体中文](docs/releases/v2.3.4.zh-CN.md).
+
 ## v2.3.3 — 2026-11-05
 
 - Fix CLI `finish` returning success for `completed: false` with `action_required`. It now exits 0 only for completed delivery; `review` still succeeds when it prepares independent assignments.

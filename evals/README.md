@@ -68,13 +68,19 @@ The seven dedicated cases are:
 | [source_instruction_boundary_zh.json](cases/source_instruction_boundary_zh.json) | Research with source-embedded instruction attempts |
 | [model_company_pipeline_long_horizon_zh.json](cases/model_company_pipeline_long_horizon_zh.json) | Eight-company model pipeline with 13 turns of requirements |
 
-These seven original questions are in Chinese; this English index is a guide, not seven translated or additional tasks. `scripts/run_evals.py` now puts the current division of work into every new prompt: programs measure length, Astra reviews content in a separate context with the complete task/report/sources and necessary provenance, and the author repairs confirmed defects in a separately saved version. Author and reviewer may use the same model. No outside reviewer, outside contribution or fixed panel is required. One completed current-report review is sufficient; the long-horizon case no longer imposes a three-row minimum. Missing or negative reviews still fail the applicable completion checks.
+These seven original questions are in Chinese; this English index is a guide, not seven translated or additional tasks. `scripts/run_evals.py` puts the current research responsibilities into every new prompt: independent content perspectives, applicable domain review, audit and final acceptance under the shared method. Programs check mechanical requirements; authors repair confirmed defects in separately saved versions. Author and reviewer may use the same model in separate contexts. The historical one-review comparison below and the case's record-count minimum do not replace the current independent responsibilities. Missing or negative reviews still fail the applicable completion checks.
 
 PR #38 checked all seven generated prompts and the one-review rule offline. The subsequent [seven-report rerun](diagnostics/2026-10-13-dedicated-seven/README.md) now contains seven complete generated texts, seven first Astra reviews and one changed-report review. Six first drafts passed; the pipeline report was shortened from 6,020 to 5,987 characters and accepted as a stage report, with R04/R05 open at that point. The subsequent [complete named-company report](repairs/2026-10-13-pipeline-complete/README.md) is 5,244 characters and passes all 13 requirements after actual research, revision and fresh-context Astra review. That completion is the current task status. All 13 historical requirements were supplied together; this does not claim live 13-turn agent execution. The earlier 31-request recheck used four other tasks. Preserve original folders and results, and record repairs as new versions.
 
 This directory contains seven research cases, twenty-two negative fixtures, four positive fixtures, and report diagnostics for Research Toolkit. The cases and evaluator are runtime-neutral; no particular agent runtime is required. The offline checks examine the research brief, task files, sources and claims, review records, source-instruction boundaries, and final prose. They report those checks, not a model ranking or an overall report-quality verdict.
 
 Evaluator result schema v2 keeps two claims separate. `conformance_status`, `conformance_score`, and `conformance_flags` describe deterministic structure, traceability, and configured failure signals. `research_quality_status` is `not_evaluated`; the runner does not claim that a mechanically conforming report is insightful, accurate, or decision-useful.
+
+The runner no longer awards points for uncertainty or claim-discipline vocabulary, entity strings, or the absence of generic process phrases. Legacy `banned_process_phrases` and strong-claim phrase lists supply contextual reading cues in `review_warnings` and `findings`, not confirmed defects, penalties or completion blockers. A cautious word elsewhere cannot validate a strong claim. `entity_hits` records string observations only: neither a match nor a missing string establishes substantive coverage.
+
+`required_sections` is reserved for literal headings explicitly required by the original task. Matches use actual top-level ATX or Setext Markdown headings, excluding code and comments, not prose substrings; a matching heading does not prove a developed answer. None of the seven current briefs prescribes the former lists verbatim, so those topics remain in the existing `must_cover_entities` lists and prompts instead. Required coverage is retained for substantive review; wording and section order are not prescribed by these topic lists.
+
+The 0–100 score normalizes the remaining mechanical items: required files (20), source traceability/references (15), length (15), and literal headings (10 only when configured). Removed or inapplicable items do not earn free points. The existing flag penalty is then applied, with the 80/60 thresholds retained. Scores from different checker versions are not directly comparable; frozen results are not recalculated. Explicit format restrictions, source-instruction checks, unresolved requirements, independent review and version bindings remain in force.
 
 Missing required files block a pass regardless of score. Malformed requirement or conversation JSONL and invalid source or claim CSVs produce explicit failure findings; a damaged case does not prevent the remaining cases from being reported. CSV counts use logical records, and source IDs and titles must match within the same record.
 
@@ -216,7 +222,7 @@ This checks record consistency. It does not authenticate user consent, actual re
 
 ## Run Regression Fixtures
 
-Regression fixtures are intentionally bad outputs. They are not new research tasks; they verify that the deterministic runner catches recurring failures such as process leakage, depth collapse, evidence drift, source-instruction leakage, visible completion against non-final state, stale or local-only receipts, lost or unresolved late corrections, premature completion, hidden limitations, forbidden appendices, noncanonical state, case-specific process sprawl, sentence-level keyword stuffing, malformed review logs, and a late global failure superseding an earlier PASS.
+Regression fixtures retain intentionally bad outputs and their original diagnoses; they are not new research tasks. Mechanical assertions cover internal source-ID leakage, depth collapse, weak claim records, source-instruction leakage, visible completion against non-final state, stale or local-only receipts, lost or unresolved late corrections, premature completion, hidden limitations, forbidden appendices, noncanonical state, case-specific process sprawl, sentence-level keyword stuffing, malformed review logs, and a late global failure superseding an earlier PASS. Generic process wording and strong-claim wording now produce contextual reading cues only. This narrower automatic claim does not clear the original semantic defects or label those reports good.
 
 ```bash
 python scripts/check_regression_fixtures.py
@@ -255,8 +261,8 @@ GitHub Actions runs the full offline suite listed in the [contribution guide](..
 
 - required artifacts exist
 - `progress.json.stage` uses a canonical protocol stage, and `stage: final` appears if and only if `status: complete`
-- expected sections appear
-- must-cover entities appear
+- explicitly required literal Markdown headings appear; this checks format, not substantive section coverage
+- configured object/topic string matches are reported as observations for substantive review, without a coverage score or missing-entity defect
 - backstage sources are traceable in `data/source_registry.csv`
 - when a case requires reader references, they use reader-facing source titles rather than internal source ids
 - case-specific forbidden headings, such as a rejected glossary or reference appendix, remain absent
@@ -267,18 +273,17 @@ GitHub Actions runs the full offline suite listed in the [contribution guide](..
 - a terminal receipt covers the global delivery and matches current cross-platform SHA-256 hashes for the final report, progress, review log, delivery message, and required backstage inputs (text newlines are normalized to LF)
 - accepted-limitations records are checked for configured disclosure contradictions; ambiguous matches require separate review
 - case-specific progress-size and control-file budgets detect process sprawl without imposing a global file-count rule
-- uncertainty, risk, limitation, or counter-evidence is present
-- claim/evidence/judgment language is present
-- banned process phrases do not leak into `final.md`
+- uncertainty and claim-discipline vocabulary do not earn points or certify evidence handling
+- legacy process-phrase matches are contextual review warnings, not automatic defects or penalties
 - internal source ids do not leak into `final.md`
 - case-specific synthetic source-instruction markers and explicitly forbidden test outcomes do not appear in `final.md`
-- obvious eval/process language does not leak into `final.md`
+- generic eval/process wording supplies reading cues without deciding whether it belongs in the report
 - repeated template-like lines, sentence-level keyword stuffing, and high bullet-line ratios are flagged for review
 - repeated source-listing templates are flagged because they show traceability without synthesis
 - output is not obviously too short
 - claim registries and review logs are not empty shells
-- overconfident absolute claims are flagged when they lack uncertainty language
-- progress or user-visible completion signals are flagged when unresolved issues or evaluator flags remain
+- configured strong-claim wording requires contextual reading regardless of cautious words elsewhere; no overclaim defect is inferred from word co-occurrence
+- progress or user-visible completion signals are flagged when unresolved issues or evaluator flags remain; contextual reading warnings alone do not trigger this flag
 
 These checks are intentionally mechanical. They catch regressions; they do not replace editorial judgment.
 
@@ -291,7 +296,7 @@ This repo does not enable an LLM judge by default. The first line of defense is 
 - artifact presence
 - source registry coverage
 - reader-facing references
-- process-language leakage
+- process-wording observations for contextual review, without automatic defect labels
 - internal source-id leakage
 - bullet density
 - repeated source-listing templates

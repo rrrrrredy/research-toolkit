@@ -24,17 +24,15 @@
     "Infra",
     "评测",
     "Harness",
-    "Coding Agent"
-  ],
-  "required_sections": [
+    "Coding Agent",
     "核心要点",
     "管线总览",
     "八家公司对比",
-    "数据与标注",
     "训练、Infra与评测",
     "Harness与Coding Agent",
     "不确定性"
   ],
+  "required_sections": [],
   "source_pack": "model_company_pipeline_synthetic",
   "source_ids": [
     "P001",

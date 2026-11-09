@@ -68,7 +68,7 @@ Satisfied requirements remain visible when they still apply to later edits. A ne
 
 ## What successful output contains
 
-The answer addresses the reader's actual questions with evidence, explanation, meaningful comparison and appropriately scoped conclusions. It retains necessary conditions, counter-evidence and uncertainty. The final text is a reader-facing report; source-processing notes and handoff logs stay in the working material unless the user asks for them.
+The answer addresses the user's research questions and effective requirements with evidence, explanation, meaningful comparison and appropriately scoped conclusions. It retains necessary conditions, counter-evidence and uncertainty. The report's organization and expression serve its target readers and intended use. Source-processing notes and handoff logs stay in the working material unless the user asks for them.
 
 A source count, a full outline or a passed record check cannot replace the missing explanation in a draft. Existing mechanical tools locate record and version problems; the independent agents read the actual report and evidence. [Delivery checks](delivery-verification.md) explains the tool contract.
 

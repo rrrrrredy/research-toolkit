@@ -55,12 +55,12 @@
 <section class="section wrap" aria-labelledby="update-case-title"><h2 id="update-case-title" data-i18n="updateCaseTitle">已有报告？看一次实际更新。</h2><p data-i18n="updateCaseIntro">从一篇编程智能体采购报告的旧稿出发，查看遗漏的来源细节、核对后的正文修改，以及保留的原稿和实验限制。</p><a class="text-link" data-update-case href="case-study/coding-benchmark-update/index.zh-CN.html" data-i18n="updateCaseLink">查看报告更新案例 →</a></section>
 
 <section class="section use-section" id="start"><div class="wrap use-grid">
-<div class="use-copy"><p class="eyebrow" data-i18n="startEyebrow">研究请求</p><h2 data-i18n="startHeading">一个入口，完整研究方法</h2><p data-i18n="startIntro">提供问题、读者与所需深度。Agent 按当前工作读取完整方法，展开证据、比较、解释和综合判断。</p><p class="usage-note" data-i18n="startNote2">研究方法可直接读取，也可提供文件或文本。在 Codex、Claude Code、OpenCode 中，首次使用还会由 Agent 下载或复用完整本地副本，用 Python 3.10+ 配置基础使用记录；已打开的 Codex 会话需重载。记录尚未启用时继续研究；基础事件不含聊天和报告正文，可随时关闭。</p><a class="text-link" data-i18n="accessLink" href="#install">提供研究方法</a><p><a class="text-link" data-i18n="quickstart" data-quickstart-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.zh-CN.md">研究使用指南</a></p><p><a class="text-link" data-i18n="continueResearch" data-continue-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md#接续已有研究">接续、修订或更新已有研究</a></p><aside class="review-entry"><h3 data-i18n="reviewTitle">只想审查一份现成报告？</h3><p data-i18n="reviewIntro">Research Review 可独立安装，用于审查已有成果。Toolkit 用户已包含这些方法。</p><a class="text-link" data-review-home data-i18n="reviewLink" href="https://github.com/rrrrrredy/research-review/blob/main/README.zh-CN.md">使用 Research Review →</a></aside></div>
+<div class="use-copy"><p class="eyebrow" data-i18n="startEyebrow">研究请求</p><h2 data-i18n="startHeading">一个入口，完整研究方法</h2><p data-i18n="startIntro">提供问题、报告目标读者与所需深度。Agent 按当前工作读取完整方法，展开证据、比较、解释和综合判断。</p><p class="usage-note" data-i18n="startNote2">研究方法可直接读取，也可提供文件或文本。在 Codex、Claude Code、OpenCode 中，首次使用还会由 Agent 下载或复用完整本地副本，用 Python 3.10+ 配置基础使用记录；已打开的 Codex 会话需重载。记录尚未启用时继续研究；基础事件不含聊天和报告正文，可随时关闭。</p><a class="text-link" data-i18n="accessLink" href="#install">提供研究方法</a><p><a class="text-link" data-i18n="quickstart" data-quickstart-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.zh-CN.md">研究使用指南</a></p><p><a class="text-link" data-i18n="continueResearch" data-continue-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md#接续已有研究">接续、修订或更新已有研究</a></p><aside class="review-entry"><h3 data-i18n="reviewTitle">只想审查一份现成报告？</h3><p data-i18n="reviewIntro">Research Review 可独立安装，用于审查已有成果。Toolkit 用户已包含这些方法。</p><a class="text-link" data-review-home data-i18n="reviewLink" href="https://github.com/rrrrrredy/research-review/blob/main/README.zh-CN.md">使用 Research Review →</a></aside></div>
 <div class="prompt"><div class="prompt-head"><span data-i18n="promptLabel">可直接复制的研究请求</span><button class="copy js-only" data-i18n="copy" id="copy-request" type="button">复制请求</button></div><pre id="research-prompt">本次使用 Research Toolkit：
 https://github.com/rrrrrredy/research-toolkit
 先阅读 SKILL.md，按当前工作读取完整研究方法。
 
-研究问题：[填写问题、读者和用途。]
+研究问题：[填写问题、报告目标读者和用途。]
 范围与篇幅：[填写研究范围、信息截止日、篇幅与所需深度。]
 已有材料：[提供来源、文件或已有报告。]
 
@@ -69,7 +69,7 @@ https://github.com/rrrrrredy/research-toolkit
 复用已有研究，修订时保留有效分析并附简短变化说明。
 使用 Agent 工具中的原生 Agent 承担实质研究和渐进写作，明确唯一统稿者。
 完成独立内容审阅、审计与最终验收，保留原件供交接。
-交付引用可用的完整报告。</pre><div class="prompt-foot"><p data-i18n="promptNote">将方括号内容替换为你的研究需求；已明确的读者、范围、篇幅、信息截止日或必需材料也可一并提供。</p><a data-i18n="fallbackGuide" href="https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md#选择工具">不同 Agent 的接入说明</a><p aria-live="polite" class="copy-status" id="copy-status" role="status"></p></div></div>
+交付引用可用的完整报告。</pre><div class="prompt-foot"><p data-i18n="promptNote">将方括号内容替换为你的研究需求；已明确的报告目标读者、范围、篇幅、信息截止日或必需材料也可一并提供。</p><a data-i18n="fallbackGuide" href="https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md#选择工具">不同 Agent 的接入说明</a><p aria-live="polite" class="copy-status" id="copy-status" role="status"></p></div></div>
 </div></section>
 <section class="section" id="method"><div class="wrap">
 <div class="section-header"><div><h2 data-i18n="methodHeading">研究如何协作与成稿</h2><p data-i18n="methodIntro">用共同要求和原始依据，连接实质研究、渐进写作、独立审阅与交付。</p></div><a data-i18n="fullMethod" data-method-link="" data-preserve-reading="" href="framework.zh-CN.html">研究方法文档</a></div>
@@ -270,8 +270,8 @@ https://github.com/rrrrrredy/research-toolkit
     ]
   },
   "prompts": {
-    "en": "Use Research Toolkit:\nhttps://github.com/rrrrrredy/research-toolkit\nRead SKILL.md and load the complete methods as needed.\n\nResearch question: [Question, audience and purpose.]\nScope and length: [Coverage, information cutoff, length and depth.]\nExisting material: [Sources, files or an existing report.]\n\nEstablish requirements from context; ask only about consequential gaps.\nDevelop evidence, comparisons, mechanisms, counterevidence and synthesis.\nReuse existing research, preserving useful analysis when revising.\nDeliver the complete report with usable citations and a short revision note.\nUse native agents for substantive research and progressive writing.\nKeep one main-manuscript writer, complete independent content review, audit\nand final acceptance, and retain the originals for handoff.",
-    "zh": "本次使用 Research Toolkit：\nhttps://github.com/rrrrrredy/research-toolkit\n先阅读 SKILL.md，按当前工作读取完整研究方法。\n\n研究问题：[填写问题、读者和用途。]\n范围与篇幅：[填写研究范围、信息截止日、篇幅与所需深度。]\n已有材料：[提供来源、文件或已有报告。]\n\n结合上下文明确需求，只追问影响结果的关键缺项。\n充分展开重要问题的证据、比较、机制解释、反证与综合判断。\n复用已有研究，修订时保留有效分析并附简短变化说明。\n使用 Agent 工具中的原生 Agent 承担实质研究和渐进写作，明确唯一统稿者。\n完成独立内容审阅、审计与最终验收，保留原件供交接。\n交付引用可用的完整报告。"
+    "en": "Use Research Toolkit:\nhttps://github.com/rrrrrredy/research-toolkit\nRead SKILL.md and load the complete methods as needed.\n\nResearch question: [Question, report target readers and purpose.]\nScope and length: [Coverage, information cutoff, length and depth.]\nExisting material: [Sources, files or an existing report.]\n\nEstablish requirements from context; ask only about consequential gaps.\nDevelop evidence, comparisons, mechanisms, counterevidence and synthesis.\nReuse existing research, preserving useful analysis when revising.\nDeliver the complete report with usable citations and a short revision note.\nUse native agents for substantive research and progressive writing.\nKeep one main-manuscript writer, complete independent content review, audit\nand final acceptance, and retain the originals for handoff.",
+    "zh": "本次使用 Research Toolkit：\nhttps://github.com/rrrrrredy/research-toolkit\n先阅读 SKILL.md，按当前工作读取完整研究方法。\n\n研究问题：[填写问题、报告目标读者和用途。]\n范围与篇幅：[填写研究范围、信息截止日、篇幅与所需深度。]\n已有材料：[提供来源、文件或已有报告。]\n\n结合上下文明确需求，只追问影响结果的关键缺项。\n充分展开重要问题的证据、比较、机制解释、反证与综合判断。\n复用已有研究，修订时保留有效分析并附简短变化说明。\n使用 Agent 工具中的原生 Agent 承担实质研究和渐进写作，明确唯一统稿者。\n完成独立内容审阅、审计与最终验收，保留原件供交接。\n交付引用可用的完整报告。"
   },
   "i18n": {
     "en": {
@@ -289,10 +289,10 @@ https://github.com/rrrrrredy/research-toolkit
       "evaluation": "Evaluation status",
       "startEyebrow": "RESEARCH REQUEST",
       "startHeading": "One entry, complete research methods",
-      "startIntro": "Describe the question, audience and required depth. The agent uses the complete methods as needed to develop evidence, comparisons, explanations and conclusions.",
+      "startIntro": "Describe the question, report target readers and required depth. The agent uses the complete methods as needed to develop evidence, comparisons, explanations and conclusions.",
       "promptLabel": "COPYABLE RESEARCH REQUEST",
       "copy": "Copy request",
-      "promptNote": "Replace the bracketed text with your research request. Include any known audience, scope, length, time cutoff, or required sources.",
+      "promptNote": "Replace the bracketed text with your research request. Include any known report target readers, scope, length, time cutoff, or required sources.",
       "fallbackGuide": "Setup for your agent",
       "methodHeading": "How research work connects.",
       "methodIntro": "Shared requirements and original evidence connect research, progressive writing, independent review and delivery.",
@@ -399,10 +399,10 @@ https://github.com/rrrrrredy/research-toolkit
       "evaluation": "评测进展",
       "startEyebrow": "研究请求",
       "startHeading": "一个入口，完整研究方法",
-      "startIntro": "提供问题、读者与所需深度。Agent 按当前工作读取完整方法，展开证据、比较、解释和综合判断。",
+      "startIntro": "提供问题、报告目标读者与所需深度。Agent 按当前工作读取完整方法，展开证据、比较、解释和综合判断。",
       "promptLabel": "可直接复制的研究请求",
       "copy": "复制请求",
-      "promptNote": "将方括号内容替换为你的研究需求；已明确的读者、范围、篇幅、信息截止日或必需材料也可一并提供。",
+      "promptNote": "将方括号内容替换为你的研究需求；已明确的报告目标读者、范围、篇幅、信息截止日或必需材料也可一并提供。",
       "fallbackGuide": "不同 Agent 的接入说明",
       "methodHeading": "研究如何协作与成稿",
       "methodIntro": "用共同要求和原始依据，连接实质研究、渐进写作、独立审阅与交付。",

@@ -11,9 +11,9 @@ This is an illustrative comparison of failure patterns and intended controls, no
 - Lets the data chapter crowd out pretraining, post-training, Infra, evaluation, Serving, and product feedback.
 - Lists publications and media channels in the body instead of synthesizing mechanisms.
 - Loses follow-up corrections about leadership time boundaries, Harness, tables, concise insights, and professional wording.
-- Appends a glossary or source list after the reader explicitly rejected both.
-- Treats a local review pass or a partial draft as permission to tell the reader the final report is complete.
-- Hides unresolved items in backstage state, so the reader cannot distinguish a draft from a finished delivery.
+- Appends a glossary or source list after the user explicitly rejected both.
+- Treats a local review pass or a partial draft as permission to tell the user the final report is complete.
+- Hides unresolved items in backstage state, so the user cannot distinguish a draft from a finished delivery.
 - Accumulates large progress logs, control scripts, manifests, or rollback machinery that do not improve the report.
 
 ## High-quality anchor

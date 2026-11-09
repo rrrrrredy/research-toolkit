@@ -28,9 +28,11 @@ The unit fulfills its role in the outline with sufficient evidence, explanation 
 
 The designated main writer reads the complete contributions and relevant originals, reconciles definitions and conflicting claims, and preserves named-object and geographic coverage. The draft connects evidence, explanation and conclusions across parts. Thin units are developed; repeated background is merged without deleting useful mechanisms, qualifications or citations. Counts and file size are not evidence of depth.
 
-## Reader Review Gate
+<a id="reader-review-gate"></a>
 
-The independent reader-usefulness and natural-expression reviewers examine the complete report after substantive revisions have stabilized. Apply their [assigned methods](subagents-and-review-loop.md#assign-work-by-perspective) to the actual reader-facing prose. Repair concrete defects while preserving facts, conditions and analytical depth. Author editing prepares this work; it does not replace either perspective.
+## Report Use and Expression Review Gate
+
+After substantive revisions have stabilized, two separate independent agents examine the complete report: one for reader usefulness and one for natural expression. Apply their [assigned methods](subagents-and-review-loop.md#assign-work-by-perspective) to the actual reader-facing prose. Repair concrete defects while preserving facts, conditions and analytical depth. Author editing prepares this work; it does not replace either perspective.
 
 ## Review Validity and Sampling
 

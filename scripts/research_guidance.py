@@ -7,7 +7,7 @@ TOOLKIT = Path(__file__).resolve().parents[1]
 # Agent-facing guidance for unresolved fields, not a questionnaire to forward.
 BRIEF_FIELDS = {
     "question": "Use the stated topic; ask what the user wants to understand or decide only if unclear.",
-    "audience": "Infer the reader and purpose from context; ask only if different uses would change the report.",
+    "audience": "Infer the report's target readers and intended use from context; ask only if different uses would change the report.",
     "scope": "Propose specific subjects, places and dates to cover; explain consequential alternatives before asking the user to choose.",
     "output": "Propose a concrete deliverable in the requested format and language; clarify only constraints that cannot be inferred.",
     "depth": "Describe the questions to answer and the comparisons, explanations or evidence the result will contain; clarify consequential trade-offs with concrete examples.",
@@ -15,7 +15,7 @@ BRIEF_FIELDS = {
 }
 BRIEF_FIELDS_ZH = {
     "question": "沿用已给出的题目；只有目标不明时，才询问用户想理解什么或据此决定什么。",
-    "audience": "从上下文判断读者与用途；只有不同用途会改变报告时才询问。",
+    "audience": "从上下文判断报告目标读者与用途；只有不同用途会改变报告时才询问。",
     "scope": "先提出具体覆盖哪些对象、地区和时段；需要用户取舍时，说明实际备选及其影响。",
     "output": "依据已知形式和语言提出具体交付物；仅澄清无法推断的必要限制。",
     "depth": "先说明要回答哪些问题、完成哪些比较和解释、提供什么证据；需要取舍时用具体成果差别提问。",

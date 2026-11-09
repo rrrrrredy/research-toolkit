@@ -66,7 +66,7 @@ Use Research Toolkit: https://github.com/rrrrrredy/research-toolkit
 Read SKILL.md and follow the methods needed for this task.
 
 I want to understand or resolve: [The question, or what to change in an existing report.]
-Audience and purpose: [Who will read it and why, if known.]
+Report target readers and intended use: [Who will read the report and why, if known.]
 Material and explicit requirements: [Sources, scope, cutoff, format or length, if available.]
 
 Deliver a complete report that answers these questions with usable citations;

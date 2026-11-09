@@ -104,8 +104,10 @@ For a repair, show the failing case, actual change and relevant checks. Existing
 
 [Stored HTML extraction](docs/source-extraction.md) documents an optional, offline source-preparation tool. It preserves raw publication/version metadata beside extracted text without adding review requirements or changing frozen inputs.
 
-## Reader Entry Points And Distribution
+<a id="reader-entry-points-and-distribution"></a>
 
-The English and Chinese READMEs introduce the same framework and link to the web guide near the beginning. Keep these entry points focused on what readers can do and where to start. Copy synchronization and packaging decisions belong in maintenance documentation, not a separate introductory chapter.
+## User Entry Points And Distribution
+
+The English and Chinese READMEs introduce the same framework and link to the web guide near the beginning. Keep these entry points focused on what Toolkit users can do and where to start. Copy synchronization and packaging decisions belong in maintenance documentation, not a separate introductory chapter.
 
 This repository supplies the reusable Skill. If a particular environment needs a plugin or another installation package, package the same Skill and link back here instead of maintaining a second protocol. Environment-specific setup belongs in `agents/`; it must not imply that the framework is tailored to one vendor or that setup instructions establish research quality.
