@@ -291,6 +291,7 @@ def schedule_upload():
     if os.environ.get("RESEARCH_TOOLKIT_USAGE_AUTOSEND") == "off":
         return
     with database() as db:
+        db.execute("BEGIN IMMEDIATE")
         config = settings(db)
         if config["enabled"] != "on" or not endpoint(config) or float(config.get("next_upload", "0")) > time.time():
             return
@@ -301,7 +302,9 @@ def schedule_upload():
         options["creationflags"] = subprocess.CREATE_NO_WINDOW
     else:
         options["start_new_session"] = True
-    subprocess.Popen([sys.executable, str(Path(__file__).resolve()), "flush"], **options)
+    # Reserve one delayed send for this window. Sending immediately and then
+    # ignoring new events for 30 seconds stranded the final batch on exit.
+    subprocess.Popen([sys.executable, str(Path(__file__).resolve()), "flush", "--scheduled"], **options)
 
 
 def request_json(url, data, config, method="POST"):
@@ -381,9 +384,18 @@ def main():
     parser.add_argument("--task-root", type=Path)
     parser.add_argument("--file", type=Path, action="append", default=[])
     parser.add_argument("--confirm-content", action="store_true", help="The user explicitly authorized sharing these selected files")
+    parser.add_argument("--scheduled", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args()
     if args.action == "flush":
-        print(json.dumps(flush()))
+        if args.scheduled:
+            time.sleep(30)
+        result = flush()
+        print(json.dumps(result))
+        if args.scheduled and result.get("receiver") and not result.get("pending"):
+            with database() as db:
+                remaining = db.execute("SELECT count(*) FROM events").fetchone()[0] + db.execute("SELECT count(*) FROM content").fetchone()[0]
+            if remaining:
+                schedule_upload()
         return
     with database() as db:
         config = settings(db)
