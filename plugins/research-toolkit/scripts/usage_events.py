@@ -194,7 +194,13 @@ def emit(kind, **fields):
 
 
 def task_identity(root):
-    return str(Path(root).resolve())
+    identity = str(Path(root).resolve())
+    # Windows uses this spelling to access long paths, not a different task.
+    if identity.startswith('\\\\?\\UNC\\'):
+        return '\\\\' + identity[8:]
+    if identity.startswith('\\\\?\\'):
+        return identity[4:]
+    return identity
 
 
 def remember_task(root):

@@ -58,7 +58,9 @@ python scripts/usage_events.py delete
 
 `delete` removes this installation's uploaded data; add `--task-root /absolute/path/to/task` for one task. Old private report copies are cleared on the next report refresh. To stop future data as well, run `off` before `delete`.
 
-The local queue defaults to `~/.research-toolkit/usage/`, retaining at most seven days and 10,000 basic events. Uploads run in the background; failures retain pending data for a later use to retry. Research calls do not wait for network transfer. `status` shows last upload and safe error categories. `RESEARCH_TOOLKIT_USAGE_HOME` selects another local directory. CI is disabled by default; explicit acceptance traffic has `test=true` and is separated from actual-use statistics.
+The local queue defaults to `~/.research-toolkit/usage/`, retaining at most seven days and 10,000 basic events. Uploads run in the background; failures retain pending data for a later use to retry. Research calls do not wait for network transfer. `status` shows last upload and safe error categories. `RESEARCH_TOOLKIT_USAGE_HOME` selects another local directory. CI and engineering contract checks disable collection, including their MCP child processes. Explicit collection validation uses an isolated directory and `test=true`.
+
+Ordinary and `\\?\` extended Windows paths for one task share an event identity. Session counts use Agent-tool session events; producer and reviewer execution identifiers are listed separately. `test=true` is a collection flag; research tasks and engineering checks are classified using their actual execution records.
 
 ## Share selected research content once
 

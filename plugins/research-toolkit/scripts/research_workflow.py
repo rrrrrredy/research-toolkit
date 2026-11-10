@@ -18,7 +18,7 @@ from task_lock import task_lock
 from run_observation import now, timed_capture, record_event
 from task_context import (current_work, runtime_identity, require_current_artifact,
                           task_inputs, source_inputs, prepare_work)
-from task_storage import nonempty, digest, safe_path, load, save, save_text, task_root
+from task_storage import nonempty, digest, safe_path, load, save, save_text, task_root, file_io_path
 from research_guidance import BRIEF_FIELDS, BRIEF_FIELDS_ZH, STAGE_FILES, normalize_language, guidance
 
 from profile_policy import CHECKLIST, LITE_LOG, checklist_errors, inspect_lite_delivery, lite_input_hashes, lite_completion_errors
@@ -1009,12 +1009,7 @@ def finish_recorded(workspace, task, message, artifact, checklist, *, legacy=Fal
     if not nonempty(message):
         raise ValueError("Provide the intended user-visible delivery message.")
     # Validate a temporary candidate; persistent state is never marked final on a failed check.
-    candidate_parent = str(workspace.resolve())
-    if os.name == 'nt' and not candidate_parent.startswith('\\\\?\\'):
-        # The candidate adds a directory level to retained legacy review paths.
-        # Use Windows' extended path spelling instead of renaming evidence files.
-        candidate_parent = ('\\\\?\\UNC\\' + candidate_parent[2:] if candidate_parent.startswith('\\\\')
-                            else '\\\\?\\' + candidate_parent)
+    candidate_parent = str(file_io_path(workspace))
     with tempfile.TemporaryDirectory(prefix="research-delivery-", dir=candidate_parent) as tmp:
         candidate = Path(tmp)/"task"
         shutil.copytree(root, candidate, symlinks=True)

@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "role": "structure_and_depth",
+  "agent_id": "/root/revision_structure",
+  "execution_identity_type": "native collaboration canonical agent name",
+  "completed_at": "2026-11-10T13:58:57+08:00",
+  "result": "valid",
+  "report_verdict": "pass",
+  "authorized_scope": "Independent structure-and-depth review of three limited expression revisions: remove nonfunctional repeated qualifications and make affirmative judgments more prominent while retaining facts, conditions, numbers, citations and complete analysis. No new structure or length requirement.",
+  "independence": {
+    "manuscript_production": false,
+    "current_producer_self_assessment_read": false,
+    "other_current_repair_review_conclusions_read": false,
+    "note": "This fresh reviewer context read the task requirements, manuscripts, diffs and selected substantive original analyses. A collaboration agent inventory was used only to confirm the observable execution identity; no current repair review file was opened."
+  },
+  "reading_scope": {
+    "role_instructions": {
+      "path": "references/subagents-and-review-loop.zh-CN.md",
+      "scope": "Full file, including structure_and_depth role and common review requirements."
+    },
+    "original_requirements": [
+      {
+        "path": "evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/task.json",
+        "scope": "Full original task, target reader, requested depth and prompt."
+      },
+      {
+        "path": "evals/studies/2026-11-09-long-research/reports/on_device_models_en/task.json",
+        "scope": "Full original task, target reader, requested depth and prompt."
+      },
+      {
+        "path": "evals/studies/2026-11-09-long-research/reports/test_time_compute_en/task.json",
+        "scope": "Full original task, target reader, requested depth and prompt."
+      }
+    ],
+    "manuscripts": "Each current report was read from its first line to its final line, including all tables, formulas, diagrams and appendices. On-device full reading initially used e82e4fba...; its subsequent single-paragraph correction was followed by the complete change diff and affected section/appendix rereading, binding the verdict to c8d8f2b9....",
+    "baseline_comparison": "Read every hunk of all three baseline-to-repair diffs. Baseline manuscript passages were read through these complete diffs; no claim of a separate complete baseline rereading.",
+    "supplemental_analysis": [
+      {
+        "path": "evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/analysis/outline.md",
+        "scope": "Research scope and substantive outline, lines 1-57; later unit descriptions also surfaced during a larger read but were not treated as additional user requirements.",
+        "purpose": "Check that model, demand, capacity and network investment relationships remain integrated."
+      },
+      {
+        "path": "evals/studies/2026-11-09-long-research/reports/on_device_models_en/analysis/ODM-U2-workload-envelopes.md",
+        "scope": "Targeted full sections 5 and precision/noise/energy passage, lines 33-52 and 77-90; other excerpts surfaced but are not claimed as a full independent analysis read.",
+        "purpose": "Trace the S24 calculation-to-product argument and precision-specific qualification."
+      },
+      {
+        "path": "evals/studies/2026-11-09-long-research/reports/test_time_compute_en/analysis/U7-U8-budget-and-design.md",
+        "scope": "Full substantive sections 1-7; the initially truncated section 7 was subsequently read at lines 145-155.",
+        "purpose": "Trace resource accounting, allocation example and design-policy synthesis into the revised report."
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM17.txt",
+        "scope": "Lines 196-340, including Table 3 clean-audio duration and Table 4 base/medium precision rows.",
+        "purpose": "Check the meaning of the ASR comparison and coherence of the later aggregate-RTF correction; no full source-paper audit claimed."
+      }
+    ],
+    "limits": "This is a structural and depth judgment, not a replacement for the evidence reviewer. No new model inference, calculation rerun, test, API call or web research was performed. No manuscript was edited."
+  },
+  "reports": [
+    {
+      "case_id": "instant_retail_warehouses_zh",
+      "report_path": "evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md",
+      "report_sha256": "cdf65d2c4dd5af7ad9a2157a6e61bc6aa078074f7e97aaa17807853933429f7b",
+      "full_read_lines": [
+        1,
+        372
+      ],
+      "diff_path": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.diff",
+      "diff_sha256": "a540f76b9fcb2da519fbd7bb3d6d47087062f7cfa90a6de9dff6726c31956636",
+      "verdict": "pass",
+      "summary": "The affirmative opening is more visible without broadening the profitability claim. The report still connects responsibility and revenue boundaries, observed regional differences, demand, unit economics, capacity and network cash consequences to conditional decisions.",
+      "observations": [
+        {
+          "id": "SD-IRW-01",
+          "locations": [
+            "lines 5-9",
+            "lines 95-117",
+            "lines 180-210",
+            "lines 360-364"
+          ],
+          "requirement": "Do not assume either model is inherently profitable or unsustainable; preserve mode comparison and counterevidence.",
+          "observation": "Moving the mature-city opportunity into the first sentence retains '有机会' and immediately explains profitable demand, cost coverage and regional divergence. Removing '这些反例不会证明社会化仓整体不可行' at line 103 does not turn interview cases into an industry verdict: line 101 retains interview/sample limitations, line 103 explains the mechanism, and the positive 500-order socialized-warehouse scenario and final model comparison remain.",
+          "impact": "The opening now states the actionable positive judgment directly while the argument continues to support conditional rather than universal conclusions.",
+          "classification": "supported_pass"
+        },
+        {
+          "id": "SD-IRW-02",
+          "locations": [
+            "lines 119-135",
+            "lines 137-210",
+            "lines 212-266",
+            "lines 268-311"
+          ],
+          "requirement": "Link serviceable demand and product mix to auditable unit/warehouse economics, capacity, cash and network expansion.",
+          "observation": "The household-frequency-share demand calculation precedes the two fully specified cost models. Stepwise breakeven, joint promotion and radius scenarios, peak-hour staffing, inventory capital, six-month ramp and cannibalization remain fully developed. The revision has removed no formula, input table or explanatory link in this chain.",
+          "impact": "The report remains a full operating and investment analysis rather than a list of company cases or a brief recommendation sheet.",
+          "classification": "supported_pass"
+        },
+        {
+          "id": "SD-IRW-03",
+          "locations": [
+            "lines 289-303",
+            "lines 339-350",
+            "line 354"
+          ],
+          "requirement": "Expansion and densification must reflect net demand, transferred orders, service capacity and added fixed cost.",
+          "observation": "The shortened line 341 drops conditions already demonstrated at lines 291-301 and repeated immediately in the densification decision-table row at line 346. Net new demand, old-warehouse diversion, additional fixed spending and capacity/service benefit remain explicit; line 354 also distinguishes transferred from newly acquired demand.",
+          "impact": "This is genuine removal of a duplicated synthesis, not loss of the expansion mechanism or decision conditions.",
+          "classification": "supported_pass"
+        },
+        {
+          "id": "SD-IRW-04",
+          "locations": [
+            "lines 141-153",
+            "line 216",
+            "lines 260-266",
+            "lines 329-333"
+          ],
+          "requirement": "Preserve distinct profit levels and realistic peak-service constraints.",
+          "observation": "The surviving reminders about contribution versus company profit define the models and the sensitivity-table comparison, respectively. The repeated 80-orders/81-capacity example first calculates staffing and later explains queue fragility and operational alternatives.",
+          "impact": "These repetitions do different work and appropriately remain; deleting them would weaken interpretation at the point of use.",
+          "classification": "functional_repetition_preserved"
+        }
+      ],
+      "necessary_findings": [],
+      "optional_findings": []
+    },
+    {
+      "case_id": "on_device_models_en",
+      "report_path": "evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+      "report_sha256": "c8d8f2b96f91e6032bbc542241417516d232e5fe28a707430eb297c87af2ea46",
+      "full_read_lines": [
+        1,
+        291
+      ],
+      "initially_full_read_sha256": "e82e4fbad93e8f1754b0ac613f333a1d3d68cd732d2556b26a3a464deea495bc",
+      "continuation_read": {
+        "diff_path": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.evidence-odm-01.diff",
+        "diff_sha256": "41b583916a5440c8be48a454db0221034aee9cfa9eabee2f2a3b1cc06f278bb5",
+        "scope": "Complete single-hunk diff; current lines 145-178 and 271-291; frozen ODM17 source lines 196-340."
+      },
+      "diff_path": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.diff",
+      "diff_sha256": "996a8cb46829541eb30c3bf32bc2617875e94baf3485c6faea2a65f6894c58fb",
+      "verdict": "pass",
+      "summary": "The report retains its deployment-oriented path from working memory and phase behavior through task pipelines, integration/privacy constraints and accepted-task economics to the hardware-model-task matrix and six decision rules.",
+      "observations": [
+        {
+          "id": "SD-ODM-01",
+          "locations": [
+            "lines 57-75",
+            "lines 109-127"
+          ],
+          "requirement": "Separate prefill/decode, phase sums/end-to-end latency, and peak/sustained behavior while making task recommendations.",
+          "observation": "The removed duplicate 9.46/34.07-second figures remain at line 67 with the 1,024/256 benchmark and extrapolation boundary. Line 115 points explicitly to Section 3, retains performance lock and omitted setup/presentation, then develops streaming versus completed usable output. The full timing equation and history/router implications remain directly below.",
+          "impact": "The cross-reference removes repeated arithmetic while preserving both the calculation and its role in the responsiveness recommendation.",
+          "classification": "supported_pass"
+        },
+        {
+          "id": "SD-ODM-02",
+          "locations": [
+            "lines 153-176",
+            "lines 273-291"
+          ],
+          "requirement": "Explain quality, memory, energy and sustained-service trade-offs without assuming lower precision is always faster.",
+          "observation": "The base FP16/INT8 comparison still gives all five metrics and the conditional FP16 choice. The rewritten medium-model sentence preserves the counterexample to a universal precision rule. Frozen Table 4 shows medium FP16 1471 J and INT8 1420 J, while the base rows retain the opposing energy trade-off. Neither comparison is collapsed into a cross-runtime speed ranking.",
+          "impact": "The positive model-specific conclusion is shorter and remains supported by the comparison structure.",
+          "classification": "supported_pass"
+        },
+        {
+          "id": "SD-ODM-03",
+          "locations": [
+            "lines 15-41",
+            "lines 77-107",
+            "lines 180-246",
+            "lines 248-268"
+          ],
+          "requirement": "Deliver worked envelopes, task fit and conditional local/cloud/hybrid decisions, including total task cost and deployment constraints.",
+          "observation": "The Qwen memory worksheet stays separate from measured Gemma timing. Document retrieval, interactive text and continuous speech retain distinct quality and operating constraints. Privacy fallback, API readiness, update cost and accepted-task denominator feed the final matrix and decision rules. No table, worked envelope or intervening explanatory mechanism has been removed.",
+          "impact": "The report remains coherent at full requested depth and does not substitute hardware headline specifications for a deployment recommendation.",
+          "classification": "supported_pass"
+        },
+        {
+          "id": "SD-ODM-04",
+          "locations": [
+            "lines 145-168",
+            "line 287",
+            "line 291"
+          ],
+          "requirement": "Keep measured clip performance distinct from sustained operation and preserve legitimate measurement uncertainty.",
+          "observation": "The follow-up correction acknowledges Table 3's 328 seconds of clean audio and the resulting ability to calculate an aggregate RTF; the frozen source explicitly provides that denominator at line 226. The replacement preserves the separate limitations on continuous-stream latency and whole-device energy, matching the utterance/stream distinction and duty-cycle analysis in Section 6. The final deleted warning about transferring rates was redundant with the model-specific cautions throughout and the remaining concrete measurement list.",
+          "impact": "The correction repairs the measurement-scope explanation without expanding any sustained-service claim or changing the recommendation chain.",
+          "classification": "supported_pass"
+        }
+      ],
+      "necessary_findings": [],
+      "optional_findings": []
+    },
+    {
+      "case_id": "test_time_compute_en",
+      "report_path": "evals/repairs/2026-11-10-report-expression/reports/test_time_compute_en.md",
+      "report_sha256": "b488ea30d8927356263be783f6f44b293f1a269d0c2547c8ad099f8598f941ef",
+      "full_read_lines": [
+        1,
+        356
+      ],
+      "diff_path": "evals/repairs/2026-11-10-report-expression/changes/test_time_compute_en.diff",
+      "diff_sha256": "8b12ceed414d840aa45a695d8d46b64bb6ee807584a08bc4cc7f19efb50fd6c0",
+      "verdict": "pass",
+      "summary": "Mechanism comparison, evidence classes, domain transfer, complete resource accounting, a worked allocation example and the decision tree still form one sustained answer. The edits remove duplicative framing rather than technical depth.",
+      "observations": [
+        {
+          "id": "SD-TTC-01",
+          "locations": [
+            "lines 7-21",
+            "lines 31-45",
+            "lines 47-129",
+            "lines 131-157"
+          ],
+          "requirement": "Compare mechanisms and scaling across math, code and tools while separating fixed-bank, fixed-checkpoint, whole-system and oracle evidence.",
+          "observation": "The removed generic introductory claim is immediately replaced by concrete findings with retained information/resource boundaries. The method matrix and following mechanism chapters still explain what is generated, retained, checked and paid for; the scaling table preserves non-comparable outcomes instead of imposing one ranking.",
+          "impact": "The synthesis remains analytical rather than a source catalogue, with training versus inference and candidate availability versus delivered success explicit.",
+          "classification": "supported_pass"
+        },
+        {
+          "id": "SD-TTC-02",
+          "locations": [
+            "lines 119-129",
+            "lines 153-165",
+            "lines 247-289"
+          ],
+          "requirement": "Recommendations must follow task verifiability, error consequences, tools, latency and budget.",
+          "observation": "The deleted five-choice paragraph at the end of Section 9 is a close anticipatory duplicate of the complete Section 14 decision tree and line 289's five developed choices. Section 9 still closes its cross-domain reasoning before Section 10 begins cost accounting. Removing the generic anti-multi-agent superiority clause at line 121 preserves the substantive shared-context/diversity/selection mechanism and the environment/feedback limits immediately following.",
+          "impact": "The transition remains intelligible, and all five decision alternatives and their conditions survive in the report's designated synthesis.",
+          "classification": "supported_pass"
+        },
+        {
+          "id": "SD-TTC-03",
+          "locations": [
+            "lines 159-195",
+            "lines 197-245"
+          ],
+          "requirement": "Count selection, failed branches, tools and retries; distinguish cost, serial latency and concurrency; include a clearly hypothetical allocation example.",
+          "observation": "All accounting definitions, normalization examples, hypothetical inputs, formulas, scheduler assumptions and numerical comparisons remain intact. The rewritten line 245 keeps the exact-hypothetical-probability status and the distinction between lower error/latency and an empirically established 0.21-point accuracy advantage.",
+          "impact": "The shorter explanation retains the uncertainty condition that matters to using the worked example.",
+          "classification": "supported_pass"
+        },
+        {
+          "id": "SD-TTC-04",
+          "locations": [
+            "lines 287-311",
+            "lines 313-356"
+          ],
+          "requirement": "Include defensible stopping cases without assuming that shorter computation is always better; retain evidence qualifications.",
+          "observation": "The closing revision keeps the affirmative sentence explaining when difficult tasks deserve substantial computation. The seven stopping cases remain individually reasoned, while the full appendix retains oracle, test-selection, contamination and uncertainty boundaries. Repeated availability/selection distinctions and historical-cost qualifications are functional because they apply to different mechanisms or denominators at their points of use.",
+          "impact": "The conclusion still supports both additional computation and stopping under explicit conditions; no necessary qualification was removed from its evidence context.",
+          "classification": "functional_repetition_preserved"
+        }
+      ],
+      "necessary_findings": [],
+      "optional_findings": []
+    }
+  ],
+  "overall_judgment": "Pass for the assigned structure_and_depth scope on the bound current versions. No necessary or optional manuscript changes are requested. Existing functional repetition should remain where it defines a comparison, measurement boundary or decision condition."
+}

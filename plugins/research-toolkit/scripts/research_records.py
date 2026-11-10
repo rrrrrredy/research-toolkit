@@ -396,7 +396,12 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
                 else:
                     path.write_bytes(original)
         event.update(outcome="error", error=str(exc))
-        result = {"ok": False, "errors": [str(exc)], "next_action": "Agent: correct the indicated fields and retry. Keep research decisions with the user; do not ask them to edit CSV/JSONL."}
+        if isinstance(exc, OSError):
+            next_action = ("The save failed; prior records were retained. Resolve access or file-use restrictions at the reported path, "
+                           "then retry the same save. Do not change research fields to work around a file error.")
+        else:
+            next_action = "Agent: correct the indicated fields and retry. Keep research decisions with the user; do not ask them to edit CSV/JSONL."
+        result = {"ok": False, "errors": [str(exc)], "next_action": next_action}
     finally:
         for temp in temporary:
             temp.unlink(missing_ok=True)

@@ -1219,6 +1219,7 @@ class ReadinessTests(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    os.environ["RESEARCH_TOOLKIT_TELEMETRY"] = "off"
     if os.environ.get("IRF_TEST_TMPDIR"):
         tempfile.tempdir = os.environ["IRF_TEST_TMPDIR"]
     unittest.main()

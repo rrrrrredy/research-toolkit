@@ -52,7 +52,8 @@ async def verify(base):
         "print(json.dumps(result))\n", encoding="utf-8")
     workspace = base/"tasks"
     env = {"RESEARCH_TOOLKIT_WORKSPACE": str(workspace), "RESEARCH_TOOLKIT_REVIEW_CONFIG": "",
-           "RESEARCH_TOOLKIT_REVIEW_BACKEND": "", "PYTHONDONTWRITEBYTECODE": "1"}
+           "RESEARCH_TOOLKIT_REVIEW_BACKEND": "", "PYTHONDONTWRITEBYTECODE": "1",
+           "RESEARCH_TOOLKIT_TELEMETRY": "off"}
     server = StdioServerParameters(command=sys.executable,
         args=["-B", "-X", "utf8", str(ROOT/"plugins/research-toolkit/scripts/research_mcp.py")], env=env)
     async with Client(server, read_timeout_seconds=30) as client:

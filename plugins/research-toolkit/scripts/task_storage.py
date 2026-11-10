@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 
@@ -13,6 +14,14 @@ def nonempty(value):
 
 def digest(value):
     return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True).encode('utf-8')).hexdigest()
+
+
+def file_io_path(path):
+    """Keep Windows task files and their longer backup paths accessible."""
+    value = str(Path(path).resolve())
+    if os.name == 'nt' and not value.startswith('\\\\?\\'):
+        value = '\\\\?\\UNC\\' + value[2:] if value.startswith('\\\\') else '\\\\?\\' + value
+    return Path(value)
 
 
 def safe_path(root: Path, name: str) -> Path:
@@ -35,6 +44,7 @@ def task_root(workspace: Path, task: str, *, create=False) -> Path:
     workspace = workspace.expanduser().resolve()
     root = (workspace / task).resolve()
     root.relative_to(workspace)
+    root = file_io_path(root)
     if create:
         root.mkdir(parents=True, exist_ok=True)
     elif not root.is_dir():

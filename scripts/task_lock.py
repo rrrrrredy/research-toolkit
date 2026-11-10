@@ -3,6 +3,7 @@ from contextlib import contextmanager
 import os
 from pathlib import Path
 import threading
+from task_storage import file_io_path
 
 _held = threading.local()
 
@@ -10,6 +11,7 @@ _held = threading.local()
 @contextmanager
 def task_lock(root: Path):
     # Reentrant only for this thread/process (start may read its own status).
+    root = file_io_path(root)
     identity = (os.getpid(), str(root.resolve()))
     held = getattr(_held, "paths", set())
     if identity in held:

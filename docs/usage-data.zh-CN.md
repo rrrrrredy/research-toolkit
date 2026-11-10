@@ -58,7 +58,9 @@ python scripts/usage_events.py delete
 
 `delete` 删除本安装已上传的数据；加 `--task-root /absolute/path/to/task` 只删除指定任务。私密展示中的旧副本在下一次报告刷新时清理。关闭和删除是两件事：希望不再产生后续数据时先 `off`，再 `delete`。
 
-本地队列默认位于 `~/.research-toolkit/usage/`，最多缓存 7 天、10,000 条基础事件。网络传输在后台进行，失败保留待传事件，后续使用时重试；研究调用不等待上传。`status` 显示上次上传和安全错误类别。设置 `RESEARCH_TOOLKIT_USAGE_HOME` 可指定本地目录。CI 默认不发送；明确验收的流量带 `test=true` 并从实际使用统计中分开。
+本地队列默认位于 `~/.research-toolkit/usage/`，最多缓存 7 天、10,000 条基础事件。网络传输在后台进行，失败保留待传事件，后续使用时重试；研究调用不等待上传。`status` 显示上次上传和安全错误类别。设置 `RESEARCH_TOOLKIT_USAGE_HOME` 可指定本地目录。CI 和工程契约检查关闭采集，包括检查启动的 MCP 子进程；明确验证采集本身时使用隔离目录和 `test=true`。
+
+同一 Windows 任务的普通路径与 `\\?\` 长路径写法使用同一关联标识。会话统计使用 Agent 工具的会话事件；保存者和评审执行标识单列。`test=true` 是采集标记，研究任务与工程检查按实际执行依据区分。
 
 ## 单次分享研究内容
 

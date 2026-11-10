@@ -1,0 +1,13 @@
+diff --git a/evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.editorial-first.md b/evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md
+index c40f03c..91681a0 100644
+--- a/evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.editorial-first.md
++++ b/evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md
+@@ -284,7 +284,7 @@ The report uses public material from 2023 through 9 November 2026, including dat
+ | Speech noise and precision | ASR energy paper `2405.01004`, setup pp.4–7 and Table 4 on p.10 | Aggregate experiment, incremental CPU/GPU energy, synthetic-noise procedure; repository unavailable at access time |
+ | Current APIs | ML Kit page updated 6 November 2026; current Apple developer Markdown; Microsoft Learn page updated 19 October 2026 | Availability, quotas, entitlement, channel and planned transitions; older raw Microsoft repository page preserved separately |
+ 
+-Several source details affect the arithmetic. The WhisperTRT README labels memory as MB, while its profiler computes MiB and samples an RSS difference rather than a peak. Its `base.en` ratio is 439/666 = 65.9% of the original path's reported memory; the report uses the actual values rather than treating the promotional “about 60%” as precise. The independent speech paper's printed WER formula contains an apparent insertion-term typo; the interpretation here uses the conventional `(substitutions + deletions + insertions) / reference words`. Its unavailable code and unspecified exact aggregate audio duration prevent a precise reconstruction of real-time factor or wall energy.
++Several source details affect the arithmetic. The WhisperTRT README labels memory as MB, while its profiler computes MiB and samples an RSS difference rather than a peak. Its `base.en` ratio is 439/666 = 65.9% of the original path's reported memory; the report uses the actual values rather than treating the promotional “about 60%” as precise. The independent speech paper's printed WER formula contains an apparent insertion-term typo; the interpretation here uses the conventional `(substitutions + deletions + insertions) / reference words`. Table 3 reports 328 seconds of clean audio, which supports aggregate real-time-factor arithmetic from its processing times. The code was unavailable at access time. These clip-based totals do not establish sustained continuous-stream latency or whole-device wall energy.
+ 
+ The accompanying `deployment_calculations.py` and `calculation-results.json` contain the executed memory, phase-time, clip-RTF, power-duty, transfer and economic arithmetic. They run no model inference and make no claim to validate a device.
+ 

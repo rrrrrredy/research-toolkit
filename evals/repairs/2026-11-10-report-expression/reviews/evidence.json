@@ -1,0 +1,293 @@
+{
+  "reviewer_role": "evidence",
+  "reviewer_agent_id": "/root/revision_evidence",
+  "execution_identity_kind": "native collaboration canonical agent name",
+  "result": "valid",
+  "report_verdict": "revise",
+  "review_date": "2026-11-10",
+  "scope": "Independent evidence review of three limited editorial revisions. Read all three current reports, all three original task.json files and complete diffs. Checked edited interpretations and conditions against archived original source passages, with one directly encountered pre-existing evidence error recorded below. This is not a fresh audit of every unchanged factual claim.",
+  "independence": {
+    "production_role": false,
+    "author_self_judgments_read": false,
+    "current_peer_review_files_read": false,
+    "note": "Used source registries only for source identity/navigation and original source snapshots for evidence; the existing numerical allocation output was read as arithmetic input, not accepted as an author verdict. No manuscript edits, tests, API calls, new source search or research rerun."
+  },
+  "method_read": {
+    "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/references/subagents-and-review-loop.zh-CN.md",
+    "scope": "Full file; evidence role, independent initial review, source reading scope, required/optional findings, version binding and no fabricated identities."
+  },
+  "findings": [
+    {
+      "finding_id": "EVIDENCE-ODM-01",
+      "case_id": "on_device_models_en",
+      "severity": "medium",
+      "disposition": "required",
+      "status": "open",
+      "introduced_by_this_edit": false,
+      "location": {
+        "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+        "line": 287,
+        "section": "Appendix: provenance and interpretation of the worked envelopes; related Section 6, lines 155-164"
+      },
+      "requirement": "Preserve measurement conditions and explicit units; identify missing measurements accurately and keep aggregate experiments distinct from sustained service.",
+      "observation": "The appendix says that the ASR paper's 'unspecified exact aggregate audio duration' prevents a precise reconstruction of real-time factor. The archived original paper explicitly gives a total clean-audio duration of 328 seconds in its Table 3 heading.",
+      "original_evidence": {
+        "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM17.txt",
+        "source_url": "https://arxiv.org/pdf/2405.01004",
+        "locations": [
+          "Page 7, Table 3 heading, file line 226",
+          "Page 7, whisperx-base FP16 row, file line 230",
+          "Page 6, baseline subtraction, file lines 187-195",
+          "Page 10, Table 4, file lines 318-330"
+        ],
+        "quote": "Table 3: Energy use and inference time for fp16 precision, clean audio (duration: 328 seconds)",
+        "supporting_detail": "The FP16 base row repeats 78.0 seconds and 155 J in Tables 3 and 4. The measurement setup says the CPU+GPU idle baseline is subtracted. A known aggregate duration supports aggregate processing-time/audio-duration arithmetic; it does not turn this into continuous-stream latency, peak/sustained throughput or whole-device wall energy."
+      },
+      "impact": "This creates a false missing-data limitation in the current deliverable. It does not invalidate Section 6's base-versus-medium precision comparison or justify replacing the report's sustained-operation qualification. The accurate boundary is between aggregate clean-clip results and a qualified continuous service; lack of whole-box energy measurement is separate from whether duration was reported.",
+      "required_change": "Correct only the false duration claim. State that Table 3 reports 328 seconds of clean audio, while retaining the limits on continuous-service performance and whole-device wall energy. No additional experiment or source search is needed.",
+      "suggested_replacement": "Table 3 reports 328 seconds of clean audio, which supports aggregate real-time-factor arithmetic from its processing times. These clip-based totals do not establish sustained continuous-stream latency or whole-device wall energy.",
+      "scope_note": "The erroneous sentence is unchanged in the supplied editorial diff. It was discovered directly while checking the revised medium-INT8 interpretation against the same original paper; it is not attributed to this revision."
+    }
+  ],
+  "optional_findings": [],
+  "reports": [
+    {
+      "case_id": "test_time_compute_en",
+      "report_verdict": "pass",
+      "required_findings": [],
+      "editorial_evidence_verdict": "pass",
+      "report_file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/test_time_compute_en.md",
+      "report_sha256": "b488ea30d8927356263be783f6f44b293f1a269d0c2547c8ad099f8598f941ef",
+      "task_file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/test_time_compute_en/task.json",
+      "task_sha256": "f479209952757ead75cc90893ec8140c7aea94131f49c20fa7317a4101559f22",
+      "diff_file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/test_time_compute_en.diff",
+      "diff_sha256": "8b12ceed414d840aa45a695d8d46b64bb6ee807584a08bc4cc7f19efb50fd6c0",
+      "full_report_read": {
+        "first_line": 1,
+        "last_line": 356
+      },
+      "complete_diff_read": true,
+      "citation_comparison": {
+        "old_url_count": 54,
+        "current_url_count": 54,
+        "same_order_and_targets": true,
+        "live_url_availability_rechecked": false
+      },
+      "observations": [
+        {
+          "locations": [
+            "lines 7-13",
+            "lines 49, 75, 87-89, 119-121"
+          ],
+          "judgment": "Removing 'The strongest evidence supports conditional choices' does not change the scope of the four following empirical claims.",
+          "evidence": "Self-Consistency retains a fixed checkpoint, 40 sampled outputs and ten runs; the original Table 1/protocol supports 56.5 to 74.4. Let's Verify Step by Step explicitly holds the generator fixed and compares selectors over the same solutions; its Figure 3 gives 78.2/72.4/69.6 and its methods disclose different large-scale training sets. SCoRe Table 3 confirms base 52.6 to 41.4 and trained 60.0 to 64.4; the report retains the training-versus-inference distinction. CodeMonkeys confirms serial test/edit feedback plus independent trajectories and a separate selector."
+        },
+        {
+          "locations": [
+            "lines 119-121",
+            "lines 55-59",
+            "lines 189-191"
+          ],
+          "judgment": "Deleting the last generic anti-overclaim clause leaves the actual selection boundary intact.",
+          "evidence": "CodeMonkeys sections 2.2-2.3 explicitly distinguish 69.8 coverage, 45.8 random selection and 57.4 selected success, including fresh starts for prematurely approved trajectories. Its cost table contains 131.95 selection within 2291.90 total USD. Large Language Monkeys Figure 7 separates coverage from saturating selectors; Inference Regimes v2 section 4.2 reports 91.67 oracle coverage, 78.33 plurality and 65.83 mean-logprob selection, while marking 89.17 gold-assisted selection diagnostic. These retained observations substantiate the paragraph's inference without asserting any architecture always improves."
+        },
+        {
+          "locations": [
+            "lines 153-159",
+            "lines 247-289",
+            "lines 301-311"
+          ],
+          "judgment": "The removed five-choice recap and conclusion disclaimer remove no unique empirical condition.",
+          "evidence": "The full report still states verifiability, useful intermediate feedback, branch replay, selector calibration, budget, deadline and wrong-action cost in the decision tree. Line 289 still distinguishes more samples, deeper search, better verification, stronger model and simpler path. Lines 303-309 retain concrete reasons to stop. No experimental result was converted into an unconditional policy."
+        },
+        {
+          "locations": [
+            "lines 199-216",
+            "lines 233-245"
+          ],
+          "judgment": "The rewritten 0.21-point sentence accurately preserves the hypothetical-versus-measured boundary.",
+          "evidence": "The saved original allocation output labels all rates exact hypothetical inputs and retains four-worker/100-second assumptions. Its deadline rows give 0.8950788000000001 correct, 0.019890640000000015 wrong and 55 seconds for four strong+better candidates, versus 0.89296875 correct, 0.09921874999999998 wrong and 100 seconds for seven strong+weak candidates. Their accuracy difference rounds to 0.21 percentage points. The revised sentence does not present it as a statistically resolved empirical advantage."
+        }
+      ],
+      "source_reading": [
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/TTC009/original.txt",
+          "scope": "Original Self-Consistency v4: matched excerpts of Table 1 (56.5 and 74.4), sampling protocol at lines 226-230, and same-prompt comparison at lines 1148-1159; not a new full-paper audit."
+        },
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/TTC012/original.txt",
+          "scope": "Original Let's Verify Step by Step v1: methods/scope and fixed generator (95-108), reward scoring and training-set caveat (115-121), Figure 3/table values (122-131), controlled small-scale comparison (140-143)."
+        },
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/TTC013/original.txt",
+          "scope": "Original SCoRe v1: complete inspected block lines 200-251, including setup, split, models, Table 3 and evaluation instruction."
+        },
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/SUP-CM.txt",
+          "scope": "Original CodeMonkeys v1: cost table lines 73-121; matched original context/generation/selection paragraphs around 129-146 and 175-238, including model-generated tests, ten trajectories/eight completion cap, fresh-start argument and selected-versus-oracle scores."
+        },
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/TTC010/original.txt",
+          "scope": "Original Large Language Monkeys v2: matched coverage/precision and section 4.1/Figure 7 paragraphs, particularly lines 208-223."
+        },
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/TTC003v2/original.txt",
+          "scope": "Original Inference Regimes v2: section 4.2 score paragraph lines 707-717 and Table 8 numerical/selection-boundary excerpts."
+        },
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/analysis/calculations/allocation-results.json",
+          "scope": "Existing saved arithmetic record, including assumptions, component inputs, budget rows and deadline-feasible rows. Read only; no calculation script rerun."
+        }
+      ]
+    },
+    {
+      "case_id": "instant_retail_warehouses_zh",
+      "report_verdict": "pass",
+      "required_findings": [],
+      "editorial_evidence_verdict": "pass",
+      "report_file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md",
+      "report_sha256": "cdf65d2c4dd5af7ad9a2157a6e61bc6aa078074f7e97aaa17807853933429f7b",
+      "task_file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/task.json",
+      "task_sha256": "768ebd2b9fcb1ddda5a2413f3c5a4408448ec03728a2db2872f2dc2f304cbf39",
+      "diff_file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.diff",
+      "diff_sha256": "a540f76b9fcb2da519fbd7bb3d6d47087062f7cfa90a6de9dff6726c31956636",
+      "full_report_read": {
+        "first_line": 1,
+        "last_line": 372
+      },
+      "complete_diff_read": true,
+      "citation_comparison": {
+        "old_url_count": 19,
+        "current_url_count": 19,
+        "same_order_and_targets": true,
+        "live_url_availability_rechecked": false
+      },
+      "observations": [
+        {
+          "locations": [
+            "lines 5-9",
+            "lines 67-91",
+            "lines 141-210"
+          ],
+          "judgment": "The mature-city proposition was moved from the old synthesis into the opening, and remains a conditional synthesis rather than an observed nationwide profit statistic.",
+          "evidence": "The opening retains '有机会', profitable local orders and complete cost coverage, and preserves maturity/new-region divergence. Dingdong's original MD&A links improved regional-processing efficiency to falling fulfillment ratios while reporting higher COGS ratio and lower 2025 operating/net profit; Q2 2026 attributes growth partly to order frequency and East China nodes while disclosing closures in Beijing/Guangzhou-Shenzhen. The model inputs remain explicitly hypothetical. The revision does not infer every warehouse's profitability from company profit or order growth."
+        },
+        {
+          "locations": [
+            "lines 97-103",
+            "lines 111-117",
+            "lines 199-210"
+          ],
+          "judgment": "Deleting the generic sentence that counterexamples do not disprove the whole model does not make the interview evidence universal.",
+          "evidence": "The preceding paragraphs still identify named places, dates, individual interviewees and nonuniform samples; the region table preserves non-comparability. Original IRW10 gives 300-400 to about 150 daily orders and excludes labor/rent from the quoted 20%; IRW28 gives subsidy-period 800-1000 versus later weekday 200-300, nearby competitors and the investment unrecovered. The report keeps both a profitable hypothetical social warehouse and a stronger assortment scenario. Line 103's traffic/subsidy decomposition is a proposed operating test, not an invented observed elasticity."
+        },
+        {
+          "locations": [
+            "lines 289-303",
+            "lines 339-354"
+          ],
+          "judgment": "The shorter density paragraph preserves the evidence-supported difference between an integrated network and an independent warehouse; the deleted constraints remain elsewhere in the actual decision path.",
+          "evidence": "IRW10 lines 31-34 explicitly describe paid-placement competition and the interviewee's example of higher rival bids raising her spend; line 45 describes purchasing advantages of chains. Dingdong MD&A describes procurement and regional-processing scale as company mechanisms. The new text says '可能', so it does not universalize these source statements. The report's cannibalization calculation still shows network daily orders 900 to 1100 but monthly outcome 25340 to -65140; line 301 retains peak capacity, edge delays, cost reduction and recurring demand, and table row 346 requires net new demand and subtracting transferred old orders/new fixed costs. No necessary densification condition disappeared from the full report."
+        }
+      ],
+      "source_reading": [
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/sources/actual/IRW02.txt",
+          "scope": "Archived original SEC 20-F excerpts: original source lines 1521, 1545, 2170, 2192-2214, 2371-2418 and 2430-2434 as present in the snapshot; checked sourcing, grid, fulfillment classification/efficiency and company-level profit boundaries. This snapshot contains selected original excerpts, not the entire annual report."
+        },
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/sources/actual/IRW03.txt",
+          "scope": "Original Q2 2026 SEC excerpts: original source lines 137-139 and 155-156, East China frequency/density, closures and cost categories."
+        },
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/sources/actual/IRW10.txt",
+          "scope": "Full archived article text, file lines 1-55; substantive interview and economics at 8-46, especially advertising/bidding 31-39 and chain procurement 45."
+        },
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/sources/actual/IRW11.txt",
+          "scope": "Full archived file read. The relevant Southern Weekly article portion is file lines 165-245, preserving source lines 0-78; checked Guangzhou/Panyu/Foshan rollout, supply-chain improvement, stock investment and service fee passages. Earlier portions are other original SEC/IR page captures, not author judgment. This is not a claim to have read article lines beyond the stored excerpt."
+        },
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/sources/actual/IRW28.txt",
+          "scope": "Full archived page read, file lines 1-179; substantive article at 96-130, particularly subsidy and weekday orders, crowding, paid traffic, stock and warehouse-store conversion."
+        }
+      ]
+    },
+    {
+      "case_id": "on_device_models_en",
+      "report_verdict": "revise",
+      "required_findings": [
+        "EVIDENCE-ODM-01"
+      ],
+      "editorial_evidence_verdict": "pass",
+      "report_file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+      "report_sha256": "e82e4fbad93e8f1754b0ac613f333a1d3d68cd732d2556b26a3a464deea495bc",
+      "task_file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/on_device_models_en/task.json",
+      "task_sha256": "d9a48441cae39e4f4f2f2c1309a84e07068f3cf2d47a2894df0d633096c33e67",
+      "diff_file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.diff",
+      "diff_sha256": "9b02114ba4dc3c8b69df4a5f28bc9fbe593242310b3fb1040a3b2f836786aa13",
+      "full_report_read": {
+        "first_line": 1,
+        "last_line": 291
+      },
+      "complete_diff_read": true,
+      "citation_comparison": {
+        "old_url_count": 37,
+        "current_url_count": 37,
+        "same_order_and_targets": true,
+        "live_url_availability_rechecked": false
+      },
+      "observations": [
+        {
+          "locations": [
+            "lines 59-67",
+            "line 115",
+            "line 278"
+          ],
+          "judgment": "The cross-reference replacing repeated S24 numbers retains the measurement conditions and the underlying numerical example.",
+          "evidence": "Pinned LiteRT-LM original README lines 56-77 states Q4 per-channel, 4096 context, 1024 prefill, 256 decode and Android performance lock; E2B GPU rates are 816.4/15.6. Section 3 still retains 9.46 seconds for 128 tokens and 34.07 seconds for 512, explicitly labels 512 extrapolation and excludes setup/presentation components. The edited sentence itself repeats performance lock and excludes ordinary/sustained-device timing. It does not turn a phase calculation into measured end-to-end latency."
+        },
+        {
+          "locations": [
+            "lines 155-164"
+          ],
+          "judgment": "The rewritten medium-INT8 sentence is supported by the original table and retains a model-specific precision choice.",
+          "evidence": "Original ASR Table 4 reports base FP16/INT8 78.0/80.1 seconds, 4029/3908 MB, 155/169 J and noisy WER 28.84/30.69. The medium rows report 1471 J FP16 versus 1420 J INT8. Thus base and medium have opposite energy directions in the same experiment; the report does not imply INT8 always saves energy. The original setup subtracts idle CPU/GPU power, matching the retained whole-box limitation."
+        },
+        {
+          "locations": [
+            "line 291",
+            "lines 13, 39, 59-75, 145-178, 250-265"
+          ],
+          "judgment": "Deleting the final generic transfer warning leaves actual task/device measurement boundaries throughout the report.",
+          "evidence": "The remaining final paragraph still calls for working memory, usable-result latency, sustained operation, representative task quality and endpoint power on the intended device. Section 3 labels phase measurements and historical thermal mechanisms separately; Section 6 distinguishes a warm clip, the independent precision study and later Super mode; the fit matrix explicitly marks missing S24 sustained measurement and unmatched Surface throughput. No new device-rate transfer claim was introduced."
+        },
+        {
+          "locations": [
+            "line 287",
+            "lines 155-164"
+          ],
+          "judgment": "One directly encountered original evidence conflict requires correction before this report can pass, although all three supplied editorial hunks preserve their evidence.",
+          "evidence": "EVIDENCE-ODM-01 identifies the already-present missing-duration claim. Correcting that sentence strengthens the account of what is actually measured without removing the report's sustained-service or wall-energy limits."
+        }
+      ],
+      "source_reading": [
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM-S12.txt",
+          "scope": "Pinned original LiteRT-LM README: supported artifact and benchmark block at lines 54-77, benchmark command/flag excerpts at 393-448, phase API excerpts at 468-477 and 538-577. No runtime was executed."
+        },
+        {
+          "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM17.txt",
+          "scope": "Original paper text: setup/data/noise excerpts on pages 4-6 (file lines 146-161, 172-205); metric and complete Table 3 block on p.7 (212-239); quantization discussion and complete Table 4 on p.10 (283-330); relevant interpretation excerpts on pp.11-14. This reading directly includes the stated 328-second clean-audio duration."
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "All three current reports and complete supplied diffs were read. Initial oversized tool outputs were truncated; the reports were subsequently reread in consecutive untruncated ranges, and the short diffs were reread separately.",
+    "Source checks were deliberately directed at edited claims, retained conditions and directly affected interpretations. Unchanged claims outside those checks were not independently revalidated.",
+    "URL targets and order were compared with the preserved pre-edit manuscripts; this establishes citation preservation, not present-day remote availability.",
+    "Existing arithmetic was inspected, not rerun. No new empirical performance, financial or research experiment was performed."
+  ],
+  "completion": "Review completed. Two reports pass within the stated evidence scope. On-device report requires the one source-supported appendix correction; all three of its supplied editorial hunks pass the evidence-preservation check."
+}

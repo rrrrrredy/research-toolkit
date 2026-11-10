@@ -1,0 +1,61 @@
+{
+  "reviewer_role": "evidence",
+  "reviewer_agent_id": "/root/revision_evidence",
+  "execution_identity_kind": "native collaboration canonical agent name",
+  "review_date": "2026-11-10",
+  "result": "valid",
+  "report_verdict": "pass",
+  "case_id": "on_device_models_en",
+  "review_kind": "same-reviewer targeted correction follow-up",
+  "original_review": {
+    "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/evidence.json",
+    "sha256": "89fd0c68d51c869ac80e919588900e3cf36983c17e859bfba3747cb04e2216d3",
+    "preserved_unchanged": true
+  },
+  "current_report": {
+    "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+    "sha256": "c8d8f2b96f91e6032bbc542241417516d232e5fe28a707430eb297c87af2ea46",
+    "hash_verified": true
+  },
+  "correction_diff": {
+    "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.evidence-odm-01.diff",
+    "sha256": "41b583916a5440c8be48a454db0221034aee9cfa9eabee2f2a3b1cc06f278bb5",
+    "complete_diff_read": true,
+    "hunks": 1
+  },
+  "actual_reading": {
+    "newly_read": [
+      "Complete on_device_models_en.evidence-odm-01.diff",
+      "Current report Section 6, lines 153-176",
+      "Current report appendix, lines 271-291"
+    ],
+    "reused": "Same reviewer's completed full-report/task/diff reading and original ODM17 source reading recorded in evidence.json. In particular, original ODM17 p.7 Table 3/file line 226 says clean audio duration: 328 seconds; p.6/file lines 187-195 explains CPU+GPU idle-baseline subtraction.",
+    "full_report_reread": false,
+    "new_sources_or_research": false,
+    "tests_or_calculation_rerun": false,
+    "author_self_judgment_or_peer_reviews_read": false
+  },
+  "dispositions": [
+    {
+      "finding_id": "EVIDENCE-ODM-01",
+      "original_disposition": "required",
+      "status": "resolved",
+      "location": {
+        "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+        "line": 287
+      },
+      "confirmation": "The current text now explicitly attributes 328 seconds of clean audio to Table 3 and says its processing times support aggregate real-time-factor arithmetic. The false 'unspecified exact aggregate audio duration' assertion is removed.",
+      "evidence_alignment": "This matches the original source heading already read. Keeping code availability as an access-time statement does not imply that the reported denominator is absent.",
+      "affected_context_check": "Section 6 still identifies seventy short LibriSpeech clips, JetPack 5.1, baseline-subtracted CPU+GPU energy, model-specific FP16/INT8 results, and the difference from WhisperTRT's warm single-clip benchmark. The revised appendix explicitly retains the limits on sustained continuous-stream latency and whole-device wall energy. The ending still requires deployment-specific sustained and endpoint-power measurements.",
+      "impact": "The correction accurately distinguishes an available aggregate timing denominator from unmeasured continuous-service and whole-box energy behavior. It introduces no new measured benchmark or unsupported claim of sustained performance."
+    }
+  ],
+  "open_required_findings": [],
+  "optional_findings": [],
+  "continuation_verdicts": {
+    "test_time_compute_en": "Prior pass retained; unchanged report not reread in this follow-up.",
+    "instant_retail_warehouses_zh": "Prior pass retained; unchanged report not reread in this follow-up.",
+    "on_device_models_en": "Pass for the stated evidence-review scope at the current verified hash, with EVIDENCE-ODM-01 resolved."
+  },
+  "completion": "Targeted follow-up complete. Original review preserved; only this follow-up record was written."
+}

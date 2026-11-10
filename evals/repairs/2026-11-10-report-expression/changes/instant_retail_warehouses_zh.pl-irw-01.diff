@@ -1,0 +1,10 @@
+diff --git a/evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.editorial-first.md b/evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md
+index 9fd2804..948dfa7 100644
+--- a/evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.editorial-first.md
++++ b/evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md
+@@ -368,5 +368,3 @@ flowchart LR
+ 研究资料截止于2026年11月9日。公司数据采用所引原始年报、季报及交易文件，采访用于具体经营者和区域机制，不将其扩大为全国统计。统计公报仅支持城市背景。协议、开仓目标、拟退出时间与已发生的经营结果分别记录；报告未把平台宣传或加盟招商回报当作审计利润。
+ 
+ 正文就近标明原始链接及段落、表或页码。`warehouse-model.py`保存单仓、敏感性、网络分流与六个月现金输入，输出为`warehouse-results.json`及CSV；`financial-bridges.py`及JSON保存公司金额算术、需求、库存资金和门店增量例子。全部情景参数可替换，模型未隐藏填入企业内部数据。
+-
+-`reading-ledger.json`记录实际读到的原文位置、版本及阅读者，`claims.jsonl`区分来源事实、作者推断与情景结果。

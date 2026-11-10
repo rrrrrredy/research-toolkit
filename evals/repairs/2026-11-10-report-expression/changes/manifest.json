@@ -1,0 +1,132 @@
+{
+  "date": "2026-11-10",
+  "base_commit": "a183353aa444d6ae2cb4f93dc363c2739d53959d",
+  "producer": "/root/editorial_revision",
+  "scope": "Limited expression revisions, the source-supported correction requested by EVIDENCE-ODM-01, and moving the production-record sentence requested by PL-IRW-01 into archive navigation; no new research, product changes, or changes to original reports/reviews.",
+  "stage": "independent_acceptance_complete",
+  "archive_root": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks",
+  "reports": [
+    {
+      "case_id": "test_time_compute_en",
+      "original_report": "evals/studies/2026-11-09-long-research/reports/test_time_compute_en/final.md",
+      "original_task": "evals/studies/2026-11-09-long-research/reports/test_time_compute_en/task.json",
+      "original_analyses": "evals/studies/2026-11-09-long-research/reports/test_time_compute_en/analysis/",
+      "source_index": "evals/studies/2026-11-09-long-research/reports/test_time_compute_en/sources/source_registry.csv",
+      "original_reviews": "evals/studies/2026-11-09-long-research/reports/test_time_compute_en/reviews/",
+      "local_original_materials": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en",
+      "revised_report": "evals/repairs/2026-11-10-report-expression/reports/test_time_compute_en.md",
+      "change_note": "evals/repairs/2026-11-10-report-expression/changes/test_time_compute_en.md",
+      "full_diff": "evals/repairs/2026-11-10-report-expression/changes/test_time_compute_en.diff",
+      "original_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+      "revised_sha256": "b488ea30d8927356263be783f6f44b293f1a269d0c2547c8ad099f8598f941ef",
+      "original_bytes": 74456,
+      "revised_bytes": 73365,
+      "edit_count": 5
+    },
+    {
+      "case_id": "instant_retail_warehouses_zh",
+      "original_report": "evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/final.md",
+      "original_task": "evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/task.json",
+      "original_analyses": "evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/analysis/",
+      "source_index": "evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/sources/source_registry.csv",
+      "original_reviews": "evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/reviews/",
+      "local_original_materials": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh",
+      "revised_report": "evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md",
+      "change_note": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.md",
+      "full_diff": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.diff",
+      "original_sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed",
+      "revised_sha256": "ea7f6bcaa923bb84e841e4af2bdeb41c622aaf9399e9611145c455a3c404df29",
+      "original_bytes": 47958,
+      "revised_bytes": 47450,
+      "edit_count": 5,
+      "editorial_first_report": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.editorial-first.md",
+      "editorial_first_sha256": "cdf65d2c4dd5af7ad9a2157a6e61bc6aa078074f7e97aaa17807853933429f7b",
+      "editorial_first_diff": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.editorial-first.diff",
+      "editorial_first_diff_sha256": "a540f76b9fcb2da519fbd7bb3d6d47087062f7cfa90a6de9dff6726c31956636",
+      "process_language_correction": {
+        "finding_id": "PL-IRW-01",
+        "incremental_diff": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.pl-irw-01.diff",
+        "author_response": "evals/repairs/2026-11-10-report-expression/changes/author-response.json",
+        "independent_confirmation": "pending"
+      }
+    },
+    {
+      "case_id": "on_device_models_en",
+      "original_report": "evals/studies/2026-11-09-long-research/reports/on_device_models_en/final.md",
+      "original_task": "evals/studies/2026-11-09-long-research/reports/on_device_models_en/task.json",
+      "original_analyses": "evals/studies/2026-11-09-long-research/reports/on_device_models_en/analysis/",
+      "source_index": "evals/studies/2026-11-09-long-research/reports/on_device_models_en/sources/source_registry.csv",
+      "original_reviews": "evals/studies/2026-11-09-long-research/reports/on_device_models_en/reviews/",
+      "local_original_materials": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en",
+      "revised_report": "evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+      "change_note": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.md",
+      "full_diff": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.diff",
+      "original_sha256": "59f8ac88843287debab4c0176d72575b648dbf581eece7888f22e050e69da8dd",
+      "revised_sha256": "c8d8f2b96f91e6032bbc542241417516d232e5fe28a707430eb297c87af2ea46",
+      "original_bytes": 60526,
+      "revised_bytes": 60307,
+      "edit_count": 4,
+      "editorial_first_report": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.editorial-first.md",
+      "editorial_first_sha256": "e82e4fbad93e8f1754b0ac613f333a1d3d68cd732d2556b26a3a464deea495bc",
+      "editorial_first_diff": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.editorial-first.diff",
+      "editorial_first_diff_sha256": "9b02114ba4dc3c8b69df4a5f28bc9fbe593242310b3fb1040a3b2f836786aa13",
+      "evidence_correction": {
+        "finding_id": "EVIDENCE-ODM-01",
+        "incremental_diff": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.evidence-odm-01.diff",
+        "author_response": "evals/repairs/2026-11-10-report-expression/changes/author-response.json",
+        "independent_confirmation": "pending"
+      }
+    }
+  ],
+  "author_checks": {
+    "scope": "Read all three original reports and task prompts; inspect the complete diffs and revised surrounding paragraphs; compare preserved structural content. This is a producer check, not independent review or final acceptance.",
+    "original_and_revision_hashes_match": true,
+    "source_url_sequence_unchanged": true,
+    "all_markdown_table_rows_unchanged": true,
+    "all_fenced_blocks_unchanged": true,
+    "numeric_value_set_unchanged": true,
+    "new_readme_and_change_note_relative_links_exist": true,
+    "local_original_material_directories_exist": true,
+    "limitations": "Numeric set equality does not verify claim meaning; semantic review is delegated to the independent continuation. No external source refresh or model experiment was performed.",
+    "applies_to": "Initial editorial revisions, before EVIDENCE-ODM-01 and PL-IRW-01; the first on-device and warehouse versions are preserved separately."
+  },
+  "evidence_followup_author_checks": {
+    "finding_id": "EVIDENCE-ODM-01",
+    "checks": {
+      "first_report_hash_matches_prior_review": true,
+      "original_report_hash_unchanged": true,
+      "current_report_hash_matches_manifest": true,
+      "source_url_sequence_unchanged": true,
+      "all_markdown_table_rows_unchanged": true,
+      "all_fenced_blocks_unchanged": true,
+      "only_replaced_sentence_diff": true,
+      "added_numeric_values": [
+        "328"
+      ],
+      "removed_numeric_values": []
+    },
+    "scope": "Read the original evidence finding and archived ODM17 source passages (setup, Table 3 and Table 4); inspect the one-paragraph correction diff and related Section 6. No new RTF calculation, research or inference experiment.",
+    "independent_acceptance": false
+  },
+  "process_language_followup_author_checks": {
+    "finding_id": "PL-IRW-01",
+    "checks": {
+      "first_report_hash_matches_prior_review": true,
+      "original_report_hash_unchanged": true,
+      "current_report_hash_matches_manifest": true,
+      "source_url_sequence_unchanged": true,
+      "all_markdown_table_rows_unchanged": true,
+      "all_fenced_blocks_unchanged": true,
+      "only_final_production_record_paragraph_removed": true,
+      "source_scope_and_calculation_paragraphs_unchanged": true,
+      "original_records_exist": true
+    },
+    "scope": "Read the required process_language finding and the complete closing source/model section; remove only its final production-record paragraph and add bilingual README links. Other reports and optional PL-ODM-01 were not changed.",
+    "independent_acceptance": false
+  },
+  "final_acceptance": {
+    "path": "evals/repairs/2026-11-10-report-expression/reviews/acceptance.json",
+    "sha256": "4dd2f633e1a8f005056d02e8f37b377429c12660d7f9da32a4495061d8ea59c7",
+    "current_report_verdict": "pass"
+  }
+}

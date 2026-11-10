@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "review_id": "2026-11-10-report-expression-domain",
+  "perspective": "domain",
+  "reviewer": {
+    "agent_id": "/root/revision_domain",
+    "identity_source": "Native collaboration NEW_TASK addressed to /root/revision_domain",
+    "role": "Independent domain reviewer",
+    "production_role": false,
+    "read_current_producer_or_other_reviewer_opinions": false
+  },
+  "reviewed_at_utc": "2026-11-10T06:08:51Z",
+  "scope": {
+    "purpose": "Domain review of the three limited report revisions against each complete current report and its original task.",
+    "instructions_read": "references/subagents-and-review-loop.zh-CN.md, full file",
+    "reports_read_in_full": true,
+    "original_tasks_read_in_full": true,
+    "diffs_read_in_full": true,
+    "checks": [
+      "TTC: candidate availability versus selected-answer success; verifier costs; fixed-checkpoint inference versus training and test-time adaptation; hypothetical allocation semantics.",
+      "Warehouses: merchant/platform accounting; subsidies and double counting; demand transfer; fixed-cost steps and peak capacity; inventory and cash assumptions.",
+      "Devices: retained model/hardware/runtime and phase conditions; power measurement boundary; precision/quality trade-offs; clip versus sustained inference; 328-second duration correction."
+    ],
+    "source_access": "Existing frozen local source texts and existing calculation inputs/outputs only; no new research, network/API calls, model runs, or tests.",
+    "source_root": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks",
+    "scope_limit": "All three current reports and diffs were read. Supporting evidence was checked selectively for the assigned domain issues and affected conclusions; this is not a claim to have reread every source or independently reproduced the reported experiments."
+  },
+  "verdict": "pass",
+  "required_findings": [],
+  "optional_findings": [],
+  "reports": [
+    {
+      "case_id": "test_time_compute_en",
+      "report_path": "evals/repairs/2026-11-10-report-expression/reports/test_time_compute_en.md",
+      "report_sha256": "b488ea30d8927356263be783f6f44b293f1a269d0c2547c8ad099f8598f941ef",
+      "report_lines_read": "1-356",
+      "original_task_path": "evals/studies/2026-11-09-long-research/reports/test_time_compute_en/task.json",
+      "original_task_scope": "Full task.json, including prompt, required entities, evidence cutoff and quality focus.",
+      "diff_path": "evals/repairs/2026-11-10-report-expression/changes/test_time_compute_en.diff",
+      "diff_sha256": "8b12ceed414d840aa45a695d8d46b64bb6ee807584a08bc4cc7f19efb50fd6c0",
+      "verdict": "pass",
+      "evidence_read": [
+        {
+          "path": "test_time_compute_en/sources/actual/SUP-CM.txt",
+          "locators": [
+            "lines 67-121, system overview and Table 1 cost ledger",
+            "lines 156, 163, 195 and 224-233, generation, selection and outcome definitions"
+          ],
+          "scope": "Located source passages and complete cost table; not the full paper."
+        },
+        {
+          "path": "test_time_compute_en/sources/actual/TTC013.txt",
+          "locators": [
+            "lines 85-114, especially 94 and 103, training/test-time information and metric definitions",
+            "lines 205-246, protocol and full MATH Table 3",
+            "located HumanEval and scaling discussion"
+          ],
+          "scope": "Relevant source sections and MATH table. No claim to inspect the implementation."
+        },
+        {
+          "path": "test_time_compute_en/sources/actual/TTC012.txt",
+          "locators": [
+            "lines 95-133, fixed generator, reward-model training, scoring and Figure 3",
+            "line 373, MATH split",
+            "lines 388-389, PRM aggregation"
+          ],
+          "scope": "Relevant original source sections and table text."
+        },
+        {
+          "path": "test_time_compute_en/analysis/author-production/calculation-record.json",
+          "locators": [
+            "ttc008_hypothetical"
+          ],
+          "scope": "Existing simple acceptance-ceiling calculation only; it is not treated as the complete Section 13 allocation-table record."
+        }
+      ],
+      "observations": [
+        {
+          "id": "DOMAIN-TTC-01",
+          "location": "lines 9, 25-29, 55-65, 119-121 and 189-195",
+          "requirement": "Do not equate generated candidate coverage with the accuracy of the answer actually selected.",
+          "observation": "The edited synthesis still states the candidate/selected-answer distinction. The unchanged CodeMonkeys analysis retains 69.8% coverage, 45.8% random selection and 57.4% actual selection, and explains why generated tests do not redefine success. Removing the final contrastive sentence at line 121 does not remove the mechanism or its boundary.",
+          "evidence": "SUP-CM.txt distinguishes final score from coverage and explicitly describes top-three filtering plus the selection state machine.",
+          "impact": "The limited wording change does not promote oracle availability into delivered performance.",
+          "status": "verified_no_defect"
+        },
+        {
+          "id": "DOMAIN-TTC-02",
+          "location": "lines 73-79, 87-95, 113, 163-175 and 193-195",
+          "requirement": "Keep inference allocation distinguishable from training changes and count selection work.",
+          "observation": "The report explicitly attributes SCoRe's 60.0% to 64.4% change to one inference-time correction within the trained policy, while the 15.6-point headline is a change in correction deltas across training. PRM comparisons retain the fixed generator, unequal large-scale verifier training datasets, one scoring pass and online/offline costs. The full ledger includes verification, tools, retries and test-time weight updates.",
+          "evidence": "TTC013.txt lines 94, 206-246 and Table 3; TTC012.txt lines 99-121 and Figure 3. SUP-CM Table 1 includes $131.95 selection in $2,291.90 total.",
+          "impact": "No training benefit becomes a free inference improvement, and no verifier cost is deleted.",
+          "status": "verified_no_defect"
+        },
+        {
+          "id": "DOMAIN-TTC-03",
+          "location": "lines 197-245, especially the revised line 245",
+          "requirement": "Retain units, hypothetical inputs, selection assumptions and latency limits in the worked allocation.",
+          "observation": "The scenario remains expressly hypothetical, with an abstract monetary credit, uniform selection among accepted independent candidates, per-call verifier cost, four-worker scheduling and explicit abstention. The revised 0.21-point sentence preserves the distinction between exact assumed probabilities and empirical uncertainty. The four strong-plus-better candidates still use 20 credits and 55 seconds, with the comparison derived from the stated acceptance formula.",
+          "evidence": "Section 13 inputs, equations and schedule were read together; the existing acceptance-ceiling record supports the weak-filter ceiling. No benchmark or numerical test was run.",
+          "impact": "The shorter sentence does not turn a constructed example into an empirical accuracy claim.",
+          "status": "verified_no_defect"
+        },
+        {
+          "id": "DOMAIN-TTC-04",
+          "location": "lines 153-157, 247-311",
+          "requirement": "Design choices must remain tied to verifiability, consequences, deadlines and useful feedback.",
+          "observation": "Deleting the five-choice preview after Section 9 leaves the complete decision tree, explanatory choices at line 289 and no-extra-compute cases at lines 303-309. The report still distinguishes reversible planning branches from committed actions and keeps practical stopping separate from oracle diagnostics.",
+          "evidence": "Complete current Sections 9 and 14-16 plus the full limited diff.",
+          "impact": "No actionable branch or domain condition is lost by the deletion.",
+          "status": "verified_no_defect"
+        }
+      ],
+      "required_findings": [],
+      "optional_findings": []
+    },
+    {
+      "case_id": "instant_retail_warehouses_zh",
+      "report_path": "evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md",
+      "report_sha256": "ea7f6bcaa923bb84e841e4af2bdeb41c622aaf9399e9611145c455a3c404df29",
+      "report_lines_read": "1-370 current; prior version 1-372 read fully, then complete incremental diff and current lines 354-370 reread",
+      "original_task_path": "evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/task.json",
+      "original_task_scope": "Full task.json, including prompt, required entities, cutoff and accounting/model requirements.",
+      "diff_path": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.diff",
+      "diff_sha256": "c29cf2bc8683dbd0b89028a07061360a53bb10d8b01f0c7b6237a27cbdca8638",
+      "verdict": "pass",
+      "evidence_read": [
+        {
+          "path": "instant_retail_warehouses_zh/analysis/author-production/warehouse-model.py",
+          "locators": [
+            "full file"
+          ],
+          "scope": "Read formulas and all scenario, network-transfer and cash-ramp inputs without executing the file."
+        },
+        {
+          "path": "instant_retail_warehouses_zh/analysis/author-production/warehouse-results.json",
+          "locators": [
+            "platform_bridge",
+            "network",
+            "ramp"
+          ],
+          "scope": "Read existing output branches, including all before/after network inputs and six-month cash outputs."
+        },
+        {
+          "path": "instant_retail_warehouses_zh/analysis/author-production/financial-bridges.py",
+          "locators": [
+            "full file"
+          ],
+          "scope": "Read the demand, inventory opportunity-cost, payback and peak-capacity calculations without execution."
+        },
+        {
+          "path": "instant_retail_warehouses_zh/analysis/author-production/financial-bridges.json",
+          "locators": [
+            "full file"
+          ],
+          "scope": "Read corresponding existing calculation outputs."
+        },
+        {
+          "path": "instant_retail_warehouses_zh/sources/actual/IRW10.txt",
+          "locators": [
+            "lines 10, 14, 22, 25, 28 and 31-34"
+          ],
+          "scope": "Located original interview passages about warehouse transfers, excluded labor/rent, orders, fees and bidding for traffic."
+        },
+        {
+          "path": "instant_retail_warehouses_zh/sources/actual/IRW28.txt",
+          "locators": [
+            "lines 103-106, 108-109, 112-113, 116-117 and 128"
+          ],
+          "scope": "Located original Beijing interviews about subsidy-period orders, current orders, competition, labor and cash recovery."
+        }
+      ],
+      "observations": [
+        {
+          "id": "DOMAIN-IRW-01",
+          "location": "lines 5-9, 97-103 and 339-350",
+          "requirement": "Do not presume that every warehouse is profitable or that negative interview cases establish universal infeasibility.",
+          "observation": "The opening moves an existing conditional opportunity statement forward while retaining the need for profitable local demand and full costs. The interview evidence remains explicitly attributed to individual operators. The retained conclusion says platform growth and merchant outcomes can diverge. The shorter densification paragraph uses '可能' and points back to actual costs and orders.",
+          "evidence": "IRW10 original cases include sales decline and labor/rent exclusions; IRW28 includes both severe subsidy/competition pressures and an operator describing continued stable operation.",
+          "impact": "Removing the generic disclaimer does not create a universal positive or negative claim.",
+          "status": "verified_no_defect"
+        },
+        {
+          "id": "DOMAIN-IRW-02",
+          "location": "lines 42-59, 139-176, 180-208 and 216-229",
+          "requirement": "Separate platform and merchant economics, identify subsidy payers, and avoid duplicated loss, fulfillment or franchise charges.",
+          "observation": "The funds-flow example reconciles a merchant contribution of 6 yuan with zero platform contribution. The 2-yuan platform coupon is already included in 50-yuan merchant sales; the 0.5-yuan incentive is separately included once. Procurement margin excludes separately deducted loss, core labor remains fixed, and the franchise paragraph prevents adding a fee already charged through procurement. Subsidy withdrawal and demand decline remain separate and joint sensitivities.",
+          "evidence": "warehouse-model.py and warehouse-results.json platform_bridge; report's full input and monthly-account tables.",
+          "impact": "The editorial revisions leave the accounting boundary and the thin margin under subsidy withdrawal intact.",
+          "status": "verified_no_defect"
+        },
+        {
+          "id": "DOMAIN-IRW-03",
+          "location": "lines 121-127, 235-266, 289-303 and 343-350",
+          "requirement": "Expansion must be constrained by net demand, cannibalization, fixed-cost steps, service radius and peak capacity.",
+          "observation": "The deleted expansion conditions are still explained with their mechanism in Section 6 and stated in the decision table. The network example counts 500 new-warehouse orders as only 200 net new orders after transferring 300 from the old warehouse; the existing result changes from +25,340 to -65,140 yuan per month. Peak staffing remains distinct from all-day headcount, and the two-picker social warehouse has only 81 orders/hour of nominal effective capacity against 80 demand.",
+          "evidence": "warehouse-model.py fixed(), network inputs and peak formulas; existing network outputs and financial-bridges peak_capacity.",
+          "impact": "The shorter Section 8 paragraph does not permit density expansion based on gross new-warehouse sales or daily averages alone.",
+          "status": "verified_no_defect"
+        },
+        {
+          "id": "DOMAIN-IRW-04",
+          "location": "lines 270-287 and 352-358",
+          "requirement": "Do not confuse operating profit, cash recovery and the funding needed for a new region.",
+          "observation": "The 28-month social-warehouse payback adds back depreciation under explicit steady-stock, no-tax and no-new-capex assumptions; recoverable stock and deposits are not assumed immediately returned. The fresh-warehouse cash bridge deducts capex and deposit first, then inventory increments and operating losses with depreciation added back. The 1,048,726-yuan six-month outflow remains a simulated funding gap, not a lifetime peak or payback date.",
+          "evidence": "Full financial-bridges.py/json and warehouse-model.py ramp, checked against all six existing ramp outputs.",
+          "impact": "The changed conclusion still relies on a stated cash model rather than treating achieved order volume as repayment.",
+          "status": "verified_no_defect"
+        },
+        {
+          "id": "DOMAIN-IRW-05",
+          "location": "current lines 354-370; deleted prior line 372",
+          "requirement": "Retain reader-facing evidence and economic-model interpretation when removing process language.",
+          "observation": "The follow-up removes only the final sentence describing internal reading-ledger.json and claims.jsonl records. The cutoff, interview-versus-company-data distinction, non-audited promotional claims boundary and complete calculation-file/assumption paragraph remain. None of the domain premises, economic formulas, numerical results or conditional recommendations changes.",
+          "evidence": "Complete instant_retail_warehouses_zh.pl-irw-01.diff and current report tail were read after the revision.",
+          "impact": "No domain condition or substantive source/model explanation is removed.",
+          "status": "verified_no_defect"
+        }
+      ],
+      "required_findings": [],
+      "optional_findings": [],
+      "followup": {
+        "prior_report_sha256": "cdf65d2c4dd5af7ad9a2157a6e61bc6aa078074f7e97aaa17807853933429f7b",
+        "prior_diff_sha256": "a540f76b9fcb2da519fbd7bb3d6d47087062f7cfa90a6de9dff6726c31956636",
+        "incremental_diff_path": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.pl-irw-01.diff",
+        "incremental_diff_sha256": "79d327f94a367f6f93d0a6190b3d6eeb76a2d5c8f631bbb15119b68dbc103852",
+        "scope": "Read the complete incremental diff and the current ending. It removes only the internal reading-ledger/claims file sentence; prior complete reading remains applicable."
+      }
+    },
+    {
+      "case_id": "on_device_models_en",
+      "report_path": "evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+      "report_sha256": "c8d8f2b96f91e6032bbc542241417516d232e5fe28a707430eb297c87af2ea46",
+      "report_lines_read": "1-291",
+      "original_task_path": "evals/studies/2026-11-09-long-research/reports/on_device_models_en/task.json",
+      "original_task_scope": "Full task.json, including workload coverage, evidence conditions, precision, sustained performance and architecture requirements.",
+      "diff_path": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.diff",
+      "diff_sha256": "996a8cb46829541eb30c3bf32bc2617875e94baf3485c6faea2a65f6894c58fb",
+      "verdict": "pass",
+      "evidence_read": [
+        {
+          "path": "on_device_models_en/sources/actual/ODM-S12.txt",
+          "locators": [
+            "lines 36-100, especially 56-77"
+          ],
+          "scope": "Frozen LiteRT-LM README model, quantization, context and performance-lock benchmark rows."
+        },
+        {
+          "path": "on_device_models_en/sources/actual/ODM17.txt",
+          "locators": [
+            "lines 66-355; source pages 3-11, especially 146-224 experimental setup, 226-239 Table 3, and 318-330 Table 4"
+          ],
+          "scope": "Original frozen ASR paper text covering audio input, noise procedure, hardware, baseline subtraction, RTF definition, 328-second duration and precision results."
+        },
+        {
+          "path": "on_device_models_en/sources/actual/ODM-S19.txt",
+          "locators": [
+            "full file, process_memory(), profile_model() and run()"
+          ],
+          "scope": "Frozen WhisperTRT profiler source; read only, not executed."
+        }
+      ],
+      "observations": [
+        {
+          "id": "DOMAIN-ODM-01",
+          "location": "lines 59-75, 115-127, 252 and 278",
+          "requirement": "Keep performance tied to model, runtime, input/output lengths, benchmark settings and measured phase.",
+          "observation": "The shorter interactive-generation paragraph explicitly points to the intact Section 3 calculation and retains performance lock plus excluded setup/presentation. The original 1,024-prefill/256-decode table, 4K context and Q4 artifacts remain. The 128-token result and 512-token extrapolation remain labeled phase calculations, and neither ordinary phone latency nor sustained performance is inferred.",
+          "evidence": "ODM-S12.txt lines 56-77 confirm Q4 per-channel artifacts, 4,096 context, Android performance lock, 1,024/256 tokens and the S24 CPU/GPU rates.",
+          "impact": "Removing repeated numbers in Section 5 does not erase the conditions attached to their remaining occurrence.",
+          "status": "verified_no_defect"
+        },
+        {
+          "id": "DOMAIN-ODM-02",
+          "location": "lines 153-168, especially revised line 164",
+          "requirement": "Lower precision must not automatically imply faster, more efficient or equal-quality inference.",
+          "observation": "The WhisperX-base comparison still shows FP16 78.0 seconds/155 joules versus INT8 80.1 seconds/169 joules, with INT8 memory lower but clean/noisy WER worse. The revised sentence identifies the medium model as a different row rather than generalizing the base-model result. It retains incremental CPU+GPU energy rather than whole-device wall energy.",
+          "evidence": "ODM17.txt Table 4 lines 326-330 gives the base values and medium FP16 1,471 joules versus INT8 1,420 joules; setup lines 187-195 specifies subtraction of the idle CPU+GPU baseline.",
+          "impact": "The edit preserves the model-specific precision decision and measurement boundary.",
+          "status": "verified_no_defect"
+        },
+        {
+          "id": "DOMAIN-ODM-03",
+          "location": "line 287; related lines 155-164",
+          "requirement": "Correct the availability of aggregate audio duration without converting a clip study into continuous-service or wall-energy evidence.",
+          "observation": "The factual correction is supported: the frozen source's Table 3 caption explicitly says clean audio duration 328 seconds. The paper defines RTF as inference time divided by audio duration, so aggregate RTF arithmetic is possible from its processing times. The revised paragraph correctly retains the unavailable-code statement and the limits on sustained continuous-stream latency and whole-device wall energy.",
+          "evidence": "ODM17.txt lines 222-230: RTF definition, Table 3 caption with 328 seconds, and WhisperX-base processing time 78.0 seconds. Hardware/energy setup appears at lines 172-205.",
+          "impact": "The correction removes a false missing-denominator claim while retaining the actual deployment limits.",
+          "status": "verified_no_defect"
+        },
+        {
+          "id": "DOMAIN-ODM-04",
+          "location": "lines 145-176, 240-265 and 291",
+          "requirement": "Keep warm clip measurements, resource samples, duty-cycle scenarios and sustained endpoint requirements distinct.",
+          "observation": "The report still distinguishes model-loading exclusion, warm timing and an RSS delta from peak memory. The recognizer's clip RTF is not presented as a measured continuous pipeline. Whole-device power and dedicated-device economics remain explicit scenarios, and the final sentence still lists the actual missing device/workload measurements despite removal of its repeated cross-device warning.",
+          "evidence": "ODM-S19.txt runs a warmup, synchronizes before and after timed transcription, loads before timing, and computes (end_mem-start_mem) >> 20. The complete speech, economics and matrix sections retain sustained queue, thermal, quality and operating-system qualifications.",
+          "impact": "No sustained performance, power or service guarantee is introduced by the shorter ending.",
+          "status": "verified_no_defect"
+        }
+      ],
+      "required_findings": [],
+      "optional_findings": []
+    }
+  ],
+  "completion": {
+    "authored_files": [
+      "evals/repairs/2026-11-10-report-expression/reviews/domain.json"
+    ],
+    "edited_reports": false,
+    "new_research_or_experiments": false,
+    "conclusion": "The limited revisions preserve the assigned technical and economic conditions. The 328-second audio-duration correction matches the frozen original source. No required or optional domain change was identified."
+  }
+}
