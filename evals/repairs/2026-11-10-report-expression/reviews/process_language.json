@@ -1,0 +1,174 @@
+{
+  "review_type": "process_language",
+  "result": "valid",
+  "review_status": "completed",
+  "report_verdict": "needs_revision",
+  "reviewed_at": "2026-11-10T14:02:41+08:00",
+  "execution_identity": {
+    "agent_id": "/root/revision_process",
+    "identity_kind": "native_agent_canonical_task_name",
+    "identity_source": "Assigned native agent task and collaboration agent inventory",
+    "role": "Independent PROCESS_LANGUAGE reviewer",
+    "production_role": false
+  },
+  "independence": {
+    "author_assessments_read": false,
+    "other_current_reviewer_judgments_read": false,
+    "reports_edited": false,
+    "tests_or_models_run": false,
+    "new_research_performed": false,
+    "files_written": [
+      "evals/repairs/2026-11-10-report-expression/reviews/process_language.json"
+    ]
+  },
+  "reading_scope": {
+    "method_reference": "references/subagents-and-review-loop.zh-CN.md",
+    "method_reference_reading": "Complete file, applying the process_language role and common independent-review requirements.",
+    "complete_reports_read": true,
+    "complete_original_task_specs_read": true,
+    "complete_case_diffs_read": true,
+    "truncation_handling": "Any truncated report output was followed by explicit range reads covering the omitted text: IRW lines 127-276; ODM lines 90-108; TTC lines 75-86. Later report ranges and all case diffs were read completely.",
+    "original_analysis_or_source_content_read": [],
+    "scope_limit": "This review checks reader-facing prose against the original tasks and actual current changes. It does not independently re-audit empirical claims, calculations or original web sources. No author change notes, repair README, or current review files were read.",
+    "version_note": "The ODM version reviewed already contains the 328-second Table 3 correction at line 287; no older assertion of unspecified aggregate audio duration was treated as current."
+  },
+  "reports": [
+    {
+      "case_id": "instant_retail_warehouses_zh",
+      "report_path": "evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md",
+      "report_sha256": "cdf65d2c4dd5af7ad9a2157a6e61bc6aa078074f7e97aaa17807853933429f7b",
+      "report_lines_read": "1-372",
+      "task_path": "evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/task.json",
+      "task_sha256": "768ebd2b9fcb1ddda5a2413f3c5a4408448ec03728a2db2872f2dc2f304cbf39",
+      "diff_path": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.diff",
+      "diff_sha256": "a540f76b9fcb2da519fbd7bb3d6d47087062f7cfa90a6de9dff6726c31956636",
+      "diff_lines_read": "1-36",
+      "report_verdict": "needs_revision",
+      "required_finding_ids": ["PL-IRW-01"],
+      "optional_finding_ids": [],
+      "located_observations": [
+        {
+          "lines": "3-9, 61-103",
+          "observation": "The opening states the operating conclusion, scope and monetary assumptions directly. The company-history section reports dated business events, source claims and accounting classifications; references to announcements versus completion and interview versus audited evidence serve the decision reader rather than narrating report production."
+        },
+        {
+          "lines": "137-276",
+          "observation": "The formulas, cost boundaries, parameter labels, piecewise break-even calculation, peak staffing and cash bridge are functional methodology explicitly requested by the task. Wording such as 模型逐一检查 and the distinction between scenario inputs and company accounts should remain; removing it would weaken reproducibility and the decision conditions."
+        },
+        {
+          "lines": "335-364",
+          "observation": "The recommendations address warehouse operators and investment decisions. Instructions to reconstruct monthly accounts, measure net-new demand and set operating stop conditions are subject-matter operating advice, not instructions from the assistant to the user about finishing this research task."
+        },
+        {
+          "lines": "366-372",
+          "observation": "The cutoff, source roles and calculation-file descriptions have a reader function. The final standalone sentence instead describes internal reading/claim-record maintenance, including reader identities, and is the remaining process-language defect."
+        }
+      ]
+    },
+    {
+      "case_id": "on_device_models_en",
+      "report_path": "evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+      "report_sha256": "c8d8f2b96f91e6032bbc542241417516d232e5fe28a707430eb297c87af2ea46",
+      "report_lines_read": "1-291",
+      "task_path": "evals/studies/2026-11-09-long-research/reports/on_device_models_en/task.json",
+      "task_sha256": "d9a48441cae39e4f4f2f2c1309a84e07068f3cf2d47a2894df0d633096c33e67",
+      "diff_path": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.diff",
+      "diff_sha256": "996a8cb46829541eb30c3bf32bc2617875e94baf3485c6faea2a65f6894c58fb",
+      "diff_lines_read": "1-33",
+      "report_verdict": "pass",
+      "required_finding_ids": [],
+      "optional_finding_ids": ["PL-ODM-01"],
+      "located_observations": [
+        {
+          "lines": "11-13, 21-39, 59-75",
+          "observation": "Hardware configurations, architecture fields, pinned runtime commits, phase definitions, performance lock and scenario-versus-measurement distinctions define usable deployment envelopes. The hashes and software identifiers here identify public evidence, not internal research records. The statement that no new inference benchmark was run prevents a false reproduction claim."
+        },
+        {
+          "lines": "145-168",
+          "observation": "The profiling-code interpretation explains why RSS delta is not peak memory, why the 20-second clip result is not continuous-caption latency, and why the energy comparison is baseline-subtracted. Inspecting the code clarifies those figures is methodological attribution with an immediate consequence for the reader; it is not a production log requiring deletion."
+        },
+        {
+          "lines": "180-210, 248-268",
+          "observation": "Logging, fallback, consent, version checks and task routing describe the deployed product's behavior and privacy boundary. They do not expose this report's assistant conversation or review state. The fit matrix and decision rules remain directed at device-product leaders and deployment engineers."
+        },
+        {
+          "lines": "271-291",
+          "observation": "The appendix retains public-source versions, unit distinctions, calculation provenance and unresolved real-device measurements. The current 328-second correction and clip-versus-continuous-service limit are substantive source interpretation and should remain. The only optional process-language trim is an archival clause in the Current APIs row."
+        }
+      ]
+    },
+    {
+      "case_id": "test_time_compute_en",
+      "report_path": "evals/repairs/2026-11-10-report-expression/reports/test_time_compute_en.md",
+      "report_sha256": "b488ea30d8927356263be783f6f44b293f1a269d0c2547c8ad099f8598f941ef",
+      "report_lines_read": "1-356",
+      "task_path": "evals/studies/2026-11-09-long-research/reports/test_time_compute_en/task.json",
+      "task_sha256": "f479209952757ead75cc90893ec8140c7aea94131f49c20fa7317a4101559f22",
+      "diff_path": "evals/repairs/2026-11-10-report-expression/changes/test_time_compute_en.diff",
+      "diff_sha256": "8b12ceed414d840aa45a695d8d46b64bb6ee807584a08bc4cc7f19efb50fd6c0",
+      "diff_lines_read": "1-49",
+      "report_verdict": "pass",
+      "required_finding_ids": [],
+      "optional_finding_ids": [],
+      "located_observations": [
+        {
+          "lines": "3, 15-21, 31-43",
+          "observation": "The non-reproduction disclosure, evidence classes and retained state/evaluator-information columns are required comparison methodology. Study/model/version names point to public research rather than internal task IDs."
+        },
+        {
+          "lines": "115-129, 159-195",
+          "observation": "Agent loops, shared repository context, generation/checking ledgers, replay, retries and selected-answer delivery are the research subject. They describe inference-system mechanisms and accounting, not the author's own production workflow. Removing them as process language would contradict the task's budget-aware agent analysis."
+        },
+        {
+          "lines": "197-245, 247-311",
+          "observation": "Hypothetical inputs, the accompanying arithmetic record, the decision tree and stopping recommendations serve implementable design choices. Return the validated result and stop is an inference-policy branch, not an assistant claim that this research has finished. The revision removed duplicated choices and self-defensive commentary without introducing review-status narration."
+        },
+        {
+          "lines": "151, 313-356",
+          "observation": "The source exclusion, paper-inventory reconciliation, statistical qualifications and inspected versions materially determine which empirical comparisons are usable. Their discussion of source inspection and unpinned implementations is functional evidence provenance. No necessary process-language deletion was found in these appendices."
+        }
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "PL-IRW-01",
+      "case_id": "instant_retail_warehouses_zh",
+      "requirement": "The process_language review must remove reader-body production logs and internal record identifiers while preserving reader-relevant methodology and source conditions.",
+      "necessity": "required",
+      "severity": "minor",
+      "location": {
+        "path": "evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md",
+        "start_line": 372,
+        "end_line": 372
+      },
+      "evidence": "`reading-ledger.json`记录实际读到的原文位置、版本及阅读者，`claims.jsonl`区分来源事实、作者推断与情景结果。",
+      "judgment": "This standalone sentence explains how the research production records are maintained, including who read what. It gives no reader-usable source location, economic assumption, formula or operating condition beyond distinctions already stated in the report. The bare internal record filenames make the report end on production bookkeeping.",
+      "impact": "The strategy/investment reader is diverted from the report's evidence and model interpretation to internal research administration. This is small and localized but directly within the requested process-language repair.",
+      "requested_change": "Remove this sentence from the reader-facing report, or place it in existing archive navigation outside the report. Do not delete the actual records. Retain lines 368-370 and the report's factual-versus-scenario distinctions, formula inputs and calculation-file explanation.",
+      "verification_condition": "The current report no longer narrates reading-ledger/claims-record maintenance; its source cutoff, source attribution and model-reproduction information remain intact."
+    },
+    {
+      "id": "PL-ODM-01",
+      "case_id": "on_device_models_en",
+      "requirement": "Prefer reader-relevant provenance to narration of internal archival handling.",
+      "necessity": "optional",
+      "severity": "minor",
+      "location": {
+        "path": "evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+        "start_line": 285,
+        "end_line": 285
+      },
+      "evidence": "older raw Microsoft repository page preserved separately",
+      "judgment": "The clause narrates preservation of another source copy without identifying a reader-relevant version difference or giving an access location. The preceding availability, entitlement, channel and planned-transition qualifications already express the relevant interpretation.",
+      "impact": "Minor archival clutter in a provenance table; it does not obstruct the deployment argument or change any recommendation.",
+      "suggested_change": "Optionally remove only this final archival clause. Keep the dated Microsoft Learn source and all availability, quota, entitlement, channel and planned-transition conditions.",
+      "blocking": false
+    }
+  ],
+  "summary": {
+    "required_findings": 1,
+    "optional_findings": 1,
+    "decision": "One localized sentence in the IRW report needs process-language repair. ODM and TTC pass this review perspective. Functional methodology, public source identifiers, benchmark conditions, uncertainty and subject-matter operating procedures are retained rather than mistaken for production narration."
+  }
+}

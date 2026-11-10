@@ -1,0 +1,340 @@
+{
+  "role": "adversarial_reasoning",
+  "review_kind": "independent review of limited editorial changes in full-manuscript context",
+  "reviewer": {
+    "agent_id": "/root/revision_adversarial",
+    "identity_source": "collaboration.list_agents returned agent_name /root/revision_adversarial with agent_status running",
+    "producer_context": false,
+    "read_other_current_reviews": false,
+    "read_producer_judgment": false
+  },
+  "recorded_at": "2026-11-10T13:51:25+08:00",
+  "instructions_read": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/references/subagents-and-review-loop.zh-CN.md",
+  "scope": {
+    "requested_question": "Does removing repetitive qualification create overclaim, remove material counterevidence or causal conditions, or mislead commercial or technical conclusions?",
+    "full_manuscripts_read": true,
+    "original_task_json_read_in_full": true,
+    "all_three_diffs_read_in_full": true,
+    "reading_method": "Read complete line-numbered manuscripts, restoring portions truncated in tool output with explicit line-range reads; inspect every diff hunk against its retained full context; consult local original sources and existing calculation records where the edited argument depends on them.",
+    "limitations": "This verdict concerns the listed editorial changes and their effects on the complete manuscripts. It is not a new full factual recertification of every unchanged source claim. Source checks below are targeted and are not described as full-paper readings.",
+    "external_research": false,
+    "model_or_api_calls": false,
+    "tests_run": false,
+    "calculation_scripts_rerun": false,
+    "report_edits": false,
+    "only_written_artifact": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/adversarial_reasoning.json",
+    "memory_note": "Searched the memory registry for task context; no prior review result or project conclusion was used in these judgments."
+  },
+  "reports": [
+    {
+      "case_id": "instant_retail_warehouses_zh",
+      "report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md",
+      "report_sha256": "cdf65d2c4dd5af7ad9a2157a6e61bc6aa078074f7e97aaa17807853933429f7b",
+      "task_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/task.json",
+      "task_sha256": "768ebd2b9fcb1ddda5a2413f3c5a4408448ec03728a2db2872f2dc2f304cbf39",
+      "diff_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.diff",
+      "diff_sha256": "a540f76b9fcb2da519fbd7bb3d6d47087062f7cfa90a6de9dff6726c31956636",
+      "reading_scope": {
+        "manuscript_lines": [
+          1,
+          372
+        ],
+        "diff_hunks": [
+          "@@ -2,11 +2,11 @@",
+          "@@ -100,7 +100,7 @@",
+          "@@ -338,7 +338,7 @@"
+        ],
+        "targeted_original_materials": [
+          {
+            "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/sources/actual/IRW10.txt",
+            "locations": "Full saved text, lines 1–55; substantive interview lines 8–46, especially 22–25 and 30–45",
+            "purpose": "Check that merchant decline and advertising competition remain specific interview evidence rather than proof that the entire model is unviable."
+          },
+          {
+            "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/sources/actual/IRW28.txt",
+            "locations": "Main article lines 96–130",
+            "purpose": "Check subsidy-era versus normal weekday orders, competing warehouses, inventory, conversion to store-plus-warehouse, and continuing operators."
+          },
+          {
+            "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/sources/actual/IRW11.txt",
+            "locations": "Targeted saved article excerpt lines 221–222 (embedded source lines L54–L55)",
+            "purpose": "Check the Guangzhou/Foshan alternative explanation: residential density alone did not suffice, and assortment/supply-chain adjustment mattered."
+          },
+          {
+            "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/analysis/calculations/warehouse-results.json",
+            "locations": "network object and assumptions; also inspected available sensitivity/ramp outputs without rerunning them",
+            "purpose": "Check the retained 900→600 old-warehouse, 500 new-warehouse, 200 net-new order example and its cost boundary."
+          }
+        ]
+      },
+      "raw_observations": [
+        {
+          "id": "IRW-A1",
+          "section": "开篇判断",
+          "lines": [
+            5,
+            9
+          ],
+          "changed_text": "将成熟城区有机会形成持续利润的判断前移；删去人口多、客单价高或日单量大都只能解释一部分的句子。",
+          "requirement": "不预设模式必然盈利；把需求、成本及区域条件联结到可持续单仓经济。",
+          "challenge": "开头更直接肯定成熟城区，是否让城市标签或高订单成为充分盈利条件？",
+          "evidence_and_reasoning": "第5行仍用“有机会”，同段立即要求具体商圈的可盈利订单覆盖商品、库存、仓内和配送成本，且保留成熟网络与异地新仓同时盈亏分化。第9行保留净增需求、上游负担、投流与库存资金条件。第111–123行仍拒绝从城市人口均分仓密度，并量化实际家庭、频次和份额；第231、264、291–301行保留销量上涨而利润恶化的反例。",
+          "judgment": "前移的是原有有条件判断，没有把必要条件改写成充分条件。",
+          "severity": "none",
+          "necessary": false
+        },
+        {
+          "id": "IRW-A2",
+          "section": "二.3 社会化仓",
+          "lines": [
+            97,
+            103
+          ],
+          "changed_text": "删去“这些反例不会证明社会化仓整体不可行”，直接转入拆解订单来源。",
+          "requirement": "纳入退出反证和模式差异，同时不得预设社会化仓不可持续。",
+          "challenge": "三地负面案例之后移除这一句，是否造成由少数受访者外推全行业失败的选择偏差？",
+          "evidence_and_reasoning": "第97–101行仍明确逐一归属经营者、年份、城市和成本口径；第101行仍写采访自述、非统一样本审计，并防止把15:30订单当全天日均。第103行的结论是拆订单来源、检查撤去一项后可留订单，并使用“商家分化”“可能争夺”，没有得出整体不可行。第180–210行保留社会化仓有利润及较强选品情景，也保留这些是假设而非企业账目的声明。原IRW10第22–25行显示同一经营者曾回本后收缩，IRW28第126–128行显示转型与继续经营并存，均与当前的条件化解读相容。",
+          "judgment": "被删句的实质边界仍由来源归属、非统一样本说明和正反经营情景承担，不必为维持平衡恢复同义免责声明。",
+          "severity": "none",
+          "necessary": false
+        },
+        {
+          "id": "IRW-A3",
+          "section": "八.1 成熟城区与加密",
+          "lines": [
+            339,
+            346
+          ],
+          "changed_text": "删去一段再次列举加密门槛和原仓订单分流的文字，保留自营企业与独立社会化仓的差别。",
+          "requirement": "扩张结论受净增需求、服务半径、峰时产能及全网成本约束。",
+          "challenge": "改后是否只剩采购效率或广告竞争，丢掉何时加密以及分流不能算新增的操作条件？",
+          "evidence_and_reasoning": "紧接的第346行仍把加密条件写成旧仓容量受限或远端服务成本高且有净增需求，经济检验是全网利润扣原仓分流与新增固定支出，误判栏明确禁止把新仓流水全算新增。第291–301行的完整反例保留900日单旧仓、新仓500单其中300分流、全网月利润由25340降至−65140；归档network对象保留同一输入与−90480差额。第354行再次要求标识原仓转移。原段关于成本覆盖的条件因此仍位于同一决策单元和前面的展开论证内。",
+          "judgment": "压缩去掉重复展开，没有去掉净增需求、容量、固定成本或分流条件。",
+          "severity": "none",
+          "necessary": false
+        },
+        {
+          "id": "IRW-A4",
+          "section": "八.1 加密的两类作用",
+          "lines": [
+            341,
+            341
+          ],
+          "changed_text": "把“行业仓更多不是本仓收益保证”改为回到各自成本和订单变化判断。",
+          "requirement": "区分仓经营者与网络主体，保留模式责任和经济机制。",
+          "challenge": "“作用不同”是否暗示所有自营加密必有补货收益、所有社会化仓加密必然提高广告费？",
+          "evidence_and_reasoning": "句子分别限定“已有供应链的自营企业”和“面对邻近同行加仓的独立社会化仓”，两项仍用“可能”。第17–20行明确责任模式，第201行承认加盟支持可以覆盖费用，第362行也将两类优势与代价共同陈述。IRW10第31–45行同时出现广告竞价和连锁采购议价两种机制，当前句没有排除它们可并存。",
+          "judgment": "新版要求核对各自订单与成本，保持个体利润与行业仓数之间的非必然关系。",
+          "severity": "none",
+          "necessary": false
+        }
+      ],
+      "necessary_findings": [],
+      "optional_findings": [],
+      "verdict": "pass",
+      "verdict_basis": "所有变更均保留有条件盈利、采访范围、负面样本、平台与商家口径、净增需求和网络成本。未发现删减重复限定导致的商业过度承诺或重要反证丢失。"
+    },
+    {
+      "case_id": "on_device_models_en",
+      "report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+      "report_sha256": "e82e4fbad93e8f1754b0ac613f333a1d3d68cd732d2556b26a3a464deea495bc",
+      "task_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/on_device_models_en/task.json",
+      "task_sha256": "d9a48441cae39e4f4f2f2c1309a84e07068f3cf2d47a2894df0d633096c33e67",
+      "diff_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.diff",
+      "diff_sha256": "9b02114ba4dc3c8b69df4a5f28bc9fbe593242310b3fb1040a3b2f836786aa13",
+      "reading_scope": {
+        "manuscript_lines": [
+          1,
+          291
+        ],
+        "diff_hunks": [
+          "@@ -112,7 +112,7 @@",
+          "@@ -161,7 +161,7 @@",
+          "@@ -288,4 +288,4 @@"
+        ],
+        "targeted_original_materials": [
+          {
+            "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM-S12.txt",
+            "locations": "Pinned LiteRT-LM README measurement setting/table, lines 60–77; benchmark command lines 416–421",
+            "purpose": "Verify 1024-token prefill, 256-token decode, performance lock and S24 E2B GPU 816.4/15.6 rates behind the removed repeated arithmetic."
+          },
+          {
+            "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM17.txt",
+            "locations": "Original ASR study text around Table 4, especially lines 318–330; energy discussion lines 283–309 and adjacent quantization discussion",
+            "purpose": "Verify opposite precision-energy directions for base and medium, retaining the model-specific counterexample."
+          }
+        ]
+      },
+      "raw_observations": [
+        {
+          "id": "ODM-A1",
+          "section": "5. Interactive generation",
+          "lines": [
+            115,
+            119
+          ],
+          "changed_text": "Replace repeated 128/512-token timing figures with a Section 3 reference and shorter statement of measurement limits.",
+          "requirement": "Performance claims retain hardware, runtime, phase and sustained-versus-peak conditions.",
+          "challenge": "Could the shorter wording turn a calculated warm phase sum into observed usable latency or imply ordinary phone performance?",
+          "evidence_and_reasoning": "Line 115 retains performance lock, exclusion of setup/presentation, and the explicit absence of ordinary governor-managed or sustained latency evidence. Section 3 lines 59–67 keeps the 1024/256 token setup, 4K context, vendor evidence class, 9.46/34.07 second calculations, and the fact that 512 tokens extrapolates beyond the measured decode length. The original pinned README at ODM-S12 lines 62–74 confirms the performance lock and rates. Lines 117–121 still give the full usable-result equation and cold-start costs; the recommendation remains compact outputs conditional on task quality.",
+          "judgment": "The removed numbers remain in the referenced analysis; no experimental condition or latency distinction is lost.",
+          "severity": "none",
+          "necessary": false
+        },
+        {
+          "id": "ODM-A2",
+          "section": "6. Precision, noise and energy",
+          "lines": [
+            155,
+            166
+          ],
+          "changed_text": "Replace the general sentence that the result is not a universal rejection of INT8 with the concrete medium-INT8 energy counterexample.",
+          "requirement": "Do not assume reduced precision is automatically faster; preserve quality degradation and measurement conditions.",
+          "challenge": "Does the compact counterexample hide the base-model degradation, reverse the precision recommendation, or generalize the medium result?",
+          "evidence_and_reasoning": "Lines 159–164 still give base FP16/INT8 time, memory, incremental energy and clean/noisy WER, retain the model-and-experiment qualifier and memory exception, and explicitly call preferred precision model-specific. Table 4 in the original ODM17 text reports base energy 155 versus 169 J and medium energy 1471 versus 1420 J, supporting the substituted concrete statement. The new sentence makes no claim that medium INT8 is best on every quality measure. The baseline-subtracted-versus-whole-box energy boundary and noncomparability with WhisperTRT remain in the same paragraph.",
+          "judgment": "This is a more specific preservation of counterevidence, with no stronger precision claim.",
+          "severity": "none",
+          "necessary": false
+        },
+        {
+          "id": "ODM-A3",
+          "section": "Appendix closing deployment conditions",
+          "lines": [
+            291,
+            291
+          ],
+          "changed_text": "Delete the closing restatement that missing deployment measurements cannot be filled by rates from another device, runtime or task.",
+          "requirement": "Keep hardware/workload measurement differences and unresolved sustained-deployment constraints in recommendations.",
+          "challenge": "Can readers now treat cross-device measurements as filling the missing deployment envelope?",
+          "evidence_and_reasoning": "The same remaining paragraph enumerates intended-device available/peak memory, real prompt/output latency, sustained duration/concurrent apps, task quality, and endpoint power, and says they bound recommendations. The concrete prohibited transfers remain where they matter: Qwen versus S24 Gemma at line 39; iPhone thermal evidence versus S24 at line 73; workstation Minions versus phone at line 105; earlier Orin studies versus later Super mode at line 166. Matrix lines 252–255 retains no sustained S24 measurement, absent Surface matched throughput and separate speech qualification. No recommendation is made unconditional by the last-sentence deletion.",
+          "judgment": "The deleted sentence repeats already specific boundaries rather than supplying a missing condition.",
+          "severity": "none",
+          "necessary": false
+        }
+      ],
+      "necessary_findings": [],
+      "optional_findings": [],
+      "verdict": "pass",
+      "verdict_basis": "The three edits preserve the decisive phone timing conditions, the opposing precision result, and task/device-specific deployment gaps. No new misleading claim of local speed, sustained readiness, privacy or economic superiority follows from them."
+    },
+    {
+      "case_id": "test_time_compute_en",
+      "report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/test_time_compute_en.md",
+      "report_sha256": "b488ea30d8927356263be783f6f44b293f1a269d0c2547c8ad099f8598f941ef",
+      "task_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/test_time_compute_en/task.json",
+      "task_sha256": "f479209952757ead75cc90893ec8140c7aea94131f49c20fa7317a4101559f22",
+      "diff_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/test_time_compute_en.diff",
+      "diff_sha256": "8b12ceed414d840aa45a695d8d46b64bb6ee807584a08bc4cc7f19efb50fd6c0",
+      "reading_scope": {
+        "manuscript_lines": [
+          1,
+          356
+        ],
+        "diff_hunks": [
+          "@@ -6,7 +6,7 @@",
+          "@@ -118,7 +118,7 @@",
+          "@@ -156,8 +156,6 @@",
+          "@@ -244,7 +242,7 @@",
+          "@@ -310,7 +308,7 @@"
+        ],
+        "targeted_original_materials": [
+          {
+            "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/sources/actual/SUP-CM.txt",
+            "locations": "CodeMonkeys original text lines 128–163; targeted search excerpts of cost/selection table and generated-test discussion including lines 113–121 and 186–187",
+            "purpose": "Check candidate coverage versus delivered score, context reuse, feedback and selection budget underlying the shortened interpretation."
+          },
+          {
+            "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/test_time_compute_en/analysis/calculations/allocation-results.json",
+            "locations": "assumptions, generators, verifiers, rows and complete deadline_feasible_rows objects",
+            "purpose": "Check whether the 0.21-point comparison remains hypothetical and whether its lower-error/latency interpretation follows the archived inputs. Existing values read; no scripts rerun."
+          }
+        ]
+      },
+      "raw_observations": [
+        {
+          "id": "TTC-A1",
+          "section": "Research synthesis",
+          "lines": [
+            7,
+            13
+          ],
+          "changed_text": "Delete the introductory sentence 'The strongest evidence supports conditional choices.'",
+          "requirement": "Do not assume a universal scaling law; distinguish fixed-checkpoint, training and whole-system effects.",
+          "challenge": "Does removal make the following benefits read as unconditional gains from more tokens?",
+          "evidence_and_reasoning": "The preceding line still says benefit depends on the operation receiving work. The edited paragraph retains fixed-checkpoint sampling, a common candidate bank, correction-specific training, coding feedback/selection and distinct resource/information boundaries. Its last sentence still denies equivalence of candidate availability and submitted-answer accuracy. Lines 11–13 immediately retain saturation, regression, difficulty, feedback, bottleneck-specific policies and stopping. Detailed SCoRe and PRM analysis at lines 75–89 preserves the training and supervision confounds.",
+          "judgment": "Deleting this generic topic sentence does not alter the causal or information conditions.",
+          "severity": "none",
+          "necessary": false
+        },
+        {
+          "id": "TTC-A2",
+          "section": "7. Agent loops / CodeMonkeys",
+          "lines": [
+            119,
+            125
+          ],
+          "changed_text": "Delete the trailing contrast against assuming all multi-agent or multi-trajectory architectures must be better.",
+          "requirement": "Explain selection errors, tool feedback, total work and limits of agent-method transfer.",
+          "challenge": "Is the retained design lesson now an unconditional endorsement of adding parallel agents?",
+          "evidence_and_reasoning": "The same paragraph retains that generated tests may be wrong and selection has its own budget and failure modes. The immediately preceding figures are 69.8% coverage but 57.4% actual selection, with selection expense included. Original SUP-CM lines 128–163 explicitly separates generation coverage from final selection and supports sharing repository context; it does not supply a universal architecture ranking. Current lines 123–129 then distinguish replayable exploration from committed actions and explain compounding reliability. Lines 55–65 still show selection saturation, false acceptance and zero useful generator support.",
+          "judgment": "The specific counterexamples and budget boundaries carry the caution; removing the abstract contrast creates no broader architecture claim.",
+          "severity": "none",
+          "necessary": false
+        },
+        {
+          "id": "TTC-A3",
+          "section": "9. Cross-domain implications to 10. Compute accounting",
+          "lines": [
+            153,
+            165
+          ],
+          "changed_text": "Delete the five-choice preview paragraph before the worked example and decision tree.",
+          "requirement": "Provide implementable choices among sampling, deeper search, better verification, stronger models and simpler paths.",
+          "challenge": "Does removal eliminate useful positive choices or their preconditions, leaving only qualifications?",
+          "evidence_and_reasoning": "The preview's five branches remain in synthesis line 13 and are developed explicitly in the decision tree lines 249–285 and its prose at line 289. Reliable checks, useful intermediate signals, replayability, weak selection, missing information, deadlines and marginal value remain branch conditions. Lines 155–157 retain the material distinction between exact-answer evaluation, finite tests and ambiguous outcomes. The deletion therefore removes repetition rather than a unique inference connecting domains to policy.",
+          "judgment": "No design option or domain-transfer condition is lost.",
+          "severity": "none",
+          "necessary": false
+        },
+        {
+          "id": "TTC-A4",
+          "section": "13. Worked allocation example",
+          "lines": [
+            243,
+            245
+          ],
+          "changed_text": "Shorten the paragraph explaining the 0.21-point accuracy difference and real-pilot uncertainty.",
+          "requirement": "Label hypothetical inputs; do not turn illustrative calculations into experiments or overstate small uncertain effects.",
+          "challenge": "Could 'lower error risk and shorter latency may still justify the choice' imply statistically established performance superiority?",
+          "evidence_and_reasoning": "Line 245 explicitly says the difference follows exact hypothetical probabilities and real-pilot uncertainty could exceed it, then says the choice need not establish an accuracy advantage. Line 199 labels the entire example hypothetical; lines 208–216 preserve the independent-candidate, uniform-among-accepted selection assumptions. The archived deadline_feasible_rows contain 0.8950788 correct/0.01989064 wrong/55 s for four strong+better candidates versus 0.89296875 correct/0.09921875 wrong/100 s for seven strong+weak candidates. Thus the large risk/latency differences and tiny accuracy difference remain separate, and no new benchmark result is claimed.",
+          "judgment": "The shortened qualification is at least as direct about the inferential limit; it does not change the example's policy boundary.",
+          "severity": "none",
+          "necessary": false
+        },
+        {
+          "id": "TTC-A5",
+          "section": "16. When additional computation is not defensible",
+          "lines": [
+            301,
+            311
+          ],
+          "changed_text": "Delete two closing sentences, including the generic denial that shorter outputs are presumptively better.",
+          "requirement": "Include cases where no more computation is appropriate without assuming more or less compute is inherently superior.",
+          "challenge": "After a section about stopping, does the revision bias the report toward brevity irrespective of task completion?",
+          "evidence_and_reasoning": "Each preceding bullet gives a specific reason: completion already reached, unsupported generator, weak selector, unavailable facts, irreversible actions or deadline. The remaining line 311 positively states difficult tasks can deserve substantial computation when it buys progress, evidence or reliable completion. Line 287 defines requirement satisfaction using actual coding, final-state and research outcomes rather than confidence or length. Earlier positive mechanisms and the five-choice policy remain fully developed.",
+          "judgment": "The stopping cases remain consequence- and task-dependent, not a preference for short outputs.",
+          "severity": "none",
+          "necessary": false
+        }
+      ],
+      "necessary_findings": [],
+      "optional_findings": [],
+      "verdict": "pass",
+      "verdict_basis": "The five edited passages retain causal distinctions, selection failures, uncertainty and explicit conditions for both spending and stopping. No empirical or implementation claim is strengthened beyond the unchanged evidence."
+    }
+  ],
+  "necessary_findings": [],
+  "optional_findings": [],
+  "overall_verdict": "pass",
+  "overall_judgment": "No necessary correction arose from the limited editorial changes. Each removed caution was either repeated by specific nearby conditions or replaced with an equally bounded concrete statement. The review does not require restoring repetitive caveats or creating additional research, tests, review roles or workflows."
+}

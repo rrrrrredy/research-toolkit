@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Real-process controls for shared task locking; no model calls."""
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -70,4 +71,5 @@ class TaskLockTests(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    os.environ["RESEARCH_TOOLKIT_TELEMETRY"] = "off"
     unittest.main(verbosity=2)

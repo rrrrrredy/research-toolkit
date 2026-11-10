@@ -1,0 +1,89 @@
+{
+  "producer": "/root/editorial_revision",
+  "date": "2026-11-10",
+  "role": "author",
+  "review_file": "evals/repairs/2026-11-10-report-expression/reviews/evidence.json",
+  "review_sha256": "89fd0c68d51c869ac80e919588900e3cf36983c17e859bfba3747cb04e2216d3",
+  "responses": [
+    {
+      "finding_id": "EVIDENCE-ODM-01",
+      "case_id": "on_device_models_en",
+      "author_disposition": "accepted_and_revised",
+      "independent_confirmation": "pending",
+      "finding_was_pre_existing": true,
+      "original_evidence": {
+        "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM17.txt",
+        "sha256": "bdef3bc9a8f6281a2c3e29c381f6a3dfffe5133341049eac3a708fffabcb2a49",
+        "locations": [
+          "p.4 data: 70 short LibriSpeech clips",
+          "p.6 file lines 187-195: CPU+GPU idle baseline subtraction",
+          "p.7 file line 226: Table 3 clean audio duration 328 seconds; base row 78.0 s / 155 J",
+          "p.10 Table 4: base and medium FP16/INT8 rows"
+        ]
+      },
+      "change": {
+        "file": "evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+        "line": 287,
+        "before": "Its unavailable code and unspecified exact aggregate audio duration prevent a precise reconstruction of real-time factor or wall energy.",
+        "after": "Table 3 reports 328 seconds of clean audio, which supports aggregate real-time-factor arithmetic from its processing times. The code was unavailable at access time. These clip-based totals do not establish sustained continuous-stream latency or whole-device wall energy.",
+        "incremental_diff": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.evidence-odm-01.diff",
+        "full_diff": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.diff"
+      },
+      "rationale": "The archived source supplies the missing aggregate duration. This permits aggregate processing-time/audio-duration arithmetic but does not characterize sustained continuous-stream latency or whole-device wall energy. The unavailable-code observation remains. Related Section 6 still correctly distinguishes short clips, aggregate precision comparisons and baseline-subtracted CPU+GPU energy, so it required no additional edit.",
+      "previous_report": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.editorial-first.md",
+      "previous_sha256": "e82e4fbad93e8f1754b0ac613f333a1d3d68cd732d2556b26a3a464deea495bc",
+      "current_sha256": "c8d8f2b96f91e6032bbc542241417516d232e5fe28a707430eb297c87af2ea46",
+      "checks": {
+        "first_report_hash_matches_prior_review": true,
+        "original_report_hash_unchanged": true,
+        "current_report_hash_matches_manifest": true,
+        "source_url_sequence_unchanged": true,
+        "all_markdown_table_rows_unchanged": true,
+        "all_fenced_blocks_unchanged": true,
+        "only_replaced_sentence_diff": true,
+        "added_numeric_values": [
+          "328"
+        ],
+        "removed_numeric_values": []
+      }
+    },
+    {
+      "finding_id": "PL-IRW-01",
+      "case_id": "instant_retail_warehouses_zh",
+      "review_file": "evals/repairs/2026-11-10-report-expression/reviews/process_language.json",
+      "review_sha256": "60b01735d06da3107a8ae7d114f5ada7138450ae5061b5ea2a63c5e1a7499e05",
+      "author_disposition": "accepted_and_revised",
+      "independent_confirmation": "pending",
+      "finding_was_pre_existing": true,
+      "change": {
+        "file": "evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md",
+        "original_line": 372,
+        "before": "`reading-ledger.json`记录实际读到的原文位置、版本及阅读者，`claims.jsonl`区分来源事实、作者推断与情景结果。",
+        "after": "",
+        "incremental_diff": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.pl-irw-01.diff",
+        "full_diff": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.diff",
+        "navigation_files": [
+          "evals/repairs/2026-11-10-report-expression/README.zh-CN.md",
+          "evals/repairs/2026-11-10-report-expression/README.md"
+        ]
+      },
+      "rationale": "The final paragraph only describes production records. Its purpose and direct links now appear in archive navigation outside the report. The original records and the preceding source-scope and calculation-script paragraphs remain unchanged. Optional PL-ODM-01 was not acted on, as instructed.",
+      "previous_report": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.editorial-first.md",
+      "previous_sha256": "cdf65d2c4dd5af7ad9a2157a6e61bc6aa078074f7e97aaa17807853933429f7b",
+      "current_sha256": "ea7f6bcaa923bb84e841e4af2bdeb41c622aaf9399e9611145c455a3c404df29",
+      "checks": {
+        "first_report_hash_matches_prior_review": true,
+        "original_report_hash_unchanged": true,
+        "current_report_hash_matches_manifest": true,
+        "source_url_sequence_unchanged": true,
+        "all_markdown_table_rows_unchanged": true,
+        "all_fenced_blocks_unchanged": true,
+        "only_final_production_record_paragraph_removed": true,
+        "source_scope_and_calculation_paragraphs_unchanged": true,
+        "original_records_exist": true
+      }
+    }
+  ],
+  "scope": "Author responses to the necessary on-device duration correction and warehouse production-record relocation, with version/change records. No optional on-device navigation edit, additional calculation, experiment or source search.",
+  "final_acceptance_claimed": false
+}

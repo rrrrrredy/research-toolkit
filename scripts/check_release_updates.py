@@ -129,4 +129,5 @@ class PublicReleaseAddressTests(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    os.environ["RESEARCH_TOOLKIT_TELEMETRY"] = "off"
     unittest.main()

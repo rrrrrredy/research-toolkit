@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.4.1 — 2026-11-10
+
+Fix Windows long-path task saves and lock identity, give file-access errors an appropriate recovery instruction, and keep ordinary/extended task paths under one usage identity. Disable telemetry in engineering checks and their packaged MCP child process. Preserve original reports alongside three limited editorial revisions and independent records.
+
+[English release notes](docs/releases/v2.4.1.md) · [中文发布说明](docs/releases/v2.4.1.zh-CN.md)
+
 ## v2.4.0
 
 Long-form research in English and Chinese across fields; 13 questions / 15 report assignments in the existing benchmark. Add case selection and exact source matching, reuse unchanged first-use setup, and repair binary-source/CSV restoration. Correct repetition false flags from table separators and linked paper-title punctuation. Preserve historical inputs and original results; update bilingual methods, cases and plugin distribution.

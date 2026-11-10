@@ -1,0 +1,223 @@
+{
+  "review_type": "reader_usefulness",
+  "result": "valid",
+  "report_verdict": "pass",
+  "reviewed_at": "2026-11-10T14:00:22+08:00",
+  "execution": {
+    "agent_id": "/root/revision_reader",
+    "identity_kind": "actual canonical agent task name",
+    "status": "completed",
+    "independence": "A separate, non-producing reviewer context read the original tasks, current reports and all three diffs. No producer commentary or other current-reviewer opinion was read. A live agent inventory exposed historical, different-version review summaries; none was used as evidence for this review.",
+    "files_written": ["evals/repairs/2026-11-10-report-expression/reviews/reader_usefulness.json"],
+    "article_edits": false,
+    "tests_or_model_api_runs": false,
+    "new_research": false
+  },
+  "scope": {
+    "assignment": "Independent reader-usefulness review of three limited expression revisions, evaluated in the context of each complete current report and its original audience and task.",
+    "method": "references/subagents-and-review-loop.zh-CN.md",
+    "method_sha256": "e8438bc597a9f16c20f358a1a66a34bcc63f6719223771ea4b19f880698b55b1",
+    "checks": [
+      "Whether the opening answers the intended reader's question",
+      "Whether terminology, transitions, tables and decision guidance remain understandable in the whole report",
+      "Whether deleted or shortened passages leave necessary conditions accessible at their point of use or at a clear cross-reference",
+      "Whether the revision changes an estimate, scenario or conditional recommendation into an unqualified instruction"
+    ],
+    "reading": "Read all 1,019 report lines, the three complete task.json files and all 113 initial diff lines. The first on-device report read was display-truncated; lines 95–201 and then line 202 were explicitly retrieved to cover the omitted span. After the coordinator supplied the subsequent on-device line-287 correction, reused that complete reading and read the entire 13-line amendment diff, the entire 33-line updated main diff, and current lines 153–176 and 283–291. Original report hashes identify the diff bases; the original reports were not separately reread in full.",
+    "limits": "This is a full-current-report reader-usefulness review within a limited expression-repair assignment. It does not independently revalidate source claims, reproduce calculations, test hardware or models, or certify the other review perspectives. Tables and Mermaid decision flows were read as Markdown source; no rendered-layout test was performed. No claim of a measured overall quality gain is made.",
+    "supporting_source_access": "Original analysis and source files remained available through the supplied archives, but no additional source reading was necessary to decide the reader effects of these edits."
+  },
+  "reports": [
+    {
+      "case_id": "on_device_models_en",
+      "target_reader": "Device-product leaders and deployment engineers choosing local, cloud, or hybrid model architectures",
+      "report_verdict": "pass",
+      "inputs": {
+        "current_report": "evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+        "current_report_sha256": "c8d8f2b96f91e6032bbc542241417516d232e5fe28a707430eb297c87af2ea46",
+        "current_report_lines_read": "1–291 in the initial editorial revision; then the complete amendment and current lines 153–176 and 283–291, with all unchanged reading reused",
+        "initial_full_read_sha256": "e82e4fbad93e8f1754b0ac613f333a1d3d68cd732d2556b26a3a464deea495bc",
+        "original_task": "evals/studies/2026-11-09-long-research/reports/on_device_models_en/task.json",
+        "original_task_sha256": "d9a48441cae39e4f4f2f2c1309a84e07068f3cf2d47a2894df0d633096c33e67",
+        "diff": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.diff",
+        "diff_sha256": "996a8cb46829541eb30c3bf32bc2617875e94baf3485c6faea2a65f6894c58fb",
+        "diff_lines_read": "1–33; all three current hunks",
+        "initial_diff_sha256": "9b02114ba4dc3c8b69df4a5f28bc9fbe593242310b3fb1040a3b2f836786aa13",
+        "amendment_diff": "evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.evidence-odm-01.diff",
+        "amendment_diff_sha256": "41b583916a5440c8be48a454db0221034aee9cfa9eabee2f2a3b1cc06f278bb5",
+        "amendment_diff_lines_read": "1–13; complete",
+        "original_report_sha256": "59f8ac88843287debab4c0176d72575b648dbf581eece7888f22e050e69da8dd"
+      },
+      "observations": [
+        {
+          "id": "RU-ODM-01",
+          "location": "Current report lines 5–13, 17–41, 45–55",
+          "requirement": "Explain when local, cloud or hybrid execution fits the actual workload and introduce the hardware constraints needed for that decision.",
+          "observation": "The opening identifies bounded local tasks, difficult cloud tasks and the role of local preprocessing in hybrid tasks. The memory section distinguishes storage, installed RAM and available application memory before presenting the Qwen working-set calculation. Prefill and decode are introduced before their throughput table.",
+          "reader_effect": "A product leader can understand the choice being made, while an engineer can follow why context and reserved memory constrain it. The expression changes do not disturb that progression.",
+          "judgment": "No required reader-usefulness correction."
+        },
+        {
+          "id": "RU-ODM-02",
+          "location": "Changed line 115; retained lines 59–69 and 117–125",
+          "requirement": "Retain measurement conditions and distinguish phase time, first output and complete usable latency.",
+          "observation": "The revised interactive-generation paragraph replaces repeated 9.46-second and 34.07-second calculations with an explicit Section 3 reference. Both values remain at line 67 beside their 1,024-token prompt and 128/512-token output context. Line 59 retains performance lock and the 256-token measured decode length; line 67 identifies the 512-token extrapolation and omitted overhead. Line 115 still states performance lock, excluded setup/presentation and the ordinary/sustained-use limitation before distinguishing partial text from a validated object.",
+          "reader_effect": "The reader can retrieve the numerical basis from a named section, while the local paragraph retains the conditions needed to avoid treating it as end-to-end phone latency.",
+          "judgment": "The removed repetition does not remove the latency decision's conditions."
+        },
+        {
+          "id": "RU-ODM-03",
+          "location": "Changed line 164; adjacent table lines 155–168",
+          "requirement": "Connect quantization to measured task quality and energy rather than assuming lower precision is faster.",
+          "observation": "The FP16/INT8 table still specifies the same study, aggregate processing time, memory, incremental CPU/GPU energy and clean/noisy WER. The new sentence directly identifies the medium INT8 energy counterexample and concludes that preferred precision remains model-specific. The paragraph preserves the base-model choice, memory exception, whole-box-energy limitation and noncomparability with WhisperTRT.",
+          "reader_effect": "The reader can choose FP16 for the stated base-model scenario without interpreting the comparison as a general ban on INT8.",
+          "judgment": "No required correction to the shorter qualification."
+        },
+        {
+          "id": "RU-ODM-04",
+          "location": "Lines 186–210, 224–244, 248–266; changed final line 291",
+          "requirement": "Provide conditional architecture decisions, distinguish evidence types and identify remaining deployment constraints.",
+          "observation": "The architecture table names outbound data and retention boundaries. The cost example labels its financial and acceptance inputs hypothetical. The final hardware–model–task matrix keeps the S24 memory scenario separate from its Gemma measurements, gives the Surface no matched throughput claim, and separates historical Jetson speech results from Super mode. Line 291 retains the specific required deployment measurements after removing only the final warning against transferring rates.",
+          "reader_effect": "The matrix and final rules remain usable for architecture selection because the actual-device, workload and quality conditions are still explicit. The removed last sentence is supported by the retained task-specific matrix limitations and the measurement list.",
+          "judgment": "No necessary decision condition was lost in this edit."
+        },
+        {
+          "id": "RU-ODM-05",
+          "location": "Subsequently changed line 287; reread context at lines 153–176 and 283–291",
+          "requirement": "Keep aggregate speech measurements distinct from sustained-stream latency and whole-device energy, while accurately describing what a reader can calculate.",
+          "observation": "The amendment replaces the claim of unspecified aggregate audio duration with a specific Table 3 total of 328 seconds and states that aggregate real-time-factor arithmetic is possible. It separately retains code unavailability and explains that clip totals do not establish sustained continuous-stream latency or whole-device wall energy. The main speech table still labels processing time as aggregate and energy as incremental CPU/GPU, with the same restrictions at line 164.",
+          "reader_effect": "The reader now has a clear denominator claim for aggregate timing and a separate explanation of the deployment quantities that remain unestablished. This is coherent with Section 6 and does not license transferring the clip result to a continuous service.",
+          "judgment": "No reader-usefulness correction to the amendment. This observation checks the amended claim's clarity and consistency; the 328-second source fact was not independently reverified by this reviewer."
+        }
+      ],
+      "required_findings": [],
+      "optional_findings": [],
+      "verdict_basis": "The three expression edits shorten repetition while retaining the concrete timing, precision-choice and deployment-measurement boundaries needed by the specified audience. The subsequent line-287 correction distinguishes calculable aggregate RTF from unestablished sustained latency and wall energy. This verdict concerns those reader effects in the complete current report."
+    },
+    {
+      "case_id": "instant_retail_warehouses_zh",
+      "target_reader": "制定前置仓经营、即时零售网络扩张与投资策略的团队",
+      "report_verdict": "pass",
+      "inputs": {
+        "current_report": "evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md",
+        "current_report_sha256": "cdf65d2c4dd5af7ad9a2157a6e61bc6aa078074f7e97aaa17807853933429f7b",
+        "current_report_lines_read": "1–372",
+        "original_task": "evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/task.json",
+        "original_task_sha256": "768ebd2b9fcb1ddda5a2413f3c5a4408448ec03728a2db2872f2dc2f304cbf39",
+        "diff": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.diff",
+        "diff_sha256": "a540f76b9fcb2da519fbd7bb3d6d47087062f7cfa90a6de9dff6726c31956636",
+        "diff_lines_read": "1–36; all three hunks",
+        "original_report_sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed"
+      },
+      "observations": [
+        {
+          "id": "RU-IRW-01",
+          "location": "Changed opening lines 3–9",
+          "requirement": "Answer which regions and operating conditions can support sustainable warehouse economics without presuming profitability.",
+          "observation": "The conditional mature-city judgment moves from the third opening paragraph to the first. It still says 有机会 and immediately specifies profitable orders, full operating costs, margin, loss and reliable fulfillment. The same paragraph preserves the contrast between mature warehouses and loss-making new regions. The third paragraph continues with net-new demand and mode-specific burdens.",
+          "reader_effect": "Operations and investment readers receive the central answer before the mode explanation, with its conditions next to it. Moving the sentence does not turn a conditional result into a guarantee.",
+          "judgment": "No required correction to opening order or scope."
+        },
+        {
+          "id": "RU-IRW-02",
+          "location": "Lines 15–59, 141–176, 180–210",
+          "requirement": "Distinguish ownership, responsibilities, transaction value, revenue, contribution and warehouse/company profit.",
+          "observation": "The four-mode table precedes the same-order funds example. The 50-yuan example assigns the consumer payment, platform coupon, merchant incentive, commission and delivery charges to named parties. The model then defines N, A, c, F and upstream allocation before the full warehouse account. The revised opening remains consistent with these distinctions.",
+          "reader_effect": "Readers can map a platform or merchant claim to the correct economic layer rather than treating platform trade value, warehouse contribution and company profit as interchangeable.",
+          "judgment": "The terminology and tables still serve the intended comparison."
+        },
+        {
+          "id": "RU-IRW-03",
+          "location": "Changed line 103; retained lines 97–101, 109–117, 199–209",
+          "requirement": "Use exit and struggling-operator evidence without generalizing a selected interview sample into a verdict on the whole model.",
+          "observation": "Removing the sentence that explicitly denies proof of sector-wide infeasibility leaves a direct instruction to decompose order sources. The surrounding interviews remain identified by city, year and operator, and line 101 still labels them self-reports rather than a uniform audited sample. The regional table retains comparability limits; the socialized-warehouse scenarios include both profit and break-even cases.",
+          "reader_effect": "The transition now proceeds from concrete cases to an entrant's operating check. The retained sampling and scenario context gives no basis to read the cases as proof that all socialized warehouses fail.",
+          "judgment": "No required restoration of the removed general disclaimer."
+        },
+        {
+          "id": "RU-IRW-04",
+          "location": "Changed line 341; retained lines 260–266, 289–303, 343–358",
+          "requirement": "Make densification conditional on net-new demand, capacity, cannibalization and network economics.",
+          "observation": "The shortened paragraph now focuses on the different effects of densification on an integrated operator and an independent warehouse. Its removed general conditions remain in the worked old/new-warehouse calculation at lines 291–301 and in the adjacent action table at line 346: capacity or remote-service cost, net-new demand, old-warehouse diversion and new fixed expense. Line 354 again requires original-warehouse transfers to be separately identified.",
+          "reader_effect": "The reader can use the adjacent action table for the expansion decision and the earlier calculation for its economic mechanism. The deleted prose is not the sole remaining location of any of these conditions.",
+          "judgment": "No necessary expansion condition was lost."
+        },
+        {
+          "id": "RU-IRW-05",
+          "location": "Lines 216–256, 270–287, 313–358",
+          "requirement": "Give usable operating and investment implications with capacity, cash and service constraints.",
+          "observation": "Sensitivity tables identify changed variables and profit layers; break-even results are checked against cost steps and capacity. The six-month opening example retains its loss and cash conditions, while food, staffing and service sections explain why a mathematical order threshold is insufficient. The final mature-region and new-region recommendations connect these conditions to expanding, merging, changing categories, changing fulfillment or exiting.",
+          "reader_effect": "The retained tables support decisions about a particular operating situation rather than a generic daily-order target. The limited wording changes do not interrupt the progression from assumptions to decisions.",
+          "judgment": "No required reader-usefulness correction."
+        }
+      ],
+      "required_findings": [],
+      "optional_findings": [],
+      "verdict_basis": "The front-loaded opening, direct interview-to-action transition and shortened densification paragraph remain consistent with the report's full conditional model. The corresponding decision conditions are still visible in adjacent or clearly developed tables and cases."
+    },
+    {
+      "case_id": "test_time_compute_en",
+      "target_reader": "Model researchers, inference engineers, and agent-system designers making compute-allocation decisions",
+      "report_verdict": "pass",
+      "inputs": {
+        "current_report": "evals/repairs/2026-11-10-report-expression/reports/test_time_compute_en.md",
+        "current_report_sha256": "b488ea30d8927356263be783f6f44b293f1a269d0c2547c8ad099f8598f941ef",
+        "current_report_lines_read": "1–356",
+        "original_task": "evals/studies/2026-11-09-long-research/reports/test_time_compute_en/task.json",
+        "original_task_sha256": "f479209952757ead75cc90893ec8140c7aea94131f49c20fa7317a4101559f22",
+        "diff": "evals/repairs/2026-11-10-report-expression/changes/test_time_compute_en.diff",
+        "diff_sha256": "8b12ceed414d840aa45a695d8d46b64bb6ee807584a08bc4cc7f19efb50fd6c0",
+        "diff_lines_read": "1–49; all five hunks",
+        "original_report_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e"
+      },
+      "observations": [
+        {
+          "id": "RU-TTC-01",
+          "location": "Changed line 9; retained lines 7–29 and 33–45",
+          "requirement": "Frame the report as finite-budget allocation among mechanisms, not as a catalogue or a universal compute-scaling claim.",
+          "observation": "After deleting The strongest evidence supports conditional choices, the synthesis begins directly with fixed-checkpoint self-consistency and then distinguishes process supervision, correction training and coding-agent selection. The resource/information boundary and candidate-versus-submitted-success distinction remain in the same paragraph. The scope section defines four comparison types before the method matrix.",
+          "reader_effect": "The opening still tells the technical audience what decision is at stake and which distinctions control it. The omitted framing sentence carries no unique operational condition.",
+          "judgment": "No required restoration."
+        },
+        {
+          "id": "RU-TTC-02",
+          "location": "Changed line 121; retained lines 119–129 and 189–195",
+          "requirement": "Explain agent selection and tool feedback without treating more trajectories as automatically superior.",
+          "observation": "The revised CodeMonkeys interpretation retains context reuse, diverse edits, fallible generated tests, selection budget and selection failures. The adjacent paragraph supplies 69.8% coverage versus 57.4% actual selection and the selection charge. Later normalization explicitly includes the selector and omitted tool/service costs. The following web and tau-bench examples retain replay and irreversible-action constraints.",
+          "reader_effect": "The removed generic rejection of automatic multi-agent superiority does not leave an unqualified recommendation. Readers still have the exact delivered-success, selection-cost and environment conditions that matter.",
+          "judgment": "No required correction to this shortened transition."
+        },
+        {
+          "id": "RU-TTC-03",
+          "location": "Deletion after current line 157; retained sections 10–14 at lines 159–289",
+          "requirement": "Connect cross-domain evidence to complete cost accounting and implementable choices among samples, search, verification, a stronger model and a simpler path.",
+          "observation": "Removing the early five-choice summary leaves the cross-domain limits followed directly by the complete-cost section. The sequence then develops compute, dependency-path latency, defensible normalization and a worked allocation before the decision tree. All five choices remain explicitly named and conditioned at line 289, immediately after the tree; the synthesis already previews the bottleneck logic at line 13.",
+          "reader_effect": "The transition remains coherent for readers following the whole report. The policy list is available where its cost and evidence basis have been developed, without requiring an inference from the deleted paragraph.",
+          "judgment": "No missing method choice or decision condition."
+        },
+        {
+          "id": "RU-TTC-04",
+          "location": "Changed line 245; retained lines 199–243",
+          "requirement": "Keep the allocation example hypothetical and prevent a tiny computed accuracy difference from becoming a new empirical result.",
+          "observation": "The example labels every input hypothetical, defines the uniform-among-accepted selector, states the four-worker scheduling assumptions, and prices wrong submissions separately. The revised final qualification explicitly says the 0.21-point difference follows from exact hypothetical probabilities and that real-pilot uncertainty could exceed it; it preserves lower error risk and latency as separate reasons for a choice.",
+          "reader_effect": "The shorter paragraph still prevents the 89.51% versus 89.30% calculation from being interpreted as a measured model advantage, while retaining the practical reason to leave budget unspent.",
+          "judgment": "No required uncertainty qualification was removed."
+        },
+        {
+          "id": "RU-TTC-05",
+          "location": "Lines 133–151, 247–311; changed line 311",
+          "requirement": "Provide a usable scaling comparison and a decision tree that includes stopping, budget, latency, tool availability and error consequences.",
+          "observation": "OR and AD are defined before the scaling table; the table keeps outcomes, model/training and verification conditions separate. The decision tree starts with the current completion condition, distinguishes external information from generation/selection, updates budget and elapsed time after each increment, and returns to the completion test. The concluding list retains distinct cases where more work is inappropriate, and line 311 still explicitly permits substantial computation when it buys progress or reliable completion.",
+          "reader_effect": "Deleting the two generic concluding sentences does not change stopping into a preference for shorter outputs. The reader can still locate both the no-more-work cases and the positive value criterion, while the appendices retain evidence-specific limitations.",
+          "judgment": "No required reader-usefulness correction."
+        }
+      ],
+      "required_findings": [],
+      "optional_findings": [],
+      "verdict_basis": "The five edited regions remove generic framing or an earlier duplicate policy summary and shorten one numerical qualification. Mechanism distinctions, all five design choices, the hypothetical-example boundary and explicit stopping conditions remain usable in the complete current report."
+    }
+  ],
+  "required_findings": [],
+  "optional_findings": [],
+  "conclusion": "No required reader-usefulness repair was found for these three limited revisions. Each verdict is supported by the named passages and retained decision conditions above, not by an assumption that shorter prose is generally better."
+}

@@ -1,0 +1,85 @@
+{
+  "review_type": "process_language",
+  "review_kind": "targeted_revision_followup",
+  "result": "valid",
+  "review_status": "completed",
+  "report_verdict": "pass",
+  "reviewed_at": "2026-11-10T14:07:34+08:00",
+  "agent_id": "/root/revision_process",
+  "identity_kind": "same_native_agent_canonical_task_name_as_original_review",
+  "original_review": {
+    "path": "evals/repairs/2026-11-10-report-expression/reviews/process_language.json",
+    "sha256": "60b01735d06da3107a8ae7d114f5ada7138450ae5061b5ea2a63c5e1a7499e05",
+    "preserved_without_edit": true
+  },
+  "reading_scope": {
+    "reused_prior_reading": "Complete three reports, their original task.json files and their case diffs from the original independent review.",
+    "new_reading": [
+      {
+        "path": "evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.pl-irw-01.diff",
+        "lines": "1-10",
+        "sha256": "79d327f94a367f6f93d0a6190b3d6eeb76a2d5c8f631bbb15119b68dbc103852"
+      },
+      {
+        "path": "evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md",
+        "lines": "360-370",
+        "sha256": "ea7f6bcaa923bb84e841e4af2bdeb41c622aaf9399e9611145c455a3c404df29"
+      }
+    ],
+    "scope_limit": "Only the reported PL-IRW-01 edit and its current ending were reread. No new source audit, research, model execution or tests were performed. The stated README relocation was not separately reviewed because resolving this finding requires removing the production-record sentence from the report while retaining functional source and calculation information.",
+    "reports_edited": false,
+    "other_current_reviewer_judgments_read": false
+  },
+  "dispositions": [
+    {
+      "finding_id": "PL-IRW-01",
+      "case_id": "instant_retail_warehouses_zh",
+      "original_necessity": "required",
+      "status": "resolved",
+      "previous_report_sha256": "cdf65d2c4dd5af7ad9a2157a6e61bc6aa078074f7e97aaa17807853933429f7b",
+      "current_report_sha256": "ea7f6bcaa923bb84e841e4af2bdeb41c622aaf9399e9611145c455a3c404df29",
+      "observations": [
+        {
+          "location": "changes/instant_retail_warehouses_zh.pl-irw-01.diff, lines 6-10",
+          "observation": "The only shown textual deletion is the standalone reading-ledger.json/claims.jsonl production-record sentence and its preceding blank line. The source-role and calculation-file paragraphs remain context lines."
+        },
+        {
+          "location": "reports/instant_retail_warehouses_zh.md, lines 366-370",
+          "observation": "The current report ends with the evidence cutoff, source roles and scope, original-link locations, calculation inputs and outputs, replaceable scenario parameters, and the distinction from unpublished company data. The internal reader-identity/ledger-maintenance sentence is absent."
+        }
+      ],
+      "judgment": "The requested localized repair is complete. Functional methodology and source conditions remain available, and no new process-language defect is introduced in the affected ending.",
+      "report_verdict": "pass"
+    },
+    {
+      "finding_id": "PL-ODM-01",
+      "case_id": "on_device_models_en",
+      "original_necessity": "optional",
+      "status": "unresolved_optional",
+      "modified": false,
+      "author_disposition_as_provided": "Retain the archival phrase for source-version navigation; the suggestion was nonessential.",
+      "reviewer_judgment": "The original optional suggestion is preserved as unmodified, not marked resolved. It remains nonblocking and does not alter the original process-language pass verdict.",
+      "report_verdict": "pass"
+    }
+  ],
+  "per_report_verdicts": [
+    {
+      "case_id": "instant_retail_warehouses_zh",
+      "report_verdict": "pass",
+      "basis": "Prior complete review plus the current targeted revision check."
+    },
+    {
+      "case_id": "on_device_models_en",
+      "report_verdict": "pass",
+      "basis": "Original complete review carried forward; PL-ODM-01 remains unresolved_optional and nonblocking."
+    },
+    {
+      "case_id": "test_time_compute_en",
+      "report_verdict": "pass",
+      "basis": "Original complete review carried forward; no change was assigned for this followup."
+    }
+  ],
+  "unresolved_required_findings": [],
+  "unresolved_optional_findings": ["PL-ODM-01"],
+  "files_written": ["evals/repairs/2026-11-10-report-expression/reviews/process-language-followup.json"]
+}

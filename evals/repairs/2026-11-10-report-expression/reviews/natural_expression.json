@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "review_id": "2026-11-10-report-expression-natural-expression-revision_expression",
+  "perspective": "natural_expression",
+  "reviewer": {
+    "observable_agent_id": "/root/revision_expression",
+    "role": "Independent natural-expression reviewer",
+    "context": "New review context separate from the report producer",
+    "identity_scope": "The canonical agent task path is the execution identity available in this context; no unobserved session UUID is asserted."
+  },
+  "reviewed_at": "2026-11-10T14:08:12+08:00",
+  "overall_verdict": "pass",
+  "scope": {
+    "assignment": "Independent natural-expression review of the approved limited repair to three long research reports.",
+    "criteria": [
+      "Actual functional repetition and coherence in the current complete manuscripts",
+      "Vague caveats, abstract prose, unclear subjects and awkward syntax",
+      "Preservation of facts, assumptions, qualifications and analytical depth across the complete diffs",
+      "Concrete improvements or actual remaining problems, without banned vocabulary or arbitrary brevity requirements"
+    ],
+    "instructions_read": [
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/references/subagents-and-review-loop.zh-CN.md",
+        "extent": "Full file; applied the natural_expression perspective, common review requirements and revision-review rules."
+      }
+    ],
+    "full_manuscripts_read": true,
+    "full_original_tasks_read": true,
+    "full_diffs_read": true,
+    "excluded_inputs": [
+      "Producer judgment, author response and editorial change-note prose",
+      "Other current review opinions and verdicts"
+    ],
+    "source_verification_limit": "The review checks preservation against the full diffs and current complete reports. It is not a new comprehensive fact audit. The sole added factual statement in the ODM diff, the 328-second clean-audio duration, and its nearby precision/energy qualification were checked against the accessible local original source text.",
+    "other_sources_read": [
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/data/source_registry.csv",
+        "extent": "ODM17 row located by exact source URL to identify the original source copy."
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM17.txt",
+        "extent": "Lines 96–345, including dataset and setup, baseline subtraction, Table 3 and Table 4.",
+        "relevant_locations": [
+          "146–160",
+          "172–205",
+          "212–239",
+          "283–330"
+        ],
+        "source_identity": "Deep Learning Models in Speech Recognition: Measuring GPU Energy Consumption; arXiv 2405.01004."
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/on_device_models_en/local-originals.json",
+        "extent": "Full navigation index, used only to confirm original-material access."
+      }
+    ],
+    "actions": "Read-only review of reports and sources. Wrote only this review JSON. No report edits, tests, model/API runs or new external research."
+  },
+  "reports": [
+    {
+      "case_id": "instant_retail_warehouses_zh",
+      "verdict": "pass",
+      "current_report": {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md",
+        "sha256": "ea7f6bcaa923bb84e841e4af2bdeb41c622aaf9399e9611145c455a3c404df29",
+        "lines_read": "1–370 (full current content; prior full reading 1–372 plus supplemental final-paragraph diff and rereading of current 360–370)"
+      },
+      "original_task": {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/task.json",
+        "sha256": "768ebd2b9fcb1ddda5a2413f3c5a4408448ec03728a2db2872f2dc2f304cbf39",
+        "extent": "Full"
+      },
+      "diff": {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.diff",
+        "sha256": "c29cf2bc8683dbd0b89028a07061360a53bb10d8b01f0c7b6237a27cbdca8638",
+        "extent": "Full updated cumulative diff, plus full supplemental pl-irw-01 diff",
+        "original_report_sha256": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed"
+      },
+      "observations": [
+        {
+          "id": "NE-IRW-O1",
+          "location": "Lines 5–9",
+          "type": "improvement",
+          "requirement": "Make the operating conclusion direct while preserving conditional reasoning.",
+          "evidence": "The mature-area profitability proposition now opens the report. It is immediately followed by the service-area contribution condition and the possibility of simultaneous losses in another region. The former '本报告的判断是' passage no longer restates that same opening proposition.",
+          "judgment": "The opening now gives the reader a conclusion before its mechanism. This is a concrete local improvement; it does not imply that every introductory qualification should be removed."
+        },
+        {
+          "id": "NE-IRW-O2",
+          "location": "Lines 97–103; 180–210",
+          "type": "preservation",
+          "requirement": "Do not convert failed-operator examples into a universal verdict against social warehouses.",
+          "evidence": "The deleted sentence '这些反例不会证明社会化仓整体不可行' duplicated a scope boundary already expressed by case-specific interview attribution. The current section continues to distinguish platform growth from merchant outcomes, and the later profitable base and stronger-selection scenarios remain.",
+          "judgment": "Removing the general disclaimer does not change the conclusion to universal nonviability. The positive and negative operating conditions are still explicit."
+        },
+        {
+          "id": "NE-IRW-O3",
+          "location": "Lines 291–303 and 339–350",
+          "type": "improvement_and_preservation",
+          "requirement": "Retain genuine demand, cannibalization and capacity constraints on network expansion.",
+          "evidence": "The shortened paragraph at line 341 now focuses on the distinct mechanisms for a self-operated supply chain and an independent merchant's advertising competition. The removed general densification conditions still appear in the full cannibalization example and the immediately following '增设仓并加密' row, which requires net new demand and deducts transferred orders and new fixed costs.",
+          "judgment": "This reduces repeated instruction while keeping the economically decisive conditions available at the decision point."
+        },
+        {
+          "id": "NE-IRW-O4",
+          "location": "Lines 42–59, 141–176, 216–256, 272–287 and 317–333",
+          "type": "retained_functional_detail",
+          "requirement": "Preserve the long report's accounting, assumptions and operating depth.",
+          "evidence": "The current manuscript retains who funds each subsidy, the distinct profit levels, fee and loss double-counting rules, stepped fixed costs, peak-hour staffing, stock cash, ramp-up assumptions, and food/labor/service constraints. The diff does not remove these mechanisms, formulas or tables.",
+          "judgment": "These qualifications perform different accounting or operational functions. Repeated words such as '不能' do not by themselves make them redundant; further broad trimming would risk losing useful precision."
+        },
+        {
+          "id": "NE-IRW-O5",
+          "location": "Current lines 366–370; supplemental diff deleting former line 372",
+          "type": "supplemental_revision_preservation",
+          "requirement": "Keep the ending reader-oriented while retaining usable model and evidence conditions.",
+          "evidence": "The only additional change removes the final sentence describing internal reading-ledger.json and claims.jsonl. The current ending still states source types and evidence limits and names the economic model and output files used for reproducible calculations.",
+          "judgment": "The deletion leaves a complete ending and removes no operating fact, model assumption or economic condition. The report now ends with the reader-relevant model explanation. No assertion is made here about the separate README relocation, which was not part of this reading."
+        }
+      ],
+      "necessary_findings": [],
+      "optional_findings": [
+        {
+          "id": "NE-IRW-OPT1",
+          "severity": "low",
+          "location": "Line 266",
+          "requirement": "Use clear, parallel wording for operational outcomes.",
+          "evidence": "The phrase '降低拣选错误与完成率的损失' combines an error count with a loss in a rate, making the object of '降低' momentarily awkward.",
+          "impact": "A reader must infer that the intended goals are fewer picking errors and fewer failed completions. The surrounding paragraph makes that inference possible.",
+          "suggested_change": "If this sentence is edited later, use a direct formulation such as '减少拣选错误和未完成订单造成的损失'.",
+          "disposition": "Optional existing wording issue outside the changed passages; not a delivery blocker and not a reason to restart this limited repair."
+        }
+      ],
+      "basis_for_verdict": "The changed prose removes duplicated framing, the full manuscript remains coherent, and the conditions removed from one paragraph are retained in the operative model and decision table. No necessary natural-expression repair or substantive loss was found.",
+      "revision_check": {
+        "previous_report_sha256": "cdf65d2c4dd5af7ad9a2157a6e61bc6aa078074f7e97aaa17807853933429f7b",
+        "previous_diff_sha256": "a540f76b9fcb2da519fbd7bb3d6d47087062f7cfa90a6de9dff6726c31956636",
+        "supplemental_diff": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.pl-irw-01.diff",
+        "supplemental_diff_sha256": "79d327f94a367f6f93d0a6190b3d6eeb76a2d5c8f631bbb15119b68dbc103852",
+        "extent": "Full supplemental diff and current ending, followed by full updated cumulative diff; retained prior full reading and did not consult other opinions",
+        "verdict": "pass"
+      }
+    },
+    {
+      "case_id": "on_device_models_en",
+      "verdict": "pass",
+      "current_report": {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+        "sha256": "c8d8f2b96f91e6032bbc542241417516d232e5fe28a707430eb297c87af2ea46",
+        "lines_read": "1–291 (full)"
+      },
+      "original_task": {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/on_device_models_en/task.json",
+        "sha256": "d9a48441cae39e4f4f2f2c1309a84e07068f3cf2d47a2894df0d633096c33e67",
+        "extent": "Full"
+      },
+      "diff": {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.diff",
+        "sha256": "996a8cb46829541eb30c3bf32bc2617875e94baf3485c6faea2a65f6894c58fb",
+        "extent": "Full",
+        "original_report_sha256": "59f8ac88843287debab4c0176d72575b648dbf581eece7888f22e050e69da8dd"
+      },
+      "observations": [
+        {
+          "id": "NE-ODM-O1",
+          "location": "Lines 59–69 and 111–119",
+          "type": "improvement_and_preservation",
+          "requirement": "Preserve measurement conditions and phase-versus-end-to-end distinctions while reducing repeated numeric explanation.",
+          "evidence": "Line 115 now points to Section 3 instead of repeating the 128/512-token arithmetic. The actual 9.46-second and 34.07-second calculations remain at line 67, along with the extrapolation limit. The new paragraph retains performance lock and absence of ordinary sustained latency evidence, then develops first visible versus fully usable output.",
+          "judgment": "The cross-reference removes the same example being worked twice and creates a clear transition to the usable-result timing formula. It does not discard the conditions that justify the latency claim."
+        },
+        {
+          "id": "NE-ODM-O2",
+          "location": "Lines 155–168; original source ODM17.txt lines 318–330",
+          "type": "improvement",
+          "requirement": "Explain when quantization helps instead of making either a universal benefit or universal rejection claim.",
+          "evidence": "The revised sentence names the medium INT8 model as the contrasting lower-energy case. Table 4 in the local original shows 1,471 J for medium FP16 and 1,420 J for medium INT8; the report still retains the base-model memory, latency, energy and noisy-WER costs.",
+          "judgment": "A concrete counterexample now carries the model-specific boundary that the former general disclaimer stated. The preferred precision is still conditional on the model and memory requirement."
+        },
+        {
+          "id": "NE-ODM-O3",
+          "location": "Line 287; original source ODM17.txt lines 146–160, 187–195 and 220–239",
+          "type": "substantive_correction_verified",
+          "requirement": "Keep factual limitations accurate when revising the prose.",
+          "evidence": "The old diff text said the exact aggregate audio duration was unspecified. The current sentence correctly says Table 3 reports 328 seconds of clean audio; the table heading in the local original states that duration explicitly. The dataset remains seventy short clips, and the energy method subtracts an idle CPU/GPU baseline.",
+          "judgment": "This is a factual correction, not merely stylistic shortening. The revised paragraph accurately permits aggregate RTF arithmetic while continuing to withhold claims about sustained streaming latency or whole-device wall energy."
+        },
+        {
+          "id": "NE-ODM-O4",
+          "location": "Lines 273–291",
+          "type": "improvement_and_preservation",
+          "requirement": "Keep remaining deployment uncertainty specific.",
+          "evidence": "The closing generic warning against transferring rates from another device was deleted, while the final paragraph still names available/peak memory, usable-result latency, sustained duration, concurrent apps, task quality and endpoint power as the missing measurements. The provenance table retains model and benchmark differences.",
+          "judgment": "The final boundary is concrete and actionable. Deleting the last broad warning does not leave an unqualified claim of validated deployment."
+        },
+        {
+          "id": "NE-ODM-O5",
+          "location": "Lines 17–41, 89–107, 143–178, 182–210 and 248–266",
+          "type": "retained_functional_detail",
+          "requirement": "Preserve hardware, task, privacy, integration and economic depth.",
+          "evidence": "Full reading confirms that the memory envelope, request-token budget, preprocessing and endpointing, data-flow boundaries, OS restrictions, ownership cost and fit matrix still connect each recommendation to a workload. The fit matrix reuses earlier findings for selection, rather than replacing the causal explanation.",
+          "judgment": "The recurring cautions about unlike hardware and short versus sustained tests are located at distinct transfer decisions. No further necessary reduction of those qualifications is supported by this review."
+        }
+      ],
+      "necessary_findings": [],
+      "optional_findings": [],
+      "basis_for_verdict": "The repaired passages are more direct, their references resolve within the manuscript, and the specific conditions still constrain the recommendations. The added duration is supported by the original table. No necessary or optional natural-expression issue was identified that warrants action in this repair."
+    },
+    {
+      "case_id": "test_time_compute_en",
+      "verdict": "pass",
+      "current_report": {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/test_time_compute_en.md",
+        "sha256": "b488ea30d8927356263be783f6f44b293f1a269d0c2547c8ad099f8598f941ef",
+        "lines_read": "1–356 (full)"
+      },
+      "original_task": {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/test_time_compute_en/task.json",
+        "sha256": "f479209952757ead75cc90893ec8140c7aea94131f49c20fa7317a4101559f22",
+        "extent": "Full"
+      },
+      "diff": {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/test_time_compute_en.diff",
+        "sha256": "8b12ceed414d840aa45a695d8d46b64bb6ee807584a08bc4cc7f19efb50fd6c0",
+        "extent": "Full",
+        "original_report_sha256": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e"
+      },
+      "observations": [
+        {
+          "id": "NE-TTC-O1",
+          "location": "Lines 7–13 and 119–125",
+          "type": "improvement",
+          "requirement": "Present specific findings without broad claims or unnecessary defensive framing.",
+          "evidence": "The opening now directly states the fixed-checkpoint, verifier and trained-correction findings instead of first calling them 'the strongest evidence'. The agent section removes the generic warning against assuming every multi-agent architecture is better but retains candidate diversity, generated-test fallibility, selector cost and replay constraints.",
+          "judgment": "The edits remove claims about how to read the report while keeping the mechanisms that actually delimit its design recommendations."
+        },
+        {
+          "id": "NE-TTC-O2",
+          "location": "Lines 153–165 and 247–289",
+          "type": "improvement_and_preservation",
+          "requirement": "Avoid repeating the same design choices without losing the implementable choice framework.",
+          "evidence": "The former five-choice preview at the end of the cross-domain section is gone. The section now ends with the difference between ambiguous feedback and a correctness certificate and proceeds to resource accounting. The five choices remain at line 289 after the worked calculation and complete decision tree, with candidate availability, verifier quality, partial-state signal and deadline conditions.",
+          "judgment": "The duplicate preview was unnecessary at that location. The transition remains coherent, and the full decision logic is preserved where the reader has the quantities needed to use it."
+        },
+        {
+          "id": "NE-TTC-O3",
+          "location": "Lines 199–245",
+          "type": "improvement_and_preservation",
+          "requirement": "Distinguish hypothetical arithmetic from empirical accuracy and preserve risk/latency implications.",
+          "evidence": "The rewritten paragraph identifies the 0.21-point difference as arising from exact hypothetical probabilities. It then explains that real-pilot uncertainty could exceed it while the much lower wrong-submission rate and shorter latency could still justify the choice. Input probabilities, selection rule, worker schedule and reported results remain unchanged.",
+          "judgment": "This directly states the limitation that affects the decision. The former warning about what the comparison is 'not an invitation' to infer did not add a separate condition."
+        },
+        {
+          "id": "NE-TTC-O4",
+          "location": "Lines 301–311",
+          "type": "improvement_and_preservation",
+          "requirement": "Include justified stopping cases without treating brevity as an objective.",
+          "evidence": "The closing disclaimer that the endpoints do not presume shorter outputs are better was removed. The current closing still says difficult tasks can deserve substantial computation when it buys progress, stronger evidence or reliable completion; the preceding bullets identify concrete cases where more computation has no useful return.",
+          "judgment": "No arbitrary brevity rule is introduced. The report still judges computation by the task's evidence, error and resource conditions."
+        },
+        {
+          "id": "NE-TTC-O5",
+          "location": "Lines 33–45, 49–113, 133–195 and 313–356",
+          "type": "retained_functional_detail",
+          "requirement": "Preserve mechanisms, empirical comparisons, budget accounting and evidence boundaries in a full technical research report.",
+          "evidence": "The complete manuscript retains the method matrix, fixed-checkpoint versus training distinctions, independent-sampling formula, differing verifier semantics, tool/replay costs, historical dollar normalization, selection limitations and original-source versions. Repeated candidate-versus-selection distinctions gain a new role in the sampling evidence, verification section, cost normalization and design tree.",
+          "judgment": "Those recurrences are functional, not interchangeable filler. The repair leaves the research depth and the restrictions on cross-study comparisons intact."
+        }
+      ],
+      "necessary_findings": [],
+      "optional_findings": [
+        {
+          "id": "NE-TTC-OPT1",
+          "severity": "low",
+          "location": "Line 306",
+          "requirement": "Name the evaluation treatment of abstention directly.",
+          "evidence": "The phrase 'raw accuracy with failed abstention' is compressed and can sound as if the abstention operation itself malfunctioned.",
+          "impact": "The intended meaning is recoverable from line 199, which assigns no correctness credit to abstention, and line 241, which explains the one-candidate filter. It does not invalidate the result.",
+          "suggested_change": "If later edited, use 'raw accuracy, with abstentions counted as failures'.",
+          "disposition": "Optional pre-existing phrasing issue outside the changed passages; not a delivery blocker and not a reason to reopen the approved repair."
+        }
+      ],
+      "basis_for_verdict": "The removed summaries and caveats do not remove a unique condition or analytical result. The revised example states uncertainty more directly, and full-reading continuity from mechanisms through budget calculations to decisions is intact. No necessary natural-expression correction was found."
+    }
+  ],
+  "conclusion": {
+    "necessary_changes": 0,
+    "optional_wording_notes": 2,
+    "statement": "All three reviewed manuscript versions pass this natural-expression review. The observed improvements are local removal of duplicated framing, clearer references to already-developed calculations, and replacement of generic caveats with specific conditions. This review does not infer a universal research-quality gain or recommend further shortening."
+  }
+}

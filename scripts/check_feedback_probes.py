@@ -5,6 +5,7 @@ import argparse
 import csv
 import io
 import json
+import os
 from pathlib import Path
 import re
 import tempfile
@@ -163,6 +164,7 @@ class DeliveryControls(unittest.TestCase):
 
 
 if __name__ == "__main__":
+    os.environ["RESEARCH_TOOLKIT_TELEMETRY"] = "off"
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()

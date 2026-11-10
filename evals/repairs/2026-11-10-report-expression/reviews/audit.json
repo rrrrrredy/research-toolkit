@@ -1,0 +1,669 @@
+{
+  "schema_version": 1,
+  "role": "audit",
+  "review_kind": "Existing independent audit of the authorized three-report expression repair and its two necessary corrections",
+  "result": "valid",
+  "audit_validity": "valid",
+  "report_verdict": "pass",
+  "reviewer": {
+    "agent_id": "/root/benchmark_audit_complete",
+    "host_task": "/root/benchmark_audit_complete",
+    "identity_kind": "native canonical agent task name",
+    "identity_source": "This native task's NEW_TASK recipient and collaboration context; no unobserved session UUID asserted",
+    "producer": false,
+    "content_reviewer_in_this_repair": false,
+    "independence": "Independent from /root/editorial_revision and all eight content-review contexts. Earlier TTC audit work is explicitly reused as audit work, not represented as a new content review.",
+    "identity_verification_limit": "The ten original review records identify their native execution contexts and reading. The current live inventory available to this auditor does not expose all completed repair-review nodes; I do not claim it independently exposed those eight nodes. Distinct actual IDs, raw execution accounts, source-specific reasoning, version bindings and followups provide the identity and coverage evidence used here."
+  },
+  "execution": {
+    "status": "completed",
+    "started_at_utc": "2026-11-10 06:10:28 UTC",
+    "completed_at_utc": "2026-11-10 06:24:49 UTC",
+    "mode": "Read-only report/review/source audit; only this audit.json written",
+    "full_current_report_reading": true,
+    "all_eight_raw_reviews_read": true,
+    "both_targeted_followups_read": true,
+    "tests_run": false,
+    "model_or_research_api_calls": false,
+    "research_or_calculation_scripts_rerun": false,
+    "manuscripts_or_original_records_modified": false,
+    "validation_performed": "Read original files; hash current and retained versions; reconstruct each current report in memory from its original and complete cumulative diff; compare URL sequences; check archive navigation targets exist. These are version-binding checks, not model tests or research reruns."
+  },
+  "scope": {
+    "cases": [
+      "test_time_compute_en",
+      "instant_retail_warehouses_zh",
+      "on_device_models_en"
+    ],
+    "authority": "Parent's 2026-11-10 limited-edit audit assignment and references/subagents-and-review-loop.zh-CN.md audit responsibility",
+    "boundary": "Audit current whole reports, all seven perspective reviews plus domain, material necessary/optional dispositions, and content-selected source samples. No extra review layer, no general rewrite, no new research, no UI/publication acceptance.",
+    "judgment": "All three current manuscripts pass this audit. Both necessary findings are resolved with source/diff evidence and same-reviewer followups; three optional findings remain unchanged and nonblocking. Earlier negative reviews remain valid records of the versions they read.",
+    "not_claimed": "This is not a new full-source certification of every unchanged citation, a device experiment, a rerun of the economic/research calculations, a website/deployment check, or the separate final acceptance."
+  },
+  "current_artifact_sha256": {
+    "test_time_compute_en": "b488ea30d8927356263be783f6f44b293f1a269d0c2547c8ad099f8598f941ef",
+    "instant_retail_warehouses_zh": "ea7f6bcaa923bb84e841e4af2bdeb41c622aaf9399e9611145c455a3c404df29",
+    "on_device_models_en": "c8d8f2b96f91e6032bbc542241417516d232e5fe28a707430eb297c87af2ea46"
+  },
+  "retained_editorial_first_sha256": {
+    "instant_retail_warehouses_zh": "cdf65d2c4dd5af7ad9a2157a6e61bc6aa078074f7e97aaa17807853933429f7b",
+    "on_device_models_en": "e82e4fbad93e8f1754b0ac613f333a1d3d68cd732d2556b26a3a464deea495bc"
+  },
+  "review_checks": [
+    {
+      "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/requirements.json",
+      "sha256": "b3e246954ad7b3f6825bff92292b9610d0b68c2ec7bb0ee2e838d497b42c30dd",
+      "agent_id": "/root/revision_requirements",
+      "validity": "valid",
+      "version_coverage": {
+        "test_time_compute_en": "current",
+        "instant_retail_warehouses_zh": "editorial_first",
+        "on_device_models_en": "editorial_first"
+      },
+      "basis": "Full reports and original tasks are mapped to concrete coverage. The later IRW removal is solely an internal-record sentence; ODM correction supplies the actual duration and retains measurement limits. My complete current readings and complete diffs support carrying the unchanged requirements judgments forward. No fresh requirements run is asserted."
+    },
+    {
+      "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/evidence.json",
+      "sha256": "89fd0c68d51c869ac80e919588900e3cf36983c17e859bfba3747cb04e2216d3",
+      "agent_id": "/root/revision_evidence",
+      "validity": "valid",
+      "version_coverage": {
+        "test_time_compute_en": "current",
+        "instant_retail_warehouses_zh": "editorial_first",
+        "on_device_models_en": "editorial_first; negative finding retained"
+      },
+      "basis": "Source-specific review includes a justified negative ODM duration finding; it is valid rather than disqualified because it found a defect. The same reviewer's evidence-followup resolves that defect against the current paragraph. IRW's later ledger-sentence deletion leaves its evidentiary claims unchanged. This auditor independently read ODM17 Table 3 and the current measurement limits."
+    },
+    {
+      "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/adversarial_reasoning.json",
+      "sha256": "4c3076bdb70f6b1cb29e583b2d8913ed3a52204cbb668e4b82ca9bec32a93915",
+      "agent_id": "/root/revision_adversarial",
+      "validity": "valid",
+      "version_coverage": {
+        "test_time_compute_en": "current",
+        "instant_retail_warehouses_zh": "editorial_first",
+        "on_device_models_en": "editorial_first"
+      },
+      "basis": "The raw response presents report-specific counterarguments, not only a pass label: allocation/selection limits, marginal warehouse demand versus transfer, and hardware/energy/economics comparability. Current full readings and both later diffs preserve those conditions; the actual-duration correction strengthens rather than removes a relevant measurement boundary. No rerun of this responsibility is claimed."
+    },
+    {
+      "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/structure_and_depth.json",
+      "sha256": "6367f9d61288373166f9a5edb21c9ea535766bb9215903f16ec0044692b69b91",
+      "agent_id": "/root/revision_structure",
+      "validity": "valid",
+      "version_coverage": {
+        "test_time_compute_en": "current",
+        "instant_retail_warehouses_zh": "editorial_first; auditor carries final-tail removal",
+        "on_device_models_en": "editorial_first full reading plus current correction/context"
+      },
+      "basis": "Complete reading is tied to specific structure/depth judgments. ODM continuation includes the changed source/correction context. The remaining IRW change removes a production-record paragraph at the tail and does not remove the source/method section, conditional opening, model, counterexamples or decision analysis."
+    },
+    {
+      "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/reader_usefulness.json",
+      "sha256": "26bf9c599e09c370d3711ccbae4e60946f180dcaa22877064bfdf9faf78ed6e6",
+      "agent_id": "/root/revision_reader",
+      "validity": "valid",
+      "version_coverage": {
+        "test_time_compute_en": "current",
+        "instant_retail_warehouses_zh": "editorial_first; auditor carries final-tail removal",
+        "on_device_models_en": "editorial_first full reading plus current correction/context"
+      },
+      "basis": "The review checks actual decision paths, definitions, model use and reader actions in all three reports. Its version account and targeted ODM continuation are explicit. The IRW tail deletion removes internal process information without removing reader-facing assumptions or calculation references. Markdown graph logic was inspected; neither this review nor this audit is represented as a rendered-UI test."
+    },
+    {
+      "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/process_language.json",
+      "sha256": "60b01735d06da3107a8ae7d114f5ada7138450ae5061b5ea2a63c5e1a7499e05",
+      "agent_id": "/root/revision_process",
+      "validity": "valid",
+      "version_coverage": {
+        "test_time_compute_en": "current",
+        "instant_retail_warehouses_zh": "editorial_first; negative finding retained",
+        "on_device_models_en": "current"
+      },
+      "basis": "The negative IRW finding distinguishes internal producer records from useful method/source explanation, with a precise final-paragraph target. The same-context followup confirms only that paragraph was removed. Its optional ODM archive-wording observation remains unchanged; it is not silently promoted into a required rewrite."
+    },
+    {
+      "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/natural_expression.json",
+      "sha256": "544b10fd6feb358e91e7de04b678d8e2cd41d10b21199f5d5eaec2f11885cd6a",
+      "agent_id": "/root/revision_expression",
+      "validity": "valid",
+      "version_coverage": {
+        "test_time_compute_en": "current",
+        "instant_retail_warehouses_zh": "complete first reading plus final deletion and current tail",
+        "on_device_models_en": "current"
+      },
+      "basis": "The original response examines expression in its actual technical context and includes two specific optional phrases. Its IRW continuation accurately distinguishes the earlier whole-report reading from later tail verification. The awkward phrases do not change the defined quantities or reader action and remain visible as optional findings."
+    },
+    {
+      "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/domain.json",
+      "sha256": "bc82c6cde1d5506131e420bef668d3a4f08e0ee501fdb037ee85cf959a9868cb",
+      "agent_id": "/root/revision_domain",
+      "validity": "valid",
+      "version_coverage": {
+        "test_time_compute_en": "current",
+        "instant_retail_warehouses_zh": "complete first reading plus final deletion and current tail",
+        "on_device_models_en": "current"
+      },
+      "basis": "Domain response was present and fully read before final judgment. It addresses TTC allocation/selection, IRW demand/cash/threshold modeling, and ODM workload/device/measurement conditions with actual task-specific source and calculation references. Its pass is corroborative; my own whole-report and selected-source checks below determine the audit conclusion."
+    }
+  ],
+  "followup_checks": [
+    {
+      "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/evidence-followup.json",
+      "sha256": "dd7469f4e6563577140b87f1b4cbfa45d3822436e756a78a663ff063abc8a1ee",
+      "agent_id": "/root/revision_evidence",
+      "validity": "valid",
+      "finding_id": "EVIDENCE-ODM-01",
+      "current_sha256": "c8d8f2b96f91e6032bbc542241417516d232e5fe28a707430eb297c87af2ea46",
+      "basis": "Same responsible context, original negative review retained and matching original-review hash; complete 13-line corrective diff and current affected paragraphs read, earlier actual source reading reused explicitly. Auditor independently confirms duration in original Table 3."
+    },
+    {
+      "file": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/process-language-followup.json",
+      "sha256": "8068e9ba394e5d499d11c4f87a5b3a15b7f766cea894a0904bc916d5939680b6",
+      "agent_id": "/root/revision_process",
+      "validity": "valid",
+      "finding_id": "PL-IRW-01",
+      "current_sha256": "ea7f6bcaa923bb84e841e4af2bdeb41c622aaf9399e9611145c455a3c404df29",
+      "basis": "Same responsible context, original negative review retained and matching original-review hash; complete 10-line corrective diff and current tail read. Auditor independently confirms exact deletion and archive navigation with existing record targets."
+    }
+  ],
+  "reports": [
+    {
+      "case_id": "test_time_compute_en",
+      "report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/test_time_compute_en.md",
+      "current_sha256": "b488ea30d8927356263be783f6f44b293f1a269d0c2547c8ad099f8598f941ef",
+      "original_task_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/test_time_compute_en/task.json",
+      "task_sha256": "f479209952757ead75cc90893ec8140c7aea94131f49c20fa7317a4101559f22",
+      "report_verdict": "pass",
+      "review_validity": "valid",
+      "actual_current_reading": "Complete report lines 1–356 in four contiguous ranges (1–90, 91–180, 181–270, 271–356); complete 49-line, five-hunk cumulative diff; original task full.",
+      "critical_checks": [
+        {
+          "topic": "Compute is allocated to separable production choices",
+          "current_locations": "Opening decision framing; inference/allocation/verification sections; lines 251–311",
+          "judgment": "The current report still distinguishes reasoning, parallel search, learned selection/verifiers, tool use and routing/stopping. Removed previews and general closing sentences do not remove the concrete choice conditions, budgets or stop action."
+        },
+        {
+          "topic": "Reported gains retain experimental denominators and limits",
+          "current_locations": "Lines 133–146, 181–205 and allocation discussion",
+          "judgment": "OR/AD and percent-versus-percentage-point explanations survive; the 20,000-rollout analysis remains an evaluated setup, not an instruction to deploy that budget. Existing counterexamples and budget limits remain. This uses the prior source audit plus verification that the complete current diff leaves those factual claims unchanged."
+        },
+        {
+          "topic": "Decision graph and actionable pilot",
+          "current_locations": "Lines 251–285, 289–325",
+          "judgment": "Followed the complete graph text, including remaining-budget loop, failed budget/verification branches and completion branch. The earlier reader-usefulness repairs remain present and the finite pilot retains measurable accept/stop conditions."
+        }
+      ],
+      "sample_checks": [
+        {
+          "selection_reason": "A pass could hide loss of abstention/selection accounting when generic warnings are shortened",
+          "current_locations": "Lines 199, 241, 301–311",
+          "original_basis": "Prior independent TTC audit source and selection-metric checks; unchanged factual/metric paragraphs confirmed by full current diff",
+          "result": "pass",
+          "observation": "Abstentions receive no accuracy credit and filtering is separated from raw accuracy. The phrase at line 306 remains an optional expression issue, not a numerical or denominator defect."
+        },
+        {
+          "selection_reason": "Editorial compression might sever the budget-limited reader action path",
+          "current_locations": "Lines 251–285 and 325",
+          "original_basis": "Current complete decision-graph text and prior audit's RU-TTCEN-01/02 dispositions",
+          "result": "pass",
+          "observation": "Completion U→B, remaining-work Q→Q1→R and S revision/no-revision paths remain connected. No extra full-source rerun was needed for these unchanged logical relationships."
+        }
+      ],
+      "change_assessment": "All five hunks are accounted for: redundant strongest/general conclusion, redundant agent-team clause, duplicate decision preview, generic quantitative qualification and generic closing prose were shortened/removed. Specific evidence, conditions, numerical examples, references and operative decisions remain.",
+      "required_findings_open": [],
+      "optional_findings_open": [
+        "NE-TTC-OPT1"
+      ]
+    },
+    {
+      "case_id": "instant_retail_warehouses_zh",
+      "report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/instant_retail_warehouses_zh.md",
+      "current_sha256": "ea7f6bcaa923bb84e841e4af2bdeb41c622aaf9399e9611145c455a3c404df29",
+      "original_task_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/task.json",
+      "task_sha256": "768ebd2b9fcb1ddda5a2413f3c5a4408448ec03728a2db2872f2dc2f304cbf39",
+      "report_verdict": "pass",
+      "review_validity": "valid",
+      "actual_current_reading": "Complete report lines 1–370 in four contiguous ranges (1–100, 101–200, 201–300, 301–370); complete 42-line/four-hunk cumulative diff and 10-line ledger correction diff; original task full.",
+      "critical_checks": [
+        {
+          "topic": "Task coverage and operational judgment",
+          "current_locations": "Opening conditional maturity judgment; company/interview comparison; demand, store, network and six-month cash sections; decision ending",
+          "judgment": "The report still covers market/company evidence, format differences, demand/competition, operations and economics, opening/exit conditions and limits of public evidence. The earlier maturity judgment is now upfront with conditions; it does not become a claim that every format/location is mature."
+        },
+        {
+          "topic": "Financial comparison and accounting discontinuity",
+          "current_locations": "Lines 75–91",
+          "original_basis": "IRW02.txt 1–120; IRW03.txt 1–45; financial-bridges.py and financial-bridges.json full",
+          "judgment": "Dingdong and Pupu figures retain their distinct periods and definitions. The quarter's ceased depreciation/amortization benefit of RMB199.1m is material; 271.7−199.1=72.6m is an illustrative arithmetic bridge, not a formal adjusted-profit statement. The report does not treat that accounting benefit as operating efficiency."
+        },
+        {
+          "topic": "Interviews do not stand in for national profitability",
+          "current_locations": "Lines 97–103 and source/competition discussion through 341",
+          "original_basis": "IRW10.txt 1–55; IRW28.txt 96–130",
+          "judgment": "The interview statements are preserved as specific operators and places. Gross margin excluding labor/rent, merchant advertising/discount costs, falling orders and a surviving night-order case are not interchangeable with audited sector profit. The compressed caution still leaves this distinction in context."
+        },
+        {
+          "topic": "Threshold, network transfer and cash model",
+          "current_locations": "Single-store scenarios; sensitivity, inventory, network and six-month cash sections; lines 291–303 and closing decision",
+          "original_basis": "warehouse-model.py 1–43 full; warehouse-results.csv full; warehouse-results.json network/platform_bridge/ramp; financial-bridges.py 1–15 and financial-bridges.json 1–47 full",
+          "judgment": "Inputs are declared hypothetical and replaceable. The model preserves step costs/capacity, upstream contribution, working capital and cash ramp. Network order transfer can worsen total profit even where a new site gains volume. Existing output values agree with the report; no script was rerun."
+        }
+      ],
+      "sample_checks": [
+        {
+          "selection_reason": "A positive company result could be misread as evidence for opening warehouses despite accounting and format differences",
+          "current_locations": "Company comparison and quarterly bridge, lines 75–91",
+          "sources": [
+            "IRW02.txt:1–120",
+            "IRW03.txt:1–45",
+            "analysis/author-production/financial-bridges.json:1–47"
+          ],
+          "result": "pass",
+          "observation": "Revenue/cost/profit periods and the RMB199.1m depreciation/amortization discontinuity remain explicit. The transaction/closure context is not converted into realized efficiency."
+        },
+        {
+          "selection_reason": "A passed unit-economics section can overlook fixed-cost jumps and cannibalization",
+          "current_locations": "Single-store table, capacity thresholds and network model",
+          "sources": [
+            "analysis/author-production/warehouse-model.py:1–43",
+            "analysis/author-production/warehouse-results.csv:full",
+            "analysis/author-production/warehouse-results.json:network and ramp"
+          ],
+          "result": "pass",
+          "observation": "The source uses n greater than threshold for step costs; breakevens are bounded by capacity. Old-site/new-site network outputs retain the −90,480 yuan monthly change example, and the six-month ramp remains loss-making/cash-consuming under its declared inputs. Removing generic caution did not erase these concrete counterexamples."
+        },
+        {
+          "selection_reason": "A removed process paragraph should leave useful reproducibility and source scope accessible",
+          "current_locations": "Lines 366–370; repair README archive navigation",
+          "sources": [
+            "changes/instant_retail_warehouses_zh.pl-irw-01.diff:full",
+            "README.zh-CN.md:archive navigation",
+            "original analysis/reading-ledger.json and claims.jsonl existence"
+          ],
+          "result": "pass",
+          "observation": "Only the internal ledger/claims explanation and its preceding blank line were removed. Cutoff, evidence categories and replaceable calculation inputs remain; archive links point to existing original records."
+        }
+      ],
+      "change_assessment": "The opening is more decisive within its conditions. Redundant caution was shortened without dropping the concrete opposing mechanisms, financial/cash conditions or hypothetical-input labels. The final necessary correction only relocates production-record explanation.",
+      "required_findings_open": [],
+      "optional_findings_open": [
+        "NE-IRW-OPT1"
+      ]
+    },
+    {
+      "case_id": "on_device_models_en",
+      "report_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reports/on_device_models_en.md",
+      "current_sha256": "c8d8f2b96f91e6032bbc542241417516d232e5fe28a707430eb297c87af2ea46",
+      "original_task_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/on_device_models_en/task.json",
+      "task_sha256": "d9a48441cae39e4f4f2f2c1309a84e07068f3cf2d47a2894df0d633096c33e67",
+      "report_verdict": "pass",
+      "review_validity": "valid",
+      "actual_current_reading": "Complete report lines 1–291 in three contiguous ranges (1–100, 101–200, 201–291); complete 33-line/three-hunk cumulative diff and 13-line duration correction diff; original task full.",
+      "critical_checks": [
+        {
+          "topic": "Task coverage and deployability",
+          "current_locations": "Memory admission, interactive latency, local/remote split, retrieval, speech, energy, distribution and economics sections",
+          "judgment": "The current report retains all substantive dimensions of the original task and concrete go/no-go conditions. It distinguishes model availability from deployability under a workload, usable memory budget, sustained performance, application constraints and cost."
+        },
+        {
+          "topic": "Correct duration and measurement boundary",
+          "current_locations": "Lines 153–176 and 287",
+          "original_basis": "ODM17.txt 146–239 and 283–330",
+          "judgment": "Table 3 gives 328 seconds of clean audio, so aggregate RTF arithmetic is possible. The correction says this. Clip totals and incremental CPU/GPU energy do not establish sustained streaming latency or whole-device wall energy. The current text preserves those limitations."
+        },
+        {
+          "topic": "INT8 conclusion remains workload-specific",
+          "current_locations": "Speech/precision discussion, especially line 164",
+          "original_basis": "ODM17.txt Table 3/Table 4, 226–239 and 307–330",
+          "judgment": "Base INT8 has higher processing time/energy than its FP16 row, while medium INT8 energy is lower than medium FP16 and accuracy changes are row-specific. The revised wording retains the actual counterexample rather than claiming universal INT8 benefit or harm."
+        },
+        {
+          "topic": "Performance and cost units",
+          "current_locations": "Memory and phase-time sections; local/remote comparison; lines 145, 278–289",
+          "original_basis": "ODM-S01/S02 configs; ODM-S12 performance table; ODM-S18 final paper; ODM-S19 profiler; deployment_calculations.py and calculation-results.json",
+          "judgment": "Memory and latency examples retain context/window/head/dtype and workload assumptions. A process RSS difference is not peak memory. Cloud-only dollar savings exclude local hardware/energy and do not establish end-to-end savings or speed. The calculation records are inspected as arithmetic with declared assumptions, not as device measurements."
+        }
+      ],
+      "sample_checks": [
+        {
+          "selection_reason": "A passed capacity recommendation can fail if KV-head count or context window is misread",
+          "current_locations": "Lines 21–39 and memory table",
+          "sources": [
+            "ODM-S01.txt:1–27",
+            "ODM-S02.txt:1–38",
+            "analysis/calculations/deployment_calculations.py:full",
+            "analysis/calculations/calculation-results.json:full"
+          ],
+          "result": "pass",
+          "observation": "Qwen2.5-3B config has 36 layers, 2 KV heads, head dimension 128 and 32,768 context; per-token fp16 KV is 36KiB and examples distinguish installed RAM from the assumed application budget. No advertised family-wide 128K window is substituted for this model."
+        },
+        {
+          "selection_reason": "Removing duplicated latency prose might hide phase or generation-length assumptions",
+          "current_locations": "Lines 59–67 and 115",
+          "sources": [
+            "ODM-S12.txt:54–77",
+            "analysis/calculations/deployment_calculations.py:full",
+            "analysis/calculations/calculation-results.json:full"
+          ],
+          "result": "pass",
+          "observation": "The report retains 1,024-token prefill and separate 128/512-token decode estimates, CPU/GPU distinctions and device operating setup. The shortened paragraph points back to the still-present calculation and does not present a generation rate as time to first token or a complete application measurement."
+        },
+        {
+          "selection_reason": "A local/remote recommendation can overstate lower billed tokens as lower total cost or faster response",
+          "current_locations": "Local/remote collaboration section, including line 105",
+          "sources": [
+            "ODM-S18.txt:359–369,600–626,775–789,790–818,862–875"
+          ],
+          "result": "pass",
+          "observation": "The final paper's 0.724/$0.233 remote and 0.709/$0.042 Minions comparison treats local compute as free and uses the stated price snapshot. Its latency table is ten LongHealth samples on specified GPUs, with the 31.81s versus 11s row not implying a phone speedup. Privacy guarantees remain future work. The report keeps these qualifications."
+        },
+        {
+          "selection_reason": "A fast speech benchmark can conceal preloaded state, timing scope or nonpeak memory",
+          "current_locations": "Line 145 and source/measurement explanation at 287",
+          "sources": [
+            "ODM-S19.txt:1–88 full"
+          ],
+          "result": "pass",
+          "observation": "The profiler warms up, synchronizes GPU timing, loads outside the timed inference loop and computes before/after process RSS shifted by 20 bits. The report's MiB and RSS-delta correction is supported and is not a peak or whole-pipeline measure."
+        }
+      ],
+      "change_assessment": "The compressed latency section leaves the full earlier worked example available; the quantization sentence is more specific; generic final transfer caution is removed while concrete measurement dimensions remain. The only added factual content is the source-supported 328-second duration and its carefully bounded implication.",
+      "required_findings_open": [],
+      "optional_findings_open": [
+        "PL-ODM-01"
+      ]
+    }
+  ],
+  "dispositions": [
+    {
+      "finding_id": "EVIDENCE-ODM-01",
+      "case_id": "on_device_models_en",
+      "severity": "required",
+      "original_review": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/evidence.json",
+      "original_review_validity": "valid",
+      "original_version_sha256": "e82e4fbad93e8f1754b0ac613f333a1d3d68cd732d2556b26a3a464deea495bc",
+      "location": "First editorial/current report line 287",
+      "finding": "Earlier text incorrectly said the aggregate audio duration was unspecified and therefore precise aggregate RTF reconstruction was prevented.",
+      "disposition": "resolved",
+      "author_claim_used_as_proof": false,
+      "independent_basis": "Directly read ODM17.txt Table 3 at line 226 (328 seconds), its setup and timing/energy table at 146–239, and Table 4 at 283–330. Read the whole 13-line correction diff and current paragraph. Current text permits aggregate RTF arithmetic but correctly leaves continuous-stream latency and wall-energy claims unsupported. Same-reviewer evidence-followup independently confirms the correction.",
+      "additional_action_required": false
+    },
+    {
+      "finding_id": "PL-IRW-01",
+      "case_id": "instant_retail_warehouses_zh",
+      "severity": "required",
+      "original_review": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/process_language.json",
+      "original_review_validity": "valid",
+      "original_version_sha256": "cdf65d2c4dd5af7ad9a2157a6e61bc6aa078074f7e97aaa17807853933429f7b",
+      "location": "First editorial report line 372; current ending lines 366–370",
+      "finding": "Final paragraph describes internal reading-ledger/claims production records rather than serving the reader's substantive decision.",
+      "disposition": "resolved",
+      "author_claim_used_as_proof": false,
+      "independent_basis": "Read complete current tail and complete 10-line corrective diff: only the final ledger/claims sentence plus preceding blank is removed. Source cutoff and calculation-method explanation remain. README archive navigation describes both records and resolves to existing originals. Same-reviewer process-language-followup confirms the exact disposition.",
+      "additional_action_required": false
+    },
+    {
+      "finding_id": "PL-ODM-01",
+      "case_id": "on_device_models_en",
+      "severity": "optional",
+      "original_review": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/process_language.json",
+      "location": "Line 285 Current APIs source table",
+      "finding": "The clause about an older raw Microsoft repository page being preserved separately is archive-oriented wording.",
+      "disposition": "no_change",
+      "resolution_status": "unresolved_optional",
+      "blocking": false,
+      "rationale": "The clause is limited to source/method detail and does not change an API availability claim or deployment decision. It remains exactly as the optional review recorded; the authorized repair retains optional wording suggestions rather than expanding edits.",
+      "additional_action_required": false
+    },
+    {
+      "finding_id": "NE-IRW-OPT1",
+      "case_id": "instant_retail_warehouses_zh",
+      "severity": "optional",
+      "original_review": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/natural_expression.json",
+      "location": "Line 266",
+      "finding": "降低拣选错误与完成率的损失 is an awkward combination of error reduction and completion-rate loss.",
+      "disposition": "no_change",
+      "resolution_status": "unresolved_optional",
+      "blocking": false,
+      "rationale": "Surrounding discussion makes the operational meaning recoverable and no input, formula or recommendation depends on treating the phrase as a new measure. It remains an expression suggestion rather than an unresolved substantive defect.",
+      "additional_action_required": false
+    },
+    {
+      "finding_id": "NE-TTC-OPT1",
+      "case_id": "test_time_compute_en",
+      "severity": "optional",
+      "original_review": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/reviews/natural_expression.json",
+      "location": "Line 306",
+      "finding": "raw accuracy with failed abstention could be phrased more naturally as abstentions counted as failures.",
+      "disposition": "no_change",
+      "resolution_status": "unresolved_optional",
+      "blocking": false,
+      "rationale": "Lines 199 and 241 already distinguish zero accuracy credit and filtering/abstention treatment. The phrase does not alter the metric, budget or reader action; it is retained as an optional expression issue.",
+      "additional_action_required": false
+    }
+  ],
+  "prior_audit_reuse": {
+    "case_id": "test_time_compute_en",
+    "source_auditor": "/root/benchmark_audit_complete",
+    "response_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/native-current-audit-reviews/audit/response.json",
+    "response_sha256": "9937bc6a166928dce5a9411edd4cf7da478611503c38d923758cf418b02cdf2a",
+    "execution_path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/astra-api-current-chat-20261109/work/implementation/research/test_time_compute_en/native-current-audit-reviews/audit/execution.json",
+    "execution_sha256": "0771904fea6ddaa1ebe7248679689d0fb5605a1a19eaea70d0c217b486ecb395",
+    "input_version": "f09f3163d0ce7117bf0d6cf21db332441aa6a924ab57b40e79fa614279fe89b1",
+    "assignment_version": "7cd2a8a691916c1ffb6bad023b5e57f633babeb67833532d95828fce0de904de",
+    "report_sha256_then": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+    "basis": "Earlier actual full-report/source reading and citation-label diff audit are retained in those raw records. This turn read the complete new 356-line report and entire current cumulative diff, all current repair reviews and the prior audit record. Unchanged source claims reuse the earlier actual source checks; they are not counted as new source reads or rerun responsibilities.",
+    "prior_necessary_dispositions": [
+      {
+        "finding": "a1c1a586e9c5493c906b54a092954742/natural_expression-01",
+        "status": "remains_resolved",
+        "current_evidence": "Line 193 keeps the 20,000-rollout research setup factual; the pilot wording near 293 no longer speaks as a drafting request. Current diff does not restore the old process language."
+      },
+      {
+        "finding": "0e1eb4f31fff4f5bab7fb64d00806ca8/RU-TTCEN-01",
+        "status": "remains_resolved",
+        "current_evidence": "OR/AD definitions at 133, percentage/percentage-point distinction at 146 and the bounded pilot at 325 remain."
+      },
+      {
+        "finding": "0e1eb4f31fff4f5bab7fb64d00806ca8/RU-TTCEN-02",
+        "status": "remains_resolved",
+        "current_evidence": "Complete decision graph at 251–285 retains U→B completion, Q→Q1→R remaining-work path, and S revised/no-revision paths. The expression repair does not change the graph."
+      }
+    ]
+  },
+  "actual_reading": {
+    "instructions": [
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/CONTRIBUTING.md",
+        "range": "full"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/references/subagents-and-review-loop.zh-CN.md",
+        "range": "full"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/README.zh-CN.md",
+        "range": "full"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/manifest.json",
+        "range": "full"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/author-response.json",
+        "range": "full; navigational only, not accepted as proof of resolution"
+      }
+    ],
+    "original_tasks": [
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/test_time_compute_en/task.json",
+        "range": "full"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/instant_retail_warehouses_zh/task.json",
+        "range": "full"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/studies/2026-11-09-long-research/reports/on_device_models_en/task.json",
+        "range": "full"
+      }
+    ],
+    "current_reports": "Per-report contiguous full ranges are recorded above.",
+    "raw_reviews": "All eight review JSON files and both targeted followup JSON files listed in review_checks/followup_checks were read in full, including execution/identity, version coverage, reasoning, limitations and findings.",
+    "diffs": [
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/test_time_compute_en.diff",
+        "range": "full, 49 lines; five hunks"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.diff",
+        "range": "full, 42 lines; four hunks"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.diff",
+        "range": "full, 33 lines; three hunks"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/instant_retail_warehouses_zh.pl-irw-01.diff",
+        "range": "full, 10 lines"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-reliability-20261110/evals/repairs/2026-11-10-report-expression/changes/on_device_models_en.evidence-odm-01.diff",
+        "range": "full, 13 lines"
+      }
+    ],
+    "new_source_and_calculation_reads": [
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM17.txt",
+        "actual_ranges": "146–239; 283–330",
+        "purpose": "Audio duration, timing, incremental energy, noise method, WER typo and row-specific FP16/INT8 comparison"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM-S01.txt",
+        "actual_ranges": "1–27, full",
+        "purpose": "Model configuration for KV budget"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM-S02.txt",
+        "actual_ranges": "1–38",
+        "purpose": "Specific model parameter/context size versus family-wide claims"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM-S12.txt",
+        "actual_ranges": "54–77",
+        "purpose": "Prefill/decode workloads, device mode and measured rate rows"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM-S18.txt",
+        "actual_ranges": "359–369; 600–626; 775–789; 790–814; 815–824; 862–875, plus targeted search hits",
+        "purpose": "Final Minions accuracy/cost basis, local-free assumption, price snapshot, latency sample/hardware and privacy boundary"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/sources/actual/ODM-S19.txt",
+        "actual_ranges": "1–88, full",
+        "purpose": "Warmup, synchronized timing, model-load scope and RSS MiB calculation"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/analysis/calculations/deployment_calculations.py",
+        "actual_ranges": "full",
+        "purpose": "Read formulas and declared assumptions only; not executed"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/on_device_models_en/analysis/calculations/calculation-results.json",
+        "actual_ranges": "full",
+        "purpose": "Read retained memory, phase-time, duty, transfer and economic outputs; not regenerated"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/sources/actual/IRW02.txt",
+        "actual_ranges": "1–120",
+        "purpose": "Saved SEC excerpt's revenue/profit/cost/network periods; not represented as the complete annual filing"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/sources/actual/IRW03.txt",
+        "actual_ranges": "1–45, plus targeted matching lines",
+        "purpose": "Quarterly result, ceased D&A, closure and transaction context"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/sources/actual/IRW10.txt",
+        "actual_ranges": "1–55, full saved article",
+        "purpose": "Individual operator gross margin, demand, bidding and cost boundaries"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/sources/actual/IRW28.txt",
+        "actual_ranges": "96–130, main article",
+        "purpose": "Order contraction, merchant promotion cost, inventory and heterogeneous outcomes"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/analysis/author-production/warehouse-model.py",
+        "actual_ranges": "1–43, full",
+        "purpose": "Threshold/capacity, upstream profit, cash/stock and hypothetical inputs; not executed"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/analysis/author-production/warehouse-results.csv",
+        "actual_ranges": "full, header plus 25 scenario rows",
+        "purpose": "Retained scenario/unit-economics and sensitivity values"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/analysis/author-production/warehouse-results.json",
+        "actual_ranges": "top-level keys and complete platform_bridge, network, ramp objects",
+        "purpose": "Network transfer and six-month cash consequences"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/analysis/author-production/financial-bridges.py",
+        "actual_ranges": "1–15, full",
+        "purpose": "Financial, demand, inventory and store bridge formulas; not executed"
+      },
+      {
+        "path": "C:/Users/luosong03/Documents/ChatGPT/Others/work/toolkit-long-research-20261109/evals/runs/2026-11-09-long-research/tasks/instant_retail_warehouses_zh/analysis/author-production/financial-bridges.json",
+        "actual_ranges": "1–47, full",
+        "purpose": "Existing accounting/demand/store/inventory/payback/peak-hour outputs"
+      }
+    ],
+    "reading_time_basis": "All new readings and version checks occurred during this audit execution interval. Earlier TTC readings retain their original execution timestamps in the reused audit record; no per-file second-level timestamps are fabricated."
+  },
+  "integrity_checks": {
+    "independent_of_author_checklist": true,
+    "cumulative_diffs_reconstruct_current_reports": true,
+    "original_report_hashes": {
+      "test_time_compute_en": "0b44a5d0d22dc9aeb62311374be99325839d4c9a62be3a389ddf584f791afe5e",
+      "instant_retail_warehouses_zh": "f7a2af353f1934d1fa2877187111a345e559f05a82e4aaf3c7c9104c9b9e3fed",
+      "on_device_models_en": "59f8ac88843287debab4c0176d72575b648dbf581eece7888f22e050e69da8dd"
+    },
+    "cumulative_diff_sha256": {
+      "test_time_compute_en": "8b12ceed414d840aa45a695d8d46b64bb6ee807584a08bc4cc7f19efb50fd6c0",
+      "instant_retail_warehouses_zh": "c29cf2bc8683dbd0b89028a07061360a53bb10d8b01f0c7b6237a27cbdca8638",
+      "on_device_models_en": "996a8cb46829541eb30c3bf32bc2617875e94baf3485c6faea2a65f6894c58fb"
+    },
+    "first_diff_sha256": {
+      "instant_retail_warehouses_zh": "a540f76b9fcb2da519fbd7bb3d6d47087062f7cfa90a6de9dff6726c31956636",
+      "on_device_models_en": "9b02114ba4dc3c8b69df4a5f28bc9fbe593242310b3fb1040a3b2f836786aa13"
+    },
+    "source_url_sequences_unchanged": {
+      "test_time_compute_en": {
+        "before": 54,
+        "after": 54
+      },
+      "instant_retail_warehouses_zh": {
+        "before": 19,
+        "after": 19
+      },
+      "on_device_models_en": {
+        "before": 37,
+        "after": 37
+      }
+    },
+    "original_negative_review_hashes_match_followup_references": true,
+    "retained_first_report_hashes_match_original_review_versions": true,
+    "irw_archive_navigation_targets_exist": true,
+    "metadata_note": "README/manifest retain author-handoff/pending stage wording. They were not treated as review completion proof or rewritten by the auditor; the actual raw reviews, followups and this version-bound audit supply the completed assessment."
+  },
+  "open_required_findings": [],
+  "open_optional_findings": [
+    "PL-ODM-01",
+    "NE-IRW-OPT1",
+    "NE-TTC-OPT1"
+  ],
+  "final_acceptance": "Separate responsibility; not performed or preempted by this audit."
+}
