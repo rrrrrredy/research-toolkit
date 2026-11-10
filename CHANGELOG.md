@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.4.2 — 2026-11-10
+
+Fix automatic usage upload leaving the final events queued when a session ends during the upload window. The existing background sender now batches events after about 30 seconds and respects the off setting before sending. Manual upload and research interfaces remain compatible; bilingual usage guidance and the plugin are synchronized.
+
+[English release notes](docs/releases/v2.4.2.md) · [中文发布说明](docs/releases/v2.4.2.zh-CN.md)
+
 ## v2.4.1 — 2026-11-10
 
 Fix Windows long-path task saves and lock identity, give file-access errors an appropriate recovery instruction, and keep ordinary/extended task paths under one usage identity. Disable telemetry in engineering checks and their packaged MCP child process. Preserve original reports alongside three limited editorial revisions and independent records.
