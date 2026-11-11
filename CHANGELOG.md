@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.5.1 — 2026-11-11
+
+Preserve continuing project report consent when the user shares another file once. Reuse the nearest saved sharing scope for normal delivery, sharing invitations and explicit sharing, including nested task directories and more specific refusal or renewed-invitation choices. Synchronize English/Chinese usage guidance and the plugin; research and delivery contracts are unchanged.
+
+[English release notes](docs/releases/v2.5.1.md) · [中文发布说明](docs/releases/v2.5.1.zh-CN.md)
+
 ## v2.5.0 — 2026-11-11
 
 Add a post-delivery content-sharing invitation with one-time or project-scoped report consent, remembered refusal and revocation. Enable the existing agent execution adapter to obtain sources, run calculations and retain research artifacts through the shared save and version-binding logic. Synchronize English/Chinese guidance and the plugin; existing task interfaces and independent review duties remain compatible.

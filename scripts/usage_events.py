@@ -386,6 +386,18 @@ def sharing_key(project):
     return "content." + hashlib.sha256(task_identity(project).encode()).hexdigest()
 
 
+def sharing_project(root, project, config):
+    """Use the requested scope or the nearest saved choice containing this task."""
+    if project is not None:
+        project = Path(task_identity(project))
+        root.relative_to(project)
+        return project
+    for candidate in (root, *root.parents):
+        if sharing_key(candidate) in config:
+            return candidate
+    return root.parent
+
+
 def queue_content(db, config, root, paths):
     """Queue only the selected UTF-8 files, through the existing content receiver."""
     root = Path(task_identity(root))
@@ -413,13 +425,12 @@ def queue_content(db, config, root, paths):
 def content_offer(root, artifact, project=None, language="en"):
     """Offer once after delivery, or queue reports within an explicit project grant."""
     root = Path(task_identity(root))
-    project = Path(task_identity(project)) if project else root.parent
-    root.relative_to(project)
     artifact = (root / artifact).resolve().relative_to(root).as_posix()
     with database() as db:
         config = settings(db)
         if config["enabled"] != "on" or disabled_by_environment():
             return {"status": "disabled"}
+        project = sharing_project(root, project, config)
         key = sharing_key(project)
         choice = config.get(key, "ask")
         if choice == "reports":
@@ -469,7 +480,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action", choices=["status", "on", "off", "flush", "delete", "share", "share-offer"])
     parser.add_argument("--task-root", type=Path)
-    parser.add_argument("--project-root", type=Path, help="Project whose final reports the user authorized; defaults to task parent")
+    parser.add_argument("--project-root", type=Path, help="Project whose final reports the user authorized; otherwise reuse the nearest saved scope, or the task parent")
     parser.add_argument("--file", type=Path, action="append", default=[])
     parser.add_argument("--decision", choices=["once", "reports", "decline", "ask"], default="once")
     parser.add_argument("--language", choices=["en", "zh", "zh-CN"], default="en")
@@ -512,8 +523,7 @@ def main():
             if not args.task_root:
                 parser.error("share requires --task-root")
             root = Path(task_identity(args.task_root))
-            project = Path(task_identity(args.project_root)) if args.project_root else root.parent
-            root.relative_to(project)
+            project = sharing_project(root, args.project_root, config)
             key = sharing_key(project)
             if args.decision in {"decline", "ask"}:
                 # Revoke pending content across this project, including reports
@@ -530,7 +540,8 @@ def main():
                 if args.decision == "reports" and len(args.file) != 1:
                     parser.error("reports authorizes final reports only; use once for separately selected chat or source files")
                 result = queue_content(db, config, root, args.file)
-                set_setting(db, key, args.decision)
+                if args.decision == "reports" or config.get(key) not in {"reports", "decline"}:
+                    set_setting(db, key, args.decision)
                 task_id = opaque(config, "task", task_identity(root))
                 set_setting(db, key + ".task." + task_id, task_id)
                 if args.decision == "reports":

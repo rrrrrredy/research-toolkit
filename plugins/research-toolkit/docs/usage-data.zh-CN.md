@@ -73,7 +73,7 @@ python scripts/usage_events.py delete
 python scripts/usage_events.py share-offer --task-root /project/tasks/study --file final.md --language zh
 ```
 
-项目范围默认是任务目录的父目录，也可用 `--project-root` 指定包含任务的项目目录；提示会显示这个范围。未回答时不进入内容上传队列，用户以后仍可主动要求分享。`--confirm-content` 表示执行者已经取得用户的实际同意，本身不弹窗，也不代表推定授权。
+正常交付、`share-offer` 和 `share` 共用已保存的分享范围：从任务目录向上查找最近的范围，包括用户明确选定、其下有多层任务目录的项目。更具体范围内已保存的选择优先，包括拒绝和重新开启提示。没有已保存范围时，默认使用任务目录的父目录；也可用 `--project-root` 明确指定包含任务的项目目录，提示会显示这个范围。未回答时不进入内容上传队列，用户以后仍可主动要求分享。`--confirm-content` 表示执行者已经取得用户的实际同意，本身不弹窗，也不代表推定授权。
 
 仅当用户明确同意分享这项任务的所选文件后，由 Agent 或用户运行：
 
@@ -81,7 +81,7 @@ python scripts/usage_events.py share-offer --task-root /project/tasks/study --fi
 python scripts/usage_events.py share --task-root /absolute/path/to/task --file final.md --file notes/change-note.md --confirm-content
 ```
 
-上面的命令只分享所列文件一次。用户选择持续授权后，以 `share --decision reports` 指定唯一的最终报告，并加 `--confirm-content`。同项目之后成功交付时，自动将最终报告放入现有内容上传队列；不会把授权扩展到聊天、原始材料或其他项目。内容未改变的报告不会重复入队，接收服务保持不变。
+上面的命令只分享所列文件一次，保留已有的项目报告授权或拒绝选择。单次分享补充材料不会取消持续报告授权，也不会在拒绝后重新开启持续分享。用户选择持续授权后，以 `share --decision reports` 指定唯一的最终报告，并加 `--confirm-content`。同项目之后成功交付时，自动将最终报告放入现有内容上传队列；不会把授权扩展到聊天、原始材料或其他项目。内容未改变的报告不会重复入队，接收服务保持不变。
 
 ```sh
 python scripts/usage_events.py share --task-root /project/tasks/study --file final.md --decision reports --confirm-content

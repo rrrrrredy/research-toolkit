@@ -73,7 +73,7 @@ Managed tasks return the invitation in `finish.content_sharing` only after `comp
 python scripts/usage_events.py share-offer --task-root /project/tasks/study --file final.md --language en
 ```
 
-The project defaults to the task directory's parent; `--project-root` can select its containing project. The returned prompt identifies that scope. No reply queues no content. The user can request sharing later. `--confirm-content` records the caller's confirmation that the user actually agreed; it is not a popup or an inferred approval.
+Normal delivery, `share-offer` and `share` reuse the nearest saved sharing scope containing the task, including an explicitly selected project above several task directories. A more specific saved choice takes precedence, including refusal or a request to restore the invitation. With no saved scope, the default is the task directory's parent; `--project-root` explicitly selects its containing project. The returned prompt identifies that scope. No reply queues no content. The user can request sharing later. `--confirm-content` records the caller's confirmation that the user actually agreed; it is not a popup or an inferred approval.
 
 Only after the user explicitly authorizes the selected files for this task, the agent or user can run:
 
@@ -81,7 +81,7 @@ Only after the user explicitly authorizes the selected files for this task, the 
 python scripts/usage_events.py share --task-root /absolute/path/to/task --file final.md --file notes/change-note.md --confirm-content
 ```
 
-This command shares only the listed files once. If the user chose continuing authorization, use `share --decision reports` with the single final report and `--confirm-content`. Later successful deliveries in the same project queue only the final report; they never expand that grant to chat, source materials, or other projects. Unchanged reports are not queued again. Upload uses the existing content queue and private receiver.
+This command shares only the listed files once and preserves an existing project report grant or refusal. Sharing supplementary material once does not cancel continuing report authorization or reopen sharing after refusal. If the user chose continuing authorization, use `share --decision reports` with the single final report and `--confirm-content`. Later successful deliveries in the same project queue only the final report; they never expand that grant to chat, source materials, or other projects. Unchanged reports are not queued again. Upload uses the existing content queue and private receiver.
 
 ```sh
 python scripts/usage_events.py share --task-root /project/tasks/study --file final.md --decision reports --confirm-content
