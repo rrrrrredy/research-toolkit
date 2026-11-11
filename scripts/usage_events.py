@@ -362,6 +362,8 @@ def flush():
             with database() as db:
                 if settings(db)["enabled"] != "on":
                     break
+                if not db.execute("SELECT 1 FROM content WHERE id=?", (row["id"],)).fetchone():
+                    continue  # A user withdrew this project grant after the batch was read.
             reply = request_json(target+"/v1/content", json.loads(row["payload"]), config)
             if reply.get("id") != row["id"]:
                 raise ValueError("receiver did not acknowledge shared content")
@@ -380,15 +382,105 @@ def flush():
             set_setting(db, "sending_until", "0")
 
 
+def sharing_key(project):
+    return "content." + hashlib.sha256(task_identity(project).encode()).hexdigest()
+
+
+def queue_content(db, config, root, paths):
+    """Queue only the selected UTF-8 files, through the existing content receiver."""
+    root = Path(task_identity(root))
+    if config["enabled"] != "on" or disabled_by_environment():
+        raise ValueError("usage sharing is disabled; enable it explicitly first")
+    files = []
+    for index, path in enumerate(paths):
+        source = (root / path).resolve()
+        relative = source.relative_to(root)
+        if any(part in {".git", ".env", "credentials", "auth.json"} for part in relative.parts):
+            raise ValueError("credential/configuration files cannot be shared")
+        if source.stat().st_size > 1024 * 1024:
+            raise ValueError("selected files must each be at most 1 MiB")
+        files.append({"name": f"file-{index+1}.txt", "text": source.read_text(encoding="utf-8")})
+    if not files:
+        raise ValueError("select at least one file")
+    packet = {"id": uuid.uuid4().hex, "task": opaque(config, "task", task_identity(root)),
+              "consent": True, "files": files, "at": datetime.now(timezone.utc).isoformat()}
+    if len(json.dumps(packet).encode()) > 1_900_000:
+        raise ValueError("selected content packet exceeds 1,900,000 bytes")
+    db.execute("INSERT INTO content VALUES (?,?,?)", (packet["id"], time.time(), json.dumps(packet)))
+    return {"queued": packet["id"], "files": len(files)}
+
+
+def content_offer(root, artifact, project=None, language="en"):
+    """Offer once after delivery, or queue reports within an explicit project grant."""
+    root = Path(task_identity(root))
+    project = Path(task_identity(project)) if project else root.parent
+    root.relative_to(project)
+    artifact = (root / artifact).resolve().relative_to(root).as_posix()
+    with database() as db:
+        config = settings(db)
+        if config["enabled"] != "on" or disabled_by_environment():
+            return {"status": "disabled"}
+        key = sharing_key(project)
+        choice = config.get(key, "ask")
+        if choice == "reports":
+            checksum = hashlib.sha256((root / artifact).read_bytes()).hexdigest()
+            sent_key = key + ".report." + hashlib.sha256(task_identity(root / artifact).encode()).hexdigest()
+            if config.get(sent_key) == checksum:
+                return {"status": "already_queued"}
+            result = {"status": "queued", **queue_content(db, config, root, [artifact])}
+            set_setting(db, sent_key, checksum)
+            task_id = opaque(config, "task", task_identity(root))
+            set_setting(db, key + ".task." + task_id, task_id)
+        elif choice != "ask":
+            return {"status": choice}
+        else:
+            recipient = "rrrrrredy/research-toolkit-usage (private)"
+            prompt = (f"报告已交付。愿意将 {artifact} 分享给 Research Toolkit 维护者，"
+                      f"用于改进研究方法和产品吗？文件会发送到私密仓库 {recipient}。"
+                      "本次不包含聊天记录或原始材料。可选择：仅分享这次报告；"
+                      f"允许今后自动分享本项目（{project}）的最终报告；不分享并不再提示。"
+                      "未回复不会上传，也不影响报告使用。以后可随时关闭。"
+                      if language in {"zh", "zh-CN"} else
+                      f"Your report is ready. May we share {artifact} with the Research Toolkit maintainer "
+                      f"in {recipient} to improve research methods and the product? Chat and source materials "
+                      "are excluded. Choose: share this report once; automatically share future final reports "
+                      f"in this project ({project}); or decline and stop asking. No reply means no upload. "
+                      "Your report remains available; you can turn sharing off later.")
+            result = {"status": "ask", "prompt": prompt, "files": [artifact],
+                      "recipient": recipient, "project_root": str(project), "task_root": str(root),
+                      "choices": ["once", "reports", "decline"]}
+            set_setting(db, key, "offered")
+    if result["status"] == "queued":
+        schedule_upload()
+    return result
+
+
+def delivery_sharing(root, artifact, language="en"):
+    # Sharing is separate from research completion. Keep a local storage failure
+    # visible without changing a successful delivery into a research failure.
+    try:
+        return content_offer(root, artifact, language=language)
+    except (OSError, ValueError, sqlite3.Error) as exc:
+        return {"status": "error", "error": type(exc).__name__, "next_action": "Report delivered; retry content sharing separately."}
+
+
 def main():
     import argparse
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("action", choices=["status", "on", "off", "flush", "delete", "share"])
+    parser.add_argument("action", choices=["status", "on", "off", "flush", "delete", "share", "share-offer"])
     parser.add_argument("--task-root", type=Path)
+    parser.add_argument("--project-root", type=Path, help="Project whose final reports the user authorized; defaults to task parent")
     parser.add_argument("--file", type=Path, action="append", default=[])
+    parser.add_argument("--decision", choices=["once", "reports", "decline", "ask"], default="once")
+    parser.add_argument("--language", choices=["en", "zh", "zh-CN"], default="en")
     parser.add_argument("--confirm-content", action="store_true", help="The user explicitly authorized sharing these selected files")
     parser.add_argument("--scheduled", action="store_true", help=argparse.SUPPRESS)
     args = parser.parse_args()
+    if args.action == "share-offer":
+        if not args.task_root or len(args.file) != 1:
+            parser.error("share-offer needs --task-root and one delivered report --file")
+        print(json.dumps(content_offer(args.task_root, args.file[0], args.project_root, args.language), ensure_ascii=False))
+        return
     if args.action == "flush":
         if args.scheduled:
             time.sleep(30)
@@ -417,31 +509,40 @@ def main():
                               "pending_content": db.execute("SELECT count(*) FROM content").fetchone()[0],
                               "last_upload": config.get("last_upload"), "last_error": config.get("last_error")}))
         elif args.action == "share":
-            if not args.confirm_content or not args.task_root or not args.file:
-                parser.error("share requires --task-root, selected --file paths and --confirm-content")
-            if config["enabled"] != "on" or disabled_by_environment():
-                parser.error("usage sharing is disabled; enable it explicitly first")
-            root = args.task_root.resolve()
-            files = []
-            for index, path in enumerate(args.file):
-                source = (root/path).resolve()
-                source.relative_to(root)
-                if any(part in {".git", ".env", "credentials", "auth.json"} for part in source.relative_to(root).parts):
-                    parser.error("credential/configuration files cannot be shared")
-                if source.stat().st_size > 1024*1024:
-                    parser.error("selected files must each be at most 1 MiB")
-                files.append({"name": f"file-{index+1}.txt", "text": source.read_text(encoding="utf-8")})
-            packet = {"id": uuid.uuid4().hex, "task": opaque(config, "task", str(root)),
-                      "consent": True, "files": files, "at": datetime.now(timezone.utc).isoformat()}
-            if len(json.dumps(packet).encode()) > 1_900_000:
-                parser.error("selected content packet exceeds 1,900,000 bytes")
-            db.execute("INSERT INTO content VALUES (?,?,?)", (packet["id"], time.time(), json.dumps(packet)))
-            print(json.dumps({"queued": packet["id"], "files": len(files)}))
+            if not args.task_root:
+                parser.error("share requires --task-root")
+            root = Path(task_identity(args.task_root))
+            project = Path(task_identity(args.project_root)) if args.project_root else root.parent
+            root.relative_to(project)
+            key = sharing_key(project)
+            if args.decision in {"decline", "ask"}:
+                # Revoke pending content across this project, including reports
+                # queued before the user withdrew authorization.
+                for row in db.execute("SELECT key,value FROM settings WHERE key LIKE ?", (key + ".task.%",)).fetchall():
+                    matching = [(item["id"],) for item in db.execute("SELECT id,payload FROM content")
+                                if json.loads(item["payload"]).get("task") == row["value"]]
+                    db.executemany("DELETE FROM content WHERE id=?", matching)
+                set_setting(db, key, args.decision)
+                print(json.dumps({"decision": args.decision, "project_root": str(project)}))
+            else:
+                if not args.confirm_content or not args.file:
+                    parser.error("share requires selected --file paths and --confirm-content after the user's agreement")
+                if args.decision == "reports" and len(args.file) != 1:
+                    parser.error("reports authorizes final reports only; use once for separately selected chat or source files")
+                result = queue_content(db, config, root, args.file)
+                set_setting(db, key, args.decision)
+                task_id = opaque(config, "task", task_identity(root))
+                set_setting(db, key + ".task." + task_id, task_id)
+                if args.decision == "reports":
+                    source = (root / args.file[0]).resolve()
+                    sent_key = key + ".report." + hashlib.sha256(task_identity(source).encode()).hexdigest()
+                    set_setting(db, sent_key, hashlib.sha256(source.read_bytes()).hexdigest())
+                print(json.dumps(result))
         elif args.action == "delete":
             target = endpoint(config)
             if not target:
                 parser.error("no receiver configured")
-            data = {"task": opaque(config, "task", str(args.task_root.resolve()))} if args.task_root else {}
+            data = {"task": opaque(config, "task", task_identity(args.task_root))} if args.task_root else {}
             print(json.dumps(request_json(target+"/v1/delete", data, config)))
             for table in ("content", "events"):
                 if data:

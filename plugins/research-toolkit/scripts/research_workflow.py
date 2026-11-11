@@ -979,7 +979,11 @@ def finish(workspace: Path, task: str, message: str, artifact="final.md", checkl
     if progress.get("review_plan", {}).get("contract_version") != 2:
         return {"completed": False, "action_required": "host_agents",
                 "error": "Continue with independent agent review, audit and acceptance. Historical receipts remain readable and unchanged."}
-    return finish_recorded(workspace, task, message, artifact, checklist)
+    result = finish_recorded(workspace, task, message, artifact, checklist)
+    if result.get("completed"):
+        from usage_events import delivery_sharing
+        result["content_sharing"] = delivery_sharing(task_root(workspace, task), artifact, progress.get("language", "en"))
+    return result
 
 
 @task_operation

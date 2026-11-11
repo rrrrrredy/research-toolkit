@@ -62,9 +62,18 @@ The local queue defaults to `~/.research-toolkit/usage/`, retaining at most seve
 
 Ordinary and `\\?\` extended Windows paths for one task share an event identity. Session counts use Agent-tool session events; producer and reviewer execution identifiers are listed separately. `test=true` is a collection flag; research tasks and engineering checks are classified using their actual execution records.
 
-## Share selected research content once
+<a id="share-selected-research-content-once"></a>
+## Share research content after delivery
 
-There is no automatic popup. When sharing is requested, the agent lists the selected files and the recipient (the Toolkit maintainer's private usage repository) in the current conversation and asks for consent; the user can also directly request sharing specific files. After consent, the agent runs the command below. `--confirm-content` records the caller's confirmation that consent has been obtained; the flag does not open a confirmation dialog.
+After the first complete report in a project, the agent shows one invitation in the current conversation, after delivering the report links. It uses the actual filename and explains that the recipient is the Toolkit maintainer's private `rrrrrredy/research-toolkit-usage` repository, for improving research methods and the product. The invitation offers three choices: **share this report once; allow future final reports in this project; do not share and stop asking**. Show the actual project directory when offering continuing authorization. Do not interrupt research, block delivery, repeatedly ask after refusal, or interpret silence as consent. Chat and raw materials are excluded from this invitation; list any such files separately when the user wants to contribute them.
+
+Managed tasks return the invitation in `finish.content_sharing` only after `completed=true`. For Skill-only work with file/command access, use `share-offer` after delivering the completed report. It records that the invitation has been offered, not that the user agreed. Without command access, show the same invitation in conversation and retain the answer there; do not claim an upload or require tool-managed research records.
+
+```sh
+python scripts/usage_events.py share-offer --task-root /project/tasks/study --file final.md --language en
+```
+
+The project defaults to the task directory's parent; `--project-root` can select its containing project. The returned prompt identifies that scope. No reply queues no content. The user can request sharing later. `--confirm-content` records the caller's confirmation that the user actually agreed; it is not a popup or an inferred approval.
 
 Only after the user explicitly authorizes the selected files for this task, the agent or user can run:
 
@@ -72,7 +81,14 @@ Only after the user explicitly authorizes the selected files for this task, the 
 python scripts/usage_events.py share --task-root /absolute/path/to/task --file final.md --file notes/change-note.md --confirm-content
 ```
 
-Authorization covers only those selected files. Future additions and edits are not automatically shared. Each UTF-8 file must be inside the task directory and at most 1 MiB; the encoded packet is at most 1,900,000 bytes. Check the selected files for personal, client or confidential information the user does not want to share. The program does not scan the entire task directory or treat one approval as permanent consent.
+This command shares only the listed files once. If the user chose continuing authorization, use `share --decision reports` with the single final report and `--confirm-content`. Later successful deliveries in the same project queue only the final report; they never expand that grant to chat, source materials, or other projects. Unchanged reports are not queued again. Upload uses the existing content queue and private receiver.
+
+```sh
+python scripts/usage_events.py share --task-root /project/tasks/study --file final.md --decision reports --confirm-content
+python scripts/usage_events.py share --task-root /project/tasks/study --decision decline
+```
+
+Decline remembers the choice and removes queued content for this project. It leaves basic usage recording unchanged. `share --decision ask` restores the invitation on a later delivery when the user requests it. `off` still disables all sharing and clears pending uploads. Each UTF-8 file remains limited to 1 MiB, and the encoded packet to 1,900,000 bytes. The program does not scan the whole task directory. The agent should disclose the selected files and let the user exclude personal, client or confidential material before consent.
 
 ## Maintainer access
 

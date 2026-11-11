@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.5.0 — 2026-11-11
+
+Add a post-delivery content-sharing invitation with one-time or project-scoped report consent, remembered refusal and revocation. Enable the existing agent execution adapter to obtain sources, run calculations and retain research artifacts through the shared save and version-binding logic. Synchronize English/Chinese guidance and the plugin; existing task interfaces and independent review duties remain compatible.
+
+[English release notes](docs/releases/v2.5.0.md) · [中文发布说明](docs/releases/v2.5.0.zh-CN.md)
+
 ## v2.4.3 — 2026-11-11
 
 Fix missing terminal usage events on unexpected Python exceptions and interruptions, preserving the original error and exit behavior. Clarify selected-file sharing consent; synchronize the plugin. Research interfaces and review requirements are unchanged.

@@ -33,23 +33,22 @@ class CLIAgentSession:
                 "host": self.name, "turn": turn, "direction": direction, "message": message}, ensure_ascii=False) + "\n")
             self.trace.flush()
 
-    def start(self, prompt, previous=None, read_paths=None):
+    def start(self, prompt, previous=None, read_paths=None, *, workdir=None):
         previous = native_id(self.name, previous)
         turn = uuid.uuid4().hex
         command = list(self.executable)
         paths = [str(Path(p).resolve()) for p in (read_paths or [])]
         if not paths:
             raise ValueError("Prepared research execution needs the retained reading pages for this invocation.")
+        cwd = Path(workdir).resolve() if workdir else self.cwd
         if self.name == "claude":
-            command += ["-p", "--output-format", "stream-json", "--verbose", "--tools", "Read",
-                        "--permission-mode", "dontAsk"]
+            command += ["-p", "--output-format", "stream-json", "--verbose"]
             command += ["--resume", previous] if previous else ["--session-id", str(uuid.uuid4())]
-            command += ["--allowedTools"] + ["Read(//" + Path(p).as_posix().lstrip("/") + ")" for p in paths]
         else:
-            command += ["run", "--format", "json", "--dir", str(self.cwd), "--agent", "research-toolkit-execution"]
+            command += ["run", "--format", "json", "--dir", str(cwd)]
             if previous:
                 command += ["--session", previous]
-        run = {"turn": turn, "previous": previous, "read_paths": paths,
+        run = {"turn": turn, "previous": previous, "read_paths": paths, "cwd": cwd,
                "ready": queue.Queue(), "process": None, "job": None}
         self.runs.append(run)
         self.record(turn, "send", {"argv": command, "prompt": prompt})
@@ -64,9 +63,7 @@ class CLIAgentSession:
 
     def _run(self, run, command, prompt):
         session, failure, result = None, None, None
-        text_parts, final_reason, calls = {}, None, {}
-        allowed = {Path(p).resolve() for p in run["read_paths"]}
-        read_files = set()
+        text_parts, final_reason = {}, None
         stderr = (self.directory / (run["turn"] + ".stderr.txt")).open("w", encoding="utf-8")
         try:
             run["job"] = WindowsJob() if os.name == "nt" else None
@@ -76,23 +73,9 @@ class CLIAgentSession:
             # Keep account/model settings, but do not inherit parent identity.
             for key in ("CLAUDECODE", "CLAUDE_CODE_ENTRYPOINT", "CODEX_THREAD_ID"):
                 env.pop(key, None)
-            if self.name == "opencode":
-                # A per-process permission envelope, not another research role.
-                # Reuse the agent tool's model/providers; do not write user settings.
-                config = json.loads(env.get("OPENCODE_CONFIG_CONTENT") or "{}")
-                # OpenCode checks read patterns relative to its project worktree,
-                # not the absolute filePath. Keep only the selected content-addressed
-                # names; successful reads are checked against exact paths below.
-                reads = {"*": "deny"}
-                for path in run["read_paths"]:
-                    relative = Path(path).relative_to(self.cwd)
-                    for pattern in (str(relative), relative.as_posix()):
-                        reads["*" + pattern] = "allow"
-                config.setdefault("agent", {})["research-toolkit-execution"] = {
-                    "description": "Read the supplied research inputs and return the complete assigned output.",
-                    "mode": "primary", "permission": {"*": "deny", "read": reads}}
-                env["OPENCODE_CONFIG_CONTENT"] = json.dumps(config, ensure_ascii=False)
-            process = run["process"] = subprocess.Popen(argv, cwd=self.cwd, env=env,
+            # Keep the installed tool's tools, permissions and provider settings.
+            # Research may require searches, downloads and executable calculations.
+            process = run["process"] = subprocess.Popen(argv, cwd=run["cwd"], env=env,
                 stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=stderr,
                 text=True, encoding="utf-8", bufsize=1,
                 creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
@@ -118,37 +101,17 @@ class CLIAgentSession:
                     session = self.name + ":" + identity
                     run["ready"].put(session)
                 if self.name == "claude":
-                    for block in raw.get("message", {}).get("content", []) if isinstance(raw.get("message"), dict) else []:
-                        if not isinstance(block, dict):
-                            continue
-                        if block.get("type") == "tool_use":
-                            calls[block["id"]] = block
-                        if block.get("type") == "tool_result" and not block.get("is_error"):
-                            call = calls.get(block.get("tool_use_id"), {})
-                            path = call.get("input", {}).get("file_path")
-                            if call.get("name") != "Read" or not path or (self.cwd / path).resolve() not in allowed:
-                                failure = "Native tool used data outside the prepared reading pages; original output retained, not imported."
-                            else:
-                                read_files.add((self.cwd / path).resolve())
                     if raw.get("type") == "result":
                         result = raw
                 else:
                     if raw.get("type") == "error":
                         failure = raw.get("error") or "Native CLI reported an error."
                     part = raw.get("part", {})
-                    if raw.get("type") == "tool_use" and part.get("state", {}).get("status") == "completed":
-                        path = part["state"].get("input", {}).get("filePath")
-                        if part.get("tool") != "read" or not path or (self.cwd / path).resolve() not in allowed:
-                            failure = "Native tool used data outside the prepared reading pages; original output retained, not imported."
-                        else:
-                            read_files.add((self.cwd / path).resolve())
                     if raw.get("type") == "text":
                         text_parts[part["id"]] = part
                     if raw.get("type") == "step_finish":
                         final_reason = part.get("reason")
             code = process.wait()
-            if Path(run["read_paths"][0]).resolve() not in read_files:
-                failure = "The supplied input packet was not successfully read; original output retained, not imported."
             if self.name == "claude":
                 content = result.get("result", "") if result else ""
                 completed = result and not result.get("is_error") and result.get("subtype") == "success"

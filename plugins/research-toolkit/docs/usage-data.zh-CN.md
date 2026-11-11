@@ -62,9 +62,18 @@ python scripts/usage_events.py delete
 
 同一 Windows 任务的普通路径与 `\\?\` 长路径写法使用同一关联标识。会话统计使用 Agent 工具的会话事件；保存者和评审执行标识单列。`test=true` 是采集标记，研究任务与工程检查按实际执行依据区分。
 
-## 单次分享研究内容
+<a id="单次分享研究内容"></a>
+## 交付后的研究内容分享
 
-没有自动弹窗。需要分享时，Agent 在当前对话中列明所选文件和接收方（Toolkit 维护者的私密使用仓库），询问用户是否同意；用户也可以主动指定文件要求分享。用户同意后，Agent 代为执行下面的命令。`--confirm-content` 记录执行者已经取得同意，本身不会弹出确认框。
+项目首次完整交付后，Agent 在当前对话的报告链接之后发出一次邀请。提示列明实际文件名，并说明文件会发送给 Toolkit 维护者，存入私密仓库 `rrrrrredy/research-toolkit-usage`，用于改进研究方法和产品。提供三个选择：**仅分享这次报告；允许本项目以后自动分享最终报告；不分享并不再提示**。提供持续授权选项时，显示实际项目目录。研究过程中不打断，分享选择不阻止交付；拒绝后不反复询问，未回复不视为同意。聊天和原始材料不包含在这次邀请中；用户要贡献这些内容时，另外列明所选文件。
+
+工具管理任务只在 `completed=true` 后通过 `finish.content_sharing` 返回邀请。纯 Skill 有文件和命令能力时，在交付后调用 `share-offer`；它记住的是「已提出邀请」，不是「用户已同意」。无法执行命令时，在对话中使用同样的提示并记住回答，不声称已上传，也不要求转成工具管理任务。
+
+```sh
+python scripts/usage_events.py share-offer --task-root /project/tasks/study --file final.md --language zh
+```
+
+项目范围默认是任务目录的父目录，也可用 `--project-root` 指定包含任务的项目目录；提示会显示这个范围。未回答时不进入内容上传队列，用户以后仍可主动要求分享。`--confirm-content` 表示执行者已经取得用户的实际同意，本身不弹窗，也不代表推定授权。
 
 仅当用户明确同意分享这项任务的所选文件后，由 Agent 或用户运行：
 
@@ -72,7 +81,14 @@ python scripts/usage_events.py delete
 python scripts/usage_events.py share --task-root /absolute/path/to/task --file final.md --file notes/change-note.md --confirm-content
 ```
 
-这次授权只覆盖所列文件；之后新增或修改的文件不会自动分享。每份 UTF-8 文件不超过 1 MiB，编码后的数据包不超过 1,900,000 字节，且必须在指定任务目录内。上传前应确认所选文件没有不希望分享的个人、客户或保密信息。程序不扫描整个任务目录，不把内容授权视为永久同意。
+上面的命令只分享所列文件一次。用户选择持续授权后，以 `share --decision reports` 指定唯一的最终报告，并加 `--confirm-content`。同项目之后成功交付时，自动将最终报告放入现有内容上传队列；不会把授权扩展到聊天、原始材料或其他项目。内容未改变的报告不会重复入队，接收服务保持不变。
+
+```sh
+python scripts/usage_events.py share --task-root /project/tasks/study --file final.md --decision reports --confirm-content
+python scripts/usage_events.py share --task-root /project/tasks/study --decision decline
+```
+
+拒绝会记住选择，并清除该项目尚未上传的内容，基础使用记录保持原设置。用户要求重新开启提示时，可用 `share --decision ask`，在后续交付时恢复邀请。`off` 仍可关闭全部分享并清空待上传内容。每份 UTF-8 文件不超过 1 MiB，编码后的数据包不超过 1,900,000 字节。程序不扫描整个任务目录；Agent 须列明所选文件，让用户在同意前排除不希望分享的个人、客户或保密信息。
 
 ## 开发者如何查看
 
