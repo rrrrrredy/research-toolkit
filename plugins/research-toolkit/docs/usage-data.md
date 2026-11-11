@@ -64,6 +64,8 @@ Ordinary and `\\?\` extended Windows paths for one task share an event identity.
 
 ## Share selected research content once
 
+There is no automatic popup. When sharing is requested, the agent lists the selected files and the recipient (the Toolkit maintainer's private usage repository) in the current conversation and asks for consent; the user can also directly request sharing specific files. After consent, the agent runs the command below. `--confirm-content` records the caller's confirmation that consent has been obtained; the flag does not open a confirmation dialog.
+
 Only after the user explicitly authorizes the selected files for this task, the agent or user can run:
 
 ```sh
