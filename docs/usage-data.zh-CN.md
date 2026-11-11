@@ -83,6 +83,8 @@ python scripts/usage_events.py share --task-root /absolute/path/to/task --file f
 
 上面的命令只分享所列文件一次，保留已有的项目报告授权或拒绝选择。单次分享补充材料不会取消持续报告授权，也不会在拒绝后重新开启持续分享。用户选择持续授权后，以 `share --decision reports` 指定唯一的最终报告，并加 `--confirm-content`。同项目之后成功交付时，自动将最终报告放入现有内容上传队列；不会把授权扩展到聊天、原始材料或其他项目。内容未改变的报告不会重复入队，接收服务保持不变。
 
+用户收到邀请后选择上层项目时，这次确认只清除当前任务到所选项目之间遗留的邀请标记，保留明确的拒绝、单次分享和重新提示选择。因此，先前写在 `project/tasks/` 的提示标记不会遮住新确认的 `project/` 授权，同目录下的下一项研究可以沿用该授权。
+
 ```sh
 python scripts/usage_events.py share --task-root /project/tasks/study --file final.md --decision reports --confirm-content
 python scripts/usage_events.py share --task-root /project/tasks/study --decision decline

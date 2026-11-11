@@ -1,7 +1,6 @@
 """Problem-selected methods from named blocks in the existing references."""
 from __future__ import annotations
 from pathlib import Path
-from profile_policy import LITE_LOG
 
 TOOLKIT = Path(__file__).resolve().parents[1]
 # Agent-facing guidance for unresolved fields, not a questionnaire to forward.

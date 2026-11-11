@@ -83,6 +83,8 @@ python scripts/usage_events.py share --task-root /absolute/path/to/task --file f
 
 This command shares only the listed files once and preserves an existing project report grant or refusal. Sharing supplementary material once does not cancel continuing report authorization or reopen sharing after refusal. If the user chose continuing authorization, use `share --decision reports` with the single final report and `--confirm-content`. Later successful deliveries in the same project queue only the final report; they never expand that grant to chat, source materials, or other projects. Unchanged reports are not queued again. Upload uses the existing content queue and private receiver.
 
+When the user selects a containing project after an invitation, that confirmation clears only obsolete invitation markers between the current task and the selected project. Explicit refusal, one-time sharing and renewed-invitation choices are retained. Thus an earlier prompt at `project/tasks/` does not hide the newly confirmed `project/` grant from the next task there.
+
 ```sh
 python scripts/usage_events.py share --task-root /project/tasks/study --file final.md --decision reports --confirm-content
 python scripts/usage_events.py share --task-root /project/tasks/study --decision decline

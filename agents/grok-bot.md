@@ -22,6 +22,6 @@ inventing its contents.
 
 ## Reuse the method
 
-After a successful task, ask the Bot to save the research method as a private skill called `research-toolkit`, preserving the complete reference methods. Recheck file access when reusing it.
+After a successful task, ask the Bot to save the research method as a private skill called `research-toolkit`, preserving the complete reference methods. After upgrading Toolkit, refresh the private skill from that version’s `SKILL.md` and references, replacing any cached Lite/Full choices; current research has one entry. Use the current [evals entry](../evals/README.md) for testing, rather than selecting a mode from archived pilots. Recheck file access when reusing it.
 
 The [official Grok Bot guide](https://docs.x.ai/grok-bot/skills-routines-and-automations) documents saved skills and the desktop `/` selector. If a saved skill is missing, check **Marketplace → Your plugins → Manage plugins and skills → Private skills**.
