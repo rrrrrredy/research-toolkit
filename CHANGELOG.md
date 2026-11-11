@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.4.3 — 2026-11-11
+
+Fix missing terminal usage events on unexpected Python exceptions and interruptions, preserving the original error and exit behavior. Clarify selected-file sharing consent; synchronize the plugin. Research interfaces and review requirements are unchanged.
+
+[English release notes](docs/releases/v2.4.3.md) · [中文发布说明](docs/releases/v2.4.3.zh-CN.md)
+
 ## v2.4.2 — 2026-11-10
 
 Fix automatic usage upload leaving the final events queued when a session ends during the upload window. The existing background sender now batches events after about 30 seconds and respects the off setting before sending. Manual upload and research interfaces remain compatible; bilingual usage guidance and the plugin are synchronized.

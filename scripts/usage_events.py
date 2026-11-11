@@ -257,8 +257,11 @@ def observed_call(function, args, kwargs=None, *, entry):
     emit("call_started", **fields, outcome="started")
     try:
         result = function(*args, **kwargs)
-    except (ValueError, OSError, TypeError, KeyError, RuntimeError) as exc:
-        emit("call_finished", **fields, outcome="failed", error=type(exc).__name__, elapsed_ms=(time.monotonic()-started)*1000)
+    except BaseException as exc:
+        # Record every Python exit, including cancellation, then preserve it for
+        # the caller. Recording an exit must not turn it into a successful call.
+        outcome = "failed" if isinstance(exc, Exception) else "cancelled"
+        emit("call_finished", **fields, outcome=outcome, error=type(exc).__name__, elapsed_ms=(time.monotonic()-started)*1000)
         raise
     else:
         outcome = "success"
