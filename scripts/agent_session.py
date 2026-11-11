@@ -73,9 +73,9 @@ class CodexAgentSession:
         from codex_session import CodexSession
         self.client = CodexSession(cwd, directory, command=executable_for(self.name, executable))
 
-    def start(self, prompt, previous=None, read_paths=None):
-        session = self.client.thread(native_id(self.name, previous))
-        return session, self.client.turn(session, prompt)
+    def start(self, prompt, previous=None, read_paths=None, *, workdir=None):
+        session = self.client.thread(native_id(self.name, previous), cwd=workdir)
+        return session, self.client.turn(session, prompt, cwd=workdir)
 
     def steer(self, session, turn, prompt):
         return self.client.steer(session, turn, prompt)

@@ -102,17 +102,24 @@ class CodexSession:
             with self.mutex:
                 self.pending.pop(identity, None)
 
-    def thread(self, previous=None):
-        params = {"cwd": str(self.cwd), "sandbox": "read-only", "approvalPolicy": "never"}
+    def thread(self, previous=None, cwd=None):
+        # Use the installed tool's permissions and model. The caller supplies a
+        # separate working directory for each contribution/review invocation.
+        params = {"cwd": str(cwd or self.cwd)}
         if previous:
             params.update(threadId=previous, excludeTurns=True)
             return self.request("thread/resume", params)["thread"]["id"]
         params.update(ephemeral=False, serviceName="research-toolkit")
         return self.request("thread/start", params)["thread"]["id"]
 
-    def turn(self, thread, prompt):
-        return self.request("turn/start", {"threadId": thread,
-            "input": [{"type": "text", "text": prompt}]})["turn"]["id"]
+    def turn(self, thread, prompt, cwd=None):
+        params = {"threadId": thread, "input": [{"type": "text", "text": prompt}]}
+        if cwd is not None:
+            # Research needs downloads and executable calculations. Keep writes
+            # inside this invocation; approval/admin policy is still inherited.
+            params.update(cwd=str(cwd), sandboxPolicy={"type": "workspaceWrite",
+                          "writableRoots": [str(cwd)], "networkAccess": True})
+        return self.request("turn/start", params)["turn"]["id"]
 
     def steer(self, thread, turn, prompt):
         return self.request("turn/steer", {"threadId": thread, "expectedTurnId": turn,

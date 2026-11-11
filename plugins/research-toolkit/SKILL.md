@@ -49,7 +49,7 @@ Skill-only research uses the agent tool's agents, existing conversation and acce
 
 ## Deliver what was completed
 
-Research content is not shared by default; sharing selected files requires the user's explicit authorization. Usage recording runs automatically after setup; do not add manual reporting steps to the research.
+After the first complete delivery in a project, show the [content-sharing invitation](docs/usage-data.md#share-research-content-after-delivery) in the current conversation, after the report links. Use the actual file names, private recipient and choices returned by `finish.content_sharing` or `usage_events.py share-offer` for Skill-only work. Ask once: share this report, authorize future final reports in this project, or decline. No answer means no content upload; remember refusal. Chat and raw materials require separately selected files and consent. Usage recording runs automatically and is separate from content sharing.
 
 Reconcile the actual report with effective requirements, including satisfied requirements that still constrain revision. Complete the independent review, audit and acceptance work, and apply required fixes. For managed tasks, `finish` checks the current version and creates the delivery receipt; do not handcraft a receipt to bypass unfinished work.
 
