@@ -1,20 +1,14 @@
-# 研究示例：选择客服工具试用方案
+# 已归档的客服工具教学输入
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-用两份虚构套餐说明，为六人客服团队推荐试用方案：每月订阅费不超过 35 美元，每周导出 CSV（可接受手动），单点登录可选。这个范围明确的示例使用统一研究方法；篇幅较短是本题的需求，不代表另一种研究模式。目录名称保留，以兼容已有链接。
+本目录保留原 Lite 教学示例的虚构输入，属于历史资料，不是现行研究模式或长研究 benchmark。原文件名、题目和篇幅要求保留，供追溯及兼容已有链接。
 
-| 文件 | 用途 |
+| 文件 | 原用途 |
 | --- | --- |
-| [start.en.json](start.en.json) | 完整英文需求，产出 350–500 词报告。 |
-| [sources.md](sources.md) | 对应的两份虚构来源说明。 |
-| [start.zh.json](start.zh.json) | 对应中文需求，产出 600–900 字简报。 |
-| [sources.zh-CN.md](sources.zh-CN.md) | 中文来源说明。 |
+| [start.en.json](start.en.json) | 要求 350–500 词建议的英文题目。 |
+| [sources.md](sources.md) | 六人客服团队的两份虚构套餐说明。 |
+| [start.zh.json](start.zh.json) | 要求 600–900 字建议的中文题目。 |
+| [sources.zh-CN.md](sources.zh-CN.md) | 对应中文来源说明。 |
 
-按[研究入门](../../docs/quickstart.zh-CN.md)使用随附的启动请求。Agent 阅读 `SKILL.md` 及问题所需方法，展开比较，并按统一说明完成评审与交付。请求不选择研究档位。
-
-报告与来源、判断、评审记录分开保存。本地执行工具将这些内容存入工具箱之外的任务目录，CLI 命令见入门指南；只用聊天时也分别保留报告与支持记录，以便继续使用。
-
-建议应符合预算，说明六席位费用计算，保留 CSV 字段未知等限制。这些是虚构教学材料，不是厂商事实或评测结果。
-
-使用公开来源的完整报告可参考[办公智能体案例](../../docs/case-study/office-agents/README.md)；另有[原生英文 API 与浏览器案例](../../docs/case-study/api-or-browser/README.md)。
+新增长文研究使用[统一入门](../../docs/quickstart.zh-CN.md)。当前 benchmark 题目和执行说明见 [evals/](../../evals/README.md)，仓库首页展示当前完整研究报告。

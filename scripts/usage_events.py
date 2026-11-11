@@ -545,6 +545,14 @@ def main():
                 task_id = opaque(config, "task", task_identity(root))
                 set_setting(db, key + ".task." + task_id, task_id)
                 if args.decision == "reports":
+                    # The user selected this containing project after an invitation.
+                    # Retire only prompt markers on that task's path, not explicit choices.
+                    for candidate in (root, *root.parents):
+                        if candidate == project:
+                            break
+                        offered_key = sharing_key(candidate)
+                        if config.get(offered_key) == "offered":
+                            db.execute("DELETE FROM settings WHERE key=?", (offered_key,))
                     source = (root / args.file[0]).resolve()
                     sent_key = key + ".report." + hashlib.sha256(task_identity(source).encode()).hexdigest()
                     set_setting(db, sent_key, hashlib.sha256(source.read_bytes()).hexdigest())

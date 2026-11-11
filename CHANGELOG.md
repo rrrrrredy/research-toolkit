@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.5.2 — 2026-11-11
+
+Fix project report authorization selected after a sharing invitation. Repair the README MCP example by registering its main manuscript and actual calling agent identity, and keep the historical self-review inputs separate. Include that executable in the existing MCP contract check. Mark the former Lite teaching example as archived and clarify refreshing Grok private skills. Synchronize bilingual guidance and the plugin; research interfaces and independent review duties remain unchanged.
+
+[English release notes](docs/releases/v2.5.2.md) · [中文发布说明](docs/releases/v2.5.2.zh-CN.md)
+
 ## v2.5.1 — 2026-11-11
 
 Preserve continuing project report consent when the user shares another file once. Reuse the nearest saved sharing scope for normal delivery, sharing invitations and explicit sharing, including nested task directories and more specific refusal or renewed-invitation choices. Synchronize English/Chinese usage guidance and the plugin; research and delivery contracts are unchanged.

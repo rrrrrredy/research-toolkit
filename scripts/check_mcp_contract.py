@@ -5,6 +5,7 @@ import asyncio
 import json
 import os
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -21,6 +22,35 @@ def unpack(result):
     if value.get("structuredContent") is not None:
         return value["structuredContent"]
     return json.loads("\n".join(item["text"] for item in value["content"] if item["type"] == "text"))
+
+
+def verify_readme_example(base):
+    # Exercise the documented executable, including main-manuscript registration.
+    # This synthetic identity is only a contract input; no agent review is run.
+    with tempfile.TemporaryDirectory(prefix="research-mcp-example-") as folder:
+        output = Path(folder) / "capture"
+        command = [sys.executable, "-B", "-X", "utf8", str(ROOT / "examples/mcp/capture.py"),
+                   "--output", str(output), "--host-task", "synthetic-example-author"]
+        process = subprocess.run(command, text=True, encoding="utf-8", capture_output=True,
+                                 env={**os.environ, "RESEARCH_TOOLKIT_TELEMETRY": "off"})
+        (base / "readme-command.json").write_text(json.dumps({"command": command,
+            "returncode": process.returncode, "stdout": process.stdout, "stderr": process.stderr},
+            ensure_ascii=False, indent=2), encoding="utf-8")
+        if output.exists():
+            shutil.copytree(output, base / "readme-example")
+        assert process.returncode == 0, process.stdout + process.stderr
+        calls = json.loads((output / "transcript.json").read_text(encoding="utf-8"))
+        assert [call["tool"] for call in calls] == ["research_start", "research_guide",
+            "research_save", "research_status", "research_review"]
+        draft = calls[2]["arguments"]["draft"]
+        assert draft["main"] is True and draft["host_task"] == "synthetic-example-author"
+        pending = json.loads((output / "review-request.json").read_text(encoding="utf-8"))
+        assert not pending.get("delivery_ready") and pending["action_required"]
+        assert len(pending["assignments"]) >= 7
+        progress = json.loads((output / "tasks/shipment-note/state/progress.json").read_text(encoding="utf-8"))
+        assert progress["current_artifact"]["owner"] == "synthetic-example-author"
+        assert progress["current_artifact"]["path"] == "final.md"
+        assert not (output / "tasks/shipment-note/state/final_delivery.json").exists()
 
 
 async def verify(base):
@@ -312,6 +342,7 @@ def main():
     destination = Path(os.environ.get("IRF_TEST_ARTIFACT_DIR", ROOT/"evals/runs"))
     destination.mkdir(parents=True, exist_ok=True)
     base = Path(tempfile.mkdtemp(prefix="mcp-contract-", dir=destination))
+    verify_readme_example(base)
     asyncio.run(verify(base))
 
 

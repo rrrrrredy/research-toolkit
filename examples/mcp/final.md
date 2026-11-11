@@ -4,4 +4,4 @@ The supplied [fictional shipment note](source.md) reports twelve shipments by Co
 
 The count does not establish revenue. Without unit prices, returns and payment records, multiplying twelve by an assumed price would introduce unsupported information.
 
-For a real revenue question, obtain those records before estimating a total. This short note received self-review in the author context only; it has no independent review.
+For a real revenue question, obtain those records before estimating a total.
