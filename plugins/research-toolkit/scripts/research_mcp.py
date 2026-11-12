@@ -65,7 +65,8 @@ def research_save(task: str, sources: list[dict[str, Any]] | None = None,
     put reading locations and notes in locator, e.g. "pp. 2-4; relevant sections only", not appended to the path.
     URL/page locators and supported local-reference forms remain valid; optional evidence_path locates local UTF-8 source text.
     draft uses path, optional content and complete=true for a complete draft; omit content to register an existing file.
-    draft.main=true explicitly selects the current work; optional kind is report/comparison/review/analysis.
+    draft.main=true explicitly selects the current work; include draft.host_task with its actual producing agent task/session ID.
+    A missing main producer is reported in current_work.warnings before review. Optional kind is report/comparison/review/analysis.
     For a contribution use kind=analysis, unit_id and the actual producing host_task; question states its research question.
     depends_on lists actual upstream unit IDs. complete=true records a finished unit, not an independent review or delivery;
     a dependent unit cannot complete before its declared upstream versions are finished and independently reviewed.

@@ -338,7 +338,10 @@ def current_work(root, progress):
     result['production_contexts'] = sorted({host for item in result['research_outputs']
                                           for host in item.get('contributors', [])}
                                          | ({progress['author_id']} if nonempty(progress.get('author_id')) else set()))
-    result["scope"] = "Resume references, not proof of reading, applied feedback or semantic quality. No main artifact inferred for legacy tasks."
+    result["scope"] = ("Current registered manuscript, effective requirements and recorded contributions."
+                       if result["artifact"] else "No main manuscript is registered; select it with draft.main=true when saving.")
+    if result["artifact"] and not nonempty(result["artifact"].get("owner")):
+        result["warnings"].append("Main manuscript producer is missing. Save draft.path, draft.main=true and draft.host_task with the actual producing agent's task/session ID before independent review.")
     return result
 
 

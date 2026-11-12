@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import re
+import tempfile
 
 
 def nonempty(value):
@@ -35,7 +36,16 @@ def safe_path(root: Path, name: str) -> Path:
 
 
 def load(root, name):
-    return json.loads(safe_path(root, name).read_text(encoding='utf-8'))
+    try:
+        value = json.loads(safe_path(root, name).read_text(encoding='utf-8'))
+    except json.JSONDecodeError as exc:
+        raise ValueError(f'{name}: invalid JSON at line {exc.lineno}, column {exc.colno}. Preserve the file and recover its saved version.') from None
+    if name == 'state/progress.json':
+        if not isinstance(value, dict):
+            raise ValueError(f'{name}: expected a JSON object, not {type(value).__name__}.')
+        if 'brief' in value and not isinstance(value['brief'], dict):
+            raise ValueError(f'{name}: brief must be a JSON object.')
+    return value
 
 
 def task_root(workspace: Path, task: str, *, create=False) -> Path:
@@ -59,4 +69,15 @@ def save(root, name, data):
 def save_text(root, name, content):
     path = safe_path(root, name)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(content, encoding='utf-8')
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8',
+                                         dir=path.parent, prefix='.' + path.name + '.', suffix='.tmp', delete=False) as stream:
+            temporary = Path(stream.name)
+            stream.write(content)
+            stream.flush()
+            os.fsync(stream.fileno())
+        os.replace(temporary, path)
+    finally:
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)

@@ -4,6 +4,7 @@ import argparse
 import base64
 import json
 import os
+import re
 from pathlib import Path
 import sys
 import time
@@ -11,6 +12,37 @@ import time
 import usage_events as usage
 
 EVENTS = ["UserPromptSubmit", "PreToolUse", "PostToolUse", "SubagentStart", "SubagentStop", "Stop", "SessionEnd", "PreCompact"]
+
+
+def launcher(paths, host, windows=False):
+    if not windows:
+        return f'"{paths[0]}" "{paths[1]}" --host {host}'
+    quoted = ["'"+value.replace("'", "''")+"'" for value in paths]
+    script_text = ("$OutputEncoding = [System.Text.UTF8Encoding]::new(); "
+                   "[Console]::InputEncoding = $OutputEncoding; "
+                   f"[Console]::In.ReadToEnd() | & {quoted[0]} {quoted[1]} --host {host}; exit $LASTEXITCODE")
+    return "powershell.exe -NoProfile -NonInteractive -EncodedCommand "+base64.b64encode(script_text.encode("utf-16le")).decode()
+
+
+def owned_launcher(command, host):
+    """Recognize only the exact launchers generated here, including an older install path."""
+    if not isinstance(command, str):
+        return False
+    direct = re.fullmatch(r'"([^"]+)" "([^"]+/scripts/usage_host\.py)" --host ' + re.escape(host), command)
+    if direct:
+        return command == launcher(direct.groups(), host)
+    encoded = re.fullmatch(r'powershell\.exe -NoProfile -NonInteractive -EncodedCommand ([A-Za-z0-9+/=]+)', command)
+    if not encoded:
+        return False
+    try:
+        script = base64.b64decode(encoded[1], validate=True).decode('utf-16le')
+    except (ValueError, UnicodeError):
+        return False
+    match = re.search(r" \| & '((?:[^']|'')*)' '((?:[^']|'')*)' --host " + re.escape(host) + r'; exit \$LASTEXITCODE$', script)
+    if not match:
+        return False
+    paths = [value.replace("''", "'") for value in match.groups()]
+    return paths[1].endswith('/scripts/usage_host.py') and command == launcher(paths, host, windows=True)
 
 
 def write_changed(path, text):
@@ -31,16 +63,7 @@ def install(host, project, remove=False):
     paths = [Path(sys.executable).as_posix(), script.as_posix()]
     if any(any(char in item for char in ['"', '$', '`', '%', '\n', '\r']) for item in paths):
         raise ValueError("Install path contains shell metacharacters; use a plain directory path")
-    command = f'"{paths[0]}" "{paths[1]}" --host {host}'
-    previous_command = command
-    if os.name == "nt":
-        # Avoid cmd's special treatment of a quoted first token and PowerShell's
-        # need for a call operator. Explicit UTF-8 also preserves hook JSON.
-        quoted = ["'"+value.replace("'", "''")+"'" for value in paths]
-        script_text = ("$OutputEncoding = [System.Text.UTF8Encoding]::new(); "
-                       "[Console]::InputEncoding = $OutputEncoding; "
-                       f"[Console]::In.ReadToEnd() | & {quoted[0]} {quoted[1]} --host {host}; exit $LASTEXITCODE")
-        command = "powershell.exe -NoProfile -NonInteractive -EncodedCommand "+base64.b64encode(script_text.encode("utf-16le")).decode()
+    command = launcher(paths, host, windows=os.name == "nt")
     if host == "opencode":
         path = project/".opencode/plugins/research-toolkit-usage.js"
         if path.exists() and "research-toolkit usage observer" not in path.read_text(encoding="utf-8"):
@@ -68,7 +91,7 @@ def install(host, project, remove=False):
             handlers = group.get("hooks", [])
             if any(not isinstance(handler, dict) for handler in handlers):
                 raise ValueError(f"hooks.{event} contains an invalid handler; existing file preserved")
-            remaining = [handler for handler in handlers if handler.get("command") not in {command, previous_command}]
+            remaining = [handler for handler in handlers if not owned_launcher(handler.get("command"), host)]
             if remaining or not handlers:
                 kept.append({**group, "hooks": remaining})
         if not remove:
@@ -121,8 +144,10 @@ def main():
              (reload_instruction if configuration_changed else "")).rstrip()
             if enabled else "Usage recording remains off; the existing off setting was preserved."
         )
+    visible = usage.visible_notice() if not args.remove else None
     print(json.dumps({"host": args.host, "path": str(path), "removed": args.remove,
-                      "configuration_changed": configuration_changed, "next": next_step}))
+                      "configuration_changed": configuration_changed, "next": next_step,
+                      **({"usage_notice": visible} if visible else {})}))
 
 
 if __name__ == "__main__":

@@ -52,6 +52,9 @@ async def capture(output, pause, resume, host_result=None, host_task=None):
                 "draft": {"path": "final.md", "content": (HERE / "final.md").read_text(encoding="utf-8"),
                           "main": True, "host_task": host_task}})
             await call("research_status", {"task": "shipment-note", "stage": "draft"})
+        if pause:
+            print("Paused after manuscript registration, before research_review. Continue with --resume using the same output directory.")
+            return
         arguments = {"task": "shipment-note", "evidence_paths": ["source.md"], "include_assignment": False}
         pending = await call("research_review", {**arguments, **({"host_result": read(host_result)} if host_result else {})})
         save(output / "review-request.json", pending)
@@ -69,7 +72,7 @@ async def capture(output, pause, resume, host_result=None, host_task=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True, help="New output directory outside the installed toolkit")
-    parser.add_argument("--pause-before-review", action="store_true")
+    parser.add_argument("--pause-before-review", action="store_true", help="Stop after registering the manuscript; use --resume to prepare independent assignments later")
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--host-task", help="Actual task/session ID of the agent registering this example manuscript; required on the first run")
     parser.add_argument("--host-result", type=Path, help="JSON with the actual slot_id, host_task, response_path and execution_path")
@@ -79,6 +82,8 @@ def main():
         parser.error("Use an output directory outside the installed toolkit")
     if args.host_result and not args.resume:
         parser.error("Use --resume when submitting a completed agent assignment")
+    if args.pause_before_review and args.resume:
+        parser.error("Use --pause-before-review on the first run, then --resume without it")
     if not args.resume and not (args.host_task and args.host_task.strip()):
         parser.error("--host-task: provide the actual calling agent task/session ID on the first run")
     asyncio.run(capture(output, args.pause_before_review, args.resume, args.host_result, args.host_task))

@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-[November 9 long-research baseline, Research Toolkit v2.4.0](studies/2026-11-09-long-research): 13 independent questions and 15 completed report assignments, with first manuscripts, independent findings, revisions and actual delivery results. Concrete findings are tied to the reports; this is a development baseline rather than a fixed-model version comparison.
+[November 9 long-research baseline, started on the v2.3.4 working tree](studies/2026-11-09-long-research): 13 independent questions and 15 completed report assignments, with first manuscripts, independent findings, revisions and actual delivery results. Concrete findings are tied to the reports; this is a development baseline rather than a fixed-model version comparison.
 
 [October 27 research-writing choices](studies/2026-10-27-research-writing-choices/README.md): two new constructed tasks, four fixed-condition first outputs and two blinded reviews. Added examples accompanied some useful cost reasoning and mechanism explanation, alongside omissions; no consistent whole-report improvement or reduced substantive rework was observed. Original prose, review inputs/outputs and actual timings are retained, without an aggregate score.
 
@@ -57,7 +57,7 @@ The active long-research task set is [`cases/`](cases/). The original seven case
 | [Writing examples](taste_anchors/README.md) | 4 groups | Reusable examples for concrete criteria; prior exposure and fictional or undated source facts remain explicit. |
 | [Source packs](source_packs/) | Historical seed packs and current research materials | Preserve provenance and declared purpose. Public factual evidence requires complete local originals and matching hashes; historical workflow seeds are not public factual authorities. |
 | [Public research cases](../docs/case-study/README.md) | 2 cases | Chinese office-agent research and original English API/browser research, with drafts, reviews and revisions. Translations are not additional tasks. |
-| [Templates](templates/) and [helpdesk comparison example](../examples/lite/) | Workflow aids | Reusable configuration and onboarding examples. |
+| [Templates](templates/) | Workflow aids | Reusable configuration. The [archived helpdesk example](../examples/lite/) retains the old contract and is not current onboarding. |
 
 The 13 primary reports comprise seven Chinese-language and six English-language live-web research tasks. Two additional reports—the English microdrama report and Chinese TTC report—are independently written from their respective question's frozen materials, without access to the other language's answer. They are not two additional independent questions. Revisions, reviews and failed-call retries also do not increase the independent-question count.
 
@@ -94,7 +94,7 @@ For an optional with/without Toolkit comparison, use the [paired-study template]
 
 需要比较使用／不使用工具箱时，可用[配对模板](templates/paired-study.json)和[比较说明](../docs/evaluation-roadmap.zh-CN.md#下一项研究先冻结设计再产生新证据)，不作为正常修复的前提；模板不代表已冻结样本或运行结果。[必要缺陷标签](../docs/necessary-defects.zh-CN.md)提供稳定类别，[23 例覆盖层](semantic_diagnostics/defect-tags.v1.json)保持开发诊断边界。研究入门不计为新增评测案例。
 
-The historical [blinded pairwise protocol](../docs/eval-protocol.md) describes the fixed-source Lite pilot and its retained runner; it is not the current research entry. The script freezes and logs seed/order, masks A/B judge inputs, and retains first outputs, judgments and failures. The [2026-10-10 four-model pilot](studies/2026-10-10-lite-four-models/README.md) covers all 20 model–task judgments across five shared families, retaining all first attempts and failures and separately labeling format diagnostics and regenerated completion pairs; it does not establish general efficacy. To reproduce only the existing public two-pair archive inventory, run `python scripts/reproduce_calibration.py`; expected outputs are `evals/runs/calibration-reproduction/inventory.json` and `inventory.md`, with zero model calls.
+The historical [blinded pairwise protocol](../docs/eval-protocol.md) describes the fixed-source Lite pilot and its retained runner; it is not the current research entry. The script freezes and logs seed/order, masks A/B judge inputs, and retains first outputs, judgments and failures. The [2026-10-10 four-model pilot](studies/2026-10-10-lite-four-models/README.md) covers all 20 model–task judgments across five shared families, retaining all first attempts and failures and separately labeling format diagnostics and regenerated completion pairs; it does not establish general efficacy. To reproduce only the existing public two-pair archive inventory, run `python scripts/reproduce_calibration.py`; expected outputs are `evals/runs/calibration-reproduction/inventory.json` and `inventory.md`, with zero model calls. Of the 20 pairs, 2 are primary results, 8 are format diagnostics and 10 are regenerated completion results; these categories are not pooled as one unchanged-condition comparison.
 
 ## Contribute a failure case
 

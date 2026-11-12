@@ -51,6 +51,25 @@ def verify_readme_example(base):
         assert progress["current_artifact"]["owner"] == "synthetic-example-author"
         assert progress["current_artifact"]["path"] == "final.md"
         assert not (output / "tasks/shipment-note/state/final_delivery.json").exists()
+        paused = Path(folder) / "paused"
+        pause_command = [sys.executable, "-B", "-X", "utf8", str(ROOT / "examples/mcp/capture.py"),
+                         "--output", str(paused), "--host-task", "synthetic-example-author", "--pause-before-review"]
+        pause_run = subprocess.run(pause_command, text=True, encoding="utf-8", capture_output=True,
+                                   env={**os.environ, "RESEARCH_TOOLKIT_TELEMETRY": "off"})
+        assert pause_run.returncode == 0, pause_run.stderr
+        paused_calls = json.loads((paused / "transcript.json").read_text(encoding="utf-8"))
+        assert [call["tool"] for call in paused_calls] == ["research_start", "research_guide", "research_save", "research_status"]
+        assert not (paused / "review-request.json").exists()
+        resume_command = [sys.executable, "-B", "-X", "utf8", str(ROOT / "examples/mcp/capture.py"),
+                          "--output", str(paused), "--resume"]
+        resume_run = subprocess.run(resume_command, text=True, encoding="utf-8", capture_output=True,
+                                    env={**os.environ, "RESEARCH_TOOLKIT_TELEMETRY": "off"})
+        assert resume_run.returncode == 0, resume_run.stderr
+        assert json.loads((paused / "review-request.json").read_text(encoding="utf-8"))["action_required"]
+        shutil.copytree(paused, base / "paused-readme-example")
+        (base / "pause-resume-command.json").write_text(json.dumps([
+            {"command": pause_command, "returncode": pause_run.returncode, "stdout": pause_run.stdout, "stderr": pause_run.stderr},
+            {"command": resume_command, "returncode": resume_run.returncode, "stdout": resume_run.stdout, "stderr": resume_run.stderr}], indent=2), encoding="utf-8")
 
 
 async def verify(base):

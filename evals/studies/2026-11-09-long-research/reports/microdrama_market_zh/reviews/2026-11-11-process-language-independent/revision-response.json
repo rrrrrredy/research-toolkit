@@ -1,0 +1,33 @@
+{
+  "review_type": "process_language_revision_check",
+  "reviewer_task": "/root/microdrama_process_review",
+  "report_verdict": "pass",
+  "verdict_scope": "仅确认首次 process_language finding PL-001 的两处修改及此次差异影响；不是对修订稿开展新一轮整篇报告验收。",
+  "revised_report": "analysis/2026-11-11-process-language-revision.md",
+  "revised_report_sha256": "5f6d02926b8432ae4af5d58ebc9fd77c49ab307997a688a1ad98e96c5060b676",
+  "original_report_sha256": "76e52a756e003edbec67aca4cc06b19aa6545aec9c5584f1ca57c74f28c222b4",
+  "findings": [],
+  "original_finding_resolution": [
+    {
+      "id": "PL-001",
+      "status": "resolved",
+      "location": "修订稿第508、512行",
+      "basis": [
+        "508行已删除关于来源获取、实际阅读记录以及下载不等于全文阅读的制作自证句；截止日期、累计期间与预测性质、来源类型、媒体转述归属、物理页码和网页定位方式完整保留。",
+        "512行已删除‘各研究单元及其既有修订仍保留’的内部研究组织及版本保留分句。财报重算、基础与联动情景、完播扩展、逐日现金文件及来源索引的用途均保留；剩余‘原始URL、档案目录和真实阅读范围’服务于来源核对，本次不将其作为新的过程语言问题。"
+      ]
+    }
+  ],
+  "change_impact": {
+    "actual_changed_lines": [
+      508,
+      512
+    ],
+    "exact_deletion_check": "从首次评审的原始报告字节解码后，仅删除原 finding 对应的两个精确字符串，再以原UTF-8编码计算SHA256，结果与修订稿完全一致；两个被删字符串在原稿各出现一次。",
+    "retained_adjacent_material": "已阅读修订稿第494—512行。510行的原币金额换算、显式商业假设、不同规模不可排名、项目贡献与企业净利润区别、融资税费及集团费用边界完整保留；相邻结论表与经营行动段落未变。",
+    "evidence_or_citation_loss": "未发现此次差异造成需要保留的材料、实质限定或引用损失。被删内容没有具体来源引用或具体结论的证据条件；其他字节不变，首次明确保留的414、430行证据限定及全篇来源引用亦未因本次修改发生变化。",
+    "new_issue_within_this_scope": "无。"
+  },
+  "preservation": "首次 response.json 与 execution.json 保持原样。本记录是同一独立评审任务对其自身 finding 的定点复核。",
+  "limitations": "未重新开展事实核验、研究、算术复算或整篇阅读；未读取其他评审视角，未改正文。"
+}

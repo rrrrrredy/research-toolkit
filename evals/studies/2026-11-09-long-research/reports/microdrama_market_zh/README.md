@@ -9,3 +9,5 @@ Public-source URLs, reading locations and capture hashes are supplied in the sou
 This is one report assignment in the 13-question, 15-report baseline. Revisions and another-language output do not count as another independent question. It is not a fixed-model version comparison. See the study README for the actual findings and API-to-native continuation.
 
 Report SHA-256: `76e52a756e003edbec67aca4cc06b19aa6545aec9c5584f1ca57c74f28c222b4`.
+
+A [November 11 process-language supplement](reviews/2026-11-11-process-language-independent/README.md) retains a fresh independent judgment and a separate two-location editorial revision. `final.md` and its historical receipt above remain unchanged. / 11月11日补充复核与两处局部修订另存，原终稿及历史验收记录不改写。

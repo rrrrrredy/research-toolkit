@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.5.3 — 2026-11-12
+
+Fix visible usage notices, locally keyed identifiers, task-scoped report sharing, relocated installation launchers, atomic state writes and explicit record errors. Complete MCP pause/resume, bound generic HTTP responses, and synchronize release checks, bilingual instructions and plugin files. Preserve original research and review records.
+
+[English release notes](docs/releases/v2.5.3.md) · [中文发布说明](docs/releases/v2.5.3.zh-CN.md)
+
 ## v2.5.2 — 2026-11-11
 
 Fix project report authorization selected after a sharing invitation. Repair the README MCP example by registering its main manuscript and actual calling agent identity, and keep the historical self-review inputs separate. Include that executable in the existing MCP contract check. Mark the former Lite teaching example as archived and clarify refreshing Grok private skills. Synchronize bilingual guidance and the plugin; research interfaces and independent review duties remain unchanged.
@@ -38,11 +44,13 @@ Fix automatic usage upload leaving the final events queued when a session ends d
 
 ## v2.4.1 — 2026-11-10
 
+- Historical release note clarification: the published source record also had an expired authorization parameter removed in #141; the source URL and artifact hash record were corrected.
+
 Fix Windows long-path task saves and lock identity, give file-access errors an appropriate recovery instruction, and keep ordinary/extended task paths under one usage identity. Disable telemetry in engineering checks and their packaged MCP child process. Preserve original reports alongside three limited editorial revisions and independent records.
 
 [English release notes](docs/releases/v2.4.1.md) · [中文发布说明](docs/releases/v2.4.1.zh-CN.md)
 
-## v2.4.0
+## v2.4.0 — 2026-11-10
 
 Long-form research in English and Chinese across fields; 13 questions / 15 report assignments in the existing benchmark. Add case selection and exact source matching, reuse unchanged first-use setup, and repair binary-source/CSV restoration. Correct repetition false flags from table separators and linked paper-title punctuation. Preserve historical inputs and original results; update bilingual methods, cases and plugin distribution.
 
@@ -132,8 +140,6 @@ Release notes: [English](docs/releases/v2.3.4.md) | [简体中文](docs/releases
 - Existing save registers analyses, actual agent references and changed inputs, reusing activity records and backups for assembly.
 - Review-backend availability no longer blocks collection; review, delivery and legacy-task contracts remain. English, Chinese and plugin synchronized.
 - Execution capability changes; report-quality and user-time effects have not been measured.
-
-## Unreleased
 
 ## v1.4.14 — 2026-10-28
 

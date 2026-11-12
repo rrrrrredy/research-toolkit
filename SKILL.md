@@ -15,6 +15,8 @@ The methods can be read directly. When installing or first using Toolkit in Code
 
 Only added or changed configuration needs loading through the agent tool's supported mechanism; an already-running Codex session needs a reload or reopening for those changes. Reuse unchanged setup without another reload. Check activation using the tool's available status; a saved configuration file alone is not an active-configuration check. If activation cannot be confirmed, report it as unconfirmed. If Python, command access, configuration or loading is unavailable or fails, state the actual status and continue research. Handle setup yourself rather than assigning the user a separate installation step. Explain once on first use that basic operation events are sent by default and can be turned off; conversations, reports and local paths are excluded. Let the application handle any required trust prompt.
 
+When installation or a tool returns `usage_notice`, show its message once in the conversation, including the receiver and how to disable recording. A stderr log does not replace that user-visible notice.
+
 ## Establish the task and begin research
 
 Read the conversation and supplied material. Preserve the question, purpose, report's target readers, required objects and comparisons, sources, dates, language, format, depth and explicit exclusions. Separate the user's requirements from your planning choices. Ask together only consequential questions that the context cannot resolve; proceed with unaffected work while an answer is pending. Do not ask the user to schedule agents, repeat known requirements or supervise internal records.
@@ -40,8 +42,9 @@ Read the method needed for the current action and reuse guidance already loaded 
 | Task/context: understand the request, plan units and recover effective requirements | [Brief and task specification](references/research-workflow.md#1-research-brief-gate), [analysis units](references/research-workflow.md#6-analysis-units), [task continuity](references/task-continuity.md) |
 | Evidence/analysis: read sources and develop judgments | [Source and claim discipline](references/research-standard.md#8-source-and-claim-discipline); [compare, explain, synthesize or recommend](references/optional-analysis-lenses.md#applying-methods-to-the-question) as the question requires |
 | Writing/revision: develop an argument and assemble the full report | [Depth planning](references/research-workflow.md#7-depth-planning), [writing style](references/writing-style.md), [assembly](references/research-workflow.md#9-assembly) |
-| Research production and handoff across those responsibilities | [Research production and handoff](references/subagents-and-review-loop.md#research-production-and-handoff) |
 | Review/delivery: inspect current prose, audit findings and accept the complete result | [Independent content review](references/subagents-and-review-loop.md#assign-work-by-perspective), [audit and sampling](references/subagents-and-review-loop.md#check-reviewers-and-sample-passed-work), [final acceptance](references/subagents-and-review-loop.md#stage-scheduling-and-acceptance), [quality gates](references/quality-gates.md) |
+
+[Research production and handoff](references/subagents-and-review-loop.md#research-production-and-handoff) connect all four responsibilities.
 
 Detailed examples remain in those methods for use when relevant. Recurring problems can be diagnosed with [gotchas](references/gotchas.md) and [research design lessons](references/postmortem-lessons.md), rather than loading every reference at startup.
 
@@ -49,7 +52,7 @@ Skill-only research uses the agent tool's agents, existing conversation and acce
 
 ## Deliver what was completed
 
-After the first complete delivery in a project, show the [content-sharing invitation](docs/usage-data.md#share-research-content-after-delivery) in the current conversation, after the report links. Use the actual file names, private recipient and choices returned by `finish.content_sharing` or `usage_events.py share-offer` for Skill-only work. Ask once: share this report, authorize future final reports in this project, or decline. No answer means no content upload; remember refusal. Chat and raw materials require separately selected files and consent. Usage recording runs automatically and is separate from content sharing.
+After the first complete delivery in a project, show the [content-sharing invitation](docs/usage-data.md#share-research-content-after-delivery) in the current conversation, after the report links. Use the actual file names, private recipient and choices returned by `finish.content_sharing` or `usage_events.py share-offer` for Skill-only work. Ask once: share this report, authorize future final reports in the displayed directory and its subdirectories, or decline. No answer means no content upload; remember refusal. Chat and raw materials require separately selected files and consent. Usage recording runs automatically and is separate from content sharing.
 
 Reconcile the actual report with effective requirements, including satisfied requirements that still constrain revision. Complete the independent review, audit and acceptance work, and apply required fixes. For managed tasks, `finish` checks the current version and creates the delivery receipt; do not handcraft a receipt to bypass unfinished work.
 

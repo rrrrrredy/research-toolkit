@@ -360,7 +360,7 @@ Agent 工具继续返回的审阅、审计或验收任务。摘要用于定位�
 {"task":"comparison","brief":{"output":"一份修订后的比较报告"},"draft":{"path":"drafts/revised.md","main":true,"kind":"report","host_task":"actual-main-writer-agent-task"}}
 ```
 
-`draft.main=true` 显式选定当前工作文件；`kind` 可选 report/comparison/review/analysis。保存其他章节或参考稿不改变该选择。`complete` 仍只记录完整草稿。`save/status.current_work` 返回当前文件、有效要求、未结工作和恢复路径；status 另列上次交付引用。新主稿或需求修订不会继承终态，旧凭证保留。审阅／交付传当前主稿的 artifact。旧任务不必迁移，未选主稿时保持原行为。
+`draft.main=true` 显式选定当前工作文件，同时在 `draft.host_task` 提供实际生产者的 Agent 任务／会话 ID。缺少生产者时，`current_work.warnings` 会在审阅前指出。`kind` 可选 report/comparison/review/analysis。保存其他章节或参考稿不改变该选择。`complete` 仍只记录完整草稿。`save/status.current_work` 返回当前文件、有效要求、未结工作和恢复路径；status 另列上次交付引用。新主稿或需求修订不会继承终态，旧凭证保留。审阅／交付传当前主稿的 artifact。旧任务不必迁移，未选主稿时保持原行为。
 
 `start/status.runtime` 返回执行实现的位置、版本、代码摘要和可用入口摘要；host_loaded_entry=not_observed，不推断 Agent 工具读了哪个 Skill。工具只识别登记的文件，不监控任意新目录。
 
@@ -442,3 +442,13 @@ python scripts/research_host.py --host claude --workspace <task-store> --task st
 适配器运行期间，工作输入变化会回到同一生产者。Codex 接入可向执行中的轮次追加消息；Claude Code 与 OpenCode CLI 接入则在当前调用结束后续接原会话：首份结果保留旧输入绑定，后续调用接收当前输入包。审阅修订使用已有任务返回的 `resume_host_task`。新保存的 Claude Code／OpenCode 标识带 Agent 工具名称，旧的无前缀 Codex 标识仍可续接；不同 Agent 工具的标识不会被悄悄混用或替换。中断后再次执行请求会复用已保存的成果与负责人。Agent 工具执行失败或结果未被接受时，保留原件并返回待处理情况；负面审阅不会触发自动改写或返评。
 
 请求结束只表示本批工作已有结果，最终交付继续使用已有要求记录与 `finish`。成功交付后，如返回 `content_sharing` 邀请，在报告链接之后显示；分享由用户选择，使用[已有内容分享设置](usage-data.zh-CN.md#交付后的研究内容分享)。进程退出时关闭自己启动的 Agent 工具连接，不增加常驻服务或另一份任务数据库。
+
+### 执行与传输说明
+
+`review_readiness.status=host_native` 选择原生独立 Agent 执行方式，不代表已检测当前会话具有这些工具。按 Agent 产品实际提供的能力安排独立工作。`review_strength` 表示要求的审阅方式，`completed_slots` 与实际结果表示已经完成的工作。
+
+插件 MCP 使用 `.mcp.json` 指定的解释器启动。用同一个解释器安装 `requirements-mcp.txt`；若 `python` 指向另一环境，在 Agent 产品的 MCP 配置中选择所需解释器的绝对路径。Claude Code 与 OpenCode 使用各自配置的工具权限；Toolkit 不另行提供统一文件沙箱，也不添加绕过权限的参数。
+
+明确配置的 `generic` HTTP 审阅后端中，`api_key_env` 填环境变量名，不填密钥。`http_timeout_seconds` 默认为 1800 秒的套接字无响应时间，可按端点响应方式配置，不限制研究总时长。`max_response_bytes` 默认为 16 MiB。超时或响应超限会保留任务并报出传输错误，不接受半截结果；旧的研究运行时限字段仍不启用。
+
+README 的 MCP 示例首次运行可传 `--pause-before-review`，保存主稿与调用记录后暂停，不准备审阅；再用 `--resume` 准备独立任务。`--request` 填 JSON 文件路径，省略时从 stdin 读 JSON。需要把契约检查产物放在仓库外时设置 `IRF_TEST_ARTIFACT_DIR`；默认的 `evals/runs/` 已被 Git 忽略。

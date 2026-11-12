@@ -78,6 +78,15 @@ All 15 report assignments completed their current independent content responsibi
 - **EV batteries:** a requirements review identified missing evidence for mature product deployment and an undeveloped volume comparison. The revision adds named delivery/application evidence and an explicit hypothetical pack-volume calculation, connected to vehicle selection.
 - **Instant retail and AI drug discovery:** the warehouse report makes its original acquisition and ramp-up assumptions visible in the prose; the drug-discovery report corrects compounds versus iteration cycles. Other changes remove production narration while preserving dates, version conditions and relevant scientific or operating limits.
 
+- **ByteDance advertising:** [retained revision](reports/bytedance_advertising_zh/analysis/change-note-full-02.md) replaces the Smart+ search/opening narrative with its October 2026 document version and account rollout condition.
+- **Embodied deployment:** [retained revision](reports/embodied_deployment_zh/analysis/change-note-full-01.md) removes the author identity and pending-review statement while retaining evidence and calculation references.
+- **On-device models:** [retained revision](reports/on_device_models_en/analysis/change-note-full-01.md) removes author/review and acquisition-handoff narration, retaining the Android performance-lock conditions and tables.
+- **Post-training talent:** [retained revision](reports/post_training_talent_zh/analysis/change-note-full-01.md) removes the opening pending-review statement; dates, public-source method, people and affiliations remain.
+- **Token economics:** [retained revision](reports/token_economics_en/analysis/change-note-full-01.md) restores appendix spacing and removes author/review metadata without changing the commercial conditions and scenario qualifications.
+- **Verifiable self-improvement:** [retained revision](reports/verifiable_self_improvement_en/analysis/change-note-full-02.md) replaces source-reading narration with the actual dataset split and version conditions used in the analysis.
+
+These entries cover all 15 assignments, including editorial changes as well as substantive corrections. No aggregate numeric quality scoring was performed; the available judgments are the original independent findings and their dispositions.
+
 These are located improvements to the retained manuscripts. The run is a development baseline, not a fixed-model before/after study: it began on the v2.3.4-based working tree, continued through the fixes recorded here, and switched from Astra to authorized native Codex execution after the retained explicit credit-exhaustion response. The original model/run identity remains with each output. No overall causal quality or rework-reduction estimate is assigned.
 
 ### Execution and engineering evidence
@@ -87,3 +96,9 @@ The existing mechanical evaluator's output is saved separately from the independ
 The [office-report editorial revision](office-editorial-revision/README.md) is a separate revision of the historical November 5 report, with its original and independent findings retained. It is not a sixteenth report assignment or another question in this cohort.
 
 The first mechanical aggregation passed 13 reports and falsely flagged two: repeated Markdown table separators in the Chinese microdrama report, and a question mark inside a repeatedly cited paper title in the English compute report. The parsing repair preserved the reports. Only those two failed cases were rerun and passed; three existing repetition controls still detect actual repeated prose. The original aggregate and targeted results are retained in `verification/final-artifact-checks/`.
+
+### Original materials and the supplementary process-language review
+
+Each report index links its source registry; `local-originals.json` lists the retained external files and hashes, and `artifact-hashes.json` covers the published report artifacts. Calculations and captured outputs in `analysis/` can be inspected directly. Full third-party originals and some frozen assignment inputs remain in the local archive, so a clean checkout cannot recompute those particular hashes without obtaining the referenced originals. No replacement capture is presented as the original version.
+
+The Chinese microdrama process-language execution disclosed exposure to an author handoff. The handoff combines substantive research with an earlier unit-review status; the original decision to retain that review and all original records remain unchanged. A [separate independent review and local revision](reports/microdrama_market_zh/reviews/2026-11-11-process-language-independent/README.md) address that perspective. This adds no research question, report assignment, new multi-perspective acceptance or version-comparison run.

@@ -6,6 +6,8 @@ import json
 import base64
 import ipaddress
 import os
+import re
+import math
 from pathlib import Path
 import shutil
 import subprocess
@@ -96,8 +98,14 @@ def validate_review_config(config: dict) -> dict:
                 raise ValueError("generic parameters must be an object and cannot override model, messages or stream.")
             if "api_key" in reviewer:
                 raise ValueError("Keep API keys in an environment variable, not review configuration.")
-            if not isinstance(reviewer.get("api_key_env", "RESEARCH_TOOLKIT_REVIEW_API_KEY"), str):
-                raise ValueError("api_key_env must name an environment variable.")
+            variable = reviewer.get("api_key_env", "RESEARCH_TOOLKIT_REVIEW_API_KEY")
+            if not isinstance(variable, str) or not re.fullmatch(r'[A-Za-z_][A-Za-z0-9_]*', variable):
+                raise ValueError("api_key_env must be an environment variable name, e.g. RESEARCH_TOOLKIT_REVIEW_API_KEY; do not supply a key value.")
+            timeout = reviewer.get("http_timeout_seconds", 1800)
+            if type(timeout) not in (int, float) or not math.isfinite(timeout) or timeout <= 0:
+                raise ValueError("http_timeout_seconds must be a finite positive number (HTTP socket inactivity, not a research deadline).")
+            if type(reviewer.get("max_response_bytes", 16 * 1024 * 1024)) is not int or reviewer.get("max_response_bytes", 16 * 1024 * 1024) <= 0:
+                raise ValueError("max_response_bytes must be a positive integer.")
         command = reviewer.get("command")
         if command is not None and (not isinstance(command, list) or not command
                                     or not all(isinstance(x, str) and x for x in command)):
@@ -118,7 +126,7 @@ def validate_review_config(config: dict) -> dict:
 
 def assignment_config(config: dict) -> dict:
     """Exclude transport timeouts, retaining settings that can change the assignment."""
-    return {**{k: v for k, v in config.items() if k != "timeout_seconds"},
+    return {**{k: v for k, v in config.items() if k not in {"timeout_seconds", "http_timeout_seconds", "max_response_bytes"}},
             "format": response_format(config)}
 
 
@@ -126,7 +134,7 @@ def review_readiness() -> dict:
     """Inspect configuration and local login without sending report data or model calls."""
     if not backend_configured():
         return {"status": "host_native", "checks": [], "review_strength": "independent",
-                "guidance": "Dispatch the returned assignments using the application's native subagents; no API configuration is needed."}
+                "guidance": "Use the application's actual independent-agent tools to dispatch the returned assignments. host_native names the execution route, not a capability check; review_strength is the required mode, not completed review. No API configuration is needed."}
     try:
         config = load_review_config()
     except (ValueError, OSError, UnicodeError) as exc:
@@ -204,8 +212,13 @@ def run_generic(config, request):
         headers["Authorization"] = "Bearer " + key
     req = http.Request(endpoint_url(config), data=json.dumps(body, ensure_ascii=False).encode("utf-8"), headers=headers, method="POST")
     try:
-        with http.build_opener(NoRedirect).open(req) as response:
-            raw = response.read().decode("utf-8")
+        with http.build_opener(NoRedirect).open(req, timeout=config.get("http_timeout_seconds", 1800)) as response:
+            limit = config.get("max_response_bytes", 16 * 1024 * 1024)
+            raw_bytes = response.read(limit + 1)
+            if len(raw_bytes) > limit:
+                raise ReviewFailure("Reviewer response exceeded max_response_bytes; no partial result was accepted.",
+                                    {"status": "response_too_large", "max_response_bytes": limit})
+            raw = raw_bytes.decode("utf-8")
             request_id = response.headers.get("x-request-id")
     except error.HTTPError as exc:
         raise ReviewFailure(f"Reviewer endpoint returned HTTP {exc.code}; check its URL, model and credential environment.",

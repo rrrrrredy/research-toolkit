@@ -78,6 +78,15 @@
 - **新能源汽车电池：**需求审阅发现成熟路线的实际应用证据、体积维度比较不足。修订补入具名交付与装机材料，以及明确标为假设的包级体积算例，并连接车型选择。
 - **前置仓与 AI 制药：**前置仓稿把原计算已有的投流和爬坡假设写明；制药稿改正化合物数量与迭代轮次混用。其他修订删除正文中的生产叙述，同时保留日期、版本和影响科学或经营判断的条件。
 
+- **字节广告：**[既有修订](reports/bytedance_advertising_zh/analysis/change-note-full-02.md)将 Smart+ 搜索和打开过程改为2026年10月文档版本及按账户开放条件。
+- **具身智能：**[既有修订](reports/embodied_deployment_zh/analysis/change-note-full-01.md)删除作者身份与待审状态，保留证据及计算文件说明。
+- **端侧模型：**[既有修订](reports/on_device_models_en/analysis/change-note-full-01.md)删除作者、审阅和资料取得交接叙述，保留 Android 性能锁条件与表格。
+- **后训练人才：**[既有修订](reports/post_training_talent_zh/analysis/change-note-full-01.md)删除开篇待审表述，保留日期、公开资料方法、人物和任职信息。
+- **Token 经济学：**[既有修订](reports/token_economics_en/analysis/change-note-full-01.md)恢复附录空格并删除作者及审阅元信息，商业条件和情景限定不变。
+- **可验证自我改进：**[既有修订](reports/verifiable_self_improvement_en/analysis/change-note-full-02.md)将阅读过程改为分析采用的数据集划分和版本条件。
+
+以上覆盖全部15份任务，包括编辑修订和实质更正。本轮没有另做数值质量评分汇总；可核查的判断是原始独立意见及其处置。
+
 这些结果对应具体稿件的修改。本轮是开发基线：从基于 v2.3.4 的工作树开始，运行中完成本次记录的修复；Astra 返回明确余额耗尽后，由已获授权的 Codex 原生 Agent 接续。各输出保留实际执行身份，不作为固定模型的版本对照，也未据此估计整体研究质量或返工减少。
 
 ### 执行与工程记录
@@ -87,3 +96,9 @@
 [旧办公报告的编辑修订](office-editorial-revision/README.zh-CN.md)单独保留 11 月 5 日原文、修改和独立意见，不计为本轮第 16 份报告或新的独立问题。
 
 首次机械汇总中13篇通过，2篇误报：中文微短剧稿重复出现的Markdown表格分隔线、英文推理时计算稿多次引用的含问号论文标题，被误当成重复正文。修复解析后，只重查这两篇并通过，正文未改；3项现有重复检测对照仍能识别真正的重复正文。原汇总与定向结果保存在 `verification/final-artifact-checks/`。
+
+### 原始材料与补充的过程语言复核
+
+各报告入口链接来源登记；`local-originals.json` 列出保留在外部的原件及哈希，`artifact-hashes.json` 对应已公开稿件产物。`analysis/` 内计算和已保存输出可直接查看。完整第三方原件及部分冻结输入仍在本地档案，干净 checkout 需取得对应原件后才能重算这些特定哈希；后续抓取不冒充原始版本。
+
+中文微短剧的过程语言执行记录披露曾看到作者交接。该交接同时包含实质研究与此前单元的审阅状态；原先保留该评审的决定及全部原始记录保持不变。本次[另存的独立复核及局部修订](reports/microdrama_market_zh/reviews/2026-11-11-process-language-independent/README.md)处理这一视角，不增加研究题目、报告任务数，不算新的多视角验收或版本对照。

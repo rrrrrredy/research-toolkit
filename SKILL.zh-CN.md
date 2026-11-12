@@ -15,6 +15,8 @@ description: "用于有来源依据的中英文多领域长研究与长文写作
 
 仅新增或变更配置需要通过 Agent 工具支持的方式加载；Codex 已打开的会话需重载或重开以加载这些变更。未变配置无需再次重载。根据工具可提供的实际状态核对是否生效，配置文件存在本身不作为生效检查；无法确认时明确记为未确认。缺少 Python、无法运行命令、配置或加载不可用或失败时，说明实际状态并继续研究。由 Agent 自行处理配置，不给用户另设安装步骤。首次说明一次：基础操作事件默认发送，可随时关闭，不含聊天、报告和本地路径；工具要求的信任提示由工具处理。
 
+安装或工具返回 `usage_notice` 时，将其中的提示在当前对话中展示一次，包含接收地址和关闭方式。写入 stderr 日志不能代替用户可见的告知。
+
 ## 明确任务，开始研究
 
 阅读对话和已有材料，保留问题、用途、报告目标读者、必需对象与比较、来源、日期、语言、格式、深度和明确排除项。区分用户要求与 Agent 的规划选择。仅集中询问上下文无法确定的重要事项；等待答复时推进不受影响的工作。不让用户调度 Agent、重复已知要求或监督内部记录。
@@ -40,8 +42,9 @@ description: "用于有来源依据的中英文多领域长研究与长文写作
 | 任务与上下文：理解需求、规划单元、恢复有效要求 | [需求与任务规格](references/research-workflow.zh-CN.md#1-明确研究需求)、[分析单元](references/research-workflow.zh-CN.md#6-分析单元)、[任务接续](references/task-continuity.zh-CN.md) |
 | 证据与分析：阅读来源、形成判断 | [来源与主张](references/research-standard.zh-CN.md#8-来源与主张)；按问题读取[比较、解释、综合或建议](references/optional-analysis-lenses.zh-CN.md#按问题运用方法) |
 | 成稿与修订：展开论证、组织全文 | [深度规划](references/research-workflow.zh-CN.md#7-深度规划)、[写作风格](references/writing-style.zh-CN.md)、[组稿](references/research-workflow.zh-CN.md#9-组稿) |
-| 贯穿上述职责的研究生产与交接 | [实质研究与交接](references/subagents-and-review-loop.zh-CN.md#实质研究与交接) |
 | 审阅与交付：审阅现稿、审计发现、验收完整结果 | [独立内容审阅](references/subagents-and-review-loop.zh-CN.md#按视角分工)、[审计与抽查](references/subagents-and-review-loop.zh-CN.md#核查评审者并抽查通过项)、[最终验收](references/subagents-and-review-loop.zh-CN.md#阶段安排与验收)、[质量关卡](references/quality-gates.zh-CN.md) |
+
+[实质研究与交接](references/subagents-and-review-loop.zh-CN.md#实质研究与交接)贯穿这四项职责。
 
 具体示范保留在相关方法中，按需要读取。反复出现的问题可查[常见失误](references/gotchas.zh-CN.md)与[研究设计经验](references/postmortem-lessons.zh-CN.md)，不在启动时加载全部参考文件。
 
@@ -49,7 +52,7 @@ description: "用于有来源依据的中英文多领域长研究与长文写作
 
 ## 按实际完成情况交付
 
-项目首次完整交付后，在当前对话的报告链接之后显示[内容分享邀请](docs/usage-data.zh-CN.md#交付后的研究内容分享)。使用 `finish.content_sharing` 返回的实际文件名、私密接收方和选项；纯 Skill 通过 `usage_events.py share-offer` 取得同一提示。只询问一次：仅分享本次报告、允许本项目后续自动分享最终报告，或不分享。未回答不上传内容，拒绝后记住选择。聊天和原始材料须另外列明文件并取得同意。基础使用记录自动运行，与内容分享分开。
+项目首次完整交付后，在当前对话的报告链接之后显示[内容分享邀请](docs/usage-data.zh-CN.md#交付后的研究内容分享)。使用 `finish.content_sharing` 返回的实际文件名、私密接收方和选项；纯 Skill 通过 `usage_events.py share-offer` 取得同一提示。只询问一次：仅分享本次报告、允许所显示目录及其子目录后续自动分享最终报告，或不分享。未回答不上传内容，拒绝后记住选择。聊天和原始材料须另外列明文件并取得同意。基础使用记录自动运行，与内容分享分开。
 
 对照有效要求核对实际报告，包括已经满足但在改稿中仍须保持的要求。完成独立审阅、审计、验收并落实必要修正。工具管理任务由 `finish` 检查当前版本并生成交付回执，不手工编写回执绕过未完成的工作。
 
