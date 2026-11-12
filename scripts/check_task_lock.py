@@ -19,11 +19,11 @@ class TaskLockTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory(prefix="task-lock-")
         self.addCleanup(temporary.cleanup)
         self.workspace = Path(temporary.name)
-        workflow.start(self.workspace, "one", {}, profile="lite")
-        workflow.start(self.workspace, "two", {}, profile="lite")
+        workflow.start(self.workspace, "one", {})
+        workflow.start(self.workspace, "two", {})
 
     def cli(self, action, task):
-        request = {"start": {"brief": {}, "profile": "lite"}, "status": {"stage": "collect"},
+        request = {"start": {"brief": {}}, "status": {"stage": "collect"},
                    "review": {"evidence_paths": []}, "finish": {"message": "Synthetic delivery"}, "check-draft": {}}[action]
         return subprocess.run([sys.executable, "-X", "utf8", str(SCRIPTS / "research_workflow.py"),
                                action, "--workspace", str(self.workspace)],

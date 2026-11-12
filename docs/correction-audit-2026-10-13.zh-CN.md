@@ -40,7 +40,7 @@ Research Toolkit 为现有 Agent 提供研究方法与可执行工具，帮助�
 | [反馈探测](../evals/diagnostics/2026-10-13-feedback-probes/)／[原题新题复验](../evals/diagnostics/2026-10-13-targeted-recheck/) | 八份反馈初稿；四道复验题16份初稿、31次请求，其中10份经维护者修正 | 用已有约束／预测和来源归属样本复验新方法及输入；保留首轮失败 |
 | [此前报告修订](../evals/repairs/2026-10-13-astra/) | 两个实际报告修复及Astra评审 | 受约束建议的方法进入Full，原报告的通过仍对应原报告 |
 | [API／浏览器案例](case-study/api-or-browser/README.md)／[办公Agent案例](case-study/office-agents/README.md) | 两篇完整公开研究，包含题目、报告、来源／主张及评审历史 | 将新方法与完整报告结构、来源归属核对；发现具体案例问题时才修改案例 |
-| [Lite](../examples/lite/)／[MCP](../examples/mcp/)示例与[共享流程](usage-modes.zh-CN.md) | 入门及真实任务状态、评审、交付行为 | Lite义务检查、CLI/MCP共享流程、档位／后端和插件stdio测试 |
+| [Lite](https://github.com/rrrrrredy/research-toolkit/tree/v2.5.5/examples/lite)／[MCP](../examples/mcp/)示例与[共享流程](usage-modes.zh-CN.md) | 入门及真实任务状态、评审、交付行为 | Lite义务检查、CLI/MCP共享流程、档位／后端和插件stdio测试 |
 | [评测模板](../evals/templates/) | 可选配对／盲评和任务选择配置 | 说明新的中性来源字段，保留特定比较自己的设计要求 |
 | [公开v0.4历史语料](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md) | 内嵌v0.3：23份开发报告输入、22份配对输入、221条评审记录、34条作者尝试记录；历史诊断还记录50项／16个父主题 | 修当前生成器与访问／用途说明；首评按其原来源保留，版本和题族分别计数 |
 | [可执行数据发布](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md) | v0.4的17条可执行任务／98条覆盖记录；v0.5–0.16证据、修复、恢复和工作区任务；48条与32条模型轨迹研究 | 修当前策略／契约说明并执行受影响环境／生成器测试；保留原轨迹及训练用途权限 |

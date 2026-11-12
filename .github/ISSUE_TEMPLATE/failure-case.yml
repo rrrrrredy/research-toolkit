@@ -35,19 +35,13 @@ body:
     attributes:
       label: Report excerpt (optional) / 报告原文片段（选填）
       description: Paste the relevant passage; remove credentials and private material. / 可直接贴相关段落，请移除密钥和私人材料。
-  - type: input
-    id: profile
-    attributes:
-      label: Saved legacy profile (optional) / 旧任务的 profile（选填）
-      description: Only if reproducing an older task, copy its saved profile value. New research uses one shared entry. / 仅复现旧任务时填写已保存的 profile 值；新研究使用统一入口。
   - type: dropdown
     id: reviewer
     attributes:
-      label: Reviewer tier / 评审档位
+      label: Review execution / 审阅执行方式
       options:
-        - self
-        - external
-        - independent
+        - Native independent agents / 原生独立 Agent
+        - Configured independent reviewers / 已配置独立评审者
         - No review configured / 未配置评审
         - Unknown or older version / 不清楚或旧版本
     validations:

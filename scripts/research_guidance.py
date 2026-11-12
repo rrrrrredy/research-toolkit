@@ -67,10 +67,8 @@ STAGE_METHODS = {
 }
 
 
-def guidance(stage: str, language: str = 'en', profile: str = 'full', methods: list[str] | None = None) -> dict:
+def guidance(stage: str, language: str = 'en', methods: list[str] | None = None) -> dict:
     language = normalize_language(language)
-    if profile not in {'lite', 'full'}:
-        raise ValueError('Profile must be lite or full.')
     if stage not in STAGE_METHODS:
         raise ValueError('stage must be brief/collect/analyze/draft/review/revise/final.')
     selected = STAGE_METHODS[stage] if methods is None else methods
@@ -96,6 +94,4 @@ def guidance(stage: str, language: str = 'en', profile: str = 'full', methods: l
             section = text.split(begin, 1)[1].split(end, 1)[0].strip()
             if section not in entry['content']:
                 entry['content'] += section + '\n\n'
-    return {'stage': stage, 'guidance': list(files.values()), 'profile': profile,
-            'available_methods': list(METHODS),
-            'profile_policy': ['Use native independent perspectives, audit and final acceptance. Historical profile names do not select another research method.']}
+    return {'stage': stage, 'guidance': list(files.values()), 'available_methods': list(METHODS)}

@@ -120,6 +120,17 @@ async def verify(base):
         tools = await client.list_tools()
         assert {tool.name for tool in tools.tools} == {"research_start", "research_save", "research_status",
             "research_guide", "research_review", "research_finish", "research_check_reviewer", "research_check_draft", "research_check_updates"}
+        for tool in tools.tools:
+            assert "profile" not in tool.input_schema.get("properties", {})
+            assert tool.input_schema["additionalProperties"] is False
+        for action, arguments in (("start", {"task": "removed-mode", "brief": BRIEF}),
+                                  ("guide", {"stage": "collect"})):
+            request = {**arguments, "profile": "lite"}
+            result = cli("research_workflow.py", action, "--workspace", workspace,
+                         request=request, expected_exit=1)
+            assert "unknown fields profile" in result["error"]
+            await call("research_" + action, request, error=True)
+        assert not (workspace / "removed-mode").exists()
         for language, suffix in (("en", ".md"), ("zh", ".zh-CN.md")):
             for stage in ("brief", "collect", "draft", "revise", "final"):
                 guide = await call("research_guide", {"stage": stage, "language": language})
@@ -132,11 +143,9 @@ async def verify(base):
                 if stage in {"draft", "revise"}:
                     assert "\n## Worked Choices in Research Prose" not in guide["guidance"][0]["content"]
                     assert "\n## 研究段落的取舍示范" not in guide["guidance"][0]["content"]
-            old_alias = await call("research_guide", {"stage": "final", "language": language, "profile": "lite"})
-            assert old_alias["guidance"] == guide["guidance"]
         await call("research_start", {"task": "../outside", "brief": BRIEF}, error=True)
-        first = await call("research_start", {"task": "case", "brief": {"question": "What changed?"}, "profile": "lite"})
-        assert not first["ready_for_collection"] and first["profile"] == "full"
+        first = await call("research_start", {"task": "case", "brief": {"question": "What changed?"}})
+        assert not first["ready_for_collection"] and "profile" not in first
         ready = await call("research_start", {"task": "case", "brief": BRIEF})
         assert ready["ready_for_collection"] and ready["review_readiness"]["status"] == "host_native"
         root = Path(ready["task_directory"])

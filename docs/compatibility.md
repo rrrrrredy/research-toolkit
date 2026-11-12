@@ -14,7 +14,7 @@ Preserve the task directory, original reports, review replies, input snapshots a
 
 An unchanged historical completion remains inspectable under the contract it used. It is not retrospectively accepted under v2. When continuing research toward a new delivery, prepare the current review and complete the independent roles and substantive work still missing. Do not create a new research task merely to copy all records, relabel author checks as independent, or fabricate missing executions.
 
-Historical `lite`/`full` profile values and previous response fields remain readable compatibility data. New work has one entry; a legacy parameter cannot select a lighter completion contract. Old request forms that no longer fulfill completion receive an explicit explanation rather than silently passing or deleting old data.
+Research has one entry and one completion contract. CLI `--profile` and JSON/MCP `profile` selection have been removed; omit that argument when starting a task or reading guidance. New responses and task records do not contain a mode selection. Saved source, claim, requirement and artifact records remain readable. Old author checklists remain original files, not an executable completion route or approval of a new delivery. Use the original release to inspect its historical completion behavior; continue current work through the shared independent review, audit and acceptance contract.
 
 ## Public compatibility
 

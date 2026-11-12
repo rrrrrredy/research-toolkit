@@ -27,23 +27,21 @@ CONFIG = {"reviewers": [{"id": "primary", "model": "synthetic", "format": "json"
           "auditor": {"id": "audit", "model": "synthetic", "format": "json"}}
 
 
-def historical_profile(workspace, task, profile=None):
+def historical_contract(workspace, task):
     """Restore an explicitly historical fixture, never a current user workflow."""
     root = Path(workspace)/task
     progress = workflow.load(root, 'state/progress.json')
     progress['review_contract'] = 1
-    if profile is not None:
-        progress['profile'] = profile
     workflow.save(root, 'state/progress.json', progress)
 
 
 def legacy_review(workspace, task, *args, **kwargs):
-    historical_profile(workspace, task)
+    historical_contract(workspace, task)
     return workflow.legacy_review(workspace, task, *args, **kwargs)
 
 
 def legacy_finish(workspace, task, *args, **kwargs):
-    historical_profile(workspace, task)
+    historical_contract(workspace, task)
     return workflow.legacy_finish(workspace, task, *args, **kwargs)
 
 
@@ -148,7 +146,7 @@ class WorkflowTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.workspace = Path(self.temp.name)
         workflow.start(self.workspace, "case", BRIEF)
-        historical_profile(self.workspace, 'case', 'full')
+        historical_contract(self.workspace, 'case')
         self.root = self.workspace/"case"
         (self.root/"final.md").write_text("The source reports twelve shipments.\n\nRevenue is not reported.\n\nFurther evidence is needed for a revenue estimate.\n", encoding="utf-8")
         (self.root/"source.md").write_text("Company A reports twelve shipments in 2026. No revenue figure is supplied.\n", encoding="utf-8")
@@ -222,6 +220,8 @@ class WorkflowTests(unittest.TestCase):
                         / "toolkit-calls/01-research_start.request.json")
         request = json.loads(request_path.read_text(encoding="utf-8"))
         self.assertEqual(request["language"], "zh-CN")
+        # Reuse the saved brief/language without resubmitting its removed mode field.
+        request.pop("profile", None)
         for language, suffix in (("zh-CN", ".zh-CN.md"), ("zh", ".zh-CN.md"), ("en", ".md")):
             with self.subTest(language=language):
                 args = {**request, "language": language}
@@ -231,18 +231,18 @@ class WorkflowTests(unittest.TestCase):
                 self.assertTrue(started["ready_for_collection"])
                 current = workflow.dispatch("status", {"task": args["task"], "stage": "collect",
                                                        "language": language}, self.workspace)
-                guide = workflow.dispatch("guide", {"stage": "collect", "profile": "lite",
+                guide = workflow.dispatch("guide", {"stage": "collect",
                                                      "language": language}, self.workspace)
                 self.assertEqual(started["guidance"], current["guidance"])
                 self.assertEqual(current["guidance"], guide["guidance"])
                 self.assertEqual(guide["guidance"][0]["path"], "references/research-workflow" + suffix)
-        incomplete = workflow.start(self.workspace, "language-brief", {}, language="zh-CN", profile="lite")
+        incomplete = workflow.start(self.workspace, "language-brief", {}, language="zh-CN")
         self.assertEqual(incomplete["clarification_questions"], list(workflow.BRIEF_FIELDS_ZH.values()))
 
     def test_invalid_language_does_not_write_task_records_or_advance_stage(self):
         error = r'language.*"en".*"zh".*"zh-CN"'
         with self.assertRaisesRegex(ValueError, error):
-            workflow.start(self.workspace, "invalid-language", BRIEF, language="de", profile="lite")
+            workflow.start(self.workspace, "invalid-language", BRIEF, language="de")
         root = self.workspace / "invalid-language"
         for directory in ("state", "data", "logs"):
             self.assertFalse((root / directory).exists())

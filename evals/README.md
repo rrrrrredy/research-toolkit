@@ -57,7 +57,7 @@ The active long-research task set is [`cases/`](cases/). The original seven case
 | [Writing examples](taste_anchors/README.md) | 4 groups | Reusable examples for concrete criteria; prior exposure and fictional or undated source facts remain explicit. |
 | [Source packs](source_packs/) | Historical seed packs and current research materials | Preserve provenance and declared purpose. Public factual evidence requires complete local originals and matching hashes; historical workflow seeds are not public factual authorities. |
 | [Public research cases](../docs/case-study/README.md) | 2 cases | Chinese office-agent research and original English API/browser research, with drafts, reviews and revisions. Translations are not additional tasks. |
-| [Templates](templates/) | Workflow aids | Reusable configuration. The [archived helpdesk example](../examples/lite/) retains the old contract and is not current onboarding. |
+| [Templates](templates/) | Workflow aids | Reusable configuration. Use the shared research entry and the current long-research cases. |
 
 The 13 primary reports comprise seven Chinese-language and six English-language live-web research tasks. Two additional reports—the English microdrama report and Chinese TTC report—are independently written from their respective question's frozen materials, without access to the other language's answer. They are not two additional independent questions. Revisions, reviews and failed-call retries also do not increase the independent-question count.
 

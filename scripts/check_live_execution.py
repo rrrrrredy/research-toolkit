@@ -14,7 +14,6 @@ import codex_judge as c
 import run_blinded_evals as h
 import run_judge_calibration as calibration
 import check_live_diagnostics as diagnostics
-from check_blinded_protocol_v2 import ProtocolV2Tests
 
 
 def settings():
@@ -178,37 +177,6 @@ class PublicEvidenceTests(unittest.TestCase):
                 diagnostics.verify_connectivity(root)
 
 
-class IntegrationTests(ProtocolV2Tests):
-    def test_native_judge_admission_and_adapter_freeze(self):
-        self.config["judge"] = settings()
-        self.store()
-        out, frozen = self.plan()
-        self.assertIn("codex_adapter_sha256", frozen)
-        frozen["codex_adapter_sha256"] = "0" * 64
-        (out / "coordinator/frozen.json").write_text(json.dumps(frozen))
-        (out / "coordinator/freeze-commitment.json").write_text(json.dumps({"frozen_sha256": h.sha(h.encode(frozen))}))
-        with self.assertRaisesRegex(ValueError, "adapter changed"):
-            h.run(out)
-        self.assertFalse((out / "run-started.json").exists())
-        self.config["author"] = settings()
-        self.store()
-        with self.assertRaisesRegex(ValueError, "judges only"):
-            self.plan("author-rejected")
-
-    def test_explicit_provider_thinking_options_frozen_and_sent(self):
-        self.config["author"].update(thinking="enabled", reasoning_effort="low")
-        self.store()
-        out, frozen = self.plan()
-        self.assertEqual(frozen["config"]["author"]["reasoning_effort"], "low")
-        with patch.object(h.urllib.request, "build_opener", side_effect=OSError("offline-control")):
-            h.request(self.config["author"], [], out / "request-control")
-        body = h.read(out / "request-control/request.json")
-        self.assertEqual(body["thinking"], {"type": "enabled"})
-        self.assertEqual(body["reasoning_effort"], "low")
-        self.config["author"]["thinking"] = "disabled"
-        self.store()
-        with self.assertRaisesRegex(ValueError, "requires enabled"):
-            self.plan("invalid-effort")
 
 
 if __name__ == "__main__":

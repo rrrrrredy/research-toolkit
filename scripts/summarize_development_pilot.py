@@ -45,10 +45,16 @@ def summarize(root):
     # This dated reconstruction deliberately retains the executed prompt after
     # later harness changes. Read literals from source; never execute archives.
     constants = {}
+    historical_addition = None
     for node in ast.parse(archived["run_blinded_evals.py"].decode("utf-8")).body:
         if isinstance(node, ast.Assign) and len(node.targets) == 1 and isinstance(node.targets[0], ast.Name):
             if node.targets[0].id in ("AUTHOR_SYSTEM", "JUDGE_SYSTEM", "NOTES_MARKER"):
                 constants[node.targets[0].id] = ast.literal_eval(node.value)
+
+    for node in ast.walk(ast.parse(archived["run_blinded_evals.py"].decode("utf-8"))):
+        if isinstance(node, ast.AugAssign) and isinstance(node.target, ast.Name) and node.target.id == "instruction" and isinstance(node.value, ast.Constant) and isinstance(node.value.value, str):
+            historical_addition = node.value.value
+    h.require(historical_addition is not None, "Archived author instruction is missing")
 
     def author_messages(frozen, task, condition):
         instruction = constants["AUTHOR_SYSTEM"]
@@ -57,7 +63,7 @@ def summarize(root):
                            f"Return the complete reader-facing Markdown report, then exactly one line containing {constants['NOTES_MARKER']}, then separate working notes. "
                            "Do not put assigned condition, tooling, checklist or execution status in the report; put them in notes. Normal self-checking is allowed.")
         if condition == "with_toolkit":
-            instruction += "\nApply Research Toolkit profile=lite in this single response: clarify from the supplied brief, plan, register sources/claims, draft sections and complete the Lite checklist in notes. Do not call an external reviewer. File persistence and MCP are unavailable in this bounded instruction-only experiment.\n"
+            instruction += historical_addition
             instruction += "\n\n".join(f"FILE: {name}\n{text}" for name, text in frozen["methods"].items())
         return [{"role": "system", "content": instruction}, {"role": "user", "content": json.dumps({"brief": task["brief"], "sources": task["sources"]}, ensure_ascii=False)}]
 

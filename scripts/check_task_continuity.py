@@ -9,8 +9,7 @@ import unittest
 from unittest.mock import patch
 
 import research_workflow as w
-from check_research_workflow import BRIEF, SyntheticRunner, historical_profile, legacy_finish
-from profile_policy import CHECKLIST
+from check_research_workflow import BRIEF, SyntheticRunner, historical_contract, legacy_finish
 from run_observation import activity_summary, timed_capture
 
 
@@ -19,7 +18,7 @@ class ContinuityTests(unittest.TestCase):
         tmp = tempfile.TemporaryDirectory(dir=os.environ.get("IRF_TEST_TMPDIR"))
         self.addCleanup(tmp.cleanup)
         self.workspace = Path(tmp.name)
-        w.start(self.workspace, "case", BRIEF, profile="lite")
+        w.start(self.workspace, "case", BRIEF)
         self.root = self.workspace / "case"
         w.save_text(self.root, "source.md", "The depot sent twelve shipments. Revenue was not reported.")
         self.assertTrue(w.save_records(self.workspace, "case",
@@ -32,16 +31,14 @@ class ContinuityTests(unittest.TestCase):
     def snapshot(self):
         return {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
 
-    def finish_lite(self):
-        # Build a retained pre-v2 receipt; current delivery never follows this path.
+    def seed_previous_delivery(self):
         w.save_records(self.workspace, "case", requirements=[{"requirement_id": "R1", "status": "satisfied", "evidence": "report-a.md paragraph 1"}])
-        historical_profile(self.workspace, 'case', 'lite')
-        checklist = {k: {"passed": True, "evidence": "report-a.md paragraph 1 and source.md"} for k in CHECKLIST}
-        result = legacy_finish(self.workspace, "case", "Complete.", artifact="report-a.md", checklist=checklist)
-        self.assertTrue(result["completed"], result)
+        progress = w.load(self.root, "state/progress.json")
+        w.save(self.root, "state/progress.json", {**progress, "review_contract": 1, "stage": "final", "status": "complete"})
+        w.save(self.root, "state/final_checklist.json", {"schema_version": 1, "artifact": "report-a.md", "items": {"requirements": {"passed": True, "evidence": "Historical saved author check"}}})
 
     def test_new_main_does_not_inherit_delivery_or_rewrite_receipt(self):
-        self.finish_lite()
+        self.seed_previous_delivery()
         receipt = (self.root / "state/final_checklist.json").read_bytes()
         saved = w.save_records(self.workspace, "case", draft={"path": "report-b.md", "content": "A revised interpretation.", "main": True})
         self.assertTrue(saved["ok"], saved)
@@ -63,7 +60,7 @@ class ContinuityTests(unittest.TestCase):
         self.assertEqual(result["changes"]["artifact"], "report-a.md")
 
     def test_main_resume_activates_current_contract_then_retry_is_idempotent(self):
-        self.finish_lite()
+        self.seed_previous_delivery()
         receipt = (self.root / 'state/final_checklist.json').read_bytes()
         saved = w.save_records(self.workspace, "case", draft={"path": "report-a.md", "main": True})
         self.assertTrue(saved["ok"])
@@ -173,7 +170,7 @@ class ContinuityTests(unittest.TestCase):
         self.assertEqual((self.root / "note.md").read_text(encoding="utf-8"), "A separate note.")
 
     def test_legacy_task_does_not_auto_adopt_latest_file(self):
-        w.start(self.workspace, "legacy", BRIEF, profile="lite")
+        w.start(self.workspace, "legacy", BRIEF)
         w.save_records(self.workspace, "legacy", draft={"path": "chapter.md", "content": "Chapter", "complete": True})
         self.assertIsNone(w.status(self.workspace, "legacy")["current_work"]["artifact"])
 

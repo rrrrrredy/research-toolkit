@@ -55,7 +55,8 @@ class InstallationTests(unittest.TestCase):
         # stage_skill copies the working tree, which may legitimately differ
         # from HEAD during development. Git reference comparison is tested
         # separately; compare the staged copy to the source it actually used.
-        current_payload = {name: (repo / name).read_bytes() for name in payload}
+        current_payload = {name: (repo / name).read_bytes() for name in payload
+                           if (repo / name).is_file()}
         self.assertTrue(checker.compare_payload(staged, current_payload)["payload_matches"])
         (staged / "scripts/check_review_completion.py").write_text("# incomplete copy\n", encoding="utf-8")
         self.assertFalse(checker.compare_payload(staged, current_payload)["payload_matches"])

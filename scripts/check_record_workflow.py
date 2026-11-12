@@ -10,8 +10,7 @@ import unittest
 from unittest.mock import patch
 
 import research_workflow as w
-from check_research_workflow import BRIEF, SyntheticRunner, historical_profile, legacy_finish
-from profile_policy import CHECKLIST
+from check_research_workflow import BRIEF, SyntheticRunner, historical_contract, legacy_finish
 from review_runner import ReviewFailure
 from run_observation import capture_usage
 
@@ -21,7 +20,7 @@ class RecordWorkflowTests(unittest.TestCase):
         tmp = tempfile.TemporaryDirectory(dir=os.environ.get("IRF_TEST_TMPDIR"))
         self.addCleanup(tmp.cleanup)
         self.workspace = Path(tmp.name)
-        w.start(self.workspace, "case", BRIEF, profile="lite")
+        w.start(self.workspace, "case", BRIEF)
         self.root = self.workspace / "case"
 
     def seed(self):
@@ -210,12 +209,12 @@ class RecordWorkflowTests(unittest.TestCase):
         (self.root/"logs/activity.jsonl").write_bytes(b"\xff")
         self.assertTrue(w.status(self.workspace, "case")["current_work"]["warnings"])
 
-    def test_cli_save_resumes_current_contract_and_preserves_historical_lite_checklist(self):
+    def test_cli_save_resumes_current_contract_and_preserves_historical_checklist(self):
         self.seed()
         w.save_records(self.workspace, "case", requirements=[{"requirement_id": "R1", "status": "satisfied", "evidence": "drafts/first.md"}])
-        items = {k: {"passed": True, "evidence": "drafts/first.md and source.md"} for k in CHECKLIST}
-        historical_profile(self.workspace, 'case', 'lite')
-        self.assertTrue(legacy_finish(self.workspace, "case", "Complete.", artifact="drafts/first.md", checklist=items)["completed"])
+        progress = w.load(self.root, "state/progress.json")
+        w.save(self.root, "state/progress.json", {**progress, "review_contract": 1, "stage": "final", "status": "complete"})
+        w.save(self.root, "state/final_checklist.json", {"schema_version": 1, "artifact": "drafts/first.md", "items": {"requirements": {"passed": True, "evidence": "Historical saved author check"}}})
         receipt = (self.root/"state/final_checklist.json").read_bytes()
         result = subprocess.run([sys.executable, "-X", "utf8", str(w.TOOLKIT/"scripts/research_workflow.py"),
             "save", "--workspace", str(self.workspace)], input=json.dumps({"task": "case", "claims": [{"claim_id": "C1", "uncertainty": "New qualification"}]}), text=True, encoding="utf-8", capture_output=True)
