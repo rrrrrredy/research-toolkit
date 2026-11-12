@@ -29,6 +29,14 @@ preserve sources and full analysis for handoff; organize independent review, aud
 
 The [shared research guide](../docs/quickstart.md) provides a complete request and setup details.
 
+## Research tools and usage recording
+
+The Skill supplies the shared research methods. Use Gemini CLI's available tools for source reading, writing and independent agent work; install or configure [CLI/MCP](../docs/usage-modes.md#connect-mcp-separately) when you want Toolkit to manage task records. Each required review, audit and acceptance still needs its own independent context.
+
+Toolkit's script-managed [Agent execution adapter](../docs/usage-modes.md#agent-host-execution) currently connects to Codex, Claude Code and OpenCode. Gemini CLI can use the methods and shared CLI/MCP directly; it is not a backend of that script dispatcher.
+
+CLI/MCP calls use the same [basic-event recording and controls](../docs/usage-data.md). Automatic recording of the surrounding agent session is currently integrated with Codex, Claude Code and OpenCode. Installing this Gemini Skill alone does not install that session recording integration. Report and material sharing requires the user's confirmation as described in the usage-data guide.
+
 ## If it does not load
 
 Run this from the same project directory:
