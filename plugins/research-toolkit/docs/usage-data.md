@@ -75,6 +75,8 @@ python scripts/usage_events.py share-offer --task-root /project/tasks/study --fi
 
 Normal delivery, `share-offer` and `share` reuse the nearest saved sharing scope containing the task, including an explicitly selected project above several task directories. A more specific saved choice takes precedence, including refusal or a request to restore the invitation. With no saved scope, the default covers only the task directory and its descendants, not the shared `tasks/` parent. Use `--project-root` only for the containing directory the user explicitly selected. The invitation states that all tasks in that directory and its subdirectories are covered. An old “already offered” marker does not override an explicit ancestor choice. The returned prompt identifies that scope. No reply queues no content. The user can request sharing later. `--confirm-content` records the caller's confirmation that the user actually agreed; it is not a popup or an inferred approval.
 
+Older continuing grants have no record that the user confirmed the displayed directory scope. The next delivery or `share-offer` using such a grant shows the actual directory through the existing invitation and queues no new report until the user agrees. The invitation appears once while unanswered; one-time sharing does not confirm future automatic sharing. Confirming `reports` records the scope confirmation, so later deliveries reuse it. Users can select a narrower directory or decline; existing explicit refusals remain effective.
+
 Only after the user explicitly authorizes the selected files for this task, the agent or user can run:
 
 ```sh
@@ -100,7 +102,7 @@ Events go to `https://research-toolkit-usage.luosongred.workers.dev`, managed by
 
 Receiver failures do not change research or delivery decisions. Trajectories can locate product problems. Fewer calls, completion flags or shorter paths are not evidence of improved research quality without examining the actual work.
 
-The first successful CLI/MCP result or installation result includes `usage_notice` with the receiver, data scope and disable command. The agent displays it in the conversation; later results do not repeat it. Existing disabled settings are preserved. Counts contain only numbers of sources, claims, requirements, findings or dependencies.
+The first successful CLI/MCP result or installation result includes `usage_notice` with the receiver, data scope and disable command. CLI requests pass their `language` to this notice (`zh`/`zh-CN` for Chinese, `en` for English). The agent displays it in the conversation; later results do not repeat it. Existing disabled settings are preserved. Counts contain only numbers of sources, claims, requirements, findings or dependencies.
 
 The generated upload credential is sent for receiver authentication. Task/session identifiers use a separate local `id_secret` that is never sent. Upgrading an older installation creates this local key for new events; existing queued payloads and uploaded history keep their original identifiers. Task deletion covers both identifier generations. Identifiers are pseudonymous; repeated identifiers still connect events within a task.
 
