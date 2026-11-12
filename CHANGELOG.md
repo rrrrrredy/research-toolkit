@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.5.5 — 2026-11-12
+
+Confirm the actual directory scope before reusing older continuing report-sharing grants, pass the CLI request language to the first usage notice, and give both sides of the MCP contract check the same usage-recording environment. Synchronize bilingual guidance and plugin files; research and completion interfaces remain unchanged.
+
+[English release notes](docs/releases/v2.5.5.md) · [中文发布说明](docs/releases/v2.5.5.zh-CN.md)
+
 ## v2.5.4 — 2026-11-12
 
 Preserve explicit sharing choices after invitations, resume the original research unit with replacement sources, isolate imported release-update checks from usage collection, and include configured final acceptance in readiness checks. Correct the microdrama portfolio arithmetic and current reading page while preserving original reports and records.

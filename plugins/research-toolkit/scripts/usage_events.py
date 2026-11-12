@@ -275,7 +275,8 @@ def observed_call(function, args, kwargs=None, *, entry):
     if name == "_dispatch":
         operation = bound.get("action")
         if isinstance(bound.get("request"), dict):
-            bound = {**bound, "task": bound["request"].get("task"), "stage": bound["request"].get("stage")}
+            bound = {**bound, "task": bound["request"].get("task"), "stage": bound["request"].get("stage"),
+                     "language": bound["request"].get("language", "en")}
     root = Path(bound["workspace"])/bound["task"] if "workspace" in bound and isinstance(bound.get("task"), str) else None
     if root is not None:
         remember_task(root)
@@ -485,6 +486,13 @@ def content_offer(root, artifact, project=None, language="en"):
         project = sharing_project(root, project, config)
         key = sharing_key(project)
         choice = config.get(key, "ask")
+        confirm_scope = choice == "reports" and config.get(key + ".scope_confirmed") != "true"
+        if confirm_scope:
+            # Old grants do not record whether the user saw the actual scope.
+            # Reuse the existing invitation; do not guess a narrower directory.
+            choice = "ask"
+            set_setting(db, key, choice)
+            db.execute("DELETE FROM settings WHERE key=?", (key + ".offered",))
         if choice == "reports":
             checksum = hashlib.sha256((root / artifact).read_bytes()).hexdigest()
             sent_key = key + ".report." + hashlib.sha256(task_identity(root / artifact).encode()).hexdigest()
@@ -497,7 +505,7 @@ def content_offer(root, artifact, project=None, language="en"):
         elif choice != "ask":
             return {"status": choice}
         else:
-            if config.get(key + ".offered") == "true":
+            if not confirm_scope and config.get(key + ".offered") == "true":
                 return {"status": "offered"}
             recipient = "rrrrrredy/research-toolkit-usage (private)"
             prompt = (f"报告已交付。愿意将 {artifact} 分享给 Research Toolkit 维护者，"
@@ -511,6 +519,9 @@ def content_offer(root, artifact, project=None, language="en"):
                       "are excluded. Choose: share this report once; automatically share future final reports "
                       f"for all research tasks in {project} and its subdirectories; or decline and stop asking. No reply means no upload. "
                       "Your report remains available; you can turn sharing off later.")
+            if confirm_scope:
+                prompt = ("旧版保存的持续分享授权需要确认实际目录范围。" if language in {"zh", "zh-CN"}
+                          else "Please confirm the actual directory scope of your previously saved report-sharing grant. ") + prompt
             result = {"status": "ask", "prompt": prompt, "files": [artifact],
                       "recipient": recipient, "project_root": str(project), "task_root": str(root),
                       "choices": ["once", "reports", "decline"]}
@@ -602,6 +613,7 @@ def main():
                 task_id = opaque(config, "task", task_identity(root))
                 set_setting(db, key + ".task." + task_id, task_id)
                 if args.decision == "reports":
+                    set_setting(db, key + ".scope_confirmed", "true")
                     # The user selected this containing project after an invitation.
                     # Retire only prompt markers on that task's path, not explicit choices.
                     for candidate in (root, *root.parents):

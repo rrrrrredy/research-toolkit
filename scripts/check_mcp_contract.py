@@ -78,7 +78,8 @@ async def verify(base):
     def cli(script, *arguments, request=None, expected_exit=0):
         command = [sys.executable, "-B", "-X", "utf8", str(ROOT/"scripts"/script), *map(str, arguments)]
         process = subprocess.run(command, input=json.dumps(request) if request is not None else None,
-                                 text=True, encoding="utf-8", capture_output=True)
+                                 text=True, encoding="utf-8", capture_output=True,
+                                 env={**os.environ, "RESEARCH_TOOLKIT_TELEMETRY": "off"})
         with (base/"cli.jsonl").open("a", encoding="utf-8") as log:
             log.write(json.dumps({"command": command, "request": request, "returncode": process.returncode,
                                   "stdout": process.stdout, "stderr": process.stderr}, ensure_ascii=False)+"\n")
