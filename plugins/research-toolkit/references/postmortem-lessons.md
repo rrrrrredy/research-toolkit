@@ -27,7 +27,7 @@ These design lessons describe recurring research failure modes and the practices
 
 A research report needs a clear thesis, relevant evidence, enough detail for the question, explicit uncertainty, useful references and readable analysis. Its expected depth should be settled before drafting. Review the actual text against those requirements rather than relying on file counts or status labels.
 
-## Lessons From The October Lite Pilot
+## Lessons From The October Research Samples
 
 These preserved outputs motivate method changes, not claims that the changes work. They come from different collection stages and must not be pooled into a new win rate.
 

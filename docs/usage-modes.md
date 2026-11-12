@@ -19,7 +19,7 @@ Reading and applying the methods needs no Python or vendor CLI. Use the Agent to
 
 ## When to use each tool
 
-**Use the [single research entry](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.md).** Agents load methods for their work and complete independent review, audit and acceptance. CLI/MCP are optional; omit `profile` in new requests.
+**Use the [single research entry](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.md).** Agents load methods for their work and complete independent review, audit and acceptance. CLI/MCP are optional. Requests use the shared workflow without a mode-selection argument.
 
 The table applies when you choose the managed local workflow, through MCP **or the [shared CLI](#skill-only-and-cli-fallback)**. Skill-only use keeps the same research and independent assessment responsibilities without creating these registries or receipts.
 

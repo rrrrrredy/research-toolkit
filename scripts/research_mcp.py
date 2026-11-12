@@ -11,7 +11,28 @@ from mcp.server import MCPServer
 from mcp.server.mcpserver.exceptions import ToolError
 import research_workflow as workflow
 
-server = MCPServer("research-toolkit")
+class ResearchServer(MCPServer):
+    async def list_tools(self):
+        tools = await super().list_tools()
+        for tool in tools:
+            tool.input_schema["additionalProperties"] = False
+        return tools
+
+    async def call_tool(self, name, arguments, context=None):
+        # The SDK otherwise discards unknown fields before calling the function.
+        # Validate against the same public signature that clients receive.
+        for tool in await self.list_tools():
+            if tool.name == name:
+                allowed = tool.input_schema.get("properties", {})
+                unexpected = sorted(set(arguments) - set(allowed))
+                if unexpected:
+                    raise ToolError(f"{name}: unknown fields {', '.join(unexpected)}. "
+                                    f"Allowed fields: {', '.join(allowed) or '(none)'}.")
+                break
+        return await super().call_tool(name, arguments, context)
+
+
+server = ResearchServer("research-toolkit")
 WORKSPACE = workflow.workspace_default()
 TASK_LOCKS = defaultdict(threading.Lock)
 
@@ -35,17 +56,16 @@ def mutate(function, task, *args):
 
 
 @server.tool(structured_output=True)
-def research_start(task: str, brief: dict[str, str], language: str = "en",
-                   profile: str = "full") -> dict[str, Any]:
+def research_start(task: str, brief: dict[str, str], language: str = "en") -> dict[str, Any]:
     """Create a research task or complete its missing brief. Returns its directory and stage guidance.
     language accepts "en" (English), "zh" or "zh-CN" (the same Chinese methods); checked before task records are written.
     Assemble concrete coverage and expected results from context; brief uses question, audience, scope, output, depth and evidence_standard.
     Returned clarification_questions guide the agent; do not forward them as a questionnaire. Explain consequential alternatives and resolve critical choices with the user.
-    Use the complete shared research methods. Omit profile; it is retained only for older clients and saved tasks.
+    Use the complete shared research methods.
     Resume saved materials through research_status; historical receipts remain unchanged.
     New work uses independent agent review, audit and acceptance. review_readiness defaults to host_native.
     """
-    return mutate(workflow.start, task, brief, language, profile)
+    return mutate(workflow.start, task, brief, language)
 
 
 @server.tool(structured_output=True)
@@ -130,16 +150,16 @@ def research_status(task: str, language: str = "en", stage: str | None = None,
 
 
 @server.tool(structured_output=True)
-def research_guide(stage: str, language: str = "en", profile: str = "full",
+def research_guide(stage: str, language: str = "en",
                    methods: list[str] | None = None) -> dict[str, Any]:
     """Read brief/collect/analyze/draft/review/revise/final methods without a task.
     language accepts "en" (English), "zh" or "zh-CN" (the same Chinese methods).
-    All tasks receive the same complete methods for this stage; omit the legacy profile argument.
+    All tasks receive the same complete methods for this stage.
     For an existing task use research_status to preserve its recorded completion requirements.
     Optional methods selects named capabilities (e.g. compare/explain/assemble/delegate) for the current question.
     Omit methods to keep stage defaults; available_methods lists choices. No additional step is required.
     """
-    return call(workflow.guidance, stage, language, profile, methods)
+    return call(workflow.guidance, stage, language, methods)
 
 
 @server.tool(structured_output=True)
@@ -178,11 +198,10 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
 
 
 @server.tool(structured_output=True)
-async def research_finish(task: str, message: str, artifact: str = "final.md",
-                          checklist: dict[str, Any] | None = None) -> dict[str, Any]:
+async def research_finish(task: str, message: str, artifact: str = "final.md") -> dict[str, Any]:
     """Verify report delivery and publish its receipt/terminal state only when checks pass.
     Current work requires completed independent perspectives, audit and acceptance bound to the current full artifact.
-    Historical checklist receipts remain readable; checklist cannot replace current independent work.
+    Complete the independent review, audit and acceptance for the current report.
     Explicit length_constraint rows in state/requirements.jsonl are measured; no limit is inferred from prose.
     message is the intended user-visible delivery text. This does not send messages or publish externally.
     completed=false means unfinished, even with action_required; address the returned gaps before delivery.
@@ -191,7 +210,7 @@ async def research_finish(task: str, message: str, artifact: str = "final.md",
     Independent audit adjudicates no-change decisions; an author's appended disposition cannot clear required findings.
     Evaluation tasks end with evaluation_complete from research_review, without repairing samples.
     """
-    return await asyncio.to_thread(mutate, workflow.finish, task, message, artifact, checklist)
+    return await asyncio.to_thread(mutate, workflow.finish, task, message, artifact)
 
 
 @server.tool(structured_output=True)
@@ -222,7 +241,7 @@ def research(question: str) -> str:
     """Start source-backed research by clarifying the brief, then using the shared research tools."""
     return ("Use Research Toolkit to answer this research request. Read research-toolkit://instructions. "
             "Propose concrete coverage and expected results from context, then call research_start "
-            "without choosing a profile; resume saved tasks through research_status. "
+            "and resume saved tasks through research_status. "
             "Explain consequential alternatives before asking for unresolved user decisions. "
             "Follow the returned stage guidance, save full required source texts, "
             "develop the required depth, comparisons and explanations, and complete the task's "

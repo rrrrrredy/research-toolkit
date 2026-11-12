@@ -21,7 +21,6 @@ from task_context import (current_work, runtime_identity, require_current_artifa
 from task_storage import nonempty, digest, safe_path, load, save, save_text, task_root, file_io_path
 from research_guidance import BRIEF_FIELDS, BRIEF_FIELDS_ZH, STAGE_FILES, normalize_language, guidance
 
-from profile_policy import CHECKLIST, LITE_LOG, checklist_errors, inspect_lite_delivery, lite_input_hashes, lite_completion_errors
 
 from check_delivery import (REQUIRED_HASH_INPUTS, OPTIONAL_HASH_INPUTS, evaluate_delivery,
                             inspect_csv_text, inspect_jsonl, inspect_jsonl_text,
@@ -187,11 +186,9 @@ def requirement_input(root):
 
 
 @task_operation
-def start(workspace: Path, task: str, brief: dict, language="en", profile="full") -> dict:
+def start(workspace: Path, task: str, brief: dict, language="en") -> dict:
     language = normalize_language(language)
     started_at = now()
-    if profile not in {"lite", "full"}:
-        raise ValueError("Profile must be lite or full.")
     if not isinstance(brief, dict) or any(not isinstance(k, str) for k in brief):
         raise ValueError("Brief must be an object.")
     if any(not isinstance(v, str) for v in brief.values()):
@@ -201,8 +198,6 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
     created = not progress_file.exists()
     if progress_file.exists():
         progress = load(root, "state/progress.json")
-        # The historical profile describes old records, not a second current entry.
-        profile = progress.get("profile", "full")
         if progress.get("stage") != "brief":
             if brief and any(progress.get("brief", {}).get(k) != v for k, v in brief.items()):
                 raise ValueError("Research already started; reconcile changed scope explicitly in its task records.")
@@ -219,7 +214,6 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
         }.items():
             if safe_path(root, name).exists():
                 raise ValueError("Task contains existing records. Use a new task ID or inspect them before import.")
-        profile = "full"
         progress = {"stage": "brief", "status": "in_progress", "author_id": f"author:{task}",
                     "review_contract": 2, "open_issues": []}
         for name, content in {
@@ -231,7 +225,7 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
             save_text(root, name, content)
     missing = [key for key in BRIEF_FIELDS if not nonempty(brief.get(key))]
     readiness = review_readiness()
-    progress.update(brief=brief, profile=profile, stage="brief" if missing else "collect",
+    progress.update(brief=brief, stage="brief" if missing else "collect",
                     next_action="Use context to propose concrete coverage and results; clarify only consequential unknowns." if missing else
                     "Collect and read the required evidence.")
     save(root, "state/progress.json", progress)
@@ -245,9 +239,9 @@ def start(workspace: Path, task: str, brief: dict, language="en", profile="full"
             observation["observation_warning"] = f"Task start could not be observed: {exc}"
     return {"task": task, "task_directory": str(root), "ready_for_collection": not missing,
             "runtime": runtime_identity(TOOLKIT), "current_work": current_work(root, progress),
-            "review_readiness": readiness, "profile": profile,
+            "review_readiness": readiness,
             "missing_fields": missing, "clarification_questions": [(BRIEF_FIELDS_ZH if language == "zh" else BRIEF_FIELDS)[k] for k in missing],
-            **observation, **guidance(progress["stage"], language, profile)}
+            **observation, **guidance(progress["stage"], language)}
 
 
 @task_operation
@@ -271,7 +265,7 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None,
     progress = load(root, "state/progress.json")
     missing = [k for k in BRIEF_FIELDS if not nonempty(progress.get("brief", {}).get(k))]
     requirements = ""
-    method_guide = guidance(stage or progress.get("stage", "brief"), language, progress.get("profile", "full"), methods)
+    method_guide = guidance(stage or progress.get("stage", "brief"), language, methods)
     work_packet = prepare_work(root, progress, work, resume_prepared=True) if work is not None else None
     if stage is not None:
         if stage not in {"collect", "analyze", "draft", "revise"}:
@@ -288,8 +282,7 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None,
         save(root, "state/progress.json", progress)
     delivery = {}
     work = current_work(root, progress)
-    legacy_lite = progress.get("profile") == "lite" and progress.get("review_contract", 1) < 2
-    receipt_name = "state/final_checklist.json" if legacy_lite else "state/final_delivery.json"
+    receipt_name = "state/final_delivery.json"
     if not safe_path(root, receipt_name).exists() and safe_path(root, "state/final_checklist.json").exists():
         receipt_name = "state/final_checklist.json"
     if safe_path(root, receipt_name).exists():
@@ -301,7 +294,7 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None,
             work["warnings"].append("Historical receipt unreadable; retained without alteration.")
     if progress.get("stage") == "final" or progress.get("status") == "complete":
         try:
-            name = "state/final_checklist.json" if legacy_lite else "state/final_delivery.json"
+            name = "state/final_delivery.json"
             receipt = load(root, name)
             artifact = receipt["artifact"]
             require_current_artifact(progress, artifact)
@@ -472,8 +465,6 @@ def legacy_review(workspace: Path, task: str, evidence_paths: list[str], artifac
         raise ValueError("include_assignment must be true or false.")
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
-    if progress.get("profile", "full") == "lite":
-        return {"skipped": True, "profile": "lite", "log": LITE_LOG, "independent_review": False}
     require_current_artifact(progress, artifact)
     if any(not nonempty(progress.get("brief", {}).get(k)) for k in BRIEF_FIELDS):
         raise ValueError("Clarify critical research requirements before reviewing.")
@@ -930,7 +921,7 @@ def check_draft(workspace: Path, task: str, artifact="final.md") -> dict:
                        "match the agreed requirement, then update only those rows in state/requirements.jsonl to "
                        f"satisfied with evidence citing {artifact}, the measured count and scope. "
                        "This check has not changed their status. Resolve any other listed errors, then run check-draft again. Preserve evaluation originals.")
-    return {"ok": not errors, "scope": "draft_record_and_length_checks", "profile": progress.get("profile", "full"),
+    return {"ok": not errors, "scope": "draft_record_and_length_checks",
             "artifact": artifact, "artifact_sha256": artifact_hash, "counts": counts,
             "count_scope": "whole_artifact_including_markup_and_references", "length_checks": checks,
             "errors": errors, "warnings": warnings, "semantic_quality": "not_assessed",
@@ -938,48 +929,16 @@ def check_draft(workspace: Path, task: str, artifact="final.md") -> dict:
             "next_action": next_action}
 
 
-def finish_lite(root, progress, message, artifact, checklist):
-    if any(not nonempty(progress.get("brief", {}).get(k)) for k in BRIEF_FIELDS):
-        raise ValueError("Complete the brief before the final checklist.")
-    check_stage_records(root, "draft")
-    if not safe_path(root, artifact).read_text(encoding="utf-8").strip() or not nonempty(message):
-        raise ValueError("Provide a nonempty report and delivery message.")
-    length_checks, length_errors = inspect_length_constraints(root, artifact)
-    obligation_errors = lite_completion_errors(root)
-    if checklist is None:
-        return {"completed": False, "action_required": "final_checklist", "checklist": CHECKLIST,
-                "profile": "lite", "log": LITE_LOG, "length_checks": length_checks, "errors": [*length_errors, *obligation_errors]}
-    errors = [*checklist_errors(checklist), *length_errors, *obligation_errors]
-    if errors:
-        return {"completed": False, "profile": "lite", "errors": errors, "length_checks": length_checks, "log": LITE_LOG}
-    try:
-        input_hashes = lite_input_hashes(root, checklist)
-    except (OSError, ValueError, TypeError, KeyError) as exc:
-        return {"completed": False, "profile": "lite", "errors": [str(exc)], "log": LITE_LOG}
-    save_text(root, "delivery_message.md", message)
-    record = {"schema_version": 2, "profile": "lite", "artifact": artifact, "items": checklist, "input_hashes": input_hashes,
-              **({"length_checks": length_checks} if length_checks else {}),
-              "review_strength": "unreviewed", "independent_review": False,
-              "artifacts": {name: sha256_file(safe_path(root, name)) for name in (artifact, "delivery_message.md")}}
-    save(root, "state/final_checklist.json", record)
-    save_text(root, "logs/profile.jsonl", json.dumps({"profile": "lite", "log": LITE_LOG})+"\n")
-    result = inspect_lite_delivery(root, artifact)
-    if result["ok"]:
-        save(root, "state/progress.json", {**progress, "stage": "final", "status": "complete",
-            "next_action": "Delivered with the lite checklist; no independent review.",
-            "review_strength": "unreviewed"})
-    return {"completed": result["ok"], "artifact": str(safe_path(root, artifact)),
-            "profile": "lite", "delivery_check": result, "log": LITE_LOG, "message": message}
 
 
 @task_operation
-def finish(workspace: Path, task: str, message: str, artifact="final.md", checklist=None) -> dict:
+def finish(workspace: Path, task: str, message: str, artifact="final.md") -> dict:
     progress = load(task_root(workspace, task), "state/progress.json")
     require_current_artifact(progress, artifact)
     if progress.get("review_plan", {}).get("contract_version") != 2:
         return {"completed": False, "action_required": "host_agents",
                 "error": "Continue with independent agent review, audit and acceptance. Historical receipts remain readable and unchanged."}
-    result = finish_recorded(workspace, task, message, artifact, checklist)
+    result = finish_recorded(workspace, task, message, artifact)
     if result.get("completed"):
         from usage_events import delivery_sharing
         result["content_sharing"] = delivery_sharing(task_root(workspace, task), artifact, progress.get("language", "en"))
@@ -987,17 +946,15 @@ def finish(workspace: Path, task: str, message: str, artifact="final.md", checkl
 
 
 @task_operation
-def legacy_finish(workspace: Path, task: str, message: str, artifact="final.md", checklist=None) -> dict:
+def legacy_finish(workspace: Path, task: str, message: str, artifact="final.md") -> dict:
     """Historical fixture replay, not a public workflow action."""
-    return finish_recorded(workspace, task, message, artifact, checklist, legacy=True)
+    return finish_recorded(workspace, task, message, artifact, legacy=True)
 
 
-def finish_recorded(workspace, task, message, artifact, checklist, *, legacy=False):
+def finish_recorded(workspace, task, message, artifact, *, legacy=False):
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
     require_current_artifact(progress, artifact)
-    if legacy and progress.get("profile") == "lite":
-        return finish_lite(root, progress, message, artifact, checklist)
     if progress.get("review_plan", {}).get("purpose") != "report_delivery":
         raise ValueError("Report delivery needs report_delivery reviews. Evaluations end with their review result.")
     length_checks, length_errors = inspect_length_constraints(root, artifact)
@@ -1111,7 +1068,6 @@ def main():
             stream.reconfigure(encoding="utf-8")
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "save", "check-draft", "check-reviewer", "check-updates"])
-    parser.add_argument("--profile", choices=["lite", "full"], help=argparse.SUPPRESS)
     parser.add_argument("--workspace", type=Path, default=workspace_default())
     parser.add_argument("--request", type=Path, help="Path to a JSON request file (not inline JSON); omit to read the JSON object from stdin.")
     args = parser.parse_args()
@@ -1119,10 +1075,6 @@ def main():
         request = json.loads(args.request.read_text(encoding="utf-8") if args.request else "{}" if args.action == "check-reviewer" else sys.stdin.read())
         if not isinstance(request, dict):
             raise ValueError("Request must be an object.")
-        if args.profile is not None:
-            if args.action != "start":
-                raise ValueError("--profile applies only to start; later actions use the saved task profile.")
-            request["profile"] = args.profile
         result = dispatch(args.action, request, args.workspace)
     except (ValueError, OSError, TypeError, KeyError) as exc:
         print(json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=False))

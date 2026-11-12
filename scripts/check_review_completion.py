@@ -89,11 +89,6 @@ def inspect_review_completion(
     if progress.get("review_plan", {}).get("contract_version") == 2 or progress.get("review_contract", 1) >= 2:
         from host_review import inspect
         return inspect(root, progress, artifact, require_report_ready=require_report_ready)
-    if progress.get("profile") == "lite":
-        from profile_policy import LITE_LOG
-        return {"ok": True, "skipped": True, "profile": "lite", "log": LITE_LOG,
-                "flags": [], "findings": [], "required_slots": 0, "completed_slots": 0,
-                "selected_attempts": {}, "independent_review": False, "semantic_verification": False}
     flags: list[str] = []
     findings: list[str] = []
     selected: dict[str, str] = {}

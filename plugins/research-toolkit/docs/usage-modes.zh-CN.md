@@ -19,7 +19,7 @@
 
 ## 九个工具何时用、何时可忽略
 
-**使用[统一研究入口](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.zh-CN.md)。** 各 Agent 按当前工作读取方法，完成独立审阅、审计和验收。CLI/MCP 按需接入，新请求省略 `profile`。
+**使用[统一研究入口](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.zh-CN.md)。** 各 Agent 按当前工作读取方法，完成独立审阅、审计和验收。CLI/MCP 按需接入，请求直接使用统一流程，不提供研究档位参数。
 
 下表适用于选择了本地任务管理的情况，MCP 与[共享 CLI](#只用-skill或使用-cli)均可使用。纯 Skill 保留相同研究和独立审阅职责，不必创建这些登记表或回执。
 

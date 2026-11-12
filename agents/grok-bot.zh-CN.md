@@ -21,6 +21,6 @@
 
 ## 重复使用
 
-完成一次任务后，可让 Bot 将研究方法保存为名为 `research-toolkit` 的私人技能，保留完整参考方法。升级 Toolkit 后，用当前版本的 `SKILL.md` 和参考方法更新私人技能，替换旧副本中的 Lite／Full 选项；当前只有统一研究入口。测试使用当前 [evals 入口](../evals/README.md)，不从历史试跑目录选择模式。再次使用时确认所需文件仍可读。
+完成一次任务后，可让 Bot 将研究方法保存为名为 `research-toolkit` 的私人技能，保留完整参考方法。升级 Toolkit 后，用当前版本的 `SKILL.md` 和参考方法更新私人技能，完整替换缓存的说明和示例；当前只有统一研究入口。测试使用当前 [evals 入口](../evals/README.md)，不从历史试跑目录选择模式。再次使用时确认所需文件仍可读。
 
 [Grok Bot 官方指南](https://docs.x.ai/grok-bot/skills-routines-and-automations)说明了保存技能和桌面端 `/` 选择器；并未说明克隆到其他工具的技能目录就能注册为 Grok Bot 技能。已保存技能未出现时，检查“Marketplace → Your plugins → Manage plugins and skills → Private skills”。

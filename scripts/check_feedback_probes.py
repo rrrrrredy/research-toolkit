@@ -95,15 +95,14 @@ def verify(root=ROOT):
 
 
 class DeliveryControls(unittest.TestCase):
-    """Replay the archived version-1 length gate; not current-task delivery."""
+    """Check archived reports against the current draft length gate."""
     def gate(self, task, report):
         import research_workflow as w
-        from profile_policy import CHECKLIST
         with tempfile.TemporaryDirectory() as temporary, patch.dict("os.environ", {"RESEARCH_TOOLKIT_REVIEW_CONFIG": "", "RESEARCH_TOOLKIT_REVIEW_BACKEND": ""}):
             workspace = Path(temporary)
             w.start(workspace, "probe", {"question": task["brief"], "audience": "Reader of the supplied scenario",
                     "scope": "Only supplied S1 and S2", "output": "final.md", "depth": "Short decision note",
-                    "evidence_standard": "The supplied fictional source text"}, profile="lite")
+                    "evidence_standard": "The supplied fictional source text"})
             root = workspace / "probe"
             w.save_text(root, "final.md", report)
             registry = io.StringIO(newline="")
@@ -128,15 +127,9 @@ class DeliveryControls(unittest.TestCase):
             self.assertEqual(preflight["ok"], not errors)
             self.assertEqual(preflight["semantic_quality"], "not_assessed")
             self.assertEqual(before, {p.relative_to(root): p.read_bytes() for p in root.rglob("*") if p.is_file()})
-            # Restore the archived contract explicitly; new entry points still require independent review.
-            progress = w.load(root, "state/progress.json")
-            progress.update(profile="lite", review_contract=1)
-            w.save(root, "state/progress.json", progress)
-            result = w.legacy_finish(workspace, "probe", "Gate test only; no independent review or semantic certification.",
-                              checklist={key: {"passed": True, "evidence": "Synthetic assertion against final.md and S1.md; length must be checked by the tool"} for key in CHECKLIST})
-            return result, checks, errors, (root / "state/final_checklist.json").exists()
+            return preflight, checks, errors, (root / "state/final_delivery.json").exists()
 
-    def test_all_five_real_length_failures_reject_false_checklist_passes(self):
+    def test_all_five_real_length_failures_reject_draft_passes(self):
         analysis = verify()
         tasks = {t["task_id"]: t for t in h.read(ROOT / "plan.json")["tasks"]}
         failed = [row for row in analysis["rows"] if not row["length"]["within_range"]]
@@ -147,7 +140,7 @@ class DeliveryControls(unittest.TestCase):
                 result, checks, errors, receipt = self.gate(tasks[row["task_id"]], report)
                 self.assertEqual(checks[0]["actual"], row["length"]["actual"])
                 self.assertTrue(errors)
-                self.assertFalse(result["completed"])
+                self.assertFalse(result["ok"])
                 self.assertEqual(result["errors"], errors)
                 self.assertFalse(receipt)
 
@@ -159,8 +152,8 @@ class DeliveryControls(unittest.TestCase):
             with self.subTest(id=control["task_id"]):
                 result, checks, errors, receipt = self.gate(tasks[control["task_id"]], control["report"])
                 self.assertFalse(errors)
-                self.assertTrue(result["completed"], result)
-                self.assertTrue(receipt)
+                self.assertTrue(result["ok"], result)
+                self.assertFalse(receipt)
 
 
 if __name__ == "__main__":

@@ -18,11 +18,10 @@ from unittest.mock import patch
 import research_workflow as w
 import review_runner as r
 from check_delivery import evaluate_delivery
-from check_research_workflow import BRIEF, SyntheticRunner, historical_profile, legacy_review, legacy_finish
-from profile_policy import CHECKLIST
+from check_research_workflow import BRIEF, SyntheticRunner, historical_contract, legacy_review, legacy_finish
 
 
-class HistoricalProfileTests(unittest.TestCase):
+class HistoricalReceiptTests(unittest.TestCase):
     """Version-1 receipt compatibility controls; new tasks use the independent v2 path."""
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(dir=os.environ.get("IRF_TEST_TMPDIR"))
@@ -32,66 +31,21 @@ class HistoricalProfileTests(unittest.TestCase):
         self.env.start()
         self.addCleanup(self.env.stop)
 
-    def task(self, profile="full"):
-        started = w.start(self.workspace, "case", BRIEF, profile=profile)
+    def task(self):
+        started = w.start(self.workspace, "case", BRIEF)
         self.root = self.workspace/"case"
         w.save_text(self.root, "final.md", "The source reports twelve shipments.\n\nRevenue is not reported.\n")
         w.save_text(self.root, "source.md", "Company A reports twelve shipments; revenue is unknown.")
         w.save_text(self.root, "data/source_registry.csv", "source_id,title,url,source_type,read_scope,read_evidence\nS1,Shipments,https://example.org,primary,full_text,source.md\n")
         w.save_text(self.root, "data/claims_registry.csv", "claim_id,claim,claim_type,supporting_sources\nC1,Twelve shipments,verified_fact,S1\n")
         w.status(self.workspace, "case", stage="draft")
-        historical_profile(self.workspace, "case", profile)
+        historical_contract(self.workspace, "case")
         return started
 
     def self_result(self, prompt, negative=False):
         result = SyntheticRunner(negative=negative)({}, {"role": "reviewer"}, None)
         return {**json.loads(result["content"]), "input_version": prompt["input_version"]}
 
-    def test_lite_length_claim_is_checked_before_writing_receipt(self):
-        self.task("lite")
-        w.save_text(self.root, "state/requirements.jsonl", json.dumps({
-            "requirement_id": "R-length", "summary": "At least 100 words, counting the whole file.",
-            "status": "satisfied", "evidence": "final.md",
-            "length_constraint": {"unit": "whitespace_words", "scope": "whole_artifact", "min": 100}})+"\n")
-        items = {key: {"passed": True, "evidence": "Checked against final.md"} for key in CHECKLIST}
-        result = legacy_finish(self.workspace, "case", "The report is complete.", checklist=items)
-        self.assertFalse(result["completed"], result)
-        self.assertFalse((self.root/"state/final_checklist.json").exists())
-
-    def test_lite_open_obligations_cannot_be_closed_by_checklist_assertions(self):
-        self.task("lite")
-        items = {key: {"passed": True, "evidence": "final.md"} for key in CHECKLIST}
-        row = {"requirement_id": "R-comparison", "summary": "Compare two options", "status": "open"}
-        for status in ("open", "waived", "satisfied"):
-            with self.subTest(status=status):
-                w.save_text(self.root, "state/requirements.jsonl", json.dumps({**row, "status": status})+"\n")
-                result = legacy_finish(self.workspace, "case", "Complete.", checklist=items)
-                self.assertFalse(result["completed"], result)
-                self.assertFalse((self.root/"state/final_checklist.json").exists())
-                self.assertNotEqual(w.load(self.root, "state/progress.json")["status"], "complete")
-        w.save_text(self.root, "state/requirements.jsonl", json.dumps({**row, "status": "satisfied", "evidence": "final.md paragraphs 1–2"})+"\n")
-        progress = w.load(self.root, "state/progress.json")
-        w.save(self.root, "state/progress.json", {**progress, "open_issues": ["Required comparison remains absent"]})
-        self.assertFalse(legacy_finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
-        self.assertFalse((self.root/"state/final_checklist.json").exists())
-        w.save(self.root, "state/progress.json", {**progress, "open_issues": []})
-        self.assertTrue(legacy_finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
-        receipt = (self.root/"state/final_checklist.json").read_bytes()
-        terminal = w.load(self.root, "state/progress.json")
-        w.save(self.root, "state/progress.json", {**terminal, "open_issues": ["New required correction"]})
-        self.assertFalse(evaluate_delivery(self.root)["ok"])
-        self.assertEqual(w.status(self.workspace, "case")["progress"]["status"], "stale")
-        self.assertEqual((self.root/"state/final_checklist.json").read_bytes(), receipt)
-
-    def test_lite_specific_user_scope_change_and_absent_optional_ledger(self):
-        self.task("lite")
-        items = {key: {"passed": True, "evidence": "final.md"} for key in CHECKLIST}
-        row = {"requirement_id": "R-comparison", "status": "waived", "summary": "Compare two options",
-               "user_decision": {"source_turn": "turn-2", "quote": "Omit the comparison; deliver the explanation."}}
-        w.save_text(self.root, "state/requirements.jsonl", json.dumps(row)+"\n")
-        self.assertTrue(legacy_finish(self.workspace, "case", "Delivered the requested explanation.", checklist=items)["completed"])
-        (self.root/"state/requirements.jsonl").unlink()
-        self.assertTrue(legacy_finish(self.workspace, "case", "Delivered.", checklist=items)["completed"])
 
     def length_requirement(self, **changes):
         row = {"requirement_id": "R-length", "summary": "Count the whole report using the declared unit and bounds.",
@@ -101,35 +55,31 @@ class HistoricalProfileTests(unittest.TestCase):
         w.save_text(self.root, "state/requirements.jsonl", json.dumps(row)+"\n")
         return row
 
-    def test_length_measurements_bind_both_profiles_and_survive_checkout_newlines(self):
-        for profile in ("full", "lite"):
-            with self.subTest(profile=profile), tempfile.TemporaryDirectory() as tmp:
-                self.workspace = Path(tmp)
-                self.task(profile)
-                self.length_requirement()
-                args = {}
-                if profile == "lite":
-                    args["checklist"] = {k: {"passed": True, "evidence": "final.md and source.md"} for k in CHECKLIST}
-                else:
-                    prompt = legacy_review(self.workspace, "case", ["source.md"], reviewer="self")
-                    legacy_review(self.workspace, "case", ["source.md"], reviewer="self", self_review=self.self_result(prompt))
-                result = legacy_finish(self.workspace, "case", "The report is complete.", **args)
-                self.assertTrue(result["completed"], result)
-                self.assertEqual(result["delivery_check"]["length_checks"][0]["actual"], 9)
-                name = "state/final_checklist.json" if profile == "lite" else "state/final_delivery.json"
-                receipt = w.load(self.root, name)
-                report = self.root/"final.md"
-                report.write_bytes(report.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n"))
-                self.assertTrue(evaluate_delivery(self.root)["ok"])
-                receipt["length_checks"][0]["actual"] = 8
-                w.save(self.root, name, receipt)
-                before = (self.root/name).read_bytes()
-                status = w.status(self.workspace, "case")
-                self.assertEqual(status["progress"]["status"], "stale")
-                self.assertEqual((self.root/name).read_bytes(), before)
+    def test_length_measurements_bind_receipt_and_survive_checkout_newlines(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            self.workspace = Path(tmp)
+            self.task()
+            self.length_requirement()
+            args = {}
+            prompt = legacy_review(self.workspace, "case", ["source.md"], reviewer="self")
+            legacy_review(self.workspace, "case", ["source.md"], reviewer="self", self_review=self.self_result(prompt))
+            result = legacy_finish(self.workspace, "case", "The report is complete.", **args)
+            self.assertTrue(result["completed"], result)
+            self.assertEqual(result["delivery_check"]["length_checks"][0]["actual"], 9)
+            name = "state/final_delivery.json"
+            receipt = w.load(self.root, name)
+            report = self.root/"final.md"
+            report.write_bytes(report.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n"))
+            self.assertTrue(evaluate_delivery(self.root)["ok"])
+            receipt["length_checks"][0]["actual"] = 8
+            w.save(self.root, name, receipt)
+            before = (self.root/name).read_bytes()
+            status = w.status(self.workspace, "case")
+            self.assertEqual(status["progress"]["status"], "stale")
+            self.assertEqual((self.root/name).read_bytes(), before)
 
     def test_length_boundaries_use_explicit_unicode_and_whitespace_units(self):
-        self.task("lite")
+        self.task()
         w.save_text(self.root, "final.md", "# 标题\n\n甲乙，a 12。[S1]\n")
         for unit, count in (("nonwhitespace_characters", 14), ("whitespace_words", 4)):
             with self.subTest(unit=unit):
@@ -141,7 +91,7 @@ class HistoricalProfileTests(unittest.TestCase):
                 self.assertTrue(w.inspect_length_constraints(self.root, "final.md")[1])
 
     def test_malformed_or_ambiguous_length_constraints_fail_closed(self):
-        self.task("lite")
+        self.task()
         rule = {"unit": "whitespace_words", "scope": "whole_artifact", "min": 1}
         for change in ({"unit": "tokens"}, {"scope": "body_only"}, {"min": True}, {"min": -1},
                        {"min": 3, "max": 2}, {"max": 1.5}, {"min": None}, {"claimed_count": 1}):
@@ -155,7 +105,7 @@ class HistoricalProfileTests(unittest.TestCase):
         self.assertTrue(w.inspect_length_constraints(self.root, "final.md")[1])
 
     def test_length_waiver_keeps_measurement_and_requires_existing_user_decision(self):
-        self.task("lite")
+        self.task()
         for status in ("waived", "accepted_limitation", "out_of_scope"):
             with self.subTest(status=status):
                 row = self.length_requirement(status=status, length_constraint={
@@ -170,55 +120,52 @@ class HistoricalProfileTests(unittest.TestCase):
                 self.assertEqual(checks[0]["actual"], 9)
 
     def test_failed_length_recheck_preserves_existing_receipt_and_message(self):
-        self.task("lite")
+        self.task()
         self.length_requirement()
-        items = {k: {"passed": True, "evidence": "final.md and source.md"} for k in CHECKLIST}
-        self.assertTrue(legacy_finish(self.workspace, "case", "Original delivery.", checklist=items)["completed"])
+        prompt = legacy_review(self.workspace, "case", ["source.md"], reviewer="self")
+        legacy_review(self.workspace, "case", ["source.md"], reviewer="self", self_review=self.self_result(prompt))
+        self.assertTrue(legacy_finish(self.workspace, "case", "Original delivery.")["completed"])
         before = {name: (self.root/name).read_bytes() for name in
-                  ("state/final_checklist.json", "state/progress.json", "delivery_message.md")}
+                  ("state/final_delivery.json", "state/progress.json", "delivery_message.md")}
         self.length_requirement(length_constraint={"unit": "whitespace_words", "scope": "whole_artifact", "min": 100})
-        result = legacy_finish(self.workspace, "case", "Replacement delivery.", checklist=items)
+        result = legacy_finish(self.workspace, "case", "Replacement delivery.")
         self.assertFalse(result["completed"])
         self.assertEqual(before, {name: (self.root/name).read_bytes() for name in before})
 
     def test_existing_requirements_without_length_are_not_inferred(self):
-        self.task("lite")
+        self.task()
         w.save_text(self.root, "state/requirements.jsonl", json.dumps({
             "requirement_id": "R-old", "summary": "100 words", "status": "satisfied", "evidence": "final.md"})+"\n")
         self.assertEqual(w.inspect_length_constraints(self.root, "final.md"), ([], []))
 
-    def test_status_checks_current_full_and_lite_delivery_without_rewriting_state(self):
-        for profile in ("full", "lite"):
-            for mutation in ("report", "claims", "receipt"):
-                with self.subTest(profile=profile, mutation=mutation), tempfile.TemporaryDirectory() as tmp:
-                    workspace = Path(tmp)
-                    saved_workspace = self.workspace
-                    self.workspace = workspace
-                    try:
-                        self.task(profile)
-                        args = {}
-                        if profile == "lite":
-                            args["checklist"] = {k: {"passed": True, "evidence": "final.md and source.md"} for k in CHECKLIST}
-                        else:
-                            prompt = legacy_review(workspace, "case", ["source.md"], reviewer="self")
-                            legacy_review(workspace, "case", ["source.md"], reviewer="self", self_review=self.self_result(prompt))
-                        self.assertTrue(legacy_finish(workspace, "case", "Complete without independent review.", **args)["completed"])
-                        self.assertEqual(w.status(workspace, "case")["progress"]["status"], "complete")
-                        before = (self.root/"state/progress.json").read_bytes()
-                        if mutation == "report":
-                            w.save_text(self.root, "final.md", "Changed after delivery.")
-                        elif mutation == "claims":
-                            (self.root/"data/claims_registry.csv").unlink()
-                        else:
-                            name = "final_checklist.json" if profile == "lite" else "final_delivery.json"
-                            w.save_text(self.root, "state/"+name, "not JSON")
-                        current = w.status(workspace, "case")
-                        self.assertEqual(current["progress"]["status"], "stale")
-                        self.assertFalse(current["delivery_check"]["ok"])
-                        self.assertTrue(current["progress"]["open_issues"])
-                        self.assertEqual((self.root/"state/progress.json").read_bytes(), before)
-                    finally:
-                        self.workspace = saved_workspace
+    def test_status_checks_recorded_delivery_without_rewriting_state(self):
+        for mutation in ("report", "claims", "receipt"):
+            with self.subTest(mutation=mutation), tempfile.TemporaryDirectory() as tmp:
+                workspace = Path(tmp)
+                saved_workspace = self.workspace
+                self.workspace = workspace
+                try:
+                    self.task()
+                    args = {}
+                    prompt = legacy_review(workspace, "case", ["source.md"], reviewer="self")
+                    legacy_review(workspace, "case", ["source.md"], reviewer="self", self_review=self.self_result(prompt))
+                    self.assertTrue(legacy_finish(workspace, "case", "Complete without independent review.", **args)["completed"])
+                    self.assertEqual(w.status(workspace, "case")["progress"]["status"], "complete")
+                    before = (self.root/"state/progress.json").read_bytes()
+                    if mutation == "report":
+                        w.save_text(self.root, "final.md", "Changed after delivery.")
+                    elif mutation == "claims":
+                        (self.root/"data/claims_registry.csv").unlink()
+                    else:
+                        name = "final_delivery.json"
+                        w.save_text(self.root, "state/"+name, "not JSON")
+                    current = w.status(workspace, "case")
+                    self.assertEqual(current["progress"]["status"], "stale")
+                    self.assertFalse(current["delivery_check"]["ok"])
+                    self.assertTrue(current["progress"]["open_issues"])
+                    self.assertEqual((self.root/"state/progress.json").read_bytes(), before)
+                finally:
+                    self.workspace = saved_workspace
 
     def test_negative_review_distinguishes_execution_from_delivery_and_lists_findings(self):
         self.task()
@@ -241,7 +188,7 @@ class HistoricalProfileTests(unittest.TestCase):
             self.assertEqual(result.returncode, expected_exit, result.stdout+result.stderr)
             return json.loads(result.stdout)
         task = "template-cli"
-        call("start", {"task": task, "brief": BRIEF, "profile": "full"})
+        call("start", {"task": task, "brief": BRIEF})
         root = self.workspace/task
         (root/"sources").mkdir()
         (root/"sources/S1.md").write_text("The source reports twelve shipments. No revenue figure is supplied.", encoding="utf-8")
@@ -268,15 +215,8 @@ class HistoricalProfileTests(unittest.TestCase):
         self.assertEqual(original_refs, [item["assignment_ref"] for item in repeated["assignments"]])
         self.assertEqual(w.rows_for(root), [])
 
-    def test_legacy_profile_uses_shared_methods_in_both_languages(self):
-        for language, suffix in (("en", ".md"), ("zh", ".zh-CN.md")):
-            for stage in w.STAGE_FILES:
-                with self.subTest(language=language, stage=stage):
-                    result = w.guidance(stage, language, "lite")
-                    self.assertEqual(result["profile"], "lite")
-                    self.assertEqual(result["guidance"], w.guidance(stage, language)["guidance"])
 
-    def test_full_guidance_keeps_its_existing_methods_and_default(self):
+    def test_shared_guidance_keeps_its_existing_methods_and_default(self):
         for language in ("en", "zh"):
             for stage, names in w.STAGE_FILES.items():
                 with self.subTest(language=language, stage=stage):
@@ -286,206 +226,15 @@ class HistoricalProfileTests(unittest.TestCase):
                     expected = [name.replace(".md", ".zh-CN.md") if language == "zh" else name
                                 for name in selected]
                     result = w.guidance(stage, language)
-                    self.assertEqual(result["profile"], "full")
-                    self.assertEqual(result, w.guidance(stage, language, "full"))
+                    self.assertNotIn("profile", result)
                     self.assertEqual([item["path"] for item in result["guidance"]], expected)
 
-    def test_lite_status_uses_saved_profile_through_delivery(self):
-        started = self.task("lite")
-        self.assertEqual(started["guidance"], w.guidance("collect")["guidance"])
-        items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source.md."}
-                 for k in CHECKLIST}
-        with patch.object(w, "run_reviewer", side_effect=AssertionError("must not call a backend")):
-            for stage in ("analyze", "draft", "revise"):
-                result = w.status(self.workspace, "case", language="zh", stage=stage)
-                self.assertEqual(result["profile"], "lite")
-                self.assertEqual(result["guidance"], w.guidance(stage, "zh")["guidance"])
-            self.assertTrue(legacy_finish(self.workspace, "case", "Complete, without independent review.",
-                                     checklist=items)["completed"])
-            final = w.status(self.workspace, "case", language="zh")
-        self.assertEqual(final["profile"], "lite")
-        self.assertEqual(final["stage"], "final")
-        self.assertEqual(final["guidance"], w.guidance("final", "zh")["guidance"])
 
-    def test_lite_keeps_claims_and_checklist_without_review(self):
-        with patch("review_runner.shutil.which", return_value=None):
-            started = self.task("lite")
-        self.assertTrue(started["ready_for_collection"])
-        with patch.object(w, "run_reviewer", side_effect=AssertionError("must not call a backend")):
-            self.assertTrue(legacy_review(self.workspace, "case", ["source.md"])["skipped"])
-            pending = legacy_finish(self.workspace, "case", "The report is complete, without independent review.")
-        self.assertEqual(pending["action_required"], "final_checklist")
-        items = {k: {"passed": True, "evidence": "Synthetic control: final.md paragraphs 1-2 and source.md."} for k in CHECKLIST}
-        broken = copy.deepcopy(items); broken["claims_and_sources"]["passed"] = False
-        self.assertFalse(legacy_finish(self.workspace, "case", "Complete.", checklist=broken)["completed"])
-        complete = legacy_finish(self.workspace, "case", "Complete, without independent review.", checklist=items)
-        self.assertTrue(complete["completed"], complete)
-        self.assertFalse(complete["delivery_check"]["full_delivery_gates_checked"])
-        self.assertEqual(w.rows_for(self.root), [])
-        self.assertFalse((self.root/"state/final_delivery.json").exists())
-        self.assertTrue(evaluate_delivery(self.root)["ok"])
-        w.save_text(self.root, "final.md", "Changed report")
-        self.assertFalse(evaluate_delivery(self.root)["ok"])
-
-    def test_lite_does_not_bypass_brief_claims_or_saved_profile(self):
-        self.task("lite")
-        resumed = w.start(self.workspace, "case", BRIEF, profile="full")
-        self.assertEqual(resumed['profile'], 'lite')  # Retained historical metadata, not a new entry.
-        w.save_text(self.root, "data/claims_registry.csv", "claim_id,claim,claim_type,supporting_sources\n")
-        with self.assertRaises(ValueError):
-            legacy_finish(self.workspace, "case", "Complete.", checklist={})
-
-    def test_lite_actual_delivery_cli_checks_optional_capture_without_writing(self):
-        self.task("lite")
-        items = {k: {"passed": True, "evidence": "final.md and source.md"} for k in CHECKLIST}
-        message = "Report delivered.\nNo independent review."
-        self.assertTrue(legacy_finish(self.workspace, "case", message, checklist=items)["completed"])
-        capture = self.workspace / "actual-message.txt"
-        before = {p.relative_to(self.root): p.read_bytes() for p in self.root.rglob("*") if p.is_file()}
-        for content, observation, flag in (
-                (None, "not_provided", None),
-                (b"  Report delivered.\r\nNo independent review.\r\n", "matched", None),
-                (b"Different reply.", "mismatch", "actual_delivery_mismatch"),
-                (b"\xff", "unreadable", "missing_actual_delivery"),
-                (False, "unreadable", "missing_actual_delivery")):
-            with self.subTest(observation=observation, content=content):
-                args = []
-                if content is not None:
-                    if content is False:
-                        capture.unlink(missing_ok=True)
-                    else:
-                        capture.write_bytes(content)
-                    args = ["--actual-message", str(capture)]
-                result = subprocess.run([sys.executable, "-X", "utf8",
-                    str(w.TOOLKIT / "scripts/check_delivery.py"), str(self.root), "--json", *args],
-                    text=True, encoding="utf-8", capture_output=True)
-                checked = json.loads(result.stdout)
-                self.assertEqual(result.returncode, 1 if flag else 0, result.stdout + result.stderr)
-                self.assertEqual(checked["delivery_observation"], observation)
-                self.assertEqual(checked["flags"], [flag] if flag else [])
-                self.assertTrue(checked["checklist_valid"])
-                self.assertTrue(checked["terminal_state"])
-                self.assertEqual(before, {p.relative_to(self.root): p.read_bytes()
-                                         for p in self.root.rglob("*") if p.is_file()})
-
-    def test_lite_resume_preserves_checklist_and_requires_current_independent_review(self):
-        self.task("lite")
-        items = {k: {"passed": True, "evidence": "final.md and source.md"} for k in CHECKLIST}
-        self.assertTrue(legacy_finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
-        receipt = (self.root / "state/final_checklist.json").read_bytes()
-        for stage in ("collect", "analyze", "draft", "revise"):
-            with self.subTest(stage=stage):
-                current = w.status(self.workspace, "case", stage=stage)
-                self.assertEqual(current["progress"]["status"], "in_progress")
-                self.assertEqual(current["progress"]["review_contract"], 2)
-                # Record consistency can be valid during work; it is not delivery acceptance.
-                self.assertFalse(evaluate_delivery(self.root)["terminal_state"])
-                self.assertFalse(w.finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
-                self.assertEqual((self.root / "state/final_checklist.json").read_bytes(), receipt)
-
-    def test_lite_research_input_changes_make_delivery_stale_without_rewriting_receipt(self):
-        self.task("lite")
-        items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source.md."} for k in CHECKLIST}
-        self.assertTrue(legacy_finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
-        receipt = (self.root/"state/final_checklist.json").read_bytes()
-        progress = (self.root/"state/progress.json").read_bytes()
-        for name in ("source.md", "data/source_registry.csv", "data/claims_registry.csv", "state/task_spec.md", "state/requirements.jsonl"):
-            path = self.root/name
-            original = path.read_bytes()
-            with self.subTest(name=name):
-                # Keep records structurally valid: freshness must check content, not only shape.
-                if name.endswith(".csv"):
-                    path.write_bytes(original.replace(b"Synthetic", b"Revised"))
-                    if path.read_bytes() == original:
-                        path.write_bytes(original + b"\n")
-                elif name.endswith(".jsonl"):
-                    path.write_text('{"requirement_id":"R-new","summary":"New scope","status":"open"}\n', encoding="utf-8")
-                else:
-                    path.write_bytes(original + b"\nChanged evidence or requirement.\n")
-                self.assertFalse(evaluate_delivery(self.root)["ok"])
-                self.assertEqual(w.status(self.workspace, "case")["progress"]["status"], "stale")
-                self.assertEqual((self.root/"state/final_checklist.json").read_bytes(), receipt)
-                self.assertEqual((self.root/"state/progress.json").read_bytes(), progress)
-            path.write_bytes(original)
-        self.assertTrue(evaluate_delivery(self.root)["ok"])
-
-    def test_lite_optional_evidence_files_are_located_and_bound(self):
-        self.task("lite")
-        items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source.md."} for k in CHECKLIST}
-        w.save_text(self.root, "checks/length.txt", "Report length checked against the brief.")
-        items["requirements"]["evidence_files"] = ["checks/length.txt"]
-        self.assertTrue(legacy_finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
-        w.save_text(self.root, "checks/length.txt", "Changed measurement.")
-        self.assertFalse(evaluate_delivery(self.root)["ok"])
-        self.assertTrue(legacy_finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
-        for targets in (["missing.txt"], ["../outside.txt"], [str(self.root/"source.md")],
-                        ["state/progress.json"], "checks/length.txt", []):
-            with self.subTest(targets=targets):
-                items["requirements"]["evidence_files"] = targets
-                before = (self.root/"state/final_checklist.json").read_bytes()
-                self.assertFalse(legacy_finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
-                self.assertEqual((self.root/"state/final_checklist.json").read_bytes(), before)
-
-    def test_lite_binding_preserves_locator_only_sources_and_legacy_receipts(self):
-        self.task("lite")
-        items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source S1, page 2."} for k in CHECKLIST}
-        path = self.root/"data/source_registry.csv"
-        text = path.read_text(encoding="utf-8").replace("source.md", "p. 2")
-        path.write_text(text, encoding="utf-8")
-        (self.root/"state/requirements.jsonl").unlink()
-        self.assertTrue(legacy_finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
-        record = w.load(self.root, "state/final_checklist.json")
-        self.assertNotIn("source.md", record["input_hashes"])
-        self.assertIsNone(record["input_hashes"]["state/requirements.jsonl"])
-        w.save_text(self.root, "state/requirements.jsonl", "")
-        self.assertFalse(evaluate_delivery(self.root)["ok"])
-        (self.root/"state/requirements.jsonl").unlink()
-        record.pop("schema_version")
-        record.pop("input_hashes")
-        w.save(self.root, "state/final_checklist.json", record)
-        w.save_text(self.root, "state/task_spec.md", "Changed since legacy receipt.")
-        result = evaluate_delivery(self.root)
-        self.assertTrue(result["ok"])
-        self.assertEqual(result["input_binding_scope"], "report_and_message_only")
-        self.assertFalse(result["semantic_verification"])
-
-    def test_lite_binds_binary_original_and_explicit_source_text_with_shared_hash_rules(self):
-        self.task("lite")
-        items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source.md."} for k in CHECKLIST}
-        original = self.root/"original.pdf"
-        original.write_bytes(b"%PDF synthetic binary control\xff\r\n")
-        registry = self.root/"data/source_registry.csv"
-        with registry.open(encoding="utf-8", newline="") as file:
-            rows = list(csv.DictReader(file))
-        rows[0].update(url="original.pdf", evidence_path="source.md")
-        with registry.open("w", encoding="utf-8", newline="") as file:
-            writer = csv.DictWriter(file, fieldnames=list(rows[0])); writer.writeheader(); writer.writerows(rows)
-        self.assertTrue(legacy_finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
-        record = w.load(self.root, "state/final_checklist.json")
-        self.assertEqual(record["input_hashes"]["original.pdf"], w.sha256_file(original))
-        source = self.root/"source.md"
-        source.write_bytes(source.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n"))
-        self.assertTrue(evaluate_delivery(self.root)["ok"])
-        original.write_bytes(original.read_bytes().replace(b"\r\n", b"\n"))
-        self.assertFalse(evaluate_delivery(self.root)["ok"])
-
-    def test_lite_plural_paragraph_and_section_locators_bind_the_source(self):
-        self.task("lite")
-        items = {k: {"passed": True, "evidence": "Synthetic control: final.md and source.md."} for k in CHECKLIST}
-        path = self.root/"data/source_registry.csv"
-        original = path.read_text(encoding="utf-8")
-        for locator in ("source.md paragraphs 1-2", "source.md sections 1-2"):
-            with self.subTest(locator=locator):
-                path.write_text(original.replace("source.md", locator), encoding="utf-8")
-                self.assertTrue(legacy_finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
-                self.assertIn("source.md", w.load(self.root, "state/final_checklist.json")["input_hashes"])
-        (self.root/"source.md").unlink()
-        self.assertFalse(evaluate_delivery(self.root)["ok"])
-
-    def test_local_source_paths_agree_between_draft_and_delivery(self):
-        self.task("lite")
-        items = {key: {"passed": True, "evidence": "final.md and source.md"} for key in CHECKLIST}
-        self.assertTrue(legacy_finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+    def test_invalid_local_source_has_draft_error_and_invalidates_delivery(self):
+        self.task()
+        prompt = legacy_review(self.workspace, "case", ["source.md"], reviewer="self")
+        legacy_review(self.workspace, "case", ["source.md"], reviewer="self", self_review=self.self_result(prompt))
+        self.assertTrue(legacy_finish(self.workspace, "case", "Complete.")["completed"])
         original = w.registry_rows(self.root, "data/source_registry.csv", ("source_id",))[0]
         w.save_records(self.workspace, "case", sources=[{
             "source_id": "S1", "url": "C:/reports/old.md"}])
@@ -495,15 +244,17 @@ class HistoricalProfileTests(unittest.TestCase):
         self.assertIn("row S1, url:", error)
         self.assertIn("task-relative", error)
         self.assertIn("sources/S1.md", error)
-        with self.assertRaises(ValueError) as failed:
-            legacy_finish(self.workspace, "case", "Complete.", checklist=items)
-        self.assertEqual(str(failed.exception), error)
-        self.assertIn(error, " ".join(evaluate_delivery(self.root)["findings"]))
+        self.assertFalse(legacy_finish(self.workspace, "case", "Complete.")["completed"])
+        delivery = evaluate_delivery(self.root)
+        self.assertFalse(delivery["ok"])
+        self.assertIn("data/source_registry.csv", " ".join(delivery["findings"]))
         for url in ("source.md", original["url"]):
             with self.subTest(url=url):
                 w.save_records(self.workspace, "case", sources=[{"source_id": "S1", "url": url}])
                 self.assertTrue(w.check_draft(self.workspace, "case")["ok"])
-                self.assertTrue(legacy_finish(self.workspace, "case", "Complete.", checklist=items)["completed"])
+                prompt = legacy_review(self.workspace, "case", ["source.md"], reviewer="self", revision=True)
+                legacy_review(self.workspace, "case", ["source.md"], reviewer="self", self_review=self.self_result(prompt))
+                self.assertTrue(legacy_finish(self.workspace, "case", "Complete.")["completed"])
 
     def test_full_without_cli_uses_native_independent_assignments(self):
         with patch("review_runner.shutil.which", side_effect=AssertionError("native agents need no CLI probe")):

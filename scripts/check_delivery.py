@@ -657,7 +657,7 @@ def assess_limitation_disclosure(message: str, limitations: list[str]) -> dict[s
 
 
 def inspect_actual_delivery(actual_message: Path | None, intended_message: str | None):
-    """Compare an optional caller capture consistently for both profiles."""
+    """Compare an optional caller capture against the recorded delivery."""
     if actual_message is None:
         return "not_provided", None
     try:
@@ -708,32 +708,6 @@ def evaluate_delivery(
     status = str(progress.get("status", "")).strip().lower()
     if require_complete and (stage != "final" or status != "complete"):
         add("incomplete_task", f"Task is not final/complete (stage={stage or '<missing>'}, status={status or '<missing>'}). Complete the outstanding work and call finish.")
-
-    if progress.get("profile") == "lite" and progress.get("review_contract", 1) < 2:
-        from profile_policy import inspect_lite_delivery
-        result = inspect_lite_delivery(root, artifact, delivery_message)
-        # A retained checklist can still match its inputs after the task is resumed.
-        # Keep that fact separate from acceptance of the current task's delivery.
-        terminal_state = progress.get("stage") == "final" and progress.get("status") == "complete"
-        result.update(checklist_valid=result["ok"], terminal_state=terminal_state,
-                      stage=progress.get("stage"), task_status=progress.get("status"))
-        if not terminal_state:
-            add("incomplete_lite_task", "Lite task is not final/complete; finish the current work before delivery.")
-        message_path = resolve_inside(root, delivery_message)
-        try:
-            message = read_text(message_path) if message_path is not None else None
-        except (OSError, UnicodeError):
-            message = None
-        observation, issue = inspect_actual_delivery(actual_message, message)
-        if issue:
-            add(*issue)
-        result["delivery_observation"] = observation
-        result["flags"].extend(flags)
-        result["findings"].extend(findings)
-        result["ok"] = not result["flags"]
-        if not result["ok"]:
-            result["status"] = "incomplete"
-        return result
 
     if stage not in CANONICAL_STAGES:
         add("invalid_progress_stage", f"Progress stage is not canonical: {stage or '<missing>'}.")
@@ -985,12 +959,6 @@ def main() -> int:
     )
     if args.json:
         print(json.dumps(result, ensure_ascii=False, indent=2))
-    elif result.get("profile") == "lite":
-        for entry in result["log"]:
-            print(entry)
-        print("Lite checklist: " + result["status"])
-        for finding in result["findings"]:
-            print(f"- {finding}")
     elif result["ok"]:
         label = "current task is final/complete and delivery checks pass" if args.require_complete else (
             f"legacy v{args.contract_version} record checks, not current-contract acceptance" if args.contract_version < 3 else "mechanical delivery checks")
