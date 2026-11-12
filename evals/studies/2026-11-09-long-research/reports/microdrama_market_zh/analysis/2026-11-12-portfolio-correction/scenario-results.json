@@ -1,0 +1,884 @@
+{
+  "identity": "/root/microdrama_research",
+  "assumption_status": "All commercial parameters hypothetical, not estimates",
+  "paid_inputs": {
+    "users": 100000,
+    "conversion": 0.15,
+    "consumed_per_payer": 120,
+    "refund_rate": 0.08,
+    "channel_rate": 0.05,
+    "content_share": 0.35,
+    "cac": 6.5,
+    "operating": 120000,
+    "budget": 600000
+  },
+  "free_inputs": {
+    "users": 1000000,
+    "d1": 0.4,
+    "d7": 0.2,
+    "d30_ratio": 0.4,
+    "d90_ratio": 0.1,
+    "slots": 12,
+    "fill": 0.85,
+    "gross_ecpm": 45,
+    "network_rate": 0.15,
+    "content_share": 0.35,
+    "cac": 1.8,
+    "operating": 300000,
+    "budget": 600000
+  },
+  "scenarios": [
+    {
+      "mode": "paid",
+      "scenario": "base",
+      "parameters": {
+        "users": 100000,
+        "conversion": 0.15,
+        "consumed_per_payer": 120,
+        "refund_rate": 0.08,
+        "channel_rate": 0.05,
+        "content_share": 0.35,
+        "cac": 6.5,
+        "operating": 120000,
+        "budget": 600000
+      },
+      "results": {
+        "gross": 1800000.0,
+        "refunds": 144000.0,
+        "external_demand": 1656000.0,
+        "channel": 82800.0,
+        "distributable": 1573200.0,
+        "content_income": 550620.0,
+        "creator_profit": -49380.0,
+        "operator_income": 1022580.0,
+        "operator_profit": 252580.0,
+        "combined_profit": 203200.0,
+        "operator_max_cac": 9.0258,
+        "creator_break_even_conversion": 0.16345210853220007
+      }
+    },
+    {
+      "mode": "paid",
+      "scenario": "budget_minus30",
+      "parameters": {
+        "users": 100000,
+        "conversion": 0.15,
+        "consumed_per_payer": 120,
+        "refund_rate": 0.08,
+        "channel_rate": 0.05,
+        "content_share": 0.35,
+        "cac": 6.5,
+        "operating": 120000,
+        "budget": 420000.0
+      },
+      "results": {
+        "gross": 1800000.0,
+        "refunds": 144000.0,
+        "external_demand": 1656000.0,
+        "channel": 82800.0,
+        "distributable": 1573200.0,
+        "content_income": 550620.0,
+        "creator_profit": 130620.0,
+        "operator_income": 1022580.0,
+        "operator_profit": 252580.0,
+        "combined_profit": 383200.0,
+        "operator_max_cac": 9.0258,
+        "creator_break_even_conversion": 0.11441647597254007
+      }
+    },
+    {
+      "mode": "paid",
+      "scenario": "budget_plus30",
+      "parameters": {
+        "users": 100000,
+        "conversion": 0.15,
+        "consumed_per_payer": 120,
+        "refund_rate": 0.08,
+        "channel_rate": 0.05,
+        "content_share": 0.35,
+        "cac": 6.5,
+        "operating": 120000,
+        "budget": 780000.0
+      },
+      "results": {
+        "gross": 1800000.0,
+        "refunds": 144000.0,
+        "external_demand": 1656000.0,
+        "channel": 82800.0,
+        "distributable": 1573200.0,
+        "content_income": 550620.0,
+        "creator_profit": -229380.0,
+        "operator_income": 1022580.0,
+        "operator_profit": 252580.0,
+        "combined_profit": 23200.0,
+        "operator_max_cac": 9.0258,
+        "creator_break_even_conversion": 0.2124877410918601
+      }
+    },
+    {
+      "mode": "paid",
+      "scenario": "cac_minus20",
+      "parameters": {
+        "users": 100000,
+        "conversion": 0.15,
+        "consumed_per_payer": 120,
+        "refund_rate": 0.08,
+        "channel_rate": 0.05,
+        "content_share": 0.35,
+        "cac": 5.2,
+        "operating": 120000,
+        "budget": 600000
+      },
+      "results": {
+        "gross": 1800000.0,
+        "refunds": 144000.0,
+        "external_demand": 1656000.0,
+        "channel": 82800.0,
+        "distributable": 1573200.0,
+        "content_income": 550620.0,
+        "creator_profit": -49380.0,
+        "operator_income": 1022580.0,
+        "operator_profit": 382580.0,
+        "combined_profit": 333200.0,
+        "operator_max_cac": 9.0258,
+        "creator_break_even_conversion": 0.16345210853220007
+      }
+    },
+    {
+      "mode": "paid",
+      "scenario": "cac_plus20",
+      "parameters": {
+        "users": 100000,
+        "conversion": 0.15,
+        "consumed_per_payer": 120,
+        "refund_rate": 0.08,
+        "channel_rate": 0.05,
+        "content_share": 0.35,
+        "cac": 7.8,
+        "operating": 120000,
+        "budget": 600000
+      },
+      "results": {
+        "gross": 1800000.0,
+        "refunds": 144000.0,
+        "external_demand": 1656000.0,
+        "channel": 82800.0,
+        "distributable": 1573200.0,
+        "content_income": 550620.0,
+        "creator_profit": -49380.0,
+        "operator_income": 1022580.0,
+        "operator_profit": 122580.0,
+        "combined_profit": 73200.0,
+        "operator_max_cac": 9.0258,
+        "creator_break_even_conversion": 0.16345210853220007
+      }
+    },
+    {
+      "mode": "paid",
+      "scenario": "share_30",
+      "parameters": {
+        "users": 100000,
+        "conversion": 0.15,
+        "consumed_per_payer": 120,
+        "refund_rate": 0.08,
+        "channel_rate": 0.05,
+        "content_share": 0.3,
+        "cac": 6.5,
+        "operating": 120000,
+        "budget": 600000
+      },
+      "results": {
+        "gross": 1800000.0,
+        "refunds": 144000.0,
+        "external_demand": 1656000.0,
+        "channel": 82800.0,
+        "distributable": 1573200.0,
+        "content_income": 471960.0,
+        "creator_profit": -128040.0,
+        "operator_income": 1101240.0,
+        "operator_profit": 331240.0,
+        "combined_profit": 203200.0,
+        "operator_max_cac": 9.8124,
+        "creator_break_even_conversion": 0.19069412662090007
+      }
+    },
+    {
+      "mode": "paid",
+      "scenario": "share_40",
+      "parameters": {
+        "users": 100000,
+        "conversion": 0.15,
+        "consumed_per_payer": 120,
+        "refund_rate": 0.08,
+        "channel_rate": 0.05,
+        "content_share": 0.4,
+        "cac": 6.5,
+        "operating": 120000,
+        "budget": 600000
+      },
+      "results": {
+        "gross": 1800000.0,
+        "refunds": 144000.0,
+        "external_demand": 1656000.0,
+        "channel": 82800.0,
+        "distributable": 1573200.0,
+        "content_income": 629280.0,
+        "creator_profit": 29280.0,
+        "operator_income": 943920.0,
+        "operator_profit": 173920.0,
+        "combined_profit": 203200.0,
+        "operator_max_cac": 8.2392,
+        "creator_break_even_conversion": 0.14302059496567507
+      }
+    },
+    {
+      "mode": "free",
+      "scenario": "base",
+      "parameters": {
+        "users": 1000000,
+        "d1": 0.4,
+        "d7": 0.2,
+        "d30_ratio": 0.4,
+        "d90_ratio": 0.1,
+        "slots": 12,
+        "fill": 0.85,
+        "gross_ecpm": 45,
+        "network_rate": 0.15,
+        "content_share": 0.35,
+        "cac": 1.8,
+        "operating": 300000,
+        "budget": 600000
+      },
+      "results": {
+        "active_days_per_user": 8.552668407111513,
+        "filled_impressions": 87237217.75253743,
+        "external_demand": 3925674.7988641844,
+        "channel": 588851.2198296277,
+        "distributable": 3336823.5790345566,
+        "content_income": 1167888.2526620948,
+        "operator_income": 2168935.326372462,
+        "creator_profit": 567888.2526620948,
+        "operator_profit": 68935.32637246186,
+        "combined_profit": 636823.5790345566,
+        "operator_max_cac": 1.868935326372462,
+        "operator_break_even_gross_ecpm": 43.569763861078776
+      }
+    },
+    {
+      "mode": "free",
+      "scenario": "budget_minus30",
+      "parameters": {
+        "users": 1000000,
+        "d1": 0.4,
+        "d7": 0.2,
+        "d30_ratio": 0.4,
+        "d90_ratio": 0.1,
+        "slots": 12,
+        "fill": 0.85,
+        "gross_ecpm": 45,
+        "network_rate": 0.15,
+        "content_share": 0.35,
+        "cac": 1.8,
+        "operating": 300000,
+        "budget": 420000.0
+      },
+      "results": {
+        "active_days_per_user": 8.552668407111513,
+        "filled_impressions": 87237217.75253743,
+        "external_demand": 3925674.7988641844,
+        "channel": 588851.2198296277,
+        "distributable": 3336823.5790345566,
+        "content_income": 1167888.2526620948,
+        "operator_income": 2168935.326372462,
+        "creator_profit": 747888.2526620948,
+        "operator_profit": 68935.32637246186,
+        "combined_profit": 816823.5790345566,
+        "operator_max_cac": 1.868935326372462,
+        "operator_break_even_gross_ecpm": 43.569763861078776
+      }
+    },
+    {
+      "mode": "free",
+      "scenario": "budget_plus30",
+      "parameters": {
+        "users": 1000000,
+        "d1": 0.4,
+        "d7": 0.2,
+        "d30_ratio": 0.4,
+        "d90_ratio": 0.1,
+        "slots": 12,
+        "fill": 0.85,
+        "gross_ecpm": 45,
+        "network_rate": 0.15,
+        "content_share": 0.35,
+        "cac": 1.8,
+        "operating": 300000,
+        "budget": 780000.0
+      },
+      "results": {
+        "active_days_per_user": 8.552668407111513,
+        "filled_impressions": 87237217.75253743,
+        "external_demand": 3925674.7988641844,
+        "channel": 588851.2198296277,
+        "distributable": 3336823.5790345566,
+        "content_income": 1167888.2526620948,
+        "operator_income": 2168935.326372462,
+        "creator_profit": 387888.2526620948,
+        "operator_profit": 68935.32637246186,
+        "combined_profit": 456823.57903455663,
+        "operator_max_cac": 1.868935326372462,
+        "operator_break_even_gross_ecpm": 43.569763861078776
+      }
+    },
+    {
+      "mode": "free",
+      "scenario": "cac_minus20",
+      "parameters": {
+        "users": 1000000,
+        "d1": 0.4,
+        "d7": 0.2,
+        "d30_ratio": 0.4,
+        "d90_ratio": 0.1,
+        "slots": 12,
+        "fill": 0.85,
+        "gross_ecpm": 45,
+        "network_rate": 0.15,
+        "content_share": 0.35,
+        "cac": 1.4400000000000002,
+        "operating": 300000,
+        "budget": 600000
+      },
+      "results": {
+        "active_days_per_user": 8.552668407111513,
+        "filled_impressions": 87237217.75253743,
+        "external_demand": 3925674.7988641844,
+        "channel": 588851.2198296277,
+        "distributable": 3336823.5790345566,
+        "content_income": 1167888.2526620948,
+        "operator_income": 2168935.326372462,
+        "creator_profit": 567888.2526620948,
+        "operator_profit": 428935.3263724616,
+        "combined_profit": 996823.5790345564,
+        "operator_max_cac": 1.868935326372462,
+        "operator_break_even_gross_ecpm": 36.10066148489385
+      }
+    },
+    {
+      "mode": "free",
+      "scenario": "cac_plus20",
+      "parameters": {
+        "users": 1000000,
+        "d1": 0.4,
+        "d7": 0.2,
+        "d30_ratio": 0.4,
+        "d90_ratio": 0.1,
+        "slots": 12,
+        "fill": 0.85,
+        "gross_ecpm": 45,
+        "network_rate": 0.15,
+        "content_share": 0.35,
+        "cac": 2.16,
+        "operating": 300000,
+        "budget": 600000
+      },
+      "results": {
+        "active_days_per_user": 8.552668407111513,
+        "filled_impressions": 87237217.75253743,
+        "external_demand": 3925674.7988641844,
+        "channel": 588851.2198296277,
+        "distributable": 3336823.5790345566,
+        "content_income": 1167888.2526620948,
+        "operator_income": 2168935.326372462,
+        "creator_profit": 567888.2526620948,
+        "operator_profit": -291064.67362753814,
+        "combined_profit": 276823.57903455663,
+        "operator_max_cac": 1.868935326372462,
+        "operator_break_even_gross_ecpm": 51.03886623726371
+      }
+    },
+    {
+      "mode": "free",
+      "scenario": "share_30",
+      "parameters": {
+        "users": 1000000,
+        "d1": 0.4,
+        "d7": 0.2,
+        "d30_ratio": 0.4,
+        "d90_ratio": 0.1,
+        "slots": 12,
+        "fill": 0.85,
+        "gross_ecpm": 45,
+        "network_rate": 0.15,
+        "content_share": 0.3,
+        "cac": 1.8,
+        "operating": 300000,
+        "budget": 600000
+      },
+      "results": {
+        "active_days_per_user": 8.552668407111513,
+        "filled_impressions": 87237217.75253743,
+        "external_demand": 3925674.7988641844,
+        "channel": 588851.2198296277,
+        "distributable": 3336823.5790345566,
+        "content_income": 1001047.073710367,
+        "operator_income": 2335776.5053241896,
+        "creator_profit": 401047.07371036697,
+        "operator_profit": 235776.50532418955,
+        "combined_profit": 636823.5790345565,
+        "operator_max_cac": 2.0357765053241894,
+        "operator_break_even_gross_ecpm": 40.45763787100172
+      }
+    },
+    {
+      "mode": "free",
+      "scenario": "share_40",
+      "parameters": {
+        "users": 1000000,
+        "d1": 0.4,
+        "d7": 0.2,
+        "d30_ratio": 0.4,
+        "d90_ratio": 0.1,
+        "slots": 12,
+        "fill": 0.85,
+        "gross_ecpm": 45,
+        "network_rate": 0.15,
+        "content_share": 0.4,
+        "cac": 1.8,
+        "operating": 300000,
+        "budget": 600000
+      },
+      "results": {
+        "active_days_per_user": 8.552668407111513,
+        "filled_impressions": 87237217.75253743,
+        "external_demand": 3925674.7988641844,
+        "channel": 588851.2198296277,
+        "distributable": 3336823.5790345566,
+        "content_income": 1334729.4316138227,
+        "operator_income": 2002094.147420734,
+        "creator_profit": 734729.4316138227,
+        "operator_profit": -97905.85257926607,
+        "combined_profit": 636823.5790345566,
+        "operator_max_cac": 1.7020941474207338,
+        "operator_break_even_gross_ecpm": 47.200577516168686
+      }
+    },
+    {
+      "mode": "paid",
+      "scenario": "conversion_minus20",
+      "parameters": {
+        "users": 100000,
+        "conversion": 0.12,
+        "consumed_per_payer": 120,
+        "refund_rate": 0.08,
+        "channel_rate": 0.05,
+        "content_share": 0.35,
+        "cac": 6.5,
+        "operating": 120000,
+        "budget": 600000
+      },
+      "results": {
+        "gross": 1440000.0,
+        "refunds": 115200.0,
+        "external_demand": 1324800.0,
+        "channel": 66240.0,
+        "distributable": 1258560.0,
+        "content_income": 440496.0,
+        "creator_profit": -159504.0,
+        "operator_income": 818064.0,
+        "operator_profit": 48064.0,
+        "combined_profit": -111440.0,
+        "operator_max_cac": 6.98064,
+        "creator_break_even_conversion": 0.16345210853220007
+      }
+    },
+    {
+      "mode": "paid",
+      "scenario": "conversion_plus20",
+      "parameters": {
+        "users": 100000,
+        "conversion": 0.18,
+        "consumed_per_payer": 120,
+        "refund_rate": 0.08,
+        "channel_rate": 0.05,
+        "content_share": 0.35,
+        "cac": 6.5,
+        "operating": 120000,
+        "budget": 600000
+      },
+      "results": {
+        "gross": 2160000.0,
+        "refunds": 172800.0,
+        "external_demand": 1987200.0,
+        "channel": 99360.0,
+        "distributable": 1887840.0,
+        "content_income": 660744.0,
+        "creator_profit": 60744.0,
+        "operator_income": 1227096.0,
+        "operator_profit": 457096.0,
+        "combined_profit": 517840.0,
+        "operator_max_cac": 11.07096,
+        "creator_break_even_conversion": 0.16345210853220007
+      }
+    },
+    {
+      "mode": "paid",
+      "scenario": "refund_15",
+      "parameters": {
+        "users": 100000,
+        "conversion": 0.15,
+        "consumed_per_payer": 120,
+        "refund_rate": 0.15,
+        "channel_rate": 0.05,
+        "content_share": 0.35,
+        "cac": 6.5,
+        "operating": 120000,
+        "budget": 600000
+      },
+      "results": {
+        "gross": 1800000.0,
+        "refunds": 270000.0,
+        "external_demand": 1530000.0,
+        "channel": 76500.0,
+        "distributable": 1453500.0,
+        "content_income": 508724.99999999994,
+        "creator_profit": -91275.00000000006,
+        "operator_income": 944775.0,
+        "operator_profit": 174775.0,
+        "combined_profit": 83499.99999999994,
+        "operator_max_cac": 8.24775,
+        "creator_break_even_conversion": 0.17691287041132242
+      }
+    },
+    {
+      "mode": "free",
+      "scenario": "ecpm_minus20",
+      "parameters": {
+        "users": 1000000,
+        "d1": 0.4,
+        "d7": 0.2,
+        "d30_ratio": 0.4,
+        "d90_ratio": 0.1,
+        "slots": 12,
+        "fill": 0.85,
+        "gross_ecpm": 36,
+        "network_rate": 0.15,
+        "content_share": 0.35,
+        "cac": 1.8,
+        "operating": 300000,
+        "budget": 600000
+      },
+      "results": {
+        "active_days_per_user": 8.552668407111513,
+        "filled_impressions": 87237217.75253743,
+        "external_demand": 3140539.8390913475,
+        "channel": 471080.97586370213,
+        "distributable": 2669458.8632276454,
+        "content_income": 934310.6021296758,
+        "operator_income": 1735148.2610979695,
+        "creator_profit": 334310.6021296758,
+        "operator_profit": -364851.7389020305,
+        "combined_profit": -30541.136772354716,
+        "operator_max_cac": 1.4351482610979696,
+        "operator_break_even_gross_ecpm": 43.569763861078776
+      }
+    },
+    {
+      "mode": "free",
+      "scenario": "ecpm_plus20",
+      "parameters": {
+        "users": 1000000,
+        "d1": 0.4,
+        "d7": 0.2,
+        "d30_ratio": 0.4,
+        "d90_ratio": 0.1,
+        "slots": 12,
+        "fill": 0.85,
+        "gross_ecpm": 54,
+        "network_rate": 0.15,
+        "content_share": 0.35,
+        "cac": 1.8,
+        "operating": 300000,
+        "budget": 600000
+      },
+      "results": {
+        "active_days_per_user": 8.552668407111513,
+        "filled_impressions": 87237217.75253743,
+        "external_demand": 4710809.758637021,
+        "channel": 706621.4637955532,
+        "distributable": 4004188.2948414683,
+        "content_income": 1401465.9031945139,
+        "operator_income": 2602722.391646954,
+        "creator_profit": 801465.9031945139,
+        "operator_profit": 502722.39164695423,
+        "combined_profit": 1304188.294841468,
+        "operator_max_cac": 2.302722391646954,
+        "operator_break_even_gross_ecpm": 43.569763861078776
+      }
+    },
+    {
+      "mode": "free",
+      "scenario": "d7_minus5pp",
+      "parameters": {
+        "users": 1000000,
+        "d1": 0.4,
+        "d7": 0.15,
+        "d30_ratio": 0.4,
+        "d90_ratio": 0.1,
+        "slots": 12,
+        "fill": 0.85,
+        "gross_ecpm": 45,
+        "network_rate": 0.15,
+        "content_share": 0.35,
+        "cac": 1.8,
+        "operating": 300000,
+        "budget": 600000
+      },
+      "results": {
+        "active_days_per_user": 6.947354346017755,
+        "filled_impressions": 70863014.3293811,
+        "external_demand": 3188835.644822149,
+        "channel": 478325.34672332235,
+        "distributable": 2710510.298098827,
+        "content_income": 948678.6043345893,
+        "operator_income": 1761831.6937642375,
+        "creator_profit": 348678.6043345893,
+        "operator_profit": -338168.30623576255,
+        "combined_profit": 10510.298098826781,
+        "operator_max_cac": 1.4618316937642375,
+        "operator_break_even_gross_ecpm": 53.63735953580006
+      }
+    },
+    {
+      "mode": "free",
+      "scenario": "d7_plus5pp",
+      "parameters": {
+        "users": 1000000,
+        "d1": 0.4,
+        "d7": 0.25,
+        "d30_ratio": 0.4,
+        "d90_ratio": 0.1,
+        "slots": 12,
+        "fill": 0.85,
+        "gross_ecpm": 45,
+        "network_rate": 0.15,
+        "content_share": 0.35,
+        "cac": 1.8,
+        "operating": 300000,
+        "budget": 600000
+      },
+      "results": {
+        "active_days_per_user": 10.140244626495814,
+        "filled_impressions": 103430495.1902573,
+        "external_demand": 4654372.283561579,
+        "channel": 698155.8425342368,
+        "distributable": 3956216.4410273423,
+        "content_income": 1384675.7543595696,
+        "operator_income": 2571540.686667773,
+        "creator_profit": 784675.7543595696,
+        "operator_profit": 471540.68666777294,
+        "combined_profit": 1256216.4410273426,
+        "operator_max_cac": 2.2715406866677728,
+        "operator_break_even_gross_ecpm": 36.74839775623151
+      }
+    },
+    {
+      "mode": "free",
+      "scenario": "adload_retention_joint",
+      "parameters": {
+        "users": 1000000,
+        "d1": 0.4,
+        "d7": 0.14,
+        "d30_ratio": 0.4,
+        "d90_ratio": 0.1,
+        "slots": 15,
+        "fill": 0.85,
+        "gross_ecpm": 45,
+        "network_rate": 0.15,
+        "content_share": 0.35,
+        "cac": 1.8,
+        "operating": 300000,
+        "budget": 600000
+      },
+      "results": {
+        "active_days_per_user": 6.623411671686222,
+        "filled_impressions": 84448498.81399933,
+        "external_demand": 3800182.4466299694,
+        "channel": 570027.3669944954,
+        "distributable": 3230155.079635474,
+        "content_income": 1130554.2778724157,
+        "operator_income": 2099600.801763058,
+        "creator_profit": 530554.2778724157,
+        "operator_profit": -399.1982369418256,
+        "combined_profit": 530155.0796354739,
+        "operator_max_cac": 1.7996008017630583,
+        "operator_break_even_gross_ecpm": 45.008555874358265
+      }
+    },
+    {
+      "mode": "free",
+      "scenario": "admarket_acquisition_joint",
+      "parameters": {
+        "users": 1000000,
+        "d1": 0.4,
+        "d7": 0.15,
+        "d30_ratio": 0.4,
+        "d90_ratio": 0.1,
+        "slots": 12,
+        "fill": 0.85,
+        "gross_ecpm": 36,
+        "network_rate": 0.15,
+        "content_share": 0.35,
+        "cac": 2.16,
+        "operating": 300000,
+        "budget": 600000
+      },
+      "results": {
+        "active_days_per_user": 6.947354346017755,
+        "filled_impressions": 70863014.3293811,
+        "external_demand": 2551068.5158577194,
+        "channel": 382660.2773786579,
+        "distributable": 2168408.2384790615,
+        "content_income": 758942.8834676715,
+        "operator_income": 1409465.35501139,
+        "creator_profit": 158942.88346767146,
+        "operator_profit": -1050534.64498861,
+        "combined_profit": -891591.7615209385,
+        "operator_max_cac": 1.10946535501139,
+        "operator_break_even_gross_ecpm": 62.83233545622292
+      }
+    }
+  ],
+  "contracts_base": [
+    {
+      "contract": "pure_share",
+      "creator_income": 1167888.2526620948,
+      "creator_profit": 567888.2526620948,
+      "operator_profit": 68935.32637246186
+    },
+    {
+      "contract": "recoupable_minimum",
+      "creator_income": 1167888.2526620948,
+      "creator_profit": 567888.2526620948,
+      "operator_profit": 68935.32637246186
+    },
+    {
+      "contract": "nonrecoupable_additional_grant",
+      "creator_income": 1767888.2526620948,
+      "creator_profit": 1167888.2526620948,
+      "operator_profit": -531064.6736275381
+    },
+    {
+      "contract": "platform_pays_cost_then_splits_surplus_50_50",
+      "creator_income": 918411.7895172783,
+      "creator_profit": 318411.7895172783,
+      "operator_profit": 318411.7895172783
+    }
+  ],
+  "contracts_down_ecpm20": [
+    {
+      "contract": "pure_share",
+      "creator_income": 519061.4456275977,
+      "creator_profit": -80938.55437240232,
+      "operator_profit": -1136028.7438344613
+    },
+    {
+      "contract": "recoupable_minimum",
+      "creator_income": 600000,
+      "creator_profit": 0,
+      "operator_profit": -1216967.2982068637
+    },
+    {
+      "contract": "nonrecoupable_additional_grant",
+      "creator_income": 1119061.4456275976,
+      "creator_profit": 519061.4456275976,
+      "operator_profit": -1736028.7438344613
+    }
+  ],
+  "cashflows": {
+    "paid": [
+      {
+        "operator_cumulative": 659230.7692307694,
+        "creator_cumulative": 600000.0,
+        "combined_cumulative": 1259230.7692307695,
+        "combined_final": 203199.99999999968,
+        "delay_days": 7
+      },
+      {
+        "operator_cumulative": 689560.4395604401,
+        "creator_cumulative": 600000.0,
+        "combined_cumulative": 1289560.4395604401,
+        "combined_final": 203199.99999999936,
+        "delay_days": 30
+      },
+      {
+        "operator_cumulative": 729120.8791208803,
+        "creator_cumulative": 600000.0,
+        "combined_cumulative": 1329120.8791208803,
+        "combined_final": 203199.9999999989,
+        "delay_days": 60
+      }
+    ],
+    "free": [
+      {
+        "operator_cumulative": 1823076.923076923,
+        "creator_cumulative": 600000.0,
+        "combined_cumulative": 2423076.923076923,
+        "combined_final": 636823.5790345568,
+        "delay_days": 7
+      },
+      {
+        "operator_cumulative": 1898901.0989010986,
+        "creator_cumulative": 600000.0,
+        "combined_cumulative": 2498901.0989010986,
+        "combined_final": 636823.5790345571,
+        "delay_days": 30
+      },
+      {
+        "operator_cumulative": 1997802.1978021972,
+        "creator_cumulative": 600000.0,
+        "combined_cumulative": 2597802.197802197,
+        "combined_final": 636823.5790345573,
+        "delay_days": 60
+      }
+    ]
+  },
+  "hybrid": [
+    {
+      "relative_advalue": 1,
+      "net_subscription": 712500.0,
+      "lost_ad_receipts": 166841.17895172784,
+      "incremental_before_content_resplit": 495658.8210482722,
+      "break_even_price": 4.5650774516153225
+    },
+    {
+      "relative_advalue": 3,
+      "net_subscription": 712500.0,
+      "lost_ad_receipts": 500523.53685518354,
+      "incremental_before_content_resplit": 161976.46314481646,
+      "break_even_price": 11.589969196951232
+    },
+    {
+      "relative_advalue": 6,
+      "net_subscription": 712500.0,
+      "lost_ad_receipts": 1001047.0737103671,
+      "incremental_before_content_resplit": -338547.0737103671,
+      "break_even_price": 22.127306814955098
+    }
+  ],
+  "portfolio": {
+    "failure_pool": 300000,
+    "ordinary_pool": 1000000,
+    "hit_pool": 5000000,
+    "probabilities": [
+      0.6,
+      0.3,
+      0.1
+    ],
+    "content_share": 0.35,
+    "budget": 600000,
+    "mean_pool": 980000.0,
+    "mean_creator_profit": -257000.0,
+    "required_mean_pool": 1714285.7142857143,
+    "break_even_hit_rate": 0.26439232409381663
+  }
+}

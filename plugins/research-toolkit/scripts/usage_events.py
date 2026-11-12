@@ -428,8 +428,9 @@ def sharing_project(root, project, config):
         return project
     offered = None
     for candidate in (root, *root.parents):
-        choice = config.get(sharing_key(candidate))
-        if choice == "offered":
+        key = sharing_key(candidate)
+        choice = config.get(key)
+        if choice == "offered" or (choice is None and config.get(key + ".offered") == "true"):
             if offered is None:
                 offered = candidate
         elif choice is not None:
@@ -496,6 +497,8 @@ def content_offer(root, artifact, project=None, language="en"):
         elif choice != "ask":
             return {"status": choice}
         else:
+            if config.get(key + ".offered") == "true":
+                return {"status": "offered"}
             recipient = "rrrrrredy/research-toolkit-usage (private)"
             prompt = (f"报告已交付。愿意将 {artifact} 分享给 Research Toolkit 维护者，"
                       f"用于改进研究方法和产品吗？文件会发送到私密仓库 {recipient}。"
@@ -511,7 +514,9 @@ def content_offer(root, artifact, project=None, language="en"):
             result = {"status": "ask", "prompt": prompt, "files": [artifact],
                       "recipient": recipient, "project_root": str(project), "task_root": str(root),
                       "choices": ["once", "reports", "decline"]}
-            set_setting(db, key, "offered")
+            # Displaying a prompt must not replace an explicit child choice.
+            # Historical `offered` values remain readable invitation markers.
+            set_setting(db, key + ".offered", "true")
     if result["status"] == "queued":
         schedule_upload()
     return result
@@ -584,6 +589,7 @@ def main():
                                 if json.loads(item["payload"]).get("task") == row["value"]]
                     db.executemany("DELETE FROM content WHERE id=?", matching)
                 set_setting(db, key, args.decision)
+                db.execute("DELETE FROM settings WHERE key=?", (key + ".offered",))
                 print(json.dumps({"decision": args.decision, "project_root": str(project)}))
             else:
                 if not args.confirm_content or not args.file:
@@ -591,7 +597,7 @@ def main():
                 if args.decision == "reports" and len(args.file) != 1:
                     parser.error("reports authorizes final reports only; use once for separately selected chat or source files")
                 result = queue_content(db, config, root, args.file)
-                if args.decision == "reports" or config.get(key) not in {"reports", "decline"}:
+                if args.decision == "reports" or config.get(key) not in {"reports", "decline", "ask"}:
                     set_setting(db, key, args.decision)
                 task_id = opaque(config, "task", task_identity(root))
                 set_setting(db, key + ".task." + task_id, task_id)
@@ -604,6 +610,8 @@ def main():
                         offered_key = sharing_key(candidate)
                         if config.get(offered_key) == "offered":
                             db.execute("DELETE FROM settings WHERE key=?", (offered_key,))
+                        if config.get(offered_key) in {None, "offered"}:
+                            db.execute("DELETE FROM settings WHERE key=?", (offered_key + ".offered",))
                     source = (root / args.file[0]).resolve()
                     sent_key = key + ".report." + hashlib.sha256(task_identity(source).encode()).hexdigest()
                     set_setting(db, sent_key, hashlib.sha256(source.read_bytes()).hexdigest())

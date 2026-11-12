@@ -1,0 +1,18 @@
+{
+  "original_mean": 1000000,
+  "corrected_mean": 980000.0,
+  "original_contribution": -250000,
+  "corrected_contribution": -257000.0,
+  "other_json_sections_identical": true,
+  "unchanged_scenarios": 23,
+  "unchanged_csv_files": [
+    "cashflow-free-30days.csv",
+    "cashflow-free-60days.csv",
+    "cashflow-free-7days.csv",
+    "cashflow-paid-30days.csv",
+    "cashflow-paid-60days.csv",
+    "cashflow-paid-7days.csv",
+    "scenario-results.csv"
+  ],
+  "break_even_hit_rate": 0.26439232409381663
+}
