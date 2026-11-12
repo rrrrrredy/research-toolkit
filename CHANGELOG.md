@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.5.4 — 2026-11-12
+
+Preserve explicit sharing choices after invitations, resume the original research unit with replacement sources, isolate imported release-update checks from usage collection, and include configured final acceptance in readiness checks. Correct the microdrama portfolio arithmetic and current reading page while preserving original reports and records.
+
+[English release notes](docs/releases/v2.5.4.md) · [中文发布说明](docs/releases/v2.5.4.zh-CN.md)
+
 ## v2.5.3 — 2026-11-12
 
 Fix visible usage notices, locally keyed identifiers, task-scoped report sharing, relocated installation launchers, atomic state writes and explicit record errors. Complete MCP pause/resume, bound generic HTTP responses, and synchronize release checks, bilingual instructions and plugin files. Preserve original research and review records.

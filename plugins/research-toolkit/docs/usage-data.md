@@ -92,6 +92,8 @@ python scripts/usage_events.py share --task-root /project/tasks/study --project-
 
 Decline remembers the choice and removes queued content for this project. It leaves basic usage recording unchanged. `share --decision ask` restores the invitation on a later delivery when the user requests it. `off` still disables all sharing and clears pending uploads. Each UTF-8 file remains limited to 1 MiB, and the encoded packet to 1,900,000 bytes. The program does not scan the whole task directory. The agent should disclose the selected files and let the user exclude personal, client or confidential material before consent.
 
+Showing an invitation records only that it was displayed; it does not replace an explicit `ask`, `decline` or report grant. In particular, a child directory set to `ask` continues to block an ancestor report grant after the invitation is shown. No answer queues nothing. An explicit `share --decision ask` resets the invitation so it can be shown again. One-time sharing preserves this choice.
+
 ## Maintainer access
 
 Events go to `https://research-toolkit-usage.luosongred.workers.dev`, managed by the project maintainer (`/v1/install`, `/v1/events`, `/v1/content` and `/v1/delete`); detailed records are retained for at most 90 days. The maintainer views aggregates, task sequences and private attachments in a private GitHub repository, not public code or Pages. Client credentials can only write/delete their installation's data, never read other users' records; exports require a separate secret. Hosting infrastructure processes connection metadata, but Toolkit does not store IP addresses in its event table.

@@ -85,6 +85,8 @@ python scripts/usage_events.py share --task-root /absolute/path/to/task --file f
 
 用户收到邀请后选择上层项目时，这次确认只清除当前任务到所选项目之间遗留的邀请标记，保留明确的拒绝、单次分享和重新提示选择。因此，先前写在 `project/tasks/` 的提示标记不会遮住新确认的 `project/` 授权，同目录下的下一项研究可以沿用该授权。
 
+显示邀请只记录已提示，不会覆盖用户明确选择的 `ask`、拒绝或持续报告授权。子目录设为 `ask` 后，即使已经显示邀请，也继续阻止继承上层目录的自动分享授权；未回复不入队。用户明确选择 `share --decision ask` 时，会重置提示记录，允许再次显示邀请。单次分享也保留这一选择。
+
 ```sh
 python scripts/usage_events.py share --task-root /project/tasks/study --project-root /project --file final.md --decision reports --confirm-content
 python scripts/usage_events.py share --task-root /project/tasks/study --project-root /project --decision decline

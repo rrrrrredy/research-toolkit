@@ -143,7 +143,7 @@ def review_readiness() -> dict:
                 "error_type": type(exc).__name__,
                 **({"error": MISSING_BACKEND} if str(exc) == MISSING_BACKEND else {})}], "model_access_verified": False}
     checks, logins = [], {}
-    for entry in config["reviewers"] + ([config["auditor"]] if "auditor" in config else []):
+    for entry in config["reviewers"] + [config[role] for role in ("auditor", "acceptance") if role in config]:
         backend = backend_kind(entry)
         check = {"id": entry["id"], "model": entry["model"], "backend": backend}
         if backend == "self":

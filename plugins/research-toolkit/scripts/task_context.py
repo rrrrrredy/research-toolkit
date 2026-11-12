@@ -188,7 +188,7 @@ def retain_prepared_work(root, packet):
 
 def prepare_work(root, progress, work, *, resume_prepared=False):
     """Assemble the Agent's explicit selection; do not infer scope or choose a plan."""
-    from record_changes import claim_source_ids, input_digest, requirements_for_units, rows_from
+    from record_changes import claim_source_ids, history, input_digest, requirements_for_units, rows_from
     allowed = {'question', 'unit_id', 'depends_on', 'requirement_ids', 'claim_ids', 'source_ids', 'paths'}
     if not isinstance(work, dict) or set(work) - allowed:
         raise ValueError('work: use optional question, unit_id, depends_on, requirement_ids, claim_ids, source_ids and paths.')
@@ -209,22 +209,40 @@ def prepare_work(root, progress, work, *, resume_prepared=False):
     paths = list(work.get('paths', []))
     record_ids = {key: list(work.get(key, [])) for key in ('requirement_ids', 'claim_ids', 'source_ids')}
     upstream = []
-    def take_inputs(item):
+    source_paths = {}
+    if 'source_ids' in work and (unit or pending):
+        # The existing save history preserves original paths even after a
+        # source is withdrawn from the current registry.
+        for event in history(root):
+            for identity, files in event.get('record_changes', {}).get('source_observations', {}).items():
+                source_paths.setdefault(identity, set()).update(files)
+    def take_inputs(item, *, own=False):
+        replacing_sources = own and 'source_ids' in work
+        retired_paths = set()
+        if replacing_sources:
+            for name in item.get('based_on', {}):
+                if name.startswith('record:sources:') and name.split(':', 2)[2] not in work['source_ids']:
+                    retired_paths.update(source_paths.get(name.split(':', 2)[2], ()))
         if item.get('path'):
             paths.append(item['path'])
         for name in item.get('based_on', {}):
             if name.startswith('record:'):
                 _, kind, identity = name.split(':', 2)
                 field = {'sources': 'source_ids', 'claims': 'claim_ids', 'requirements': 'requirement_ids'}[kind]
+                if replacing_sources and kind == 'sources':
+                    continue
                 aggregate = kind == 'requirements' and (identity == 'effective' or identity.startswith('effective@'))
                 if not aggregate and identity not in record_ids[field]:
                     record_ids[field].append(identity)
-            elif name not in {'state/task_spec.md', 'state/requirements.jsonl', 'data/source_registry.csv', 'data/claims_registry.csv'}:
+            elif (name not in {'state/task_spec.md', 'state/requirements.jsonl', 'data/source_registry.csv', 'data/claims_registry.csv'}
+                    and name not in retired_paths):
                 paths.append(name)
-    if unit:
-        take_inputs(unit)
     if pending:
-        take_inputs(pending)
+        take_inputs(pending, own=True)
+        if unit:
+            paths.append(unit['path'])
+    elif unit:
+        take_inputs(unit, own=True)
     dependencies = list(work.get('depends_on', (pending or unit or {}).get('depends_on', [])))
     seen = set()
     def take_upstream(dependency):

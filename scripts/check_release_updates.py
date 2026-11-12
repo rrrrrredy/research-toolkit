@@ -23,6 +23,9 @@ NEW = "2026年10月15日\n千问办公 1.3.1\nNew release body.\n" + OLD
 
 class ReleaseUpdateTests(unittest.TestCase):
     def setUp(self):
+        telemetry = patch.dict(os.environ, {"RESEARCH_TOOLKIT_TELEMETRY": "off"})
+        telemetry.start()
+        self.addCleanup(telemetry.stop)
         temporary = tempfile.TemporaryDirectory(dir=os.environ.get("IRF_TEST_TMPDIR"))
         self.addCleanup(temporary.cleanup)
         self.workspace = Path(temporary.name)
@@ -129,5 +132,4 @@ class PublicReleaseAddressTests(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    os.environ["RESEARCH_TOOLKIT_TELEMETRY"] = "off"
     unittest.main()
