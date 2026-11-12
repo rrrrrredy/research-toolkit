@@ -78,16 +78,14 @@ def input_digest(root, name):
 
 def history(root, *, outcome="saved"):
     from task_storage import safe_path
+    from check_delivery import inspect_jsonl_text
     path = safe_path(root, "logs/activity.jsonl")
     events = []
     if path.exists():
-        for line in path.read_text(encoding="utf-8").splitlines():
-            try:
-                row = json.loads(line)
-                if isinstance(row, dict) and (outcome is None or row.get("outcome") == outcome):
-                    events.append(row)
-            except ValueError:
-                continue
+        rows, errors = inspect_jsonl_text(path.read_text(encoding="utf-8"), "logs/activity.jsonl")
+        if errors:
+            raise ValueError("; ".join(errors) + " Preserve the original log and recover the damaged records before resuming from it.")
+        events = [row for row in rows if outcome is None or row.get("outcome") == outcome]
     return events
 
 
@@ -263,5 +261,7 @@ def latest_changes(root):
         artifact = current.get("path") or next((e["artifact"] for e in reversed(events) if e.get("artifact")), None)
         return {"available": True, "operation_id": latest["operation_id"], "saved_at": latest.get("finished_at"),
                 **impact_view(root, latest["record_changes"], artifact)}
-    except (OSError, ValueError, TypeError, KeyError, AttributeError):
+    except ValueError as exc:
+        return {"available": False, "warning": str(exc), "scope": SCOPE}
+    except (OSError, TypeError, KeyError, AttributeError):
         return {"available": False, "warning": "Change summary unavailable; existing research and delivery checks still apply.", "scope": SCOPE}

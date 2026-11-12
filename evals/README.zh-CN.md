@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-[11 月 9 日长研究基线，Research Toolkit v2.4.0](studies/2026-11-09-long-research/README.zh-CN.md)：13 个独立问题、15 份已交付报告，保留首稿、独立意见、修订和实际完成结果。具体发现对应正文；本轮是开发基线，不是固定模型的版本对照。
+[11 月 9 日长研究基线，起于 v2.3.4 工作树](studies/2026-11-09-long-research/README.zh-CN.md)：13 个独立问题、15 份已交付报告，保留首稿、独立意见、修订和实际完成结果。具体发现对应正文；本轮是开发基线，不是固定模型的版本对照。
 
 [10 月 27 日研究取舍示范对照](studies/2026-10-27-research-writing-choices/README.zh-CN.md)：两个新构造任务，固定条件下四份首次输出和两次匿名审阅。新增示范后的正文出现了有用的成本推导和机制解释，也出现遗漏；未观察到整篇全面改善或实质返工减少。保留原始正文、审阅输入输出和实际耗时，不设综合分数。
 
@@ -50,7 +50,7 @@ Toolkit 的默认流程调整不改写既有样本、首评或标签，也不自
 | [参考写作样例](taste_anchors/README.zh-CN.md) | 4 组 | 可复用来解释具体判据，按实记录先前用途、虚构事实或来源缺少日期的情况。 |
 | [来源包](source_packs/) | 历史种子包与当前研究材料 | 保留出处及声明用途。公共事实证据须有本地完整原件及匹配哈希；历史工作流种子不是公共事实依据。 |
 | [公开研究案例](../docs/case-study/README.zh-CN.md) | 2 个 | 国内办公 Agent 中文研究与 API／浏览器英文原创研究，保留稿件、评审与修订；译文不另计任务。 |
-| [模板](templates/)及 [客服工具比较示例](../examples/lite/) | 工作流辅助材料 | 用于复用配置和入门。 |
+| [模板](templates/) | 工作流辅助材料 | 用于复用配置。[已归档的客服工具比较示例](../examples/lite/)保留旧契约，不作为当前入门方式。 |
 
 13 份主语言报告包括 7 中文、6 英文联网研究。另两份为微短剧英文报告与 TTC 中文报告：各自使用同题已冻结材料独立写作，不读取另一语言答案，不增加独立问题数。修订、审阅和失败重试也不增加独立问题数。
 
@@ -72,7 +72,7 @@ PR #38 当时离线检查了全部七题的提示生成及一份完整评审足�
 
 [2026-09-07 原始开发材料](diagnostics/2026-09-07/)包含四份初稿、两份修订、三模型文字诊断及保留的不完整回复；它们是已实际执行的独立任务与测试。日期化原件按原语言和哈希保存，本页提供中文导读。
 
-历史[盲评配对协议](../docs/eval-protocol.zh-CN.md)说明固定来源 Lite 试点及保留的执行器，不是当前研究入口。脚本冻结并记录种子／顺序，对评审隐藏 A/B 条件，保留首份产出、判断与失败。[2026-10-10 四模型试验](studies/2026-10-10-lite-four-models/README.zh-CN.md)已覆盖同样五个任务族的全部 20 对模型—任务评审，保留全部首轮尝试及失败，格式诊断与重新生成补跑单列；不证明通用效果。仅复查既有公开两组档案时，运行 `python scripts/reproduce_calibration.py`，生成 `evals/runs/calibration-reproduction/inventory.json` 与 `inventory.md`，不调用模型。
+历史[盲评配对协议](../docs/eval-protocol.zh-CN.md)说明固定来源 Lite 试点及保留的执行器，不是当前研究入口。脚本冻结并记录种子／顺序，对评审隐藏 A/B 条件，保留首份产出、判断与失败。[2026-10-10 四模型试验](studies/2026-10-10-lite-four-models/README.zh-CN.md)已覆盖同样五个任务族的全部 20 对模型—任务评审，保留全部首轮尝试及失败，格式诊断与重新生成补跑单列；不证明通用效果。仅复查既有公开两组档案时，运行 `python scripts/reproduce_calibration.py`，生成 `evals/runs/calibration-reproduction/inventory.json` 与 `inventory.md`，不调用模型。 20 对中，2 对为主结果、8 对为格式诊断、10 对为重新生成的完成结果，不能合并解读为条件始终相同的一组对照。
 
 历史[协议 v2](../docs/eval-protocol-v2.zh-CN.md)使用的五个独立短题完整保留在 [frozen.json](studies/2026-10-12-lite-four-models/longcat/coordinator/frozen.json)，另有[独立评审校准对照](tasksets/judge-calibration-v3/README.zh-CN.md)。[带日期的 Astra 校准](diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)已新增 12 份首轮判断及来源裁定；[四模型开发试验](studies/2026-10-12-lite-four-models/README.zh-CN.md)现已完成，保留四个缺失配对和六个互换偏好变化。这些历史材料与已退役七题及当前长研究题集分开。
 

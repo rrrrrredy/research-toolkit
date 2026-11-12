@@ -1,0 +1,95 @@
+{
+  "review_type": "process_language",
+  "actual_identity": {
+    "canonical_task_name": "/root/microdrama_process_review",
+    "parent_task_name": "/root",
+    "role": "独立 process_language 子任务评审者；不是报告作者",
+    "context": "独立子任务上下文",
+    "identity_limit": "记录工具任务身份；未另造人员身份、评审轮次或模型版本"
+  },
+  "timing": {
+    "first_recorded_time_utc": "2026-11-11T09:46:49Z",
+    "first_recorded_time_meaning": "最初输入元数据读取后获取的首个实际时钟读数，不声称是子任务创建时刻",
+    "completed_at_utc": "2026-11-11T09:51:17.973Z",
+    "local_timezone": "Asia/Shanghai"
+  },
+  "input_directory": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\toolkit-feedback-repairs-20261111\\process-review-input",
+  "report_sha256": "76e52a756e003edbec67aca4cc06b19aa6545aec9c5584f1ca57c74f28c222b4",
+  "input_file_sha256": {
+    "report.md": "76e52a756e003edbec67aca4cc06b19aa6545aec9c5584f1ca57c74f28c222b4",
+    "task.json": "ae33854021812e6648a5d9942e1b2d8f9fd2837379f9770e85633f22132f063d",
+    "requirements.jsonl": "021c5018668b2dc1c1d857f66f92f8dd7469c03f397600b3e86896ab1f02ef90",
+    "MD003-original.txt": "9f1840f02c97b3293965fd6d0947362cddce8d6ae6db15f4c71db365ffdb0c23",
+    "source_registry.csv": "205234fdfd43b0887385353b2fe970348182c60e4d1336dc867448456fd67598",
+    "input-hashes.json": "88f03f97d032131419a0b593b9243af665670bc6abe8b37dd0d9974ab63cef33"
+  },
+  "manifest_checks": {
+    "report.md": true,
+    "task.json": true,
+    "requirements.jsonl": true,
+    "MD003-original.txt": true,
+    "source_registry.csv": true
+  },
+  "actual_reading_scope": [
+    {
+      "file": "report.md",
+      "extent": "完整正文，第1—512行",
+      "method": "分段全文读取并以物理行号定位；首次合并输出发生截断，另读第33—112行补齐该段；其余分段为第221—360行、第361—512行",
+      "purpose": "独立形成 process_language 判断"
+    },
+    {
+      "file": "task.json",
+      "extent": "完整，第1—86行",
+      "purpose": "确定研究对象、目标读者和交付要求"
+    },
+    {
+      "file": "requirements.jsonl",
+      "extent": "完整，第1—3行",
+      "purpose": "读取需求；内含 satisfied 状态和既往评审路径未作为判据，未沿路径读取其他评审"
+    },
+    {
+      "file": "input-hashes.json",
+      "extent": "完整，第1—7行",
+      "purpose": "核对输入字节指纹"
+    },
+    {
+      "file": "MD003-original.txt",
+      "extent": "完整，第1—215行",
+      "focused_lines": "120—134、158",
+      "purpose": "辨别CSM调查出处、摘录性质及观看/意愿的口径限定为何应保留"
+    },
+    {
+      "file": "source_registry.csv",
+      "extent": "只读表头和MD003行，即第1—2行；未完整阅读其他来源条目",
+      "purpose": "确认MD003对应原始来源及定位；另对整个文件计算SHA256，哈希不等于阅读全文"
+    }
+  ],
+  "independence": {
+    "other_reviews_read": false,
+    "author_self_assessment_read": false,
+    "handoff_or_old_conclusions_read": false,
+    "parent_report_opinions_used": false,
+    "prior_memory_used": false,
+    "current_role_basis": "父任务传入的当前 Toolkit process_language 职责范围；未读取或评审 Toolkit 产品代码"
+  },
+  "actions": {
+    "report_edited": false,
+    "web_requests_made": false,
+    "research_rerun": false,
+    "software_tests_run": false,
+    "new_review_roles_created": false,
+    "external_original_source_directory_read": false,
+    "written_files": [
+      "response.json",
+      "execution.json"
+    ],
+    "output_directory": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-feedback-repairs-20261111\\evals\\studies\\2026-11-09-long-research\\reports\\microdrama_market_zh\\reviews\\2026-11-11-process-language-independent",
+    "artifact_validation": "response.json 已重新解析；六个输入文件计算SHA256，manifest列出的五项均匹配；未修改报告"
+  },
+  "result": {
+    "report_verdict": "needs_revision",
+    "finding_count": 1,
+    "response_sha256": "5823ac9d33e221782467f5388a0c7cef76c01400e4a6b6d8b8d306e2fe498d46",
+    "scope_limit": "仅 process_language；未声称完成事实核验、算术复算、领域评审或整体研究验收"
+  }
+}

@@ -5,7 +5,7 @@
 Contribute changes that improve research methods, make the workflow easier to follow, catch demonstrated failures, or strengthen the evidence behind the project's claims. Explain the problem and show how the change addresses it. Keep standalone orchestration products outside this repository.
 
 
-The i18n sync workflow leaves a non-blocking PR reminder when only one of a README, SKILL, CHANGELOG or CONTRIBUTING language pair changes; include `[i18n-skip]` in the PR description to skip it (and remove an existing reminder).
+The i18n sync workflow leaves a non-blocking PR reminder when only one of a README, SKILL, CHANGELOG, CONTRIBUTING or existing paired top-level method, usage or agent guide changes; include `[i18n-skip]` in the PR description to skip it (and remove an existing reminder).
 
 ## Start with a failure case
 
@@ -111,3 +111,5 @@ For a repair, show the failing case, actual change and relevant checks. Existing
 The English and Chinese READMEs introduce the same framework and link to the web guide near the beginning. Keep these entry points focused on what Toolkit users can do and where to start. Copy synchronization and packaging decisions belong in maintenance documentation, not a separate introductory chapter.
 
 This repository supplies the reusable Skill. If a particular environment needs a plugin or another installation package, package the same Skill and link back here instead of maintaining a second protocol. Environment-specific setup belongs in `agents/`; it must not imply that the framework is tailored to one vendor or that setup instructions establish research quality.
+
+Release tags reuse successful main-branch Framework checks for the exact tagged commit. The tag job verifies this association and the package metadata; it does not repeat the full suite.

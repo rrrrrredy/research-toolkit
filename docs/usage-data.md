@@ -2,7 +2,7 @@
 
 English | [简体中文](usage-data.zh-CN.md)
 
-Toolkit records and sends basic usage events by default to understand installation routes, operation sequences, failures and recovery. The recording scripts ship with Toolkit; the agent configures them during installation or first use, without a separate user installation or upload. The first run displays a notice; collection can be disabled at any time. Prompts, conversations, research titles, reports, source URLs, local paths and credentials are excluded by default.
+Toolkit records and sends basic usage events by default to understand installation routes, operation sequences, failures and recovery. The recording scripts ship with Toolkit; the agent configures them during installation or first use, without a separate user installation or upload. The first run displays a notice; collection can be disabled at any time. Prompts, conversations, research titles, reports, source URLs, local paths and user credentials are excluded by default.
 
 ## How installation connects collection
 
@@ -65,7 +65,7 @@ Ordinary and `\\?\` extended Windows paths for one task share an event identity.
 <a id="share-selected-research-content-once"></a>
 ## Share research content after delivery
 
-After the first complete report in a project, the agent shows one invitation in the current conversation, after delivering the report links. It uses the actual filename and explains that the recipient is the Toolkit maintainer's private `rrrrrredy/research-toolkit-usage` repository, for improving research methods and the product. The invitation offers three choices: **share this report once; allow future final reports in this project; do not share and stop asking**. Show the actual project directory when offering continuing authorization. Do not interrupt research, block delivery, repeatedly ask after refusal, or interpret silence as consent. Chat and raw materials are excluded from this invitation; list any such files separately when the user wants to contribute them.
+After the first complete report in a project, the agent shows one invitation in the current conversation, after delivering the report links. It uses the actual filename and explains that the recipient is the Toolkit maintainer's private `rrrrrredy/research-toolkit-usage` repository, for improving research methods and the product. The invitation offers three choices: **share this report once; allow future final reports in the displayed directory and its subdirectories; do not share and stop asking**. Show the actual project directory when offering continuing authorization. Do not interrupt research, block delivery, repeatedly ask after refusal, or interpret silence as consent. Chat and raw materials are excluded from this invitation; list any such files separately when the user wants to contribute them.
 
 Managed tasks return the invitation in `finish.content_sharing` only after `completed=true`. For Skill-only work with file/command access, use `share-offer` after delivering the completed report. It records that the invitation has been offered, not that the user agreed. Without command access, show the same invitation in conversation and retain the answer there; do not claim an upload or require tool-managed research records.
 
@@ -73,7 +73,7 @@ Managed tasks return the invitation in `finish.content_sharing` only after `comp
 python scripts/usage_events.py share-offer --task-root /project/tasks/study --file final.md --language en
 ```
 
-Normal delivery, `share-offer` and `share` reuse the nearest saved sharing scope containing the task, including an explicitly selected project above several task directories. A more specific saved choice takes precedence, including refusal or a request to restore the invitation. With no saved scope, the default is the task directory's parent; `--project-root` explicitly selects its containing project. The returned prompt identifies that scope. No reply queues no content. The user can request sharing later. `--confirm-content` records the caller's confirmation that the user actually agreed; it is not a popup or an inferred approval.
+Normal delivery, `share-offer` and `share` reuse the nearest saved sharing scope containing the task, including an explicitly selected project above several task directories. A more specific saved choice takes precedence, including refusal or a request to restore the invitation. With no saved scope, the default covers only the task directory and its descendants, not the shared `tasks/` parent. Use `--project-root` only for the containing directory the user explicitly selected. The invitation states that all tasks in that directory and its subdirectories are covered. An old “already offered” marker does not override an explicit ancestor choice. The returned prompt identifies that scope. No reply queues no content. The user can request sharing later. `--confirm-content` records the caller's confirmation that the user actually agreed; it is not a popup or an inferred approval.
 
 Only after the user explicitly authorizes the selected files for this task, the agent or user can run:
 
@@ -86,14 +86,20 @@ This command shares only the listed files once and preserves an existing project
 When the user selects a containing project after an invitation, that confirmation clears only obsolete invitation markers between the current task and the selected project. Explicit refusal, one-time sharing and renewed-invitation choices are retained. Thus an earlier prompt at `project/tasks/` does not hide the newly confirmed `project/` grant from the next task there.
 
 ```sh
-python scripts/usage_events.py share --task-root /project/tasks/study --file final.md --decision reports --confirm-content
-python scripts/usage_events.py share --task-root /project/tasks/study --decision decline
+python scripts/usage_events.py share --task-root /project/tasks/study --project-root /project --file final.md --decision reports --confirm-content
+python scripts/usage_events.py share --task-root /project/tasks/study --project-root /project --decision decline
 ```
 
 Decline remembers the choice and removes queued content for this project. It leaves basic usage recording unchanged. `share --decision ask` restores the invitation on a later delivery when the user requests it. `off` still disables all sharing and clears pending uploads. Each UTF-8 file remains limited to 1 MiB, and the encoded packet to 1,900,000 bytes. The program does not scan the whole task directory. The agent should disclose the selected files and let the user exclude personal, client or confidential material before consent.
 
 ## Maintainer access
 
-Events go to a private receiver managed by the project maintainer; detailed records are retained for at most 90 days. The maintainer views aggregates, task sequences and private attachments in a private GitHub repository, not public code or Pages. Client credentials can only write/delete their installation's data, never read other users' records; exports require a separate secret. Hosting infrastructure processes connection metadata, but Toolkit does not store IP addresses in its event table.
+Events go to `https://research-toolkit-usage.luosongred.workers.dev`, managed by the project maintainer (`/v1/install`, `/v1/events`, `/v1/content` and `/v1/delete`); detailed records are retained for at most 90 days. The maintainer views aggregates, task sequences and private attachments in a private GitHub repository, not public code or Pages. Client credentials can only write/delete their installation's data, never read other users' records; exports require a separate secret. Hosting infrastructure processes connection metadata, but Toolkit does not store IP addresses in its event table.
 
 Receiver failures do not change research or delivery decisions. Trajectories can locate product problems. Fewer calls, completion flags or shorter paths are not evidence of improved research quality without examining the actual work.
+
+The first successful CLI/MCP result or installation result includes `usage_notice` with the receiver, data scope and disable command. The agent displays it in the conversation; later results do not repeat it. Existing disabled settings are preserved. Counts contain only numbers of sources, claims, requirements, findings or dependencies.
+
+The generated upload credential is sent for receiver authentication. Task/session identifiers use a separate local `id_secret` that is never sent. Upgrading an older installation creates this local key for new events; existing queued payloads and uploaded history keep their original identifiers. Task deletion covers both identifier generations. Identifiers are pseudonymous; repeated identifiers still connect events within a task.
+
+Selected content is checked for credential file names (including `.env.*`) and recognizable private-key/token patterns before queueing. Ordinary hashes are allowed. A refusal names the file, not the matched secret. Share a redacted copy if needed. This check applies only to selected files, without scanning other project content.

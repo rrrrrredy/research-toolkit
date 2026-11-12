@@ -135,8 +135,16 @@ class RecordWorkflowTests(unittest.TestCase):
 
     def test_changes_legacy_log_and_removed_source_keep_unknown_locations(self):
         self.seed()
-        (self.root/"logs/activity.jsonl").write_text('not-json\n{"operation":"save","outcome":"saved"}\n', encoding="utf-8")
-        self.assertFalse(w.status(self.workspace, "case")["changes"]["available"])
+        log = self.root/"logs/activity.jsonl"
+        legacy = '{"operation":"save","outcome":"saved"}\n'
+        log.write_text('not-json\n' + legacy, encoding="utf-8")
+        original = log.read_bytes()
+        changes = w.status(self.workspace, "case")["changes"]
+        self.assertFalse(changes["available"])
+        self.assertIn("logs/activity.jsonl row 1", changes["warning"])
+        self.assertEqual(log.read_bytes(), original)
+        # Valid legacy rows still support removal tracking after log recovery.
+        log.write_text(legacy, encoding="utf-8")
         removed = w.save_records(self.workspace, "case", sources=[], replace=["sources"])["changes"]
         self.assertEqual(removed["records"]["sources"]["removed"], ["S1"])
         self.assertEqual(removed["affected_claims"][0]["location_status"], "not_located")

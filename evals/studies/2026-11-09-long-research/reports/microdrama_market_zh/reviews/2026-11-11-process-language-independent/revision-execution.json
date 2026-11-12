@@ -1,0 +1,86 @@
+{
+  "review_type": "process_language_revision_check",
+  "actual_identity": {
+    "canonical_task_name": "/root/microdrama_process_review",
+    "parent_task_name": "/root",
+    "role": "首次独立 process_language 评审者，在原子任务上下文定点核对自身 finding"
+  },
+  "timing": {
+    "first_recorded_time_utc": "2026-11-11T09:57:13Z",
+    "completed_at_utc": "2026-11-11T09:58:43.123Z",
+    "local_timezone": "Asia/Shanghai"
+  },
+  "original_report_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\toolkit-feedback-repairs-20261111\\process-review-input\\report.md",
+  "revised_report_path": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-feedback-repairs-20261111\\evals\\studies\\2026-11-09-long-research\\reports\\microdrama_market_zh\\analysis\\2026-11-11-process-language-revision.md",
+  "revised_report_sha256": "5f6d02926b8432ae4af5d58ebc9fd77c49ab307997a688a1ad98e96c5060b676",
+  "input_file_sha256": {
+    "original_report.md": "76e52a756e003edbec67aca4cc06b19aa6545aec9c5584f1ca57c74f28c222b4",
+    "revised_report.md": "5f6d02926b8432ae4af5d58ebc9fd77c49ab307997a688a1ad98e96c5060b676",
+    "revision.diff": "3b3377ea56db746fa93a7795f347ad6edc18367843c39af1098433553fba26e3",
+    "revision-hashes.json": "14bb566700259d8e74c7feac59c3925aa8efb2131ebb8b80f1915a83d02acc8a",
+    "original_response.json": "5823ac9d33e221782467f5388a0c7cef76c01400e4a6b6d8b8d306e2fe498d46",
+    "original_execution.json": "80635d610ad5e70f0243c621ae24fda46133ed2683d92acb36f3842e82dd9228"
+  },
+  "actual_reading_scope": [
+    {
+      "file": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-feedback-repairs-20261111\\evals\\studies\\2026-11-09-long-research\\reports\\microdrama_market_zh\\analysis\\2026-11-11-process-language-revision.md",
+      "extent": "逐行阅读第494—512行；为哈希与精确差异核对，程序另读取全文字节和行数组",
+      "purpose": "检查两处改动和相邻语义；没有重新全文语义评审"
+    },
+    {
+      "file": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-feedback-repairs-20261111\\evals\\studies\\2026-11-09-long-research\\reports\\microdrama_market_zh\\reviews\\2026-11-11-process-language-independent\\revision.diff",
+      "extent": "完整差异文件",
+      "purpose": "读取本次声称的修改范围并与实际文件差异核对"
+    },
+    {
+      "file": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\work\\toolkit-feedback-repairs-20261111\\evals\\studies\\2026-11-09-long-research\\reports\\microdrama_market_zh\\reviews\\2026-11-11-process-language-independent\\revision-hashes.json",
+      "extent": "完整",
+      "purpose": "读取原稿与修订稿指纹声明；以实际计算独立核对"
+    },
+    {
+      "file": "C:\\Users\\luosong03\\Documents\\ChatGPT\\Others\\output\\toolkit-feedback-repairs-20261111\\process-review-input\\report.md",
+      "extent": "本次程序读取全文字节及行数组，用于精确删除重建和差异比较；原全文语义阅读已经在首次评审完成",
+      "purpose": "证实只有508、512行对应精确删除，其他字节保持一致"
+    },
+    {
+      "file": "response.json / execution.json",
+      "extent": "本次只计算文件SHA256，与首次输出指纹核对；首次判断来自原上下文",
+      "purpose": "确认首次原始记录未改动"
+    }
+  ],
+  "actual_validation": {
+    "changed_lines": [
+      508,
+      512
+    ],
+    "original_line_count": 512,
+    "revised_line_count": 512,
+    "deleted_phrases_each_occur_once": true,
+    "expected_hash_after_only_two_deletions": "5f6d02926b8432ae4af5d58ebc9fd77c49ab307997a688a1ad98e96c5060b676",
+    "expected_deletions_match_actual_revision": true,
+    "original_response_unchanged": true,
+    "original_execution_unchanged": true,
+    "check_type": "定点内容复核、字节差异和JSON可解析性核对；不是软件测试或研究重跑"
+  },
+  "scope": {
+    "only_finding": "PL-001",
+    "other_reviews_read": false,
+    "source_research_rerun": false,
+    "web_requests_made": false,
+    "software_tests_run": false,
+    "manuscript_edited": false,
+    "first_review_files_edited": false,
+    "full_report_reacceptance_claimed": false
+  },
+  "result": {
+    "report_verdict": "pass",
+    "scope": "仅确认首次 process_language finding PL-001 的两处修改及此次差异影响；不是对修订稿开展新一轮整篇报告验收。",
+    "remaining_findings": 0,
+    "original_finding_status": "resolved",
+    "revision_response_sha256": "71b5672adc6255fd95d51d0f489fb8bc7498393076b8368f132700ee353504fb"
+  },
+  "written_files": [
+    "revision-response.json",
+    "revision-execution.json"
+  ]
+}

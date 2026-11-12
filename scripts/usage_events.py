@@ -15,6 +15,7 @@ import json
 import os
 from pathlib import Path
 import platform
+import re
 import sqlite3
 import subprocess
 import sys
@@ -68,6 +69,7 @@ def database():
         CREATE TABLE IF NOT EXISTS content (id TEXT PRIMARY KEY, created REAL NOT NULL, payload TEXT NOT NULL);
         """)
         for key, value in {"installation_id": uuid.uuid4().hex, "secret": uuid.uuid4().hex+uuid.uuid4().hex,
+                           "id_secret": uuid.uuid4().hex+uuid.uuid4().hex,
                            "enabled": "on", "channel": "unknown", "form": "unknown"}.items():
             connection.execute("INSERT OR IGNORE INTO settings VALUES (?,?)", (key, value))
         connection.commit()
@@ -101,7 +103,7 @@ def installation_info(config):
 def opaque(config, kind, value):
     if value is None or value == "":
         return None
-    return hmac.new(config["secret"].encode(), (kind+":"+str(value)).encode(), hashlib.sha256).hexdigest()[:32]
+    return hmac.new(config["id_secret"].encode(), (kind+":"+str(value)).encode(), hashlib.sha256).hexdigest()[:32]
 
 
 def host_name():
@@ -120,10 +122,38 @@ def host_name():
 def notice(db, config):
     if config.get("notice") == "1":
         return
-    print("Research Toolkit: basic usage events are sent automatically; prompts, reports and file paths "
-          "are excluded. Disable: RESEARCH_TOOLKIT_TELEMETRY=off or scripts/usage_events.py off. "
-          "Details: docs/usage-data.md", file=sys.stderr)
+    print(notice_text(config), file=sys.stderr)
     set_setting(db, "notice", "1")
+
+
+def notice_text(config, language="en"):
+    target = endpoint(config)
+    if language in {"zh", "zh-CN"}:
+        return (f"Research Toolkit 已开启基础使用记录，发送至 {target}，由维护者在私密仓库中查看。"
+                "记录安装渠道、版本、操作类别和结果等元数据；不默认发送聊天、提示词、报告、来源 URL、原始路径或用户凭证。"
+                "报告和原始材料需要另行确认分享。可随时设置 RESEARCH_TOOLKIT_TELEMETRY=off，或运行 python scripts/usage_events.py off 关闭。")
+    return (f"Research Toolkit basic usage recording is on and sends metadata to {target}, viewed privately by the maintainer. "
+            "It records installation route, version, operation categories and outcomes. Chats, prompts, reports, source URLs, "
+            "raw paths and user credentials are excluded by default. Sharing reports or source materials requires separate confirmation. "
+            "Disable with RESEARCH_TOOLKIT_TELEMETRY=off or python scripts/usage_events.py off.")
+
+
+def visible_notice(language="en"):
+    """Include the first notice in the actual tool/installation return, not just stderr."""
+    if disabled_by_environment():
+        return None
+    try:
+        with database() as db:
+            config = settings(db)
+            if config["enabled"] != "on" or config.get("visible_notice_v2") == "1":
+                return None
+            result = {"message": notice_text(config, language), "receiver": endpoint(config),
+                      "action": "Show this notice once in the current conversation; no confirmation is required for basic events."}
+            set_setting(db, "visible_notice_v2", "1")
+            return result
+    except (OSError, sqlite3.Error, ValueError) as exc:
+        failure(exc)
+        return None
 
 
 def enqueue(db, config, kind, *, task=None, host=None, entry=None, operation=None, outcome=None,
@@ -273,6 +303,10 @@ def observed_call(function, args, kwargs=None, *, entry):
             elif result.get("completed") is True:
                 outcome = "completed"
         emit("call_finished", **fields, outcome=outcome, elapsed_ms=(time.monotonic()-started)*1000)
+        if isinstance(result, dict):
+            visible = visible_notice(bound.get("language", "en"))
+            if visible:
+                result = {**result, "usage_notice": visible}
         return result
     finally:
         CONTEXT.reset(token)
@@ -392,10 +426,27 @@ def sharing_project(root, project, config):
         project = Path(task_identity(project))
         root.relative_to(project)
         return project
+    offered = None
     for candidate in (root, *root.parents):
-        if sharing_key(candidate) in config:
+        choice = config.get(sharing_key(candidate))
+        if choice == "offered":
+            if offered is None:
+                offered = candidate
+        elif choice is not None:
             return candidate
-    return root.parent
+    return offered or root
+
+
+def check_shared_file(relative, text):
+    parts = [part.lower() for part in relative.parts]
+    if any(part in {".git", "credentials", "auth.json", ".aws", ".ssh"} or part == ".env" or part.startswith(".env.")
+           or part in {"id_rsa", "id_ed25519", "id_ecdsa"} for part in parts):
+        raise ValueError(f"{relative.as_posix()}: credential/configuration files cannot be shared")
+    patterns = [r"-----BEGIN (?:RSA |EC |OPENSSH |DSA |ENCRYPTED )?PRIVATE KEY-----",
+                r"\bsk-(?:proj-|ant-api\d+-)?[A-Za-z0-9_-]{20,}\b",
+                r"\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,}|AKIA[0-9A-Z]{16})\b"]
+    if any(re.search(pattern, text) for pattern in patterns):
+        raise ValueError(f"{relative.as_posix()}: selected content contains a credential pattern; share a redacted copy")
 
 
 def queue_content(db, config, root, paths):
@@ -407,11 +458,11 @@ def queue_content(db, config, root, paths):
     for index, path in enumerate(paths):
         source = (root / path).resolve()
         relative = source.relative_to(root)
-        if any(part in {".git", ".env", "credentials", "auth.json"} for part in relative.parts):
-            raise ValueError("credential/configuration files cannot be shared")
         if source.stat().st_size > 1024 * 1024:
             raise ValueError("selected files must each be at most 1 MiB")
-        files.append({"name": f"file-{index+1}.txt", "text": source.read_text(encoding="utf-8")})
+        text = source.read_text(encoding="utf-8")
+        check_shared_file(relative, text)
+        files.append({"name": f"file-{index+1}.txt", "text": text})
     if not files:
         raise ValueError("select at least one file")
     packet = {"id": uuid.uuid4().hex, "task": opaque(config, "task", task_identity(root)),
@@ -449,13 +500,13 @@ def content_offer(root, artifact, project=None, language="en"):
             prompt = (f"报告已交付。愿意将 {artifact} 分享给 Research Toolkit 维护者，"
                       f"用于改进研究方法和产品吗？文件会发送到私密仓库 {recipient}。"
                       "本次不包含聊天记录或原始材料。可选择：仅分享这次报告；"
-                      f"允许今后自动分享本项目（{project}）的最终报告；不分享并不再提示。"
+                      f"允许今后自动分享目录 {project} 及其子目录下所有研究任务的最终报告；不分享并不再提示。"
                       "未回复不会上传，也不影响报告使用。以后可随时关闭。"
                       if language in {"zh", "zh-CN"} else
                       f"Your report is ready. May we share {artifact} with the Research Toolkit maintainer "
                       f"in {recipient} to improve research methods and the product? Chat and source materials "
                       "are excluded. Choose: share this report once; automatically share future final reports "
-                      f"in this project ({project}); or decline and stop asking. No reply means no upload. "
+                      f"for all research tasks in {project} and its subdirectories; or decline and stop asking. No reply means no upload. "
                       "Your report remains available; you can turn sharing off later.")
             result = {"status": "ask", "prompt": prompt, "files": [artifact],
                       "recipient": recipient, "project_root": str(project), "task_root": str(root),
@@ -480,7 +531,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action", choices=["status", "on", "off", "flush", "delete", "share", "share-offer"])
     parser.add_argument("--task-root", type=Path)
-    parser.add_argument("--project-root", type=Path, help="Project whose final reports the user authorized; otherwise reuse the nearest saved scope, or the task parent")
+    parser.add_argument("--project-root", type=Path, help="Directory whose descendant task reports the user authorized; otherwise reuse a saved explicit scope, or this task only")
     parser.add_argument("--file", type=Path, action="append", default=[])
     parser.add_argument("--decision", choices=["once", "reports", "decline", "ask"], default="once")
     parser.add_argument("--language", choices=["en", "zh", "zh-CN"], default="en")
@@ -561,12 +612,15 @@ def main():
             target = endpoint(config)
             if not target:
                 parser.error("no receiver configured")
-            data = {"task": opaque(config, "task", task_identity(args.task_root))} if args.task_root else {}
-            print(json.dumps(request_json(target+"/v1/delete", data, config)))
+            identities = {opaque(config, "task", task_identity(args.task_root)),
+                          opaque({**config, "id_secret": config["secret"]}, "task", task_identity(args.task_root))} if args.task_root else set()
+            requests = [{"task": identity} for identity in sorted(identities)] if identities else [{}]
+            responses = [request_json(target+"/v1/delete", data, config) for data in requests]
+            print(json.dumps(responses[0] if len(responses) == 1 else {"results": responses}))
             for table in ("content", "events"):
-                if data:
+                if identities:
                     matching = [(row["id"],) for row in db.execute(f"SELECT id,payload FROM {table}")
-                                if json.loads(row["payload"]).get("task") == data["task"]]
+                                if json.loads(row["payload"]).get("task") in identities]
                     db.executemany(f"DELETE FROM {table} WHERE id=?", matching)
                 else:
                     db.execute(f"DELETE FROM {table}")

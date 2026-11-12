@@ -1,0 +1,13 @@
+--- final.md
++++ analysis/2026-11-11-process-language-revision.md
+@@ -505,8 +505,8 @@
+ 
+ ## 资料与计算说明
+ 
+-资料截止2026年11月9日；未结束年度数据保留累计期间，预测和投入计划保留其原有性质。正文优先采用监管机关、公司披露、平台规则及研究机构原图；对媒体转述，已明确其提供的是大会发言、产品观察或公告报道。PDF引用页码为文件物理页，正文印刷页不同时另作说明；网页以条款、章节或图表名定位。来源获取失败及替代版本、实际阅读页码和图表范围保留在配套阅读记录，不把下载完整文件等同于全文阅读。
++资料截止2026年11月9日；未结束年度数据保留累计期间，预测和投入计划保留其原有性质。正文优先采用监管机关、公司披露、平台规则及研究机构原图；对媒体转述，已明确其提供的是大会发言、产品观察或公告报道。PDF引用页码为文件物理页，正文印刷页不同时另作说明；网页以条款、章节或图表名定位。
+ 
+ 公司财务计算采用报告原币金额再换算亿元。经营情景的全部商业输入均为显式假设，付费与免费使用不同示例规模，不能据绝对贡献对模式排名。模型中的“贡献”是已列明收入减成本的项目结果，未替代企业净利润，融资成本及未列示税费、集团公共费用需由使用者按实际情况补入。原创算术和由资料推导的经营判断与来源事实在正文分别说明。
+ 
+-配套文件保留完整复算路径：`financial-calculations.py`与`financial-results.json/csv`为财报重算；`scenario-model.py`与`scenario-results.json/csv`为基础及联动情景；`completion-sensitivity.py`与`completion-results.json`为完播扩展；六份`cashflow-*.csv`为逐日现金。`source-locations.csv`与`reading-log.md`记录原始URL、档案目录和真实阅读范围，各研究单元及其既有修订仍保留，供引用核对与后续更新。
++配套文件保留完整复算路径：`financial-calculations.py`与`financial-results.json/csv`为财报重算；`scenario-model.py`与`scenario-results.json/csv`为基础及联动情景；`completion-sensitivity.py`与`completion-results.json`为完播扩展；六份`cashflow-*.csv`为逐日现金。`source-locations.csv`与`reading-log.md`记录原始URL、档案目录和真实阅读范围，供引用核对与后续更新。

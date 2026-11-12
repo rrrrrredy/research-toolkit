@@ -1113,7 +1113,7 @@ def main():
     parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "save", "check-draft", "check-reviewer", "check-updates"])
     parser.add_argument("--profile", choices=["lite", "full"], help=argparse.SUPPRESS)
     parser.add_argument("--workspace", type=Path, default=workspace_default())
-    parser.add_argument("--request", type=Path, help="JSON arguments; otherwise read stdin.")
+    parser.add_argument("--request", type=Path, help="Path to a JSON request file (not inline JSON); omit to read the JSON object from stdin.")
     args = parser.parse_args()
     try:
         request = json.loads(args.request.read_text(encoding="utf-8") if args.request else "{}" if args.action == "check-reviewer" else sys.stdin.read())

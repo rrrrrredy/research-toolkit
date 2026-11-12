@@ -2,7 +2,7 @@
 
 [English](usage-data.md) | 简体中文
 
-Toolkit 默认记录并发送基础使用事件，用于了解安装方式、调用顺序、失败及接续情况。使用记录脚本随 Toolkit 一起提供，安装或首次使用时由 Agent 配好，用户不必单独安装或上传。首次运行会提示；可随时关闭。默认不发送提示词、聊天正文、研究题目、报告、来源 URL、本地路径或密钥。
+Toolkit 默认记录并发送基础使用事件，用于了解安装方式、调用顺序、失败及接续情况。使用记录脚本随 Toolkit 一起提供，安装或首次使用时由 Agent 配好，用户不必单独安装或上传。首次运行会提示；可随时关闭。默认不发送提示词、聊天正文、研究题目、报告、来源 URL、本地路径或用户凭证。
 
 ## 安装后如何工作
 
@@ -65,7 +65,7 @@ python scripts/usage_events.py delete
 <a id="单次分享研究内容"></a>
 ## 交付后的研究内容分享
 
-项目首次完整交付后，Agent 在当前对话的报告链接之后发出一次邀请。提示列明实际文件名，并说明文件会发送给 Toolkit 维护者，存入私密仓库 `rrrrrredy/research-toolkit-usage`，用于改进研究方法和产品。提供三个选择：**仅分享这次报告；允许本项目以后自动分享最终报告；不分享并不再提示**。提供持续授权选项时，显示实际项目目录。研究过程中不打断，分享选择不阻止交付；拒绝后不反复询问，未回复不视为同意。聊天和原始材料不包含在这次邀请中；用户要贡献这些内容时，另外列明所选文件。
+项目首次完整交付后，Agent 在当前对话的报告链接之后发出一次邀请。提示列明实际文件名，并说明文件会发送给 Toolkit 维护者，存入私密仓库 `rrrrrredy/research-toolkit-usage`，用于改进研究方法和产品。提供三个选择：**仅分享这次报告；允许所显示目录及其子目录以后自动分享最终报告；不分享并不再提示**。提供持续授权选项时，显示实际项目目录。研究过程中不打断，分享选择不阻止交付；拒绝后不反复询问，未回复不视为同意。聊天和原始材料不包含在这次邀请中；用户要贡献这些内容时，另外列明所选文件。
 
 工具管理任务只在 `completed=true` 后通过 `finish.content_sharing` 返回邀请。纯 Skill 有文件和命令能力时，在交付后调用 `share-offer`；它记住的是「已提出邀请」，不是「用户已同意」。无法执行命令时，在对话中使用同样的提示并记住回答，不声称已上传，也不要求转成工具管理任务。
 
@@ -73,7 +73,7 @@ python scripts/usage_events.py delete
 python scripts/usage_events.py share-offer --task-root /project/tasks/study --file final.md --language zh
 ```
 
-正常交付、`share-offer` 和 `share` 共用已保存的分享范围：从任务目录向上查找最近的范围，包括用户明确选定、其下有多层任务目录的项目。更具体范围内已保存的选择优先，包括拒绝和重新开启提示。没有已保存范围时，默认使用任务目录的父目录；也可用 `--project-root` 明确指定包含任务的项目目录，提示会显示这个范围。未回答时不进入内容上传队列，用户以后仍可主动要求分享。`--confirm-content` 表示执行者已经取得用户的实际同意，本身不弹窗，也不代表推定授权。
+正常交付、`share-offer` 和 `share` 共用已保存的分享范围：从任务目录向上查找最近的范围，包括用户明确选定、其下有多层任务目录的项目。更具体范围内已保存的选择优先，包括拒绝和重新开启提示。没有已保存范围时，只覆盖当前任务目录及其子目录，不扩展到共用的 `tasks/` 父目录。只有用户明确选择包含任务的目录时，才传 `--project-root`。邀请会说明范围内所有任务的最终报告都被包含。旧的“已经提示”标记不覆盖上层的明确选择。未回答时不进入内容上传队列，用户以后仍可主动要求分享。`--confirm-content` 表示执行者已经取得用户的实际同意，本身不弹窗，也不代表推定授权。
 
 仅当用户明确同意分享这项任务的所选文件后，由 Agent 或用户运行：
 
@@ -86,14 +86,20 @@ python scripts/usage_events.py share --task-root /absolute/path/to/task --file f
 用户收到邀请后选择上层项目时，这次确认只清除当前任务到所选项目之间遗留的邀请标记，保留明确的拒绝、单次分享和重新提示选择。因此，先前写在 `project/tasks/` 的提示标记不会遮住新确认的 `project/` 授权，同目录下的下一项研究可以沿用该授权。
 
 ```sh
-python scripts/usage_events.py share --task-root /project/tasks/study --file final.md --decision reports --confirm-content
-python scripts/usage_events.py share --task-root /project/tasks/study --decision decline
+python scripts/usage_events.py share --task-root /project/tasks/study --project-root /project --file final.md --decision reports --confirm-content
+python scripts/usage_events.py share --task-root /project/tasks/study --project-root /project --decision decline
 ```
 
 拒绝会记住选择，并清除该项目尚未上传的内容，基础使用记录保持原设置。用户要求重新开启提示时，可用 `share --decision ask`，在后续交付时恢复邀请。`off` 仍可关闭全部分享并清空待上传内容。每份 UTF-8 文件不超过 1 MiB，编码后的数据包不超过 1,900,000 字节。程序不扫描整个任务目录；Agent 须列明所选文件，让用户在同意前排除不希望分享的个人、客户或保密信息。
 
 ## 开发者如何查看
 
-事件进入项目维护者管理的私密接收端，详细记录最长保留 90 天。维护者通过私密 GitHub 仓库查看首页汇总、Actions 中的任务顺序及私密附件，不在公开仓库或 Pages 展示。基础客户端凭据只能写入、删除本安装数据，不能读取别人的数据；查看端使用独立密钥。托管平台处理网络连接所需的基础元数据，但 Toolkit 不把 IP 地址写入事件表。
+事件发送至维护者管理的 `https://research-toolkit-usage.luosongred.workers.dev`（`/v1/install`、`/v1/events`、`/v1/content`、`/v1/delete`）；详细记录最长保留 90 天。维护者通过私密 GitHub 仓库查看首页汇总、Actions 中的任务顺序及私密附件，不在公开仓库或 Pages 展示。基础客户端凭据只能写入、删除本安装数据，不能读取别人的数据；查看端使用独立密钥。托管平台处理网络连接所需的基础元数据，但 Toolkit 不把 IP 地址写入事件表。
 
 收集服务失败不改变研究与交付的判定。使用轨迹可以帮助定位产品问题；没有阅读实际稿件，不能把调用减少、完成标记或轨迹更短写成研究质量改善。
+
+首次成功的 CLI/MCP 返回或安装返回包含 `usage_notice`，给出接收地址、数据范围和关闭命令，由 Agent 在对话中展示；后续返回不重复提示。已有关闭设置保持不变。counts 仅包含来源、主张、要求、发现或依赖的数量。
+
+安装生成的上传凭证用于接收端鉴权，会随请求发送。任务与会话标识使用单独保存在本地的 `id_secret`，该密钥不发送。旧安装升级时为新事件生成此本地密钥，已排队和已上传记录保持原标识；按任务删除会处理新旧两代标识。这些是化名标识，同一任务的重复标识仍用于关联事件。
+
+选定内容入队前检查凭证文件名（包括 `.env.*`）和明确的私钥、令牌格式，普通哈希不拦截。拒绝信息指出文件，不回显匹配到的密钥；需要时分享脱敏副本。只检查用户选中的文件，不扫描其他项目内容。

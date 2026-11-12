@@ -39,6 +39,15 @@ jobs:
               ['CONTRIBUTING.md', 'CONTRIBUTING.zh-CN.md'],
             ];
             const { data: pr } = await github.rest.pulls.get({ owner, repo, pull_number: issue_number });
+            const { data: tree } = await github.rest.git.getTree({
+              owner: pr.head.repo.owner.login, repo: pr.head.repo.name, tree_sha: pr.head.sha, recursive: '1',
+            });
+            const paths = new Set(tree.tree.filter(item => item.type === 'blob').map(item => item.path));
+            for (const zh of paths) {
+              if (!/^(references|docs|agents)\/[^/]+\.zh-CN\.md$/.test(zh)) continue;
+              const en = zh.replace(/\.zh-CN\.md$/, '.md');
+              if (paths.has(en)) pairs.push([en, zh]);
+            }
             const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number, per_page: 100 });
             const ours = comments.filter(c => c.user?.type === 'Bot' && c.user?.login === 'github-actions[bot]' && c.body?.startsWith(marker));
             let missing = [];
