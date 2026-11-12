@@ -28,6 +28,14 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 
 [统一研究指南](../docs/quickstart.zh-CN.md)提供完整请求和接入说明。
 
+## 研究工具与使用记录
+
+Skill 提供统一研究方法。读取来源、写作和独立 Agent 工作使用当前 Gemini CLI 会话可用的工具；需要 Toolkit 管理任务记录时，按说明接入 [CLI／MCP](../docs/usage-modes.zh-CN.md#单独接入-mcp)。各项必需审阅、审计和验收仍分别使用独立上下文。
+
+Toolkit 的脚本式 [Agent 执行适配器](../docs/usage-modes.zh-CN.md#agent-host-execution)目前连接 Codex、Claude Code 和 OpenCode。Gemini CLI 可以直接使用研究方法与共用 CLI／MCP，不是该脚本调度器的执行后端。
+
+CLI／MCP 调用沿用同一套[基础事件记录与关闭方式](../docs/usage-data.zh-CN.md)。围绕 Agent 整个会话的自动记录目前接入了 Codex、Claude Code 和 OpenCode；仅安装 Gemini Skill 不会安装这项会话记录接入。报告与材料分享按使用记录说明取得用户确认。
+
 ## 无法加载时
 
 在同一项目目录执行：
