@@ -7,6 +7,7 @@ import os
 import uuid
 import hashlib
 import re
+import shutil
 from check_delivery import (inspect_csv_text, inspect_jsonl_text, length_constraint_errors, sha256_file,
                             has_evidence, REQUIREMENT_DECISION_STATUSES, READING_REQUIREMENTS)
 from run_observation import now, record_event
@@ -372,6 +373,8 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
             temporary.append(temp)
             with temp.open("xb") as stream:
                 stream.write(content)
+            if path.exists():
+                shutil.copymode(path, temp)
             committed.append((path, original, False))
         for i, temp in enumerate(temporary):
             path, original, _ = committed[i]

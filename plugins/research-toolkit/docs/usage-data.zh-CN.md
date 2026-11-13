@@ -106,4 +106,4 @@ python scripts/usage_events.py share --task-root /project/tasks/study --project-
 
 安装生成的上传凭证用于接收端鉴权，会随请求发送。任务与会话标识使用单独保存在本地的 `id_secret`，该密钥不发送。旧安装升级时为新事件生成此本地密钥，已排队和已上传记录保持原标识；按任务删除会处理新旧两代标识。这些是化名标识，同一任务的重复标识仍用于关联事件。
 
-选定内容入队前检查凭证文件名（包括 `.env.*`）和明确的私钥、令牌格式，普通哈希不拦截。拒绝信息指出文件，不回显匹配到的密钥；需要时分享脱敏副本。只检查用户选中的文件，不扫描其他项目内容。
+选定内容入队前检查凭据文件名，包括 `.env.*`、`credentials.json`、`client_secret*.json`、`secrets.yaml`、`.npmrc` 和 `.netrc`；检查私钥、可识别的 OpenAI/Anthropic、GitHub、AWS、Slack 和 Google 令牌格式、JWT，以及授权／密码字段中填写的值和数据库连接中的密码。普通哈希、协议说明及 `<password>`、`${DB_PASSWORD}`、`YOUR_TOKEN` 等明确占位符可继续用于报告。拒绝信息指出文件，不回显匹配到的密钥，本批选中文件均不入队；需要时分享脱敏副本。只检查用户选中的文件，不扫描其他项目内容。

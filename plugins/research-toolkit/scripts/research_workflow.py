@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import argparse
-import hashlib
 import inspect
 import json
 import os
@@ -309,7 +308,6 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None,
             # or the historical receipt just because an input changed.
             progress = {**progress, "status": "stale", "open_issues": check["findings"],
                         "next_action": "Resolve the current delivery findings, then review/check and finish the changed report."}
-    current = progress.get("stage", "brief")
     reading = {}
     if work_packet is not None:
         from task_context import retain_prepared_work

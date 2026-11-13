@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.5.7 — 2026-11-13
+
+Preserve existing file permissions when atomically replacing task files and saved records. Extend selected-file credential checks to common credential filenames, token formats, assigned passwords and database URLs, while retaining ordinary report text and explicit placeholders. Remove two unused workflow bindings. Synchronize bilingual sharing guidance and plugin files; research, review and sharing authorization rules remain unchanged.
+
+[English release notes](docs/releases/v2.5.7.md) · [中文发布说明](docs/releases/v2.5.7.zh-CN.md)
+
 ## v2.5.6 — 2026-11-12
 
 Remove the retired research-mode arguments, checklist-only completion and review-skipping code, teaching examples and executable evaluation route. CLI and MCP use one research path; old mode arguments are rejected rather than silently mapped. Original reports and evaluation records remain intact. Synchronize bilingual usage guidance and plugin files.

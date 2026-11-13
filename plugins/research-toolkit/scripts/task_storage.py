@@ -6,6 +6,7 @@ import json
 import os
 from pathlib import Path
 import re
+import shutil
 import tempfile
 
 
@@ -77,6 +78,8 @@ def save_text(root, name, content):
             stream.write(content)
             stream.flush()
             os.fsync(stream.fileno())
+        if path.exists():
+            shutil.copymode(path, temporary)
         os.replace(temporary, path)
     finally:
         if temporary is not None:
