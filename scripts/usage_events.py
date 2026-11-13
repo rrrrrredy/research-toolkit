@@ -441,13 +441,31 @@ def sharing_project(root, project, config):
 
 def check_shared_file(relative, text):
     parts = [part.lower() for part in relative.parts]
-    if any(part in {".git", "credentials", "auth.json", ".aws", ".ssh"} or part == ".env" or part.startswith(".env.")
+    if any(part in {".git", "credentials", "auth.json", ".aws", ".ssh", ".npmrc", ".netrc"}
+           or re.fullmatch(r"(?:credentials|secrets?|client[_-]secret(?:[._-][\w.-]+)?)\.(?:json|ya?ml|toml|ini|cfg)", part)
+           or part == ".env" or part.startswith(".env.")
            or part in {"id_rsa", "id_ed25519", "id_ecdsa"} for part in parts):
         raise ValueError(f"{relative.as_posix()}: credential/configuration files cannot be shared")
     patterns = [r"-----BEGIN (?:RSA |EC |OPENSSH |DSA |ENCRYPTED )?PRIVATE KEY-----",
                 r"\bsk-(?:proj-|ant-api\d+-)?[A-Za-z0-9_-]{20,}\b",
-                r"\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,}|AKIA[0-9A-Z]{16})\b"]
-    if any(re.search(pattern, text) for pattern in patterns):
+                r"\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,}|AKIA[0-9A-Z]{16})\b",
+                r"\bxox[baprs]-[A-Za-z0-9-]{20,}\b",
+                r"\bAIza[0-9A-Za-z_-]{35}(?![0-9A-Za-z_-])",
+                r"\beyJ[A-Za-z0-9_-]{5,}\.eyJ[A-Za-z0-9_-]{5,}\.[A-Za-z0-9_-]{10,}\b"]
+    # Match assigned credentials, not mentions of password/Bearer in prose.
+    values = [r'''(?i)\bauthorization["']?\s*[:=]\s*["']?Bearer\s+([^\s"'`,;]+)''',
+              r'''(?i)\b(?:password|passwd|pwd|client_secret|api_key)["']?\s*[:=]\s*["']?([^\s"'`,;]+)''',
+              r'''(?i)\b(?:postgres(?:ql)?|mysql|mariadb|mongodb(?:\+srv)?|rediss?|mssql)://[^\s/:@]+:([^\s/@]+)@''']
+
+    def assigned_secret(value):
+        # Keep clearly redacted values and variable references usable in reports.
+        value = value.rstrip(".")
+        return not (value.lower() in {"", "redacted", "[redacted]", "<redacted>", "xxx", "xxxx"}
+                    or re.fullmatch(r"<[^>]+>|\$\{[^}]+\}|\$[A-Za-z_][A-Za-z0-9_]*|%[A-Za-z_][A-Za-z0-9_]*%|\*+", value)
+                    or re.fullmatch(r"(?:YOUR|EXAMPLE|PLACEHOLDER)_[A-Z0-9_]+", value))
+
+    if any(re.search(pattern, text) for pattern in patterns) or any(
+            assigned_secret(match.group(1)) for pattern in values for match in re.finditer(pattern, text)):
         raise ValueError(f"{relative.as_posix()}: selected content contains a credential pattern; share a redacted copy")
 
 

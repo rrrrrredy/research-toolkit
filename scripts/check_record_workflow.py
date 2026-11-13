@@ -1,8 +1,11 @@
 """Targeted record persistence and observation checks; no new model evaluation."""
 import csv
+from contextlib import closing
 import json
 import os
 from pathlib import Path
+import sqlite3
+import stat
 import subprocess
 import sys
 import tempfile
@@ -31,6 +34,68 @@ class RecordWorkflowTests(unittest.TestCase):
             claims=[{"claim": "Twelve shipments", "claim_type": "verified_fact", "supporting_sources": ["S1"]}],
             requirements=[{"summary": "Explain shipments", "status": "pending"}],
             draft={"path": "drafts/first.md", "content": "Twelve shipments. Revenue is unknown.", "complete": True})
+
+    @unittest.skipUnless(os.name == "posix", "POSIX permission bits require a POSIX filesystem")
+    def test_existing_permissions_survive_atomic_and_cli_record_saves(self):
+        self.seed()
+        modes = {"source.md": 0o644, "data/source_registry.csv": 0o660,
+                 "data/claims_registry.csv": 0o600}
+        for name, mode in modes.items():
+            (self.root / name).chmod(mode)
+        w.save_text(self.root, "source.md", "Thirteen shipments; revenue unknown.")
+        result = subprocess.run([sys.executable, str(w.TOOLKIT / "scripts/research_workflow.py"),
+            "save", "--workspace", str(self.workspace)], input=json.dumps({"task": "case",
+            "sources": [{"source_id": "S1", "title": "Updated source"}],
+            "claims": [{"claim_id": "C1", "claim": "Thirteen shipments"}]}),
+            text=True, capture_output=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        for name, mode in modes.items():
+            self.assertEqual(stat.S_IMODE((self.root / name).stat().st_mode), mode, name)
+        w.save_text(self.root, "private-new.md", "New file retains private creation permissions.")
+        self.assertEqual(stat.S_IMODE((self.root / "private-new.md").stat().st_mode), 0o600)
+        self.assertFalse(list(self.root.rglob("*.tmp")))
+
+    def test_cli_selected_sharing_rejects_credentials_before_queueing(self):
+        # Offline CLI path: isolated queue, synthetic strings, automatic sending disabled.
+        env = {**os.environ, "RESEARCH_TOOLKIT_USAGE_HOME": str(self.workspace / "usage"),
+               "RESEARCH_TOOLKIT_TELEMETRY": "on", "RESEARCH_TOOLKIT_USAGE_AUTOSEND": "off"}
+        command = [sys.executable, "-X", "utf8", str(w.TOOLKIT / "scripts/usage_events.py"),
+                   "share", "--task-root", str(self.root), "--confirm-content"]
+        report = self.root / "report.md"
+        report.write_text("# Findings\nEvidence remains [available](https://example.org/source).\n"
+            "A SHA256: " + "a" * 64 + "\nJWT and Bearer authentication are protocol terms.\n"
+            "Examples: password=<password>, password=${DB_PASSWORD}, password=REDACTED,\n"
+            "Authorization: Bearer <token> and Authorization: Bearer YOUR_TOKEN.\n"
+            "postgresql://user:<password>@db.example/test\n", encoding="utf-8")
+        filenames = ["credentials.json", "client_secret.json", "client_secret_demo.json", ".npmrc",
+                     ".netrc", "secrets.yaml", "nested/credentials.yml", ".env.local", "auth.json"]
+        contents = ["xoxb-" + "1" * 12 + "-" + "2" * 12 + "-" + "a" * 24,
+                    "AIza" + "a" * 35,
+                    "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJmaXh0dXJlIn0." + "a" * 43,
+                    "Authorization: Bearer " + "a" * 48, "password=synthetic-not-a-real-password",
+                    '{"password": "synthetic-not-a-real-password"}',
+                    "postgresql://fixture:synthetic-password@db.invalid/test",
+                    "sk-" + "a" * 40, "-----BEGIN PRIVATE KEY-----"]
+        for name, content in [(name, "fixture") for name in filenames] + [
+                ("selected.md", value) for value in contents]:
+            with self.subTest(file=name, case=contents.index(content) if content in contents else "filename"):
+                selected = self.root / name
+                selected.parent.mkdir(parents=True, exist_ok=True)
+                selected.write_text(content, encoding="utf-8")
+                result = subprocess.run(command + ["--file", "report.md", "--file", name],
+                                        env=env, text=True, encoding="utf-8", capture_output=True)
+                self.assertNotEqual(result.returncode, 0, name)
+                self.assertIn(name, result.stderr)
+                self.assertNotIn(content, result.stderr)
+                with closing(sqlite3.connect(self.workspace / "usage/usage.sqlite3")) as db:
+                    self.assertEqual(db.execute("SELECT count(*) FROM content").fetchone()[0], 0)
+        result = subprocess.run(command + ["--file", "report.md"], env=env,
+                                text=True, encoding="utf-8", capture_output=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        with closing(sqlite3.connect(self.workspace / "usage/usage.sqlite3")) as db:
+            rows = db.execute("SELECT payload FROM content").fetchall()
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(json.loads(rows[0][0])["files"][0]["text"], report.read_text(encoding="utf-8"))
 
     def test_roundtrip_partial_updates_and_natural_key_retry(self):
         result = self.seed()
