@@ -8,8 +8,10 @@
 
 技能是按需加载的知识文档。默认配置放在 `~/.hermes/skills/`，自定义配置使用自身 `HERMES_HOME/skills/`。
 
+如需固定版本，按[精简 Skill 包说明](../docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)安装到同一技能根目录。下方 Git 命令为各自的克隆启用 Windows 长路径支持。
+
 ```bash
-git clone https://github.com/rrrrrredy/research-toolkit.git ~/.hermes/skills/research-toolkit
+git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git ~/.hermes/skills/research-toolkit
 hermes
 /skills
 ```

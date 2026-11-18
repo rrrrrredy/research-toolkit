@@ -8,6 +8,42 @@
 
 仓库和规范 SKILL 只维护一套。发布版、安装副本、本地改版和实验所用版本可以不同，但必须分别识别。
 
+<a id="install-a-version-pinned-skill"></a>
+
+## 安装固定版本的 Skill
+
+在 [GitHub Releases](https://github.com/rrrrrredy/research-toolkit/releases) 选择具体版本，下载该版本的 `research-toolkit-plugin-v<版本号>.zip` 和 `SHA256SUMS`。这个精简包带有完整 Skill、参考文件及运行脚本，评测档案留在源码仓库中。单独安装 Skill 使用包根的 `research-toolkit/SKILL.md`，插件加载器使用包内嵌套的 Skill 入口。
+
+以 v2.5.7 为例，在存有两份下载文件的目录校验哈希，再解包到新建的临时目录。
+
+```bash
+shasum -a 256 -c SHA256SUMS &&
+  unzip research-toolkit-plugin-v2.5.7.zip -d toolkit-release
+```
+
+```powershell
+$archive = 'research-toolkit-plugin-v2.5.7.zip'
+$record = Get-Content -LiteralPath SHA256SUMS |
+    Where-Object { ($_ -split '\s+', 2)[1] -eq $archive }
+if (-not $record -or (Get-FileHash -LiteralPath $archive).Hash -ne ($record -split '\s+', 2)[0]) {
+    throw 'Research Toolkit 安装包校验失败。'
+}
+Expand-Archive -LiteralPath $archive -DestinationPath toolkit-release
+```
+
+在[当前 Agent 工具](../agents/README.zh-CN.md)的技能根目录中建立 `research-toolkit`。从解出的 `toolkit-release/research-toolkit` 复制 `SKILL.md`、`SKILL.zh-CN.md`、`VERSION`、`LICENSE`、`requirements-mcp.txt` 以及 `docs/`、`references/` 和 `scripts/` 目录。安装后应能看到 `<技能根目录>/research-toolkit/SKILL.md`。如果已有安装，先按[更新步骤](#保留本地修改后更新)比较内容和备份。发布包固定于对应版本。需要尚未发布的 `main` 修复时，使用对应公开提交。
+
+新版 Release 发布前，可用稀疏浅克隆取得某个公开提交的同一份包。把 `FULL_COMMIT_SHA` 替换成目标提交号，在临时目录执行：
+
+```bash
+git clone --depth 1 --filter=blob:none --no-checkout -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git toolkit-source
+git -C toolkit-source sparse-checkout set --no-cone "/plugins/research-toolkit/"
+git -C toolkit-source fetch --depth 1 origin FULL_COMMIT_SHA
+git -C toolkit-source checkout --detach FETCH_HEAD
+```
+
+从 `toolkit-source/plugins/research-toolkit` 复制上述 Skill 文件和目录。要核对已有安装与该版本的内容，从含目标提交的可信克隆运行[安装对照命令](#比较实际内容)。
+
 ## 比较实际内容
 
 从已包含目标发布提交的可信克隆运行：

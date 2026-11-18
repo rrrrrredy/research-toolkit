@@ -61,12 +61,18 @@ def database():
     connection = sqlite3.connect(folder/"usage.sqlite3", timeout=2)
     connection.row_factory = sqlite3.Row
     try:
+        connection.execute("PRAGMA foreign_keys = ON")
         connection.executescript("""
         CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS events (id TEXT PRIMARY KEY, created REAL NOT NULL, payload TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS sessions (id TEXT PRIMARY KEY, active INTEGER NOT NULL, task TEXT, parent TEXT);
         CREATE TABLE IF NOT EXISTS aliases (alias TEXT NOT NULL, task TEXT NOT NULL, PRIMARY KEY(alias, task));
         CREATE TABLE IF NOT EXISTS content (id TEXT PRIMARY KEY, created REAL NOT NULL, payload TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS content_scopes (
+            scope TEXT NOT NULL,
+            id TEXT NOT NULL REFERENCES content(id) ON DELETE CASCADE,
+            PRIMARY KEY(scope, id)
+        );
         """)
         for key, value in {"installation_id": uuid.uuid4().hex, "secret": uuid.uuid4().hex+uuid.uuid4().hex,
                            "id_secret": uuid.uuid4().hex+uuid.uuid4().hex,
@@ -469,7 +475,7 @@ def check_shared_file(relative, text):
         raise ValueError(f"{relative.as_posix()}: selected content contains a credential pattern; share a redacted copy")
 
 
-def queue_content(db, config, root, paths):
+def queue_content(db, config, root, project, paths):
     """Queue only the selected UTF-8 files, through the existing content receiver."""
     root = Path(task_identity(root))
     if config["enabled"] != "on" or disabled_by_environment():
@@ -490,16 +496,45 @@ def queue_content(db, config, root, paths):
     if len(json.dumps(packet).encode()) > 1_900_000:
         raise ValueError("selected content packet exceeds 1,900,000 bytes")
     db.execute("INSERT INTO content VALUES (?,?,?)", (packet["id"], time.time(), json.dumps(packet)))
+    scopes = (directory for directory in (root, *root.parents) if directory.is_relative_to(project))
+    db.executemany("INSERT INTO content_scopes VALUES (?,?)",
+                   ((sharing_key(directory), packet["id"]) for directory in scopes))
     return {"queued": packet["id"], "files": len(files)}
+
+
+def withdraw_content(db, config, root, project):
+    key = sharing_key(project)
+    db.execute("DELETE FROM content WHERE id IN (SELECT id FROM content_scopes WHERE scope=?)", (key,))
+    legacy = db.execute("SELECT id,payload FROM content WHERE id NOT IN (SELECT id FROM content_scopes)").fetchall()
+    if not legacy:
+        return
+    # Older queues recorded a task-to-grant link but no containing directories
+    # per packet. Use known task paths locally and drop unlocatable pending
+    # packets under a containing grant when the user narrows consent.
+    in_scope = {value for name, value in config.items() if name.startswith(key + ".task.")}
+    in_scope.add(opaque(config, "task", task_identity(root)))
+    ancestors = tuple(sharing_key(parent) + ".task." for parent in project.parents)
+    ancestor_tasks = {value for name, value in config.items() if name.startswith(ancestors)}
+    known_paths = {opaque(config, "task", row["task"]): Path(row["task"])
+                   for row in db.execute("SELECT DISTINCT task FROM aliases")}
+    for row in legacy:
+        task = json.loads(row["payload"]).get("task")
+        path = known_paths.get(task)
+        affected_ancestor = task in ancestor_tasks and (path is None or path.is_relative_to(project))
+        if task in in_scope or affected_ancestor:
+            db.execute("DELETE FROM content WHERE id=?", (row["id"],))
 
 
 def content_offer(root, artifact, project=None, language="en"):
     """Offer once after delivery, or queue reports within an explicit project grant."""
+    if disabled_by_environment():
+        return {"status": "disabled"}
     root = Path(task_identity(root))
     artifact = (root / artifact).resolve().relative_to(root).as_posix()
     with database() as db:
+        db.execute("BEGIN IMMEDIATE")
         config = settings(db)
-        if config["enabled"] != "on" or disabled_by_environment():
+        if config["enabled"] != "on":
             return {"status": "disabled"}
         project = sharing_project(root, project, config)
         key = sharing_key(project)
@@ -516,10 +551,8 @@ def content_offer(root, artifact, project=None, language="en"):
             sent_key = key + ".report." + hashlib.sha256(task_identity(root / artifact).encode()).hexdigest()
             if config.get(sent_key) == checksum:
                 return {"status": "already_queued"}
-            result = {"status": "queued", **queue_content(db, config, root, [artifact])}
+            result = {"status": "queued", **queue_content(db, config, root, project, [artifact])}
             set_setting(db, sent_key, checksum)
-            task_id = opaque(config, "task", task_identity(root))
-            set_setting(db, key + ".task." + task_id, task_id)
         elif choice != "ask":
             return {"status": choice}
         else:
@@ -589,6 +622,8 @@ def main():
                 schedule_upload()
         return
     with database() as db:
+        if args.action in {"on", "off", "share"}:
+            db.execute("BEGIN IMMEDIATE")
         config = settings(db)
         if args.action in {"off", "on"}:
             set_setting(db, "enabled", args.action)
@@ -611,12 +646,7 @@ def main():
             project = sharing_project(root, args.project_root, config)
             key = sharing_key(project)
             if args.decision in {"decline", "ask"}:
-                # Revoke pending content across this project, including reports
-                # queued before the user withdrew authorization.
-                for row in db.execute("SELECT key,value FROM settings WHERE key LIKE ?", (key + ".task.%",)).fetchall():
-                    matching = [(item["id"],) for item in db.execute("SELECT id,payload FROM content")
-                                if json.loads(item["payload"]).get("task") == row["value"]]
-                    db.executemany("DELETE FROM content WHERE id=?", matching)
+                withdraw_content(db, config, root, project)
                 set_setting(db, key, args.decision)
                 db.execute("DELETE FROM settings WHERE key=?", (key + ".offered",))
                 print(json.dumps({"decision": args.decision, "project_root": str(project)}))
@@ -625,11 +655,9 @@ def main():
                     parser.error("share requires selected --file paths and --confirm-content after the user's agreement")
                 if args.decision == "reports" and len(args.file) != 1:
                     parser.error("reports authorizes final reports only; use once for separately selected chat or source files")
-                result = queue_content(db, config, root, args.file)
+                result = queue_content(db, config, root, project, args.file)
                 if args.decision == "reports" or config.get(key) not in {"reports", "decline", "ask"}:
                     set_setting(db, key, args.decision)
-                task_id = opaque(config, "task", task_identity(root))
-                set_setting(db, key + ".task." + task_id, task_id)
                 if args.decision == "reports":
                     set_setting(db, key + ".scope_confirmed", "true")
                     # The user selected this containing project after an invitation.

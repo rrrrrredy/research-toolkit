@@ -14,11 +14,13 @@ Check the selected DSH release against its own documentation before installation
 
 ## Native Installation
 
+To install a specific release, use the [compact Skill package](../docs/installation-versioning.md#install-a-version-pinned-skill) with the same Skill root. The Git commands below enable Windows long paths for each checkout.
+
 For a project-scoped install, clone this repository as a direct child of DSH's project Skill root:
 
 ```bash
 mkdir -p .dsh/skills
-git clone https://github.com/rrrrrredy/research-toolkit.git \
+git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git \
   .dsh/skills/research-toolkit
 ```
 
@@ -26,7 +28,7 @@ The project-local skills directory also works:
 
 ```bash
 mkdir -p .agents/skills
-git clone https://github.com/rrrrrredy/research-toolkit.git \
+git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git \
   .agents/skills/research-toolkit
 ```
 
@@ -34,7 +36,7 @@ For a user-scoped DSH install available across workspaces:
 
 ```bash
 mkdir -p ~/.dsh/skills
-git clone https://github.com/rrrrrredy/research-toolkit.git \
+git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git \
   ~/.dsh/skills/research-toolkit
 ```
 

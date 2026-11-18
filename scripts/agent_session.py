@@ -5,10 +5,34 @@ import os
 from pathlib import Path
 import queue
 import shutil
+import signal
+import subprocess
 import time
+
+from review_process import ProcessCleanupError
 
 
 HOSTS = ("claude", "opencode", "codex")
+PROCESS_EXIT_TIMEOUT = 5
+
+
+def stop_native_process(process, job):
+    """Stop a local host and its descendants, even if the parent already exited."""
+    try:
+        if job:
+            job.close()  # Kill-on-close covers children holding the protocol pipes open.
+            if process and process.poll() is None:
+                process.kill()  # Also close a launch gate whose job attachment failed.
+        elif process:
+            try:
+                os.killpg(process.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+        if process:
+            process.wait(timeout=PROCESS_EXIT_TIMEOUT)
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        target = f"PID {process.pid}" if process is not None else "the launch job"
+        raise ProcessCleanupError(f"Native process cleanup could not be confirmed for {target}.") from exc
 
 
 def select_host(host=None):
@@ -89,8 +113,12 @@ class CodexAgentSession:
             raw = self.client.events.get(timeout=remaining)
             method, params = raw.get("method"), raw.get("params", {})
             if "id" in raw:
-                self.client.send({"id": raw["id"], "error": {"code": -32601,
-                    "message": "Return the unresolved action to the coordinator; this adapter cannot approve it."}})
+                try:
+                    self.client.send({"id": raw["id"], "error": {"code": -32601,
+                        "message": "Return the unresolved action to the coordinator; this adapter cannot approve it."}})
+                except RuntimeError as exc:
+                    # Process the queued terminal notifications, including any completed turns.
+                    return {"kind": "request", "method": method, "raw": raw, "error": str(exc)}
                 return {"kind": "request", "method": method, "raw": raw}
             if method in {"transport/error", "transport/closed"}:
                 return {"kind": "error", "raw": raw}

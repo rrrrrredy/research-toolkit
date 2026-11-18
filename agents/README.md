@@ -40,7 +40,7 @@ Skill-only work needs no fixed tool registry or receipt. It preserves the substa
 
 Follow the guide for your tool to choose its Skill directory or other supported loading method. A native installation should appear under the name `research-toolkit` in that tool's Skill list. A download into an arbitrary folder still needs an explicit instruction to read it.
 
-Use a complete repository checkout for local installation so that references, helper scripts, and documentation remain together. Keep research outputs in a separate task folder.
+For a fixed version, [install the compact Skill package](../docs/installation-versioning.md#install-a-version-pinned-skill) in that tool's Skill directory. A repository checkout also works. Keep the references, helper scripts and documentation together, and store research outputs in a separate task folder.
 
 ## Choose your tool
 

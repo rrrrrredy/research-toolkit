@@ -182,13 +182,16 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
     On revision, resume_host_task identifies the earlier independent context to continue when available;
     revision_context compares the current input with that role's actual reviewed version and retains its original work.
     Omitted perspectives/domains continue the saved unit selection; explicit values change the selection.
-    assignment_ref remains the original frozen JSON; include_assignment=False avoids repeating it inline. Versions are unchanged.
+    assignment_ref points to the frozen role request. New requests reference the shared input by path and hash.
+    Set include_assignment=True to return the complete request inline, including that input.
     For progressive work set scope to a saved unit_id and artifact to its draft; perspectives selects relevant unit reviews.
     New units default to no domain review; domains supplies needed specialist perspectives. audit=True adds independent
     unit adjudication when needed, retaining existing content results. An enabled audit cannot be removed; full reports
     always require audit and final acceptance. Main drafts must have their actual producer registered via save draft.host_task.
     Revision assignments reference earlier reviews, frozen inputs and changed locations; these are reading aids, not current PASS.
-    A completed negative review is retained. Correct the draft, then use revision=True; do not reroll for a pass.
+    For report delivery, address necessary corrections with revision=True and preserve the original negative review.
+    For purpose=evaluation, a valid positive or negative assessment completes the evaluation. Read evaluation_complete
+    and evaluation_verdict (pass or needs_revision). Evaluation does not make a report eligible for delivery.
     reviewer=self and self_review remain recognizable legacy parameters but cannot complete current independent review.
     Explicitly configured external backends execute the same assignments; ordinary use stays in the agent tool.
     """

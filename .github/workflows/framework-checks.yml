@@ -141,8 +141,12 @@ jobs:
           python scripts/check_task_continuity.py
           python scripts/check_release_updates.py
           python scripts/check_task_lock.py
-      - name: Check profiles and reviewer backends
+      - name: Check historical review records and reviewer backends
         run: python scripts/check_profiles_reviewers.py
+      - name: Check usage notice and content authorization over loopback
+        run: python scripts/check_usage_sharing.py
+      - name: Check native host failure and continuation
+        run: python scripts/check_host_execution.py
       - name: Check plugin payload matches shared sources
         run: |
           python scripts/build_plugin.py --check
@@ -211,6 +215,10 @@ jobs:
           python scripts/check_draft_contract.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/check_record_workflow.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/check_usage_sharing.py
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          python scripts/check_host_execution.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           python scripts/check_task_continuity.py
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }

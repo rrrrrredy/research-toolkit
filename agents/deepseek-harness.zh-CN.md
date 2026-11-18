@@ -8,11 +8,13 @@
 
 ## 原生安装
 
+如需固定版本，按[精简 Skill 包说明](../docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)安装到同一技能根目录。下方 Git 命令为各自的克隆启用 Windows 长路径支持。
+
 项目目录：
 
 ```bash
 mkdir -p .dsh/skills
-git clone https://github.com/rrrrrredy/research-toolkit.git .dsh/skills/research-toolkit
+git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .dsh/skills/research-toolkit
 ```
 
 也可使用项目的 `.agents/skills/research-toolkit`，或用户目录 `~/.dsh/skills/research-toolkit`。主文件必须直接位于技能名称目录下，不再套仓库名文件夹。从研究工作区启动：

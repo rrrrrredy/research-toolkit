@@ -94,7 +94,9 @@ For an optional with/without Toolkit comparison, use the [paired-study template]
 
 需要比较使用／不使用工具箱时，可用[配对模板](templates/paired-study.json)和[比较说明](../docs/evaluation-roadmap.zh-CN.md#下一项研究先冻结设计再产生新证据)，不作为正常修复的前提；模板不代表已冻结样本或运行结果。[必要缺陷标签](../docs/necessary-defects.zh-CN.md)提供稳定类别，[23 例覆盖层](semantic_diagnostics/defect-tags.v1.json)保持开发诊断边界。研究入门不计为新增评测案例。
 
-The historical [blinded pairwise protocol](../docs/eval-protocol.md) describes the fixed-source Lite pilot and its retained runner; it is not the current research entry. The script freezes and logs seed/order, masks A/B judge inputs, and retains first outputs, judgments and failures. The [2026-10-10 four-model pilot](studies/2026-10-10-lite-four-models/README.md) covers all 20 model–task judgments across five shared families, retaining all first attempts and failures and separately labeling format diagnostics and regenerated completion pairs; it does not establish general efficacy. To reproduce only the existing public two-pair archive inventory, run `python scripts/reproduce_calibration.py`; expected outputs are `evals/runs/calibration-reproduction/inventory.json` and `inventory.md`, with zero model calls. Of the 20 pairs, 2 are primary results, 8 are format diagnostics and 10 are regenerated completion results; these categories are not pooled as one unchanged-condition comparison.
+The [historical paired-study index](../docs/eval-protocol.md) links the original records and version guidance for the retired executor. The [2026-10-10 four-model pilot](studies/2026-10-10-lite-four-models/README.md) retains seed, order, masked A/B judge inputs, first outputs, judgments and failures. Its 20 model–task pairs across five shared families comprise 2 primary results, 8 format diagnostics and 10 regenerated completion results. Read each group under the conditions recorded for it.
+
+To verify the separate [September 7 calibration archive](diagnostics/2026-09-07/), run `python scripts/reproduce_calibration.py`. It checks the retained two pairs and writes `evals/runs/calibration-reproduction/inventory.json` and `inventory.md` with zero model calls.
 
 ## Contribute a failure case
 

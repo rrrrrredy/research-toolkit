@@ -471,9 +471,13 @@ def main() -> int:
     args = parser.parse_args()
     root = args.task_directory.resolve()
     progress = read_json_or_none(root / "state/progress.json")
+    if not isinstance(progress, dict):
+        progress = {}
+    plan = progress.get("review_plan")
+    evaluation = isinstance(plan, dict) and plan.get("contract_version") == 2 and plan.get("purpose") == "evaluation"
     rows, errors = inspect_jsonl(root / "logs/review.jsonl", "Review")
-    result = inspect_review_completion(root, progress if isinstance(progress, dict) else {},
-                                       args.artifact, rows, hash_file=sha256_file, resolve_path=resolve_inside)
+    result = inspect_review_completion(root, progress, args.artifact, rows, hash_file=sha256_file,
+                                       resolve_path=resolve_inside, require_report_ready=not evaluation)
     if errors:
         result["ok"] = False
         result["flags"].append("invalid_review_log")
