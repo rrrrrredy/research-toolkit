@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v2.5.8 — 2026-11-18
+
+Fix the plugin's first-use instructions and restore evaluation completion for valid positive and negative results. Reuse one copy of the review input, recover unfinished work after a host disconnects, and cancel pending uploads for a directory when its sharing permission is withdrawn. Document compact installation by release or commit.
+
+[English release notes](docs/releases/v2.5.8.md) · [中文发布说明](docs/releases/v2.5.8.zh-CN.md)
+
 ## v2.5.7 — 2026-11-13
 
 Preserve existing file permissions when atomically replacing task files and saved records. Extend selected-file credential checks to common credential filenames, token formats, assigned passwords and database URLs, while retaining ordinary report text and explicit placeholders. Remove two unused workflow bindings. Synchronize bilingual sharing guidance and plugin files; research, review and sharing authorization rules remain unchanged.
