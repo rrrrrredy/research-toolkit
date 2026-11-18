@@ -56,6 +56,8 @@ python scripts/usage_events.py delete
 
 `off` disables recording/upload for this local user and clears pending queues; research continues. Alternatively set `RESEARCH_TOOLKIT_TELEMETRY=off` before starting the agent tool, CLI or MCP to suppress recording/upload in those processes. An environment setting does not change other already-running processes. A request sent before disabling may still be in flight; deletion removes data already received.
 
+With the environment setting off, delivery does not initialize a local queue to check for report sharing.
+
 `delete` removes this installation's uploaded data; add `--task-root /absolute/path/to/task` for one task. Old private report copies are cleared on the next report refresh. To stop future data as well, run `off` before `delete`.
 
 The local queue defaults to `~/.research-toolkit/usage/`, retaining at most seven days and 10,000 basic events. An event schedules a background batch about 30 seconds later, including events added during that window; the final batch does not need another operation after the task ends. Sending rechecks the off setting. Failures retain pending data for a later use to retry. Research calls do not wait for network transfer. `status` shows last upload and safe error categories. `RESEARCH_TOOLKIT_USAGE_HOME` selects another local directory. CI and engineering contract checks disable collection, including their MCP child processes. Explicit collection validation uses an isolated directory and `test=true`.
@@ -93,6 +95,8 @@ python scripts/usage_events.py share --task-root /project/tasks/study --project-
 ```
 
 Decline remembers the choice and removes queued content for this project. It leaves basic usage recording unchanged. `share --decision ask` restores the invitation on a later delivery when the user requests it. `off` still disables all sharing and clears pending uploads. Each UTF-8 file remains limited to 1 MiB, and the encoded packet to 1,900,000 bytes. The program does not scan the whole task directory. The agent should disclose the selected files and let the user exclude personal, client or confidential material before consent.
+
+When a directory covered by a continuing grant is declined or reset to asking, its pending packets under that grant are removed while sibling directories can still use the grant. Older queued packets under a containing grant can lack enough local path information to confirm that they fall outside the withdrawn scope. Those unlocatable packets are removed as well.
 
 Showing an invitation records only that it was displayed; it does not replace an explicit `ask`, `decline` or report grant. In particular, a child directory set to `ask` continues to block an ancestor report grant after the invitation is shown. No answer queues nothing. An explicit `share --decision ask` resets the invitation so it can be shown again. One-time sharing preserves this choice.
 

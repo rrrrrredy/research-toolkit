@@ -11,7 +11,8 @@ import subprocess
 import sys
 import threading
 
-from review_process import WindowsJob, WINDOWS_GATE
+from agent_session import PROCESS_EXIT_TIMEOUT, stop_native_process
+from review_process import ProcessCleanupError, WindowsJob, WINDOWS_GATE
 
 
 class CodexSession:
@@ -23,8 +24,10 @@ class CodexSession:
         self.events = queue.Queue()
         self.pending = {}
         self.mutex = threading.Lock()
+        self.writer = threading.Lock()
         self.next_id = 0
         self.closed = False
+        self.disconnected = False
         self.trace = (directory / "protocol.jsonl").open("a", encoding="utf-8")
         self.stderr = (directory / "stderr.txt").open("a", encoding="utf-8")
         self.job = None
@@ -60,10 +63,16 @@ class CodexSession:
         self.trace.flush()
 
     def send(self, message):
-        with self.mutex:
-            self._record("send", message)
-            self.process.stdin.write(json.dumps(message, ensure_ascii=False) + "\n")
-            self.process.stdin.flush()
+        with self.writer:
+            with self.mutex:
+                if self.disconnected or self.closed:
+                    raise RuntimeError("Codex app-server disconnected; original events retained.")
+                self._record("send", message)
+            try:
+                self.process.stdin.write(json.dumps(message, ensure_ascii=False) + "\n")
+                self.process.stdin.flush()
+            except OSError as exc:
+                raise RuntimeError(f"Codex app-server stopped accepting requests; see {self.trace.name}.") from exc
 
     def _read(self):
         try:
@@ -71,6 +80,8 @@ class CodexSession:
                 message = json.loads(line)
                 with self.mutex:
                     self._record("receive", message)
+                    if not isinstance(message, dict):
+                        raise ValueError("Codex protocol event must be a JSON object.")
                     waiter = self.pending.get(message.get("id")) if "method" not in message else None
                 if waiter is not None:
                     waiter.put(message)
@@ -80,6 +91,7 @@ class CodexSession:
             self.events.put({"method": "transport/error", "params": {"error": str(exc)}})
         finally:
             with self.mutex:
+                self.disconnected = True
                 for waiter in self.pending.values():
                     waiter.put({"error": {"message": "Codex app-server disconnected; original events retained."}})
             self.events.put({"method": "transport/closed", "params": {}})
@@ -97,7 +109,7 @@ class CodexSession:
                 raise RuntimeError(f"{method}: {reply['error']}")
             return reply["result"]
         except queue.Empty as exc:
-            raise RuntimeError(f"{method}: Codex did not acknowledge the request; inspect the retained protocol.") from exc
+            raise RuntimeError(f"{method}: Codex did not acknowledge the request within 60 seconds; see {self.trace.name}.") from exc
         finally:
             with self.mutex:
                 self.pending.pop(identity, None)
@@ -129,23 +141,24 @@ class CodexSession:
         if self.closed:
             return
         self.closed = True
-        if self.process:
-            try:
-                self.process.stdin.close()
-                self.process.wait(timeout=5)
-            except (OSError, subprocess.TimeoutExpired):
-                if self.job:
-                    self.job.terminate()
-                elif self.process.poll() is None:
-                    import signal
-                    os.killpg(self.process.pid, signal.SIGKILL)
-                self.process.wait(timeout=5)
+        try:
+            if self.process:
+                try:
+                    self.process.stdin.close()
+                    self.process.wait(timeout=PROCESS_EXIT_TIMEOUT)
+                except (OSError, subprocess.TimeoutExpired):
+                    # Stop the process tree below even when orderly EOF fails.
+                    pass
+            stop_native_process(self.process, self.job)
             if hasattr(self, "reader"):
-                self.reader.join(timeout=5)
-        if self.job:
-            self.job.close()
+                self.reader.join(timeout=PROCESS_EXIT_TIMEOUT)
+                if self.reader.is_alive():
+                    raise ProcessCleanupError(f"Codex protocol reader did not close; see {self.trace.name}.")
+            if self.process:
+                self.process.stdout.close()
+        finally:
+            self.stderr.close()
         self.trace.close()
-        self.stderr.close()
 
     def __enter__(self):
         return self

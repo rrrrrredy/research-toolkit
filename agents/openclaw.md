@@ -22,17 +22,19 @@ For the default state directory, supported install paths in precedence order are
 
 With a custom `OPENCLAW_STATE_DIR`, managed skills live in `<state-dir>/skills/` and the home `~/.agents/skills/` compatibility root is not loaded. Use the active profile's directory rather than assuming `~/.openclaw/`.
 
+To install a specific release, use the [compact Skill package](../docs/installation-versioning.md#install-a-version-pinned-skill) with the same Skill root. The Git commands below enable Windows long paths for each checkout.
+
 For a workspace-scoped install:
 
 ```bash
-git clone https://github.com/rrrrrredy/research-toolkit.git \
+git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git \
   ./skills/research-toolkit
 ```
 
 For a managed/local install:
 
 ```bash
-git clone https://github.com/rrrrrredy/research-toolkit.git \
+git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git \
   ~/.openclaw/skills/research-toolkit
 ```
 

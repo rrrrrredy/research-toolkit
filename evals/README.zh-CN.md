@@ -72,7 +72,9 @@ PR #38 当时离线检查了全部七题的提示生成及一份完整评审足�
 
 [2026-09-07 原始开发材料](diagnostics/2026-09-07/)包含四份初稿、两份修订、三模型文字诊断及保留的不完整回复；它们是已实际执行的独立任务与测试。日期化原件按原语言和哈希保存，本页提供中文导读。
 
-历史[盲评配对协议](../docs/eval-protocol.zh-CN.md)说明固定来源 Lite 试点及保留的执行器，不是当前研究入口。脚本冻结并记录种子／顺序，对评审隐藏 A/B 条件，保留首份产出、判断与失败。[2026-10-10 四模型试验](studies/2026-10-10-lite-four-models/README.zh-CN.md)已覆盖同样五个任务族的全部 20 对模型—任务评审，保留全部首轮尝试及失败，格式诊断与重新生成补跑单列；不证明通用效果。仅复查既有公开两组档案时，运行 `python scripts/reproduce_calibration.py`，生成 `evals/runs/calibration-reproduction/inventory.json` 与 `inventory.md`，不调用模型。 20 对中，2 对为主结果、8 对为格式诊断、10 对为重新生成的完成结果，不能合并解读为条件始终相同的一组对照。
+[历史配对研究索引](../docs/eval-protocol.zh-CN.md)提供已退役执行器的原始记录与版本说明。[2026-10-10 四模型试验](studies/2026-10-10-lite-four-models/README.zh-CN.md)保留种子、顺序、隐藏 A/B 条件的评审输入、首份产出、判断与失败。五个任务族共 20 对模型—任务运行，其中 2 对为主结果、8 对为格式诊断、10 对为重新生成的完成结果。各组按各自记录的条件解读。
+
+复查另一项[9 月 7 日校准档案](diagnostics/2026-09-07/)时，运行 `python scripts/reproduce_calibration.py`。命令核对保留的两个配对，生成 `evals/runs/calibration-reproduction/inventory.json` 和 `inventory.md`，不调用模型。
 
 历史[协议 v2](../docs/eval-protocol-v2.zh-CN.md)使用的五个独立短题完整保留在 [frozen.json](studies/2026-10-12-lite-four-models/longcat/coordinator/frozen.json)，另有[独立评审校准对照](tasksets/judge-calibration-v3/README.zh-CN.md)。[带日期的 Astra 校准](diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)已新增 12 份首轮判断及来源裁定；[四模型开发试验](studies/2026-10-12-lite-four-models/README.zh-CN.md)现已完成，保留四个缺失配对和六个互换偏好变化。这些历史材料与已退役七题及当前长研究题集分开。
 

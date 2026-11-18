@@ -51,6 +51,8 @@ When a unit needs independent adjudication of a necessary finding or a supported
 
 The same operation accepts content results, prepares the independent audit, and then prepares final acceptance when the necessary work is resolved. Repeated calls with unchanged valid results resume pending work rather than generating another pass. Each pending assignment returns a `reading_ref` entry alongside the frozen JSON `assignment_ref`; [usage](usage-modes.md) describes the complete reading view. `include_assignment` defaults to `false`; every worker must still be able to read the full input and referenced source originals.
 
+Frozen role requests may contain `shared_input` with the relative path and SHA-256 of the complete shared input. Earlier requests can contain the input inline under `assignment` and remain readable. Use `reading_ref` for native agents or set `include_assignment=true` to receive the complete request inline through the tool.
+
 Configured command/endpoint execution is optional; see [usage](usage-modes.md#reviewer-backends). It must fulfill the same independence and current-version requirements. Legacy `self` results remain readable historical records; they are author checks, not the current independent review route.
 
 ## Inputs and version binding
@@ -86,6 +88,8 @@ Check all decisive requirements and conclusions, key numbers and citations, cons
 For each selection, retain its location, reason, evidence examined and result. No fixed first/last/hash paragraph rule or sampling percentage substitutes for this choice. A defect expands examination by its cause—for example the same source, measure, branch or transformation—until the affected work is understood and necessary defects are resolved. The auditor performs this within its existing assignment; no additional sampling role or scoring system is needed.
 
 Review validity, report readiness and final acceptance are separate judgments. An audit can find that a negative review was valid and that the report still needs correction. Final acceptance must inspect the resulting complete report, not merely count passed review records.
+
+For `purpose=evaluation`, preserve the sample and complete the independent assessments on the same input. A valid negative assessment can conclude with `evaluation_complete: true` and `evaluation_verdict: "needs_revision"`. A valid positive assessment returns `"pass"`. The evaluation result has separate delivery eligibility. Use `purpose=report_delivery` for report delivery.
 
 ## Completion and recovery
 

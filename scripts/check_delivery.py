@@ -142,11 +142,6 @@ def inspect_jsonl_text(content: str, label: str) -> tuple[list[dict[str, Any]], 
     return rows, findings
 
 
-def load_jsonl(path: Path) -> list[dict[str, Any]]:
-    rows, _ = inspect_jsonl(path, "JSONL")
-    return rows
-
-
 def inspect_csv_text(
     content: str, label: str, required_columns: tuple[str, ...] = (),
     unique_id: str | None = None,
@@ -610,11 +605,6 @@ def review_passes(row: dict[str, Any]) -> bool:
 def scope_key(value: str) -> str:
     normalized = value.strip().lower()
     return "__global__" if normalized in GLOBAL_REVIEW_SCOPES else normalized
-
-
-def review_has_global_pass(review_path: Path) -> bool:
-    rows, findings = inspect_jsonl(review_path, "Review")
-    return not findings and latest_global_review_passes(rows)
 
 
 def assess_limitation_disclosure(message: str, limitations: list[str]) -> dict[str, Any]:

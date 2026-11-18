@@ -10,10 +10,14 @@ Use this when Hermes Agent is available through the CLI, TUI, desktop app, or me
 
 ## Setup
 
-Hermes treats skills as on-demand knowledge documents. The default profile stores installed skills in `~/.hermes/skills/`; a custom profile uses its own `HERMES_HOME/skills/`. For the default profile:
+Hermes treats skills as on-demand knowledge documents. The default profile stores installed skills in `~/.hermes/skills/`, and a custom profile uses its own `HERMES_HOME/skills/`.
+
+To install a specific release, use the [compact Skill package](../docs/installation-versioning.md#install-a-version-pinned-skill) with the same Skill root. The Git commands below enable Windows long paths for each checkout.
+
+For the default profile:
 
 ```bash
-git clone https://github.com/rrrrrredy/research-toolkit.git \
+git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git \
   ~/.hermes/skills/research-toolkit
 ```
 

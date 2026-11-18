@@ -35,6 +35,8 @@
 
 ### 本轮小研究：保留 Lite，按新增用途接续 Full
 
+原始构造材料见[实施基线的两份方案说明](https://github.com/rrrrrredy/research-toolkit/blob/bd78ae7bb0a868917efc9cfe9faaa3508dd5a238/examples/lite/sources.md)。留存报告中的 `main` 链接对应试验当时的仓库路径。
+
 [原报告](report-lite.md)完整 433 个空白分词。六个 Cedar 席位原价为 $36，超过 $35 上限；Maple 为 $28，且当时允许手动周导出，因此建议试用 Maple。报告说明 CSV 字段和实际服务表现尚待核实，并给出负责人、试用检查与改变选择的条件；没有把未知成本写成已经节省。
 
 实际执行 Lite：未解决的篇幅要求使 `finish` 拒绝交付；计数并完成要求后，草稿检查和交付通过。随后建立两个关联 Full 任务，复用原稿、完整来源、主张与要求，分别做作者上下文 self 和一次全新上下文 Astra independent。没有复制 Lite 的进度、通过标记或交付收据。两种 Full 检查均完成，**正文没有改动**。在这个边界明确的原始问题上，Lite 已足够；不能说多一次评审提高了正文质量。self 明确显示既有 `review_strength: degraded`，不冒充独立意见。

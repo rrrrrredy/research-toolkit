@@ -8,6 +8,42 @@ An installation pinned to an older commit keeps that commit's content and Skill 
 
 Use one repository and one normative SKILL. A release, an installed copy, a locally edited variant and the version used by an experiment can legitimately differ; identify each separately.
 
+<a id="install-a-version-pinned-skill"></a>
+
+## Install a version-pinned Skill
+
+Choose a [Release by tag](https://github.com/rrrrrredy/research-toolkit/releases) and download its `research-toolkit-plugin-v<VERSION>.zip` and `SHA256SUMS`. This compact package includes the complete Skill, references and runtime helpers, without the evaluation archives. Use the root `research-toolkit/SKILL.md` for standalone Skill installation. The packaged plugin's nested Skill entry is for plugin discovery.
+
+For example, in the folder containing both v2.5.7 downloads, verify the checksum and unpack in a new staging directory.
+
+```bash
+shasum -a 256 -c SHA256SUMS &&
+  unzip research-toolkit-plugin-v2.5.7.zip -d toolkit-release
+```
+
+```powershell
+$archive = 'research-toolkit-plugin-v2.5.7.zip'
+$record = Get-Content -LiteralPath SHA256SUMS |
+    Where-Object { ($_ -split '\s+', 2)[1] -eq $archive }
+if (-not $record -or (Get-FileHash -LiteralPath $archive).Hash -ne ($record -split '\s+', 2)[0]) {
+    throw 'Research Toolkit package checksum did not match.'
+}
+Expand-Archive -LiteralPath $archive -DestinationPath toolkit-release
+```
+
+Create a `research-toolkit` directory in the Skill root listed for [your agent tool](../agents/README.md). From `toolkit-release/research-toolkit`, copy `SKILL.md`, `SKILL.zh-CN.md`, `VERSION`, `LICENSE`, `requirements-mcp.txt`, and the `docs/`, `references/` and `scripts/` directories into it. The expected layout is `<skill-root>/research-toolkit/SKILL.md`. For an existing installation, compare and back it up using the [update steps](#update-without-losing-local-work) first. A tagged package contains the files published for that version. For a fix available only on `main`, use its public commit instead.
+
+To obtain the same packaged files at a specific public commit before a new Release, use a sparse shallow checkout in a staging directory. Replace `FULL_COMMIT_SHA` with the intended commit.
+
+```bash
+git clone --depth 1 --filter=blob:none --no-checkout -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git toolkit-source
+git -C toolkit-source sparse-checkout set --no-cone "/plugins/research-toolkit/"
+git -C toolkit-source fetch --depth 1 origin FULL_COMMIT_SHA
+git -C toolkit-source checkout --detach FETCH_HEAD
+```
+
+Copy the same Skill files and directories from `toolkit-source/plugins/research-toolkit`. Use the [installation comparison](#verify-content-not-just-a-label) from a trusted clone containing the reference commit when comparing an existing installation against that revision.
+
 ## Verify content, not just a label
 
 From a trusted clone containing the intended release commit:

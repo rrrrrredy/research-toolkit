@@ -1,0 +1,130 @@
+#!/usr/bin/env python3
+"""Exercise usage and sharing CLIs against an isolated loopback receiver."""
+from __future__ import annotations
+
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+from threading import Thread
+
+
+SCRIPTS = Path(__file__).resolve().parent
+
+
+def verify(workspace, endpoint, received):
+    usage = workspace / "usage"
+    env = {**os.environ, "RESEARCH_TOOLKIT_USAGE_HOME": str(usage),
+           "RESEARCH_TOOLKIT_TELEMETRY": "on", "RESEARCH_TOOLKIT_USAGE_AUTOSEND": "off",
+           "RESEARCH_TOOLKIT_USAGE_TEST": "1", "RESEARCH_TOOLKIT_USAGE_ENDPOINT": endpoint}
+
+    def run(script, *args, environment=env):
+        result = subprocess.run([sys.executable, "-X", "utf8", str(SCRIPTS / script), *map(str, args)],
+                                env=environment, capture_output=True, text=True, encoding="utf-8", timeout=15)
+        if result.returncode:
+            raise RuntimeError(f"{script} exited {result.returncode}: {result.stderr}")
+        return json.loads(result.stdout)
+
+    def usage_command(*args, environment=env):
+        return run("usage_events.py", *args, environment=environment)
+
+    def deliver(task, report):
+        task.mkdir(parents=True, exist_ok=True)
+        (task / "final.md").write_text(report + "\n", encoding="utf-8")
+        return usage_command("share-offer", "--task-root", task, "--file", "final.md")
+
+    project = workspace / "project"
+    alpha = project / "alpha"
+    first = alpha / "first"
+    second = alpha / "second"
+    other = project / "beta" / "other"
+    once = workspace / "once"
+    disabled = usage_command("share-offer", "--task-root", first, "--file", "final.md",
+                             environment={**env, "RESEARCH_TOOLKIT_TELEMETRY": "off"})
+    assert disabled == {"status": "disabled"} and not usage.exists() and not received
+
+    install_args = ("--host", "codex", "--project", project, "--channel", "manual")
+    installed = run("install_usage.py", *install_args)
+    assert installed["configuration_changed"] and installed["usage_notice"]["receiver"] == endpoint
+    reused = run("install_usage.py", *install_args)
+    assert not reused["configuration_changed"] and "usage_notice" not in reused
+    assert usage_command("flush")["sent"] == 1
+    event, = [event for route, packet in received if route == "/v1/events" for event in packet["events"]]
+    assert event["kind"] == "installation_seen" and event["test"] is True
+
+    def content_received():
+        return [item["files"][0]["text"].strip() for route, item in received if route == "/v1/content"]
+
+    offer = deliver(once, "One report authorized for a single share.")
+    assert offer["status"] == "ask" and Path(offer["project_root"]) == once
+    assert deliver(once, "One report authorized for a single share.")["status"] == "offered"
+    usage_command("flush")
+    assert not content_received()
+    usage_command("share", "--task-root", once, "--file", "final.md", "--confirm-content")
+    usage_command("flush")
+    assert content_received() == ["One report authorized for a single share."]
+    assert deliver(second, "A separate unanswered invitation.")["status"] == "ask"
+
+    assert deliver(first, "A report queued under the project grant.")["status"] == "ask"
+    usage_command("share", "--task-root", first, "--project-root", project,
+                  "--decision", "reports", "--file", "final.md", "--confirm-content")
+    assert deliver(first, "A report queued under the project grant.")["status"] == "already_queued"
+    assert deliver(second, "A second report under the project grant.")["status"] == "queued"
+    assert deliver(other, "A report in the sibling directory.")["status"] == "queued"
+    assert usage_command("status")["pending_content"] == 3
+
+    usage_command("share", "--task-root", first, "--project-root", alpha, "--decision", "decline")
+    assert usage_command("status")["pending_content"] == 1
+    assert deliver(second, "A later report in the declined scope.")["status"] == "decline"
+    usage_command("flush")
+    assert content_received() == ["One report authorized for a single share.", "A report in the sibling directory."]
+
+    assert deliver(other, "A new sibling report awaiting transfer.")["status"] == "queued"
+    usage_command("share", "--task-root", other, "--project-root", project, "--decision", "ask")
+    assert usage_command("status")["pending_content"] == 0
+    assert deliver(other, "A new sibling report awaiting transfer.")["status"] == "ask"
+    usage_command("flush")
+    assert len(content_received()) == 2
+
+
+def main():
+    received = []
+
+    class Receiver(BaseHTTPRequestHandler):
+        def do_POST(self):
+            packet = json.loads(self.rfile.read(int(self.headers["Content-Length"])))
+            received.append((self.path, packet))
+            if self.path == "/v1/events":
+                response = {"accepted_ids": [event["id"] for event in packet["events"]]}
+            elif self.path == "/v1/content":
+                response = {"id": packet["id"]}
+            else:
+                assert self.path == "/v1/install"
+                response = {}
+            body = json.dumps(response).encode()
+            self.send_response(200)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(body)))
+            self.end_headers()
+            self.wfile.write(body)
+
+        def log_message(self, *_args):
+            pass
+
+    with tempfile.TemporaryDirectory(prefix="toolkit-usage-") as temporary:
+        with ThreadingHTTPServer(("127.0.0.1", 0), Receiver) as server:
+            thread = Thread(target=server.serve_forever, daemon=True)
+            thread.start()
+            try:
+                verify(Path(temporary).resolve(), f"http://127.0.0.1:{server.server_port}", received)
+            finally:
+                server.shutdown()
+                thread.join()
+    print("PASS: first-use notice, one-time sharing, scope precedence and pending withdrawal over loopback.")
+
+
+if __name__ == "__main__":
+    main()

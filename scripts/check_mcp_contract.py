@@ -12,6 +12,7 @@ import tempfile
 from mcp.client import Client
 from mcp.client.stdio import StdioServerParameters
 from check_research_workflow import BRIEF
+from host_review import load_assignment
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -219,18 +220,30 @@ async def verify(base):
         assert [item["assignment_ref"] for item in prepared["assignments"]] == [
             item["assignment_ref"] for item in pending["assignments"]]
         assert "counter.md" in pending["assignments"][0]["assignment"]["assignment"]["sources"]
+        stored = [json.loads((root / item["assignment_ref"]["path"]).read_text(encoding="utf-8"))
+                  for item in pending["assignments"]]
+        assert all("assignment" not in item for item in stored)
+        assert all(item["shared_input"] == stored[0]["shared_input"] for item in stored)
+        # The same task can resume assignments stored by the previous version.
+        old_job = pending["assignments"][0]
+        old_path = root / old_job["assignment_ref"]["path"]
+        old_bytes = json.dumps(old_job["assignment"], ensure_ascii=False, indent=2).encode("utf-8")
+        old_path.write_bytes(old_bytes)
+        pending = await call("research_review", args)
+        assert pending["assignments"][0]["assignment"] == old_job["assignment"]
+        assert old_path.read_bytes() == old_bytes
         sequence = 0
-        async def submit(item, *, malformed=False, producer=False):
+        async def submit(item, *, malformed=False, producer=False, task_root=root, review_args=args):
             nonlocal sequence
             sequence += 1
-            folder = root/"captures"/str(sequence)
+            folder = task_root/"captures"/str(sequence)
             folder.mkdir(parents=True)
             request = item["assignment"]
-            reading = root/item['reading_ref']['path']
+            reading = task_root/item['reading_ref']['path']
             assert reading.is_file() and 'assignment_version' in reading.read_text(encoding='utf-8')
             from check_delivery import sha256_file
             assert sha256_file(reading) == item['reading_ref']['sha256']
-            assert json.loads((root/item['assignment_ref']['path']).read_text(encoding='utf-8')) == request
+            assert load_assignment(task_root, item['assignment_ref']['path']) == request
             (folder/"request.json").write_text(json.dumps(request, ensure_ascii=False, indent=2), encoding="utf-8")
             command = [sys.executable, "-B", "-X", "utf8", str(worker)] + (["--malformed"] if malformed else [])
             process = await asyncio.create_subprocess_exec(*command, stdin=asyncio.subprocess.PIPE,
@@ -244,9 +257,9 @@ async def verify(base):
             (folder/"response.json").write_text(result["content"], encoding="utf-8")
             (folder/"execution.json").write_text(json.dumps({"host_task": identity, "status": "completed",
                 "assignment_version": request["assignment_version"], "synthetic": True, "returncode": process.returncode}), encoding="utf-8")
-            return await call("research_review", {**args, "host_result": {"slot_id": item["slot_id"], "host_task": identity,
-                "response_path": (folder/"response.json").relative_to(root).as_posix(),
-                "execution_path": (folder/"execution.json").relative_to(root).as_posix()}}, error=malformed or producer)
+            return await call("research_review", {**review_args, "host_result": {"slot_id": item["slot_id"], "host_task": identity,
+                "response_path": (folder/"response.json").relative_to(task_root).as_posix(),
+                "execution_path": (folder/"execution.json").relative_to(task_root).as_posix()}}, error=malformed or producer)
 
         # One malformed first response and one producer impersonation are retained/rejected; then complete actual slots.
         await submit(pending["assignments"][0], producer=True)
@@ -295,7 +308,7 @@ async def verify(base):
             context = item['assignment']['revision_context']
             previous = context['reviews'][item['slot_id']]
             assert item['resume_host_task'] == previous['execution_id']
-            old = json.loads((root/previous['input']['path']).read_text(encoding='utf-8'))
+            old = load_assignment(root, previous['input']['path'])
             assert context['report_changes'] == [
                 {'change': 'replace', 'previous_lines': [line, line], 'current_lines': [line, line],
                  'previous_text': old['assignment']['report'].splitlines()[line - 1],
@@ -356,12 +369,49 @@ async def verify(base):
         assert [x['slot_id'] for x in resumed['assignments']] == ['requirements', 'structure_and_depth', 'domain-1']
         changed = await call('research_review', {**unit_args, 'perspectives': ['evidence'], 'revision': True})
         assert [x['slot_id'] for x in changed['assignments']] == ['evidence', 'domain-1']
+
+        # Evaluation preserves a frozen negative sample, while delivery above
+        # still requires revision and passing independent final acceptance.
+        for label, manuscript, verdict in (
+                ('evaluation-positive', corrected, 'pass'),
+                ('evaluation-negative', first_report.decode('utf-8'), 'needs_revision')):
+            task = await call('research_start', {'task': label, 'brief': BRIEF})
+            evaluation_root = Path(task['task_directory'])
+            (evaluation_root/'source.md').write_bytes((root/'source.md').read_bytes())
+            saved = await call('research_save', {'task': label,
+                'sources': [{'source_id': 'S1', 'title': 'Shipments', 'url': 'https://example.org/source',
+                             'source_type': 'primary', 'read_scope': 'full_text', 'read_evidence': 'source.md'}],
+                'claims': [{'claim_id': 'C1', 'claim': 'Twelve shipments', 'claim_type': 'verified_fact',
+                            'supporting_sources': ['S1']}],
+                'draft': {'path': 'final.md', 'main': True, 'host_task': 'synthetic-author',
+                          'complete': True, 'content': manuscript}})
+            assert saved['ok'], saved
+            sample = (evaluation_root/'final.md').read_bytes()
+            evaluation_args = {**args, 'task': label, 'purpose': 'evaluation'}
+            evaluation = await call('research_review', evaluation_args)
+            assert not evaluation['evaluation_complete']
+            while evaluation['assignments']:
+                evaluation = await submit(evaluation['assignments'][0], task_root=evaluation_root,
+                                          review_args=evaluation_args)
+            assert evaluation['evaluation_complete'] and evaluation['evaluation_verdict'] == verdict, evaluation
+            assert evaluation['action_required'] is None and not evaluation['delivery_ready'], evaluation
+            assert evaluation['completion_check']['completed_slots'] == 10, evaluation
+            cli_evaluation = cli('research_workflow.py', 'review', '--workspace', workspace, request=evaluation_args)
+            assert cli_evaluation == evaluation
+            finish = cli('research_workflow.py', 'finish', '--workspace', workspace,
+                         request={'task': label, 'message': 'Report is complete.'}, expected_exit=1)
+            assert 'report_delivery' in finish['error'], finish
+            assert cli('check_review_completion.py', evaluation_root)['ok']
+            assert (evaluation_root/'final.md').read_bytes() == sample
+            assert not (evaluation_root/'state/final_delivery.json').exists()
     (base/"RESULT.json").write_text(json.dumps({"result": "pass", "kind": "synthetic_stdio_contract_control",
         "research_quality_assessed": False, "completed_current_slots": 10, "retained_initial_negative_slots": 8,
         "completion_semantics": {"in_progress_default_passes": True, "in_progress_completion_fails": True,
             "unfinished_finish_cli_exit": 1, "pending_review_cli_exit": 0,
             "accepted_completion_passes": True, "changed_report_rejected": True,
-            "changed_input_rejected": True, "completion_checks_leave_task_bytes_unchanged": True},
+            "changed_input_rejected": True, "completion_checks_leave_task_bytes_unchanged": True,
+            "positive_and_negative_evaluations_complete_without_delivery": True,
+            "previously_saved_inline_and_shared_role_inputs_resume": True},
         "command": "python scripts/check_mcp_contract.py", "artifacts": str(base)}, indent=2), encoding="utf-8")
     print("PASS: v2 packaged MCP stdio, independent perspectives/audit/acceptance, preserved failure and negative results, rejected author clearance, source binding and stale delivery.")
     print("Retained control artifacts: " + str(base))

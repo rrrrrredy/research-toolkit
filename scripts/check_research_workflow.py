@@ -17,8 +17,10 @@ from unittest.mock import patch
 from types import SimpleNamespace
 import uuid
 
+import check_historical_review as history
 import research_workflow as workflow
 from review_runner import ReviewFailure, review_readiness, run_reviewer
+from task_storage import digest
 
 BRIEF = {"question": "How many shipments are evidenced?", "audience": "Operations manager",
          "scope": "Company A, 2026", "output": "English report", "depth": "Three analytical paragraphs",
@@ -37,12 +39,12 @@ def historical_contract(workspace, task):
 
 def legacy_review(workspace, task, *args, **kwargs):
     historical_contract(workspace, task)
-    return workflow.legacy_review(workspace, task, *args, **kwargs)
+    return history.legacy_review(workspace, task, *args, **kwargs)
 
 
 def legacy_finish(workspace, task, *args, **kwargs):
     historical_contract(workspace, task)
-    return workflow.legacy_finish(workspace, task, *args, **kwargs)
+    return history.legacy_finish(workspace, task, *args, **kwargs)
 
 
 class SyntheticRunner:
@@ -371,8 +373,8 @@ class WorkflowTests(unittest.TestCase):
         original_review = runner.requests[0]["instructions"]
         original_audit = runner.requests[1]["instructions"]
         self.assertEqual(plan["instruction_snapshot"], {"reviewer": original_review, "auditor": original_audit})
-        with patch.object(workflow, "content_review_instructions", side_effect=ValueError("Methods moved in upgrade")), \
-                patch.object(workflow, "AUDIT_INSTRUCTIONS", "Changed audit methods after upgrade"):
+        with patch.object(history, "content_review_instructions", side_effect=ValueError("Methods moved in upgrade")), \
+                patch.object(history, "AUDIT_INSTRUCTIONS", "Changed audit methods after upgrade"):
             result = self.review(runner, purpose="evaluation")
         self.assertTrue(result["evaluation_complete"], result)
         self.assertEqual(runner.calls, ["reviewer", "auditor", "auditor"])
@@ -532,7 +534,7 @@ class WorkflowTests(unittest.TestCase):
             row.pop("auditor_signature", None)
         workflow.save_text(self.root, "logs/review.jsonl", "".join(json.dumps(row)+"\n" for row in rows))
         progress = workflow.load(self.root, "state/progress.json")
-        progress["review_plan"]["runner_signature"] = workflow.digest(CONFIG)
+        progress["review_plan"]["runner_signature"] = digest(CONFIG)
         progress["review_plan"].pop("instruction_snapshot")
         progress["review_plan"].pop("auditor_signature")
         for slot in progress["review_plan"]["slots"]:

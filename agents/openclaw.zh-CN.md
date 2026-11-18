@@ -17,16 +17,18 @@
 
 设置 `OPENCLAW_STATE_DIR` 时，托管技能位于 `<state-dir>/skills/`，不会加载家目录的 `~/.agents/skills/` 兼容目录。按当前配置选择路径。
 
+如需固定版本，按[精简 Skill 包说明](../docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)安装到同一技能根目录。下方 Git 命令为各自的克隆启用 Windows 长路径支持。
+
 工作区安装：
 
 ```bash
-git clone https://github.com/rrrrrredy/research-toolkit.git ./skills/research-toolkit
+git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git ./skills/research-toolkit
 ```
 
 默认托管目录安装：
 
 ```bash
-git clone https://github.com/rrrrrredy/research-toolkit.git ~/.openclaw/skills/research-toolkit
+git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git ~/.openclaw/skills/research-toolkit
 ```
 
 向 agent 说明：

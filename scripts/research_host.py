@@ -52,6 +52,7 @@ class ResearchHost:
         self.reviews = {}
         self.results = []
         self.started = set()
+        self.connection_lost = False
 
     @contextmanager
     def access(self):
@@ -279,6 +280,8 @@ class ResearchHost:
 
     def refresh(self):
         """Route changed inputs to the same producer; wait for existing dependency readiness."""
+        if self.connection_lost:
+            return
         for job in list(self.work.values()):
             if job.get("failed"):
                 continue
@@ -396,9 +399,11 @@ class ResearchHost:
             return None
         kind = event["kind"]
         if kind == "request":
-            return self.observe({"outcome": "host_request", "method": event["method"]})
+            return self.observe({"outcome": "host_request", "method": event["method"],
+                                 **({"error": event["error"]} if event.get("error") else {})})
         if kind == "error":
-            raise RuntimeError(f"{self.host.name} connection ended before all results were received. Originals: " + self.prefix)
+            self.fail_active(f"{self.host.name} connection ended before all results were received.", event.get("raw"))
+            return None
         thread, turn = event.get("session"), event.get("turn")
         job = self.active.get((thread, turn))
         if not job:
@@ -408,24 +413,12 @@ class ResearchHost:
         if kind != "completed":
             return None
         self.active.pop((thread, turn))
-        messages = list(job["messages"].values())
-        finals = [m for m in messages if m.get("phase") == "final_answer"]
-        content = (finals or messages or [{"text": ""}])[-1]["text"]
         prefix = job["prefix"]
-        save_text(self.root, prefix + "/response.txt", content)
-        capture = {"host": self.host.name, "host_task": thread, "turn": turn, "status": event["status"],
-            "workdir": job["workdir"],
-            "started_at": job["started_at"], "finished_at": now(),
-            "elapsed_seconds": round(time.monotonic() - job["clock"], 6),
-            "protocol_path": self.prefix + "/protocol.jsonl", "turn_result": event.get("raw")}
-        if job["kind"] == "review":
-            capture["assignment_version"] = job["assignment"]["assignment_version"]
-        else:
-            capture["inputs"] = job["context"]["inputs"]
-        save(self.root, prefix + "/execution.json", capture)
+        content = self._capture(job, event["status"], event.get("raw"))
         try:
-            if capture["status"] != "completed" or not content.strip():
-                raise ValueError("Native turn did not return a completed, nonempty result.")
+            if event["status"] != "completed" or not content.strip():
+                detail = event.get("raw", {}).get("error")
+                raise ValueError(detail or "Native turn did not return a completed, nonempty result.")
             if job["kind"] == "work":
                 current = self.context(job)
                 waiting = self.waiting_on(current)
@@ -466,12 +459,43 @@ class ResearchHost:
         return self.observe({"outcome": "completed", "kind": job["kind"], "identity": job["identity"],
             "host_task": thread, "response": prefix + "/response.txt", "execution": prefix + "/execution.json"})
 
+    def _capture(self, job, status, raw):
+        messages = list(job["messages"].values())
+        finals = [m for m in messages if m.get("phase") == "final_answer"]
+        content = (finals or messages or [{"text": ""}])[-1]["text"]
+        prefix = job["prefix"]
+        save_text(self.root, prefix + "/response.txt", content)
+        capture = {"host": self.host.name, "host_task": job["thread"], "turn": job["turn"], "status": status,
+            "workdir": job["workdir"], "started_at": job["started_at"], "finished_at": now(),
+            "elapsed_seconds": round(time.monotonic() - job["clock"], 6),
+            "protocol_path": self.prefix + "/protocol.jsonl", "turn_result": raw}
+        if job["kind"] == "review":
+            capture["assignment_version"] = job["assignment"]["assignment_version"]
+        else:
+            capture["inputs"] = job["context"]["inputs"]
+        save(self.root, prefix + "/execution.json", capture)
+        return content
+
+    def fail_active(self, reason, raw=None):
+        self.connection_lost = True
+        for key, job in list(self.active.items()):
+            self._capture(job, "failed", {"error": reason, "event": raw})
+            job["failed"] = True
+            del self.active[key]
+            prefix = job["prefix"]
+            event = self.observe({"outcome": "failed", "kind": job["kind"], "identity": job["identity"],
+                "error": reason, "response": prefix + "/response.txt", "execution": prefix + "/execution.json"})
+            print(json.dumps(event, ensure_ascii=False), flush=True)
+
     def drain(self):
         self.refresh()
         while self.active:
             result = self.poll()
             if result:
                 print(json.dumps(result, ensure_ascii=False), flush=True)
+        return self.result()
+
+    def result(self):
         return {"events": self.results, "reviews": self.reviews,
                 "waiting": {key: job["waiting"] for key, job in self.work.items() if job.get("waiting")}}
 
@@ -496,17 +520,25 @@ def main():
     parser.add_argument("--executable", help="Agent tool executable when it is not available on PATH")
     args = parser.parse_args()
     with ResearchHost(args.workspace, args.task, args.language, host=args.host, executable=args.executable) as host:
-        requests = json.loads(args.request.read_text(encoding="utf-8"))
-        if not isinstance(requests, list):
-            raise ValueError("request: supply a list of work/draft/review selections.")
-        for request in requests:
-            host.submit(**request)
-        result = host.drain()
+        interrupted = False
+        try:
+            requests = json.loads(args.request.read_text(encoding="utf-8"))
+            if not isinstance(requests, list):
+                raise ValueError("request: supply a list of work/draft/review selections.")
+            for request in requests:
+                host.submit(**request)
+            result = host.drain()
+        except KeyboardInterrupt:
+            interrupted = True
+            host.fail_active("Native execution canceled by the caller.")
+            result = host.result()
         save(host.root, host.prefix + "/result.json", result)
         print(json.dumps({"result": host.prefix + "/result.json", "waiting": result["waiting"],
             "reviews": {scope: {key: review.get(key) for key in
                 ("reviews_complete", "unit_ready", "delivery_ready", "action_required", "open_issues")}
                 for scope, review in result["reviews"].items()}}, ensure_ascii=False))
+        if interrupted:
+            return 130
         return int(bool(result["waiting"]) or any(e["outcome"] == "failed" for e in result["events"]))
 
 

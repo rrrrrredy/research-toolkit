@@ -274,6 +274,17 @@ def methods(role):
     return "\n\n".join(x["content"] for x in guidance("review", methods=names[role])["guidance"])
 
 
+def load_assignment(root, name):
+    """Read a role assignment with its complete, verified frozen input."""
+    request = load(root, name)
+    if "shared_input" in request:
+        shared = request.pop("shared_input")
+        if reference(root, shared["path"]) != shared:
+            raise ValueError("Frozen role input changed: " + shared["path"])
+        request["assignment"] = load(root, shared["path"])
+    return request
+
+
 def assignment(root, plan, slot, selected, *, persist=True):
     packet = load(root, plan["input"]["path"])
     role = slot["role"]
@@ -296,7 +307,7 @@ def assignment(root, plan, slot, selected, *, persist=True):
             "Confirm the current complete artifact in your assigned perspective, inspect affected evidence and cross-part effects, "
             "and reuse unchanged reading where appropriate. Historical results are not current approval.")
         if same_work:
-            before = load(root, previous["input"]["path"])["assignment"]
+            before = load_assignment(root, previous["input"]["path"])["assignment"]
             context = request["revision_context"]
             context["report_changes"] = report_changes(before["report"], packet["report"])
             sections = ("sources", "source_files", "analyses")
@@ -375,11 +386,14 @@ for defects), and open_issues (list). Pass requires no necessary corrections.
     request["instructions"] += "\nReturn input_version and assignment_version exactly as supplied, alongside the requested assessment fields."
     request["assignment_version"] = digest(request)
     name = f"{run_prefix(plan['input_version'])}/jobs/{slot['slot_id']}-{request['assignment_version'][:16]}.json"
-    if persist:
-        ref = frozen(root, name, request)
+    if safe_path(root, name).is_file() and load_assignment(root, name) == request:
+        # Preserve originally saved inline assignments and their checksums.
+        ref = reference(root, name)
+    elif persist:
+        stored = {k: v for k, v in request.items() if k != "assignment"}
+        ref = frozen(root, name, {**stored, "shared_input": plan["input"]})
     else:
-        ref = (reference(root, name) if safe_path(root, name).is_file() and load(root, name) == request
-               else {"path": name, "sha256": "unrecorded_assignment"})
+        ref = {"path": name, "sha256": "unrecorded_assignment"}
     return request, ref
 
 
@@ -518,7 +532,7 @@ def next_slots(plan, selected):
     invalid = [s for s in content if value["review_checks"][s["slot_id"]]["result"] == "invalid"]
     if invalid:
         return invalid
-    if value["result"] != "valid" or value["report_verdict"] != "pass":
+    if value["result"] != "valid" or (plan["purpose"] == "report_delivery" and value["report_verdict"] != "pass"):
         return []
     return [s for s in plan["slots"] if s["role"] == "acceptance" and s["slot_id"] not in selected]
 
@@ -614,25 +628,43 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
                          "assignment_ref": request_ref, "assignment_version": request["assignment_version"],
                          **({"resume_host_task": request["resume_host_task"]} if "resume_host_task" in request else {}),
                          **({"assignment": request} if include_assignment else {})})
-    result = inspect(root, progress, artifact, plan=plan)
+    evaluation = purpose == "evaluation"
+    result = inspect(root, progress, artifact, plan=plan, require_report_ready=not evaluation)
+    unit_ready = scope != "full_report" and not evaluation and result["ok"]
     if scope != "full_report":
         progress.setdefault("unit_reviews", {})[scope] = {
-            "artifact_sha256": plan["artifact_sha256"], "input_version": version, "ok": result["ok"],
+            "artifact_sha256": plan["artifact_sha256"], "input_version": version, "ok": unit_ready,
             "reviewers": [r["execution_id"] for r in selected.values()], "record_path": plan["input"]["path"]}
         save(root, "state/progress.json", progress)
-    if scope == "full_report" and result["ok"]:
+    if scope == "full_report" and not evaluation and result["ok"]:
         summary = {"stage": "final", "scope": "global_final_delivery", "result": "pass",
                    "basis": selected["acceptance"]["result_data"]["basis"], "open_issues": [],
                    "artifact_sha256": plan["artifact_sha256"], "contract_version": 2,
                    "review_evidence": {k: r["response"] for k, r in selected.items()}}
         if not history(root) or history(root)[-1] != summary:
             append(root, summary)
+    evaluation_result = {}
+    if evaluation:
+        evaluation_result["evaluation_complete"] = result["ok"]
+        if result["ok"]:
+            from check_review_completion import content_review_issues
+            audit_result = selected.get("audit", {}).get("result_data")
+            acceptance_result = selected.get("acceptance", {}).get("result_data")
+            if audit_result is not None:
+                needs_revision = audit_result["report_verdict"] == "needs_revision"
+            else:
+                needs_revision = any(content_review_issues(row, {}) for row in selected.values())
+            if acceptance_result is not None:
+                needs_revision = needs_revision or acceptance_result["result"] == "fail"
+            evaluation_result["evaluation_verdict"] = "needs_revision" if needs_revision else "pass"
+    action = "host_agents" if pending else None
+    if not action and not result["ok"]:
+        action = "repair_review" if evaluation else "revise"
     return {"task_directory": str(root), "input_version": version, "scope": scope,
             "assignments": requests, "reviews_complete": all(s["slot_id"] in selected for s in slots if s["role"] == "reviewer"),
-            "delivery_ready": scope == "full_report" and purpose == "report_delivery" and result["ok"],
-            "unit_ready": scope != "full_report" and result["ok"], "completion_check": result,
-            "action_required": "host_agents" if pending else "revise" if not result["ok"] else None,
-            "open_issues": result["findings"]}
+            "delivery_ready": scope == "full_report" and not evaluation and result["ok"],
+            "unit_ready": unit_ready, "completion_check": result,
+            "action_required": action, "open_issues": result["findings"], **evaluation_result}
 
 
 def checked_files(root, plan):
@@ -729,11 +761,13 @@ def _inspect(root, progress, artifact, *, plan, require_report_ready, walk):
                 identities.append(row["execution_id"])
                 if row["execution_id"] in producers(root, progress):
                     raise ValueError("An author/producer performed independent review.")
-                if require_report_ready:
+                if slot["role"] == "auditor" and original["result"] != "valid":
+                    findings.append("Independent audit did not establish valid review work.")
+                elif require_report_ready:
                     if slot["role"] == "reviewer" and plan["scope"] != "full_report" and not plan.get("audit_required"):
                         from check_review_completion import content_review_issues
                         findings.extend(content_review_issues(original, {}))
-                    elif slot["role"] == "auditor" and (original["result"] != "valid" or original["report_verdict"] != "pass"):
+                    elif slot["role"] == "auditor" and original["report_verdict"] != "pass":
                         findings.extend(original["open_issues"] or ["Independent audit has unresolved findings."])
                     elif slot["role"] == "acceptance" and original["result"] != "pass":
                         findings.extend(original["open_issues"] or ["Independent final acceptance did not pass."])
@@ -760,7 +794,7 @@ def run_configured(workflow, root, progress, evidence_paths, artifact, purpose, 
                     False, host_result, scope, perspectives, domains, audit)
     while result["assignments"]:
         for job in result["assignments"]:
-            request = load(root, job["assignment_ref"]["path"])
+            request = load_assignment(root, job["assignment_ref"]["path"])
             role = job["role"]
             default = config["reviewers"][0]
             selected = (config.get("auditor", default) if role == "auditor" else

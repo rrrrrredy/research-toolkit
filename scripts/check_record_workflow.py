@@ -13,7 +13,7 @@ import unittest
 from unittest.mock import patch
 
 import research_workflow as w
-from check_research_workflow import BRIEF, SyntheticRunner, historical_contract, legacy_finish
+from check_research_workflow import BRIEF, SyntheticRunner, historical_contract
 from review_runner import ReviewFailure
 from run_observation import capture_usage
 
