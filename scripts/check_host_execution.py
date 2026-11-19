@@ -241,6 +241,9 @@ def check_completion(workspace):
                                                                     "min": 40, "max": 200}}],
         draft={"path": "report.md", "content": original, "main": True, "complete": True, "host_task": origin})["ok"],
         "Failed to prepare an independently checkable draft.")
+    receipt = root / "state" / "final_delivery.json"
+    premature = workflow.finish(workspace, task, artifact="report.md", delivery_message="The research report is complete.")
+    require(not premature["completed"] and not receipt.exists(), premature)
     with patch.object(agent_session, "executable_for", return_value=command("codex", "complete")):
         with research_host.ResearchHost(workspace, task, host="codex", max_active=2) as host:
             peak = 0
@@ -250,19 +253,26 @@ def check_completion(workspace):
                 nonlocal peak
                 if event["outcome"] == "started":
                     peak = max(peak, len(host.active))
+                    require(not receipt.exists(), "Delivery occurred before independent review finished.")
                 return observe(event)
 
             with patch.object(host, "observe", side_effect=watch):
                 result = host.complete(domains=["inventory"], writer_handoff_from=origin)
-                require(result["status"] == "ready_for_human" and result["human_acceptance_required"], host.result())
+                require(result["status"] == "completed" and result["completed"] and result["delivery_check"]["ok"], result)
                 require(result["recorded_requirements"] == ["R1", "R2"] and result["check_draft"]["ok"], result)
                 require(peak == 2 and sum(e["outcome"] == "started" for e in host.results) > 2,
                         "Active turn limit was not exercised.")
+            require(Path(result["artifact"]).samefile(root / "report.md") and Path(result["receipt"]).samefile(receipt), result)
+            progress = load(root, "state/progress.json")
+            require(progress["stage"] == "final" and progress["status"] == "complete"
+                    and result["input_version"] == progress["review_plan"]["input_version"], progress)
+            delivered = load(root, "state/final_delivery.json")
+            require(delivered["status"] == "pass" and delivered["artifacts"]["report.md"] == result["artifact_sha256"],
+                    delivered)
             require("twelve" in (root / "report.md").read_text(encoding="utf-8"), result)
             require(any(path.read_text(encoding="utf-8") == original
                         for path in root.glob("logs/record-backups/*/report.md")), "Original was not retained.")
-            require(not (root / "state" / "final_delivery.json").exists(), "Machine wrote a delivery receipt.")
-            writer = load(root, "state/progress.json")["current_artifact"]["owner"]
+            writer = progress["current_artifact"]["owner"]
             starts = [row for row in host.results if row["outcome"] == "started"]
             writer_turns = [row for row in starts if row["kind"] == "work"]
             require(writer != origin and [row["execution_id"] for row in writer_turns] == [writer, writer]
@@ -302,19 +312,14 @@ def check_completion(workspace):
             require(sum(host_review.load_assignment(root, row["assignment_ref"]["path"])["input_version"]
                         == missed["input_version"] for row in starts if row["identity"] == "full_report:audit") == 1,
                     "The fallback must reuse the passing audit for this input.")
+        recorded_receipt = receipt.read_bytes(), receipt.stat().st_mtime_ns
         with research_host.ResearchHost(workspace, task, host="codex", max_active=2) as resumed:
-            require(resumed.complete(domains=["inventory"], writer_handoff_from=origin)["status"] == "ready_for_human",
-                    resumed.result())
-            require(not resumed.results, "Reopening the completed machine phases started new turns.")
-    finish = {"artifact": "report.md", "delivery_message": "The reviewed report is available."}
-    for accepted in (None, "different-version"):
-        unapproved = workflow.finish(workspace, task, **finish, accepted_input_version=accepted)
-        require(not unapproved["completed"] and unapproved["action_required"] == "user_acceptance", unapproved)
-        require(not (root / "state" / "final_delivery.json").exists(), "Unapproved report got a receipt.")
-    approved = workflow.finish(workspace, task, **finish, accepted_input_version=result["input_version"])
-    require(approved["completed"], approved)
-    require(load(root, "state/final_delivery.json")["accepted_input_version"] == result["input_version"],
-            "Delivery receipt did not bind the accepted version.")
+            existing = resumed.complete(domains=["inventory"], writer_handoff_from=origin)
+            require(existing["completed"] and existing["input_version"] == result["input_version"]
+                    and existing["check_draft"]["ok"] and existing["delivery_check"]["ok"], existing)
+            require(not resumed.results, "Reopening verified delivery started new turns.")
+        require((receipt.read_bytes(), receipt.stat().st_mtime_ns) == recorded_receipt,
+                "Reopening verified delivery rewrote the receipt.")
 
 
 def main():
@@ -323,7 +328,7 @@ def main():
         check_cli_transport(workspace)
         check_continuation(workspace)
         check_completion(workspace)
-    print("Optional host execution passed readiness, cleanup, two-slot scheduling, revision, and handoff to human acceptance.")
+    print("Optional host execution passed readiness, cleanup, two-slot scheduling, revision, and automatic verified delivery.")
 
 
 if __name__ == "__main__":

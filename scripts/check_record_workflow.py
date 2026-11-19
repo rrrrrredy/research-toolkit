@@ -314,7 +314,6 @@ class RecordWorkflowTests(unittest.TestCase):
         self.assertNotIn('activity', w.status(workspace, 'full'))
         resumed = w.review(workspace, "full", ["source.md"], config=config, runner=runner)
         self.assertTrue(resumed['delivery_ready'], resumed)
-        self.assertTrue(resumed['human_acceptance_required'], resumed)
         self.assertEqual(len(calls), 7)  # One interrupted transport and six completed assignments.
         self.assertEqual(failed.read_bytes(), failed_bytes)
         history = (root/'logs/review.jsonl').read_bytes()

@@ -50,7 +50,7 @@ Stages identify the current focus and support recovery; dependencies determine w
 
 Managed `progress.json.status` remains `in_progress`, `paused`, `blocked` or `complete`; preserve the real stage and next action. `stage: final` with `status: complete` is reserved for accepted full delivery. A local milestone does not close the task.
 
-After explicit user acceptance, tool-managed `finish` binds the current main artifact, inputs, review results and delivery message and creates the receipt. Report changes must be assessed in their affected scope and incorporated into current-version whole-report acceptance; copying a PASS or resealing a receipt does not update what an earlier reviewer read. Historical completed tasks retain their original records and contract labels. Continued research reuses valid materials and completes the current independent responsibilities rather than claiming old self-checks satisfy them.
+Once the report passes independent final checking, tool-managed `finish` binds the current main artifact, inputs, review results and delivery message and creates the receipt. Report changes must be assessed in their affected scope and incorporated into current-version whole-report acceptance; copying a PASS or resealing a receipt does not update what an earlier reviewer read. Historical completed tasks retain their original records and contract labels. Continued research reuses valid materials and completes the current independent responsibilities rather than claiming old self-checks satisfy them.
 
 ## 4. Architecture
 
@@ -152,7 +152,7 @@ Organize the report around the question and its supported argument. Use scope, c
 
 Use [quality gates](quality-gates.md) to judge the actual result at a stage boundary and at delivery. The reviewer/auditor/acceptor methods are maintained in [one reference](subagents-and-review-loop.md), not restated as a second checklist here.
 
-For managed delivery, supply the accepted main artifact, its `accepted_input_version` for v3, and intended delivery note to `finish`; it maintains `delivery_message.md`, binds current inputs and records and writes the receipt. Do not create a nominal PASS file instead of performing the work. Skill-only delivery preserves the same substantive independent work without mandatory tool ledgers.
+For managed delivery, supply the main artifact that passed independent final checking and the intended delivery note to `finish`; it maintains `delivery_message.md`, binds current inputs and records and writes the receipt. Do not create a nominal PASS file instead of performing the work. Skill-only delivery preserves the same substantive independent work without mandatory tool ledgers.
 
 ## 13. Execution Guardrails
 

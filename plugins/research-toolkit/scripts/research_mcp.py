@@ -202,12 +202,9 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
 
 @server.tool(structured_output=True)
 async def research_finish(task: str, message: str | None = None, artifact: str = "final.md",
-                          delivery_message: str | None = None,
-                          accepted_input_version: str | None = None) -> dict[str, Any]:
+                          delivery_message: str | None = None) -> dict[str, Any]:
     """Verify report delivery and publish its receipt/terminal state only when checks pass.
-    Current work requires completed independent perspectives, audit and acceptance bound to the current full artifact.
-    Present the prepared report to the user. For current plans, supply accepted_input_version only after
-    the user has accepted that actual input_version. Tool readiness does not record user acceptance.
+    Current work requires independent agent review, audit and final verification of the current full artifact.
     Explicit length_constraint rows in state/requirements.jsonl are measured; no limit is inferred from prose.
     message (also delivery_message) is the intended user-visible delivery text. This does not send or publish it.
     completed=false means unfinished, even with action_required; address the returned gaps before delivery.
@@ -217,7 +214,7 @@ async def research_finish(task: str, message: str | None = None, artifact: str =
     Evaluation tasks end with evaluation_complete from research_review, without repairing samples.
     """
     return await asyncio.to_thread(mutate, workflow.finish, task, message, artifact,
-                                   delivery_message=delivery_message, accepted_input_version=accepted_input_version)
+                                   delivery_message=delivery_message)
 
 
 @server.tool(structured_output=True)

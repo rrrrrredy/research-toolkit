@@ -4,7 +4,7 @@
 
 ## Current review contract
 
-New full-report tasks use review contract 3. They group the seven content perspectives across three independent contexts, add domain specialists where needed and keep audit and final checking independent. The gated delivery of a new task uses the exact `accepted_input_version` after user acceptance. Saved contract 2 plans retain their own assignments and completion rules.
+New full-report tasks use review contract 3. They group the seven content perspectives across three independent contexts, add domain specialists where needed and keep audit and final checking independent. Delivery binds the current report and the independent results that establish completion. Saved contract 2 plans retain their own assignments and completion rules.
 
 ## The v2 completion contract
 

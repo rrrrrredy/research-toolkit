@@ -195,8 +195,7 @@ class ContinuityTests(unittest.TestCase):
         runner = SyntheticRunner()
         first = w.review(self.workspace, "full", ["source.md"], artifact="a.md", config=config, runner=runner)
         self.assertTrue(first["reviews_complete"], first)
-        self.assertTrue(w.finish(self.workspace, "full", "Complete", artifact="a.md",
-                                 accepted_input_version=first["input_version"])["completed"])
+        self.assertTrue(w.finish(self.workspace, "full", "Complete", artifact="a.md")["completed"])
         receipt = (root / "state/final_delivery.json").read_bytes()
         w.save_records(self.workspace, "full", draft={"path": "b.md", "content": "Twelve shipments. Revenue remains unknown.", "main": True,
                        "host_task": "synthetic-continuity-author"})
@@ -206,10 +205,7 @@ class ContinuityTests(unittest.TestCase):
             w.review(self.workspace, "full", ["source.md"], artifact="a.md", config=config, runner=runner)
         reviewed = w.review(self.workspace, "full", ["source.md"], artifact="b.md", revision=True, config=config, runner=runner)
         self.assertTrue(reviewed["reviews_complete"], reviewed)
-        self.assertFalse(w.finish(self.workspace, "full", "Complete", artifact="b.md",
-                                  accepted_input_version=first["input_version"])["completed"])
-        self.assertTrue(w.finish(self.workspace, "full", "Revised report complete", artifact="b.md",
-                                 accepted_input_version=reviewed["input_version"])["completed"])
+        self.assertTrue(w.finish(self.workspace, "full", "Revised report complete", artifact="b.md")["completed"])
         self.assertEqual(len(runner.calls), 12)  # Three groups, audit, blind check and reconciliation for each version.
 
     def test_imports_are_not_model_invocations_or_self_submissions(self):

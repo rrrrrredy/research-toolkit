@@ -10,7 +10,7 @@ Open a new session, select Research Toolkit, and confirm the nine `research_*` t
 
 **[Full installation and usage guide](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.md)** · [Research instructions](SKILL.md) · [Complete standard](references/research-standard.md)
 
-New tool-managed tasks use independent host agents for grouped review, audit and readiness assessment. Follow the host's available slots. The user explicitly accepts the current report before `finish` records completion. Native delegation uses the host's existing access.
+New tool-managed tasks use independent host agents for grouped review, audit and readiness assessment. Follow the host's available slots. Once the independent final check passes, `finish` records completion and the agent delivers the report. Native delegation uses the host's existing access.
 
 Basic usage recording is off on new installations. The package's host hooks record operations only when recording is enabled. Sharing a report requires separate consent. [Usage data and controls](docs/usage-data.md).
 

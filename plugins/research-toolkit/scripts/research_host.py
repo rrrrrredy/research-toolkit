@@ -519,7 +519,7 @@ class ResearchHost:
         if not saved.get("ok"):
             raise ValueError("Writer handoff rejected; original response retained: " + json.dumps(saved, ensure_ascii=False))
 
-    def _ready_for_human(self, status, plan):
+    def _finish_delivery(self, status, plan):
         from check_delivery import inspect_jsonl, inspect_requirements, inspect_required_reading
 
         artifact = status["artifact"]
@@ -560,16 +560,29 @@ class ResearchHost:
             review = host_review.inspect(self.root, progress, artifact)
             draft = workflow.check_draft(self.workspace, self.task, artifact)
             issues, _ = inspect_requirements(path, contract_version=plan["contract_version"])
-        updated = {**status, "check_draft": draft, "recorded_requirements": [row["requirement_id"] for row in updates]}
-        if not review["ok"] or draft["artifact_sha256"] != status["artifact_sha256"]:
-            return {**updated, "reason": "review_inputs_changed", "review_check": review}
-        if not draft["ok"] or issues:
-            return {**updated, "reason": "requirements_incomplete", "requirement_issues": issues}
-        return {**updated, "status": "ready_for_human", "input_version": plan["input_version"],
-                "human_acceptance_required": True}
+            updated = {**status, "check_draft": draft, "recorded_requirements": [row["requirement_id"] for row in updates]}
+            if not review["ok"] or draft["artifact_sha256"] != status["artifact_sha256"]:
+                return {**updated, "reason": "review_inputs_changed", "review_check": review}
+            if not draft["ok"] or issues:
+                return {**updated, "reason": "requirements_incomplete", "requirement_issues": issues}
+
+            delivery_status = {**updated, "status": "completed", "completed": True, "input_version": plan["input_version"],
+                               "receipt": str(safe_path(self.root, "state/final_delivery.json"))}
+            if progress.get("stage") == "final" and progress.get("status") == "complete":
+                delivery = workflow.evaluate_delivery(self.root, artifact=artifact)
+                if delivery["ok"]:
+                    message = safe_path(self.root, "delivery_message.md").read_text(encoding="utf-8")
+                    return {**delivery_status, "artifact": str(safe_path(self.root, artifact)),
+                            "delivery_check": delivery, "message": message}
+            language = workflow.normalize_language(progress.get("language", self.language))
+            message = "研究报告已通过独立复核。" if language == "zh" else "The research report has passed independent review."
+            finished = workflow.finish(self.workspace, self.task, artifact=artifact, delivery_message=message)
+            if not finished["completed"]:
+                return {**updated, **finished, "reason": "delivery_check_failed"}
+            return {**delivery_status, **finished}
 
     def complete(self, artifact=None, evidence_paths=None, domains=None, writer_handoff_from=None):
-        """Advance a prepared manuscript to independent machine review and human acceptance."""
+        """Advance a prepared manuscript through independent review to verified delivery."""
         if writer_handoff_from is not None and (not isinstance(writer_handoff_from, str) or not writer_handoff_from.strip()):
             raise ValueError("writer_handoff_from must identify the existing owner whose draft can be transferred.")
         evidence_paths = [] if evidence_paths is None else evidence_paths
@@ -584,7 +597,7 @@ class ResearchHost:
                 if not artifact or current.get("path") != artifact or not current.get("owner"):
                     raise ValueError("Register the prepared manuscript and its actual producer before running --complete.")
                 checks = workflow.check_draft(self.workspace, self.task, artifact)
-            status = {"status": "blocked", "artifact": artifact, "artifact_sha256": checks["artifact_sha256"],
+            status = {"status": "blocked", "completed": False, "artifact": artifact, "artifact_sha256": checks["artifact_sha256"],
                       "check_draft": checks}
             pending_length = {f"{row['requirement_id']}: resolve the length requirement before delivery (status: {row['status']})."
                               for row in checks["length_checks"] if row["bounds_met"]
@@ -601,7 +614,7 @@ class ResearchHost:
                     prior = load(self.root, plan["input"]["path"])
                     reusable = set(prior["sources"]) == selected_paths and host_review.inspect(self.root, progress, artifact)["ok"]
                 if reusable:
-                    return self._ready_for_human(status, plan)
+                    return self._finish_delivery(status, plan)
             self.review(artifact, evidence_paths, domains=domains, revision=True)
             self.drain()
             result = self.reviews["full_report"]
@@ -611,7 +624,7 @@ class ResearchHost:
             if result.get("delivery_ready"):
                 with self.access():
                     plan = load(self.root, "state/progress.json")["review_plan"]
-                return self._ready_for_human(status, plan)
+                return self._finish_delivery(status, plan)
             if result.get("action_required") != "revise" or result["assignments"]:
                 return {**status, "reason": "independent_work_pending"}
             with self.access():
@@ -772,7 +785,7 @@ def main():
     parser.add_argument("--workspace", type=Path, required=True)
     parser.add_argument("--task", required=True)
     parser.add_argument("--request", type=Path, help="JSON list of work/draft/review arguments, or options object for --complete")
-    parser.add_argument("--complete", action="store_true", help="Advance the registered draft to machine readiness for human acceptance")
+    parser.add_argument("--complete", action="store_true", help="Review the registered draft and deliver it after verification")
     parser.add_argument("--max-active", type=int, default=2, help="Maximum simultaneous native work and review turns (default 2)")
     parser.add_argument("--language", default="en")
     parser.add_argument("--host", choices=("claude", "opencode", "codex"),
@@ -804,23 +817,22 @@ def main():
             interrupted = True
             host.fail_active("Native execution canceled by the caller.")
             if args.complete:
-                completion = {"status": "blocked", "reason": "interrupted"}
+                completion = {"status": "blocked", "completed": False, "reason": "interrupted"}
         except (OSError, ValueError, RuntimeError) as exc:
             if not args.complete:
                 raise
             host.fail_active(str(exc))
-            completion = {"status": "blocked", "reason": "operation_failed", "error": str(exc)}
+            completion = {"status": "blocked", "completed": False, "reason": "operation_failed", "error": str(exc)}
         result = {**host.result(), **completion}
         save(host.root, host.prefix + "/result.json", result)
         print(json.dumps({"result": host.prefix + "/result.json", "waiting": result["waiting"], **completion,
             "reviews": {scope: {key: review.get(key) for key in
-                ("reviews_complete", "unit_ready", "delivery_ready", "action_required", "open_issues",
-                 "human_acceptance_required")}
+                ("reviews_complete", "unit_ready", "delivery_ready", "action_required", "open_issues")}
                 for scope, review in result["reviews"].items()}}, ensure_ascii=False))
         if interrupted:
             return 130
         if args.complete:
-            return int(completion.get("status") != "ready_for_human")
+            return int(not completion["completed"])
         return int(bool(result["waiting"]) or any(e["outcome"] == "failed" for e in result["events"]))
 
 

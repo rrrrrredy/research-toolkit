@@ -316,7 +316,7 @@ CLI requests are JSON objects supplied by `--request` or stdin. Missing/unknown 
 
 A brief request is `{"task":"comparison","language":"en","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`. Review arguments include `task`, task-relative `evidence_paths`, optional `artifact` (default `final.md`) and `purpose`. The `status`, `guide`, `check-draft` and `finish` actions mirror MCP arguments. `check-draft` takes `task` and optional `artifact`, needs no delivery message and exits 1 on a failed check. JSON may also be supplied through stdin.
 
-`finish` exits 0 for `completed: true` and 1 for `completed: false`. When the machine checks pass for a new task, `action_required: "user_acceptance"` returns the current `input_version`. Present that report to the user, then pass its value as `accepted_input_version` only after the user accepts that version. A successful `review` preparation exits 0. Reuse `finish.delivery_check` on first delivery. To check retained completion later, run `python3 scripts/check_delivery.py <task-directory> --require-complete --json`. [Delivery contract](delivery-verification.md).
+`finish` exits 0 for `completed: true` and 1 for `completed: false`. After the current report passes independent final checking, call `finish` with the artifact and delivery message and deliver the complete report. A successful `review` preparation exits 0. Reuse `finish.delivery_check` on first delivery. To check retained completion later, run `python3 scripts/check_delivery.py <task-directory> --require-complete --json`. [Delivery contract](delivery-verification.md).
 
 <a id="reuse-task-files-and-retain-a-self-review-packet"></a>
 
@@ -425,7 +425,7 @@ For an existing task with source `S1` already registered, a request file can reu
 python scripts/research_host.py --host claude --workspace <task-store> --task study --request work.json --language en
 ```
 
-For a registered manuscript with a recorded producer, add `--complete` instead of the work-list request to run independent review and authorized revision to `ready_for_human`, or receive a specific blocker. The adapter limits simultaneous work and review turns to two by default. Use `--max-active` with a positive limit that fits the host. A ready result includes the current `input_version` for human acceptance.
+For a registered manuscript with a recorded producer, add `--complete` instead of the work-list request to run independent review and authorized revision through terminal delivery, or receive a specific blocker. The adapter limits simultaneous work and review turns to two by default. Use `--max-active` with a positive limit that fits the host. A successful run returns `status: "completed"` and `completed: true`.
 
 Use `--host opencode` or `--host codex` for those agent tools. Without the flag, selection uses `RESEARCH_TOOLKIT_HOST`, a recognized current-tool context, or a sole installed CLI. An ambiguous selection asks for `--host`; it never falls back to Codex. `--executable` accepts a native executable path when PATH only exposes a wrapper. No permission-bypass flag or model override is added.
 

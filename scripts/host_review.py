@@ -955,9 +955,14 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
         summary = {"stage": "review" if version_number == 3 else "final", "scope": "global_final_delivery", "result": "pass",
                    "basis": selected["acceptance"]["result_data"]["basis"], "open_issues": [],
                    "artifact_sha256": plan["artifact_sha256"], "contract_version": version_number,
-                   **({"human_acceptance_required": True} if version_number == 3 else {}),
                    "review_evidence": {k: r["response"] for k, r in selected.items()}}
-        if not history(root) or history(root)[-1] != summary:
+        rows = history(root)
+        previous_summary = rows[-1] if rows else {}
+        if version_number == 3:
+            # Previously stored summaries can carry extra metadata. An unchanged
+            # approval keeps its original review log and any receipt bound to it.
+            previous_summary = {key: previous_summary.get(key) for key in summary}
+        if previous_summary != summary:
             append(root, summary)
     evaluation_result = {}
     if evaluation:
@@ -980,7 +985,6 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
     return {"task_directory": str(root), "input_version": version, "scope": scope,
             "assignments": requests, "reviews_complete": all(s["slot_id"] in selected for s in slots if s["role"] == "reviewer"),
             "delivery_ready": delivery_ready,
-            **({"human_acceptance_required": delivery_ready} if version_number == 3 else {}),
             **({"submission_recorded": True} if host_result is not None else {}),
             "unit_ready": unit_ready, "completion_check": result,
             "action_required": action, "open_issues": result["findings"], **evaluation_result}

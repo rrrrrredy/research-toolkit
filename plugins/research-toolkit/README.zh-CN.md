@@ -10,7 +10,7 @@
 
 **[完整安装与使用说明](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md)** · [研究入口](SKILL.zh-CN.md) · [完整规范](references/research-standard.zh-CN.md)
 
-新建工具管理任务通过独立 Agent 分组审阅、审计和判断就绪，按宿主可用名额执行。用户明确验收当前报告后，`finish` 才记录完成。原生委派沿用宿主已有访问权限。
+新建工具管理任务通过独立 Agent 分组审阅、审计和判断就绪，按宿主可用名额执行。当前报告通过独立最终复查后，`finish` 记录完成，Agent 直接交付成稿。原生委派沿用宿主已有访问权限。
 
 新安装默认关闭基础使用记录。包内宿主 hooks 仅在开启记录后采集操作。研究报告分享需要单独授权。[使用数据与控制](docs/usage-data.zh-CN.md)。
 

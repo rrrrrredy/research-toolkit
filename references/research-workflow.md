@@ -78,7 +78,7 @@ Use `status` to recover effective requirements, current artifacts, research outp
 
 ### Delivery records
 
-`finish` creates the delivery message and receipt from the accepted current report and independent review, audit and acceptance records. It binds required inputs, sources and the real artifact version; changing a receipt cannot refresh an earlier review. Completed historical artifacts and receipts retain their original contract labels. When continuing research, preserve that history and complete the current independent responsibilities.
+`finish` creates the delivery message and receipt from the current report and its independent review, audit and final-check records. It binds required inputs, sources and the real artifact version; changing a receipt cannot refresh an earlier review. Completed historical artifacts and receipts retain their original contract labels. When continuing research, preserve that history and complete the current independent responsibilities.
 
 Detailed fields, portable references and historical formats are maintained in [delivery verification](../docs/delivery-verification.md) and [review completion](../docs/review-completion.md), rather than copied into the research method.
 

@@ -14,14 +14,14 @@ With the task tools, you can trace findings and revisions to their sources. The 
 
 ## How does a study get done?
 
-The lead agent maintains the research question, effective requirements and overall judgment. Research agents investigate, compare, calculate and write substantial parts. A designated assembling agent reads their full work and sources, reconciles the argument and develops the main report progressively. Independent agents review the draft, audit the findings and verify the revised report. The user reviews and accepts the finished report.
+The lead agent maintains the research question, effective requirements and overall judgment. Research agents investigate, compare, calculate and write substantial parts. A designated assembling agent reads their full work and sources, reconciles the argument and develops the main report progressively. Independent agents review the draft, audit the findings and verify the revised report. The lead agent delivers the complete report once the independent checks pass.
 
 | Responsibility | How the work connects |
 | --- | --- |
 | Task and context | Keep the current brief, outline, effective requirements and dependencies together. Satisfied requirements remain visible when they still constrain later work. |
 | Evidence and analysis | Give each researcher a bounded question, relevant original material and related findings. Preserve its evidence, reasoning, conditions and unresolved questions in the handoff. |
 | Writing and revision | Develop meaningful research units, review premises before dependent work, and integrate their complete analysis into one owned main draft. Changes return to affected units and the outline. |
-| Review and delivery | Three independent reviews cover all seven perspectives. Add relevant domain review, a separate audit and a final check. Agents handle corrections and send the current report to the user for acceptance. |
+| Review and delivery | Three independent reviews cover all seven perspectives. Add relevant domain review, a separate audit and a final check. Agents resolve necessary findings, verify the current report and deliver it. |
 
 These are four connected responsibilities, not four fixed agents or four independent pipelines. Codex, Claude Code and similar agent tools run the agents and carry messages; Toolkit provides shared inputs, methods, artifact relationships and completion checks. Native collaboration does not require separate API setup. For script-managed execution, the shared [Agent execution adapter](docs/usage-modes.md#agent-host-execution) connects to Claude Code, OpenCode or Codex, according to the current agent tool. [Research steps](docs/quickstart.md#research-from-scratch) · [Handoff and calls](docs/usage-modes.md#research-delegation-and-handoff)
 
@@ -35,7 +35,7 @@ flowchart LR
   V --> A[Independent audit]
   A --> F[Independent final check]
   A -->|Necessary correction| R
-  F --> D[User accepts the finished report]
+  F --> D[Deliver the complete report]
 ```
 
 ## Which should I use?
@@ -55,7 +55,7 @@ For a first use, start directly with the Skill. Add task tools when persistent s
 
 [Research from scratch](./docs/quickstart.md#research-from-scratch) · [Revise or update a report](./docs/quickstart.md#revise-or-update-a-report) · [Install for your agent tool](./agents/README.md#choose-your-tool) · [Install a fixed Skill version](./docs/installation-versioning.md#install-a-version-pinned-skill)
 
-**What happens on first use?** You can read the methods directly. Usage recording is off by default. With task tools the agent can queue review work within the host’s available capacity, revise and verify the report, then hand it to you for acceptance. See [usage data settings](./docs/usage-data.md) and [autonomous review](./docs/review-completion.md#run-the-review-and-revision-loop).
+**What happens on first use?** You can read the methods directly. Usage recording is off by default. With task tools the agent can queue review work within the host’s available capacity, revise and verify the report, and deliver the complete result. See [usage data settings](./docs/usage-data.md) and [autonomous review](./docs/review-completion.md#run-the-review-and-revision-loop).
 
 <a id="usage"></a>
 

@@ -13,7 +13,7 @@ The agent tool runs the agents. Toolkit prepares their inputs, preserves outputs
 | Three content review groups | Independent non-author contexts for requirements, structure and depth, and reader usefulness in one group, evidence and adversarial reasoning in one, and process language and natural expression in one. Each sees the current whole report and necessary originals. |
 | Domain review | Add a named specialist context when a consequential conclusion needs domain expertise. |
 | Audit | A different agent examines review validity, consequential findings and decisions, decisive report claims and samples of passed content. It can return necessary corrections. |
-| Final check | Another independent agent records its initial reading before receiving review verdicts, then reconciles its observations with the audit and actual revisions. The user accepts the finished version. |
+| Final check | Another independent agent records its initial reading before receiving review verdicts, then reconciles its observations with the audit and actual revisions. The agent delivers the checked version after any necessary corrections. |
 
 Authors, research contributors and the assembling agent are production participants. They may explain or correct their work but cannot fill independent assignments about it. Use actual agent task/session identities; changing a label within the author's context is not another agent. Models may be the same.
 
@@ -117,13 +117,13 @@ To register `reports/current.md` after saving its evidence and requirements, pas
 
 Use a JSON object with optional `artifact`, `evidence_paths` and `domains`. `writer_handoff_from` is for an authorized transfer when the recorded writer cannot continue. Two active turns are allowed by default. A host with one active turn can run the independent assignments in sequence. Each assignment retains its own context and original result. The host must support independent execution. See [supported hosts](usage-modes.md#agent-host-execution).
 
-The coordinator queues the work, sends verified corrections to one writer and resumes affected independent work on the changed version. It reports `ready_for_human` with the checked artifact and `input_version`. A blocked status identifies the unfinished work. The user is only asked to accept the resulting report.
+The coordinator queues the work, sends verified corrections to one writer and resumes affected independent work on the changed version. On success, `--complete` returns `status: "completed"` and `completed: true`, and the coordinator delivers the checked report. A blocked status identifies the unfinished work.
 
 The first final check uses a fresh blind reading followed by reconciliation. When that checker sends a report back for correction, a new draft with the same scope, requirements and original sources can return to the same checker after the current audit passes. The checker reads the whole revised report and checks the changes and previous issues. The result is bound to the new version. A changed scope or source set, or an unavailable checker, starts a new blind reading.
 
 ## Completion and recovery
 
-After the user explicitly accepts the checked v3 report, pass its `input_version` in `accepted_input_version` to `research_finish`, along with the current `artifact` and `message` (or `delivery_message`). The operation checks current evidence and independent responsibilities before writing the terminal receipt. Before approval it returns `user_acceptance` and leaves delivery open.
+After the current report passes independent final checking, pass the current `artifact` and `message` (or `delivery_message`) to `research_finish`. The operation verifies the current evidence and independent results, writes the terminal receipt and returns `completed: true`.
 
 For inspection of a managed task:
 

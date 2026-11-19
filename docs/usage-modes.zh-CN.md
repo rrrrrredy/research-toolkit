@@ -315,7 +315,7 @@ CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知
 
 需求请求的格式为 `{"task":"comparison","language":"zh","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`。评审参数包括 `task`、任务内相对路径 `evidence_paths`，以及可选的 `artifact`（默认 `final.md`）和 `purpose`。`status`、`guide`、`finish` 对应同名 MCP 工具的参数。也可通过标准输入提供 JSON。
 
-`finish` 返回 `completed: true` 时退出 0，返回 `completed: false` 时退出 1。新任务通过机器检查后，`action_required: "user_acceptance"` 会给出当前 `input_version`。向用户展示该版本的报告，取得明确验收后才以 `accepted_input_version` 传入。成功准备独立任务的 `review` 退出 0。首次交付复用 `finish.delivery_check`，事后可用 `python3 scripts/check_delivery.py <task-directory> --require-complete --json` 只读复核。[交付契约](delivery-verification.zh-CN.md)。
+`finish` 返回 `completed: true` 时退出 0，返回 `completed: false` 时退出 1。当前报告通过独立最终复查后，将成稿与交付说明传给 `finish`，随后交付完整报告。成功准备独立任务的 `review` 退出 0。首次交付复用 `finish.delivery_check`，事后可用 `python3 scripts/check_delivery.py <task-directory> --require-complete --json` 只读复核。[交付契约](delivery-verification.zh-CN.md)。
 
 <a id="复用任务文件并保存自评材料"></a>
 
@@ -424,7 +424,7 @@ Agent 工具的原生子 Agent 已能执行同一份任务，并通过 CLI／MCP
 python scripts/research_host.py --host claude --workspace <task-store> --task study --request work.json --language zh
 ```
 
-已经登记主稿和实际生产者时，可用 `--complete` 替代工作列表请求，让独立审阅和获授权的修订推进到 `ready_for_human`，或返回具体阻塞。适配器默认同时运行两个工作或审阅轮次。用 `--max-active` 指定宿主能容纳的正整数。就绪结果提供人工验收所需的当前 `input_version`。
+已经登记主稿和实际生产者时，可用 `--complete` 替代工作列表请求，让独立审阅和获授权的修订推进到交付完成，或返回具体阻塞。适配器默认同时运行两个工作或审阅轮次。用 `--max-active` 指定宿主能容纳的正整数。成功时返回 `status: "completed"` 和 `completed: true`。
 
 使用 OpenCode 或 Codex 时，分别传 `--host opencode` 或 `--host codex`。省略该参数时，依次采用 `RESEARCH_TOOLKIT_HOST`、可识别的当前 Agent 工具环境，或唯一已安装的 CLI。无法唯一确定时返回 `--host` 的正确写法，不兜底选择 Codex。PATH 只有包装脚本时，可用 `--executable` 指定原生可执行文件。适配器不添加跳过权限的参数，也不覆盖模型选择。
 
