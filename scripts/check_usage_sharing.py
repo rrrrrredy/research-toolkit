@@ -2,10 +2,12 @@
 """Exercise usage and sharing CLIs against an isolated loopback receiver."""
 from __future__ import annotations
 
+from contextlib import closing
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import json
 import os
 from pathlib import Path
+import sqlite3
 import subprocess
 import sys
 import tempfile
@@ -31,6 +33,11 @@ def verify(workspace, endpoint, received):
     def usage_command(*args, environment=env):
         return run("usage_events.py", *args, environment=environment)
 
+    def check_inactive_hook():
+        result = subprocess.run([sys.executable, str(SCRIPTS / "usage_host.py"), "--host", "codex"],
+                                input=b"malformed hook payload", env=env, capture_output=True, timeout=15, check=True)
+        assert not result.stdout and not result.stderr
+
     def deliver(task, report):
         task.mkdir(parents=True, exist_ok=True)
         (task / "final.md").write_text(report + "\n", encoding="utf-8")
@@ -47,6 +54,14 @@ def verify(workspace, endpoint, received):
     assert disabled == {"status": "disabled"} and not usage.exists() and not received
 
     install_args = ("--host", "codex", "--project", project, "--channel", "manual")
+    fresh = usage_command("status")
+    assert fresh["enabled"] is False and fresh["pending_events"] == 0
+    inactive = run("install_usage.py", *install_args)
+    assert not inactive["configuration_changed"] and "usage_notice" not in inactive
+    check_inactive_hook()
+    assert not (project / ".codex").exists() and not usage.exists() and not received
+
+    usage_command("on")
     installed = run("install_usage.py", *install_args)
     assert installed["configuration_changed"] and installed["usage_notice"]["receiver"] == endpoint
     reused = run("install_usage.py", *install_args)
@@ -74,6 +89,11 @@ def verify(workspace, endpoint, received):
     assert deliver(first, "A report queued under the project grant.")["status"] == "already_queued"
     assert deliver(second, "A second report under the project grant.")["status"] == "queued"
     assert deliver(other, "A report in the sibling directory.")["status"] == "queued"
+    usage_command("off")
+    assert usage_command("status")["enabled"] is False
+    check_inactive_hook()
+    preserved = run("install_usage.py", *install_args)
+    assert not preserved["configuration_changed"] and "usage_notice" not in preserved
     assert usage_command("status")["pending_content"] == 3
 
     usage_command("share", "--task-root", first, "--project-root", alpha, "--decision", "decline")
@@ -88,6 +108,25 @@ def verify(workspace, endpoint, received):
     assert deliver(other, "A new sibling report awaiting transfer.")["status"] == "ask"
     usage_command("flush")
     assert len(content_received()) == 2
+
+    # Model a pre-upgrade saved off with a dormant, previously confirmed grant.
+    usage_command("share", "--task-root", other, "--project-root", project,
+                  "--decision", "reports", "--file", "final.md", "--confirm-content")
+    with closing(sqlite3.connect(usage / "usage.sqlite3")) as db, db:
+        db.execute("PRAGMA foreign_keys = ON")
+        db.execute("DELETE FROM settings WHERE key='legacy_sharing_paused' OR key LIKE '%.sharing_resumed'")
+        db.execute("DELETE FROM content")
+    assert deliver(other, "A report in a legacy paused scope.") == {"status": "disabled"}
+    usage_command("share", "--task-root", other, "--file", "final.md", "--confirm-content")
+    usage_command("flush")
+    assert content_received()[-1] == "A report in a legacy paused scope."
+    assert deliver(other, "An unchanged old authorization cannot auto-share.") == {"status": "disabled"}
+    usage_command("share", "--task-root", other, "--project-root", project,
+                  "--decision", "reports", "--file", "final.md", "--confirm-content")
+    assert deliver(other, "A report with an explicitly renewed grant.")["status"] == "queued"
+    usage_command("flush")
+    assert content_received()[-1] == "A report with an explicitly renewed grant."
+    assert sum(len(packet["events"]) for route, packet in received if route == "/v1/events") == 1
 
 
 def main():
@@ -123,7 +162,7 @@ def main():
             finally:
                 server.shutdown()
                 thread.join()
-    print("PASS: first-use notice, one-time sharing, scope precedence and pending withdrawal over loopback.")
+    print("PASS: opt-in metadata and hooks, independent content consent, legacy pause, scope precedence and withdrawal over loopback.")
 
 
 if __name__ == "__main__":

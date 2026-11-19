@@ -10,10 +10,10 @@ Agent 工具运行 Agent，Toolkit 准备输入、保存产出并返回仍待完
 
 | 任务 | 独立职责 |
 | --- | --- |
-| 七项内容视角 | 需求、证据、对抗推理、结构与深度、读者用途、过程语言、自然表达，各由一个非作者的新上下文负责；每位都看到完整当前报告及必要原件。 |
-| 领域专审 | 核对任务所需的专业知识、计算、术语或技术前提，补充基础视角。 |
+| 三个内容评审组 | 独立于作者的上下文分别负责需求、结构深度和读者用途；证据与对抗推理；去过程化和自然表达。各组阅读完整现稿和必要原件。 |
+| 领域专审 | 有会改变结论的专业判断时，按实际领域另派独立专家。 |
 | 审计 | 另一位独立 Agent 检查审阅有效性、重要发现及其处置、决定性判断，并抽查已通过内容，指出仍需修正的问题。 |
-| 最终验收 | 再由一位独立 Agent 阅读完整当前稿、有效要求、审计及实际修改，再决定是否可交付。 |
+| 最终复查 | 独立 Agent 先看现稿并记录自己的问题，再对照审计和实际修改逐条核对。独立复查通过后，Agent 交付成稿。 |
 
 作者、研究贡献者和统稿者属于生产参与者，可以解释或修订自己的成果，不能审自己的成果。使用真实 Agent 任务／会话身份；在作者上下文换一个角色标签不算新 Agent，模型则可以相同。
 
@@ -45,7 +45,7 @@ Agent 工具运行 Agent，Toolkit 准备输入、保存产出并返回仍待完
 
 返回的 `assignments` 每项提供 `slot_id`、`role`、`assignment_ref`、`assignment_version`，本次操作另有 `input_version`。原始 JSON 回复须带回两个版本。原始执行记录包含 `host_task`、`status: "completed"`、`assignment_version` 及实际观察到的 Agent 工具事件，必须来自产生该回复的实际执行。
 
-`scope` 默认是 `full_report`；`domains` 指定领域专审名称，新全稿计划默认 `["domain"]`，始终包含七项基础视角。前段单元审阅将已登记 `unit_id` 作为 `scope`，在现有 `perspectives` 中选择相关视角。新单元默认 `domains: []`；后续调用省略 `perspectives` 或 `domains` 时，各自保留此前的选择，不必随每次回复重复填写。显式传值仍可调整配置；单元审阅不减少最终全稿职责。
+`scope` 默认是 `full_report`。新 v3 全稿计划由三个评审组覆盖七项视角，`domains` 默认 `[]`，按报告实际需要指定专业领域。前段单元审阅将已登记 `unit_id` 作为 `scope`，用 `perspectives` 选择相关视角。接续调用省略这些可选项时沿用已有选择。全稿仍需完成自己的审阅。
 
 单元的必要发现或有据不改回应需要独立裁定时，在同一 `research_review` 调用中使用 `audit: true`。该输入已有的内容审阅继续有效，下一项任务是单元审计。开启后，后续调用保留这项责任，不能通过 `audit: false` 撤掉；单元不会因此增加最终验收。全稿始终需要审计。单元审计核对 `applicable_requirements`，包括全局要求、明确分配给本单元或其上游依赖的要求；全部有效要求仍可回读。
 
@@ -61,7 +61,7 @@ Agent 工具运行 Agent，Toolkit 准备输入、保存产出并返回仍待完
 
 计划与结果绑定稿件及所需输入版本。任务中继续保留输入、指令快照、原始回复和执行记录；文本哈希仅规范换行，不改写原研究记录。文件引用须位于任务内并匹配其哈希。
 
-当前任务使用 `progress.review_contract: 2` 和 `review_plan.contract_version: 2`。已有 `logs/review.jsonl` 保留 `model_review`、`review_audit`，并增加独立的 `final_acceptance` 记录。这些是审阅契约标识，与交付检查器的契约编号分别管理。
+新全稿任务使用 `progress.review_contract: 3` 和 `review_plan.contract_version: 3`。已保存的 v2 任务沿用七路分派及原交付规则。原始评审回复和 v3 新阶段保留在现有审阅日志及冻结任务里。审阅契约编号与交付检查器编号分别管理。
 
 实质修改后保存新稿或来源版本，使用 `revision: true` 处理受影响审阅，保留之前的任务和回复。最终全稿验收覆盖交付正文；历史结果表示当时检查过什么，不自动批准后来的文字。
 
@@ -83,6 +83,10 @@ Agent 工具运行 Agent，Toolkit 准备输入、保存产出并返回仍待完
 
 审计者读取完整当前稿、要求、审阅结果和相关原件，从这些内容中选择检查项，不只接收作者挑出的片段。
 
+v3 的 `audit_scaffold` 自动列出实际意见编号、位置、可能重复的意见及应核查内容。审计 Agent 确认哪些意见可以共用一次裁定。对同一处提出同一个问题的意见只查一次。在 `disposition_groups` 中写一份证据和裁定，包含 `finding_ids`、`decision`、`reason`、`evidence`。旧稿意见可用 `prior_finding_groups`。工具验证每条原始编号恰好被覆盖一次，并保留意见原文和裁定。`review --summary` 只列进度、数量和下一步。
+
+影响交付的分歧若还缺依据，审计 Agent 用 `verification_requests` 安排一项针对性核验。新的 Agent 先看这个问题和原件，再由审计 Agent 根据返回的依据判断。四路一致和一路提出都需要有证据。
+
 关键要求、决定性结论、关键数字与引用、重要反证、重大问题、重要不改决定，以及会影响成果的已修正主张，都应核查。其他已通过／未报问题的内容按实际研究选择样本，覆盖支线到主稿的转换、必要限定及跨章节判断。
 
 每个选择保留位置、原因、所看证据和结果。不用固定首尾／哈希选段或抽样比例代替判断。发现问题后按原因扩查，例如同一来源、指标、支线或改写方式，直到查清受影响工作并解决必要问题。此工作由已有审计任务承担，不新增抽查角色或评分体系。
@@ -91,9 +95,35 @@ Agent 工具运行 Agent，Toolkit 准备输入、保存产出并返回仍待完
 
 使用 `purpose=evaluation` 时，保留样本原稿，在同一输入上完成独立评估。有效负例可以返回 `evaluation_complete: true` 和 `evaluation_verdict: "needs_revision"`，有效正例返回 `"pass"`。报告交付有单独的资格判定，使用 `purpose=report_delivery`。
 
+## 自动运行审阅和改稿
+
+已有登记稿件后，协调 Agent 可以用当前宿主运行：
+
+```bash
+python3 scripts/research_host.py --workspace ./tasks --task study --host codex --complete --max-active 2 --request study-review.json
+```
+
+来源和要求已保存后，把下面的 JSON 交给 `research_workflow.py save --workspace ./tasks --request save-draft.json` 登记主稿。将示例 `host_task` 换为实际写稿会话 ID。
+
+```json
+{"task":"study","draft":{"path":"reports/current.md","main":true,"complete":true,"host_task":"actual-writer-session-id"}}
+```
+
+`study-review.json` 用 `artifact` 指向同一个相对路径。请求文件支持带 BOM 的 UTF-8。
+
+```json
+{"artifact":"reports/current.md","evidence_paths":["sources/primary.md"],"domains":[]}
+```
+
+请求是 JSON 对象，可填 `artifact`、`evidence_paths` 和 `domains`。原作者上下文无法继续且已有移交授权时，使用 `writer_handoff_from`。默认同时运行两个任务；只有一个名额也能让独立上下文依次处理。每项任务照常保留真实上下文和原始回复。宿主需要具备独立执行能力。见[支持的宿主](usage-modes.zh-CN.md#agent-host-execution)。
+
+协调 Agent 负责排队，把审计确认的修改交给一个写作者，并对改动发起独立复查。成功时，`--complete` 返回 `status: "completed"` 和 `completed: true`，随后交付已核查的报告。受阻时说明哪项工作还未完成。
+
+第一次最终复查先盲读，再核对审计。若复查者退回修改，且范围、需求和原始资料都一致，修订稿通过当前审计后交回原复查者。它阅读完整新稿，核对差异和自己提出的问题，结论绑定新稿版本。范围或资料有变化，或原复查会话无法接续时，重新安排盲读。
+
 ## 完成与恢复
 
-`research_finish` 检查当前报告、有效要求和独立职责是否完成，再写最终状态及回执。作者不手写一条全局 PASS 或替代回执关闭缺失工作。
+当前报告通过独立最终复查后，将 `artifact` 和交付说明 `message`（也可用 `delivery_message`）传给 `research_finish`。工具核对当前证据和独立审阅结果，写入最终回执，并返回 `completed: true`。
 
 查看工具任务时可运行：
 

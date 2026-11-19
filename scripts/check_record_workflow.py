@@ -314,11 +314,11 @@ class RecordWorkflowTests(unittest.TestCase):
         self.assertNotIn('activity', w.status(workspace, 'full'))
         resumed = w.review(workspace, "full", ["source.md"], config=config, runner=runner)
         self.assertTrue(resumed['delivery_ready'], resumed)
-        self.assertEqual(len(calls), 11)  # One interrupted transport; ten completed independent assignments.
+        self.assertEqual(len(calls), 7)  # One interrupted transport and six completed assignments.
         self.assertEqual(failed.read_bytes(), failed_bytes)
         history = (root/'logs/review.jsonl').read_bytes()
         self.assertTrue(w.review(workspace, 'full', ['source.md'], config=config, runner=runner)['delivery_ready'])
-        self.assertEqual(len(calls), 11)
+        self.assertEqual(len(calls), 7)
         self.assertEqual((root/'logs/review.jsonl').read_bytes(), history)
         self.assertNotIn('activity', w.status(workspace, 'full'))
         self.assertIsNone(capture_usage({"format": "json", "stdout": "{}"}))

@@ -47,7 +47,9 @@ def verify_readme_example(base):
         assert draft["main"] is True and draft["host_task"] == "synthetic-example-author"
         pending = json.loads((output / "review-request.json").read_text(encoding="utf-8"))
         assert not pending.get("delivery_ready") and pending["action_required"]
-        assert len(pending["assignments"]) >= 7
+        assert {assignment["slot_id"] for assignment in pending["assignments"]} == {
+            "requirements_and_usefulness", "evidence_and_reasoning", "process_and_expression",
+        }
         progress = json.loads((output / "tasks/shipment-note/state/progress.json").read_text(encoding="utf-8"))
         assert progress["current_artifact"]["owner"] == "synthetic-example-author"
         assert progress["current_artifact"]["path"] == "final.md"
@@ -150,7 +152,13 @@ async def verify(base):
         ready = await call("research_start", {"task": "case", "brief": BRIEF})
         assert ready["ready_for_collection"] and ready["review_readiness"]["status"] == "host_native"
         root = Path(ready["task_directory"])
-        assert json.loads((root/"state/progress.json").read_text(encoding="utf-8"))["review_contract"] == 2
+        progress_path = root / "state/progress.json"
+        progress = json.loads(progress_path.read_text(encoding="utf-8"))
+        assert progress["review_contract"] == 3
+        # Keep the existing eight-role transcript as a saved v2 continuation.
+        # The native host scenario covers new v3 report delivery.
+        progress["review_contract"] = 2
+        progress_path.write_text(json.dumps(progress), encoding="utf-8")
         # A valid in-progress task passes consistency checking, not completion.
         ordinary = cli("check_delivery.py", root, "--json")
         assert ordinary["ok"] and not ordinary["terminal_state"]
@@ -395,9 +403,10 @@ async def verify(base):
                                           review_args=evaluation_args)
             assert evaluation['evaluation_complete'] and evaluation['evaluation_verdict'] == verdict, evaluation
             assert evaluation['action_required'] is None and not evaluation['delivery_ready'], evaluation
-            assert evaluation['completion_check']['completed_slots'] == 10, evaluation
+            assert evaluation['completion_check']['completed_slots'] == 6, evaluation
             cli_evaluation = cli('research_workflow.py', 'review', '--workspace', workspace, request=evaluation_args)
-            assert cli_evaluation == evaluation
+            assert evaluation.get('submission_recorded') is True
+            assert cli_evaluation == {key: value for key, value in evaluation.items() if key != 'submission_recorded'}
             finish = cli('research_workflow.py', 'finish', '--workspace', workspace,
                          request={'task': label, 'message': 'Report is complete.'}, expected_exit=1)
             assert 'report_delivery' in finish['error'], finish
@@ -413,7 +422,7 @@ async def verify(base):
             "positive_and_negative_evaluations_complete_without_delivery": True,
             "previously_saved_inline_and_shared_role_inputs_resume": True},
         "command": "python scripts/check_mcp_contract.py", "artifacts": str(base)}, indent=2), encoding="utf-8")
-    print("PASS: v2 packaged MCP stdio, independent perspectives/audit/acceptance, preserved failure and negative results, rejected author clearance, source binding and stale delivery.")
+    print("PASS: packaged MCP stdio, retained v2 plans, v3 review and evaluation, execution capture, source binding and stale delivery.")
     print("Retained control artifacts: " + str(base))
 
 

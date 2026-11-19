@@ -8,7 +8,7 @@ The [compatibility policy](compatibility.md) explains the current completion con
 
 ## Use the research methods
 
-Read the methods directly; Skill/MCP installation is optional. Separately, in Codex, Claude Code and OpenCode, the agent configures default basic-event recording from a complete local copy with Python 3.10+, reusing effective configuration or plugin hooks and preserving off settings. Apply loading steps only for new or changed configuration; unchanged files alone do not establish session activation. Report a pending first load as pending. Setup failure or pending loading does not block research. Recording can be disabled and excludes prompts, research titles, conversations, reports and local paths. [Setup and loading](usage-data.md).
+Read the methods directly or install the Skill and MCP as needed. New installations leave basic usage recording off, preserving existing on/off choices. If the user chooses to record Agent sessions, configure project hooks as needed. [Usage data and controls](usage-data.md).
 
 - **Repository link:** send the [research request](https://github.com/rrrrrredy/research-toolkit/blob/main/README.md#usage) to an agent that can read GitHub.
 - **Files or attachments:** download the repository, provide `SKILL.md`, and make the required reference files available.
@@ -155,22 +155,15 @@ CI exercises the CLI and packaged MCP workflow on Python 3.10/Linux, plus the br
 
 ## Install the plugin
 
-The [plugin directory](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/) bundles the Skill, methods and local MCP server. Use your agent tool's supported plugin installation mechanism; [agent setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md) has tool-specific instructions. Install `requirements-mcp.txt` in the Python environment that starts MCP, then confirm the nine `research_*` tools are available.
+Use the complete unpacked [version-pinned release package](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/installation-versioning.md#install-a-version-pinned-skill) with your agent tool's plugin installation mechanism. It bundles the Skill, methods and local MCP server. Install `requirements-mcp.txt` in the Python environment that starts MCP, then confirm the nine `research_*` tools are available.
 
-Describe the topic, reader and expected result; the agent assembles the brief and asks only about critical missing choices. The package follows the [portable plugin specification](https://developers.openai.com/plugins/build/plugins). Research runs locally; the separate usage receiver handles basic events. Format support depends on the agent tool. Plugin hooks, where supported and trusted, observe Toolkit sessions using the [same collector](usage-data.md).
+Describe the topic, reader and expected result so the agent can assemble the brief. The package follows the [portable plugin specification](https://developers.openai.com/plugins/build/plugins). Research runs locally. Supported plugin hooks send basic events only when [recording is enabled](usage-data.md).
 
 ## Connect MCP separately
 
 Skip this section if you installed the plugin and its tools are available.
 
-Clone the repository, install its dependency in the Python environment your client will use, and connect the server:
-
-```bash
-git clone https://github.com/rrrrrredy/research-toolkit.git
-cd research-toolkit
-```
-
-Use Python 3.10+ in a dedicated virtual environment. From the cloned repository:
+Use the same unpacked release package or a source checkout. From that directory, use Python 3.10+ in a dedicated virtual environment and install the dependency in the interpreter your client will use.
 
 **macOS / Linux**
 
@@ -258,11 +251,11 @@ Reviews retain the full task, report and relevant source files, not just URLs. N
 
 ### Review with native agents
 
-Use the subagent capability already present in Codex, Claude Code or the chosen agent tool. `research_review` prepares assignments and binds the complete task, report and original evidence. The agent tool starts a different independent agent for each base perspective and the relevant domain review; it then runs independent audit and final acceptance. The author and assembling agents do not fill these assignments. No API configuration is needed for this route.
+Use the subagent capability already present in Codex, Claude Code or the chosen agent tool. `research_review` prepares assignments and binds the complete task, report and original evidence. Run independent review, audit and readiness assessment in stages that fit the available slots. The author and assembling agents stay outside these independent contexts. Native delegation uses the agent tool's existing access.
 
-The seven base perspectives are requirements, evidence, adversarial reasoning, structure and depth, reader usefulness, process language and natural expression. They are separate review contexts. Models may be the same; context and production responsibility must be distinct. The [review contract](review-completion.md) specifies the assignments, original results and current-version completion.
+New full reports use three independent contexts covering all seven perspectives. Group requirements with reader usefulness, evidence with adversarial reasoning, and structure and depth with process language and natural expression. Add relevant specialist review. Each finding retains its perspective. Start further assignments when slots free up. The [review contract](review-completion.md) specifies the roles and retained results.
 
-The agent tool preserves each actual response and its execution record, then submits their paths through the existing `review` operation. Once the required content results exist, the next assignment is independent audit; final acceptance follows the resolved report and audit. If a task needs an early review of a research unit, identify that unit. Its result supports dependent work and does not replace full-report review.
+Submit each actual response and execution record through `review`. The readiness agent first examines the complete report independently of the other findings and then reconciles with the audit and actual fixes. The audit may call for fresh verification of consequential unresolved findings. For an early review, identify its research unit and keep that evidence separate from whole-report assessment.
 
 ### Optional configured execution
 
@@ -323,7 +316,7 @@ CLI requests are JSON objects supplied by `--request` or stdin. Missing/unknown 
 
 A brief request is `{"task":"comparison","language":"en","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`. Review arguments include `task`, task-relative `evidence_paths`, optional `artifact` (default `final.md`) and `purpose`. The `status`, `guide`, `check-draft` and `finish` actions mirror MCP arguments. `check-draft` takes `task` and optional `artifact`, needs no delivery message and exits 1 on a failed check. JSON may also be supplied through stdin.
 
-`finish` exits 0 only for `completed: true`; `completed: false` exits 1 even with `action_required`. CLI and MCP callers should handle the concrete returned gaps. A `review` call that successfully prepares independent assignments keeps exit 0. Reuse `finish.delivery_check` on first delivery; for a later read-only completion check, run `python3 scripts/check_delivery.py <task-directory> --require-complete --json`. The default checker can pass valid in-progress records. See the [delivery contract](delivery-verification.md); pure Skill use does not require these commands or records.
+`finish` exits 0 for `completed: true` and 1 for `completed: false`. After the current report passes independent final checking, call `finish` with the artifact and delivery message and deliver the complete report. A successful `review` preparation exits 0. Reuse `finish.delivery_check` on first delivery. To check retained completion later, run `python3 scripts/check_delivery.py <task-directory> --require-complete --json`. [Delivery contract](delivery-verification.md).
 
 <a id="reuse-task-files-and-retain-a-self-review-packet"></a>
 
@@ -431,6 +424,8 @@ For an existing task with source `S1` already registered, a request file can reu
 ```bash
 python scripts/research_host.py --host claude --workspace <task-store> --task study --request work.json --language en
 ```
+
+For a registered manuscript with a recorded producer, add `--complete` instead of the work-list request to run independent review and authorized revision through terminal delivery, or receive a specific blocker. The adapter limits simultaneous work and review turns to two by default. Use `--max-active` with a positive limit that fits the host. A successful run returns `status: "completed"` and `completed: true`.
 
 Use `--host opencode` or `--host codex` for those agent tools. Without the flag, selection uses `RESEARCH_TOOLKIT_HOST`, a recognized current-tool context, or a sole installed CLI. An ambiguous selection asks for `--host`; it never falls back to Codex. `--executable` accepts a native executable path when PATH only exposes a wrapper. No permission-bypass flag or model override is added.
 

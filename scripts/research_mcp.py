@@ -37,20 +37,20 @@ WORKSPACE = workflow.workspace_default()
 TASK_LOCKS = defaultdict(threading.Lock)
 
 
-def call(function, *args):
+def call(function, *args, **kwargs):
     try:
         from usage_events import observed_call
-        return observed_call(function, args, entry="mcp")
+        return observed_call(function, args, kwargs, entry="mcp")
     except (ValueError, OSError, KeyError, TypeError) as exc:
         raise ToolError(str(exc)) from None
 
 
-def mutate(function, task, *args):
+def mutate(function, task, *args, **kwargs):
     lock = TASK_LOCKS[task]
     if not lock.acquire(blocking=False):
         raise ToolError("This task already has an active operation. Wait for it to finish; do not start duplicate reviews.")
     try:
-        return call(function, WORKSPACE, task, *args)
+        return call(function, WORKSPACE, task, *args, **kwargs)
     finally:
         lock.release()
 
@@ -172,8 +172,8 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
                           scope: str = "full_report", perspectives: list[str] | None = None,
                           domains: list[str] | None = None, audit: bool | None = None) -> dict[str, Any]:
     """Prepare independent assignments or receive the agent tool's actual completed result; no API setup is needed.
-    The agent tool dispatches distinct non-author agents: seven whole-report perspectives and domain review,
-    then an independent audit with independently selected samples, then independent final acceptance.
+    The agent tool dispatches distinct non-author agents: three assignments covering seven whole-report perspectives,
+    applicable specialist review, independent audit and a separate readiness check. Existing plans retain their roles.
     host_result uses slot_id, host_task (actual session handle), response_path and execution_path (task-relative
     original UTF-8 response and completed execution capture). Original responses quote input_version and assignment_version.
     execution_path records host_task, status=completed and assignment_version. Do not fabricate responses or identities.
@@ -187,7 +187,7 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
     For progressive work set scope to a saved unit_id and artifact to its draft; perspectives selects relevant unit reviews.
     New units default to no domain review; domains supplies needed specialist perspectives. audit=True adds independent
     unit adjudication when needed, retaining existing content results. An enabled audit cannot be removed; full reports
-    always require audit and final acceptance. Main drafts must have their actual producer registered via save draft.host_task.
+    always require audit and a separate readiness check. Main drafts must have their actual producer registered via save draft.host_task.
     Revision assignments reference earlier reviews, frozen inputs and changed locations; these are reading aids, not current PASS.
     For report delivery, address necessary corrections with revision=True and preserve the original negative review.
     For purpose=evaluation, a valid positive or negative assessment completes the evaluation. Read evaluation_complete
@@ -201,19 +201,20 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
 
 
 @server.tool(structured_output=True)
-async def research_finish(task: str, message: str, artifact: str = "final.md") -> dict[str, Any]:
+async def research_finish(task: str, message: str | None = None, artifact: str = "final.md",
+                          delivery_message: str | None = None) -> dict[str, Any]:
     """Verify report delivery and publish its receipt/terminal state only when checks pass.
-    Current work requires completed independent perspectives, audit and acceptance bound to the current full artifact.
-    Complete the independent review, audit and acceptance for the current report.
+    Current work requires independent agent review, audit and final verification of the current full artifact.
     Explicit length_constraint rows in state/requirements.jsonl are measured; no limit is inferred from prose.
-    message is the intended user-visible delivery text. This does not send messages or publish externally.
+    message (also delivery_message) is the intended user-visible delivery text. This does not send or publish it.
     completed=false means unfinished, even with action_required; address the returned gaps before delivery.
     completed=true includes the delivery_check already performed; do not immediately repeat it.
     To recheck retained completion later, use check_delivery.py <task-directory> --require-complete.
     Independent audit adjudicates no-change decisions; an author's appended disposition cannot clear required findings.
     Evaluation tasks end with evaluation_complete from research_review, without repairing samples.
     """
-    return await asyncio.to_thread(mutate, workflow.finish, task, message, artifact)
+    return await asyncio.to_thread(mutate, workflow.finish, task, message, artifact,
+                                   delivery_message=delivery_message)
 
 
 @server.tool(structured_output=True)

@@ -39,7 +39,7 @@ Send material changes to affected agents explicitly. A subagent's launch snapsho
 
 For a full comparison, read both current documents across the requested scope; differences in summaries are only leads. For a bounded revision with a reliable baseline, read the complete diff, changed passages with context, affected sources and requirements, and open findings. The reviewer receives the current full artifact and the precise changed scope; a local recheck is not relabelled as a new full review. Missing baseline coverage must actually be read.
 
-Use separate native contexts for independent review. All production identities remain distinct from the seven base perspectives, domain reviewers, auditor and final acceptor. Preserve actual execution identity, original response and exact assignment when importing agent output. Never fabricate historical execution details or copy a prior PASS onto a changed artifact.
+Use separate native contexts for independent review. All production identities remain distinct from the grouped content reviews, domain reviewers, auditor and final independent checker. Preserve actual execution identity, original response and exact assignment when importing agent output. Never fabricate historical execution details or copy a prior PASS onto a changed artifact.
 
 The existing independent reviewer checks affected changes; the auditor examines disputes, important no-change decisions and repairs; final acceptance reads the current complete report. The [role methods](subagents-and-review-loop.md) determine their responsibilities. A coordinator or author cannot clear required findings merely by updating a status.
 

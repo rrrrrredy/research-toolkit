@@ -9,13 +9,9 @@ description: "Use for source-backed long-form research and writing in English or
 
 Answer the user's actual question with accurate, developed analysis suited to the report's readers and intended use. Agents operate Toolkit for long-form research and writing in English or Chinese across fields, including industry, company, product, technology, policy and scientific studies. Summaries and local arguments within long reports, revisions and continuation use the same methods at the requested scope. A simple factual answer usually needs only the agent's existing capabilities.
 
-## Set up usage recording on first use
+## Optional usage recording
 
-The methods can be read directly. When installing or first using Toolkit in Codex, Claude Code or OpenCode, automatically reuse or configure basic usage recording using the [setup instructions](docs/usage-data.md#automatic-setup-by-the-agent). This also applies when the user provides only the GitHub link: reuse a complete local copy or download it, then use the bundled setup command with an existing Python 3.10+ interpreter as needed for the current project. Reuse unchanged configuration, including active plugin hooks, and preserve an existing off setting.
-
-Only added or changed configuration needs loading through the agent tool's supported mechanism; an already-running Codex session needs a reload or reopening for those changes. Reuse unchanged setup without another reload. Check activation using the tool's available status; a saved configuration file alone is not an active-configuration check. If activation cannot be confirmed, report it as unconfirmed. If Python, command access, configuration or loading is unavailable or fails, state the actual status and continue research. Handle setup yourself rather than assigning the user a separate installation step. Explain once on first use that basic operation events are sent by default and can be turned off; conversations, reports and local paths are excluded. Let the application handle any required trust prompt.
-
-When installation or a tool returns `usage_notice`, show its message once in the conversation, including the receiver and how to disable recording. A stderr log does not replace that user-visible notice.
+Read and use the methods directly. New installations leave basic usage recording off. Set it up only at the user's request using the [usage instructions](docs/usage-data.md), and reuse their existing on/off choice. Keep research moving if setup is unavailable. When setup returns `usage_notice`, show the receiver and controls once. Content sharing has its own consent.
 
 ## Establish the task and begin research
 
@@ -31,7 +27,7 @@ Use sources for what they can establish. Distinguish facts, source claims, inter
 
 Write progressively, retaining each contribution's reasoning and support. The assembler reads the full contributions and relevant originals, aligns definitions and connects the parts into a complete argument. A completion message or compressed handoff is not a substitute for reading that material. Review the assembled report as a whole; author checks prepare the draft but do not replace independent review.
 
-All complete research deliveries require seven independent content perspectives, appropriate domain review, an independent audit and separate final acceptance, as defined in [review roles](references/subagents-and-review-loop.md#assign-work-by-perspective). Each base perspective uses a different non-author context. The auditor examines review validity, consequential findings and selected passed content; the acceptance agent judges the current complete deliverable. Preserve original replies and failed attempts, and resolve necessary corrections in the actual text.
+For a new full report, assign the seven content perspectives to [three independent non-author contexts](references/subagents-and-review-loop.md#assign-work-by-perspective), and add relevant specialist review. Respect available worker slots and continue queued assignments as slots open. An independent auditor adjudicates the findings against original evidence. A separate agent first checks the complete current report independently, then reconciles its findings with the audit and actual fixes. Seek a fresh check for a consequential unresolved disagreement. Keep the actual replies and failures, and repair necessary findings in the report itself.
 
 ## Load the relevant method
 
@@ -52,8 +48,8 @@ Skill-only research uses the agent tool's agents, existing conversation and acce
 
 ## Deliver what was completed
 
-After the first complete delivery in a project, show the [content-sharing invitation](docs/usage-data.md#share-research-content-after-delivery) in the current conversation, after the report links. Use the actual file names, private recipient and choices returned by `finish.content_sharing` or `usage_events.py share-offer` for Skill-only work. Ask once: share this report, authorize future final reports in the displayed directory and its subdirectories, or decline. No answer means no content upload; remember refusal. Chat and raw materials require separately selected files and consent. Usage recording runs automatically and is separate from content sharing.
+After complete delivery, show any applicable [content-sharing invitation](docs/usage-data.md#share-research-content-after-delivery) after the report links. Use the actual file names, private recipient and choices returned by `finish.content_sharing` or `usage_events.py share-offer` for Skill-only work. Ask once about sharing this report, allowing future reports in the displayed directory and its subdirectories, or declining. An unanswered invitation grants no consent. Chat and raw materials require separate consent.
 
-Reconcile the actual report with effective requirements, including satisfied requirements that still constrain revision. Complete the independent review, audit and acceptance work, and apply required fixes. For managed tasks, `finish` checks the current version and creates the delivery receipt; do not handcraft a receipt to bypass unfinished work.
+Agents handle dispatch, audit, revision and independent checks. Once the independent final check passes, complete managed delivery with `finish` and deliver the current report with usable references and material limits. If work is blocked, preserve it for continuation and describe the missing work accurately.
 
 Deliver the reader-facing report with usable references and material limitations; include a short change note for revisions. Keep research records outside the report unless requested. If only a stage is complete, identify that stage and the remaining work. Preserve historical artifacts as originally delivered when continuing an older task; a previous self-check is not a new independent review.

@@ -193,7 +193,8 @@ class ContinuityTests(unittest.TestCase):
                    "host_task": "synthetic-continuity-author"})
         config = {"reviewers": [{"id": "one", "model": "synthetic", "format": "json"}]}
         runner = SyntheticRunner()
-        self.assertTrue(w.review(self.workspace, "full", ["source.md"], artifact="a.md", config=config, runner=runner)["reviews_complete"])
+        first = w.review(self.workspace, "full", ["source.md"], artifact="a.md", config=config, runner=runner)
+        self.assertTrue(first["reviews_complete"], first)
         self.assertTrue(w.finish(self.workspace, "full", "Complete", artifact="a.md")["completed"])
         receipt = (root / "state/final_delivery.json").read_bytes()
         w.save_records(self.workspace, "full", draft={"path": "b.md", "content": "Twelve shipments. Revenue remains unknown.", "main": True,
@@ -205,7 +206,7 @@ class ContinuityTests(unittest.TestCase):
         reviewed = w.review(self.workspace, "full", ["source.md"], artifact="b.md", revision=True, config=config, runner=runner)
         self.assertTrue(reviewed["reviews_complete"], reviewed)
         self.assertTrue(w.finish(self.workspace, "full", "Revised report complete", artifact="b.md")["completed"])
-        self.assertEqual(len(runner.calls), 20)  # Two distinct versions, each seven perspectives + domain + audit + acceptance.
+        self.assertEqual(len(runner.calls), 12)  # Three groups, audit, blind check and reconciliation for each version.
 
     def test_imports_are_not_model_invocations_or_self_submissions(self):
         import time

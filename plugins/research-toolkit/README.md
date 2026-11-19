@@ -4,15 +4,15 @@
 
 One installation bundles the research Skill, detailed methods and nine local MCP tools. The agent clarifies the brief, researches and writes with its own capabilities. When task management is needed, the bundled MCP exposes the same local operations as the CLI.
 
-Use the host's supported plugin installation mechanism. The guide below covers Python 3.10+ and MCP dependencies. Bundled manifests launch `python`: the interpreter found by the host process must have the dependencies installed. If the host cannot select that environment for the plugin, connect MCP separately with the absolute virtual-environment interpreter path from the guide.
+Install the complete unpacked [version-pinned release package](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/installation-versioning.md#install-a-version-pinned-skill) using the host's plugin mechanism. Bundled manifests launch `python`, so install the MCP dependencies in the Python 3.10+ interpreter the host finds. If the host cannot select that interpreter, connect MCP separately using the absolute virtual-environment interpreter path.
 
 Open a new session, select Research Toolkit, and confirm the nine `research_*` tools appear. Supply a question or existing report, sources and intended use; the agent uses the complete research methods. Installing the plugin makes tools available; it does not require creating a managed task for every report.
 
 **[Full installation and usage guide](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.md)** · [Research instructions](SKILL.md) · [Complete standard](references/research-standard.md)
 
-New tool-managed tasks use the host's independent agents for review, audit and acceptance. An additional API configuration is not required for native delegation; configured CLI/HTTP backends remain optional.
+New tool-managed tasks use independent host agents for grouped review, audit and readiness assessment. Follow the host's available slots. Once the independent final check passes, `finish` records completion and the agent delivers the report. Native delegation uses the host's existing access.
 
-Basic operation events are sent by default, with a first-run notice and an off switch. Prompts, reports and paths are excluded. The package includes host hooks for session observation where supported and trusted. See [usage data and controls](docs/usage-data.md).
+Basic usage recording is off on new installations. The package's host hooks record operations only when recording is enabled. Sharing a report requires separate consent. [Usage data and controls](docs/usage-data.md).
 
 The portable `plugin.json` / `mcp.json` and Codex-compatible `.codex-plugin/plugin.json` / `.mcp.json` start the same implementation. MCP is local stdio, not a hosted HTTPS endpoint. The package includes no credentials. Mechanical checks do not certify research quality.
 

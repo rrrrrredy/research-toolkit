@@ -351,7 +351,7 @@ def save_records(root, sources=None, claims=None, requirements=None, draft=None,
             research_changed = (research_changed or previous.get('sha256') != content_hash
                 or ('complete' in draft and draft['complete'] != previous.get('complete', False)))
         if research_changed:
-            progress['review_contract'] = 2
+            progress['review_contract'] = max(2, progress.get('review_contract', 1))
             if progress.get('stage') in {'final', 'review'} or progress.get('status') == 'complete':
                 progress.update(stage='revise', status='in_progress',
                     next_action='Continue the affected research and independent review; historical receipts remain retained.')

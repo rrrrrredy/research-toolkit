@@ -25,13 +25,13 @@ When a context is compressed or replaced, preserve the effective requirements, o
 
 With CLI/MCP, use existing `status.work` to select requirements, claims, sources and files and retrieve `work_context`; use `methods` for the relevant guidance. `save` with `draft.kind="analysis"` registers a contribution and automatically retains that unit's prepared inputs; explicit `based_on` remains available and `host_task` records its real executor. Unit/dependency and handoff information belongs with that contribution, not in a parallel task-management system. See [the request interface](../docs/usage-modes.md#research-delegation-and-handoff). Skill-only work preserves the same substance in existing agent tool conversations and files.
 
-The agent tool manages launching, waiting, messages, cancellation and recovery. Retain actual task/session references. Continue unaffected work while branches run; await results before dependent work consumes them. A saved contribution marks local progress, not its integration, independent review or whole-task completion. A production context cannot review its own work as an independent reviewer.
+The agent tool manages launching, waiting, messages, cancellation and recovery. Queue independent work within its available active slots. When a task completes, free the slot for the next assignment, preserving each independent context and its response. Make already-read evidence available when continuing a task. A saved contribution marks local progress. A production context cannot independently review its own work.
 <!-- /method:delegate -->
 
 <!-- method:review -->
 ## Assign Work by Perspective
 
-Every complete research delivery requires the following seven base perspectives, each in a different context separate from every production agent. Add domain review for the specialized claims the task makes. Use native subagents; author self-checks do not replace these assignments. Independence concerns the context and production role, not a different vendor or outside person.
+Every complete report covers the seven perspectives below. New reports assign three independent, non-author contexts: requirements, structure and depth, and reader usefulness in one group, evidence and adversarial reasoning in one, and process language and natural expression in one. Add separate specialist review where the report makes consequential specialized claims. Use native subagents; author self-checks do not replace these assignments. Independence concerns the context and production role, not a different vendor or outside person.
 
 | Perspective | Method and required output |
 | --- | --- |
@@ -73,6 +73,7 @@ Audit all important requirements, decisive claims, key figures and citations, co
 For this additional sampling, retain the relevant population or report scope, selected locations, selection reasons, source checks and results in the existing audit output. Choose passages across relevant sections, evidence types and transformations; do not use a fixed percentage or first/last/hash-selected paragraphs as the default. A targeted sample is described as targeted, not random. When a discrepancy appears, check the same source, measure, branch or reasoning pattern wherever it affects the result; record that expansion and its outcome.
 
 The auditor can request missing work from the existing researcher or reviewer and continue the same audit after repair. Necessary defects and unsupported important no-change decisions remain open. Evidence that genuinely cannot settle a research question is reported at the affected conclusion; it does not erase a missing mandatory reading or review assignment. Sampling is part of this audit and final acceptance, not a separate agent, score or approval process.
+Check equivalent findings against the same passage once. Preserve each original ID and link the shared evidence-based decision to every covered ID. If an unresolved question can change delivery, ask a fresh independent context to verify just that point. The auditor adjudicates it against the returned original evidence and locations.
 <!-- /method:audit -->
 
 <!-- method:acceptance -->
@@ -80,10 +81,12 @@ The auditor can request missing work from the existing researcher or reviewer an
 
 1. **Outline and first premises:** the lead plans questions, coverage and dependencies; the requirements and structure reviewers examine the outline before extensive dependent writing. Evidence/domain reviewers examine consequential premises and calculations as they become usable. Early local checks are retained as local checks.
 2. **Developing research units:** researchers produce evidence-backed arguments progressively. Resolve a premise that could change dependent work before treating it as settled; other independent units continue. The assembler updates the whole-report argument as contributions arrive and the outline changes.
-3. **Complete report:** all seven base perspectives and applicable domain review read the complete report. Findings from the independent reader-usefulness and natural-expression reviews are applied without losing facts or depth. The independent audit examines the reviews, important findings, necessary repairs and selected passed content.
-4. **Final acceptance:** a further context, separate from production, content review and audit, reads the complete current report against the effective requirements. It examines the audit, dispositions and the actual current text, checks all important requirements and necessary fixes, and selects additional passed content where needed to judge integration. It reports acceptance or the exact remaining work. Its PASS cannot replace a missing required review or audit.
+3. **Complete report:** all three content review groups and applicable domain specialists read the complete report. Findings from the independent reader-usefulness and natural-expression reviews are applied without losing facts or depth. The independent audit examines the reviews, important findings, necessary repairs and selected passed content.
+4. **Independent final check and delivery.** A fresh independent context reads the complete current report and primary evidence before seeing earlier verdicts. It then reconciles its own recorded concerns with the audit and actual revisions in the same context. Agents resolve remaining consequential defects and deliver the checked report. In managed work, `finish` records completion for the current artifact.
 
 The final acceptance agent verifies the delivered version, source/condition preservation, complete required coverage, developed analysis and reader usability. Cross-part contradictions or lost qualifications return to the responsible production/review assignment, with the affected scope and inputs. Keep the original findings and prior artifacts. Do not let a coordinator's summary stand in for this reading.
+
+For a finding to block delivery, tie it to an effective requirement or a consequential error in a claim the report makes. Apply this test when reconciling a blind finding. Record nearby topics and additional detail as optional when the report meets the agreed scope and the reader can make the stated decision using the report and its sources.
 
 Reader-ready delivery requires resolved necessary corrections, complete independent assignments and acceptance of the current whole report. A stage artifact may be delivered with its actual unfinished scope. Historical and evaluation artifacts retain their original defects and labels; their completion status remains tied to the criteria and work recorded at the time. Once the agreed result and required work are complete, optional preferences do not restart unchanged reviews.
 <!-- /method:acceptance -->

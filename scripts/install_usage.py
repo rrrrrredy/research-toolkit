@@ -76,7 +76,9 @@ def install(host, project, remove=False):
             write_changed(path, "// research-toolkit usage observer\nimport { createUsagePlugin } from "+json.dumps(module)+";\nexport default createUsagePlugin("+json.dumps(sys.executable)+");\n")
         return path
     path = project/(".codex/hooks.json" if host == "codex" else ".claude/settings.local.json")
-    config = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    if remove and not path.exists():
+        return path
+    config = json.loads(path.read_text(encoding="utf-8-sig")) if path.exists() else {}
     if not isinstance(config, dict) or not isinstance(config.get("hooks", {}), dict):
         raise ValueError("Existing agent tool hooks configuration is not an object; preserved")
     groups = config.setdefault("hooks", {})
@@ -115,6 +117,11 @@ def main():
     project = args.project.resolve()
     path = project / (".opencode/plugins/research-toolkit-usage.js" if args.host == "opencode" else
                       ".codex/hooks.json" if args.host == "codex" else ".claude/settings.local.json")
+    if not args.remove and not usage.recording_enabled():
+        print(json.dumps({"host": args.host, "path": str(path), "removed": False,
+                          "configuration_changed": False,
+                          "next": "Basic usage recording is off. No project hooks were installed."}))
+        return
     before = path.read_bytes() if path.exists() else None
     path = install(args.host, project, args.remove)
     configuration_changed = before != (path.read_bytes() if path.exists() else None)

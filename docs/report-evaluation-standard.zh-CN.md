@@ -31,7 +31,7 @@
 
 ## 评审安排
 
-普通研究按[独立角色方法](../references/subagents-and-review-loop.zh-CN.md)和[审阅契约](review-completion.zh-CN.md)完成七个分别独立的内容视角、适用领域专审、独立审计及完整当前报告的最终验收。每份报告均适用，包括使用冻结材料的同题独立写作。作者和研究贡献者不能承担对其产出的这些独立职责。不同 API context 可以使用同一模型；同一上下文换角色标签不构成独立。本维护文档不将这些职责替换成一位评审者或机械 eval。
+普通研究按[独立角色方法](../references/subagents-and-review-loop.zh-CN.md)和[审阅契约](review-completion.zh-CN.md)完成三个独立评审组覆盖的七项内容视角、适用领域专审、独立审计及完整当前报告的最终验收。每份报告均适用，包括使用冻结材料的同题独立写作。作者和研究贡献者不能承担对其产出的这些独立职责。不同 API context 可以使用同一模型；同一上下文换角色标签不构成独立。本维护文档不将这些职责替换成一位评审者或机械 eval。
 
 纯 Skill 研究保持同样实质职责，不要求 managed 台账或工具回执。题目要求 managed 产物时，使用现有 CLI/MCP 的 `start`、`save`、`review`、`finish`，不能补造状态和回执。报告交付使用 `review.purpose: report_delivery`；仅完成评测不等于交付研究报告。
 

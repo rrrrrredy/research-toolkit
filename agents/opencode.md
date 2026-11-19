@@ -4,13 +4,14 @@
 
 ## Install
 
-With Git and the client ready, run from your project root. If the destination already exists, use the [update guide](../docs/installation-versioning.md).
+Install the [compact, version-pinned release](../docs/installation-versioning.md#install-a-version-pinned-skill) in `.opencode/skills/research-toolkit` under the project root. If the destination exists, follow the [update guide](../docs/installation-versioning.md#update-without-losing-local-work).
 
-For a new installation, the agent runs the commands below with Python 3.10+. For an existing copy, [configure recording only where missing or changed](../docs/usage-data.md#automatic-setup-by-the-agent); reuse effective settings and plugin hooks, preserving off. Basic events are sent by default without prompts, research titles, conversations, reports or paths. Recording can be disabled; setup failure does not block direct use of the research methods.
+New installations leave [basic usage recording](../docs/usage-data.md#enable-basic-recording) off. Configure project hooks only if the user requests recording.
+
+For a source checkout, run the following command from the project root.
 
 ```bash
 git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .opencode/skills/research-toolkit
-python .opencode/skills/research-toolkit/scripts/install_usage.py --host opencode --project . --channel github-clone --form skill
 ```
 
 Start OpenCode in this project and ask it to load the `research-toolkit` skill. Skill discovery must be enabled and its permission must not be `deny`. This directory works with the documented [V2 skill layout](https://opencode.ai/v2/docs/skills) too. [Official skill requirements](https://opencode.ai/docs/skills).
@@ -40,10 +41,4 @@ The shared example describes dependencies, input updates, original records and i
 
 ## If it does not load
 
-Run this from the same project directory:
-
-```bash
-git -C .opencode/skills/research-toolkit status --short
-```
-
-No output means the checkout is clean; a path error means the command is running from the wrong directory or the clone failed. Changes may indicate missing or edited files—preserve your edits before updating. If files exist but the skill is absent, reopen the project/session and check OpenCode’s skill settings. You can also ask the agent to read the installed `SKILL.md` by its exact path. [All input methods and limits](README.md).
+Check that `.opencode/skills/research-toolkit/SKILL.md` and its neighboring `references/` directory exist. Reopen the project or session and check OpenCode's Skill settings if the files exist but the Skill is absent. You can also ask the agent to read the installed file by its exact path. [Other input methods](README.md).

@@ -207,9 +207,9 @@ class HistoricalReceiptTests(unittest.TestCase):
         args = {"task": task, "evidence_paths": ["sources/S1.md"], "include_assignment": False}
         pending = call("review", args)
         self.assertEqual(pending["action_required"], "host_agents")
-        self.assertEqual(len(pending["assignments"]), 8)
+        self.assertEqual(len(pending["assignments"]), 3)
         self.assertFalse(call("finish", {"task": task, "message": "Complete."}, expected_exit=1)["completed"])
-        self.assertEqual(call("status", {"task": task})["progress"]["review_contract"], 2)
+        self.assertEqual(call("status", {"task": task})["progress"]["review_contract"], 3)
         original_refs = [item["assignment_ref"] for item in pending["assignments"]]
         repeated = call("review", args)
         self.assertEqual(original_refs, [item["assignment_ref"] for item in repeated["assignments"]])

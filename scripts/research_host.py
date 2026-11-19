@@ -11,11 +11,12 @@ import time
 import uuid
 from urllib.parse import unquote
 
-from agent_session import open_session
+from agent_session import native_id, open_session
+from codex_session import CodexRequestError
 import host_review
 import research_workflow as workflow
 from run_observation import now, record_event
-from task_context import prepare_work, source_inputs
+from task_context import prepare_work, research_outputs, source_inputs
 from task_reading import reading_view
 from task_lock import task_lock
 from task_storage import digest, load, safe_path, save, save_text, task_root
@@ -42,7 +43,9 @@ def reading_paths(root, ref):
 class ResearchHost:
     """A running agent tool connection, reusing Toolkit's task and review records."""
 
-    def __init__(self, workspace, task, language="en", *, host=None, executable=None):
+    def __init__(self, workspace, task, language="en", *, host=None, executable=None, max_active=2):
+        if type(max_active) is not int or max_active < 1:
+            raise ValueError("max_active: select at least one active native turn.")
         self.workspace, self.task, self.language = Path(workspace).resolve(), task, language
         self.root = task_root(self.workspace, task)
         self.prefix = "logs/host/" + uuid.uuid4().hex
@@ -50,6 +53,8 @@ class ResearchHost:
         self.work = {}
         self.active = {}
         self.reviews = {}
+        self.pending_reviews = {}
+        self.max_active = max_active
         self.results = []
         self.started = set()
         self.connection_lost = False
@@ -116,8 +121,23 @@ class ResearchHost:
         save_text(self.root, prefix + "/prompt.txt", prompt)
         started_at, clock = now(), time.monotonic()
         try:
-            thread, turn = self.host.start(prompt, previous, reading_paths(self.root, job["reading_ref"]),
-                                          workdir=safe_path(self.root, job["workdir"]))
+            paths = reading_paths(self.root, job["reading_ref"])
+            workdir = safe_path(self.root, job["workdir"])
+            try:
+                thread, turn = self.host.start(prompt, previous, paths, workdir=workdir)
+            except CodexRequestError as exc:
+                if not self._unavailable_prior_review(job, previous, exc):
+                    raise
+                self.observe({"outcome": "review_context_unavailable", "kind": "review", "identity": job["identity"],
+                              "prior_execution_id": previous, "error": str(exc), "prompt": prefix + "/prompt.txt",
+                              "protocol_path": self.prefix + "/protocol.jsonl",
+                              "assignment_ref": job["assignment"]["assignment_ref"]})
+                if job["assignment"].get("phase") == "correction_review":
+                    self.review(**job["options"], fresh_final=True)
+                    return
+                job["reassigned_from"] = previous
+                previous = None
+                thread, turn = self.host.start(prompt, previous, paths, workdir=workdir)
         except (OSError, ValueError, RuntimeError) as exc:
             job["failed"] = True
             self.observe({"outcome": "failed", "kind": job["kind"], "identity": job["identity"],
@@ -129,7 +149,28 @@ class ResearchHost:
         self.active[(thread, turn)] = job
         self.observe({"outcome": "started", "kind": job["kind"], "identity": job["identity"],
                       "host_task": thread, "turn": turn, "resumed": bool(previous), "prompt": prefix + "/prompt.txt",
+                      **({"handoff_from": job["handoff_from"]} if job.get("handoff_from") else {}),
+                      **({"reassigned_from": job["reassigned_from"]} if job.get("reassigned_from") else {}),
                       **({"assignment_ref": job["assignment"]["assignment_ref"]} if job["kind"] == "review" else {})})
+
+    def _unavailable_prior_review(self, job, previous, error):
+        assignment = job.get("assignment", {})
+        if (self.host.name != "codex" or not previous or assignment.get("resume_host_task") != previous
+                or error.method != "thread/resume" or not isinstance(error.error, dict)
+                or error.error.get("code") != -32600):
+            return False
+        identity = native_id("codex", previous)
+        message = error.error.get("message")
+        locked = message == f"thread {identity} already has an active writer"
+        if assignment.get("role") == "acceptance" and assignment.get("phase") == "correction_review":
+            return locked or message == f"no rollout found for thread id {identity}"
+        if (not locked or assignment.get("role") not in {"reviewer", "auditor"}
+                or assignment.get("phase") not in {None, "initial"}):
+            return False
+        current = load(self.root, assignment["assignment_ref"]["path"])
+        earlier = current.get("revision_context", {}).get("reviews", {}).get(assignment["slot_id"], {})
+        return (earlier.get("execution_id") == previous and bool(earlier.get("input_version"))
+                and earlier["input_version"] != current["input_version"])
 
     def _working_directory(self, job):
         # Preserve earlier source files and calculations across revisions.
@@ -143,6 +184,8 @@ class ResearchHost:
     def _producer(self, job, context):
         if job.get("thread"):
             return job["thread"]
+        if "revision_owner" in job:
+            return job["revision_owner"]
         unit = context.get("unit") or {}
         if unit.get("owner"):
             return unit["owner"]
@@ -205,6 +248,10 @@ class ResearchHost:
             "and full contribution through save, retains your files, and dispatches independent assignments. "
             "Cite files relative to the final output path stated above. "
             "If revising, update the affected reasoning and preserve valid analysis. "
+            + ("The packet includes the current report and original independent decisions. Address the required corrections "
+               "and affected passages using the retained evidence. Do not apply suggestions the independent audit rejected. "
+               "If the evidence does not permit a required correction, retain the limitation and report the work as incomplete. "
+               if job.get("revision_findings") else "") +
             "State material gaps honestly in the contribution.\nQuestion: " + str(job["context"]["question"]) + recovery)
 
     def _contribution(self, job, content):
@@ -213,12 +260,17 @@ class ResearchHost:
         from record_changes import rows_from, input_digest, claim_source_ids
         directory = safe_path(self.root, job["workdir"])
         record_file = directory / "records.json"
-        payload = json.loads(record_file.read_text(encoding="utf-8")) if record_file.exists() else {}
+        payload = json.loads(record_file.read_text(encoding="utf-8-sig")) if record_file.exists() else {}
         if not isinstance(payload, dict) or set(payload) - {"sources", "claims", "draft"}:
             raise ValueError("records.json: use existing sources, claims and optional draft fields.")
         draft = payload.get("draft", {})
         if not isinstance(draft, dict) or set(draft) - {"complete", "handoff"}:
             raise ValueError("records.json draft: use complete and handoff; the coordinator owns the path and input binding.")
+        handoff = draft.get("handoff")
+        if isinstance(handoff, dict):
+            draft = {**draft, "handoff": {
+                key: [value] if key in {"pending", "decisions"} and isinstance(value, str) and value.strip() else value
+                for key, value in handoff.items()}}
         based_on = dict(job["context"]["inputs"])
         source_rows = rows_from(safe_path(self.root, "data/source_registry.csv").read_bytes(), "sources")
         selected_sources, referenced_sources = {}, set()
@@ -280,10 +332,15 @@ class ResearchHost:
 
     def refresh(self):
         """Route changed inputs to the same producer; wait for existing dependency readiness."""
-        if self.connection_lost:
+        if self.connection_lost or not self.host.available:
             return
+        self._start_reviews()
         for job in list(self.work.values()):
             if job.get("failed"):
+                continue
+            if job.get("revision_findings") and job.get("finished_version") is not None:
+                # The next independent assessment, not changes produced by this
+                # writer, determines whether the manuscript needs another edit.
                 continue
             context = self.context(job)
             waiting = self.waiting_on(context)
@@ -294,7 +351,7 @@ class ResearchHost:
             version = self.version(job, context)
             active = (job.get("thread"), job.get("turn")) in self.active
             if active:
-                if version != job["version"]:
+                if version != job["version"] and not job.get("revision_findings"):
                     if not self.host.supports_steer:
                         # The running turn still uses the old input packet.
                         # Resume the same owner with current inputs after receipt.
@@ -325,13 +382,16 @@ class ResearchHost:
             saved_version = digest({"question": unit.get("question"), "inputs": {
                 k: v for k, v in unit.get("based_on", {}).items() if k != job["draft"]["path"]}})
             if (not job.get("finished_version") and saved_version == version and unit.get("complete")
-                    and not unit.get("changed_inputs") and not unit.get("changed_since_save")):
+                    and not job.get("revision_findings") and not unit.get("changed_inputs") and not unit.get("changed_since_save")):
                 job["finished_version"] = version
                 self._review_work(job)
+                continue
+            if len(self.active) >= self.max_active or not self.host.available:
                 continue
             job.pop("pending_version", None)
             prompt = self._work_prompt(job)
             self._start(job, prompt, self._producer(job, context))
+        self._start_reviews()
 
     def _review_work(self, job):
         if job["review"] is None:
@@ -341,8 +401,9 @@ class ResearchHost:
         self.review(**options, revision=True)
 
     def _review_owner(self, identity, assignment):
-        if assignment.get("resume_host_task"):
-            return assignment["resume_host_task"]
+        requested = assignment.get("resume_host_task")
+        if assignment.get("phase") == "correction_review":
+            return requested
         # Recover a technically failed import/turn in its actual independent
         # context. Completed revisions use the existing assignment's owner.
         current = load(self.root, assignment["assignment_ref"]["path"])
@@ -353,28 +414,46 @@ class ResearchHost:
             ref = row.get("assignment_ref")
             if not ref:
                 continue
+            if requested and row.get("reassigned_from") != requested:
+                return requested
             previous = load(self.root, ref["path"])
             actor = row.get("execution_id")
-            if (actor and all(previous.get(k) == current.get(k) for k in ("role", "slot_id", "dimensions", "domain"))
+            if (actor and all(previous.get(k) == current.get(k) for k in ("role", "slot_id", "dimensions", "domain", "phase"))
+                    and (not requested and current.get("phase") != "blind"
+                         or previous["assignment_version"] == current["assignment_version"])
                     and actor not in host_review.producers(self.root, load(self.root, "state/progress.json"))):
                 return actor
-            return None
-        return None
+            return requested
+        return requested
 
     def review(self, artifact, evidence_paths, purpose="report_delivery", scope="full_report",
-               perspectives=None, domains=None, audit=None, revision=False, host_result=None):
+               perspectives=None, domains=None, audit=None, revision=False, host_result=None, *, fresh_final=False):
         options = {"artifact": artifact, "evidence_paths": evidence_paths, "purpose": purpose,
                    "scope": scope, "perspectives": perspectives, "domains": domains, "audit": audit}
         with self.access():
             result = host_review.review(workflow, self.root, load(self.root, "state/progress.json"),
-                evidence_paths, artifact, purpose, revision, False, host_result, scope, perspectives, domains, audit)
+                evidence_paths, artifact, purpose, revision, False, host_result, scope, perspectives, domains, audit,
+                fresh_final=fresh_final)
         self.reviews[scope] = result
+        eligible = {assignment["slot_id"]: assignment["assignment_version"] for assignment in result["assignments"]}
+        for key in list(self.pending_reviews):
+            if key[0] == scope and eligible.get(key[1]) != key[2]:
+                self.pending_reviews.pop(key)
         for assignment in result["assignments"]:
             key = (scope, assignment["slot_id"], assignment["assignment_version"])
             if key in self.started:
                 continue
-            job = {"kind": "review", "identity": scope + ":" + assignment["slot_id"],
-                   "options": options, "assignment": assignment, "reading_ref": assignment["reading_ref"]}
+            self.pending_reviews[key] = {"kind": "review", "identity": scope + ":" + assignment["slot_id"],
+                "options": options, "assignment": assignment, "reading_ref": assignment["reading_ref"]}
+        self._start_reviews()
+        return self.reviews[scope]
+
+    def _start_reviews(self):
+        while (not self.connection_lost and self.pending_reviews and self.host.available
+               and len(self.active) < self.max_active):
+            key = next(iter(self.pending_reviews))
+            job = self.pending_reviews.pop(key)
+            assignment = job["assignment"]
             directory = self._working_directory(job)
             prompt = ("Perform only the independent assignment at "
                 + str(safe_path(self.root, assignment["reading_ref"]["path"]))
@@ -386,9 +465,189 @@ class ResearchHost:
                 "Do not modify the reviewed text, supplied snapshots or shared records, delegate this independent "
                 "responsibility or initiate a research workflow. "
                 "A justified negative assessment is a completed result; do not change it to obtain a pass.")
+            if assignment.get("phase") == "blind" or assignment["role"] == "verifier":
+                prompt += " Use the supplied reading packet and independent evidence. Do not look up other agents' judgments in task logs."
             self._start(job, prompt, self._review_owner(job["identity"], assignment))
             self.started.add(key)
-        return result
+
+    def _queue_revision(self, current, findings, evidence_paths, writer_handoff_from):
+        from record_changes import rows_from
+
+        artifact = current["path"]
+        owner = current["owner"]
+        handoff = owner == writer_handoff_from
+        if not handoff:
+            native_id(self.host.name, owner)  # Fail before dispatch if this host cannot resume the owner.
+        unit_id = current.get("unit_id")
+        identity = unit_id or "main-manuscript"
+        prior_job = self.work.get(identity)
+        previous = owner
+        if handoff:
+            previous = prior_job.get("thread") if prior_job else None
+            if previous is None:
+                # An interrupted handoff may have started the actual receiving writer
+                # without saving a new draft. Reuse that turn's owner on restart.
+                for row in reversed(host_review.history_activity(self.root)):
+                    if (row.get("operation") == "host_execution" and row.get("kind") == "work"
+                            and row.get("outcome") == "started" and row.get("identity") == identity
+                            and row.get("handoff_from") == owner and row.get("host") == self.host.name):
+                        previous = row.get("execution_id")
+                        break
+        with self.access():
+            progress = load(self.root, "state/progress.json")
+            output = next((row for row in research_outputs(self.root, [], progress) if row["path"] == artifact), {})
+            sources = rows_from(safe_path(self.root, "data/source_registry.csv").read_bytes(), "sources")
+            claims = rows_from(safe_path(self.root, "data/claims_registry.csv").read_bytes(), "claims")
+        work = {"question": output.get("question") or progress["brief"]["question"],
+                "paths": list(dict.fromkeys([artifact, *evidence_paths, *findings])),
+                "source_ids": list(sources), "claim_ids": list(claims),
+                **({"unit_id": unit_id, "depends_on": output.get("depends_on", [])} if unit_id else {})}
+        job = {"kind": "work", "identity": identity, "review": None, "work": work,
+               "draft": {"path": artifact, "kind": current.get("kind", "report"), "main": True, "complete": True},
+               "revision_owner": previous, "revision_findings": findings, "revised_artifact": current,
+               "handoff_from": owner if handoff else None, "pre_handoff_complete": output.get("complete", False)}
+        self.work[identity] = job
+        self.drain()
+        return job.get("finished_version") is not None and not job.get("failed")
+
+    def _handoff_revision(self, job, thread):
+        draft = job["draft"]
+        saved = workflow.save_records(self.workspace, self.task, draft={
+            "path": draft["path"], "main": True, "kind": draft["kind"], "complete": job["pre_handoff_complete"],
+            "host_task": job["handoff_from"], "handoff": {
+                "to": thread, "summary": "The coordinator authorized transfer of this imported draft to the recorded revision agent."}})
+        if not saved.get("ok"):
+            raise ValueError("Writer handoff rejected; original response retained: " + json.dumps(saved, ensure_ascii=False))
+
+    def _finish_delivery(self, status, plan):
+        from check_delivery import inspect_jsonl, inspect_requirements, inspect_required_reading
+
+        artifact = status["artifact"]
+        with self.access():
+            progress = load(self.root, "state/progress.json")
+            review = host_review.inspect(self.root, progress, artifact)
+            if (not review["ok"] or progress.get("review_plan") != plan
+                    or status.get("input_version", plan["input_version"]) != plan["input_version"]
+                    or plan["artifact_sha256"] != status["artifact_sha256"]):
+                return {**status, "reason": "review_inputs_changed", "review_check": review}
+            audit = host_review.effective_audit(host_review.selected_results(self.root, plan))
+            raw = audit["result_data"]
+            checks = {row.get("requirement_id"): row for row in raw["critical_checks"] if row["result"] == "clear"}
+            lengths = {row["requirement_id"]: row for row in status["check_draft"]["length_checks"]}
+            path = safe_path(self.root, "state/requirements.jsonl")
+            rows, errors = inspect_jsonl(path, "Requirement")
+            if errors:
+                return {**status, "reason": "requirement_records_invalid", "requirement_issues": errors}
+            updates = []
+            for row in rows:
+                rid = row.get("requirement_id", row.get("id"))
+                check, length = checks.get(rid), lengths.get(rid)
+                if row.get("status") not in {"pending", "open", "in_progress"} or check is None:
+                    continue
+                if ((length and not length["bounds_met"]) or inspect_required_reading(
+                        row, safe_path(self.root, "data/source_registry.csv"))):
+                    continue
+                evidence = (f"Current report {artifact}, {check['location']}. {check['evidence']} "
+                            f"(Independent audit: {audit['response']['path']}, requirement {rid}.)")
+                if length:
+                    evidence += f" The draft check measured {length['actual']} {length['unit']} over {length['scope']}."
+                updates.append({"requirement_id": rid, "status": "satisfied", "evidence": evidence})
+            if updates:
+                saved = workflow.save_records(self.workspace, self.task, requirements=updates)
+                if not saved.get("ok"):
+                    return {**status, "reason": "requirement_save_rejected", "requirement_save": saved}
+            progress = load(self.root, "state/progress.json")
+            review = host_review.inspect(self.root, progress, artifact)
+            draft = workflow.check_draft(self.workspace, self.task, artifact)
+            issues, _ = inspect_requirements(path, contract_version=plan["contract_version"])
+            updated = {**status, "check_draft": draft, "recorded_requirements": [row["requirement_id"] for row in updates]}
+            if not review["ok"] or draft["artifact_sha256"] != status["artifact_sha256"]:
+                return {**updated, "reason": "review_inputs_changed", "review_check": review}
+            if not draft["ok"] or issues:
+                return {**updated, "reason": "requirements_incomplete", "requirement_issues": issues}
+
+            delivery_status = {**updated, "status": "completed", "completed": True, "input_version": plan["input_version"],
+                               "receipt": str(safe_path(self.root, "state/final_delivery.json"))}
+            if progress.get("stage") == "final" and progress.get("status") == "complete":
+                delivery = workflow.evaluate_delivery(self.root, artifact=artifact)
+                if delivery["ok"]:
+                    message = safe_path(self.root, "delivery_message.md").read_text(encoding="utf-8")
+                    return {**delivery_status, "artifact": str(safe_path(self.root, artifact)),
+                            "delivery_check": delivery, "message": message}
+            language = workflow.normalize_language(progress.get("language", self.language))
+            message = "研究报告已通过独立复核。" if language == "zh" else "The research report has passed independent review."
+            finished = workflow.finish(self.workspace, self.task, artifact=artifact, delivery_message=message)
+            if not finished["completed"]:
+                return {**updated, **finished, "reason": "delivery_check_failed"}
+            return {**delivery_status, **finished}
+
+    def complete(self, artifact=None, evidence_paths=None, domains=None, writer_handoff_from=None):
+        """Advance a prepared manuscript through independent review to verified delivery."""
+        if writer_handoff_from is not None and (not isinstance(writer_handoff_from, str) or not writer_handoff_from.strip()):
+            raise ValueError("writer_handoff_from must identify the existing owner whose draft can be transferred.")
+        evidence_paths = [] if evidence_paths is None else evidence_paths
+        if not isinstance(evidence_paths, list) or not all(isinstance(path, str) and path.strip() for path in evidence_paths):
+            raise ValueError("evidence_paths must list task-relative source paths.")
+        attempted = set()
+        while True:
+            with self.access():
+                progress = load(self.root, "state/progress.json")
+                current = progress.get("current_artifact", {})
+                artifact = artifact or current.get("path")
+                if not artifact or current.get("path") != artifact or not current.get("owner"):
+                    raise ValueError("Register the prepared manuscript and its actual producer before running --complete.")
+                checks = workflow.check_draft(self.workspace, self.task, artifact)
+            status = {"status": "blocked", "completed": False, "artifact": artifact, "artifact_sha256": checks["artifact_sha256"],
+                      "check_draft": checks}
+            pending_length = {f"{row['requirement_id']}: resolve the length requirement before delivery (status: {row['status']})."
+                              for row in checks["length_checks"] if row["bounds_met"]
+                              and row["status"] in {"pending", "open", "in_progress"}}
+            # Known in-bounds requirements still need independently confirmed fulfilment.
+            if set(checks["errors"]) - pending_length:
+                return {**status, "reason": "draft_checks_failed"}
+            plan = progress.get("review_plan", {})
+            if (plan.get("purpose") == "report_delivery" and plan.get("artifact_sha256") == status["artifact_sha256"]
+                    and plan.get("artifact") == artifact and (domains is None or plan.get("domains") == domains)):
+                with self.access():
+                    originals, _ = workflow.required_source_inputs(self.root)
+                    selected_paths = set(originals) | set(evidence_paths) | {"data/source_registry.csv", "data/claims_registry.csv"}
+                    prior = load(self.root, plan["input"]["path"])
+                    reusable = set(prior["sources"]) == selected_paths and host_review.inspect(self.root, progress, artifact)["ok"]
+                if reusable:
+                    return self._finish_delivery(status, plan)
+            self.review(artifact, evidence_paths, domains=domains, revision=True)
+            self.drain()
+            result = self.reviews["full_report"]
+            status["input_version"] = result["input_version"]
+            if self.connection_lost or any(e["outcome"] == "failed" for e in self.results):
+                return {**status, "reason": "host_execution_incomplete"}
+            if result.get("delivery_ready"):
+                with self.access():
+                    plan = load(self.root, "state/progress.json")["review_plan"]
+                return self._finish_delivery(status, plan)
+            if result.get("action_required") != "revise" or result["assignments"]:
+                return {**status, "reason": "independent_work_pending"}
+            with self.access():
+                selected = host_review.selected_results(self.root, load(self.root, "state/progress.json")["review_plan"])
+                audit = host_review.effective_audit(selected)
+            decisions = audit.get("result_data", {})
+            acceptance = selected.get("acceptance", {})
+            if decisions.get("result") != "valid":
+                return {**status, "reason": "independent_audit_not_valid"}
+            if decisions.get("report_verdict") == "needs_revision":
+                findings = [audit["response"]["path"]]
+                repair = {k: decisions.get(k) for k in ("open_issues", "dispositions", "prior_findings", "critical_checks", "sample_checks")}
+            elif acceptance.get("result_data", {}).get("result") == "fail":
+                findings = [audit["response"]["path"], acceptance["response"]["path"]]
+                repair = {k: acceptance["result_data"].get(k) for k in ("open_issues", "sample_checks")}
+            else:
+                return {**status, "reason": "no_authorized_writer_correction"}
+            key = digest(repair)
+            if key in attempted or checks["artifact_sha256"] in attempted:
+                return {**status, "reason": "revision_cycle"}
+            attempted.update((key, checks["artifact_sha256"]))
+            if not self._queue_revision(current, findings, evidence_paths, writer_handoff_from):
+                return {**status, "reason": "writer_revision_incomplete"}
 
     def poll(self, timeout=1):
         """Consume native completion; import originals through the existing save/review contract."""
@@ -425,9 +684,21 @@ class ResearchHost:
                 with self.access():
                     contribution = self._contribution(job, content)
                     complete = contribution["draft"].get("complete", True) and not waiting
+                    if job.get("revision_findings"):
+                        root_progress = load(self.root, "state/progress.json")
+                        if (root_progress.get("current_artifact") != job["revised_artifact"]
+                                or self.version(job, current) != job["version"]
+                                or workflow.sha256_file(safe_path(self.root, job["draft"]["path"]))
+                                != job["revised_artifact"]["sha256"]):
+                            raise ValueError("The report or its bound revision inputs changed during the writer's turn.")
+                        if not complete or workflow.sha256_file(safe_path(self.root, prefix + "/response.txt")) == job["revised_artifact"]["sha256"]:
+                            raise ValueError("The writer did not return a complete revised report; the response and its files are retained.")
+                        if job.get("handoff_from"):
+                            self._handoff_revision(job, thread)
                     saved = workflow.save_records(self.workspace, self.task, **{**contribution, "draft": {
                         **contribution["draft"], "complete": complete, "host_task": thread,
-                        "unit_id": job["identity"], "question": job["context"]["question"],
+                        **({"unit_id": job["work"]["unit_id"]} if "unit_id" in job["work"] else {}),
+                        "question": job["context"]["question"],
                         "depends_on": job["work"].get("depends_on", [])}})
                 if not saved.get("ok"):
                     raise ValueError("Original output retained; save rejected: " + json.dumps(saved, ensure_ascii=False))
@@ -513,32 +784,55 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--workspace", type=Path, required=True)
     parser.add_argument("--task", required=True)
-    parser.add_argument("--request", type=Path, required=True, help="JSON list of existing work/draft/review arguments")
+    parser.add_argument("--request", type=Path, help="JSON list of work/draft/review arguments, or options object for --complete")
+    parser.add_argument("--complete", action="store_true", help="Review the registered draft and deliver it after verification")
+    parser.add_argument("--max-active", type=int, default=2, help="Maximum simultaneous native work and review turns (default 2)")
     parser.add_argument("--language", default="en")
     parser.add_argument("--host", choices=("claude", "opencode", "codex"),
                         help="Current agent tool; otherwise use RESEARCH_TOOLKIT_HOST, agent tool context or a sole installed CLI")
     parser.add_argument("--executable", help="Agent tool executable when it is not available on PATH")
     args = parser.parse_args()
-    with ResearchHost(args.workspace, args.task, args.language, host=args.host, executable=args.executable) as host:
+    if args.max_active < 1:
+        parser.error("--max-active must be at least 1")
+    if args.request is None and not args.complete:
+        parser.error("--request is required when not using --complete")
+    requests = json.loads(args.request.read_text(encoding="utf-8-sig")) if args.request else {}
+    if args.complete:
+        if not isinstance(requests, dict) or set(requests) - {"artifact", "evidence_paths", "domains", "writer_handoff_from"}:
+            parser.error("--complete request must be a JSON object with optional artifact, evidence_paths, domains and writer_handoff_from")
+    elif not isinstance(requests, list):
+        parser.error("request must supply a list of work/draft/review selections")
+    with ResearchHost(args.workspace, args.task, args.language, host=args.host, executable=args.executable,
+                      max_active=args.max_active) as host:
         interrupted = False
+        completion = {}
         try:
-            requests = json.loads(args.request.read_text(encoding="utf-8"))
-            if not isinstance(requests, list):
-                raise ValueError("request: supply a list of work/draft/review selections.")
-            for request in requests:
-                host.submit(**request)
-            result = host.drain()
+            if args.complete:
+                completion = host.complete(**requests)
+            else:
+                for request in requests:
+                    host.submit(**request)
+                host.drain()
         except KeyboardInterrupt:
             interrupted = True
             host.fail_active("Native execution canceled by the caller.")
-            result = host.result()
+            if args.complete:
+                completion = {"status": "blocked", "completed": False, "reason": "interrupted"}
+        except (OSError, ValueError, RuntimeError) as exc:
+            if not args.complete:
+                raise
+            host.fail_active(str(exc))
+            completion = {"status": "blocked", "completed": False, "reason": "operation_failed", "error": str(exc)}
+        result = {**host.result(), **completion}
         save(host.root, host.prefix + "/result.json", result)
-        print(json.dumps({"result": host.prefix + "/result.json", "waiting": result["waiting"],
+        print(json.dumps({"result": host.prefix + "/result.json", "waiting": result["waiting"], **completion,
             "reviews": {scope: {key: review.get(key) for key in
                 ("reviews_complete", "unit_ready", "delivery_ready", "action_required", "open_issues")}
                 for scope, review in result["reviews"].items()}}, ensure_ascii=False))
         if interrupted:
             return 130
+        if args.complete:
+            return int(not completion["completed"])
         return int(bool(result["waiting"]) or any(e["outcome"] == "failed" for e in result["events"]))
 
 

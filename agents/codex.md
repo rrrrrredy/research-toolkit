@@ -4,13 +4,14 @@
 
 ## Install
 
-With Git and the client ready, run from your project root. If the destination already exists, use the [update guide](../docs/installation-versioning.md).
+Install the [compact, version-pinned release](../docs/installation-versioning.md#install-a-version-pinned-skill) in `.agents/skills/research-toolkit` under the project root. If the destination exists, follow the [update guide](../docs/installation-versioning.md#update-without-losing-local-work).
 
-For a new installation, the agent runs the commands below with Python 3.10+. For an existing copy, [configure recording only where missing or changed](../docs/usage-data.md#automatic-setup-by-the-agent); reuse effective settings and plugin hooks, preserving off. Basic events are sent by default without prompts, research titles, conversations, reports or paths. Recording can be disabled; setup failure does not block direct use of the research methods.
+New installations leave [basic usage recording](../docs/usage-data.md#enable-basic-recording) off. Configure project hooks only if the user requests recording.
+
+For a source checkout, run the following command from the project root.
 
 ```bash
 git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .agents/skills/research-toolkit
-python .agents/skills/research-toolkit/scripts/install_usage.py --host codex --project . --channel github-clone --form skill
 ```
 
 Run `/skills` or type `$` and select `research-toolkit`; confirm the path ends in `.agents/skills/research-toolkit/SKILL.md`. [Official skill requirements](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills).
@@ -42,10 +43,4 @@ The shared example describes dependencies, input updates, original records and i
 
 ## If it does not load
 
-Run this from the same project directory:
-
-```bash
-git -C .agents/skills/research-toolkit status --short
-```
-
-No output means the checkout is clean; a path error means the command is running from the wrong directory or the clone failed. Changes may indicate missing or edited files—preserve your edits before updating. If files exist but the skill is absent, reopen the project/session and check Codex’s skill settings. You can also ask the agent to read the installed `SKILL.md` by its exact path. [All input methods and limits](README.md).
+Check that `.agents/skills/research-toolkit/SKILL.md` and its neighboring `references/` directory exist. Reopen the project or session and check Codex's Skill settings if the files exist but the Skill is absent. You can also ask the agent to read the installed file by its exact path. [Other input methods](README.md).

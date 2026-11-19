@@ -35,7 +35,7 @@ python3 <skill-directory>/scripts/check_delivery.py <task-directory> --require-c
 
 对照有效要求和证据核对实际回答，完成当前版本独立内容审阅、审计和最终验收，必要修正落实到正文。有效负评表示该审阅完成，交付仍需等待必要问题解决。
 
-用当前稿件和交付说明调用 `research_finish`，由工具绑定输入及审阅结果，写入 `state/final_delivery.json`；必需工作完成后才进入 `stage: final` 与 `status: complete`。不手写重复回执，也不由作者写一条全局 PASS 替代独立验收。独立检查器用于查看已保留记录，不额外调用内容评审。
+当前报告通过独立复查后，用该稿件和交付说明调用 `research_finish`，随后交付成稿。稿件改动后，按受影响范围复查，并对当前完整稿件完成独立最终复查。此时，由工具绑定输入及审阅结果，写入 `state/final_delivery.json`；必需工作完成后才进入 `stage: final` 与 `status: complete`。不手写重复回执，也不由作者写一条全局 PASS 替代独立验收。独立检查器用于查看已保留记录，不额外调用内容评审。
 
 CLI `finish` 和 MCP `research_finish` 的 `completed: false` 均表示仍有工作，即使同时返回 `action_required` 也一样，应处理返回的具体缺口。此时 CLI `finish` 退出 1，只有 `completed: true` 才退出 0；MCP 在 JSON 中保留相同业务结果，通信成功本身不代表研究完成。CLI `review` 成功准备待执行的独立任务时仍退出 0。首次交付可复用成功 `finish` 已返回的 `delivery_check`，无需立即重复检查；以后复核保存的完成状态时，再使用 `--require-complete`。
 

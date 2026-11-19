@@ -8,7 +8,7 @@
 
 ## 使用研究方法
 
-研究方法可直接读取，Skill／MCP 安装可选。另由 Codex、Claude Code、OpenCode 中的 Agent 用完整本地副本和 Python 3.10+ 默认配置基础事件记录，复用有效配置或插件 hooks，保留 off。仅新增／变更配置才提示加载；文件未变不代表当前会话已加载，待首次加载按待加载说明，不重复安装。配置失败或待加载时继续研究。基础事件默认发送，可关闭，不含题目、提示词、聊天、报告和路径。[接入与加载](usage-data.zh-CN.md)。
+可直接读取方法，也可按需安装 Skill 或 MCP。新安装默认关闭基础使用记录，已有开启或关闭设置继续生效。用户选择记录 Agent 会话时，按需配置项目 hooks。[使用数据与控制](usage-data.zh-CN.md)。
 
 - **仓库链接：**将[研究请求](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md#使用)交给能读取 GitHub 的 Agent。
 - **文件或附件：**下载仓库，提供 `SKILL.md`，并按任务需要提供参考文件。
@@ -152,22 +152,15 @@ CI 在 Python 3.10／Linux 上检查 CLI 和打包 MCP 流程，并在 Python 3.
 
 ## 安装插件
 
-[插件目录](https://github.com/rrrrrredy/research-toolkit/blob/main/plugins/research-toolkit/)包含完整 Skill、方法与本地 MCP 服务；使用 Agent 工具支持的插件安装机制，具体步骤见 [Agent 接入](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)。插件通过 Python 启动 MCP，安装 `requirements-mcp.txt` 中的依赖后，确认九个 `research_*` 工具可用。
+使用 Agent 工具支持的插件安装方式，安装解包后的[固定版本发布包](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)。发布包含完整 Skill、方法与本地 MCP 服务。用 MCP 实际启动的 Python 安装 `requirements-mcp.txt` 中的依赖，再确认九个 `research_*` 工具可用。
 
-直接提出题目、读者与预期成果；Agent 整理需求，只追问关键缺项。插件采用[通用插件规范](https://developers.openai.com/plugins/build/plugins)，研究在本地执行，基础使用事件由独立接收服务处理。格式支持取决于 Agent 工具；支持并信任插件 hooks 时，通过[同一个采集器](usage-data.zh-CN.md)观察 Toolkit 会话。
+提出题目、读者与预期成果，由 Agent 整理需求。插件采用[通用插件规范](https://developers.openai.com/plugins/build/plugins)，研究在本地执行。宿主支持的插件 hooks 仅在[开启记录](usage-data.zh-CN.md)后发送基础事件。
 
 ## 单独接入 MCP
 
 插件内的工具已经可用时，跳过本节。
 
-克隆仓库，在客户端实际使用的 Python 环境安装依赖：
-
-```bash
-git clone https://github.com/rrrrrredy/research-toolkit.git
-cd research-toolkit
-```
-
-使用 Python 3.10+，在独立虚拟环境中安装依赖。从已克隆的仓库目录执行：
+使用解包后的发布包或源码副本。从对应目录使用 Python 3.10+ 创建独立虚拟环境，在客户端实际使用的解释器中安装依赖。
 
 **macOS / Linux**
 
@@ -257,11 +250,11 @@ RESEARCH_TOOLKIT_WORKSPACE = "/absolute/path/to/research-tasks"
 
 ### 使用原生子 Agent 审阅
 
-直接使用 Codex、Claude Code 等 Agent 工具已有的子 Agent 能力。`research_review` 准备任务，绑定完整需求、报告和原始证据；Agent 工具为每项基础视角和所需领域专审启动不同的独立 Agent，再运行独立审计与最终验收。作者和统稿 Agent 不承担这些独立任务，这条路径无需另配 API。
+直接使用 Codex、Claude Code 等 Agent 工具的子 Agent 能力。`research_review` 准备任务并绑定完整需求、报告和原始证据。按当前可用名额分批完成独立审阅、审计与就绪判断。作者和统稿 Agent 不承担这些独立任务。原生委派沿用 Agent 工具已有访问权限。
 
-七项基础视角是需求、证据、对抗推理、结构与深度、读者用途、过程语言、自然表达，各自使用独立上下文。模型可以相同，执行上下文和生产职责必须分开。[审阅契约](review-completion.zh-CN.md)说明任务、原始结果和当前版本的完成条件。
+新建全稿由三个独立上下文覆盖七项视角。第一组审阅需求与读者用途，第二组审阅证据与对抗推理，第三组审阅结构与深度、过程语言和自然表达。按内容补充相关专审。每条发现标明具体视角，有空位再启动下一项任务。[审阅契约](review-completion.zh-CN.md)说明职责及原始结果。
 
-Agent 工具保留每次真实回复与执行记录，通过同一个 `review` 提交路径。内容审阅具备完整结果后，下一项任务是独立审计；报告和审计中的必要问题解决后进入最终验收。前段研究单元需要审阅时，指明对应单元；该结果支撑后续依赖工作，不代替全稿审阅。
+通过 `review` 提交每次真实回复与执行记录。就绪评估 Agent 先独立阅读完整报告，再核对审计结果及实际修订。审计可要求对重要未决发现独立补查。对前段研究做局部审阅时，指明对应单元，单独保存该范围的判断。
 
 ### 可选的自配执行方式
 
@@ -322,7 +315,7 @@ CLI 请求通过 `--request` 或标准输入提供 JSON 对象。缺参／未知
 
 需求请求的格式为 `{"task":"comparison","language":"zh","brief":{"question":"...","audience":"...","scope":"...","output":"...","depth":"...","evidence_standard":"..."}}`。评审参数包括 `task`、任务内相对路径 `evidence_paths`，以及可选的 `artifact`（默认 `final.md`）和 `purpose`。`status`、`guide`、`finish` 对应同名 MCP 工具的参数。也可通过标准输入提供 JSON。
 
-`finish` 只有返回 `completed: true` 才退出 0；`completed: false` 即使带有 `action_required` 也退出 1。CLI 和 MCP 调用方均应处理返回的具体缺口。`review` 成功准备待执行的独立任务时仍退出 0。首次交付复用 `finish.delivery_check`；以后只读复核是否完成时，运行 `python3 scripts/check_delivery.py <task-directory> --require-complete --json`。默认检查模式允许合法的进行中记录通过。详见[交付契约](delivery-verification.zh-CN.md)，纯 Skill 不要求这些命令或记录。
+`finish` 返回 `completed: true` 时退出 0，返回 `completed: false` 时退出 1。当前报告通过独立最终复查后，将成稿与交付说明传给 `finish`，随后交付完整报告。成功准备独立任务的 `review` 退出 0。首次交付复用 `finish.delivery_check`，事后可用 `python3 scripts/check_delivery.py <task-directory> --require-complete --json` 只读复核。[交付契约](delivery-verification.zh-CN.md)。
 
 <a id="复用任务文件并保存自评材料"></a>
 
@@ -430,6 +423,8 @@ Agent 工具的原生子 Agent 已能执行同一份任务，并通过 CLI／MCP
 ```bash
 python scripts/research_host.py --host claude --workspace <task-store> --task study --request work.json --language zh
 ```
+
+已经登记主稿和实际生产者时，可用 `--complete` 替代工作列表请求，让独立审阅和获授权的修订推进到交付完成，或返回具体阻塞。适配器默认同时运行两个工作或审阅轮次。用 `--max-active` 指定宿主能容纳的正整数。成功时返回 `status: "completed"` 和 `completed: true`。
 
 使用 OpenCode 或 Codex 时，分别传 `--host opencode` 或 `--host codex`。省略该参数时，依次采用 `RESEARCH_TOOLKIT_HOST`、可识别的当前 Agent 工具环境，或唯一已安装的 CLI。无法唯一确定时返回 `--host` 的正确写法，不兜底选择 Codex。PATH 只有包装脚本时，可用 `--executable` 指定原生可执行文件。适配器不添加跳过权限的参数，也不覆盖模型选择。
 

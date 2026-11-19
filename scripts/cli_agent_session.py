@@ -36,6 +36,10 @@ class CLIAgentSession:
                 "host": self.name, "turn": turn, "direction": direction, "message": message}, ensure_ascii=False) + "\n")
             self.trace.flush()
 
+    @property
+    def available(self):
+        return not self.closed
+
     def start(self, prompt, previous=None, read_paths=None, *, workdir=None):
         if self.closed:
             raise RuntimeError(f"{self.name}: session is closed.")

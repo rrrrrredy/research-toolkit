@@ -66,7 +66,7 @@ def default_reviewer() -> dict:
 
 def load_review_config(*, require_audit=False) -> dict:
     path = os.environ.get("RESEARCH_TOOLKIT_REVIEW_CONFIG")
-    config = json.loads(Path(path).read_text(encoding="utf-8")) if path else {"reviewers": [default_reviewer()]}
+    config = json.loads(Path(path).read_text(encoding="utf-8-sig")) if path else {"reviewers": [default_reviewer()]}
     if require_audit and not path:
         if backend_kind(config["reviewers"][0]) == "self":
             raise ValueError("An independent audit needs a configured backend. " + BACKEND_HELP)

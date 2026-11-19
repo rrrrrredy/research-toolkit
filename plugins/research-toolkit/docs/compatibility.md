@@ -2,6 +2,10 @@
 
 [English](compatibility.md) | [简体中文](compatibility.zh-CN.md)
 
+## Current review contract
+
+New full-report tasks use review contract 3. They group the seven content perspectives across three independent contexts, add domain specialists where needed and keep audit and final checking independent. Delivery binds the current report and the independent results that establish completion. Saved contract 2 plans retain their own assignments and completion rules.
+
 ## The v2 completion contract
 
 v2 keeps one research entry and the existing Skill, CLI, MCP and plugin forms. The material change is the completion contract: separate independent content perspectives, independent audit and final acceptance are required. Author self-review or a merged-perspective result cannot satisfy it. That changes earlier completion behavior and warrants a major version.

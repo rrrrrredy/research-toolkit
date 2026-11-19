@@ -15,6 +15,12 @@ from agent_session import PROCESS_EXIT_TIMEOUT, stop_native_process
 from review_process import ProcessCleanupError, WindowsJob, WINDOWS_GATE
 
 
+class CodexRequestError(RuntimeError):
+    def __init__(self, method, error):
+        super().__init__(f"{method}: {error}")
+        self.method, self.error = method, error
+
+
 class CodexSession:
     """Keep native threads and their original events, using the agent tool's login/config."""
 
@@ -106,7 +112,7 @@ class CodexSession:
             # This is a transport-response deadline, not a limit on a research turn.
             reply = waiter.get(timeout=60)
             if "error" in reply:
-                raise RuntimeError(f"{method}: {reply['error']}")
+                raise CodexRequestError(method, reply["error"])
             return reply["result"]
         except queue.Empty as exc:
             raise RuntimeError(f"{method}: Codex did not acknowledge the request within 60 seconds; see {self.trace.name}.") from exc
