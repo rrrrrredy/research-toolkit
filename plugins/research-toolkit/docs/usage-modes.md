@@ -253,9 +253,11 @@ Reviews retain the full task, report and relevant source files, not just URLs. N
 
 Use the subagent capability already present in Codex, Claude Code or the chosen agent tool. `research_review` prepares assignments and binds the complete task, report and original evidence. Run independent review, audit and readiness assessment in stages that fit the available slots. The author and assembling agents stay outside these independent contexts. Native delegation uses the agent tool's existing access.
 
-New full reports use three independent contexts covering all seven perspectives. Group requirements with reader usefulness, evidence with adversarial reasoning, and structure and depth with process language and natural expression. Add relevant specialist review. Each finding retains its perspective. Start further assignments when slots free up. The [review contract](review-completion.md) specifies the roles and retained results.
+New full reports use three independent contexts covering all seven perspectives. One covers requirements, structure and depth, and reader usefulness. Another covers evidence and adversarial reasoning. The third covers process language and natural expression. Add relevant specialist review. Each finding retains its perspective. Start further assignments when slots free up. The [review contract](review-completion.md) specifies the roles and retained results.
 
 Submit each actual response and execution record through `review`. The readiness agent first examines the complete report independently of the other findings and then reconciles with the audit and actual fixes. The audit may call for fresh verification of consequential unresolved findings. For an early review, identify its research unit and keep that evidence separate from whole-report assessment.
+
+Use `summary: true` in MCP or `review --summary` in the CLI for progress counts and the next action. `submission_recorded` confirms receipt of the current result, while `delivery_ready` describes the entire report.
 
 ### Optional configured execution
 

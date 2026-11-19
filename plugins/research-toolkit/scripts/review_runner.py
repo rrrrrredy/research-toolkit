@@ -228,7 +228,7 @@ def run_generic(config, request):
                             {"status": "transport_failure", "error_type": type(exc).__name__, "remote_request_cancelled": "unknown"}) from None
     capture = {"backend": "generic", "requested_model": config["model"], "response": raw}
     try:
-        envelope = json.loads(raw)
+        envelope = json.loads(raw.removeprefix("\ufeff"))
         choice = envelope["choices"][0]
         if choice.get("finish_reason") != "stop":
             raise ValueError("incomplete completion")
@@ -311,18 +311,19 @@ def run_reviewer(config: dict, request: dict, cwd: Path) -> dict:
     if "stdout" in capture.get("decoding_errors", []):
         capture["status"] = "invalid_output_encoding"
         raise ReviewFailure("Reviewer ran but its response is not valid UTF-8; original output bytes are retained.", capture)
+    stdout = capture["stdout"].removeprefix("\ufeff")
     try:
         if kind == "json":
-            envelope = json.loads(result.stdout)
+            envelope = json.loads(stdout)
             execution_id, content = envelope["execution_id"], envelope["content"]
         elif kind == "claude-json":
-            envelope = json.loads(result.stdout)
+            envelope = json.loads(stdout)
             if envelope.get("is_error") or envelope.get("subtype") != "success":
                 raise ValueError("failed or incomplete result")
             execution_id, content = envelope["session_id"], envelope["result"]
         else:
             # JSONL records are LF-delimited; Unicode separators may occur inside strings.
-            events = [json.loads(line) for line in result.stdout.split("\n") if line.strip()]
+            events = [json.loads(line) for line in stdout.split("\n") if line.strip()]
             execution_id = next(e["thread_id"] for e in events if e.get("type") == "thread.started")
             messages = [e["item"]["text"] for e in events if e.get("type") == "item.completed"
                         and e.get("item", {}).get("type") == "agent_message"]

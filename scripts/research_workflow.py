@@ -636,6 +636,22 @@ def dispatch(action: str, request: dict, workspace: Path):
     return observed_call(_dispatch, (action, request, workspace), entry="cli")
 
 
+def review_summary(result: dict) -> dict:
+    """Expose review progress without repeating assignment packets or findings."""
+    check = result.get("completion_check", {})
+    summary = {key: result[key] for key in (
+        "ok", "error", "submission_recorded", "input_version", "scope", "reviews_complete",
+        "delivery_ready", "unit_ready", "evaluation_complete", "evaluation_verdict",
+        "action_required", "failure", "retained_execution", "recovery",
+    ) if key in result}
+    summary.update({key: check[key] for key in (
+        "completed_slots", "required_slots", "completed_steps", "required_steps",
+    ) if key in check})
+    summary["pending_assignments"] = len(result.get("assignments", []))
+    summary["open_issue_count"] = len(result.get("open_issues", []))
+    return summary
+
+
 def main():
     import sys
     # JSON requests and responses use UTF-8 even when Windows pipes default to GBK.
@@ -659,15 +675,7 @@ def main():
     except (ValueError, OSError, TypeError, KeyError) as exc:
         print(json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=False))
         return 1
-    display = result
-    if args.summary:
-        check = result.get("completion_check", {})
-        display = {key: result[key] for key in ("ok", "error", "submission_recorded", "input_version", "scope",
-                   "reviews_complete", "delivery_ready", "unit_ready", "evaluation_complete", "evaluation_verdict",
-                   "action_required", "open_issues") if key in result}
-        display.update({key: check[key] for key in ("completed_slots", "required_slots", "completed_steps",
-                                                   "required_steps") if key in check})
-        display["pending_assignments"] = len(result.get("assignments", []))
+    display = review_summary(result) if args.summary else result
     print(json.dumps(display, ensure_ascii=False, indent=None if args.summary else 2))
     if result.get("ok") is False or (args.action == "check-reviewer" and result.get("status") == "blocked"):
         return 1

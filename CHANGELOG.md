@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v3.0.0 — 2026-11-19
+
+Run independent research review through final delivery. Queue three groups covering seven perspectives in as few as two concurrent Agent slots, resolve equivalent findings once against the evidence, and deliver automatically when an independent Agent passes the current report. Accept UTF-8 BOM in supported inputs and make basic usage recording opt-in for new installs.
+
+[English release notes](docs/releases/v3.0.0.md) · [中文发布说明](docs/releases/v3.0.0.zh-CN.md)
+
 ## v2.5.8 — 2026-11-18
 
 Fix the plugin's first-use instructions and restore evaluation completion for valid positive and negative results. Reuse one copy of the review input, recover unfinished work after a host disconnects, and cancel pending uploads for a directory when its sharing permission is withdrawn. Document compact installation by release or commit.

@@ -51,6 +51,8 @@ Agent 工具运行 Agent，Toolkit 准备输入、保存产出并返回仍待完
 
 同一操作接收内容结果，准备独立审计，再在必要问题解决后准备最终验收。输入未变且已有有效结果时，继续未完成工作，不重复产生一次通过。每项待完成任务在冻结 JSON `assignment_ref` 之外返回 `reading_ref` 阅读入口，完整视图见[使用说明](usage-modes.zh-CN.md)。`include_assignment` 默认 `false`，执行者仍须能够读取完整输入及来源原件。
 
+提交后，`submission_recorded: true` 表示已保存本次结果，`delivery_ready` 表示整份报告是否已通过独立检查。MCP 的 `research_review` 可传 `summary: true`，CLI 的 `review` 可用 `--summary`，查看这两种状态、待办任务数、问题数及下一步 `action_required`。需要任务引用或问题详情时，沿用同一输入再次调用，省略本次提交的结果和摘要选项。
+
 冻结的角色任务可以通过 `shared_input` 保存共享输入的相对路径和 SHA-256。历史任务将输入内嵌在 `assignment`，仍可读取。原生 Agent 使用 `reading_ref`；需要通过工具直接获取完整请求时，设置 `include_assignment=true`。
 
 另配命令或端点是可选执行方式，见[使用说明](usage-modes.zh-CN.md#评审后端)，同样履行独立性和当前版本要求。历史 `self` 结果继续可读，但属于作者自检，不是当前独立审阅路径。
@@ -83,7 +85,7 @@ Agent 工具运行 Agent，Toolkit 准备输入、保存产出并返回仍待完
 
 审计者读取完整当前稿、要求、审阅结果和相关原件，从这些内容中选择检查项，不只接收作者挑出的片段。
 
-v3 的 `audit_scaffold` 自动列出实际意见编号、位置、可能重复的意见及应核查内容。审计 Agent 确认哪些意见可以共用一次裁定。对同一处提出同一个问题的意见只查一次。在 `disposition_groups` 中写一份证据和裁定，包含 `finding_ids`、`decision`、`reason`、`evidence`。旧稿意见可用 `prior_finding_groups`。工具验证每条原始编号恰好被覆盖一次，并保留意见原文和裁定。`review --summary` 只列进度、数量和下一步。
+v3 的 `audit_scaffold` 自动列出实际意见编号、位置、可能重复的意见及应核查内容。审计 Agent 确认哪些意见可以共用一次裁定。对同一处提出同一个问题的意见只查一次。在 `disposition_groups` 中写一份证据和裁定，包含 `finding_ids`、`decision`、`reason`、`evidence`。旧稿意见可用 `prior_finding_groups`。工具验证每条原始编号恰好被覆盖一次，并保留意见原文和裁定。
 
 影响交付的分歧若还缺依据，审计 Agent 用 `verification_requests` 安排一项针对性核验。新的 Agent 先看这个问题和原件，再由审计 Agent 根据返回的依据判断。四路一致和一路提出都需要有证据。
 

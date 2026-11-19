@@ -302,7 +302,7 @@ class HistoricalReceiptTests(unittest.TestCase):
 
     def test_generic_http_runs_an_external_review_with_complete_evidence(self):
         self.task()
-        received = []
+        received, sent = [], []
         class Handler(BaseHTTPRequestHandler):
             def log_message(self, *args): pass
             def do_POST(self):
@@ -310,7 +310,9 @@ class HistoricalReceiptTests(unittest.TestCase):
                 received.append((self.path, body))
                 assignment = json.loads(body["messages"][1]["content"])
                 result = SyntheticRunner()({}, assignment, None)
-                raw = json.dumps({"id": "synthetic-http-1", "choices": [{"finish_reason": "stop", "message": {"content": result["content"]}}]}).encode()
+                envelope = {"id": "synthetic-http-1", "choices": [{"finish_reason": "stop", "message": {"content": result["content"]}}]}
+                raw = (json.dumps(envelope, ensure_ascii=False) + "\r\n").encode("utf-8-sig")
+                sent.append(raw)
                 self.send_response(200); self.send_header("Content-Type", "application/json"); self.end_headers(); self.wfile.write(raw)
         server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
         thread = threading.Thread(target=server.serve_forever, daemon=True); thread.start()
@@ -318,6 +320,9 @@ class HistoricalReceiptTests(unittest.TestCase):
             config = {"reviewers": [{"id": "http", "backend": "generic", "model": "synthetic", "base_url": f"http://127.0.0.1:{server.server_port}/v1"}]}
             result = legacy_review(self.workspace, "case", ["source.md"], reviewer="external", config=config)
             self.assertTrue(result["reviews_complete"], result)
+            review = next(row for row in w.rows_for(self.root) if row.get("record_type") == "model_review")
+            capture = w.load(self.root, review["execution"]["path"])
+            self.assertEqual(capture["response"].encode("utf-8"), sent[0])
             self.assertTrue(legacy_finish(self.workspace, "case", "The report is complete.")["completed"])
             self.assertEqual(received[0][0], "/v1/chat/completions")
             assignment = json.loads(received[0][1]["messages"][1]["content"])["assignment"]

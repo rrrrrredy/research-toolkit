@@ -170,7 +170,8 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
                           include_assignment: bool = False,
                           host_result: dict[str, Any] | None = None,
                           scope: str = "full_report", perspectives: list[str] | None = None,
-                          domains: list[str] | None = None, audit: bool | None = None) -> dict[str, Any]:
+                          domains: list[str] | None = None, audit: bool | None = None,
+                          summary: bool = False) -> dict[str, Any]:
     """Prepare independent assignments or receive the agent tool's actual completed result; no API setup is needed.
     The agent tool dispatches distinct non-author agents: three assignments covering seven whole-report perspectives,
     applicable specialist review, independent audit and a separate readiness check. Existing plans retain their roles.
@@ -184,6 +185,8 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
     Omitted perspectives/domains continue the saved unit selection; explicit values change the selection.
     assignment_ref points to the frozen role request. New requests reference the shared input by path and hash.
     Set include_assignment=True to return the complete request inline, including that input.
+    Set summary=True for progress counts and action_required. Use a full response for assignment references or issue details.
+    submission_recorded=True confirms receipt of the submitted result. delivery_ready indicates whole-report readiness.
     For progressive work set scope to a saved unit_id and artifact to its draft; perspectives selects relevant unit reviews.
     New units default to no domain review; domains supplies needed specialist perspectives. audit=True adds independent
     unit adjudication when needed, retaining existing content results. An enabled audit cannot be removed; full reports
@@ -195,9 +198,10 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
     reviewer=self and self_review remain recognizable legacy parameters but cannot complete current independent review.
     Explicitly configured external backends execute the same assignments; ordinary use stays in the agent tool.
     """
-    return await asyncio.to_thread(mutate, workflow.review, task, evidence_paths,
-                                   artifact, purpose, revision, reviewer, self_review, include_assignment,
-                                   host_result, scope, perspectives, domains, audit)
+    result = await asyncio.to_thread(mutate, workflow.review, task, evidence_paths,
+                                     artifact, purpose, revision, reviewer, self_review, include_assignment and not summary,
+                                     host_result, scope, perspectives, domains, audit)
+    return workflow.review_summary(result) if summary else result
 
 
 @server.tool(structured_output=True)
