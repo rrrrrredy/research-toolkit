@@ -398,6 +398,17 @@ async def verify(base):
             evaluation_args = {**args, 'task': label, 'purpose': 'evaluation'}
             evaluation = await call('research_review', evaluation_args)
             assert not evaluation['evaluation_complete']
+            if label == 'evaluation-positive':
+                summary = await submit(evaluation['assignments'][0], task_root=evaluation_root,
+                                       review_args={**evaluation_args, 'summary': True})
+                assert summary['submission_recorded'] and not summary['delivery_ready'], summary
+                assert summary['action_required'] == 'host_agents', summary
+                assert summary['pending_assignments'] == len(evaluation['assignments']) - 1, summary
+                assert not {'assignments', 'open_issues', 'completion_check'}.intersection(summary), summary
+                cli_summary = cli('research_workflow.py', 'review', '--summary', '--workspace', workspace,
+                                  request=evaluation_args)
+                assert summary == {**cli_summary, 'submission_recorded': True}, summary
+                evaluation = await call('research_review', evaluation_args)
             while evaluation['assignments']:
                 evaluation = await submit(evaluation['assignments'][0], task_root=evaluation_root,
                                           review_args=evaluation_args)

@@ -51,6 +51,8 @@ When a unit needs independent adjudication of a necessary finding or a supported
 
 The same operation accepts content results, prepares the independent audit, and then prepares final acceptance when the necessary work is resolved. Repeated calls with unchanged valid results resume pending work rather than generating another pass. Each pending assignment returns a `reading_ref` entry alongside the frozen JSON `assignment_ref`; [usage](usage-modes.md) describes the complete reading view. `include_assignment` defaults to `false`; every worker must still be able to read the full input and referenced source originals.
 
+After a submission, `submission_recorded: true` confirms that the result was saved. `delivery_ready` reports whether the whole report has passed its independent checks. Use `summary: true` with MCP `research_review` or `--summary` with CLI `review` to see both states, pending assignment and issue counts, and `action_required`. To retrieve assignment references and issue details, call review again with the same inputs, omitting the submission and summary option.
+
 Frozen role requests may contain `shared_input` with the relative path and SHA-256 of the complete shared input. Earlier requests can contain the input inline under `assignment` and remain readable. Use `reading_ref` for native agents or set `include_assignment=true` to receive the complete request inline through the tool.
 
 Configured command/endpoint execution is optional; see [usage](usage-modes.md#reviewer-backends). It must fulfill the same independence and current-version requirements. Legacy `self` results remain readable historical records; they are author checks, not the current independent review route.
@@ -83,7 +85,7 @@ Do not rerun an unchanged valid negative review until it passes. Revisit the cha
 
 The auditor reads the complete current report, requirements, review outputs and relevant original material. It selects checks from that input rather than receiving only author-selected highlights.
 
-The v3 request supplies `audit_scaffold` with actual finding IDs, locations and details, possible duplicate groups and coverage items. The auditor confirms which findings can share one decision. Check equivalent findings at the same location once. Submit one `disposition_groups` entry for that evidence and judgment, with `finding_ids`, `decision`, `reason` and `evidence`. `prior_finding_groups` works the same way for previous-version findings. The tool checks that every ID is covered exactly once and retains the original findings and reviewed decision. `review --summary` gives the agent the next action and counts without reprinting the assignments.
+The v3 request supplies `audit_scaffold` with actual finding IDs, locations and details, possible duplicate groups and coverage items. The auditor confirms which findings can share one decision. Check equivalent findings at the same location once. Submit one `disposition_groups` entry for that evidence and judgment, with `finding_ids`, `decision`, `reason` and `evidence`. `prior_finding_groups` works the same way for previous-version findings. The tool checks that every ID is covered exactly once and retains the original findings and reviewed decision.
 
 If a dispute can change delivery and still needs evidence, the auditor can request a focused `verification_requests` assignment. A fresh agent checks just the question before seeing the earlier verdicts. The auditor uses the returned evidence to settle the dispute. Four matching opinions have the same obligation to show evidence as one.
 

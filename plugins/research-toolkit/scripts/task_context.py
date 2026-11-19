@@ -52,22 +52,27 @@ def source_inputs(root, sources):
     return texts, originals
 
 
-def changed_inputs(root, inputs):
+def changed_inputs(root, inputs, current_hashes):
     from record_changes import input_digest
     changed = []
     for name, expected in inputs.items():
-        try:
-            if input_digest(root, name) == expected:
-                continue
-        except (OSError, ValueError):
-            pass
-        changed.append(name)
+        if name not in current_hashes:
+            try:
+                current_hashes[name] = input_digest(root, name)
+            except (OSError, ValueError):
+                current_hashes[name] = None
+        actual = current_hashes[name]
+        if actual is None or actual != expected:
+            changed.append(name)
     return changed
 
 
 def research_outputs(root, warnings, progress=None):
     """Recover saved branch artifacts from the existing activity log, not another ledger."""
     outputs = {}
+    # Older observations often name the same current file or registry row.
+    # Compare each input once in this read of the task; later calls read it afresh.
+    current_hashes = {}
     try:
         path = safe_path(root, 'logs/activity.jsonl')
         text = path.read_text(encoding='utf-8') if path.exists() else ''
@@ -94,9 +99,9 @@ def research_outputs(root, warnings, progress=None):
                     elif key in previous:
                         item[key] = previous[key]
                 item['owner'] = item.get('handoff', {}).get('to') or item.get('host_task')
-                item['changed_inputs'] = [name for name in changed_inputs(root, item.get('based_on', {}))
+                item['changed_inputs'] = [name for name in changed_inputs(root, item.get('based_on', {}), current_hashes)
                                           if name.startswith('record:') or safe_path(root, name) != safe_path(root, item['path'])]
-                item['changed_since_save'] = bool(changed_inputs(root, {item['path']:item['sha256']}))
+                item['changed_since_save'] = bool(changed_inputs(root, {item['path']: item['sha256']}, current_hashes))
                 outputs[item['path']] = item
             except (ValueError, KeyError, TypeError, AttributeError):
                 warnings.append('Unreadable analysis observation; original activity row retained.')

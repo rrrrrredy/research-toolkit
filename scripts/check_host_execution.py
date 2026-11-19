@@ -39,7 +39,9 @@ def fake_codex(mode):
             role = roles.get(thread)
             if mode == "complete" and role in {("reviewer", None), ("auditor", "adjudicate")} and role not in locked:
                 locked.add(role)
-                emit(id=request["id"], error={"code": -32600, "message": f"thread {thread} already has an active writer"})
+                reason = (f"no rollout found for thread id {thread}" if role == ("reviewer", None)
+                          else f"thread {thread} already has an active writer")
+                emit(id=request["id"], error={"code": -32600, "message": reason})
             elif mode == "complete" and role == ("acceptance", "reconcile"):
                 emit(id=request["id"], error={"code": -32600, "message": f"no rollout found for thread id {thread}"})
             else:

@@ -137,6 +137,10 @@ class ResearchHost:
                     return
                 job["reassigned_from"] = previous
                 previous = None
+                prefix = self.prefix + "/" + uuid.uuid4().hex
+                prompt = self._review_prompt(job)
+                save_text(self.root, prefix + "/prompt.txt", prompt)
+                started_at, clock = now(), time.monotonic()
                 thread, turn = self.host.start(prompt, previous, paths, workdir=workdir)
         except (OSError, ValueError, RuntimeError) as exc:
             job["failed"] = True
@@ -160,11 +164,13 @@ class ResearchHost:
                 or error.error.get("code") != -32600):
             return False
         identity = native_id("codex", previous)
-        message = error.error.get("message")
-        locked = message == f"thread {identity} already has an active writer"
+        unavailable = error.error.get("message") in {
+            f"thread {identity} already has an active writer",
+            f"no rollout found for thread id {identity}",
+        }
         if assignment.get("role") == "acceptance" and assignment.get("phase") == "correction_review":
-            return locked or message == f"no rollout found for thread id {identity}"
-        if (not locked or assignment.get("role") not in {"reviewer", "auditor"}
+            return unavailable
+        if (not unavailable or assignment.get("role") not in {"reviewer", "auditor"}
                 or assignment.get("phase") not in {None, "initial"}):
             return False
         current = load(self.root, assignment["assignment_ref"]["path"])
@@ -454,21 +460,33 @@ class ResearchHost:
             key = next(iter(self.pending_reviews))
             job = self.pending_reviews.pop(key)
             assignment = job["assignment"]
-            directory = self._working_directory(job)
-            prompt = ("Perform only the independent assignment at "
-                + str(safe_path(self.root, assignment["reading_ref"]["path"]))
-                + ". Read all supplied original materials and apply the stated result schema. "
-                "Return the required JSON object, without Markdown fences. "
-                "Use available search and execution tools to verify evidence or recompute results as needed. "
-                "Keep new sources, scripts and results in your separate directory " + str(directory)
-                + "; task-relative path " + job["workdir"] + ". Cite supporting files in findings. "
-                "Do not modify the reviewed text, supplied snapshots or shared records, delegate this independent "
-                "responsibility or initiate a research workflow. "
-                "A justified negative assessment is a completed result; do not change it to obtain a pass.")
-            if assignment.get("phase") == "blind" or assignment["role"] == "verifier":
-                prompt += " Use the supplied reading packet and independent evidence. Do not look up other agents' judgments in task logs."
-            self._start(job, prompt, self._review_owner(job["identity"], assignment))
+            self._working_directory(job)
+            previous = self._review_owner(job["identity"], assignment)
+            self._start(job, self._review_prompt(job, previous), previous)
             self.started.add(key)
+
+    def _review_prompt(self, job, previous=None):
+        assignment = job["assignment"]
+        read_material = "Read all supplied original materials and apply the stated result schema. "
+        if (previous and previous == assignment.get("resume_host_task")
+                and assignment["role"] in {"reviewer", "auditor"} and assignment.get("phase") in {None, "initial"}):
+            read_material = (
+                "Read all supplied current draft text and the changed or affected original evidence. "
+                "Use your retained previous draft, findings and the role-specific differences. Reuse evidence you already "
+                "read in this context when it is unchanged and unaffected. Read any required material you have not yet "
+                "checked. Assess the implications across the full current report and apply the stated result schema. ")
+        prompt = ("Perform only the independent assignment at "
+            + str(safe_path(self.root, assignment["reading_ref"]["path"])) + ". " + read_material
+            + "Return the required JSON object, without Markdown fences. "
+            "Use available search and execution tools to verify evidence or recompute results as needed. "
+            "Keep new sources, scripts and results in your separate directory " + str(safe_path(self.root, job["workdir"]))
+            + "; task-relative path " + job["workdir"] + ". Cite supporting files in findings. "
+            "Do not modify the reviewed text, supplied snapshots or shared records, delegate this independent "
+            "responsibility or initiate a research workflow. "
+            "A justified negative assessment is a completed result; do not change it to obtain a pass.")
+        if assignment.get("phase") == "blind" or assignment["role"] == "verifier":
+            prompt += " Use the supplied reading packet and independent evidence. Do not look up other agents' judgments in task logs."
+        return prompt
 
     def _queue_revision(self, current, findings, evidence_paths, writer_handoff_from):
         from record_changes import rows_from
@@ -519,13 +537,14 @@ class ResearchHost:
         if not saved.get("ok"):
             raise ValueError("Writer handoff rejected; original response retained: " + json.dumps(saved, ensure_ascii=False))
 
-    def _finish_delivery(self, status, plan):
+    def _finish_delivery(self, status, plan, review=None):
         from check_delivery import inspect_jsonl, inspect_requirements, inspect_required_reading
 
         artifact = status["artifact"]
         with self.access():
             progress = load(self.root, "state/progress.json")
-            review = host_review.inspect(self.root, progress, artifact)
+            if review is None:
+                review = host_review.inspect(self.root, progress, artifact)
             if (not review["ok"] or progress.get("review_plan") != plan
                     or status.get("input_version", plan["input_version"]) != plan["input_version"]
                     or plan["artifact_sha256"] != status["artifact_sha256"]):
@@ -556,8 +575,8 @@ class ResearchHost:
                 saved = workflow.save_records(self.workspace, self.task, requirements=updates)
                 if not saved.get("ok"):
                     return {**status, "reason": "requirement_save_rejected", "requirement_save": saved}
-            progress = load(self.root, "state/progress.json")
-            review = host_review.inspect(self.root, progress, artifact)
+                progress = load(self.root, "state/progress.json")
+                review = host_review.inspect(self.root, progress, artifact)
             draft = workflow.check_draft(self.workspace, self.task, artifact)
             issues, _ = inspect_requirements(path, contract_version=plan["contract_version"])
             updated = {**status, "check_draft": draft, "recorded_requirements": [row["requirement_id"] for row in updates]}
@@ -612,9 +631,10 @@ class ResearchHost:
                     originals, _ = workflow.required_source_inputs(self.root)
                     selected_paths = set(originals) | set(evidence_paths) | {"data/source_registry.csv", "data/claims_registry.csv"}
                     prior = load(self.root, plan["input"]["path"])
-                    reusable = set(prior["sources"]) == selected_paths and host_review.inspect(self.root, progress, artifact)["ok"]
-                if reusable:
-                    return self._finish_delivery(status, plan)
+                    if set(prior["sources"]) == selected_paths:
+                        review = host_review.inspect(self.root, progress, artifact)
+                        if review["ok"]:
+                            return self._finish_delivery(status, plan, review=review)
             self.review(artifact, evidence_paths, domains=domains, revision=True)
             self.drain()
             result = self.reviews["full_report"]
