@@ -36,7 +36,7 @@ After substantive revisions have stabilized, two separate independent agents exa
 
 ## Review Validity and Sampling
 
-All seven independent base perspectives and applicable domain review have actual, complete, version-bound results. The separate auditor checks review validity, consequential findings and fixes, and passed content selected from the full artifact using the [audit method](subagents-and-review-loop.md#check-reviewers-and-sample-passed-work). Original responses, failed attempts and dispositions remain available.
+The three independent groups covering all seven perspectives and applicable domain review have actual, complete, version-bound results. The separate auditor checks review validity, consequential findings and fixes, and passed content selected from the full artifact using the [audit method](subagents-and-review-loop.md#check-reviewers-and-sample-passed-work). Original responses, failed attempts and dispositions remain available.
 
 Unexamined requirements, necessary unresolved fixes and missing review assignments remain open. A valid negative review is preserved and acted on rather than rerun to obtain a favorable response.
 
@@ -48,11 +48,11 @@ A separate final acceptance context reads the current complete report and confir
 - Required reading and object coverage are complete; the report provides the explanations, comparisons and depth the question needs.
 - Important statements, citations and qualifications retain their meaning across prose, tables and conclusions.
 - The text serves its reader; production records remain outside it unless requested.
-- Seven base perspectives, applicable domain review and independent audit are complete for the current result, with necessary fixes checked in the actual text.
+- All seven perspectives across the three independent groups, applicable domain review and independent audit are complete for the current result, with necessary fixes checked in the actual text.
 - Acceptance findings and any consequential sample checks are resolved, and the delivery statement matches the actual artifact and remaining evidence limitations.
 
 Use the [final acceptance method](subagents-and-review-loop.md#stage-scheduling-and-acceptance). An acceptor's PASS cannot replace a missing assignment or an author's unsupported claim that a fix was applied.
 
-For CLI/MCP-managed delivery, `finish` executes the [delivery contract](../docs/delivery-verification.md#research-delivery-completion) and writes the version-bound receipt. Skill-only delivery preserves the same independent work without a required JSON ledger or receipt. A stage artifact is identified as such, with its actual remaining work; it is not marked as whole-task completion. Historical evaluation artifacts and outcomes remain unchanged.
+After the user accepts the current report, CLI/MCP `finish` takes its `accepted_input_version` for v3 and executes the [delivery contract](../docs/delivery-verification.md#research-delivery-completion) and writes the version-bound receipt. Skill-only delivery preserves the same independent work without a required JSON ledger or receipt. A stage artifact is identified as such, with its actual remaining work; it is not marked as whole-task completion. Historical evaluation artifacts and outcomes remain unchanged.
 
 When using the tools, `finish.completed=false` means work remains even with `action_required`; address its specific gaps. Reuse a successful `finish.delivery_check` for first delivery. For a later check that retained delivery is still complete, use `check_delivery.py --require-complete` as described in the delivery contract, rather than treating a default consistency-check pass as completion.

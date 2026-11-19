@@ -12,17 +12,17 @@ Use one repository and one normative SKILL. A release, an installed copy, a loca
 
 ## Install a version-pinned Skill
 
-Choose a [Release by tag](https://github.com/rrrrrredy/research-toolkit/releases) and download its `research-toolkit-plugin-v<VERSION>.zip` and `SHA256SUMS`. This compact package includes the complete Skill, references and runtime helpers, without the evaluation archives. Use the root `research-toolkit/SKILL.md` for standalone Skill installation. The packaged plugin's nested Skill entry is for plugin discovery.
+Prefer the compact package from a [tagged release](https://github.com/rrrrrredy/research-toolkit/releases). Download that release's `research-toolkit-plugin-v<VERSION>.zip` and `SHA256SUMS`. It includes the complete Skill, references and runtime helpers. Use the root `research-toolkit/SKILL.md` for standalone use or the complete unpacked directory for plugin installation.
 
-For example, in the folder containing both v2.5.7 downloads, verify the checksum and unpack in a new staging directory.
+In the folder containing both downloads, replace `CHOSEN_VERSION` with the version you downloaded, then verify the checksum and unpack into a new staging directory.
 
 ```bash
 shasum -a 256 -c SHA256SUMS &&
-  unzip research-toolkit-plugin-v2.5.7.zip -d toolkit-release
+  unzip research-toolkit-plugin-vCHOSEN_VERSION.zip -d toolkit-release
 ```
 
 ```powershell
-$archive = 'research-toolkit-plugin-v2.5.7.zip'
+$archive = 'research-toolkit-plugin-vCHOSEN_VERSION.zip'
 $record = Get-Content -LiteralPath SHA256SUMS |
     Where-Object { ($_ -split '\s+', 2)[1] -eq $archive }
 if (-not $record -or (Get-FileHash -LiteralPath $archive).Hash -ne ($record -split '\s+', 2)[0]) {

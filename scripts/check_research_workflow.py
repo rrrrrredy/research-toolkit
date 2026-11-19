@@ -58,7 +58,7 @@ class SyntheticRunner:
         role = request["role"]
         self.calls.append(role)
         self.requests.append(request)
-        if request.get('contract_version') == 2:
+        if request.get('contract_version') in {2, 3}:
             value = self.current_contract(request)
             return {"execution_id": "synthetic-reused" if self.reuse else "synthetic-"+uuid.uuid4().hex,
                     "content": json.dumps(value), "capture": {"synthetic": True, "role": role}}
@@ -134,6 +134,11 @@ class SyntheticRunner:
             value = {'result': 'fail' if self.negative else 'pass', 'basis': basis,
                      'coverage': {d: {'location': 'final.md paragraphs 1–3; source.md paragraph 1', 'basis': basis} for d in workflow.DIMENSIONS},
                      'sample_checks': [sample], 'open_issues': [basis] if self.negative else []}
+            if request.get('phase') == 'reconcile':
+                value['blind_reconciliation'] = {key: {
+                    'decision': 'confirmed_defect' if self.negative else 'no_change',
+                    'reason': basis, 'evidence': 'source.md paragraph 1'}
+                    for key in request['blind_issue_ids']}
         value.update(input_version=request['input_version'], assignment_version=request['assignment_version'])
         return value
 

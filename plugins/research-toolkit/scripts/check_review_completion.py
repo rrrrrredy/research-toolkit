@@ -86,7 +86,7 @@ def inspect_review_completion(
     root: Path, progress: dict, artifact: str, rows: list[dict], *,
     hash_file: Callable, resolve_path: Callable, require_report_ready: bool = True,
 ) -> dict:
-    if progress.get("review_plan", {}).get("contract_version") == 2 or progress.get("review_contract", 1) >= 2:
+    if progress.get("review_plan", {}).get("contract_version") in {2, 3} or progress.get("review_contract", 1) >= 2:
         from host_review import inspect
         return inspect(root, progress, artifact, require_report_ready=require_report_ready)
     flags: list[str] = []
@@ -474,7 +474,7 @@ def main() -> int:
     if not isinstance(progress, dict):
         progress = {}
     plan = progress.get("review_plan")
-    evaluation = isinstance(plan, dict) and plan.get("contract_version") == 2 and plan.get("purpose") == "evaluation"
+    evaluation = isinstance(plan, dict) and plan.get("contract_version") in {2, 3} and plan.get("purpose") == "evaluation"
     rows, errors = inspect_jsonl(root / "logs/review.jsonl", "Review")
     result = inspect_review_completion(root, progress, args.artifact, rows, hash_file=sha256_file,
                                        resolve_path=resolve_inside, require_report_ready=not evaluation)

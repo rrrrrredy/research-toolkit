@@ -10,10 +10,10 @@ The agent tool runs the agents. Toolkit prepares their inputs, preserves outputs
 
 | Assignment | Independent responsibility |
 | --- | --- |
-| Seven content perspectives | A separate non-author context for each: requirements, evidence, adversarial reasoning, structure and depth, reader usefulness, process language, natural expression. Each sees the whole current report and necessary originals. |
-| Domain review | Check task-specific expertise, calculations, terminology or technical assumptions. It supplements the base perspectives. |
+| Three content review groups | Independent non-author contexts for requirements, structure and depth, and reader usefulness in one group, evidence and adversarial reasoning in one, and process language and natural expression in one. Each sees the current whole report and necessary originals. |
+| Domain review | Add a named specialist context when a consequential conclusion needs domain expertise. |
 | Audit | A different agent examines review validity, consequential findings and decisions, decisive report claims and samples of passed content. It can return necessary corrections. |
-| Final acceptance | Another independent agent reads the complete current report, effective requirements, audit and actual corrections before accepting delivery. |
+| Final check | Another independent agent records its initial reading before receiving review verdicts, then reconciles its observations with the audit and actual revisions. The user accepts the finished version. |
 
 Authors, research contributors and the assembling agent are production participants. They may explain or correct their work but cannot fill independent assignments about it. Use actual agent task/session identities; changing a label within the author's context is not another agent. Models may be the same.
 
@@ -45,7 +45,7 @@ These are placeholders, not a completed review. Preserve the actual original res
 
 Each returned `assignments` entry provides `slot_id`, `role`, `assignment_ref` and `assignment_version`; the operation also returns `input_version`. The original JSON response must quote both versions. The original execution record identifies `host_task`, `status: "completed"`, `assignment_version` and the actual observed agent tool events. These must come from the execution that produced the response.
 
-`scope` defaults to `full_report`. `domains` names required specialist areas; a new full-report plan defaults to `["domain"]` and includes all seven base perspectives. For an early unit review, use its registered `unit_id` as `scope` and select relevant `perspectives`. A new unit defaults to `domains: []`. Subsequent calls that omit `perspectives` or `domains` retain the respective saved selection; neither needs copying into every result call. Explicit values still change the selection. Unit review does not remove final whole-report duties.
+`scope` defaults to `full_report`. A new v3 plan covers all seven perspectives across three groups and starts with `domains: []`. Supply the specific domains needed for this report. For an early unit review, use its registered `unit_id` as `scope` and select relevant `perspectives`. Omitted selections persist on continuation. Full-report duties stay in place when a unit has already been reviewed.
 
 When a unit needs independent adjudication of a necessary finding or a supported no-change response, use the same `research_review` call with `audit: true`. Existing content reviews of that input stay valid; the next assignment is the unit auditor. The enabled audit remains required on continuation and cannot be removed with `audit: false`. A unit does not acquire final acceptance. Full-report audit is always required. Unit audit covers `applicable_requirements` (global requirements and those assigned to the unit or its upstream dependencies); all effective requirements remain available as context.
 
@@ -61,7 +61,7 @@ Retain the actual brief, effective requirements, report, source and claim record
 
 The plan and each result bind the artifact and required input versions. Inputs, instruction snapshots, original responses and execution captures remain in the task. Text hashes normalize newlines; they do not modify the original research records. File references must resolve inside the task and match their hashes.
 
-Current tasks use `progress.review_contract: 2` and `review_plan.contract_version: 2`. The existing `logs/review.jsonl` retains `model_review` and `review_audit` records plus the independent `final_acceptance`. These are review-contract identifiers, distinct from the delivery checker's contract number.
+New full-report tasks use `progress.review_contract: 3` and `review_plan.contract_version: 3`. Saved v2 tasks retain the seven separate assignments and their historical completion rules. The existing review log and frozen role requests retain original responses and the extra v3 phases. Review-contract numbers are separate from the delivery checker's contract number.
 
 After a substantive edit, save the new report or source version and use `revision: true` for the affected review. Preserve earlier assignments and responses. Current whole-report acceptance must cover the final text. Historical results are evidence of what was checked then, not automatic approval of later prose.
 
@@ -83,6 +83,10 @@ Do not rerun an unchanged valid negative review until it passes. Revisit the cha
 
 The auditor reads the complete current report, requirements, review outputs and relevant original material. It selects checks from that input rather than receiving only author-selected highlights.
 
+The v3 request supplies `audit_scaffold` with actual finding IDs, locations and details, possible duplicate groups and coverage items. The auditor confirms which findings can share one decision. Check equivalent findings at the same location once. Submit one `disposition_groups` entry for that evidence and judgment, with `finding_ids`, `decision`, `reason` and `evidence`. `prior_finding_groups` works the same way for previous-version findings. The tool checks that every ID is covered exactly once and retains the original findings and reviewed decision. `review --summary` gives the agent the next action and counts without reprinting the assignments.
+
+If a dispute can change delivery and still needs evidence, the auditor can request a focused `verification_requests` assignment. A fresh agent checks just the question before seeing the earlier verdicts. The auditor uses the returned evidence to settle the dispute. Four matching opinions have the same obligation to show evidence as one.
+
 Check all decisive requirements and conclusions, key numbers and citations, consequential counter-evidence, major findings, important no-change decisions and claimed corrections that affect the result. Sample other passed/no-issue content across the actual research, including branch-to-report transformations, retained conditions and cross-section conclusions.
 
 For each selection, retain its location, reason, evidence examined and result. No fixed first/last/hash paragraph rule or sampling percentage substitutes for this choice. A defect expands examination by its cause—for example the same source, measure, branch or transformation—until the affected work is understood and necessary defects are resolved. The auditor performs this within its existing assignment; no additional sampling role or scoring system is needed.
@@ -91,9 +95,35 @@ Review validity, report readiness and final acceptance are separate judgments. A
 
 For `purpose=evaluation`, preserve the sample and complete the independent assessments on the same input. A valid negative assessment can conclude with `evaluation_complete: true` and `evaluation_verdict: "needs_revision"`. A valid positive assessment returns `"pass"`. The evaluation result has separate delivery eligibility. Use `purpose=report_delivery` for report delivery.
 
+## Run the review and revision loop
+
+For an already registered draft, the coordinator can run the workflow through the current host:
+
+```bash
+python3 scripts/research_host.py --workspace ./tasks --task study --host codex --complete --max-active 2 --request study-review.json
+```
+
+To register `reports/current.md` after saving its evidence and requirements, pass the following JSON to `research_workflow.py save --workspace ./tasks --request save-draft.json`. Replace the example `host_task` with the actual writing session ID.
+
+```json
+{"task":"study","draft":{"path":"reports/current.md","main":true,"complete":true,"host_task":"actual-writer-session-id"}}
+```
+
+`study-review.json` selects the same task-relative path using `artifact`. UTF-8 request files with an initial BOM are accepted.
+
+```json
+{"artifact":"reports/current.md","evidence_paths":["sources/primary.md"],"domains":[]}
+```
+
+Use a JSON object with optional `artifact`, `evidence_paths` and `domains`. `writer_handoff_from` is for an authorized transfer when the recorded writer cannot continue. Two active turns are allowed by default. A host with one active turn can run the independent assignments in sequence. Each assignment retains its own context and original result. The host must support independent execution. See [supported hosts](usage-modes.md#agent-host-execution).
+
+The coordinator queues the work, sends verified corrections to one writer and resumes affected independent work on the changed version. It reports `ready_for_human` with the checked artifact and `input_version`. A blocked status identifies the unfinished work. The user is only asked to accept the resulting report.
+
+The first final check uses a fresh blind reading followed by reconciliation. When that checker sends a report back for correction, a new draft with the same scope, requirements and original sources can return to the same checker after the current audit passes. The checker reads the whole revised report and checks the changes and previous issues. The result is bound to the new version. A changed scope or source set, or an unavailable checker, starts a new blind reading.
+
 ## Completion and recovery
 
-`research_finish` checks the current report, effective requirements and completed independent responsibilities before writing terminal state and the receipt. The author does not hand-write a replacement global PASS or receipt to close missing work.
+After the user explicitly accepts the checked v3 report, pass its `input_version` in `accepted_input_version` to `research_finish`, along with the current `artifact` and `message` (or `delivery_message`). The operation checks current evidence and independent responsibilities before writing the terminal receipt. Before approval it returns `user_acceptance` and leaves delivery open.
 
 For inspection of a managed task:
 

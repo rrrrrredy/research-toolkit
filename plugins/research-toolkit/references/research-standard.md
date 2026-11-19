@@ -22,7 +22,7 @@ The task is the requested research deliverable. Additional databases, taxonomies
 4. Before consequential results become premises for dependent work, obtain relevant independent scrutiny. Update affected work when those premises or user instructions change; independent branches can proceed.
 5. Keep facts, source claims, interpretations, judgments and uncertainty distinct. Read required originals, preserve their conditions and carry consequential counterevidence into the argument.
 6. Choose analytical methods for the question, rather than copying a previous topic's structure. Develop the comparisons and mechanisms the reader needs; fulfill explicit depth and length requirements.
-7. Every complete research delivery requires seven separately assigned non-author content perspectives, applicable domain review, an independent audit and a separate final acceptance context. Author checks cannot replace these responsibilities. Their methods and separation are defined in [subagents and review](subagents-and-review-loop.md).
+7. Every complete research delivery requires seven content perspectives across three independent non-author groups, applicable domain review, an independent audit and a separate final acceptance context. Author checks cannot replace these responsibilities. Their methods and separation are defined in [subagents and review](subagents-and-review-loop.md).
 8. Preserve original artifacts, substantive handoffs, review replies and failures. Repair confirmed defects in the actual text. Authors may respond to findings; the independent audit adjudicates consequential disputes and no-change decisions.
 9. Keep production history outside reader-facing prose unless requested. The report presents the research; the delivery statement accurately describes its scope, current state and material limitations.
 
@@ -30,7 +30,7 @@ Required work that has not been done stays open. Reading a required source, answ
 
 ### Review Completion
 
-Follow the independent assignments, original-input reading, progressive checks and final whole-report coverage in [the review method](subagents-and-review-loop.md#assign-work-by-perspective). Use native agents without making API setup a prerequisite. Keep the seven base contexts, domain specialists, auditor and final acceptor separate from production; audit and acceptance also remain separate from content review and each other.
+Follow the independent assignments, original-input reading, progressive checks and final whole-report coverage in [the review method](subagents-and-review-loop.md#assign-work-by-perspective). Use native agents without making API setup a prerequisite. Keep the three content review groups, domain specialists, auditor and final acceptor separate from production; audit and acceptance also remain separate from content review and each other.
 
 Every required assignment must produce a complete substantive result on the correct version. Preserve valid negative findings and the first valid response; recover incomplete work rather than replacing it with author self-review. Audit every important requirement and decisive assertion, and sample other passed content from the complete report as specified in [audit and sampling](subagents-and-review-loop.md#check-reviewers-and-sample-passed-work).
 
@@ -50,7 +50,7 @@ Stages identify the current focus and support recovery; dependencies determine w
 
 Managed `progress.json.status` remains `in_progress`, `paused`, `blocked` or `complete`; preserve the real stage and next action. `stage: final` with `status: complete` is reserved for accepted full delivery. A local milestone does not close the task.
 
-Tool-managed `finish` binds the current main artifact, inputs, review results and delivery message and creates the receipt. Report changes must be assessed in their affected scope and incorporated into current-version whole-report acceptance; copying a PASS or resealing a receipt does not update what an earlier reviewer read. Historical completed tasks retain their original records and contract labels. Continued research reuses valid materials and completes the current independent responsibilities rather than claiming old self-checks satisfy them.
+After explicit user acceptance, tool-managed `finish` binds the current main artifact, inputs, review results and delivery message and creates the receipt. Report changes must be assessed in their affected scope and incorporated into current-version whole-report acceptance; copying a PASS or resealing a receipt does not update what an earlier reviewer read. Historical completed tasks retain their original records and contract labels. Continued research reuses valid materials and completes the current independent responsibilities rather than claiming old self-checks satisfy them.
 
 ## 4. Architecture
 
@@ -152,7 +152,7 @@ Organize the report around the question and its supported argument. Use scope, c
 
 Use [quality gates](quality-gates.md) to judge the actual result at a stage boundary and at delivery. The reviewer/auditor/acceptor methods are maintained in [one reference](subagents-and-review-loop.md), not restated as a second checklist here.
 
-For managed delivery, supply the accepted main artifact and intended delivery note to `finish`; it maintains `delivery_message.md`, binds current inputs and records and writes the receipt. Do not create a nominal PASS file instead of performing the work. Skill-only delivery preserves the same substantive independent work without mandatory tool ledgers.
+For managed delivery, supply the accepted main artifact, its `accepted_input_version` for v3, and intended delivery note to `finish`; it maintains `delivery_message.md`, binds current inputs and records and writes the receipt. Do not create a nominal PASS file instead of performing the work. Skill-only delivery preserves the same substantive independent work without mandatory tool ledgers.
 
 ## 13. Execution Guardrails
 

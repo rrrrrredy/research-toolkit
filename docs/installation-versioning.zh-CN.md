@@ -12,17 +12,17 @@
 
 ## 安装固定版本的 Skill
 
-在 [GitHub Releases](https://github.com/rrrrrredy/research-toolkit/releases) 选择具体版本，下载该版本的 `research-toolkit-plugin-v<版本号>.zip` 和 `SHA256SUMS`。这个精简包带有完整 Skill、参考文件及运行脚本，评测档案留在源码仓库中。单独安装 Skill 使用包根的 `research-toolkit/SKILL.md`，插件加载器使用包内嵌套的 Skill 入口。
+优先从 [GitHub Releases](https://github.com/rrrrrredy/research-toolkit/releases) 选择固定版本，下载该版本的 `research-toolkit-plugin-v<版本号>.zip` 和 `SHA256SUMS`。精简包带有完整 Skill、参考文件及运行脚本。单独使用 Skill 时读取包根的 `research-toolkit/SKILL.md`，安装插件时使用解包后的完整目录。
 
-以 v2.5.7 为例，在存有两份下载文件的目录校验哈希，再解包到新建的临时目录。
+在存有两份下载文件的目录，把 `CHOSEN_VERSION` 换成下载的版本号，校验哈希后解包到新目录。
 
 ```bash
 shasum -a 256 -c SHA256SUMS &&
-  unzip research-toolkit-plugin-v2.5.7.zip -d toolkit-release
+  unzip research-toolkit-plugin-vCHOSEN_VERSION.zip -d toolkit-release
 ```
 
 ```powershell
-$archive = 'research-toolkit-plugin-v2.5.7.zip'
+$archive = 'research-toolkit-plugin-vCHOSEN_VERSION.zip'
 $record = Get-Content -LiteralPath SHA256SUMS |
     Where-Object { ($_ -split '\s+', 2)[1] -eq $archive }
 if (-not $record -or (Get-FileHash -LiteralPath $archive).Hash -ne ($record -split '\s+', 2)[0]) {

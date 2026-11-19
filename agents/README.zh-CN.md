@@ -9,7 +9,7 @@
 **开始研究：**使用[完整研究指南](../docs/quickstart.zh-CN.md)和统一方法，按需求展开研究。可直接读取方法，MCP 按需安装。已有稿件可[接续、修订或更新](../docs/usage-modes.zh-CN.md#接续已有研究)。
 
 
-研究方法可直接读取，Skill／MCP 安装可选。另由 Codex、Claude Code、OpenCode 中的 Agent 用完整本地副本和 Python 3.10+ 默认配置基础事件记录，复用有效配置或插件 hooks，保留 off。仅新增／变更配置才提示加载；文件未变不代表当前会话已加载，待首次加载按待加载说明，不重复安装。配置失败或待加载时继续研究。基础事件默认发送，可关闭，不含题目、提示词、聊天、报告和路径。[接入与加载](../docs/usage-data.zh-CN.md)。
+可直接读取方法，也可按需安装 Skill 或 MCP。新安装默认关闭基础使用记录，已有开启或关闭设置继续生效。Codex、Claude Code、OpenCode 的项目 hooks 在用户选择开启记录后按需配置。[使用数据与控制](../docs/usage-data.zh-CN.md)。
 
 ## 直接读取使用
 
@@ -29,7 +29,7 @@
 
 在 Codex、Claude Code 等 Agent 工具中，直接使用其子 Agent 工具完成研究、统稿和独立审阅，无需另配 API。按[共同交接方法](../references/subagents-and-review-loop.zh-CN.md)提供当前要求、有边界的问题和可读原件，保留完整贡献及实际执行 Agent 的身份。
 
-七项分别独立的内容视角、领域专审、独立审计和最终验收属于完整研究任务。生产贡献者不审自己的成果；Agent 工具运行这些 Agent，使用 CLI／MCP 时由 `review` 准备并记录其工作，连接方式见[审阅指南](../docs/review-completion.zh-CN.md)。
+新建全稿由三个独立非作者上下文覆盖七项内容视角，另做相关领域专审、独立审计和单独的就绪评估。按宿主当前可用的工作名额分批执行。由 CLI／MCP 管理任务时，`review` 准备并记录这些工作，`finish` 记录用户对当前版本的明确验收。[审阅指南](../docs/review-completion.zh-CN.md)。
 
 没有子 Agent 或文件能力的聊天界面仍可帮助阅读、分析和起草。独立工作需交给其他可用的新会话，提供完整任务、报告和依据；保留或导出有效要求、原件、现稿和未完成工作供接续。在独立职责完成前，成果保持进行中，不用作者自评代替。
 
@@ -39,7 +39,7 @@
 
 按对应工具的说明选择技能目录或其他受支持的加载方式。原生安装后，应能在该工具的技能列表中找到 `research-toolkit`；仅下载到任意目录时，仍需明确要求读取。
 
-如需固定版本，[安装精简 Skill 包](../docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)，放进当前工具的技能目录。也可使用仓库副本。参考文件、辅助脚本和说明一同保留，研究成果另存于任务目录。
+优先将[固定版本的精简发布包](../docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)安装到当前工具的技能目录。需要尚未发布的修复或开发 Toolkit 时使用源码副本。参考文件、辅助脚本和说明一同保留，研究成果另存于任务目录。
 
 ## 选择工具
 

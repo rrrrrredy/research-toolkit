@@ -8,7 +8,7 @@ The [entry instructions](../SKILL.md) and [Chinese reading version](../SKILL.zh-
 
 **Start research:** use the [complete research guide](../docs/quickstart.md) and shared methods. Develop the research to the requested depth; MCP is optional. [Continue, revise or update](../docs/usage-modes.md#continue-existing-research) existing work.
 
-Read the methods directly; Skill/MCP installation is optional. Separately, in Codex, Claude Code and OpenCode, the agent configures default basic-event recording from a complete local copy with Python 3.10+, reusing effective configuration or plugin hooks and preserving off settings. Apply loading steps only for new or changed configuration; unchanged files alone do not establish session activation. Report a pending first load as pending. Setup failure or pending loading does not block research. Recording can be disabled and excludes prompts, research titles, conversations, reports and local paths. [Setup and loading](../docs/usage-data.md).
+Read the methods directly or install the Skill or MCP as needed. New installations leave basic usage recording off and keep existing on/off choices. In Codex, Claude Code and OpenCode, project hooks are optional after the user chooses to enable recording. [Usage data and controls](../docs/usage-data.md).
 
 <a id="use-without-installation"></a>
 
@@ -30,7 +30,7 @@ The [Agent execution adapter](../docs/usage-modes.md#agent-host-execution) share
 
 In agent tools such as Codex and Claude Code, use the agent tool's own subagent tools for research, assembly and independent assessment. No separate API setup is required. Follow the [shared handoff methods](../references/subagents-and-review-loop.md): give each worker current requirements, the bounded question and accessible originals; retain complete contributions and actual agent identities.
 
-Seven separate content-review perspectives, domain review, independent audit and final acceptance are part of a complete research task. Production contributors do not act as their own independent reviewers. The agent tool runs these agents; CLI/MCP, when selected, prepares and records their work through `review`. The [review guide](../docs/review-completion.md) explains the connection.
+For new full reports, three independent non-author contexts cover the seven content-review perspectives. Add relevant domain review, independent audit and a separate readiness assessment. Run assignments within the host's available worker slots. When CLI/MCP manages the task, `review` prepares and records this work, and `finish` records the user's explicit acceptance of the current version. [Review guide](../docs/review-completion.md).
 
 An interface without subagent or file capability can still help read, analyze and draft. Independent work then needs separate available sessions with the full assignment, report and evidence. Retain or export the effective requirements, originals, current draft and unfinished work for the next session. Until the independent responsibilities are completed, identify the result as work in progress rather than replacing them with author self-review.
 
@@ -40,7 +40,7 @@ Skill-only work needs no fixed tool registry or receipt. It preserves the substa
 
 Follow the guide for your tool to choose its Skill directory or other supported loading method. A native installation should appear under the name `research-toolkit` in that tool's Skill list. A download into an arbitrary folder still needs an explicit instruction to read it.
 
-For a fixed version, [install the compact Skill package](../docs/installation-versioning.md#install-a-version-pinned-skill) in that tool's Skill directory. A repository checkout also works. Keep the references, helper scripts and documentation together, and store research outputs in a separate task folder.
+Start with the [compact, version-pinned release](../docs/installation-versioning.md#install-a-version-pinned-skill) in that tool's Skill directory. Use a source checkout when you need a specific unreleased fix or want to develop Toolkit. Keep references, helpers and documentation together, and store research outputs in a separate task folder.
 
 ## Choose your tool
 

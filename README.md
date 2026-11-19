@@ -8,18 +8,20 @@
 
 Use it for long-form research and writing across fields, including industry, companies, technology, policy and science. Start a new study, revise an existing report against its sources, or update conclusions when new material arrives. Agents operate Toolkit to research, write and independently review; the report serves its specified readers and purpose. Toolkit connects methods, evidence and deliverables through one research entry and optional task tools.
 
+With the task tools, you can trace findings and revisions to their sources. The delivery check stops while a required issue remains open.
+
 [**Choose an entry**](#which-should-i-use) · [Start research](#quick-start) · [See a research case](#research-case) · [Documentation](#documentation)
 
 ## How does a study get done?
 
-The lead agent maintains the research question, effective requirements and overall judgment. Research agents investigate, compare, calculate and write substantial parts. A designated assembling agent reads their full work and sources, reconciles the argument and develops the main report progressively. Different independent agents review it, audit the findings and accept the final version.
+The lead agent maintains the research question, effective requirements and overall judgment. Research agents investigate, compare, calculate and write substantial parts. A designated assembling agent reads their full work and sources, reconciles the argument and develops the main report progressively. Independent agents review the draft, audit the findings and verify the revised report. The user reviews and accepts the finished report.
 
 | Responsibility | How the work connects |
 | --- | --- |
 | Task and context | Keep the current brief, outline, effective requirements and dependencies together. Satisfied requirements remain visible when they still constrain later work. |
 | Evidence and analysis | Give each researcher a bounded question, relevant original material and related findings. Preserve its evidence, reasoning, conditions and unresolved questions in the handoff. |
 | Writing and revision | Develop meaningful research units, review premises before dependent work, and integrate their complete analysis into one owned main draft. Changes return to affected units and the outline. |
-| Review and delivery | Complete seven separate content-review perspectives, relevant domain review, independent audit and final acceptance against the current report and sources. Resolve necessary corrections before delivery. |
+| Review and delivery | Three independent reviews cover all seven perspectives. Add relevant domain review, a separate audit and a final check. Agents handle corrections and send the current report to the user for acceptance. |
 
 These are four connected responsibilities, not four fixed agents or four independent pipelines. Codex, Claude Code and similar agent tools run the agents and carry messages; Toolkit provides shared inputs, methods, artifact relationships and completion checks. Native collaboration does not require separate API setup. For script-managed execution, the shared [Agent execution adapter](docs/usage-modes.md#agent-host-execution) connects to Claude Code, OpenCode or Codex, according to the current agent tool. [Research steps](docs/quickstart.md#research-from-scratch) · [Handoff and calls](docs/usage-modes.md#research-delegation-and-handoff)
 
@@ -29,11 +31,11 @@ flowchart LR
   R --> W[Designated assembling agent: progressive main draft]
   R --> U[Independent review at important dependencies]
   U --> R
-  W --> V[Seven content perspectives + domain review]
+  W --> V[Three content review groups + relevant domain review]
   V --> A[Independent audit]
-  A --> F[Independent final acceptance]
+  A --> F[Independent final check]
   A -->|Necessary correction| R
-  F --> D[Complete report]
+  F --> D[User accepts the finished report]
 ```
 
 ## Which should I use?
@@ -42,7 +44,7 @@ flowchart LR
 
 | Your situation | What to use or install | How to start |
 | --- | --- | --- |
-| You want your existing agent to follow the research methods | **Skill**: read the methods directly, or install them for repeated use. The methods themselves need neither Python nor MCP; default first-use setup is explained below. | Send the request below; the agent reads methods as needed and uses its existing research and writing capabilities. |
+| You want your existing agent to follow the research methods | **Skill**: read the methods directly, or install them for repeated use. The methods themselves need neither Python nor MCP; no usage recording is enabled on first use. | Send the request below; the agent reads methods as needed and uses its existing research and writing capabilities. |
 | You want methods and task tools together, and your agent tool supports plugins | **Plugin**: installs the Skill and MCP together; local tools need Python 3.10+ and MCP dependencies. | Follow the [plugin instructions](./docs/usage-modes.md#install-the-plugin), reopen the session, select Toolkit and describe the research. |
 | You need saved task state, recovery and links between sources and drafts, and your agent tool supports local MCP | **MCP**: configure the local service and use the same Skill for methods. No separate MCP setup is needed if the plugin already supplies it. | Follow the [MCP setup](./docs/usage-modes.md#connect-mcp-separately); the agent calls `research_*` tools. |
 | You work in a terminal or script, or your agent tool has no MCP support | **CLI**: download the repository and use Python 3.10+; no MCP dependencies needed. | The agent reads the same Skill and invokes the same task tools through the [command line](./docs/usage-modes.md#skill-only-and-cli-fallback). |
@@ -53,13 +55,13 @@ For a first use, start directly with the Skill. Add task tools when persistent s
 
 [Research from scratch](./docs/quickstart.md#research-from-scratch) · [Revise or update a report](./docs/quickstart.md#revise-or-update-a-report) · [Install for your agent tool](./agents/README.md#choose-your-tool) · [Install a fixed Skill version](./docs/installation-versioning.md#install-a-version-pinned-skill)
 
-**What happens on first use?** You can read the methods directly without installing a Skill or MCP. In Codex, Claude Code and OpenCode, the agent automatically reuses or downloads a complete local copy and uses the bundled Python 3.10+ script as needed to configure basic usage recording for the current project. It reuses unchanged configuration, including active plugin hooks and an existing off setting. Only added or changed configuration needs loading through the agent tool; an already-open Codex session needs a reload or reopening for those changes. The agent uses the tool's available status to check activation rather than inferring it from a saved configuration file. If Python, command access, setup or loading is unavailable or fails, it states the actual status and continues research. Basic operation events are sent by default, excluding conversations, reports and local paths; recording can be turned off. The agent explains this once on first use and handles setup rather than assigning the user a separate installation step. [Setup, collected data and controls](./docs/usage-data.md).
+**What happens on first use?** You can read the methods directly. Usage recording is off by default. With task tools the agent can queue review work within the host’s available capacity, revise and verify the report, then hand it to you for acceptance. See [usage data settings](./docs/usage-data.md) and [autonomous review](./docs/review-completion.md#run-the-review-and-revision-loop).
 
 <a id="usage"></a>
 
 ## Quick start
 
-Describe your question or requested revision in your own words to an agent that can read the repository and sources. The example below is a starting point; you do not need to fill in undecided details. The agent uses existing context to propose an approach and clarifies only consequential gaps. You can start with the repository link; the agent handles the first-use configuration described above.
+Describe your question or requested revision in your own words to an agent that can read the repository and sources. The example below is a starting point; you do not need to fill in undecided details. The agent uses existing context to propose an approach and clarifies only consequential gaps. You can start with the repository link; no setup for usage recording is required.
 
 ```text
 Use Research Toolkit: https://github.com/rrrrrredy/research-toolkit
@@ -108,7 +110,7 @@ The two language versions independently use each question’s frozen materials; 
 
 Nine local tools provide shared task context, on-demand methods, source and analysis saving, registered release-log queries, reviews and delivery checks. CLI and MCP use the same implementation. MCP requires Python 3.10+ and a client that can launch local processes; setup covers Windows, macOS and Linux.
 
-Independent review uses fresh agent contexts. Each required perspective has its own reviewer; authors and assembling agents do not review their own work. Audit and final acceptance have separate assignments. CLI/MCP retains the original agent responses and input versions through the same `research_review` operation. [Review and acceptance](./docs/review-completion.md)
+Independent review uses fresh agent contexts. Three groups cover seven perspectives. Audit and final checking remain separate from the content groups and writers. CLI/MCP retains the original replies and input versions through `research_review`. [Review and acceptance](./docs/review-completion.md)
 
 <a id="evaluation-suite"></a>
 <a id="evaluation-results"></a>

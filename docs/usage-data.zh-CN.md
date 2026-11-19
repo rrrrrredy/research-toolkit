@@ -2,38 +2,38 @@
 
 [English](usage-data.md) | 简体中文
 
-Toolkit 默认记录并发送基础使用事件，用于了解安装方式、调用顺序、失败及接续情况。使用记录脚本随 Toolkit 一起提供，安装或首次使用时由 Agent 配好，用户不必单独安装或上传。首次运行会提示；可随时关闭。默认不发送提示词、聊天正文、研究题目、报告、来源 URL、本地路径或用户凭证。
+新安装默认关闭基础使用记录。用户主动开启后，Toolkit 才发送操作元数据，帮助维护者了解安装方式、失败及接续情况。这些事件不包含提示词、聊天正文、研究题目、报告、来源 URL、本地路径或用户凭证。已有开启或关闭设置继续生效。研究报告分享单独授权。
 
 ## 安装后如何工作
 
-| 使用方式 | 自动记录的位置 | 如何接入 |
+| 使用方式 | 同意后记录的操作 | 如何接入 |
 | --- | --- | --- |
 | CLI | 现有命令的开始、结果，以及保存、准备输入、审阅和执行记录 | 使用带有采集代码的版本即可 |
 | MCP | 与 CLI 共用同一采集实现，标明入口为 MCP | 使用带有采集代码的服务即可 |
 | 插件 | 内置 MCP 调用，以及工具通知的会话操作 | 包内自带 hooks（操作发生时调用脚本的配置）；已启用时直接复用 |
-| Codex／Claude Code／OpenCode Skill | 实际调用、方法读取、工具顺序和子 Agent 活动 | 安装命令包含记录配置；复用有效设置及 hooks，仅补缺项 |
-| 把仓库链接交给 Codex、Claude Code、OpenCode | 与安装 Skill 使用同一套记录脚本 | Agent 下载或复用完整本地副本，按下文自动配置 |
+| Codex／Claude Code／OpenCode Skill | 实际调用、方法读取、工具顺序和子 Agent 活动 | 按下文可选设置为当前项目接入记录 |
+| 把仓库链接交给 Codex、Claude Code、OpenCode | 与安装 Skill 使用同一套记录脚本 | 直接读取方法或使用完整本地副本。仅在用户同意后配置记录 |
 | 不能运行本地命令的聊天界面 | 仅阅读说明不会执行记录脚本 | 使用研究方法；不把这种会话计作已采集 |
 
-这些路径共用一个事件格式、本地队列和接收服务；不用分别注册账号，也不用每次上传文件。历史版本未含采集代码时不会追溯上报。仅下载文件不会产生记录；运行配置命令产生安装事件，不表示已经开展研究。
+这些路径共用一个事件格式、本地队列和接收服务。下载文件不会产生记录。开启记录后配置接入，可先于研究操作生成一条安装事件。
 
-## 由 Agent 自动接入
+<a id="由-agent-自动接入"></a>
+<a id="enable-basic-recording"></a>
 
-以下操作由正在使用 Toolkit 的 Agent 执行，属于安装或首次使用的一部分。用户不需要另找命令。
+## 开启基础使用记录
 
-先说明基础操作会自动记录并发送、可以关闭，且不发送聊天和报告正文。复用已经生效的配置，用户关闭后不自动重新开启。插件已启用自身 hooks 时不再写入一套项目配置。
+新安装默认关闭基础记录。升级沿用已保存的设置。旧版的默认开启和手动开启都保存为 `on`。可以用 `status` 查看当前设置，用 `off` 关闭。
 
-用户从 GitHub 链接开始时，先复用已有完整本地副本；没有则按 [Codex](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/codex.zh-CN.md)、[Claude Code](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/claude.zh-CN.md) 或 [OpenCode](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/opencode.zh-CN.md) 的安装命令下载到当前项目。不要只复制 `SKILL.md` 而漏掉它调用的脚本。已有目录按原版本使用，不为接入记录覆盖已有文件。
-
-配置缺失或需要变更时，从完整仓库或插件目录执行。`--host` 填实际 Agent 工具的 `claude`、`opencode` 或 `codex`，`--project` 填研究项目目录，而非 Skill 安装目录：
+用户明确要求开启时，从完整的 [Skill 安装目录](https://github.com/rrrrrredy/research-toolkit/blob/main/docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)或插件目录运行第一条命令，为当前本地用户开启跨项目的基础事件。CLI 和 MCP 只需这一步。用户还希望记录当前项目的 Agent 会话操作时，再按实际工具运行第二条命令。插件自带的 hooks 已生效时直接复用。
 
 ```sh
-python scripts/install_usage.py --host claude --project /absolute/path/to/project --channel github-clone --form skill
+python scripts/usage_events.py on
+python scripts/install_usage.py --host claude --project /absolute/path/to/project --channel github-release --form skill
 ```
 
-Agent 使用现有 Python 3.10+ 解释器；Windows 可使用解释器绝对路径。渠道按实际来源填写 `github-clone`、`github-release`、`plugin-marketplace` 或 `manual`，无法确认则用 `unknown`。形态可为 `skill`、`plugin`、`cli`、`mcp`。同一配置重复执行不会重复添加，也不会改回已关闭的设置。
+使用 Python 3.10+ 解释器。`--host` 填 `codex`、`claude` 或 `opencode`，`--project` 填研究项目目录。渠道按实际来源填写 `github-clone`、`github-release`、`plugin-marketplace` 或 `manual`，无法确认时用 `unknown`。形态可为 `skill`、`plugin`、`cli` 或 `mcp`。
 
-这条命令把使用记录脚本登记到工具配置：Claude Code 写入项目 `.claude/settings.local.json`，Codex 写入 `.codex/hooks.json`，OpenCode 写入 `.opencode/plugins/research-toolkit-usage.js`。之后工具在相关操作发生时调用脚本，脚本将操作类别、顺序和结果写入本地队列并自动上传。其他设置会保留，修改前的配置会备份。配置作用于当前项目；换项目时由 Agent 自动接入，无需用户重复操作。
+安装脚本仅在记录开启时配置当前项目的 hooks。Claude Code 写入 `.claude/settings.local.json`，Codex 写入 `.codex/hooks.json`，OpenCode 写入 `.opencode/plugins/research-toolkit-usage.js`。保留其他设置，备份有变化的配置并复用已匹配的配置。记录关闭时，包内自带的 hook 在读取输入前退出。给安装命令加 `--remove` 可移除 Toolkit 写入的项目 hooks。
 
 首次配置成功且记录开启时登记安装事件并安排上传，已有安装不重复计数。仅新增／变更配置时提示加载：已打开的 Codex 会话需重载或重开，Claude Code／OpenCode 按各自信任与加载规则处理。复用已生效设置；文件未变不代表当前会话已加载，待首次加载就说明待加载，不重复安装。仅记录生效后的操作。命令、Python 不可用或配置失败时说明原因并继续研究。移除配置用相同命令加 `--remove`。
 
@@ -54,11 +54,9 @@ python scripts/usage_events.py on
 python scripts/usage_events.py delete
 ```
 
-`off` 关闭当前用户的采集与上传，并清空待传队列；研究照常运行。也可在启动 Agent 工具/CLI/MCP 前设置 `RESEARCH_TOOLKIT_TELEMETRY=off`，使相关进程不记录、不上传；该环境设置不会改变其他已启动进程。CLI 设置关闭前已经发出的请求可能正在完成，删除指令用于清除已经发送的内容。
+`off` 关闭当前本地用户的基础使用记录，清空待传基础事件。若要让某个 Agent 工具、CLI 或 MCP 进程同时停用基础事件和内容上传，在启动前设置 `RESEARCH_TOOLKIT_TELEMETRY=off`。设置只影响收到该变量的进程，已发出的请求仍可能完成。新安装保持默认设置时，接入、正常操作和状态查询均不创建本地采集库。
 
-通过环境变量关闭后，交付时直接跳过分享检查，无需为此初始化本地队列。
-
-`delete` 删除本安装已上传的数据；加 `--task-root /absolute/path/to/task` 只删除指定任务。私密展示中的旧副本在下一次报告刷新时清理。关闭和删除是两件事：希望不再产生后续数据时先 `off`，再 `delete`。
+`delete` 删除本安装已上传的数据，加 `--task-root /absolute/path/to/task` 只删除指定任务。私密展示中的旧副本在下一次报告刷新时清理。要停止后续上传，分别关闭基础记录并撤回已开启的报告分享授权。
 
 本地队列默认位于 `~/.research-toolkit/usage/`，最多缓存 7 天、10,000 条基础事件。产生事件后安排约 30 秒后的后台批量发送；这段时间内新增的事件一并发送，结束任务后无需再操作来触发最后一批。发送前仍会检查关闭设置。失败保留待传事件，后续使用时重试；研究调用不等待上传。`status` 显示上次上传和安全错误类别。设置 `RESEARCH_TOOLKIT_USAGE_HOME` 可指定本地目录。CI 和工程契约检查关闭采集，包括检查启动的 MCP 子进程；明确验证采集本身时使用隔离目录和 `test=true`。
 
@@ -67,9 +65,9 @@ python scripts/usage_events.py delete
 <a id="单次分享研究内容"></a>
 ## 交付后的研究内容分享
 
-项目首次完整交付后，Agent 在当前对话的报告链接之后发出一次邀请。提示列明实际文件名，并说明文件会发送给 Toolkit 维护者，存入私密仓库 `rrrrrredy/research-toolkit-usage`，用于改进研究方法和产品。提供三个选择：**仅分享这次报告；允许所显示目录及其子目录以后自动分享最终报告；不分享并不再提示**。提供持续授权选项时，显示实际项目目录。研究过程中不打断，分享选择不阻止交付；拒绝后不反复询问，未回复不视为同意。聊天和原始材料不包含在这次邀请中；用户要贡献这些内容时，另外列明所选文件。
+单次分享和项目持续授权都需要明确同意，基础记录关闭时也能使用。用户希望看到邀请，或已有设置要求提示时，在交付报告链接后列明实际文件名和接收方。接收方为 Toolkit 维护者的私密仓库 `rrrrrredy/research-toolkit-usage`。用户可以仅分享本次报告，允许所显示目录及其子目录未来自动分享最终报告，或拒绝分享。未回复时报告保留在本地。用户希望另外贡献聊天或原始资料时，单独列明所选文件。
 
-工具管理任务只在 `completed=true` 后通过 `finish.content_sharing` 返回邀请。纯 Skill 有文件和命令能力时，在交付后调用 `share-offer`；它记住的是「已提出邀请」，不是「用户已同意」。无法执行命令时，在对话中使用同样的提示并记住回答，不声称已上传，也不要求转成工具管理任务。
+工具管理任务在 `completed=true` 后可以通过 `finish.content_sharing` 返回邀请。纯 Skill 可在交付后调用 `share-offer` 查看适用的分享设置。新安装默认关闭基础记录时，不自动发出分享邀请。旧版已保存的 `off` 继续暂停原有自动分享授权。用户仍可明确授权新的单次分享，或对选定目录重新确认持续分享。
 
 ```sh
 python scripts/usage_events.py share-offer --task-root /project/tasks/study --file final.md --language zh
@@ -96,7 +94,7 @@ python scripts/usage_events.py share --task-root /project/tasks/study --project-
 python scripts/usage_events.py share --task-root /project/tasks/study --project-root /project --decision decline
 ```
 
-拒绝会记住选择，并清除该项目尚未上传的内容，基础使用记录保持原设置。用户要求重新开启提示时，可用 `share --decision ask`，在后续交付时恢复邀请。`off` 仍可关闭全部分享并清空待上传内容。每份 UTF-8 文件不超过 1 MiB，编码后的数据包不超过 1,900,000 字节。程序不扫描整个任务目录；Agent 须列明所选文件，让用户在同意前排除不希望分享的个人、客户或保密信息。
+拒绝会记住选择，并清除该项目尚未上传的内容。用户要求重新开启提示时，可用 `share --decision ask` 在后续交付中恢复邀请。两种选择均保留基础使用记录的原设置。每份 UTF-8 文件不超过 1 MiB，编码后的数据包不超过 1,900,000 字节。Agent 须在取得同意前列明所选文件。
 
 撤回上级持续授权所覆盖的某个目录时，无论选择拒绝还是恢复提示，都会清除该目录下依该授权入队的待传内容。兄弟目录仍可使用上级授权。对于旧版从上级授权入队、缺少本地路径且无法确认位于撤回范围外的待传内容，一并移除。
 

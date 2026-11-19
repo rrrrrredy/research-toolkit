@@ -4,13 +4,14 @@
 
 ## 安装
 
-Git 和客户端已就绪时，从项目根目录执行。目标目录已存在时，使用[更新指南](../docs/installation-versioning.zh-CN.md)。
+将[固定版本的精简发布包](../docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)安装到项目内的 `.agents/skills/research-toolkit`。如果目标目录已经存在，先按[更新指南](../docs/installation-versioning.zh-CN.md#保留本地修改后更新)核对并备份。
 
-新安装由 Agent 用现有 Python 3.10+ 执行以下命令。已有副本按[接入说明](../docs/usage-data.zh-CN.md#由-agent-自动接入)仅补缺失或变更配置，复用有效设置及插件 hooks，保留 off。基础事件默认发送，可关闭，不含题目、提示词、聊天、报告或路径；配置失败时仍直接使用方法研究。
+新安装默认关闭[基础使用记录](../docs/usage-data.zh-CN.md#enable-basic-recording)。仅在用户要求记录时配置项目 hooks。
+
+需要源码副本时，从项目根目录运行以下命令。
 
 ```bash
 git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .agents/skills/research-toolkit
-python .agents/skills/research-toolkit/scripts/install_usage.py --host codex --project . --channel github-clone --form skill
 ```
 
 输入 `/skills` 或 `$`，选择 `research-toolkit`，确认路径以 `.agents/skills/research-toolkit/SKILL.md` 结尾。[官方技能要求](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)。
@@ -41,10 +42,4 @@ python .agents/skills/research-toolkit/scripts/install_usage.py --host codex --p
 
 ## 无法加载时
 
-在同一项目目录执行：
-
-```bash
-git -C .agents/skills/research-toolkit status --short
-```
-
-无输出表示副本干净；路径错误通常表示执行目录不对或克隆失败。有变更时可能存在缺失或修改过的文件，更新前保留自己的改动。文件存在但技能未出现时，重新打开项目或会话，检查 Codex 的技能设置。也可给出已安装 `SKILL.md` 的准确路径，要求 Agent 直接读取。[其他输入方式与边界](README.zh-CN.md)。
+确认 `.agents/skills/research-toolkit/SKILL.md` 和相邻的 `references/` 目录存在。文件齐全但技能未出现时，重新打开项目或会话，检查 Codex 的技能设置。也可给出已安装文件的准确路径，要求 Agent 直接读取。[其他输入方式](README.zh-CN.md)。

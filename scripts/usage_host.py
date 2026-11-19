@@ -124,6 +124,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--host", choices=["codex", "claude", "opencode", "auto"], required=True)
     args = parser.parse_args()
+    if not usage.recording_enabled():
+        return
     try:
         raw = sys.stdin.buffer.read(2*1024*1024+1)
         if len(raw) > 2*1024*1024:

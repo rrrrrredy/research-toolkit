@@ -6,6 +6,7 @@ source reader, storage and review log; it never starts a second agent runtime.
 from __future__ import annotations
 
 import json
+import re
 import uuid
 from difflib import SequenceMatcher
 from pathlib import Path
@@ -16,6 +17,13 @@ from run_observation import now
 
 DIMENSIONS = ["requirements", "evidence", "adversarial_reasoning", "structure_and_depth",
               "reader_usefulness", "process_language", "natural_expression"]
+REVIEW_GROUPS = {
+    "requirements_and_usefulness": ["requirements", "structure_and_depth", "reader_usefulness"],
+    "evidence_and_reasoning": ["evidence", "adversarial_reasoning"],
+    "process_and_expression": ["process_language", "natural_expression"],
+}
+NATIVE_CONTRACTS = {2, 3}
+GENERATED_REGISTRIES = {"data/source_registry.csv", "data/claims_registry.csv"}
 SAMPLING = ("Read the whole current report and original evidence. Check every effective requirement, "
     "decisive claim, important number/citation, counterexample, required finding and consequential "
     "no-change decision. Independently choose additional passed/no-issue passages and transformations "
@@ -71,7 +79,7 @@ def required_findings(row):
     """Read necessary criticism from its original result, without a second issue ledger."""
     if row.get('record_type') == 'model_review':
         return [finding for finding in row.get('findings', []) if finding.get('severity') != 'optional']
-    if row.get('record_type') not in {'review_audit', 'final_acceptance'}:
+    if row.get('record_type') not in {'review_audit', 'final_blind_review', 'final_acceptance'}:
         return []
     value = row.get('result_data', {})
     findings = []
@@ -89,8 +97,9 @@ def required_findings(row):
     # disappear either. Do not duplicate findings already identified by the
     # audit's current or historical dispositions.
     negative = value.get('report_verdict') == 'needs_revision' or value.get('result') == 'fail'
-    already_identified = (any(d.get('decision') != 'no_change' for d in value.get('dispositions', {}).values())
-                          or any(d.get('decision') == 'unresolved' for d in value.get('prior_findings', {}).values()))
+    expanded = row.get('expanded_decisions', value)
+    already_identified = (any(d.get('decision') != 'no_change' for d in expanded.get('dispositions', {}).values())
+                          or any(d.get('decision') == 'unresolved' for d in expanded.get('prior_findings', {}).values()))
     if negative and not findings and not already_identified:
         findings.append({'finding_id': 'basis', 'severity': 'required', 'location': 'basis',
             'basis': value['basis'], 'original_location': row['response']['path'] + '#/basis'})
@@ -111,10 +120,12 @@ def revision_context(root, previous_plan, packet, bindings):
     """Point the next review agent to retained work; never reuse its approval."""
     previous = load(root, previous_plan["input"]["path"])
     selected = selected_results(root, previous_plan)
-    audits = selected.get("audit", {}).get("result_data", {}).get("review_checks", {})
+    audits = effective_audit(selected).get("result_data", {}).get("review_checks", {})
     reviews = {}
     for slot in previous_plan["slots"]:
         row = selected.get(slot["slot_id"])
+        if slot["slot_id"] == "audit":
+            row = effective_audit(selected) or None
         validity = audits.get(slot["slot_id"], {}).get("result")
         if slot["role"] == "reviewer" and validity == "invalid":
             continue
@@ -145,6 +156,41 @@ def revision_context(root, previous_plan, packet, bindings):
                                if old_bindings.get(name) != bindings.get(name)],
             "unchanged_inputs": [name for name in names if old_bindings.get(name) == bindings.get(name)],
             "report_changes": report_changes(previous["report"], packet["report"])}
+
+
+def prior_final_for_correction(root, old, packet, bindings, producers):
+    previous = load(root, old["input"]["path"])
+    if (packet["report"] == previous["report"]
+            or any(packet[key] != previous[key] for key in ("task", "report_path", "source_files", "scope_decisions"))
+            or bindings["record:requirements:effective"] != old["bindings"]["record:requirements:effective"]):
+        return None
+    if (previous["sources"].keys() != packet["sources"].keys()
+            or any(previous["sources"][name] != text for name, text in packet["sources"].items()
+                   if name != "data/claims_registry.csv")):
+        return None
+    selected = selected_results(root, old)
+    continuation = old.get("final_continuation", {})
+    failed = selected.get("acceptance") or continuation.get("failed")
+    blind = selected.get("acceptance_blind") or continuation.get("blind")
+    if (not failed or failed["result_data"]["result"] != "fail" or not blind
+            or blind["execution_id"] != failed["execution_id"] or failed["execution_id"] in producers):
+        return None
+    for row in (blind, failed):
+        for field in ("input", "response", "execution"):
+            ref = row[field]
+            if reference(root, ref["path"]) != ref:
+                raise ValueError("Retained final review evidence changed: " + ref["path"])
+        request = load_assignment(root, row["input"]["path"])
+        original = json.loads(response_text(root, row))
+        execution = json.loads(safe_path(root, row["execution"]["path"]).read_text(encoding="utf-8-sig"))
+        if (request["role"] != "acceptance" or request["phase"] != row["phase"] or original != row["result_data"]
+                or request["input_version"] != row["input_version"] or execution.get("host_task") != row["execution_id"]
+                or execution.get("status") != "completed" or execution.get("assignment_version") != request["assignment_version"]):
+            raise ValueError("Retained final review identity or version does not match its original inputs.")
+        validate_result(original, request)
+    if blind["phase"] != "blind" or failed["phase"] not in {"reconcile", "correction_review"}:
+        return None
+    return {"blind": blind, "failed": failed}
 
 
 def packet_for(root, progress, evidence_paths, artifact, scope, previous_plan=None):
@@ -230,7 +276,7 @@ def packet_for(root, progress, evidence_paths, artifact, scope, previous_plan=No
             {"attempt_id": r["attempt_id"], "slot_id": r["slot_id"],
              "artifact_sha256": r["artifact_sha256"], "response": r["response"],
              "input": r["input"], "execution": r["execution"], "finding": f}
-            for r in history(root) if r.get("contract_version") == 2
+            for r in history(root) if r.get("contract_version") in NATIVE_CONTRACTS
             and r.get("scope") == scope and r.get("status") == "completed"
             for f in required_findings(r)]
     for finding in packet['prior_required_findings']:
@@ -248,24 +294,86 @@ def packet_for(root, progress, evidence_paths, artifact, scope, previous_plan=No
     return packet, bindings
 
 
+def result_key(slot):
+    return {"blind": "acceptance_blind", "adjudicate": "audit_adjudication"}.get(slot.get("phase"), slot["slot_id"])
+
+
+def effective_audit(selected):
+    return selected.get("audit_adjudication", selected.get("audit", {}))
+
+
+def assessment_steps(plan, selected):
+    if plan["contract_version"] == 2:
+        return plan["slots"]
+    reviewers = [slot for slot in plan["slots"] if slot["role"] == "reviewer"]
+    auditor = next(slot for slot in plan["slots"] if slot["slot_id"] == "audit")
+    acceptance = next(slot for slot in plan["slots"] if slot["slot_id"] == "acceptance")
+    steps = [*reviewers, {**auditor, "phase": "initial"}]
+    requests = selected.get("audit", {}).get("result_data", {}).get("verification_requests", [])
+    if requests:
+        steps.extend({"slot_id": "verify-" + item["request_id"], "role": "verifier", "verification": item}
+                     for item in requests)
+        steps.append({**auditor, "phase": "adjudicate"})
+    if plan.get("final_continuation"):
+        return [*steps, {**acceptance, "phase": "correction_review"}]
+    return [*steps, {**acceptance, "phase": "blind"}, {**acceptance, "phase": "reconcile"}]
+
+
 def selected_results(root, plan):
     selected = {}
     for row in history(root):
-        if (row.get("contract_version") == 2 and row.get("input_version") == plan["input_version"]
+        if (row.get("contract_version") == plan["contract_version"] and row.get("input_version") == plan["input_version"]
                 and row.get("scope") == plan["scope"] and row.get("status") == "completed"):
-            selected[row["slot_id"]] = row
-    # An amended review changes the audit input; an amended audit changes acceptance.
-    # Retain old executions but do not let their old verdicts approve new inputs.
-    for sid in ("audit", "acceptance"):
-        if sid in selected:
-            slot = next((s for s in plan["slots"] if s["slot_id"] == sid), None)
-            try:
-                _, expected = assignment(root, plan, slot, selected, persist=False)
-                if selected[sid]["input"] != expected:
-                    selected.pop(sid)
-            except (KeyError, TypeError):
-                selected.pop(sid)
-    return selected
+            selected[result_key(row)] = row
+    # Reject dependent work whose review, blind, audit or verification inputs changed.
+    for slot in assessment_steps(plan, selected):
+        key = result_key(slot)
+        if slot["role"] == "reviewer" or key not in selected:
+            continue
+        try:
+            _, expected = assignment(root, plan, slot, selected, persist=False)
+            if selected[key]["input"] != expected:
+                selected.pop(key)
+        except (KeyError, TypeError):
+            selected.pop(key)
+    return {key: selected[key] for slot in assessment_steps(plan, selected)
+            if (key := result_key(slot)) in selected}
+
+
+def response_text(root, row):
+    return safe_path(root, row["response"]["path"]).read_text(encoding="utf-8-sig")
+
+
+def retained_result(root, row):
+    return {"record": row, "original": response_text(root, row)}
+
+
+def current_findings(reviews):
+    return {key + "/" + f["finding_id"]: f for key, review in reviews.items()
+            for f in review["record"].get("findings", [])}
+
+
+def blind_input(packet):
+    return {"task": packet["task"], "report_path": packet["report_path"], "report": packet["report"],
+            "sources": {path: content for path, content in packet["sources"].items() if path not in GENERATED_REGISTRIES},
+            "source_files": packet["source_files"],
+            "effective_requirements": [{k: v for k, v in row.items() if k not in {"status", "evidence"}}
+                                       for row in packet["effective_requirements"]]}
+
+
+def audit_scaffold(request):
+    current = current_findings(request["reviews"])
+    possible_duplicates = {}
+    for key, finding in current.items():
+        signature = (finding["location"].strip().casefold(), " ".join(finding["basis"].split()).casefold())
+        possible_duplicates.setdefault(signature, []).append(key)
+    return {"current_findings": current,
+            "candidate_groups": [keys for keys in possible_duplicates.values() if len(keys) > 1],
+            "prior_finding_ids": [item["attempt_id"] + "/" + item["finding"]["finding_id"]
+                                  for item in request["assignment"]["prior_required_findings"]],
+            "effective_requirement_ids": [row.get("requirement_id") for row in request["assignment"]["effective_requirements"]],
+            "source_paths": sorted((set(request["assignment"]["sources"]) | set(request["assignment"]["source_files"]))
+                                   - GENERATED_REGISTRIES)}
 
 
 def methods(role):
@@ -286,13 +394,37 @@ def load_assignment(root, name):
 
 
 def assignment(root, plan, slot, selected, *, persist=True):
-    packet = load(root, plan["input"]["path"])
+    phase = slot.get("phase")
+    input_ref = plan["blind_input"] if phase == "blind" else plan["input"]
+    packet = load(root, input_ref["path"])
     role = slot["role"]
-    request = {"contract_version": 2, "role": role, "slot_id": slot["slot_id"], "input_version": plan["input_version"],
+    request = {"contract_version": plan["contract_version"], "role": role, "slot_id": slot["slot_id"], "input_version": plan["input_version"],
                "artifact_sha256": plan["artifact_sha256"], "scope": plan["scope"],
                "dimensions": slot.get("dimensions", []), "assignment": packet,
-               "instructions": plan["instructions"][role]}
-    if plan.get("revision_context"):
+               "instructions": plan["instructions"].get(role, "")}
+    if phase:
+        request["phase"] = phase
+    if phase == "blind":
+        request["instructions"] = (
+            "Independently assess the complete current report against the original requirements and evidence. "
+            "Use a fresh agent context. Do not read author conclusions outside the report, reviews, audit, prior "
+            "verdicts or correction history. Commit your own evidence-based judgment before receiving those results. "
+            "Return result pass/fail, basis, coverage keyed by all seven content dimensions (location and basis), "
+            "sample_checks (location, selection_reason, evidence, result clear/defect and expansion for defects), and open_issues.")
+    elif role == "verifier":
+        verification = slot["verification"]
+        paths = set(verification["evidence_paths"])
+        request["assignment"] = {
+            "question": verification["question"], "location": verification["location"],
+            "sources": {path: content for path, content in packet["sources"].items() if path in paths},
+            "source_files": {path: ref for path, ref in packet["source_files"].items() if path in paths}}
+        request["audit_binding"] = selected["audit"]["response"]["sha256"]
+        request["instructions"] = (
+            "In a fresh context, verify this neutral question from the listed original material, independently "
+            "recomputing when applicable. Retain actual source locations and evidence. Do not read the report, prior "
+            "judgments, or audit history. Return result (supported, contradicted, or insufficient), basis, and a "
+            "nonempty evidence list with path, locator and observation for each check.")
+    elif plan.get("revision_context"):
         retained = plan["revision_context"]
         previous = retained["reviews"].get(slot["slot_id"])
         same_work = (previous and previous.get("role") == role
@@ -333,13 +465,12 @@ def assignment(root, plan, slot, selected, *, persist=True):
         request["instructions"] += ("\nYour assigned perspective is " + slot["slot_id"] +
             ". Read the complete supplied draft and relevant originals. Do the assigned substantive assessment "
             "in a context separate from every producer and the other perspectives. Do not edit the draft.")
-        if slot['slot_id'] == 'structure_and_depth' and 'production_history' in packet:
+        if 'structure_and_depth' in slot.get('dimensions', []) and 'production_history' in packet:
             request['instructions'] += ("\nWhen the task requires progressive research or writing, inspect production_history "
                 "and its retained drafts against the requested progression; save counts alone do not establish substantive stages.")
-    else:
+    elif role != "verifier" and phase != "blind":
         content = {s["slot_id"]: selected[s["slot_id"]] for s in plan["slots"] if s["role"] == "reviewer"}
-        request["reviews"] = {key: {"record": value, "original": safe_path(root, value["response"]["path"]).read_text(encoding="utf-8")}
-                              for key, value in content.items()}
+        request["reviews"] = {key: retained_result(root, value) for key, value in content.items()}
         request["sampling"] = SAMPLING
         if role == "auditor":
             if 'production_history' in packet:
@@ -358,6 +489,33 @@ unresolved, reason, evidence in the current draft), report_verdict (pass/needs_r
 and open_issues (list). A valid negative review remains valid. Do not clear a real
 defect as resolved while it remains in the frozen draft. No generic PASS evidence.
 """
+            if phase:
+                request["audit_scaffold"] = audit_scaffold(request)
+                request["instructions"] += (
+                    "\nThe scaffold lists original canonical finding IDs. Candidate groups are only suggestions. "
+                    "Explicitly choose groups only when your independently checked reason and evidence apply to every "
+                    "member. Use disposition_groups and prior_finding_groups (lists of objects with finding_ids, "
+                    "decision, reason and evidence), individual decisions in the existing maps, or both without "
+                    "overlap. Locate and adjudicate every ID. Resolve conflicts by evidence, not by the number of "
+                    "agreeing reviewers.")
+                if phase == "initial":
+                    request["instructions"] += (
+                        "\nOnly when a consequential conclusion remains unresolved after you inspect the originals, request "
+                        "fresh blind verification. Each verification_requests item has request_id (lowercase letters, "
+                        "digits, hyphen or underscore), neutral question, report location, decision_impact, and evidence_paths "
+                        "from the task's frozen originals. Include no prior verdict in the question. Such a request leaves "
+                        "report_verdict needs_revision. Otherwise omit verification_requests or return [].")
+                else:
+                    initial = selected["audit"]
+                    request["resume_host_task"] = initial["execution_id"]
+                    request["preliminary_audit"] = retained_result(root, initial)
+                    request["verifications"] = {item["request_id"]: retained_result(root, selected["verify-" + item["request_id"]])
+                                                for item in initial["result_data"]["verification_requests"]}
+                    request["instructions"] += (
+                        "\nAdjudicate each returned blind verification with the source evidence. Return verification_decisions "
+                        "keyed by every request ID (decision resolved/unresolved, reason, evidence). Resolve a conflict "
+                        "only with an independently supported finding or a properly supported limitation. Do not request "
+                        "another verification on this same frozen input; identify any repair or missing evidence instead.")
             if plan["scope"] != "full_report":
                 request["instructions"] = request["instructions"].replace(
                     "include requirement_id for EVERY effective\nrequirement", "include requirement_id for EVERY applicable\nrequirement")
@@ -370,8 +528,8 @@ defect as resolved while it remains in the frozen draft. No generic PASS evidenc
                 request["sampling"] = SAMPLING.replace("whole current report", "complete current research unit").replace(
                     "every effective requirement", "every requirement applicable to this unit")
         else:
-            audit = selected["audit"]
-            request["audit"] = {"record": audit, "original": safe_path(root, audit["response"]["path"]).read_text(encoding="utf-8")}
+            audit = effective_audit(selected)
+            request["audit"] = retained_result(root, audit)
             request["instructions"] += """
 Independently decide whether this complete current report answers the user's whole
 request. Read the full report, actual production handoffs, review/audit originals
@@ -383,6 +541,29 @@ process_language, natural_expression (each location and basis), sample_checks
 (list of location/selection_reason/evidence/result clear|defect, with expansion
 for defects), and open_issues (list). Pass requires no necessary corrections.
 """
+            if phase == "reconcile":
+                blind = selected["acceptance_blind"]
+                request["blind_assessment"] = retained_result(root, blind)
+                request["resume_host_task"] = blind["execution_id"]
+                request["blind_issue_ids"] = [item["finding_id"] for item in required_findings(blind)]
+                request["instructions"] += (
+                    "\nReconcile your retained blind assessment with the actual review and audit evidence. Return "
+                    "blind_reconciliation keyed by every blind_issue_ids entry (decision confirmed_defect, no_change "
+                    "or unresolved; reason; evidence). A pass must establish why each retained blind concern requires "
+                    "no further change to this exact draft. Keep justified disagreement visible.")
+            elif phase == "correction_review":
+                retained = plan["final_continuation"]
+                previous = retained["failed"]
+                request["resume_host_task"] = previous["execution_id"]
+                request["prior_final"] = {key: retained_result(root, row) for key, row in retained.items()}
+                request["prior_final_issue_ids"] = [item["finding_id"] for item in required_findings(previous)]
+                request["instructions"] += (
+                    "\nYou already performed an independent blind check and reported defects before this revision. "
+                    "Verify your earlier issues against the latest full report, original sources and current audit. "
+                    "Review changes and their implications across the whole report, including new defects. This is a "
+                    "current-version continuation, not a new blind assessment. Return prior_final_reconciliation for "
+                    "each prior_final_issue_ids entry (decision resolved, no_change or unresolved; reason; evidence). "
+                    "Pass only if substantive checks and all earlier issues are resolved or need no change.")
     request["instructions"] += "\nReturn input_version and assignment_version exactly as supplied, alongside the requested assessment fields."
     request["assignment_version"] = digest(request)
     name = f"{run_prefix(plan['input_version'])}/jobs/{slot['slot_id']}-{request['assignment_version'][:16]}.json"
@@ -390,8 +571,9 @@ for defects), and open_issues (list). Pass requires no necessary corrections.
         # Preserve originally saved inline assignments and their checksums.
         ref = reference(root, name)
     elif persist:
-        stored = {k: v for k, v in request.items() if k != "assignment"}
-        ref = frozen(root, name, {**stored, "shared_input": plan["input"]})
+        stored = request if role == "verifier" else {**{k: v for k, v in request.items() if k != "assignment"},
+                                                      "shared_input": input_ref}
+        ref = frozen(root, name, stored)
     else:
         ref = {"path": name, "sha256": "unrecorded_assignment"}
     return request, ref
@@ -409,6 +591,55 @@ def check_samples(value):
             raise ValueError("A sample defect needs the actual related-source/metric/branch expansion.")
 
 
+def decision_map(value, field, expected, choices, group_field=None):
+    decisions = value.get(field, {})
+    if not isinstance(decisions, dict):
+        raise ValueError(f"{field} must map finding IDs to evidenced decisions.")
+    decisions = dict(decisions)
+    if group_field:
+        groups = value.get(group_field, [])
+        if not isinstance(groups, list):
+            raise ValueError(f"{group_field} must list explicitly accepted groups.")
+        for group in groups:
+            ids = group.get("finding_ids") if isinstance(group, dict) else None
+            if not isinstance(ids, list) or not ids or any(not nonempty(key) for key in ids):
+                raise ValueError(f"{group_field} needs at least one canonical ID per group.")
+            for key in ids:
+                if key in decisions:
+                    raise ValueError(f"{field} cannot repeat a decision for {key}.")
+                decisions[key] = {k: group.get(k) for k in ("decision", "reason", "evidence")}
+    if set(decisions) != set(expected):
+        raise ValueError(f"{field} must account for every canonical ID exactly once.")
+    for item in decisions.values():
+        if (not isinstance(item, dict) or item.get("decision") not in choices
+                or not all(nonempty(item.get(k)) for k in ("reason", "evidence"))):
+            raise ValueError(f"{field} needs an independent decision with reasons and evidence.")
+    return decisions
+
+
+def validate_verification_requests(value, request):
+    requests = value.get("verification_requests", [])
+    if not isinstance(requests, list):
+        raise ValueError("verification_requests must list consequential unresolved questions.")
+    if requests and (request.get("phase") != "initial" or value["result"] != "valid"
+                     or value["report_verdict"] != "needs_revision"):
+        raise ValueError("Only a valid initial audit with unresolved report issues can request blind verification.")
+    packet = request["assignment"]
+    paths = (set(packet["sources"]) | set(packet["source_files"])) - GENERATED_REGISTRIES
+    seen = set()
+    for item in requests:
+        if (not isinstance(item, dict) or not all(nonempty(item.get(k)) for k in
+                ("request_id", "question", "location", "decision_impact"))
+                or not re.fullmatch(r"[a-z0-9][a-z0-9_-]{0,31}", item["request_id"])
+                or item["request_id"] in seen):
+            raise ValueError("Each blind request needs a unique ID, neutral question, location and material decision impact.")
+        chosen = item.get("evidence_paths")
+        if (not isinstance(chosen, list) or not chosen or any(not nonempty(name) for name in chosen)
+                or len(set(chosen)) != len(chosen) or not set(chosen).issubset(paths)):
+            raise ValueError("Blind verification needs distinct originals from the current frozen evidence.")
+        seen.add(item["request_id"])
+
+
 def validate_result(value, request):
     from research_workflow import checked_review
     if not isinstance(value, dict):
@@ -420,6 +651,15 @@ def validate_result(value, request):
     if role == "reviewer":
         checked_review(value, request["dimensions"])
         return
+    if role == "verifier":
+        paths = set(request["assignment"]["sources"]) | set(request["assignment"]["source_files"])
+        evidence = value.get("evidence")
+        if (value.get("result") not in {"supported", "contradicted", "insufficient"} or not nonempty(value.get("basis"))
+                or not isinstance(evidence, list) or not evidence or any(
+                    not isinstance(item, dict) or not all(nonempty(item.get(k)) for k in ("path", "locator", "observation"))
+                    or item["path"] not in paths for item in evidence)):
+            raise ValueError("Blind verification needs an independent judgment with actual locations in the supplied originals.")
+        return
     if not nonempty(value.get("basis")) or not isinstance(value.get("open_issues"), list):
         raise ValueError("Independent audit/acceptance needs a located basis and open_issues list.")
     check_samples(value.get("sample_checks"))
@@ -429,6 +669,16 @@ def validate_result(value, request):
         checked_review({"report_verdict": "not_assessed", "coverage": value.get("coverage"), "findings": []}, DIMENSIONS)
         if value["result"] == "pass" and (value["open_issues"] or any(x["result"] == "defect" for x in value["sample_checks"])):
             raise ValueError("Acceptance cannot pass while a current defect remains.")
+        if request.get("phase") == "reconcile":
+            reconciliation = decision_map(value, "blind_reconciliation", request["blind_issue_ids"],
+                                          {"no_change", "confirmed_defect", "unresolved"})
+            if value["result"] == "pass" and any(item["decision"] != "no_change" for item in reconciliation.values()):
+                raise ValueError("Acceptance cannot pass with an unresolved or confirmed blind finding.")
+        if request.get("phase") == "correction_review":
+            reconciliation = decision_map(value, "prior_final_reconciliation", request["prior_final_issue_ids"],
+                                          {"resolved", "no_change", "unresolved"})
+            if value["result"] == "pass" and any(item["decision"] == "unresolved" for item in reconciliation.values()):
+                raise ValueError("Final correction review cannot pass with an unresolved earlier finding.")
         return
     if value.get("result") not in {"valid", "invalid"} or value.get("report_verdict") not in {"pass", "needs_revision"}:
         raise ValueError("Audit must distinguish review validity and current report readiness.")
@@ -439,14 +689,12 @@ def validate_result(value, request):
         raise ValueError("Audit must assess every independent review.")
     if value["result"] == "valid" and any(c["result"] != "valid" for c in checks.values()):
         raise ValueError("Audit cannot be valid while a required review is invalid.")
-    expected = {key + "/" + f["finding_id"]: f for key, review in reviews.items()
-                for f in review["record"].get("findings", [])}
-    dispositions = value.get("dispositions")
-    if not isinstance(dispositions, dict) or set(dispositions) != set(expected):
+    expected = current_findings(reviews)
+    grouped = request["contract_version"] == 3
+    if not grouped and "dispositions" not in value:
         raise ValueError("Audit dispositions must cover every actual current finding exactly once.")
-    for d in dispositions.values():
-        if not isinstance(d, dict) or d.get("decision") not in {"confirmed_defect", "no_change", "unresolved"} or not all(nonempty(d.get(k)) for k in ("reason", "evidence")):
-            raise ValueError("Audit dispositions need independent decisions with reasons and evidence.")
+    dispositions = decision_map(value, "dispositions", expected, {"confirmed_defect", "no_change", "unresolved"},
+                                "disposition_groups" if grouped else None)
     critical = value.get("critical_checks")
     if not isinstance(critical, list) or not critical or any(not isinstance(c, dict)
             or c.get("result") not in {"clear", "defect"} or not all(nonempty(c.get(k)) for k in ("location", "evidence")) for c in critical):
@@ -457,11 +705,14 @@ def validate_result(value, request):
         raise ValueError("Audit omitted a currently effective requirement.")
     prior = request["assignment"]["prior_required_findings"]
     wanted = {f['attempt_id'] + '/' + f['finding']['finding_id'] for f in prior}
-    decisions = value.get("prior_findings", {})
-    if not isinstance(decisions, dict) or set(decisions) != wanted or any(
-            not isinstance(d, dict) or d.get("decision") not in {"resolved", "no_change", "unresolved"}
-            or not all(nonempty(d.get(k)) for k in ("reason", "evidence")) for d in decisions.values()):
-        raise ValueError("Audit must account for prior required findings against the current draft.")
+    decisions = decision_map(value, "prior_findings", wanted, {"resolved", "no_change", "unresolved"},
+                              "prior_finding_groups" if grouped else None)
+    verification_decisions = {}
+    if grouped:
+        validate_verification_requests(value, request)
+        if request.get("phase") == "adjudicate":
+            verification_decisions = decision_map(value, "verification_decisions", request["verifications"],
+                                                  {"resolved", "unresolved"})
     required_open = any(f.get("severity") != "optional" and dispositions[k]["decision"] != "no_change" for k, f in expected.items())
     from check_review_completion import content_review_issues
     unresolved_review = any(content_review_issues(v['record'], {
@@ -469,8 +720,11 @@ def validate_result(value, request):
         for f in v['record'].get('findings', [])}) for key, v in reviews.items())
     if value["report_verdict"] == "pass" and (value["open_issues"] or required_open or unresolved_review
             or any(d["decision"] == "unresolved" for d in decisions.values())
+            or any(d["decision"] == "unresolved" for d in verification_decisions.values())
             or any(c["result"] == "defect" for c in [*critical, *value["sample_checks"]])):
         raise ValueError("Report readiness cannot pass with unresolved required findings or actual failed checks.")
+    if grouped:
+        return {"dispositions": dispositions, "prior_findings": decisions}
 
 
 def accept_result(root, progress, plan, slot, request, request_ref, supplied, selected):
@@ -479,12 +733,19 @@ def accept_result(root, progress, plan, slot, request, request_ref, supplied, se
     identity = supplied["host_task"]
     if identity in producers(root, progress):
         raise ValueError("A production/assembly context cannot perform independent review, audit or acceptance.")
-    if any(r.get("execution_id") == identity and r.get("slot_id") != slot["slot_id"] for r in history(root)
-           if r.get("contract_version") == 2):
-        raise ValueError("Different review perspectives, audit and acceptance need different agent contexts.")
-    previous = selected.get(slot["slot_id"])
+    phase = slot.get("phase")
+    if phase == "correction_review" and identity != request["resume_host_task"]:
+        raise ValueError("Final correction review must resume its original independent context.")
+    for row in history(root):
+        if row.get("contract_version") not in NATIVE_CONTRACTS or row.get("execution_id") != identity:
+            continue
+        if row.get("slot_id") != slot["slot_id"]:
+            raise ValueError("Different review groups, audit, verification and acceptance need different agent contexts.")
+        if (phase == "blind" or slot["role"] == "verifier") and row.get("status") == "completed":
+            raise ValueError("A blind assessment or verification needs a fresh agent context.")
+    previous = selected.get(result_key(slot))
     if previous:
-        audit = selected.get("audit", {}).get("result_data", {})
+        audit = effective_audit(selected).get("result_data", {})
         invalid = audit.get("review_checks", {}).get(slot["slot_id"], {}).get("result") == "invalid"
         if not invalid:
             raise ValueError("This assignment already has a completed result. Retain valid negative results; revise the draft instead of rerunning it.")
@@ -496,19 +757,26 @@ def accept_result(root, progress, plan, slot, request, request_ref, supplied, se
         target = safe_path(root, prefix + "/" + name)
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(content)
-    row = {"record_type": {"reviewer": "model_review", "auditor": "review_audit", "acceptance": "final_acceptance"}[slot["role"]],
-           "contract_version": 2, "attempt_id": attempt, "slot_id": slot["slot_id"], "role": slot["role"],
+    record_type = {"reviewer": "model_review", "auditor": "review_audit", "acceptance": "final_acceptance",
+                   "verifier": "blind_verification"}[slot["role"]]
+    if phase == "blind":
+        record_type = "final_blind_review"
+    row = {"record_type": record_type, "contract_version": plan["contract_version"],
+           "attempt_id": attempt, "slot_id": slot["slot_id"], "role": slot["role"],
+           **({"phase": phase} if phase else {}),
            "scope": plan["scope"], "input_version": plan["input_version"], "artifact_sha256": plan["artifact_sha256"],
            "input": request_ref, "execution_id": identity, "response": reference(root, prefix + "/response.txt"),
            "execution": reference(root, prefix + "/execution.json"), "recorded_at": now()}
     try:
-        execution = json.loads(execution_raw.decode("utf-8"))
+        execution = json.loads(execution_raw.decode("utf-8-sig"))
         if (execution.get("host_task") != identity or execution.get("status") != "completed"
                 or execution.get("assignment_version") != request["assignment_version"]):
             raise ValueError("execution_path must retain the actual completed agent identity and assignment_version.")
-        value = json.loads(raw.decode("utf-8"))
-        validate_result(value, request)
+        value = json.loads(raw.decode("utf-8-sig"))
+        expanded = validate_result(value, request)
         row.update(status="completed", result_data=value)
+        if expanded is not None:
+            row["expanded_decisions"] = expanded
         if slot["role"] == "reviewer":
             row.update({k: value[k] for k in ("report_verdict", "coverage", "findings")})
     except (ValueError, UnicodeError, AttributeError, TypeError) as exc:
@@ -519,6 +787,33 @@ def accept_result(root, progress, plan, slot, request, request_ref, supplied, se
 
 
 def next_slots(plan, selected):
+    if plan["contract_version"] == 3:
+        steps = assessment_steps(plan, selected)
+        missing = [step for step in steps if step["role"] == "reviewer"
+                   and result_key(step) not in selected]
+        if missing:
+            return missing
+        if "audit" not in selected:
+            return [step for step in steps if step.get("phase") == "initial"]
+        audit = effective_audit(selected)["result_data"]
+        invalid = [step for step in steps if step["role"] == "reviewer"
+                   and audit["review_checks"][step["slot_id"]]["result"] == "invalid"]
+        if invalid:
+            return invalid
+        if audit["result"] != "valid":
+            return []
+        outstanding = [step for step in steps if step["role"] == "verifier" and result_key(step) not in selected]
+        if outstanding:
+            return outstanding
+        if "audit_adjudication" not in selected:
+            adjudication = [step for step in steps if step.get("phase") == "adjudicate"]
+            if adjudication:
+                return adjudication
+        if "acceptance" in selected or (plan["purpose"] == "report_delivery" and audit["report_verdict"] != "pass"):
+            return []
+        phase = ("correction_review" if plan.get("final_continuation") else
+                 "reconcile" if "acceptance_blind" in selected else "blind")
+        return [step for step in steps if step.get("phase") == phase]
     content = [s for s in plan["slots"] if s["role"] == "reviewer"]
     missing = [s for s in content if s["slot_id"] not in selected]
     if missing:
@@ -538,7 +833,8 @@ def next_slots(plan, selected):
 
 
 def review(workflow, root, progress, evidence_paths, artifact, purpose, revision, include_assignment,
-           host_result=None, scope="full_report", perspectives=None, domains=None, audit=None):
+           host_result=None, scope="full_report", perspectives=None, domains=None, audit=None, *,
+           fresh_final=False, allow_final_continuation=True):
     from check_delivery import sha256_file
     if scope == "full_report":
         workflow.require_current_artifact(progress, artifact)
@@ -556,6 +852,10 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
     if purpose not in {"report_delivery", "evaluation"}:
         raise ValueError("purpose must be report_delivery or evaluation.")
     old = progress.get("review_plan") if scope == "full_report" else progress.get("unit_review_plans", {}).get(scope)
+    version_number = 2
+    if scope == "full_report":
+        version_number = ((old or {}).get("contract_version") if (old or {}).get("contract_version") in NATIVE_CONTRACTS
+                          else 3 if progress.get("review_contract") == 3 else 2)
     if audit is not None and type(audit) is not bool:
         raise ValueError("audit must be true or false when supplied.")
     audit_required = scope == "full_report" or bool(old and old.get("audit_required")) or audit is True
@@ -569,36 +869,49 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
         raise ValueError("perspectives must select distinct existing review perspectives.")
     if scope == "full_report" and perspectives not in (None, DIMENSIONS):
         raise ValueError("Whole-report review requires all seven distinct perspectives.")
-    default_domains = ["domain"] if scope == "full_report" else []
+    default_domains = ["domain"] if scope == "full_report" and version_number == 2 else []
     domains = (old.get("domains", default_domains) if old else default_domains) if domains is None else domains
     if not isinstance(domains, list) or any(not nonempty(d) for d in domains) or len(set(domains)) != len(domains):
         raise ValueError("domains must list the needed domain perspectives.")
-    same_selection = (old and old.get('contract_version') == 2 and old.get('domains') == domains
+    groups = REVIEW_GROUPS if version_number == 3 else {dimension: [dimension] for dimension in dimensions}
+    same_selection = (old and old.get('contract_version') == version_number and old.get('domains') == domains
         and old.get('purpose') == purpose
-        and [s['slot_id'] for s in old['slots'] if s['role'] == 'reviewer' and s.get('dimensions') != ['domain']] == dimensions)
+        and [s['slot_id'] for s in old['slots'] if s['role'] == 'reviewer' and s.get('dimensions') != ['domain']] == list(groups))
     packet, bindings = packet_for(root, progress, evidence_paths, artifact, scope, old if same_selection else None)
-    version = digest({"packet": packet, "perspectives": dimensions, "domains": domains, "purpose": purpose})
+    version = digest({"packet": packet, "perspectives": dimensions, "domains": domains, "purpose": purpose,
+                      **({"review_groups": groups} if version_number == 3 else {})})
+    if fresh_final and (not old or old["input_version"] != version or not old.get("final_continuation")
+                        or host_result is not None or "acceptance" in selected_results(root, old)):
+        raise ValueError("Only an unfinished final correction review can switch to a fresh blind assessment.")
     if old and old.get("input_version") != version and not revision:
         raise ValueError("The assignment changed; use revision=true for the current draft. Earlier originals remain retained.")
     input_ref = frozen(root, f"{run_prefix(version)}/input.json", packet)
-    slots = [{"slot_id": d, "role": "reviewer", "dimensions": [d]} for d in dimensions]
+    slots = [{"slot_id": name, "role": "reviewer", "dimensions": lenses} for name, lenses in groups.items()]
     slots += [{"slot_id": "domain-" + str(i + 1), "role": "reviewer", "dimensions": ["domain"], "domain": d} for i, d in enumerate(domains)]
     if audit_required:
         slots.append({"slot_id": "audit", "role": "auditor"})
     if scope == "full_report":
         slots.append({"slot_id": "acceptance", "role": "acceptance"})
-    plan = {"contract_version": 2, "purpose": purpose, "reviewer": "independent", "audit_required": audit_required,
+    plan = {"contract_version": version_number, "purpose": purpose, "reviewer": "independent", "audit_required": audit_required,
             "author_id": progress["author_id"], "producer_contexts": producers(root, progress),
             "scope": scope, "artifact": artifact, "artifact_sha256": sha256_file(safe_path(root, artifact)),
             "input_version": version, "input": input_ref, "bindings": bindings, "domains": domains, "slots": slots,
             "instructions": (old["instructions"] if old and old.get("input_version") == version
                              and "instructions" in old else {role: methods(role) for role in ("reviewer", "auditor", "acceptance")})}
-    if old and old.get("contract_version") == 2:
+    if version_number == 3:
+        plan["blind_input"] = frozen(root, f"{run_prefix(version)}/blind-input.json", blind_input(packet))
+    if old and old.get("contract_version") == version_number:
         if old.get("input_version") == version:
             if old.get("revision_context"):
                 plan["revision_context"] = old["revision_context"]
+            if old.get("final_continuation") and not fresh_final:
+                plan["final_continuation"] = old["final_continuation"]
         else:
             plan["revision_context"] = revision_context(root, old, packet, bindings)
+            if version_number == 3 and purpose == "report_delivery" and same_selection and allow_final_continuation:
+                retained = prior_final_for_correction(root, old, packet, bindings, plan["producer_contexts"])
+                if retained:
+                    plan["final_continuation"] = retained
     if old != plan:
         if old:
             frozen(root, "reviews/plans/" + digest(old) + ".json", old)
@@ -607,7 +920,8 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
             progress.update(review_plan=plan, stage="review", status="in_progress")
         else:
             progress.setdefault("unit_review_plans", {})[scope] = plan
-        progress["review_contract"] = 2
+        if progress.get("review_contract") != 3:
+            progress["review_contract"] = version_number
         save(root, "state/progress.json", progress)
     selected = selected_results(root, plan)
     if host_result is not None:
@@ -626,6 +940,7 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
         requests.append({"slot_id": slot["slot_id"], "role": slot["role"],
                          "reading_ref": reading_view(root, request),
                          "assignment_ref": request_ref, "assignment_version": request["assignment_version"],
+                         **({"phase": request["phase"]} if "phase" in request else {}),
                          **({"resume_host_task": request["resume_host_task"]} if "resume_host_task" in request else {}),
                          **({"assignment": request} if include_assignment else {})})
     evaluation = purpose == "evaluation"
@@ -637,9 +952,10 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
             "reviewers": [r["execution_id"] for r in selected.values()], "record_path": plan["input"]["path"]}
         save(root, "state/progress.json", progress)
     if scope == "full_report" and not evaluation and result["ok"]:
-        summary = {"stage": "final", "scope": "global_final_delivery", "result": "pass",
+        summary = {"stage": "review" if version_number == 3 else "final", "scope": "global_final_delivery", "result": "pass",
                    "basis": selected["acceptance"]["result_data"]["basis"], "open_issues": [],
-                   "artifact_sha256": plan["artifact_sha256"], "contract_version": 2,
+                   "artifact_sha256": plan["artifact_sha256"], "contract_version": version_number,
+                   **({"human_acceptance_required": True} if version_number == 3 else {}),
                    "review_evidence": {k: r["response"] for k, r in selected.items()}}
         if not history(root) or history(root)[-1] != summary:
             append(root, summary)
@@ -648,7 +964,7 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
         evaluation_result["evaluation_complete"] = result["ok"]
         if result["ok"]:
             from check_review_completion import content_review_issues
-            audit_result = selected.get("audit", {}).get("result_data")
+            audit_result = effective_audit(selected).get("result_data")
             acceptance_result = selected.get("acceptance", {}).get("result_data")
             if audit_result is not None:
                 needs_revision = audit_result["report_verdict"] == "needs_revision"
@@ -660,9 +976,12 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
     action = "host_agents" if pending else None
     if not action and not result["ok"]:
         action = "repair_review" if evaluation else "revise"
+    delivery_ready = scope == "full_report" and not evaluation and result["ok"]
     return {"task_directory": str(root), "input_version": version, "scope": scope,
             "assignments": requests, "reviews_complete": all(s["slot_id"] in selected for s in slots if s["role"] == "reviewer"),
-            "delivery_ready": scope == "full_report" and not evaluation and result["ok"],
+            "delivery_ready": delivery_ready,
+            **({"human_acceptance_required": delivery_ready} if version_number == 3 else {}),
+            **({"submission_recorded": True} if host_result is not None else {}),
             "unit_ready": unit_ready, "completion_check": result,
             "action_required": action, "open_issues": result["findings"], **evaluation_result}
 
@@ -676,10 +995,20 @@ def checked_files(root, plan):
     files.add(plan["input"]["path"])
     if reference(root, plan["input"]["path"]) != plan["input"]:
         raise ValueError("Frozen review input changed.")
+    if plan["contract_version"] == 3:
+        blinded = plan["blind_input"]
+        if reference(root, blinded["path"]) != blinded:
+            raise ValueError("Frozen blind assessment input changed.")
+        files.add(blinded["path"])
     retained = plan.get("revision_context", {})
     previous_refs = [retained["input"]] if retained else []
     previous_refs.extend(row[key] for row in retained.get("reviews", {}).values()
                          for key in ("input", "response", "execution"))
+    for row in plan.get("final_continuation", {}).values():
+        previous_refs.extend(row[key] for key in ("input", "response", "execution"))
+        envelope = load(root, row["input"]["path"])
+        if "shared_input" in envelope:
+            previous_refs.append(envelope["shared_input"])
     for ref in previous_refs:
         if reference(root, ref["path"]) != ref:
             raise ValueError("Retained revision context changed: " + ref["path"])
@@ -705,25 +1034,29 @@ def _inspect(root, progress, artifact, *, plan, require_report_ready, walk):
     if key in walk["completed"]:
         return walk["completed"][key]
     findings = []
-    selected = selected_results(root, plan) if plan.get("contract_version") == 2 else {}
-    if plan.get("contract_version") != 2 or plan.get("artifact") != artifact:
+    selected = {}
+    steps = []
+    version = plan.get("contract_version")
+    if version not in NATIVE_CONTRACTS or plan.get("artifact") != artifact:
         findings.append("The current artifact needs the independent agent review contract.")
     else:
         try:
-            checked_files(root, plan)
             content = [s for s in plan["slots"] if s["role"] == "reviewer"]
             if plan.get("audit_required") and not any(s["slot_id"] == "audit" and s["role"] == "auditor" for s in plan["slots"]):
                 raise ValueError("The declared independent audit assignment is missing.")
-            if plan["scope"] == "full_report" and not set(DIMENSIONS).issubset({s["slot_id"] for s in content}):
-                raise ValueError("All seven independent perspectives are required.")
             if plan["scope"] == "full_report":
                 if any(not any(s['slot_id'] == sid and s['role'] == role for s in plan['slots'])
                        for sid, role in [('audit', 'auditor'), ('acceptance', 'acceptance')]):
                     raise ValueError("Every full report requires separate independent audit and final acceptance assignments.")
-                if any(not any(s['slot_id'] == d and s.get('dimensions') == [d] for s in content) for d in DIMENSIONS):
-                    raise ValueError("Each required content perspective must retain its own assignment.")
+                expected = REVIEW_GROUPS if version == 3 else {dimension: [dimension] for dimension in DIMENSIONS}
+                if any(not any(s['slot_id'] == name and s.get('dimensions') == lenses for s in content)
+                       for name, lenses in expected.items()):
+                    raise ValueError("All seven perspectives must retain their assigned independent roles.")
                 if len([s for s in content if s.get('dimensions') == ['domain']]) != len(plan.get('domains', [])):
                     raise ValueError("Declared domain reviews are incomplete.")
+            checked_files(root, plan)
+            selected = selected_results(root, plan)
+            steps = assessment_steps(plan, selected)
             if walk["outputs"] is None:
                 walk["outputs"] = research_outputs(root, [], progress)
             contribution = next((x for x in walk["outputs"] if x['path'] == artifact), None)
@@ -741,42 +1074,55 @@ def _inspect(root, progress, artifact, *, plan, require_report_ready, walk):
                                         require_report_ready=True, walk=walk)
                     if not upstream['ok']:
                         findings.extend('Upstream ' + dependency + ': ' + f for f in upstream['findings'])
-            identities = []
-            for slot in plan["slots"]:
-                row = selected.get(slot["slot_id"])
+            identities = {}
+            producer_contexts = producers(root, progress)
+            effective_audit_id = effective_audit(selected).get("attempt_id")
+            for slot in steps:
+                step = result_key(slot)
+                row = selected.get(step)
                 if row is None:
-                    findings.append("Incomplete independent assignment: " + slot["slot_id"])
+                    findings.append("Incomplete independent assignment: " + step)
                     continue
                 request, request_ref = assignment(root, plan, slot, selected, persist=False)
                 if row["input"] != request_ref:
                     raise ValueError("Dependent review/audit/acceptance inputs changed: " + slot["slot_id"])
-                original = json.loads(safe_path(root, row["response"]["path"]).read_text(encoding="utf-8"))
+                original = json.loads(response_text(root, row))
                 if original != row["result_data"]:
                     raise ValueError("Stored judgment differs from the original response.")
-                capture = load(root, row['execution']['path'])
+                capture = json.loads(safe_path(root, row['execution']['path']).read_text(encoding="utf-8-sig"))
                 if (capture.get('host_task') != row['execution_id'] or capture.get('status') != 'completed'
                         or capture.get('assignment_version') != request['assignment_version']):
                     raise ValueError("Execution identity/version differs from the retained execution capture.")
-                validate_result(original, request)
-                identities.append(row["execution_id"])
-                if row["execution_id"] in producers(root, progress):
+                expanded = validate_result(original, request)
+                if expanded != row.get("expanded_decisions"):
+                    raise ValueError("Expanded audit decisions differ from the original response.")
+                identity = row["execution_id"]
+                if slot.get("phase") == "correction_review" and identity != request["resume_host_task"]:
+                    raise ValueError("The final correction review did not resume its original independent context.")
+                if identity in producer_contexts:
                     raise ValueError("An author/producer performed independent review.")
+                if identities.setdefault(identity, slot["slot_id"]) != slot["slot_id"]:
+                    raise ValueError("Review groups, audit, blind verification and acceptance need distinct agent contexts.")
                 if slot["role"] == "auditor" and original["result"] != "valid":
                     findings.append("Independent audit did not establish valid review work.")
                 elif require_report_ready:
                     if slot["role"] == "reviewer" and plan["scope"] != "full_report" and not plan.get("audit_required"):
                         from check_review_completion import content_review_issues
                         findings.extend(content_review_issues(original, {}))
-                    elif slot["role"] == "auditor" and original["report_verdict"] != "pass":
+                    elif (slot["role"] == "auditor" and row["attempt_id"] == effective_audit_id
+                          and original["report_verdict"] != "pass"):
                         findings.extend(original["open_issues"] or ["Independent audit has unresolved findings."])
-                    elif slot["role"] == "acceptance" and original["result"] != "pass":
+                    elif slot["role"] == "acceptance" and slot.get("phase") != "blind" and original["result"] != "pass":
                         findings.extend(original["open_issues"] or ["Independent final acceptance did not pass."])
-            if len(set(identities)) != len(identities):
-                raise ValueError("Review perspectives, audit and acceptance must use distinct agent contexts.")
-        except (ValueError, OSError, KeyError, TypeError) as exc:
+        except (ValueError, OSError, KeyError, TypeError, StopIteration) as exc:
             findings.append(str(exc))
+    role_steps = {}
+    for slot in steps or plan.get("slots", []):
+        role_steps.setdefault(slot["slot_id"], []).append(result_key(slot))
     result = {"ok": not findings, "flags": ["incomplete_independent_review"] if findings else [],
-            "findings": findings, "required_slots": len(plan.get("slots", [])), "completed_slots": len(selected),
+            "findings": findings, "required_slots": len(role_steps),
+            "completed_slots": sum(all(step in selected for step in slots) for slots in role_steps.values()),
+            **({"required_steps": len(steps), "completed_steps": len(selected)} if version == 3 else {}),
             "selected_attempts": {k: r["attempt_id"] for k, r in selected.items()},
             "independent_review": True, "record_consistency_checked": True,
             "reviewer": "independent", "review_strength": "independent"}
@@ -791,8 +1137,11 @@ def run_configured(workflow, root, progress, evidence_paths, artifact, purpose, 
     if any(backend_kind(c) == "self" for c in config["reviewers"]):
         raise ValueError("Author self-review cannot satisfy independent assignments. Use native agents.")
     result = review(workflow, root, progress, evidence_paths, artifact, purpose, revision,
-                    False, host_result, scope, perspectives, domains, audit)
+                    False, host_result, scope, perspectives, domains, audit, allow_final_continuation=False)
     while result["assignments"]:
+        if any(job.get("phase") == "correction_review" for job in result["assignments"]):
+            result = review(workflow, root, load(root, "state/progress.json"), evidence_paths, artifact, purpose,
+                            False, False, None, scope, perspectives, domains, audit, fresh_final=True)
         for job in result["assignments"]:
             request = load_assignment(root, job["assignment_ref"]["path"])
             role = job["role"]

@@ -97,6 +97,10 @@ class CodexAgentSession:
         from codex_session import CodexSession
         self.client = CodexSession(cwd, directory, command=executable_for(self.name, executable))
 
+    @property
+    def available(self):
+        return not self.client.disconnected and not self.client.closed
+
     def start(self, prompt, previous=None, read_paths=None, *, workdir=None):
         session = self.client.thread(native_id(self.name, previous), cwd=workdir)
         return session, self.client.turn(session, prompt, cwd=workdir)

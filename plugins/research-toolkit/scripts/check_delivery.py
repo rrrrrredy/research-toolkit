@@ -821,6 +821,11 @@ def evaluate_delivery(
         plan = progress.get("review_plan")
         if isinstance(plan, dict) and plan.get("purpose") != "report_delivery":
             add("invalid_review_purpose", "Use check_review_completion.py for evaluation completion; report delivery needs report_delivery.")
+        if (progress.get("review_contract") == 3 and isinstance(plan, dict)
+                and isinstance(receipt_data, dict)
+                and (not receipt_data.get("accepted_input_version")
+                     or receipt_data["accepted_input_version"] != plan.get("input_version"))):
+            add("missing_current_user_acceptance", "The receipt must record acceptance of the current input version.")
     review_rows = content_review_rows(review_rows)
     required_scopes = progress.get("required_review_scopes", [])
     valid_scopes = (

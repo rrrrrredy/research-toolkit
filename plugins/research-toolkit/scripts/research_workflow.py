@@ -172,7 +172,7 @@ def start(workspace: Path, task: str, brief: dict, language="en") -> dict:
             if safe_path(root, name).exists():
                 raise ValueError("Task contains existing records. Use a new task ID or inspect them before import.")
         progress = {"stage": "brief", "status": "in_progress", "author_id": f"author:{task}",
-                    "review_contract": 2, "open_issues": []}
+                    "review_contract": 3, "open_issues": []}
         for name, content in {
             "data/source_registry.csv": "source_id,title,url,source_type,read_scope,read_evidence,evidence_path\n",
             "data/claims_registry.csv": "claim_id,claim,claim_type,supporting_sources,counter_evidence,uncertainty\n",
@@ -234,7 +234,7 @@ def status(workspace: Path, task: str, language="en", stage: str | None = None,
             # reading. Whole-report review and delivery retain the full checks.
             check_stage_records(root, stage, work_packet)
             requirements = requirement_input(root)
-        progress.update(stage=stage, status="in_progress", review_contract=2,
+        progress.update(stage=stage, status="in_progress", review_contract=max(2, progress.get("review_contract", 1)),
                         next_action=f"Advance the {stage} work through its actual research dependencies.")
         save(root, "state/progress.json", progress)
     delivery = {}
@@ -336,7 +336,7 @@ def sys_module():
 
 def checked_review_files(root, progress, artifact):
     """Check the exact snapshot that will be sealed, including declared originals."""
-    if progress.get("review_plan", {}).get("contract_version") == 2:
+    if progress.get("review_plan", {}).get("contract_version") in {2, 3}:
         from host_review import checked_files
         return checked_files(root, progress["review_plan"])
     required_sources, originals = required_source_inputs(root)
@@ -506,20 +506,27 @@ def check_draft(workspace: Path, task: str, artifact="final.md") -> dict:
 
 
 @task_operation
-def finish(workspace: Path, task: str, message: str, artifact="final.md") -> dict:
+def finish(workspace: Path, task: str, message: str | None = None, artifact="final.md", *,
+           delivery_message: str | None = None, accepted_input_version: str | None = None) -> dict:
     progress = load(task_root(workspace, task), "state/progress.json")
     require_current_artifact(progress, artifact)
-    if progress.get("review_plan", {}).get("contract_version") != 2:
+    if message is not None and delivery_message is not None and message != delivery_message:
+        raise ValueError("Provide one delivery message, using message or delivery_message.")
+    intended_message = message if message is not None else delivery_message
+    if not nonempty(intended_message):
+        raise ValueError("Provide the intended user-visible delivery message.")
+    if progress.get("review_plan", {}).get("contract_version") not in {2, 3}:
         return {"completed": False, "action_required": "host_agents",
                 "error": "Continue with independent agent review, audit and acceptance. Historical receipts remain readable and unchanged."}
-    result = finish_recorded(workspace, task, message, artifact)
+    result = finish_recorded(workspace, task, intended_message, artifact,
+                             accepted_input_version=accepted_input_version)
     if result.get("completed"):
         from usage_events import delivery_sharing
         result["content_sharing"] = delivery_sharing(task_root(workspace, task), artifact, progress.get("language", "en"))
     return result
 
 
-def finish_recorded(workspace, task, message, artifact):
+def finish_recorded(workspace, task, message, artifact, *, accepted_input_version=None):
     root = task_root(workspace, task)
     progress = load(root, "state/progress.json")
     require_current_artifact(progress, artifact)
@@ -535,6 +542,11 @@ def finish_recorded(workspace, task, message, artifact):
     outcome = completion(root, progress, artifact)
     if not outcome["ok"]:
         return {"completed": False, "review_check": outcome}
+    plan = progress["review_plan"]
+    if plan.get("contract_version") == 3 and accepted_input_version != plan["input_version"]:
+        return {"completed": False, "action_required": "user_acceptance", "delivery_ready": True,
+                "input_version": plan["input_version"], "artifact": str(safe_path(root, artifact)),
+                "message": "Present the current report for user acceptance. Record only the version the user accepted."}
     if not nonempty(message):
         raise ValueError("Provide the intended user-visible delivery message.")
     # Validate a temporary candidate; persistent state is never marked final on a failed check.
@@ -566,6 +578,7 @@ def finish_recorded(workspace, task, message, artifact):
                                       *[p for p in OPTIONAL_HASH_INPUTS if safe_path(candidate, p).exists()]]))
         receipt = {"schema_version": 1, "status": "pass", "scope": "global_final_delivery",
                    **({"length_checks": length_checks} if length_checks else {}),
+                   **({"accepted_input_version": accepted_input_version} if plan.get("contract_version") == 3 else {}),
                    "artifact": artifact, "open_issues": [],
                    "accepted_limitations": progress.get("accepted_limitations", []),
                    "reviewer": progress["review_plan"].get("reviewer", "independent"),
@@ -613,6 +626,8 @@ def _dispatch(action: str, request: dict, workspace: Path):
     parameters = {key: value for key, value in inspect.signature(function).parameters.items() if key != "workspace"}
     required = [key for key, parameter in parameters.items()
                 if parameter.default is inspect.Parameter.empty and key not in request]
+    if action == "finish" and not {"message", "delivery_message"}.intersection(request):
+        required.append("message (or delivery_message)")
     unexpected = sorted(set(request) - set(parameters))
     if required or unexpected:
         problems = (["missing " + ", ".join(required)] if required else [])
@@ -638,16 +653,29 @@ def main():
     parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "save", "check-draft", "check-reviewer", "check-updates"])
     parser.add_argument("--workspace", type=Path, default=workspace_default())
     parser.add_argument("--request", type=Path, help="Path to a JSON request file (not inline JSON); omit to read the JSON object from stdin.")
+    parser.add_argument("--summary", action="store_true", help="For review, print progress and the next action without repeating assignments.")
     args = parser.parse_args()
+    if args.summary and args.action != "review":
+        parser.error("--summary applies to review")
     try:
-        request = json.loads(args.request.read_text(encoding="utf-8") if args.request else "{}" if args.action == "check-reviewer" else sys.stdin.read())
+        request = json.loads(args.request.read_text(encoding="utf-8-sig") if args.request else
+                             "{}" if args.action == "check-reviewer" else sys.stdin.read().removeprefix("\ufeff"))
         if not isinstance(request, dict):
             raise ValueError("Request must be an object.")
         result = dispatch(args.action, request, args.workspace)
     except (ValueError, OSError, TypeError, KeyError) as exc:
         print(json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=False))
         return 1
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+    display = result
+    if args.summary:
+        check = result.get("completion_check", {})
+        display = {key: result[key] for key in ("ok", "error", "submission_recorded", "input_version", "scope",
+                   "reviews_complete", "delivery_ready", "unit_ready", "evaluation_complete", "evaluation_verdict",
+                   "action_required", "human_acceptance_required", "open_issues") if key in result}
+        display.update({key: check[key] for key in ("completed_slots", "required_slots", "completed_steps",
+                                                   "required_steps") if key in check})
+        display["pending_assignments"] = len(result.get("assignments", []))
+    print(json.dumps(display, ensure_ascii=False, indent=None if args.summary else 2))
     if result.get("ok") is False or (args.action == "check-reviewer" and result.get("status") == "blocked"):
         return 1
     if args.action == "finish":

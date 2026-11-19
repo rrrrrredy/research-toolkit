@@ -5,7 +5,7 @@ verbatim, and never changes the research operation's result.
 """
 from __future__ import annotations
 
-from contextlib import contextmanager
+from contextlib import closing, contextmanager
 from contextvars import ContextVar
 from datetime import datetime, timezone
 import hashlib
@@ -54,11 +54,27 @@ def disabled_by_environment():
     return value in {"off", "0", "false"} or (bool(os.environ.get("CI")) and value != "on")
 
 
+def database_path():
+    return home() / "usage.sqlite3"
+
+
+def recording_enabled():
+    path = database_path()
+    try:
+        if disabled_by_environment() or not path.is_file():
+            return False
+        with closing(sqlite3.connect(path.absolute().as_uri() + "?mode=ro", uri=True, timeout=2)) as db:
+            return db.execute("SELECT value FROM settings WHERE key='enabled'").fetchone() == ("on",)
+    except (OSError, sqlite3.Error) as exc:
+        failure(exc)
+        return False
+
+
 @contextmanager
 def database():
-    folder = home()
-    folder.mkdir(parents=True, exist_ok=True)
-    connection = sqlite3.connect(folder/"usage.sqlite3", timeout=2)
+    path = database_path()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    connection = sqlite3.connect(path, timeout=2)
     connection.row_factory = sqlite3.Row
     try:
         connection.execute("PRAGMA foreign_keys = ON")
@@ -74,9 +90,17 @@ def database():
             PRIMARY KEY(scope, id)
         );
         """)
+        # Older off settings also paused report sharing, including saved grants.
+        # Retain that decision while allowing explicit new content consent.
+        connection.execute("""
+            INSERT OR IGNORE INTO settings (key, value)
+            VALUES ('legacy_sharing_paused', CASE WHEN EXISTS (
+                SELECT 1 FROM settings WHERE key='enabled' AND value='off'
+            ) THEN 'true' ELSE 'false' END)
+        """)
         for key, value in {"installation_id": uuid.uuid4().hex, "secret": uuid.uuid4().hex+uuid.uuid4().hex,
                            "id_secret": uuid.uuid4().hex+uuid.uuid4().hex,
-                           "enabled": "on", "channel": "unknown", "form": "unknown"}.items():
+                           "enabled": "off", "channel": "unknown", "form": "unknown"}.items():
             connection.execute("INSERT OR IGNORE INTO settings VALUES (?,?)", (key, value))
         connection.commit()
         yield connection
@@ -149,12 +173,14 @@ def visible_notice(language="en"):
     if disabled_by_environment():
         return None
     try:
+        if not database_path().is_file():
+            return None
         with database() as db:
             config = settings(db)
             if config["enabled"] != "on" or config.get("visible_notice_v2") == "1":
                 return None
             result = {"message": notice_text(config, language), "receiver": endpoint(config),
-                      "action": "Show this notice once in the current conversation; no confirmation is required for basic events."}
+                      "action": "Show this notice once in the current conversation. Keep the saved recording setting."}
             set_setting(db, "visible_notice_v2", "1")
             return result
     except (OSError, sqlite3.Error, ValueError) as exc:
@@ -215,6 +241,8 @@ def emit(kind, **fields):
     if disabled_by_environment():
         return
     try:
+        if not database_path().is_file():
+            return
         with database() as db:
             config = settings(db)
             if config["enabled"] != "on":
@@ -243,6 +271,8 @@ def remember_task(root):
     if disabled_by_environment():
         return
     try:
+        if not database_path().is_file():
+            return
         with database() as db:
             if settings(db)["enabled"] == "on":
                 db.execute("INSERT OR IGNORE INTO aliases VALUES (?,?)", (Path(root).name, task_identity(root)))
@@ -274,6 +304,8 @@ def observe_record(root, record):
 
 def observed_call(function, args, kwargs=None, *, entry):
     kwargs = kwargs or {}
+    if not recording_enabled():
+        return function(*args, **kwargs)
     name = function.__name__
     operation = {"save_records": "save", "guidance": "guide", "check_updates": "check-updates",
                  "check_draft": "check-draft", "review_readiness": "check-reviewer"}.get(name, name)
@@ -331,13 +363,19 @@ def endpoint(config):
     return value
 
 
+def has_pending_upload(db, config):
+    return db.execute("SELECT EXISTS(SELECT 1 FROM content) OR (? AND EXISTS(SELECT 1 FROM events))",
+                      (config["enabled"] == "on",)).fetchone()[0]
+
+
 def schedule_upload():
-    if os.environ.get("RESEARCH_TOOLKIT_USAGE_AUTOSEND") == "off":
+    if (disabled_by_environment() or not database_path().is_file()
+            or os.environ.get("RESEARCH_TOOLKIT_USAGE_AUTOSEND") == "off"):
         return
     with database() as db:
         db.execute("BEGIN IMMEDIATE")
         config = settings(db)
-        if config["enabled"] != "on" or not endpoint(config) or float(config.get("next_upload", "0")) > time.time():
+        if not has_pending_upload(db, config) or not endpoint(config) or float(config.get("next_upload", "0")) > time.time():
             return
         set_setting(db, "next_upload", time.time()+30)
     options = {"stdin": subprocess.DEVNULL, "stdout": subprocess.DEVNULL, "stderr": subprocess.DEVNULL,
@@ -361,13 +399,13 @@ def request_json(url, data, config, method="POST"):
 
 
 def flush():
-    if disabled_by_environment():
+    if disabled_by_environment() or not database_path().is_file():
         return {"enabled": False, "sent": 0}
     with database() as db:
         db.execute("BEGIN IMMEDIATE")
         config = settings(db)
         target = endpoint(config)
-        if config["enabled"] != "on" or not target:
+        if not target or not has_pending_upload(db, config):
             return {"enabled": config["enabled"] == "on", "sent": 0, "receiver": bool(target)}
         if float(config.get("sending_until", "0")) > time.time():
             return {"sent": 0, "active_sender": True}
@@ -396,13 +434,11 @@ def flush():
             sent += len(rows)
         with database() as db:
             db.execute("DELETE FROM content WHERE created < ?", (time.time()-7*86400,))
-            shared = db.execute("SELECT id,payload FROM content ORDER BY created LIMIT 5").fetchall() if settings(db)["enabled"] == "on" else []
+            shared = db.execute("SELECT id,payload FROM content ORDER BY created LIMIT 5").fetchall()
         for row in shared:
             if disabled_by_environment():
                 break
             with database() as db:
-                if settings(db)["enabled"] != "on":
-                    break
                 if not db.execute("SELECT 1 FROM content WHERE id=?", (row["id"],)).fetchone():
                     continue  # A user withdrew this project grant after the batch was read.
             reply = request_json(target+"/v1/content", json.loads(row["payload"]), config)
@@ -478,8 +514,8 @@ def check_shared_file(relative, text):
 def queue_content(db, config, root, project, paths):
     """Queue only the selected UTF-8 files, through the existing content receiver."""
     root = Path(task_identity(root))
-    if config["enabled"] != "on" or disabled_by_environment():
-        raise ValueError("usage sharing is disabled; enable it explicitly first")
+    if disabled_by_environment():
+        raise ValueError("content sharing is disabled by the process environment")
     files = []
     for index, path in enumerate(paths):
         source = (root / path).resolve()
@@ -527,18 +563,21 @@ def withdraw_content(db, config, root, project):
 
 def content_offer(root, artifact, project=None, language="en"):
     """Offer once after delivery, or queue reports within an explicit project grant."""
-    if disabled_by_environment():
+    if disabled_by_environment() or not database_path().is_file():
         return {"status": "disabled"}
     root = Path(task_identity(root))
     artifact = (root / artifact).resolve().relative_to(root).as_posix()
     with database() as db:
         db.execute("BEGIN IMMEDIATE")
         config = settings(db)
-        if config["enabled"] != "on":
-            return {"status": "disabled"}
         project = sharing_project(root, project, config)
         key = sharing_key(project)
         choice = config.get(key, "ask")
+        if (choice in {"ask", "reports"} and config.get("legacy_sharing_paused") == "true"
+                and config.get(key + ".sharing_resumed") != "true"):
+            return {"status": "disabled"}
+        if choice == "ask" and key not in config and config["enabled"] != "on":
+            return {"status": "disabled"}
         confirm_scope = choice == "reports" and config.get(key + ".scope_confirmed") != "true"
         if confirm_scope:
             # Old grants do not record whether the user saw the actual scope.
@@ -617,10 +656,27 @@ def main():
         print(json.dumps(result))
         if args.scheduled and result.get("receiver") and not result.get("pending"):
             with database() as db:
-                remaining = db.execute("SELECT count(*) FROM events").fetchone()[0] + db.execute("SELECT count(*) FROM content").fetchone()[0]
+                remaining = has_pending_upload(db, settings(db))
             if remaining:
                 schedule_upload()
         return
+    if args.action == "status" and not database_path().is_file():
+        print(json.dumps({"enabled": False, "installation": None, "receiver": endpoint({}),
+                          **installation_info({}), "pending_events": 0, "pending_content": 0,
+                          "last_upload": None, "last_error": None}))
+        return
+    if args.action == "delete" and not database_path().is_file():
+        parser.error("no local usage installation to delete")
+    if args.action == "share":
+        if not args.task_root:
+            parser.error("share requires --task-root")
+        if args.decision in {"once", "reports"}:
+            if not args.confirm_content or not args.file:
+                parser.error("share requires selected --file paths and --confirm-content after the user's agreement")
+            if args.decision == "reports" and len(args.file) != 1:
+                parser.error("reports authorizes final reports only; use once for separately selected chat or source files")
+            if disabled_by_environment():
+                parser.error("content sharing is disabled by the process environment")
     with database() as db:
         if args.action in {"on", "off", "share"}:
             db.execute("BEGIN IMMEDIATE")
@@ -629,9 +685,9 @@ def main():
             set_setting(db, "enabled", args.action)
             if args.action == "off":
                 db.execute("DELETE FROM events")
-                db.execute("DELETE FROM content")
                 db.execute("DELETE FROM sessions")
-            print(json.dumps({"enabled": args.action == "on", "queued_cleared": args.action == "off"}))
+            print(json.dumps({"enabled": args.action == "on", "queued_cleared": args.action == "off",
+                              "scope": "basic_usage"}))
         elif args.action == "status":
             print(json.dumps({"enabled": config["enabled"] == "on" and not disabled_by_environment(),
                               "installation": config["installation_id"], "receiver": endpoint(config),
@@ -640,26 +696,23 @@ def main():
                               "pending_content": db.execute("SELECT count(*) FROM content").fetchone()[0],
                               "last_upload": config.get("last_upload"), "last_error": config.get("last_error")}))
         elif args.action == "share":
-            if not args.task_root:
-                parser.error("share requires --task-root")
             root = Path(task_identity(args.task_root))
             project = sharing_project(root, args.project_root, config)
             key = sharing_key(project)
             if args.decision in {"decline", "ask"}:
                 withdraw_content(db, config, root, project)
                 set_setting(db, key, args.decision)
+                if args.decision == "ask":
+                    set_setting(db, key + ".sharing_resumed", "true")
                 db.execute("DELETE FROM settings WHERE key=?", (key + ".offered",))
                 print(json.dumps({"decision": args.decision, "project_root": str(project)}))
             else:
-                if not args.confirm_content or not args.file:
-                    parser.error("share requires selected --file paths and --confirm-content after the user's agreement")
-                if args.decision == "reports" and len(args.file) != 1:
-                    parser.error("reports authorizes final reports only; use once for separately selected chat or source files")
                 result = queue_content(db, config, root, project, args.file)
                 if args.decision == "reports" or config.get(key) not in {"reports", "decline", "ask"}:
                     set_setting(db, key, args.decision)
                 if args.decision == "reports":
                     set_setting(db, key + ".scope_confirmed", "true")
+                    set_setting(db, key + ".sharing_resumed", "true")
                     # The user selected this containing project after an invitation.
                     # Retire only prompt markers on that task's path, not explicit choices.
                     for candidate in (root, *root.parents):
