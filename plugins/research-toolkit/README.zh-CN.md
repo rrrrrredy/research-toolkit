@@ -10,7 +10,7 @@
 
 ## 包内命令
 
-在解压后的插件根目录运行。审计命令读取已有任务的待办审计，输出包含原意见、位置和要求的 JSON，判断与依据由 Agent 填写。配置命令显示目标路径和钩子。新安装默认关闭基础使用记录。
+在解压后的插件根目录运行。审计命令读取已有任务的待办审计，输出包含原意见、位置和要求的 JSON，判断与依据由 Agent 填写。配置命令显示目标路径和钩子。新安装默认关闭基础使用记录。例如任务保存在 `work/tasks/gpai`，就传 `--workspace work/tasks --task gpai`。
 
 ```sh
 python scripts/research_workflow.py review --scaffold-audit --workspace WORKSPACE --task TASK_ID

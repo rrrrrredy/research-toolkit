@@ -10,7 +10,7 @@ Open a new session, select Research Toolkit, and confirm the nine `research_*` t
 
 ## Commands in this package
 
-Run these from the unpacked plugin root. The audit command uses a task with a pending audit. It prints the original findings, locations and requirements, leaving judgments and evidence to the auditor. Setup previews the target path and hooks. New installations start with usage recording off.
+Run these from the unpacked plugin root. The audit command uses a task with a pending audit. It prints the original findings, locations and requirements, leaving judgments and evidence to the auditor. Setup previews the target path and hooks. New installations start with usage recording off. For a task saved at `work/tasks/gpai`, pass `--workspace work/tasks --task gpai`.
 
 ```sh
 python scripts/research_workflow.py review --scaffold-audit --workspace WORKSPACE --task TASK_ID
