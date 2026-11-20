@@ -4,6 +4,13 @@
 
 **从实际报告、定位到正文的审阅意见及保留的修订，判断 Toolkit 帮助 Agent 完成了什么。** 本页分别呈现研究交付、版本对照和软件行为检查，每项结果对应其任务与版本。
 
+| 可核查的结果 | 能从这份证据知道什么 | 原始材料 |
+| --- | --- | --- |
+| 一份 v3 长报告，39 条评审意见归为 17 项裁定 | 双名额运行完成了改稿、独立复查和交付。单项案例只描述这次运行。 | [原稿、全部裁定与回执](case-study/v3-review/README.zh-CN.md) |
+| 单独的四路误报验证 | 四份预设意见里的同一项错误质疑，被独立审计查源后一起驳回。 | [预设输入和审计原件](case-study/v3-review/records.json) |
+| 13 道长研究题，15 份中英文报告 | 可以逐篇查稿件和修订。此组研究没有同题的无 Toolkit 对照。 | [研究设计和稿件](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-11-09-long-research) |
+| 两次各含一道题的历史版本对照 | 两次都没有观察到对应改动带来的提升，新版在各自那道题上更慢。总体质量与耗时收益仍待验证。 | [保存指引](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-22-compressed-air-save) · [需求理解](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-22-codex-entry) |
+
 ## 当前证据
 
 [当前长研究 benchmark](../evals/README.zh-CN.md)包括跨领域的 13 个问题，主语言报告为 7 中文、6 英文。微短剧英文与推理时计算中文任务分别使用同题冻结材料独立撰写，共 15 份报告任务。[11 月 9 日研究记录](../evals/studies/2026-11-09-long-research/README.zh-CN.md)保留题目、来源记录、首稿、修订和实际审阅结果。研究质量对照原问题与正文判断，执行数据用于说明运行情况，不作为质量标准。

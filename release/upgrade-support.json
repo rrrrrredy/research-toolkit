@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "target_major": 3,
+  "receipt_schemas": [1],
+  "receipt_without_progress": "inspect_recorded_schema_only",
+  "saved_contracts": {
+    "1": {"historical_receipt": "inspect_with_recorded_release", "continue": "reuse_originals_and_complete_current_independent_review", "evidence": "scripts/check_historical_review.py"},
+    "2": {"historical_receipt": "preserve", "continue": "honor_saved_independent_assignments", "evidence": "scripts/check_review_completion_contract.py"},
+    "3": {"historical_receipt": "preserve", "continue": "resume_version_bound_plan", "evidence": "docs/case-study/v3-review/live/receipt.json"}
+  },
+  "new_full_report_contract": 3
+}

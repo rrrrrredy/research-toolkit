@@ -2,6 +2,8 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Research Toolkit](../README.zh-CN.md)
 
+[快速安装](quickstart.zh-CN.md) · [按主题浏览中文文档](zh/README.md)
+
 
 - [当前长研究案例](case-study/long-research-2026-11/index.zh-CN.html)：微短剧市场与推理时计算，分别提供独立撰写的中英文报告。
 - [长研究 benchmark](../evals/README.zh-CN.md)：13 个问题、15 份报告任务、执行说明与对应具体段落的判定。
@@ -9,7 +11,7 @@
 
 ## 使用 Research Toolkit
 
-- [开始研究](quickstart.zh-CN.md)：一套完整研究入口，按任务展开长文、深度分析、修订与更新。
+- [开始研究](conduct-research.zh-CN.md)：一套完整研究入口，按任务展开长文、深度分析、修订与更新。
 
 - [使用与接入](usage-modes.zh-CN.md)：仓库、文件与文本输入，可选的 Skill、插件、MCP，以及审阅配置。
 - [在你的 Agent 中使用](../agents/README.zh-CN.md)：通用输入方式、纯聊天边界与各工具的接入。

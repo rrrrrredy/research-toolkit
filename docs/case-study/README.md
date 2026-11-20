@@ -4,6 +4,12 @@
 
 This archive contains real research cases and continuation records with retained drafts, reviews and revisions. See the [November long-research baseline](../../evals/studies/2026-11-09-long-research/README.md) for 13 questions and 15 reports. The [evaluation inventory](../../evals/README.md#case-and-dataset-inventory) also links the retired seven-question set and other retained evidence.
 
+## Long reports with inspectable revisions
+
+- [Model benchmarks](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/model_benchmarks_en/final.md) tracks how contamination, scoring and deployment conditions affect interpretation. [First draft](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/model_benchmarks_en/analysis/first-draft.md) · [Audit changes](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/model_benchmarks_en/analysis/change-note-audit-01.md).
+- [Test-time compute](long-research-2026-11/test-time-compute.en.html) follows generation, selection and verification through concrete examples.
+- [The GPAI report from draft to delivery](v3-review/README.md) retains three stages of command output, independent decisions and the final receipt.
+
 ## Updating a coding-benchmark procurement report
 
 [Complete updated Chinese report](coding-benchmark-update/report.zh-CN.md) · [Update record](coding-benchmark-update/README.md). Reuses an existing long task, with source-confirmed additions, original and revised drafts, actual self-review, rework and measured resource use. This is continuation evidence, not a new native-agent comparison.

@@ -2,11 +2,15 @@
 
 [English](doubao-work.md) | [简体中文](doubao-work.zh-CN.md)
 
+<!-- hosts:start -->
+**Entry**　Files or pasted instructions, where supported by the session.  [Host capabilities](README.md#capabilities)
+<!-- hosts:end -->
+
 The [Doubao developer portal](https://open.doubao.com/document/doubao-developer-guide/skill-integration-guide) presents Skill integration, but its public page does not expose enough package and import requirements to give a verified native installation recipe here. Client/account access may differ.
 
 ## Use the material your session can read
 
-Provide `SKILL.md`, required references, the research request and source material; use the [shared research request](../docs/quickstart.md).
+Provide `SKILL.md`, required references, the research request and source material; use the [shared research request](../docs/conduct-research.md).
 
 Provide the research question, audience, scope and existing material. Deliver the complete report at the requested depth with usable citations; save working records separately.
 

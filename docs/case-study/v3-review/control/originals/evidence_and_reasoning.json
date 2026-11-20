@@ -1,0 +1,30 @@
+﻿{
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "evidence": {
+      "location": "reports/final.md:7,19,23–25,43",
+      "basis": "Labeled controlled response restricted to two legally material propositions."
+    },
+    "adversarial_reasoning": {
+      "location": "reports/final.md:7,19,23–25,43",
+      "basis": "Labeled controlled response restricted to two legally material propositions."
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "F54",
+      "severity": "major",
+      "location": "reports/final.md:9,19,39,43",
+      "basis": "The draft omits the EU representative exemption in Article 54(6) for qualifying non-systemic free/open-source GPAI providers."
+    },
+    {
+      "finding_id": "F101",
+      "severity": "major",
+      "location": "reports/final.md:7,19,23–25",
+      "basis": "The Article 101 fines date must be changed from 2 August 2026 to 27 July 2026 because the Omnibus enters into force then."
+    }
+  ],
+  "input_version": "7f440f33a5846ab1c1ba18d20228e11a400319a785a0da2121fa6da7b9b09b94",
+  "assignment_version": "3019dcaaf0a21bad3134d6551f98579f756ad908611e2ddf3c2fd74a0225bd3b",
+  "control": "injected fixture; no independent model execution"
+}

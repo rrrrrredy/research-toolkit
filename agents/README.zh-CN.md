@@ -6,7 +6,7 @@
 
 [规范入口](../SKILL.md)与[中文阅读版](../SKILL.zh-CN.md)指向各研究阶段需要的方法。原生 Skill 安装是可选方式；可调用的执行工具见[插件与 MCP 配置](../docs/usage-modes.zh-CN.md)。
 
-**开始研究：**使用[完整研究指南](../docs/quickstart.zh-CN.md)和统一方法，按需求展开研究。可直接读取方法，MCP 按需安装。已有稿件可[接续、修订或更新](../docs/usage-modes.zh-CN.md#接续已有研究)。
+**开始研究：**使用[完整研究指南](../docs/conduct-research.zh-CN.md)和统一方法，按需求展开研究。可直接读取方法，MCP 按需安装。已有稿件可[接续、修订或更新](../docs/usage-modes.zh-CN.md#接续已有研究)。
 
 
 可直接读取方法，也可按需安装 Skill 或 MCP。新安装默认关闭基础使用记录，已有开启或关闭设置继续生效。Codex、Claude Code、OpenCode 的项目 hooks 在用户选择开启记录后按需配置。[使用数据与控制](../docs/usage-data.zh-CN.md)。
@@ -29,7 +29,7 @@
 
 在 Codex、Claude Code 等 Agent 工具中，直接使用其子 Agent 工具完成研究、统稿和独立审阅，无需另配 API。按[共同交接方法](../references/subagents-and-review-loop.zh-CN.md)提供当前要求、有边界的问题和可读原件，保留完整贡献及实际执行 Agent 的身份。
 
-新建全稿由三个独立非作者上下文覆盖七项内容视角，另做相关领域专审、独立审计和单独的就绪评估。按宿主当前可用的工作名额分批执行。由 CLI／MCP 管理任务时，`review` 准备并记录这些工作，`finish` 在当前报告通过独立最终复查后记录交付完成。[审阅指南](../docs/review-completion.zh-CN.md)。
+<!-- current-review -->三个独立的非作者评审组覆盖七个内容视角。<!-- /current-review -->另做相关领域专审、独立审计和单独的就绪评估。按宿主当前可用的工作名额分批执行。由 CLI／MCP 管理任务时，`review` 准备并记录这些工作，`finish` 在当前报告通过独立最终复查后记录交付完成。[审阅指南](../docs/review-completion.zh-CN.md)。
 
 没有子 Agent 或文件能力的聊天界面仍可帮助阅读、分析和起草。独立工作需交给其他可用的新会话，提供完整任务、报告和依据；保留或导出有效要求、原件、现稿和未完成工作供接续。在独立职责完成前，成果保持进行中，不用作者自评代替。
 
@@ -45,6 +45,7 @@
 
 按实际使用的客户端选择，模型名称本身不能说明是否支持 Skill。原生安装指南引用 Agent 工具官方的目录与调用要求；文件或文本指南将指令用于任务，不会注册原生技能。
 
+<!-- hosts:start -->
 | 客户端 | 首次任务入口 | 指南 |
 | --- | --- | --- |
 | Cursor | 项目级原生 Skill | [安装与开始](cursor.zh-CN.md) |
@@ -64,6 +65,33 @@
 | Hermes Agent | 技能目录与调用 | [现有接入指南](hermes.zh-CN.md) |
 | ChatGPT / 其他聊天 Agent | 文件、附件或粘贴指令 | [通用输入指南](chatgpt.zh-CN.md) |
 | DeepSeek Harness（可选） | 原生 Skill 及可选接入 | [现有接入指南](deepseek-harness.zh-CN.md) |
+
+<a id="capabilities"></a>
+
+### 宿主能力
+
+这张表列出本项目有依据的接入方式。横线表示此项未在 Toolkit 登记。宿主可以自行派原生子 Agent。内置执行器还可以按空位排队，处理审计、改稿和最终复查。
+
+| 客户端 | 指南状态 | 插件 | 本地 MCP | 宿主子 Agent | Toolkit 自动派工 | 使用记录 hooks | 依据 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Cursor | 已发布 | — | [有接入说明](https://cursor.com/docs/mcp) | — | — | — | [记录](../agents/cursor.md) |
+| Codex CLI / IDE | 已发布 | 有插件包 | [有接入说明](https://learn.chatgpt.com/docs/extend/mcp?surface=cli) | 有运行记录 | codex | 可选开启 | [记录](../docs/case-study/v3-review/README.md) |
+| Claude Code | 已发布 | — | [有接入说明](https://code.claude.com/docs/en/mcp) | 有接入说明 | claude | 可选开启 | [记录](../scripts/cli_agent_session.py) |
+| OpenCode | 已发布 | — | [有接入说明](https://opencode.ai/docs/mcp-servers/) | 有接入说明 | opencode | 可选开启 | [记录](../scripts/cli_agent_session.py) |
+| Kimi Code CLI | 已发布 | — | — | — | — | — | [记录](../agents/kimi-code.md) |
+| Antigravity | 已发布 | — | — | — | — | — | [记录](../agents/antigravity.md) |
+| VS Code 中的 GitHub Copilot | 已发布 | — | [有接入说明](https://code.visualstudio.com/docs/agent-customization/mcp-servers) | — | — | — | [记录](../agents/copilot.md) |
+| Gemini CLI | 已发布 | — | [有接入说明](https://geminicli.com/docs/tools/mcp-server/) | 有接入说明 | — | — | [记录](../agents/gemini-cli.md) |
+| ZCode | 已发布 | — | — | — | — | — | [记录](../agents/zcode.md) |
+| 千问办公（QwenWork） | 已发布 | — | — | — | — | — | [记录](../agents/qwenwork.md) |
+| WorkBuddy | 已发布 | — | — | — | — | — | [记录](../agents/workbuddy.md) |
+| Grok Bot | 已发布 | — | — | — | — | — | [记录](../agents/grok-bot.md) |
+| 豆包工作 | 已发布 | — | — | — | — | — | [记录](../agents/doubao-work.md) |
+| OpenClaw | 已发布 | — | — | — | — | — | [记录](../agents/openclaw.md) |
+| Hermes Agent | 已发布 | — | — | — | — | — | [记录](../agents/hermes.md) |
+| ChatGPT / 其他聊天 Agent | 已发布 | — | — | — | — | — | [记录](../agents/chatgpt.md) |
+| DeepSeek Harness（可选） | 已发布 | — | [有接入说明](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/mcp.md) | 有接入说明 | — | — | [记录](../docs/dsh-adapter-validation.md) |
+<!-- hosts:end -->
 
 用卡片中的排查步骤确认实际加载路径和示例文件可读性；可用能力还取决于客户端版本、账号与权限。只要会话能读取所提供的材料，就可采用[文件或文本入口](#直接读取使用)。
 

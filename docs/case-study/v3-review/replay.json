@@ -1,0 +1,41 @@
+{
+  "provenance": "CLI replay on 2026-11-20 using the retained original draft, brief and source records; no model call. The subsequent historical completion is in live/finish.json.",
+  "start": {
+    "task": "gpai-replay",
+    "ready_for_collection": true,
+    "stage": "collect",
+    "runtime": {
+      "version": "3.0.0",
+      "implementation_sha256": "3d11e0f86ae363f799f32de68db6eb07ea5935b752e4e7b87748a4c3cd551f1a"
+    }
+  },
+  "check-draft": {
+    "ok": true,
+    "artifact": "reports/final.md",
+    "artifact_sha256": "7191636edc8e39089df89dc94d2244467d308c64c4027a812fe9fa849f8c839f",
+    "counts": {
+      "whitespace_words": 344,
+      "nonwhitespace_characters": 3633
+    },
+    "count_scope": "whole_artifact_including_markup_and_references",
+    "length_checks": [
+      {
+        "requirement_id": "R3",
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_artifact",
+        "min": 3000,
+        "max": 4000,
+        "actual": 3633,
+        "bounds_met": true,
+        "status": "satisfied"
+      }
+    ],
+    "errors": []
+  },
+  "finish_before_review": {
+    "exit_code": 1,
+    "completed": false,
+    "action_required": "host_agents",
+    "error": "Continue with independent agent review, audit and acceptance. Historical receipts remain readable and unchanged."
+  }
+}

@@ -2,6 +2,10 @@
 
 [English](openclaw.md) | [简体中文](openclaw.zh-CN.md)
 
+<!-- hosts:start -->
+**Entry**　Skill directory or direct file reading.  [Host capabilities](README.md#capabilities)
+<!-- hosts:end -->
+
 Use this when OpenClaw can read local skills from a workspace or user skills directory. This adapter follows the official OpenClaw skills docs:
 
 - https://docs.openclaw.ai/tools/skills

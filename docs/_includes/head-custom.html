@@ -1,0 +1,4 @@
+{% assign suffix = page.path | split: "." | last %}
+{% if suffix == "md" or suffix == "markdown" %}
+<link rel="alternate" type="text/markdown" href="{{ page.path | absolute_url | escape }}">
+{% endif %}

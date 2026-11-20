@@ -10,7 +10,7 @@ Use it for long-form research and writing across fields, including industry, com
 
 With the task tools, you can trace findings and revisions to their sources. The delivery check stops while a required issue remains open.
 
-[**Choose an entry**](#which-should-i-use) · [Start research](#quick-start) · [See a research case](#research-case) · [Documentation](#documentation)
+[**Choose an entry**](#which-should-i-use) · [Quick install](#quick-start) · [Request research](#usage) · [See a research case](#research-case) · [Documentation](#documentation)
 
 ## How does a study get done?
 
@@ -21,22 +21,17 @@ The lead agent maintains the research question, effective requirements and overa
 | Task and context | Keep the current brief, outline, effective requirements and dependencies together. Satisfied requirements remain visible when they still constrain later work. |
 | Evidence and analysis | Give each researcher a bounded question, relevant original material and related findings. Preserve its evidence, reasoning, conditions and unresolved questions in the handoff. |
 | Writing and revision | Develop meaningful research units, review premises before dependent work, and integrate their complete analysis into one owned main draft. Changes return to affected units and the outline. |
-| Review and delivery | Three independent reviews cover all seven perspectives. Add relevant domain review, a separate audit and a final check. Agents resolve necessary findings, verify the current report and deliver it. |
+| Review and delivery | <!-- current-review -->Three independent non-author review groups cover seven content perspectives.<!-- /current-review --> Add relevant domain review, a separate audit and a final check. Agents resolve necessary findings, verify the current report and deliver it. |
 
-These are four connected responsibilities, not four fixed agents or four independent pipelines. Codex, Claude Code and similar agent tools run the agents and carry messages; Toolkit provides shared inputs, methods, artifact relationships and completion checks. Native collaboration does not require separate API setup. For script-managed execution, the shared [Agent execution adapter](docs/usage-modes.md#agent-host-execution) connects to Claude Code, OpenCode or Codex, according to the current agent tool. [Research steps](docs/quickstart.md#research-from-scratch) · [Handoff and calls](docs/usage-modes.md#research-delegation-and-handoff)
+These are four connected responsibilities, not four fixed agents or four independent pipelines. Codex, Claude Code and similar agent tools run the agents and carry messages; Toolkit provides shared inputs, methods, artifact relationships and completion checks. Native collaboration does not require separate API setup. For script-managed execution, the shared [Agent execution adapter](docs/usage-modes.md#agent-host-execution) connects to Claude Code, OpenCode or Codex, according to the current agent tool. [Research steps](docs/conduct-research.md#research-from-scratch) · [Handoff and calls](docs/usage-modes.md#research-delegation-and-handoff)
 
-```mermaid
-flowchart LR
-  L[Lead: question and outline] --> R[Research agents: evidence and arguments]
-  R --> W[Designated assembling agent: progressive main draft]
-  R --> U[Independent review at important dependencies]
-  U --> R
-  W --> V[Three content review groups + relevant domain review]
-  V --> A[Independent audit]
-  A --> F[Independent final check]
-  A -->|Necessary correction| R
-  F --> D[Deliver the complete report]
-```
+![Question, evidence, manuscript, independent checks and delivery](docs/assets/readme-workflow.svg)
+
+| Working arrangement | Who connects the work | Available record |
+| --- | --- | --- |
+| One agent in a conversation | The same context researches, writes and revises | Host conversation and saved files |
+| Multiple agents in parallel | The lead or host integrates findings and resolves disagreements | Individual outputs and any dispatch history kept by the host |
+| Toolkit with the local task tools | The lead integrates research, with separate content review, audit and final checks | Sources, decisions, revisions and a receipt bound to the manuscript |
 
 ## Which should I use?
 
@@ -53,13 +48,17 @@ For a first use, start directly with the Skill. Add task tools when persistent s
 
 **Which tasks fit?** Long-form research in English or Chinese across fields, requiring multiple sources, comparison, explanation or supported recommendations. This includes developing summaries and local arguments within a long report, revising existing work and continuing it with new evidence. Simple factual questions, routine translation or minor wording edits usually need only your existing agent. The agent uses its available search and source-access capabilities to obtain and read the material.
 
-[Research from scratch](./docs/quickstart.md#research-from-scratch) · [Revise or update a report](./docs/quickstart.md#revise-or-update-a-report) · [Install for your agent tool](./agents/README.md#choose-your-tool) · [Install a fixed Skill version](./docs/installation-versioning.md#install-a-version-pinned-skill)
+[Research from scratch](./docs/conduct-research.md#research-from-scratch) · [Revise or update a report](./docs/conduct-research.md#revise-or-update-a-report) · [Install for your agent tool](./agents/README.md#choose-your-tool) · [Install a fixed Skill version](./docs/installation-versioning.md#install-a-version-pinned-skill)
 
 **What happens on first use?** You can read the methods directly. Usage recording is off by default. With task tools the agent can queue review work within the host’s available capacity, revise and verify the report, and deliver the complete result. See [usage data settings](./docs/usage-data.md) and [autonomous review](./docs/review-completion.md#run-the-review-and-revision-loop).
 
+## Quick start
+
+[Download the compact package and install it in your agent](docs/quickstart.md). Confirm that the host can load the `research-toolkit` Skill or list the local `research_*` tools for the route you chose.
+
 <a id="usage"></a>
 
-## Quick start
+## Request research
 
 Describe your question or requested revision in your own words to an agent that can read the repository and sources. The example below is a starting point; you do not need to fill in undecided details. The agent uses existing context to propose an approach and clarifies only consequential gaps. You can start with the repository link; no setup for usage recording is required.
 
@@ -75,7 +74,7 @@ Deliver a complete report that answers these questions with usable citations;
 include a short change note when revising.
 ```
 
-[**Start research: one usage guide**](./docs/quickstart.md)
+[**Start research: one usage guide**](./docs/conduct-research.md)
 
 One method set supports long-form and in-depth research, revisions and updates. The request determines scope, length and depth; the agents load methods for their current work and complete independent review, audit and acceptance.
 
@@ -84,6 +83,8 @@ One method set supports long-form and in-depth research, revisions and updates. 
 Have a draft or new material? [Revise or update existing research](./docs/usage-modes.md#continue-existing-research), reusing completed research and its sources.
 
 ## Research case
+
+The [model benchmarks report](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/model_benchmarks_en/final.md) and its [audit changes](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/model_benchmarks_en/analysis/change-note-audit-01.md) show how a conclusion changed. In the [GPAI case](docs/case-study/v3-review/README.md), a two-slot run grouped 39 findings into 17 decisions, revised the report and delivered after independent review. [Results and limitations](docs/evaluation-status.md) includes the samples and historical comparisons that found no improvement.
 
 **Test-Time Compute for Reasoning Models and Agents.** Compare sampling, search, revision, verification and tool feedback, then identify which operation should receive additional work. The report connects empirical scaling behavior to a method-and-evidence matrix, a worked allocation example and a design decision tree. Evidence cutoff: **9 November 2026**.
 

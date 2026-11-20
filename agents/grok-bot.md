@@ -2,7 +2,11 @@
 
 [English](grok-bot.md) | [简体中文](grok-bot.zh-CN.md)
 
-Use a private Grok Bot conversation for the [research request](../docs/quickstart.md). The request contains the repository URL, `SKILL.md` entry, a complete research request. If the Bot cannot open repository files, provide their text and the required references through the [general input guide](README.md#use-without-installation).
+<!-- hosts:start -->
+**Entry**　Provide instructions; save a private skill after the task.  [Host capabilities](README.md#capabilities)
+<!-- hosts:end -->
+
+Use a private Grok Bot conversation for the [research request](../docs/conduct-research.md). The request contains the repository URL, `SKILL.md` entry, a complete research request. If the Bot cannot open repository files, provide their text and the required references through the [general input guide](README.md#use-without-installation).
 
 Provide the research question, audience, scope and existing material. Deliver the complete report at the requested depth with usable citations; save working records separately.
 

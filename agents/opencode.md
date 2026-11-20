@@ -2,6 +2,10 @@
 
 [English](opencode.md) | [简体中文](opencode.zh-CN.md)
 
+<!-- hosts:start -->
+**Entry**　Native project Skill, with skill permission enabled.  Bundled dispatch driver: `opencode`.  [Host capabilities](README.md#capabilities)
+<!-- hosts:end -->
+
 ## Install
 
 Install the [compact, version-pinned release](../docs/installation-versioning.md#install-a-version-pinned-skill) in `.opencode/skills/research-toolkit` under the project root. If the destination exists, follow the [update guide](../docs/installation-versioning.md#update-without-losing-local-work).
@@ -31,7 +35,7 @@ mechanisms and synthesis. Deliver the complete report with usable citations;
 preserve sources and full analysis for handoff; organize independent review, audit and acceptance through OpenCode.
 ```
 
-The [shared research guide](../docs/quickstart.md) provides a complete request and setup details.
+The [shared research guide](../docs/conduct-research.md) provides a complete request and setup details.
 
 ## Agent execution adapter
 

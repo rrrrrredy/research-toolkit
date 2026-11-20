@@ -1,0 +1,35 @@
+{
+  "status": "completed",
+  "completed": true,
+  "artifact_sha256": "f138da2de22ffb7c436f35e2a99bfc888e8cde2283278080c0919fd65e774c60",
+  "input_version": "409e3b0f803b97f0034300c78ef6b3b6dd81c387278aa0d51c22658db5da8cdd",
+  "message": "研究报告已通过独立复核。",
+  "check_draft": {
+    "ok": true,
+    "scope": "draft_record_and_length_checks",
+    "artifact": "reports/final.md",
+    "artifact_sha256": "f138da2de22ffb7c436f35e2a99bfc888e8cde2283278080c0919fd65e774c60",
+    "counts": {
+      "whitespace_words": 342,
+      "nonwhitespace_characters": 4000
+    },
+    "count_scope": "whole_artifact_including_markup_and_references",
+    "length_checks": [
+      {
+        "requirement_id": "R3",
+        "unit": "nonwhitespace_characters",
+        "scope": "whole_artifact",
+        "min": 3000,
+        "max": 4000,
+        "actual": 4000,
+        "bounds_met": true,
+        "status": "satisfied"
+      }
+    ],
+    "errors": [],
+    "warnings": [],
+    "semantic_quality": "not_assessed",
+    "delivery_status": "not_assessed",
+    "next_action": "Check claims and decisions against sources, then complete the task's required checks/reviews and finish."
+  }
+}

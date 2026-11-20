@@ -2,6 +2,10 @@
 
 [English](workbuddy.md) | [简体中文](workbuddy.zh-CN.md)
 
+<!-- hosts:start -->
+**接入**　读取本地仓库副本，原生导入另行选择。 [宿主能力](README.zh-CN.md#capabilities)
+<!-- hosts:end -->
+
 使用能访问本地目录的 WorkBuddy。[官方产品说明](https://cloud.tencent.com/product/workbuddy)包含本地文件读取能力；以下方式无需原生 Skill 安装。
 
 ## 提供文件

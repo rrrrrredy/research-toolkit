@@ -43,6 +43,9 @@ Return one JSON object: report_verdict (pass, needs_revision, not_assessed), cov
 (an object keyed by every dimension, each with nonempty location and basis), and findings
 (a list of objects with unique finding_id, severity critical/major/minor/optional, location,
 basis). A negative result is valid; do not soften it to obtain a pass. No Markdown fences."""
+CURRENT_REVIEW_CONTRACT = 3
+
+
 def task_operation(function):
     @wraps(function)
     def locked(workspace, task, *args, **kwargs):
@@ -172,7 +175,7 @@ def start(workspace: Path, task: str, brief: dict, language="en") -> dict:
             if safe_path(root, name).exists():
                 raise ValueError("Task contains existing records. Use a new task ID or inspect them before import.")
         progress = {"stage": "brief", "status": "in_progress", "author_id": f"author:{task}",
-                    "review_contract": 3, "open_issues": []}
+                    "review_contract": CURRENT_REVIEW_CONTRACT, "open_issues": []}
         for name, content in {
             "data/source_registry.csv": "source_id,title,url,source_type,read_scope,read_evidence,evidence_path\n",
             "data/claims_registry.csv": "claim_id,claim,claim_type,supporting_sources,counter_evidence,uncertainty\n",
@@ -327,6 +330,13 @@ def review(workspace: Path, task: str, evidence_paths: list[str], artifact="fina
             revision, include_assignment, host_result, scope, perspectives, domains, trusted, runner, audit)
     return host_review.review(sys_module(), root, progress, evidence_paths, artifact, purpose,
         revision, include_assignment, host_result, scope, perspectives, domains, audit)
+
+
+@task_operation
+def scaffold_audit(workspace, task, scope="full_report"):
+    import host_review
+    root = task_root(workspace, task)
+    return host_review.pending_audit_template(root, load(root, "state/progress.json"), scope)
 
 
 def sys_module():
@@ -658,12 +668,34 @@ def main():
     for stream in (sys.stdin, sys.stdout, sys.stderr):
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(encoding="utf-8")
-    parser = argparse.ArgumentParser(description=__doc__)
+    if sys.argv[1:2] == ["setup"]:
+        # Preview by default. Apply uses the existing opt-in and the same installer as the host guides.
+        from install_usage import main as preview_installation
+        preview_installation(sys.argv[2:], setup=True)
+        return 0
+    parser = argparse.ArgumentParser(description=__doc__,
+                                     epilog="setup --host HOST [--project PATH] previews optional usage hooks.")
     parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "save", "check-draft", "check-reviewer", "check-updates"])
     parser.add_argument("--workspace", type=Path, default=workspace_default())
     parser.add_argument("--request", type=Path, help="Path to a JSON request file (not inline JSON); omit to read the JSON object from stdin.")
     parser.add_argument("--summary", action="store_true", help="For review, print progress and the next action without repeating assignments.")
+    parser.add_argument("--scaffold-audit", action="store_true",
+                        help="Print the pending auditor's blank, version-bound response template.")
+    parser.add_argument("--task", help="Saved task ID for --scaffold-audit.")
+    parser.add_argument("--scope", default="full_report", help="Review scope for --scaffold-audit.")
     args = parser.parse_args()
+    if args.scaffold_audit:
+        if args.action != "review" or not args.task or args.summary or args.request:
+            parser.error("use review --scaffold-audit --task TASK [--scope SCOPE] [--workspace DIR]")
+        try:
+            template = scaffold_audit(args.workspace, args.task, args.scope)
+        except (ValueError, OSError) as exc:
+            print(json.dumps({"ok": False, "error": str(exc)}, ensure_ascii=False))
+            return 1
+        print(json.dumps(template, ensure_ascii=False, indent=2))
+        return 0
+    if args.task or args.scope != "full_report":
+        parser.error("--task and --scope apply to --scaffold-audit")
     if args.summary and args.action != "review":
         parser.error("--summary applies to review")
     try:

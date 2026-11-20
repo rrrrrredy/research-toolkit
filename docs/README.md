@@ -2,6 +2,8 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md) · [Research Toolkit](../README.md)
 
+[Quick install](quickstart.md) · [Browse English documentation](en/README.md)
+
 
 - [Current long-research cases](case-study/long-research-2026-11/index.html): microdrama markets and test-time compute, with independently authored English and Chinese reports.
 - [Long-research benchmark](../evals/README.md): 13 questions, 15 report assignments, execution instructions and located judgments.
@@ -9,7 +11,7 @@
 
 ## Use Research Toolkit
 
-- [Start research](quickstart.md): one complete entry for long-form research, in-depth analysis, revision and updates.
+- [Start research](conduct-research.md): one complete entry for long-form research, in-depth analysis, revision and updates.
 
 - [Usage and integration](usage-modes.md): repository, file, and text inputs; optional Skill, plugin, and MCP; review configuration.
 - [Use with your agent](../agents/README.md): common input methods, chat-only limits, and tool-specific setup.

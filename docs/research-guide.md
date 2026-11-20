@@ -2,7 +2,7 @@
 
 [English](research-guide.md) | [简体中文](research-guide.zh-CN.md)
 
-[Project overview](../README.md) · [Start research](quickstart.md) · [Installation and tools](usage-modes.md)
+[Project overview](../README.md) · [Start research](conduct-research.md) · [Installation and tools](usage-modes.md)
 
 Agents use Research Toolkit for long-form research and writing in English or Chinese across domains. The task defines the reader, purpose and depth; shared methods connect evidence, analysis, writing and independent assessment.
 
@@ -20,7 +20,7 @@ Simple fact queries, routine translation and a wording change often do not need 
 
 ## One connected research path
 
-The [quick start](quickstart.md#research-from-scratch) shows the complete path. Four responsibilities organize the existing capabilities; they are not four agents or independent workflows.
+The [quick start](conduct-research.md#research-from-scratch) shows the complete path. Four responsibilities organize the existing capabilities; they are not four agents or independent workflows.
 
 | Responsibility | What it owns | What the next work receives |
 | --- | --- | --- |
@@ -52,7 +52,7 @@ The same sources serve lead agents, research workers, assembling agents and revi
 
 ## Review and acceptance
 
-Three independent groups cover seven content perspectives under the [review contract](review-completion.md#conduct-the-independent-work). Add domain specialists as needed. A separate auditor checks substantive reviews, consequential findings and passed-content samples. On the first final check, a separate Agent makes an independent assessment of the current full report before seeing earlier verdicts, then checks the audit and actual corrections. The Agent delivers the report when the final check passes.
+<!-- current-review -->Three independent non-author review groups cover seven content perspectives.<!-- /current-review --> See the [review contract](review-completion.md#conduct-the-independent-work). Add domain specialists as needed. A separate auditor checks substantive reviews, consequential findings and passed-content samples. On the first final check, a separate Agent makes an independent assessment of the current full report before seeing earlier verdicts, then checks the audit and actual corrections. The Agent delivers the report when the final check passes.
 
 The auditor selects samples from the whole actual report and original inputs. Decisive requirements, claims, figures, sources, counter-evidence and consequential decisions are checked fully; other selections have reasons and locations. Problems lead to follow-up on the same source, measure, branch or transformation. This work belongs to audit and acceptance, without another sampling role.
 

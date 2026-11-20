@@ -2,6 +2,10 @@
 
 [English](workbuddy.md) | [简体中文](workbuddy.zh-CN.md)
 
+<!-- hosts:start -->
+**Entry**　Read a local checkout; native import is a separate option.  [Host capabilities](README.md#capabilities)
+<!-- hosts:end -->
+
 Use WorkBuddy with access to a local folder. Its [official product page](https://cloud.tencent.com/product/workbuddy) describes local file reading; no native Skill installation is needed for this route.
 
 ## Make the files available
@@ -24,7 +28,7 @@ report with usable citations. Identify inaccessible required material without
 inventing its contents.
 ```
 
-Develop the report to the depth the request requires, preserving its original material and independent assessments. [Complete walkthrough](../docs/quickstart.md).
+Develop the report to the depth the request requires, preserving its original material and independent assessments. [Complete walkthrough](../docs/conduct-research.md).
 
 ## If it cannot read the files
 

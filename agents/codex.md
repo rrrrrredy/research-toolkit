@@ -2,6 +2,10 @@
 
 [English](codex.md) | [简体中文](codex.zh-CN.md)
 
+<!-- hosts:start -->
+**Entry**　Native project Skill.  Bundled dispatch driver: `codex`.  [Host capabilities](README.md#capabilities)
+<!-- hosts:end -->
+
 ## Install
 
 Install the [compact, version-pinned release](../docs/installation-versioning.md#install-a-version-pinned-skill) in `.agents/skills/research-toolkit` under the project root. If the destination exists, follow the [update guide](../docs/installation-versioning.md#update-without-losing-local-work).
@@ -14,7 +18,7 @@ For a source checkout, run the following command from the project root.
 git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .agents/skills/research-toolkit
 ```
 
-Run `/skills` or type `$` and select `research-toolkit`; confirm the path ends in `.agents/skills/research-toolkit/SKILL.md`. [Official skill requirements](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills).
+Run `/skills` or type `$` and select `research-toolkit`; confirm the path ends in `.agents/skills/research-toolkit/SKILL.md`. [Official skill requirements](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills). Codex can display the package-qualified name `research-toolkit:research-toolkit`.
 
 `core.longpaths` applies to this Git checkout and prevents long-path checkout failures on Windows.
 
@@ -33,7 +37,7 @@ preserve sources and full analysis for handoff; organize independent review, aud
 
 Use Codex’s native subagents for production, assembly, independent content review, audit and acceptance. They use Codex’s existing model access, without separate API configuration. Share current requirements and original materials, and retain full handoffs.
 
-The [shared research guide](../docs/quickstart.md) provides a complete request and setup details.
+The [shared research guide](../docs/conduct-research.md) provides a complete request and setup details.
 
 ## Agent execution adapter
 

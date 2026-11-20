@@ -1,0 +1,3 @@
+reports/*.md -text
+*/originals/*.json -text
+live/receipt.json -text whitespace=cr-at-eol

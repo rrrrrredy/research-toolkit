@@ -2,11 +2,15 @@
 
 [English](doubao-work.md) | [简体中文](doubao-work.zh-CN.md)
 
+<!-- hosts:start -->
+**接入**　按会话支持的方式提供文件或粘贴指令。 [宿主能力](README.zh-CN.md#capabilities)
+<!-- hosts:end -->
+
 [豆包开放平台](https://open.doubao.com/document/doubao-developer-guide/skill-integration-guide)展示了 Skill 接入，但公开页面尚未提供足够的打包和导入要求，无法据此给出经过核实的原生安装步骤。客户端与账号可用能力可能不同。
 
 ## 使用会话能读取的材料
 
-提供 `SKILL.md`、所需参考文件、研究需求与来源材料，使用[统一研究请求](../docs/quickstart.zh-CN.md)。
+提供 `SKILL.md`、所需参考文件、研究需求与来源材料，使用[统一研究请求](../docs/conduct-research.zh-CN.md)。
 
 提供研究问题、读者、范围与已有材料；按所需深度交付完整报告和可用引用。工作记录单独保存。
 

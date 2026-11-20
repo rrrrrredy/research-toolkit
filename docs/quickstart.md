@@ -1,86 +1,26 @@
-# Start research with the complete methods
+# Quick install for Research Toolkit
 
-[English](quickstart.md) · [简体中文](quickstart.zh-CN.md) · [Research Toolkit](../README.md)
+[English](quickstart.md) · [简体中文](quickstart.zh-CN.md)
 
-Use one entry for long-form research and writing in English or Chinese across domains, including substantial revisions and continuing updates. Agents load methods for the current work; Toolkit connects requirements, sources, analysis, writing and independent assessment. CLI/MCP task management is optional.
+## Install the Skill
 
-## 1. Copy the request and begin
+1. Download the plugin ZIP and `SHA256SUMS` from the [latest release](https://github.com/rrrrrredy/research-toolkit/releases/latest). [Verify the checksum and unpack the ZIP](installation-versioning.md#install-a-version-pinned-skill).
+2. Place the unpacked `research-toolkit` folder in your agent's skill directory below. Open it and check that it directly contains `SKILL.md` and `references/`. For an existing installation, follow the [update instructions](installation-versioning.md) to preserve local changes.
+3. Reopen the agent in the project and confirm it can load the Skill.
 
-Describe the question, audience, intended use, available material and explicit constraints. The agents organize the work; users do not need to schedule its steps.
-
-```text
-Use Research Toolkit. Read SKILL.md:
-https://github.com/rrrrrredy/research-toolkit
-
-Write an English decision report for the product and technical leads
-of an enterprise knowledge assistant: when should they choose RAG,
-long context, or a hybrid?
-Cover document updates, permissions, citation location, answer quality,
-latency and cost. Read original papers and technical documentation
-available as of execution, recording the information cutoff.
-Treat unspecified organization size, budget and deployment requirements
-as assumptions to verify, and make conditional recommendations.
-Deliver final.md with 3000–4000 whitespace-delimited words across the
-whole file, including headings, Markdown, citations and references.
-
-Explain route differences and selection reasons, with concrete
-recommendations and first steps. Cite source titles and URLs.
-```
-
-The word range belongs to this example, not every research task. Use existing context to infer the purpose and ask only about consequential gaps. If GitHub is unavailable, provide `SKILL.md` and its references from a [downloaded copy](https://github.com/rrrrrredy/research-toolkit/archive/refs/heads/main.zip).
-
-## 2. Use your existing agent
-
-Choose the [entry](../README.md#which-should-i-use) your agent tool supports:
-
-- **Skill:** supply the repository or install the Skill; use the agent tool's research and subagent capabilities. No fixed CSV/JSONL records are required.
-- **Plugin:** install the [package](usage-modes.md#install-the-plugin), reopen the session and select Toolkit. The Skill and MCP are included.
-- **MCP:** connect the [local server](usage-modes.md#connect-mcp-separately) and make the same Skill available.
-- **CLI:** use Python 3.10+ and `scripts/research_workflow.py`; MCP dependencies are unnecessary.
-
-Codex, Claude Code and other capable agent tools run their own research and review agents. No separate API setup is needed for these native tasks. The same model can serve different independent contexts. [Agent tool setup](../agents/README.md) explains installation; [review completion](review-completion.md) explains native assignments and retained responses.
-
-### Research from scratch
-
-| Work | What the agents do | With CLI/MCP task management |
+| Agent | Project installation path | How to confirm installation |
 | --- | --- | --- |
-| Understand and outline | Retain the user's original questions and constraints; establish an outline and meaningful research units with real dependencies. Assign researchers, a main-draft owner and independent review responsibilities. | `start` creates a task; `status` recovers existing work, effective requirements and the current outline. |
-| Investigate and analyze | Research agents read originals, compare, calculate and explain their assigned questions. The lead continues synthesis and resolves cross-unit questions. | `status.work` supplies relevant records and original material; `save` retains sources, claims and substantial analysis. |
-| Develop and hand off | Complete an analysis or argument unit, including its support, conditions and unresolved questions. Independent review examines important premises before dependent work relies on them. | Save the result and its actual agent reference, input bindings and handoff; read the original result when integrating it. |
-| Assemble progressively | The designated assembling agent reads branch arguments and originals, reconciles definitions and connections, and grows one main draft. New findings update affected units and the outline. | Keep branches separate; explicitly register the main artifact. `status` exposes dependencies and changed inputs for continuation. |
-| Review the whole report | Three independent groups cover the seven perspectives. Add specialist review where needed. Each group reads the complete current report and necessary originals. See the [review contract](review-completion.md#conduct-the-independent-work). | `review` prepares the agent tool assignments and retains each actual response and input version. |
-| Audit and revise | A separate auditor checks review validity, decisive claims and consequential decisions, and samples passed content from the full report. Authors repair necessary defects; affected work is re-examined. | Use the same `review` operation for the auditor's original result; preserve earlier negative results and revisions. |
-| Check and deliver | For the first final check, a separate Agent reads the current whole report, effective requirements and necessary originals before seeing earlier verdicts. It then checks the audit and actual corrections. Deliver the report once the final check passes. | `finish` verifies and records delivery of the current version. |
+| [Codex CLI / IDE](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/codex.md) | `.agents/skills/research-toolkit/` | Search the skill picker for `research-toolkit`. Codex may display `research-toolkit:research-toolkit`; the project entry points to this folder’s `SKILL.md`. |
+| [Claude Code](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/claude.md) | `.claude/skills/research-toolkit/` | Invoke `/research-toolkit` in the project session to load the Skill. |
+| [OpenCode](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/opencode.md) | `.opencode/skills/research-toolkit/` | With skill access allowed, ask the agent to load `research-toolkit`. It can read the instructions in this directory. |
+| [Other agents](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md#choose-your-tool) | Use the path or file entry specified for your client. | The host can load the native Skill. File-only clients can read the supplied `SKILL.md` and references. |
 
-MCP tools use the `research_` prefix; CLI uses the corresponding subcommand. Use one interface for an operation. Skill-only work follows the middle column using the agent tool's files, conversation and source material; it has the same independent content responsibilities without reproducing the tools' record formats.
+## Install the local tools (optional)
 
-For the knowledge-assistant question, research can be split among document updates and permissions, route-quality comparisons, and the calculation of a stated workload. The outline preserves every requested dimension; a separate assembling agent connects these results into a decision. Early review examines the comparison's assumptions and calculation method before later conclusions depend on them. Final whole-report reviewers see the assembled argument, not just branch summaries.
+- **Plugin**. Load the entire unpacked directory in a client that supports the plugin format and reopen the session. Its tool list should include `research_status` and `research_guide` among nine `research_*` tools. [Plugin installation](usage-modes.md#install-the-plugin)
+- **Local MCP**. Install `requirements-mcp.txt` using Python 3.10 or newer, register the local service and connect the client. A connected client can list the nine tools. [MCP configuration](usage-modes.md#connect-mcp-separately)
+- **CLI**. From the unpacked directory run `python scripts/research_workflow.py --help`. Its help lists `start`, `status` and `finish`; on macOS or Linux the interpreter may be `python3`.
 
-If the user adds “private deployment is required,” retain the original permission, quality and cost questions. Send the effective change to affected work, revise its analysis and then the main report. A satisfied requirement remains active when it still constrains the answer. Previously completed reading is reused, with original text available for changed or disputed points.
+Basic usage recording defaults to off for new installations. [Data settings](usage-data.md)
 
-### Revise or update a report
-
-1. Supply the current report, relevant sources and change request. For an update, supply new material or authorize research and specify the cutoff.
-2. Read the current requirements, report and affected sources. Preserve still-valid explanations and change the claims, conditions or recommendations affected by the new evidence.
-3. Retain the original and hand revised analysis to the main-draft owner. Complete current-version content review, independent audit and final acceptance, then deliver the complete report and a short change note.
-
-Managed tasks resume with `status`, without another `start` or reconstructing unaffected records. A 1.x completion receipt remains historical; continued work adopts the current completion contract while reusing its materials. See [continuation calls](usage-modes.md#continue-existing-research), [compatibility](compatibility.md) and the [retained update case](case-study/coding-benchmark-update/README.md).
-
-## 3. Deliver the complete work
-
-Return the requested report with usable citations and, for revisions, a short change note. Keep raw research, review and execution records available for continuation; they need not occupy the reader-facing article. The report should contain the analysis, comparisons and conditions the task requires.
-
-Tool-managed work uses `research_finish` after independent acceptance of the current version. It writes the delivery receipt; agents do not prepare a duplicate receipt by hand. Optional `research_check_draft` helps inspect mechanical draft issues, but is not content review.
-
-<details>
-<summary>Optional: create a local task with the CLI</summary>
-
-From the repository root, use Python 3.10+:
-
-```bash
-python3 scripts/research_workflow.py start --workspace ../research-work --request examples/full/start.en.json
-```
-
-This creates `../research-work/knowledge-assistant-en`. The directory name is retained for existing links; it uses the unified entry. Edit the example's `brief` for a different question. Existing tasks resume through `status`. Record an explicit word range through `save.requirements` only when the task has one; the [saving guide](usage-modes.md#save-research-records-and-drafts) shows the fields. [Native review requests](usage-modes.md#reuse-task-files-and-retain-a-review-packet) retain the actual original responses.
-
-</details>
+After installation, read the [long-report guide](conduct-research.md) or open a [complete research case](case-study/README.md).

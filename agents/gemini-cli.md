@@ -2,6 +2,10 @@
 
 [English](gemini-cli.md) | [简体中文](gemini-cli.zh-CN.md)
 
+<!-- hosts:start -->
+**Entry**　Native project Skill.  [Host capabilities](README.md#capabilities)
+<!-- hosts:end -->
+
 ## Install
 
 With Git and the client ready, run from your project root. If the destination already exists, use the [update guide](../docs/installation-versioning.md).
@@ -27,7 +31,7 @@ mechanisms and synthesis. Deliver the complete report with usable citations;
 preserve sources and full analysis for handoff; organize independent review, audit and acceptance through Gemini CLI.
 ```
 
-The [shared research guide](../docs/quickstart.md) provides a complete request and setup details.
+The [shared research guide](../docs/conduct-research.md) provides a complete request and setup details.
 
 ## Research tools and usage recording
 

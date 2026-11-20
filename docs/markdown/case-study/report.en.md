@@ -1,0 +1,278 @@
+# Office agents in China in 2026: from generating files to working with what already exists
+
+English translation of historical Chinese research · Information through September 9, 2026; some dynamic documents checked on September 10.
+
+**Contents**
+
+- [1. After generation, editing, authorization, and handoff become decisive](https://rrrrrredy.github.io/research-toolkit/case-study/report.en.html#1-after-generation-editing-authorization-and-handoff-become-decisive)
+
+- [2. The real distinction is between delivering files and changing business state](https://rrrrrredy.github.io/research-toolkit/case-study/report.en.html#2-the-real-distinction-is-between-delivering-files-and-changing-business-state)
+
+- [3. Independent workspaces: delivering files is a start; continued work depends on context and operating conditions](https://rrrrrredy.github.io/research-toolkit/case-study/report.en.html#3-independent-workspaces-delivering-files-is-a-start-continued-work-depends-on-context-and-operating-conditions)
+
+- [4. Office suites: existing data is an advantage only when permissions and data quality support it](https://rrrrrredy.github.io/research-toolkit/case-study/report.en.html#4-office-suites-existing-data-is-an-advantage-only-when-permissions-and-data-quality-support-it)
+
+- [5. Desktop execution expands the scope of work and the consequences of errors](https://rrrrrredy.github.io/research-toolkit/case-study/report.en.html#5-desktop-execution-expands-the-scope-of-work-and-the-consequences-of-errors)
+
+- [6. Commercial terms can be compared; public adoption figures cannot yet rank outcomes](https://rrrrrredy.github.io/research-toolkit/case-study/report.en.html#6-commercial-terms-can-be-compared-public-adoption-figures-cannot-yet-rank-outcomes)
+
+- [7. Working with existing work leaves room for several competing routes](https://rrrrrredy.github.io/research-toolkit/case-study/report.en.html#7-working-with-existing-work-leaves-room-for-several-competing-routes)
+
+- [Sources](https://rrrrrredy.github.io/research-toolkit/case-study/report.en.html#sources)
+
+## 1. After generation, editing, authorization, and handoff become decisive
+
+Public product descriptions in 2026 show Kimi Work bringing file editing and rollback into its workspace, Doubao Work within Feishu connecting organizational information with collaboration, Wukong setting authorization conditions for organizational actions, and WorkBuddy providing team libraries and publishing capabilities. Competition among office agents now extends beyond generation: can they edit existing files correctly, use the right organizational context, and hand the result to the next collaborator? Product differences concern both the model's answer and how the work continues.
+
+- **Creating a file, editing an existing object, and changing business state are different deliverables.** A report is checked mainly for content quality; updating a sales ledger must preserve fields and calculations; sending a quotation or submitting an approval changes other people's work. In a published WPS example by a participant in the Kingsoft ecosystem, the AI provided advanced permission configuration steps, while a person performed the actual setup. Understanding a process, guiding an operation, and executing it autonomously are different capabilities.
+
+- **A product's advantage depends first on where information and collaboration already reside.** When information is scattered across a local computer and tasks vary, an independent desktop product may reduce transfers and tool switching. When documents, members, and business records already sit within one suite, native context may be more valuable. Independent products are adding team collaboration, while suites are adding execution capabilities; the division of work is not fixed.
+
+- **Permissions, continuous operation, and rework shape everyday usability.** Local scheduled tasks depend on device state; full access may cover other tasks in the same client; enterprise memberships must be assigned to members. Stronger model responses cannot replace these operating and organizational conditions. A faster first generation may also be less valuable than avoiding one round of rework.
+
+The event scope is January 1 through September 9, 2026. The report draws on public documentation and cases, without installed-product testing. Some dynamic descriptions were checked on September 10 and are not treated as capabilities of earlier versions. Account, plan, and regional eligibility are distinguished: a Chinese-language entry point does not establish access for every mainland account. Cases were selected by work object, execution approach, and verifiable product information, not as a complete market directory. Omission does not mean a product is unimportant, and the selected cases cannot establish market share or a ranking of actual outcomes.
+
+The following table lists product status and access limits; supporting evidence appears in the relevant sections.
+
+Scroll horizontally to read the table.
+
+| Product or capability | Work entry point examined | Conditions in public documentation | Scope not yet confirmed |
+| --- | --- | --- | --- |
+| Kimi Work | Desktop files, browsers, and continued editing | Launched June 3; Mac/Windows; still Beta in September; paid members share allowances between Work and other membership features | Full Work eligibility for free accounts and consistency across regions; web capabilities do not establish desktop eligibility |
+| Coze | Collaboration among native, third-party cloud, and local agents | Web, macOS/Windows desktop, and mobile entry points; free and advanced plans can connect one local agent, with that connection temporarily free on the free plan; cloud creation and project collaboration begin at RMB 99 | A single initial launch date, Beta/general availability across clients, and regional coverage were not verified; local connections also depend on the original tool's account, fees, and an online device |
+| Feishu / Doubao Work | Organizational knowledge enters tasks; results return to collaboration | Uses the person's identity and object permissions; April's aily and late August's Doubao Work must be distinguished | Complete access lists, plans, and regional restrictions remain unavailable; equivalent transfer of old entitlements cannot be assumed |
+| Wukong | Files and business actions in DingTalk organizations | Website says no invitation code is needed; organizational operations require the primary administrator's permission; enterprise membership requires assignment | Launch and testing stage were not verified; downloading does not guarantee enterprise permissions; membership and credits cannot be managed jointly across organizations; eligibility in every region was not confirmed |
+| WPS Writer Agent | Native editing of the current document | June private beta required a dedicated installer and application | September availability in production versions and across accounts was not confirmed; Lingxi subscription prices do not establish access |
+| WPS Lingxi | A separate subscription entry point and related document work | Public subscription page lists trial and recurring monthly tiers | This does not establish Writer Agent beta eligibility; May's Claw case does not represent all current capabilities |
+| WorkBuddy | Local work, team information, and lightweight publishing | Different personal and enterprise rules; SaaS starts at one seat, dedicated cloud at 100 seats | No unified evidence establishes access for all regional accounts; desktop use is not wholly offline, and dedicated cloud is not private deployment on the user's computer |
+
+Baidu appears only in Section 6 as an example of revenue for a portfolio of AI applications, outside the main product comparison. Unknown eligibility is not treated as free or unrestricted.
+
+## 2. The real distinction is between delivering files and changing business state
+
+Putting "research, writing documents, making spreadsheets, and handling processes" into one feature table can overstate how interchangeable office agents are. Generating a new sales analysis, opening the company's existing sales spreadsheet to correct records, and notifying the person responsible are three different kinds of work. They may use similar models, but their acceptance conditions and the consequences of errors differ. A comparison should establish what a product changes before assessing how intelligently it does so.
+
+The first kind of work ends in a standalone file. A report, presentation, or analysis spreadsheet can be generated in a relatively separate space, then handed to a person to read, download, and edit. Errors mainly concern content, calculations, formatting, and citations, with a fairly clear object to inspect. A one-off proposal can be easier to begin this way, without first connecting every company system. The limit is equally concrete: after delivery, customer records, owners, and next actions may remain unchanged. A correct file does not complete the business activity behind it.
+
+The second kind of work directly handles an organization's existing records. Feishu aily's custom agents list documents, multidimensional tables, and tasks as objects they can operate on, while noting that some built-in actions require enterprise administrator approval. That is a delivery condition: an agent that can read progress but cannot create a task can recommend an assignment without carrying it out. Document visibility, field meanings, and owner information directly affect what can be delivered. Integration into an office suite shortens the connection path without automatically authorizing access to all enterprise data and actions. [Feishu product description](https://www.feishu.cn/content/article/7631864469689240764)
+
+Another distinction cuts across these two outcomes: where the agent runs and which services it can access. Coze brings native agents, third-party cloud agents, and local connections into one interface, without giving them identical scheduling, email, and background-task capabilities. Reusing tools already on a computer does not automatically grant them all platform services; an always-online cloud environment does not automatically make the user's local information and software available. Location affects access to information and tools, but is not a third kind of deliverable. A desktop icon, cloud hosting, or model name cannot establish whether a task chain is complete. [Coze agent types](https://docs.coze.cn/cozespace_agent_overview)
+
+A month-end operating report, for example, can be broken into five steps: organize data, explain changes, create the document, update the operating spreadsheet, and assign follow-up tasks. This is an analytical example, not a product test. Once the first three steps are done, a person may still maintain the last two manually. Letting an agent perform those steps introduces duplicate writes, incorrect ownership, and corrections to notifications already sent. Automation expands both the range of actions and responsibility for accepting the result. Cross-system execution may add little value for someone who only needs a report. For a team maintaining the same operating chain every week, avoiding repeated entry may matter more than the speed of the first generation.
+
+The selected products can be compared on this basis. Except for the identified user case, the table describes supplier-published capabilities and conditions, not measured completion rates. An omitted action does not establish that a product lacks it.
+
+Scroll horizontally to read the table.
+
+| Product and entry point | Objects and actions | Where results take effect; key conditions |
+| --- | --- | --- |
+| Kimi Work | Read local materials; create documents, spreadsheets, and presentations; edit existing files and operate a browser | File or browser results; sensitive actions require authorization; file rollback does not guarantee reversal of external effects |
+| Coze native | Project materials, documents, platform scheduling, email, and background tasks | Platform outputs and tasks; third-party cloud agents and local connections do not jointly inherit these built-in services |
+| Coze third-party cloud / local connection | Cloud agents read and write files and run code on a Coze cloud computer; local agents use files, software, and connected tools on the user's computer | Results on the cloud computer or local machine; capabilities of the underlying tool do not establish a connection to company business systems |
+| Feishu aily / Doubao Work | April's aily lists document, multidimensional-table, and task actions; late August's Doubao Work emphasizes organizational context and collaboration | Changed objects, tasks, or collaborative outputs; user and administrator authorization required; the two entries' actions cannot be fully inferred from one another |
+| Wukong | Website claims operations on DingTalk documents, schedules, and approvals | Organizational objects and business actions; administrator permission and confirmation of sensitive actions are required; submitting a request and obtaining approval are separate outcomes |
+| WPS Writer Agent / Claw case, different entry points | June beta focuses on editing the current document; a May case under different tool conditions gives steps for configuring an order table's permissions | These cannot be combined into current capabilities; a person configured advanced permissions in the case, so it does not show that AI changed them |
+| WorkBuddy | Read and edit local files with authorization; handle library Markdown, CSV, and HTML plus personal and team materials | Files, team outputs, or published pages; Markdown revisions require acceptance; public websites are off by default; editing an email does not mean it was sent |
+
+## 3. Independent workspaces: delivering files is a start; continued work depends on context and operating conditions
+
+Independent office agents organize materials, execution, and editing within one workspace. For people regularly handling files from different sources, this may reduce uploading, downloading, and switching tools. Continuous operation and the location of data processing still depend on implementation. The differences between Kimi Work and Coze concern who provides tools, retains context, and keeps devices online.
+
+### Kimi Work: connecting generation and editing around local work
+
+Kimi Work launched on June 3, 2026. September's official description still called it Beta and specified Kimi K3 from version 3.1.0. Work mode is available in Mac and Windows clients, covering local files, browser actions, code execution, and document, spreadsheet, and presentation outputs. The K3 version condition cannot be projected back to launch day, nor can Beta claims about long tasks be treated as independently verified reliability. [Kimi Work overview](https://www.kimi.com/help/kimi-work/overview)
+
+Successive updates brought editing further into the workspace: presentation editing and screenshot annotations on July 29; file-change diffs and one-click rollback on August 11; and a distinction between the built-in browser and WebBridge control of the actual browser on August 19. Annotations let users identify specific problems, diffs expose file changes, and browser choice determines which login environment a task uses. Revision and confirmation after generation gained more concrete controls. [Kimi Work release notes](https://www.kimi.com/help/kimi-work/release-notes)
+
+Weekly operating materials usually involve several spreadsheet versions, last week's report, and ad hoc notes, rather than a single prompt. Direct file access may remove one manual consolidation step. If the user must still redo every calculation and replace every chart, the saving is limited to moving inputs. The potential value of diff previews and in-place editing is the opportunity to check only changed parts. That requires traceable key calculations and citations: a rollback button does not verify correctness. File rollback especially does not reverse emails already sent or business actions already executed.
+
+Continued work also has physical requirements. Kimi's FAQ distinguishes desktop Work scheduled tasks, which require both the app and computer to remain online, from cloud scheduled tasks created in Kimi, which do not require an open client. Triggers missed during sleep, shutdown, or app closure are not run retroactively when desktop Work next opens. Calling both "scheduled task support" would omit the condition determining whether overnight work happens. [Kimi Work FAQ](https://www.kimi.com/help/kimi-work/kimi-work-faq)
+
+Local execution is close to the inputs of tasks that need the latest local files, but depends more heavily on an online device. A recurring briefing based on public sources may reduce device maintenance through cloud execution. Planning must address input access, result delivery, and failure detection together; scheduling support alone does not establish these conditions.
+
+### Coze: one conversation interface does not mean identical capabilities or hosted local devices
+
+Coze brings native agents, cloud-hosted third-party agents, and local connections into one collaboration interface. Native agents include platform scheduling, email, and cloud resources; third-party cloud agents and local connections do not automatically inherit those services. The arrangement organizes different executors rather than replacing them all with one model. Project collaboration can share discussion and tasks, without establishing that data, tools, and permissions are connected just because participants share a conversation. [Coze agent types](https://docs.coze.cn/cozespace_agent_overview)
+
+Coze provides web, macOS/Windows desktop, and mobile entry points. Native agents can select models including Doubao, Kimi, GLM, and MiniMax. Third-party cloud mode runs execution frameworks such as Claude Code and Codex CLI on Coze cloud computers, using models supplied by Coze rather than tying them to the original vendor's accounts and models. Framework name, model supplier, and billing source can be separate. "Claude Code" does not automatically mean an Anthropic model, and the original vendor's local-account charges should not be applied to cloud mode. [Coze introduction](https://docs.coze.cn/what_is_coze), [third-party cloud agents](https://docs.coze.cn/cozespace_cloud_agent), both accessed September 10, 2026
+
+Local-connection documentation clarifies an easily misread capability table: tasks still run on the user's computer. Coze supplies conversation and collaboration without moving the local agent to the cloud. Local terminal content and Coze conversations are not synchronized; an offline or sleeping computer, or a terminated connector, interrupts the connection. Platform file-feature checkmarks therefore do not mean a local agent cannot read files on the computer. They describe different layers. [Coze local connections](https://docs.coze.cn/cozespace_local_agent)
+
+Collaboration is also constrained by plans. Coze's public entitlements allow one local-agent connection on free and advanced plans, with that connection currently marked temporarily free on the free tier. Cloud-agent creation, cloud-device redemption, and project collaboration begin at a higher tier; model and compute use are governed by Coze's billing and usage rules. Connection to one interface and entitlement to continued cloud execution and collaboration are different benefits. [Coze plans and capability limits](https://docs.coze.cn/cozespace_coze_billing_overview)
+
+This design offers a clear attraction to teams with existing tools and projects: a new interaction interface need not require migrating the whole environment. In exchange, teams deal with platform collaboration rules, local device state, and the original providers' usage conditions. Coze also states that local model calls remain subject to the original provider's billing, rate limits, and terms. Inviting several people into a platform does not establish permission to turn a personal account into a shared team service.
+
+Both products move from a single answer toward a workspace that can be edited repeatedly. Differences still concern who retains context, maintains execution, and controls data and final actions. Tasks with many files, repeated versions, and localized human edits may show their value more clearly. For a fixed template with clean inputs and one export, a traditional script or suite tool may be more direct. Introducing an independent workspace should be judged by repeated work removed across the complete chain, rather than how many subagents it creates at once.
+
+## 4. Office suites: existing data is an advantage only when permissions and data quality support it
+
+Office suites already hold documents, member relationships, and business records, potentially reducing the identity mapping, file migration, and collaboration transfers needed by an independent workspace. Existing information also carries a burden: outdated documents, ambiguous fields, and missing permissions obstruct tasks. Feishu, Wukong, and WPS address different parts of suite work through organizational context, business actions, and document editing.
+
+### Feishu and Doubao Work: bring context into tasks and return results to collaboration
+
+In April 2026, Feishu described aily custom agents operating on documents, multidimensional tables, and tasks. An official August 31 article used the name "Doubao Work," emphasizing that Feishu documents, organizational structure, and OKRs can participate in tasks within the user's permissions, with generated results returning to Feishu collaboration. These two dates show product directions in object operations and organizational-context collaboration. They do not establish version inheritance between aily and Doubao Work, or a one-to-one transfer of features, free allowances, and names. [Late-August Feishu description](https://www.feishu.cn/content/article/7680041109057178898)
+
+In a hypothetical project retrospective, a project summary alone may not reveal changed goals or responsibility for each part. Understanding current goals, owners, and discussions together may explain whether a delay came from wider scope or slow execution. Mixing old and new goals may instead lead the model to mistake a change in definitions for poorer performance. Organizational context depends on completeness, versions, and permissions; more connected documents do not invariably improve judgment.
+
+Feishu's public security description for Doubao Work says access inherits the user's identity and object permissions, private documents are not proactively scanned, and enterprise data is not used for foundation-model training without customer authorization. It separately describes DLP coverage for watermarks and cloud documents, and audit coverage at key points in the main conversation. These commitments have different scopes. Excluding foundation-model training does not eliminate processing required by a task, and audit coverage in some places does not establish complete records of every cross-application action. [Doubao Work permissions and data](https://www.feishu.cn/content/article/7680042598047763739)
+
+Access to objects and eligibility to activate the product remain separate questions. Complete current activation lists, plans, regional conditions, and pricing for Doubao Work were not verified. Current product terms should govern these conditions, rather than April aily promotions or entitlements of similarly named products.
+
+This route may suit teams with substantial Feishu assets whose outputs will still be discussed and edited within Feishu. Its potential benefit is less repeated uploading and less separation of output from the workplace. Granting AI permissions does not remove the need for business judgment. Native-suite advantages diminish for tasks spanning several outside systems or relying mainly on files on personal computers; connections and authorization still need to be resolved.
+
+### Wukong: downloading, membership, and organizational access are separate conditions
+
+Wukong's website says no invitation code is required; downloading does not grant enterprise data permissions. The official manual requires switching to the relevant enterprise or team and obtaining the primary administrator's permission for members to operate DingTalk through Wukong. Employees still confirm sensitive operations. The public description also acknowledges that administrators cannot currently see which employees have installed Wukong. Organizational action controls and visibility into client installation are separate governance problems. [Wukong website](https://wukong.dingtalk.com/?from=guanwang), [permissions](https://wukong.dingtalk.com/docs/quick-start/privacy-and-security/)
+
+Membership is another layer. After an enterprise purchases it, an administrator must assign it manually: successful payment does not immediately enable every employee. The public FAQ does not yet support unified membership and credit management across organizations. Standard and advanced membership are listed at RMB 39 and RMB 99 per person per month, with 1,000 and 3,000 credits respectively; these do not guarantee that number of completed tasks. The FAQ describes centralized enterprise skill management as in development, with early access. An "enterprise edition" label does not establish mature governance features. [Enterprise membership FAQ](https://wukong.dingtalk.com/docs/enterprise-membership/faq/)
+
+These conditions matter especially for organizations with many subsidiaries. A headquarters purchase may not resolve member assignment and data authorization in every organization, and a personal demo may not work under another enterprise identity. For approval or notification tasks, the relevant checks are whether a submission occurred, who has approval authority, and whether a confirmation point remains before sensitive actions. A message saying "handled for you" cannot establish those outcomes.
+
+### WPS: precise editing within a document may matter more than additional cross-application steps
+
+A June 11 private-beta invitation from the WPS Writer product account described Lingxi as a document-native agent sidebar, requiring a dedicated installer and application. The design aims at continued editing around the current document instead of generating text externally and leaving someone to rebuild formatting. It indicates a route distinct from general desktop execution, but June's invitation does not establish equivalent access in every September production version or account. [WPS Writer Agent beta](https://bbs.wps.cn/topic/90044)
+
+Lingxi's public subscription page separately lists trial and paid tiers. Buying a Lingxi subscription does not establish automatic eligibility for the Writer Agent beta. The May Claw order-table case discussed below involved another date and tool setup. Together, the three entry points help explain the WPS ecosystem's direction, but cannot be combined into a capability list delivered to every user. [Lingxi subscription](https://lingxi.kdocs.cn/cashier)
+
+For existing contracts, reports, and complex spreadsheets, preserving formatting, formulas, and collaboration relationships may matter more than generating from scratch. An attractive new spreadsheet may not replace the one a team maintains. Breaking formulas, links, or access scope can cause rework even when the file looks correct. A document-native agent's potential advantage lies in applying changes accurately to the current object and letting users understand and correct them, rather than whether it can also launch a browser.
+
+A concrete WPS usage account shows the boundary. In a May order-system tutorial, AI understood a multidimensional table and provided permission-configuration steps, but the connected skill could not directly set advanced permissions; a person performed the setup. The author identifies as a Kingsoft KVP, so this is not a test independent of vendor interests. The steps nevertheless show why guidance toward completion should not be described as autonomous execution. They reflect that tool setup at that time, rather than the capability ceiling of all current WPS products. [Order-table permissions case](https://forum.wps.cn/topic/86990)
+
+Feishu organizes tasks around organizational context, Wukong connects member identity with organizational actions, and WPS stays close to document editing. Suite advantages depend on preserving the right versions, document structures, and output permissions so the next collaborator can continue. Embedding an entry point is a start; reducing repeated organizing and redoing is a more substantial benefit.
+
+## 5. Desktop execution expands the scope of work and the consequences of errors
+
+A desktop office agent can continue working on existing files and tools. The cost is concrete: once creating a copy becomes overwriting an original, or drafting an email becomes sending it, a disappointing result can become incorrect information received by someone else. Evaluation must cover not only whether an operation is possible, but when it takes effect, who can reverse it, and how far reversal can restore the prior state.
+
+WorkBuddy's permission documentation illustrates this tradeoff. Default permissions allow routine workspace operations while controlling out-of-scope or high-risk actions. Full access reduces secondary confirmations. Its scope covers all existing and new tasks in the current client, rather than a one-time exception for the current conversation, and does not synchronize across devices. [Default permissions and security sandbox](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Permission-Modes)
+
+This scope changes practical responsibility. Someone who enables full access to batch-generate temporary images and later handles customer files in the same client cannot assume the original confirmation behavior returned because the first task ended. Fewer prompts facilitate continued execution, while shifting more responsibility for checking permission state to the user.
+
+File restoration cannot simply be called "undoable." WorkBuddy file backups are enabled by default and can be adjusted in settings. When enabled, they back up changes to existing files; when shared backup space is exhausted, earlier versions are removed, and some deletions may not reach the recycle bin. A backup can restore a file version without recalling sent email or undoing changes to an external system. A rollback button and reversible side effects across an entire task are different promises. [Security center and backups](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Permission-Modes)
+
+Interfaces can also obscure when a private draft becomes a shared asset. WorkBuddy's library uses pending revisions for Markdown documents, writing them into the body only after acceptance; this does not establish the same behavior for all file types. "Publish as a website" is disabled by default. Enabling it permits access by anyone with the link. Saving in a personal library, handing work to a team, and publishing a page change different scopes of visibility. One "shared" status cannot describe them all. [Library documentation](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Library)
+
+Local operations do not mean an offline model. WorkBuddy's quickstart requires an internet connection for AI model services and account login. Library uploads use Tencent cloud storage, while native content resides in WorkBuddy's cloud. Files may be edited locally while inference and some storage depend on the cloud. Team spaces also have their own membership and information permissions: reading local files does not establish access to all team content. [Connectivity and file-operation conditions](https://www.codebuddy.cn/docs/workbuddy/Quickstart), accessed September 10, 2026; [library data and sharing scope](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Library)
+
+Desktop and suite routes increasingly overlap. Desktop products are adding team materials, revision, and publishing; suites are turning organizational knowledge into executable tasks. For "turn the quarterly sales spreadsheet into a management briefing," presentation generation is an intermediate capability. Complete delivery also requires the right data version, consistent calculation definitions, owner confirmation, and receipt by authorized people. A unified interface may reduce manual transfers, but bypassing approval does not make work more reliable.
+
+Continued execution with fewer interruptions may matter more for one-off public-information compilation. Clear change previews and confirmation points may matter more for publishing quotations, notifying customers, or maintaining a shared business ledger. Different error losses, recovery costs, and responsibilities call for different degrees of autonomy.
+
+## 6. Commercial terms can be compared; public adoption figures cannot yet rank outcomes
+
+By September 9, several office agents in China had public paid-service rules. Pricing pages describe how services are sold; actual usage data is still needed to establish which tasks save users how much time.
+
+Individuals and organizations buy different entitlements. The prices below reflect public terms as of September 9 and distinguish recurring monthly subscriptions from single-month purchases. They do not rank equivalent capabilities by price.
+
+Scroll horizontally to read the table.
+
+| Product and payer | Public price | Conditions affecting use |
+| --- | --- | --- |
+| Kimi personal membership | Recurring monthly RMB 49 / 99 / 199 / 699 | Work and other membership features share allowances; estimated task counts do not guarantee acceptable outputs. [Plans](https://www.kimi.com/help/membership/membership-pricing) |
+| Coze personal | Free, or RMB 39.9 / 99 / 199 / 999 per month | Cloud-agent creation and project collaboration start at RMB 99; cloud-device operation and external local models incur their own usage. [Entitlements and billing](https://docs.coze.cn/cozespace_coze_billing_overview) |
+| WPS Lingxi | Recurring monthly RMB 48 / 128 / 398; also a trial tier | The trial was temporarily free, with 800 credits per month; it does not establish Writer Agent beta access or all legacy membership benefits. [Subscription](https://lingxi.kdocs.cn/cashier) |
+| WorkBuddy personal | Single month RMB 99 / 199 / 999; recurring monthly RMB 70 / 140 / 700 | The payment conditions differ; the lower amount is not an unconditional monthly price. [Pricing](https://www.codebuddy.cn/docs/workbuddy/Pricing) |
+| Wukong enterprise membership | Standard RMB 39; advanced RMB 99 per person per month | Includes 1,000 / 3,000 credits respectively; administrator assignment required; no unified cross-organization management. [Rules](https://wukong.dingtalk.com/docs/enterprise-membership/faq/) |
+| Feishu / Doubao Work | Complete current billing not confirmed | Do not substitute similarly named products' prices or old promotions, or describe unknown charges as free. |
+
+WorkBuddy Enterprise is a different purchase. After the May 15 adjustment, SaaS cost RMB 198 per person per month and dedicated cloud RMB 316. The September 7 edition description specified minimum purchases of one seat and 100 seats, distinguishing shared VPC, dedicated VPC, and enterprise private deployment. A dedicated VPC is not offline operation on an enterprise computer. The public dedicated-cloud monthly minimum is RMB 31,600, calculated only from listed seat charges and excluding unknown contractual fees. Its RMB 316 seat price is not directly comparable to personal membership. [Price adjustment](https://cloud.tencent.com/announce/detail/2270), [deployment and minimum purchases](https://cloud.tencent.com/document/product/1831/134332)
+
+Enterprise billing also specifies 2,000 credits per seat per month, shared by the team. Consumption depends on model, tokens, and task complexity; unrestricted conversation frequency does not mean unlimited tasks. The current personal pricing page lists bonus allowances for enterprise purchases, renewals, and expansion from July 1 to September 30. An earlier first-month promotion ending August 14 does not establish that September had no promotions, and temporary bonuses are not permanent base entitlements. [Enterprise credits](https://cloud.tencent.com/document/product/1831/134333), [current-period promotion](https://www.codebuddy.cn/docs/workbuddy/Pricing)
+
+Shared allowances can absorb uneven usage across members while letting a few long tasks reduce others' remaining capacity. Enterprises need to estimate not just seat counts, but how often common tasks can finish within the allowance and how often they need reruns, manual corrections, or another tool. Without these denominators, 1,000 "credits" in different products cannot be treated as equivalent work. Wukong's organizational assignment restrictions and Kimi's local scheduling conditions also affect usable output without being fully reflected in a headline monthly fee.
+
+Public announcements and adoption evidence must be distinguished. Tencent's June 5 productivity-suite announcement introduced enterprise WorkBuddy and the OneID collaborative-document solution, and mentioned a personal WorkBuddy upgrade. It does not establish that personal WorkBuddy first launched that day. WorkBuddy's description reports that more than 12,000 Tencent employees used it as a regular workspace after internal trials began January 19, but provides no statistical window, task distribution, retention, or net time savings. The announcement supports release information and the figure describes company-reported internal use; neither establishes equivalent outcomes for external customers. [Tencent suite announcement](https://www.tencent.com/zh-cn/tencent-cloud-debuts-productivity-agent-suite-creating-a-new-gateway-to-ai-for-users-and-enterprises/), [WorkBuddy introduction](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Product-Guide)
+
+Baidu's August investor materials introduce GenFlow (Kuku AI) and DuMate alongside revenue from AI applications. A portfolio metric should not be attributed to an individual office product: RMB 2.5 billion in AI-application revenue in the second quarter of 2026 covers multiple businesses, not GenFlow or DuMate alone. Changes in AI daily-active penetration also do not measure office-task completion. The materials support Baidu's inclusion of these products in its AI-application portfolio, without establishing which office agent has the highest paid retention. [Baidu August 2026 investor materials](https://ir.baidu.com/static-files/664448a8-65e5-4909-9985-20e3e01b4b33)
+
+Media experiences provide another kind of evidence, whose test inputs matter. Photon Planet's July 30 WorkBuddy account describes five tasks: the product first generated files with specified problems, then made localized edits. The article reports that a five-slide presentation took more than ten minutes to generate, selection-based edits succeeded, and the Word editing box appeared in an abnormal location. These are concrete interactions observed during that exercise. It did not test real external materials, repeated runs, or total human effort. Such accounts help explain how an edit is performed without establishing enterprise task success rates. [Photon Planet WorkBuddy experience, republished by Sina](https://finance.sina.com.cn/stock/t/2026-07-30/doc-inikrfcu9525292.shtml)
+
+The WPS permissions case remains a useful real counterexample. Even where an author successfully demonstrated AI assistance, a person followed instructions to configure the key advanced permissions. This directly weakens the inference that describing an entire process means the product completed it. The author is a vendor-ecosystem participant and the case is not a random sample. It can challenge that overreach without establishing failure rates for WPS or the industry. [WPS Lingxi Claw order-table case](https://forum.wps.cn/topic/86990)
+
+Another mechanism challenges the idea that general office agents will take over every process: for fixed inputs, clear rules, and verifiable outputs, existing spreadsheet formulas or fixed automation may be simpler. Aggregating monthly revenue with identical fields does not necessarily need an agent to reinterpret rules and choose tools each time. This is a comparison hypothesis for testing, not an established win-rate result. Agents may add more value where materials are messy, requirements change, or judgment spans files. Once a process stabilizes, fixing some steps may be more economical than continually increasing autonomous decisions.
+
+The next commercial distinction is whether paid use delivers work consistently. Individuals may tolerate occasional reruns, while teams coordinate shared allowances, review responsibility, and deadlines. A failure that delays subsequent collaboration costs more than regenerating an output. Existing adoption figures do not establish gains from continued use. Comparing the same team's total tasks, rework, acceptance, human time, and failure recovery over several weeks could reveal the net improvement obtained for subscription spending.
+
+## 7. Working with existing work leaves room for several competing routes
+
+By September 2026, office agents in China had formed several concretely comparable product routes. Independent workspaces organize tasks around local materials and repeated editing; suites use existing documents, identities, and business records; desktop and cross-application execution expand the tools that can be operated. They reduce the distance between answers and the workplace without establishing general unattended completion of office work.
+
+Object-specific editing, context, and handoff will more directly affect whether users can use the result. Kimi's presentation editing and file diffs, WorkBuddy's pending revisions and team information, and Feishu's return of outputs to collaboration address a shared problem: users already have files, agreements, and colleagues and will not reorganize everything around one generated result. Deeper integration into these relationships means handling old versions, permissions, and responsibility, making tool-count tables less informative.
+
+The underlying model still matters: it affects understanding complex materials, calculations, tool selection, and judgment during long tasks. Tools determine whether an action can run; context determines whether there is enough evidence; permissions determine whether the action is allowed. Missing information or access requires information and authorization; reasoning errors require better judgment. These bottlenecks explain why similar models can underpin very different office products.
+
+People retain distinct responsibilities: administrators approve access, business staff interpret data definitions, owners accept changes, and authorized decision-makers approve requests. Without authorization, a task cannot operate on an object. An incorrect business definition makes correct arithmetic misleading. Missed checks or absent business approval can leave delivery at "file changed" or "request submitted." These responsibilities still need an owner after manual actions are reduced.
+
+Model choices are also diverging. Kimi Work combines K3 with its own workspace. Coze lets native agents choose different models and separates the cloud execution framework from the model supplier; Tencent's June announcement says Hy3 Preview was used in WorkBuddy and other products. Kimi can design tools and interaction around one model, while the latter arrangements allow model replacement or continued upgrades, with compatibility, response, and usage varying by configuration. The available material contains no cross-model comparison with fixed inputs, tools, permissions, and acceptance criteria. It therefore cannot assign a percentage of time saved to the model, or treat a faster response as evidence of reduced total human effort. Comparisons should examine calculation errors, omissions, failed calls, and final rework on the same task, beyond model names.
+
+Each advantage has conditions under which it could fail. A suite's reduction in preparation and collaboration transfers would be challenged if an independent product achieved lower total human time over several consecutive weeks without hidden extra organizing. Desktop advantages for scattered local materials shrink if interruptions and rework from authorization and device maintenance offset them. Confirmation, diffs, and rollback should reduce substantive errors and recovery time. If they merely add a checking round without those gains, having every button does not improve reliability.
+
+These differences make several routes likely to coexist in the near term: independent workspaces pursue scattered materials and repeated editing, suites pursue existing organizational assets, and desktop execution pursues operations outside unified interfaces. Fixed, clear processes may remain with formulas, scripts, or traditional automation. The clear 2026 development is that public product capabilities increasingly address existing files, information, and organizational actions. The extent to which each route consistently reduces total human effort remains unconfirmed. Product value will depend on how much work remains after generation, and whether that remaining work is easier to do well.
+
+## Sources
+
+### Products and usage rules
+
+- [Feishu product description](https://www.feishu.cn/content/article/7631864469689240764)
+
+- [Coze agent types](https://docs.coze.cn/cozespace_agent_overview), read September 9 and rechecked September 10
+
+- [Kimi Work overview](https://www.kimi.com/help/kimi-work/overview), read September 9 and rechecked September 10
+
+- [Kimi Work release notes](https://www.kimi.com/help/kimi-work/release-notes)
+
+- [Kimi Work FAQ](https://www.kimi.com/help/kimi-work/kimi-work-faq)
+
+- [Coze local connections](https://docs.coze.cn/cozespace_local_agent), read September 9 and rechecked September 10
+
+- [Coze introduction](https://docs.coze.cn/what_is_coze), accessed September 10, 2026
+
+- [Coze third-party cloud agents](https://docs.coze.cn/cozespace_cloud_agent), accessed September 10, 2026
+
+- [Late-August Feishu description](https://www.feishu.cn/content/article/7680041109057178898)
+
+- [Doubao Work permissions and data](https://www.feishu.cn/content/article/7680042598047763739)
+
+- [Wukong website](https://wukong.dingtalk.com/?from=guanwang)
+
+- [Wukong permissions](https://wukong.dingtalk.com/docs/quick-start/privacy-and-security/)
+
+- [WPS Writer Agent beta](https://bbs.wps.cn/topic/90044), read September 9 and rechecked September 10
+
+- [Default permissions and security sandbox](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Permission-Modes)
+
+- [Library documentation](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Library), read September 9 and rechecked September 10
+
+- [WorkBuddy introduction](https://www.codebuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Product-Guide)
+
+- [WorkBuddy quickstart](https://www.codebuddy.cn/docs/workbuddy/Quickstart), accessed September 10, 2026
+
+- [Tencent June 5 productivity-agent suite announcement](https://www.tencent.com/zh-cn/tencent-cloud-debuts-productivity-agent-suite-creating-a-new-gateway-to-ai-for-users-and-enterprises/), read September 9 and rechecked September 10
+
+### Pricing and business disclosures
+
+- [Tencent price-adjustment announcement](https://cloud.tencent.com/announce/detail/2270)
+
+- [Wukong enterprise membership FAQ](https://wukong.dingtalk.com/docs/enterprise-membership/faq/)
+
+- [Tencent Cloud billing overview, updated August 3, 2026](https://cloud.tencent.com/document/product/1831/134333)
+
+- [Baidu August 2026 investor materials](https://ir.baidu.com/static-files/664448a8-65e5-4909-9985-20e3e01b4b33)
+
+- [Kimi membership plans](https://www.kimi.com/help/membership/membership-pricing)
+
+- [Coze plans and capability limits](https://docs.coze.cn/cozespace_coze_billing_overview)
+
+- [WPS Lingxi subscription](https://lingxi.kdocs.cn/cashier)
+
+- [WorkBuddy personal pricing and current-period promotions](https://www.codebuddy.cn/docs/workbuddy/Pricing)
+
+- [WorkBuddy Enterprise deployment and minimum purchases](https://cloud.tencent.com/document/product/1831/134332)
+
+### Usage accounts and counterexamples
+
+- [Photon Planet WorkBuddy experience, republished by Sina](https://finance.sina.com.cn/stock/t/2026-07-30/doc-inikrfcu9525292.shtml)
+
+- [Order-table permissions case](https://forum.wps.cn/topic/86990)
+
+[Back to top](https://rrrrrredy.github.io/research-toolkit/case-study/report.en.html#top)
