@@ -8,7 +8,7 @@ New full-report tasks use review contract 3. They group the seven content perspe
 
 ## The v2 completion contract
 
-v2 keeps one research entry and the existing Skill, CLI, MCP and plugin forms. The material change is the completion contract: separate independent content perspectives, independent audit and final acceptance are required. Author self-review or a merged-perspective result cannot satisfy it. That changes earlier completion behavior and warrants a major version.
+v2 kept one research entry and the existing Skill, CLI, MCP and plugin forms. Its completion contract required separate independent content perspectives, independent audit and final acceptance. Author self-review or a merged-perspective result cannot satisfy a saved v2 plan. That change to the earlier completion rules warranted a major version.
 
 The public operation names and saved source, claim, requirement and artifact formats are reused. Native-agent assignments and handoffs extend those operations. Python 3.10+, the `research-toolkit` Skill name and package entry points remain supported.
 
@@ -16,9 +16,9 @@ The public operation names and saved source, claim, requirement and artifact for
 
 Preserve the task directory, original reports, review replies, input snapshots and receipts before continuing. Read current work through `status`; reuse sources, analysis, stable IDs and still-effective requirements. Keep earlier completed artifacts intact and save the continued report separately.
 
-An unchanged historical completion remains inspectable under the contract it used. It is not retrospectively accepted under v2. When continuing research toward a new delivery, prepare the current review and complete the independent roles and substantive work still missing. Do not create a new research task merely to copy all records, relabel author checks as independent, or fabricate missing executions.
+An unchanged historical completion remains inspectable under its recorded contract. When continuing research toward a new delivery, use the applicable review plan and complete the independent roles and substantive work still missing. Do not create a new research task merely to copy all records, relabel author checks as independent, or fabricate missing executions.
 
-Research has one entry and one completion contract. CLI `--profile` and JSON/MCP `profile` selection have been removed; omit that argument when starting a task or reading guidance. New responses and task records do not contain a mode selection. Saved source, claim, requirement and artifact records remain readable. Old author checklists remain original files, not an executable completion route or approval of a new delivery. Use the original release to inspect its historical completion behavior; continue current work through the shared independent review, audit and acceptance contract.
+Research uses one shared entry across the supported interfaces. Start tasks and request guidance without the old CLI `--profile` or JSON/MCP `profile` argument. Saved source, claim, requirement and artifact records remain readable. Old author checklists remain original files, not an executable completion route or approval of a new delivery. Use the original release to inspect its historical completion behavior; continue current work through independent review, audit and final checking.
 
 ## Public compatibility
 
