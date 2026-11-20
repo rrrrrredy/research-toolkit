@@ -82,14 +82,15 @@ def indexes(root, base, pages, descriptions):
     template = (root / 'scripts/site/llms-intro.txt').read_text(encoding='utf-8').rstrip()
     links = [f'- [{descriptions[page]}]({base}{markdown_path(page)})' for page in sorted(pages)]
     docs = root / "docs"
-    guide_paths = sorted({*docs.glob("*.md"), *(docs/"en").rglob("*.md"), *(docs/"zh").rglob("*.md")})
+    guide_paths = sorted({*docs.glob("*.md"), *(docs/"en").rglob("*.md"), *(docs/"zh").rglob("*.md")},
+                         key=lambda path: path.relative_to(docs).as_posix())
     guides = []
     for path in guide_paths:
         first_heading = next((line[2:].strip() for line in path.read_text(encoding="utf-8-sig").splitlines() if line.startswith("# ")), path.stem)
         guides.append(f"- [{first_heading}]({base}{path.relative_to(docs).as_posix()})")
     sections = [template, "## Documentation Markdown", "\n".join(guides)]
     for directory, title in (("references", "Research methods"), ("agents", "Agent host guides")):
-        paths = sorted((root / directory).glob("*.md"))
+        paths = sorted((root / directory).glob("*.md"), key=lambda path: path.name)
         entries = [f"- [{path.stem}]({RAW}{directory}/{path.name})" for path in paths]
         sections.extend(["## " + title, "\n".join(entries)])
     sections.extend(["## Page Markdown", "\n".join(links)])
