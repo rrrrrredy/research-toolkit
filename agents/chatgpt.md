@@ -2,6 +2,10 @@
 
 [English](chatgpt.md) | [简体中文](chatgpt.zh-CN.md)
 
+<!-- hosts:start -->
+**Entry**　Files, attachments or pasted instructions.  [Host capabilities](README.md#capabilities)
+<!-- hosts:end -->
+
 Use this guide with an agent that accepts files or pasted instructions. Native Skill and tool setup, where supported, are optional.
 
 ## Setup

@@ -1,0 +1,107 @@
+{
+  "input_version": "409e3b0f803b97f0034300c78ef6b3b6dd81c387278aa0d51c22658db5da8cdd",
+  "assignment_version": "ac2043628da590dea666ffb057421dec59bc5d49972cc699c288c96bd42fdcaa",
+  "result": "pass",
+  "basis": "当前报告与本次指定快照逐字节一致。此前验收指出的三项问题均已在正文修复。第 23 行区分欧委会指南与法规序言的变现口径，第 35 行补明自由开源系统的适用门槛，第 39 行恢复非预定用途系统的保障措施条件。最近一轮另明确了第 21 行必须公开的摘要信息和第 25 行两个附件的持续更新义务。复查整篇及篇幅压缩处后，模型上线顺序、系统适用边界、关键日期和举证条件均有据可查。中文 Markdown 全文为 4000 个非空白字符，未发现仍需修正的问题。",
+  "coverage": {
+    "requirements": {
+      "location": "logs/reading/c98eaf7a50aeb507a5da.txt:5–25；logs/reading/38dd553bdd4c98677a27.md；reports/final.md:5–64",
+      "basis": "R1 的适用状态、关键日期、罚款公式及官方原文链接符合要求。R2 按新旧模型及开源、闭源和系统性风险分支给出执行节点，区分必须履行的义务、过渡期限及自愿举证。R3 的整篇字符数独立复算符合要求。"
+    },
+    "evidence": {
+      "location": "logs/reading/a7335da289263898a8a1.md；logs/reading/9cc5d1ff9c445436fe1d.txt；analysis/execution/eb7c744877314abc9f3de0066406a0be/correction-verification.json",
+      "basis": "复核冻结法源、当前四份评审原答、审计原答、前次验收原答和实际生产稿。六份 PDF 的哈希吻合，25 份官方文本视图统一换行后与原件相符。审计 56 组所涉 365 个历史发现标识与所供清单一致。部分 EUR-Lex 页面在自动访问时显示验证页，相应条文以冻结公报为准。"
+    },
+    "adversarial_reasoning": {
+      "location": "reports/final.md:9–29、33–43、47–53",
+      "basis": "比较仅在境外发布与首次入欧、同一模型续训与独立改造、开源交互系统与纯机间系统、以及有无适当保障的通用生成系统。逐项核查会改变义务主体、投放时点、豁免或上线判断的条件。"
+    },
+    "structure_and_depth": {
+      "location": "reports/final.md:5–53；logs/reading/76dd28b9800b4fe87a28.txt:21、25",
+      "basis": "报告依次交代角色及投放、模型义务、系统验收、执法与举证。与紧邻前稿相比，实质改动集中在第 21、25 行。现稿明确区分公开摘要、内部底稿、监管技术文档及下游集成资料，并保留各自的发布、更新与查阅要求。"
+    },
+    "reader_usefulness": {
+      "location": "reports/final.md:5、15、19–29、35–43、51–53",
+      "basis": "合规和产品负责人可以据正文排出取数训练阶段的版权及留证工作、提前通知、投放前代表与文档、投放时发布摘要和存量补齐。系统侧可据产品用途另查标记、告知、禁令和高风险节点。"
+    },
+    "process_language": {
+      "location": "reports/final.md:1–64；logs/reading/2ea40e0269a18737953b.txt",
+      "basis": "正文保持面向合规及产品负责人的表述。指南日期、非约束性质和模板依据用于解释实际判断，来源区未混入生产交接或内部评审信息。"
+    },
+    "natural_expression": {
+      "location": "reports/final.md:19–25、33–43、47–53",
+      "basis": "篇幅压缩后，放行条件和义务主体仍可辨认。第 21 行的「公开摘要按模板列」统领相关字段，第 25 行的「编制并持续更新」同时适用于附件 XI、XII，第 39 行的「材料或表演」在各分支中指代明确。"
+    }
+  },
+  "sample_checks": [
+    {
+      "location": "reports/final.md:1–64；logs/reading/f138da2de22ffb7c436f.txt",
+      "selection_reason": "确认字符数和引用渲染对应实际交付字节，并区分前次验收版本与紧邻前稿。",
+      "evidence": "当前报告及指定快照的 SHA-256 均为 f138da2de22ffb7c436f35e2a99bfc888e8cde2283278080c0919fd65e774c60。与紧邻前稿相比，改变第 7、17、21、25、31 行。生产稿除换行表示外与交付正文相同。全稿 4000 个非空白 Unicode 字符，28 处编号引用渲染为 10 个不同的欧盟官方链接。见 logs/activity.jsonl:321、logs/reading/98a2f1d7cc2e26d3c086.md、analysis/execution/eb7c744877314abc9f3de0066406a0be/correction-verification.json。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/final.md:21、25",
+      "selection_reason": "用公开摘要已有内部底稿、且模型上线后集成资料发生变化的情形复查最近两项修订。",
+      "evidence": "适用的爬虫、用户交互来源、权利保留及非法内容处理措施概述须进入公开摘要。底稿可内部留存。第 53(1)(a)、(b) 条要求分别编制和持续更新附件 XI 与 XII，前者供有关主管机关，后者供拟集成方。第 25 行仍写明适用第三国提供者须在投放前书面委任代表，代表核验附件 XI、第 53 条及适用的第 55 条。见 logs/reading/76dd28b9800b4fe87a28.txt:21、25、logs/reading/3bc43c9b30d30198b538.txt:657–735、803–845、sources/text/aiact-consolidated.txt:1723–1738、1747–1768。[欧委会训练摘要模板](https://digital-strategy.ec.europa.eu/en/library/explanatory-notice-and-template-public-summary-training-content-general-purpose-ai-models) [欧委会法案服务台，第 53 条](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-53)",
+      "result": "clear"
+    },
+    {
+      "location": "reports/final.md:5、9–15、23–29",
+      "selection_reason": "用拟在 2027 年首投的独立改造项目，区分参考算力、法定风险推定、提前通知和首投节点。",
+      "evidence": "10²³ FLOP 加所列模态及三分之一改造算力均作为指南的参考标准。第 51(2) 条严格超过 10²⁵ FLOP 才触发该算力推定，恰好等于该值仍需按其他适用路径判断。达到或已知将达到第 51(1)(a) 条条件时，第 52 条通知可早于投放，最迟两周。附件、代表和摘要的投放节点及存量补齐期限在各分支仍可定位。见 sources/text/aiact-consolidated.txt:1690–1716、1721–1768、3072–3073；logs/reading/775c5a218c99cfd0d594.txt:239–281、487–541、871–888、962–972。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/final.md:23、35、37",
+      "selection_reason": "复验此前的开源模型变现口径和开源系统适用门槛，防止混用两层豁免。",
+      "evidence": "第 23 行将个人数据处理的较窄解释归于非约束指南第 84 段，另列序言 103 的软件兼容性和互操作性表述，并明确不能只凭该序言主张免文档或代表。第 35 行在素养义务前交代第 2(12) 条。适用第 50 条的开源交互系统仍纳入。纯机间处理系统若既非高风险、也不落入第 5 或 50 条，可按第 2(12) 条排除。见 logs/reading/c1048fcf5fef99733616.txt:1635–1643、logs/reading/775c5a218c99cfd0d594.txt:142–149、1133–1161、sources/text/aiact-consolidated.txt:489–490、669–674、logs/reading/d6edf5aee50bb142029d.txt:454–466、493–509。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/final.md:37–43",
+      "selection_reason": "比较已有适当保障和缺少适当保障的通用生成系统，并检查旧系统规定是否改变新上线禁令。",
+      "evidence": "第 39 行明确预定生成或操纵的分支。非预定用途分支须同时满足无需重大技术修改即可合理预见并复现结果、以及缺少合理且适当的技术安全措施和其他保障，正文亦明确考虑可预见滥用和纠正已发现或获报的滥用。部署者分支保留目的条件，投放、启用及使用均覆盖材料或表演。第 37 行的补标宽限只及第 50(2) 条，第 43 行仍只保留原本适用的第 5 条。见 sources/text/aiact-consolidated.txt:463–465、713–716、742–753、3063–3076，sources/text/omnibus.txt:484–489、1043–1066，及 logs/reading/d6edf5aee50bb142029d.txt:2402–2415。[欧委会法案服务台，第 5 条](https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-5)",
+      "result": "clear"
+    },
+    {
+      "location": "reports/final.md:21、38–39、47–53",
+      "selection_reason": "核查压缩后留给条文或模板查阅的细节，是否仍保留会影响填报、披露或举证的决定条件。",
+      "evidence": "摘要仍分开处理公开库、两类第三方私库、符合条件的私有合成数据和自抓数据。第 38 行按款项区分义务主体并指向特殊执法例外，第 39 行指向第 5(1b) 条编辑例外。核心执法日期、故意或过失要件及罚款公式准确。两项修订及实施条例的生效日分别复算为 2026 年 7 月 27 日和 8 月 10 日。上一财年全球营业额为 2 亿、5 亿和 7.5 亿欧元时，模型罚款上限分别为 1500 万、1500 万和 2250 万欧元。准则保留自愿性质，EN 18286:2026 的推定仅及所覆盖的高风险系统质量管理。见 logs/reading/3bc43c9b30d30198b538.txt:542–561、602–699、740–747；sources/text/aiact-consolidated.txt:1484–1487、1667–1679、1739–1740、1783–1784、2953–2965、3126–3146；sources/text/omnibus.txt:150、1202–1205；logs/reading/40ff108fa49060c67611.txt:44–50、421–426；logs/reading/79455158b2910145de7b.txt:61–75。",
+      "result": "clear"
+    }
+  ],
+  "open_issues": [],
+  "prior_final_reconciliation": {
+    "sample_checks/3": {
+      "decision": "resolved",
+      "reason": "现稿明确第 84 段是欧委会按非约束指南使用的解释口径，并单独说明序言 103 另提兼容性和互操作性。互操作性案例可据正文判断，应继续核实资格而不能单凭该用途主张豁免。",
+      "evidence": "reports/final.md:23、56、59；logs/reading/03668a1c2ca0f0f3c7d4.txt；logs/reading/775c5a218c99cfd0d594.txt:142–149、1133–1139；logs/reading/c1048fcf5fef99733616.txt:1635–1643"
+    },
+    "sample_checks/4": {
+      "decision": "resolved",
+      "reason": "第 35 行先写第 2(12) 条的自由开源系统门槛，再写适用范围内的第 4(1) 条措施。开源交互系统与不落入相关分支的纯机间系统可以据此分别判断。",
+      "evidence": "reports/final.md:35–37；sources/text/aiact-consolidated.txt:489–490、669–674；logs/reading/d6edf5aee50bb142029d.txt:454–466、493–509"
+    },
+    "sample_checks/5": {
+      "decision": "resolved",
+      "reason": "第 39 行已把适当保障不足写进非预定用途分支，与合理可预见、可复现及无需重大技术修改共同判断，并保留预防和纠正的保障目标。",
+      "evidence": "reports/final.md:39；sources/text/aiact-consolidated.txt:742–753；sources/text/omnibus.txt:484–489"
+    },
+    "open_issues/0": {
+      "decision": "resolved",
+      "reason": "个人数据的较窄解释和序言 103 的较广措辞均已进入同一段正文，原有文档、代表及版权摘要分流仍然明确。",
+      "evidence": "reports/final.md:23–25；logs/reading/775c5a218c99cfd0d594.txt:1133–1161；logs/reading/c1048fcf5fef99733616.txt:1635–1643"
+    },
+    "open_issues/1": {
+      "decision": "resolved",
+      "reason": "正文已补明自由开源许可系统在高风险、或落入第 5 或 50 条时才纳入的门槛。模型层第 53、54 条豁免仍由第 23 行独立判断。",
+      "evidence": "reports/final.md:23、35；sources/text/aiact-consolidated.txt:489–490、669–674、1735–1738、1767–1768"
+    },
+    "open_issues/2": {
+      "decision": "resolved",
+      "reason": "投放或启用的判据已恢复合理且适当的技术安全措施、其他保障和可预见滥用。顺带复核第 43 行，仍以适用的第 5 条为限。",
+      "evidence": "reports/final.md:39、41–43；sources/text/aiact-consolidated.txt:463–465、742–753、3068–3070；sources/text/omnibus.txt:484–489"
+    }
+  }
+}

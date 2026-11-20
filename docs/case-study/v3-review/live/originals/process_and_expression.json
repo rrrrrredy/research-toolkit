@@ -1,0 +1,71 @@
+{
+  "input_version": "d663b4dc004dd91babce2c3658fe1caf3d8f59c54be39b6c150762427520f326",
+  "assignment_version": "1485297b45e1901dd7e8420c37f5873aeb36c6caa7875c369ddc3be9248e527f",
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "process_language": {
+      "location": "reports/final.md 全文第 1–80 行，重点为第 59–80 行",
+      "basis": "逐段核对原始任务、R1–R3、来源与主张登记，以及五份官方来源的原始网页和相关条文或正文。报告与指定快照的 SHA-256 一致，全文含 Markdown 和参考来源实测 3633 个非空白字符。信息截止日、条文版本和自愿举证说明对读者有用。第 65–66 行保留了作者取证和网页抓取过程，其中第 66 行描述的来源限制可用随附的 EUR-Lex 和《官方公报》原件解决。"
+    },
+    "natural_expression": {
+      "location": "reports/final.md 全文第 1–80 行，重点为第 7–57、61–64 行",
+      "basis": "按目标读者确定主体、模型归类、欧盟首次投放、上线准备和存量过渡期的顺序通读。对照 sources/text/aiact-consolidated.txt 第 3、50–56、101、111、113 条及附件 XI–XIII，sources/text/omnibus.txt 的修订条款，以及欧委会的指南、准则和工作组页面。保留了正文对附件 XI 与 XII 用途、两项存量关键日期及准则自愿性的有效说明。用符合条件的开源模型、2026 年第四季度新上线的闭源 API、低于算力阈值但被委员会指定的模型，以及 2026 年 8 月 2 日后首次投放的生成系统反查正文，发现读者会从现有措辞得出错误的上线条件或期限。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "PL-01",
+      "severity": "major",
+      "location": "reports/final.md:66、72–80",
+      "basis": "R1 要求给出官方原文链接。第 66 行把「本次执行中未能直接抓取」带进报告，并以此解释正文为何依赖转录和解读。随附的 sources/raw/aiact-consolidated.html 和 sources/raw/omnibus.html 已提供所需官方文本，data/source_registry.csv:2–3 给出了版本和链接。应依据这些原件复核正文，补入可点击的 EUR-Lex 和《官方公报》链接，并删去抓取过程叙述。若保留来源说明，可交代所用合并版日期及正式文本的公报出处。"
+    },
+    {
+      "finding_id": "PL-02",
+      "severity": "minor",
+      "location": "reports/final.md:62–65",
+      "basis": "「本条为作者判断，本报告未取证」是取证状态说明，无法支撑前面的中欧标准不互认断言。原始任务 logs/reading/a23c65b255605f13f31a.txt:5–25 聚焦欧盟投放决策，并要求限缩或移除无法复核的判断。应删去第 65 行。第 62 行的招聘规模和处罚案例状态也需要各自可核查的依据。sources/text/commission-guidelines.txt:140–143 可直接支撑对执法启动日期的说明。"
+    },
+    {
+      "finding_id": "NE-01",
+      "severity": "major",
+      "location": "reports/final.md:9、15、19、39、43",
+      "basis": "R2 要求写明豁免条件。第 43 行以「开源权重」作为路径入口，又把授权代表列为必做，容易让读者误判资格并安排不必要的代表委任。sources/text/aiact-consolidated.txt:1735–1738、1767–1768 和 sources/text/commission-guidelines.txt:101–110 表明，满足自由开源许可和公开参数、架构及使用信息条件的非系统性风险模型，可免除第 53(1)(a)(b) 项及第 54 条代表义务，仍须落实版权政策与公开训练内容摘要。应把许可允许访问、使用、修改和分发的条件与公开要求写在同一路径中，并让摘要和行动清单沿用该分支。参数大小不能代替资格判断。"
+    },
+    {
+      "finding_id": "NE-02",
+      "severity": "major",
+      "location": "reports/final.md:45、49–55",
+      "basis": "R2 要求按实际投放节点排定先后。第 45 行已说明新投放模型即时适用，第 51–53 行却把版权政策、附件 XII 和事件响应统一放到 2027 年上半年。计划于 2026 年第四季度首次在欧盟提供闭源 API 的公司，照此可能在必做事项完成前上线。sources/text/aiact-consolidated.txt:519–524、1722–1734、1749–1756、3072–3073 和 sources/text/commission-guidelines.txt:76–81、140–143 支持按欧盟首次提供日期和具体义务排程。应把适用的前置工作放在新模型首次投放前，把 2027 年 8 月 2 日的过渡期限明确留给 2025 年 8 月 2 日前已在欧盟投放的模型。"
+    },
+    {
+      "finding_id": "NE-03",
+      "severity": "major",
+      "location": "reports/final.md:8、24–31、57",
+      "basis": "R1 和 R2 要求说清日期的触发点与适用主体。「12 月 2 日内容标识义务适用」把特定存量系统的补齐期限写成统一起算日。依据 sources/text/aiact-consolidated.txt:1667–1679、3074–3076、3126–3143 和 sources/text/omnibus.txt:1038–1071，2026 年 12 月 2 日是 2026 年 8 月 2 日前已投放的相关合成内容系统提供者履行第 50(2) 条的过渡截止日。此后投放的适用系统按一般适用日期处理。应写明机器可读标识由系统提供者负责，与第 50(4) 条特定情形下的部署者披露分开，并把新增禁令的适用日期单列。附件 I 的日期应按第 6(1) 条的分类条件表述，涵盖符合条件的 AI 产品本身。"
+    },
+    {
+      "finding_id": "NE-04",
+      "severity": "major",
+      "location": "reports/final.md:19、35、47、51–53",
+      "basis": "「超过 10^25 浮点运算即被推定，除非提供者能证明相反」省掉了企业首先要做的事，也使读者容易把低于阈值理解为排除系统性风险。sources/raw/aiact-consolidated.html 的第 51 条和 sources/text/aiact-consolidated.txt:1690–1716、1771–1784 表明，累计训练算力超过阈值触发高影响能力推定，委员会另有指定路径。满足或已知将满足第 51(1)(a) 条条件时，须立即通知委员会，最迟两周，可在通知中提交有充分依据的反证。第 47 行的「叠加第 55 条与安全章」也应拆开写，明确第 55 条的评估、风险缓解、报告和网络安全义务，以及安全章作为自愿举证路径的作用。"
+    },
+    {
+      "finding_id": "NE-05",
+      "severity": "major",
+      "location": "reports/final.md:7、19、23–25、62",
+      "basis": "R1 要求给出罚款公式及执法时间。「3% 或 1500 万欧元」省略了取较高值和上一财年的口径。「第 V 章适用（第 101 条除外）」容易让读者把第 101 条误归第 V 章。「执法工具箱已经闭合」也没有指明何种权限开始适用。应按 sources/text/aiact-consolidated.txt:2691–2696、2953–2965、3126–3146 写明第 V 章义务和第 101 条罚款权的两个日期，并把上限写成上一财年全球总营业额的 3% 与 1500 万欧元两者中的较高值，说明罚款可针对故意或过失的相关违规。"
+    },
+    {
+      "finding_id": "NE-06",
+      "severity": "minor",
+      "location": "reports/final.md:17、31、35–39、55、61",
+      "basis": "「准则的效力有期限」和「准备切换」把按义务覆盖范围判断的举证规则写成整套准则到期后统一切换。sources/text/aiact-consolidated.txt:1739–1740、1783–1784 支持用更具体的表述说明，协调标准发布前可用准则举证，遵循标准仅在标准覆盖的义务范围内产生符合性推定，企业也可提交其他充分的合规证明。第 31 行可保留核心模型期限未顺延的判断，同时说明修订也涉及第 56(6) 条准则评估机制，见 sources/text/omnibus.txt:753–756。sources/text/code-of-practice.txt:64–76、99–101 支持 xAI 的签署范围和替代举证义务，持续经营本身无法证明合规。应改正「安全与安全」和「对应对」的语病，并让 xAI 例子只承担说明分章举证的作用。"
+    },
+    {
+      "finding_id": "NE-07",
+      "severity": "minor",
+      "location": "reports/final.md:37、51",
+      "basis": "「若签署，按季度对齐 Vademecum 要求」把签署准则、选择加入工作组和企业内部复核频率写成一项动作。sources/text/signatories-taskforce.txt:57–70 说明工作组成员资格由签署方自选，会议按需要召开且至少每年一次。列出的四次会议也无法推出季度义务。应区分签署后的具体承诺与可选的工作组安排。如果季度复核是建议的内部管理频率，应直接说明由企业自行安排。"
+    }
+  ]
+}

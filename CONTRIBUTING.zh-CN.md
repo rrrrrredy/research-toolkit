@@ -7,6 +7,8 @@
 
 双语同步工作流覆盖 README、SKILL、CHANGELOG、CONTRIBUTING，以及 references、docs、agents 下已有的顶层中英文配对。仅一方变更时留下不阻断合并的 PR 提醒；在 PR 描述中加入 `[i18n-skip]` 可跳过检查并移除已有提醒。不要求为原本仅有英文的历史材料新增译文。
 
+本地运行 `python scripts/check_project.py` 或 `make check`（Python 3.11+、Node 和 `requirements-mcp.txt`）。[仓库工作说明](AGENTS.md) · [审阅说明](REVIEW.md) · [设计决定](docs/zh/rfcs/README.md)。
+
 ## 从失败案例开始贡献
 
 无需改代码，也可以[**提交失败案例**](https://github.com/rrrrrredy/research-toolkit/issues/new?template=failure-case.yml)。说明研究问题、期望与实际结果，附报告原文片段、可用来源和评审配置；复现旧任务时附当时版本。公开前去掉隐私和可识别信息。有原始材料、可复现的案例，经评审后可成为回归用例，详见[案例贡献流程](evals/README.zh-CN.md)。

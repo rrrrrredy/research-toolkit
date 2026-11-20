@@ -1,0 +1,158 @@
+{
+  "input_version": "7f440f33a5846ab1c1ba18d20228e11a400319a785a0da2121fa6da7b9b09b94",
+  "assignment_version": "16249283741e9d6596eedf3439e9fc35fb1b03543b2cc6334164230899ac7410",
+  "result": "invalid",
+  "basis": "All four required review records match the frozen draft and their assigned versions. Their original responses and execution files identify them as deterministic fixtures with no independent execution. Their coverage is limited to the same two propositions. The absence of independent execution and whole-report coverage determines review validity. The report independently needs revision. The Article 54(6) finding is supported, the proposed Article 101 date change is unsupported, and the draft contains additional defects that affect launch decisions. I audited all 80 report lines against the original brief, the effective requirements, the relevant sections of all five frozen official sources, and the original review and production records. logs/activity.jsonl and logs/reading/a4dbc38f69082d1745ee.md record one imported draft. logs/reading/65c1ec984b21d974a923.md supplies no separate branch analysis, so I traced the claims registry and original evidence through the report's branches and action checklist. The recomputed hashes, character count and date checks are in analysis/execution/afb2cdaee8ca424595bb45a1b761fc8f/verification.json.",
+  "review_checks": {
+    "requirements_and_usefulness": {
+      "result": "invalid",
+      "basis": "reviews/host/7f440f33a5846ab1c1ba/results/fa6f46cbdf464ae6/execution.json identifies a deterministic injected fixture. The adjacent response.txt repeats one two-proposition coverage statement for requirements, structure and depth, and reader usefulness. It omits the official-link and length requirements and the conflict between the new-model branch and the action checklist. The version and digest checks match. See analysis/execution/afb2cdaee8ca424595bb45a1b761fc8f/verification.json."
+    },
+    "evidence_and_reasoning": {
+      "result": "invalid",
+      "basis": "reviews/host/7f440f33a5846ab1c1ba/results/3da9c40b750e4e5a/execution.json identifies a deterministic injected fixture. The adjacent response.txt covers only F54 and F101 and records no substantive source or counterexample checks for the rest of the draft. It misses the new-system counterexample to the stated December content-marking date. The version and digest checks match. See analysis/execution/afb2cdaee8ca424595bb45a1b761fc8f/verification.json."
+    },
+    "process_and_expression": {
+      "result": "invalid",
+      "basis": "reviews/host/7f440f33a5846ab1c1ba/results/a9435a40c4d64cba/execution.json identifies a deterministic injected fixture. The adjacent response.txt substitutes the same two legal propositions for both assigned dimensions and gives no substantive assessment of passages such as reports/final.md:35–39,47,61–66. The version and digest checks match. See analysis/execution/afb2cdaee8ca424595bb45a1b761fc8f/verification.json."
+    },
+    "domain-1": {
+      "result": "invalid",
+      "basis": "reviews/host/7f440f33a5846ab1c1ba/results/26330b1522c642ad/execution.json identifies a deterministic injected fixture. The adjacent response.txt gives no independently executed specialist assessment of the Article 101 formula, the Article 52 notification trigger, or the separate model and system transition rules. The version and digest checks match. See analysis/execution/afb2cdaee8ca424595bb45a1b761fc8f/verification.json."
+    }
+  },
+  "dispositions": {},
+  "disposition_groups": [
+    {
+      "finding_ids": [
+        "requirements_and_usefulness/F54",
+        "evidence_and_reasoning/F54",
+        "process_and_expression/F54",
+        "domain-1/F54"
+      ],
+      "decision": "confirmed_defect",
+      "reason": "The draft treats the Union representative as mandatory in the qualifying open-source branch. Article 54(6) exempts providers of non-systemic GPAI models released under a free and open-source licence permitting access, use, modification and distribution, with public parameters including weights, architecture information and usage information. Article 53(2) separately exempts the two documentation duties under equivalent conditions. The copyright policy, public training-content summary and cooperation as necessary remain applicable. The incorrect instruction flows from the summary into the launch checklist.",
+      "evidence": "reports/final.md:9,15,19,39,43,51. sources/text/aiact-consolidated.txt:1719–1740,1747–1768. sources/text/commission-guidelines.txt:101–110. The frozen HTML corroborates Article 54(6) at logs/reading/2977cd3d3fa14dc1410b.txt:9940."
+    },
+    {
+      "finding_ids": [
+        "requirements_and_usefulness/F101",
+        "evidence_and_reasoning/F101",
+        "process_and_expression/F101",
+        "domain-1/F101"
+      ],
+      "decision": "no_change",
+      "reason": "Keep 2 August 2026 as the application date for Article 101. The Omnibus entered into force on 27 July 2026, the third day after its Official Journal publication on 24 July. The Omnibus added Article 113(d) for Articles 102–110 and left Article 113(b) and the general application date intact. Article 101 remains subject to the general date under Article 113. This disposition adjudicates the requested date change.",
+      "evidence": "reports/final.md:7,19,23–25. sources/text/aiact-consolidated.txt:2953–2975,3126–3146. sources/text/omnibus.txt:443–451,1052–1071,1202–1206. sources/text/commission-guidelines.txt:140–143. [Official Journal, Regulation (EU) 2026/1744](https://eur-lex.europa.eu/legal-content/ENG/TXT/PDF/?uri=OJ%3AL_202601744)."
+    }
+  ],
+  "critical_checks": [
+    {
+      "requirement_id": "R1",
+      "location": "reports/final.md:7–8,19,23–31,57,66,70–80",
+      "evidence": "The bibliography gives Commission links for the Code and Taskforce, while its statutory and Omnibus citations rely on third-party sites. The required EU1 and EU2 originals are present at the paths in data/source_registry.csv. The 27 July Omnibus date, 2 August Article 101 date and 2027 legacy-model deadline are supported. The draft places the Article 101 exception next to Chapter V without identifying that Article 101 is in Chapter XII. It also presents the general date as applying to all remaining provisions, despite the staggered exceptions. Article 101(1) sets the ceiling at the higher of EUR 15 million and 3% of the preceding financial year's total worldwide turnover for specified intentional or negligent conduct. The draft omits the higher-of rule and reference year. See sources/text/aiact-consolidated.txt:2691–2775,2953–2975,3072–3076,3126–3146 and sources/text/omnibus.txt:1042–1071,1202–1206. [EUR-Lex AI Act consolidated text](https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng). [Official Journal, Regulation (EU) 2026/1744](https://eur-lex.europa.eu/legal-content/ENG/TXT/PDF/?uri=OJ%3AL_202601744).",
+      "result": "defect"
+    },
+    {
+      "requirement_id": "R2",
+      "location": "reports/final.md:9,13–19,39,43–57",
+      "evidence": "The draft identifies the three model branches and states the legacy deadline, but the shared quarterly checklist gives qualifying open-source providers unnecessary work and puts applicable new-model duties after a possible 2026 launch. It omits the Article 52 notification deadline and the separate designation route. It also leaves readers without a reliable trigger for first Union placement or for identifying when the same company is a system provider as well as a model provider. See sources/text/aiact-consolidated.txt:445–454,503–522,656–667,1690–1784,3072–3076 and sources/text/commission-guidelines.txt:76–117,140–143.",
+      "result": "defect"
+    },
+    {
+      "requirement_id": "R3",
+      "location": "reports/final.md:1–80, whole artifact including Markdown and references",
+      "evidence": "An independent UTF-8 count found 3,633 nonwhitespace characters, within 3,000–4,000. The 7,695-byte draft and frozen reading copy both have SHA-256 7191636edc8e39089df89dc94d2244467d308c64c4027a812fe9fa849f8c839f. See logs/reading/7191636edc8e39089df8.txt and analysis/execution/afb2cdaee8ca424595bb45a1b761fc8f/verification.json.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/final.md:24–31,57,63",
+      "evidence": "The Chapter III Sections 1–3 dates for systems classified under Article 6(2)/Annex III and Article 6(1)/Annex I are 2 December 2027 and 2 August 2028, respectively, subject to the Article 6(5) exception. The Annex I category can include a system that is itself a regulated product. The December 2026 date for the new Article 5 prohibitions is supported, with their system-specific conditions and exceptions. Article 50(2) applies generally from 2 August 2026 for covered systems. Article 111(4) gives only covered systems placed on the market before that date until 2 December 2026. The draft erases this condition in §§ III and VI. The June legislative approvals, 8 July signing and 24 July publication are supported. The claim that this was the second postponement is unsubstantiated in the cited evidence. The Omnibus also amended the Article 56(6) Code assessment procedure while leaving the GPAI provider compliance dates intact. See sources/text/aiact-consolidated.txt:704–753,779–796,1667–1684,1809–1814,3063–3076,3126–3146 and sources/text/omnibus.txt:443–451,749–756,1042–1071,1202–1218. [Commission Article 50 FAQ](https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act). [European Parliament legislative procedure](https://oeil.europarl.europa.eu/oeil/en/procedure-file?reference=2025/0359(COD)).",
+      "result": "defect"
+    },
+    {
+      "location": "reports/final.md:19,47,51–55",
+      "evidence": "The cumulative training threshold is greater than 10^25 FLOP and creates a presumption of high-impact capabilities. The draft correctly lists the four Article 55 duties in broad terms. It omits the Article 51(1)(b) designation route, which can capture a model below the compute threshold, and Article 52(1)'s requirement to notify the Commission without delay and within two weeks of meeting, or learning the model will meet, the relevant criterion. Exceptional rebuttal grounds are submitted with that notice. Path C also presents the Code's Safety and Security chapter as an added obligation, although Article 55(2) permits alternative adequate evidence and gives a presumption only for obligations covered by harmonised standards. See sources/text/aiact-consolidated.txt:1690–1716,1771–1786,3578–3594 and sources/text/commission-guidelines.txt:89–117. The superscript is preserved at sources/raw/aiact-consolidated.html:9627.",
+      "result": "defect"
+    }
+  ],
+  "sample_checks": [
+    {
+      "location": "reports/final.md:13–17",
+      "selection_reason": "Check the largely unchallenged transfer of the baseline model duties into the legal overview, including who receives each documentation set.",
+      "evidence": "The four Article 53(1) duties are correctly identified at line 13. Annex XI is technical documentation maintained for authorities and supplied on request. Annex XII information is maintained and made available to downstream integrators. The cooperation statement at line 17 follows Article 53(3). The open-source conditions and proof routes are assessed separately below. See sources/text/aiact-consolidated.txt:1719–1740,3512–3577 and sources/text/commission-guidelines.txt:122–138.",
+      "result": "clear"
+    },
+    {
+      "location": "reports/final.md:43–55",
+      "selection_reason": "Test the launch sequence on a closed API first made available in the Union in November 2026 and a second model already available in the Union before 2 August 2025.",
+      "evidence": "For the first model, the report's own Path B says the applicable duties attach at first placement, yet its 2027 checklist delays the copyright policy and downstream documentation. A qualifying non-systemic open model also runs through the unconditional representative and Annex XI actions. For the legacy model, the 2 August 2027 deadline is supported and applies across model types subject to their respective duties. First Union availability can be through an API, downloads, cloud services or integration, including supply without payment. See sources/text/aiact-consolidated.txt:503–522,1719–1784,3072–3076 and sources/text/commission-guidelines.txt:76–81,101–117,140–143.",
+      "result": "defect",
+      "expansion": {
+        "examined_locations": [
+          "reports/final.md:9,13–19",
+          "reports/final.md:27,39,43–47",
+          "reports/final.md:51–57"
+        ],
+        "outcome": "The mismatch recurs in the summary, branch descriptions and calendar. For new releases the checklist needs model- and role-specific launch gates, with Article 52 notification tied to its own trigger. The legacy completion date can stand. The corporate calendar can state any internal preparation milestones separately from those statutory triggers."
+      }
+    },
+    {
+      "location": "reports/final.md:26,57",
+      "selection_reason": "Trace claim C2 in data/claims_registry.csv into both the timeline and the action instruction. Test a covered generative system first placed in October 2026.",
+      "evidence": "The October system falls outside the Article 111(4) grace period, so December is too late for its Article 50(2) marking and detection obligation. Article 50(2) assigns machine-readable marking to the covered system provider, while Article 50(4) separately assigns specified disclosure duties to deployers. See sources/text/aiact-consolidated.txt:1667–1684,3074–3076,3126–3133 and sources/text/omnibus.txt:1042–1057. [Commission Article 50 FAQ](https://digital-strategy.ec.europa.eu/en/faqs/transparency-obligations-under-article-50-ai-act).",
+      "result": "defect",
+      "expansion": {
+        "examined_locations": [
+          "reports/final.md:8,23–31",
+          "reports/final.md:45–47,55–57"
+        ],
+        "outcome": "The omitted pre-2-August-2026 condition affects the headline, the timeline and the checklist. The separate 2 August 2027 GPAI-model transition and the 2 December 2026 start date for specified new Article 5 prohibitions remain supported."
+      }
+    },
+    {
+      "location": "reports/final.md:35,37",
+      "selection_reason": "Recompute the public signatory count and verify the chapter descriptions and dated governance events, which the submitted reviews did not examine.",
+      "evidence": "The 7 October 2026 Commission snapshot has 22 entries on lines 79–100 and gives xAI a separate Safety and Security-only entry at line 101. This supports the 22-plus-one presentation and xAI's alternative transparency and copyright proof route. The page does not itself detail every listed firm's chapter commitments. The three chapter subjects, 10 July 2025 publication, AI Office chair, Vademecum contents and four listed meeting dates are supported. See sources/text/code-of-practice.txt:59–101,121–122, sources/text/signatories-taskforce.txt:54–77 and analysis/execution/afb2cdaee8ca424595bb45a1b761fc8f/verification.json. [Commission Code of Practice](https://digital-strategy.ec.europa.eu/en/policies/contents-code-gpai). [Commission Signatory Taskforce](https://digital-strategy.ec.europa.eu/en/policies/signatory-taskforce-gpai-code-practice).",
+      "result": "clear"
+    },
+    {
+      "location": "reports/final.md:17,39,47,51,55,61",
+      "selection_reason": "Trace claim C3 in data/claims_registry.csv through the Code explanation, the systemic-risk branch, the timetable, and the xAI counterexample.",
+      "evidence": "The voluntary proof principle is sound, but the mandatory-sounding Safety and Security chapter at line 47 contradicts it. The harmonised-standard presumption is limited to covered obligations, with an alternative adequate proof route. Taskforce membership is optional for signers and the Taskforce source describes meetings as at least yearly. It does not substantiate a quarterly Vademecum requirement triggered by signature. The xAI listing supports its limited signature and alternative proof duties, with no evidence there about ongoing market operations or an official finding of compliance. See sources/text/aiact-consolidated.txt:1737–1740,1783–1784,1804–1814, sources/text/code-of-practice.txt:59–76,101 and sources/text/signatories-taskforce.txt:57–64. [Commission signing FAQ](https://digital-strategy.ec.europa.eu/en/faqs/signing-general-purpose-ai-code-practice).",
+      "result": "defect",
+      "expansion": {
+        "examined_locations": [
+          "reports/final.md:9,17,33–39",
+          "reports/final.md:47,51,55,61"
+        ],
+        "outcome": "The source supports the summary's distinction between applicable duties and voluntary adherence. Path C should preserve that distinction, identify the alternative route, and clarify or remove the quarterly claim. The legal conclusion about non-signature can rest on Articles 53(4) and 55(2)."
+      }
+    },
+    {
+      "location": "reports/final.md:62–66",
+      "selection_reason": "Check whether the closing uncertainty section gives decision-makers supported qualifications and identifies sources they can use.",
+      "evidence": "The frozen sources establish the Commission's enforcement powers, rather than its claimed scale or timing of hiring or the claimed absence of public penalties. The asserted Chinese filing and non-recognition conclusions have no supplied source and fall outside the requested EU GPAI scope. The Commission published the Article 53(1)(d) template on 24 July 2025, so the draft can point to the available template while retaining any specific implementation uncertainty. The production-fetch note at line 66 is not a current evidence limitation for this audit because the assignment supplied the EUR-Lex originals. See reports/final.md:62–66, data/source_registry.csv, sources/text/aiact-consolidated.txt:1729–1734,2691–2775,2953–2975 and sources/text/commission-guidelines.txt:127–143. [Commission enforcement framework](https://digital-strategy.ec.europa.eu/en/policies/enforcement-ai-act). [Commission training-content summary template](https://digital-strategy.ec.europa.eu/en/library/explanatory-notice-and-template-public-summary-training-content-general-purpose-ai-models).",
+      "result": "defect",
+      "expansion": {
+        "examined_locations": [
+          "reports/final.md:7,13,19",
+          "reports/final.md:51,61–66,70–80"
+        ],
+        "outcome": "Retain the supported legal authority and the mandatory template. Qualify or remove the unsupported statements about hiring and cases, remove or substantiate the out-of-scope China claims, and replace the process note with accurate attribution to the available official evidence."
+      }
+    }
+  ],
+  "prior_findings": {},
+  "report_verdict": "needs_revision",
+  "open_issues": [
+    "All four required independent reviews are absent as executed assessments. The supplied fixtures cannot satisfy those slots. See logs/review.jsonl and the execution.json paths in review_checks.",
+    "Correct the open-source branch and every repeated instruction to appoint a representative. Include the licence permissions, public information conditions, systemic-risk exception, and obligations that continue to apply. See reports/final.md:9,15,19,39,43,51.",
+    "Retain the 2 August 2026 Article 101 date, state its Chapter XII attribution, and give the higher-of ceiling using the preceding financial year's total worldwide turnover. Add direct EUR-Lex and Official Journal references. See reports/final.md:7,19,23–25,66,73–80.",
+    "Tie mandatory work to first Union placement, the applicable legacy deadline, or the specific statutory trigger. Include the Article 52 notification, the independent systemic-risk designation route and the distinction between model provider, system provider and deployer. See reports/final.md:19,43–57.",
+    "Correct the Article 50(2) date for new systems, preserve the limited Article 111(4) transition, and describe the cited high-risk and Article 5 dates with their applicable system categories. See reports/final.md:8,23–31,57.",
+    "Make proof choices consistent across branches. Qualify the standard-based presumption, correct the mandatory implication of the Safety and Security chapter, substantiate or remove the quarterly Vademecum instruction, and drop the inference about market compliance drawn from xAI's signature listing. See reports/final.md:17,37–39,47,51,55,61.",
+    "Remove or qualify the unsupported postponement count, enforcement commentary and China-law claims, and link the published training-summary template. See reports/final.md:62–66."
+  ],
+  "verification_requests": []
+}

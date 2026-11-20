@@ -1,0 +1,235 @@
+{
+  "input_version": "d663b4dc004dd91babce2c3658fe1caf3d8f59c54be39b6c150762427520f326",
+  "assignment_version": "1d3a5d6a2216b58bdf660b5b43cc01cfb6257ff5b68dc72a7be751dcadf04351",
+  "result": "valid",
+  "basis": "四个独立评审均有不同的已完成执行记录，回应与分配版本、报告哈希及覆盖维度一致。12 份评审输入、响应和执行文件的现存字节哈希存在换行差异，将 CRLF 统一为 LF 后全部复现登记哈希，且响应与各已完成轮次的原始文本一致。以全文为审计总体，核查了 EU1–EU5 的冻结原件及适用条款，逐项裁定 39 个发现。80 行送审稿与 reports/initial.md 逐字节相同，仍有会改变上线决策的缺陷。依据见 logs/review.jsonl:1–4、logs/activity.jsonl:1–11、logs/reading/8dde78c4b62be2eb5f88.md:3–11、analysis/execution/c3e213664bdc43d884a0026c57faf823/audit-verification.json。",
+  "review_checks": {
+    "requirements_and_usefulness": {
+      "result": "valid",
+      "basis": "原始响应 reviews/host/d663b4dc004dd91babce/results/af9b2d731e574939/response.txt 与同目录 execution.json 证实已完成所派的要求、结构深度和读者可用性评审。R3 的 3,633 字符复算一致。新闭源 API、合格开源和自营系统的推演均可定位到 reports/final.md:43–57 及第 53、54、50 和 111 条，属于 R1/R2 的实际范围。"
+    },
+    "evidence_and_reasoning": {
+      "result": "valid",
+      "basis": "原始响应 reviews/host/d663b4dc004dd91babce/results/99bca3d996ca448c/response.txt 与同目录 execution.json 证实已执行证据与反例两项分配。反例可在 reports/final.md:19、26–27、43–57 与 sources/text/aiact-consolidated.txt:1690–1716、1735–1768、3071–3076 交叉复核。实施条例的生效日有据，用于区分执法权限与程序细则。"
+    },
+    "process_and_expression": {
+      "result": "valid",
+      "basis": "原始响应 reviews/host/d663b4dc004dd91babce/results/f6b3f8d563af42ce/response.txt 与同目录 execution.json 证实已执行过程语言和自然表达两项分配。抓取说明、季度安排和容易误读的上线措辞均可定位到 reports/final.md:43–66，其影响可用适用法条和 sources/text/signatories-taskforce.txt:57–70 复核。"
+    },
+    "domain-1": {
+      "result": "valid",
+      "basis": "原始响应 reviews/host/d663b4dc004dd91babce/results/826bf11617b346d8/response.txt 与同目录 execution.json 证实已执行法规领域全稿评审。两项关键上线反例对应 reports/final.md:26、43–57 及第 50(2)、53、54、55、111(3)–(4) 条。D10 所用的欧委会摘要模板已对照原件，披露范围和时间服务于既有 R2。"
+    }
+  },
+  "dispositions": {
+    "requirements_and_usefulness/reader-unsupported-inferences": {
+      "decision": "confirmed_defect",
+      "reason": "可保留 xAI 分章签署和有据的立法节点。签署页无法支撑 xAI 在欧盟的运营或合规结论，现有引文也未证实招聘规模、处罚案例状态、第二次改期的计数口径或中欧互认断言。",
+      "evidence": "reports/final.md:37、61–65；sources/text/code-of-practice.txt:77–101；sources/text/commission-guidelines.txt:140–143；sources/text/omnibus.txt:443–451、1202–1217。"
+    },
+    "evidence_and_reasoning/ER-07": {
+      "decision": "confirmed_defect",
+      "reason": "高风险系统的两个日期正确，适用范围须限定到第 III 章第 1–3 节并保留第 6(5) 条例外。附件 I 路径还包括符合第三方合格评定条件的 AI 产品本身。新增第 5 条禁令日期正确，投放、投入使用和部署者使用各有法定触发条件。",
+      "evidence": "reports/final.md:26、28–31、57；sources/text/aiact-consolidated.txt:463–465、713–753、779–812、3068–3070、3137–3146；sources/text/omnibus.txt:637–657、1043–1071。"
+    },
+    "evidence_and_reasoning/ER-10": {
+      "decision": "confirmed_defect",
+      "reason": "普通名单确有 22 家，另列仅签安全与安保章的 xAI。名单未逐家证明签了全部三章，也无法证明 xAI 的市场运营或合规状态。签署方可自愿入组，会议按需且至少每年一次，四次会议日期无法推出季度义务。",
+      "evidence": "reports/final.md:37、51、61；sources/text/code-of-practice.txt:77–101、121–122；sources/text/signatories-taskforce.txt:57–70；analysis/execution/263d4109c6eb4b5d8c833cbcdcdd437c/commission-signatory-vademecum.pdf，第 1、4 点。"
+    },
+    "evidence_and_reasoning/ER-11": {
+      "decision": "confirmed_defect",
+      "reason": "招聘规模、无公开处罚案例、第二次改期及中欧标准互认均超出当前引证。可保留已核实的提案、表决、刊载、生效和执法权限，实际执法强度仍缺少可定位的依据。",
+      "evidence": "reports/final.md:62–65；sources/text/commission-guidelines.txt:140–143；sources/text/aiact-consolidated.txt:2691–2775、2953–2975；sources/text/omnibus.txt:443–451、1202–1217。"
+    },
+    "process_and_expression/PL-02": {
+      "decision": "confirmed_defect",
+      "reason": "未取证的过程说明无法支撑中欧备案、安全评估及标准互认断言。招聘和个案状态也需要各自的证据，欧委会指南在此支持的是执法起算日。",
+      "evidence": "reports/final.md:62–65；state/task_spec.md:11–25；sources/text/commission-guidelines.txt:140–143。"
+    },
+    "process_and_expression/NE-07": {
+      "decision": "confirmed_defect",
+      "reason": "把签署准则写成触发季度对齐的动作，混合了签署承诺、可选的工作组活动与企业自行安排的复核频率。议事规则没有普遍季度要求。",
+      "evidence": "reports/final.md:37、51；sources/text/signatories-taskforce.txt:57–70；analysis/execution/263d4109c6eb4b5d8c833cbcdcdd437c/commission-signatory-vademecum.pdf，第 1、4 点。"
+    },
+    "domain-1/D07": {
+      "decision": "confirmed_defect",
+      "reason": "自营系统上线方须识别第 50(2) 条的系统提供者机器可读标记、第 50(4) 条在适用场景下的部署者披露及各自例外。高风险系统还须区分第 16 条提供者和第 26 条部署者职责，并核对附件 I 第 B 节限制、附件 I 产品分类条件和第 111(2) 条存量规则。",
+      "evidence": "reports/final.md:26–29、57；sources/text/aiact-consolidated.txt:463–465、779–812、1052–1077、1250–1264、1667–1684、3063–3076、3137–3146。"
+    },
+    "domain-1/D09": {
+      "decision": "confirmed_defect",
+      "reason": "核心法规和修订仍以第三方转录或解读为主。冻结合并版可用于定位适用条款，正式法源是官方公报。第 65 行关于中国侧要求及互认的断言缺乏取证，应从当前欧盟决策报告中移除。",
+      "evidence": "reports/final.md:7–31、62–80；state/task_spec.md:11–25；data/source_registry.csv:2–6；sources/text/aiact-consolidated.txt:396–415；sources/text/omnibus.txt:443–451。"
+    },
+    "domain-1/D10": {
+      "decision": "confirmed_defect",
+      "reason": "第 13 行正确识别摘要义务，但行动清单与第 64 行缺少可直接执行的已公布模板。模板说明涵盖主要数据集、抓取及其他来源、相关处理事项。新模型须在投放时公开，适格存量模型最迟于 2027-08-02 公开。存量资料确实无法补足时，说明要求标明并解释缺口。",
+      "evidence": "reports/final.md:13、51、64、68–80；sources/text/aiact-consolidated.txt:1731–1736、3071–3073；analysis/execution/263d4109c6eb4b5d8c833cbcdcdd437c/commission-training-summary-template.pdf，第 13–16、32–33 段。[欧委会模板与说明](https://digital-strategy.ec.europa.eu/en/library/explanatory-notice-and-template-public-summary-training-content-general-purpose-ai-models)"
+    }
+  },
+  "disposition_groups": [
+    {
+      "finding_ids": ["requirements_and_usefulness/R1-primary-sources", "evidence_and_reasoning/ER-01", "process_and_expression/PL-01"],
+      "decision": "confirmed_defect",
+      "reason": "S1、S2 支持准则及工作组。S3–S11 仍以第三方承载法条、罚款与修订，正文 [Sx] 标记没有链接定义。冻结原件已足以核查法条并提供官方链接，第 66 行的抓取过程说明未解决这个缺口。",
+      "evidence": "reports/final.md:7–31、66、68–80；state/requirements.jsonl:1；data/source_registry.csv:2–6；sources/text/aiact-consolidated.txt:396–415；sources/text/omnibus.txt:443–451、1043–1071、1202–1206。[EUR-Lex 合并版](https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng) [修订公报](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng)"
+    },
+    {
+      "finding_ids": ["requirements_and_usefulness/R1-enforcement-and-fine", "evidence_and_reasoning/ER-08", "process_and_expression/NE-05", "domain-1/D05"],
+      "decision": "confirmed_defect",
+      "reason": "第 101 条在第 XII 章。第 V 章自 2025-08-02 适用，第 88–94 条正式执法及第 101 条罚款权自 2026-08-02 适用。所列故意或过失情形下的罚款上限为 1,500 万欧元与上一财年全球总营业额 3% 两者中的较高值。实施条例于 2026-08-10 生效，可据此区分权限和程序细则的生效节点。",
+      "evidence": "reports/final.md:7、19、23–25、62；sources/text/aiact-consolidated.txt:2691–2775、2853–2855、2953–2975、3126–3146；sources/text/commission-guidelines.txt:140–143；analysis/execution/263d4109c6eb4b5d8c833cbcdcdd437c/eu-2026-1755.pdf，第 1、10 页。[实施条例公报](https://eur-lex.europa.eu/eli/reg_impl/2026/1755/oj/eng)"
+    },
+    {
+      "finding_ids": ["requirements_and_usefulness/R2-open-source-exemption", "evidence_and_reasoning/ER-02", "process_and_expression/NE-01", "domain-1/D02"],
+      "decision": "confirmed_defect",
+      "reason": "第 53(2) 与 54(6) 条分别免除合格非系统性风险模型的附件 XI/XII 义务和第三国提供者的欧盟授权代表义务。须有允许访问、使用、修改及分发的自由开源许可，并公开含权重的参数、架构与使用信息。仅开放权重不能取得豁免。版权政策和公开训练内容摘要仍适用，系统性风险模型不适用两项豁免。",
+      "evidence": "reports/final.md:9、15、19、39、43、51；sources/text/aiact-consolidated.txt:1721–1738、1747–1768；sources/text/commission-guidelines.txt:101–110；analysis/execution/263d4109c6eb4b5d8c833cbcdcdd437c/commission-gpai-guidelines.pdf，第 4.2 节。"
+    },
+    {
+      "finding_ids": ["requirements_and_usefulness/R2-market-entry-trigger", "evidence_and_reasoning/ER-03", "domain-1/D06"],
+      "decision": "confirmed_defect",
+      "reason": "须先认定模型是否属于 GPAI、谁以自身名义投放，以及该模型首次在欧盟市场提供的日期。商业活动中的免费 API、下载或集成亦可能触发。仅在中国早期发布不取得存量资格，显著修改还需判断是否产生新模型。自营或下游集成系统须另行确定角色。",
+      "evidence": "reports/final.md:13、27、41–57；sources/text/aiact-consolidated.txt:445–454、500–524、656–667、3071–3076；sources/text/commission-guidelines.txt:74–88、140–143；analysis/execution/263d4109c6eb4b5d8c833cbcdcdd437c/commission-gpai-guidelines.pdf，第 3.1.2–3.2 节。"
+    },
+    {
+      "finding_ids": ["requirements_and_usefulness/R2-release-sequence", "evidence_and_reasoning/ER-04", "process_and_expression/NE-02", "domain-1/D01"],
+      "decision": "confirmed_defect",
+      "reason": "第 45 行的新模型即时适用与第 51–53 行的统一排期冲突。2026 年第四季度新闭源 API 首次入欧时，适用的附件 XI/XII、版权政策及公开摘要须已到位，书面委任适用时须在投放前完成。第 55 条措施随系统性风险分类安排。2027-08-02 补齐期限适用于 2025-08-02 前已在欧盟投放的模型。",
+      "evidence": "reports/final.md:43–57；sources/text/aiact-consolidated.txt:1721–1758、1771–1784、3071–3076、3134–3136、3512–3577；sources/text/commission-guidelines.txt:122–143；analysis/execution/263d4109c6eb4b5d8c833cbcdcdd437c/commission-training-summary-template.pdf，第 32–33 段。"
+    },
+    {
+      "finding_ids": ["requirements_and_usefulness/R2-systemic-risk-notification", "evidence_and_reasoning/ER-05", "process_and_expression/NE-04", "domain-1/D04"],
+      "decision": "confirmed_defect",
+      "reason": "累计训练算力超过 10^25 FLOP 产生高影响能力推定。满足或已知将满足第 51(1)(a) 条条件时，应无延误通知委员会，最迟两周，可随通知提供充分反证。委员会也可依法另行指定，低算力模型仍可能进入该路径。第 55 条的严重事件报告有独立触发事件及接收方。",
+      "evidence": "reports/final.md:19、47、51–55；sources/text/aiact-consolidated.txt:1690–1716、1771–1784、3578–3594；sources/text/commission-guidelines.txt:89–100、111–117。"
+    },
+    {
+      "finding_ids": ["requirements_and_usefulness/R1-system-dates", "evidence_and_reasoning/ER-06", "process_and_expression/NE-03", "domain-1/D03"],
+      "decision": "confirmed_defect",
+      "reason": "第 50(2) 条一般自 2026-08-02 适用。第 111(4) 条的 2026-12-02 是此前已投放的适用生成系统的补齐期限。第四季度首次投放且落入适用范围的系统须在上线时具备机器可读、可检测的标记。12 月 2 日开始适用的第 5 条新增禁令有独立条件。",
+      "evidence": "reports/final.md:8、24–31、57；sources/text/aiact-consolidated.txt:1667–1684、3074–3076、3126–3146；sources/text/omnibus.txt:642–657、1043–1071。"
+    },
+    {
+      "finding_ids": ["requirements_and_usefulness/R2-code-evidence-options", "evidence_and_reasoning/ER-09", "process_and_expression/NE-06", "domain-1/D08"],
+      "decision": "confirmed_defect",
+      "reason": "报告确认自愿签署，却在系统性风险路径把安全章节写成叠加动作，并在标准段暗示整套统一切换。第 53(4)、55(2) 条允许在相关协调标准发布前以获认可准则举证，也允许提交其他充分方式供委员会评估。遵循协调标准只在覆盖的义务范围内产生推定。Omnibus 同时修改了第 56(6) 条的准则充分性评估机制。",
+      "evidence": "reports/final.md:8、17、31、35–39、47、51、55；sources/text/aiact-consolidated.txt:1484–1487、1739–1740、1783–1814；sources/text/omnibus.txt:749–755；sources/text/code-of-practice.txt:59–76。"
+    }
+  ],
+  "critical_checks": [
+    {
+      "requirement_id": "R1",
+      "location": "reports/final.md:7–31、62–80",
+      "evidence": "R1 所需 EU1/EU2 原文已经冻结。报告仍缺相应官方链接，罚款公式缺取高及上一财年口径，第 50(2) 条一般适用日写错。对照 state/requirements.jsonl:1、data/source_registry.csv:2–3、sources/text/aiact-consolidated.txt:2953–2967、3071–3076、3126–3146 及 sources/text/omnibus.txt:1043–1071。",
+      "result": "defect"
+    },
+    {
+      "requirement_id": "R2",
+      "location": "reports/final.md:9、13–19、41–57",
+      "evidence": "R2 的上线顺序会延误新闭源 API 的版权与下游资料，错误安排合格开源的授权代表，并遗漏系统性风险通知。适用对象及存量资格须按模型首次欧盟投放确定，自营生成系统另看其提供者和部署者义务。对照 state/requirements.jsonl:2、sources/text/aiact-consolidated.txt:500–524、1667–1684、1690–1784、3071–3076。",
+      "result": "defect"
+    },
+    {
+      "requirement_id": "R3",
+      "location": "reports/final.md:1–80",
+      "evidence": "对 SHA-256 为 7191636edc8e39089df89dc94d2244467d308c64c4027a812fe9fa849f8c839f 的 UTF-8 文件独立计数，全文含 Markdown 与参考来源共 3,633 个 Unicode 非空白字符，落在 3,000–4,000 范围内。依据见 state/requirements.jsonl:3 和 analysis/execution/c3e213664bdc43d884a0026c57faf823/audit-verification.json。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/final.md:1–80；reports/initial.md",
+      "evidence": "原始任务明确要求核查并修订 DeepSeek 原稿。唯一保存记录为导入，原稿、送审副本与最终路径的字节和 SHA-256 一致，R1/R2 的实质错误仍在。依据见 state/task_spec.md:5、logs/activity.jsonl:2、logs/reading/692209cce60520ea7d94.md:3–13、logs/reading/8dde78c4b62be2eb5f88.md:3–11 及 analysis/execution/c3e213664bdc43d884a0026c57faf823/audit-verification.json。",
+      "result": "defect"
+    },
+    {
+      "location": "reports/final.md:19、35、47、51–55",
+      "evidence": "高影响能力推定及第 55 条四类措施有依据。训练中已知将达到第 51(1)(a) 条条件时即可触发第 52(1) 条最迟两周通知。稿件只列严重事件响应，读者无法据此识别前一义务。对照 sources/text/aiact-consolidated.txt:1690–1716、1771–1784、3578–3594。",
+      "result": "defect"
+    },
+    {
+      "location": "reports/final.md:26–29、57",
+      "evidence": "分别检验第 111(3) 条存量模型、第 111(4) 条存量生成系统及第 111(2) 条存量高风险系统。三者的适用对象、起算点和触发条件不同。报告遗漏后二者的边界，并把两个有据的高风险日期用于过宽的对象和义务范围。对照 sources/text/aiact-consolidated.txt:463–465、779–812、3063–3076、3126–3146。",
+      "result": "defect"
+    }
+  ],
+  "sample_checks": [
+    {
+      "location": "reports/final.md:13、17",
+      "selection_reason": "选择基础义务段中评审认为成立的内容，核对正文、附件和接收方的对应关系。",
+      "evidence": "sources/text/aiact-consolidated.txt:1721–1738、3512–3577 与 sources/text/commission-guidelines.txt:122–139 支持四项基础义务、必要的监管合作及两类文档的区分。附件 XI 面向监管调阅，附件 XII 面向拟集成方，公开摘要为单独义务。",
+      "result": "clear"
+    },
+    {
+      "location": "reports/final.md:24、27、45、55、63",
+      "selection_reason": "抽查正文中有依据的日期，区分通过、签署、刊载、生效及存量模型期限。",
+      "evidence": "sources/text/omnibus.txt:443–451、1202–1217 显示议会 6 月 16 日立场、理事会 6 月 29 日通过、7 月 8 日签署及 7 月 24 日刊载，第 4 条复算 7 月 27 日生效。合并版第 111(3) 条支持 2027-08-02 存量模型期限。第 63 行的 2025-11-19 提案日期也有官方依据。[EUR-Lex 立法程序](https://eur-lex.europa.eu/procedure/EN/2025_359?sortOrder=asc) [欧委会提案](https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A52025PC0836)",
+      "result": "clear"
+    },
+    {
+      "location": "reports/final.md:35、37",
+      "selection_reason": "抽查规则说明之外的公开统计和工作组事件，直接从冻结名单及会议记录核验。",
+      "evidence": "sources/text/code-of-practice.txt:59–76、79–101、121–122 支持准则发布日、三章主题、一般名单 22 家和 xAI 单列。sources/text/signatories-taskforce.txt:57–70 支持 AI 办公室主持及 1 月 30 日、3 月 13 日、3 月 27 日、7 月 17 日四次会议。1 月 30 日确为成立会议。[欧委会成立会议记录](https://digital-strategy.ec.europa.eu/en/news/first-meeting-signatory-taskforce-general-purpose-ai-code-practice)",
+      "result": "clear"
+    },
+    {
+      "location": "reports/final.md:7、19、23–25、62",
+      "selection_reason": "以低于、等于和高于罚款公式分界的营业额，检验第 7 行能否用于计算。",
+      "evidence": "按 sources/text/aiact-consolidated.txt:2953–2967，上一财年全球总营业额分别为 1 亿、5 亿、10 亿欧元时，上限分别为 1,500 万、1,500 万、3,000 万欧元。原句的“或”无法给出该取值。复算见 analysis/execution/c3e213664bdc43d884a0026c57faf823/audit-verification.json。",
+      "result": "defect",
+      "expansion": {
+        "examined_locations": ["reports/final.md:19、23–25、62", "sources/text/aiact-consolidated.txt:2691–2775、2853–2855、3126–3146", "sources/text/commission-guidelines.txt:140–143", "analysis/execution/263d4109c6eb4b5d8c833cbcdcdd437c/eu-2026-1755.pdf，第 1、10 页"],
+        "outcome": "确认 2026-08-02 权限起算有据，第 V 章和第 XII 章归属需修正。程序细则于 2026-08-10 生效，权限日期不能证明个案、招聘规模或全部程序同期到位。"
+      }
+    },
+    {
+      "location": "reports/final.md:43–55",
+      "selection_reason": "将三条模型路径套入 2026 年第四季度统一清单，检查转写后是否保留各项动作的条件及触发日。",
+      "evidence": "按 sources/text/aiact-consolidated.txt:500–524、1690–1784、3071–3073，首次向欧盟供给的普通闭源 API 不能将适用的版权与附件 XII 延至 2027 年。合格非系统性风险开源无需代表，系统性风险模型则按其独立的通报及准备节点处理。",
+      "result": "defect",
+      "expansion": {
+        "examined_locations": ["reports/final.md:9、13–19、27、39、43–57", "sources/text/commission-guidelines.txt:74–117、122–143", "sources/text/aiact-consolidated.txt:3512–3594"],
+        "outcome": "核查了提前在欧盟投放、仅在中国早期发布、欧盟商业活动中的免费供给、开放权重但许可受限、低于算力阈值但被指定等情形。只有符合第 111(3) 条的模型可使用模型过渡期。统一日历遗漏了这些分流，也把严重事件流程放进了所有模型的清单。"
+      }
+    },
+    {
+      "location": "reports/final.md:26–31、57",
+      "selection_reason": "比较在 2026 年 7 月和 11 月分别首次投放、均落入第 50(2) 条的同类生成应用。",
+      "evidence": "sources/text/aiact-consolidated.txt:1667–1684、3074–3076、3126–3136 与 sources/text/omnibus.txt:1043–1071 支持不同期限。7 月投放者可用到 12 月 2 日的补齐期限，11 月投放者应于上线时标记，报告将二者合并。",
+      "result": "defect",
+      "expansion": {
+        "examined_locations": ["reports/final.md:8、26–31、57", "sources/text/aiact-consolidated.txt:713–753、779–812、1667–1684、3068–3076、3137–3146", "sources/text/omnibus.txt:637–657、1043–1071"],
+        "outcome": "核查了标准编辑等例外、部署者披露、同日新增禁令及附件 I/III 高风险分支。延期只覆盖适格存量系统的第 50(2) 条。第 5 条禁令与高风险要求分别依自身触发条件判断。"
+      }
+    },
+    {
+      "location": "reports/final.md:17、35–39、47、51、55、61",
+      "selection_reason": "检查准则章节说明转入执行清单后是否仍保留自愿性质，并复核由签署状态推得的结论。",
+      "evidence": "对照 sources/text/aiact-consolidated.txt:1739–1740、1783–1814 和 sources/text/code-of-practice.txt:59–76、77–101。第 39 行的自愿性成立，第 47 行把安全与安保章列入叠加项，第 55 行暗示统一切换，xAI 名单无法证明其在欧盟运营。",
+      "result": "defect",
+      "expansion": {
+        "examined_locations": ["reports/final.md:8、31、35–39、47、51、55、61", "sources/text/aiact-consolidated.txt:1484–1487、1809–1814", "sources/text/omnibus.txt:749–755", "sources/text/signatories-taskforce.txt:57–70"],
+        "outcome": "复核了标准覆盖范围、替代举证、Omnibus 对第 56(6) 条的修改及工作组规则。合规推定限于标准覆盖部分，第 31 行对修订范围的概括过窄，季度要求无据。第 35 行也应改正“安全与安全”和“对应对”。"
+      }
+    },
+    {
+      "location": "reports/final.md:66、70–80；data/claims_registry.csv:2–4",
+      "selection_reason": "从来源登记的三项已支持主张反查读者实际可以追溯到哪些原文。",
+      "evidence": "C1、C2、C3 分别关联 EU1/EU3、EU1/EU2、EU1/EU4，但报告参考表仅在准则与工作组两项使用欧委会链接。EU1/EU2 已有冻结原件且登记的文本哈希可复现。依据见 data/source_registry.csv:2–6 和 analysis/execution/c3e213664bdc43d884a0026c57faf823/audit-verification.json。",
+      "result": "defect",
+      "expansion": {
+        "examined_locations": ["reports/final.md:7–31、35–39、62–80", "sources/raw/aiact-consolidated.html", "sources/raw/omnibus.html", "logs/activity.jsonl:2", "logs/reading/65c1ec984b21d974a923.md:6–8"],
+        "outcome": "追踪了基础义务、系统时间表、罚款、准则和两份欧委会页面。准则部分有官方溯源，决定性法规条款和修订仍由第三方承载。分析索引指回同一稿件，保存记录也未显示这些证据写入后续交付版本。"
+      }
+    }
+  ],
+  "prior_findings": {},
+  "report_verdict": "needs_revision",
+  "open_issues": [
+    "送审稿与原稿逐字节相同。须把 EUR-Lex 与官方公报核查写入正文，为关键法条、修订和摘要模板补可点击的官方来源，并更正第 101 条公式、章别和执法节点。见 reports/final.md:7–25、64–80。",
+    "按每个模型首次向欧盟提供的日期重排上线动作，修正合格开源的两项豁免，纳入第 52 条分类通知及第 55 条准备，将 2027-08-02 补齐期限用于适格存量模型。见 reports/final.md:9–19、41–55。",
+    "区分第 50(2) 条一般适用日与特定存量过渡，另列第 5 条新增禁令及高风险系统的角色、分类与期限。见 reports/final.md:8、24–31、57。",
+    "明确准则与协调标准的举证条件，修正工作组季度安排、签署范围及运营推断，限缩或移除未经证实的招聘、案例、改期次数和互认说法。见 reports/final.md:17、31、35–39、47、51、55、61–66。"
+  ],
+  "verification_requests": []
+}

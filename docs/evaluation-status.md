@@ -4,6 +4,13 @@
 
 **Use the actual reports, located review findings and retained revisions to assess what Toolkit helps an agent accomplish.** This page separates research deliveries, version comparisons and software behavior checks, with each result tied to its task and version.
 
+| Recorded result | What the evidence establishes | Original material |
+| --- | --- | --- |
+| One v3 report, 39 findings and 17 audit decisions | The two-slot run revised, independently checked and delivered one long report. | [Draft, decisions and receipt](case-study/v3-review/README.md) |
+| Separate four-reviewer disagreement control | An independent auditor checked the source and dismissed a repeated false objection in four seeded reviews. | [Inputs and audit original](case-study/v3-review/records.json) |
+| 13 long-research questions, 15 reports in two languages | Manuscripts and revisions are available for inspection. These assignments have no matched no-Toolkit control. | [Study design and reports](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-11-09-long-research) |
+| Two historical version comparisons, one question each | Neither showed the intended improvement. Each newer version took longer on its own question. General quality and time effects remain unmeasured. | [Save guidance](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-22-compressed-air-save) · [Request understanding](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-22-codex-entry) |
+
 ## Current evidence
 
 The [current long-research benchmark](../evals/README.md) defines 13 questions across fields, with seven Chinese and six English primary reports. Independent English microdrama and Chinese test-time-compute assignments use the same questions' frozen materials, for 15 report assignments in total. The [November 9 study](../evals/studies/2026-11-09-long-research/README.md) retains task definitions, source records, first outputs, revisions and the actual assessment results. Research quality is judged against the question and manuscript; execution measurements describe the run rather than decide its quality.

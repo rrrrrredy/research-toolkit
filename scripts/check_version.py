@@ -57,6 +57,27 @@ def check(root: Path, write: bool = False) -> list[str]:
     return errors
 
 
+def check_upgrade_support(root):
+    from research_workflow import CURRENT_REVIEW_CONTRACT
+    policy = json.loads((root / "release/upgrade-support.json").read_text(encoding="utf-8"))
+    current_major = int((root / "VERSION").read_text().split(".")[0])
+    contracts = policy["saved_contracts"]
+    if policy["target_major"] != current_major or policy["new_full_report_contract"] != CURRENT_REVIEW_CONTRACT:
+        return ["Upgrade policy and current runtime version disagree"]
+    if set(contracts) != {str(i) for i in range(1, CURRENT_REVIEW_CONTRACT + 1)}:
+        return ["Upgrade policy omits a saved review contract"]
+    for contract, rule in contracts.items():
+        if not rule["continue"] or not rule["historical_receipt"] or not (root / rule["evidence"]).is_file():
+            return ["Missing upgrade decision or evidence for contract "+contract]
+    for receipt in (root / "evals").rglob("final_delivery.json"):
+        progress = receipt.with_name("progress.json")
+        if progress.exists():
+            version = json.loads(progress.read_text(encoding="utf-8-sig")).get("review_contract", 1)
+            if str(version) not in contracts:
+                return [f"{receipt}: unsupported archived review contract {version}"]
+    return []
+
+
 def self_test() -> None:
     import tempfile
     import shutil
@@ -86,7 +107,7 @@ def main() -> int:
     parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
     try:
-        errors = check(ROOT, args.write)
+        errors = check(ROOT, args.write) + check_upgrade_support(ROOT)
         if errors:
             print("\n".join("FAIL: " + e for e in errors))
             return 1

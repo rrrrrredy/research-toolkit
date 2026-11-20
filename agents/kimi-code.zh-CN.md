@@ -2,6 +2,10 @@
 
 [English](kimi-code.md) | [简体中文](kimi-code.zh-CN.md)
 
+<!-- hosts:start -->
+**接入**　项目级原生 Skill。 [宿主能力](README.zh-CN.md#capabilities)
+<!-- hosts:end -->
+
 ## 安装
 
 Git 和客户端已就绪时，从项目根目录执行。目标目录已存在时，使用[更新指南](../docs/installation-versioning.zh-CN.md)。
@@ -26,7 +30,7 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 交付完整报告与可用引用，保留来源和完整分析用于交接，由 Kimi Code CLI 完成独立审阅、审计和验收。
 ```
 
-[统一研究指南](../docs/quickstart.zh-CN.md)提供完整请求和接入说明。
+[统一研究指南](../docs/conduct-research.zh-CN.md)提供完整请求和接入说明。
 
 ## 无法加载时
 

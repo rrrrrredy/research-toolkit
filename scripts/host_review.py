@@ -376,6 +376,53 @@ def audit_scaffold(request):
                                    - GENERATED_REGISTRIES)}
 
 
+def audit_response_template(request):
+    """Pre-fill identities and coverage, leaving every independent judgment blank."""
+    packet = request["assignment"]
+    requirements = packet.get("applicable_requirements", packet["effective_requirements"])
+    def decisions(ids):
+        return {key: {"decision": "", "reason": "", "evidence": ""} for key in ids}
+    prior = (item["attempt_id"] + "/" + item["finding"]["finding_id"]
+             for item in packet["prior_required_findings"])
+    result = {
+        "input_version": request["input_version"], "assignment_version": request["assignment_version"],
+        "result": "", "basis": "", "report_verdict": "",
+        "review_checks": {key: {"result": "", "basis": ""} for key in request["reviews"]},
+        "dispositions": decisions(current_findings(request["reviews"])),
+        "prior_findings": decisions(prior),
+        "critical_checks": [{"requirement_id": item["requirement_id"], "location": "", "result": "", "evidence": ""}
+                            for item in requirements],
+        "sample_checks": [{"location": "", "selection_reason": "", "result": "", "evidence": ""}],
+        "open_issues": [],
+    }
+    # Source context is separate from the empty fields for the auditor's own evidence and decisions.
+    result["source_context"] = {
+        **(request.get("audit_scaffold") or audit_scaffold(request)),
+        "requirements": [{key: item[key] for key in ("requirement_id", "summary", "required_source_ids") if key in item}
+                         for item in requirements],
+    }
+    if request["contract_version"] == 3:
+        result.update(disposition_groups=[], prior_finding_groups=[])
+    if request.get("phase") == "adjudicate":
+        result["verification_decisions"] = decisions(request["verifications"])
+    return result
+
+
+def pending_audit_template(root, progress, scope):
+    plan = progress.get("review_plan") if scope == "full_report" else progress.get("unit_review_plans", {}).get(scope)
+    if not plan:
+        raise ValueError("No saved review plan for this scope. Prepare review assignments first.")
+    checked_files(root, plan)
+    selected = selected_results(root, plan)
+    pending = next_slots(plan, selected)
+    auditor = next((slot for slot in pending if slot["role"] == "auditor"), None)
+    if not auditor:
+        raise ValueError("No pending independent audit for this input. Pending roles: " +
+                         (", ".join(slot["slot_id"] for slot in pending) or "none"))
+    request, _ = assignment(root, plan, auditor, selected, persist=False)
+    return audit_response_template(request)
+
+
 def methods(role):
     from research_guidance import guidance
     names = {"reviewer": ["review"], "auditor": ["audit"], "acceptance": ["acceptance"]}
@@ -937,8 +984,14 @@ def review(workflow, root, progress, evidence_paths, artifact, purpose, revision
     for slot in pending:
         request, request_ref = assignment(root, plan, slot, selected)
         from task_reading import reading_view
-        requests.append({"slot_id": slot["slot_id"], "role": slot["role"],
-                         "reading_ref": reading_view(root, request),
+        extra = {}
+        if slot["role"] == "auditor":
+            # This writing aid is outside the signed assignment, including when resuming a saved v2/v3 task.
+            template = audit_response_template(request)
+            name = request_ref["path"].removesuffix(".json") + "-template-" + digest(template)[:12] + ".json"
+            extra["response_template_ref"] = frozen(root, name, template)
+        requests.append({"slot_id": slot["slot_id"], "role": slot["role"], **extra,
+                         "reading_ref": reading_view(root, {**request, **extra}),
                          "assignment_ref": request_ref, "assignment_version": request["assignment_version"],
                          **({"phase": request["phase"]} if "phase" in request else {}),
                          **({"resume_host_task": request["resume_host_task"]} if "resume_host_task" in request else {}),

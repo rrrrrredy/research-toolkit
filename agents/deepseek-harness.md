@@ -2,6 +2,10 @@
 
 [English](deepseek-harness.md) | [简体中文](deepseek-harness.zh-CN.md)
 
+<!-- hosts:start -->
+**Entry**　Native Skill and optional adapter.  [Host capabilities](README.md#capabilities)
+<!-- hosts:end -->
+
 Research Toolkit does not depend on DSH. This guide applies only to users who choose that runtime; Use this adapter when DeepSeek Harness can load project or shared filesystem Skills. The repository's existing `SKILL.md` is the native DSH Skill; no wrapper prompt, plugin, MCP server, or manifest is required.
 
 This adapter follows the official DSH documentation:

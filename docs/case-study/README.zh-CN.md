@@ -8,6 +8,13 @@
 - **AI Agent 选择 API 还是浏览器**：英文原创研究，比较动作覆盖、完成核验、恢复、权限与成本。[报告](api-or-browser/report.md) · [案例档案](api-or-browser/README.md) · [来源](api-or-browser/sources.md) · [评审与修订](api-or-browser/reviews.md)。保留初稿、独立上下文评审及迁移成本修正；题面中的假设工作流与未实测成本模型仍按原样说明。
 - **国内办公 Agent**：中文原创研究及英文译文。[中文报告](report.zh-CN.md) · [案例档案](office-agents/README.md) · [英文译文](report.en.md)。下文保留历史稿件比较，译文不另计新任务。
 
+## 可打开原稿与修订的长报告
+
+- [国内办公 Agent 研究](office-agents-2026-11/README.md)留有原稿、来源和评审。
+- [中国微短剧市场](long-research-2026-11/microdrama.zh-CN.html)区分充值流水、市场收入与制作端收入。
+- [动力电池选型](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/ev_batteries_zh/final.md)把整包约束和量产条件落到具体车型。[改稿依据](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/reports/ev_batteries_zh/analysis/change-note-full-03.md)。
+- [欧盟 GPAI 报告从原稿到交付](v3-review/README.zh-CN.md)保留三步命令返回、独立审计与最终回执。
+
 ## 国内办公 Agent 产品研究
 
 历史报告，信息截至 2026 年 9 月 9 日；部分动态文档于 9 月 10 日核对。研究基于公开资料，未安装实测。稿件变化不构成有无工具箱的对照实验。

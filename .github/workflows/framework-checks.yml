@@ -24,9 +24,9 @@ jobs:
       contents: read
       actions: read
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Reuse successful main checks for this exact release commit
-        uses: actions/github-script@v7
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         with:
           script: |
             const { owner, repo } = context.repo;
@@ -37,7 +37,7 @@ jobs:
             const passed = data.workflow_runs.find(run => run.head_sha === context.sha && run.conclusion === 'success');
             if (!passed) core.setFailed('This tag must point to a commit with successful main Framework checks. Finish those checks before releasing; do not rerun them on the tag.');
             else core.info(`Reusing ${passed.html_url} for ${context.sha}`);
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.12"
       - name: Check release tag and packaged metadata
@@ -50,16 +50,12 @@ jobs:
     if: github.event_name != 'workflow_run' && (github.event_name != 'push' || !startsWith(github.ref, 'refs/tags/'))
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.12"
       - name: Verify committed static build and initial HTML
-        run: |
-          python scripts/build_site.py --check
-          python scripts/check_site.py --self-test
-          node --check docs/assets/reading-preferences.js
-          node --check docs/assets/showcase.js
+        run: python scripts/check_project.py --group site
 
   deployed-site:
     if: >-
@@ -72,11 +68,11 @@ jobs:
       group: deployed-site-verification
       cancel-in-progress: true
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.workflow_run.head_sha }}
           persist-credentials: false
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.12"
       - name: Verify deployed raw HTML, assets, language URLs and sitemap
@@ -86,7 +82,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/check_site.py --stars-output star-observation.json
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
           name: public-star-observation-${{ github.event.workflow_run.head_sha }}
@@ -97,90 +93,21 @@ jobs:
     if: github.event_name != 'workflow_run' && (github.event_name != 'push' || !startsWith(github.ref, 'refs/tags/'))
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.12"
-      - name: Check release version consistency
-        run: python scripts/check_version.py --self-test
-      - name: Check published SKILL sync
-        run: |
-          python scripts/check_docs_sync.py
-          python scripts/check_docs_sync.py --skill SKILL.zh-CN.md --html docs/framework.zh-CN.html
-      - name: Check DeepSeek Harness adapter
-        run: python scripts/run_dsh_evals.py validate
-      - name: Check eval source integrity
-        run: python scripts/check_eval_source_integrity.py
-      - name: Check source-use and regeneration controls
-        run: python scripts/check_source_policy_contract.py
-      - name: Check stored-source text and metadata extraction
-        run: python scripts/check_source_extraction.py
-      - name: Check known-bad regression fixtures
-        run: python scripts/check_regression_fixtures.py
-      - name: Check known-good conformance fixtures
-        run: python scripts/check_conformance_fixtures.py
-      - name: Check isolated delivery contract
-        run: |
-          python scripts/check_delivery_contract.py
-          python scripts/check_review_completion_contract.py
-      - name: Check evaluator and delivery consistency
-        run: python scripts/check_evaluator_contract.py
-      - name: Check semantic diagnostic data boundaries
-        run: python scripts/check_semantic_diagnostics.py
-      - name: Check installation comparison
-        run: python scripts/check_installation_contract.py
-      - name: Check public diagnostic bundle and failure-preservation controls
-        run: python scripts/check_diagnostic_bundle.py --self-test
-      - name: Check semantic review evidence and disagreement preservation
-        run: python scripts/check_semantic_review_bundle.py --self-test
-      - name: Check shared research workflow
-        run: |
-          python scripts/check_research_workflow.py
-          python scripts/check_draft_contract.py
-          python scripts/check_record_workflow.py
-          python scripts/check_task_continuity.py
-          python scripts/check_release_updates.py
-          python scripts/check_task_lock.py
-      - name: Check historical review records and reviewer backends
-        run: python scripts/check_profiles_reviewers.py
-      - name: Check usage notice and content authorization over loopback
-        run: python scripts/check_usage_sharing.py
-      - name: Check native host failure and continuation
-        run: python scripts/check_host_execution.py
-      - name: Check plugin payload matches shared sources
-        run: |
-          python scripts/build_plugin.py --check
-          python scripts/check_plugin_build.py
-      - name: Check local MCP protocol with synthetic reviewers
-        run: |
-          python -m pip install -r requirements-mcp.txt
-          python scripts/check_mcp_contract.py
-      - name: Check blinded pilot and historical reproduction without model calls
-        run: |
-          python scripts/check_blinded_evals.py
-          python scripts/check_blinded_protocol_v2.py
-          python scripts/check_judge_calibration.py --self-test
-          python scripts/check_live_execution.py
-          python scripts/check_live_diagnostics.py
-          python scripts/check_development_evidence.py --self-test
-          python scripts/check_feedback_probes.py --self-test
-          python evals/diagnostics/2026-10-13-targeted-recheck/verify.py
-          python evals/diagnostics/2026-10-13-dedicated-seven/verify.py
-          python evals/repairs/2026-10-13-pipeline-complete/verify.py
-          python evals/studies/2026-10-13-before-after/verify.py
-          python evals/studies/2026-10-14-native-agent/verify.py
-          python evals/studies/2026-10-16-external-batches/verify.py
-          python evals/studies/2026-10-19-external-batches/verify.py
-          python evals/studies/2026-10-21-external-batches/verify.py
-      - name: Check study verification under Python optimization without rewriting evidence
-        run: python scripts/check_study_verification.py
+      - name: Install pinned local MCP dependencies
+        run: python -m pip install -r requirements-mcp.txt
+      - name: Run repository and workflow checks
+        run: python scripts/check_project.py --group runtime
 
   minimum-python:
     if: github.event_name != 'workflow_run' && (github.event_name != 'push' || !startsWith(github.ref, 'refs/tags/'))
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.10"
       - name: Check standard-library CLI on the minimum Python version
@@ -200,8 +127,8 @@ jobs:
     if: github.event_name != 'workflow_run' && (github.event_name != 'push' || !startsWith(github.ref, 'refs/tags/'))
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
           python-version: "3.12"
       - name: Check Windows task locks and reviewer process cleanup

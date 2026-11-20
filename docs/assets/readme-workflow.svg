@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 126" role="img" aria-labelledby="title desc">
+  <title id="title">How a long report reaches delivery</title>
+  <desc id="desc">Trace a question through evidence, a manuscript, independent review and a final check. Required corrections return to the manuscript.</desc>
+  <rect width="900" height="126" rx="12" fill="#f6f8f6"/>
+  <g stroke="#526d5d" fill="none" stroke-width="1.7"><path d="M75 38H813"/><path d="M624 92v14H450v-9m-4 5 4-5 4 5"/></g>
+  <g font-family="system-ui, sans-serif" text-anchor="middle">
+    <circle cx="86" cy="38" r="6" fill="#345b45"/><text x="86" y="67" font-size="16" font-weight="650" fill="#1d3024">Question</text><text x="86" y="87" font-size="12" fill="#405448">Purpose and scope</text>
+    <circle cx="268" cy="38" r="6" fill="#345b45"/><text x="268" y="67" font-size="16" font-weight="650" fill="#1d3024">Evidence</text><text x="268" y="87" font-size="12" fill="#405448">Sources and claims</text>
+    <circle cx="450" cy="38" r="6" fill="#345b45"/><text x="450" y="67" font-size="16" font-weight="650" fill="#1d3024">Manuscript</text><text x="450" y="87" font-size="12" fill="#405448">Analysis and citations</text>
+    <circle cx="632" cy="38" r="6" fill="#345b45"/><text x="632" y="67" font-size="16" font-weight="650" fill="#1d3024">Independent checks</text><text x="632" y="87" font-size="12" fill="#405448">Review, audit, final check</text>
+    <circle cx="814" cy="38" r="6" fill="#345b45"/><text x="814" y="67" font-size="16" font-weight="650" fill="#1d3024">Delivery</text><text x="814" y="87" font-size="12" fill="#405448">Report and receipt</text>
+  </g>
+</svg>

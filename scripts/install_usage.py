@@ -106,17 +106,35 @@ def install(host, project, remove=False):
     return path
 
 
-def main():
+def main(argv=None, *, setup=False):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--host", required=True, choices=["codex", "claude", "opencode"])
     parser.add_argument("--project", type=Path, default=Path.cwd())
     parser.add_argument("--channel", choices=sorted(usage.CHANNELS), default="manual")
     parser.add_argument("--form", choices=["skill", "plugin", "cli", "mcp"], default="skill")
     parser.add_argument("--remove", action="store_true")
-    args = parser.parse_args()
+    parser.add_argument("--no-telemetry", action="store_true", help="Skip usage configuration for this setup.")
+    parser.add_argument("--apply", action="store_true", help="Apply optional hooks using the existing recording choice.")
+    parser.add_argument("--preview", action="store_true",
+                        help="Show the effective setting, target and planned hooks without writing anything.")
+    args = parser.parse_args(argv)
     project = args.project.resolve()
     path = project / (".opencode/plugins/research-toolkit-usage.js" if args.host == "opencode" else
                       ".codex/hooks.json" if args.host == "codex" else ".claude/settings.local.json")
+    if args.apply and (args.preview or args.no_telemetry):
+        parser.error("--apply cannot be combined with --preview or --no-telemetry")
+    if args.preview or args.no_telemetry or (setup and not args.apply):
+        enabled = usage.recording_enabled()
+        events = EVENTS + (["PostToolUseFailure"] if args.host == "claude" else [])
+        if args.host == "opencode":
+            events = ["OpenCode usage observer"]
+        print(json.dumps({"host": args.host, "preview": True, "recording_enabled": enabled,
+                          "target": str(path), "configuration_exists": path.is_file(),
+                          "planned_action": "none" if args.no_telemetry else "remove_owned_hooks" if args.remove else
+                                            "configure_hooks" if enabled else "none",
+                          "hooks": events if (enabled or args.remove) and not args.no_telemetry else [],
+                          "configuration_changed": False}))
+        return
     if not args.remove and not usage.recording_enabled():
         print(json.dumps({"host": args.host, "path": str(path), "removed": False,
                           "configuration_changed": False,

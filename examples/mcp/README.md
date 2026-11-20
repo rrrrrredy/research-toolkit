@@ -2,7 +2,7 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-The fictional shipment note demonstrates interface calls, not a complete research task or quality study. The current capture prepares independent agent tool assignments; it does not replay the supplied historical author self-review. See the [quickstart](../../docs/quickstart.md) for complete research.
+The fictional shipment note demonstrates interface calls, not a complete research task or quality study. The current capture prepares independent agent tool assignments; it does not replay the supplied historical author self-review. See the [quickstart](../../docs/conduct-research.md) for complete research.
 
 After installing `requirements-mcp.txt`, run from the repository root:
 

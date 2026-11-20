@@ -2,6 +2,10 @@
 
 [English](qwenwork.md) | [简体中文](qwenwork.zh-CN.md)
 
+<!-- hosts:start -->
+**接入**　仓库链接安装。 [宿主能力](README.zh-CN.md#capabilities)
+<!-- hosts:end -->
+
 本卡适用于 QwenWork（千问办公），不等同于通用千问聊天应用。
 
 ## 一句话安装
@@ -30,7 +34,7 @@ Windows 克隆时仅为此副本启用 core.longpaths，不改全局设置。
 交付完整报告与可用引用，保留来源和完整分析用于交接，由 千问办公 完成独立审阅、审计和验收。
 ```
 
-[统一研究指南](../docs/quickstart.zh-CN.md)提供完整请求和接入说明。
+[统一研究指南](../docs/conduct-research.zh-CN.md)提供完整请求和接入说明。
 
 ## 无法加载时
 

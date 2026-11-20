@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import re
 import argparse
 import html
 from pathlib import Path
@@ -30,6 +31,26 @@ def split_embedded_block(page: str) -> tuple[str, str, str]:
     return before, embedded, after
 
 
+def check_language_navigation(root):
+    from urllib.parse import unquote, urlsplit
+    docs = root / "docs"
+    en = {p.relative_to(docs/"en") for p in (docs/"en").rglob("*.md")}
+    zh = {p.relative_to(docs/"zh") for p in (docs/"zh").rglob("*.md")}
+    if not en or en != zh:
+        raise ValueError("English and Chinese navigation have unmatched paths: " + str(en ^ zh))
+    for language in ("en", "zh"):
+        for name in en:
+            page = docs / language / name
+            source = page.read_text(encoding="utf-8")
+            for href in re.findall(r'\]\(([^)]+)\)', source):
+                target = urlsplit(href)
+                if not target.scheme and target.path and not (page.parent / unquote(target.path)).is_file():
+                    raise ValueError(f"{page}: missing navigation target {href}")
+            if name != Path("README.md") and name.name == "README.md":
+                if name.as_posix() not in (docs / language / "README.md").read_text(encoding="utf-8"):
+                    raise ValueError(f"{name} missing from {language} navigation")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write", action="store_true", help="refresh the HTML block from SKILL.md")
@@ -38,6 +59,7 @@ def main() -> int:
     args = parser.parse_args()
 
     repo_root = Path(__file__).resolve().parents[1]
+    check_language_navigation(repo_root)
     skill_path = (repo_root / args.skill).resolve()
     html_path = (repo_root / args.html).resolve()
 

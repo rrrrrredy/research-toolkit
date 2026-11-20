@@ -1,83 +1,26 @@
-# 开始研究：完整研究方法
+# 快速安装 Research Toolkit
 
-[English](quickstart.md) · [简体中文](quickstart.zh-CN.md) · [Research Toolkit](../README.zh-CN.md)
+[English](quickstart.md) · [简体中文](quickstart.zh-CN.md)
 
-中英文、多领域长研究及写作、修订和更新共用同一入口。Agent 在 Codex、Claude Code 等 Agent 工具中按当前工作读取方法，Toolkit 连接需求、原始材料、分析、写作与独立审阅。CLI／MCP 任务管理可选。
+## 安装 Skill
 
-## 1. 复制请求，开始研究
+1. 在[正式发布页](https://github.com/rrrrrredy/research-toolkit/releases/latest)下载插件 ZIP 和 `SHA256SUMS`。[核对校验和并解压](installation-versioning.zh-CN.md#install-a-version-pinned-skill)。
+2. 选择你使用的 Agent，把解压得到的 `research-toolkit` 文件夹放在下表的位置。打开这个文件夹应能直接看到 `SKILL.md` 和 `references/`。已有安装可按[更新说明](installation-versioning.zh-CN.md)保留自己的修改。
+3. 在该项目里重新打开 Agent，按最后一列确认它能加载技能。
 
-说明研究问题、读者、用途、已有材料和明确约束即可。Agent 组织执行，用户无需替它调度每一步。
-
-```text
-使用 Research Toolkit，先阅读 SKILL.md：
-https://github.com/rrrrrredy/research-toolkit
-
-为企业知识助手的产品与技术负责人写一份中文选型研究：
-RAG、长上下文和混合路线各在什么条件下适用？
-研究范围包含文档更新、权限控制、引用定位、回答质量、延迟与成本。
-读取截至执行日可取得的原始论文和技术文档，并记录信息截止日。
-未给出的企业规模、预算与部署条件作为待验证假设，给出条件化建议。
-交付 final.md，整份文件为 6000–8000 个非空白字符，
-包括标题、Markdown 标记、引用和参考资料。
-
-解释路线差异和选择理由，提出具体建议与第一步实施安排。
-正文引用使用来源标题和网址。
-```
-
-这里的篇幅属于示例要求，不是所有研究的统一下限。利用已有上下文理解用途，只询问会实质影响研究的重要缺项。无法读取 GitHub 时，提供[下载后的仓库](https://github.com/rrrrrredy/research-toolkit/archive/refs/heads/main.zip)中的 `SKILL.md` 和所需参考文件。
-
-## 2. 在现有 Agent 中使用
-
-按 Agent 工具能力选择[入口](../README.zh-CN.md#选哪一种)：
-
-- **Skill：** 提供仓库或安装 Skill，使用 Agent 工具的研究和子 Agent 能力，不要求固定 CSV／JSONL 台账。
-- **插件：** 安装[插件包](usage-modes.zh-CN.md#安装插件)，重开会话并选用 Toolkit，内含 Skill 与 MCP。
-- **MCP：** 连接[本地服务](usage-modes.zh-CN.md#单独接入-mcp)，并让 Agent 读取同一份 Skill。
-- **CLI：** 用 Python 3.10+ 调用 `scripts/research_workflow.py`，不需要 MCP 依赖。
-
-Codex、Claude Code 等支持子 Agent 的 Agent 工具，直接运行自己的研究和审阅 Agent，无需另配 API。同一模型可以用于不同的独立上下文。[Agent 工具说明](../agents/README.zh-CN.md)介绍安装，[审阅完成说明](review-completion.zh-CN.md)介绍原生任务和原始回复的保留。
-
-### 从零研究的步骤
-
-| 工作 | Agent 实际做什么 | 已采用 CLI／MCP 时 |
+| Agent | 项目中的安装位置 | 安装成功时能看到什么 |
 | --- | --- | --- |
-| 理解需求与规划提纲 | 保留用户原始问题和约束，建立提纲，按实际依赖划分有意义的研究单元；安排研究者、主稿负责人及独立审阅职责。 | `start` 建任务；已有工作用 `status` 恢复有效要求、提纲和当前成果。 |
-| 调查与分析 | 研究 Agent 阅读原件，完成所分问题的比较、计算和解释；主 Agent 持续综合，处理跨单元问题。 | `status.work` 提供相关记录和原文；`save` 保留来源、主张和实质分析。 |
-| 展开与交接 | 交出完整分析或论证单元，包括依据、条件和未决问题；关键前提在后续工作依赖它之前接受独立审阅。 | 保存成果、真实 Agent 工具任务标识、输入绑定和交接；整合时可读完整原件。 |
-| 逐步统稿 | 指定统稿 Agent 阅读各支线论证和原始材料，统一口径与逻辑，逐步形成一份主稿；新发现返回受影响单元和提纲。 | 支线文件独立保存，明确登记主稿；`status` 提供依赖和变化后的输入。 |
-| 全稿审阅 | 三个独立评审组覆盖七个视角，按需加领域专审。各组读取完整当前报告和必要原件。见[审阅契约](review-completion.zh-CN.md#执行独立工作)。 | `review` 准备 Agent 工具任务，保存真实回复和输入版本。 |
-| 审计与修订 | 独立审计者核对审阅有效性、决定性判断和重要处置，从全文中抽查已通过内容；作者修复必要问题，受影响工作得到复核。 | 用同一个 `review` 提交审计原件，保留原始负面结果和修订版本。 |
-| 最终复查与交付 | 首次最终复查时，另一位独立 Agent 先读当前全文、有效要求和必要原件，独立判断后再核对审计与实际修订。复查通过即交付成稿。 | `finish` 核验当前版本并记录交付。 |
+| [Codex CLI / IDE](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/codex.zh-CN.md) | `.agents/skills/research-toolkit/` | 在技能选择器搜索 `research-toolkit`。Codex 有时显示为 `research-toolkit:research-toolkit`。选中路径指向该目录根部 `SKILL.md` 的条目。 |
+| [Claude Code](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/claude.zh-CN.md) | `.claude/skills/research-toolkit/` | 在项目会话里调用 `/research-toolkit` 可以加载技能。 |
+| [OpenCode](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/opencode.zh-CN.md) | `.opencode/skills/research-toolkit/` | 允许技能调用后，让 Agent 加载 `research-toolkit`，它能读到该目录中的指令。 |
+| [其他 Agent](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md#选择工具) | 按对应指南选择安装位置或文件入口 | 原生 Skill 在宿主中可加载。仅支持文件的客户端能读到你提供的 `SKILL.md` 和参考文件。 |
 
-MCP 工具带 `research_` 前缀，CLI 使用对应子命令。同一步使用一种接口即可。纯 Skill 按中间列完成实际工作，利用 Agent 工具文件、对话和来源保留成果；独立审阅职责相同，无需照抄工具记录格式。
+## 安装本地工具（可选）
 
-例如知识助手选型可把文档更新与权限、路线质量比较、给定负载的计算分别交给研究 Agent；提纲保留全部指定维度，再由明确的统稿 Agent 将结果写成选择论证。前段审阅核对比较假设和计算方法，再推进依赖它们的判断。最终各视角读取完整组稿，而不是只看支线摘要。
+- **插件**。在支持此插件格式的客户端加载整个解压目录，重开会话。工具列表中应能看到 `research_status` 和 `research_guide` 等九个 `research_*` 工具。[插件安装](usage-modes.zh-CN.md#安装插件)
+- **本地 MCP**。按指南用 Python 3.10 或以上版本安装 `requirements-mcp.txt`，在客户端注册本地服务并连接。连接成功时客户端能列出上述九个工具。[MCP 配置](usage-modes.zh-CN.md#单独接入-mcp)
+- **命令行**。从解压目录运行 `python scripts/research_workflow.py --help`。看到列有 `start`、`status` 和 `finish` 的帮助即表示 CLI 可调用。在 macOS 或 Linux 上可以使用 `python3`。
 
-用户补充“必须私有部署”时，原有的权限、质量和成本问题继续有效。将新增要求送到受影响工作，先修订分析，再更新主稿。要求曾经满足，并不表示后续改稿可以丢掉；已完成的阅读则复用，在变化或争议处回读原文。
+基础使用记录在新安装中默认关闭。[数据设置](usage-data.zh-CN.md)
 
-### 修订或更新已有报告
-
-1. 提供现稿、相关来源和修改目标。更新任务再给出新材料或授权检索，并明确截止时间。
-2. 对照当前要求、现稿与受影响来源，保留仍成立的解释，修改新证据影响的事实、条件和建议。
-3. 保留原稿，将修订后的分析交给主稿负责人；完成当前版本内容审阅、独立审计和最终验收，交付完整报告与简短变化说明。
-
-已有工具任务用 `status` 接续，不重新 `start`，也不重建未受影响的记录。1.x 完成回执保持原样；继续研究时沿用材料并采用当前完成契约。见[接续调用](usage-modes.zh-CN.md#接续已有研究)、[兼容性](compatibility.zh-CN.md)及[已有更新案例](case-study/coding-benchmark-update/README.zh-CN.md)。
-
-## 3. 交付完整成果
-
-交付用户要求的报告和可用引用，修订时附简短变化说明。研究、审阅和执行原件保留供接续使用，不必挤进读者正文。正文应充分呈现本题需要的分析、比较和结论条件。
-
-工具管理任务在当前版本通过独立验收后调用 `research_finish`，由工具生成交付回执，不再手写一份重复回执。可选的 `research_check_draft` 检查机械稿件问题，不能代替内容审阅。
-
-<details>
-<summary>可选：用 CLI 建立本地任务</summary>
-
-从仓库根目录用 Python 3.10+ 运行：
-
-```bash
-python3 scripts/research_workflow.py start --workspace ../research-work --request examples/full/start.zh.json
-```
-
-它建立 `../research-work/knowledge-assistant-zh`。示例目录保留旧名称以兼容链接，采用统一入口；换题时修改请求的 `brief`。已有任务通过 `status` 恢复。只有任务明确规定篇幅时，才在 `save.requirements` 保存相应要求，字段见[记录保存指南](usage-modes.zh-CN.md#保存研究记录与稿件)。[原生审阅请求](usage-modes.zh-CN.md#复用任务文件并保存审阅材料)保留实际执行的原始回复。
-
-</details>
+安装完成后可阅读[长报告使用指南](conduct-research.zh-CN.md)或[完整研究案例](case-study/README.zh-CN.md)。

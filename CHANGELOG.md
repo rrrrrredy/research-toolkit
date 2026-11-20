@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+- Added `review --scaffold-audit` to the CLI. The auditor receives the original findings, locations and requirements, then supplies independent decisions and evidence.
+- Added `setup --host` to preview optional usage configuration. New installations default to off.
+- Published installation checks, host capabilities, case revisions and an evaluation index. The site provides page-level Markdown, `llms.txt` and `llms-full.txt`.
+
+## Unreleased
+
 ## v3.0.0 — 2026-11-19
 
 Run independent research review through final delivery. Queue three groups covering seven perspectives in as few as two concurrent Agent slots, resolve equivalent findings once against the evidence, and deliver automatically when an independent Agent passes the current report. Accept UTF-8 BOM in supported inputs and make basic usage recording opt-in for new installs.

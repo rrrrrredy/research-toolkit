@@ -2,6 +2,10 @@
 
 [English](openclaw.md) | [简体中文](openclaw.zh-CN.md)
 
+<!-- hosts:start -->
+**接入**　技能目录或直接读取文件。 [宿主能力](README.zh-CN.md#capabilities)
+<!-- hosts:end -->
+
 适用于可从工作区或用户目录读取本地技能的 OpenClaw。依据官方[技能说明](https://docs.openclaw.ai/tools/skills)与[技能配置](https://docs.openclaw.ai/tools/skills-config)。
 
 ## 安装

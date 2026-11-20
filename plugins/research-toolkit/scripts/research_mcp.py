@@ -185,6 +185,7 @@ async def research_review(task: str, evidence_paths: list[str], artifact: str = 
     Omitted perspectives/domains continue the saved unit selection; explicit values change the selection.
     assignment_ref points to the frozen role request. New requests reference the shared input by path and hash.
     Set include_assignment=True to return the complete request inline, including that input.
+    A pending auditor assignment links a blank version-bound JSON response at response_template_ref.
     Set summary=True for progress counts and action_required. Use a full response for assignment references or issue details.
     submission_recorded=True confirms receipt of the submitted result. delivery_ready indicates whole-report readiness.
     For progressive work set scope to a saved unit_id and artifact to its draft; perspectives selects relevant unit reviews.

@@ -2,7 +2,11 @@
 
 [English](grok-bot.md) | [简体中文](grok-bot.zh-CN.md)
 
-在 Grok Bot 私人会话中发送 [研究请求](../docs/quickstart.zh-CN.md)。请求含仓库链接、`SKILL.md` 入口、完整研究请求。Bot 无法打开仓库文件时，按[通用输入指南](README.zh-CN.md#直接读取使用)提供原文及所需参考资料。
+<!-- hosts:start -->
+**接入**　提供指令，完成任务后可保存私人技能。 [宿主能力](README.zh-CN.md#capabilities)
+<!-- hosts:end -->
+
+在 Grok Bot 私人会话中发送 [研究请求](../docs/conduct-research.zh-CN.md)。请求含仓库链接、`SKILL.md` 入口、完整研究请求。Bot 无法打开仓库文件时，按[通用输入指南](README.zh-CN.md#直接读取使用)提供原文及所需参考资料。
 
 提供研究问题、读者、范围与已有材料；按所需深度交付完整报告和可用引用。工作记录单独保存。
 

@@ -2,6 +2,10 @@
 
 [English](hermes.md) | [简体中文](hermes.zh-CN.md)
 
+<!-- hosts:start -->
+**接入**　技能目录与调用。 [宿主能力](README.zh-CN.md#capabilities)
+<!-- hosts:end -->
+
 适用于 Hermes CLI、TUI、桌面应用或消息网关。依据官方[技能说明](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills)、[技能目录](https://hermes-agent.nousresearch.com/docs/reference/skills-catalog)与[迁移说明](https://hermes-agent.nousresearch.com/docs/guides/migrate-from-openclaw)。
 
 ## 安装与发现

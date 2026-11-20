@@ -2,7 +2,7 @@
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
-这份虚构出货短文用于展示接口调用，不是完整研究任务或质量评测。当前脚本准备独立 Agent 工具任务，不重放随附的旧作者自评。完整研究见[快速开始](../../docs/quickstart.zh-CN.md)。
+这份虚构出货短文用于展示接口调用，不是完整研究任务或质量评测。当前脚本准备独立 Agent 工具任务，不重放随附的旧作者自评。完整研究见[快速开始](../../docs/conduct-research.zh-CN.md)。
 
 安装 `requirements-mcp.txt` 后，在仓库根目录执行：
 

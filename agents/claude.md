@@ -2,6 +2,10 @@
 
 [English](claude.md) | [简体中文](claude.zh-CN.md)
 
+<!-- hosts:start -->
+**Entry**　Native project Skill.  Bundled dispatch driver: `claude`.  [Host capabilities](README.md#capabilities)
+<!-- hosts:end -->
+
 ## Install
 
 Install the [compact, version-pinned release](../docs/installation-versioning.md#install-a-version-pinned-skill) in `.claude/skills/research-toolkit` under the project root. If the destination exists, follow the [update guide](../docs/installation-versioning.md#update-without-losing-local-work).
@@ -33,7 +37,7 @@ preserve sources and full analysis for handoff; organize independent review, aud
 
 Use Claude Code’s native subagents for production, assembly, independent content review, audit and acceptance. They use Claude Code’s existing model access, without separate API configuration. Share current requirements and original materials, and retain full handoffs.
 
-The [shared research guide](../docs/quickstart.md) provides a complete request and setup details.
+The [shared research guide](../docs/conduct-research.md) provides a complete request and setup details.
 
 ## Agent execution adapter
 

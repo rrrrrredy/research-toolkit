@@ -16,6 +16,8 @@ import posixpath
 from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 import xml.etree.ElementTree as ET
 
+from site_markdown import indexes, markdown_path, page_markdown
+
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / 'docs'
 BASE = 'https://rrrrrredy.github.io/research-toolkit/'
@@ -99,6 +101,16 @@ def metadata(path, source):
     source = re.sub(r'<title>.*?</title>', '<title>'+html.escape(title)+'</title>', source, count=1, flags=re.S)
     description = DESCRIPTIONS[path]
     tags = ['<!-- discovery:start -->', '<meta name="description" content="'+html.escape(description, quote=True)+'"/>', '<link rel="canonical" href="'+url(path)+'"/>']
+    markdown = BASE + markdown_path(path)
+    tags.append('<link rel="alternate" type="text/markdown" href="'+markdown+'"/>')
+    source = re.sub(r'<!-- md-link -->.*?<!-- /md-link -->', '', source, flags=re.S)
+    lang = re.search(r'<html[^>]+lang="([^"]+)"', source)[1]
+    label = '阅读 Markdown 原文' if lang.startswith('zh') else 'Read as Markdown'
+    link = '<!-- md-link --><a class="markdown-source" href="'+markdown+'">'+label+'</a><!-- /md-link -->'
+    if path in ('index.html','index.zh-CN.html'):
+        source = source.replace('</footer>', link+'</footer>', 1)
+    else:
+        source = source.replace('</nav>', link+'</nav>', 1)
     for en, zh in PAIRS:
         if path in (en, zh):
             tags += ['<link rel="alternate" hreflang="'+lang+'" href="'+url(target)+'"/>' for lang, target in [('en',en),('zh-CN',zh),('x-default',en)]]
@@ -168,13 +180,14 @@ def chinese_home(source):
         if 'data-report-link' in a: a['href']=links['report']
         if 'data-case-link' in a: a['href']=links[a['data-case-link']]
         if 'data-method-link' in a: a['href']='framework.zh-CN.html'
+        if 'data-gpai-link' in a: a['href']='https://github.com/rrrrrredy/research-toolkit/blob/main/docs/case-study/v3-review/README.zh-CN.md'
         if 'data-update-case' in a: a['href']='case-study/coding-benchmark-update/index.zh-CN.html'
         if 'data-review-home' in a: a['href']='https://github.com/rrrrrredy/research-review/blob/main/README.zh-CN.md'
         if n.tag=='a' and 'data-language' in a:
             a.pop('aria-current',None)
             if a['data-language']=='zh': a['aria-current']='page'
         for attr, filename in [('data-quickstart-link','quickstart'),('data-eval-link','evaluation-status')]:
-            if attr in a: a['href']='https://github.com/rrrrrredy/research-toolkit/blob/main/docs/'+filename+'.zh-CN.md'
+            if attr in a: a['href']=filename+'.zh-CN.html' if attr=='data-quickstart-link' else 'https://github.com/rrrrrredy/research-toolkit/blob/main/docs/'+filename+'.zh-CN.md'
         if 'data-continue-link' in a: a['href']='https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md#接续已有研究'
         if 'data-usage-link' in a: a['href']='https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md'+('#单独接入-mcp' if a.get('data-i18n')=='mcpLink' else '#安装插件')
         if 'data-agent-link' in a or a.get('data-i18n') in ('skillLink','fallbackGuide'):
@@ -208,6 +221,10 @@ def outputs():
         if path=='index.zh-CN.html': continue
         result[path]=metadata(path,(DOCS/path).read_text(encoding='utf-8'))
     result['index.zh-CN.html']=chinese_home(result['index.html'])
+    pages = sorted(result)
+    for page in pages:
+        result[markdown_path(page)] = page_markdown(Tree(result[page]), url(page))
+    result.update(indexes(ROOT, BASE, pages, DESCRIPTIONS))
     # Curated useful entry points; raw evidence and intermediate drafts stay accessible.
     entries=[p for p in DESCRIPTIONS if p.startswith(('index.','framework.','case-study/long-research-2026-11/')) or p.endswith(('index.html','index.zh-CN.html')) or p.endswith(('/report.html','/report.zh-CN.html')) or p in ('case-study/report.en.html','case-study/report.zh-CN.html','case-study/api-or-browser/report.html')]
     root=ET.Element('urlset',xmlns='http://www.sitemaps.org/schemas/sitemap/0.9')
@@ -223,7 +240,9 @@ def main():
         target=DOCS/path
         if not target.exists() or target.read_text(encoding='utf-8') != content:
             stale.append(path)
-            if not args.check: target.write_text(content,encoding='utf-8',newline='\n')
+            if not args.check:
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text(content,encoding='utf-8',newline='\n')
     if args.check and stale: raise SystemExit('Stale generated site files; run python scripts/build_site.py: '+', '.join(stale))
     print('Static site build '+('verified' if args.check else 'written')+' (no framework or third-party build dependencies).')
 

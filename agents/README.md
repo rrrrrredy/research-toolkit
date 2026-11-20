@@ -6,7 +6,7 @@ Provide the research methods to your agent through a repository link, files, att
 
 The [entry instructions](../SKILL.md) and [Chinese reading version](../SKILL.zh-CN.md) point to the methods for each research stage. Native Skill installation is optional. For callable workflow tools, see [plugin and MCP configuration](../docs/usage-modes.md).
 
-**Start research:** use the [complete research guide](../docs/quickstart.md) and shared methods. Develop the research to the requested depth; MCP is optional. [Continue, revise or update](../docs/usage-modes.md#continue-existing-research) existing work.
+**Start research:** use the [complete research guide](../docs/conduct-research.md) and shared methods. Develop the research to the requested depth; MCP is optional. [Continue, revise or update](../docs/usage-modes.md#continue-existing-research) existing work.
 
 Read the methods directly or install the Skill or MCP as needed. New installations leave basic usage recording off and keep existing on/off choices. In Codex, Claude Code and OpenCode, project hooks are optional after the user chooses to enable recording. [Usage data and controls](../docs/usage-data.md).
 
@@ -30,7 +30,7 @@ The [Agent execution adapter](../docs/usage-modes.md#agent-host-execution) share
 
 In agent tools such as Codex and Claude Code, use the agent tool's own subagent tools for research, assembly and independent assessment. No separate API setup is required. Follow the [shared handoff methods](../references/subagents-and-review-loop.md): give each worker current requirements, the bounded question and accessible originals; retain complete contributions and actual agent identities.
 
-For new full reports, three independent non-author contexts cover the seven content-review perspectives. Add relevant domain review, independent audit and a separate readiness assessment. Run assignments within the host's available worker slots. When CLI/MCP manages the task, `review` prepares and records this work, and `finish` records terminal delivery once the current report passes the independent final check. [Review guide](../docs/review-completion.md).
+<!-- current-review -->Three independent non-author review groups cover seven content perspectives.<!-- /current-review --> Add relevant domain review, independent audit and a separate readiness assessment. Run assignments within the host's available worker slots. When CLI/MCP manages the task, `review` prepares and records this work, and `finish` records terminal delivery once the current report passes the independent final check. [Review guide](../docs/review-completion.md).
 
 An interface without subagent or file capability can still help read, analyze and draft. Independent work then needs separate available sessions with the full assignment, report and evidence. Retain or export the effective requirements, originals, current draft and unfinished work for the next session. Until the independent responsibilities are completed, identify the result as work in progress rather than replacing them with author self-review.
 
@@ -46,6 +46,7 @@ Start with the [compact, version-pinned release](../docs/installation-versioning
 
 Choose the client you actually use; a model name alone does not determine Skill support. Native guides cite the agent tool's official directory and invocation requirements. File/text guides apply instructions without registering a Skill.
 
+<!-- hosts:start -->
 | Client | First-task route | Guide |
 | --- | --- | --- |
 | Cursor | Native project Skill | [Install and start](cursor.md) |
@@ -65,6 +66,33 @@ Choose the client you actually use; a model name alone does not determine Skill 
 | Hermes Agent | Skill directory and invocation | [Existing setup guide](hermes.md) |
 | ChatGPT / other chat agents | Files, attachments or pasted instructions | [General input guide](chatgpt.md) |
 | DeepSeek Harness (optional) | Native Skill and optional adapter | [Existing setup guide](deepseek-harness.md) |
+
+<a id="capabilities"></a>
+
+### Host capabilities
+
+The table lists routes with evidence for this project. A dash means this combination has no Toolkit evidence recorded. Hosts can dispatch their own subagents. A bundled driver can also queue work, revise and complete final checks.
+
+| Client | Guide status | Plugin | Local MCP | Host subagents | Toolkit driver | Usage hooks | Evidence |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Cursor | Released | — | [Documented](https://cursor.com/docs/mcp) | — | — | — | [Record](../agents/cursor.md) |
+| Codex CLI / IDE | Released | Packaged | [Documented](https://learn.chatgpt.com/docs/extend/mcp?surface=cli) | Run recorded | codex | Opt-in | [Record](../docs/case-study/v3-review/README.md) |
+| Claude Code | Released | — | [Documented](https://code.claude.com/docs/en/mcp) | Documented | claude | Opt-in | [Record](../scripts/cli_agent_session.py) |
+| OpenCode | Released | — | [Documented](https://opencode.ai/docs/mcp-servers/) | Documented | opencode | Opt-in | [Record](../scripts/cli_agent_session.py) |
+| Kimi Code CLI | Released | — | — | — | — | — | [Record](../agents/kimi-code.md) |
+| Antigravity | Released | — | — | — | — | — | [Record](../agents/antigravity.md) |
+| GitHub Copilot in VS Code | Released | — | [Documented](https://code.visualstudio.com/docs/agent-customization/mcp-servers) | — | — | — | [Record](../agents/copilot.md) |
+| Gemini CLI | Released | — | [Documented](https://geminicli.com/docs/tools/mcp-server/) | Documented | — | — | [Record](../agents/gemini-cli.md) |
+| ZCode | Released | — | — | — | — | — | [Record](../agents/zcode.md) |
+| QwenWork (千问办公) | Released | — | — | — | — | — | [Record](../agents/qwenwork.md) |
+| WorkBuddy | Released | — | — | — | — | — | [Record](../agents/workbuddy.md) |
+| Grok Bot | Released | — | — | — | — | — | [Record](../agents/grok-bot.md) |
+| Doubao Work (豆包工作) | Released | — | — | — | — | — | [Record](../agents/doubao-work.md) |
+| OpenClaw | Released | — | — | — | — | — | [Record](../agents/openclaw.md) |
+| Hermes Agent | Released | — | — | — | — | — | [Record](../agents/hermes.md) |
+| ChatGPT / other chat agents | Released | — | — | — | — | — | [Record](../agents/chatgpt.md) |
+| DeepSeek Harness (optional) | Released | — | [Documented](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/mcp.md) | Documented | — | — | [Record](../docs/dsh-adapter-validation.md) |
+<!-- hosts:end -->
 
 Confirm the actual loaded path and readable example files using the card's troubleshooting step. Availability depends on your client version, account and permissions; the [file/text route](#use-without-installation) remains available wherever the session can read the supplied material.
 

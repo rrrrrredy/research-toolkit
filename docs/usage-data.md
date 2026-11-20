@@ -4,6 +4,8 @@ English | [简体中文](usage-data.zh-CN.md)
 
 New installations leave basic usage recording off. If the user opts in, Toolkit sends operation metadata to help the maintainer understand installation routes, failures and recovery. Prompts, conversations, research titles, reports, source URLs, local paths and user credentials are excluded from those events. Existing on/off settings remain in effect. Report sharing is a separate decision.
 
+**Availability**　This command is available in the [repository source](https://github.com/rrrrrredy/research-toolkit) after v3.0.0. To preview the current setting, target path and optional hooks, run `python scripts/research_workflow.py setup --host codex --project .`. A fresh installation reports `planned_action: none`. The preview writes no files. Use `setup --host codex --no-telemetry` to skip setup for this invocation. After opting in, `setup --host codex --apply` applies the previewed hooks.
+
 ## How installation connects collection
 
 | Mode | Recorded after opt-in | How it connects |

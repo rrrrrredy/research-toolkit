@@ -1,0 +1,33 @@
+{
+  "source": "Compact CLI projection of two retained full_report host results from the actual November 19 run.",
+  "after_submission": {
+    "submission_recorded": true,
+    "input_version": "f8ac11be183dd1914469c35c553329b637b9dab2c857e445dda3f98ce803dd91",
+    "scope": "full_report",
+    "reviews_complete": true,
+    "delivery_ready": false,
+    "unit_ready": false,
+    "action_required": "host_agents",
+    "completed_slots": 4,
+    "required_slots": 6,
+    "completed_steps": 4,
+    "required_steps": 7,
+    "pending_assignments": 1,
+    "open_issue_count": 3
+  },
+  "after_final_check": {
+    "submission_recorded": true,
+    "input_version": "409e3b0f803b97f0034300c78ef6b3b6dd81c387278aa0d51c22658db5da8cdd",
+    "scope": "full_report",
+    "reviews_complete": true,
+    "delivery_ready": true,
+    "unit_ready": false,
+    "action_required": null,
+    "completed_slots": 6,
+    "required_slots": 6,
+    "completed_steps": 6,
+    "required_steps": 6,
+    "pending_assignments": 0,
+    "open_issue_count": 0
+  }
+}

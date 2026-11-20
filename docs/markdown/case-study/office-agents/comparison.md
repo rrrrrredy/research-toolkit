@@ -1,0 +1,303 @@
+# 国内办公 Agent 产品研究
+
+**目录**
+
+- [去 AI 化表述](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#writing)
+
+- [稿件差异](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#稿件差异)
+
+- [修改理由](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#修改理由)
+
+- [审阅取舍](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#审阅取舍)
+
+- [去过程痕迹](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#process)
+
+- [稿件差异](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#稿件差异-2)
+
+- [修改理由](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#修改理由-2)
+
+- [审阅取舍](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#审阅取舍-2)
+
+- [aily 与豆包工作](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#versions)
+
+- [稿件差异](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#稿件差异-3)
+
+- [修改理由](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#修改理由-3)
+
+- [审阅取舍](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#审阅取舍-3)
+
+- [扣子用什么模型](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#analysis)
+
+- [稿件差异](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#稿件差异-4)
+
+- [修改理由](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#修改理由-4)
+
+- [审阅取舍](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/comparison.html#审阅取舍-4)
+
+历史报告，信息截至 2026 年 9 月 9 日；部分动态文档于 9 月 10 日核对。研究基于公开资料，未安装实测。稿件变化不构成有无工具箱的对照实验。
+
+[完整报告](https://rrrrrredy.github.io/research-toolkit/case-study/report.zh-CN.html) · [交互案例](https://rrrrrredy.github.io/research-toolkit/index.zh-CN.html#case)
+
+## 去 AI 化表述
+
+独立工作台小节的开头：从泛泛解释价值，改为描述产品怎样组织工作。
+
+**把套话改成具体动作与比较条件。**
+
+压缩对比式铺垫和“恰好说明”的泛泛结尾，把差异落到工具、上下文与设备在线。
+
+### 稿件差异
+
+**初稿 · 原文节选**
+
+> 独立办公Agent的价值，不在于把聊天框搬到桌面，而在于把资料、执行与修改放进同一段工作。对于经常整理不同来源文件的人，这条路线可以减少上传、下载和换工具的往返；但资料留在电脑上，并不意味着任务会自动持续运行，也不意味着所有处理都离线完成。Kimi Work与扣子的差别，恰好说明“独立工作台”内部也没有统一的实现方式。
+
+初稿用“不在于……而在于……”解释价值，末尾只说实现方式不同。
+
+[原文段落](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/original.zh-CN.html#L47)
+
+**定稿 · 原文节选**
+
+> 独立办公Agent把资料、执行与修改组织在同一工作空间。对于经常整理不同来源文件的人，这条路线可以减少上传、下载和换工具的往返；持续运行和数据处理的位置，却仍取决于具体实现。Kimi Work与扣子的差别，集中体现在谁提供工具、谁保存上下文，以及谁维持设备在线。
+
+直接描述工作空间，再列出两款产品的比较条件；资料整理的作用和运行限制仍在。
+
+[原文段落](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/revised.zh-CN.html#L55)
+
+**改了什么**
+
+- **压缩**：撤掉“价值不在于……而在于……”的铺垫，直接写资料、执行与修改如何放在一起。
+
+- **具体化**：将“实现方式不同”展开为工具、上下文与设备在线三个比较条件；保留可能减少文件搬运的条件性判断。
+
+### 修改理由
+
+**哪一句没有增加信息**
+
+“把聊天框搬到桌面”并不是这一段实际分析的对象。用它制造对比，再说产品价值，绕远了；“恰好说明实现方式不同”也没有告诉读者差别在哪里。
+
+**为什么这样改**
+
+定稿先说资料、执行与修改在同一空间，再指明工具、上下文和设备在线这三个条件。文字更直接，读者也有了继续比较 Kimi Work 与扣子的具体问题。
+
+**判断与取舍**
+
+- **采用**：用动作、对象与条件承载判断，减少同一段内的修辞铺垫。
+
+- **保留**：文件搬运可能减少，持续运行和数据处理位置仍取决于具体实现；没有把潜在价值写成实测收益。
+
+- **不作推断**：这处修改不证明所有对比句都应删除，也不能据此判定一段文字是否由 AI 写成。
+
+[初稿对应段落](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/original.zh-CN.html#L47) · [定稿对应段落](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/revised.zh-CN.html#L55) · [作者编辑记录](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/reviews.html#writing-record)
+
+### 审阅取舍
+
+- **初稿与后续稿**：段首先解释“价值不在于……而在于……”，结尾以“实现方式不同”收束；早期中间稿仍保留该段。
+
+- **作者编辑自查**：作者通读后指出，重复的限制与验证口吻挤占了产品分析，要求让具体产品变化和判断承担正文。
+
+- **改写后的中间稿**：后续中间稿直接写工作空间，并列出工具、上下文和设备在线这三个差异。
+
+- **定稿**：定稿保留这段改写。产品潜在作用和运行条件都在，变化发生在表达方式和比较的具体程度。
+
+句子变化可在稿件中核对；整体编辑背景来自作者自查，不是模型逐句提出的修改。
+
+[中间稿与作者编辑记录](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/reviews.html#writing-record)
+
+## 去过程痕迹
+
+开篇的结构预告与研究说明：删掉写作安排，把必要的来源和范围交代集中到开篇。
+
+**删掉章节预告，保留研究边界。**
+
+“以下按……展开”重复了章节导航；公开资料、未安装实测等信息则影响读者如何理解结论，应继续保留。
+
+### 稿件差异
+
+**初稿 · 原文节选**
+
+> 以下按工作对象、独立工作台、办公套件、桌面执行与商业化展开。依据是公开产品文档和案例，不含安装实测；单一使用记录不代表行业表现。
+
+初稿在表后预告写作顺序，并附带资料和实测范围说明。
+
+[原文段落](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/original.zh-CN.html#L29)
+
+**定稿 · 原文节选**
+
+> 依据公开文档和案例，不含安装实测；部分动态说明于9月10日核对，不倒推为早期版本的能力。
+
+结构预告已删除；来源与实测说明移到开篇。这里展示的是重排后的节选，不是同一句话的替换。
+
+[原文段落](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/revised.zh-CN.html#L13)
+
+**改了什么**
+
+- **删除**：撤掉“以下按……展开”的章节预告；开篇的“有三个判断值得先说清楚”也不再出现。
+
+- **移位保留**：公开资料、未安装实测、案例代表性等说明保留在开篇；定稿另交代动态资料核对日期，没有靠删限制让判断变强。
+
+### 修改理由
+
+**什么属于作者旁白**
+
+“以下按……展开”描述作者怎样安排文章，没有新增产品信息；章节标题和目录已经提供导航。“有三个判断值得先说清楚”也只是在宣告接下来要给结论。
+
+**为什么保留另一半**
+
+研究依赖公开资料而非安装实测、单次案例不足以代表行业，这些会改变读者对结论的理解。定稿删除结构预告，集中保留必要范围与证据限制。
+
+**判断与取舍**
+
+- **采用**：让正文直接承载产品判断，省去重复的章节预告。
+
+- **保留**：研究对象、历史日期、来源依据、实测范围和案例代表性；不把不确定性伪装成确定结论。
+
+- **展示边界**：本例展示结构预告的删除与研究说明的移位。两段位于不同位置，完整初稿和定稿均可核对。
+
+[初稿结构预告](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/original.zh-CN.html#L29) · [定稿范围说明](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/revised.zh-CN.html#L13) · [作者编辑记录](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/reviews.html#process-record)
+
+### 审阅取舍
+
+- **初稿**：开篇含“有三个判断值得先说清楚”，表后又用“以下按……展开”预告文章结构。范围和来源说明分散在几处。
+
+- **作者编辑自查**：作者指出开篇应突出已有产品变化与判断，重复限制和验证口吻应压缩；同时保留实质不确定性与反证。
+
+- **重排后的中间稿**：后续中间稿直接列主要判断，删除两处结构预告，把来源和范围说明集中在结论之后。
+
+- **定稿**：定稿保留这一安排，补充动态资料核对日期和案例范围。
+
+结构变化可在初稿、中间稿和定稿中核对；编辑方向来自作者自查，非独立模型意见。
+
+[中间稿与作者编辑记录](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/reviews.html#process-record)
+
+## aily 与豆包工作
+
+aily 是飞书 4 月介绍的自定义智能体；8 月底文章使用“豆包工作”名称。两份介绍能否证明产品继承？
+
+**现有资料不能证明豆包工作继承了 aily。**
+
+两份材料分别介绍各自时期的产品能力；缺少更名或迁移说明时，不能把旧产品的能力算到新产品上。
+
+### 稿件差异
+
+**初稿 · 原文节选**
+
+> 这是当前产品说明与此前功能路线的接续证据
+
+初稿同段已提醒：旧功能与名称不能一对一迁移。
+
+[原文段落](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/original.zh-CN.html#L77)
+
+**定稿 · 原文节选**
+
+> 两个时间点分别展示对象操作和组织上下文协作的产品方向，不足以证明aily与豆包工作的版本继承
+
+原有功能与名称的迁移限制继续保留。
+
+[原文段落](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/revised.zh-CN.html#L89)
+
+**改了什么**
+
+- **收窄**：将“接续证据”改为“两时点的产品方向”，明确不支持版本继承。
+
+- **保留**：保留两个时期的官方能力说明，以及不能将旧功能全量套给新产品的限制。
+
+### 修改理由
+
+**两份官方材料分别写了什么**
+
+4 月材料介绍 aily 对文档、多维表格和任务的操作；8 月底材料介绍豆包工作如何使用组织上下文、让成果回到协作。两者可以支撑各自时期的产品分析。
+
+**为什么撤掉“接续证据”**
+
+功能相近和发布时间相连，不足以证明更名、版本继承或功能迁移。作者复查仍未取得这类证明，因此撤掉暗示继承的措辞。
+
+**判断与取舍**
+
+- **采用**：分别分析两份材料，不把它们合并成已经证实的演进关系。
+
+- **代价**：产品关系暂时保留未知，比较只能分别采用两份材料各自支持的能力，不能合并能力清单。
+
+- **怎样才能改判**：取得明确的更名、版本映射或功能迁移说明后，才有依据重新判断产品关系。
+
+[飞书 aily 说明](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/sources.html#S01) · [豆包工作说明](https://www.feishu.cn/content/article/7680041109057178898)
+
+### 审阅取舍
+
+- **初稿与后续稿**：“接续证据”与迁移限制同时存在；后续保留稿仍沿用这句话。问题是措辞暗示的关系，比已取得的证据更强。
+
+- **审阅意见**：一份模型审阅指出“接续证据”容易暗示版本继承，建议修正措辞精度。
+
+- **回查与取舍**：复查未取得更名或迁移证明，也不凭页面导航中的 aily 域名反推关系。保留两次产品介绍，收窄两者的关系。
+
+- **中间稿与定稿**：下一份中间稿改为“两个时间点”的产品方向，并明确不足以证明继承；定稿保留这一判断。
+
+模型审阅意见据保留的作者裁定转述。
+
+[中间稿与裁定摘录](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/reviews.html#versions-record)
+
+## 扣子用什么模型
+
+扣子提供原生、第三方云端和本地接入。执行框架安排任务与工具调用，底层模型负责理解与推理。
+
+**扣子云端的 Claude Code，底层模型由扣子提供。**
+
+Claude Code 是程序名称，不能据此认定调用 Anthropic 模型。选型还需要核对模型供应与运行位置。
+
+### 稿件差异
+
+**初稿 · 原文节选**
+
+> 扣子把原生Agent、托管在云端的第三方Agent和本地接入放在同一协作入口。原生版本包含平台日程、邮箱、云资源等能力；云端第三方和本地接入并不自动取得同样的内置服务。
+
+初稿已区分运行方式与服务权限；本小节未写具体模型来源。
+
+[原文段落](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/original.zh-CN.html#L63)
+
+**定稿 · 原文节选**
+
+> 原生Agent可选豆包、Kimi、GLM、MiniMax等模型。第三方云端模式则在扣子云电脑运行Claude Code、Codex CLI等执行框架，接入扣子提供的模型，不绑定原厂账号与模型。
+
+这是同一小节新增的段落；原有运行方式和权限分析仍在。
+
+[原文段落](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/revised.zh-CN.html#L73)
+
+**改了什么**
+
+- **补充**：由模式与权限分工，进一步写到原生模型选择、第三方云端的执行框架与模型来源。
+
+- **保留**：三种模式的服务边界与本地设备条件仍有效，新增段落没有把它们合并成同一种能力。
+
+### 修改理由
+
+**初稿缺少哪一层事实**
+
+说明“模型很重要”或区分运行方式，还不能回答具体产品用什么模型。读者看到 Claude Code 时，也可能把程序品牌当成模型供应商。
+
+**补充资料带来了什么**
+
+扣子产品介绍列出原生 Agent 的模型选择；第三方云端文档说明在扣子云电脑运行执行框架、接入扣子模型。两份资料让模型来源与运行方式能够分别描述。
+
+**判断与取舍**
+
+- **采用**：补入可核对的配置事实，并保留模型、工具、上下文与权限分别影响任务的分析。
+
+- **保留未知**：不能据配置说明分配“某个模型贡献多少节时”，也不能推断真实任务完成率。
+
+- **还需要什么**：比较模型效果需要固定任务、输入、工具、权限与结果标准，再观察错误、调用失败及最终返工。
+
+[扣子 Agent 类型](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/sources.html#S04) · [扣子产品介绍](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/sources.html#S29) · [第三方云端说明](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/sources.html#S30)
+
+### 审阅取舍
+
+- **初稿**：扣子小节写了运行方式与服务边界；全文结尾解释模型的一般作用，仍缺少各模式的具体模型来源。
+
+- **审阅意见**：两份模型审阅都指出分析偏泛。作者采纳并合并处理，补充具体产品配置，没有重复增加段落。
+
+- **补充后的中间稿**：回到官方类型、产品介绍及云端文档，新增原生模型选择与第三方云端模型供给；综合分析也补充不同产品的模型路线。
+
+- **后续取舍与定稿**：后续裁定没有再加重复机制段落；保留固定输入、工具和权限等比较条件，不把简单换模型当成因果实验。
+
+模型审阅意见据保留的作者裁定转述。
+
+[中间稿与裁定摘录](https://rrrrrredy.github.io/research-toolkit/case-study/office-agents/reviews.html#analysis-record)

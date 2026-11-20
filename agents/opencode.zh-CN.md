@@ -2,6 +2,10 @@
 
 [English](opencode.md) | [简体中文](opencode.zh-CN.md)
 
+<!-- hosts:start -->
+**接入**　项目级原生 Skill，需允许技能调用。 自动派工支持 `opencode`。 [宿主能力](README.zh-CN.md#capabilities)
+<!-- hosts:end -->
+
 ## 安装
 
 将[固定版本的精简发布包](../docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)安装到项目内的 `.opencode/skills/research-toolkit`。如果目标目录已经存在，先按[更新指南](../docs/installation-versioning.zh-CN.md#保留本地修改后更新)核对并备份。
@@ -30,7 +34,7 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 交付完整报告与可用引用，保留来源和完整分析用于交接，由 OpenCode 完成独立审阅、审计和验收。
 ```
 
-[统一研究指南](../docs/quickstart.zh-CN.md)提供完整请求和接入说明。
+[统一研究指南](../docs/conduct-research.zh-CN.md)提供完整请求和接入说明。
 
 ## Agent 执行适配器
 

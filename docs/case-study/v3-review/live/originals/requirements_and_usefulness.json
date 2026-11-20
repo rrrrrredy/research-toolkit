@@ -1,0 +1,75 @@
+{
+  "input_version": "d663b4dc004dd91babce2c3658fe1caf3d8f59c54be39b6c150762427520f326",
+  "assignment_version": "3aa370d73dfdba656a4eaf640fc98460660d3b4011109971725755432fadfe05",
+  "report_verdict": "needs_revision",
+  "coverage": {
+    "requirements": {
+      "location": "state/task_spec.md；state/requirements.jsonl；logs/reading/38dd553bdd4c98677a27.md；reports/final.md:1–80；logs/reading/8dde78c4b62be2eb5f88.md",
+      "basis": "通读当前报告、原始任务和有效要求，核对来源及主张登记、五份冻结原件的相关段落和唯一留存的导入记录。复算当前报告为 3633 个非空白字符，含 Markdown 和参考来源，符合 R3，SHA-256 与任务记录一致。第 V 章适用日、存量模型截止日及准则的自愿性质有依据。R1 的一手引证、罚款公式、法条归属和部分期限有实质缺口，R2 的豁免、风险通报和上线顺序仍需修订。留存记录只显示导入当前同哈希的 DeepSeek 文本，报告正文仍自述依赖二手法条。核查以当前交付的文本为准。"
+    },
+    "structure_and_depth": {
+      "location": "reports/final.md:11–57；sources/text/aiact-consolidated.txt:445–524、656–663、1667–1819、3063–3146、3512–3577；sources/text/omnibus.txt:443–451、749–755、1043–1071、1202–1206；sources/text/commission-guidelines.txt:64–143",
+      "basis": "沿法定义务、时间表、三条模型路径和分阶段清单逐段核对。第 53(1) 条列出的四项义务和第 55(1) 条的四类附加义务基本准确。报告缺少从提供者身份及首次欧盟投放，到适用豁免、风险身份和上线条件的连续判断。时间表也没有将模型的过渡期与生成式系统的过渡期分别落实到适用对象。"
+    },
+    "reader_usefulness": {
+      "location": "reports/final.md:3–9、33–80；sources/text/code-of-practice.txt:59–101、121–122；sources/text/signatories-taskforce.txt:54–77；sources/text/commission-guidelines.txt:74–117、122–143",
+      "basis": "以 2026 年第四季度首次向欧盟提供闭源 API、首次发布符合许可条件的非系统性风险开放模型、并行上线自有生成式应用三个场景走读。报告能让读者识别主要义务类别，也正确说明签署准则属于自愿选择。现有清单会让读者把部分上线义务延至 2027 年、为可豁免的模型安排代表，或给新系统套用存量过渡期。欧委会冻结页面支持所列 22 家及 xAI 的部分签署，也支持所列四次会议日期。"
+    }
+  },
+  "findings": [
+    {
+      "finding_id": "R1-primary-sources",
+      "severity": "major",
+      "location": "reports/final.md:7–31、66、68–80",
+      "basis": "R1 要求读者可直接核验欧盟一手法源。报告的法规和修订依据 S3、S4–S11 均为第三方，S1、S2 两份欧委会页面只覆盖准则和工作组。正文的 [S4] 等标记也没有 Markdown 链接定义。冻结合并文本与《官方公报》已经随任务提供，可直接据此核查、更正并在相应段落给出官方链接。依据为 data/source_registry.csv:2–4、sources/text/aiact-consolidated.txt:397–415 和 sources/text/omnibus.txt:443–451、1202–1206。[EUR-Lex 合并文本](https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng)；[Digital Omnibus 官方公报](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng)。"
+    },
+    {
+      "finding_id": "R1-enforcement-and-fine",
+      "severity": "major",
+      "location": "reports/final.md:7、19、23–25、62",
+      "basis": "报告给出的 2026-08-02 罚款权适用日正确，但把第 101 条写成第 V 章的例外，并省略了决定罚款上限的比较规则。第 101 条位于第 XII 章。欧委会在认定存在该条所列故意或过失情形时可以罚款，上限为 1500 万欧元与上一财年全球总营业额 3% 两者中的较高值。第 113 条规定第 V 章自 2025-08-02 适用，第 IX 章第 5 节的监督执法权和第 101 条罚款权适用 2026-08-02 的一般日期。明确这些节点可避免把义务起算、正式执法和企业财务敞口混为一谈。依据为 sources/text/aiact-consolidated.txt:1686–1689、2691–2696、2727–2768、2853、2953–2969、3126–3146 和 sources/text/commission-guidelines.txt:140–143。[EUR-Lex 合并文本](https://eur-lex.europa.eu/eli/reg/2024/1689/2026-07-27/eng)。"
+    },
+    {
+      "finding_id": "R1-system-dates",
+      "severity": "major",
+      "location": "reports/final.md:8、24–31、57",
+      "basis": "报告将 2026-12-02 写成第 50(2) 条的通用适用日。该条通常自 2026-08-02 适用，第 111(4) 条只允许在该日前已投放的特定合成内容生成系统于 2026-12-02 前补齐机器可读标识。拟在 2026 年第四季度首次投放的适用系统应在上线时满足要求。同日适用的第 5 条新增禁令有独立的投放、投入使用和使用条件。2027-12-02 与 2028-08-02 两个日期分别对应第 6(2) 条与附件 III、第 6(1) 条与附件 I 分类下的第 III 章第 1–3 节，须保留第 6(5) 条例外。附件 I 路径也可能适用于 AI 系统本身就是受规制产品的情形。依据为 sources/text/aiact-consolidated.txt:779–808、1667–1677、3074–3076、3126–3146 和 sources/text/omnibus.txt:537–541、642–657、1043–1071。[Digital Omnibus 官方公报](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng)。"
+    },
+    {
+      "finding_id": "R2-open-source-exemption",
+      "severity": "major",
+      "location": "reports/final.md:9、15、19、43、51",
+      "basis": "路径 A 错误要求符合条件的第三国开源模型指定欧盟授权代表。第 53(2) 条与第 54(6) 条共同免除合格非系统性风险模型的附件 XI、XII 文档义务和授权代表义务。两项豁免均要求采用允许访问、使用、修改和分发的自由开源许可，并公开权重、架构和使用信息。报告只写开放权重等信息，读者可能为已豁免的模型安排代表，也可能给许可受限的开放权重模型错误套用文档豁免。第 53(1)(c)、(d) 条的版权政策和公开训练内容摘要仍适用。依据为 sources/text/aiact-consolidated.txt:1723–1736、1747–1768 和 sources/text/commission-guidelines.txt:101–110。[欧委会 GPAI 提供者指南问答](https://digital-strategy.ec.europa.eu/en/faqs/guidelines-obligations-general-purpose-ai-providers)。"
+    },
+    {
+      "finding_id": "R2-market-entry-trigger",
+      "severity": "major",
+      "location": "reports/final.md:13、27、41–57",
+      "basis": "三条路径缺少共同的适用判断。企业需要先判断模型是否具备法定的通用性、谁以自己名义或商标提供模型，以及何时首次在欧盟市场提供。商业活动中的免费 API 或下载也可能构成投放。在中国发布的日期不足以证明模型适用第 111(3) 条。企业若同时上线自有应用，还需独立识别系统提供者或部署者的角色及相应义务。报告以『已在欧盟提供』『才进入』带过这些触发点，读者无法可靠地给具体产品选路径。依据为 sources/text/aiact-consolidated.txt:445–454、500–524、656–663、3071–3076 和 sources/text/commission-guidelines.txt:74–85。[欧委会 GPAI 提供者指南问答](https://digital-strategy.ec.europa.eu/en/faqs/guidelines-obligations-general-purpose-ai-providers)。"
+    },
+    {
+      "finding_id": "R2-release-sequence",
+      "severity": "major",
+      "location": "reports/final.md:45、49–57",
+      "basis": "路径 B 正确写明新模型在投放时即受约束，但统一清单将版权政策和附件 XII 下游信息包排到 2027 年上半年。按这张清单执行的企业可能在 2026 年第四季度以义务未完成的状态推出闭源 API。适用的附件 XI、附件 XII、版权政策、训练内容摘要和书面授权代表安排应进入首次投放前的工作清单。2027-08-02 的补齐时限仅适用于 2025-08-02 前已在欧盟投放的模型，且不限于路径 B。清单还应把严重事件报告能力放回适用的系统性风险路径，并将签署准则单列为自愿举证决定。依据为 sources/text/aiact-consolidated.txt:1721–1756、1771–1784、3071–3073、3126–3136、3512–3577 和 sources/text/commission-guidelines.txt:122–143。"
+    },
+    {
+      "finding_id": "R2-systemic-risk-notification",
+      "severity": "major",
+      "location": "reports/final.md:19、47、51–55",
+      "basis": "系统性风险路径缺少第 52(1) 条有明确时限的通报动作。模型符合第 51(1)(a) 条条件或已知将符合时，须不迟延并最迟在两周内通知欧委会。超过 10^25 FLOP 是高影响能力推定，企业可随通报提出有根据的反证，欧委会也可依第 51(1)(b) 条指定达到同等能力或影响的模型。首次开发和投放的团队因此需要在达到或预计达到条件时启动通报判断。第 55(1)(c) 条的严重事件报告属于另一项义务，有不同触发事件和接收方。依据为 sources/text/aiact-consolidated.txt:1690–1716、1771–1784 和 sources/text/commission-guidelines.txt:89–117。"
+    },
+    {
+      "finding_id": "R2-code-evidence-options",
+      "severity": "minor",
+      "location": "reports/final.md:8、17、35–39、47、51、55",
+      "basis": "第 47 行把安全与安保章写为系统性风险路径必然叠加的工作，第 55 行也容易让读者把遵循协调标准理解为届时必做。第 53(4)、55(2) 条允许按适用范围使用经认可的准则、协调标准或供欧委会评估的其他充分举证方式。协调标准仅在覆盖的义务范围内产生合规推定。Omnibus 还修改了第 56(6) 条的准则充分性评估机制，同时保留模型核心义务和过渡期。冻结的工作组说明记载按需且至少每年召开会议，无法支持第 51 行向所有签署方提出的季度要求。依据为 sources/text/aiact-consolidated.txt:1484–1487、1739–1740、1783–1784、1809–1814，sources/text/omnibus.txt:753–755，sources/text/code-of-practice.txt:59–76 和 sources/text/signatories-taskforce.txt:57–64。"
+    },
+    {
+      "finding_id": "reader-unsupported-inferences",
+      "severity": "minor",
+      "location": "reports/final.md:37、61–65",
+      "basis": "官方名单可核实 xAI 仅签安全与安保章，并须以其他适当方式证明透明度和版权义务。名单无法证明 xAI 在欧盟的运营状态或主管机关的合规判断，准则的自愿性已有法条和欧委会说明可证。『2026 年才大规模招聘』『公开处罚案例尚未形成』『第二次改期』及『中欧标准不互认』也缺少可定位到截止日的一手依据。应限缩或移除这些判断，以免读者将其当作执法风险或跨境合规决策的依据。依据为 sources/text/code-of-practice.txt:59–67、77–101，sources/text/signatories-taskforce.txt:57–70，sources/text/commission-guidelines.txt:140–143 和 sources/text/omnibus.txt:443–451、1202–1218。"
+    }
+  ]
+}

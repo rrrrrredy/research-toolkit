@@ -2,6 +2,10 @@
 
 [English](qwenwork.md) | [简体中文](qwenwork.zh-CN.md)
 
+<!-- hosts:start -->
+**Entry**　Repository-link installation.  [Host capabilities](README.md#capabilities)
+<!-- hosts:end -->
+
 This card covers QwenWork (千问办公), not the general Qwen chat application.
 
 ## Install in one request
@@ -31,7 +35,7 @@ mechanisms and synthesis. Deliver the complete report with usable citations;
 preserve sources and full analysis for handoff; organize independent review, audit and acceptance through 千问办公.
 ```
 
-The [shared research guide](../docs/quickstart.md) provides a complete request and setup details.
+The [shared research guide](../docs/conduct-research.md) provides a complete request and setup details.
 
 ## If it does not load
 

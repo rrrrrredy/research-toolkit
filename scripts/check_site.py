@@ -15,14 +15,14 @@ from urllib.parse import parse_qsl, unquote, urljoin, urlsplit
 from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
-from build_site import BASE, DESCRIPTIONS, DOCS, PAIRS, ROOT, url
+from build_site import BASE, DESCRIPTIONS, DOCS, PAIRS, ROOT, url, markdown_path
 
 class Page(HTMLParser):
     def __init__(self, source):
         super().__init__(convert_charrefs=True)
         self.lang=''; self.title=''; self.title_count=0; self.in_title=False; self.head=False
-        self.descriptions=[]; self.canonicals=[]; self.alternates={}; self.robots=[]
-        self.links=[]; self.ids=set(); self.visible=[]; self.hidden=0
+        self.markdown=[]; self.descriptions=[]; self.canonicals=[]; self.alternates={}; self.robots=[]
+        self.links=[]; self.anchors=[]; self.ids=set(); self.visible=[]; self.hidden=0
         self.feed(source)
     def handle_starttag(self, tag, attrs):
         a=dict(attrs)
@@ -35,11 +35,13 @@ class Page(HTMLParser):
             if a.get('name')=='description': self.descriptions.append(a.get('content',''))
             if a.get('name')=='robots': self.robots.append(a.get('content',''))
         if self.head and tag=='link':
+            if a.get('rel')=='alternate' and a.get('type')=='text/markdown': self.markdown.append(a.get('href',''))
             if a.get('rel')=='canonical': self.canonicals.append(a.get('href',''))
             if a.get('rel')=='alternate' and 'hreflang' in a:
                 if a['hreflang'] in self.alternates: raise ValueError('Duplicate hreflang')
                 self.alternates[a['hreflang']]=a.get('href','')
-        if tag=='a' and a.get('href'): self.links.append(a['href'])
+        if tag=='a' and a.get('href'):
+            self.links.append(a['href']); self.anchors.append(a['href'])
         if tag in ('script','img','source','video','link'):
             for attr in ('src','poster') if tag!='link' else ('href',):
                 if a.get(attr): self.links.append(a[attr])
@@ -56,6 +58,7 @@ def metadata_errors(path, page):
     if page.title_count!=1 or not page.title.strip(): errors.append('missing or duplicate title')
     if len(page.descriptions)!=1 or page.descriptions[0]!=DESCRIPTIONS[path]: errors.append('missing, duplicate or inaccurate description')
     if page.canonicals != [url(path)]: errors.append('canonical must be the absolute clean page URL')
+    if page.markdown != [BASE+markdown_path(path)] or BASE+markdown_path(path) not in page.anchors: errors.append('missing or wrong Markdown alternate')
     expected_lang='zh-CN' if '.zh-CN.' in path or '/office-agents/' in path and not path.endswith('notes.en.html') else 'en'
     if page.lang!=expected_lang: errors.append('incorrect document language: '+page.lang)
     expected={}
@@ -79,6 +82,8 @@ def local_target(path, href):
             if not absolute.path.startswith(prefix): return None
         target=ROOT/unquote(absolute.path[len(prefix):])
     else: return None
+    if target.suffix=='.html' and not target.exists() and target.with_suffix('.md').is_file():
+        target=target.with_suffix('.md')  # Pages renders these documents from Markdown.
     if not target.resolve().is_relative_to(ROOT): raise ValueError('Link escapes repository: '+href)
     if target.is_dir():
         for index in ('index.html','README.md'):
@@ -87,7 +92,7 @@ def local_target(path, href):
 
 def local_checks():
     errors=[]; pages={}; links=0
-    actual={p.relative_to(DOCS).as_posix() for p in DOCS.rglob('*.html')}
+    actual={p.relative_to(DOCS).as_posix() for p in DOCS.rglob('*.html') if not any(part.startswith('_') for part in p.relative_to(DOCS).parts)}
     if actual!=set(DESCRIPTIONS): errors.append('HTML inventory differs from metadata manifest: '+str(actual^set(DESCRIPTIONS)))
     for path in sorted(actual):
         page=Page((DOCS/path).read_text(encoding='utf-8')); pages[path]=page
@@ -112,6 +117,10 @@ def local_checks():
         if target is None or pages[target].canonicals!=[loc] or any('noindex' in x for x in pages[target].robots): errors.append('Noncanonical or unindexable sitemap URL: '+str(loc))
     if (DOCS/'robots.txt').exists(): errors.append('Project-subdirectory robots.txt does not control this origin')
     llms=(DOCS/'llms.txt').read_text(encoding='utf-8')
+    for name in pages:
+        destination = markdown_path(name)
+        if BASE+destination not in llms or not (DOCS/destination).is_file():
+            errors.append('llms.txt: missing Markdown for '+name)
     for href in re.findall(r'\]\((https?://[^)]+)\)',llms):
         target=local_target('llms.txt',href)
         if target and not target[0].exists(): errors.append('llms.txt: missing '+href)
@@ -123,10 +132,12 @@ def local_checks():
 
 KEY_PAGES=['case-study/long-research-2026-11/index.html','case-study/long-research-2026-11/index.zh-CN.html','case-study/long-research-2026-11/microdrama.zh-CN.html','case-study/long-research-2026-11/microdrama.en.html','case-study/long-research-2026-11/test-time-compute.en.html','case-study/long-research-2026-11/test-time-compute.zh-CN.html','case-study/office-agents-2026-11/report.zh-CN.html','case-study/office-agents-2026-11/index.zh-CN.html','case-study/api-or-browser-2026-11/report.html','case-study/api-or-browser-2026-11/index.html','index.html','index.zh-CN.html','framework.html','framework.zh-CN.html','case-study/index.html','case-study/index.zh-CN.html','case-study/api-or-browser/report.html','case-study/report.en.html','case-study/report.zh-CN.html','case-study/coding-benchmark-update/index.html','case-study/coding-benchmark-update/index.zh-CN.html']
 
-def fetch(address, github_token=None):
+def fetch(address, github_token=None, expected_type=None):
     headers={'User-Agent':'ResearchToolkit-SiteCheck/1.0'}
     if github_token and address=='https://api.github.com/repos/rrrrrredy/research-toolkit': headers['Authorization']='Bearer '+github_token
     with urlopen(Request(address,headers=headers),timeout=30) as response:
+        if expected_type and response.headers.get_content_type() != expected_type:
+            raise ValueError(f'{address}: expected {expected_type}, received {response.headers.get_content_type()}')
         if response.status!=200: raise ValueError(f'{address}: HTTP {response.status}')
         if response.geturl()!=address: raise ValueError(f'{address}: unexpected redirect to {response.geturl()}')
         return response.read().decode('utf-8')
@@ -135,7 +146,7 @@ def live_checks(base):
     base=base.rstrip('/')+'/'
     def check(path):
         address=base+(path[:-10] if path.endswith('index.html') else path)
-        source=fetch(address)
+        source=fetch(address, expected_type="text/markdown" if path.endswith(".md") else None)
         if path.endswith('.html'):
             errors=metadata_errors(path,Page(source))
             if errors: raise ValueError(address+': '+', '.join(errors))
@@ -143,7 +154,15 @@ def live_checks(base):
         if source.replace('\r\n','\n').rstrip()!=expected: raise ValueError(address+': deployed content differs from checked-out revision')
         return address
     paths=KEY_PAGES+['sitemap.xml','llms.txt','assets/reading-preferences.js','assets/showcase.js','assets/showcase.css']
-    with ThreadPoolExecutor(max_workers=4) as executor: checked=list(executor.map(check,paths))
+    paths += ['llms-full.txt', *[markdown_path(page) for page in sorted(DESCRIPTIONS)]]
+    with ThreadPoolExecutor(max_workers=6) as executor: checked=list(executor.map(check,paths))
+    for name in ('quickstart', 'quickstart.zh-CN'):
+        page = Page(fetch(base+name+'.html'))
+        expected = base+name+'.md'
+        if page.markdown != [expected] or expected not in page.anchors:
+            raise ValueError('Missing reader or machine Markdown link on '+name)
+        if fetch(expected, expected_type='text/markdown').splitlines() != (DOCS/(name+'.md')).read_text(encoding='utf-8').splitlines():
+            raise ValueError('Deployed installation instructions differ from checked-out source')
     for path in ('','index.zh-CN.html','framework.html','framework.zh-CN.html'):
         # Parameters must not change the server's initial document or canonical.
         if fetch(base+path+'?lang=zh&theme=dark&case=writing&detail=review')!=fetch(base+path): raise ValueError('Parameter-dependent server HTML: '+path)

@@ -10,7 +10,7 @@
 
 使用任务工具时，可以查到问题在哪一段、依据是哪份原文、后来怎么改。必要问题还没解决，工具会拦住交付。
 
-[**选用与安装**](#选哪一种) · [开始研究](#快速开始) · [看研究案例](#研究案例) · [文档](#文档)
+[**选用与安装**](#选哪一种) · [快速安装](#快速开始) · [提出研究需求](#使用) · [看研究案例](#研究案例) · [文档](#文档)
 
 ## 一项研究怎样完成？
 
@@ -21,22 +21,17 @@
 | 任务与上下文 | 共同保留需求、提纲、有效要求及实际依赖；已满足但仍约束后续工作的要求继续可见。 |
 | 证据与分析 | 每位研究者取得有边界的问题、相关原始材料和已有判断，交接依据、推理、条件及未决问题。 |
 | 成稿与修订 | 按有意义的研究单元推进，先审阅后续分析所依赖的关键前提；完整分析进入明确负责人的主稿，变化返回受影响单元与提纲。 |
-| 审阅与交付 | 三个独立评审组覆盖七项视角，按需加领域专审。Agent 完成审计、必要修改和独立复查后交付成稿。 |
+| 审阅与交付 | <!-- current-review -->三个独立的非作者评审组覆盖七个内容视角。<!-- /current-review -->按需加领域专审。Agent 完成审计、必要修改和独立复查后交付成稿。 |
 
-这四项是相互连接的职责，不是四个固定 Agent 或四套流程。Codex、Claude Code 等工具负责启动 Agent 和传递消息；Toolkit 提供共同输入、方法、成果关联和完成检查。Agent 工具内的原生协作无需另配 API。 如需脚本执行，使用同一套 [Agent 执行适配器](docs/usage-modes.zh-CN.md#agent-host-execution)，连接你正在使用的 Claude Code、OpenCode 或 Codex。[研究步骤](docs/quickstart.zh-CN.md#从零研究的步骤) · [交接与实际调用](docs/usage-modes.zh-CN.md#研究委派与成果交接)
+这四项是相互连接的职责，不是四个固定 Agent 或四套流程。Codex、Claude Code 等工具负责启动 Agent 和传递消息；Toolkit 提供共同输入、方法、成果关联和完成检查。Agent 工具内的原生协作无需另配 API。 如需脚本执行，使用同一套 [Agent 执行适配器](docs/usage-modes.zh-CN.md#agent-host-execution)，连接你正在使用的 Claude Code、OpenCode 或 Codex。[研究步骤](docs/conduct-research.zh-CN.md#从零研究的步骤) · [交接与实际调用](docs/usage-modes.zh-CN.md#研究委派与成果交接)
 
-```mermaid
-flowchart LR
-  L[主 Agent：问题与提纲] --> R[研究 Agent：证据与实质论证]
-  R --> W[指定统稿 Agent：逐步形成主稿]
-  R --> U[关键依赖处的独立单元审阅]
-  U --> R
-  W --> V[三个内容评审组与所需领域专审]
-  V --> A[独立审计]
-  A --> F[独立最终复查]
-  A -->|必要修正| R
-  F --> D[交付完整报告]
-```
+![研究问题、来源与判断、成稿、独立检查与交付](docs/assets/readme-workflow.zh-CN.svg)
+
+| 工作方式 | 谁负责串起研究过程 | 可回看的记录 |
+| --- | --- | --- |
+| 直接用一个 Agent | 同一会话负责查证、写稿和修改 | 宿主保留的对话和文件 |
+| 交给多个 Agent 并行查 | 主 Agent 或宿主负责汇总、处理分歧 | 各自的输出及宿主保存的派工记录 |
+| 用 Toolkit 的本地工作流 | 主 Agent 组织研究，独立评审、审计和最终复查各有分工 | 一份稿件对应的来源、裁定、修订及交付回执 |
 
 ## 选哪一种？
 
@@ -53,13 +48,17 @@ flowchart LR
 
 **适合什么任务？** 需要多来源分析、比较、解释或有依据建议的中英文多领域长研究，包括长文内的摘要与局部论证、已有稿修订，以及新证据到来后的接续。单一事实查询、普通翻译或简单润色通常直接使用已有 Agent 即可。材料由 Agent 使用已有检索与访问能力获取并阅读。
 
-[从零做一项研究](./docs/quickstart.zh-CN.md#从零研究的步骤) · [修订或更新已有报告](./docs/quickstart.zh-CN.md#修订或更新已有报告) · [按所用工具安装](./agents/README.zh-CN.md#选择工具) · [安装固定版本的 Skill](./docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)
-
-<a id="使用"></a>
+[从零做一项研究](./docs/conduct-research.zh-CN.md#从零研究的步骤) · [修订或更新已有报告](./docs/conduct-research.zh-CN.md#修订或更新已有报告) · [按所用工具安装](./agents/README.zh-CN.md#选择工具) · [安装固定版本的 Skill](./docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)
 
 **首次使用会做什么？** 可以直接读研究方法。使用记录默认关闭。接入任务工具后，Agent 可以按宿主能提供的并发名额排队，自行审计、改稿和复查，通过独立复查后直接交付成稿。见[使用数据设置](./docs/usage-data.zh-CN.md)和[自动审阅和改稿](./docs/review-completion.zh-CN.md#自动运行审阅和改稿)。
 
 ## 快速开始
+
+[下载精简发布包并按宿主安装](docs/quickstart.zh-CN.md)。在宿主中看到 `research-toolkit` 技能或本地 `research_*` 工具即完成对应安装。
+
+<a id="使用"></a>
+
+## 提出研究需求
 
 用自己的话向能读取仓库和来源材料的 Agent 提出问题或修改要求。下面是可用的起点，不必填写尚未确定的细节；Agent 利用已有背景提出做法，只澄清会改变成果的重要缺项。可以直接发送仓库链接，使用记录默认关闭。
 
@@ -74,7 +73,7 @@ flowchart LR
 交付能回答上述问题的完整报告和可用引用；修订时附简短变化说明。
 ```
 
-[**开始研究：统一使用指南**](./docs/quickstart.zh-CN.md)
+[**开始研究：统一使用指南**](./docs/conduct-research.zh-CN.md)
 
 同一套方法支持长文、深度研究、修订与更新。研究范围、篇幅和深度由需求决定，各 Agent 按工作需要读取方法，完成独立审阅、审计和验收。
 
@@ -83,6 +82,8 @@ flowchart LR
 已有稿件或新材料？直接[修订或更新已有研究](./docs/usage-modes.zh-CN.md#接续已有研究)，复用已完成的研究与来源。
 
 ## 研究案例
+
+在[国内办公 Agent 案例](docs/case-study/office-agents-2026-11/README.md)可以从首稿一路查看来源、评审与成稿。[欧盟 GPAI 实录](docs/case-study/v3-review/README.zh-CN.md)展示在两个并发名额下如何把 39 条意见归为 17 项裁定，修订后由独立 Agent 复查并直接交付。[评测结果与限制](docs/evaluation-status.zh-CN.md)列出样本和历史上没有观察到提升的对照。
 
 **中国微短剧市场：增长结构、平台竞争与产业链价值分配。** 从观看人口、应用活跃和广告变现的不同口径出发，解释平台为什么形成不同经营模式，以及流量、版权、合同和现金承担如何影响各方收益。正文包含平台比较、价值流向和可复算的经营情景。资料截至 **2026 年 11 月 9 日**。
 

@@ -2,6 +2,10 @@
 
 [English](codex.md) | [简体中文](codex.zh-CN.md)
 
+<!-- hosts:start -->
+**接入**　项目级原生 Skill。 自动派工支持 `codex`。 [宿主能力](README.zh-CN.md#capabilities)
+<!-- hosts:end -->
+
 ## 安装
 
 将[固定版本的精简发布包](../docs/installation-versioning.zh-CN.md#install-a-version-pinned-skill)安装到项目内的 `.agents/skills/research-toolkit`。如果目标目录已经存在，先按[更新指南](../docs/installation-versioning.zh-CN.md#保留本地修改后更新)核对并备份。
@@ -14,7 +18,7 @@
 git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research-toolkit.git .agents/skills/research-toolkit
 ```
 
-输入 `/skills` 或 `$`，选择 `research-toolkit`，确认路径以 `.agents/skills/research-toolkit/SKILL.md` 结尾。[官方技能要求](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)。
+输入 `/skills` 或 `$`，选择 `research-toolkit`，确认路径以 `.agents/skills/research-toolkit/SKILL.md` 结尾。[官方技能要求](https://learn.chatgpt.com/docs/build-skills#where-codex-loads-local-skills)。 Codex 也可能显示带插件名称的 `research-toolkit:research-toolkit`。
 
 `core.longpaths` 只对这个 Git 副本生效，避免 Windows 深层目录的路径过长错误。
 
@@ -32,7 +36,7 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 
 使用 Codex 的原生子 Agent 承担研究生产、统稿、独立内容审阅、审计和验收，沿用 Codex 已有模型能力，无需另配 API。共同传递当前要求和原始材料，保留完整交接成果。
 
-[统一研究指南](../docs/quickstart.zh-CN.md)提供完整请求和接入说明。
+[统一研究指南](../docs/conduct-research.zh-CN.md)提供完整请求和接入说明。
 
 ## Agent 执行适配器
 

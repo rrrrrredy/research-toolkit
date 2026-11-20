@@ -2,6 +2,10 @@
 
 [English](deepseek-harness.md) | [简体中文](deepseek-harness.zh-CN.md)
 
+<!-- hosts:start -->
+**接入**　原生 Skill 及可选接入。 [宿主能力](README.zh-CN.md#capabilities)
+<!-- hosts:end -->
+
 研究工具箱不依赖 DSH。本页仅用于自行选择该工具的用户，现有 `SKILL.md` 即原生技能，不需要包装提示、插件、MCP 服务或额外清单。
 
 安装或升级前核对所选版本的[项目文档](https://github.com/deepseek-ai/deepseek-harness)、[技能文档](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/skills.md)和 [CLI 参考](https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/cli/reference/README.md)。

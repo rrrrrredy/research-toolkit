@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{% if page.path contains '.zh-CN.' or page.path contains 'zh/' %}zh-CN{% else %}en{% endif %}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% seo %}
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    {% include head-custom.html %}
+  </head>
+  <body>
+    <main class="container-lg px-3 my-5 markdown-body">
+      {% assign suffix = page.path | split: "." | last %}
+      <nav><a href="{{ '/' | relative_url }}">Research Toolkit</a>
+        {% if suffix == "md" or suffix == "markdown" %} · <a href="{{ page.path | absolute_url | escape }}">{% if page.path contains '.zh-CN.' or page.path contains 'zh/' %}阅读 Markdown 原文{% else %}Read as Markdown{% endif %}</a>{% endif %}
+      </nav>
+      {{ content }}
+      {% if site.github.private != true and site.github.license %}
+      <footer class="footer border-top mt-5 pt-3">{% github_edit_link "GitHub" %}</footer>
+      {% endif %}
+    </main>
+  </body>
+</html>

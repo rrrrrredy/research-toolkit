@@ -2,6 +2,10 @@
 
 [English](chatgpt.md) | [简体中文](chatgpt.zh-CN.md)
 
+<!-- hosts:start -->
+**接入**　文件、附件或粘贴指令。 [宿主能力](README.zh-CN.md#capabilities)
+<!-- hosts:end -->
+
 适用于能够接收文件或文本指令的 Agent。Agent 工具支持时，也可另外配置原生 Skill 或执行工具。
 
 ## 使用方式
