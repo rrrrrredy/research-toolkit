@@ -55,7 +55,7 @@
 <section class="section wrap" aria-labelledby="update-case-title"><h2 id="update-case-title" data-i18n="updateCaseTitle">已有报告？看一次实际更新。</h2><p data-i18n="updateCaseIntro">从一篇编程智能体采购报告的旧稿出发，查看遗漏的来源细节、核对后的正文修改，以及保留的原稿和实验限制。</p><a class="text-link" data-update-case href="case-study/coding-benchmark-update/index.zh-CN.html" data-i18n="updateCaseLink">查看报告更新案例 →</a></section>
 
 <section class="section use-section" id="start"><div class="wrap use-grid">
-<div class="use-copy"><p class="eyebrow" data-i18n="startEyebrow">研究请求</p><h2 data-i18n="startHeading">一个入口，完整研究方法</h2><p data-i18n="startIntro">提供问题、报告目标读者与所需深度。Agent 按当前工作读取完整方法，展开证据、比较、解释和综合判断。</p><p class="usage-note" data-i18n="startNote2">可直接读取研究方法或提供仓库文件。在 Codex、Claude Code、OpenCode 中，Agent 复用已有本地使用记录配置，首次配置使用随附的 Python 脚本。新配置待生效时继续研究；仅在 Codex 配置发生变化时重载会话。基础事件不含聊天和报告正文，可随时关闭。</p><a class="text-link" data-i18n="accessLink" href="#install">提供研究方法</a><p><a class="text-link" data-i18n="quickstart" data-quickstart-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.zh-CN.md">研究使用指南</a></p><p><a class="text-link" data-i18n="continueResearch" data-continue-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md#接续已有研究">接续、修订或更新已有研究</a></p><aside class="review-entry"><h3 data-i18n="reviewTitle">只想审查一份现成报告？</h3><p data-i18n="reviewIntro">Research Review 可独立安装，用于审查已有成果。Toolkit 用户已包含这些方法。</p><a class="text-link" data-review-home data-i18n="reviewLink" href="https://github.com/rrrrrredy/research-review/blob/main/README.zh-CN.md">使用 Research Review →</a></aside></div>
+<div class="use-copy"><p class="eyebrow" data-i18n="startEyebrow">研究请求</p><h2 data-i18n="startHeading">一个入口，完整研究方法</h2><p data-i18n="startIntro">提供问题、报告目标读者与所需深度。Agent 按当前工作读取完整方法，展开证据、比较、解释和综合判断。</p><p class="usage-note" data-i18n="startNote2">可直接读取研究方法或提供仓库文件。新安装默认关闭基础使用记录，可以直接开始研究。想开启时再配置，已有设置继续生效。分享报告需另行同意。</p><a class="text-link" data-i18n="accessLink" href="#install">提供研究方法</a><p><a class="text-link" data-i18n="quickstart" data-quickstart-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/quickstart.zh-CN.md">研究使用指南</a></p><p><a class="text-link" data-i18n="continueResearch" data-continue-link="" href="https://github.com/rrrrrredy/research-toolkit/blob/main/docs/usage-modes.zh-CN.md#接续已有研究">接续、修订或更新已有研究</a></p><aside class="review-entry"><h3 data-i18n="reviewTitle">只想审查一份现成报告？</h3><p data-i18n="reviewIntro">Research Review 可独立安装，用于审查已有成果。Toolkit 用户已包含这些方法。</p><a class="text-link" data-review-home data-i18n="reviewLink" href="https://github.com/rrrrrredy/research-review/blob/main/README.zh-CN.md">使用 Research Review →</a></aside></div>
 <div class="prompt"><div class="prompt-head"><span data-i18n="promptLabel">可直接复制的研究请求</span><button class="copy js-only" data-i18n="copy" id="copy-request" type="button">复制请求</button></div><pre id="research-prompt">本次使用 Research Toolkit：
 https://github.com/rrrrrredy/research-toolkit
 先阅读 SKILL.md，按当前工作读取完整研究方法。
@@ -258,7 +258,7 @@ https://github.com/rrrrrredy/research-toolkit
       "heroCap1": "Methods",
       "heroCap2": "Workflow tools",
       "heroCap3": "Independent review",
-      "startNote2": "Read the methods directly or provide the repository files. In Codex, Claude Code and OpenCode, the agent reuses existing local usage configuration; initial setup uses the bundled Python script. Continue research while a new configuration awaits activation, and reload a Codex session only when its configuration changed. Basic events exclude conversations and report text; recording can be turned off.",
+      "startNote2": "Read the methods directly or provide the repository files. Basic usage recording is off by default for new installations. You can start research with that default and configure recording if you choose to enable it. Existing recording settings remain in effect. Sharing reports requires separate consent.",
       "brandCaption": "A RESEARCH TOOLKIT FOR AI AGENTS",
       "fullMethod": "Research method",
       "license": "MIT license",
@@ -368,7 +368,7 @@ https://github.com/rrrrrredy/research-toolkit
       "heroCap1": "研究方法",
       "heroCap2": "执行工具",
       "heroCap3": "独立审阅",
-      "startNote2": "可直接读取研究方法或提供仓库文件。在 Codex、Claude Code、OpenCode 中，Agent 复用已有本地使用记录配置，首次配置使用随附的 Python 脚本。新配置待生效时继续研究；仅在 Codex 配置发生变化时重载会话。基础事件不含聊天和报告正文，可随时关闭。",
+      "startNote2": "可直接读取研究方法或提供仓库文件。新安装默认关闭基础使用记录，可以直接开始研究。想开启时再配置，已有设置继续生效。分享报告需另行同意。",
       "brandCaption": "面向 AI AGENT 的研究工具箱",
       "fullMethod": "研究方法文档",
       "license": "MIT 开源许可",
