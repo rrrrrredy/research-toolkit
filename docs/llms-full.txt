@@ -1126,7 +1126,7 @@ Every complete report covers the seven perspectives below. New reports assign th
 | --- | --- |
 | Intent and requirements (`requirements`) | Read the original request and effective corrections. Match important questions, required objects and constraints to actual passages or tables; identify missing answers, scope drift and instructions lost in revision. Do not invent requirements or protect the intended thesis from contrary evidence. |
 | Evidence and data (`evidence`) | Check consequential claims against original sources, dates, versions, populations, units, denominators and calculations. Distinguish facts, source claims and inference. State actual reading coverage, identifying the original sections or passages checked. |
-| Adversarial reasoning (`adversarial_reasoning`) | Challenge central conclusions with relevant counterexamples, alternative explanations, selection effects and missing assumptions. Explain the consequence for the argument; do not manufacture objections or require a finding quota. |
+| Adversarial reasoning (`adversarial_reasoning`) | Challenge central conclusions with counterexamples, alternative explanations, selection effects and missing assumptions. Look for conditions or exceptions in the original sources. When one would change a reader's decision, apply the draft's answer to a concrete case within scope. In the review, locate the source and passage and explain whether the resulting decision holds. A supported answer counts as a completed check. |
 | Structure and depth (`structure_and_depth`) | Check how questions, outline, sections, evidence and synthesis form the answer. Locate missing mechanisms, incomparable measures, compressed reasoning and source repetition. Apply the task's expected depth, not a universal structure or length. |
 | Reader usefulness (`reader_usefulness`) | Read the assembled text for its intended use: title and opening, argument continuity, introduced terms, tables, timelines and useful implications. Identify concrete understanding or decision problems. |
 | Process-language removal (`process_language`) | Locate production logs, internal paths/IDs, review status and assistant dialogue in reader-facing prose. Retain methods, source attribution, uncertainty and operational details that the reader's question needs. |
@@ -1155,7 +1155,9 @@ Authors apply necessary fixes and can explain why they disagree with a finding. 
 
 Every complete research task has an explicitly assigned audit context separate from production and content reviewers. The auditor receives the complete report, effective requirements, original sources, contributions, raw reviews and revision/disposition evidence. Review validity and report readiness are separate judgments: a valid negative review can describe a report that still needs correction.
 
-Check each required review for its actual execution and input version, assigned coverage, locatable observations, supported claims and absence of invented requirements. Inspect all consequential findings and disagreements, including decisions to leave text unchanged. Resolve them against original evidence and actual prose, not majority votes or average scores. Preserve each original finding with one evidenced disposition: confirmed defect, no change, unresolved or resolved. A claimed repair is resolved only after examining the changed text and affected context.
+Check each required review for its actual execution and input version, assigned coverage, locatable observations, supported claims and absence of invented requirements. Inspect all consequential findings and disagreements, including decisions to leave text unchanged. Resolve them against original evidence and actual prose, not majority votes or average scores. Preserve each original finding with one evidenced disposition: confirmed defect, no change, unresolved or resolved.
+
+When an edit touches a consequential finding, including one fixed in an earlier draft, ask the reader's original question again. Answer it from the current manuscript alone, then check the answer against the source and the change from the earlier draft. In the existing disposition, cite the current passage that gives the answer. Equivalent wording is sufficient. If the revision drops a condition, actor or step that changes the answer, mark the finding unresolved and tell the writer what the reader can no longer determine. Keep a shared disposition only when its evidence answers each member's substantive concern.
 
 Audit all important requirements, decisive claims, key figures and citations, consequential counterevidence, major findings and necessary fixes. Also examine material marked passed or carrying no finding, including transformations from a worker's analysis into the report. The auditor chooses these samples from the complete artifact, not from an author's selected highlights.
 
@@ -1223,7 +1225,7 @@ Reader-ready delivery requires resolved necessary corrections, complete independ
 | --- | --- |
 | 意图与要求（`requirements`） | 阅读原始要求及有效补充，将重要问题、必需对象和约束对应到实际段落或表格；找出未答问题、范围偏移和修订中丢失的指令。不编造新要求，也不保护被证据推翻的预设论点。 |
 | 证据与数据（`evidence`） | 对照原始来源核查重要主张、时间、版本、人群、单位、分母和计算，区分事实、来源说法与推断。说明实际阅读范围，指出核查过的原始章节或段落。 |
-| 对抗性质疑（`adversarial_reasoning`） | 用相关反例、竞争解释、选择偏差和遗漏假设检验核心结论，说明对论证的影响；不制造问题，不设发现数量配额。 |
+| 对抗性质疑（`adversarial_reasoning`） | 用反例、其他解释、选择偏差和遗漏的假设检验核心结论。到原始资料里找适用条件和例外。其中有会改变读者决定的，就选一个题目范围内的具体情形，用稿件的答案判断。指出来源和正文位置，说明读者照此采取的行动或得出的结论是否成立。稿件经得起这项检查，也算完成核查。 |
 | 结构与深度（`structure_and_depth`） | 检查问题、提纲、章节、证据与综合如何形成答案，定位缺失机制、不可比口径、过度压缩的推理和来源复述。按任务需要的深度判断，不强套结构或篇幅。 |
 | 读者用途（`reader_usefulness`） | 按目标用途通读成稿，检查标题与开篇、论证连贯、术语引入、表格、时间线和实际含义，指出具体理解或决策障碍。 |
 | 去过程化（`process_language`） | 定位读者正文中的生产日志、内部路径／编号、评审状态和助手对话；保留回答读者问题所需的方法、来源归属、不确定性与操作细节。 |
@@ -1252,7 +1254,9 @@ Reader-ready delivery requires resolved necessary corrections, complete independ
 
 每项完整研究任务都明确分配独立审计上下文，与生产者和内容评审者分开。审计者取得完整报告、有效要求、原始来源、研究成果、原始评审和修订／处置依据。评审有效性与报告能否交付分别判断：有效负评可以说明报告仍有必要修正。
 
-逐份检查必需评审的实际执行及输入版本、职责覆盖、可定位观察、判断依据和是否编造要求。核查全部重要发现与分歧，包括决定不修改的意见。依据原件和实际正文裁定，不用多数票或平均分替代。每条原始意见保留有依据的处置：已证缺陷、不修改、未解决或已解决。声称修好后，只有实际检查改文及受影响上下文才能确认已解决。
+逐份检查必需评审的实际执行及输入版本、职责覆盖、可定位观察、判断依据和是否编造要求。核查全部重要发现与分歧，包括决定不修改的意见。依据原件和实际正文裁定，不用多数票或平均分替代。每条原始意见保留有依据的处置：已证缺陷、不修改、未解决或已解决。
+
+改稿涉及会改变读者判断的意见时，把读者原来的问题再问一遍，包括前几稿已经修好的问题。先只凭当前正文回答，再核对原始资料和前后两稿的差异。在已有裁定里指出当前哪段话给出了答案，换一种说法也可以。如果改稿丢掉了会改变答案的条件、责任方或步骤，标为未解决，并告诉写稿者读者现在无法判断什么。一组意见共用一项裁定时，所引证据须能回答组内每一条实质疑问。
 
 重要要求、决定性主张、关键数字及引用、重要反证、重大发现和必要修正全部核查。同时检查被判通过或没有发现问题的内容，包括子 Agent 分析进入报告时发生的改写。审计者从完整成果选择样本，不依赖作者挑出的片段。
 

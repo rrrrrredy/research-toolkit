@@ -6,6 +6,12 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
+## v3.1.1 — 2026-11-20
+
+Reviewers check an important conclusion against a concrete exception in its source. When a revision touches a previously reviewed issue, the auditor answers the reader's original question again using the current text.
+
+[English release notes](docs/releases/v3.1.1.md) · [中文发布说明](docs/releases/v3.1.1.zh-CN.md)
+
 ## v3.1.0 — 2026-11-20
 
 The plugin includes the version-bound audit response scaffold and local setup preview. Installation guides show success in the host. Host capabilities, research revisions, grouped findings and final receipts are directly inspectable. The Agent index covers the Markdown source of each published page.
