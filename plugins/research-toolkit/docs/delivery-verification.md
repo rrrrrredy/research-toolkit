@@ -27,7 +27,7 @@ The receipt binds the current artifact, brief, progress, source and claim record
 Use `--delivery-message note.md` for a non-default intended message. The receipt must bind that selected filename. Artifact, receipt and intended-message paths must resolve inside the task directory.
 
 
-New and continued deliveries require separate independent content perspectives, domain review, audit and final acceptance. Historical receipts remain readable under their original completion rules; see [compatibility](compatibility.md).
+New and continued deliveries follow the applicable [review contract](review-completion.md). New full reports use three independent review groups, specialist review where needed, a separate audit and an independent final check. See [compatibility](compatibility.md) for saved plans and historical receipts.
 
 <a id="full-delivery-completion"></a>
 
@@ -111,7 +111,7 @@ Use the runtime's retained output as capture evidence, rather than an agent-auth
 
 ## Required model-review completion
 
-The delivery checker inspects the [review-completion records](review-completion.md). Current tasks identify `review_contract: 2`; their plans bind separate content perspectives and domain review, an independent audit, and final acceptance. Each retains actual original responses, execution evidence and input versions. Author checks do not satisfy those roles.
+The delivery checker inspects the [review-completion records](review-completion.md). New full-report tasks record `progress.review_contract: 3`. Their plans bind three independent groups covering seven perspectives, specialist reviews where needed, a separate audit and an independent final check. Saved v2 plans follow their own recorded assignments. Each role retains actual replies, execution evidence and input versions. Author checks do not satisfy those roles.
 
 A global PASS cannot fill a missing assignment. Failed invocations remain separate from editorial findings. Review completion and report readiness are distinct: an actual negative review can be complete, while required corrections still block delivery. The independent auditor checks findings and sampled content; final acceptance covers the complete resulting report. Historical record inspection does not rewrite the earlier contract.
 

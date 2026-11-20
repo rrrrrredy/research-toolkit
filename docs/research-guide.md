@@ -52,7 +52,7 @@ The same sources serve lead agents, research workers, assembling agents and revi
 
 ## Review and acceptance
 
-Seven distinct independent contexts review requirements, evidence, adversarial reasoning, structure and depth, reader usefulness, process language and natural expression. Relevant domain expertise is assessed separately. A further independent auditor checks substantive reviews, consequential findings and passed-content samples; another independent agent accepts the current complete report after necessary corrections.
+Three independent groups cover seven content perspectives under the [review contract](review-completion.md#conduct-the-independent-work). Add domain specialists as needed. A separate auditor checks substantive reviews, consequential findings and passed-content samples. On the first final check, a separate Agent makes an independent assessment of the current full report before seeing earlier verdicts, then checks the audit and actual corrections. The Agent delivers the report when the final check passes.
 
 The auditor selects samples from the whole actual report and original inputs. Decisive requirements, claims, figures, sources, counter-evidence and consequential decisions are checked fully; other selections have reasons and locations. Problems lead to follow-up on the same source, measure, branch or transformation. This work belongs to audit and acceptance, without another sampling role.
 

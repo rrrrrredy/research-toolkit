@@ -30,7 +30,7 @@ git clone --depth 1 -c core.longpaths=true https://github.com/rrrrrredy/research
 
 ## 研究工具与使用记录
 
-Skill 提供统一研究方法。读取来源、写作和独立 Agent 工作使用当前 Gemini CLI 会话可用的工具；需要 Toolkit 管理任务记录时，按说明接入 [CLI／MCP](../docs/usage-modes.zh-CN.md#单独接入-mcp)。各项必需审阅、审计和验收仍分别使用独立上下文。
+Skill 提供统一研究方法。读取来源、写作和独立 Agent 工作使用当前 Gemini CLI 会话可用的工具。需要 Toolkit 管理任务记录时，按说明接入 [CLI／MCP](../docs/usage-modes.zh-CN.md#单独接入-mcp)。全稿按[分组审阅、独立审计和最终复查](../docs/review-completion.zh-CN.md#执行独立工作)的契约执行。
 
 Toolkit 的脚本式 [Agent 执行适配器](../docs/usage-modes.zh-CN.md#agent-host-execution)目前连接 Codex、Claude Code 和 OpenCode。Gemini CLI 可以直接使用研究方法与共用 CLI／MCP，不是该脚本调度器的执行后端。
 
