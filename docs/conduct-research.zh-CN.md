@@ -1,6 +1,6 @@
 # 开始研究：完整研究方法
 
-[English](conduct-research.md) · [简体中文](conduct-research.zh-CN.md) · [Research Toolkit](../README.zh-CN.md)
+[English](conduct-research.md) · [简体中文](conduct-research.zh-CN.md) · [Research Toolkit](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md)
 
 中英文、多领域长研究及写作、修订和更新共用同一入口。Agent 在 Codex、Claude Code 等 Agent 工具中按当前工作读取方法，Toolkit 连接需求、原始材料、分析、写作与独立审阅。CLI／MCP 任务管理可选。
 
@@ -28,14 +28,14 @@ RAG、长上下文和混合路线各在什么条件下适用？
 
 ## 2. 在现有 Agent 中使用
 
-按 Agent 工具能力选择[入口](../README.zh-CN.md#选哪一种)：
+按 Agent 工具能力选择[入口](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md#选哪一种)：
 
 - **Skill：** 提供仓库或安装 Skill，使用 Agent 工具的研究和子 Agent 能力，不要求固定 CSV／JSONL 台账。
 - **插件：** 安装[插件包](usage-modes.zh-CN.md#安装插件)，重开会话并选用 Toolkit，内含 Skill 与 MCP。
 - **MCP：** 连接[本地服务](usage-modes.zh-CN.md#单独接入-mcp)，并让 Agent 读取同一份 Skill。
 - **CLI：** 用 Python 3.10+ 调用 `scripts/research_workflow.py`，不需要 MCP 依赖。
 
-Codex、Claude Code 等支持子 Agent 的 Agent 工具，直接运行自己的研究和审阅 Agent，无需另配 API。同一模型可以用于不同的独立上下文。[Agent 工具说明](../agents/README.zh-CN.md)介绍安装，[审阅完成说明](review-completion.zh-CN.md)介绍原生任务和原始回复的保留。
+Codex、Claude Code 等支持子 Agent 的 Agent 工具，直接运行自己的研究和审阅 Agent，无需另配 API。同一模型可以用于不同的独立上下文。[Agent 工具说明](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)介绍安装，[审阅完成说明](review-completion.zh-CN.md)介绍原生任务和原始回复的保留。
 
 ### 从零研究的步骤
 

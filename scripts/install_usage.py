@@ -107,7 +107,7 @@ def install(host, project, remove=False):
 
 
 def main(argv=None, *, setup=False):
-    parser = argparse.ArgumentParser(description=__doc__)
+    parser = argparse.ArgumentParser(prog=(Path(sys.argv[0]).name + " setup") if setup else None, description=__doc__)
     parser.add_argument("--host", required=True, choices=["codex", "claude", "opencode"])
     parser.add_argument("--project", type=Path, default=Path.cwd())
     parser.add_argument("--channel", choices=sorted(usage.CHANNELS), default="manual")
@@ -115,7 +115,7 @@ def main(argv=None, *, setup=False):
     parser.add_argument("--remove", action="store_true")
     parser.add_argument("--no-telemetry", action="store_true", help="Skip usage configuration for this setup.")
     parser.add_argument("--apply", action="store_true", help="Apply optional hooks using the existing recording choice.")
-    parser.add_argument("--preview", action="store_true",
+    parser.add_argument("--preview", "--dry-run", action="store_true",
                         help="Show the effective setting, target and planned hooks without writing anything.")
     args = parser.parse_args(argv)
     project = args.project.resolve()

@@ -1,0 +1,122 @@
+{
+  "studies": [
+    {
+      "id": "gpai_delivery",
+      "counts": {
+        "reports": 1,
+        "concurrent_slots": 2,
+        "findings": 39,
+        "audit_decisions": 17
+      },
+      "en": {
+        "label": "One v3 report, {findings} findings and {audit_decisions} audit decisions",
+        "scope": "The two-slot run revised, independently checked and delivered one long report.",
+        "sources": [
+          {
+            "label": "Draft, decisions and receipt",
+            "href": "case-study/v3-review/README.md"
+          }
+        ]
+      },
+      "zh": {
+        "label": "一份 v3 长报告，{findings} 条评审意见归为 {audit_decisions} 项裁定",
+        "scope": "双名额运行完成了改稿、独立复查和交付。单项案例只描述这次运行。",
+        "sources": [
+          {
+            "label": "原稿、全部裁定与回执",
+            "href": "case-study/v3-review/README.zh-CN.md"
+          }
+        ]
+      }
+    },
+    {
+      "id": "seeded_disagreement",
+      "counts": {
+        "seeded_reviewers": 4,
+        "group_decisions": 2
+      },
+      "en": {
+        "label": "Separate four-reviewer disagreement control",
+        "scope": "An independent auditor checked the source and dismissed a repeated false objection in four seeded reviews.",
+        "sources": [
+          {
+            "label": "Inputs and audit original",
+            "href": "case-study/v3-review/records.json"
+          }
+        ]
+      },
+      "zh": {
+        "label": "单独的四路误报验证",
+        "scope": "四份预设意见里的同一项错误质疑，被独立审计查源后一起驳回。",
+        "sources": [
+          {
+            "label": "预设输入和审计原件",
+            "href": "case-study/v3-review/records.json"
+          }
+        ]
+      }
+    },
+    {
+      "id": "long_research",
+      "counts": {
+        "questions": 13,
+        "manuscripts": 15
+      },
+      "en": {
+        "label": "{questions} long-research questions, {manuscripts} reports in two languages",
+        "scope": "Manuscripts and revisions are available for inspection. These assignments have no matched no-Toolkit control.",
+        "sources": [
+          {
+            "label": "Study design and reports",
+            "href": "https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-11-09-long-research"
+          }
+        ]
+      },
+      "zh": {
+        "label": "{questions} 道长研究题，{manuscripts} 份中英文报告",
+        "scope": "可以逐篇查稿件和修订。此组研究没有同题的无 Toolkit 对照。",
+        "sources": [
+          {
+            "label": "研究设计和稿件",
+            "href": "https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-11-09-long-research"
+          }
+        ]
+      }
+    },
+    {
+      "id": "historical_pairs",
+      "counts": {
+        "comparisons": 2,
+        "questions_per_comparison": 1
+      },
+      "en": {
+        "label": "Two historical version comparisons, one question each",
+        "scope": "Neither showed the intended improvement. Each newer version took longer on its own question. General quality and time effects remain unmeasured.",
+        "sources": [
+          {
+            "label": "Save guidance",
+            "href": "https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-22-compressed-air-save"
+          },
+          {
+            "label": "Request understanding",
+            "href": "https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-22-codex-entry"
+          }
+        ]
+      },
+      "zh": {
+        "label": "两次各含一道题的历史版本对照",
+        "scope": "两次都没有观察到对应改动带来的提升，新版在各自那道题上更慢。总体质量与耗时收益仍待验证。",
+        "sources": [
+          {
+            "label": "保存指引",
+            "href": "https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-22-compressed-air-save"
+          },
+          {
+            "label": "需求理解",
+            "href": "https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-22-codex-entry"
+          }
+        ]
+      }
+    }
+  ]
+}

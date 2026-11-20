@@ -4,7 +4,7 @@
 
 Use this contract when CLI/MCP manages delivery or the task explicitly requires its receipt. Skill-only reports complete their agreed research and checks without creating these state files or receipts.
 
-The checker is an optional offline record-consistency check, not a runtime permission hook. Use actual execution records to verify an invocation. Research and writing requirements remain in [SKILL.md](../SKILL.md); this page documents the checker interface.
+The checker is an optional offline record-consistency check, not a runtime permission hook. Use actual execution records to verify an invocation. Research and writing requirements remain in [SKILL.md](https://github.com/rrrrrredy/research-toolkit/blob/main/SKILL.md); this page documents the checker interface.
 
 The default is **delivery contract 3**; receipt `schema_version: 1` is unchanged. `delivery_contract_version` and `current_contract_checked` identify the checks performed. With `semantic_verification: false`, verify consent against user decisions, reading against source notes and originals, and editorial quality through independent review.
 
@@ -152,3 +152,5 @@ Retain original historical outcomes without backfilling reviews. On continuation
 Version 2 controls cover unauthorized/authorized requirement closure, declared full/partial reading, unchanged/currently reviewed report controls, and stale global/specialist reviews. The old conformance and regression fixture runners explicitly use version 1 to preserve historical comparisons; their original inputs and hashes stay unchanged. New positive controls are constructed only in isolated test copies and are not backfilled research records.
 
 Contract 3 controls in `scripts/check_review_completion_contract.py` cover missing and failed slots, incomplete or stale evidence, reused responses, independent adjudication, negative evaluation outcomes, sampling and legacy compatibility. All record fixtures are explicitly synthetic; they are not model-review evidence.
+
+In an offline installation, open the following files from the plugin root: `SKILL.md`.

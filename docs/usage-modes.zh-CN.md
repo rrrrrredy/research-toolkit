@@ -84,7 +84,7 @@ python3 scripts/research_workflow.py save --workspace ../research-work --request
 
 记录实际阶段、未决问题和下一步。接续时用 `status` 取得任务规格、有效要求、提纲、当前主稿及相关分析。调用路径相对任务目录；阶段名称描述当前工作，能否推进由实际依赖决定。
 
-`state/findings.jsonl`、`state/directions_tried.json`、`state/iteration_log.jsonl` 和 `logs/work.jsonl` 仅在有助于当前任务时使用，不是普遍必交文件。不确定性可直接记在主张中，`data/uncertainty_registry.csv` 按需使用。字段约定见已有[工作流参考](../references/research-workflow.zh-CN.md#3-状态记录)。
+`state/findings.jsonl`、`state/directions_tried.json`、`state/iteration_log.jsonl` 和 `logs/work.jsonl` 仅在有助于当前任务时使用，不是普遍必交文件。不确定性可直接记在主张中，`data/uncertainty_registry.csv` 按需使用。字段约定见已有[工作流参考](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-workflow.zh-CN.md#3-状态记录)。
 
 ### 按需检查已登记的版本日志
 
@@ -359,7 +359,7 @@ Agent 工具继续返回的审阅、审计或验收任务。摘要用于定位�
 
 `start/status.runtime` 返回执行实现的位置、版本、代码摘要和可用入口摘要；host_loaded_entry=not_observed，不推断 Agent 工具读了哪个 Skill。工具只识别登记的文件，不监控任意新目录。
 
-阅读要求在保存时检查 full_text/relevant_sections 和非空、不重复的 required_source_ids；配对字段可在既有行上局部更新。无效批次不部分覆盖正文或状态。详细方法见[任务接续](../references/task-continuity.zh-CN.md)。
+阅读要求在保存时检查 full_text/relevant_sections 和非空、不重复的 required_source_ids；配对字段可在既有行上局部更新。无效批次不部分覆盖正文或状态。详细方法见[任务接续](https://github.com/rrrrrredy/research-toolkit/blob/main/references/task-continuity.zh-CN.md)。
 
 ## 历史任务兼容
 
@@ -453,3 +453,5 @@ python scripts/research_host.py --host claude --workspace <task-store> --task st
 明确配置的 `generic` HTTP 审阅后端中，`api_key_env` 填环境变量名，不填密钥。`http_timeout_seconds` 默认为 1800 秒的套接字无响应时间，可按端点响应方式配置，不限制研究总时长。`max_response_bytes` 默认为 16 MiB。超时或响应超限会保留任务并报出传输错误，不接受半截结果；旧的研究运行时限字段仍不启用。
 
 README 的 MCP 示例首次运行可传 `--pause-before-review`，保存主稿与调用记录后暂停，不准备审阅；再用 `--resume` 准备独立任务。`--request` 填 JSON 文件路径，省略时从 stdin 读 JSON。需要把契约检查产物放在仓库外时设置 `IRF_TEST_ARTIFACT_DIR`；默认的 `evals/runs/` 已被 Git 忽略。
+
+离线使用时可从插件根目录打开`references/research-workflow.zh-CN.md`、`references/task-continuity.zh-CN.md`。

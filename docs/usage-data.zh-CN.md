@@ -4,7 +4,7 @@
 
 新安装默认关闭基础使用记录。用户主动开启后，Toolkit 才发送操作元数据，帮助维护者了解安装方式、失败及接续情况。这些事件不包含提示词、聊天正文、研究题目、报告、来源 URL、本地路径或用户凭证。已有开启或关闭设置继续生效。研究报告分享单独授权。
 
-**版本说明**　此命令随 v3.0.0 之后的[仓库源码](https://github.com/rrrrrredy/research-toolkit)提供。要先看当前设置和将涉及的文件，可运行 `python scripts/research_workflow.py setup --host codex --project .`。它列出记录开关、配置路径和将安装的钩子。新安装返回 `planned_action: none`，预览过程不写文件。使用 `setup --host codex --no-telemetry` 会跳过本次配置。已明确开启记录时，`setup --host codex --apply` 可写入预览所列的钩子。
+从 v3.1.0 起，插件包内可运行此命令。要先看当前设置和将涉及的文件，可运行 `python scripts/research_workflow.py setup --host codex --project .`。它列出记录开关、配置路径和将安装的钩子。也可以显式加上 `--dry-run` 预览。新安装返回 `planned_action: none`，预览过程不写文件。使用 `setup --host codex --no-telemetry` 会跳过本次配置。已明确开启记录时，`setup --host codex --apply` 可写入预览所列的钩子。
 
 ## 安装后如何工作
 

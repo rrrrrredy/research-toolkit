@@ -4,7 +4,7 @@
 
 On October 14, 2026, we continued the existing Chinese report on what coding-agent leaderboards support in procurement. The update adds distinguishing evidence and operational prerequisites, delivering a complete report of 3,839 nonwhitespace characters. It uses Full/self in the current author context. No complete model evaluation or coding-benchmark execution was rerun.
 
-[Updated final](report.zh-CN.md) · [First update](first-update.zh-CN.md) · [Previous final](../../../evals/studies/2026-10-14-native-agent/reports/toolkit/final.md) · [Original first draft](../../../evals/studies/2026-10-14-native-agent/reports/toolkit/first-draft.md)
+[Updated final](report.zh-CN.md) · [First update](first-update.zh-CN.md) · [Previous final](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-14-native-agent/reports/toolkit/final.md) · [Original first draft](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-14-native-agent/reports/toolkit/first-draft.md)
 
 ## Source checks that changed the report
 

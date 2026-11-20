@@ -2,7 +2,7 @@
 
 [English](research-guide.md) | [简体中文](research-guide.zh-CN.md)
 
-[项目介绍](../README.zh-CN.md) · [开始研究](conduct-research.zh-CN.md) · [安装与工具](usage-modes.zh-CN.md)
+[项目介绍](https://github.com/rrrrrredy/research-toolkit/blob/main/README.zh-CN.md) · [开始研究](conduct-research.zh-CN.md) · [安装与工具](usage-modes.zh-CN.md)
 
 Agent 使用 Research Toolkit 开展中英文、多领域长研究与研究写作。任务决定读者、用途和深度，共同方法连接证据、分析、写作与独立审阅。
 
@@ -39,14 +39,14 @@ Agent 使用 Research Toolkit 开展中英文、多领域长研究与研究写�
 
 | 当前需要 | 规范原件 |
 | --- | --- |
-| 入口与职责 | [SKILL](../SKILL.zh-CN.md) 与[研究标准](../references/research-standard.zh-CN.md) |
-| 理解需求、提纲与论证展开 | [研究流程](../references/research-workflow.zh-CN.md) |
-| 选择比较、解释、综合或建议方法 | [可选分析视角](../references/optional-analysis-lenses.zh-CN.md) |
-| 面向读者写作，修订时保留含义 | [写作规范](../references/writing-style.zh-CN.md) |
-| 生产委派、独立审阅、审计与验收 | [Agent 职责与交接](../references/subagents-and-review-loop.zh-CN.md) |
-| 保留要求、原始材料与接续研究 | [任务接续](../references/task-continuity.zh-CN.md) |
-| 完成当前成果 | [完成条件](../references/quality-gates.zh-CN.md) |
-| 定位实际失败 | [常见问题](../references/gotchas.zh-CN.md)与[复盘经验](../references/postmortem-lessons.zh-CN.md) |
+| 入口与职责 | [SKILL](https://github.com/rrrrrredy/research-toolkit/blob/main/SKILL.zh-CN.md) 与[研究标准](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-standard.zh-CN.md) |
+| 理解需求、提纲与论证展开 | [研究流程](https://github.com/rrrrrredy/research-toolkit/blob/main/references/research-workflow.zh-CN.md) |
+| 选择比较、解释、综合或建议方法 | [可选分析视角](https://github.com/rrrrrredy/research-toolkit/blob/main/references/optional-analysis-lenses.zh-CN.md) |
+| 面向读者写作，修订时保留含义 | [写作规范](https://github.com/rrrrrredy/research-toolkit/blob/main/references/writing-style.zh-CN.md) |
+| 生产委派、独立审阅、审计与验收 | [Agent 职责与交接](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.zh-CN.md) |
+| 保留要求、原始材料与接续研究 | [任务接续](https://github.com/rrrrrredy/research-toolkit/blob/main/references/task-continuity.zh-CN.md) |
+| 完成当前成果 | [完成条件](https://github.com/rrrrrredy/research-toolkit/blob/main/references/quality-gates.zh-CN.md) |
+| 定位实际失败 | [常见问题](https://github.com/rrrrrredy/research-toolkit/blob/main/references/gotchas.zh-CN.md)与[复盘经验](https://github.com/rrrrrredy/research-toolkit/blob/main/references/postmortem-lessons.zh-CN.md) |
 
 主 Agent、研究者、统稿者和审阅者共用这些原件，各自读取当前任务所需部分，不在每一轮注入所有方法和维护说明。
 
@@ -56,7 +56,7 @@ Agent 使用 Research Toolkit 开展中英文、多领域长研究与研究写�
 
 审计者从实际全文与原始输入选择样本。关键要求、决定性主张、数字、引用、反证及重要处置全部核查；其他抽查有原因和位置。发现问题，沿同源、同指标、同支线或同种改写继续查清。抽查属于审计和验收，不另设一层角色。
 
-作者可以自改或回应争议，但不能代替独立审阅、关闭自己的必改项。保留负评并落实到实际报告。完整内容方法在[角色规范](../references/subagents-and-review-loop.zh-CN.md)，CLI／MCP 记录见[审阅完成](review-completion.zh-CN.md)。
+作者可以自改或回应争议，但不能代替独立审阅、关闭自己的必改项。保留负评并落实到实际报告。完整内容方法在[角色规范](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.zh-CN.md)，CLI／MCP 记录见[审阅完成](review-completion.zh-CN.md)。
 
 ## 任务记录与接续
 
@@ -85,4 +85,4 @@ Agent 使用 Research Toolkit 开展中英文、多领域长研究与研究写�
 
 `SKILL.md` 是统一入口，`references/` 保存方法原件，`scripts/` 提供 CLI／MCP 共同实现，`agents/` 说明 Agent 工具接入，`docs/` 承载使用与网站。`plugins/research-toolkit/` 从共同原件生成，`examples/` 展示接口，`evals/` 保留研究及相关检查。
 
-维护和实验执行说明放在[贡献指南](../CONTRIBUTING.zh-CN.md)、[评测文档](../evals/README.zh-CN.md)与[网站维护](site-maintenance.md)，不是每次研究的额外步骤。[MIT 许可](../LICENSE)。
+维护和实验执行说明放在[贡献指南](https://github.com/rrrrrredy/research-toolkit/blob/main/CONTRIBUTING.zh-CN.md)、[评测文档](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.zh-CN.md)与[网站维护](site-maintenance.md)，不是每次研究的额外步骤。[MIT 许可](https://github.com/rrrrrredy/research-toolkit/blob/main/LICENSE)。

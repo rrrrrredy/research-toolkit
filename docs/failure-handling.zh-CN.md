@@ -43,7 +43,7 @@ python scripts/research_workflow.py check-draft --workspace ../research-work --r
 
 ## 当前失败与来源复核
 
-[八次反馈探针](../evals/diagnostics/2026-10-13-feedback-probes/README.zh-CN.md)属于已暴露开发证据：八篇可解析，仅三篇篇幅合格，四篇 Toolkit 稿件都未满足范围。工具 PR 合并后，这些模型质量局限仍然存在。
+[八次反馈探针](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-13-feedback-probes/README.zh-CN.md)属于已暴露开发证据：八篇可解析，仅三篇篇幅合格，四篇 Toolkit 稿件都未满足范围。工具 PR 合并后，这些模型质量局限仍然存在。
 
 | 失败 | 修正时具体核对什么 | 判断边界与后续核对 |
 | --- | --- | --- |
@@ -51,4 +51,4 @@ python scripts/research_workflow.py check-draft --workspace ../research-work --r
 | 清洗报告把未记录的泥土状况说成已观测到变化 | Brook 来源：两月均用水 180,000 L，箱数从 1,200 到 1,500，每箱从 150 到 120 L，强度降低 20%。七月泥土状况未记录；工时改变且缺少质量数据，不能归因于喷头或批准推广。 | 喷头因果作用及质量仍未确定；推广前需比较泥土、工时和质量。 |
 | 篇幅不合格但自检声称通过 | 对实际文件执行约定规则，保留失败，再修稿与重测。离线测试拒绝五篇归档失败稿，两篇另列编辑对照通过。 | 内容审阅另行核对推荐、计算和来源支持。 |
 
-以上两份修正稿已通过 [Astra 单独上下文复查](../evals/repairs/2026-10-13-astra/README.zh-CN.md)，存储稿保留初次负评及补齐比较后的通过结果。[改进计划](improvement-plan.zh-CN.md)记录具体错误、修改和验收，不设置外部评审或供题前提。
+以上两份修正稿已通过 [Astra 单独上下文复查](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-astra/README.zh-CN.md)，存储稿保留初次负评及补齐比较后的通过结果。[改进计划](improvement-plan.zh-CN.md)记录具体错误、修改和验收，不设置外部评审或供题前提。

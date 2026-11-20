@@ -11,7 +11,7 @@ The current data is suitable for the declared workflow exercises, not a public f
 - S011 attributed XGBoost to Tencent. The [original paper](https://arxiv.org/pdf/1603.02754) identifies Tianqi Chen and Carlos Guestrin at the University of Washington. The combined key point was excluded, not silently rewritten into a new source.
 - The historical AI Agent taste anchor included AgentSDK-specific statements not supported by its four listed notes. Those assertions were removed. The inference from GUI benchmark difficulty to coding-agent maturity and the final all-or-nothing market criterion were narrowed.
 
-The exact excluded text, reason and evidence are retained in [source_policy.json](../evals/source_policy.json); the original full rows also remain in the b541a667b89a4ea9da8fffd8d58851e5f03b795e Git snapshot. Source IDs and case mappings remain stable. The generator applies the same exact exclusions, and a regression reintroduces the original text to ensure it is rejected.
+The exact excluded text, reason and evidence are retained in [source_policy.json](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/source_policy.json); the original full rows also remain in the b541a667b89a4ea9da8fffd8d58851e5f03b795e Git snapshot. Source IDs and case mappings remain stable. The generator applies the same exact exclusions, and a regression reintroduces the original text to ensure it is rejected.
 
 ## Current inventory and use limits
 

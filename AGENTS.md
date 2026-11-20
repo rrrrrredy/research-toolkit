@@ -6,3 +6,7 @@ Read [CONTRIBUTING](CONTRIBUTING.md) for repository conventions. The user-facing
 - Keep public entry points paired in English and Chinese. The [host inventory](integrations/capabilities.toml) and [public review facts](docs/claims.toml) drive their maintained views.
 - Preserve original manuscripts, signed review assignments, receipts and historical findings. Place current interpretation beside its dated evidence.
 - Run `make check` or `python scripts/check_project.py` using Python 3.11+ and the dependencies in `requirements-mcp.txt`. See [REVIEW](REVIEW.md) for the sources of current contracts.
+
+## Where changes belong
+
+The research method lives in `SKILL.md` and `references/`. The CLI and MCP share `scripts/research_workflow.py`; `scripts/host_review.py` binds reviews to the manuscript. Web sources live in `docs/`, packaged files in `plugins/research-toolkit/`, and dated comparisons in `evals/`. Identify the release, host or fixture used when describing a result.

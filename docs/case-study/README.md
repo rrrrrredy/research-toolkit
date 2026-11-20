@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-This archive contains real research cases and continuation records with retained drafts, reviews and revisions. See the [November long-research baseline](../../evals/studies/2026-11-09-long-research/README.md) for 13 questions and 15 reports. The [evaluation inventory](../../evals/README.md#case-and-dataset-inventory) also links the retired seven-question set and other retained evidence.
+This archive contains real research cases and continuation records with retained drafts, reviews and revisions. See the [November long-research baseline](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/README.md) for 13 questions and 15 reports. The [evaluation inventory](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.md#case-and-dataset-inventory) also links the retired seven-question set and other retained evidence.
 
 ## Long reports with inspectable revisions
 

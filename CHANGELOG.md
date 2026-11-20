@@ -6,11 +6,11 @@ Released changes are grouped by tag. `Unreleased` describes work not yet include
 
 ## Unreleased
 
-- Added `review --scaffold-audit` to the CLI. The auditor receives the original findings, locations and requirements, then supplies independent decisions and evidence.
-- Added `setup --host` to preview optional usage configuration. New installations default to off.
-- Published installation checks, host capabilities, case revisions and an evaluation index. The site provides page-level Markdown, `llms.txt` and `llms-full.txt`.
+## v3.1.0 — 2026-11-20
 
-## Unreleased
+The plugin includes the version-bound audit response scaffold and local setup preview. Installation guides show success in the host. Host capabilities, research revisions, grouped findings and final receipts are directly inspectable. The Agent index covers the Markdown source of each published page.
+
+[English release notes](docs/releases/v3.1.0.md) · [中文发布说明](docs/releases/v3.1.0.zh-CN.md)
 
 ## v3.0.0 — 2026-11-19
 

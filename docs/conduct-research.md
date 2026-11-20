@@ -1,6 +1,6 @@
 # Start research with the complete methods
 
-[English](conduct-research.md) · [简体中文](conduct-research.zh-CN.md) · [Research Toolkit](../README.md)
+[English](conduct-research.md) · [简体中文](conduct-research.zh-CN.md) · [Research Toolkit](https://github.com/rrrrrredy/research-toolkit/blob/main/README.md)
 
 Use one entry for long-form research and writing in English or Chinese across domains, including substantial revisions and continuing updates. Agents load methods for the current work; Toolkit connects requirements, sources, analysis, writing and independent assessment. CLI/MCP task management is optional.
 
@@ -31,14 +31,14 @@ The word range belongs to this example, not every research task. Use existing co
 
 ## 2. Use your existing agent
 
-Choose the [entry](../README.md#which-should-i-use) your agent tool supports:
+Choose the [entry](https://github.com/rrrrrredy/research-toolkit/blob/main/README.md#which-should-i-use) your agent tool supports:
 
 - **Skill:** supply the repository or install the Skill; use the agent tool's research and subagent capabilities. No fixed CSV/JSONL records are required.
 - **Plugin:** install the [package](usage-modes.md#install-the-plugin), reopen the session and select Toolkit. The Skill and MCP are included.
 - **MCP:** connect the [local server](usage-modes.md#connect-mcp-separately) and make the same Skill available.
 - **CLI:** use Python 3.10+ and `scripts/research_workflow.py`; MCP dependencies are unnecessary.
 
-Codex, Claude Code and other capable agent tools run their own research and review agents. No separate API setup is needed for these native tasks. The same model can serve different independent contexts. [Agent tool setup](../agents/README.md) explains installation; [review completion](review-completion.md) explains native assignments and retained responses.
+Codex, Claude Code and other capable agent tools run their own research and review agents. No separate API setup is needed for these native tasks. The same model can serve different independent contexts. [Agent tool setup](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.md) explains installation; [review completion](review-completion.md) explains native assignments and retained responses.
 
 ### Research from scratch
 

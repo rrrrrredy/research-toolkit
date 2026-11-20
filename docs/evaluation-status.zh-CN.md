@@ -4,58 +4,62 @@
 
 **从实际报告、定位到正文的审阅意见及保留的修订，判断 Toolkit 帮助 Agent 完成了什么。** 本页分别呈现研究交付、版本对照和软件行为检查，每项结果对应其任务与版本。
 
+<!-- evidence-index -->
 | 可核查的结果 | 能从这份证据知道什么 | 原始材料 |
 | --- | --- | --- |
 | 一份 v3 长报告，39 条评审意见归为 17 项裁定 | 双名额运行完成了改稿、独立复查和交付。单项案例只描述这次运行。 | [原稿、全部裁定与回执](case-study/v3-review/README.zh-CN.md) |
 | 单独的四路误报验证 | 四份预设意见里的同一项错误质疑，被独立审计查源后一起驳回。 | [预设输入和审计原件](case-study/v3-review/records.json) |
 | 13 道长研究题，15 份中英文报告 | 可以逐篇查稿件和修订。此组研究没有同题的无 Toolkit 对照。 | [研究设计和稿件](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-11-09-long-research) |
 | 两次各含一道题的历史版本对照 | 两次都没有观察到对应改动带来的提升，新版在各自那道题上更慢。总体质量与耗时收益仍待验证。 | [保存指引](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-22-compressed-air-save) · [需求理解](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/studies/2026-10-22-codex-entry) |
+<!-- /evidence-index -->
+
+[机器可读的结果与来源](evaluation-results.json)
 
 ## 当前证据
 
-[当前长研究 benchmark](../evals/README.zh-CN.md)包括跨领域的 13 个问题，主语言报告为 7 中文、6 英文。微短剧英文与推理时计算中文任务分别使用同题冻结材料独立撰写，共 15 份报告任务。[11 月 9 日研究记录](../evals/studies/2026-11-09-long-research/README.zh-CN.md)保留题目、来源记录、首稿、修订和实际审阅结果。研究质量对照原问题与正文判断，执行数据用于说明运行情况，不作为质量标准。
+[当前长研究 benchmark](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.zh-CN.md)包括跨领域的 13 个问题，主语言报告为 7 中文、6 英文。微短剧英文与推理时计算中文任务分别使用同题冻结材料独立撰写，共 15 份报告任务。[11 月 9 日研究记录](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/README.zh-CN.md)保留题目、来源记录、首稿、修订和实际审阅结果。研究质量对照原问题与正文判断，执行数据用于说明运行情况，不作为质量标准。
 
 ## 此前报告与对照
 
 11 月 5 日重新完成[国内办公 Agent](case-study/office-agents-2026-11/README.md)和[原生英文 API／浏览器研究](case-study/api-or-browser-2026-11/README.md)两道首页研究题，保留首稿、完整分析、来源说明、独立审阅、审计与验收。它们是两项研究交付，不是新增版本对照或独立留出评测；历史实验任务数与结果不变。
 
-[10 月 22 日压缩空气保存说明对照](../evals/studies/2026-10-22-compressed-air-save/README.zh-CN.md)包含一道研究题、两次 Lite 运行，每版一次，使用相同模型、配置和材料。**两版首次保存均成功，本例未观察到 v1.4.2 减少填写错误或保存返工的增益。** 新版耗时 606.187 秒，旧版 540.125 秒，多用 66.062 秒。一次 `research_start.language` 参数纠错与保存错误分开记录。完整首次保存请求与返回、纠错调用、方法读取、首稿、首次自检、最终输出及实际耗时均保留；入库未重跑研究。
+[10 月 22 日压缩空气保存说明对照](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-22-compressed-air-save/README.zh-CN.md)包含一道研究题、两次 Lite 运行，每版一次，使用相同模型、配置和材料。**两版首次保存均成功，本例未观察到 v1.4.2 减少填写错误或保存返工的增益。** 新版耗时 606.187 秒，旧版 540.125 秒，多用 66.062 秒。一次 `research_start.language` 参数纠错与保存错误分开记录。完整首次保存请求与返回、纠错调用、方法读取、首稿、首次自检、最终输出及实际耗时均保留；入库未重跑研究。
 
-[10 月 22 日 Codex 架构研究对照](../evals/studies/2026-10-22-codex-entry/README.zh-CN.md)包含一道研究题、两次 Lite 运行，每版一次，使用相同模型、配置和冻结材料。**本例未观察到 v1.4.1 在需求理解、指令遵循和研究质量上的增益。** 新版耗时 603.484 秒，旧版 473.265 秒，多用 130.219 秒。已有字段与路径诊断帮助 Agent 自行纠正登记错误，用户没有介入；但这些逻辑在两版中相同，不计作 v1.4.1 收益。首稿、首次自检、最终输出、方法读取及实际耗时均保留；入库未重跑模型。
+[10 月 22 日 Codex 架构研究对照](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-22-codex-entry/README.zh-CN.md)包含一道研究题、两次 Lite 运行，每版一次，使用相同模型、配置和冻结材料。**本例未观察到 v1.4.1 在需求理解、指令遵循和研究质量上的增益。** 新版耗时 603.484 秒，旧版 473.265 秒，多用 130.219 秒。已有字段与路径诊断帮助 Agent 自行纠正登记错误，用户没有介入；但这些逻辑在两版中相同，不计作 v1.4.1 收益。首稿、首次自检、最终输出、方法读取及实际耗时均保留；入库未重跑模型。
 
-[10 月 19 日公共图书馆自检对照](../evals/studies/2026-10-19-library-self-check/README.zh-CN.md)包含一道研究题、两次 Lite 运行，每版一次，使用相同模型、来源和待检查稿。v1.3.1 与 v1.3.2 都在首次通过清单前删除了明确人为加入的重复副本与离题段落，两版在这些已知缺陷上均未假通过。**本例未观察到 v1.3.2 的增益，不代表补丁效果已验证。** 入库保留无缺陷首稿、缺陷说明、首次清单及对应全文、终稿和实际运行耗时（365.797 秒、381.000 秒）；入库未重跑模型。
+[10 月 19 日公共图书馆自检对照](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-library-self-check/README.zh-CN.md)包含一道研究题、两次 Lite 运行，每版一次，使用相同模型、来源和待检查稿。v1.3.1 与 v1.3.2 都在首次通过清单前删除了明确人为加入的重复副本与离题段落，两版在这些已知缺陷上均未假通过。**本例未观察到 v1.3.2 的增益，不代表补丁效果已验证。** 入库保留无缺陷首稿、缺陷说明、首次清单及对应全文、终稿和实际运行耗时（365.797 秒、381.000 秒）；入库未重跑模型。
 
 [长报告实际更新](case-study/coding-benchmark-update/README.zh-CN.md)复用编程基准任务的来源、主张和要求，补入来源确认的解释与运行前提，保留一次自查修正、稿件检查、耗时和 Agent 工具用量。同一评审输入的默认返回为 210,018 字节，可选本地文件引用返回为 6,444 字节；这只衡量序列化返回对象的大小。该接续没有重写对照或新盲评分数，历史比较结果不变。[10 月 15 日 Astra 单独上下文复核](case-study/coding-benchmark-update/review-2026-10-15/README.zh-CN.md)未发现必要修正，已采纳其序列化计量方法补注。
 
-[10 月 14 日完整原生 Agent 对照](../evals/studies/2026-10-14-native-agent/README.zh-CN.md)使用一道已有真实长任务，两组均实际检索、调用工具、写完整报告并正常自查。Astra 在单独上下文中对首稿、终稿分别盲评，两次均平局，两组均为 100/100。Toolkit Full/self 用时 14.3 分钟，原生组为 9.2 分钟，前者 token 与操作更多；本题没有显示正文质量净增益，不能据此推断其他任务或档位。实际运行暴露的 Windows JSON 编码错误已修复，并用受影响来源材料针对性复验。完整首稿、终稿、原始判断、启动失败及实际消耗均保留。
+[10 月 14 日完整原生 Agent 对照](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-14-native-agent/README.zh-CN.md)使用一道已有真实长任务，两组均实际检索、调用工具、写完整报告并正常自查。Astra 在单独上下文中对首稿、终稿分别盲评，两次均平局，两组均为 100/100。Toolkit Full/self 用时 14.3 分钟，原生组为 9.2 分钟，前者 token 与操作更多；本题没有显示正文质量净增益，不能据此推断其他任务或档位。实际运行暴露的 Windows JSON 编码错误已修复，并用受影响来源材料针对性复验。完整首稿、终稿、原始判断、启动失败及实际消耗均保留。
 
-[10 月 13 日完整报告比较](../evals/studies/2026-10-13-before-after/README.zh-CN.md)直接比较用户确认的 10 月 12 日提交与 v1.0.0，覆盖七道原题及三道新题，修复于 10 月 14 日完成。Astra 首评均分为 100 → 99.5，十题中三题交换顺序后改变偏好，未观察到稳定的总体质量提升。20 篇首稿、20 次盲评完整保留；后续导出检查发现新版一篇含六个私有引用标记，两次初评均漏检。已修改中英文方法并对两篇修订稿针对性复验，保留中途未通过的评审；修复结果不替换首轮比较。
+[10 月 13 日完整报告比较](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-13-before-after/README.zh-CN.md)直接比较用户确认的 10 月 12 日提交与 v1.0.0，覆盖七道原题及三道新题，修复于 10 月 14 日完成。Astra 首评均分为 100 → 99.5，十题中三题交换顺序后改变偏好，未观察到稳定的总体质量提升。20 篇首稿、20 次盲评完整保留；后续导出检查发现新版一篇含六个私有引用标记，两次初评均漏检。已修改中英文方法并对两篇修订稿针对性复验，保留中途未通过的评审；修复结果不替换首轮比较。
 
-本轮[优化结果与实际接续验证](../evals/diagnostics/2026-10-14-optimization/README.zh-CN.md)单列代码修复、报告核对、使用路径和成本；不替换历史首轮分数。
+本轮[优化结果与实际接续验证](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-14-optimization/README.zh-CN.md)单列代码修复、报告核对、使用路径和成本；不替换历史首轮分数。
 
-[10 月 16 日外部评测入库](../evals/studies/2026-10-16-external-batches/README.zh-CN.md)记录 Song 授权的 12 次运行，来自确认批次 2026-10-14（Toolkit `45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3`，v1.0.0，Lite）与 2026-10-15-v1（Toolkit `f31345c5a994a8f1574d946388ee58fe1177ede2`，v1.1.0，Lite×4 与 Full×2）。两道 Full 记录重复 Day-1 的研究问题，因此是 12 次运行、10 个问题。来源为已披露的合成包，原语言报告是首要记录。Lite 运行只保留作者自检。两道 Full 运行使用同会话 degraded 评审，因为独立评审后端不可用。机械清单结果予以保留。这次入库不是与原生 Agent 的对照，也不能支持普遍质量结论。被取代的对比小品和一页纸批次没有入库。
+[10 月 16 日外部评测入库](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-16-external-batches/README.zh-CN.md)记录 Song 授权的 12 次运行，来自确认批次 2026-10-14（Toolkit `45bfc5e38f62f563bb8b800acbdbcb3fd2e27bd3`，v1.0.0，Lite）与 2026-10-15-v1（Toolkit `f31345c5a994a8f1574d946388ee58fe1177ede2`，v1.1.0，Lite×4 与 Full×2）。两道 Full 记录重复 Day-1 的研究问题，因此是 12 次运行、10 个问题。来源为已披露的合成包，原语言报告是首要记录。Lite 运行只保留作者自检。两道 Full 运行使用同会话 degraded 评审，因为独立评审后端不可用。机械清单结果予以保留。这次入库不是与原生 Agent 的对照，也不能支持普遍质量结论。被取代的对比小品和一页纸批次没有入库。
 
-[10 月 19 日外部评测入库](../evals/studies/2026-10-19-external-batches/README.zh-CN.md)记录 Song 授权的 12 次 Lite 运行，来自确认批次 2026-10-16-v1（Toolkit `f31345c5a994a8f1574d946388ee58fe1177ede2`，v1.1.0）与 2026-10-17-v2（Toolkit `fedf7cde832139c86cad585883cb5ec2f666427f`，v1.3.0）。该目录 12 段题面彼此不同。两道复测重复 10 月 16 日已入库的研究问题。来源为已披露的合成包，原语言报告是首要记录。Lite 运行只保留作者自检。六份 2026-10-17-v2 外层 Grok 笔记是另开上下文的阅读记录，不是 Toolkit 独立评审。机械清单结果予以保留。这次入库不是与原生 Agent 的对照，也不能支持普遍质量结论。被取代的对比小品和一页纸批次、已被取代的 2026-10-17-v1 选题闸门，以及 2026-10-18-v1 没有入库。
+[10 月 19 日外部评测入库](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-19-external-batches/README.zh-CN.md)记录 Song 授权的 12 次 Lite 运行，来自确认批次 2026-10-16-v1（Toolkit `f31345c5a994a8f1574d946388ee58fe1177ede2`，v1.1.0）与 2026-10-17-v2（Toolkit `fedf7cde832139c86cad585883cb5ec2f666427f`，v1.3.0）。该目录 12 段题面彼此不同。两道复测重复 10 月 16 日已入库的研究问题。来源为已披露的合成包，原语言报告是首要记录。Lite 运行只保留作者自检。六份 2026-10-17-v2 外层 Grok 笔记是另开上下文的阅读记录，不是 Toolkit 独立评审。机械清单结果予以保留。这次入库不是与原生 Agent 的对照，也不能支持普遍质量结论。被取代的对比小品和一页纸批次、已被取代的 2026-10-17-v1 选题闸门，以及 2026-10-18-v1 没有入库。
 
-**2026-10-19 结果更正：**上述入库中的四篇 2026-10-16-v1 原稿（预测性维护、引导基金、Scope-3 RFQ、信贷备忘录）有重复段落或离题模板，原作者“合格”自检与正文不符，不能继续作为质量达标结果引用。[修订稿和逐篇变化说明](../evals/repairs/2026-10-19-reader-edit/README.zh-CN.md)另存；原稿、自检、批次结果和运行次数保持不变。修订正文不计作 Toolkit 核心能力升级。
+**2026-10-19 结果更正：**上述入库中的四篇 2026-10-16-v1 原稿（预测性维护、引导基金、Scope-3 RFQ、信贷备忘录）有重复段落或离题模板，原作者“合格”自检与正文不符，不能继续作为质量达标结果引用。[修订稿和逐篇变化说明](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-19-reader-edit/README.zh-CN.md)另存；原稿、自检、批次结果和运行次数保持不变。修订正文不计作 Toolkit 核心能力升级。
 
-[10 月 21 日外部评测入库](../evals/studies/2026-10-21-external-batches/README.zh-CN.md)记录 Song 授权的 12 次 Lite 运行，来自确认批次 2026-10-18-v1（Toolkit `fedf7cde832139c86cad585883cb5ec2f666427f`，v1.3.0）与 2026-10-19-v1（Toolkit `e245b90a324933f53fddf0deea039a7715708005`，v1.3.1）。该目录 12 段题面彼此不同。四道复测重复已入库的研究问题。来源为已披露的合成包，原语言报告是首要记录。Lite 运行只保留作者自检。十二份外层 Grok 笔记是另开上下文的阅读记录，不是 Toolkit 独立评审。机械清单结果予以保留。引导基金复测重复 20261016 的题面与来源包，不替代上文的正文更正。这次入库不是与原生 Agent 的对照，也不能支持普遍质量结论。被取代的对比小品和一页纸批次、已被取代的 2026-10-17-v1 选题闸门，以及 2026-10-20-v2 没有入库。 **10 月 21 日更正：**两篇原稿混淆原因码缺失比例与完整度，作者自检和外层评审均漏检。[另存修订稿及结果更正](../evals/repairs/2026-10-21-source-polarity/README.zh-CN.md)取代两篇无条件达标及批次全部达标结论，原件与 12 次运行记录保留；其他十篇未在本轮重新判定通过。
+[10 月 21 日外部评测入库](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-21-external-batches/README.zh-CN.md)记录 Song 授权的 12 次 Lite 运行，来自确认批次 2026-10-18-v1（Toolkit `fedf7cde832139c86cad585883cb5ec2f666427f`，v1.3.0）与 2026-10-19-v1（Toolkit `e245b90a324933f53fddf0deea039a7715708005`，v1.3.1）。该目录 12 段题面彼此不同。四道复测重复已入库的研究问题。来源为已披露的合成包，原语言报告是首要记录。Lite 运行只保留作者自检。十二份外层 Grok 笔记是另开上下文的阅读记录，不是 Toolkit 独立评审。机械清单结果予以保留。引导基金复测重复 20261016 的题面与来源包，不替代上文的正文更正。这次入库不是与原生 Agent 的对照，也不能支持普遍质量结论。被取代的对比小品和一页纸批次、已被取代的 2026-10-17-v1 选题闸门，以及 2026-10-20-v2 没有入库。 **10 月 21 日更正：**两篇原稿混淆原因码缺失比例与完整度，作者自检和外层评审均漏检。[另存修订稿及结果更正](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-21-source-polarity/README.zh-CN.md)取代两篇无条件达标及批次全部达标结论，原件与 12 次运行记录保留；其他十篇未在本轮重新判定通过。
 
 ## 2026-10-12：接入与评审校准
 
-[接入记录](../evals/diagnostics/2026-10-12-connectivity/README.zh-CN.md)保留配置失败及另行冻结的补测。[Astra 校准](../evals/diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)完成四题族共 12 次首轮尝试，缺陷偏好、互换和有效平局经来源核查符合预期，三处维度分数在互换后变化。结果支持进入有界开发试验，不证明评审普遍可靠或 Toolkit 效果；下列历史样本和结果保持不变。
+[接入记录](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-12-connectivity/README.zh-CN.md)保留配置失败及另行冻结的补测。[Astra 校准](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)完成四题族共 12 次首轮尝试，缺陷偏好、互换和有效平局经来源核查符合预期，三处维度分数在互换后变化。结果支持进入有界开发试验，不证明评审普遍可靠或 Toolkit 效果；下列历史样本和结果保持不变。
 
 ## 2026-10-12：四模型开发结果
 
-[固定来源 Lite 诊断](../evals/studies/2026-10-12-lite-four-models/README.zh-CN.md)完成 40 次作者及 32 次评审请求，覆盖五个独立题族、20 个模型—任务配对。四个配对因 LongCat 格式失败未解决；16 个有效配对中六个交换次序后改变偏好。36 篇格式有效报告仅 14 篇篇幅达标，来源复核还发现预算、预测和证据归属错误。原始评分不改；无一般效果结论。单列 [JSON 格式补验](../evals/diagnostics/2026-10-12-longcat-format/README.zh-CN.md)仅 3/4 格式通过，未填补缺失。
+[固定来源 Lite 诊断](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-12-lite-four-models/README.zh-CN.md)完成 40 次作者及 32 次评审请求，覆盖五个独立题族、20 个模型—任务配对。四个配对因 LongCat 格式失败未解决；16 个有效配对中六个交换次序后改变偏好。36 篇格式有效报告仅 14 篇篇幅达标，来源复核还发现预算、预测和证据归属错误。原始评分不改；无一般效果结论。单列 [JSON 格式补验](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-12-longcat-format/README.zh-CN.md)仅 3/4 格式通过，未填补缺失。
 
 ## 2026-10-13：改进后有界复验
 
-[八次新探针](../evals/diagnostics/2026-10-13-feedback-probes/README.zh-CN.md)验证提示／schema 对齐和 Lite 指南修正：8/8 可解析，但仅 3/8 篇幅达标，仍有错误比较及未知条件被写成确定变化。本轮记录格式、篇幅与来源核对结果，后续修稿另存；全部负例保留。现有交付门槛拒绝五篇真实篇幅失败稿，两篇事后编辑对照通过；这是软件检查，不是新的模型质量分数。
+[八次新探针](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-13-feedback-probes/README.zh-CN.md)验证提示／schema 对齐和 Lite 指南修正：8/8 可解析，但仅 3/8 篇幅达标，仍有错误比较及未知条件被写成确定变化。本轮记录格式、篇幅与来源核对结果，后续修稿另存；全部负例保留。现有交付门槛拒绝五篇真实篇幅失败稿，两篇事后编辑对照通过；这是软件检查，不是新的模型质量分数。
 
 ## 2026-10-13：原题、新题与修稿验收
 
-[四道题的复验](../evals/diagnostics/2026-10-13-targeted-recheck/README.zh-CN.md)保留16份首稿、9次实测反馈修稿和6次Astra批量评审，共31次请求。首轮Astra通过6份，另10份经维护者编辑完成修正；最终16个版本篇幅合格并有对应通过评审，其中两份复用已核对正文和输入完全一致的既有评审。首稿质量与维护者修后结果分别报告。初版脚本删去评审来源路径造成的一条误报已记录并修正，不能归为作者编造。
+[四道题的复验](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-13-targeted-recheck/README.zh-CN.md)保留16份首稿、9次实测反馈修稿和6次Astra批量评审，共31次请求。首轮Astra通过6份，另10份经维护者编辑完成修正；最终16个版本篇幅合格并有对应通过评审，其中两份复用已核对正文和输入完全一致的既有评审。首稿质量与维护者修后结果分别报告。初版脚本删去评审来源路径造成的一条误报已记录并修正，不能归为作者编造。
 
 ## 历史口径与任务说明
 
@@ -63,7 +67,7 @@
 
 这组历史材料用于复查当时的任务和失败；当前中英文长研究 benchmark 见上方入口。原生英文展示单列为研究案例。版本效果比较分别保留各自冻结的任务及对照条件。[下一项研究设计](evaluation-roadmap.zh-CN.md#下一项研究先冻结设计再产生新证据) · [稳定缺陷标签](necessary-defects.zh-CN.md)。
 
-另见 [10 月 10 日固定来源 Lite 试验](../evals/studies/2026-10-10-lite-four-models/README.zh-CN.md)：四模型重复同样五个任务族，全部 20 对模型—任务均有评审，保留原始失败，说明本地冻结、仅指令范围、事后格式分析及单列的重新生成补跑，不改变下方历史口径。 20 对中，2 对为主结果、8 对为格式诊断、10 对为重新生成的完成结果，不能合并解读为条件始终相同的一组对照。
+另见 [10 月 10 日固定来源 Lite 试验](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-10-lite-four-models/README.zh-CN.md)：四模型重复同样五个任务族，全部 20 对模型—任务均有评审，保留原始失败，说明本地冻结、仅指令范围、事后格式分析及单列的重新生成补跑，不改变下方历史口径。 20 对中，2 对为主结果、8 对为格式诊断、10 对为重新生成的完成结果，不能合并解读为条件始终相同的一组对照。
 
 现有及以后的用户题、开发题、参考测试和案例均为真实独立任务；实际执行的测试都是真实测试。任务按研究问题区分，同题重复运行仍按重复运行记录。来源材料保留原有出处与性质，包括用户提供或构造的数据。Astra 在单独上下文中即可承担独立评审，无需外部人员、另一家模型或额外外部材料。分工、评审输入或验收标准变化时，应针对受影响部分复验。模型实际执行和参与评测同样提供用户视角：根据需求遵循、上下文实际使用、实质修正和研究结果判断收益，不以真人参与为前提；说明实际观察到的作用及其任务范围。
 
@@ -74,7 +78,7 @@
 | 开发报告 | 23 道题，92/92 份完整首评 | 用于开发反馈，修订结果不回填首稿 |
 | 归档诊断 | 50 条，来自 16 个母题 | 开发数据，不是 50 道独立留出题 |
 | 历史配对研究 | 当前保留 11 个题族、22 份完整送评输入、88/88 份有效首评；211 条已裁定发现归为 61 组必要问题 | 原始失败与单列补跑分别解释，只支持有边界的历史判断 |
-| 公共语义诊断 | [23 组坏例／对照](../evals/semantic_diagnostics/) | 使用构造材料诊断具体失败模式的真实任务，与归档诊断分开 |
+| 公共语义诊断 | [23 组坏例／对照](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/semantic_diagnostics) | 使用构造材料诊断具体失败模式的真实任务，与归档诊断分开 |
 
 配对研究最初设计为 12 个题族，其中一组因必需来源原件无法取得，在结果已知后被排除。当前分母属于事后排除，不能当作原始设计，也不代表质量改善。对应报告已经移出当前数据，原研究及排除记录保留于现已公开的数据归档。
 
@@ -82,7 +86,7 @@
 
 ## 公开范围
 
-仓库包含[校准报告与模型回复](../evals/diagnostics/2026-09-07/)、[语义诊断及已公开评审](../evals/semantic_diagnostics/)和[离线检查样例](../evals/README.zh-CN.md)。另有[国内办公 Agent 开发案例](case-study/office-agents/README.md)，包含完整报告、保留的原稿、来源与论点记录，以及审阅摘要。关联的[数据管理仓库现已公开](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md)。v0.4发布包内保留v0.3语料：23份开发报告输入、22份配对研究输入与221条保留评审记录，其中包含92个开发首评及88个配对首评槽位。来源包及实际工具观察保留原始采集范围和缺项，已撤回材料不恢复。10月13日匿名核查了19个发布版本、79个资产，均可访问。
+仓库包含[校准报告与模型回复](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/diagnostics/2026-09-07)、[语义诊断及已公开评审](https://github.com/rrrrrredy/research-toolkit/tree/main/evals/semantic_diagnostics)和[离线检查样例](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.zh-CN.md)。另有[国内办公 Agent 开发案例](case-study/office-agents/README.md)，包含完整报告、保留的原稿、来源与论点记录，以及审阅摘要。关联的[数据管理仓库现已公开](https://github.com/rrrrrredy/agent-trajectory-data/blob/main/docs/PUBLIC-EVALUATIONS.zh-CN.md)。v0.4发布包内保留v0.3语料：23份开发报告输入、22份配对研究输入与221条保留评审记录，其中包含92个开发首评及88个配对首评槽位。来源包及实际工具观察保留原始采集范围和缺项，已撤回材料不恢复。10月13日匿名核查了19个发布版本、79个资产，均可访问。
 
 模型间一致率不能当作准确率。这批历史题目已经参与产品改进，今后复用属于回归或开发工作，不能再次称为未暴露的效果验证集。完成原定模型评审不以人工校准为前提。
 

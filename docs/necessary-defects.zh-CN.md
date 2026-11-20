@@ -16,10 +16,10 @@
 | `ND08` | 来源指令边界 | 证据中的指令越权控制报告或评分。引用或分析恶意指令不等于执行指令。 |
 | `ND09` | 完成与评审声明 | 完成、执行顺序或质量声明没有依据，或汇总掩盖决定性失败。如实标注的未完成稿不等于虚假完成。 |
 
-机器可读的 [v1 定义](../evals/rubrics/necessary-defects.v1.json)同时包含中英文。ID 保持含义稳定，改变定义需要新版本。一个发现可有多个标签，但仍只计为一个发现；标签也不定义相互独立的任务族。
+机器可读的 [v1 定义](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/rubrics/necessary-defects.v1.json)同时包含中英文。ID 保持含义稳定，改变定义需要新版本。一个发现可有多个标签，但仍只计为一个发现；标签也不定义相互独立的任务族。
 
 新发现应保留任务与报告版本、正文位置、来源或要求、具体影响、标签、严重性及有证据的处置。区分 `confirmed_defect`、`no_change`、`unresolved`，缺少评估记为 `not_assessed`。已证实的局部问题即使是 minor，也可能需要修改；不能因评审给了标签，就把偏好或无依据指控升级成缺陷。遵循[现行评审标准](report-evaluation-standard.zh-CN.md)。
 
-[23 例标签覆盖层](../evals/semantic_diagnostics/defect-tags.v1.json)按现有拟议缺陷说明归类当前开发样本，每条绑定包含保留修订在内的当前案例哈希。这是作者提出的索引，不是新一轮盲审裁定。原案例、失败的正例、评审与更正都保留原状；“control”名称本身不证明对照正确，仍须回到证据核对。
+[23 例标签覆盖层](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/semantic_diagnostics/defect-tags.v1.json)按现有拟议缺陷说明归类当前开发样本，每条绑定包含保留修订在内的当前案例哈希。这是作者提出的索引，不是新一轮盲审裁定。原案例、失败的正例、评审与更正都保留原状；“control”名称本身不证明对照正确，仍须回到证据核对。
 
 产品改动后，可按标签选择相关回归。文风偏好、执行失败、无效评审和报告缺陷分别记录。留出 brief 不用于训练或调试；某个任务族一旦用于开发，后续研究就应按开发数据处理。

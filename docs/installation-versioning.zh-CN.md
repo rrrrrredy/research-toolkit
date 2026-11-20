@@ -31,7 +31,7 @@ if (-not $record -or (Get-FileHash -LiteralPath $archive).Hash -ne ($record -spl
 Expand-Archive -LiteralPath $archive -DestinationPath toolkit-release
 ```
 
-在[当前 Agent 工具](../agents/README.zh-CN.md)的技能根目录中建立 `research-toolkit`。从解出的 `toolkit-release/research-toolkit` 复制 `SKILL.md`、`SKILL.zh-CN.md`、`VERSION`、`LICENSE`、`requirements-mcp.txt` 以及 `docs/`、`references/` 和 `scripts/` 目录。安装后应能看到 `<技能根目录>/research-toolkit/SKILL.md`。如果已有安装，先按[更新步骤](#保留本地修改后更新)比较内容和备份。发布包固定于对应版本。需要尚未发布的 `main` 修复时，使用对应公开提交。
+在[当前 Agent 工具](https://github.com/rrrrrredy/research-toolkit/blob/main/agents/README.zh-CN.md)的技能根目录中建立 `research-toolkit`。从解出的 `toolkit-release/research-toolkit` 复制 `SKILL.md`、`SKILL.zh-CN.md`、`VERSION`、`LICENSE`、`requirements-mcp.txt` 以及 `docs/`、`references/` 和 `scripts/` 目录。安装后应能看到 `<技能根目录>/research-toolkit/SKILL.md`。如果已有安装，先按[更新步骤](#保留本地修改后更新)比较内容和备份。发布包固定于对应版本。需要尚未发布的 `main` 修复时，使用对应公开提交。
 
 新版 Release 发布前，可用稀疏浅克隆取得某个公开提交的同一份包。把 `FULL_COMMIT_SHA` 替换成目标提交号，在临时目录执行：
 
@@ -89,7 +89,7 @@ python scripts/check_docs_sync.py
 
 README 说明工具箱用户如何在线阅读、加载 Skill 或按环境安装；仓库拆分、同步命令、CI 和打包政策放在维护文档。对应中英文内容一同维护，两种语言的章节编号不必相同。
 
-评测资料用途见[数据审计](evaluation-data-audit.zh-CN.md)，语义审查材料见[诊断对照](../evals/semantic_diagnostics/README.zh-CN.md)。
+评测资料用途见[数据审计](evaluation-data-audit.zh-CN.md)，语义审查材料见[诊断对照](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/semantic_diagnostics/README.zh-CN.md)。
 
 ## 包版本与发布
 

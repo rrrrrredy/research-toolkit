@@ -2,7 +2,7 @@
 
 [English](README.md) | [简体中文](README.zh-CN.md)
 
-本档案包含真实研究案例及接续记录，保留稿件、评审和修订。[11 月长研究基线](../../evals/studies/2026-11-09-long-research/README.zh-CN.md)包含 13 道题和 15 份报告。[评测清单](../../evals/README.zh-CN.md#案例与评测集清单)也链接已退役的原七题及其他留存证据。
+本档案包含真实研究案例及接续记录，保留稿件、评审和修订。[11 月长研究基线](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-11-09-long-research/README.zh-CN.md)包含 13 道题和 15 份报告。[评测清单](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/README.zh-CN.md#案例与评测集清单)也链接已退役的原七题及其他留存证据。
 
 - **编程基准采购报告更新**：[完整更新稿](coding-benchmark-update/report.zh-CN.md) · [更新记录](coding-benchmark-update/README.zh-CN.md)。复用已有长任务，保留来源确认的补充、首稿与终稿、实际自查、返工和消耗；属于接续证据，不另计新的原生 Agent 对照。
 - **AI Agent 选择 API 还是浏览器**：英文原创研究，比较动作覆盖、完成核验、恢复、权限与成本。[报告](api-or-browser/report.md) · [案例档案](api-or-browser/README.md) · [来源](api-or-browser/sources.md) · [评审与修订](api-or-browser/reviews.md)。保留初稿、独立上下文评审及迁移成本修正；题面中的假设工作流与未实测成本模型仍按原样说明。

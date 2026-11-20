@@ -21,7 +21,7 @@
 
 ## 已完成修复与后续工作
 
-[PR #35](https://github.com/rrrrrredy/research-toolkit/pull/35)已合并任务／评审要求修正和[原题加新题验收](../evals/diagnostics/2026-10-13-targeted-recheck/README.zh-CN.md)。本轮确认的稿件缺陷已有对应修正稿并通过验收。[改进计划](improvement-plan.zh-CN.md)记录完成情况与下一步产品工作，不再把这些已完成事项写成仍缺外部人员、额外题目或研究。
+[PR #35](https://github.com/rrrrrredy/research-toolkit/pull/35)已合并任务／评审要求修正和[原题加新题验收](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-13-targeted-recheck/README.zh-CN.md)。本轮确认的稿件缺陷已有对应修正稿并通过验收。[改进计划](improvement-plan.zh-CN.md)记录完成情况与下一步产品工作，不再把这些已完成事项写成仍缺外部人员、额外题目或研究。
 
 <a id="b留出真实任务效果"></a>
 <a id="下一项研究先冻结设计再产生新证据"></a>
@@ -30,7 +30,7 @@
 
 以前文档中的“效果研究”指比较使用与不使用工具箱的结果。它是可选比较，不是当前修复、验收或合并的前提，也不要求外部题目或外部人员。需要时使用已有真实任务，事先说明版本、评审和资源，保留首稿与修后结果，Astra 可完成评审。
 
-[配对模板](../evals/templates/paired-study.json)和[任务选择说明](independent-task-design.zh-CN.md)用于整理这类比较，不是等待填写后才能工作的门槛。结果只按实际完成的任务解释；原失败不删除、修改稿不冒充原首稿。
+[配对模板](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/templates/paired-study.json)和[任务选择说明](independent-task-design.zh-CN.md)用于整理这类比较，不是等待填写后才能工作的门槛。结果只按实际完成的任务解释；原失败不删除、修改稿不冒充原首稿。
 
 ## 历史记录与发布
 

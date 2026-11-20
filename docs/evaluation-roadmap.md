@@ -23,7 +23,7 @@ Software regressions check inputs, state, parsing, version bindings and delivery
 
 ## Completed repairs and subsequent work
 
-[PR #35](https://github.com/rrrrrredy/research-toolkit/pull/35) merged the task/reviewer corrections and [old/new-task acceptance](../evals/diagnostics/2026-10-13-targeted-recheck/README.md). The identified report defects have corresponding corrected and accepted versions. The [improvement plan](improvement-plan.md) records completion and next product work; these are not still-open requests for outside people, more tasks or an additional study.
+[PR #35](https://github.com/rrrrrredy/research-toolkit/pull/35) merged the task/reviewer corrections and [old/new-task acceptance](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-13-targeted-recheck/README.md). The identified report defects have corresponding corrected and accepted versions. The [improvement plan](improvement-plan.md) records completion and next product work; these are not still-open requests for outside people, more tasks or an additional study.
 
 <a id="track-b-held-out-real-task-efficacy"></a>
 <a id="next-study-freeze-the-design-then-collect-new-evidence"></a>
@@ -32,7 +32,7 @@ Software regressions check inputs, state, parsing, version bindings and delivery
 
 Earlier references to an effect study meant comparing Toolkit and baseline results. This is optional, not a prerequisite for current repair, acceptance or merging. It requires neither outside tasks nor outside people. When useful, use existing real tasks, specify versions, review and resources before running, preserve first and revised reports separately, and use Astra for review.
 
-The [paired template](../evals/templates/paired-study.json) and [task-selection guide](independent-task-design.md) organize that comparison; filling them is not a gate to ordinary work. Explain results for the actual completed tasks. Preserve original failures and do not present revisions as first drafts.
+The [paired template](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/templates/paired-study.json) and [task-selection guide](independent-task-design.md) organize that comparison; filling them is not a gate to ordinary work. Explain results for the actual completed tasks. Preserve original failures and do not present revisions as first drafts.
 
 ## Historical records and publication
 

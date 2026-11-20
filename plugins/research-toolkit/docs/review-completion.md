@@ -2,7 +2,7 @@
 
 [English](review-completion.md) | [简体中文](review-completion.zh-CN.md)
 
-This page describes how the existing `research_review` and completion checker retain independent work. The [role reference](../references/subagents-and-review-loop.md) owns the substantive methods. New research and continued deliveries use the current contract; frozen results retain their original contract and history.
+This page describes how the existing `research_review` and completion checker retain independent work. The [role reference](https://github.com/rrrrrredy/research-toolkit/blob/main/references/subagents-and-review-loop.md) owns the substantive methods. New research and continued deliveries use the current contract; frozen results retain their original contract and history.
 
 ## Conduct the independent work
 
@@ -87,7 +87,7 @@ The auditor reads the complete current report, requirements, review outputs and 
 
 The v3 request supplies `audit_scaffold` with actual finding IDs, locations and details, possible duplicate groups and coverage items. The auditor confirms which findings can share one decision. Check equivalent findings at the same location once. Submit one `disposition_groups` entry for that evidence and judgment, with `finding_ids`, `decision`, `reason` and `evidence`. `prior_finding_groups` works the same way for previous-version findings. The tool checks that every ID is covered exactly once and retains the original findings and reviewed decision.
 
-**Availability**　This command is available in the [repository source](https://github.com/rrrrrredy/research-toolkit) after v3.0.0. Each pending auditor assignment includes a `response_template_ref` to an editable JSON response skeleton. Run `python scripts/research_workflow.py review --scaffold-audit --workspace WORKSPACE --task TASK` to print the template for the current pending audit. It includes the real review and finding IDs, applicable requirements, input version and assignment version. The independent auditor supplies decisions, reasons, evidence and independently selected samples. To group equivalent findings, move their IDs from individual entries into one `disposition_groups` decision. A blank template fails submission validation.
+The v3.1.0 plugin package includes this command. Each pending auditor assignment includes a `response_template_ref` to an editable JSON response skeleton. Run `python scripts/research_workflow.py review --scaffold-audit --workspace WORKSPACE --task TASK` to print the template for the current pending audit. It includes the real review and finding IDs, applicable requirements, input version and assignment version. The independent auditor supplies decisions, reasons, evidence and independently selected samples. To group equivalent findings, move their IDs from individual entries into one `disposition_groups` decision. A blank template fails submission validation.
 
 
 If a dispute can change delivery and still needs evidence, the auditor can request a focused `verification_requests` assignment. A fresh agent checks just the question before seeing the earlier verdicts. The auditor uses the returned evidence to settle the dispute. Four matching opinions have the same obligation to show evidence as one.
@@ -145,3 +145,5 @@ If the agent tool cancels, a dependency is unavailable, or a response is malform
 Keep earlier `model_review`, `review_audit`, `sampling_audit`, dispositions and receipts under the conditions they actually used. Existing 1.x self-review, merged-perspective and optional-audit records do not become v2 acceptance. A continued delivery reuses the original materials and completes the current independent work, without erasing earlier failures or claiming it happened previously. See [compatibility](compatibility.md).
 
 Frozen evaluation fixtures and research comparisons retain their recorded protocols. They describe those studies; they are not default instructions for new research. Software control fixtures are labelled synthetic and do not stand in for actual agent tool execution.
+
+In an offline installation, open the following files from the plugin root: `references/subagents-and-review-loop.md`.

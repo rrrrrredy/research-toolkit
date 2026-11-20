@@ -2,7 +2,7 @@
 
 [English](record-save-validation.md) | [简体中文](record-save-validation.zh-CN.md)
 
-The new save interface was exercised using the retained [coding-benchmark procurement task](../evals/studies/2026-10-14-native-agent/README.md): 10 sources, 16 claims, six requirements and both complete reports. This reuses real task material to check the changed execution path; it is not a new research generation or model-quality comparison.
+The new save interface was exercised using the retained [coding-benchmark procurement task](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-14-native-agent/README.md): 10 sources, 16 claims, six requirements and both complete reports. This reuses real task material to check the changed execution path; it is not a new research generation or model-quality comparison.
 
 In a separate disposable task, the tool imported the records, saved the first complete draft, updated a length record and saved the retained final report. A deliberately mistyped length field rejected the whole batch without changing source records; correcting it recovered normally. A deliberately damaged CSV in the copy was then recovered with an explicit complete replacement, retaining the damaged bytes as a backup. All extra source columns survived. The first draft and its first observation remained unchanged, and the final draft passed the existing record/length checks.
 

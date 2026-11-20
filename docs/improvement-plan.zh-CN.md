@@ -25,11 +25,11 @@
 | R1 / P0：执行可靠性 | CLI、MCP、Python 共用跨进程任务锁；保留异常编码的原始评审输出，正确区分启动失败与输出损坏。 | 两个进程不能同时改同一任务；不同任务可运行；崩溃后锁可释放；负面评审与超时证据保留；UTF-8 异常不丢原件。 | 已合并：[PR #24](https://github.com/rrrrrredy/research-toolkit/pull/24)，Linux／Windows CI 通过 |
 | R2 / P1：使用体验 | 工具升级时固定在途审查指令；改善缺参、错误行定位和按需指南；核对安装前提及双语入口。 | 老任务不因无关文档升级丢失复审能力；新用户按文档从模板完成修稿交付；错误说明具体下一步。 | 已合并：[PR #26](https://github.com/rrrrrredy/research-toolkit/pull/26)，指令快照及 Linux／Windows CI 通过。[PR #30](https://github.com/rrrrrredy/research-toolkit/pull/30) 已合并，补齐缺参／记录错误、双语安装说明及 Python 3.10 CI；74 项流程检查和打包 MCP 通过 |
 | M1 / P1：研究方法 | 明确 Lite 各项自检的可核查证据；篇幅计数与任务要求对应；记录不采纳评审意见的主体、依据及材料；核对哈希与来源定位一致性。 | 每个机械规则有有效对照及缺陷用例；不把“文本够长”、禁词或自述当成语义正确证明；不新增无必要的确认关卡。 | 已合并：[PR #27](https://github.com/rrrrrredy/research-toolkit/pull/27)，Lite 输入绑定及可选证据文件，Linux／Windows CI 通过。[PR #29](https://github.com/rrrrrredy/research-toolkit/pull/29) 已合并，补齐 Lite／Full 显式篇幅测量及新普通评审的取舍主体／版本记录；12 项新增对照及 Linux／Windows CI 通过 |
-| E1 / P1：评测基础设施 | 显式配置提供商格式、模型别名和预算；保留原始返回及解析方法；区分截断、超时、格式失败、质量缺陷；配置冻结与调用上限。 | 围栏等格式差异可按预先声明规则处理，歧义或无效内容保留为失败；不因负面结果重跑；密钥不进入配置、命令参数或公开材料。 | 已合并：[PR #25](https://github.com/rrrrrredy/research-toolkit/pull/25)、[协议 v2](eval-protocol-v2.zh-CN.md)，Linux／Windows CI 通过；[接入证据](../evals/diagnostics/2026-10-12-connectivity/README.zh-CN.md)已保留：五次生成完成，含失败共六次网络请求及一次本地预检失败；[PR #31](https://github.com/rrrrrredy/research-toolkit/pull/31) 已合并思考模式和原生 Astra 适配器，Linux／Windows／Python 3.10 CI 通过 |
-| E2 / P1：盲法与任务设计 | 记录各次运行的用途：开发、评审校准或可选比较；冻结同模型有／无 Toolkit 对照、随机顺序及标签；设计长度匹配正负对照和次序互换检查。 | 每个独立任务族有来源、问题、预期必要判断、排除理由和暴露记录；notes、分组及执行日志不传给评审；条件线索单独记录。 | 已有五个开发任务族及互换执行；[PR #28](https://github.com/rrrrrredy/research-toolkit/pull/28) 已合并、Linux／Windows CI 通过，补充[四个中英文校准题族](../evals/tasksets/judge-calibration-v3/README.zh-CN.md)提供 12 份已核验输入，覆盖等长配对、互换及有效平局；[Astra 校准](../evals/diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)12 份首轮输入全部完成，四题族偏好与互换／平局检查符合预期，三处维度分数漂移原样保留；[独立任务准入设计](independent-task-design.zh-CN.md)已完成；现有用户与开发任务可直接用于修复和验证 |
-| E3 / P2：有界真实调用 | 先做接入与校准，再按冻结计划运行开发试验；后续按具体修复选择相关任务，由 Astra 复查。 | 全部首轮成功与失败留存，按任务族报告缺失、用量、耗时与判断；作者与评审使用分开的上下文；不按中途胜率追加样本。 | 已完成并合并 [PR #32](https://github.com/rrrrrredy/research-toolkit/pull/32)：[四模型试验](../evals/studies/2026-10-12-lite-four-models/README.zh-CN.md)保留 72 次首轮请求、16 个有效配对、四个格式缺失、六个互换偏好变化及来源复核；Linux／Windows／Python 3.10 CI 通过 |
+| E1 / P1：评测基础设施 | 显式配置提供商格式、模型别名和预算；保留原始返回及解析方法；区分截断、超时、格式失败、质量缺陷；配置冻结与调用上限。 | 围栏等格式差异可按预先声明规则处理，歧义或无效内容保留为失败；不因负面结果重跑；密钥不进入配置、命令参数或公开材料。 | 已合并：[PR #25](https://github.com/rrrrrredy/research-toolkit/pull/25)、[协议 v2](eval-protocol-v2.zh-CN.md)，Linux／Windows CI 通过；[接入证据](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-12-connectivity/README.zh-CN.md)已保留：五次生成完成，含失败共六次网络请求及一次本地预检失败；[PR #31](https://github.com/rrrrrredy/research-toolkit/pull/31) 已合并思考模式和原生 Astra 适配器，Linux／Windows／Python 3.10 CI 通过 |
+| E2 / P1：盲法与任务设计 | 记录各次运行的用途：开发、评审校准或可选比较；冻结同模型有／无 Toolkit 对照、随机顺序及标签；设计长度匹配正负对照和次序互换检查。 | 每个独立任务族有来源、问题、预期必要判断、排除理由和暴露记录；notes、分组及执行日志不传给评审；条件线索单独记录。 | 已有五个开发任务族及互换执行；[PR #28](https://github.com/rrrrrredy/research-toolkit/pull/28) 已合并、Linux／Windows CI 通过，补充[四个中英文校准题族](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/tasksets/judge-calibration-v3/README.zh-CN.md)提供 12 份已核验输入，覆盖等长配对、互换及有效平局；[Astra 校准](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-12-astra-calibration/README.zh-CN.md)12 份首轮输入全部完成，四题族偏好与互换／平局检查符合预期，三处维度分数漂移原样保留；[独立任务准入设计](independent-task-design.zh-CN.md)已完成；现有用户与开发任务可直接用于修复和验证 |
+| E3 / P2：有界真实调用 | 先做接入与校准，再按冻结计划运行开发试验；后续按具体修复选择相关任务，由 Astra 复查。 | 全部首轮成功与失败留存，按任务族报告缺失、用量、耗时与判断；作者与评审使用分开的上下文；不按中途胜率追加样本。 | 已完成并合并 [PR #32](https://github.com/rrrrrredy/research-toolkit/pull/32)：[四模型试验](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/studies/2026-10-12-lite-four-models/README.zh-CN.md)保留 72 次首轮请求、16 个有效配对、四个格式缺失、六个互换偏好变化及来源复核；Linux／Windows／Python 3.10 CI 通过 |
 | D1 / P2：文档与贡献维护 | 修正文档事实、版本和语言规则冲突；明确测试数量单位、数据权利边界；收敛贡献者检查入口，补充 Windows 验证。 | 链接可用、双语含义一致；命令在声明环境可执行；历史更正带日期；不把标题数量一致当成翻译正确。 | [PR #31](https://github.com/rrrrrredy/research-toolkit/pull/31) 已合并双语 CLI／证据说明、独立任务契约、计数单位、数据权利及 CI 入口；本地链接及完整 Linux／Windows／Python 3.10 CI 通过 |
-| F1 / P2：结果反馈 | 将确认的实际失败归入来源理解、推理、需求、表达或执行；生成最小修复、有效对照和复验记录。 | 每个方法改动能追溯至失败样本及预期行为；修改后复查原失败及相关已有任务，历史负例不删除、不改分。 | 本轮实现与复验已完成（[PR #33](https://github.com/rrrrrredy/research-toolkit/pull/33)）：[反馈证据](../evals/diagnostics/2026-10-13-feedback-probes/README.zh-CN.md)。修正 Lite 指令选择、JSON 类型和短报告／约束指南；八次新冻结返回均可解析，仅三篇篇幅达标，来源错误仍保留。五篇真实篇幅失败被交付检查拒绝，两篇编辑对照通过；不是质量提升证明 |
+| F1 / P2：结果反馈 | 将确认的实际失败归入来源理解、推理、需求、表达或执行；生成最小修复、有效对照和复验记录。 | 每个方法改动能追溯至失败样本及预期行为；修改后复查原失败及相关已有任务，历史负例不删除、不改分。 | 本轮实现与复验已完成（[PR #33](https://github.com/rrrrrredy/research-toolkit/pull/33)）：[反馈证据](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-13-feedback-probes/README.zh-CN.md)。修正 Lite 指令选择、JSON 类型和短报告／约束指南；八次新冻结返回均可解析，仅三篇篇幅达标，来源错误仍保留。五篇真实篇幅失败被交付检查拒绝，两篇编辑对照通过；不是质量提升证明 |
 
 ## 当前修复工作
 
@@ -40,10 +40,10 @@ Astra 已可承担独立评审；现有真实用户任务及开发任务足够�
 | 交付前难以看到篇幅和记录错误 | 提供 CLI／MCP 稿件检查，保留实测值 | [PR #34](https://github.com/rrrrrredy/research-toolkit/pull/34) 已合并，Linux／Windows／Python 3.10 CI 通过 |
 | 当前文档和执行器错误地要求额外评审者、外部题目或不同模型 | 统一 Astra 单独上下文评审；允许已有真实任务；取消按模型名称拒绝评审，保留实际输入分离 | 已修正；18项协议回归通过，包含同模型、分离上下文及作者／评审来源一致性 |
 | 稿件篇幅不合格 | 按原要求修改实际稿件，再测量，不能只写自检通过 | 检查器已覆盖五篇原失败稿；两份修正稿篇幅达标并经 Astra 复查通过，记录单列 |
-| 方案推荐与数字矛盾 | 核对费用、容量和时限，直接修正错误推荐 | Lite 指南和编辑对照已修正；[两稿已由 Astra 复查通过](../evals/repairs/2026-10-13-astra/README.zh-CN.md) |
-| 未记录的情况被写成已发生变化 | 对照来源改回未知，删除据此得出的错误因果判断 | Lite 指南和编辑对照已修正；[两稿已由 Astra 复查通过](../evals/repairs/2026-10-13-astra/README.zh-CN.md) |
+| 方案推荐与数字矛盾 | 核对费用、容量和时限，直接修正错误推荐 | Lite 指南和编辑对照已修正；[两稿已由 Astra 复查通过](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-astra/README.zh-CN.md) |
+| 未记录的情况被写成已发生变化 | 对照来源改回未知，删除据此得出的错误因果判断 | Lite 指南和编辑对照已修正；[两稿已由 Astra 复查通过](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/repairs/2026-10-13-astra/README.zh-CN.md) |
 
-[原题加新题复验](../evals/diagnostics/2026-10-13-targeted-recheck/README.zh-CN.md)已完成：2道原题、2道新题，四家作者、程序计数、Astra验收，共31次新增请求。首稿7/16篇幅达标，一次定向修稿后13/16；首轮Astra通过6/16。维护者修正其余10份，最终16个版本篇幅合格并有对应Astra通过记录；不把修后成绩算作首稿成绩。初次评审包遗漏来源路径导致的一条误报也已单列纠正。
+[原题加新题复验](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-13-targeted-recheck/README.zh-CN.md)已完成：2道原题、2道新题，四家作者、程序计数、Astra验收，共31次新增请求。首稿7/16篇幅达标，一次定向修稿后13/16；首轮Astra通过6/16。维护者修正其余10份，最终16个版本篇幅合格并有对应Astra通过记录；不把修后成绩算作首稿成绩。初次评审包遗漏来源路径导致的一条误报也已单列纠正。
 
 不再建立 Q1／Q2／H1／H2 额外研究待办。保留具体错误和修复结果；包重组与大型素材迁移仍为可选维护，不是当前必做任务。
 
@@ -73,7 +73,7 @@ Astra 已可承担独立评审；现有真实用户任务及开发任务足够�
 
 此前“全部整改完成”的确认范围过大。PR #38 随后补正了专用七题的生成提示、至少三条评审记录的门槛和过时的 v2 校准入口；进一步检查执行路径，又发现 `purpose=evaluation` 仍会自动要求审计者。新评测现使用已配置的独立评审者，不隐式追加第二次审计；已声明审计的旧计划保留原要求。中英文规范、网页可复制说明及打包执行器同步此行为。
 
-上方四题复验没有覆盖专用七题；后者的[真实报告复验](../evals/diagnostics/2026-10-13-dedicated-seven/README.zh-CN.md)现已完成：七份生成正文、七次 Astra 首评及删除 33 字符后的一次复评，共 15 次调用。六份原始题面来源内的报告验收通过，管线修订稿为 5,987 字符，仅作为阶段稿获认可，R04/R05 仍开放。全部累计要求一次提供，不宣称执行实时 13 轮 agent 或完整 MCP 操作。原请求、首稿与判定保留。PR #39 修复隐式追加评测审计者，中英文规范、网页说明、打包运行时代码及离线检查均覆盖该变化。v0.2.5 包含本轮修正与复验记录，安装内容已纳入更新后的执行路径。不要求额外外部评审者、外部供题或正式效果研究。
+上方四题复验没有覆盖专用七题；后者的[真实报告复验](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/diagnostics/2026-10-13-dedicated-seven/README.zh-CN.md)现已完成：七份生成正文、七次 Astra 首评及删除 33 字符后的一次复评，共 15 次调用。六份原始题面来源内的报告验收通过，管线修订稿为 5,987 字符，仅作为阶段稿获认可，R04/R05 仍开放。全部累计要求一次提供，不宣称执行实时 13 轮 agent 或完整 MCP 操作。原请求、首稿与判定保留。PR #39 修复隐式追加评测审计者，中英文规范、网页说明、打包运行时代码及离线检查均覆盖该变化。v0.2.5 包含本轮修正与复验记录，安装内容已纳入更新后的执行路径。不要求额外外部评审者、外部供题或正式效果研究。
 
 
 ## 报告完成与项目整改（2026-10-13）

@@ -8,3 +8,5 @@
 | Packaged copies or published documents | Run the [repository check](CONTRIBUTING.md). Check the user-visible entry and Markdown link when changing a public page. |
 
 The [English](docs/en/rfcs/README.md) and [Chinese](docs/zh/rfcs/README.md) design decisions explain why the current contracts exist.
+
+A blocking defect has a reproducible mismatch with the current contract. Record the command, input and observed result. Label a proposed alternative as a design note and link the relevant decision. Label a possible host capability as unverified until there is host documentation or a run that demonstrates it.

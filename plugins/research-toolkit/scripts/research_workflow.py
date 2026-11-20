@@ -675,7 +675,7 @@ def main():
         return 0
     parser = argparse.ArgumentParser(description=__doc__,
                                      epilog="setup --host HOST [--project PATH] previews optional usage hooks.")
-    parser.add_argument("action", choices=["start", "status", "guide", "review", "finish", "save", "check-draft", "check-reviewer", "check-updates"])
+    parser.add_argument("action", choices=["setup", "start", "status", "guide", "review", "finish", "save", "check-draft", "check-reviewer", "check-updates"])
     parser.add_argument("--workspace", type=Path, default=workspace_default())
     parser.add_argument("--request", type=Path, help="Path to a JSON request file (not inline JSON); omit to read the JSON object from stdin.")
     parser.add_argument("--summary", action="store_true", help="For review, print progress and the next action without repeating assignments.")

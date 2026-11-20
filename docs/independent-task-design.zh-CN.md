@@ -25,4 +25,4 @@ Astra 是本项目可用的独立评审者，在与作者分开的评审上下�
 
 “效果比较”只是另行比较使用与不使用工具箱的结果。需要回答这个问题时，再在运行前确定任务、版本、资源和比较方法；它不是修复或合并的门槛。若专门声称使用了此前未用于开发的留出题，应准确说明其使用历史；在真实任务身份之外，另行记录该次比较的使用历史。
 
-[任务选择模板](../evals/templates/heldout-intake.json)是可选记录，保留旧文件名以兼容链接，不代表缺少任务或需要外部供题。[改进计划](improvement-plan.zh-CN.md)列出具体修复事项。
+[任务选择模板](https://github.com/rrrrrredy/research-toolkit/blob/main/evals/templates/heldout-intake.json)是可选记录，保留旧文件名以兼容链接，不代表缺少任务或需要外部供题。[改进计划](improvement-plan.zh-CN.md)列出具体修复事项。
